@@ -38,7 +38,7 @@ H\Sigma+\Sigma H=\frac{\eta}{b}C_\star,
 e^{-Ht}C_\star e^{-Ht}\,dt
 $$
 
-を満たす。$C_\star\succ0$ なら $\Sigma\succ0$ となり、この分布は正の密度を持つ。
+を満たす。$C_\star\succ0$ なら $\Sigma\succ0$ となり、この分布のGaussian確率密度は各点で正である。
 
 他方、[連続状態のGibbs密度](../PML1-09/index.md#def-pml1-09-continuous-gibbs)を停留点の二次損失
 
@@ -57,7 +57,7 @@ $$
 
 となる。正定値 $H$ を直交対角化して、各座標を $\sqrt{T/\lambda_i}$ 倍に変数変換すればこの正規化定数を得る。これは平均0・共分散 $TH^{-1}$ のGaussian分布である。
 
-以下でいう**損失Gibbs性**とは「ある単一の $T>0$ でOU定常分布がこの $\rho_T$ に一致する」という意味である。確率過程の[不変分布](../PML1-09/index.md#def-pml1-09-invariant)や[詳細釣合い](../PML1-10/index.md#def-pml1-10-detailed-balance)とは、判定条件が違う。
+以下でいう**損失Gibbs性**とは「ある単一の $T>0$ でOU定常分布がこの $\rho_T$ に一致する」という意味である。確率過程の[不変確率分布](../PML1-09/index.md#def-pml1-09-invariant)や[時間一様Markov過程の詳細釣合い](../PML1-10/index.md#def-pml1-10-detailed-balance)とは、判定条件が違う。
 
 ## 2. 異方性雑音は損失Gibbs分布を壊す
 
@@ -70,7 +70,7 @@ C_\star=\begin{pmatrix}4&0\\0&2\end{pmatrix},
 \qquad b=1
 $$
 
-とする。第1方向の復元力は弱いが雑音は強く、第2方向では復元力が強い。前講の[OU共分散公式](../PML1-13/index.md#thm-pml1-13-ou-covariance)を各成分へ代入すると
+とする。第1方向の復元力は弱いが雑音は強く、第2方向では復元力が強い。前講の[正定値ドリフトを持つOUの定常Gaussian分布](../PML1-13/index.md#thm-pml1-13-ou-covariance)を各成分へ代入すると
 
 $$
 \Sigma_{11}=\frac{\eta\cdot4}{2\cdot1}=2\eta,
@@ -133,7 +133,7 @@ $\eta/b>0$ で割れば指定の条件を得る。逆に $C_\star=(2bT/\eta)I_d$
 
 次はもう一段微妙な違いである。前節の対角例は損失Gibbs性を失うが、各座標は独立な一次元OUである。時間を逆転しても二時刻の統計は変わらず、詳細釣合いは成立する。**異方性だけでは不可逆性の証明にならない**。
 
-不可逆になるかどうかは、復元力の主方向と雑音の相関の方向が整合するかに依存する。[詳細釣合いの定義](../PML1-10/index.md#def-pml1-10-detailed-balance)によれば、定常過程の $(U_0,U_t)$ と $(U_t,U_0)$ の同時分布がすべての $t\ge0$ で一致すれば可逆である。
+不可逆になるかどうかは、復元力の主方向と雑音の相関の方向が整合するかに依存する。[時間一様Markov過程の詳細釣合い](../PML1-10/index.md#def-pml1-10-detailed-balance)によれば、定常過程の $(U_0,U_t)$ と $(U_t,U_0)$ の同時分布がすべての $t\ge0$ で一致すれば可逆である。
 
 OUの解は
 
@@ -156,7 +156,8 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（対称ドリフトOUの可逆性判定）**  
-> $H=H^{\mathsf T}\succ0$、$C_\star=C_\star^{\mathsf T}\succ0$、$b\ge1$、$\eta>0$ を与え、前節のOU代理をその一意な定常Gaussian分布 $N(0,\Sigma)$ から始める。次の三条件は同値である。
+> $d\ge1$ とし、$H,C_\star\in\mathbb R^{d\times d}$ は対称正定値とする。
+> 整数 $b\ge1$、学習率 $\eta>0$ を与える。OU代理を定常Gaussian分布 $N(0,\Sigma)$ から始めると、次の三条件は同値である。
 >
 > 1. OU過程が定常分布に関して詳細釣合いを満たす。
 > 2. $H\Sigma=\Sigma H$ が成立する。
@@ -259,7 +260,7 @@ $$
 
 前項は対称行列 $\Sigma^{-1}$ と反対称行列 $A$ の積の跡なので0、後項は反対称行列による二次形式なので0である。**流れがゼロであること**と**流れの発散がゼロであること**を取り違えてはいけない。
 
-## 4. OUがGibbsでも離散SGDは同じ分布とは限らない
+## 4. Gibbs型のOUと有限学習率のSGDを区別する
 
 今度は等方的な一次元雑音で、[第2節のGibbs一致条件](#thm-pml1-14-gibbs-criterion)を満たす場合に戻る。$N=2,b=1$ として
 
@@ -321,7 +322,7 @@ $$
 \end{aligned}
 $$
 
-[OU共分散公式](../PML1-13/index.md#thm-pml1-13-ou-covariance)へ $h=2,C_\star=b=1$ を入れると $v_{\mathrm{OU}}=\eta/(2\cdot2)=\eta/4$。一次元の等方雑音なので[損失Gibbs一致条件](#thm-pml1-14-gibbs-criterion)から $T=\eta/2$ である。しかし $\eta>0$ では $v_{\mathrm{SGD}}/v_{\mathrm{OU}}=1/(1-\eta)>1$ だから、少なくとも分散が一致しない。
+[正定値ドリフトを持つOUの定常Gaussian分布](../PML1-13/index.md#thm-pml1-13-ou-covariance)へ $h=2,C_\star=b=1$ を入れると $v_{\mathrm{OU}}=\eta/(2\cdot2)=\eta/4$。一次元の等方雑音なので[損失Gibbs一致条件](#thm-pml1-14-gibbs-criterion)から $T=\eta/2$ である。しかし $\eta>0$ では $v_{\mathrm{SGD}}/v_{\mathrm{OU}}=1/(1-\eta)>1$ だから、少なくとも分散が一致しない。
 
 $\eta=1/2$ では $a=0$ であり、$X_{n+1}=-\varepsilon_{n+1}/2$ は一歩で $\pm1/2$ の二点分布になる。$0<\eta\le1/2$ なら $0\le a<1$ なので、絶対収束級数を項別に評価して
 
@@ -332,7 +333,7 @@ $$
 =\frac12
 $$
 
-を得る。正の分散を持つGaussian分布は全実数直線に正の密度を持つため、この場合の離散定常分布とは同一にならない。
+を得る。正の分散を持つGaussian分布は全実数直線に正の密度を持つため、このSGDの定常分布とは一致しない。
 <!-- proof-end -->
 
 $\eta=1/4$ なら $v_{\mathrm{SGD}}=1/12$、$v_{\mathrm{OU}}=1/16$ で、その差は $1/48$ である。$\eta\downarrow0$ では差が
@@ -390,7 +391,15 @@ $$
 
 が各標本路で成立する。$X_0$ が有限値を取るので $X_n\to0$ がほとんど確実に成り立つ。原点から出発すれば更新後も原点なので、$\delta_0$ は不変である。
 
-他に不変確率分布 $\mu$ があると仮定し、$X_0\sim\mu$ で開始する。不変性から各 $X_n$ の分布は $\mu$ で同じである。一方、任意の有界連続関数 $\varphi$ について、ほとんど確実な収束と有界収束定理より
+他に不変確率分布 $\mu$ があると仮定し、$X_0\sim\mu$ で開始する。不変性から各 $X_n$ の分布は $\mu$ で同じである。任意の有界連続関数 $\varphi$ を取り、$M=\sup_x|\varphi(x)|<\infty$ とする。原点での連続性により、任意の $\varepsilon>0$ に対して、$|x|<\delta$ なら $|\varphi(x)-\varphi(0)|<\varepsilon$ となる $\delta>0$ がある。$X_0$ は有限値なので、十分大きい $R>0$ を選んで $\mathbb P(|X_0|>R)<\varepsilon$ とできる。$r^nR<\delta$ となる $n$ では、$|X_0|\le R$ のとき $|X_n|<\delta$ である。したがって
+
+$$
+|\mathbb E[\varphi(X_n)]-\varphi(0)|
+\le\varepsilon+2M\mathbb P(|X_0|>R)
+\le (1+2M)\varepsilon.
+$$
+
+$\varepsilon$ は任意だから、
 
 $$
 \int_{\mathbb R}\varphi(x)\,\mu(dx)
@@ -439,7 +448,7 @@ TH^{-1}=\frac1{10}\operatorname{diag}(1,1/3)
 =\operatorname{diag}(1/10,1/30).
 $$
 
-[OUの共分散公式](../PML1-13/index.md#thm-pml1-13-ou-covariance)に各曲率を入れても $\Sigma_{11}=\eta 2/(2b\cdot1)=1/10$、$\Sigma_{22}=\eta 2/(2b\cdot3)=1/30$ となる。
+[正定値ドリフトを持つOUの定常Gaussian分布](../PML1-13/index.md#thm-pml1-13-ou-covariance)に各曲率を入れても $\Sigma_{11}=\eta 2/(2b\cdot1)=1/10$、$\Sigma_{22}=\eta 2/(2b\cdot3)=1/30$ となる。
 <!-- solution-end -->
 
 <a id="ex-pml1-14-a02"></a>
@@ -452,7 +461,7 @@ $H=\operatorname{diag}(1,2)$、$C_\star=\operatorname{diag}(4,2)$、$b=1$、$\et
 <!-- solution-start -->
 #### 詳細解答
 
-$H,C_\star$ は対称正定値である。[OU共分散公式](../PML1-13/index.md#thm-pml1-13-ou-covariance)から
+$H,C_\star$ は対称正定値である。[正定値ドリフトを持つOUの定常Gaussian分布](../PML1-13/index.md#thm-pml1-13-ou-covariance)から
 
 $$
 \Sigma=\operatorname{diag}\left(
@@ -473,7 +482,7 @@ $H=\operatorname{diag}(1,2)$、$C_\star=\begin{pmatrix}2&1\\1&2\end{pmatrix}$、
 <!-- solution-start -->
 #### 詳細解答
 
-$C_\star$ の固有値は $3,1>0$ なので定常共分散は正定値。[OU共分散公式](../PML1-13/index.md#thm-pml1-13-ou-covariance)から $\Sigma_{12}=\eta C_{\star,12}/(1+2)=\eta/3$。$H$ が対角なので $e^{-Ht}=\operatorname{diag}(e^{-t},e^{-2t})$。第3節の二時刻共分散へ代入すると
+$C_\star$ の固有値は $3,1>0$ なので定常共分散は正定値。[正定値ドリフトを持つOUの定常Gaussian分布](../PML1-13/index.md#thm-pml1-13-ou-covariance)から $\Sigma_{12}=\eta C_{\star,12}/(1+2)=\eta/3$。$H$ が対角なので $e^{-Ht}=\operatorname{diag}(e^{-t},e^{-2t})$。第3節の二時刻共分散へ代入すると
 
 $$
 \mathbb E[U_{t,1}U_{0,2}]=\frac{\eta e^{-t}}3,
@@ -501,7 +510,7 @@ v(1-1/4)=1/16,\quad
 v=\frac{1/16}{3/4}=\frac1{12}.
 $$
 
-一方、[OU定常共分散公式](../PML1-13/index.md#thm-pml1-13-ou-covariance)から $v_{\mathrm{OU}}=\eta/(2h)=1/16$。比は $(1/12)/(1/16)=4/3$、差は $1/12-1/16=(4-3)/48=1/48$ である。
+一方、[正定値ドリフトを持つOUの定常Gaussian分布](../PML1-13/index.md#thm-pml1-13-ou-covariance)から $v_{\mathrm{OU}}=\eta/(2h)=1/16$。比は $(1/12)/(1/16)=4/3$、差は $1/12-1/16=(4-3)/48=1/48$ である。
 <!-- solution-end -->
 
 <a id="ex-pml1-14-a05"></a>
@@ -575,7 +584,7 @@ $x=(1,0)^{\mathsf T}$ では $J(1,0)=p(1,0)(-1/7,-3/14)^{\mathsf T}\ne0$。Gauss
 
 Gaussian雑音 $\xi\sim N(0,1)$ を代入した離散更新は $X_{n+1}=-\xi/2$ なので、定常分布は $N(0,1/4)$。一歩の分散は同じでも二点分布とGaussian分布は一致しない。
 
-連続OUは $dU_t=-2U_t\,dt+\sqrt{1/2}\,dW_t$ で、[OU定常共分散公式](../PML1-13/index.md#thm-pml1-13-ou-covariance)により分散は $(1/2)/(2\cdot2)=1/8$、定常分布は $N(0,1/8)$。したがって**一歩雑音の法則の差**と**連続・離散の分散差**は別々の不一致である。
+連続OUは $dU_t=-2U_t\,dt+\sqrt{1/2}\,dW_t$ で、[正定値ドリフトを持つOUの定常Gaussian分布](../PML1-13/index.md#thm-pml1-13-ou-covariance)により分散は $(1/2)/(2\cdot2)=1/8$、定常分布は $N(0,1/8)$。したがって**一歩雑音の法則の差**と**連続・離散の分散差**は別々の不一致である。
 <!-- solution-end -->
 
 <a id="ex-pml1-14-b03"></a>
@@ -588,7 +597,7 @@ $H=\operatorname{diag}(1,4)$、$C_\star=\operatorname{diag}(2,8)$、$b=2$、$\et
 <!-- solution-start -->
 #### 詳細解答
 
-$H\succ0$、$C_\star\succ0$ を確認できる。[OU共分散公式](../PML1-13/index.md#thm-pml1-13-ou-covariance)の対角成分へ代入すると
+$H\succ0$、$C_\star\succ0$ を確認できる。[正定値ドリフトを持つOUの定常Gaussian分布](../PML1-13/index.md#thm-pml1-13-ou-covariance)の対角成分へ代入すると
 
 $$
 \Sigma_{11}=\frac{(1/10)2}{2\cdot2\cdot1}=\frac1{20},
@@ -700,4 +709,4 @@ OUは連続Lyapunov方程式 $H\Sigma+\Sigma H=\eta C_\star/b$ に従うが、�
 
 この講で扱ったのは、損失の二次近似と雑音の散布が決まっても、定常性・可逆性・Gibbs性・離散分布は別々の条件を要する、ということである。特にSGDの熱平衡という比喩は、**どの確率過程の、どの分布を、どの時間尺度で比較するか**を指定して初めて数式として検査できる。
 
-次の PML1-15 では、損失と力学系に組み込む物理的な**対称性**を群作用で定義し、不変性と同変性を具体例から区別する。
+次の PML1-15 では、物理的な**対称性**を、群が状態へ作用する仕組みから定義し、不変性と同変性を具体例から区別する。
