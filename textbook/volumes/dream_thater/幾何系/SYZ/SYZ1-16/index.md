@@ -30,9 +30,9 @@ $$
 
 指数を決める交点数 $\gamma\cdot\delta$ は、向き付きトーラスの一次サイクルの交点数である。交点数の双線形性と交代性（$\delta\cdot\delta=0$）により、$\gamma=a\alpha+b\delta$ なら
 
-$
+$$
 \gamma\cdot\delta=a(\alpha\cdot\delta)+b(\delta\cdot\delta)=a.
-$
+$$
 
 したがって、基底文字 $x=z^\alpha$ が因子 $F(y)$ を一つ受ける一方、$y=z^\delta$ は受けない。整数 $a<0$ の場合も $F(y)\ne0$ の領域で負の冪が定義できる。
 
@@ -294,10 +294,10 @@ $$
 
 ここで積の全次数を具体的に整理すると
 
-$
+$$
 uv=(x+xy)(y+xy+xy^2)
 =xy+x^2y+xy^2+2x^2y^2+x^2y^3.
-$
+$$
 
 以降 $O(\mathfrak m^k)$ は全次数 $k$ 以上の項を表す。$uv=xy+O(\mathfrak m^3)$ であり、$uv$ の最小次数は2だから、幾何級数の次の項 $(uv)^2$ は全次数4以上である。ゆえに $1/(1+uv)=1-uv+O(\mathfrak m^4)$ とできる。これを各成分に代入すると
 
@@ -361,13 +361,13 @@ $$
 
 指数2の二つの相対類 $\beta_\alpha,\beta_\delta$ だけが寄与し、その境界がそれぞれ $\partial\beta_\alpha=\alpha$、$\partial\beta_\delta=\delta$ だと仮定する。すると前節の基底文字から、$\rho(\partial\beta_\alpha)=x_-$、$\rho(\partial\beta_\delta)=y_-$ となる。[円板重みの定義](../SYZ1-15/index.md#def-syz1-15-disk-weight)を使って、形式変数 $T$ を数値評価した模型では
 
-$
+$$
 \begin{aligned}
 a&=n_{\beta_\alpha}T^{A_\omega(\beta_\alpha)},\\
 b&=n_{\beta_\delta}T^{A_\omega(\beta_\delta)},\\
 W_-(x_-,y_-)&=a x_-+b y_-.
 \end{aligned}
-$
+$$
 
 ここで $a,b\in\mathbb C$ は面積因子と計数を吸収した**模型の入力**である。二つの相対類のMaslov指数が2であることと、その計数が存在することは仮定しており、境界が $\alpha,\delta$ であるだけでは結論できない。
 
