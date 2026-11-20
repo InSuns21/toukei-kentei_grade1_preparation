@@ -218,7 +218,9 @@ export function mountReferenceObservation({lesson,parent}){
     if(!previous)previous=now;
     const delta=clamp((now-previous)/1000,0,.05);
     previous=now;
-    position=(position+delta*Number(speed.value))%8;
+    position=isFluid?Math.min(8,position+delta*Number(speed.value)):
+      (position+delta*Number(speed.value))%8;
+    if(isFluid&&position>=8){playing=false;button.textContent='再生';}
     frames++;paint();
   }
   button.addEventListener('click',()=>{playing=!playing;button.textContent=playing?'一時停止':'再生';previous=0;});
