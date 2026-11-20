@@ -199,6 +199,9 @@ function setStatus(message, bad = false) {
   const status = byId('status');
   status.textContent = message;
   status.className = bad ? 'error' : '';
+  // Failures remain visible even when a learner is editing another tab.
+  byId('action-feedback').textContent = bad ? message : '';
+  if (bad) byId('diagnostics-details').open = true;
 }
 function sanitizeSize() {
   const width = Number(byId('width').value);
@@ -842,12 +845,17 @@ window.addEventListener('message', event => {
     '\nGL error: ' + (data.glError || '取得不可')).trim();
   if (!data.ok) {
     setStatus('WebGL2実行エラー（shaderのstageと行番号を確認）', true);
-    byId('result-note').textContent = 'GPU描画・検算は未達成です。JS・GLSLソースを修正してください。';
+    byId('result-note').textContent = '描画できませんでした。表示中のエラーを確認し、コードを修正してください。';
+    byId('numeric-summary').textContent = '（画素比較なし）';
   } else {
     const samples = Array.isArray(data.samples) ? data.samples : [];
     const rows = (isWGL20 ? compareWGL20Readback : isFCG8 ? (got,w,h)=>compareFCG8Readback(got,w,h,active.payload.steps) : isFCG7 ? (got,w,h)=>compareFCG7Readback(got,w,h,active.payload.steps) : isFCG6 ? (got,w,h)=>compareFCG6Readback(got,w,h,active.payload.steps) : isFCG5 ? (got,w,h)=>compareFCG5Readback(got,w,h,active.payload.steps) : isFCG4 ? (got,w,h)=>compareFCG4Readback(got,w,h,active.payload.steps) : isFCG3 ? (got,w,h)=>compareFCG3Readback(got,w,h,active.payload.steps) : isFCG2 ? (got,w,h)=>compareFCG2Readback(got,w,h,active.payload.steps) : isWGL19 ? compareWGL19Readback : isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
       samples, active.payload.width, active.payload.height);
     showTable(rows, unchanged);
+    byId('result-note').textContent = 'GPUへ描画しました。コードや条件を変えて再実行できます。';
+    byId('numeric-summary').textContent = unchanged ?
+      '（基準画素 ' + rows.filter(row => row.pass).length + '/' + rows.length + '）' :
+      '（編集版・参考比較）';
     const pass = rows.every(row => row.pass);
     setStatus(unchanged && pass ? '初期ソースの独立画素検算に合格' :
       unchanged ? '基準画素と不一致（viewport/色/GL状態を再確認）' : '編集コードを実行しました（基準との差を比較）',
@@ -899,7 +907,7 @@ window.addEventListener('message', event => {
       if (unchanged && !floats.pass)
         setStatus('GPU float読戻しと独立CPU計算が不一致（未達）',true);
     }
-    byId('result-note').textContent = unchanged ?
+    byId('numeric-note').textContent = unchanged ?
       'CPUは座標と色の定数から独立に予測し、GPUはreadPixelsで実測。RGBA各成分' +
       ((isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8) ? '±2' : isWGL20 ? '±1' : isWGL19 ? '±2' : isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
@@ -1046,6 +1054,9 @@ function run() {
     if (isWGL10) payload.probes = expectedWGL10Samples(payload.width,payload.height).map(p => [p.x,p.y]);
   }
   catch (error) { setStatus(error.message, true); return; }
+  byId('numeric-summary').textContent = '（計算中）';
+  byId('result-note').textContent = '実行中です。描画結果をここに表示します。';
+  byId('diagnostics-details').open = false;
   const iframe = document.createElement('iframe');
   iframe.className = 'result-frame';
   // Responsive preview without changing the actual drawing-buffer resolution.
@@ -1069,6 +1080,10 @@ function run() {
 }
 
 byId('run').addEventListener('click', run);
+byId('edit-after-run').addEventListener('click', () => {
+  selectTab('code');
+  inputs.js.focus();
+});
 byId('stop').addEventListener('click', () => {if(fcg2Timer!==null){clearInterval(fcg2Timer);fcg2Timer=null;} if(fcg3Timer!==null){clearInterval(fcg3Timer);fcg3Timer=null;} if(fcg4Timer!==null){clearInterval(fcg4Timer);fcg4Timer=null;} if(fcg5Timer!==null){clearInterval(fcg5Timer);fcg5Timer=null;} if(fcg6Timer!==null){clearInterval(fcg6Timer);fcg6Timer=null;} if(fcg7Timer!==null){clearInterval(fcg7Timer);fcg7Timer=null;} if(fcg8Timer!==null){clearInterval(fcg8Timer);fcg8Timer=null;} stop();});
 byId('reset').addEventListener('click', () => {
   if(fcg2Timer!==null){clearInterval(fcg2Timer);fcg2Timer=null;}
@@ -1906,6 +1921,6 @@ if (['FCG3','FCG5','WGL5','WGL9','WGL12'].includes(lesson) || ['FCG4','FCG6','WG
 mountVisualGuide(lesson,byId('panel-conditions'),{run,focusResult:selectTab});
 load();
 // 画素の期待値は、GPUに触れる前に CPU 側で示せる.
-byId('result-note').textContent = '初期サイズでのCPU予測: ' +
+byId('numeric-note').textContent = '初期サイズでのCPU予測: ' +
   oracle(sizeHint[0],sizeHint[1])
   .map(item => item.label + '=' + item.rgba.join('/')).join('、');
