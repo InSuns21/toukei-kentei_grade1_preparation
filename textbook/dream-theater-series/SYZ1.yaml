@@ -44,7 +44,7 @@ chapters:
     title: "Hessian計量とLegendre双対"
   - id: SYZ1-10
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-10
-    status: planned
+    status: completed
     title: "semi-flat鏡像I――双対トーラスと複素構造"
   - id: SYZ1-11
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-11

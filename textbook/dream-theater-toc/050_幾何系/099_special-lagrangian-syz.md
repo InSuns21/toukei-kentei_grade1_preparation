@@ -10,3 +10,4 @@
 7. [SYZ1-07 局所トーラス・ファイブレーションと作用・角変数](textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-07/index.md)
 8. [SYZ1-08 基底の二種類の整数アフィン構造](textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-08/index.md)
 9. [SYZ1-09 Hessian計量とLegendre双対](textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-09/index.md)
+10. [SYZ1-10 semi-flat鏡像I――双対トーラスと複素構造](textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-10/index.md)
