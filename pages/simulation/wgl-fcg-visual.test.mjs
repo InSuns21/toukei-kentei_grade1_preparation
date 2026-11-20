@@ -43,6 +43,8 @@ test('WGL/FCG reference studio shares readable, aspect-correct independent displ
   assert.ok(host.includes("mountReferenceObservation({lesson,parent:byId('panel-conditions')})"));
   assert.ok(host.includes("[900,300]"));
   assert.ok(host.includes("iframe.style.aspectRatio = payload.width"));
+  assert.ok(host.includes("if (isWGL4) payload.probes = expectedWGL4Samples"));
+  assert.ok(host.includes("const positions = (['WGL4', 'WGL5'"));
   assert.match(css,/\.visual-observation-grid\{display:grid/);
   assert.match(css,/\.visual-smoke-stage canvas/);
   assert.ok(mod.includes('requestAnimationFrame(tick)'));
