@@ -17,3 +17,4 @@
 14. [SYZ1-14 特異ファイバーとモノドロミー](textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-14/index.md)
 15. [SYZ1-15 正則円板と壁越えの発生条件](textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-15/index.md)
 16. [SYZ1-16 インスタントン補正と座標の貼り合わせ](textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-16/index.md)
+17. [SYZ1-17 Gross–Siebertとトロピカル退化](textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-17/index.md)
