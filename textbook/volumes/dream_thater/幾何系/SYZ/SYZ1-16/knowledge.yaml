@@ -1,0 +1,53 @@
+chapter: SYZ1-16
+scope: dream-theater
+coverage: complete
+prerequisites: [SYZ1-15, SYZ1-10, COMB9]
+concepts:
+  - id: syz.wall-crossing-character-map
+    name: 壁越えの文字変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（壁越えの文字変換）"]
+    requires: [syz.wall-disk-weights, syz.holonomy-dual-torus]
+  - id: syz.wall-character-multiplication
+    name: 文字の積法則と逆壁越え
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（文字の積法則と逆壁越え）"]
+    requires: [syz.wall-crossing-character-map]
+  - id: syz.corrected-complex-chart
+    name: 単一壁の補正付き複素チャート
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単一壁の補正付き複素チャート）"]
+    requires: [syz.wall-crossing-character-map, syz.semiflat-complex-gluing]
+  - id: syz.holomorphic-corrected-gluing
+    name: 単一壁の正則貼り合わせと対数2形式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（単一壁の正則貼り合わせと対数2形式）"]
+    requires: [syz.corrected-complex-chart, syz.wall-character-multiplication]
+  - id: syz.wall-path-consistency
+    name: 座標遷移の経路整合性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（座標遷移の経路整合性）"]
+    requires: [syz.corrected-complex-chart]
+  - id: syz.first-scattering-correction
+    name: 三次までの散乱補正
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三次までの散乱補正）"]
+    requires: [syz.wall-path-consistency, syz.holomorphic-corrected-gluing]
+  - id: syz.maslov-two-local-superpotential
+    name: Maslov指数2の局所superpotential
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Maslov指数2の局所superpotential）"]
+    requires: [syz.disk-maslov-index, syz.disk-holonomy-weight]
+  - id: syz.superpotential-coordinate-gluing
+    name: superpotentialの座標変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（superpotentialの座標変換）"]
+    requires: [syz.maslov-two-local-superpotential, syz.holomorphic-corrected-gluing]

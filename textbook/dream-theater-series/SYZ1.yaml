@@ -68,7 +68,7 @@ chapters:
     title: "正則円板と壁越えの発生条件"
   - id: SYZ1-16
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-16
-    status: planned
+    status: completed
     title: "インスタントン補正と座標の貼り合わせ"
   - id: SYZ1-17
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-17
