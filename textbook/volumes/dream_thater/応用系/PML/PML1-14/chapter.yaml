@@ -1,0 +1,39 @@
+id: "PML1-14"
+title: "SGD=熱平衡という比喩が壊れる例は何か"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML1-13
+official_scope: []
+learning_objectives:
+  - SGDのOU近似で損失Gibbs分布となるための等方的雑音条件を必要十分条件として導ける
+  - 異方性雑音でも詳細釣合いが成り立つ場合と非零定常確率流が残る場合を区別できる
+  - 非可換な曲率行列と雑音散布行列からOUの不可逆性を二時刻共分散で証明できる
+  - 有限学習率の定常分散補正と非Gaussianな離散SGDの不変分布を計算できる
+  - 状態依存雑音が消える例で固定温度のGibbs近似が破綻する機構を説明できる
+  - 分布の不変性・詳細釣合い・損失Gibbs性・離散近似を分けて検査できる
+definitions: []
+theorems:
+  - { id: PML1-14-THM-01, name: OU代理の損失Gibbs一致条件 }
+  - { id: PML1-14-THM-02, name: 対称ドリフトOUの可逆性判定 }
+  - { id: PML1-14-PROP-01, name: 有限学習率と非Gaussian定常分布の反例 }
+  - { id: PML1-14-PROP-02, name: 状態依存雑音の消失と点質量への収束 }
+canonical_examples:
+  - 対角二次損失と異方性共分散によるGibbs密度の不一致
+  - 非可換な二次元雑音共分散による不変だが非可逆なOU
+  - 二点雑音を持つ安定線形SGDと離散定常分散の差
+  - 個別損失の二次係数が違う場合の乗法雑音と吸収点
+problem_patterns:
+  - PML1-14-A01
+  - PML1-14-A02
+  - PML1-14-A03
+  - PML1-14-A04
+  - PML1-14-A05
+  - PML1-14-B01
+  - PML1-14-B02
+  - PML1-14-B03
+  - PML1-14-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
