@@ -1,0 +1,45 @@
+id: "ANF6"
+title: "イデアル類群の有限性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANF5
+official_scope: []
+learning_objectives:
+  - 非零分数イデアルと主分数イデアルからイデアル類群を定義し類の等号を確認できる
+  - 整イデアルのノルムの乗法性と主イデアルのノルム公式を用いて小ノルム代表の構成を再現できる
+  - 有限商環A/mAを用いてノルムが有界な整イデアルが有限個であることを証明できる
+  - Minkowskiの類数上界と類群の有限性を全段階で証明できる
+  - ノルムが2未満なら類数1であることと小ノルム素イデアル類による生成を導出できる
+  - Q(sqrt(-5))のノルム2のイデアルの一意性・非主性・平方の主性を証明し類群C2を求められる
+  - Q(sqrt(-6))の類群と6の非一意分解をイデアル類の計算へ結び付けられる
+definitions:
+  - { id: ANF6-DEF-01, name: イデアル類群 }
+  - { id: ANF6-DEF-02, name: 類数 }
+theorems:
+  - { id: ANF6-LEM-01, name: ノルム有界な整イデアルの有限性 }
+  - { id: ANF6-THM-01, name: Minkowskiの類数上界と類群の有限性 }
+  - { id: ANF6-COR-01, name: 類数1の判定 }
+  - { id: ANF6-COR-02, name: 小ノルム素イデアルによる生成 }
+  - { id: ANF6-THM-02, name: Q(sqrt(-5))の類群 }
+canonical_examples:
+  - Qのすべての分数イデアルは主分数イデアル
+  - Q(sqrt(5))、Q(i)、Q(sqrt(-2))の類数1判定
+  - Q(sqrt(-5))の唯一のノルム2の素イデアルと非主性と平方
+  - Q(sqrt(-6))のノルム2、3の素イデアルと類数2
+  - 6の二つの既約元分解と唯一の素イデアル分解
+problem_patterns:
+  - ANF6-CLASS-QUOTIENT-IDEALS
+  - ANF6-PRINCIPAL-SCALING
+  - ANF6-FINITE-RING-BOUNDED-IDEALS
+  - ANF6-CLASS-NUMBER-ONE-BOUND
+  - ANF6-IDEAL-NORM-TWO-UNIQUENESS
+  - ANF6-IDEAL-CLASS-PROOF
+  - ANF6-QUADRATIC-MINKOWSKI-COMPARISON
+  - ANF6-PRIME-CLASS-GENERATION
+  - ANF6-Q-SQRT-MINUS-SIX
+  - ANF6-NONUNIQUE-FACTORIZATION-CLASSES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11.0, exercises: 8.0, review: 2.0 }
