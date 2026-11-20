@@ -100,6 +100,7 @@ try {
   await new Promise(ok=>setTimeout(ok,340));
   const afterClock=await evaluate('Number(document.querySelector(".visual-clock").textContent.match(/([0-9]+\.[0-9]+) s/)?.[1]||0)');
   assert.ok(afterClock>beforeClock,'requestAnimationFrame must advance model time');
+  await evaluate('document.querySelector(".visual-smoke canvas").scrollIntoView({block:"center"})');
   const bounds=await evaluate('(()=>{const r=document.querySelector(".visual-smoke canvas").getBoundingClientRect();return {x:r.left,y:r.top,w:r.width,h:r.height}})()');
   const x=bounds.x+bounds.w*.45,y=bounds.y+bounds.h*.45;
   await cdp('Input.dispatchMouseEvent',{type:'mouseMoved',x,y,buttons:0});

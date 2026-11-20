@@ -343,6 +343,7 @@ function run() {
   el('canvas-slot').append(frame);
 }
 el('run').addEventListener('click', run);
+el('fcg1-observe')?.addEventListener('click',()=>el('run').click());
 el('step').addEventListener('click', sendStep);
 el('play').addEventListener('click', () => {
   if (!active?.initialized) {setStatus('先に「実行・リセット」を押してください', true); return;}

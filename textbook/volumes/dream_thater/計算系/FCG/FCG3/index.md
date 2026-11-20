@@ -388,7 +388,9 @@ $$
 
 左半分は数値濃度 $Q$ を青→赤で表示する。右半分は $|\widehat Q-\widehat E|$ を**5倍**して赤に表示し、差0の基準色はRGBA8の $(0,20,26,255)$ である。右側はR8後の誤差画像、診断ログに出す $L_{1,h}$ はFloat64の誤差と区別する。
 
-<iframe src="simulation/wgl-lab.html?lesson=FCG3" title="FCG3 半Lagrange移流のJS・GLSLを編集し誤差を比較する共通3タブラボ" loading="lazy" style="width:100%;height:1050px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
+**アニメーションで観察する。** 「このコードで描画して観察する」を押すと、編集した半Lagrange移流のJavaScriptとGLSLを実行する。最初に指定stepの静止フレームでCPU/GPU画素を検算した**後**、同じ濃度格子・テクスチャを使って1/32秒ずつ更新し、画面を `requestAnimationFrame` で再描画する。観察速度は約8物理step/秒であり、数値刻み幅は変えない。描画画面をクリックまたはSpace/Enterで一時停止・再生できる。CPU検算表は初期の指定step時点の値なので、動いているフレームの色と逐一一致するとは限らない。動的な格子値を検算するときは一時停止し、明示的に実行し直してCPU/GPU基準を揃える。
+
+<iframe src="simulation/wgl-lab.html?lesson=FCG3" title="FCG3 半Lagrange移流のJS・GLSLを編集し誤差を比較する共通3タブラボ" loading="lazy" style="width:100%;height:1220px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
 
 **操作**：初期step1のCPU独立予測とGPU画素を比較する。1step、再生・一時停止、時刻0へ戻す、停止・破棄を試す。step32の1回転では、解析値が元に戻っても数値染料がどうなったか、格子質量 $M_h$、解析格子質量、$L_{1,h}$、最大誤差、ピークを診断する。クリックまたは矢印キー＋Enterで画素を検査できる。GPUが使えない場合はCPU独立数値だけを表示し、GPU照合は未達とする。
 

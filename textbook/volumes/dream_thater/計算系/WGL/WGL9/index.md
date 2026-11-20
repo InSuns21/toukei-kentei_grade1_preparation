@@ -338,7 +338,9 @@ $\tilde N\ne0$ なら正規化後の長さは $\|N\|=1$。[Cauchy–Schwarzの�
 
 **CPU側はGPUのシェーダ結果から予測を逆算しません。** 画素中心から世界の $z$ 方向へ射線を延ばし、立方体には6つの面の範囲条件を、球には逆変換後の二次方程式を使います。最も手前にある点の局所法線を求めて、逆転置→Lambert→半角ベクトル→線形RGB→sRGB→8bit量子化の順で予測します。球では三角形メッシュの補間に対する理想球面の式との差を許容し、各RGBA成分の差を**10階調以内**で判定します。シェーダやJSを編集した場合、固定の初期値CPU基準は参考値になり、変更版の予測画素値を自身で計算する必要があります。
 
-<iframe src="simulation/wgl-lab.html?lesson=WGL9" title="WGL9 法線変換・Lambert・Blinn–Phong WebGL2編集ラボ" loading="lazy" style="width:100%;height:980px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
+**光源の動きを見る。** 初期時刻の独立CPU/GPU画素比較を済ませた後、**編集した `lighting.js`・`lighting.frag` と同じプログラム・立方体・球・法線変換**で光源を緩やかに往復させる。ハイライトと陰影が動く一方、法線自体は物体に固定されていることを見る。描画画面のクリックかSpace/Enterで停止・再生する。低減モーション設定では自動再生しない。CPU画素表は時刻0の基準値であって、任意の動的光源に対する解析値ではない。物理反射モデルの検証と見栄えを混同しない。
+
+<iframe src="simulation/wgl-lab.html?lesson=WGL9" title="WGL9 法線変換・Lambert・Blinn–Phong WebGL2編集ラボ" loading="lazy" style="width:100%;height:1150px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
 
 3タブ「実験条件・課題／コード編集／実行結果」で、次を試します。
 

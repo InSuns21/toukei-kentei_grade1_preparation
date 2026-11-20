@@ -94,3 +94,56 @@ report('ERROR','area*sum |q-exact|='+l1.toPrecision(7)+', max cell error='+maxim
 report('PEAK','peak q='+peak.toPrecision(7)+'; convex weights bound q to [0,1]');
 report('DISPLAY','left=numerical q, right=5x abs(R8 numerical - R8 analytic); GPU draws only');
 report('R8','each texture 1024 bytes; R8 rounding separated from Float64 CPU metrics');
+
+
+// FCG3 animated observation uses this *same edited* semi-Lagrangian solver
+// and fragment shader, not a separately hard-coded reference demonstration.
+// The first frame is kept unchanged until the runner finishes GPU readPixels.
+const fcg3Reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+let fcg3Playing=!fcg3Reduced.matches,fcg3FrameStamp=null,fcg3Accum=0,fcg3Step=steps;
+canvas.tabIndex=0;
+canvas.setAttribute('aria-label','FCG3 染料の回転とぼやけ。クリック・Spaceで一時停止');
+canvas.title='クリック／Spaceで再生・停止。移流は物理時間1/32秒ずつ更新し、描画fpsとは区別します。';
+function fcg3Toggle(){fcg3Playing=!fcg3Playing;fcg3FrameStamp=null;}
+canvas.addEventListener('click',fcg3Toggle);
+canvas.addEventListener('keydown',e=>{
+  if(e.key===' '||e.key==='Enter'){e.preventDefault();fcg3Toggle();}
+});
+function fcg3UpdateOnce(){
+  if(fcg3Step>=32){
+    previous=Float64Array.from({length:N*N},(_,k)=>initial(at(k%N),at(Math.floor(k/N))));
+    fcg3Step=0;
+  }else{
+    for(let j=0;j<N;j++)for(let i=0;i<N;i++){
+      const dx=at(i)-.5,dy=at(j)-.5;
+      next[i+N*j]=sample(previous,.5+c*dx+s*dy,.5-s*dx+c*dy);
+    }
+    [previous,next]=[next,previous];fcg3Step++;
+  }
+  const now=fcg3Step*dt;
+  for(let j=0;j<N;j++)for(let i=0;i<N;i++)
+    analytic[i+N*j]=exact(at(i),at(j),now);
+  gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,numericalTex);
+  gl.texSubImage2D(gl.TEXTURE_2D,0,0,0,N,N,gl.RED,gl.UNSIGNED_BYTE,
+    Uint8Array.from(previous,q=>Math.round(255*Math.max(0,Math.min(1,q)))));
+  gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,analyticTex);
+  gl.texSubImage2D(gl.TEXTURE_2D,0,0,0,N,N,gl.RED,gl.UNSIGNED_BYTE,
+    Uint8Array.from(analytic,q=>Math.round(255*Math.max(0,Math.min(1,q)))));
+}
+function fcg3VisualFrame(now){
+  if(fcg3Playing&&!document.hidden){
+    if(fcg3FrameStamp===null)fcg3FrameStamp=now;
+    const elapsed=Math.min(.1,Math.max(0,(now-fcg3FrameStamp)/1000));
+    fcg3FrameStamp=now;fcg3Accum+=elapsed;
+    // Slow playback: one physical update every 125 ms. This does NOT
+    // change dt or its numerical stability, only the observation rate.
+    if(fcg3Accum>=.125){fcg3Accum-=.125;fcg3UpdateOnce();}
+    gl.useProgram(program);gl.bindVertexArray(vao);
+    gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,numericalTex);
+    gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,analyticTex);
+    gl.viewport(0,0,canvas.width,canvas.height);
+    gl.drawArrays(gl.TRIANGLES,0,3);
+  }else fcg3FrameStamp=null;
+  requestAnimationFrame(fcg3VisualFrame);
+}
+requestAnimationFrame(fcg3VisualFrame);

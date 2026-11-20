@@ -317,7 +317,9 @@ $$
 
 橙の前面は世界 $z=-1.5$、青の前面は $z=-2.5$ です。カメラは $z=1$ なので、前方距離 $d=2.5,3.5$。[透視深度の単調性](#prop-wgl5-depth-monotone)から $D(2.5)=0.675$、$D(3.5)=45/56\approx0.803571$ であり、重なりでは橙が勝ちます。
 
-<iframe src="simulation/wgl-lab.html?lesson=WGL5" title="WGL5 視点・直交/透視投影・深度を編集して実行するラボ" loading="lazy" style="width:100%;height:980px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
+**視点を動かして見る。** 実行すると初期時刻の画素を独立CPU基準と照合した後、**編集対象の `camera.js` が使用した同じメッシュ・モデル・視野・深度設定**でカメラ位置を緩やかに往復させ、WebGL2で連続描画する。画面をクリックするかSpace/Enterで一時停止・再生できる。低減モーション環境では自動開始しない。画素の検算表は**動かす前の初期時刻**に固定されるため、再生中の各フレームのCPU検算値ではない。コード編集により投影・奥行き・視点を変えたときは再実行して初期の画素検査と動く絵の両方を比べる。
+
+<iframe src="simulation/wgl-lab.html?lesson=WGL5" title="WGL5 視点・直交/透視投影・深度を編集して実行するラボ" loading="lazy" style="width:100%;height:1140px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
 
 **実験手順。** 3タブの「コード編集」で camera.js、camera.vert、camera.frag を編集します。まず初期の4画素をCPU基準と比較します。次にJavaScriptの projectionMode を orthographic に変えて遠近の違いを観察し、depthEnabled を false にして後描きの青による上書きを確認します。nearPlane、farPlane、eye を変更してクリップを予測し、最後にGLSLの構文エラープリセットでstage別診断を調べます。
 
