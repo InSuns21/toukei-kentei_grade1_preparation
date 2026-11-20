@@ -102,6 +102,20 @@ try {
   assert.equal(initial.opaque,true);
   console.log('FCG4 actual GPU texture, nine readPixels, independent CPU and opaque sandbox: PASS');
 
+  // Only the actual editable Poisson sandbox must change: no independent
+  // animation is mounted in FCG4. Keep observations within the iframe canvas.
+  await evaluate('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"center"})');
+  await new Promise(ok=>setTimeout(ok,160));
+  const box=await evaluate('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height};})()');
+  assert.ok(box.width>150&&box.height>100,JSON.stringify(box));
+  const crop={x:box.x,y:box.y,width:box.width,height:Math.min(box.height,180),scale:1};
+  const early=await cdp('Page.captureScreenshot',{format:'png',clip:crop,captureBeyondViewport:true});
+  await new Promise(ok=>setTimeout(ok,840));
+  const later=await cdp('Page.captureScreenshot',{format:'png',clip:crop,captureBeyondViewport:true});
+  assert.notEqual(early.data,later.data,'FCG4 animated editable Jacobi steps must redraw pressure pixels');
+  console.log('FCG4 same Jacobi iteration source changes live three-panel GPU pixels: PASS');
+
+
   await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="1反復")).click()');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格") && document.querySelector("#fcg4-cpu-prediction")?.textContent.includes("反復129")',25000);
   assert.equal(await evaluate('document.querySelectorAll("#results-table tbody tr").length'),9);

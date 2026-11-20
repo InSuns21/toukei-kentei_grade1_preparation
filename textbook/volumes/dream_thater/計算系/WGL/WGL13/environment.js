@@ -120,7 +120,67 @@ report('PROBES','6 axis + 6 off-axis probes. CPU predicted RGB: '+expected.map(e
 report('GPU READBACK',Array.from({length:12},(_,i)=>Array.from(readback.slice(4*i,4*i+3)).join('/')).join(' | '));
 report('CHECK', errors.every(e=>e<=1)?'PASS: all 12 cube-face/orientation probes within 1 byte':'FAIL: max channel errors '+errors.join(','));
 report('SEAMS','NEAREST and deliberately different face colours can show sharp edges; this checks mapping, not seamless filtering.');
-gl.deleteBuffer(vbo);
-gl.deleteVertexArray(vao);
-gl.deleteTexture(env);
-gl.deleteProgram(program);
+
+// Same six user-editable RGBA8 faces and the same reflection GLSL are reused.
+// First all 12 raw-face probes were read synchronously (without yaw). Only
+// THEN does the independent display angle change. No new environment model.
+if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
+  const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches??false;
+  let playing=!reduced,phase=0,offsetAngle=0,last=0,raf=0,dragging=false,prevX=0;
+  const originalAngle=yawDegrees*Math.PI/180,yawLocation=uniform('u_yaw');
+  canvas.tabIndex=0;
+  canvas.title='WGL13 キューブマップ参照を回す：Spaceで停止/再生、Shift+ドラッグまたは左右矢印で角度操作';
+  canvas.setAttribute('aria-label','WGL13 同じキューブマップの反射と継ぎ目を回転観察。Space停止、矢印で角度変更');
+  const note=document.createElement('output');
+  note.setAttribute('aria-live','off');
+  note.style.cssText='display:block;color:#c8eaff;margin:5px 0;font:13px system-ui';
+  canvas.insertAdjacentElement('afterend',note);
+  function paintEnvironment(){
+    const animated=0.85*Math.sin(phase); // preserve the exact frozen angle when paused
+    const angle=originalAngle+offsetAngle+animated;
+    gl.useProgram(program);gl.bindVertexArray(vao);
+    gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_CUBE_MAP,env);
+    gl.uniform1i(probe,0);gl.uniform1f(yawLocation,angle);
+    gl.viewport(0,0,canvas.width,canvas.height);
+    gl.drawArrays(gl.TRIANGLES,0,6);
+    note.textContent='環境参照の回転角 '+(angle*180/Math.PI).toFixed(1)+
+      '°／左右矢印・Shift+ドラッグで操作／Spaceで'+(playing?'停止':'再生')+
+      '／12画素のCPU/GPU検算は固定した6面の初期結果';
+  }
+  canvas.addEventListener('keydown',e=>{
+    if(e.key===' '||e.key==='Enter'){
+      e.preventDefault();playing=!playing;last=0;paintEnvironment();
+    }else if(e.key==='ArrowLeft'||e.key==='ArrowRight'){
+      e.preventDefault();playing=false;last=0;
+      offsetAngle+=(e.key==='ArrowRight'?1:-1)*Math.PI/18;
+      paintEnvironment();
+    }
+  });
+  canvas.addEventListener('pointerdown',e=>{
+    if(e.pointerType!=='touch'&&!e.shiftKey)return;
+    e.preventDefault();dragging=true;prevX=e.clientX;playing=false;last=0;
+    canvas.setPointerCapture?.(e.pointerId);
+  });
+  canvas.addEventListener('pointermove',e=>{
+    if(!dragging)return;
+    const width=Math.max(1,canvas.getBoundingClientRect().width);
+    offsetAngle+=(e.clientX-prevX)*Math.PI/width;
+    prevX=e.clientX;paintEnvironment();
+  });
+  const release=()=>{dragging=false;};
+  canvas.addEventListener('pointerup',release);
+  canvas.addEventListener('pointercancel',release);
+  function frame(t){
+    if(playing&&!document.hidden){
+      if(!last)last=t;
+      const delta=Math.min(.08,Math.max(0,(t-last)/1000));
+      if(delta>=1/30){last=t;phase+=delta*.9;paintEnvironment();}
+    }else last=0;
+    raf=requestAnimationFrame(frame);
+  }
+  raf=requestAnimationFrame(frame);
+  window.addEventListener('pagehide',()=>cancelAnimationFrame(raf),{once:true});
+  note.textContent='環境参照方向のみを回転します。Spaceで一時停止、Shift+ドラッグ・左右矢印で角度調整';
+}
+// GPU program/VAO/texture live until sandbox disposal, so rAF can draw.
+// All resources are released with the opaque sandbox iframe upon Stop.

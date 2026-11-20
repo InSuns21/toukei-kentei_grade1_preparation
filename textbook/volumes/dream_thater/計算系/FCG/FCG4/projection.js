@@ -28,7 +28,7 @@ function neighbours(q,i,j) {
   if(j<N-1){sum+=q[cell(i,j+1)];count++;}
   return [sum,count];
 }
-for(let k=0;k<iterations;k++){
+function jacobiIteration(){
   let mean=0;
   for(let j=0;j<N;j++)for(let i=0;i<N;i++){
     const id=cell(i,j),[sum,count]=neighbours(p,i,j);
@@ -38,6 +38,7 @@ for(let k=0;k<iterations;k++){
   for(let n=0;n<N*N;n++)next[n]-=mean;
   [p,next]=[next,p];
 }
+for(let k=0;k<iterations;k++)jacobiIteration();
 const u=new Float64Array(uStar),v=new Float64Array(vStar);
 for(let j=0;j<N;j++)for(let i=1;i<N;i++)
   u[ui(i,j)]-=dt/rho*(p[cell(i,j)]-p[cell(i-1,j)])/h;
@@ -119,3 +120,88 @@ report('BOUNDARY','max wall normal |u|='+wallMax.toExponential(3)+' m/s, sum rhs
 report('MANUFACTURED','max |p-phi|='+manufacturedError.toPrecision(8)+
  ' Pa, mean p='+(meanPressure/(N*N)).toExponential(3));
 report('DISPLAY','left pressure (0.5+0.35p), middle abs(div)/20, right cell speed/0.25; R8 quantized');
+
+
+// Observe Jacobi convergence using the EXACT same editable iteration routine.
+// Here the animation clock advances *Poisson iterations*, not physical time.
+// The original three R8 GPU panels and 9 CPU readPixels are a static snapshot
+// at settings.steps, checked before requestAnimationFrame ever runs.
+if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
+  const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches??false;
+  let playing=!reduced,iter=iterations,last=0,raf=0,firstCycle=true;
+  canvas.tabIndex=0;
+  canvas.title='FCG4 実Jacobi反復の収束。Space再生/停止、右矢印1回、Rで反復0。物理時刻ではありません。';
+  canvas.setAttribute('aria-label','FCG4 Poisson反復で圧力・発散・速度を観察する。Space一時停止、右矢印一反復、Rリセット');
+  const note=document.createElement('output');
+  note.setAttribute('aria-live','off');
+  note.style.cssText='display:block;margin:5px 0;color:#c8eaff;font:13px system-ui';
+  canvas.insertAdjacentElement('afterend',note);
+  function refreshProjectedState(){
+    // Rebuild the MAC correction from the current pressure at iteration iter.
+    // Never project an already projected state a second time.
+    u.set(uStar);v.set(vStar);
+    for(let j=0;j<N;j++)for(let i=1;i<N;i++)
+      u[ui(i,j)]-=dt/rho*(p[cell(i,j)]-p[cell(i-1,j)])/h;
+    for(let j=1;j<N;j++)for(let i=0;i<N;i++)
+      v[vi(i,j)]-=dt/rho*(p[cell(i,j)]-p[cell(i,j-1)])/h;
+    let maxResidual=0,maxDivergence=0,identity=0;
+    for(let j=0;j<N;j++)for(let i=0;i<N;i++){
+      const k=cell(i,j),[sum,n]=neighbours(p,i,j);
+      const residual=(sum-n*p[k])/(h*h)-rhs[k];
+      const div=divergence(u,v,i,j);
+      const vx=(u[ui(i,j)]+u[ui(i+1,j)])/2,
+            vy=(v[vi(i,j)]+v[vi(i,j+1)])/2;
+      pressureTex[k]=Math.max(0,Math.min(1,.5+.35*p[k]));
+      divTex[k]=Math.max(0,Math.min(1,Math.abs(div)/20));
+      speedTex[k]=Math.max(0,Math.min(1,Math.hypot(vx,vy)/.25));
+      maxResidual=Math.max(maxResidual,Math.abs(residual));
+      maxDivergence=Math.max(maxDivergence,Math.abs(div));
+      identity=Math.max(identity,Math.abs(div+dt/rho*residual));
+    }
+    for(const [unit,arr] of [pressureTex,divTex,speedTex].entries()){
+      gl.activeTexture(gl.TEXTURE0+unit);
+      gl.bindTexture(gl.TEXTURE_2D,textures[unit]);
+      gl.texSubImage2D(gl.TEXTURE_2D,0,0,0,N,N,gl.RED,gl.UNSIGNED_BYTE,
+        Uint8Array.from(arr,q=>Math.round(255*q)));
+    }
+    gl.useProgram(program);gl.bindVertexArray(vao);
+    gl.viewport(0,0,canvas.width,canvas.height);
+    gl.drawArrays(gl.TRIANGLES,0,3);
+    note.textContent='Jacobi '+iter+'/160反復（物理時刻の進行ではない）'+
+      ' ／ |div|最大 '+maxDivergence.toExponential(2)+' s⁻¹'+
+      ' ／ Poisson残差 '+maxResidual.toExponential(2)+
+      ' ／ 恒等式誤差 '+identity.toExponential(1)+
+      ' ／ Space '+(playing?'停止':'再生')+'・→ 1反復・R 反復0';
+  }
+  function restart(){p.fill(0);next.fill(0);iter=0;}
+  function oneStep(){if(iter===160)restart();else{jacobiIteration();iter++;}}
+  canvas.addEventListener('keydown',e=>{
+    if(e.key===' '||e.key==='Enter'){
+      e.preventDefault();playing=!playing;last=0;refreshProjectedState();
+    }else if(e.key==='ArrowRight'){
+      e.preventDefault();playing=false;last=0;oneStep();refreshProjectedState();
+    }else if(e.key==='r'||e.key==='R'){
+      e.preventDefault();playing=false;last=0;restart();refreshProjectedState();
+    }
+  });
+  function frame(now){
+    if(playing&&!document.hidden){
+      // The initial GPU oracle is already complete; start the presentation at
+      // Poisson iteration zero so the R8 image shows meaningful convergence.
+      if(firstCycle){firstCycle=false;restart();refreshProjectedState();}
+      if(!last)last=now;
+      const delta=now-last;
+      if(delta>=160){
+        last=now;
+        if(iter>=160)restart();
+        else for(let k=0;k<4&&iter<160;k++){jacobiIteration();iter++;}
+        refreshProjectedState();
+      }
+    }else last=0;
+    raf=requestAnimationFrame(frame);
+  }
+  note.textContent='圧力反復を連続表示します。初期GPU検算は反復'+iterations+
+    'の固定値です。Spaceで停止/再生、右矢印で1反復、Rで0へ';
+  raf=requestAnimationFrame(frame);
+  window.addEventListener('pagehide',()=>cancelAnimationFrame(raf),{once:true});
+}

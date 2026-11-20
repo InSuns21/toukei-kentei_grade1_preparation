@@ -104,3 +104,57 @@ report('FOOTPRINT', 'repeat='+repeats+
        ', texels/pixel x(left)='+(size*repeats/leftWidth).toFixed(3)+
        ', y='+(size*repeats/canvas.height).toFixed(3));
 report('UPLOAD', 'RGBA8/UNSIGNED_BYTE, UNPACK_ALIGNMENT=1; mipmap generated locally');
+
+
+// Comparison animation AFTER the first deterministic GPU sample.
+// One and the same checkerboard/GLSL and sampler objects are used in both
+// views: only their sampler parameters differ. The moving UV offset is a
+// display-space texture translation, NOT a physical object/camera trajectory.
+// Existing readPixels expectations apply only to the initial static frame.
+if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
+  const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches??false;
+  let playing=!reduced,phase=0,last=0,raf=0;
+  const uvLocation=loc('u_offset');
+  canvas.tabIndex=0;
+  canvas.title='WGL7 同一模様のUV移動。Space/Enterで再生・停止。左=最近傍、右=ミップマップ。';
+  canvas.setAttribute('aria-label','WGL7 左右でテクスチャのちらつきを比較。Spaceで一時停止または再生');
+  const note=document.createElement('output');
+  note.style.cssText='display:block;margin:5px 0;color:#c8eaff;font:13px system-ui';
+  note.setAttribute('aria-live','off');
+  canvas.insertAdjacentElement('afterend',note);
+  function renderOffset(t){
+    gl.useProgram(program);gl.bindVertexArray(vao);
+    gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,texture);
+    const dx=offset[0]+.33*Math.sin(t),dy=offset[1]+.21*(Math.cos(.8*t)-1);
+    gl.uniform2f(uvLocation,dx,dy);
+    for(const [x,w,filter] of [[0,leftWidth,leftMinFilter],[leftWidth,rightWidth,rightMinFilter]]){
+      gl.viewport(x,0,w,canvas.height);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,filters[filter]);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,
+        filter==='nearest'?gl.NEAREST:gl.LINEAR);
+      gl.drawArrays(gl.TRIANGLES,0,6);
+    }
+    note.textContent='UV平行移動：('+dx.toFixed(3)+', '+dy.toFixed(3)+
+      ') ／ 操作：Spaceで'+(playing?'停止':'再生')+
+      ' ／ 数値表は初期時刻のGPU画素';
+  }
+  canvas.addEventListener('keydown',e=>{
+    if(e.key===' '||e.key==='Enter'){
+      e.preventDefault();playing=!playing;last=0;renderOffset(phase);
+    }
+  });
+  function frame(time){
+    if(playing&&!document.hidden){
+      if(!last)last=time;
+      const dt=Math.min(.08,Math.max(0,(time-last)/1000));
+      if(dt>=1/30){
+        last=time;phase+=dt*1.25;
+        renderOffset(phase);
+      }
+    }else last=0;
+    raf=requestAnimationFrame(frame);
+  }
+  raf=requestAnimationFrame(frame);
+  window.addEventListener('pagehide',()=>cancelAnimationFrame(raf),{once:true});
+  note.textContent='左右のテクスチャが同じUV移動を開始します。Space/Enterで停止・再生';
+}
