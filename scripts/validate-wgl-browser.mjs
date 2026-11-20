@@ -451,6 +451,11 @@ try{
   await waitFor('document.getElementById("status")?.textContent.includes("独立画素検算に合格") || document.getElementById("status")?.textContent.includes("不一致") || document.getElementById("status")?.textContent.includes("エラー")',22000);
   const wgl4gpu=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent.slice(-700),rows:[...document.querySelectorAll("#results-table tbody tr")].map(x=>x.textContent)})');
   assert.match(wgl4gpu.status,/独立画素検算に合格/,JSON.stringify(wgl4gpu));
+  const scene4=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
+  assert.match(scene4.grid,/長方形の4頂点/);
+  assert.match(scene4.clock,/静止描画1回/);
+  assert.match(scene4.mode,/別の観察ビュー/);
+  assert.match(scene4.source,/angleDegrees/);
   console.log('WGL4 live WebGL2 rotation, square canvas, angle scrub and original GPU pixel oracle: PASS');
 
   // WGL5: depth test, projection matrices and readPixels verified on actual GPU driver.
@@ -460,6 +465,11 @@ try{
   await click('run');
   await waitFor('document.getElementById("status")?.textContent.includes("独立画素検算に合格")',22000);
   const wgl5=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
+  const scene5=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent})');
+  assert.match(scene5.grid,/数値計算格子なし/);
+  assert.match(scene5.color,/橙.*青/);
+  assert.match(scene5.clock,/初期カメラの静止画素検算/);
+  assert.match(scene5.mode,/後の視点往復/);
   assert.equal(wgl5.rows.length,4);
   assert.ok(wgl5.rows.every(row=>row[4]==='OK'));
   const closeRgba = (value,expected) => {
@@ -510,6 +520,25 @@ try{
   await click('stop');
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   console.log('WGL5 shader failure and sandbox disposal: PASS');
+
+  // WGL6: the two viewports compare the same editable shader without a simulation clock.
+  await cdp('Page.navigate',{url:url+'?lesson=WGL6'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.match(/独立画素検算に合格|基準画素と不一致|WebGL2実行エラー|タイムアウト/)',22000);
+  const wgl6=await evalJS('({status:document.getElementById("status").textContent,rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
+  assert.match(wgl6.status,/独立画素検算に合格/,JSON.stringify(wgl6));
+  assert.equal(wgl6.rows.length,8);
+  assert.ok(wgl6.rows.every(row=>row[4]==='OK'),JSON.stringify(wgl6.rows));
+  assert.equal(wgl6.sandbox,'allow-scripts');
+  const scene6=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
+  assert.match(scene6.grid,/左右のGPU viewport/);
+  assert.match(scene6.color,/gridFrequency/);
+  assert.match(scene6.clock,/静止比較描画1回/);
+  assert.match(scene6.mode,/透視補正UV.*線形UV/);
+  assert.match(scene6.source,/interpolation.frag/);
+  console.log('WGL6 8 real GPU interpolation probes and initial scene legend: PASS');
+  await click('stop');
 
   // G3 FCG2: the CPU analytic field and R8 GPU snapshot share one time label.
   await cdp('Page.navigate',{url:url+'?lesson=FCG2'});
