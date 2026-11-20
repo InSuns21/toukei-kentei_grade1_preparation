@@ -27,7 +27,7 @@ dU_t=-HU_t\,dt+\sqrt{\frac{\eta}{b}}B\,dW_t,
 \qquad BB^{\mathsf T}=C_\star.
 $$
 
-ブラウン運動 $W_t$ と初期値は独立とし、$H,C_\star$ は定数行列とする。この式は、SGDそのものの等式でなく、時間刻み $t_n=n\eta$ に対応した近似模型である。
+$W_t$ は $d$ 次元標準ブラウン運動、$B$ は $d\times d$ 定数行列とし、ブラウン運動と初期値は独立とする。$H,C_\star$ も定数行列である。この式は、SGDそのものの等式でなく、時間刻み $t_n=n\eta$ に対応した近似模型である。
 
 [OUの定常Gaussian分布とLyapunov方程式](../PML1-13/index.md#thm-pml1-13-ou-covariance)によれば、$H\succ0$ なら一意な定常Gaussian分布 $N(0,\Sigma)$ があり、その共分散は
 
@@ -55,7 +55,16 @@ $$
 Z_T=\frac{(2\pi T)^{d/2}}{\sqrt{\det H}}
 $$
 
-となる。正定値 $H$ を直交対角化して、各座標を $\sqrt{T/\lambda_i}$ 倍に変数変換すればこの正規化定数を得る。これは平均0・共分散 $TH^{-1}$ のGaussian分布である。
+となる。正定値行列を $H=Q\operatorname{diag}(\lambda_1,\ldots,\lambda_d)Q^{\mathsf T}$（$Q^{\mathsf T}Q=I_d$、$\lambda_i>0$）と直交対角化する。$z\in\mathbb R^d$ を使って $x=Q\operatorname{diag}(\sqrt{T/\lambda_1},\ldots,\sqrt{T/\lambda_d})z$ と置く。この変換の微分行列は $Q\operatorname{diag}(\sqrt{T/\lambda_1},\ldots,\sqrt{T/\lambda_d})$ で、直交行列の $|\det Q|=1$ を使うと、
+
+$$
+\frac{x^{\mathsf T}Hx}{2T}=\frac12\sum_{i=1}^d z_i^2,
+\qquad
+\left|\det\frac{\partial x}{\partial z}\right|
+=\frac{T^{d/2}}{\sqrt{\det H}}.
+$$
+
+標準Gaussian積分とこのJacobianから上の $Z_T$ が得られる。さらに $z\sim N(0,I_d)$ をこの変換で写すと、$x$ の共分散は $Q\operatorname{diag}(T/\lambda_1,\ldots,T/\lambda_d)Q^{\mathsf T}=TH^{-1}$ である。
 
 以下でいう**損失Gibbs性**とは「ある単一の $T>0$ でOU定常分布がこの $\rho_T$ に一致する」という意味である。確率過程の[不変確率分布](../PML1-09/index.md#def-pml1-09-invariant)や[時間一様Markov過程の詳細釣合い](../PML1-10/index.md#def-pml1-10-detailed-balance)とは、判定条件が違う。
 
@@ -232,7 +241,16 @@ H=\begin{pmatrix}1&0\\0&2\end{pmatrix},
 C_\star=\begin{pmatrix}2&1\\1&2\end{pmatrix}.
 $$
 
-$C_\star$ の固有値は $3,1$ で正である。前講の固有基底公式を $H$ の標準基底に適用すると
+$C_\star$ の固有値は $3,1$ で正である。$H$ は既に標準基底で対角で、固有値は $\lambda_1=1,\lambda_2=2$ となる。[OUの連続Lyapunov方程式](../PML1-13/index.md#thm-pml1-13-ou-covariance) の $(i,j)$ 成分を取ると、
+
+$$
+(H\Sigma+\Sigma H)_{ij}
+=(\lambda_i+\lambda_j)\Sigma_{ij}
+=\frac{\eta}{b}C_{\star,ij}
+\qquad (i,j\in\{1,2\})
+$$
+
+となる。これは $H\Sigma$ では第 $i$ 行、$\Sigma H$ では第 $j$ 列へそれぞれ固有値が掛かるためである。$b=1$ を代入すると $\Sigma_{11}=\eta$、$\Sigma_{12}=\eta/3$、$\Sigma_{22}=\eta/2$ を得る。$D=\eta C_\star/(2b)$ と併せて表示すれば
 
 $$
 \Sigma=\eta\begin{pmatrix}1&1/3\\1/3&1/2\end{pmatrix},
@@ -523,7 +541,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$f_1'(x)=x$ から第1更新の係数は $1-\eta=1/2$、$f_2'(x)=3x$ から第2更新の係数は $1-3\eta=-1/2$。したがってどの添字を選んでも絶対値は半分で
+一次元では $f_i'(x)$ は $x$ に関する微分であり、前節までの $\nabla f_i(x)$ の唯一の成分に等しい。$f_1'(x)=x$ から第1更新の係数は $1-\eta=1/2$、$f_2'(x)=3x$ から第2更新の係数は $1-3\eta=-1/2$。したがってどの添字を選んでも絶対値は半分で
 
 $$
 |X_{n+1}|=\frac12|X_n|,
@@ -575,12 +593,12 @@ $x=(1,0)^{\mathsf T}$ では $J(1,0)=p(1,0)(-1/7,-3/14)^{\mathsf T}\ne0$。Gauss
 
 - Level: B
 
-第4節のモデルで $\eta=1/2$ とする。元のSGDと、雑音だけを同じ平均0・分散1のGaussianに置き換えた線形更新と、連続OU代理の三つについて、定常分布と分散を比較せよ。
+第4節のモデルで $\eta=1/2$ とする。元のSGDと、各時刻の雑音だけを独立な平均0・分散1のGaussianに置き換えた線形更新と、連続OU代理の三つについて、定常分布と分散を比較せよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-三つとも平均の更新係数は $a=1-2\eta=0$。元のSGDは $\varepsilon=\pm1$ なので $X_{n+1}=\mp1/2$、定常分布は $(\delta_{-1/2}+\delta_{1/2})/2$、分散は $1/4$ である。
+二つの離散更新では平均の更新係数が $a=1-2\eta=0$ となり、一歩前の値が消える。連続OUでは代わりに $\mathbb E[U_t\mid U_0]=e^{-2t}U_0$ という時間 $t$ に対する減衰がある。元のSGDは $\varepsilon=\pm1$ なので $X_{n+1}=\mp1/2$、定常分布は $(\delta_{-1/2}+\delta_{1/2})/2$、分散は $1/4$ である。
 
 Gaussian雑音 $\xi\sim N(0,1)$ を代入した離散更新は $X_{n+1}=-\xi/2$ なので、定常分布は $N(0,1/4)$。一歩の分散は同じでも二点分布とGaussian分布は一致しない。
 
@@ -615,7 +633,7 @@ $$
 
 - Level: C
 
-$d=2$、$b=1$、$\eta=1/4$、$H=\operatorname{diag}(1,2)$、$C_\star=\begin{pmatrix}2&1\\1&2\end{pmatrix}$ とする。対称正定値 $H,C_\star$ と、平均0・共分散 $C_\star$ の独立な雑音 $\varepsilon_n$ による線形離散代理
+$d=2$、$b=1$、$\eta=1/4$、$H=\operatorname{diag}(1,2)$、$C_\star=\begin{pmatrix}2&1\\1&2\end{pmatrix}$ とする。対称正定値 $H,C_\star$ と、有限二次モーメントの初期値 $X_0$ から独立で、各時刻間でも独立同分布な平均0・共分散 $C_\star$ の雑音 $\varepsilon_n$（$n\ge1$）による線形離散代理
 
 $$
 X_{n+1}=(I_2-\eta H)X_n-\eta\varepsilon_{n+1}

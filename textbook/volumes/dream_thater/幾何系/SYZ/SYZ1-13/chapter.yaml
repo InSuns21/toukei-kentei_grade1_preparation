@@ -1,0 +1,47 @@
+id: "SYZ1-13"
+title: "K3と超Kähler回転"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYZ1-12
+  - CYG1-05
+  - CYG1-10
+  - CYG1-11
+official_scope: []
+learning_objectives:
+  - 四元数関係を満たす超Kähler三つ組からKähler形式と回転後の正則2形式を導き規格化を検証できる
+  - 楕円K3の滑らかなI正則ファイバーがJで位相π/2のSLagになることを向きと面積まで証明できる
+  - 正則ファイバーを元の複素構造IのままLagrangeと誤認しない
+  - 最小Weierstrass模型の判別式の次数24と単純零点がI1節点になる局所計算を再現できる
+  - K3のEuler標数24から滑らかな全域トーラス束が不可能な理由を説明できる
+  - 特異値を除いた局所トーラス束と全基底への延長を区別できる
+definitions:
+  - { id: SYZ1-13-DEF-01, name: "4次元の超Kähler構造" }
+  - { id: SYZ1-13-DEF-02, name: "楕円ファイブレーションをもつK3" }
+  - { id: SYZ1-13-DEF-03, name: "節点型特異ファイバー" }
+theorems:
+  - { id: SYZ1-13-PROP-01, name: "超Kähler構造の正則2形式と規格化" }
+  - { id: SYZ1-13-THM-01, name: "K3の正則楕円ファイバーと超Kähler回転" }
+  - { id: SYZ1-13-PROP-02, name: "一般位置の楕円K3と24個の節点" }
+  - { id: SYZ1-13-PROP-03, name: "K3上の全域的な滑らかなトーラス束の障害" }
+canonical_examples:
+  - 四元数に対応するR4での三つのKähler形式とI正則平面
+  - Jへの回転後の位相π/2とKへの回転後の位相0
+  - 二重根を持つWeierstrass三次曲線の節点
+  - 次数8と12から得られる判別式次数24
+  - K3のEuler標数による滑らかな束の障害
+problem_patterns:
+  - SYZ1-13-QUATERNION-CHECK
+  - SYZ1-13-PHASE-ORIENTATION
+  - SYZ1-13-DISCRIMINANT-DEGREE
+  - SYZ1-13-NODE-TANGENTS
+  - SYZ1-13-EULER-OBSTRUCTION
+  - SYZ1-13-HOLOMORPHIC-ROTATION
+  - SYZ1-13-SLAG-PLANE
+  - SYZ1-13-NON-SIMPLE-DISCRIMINANT
+  - SYZ1-13-NODE-EULER
+  - SYZ1-13-COMPLETE-K3
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 4 }

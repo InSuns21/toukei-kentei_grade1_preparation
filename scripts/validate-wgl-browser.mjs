@@ -274,6 +274,29 @@ try{
   await click('stop');
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   console.log('WGL1 resize and stop/disposal: PASS');
+  // G4: real WEBGL_lose_context after a successful readback must revoke the
+  // prior green status, dispose the opaque runner, and permit a fresh run.
+  await click('tab-code');
+  await evalJS(`(() => {
+    const editor=document.getElementById('js-source');
+    editor.value="const g4Loss=gl.getExtension('WEBGL_lose_context');"+
+      "if(!g4Loss) throw Error('WEBGL_lose_context unavailable for G4 acceptance');"+
+      "setTimeout(()=>g4Loss.loseContext(),350);\\n"+editor.value;
+    editor.dispatchEvent(new Event('input',{bubbles:true}));
+  })()`);
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("WebGL2コンテキストが失われました")',22000);
+  const lossState=await evalJS('({status:document.getElementById("status").textContent,alert:document.getElementById("action-feedback").textContent,iframe:!!document.querySelector("#canvas-slot iframe"),rows:document.querySelectorAll("#results-table tbody tr").length,summary:document.getElementById("numeric-summary").textContent,log:document.getElementById("diagnostics").textContent,open:document.getElementById("diagnostics-details").open})');
+  assert.equal(lossState.iframe,false,'lost GPU sandbox must be disposed');
+  assert.equal(lossState.rows,0,'stale GPU readback must be removed');
+  assert.match(lossState.summary,/無効/);
+  assert.match(lossState.alert,/コンテキスト/);
+  assert.equal(lossState.open,true);
+  assert.match(lossState.log,/context lost/);
+  await click('reset');await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("独立画素検算に合格")',22000);
+  await click('stop');
+  console.log('G4 real WebGL context loss revokes successful readback; fresh sandbox GPU rerun: PASS');
 
   await cdp('Emulation.setDeviceMetricsOverride',{width:360,height:800,deviceScaleFactor:2,mobile:true});
   const mobile=await evalJS('({editorWidth:document.getElementById("js-source").getBoundingClientRect().width,pageWidth:document.querySelector("main").getBoundingClientRect().width,tabs:[...document.querySelectorAll("[role=tab]")].length})');
@@ -396,6 +419,19 @@ try{
   await new Promise(ok=>setTimeout(ok,340));
   const rotated=await evalJS('document.querySelector(".visual-clock")?.textContent');
   assert.notEqual(rotated,modelScene.clock,'requestAnimationFrame must advance the model rotation');
+  await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
+  await waitFor('document.querySelector(".visual-observation [data-action=play]")?.textContent==="再生"');
+  const frozenClock=await evalJS('document.querySelector(".visual-clock").textContent');
+  await new Promise(ok=>setTimeout(ok,340));
+  assert.equal(await evalJS('document.querySelector(".visual-clock").textContent'),frozenClock,
+    'changing the OS motion preference must pause the running WGL4 view');
+  await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
+  await new Promise(ok=>setTimeout(ok,200));
+  assert.equal(await evalJS('document.querySelector(".visual-clock").textContent'),frozenClock,
+    'return to no-preference must not autoplay without a learner action');
+  await evalJS('document.querySelector(".visual-observation [data-action=play]").click()');
+  await waitFor('document.querySelector(".visual-clock")?.textContent!=='+JSON.stringify(frozenClock));
+  console.log('G4 WGL4 live reduced-motion change pauses; explicit Play resumes: PASS');
   await evalJS('document.querySelector(".visual-observation [data-action=play]").click()');
   await evalJS('(()=>{const s=document.querySelector(".visual-observation [data-action=seek]");s.value="500";s.dispatchEvent(new Event("input",{bubbles:true}));})()');
   assert.match(await evalJS('document.querySelector(".visual-clock")?.textContent'),/270°/);

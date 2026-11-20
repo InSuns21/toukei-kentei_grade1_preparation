@@ -63,7 +63,7 @@ chapters:
     title: "SGD=熱平衡という比喩が壊れる例は何か"
   - id: PML1-15
     path: textbook/volumes/dream_thater/応用系/PML/PML1-15
-    status: planned
+    status: completed
     title: "物理的な対称性を群作用としてどう記述するか"
   - id: PML1-16
     path: textbook/volumes/dream_thater/応用系/PML/PML1-16

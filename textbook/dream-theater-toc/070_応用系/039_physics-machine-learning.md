@@ -15,3 +15,4 @@
 12. [PML1-12 SGDの揺らぎは熱雑音と等しいか](textbook/volumes/dream_thater/応用系/PML/PML1-12/index.md)
 13. [PML1-13 SGDを局所OU過程で近似できるのはいつか](textbook/volumes/dream_thater/応用系/PML/PML1-13/index.md)
 14. [PML1-14 SGD=熱平衡という比喩が壊れる例は何か](textbook/volumes/dream_thater/応用系/PML/PML1-14/index.md)
+15. [PML1-15 物理的な対称性を群作用としてどう記述するか](textbook/volumes/dream_thater/応用系/PML/PML1-15/index.md)
