@@ -58,6 +58,34 @@ test('WGL/FCG shared editor uses a full-width column and sticky actions before p
   assert.ok(html.indexOf('id="lab-actions"') < html.indexOf('id="js-source"'));
 });
 
+test('G1 result UI prioritizes sandbox canvas and keeps diagnostics available on error', async () => {
+  const [html, host, css] = await Promise.all([
+    readFile(new URL('./wgl-lab.html', import.meta.url), 'utf8'),
+    readFile(new URL('./wgl-lab-host.mjs', import.meta.url), 'utf8'),
+    readFile(new URL('./wgl-lab.css', import.meta.url), 'utf8')
+  ]);
+  assert.equal((html.match(/role="tabpanel"/g) || []).length, 3);
+  assert.ok(html.indexOf('id="canvas-slot"') < html.indexOf('id="numeric-details"'));
+  assert.ok(html.indexOf('id="canvas-slot"') < html.indexOf('id="diagnostics-details"'));
+  assert.match(html, /<details id="numeric-details"/);
+  assert.match(html, /<details id="diagnostics-details"/);
+  assert.match(html, /<p id="result-note" role="status"/);
+  assert.ok(html.indexOf('id="result-note"') < html.indexOf('id="numeric-details"'));
+  assert.match(html, /id="action-feedback" role="alert"/);
+  assert.match(html, /id="edit-after-run"/);
+  assert.match(host, /if \(bad\) byId\('diagnostics-details'\)\.open = true/);
+  assert.match(host, /byId\('action-feedback'\)\.textContent = bad \? message : ''/);
+  assert.match(host, /byId\('numeric-summary'\)\.textContent = unchanged/);
+  assert.match(host, /byId\('numeric-note'\)\.textContent = unchanged/);
+  assert.match(host, /byId\('edit-after-run'\)\.addEventListener/);
+  assert.match(host, /inputs\.js\.focus\(\)/);
+  assert.match(css, /\.lab-table-scroll\{max-width:100%;overflow-x:auto/);
+  assert.match(css, /#action-feedback:not\(:empty\)/);
+  // A hidden diagnostics panel must not suppress user-visible error feedback.
+  assert.ok(html.indexOf('id="action-feedback"') < html.indexOf('id="panel-conditions"'));
+  assert.ok(host.includes("iframe.setAttribute('sandbox', 'allow-scripts')"));
+});
+
 test('initial shaders have compilable GLSL ES 3.00 interface and independent CPU colors',async()=>{
   const base=new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL1/',import.meta.url);
   // Repository workspace source path differs from published route.
