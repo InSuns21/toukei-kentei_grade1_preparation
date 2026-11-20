@@ -88,6 +88,6 @@ test('live WebGL18 draws the SAME edited GPU state after initial independent pro
   assert.match(frag,/u_stage == 2/);
   assert.match(frag,/float side = min\(u_targetSize\.x,u_targetSize\.y\)/);
   assert.match(frag,/outColor=vec4\(0\.035,0\.05,0\.085,1\.0\)/);
-  assert.match(md,/初期独立検算は/);
+  assert.match(md,/独立CPUとの厳密な数値照合は実行直後/);
   assert.equal(expectedWGL18Grid(0.2,2).reduce((a,c)=>a+c,0).toFixed(10),'1.0000000000');
 });
