@@ -1,0 +1,49 @@
+chapter: U2-28
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-27
+forward_references: []
+concepts:
+  - id: robotics.integrated-plane-model
+    name: 共通の平面未知地図生成モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共通の平面未知地図生成モデル）"]
+    requires: [robotics.estimator-evaluation-protocol, robotics.slam-planar-gauge]
+  - id: robotics.integrated-estimator-comparison
+    name: 三方式の比較対象
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（三方式の比較対象）"]
+    requires: [robotics.integrated-plane-model]
+  - id: robotics.integrated-exact-ekf
+    name: 固定方位における EKF 更新の厳密性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定方位における EKF 更新の厳密性）"]
+    requires: [robotics.integrated-plane-model]
+  - id: robotics.bootstrap-frozen-map
+    name: 時刻0による暫定固定地図
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時刻0による暫定固定地図）"]
+    requires: [robotics.integrated-estimator-comparison]
+  - id: robotics.bootstrap-map-posterior
+    name: 時刻0の地図事後の平均と分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（時刻0の地図事後の平均と分散）"]
+    requires: [robotics.bootstrap-frozen-map]
+  - id: robotics.integrated-graph-normal
+    name: 基準固定した平面 SLAM の正規方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（基準固定した平面 SLAM の正規方程式）"]
+    requires: [robotics.integrated-plane-model, robotics.slam-gn-gauge-fix]
+  - id: robotics.integrated-filter-batch-equivalence
+    name: 最終時刻の Kalman とバッチ解の一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（最終時刻の Kalman とバッチ解の一致）"]
+    requires: [robotics.integrated-graph-normal, robotics.integrated-exact-ekf]
