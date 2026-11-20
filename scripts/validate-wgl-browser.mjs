@@ -294,6 +294,9 @@ try{
 
   // WGL4: the separate visual reference must draw new WebGL2 frames, while
   // the original learner-editable T*R*S source keeps its independent oracle.
+  // WGL1 intentionally emulates reduced motion above; reset that preference
+  // here so the continuous-frame acceptance actually exercises autoplay.
+  await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
   await cdp('Page.navigate',{url:url+'?lesson=WGL4'});
   await waitFor('document.getElementById("status")?.textContent==="実行できます"');
   const modelScene=await evalJS('(()=>{const c=document.querySelector(".visual-observation-grid canvas");const r=c?.getBoundingClientRect();return {w:r?.width,h:r?.height,clock:document.querySelector(".visual-clock")?.textContent,gpu:!!c?.getContext("webgl2")}})()');
