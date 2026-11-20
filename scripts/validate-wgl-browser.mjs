@@ -215,6 +215,10 @@ try{
   assert.match(first.result[1][2],/0, 0, 0, 255/);
   assert.match(first.log,/DRAW/);
   assert.match(first.log,/GL error: 0x0/);
+  const scene1=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
+  assert.match(scene1.grid,/数値計算格子なし/);
+  assert.match(scene1.clock,/物理stepなし/);
+  assert.match(scene1.source,/triangle.frag/);
   // G1: the learner first sees the actual sandbox canvas. Numeric evidence
   // remains available in a native disclosure without taking over the result.
   const g1Layout=await evalJS(`(() => {
@@ -334,6 +338,9 @@ try{
   const wgl2=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
   assert.equal(wgl2.rows.length,4);
   assert.ok(wgl2.rows.every(row=>row[4]==='OK'));
+  const scene2colors=await evalJS('({color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
+  assert.match(scene2colors.color,/u_gain/);
+  assert.match(scene2colors.source,/colors.vert/);
   // Color interpolation samples a pixel centre, so changing the viewport can
   // round R from 63 to 64. Compare against the independent CPU oracle instead.
   const wgl2Pixel=wgl2.rows[0][2].split(',').map(Number);
@@ -379,6 +386,9 @@ try{
   assert.match(wgl3.rows[0][2],/51, 153, 204, 255/);
   assert.match(wgl3.rows[2][2],/0, 0, 0, 255/);
   assert.match(wgl3.log,/mode=elements grid=2x2 vertices=9 triangles=8 references=24 indexedBytes=120 expandedBytes=192/);
+  const scene3mesh=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent})');
+  assert.match(scene3mesh.grid,/三角形2n²/);
+  assert.match(scene3mesh.mode,/drawElements.*drawArrays/);
   const shot3=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
   await writeFile('_wgl_browser_review/wgl3-initial.png',Buffer.from(shot3.data,'base64'));
   console.log('WGL3 indexed GPU pixels and CPU reference: PASS');
