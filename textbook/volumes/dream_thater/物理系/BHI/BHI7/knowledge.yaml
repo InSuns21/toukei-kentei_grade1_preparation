@@ -1,0 +1,42 @@
+chapter: BHI7
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI6, QINF32]
+forward_references: []
+concepts:
+  - id: black-hole-information.page-snapshot-benchmark
+    name: 時点別Haar比較模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（時点別Haar比較模型）]
+    requires: [black-hole-information.pure-evaporation-stage-model, quantum.haar-random-pure-state]
+  - id: black-hole-information.page-dimension-envelope
+    name: Page比較の次元包絡線と欠損
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Page比較の次元包絡線と欠損）]
+    requires: [black-hole-information.page-snapshot-benchmark, quantum.page-type-average-bounds]
+  - id: black-hole-information.page-snapshot-mean-bounds
+    name: 時点別Page平均の上下界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（時点別Page平均の上下界）]
+    requires: [black-hole-information.page-dimension-envelope, quantum.page-type-average-bounds]
+  - id: black-hole-information.page-envelope-crossover
+    name: 次元包絡線の折返し条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（次元包絡線の折返し条件）]
+    requires: [black-hole-information.page-dimension-envelope]
+  - id: black-hole-information.page-snapshot-typicality
+    name: 固定時点でのPage型典型性の確率上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（固定時点でのPage型典型性の確率上界）]
+    requires: [black-hole-information.page-snapshot-benchmark, quantum.page-type-deficit-tail]
+  - id: black-hole-information.page-history-nonuniqueness
+    name: 同一次元系列でも放射エントロピー履歴は一意でない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（同一次元系列でも放射エントロピー履歴は一意でない）]
+    requires: [black-hole-information.pure-evaporation-stage-model, quantum.stepwise-swap-emission]
