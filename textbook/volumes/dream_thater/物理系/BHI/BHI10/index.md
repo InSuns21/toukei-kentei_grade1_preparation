@@ -50,11 +50,11 @@ $$
 <!-- definition-example-start: def-bhi10-amps-conditions -->
 **定義の確認**：$\lvert\Phi\rangle_{bc}=(\lvert00\rangle+\lvert11\rangle)/\sqrt2$ を規格化されたBell状態ベクトルとし、その階数1射影を $\Phi_{bc}:=\lvert\Phi\rangle\langle\Phi\rvert_{bc}$ と書きます。ここで $\Phi_{bc}$ はベクトルではなく密度演算子です。$\rho_{Rbc}=\rho_R\otimes\Phi_{bc}$ を取ると、$bc$ の固有値は $(1,0,0,0)$ で $S(bc)=0$ です。計算基底の直交性 $\langle0|1\rangle=0$ を使い、$b$ を部分トレースすると
 
-$
+$$
 \rho_c=\operatorname{Tr}_b\Phi_{bc}
 =\tfrac12\bigl(\lvert0\rangle\langle0\rvert
 +\lvert1\rangle\langle1\rvert\bigr)=I_2/2.
-$
+$$
 
 その固有値は $(1/2,1/2)$ で $S(c)=\ln2$。したがって（H）は両誤差0で成立します。同じ計算で $\rho_b=I_2/2$ なので $\rho_{Rb}=\rho_R\otimes I_2/2$ です。$Rb$ の固有値は $\rho_R$ の各固有値を半分ずつ二度並べたものとなり、[テンソル積状態のエントロピー加法性](../../../応用系/QINF/QINF17/index.md#prop-qinf17-tensor)により
 
@@ -209,10 +209,10 @@ $$
 
 $\rho_{Rbc}$ は半正定値で、$I_R\otimes Q$ は直交射影です。このため先ほどのトレースは
 
-$
+$$
 \operatorname{Tr}\!\left[(\rho_{Rbc}^{1/2}(I_R\otimes Q))^\dagger
 (\rho_{Rbc}^{1/2}(I_R\otimes Q))\right]=0
-$
+$$
 
 とも書けます。左辺は非負な平方ノルムの和なので、$\rho_{Rbc}^{1/2}(I_R\otimes Q)=0$ です。随伴を取って逆順の積も0と分かり、支持が $I_R\otimes P$ 側だけにあるため、
 
@@ -292,7 +292,7 @@ $$
 
 を使います。ここでも $\Psi^+_{bc}:=\lvert\Psi^+\rangle\langle\Psi^+\rvert_{bc}$ は射影密度演算子を表し、$\Phi_{bc}$ と区別します。これらの状態ベクトルを用いて
 
-$
+$$
 \lvert\Omega_p\rangle_{Rbc}
 =\sqrt{1-p}\lvert0\rangle_R\lvert\Phi\rangle_{bc}
 +\sqrt p\lvert1\rangle_R\lvert\Psi^+\rangle_{bc}
