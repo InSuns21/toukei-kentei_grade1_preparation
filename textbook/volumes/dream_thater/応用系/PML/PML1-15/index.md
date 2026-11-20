@@ -71,13 +71,13 @@ $$
 <!-- definition-example-start: def-pml1-15-rigid-action -->
 **定義の確認**（具体的な剛体変換）。 $R=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$、$g=(R,(1,0)^{\mathsf T})$、$h=(I_2,(0,2)^{\mathsf T})$、$q=((1,0)^{\mathsf T},(0,0)^{\mathsf T})$ とする。まず $g,h$ が定義の集合 $E(2)$ に属することを確かめる。
 
-$
+$$
 R^{\mathsf T}R
 =\begin{pmatrix}0&1\\-1&0\end{pmatrix}
 \begin{pmatrix}0&-1\\1&0\end{pmatrix}
 =I_2,
 \qquad \det R=1.
-$
+$$
 
 $I_2^{\mathsf T}I_2=I_2$ でもあるので $R,I_2\in O(2)$、従って $g,h\in E(2)$ である。次に、$b=(0,2)^{\mathsf T}$ について $Rb=(-2,0)^{\mathsf T}$ だから $gh=(R,(-1,0)^{\mathsf T})$。第1粒子について
 
@@ -97,10 +97,10 @@ $$
 
 ここで変えているのは**空間に対する粒子全体の配置**であり、粒子ラベルは交換していない。また $g$ は時間によらず固定している。時刻 $t$ の関数である軌道 $q_i(t)$ について、点は $t$ に関する常微分を表す。
 
-$
+$$
 \dot q_i(t)=\frac{dq_i(t)}{dt},\qquad
 \ddot q_i(t)=\frac{d^2q_i(t)}{dt^2}.
-$
+$$
 
 速度を $v=(v_1,\ldots,v_N)$、$v_i=\dot q_i$ とすれば、変換後の軌道を微分して $v_i\mapsto Rv_i$ となる。並進ベクトル $a$ は速度に加算しない。時間依存の並進やGalilei変換は後で区別する。
 
@@ -132,12 +132,12 @@ $$
 
 ポテンシャルエネルギーは位置の関数で、力は各位置成分に関する負の勾配とする。$q_i=(q_{i,1},q_{i,2})^{\mathsf T}$ と表すとき、$\nabla_{q_i}U$ は他の粒子の位置を固定して第 $i$ 粒子の二つの座標で偏微分した列ベクトルである。
 
-$
+$$
 \nabla_{q_i}U
 =\begin{pmatrix}\partial U/\partial q_{i,1}\\\partial U/\partial q_{i,2}\end{pmatrix},
 \qquad
 F_i=-\nabla_{q_i}U.
-$
+$$
 
 以後 $F_{i,k}$ は第 $i$ 粒子の力 $F_i$ の第 $k$ 座標成分を表す。ここで「不変なスカラーを微分したら不変なベクトルになる」と考えるのは誤りである。微分の際には、入力の回転が方向成分へ移る。
 
