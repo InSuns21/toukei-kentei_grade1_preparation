@@ -1,7 +1,7 @@
 chapter: PML1-09
 scope: dream-theater
 coverage: complete
-prerequisites: [PML1-08, STO11]
+prerequisites: [PML1-08, STO11, OTR21, PDE1, TOP5A, VC4]
 concepts:
   - id: physics-machine-learning.continuous-gibbs-density
     name: 連続状態のGibbs確率密度
@@ -10,6 +10,7 @@ concepts:
     introduction_aliases: ["定義（連続状態のGibbs確率密度）"]
     requires:
       - physics-machine-learning.finite-loss-gibbs
+      - transport.gibbs-density
   - id: physics-machine-learning.invariant-probability-distribution
     name: 不変確率分布
     kind: definition
@@ -24,6 +25,7 @@ concepts:
     introduction_aliases: ["命題（整合Langevin拡散のFokker–Planck方程式）"]
     requires:
       - stochastic.fokker-planck-equation
+      - pde.pde1-partial-differential-equation
       - physics-machine-learning.overdamped-generator
       - physics-machine-learning.thermal-noise-matching
   - id: physics-machine-learning.zero-probability-current
@@ -44,6 +46,7 @@ concepts:
       - physics-machine-learning.zero-probability-current
       - stochastic.global-lipschitz-sde-existence-uniqueness
       - stochastic.backward-kolmogorov-equation
+      - topology.compact-support-cc
   - id: physics-machine-learning.quadratic-lower-bound-normalization
     name: 二次下界を持つ損失では正規化と一階モーメントが有限
     kind: proposition
