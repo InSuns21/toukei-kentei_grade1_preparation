@@ -9,6 +9,8 @@ import {expectedFCG6Samples,compareFCG6Readback,fcg6State,fcg6PixelCell} from '.
 import {expectedFCG7Samples,compareFCG7Readback,fcg7State} from './fcg7-lab-core.mjs';
 import {expectedFCG8Samples,compareFCG8Readback,fcg8State} from './fcg8-lab-core.mjs';
 import { highlightSource } from './wgl-lab-highlight.mjs';
+import {mountSmokeObservation} from './wgl-fcg-fluid-visual.mjs';
+import {mountReferenceObservation} from './wgl-fcg-reference-visual.mjs';
 import { compareWGL2Readback, expectedWGL2Samples } from './wgl2-lab-core.mjs';
 import { compareWGL3Readback, expectedWGL3Samples } from './wgl3-lab-core.mjs';
 import { compareWGL4Readback, expectedWGL4Samples } from './wgl4-lab-core.mjs';
@@ -1670,7 +1672,19 @@ if (isWGL3) {
   byId('preset').options[0].textContent = '初期の格子（添字描画）';
   byId('preset').options[1].textContent = 'fragment の構文エラー';
 }
+// A separate reference animation runs on requestAnimationFrame. Edited lesson code
+// remains in the existing sandboxed runner and is never executed by this view.
+if (isFCG5) mountSmokeObservation(byId('panel-conditions'));
+if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-conditions')});
+// Three physical panels must have square pixel footprints: avoid stretching a
+// 1x1 metre domain into ~100x240 strips at the original 320x240 default.
+const sizeHint=(isFCG4||isFCG5||isFCG6||isFCG7||isFCG8)?[900,300]:
+  isFCG3?[640,320]:isFCG2?[480,480]:
+  (lesson==='WGL1'||isWGL2||isWGL3||isWGL4)?[480,480]:[640,480];
+byId('width').value=String(sizeHint[0]);
+byId('height').value=String(sizeHint[1]);
 load();
 // 画素の期待値は、GPUに触れる前に CPU 側で示せる。
-byId('result-note').textContent = 'CPU予測: ' + oracle(320, 240)
+byId('result-note').textContent = '初期サイズでのCPU予測: ' +
+  oracle(sizeHint[0],sizeHint[1])
   .map(item => item.label + '=' + item.rgba.join('/')).join('、');
