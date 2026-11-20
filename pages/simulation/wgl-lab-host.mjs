@@ -973,7 +973,7 @@ function run() {
   const iframe = document.createElement('iframe');
   iframe.className = 'result-frame';
   // Responsive preview without changing the actual drawing-buffer resolution.
-  iframe.style.aspectRatio = payload.width + ' / ' + (payload.height + 12);
+  iframe.style.aspectRatio = payload.width + ' / ' + (payload.height + (isWGL18 ? 160 : 12));
   iframe.style.height = 'auto';
   iframe.title = 'WebGL2 実行結果（隔離 origin）';
   iframe.setAttribute('sandbox', 'allow-scripts');
