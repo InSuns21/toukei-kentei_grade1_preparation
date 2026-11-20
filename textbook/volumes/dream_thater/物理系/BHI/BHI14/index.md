@@ -233,7 +233,20 @@ $$
 \operatorname{Tr}[(\pi_M\otimes\rho_C)Z_MZ_1]=0.
 $$
 
-$Z_MZ_1$ は $M$ と $C$ 上で作用する観測演算子で、その作用素ノルムは1です。[BHI13で定義した距離 $L$](../BHI13/index.md#def-bhi13-decoupling-error)の差を $\Delta_{MC}:=\rho_{MC}-\pi_M\otimes\rho_C$、観測演算子を $O:=Z_MZ_1$ と書きます。ここで $\Delta_{MC}$ は密度演算子の差であり、先ほどのPauli演算子 $X$ とは異なります。$\Delta_{MC}$ はHermitianなので直交固有基底 $|j\rangle$ で $\Delta_{MC}=\sum_j\lambda_j|j\rangle\langle j|$ と展開できます。$\|O\|_\infty=1$ より各対角成分の絶対値は1以下なので、
+$Z_MZ_1$ は参照系 $M$ と残存系 $C$ 上の観測演算子で、その作用素ノルムは1です。[BHI13で定義した距離 $L$](../BHI13/index.md#def-bhi13-decoupling-error)の計算に用いる差と観測演算子をそれぞれ
+
+$$
+\Delta_{MC}:=\rho_{MC}-\pi_M\otimes\rho_C,
+\qquad O:=Z_MZ_1
+$$
+
+と書きます。$\Delta_{MC}$ は密度演算子の差であり、Pauli演算子 $X$ とは異なります。密度演算子はHermitianなので、その差もHermitianです。従って直交固有基底で
+
+$$
+\Delta_{MC}=\sum_j\lambda_j|j\rangle\langle j|
+$$
+
+と展開できます。$\|O\|_\infty=1$ より各対角成分の絶対値は1以下なので、
 
 $$
 \begin{aligned}
