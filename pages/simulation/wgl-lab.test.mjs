@@ -256,3 +256,6 @@ test('FCG8 editable Level Set source and shared host are wired consistently', as
   assert.ok(frag.includes('uniform sampler2D u_reinit'));
   assert.ok(frag.includes('outColor=vec4(rgb,1.0);'));
 });
+
+// Learner-first WebGL and fluid observation regressions run in the common lab suite.
+import './wgl-fcg-visual.test.mjs';
