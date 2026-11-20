@@ -19,8 +19,8 @@
 <a id="def-syz1-17-affine-singular"></a>
 
 <!-- formal-statement-start -->
-> **定義（特異点を持つ整数アフィン空間）**  
-> $B$ を $n$ 次元位相多様体、$\Delta\subset B$ を閉集合とする。$B_0=B\setminus\Delta$ 上に、重なりの遷移が $u'=Au+b$（$A\in GL(n,\mathbb Z)$、$b\in\mathbb R^n$）となる座標系があるとき、$(B,\Delta)$ を特異点を持つ整数アフィン空間と呼ぶ。各座標の整数ベクトルが張る局所格子を $\Lambda\subset TB_0$ と書く。$\Delta$ の点でのアフィン座標や $\Lambda$ の延長は定義に含まない。
+> **定義（特異整数アフィン多様体）**  
+> $B$ を $n$ 次元位相多様体、$\Delta\subset B$ を閉集合とする。$B_0=B\setminus\Delta$ 上に、重なりの遷移が $u'=Au+b$（$A\in GL(n,\mathbb Z)$、$b\in\mathbb R^n$）となる座標系があるとき、$(B,\Delta)$ を特異整数アフィン多様体と呼ぶ。各座標の整数ベクトルが張る局所格子を $\Lambda\subset TB_0$ と書く。$\Delta$ の点でのアフィン座標や $\Lambda$ の延長は定義に含まない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-syz1-17-affine-singular -->
@@ -70,7 +70,7 @@ $$
 
 [滑らかなLegendre双対](../SYZ1-09/index.md#thm-syz1-09-legendre-duality)では微分可能な凸ポテンシャルの勾配を使った。しかし、胞体の上で線形な関数の勾配は境界で跳ぶ。跳んだ傾きそのものを双対側の辺として記録すればよい。
 
-整数アフィン座標 $u\in\mathbb R^n$ で、胞体ごとに $\varphi(u)=\langle m_\sigma,u\rangle+c_\sigma$、$m_\sigma\in\mathbb Z^n$ と書ける連続関数を**整数区分線形関数**と呼ぶ。隣接胞体間の傾き差が**折れ目（kink）**である。特異アフィン空間では、これらを一つの大域関数としてではなく、局所関数の差が整数アフィン関数となるデータとして扱うことがある。これが**多価区分線形関数**の最小限の意味である。
+整数アフィン座標 $u\in\mathbb R^n$ で、胞体ごとに $\varphi(u)=\langle m_\sigma,u\rangle+c_\sigma$、$m_\sigma\in\mathbb Z^n$ と書ける連続関数を考える。各胞体では傾きが一定だが、隣接胞体の境界で跳び得る。次の定義では、その差を法線の向きとともに測る。特異アフィン多様体では大域的な一つの関数でなく、局所関数どうしの差が整数アフィン関数になるように貼る場合もある。この種の局所ポテンシャルのデータを**多価の区分線形ポテンシャル**と呼ぶ。
 
 <a id="def-syz1-17-integral-pl"></a>
 
@@ -94,7 +94,7 @@ $$
 **定義の確認**：連続性・各胞体上の整数アフィン性・折れ目の符号を別々に計算した。
 <!-- definition-example-end -->
 
-次に、凸関数の各傾きを双対格子 $M=\operatorname{Hom}(\mathbb Z^n,\mathbb Z)$ の点と考え、その凸包を作る。これは全平面の有限凸区分線形関数に対する**局所離散Legendre模型**である。一般のGross–Siebertの離散Legendre変換は、胞体とその双対胞体、局所的な多価ポテンシャル、特異アフィン構造の貼り合わせも交換するため、傾きの凸包だけに還元されない。
+次に、凸関数の各傾きを整数線形汎関数の格子 $M=\operatorname{Hom}(\mathbb Z^n,\mathbb Z)$ の点と考え、その凸包を作る。これは全平面の有限凸区分線形関数に対する**局所離散Legendre模型**である。一般のGross–Siebertの離散Legendre変換は、胞体とその双対胞体、局所的な多価ポテンシャル、特異アフィン構造の貼り合わせも交換するため、傾きの凸包だけに還元されない。
 
 <a id="def-syz1-17-discrete-legendre"></a>
 
@@ -207,7 +207,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（局所トーリック退化模型）**  
-> $\mathcal X=\{(x,y,t)\in\mathbb A^2_{\mathbb C}\times\mathbb A^1_{\mathbb C}:xy=t\}$ に射影 $f:\mathcal X\to\mathbb A^1$、$f(x,y,t)=t$ を入れる。$X_t=f^{-1}(t)$ をファイバーと呼ぶ。中心ファイバー $X_0=\{xy=0\}$ は座標直線の和であり、この族を局所トーリック退化模型と呼ぶ。これは非コンパクトな例であって、Gross–Siebertの偏極された射影的トーリック退化の全条件を備えるとは主張しない。
+> アフィン空間内の次の部分多様体と射影を考える。
+
+$$
+\mathcal X=\{(x,y,t)\in\mathbb A^2_{\mathbb C}\times\mathbb A^1_{\mathbb C}:xy=t\},
+\qquad f:\mathcal X\longrightarrow\mathbb A^1_{\mathbb C},\quad f(x,y,t)=t.
+$$
+
+> $X_t=f^{-1}(t)$ をファイバーと呼ぶ。中心ファイバー $X_0=\{xy=0\}$ は二つの座標直線の和である。この族を局所トーリック退化模型と呼ぶ。非コンパクトな局所例であり、偏極された射影的なトーリック退化の全条件は備えていない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-syz1-17-toric-local-degeneration -->
@@ -221,7 +228,7 @@ $t\ne0$ なら $x\ne0$ かつ $y=t/x$ なので、$x$ を座標として $X_t\si
 <a id="prop-syz1-17-flat-local-family"></a>
 
 <!-- formal-statement-start -->
-> **命題（$xy=t$ の平坦性と局所的な交叉）**  
+> **命題（交叉退化模型の平坦性と局所的な交叉）**  
 > 上の族の座標環 $A=\mathbb C[x,y,t]/(xy-t)\simeq\mathbb C[x,y]$ は $\mathbb C[t]$ 上自由加群であり、特に平坦である。また $t\ne0$ のファイバーは滑らかで、中心ファイバー $X_0$ は原点で横断する二本の直線からなる。
 <!-- formal-statement-end -->
 
@@ -257,7 +264,13 @@ $t\ne0$ では $\partial(xy-t)/\partial x=y$ と $\partial(xy-t)/\partial y=x$ �
 
 <!-- formal-statement-start -->
 > **定義（形式的な壁の次数別整合性）**  
-> $R=\mathbb C[x^{\pm1},y^{\pm1}][[t]]$ に対し、$t$ を固定し、$x,y$ を定数項が $x,y$ である可逆な形式級数に送る座標変換を考える。二つの壁横断経路の合成を $G,H$ としたとき、$G(x)-H(x)$ と $G(y)-H(y)$ が共に $t^N R$ に属すれば「$t^N$ を法として整合的」と呼ぶ。全ての $N$ で一致するとき、形式的に整合的という。
+> 形式級数環 $R=\mathbb C[x^{\pm1},y^{\pm1}][[t]]$ で $t$ を固定する。$x,y$ を定数項がそれぞれ $x,y$ となる可逆な形式級数へ送る変換を考える。二経路での合成を $G,H$ とするとき、次の二条件が成り立つ場合を「$t^N$ を法として整合的」という。
+
+$$
+G(x)-H(x)\in t^N R,\qquad G(y)-H(y)\in t^N R.
+$$
+
+> 全ての正整数 $N$ で整合するとき、形式的に整合的という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-syz1-17-tadic-consistency -->
@@ -543,7 +556,7 @@ $$
 
 二成分は $A_t\circ B_t$ に $t^3$ を法として一致する。$1+t^2xy$ は形式冪級数の単元なので、途中の分母も意味を持つ。
 
-**4. 論理の境界。** 第1問は局所的な双対胞体、第2〜3問は指定した二壁の二次整合性を証明した。これらはあるコンパクトな $(B,\Delta,\mathscr P,\varphi)$ のpositive/simple条件、log構造の存在、全次数の壁整合、大域的な退化の再構成、ましてSLagトーラス束の存在を証明しない。[Gross–Siebertの外部定理](#thm-syz1-17-gross-siebert-scope)を使うには、それぞれの仮定を別に確認する必要がある。
+**4. 論理の境界。** 第1問は局所的な双対胞体、第2〜3問は指定した二壁の二次整合性を証明した。これらはあるコンパクトな $(B,\Delta,\mathscr P,\varphi)$ のpositive/simple条件、log構造の存在、全次数の壁整合、大域的な退化の再構成、ましてSLagトーラス束の存在を証明しない。[本章で掲げた再構成結果の仮定](#thm-syz1-17-gross-siebert-scope)を使うには、それぞれの仮定を別に確認する必要がある。
 <!-- solution-end -->
 
 ## 8. 次講への接続
