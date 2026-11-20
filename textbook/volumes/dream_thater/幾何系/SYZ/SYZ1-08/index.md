@@ -58,15 +58,18 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（二つの変形・コホモロジー同型）**  
-> 規格化されたKähler多様体における、固定位相のコンパクト・境界なしSLagトーラスをファイバーとする滑らかな局所自明束 $\pi:X_0\to B_0$ を取る。各 $b\in B_0$ において、上記の対応
+> 複素次元 $n\ge1$ の規格化されたKähler多様体 $(X,J,g,\omega,\Omega)$ と、実 $n$ 次元基底 $B_0$ 上に局所的に位相 $\theta$ を固定した連結・コンパクト・境界なしSLagトーラス $L_b\cong T^n$ をファイバーとして持つ滑らかな局所自明束 $\pi:X_0\to B_0$ を取る。$\chi=\operatorname{Im}(e^{-i\theta}\Omega)$ とし、$v\in T_bB_0$ のファイバー沿いの持ち上げを $\widetilde v$ とする。対応
 
 $$
-\mathcal A_b:T_bB_0\xrightarrow{\ \cong\ }H^1(L_b;\mathbb R),
-\qquad
-\mathcal C_b:T_bB_0\xrightarrow{\ \cong\ }H^{n-1}(L_b;\mathbb R)
+\begin{aligned}
+\mathcal A_b(v)&=[\alpha_v]\in H^1(L_b;\mathbb R),
+&\alpha_v&=-\bigl(\iota_{\widetilde v}\omega\bigr)|_{L_b},\\
+\mathcal C_b(v)&=[\beta_v]\in H^{n-1}(L_b;\mathbb R),
+&\beta_v&=\bigl(\iota_{\widetilde v}\chi\bigr)|_{L_b}
+\end{aligned}
 $$
 
-> は実ベクトル空間の線形同型であり、$\mathcal C_b(v)=[*_{L_b}\alpha_v]$ である。
+> はいずれも実ベクトル空間の線形同型であり、$\mathcal C_b(v)=[*_{L_b}\alpha_v]$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -155,7 +158,19 @@ $$
 
 **定義の確認**
 
-$X=(\mathbb C/(\mathbb Z+i\mathbb Z))^2$、$z^j=x^j+i y^j$、$\omega=dx^1\wedge dy^1+dx^2\wedge dy^2$、$\Omega=dz^1\wedge dz^2$、$\pi([x+iy])=[y]$ とする。ファイバーを $dx^1\wedge dx^2$ の向きに取ると、$dy^j|_{L_y}=0$ なので $\omega|_{L_y}=0$、$\Omega|_{L_y}=dx^1\wedge dx^2=\operatorname{vol}_{L_y}$。したがって位相0のSLagトーラスである。
+$X=(\mathbb C/(\mathbb Z+i\mathbb Z))^2$ とし、実座標 $x^j,y^j\pmod{\mathbb Z}$ を使って
+
+$$
+z^j=x^j+i y^j,\qquad
+\omega=dx^1\wedge dy^1+dx^2\wedge dy^2,
+$$
+
+$$
+\Omega=dz^1\wedge dz^2,\qquad
+\pi([x+iy])=[y]
+$$
+
+と定める。ファイバーを $dx^1\wedge dx^2$ の向きに取ると、$dy^j|_{L_y}=0$ なので $\omega|_{L_y}=0$、$\Omega|_{L_y}=dx^1\wedge dx^2=\operatorname{vol}_{L_y}$。したがって位相0のSLagトーラスである。
 
 法線方向 $V_j=\partial_{y^j}$ に対し
 
@@ -267,7 +282,26 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず第2節の [$\mathcal A_b,\mathcal C_b$ の同型](#prop-syz1-08-two-cohomology-isomorphisms) を使う。$T^n$ について $H_1(T^n;\mathbb Z)$、$H_{n-1}(T^n;\mathbb Z)$ はそれぞれ階数 $n$ の自由群である。de Rhamコホモロジーとサイクルの積分対応は非退化であるから、各 $b$ で
+まず第2節の [$\mathcal A_b,\mathcal C_b$ の同型](#prop-syz1-08-two-cohomology-isomorphisms) を使う。基底の実次元が $n$ なので、$H^1(L_b;\mathbb R)$ と $H^{n-1}(L_b;\mathbb R)$ はともに実次元 $n$ である。
+
+ここでサイクルとの積分が各コホモロジー類を判定できる理由を、$L_b\cong T^n=(\mathbb R/\mathbb Z)^n$ の座標 $s^1,\ldots,s^n$ で確かめる。$\widehat{ds^j}$ はその因子を除くことを意味するとし、
+
+$$
+\sigma_j=ds^j,\qquad
+\rho_j=(-1)^{j-1}ds^1\wedge\cdots\wedge
+\widehat{ds^j}\wedge\cdots\wedge ds^n
+$$
+
+と置く。$\gamma_i^0$ を第 $i$ 座標の正向き円周、$\delta_i^0$ を第 $i$ 座標を固定した $(n-1)$ 次元トーラス（$\rho_i$ が正になる向き）とすれば、各座標の周期が1であるため
+
+$$
+\int_{\gamma_i^0}\sigma_j=\delta_{ij},\qquad
+\int_{\delta_i^0}\rho_j=\delta_{ij}
+$$
+
+となる。$n=1$ では $\rho_1=1$、$\delta_1^0$ は正の点1個と解釈する。これらの閉形式のコホモロジー類は積分行列が単位行列なのでそれぞれ一次独立で、上の次元 $n$ と合わせると各群の基底である。従ってサイクルへの積分は両方の群で非退化であり、任意の整数サイクル基底へ替えても $GL(n,\mathbb Z)$ の可逆な基底変換を合成するだけである。
+
+よって各 $b$ で
 
 $$
 v\longmapsto
@@ -375,6 +409,20 @@ $$
 \beta_v=\sqrt{a_1a_2}
 \bigl(v^1dx^2-v^2dx^1\bigr).
 $$
+
+後者は $\chi=\sqrt{a_1a_2}(dy^1\wedge dx^2+dx^1\wedge dy^2)$ の縮約から得られる。計量側からも対応を確かめる。$L_y$ 上の正向き正規直交余接基底は $e^j=\sqrt{a_j}\,dx^j$ なので、$*e^1=e^2$、$*e^2=-e^1$ により
+
+$$
+*dx^1=\sqrt{\frac{a_2}{a_1}}\,dx^2,\qquad
+*dx^2=-\sqrt{\frac{a_1}{a_2}}\,dx^1,
+$$
+
+$$
+*\alpha_v=\sqrt{a_1a_2}
+\bigl(v^1dx^2-v^2dx^1\bigr)=\beta_v.
+$$
+
+ここで星はファイバーの誘導計量と向きに対するHodge星であり、外側の基底速度 $v^j$ は固定して形式に作用している。
 
 第4節と同じ整数サイクル基底 $\gamma_1=[x^1],\gamma_2=[x^2]$ および $\delta_1=[x^2],\delta_2=-[x^1]$ で積分すれば、
 
@@ -524,7 +572,14 @@ $\partial K$ のうち $\partial\gamma$ に対応する部分は $\gamma$ がサ
 
 - Level: B
 
-二次元余接空間の格子 $\Lambda=\mathbb Z\,du^1\oplus\mathbb Z\,du^2$ とする。$A=\begin{pmatrix}1&1\\1&2\end{pmatrix}$、$B=\begin{pmatrix}1&1/2\\0&1\end{pmatrix}$ に対し、$Adu$ と $Bdu$ の各成分の整数係数の線形結合で張る格子が、それぞれ $\Lambda$ と一致するか、生成元の逆変換まで示して判定せよ。
+二次元余接空間の格子 $\Lambda=\mathbb Z\,du^1\oplus\mathbb Z\,du^2$ とする。$du=(du^1,du^2)^{\mathsf T}$ を列ベクトルとして
+
+$$
+A=\begin{pmatrix}1&1\\1&2\end{pmatrix},\qquad
+B=\begin{pmatrix}1&1/2\\0&1\end{pmatrix}
+$$
+
+を考える。$Adu$ と $Bdu$ の各成分の整数係数の線形結合で張る格子が、それぞれ $\Lambda$ と一致するか、生成元の逆変換まで示して判定せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -555,7 +610,14 @@ $$
 u=(4y^1,9y^2),\qquad t=(6y^1,6y^2).
 $$
 
-$\Lambda_\omega^*=\mathbb Z(4dy^1)\oplus\mathbb Z(9dy^2)$、$\Lambda_\Omega^*=\mathbb Z(6dy^1)\oplus\mathbb Z(6dy^2)$ である。$y^1=u^1/4$、$y^2=u^2/9$ を代入すると
+二つの余接格子は
+
+$$
+\Lambda_\omega^*=\mathbb Z(4dy^1)\oplus\mathbb Z(9dy^2),\qquad
+\Lambda_\Omega^*=\mathbb Z(6dy^1)\oplus\mathbb Z(6dy^2)
+$$
+
+である。$y^1=u^1/4$、$y^2=u^2/9$ を代入すると
 
 $$
 t=(\tfrac32u^1,\tfrac23u^2),\qquad
@@ -664,7 +726,7 @@ $$
 =\begin{pmatrix}\sqrt6/2&0\\0&\sqrt6/3\end{pmatrix}.
 $$
 
-この行列の成分は整数でないため、二つの整数アフィン構造は一致しない。それでも各構造の**内部**で行う (4) の変更は $A,B\in GL(2,\mathbb Z)$ だから許される。外部定理なしに大域SLagトーラス束が存在するという主張は、この与えられた平坦模型からは導けない。
+この行列の成分は整数でないため、二つの整数アフィン構造は一致しない。それでも各構造の**内部**で行う (4) の変更は $A,B\in GL(2,\mathbb Z)$ だから許される。この平坦模型では射影 $\pi:X\to(\mathbb R/\mathbb Z)^2$ が実際に大域SLagトーラス束を与えるが、その事実から一般のCalabi–Yau多様体にも同様の大域束が存在するとは結論できない。
 <!-- solution-end -->
 
 ## 9. 何が得られ、次に何を求めるか
