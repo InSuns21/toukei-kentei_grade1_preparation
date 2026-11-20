@@ -336,6 +336,11 @@ try{
   assert.match(wgl5.log,/depthBits=\d+/);
   const shot5=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
   await writeFile('_wgl_browser_review/wgl5-initial.png',Buffer.from(shot5.data,'base64'));
+  await new Promise(ok=>setTimeout(ok,650));
+  const cameraMotion=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  assert.notEqual(cameraMotion.data,shot5.data,'WGL5 camera should move in actual WebGL frames');
+  await writeFile('_wgl_browser_review/wgl5-orbit-frame.png',Buffer.from(cameraMotion.data,'base64'));
+  console.log('WGL5 live shader-driven camera orbit differs between real browser frames: PASS');
   console.log('WGL5 real shader/camera/projection and four independent CPU pixel probes: PASS');
 
   await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const depthEnabled=true','const depthEnabled=false');})()");
@@ -426,6 +431,11 @@ try{
   assert.match(wgl9.log,/inverse transpose \(correct\)/);
   const shot9=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
   await writeFile('_wgl_browser_review/wgl9-initial.png',Buffer.from(shot9.data,'base64'));
+  await new Promise(ok=>setTimeout(ok,650));
+  const lightingMotion=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  assert.notEqual(lightingMotion.data,shot9.data,'WGL9 light should move in real WebGL frames');
+  await writeFile('_wgl_browser_review/wgl9-light-frame.png',Buffer.from(lightingMotion.data,'base64'));
+  console.log('WGL9 animated editable shader lighting changes actual Chromium image: PASS');
   console.log('WGL9 real GPU cube/sphere shaded pixels match 8 independent CPU ray oracles: PASS');
 
   await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const useCorrectNormals = true;', 'const useCorrectNormals = false;');})()");
