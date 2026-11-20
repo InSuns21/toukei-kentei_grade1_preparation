@@ -19,3 +19,4 @@
 16. [PML1-16 群平均はどのように不変モデルを作るか](textbook/volumes/dream_thater/応用系/PML/PML1-16/index.md)
 17. [PML1-17 Noetherの保存則は学習器に自動で移るか](textbook/volumes/dream_thater/応用系/PML/PML1-17/index.md)
 18. [PML1-18 Hamiltonian NNは何を構造として固定するか](textbook/volumes/dream_thater/応用系/PML/PML1-18/index.md)
+19. [PML1-19 Lagrangian NNに可逆な質量行列が必要なのはなぜか](textbook/volumes/dream_thater/応用系/PML/PML1-19/index.md)
