@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - U2-25
+  - F0-00P3A
 forward_references: []
 concepts:
   - id: robotics.rbpf-indexed-model
