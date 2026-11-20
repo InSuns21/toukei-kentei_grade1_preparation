@@ -4,7 +4,9 @@
 
 この違いを、素イデアルの数だけではなく、冪指数と剰余体の大きさで測ります。さらに [ANF2 の体の判別式](../ANF2/index.md#def-anf2-field-discriminant)が二次体のどの素数の分岐を検出するか、証明と計算をつなぎます。
 
-以下、$K/\mathbb Q$ は次数 $n=[K:\mathbb Q]\geq2$ の数体、$A=\mathcal O_K$ はその[整数環](../ANF1/index.md#def-anf1-ring-of-integers)とし、$p$ は正の有理素数です。$A$ が [Dedekind整域](../ANF3/index.md#thm-anf3-number-ring-dedekind)であることを使います。$\mathfrak p\mid(p)$ という記法は、$A$ の非零素イデアル $\mathfrak p$ が $(p)\subseteq\mathfrak p$ を満たすことを表します。
+以下、$K/\mathbb Q$ は次数 $n=[K:\mathbb Q]\geq2$ の数体、$A=\mathcal O_K$ はその[整数環](../ANF1/index.md#def-anf1-ring-of-integers)とし、$p$ は正の有理素数です。
+
+$A$ が [Dedekind整域](../ANF3/index.md#thm-anf3-number-ring-dedekind)であることを使います。$\mathfrak p\mid(p)$ とは、非零素イデアル $\mathfrak p\subset A$ が $(p)\subseteq\mathfrak p$ を満たすことを表します。
 
 <!-- definition-example-audit: strict -->
 
@@ -19,7 +21,15 @@ $$
 
 と書けます。ここで $\mathfrak p_i$ はすべて $(p)$ を含みます。積が各因子に含まれるからです。また逆に $(p)$ を含む素イデアルは、この積のいずれかの因子を含み、非零素イデアルがすべて極大であることから、その因子と一致します。
 
-指数 $e_i$ だけでは情報が足りません。各 $\mathfrak p_i$ で割った剰余環 $A/\mathfrak p_i$ の大きさも数えます。まず、この商が有限体であることを確かめます。非零元 $\alpha\in\mathfrak p_i$ の $\mathbb Q$ 上のモニック最小多項式は、[整性判定](../ANF1/index.md#thm-anf1-minimal-polynomial)から整数係数で、定数項 $a_0$ は $\alpha\ne0$ のため零でありません。多項式の等式を整理すると $a_0\in(\alpha)\subseteq\mathfrak p_i$ です。ゆえに $\mathfrak p_i\cap\mathbb Z$ は非零素イデアル $(p)$ であり、
+指数 $e_i$ だけでは情報が足りません。各 $\mathfrak p_i$ で割った剰余環 $A/\mathfrak p_i$ の大きさも数えます。まず、この商が有限体であることを確かめます。
+
+非零元 $\alpha\in\mathfrak p_i$ を一つ取ります。[整性判定](../ANF1/index.md#thm-anf1-minimal-polynomial)から、そのモニック最小多項式は整数係数です。定数項 $a_0$ は $\alpha\ne0$ のため零ではありません。多項式の等式を整理すると
+
+$$
+a_0\in(\alpha)\subseteq\mathfrak p_i
+$$
+
+です。ゆえに $\mathfrak p_i\cap\mathbb Z$ は非零素イデアル $(p)$ であり、
 
 $$
 \mathbb F_p=\mathbb Z/(p)\longrightarrow A/\mathfrak p_i
@@ -282,7 +292,11 @@ $$
 \qquad \mathfrak m_i^{m_i-1}\ne0
 $$
 
-が成り立ちます。後者は $\deg(g_i^{m_i-1})<\deg(g_i^{m_i})$ のため、$g_i^{m_i-1}$ が $g_i^{m_i}$ の倍数ではないからです。一方、[Dedekind整域の分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)により $(p)=\prod_i\mathfrak p_i^{e_i}$。互いに素な冪による商の直積では、$i$ 番目の局所成分は $A/\mathfrak p_i^{e_i}$ で、極大イデアルの冪が零になる最小指数は、[局所単項性](../ANF3/index.md#lem-anf3-local-principal)と $\mathfrak p_i^{e_i-1}\ne\mathfrak p_i^{e_i}$ から $e_i$ です。
+が成り立ちます。$g_i^{m_i-1}$ の次数は $g_i^{m_i}$ の次数より小さく、前者は後者で割り切れません。これが二つ目の不等式の根拠です。
+
+一方、[Dedekind整域の素イデアル分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)から $(p)=\prod_i\mathfrak p_i^{e_i}$。互いに素な冪による商の直積に分けると、$i$ 番目は $A/\mathfrak p_i^{e_i}$ です。
+
+この局所成分で極大イデアルの冪が零になる最小指数は $e_i$ です。[局所単項性](../ANF3/index.md#lem-anf3-local-principal)から $\mathfrak p_i^{e_i-1}\ne\mathfrak p_i^{e_i}$ となるためです。
 
 この局所成分は $R_i$ と同型なので、最小指数を比較して $e_i=m_i$ です。
 <!-- proof-end -->
@@ -392,7 +406,11 @@ $K=\mathbb Q(\sqrt2)$、$p=3$ とする。$T^2-2$ を法 $3$ で調べ、$(3)$ �
 - ID: ANF4-A1
 
 <!-- solution-start -->
-**詳細解答**　$\overline h=T^2+1$ です。$T=0,1,2$ を代入した値は順に $1,2,2$ なので根はありません。二次式なので既約です。[整数環が単項生成されるときの素イデアル分解](#thm-anf4-monogenic-factorization)より $(3)$ 自身が素イデアル、$g=1,e_1=1,f_1=2$ で惰性です。[次数公式](#thm-anf4-fundamental-identity)では $1\cdot2=2$。整数基底 $(1,\sqrt2)$ での加法商は $\mathbb F_3^2$ なので $N((3))=3^2=9$ です。
+**詳細解答**　$\overline h=T^2+1$ です。$T=0,1,2$ の代入値は順に $1,2,2$ で、根はありません。二次式なので既約です。
+
+[整数環が単項生成されるときの素イデアル分解](#thm-anf4-monogenic-factorization)を適用すると、$(3)$ 自身が素イデアルです。従って $g=1,e_1=1,f_1=2$ で惰性です。
+
+[次数公式](#thm-anf4-fundamental-identity)の左辺は $1\cdot2=2$。整数基底 $(1,\sqrt2)$ から、加法群として $A/(3)\cong\mathbb F_3^2$ なので $N((3))=3^2=9$ です。
 <!-- solution-end -->
 
 ### A2. 二つの素イデアルを作る
@@ -546,7 +564,11 @@ $K=\mathbb Q(\sqrt{-5})$、$s=\sqrt{-5}$、$A=\mathbb Z[s]$ とする。
 <!-- solution-start -->
 **詳細解答**
 
-**1. 判別式。** $-5\equiv3\pmod4$ なので $A=\mathbb Z[s]$、$\theta=s$ の多項式は $h=T^2+5$ です。[二次体の判別式公式](../ANF2/index.md#thm-anf2-quadratic-discriminant)から $D_K=4(-5)=-20$。これを割る $2,5$ は [二次体の分岐判定](#thm-anf4-quadratic-splitting)で分岐します。$p=3$ では $D_K\equiv1$ は非零平方なので完全分裂、$p=11$ では $D_K\equiv2$ で非平方（平方集合 $1,3,4,5,9$）なので惰性です。
+**1. 判別式。** $-5\equiv3\pmod4$ より $A=\mathbb Z[s]$ で、$s$ の多項式は $h=T^2+5$ です。
+
+[二次体の判別式公式](../ANF2/index.md#thm-anf2-quadratic-discriminant)から $D_K=4(-5)=-20$。これを割る $2,5$ は [二次体での分裂・惰性・分岐判定](#thm-anf4-quadratic-splitting)から分岐します。
+
+$p=3$ では $D_K\equiv1\pmod3$ は非零平方なので完全分裂です。$p=11$ では $D_K\equiv2\pmod{11}$ は非平方なので惰性です（法 $11$ の非零平方は $1,3,4,5,9$）。
 
 **2. イデアルと指数。** 多項式を法 $p$ へ落として [整数環が単項生成されるときの素イデアル分解](#thm-anf4-monogenic-factorization)を適用します。
 
