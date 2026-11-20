@@ -242,7 +242,7 @@ $$
 <!-- solution-start -->
 **詳細解答。** $|\Psi_H\rangle$ では $R$ は純粋、$bc$ はBell対なので $\rho_b=I_2/2$ の固有値は $(1/2,1/2)$、$\rho_{bc}$ の非零固有値は $(1)$、$\rho_{Rb}=|0\rangle\langle0|\otimes I_2/2$ は非零固有値 $(1/2,1/2)$ です。よって $S(b)=\ln2$、$S(bc)=0$、$S(c)=\ln2$、$S(Rb)=\ln2$、$S(R)=0$。$(\Delta,h,q)=(\ln2,\ln2,0)$。
 
-$|\Psi_U\rangle$ では $Rb$ がBell対だから $\rho_{Rb}$ の固有値は $(1,0,0,0)$、$\rho_R=\rho_b=I_2/2$、$\rho_{bc}=I_2/2\otimes|0\rangle\langle0|$ は非零固有値 $(1/2,1/2)$ です。$\rho_c$ は純粋なので $(\Delta,h,q)=(-\ln2,0,\ln2)$。いずれも $\rho_b=I_2/2$ ですが相関の相手が異なります。
+$|\Psi_U\rangle$ では $Rb$ がBell対だから $\rho_{Rb}$ の非零固有値は $(1)$、$\rho_R=\rho_b=I_2/2$、$\rho_{bc}=I_2/2\otimes|0\rangle\langle0|$ は非零固有値 $(1/2,1/2)$ です。$\rho_c$ は純粋なので $(\Delta,h,q)=(-\ln2,0,\ln2)$。いずれも $\rho_b=I_2/2$ ですが相関の相手が異なります。
 <!-- solution-end -->
 
 <a id="ex-bhi16-a02"></a>
@@ -400,7 +400,7 @@ $t_{\rm scr}$ は内部の実際の時間発展とscrambling判定から別に�
 <!-- solution-start -->
 **詳細解答。**
 
-(1) [累積必要条件](#prop-bhi16-aggregate-error-budget)を各段に使います。各段で $\Delta_k\ge\ln2-0.1\ln2-0.1\ln2=0.8\ln2$ ですから
+(1) $\Delta_k:=S(R_k)-S(R_{k-1})$ と置き、[累積必要条件](#prop-bhi16-aggregate-error-budget)の一段の評価を使います。各段で $\Delta_k\ge\ln2-0.1\ln2-0.1\ln2=0.8\ln2$ ですから
 
 $$
 S(R_4)=S(R_0)+\sum_{k=1}^4\Delta_k
