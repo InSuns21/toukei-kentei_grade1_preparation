@@ -22,7 +22,7 @@ $$
 
 計量 $g$ は二つの接ベクトルへ実数を返す対称な双線形形式であり、Kähler形式 $\check\omega$ は二つの接ベクトルへ実数を返す交代2形式である。複素構造 $J$ と $g$ の組に対して $\check\omega(V,W)=g(JV,W)$ とする。ここではKähler計量の要件を、$g$ が正定値で、$J$ と両立し、$d\check\omega=0$ であることとして確認する。[正の基本形式とHermite行列の対応](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)で学んだ判定を、今回は実座標で構成する。
 
-以後、$\partial_i=\partial/\partial u^i$ は他の $u$ と $v$ を固定した偏微分を表す。座標接ベクトル $V=\sum_i(a^i\partial_{u^i}+b^i\partial_{v^i})$ の列成分を $a,b$ とすると、定義する実計量の係数行列が $(u,v)$ 基底で $\operatorname{diag}(H,H)$ となり、$g(V,V)=a^{\mathsf T}Ha+b^{\mathsf T}Hb$ となる。したがってHessianの正定値性は、計量の正定値性を直接判定するための条件である。
+以後、$\partial_i=\partial/\partial u^i$ は他の $u$ と $v$ を固定した偏微分を表す。座標接ベクトル $V=\sum_i(a^i\partial_{u^i}+b^i\partial_{v^i})$ の列成分を $a,b$ とすると、これから定義する実計量 $\check g$ の係数行列が $(u,v)$ 基底で $\operatorname{diag}(H,H)$ となり、$\check g(V,V)=a^{\mathsf T}Ha+b^{\mathsf T}Hb$ となる。したがってHessianの正定値性は、計量の正定値性を直接判定するための条件である。
 
 <a id="def-syz1-11-semiflat-kahler"></a>
 
@@ -375,10 +375,10 @@ $$
 <!-- definition-example-start: def-syz1-11-flat-holonomy -->
 ### 直接例：符号と整数ゲージ変換
 
-$L_b=S^1$、$\nabla_v=d-2\pi i v\,dx$、$v=1/4$ とする。平行断面は微分方程式 $s'(x)-2\pi i v s(x)=0$ を満たし、その解は $s(x)=e^{2\pi i vx}s(0)$、したがって $s(1)=e^{\pi i/2}s(0)=i\,s(0)$。曲率は $-2\pi i v\,d(dx)=0$、よってファイバー上で平坦である。$v'=v+1$ に替えたとき、周期1の関数 $g(x)=e^{-2\pi i x}$ を用いると
+$L_b=S^1$、$\nabla_v=d-2\pi i v\,dx$、$v=1/4$ とする。平行断面は微分方程式 $s'(x)-2\pi i v s(x)=0$ を満たし、その解は $s(x)=e^{2\pi i vx}s(0)$、したがって $s(1)=e^{\pi i/2}s(0)=i\,s(0)$。曲率は $-2\pi i v\,d(dx)=0$、よってファイバー上で平坦である。$v'=v+1$ に替えたとき、周期1のゲージ関数 $h(x)=e^{-2\pi i x}$ を用いると
 
 $$
-g^{-1}\nabla_v(gs)=ds+(g^{-1}dg-2\pi i v\,dx)s
+h^{-1}\nabla_v(hs)=ds+(h^{-1}dh-2\pi i v\,dx)s
 =\bigl(d-2\pi i(v+1)\,dx\bigr)s=\nabla_{v+1}s.
 $$
 
