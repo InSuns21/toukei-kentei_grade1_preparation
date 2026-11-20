@@ -27,7 +27,7 @@
 
 ## 2. 位置誤差と座標合わせ
 
-平面位置の誤差は、真値と推定値を**同じ座標系**に置いて初めて引き算できます。方位角については[平面角度の正規化](../U2-06/index.md#def-u2-06-planar-pose)と同様に、差を $(-\pi,\pi]$ の一つの代表値へ戻します。角度が枝の境界を広くまたぐ分布では、この代表値をそのまま Gaussian と扱いません。
+平面位置の誤差は、真値と推定値を**同じ座標系**に置いて初めて引き算できます。方位角については[角度の正規化](../U2-06/index.md#def-u2-06-angle-wrap)と同様に、差を $(-\pi,\pi]$ の一つの代表値へ戻します。角度が枝の境界を広くまたぐ分布では、この代表値をそのまま Gaussian と扱いません。
 
 <a id="def-u2-27-trajectory-rmse"></a>
 
@@ -65,7 +65,13 @@ $$
 J(\phi,a)=\sum_{i=1}^n\|R_\phi\hat p_i+a-p_i^*\|^2
 $$
 
-> を最小にする操作を位置合わせと呼ぶ。$R_\phi=\begin{pmatrix}\cos\phi&-\sin\phi\\ \sin\phi&\cos\phi\end{pmatrix}$ とし、拡大縮小は許さない。位置合わせした RMSE は、元の絶対座標誤差と区別して報告する。
+> を最小にする操作を位置合わせと呼ぶ。回転行列は
+
+$
+R_\phi=\begin{pmatrix}\cos\phi&-\sin\phi\\ \sin\phi&\cos\phi\end{pmatrix}
+$
+
+> であり、拡大縮小は許さない。位置合わせした RMSE は、元の絶対座標誤差と区別して報告する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u2-27-rigid-alignment -->
@@ -205,12 +211,12 @@ $$
 
 ## 4. 被覆率：誤差が報告した範囲に入るか
 
-NEES は平均の診断だけでなく、ある信頼度を指定した**誤差楕円**の判定にも使えます。$\chi^2_d$ 分布で $P(\chi^2_d\le q_{d,\alpha})=1-\alpha$ となる数を $q_{d,\alpha}$ と定めます。これは例えば $\alpha=0.05$ が「95% の基準範囲」を意味します。
+NEES は平均の診断だけでなく、ある信頼度を指定した**共分散に基づく楕円領域**の判定にも使えます。$\chi^2_d$ 分布で $P(\chi^2_d\le q_{d,\alpha})=1-\alpha$ となる数を $q_{d,\alpha}$ と定めます。これは例えば $\alpha=0.05$ が「95% の基準範囲」を意味します。
 
 <a id="def-u2-27-coverage"></a>
 
 <!-- formal-statement-start -->
-> **定義（誤差楕円の被覆率）**  
+> **定義（楕円領域の被覆率）**  
 > 固定された世界座標と各試行 $r=1,\ldots,N$ の真値・推定値・対称正定値行列 $(x_r^*,\hat x_r,P_r)$ があり、同じ状態次元 $d$ と基準値 $q_{d,\alpha}$ を使うとする。報告された楕円と経験被覆率は
 
 $$
@@ -235,7 +241,26 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（Gaussian 基準での被覆率）**  
-> 各試行について、報告行列 $P_r\succ0$ を条件として $e_r=\hat x_r-x_r^*\sim N_d(0,P_r)$ が成立するなら、各試行の楕円被覆確率は $1-\alpha$ であり、経験被覆率の期待値も $1-\alpha$ である。試行間独立性は期待値の結論に不要である。さらに指示関数が互いに独立で同じ被覆確率 $1-\alpha$ なら、経験被覆率の分散は $\alpha(1-\alpha)/N$ である。
+> 各試行の報告行列 $P_r\succ0$ を条件として、状態誤差が次の分布に従うとする。
+
+$
+e_r=\hat x_r-x_r^*\sim N_d(0,P_r).
+$
+
+> このとき楕円被覆確率と経験被覆率の期待値は、いずれも次の値になる。
+
+$
+P(x_r^*\in\mathcal E_r)=E[\widehat{\operatorname{Cov}}_{1-\alpha}]=1-\alpha.
+$
+
+> この期待値の結論に試行間独立性は不要である。さらに試行ごとの被覆指示関数が互いに独立なら、経験被覆率の分散は
+
+$
+\operatorname{Var}(\widehat{\operatorname{Cov}}_{1-\alpha})
+=\frac{\alpha(1-\alpha)}{N}
+$
+
+> となる。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -323,7 +348,7 @@ $$
 位置誤差 $e=(1,2)^T$ m と、報告分散共分散行列 $P=\operatorname{diag}(1,4)$ $\mathrm m^2$ について、正定値性を確認して NEES を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：任意の非零 $v=(a,b)^T$ で $v^TPv=a^2+4b^2>0$ なので $P\succ0$。逆行列は $\operatorname{diag}(1,1/4)$ です。[NEES の定義](#def-u2-27-nees)から $e^TP^{-1}e=1+4/4=2$ となり、無次元です。
+**詳細解答**：任意の非零 $v=(a,b)^T$ で $v^TPv=a^2+4b^2>0$ なので $P\succ0$。逆行列は $\operatorname{diag}(1,1/4)$ です。[正規化推定誤差二乗（NEES）](#def-u2-27-nees)から $e^TP^{-1}e=1+4/4=2$ となり、無次元です。
 <!-- solution-end -->
 
 <a id="ex-u2-27-a04"></a>
@@ -333,7 +358,7 @@ $$
 観測前の二次元残差 $\nu=(0.2,0.1)^T$ m、予測共分散 $S=\operatorname{diag}(0.04,0.01)$ $\mathrm m^2$ を与える。NIS を計算し、真値が必要か答えよ。
 
 <!-- solution-start -->
-**詳細解答**：$S$ の対角は正で $S^{-1}=\operatorname{diag}(25,100)$。 [NIS の定義](../U2-10/index.md#def-u2-10-nis)より $\nu^TS^{-1}\nu=0.2^2\cdot25+0.1^2\cdot100=1+1=2$。これは予測と実測の差を用いるので、状態真値は不要です。
+**詳細解答**：$S$ の対角は正で $S^{-1}=\operatorname{diag}(25,100)$。 [正規化 innovation 二乗（NIS）](../U2-10/index.md#def-u2-10-nis)より $\nu^TS^{-1}\nu=0.2^2\cdot25+0.1^2\cdot100=1+1=2$。これは予測と実測の差を用いるので、状態真値は不要です。
 <!-- solution-end -->
 
 <a id="ex-u2-27-a05"></a>
