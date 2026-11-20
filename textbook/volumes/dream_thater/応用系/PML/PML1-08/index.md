@@ -22,7 +22,7 @@ $N(0,hI_r)$ は平均 $0$、分散共分散行列 $hI_r$ の正規分布を表�
 
 ## 2. 過減衰Langevin方程式のドリフトと拡散
 
-決定論的な運動 $-\nabla f$ に、行列 $M$ で方向別の動きやすさを与えると、速度は $-M\nabla f$ となる。この決定論的な項を**ドリフト**と呼び、ブラウン増分に掛かる行列を**拡散係数**と呼ぶ。拡散係数 $\Sigma$ 自体と、短時間増分の分散共分散行列 $\Sigma\Sigma^\mathsf T$ は区別する。
+決定論的な運動 $-\nabla f$ に、行列 $M$ で方向別の動きやすさを与えると、速度は $-M\nabla f$ となる。この決定論的な項を**ドリフト**と呼び、ブラウン増分に掛かる $d\times r$ 行列 $\Sigma$ を**拡散係数**と呼ぶ。拡散係数 $\Sigma$ 自体と、短時間増分の分散共分散行列 $\Sigma\Sigma^\mathsf T$ は区別する。
 
 この行列積が現れる理由を確かめる。$\Delta W_t=W_{t+h}-W_t$ と置くと、$r$ 次元ブラウン増分の共分散は $hI_r$ である。拡散係数を掛けた変位 $\Sigma\Delta W_t\in\mathbb R^d$ について、転置を取る順序に注意して
 
@@ -639,7 +639,7 @@ $$
 \Sigma_2\Sigma_2^\mathsf T=2\tau RR^\mathsf T=2\tau I_2.
 $$
 
-両者のドリフトは $-\nabla f$ で、[過減衰Langevin型拡散の生成作用素](#prop-pml1-08-generator)よりどちらも $L\varphi=-\nabla f\cdot\nabla\varphi+\tau\Delta\varphi$ となる。ここで $\Delta\varphi:=\partial_{11}\varphi+\partial_{22}\varphi$ は二次元の Laplace 作用素である。しかし同じ $W$ に対し拡散項は $\sqrt{2\tau}\,dW$ と $\sqrt{2\tau}R\,dW$ で異なる。例えば $f(x)=\|x\|^2/2$、$X_0=0$ とすれば、時刻 $t>0$ の明示解の差は $\sqrt{2\tau}\int_0^t e^{-(t-s)}(I_2-R)dW_s$ で、その二乗平均は正である。実際、$(I_2-R)(I_2-R)^\mathsf T=2I_2$ だから、[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-l2-construction)より
+両者のドリフトは $-\nabla f$ で、$\Delta\varphi:=\partial_{11}\varphi+\partial_{22}\varphi$ を二次元の Laplace 作用素と定めれば、[過減衰Langevin型拡散の生成作用素](#prop-pml1-08-generator)よりどちらも $L\varphi=-\nabla f\cdot\nabla\varphi+\tau\Delta\varphi$ となる。しかし同じ $W$ に対し拡散項は $\sqrt{2\tau}\,dW$ と $\sqrt{2\tau}R\,dW$ で異なる。例えば $f(x)=\|x\|^2/2$ とし、同じ初期値 $X_0=0$ とブラウン運動 $W$ の下で $\Sigma_1,\Sigma_2$ をそれぞれ用いた解を $X^{(1)},X^{(2)}$ と書けば、時刻 $t>0$ の明示解の差は $\sqrt{2\tau}\int_0^t e^{-(t-s)}(I_2-R)dW_s$ で、その二乗平均は正である。実際、$(I_2-R)(I_2-R)^\mathsf T=2I_2$ だから、[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-l2-construction)より
 
 $
 \begin{aligned}
