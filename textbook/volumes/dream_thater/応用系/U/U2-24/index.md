@@ -22,7 +22,14 @@ $$
 
 小さな $\delta$ に対し、最後の二次項だけをいったん落として $5+6\delta$ を解きます。この操作を全因子に拡張したものが **Gauss–Newton 線形化**です。
 
-ここで使う **Jacobi 行列**は、[U2-09 で導入した一次近似の行列](../U2-09/index.md#def-u2-09-linearization-points)と同じ考え方です。残差の第 $\ell$ 成分 $e_{a,\ell}$ を未知量の第 $j$ 成分 $q_j$ で偏微分した値が $J_a$ の $(\ell,j)$ 成分です。したがって $J_a$ は $d_a\times n$ 行列で、$J_a\delta$ は各残差の一次変化を表す $d_a$ 次元列ベクトルになります。全因子の残差を縦に並べた $e(q)$ の Jacobi 行列を $J(q)$ と書き、現在点での値 $J=J(q^{(k)})$ は各 $J_a$ を縦に積み重ねた行列です。$D e_a(q)$ は「$q$ を動かして残差 $e_a$ を微分する」記法であり、$D e_a(q)=J_a$ です。
+ここで使う **Jacobi 行列**は、[U2-09 で導入した一次近似の行列](../U2-09/index.md#def-u2-09-linearization-points)と同じ考え方です。第 $k$ 回の現在点を $q^{(k)}$ と書き、残差の第 $\ell$ 成分を $e_{a,\ell}$、未知量の第 $j$ 成分を $q_j$ とします。残差の入力成分を一つずつ動かして得られる偏微分を並べたものが、次の行列です。
+
+$
+(J_a)_{\ell j}=\left.\frac{\partial e_{a,\ell}}{\partial q_j}\right|_{q=q^{(k)}},
+\qquad J_a\in\mathbb R^{d_a\times n}.
+$
+
+したがって $J_a\delta$ は、増分 $\delta$ による残差の一次変化を表す $d_a$ 次元列ベクトルです。$D e_a(q)$ は「$q$ を動かして $e_a$ を微分する」記法で、$J_a=D e_a(q^{(k)})$ となります。全因子の残差を縦に並べた列ベクトルを $e(q)$、その Jacobi 行列を $J(q)=D e(q)$ と書き、$J=J(q^{(k)})$ は各 $J_a$ を縦に積み重ねた行列です。
 
 <a id="def-u2-24-linearization"></a>
 
@@ -189,7 +196,27 @@ $$
 ここで $T_0(q)=q$ を使用しました。変換の導関数を単に「行列の固有ベクトル」と読み替えているのではなく、**残差不変性という元の条件**から $\ker J(q)$ に属することを導いています。
 
 <!-- definition-example-start: def-u2-24-gauge-fixing -->
-**定義の確認**：未知 $(x_0,x_1)$ に残差 $x_1-x_0-1$ だけがあるとき、$T_s(x_0,x_1)=(x_0+s,x_1+s)$ です。変化率は $v=(1,1)^{\mathsf T}$、$J=(-1,1)$ で $Jv=-1+1=0$ となり、定義の全条件を直接確認できます。$x_0=0$ を hard 固定すれば $x_1$ だけを解き、有限分散の事前 $\tfrac12 w_0 x_0^2$ を加えれば $x_0$ も未知量ですが重み付きで基準へ引き寄せます。
+**定義の確認**：未知量 $(x_0,x_1)$ に、残差 $e(x_0,x_1)=x_1-x_0-1$ だけがある模型を考えます。両位置を同じ量 $s\in\mathbb R$ だけ動かす変換は
+
+$
+T_s(x_0,x_1)=(x_0+s,x_1+s),\qquad
+T_0(x_0,x_1)=(x_0,x_1).
+$
+
+実際、変換の前後で残差は
+
+$
+e(T_s(x_0,x_1))=(x_1+s)-(x_0+s)-1=e(x_0,x_1)
+$
+
+と一致します。この変換を $s=0$ で微分した方向と残差の Jacobi 行列は
+
+$
+v=\begin{pmatrix}1\\1\end{pmatrix},\qquad
+J=\begin{pmatrix}-1&1\end{pmatrix},\qquad Jv=-1+1=0.
+$
+
+よって不変性、単位変換 $T_0$、微分による零方向という定義の条件をそれぞれ確認できました。$x_0=0$ の hard 固定では未知量から $x_0$ を外します。一方、平均0・正の有限分散 $1/w_0$ の独立な Gaussian 事前を置く soft 模型では、目的関数に $w_0x_0^2/2$ を足すだけで $x_0$ 自身は未知量のままです。
 <!-- definition-example-end -->
 
 <a id="thm-u2-24-gauge-null"></a>
@@ -259,7 +286,13 @@ R(\theta_i)^{\mathsf T}(p_j-p_i)-\bar d_{ij}\\
 \end{pmatrix}
 $$
 
-と置きます。測定 $\bar d_{ij}$ はロボット $i$ の座標で表す二次元変位です。$R(\theta)$ は[平面姿勢の座標変換に用いる回転行列](../U2-06/index.md#def-u2-06-rigid-transform)、$S=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ は平面の90度回転行列です。ここで $R'(\theta)$ は角度 $\theta$ に関する導関数 $dR(\theta)/d\theta$ を表し、時刻微分ではありません。[回転行列の基底表示](../U2-06/index.md#def-u2-06-rigid-transform)を成分ごとに微分すると
+と置きます。測定 $\bar d_{ij}$ はロボット $i$ の座標で表す二次元変位です。$R(\theta)$ は[平面姿勢の座標変換に用いる回転行列](../U2-06/index.md#def-u2-06-rigid-transform)です。平面の90度回転を表す行列を
+
+$
+S=\begin{pmatrix}0&-1\\1&0\end{pmatrix}
+$
+
+と置きます。ここで $R'(\theta)$ は角度 $\theta$ に関する導関数 $dR(\theta)/d\theta$ を表し、時刻微分ではありません。[回転行列の基底表示](../U2-06/index.md#def-u2-06-rigid-transform)を成分ごとに微分すると
 
 $$
 R'(\theta)=\begin{pmatrix}
