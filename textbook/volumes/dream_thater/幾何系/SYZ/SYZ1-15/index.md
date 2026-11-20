@@ -15,7 +15,7 @@
 
 ## 2. 円板の類・面積・ホロノミー
 
-$(X,\omega,J)$ をKähler曲面、$L\subset X$ を滑らかなコンパクトLagrangeトーラスとする。ここで $J$ は複素構造、$\omega$ は閉じた正の $(1,1)$ 形式で、$\omega|_L=0$ である。[滑らかなLagrangeファイバーの意味](../SYZ1-07/index.md#def-syz1-07-slag-fibration)に沿って、今は**一つの**ファイバー $L$ を固定する。
+$(X,\omega,J)$ をKähler曲面、$L\subset X$ を滑らかなコンパクトLagrangeトーラスとする。ここで $J$ は複素構造、$\omega$ は閉じた正の $(1,1)$ 形式で、$\omega|_L=0$ である。[滑らかなLagrangeファイバーの意味](../SYZ1-07/index.md#def-syz1-07-regular-fibration)に沿って、今は**一つの**ファイバー $L$ を固定する。
 
 閉単位円板を $\overline{\mathbb D}=\{|\zeta|\leq1\}$ と書く。$u:\overline{\mathbb D}\to X$ が境界を $L$ に送り、内部で複素正則なとき、$u$ は $L$ を境界とする **$J$ 正則円板**である。全空間への写像として連続で、必要な微分を行えるほど境界まで滑らかと仮定する。$\partial\mathbb D$ の向きは $\zeta=e^{i\theta}$ の $\theta$ 増加方向である。
 
@@ -69,7 +69,7 @@ $$
 \rho:H_1(L;\mathbb Z)\longrightarrow U(1)
 $$
 
-となる。[双対トーラスのホロノミー文字](../SYZ1-10/index.md#prop-syz1-10-holonomy-dual-torus)で用いたのと同じ対象である。
+となる。[双対トーラスのホロノミー文字](../SYZ1-10/index.md#prop-syz1-10-holonomy-dual)で用いたのと同じ対象である。
 
 <a id="def-syz1-15-disk-weight"></a>
 
@@ -85,7 +85,6 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-syz1-15-relative-disk -->
-<!-- definition-example-start: def-syz1-15-disk-weight -->
 ### 直接例：積トーラスの座標円板
 
 $\mathbb C^2$ に
@@ -112,8 +111,12 @@ $$
 A([u_x])=\pi R^2,\quad A([u_y])=\pi S^2.
 $$
 
-面積は $\omega_0=dx_{\mathrm{Re}}\wedge dx_{\mathrm{Im}}+dy_{\mathrm{Re}}\wedge dy_{\mathrm{Im}}$ を各円板へ引き戻すと半径 $R$ または $S$ の平面円板の通常の面積になる。$\rho(a)=h_a$、$\rho(b)=h_b$ とすると重みは $T^{\pi R^2}h_a$、$T^{\pi S^2}h_b$ である。相対類、境界、面積、局所系、正則性の各条件を独立に確かめた。
+面積は $\omega_0=dx_{\mathrm{Re}}\wedge dx_{\mathrm{Im}}+dy_{\mathrm{Re}}\wedge dy_{\mathrm{Im}}$ を各円板へ引き戻すと半径 $R$ または $S$ の平面円板の通常の面積になる。
 <!-- definition-example-end -->
+
+<!-- definition-example-start: def-syz1-15-disk-weight -->
+
+$\rho(a)=h_a$、$\rho(b)=h_b$ とすると重みは $T^{\pi R^2}h_a$、$T^{\pi S^2}h_b$ である。相対類、境界、面積、局所系、正則性の各条件を独立に確かめた。
 <!-- definition-example-end -->
 
 ## 3. Maslov指数は「円板の数」ではない
@@ -381,11 +384,9 @@ $$
 $\omega_0$ を $u_+$ に引き戻すと、半径 $\sqrt{2\lambda}$ の平面円板の面積 $2\pi\lambda$ を得る。$u_-$ でも半径 $\sqrt{-2\lambda}$ から $-2\pi\lambda$ を得る。$x$ 軸上で $\theta$ を増やす接ベクトルは $(ix,0)=V$ だから境界類は $[V]$。$y$ 軸上では $(0,iy)=-V$ なので境界類は $-[V]$。定義に代入して表示した重みを得る。$\zeta^k$ に置き換えると円板を次数 $k$ で覆い、積分と巻き数がそれぞれ $k$ 倍となる。Maslov指数は元が0なので $k\cdot0=0$ である。
 <!-- proof-end -->
 
-<!-- definition-example-start: def-syz1-15-maslov -->
-### 直接例：指数2の座標円板と指数0の壁円板
+### 比較例：指数2の座標円板と指数0の壁円板
 
 積トーラスの $u_x$ は接基底の行列式が $-RS e^{i\theta}$ となりMaslov指数2だった。ここでの $u_+$ は $x$ が一周しても第二の接ベクトル $W=(0,-i/x)$ が逆回転するため、行列式が1のままでMaslov指数0となる。**同じ「一つの座標が円板を埋める」写像でも、境界のLagrangeトーラス族が違えばMaslov指数が変わる**。同じ正則写像の座標表示から指数を推定するのではなく、境界の接平面を計算する必要がある。
-<!-- definition-example-end -->
 
 ## 6. 壁・円板計数・補正を区別する
 
