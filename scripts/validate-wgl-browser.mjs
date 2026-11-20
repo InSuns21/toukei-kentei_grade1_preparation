@@ -374,6 +374,30 @@ try{
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   console.log('WGL5 shader failure and sandbox disposal: PASS');
 
+  // WGL7: the initial checkerboard + mipmap GPU oracle stays deterministic,
+  // but the same shader must expose different temporal aliasing on the left.
+  await cdp('Page.navigate',{url:url+'?lesson=WGL7'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.match(/独立画素検算|基準画素と不一致|WebGL2実行エラー|タイムアウト/)',22000);
+  const wgl7=await evalJS('({status:document.getElementById("status").textContent,rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(x=>x.textContent)),sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
+  assert.match(wgl7.status,/独立画素検算に合格/,JSON.stringify(wgl7));
+  assert.equal(wgl7.rows.length,8);
+  assert.ok(wgl7.rows.every(x=>x[4]==='OK'),JSON.stringify(wgl7.rows));
+  assert.equal(wgl7.sandbox,'allow-scripts');
+  await evalJS('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"center"})');
+  await new Promise(ok=>setTimeout(ok,200));
+  const r7=await evalJS('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height};})()');
+  const clip7={x:r7.x,y:r7.y,width:r7.width,height:Math.min(180,r7.height),scale:1};
+  const before7=await cdp('Page.captureScreenshot',{format:'png',clip:clip7,captureBeyondViewport:true});
+  await new Promise(ok=>setTimeout(ok,860));
+  const after7=await cdp('Page.captureScreenshot',{format:'png',clip:clip7,captureBeyondViewport:true});
+  assert.notEqual(before7.data,after7.data,'WGL7 same-shader offset must cause animated aliased pixels');
+  await writeFile('_wgl_browser_review/wgl7-moving-uv.png',Buffer.from(after7.data,'base64'));
+  console.log('WGL7 checkerboard GPU 8 static probes and source-linked moving UV: PASS');
+  await click('stop');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
+
   // WGL8: real GPU fixed-function blending vs shader-based linear-light reference.
   await cdp('Page.navigate',{url:url+'?lesson=WGL8'});
   await waitFor('document.getElementById("status")?.textContent==="実行できます"');
@@ -651,6 +675,21 @@ try{
   const frameRect13=await evalJS('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height};})()');
   const clip13={...frameRect13,scale:1};
   const initial13=await cdp('Page.captureScreenshot',{format:'png',clip:clip13,captureBeyondViewport:true});
+  await new Promise(ok=>setTimeout(ok,760));
+  const later13=await cdp('Page.captureScreenshot',{format:'png',
+    clip:{...clip13,height:Math.min(190,clip13.height)},captureBeyondViewport:true});
+  const initial13Canvas=await cdp('Page.captureScreenshot',{format:'png',
+    clip:{...clip13,height:Math.min(190,clip13.height)},captureBeyondViewport:true});
+  // A second pair avoids comparing against textual output and keeps the
+  // comparison strictly within the upper canvas pixels.
+  await new Promise(ok=>setTimeout(ok,600));
+  const later13Canvas=await cdp('Page.captureScreenshot',{format:'png',
+    clip:{...clip13,height:Math.min(190,clip13.height)},captureBeyondViewport:true});
+  assert.notEqual(initial13Canvas.data,later13Canvas.data,
+    'WGL13 original cubemap shader must rotate reflected pixels during animation');
+  await writeFile('_wgl_browser_review/wgl13-environment-motion.png',
+    Buffer.from(later13Canvas.data,'base64'));
+  console.log('WGL13 dynamic 6-face cubemap rotation observed in GPU pixels: PASS');
   await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const yawDegrees = 0;', 'const yawDegrees = 90;');})()");
   await click('run');
   await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
