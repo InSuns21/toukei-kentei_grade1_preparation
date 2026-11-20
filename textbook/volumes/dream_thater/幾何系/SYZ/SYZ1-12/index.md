@@ -66,7 +66,16 @@ g=\frac32\left((dx+\tfrac12dy)^2+4dy^2\right),\qquad
 \omega=3dx\wedge dy,\qquad B=\tfrac14dx\wedge dy.
 $$
 
-$z$ の二つの周期 $1,1/2+2i$ は実一次独立である。座標変換 $(x,y)\mapsto(\operatorname{Re}z,\operatorname{Im}z)=(x+y/2,2y)$ のJacobianの行列式は $2>0$ なので、$z$ は局所複素座標として非退化である。$g(V,V)=\frac32((V^x+\frac12V^y)^2+4(V^y)^2)>0$（$V\ne0$）であり、係数が整数平行移動に不変なので $g,\omega,\Omega,B$ は格子商へ降りる。また
+$z$ の二つの周期 $1,1/2+2i$ は実一次独立である。座標変換 $(x,y)\mapsto(\operatorname{Re}z,\operatorname{Im}z)=(x+y/2,2y)$ の実Jacobianは
+$$
+J=\begin{pmatrix}1&1/2\\0&2\end{pmatrix},\qquad \det J=2>0.
+$$
+従って $z$ は局所複素座標として非退化である。接ベクトルを $V=V^x\partial_x+V^y\partial_y$ と展開すると
+$$
+g(V,V)=\frac32\left((V^x+\tfrac12V^y)^2+4(V^y)^2\right)>0
+\qquad (V\ne0).
+$$
+係数が整数平行移動に不変なので $g,\omega,\Omega,B$ は格子商へ降り、$\Omega=dz$ は商上でも零でない正則1形式である。また
 $$
 \frac i2 dz\wedge d\bar z=2\,dx\wedge dy,\qquad
 \frac A b\frac i2 dz\wedge d\bar z=\frac32\cdot2\,dx\wedge dy
