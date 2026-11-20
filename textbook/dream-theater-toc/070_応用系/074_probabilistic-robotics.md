@@ -27,3 +27,4 @@
 24. [U2-24 グラフ SLAM の数値解：Gauss–Newton と gauge 固定](textbook/volumes/dream_thater/応用系/U/U2-24/index.md)
 25. [U2-25 ループ閉合・頑健推定：再訪はいつ役に立つか](textbook/volumes/dream_thater/応用系/U/U2-25/index.md)
 26. [U2-26 Rao–Blackwell 化粒子 SLAM：何を粒子化するか](textbook/volumes/dream_thater/応用系/U/U2-26/index.md)
+27. [U2-27 推定の評価：RMSE と信用できる共分散は別](textbook/volumes/dream_thater/応用系/U/U2-27/index.md)

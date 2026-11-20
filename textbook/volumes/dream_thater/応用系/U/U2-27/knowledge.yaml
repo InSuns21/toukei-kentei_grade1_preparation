@@ -1,0 +1,55 @@
+chapter: U2-27
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-26
+forward_references: []
+concepts:
+  - id: robotics.estimator-evaluation-protocol
+    name: 推定器の評価プロトコル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（推定器の評価プロトコル）"]
+    requires: [robotics.rbpf-particle-mixture, robotics.slam-planar-gauge]
+  - id: robotics.trajectory-rmse
+    name: 位置・方位角の RMSE
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（位置・方位角の RMSE）"]
+    requires: [robotics.estimator-evaluation-protocol, robotics.planar-angle-wrap]
+  - id: robotics.rigid-trajectory-alignment
+    name: 単一剛体変換による軌跡の位置合わせ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単一剛体変換による軌跡の位置合わせ）"]
+    requires: [robotics.trajectory-rmse, robotics.slam-planar-gauge]
+  - id: robotics.planar-alignment-minimizer
+    name: 平面軌跡の最小二乗位置合わせ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平面軌跡の最小二乗位置合わせ）"]
+    requires: [robotics.rigid-trajectory-alignment]
+  - id: robotics.normalized-estimation-error-squared
+    name: 正規化推定誤差二乗、NEES
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正規化推定誤差二乗、NEES）"]
+    requires: [robotics.estimator-evaluation-protocol, robotics.slam-gn-gauge-fix]
+  - id: robotics.nees-chi-square-reference
+    name: NEES の基準分布と期待値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（NEES の基準分布と期待値）"]
+    requires: [robotics.normalized-estimation-error-squared]
+  - id: robotics.error-ellipse-coverage
+    name: 楕円領域の被覆率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（楕円領域の被覆率）"]
+    requires: [robotics.normalized-estimation-error-squared]
+  - id: robotics.gaussian-coverage-calibration
+    name: Gaussian 基準での被覆率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Gaussian 基準での被覆率）"]
+    requires: [robotics.error-ellipse-coverage, robotics.nees-chi-square-reference]
