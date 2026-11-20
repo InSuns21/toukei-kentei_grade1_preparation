@@ -54,16 +54,16 @@ $$
 
 [部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)で日記 $A$ を捨てると、参照系の交差項には $\langle k|i\rangle_A=\delta_{ik}$ が掛かります。したがって
 
-$
+$$
 \rho_M=\frac12\sum_{i,k=0}^1|i\rangle\langle k|_M\,\delta_{ik}
 =\frac{I_M}{2}.
-$
+$$
 
 同じ計算で $\rho_E=I_E/2$ です。初期状態の $MA$ 対と $BE$ 対は積なので、その部分トレースも積です。
 
-$
+$$
 \rho_{ME}=\frac{I_M}{2}\otimes\frac{I_E}{2}=\frac{I_{ME}}4.
-$
+$$
 
 つまり、**投入前の早期放射 $E$ は新しい日記の参照系 $M$ と無相関**です。
 <!-- definition-example-end -->
@@ -301,7 +301,7 @@ $$
 +|1\rangle_M|1\rangle_C|\Psi_+\rangle_{DE}}{\sqrt2}.
 $$
 
-$DE$ 側の二つのBell状態は直交するので、$C$ を捨てた $\rho_{MDE}$ から受信者は $M$ の計算基底ラベルと相関するBell測定結果を得られます。しかし $\rho_{MC}=\tfrac12(|00\rangle\langle00|+|11\rangle\langle11|)$ であり、$\rho_M\otimes\rho_C=I_{MC}/4$ と異なります。$C$ へ残った**位相の記録**のため未知の量子状態の完全回収はできません。この違いは[QINF29の参照環境の成分条件](../../../応用系/QINF/QINF29/index.md#lem-qinf29-blocks)に対応します。
+$DE$ 側の二つのBell状態は直交するので、$C$ を捨てた $\rho_{MDE}$ から受信者は $M$ の計算基底ラベルと相関するBell測定結果を得られます。しかし $\rho_{MC}=\tfrac12(|00\rangle\langle00|+|11\rangle\langle11|)$ であり、$\rho_M\otimes\rho_C=I_{MC}/4$ と異なります。$C$ に計算基底のラベルが残り、$DE$ のみから重ね合わせの位相を復元できないため、未知の量子状態の完全回収はできません。この違いは[QINF29の参照環境の成分条件](../../../応用系/QINF/QINF29/index.md#lem-qinf29-blocks)に対応します。
 
 ## 7. 少なくとも日記と同じ次元の追加放射が必要
 
@@ -493,17 +493,17 @@ $$
 
 このときStinespring等長写像は、初期Bell対を付加してから発展させる写像
 
-$
+$$
 W|\psi\rangle=(U\otimes I_E)(|\psi\rangle_A|\Phi_{d_B}\rangle_{BE})
-$
+$$
 
 です。$U^\dagger U=I_{AB}$ と $\langle\Phi_{d_B}|\Phi_{d_B}\rangle=1$ を用いて内積を計算すると、$W^\dagger W=I_A$ となり、定理の等長性の仮定を満たします。
 
 初期Bell対 $MA$ に $I_M\otimes W$ を作用させた出力が $|\Psi_U\rangle$ なので、QINF29定理でいう参照環境縮約は $\rho_{MC}$ です。ゆえに完全回収と、次の積状態条件が同値です。
 
-$
+$$
 \rho_{MC}=\rho_M\otimes\rho_C.
-$
+$$
 
 さらに[参照系と早期放射の独立性](#prop-bhi12-early-independence)から $\rho_M=I_M/d_A$。これを代入すれば[本講の完全回収条件](#thm-bhi12-recovery-condition)が得られます。
 <!-- solution-end -->
