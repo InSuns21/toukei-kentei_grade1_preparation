@@ -48,6 +48,30 @@ const descriptions = Object.freeze({
     mode: '左はclip w=1,2,4に基づく透視補正UV、右は画面重心座標による線形UV。左右の表示画素は幅をほぼ半分ずつ使用',
     source: 'interpolation.js（gridFrequency, reverseWinding, cullBackFaces）/ interpolation.vert（a_clip, a_uv）/ interpolation.frag（u_mode, u_gridFrequency）'
   }),
+  WGL8: Object.freeze({
+    requiresSteps: false,
+    grid: '数値計算格子なし（左・右のGPU viewportで同じ背景と2枚の半透明矩形を比較）',
+    color: '初期背景RGB=(0.2, 0.2, 0.2)、層Aのα=0.5、層Bのα=0.4。左はsRGB符号化成分を直接ブレンド、右は線形光で合成してsRGBへ再符号化（αは無次元0〜1）',
+    clock: () => '初期の静止合成1回（物理stepなし）',
+    mode: '左は固定機能SRC_ALPHA / ONE_MINUS_SRC_ALPHA、右はfragment shader内のsource-over。既定はA→B、順序はreverseOrderで変更',
+    source: 'blending.js（background, layerA, layerB, reverseOrder, gl.blendFuncSeparate）/ blending.frag（toLinear, toSrgb, overLayer）'
+  }),
+  WGL9: Object.freeze({
+    requiresSteps: false,
+    grid: '数値計算格子なし（左：立方体12三角形の面法線、右：球48×72×2三角形の補間法線）',
+    color: '初期は線形RGBのLambert拡散＋Blinn–Phong鏡面を0〜1に制限してsRGBへ符号化。showNormals時は法線NをRGB=(N+1)/2へ写像',
+    clock: () => '初期光源方向の静止GPU画素検算（物理stepなし）',
+    mode: '初期検算後、同じ編集GLSLのu_lightDirectionだけを回転更新。光源の往復は物理時間・CPU画素基準の更新ではない',
+    source: 'lighting.js（scale, useCorrectNormals, lightDirection, shininess, showNormals）/ lighting.vert（u_normalMatrix）/ lighting.frag（Lambert, specular）'
+  }),
+  WGL10: Object.freeze({
+    requiresSteps: false,
+    grid: '第1パスはRGBA8のオフスクリーンFBO（既定は左viewport幅×高さ、offscreenScaleで縮小、最小1×1）。実寸法はFBO実行ログに表示',
+    color: '第1パスの4象限はRGB=(0.2/0.8, 0.3/0.7, 0.4)をRGBA8へ丸める。第2パスの左はコピー、右は初期設定でRGBを1−値に反転（α=1）',
+    clock: () => 'FBOへ描く第1パス→画面へ描く第2パス（物理stepなし）',
+    mode: '左・右の画面viewportは同じRGBA8テクスチャをNEARESTで標本化。FBOのtexel数と画面のpixel数は別。縮小・反転は編集JSが優先',
+    source: 'framebuffer.js（offscreenScale, invertRight, gl.framebufferTexture2D, viewport）/ framebuffer.frag（u_pass, u_scene）'
+  }),
   FCG2: Object.freeze({
     grid: '8×8（実際のスカラー場、R8テクスチャ2枚を交互に更新）',
     color: '解析値 q=0.5+0.25 sin(2πx) cos(2πy) sin(t)。R8への丸め後、(q, 0.15, 1−q) の赤青で表示',

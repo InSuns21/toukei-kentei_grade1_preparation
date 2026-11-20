@@ -4,7 +4,7 @@
 
 [ANF5の小ノルム元の定理](../ANF5/index.md#thm-anf5-small-norm-element)は、任意の零でない整イデアルの中に、ノルムの小さい元があることを保証しました。ここではその元から**同じ種類の障害を表す小さなイデアル**を作ります。そして小さなイデアルは有限個しかないことを証明します。
 
-学習後には、イデアル類群を定義し、Minkowski の類数上界を証明し、$\mathbb Q(\sqrt{-5})$ の類群が二元巡回群であると紙上で決定できます。
+学習後には、分数イデアルを主イデアル倍で分類し、その種類が有限個であることを証明し、$\mathbb Q(\sqrt{-5})$ でその種類が二つだけであることを紙上で決定できます。
 
 ## 1. 主イデアルからのずれを積で測る
 
@@ -103,7 +103,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$m=N(\mathfrak a)$ は正整数です。加法群 $A/\mathfrak a$ の位数は $m$ なので、Lagrange の定理により、任意の $x\in A$ に対し
+$m=N(\mathfrak a)$ は正整数です。加法群 $A/\mathfrak a$ の位数は $m$ です。任意の元 $x+\mathfrak a$ が生成する巡回部分群の剰余類でこの群を分割できるので、その元の位数は $m$ を割ります。従って任意の $x\in A$ に対し
 
 $$
 m(x+\mathfrak a)=0+\mathfrak a,
@@ -126,7 +126,7 @@ $$
 <a id="thm-anf6-minkowski-class-bound"></a>
 
 <!-- formal-statement-start -->
-> **定理（Minkowski の類数上界と類群の有限性）**  
+> **定理（Minkowskiの類数上界と類群の有限性）**  
 > $K/\mathbb Q$ を次数 $n=r_1+2r_2$ の数体、$A=\mathcal O_K$、$D_K$ を体判別式とする。
 > 任意のイデアル類 $c\in\operatorname{Cl}(K)$ は、零でない整イデアル $J$ により $c=[J]$ と表せ、しかも
 
@@ -260,7 +260,7 @@ $$
 <a id="thm-anf6-q-sqrt-minus-five-class-group"></a>
 
 <!-- formal-statement-start -->
-> **定理（$\mathbb Q(\sqrt{-5})$ の類群）**  
+> **定理（Q(sqrt(-5))の類群）**  
 > $K=\mathbb Q(\sqrt{-5})$、$A=\mathbb Z[\sqrt{-5}]$、$\mathfrak p=(2,1+\sqrt{-5})$ とすると、$\mathfrak p$ は非主イデアルであり、$\mathfrak p^2=(2)$ を満たす。また
 
 $$
