@@ -301,19 +301,20 @@ $$
 
 となる。実部の正値性も近傍を縮小して保つので、第2節の同値から各 $F_{h+\varphi(h)}(L)$ は真のSLagである。局所のすべての零点はこの形に限る。
 
-**(5) 接空間。** $h$ 方向に微分すると
+**(5) 接空間。** 任意の $v\in\mathcal H^1(L)$ を取り、$h=tv$ に沿って方程式を $t=0$ で微分する。連鎖律により
 
-$$
-D\bigl(h+D\varphi(0)h\bigr)=0.
-$$
+$
+0=\left.\frac d{dt}\right|_{t=0}\mathcal F(tv+\varphi(tv))
+=D\bigl(v+\mathrm d\varphi_0(v)\bigr)
+$
 
-$Dh=0$ であり、$D|_{\mathcal K}$ は単射だから $D\varphi(0)h=0$ ならば $D\varphi(0)h$ の引数である $\varphi$ の微分そのものが0、すなわち
+である。$Dv=0$、$\mathrm d\varphi_0(v)\in\mathcal K$ なので
 
-$$
-D\varphi(0)h=0\quad\text{（ここで左辺は }\varphi\text{ の微分の記号ではない）}
-$$
+$
+D|_{\mathcal K}\bigl(\mathrm d\varphi_0(v)\bigr)=0.
+$
 
-となる。正確には $D|_{\mathcal K}(\mathrm d\varphi_0(h))=0$ から $\mathrm d\varphi_0(h)=0$ を得る。よって $h\mapsto h+\varphi(h)$ の原点での微分は $h\mapsto h$ で、接空間が $\mathcal H^1(L)$ になる。
+$D|_{\mathcal K}$ は単射だから $\mathrm d\varphi_0(v)=0$。$v$ は任意であり、$\mathrm d\varphi_0=0$ を得る。よって $h\mapsto h+\varphi(h)$ の原点での微分は $v\mapsto v$ で、接空間が $\mathcal H^1(L)$ になる。
 
 **(6) 次元と滑らかさ。** [Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)で $\dim\mathcal H^1(L)=b_1(L)$。$h$ は滑らかな調和形式であり、$\mathcal F=0$ は補方向で楕円型の方程式になる。上述のSchauder型楕円型正則性を繰り返すことで得た解の正則性を任意次数まで上げ、滑らかな埋め込みを得る。法線グラフは近傍の埋め込み像の局所座標なので、この $b_1(L)$ 次元の零点集合が再パラメータ化で割った局所moduliそのものである。
 <!-- proof-end -->
@@ -329,7 +330,14 @@ X=\mathbb C^n/(\mathbb Z^n+i\mathbb Z^n),\qquad
 L=\mathbb R^n/\mathbb Z^n\subset X
 $$
 
-を標準Kähler構造、$\Omega=dz^1\wedge\cdots\wedge dz^n$、向き $dx^1\wedge\cdots\wedge dx^n$、位相0で考える。$L$ は連結・コンパクト・境界なしで、前講の[水平トーラスのSLag条件](../SYZ1-05/index.md#thm-syz1-05-linearization)を満たす。$h=\sum c_jdx^j$ は閉・余閉であり、平坦トーラスの調和1形式は全てこの形である（前講の二次元計算と各座標への積分を参照）。従って $b_1(L)=n$。
+を標準Kähler構造、$\Omega=dz^1\wedge\cdots\wedge dz^n$、向き $dx^1\wedge\cdots\wedge dx^n$、位相0で考える。$L$ は連結・コンパクト・境界なしで、前講の[水平トーラスのSLag条件](../SYZ1-05/index.md#thm-syz1-05-linearization)を満たす。$h=\sum c_jdx^j$ は閉・余閉であり、平坦トーラスの調和1形式は全てこの形である。実際、$\alpha=\sum_j a_j(x)dx^j$ が調和なら平坦座標で各係数は $\sum_k\partial_k^2a_j=0$ となる。周期境界で部分積分すれば
+
+$
+0=\int_{T^n}a_j\sum_k\partial_k^2a_j\,dx
+=-\sum_k\int_{T^n}|\partial_ka_j|^2\,dx
+$
+
+なので全ての $\partial_ka_j$ が0、従って $a_j$ は定数である。従って $b_1(L)=n$。
 
 $$
 F_c(x)=x+i c\quad(\bmod\ \mathbb Z^n+i\mathbb Z^n)
