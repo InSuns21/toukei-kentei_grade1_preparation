@@ -12,7 +12,23 @@
 
 ## 2. どの系に純粋性を要求するのか
 
-一回目までの放射を $R_1$、二回目に新たに加わる放射を $b_2$ とすれば、$R_2=R_1b_2$ です。放出後の残存側を $B_2$ とし、**外に捨てた未知の環境を別に置かない**模型を考えます。情報が初期側から放射へ移ることを具体化するには、残存系から「次の放射＋次の残存系」への等長写像を使うと便利です。この構成自体は[QINF33の段階的SWAP放出模型](../../../応用系/QINF/QINF33/index.md#def-qinf33-swap-emission)と整合する有限模型です。
+一回目までの放射を $R_1$、二回目に新たに加わる放射を $b_2$ とすれば、$R_2=R_1b_2$ です。ここで $XY$ は二つの系をまとめた表記で、Hilbert 空間では
+
+$$
+\mathcal H_{XY}=\mathcal H_X\otimes\mathcal H_Y
+$$
+
+を意味します。放出後の残存側を $B_2$ とし、**外に捨てた未知の環境を別に置かない**模型を考えます。
+
+各放出では、直前の残存系のベクトルを「新しい放射＋次の残存系」へ移します。その際、異なる入力の内積が変わらないようにするのが[BHI1で導入した等長写像の条件](../BHI1/index.md#def-bhi1-endpoint-split)です。任意の入力ベクトル $u,v$ と線形写像 $W$ について、等長性は
+
+$$
+W^\dagger W=I
+\quad\Longleftrightarrow\quad
+\langle Wu,Wv\rangle=\langle u,v\rangle
+$$
+
+という条件で判定できます。$W^\dagger$ は随伴、$I_X$ は系 $X$ 上の恒等作用素を表します。この条件は出力空間の次元が入力より大きくても使え、全出力空間上のユニタリ作用素であることまでは要求しません。[QINF33の段階的SWAP放出模型](../../../応用系/QINF/QINF33/index.md#def-qinf33-swap-emission)も、この考え方を固定された全系のユニタリ交換で実現した例です。
 
 <a id="def-bhi6-pure-evaporation"></a>
 
@@ -39,16 +55,51 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi6-pure-evaporation -->
-**定義の確認**：初期残存系を二量子ビット $B_0=AC$、初期状態を $|\chi\rangle=(|00\rangle+|11\rangle)_{AC}/\sqrt2$ とします。一回目は $A$ をそのまま放射 $b_1$ として取り出し、$C$ を $B_1$ とする写像 $W_1|ac\rangle_{AC}=|a\rangle_{b_1}|c\rangle_{B_1}$ を使います。計算基底 $|ac\rangle$ の四つの像は互いに直交する規格化ベクトルなので、任意の係数 $x_{ac},y_{ac}$ について $\langle W_1x,W_1y\rangle=\sum_{ac}\overline{x_{ac}}y_{ac}=\langle x,y\rangle$。ゆえに $W_1^\dagger W_1=I$ です。二回目は $W_2|c\rangle_{B_1}=|c\rangle_{b_2}|{\rm vac}\rangle_{B_2}$ とし、$\dim B_2=1$ とします。二つの像 $|0,{\rm vac}\rangle$ と $|1,{\rm vac}\rangle$ も正規直交します。したがって全段階で等長性を満たし、
+**定義の確認**：初期残存系を二量子ビット $B_0=AC$、初期状態を
 
 $$
-|\Omega_1\rangle=\frac{|0\rangle_{b_1}|0\rangle_{B_1}+|1\rangle_{b_1}|1\rangle_{B_1}}{\sqrt2},
-\quad
-|\Omega_2\rangle=\frac{|00\rangle_{b_1b_2}+|11\rangle_{b_1b_2}}{\sqrt2}
+|\chi\rangle_{AC}=\frac{|00\rangle+|11\rangle}{\sqrt2}
+$$
+
+とします。計算基底 $|ac\rangle_{AC}$（$a,c\in\{0,1\}$）は正規直交で、初期状態のノルムの二乗は $(1/2)+(1/2)=1$ なので、ノルムも $1$ です。一回目は $A$ を放射 $b_1$ として取り出し、$C$ を残存側 $B_1$ とする線形写像を、基底上で
+
+$$
+W_1|ac\rangle_{AC}=|a\rangle_{b_1}|c\rangle_{B_1}
+$$
+
+と定めます。入力と出力はどちらも四次元です。**なぜ基底の像を見るだけで等長性を判定できるのでしょうか。** 任意の入力を $x=\sum_{a,c}x_{ac}|ac\rangle$、$y=\sum_{a,c}y_{ac}|ac\rangle$ と展開し、線形性と出力基底の正規直交性を使うと
+
+$$
+\begin{aligned}
+\langle W_1x,W_1y\rangle
+&=\sum_{a,c}\sum_{a',c'}\overline{x_{ac}}y_{a'c'}
+  \langle a|a'\rangle\langle c|c'\rangle\\
+&=\sum_{a,c}\overline{x_{ac}}y_{ac}
+=\langle x,y\rangle.
+\end{aligned}
+$$
+
+したがって $W_1^\dagger W_1=I_{B_0}$ です。二回目も $B_1$ の基底 $|c\rangle$ に対して
+
+$$
+W_2|c\rangle_{B_1}=|c\rangle_{b_2}|{\rm vac}\rangle_{B_2},
+\qquad c\in\{0,1\},
+$$
+
+と定めます。$|{\rm vac}\rangle$ は一次元の $B_2$ の規格化基底で、$\dim B_2=1$ です。二つの像は正規直交なので、同じ基底展開の議論から $W_2^\dagger W_2=I_{B_1}$ です。各段階の出力は
+
+$$
+|\Omega_1\rangle
+=\frac{|0\rangle_{b_1}|0\rangle_{B_1}+|1\rangle_{b_1}|1\rangle_{B_1}}{\sqrt2},
+$$
+
+$$
+|\Omega_2\rangle
+=\frac{|00\rangle_{b_1b_2}+|11\rangle_{b_1b_2}}{\sqrt2}
 \otimes|{\rm vac}\rangle_{B_2}.
 $$
 
-規格化と系の分割の双方を実際に確認できました。この模型にはエネルギー・曲がった時空・重力的拘束はまだ入っていません。
+この二つの状態は直交する二項の係数がいずれも $1/\sqrt2$ なので規格化されています。また、$B_0$・$B_1$・$B_2$ の次元は順に $4,2,1$ であり、**純粋な初期状態・各段階の等長性・放射と残存側への分割**という定義の条件をすべて確認できました。この模型にはエネルギー・曲がった時空・重力的拘束はまだ入っていません。
 <!-- definition-example-end -->
 
 等長性は任意の入力の内積を保存します。例えば各 $W_k$ について $\|W_kv\|^2=\langle v,W_k^\dagger W_kv\rangle=\|v\|^2$ です。したがって純粋初期状態から出発した $|\Omega_k\rangle$ は全段階で規格化された純粋状態です。ただし **初期状態が混合なら、等長性だけでは各段階の $R_kB_k$ の純粋性は得られません**。また、実在の重力系をこのテンソル積へ分割できるかは BHI15 で改めて吟味します。
@@ -269,7 +320,18 @@ $\mathcal H_R=\mathbb C^2$、$\mathcal H_B=\mathbb C^3$ とし、$|\psi\rangle=\
 <!-- solution-start -->
 **詳細解答**
 
-$B$ の基底が正規直交するため交差項を部分トレースすると消え、$\rho_R=\operatorname{diag}(3/4,1/4)$ です。同じ操作を $R$ で行うと $\rho_B=\operatorname{diag}(3/4,1/4,0)$ です。[純粋二部系のエントロピー一致](../../../応用系/QINF/QINF17/index.md#prop-qinf17-bipartite)に従い
+$R$ の計算基底を $|0\rangle,|1\rangle$、$B$ の正規直交基底を $|0\rangle,|1\rangle,|2\rangle$ とします。[部分トレースの定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)で $B$ の交差項を取ると $\langle0|1\rangle_B=0$ のため消えます。$R$ についても同様に縮約して
+
+$$
+\begin{aligned}
+\rho_R&=\frac34|0\rangle\langle0|+\frac14|1\rangle\langle1|
+      =\operatorname{diag}(3/4,1/4),\\
+\rho_B&=\frac34|0\rangle\langle0|+\frac14|1\rangle\langle1|
+      =\operatorname{diag}(3/4,1/4,0)
+\end{aligned}
+$$
+
+を得ます。右端の対角行列はそれぞれ指定した基底での表示であり、対角成分がそのまま固有値です。[純粋二部系のエントロピー一致](../../../応用系/QINF/QINF17/index.md#prop-qinf17-bipartite)に従い
 
 $$
 S(R)=S(B)=-\frac34\ln\frac34-\frac14\ln\frac14=:h(1/4).
@@ -287,7 +349,23 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[次元上界](#thm-bhi6-entropy-budget)から $0\le S(R)\le\ln1=0$ です。従って $S(R)=0$ で、[エントロピーの等号条件](../../../応用系/QINF/QINF17/index.md#thm-qinf17-entropy-bounds)から $\rho_R$ の非零固有値は $1$ だけ、すなわち純粋です。逆向きは成り立ちません。$R,B$ を量子ビットとし $|\psi\rangle=|0\rangle_R\otimes(|0\rangle_B+|1\rangle_B)/\sqrt2$ と取れば、$\dim B=2$ でも $\rho_R=|0\rangle\langle0|$、$S(R)=0$ です。
+[次元上界](#thm-bhi6-entropy-budget)を純粋二部系 $R|B$ に適用すると、$d_B=1$ なので
+
+$$
+0\le S(R)\le\ln\min(d_R,1)=0
+$$
+
+です。従って $S(R)=0$ であり、[エントロピーの等号条件](../../../応用系/QINF/QINF17/index.md#thm-qinf17-entropy-bounds)から $\rho_R$ の非零固有値は $1$ だけ、すなわち純粋です。
+
+逆向きは成り立ちません。$R,B$ をともに量子ビットとして
+
+$$
+|\psi\rangle
+=|0\rangle_R\otimes
+\frac{|0\rangle_B+|1\rangle_B}{\sqrt2}
+$$
+
+と取ると、$B$ は二次元でも積状態の部分トレースにより $\rho_R=|0\rangle\langle0|$、$S(R)=0$ です。
 <!-- solution-end -->
 
 <a id="ex-bhi6-a03"></a>
@@ -365,7 +443,27 @@ $$
 S(R_k)\le\ln\min(2^k,2^{4-k})=\min(k,4-k)\ln2.
 $$
 
-$k=0,1,2,3,4$ の順に上界は $0,\ln2,2\ln2,\ln2,0$ です。$k=2$ では $R_2=r_1r_2$、$B_2=c_1c_2$ とし、状態を $|\Phi^+\rangle_{r_1c_1}\otimes|\Phi^+\rangle_{r_2c_2}$ と取ります。それぞれの Bell 対の片側をトレースすると $I_2/2$ なので $\rho_{R_2}=I_4/4$、$S(R_2)=\ln4=2\ln2$ です。一方、すべての量子ビットを純粋な積状態で順次取り出す等長過程では全段階で $S(R_k)=0$ です。上界の列は同じでも、実際の履歴は一意ではありません。上界の折れ線をそのまま予言された Page 曲線とは呼べません。
+$k=0,1,2,3,4$ の順に上界は
+
+$$
+(0,\ln2,2\ln2,\ln2,0)
+$$
+
+です。$k=2$ では $R_2=r_1r_2$、$B_2=c_1c_2$ として、二つの Bell 対の積
+
+$$
+|\psi\rangle
+=|\Phi^+\rangle_{r_1c_1}\otimes|\Phi^+\rangle_{r_2c_2}
+$$
+
+を取ります。各 Bell 対の残存側を部分トレースすると放射側は $I_2/2$ となり、[テンソル積状態の縮約](../../../応用系/QINF/QINF3/index.md#prop-qinf3-state-product)から
+
+$$
+\rho_{R_2}=(I_2/2)\otimes(I_2/2)=I_4/4,
+\qquad S(R_2)=\ln4=2\ln2
+$$
+
+です。一方、すべての量子ビットを純粋な積状態で順次取り出す等長過程では、全段階で $S(R_k)=0$ となります。上界の列は同じでも、実際の履歴は一意ではありません。上界の折れ線をそのまま予言された Page 曲線とは呼べません。
 <!-- solution-end -->
 
 <a id="ex-bhi6-b03"></a>
@@ -377,7 +475,18 @@ $k=0,1,2,3,4$ の順に上界は $0,\ln2,2\ln2,\ln2,0$ です。$k=2$ では $R_
 <!-- solution-start -->
 **詳細解答**
 
-指定された二つの像は正規直交なので写像は等長です。混合状態の線形な像は $\rho_{RB}=\frac12|00\rangle\langle00|+\frac12|10\rangle\langle10|=(I_2/2)_R\otimes|0\rangle\langle0|_B$ です。従って $S(R)=\ln2$、$S(B)=0$ であり、純粋二部系だけに適用できる $S(R)=S(B)$ を使うと誤ります。
+指定された二つの像は正規直交なので写像 $W$ は等長です。密度演算子の発展は $W\rho_{B_0}W^\dagger$ であり、基底表示 $\rho_{B_0}=(|0\rangle\langle0|+|1\rangle\langle1|)/2$ を代入すると
+
+$$
+\begin{aligned}
+\rho_{RB}
+&=W\rho_{B_0}W^\dagger\\
+&=\frac12|00\rangle\langle00|+\frac12|10\rangle\langle10|\\
+&=(I_2/2)_R\otimes|0\rangle\langle0|_B.
+\end{aligned}
+$$
+
+部分トレースで $R$ 側の固有値は $(1/2,1/2)$、$B$ 側は $(1,0)$ と分かるので $S(R)=\ln2$、$S(B)=0$ です。純粋二部系だけに適用できる $S(R)=S(B)$ を使うと誤ります。
 
 初期 $CB_0$ を $|\Phi^+\rangle=(|00\rangle+|11\rangle)/\sqrt2$ に純粋化します。$B_0$ だけに写像を作用させると
 
@@ -417,9 +526,28 @@ $\rho_{CB}=(I_2/2)_C\otimes|0\rangle\langle0|_B$ より $S(CB)=\ln2$、[未観�
 <!-- solution-start -->
 **詳細解答**
 
-(1) 各写像は未放出量子ビットの計算基底 $|a b c\rangle$ の指定した一個を放射ラベルへ移し、残りのラベルを残存系へ送る**基底の一対一対応**です。正規直交基底の内積 $\delta_{aa'}\delta_{bb'}\delta_{cc'}$ が像でも保存されるので、各段階で $W_k^\dagger W_k=I$ です。$B_k$ は未放出量子ビット $3-k$ 個だから、次元は順に $d_B=(8,4,2,1)$ です。
+(1) $a,b,c\in\{0,1\}$ とすると、各放出は未放出量子ビットの計算基底を次のように写す線形写像です。最後の $|{\rm vac}\rangle$ は一次元残存系の規格化基底です。
 
-$k=0$ では $R_0$ は自明系で $S(R_0)=0$。$k=1$ で $R_1=A$ を部分トレースすると、AB の Bell 対の交差項は消えて $\rho_{R_1}=I_2/2$、従って $S(R_1)=\ln2$ です。$k=2$ で $R_2=AB$ は Bell 純粋状態なので $S(R_2)=0$。$k=3$ は $R_3=ABC$ 全体が規格化された純粋状態だから $S(R_3)=0$ です。系列は
+$$
+\begin{aligned}
+W_1|abc\rangle_{ABC}&=|a\rangle_{b_1}|bc\rangle_{B_1},\\
+W_2|bc\rangle_{B_1}&=|b\rangle_{b_2}|c\rangle_{B_2},\\
+W_3|c\rangle_{B_2}&=|c\rangle_{b_3}|{\rm vac}\rangle_{B_3}.
+\end{aligned}
+$$
+
+各写像では異なる計算基底ベクトルの像が正規直交し、同じ像のノルムは1です。第2節の基底展開と同じ計算で任意の入力 $x,y$ に対し $\langle W_kx,W_ky\rangle=\langle x,y\rangle$ となり、各 $W_k^\dagger W_k=I_{B_{k-1}}$ です。$B_k$ は未放出量子ビット $3-k$ 個なので、$k=0,1,2,3$ に対応する次元は $d_B(k)=(8,4,2,1)$ です。
+
+$k=0$ では放射 $R_0$ は一次元の自明系なので $S(R_0)=0$ です。
+
+$k=1$ では $R_1=A$ です。初期の Bell 対から $BC$ を部分トレースすると、$\langle0|1\rangle_B=0$ により交差項が消え、
+
+$$
+\rho_{R_1}=\frac12|0\rangle\langle0|+\frac12|1\rangle\langle1|
+=I_2/2,\qquad S(R_1)=\ln2
+$$
+
+となります。$k=2$ では $R_2=AB$ が規格化された Bell 純粋状態なので $S(R_2)=0$、$k=3$ では $R_3=ABC$ が初期と同じ純粋状態の全量子ビットなので $S(R_3)=0$ です。従って系列は
 
 $$
 (S(R_0),S(R_1),S(R_2),S(R_3))=(0,\ln2,0,0).
@@ -435,7 +563,22 @@ $$
 
 [増分恒等式](#prop-bhi6-emission-increment)を直接確かめると $S(b_2)-I(b_1:b_2)=\ln2-2\ln2=-\ln2$ です。
 
-(3) $R_2$ の精細エントロピーは $0$、各周辺は $I_2/2$ なので[局所周辺状態に基づく粗視化エントロピーの定義](../BHI5/index.md#def-bhi5-local-coarse)から $S_{\rm loc}^{\rm coarse}(R_2)=2\ln2$ です。差 $\Delta_{\rm corr}=2\ln2$ は[局所粗視化と相関欠損の恒等式](../BHI5/index.md#thm-bhi5-correlation-gap)の二モードの場合 $I(b_1:b_2)$ に一致します。各モードが単独では混合状態でも、二モード全体では量子相関を持つ純粋状態であり得るため、全放射が純粋であっても矛盾しません。
+(3) $R_2=b_1b_2$ の精細エントロピーは $0$、各周辺状態は $I_2/2$ です。[局所周辺状態に基づく粗視化エントロピーの定義](../BHI5/index.md#def-bhi5-local-coarse)から
+
+$$
+S_{\rm loc}^{\rm coarse}(R_2)
+=S(b_1)+S(b_2)=2\ln2
+$$
+
+となります。[局所粗視化と相関欠損の恒等式](../BHI5/index.md#thm-bhi5-correlation-gap)を二モードの場合に適用すると、
+
+$$
+\Delta_{\rm corr}
+=S_{\rm loc}^{\rm coarse}(R_2)-S(R_2)
+=2\ln2=I(b_1:b_2).
+$$
+
+各モードは単独では混合状態ですが、二モード全体は量子相関を持つ純粋状態なので、終期の全放射の純粋性と矛盾しません。
 <!-- solution-end -->
 
 ## 9. まとめと次の問い
