@@ -23,7 +23,7 @@ chapters:
     title: "素数の分解・分岐・惰性"
   - id: ANF5
     path: textbook/volumes/dream_thater/代数系/ANF/ANF5
-    status: planned
+    status: completed
     title: "Minkowski埋め込みと格子"
   - id: ANF6
     path: textbook/volumes/dream_thater/代数系/ANF/ANF6
