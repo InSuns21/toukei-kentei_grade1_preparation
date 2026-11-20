@@ -1,7 +1,7 @@
 chapter: SYZ1-15
 scope: dream-theater
 coverage: complete
-prerequisites: [SYZ1-14, SYZ1-10, SYZ1-04]
+prerequisites: [SYZ1-14]
 concepts:
   - id: syz.relative-holomorphic-disk
     name: 正則円板・相対類・面積
