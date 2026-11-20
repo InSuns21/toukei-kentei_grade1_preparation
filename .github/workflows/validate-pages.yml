@@ -104,6 +104,10 @@ jobs:
           node --check pages/simulation/fcg1-model.mjs
           node --test pages/simulation/fcg1-model.test.mjs
 
+      - name: Test FCG8 actual editable Level Set playback in Chromium
+        if: steps.scope.outputs.full == 'true'
+        run: node scripts/validate-fcg8-browser.mjs
+
       - name: Test WGL1 shader compilation and actual GPU pixels in Chromium
         if: steps.scope.outputs.full == 'true'
         run: node scripts/validate-wgl-browser.mjs
@@ -131,10 +135,6 @@ jobs:
       - name: Test FCG5 editable fluid solver and GPU panels in Chromium
         if: steps.scope.outputs.full == 'true'
         run: node scripts/validate-fcg5-browser.mjs
-
-      - name: Test FCG8 actual editable Level Set playback in Chromium
-        if: steps.scope.outputs.full == 'true'
-        run: node scripts/validate-fcg8-browser.mjs
 
       - name: Test FCG3 editable advection and GPU error map in Chromium
         if: steps.scope.outputs.full == 'true'
