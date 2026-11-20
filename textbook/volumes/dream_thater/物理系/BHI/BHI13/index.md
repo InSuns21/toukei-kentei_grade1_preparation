@@ -42,7 +42,7 @@ $$
 Haar分布は、[QINF31の構成と一意性](../../../応用系/QINF/QINF31/index.md#thm-qinf31-gaussian-haar)で導入済みのものです。$AB$ と $CD$ は共に $N$ 次元なので、それぞれ基底を固定して $U(N)$ 上の分布を使えます。$U$ は一つの実験で**全入力について固定**し、入力ごとに引き直しません。
 
 <!-- definition-example-start: def-bhi13-haar-experiment -->
-**定義の確認。** 全系の入出力因子を2次元にした例を考えます。
+**定義の確認**： 全系の入出力因子を2次元にした例を考えます。
 
 $$
 a=b=c=d=2,\qquad N=4.
@@ -95,7 +95,7 @@ $$
 したがって本講に限っては $\rho_C$ はどの標本でも一定で、比較相手は $\pi_M\otimes\pi_C$ です。この事実は後の二コピー計算でも独立に検算します。
 
 <!-- definition-example-start: def-bhi13-decoupling-error -->
-**定義の確認。** 前講のSWAP型配置 $U_{\rm good}|i,j\rangle=|j,i\rangle_{CD}$ なら $|\Psi_U\rangle=|\Phi_a\rangle_{MD}\otimes|\Phi_b\rangle_{CE}$（ここでは $a=b=c=d=2$）で、$\rho_{MC}=\pi_M\otimes\pi_C$、$X=0$、$L=Q=0$ です。
+**定義の確認**： 前講のSWAP型配置 $U_{\rm good}|i,j\rangle=|j,i\rangle_{CD}$ なら $|\Psi_U\rangle=|\Phi_a\rangle_{MD}\otimes|\Phi_b\rangle_{CE}$（ここでは $a=b=c=d=2$）で、$\rho_{MC}=\pi_M\otimes\pi_C$、$X=0$、$L=Q=0$ です。
 
 反対に $U_{\rm bad}|i,j\rangle=|i,j\rangle_{CD}$ として日記を $C$ に残せば、$\rho_{MC}=|\Phi_2\rangle\langle\Phi_2|$、$\rho_C=I_C/2$ です。$X=|\Phi_2\rangle\langle\Phi_2|-I_{MC}/4$ の固有値は $3/4$ が一つ、$-1/4$ が三つなので
 
