@@ -341,7 +341,9 @@ $$
 
 ## 7. 編集して実行する JavaScript・GLSL ラボ
 
-<iframe src="simulation/wgl-lab.html?lesson=FCG5" title="FCG5 2D流体ソルバーのJavaScript・GLSL編集と独立CPU・WebGL2画素の検算" loading="lazy" style="width:100%;height:1050px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
+**まず観察する。** ラボの最初に現れる大きな描画画面で、色付きの染料をマウスやタッチでかき混ぜ、速度・渦の強調・停止と再生を操作する。暗い背景の光る色は染料を見やすく描いたもので、光学的な発光や3次元の煙ではない。観察用の高解像度簡易モデルは、下のプログラミング演習の **12×12セルMAC格子モデルとは別物** である。同じ結果を表示していると扱わず、理論の定量確認は従来どおり「コード編集→実行結果」の物理ステップ・残差・GPU画素で行う。
+
+<iframe src="simulation/wgl-lab.html?lesson=FCG5" title="FCG5 2D流体ソルバーのJavaScript・GLSL編集と独立CPU・WebGL2画素の検算" loading="lazy" style="width:100%;height:1320px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
 
 **3タブ**：実験条件・課題 → JSと頂点／断片GLSLのコード編集 → 実行結果。1ステップ・再生・一時停止・ステップ0への復帰・停止とiframe破棄ができる。再生の待機時間は**描画・UI上の時間**であって $\Delta t$ ではない。実行ごとに物理状態を初期値から決定的に計算し直すため、前回のGPUバッファが物理状態へ混入しない。
 

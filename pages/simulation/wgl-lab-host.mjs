@@ -9,6 +9,8 @@ import {expectedFCG6Samples,compareFCG6Readback,fcg6State,fcg6PixelCell} from '.
 import {expectedFCG7Samples,compareFCG7Readback,fcg7State} from './fcg7-lab-core.mjs';
 import {expectedFCG8Samples,compareFCG8Readback,fcg8State} from './fcg8-lab-core.mjs';
 import { highlightSource } from './wgl-lab-highlight.mjs';
+import {mountSmokeObservation} from './wgl-fcg-fluid-visual.mjs';
+import {mountReferenceObservation} from './wgl-fcg-reference-visual.mjs';
 import { compareWGL2Readback, expectedWGL2Samples } from './wgl2-lab-core.mjs';
 import { compareWGL3Readback, expectedWGL3Samples } from './wgl3-lab-core.mjs';
 import { compareWGL4Readback, expectedWGL4Samples } from './wgl4-lab-core.mjs';
@@ -369,7 +371,7 @@ function isolatedRunner() {
           }
         });
       }
-      const positions = (['WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19', 'WGL20', 'FCG2', 'FCG3', 'FCG4', 'FCG5', 'FCG6', 'FCG7', 'FCG8'].includes(request.lesson)) &&
+      const positions = (['WGL4', 'WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19', 'WGL20', 'FCG2', 'FCG3', 'FCG4', 'FCG5', 'FCG6', 'FCG7', 'FCG8'].includes(request.lesson)) &&
         Array.isArray(request.probes) ? request.probes :
         request.lesson === 'WGL4' ? [
         [Math.floor(canvas.width * 0.665), Math.floor(canvas.height * 0.56)],
@@ -457,7 +459,7 @@ function runnerHtml() {
     '<meta http-equiv="Content-Security-Policy" content="' + policy + '">' +
     '<meta name="referrer" content="no-referrer">' +
     '<style>body{margin:0;display:grid;place-items:center;background:#e2e8f0}' +
-    'canvas{display:block;max-width:100%;height:auto}</style></head><body>' +
+    'canvas{display:block;width:100%;max-width:100%;height:auto}</style></head><body>' +
     '<canvas id="gpu-canvas" aria-label="GPUが描画した画素"></canvas>' +
     '<script>(' + isolatedRunner.toString() + ')()</scr' + 'ipt></body></html>';
 }
@@ -889,6 +891,7 @@ function run() {
         fcg2Steps+': '+predicted.map(p=>p.label+' q='+p.value.toFixed(6)+
         ', R8='+p.byte+', 予測RGBA='+p.rgba.join('/')).join(' ／ ');
     }
+    if (isWGL4) payload.probes = expectedWGL4Samples(payload.width,payload.height).map(p => [p.x,p.y]);
     if (isWGL5) payload.probes = expectedWGL5Samples(payload.width,payload.height).map(p => [p.x,p.y]);
     if (isWGL6) payload.probes = expectedWGL6Samples(payload.width,payload.height).map(p => [p.x,p.y]);
     if (isWGL7) payload.probes = expectedWGL7Samples(payload.width,payload.height).map(p => [p.x,p.y]);
@@ -908,6 +911,9 @@ function run() {
   catch (error) { setStatus(error.message, true); return; }
   const iframe = document.createElement('iframe');
   iframe.className = 'result-frame';
+  // Responsive preview without changing the actual drawing-buffer resolution.
+  iframe.style.aspectRatio = payload.width + ' / ' + (payload.height + 12);
+  iframe.style.height = 'auto';
   iframe.title = 'WebGL2 実行結果（隔離 origin）';
   iframe.setAttribute('sandbox', 'allow-scripts');
   iframe.setAttribute('referrerpolicy', 'no-referrer');
@@ -1670,7 +1676,19 @@ if (isWGL3) {
   byId('preset').options[0].textContent = '初期の格子（添字描画）';
   byId('preset').options[1].textContent = 'fragment の構文エラー';
 }
+// A separate reference animation runs on requestAnimationFrame. Edited lesson code
+// remains in the existing sandboxed runner and is never executed by this view.
+if (isFCG5) mountSmokeObservation(byId('panel-conditions'));
+if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-conditions')});
+// Three physical panels must have square pixel footprints: avoid stretching a
+// 1x1 metre domain into ~100x240 strips at the original 320x240 default.
+const sizeHint=(isFCG4||isFCG5||isFCG6||isFCG7||isFCG8)?[900,300]:
+  isFCG3?[640,320]:isFCG2?[480,480]:
+  (lesson==='WGL1'||isWGL2||isWGL3)?[480,480]:[320,240];
+byId('width').value=String(sizeHint[0]);
+byId('height').value=String(sizeHint[1]);
 load();
 // 画素の期待値は、GPUに触れる前に CPU 側で示せる。
-byId('result-note').textContent = 'CPU予測: ' + oracle(320, 240)
+byId('result-note').textContent = '初期サイズでのCPU予測: ' +
+  oracle(sizeHint[0],sizeHint[1])
   .map(item => item.label + '=' + item.rgba.join('/')).join('、');

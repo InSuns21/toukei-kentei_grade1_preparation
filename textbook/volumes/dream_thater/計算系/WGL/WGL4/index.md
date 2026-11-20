@@ -287,7 +287,9 @@ JavaScriptでは `model = multiply4(multiply4(T, R), S)` を構成して、`gl.u
 
 軸は2本の線分なので `LINES` を2回呼び、長方形は `TRIANGLES` で描きます。フラグメントGLSLでは `u_color` を変更して、面の色と軸の色を変えられます。
 
-<iframe src="simulation/wgl-lab.html?lesson=WGL4" title="WGL4 モデル行列・列優先格納・逆写像とGPU画素照合ラボ" loading="lazy" style="width:100%;height:980px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
+**まず回転を観察する。** 下のラボにはWebGL2で `requestAnimationFrame` ごとに描く大きな観察ビューを用意した。停止・再生・角度スライダーで、長方形と2本の局所軸が一体で回ることを見る。四角形の初期角は90度、拡大率は $(1,0.5)$、平行移動は $(0.25,-0.10)$ であり、[モデル行列と列優先格納](#def-wgl4-model-matrix)の実装を視覚的に確認する。観察用WebGL2シェーダは**編集対象の `model.js` とは独立**なので、コードを変更したときは従来の3タブの実行結果を確認する。
+
+<iframe src="simulation/wgl-lab.html?lesson=WGL4" title="WGL4 モデル行列・列優先格納・逆写像とGPU画素照合ラボ" loading="lazy" style="width:100%;height:1120px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
 
 **実験手順**。3タブの「コード編集」で `model.js`・`model.vert`・`model.frag` を編集し、実行後は結果タブで画面とGPU読出し、CPU基準を見比べます。最初は $\theta=90^\circ$、$(t_x,t_y)=(0.25,-0.10)$、$(s_x,s_y)=(1,0.5)$ です。次に `angleDegrees=0`、`scaleY=1` で結果を予測して実行し、最後に `multiply4(T,R)` と `multiply4(R,T)` を交換して同じ物体の位置が変わることを確かめてください。構文エラーのプリセットではshaderのコンパイル診断を確認します。GPUを利用できない環境ではCPUの値だけ閲覧できますが、GPUでの検算完了とはしません。
 

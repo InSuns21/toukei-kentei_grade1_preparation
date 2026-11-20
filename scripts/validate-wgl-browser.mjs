@@ -292,6 +292,30 @@ try{
   console.log('WGL3 shader compile and sandbox disposal: PASS');
 
 
+  // WGL4: the separate visual reference must draw new WebGL2 frames, while
+  // the original learner-editable T*R*S source keeps its independent oracle.
+  // WGL1 intentionally emulates reduced motion above; reset that preference
+  // here so the continuous-frame acceptance actually exercises autoplay.
+  await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
+  await cdp('Page.navigate',{url:url+'?lesson=WGL4'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  const modelScene=await evalJS('(()=>{const c=document.querySelector(".visual-observation-grid canvas");const r=c?.getBoundingClientRect();return {w:r?.width,h:r?.height,clock:document.querySelector(".visual-clock")?.textContent,gpu:!!c?.getContext("webgl2")}})()');
+  assert.ok(modelScene.gpu,'WGL4 observation uses actual WebGL2');
+  assert.ok(modelScene.w>280&&Math.abs(modelScene.w-modelScene.h)<2,JSON.stringify(modelScene));
+  await new Promise(ok=>setTimeout(ok,340));
+  const rotated=await evalJS('document.querySelector(".visual-clock")?.textContent');
+  assert.notEqual(rotated,modelScene.clock,'requestAnimationFrame must advance the model rotation');
+  await evalJS('document.querySelector(".visual-observation [data-action=play]").click()');
+  await evalJS('(()=>{const s=document.querySelector(".visual-observation [data-action=seek]");s.value="500";s.dispatchEvent(new Event("input",{bubbles:true}));})()');
+  assert.match(await evalJS('document.querySelector(".visual-clock")?.textContent'),/270°/);
+  const wgl4Shot=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  await writeFile('_wgl_browser_review/wgl4-animation.png',Buffer.from(wgl4Shot.data,'base64'));
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("独立画素検算に合格") || document.getElementById("status")?.textContent.includes("不一致") || document.getElementById("status")?.textContent.includes("エラー")',22000);
+  const wgl4gpu=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent.slice(-700),rows:[...document.querySelectorAll("#results-table tbody tr")].map(x=>x.textContent)})');
+  assert.match(wgl4gpu.status,/独立画素検算に合格/,JSON.stringify(wgl4gpu));
+  console.log('WGL4 live WebGL2 rotation, square canvas, angle scrub and original GPU pixel oracle: PASS');
+
   // WGL5: depth test, projection matrices and readPixels verified on actual GPU driver.
   await cdp('Page.navigate',{url:url+'?lesson=WGL5'});
   await waitFor('document.getElementById("status")?.textContent==="実行できます"');
