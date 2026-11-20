@@ -1,7 +1,7 @@
 # DREAM THEATER 代数的整数論・局所体・類体論（ANF1〜ANF22）
 
 設計確定: 2026-11-21 JST  
-状態: in_progress / ANF1〜ANF4 completed・ANF5〜ANF22 planned。全22講。ANF1〜ANF4の本文・メタデータ・系列manifest・公開目次を実装済み。
+状態: in_progress / ANF1〜ANF5 completed・ANF6〜ANF22 planned。全22講。ANF1〜ANF5の本文・メタデータ・系列manifest・公開目次を実装済み。
 系列ID: \`ANF\`（Algebraic Number Fields）。分野: 代数系。対応ルート: [岩澤理論・保型表現・RH講読](DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)。
 
 ## 目的・既存教材との差分
@@ -76,7 +76,7 @@
 - ANF14〜21でHilbert 90から類体論本体への飛躍を放置しない。局所・大域の中心定理に必要な補題が多すぎるなら、本文作成時に講義分割を**計画変更として明示**し、無断で「証明済み」としない。
 - ANF22のKronecker–Weberは主要結果の立証範囲を分ける。類体論からの帰結を掲げる際は既習の類体論定理の仮定を全て照合する。
 - 学習者本文では編集記号を説明しない。各講の\`index.md\`・\`chapter.yaml\`・\`knowledge.yaml\`・該当科目目次を成果物と同時に確定する。
-- ANF1着手時にANF.yamlを全22講で初期化した。ANF4完了時点でANF1〜ANF4 completed、ANF5〜ANF22 planned。今後も完成した講の本文・メタデータ・公開目次とmanifestのstatusを同期する。
+- ANF1着手時にANF.yamlを全22講で初期化した。ANF5完了時点でANF1〜ANF5 completed、ANF6〜ANF22 planned。今後も完成した講の本文・メタデータ・公開目次とmanifestのstatusを同期する。
 - 全講と横断監査・必要CIが完了するまで\`plan_done/\`へ移さない。
 
 ## 前後のルート
@@ -91,4 +91,5 @@ ANF9〜13とANF19の結果は \`AFR\` 側のアデール・局所表現へ提供
 - ANF2「跡・ノルム・判別式」: 本文・埋め込み公式と判別式の主要証明・9題と詳細解答・metadata・公開目次を追加。
 - ANF3「Dedekind環とイデアルの分解」: Dedekind整域の三条件、整数環のDedekind性、局所単項性・可逆イデアル・素イデアル分解の存在と一意性の証明、9題と詳細解答を追加。
 - ANF4「素数の分解・分岐・惰性」: 素イデアル上の e・f、ノルムの補題、次数公式、単項生成時の因数分解、二次体の判別式判定と10題の詳細解答を追加。
-- 次回: ANF5「Minkowski埋め込みと格子」。ANF5〜ANF22は未着手。
+- ANF5「Minkowski埋め込みと格子」: 実・複素埋め込み、イデアル格子の共体積、体積の鳩の巣原理、凸体定理（等号を含む）、ノルム評価用凸体の体積と小ノルム元の存在を証明し、10題と詳細解答を追加。
+- 次回: ANF6「イデアル類群の有限性」。ANF6〜ANF22は未着手。
