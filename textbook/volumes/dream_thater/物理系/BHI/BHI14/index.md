@@ -45,16 +45,16 @@ $$
 <!-- definition-example-start: def-bhi14-spreading-clock -->
 **定義の確認**：$n=8,\gamma=1$ は $n\ge2,\gamma>0$ を満たし、$x(0)=1$ です。微分方程式の右辺を $f(x)=x(1-x/8)$ と置くと
 
-$
+$$
 x'(0)=f(1)=1-\frac18=\frac78>0,\qquad
 f(8)=0.
-$
+$$
 
 $f(8)=0$ は飽和点での速度が零という意味で、初期値1から有限時刻に8へ達するという意味ではありません。また
 
-$
+$$
 f(x)=2-\frac{(x-4)^2}{8}\le2,\qquad f(4)=2
-$
+$$
 
 なので、半数条件 $x=4$ で増殖率が最大になります。ここで $\theta=1/2$ は $1/8\le\theta<1$ を満たし、$x=4$ は微分方程式の**実数値の判定条件**です。整数個の量子ビットを測定した結果とは区別します。
 <!-- definition-example-end -->
@@ -97,14 +97,14 @@ $1/x$ と $1/(n-x)$ に分けて積分すると $\log(x/(n-x))$ が現れます�
 
 $x(0)=1\in(0,n)$ なので、連続性から少なくとも初期時刻付近では $0<x(u)<n$ です。この範囲で補助関数を
 
-$
+$$
 g(z)=\log\frac{z}{n-z},\qquad
 g'(z)=\frac1z+\frac1{n-z}=\frac{n}{z(n-z)}
-$
+$$
 
 と置きます。微分する変数は $g$ では $z$、合成関数 $g(x(u))$ では時刻 $u$ です。連鎖律と微分方程式より
 
-$
+$$
 \begin{aligned}
 \frac{d}{du}g(x(u))
 &=g'(x(u))\,\frac{dx}{du}\\
@@ -112,13 +112,13 @@ $
   \,\gamma x(u)\left(1-\frac{x(u)}n\right)
 =\gamma.
 \end{aligned}
-$
+$$
 
 この計算を微分記号で略記したものが $dx/[x(1-x/n)]=\gamma\,du$ という**変数分離**です。$dx$ と $du$ を独立した数として割ったわけではなく、$x(n-x)\ne0$ と連鎖律が根拠です。時刻 $u$ について積分して
 
-$
+$$
 \log\frac{x(u)}{n-x(u)}=\gamma u+C
-$
+$$
 
 を得ます。
 
@@ -235,14 +235,14 @@ $$
 
 $Z_MZ_1$ は $M$ と $C$ 上で作用する観測演算子で、その作用素ノルムは1です。[BHI13で定義した距離 $L$](../BHI13/index.md#def-bhi13-decoupling-error)の差を $\Delta_{MC}:=\rho_{MC}-\pi_M\otimes\rho_C$、観測演算子を $O:=Z_MZ_1$ と書きます。ここで $\Delta_{MC}$ は密度演算子の差であり、先ほどのPauli演算子 $X$ とは異なります。$\Delta_{MC}$ はHermitianなので直交固有基底 $|j\rangle$ で $\Delta_{MC}=\sum_j\lambda_j|j\rangle\langle j|$ と展開できます。$\|O\|_\infty=1$ より各対角成分の絶対値は1以下なので、
 
-$
+$$
 \begin{aligned}
 |\operatorname{Tr}(\Delta_{MC}O)|
 &=\left|\sum_j\lambda_j\langle j|O|j\rangle\right|\\
 &\le\sum_j|\lambda_j|\,|\langle j|O|j\rangle|\\
 &\le\sum_j|\lambda_j|=\|\Delta_{MC}\|_1.
 \end{aligned}
-$
+$$
 
 したがって
 
@@ -344,10 +344,10 @@ $$
 
 1量子ビットの計算基底は $|0\rangle,|1\rangle$ の2状態なので、$q$ 量子ビットのテンソル積基底 $|b_1\rangle\otimes\cdots\otimes|b_q\rangle$（各 $b_i\in\{0,1\}$）は $2^q$ 個あります。したがって次元は
 
-$
+$$
 a=\dim A=2^k,\quad b=\dim B=2^m,\quad
 c=\dim C=2^{m-s},\quad d=\dim D=2^{k+s}.
-$
+$$
 
 入力・出力の量子ビット数がともに $k+m$ なので、$cd=2^{(m-s)+(k+s)}=2^{k+m}=ab$ です。$0\le s\le m$ が必要なのは残存系 $C$ の量子ビット数を非負にするためです。$\Delta u_{\rm rad}$ はこの模型の**全レジスタを引き渡す時間**であって、熱放射のエネルギー光度を量子ビット率に直接換算した値ではありません。
 
