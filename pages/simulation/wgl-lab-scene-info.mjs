@@ -24,6 +24,30 @@ const descriptions = Object.freeze({
     mode: 'drawModeでdrawElements（頂点共有）とdrawArrays（頂点展開）を切替。三角形の面積と画素の色を比較',
     source: 'mesh.js（gridSteps, drawMode, indices）/ mesh.vert / mesh.frag'
   }),
+  WGL4: Object.freeze({
+    requiresSteps: false,
+    grid: '数値計算格子なし（長方形の4頂点・2三角形と局所座標軸2本）',
+    color: '初期長方形はRGBA=(0.2, 0.6, 0.8, 1)、x軸は赤、y軸は緑、背景は黒',
+    clock: () => '編集ソースの静止描画1回（物理stepなし）',
+    mode: 'モデル点をT×R×Sの順序で変換。別の観察ビューの回転角はこの初期GPU画素検算の時計ではない',
+    source: 'model.js（tx, ty, angleDegrees, scaleX, scaleY）/ model.vert（u_model）/ model.frag（u_color）'
+  }),
+  WGL5: Object.freeze({
+    requiresSteps: false,
+    grid: '数値計算格子なし（8頂点・12面三角形の立方体を手前と奥へ2回描画）',
+    color: '手前はRGBA=(0.9, 0.3, 0.2, 1)の橙、奥は(0.2, 0.6, 0.9, 1)の青。背景は黒',
+    clock: () => '初期カメラの静止画素検算（物理stepなし）',
+    mode: '初期は透視投影・近遠面1/9・縦FOV90°・深度テストON。後の視点往復は同じ実GLSLの表示更新',
+    source: 'camera.js（eye, target, nearPlane, farPlane, fovYDegrees, projectionMode, depthEnabled）/ camera.vert / camera.frag'
+  }),
+  WGL6: Object.freeze({
+    requiresSteps: false,
+    grid: '数値計算格子なし（同じ3頂点の三角形を左右のGPU viewportへ各1回描画）',
+    color: 'UVの無次元値をRGB=(u, v, 0.25)で表示。gridFrequencyの格子線は暗灰色、背景は黒',
+    clock: () => '左右の静止比較描画1回（物理stepなし）',
+    mode: '左はclip w=1,2,4に基づく透視補正UV、右は画面重心座標による線形UV。左右の表示画素は幅をほぼ半分ずつ使用',
+    source: 'interpolation.js（gridFrequency, reverseWinding, cullBackFaces）/ interpolation.vert（a_clip, a_uv）/ interpolation.frag（u_mode, u_gridFrequency）'
+  }),
   FCG2: Object.freeze({
     grid: '8×8（実際のスカラー場、R8テクスチャ2枚を交互に更新）',
     color: '解析値 q=0.5+0.25 sin(2πx) cos(2πy) sin(t)。R8への丸め後、(q, 0.15, 1−q) の赤青で表示',
