@@ -27,7 +27,7 @@ chapters:
     title: "Minkowski埋め込みと格子"
   - id: ANF6
     path: textbook/volumes/dream_thater/代数系/ANF/ANF6
-    status: planned
+    status: completed
     title: "イデアル類群の有限性"
   - id: ANF7
     path: textbook/volumes/dream_thater/代数系/ANF/ANF7

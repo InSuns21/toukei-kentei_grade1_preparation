@@ -1,0 +1,49 @@
+chapter: ANF6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF5
+forward_references: []
+
+concepts:
+  - id: number-theory.ideal-class-group
+    name: イデアル類群
+    kind: definition
+    introduction: formal
+    requires: [number-theory.minkowski-small-norm-element]
+
+  - id: number-theory.bounded-ideal-norm-finiteness
+    name: ノルム有界な整イデアルの有限性
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.absolute-ideal-norm, number-theory.integral-basis]
+
+  - id: number-theory.minkowski-class-number-bound
+    name: Minkowskiの類数上界と類群の有限性
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.ideal-class-group, number-theory.minkowski-small-norm-element, number-theory.bounded-ideal-norm-finiteness]
+
+  - id: number-theory.class-number
+    name: 類数
+    kind: definition
+    introduction: formal
+    requires: [number-theory.minkowski-class-number-bound]
+
+  - id: number-theory.class-number-one-criterion
+    name: 類数1の判定
+    kind: corollary
+    introduction: formal
+    requires: [number-theory.minkowski-class-number-bound]
+
+  - id: number-theory.small-norm-prime-class-generators
+    name: 小ノルム素イデアルによる生成
+    kind: corollary
+    introduction: formal
+    requires: [number-theory.minkowski-class-number-bound]
+
+  - id: number-theory.sqrt-minus-five-class-group
+    name: Q(sqrt(-5))の類群
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.ideal-class-group, number-theory.minkowski-class-number-bound]
