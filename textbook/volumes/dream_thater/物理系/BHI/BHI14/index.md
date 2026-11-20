@@ -352,7 +352,14 @@ $$
 入力・出力の量子ビット数がともに $k+m$ なので、$cd=2^{(m-s)+(k+s)}=2^{k+m}=ab$ です。$0\le s\le m$ が必要なのは残存系 $C$ の量子ビット数を非負にするためです。$\Delta u_{\rm rad}$ はこの模型の**全レジスタを引き渡す時間**であって、熱放射のエネルギー光度を量子ビット率に直接換算した値ではありません。
 
 <!-- definition-example-start: def-bhi14-staged-clock -->
-**定義の確認**： $k=2,m=6,s=3,r=2,\tau=5$ なら $A,B,C,D$ の次元は順に $4,64,8,32$ で、$4\cdot64=8\cdot32=256$。$D$ は5量子ビットなので収集時間は $5/2$、完了時刻は $5+5/2=7.5$ です。$E$ は64次元のままで、5量子ビットへ数え直しません。
+**定義の確認**：$k=2,m=6,s=3,r=2,\tau=5$ は $k,m\ge1$、$0\le3\le6$、$r>0$、$\tau\ge0$ の全条件を満たします。上のテンソル積基底から
+
+$$
+(\dim A,\dim B,\dim C,\dim D)=(4,64,8,32),
+\qquad 4\cdot64=8\cdot32=256.
+$$
+
+$E$ は $B$ と最大エンタングルした64次元の早期放射として保管します。$D$ は $k+s=5$ 量子ビットなので、**時刻 $\tau$ より後から**の収集時間は $5/r=5/2$、完了時刻は $\tau+5/r=5+5/2=7.5$ です。早期放射 $E$ の6量子ビットを、今回集める5量子ビットに加算しません。
 <!-- definition-example-end -->
 
 ここでHaar選択と対数時間は別々の仮定です。前節の平均場方程式、回路の光円錐上界だけでは、$\tau$ で得られた $U$ がHaar分布だとは示せません。**Haar性を補助仮定として指定したときだけ**、BHI13の確率定理を時刻に翻訳できます。
@@ -464,7 +471,18 @@ $$
 - 問題: $n=8,\gamma=1$ のとき $\theta=1/4$ および $\theta=3/4$ の到達時刻を求め、その差を計算せよ。
 
 <!-- solution-start -->
-**詳細解答。** どちらも $1/n=1/8$ より大きいので[到達時間式](#thm-bhi14-logarithmic-clock)を使える。$\theta=1/4$ なら $(n-1)\theta/(1-\theta)=7(1/4)/(3/4)=7/3$、従って $t_{1/4}=\log(7/3)$。$\theta=3/4$ なら比は $7(3/4)/(1/4)=21$ なので $t_{3/4}=\log21$。差は $\log21-\log(7/3)=\log9$ である。対数の引数はいずれも無次元である。
+**詳細解答。** どちらも $1/n=1/8$ より大きいので[到達時間式](#thm-bhi14-logarithmic-clock)を使えます。$\gamma=1,n-1=7$ を代入すると
+
+$$
+\begin{aligned}
+t_{1/4}&=\log\frac{7(1/4)}{1-1/4}
+=\log\frac73,\\
+t_{3/4}&=\log\frac{7(3/4)}{1-3/4}
+=\log21.
+\end{aligned}
+$$
+
+したがって差は $\log21-\log(7/3)=\log(21\cdot3/7)=\log9$ です。対数の引数はいずれも無次元です。
 <!-- solution-end -->
 
 <a id="ex-bhi14-a03"></a>
@@ -510,7 +528,26 @@ $$
 - 問題: [fanout反例](#prop-bhi14-fanout-counterexample)のCNOT木で、第1量子ビットが $C$ に残るとする。$X_1$ の台が全域になる理由と、$\rho_{MC}$ が積状態にならない理由を別々に示せ。
 
 <!-- solution-start -->
-**詳細解答。** 制御 $c$・標的 $t$ のCNOTは $X_c$ を $X_cX_t$ に変える。各層で既存の台を互いに異なる未使用の標的に拡げるので、$h=\log_2n$ 層後には $FX_1F^\dagger=X_1\cdots X_n$。一方、制御側の $Z_1$ は全ゲートと可換なので $FZ_1F^\dagger=Z_1$。初期Bell対から $\operatorname{Tr}\rho_{MC}Z_MZ_1=1$。もし $\rho_{MC}=\pi_M\otimes\rho_C$ なら左辺は $\operatorname{Tr}\pi_MZ_M\operatorname{Tr}\rho_CZ_1=0$ となり矛盾。双対ノルム評価から $L\ge1$。演算子の**台**の大きさと、参照系との**相関**は異なる量である。
+**詳細解答。** 制御 $c$・標的 $t$ のCNOTは $X_c$ を $X_cX_t$ に変えます。各層で既存の台を互いに異なる未使用の標的に拡げるので、$h=\log_2n$ 層後には
+
+$$
+F X_1F^\dagger=X_1\cdots X_n.
+$$
+
+一方、第1量子ビットは全ゲートで制御側にしかならないため、$FZ_1F^\dagger=Z_1$ です。初期Bell対の $Z_MZ_A$ 相関は1なので、$Z_A=Z_1$ を使って
+
+$$
+\operatorname{Tr}(\rho_{MC}Z_MZ_1)=1.
+$$
+
+もし $\rho_{MC}=\pi_M\otimes\rho_C$ なら、$\operatorname{Tr}(\pi_MZ_M)=0$ だから
+
+$$
+\operatorname{Tr}[(\pi_M\otimes\rho_C)Z_MZ_1]
+=\operatorname{Tr}(\pi_MZ_M)\operatorname{Tr}(\rho_CZ_1)=0
+$$
+
+となって矛盾します。さらに $\|Z_MZ_1\|_\infty=1$ と[命題のトレースノルム評価](#prop-bhi14-fanout-counterexample)より $L\ge|1-0|=1$ です。演算子の**台**の大きさと、参照系との**相関**は異なる量です。
 <!-- solution-end -->
 
 <a id="ex-bhi14-b02"></a>
@@ -532,7 +569,28 @@ $$
 - 問題: $\varepsilon=1/8,\eta=1/16,k=3,m=9,r=4,\tau=6$ とする。最小の余剰量子ビット数、回収保証を適用できる収集完了時刻、確率界を求めよ。古い放射 $E$ を新放射量に加算してよいか。
 
 <!-- solution-start -->
-**詳細解答。** $\sqrt\eta=1/4$ で $\varepsilon\sqrt\eta=(1/8)(1/4)=1/32$、よって $s_*=\lceil\log_2 32\rceil=5\le9$。新放射は $k+s=8$ 量子ビットだから収集時間は $8/4=2$、収集完了時刻は $6+2=8$。確率上界は $2^{-2s}/\varepsilon^2=2^{-10}/(1/64)=1/16=\eta$。$E$ は投入前から受信者が保持する早期放射で、今回の8量子ビットには加えない。確率はHaarユニタリの抽選についてだけである。
+**詳細解答。** $\sqrt\eta=1/4$、$\varepsilon\sqrt\eta=1/32$ なので
+
+$$
+s_*=\left\lceil\log_2 32\right\rceil=5\le m=9.
+$$
+
+新放射は $k+s=3+5=8$ 量子ビットであり、率 $r=4$ で時刻 $\tau=6$ より後から集めるため
+
+$$
+\Delta u_{\rm rad}=\frac84=2,\qquad
+u_{\rm collect}=6+2=8.
+$$
+
+[BHI13の確率界](../BHI13/index.md#cor-bhi13-extra-qubits)の仮定 $s\le m$ を満たすので、失敗事象の確率は
+
+$$
+\Pr_U\{1-F_{\mathrm e,opt}\ge\varepsilon\}
+\le\frac{2^{-2s}}{\varepsilon^2}
+=\frac{2^{-10}}{1/64}=\frac1{16}=\eta.
+$$
+
+$E$ は投入前から受信者が保持する早期放射で、今回の8量子ビットには加えません。確率はHaarユニタリの抽選についてだけです。
 <!-- solution-end -->
 
 <a id="ex-bhi14-b04"></a>
