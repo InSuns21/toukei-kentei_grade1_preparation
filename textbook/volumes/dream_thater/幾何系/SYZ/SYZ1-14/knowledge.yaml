@@ -1,0 +1,47 @@
+chapter: SYZ1-14
+scope: dream-theater
+coverage: complete
+prerequisites: [SYZ1-13, SYZ1-08, SYZ1-10]
+concepts:
+  - id: syz.discriminant-vanishing-cycle
+    name: 判別集合と消滅サイクル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（判別集合と消滅サイクル）"]
+    requires: [syz.nodal-elliptic-fiber, syz.elliptic-k3-fibration]
+  - id: syz.nodal-local-normal-form
+    name: Weierstrassの単純零点から節点の局所模型へ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Weierstrassの単純零点から節点の局所模型へ）"]
+    requires: [syz.discriminant-vanishing-cycle, syz.k3-24-nodes]
+  - id: syz.torus-monodromy
+    name: トーラス束のモノドロミー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（トーラス束のモノドロミー）"]
+    requires: [syz.slag-torus-fibration, syz.discriminant-vanishing-cycle]
+  - id: syz.nodal-picard-lefschetz
+    name: 節点型退化のPicard–Lefschetzモノドロミー
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（節点型退化のPicard–Lefschetzモノドロミー）"]
+    requires: [syz.nodal-local-normal-form, syz.torus-monodromy]
+  - id: syz.primitive-vanishing-shear
+    name: 任意の原始消滅サイクルに対するshear
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（任意の原始消滅サイクルに対するshear）"]
+    requires: [syz.nodal-picard-lefschetz]
+  - id: syz.period-dual-monodromy
+    name: 周期と双対格子のモノドロミー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（周期と双対格子のモノドロミー）"]
+    requires: [syz.nodal-picard-lefschetz, syz.double-integral-affine, syz.holonomy-dual-torus]
+  - id: syz.smooth-extension-obstruction
+    name: 滑らかなトーラス束への延長の障害
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかなトーラス束への延長の障害）"]
+    requires: [syz.nodal-picard-lefschetz, syz.torus-monodromy, syz.k3-torus-obstruction]
