@@ -518,6 +518,9 @@ function isolatedRunner() {
         checkpoints: request.lesson === 'WGL20' && hooks ? hooks.checkpoints : null,
         width: canvas.width, height: canvas.height,
         logs, glError: '0x' + glError.toString(16)});
+      // WGL18 rAF may now use the very same GPU state; do not race the 16 probes.
+      if(request.lesson==='WGL18')
+        window.dispatchEvent(new Event('wgl18-initial-oracle-captured'));
     } catch (error) {
       send({...scope, type: 'result', ok: false, logs,
         error: String(error?.stack || error).slice(0, 5000)});
@@ -1046,7 +1049,7 @@ function run() {
   const iframe = document.createElement('iframe');
   iframe.className = 'result-frame';
   // Responsive preview without changing the actual drawing-buffer resolution.
-  iframe.style.aspectRatio = payload.width + ' / ' + (payload.height + 12);
+  iframe.style.aspectRatio = payload.width + ' / ' + (payload.height + (isWGL18 ? 160 : 12));
   iframe.style.height = 'auto';
   iframe.title = 'WebGL2 実行結果（隔離 origin）';
   iframe.setAttribute('sandbox', 'allow-scripts');
