@@ -1,0 +1,42 @@
+id: BHI10
+title: "AMPSのエンタングルメント矛盾"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI9
+  - BHI7
+  - QINF19
+official_scope: []
+learning_objectives:
+  - 早期放射R・後期外部モードb・内部相手cを明示し、精細エントロピーの減少と内外近真空対の条件を区別できる
+  - 強劣加法性から二つの条件付きエントロピーの和の非負性を導き、AMPSの誤差予算を計算できる
+  - 相互情報量の予算と純粋内外対の因数分解を説明し、GHZ・Bell対の反例を再計算できる
+  - 放射エントロピー減少区間から負の増分をもつ一歩を抽出し、全後期モードへの誤った一般化を避けられる
+  - d準位の不等式と各段階の誤差を扱い、物理的因数分解・滑らかな地平線・ユニタリ性の追加仮定を区別できる
+definitions:
+  - { id: BHI10-DEF-01, name: "AMPS三部系の二つの要請" }
+theorems:
+  - { id: BHI10-THM-01, name: "AMPSの三部エントロピー制約" }
+  - { id: BHI10-PROP-01, name: "純粋な内外対は早期放射から分離する" }
+  - { id: BHI10-PROP-02, name: "放射エントロピー減少区間には負の一歩がある" }
+canonical_examples:
+  - 早期放射と独立なBell内外対の二つの条件付きエントロピー
+  - 早期放射と後期モードのBell対により滑らかな内外条件を失う反例
+  - GHZ状態の両条件付きエントロピー零と局所最大混合
+  - 直交Bell対の重ね合わせでAMPS不等式が等号となる例
+  - Page曲線の減少区間と選ばれた負の放出ステップ
+problem_patterns:
+  - BHI10-EXACT-HORIZON-PAIR
+  - BHI10-SWAPPED-PURIFIER
+  - BHI10-GHZ-LOCAL-THERMAL
+  - BHI10-ERROR-BUDGET
+  - BHI10-MUTUAL-INFORMATION
+  - BHI10-SSA-PURIFICATION
+  - BHI10-NEGATIVE-INTERVAL
+  - BHI10-ORTHOGONAL-BELL-SUPERPOSITION
+  - BHI10-PURE-PAIR-FACTORIZATION
+  - BHI10-QUDIT-INTERVAL-TRADEOFF
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }
