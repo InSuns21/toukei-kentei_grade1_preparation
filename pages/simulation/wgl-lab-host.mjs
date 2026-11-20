@@ -62,7 +62,10 @@ const isWGL20 = lesson === 'WGL20';
 const isWGL18 = lesson === 'WGL18';
 const requestedCase = new URL(location.href).searchParams.get('case');
 const labCase = isWGL20 && ['CS1','CS2','CS3'].includes(requestedCase) ? requestedCase : 'BASE';
-const STORAGE_KEY = 'toukei-' + VERSION + '-' + lesson + (isWGL20 ? '-' + labCase : '');
+// FCG8's old saved JS predates the live playback hooks. Keep the old key
+// intact for recovery, but never silently restore it into the new live runner.
+const STORAGE_KEY = 'toukei-' + (isFCG8?'fcg8-live-v2':VERSION) + '-' + lesson +
+  (isWGL20 ? '-' + labCase : '');
 
 const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/' + ((isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8) ? 'FCG' : 'WGL') + '/' + lesson + '/', import.meta.url);
 const FILES = isWGL20 ? {js:'terrain.js',vertex:'terrain.vert',fragment:'terrain.frag'} : isFCG8 ? {js:'levelset.js',vertex:'levelset.vert',fragment:'levelset.frag'} : isFCG7 ? {js:'particle.js',vertex:'particle.vert',fragment:'particle.frag'} : isFCG6 ? {js:'solid.js',vertex:'solid.vert',fragment:'solid.frag'} : isFCG5 ? {js:'fluid.js',vertex:'fluid.vert',fragment:'fluid.frag'} : isFCG4 ? {js:'projection.js',vertex:'projection.vert',fragment:'projection.frag'} : isFCG3 ? {js:'advection.js',vertex:'advection.vert',fragment:'advection.frag'} : isFCG2 ? {js:'density.js', vertex:'density.vert', fragment:'density.frag'} :
@@ -247,6 +250,9 @@ async function load() {
         if (stored.height) byId('height').value = stored.height;
         byId('save-status').textContent = '同じ版の保存済み編集を復元しました（未実行）';
       }
+      if(isFCG8&&!stored&&localStorage.getItem('toukei-'+VERSION+'-FCG8')){
+        byId('save-status').textContent='旧版の保存コードは保持しています。新しい再生には初期ソースを使用します。';
+      }
     } catch {
       byId('save-status').textContent = '保存状態を利用できません（初期ソースで続行）';
     }
@@ -310,8 +316,9 @@ function isolatedRunner() {
       const hooks = await run(gl, canvas, request.vertex, request.fragment, report,
         {steps: ['FCG2','FCG3','FCG4','FCG5','FCG6','FCG7','FCG8'].includes(request.lesson) ? request.steps : undefined,
          snapshot: request.lesson === 'WGL20' ? request.snapshot : undefined});
-      if(request.lesson==='FCG8' && hooks &&
-        ['play','pause','step','reset'].every(key=>typeof hooks[key]==='function')){
+      const fcg8Hooks=request.lesson==='FCG8'&&!!hooks&&
+        ['play','pause','step','reset'].every(key=>typeof hooks[key]==='function');
+      if(fcg8Hooks){
         canvas.addEventListener('fcg8-progress',event=>{
           const d=event.detail;
           if(!d||!Number.isInteger(d.steps)||d.steps<0||d.steps>96)return;
@@ -463,6 +470,7 @@ function isolatedRunner() {
         {rate:Number(hooks.floatParameters.rate),steps:Number(hooks.floatParameters.steps)} : null;
       const frameAudit = request.lesson === 'WGL19' && hooks ? hooks.frameAudit : null;
       send({...scope, type: 'result', ok: glError === gl.NO_ERROR, samples, floatReadback, floatParameters, frameAudit,
+        liveHooks:request.lesson==='FCG8'?!!fcg8Hooks:undefined,
         checkpoints: request.lesson === 'WGL20' && hooks ? hooks.checkpoints : null,
         width: canvas.width, height: canvas.height,
         logs, glError: '0x' + glError.toString(16)});
@@ -832,8 +840,12 @@ window.addEventListener('message', event => {
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
   }
   if(isFCG8){
-    active.completed=!!data.ok;
-    if(data.ok&&fcg8Pending){
+    active.completed=!!data.ok&&!!data.liveHooks;
+    if(data.ok&&!data.liveHooks){
+      setStatus('このJSには連続再生フックがありません。初期ソースへ戻して実行してください',true);
+      fcg8Pending=null;fcg8Playing=false;fcg8Mark?.();
+    }
+    if(active.completed&&fcg8Pending){
       const action=fcg8Pending;fcg8Pending=null;
       fcg8Control(action);
     }else if(!data.ok){fcg8Pending=null;fcg8Playing=false;fcg8Mark?.();}
