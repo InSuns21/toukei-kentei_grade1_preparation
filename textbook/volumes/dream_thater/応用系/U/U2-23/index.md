@@ -28,9 +28,9 @@
 > **定義（SLAM の因子グラフ）**  
 > 有限個の未知変数ブロック $q=(q_1,\ldots,q_n)$ と、添字集合 $\mathcal A$ で番号を付けた非負の因子 $\psi_a(q_{N(a)};d_a)$ を取る。$N(a)\subseteq\{1,\ldots,n\}$ はその因子が参照する変数番号の集合、$d_a$ は固定した観測・入力などのデータである。変数節点 $q_i$ と因子節点 $a$ を、$i\in N(a)$ のときだけ辺で結んだ二部グラフを因子グラフとする。未知変数の基準測度に関して
 >
-> $$ 
-> 0<Z(d)=\int\prod_{a\in\mathcal A}\psi_a(q_{N(a)};d_a)\,dq<\infty
-> $$
+$$
+0<Z(d)=\int\prod_{a\in\mathcal A}\psi_a(q_{N(a)};d_a)\,dq<\infty
+$$
 >
 > が成り立つなら、積を $Z(d)$ で割ったものを、データ $d$ を条件とする確率密度とする。離散変数の場合は積分を和に置き換える。
 <!-- formal-statement-end -->
@@ -38,7 +38,7 @@
 この定義の辺は、因子の**引数に実際に現れる変数**を表します。因子を消しても単なる「変数間の相関グラフ」へ置き換わるわけではありません。
 
 <!-- definition-example-start: def-u2-23-factor-graph -->
-**定義の確認**：未知変数を $(x_0,x_1,m)$、因子を $f_0(x_0)$、$f_u(x_0,x_1)$、$f_z(x_1,m)$ とすれば、$N(0)=\{x_0\}$、$N(u)=\{x_0,x_1\}$、$N(z)=\{x_1,m\}$ に対応します。変数と因子は異なる節点集合で、$f_z$ と $x_0$ に辺はありません。例えば $f_0$ を平均0・分散1の Gaussian 事前、$f_u,f_z$ を分散1の条件付き Gaussian 密度とすれば、事前・運動・観測の積は非負です。固定した $z$ に対する積分は、適切な有限の正の観測周辺密度 $p(z)$ に等しいため、正規化条件も満たします。
+**定義の確認**：未知変数を $(x_0,x_1,m)$、因子を $f_0(x_0)$、$f_u(x_0,x_1)$、$f_z(x_1,m)$ とすれば、$N(0)=\{1\}$、$N(u)=\{1,2\}$、$N(z)=\{2,3\}$ に対応します。変数と因子は異なる節点集合で、$f_z$ と $x_0$ に辺はありません。例えば $f_0$ を平均0・分散1の Gaussian 事前、$f_u,f_z$ を分散1の条件付き Gaussian 密度とすれば、事前・運動・観測の積は非負です。固定した $z$ に対する積分は、適切な有限の正の観測周辺密度 $p(z)$ に等しいため、正規化条件も満たします。
 <!-- definition-example-end -->
 
 ### 姿勢だけのグラフと、ランドマークを含むグラフ
@@ -55,12 +55,12 @@
 > **定理（SLAM 同時事後の因子積表示）**  
 > $T\ge1$ とし、上の初期独立性、Markov 運動、条件付き独立な観測の生成模型を仮定する。観測した $u_{1:T},z_{1:T}$ を固定し、正の有限な周辺密度 $p(z_{1:T}\mid u_{1:T})$ が存在するなら、
 >
-> $$
-> p(g_{0:T},m\mid z_{1:T},u_{1:T})
-> =\frac{1}{Z}\,p_0(g_0)\rho(m)
-> \prod_{t=1}^T k_t(g_t\mid g_{t-1},u_t)
-> \prod_{t=1}^T\ell_t(z_t\mid g_t,m).
-> $$
+$$
+p(g_{0:T},m\mid z_{1:T},u_{1:T})
+=\frac{1}{Z}\,p_0(g_0)\rho(m)
+\prod_{t=1}^T k_t(g_t\mid g_{t-1},u_t)
+\prod_{t=1}^T\ell_t(z_t\mid g_t,m).
+$$
 >
 > ここで $Z=p(z_{1:T}\mid u_{1:T})>0$ である。初期姿勢事前因子は $g_0$、地図事前因子は $m$、運動因子は $(g_{t-1},g_t)$、観測因子は $(g_t,m)$ のみを引数とする。地図がランドマークに分かれ、観測 $j$ が目印 $m_j$ だけを見るなら、対応する観測因子の引数は $(g_t,m_j)$ まで縮む。
 <!-- formal-statement-end -->
@@ -101,18 +101,18 @@ $$
 > **定義（Gaussian 因子の残差と情報行列）**  
 > 因子 $a$ について、未知変数 $q_{N(a)}$ から予測した量を $h_a(q_{N(a)})\in\mathbb R^{d_a}$、固定観測値を $y_a\in\mathbb R^{d_a}$ とする。残差と正定値情報行列を
 >
-> $$
-> e_a(q)=h_a(q_{N(a)})-y_a,\qquad
-> \Sigma_a\in\mathbb R^{d_a\times d_a},\quad
-> \Sigma_a\succ0,\quad \Omega_a=\Sigma_a^{-1}
-> $$
+$$
+e_a(q)=h_a(q_{N(a)})-y_a,\qquad
+\Sigma_a\in\mathbb R^{d_a\times d_a},\quad
+\Sigma_a\succ0,\quad \Omega_a=\Sigma_a^{-1}
+$$
 >
 > と定める。各 $\Sigma_a$ は未知変数に依存しない既知行列とし、Gaussian 因子を
 >
-> $$
-> \psi_a(q)=\frac{\exp\{-\tfrac12e_a(q)^{\mathsf T}\Omega_a e_a(q)\}}
-> {(2\pi)^{d_a/2}(\det\Sigma_a)^{1/2}}
-> $$
+$$
+\psi_a(q)=\frac{\exp\{-\tfrac12e_a(q)^{\mathsf T}\Omega_a e_a(q)\}}
+{(2\pi)^{d_a/2}(\det\Sigma_a)^{1/2}}
+$$
 >
 > とする。周期的な角度成分は[角度差の局所規約](../U2-06/index.md#def-u2-06-angle-wrap)に従う枝で残差を作る。この式を円周全域の正規化済み密度と取り違えない。
 <!-- formal-statement-end -->
@@ -140,12 +140,12 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（固定共分散 Gaussian 因子と MAP の同値性）**  
-> 有限次元の同じ局所座標 $q$ について、観測データを固定した事後密度が正の有限な正規化定数を持ち、[定義した Gaussian 因子](#def-u2-23-gaussian-factor)の有限個の積に比例するとする。全因子の $\Sigma_a\succ0$ は未知変数 $q$ に依存しない。このとき事後密度の最大点（MAP 推定点）が存在すれば、その点の集合は目的関数
+> 有限次元の同じ局所座標 $q$ について、観測データを固定した事後密度が正の有限な正規化定数を持ち、[定義した Gaussian 因子](#def-u2-23-gaussian-factor)の有限個の積に比例するとする。全因子の $\Sigma_a\succ0$ は未知変数 $q$ に依存しない。このとき事後密度の最大点（最大事後確率推定、MAP 推定点）が存在すれば、その点の集合は目的関数
 >
-> $$
-> J(q)=\frac12\sum_{a\in\mathcal A}
-> e_a(q)^{\mathsf T}\Omega_a e_a(q)
-> $$
+$$
+J(q)=\frac12\sum_{a\in\mathcal A}
+e_a(q)^{\mathsf T}\Omega_a e_a(q)
+$$
 >
 > の最小点の集合と一致する。これは一般に非線形最小二乗であり、最小点の存在・一意性をこの等式だけから保証するものではない。
 <!-- formal-statement-end -->
@@ -208,11 +208,11 @@ $$
 > **命題（線形因子の二次形式と局所結合）**  
 > 全因子の残差 $A_aq-b_a$ が線形で $\Omega_a\succ0$ が固定なら、[目的関数](#thm-u2-23-map-objective)は
 >
-> $$
-> J(q)=\tfrac12 q^{\mathsf T}Hq-h^{\mathsf T}q+c,\quad
-> H=\sum_a A_a^{\mathsf T}\Omega_a A_a,\quad
-> h=\sum_a A_a^{\mathsf T}\Omega_a b_a.
-> $$
+$$
+J(q)=\tfrac12 q^{\mathsf T}Hq-h^{\mathsf T}q+c,\quad
+H=\sum_a A_a^{\mathsf T}\Omega_a A_a,\quad
+h=\sum_a A_a^{\mathsf T}\Omega_a b_a.
+$$
 >
 > $H$ は対称半正定値で、異なる変数ブロック $i,j$ が**どの因子にも同時に現れない**場合、$H$ の $(i,j)$ ブロックは0である。$H\succ0$ なら最小点は一意で $Hq=h$ を満たす。
 <!-- formal-statement-end -->
