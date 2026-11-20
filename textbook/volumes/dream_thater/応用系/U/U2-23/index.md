@@ -57,18 +57,18 @@ $$
 
 正規化条件も直接確かめます。標準 Gaussian 密度を $\varphi(s)=(2\pi)^{-1/2}\exp(-s^2/2)$ とし、固定した移動測定 $u$ と観測 $z$ に対して
 
-$
+$$
 f_0(x_0)=\varphi(x_0),\quad
 f_u(x_0,x_1)=\varphi(x_1-x_0-u),\quad
 f_z(x_1,m)=\varphi(z-(m-x_1))
-$
+$$
 
 と置きます。三因子は非負で、$f_0$ は $x_0$ に関する密度、$f_u$ は $x_0$ を固定した $x_1$ の密度です。さらに $x_1,z$ を固定したとき、$s=z-(m-x_1)$ と置換すれば $|ds/dm|=1$ なので $\int_{\mathbb R}f_z(x_1,m)\,dm=1$ です。非負関数の反復積分により
 
-$
+$$
 Z=\int_{\mathbb R^3}f_0(x_0)f_u(x_0,x_1)f_z(x_1,m)
 \,dx_0\,dx_1\,dm=1
-$
+$$
 
 となり、定義の $0<Z<\infty$ を確かめました。ただし、この例では地図 $m$ に正規化済み事前を置いていないので、$Z$ を生成模型の観測周辺密度 $p(z)$ と呼ぶことはできません。第2節の SLAM 生成模型では地図事前 $\rho(m)$ を別に置きます。
 <!-- definition-example-end -->
@@ -194,10 +194,10 @@ $$
 <!-- definition-example-start: def-u2-23-gaussian-factor -->
 **定義の確認**：[測距・方位の予測式](../U2-08/index.md#def-u2-08-range-bearing)を使います。ロボット姿勢 $g=(0,0,0)$、目印 $m=(3,0)$ なら予測は距離3 m、方位0 rad です。実測を $y=(1,1)^{\mathsf T}$（距離1 m、方位1 rad）とし、未知量 $q=(g,m)$ から計算する予測関数を $h(q)=(3,0)^{\mathsf T}$ とすると、角度差が局所枝内にあるため
 
-$
+$$
 e=h(q)-y=\begin{pmatrix}3-1\\0-1\end{pmatrix}
 =\begin{pmatrix}2\\-1\end{pmatrix}
-$
+$$
 
 です。これで残差の2成分が何の差かを確定しました。距離と方位の誤差（単位 m と rad）が独立で分散がそれぞれ4と1だと仮定し、$\Sigma=\operatorname{diag}(4,1)$ とします。任意の非零 $v=(v_1,v_2)^{\mathsf T}$ に対して $v^{\mathsf T}\Sigma v=4v_1^2+v_2^2>0$ なので、$\Sigma$ は対称正定値です。その逆行列は $\Omega=\operatorname{diag}(1/4,1)$ で、
 
@@ -577,7 +577,7 @@ $$
 
 一方の未知量を微分するときは他方を固定して偏微分し、
 
-$
+$$
 \frac{\partial J}{\partial x_2}=(x_2-2)-(m-x_2-2)=2x_2-m,\quad
 \frac{\partial J}{\partial m}=(m-3)+(m-x_2-2)=2m-x_2-5.
 $$
