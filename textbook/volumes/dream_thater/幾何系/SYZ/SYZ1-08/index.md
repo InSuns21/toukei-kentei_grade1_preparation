@@ -591,7 +591,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-**(1) SLag条件。** $g=2((dx^1)^2+(dy^1)^2)+3((dx^2)^2+(dy^2)^2)$、$\omega=2dx^1\wedge dy^1+3dx^2\wedge dy^2$、$\Omega=\sqrt6(dx^1+i\,dy^1)\wedge(dx^2+i\,dy^2)$ とする（$d x^1$ は $dx^1$ を意味する）。$L_y$ は $dy^1=dy^2=0$ で実次元2、コンパクトで向き付きの $T^2$。従って $\omega|_{L_y}=0$、$\operatorname{Im}\Omega|_{L_y}=0$ であり、$\operatorname{Re}\Omega|_{L_y}=\sqrt6\,dx^1\wedge dx^2=\operatorname{vol}_{L_y}>0$。束は $y$ の局所座標で積になり、局所自明である。
+**(1) SLag条件。** $g=2((dx^1)^2+(dy^1)^2)+3((dx^2)^2+(dy^2)^2)$、$\omega=2dx^1\wedge dy^1+3dx^2\wedge dy^2$、$\Omega=\sqrt6(dx^1+i\,dy^1)\wedge(dx^2+i\,dy^2)$ とする。$L_y$ は $dy^1=dy^2=0$ で実次元2、コンパクトで向き付きの $T^2$。従って $\omega|_{L_y}=0$、$\operatorname{Im}\Omega|_{L_y}=0$ であり、$\operatorname{Re}\Omega|_{L_y}=\sqrt6\,dx^1\wedge dx^2=\operatorname{vol}_{L_y}>0$。束は $y$ の局所座標で積になり、局所自明である。
 
 **(2) 二つの形式と周期。** $v=v^1\partial_{y^1}+v^2\partial_{y^2}$ とすると、縮約を順に行って
 
