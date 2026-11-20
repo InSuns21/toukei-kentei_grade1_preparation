@@ -169,3 +169,27 @@ main{max-width:1120px}
   .fcg2-stage .result-frame{max-width:520px}
   .fcg2-time-controls input[type=range]{width:min(55vw,270px)}
 }
+
+/* G1: show the actual WebGL result first; numeric tables and shader logs are opt-in. */
+.result-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.result-heading h2{margin:.35rem 0}
+#panel-result #canvas-slot{width:100%;min-width:0;margin:.5rem auto}
+#panel-result .result-frame{display:block;width:100%;max-width:100%;margin-inline:auto}
+#result-note{margin:.45rem 0 1.15rem;color:#304e64;overflow-wrap:anywhere}
+.lab-details{border-top:1px solid #cbd5e1;margin:.65rem 0;padding:.15rem 0}
+.lab-details:last-of-type{border-bottom:1px solid #cbd5e1}
+.lab-details summary{cursor:pointer;padding:.65rem .15rem;font-weight:650;color:#183f5d}
+.lab-details summary:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+.lab-details summary span{font-weight:400;color:#4d6475}
+.lab-details>p{font-size:.88rem;color:#334e63;overflow-wrap:anywhere}
+.lab-table-scroll{max-width:100%;overflow-x:auto;margin:.5rem 0 1rem}
+.lab-table-scroll table{min-width:600px}
+.lab-details pre{margin:.25rem 0 1rem}
+#action-feedback:not(:empty){display:block;flex-basis:100%;color:#9b1c1c;font-weight:650;
+  border-left:3px solid #9b1c1c;padding:.2rem .65rem;margin:.2rem 0}
+@media(max-width:600px){
+  main{padding:10px}
+  .result-heading{align-items:flex-start}
+  .tabs button{flex:1 1 auto;padding:8px}
+  .lab-details summary{padding:.8rem .1rem}
+}
