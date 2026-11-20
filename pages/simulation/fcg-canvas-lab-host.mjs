@@ -18,6 +18,45 @@ let active = null;
 let generation = 0;
 let interval = null;
 let sourceRefresh = () => {};
+const MODE_NAMES = {rotation:'定常回転',steady:'定常せん断',unsteady:'非定常せん断'};
+function sceneSummary(mode, dt, time, steps, snapshot = null) {
+  // A learner may edit the viewport or buffer in tracer.js. The host must not
+  // describe the original geometry as if it still belonged to the running code.
+  const v = snapshot?.view;
+  const hasView = v && [v.left, v.right, v.bottom, v.top].every(Number.isFinite) &&
+    v.left < v.right && v.bottom < v.top;
+  const domain = hasView
+    ? 'x: ' + v.left + '〜' + v.right + ' m / y: ' + v.bottom + '〜' + v.top + ' m'
+    : '座標範囲: 実行JSの view を確認';
+  const width = snapshot?.canvasWidth, height = snapshot?.canvasHeight;
+  const hasSize = Number.isInteger(width) && Number.isInteger(height) &&
+    width > 0 && height > 0 && width <= 8192 && height <= 8192;
+  const display = hasSize ? 'Canvas2D ' + width + '×' + height + ' px（画面幅で縮小）'
+    : '描画バッファ: 実行JSを確認';
+  el('fcg1-scene-info').textContent =
+    (MODE_NAMES[mode] || mode) + '｜物理時刻 ' + time.toFixed(3) +
+    ' s・' + steps + ' step（h=' + dt + ' s）｜' + domain +
+    '｜計算: 粒子の座標 [m]、表示: ' + display;
+}
+function pendingSettings() {
+  const previous = active?.payload;
+  const changed = previous && (previous.mode !== el('field').value ||
+    previous.dt !== Number(el('dt').value) ||
+    previous.source !== editor.value);
+  el('fcg1-pending').textContent = changed
+    ? '条件またはソースを変更しました。「実行・リセット」で描画へ反映します。'
+    : '';
+}
+function focusSource(term) {
+  selectTab('code');
+  const position = editor.value.indexOf(term);
+  editor.focus();
+  if (position >= 0) editor.setSelectionRange(position, position + term.length);
+}
+el('fcg1-edit-velocity').addEventListener('click', () => focusSource('function velocity('));
+el('fcg1-edit-euler').addEventListener('click', () => focusSource('function euler('));
+for (const id of ['field','dt']) el(id).addEventListener('change', pendingSettings);
+editor.addEventListener('input', pendingSettings);
 
 function selectTab(name, focus = false) {
   for (const tab of tabs) {
@@ -278,6 +317,7 @@ window.addEventListener('message', event => {
   if (msg.type === 'error') {
     pause();
     el('diagnostics').textContent = String(msg.message).slice(0, 3000);
+    el('fcg1-numerics').open = true;
     setStatus('JavaScriptの実行エラー。コードと診断ログを確認してください', true);
     active.busy = false;
     clearTimeout(active.timeout); active.timeout = null;
@@ -297,6 +337,7 @@ window.addEventListener('message', event => {
       throw new Error('速度場または刻み幅の数値診断が不正です');
     const rows = compareTracerSnapshot(active.payload.mode, active.payload.dt, data);
     active.steps = data.steps;
+    sceneSummary(active.payload.mode, active.payload.dt, data.time, data.steps, data);
     displayRows(rows, active.payload.source !== baseSource, data.time);
     const unchanged = active.payload.source === baseSource;
     const valid = rows.every(r => r.pass);
@@ -310,6 +351,7 @@ window.addEventListener('message', event => {
     pause();
     setStatus('診断値の不整合: ' + error.message, true);
     el('diagnostics').textContent = String(error.message);
+    el('fcg1-numerics').open = true;
   }
 });
 
@@ -320,10 +362,13 @@ function run() {
   el('particle-diagnostics').replaceChildren();
   el('diagnostics').textContent = '未実行';
   el('result-note').textContent = '新しい解析・数値計算を準備中';
+  el('fcg1-numerics').open = false;
+  el('fcg1-pending').textContent = '';
   if (!ready) {setStatus('ソースが未取得です', true); return;}
   let payload;
   try { payload = capture(); }
   catch (error) { setStatus(String(error.message), true); return; }
+  sceneSummary(payload.mode, payload.dt, 0, 0);
   let session;
   try {session = randomToken();}
   catch (error) {setStatus(String(error.message), true);return;}
@@ -359,6 +404,7 @@ el('reset').addEventListener('click', () => {
   stop('初期ソースに戻しました。コードは未実行');
   editor.value = baseSource;
   sourceRefresh();
+  pendingSettings();
   selectTab('code');
 });
 el('save').addEventListener('click', () => {
