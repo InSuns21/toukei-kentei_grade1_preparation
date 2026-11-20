@@ -1,0 +1,53 @@
+chapter: SYZ1-11
+scope: dream-theater
+coverage: complete
+prerequisites: [SYZ1-10]
+concepts:
+  - id: syz.semiflat-kahler-structure
+    name: semi-flat Kähler構造
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（semi-flat Kähler構造）"]
+    requires: [syz.hessian-metric, syz.semiflat-complex-gluing]
+  - id: syz.semiflat-kahler-metric
+    name: Hessianが与えるKähler計量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hessianが与えるKähler計量）"]
+    requires: [syz.semiflat-kahler-structure]
+  - id: syz.semiflat-kahler-gluing
+    name: semi-flat Kählerデータの貼り合わせ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（semi-flat Kählerデータの貼り合わせ）"]
+    requires: [syz.semiflat-kahler-metric, syz.dual-affine-transition]
+  - id: syz.semiflat-holomorphic-volume
+    name: semi-flatの局所正則体積形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（semi-flatの局所正則体積形式）"]
+    requires: [syz.semiflat-complex-gluing]
+  - id: syz.semiflat-ricci-ma
+    name: semi-flat Ricci形式と実Monge–Ampère条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（semi-flat Ricci形式と実Monge–Ampère条件）"]
+    requires: [syz.semiflat-kahler-metric, syz.semiflat-holomorphic-volume]
+  - id: syz.semiflat-levi-civita
+    name: semi-flat計量のLevi-Civita係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（semi-flat計量のLevi-Civita係数）"]
+    requires: [syz.semiflat-kahler-metric]
+  - id: syz.flat-u1-connection-holonomy
+    name: ファイバーの平坦U(1)接続とホロノミー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ファイバーの平坦U(1)接続とホロノミー）"]
+    requires: [syz.holonomy-dual-torus]
+  - id: syz.b-field-exponential-phase
+    name: B場の指数位相
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（B場の指数位相）"]
+    requires: [syz.flat-u1-connection-holonomy]

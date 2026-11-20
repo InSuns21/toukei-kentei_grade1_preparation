@@ -1,0 +1,48 @@
+id: "SYZ1-11"
+title: "semi-flat鏡像II――Kähler形式・計量・接続"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYZ1-10
+official_scope: []
+learning_objectives:
+  - 正定値Hessianと前講の複素チャートからsemi-flat Kähler計量と形式を構成できる
+  - Hessianの三階微分の対称性からKähler形式の閉性とポテンシャル係数を導ける
+  - 整数アフィン遷移による計量・Kähler形式の貼り合わせを中間行列で証明できる
+  - 正則体積形式の向き条件と遷移行列式の符号を判定できる
+  - Ricci形式を求めRicci平坦性と実Monge–Ampère定数行列式条件を区別できる
+  - Levi-Civita接続と整数アフィン平坦接続の違いを具体的な係数から説明できる
+  - 平坦U(1)接続の符号・曲率・ホロノミー・整数ゲージ同値を計算できる
+  - B場の2サイクル位相とU(1)接続の1サイクルホロノミーを区別できる
+  - 滑らかなsemi-flat計量の追加仮定と特異性・補正の未包含範囲を説明できる
+definitions:
+  - { id: SYZ1-11-DEF-01, name: "semi-flat Kähler構造" }
+  - { id: SYZ1-11-DEF-02, name: "semi-flatの局所正則体積形式" }
+  - { id: SYZ1-11-DEF-03, name: "ファイバーの平坦U(1)接続とホロノミー" }
+  - { id: SYZ1-11-DEF-04, name: "B場の指数位相" }
+theorems:
+  - { id: SYZ1-11-THM-01, name: "Hessianが与えるKähler計量" }
+  - { id: SYZ1-11-PROP-01, name: "semi-flat Kählerデータの貼り合わせ" }
+  - { id: SYZ1-11-THM-02, name: "semi-flat Ricci形式と実Monge–Ampère条件" }
+  - { id: SYZ1-11-PROP-02, name: "semi-flat計量のLevi-Civita係数" }
+canonical_examples:
+  - 異方的二次ポテンシャルによるKähler形式・正定値性の検証
+  - 非Hessian正定値行列での閉性失敗
+  - 整数せん断の複素体積形式・Kähler計量の貼り合わせ
+  - 指数型HessianのRicci平坦・非定数体積ノルム
+  - 円周上の平坦U(1)接続とB場の2サイクル位相
+problem_patterns:
+  - SYZ1-11-KAHLER-DIRECT
+  - SYZ1-11-POTENTIAL-FACTOR
+  - SYZ1-11-VOLUME-SHEAR
+  - SYZ1-11-HOLONOMY-SIGN
+  - SYZ1-11-B-FIELD-INTEGRAL
+  - SYZ1-11-AFFINE-METRIC-GLUING
+  - SYZ1-11-RICCI-AFFINE-LOGDET
+  - SYZ1-11-NONHESSIAN-OBSTRUCTION
+  - SYZ1-11-LEVI-CIVITA
+  - SYZ1-11-SEMI-FLAT-COMPLETE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 12, review: 5 }
