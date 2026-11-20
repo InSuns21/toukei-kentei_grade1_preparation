@@ -42,7 +42,24 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf5-minkowski-embedding -->
-**定義の確認**： $K=\mathbb Q(\sqrt5)$ では実埋め込みが二つあり、$j(a+b\sqrt5)=(a+b\sqrt5,a-b\sqrt5)$ です。両成分の積は $a^2-5b^2=N_{K/\mathbb Q}(a+b\sqrt5)$。一方、$K=\mathbb Q(\sqrt{-5})$ では $r_1=0,r_2=1$ で、$\sqrt{-5}\mapsto i\sqrt5$ を選ぶと $j(a+b\sqrt{-5})=a+i b\sqrt5$。その絶対値の二乗は $a^2+5b^2$ です。どちらも次数 $r_1+2r_2=2$ と体ノルム公式を直接満たします。
+**定義の確認**（実二次体）：$K=\mathbb Q(\sqrt5)$ の元を $a+b\sqrt5$（$a,b\in\mathbb Q$）と書くと、二つの実埋め込みは $\sigma_\pm(a+b\sqrt5)=a\pm b\sqrt5$ です。したがって
+
+$$
+j(a+b\sqrt5)=(a+b\sqrt5,a-b\sqrt5),\qquad
+N_{K/\mathbb Q}(a+b\sqrt5)=(a+b\sqrt5)(a-b\sqrt5)=a^2-5b^2.
+$$
+
+$r_1=2,r_2=0$ で $r_1+2r_2=2$ です。$j(a+b\sqrt5)=0$ なら二座標の和と差から $a=b=0$ となるので単射です。各埋め込みが有理数を固定するため、$j$ は有理線形でもあります。
+
+**定義の確認**（虚二次体）：$K=\mathbb Q(\sqrt{-5})$ で $s=\sqrt{-5}$、$\tau(s)=i\sqrt5$ を選ぶと、$r_1=0,r_2=1$ で
+
+$$
+j(a+bs)=a+ib\sqrt5\ \longleftrightarrow\ (a,b\sqrt5)\in\mathbb R^2,
+\qquad
+|N_{K/\mathbb Q}(a+bs)|=|a+ib\sqrt5|^2=a^2+5b^2.
+$$
+
+ここで右側の実座標は複素数の実部・虚部であり、複素共役のもう一つの埋め込みは $\overline\tau(s)=-i\sqrt5$ です。$j(a+bs)=0$ なら実部と虚部から $a=b=0$。同様に有理線形です。従ってこの例でも単射・次数・ノルム公式をそれぞれ確認できました。
 <!-- definition-example-end -->
 
 この写像は $\mathbb Q$ 上線形です。整数基底の像が実一次独立であることは、次節の判別式を用いた行列式計算で確かめます。その像がどんな配置になるかを見るには、まず「格子の間隔」を測る必要があります。
@@ -59,13 +76,28 @@ $$
 
 ## 2. 判別式から共体積を計算する
 
-[整数基底の存在](../ANF1/index.md#thm-anf1-integral-basis)から $A=\bigoplus_{i=1}^n\mathbb Z\omega_i$ です。非零整イデアル $I$ は零でない整数 $m$ を含むため
+[整数基底の存在](../ANF1/index.md#thm-anf1-integral-basis)から $A=\bigoplus_{i=1}^n\mathbb Z\omega_i$ です。非零整イデアル $I$ に $0\ne\alpha\in I$ を取ります。$\alpha\in A$ なので、[最小多項式による整性判定](../ANF1/index.md#thm-anf1-minimal-polynomial)から、$\alpha$ のモニック最小多項式は整数係数です。これを
+
+$$
+T^d+c_{d-1}T^{d-1}+\cdots+c_1T+c_0
+$$
+
+とします。$\alpha\ne0$ なので $c_0\ne0$ であり、この多項式へ $\alpha$ を代入すると
+
+$$
+0\ne -c_0
+=\alpha\left(\alpha^{d-1}+\sum_{j=1}^{d-1}c_j\alpha^{j-1}\right)\in I.
+$$
+
+よって零でない整数 $m=|c_0|$ が $I$ に属し、
 
 $$
 mA\subseteq I\subseteq A
 $$
 
-となります。したがって $I$ は $A$ の有限指数の部分加群で、整数基底 $\beta_1,\ldots,\beta_n$ を持ちます。これは整数行列による部分格子の基底選択であり、$j(I)$ も全階数格子になります。
+となります。整数基底から $A/mA$ は有限集合なので、$I$ は $A$ の有限指数の部分加群です。従って $I$ は階数 $n$ の整数基底 $\beta_1,\ldots,\beta_n$ を持ちます。
+
+その像 $j(\beta_i)$ が実一次独立であることは、以下の判別式の行列式から従います。これで $j(I)$ が全階数格子になる理由も説明できます。
 
 <a id="thm-anf5-ideal-covolume"></a>
 
@@ -140,7 +172,7 @@ $$
 
 $K=\mathbb Q(\sqrt{-5})$ と $s=\sqrt{-5}$ を取ります。[二次体の整数環](../ANF1/index.md#thm-anf1-quadratic-integers)は $A=\mathbb Z[s]$、[二次体の判別式](../ANF2/index.md#thm-anf2-quadratic-discriminant)は $D_K=-20$ です。$j(a+bs)=(a,b\sqrt5)$ と実座標で書けば、基底 $(1,0),(0,\sqrt5)$ の平行四辺形の面積は $\sqrt5$。公式も $2^{-1}\sqrt{20}=\sqrt5$ になります。
 
-さらに $\mathfrak p=(2,1+s)$ では $A/\mathfrak p\cong\mathbb F_2$ ですから $N(\mathfrak p)=2$。基底 $(2,1+s)$ の像は $(2,0),(1,\sqrt5)$、行列式の絶対値は $2\sqrt5$。公式の右辺 $2^{-1}\sqrt{20}\cdot2=2\sqrt5$ と一致します。
+さらに $\mathfrak p=(2,1+s)$ を考えます。$a+bs\mapsto a+b\pmod2$ は $s\equiv-1\equiv1\pmod{\mathfrak p}$ という関係から得られる全射 $A\to\mathbb F_2$ で、核は $(2,1+s)=\mathfrak p$ です。したがって $A/\mathfrak p\cong\mathbb F_2$、$N(\mathfrak p)=2$。基底 $(2,1+s)$ の像は $(2,0),(1,\sqrt5)$ で、行列式の絶対値は $2\sqrt5$。公式の右辺 $2^{-1}\sqrt{20}\cdot2=2\sqrt5$ と一致します。
 
 ## 3. 体積から非零格子点を保証する
 
@@ -213,7 +245,33 @@ $$
 
 を使います。$s=tu$ で $t$ の冪を外し、$\int_0^1u^a(1-u)^b\,du$ を部分積分すれば $a$ を一つ下げ $b$ を一つ上げる操作を $a$ 回繰り返せます。最後は $\int_0^1(1-u)^{a+b}\,du=1/(a+b+1)$ となり、表示公式を得ます。
 
-まず重みなしの $u_i$ を順に積分し、次に各 $v_k$ を重み $v_k$ とともに積分します。上の公式を各段階で $a=0$ または $a=1$ として適用すると、分母の階乗が総次数 $r_1+2r_2=n$ まで増え、分子の $0!$、$1!$ はすべて $1$ です。従って残りの積分は $t^n/n!$。定数を掛け戻すと
+積分を途中まで実行して、なぜ $n!$ が現れるかを確かめます。$v_1,\ldots,v_{r_2}$ を固定して $T=t-\sum_k v_k\geq0$ とおくと、$r_1$ 個の $u_i$ に関する単体の体積は $T^{r_1}/r_1!$ です（$r_1=0$ のときは $0!=1$ として同じ式）。したがって残りの積分は
+
+$$
+\frac1{r_1!}
+\int_{\substack{v_k\geq0\\\sum_k v_k\leq t}}
+\left(t-\sum_k v_k\right)^{r_1}
+\prod_{k=1}^{r_2}v_k\,dv_1\cdots dv_{r_2}.
+$$
+
+ここで上の積分公式に $a=1,b=q\geq0$ を代入すると、$T\geq0$ に対し
+
+$$
+\int_0^T v(T-v)^q\,dv
+=\frac{q!}{(q+2)!}T^{q+2}
+=\frac{T^{q+2}}{(q+1)(q+2)}
+$$
+
+です。ほかの $v_k$ を固定して一変数ずつ積分すると、分母の階乗は次のように増えます。
+
+$$
+\frac1{r_1!}\ \longrightarrow\
+\frac1{(r_1+2)!}\ \longrightarrow\
+\frac1{(r_1+4)!}\ \longrightarrow\
+\frac1{(r_1+2r_2)!}.
+$$
+
+これにより積分値は $t^n/n!$ です。$r_2=0$ なら複素座標の積分はなく、実座標だけの値 $t^{r_1}/r_1!$ がそのまま残ります。定数を掛け戻すと
 
 $$
 2^{r_1}\left(\frac\pi2\right)^{r_2}\frac{t^n}{n!}
@@ -315,7 +373,33 @@ $$
 J=(\alpha)I^{-1}
 $$
 
-と置きます。$(\alpha)\subseteq I$ なので $J\subseteq II^{-1}=A$、すなわち $J$ は整イデアルです。また $IJ=(\alpha)$。整数基底に関する積の指数を素イデアル分解に沿って比較すると、非零整イデアルのノルムは積について乗法的です。[ANF4の素イデアル冪のノルム](../ANF4/index.md#lem-anf4-prime-power-norm)と中国剰余分解で具体的に確かめられます。従って
+と置きます。$\alpha\in I$ から $(\alpha)\subseteq I$ なので、[ANF3の可逆性](../ANF3/index.md#prop-anf3-invertible-ideals)を適用すると
+
+$$
+J=(\alpha)I^{-1}\subseteq II^{-1}=A,
+\qquad IJ=(\alpha).
+$$
+
+よって $J$ は整イデアルです。
+
+非零整イデアルのノルムの乗法性を、[ANF3の素イデアル分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)と[ANF4の素イデアル冪のノルム](../ANF4/index.md#lem-anf4-prime-power-norm)から確認します。$I,J$ に現れる素イデアルを合わせて $\mathfrak p_1,\ldots,\mathfrak p_h$ とし、指数が零のものも許して
+
+$$
+I=\prod_{i=1}^h\mathfrak p_i^{a_i},
+\qquad J=\prod_{i=1}^h\mathfrak p_i^{b_i},
+\qquad a_i,b_i\in\mathbb Z_{\geq0}
+$$
+
+と表します。異なる素イデアル冪の商の大きさが積に分かれることは、中国剰余定理で分かります。従って
+
+$$
+N(IJ)=\prod_iN(\mathfrak p_i)^{a_i+b_i}
+=\left(\prod_iN(\mathfrak p_i)^{a_i}\right)
+ \left(\prod_iN(\mathfrak p_i)^{b_i}\right)
+=N(I)N(J).
+$$
+
+従って
 
 $$
 N(I)N(J)=N((\alpha))
@@ -473,7 +557,19 @@ N(I)N(J)=N(IJ)=N((\alpha))
 =|N_{K/\mathbb Q}(\alpha)|.
 $$
 
-具体例では [ANF4の分岐](../ANF4/index.md#thm-anf4-quadratic-splitting)から $I^2=(2)$、よって $I^{-1}=I/(2)$ です。$\alpha=2$ なので
+具体例では $s^2=-5$ を用いると
+
+$$
+I^2=(4,2(1+s),(1+s)^2)=(4,2+2s,-4+2s).
+$$
+
+三つの生成元はいずれも $(2)$ に属します。他方、生成元の整数係数結合として
+
+$$
+(2+2s)-(-4+2s)-4=2
+$$
+
+を得るので、$(2)\subseteq I^2$ です。ゆえに $I^2=(2)$（[ANF4の分岐判定](../ANF4/index.md#thm-anf4-quadratic-splitting)とも整合）であり、$I^{-1}=I/(2)$ となります。$\alpha=2$ を代入すると
 
 $$
 J=(2)I^{-1}=(2)\frac{I}{(2)}=I,
