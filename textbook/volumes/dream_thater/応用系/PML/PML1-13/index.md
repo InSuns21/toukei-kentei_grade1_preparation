@@ -18,7 +18,13 @@ H_{rs}=\partial_{\theta_s}(\partial_{\theta_r}F)(\theta_\star),
 (Hx)_r=\sum_{s=1}^dH_{rs}x_s
 $$
 
-と書ける。停留点条件と線分に沿う微積分の基本定理から
+と書ける。線分を動かす変数 $s\in[0,1]$ について、各成分の関数 $g_r(s)=\partial_{\theta_r}F(\theta_\star+sx)$ を考える。連鎖律より
+
+$
+g_r'(s)=\sum_{k=1}^d\partial_{\theta_k}(\partial_{\theta_r}F)(\theta_\star+sx)x_k
+$
+
+である。各 $r$ について $g_r(1)-g_r(0)=\int_0^1g_r'(s)\,ds$ と積分し、$\nabla F(\theta_\star)=0$ を代入して
 
 $$
 \nabla F(\theta_\star+x)
