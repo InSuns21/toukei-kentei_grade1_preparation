@@ -156,7 +156,7 @@ $$
 d*\alpha(p)=\sum_{j=1}^n e_j(a_j)(p)\,\operatorname{vol}_L(p).
 $$
 
-計量との両立性と $\nabla_{e_j}e_k(p)=0$ より、1形式の共変微分の積の法則を使って
+計量との両立性と $\nabla_{e_j}e_k(p)=0$ を使い、1形式の共変微分の定義を展開すると
 
 $$
 \begin{aligned}
