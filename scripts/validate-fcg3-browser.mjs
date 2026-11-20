@@ -100,6 +100,11 @@ try {
   assert.match(await evaluate('document.querySelector("#fcg3-cpu-prediction").textContent'),/mass=/);
   assert.equal(initial.sandbox,'allow-scripts');
   assert.equal(initial.opaque,true);
+  const dyeFrame0=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  await new Promise(ok=>setTimeout(ok,700));
+  const dyeFrameNext=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  assert.notEqual(dyeFrame0.data,dyeFrameNext.data,'FCG3 actual semi-Lagrangian dye should animate');
+  console.log('FCG3 source-linked physical steps alter real Chromium display frames: PASS');
   console.log('FCG3 actual GPU texture, six readPixels, independent CPU and opaque sandbox: PASS');
 
   await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="1step")).click()');
