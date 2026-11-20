@@ -1,0 +1,54 @@
+chapter: PML1-08
+scope: dream-theater
+coverage: complete
+prerequisites: [PML1-07, STO9, STO11]
+concepts:
+  - id: physics-machine-learning.overdamped-langevin-equation
+    name: 過減衰Langevin方程式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（過減衰Langevin方程式）"]
+    requires:
+      - physics-machine-learning.constant-mobility-gradient-system
+      - stochastic.brownian-sde
+      - stochastic.global-lipschitz-sde-existence-uniqueness
+  - id: physics-machine-learning.thermal-noise-matching
+    name: 温度と移動度に整合する熱雑音
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（温度と移動度に整合する熱雑音）"]
+    requires:
+      - physics-machine-learning.overdamped-langevin-equation
+  - id: physics-machine-learning.overdamped-generator
+    name: 過減衰Langevin型拡散の生成作用素
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（過減衰Langevin型拡散の生成作用素）"]
+    requires:
+      - physics-machine-learning.overdamped-langevin-equation
+      - physics-machine-learning.thermal-noise-matching
+      - stochastic.diffusion-generator
+      - stochastic.ito-process-formula
+  - id: physics-machine-learning.quadratic-langevin-explicit
+    name: 二次模型の明示解・平均・分散
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二次模型の明示解・平均・分散）"]
+    requires:
+      - physics-machine-learning.thermal-noise-matching
+      - stochastic.deterministic-brownian-integral-gaussian
+  - id: physics-machine-learning.quadratic-noise-mismatch
+    name: 二次模型のノイズ係数の不整合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二次模型のノイズ係数の不整合）"]
+    requires:
+      - physics-machine-learning.quadratic-langevin-explicit
+  - id: physics-machine-learning.quadratic-expected-loss
+    name: 二次Langevin模型の期待損失
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二次Langevin模型の期待損失）"]
+    requires:
+      - physics-machine-learning.quadratic-langevin-explicit
+      - physics-machine-learning.gradient-flow-dissipation
