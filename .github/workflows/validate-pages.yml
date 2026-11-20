@@ -132,6 +132,10 @@ jobs:
         if: steps.scope.outputs.full == 'true'
         run: node scripts/validate-fcg5-browser.mjs
 
+      - name: Test FCG8 actual editable Level Set playback in Chromium
+        if: steps.scope.outputs.full == 'true'
+        run: node scripts/validate-fcg8-browser.mjs
+
       - name: Test FCG3 editable advection and GPU error map in Chromium
         if: steps.scope.outputs.full == 'true'
         run: node scripts/validate-fcg3-browser.mjs
