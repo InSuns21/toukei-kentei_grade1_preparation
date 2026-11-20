@@ -30,7 +30,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf6-ideal-class-group -->
-**定義を直接確かめる。** $\mathcal P_K$ は $(\alpha)(\beta)=(\alpha\beta)$、$(1)=A$、$(\alpha)^{-1}=(\alpha^{-1})$ により部分群です。$\mathcal I_K$ が可換なので正規部分群でもあり、商群が定義できます。さらに
+**定義の確認**　 $\mathcal P_K$ は $(\alpha)(\beta)=(\alpha\beta)$、$(1)=A$、$(\alpha)^{-1}=(\alpha^{-1})$ により部分群です。$\mathcal I_K$ が可換なので正規部分群でもあり、商群が定義できます。さらに
 
 $$
 [\mathfrak a]=[\mathfrak b]
@@ -194,7 +194,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf6-class-number -->
-類数は「互いに主イデアル倍で移り合わない非零分数イデアルが何種類あるか」という数です。$h_K=1$ は、[分数イデアルの可逆性](../ANF3/index.md#prop-anf3-invertible-ideals)を備えた整数環 $A$ ではすべての整イデアルが主イデアルであることを意味します。$A=\mathbb Z$ の場合、既に確認した通り $h_{\mathbb Q}=1$ です。
+**定義の確認**　類数は「互いに主イデアル倍で移り合わない非零分数イデアルが何種類あるか」という数です。$h_K=1$ は、[分数イデアルの可逆性](../ANF3/index.md#prop-anf3-invertible-ideals)を備えた整数環 $A$ ではすべての整イデアルが主イデアルであることを意味します。$A=\mathbb Z$ の場合、既に確認した通り $h_{\mathbb Q}=1$ です。
 <!-- definition-example-end -->
 
 ## 5. 小さい素イデアルだけを調べる
