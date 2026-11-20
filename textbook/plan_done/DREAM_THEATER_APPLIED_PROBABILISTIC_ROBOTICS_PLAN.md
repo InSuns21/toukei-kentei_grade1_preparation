@@ -2,7 +2,7 @@
 
 作成・分冊: 2026-10-11  
 講義構成確定: 2026-11-15（**全28講：U2-01〜U2-28**）  
-状態: in_progress（U2-01〜U2-28 の全28講は実装済み。科目横断監査・公開の最終検証は未完了のため、PLAN は進行中）
+状態: done（U2-01〜U2-28 の全28講の実装、2026-11-21 の U2-28 追跡監査と系列横断の metadata・参照・公開目次確認を完了。PRの必須CI合格をマージ条件とする）
 
 ## 1. 中心問いと到達水準
 
@@ -154,3 +154,11 @@ sequential importance resampling を手計算例から導入する。重み退�
 4. Frank Dellaert, Michael Kaess, “Factor Graphs for Robot Perception” (*Foundations and Trends in Robotics* 6, 2017), [著者公開要旨](https://www.cs.cmu.edu/~kaess/pub/Dellaert17fnt.html)。SLAMを因子グラフとして組み立て、確率模型→最適化→情報行列に落とす U2-23〜25 の構成を照合。
 
 照合対象は出版社目次・書誌・著者公開要旨であり、外部教科書の証明を転載しない。実装時に既存教材の最新内容と当該章の直接依存を改めて照合する。
+
+## 7. 系列最終横断監査・完了判定（2026-11-21）
+
+- 28講すべてで `index.md`、`chapter.yaml`、`knowledge.yaml` が実在し、章IDと manifest の章順、prerequisite 連鎖および `knowledge.yaml` の `coverage: complete` が整合することを照合した。科目別目次 `textbook/dream-theater-toc/070_応用系/074_probabilistic-robotics.md` に28講の全経路が掲載されている。
+- 各本文の主要結果 anchor・演習解答マーカーを数え、演習数が `chapter.yaml` の宣言と整合することを確認した。U2 系列内のリンクは前半・後半の内部および後半から前半へ張る参照について、実在する anchor を照合した。
+- 終章 U2-28 は本文589行、主要定義3件、主要結果4件の証明、演習11件と全詳細解答を読み直し、平方完成、Kalman/Joseph更新、情報行列の正定値性、Gaussian周辺化、数値例と故障残差を再導出した。既習定義と記法の初出・切替、数式配置、使用位置の結果リンクも検査した。学習者本文の修正を要する指摘は見つからなかった。
+- 数値ラボ `assets/integrated_slam.py` のモデル、Jacobian、固定地図とグラフ正規方程式、自己検査の assertion をソースとして確認した。外部ブラウザ表示の直接目視や実行環境での Python 個別実行はこの横断監査の範囲外であり、PR必須CI・公開組立検証はマージゲートで確認する。これは他27講の全主要証明を再計算したという記録ではない。
+- 実施主体は本PRの執筆・監査担当者による自己監査と別観点再読であり、第三者独立査読は実施していない。代表計算、全 anchor・演習ID、検証結果と未確認事項は完了PR本文に記す。
