@@ -12,7 +12,7 @@ concepts:
     name: 有理数の中の代数的整数
     kind: proposition
     introduction: formal
-    requires: [number-theory.algebraic-integer]
+    requires: [transcendence.algebraic-integer]
 
   - id: number-theory.integral-minimal-polynomial
     name: 最小多項式による整性判定
@@ -25,7 +25,7 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（数体の整数環）"]
-    requires: [number-theory.algebraic-integer]
+    requires: [transcendence.algebraic-integer]
 
   - id: number-theory.ring-of-integers-closure
     name: 整数環の閉性
