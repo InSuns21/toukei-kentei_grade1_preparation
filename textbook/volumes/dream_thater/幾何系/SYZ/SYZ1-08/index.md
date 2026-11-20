@@ -60,14 +60,14 @@ $$
 > **命題（二つの変形・コホモロジー同型）**  
 > 複素次元 $n\ge1$ の規格化されたKähler多様体 $(X,J,g,\omega,\Omega)$ と、実 $n$ 次元基底 $B_0$ 上に局所的に位相 $\theta$ を固定した連結・コンパクト・境界なしSLagトーラス $L_b\cong T^n$ をファイバーとして持つ滑らかな局所自明束 $\pi:X_0\to B_0$ を取る。$\chi=\operatorname{Im}(e^{-i\theta}\Omega)$ とし、$v\in T_bB_0$ のファイバー沿いの持ち上げを $\widetilde v$ とする。対応
 
-$
+$$
 \begin{aligned}
 \mathcal A_b(v)&=[\alpha_v]\in H^1(L_b;\mathbb R),
 &\alpha_v&=-\bigl(\iota_{\widetilde v}\omega\bigr)|_{L_b},\\
 \mathcal C_b(v)&=[\beta_v]\in H^{n-1}(L_b;\mathbb R),
 &\beta_v&=\bigl(\iota_{\widetilde v}\chi\bigr)|_{L_b}
 \end{aligned}
-$
+$$
 
 > はいずれも実ベクトル空間の線形同型であり、$\mathcal C_b(v)=[*_{L_b}\alpha_v]$ である。
 <!-- formal-statement-end -->
@@ -160,15 +160,15 @@ $$
 
 $X=(\mathbb C/(\mathbb Z+i\mathbb Z))^2$ とし、実座標 $x^j,y^j\pmod{\mathbb Z}$ を使って
 
-$
+$$
 z^j=x^j+i y^j,\qquad
 \omega=dx^1\wedge dy^1+dx^2\wedge dy^2,
-$
+$$
 
-$
+$$
 \Omega=dz^1\wedge dz^2,\qquad
 \pi([x+iy])=[y]
-$
+$$
 
 と定める。ファイバーを $dx^1\wedge dx^2$ の向きに取ると、$dy^j|_{L_y}=0$ なので $\omega|_{L_y}=0$、$\Omega|_{L_y}=dx^1\wedge dx^2=\operatorname{vol}_{L_y}$。したがって位相0のSLagトーラスである。
 
@@ -286,18 +286,18 @@ $$
 
 ここでサイクルとの積分が各コホモロジー類を判定できる理由を、$L_b\cong T^n=(\mathbb R/\mathbb Z)^n$ の座標 $s^1,\ldots,s^n$ で確かめる。$\widehat{ds^j}$ はその因子を除くことを意味するとし、
 
-$
+$$
 \sigma_j=ds^j,\qquad
 \rho_j=(-1)^{j-1}ds^1\wedge\cdots\wedge
 \widehat{ds^j}\wedge\cdots\wedge ds^n
-$
+$$
 
 と置く。$\gamma_i^0$ を第 $i$ 座標の正向き円周、$\delta_i^0$ を第 $i$ 座標を固定した $(n-1)$ 次元トーラス（$\rho_i$ が正になる向き）とすれば、各座標の周期が1であるため
 
-$
+$$
 \int_{\gamma_i^0}\sigma_j=\delta_{ij},\qquad
 \int_{\delta_i^0}\rho_j=\delta_{ij}
-$
+$$
 
 となる。$n=1$ では $\rho_1=1$、$\delta_1^0$ は正の点1個と解釈する。これらの閉形式のコホモロジー類は積分行列が単位行列なのでそれぞれ一次独立で、上の次元 $n$ と合わせると各群の基底である。従ってサイクルへの積分は両方の群で非退化であり、任意の整数サイクル基底へ替えても $GL(n,\mathbb Z)$ の可逆な基底変換を合成するだけである。
 
@@ -403,24 +403,24 @@ $$
 
 任意の基底速度 $v=v^1\partial_{y^1}+v^2\partial_{y^2}$ を持ち上げると
 
-$
+$$
 \alpha_v=a_1v^1dx^1+a_2v^2dx^2,
 \quad
 \beta_v=\sqrt{a_1a_2}
 \bigl(v^1dx^2-v^2dx^1\bigr).
-$
+$$
 
 後者は $\chi=\sqrt{a_1a_2}(dy^1\wedge dx^2+dx^1\wedge dy^2)$ の縮約から得られる。計量側からも対応を確かめる。$L_y$ 上の正向き正規直交余接基底は $e^j=\sqrt{a_j}\,dx^j$ なので、$*e^1=e^2$、$*e^2=-e^1$ により
 
-$
+$$
 *dx^1=\sqrt{\frac{a_2}{a_1}}\,dx^2,\qquad
 *dx^2=-\sqrt{\frac{a_1}{a_2}}\,dx^1,
-$
+$$
 
-$
+$$
 *\alpha_v=\sqrt{a_1a_2}
 \bigl(v^1dx^2-v^2dx^1\bigr)=\beta_v.
-$
+$$
 
 ここで星はファイバーの誘導計量と向きに対するHodge星であり、外側の基底速度 $v^j$ は固定して形式に作用している。
 
@@ -574,10 +574,10 @@ $\partial K$ のうち $\partial\gamma$ に対応する部分は $\gamma$ がサ
 
 二次元余接空間の格子 $\Lambda=\mathbb Z\,du^1\oplus\mathbb Z\,du^2$ とする。$du=(du^1,du^2)^{\mathsf T}$ を列ベクトルとして
 
-$
+$$
 A=\begin{pmatrix}1&1\\1&2\end{pmatrix},\qquad
 B=\begin{pmatrix}1&1/2\\0&1\end{pmatrix}
-$
+$$
 
 を考える。$Adu$ と $Bdu$ の各成分の整数係数の線形結合で張る格子が、それぞれ $\Lambda$ と一致するか、生成元の逆変換まで示して判定せよ。
 
@@ -612,10 +612,10 @@ $$
 
 二つの余接格子は
 
-$
+$$
 \Lambda_\omega^*=\mathbb Z(4dy^1)\oplus\mathbb Z(9dy^2),\qquad
 \Lambda_\Omega^*=\mathbb Z(6dy^1)\oplus\mathbb Z(6dy^2)
-$
+$$
 
 である。$y^1=u^1/4$、$y^2=u^2/9$ を代入すると
 
