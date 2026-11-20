@@ -116,3 +116,5 @@ main{max-width:1120px}
   .visual-observation-controls label{flex-wrap:wrap}
   .visual-observation-controls input[type=range]{width:130px;max-width:100%}
 }
+
+.visual-renderer-status{display:block;margin:9px 0 3px;text-align:center;color:#a9dff3;font-size:.8rem}
