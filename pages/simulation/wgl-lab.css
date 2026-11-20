@@ -193,3 +193,12 @@ main{max-width:1120px}
   .tabs button{flex:1 1 auto;padding:8px}
   .lab-details summary{padding:.8rem .1rem}
 }
+
+/* G2: compact source-backed controls without a second visualization layer. */
+.lab-parameters{border-top:1px solid #cbd5e1;padding:.5rem 0;margin-top:.75rem}
+.lab-parameter-row{display:grid;grid-template-columns:minmax(8rem,1fr) minmax(8rem,2fr) auto;gap:.3rem .8rem;align-items:center;margin:.65rem 0}
+.lab-parameter-row input[type=range]{width:100%;min-width:0;accent-color:#164a78}
+.lab-parameter-row output{font-variant-numeric:tabular-nums}
+.lab-parameter-row small,.lab-parameter-status{grid-column:1/-1;overflow-wrap:anywhere}
+.lab-parameter-status{margin:0;color:#475569;font-size:.85rem}
+@media(max-width:540px){.lab-parameter-row{grid-template-columns:1fr auto}.lab-parameter-row input[type=range]{grid-column:1/-1;grid-row:2}}

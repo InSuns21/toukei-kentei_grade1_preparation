@@ -1,4 +1,6 @@
 import test from 'node:test';
+// G2 regression is part of the existing shared-lab CI entry point.
+import './wgl-lab-parameters.test.mjs';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {expectedSamples, signedDoubleArea, insideTriangle,
