@@ -224,7 +224,11 @@ try{
   const wgl2=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
   assert.equal(wgl2.rows.length,4);
   assert.ok(wgl2.rows.every(row=>row[4]==='OK'));
-  assert.match(wgl2.rows[0][2],/63, 64, 128, 255/);
+  // Color interpolation samples a pixel centre, so changing the viewport can
+  // round R from 63 to 64. Compare against the independent CPU oracle instead.
+  const wgl2Pixel=wgl2.rows[0][2].split(',').map(Number);
+  const wgl2Oracle=wgl2.rows[0][1].split(',').map(Number);
+  assert.ok(wgl2Pixel.every((v,k)=>Math.abs(v-wgl2Oracle[k])<=2));
   assert.equal(wgl2.sandbox,'allow-scripts');
   console.log('WGL2 GPU four color samples / CPU barycentric oracle / opaque iframe: PASS');
   const wgl2shot=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
@@ -501,7 +505,7 @@ try{
   assert.equal(wgl10.rows.length,8);
   assert.ok(wgl10.rows.every(row=>row[4]==='OK'));
   assert.equal(wgl10.sandbox,'allow-scripts');
-  assert.match(wgl10.log,/FRAMEBUFFER_COMPLETE, RGBA8 160x240/);
+  assert.match(wgl10.log,/FRAMEBUFFER_COMPLETE, RGBA8 480x720/);
   assert.match(wgl10.log,/PASS1: offscreen lower-left quarter RGBA=/);
   assert.match(wgl10.log,/GL error: 0x0/);
   const checkRgba = (value,expected) => {
