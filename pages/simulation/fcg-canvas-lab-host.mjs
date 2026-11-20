@@ -19,14 +19,24 @@ let generation = 0;
 let interval = null;
 let sourceRefresh = () => {};
 const MODE_NAMES = {rotation:'定常回転',steady:'定常せん断',unsteady:'非定常せん断'};
-function sceneSummary(mode, dt, time, steps) {
-  const domain = mode === 'rotation'
-    ? 'x: -2.4〜2.4 m / y: -2.1〜2.1 m'
-    : 'x: -0.6〜3.1 m / y: -1.2〜4.5 m';
+function sceneSummary(mode, dt, time, steps, snapshot = null) {
+  // A learner may edit the viewport or buffer in tracer.js. The host must not
+  // describe the original geometry as if it still belonged to the running code.
+  const v = snapshot?.view;
+  const hasView = v && [v.left, v.right, v.bottom, v.top].every(Number.isFinite) &&
+    v.left < v.right && v.bottom < v.top;
+  const domain = hasView
+    ? 'x: ' + v.left + '〜' + v.right + ' m / y: ' + v.bottom + '〜' + v.top + ' m'
+    : '座標範囲: 実行JSの view を確認';
+  const width = snapshot?.canvasWidth, height = snapshot?.canvasHeight;
+  const hasSize = Number.isInteger(width) && Number.isInteger(height) &&
+    width > 0 && height > 0 && width <= 8192 && height <= 8192;
+  const display = hasSize ? 'Canvas2D ' + width + '×' + height + ' px（画面幅で縮小）'
+    : '描画バッファ: 実行JSを確認';
   el('fcg1-scene-info').textContent =
     (MODE_NAMES[mode] || mode) + '｜物理時刻 ' + time.toFixed(3) +
     ' s・' + steps + ' step（h=' + dt + ' s）｜' + domain +
-    '｜計算: 粒子の座標 [m]、表示: Canvas2D 660×410 px（画面幅で縮小）';
+    '｜計算: 粒子の座標 [m]、表示: ' + display;
 }
 function pendingSettings() {
   const previous = active?.payload;
@@ -327,7 +337,7 @@ window.addEventListener('message', event => {
       throw new Error('速度場または刻み幅の数値診断が不正です');
     const rows = compareTracerSnapshot(active.payload.mode, active.payload.dt, data);
     active.steps = data.steps;
-    sceneSummary(active.payload.mode, active.payload.dt, data.time, data.steps);
+    sceneSummary(active.payload.mode, active.payload.dt, data.time, data.steps, data);
     displayRows(rows, active.payload.source !== baseSource, data.time);
     const unchanged = active.payload.source === baseSource;
     const valid = rows.every(r => r.pass);
