@@ -1,0 +1,43 @@
+id: BHI6
+title: "ユニタリ蒸発のエントロピー制約"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI5
+  - QINF33
+official_scope: []
+learning_objectives:
+  - 放射と残存系を各段階の全純粋系として指定し、等長放出写像の条件を具体例で検証できる
+  - Schmidt分解からS(R_k)=S(B_k)と次元上界を証明し、熱力学的な面積エントロピーとの違いを説明できる
+  - 一放出のエントロピー増分を条件付きエントロピーと相互情報量で表し、Araki–Lieb不等式による上下界を再現できる
+  - 終期に放射のみが残るとき、正のエントロピーを経由すれば後期の減少が必要であることを証明できる
+  - 初期混合状態・参照系・未観測残存系の下でエントロピー等式の正しい分割を判定できる
+  - ユニタリ性に由来する必要条件と典型性を仮定したPage曲線の予言を区別できる
+definitions:
+  - { id: BHI6-DEF-01, name: "段階的純粋蒸発の有限模型" }
+theorems:
+  - { id: BHI6-THM-01, name: "純粋蒸発模型のエントロピー収支と残存次元上界" }
+  - { id: BHI6-PROP-01, name: "放出一歩のエントロピー増分と相関条件" }
+  - { id: BHI6-THM-02, name: "残存系消滅の下でのエントロピー減少の必要性" }
+  - { id: BHI6-PROP-02, name: "未観測の純粋化系が残る場合の上界の限界" }
+canonical_examples:
+  - Bell対を二回の等長SWAPで移送し放射が混合から純粋へ戻る例
+  - 不等重みSchmidt状態と最大Schmidt階数の次元上界
+  - 古典相関とBell相関の量子条件付きエントロピーの比較
+  - 未観測の参照系が残る場合の放射と残存系のエントロピー不一致
+  - 三量子ビットの逐次放射でエントロピー減少と局所粗視化の差を比較する例
+problem_patterns:
+  - BHI6-SCHMIDT-ENTROPY-BOUND
+  - BHI6-TRIVIAL-REMNANT-ENDPOINT
+  - BHI6-BELL-TRANSFER
+  - BHI6-DIMENSION-SATURATION
+  - BHI6-CLASSICAL-CORRELATION-INCREMENT
+  - BHI6-ARAKI-LIEB-INCREMENT
+  - BHI6-BOUNDS-NOT-PAGE-CURVE
+  - BHI6-INITIAL-REFERENCE
+  - BHI6-INDEPENDENT-PAIR-CONTRADICTION
+  - BHI6-THREE-QUBIT-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 5 }
