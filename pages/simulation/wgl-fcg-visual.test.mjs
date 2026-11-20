@@ -42,7 +42,9 @@ test('WGL/FCG reference studio shares readable, aspect-correct independent displ
   assert.ok(host.includes("mountSmokeObservation(byId('panel-conditions'))"));
   assert.ok(host.includes("mountReferenceObservation({lesson,parent:byId('panel-conditions')})"));
   assert.ok(host.includes("[1536,512]")); // three 1:1 physical panels, 512px each
-  assert.ok(host.includes("legacyViewport ? 524288 : 2097152")); // bounded GPU memory
+  assert.ok(host.includes("legacyViewport ? 524288 : 2097152"));
+  assert.ok(host.includes("byId('height').closest('.controls')?.nextElementSibling"));
+  assert.ok(!host.includes("byId('panel-conditions').querySelector('small')")); // bounded GPU memory
   assert.ok(host.includes("iframe.style.aspectRatio = payload.width"));
   assert.ok(host.includes("if (isWGL4) payload.probes = expectedWGL4Samples"));
   assert.ok(host.includes("const positions = (['WGL4', 'WGL5'"));
