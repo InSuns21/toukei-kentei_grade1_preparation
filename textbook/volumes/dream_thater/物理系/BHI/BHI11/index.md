@@ -63,7 +63,7 @@ $$
 =\frac{\lvert00\rangle+\lvert11\rangle}{\sqrt2}.
 $$
 
-これが厳密な積コピーかを調べるには、[QINF3の部分トレースの基底公式](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)を使います。計算基底について
+これが厳密な積コピーかを調べるには、[部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)の基底公式を使います。計算基底について
 
 $$
 \operatorname{Tr}_B(\lvert ij\rangle\langle kl\rvert)
