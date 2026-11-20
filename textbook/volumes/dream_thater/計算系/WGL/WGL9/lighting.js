@@ -141,3 +141,47 @@ report('LIGHT', 'direction=' + lightDirection.join(',') + ', power=' + lightPowe
   ', shininess=' + shininess);
 report('SPACE', 'linear-light Lambert/Blinn-Phong, manual sRGB encode, alpha=1');
 report('MESH', 'cube=12 triangles, sphere=' + (48*72*2) + ' triangles');
+
+
+// Source-linked observation: the exact original shader, meshes, material and
+// user-edited constants are retained; only the directional light orbits after
+// the isolated runner has sampled the initial frame for CPU/GPU validation.
+const wgl9Reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+let wgl9Playing=!wgl9Reduced.matches,wgl9Stamp=null,wgl9Phase=0;
+canvas.tabIndex=0;
+canvas.setAttribute('aria-label','WGL9 ライトの往復アニメーション。クリック・Spaceで一時停止と再生');
+canvas.title='クリック／Space：ライトの再生・停止（GPU検算値は時刻0の静止画）';
+function wgl9Toggle(){wgl9Playing=!wgl9Playing;wgl9Stamp=null;}
+canvas.addEventListener('click',wgl9Toggle);
+canvas.addEventListener('keydown',e=>{
+  if(e.key===' '||e.key==='Enter'){e.preventDefault();wgl9Toggle();}
+});
+const wgl9LightLoc=loc('u_lightDirection');
+const wgl9Base=[...lightDirection];
+function wgl9Draw(phase){
+  const a=.8*Math.sin(phase),ca=Math.cos(a),sa=Math.sin(a);
+  const orbit=[ca*wgl9Base[0]+sa*wgl9Base[2],wgl9Base[1],
+               -sa*wgl9Base[0]+ca*wgl9Base[2]];
+  gl.useProgram(program);
+  gl.uniform3fv(wgl9LightLoc,orbit);
+  gl.bindVertexArray(vao);
+  for(let i=0;i<2;i++){
+    const x=i===0?0:leftWidth,w=i===0?leftWidth:canvas.width-leftWidth;
+    gl.viewport(x,0,w,canvas.height);
+    gl.scissor(x,0,w,canvas.height);gl.enable(gl.SCISSOR_TEST);
+    gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+    gl.uniform3fv(loc('u_baseColor'),meshes[i].base);
+    gl.bufferData(gl.ARRAY_BUFFER,meshes[i].array,gl.STATIC_DRAW);
+    gl.drawArrays(gl.TRIANGLES,0,meshes[i].array.length/6);
+  }
+  gl.disable(gl.SCISSOR_TEST);
+}
+function wgl9Frame(now){
+  if(wgl9Playing&&!document.hidden){
+    if(wgl9Stamp===null)wgl9Stamp=now;
+    const delta=Math.min(.08,Math.max(0,(now-wgl9Stamp)/1000));
+    wgl9Stamp=now;wgl9Phase+=delta*.8;wgl9Draw(wgl9Phase);
+  }else wgl9Stamp=null;
+  requestAnimationFrame(wgl9Frame);
+}
+requestAnimationFrame(wgl9Frame);
