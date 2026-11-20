@@ -18,7 +18,16 @@ $$
 
 整数環のイデアルは無限に増えていくように見えても、[Noether環](../../AG/AG1-05/index.md#def-ag1-05-noetherian-ring)ではすべて有限個の元で生成できます。一方、元の商を取ると整数環から分数体へ出ます。分数体の元がモニック方程式を満たす場合、元の環へ戻るという**整閉性**が重要になります。
 
-整域 $A$ の分数体を $F$ とします。$x\in F$ が $A$ 上整であるとは、$x^r+a_{r-1}x^{r-1}+\cdots+a_0=0$（$a_i\in A$）を満たすことです。これは[整元の定義](../../AG/AG1-06/index.md#def-ag1-06-integral-element)を $A\subset F$ に適用したものです。整な $x\in F$ がすべて $A$ に属することを整閉性といいます。また、零でない素イデアルがすべて極大なら、素イデアルの真の包含鎖は $(0)\subsetneq\mathfrak p$ で止まります。これを、体でない整域の次元が $1$ であることに対応させます。
+整域 $A$ の分数体を $F$ とします。[整元の定義](../../AG/AG1-06/index.md#def-ag1-06-integral-element)を $A\subset F$ に適用すると、$x\in F$ の整性は $A$ 係数のモニック方程式で調べます。
+
+$
+x^r+a_{r-1}x^{r-1}+\cdots+a_0=0,
+\qquad a_i\in A.
+$
+
+分数体の中でこの方程式を満たす元が必ず $A$ に戻る性質が、次の定義で必要になる**整閉性**です。
+
+また、零でない素イデアルがすべて極大なら、素イデアルの真の包含鎖は $(0)\subsetneq\mathfrak p$ で止まります。体でない整域では、この条件が次元 $1$ に相当します。
 
 この三条件をまとめるのが次の定義です。
 
@@ -51,7 +60,15 @@ $K$ の整数環でもこの三条件が成り立つことを示します。こ�
 <!-- proof-start -->
 ### 証明
 
-**(1) Noether性。** $n=[K:\mathbb Q]$ とすると、[整数環の有限生成性と整数基底](../ANF1/index.md#thm-anf1-integral-basis)により $\mathcal O_K\simeq\mathbb Z^n$（加法群として）です。任意のイデアル $I\subseteq\mathcal O_K$ は $\mathbb Z^n$ の部分群なので、有限個の元 $a_1,\ldots,a_r$ で $\mathbb Z$ 加群として生成されます。これらの元が生成する $\mathcal O_K$ イデアルは、$I$ に含まれ、かつ $I$ のすべての元を含みます。したがって $I=(a_1,\ldots,a_r)$ で、[有限生成とNoether性の同値](../../AG/AG1-05/index.md#prop-ag1-05-acc-finite-generation)により Noether性が従います。
+**(1) Noether性。** $n=[K:\mathbb Q]$ とします。[整数環の有限生成性と整数基底](../ANF1/index.md#thm-anf1-integral-basis)により、加法群として次の同型があります。
+
+$
+\mathcal O_K\simeq\mathbb Z^n.
+$
+
+任意のイデアル $I\subseteq\mathcal O_K$ は $\mathbb Z^n$ の部分群なので、有限個の元 $a_1,\ldots,a_r$ で $\mathbb Z$ 加群生成されます。
+
+これらの元が生成する $\mathcal O_K$ イデアルは $I$ に含まれ、また $I$ の全元を含みます。ゆえに $I=(a_1,\ldots,a_r)$ です。[有限生成とNoether性の同値](../../AG/AG1-05/index.md#prop-ag1-05-acc-finite-generation)より、$\mathcal O_K$ は Noether環です。
 
 **(2) 整閉性。** $x\in K$ が $\mathcal O_K$ 上整だとします。$\mathcal O_K$ のすべての元は $\mathbb Z$ 上整なので、[整性の推移性](../../AG/AG1-06/index.md#prop-ag1-06-finite-generators)から $x$ は $\mathbb Z$ 上整です。[整数環の定義](../ANF1/index.md#def-anf1-ring-of-integers)により $x\in\mathcal O_K$ となります。
 
@@ -275,7 +292,17 @@ $$
 
 よって $I\subsetneq J$ です。同じ操作を $J$ が真のイデアルである間繰り返すと、整イデアルの真の昇鎖ができます。[Noether環の昇鎖停止](../../AG/AG1-05/index.md#def-ag1-05-ideal-acc)により有限回で止まり、止まるのは $A$ のときだけです。逆向きに書けば $I$ は有限個の非零極大（従って素）イデアルの積になります。同じ素イデアルの出現をまとめれば定理の表示を得ます。
 
-**一意性。** 二つの素イデアル積が等しいとします。非零素イデアル $\mathfrak p$ を一つ固定します。$\mathfrak q\ne\mathfrak p$ が非零素ならどちらも極大なので $\mathfrak q\nsubseteq\mathfrak p$ です。$s\in\mathfrak q\setminus\mathfrak p$ が存在し、$s$ は $A_{\mathfrak p}$ で単元となるため $\mathfrak qA_{\mathfrak p}=A_{\mathfrak p}$ です。他方 $\mathfrak pA_{\mathfrak p}=(\pi)$ です。従って各分解を局所化すると、それぞれ $(\pi^{e_{\mathfrak p}})$ と $(\pi^{f_{\mathfrak p}})$ になり、[冪指数の一意性](#lem-anf3-local-principal)から $e_{\mathfrak p}=f_{\mathfrak p}$ です。すべての $\mathfrak p$ でこれを行えば二つの分解の素イデアルと指数は一致します。
+**一意性。** 二つの素イデアル積が等しいとします。任意の非零素イデアル $\mathfrak p$ を固定します。別の非零素イデアル $\mathfrak q\ne\mathfrak p$ は極大なので、$\mathfrak q\nsubseteq\mathfrak p$ です。
+
+したがって $s\in\mathfrak q\setminus\mathfrak p$ が取れます。$s$ は $A_{\mathfrak p}$ で単元になるため、$\mathfrak qA_{\mathfrak p}=A_{\mathfrak p}$ です。
+
+一方、$\mathfrak pA_{\mathfrak p}=(\pi)$ です。両分解を局所化すると、$\mathfrak p$ に対応する因子だけが残ります。
+
+$
+(\pi^{e_{\mathfrak p}})=(\pi^{f_{\mathfrak p}}).
+$
+
+[冪指数の一意性](#lem-anf3-local-principal)から $e_{\mathfrak p}=f_{\mathfrak p}$ です。各 $\mathfrak p$ で同じ比較をすれば、二つの分解の素イデアルと指数は一致します。
 <!-- proof-end -->
 
 元の因数分解では既約元が素元とは限りませんが、この定理は**非零整イデアルが非零素イデアルの積に一意に分解する**と保証します。次講では、これを有理素数 $(p)$ の数体での分解へ適用します。
@@ -358,7 +385,17 @@ $$
 =(1+s)(1-s).
 $$
 
-まず四つの因子 $2,3,1+s,1-s$ がすべて既約であることも確認できます。[跡・ノルムの演算則と整性](../ANF2/index.md#prop-anf2-trace-norm-properties)によればノルムは積を保ちます。非単元への積に分かれれば正整数ノルムも $1$ より大きい二整数の積になります。一方、$a+bs$ のノルムは $a^2+5b^2$ で、$2$ や $3$ という値にはなりません。$N(2)=4$ の非自明な積は $2\cdot2$、$N(3)=9$ のものは $3\cdot3$、$N(1\pm s)=6$ のものは $2\cdot3$ しかないので、いずれも非単元への分解は不可能です。単元のノルムは $1$ ですから、単元は $\pm1$ に限られます。四因子はノルムが異なるか、$1+s\ne\pm(1-s)$ によって同伴でもありません。従って冒頭の二つは本当に異なる既約元分解です。
+四つの因子がすべて既約であることも確かめます。[跡・ノルムの演算則と整性](../ANF2/index.md#prop-anf2-trace-norm-properties)によりノルムは積を保ちます。非単元のノルムは $1$ より大きい正整数です。一方、
+
+$
+N(a+bs)=a^2+5b^2
+$
+
+なので、このノルムが $2$ や $3$ になる整数の組は存在しません。
+
+四因子のノルムは $N(2)=4$、$N(3)=9$、$N(1+s)=N(1-s)=6$ です。非単元への分解があるなら、それぞれのノルムは $2\cdot2$、$3\cdot3$、$2\cdot3$ に分かれる必要があります。しかしノルム $2,3$ の元がないので不可能です。
+
+単元のノルムは $1$ であり、$a^2+5b^2=1$ の解から単元は $\pm1$ に限られます。また四因子はノルムが異なるか、$1+s\ne\pm(1-s)$ により同伴でもありません。従って冒頭の二つは異なる既約元分解です。
 
 **元の分解が壊れた仕組み。** $\mathfrak p$ は主イデアルではありません。もし $\mathfrak p=(a+bs)$（$a,b\in\mathbb Z$）なら、上と同じ指数計算と[跡・ノルムの演算則と整性](../ANF2/index.md#prop-anf2-trace-norm-properties)から
 
@@ -447,7 +484,15 @@ Dedekind整域 $A$ の相異なる非零素イデアル $\mathfrak p,\mathfrak q
 - ID: ANF3-B1
 
 <!-- solution-start -->
-**詳細解答**　[Dedekind整域の定義](#def-anf3-dedekind-domain)から $\mathfrak p,\mathfrak q$ は極大です。もし $\mathfrak q\subseteq\mathfrak p$ なら極大性により等しくなるので、相異なるという仮定に反します。そこで $s\in\mathfrak q\setminus\mathfrak p$ を取ります。[局所化の定義](../../AG/AG1-04/index.md#def-ag1-04-localization)により $s/1$ の逆は $1/s\in A_{\mathfrak p}$。$\mathfrak qA_{\mathfrak p}$ は $s$ を含むため $1=(1/s)s$ を含み、単位イデアルです。$\mathbb Z_{(3)}$ では $5\notin(3)$ なので $1/5\in\mathbb Z_{(3)}$、$(5)\mathbb Z_{(3)}=\mathbb Z_{(3)}$ です。
+**詳細解答**　[Dedekind整域の定義](#def-anf3-dedekind-domain)から、非零素イデアル $\mathfrak p,\mathfrak q$ は極大です。もし $\mathfrak q\subseteq\mathfrak p$ なら極大性から両者は等しくなり、仮定と矛盾します。
+
+そこで $s\in\mathfrak q\setminus\mathfrak p$ を取ります。[局所化の定義](../../AG/AG1-04/index.md#def-ag1-04-localization)により $1/s\in A_{\mathfrak p}$ です。$\mathfrak qA_{\mathfrak p}$ には $s$ が属するため、
+
+$
+1=(1/s)s\in\mathfrak qA_{\mathfrak p}.
+$
+
+したがって $\mathfrak qA_{\mathfrak p}=A_{\mathfrak p}$ です。整数の例では $5\notin(3)$ なので $1/5\in\mathbb Z_{(3)}$ が存在し、$(5)\mathbb Z_{(3)}=\mathbb Z_{(3)}$ となります。
 <!-- solution-end -->
 
 ### B2. 素イデアルの平方を計算する
