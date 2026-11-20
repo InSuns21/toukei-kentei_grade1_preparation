@@ -22,7 +22,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Minkowski埋め込み）**  
-> $K/\mathbb Q$ の次数を $n=r_1+2r_2$ とする。上のように選んだ埋め込みによって定まる実線形写像
+> $K/\mathbb Q$ の次数を $n=r_1+2r_2$ とする。上のように選んだ埋め込みによって定まる有理線形な単射
 
 $$
 j:K\longrightarrow\mathbb R^{r_1}\times\mathbb C^{r_2}
@@ -45,7 +45,7 @@ $$
 **定義の確認。** $K=\mathbb Q(\sqrt5)$ では実埋め込みが二つあり、$j(a+b\sqrt5)=(a+b\sqrt5,a-b\sqrt5)$ です。両成分の積は $a^2-5b^2=N_{K/\mathbb Q}(a+b\sqrt5)$。一方、$K=\mathbb Q(\sqrt{-5})$ では $r_1=0,r_2=1$ で、$\sqrt{-5}\mapsto i\sqrt5$ を選ぶと $j(a+b\sqrt{-5})=a+i b\sqrt5$。その絶対値の二乗は $a^2+5b^2$ です。どちらも次数 $r_1+2r_2=2$ と体ノルム公式を直接満たします。
 <!-- definition-example-end -->
 
-この写像の像がどんな配置になるかを見るには、まず「格子の間隔」を測る必要があります。
+この写像は $\mathbb Q$ 上線形であり、実ベクトル空間ではない $K$ からの写像を「実線形」とは呼びません。整数基底の実像は実一次独立となり、$K\otimes_{\mathbb Q}\mathbb R$ への拡張は実線形同型になります。その像がどんな配置になるかを見るには、まず「格子の間隔」を測る必要があります。
 
 <a id="def-anf5-lattice-covolume"></a>
 
