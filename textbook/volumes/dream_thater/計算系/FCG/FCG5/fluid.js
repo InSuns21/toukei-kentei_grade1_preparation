@@ -255,7 +255,8 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
           refreshGpuFields();
         }
       }else last=0;
-      drawPhysicalDye();
+      // Avoid continuously issuing WebGL draw calls in a background tab.
+      if(!document.hidden)drawPhysicalDye();
       raf=requestAnimationFrame(frame);
     }
     raf=requestAnimationFrame(frame);
