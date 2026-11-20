@@ -35,7 +35,7 @@ chapters:
     title: "最適化を連続時間の散逸過程として見られるか"
   - id: PML1-08
     path: textbook/volumes/dream_thater/応用系/PML/PML1-08
-    status: planned
+    status: completed
     title: "Langevin方程式に何のノイズが必要か"
   - id: PML1-09
     path: textbook/volumes/dream_thater/応用系/PML/PML1-09
