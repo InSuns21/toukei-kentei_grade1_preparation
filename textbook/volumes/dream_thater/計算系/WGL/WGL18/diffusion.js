@@ -177,7 +177,7 @@ if(typeof window!=='undefined' && typeof requestAnimationFrame==='function'){
     }
   });
   function frame(now){
-    if(playing&&!document.hidden){
+    if(initialOracleCaptured && playing&&!document.hidden){
       if(!last)last=now;
       // Preserve the verified still frame briefly before entering the live run.
       if(now-last>=(firstFrame?750:180)){
