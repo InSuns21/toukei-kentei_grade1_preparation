@@ -1,7 +1,7 @@
 import { compareReadback, expectedSamples } from './wgl-lab-core.mjs';
 import {expectedWGL20Samples,compareWGL20Readback,verifyWGL20Report} from './wgl20-lab-core.mjs';
 import {compareWGL19Readback, expectedWGL19Samples, compareWGL19FloatReadback, auditWGL19Clock} from './wgl19-lab-core.mjs';
-import { compareFCG2Readback, expectedFCG2Samples, fcg2PixelCell, fcg2Field, fcg2Encode } from './fcg2-lab-core.mjs';
+import { compareFCG2Readback, expectedFCG2Samples, fcg2PixelCell, fcg2Field, fcg2FieldAtTime, fcg2Encode, FCG2_PERIOD } from './fcg2-lab-core.mjs';
 import {compareFCG3Readback,expectedFCG3Samples,fcg3Metrics,fcg3PixelCell,fcg3Grid,fcg3Exact} from './fcg3-lab-core.mjs';
 import {expectedFCG4Samples,compareFCG4Readback,fcg4State,fcg4PixelCell} from './fcg4-lab-core.mjs';
 import {expectedFCG5Samples,compareFCG5Readback,fcg5State,fcg5PixelCell} from './fcg5-lab-core.mjs';
@@ -109,7 +109,14 @@ let ready = false;
 let active = null;
 let sequence = 0;
 let fcg2Steps = 1;
-let fcg2Timer = null;
+let fcg2Timer = null; // retained only for common stop/reset teardown
+let fcg2Time = Math.PI/2,fcg2Playing=false,fcg2Pending=null,fcg2Mark=null,fcg2Inspector=null;
+function fcg2Control(action,time){
+  if(!active?.completed)return false;
+  active.frame.contentWindow.postMessage({type:'fcg2-control',action,time,
+    requestId:active.id,generation:active.generation,session:active.session},'*');
+  return true;
+}
 let fcg3Steps = 1;
 let fcg3Timer = null;
 let fcg4Steps = 128;
@@ -341,6 +348,35 @@ function isolatedRunner() {
             message:String(error?.message||error).slice(0,300)});}
         });
       }
+      const fcg2Hooks=request.lesson==='FCG2'&&!!hooks&&
+        ['play','pause','step','reset','seek','select','getTime']
+          .every(key=>typeof hooks[key]==='function');
+      if(fcg2Hooks){
+        canvas.addEventListener('fcg2-progress',event=>{
+          const d=event.detail;
+          if(!d||!Number.isFinite(d.time)||d.time<0||d.time>2*Math.PI||
+             !Number.isInteger(d.x)||!Number.isInteger(d.y)||
+             !Array.isArray(d.rgba)||d.rgba.length!==4)return;
+          send({...scope,type:'fcg2-progress',time:d.time,playing:!!d.playing,
+            x:d.x,y:d.y,rgba:d.rgba});
+        });
+        canvas.addEventListener('fcg2-failure',event=>{
+          send({...scope,type:'fcg2-control-error',
+            message:String(event.detail?.message||'render failure').slice(0,300)});
+        });
+        window.addEventListener('message',event=>{
+          const m=event.data;
+          if(event.source!==parent||!m||m.type!=='fcg2-control'||
+             m.session!==scope.session||m.requestId!==scope.requestId||
+             m.generation!==scope.generation)return;
+          if(!['play','pause','step','reset','seek'].includes(m.action))return;
+          try{
+            if(m.action==='seek')hooks.seek(m.time);
+            else hooks[m.action]();
+          }catch(error){send({...scope,type:'fcg2-control-error',
+            message:String(error?.message||error).slice(0,300)});}
+        });
+      }
       if (request.lesson === 'WGL15' && hooks && typeof hooks.pick === 'function') {
         let cursorX = Math.floor(canvas.width / 2);
         let cursorY = Math.floor(canvas.height / 2);
@@ -441,9 +477,11 @@ function isolatedRunner() {
         canvas.tabIndex=0;
         canvas.setAttribute('aria-label','物理格子の画素検査。クリックか矢印キー＋Enter');
         function pick(x,y,method){
+          if(fcg2Hooks)hooks.select(x,y);
           const pixel=new Uint8Array(4);
           gl.readPixels(x,y,1,1,gl.RGBA,gl.UNSIGNED_BYTE,pixel);
-          send({...scope,type:request.lesson.toLowerCase()+'-pick',x,y,method,rgba:Array.from(pixel)});
+          send({...scope,type:request.lesson.toLowerCase()+'-pick',x,y,method,
+            time:fcg2Hooks?hooks.getTime():undefined,rgba:Array.from(pixel)});
         }
         canvas.addEventListener('click',event=>{
           const box=canvas.getBoundingClientRect();
@@ -476,7 +514,7 @@ function isolatedRunner() {
         {rate:Number(hooks.floatParameters.rate),steps:Number(hooks.floatParameters.steps)} : null;
       const frameAudit = request.lesson === 'WGL19' && hooks ? hooks.frameAudit : null;
       send({...scope, type: 'result', ok: glError === gl.NO_ERROR, samples, floatReadback, floatParameters, frameAudit,
-        liveHooks:request.lesson==='FCG8'?!!fcg8Hooks:undefined,
+        liveHooks:request.lesson==='FCG8'?!!fcg8Hooks:request.lesson==='FCG2'?!!fcg2Hooks:undefined,
         checkpoints: request.lesson === 'WGL20' && hooks ? hooks.checkpoints : null,
         width: canvas.width, height: canvas.height,
         logs, glError: '0x' + glError.toString(16)});
@@ -550,6 +588,22 @@ window.addEventListener('message', event => {
   }
   if (data.session !== active.session ||
       data.requestId !== active.id || data.generation !== active.generation) return;
+  if(isFCG2 && data.type==='fcg2-progress'){
+    if(!Number.isFinite(data.time)||data.time<0||data.time>FCG2_PERIOD||
+       !Number.isInteger(data.x)||!Number.isInteger(data.y)||
+       data.x<0||data.y<0||data.x>=active.payload.width||
+       data.y>=active.payload.height||!Array.isArray(data.rgba)||
+       data.rgba.length!==4||!data.rgba.every(v=>Number.isInteger(v)&&v>=0&&v<=255))
+      return;
+    fcg2Time=data.time;fcg2Playing=!!data.playing;fcg2Mark?.();
+    fcg2Inspector?.(data.time,data.x,data.y,data.rgba);
+    return;
+  }
+  if(isFCG2 && data.type==='fcg2-control-error'){
+    fcg2Playing=false;fcg2Mark?.();
+    setStatus('FCG2 ライブ操作エラー: '+String(data.message).slice(0,300),true);
+    return;
+  }
   if(isFCG8 && data.type==='fcg8-progress'){
     if(!Number.isInteger(data.steps)||data.steps<0||data.steps>96)return;
     fcg8Steps=data.steps;fcg8Playing=!!data.playing;
@@ -763,10 +817,12 @@ window.addEventListener('message', event => {
       x>=width||y>=height||!Array.isArray(rgba)||rgba.length!==4||
       !rgba.every(v=>Number.isInteger(v)&&v>=0&&v<=255))return;
     const [i,j]=fcg2PixelCell(x,y,width,height);
-    const q=fcg2Field(i,j,steps),byte=fcg2Encode(q);
+    const time=Number.isFinite(data.time)&&data.time>=0&&data.time<=FCG2_PERIOD?data.time:steps*Math.PI/2;
+    const q=fcg2FieldAtTime(i,j,time),byte=fcg2Encode(q);
     const expected=[byte,38,255-byte,255];
     const difference=Math.max(...expected.map((v,k)=>Math.abs(v-rgba[k])));
-    byId('result-note').textContent='画素('+x+','+y+') → 格子('+i+','+j+')、解析q='+
+    fcg2Inspector?.(time,x,y,rgba);
+    byId('result-note').textContent='t='+time.toFixed(3)+'s 画素('+x+','+y+') → 格子('+i+','+j+')、解析q='+
       q.toFixed(6)+'、R8復元='+ (byte/255).toFixed(6)+
       '、GPU RGBA='+rgba.join('/')+'、初期shader基準との差='+difference+'階調。'+
       (active.payload.js===defaults.js&&active.payload.vertex===defaults.vertex&&
@@ -844,6 +900,23 @@ window.addEventListener('message', event => {
       'CPUは座標と色の定数から独立に予測し、GPUはreadPixelsで実測。RGBA各成分' +
       ((isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8) ? '±2' : isWGL20 ? '±1' : isWGL19 ? '±2' : isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
+  }
+  if(isFCG2){
+    active.completed=!!data.ok&&!!data.liveHooks;
+    fcg2Time=active.payload.steps*Math.PI/2;
+    fcg2Playing=false;fcg2Mark?.();
+    if(data.ok&&!data.liveHooks){
+      setStatus('FCG2 の再生フックがありません。初期ソースに戻して実行してください',true);
+      fcg2Pending=null;
+    }else if(active.completed){
+      const p=expectedFCG2Samples(active.payload.width,active.payload.height,active.payload.steps)[0];
+      const actual=data.samples?.[0]?.rgba;
+      fcg2Inspector?.(fcg2Time,p.x,p.y,Array.isArray(actual)?actual:null);
+      if(fcg2Pending){
+        const action=fcg2Pending;fcg2Pending=null;
+        if(action==='play')fcg2Control('play');
+      }
+    }else fcg2Pending=null;
   }
   if(isFCG8){
     active.completed=!!data.ok&&!!data.liveHooks;
@@ -1007,7 +1080,7 @@ byId('reset').addEventListener('click', () => {
   if(isFCG6)fcg6Steps=8;
   if(isFCG5)fcg5Steps=8;
   if(isFCG4)fcg4Steps=128;
-  if(isFCG2)fcg2Steps=0;
+  if(isFCG2){fcg2Steps=0;fcg2Time=0;fcg2Playing=false;fcg2Pending=null;fcg2Mark?.();}
   if(isFCG3)fcg3Steps=0;
   stop('初期ソースに戻しました（未実行）');
   setSources(defaults);
