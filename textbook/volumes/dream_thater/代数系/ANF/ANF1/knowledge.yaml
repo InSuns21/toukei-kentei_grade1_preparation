@@ -1,0 +1,67 @@
+chapter: ANF1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLD2
+  - AG1-06
+  - TRN1
+  - LA3E
+forward_references: []
+
+concepts:
+  - id: number-theory.number-field
+    name: 数体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（数体）"]
+    requires: [algebra.field-extension, algebra.extension-degree]
+
+  - id: number-theory.rational-algebraic-integer
+    name: 有理数の中の代数的整数
+    kind: proposition
+    introduction: formal
+    requires: [transcendence.algebraic-integer]
+
+  - id: number-theory.integral-minimal-polynomial
+    name: 最小多項式による整性判定
+    kind: theorem
+    introduction: formal
+    requires: [transcendence.algebraic-integer, algebra.minimal-polynomial, algebra.gauss-lemma-irreducibility]
+
+  - id: number-theory.ring-of-integers
+    name: 数体の整数環
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（数体の整数環）"]
+    requires: [transcendence.algebraic-integer]
+
+  - id: number-theory.ring-of-integers-closure
+    name: 整数環の閉性
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.ring-of-integers, algebraic-geometry.integral-tower, number-theory.rational-algebraic-integer]
+
+  - id: number-theory.field-trace-pairing
+    name: 数体のトレースと双線形形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（数体のトレースと双線形形式）"]
+    requires: [algebra.field-extension, linear.basis-over-field, linear.bilinear-form]
+
+  - id: number-theory.integral-trace
+    name: 整数のトレースとトレース形式の非退化性
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.field-trace-pairing, number-theory.integral-minimal-polynomial, algebra.tower-law]
+
+  - id: number-theory.integral-basis
+    name: 整数環の有限生成性と整数基底
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.ring-of-integers-closure, number-theory.integral-trace]
+
+  - id: number-theory.quadratic-integer-ring
+    name: 二次体の整数環
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.integral-minimal-polynomial, number-theory.ring-of-integers-closure]
