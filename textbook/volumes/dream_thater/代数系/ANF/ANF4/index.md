@@ -338,7 +338,7 @@ $d\ne1$ を平方因子を持たない整数とし、$K=\mathbb Q(\sqrt d)$ と�
 
 両方で $A=\mathbb Z[\theta]$ なので、[単項生成の場合の素イデアル分解定理](#thm-anf4-monogenic-factorization)を任意の $p$ に適用できます。
 
-二次多項式 $h=T^2-tT+u$ の二つの根を $\theta,\theta'$ と書きます。$\theta'$ は共役根のラベルであり、微分ではありません。$A=\mathbb Z[\theta]$ で $\theta$ の次数が2だから $(1,\theta)$ は整数基底です。二つの根の和は $t$、積は $u$ なので、[体の跡の埋め込み公式](../ANF2/index.md#thm-anf2-embedding-formulas)から
+二次多項式 $h=T^2-tT+u$ の二つの根を $\theta,\theta'$ と書きます。$\theta'$ は共役根のラベルであり、微分ではありません。$A=\mathbb Z[\theta]$ で $\theta$ の次数が2だから $(1,\theta)$ は整数基底です。二つの根の和は $t$、積は $u$ なので、[埋め込みによる跡・ノルムの公式](../ANF2/index.md#thm-anf2-embedding-formulas)から
 
 $$
 \operatorname{Tr}(1)=2,\qquad
@@ -633,7 +633,7 @@ $$
 (1+s)\subseteq\mathfrak p_2\cap\mathfrak q_-=\mathfrak p_2\mathfrak q_-.
 $$
 
-左辺の商では $s=-1$、$s^2=-5$ から $6=0$ となるため $A/(1+s)\cong\mathbb Z/6\mathbb Z$、元数は6です。右辺の商の元数も[中国剰余定理](../../RNG/RNG2/index.md#thm-rng2-crt-two)により $2\cdot3=6$ なので、包含は等号です。同じく $s=1$ とすることで
+左辺の商では $s=-1$、$s^2=-5$ から $6=0$ となるため $A/(1+s)\cong\mathbb Z/6\mathbb Z$、元数は6です。[中国剰余定理（二つのイデアル）](../../RNG/RNG2/index.md#thm-rng2-crt-two)より、右辺の商も $2\cdot3=6$ 元です。したがって包含は等号です。同じく $s=1$ とすることで
 
 $$
 (1+s)=\mathfrak p_2\mathfrak q_-,\qquad
