@@ -70,7 +70,7 @@ $$
 \iota_{X_H}\omega=-dH
 $$
 
-と固定する。$H_i$ はファイバーに沿って一定だから、$W\in T_xL_b$ には $dH_i(W)=0$。従って $\omega(X_{H_i},W)=0$。ファイバーはLagrangeであり、そのシンプレクティック直交補は自分自身だから、$X_{H_i}$ はファイバー接方向である。
+と固定する。$H_i$ はファイバーに沿って一定だから、$W\in T_xL_b$ には $dH_i(W)=0$。従って $\omega(X_{H_i},W)=0$。ファイバーの各接空間はLagrangeなので、[線形Lagrange判定](../../SYM/SYM6/index.md#thm-sym6-lagrangian-criterion)によりシンプレクティック直交補はその接空間自身である。ゆえに $X_{H_i}$ はファイバー接方向である。
 
 また、各点の $dH_i=\pi^*db^i$ は独立である。$\omega$ の非退化性から $X_{H_1},\ldots,X_{H_n}$ も独立で、$n$ 次元の $T_xL_b$ の基底になる。
 
@@ -203,7 +203,15 @@ $$
 \Phi_t(s(b))=s(b).
 $$
 
-時間変数 $t$ に関する左辺の微分は、$X_1,\ldots,X_n$ を列とする可逆行列である。従って[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)により、$b_0$ の十分小さい近傍に滑らかな解 $t=t^{(a)}(b)$ が存在する。
+この等式は局所自明化したファイバー内の点の等式である。$s(b_0)$ の近くにファイバー座標 $u=(u^1,\ldots,u^n)$ を取り、基準周期 $t^{(a)}(b_0)$ 付近の戻り点を同じ座標領域で表す。方程式と時間微分は
+
+$$
+u(\Phi_t(s(b)))-u(s(b))=0,\qquad
+\left.\frac{\partial}{\partial t_i}u(\Phi_t(s(b)))\right|_{(b_0,t^{(a)}(b_0))}
+=du_{s(b_0)}(X_i(s(b_0)))
+$$
+
+となる。ここで $\partial/\partial t_i$ は基底点 $b$ を固定し、第 $i$ の流れの時間だけを変化させる微分である。$X_1,\ldots,X_n$ はファイバー接空間の基底なので、右辺を列とする $n\times n$ Jacobian行列は可逆である。従って[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)により、$b_0$ の十分小さい近傍に滑らかな解 $t=t^{(a)}(b)$ が存在する。
 
 局所自明化で閉路の整数基底を固定し、さらに近傍を縮めると、各 $t^{(a)}(b)$ はそれぞれの原始閉路を表す。以後、$a=1,\ldots,n$ とする。
 
@@ -458,7 +466,20 @@ dI_2\wedge d\psi_2
 =dI_2\wedge d\vartheta_2+c\,dI_1\wedge dI_2
 $$
 
-となる。$c$ の符号を間違えて $\psi_2=\vartheta_2+cI_1$ とすると余分な項は2倍になるのではなく、打ち消せず逆符号になってしまう。**切断の変更は証明の一部**である。
+となる。$c$ の符号を間違えて $\psi_2=\vartheta_2+cI_1$ と置くと、
+
+$$
+dI_2\wedge d\psi_2
+=dI_2\wedge d\vartheta_2-c\,dI_1\wedge dI_2
+$$
+
+となり、元の $\omega$ と一致しない。逆に $\vartheta_2=\psi_2-cI_1$ を元の $\omega$ に代入すれば
+
+$$
+\omega=\sum_a dI_a\wedge d\psi_a+2c\,dI_1\wedge dI_2
+$$
+
+となり、余分な項が2倍残る。**切断の変更は証明の一部**である。
 
 ## 6. McLean変形空間との関係と、大域へ飛べない理由
 
@@ -500,7 +521,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$d\pi:T_xM\to T_bB_0$ は全射で、核は $T_xL_b$ である。$v\ne0$ ならその持ち上げ $V$ は垂直ではない。もし $\alpha_v=0$ なら $\omega(V,W)=0$ が全ての $W\in T_xL_b$ に対し成り立つ。ファイバーがLagrangeだから $T_xL_b$ のシンプレクティック直交補は $T_xL_b$ 自身であり、$V$ は垂直となって矛盾する。よって $\alpha_v$ は零でない。
+$d\pi:T_xM\to T_bB_0$ は全射で、核は $T_xL_b$ である。$v\ne0$ ならその持ち上げ $V$ は垂直ではない。
+
+もし $\alpha_v=0$ なら、任意の $W\in T_xL_b$ に対し
+
+$$
+0=\alpha_v(W)=-\omega(V,W)
+$$
+
+となる。したがって $V$ は $T_xL_b$ のシンプレクティック直交補に属する。しかしファイバーはLagrangeだから、[線形Lagrange判定](../../SYM/SYM6/index.md#thm-sym6-lagrangian-criterion)によって直交補は $T_xL_b$ 自身である。よって $V$ は垂直になり、$d\pi(V)=v\ne0$ と矛盾する。従って $\alpha_v$ は零でない。
 
 [McLeanの局所無障害性定理](../SYZ1-06/index.md#thm-syz1-06-mclean-unobstructed)は変形空間の接空間を調和1形式 $\mathcal H^1(L_b)$ と同一視する。$b_1(T^n)=n$ だから、線形写像 $v\mapsto\alpha_v$ は $n$ 次元空間間の単射、従って同型である。基底の近傍を局所変形空間の座標で見ると、その微分は可逆なので[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)から局所微分同相を得る。これは**既に与えられた束のファイバーが変形空間の局所座標になる**ことの証明であって、束を構成する証明ではない。
 <!-- proof-end -->
@@ -720,7 +749,7 @@ $$
 =\int_0^1\omega(\partial_b,\partial_\psi)\,dt=1.
 $$
 
-従って $\beta(v)=-\int_\gamma\alpha_v$ を満たす。$\alpha_v$ はこの円周上で定数係数の調和1形式であるから、McLeanの接方向としても整合する。
+従って $\beta(v)=-\int_\gamma\alpha_v$ を満たす。標準平坦計量 $d\psi^2$ を円周に与えれば、$d\alpha_v=d^*\alpha_v=0$ なので調和1形式にもなる。ただし、ここで指定した $\omega$ だけからSLag性は判定できない。McLeanの変形方向と同一視するには、複素構造、正則体積形式と位相の条件も別途確かめる必要がある。
 <!-- solution-end -->
 
 ### Level C：周期・標準形・存在仮定を一つの模型で判定
