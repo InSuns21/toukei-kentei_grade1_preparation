@@ -128,10 +128,16 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（楕円ファイブレーションをもつK3）**  
-> 複素構造 $I$ を備えたK3曲面 $X$ に、全射の正則写像 $\pi:(X,I)\to\mathbb P^1$ があり、一般のファイバーが連結・滑らかな種数1の複素曲線であるとき、本講ではこれを楕円K3ファイブレーションという。$\Delta_{\pi}\subset\mathbb P^1$ を臨界値の集合、$B_0=\mathbb P^1\setminus\Delta_{\pi}$ と書く。$b\in B_0$ では $L_b=\pi^{-1}(b)$ が滑らかな実2トーラスになる。
+> 複素構造 $I$ を備えたK3曲面 $X$ から $\mathbb P^1$ への全射正則写像 $\pi$ で、一般のファイバーが連結・滑らかな種数1の複素曲線であるものを楕円K3ファイブレーションという。$\Delta_{\pi}$ を $\pi$ の臨界値集合とし、次を正則値集合とファイバーの記法とする。
+
+$
+B_0=\mathbb P^1\setminus\Delta_{\pi},\qquad L_b=\pi^{-1}(b)\quad(b\in B_0).
+$
+
+> 各 $L_b$ は滑らかな実2トーラスである。
 <!-- formal-statement-end -->
 
-楕円曲線の全域的な原点を選ぶには**切断**（$\pi\circ s=\mathrm{id}$ を満たす正則写像 $s:\mathbb P^1\to X$）が便利だが、回転によるSLag判定自体には切断は必要ない。
+各楕円ファイバーに原点を指定するには、$\pi\circ s=\mathrm{id}$ を満たす正則写像 $s:\mathbb P^1\to X$ が便利である。しかし、回転によるSLag判定そのものではこのような正則右逆を選ばない。
 
 <!-- definition-example-start: def-syz1-13-elliptic-k3 -->
 ### 直接例：滑らかな点でファイバー条件を確かめる
@@ -302,7 +308,7 @@ $\Delta(u_0)=0$ の三次式には重根 $r$ があり、三重根なら $r=0$ �
 <!-- proof-start -->
 ### 証明
 
-局所自明な束 $T^2\hookrightarrow X\to\mathbb P^1$ が存在すると仮定する。基底とファイバーは有限CW複体のホモトピー型を持ち、ファイバーのEuler標数は $\chi(T^2)=1-2+1=0$ である。束のEuler標数乗法則（有限CW基底のセルごとに局所自明化し、Euler標数の加法性から導ける）より
+局所自明な束 $T^2\hookrightarrow X\to\mathbb P^1$ が存在すると仮定する。基底とファイバーは有限CW複体のホモトピー型を持ち、ファイバーのEuler標数は $\chi(T^2)=1-2+1=0$ である。束のEuler標数乗法則（有限CW基底を各セルで局所自明化し、符号付きセル数を集計して導ける）より
 
 $$
 \chi(X)=\chi(\mathbb P^1)\chi(T^2)=2\cdot0=0.
