@@ -4,3 +4,4 @@
 1. [ANF1 代数的整数と整数環](textbook/volumes/dream_thater/代数系/ANF/ANF1/index.md)
 2. [ANF2 跡・ノルム・判別式](textbook/volumes/dream_thater/代数系/ANF/ANF2/index.md)
 3. [ANF3 Dedekind環とイデアルの分解](textbook/volumes/dream_thater/代数系/ANF/ANF3/index.md)
+4. [ANF4 素数の分解・分岐・惰性](textbook/volumes/dream_thater/代数系/ANF/ANF4/index.md)

@@ -19,7 +19,7 @@ chapters:
     title: "Dedekind環とイデアルの分解"
   - id: ANF4
     path: textbook/volumes/dream_thater/代数系/ANF/ANF4
-    status: planned
+    status: completed
     title: "素数の分解・分岐・惰性"
   - id: ANF5
     path: textbook/volumes/dream_thater/代数系/ANF/ANF5

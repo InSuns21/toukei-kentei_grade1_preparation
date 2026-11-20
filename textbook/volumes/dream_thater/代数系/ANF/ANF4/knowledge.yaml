@@ -1,0 +1,52 @@
+chapter: ANF4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF3
+forward_references: []
+
+concepts:
+  - id: number-theory.ramification-residue-degree
+    name: 分岐指数と剰余次数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（分岐指数と剰余次数）"]
+    requires: [number-theory.prime-ideal-factorization, number-theory.integral-basis]
+
+  - id: number-theory.absolute-ideal-norm
+    name: 整イデアルのノルム
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（整イデアルのノルム）"]
+    requires: [number-theory.integral-basis]
+
+  - id: number-theory.prime-power-ideal-norm
+    name: 素イデアル冪のノルム
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.absolute-ideal-norm, number-theory.local-principal-dedekind, number-theory.ramification-residue-degree]
+
+  - id: number-theory.ramification-degree-identity
+    name: 分岐指数・剰余次数の次数公式
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.prime-power-ideal-norm, number-theory.integral-basis]
+
+  - id: number-theory.splitting-types
+    name: 完全分裂・惰性・分岐
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（完全分裂・惰性・分岐）"]
+    requires: [number-theory.ramification-degree-identity, number-theory.ramification-residue-degree]
+
+  - id: number-theory.monogenic-prime-factorization
+    name: 整数環が単項生成されるときの素イデアル分解
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.prime-ideal-factorization, number-theory.ramification-residue-degree, number-theory.local-principal-dedekind]
+
+  - id: number-theory.quadratic-prime-splitting
+    name: 二次体での分裂・惰性・分岐判定
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.monogenic-prime-factorization, number-theory.quadratic-field-discriminant, number-theory.splitting-types]
