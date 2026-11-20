@@ -35,7 +35,7 @@ chapters:
     title: "ユニタリ蒸発のエントロピー制約"
   - id: BHI7
     path: textbook/volumes/dream_thater/物理系/BHI/BHI7
-    status: planned
+    status: completed
     title: "Page曲線の物理的意味"
   - id: BHI8
     path: textbook/volumes/dream_thater/物理系/BHI/BHI8
