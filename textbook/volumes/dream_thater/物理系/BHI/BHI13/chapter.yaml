@@ -1,0 +1,45 @@
+id: BHI13
+title: "デカップリングと回収閾値"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI12
+  - QINF31
+official_scope: []
+learning_objectives:
+  - BHI12の投入模型をHaarランダムユニタリに拡張し、入出力と参照・残存系の次元を検算できる
+  - デカップリング誤差のトレースノルムとHilbert–Schmidtノルムを定義し、SWAP型と恒等配置で比較できる
+  - 二コピーHaar平均を交換作用素と二つのトレース恒等式から導出できる
+  - MCとCの平均purityから平均二次偏差の厳密式を導出し、有限次元の境界値を検算できる
+  - 行列ノルムの比較とMarkov不等式によりデカップリングの高確率界を証明できる
+  - QINF30の近似回復定理における参照系・受信系・環境を特定し、放射次元と復号誤差の十分条件を示せる
+  - 必要な次元下界・高確率の十分条件・回復器の存在・復号計算量を区別できる
+definitions:
+  - { id: BHI13-DEF-01, name: "Haar投入・放出実験" }
+  - { id: BHI13-DEF-02, name: "残存系へのデカップリング誤差" }
+theorems:
+  - { id: BHI13-LEM-01, name: "投入系のHaar二コピー平均" }
+  - { id: BHI13-THM-01, name: "Haar投入模型の平均デカップリング二次偏差" }
+  - { id: BHI13-PROP-01, name: "Haar投入模型のデカップリング確率界" }
+  - { id: BHI13-THM-02, name: "Haar投入模型の高確率回収閾値" }
+  - { id: BHI13-COR-01, name: "余分な放射量子ビットと回収誤差" }
+canonical_examples:
+  - Bell対2組のSWAP配置と恒等配置に対する誤差ノルム
+  - 全系4次元における二コピーHaar係数と平均purity
+  - 日記1量子ビット・古い内部3量子ビット・追加放射3量子ビットでの厳密確率界
+  - 日記量子ビット数と余分な放射量子ビット数の回収閾値
+problem_patterns:
+  - BHI13-DIMENSION-BOOKKEEPING
+  - BHI13-SWAP-TRACE
+  - BHI13-TWIRL-COEFFICIENTS
+  - BHI13-EXACT-COUNTEREXAMPLE
+  - BHI13-QUANTUM-BIT-THRESHOLD
+  - BHI13-PURITY-AVERAGE
+  - BHI13-MARKOV-TAIL
+  - BHI13-NECESSARY-VS-SUFFICIENT
+  - BHI13-UNIFORM-INPUT-RECOVERY
+  - BHI13-INTEGRATED-DECODING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 5 }
