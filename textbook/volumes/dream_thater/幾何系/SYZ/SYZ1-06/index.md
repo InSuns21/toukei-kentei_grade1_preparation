@@ -89,7 +89,19 @@ $$
 d\zeta=\sin(2\pi x)\,dx\wedge dy=\eta
 $$
 
-なので $\eta$ は完全な2形式である。零形式も $d0=0$ と書けるから、$(\eta,0)$ と $(0,\eta)$ はともに $\mathcal E$ に属する。一方、$dx\wedge dy$ が完全なら[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から積分は0のはずだが、$\int_{T^2}dx\wedge dy=1$。従ってこちらは完全ではなく、$(0,dx\wedge dy)$ は $\mathcal E$ に属さない。これで両成分の完全性と、最高次形式の「積分が0」という条件をそれぞれ確認した。
+なので $\eta$ は完全な2形式である。零形式も $d0=0$ と書けるので、定義の直積値域について
+
+$$
+(\eta,0)\in\mathcal E,\qquad (0,\eta)\in\mathcal E
+$$
+
+を確認できる。一方、$dx\wedge dy$ が完全なら[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から積分は0のはずだが、
+
+$$
+\int_{T^2}dx\wedge dy=1
+$$
+
+となって矛盾する。従って $(0,dx\wedge dy)\notin\mathcal E$ である。両成分の完全性と、最高次形式の「積分が0」という条件をそれぞれ確認した。
 <!-- definition-example-end -->
 
 <a id="lem-syz1-06-exact-image"></a>
