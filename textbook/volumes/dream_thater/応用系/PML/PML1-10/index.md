@@ -296,7 +296,20 @@ $$
 $$
 従って $X_t\sim N(0,S)$ が任意の $t$ で成り立つ。正規密度の公式に $\det S=(\tau/\alpha)^2$ と $S^{-1}=(\alpha/\tau)I_2$ を代入した密度が（1）の $\rho$ である。正規化と不変性の両方が示された。
 
-次に[STO11の前進方程式](../../../解析系/STO/STO11/index.md#thm-sto11-forward-fokker-planck)をこのSDEのドリフト $b=Ax$ と一定拡散共分散 $2\tau I_2$ に適用すると、$\partial_t p=-\nabla\cdot(bp)+\tau\Delta p$ であり、確率流は $J_p=bp-\tau\nabla p$ となる。$\nabla\rho=-(\alpha/\tau)x\rho$ だから
+次に[STO11の前進方程式](../../../解析系/STO/STO11/index.md#thm-sto11-forward-fokker-planck)を、このSDEのドリフトと一定拡散共分散へ適用する。具体的には
+$
+b(x)=Ax,\qquad \Sigma\Sigma^{\mathsf T}=2\tau I_2
+$
+を代入して、密度が存在し十分滑らかな場合の前進方程式を得る。
+$
+\partial_t p=-\nabla\cdot(bp)+\tau\Delta p
+=-\nabla\cdot(bp-\tau\nabla p).
+$
+従って確率流は $J_p=bp-\tau\nabla p$ である。Gibbs密度の勾配
+$
+\nabla\rho=-\frac{\alpha}{\tau}x\rho
+$
+を代入すると
 $$
 \begin{aligned}
 J_\rho
