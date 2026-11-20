@@ -48,7 +48,21 @@ $$
 a=b=c=d=2,\qquad N=4.
 $$
 
-入力と出力の各積基底を番号付けすると、発展 $U$ は $4\times4$ ユニタリ行列です。これらの基底を固定してHaar分布を取るので、左右の固定ユニタリ変換でも分布は変わりません。
+入力基底 $|ij\rangle_{AB}$ と出力基底 $|\mu\nu\rangle_{CD}$（添字はいずれも $0,1$）を固定します。線形写像の各基底ベクトルへの作用を
+
+$
+U|ij\rangle_{AB}=\sum_{\mu,\nu=0}^{1}U_{\mu\nu,ij}|\mu\nu\rangle_{CD},
+\qquad U_{\mu\nu,ij}=\langle\mu\nu|U|ij\rangle
+$
+
+と展開すると、係数 $U_{\mu\nu,ij}$ を並べたものが $4\times4$ 行列です。ユニタリ性 $\langle Uij|Ui'j'\rangle=\langle ij|i'j'\rangle$ は、列の正規直交性
+
+$
+\sum_{\mu,\nu=0}^{1}\overline{U_{\mu\nu,ij}}U_{\mu\nu,i'j'}
+=\delta_{ii'}\delta_{jj'},\qquad U^\dagger U=I_4
+$
+
+に対応します。このように両側の基底を固定して $U(4)$ のHaar分布を取るので、左右から固定ユニタリ行列を掛けても分布は変わりません。
 
 初期の二つのBell対は規格化され、出力もユニタリ性からノルム1です。外部の $M,E$ には発展を作用させないので、[BHI12の独立性](../BHI12/index.md#prop-bhi12-early-independence)も維持されます。
 <!-- definition-example-end -->
@@ -97,7 +111,14 @@ $$
 <!-- definition-example-start: def-bhi13-decoupling-error -->
 **定義の確認**： 前講のSWAP型配置 $U_{\rm good}|i,j\rangle=|j,i\rangle_{CD}$ なら $|\Psi_U\rangle=|\Phi_a\rangle_{MD}\otimes|\Phi_b\rangle_{CE}$（ここでは $a=b=c=d=2$）で、$\rho_{MC}=\pi_M\otimes\pi_C$、$X=0$、$L=Q=0$ です。
 
-反対に $U_{\rm bad}|i,j\rangle=|i,j\rangle_{CD}$ として日記を $C$ に残せば、$\rho_{MC}=|\Phi_2\rangle\langle\Phi_2|$、$\rho_C=I_C/2$ です。$X=|\Phi_2\rangle\langle\Phi_2|-I_{MC}/4$ の固有値は $3/4$ が一つ、$-1/4$ が三つなので
+反対に $U_{\rm bad}|i,j\rangle=|i,j\rangle_{CD}$ として日記を $C$ に残せば、$\rho_{MC}=|\Phi_2\rangle\langle\Phi_2|$、$\rho_C=I_C/2$ です。ここで $P_\Phi=|\Phi_2\rangle\langle\Phi_2|$ は規格化されたBellベクトルへの直交射影です。したがって
+
+$
+P_\Phi|\Phi_2\rangle=|\Phi_2\rangle,
+\qquad P_\Phi|v\rangle=0\quad (\langle\Phi_2|v\rangle=0)
+$
+
+となります。$MC$ は4次元なので、Bellベクトルの方向は1次元、直交補空間は3次元です。差 $X=P_\Phi-I_{MC}/4$ は前者で $3/4$ 倍、後者で $-1/4$ 倍として作用します。これが固有値 $3/4$（1個）と $-1/4$（3個）の根拠です。$X$ はHermitianなので特異値は固有値の絶対値であり、$\operatorname{Tr}X^2$ は固有値の二乗和です。よって
 
 $$
 L=\frac34+3\frac14=\frac32,
@@ -226,7 +247,7 @@ $$
 \right].
 $$
 
-因子の順序は $MM'|AA'BB'|EE'$ に並べ替えています。補題の平均 $\alpha I+\beta F_A\otimes F_B$ を代入します。純粋Bell対の二コピーに対して、交換作用素の期待値は
+因子の順序は $MM'|AA'BB'|EE'$ に並べ替えています。補題の平均 $\alpha I+\beta F_A\otimes F_B$ を代入します。ここで $\Phi_{MA}:=|\Phi_a\rangle\langle\Phi_a|_{MA}$、$\Phi_{BE}:=|\Phi_b\rangle\langle\Phi_b|_{BE}$ をBell対の**密度演算子**と書きます（上のケット $|\Phi_a\rangle,|\Phi_b\rangle$ と区別します）。純粋Bell対の二コピーに対して、交換作用素の期待値は
 
 $$
 \operatorname{Tr}(\Phi_{MA}^{\otimes2}F_M)
@@ -542,7 +563,7 @@ $$
 \qquad \rho_C^{\mathrm{bad}}=\frac{I_C}{2}.
 $$
 
-差 $X_{\mathrm{bad}}=\Phi_{MC}-I_4/4$ はBellベクトル方向で固有値 $3/4$、その三次元直交補空間で $-1/4$ を持つので、特異値の和は
+差 $X_{\mathrm{bad}}=\Phi_{MC}-I_4/4$ は、$\Phi_{MC}$ がBellベクトルへの階数1の直交射影であるため、そのベクトル方向で固有値 $1-1/4=3/4$、三次元直交補空間で $0-1/4=-1/4$ を持ちます。Hermitian作用素の特異値は固有値の絶対値なので、特異値の和は
 
 $$
 L_{\mathrm{bad}}=\frac34+3\cdot\frac14=\frac32.
