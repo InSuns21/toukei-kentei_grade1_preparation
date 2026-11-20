@@ -66,7 +66,16 @@ $$
 > と定義する。$\|\cdot\|_1$ は特異値の和、$\|\cdot\|_2^2$ は特異値の二乗和である。$L=0$ と[BHI12の完全回収条件](../BHI12/index.md#thm-bhi12-recovery-condition)は同値である。
 <!-- formal-statement-end -->
 
-ここでは比較相手の $\rho_C(U)$ も $U$ に依存することが大切です。**平均状態を先に取ってから積を作る**計算ではありません。$M$ の縮約は常に $\pi_M$ ですが、$C$ の縮約は標本ごとに変動します。
+一般の復号問題では比較相手の $\rho_C$ が入力チャネルに依存するので、**平均状態を先に取ってから積を作る**計算と区別が必要です。しかしこの模型ではさらに強い性質があります。二つのBell対を $M,E$ で部分トレースすると $\rho_{AB}=I_{AB}/(ab)$ であり、$U$ のユニタリ性によって
+
+$$
+\rho_{CD}(U)=U\frac{I_{AB}}{ab}U^\dagger
+=\frac{I_{CD}}{cd},
+\qquad
+\rho_C(U)=\operatorname{Tr}_D\rho_{CD}(U)=\frac{I_C}{c}.
+$$
+
+したがって本講に限っては $\rho_C$ はどの標本でも一定で、比較相手は $\pi_M\otimes\pi_C$ です。この事実は後の二コピー計算でも独立に検算します。
 
 <!-- definition-example-start: def-bhi13-decoupling-error -->
 **定義の確認。** 前講のSWAP型配置 $U_{\rm good}|i,j\rangle=|j,i\rangle_{CD}$ なら $|\Psi_U\rangle=|\Phi_a\rangle_{MD}\otimes|\Phi_b\rangle_{CE}$（ここでは $a=b=c=d=2$）で、$\rho_{MC}=\pi_M\otimes\pi_C$、$X=0$、$L=Q=0$ です。
@@ -270,6 +279,8 @@ $$
 
 を得ます。$d\ge1$、$N\ge d$ なので $0\le(N^2-d^2)/(N^2-1)\le1$ であり、$a^2-1\le a^2$ と合わせて不等式が従います。
 <!-- proof-end -->
+
+なお、初期の最大混合状態の直接計算から $\rho_C(U)=I_C/c$ であるため、すべての標本について $\operatorname{Tr}\rho_C^2=1/c$。上で得た $\alpha+\beta/(ab)$ も $N=cd$ を代入して $1/c$ になり、二コピー係数の別検算になっています。
 
 **数値検算。** $a=b=c=d=2$ なら $N=4$、$\alpha=\beta=2/5$ です。式に入れると
 
