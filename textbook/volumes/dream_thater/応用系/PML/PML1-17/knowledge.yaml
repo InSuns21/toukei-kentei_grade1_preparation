@@ -1,0 +1,35 @@
+chapter: PML1-17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML1-16
+  - AMECH4
+forward_references: []
+concepts:
+  - id: physics-machine-learning.learned-rotational-lagrangian
+    name: 学習済み Lagrangian の連続回転対称性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（学習済み Lagrangian の連続回転対称性）"]
+    requires: [analytical-mechanics.infinitesimal-symmetry, physics-machine-learning.rigid-configuration-action]
+  - id: physics-machine-learning.rotational-symmetry-defect
+    name: 回転対称性欠損
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（回転対称性欠損）"]
+    requires: [physics-machine-learning.learned-rotational-lagrangian]
+  - id: physics-machine-learning.learned-noether-conservation
+    name: 学習済み Lagrangian への Noether 保存則の適用
+    kind: theorem
+    introduction: formal
+    requires: [physics-machine-learning.learned-rotational-lagrangian, analytical-mechanics.noether-theorem-finite-dof, analytical-mechanics.generalized-momentum]
+  - id: physics-machine-learning.symmetry-and-dynamics-residual-balance
+    name: 対称性欠損と運動方程式残差による保存量収支
+    kind: proposition
+    introduction: formal
+    requires: [physics-machine-learning.rotational-symmetry-defect, physics-machine-learning.learned-noether-conservation]
+  - id: physics-machine-learning.euler-noether-drift
+    name: 回転等変な Euler 更新の保存量ドリフト
+    kind: proposition
+    introduction: formal
+    requires: [physics-machine-learning.learned-noether-conservation]
