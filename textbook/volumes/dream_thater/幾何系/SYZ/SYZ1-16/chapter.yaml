@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - SYZ1-15
   - SYZ1-10
+  - COMB9
 official_scope: []
 learning_objectives:
   - 向き付きトーラスの交点数とホロノミー文字から仮定付き壁越え変換の指数・逆写像を導ける
