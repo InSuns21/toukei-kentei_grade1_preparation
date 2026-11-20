@@ -658,6 +658,6 @@ $$
 
 この講では、補正因子の入力を一つ選ぶと $x_+=x_-(1+qy)$ が正則なチャートを貼り合わせること、二壁の横断順序が三次で衝突し、追加の変換 $C$ によって三次まで整合させられることを計算した。Maslov指数0は**座標の変換**、Maslov指数2は**superpotentialの和**に現れるという区別も保たれた。
 
-次の [SYZ1-17](../SYZ1-17/index.md) では、特異整数アフィン構造と多面体分割から始め、Gross–Siebert型のトロピカル退化・散乱図式がこの整合性をどのように組織化するかを調べる。
+次の SYZ1-17 では、特異整数アフィン構造と多面体分割から始め、Gross–Siebert型のトロピカル退化・散乱図式がこの整合性をどのように組織化するかを調べる。
 
 参考：[Auroux, *Mirror Symmetry and T-Duality in the Complement of an Anticanonical Divisor*](https://arxiv.org/abs/0706.3207)、[Gross–Siebert, *From Real Affine Geometry to Complex Geometry*](https://annals.math.princeton.edu/2011/174-3/p01)。これらの一般構成を本講の有限次数の代数計算から導いたものではない。
