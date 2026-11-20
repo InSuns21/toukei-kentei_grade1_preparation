@@ -600,6 +600,11 @@ try{
   nearRGBA(wgl8.rows[7][2],[122,63,155,255]);
   assert.match(wgl8.log,/WGL8/);
   assert.match(wgl8.log,/GL error: 0x0/);
+  const scene8=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
+  assert.match(scene8.grid,/数値計算格子なし/);
+  assert.match(scene8.color,/sRGB.*線形光/);
+  assert.match(scene8.mode,/reverseOrder/);
+  assert.match(scene8.source,/blending.js.*blending.frag/);
   const shot8=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
   await writeFile('_wgl_browser_review/wgl8-initial.png',Buffer.from(shot8.data,'base64'));
   console.log('WGL8 GPU blending / linear-light shader / CPU 8-pixel oracle: PASS');
@@ -635,6 +640,11 @@ try{
   assert.match(wgl9.log,/WGL9/);
   assert.match(wgl9.log,/GL error: 0x0/);
   assert.match(wgl9.log,/inverse transpose \(correct\)/);
+  const scene9=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
+  assert.match(scene9.grid,/立方体12三角形/);
+  assert.match(scene9.color,/Lambert.*Blinn–Phong/);
+  assert.match(scene9.mode,/u_lightDirection.*物理時間/);
+  assert.match(scene9.source,/lighting.js.*lighting.frag/);
   const shot9=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
   await writeFile('_wgl_browser_review/wgl9-initial.png',Buffer.from(shot9.data,'base64'));
   await new Promise(ok=>setTimeout(ok,650));
@@ -686,6 +696,11 @@ try{
   assert.match(wgl10.log,/FRAMEBUFFER_COMPLETE, RGBA8 400x600/);
   assert.match(wgl10.log,/PASS1: offscreen lower-left quarter RGBA=/);
   assert.match(wgl10.log,/GL error: 0x0/);
+  const scene10=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent})');
+  assert.match(scene10.grid,/RGBA8.*offscreenScale/);
+  assert.match(scene10.color,/第1パス.*第2パス/);
+  assert.match(scene10.clock,/物理stepなし/);
+  assert.match(scene10.mode,/texel数.*pixel数/);
   const checkRgba = (value,expected) => {
     const got=value.split(',').map(x=>Number(x.trim()));
     assert.equal(got.length,4);
@@ -710,6 +725,7 @@ try{
   await click('run');
   await waitFor('document.getElementById("status")?.textContent.includes("独立画素検算に合格")',22000);
   assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/RGBA8 320x360/);
+  assert.equal(await evalJS('document.querySelector("#scene-info .scene-info-list > div:nth-child(2) dd")?.textContent'),'640×360 px（GPU描画バッファ）');
   console.log('WGL10 FBO resized with canvas and revalidated: PASS');
   await click('reset');
   await evalJS('(()=>{const p=document.getElementById("preset");p.value="error";p.dispatchEvent(new Event("change",{bubbles:true}));})()');
