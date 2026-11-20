@@ -74,13 +74,22 @@ $$
 =\sum_{i=1}^{N}g_i(\theta)-Ng(\theta)=0.
 $$
 
-$e_i e_i^{\mathsf T}$ は $d\times d$ 行列で、第 $(r,s)$ 成分は $e_{i,r}e_{i,s}$。この外積を平均すると、各方向の揺らぎの分散と方向間の共分散を一つの行列にまとめられる。この平均行列で個別勾配の方向別の散らばりを表す。次の定義で名称と対象を確定する。確率変数 $Z$ の分散共分散行列は $\operatorname{Cov}(Z)=\mathbb E[(Z-\mathbb EZ)(Z-\mathbb EZ)^{\mathsf T}]$ とする。
+$e_i(\theta)$ は $d$ 次元の列ベクトルで、標準座標での外積 $e_i e_i^{\mathsf T}$ は $d\times d$ 行列、第 $(r,s)$ 成分は $e_{i,r}e_{i,s}$ である。各方向の分散と方向間の共分散を調べるため、この外積を平均する。$d$ 次元確率変数 $Z$ の分散共分散行列は
+
+$$
+\operatorname{Cov}(Z)
+=\mathbb E[(Z-\mathbb EZ)(Z-\mathbb EZ)^{\mathsf T}]
+$$
+
+である。一様な添字 $I$ を選んで $Z=g_I(\theta)$ と置けば $\mathbb EZ=g(\theta)$ であり、平均外積は $Z$ の分散共分散行列に等しい。
+
+[正定値・半正定値行列](../../../基礎科目/F0/F0-00F1/index.md#def-f0-00f1-positive-semidefinite)のうち、実対称行列 $A$ が**半正定値**である条件は、すべての $v\in\mathbb R^d$ について $v^{\mathsf T}Av\ge0$ となることである。次に、この条件も散布行列で確かめる。
 
 <a id="def-pml1-12-gradient-scatter"></a>
 
 <!-- formal-statement-start -->
 > **定義（個別勾配の散布行列）**  
-> 整数 $N\ge2$、微分可能な $f_i:\mathbb R^d\to\mathbb R$ と平均勾配 $g(\theta)=N^{-1}\sum_i\nabla f_i(\theta)$ に対し、パラメータ $\theta\in\mathbb R^d$ における散布行列を
+> 整数 $N\ge2$、$d\ge1$、微分可能な $f_i:\mathbb R^d\to\mathbb R$ と平均勾配 $g(\theta)=N^{-1}\sum_i\nabla f_i(\theta)$ に対し、パラメータ $\theta\in\mathbb R^d$ における散布行列を
 
 $$
 C(\theta)=\frac1N\sum_{i=1}^N
@@ -91,7 +100,7 @@ $$
 > と定める。$C(\theta)$ は $d\times d$ の対称な半正定値行列である。
 <!-- formal-statement-end -->
 
-半正定値という条件は、任意の $v\in\mathbb R^d$ に対して $v^{\mathsf T}Cv\ge0$ となることである。実際、外積の転置は自分自身であり、
+各外積は $(e_ie_i^{\mathsf T})^{\mathsf T}=e_ie_i^{\mathsf T}$ だから $C$ は対称である。また、
 
 $$
 v^{\mathsf T}C(\theta)v
@@ -102,7 +111,7 @@ $$
 さらに $C_{rr}$ は第 $r$ 方向の個別勾配の平均二乗偏差であり、非対角成分 $C_{rs}$ は二方向の偏差の積の平均である。固有値を求めなくても、座標軸方向の揺れの差がこの定義から直接読める。
 
 <!-- definition-example-start: def-pml1-12-gradient-scatter -->
-**定義の確認**：$d=2,N=4$、$x=(x_1,x_2)$ として
+**定義の確認**：$d=2,N=4$ とし、前節までのパラメータ $\theta$ を、ここでは列ベクトル $x=(x_1,x_2)^{\mathsf T}$ と書く。$\nabla f_i(x)$ は $x_1,x_2$ でそれぞれ偏微分した値を縦に並べた列ベクトルである。次の損失を取る。
 
 $$
 \begin{aligned}
@@ -113,7 +122,16 @@ f_4(x)&=\frac12x_1^2-2x_2
 \end{aligned}
 $$
 
-を選ぶ。$g(x)=(x_1,0)^{\mathsf T}$ だから、四つの偏差ベクトルは
+これらを $x_1,x_2$ について偏微分すると、個別勾配は
+
+$$
+\begin{aligned}
+g_1(x)&=(x_1+1,0)^{\mathsf T},&g_2(x)&=(x_1-1,0)^{\mathsf T},\\
+g_3(x)&=(x_1,2)^{\mathsf T},&g_4(x)&=(x_1,-2)^{\mathsf T}.
+\end{aligned}
+$$
+
+よって $g(x)=\frac14\sum_{i=1}^4g_i(x)=(x_1,0)^{\mathsf T}$ である。各 $g_i$ からこの $g$ を引くと、偏差ベクトルは
 
 $$
 e_1=(1,0)^{\mathsf T},\quad
@@ -135,12 +153,28 @@ C(x)=\frac14
 =\begin{pmatrix}1/2&0\\0&2\end{pmatrix}.
 $$
 
-任意の $v=(v_1,v_2)^{\mathsf T}$ に対し $v^{\mathsf T}Cv=v_1^2/2+2v_2^2\ge0$。対称性と半正定値性まで直接確認できた。第2方向の分散は第1方向の4倍であり、雑音は**異方的**である。
+任意の $v=(v_1,v_2)^{\mathsf T}$ に対し $v^{\mathsf T}Cv=v_1^2/2+2v_2^2\ge0$。対称性と半正定値性まで直接確認できた。第2方向の分散は第1方向の4倍である。方向によって散らばりの大きさが異なる雑音を**異方的**という。
 <!-- definition-example-end -->
 
 ## 3. 復元抽出なら雑音の平均はゼロ、共分散は $C/b$
 
-時刻 $n$ までの初期値と抽出結果をすべて知っている状態を $\mathcal F_n$ と記す。この情報の下では $\theta_n$ は固定された値として扱え、新しい添字は条件付きで一様・独立である。これを**条件付き期待値** $\mathbb E[\,\cdot\mid\mathcal F_n]$ で表す。サンプルされた勾配の全勾配からの差を $\zeta_{n+1}=\widehat g_n-g(\theta_n)$ とする。添字 $n+1$ は、その雑音が次の更新を生むことを表す。
+更新 $n$ の**直前**に分かる初期値と過去の抽出番号の情報を
+
+$$
+\mathcal F_n=\sigma\!\left(\theta_0,I_{k,j}:0\le k<n,\ 1\le j\le b\right)
+$$
+
+と記す。$\sigma(\cdots)$ は括弧内の確率変数から判定できる事象全体を意味する。これから抽出する $I_{n,1},\ldots,I_{n,b}$ は $\mathcal F_n$ に**含めない**。この情報の下では $\theta_n$ は既知であり、新しい添字は条件付きで一様・独立である。$\mathbb E[Z\mid\mathcal F_n]$ は過去の情報の下での**条件付き期待値**である。条件付き分散共分散行列は、条件付き平均からの偏差を用いて
+
+$$
+\operatorname{Cov}(Z\mid\mathcal F_n)
+=\mathbb E\!\left[
+(Z-\mathbb E[Z\mid\mathcal F_n])
+(Z-\mathbb E[Z\mid\mathcal F_n])^{\mathsf T}
+\mid\mathcal F_n\right]
+$$
+
+と定める。サンプルされた勾配の全勾配からの差を $\zeta_{n+1}=\widehat g_n-g(\theta_n)$ とする。添字 $n+1$ は、その雑音が次の更新を生むことを表す。
 
 <a id="prop-pml1-12-replacement-moments"></a>
 
@@ -283,13 +317,35 @@ $$
 
 ## 5. Langevinの熱雑音との比較：学習率の次数が違う
 
-[PML1-08の熱雑音の整合条件](../PML1-08/index.md#def-pml1-08-thermal-matching)に対応する移動度 $1$、温度 $\tau>0$ の等方的Langevin法を、[PML1-11のEuler–Maruyama離散化](../PML1-11/index.md#def-pml1-11-euler-maruyama)と同じ刻み幅 $\eta$ で書くと
+[PML1-08の熱雑音の整合条件](../PML1-08/index.md#def-pml1-08-thermal-matching)に従い、温度 $\tau>0$ で移動度と拡散係数を次のように選ぶ。$I_d$ は $d\times d$ 単位行列である。
+
+$$
+M=I_d,\qquad \Sigma=\sqrt{2\tau}\,I_d.
+$$
+
+[d次元ブラウン運動](../../../解析系/STO/STO7/index.md#def-sto7-vector-brownian)を $B_t$ とし、時間刻み $\eta>0$ での増分を定める。この増分の分布は
+
+$$
+\Delta B_n=B_{(n+1)\eta}-B_{n\eta}
+\sim N_d(0,\eta I_d)
+$$
+
+となる。$\xi_{n+1}=\Delta B_n/\sqrt\eta$ と置けば
+
+$$
+\xi_{n+1}\sim N_d(0,I_d),\qquad
+\Delta B_n=\sqrt\eta\,\xi_{n+1}
+$$
+
+である。異なる時刻のブラウン増分は独立なので、$\xi_{n+1}$ も過去の増分から独立である。
+
+[PML1-11のEuler–Maruyama離散化](../PML1-11/index.md#def-pml1-11-euler-maruyama)で一次元に行ったのと同じく、ドリフト積分を左端の $g(Y_n)$ と刻み幅 $\eta$ の積で近似し、ブラウン増分はそのまま用いる。$g=\nabla F$ とすると、多次元の一歩は
 
 $$
 Y_{n+1}=Y_n-\eta g(Y_n)+\sqrt{2\tau\eta}\,\xi_{n+1}
 $$
 
-となる。ここで $g=\nabla F$、$\xi_n$ は互いに独立な $d$ 次元標準正規ベクトルで過去からも独立とする。このとき $\xi$ の分散共分散行列は単位行列 $I_d$ で、一歩の熱雑音の共分散は $2\tau\eta I_d$。一方、復元抽出SGDの一歩の雑音は $-\eta\zeta_{n+1}$ で、共分散は $\eta^2 C/b$ だった。
+となる。$\xi_n$ は互いに独立な $d$ 次元標準正規ベクトルで過去からも独立とする。その分散共分散行列は $I_d$ で、一歩の熱雑音の共分散は $2\tau\eta I_d$。一方、復元抽出SGDの一歩の雑音は $-\eta\zeta_{n+1}$ で、共分散は $\eta^2 C/b$ だった。
 
 「熱雑音と等しい」の意味をまず**条件付き共分散が等しい**ことに限定して判定する。これでも十分強い必要条件である。
 
@@ -332,7 +388,7 @@ $\eta>0,b>0$ の下で、両行列の等式を $\eta^2/b$ で割ることと、�
 ただし固定 $\theta$ で復元抽出のミニバッチ勾配が取り得る値は高々 $N^b$ 個。したがってSGDの一歩の雑音分布は有限個の点に集中する。他方 $\tau>0$ の多次元正規分布は任意の一点に確率0を割り当てる。ゆえに、**有限データの復元抽出SGDは、共分散が一致しても正温度のGaussian熱雑音と分布として一致しない**。
 <!-- proof-end -->
 
-第2節の例の $C=\operatorname{diag}(1/2,2)$ では、どんな正のスカラー $\tau$ でも $C=(2\tau b/\eta)I_2$ は成り立たない。第1方向だけで温度を合わせれば第2方向の分散が4倍ずれる。これは「平均が等しい」だけでは見つからない差である。
+以下、$\operatorname{diag}(a,b)$ は $a,b$ を対角成分に置き、非対角成分を0とする行列を表す。第2節の例の $C=\operatorname{diag}(1/2,2)$ では、どんな正のスカラー $\tau$ でも $C=(2\tau b/\eta)I_2$ は成り立たない。第1方向だけで温度を合わせれば第2方向の分散が4倍ずれる。これは「平均が等しい」だけでは見つからない差である。
 
 | 比較項目 | 復元抽出ミニバッチSGD | 等方的Langevin離散化 |
 |---|---|---|
@@ -368,7 +424,7 @@ $$
 \le \frac{T\eta K}{b}.
 $$
 
-> 従って $b$ と $T$ を固定して $\eta\to0$ とすると、累積更新雑音 $M_m$ は二乗平均で $0$ に近づく。
+> さらに $b,T$ を固定して $\eta\to0$ とする際、到達する各状態での上界 $K$ を**学習率 $\eta$ に依存しない同じ有限定数**として取れるなら、累積更新雑音 $M_m$ は二乗平均で $0$ に近づく。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -414,7 +470,7 @@ $$
 \le\frac{T\eta K}{b}\longrightarrow0
 $$
 
-を得る。
+を得る。ここでは $K$ が $\eta$ に依存せず一様に有限であることを使った。$K=K(\eta)$ が増加する場合、この評価だけでは収束を結論できない。
 <!-- proof-end -->
 
 一方、定数温度のLangevin離散化で各時刻のGaussian雑音を足すと、$m$ 歩の累積共分散は $2\tau m\eta I_d$ であり、$m\eta\to T>0$ なら $2\tau T I_d$ に近づく。**同じ時間尺度では、固定バッチSGDの雑音だけが $\eta\to0$ で消える**。これは累積雑音に関する比較であり、ドリフトを含むSGDの連続極限全体の収束定理を無条件に述べているわけではない。
@@ -557,7 +613,7 @@ $N=4$ の第2節の損失から $b=4$ 個を非復元抽出した場合と復元
 <!-- solution-start -->
 #### 詳細解答
 
-$C=\operatorname{diag}(1/2,2)$ である。非復元抽出では4個を全て一度ずつ選ぶので平均は常に $g$、公式の係数も
+$C=\operatorname{diag}(1/2,2)$ である。非復元抽出では4個を全て一度ずつ選ぶので平均は常に $g$、[非復元ミニバッチの分散共分散行列](#prop-pml1-12-without-replacement)の係数も
 
 $$
 \frac{N-b}{b(N-1)}=\frac{4-4}{4\cdot3}=0.
