@@ -25,3 +25,4 @@
 22. [U2-22 ランドマーク型 EKF-SLAM：交差共分散の役割](textbook/volumes/dream_thater/応用系/U/U2-22/index.md)
 23. [U2-23 因子グラフ：運動・観測・地図をつなぐ](textbook/volumes/dream_thater/応用系/U/U2-23/index.md)
 24. [U2-24 グラフ SLAM の数値解：Gauss–Newton と gauge 固定](textbook/volumes/dream_thater/応用系/U/U2-24/index.md)
+25. [U2-25 ループ閉合・頑健推定：再訪はいつ役に立つか](textbook/volumes/dream_thater/応用系/U/U2-25/index.md)
