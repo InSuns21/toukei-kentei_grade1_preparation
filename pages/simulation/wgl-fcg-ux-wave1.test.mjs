@@ -49,3 +49,13 @@ test('animated teaching code uses original lesson state and shader',async()=>{
     if(first>=0)assert.ok(first<animation,path+' must finish static GPU oracle first');
   }
 });
+
+test('FCG1 has the same visual-first contract in its separate editable Canvas host',async()=>{
+  const [html,host]=await Promise.all([
+    readFile(new URL('./fcg1-lab.html',import.meta.url),'utf8'),
+    readFile(new URL('./fcg-canvas-lab-host.mjs',import.meta.url),'utf8')]);
+  assert.match(html,/id="fcg1-observe"/);
+  assert.match(html,/class="visual-lesson-guide"/);
+  assert.ok(host.includes("el('fcg1-observe')?.addEventListener('click',()=>el('run').click())"));
+  assert.ok(host.includes("frame.setAttribute('sandbox', 'allow-scripts')"));
+});
