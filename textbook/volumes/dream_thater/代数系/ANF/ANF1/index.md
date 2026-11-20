@@ -35,7 +35,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf1-algebraic-integer -->
-**定義の確認。** $\sqrt2$ は $T^2-2\in\mathbb Z[T]$ の根なので代数的整数です。一方、$(1+\sqrt5)/2$ は上の $T^2-T-1$ の根なので、分母があっても代数的整数です。いずれも最高次係数が $1$ で、**他の係数がすべて整数**であることを具体的に確認しました。
+**定義の確認**： $\sqrt2$ は $T^2-2\in\mathbb Z[T]$ の根なので代数的整数です。一方、$(1+\sqrt5)/2$ は上の $T^2-T-1$ の根なので、分母があっても代数的整数です。いずれも最高次係数が $1$ で、**他の係数がすべて整数**であることを具体的に確認しました。
 <!-- definition-example-end -->
 
 代数的整数なら有理数係数の非零多項式の根でもあるため、[代数的元](../../FLD/FLD1/index.md#def-fld1-algebraic-element)です。逆に、代数的であるだけでは足りません。例えば $1/2$ は $2T-1$ の根ですが、モニックな整数係数多項式の根にはなりません。この失敗を次の命題で証明します。
@@ -160,7 +160,7 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-anf1-ring-of-integers -->
-**定義の確認。** $K=\mathbb Q(\sqrt2)$ では、$\sqrt2$ と $1+\sqrt2$ はそれぞれ $T^2-2$ と $T^2-2T-1$ の根です。また
+**定義の確認**： $K=\mathbb Q(\sqrt2)$ では、$\sqrt2$ と $1+\sqrt2$ はそれぞれ $T^2-2$ と $T^2-2T-1$ の根です。また
 
 $$
 (1+\sqrt2)\sqrt2=2+\sqrt2,\qquad
@@ -190,7 +190,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf1-trace-pairing -->
-**定義の確認。** $K=\mathbb Q(\sqrt2)$ の $\mathbb Q$ 基底 $(1,\sqrt2)$ で $\mu_{a+b\sqrt2}$ の行列を作ると、第1列は $(a,b)^{\mathsf T}$、第2列は $(2b,a)^{\mathsf T}$ です。従って
+**定義の確認**： $K=\mathbb Q(\sqrt2)$ の $\mathbb Q$ 基底 $(1,\sqrt2)$ で $\mu_{a+b\sqrt2}$ の行列を作ると、第1列は $(a,b)^{\mathsf T}$、第2列は $(2b,a)^{\mathsf T}$ です。従って
 
 $$
 [\mu_{a+b\sqrt2}]
@@ -410,6 +410,8 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: thm-anf1-quadratic-integers -->
+**定義の確認**
+
 **例1：$d=5$。** $5\equiv1\pmod4$ なので $w=(1+\sqrt5)/2$ が整数基底の第2元です。実際 $w^2-w-1=0$ です。一方 $\sqrt5=2w-1$ なので、$\mathbb Z[\sqrt5]$ は $\mathbb Z[w]$ の真部分環です。$w=a+b\sqrt5$ と整数 $a,b$ で書くなら $b=1/2$ となって矛盾します。
 
 **例2：$d=-5$。** $-5\equiv3\pmod4$ だから $\mathcal O_{\mathbb Q(\sqrt{-5})}=\mathbb Z[\sqrt{-5}]$ です。$(1+\sqrt{-5})/2$ の最小多項式は
