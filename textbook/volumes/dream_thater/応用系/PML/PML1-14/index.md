@@ -55,7 +55,7 @@ $$
 Z_T=\frac{(2\pi T)^{d/2}}{\sqrt{\det H}}
 $$
 
-となる。正定値行列を $H=Q\operatorname{diag}(\lambda_1,\ldots,\lambda_d)Q^{\mathsf T}$（$Q^{\mathsf T}Q=I_d$、$\lambda_i>0$）と直交対角化する。$z\in\mathbb R^d$ を使って $x=Q\operatorname{diag}(\sqrt{T/\lambda_1},\ldots,\sqrt{T/\lambda_d})z$ と置けば、
+となる。正定値行列を $H=Q\operatorname{diag}(\lambda_1,\ldots,\lambda_d)Q^{\mathsf T}$（$Q^{\mathsf T}Q=I_d$、$\lambda_i>0$）と直交対角化する。$z\in\mathbb R^d$ を使って $x=Q\operatorname{diag}(\sqrt{T/\lambda_1},\ldots,\sqrt{T/\lambda_d})z$ と置く。この変換の微分行列は $Q\operatorname{diag}(\sqrt{T/\lambda_1},\ldots,\sqrt{T/\lambda_d})$ で、直交行列の $|\det Q|=1$ を使うと、
 
 $
 \frac{x^{\mathsf T}Hx}{2T}=\frac12\sum_{i=1}^d z_i^2,
