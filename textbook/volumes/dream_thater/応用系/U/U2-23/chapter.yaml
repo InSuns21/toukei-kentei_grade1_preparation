@@ -1,0 +1,49 @@
+id: "U2-23"
+title: "因子グラフ：運動・観測・地図をつなぐ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - U2-22
+official_scope: []
+learning_objectives:
+  - 因子グラフの変数節点と因子節点を区別し運動・観測因子の接続を列挙できる
+  - SLAMの生成分布の条件付き独立仮定から同時事後の因子積を証明できる
+  - 姿勢グラフとランドマークを含む因子グラフの対象変数を区別できる
+  - Gaussian因子の残差と正定値情報行列を定義し数値例で確認できる
+  - 固定共分散のGaussian因子の積がMAPの重み付き二乗残差和と同値であることを証明できる
+  - 共分散が未知変数に依存する場合の対数行列式項を見落とさない
+  - 線形因子から情報行列とその零ブロックを導出し全ての中間計算を確認できる
+  - 相対因子のgauge零方向と連結した基準因子の正定値性を示せる
+  - 観測試行の二重計数と未連結グラフの失敗機構を具体例で説明できる
+  - Pythonの厳密有理数で4変数のMAP・残差・非一意性を検算できる
+definitions:
+  - { id: U2-23-DEF-01, name: SLAM の因子グラフ }
+  - { id: U2-23-DEF-02, name: Gaussian 因子の残差と情報行列 }
+theorems:
+  - { id: U2-23-THM-01, name: SLAM 同時事後の因子積表示 }
+  - { id: U2-23-THM-02, name: 固定共分散 Gaussian 因子と MAP の同値性 }
+  - { id: U2-23-PROP-01, name: 線形因子の二次形式と局所結合 }
+  - { id: U2-23-PROP-02, name: 相対因子の平行移動不変性と基準因子 }
+canonical_examples:
+  - 1次元位置3時刻と1目印の変数・因子二部グラフ
+  - 2成分誤差(2,-1)と対角共分散(4,1)による情報重み付き二次形式2
+  - 4変数5因子の情報行列と正確な最小点(0,1,5/3,10/3)および目的関数1/6
+  - 全体平行移動の零方向と初期位置の基準事前による正定値化
+  - 同じ記録の二重利用によるMAPの1/2から2/3への過信
+  - Python標準ライブラリのFractionによる行列演算・自己検算
+problem_patterns:
+  - U2-23-A01
+  - U2-23-A02
+  - U2-23-A03
+  - U2-23-A04
+  - U2-23-A05
+  - U2-23-B01
+  - U2-23-B02
+  - U2-23-B03
+  - U2-23-B04
+  - U2-23-C01
+  - U2-23-C02
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 4.5, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
