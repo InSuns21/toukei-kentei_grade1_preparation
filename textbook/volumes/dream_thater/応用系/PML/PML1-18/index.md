@@ -148,7 +148,7 @@ $$
 $$
 \frac d{dt}H_\theta(t,z(t))
 =\partial_tH_\theta(t,z(t))
-+\nabla_zH_\theta^{\mathsf T}J_d\nabla_zH_\theta
++\nabla_zH_\theta(t,z(t))^{\mathsf T}J_d\nabla_zH_\theta(t,z(t))
 =\partial_tH_\theta(t,z(t)).
 $$
 
@@ -162,7 +162,16 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（HNN の速度適合損失）**  
-> 整数 $d\ge1$、開集合 $U\subset\mathbb R^{2d}$、固定した $\theta$ と $C^1$ 級関数 $H_\theta:U\to\mathbb R$ をとる。$J_d=\begin{pmatrix}0_d&I_d\\-I_d&0_d\end{pmatrix}$ として正準 HNN の速度場を $f_\theta=J_d\nabla_zH_\theta$ で定める。$N\ge1$ 個の状態・速度データ $(z_i,w_i)\in U\times\mathbb R^{2d}$ を与え、各 $w_i$ はその状態での観測時間微分とする。速度適合損失を
+> 整数 $d\ge1$、開集合 $U\subset\mathbb R^{2d}$、固定した $\theta$ と $C^1$ 級関数 $H_\theta:U\to\mathbb R$ をとる。正準行列を
+
+$$
+J_d=\begin{pmatrix}
+0_d&I_d\\
+-I_d&0_d
+\end{pmatrix}
+$$
+
+> とし、正準 HNN の速度場を $f_\theta=J_d\nabla_zH_\theta$ で定める。整数 $N\ge1$ と $N$ 個の状態・速度データ $(z_i,w_i)\in U\times\mathbb R^{2d}$ を与え、各 $w_i$ はその状態での観測時間微分とする。速度適合損失を
 
 $$
 \mathcal L(\theta)
