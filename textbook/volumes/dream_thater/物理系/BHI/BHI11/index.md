@@ -43,28 +43,41 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi11-comparison-protocol -->
-**定義の確認**：入力一量子ビット $A$ に固定の空白 $\lvert0\rangle_B$ を付けます。[QINF12の制御NOT（CNOT）の構成](../../../応用系/QINF/QINF12/index.md#def-qinf12-cloning)に従い、$\lvert a,b\rangle\mapsto\lvert a,b\oplus a\rangle$（$a,b\in\{0,1\}$、$\oplus$ は2を法とする和）を用います。計算基底の四つの状態を置換するので、これは入力によらないユニタリ操作です。$\lvert0\rangle_A\lvert0\rangle_B\mapsto\lvert00\rangle$、$\lvert1\rangle_A\lvert0\rangle_B\mapsto\lvert11\rangle$ となり、直交する二入力では同じチャネルが積の二コピーを与えます。しかし $\lvert+\rangle=(\lvert0\rangle+\lvert1\rangle)/\sqrt2$ なら、線形性から同じ操作の出力は
+**定義の確認**：入力一量子ビット $A$ に固定の空白 $\lvert0\rangle_B$ を付けます。[QINF12の制御NOT（CNOT）の構成](../../../応用系/QINF/QINF12/index.md#def-qinf12-cloning)を使います。入力基底を $\lvert a,b\rangle$（$a,b\in\{0,1\}$）とし、$\oplus$ は2を法とする和と定義すると、CNOTの作用は
 
-$
+$$
+\lvert a,b\rangle\longmapsto\lvert a,b\oplus a\rangle
+$$
+
+です。計算基底の四つの状態を置換するため、入力によらないユニタリ操作です。$B$ を空白に固定した二つの直交入力では
+
+$$
+\lvert0\rangle_A\lvert0\rangle_B\longmapsto\lvert00\rangle,\qquad
+\lvert1\rangle_A\lvert0\rangle_B\longmapsto\lvert11\rangle
+$$
+
+となり、それぞれ積の二コピーを作ります。しかし $\lvert+\rangle=(\lvert0\rangle+\lvert1\rangle)/\sqrt2$ なら、線形性から同じ操作の出力は
+
+$$
 \lvert\Phi\rangle_{AB}
 =\frac{\lvert00\rangle+\lvert11\rangle}{\sqrt2}.
-$
+$$
 
 これが厳密な積コピーかを調べるには、[QINF3の部分トレースの基底公式](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)を使います。計算基底について
 
-$
+$$
 \operatorname{Tr}_B(\lvert ij\rangle\langle kl\rvert)
 =\langle l\vert j\rangle\,\lvert i\rangle\langle k\rvert
-$
+$$
 
 です。したがって $\lvert00\rangle\langle11\rvert$ とその随伴の交差項は $B$ 側の直交性によって消え、
 
-$
+$$
 \operatorname{Tr}_B\lvert\Phi\rangle\langle\Phi\rvert
 =\frac{\lvert0\rangle\langle0\rvert+\lvert1\rangle\langle1\rvert}{2}
 =\frac{I_2}{2}
 \ne\lvert+\rangle\langle+\rvert.
-$
+$$
 
 ここで $I_2$ は $A$ の二次元単位作用素です。必要な $\lvert+\rangle\lvert+\rangle$ ではなく、$A$ 単独の状態さえ指定した純粋状態と異なります。ゆえに**二つの直交記録を複写すること**と**任意の未知の量子状態を複製すること**は違います。全入力について成立するという要求は、この一つの反例で否定できます。
 <!-- definition-example-end -->
@@ -196,9 +209,9 @@ $$
 
 Aliceが地平線を横切る際の、単位質量当たりの保存Killingエネルギーを $E_0>0$ とし、同じ動径測地線を考えます。$\tau$ はAliceの固有時間で、四速度 $w^a=dx^a/d\tau$ はAliceの世界線に沿う微分です。これは $r$ を固定した座標方向の $\partial_t$ と区別します。動径計量の交差項は $ds_{\rm radial}^2=2g_{UV}\,dU\,dV$ なので、地平線では
 
-$
+$$
 g_{UV}=-\left.\frac{16M^3}{r}e^{-r/(2M)}\right|_{r=2M}=-\frac{8M^2}{e}.
-$
+$$
 
 したがって、Killingエネルギーと四速度の関係は
 
