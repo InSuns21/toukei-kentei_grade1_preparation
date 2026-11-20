@@ -40,7 +40,7 @@ chapters:
     title: "基底の二種類の整数アフィン構造"
   - id: SYZ1-09
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-09
-    status: planned
+    status: completed
     title: "Hessian計量とLegendre双対"
   - id: SYZ1-10
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-10
