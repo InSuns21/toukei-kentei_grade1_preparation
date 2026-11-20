@@ -132,7 +132,7 @@ $$
 
 ### ノルムの絶対値1が単元を特徴付ける
 
-[整数環の閉性](../ANF1/index.md#thm-anf1-ring-closure)によって $\mathcal O_K$ は環です。その中で逆数も整数環に入る元を**単元**と呼びます。ノルムはこの条件を数値へ置き換えます。
+[整数環の閉性](../ANF1/index.md#thm-anf1-ring-closure)によって $\mathcal O_K$ は環です。ここで扱う[単元](../../RNG/RNG3/index.md#def-rng3-divisibility-unit-associate)は、$x$ とその逆数 $x^{-1}$ がともに整数環に属する場合の $x$ です。ノルムはこの条件を数値へ置き換えます。
 
 <a id="prop-anf2-unit-norm"></a>
 
@@ -257,7 +257,7 @@ $$
 両辺の行列式を取り $\det(A^{\mathsf T})=\det A$ を使えば変換則が出ます。[ANF1 の跡形式の非退化性](../ANF1/index.md#lem-anf1-integral-trace)より、$G_\beta v=0$ なら $v=0$ です。したがって $G_\beta$ は可逆で、$\det G_\beta\ne0$ です。
 <!-- proof-end -->
 
-ここで $A=\operatorname{diag}(1,3)$ を入れると $(\det A)^2=9$、先ほどの $72=9\cdot8$ が説明できました。基底変換の行列式は、**向きを含む一次の倍率**ですが、判別式では左右の二回の変換が起こるので二乗になります。
+ここで $A=\operatorname{diag}(1,3)$ を入れると $(\det A)^2=9$、先ほどの $72=9\cdot8$ が説明できました。基底を取り換える行列の行列式は、**向きを含む一次の倍率**ですが、判別式では左右の二回の変換が起こるので二乗になります。
 
 ### 複素埋め込みで判別式を見る
 
