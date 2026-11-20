@@ -10,18 +10,18 @@
 
 [既習の複素化Kählerパラメータ](../../CYG/CYG1-13/index.md#def-cyg1-13-complexified-kahler)は、B場とKähler類の係数を複素数にまとめたものである。本講では楕円曲線の向きを固定し、整数2-コホモロジーの正の生成元を $H$ として規格化する。
 
-$
+$$
 H\in H^2(E_\tau;\mathbb Z),\qquad
 \int_{E_\tau}H=1.
-$
+$$
 
 既講の2形式には $2\pi$ を掛ける規約がある。本講の形式との対応、ならびに複素化した係数は次の通りである。
 
-$
+$$
 B_{\rm old}=2\pi B,\qquad
 \omega_{\rm old}=2\pi\omega,\qquad
 \rho=\beta+iA.
-$
+$$
 
 したがって、後述のB場の指数位相と面積の式は両立する。
 
