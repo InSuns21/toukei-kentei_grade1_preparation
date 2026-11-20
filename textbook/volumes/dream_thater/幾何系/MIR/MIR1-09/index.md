@@ -102,7 +102,17 @@ $$
 A(z_0,1,z_2,z_3,z_4)=y_1^{-5(k-1)}A(1,y)
 $$
 
-となる。$x_1\ne0$ のチャートでは $\Omega=-x_1^5\,dz_0\wedge dz_2\wedge dz_3\wedge dz_4$ なので、先頭の負号と座標変換の負号が相殺され、$A\Omega/F_\psi^k$ の表示は上の $x_0\ne0$ の表示に一致する。同じ理由で他のチャートでも一致する。これで、次数条件から射影上の有理4形式を作るまでの橋渡しができた。
+となる。$x_1\ne0$ のチャートでは $\Omega=-x_1^5\,dz_0\wedge dz_2\wedge dz_3\wedge dz_4$ なので、先頭の負号と座標変換の負号が相殺される。実際に三つの式を代入すると、
+
+$$
+-\frac{A(z_0,1,z_2,z_3,z_4)}
+{F_\psi(z_0,1,z_2,z_3,z_4)^k}
+\,dz_0\wedge dz_2\wedge dz_3\wedge dz_4
+=\frac{A(1,y)}{f_\psi(y)^k}
+\,dy_1\wedge dy_2\wedge dy_3\wedge dy_4.
+$$
+
+同じ理由で他のチャートでも一致する。これで、次数条件から射影上の有理4形式を作るまでの橋渡しができた。
 
 <a id="def-mir1-09-pole-form"></a>
 
@@ -220,7 +230,28 @@ d\eta_B=
 \right]\mathrm{vol}.
 $$
 
-$\Phi_B=-\iota_E\eta_B$ と置く。内部積を二度取ると零だから $\iota_E\Phi_B=0$ であり、$\eta_B$ の重みが零なので $\Phi_B$ も重み零である。二条件が射影への降下を保証する理由も確かめる。$x_0=t\ne0$ のチャートでは $E=t\partial/\partial t$ である。3形式 $\Phi_B$ の $dt$ を含む部分を $dt\wedge\sum_Jc_J(t,y)dy_J$、含まない部分を $\sum_Ia_I(t,y)dy_I$ と書く（$J$ は2個、$I$ は3個の $y$ 添字の組）。$\iota_E\Phi_B=0$ より $t c_J=0$、従って $c_J=0$ であり、重み零より $t\,\partial a_I/\partial t=0$ だから $a_I$ は $y$ のみの関数になる。他のチャートでも同じ理由が成り立つので、$\Phi_B$ は射影空間上の有理3形式として貼り合わさる。特に $V_\psi$ では分母が零にならず正則である。
+$\Phi_B=-\iota_E\eta_B$ と置く。内部積を二度取ると零だから $\iota_E\Phi_B=0$ であり、$\eta_B$ の重みが零なので $\Phi_B$ も重み零である。
+
+この二条件が射影への降下を保証する理由も確かめる。$x_0=t\ne0$ のチャートでは $E=t\partial/\partial t$ である。3形式を
+
+$$
+\Phi_B=dt\wedge\sum_Jc_J(t,y)\,dy_J
++\sum_Ia_I(t,y)\,dy_I
+$$
+
+と分ける。ここで $J=(j_1,j_2)$ と $I=(i_1,i_2,i_3)$ は相異なる $y$ 添字を昇順に並べた組で、$dy_J=dy_{j_1}\wedge dy_{j_2}$、$dy_I=dy_{i_1}\wedge dy_{i_2}\wedge dy_{i_3}$ とする。$E$ による縮約と重み零の条件から順に
+
+$$
+\iota_E\Phi_B=t\sum_Jc_J(t,y)\,dy_J=0
+\quad\Longrightarrow\quad c_J=0,
+$$
+
+$$
+t\,\frac{\partial a_I}{\partial t}=0
+\quad\Longrightarrow\quad a_I=a_I(y)
+$$
+
+となる。すなわち $dt$ の項は消え、残る係数も射影座標 $y$ だけで書ける。他のチャートでも同じ理由が成り立つので、$\Phi_B$ は射影空間上の有理3形式として貼り合わさる。特に $V_\psi$ では分母が零にならず正則である。
 
 ここで外微分と内部積の関係を、この場合に直接確かめる。$\eta_B$ の各項を $h\,dx_{i_1}\wedge\cdots\wedge dx_{i_4}$ と書き、$h=B_i/F_\psi^{k-1}$ とする。単項式 $x_0^{a_0}\cdots x_4^{a_4}$ に $E=\sum_jx_j\partial_j$ を作用させると、各偏微分の寄与を足して $(\sum_j a_j)x_0^{a_0}\cdots x_4^{a_4}$ となる。従って斉次性と商の微分則から
 
