@@ -435,7 +435,7 @@ $$
 
 [増分恒等式](#prop-bhi6-emission-increment)を直接確かめると $S(b_2)-I(b_1:b_2)=\ln2-2\ln2=-\ln2$ です。
 
-(3) $R_2$ の精細エントロピーは $0$、各周辺は $I_2/2$ なので[局所周辺状態に基づく粗視化エントロピーの定義](../BHI5/index.md#def-bhi5-local-coarse)から $S_{\rm loc}^{\rm coarse}(R_2)=2\ln2$ です。差 $\Delta_{\rm corr}=2\ln2$ は[局所粗視化と相関欠損の恒等式](../BHI5/index.md#thm-bhi5-correlation-gap)の二モードの場合 $I(b_1:b_2)$ に一致します。個々のモードの混合性は二者の量子相関によって相殺されているため、全放射が純粋であっても矛盾しません。
+(3) $R_2$ の精細エントロピーは $0$、各周辺は $I_2/2$ なので[局所周辺状態に基づく粗視化エントロピーの定義](../BHI5/index.md#def-bhi5-local-coarse)から $S_{\rm loc}^{\rm coarse}(R_2)=2\ln2$ です。差 $\Delta_{\rm corr}=2\ln2$ は[局所粗視化と相関欠損の恒等式](../BHI5/index.md#thm-bhi5-correlation-gap)の二モードの場合 $I(b_1:b_2)$ に一致します。各モードが単独では混合状態でも、二モード全体では量子相関を持つ純粋状態であり得るため、全放射が純粋であっても矛盾しません。
 <!-- solution-end -->
 
 ## 9. まとめと次の問い
