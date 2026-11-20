@@ -93,3 +93,54 @@ for(const [name,d] of [['NEAR_FRONT',2.5],['FAR_FRONT',3.5]]){
   report(name,'標準視点の前面距離='+d+' NDC z='+z.toFixed(6)+
     ' depth='+(0.5*z+0.5).toFixed(6));
 }
+
+
+// Visual observation after the deterministic readPixels snapshot.
+// This intentionally uses *the same editable* camera matrices, geometry,
+// program and depth settings as the initial oracle. The GL runner reads the
+// original snapshot synchronously; requestAnimationFrame then animates only
+// its display. Stop/dispose removes the containing sandbox and this loop.
+const motionMedia=window.matchMedia('(prefers-reduced-motion: reduce)');
+let wgl5Playing=!motionMedia.matches, wgl5Start=null, wgl5Phase=0;
+canvas.tabIndex=0;
+canvas.setAttribute('aria-label','WGL5 視点の往復アニメーション。クリックかSpaceで再生・停止');
+canvas.title='クリック／Space：視点の再生・停止（初期画素検算は時刻0のスナップショット）';
+function wgl5Toggle(){wgl5Playing=!wgl5Playing;wgl5Start=null;}
+canvas.addEventListener('click',wgl5Toggle);
+canvas.addEventListener('keydown',e=>{
+  if(e.key===' '||e.key==='Enter'){e.preventDefault();wgl5Toggle();}
+});
+function wgl5DrawOrbit(phase){
+  const displacement=eye.map((v,i)=>v-target[i]);
+  const a=0.50*Math.sin(phase),ca=Math.cos(a),sa=Math.sin(a);
+  const orbit=[target[0]+ca*displacement[0]+sa*displacement[2],
+    eye[1],target[2]-sa*displacement[0]+ca*displacement[2]];
+  const f=unit(target.map((v,i)=>v-orbit[i]));
+  const r=unit(cross(f,worldUp)),bb=f.map(v=>-v),uu=cross(bb,r);
+  const eyeView=new Float32Array([
+    r[0],uu[0],bb[0],0, r[1],uu[1],bb[1],0,
+    r[2],uu[2],bb[2],0, -dot(r,orbit),-dot(uu,orbit),-dot(bb,orbit),1
+  ]);
+  gl.useProgram(program);gl.bindVertexArray(vao);
+  gl.uniformMatrix4fv(uView,false,eyeView);
+  gl.uniformMatrix4fv(uProjection,false,proj);
+  gl.viewport(0,0,canvas.width,canvas.height);
+  gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+  gl.uniformMatrix4fv(uModel,false,translation(nearCenter));
+  gl.uniform4f(uColor,.9,.3,.2,1);
+  gl.drawElements(gl.TRIANGLES,36,gl.UNSIGNED_SHORT,0);
+  gl.uniformMatrix4fv(uModel,false,translation(farCenter));
+  gl.uniform4f(uColor,.2,.6,.9,1);
+  gl.drawElements(gl.TRIANGLES,36,gl.UNSIGNED_SHORT,0);
+}
+function wgl5Frame(stamp){
+  if(wgl5Playing&&!document.hidden){
+    if(wgl5Start===null)wgl5Start=stamp;
+    const elapsed=Math.min(0.08,Math.max(0,(stamp-wgl5Start)/1000));
+    wgl5Start=stamp;
+    wgl5Phase+=elapsed*.8;
+    wgl5DrawOrbit(wgl5Phase);
+  }else{wgl5Start=null;}
+  requestAnimationFrame(wgl5Frame);
+}
+requestAnimationFrame(wgl5Frame);
