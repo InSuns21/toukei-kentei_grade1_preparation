@@ -503,7 +503,20 @@ $xy=t$ 模型が満たす「中心のトーリック成分」「一般ファイ�
 <!-- solution-start -->
 ### 詳細解答
 
-$X_0$ は二本の座標直線の和、$t\ne0$ の $X_t$ は $\mathbb C^*$ なので滑らかである。[自由加群による平坦性の証明](#prop-syz1-17-flat-local-family)で $A$ の $\mathbb C[t]$ 基底 $1,x^k,y^k$ を得たから平坦性もある。一方 $X_t\simeq\mathbb C^*$ はコンパクトではなく、この例に相対的に豊富な直線束やコンパクトなアフィン基底、positive/simpleの大域データ、log接着・整合的壁構造を与えていない。従ってこの三性質だけで[再構成定理の射程](#thm-syz1-17-gross-siebert-scope)の仮定を満たしたことにはならない。
+中心ファイバーは二つの座標直線からなり、一般ファイバーは次のように滑らかな複素曲線となる。
+
+$$
+X_0=\{x=0\}\cup\{y=0\},\qquad X_t\simeq\mathbb C^*\quad(t\ne0).
+$$
+
+[自由加群による平坦性の証明](#prop-syz1-17-flat-local-family)では、座標環の $\mathbb C[t]$ 加群としての分解
+
+$$
+A=\mathbb C[t]\cdot1\oplus\bigoplus_{k\ge1}\mathbb C[t]\cdot x^k
+\oplus\bigoplus_{k\ge1}\mathbb C[t]\cdot y^k
+$$
+
+を得た。したがって平坦性も確認できる。しかし $X_t\simeq\mathbb C^*$ はコンパクトではない。この例には相対的に豊富な直線束、コンパクトなアフィン基底、positive/simpleの大域条件、log接着や全次数の壁整合データを与えていない。このため三つの局所的性質だけでは[再構成結果の仮定](#thm-syz1-17-gross-siebert-scope)を満たしたことにはならない。
 <!-- solution-end -->
 
 ### Level C：一つの模型を最後まで検算する
