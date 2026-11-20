@@ -102,7 +102,7 @@ try {
 
   // One physical step changes n=1 to n=2; all cell values become 0.5.
   await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="1step")).click()');
-  await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格") && document.querySelector("#result-note")?.textContent.includes("CPU")',25000);
+  await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格") && document.querySelector("#numeric-summary")?.textContent.includes("5/5")',25000);
   assert.match(await evaluate('document.querySelector("#fcg2-cpu-prediction").textContent'),/R8=128/);
   const second=await evaluate('document.querySelector("#results-table tbody tr:first-child td:nth-child(3)")?.textContent');
   assert.match(second,/128, 38, 127, 255/);
