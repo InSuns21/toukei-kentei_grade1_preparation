@@ -370,7 +370,7 @@ $$
 
 $$
 \int_{\gamma'_i}\vartheta'{}^j
-=\sum_{k,\ell}A_{ik}(A^{-\mathsf T})_{j\ell}\delta^ \ell_k
+=\sum_{k,\ell}A_{ik}(A^{-\mathsf T})_{j\ell}\delta^\ell_k
 =\sum_kA_{ik}(A^{-1})_{kj}=\delta_{ij}.
 $$
 
@@ -744,7 +744,7 @@ $$
 滑らかなSLag束の基底には、シンプレクティック周期 $u$ と複素周期 $t$ があり、双対サイクルを選ぶと
 
 $$
-G_{ij}=\partial_jt_i=\partial_i\partial_j\phi>0
+(G_{ij})=(\partial_i\partial_j\phi)=\nabla_u^2\phi\quad\text{は正定値}
 $$
 
 が成り立つ。Legendre変換は $u$ と $t$ の役割を逆転させ、双対計量の行列を $G^{-1}$ にする。次講では、この二組の整数アフィン格子を使ってトーラスを双対化し、鏡像側の複素座標を実際に貼り合わせる。
