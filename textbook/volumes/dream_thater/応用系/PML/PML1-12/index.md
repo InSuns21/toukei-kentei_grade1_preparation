@@ -74,7 +74,7 @@ $$
 =\sum_{i=1}^{N}g_i(\theta)-Ng(\theta)=0.
 $$
 
-$e_i e_i^{\mathsf T}$ は $d\times d$ 行列で、第 $(r,s)$ 成分は $e_{i,r}e_{i,s}$。この外積を平均すると、各方向の揺らぎの分散と方向間の共分散を一つの行列にまとめられる。これをここでは**個別勾配の散布行列**と呼ぶ。確率変数 $Z$ の分散共分散行列は $\operatorname{Cov}(Z)=\mathbb E[(Z-\mathbb EZ)(Z-\mathbb EZ)^{\mathsf T}]$ とする。
+$e_i e_i^{\mathsf T}$ は $d\times d$ 行列で、第 $(r,s)$ 成分は $e_{i,r}e_{i,s}$。この外積を平均すると、各方向の揺らぎの分散と方向間の共分散を一つの行列にまとめられる。この平均行列で個別勾配の方向別の散らばりを表す。次の定義で名称と対象を確定する。確率変数 $Z$ の分散共分散行列は $\operatorname{Cov}(Z)=\mathbb E[(Z-\mathbb EZ)(Z-\mathbb EZ)^{\mathsf T}]$ とする。
 
 <a id="def-pml1-12-gradient-scatter"></a>
 
@@ -313,7 +313,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[復元抽出の共分散命題](#prop-pml1-12-replacement-moments)を固定した $\theta$ に適用すると
+[復元抽出SGDの条件付き平均・分散共分散行列](#prop-pml1-12-replacement-moments)を固定した $\theta$ に適用すると
 
 $$
 \operatorname{Cov}(-\eta\zeta)
@@ -399,7 +399,7 @@ $$
 =\eta^2\sum_{k=0}^{m-1}\mathbb E\|\zeta_{k+1}\|^2.
 $$
 
-一方、条件付き平均ゼロと [共分散命題](#prop-pml1-12-replacement-moments)から、各座標の条件付き二乗平均を足せば
+一方、条件付き平均ゼロと [復元抽出SGDの条件付き平均・分散共分散行列](#prop-pml1-12-replacement-moments)から、各座標の条件付き二乗平均を足せば
 
 $$
 \mathbb E[\|\zeta_{k+1}\|^2\mid\mathcal F_k]
@@ -509,7 +509,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[第2節の散布行列](#def-pml1-12-gradient-scatter)を直接計算した結果は $C=\operatorname{diag}(1/2,2)$。復元抽出の [条件付き共分散命題](#prop-pml1-12-replacement-moments)で $b=1$、$\eta^2=1/25$ を代入すると
+[第2節の散布行列](#def-pml1-12-gradient-scatter)を直接計算した結果は $C=\operatorname{diag}(1/2,2)$。復元抽出の [復元抽出SGDの条件付き平均・分散共分散行列](#prop-pml1-12-replacement-moments)で $b=1$、$\eta^2=1/25$ を代入すると
 
 $$
 \operatorname{Cov}(\Delta\theta\mid\theta)
@@ -531,7 +531,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-SGD側は [復元抽出の共分散命題](#prop-pml1-12-replacement-moments)から
+SGD側は [復元抽出SGDの条件付き平均・分散共分散行列](#prop-pml1-12-replacement-moments)から
 
 $$
 \frac{\eta^2}{b}C
@@ -563,7 +563,7 @@ $$
 \frac{N-b}{b(N-1)}=\frac{4-4}{4\cdot3}=0.
 $$
 
-従って共分散は零行列。復元抽出では [復元抽出の公式](#prop-pml1-12-replacement-moments)から
+従って共分散は零行列。復元抽出では [復元抽出SGDの条件付き平均・分散共分散行列](#prop-pml1-12-replacement-moments)から
 
 $$
 \frac C4=\begin{pmatrix}1/8&0\\0&1/2\end{pmatrix}.
@@ -591,7 +591,7 @@ C=\frac{(-2)^2+(-1)^2+0^2+1^2+2^2}{5}
 =\frac{10}{5}=2.
 $$
 
-[復元抽出の公式](#prop-pml1-12-replacement-moments)では $C/b=2/3$。[非復元抽出の公式](#prop-pml1-12-without-replacement)では
+[復元抽出SGDの条件付き平均・分散共分散行列](#prop-pml1-12-replacement-moments)では $C/b=2/3$。[非復元ミニバッチの分散共分散行列](#prop-pml1-12-without-replacement)では
 
 $$
 \frac{N-b}{b(N-1)}C
@@ -632,7 +632,7 @@ $$
 \left(-\frac12\right)^2\right]=\frac14.
 $$
 
-他方、$C(2)=2^2=4$ なので [復元抽出の公式](#prop-pml1-12-replacement-moments)から $\eta^2 C(2)/b=(1/16)\cdot4=1/4$ となり一致する。$\theta_0=0$ なら個別勾配も平均勾配もゼロなので、どの添字を引いても $\theta_1=0$ で分散ゼロ。
+他方、$C(2)=2^2=4$ なので [復元抽出SGDの条件付き平均・分散共分散行列](#prop-pml1-12-replacement-moments)から $\eta^2 C(2)/b=(1/16)\cdot4=1/4$ となり一致する。$\theta_0=0$ なら個別勾配も平均勾配もゼロなので、どの添字を引いても $\theta_1=0$ で分散ゼロ。
 <!-- solution-end -->
 
 <a id="ex-pml1-12-b03"></a>
@@ -645,7 +645,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-SGD共分散は [復元抽出の公式](#prop-pml1-12-replacement-moments)から
+SGD共分散は [復元抽出SGDの条件付き平均・分散共分散行列](#prop-pml1-12-replacement-moments)から
 
 $$
 \eta^2 C
@@ -751,7 +751,7 @@ C=\frac14\operatorname{diag}(2,8)
 =\operatorname{diag}(1/2,2).
 $$
 
-[復元抽出の共分散命題](#prop-pml1-12-replacement-moments)で $b=2$、$\eta^2=1/100$ と置けば、
+[復元抽出SGDの条件付き平均・分散共分散行列](#prop-pml1-12-replacement-moments)で $b=2$、$\eta^2=1/100$ と置けば、
 
 $$
 \frac{\eta^2}{b}C
