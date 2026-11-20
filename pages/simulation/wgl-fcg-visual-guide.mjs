@@ -60,6 +60,9 @@ export function mountVisualGuide(lesson,parent,{run,focusResult}={}){
   const note=document.createElement('p');note.className='visual-guide-note';
   note.textContent='上のボタンは編集欄の実際のJS・GLSLを隔離環境で実行します。物理計算・描画結果・CPU/GPU検算を確認してください。既存のソースを自動実行することはありません。';
   section.append(heading,main,grid,row,note);
-  parent.prepend(section);
+  // When a real animated scene exists, let learners see the *motion* first;
+  // explanations follow below. Static labs keep the guide as their entry point.
+  const scene=parent.querySelector('.visual-observation');
+  if(scene)scene.after(section);else parent.prepend(section);
   return section;
 }
