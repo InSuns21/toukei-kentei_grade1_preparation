@@ -1,0 +1,44 @@
+id: "PML1-10"
+title: "不変分布と詳細釣合いは同じか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML1-09
+official_scope: []
+learning_objectives:
+  - 遷移核による詳細釣合いと不変性を定義し、詳細釣合いが不変性を含意することを証明できる
+  - 有限状態Markov連鎖の正味確率流と流入出保存を区別し、詳細釣合いの必要十分条件を証明できる
+  - 三状態の循環連鎖から不変だが非可逆な具体例を構成できる
+  - 定常エントロピー生成率の非負性と等号条件を導き、巡回模型で計算できる
+  - 回転OU拡散のGibbs不変性を線形SDEの明示解から示し、非零確率流と非可逆性を検証できる
+  - 相対エントロピー減少と定常循環の散逸を別々に評価できる
+definitions:
+  - { id: PML1-10-DEF-01, name: 時間一様Markov過程の詳細釣合い }
+  - { id: PML1-10-DEF-02, name: 有限状態の定常確率流 }
+  - { id: PML1-10-DEF-03, name: 有限状態の定常エントロピー生成率 }
+theorems:
+  - { id: PML1-10-PROP-01, name: 詳細釣合いから不変性 }
+  - { id: PML1-10-THM-01, name: 有限状態での不変性・詳細釣合いの判定 }
+  - { id: PML1-10-PROP-02, name: 定常エントロピー生成率の非負性 }
+  - { id: PML1-10-THM-02, name: 回転する二次拡散の不変性と非可逆性 }
+  - { id: PML1-10-PROP-03, name: 定常循環があっても相対エントロピーは減少する }
+canonical_examples:
+  - 対称な二状態Markov連鎖で遷移核の詳細釣合いを直接確認する
+  - 三状態巡回連鎖で一様不変分布と非零定常確率流を同時に示す
+  - 回転OU拡散でGaussian不変分布と非対称な二時刻相関を計算する
+  - 非可逆な定常拡散で相対エントロピーの減衰と正の定常散逸を比較する
+problem_patterns:
+  - PML1-10-A01
+  - PML1-10-A02
+  - PML1-10-A03
+  - PML1-10-A04
+  - PML1-10-A05
+  - PML1-10-B01
+  - PML1-10-B02
+  - PML1-10-B03
+  - PML1-10-B04
+  - PML1-10-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
