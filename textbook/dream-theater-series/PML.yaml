@@ -75,7 +75,7 @@ chapters:
     title: "Noetherの保存則は学習器に自動で移るか"
   - id: PML1-18
     path: textbook/volumes/dream_thater/応用系/PML/PML1-18
-    status: planned
+    status: completed
     title: "Hamiltonian NNは何を構造として固定するか"
   - id: PML1-19
     path: textbook/volumes/dream_thater/応用系/PML/PML1-19
