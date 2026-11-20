@@ -177,7 +177,7 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
   function oneStep(){if(iter===160)restart();else{jacobiIteration();iter++;}}
   canvas.addEventListener('keydown',e=>{
     if(e.key===' '||e.key==='Enter'){
-      e.preventDefault();playing=!playing;last=0;
+      e.preventDefault();playing=!playing;last=0;refreshProjectedState();
     }else if(e.key==='ArrowRight'){
       e.preventDefault();playing=false;last=0;oneStep();refreshProjectedState();
     }else if(e.key==='r'||e.key==='R'){
