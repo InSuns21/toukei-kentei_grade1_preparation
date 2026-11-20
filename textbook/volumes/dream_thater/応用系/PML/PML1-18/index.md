@@ -60,7 +60,7 @@ $$
 <!-- definition-example-start: def-pml1-18-hnn -->
 ### 例：一次元調和振動子を直接構成する
 
-**定義の確認。** $d=1$、$U=\mathbb R^2$、$m,k>0$ とし、
+**定義の確認**。 $d=1$、$U=\mathbb R^2$、$m,k>0$ とし、
 
 $$
 H_\theta(q,p)=\frac{p^2}{2m}+\frac{kq^2}{2},
@@ -176,7 +176,7 @@ $$
 <!-- definition-example-start: def-pml1-18-velocity-loss -->
 ### 例：二つの速度観測から係数を求める
 
-**定義の確認。** $d=1$、$U=\mathbb R^2$、
+**定義の確認**。 $d=1$、$U=\mathbb R^2$、
 
 $$
 H_{a,b}(q,p)=\frac12(aq^2+bp^2),
