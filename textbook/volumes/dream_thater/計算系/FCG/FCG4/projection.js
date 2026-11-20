@@ -128,7 +128,7 @@ report('DISPLAY','left pressure (0.5+0.35p), middle abs(div)/20, right cell spee
 // at settings.steps, checked before requestAnimationFrame ever runs.
 if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
   const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches??false;
-  let playing=!reduced,iter=iterations,last=0,raf=0;
+  let playing=!reduced,iter=iterations,last=0,raf=0,firstCycle=true;
   canvas.tabIndex=0;
   canvas.title='FCG4 実Jacobi反復の収束。Space再生/停止、右矢印1回、Rで反復0。物理時刻ではありません。';
   canvas.setAttribute('aria-label','FCG4 Poisson反復で圧力・発散・速度を観察する。Space一時停止、右矢印一反復、Rリセット');
@@ -186,6 +186,9 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
   });
   function frame(now){
     if(playing&&!document.hidden){
+      // The initial GPU oracle is already complete; start the presentation at
+      // Poisson iteration zero so the R8 image shows meaningful convergence.
+      if(firstCycle){firstCycle=false;restart();refreshProjectedState();}
       if(!last)last=now;
       const delta=now-last;
       if(delta>=160){
