@@ -199,10 +199,16 @@ $$
 $$
 \operatorname{Tr}_{K/\mathbb Q}((ax+bx')y)
 =a\operatorname{Tr}_{K/\mathbb Q}(xy)
-+b\operatorname{Tr}_{K/\mathbb Q}(x'y)
++b\operatorname{Tr}_{K/\mathbb Q}(x'y),
 $$
 
-となり、第二引数についても同じ計算ができます。
+$$
+\operatorname{Tr}_{K/\mathbb Q}(x(ay+by'))
+=a\operatorname{Tr}_{K/\mathbb Q}(xy)
++b\operatorname{Tr}_{K/\mathbb Q}(xy')
+$$
+
+が成り立ちます（$y'\in K$）。
 
 <a id="def-anf1-trace-pairing"></a>
 
@@ -418,7 +424,19 @@ $$
 ds^2=r^2-4N\in\mathbb Z.
 $$
 
-$s=u/v$（$u\in\mathbb Z,\ v\in\mathbb Z_{>0},\ \gcd(u,v)=1$）と既約に書けば、$ds^2\in\mathbb Z$ より $v^2\mid du^2$ です。$\gcd(u^2,v^2)=1$ なので、整数の[Bézout 等式](../../RNG/RNG3/index.md#def-rng3-gcd-bezout)により $hu^2+kv^2=1$ となる整数 $h,k$ が存在します。この両辺に $d$ を掛けると、$v^2$ は $hdu^2$ と $kdv^2$ の両方を割るため、$v^2\mid d$ が従います。$d$ は平方自由であり、$v>1$ ならその素因子の平方が $d$ を割って矛盾するため、$v=1$ です。すなわち $s\in\mathbb Z$ です。したがって
+$s=u/v$（$u\in\mathbb Z,\ v\in\mathbb Z_{>0},\ \gcd(u,v)=1$）と既約に書けば、$ds^2\in\mathbb Z$ より $v^2\mid du^2$ です。$\gcd(u^2,v^2)=1$ なので、整数の[Bézout 等式](../../RNG/RNG3/index.md#def-rng3-gcd-bezout)により、ある整数 $h,k$ について
+
+$$
+hu^2+kv^2=1
+$$
+
+と書けます。これに $d$ を掛けると
+
+$$
+d=h(du^2)+k(dv^2)
+$$
+
+です。右辺の両項は $v^2$ の倍数なので $v^2\mid d$ です。$d$ は平方自由であり、$v>1$ ならその素因子の平方が $d$ を割って矛盾するため、$v=1$ です。すなわち $s\in\mathbb Z$ です。したがって
 
 $$
 \alpha=\frac{r+s\sqrt d}{2},
