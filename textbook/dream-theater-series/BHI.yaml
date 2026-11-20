@@ -51,7 +51,7 @@ chapters:
     title: "AMPSのエンタングルメント矛盾"
   - id: BHI11
     path: textbook/volumes/dream_thater/物理系/BHI/BHI11
-    status: planned
+    status: completed
     title: "相補性・no-cloning・観測者"
   - id: BHI12
     path: textbook/volumes/dream_thater/物理系/BHI/BHI12
