@@ -39,7 +39,24 @@ test('G3 legends derive their initial step and GPU buffer dimensions from the ru
   assert.equal(sceneDescription('WGL19',{width:320,height:240,steps:6}),null);
   assert.equal(sceneDescription('WGL19',{width:320,height:240,steps:6,
     frameAudit:{...audit,steps:5}}),null);
-  assert.equal(sceneDescription('WGL1',{width:320,height:240,steps:0}),null);
+  const triangle=sceneDescription('WGL1',{width:640,height:360});
+  assert.match(triangle.grid,/数値計算格子なし/);
+  assert.match(triangle.color,/橙色/);
+  assert.match(triangle.source,/triangle.frag/);
+  assert.equal(triangle.clock,'静止描画1回（物理stepなし）');
+  assert.equal(triangle.pixels,'640×360 px（GPU描画バッファ）');
+  const colors=sceneDescription('WGL2',{width:512,height:384});
+  assert.match(colors.color,/u_gain/);
+  assert.match(colors.source,/colors.vert/);
+  assert.match(colors.mode,/画素中心/);
+  const mesh=sceneDescription('WGL3',{width:960,height:720});
+  assert.match(mesh.grid,/頂点\(n\+1\)²、三角形2n²/);
+  assert.match(mesh.mode,/drawElements.*drawArrays/);
+  assert.match(mesh.source,/gridSteps, drawMode/);
+  assert.equal(mesh.clock,triangle.clock);
+  assert.equal(sceneDescription('WGL2',{width:0,height:384}),null);
+  assert.equal(sceneDescription('WGL3',{width:384,height:-1}),null);
+  assert.equal(sceneDescription('WGL4',{width:320,height:240,steps:0}),null);
   assert.equal(sceneDescription('FCG3',{width:NaN,height:320,steps:1}),null);
   assert.equal(sceneDescription('FCG3',{width:320,height:320,steps:-1}),null);
 });
