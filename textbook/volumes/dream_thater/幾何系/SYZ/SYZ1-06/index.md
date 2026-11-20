@@ -87,7 +87,7 @@ $$
 d\zeta=\sin(2\pi x)\,dx\wedge dy=\eta
 $$
 
-なので $\eta$ は完全な2形式である。一方、$dx\wedge dy$ が完全なら[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から積分は0のはずだが、$\int_{T^2}dx\wedge dy=1$。従ってこちらは完全ではない。最高次形式の「積分が0」という条件には意味がある。
+なので $\eta$ は完全な2形式である。一方、$dx\wedge dy$ が完全なら[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から積分は0のはずだが、$\int_{T^2}dx\wedge dy=1$。従ってこちらは完全ではない。最高次形式の「積分が0」という条件には意味がある。
 <!-- definition-example-end -->
 
 <a id="lem-syz1-06-exact-image"></a>
@@ -106,7 +106,7 @@ $$
 
 ### 証明の見取り図
 
-$F_{t\alpha}$ は包含写像から $F_\alpha$ へのホモトピーである。閉形式の引き戻しの時間微分は、[前講で使ったCartan公式](../SYZ1-05/index.md#thm-syz1-05-linearization)により完全形式になる。その時間積分も完全である。
+$F_{t\alpha}$ は包含写像から $F_\alpha$ へのホモトピーである。閉形式の引き戻しの時間微分は、[Cartanの公式](../../GEO/GEO7/index.md#thm-geo7-cartan-formula)により完全形式になる。その時間積分も完全である。
 
 <!-- proof-start -->
 ### 証明
@@ -225,7 +225,7 @@ $$
 
 従って $\alpha_2=-\delta G_2\eta$ は $-d\alpha_2=\eta$、また $\delta\alpha_2=-\delta^2G_2\eta=0$ を満たす。
 
-**最高次形式側。** $\xi=d\gamma$ なので[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から $\int_L\xi=0$、すなわち $\int_Lf\,\operatorname{vol}_L=0$。逆に向き付きの連結閉多様体では積分0の最高次形式は完全である。これは[Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)と最高次の調和形式が定数倍の体積形式であることから従う。連結性を使うため、積分0は各連結成分で必要とする。
+**最高次形式側。** $\xi=d\gamma$ なので[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から $\int_L\xi=0$、すなわち $\int_Lf\,\operatorname{vol}_L=0$。逆に向き付きの連結閉多様体では積分0の最高次形式は完全である。これは[Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)と最高次の調和形式が定数倍の体積形式であることから従う。連結性を使うため、積分0は各連結成分で必要とする。
 
 平均値0の $f$ は定数調和関数に直交するので、[Hodge Green作用素](../../GA/GA6/index.md#def-ga6-green-operator)で $u=-G_0f$ と置くと
 
@@ -249,7 +249,7 @@ $\alpha_2$ は余完全、$\alpha_n$ は完全なので $\alpha\in\mathcal K$ �
 
 ## 5. Banach空間の陰関数定理を使う
 
-上では滑らかな形式で議論した。しかし、微分を含む写像へ陰関数定理を適用するには、完備なノルム空間が必要である。そこで $k\ge2$ と $0<\gamma<1$ を固定する。
+上では滑らかな形式で議論した。しかし、微分を含む写像へ[有限次元陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)のBanach空間版を適用するには、完備なノルム空間が必要である。そこで $k\ge2$ と $0<\gamma<1$ を固定する。
 
 局所座標で $k$ 階まで導関数が連続であり、任意の最高階導関数 $D^k a$ が、座標近傍の点 $x,y$ について次の有界な差分比を持つ形式の空間を $C^{k,\gamma}$ と書く。
 
@@ -323,7 +323,7 @@ $h\in\mathcal H^1(L)$、$x\in\mathcal K^{k+1,\gamma}$ と書く。$\mathcal F(h+
 
 **(3) 可逆性。** [右逆の公式](#lem-syz1-06-right-inverse)で $D|_{\mathcal K}$ の全単射を得ている。Hodge Green作用素のSchauder評価により逆は $\mathcal E^{k,\gamma}\to\mathcal K^{k+1,\gamma}$ として有界である。従ってBanach空間版陰関数定理の「補方向の線形化が有界可逆」という仮定を満たす。
 
-**(4) 真の変形を構成する。** 陰関数定理から、原点付近の $h$ ごとに唯一の小さな $x=\varphi(h)$ が存在し、
+**(4) 真の変形を構成する。** [陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)のBanach空間版（第5節の解析的入力）から、原点付近の $h$ ごとに唯一の小さな $x=\varphi(h)$ が存在し、
 
 $$
 \mathcal F(h+\varphi(h))=0,\qquad \varphi(0)=0
@@ -423,7 +423,7 @@ d(u\,dy)=u'(x)\,dx\wedge dy
 =\cos(2\pi x)\,dx\wedge dy=\xi.
 $$
 
-よって $\xi$ は完全である。$dx\wedge dy=d\beta$ と仮定すると、閉多様体の[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により $\int_{T^2}dx\wedge dy=\int_{T^2}d\beta=0$ となるはずだが、左辺は1。矛盾する。
+よって $\xi$ は完全である。$dx\wedge dy=d\beta$ と仮定すると、閉多様体の[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により $\int_{T^2}dx\wedge dy=\int_{T^2}d\beta=0$ となるはずだが、左辺は1。矛盾する。
 <!-- solution-end -->
 
 <a id="ex-syz1-06-a02"></a>
@@ -505,7 +505,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-閉じた $\Omega$ と $F_t$ のホモトピーに[Cartan公式](../SYZ1-05/index.md#thm-syz1-05-linearization)を使えば $\frac d{dt}\int_LF_t^*\Omega=\int_Ld(\cdots)=0$。従って $Z=\int_LF_t^*\Omega$ は一定。SLagの虚部零・実部正から $Z=e^{i\theta(t)}\operatorname{Vol}(F_t(L))$ である。正の体積により $Z\ne0$、絶対値を取ると $\operatorname{Vol}(F_t(L))=|Z|$。ゆえに $e^{i\theta(t)}=Z/|Z|$ は一定で、連続な $\theta(t)$ の分枝は局所的に一定となる。
+閉じた $\Omega$ と $F_t$ のホモトピーに[Cartanの公式](../../GEO/GEO7/index.md#thm-geo7-cartan-formula)を使えば $\frac d{dt}\int_LF_t^*\Omega=\int_Ld(\cdots)=0$。従って $Z=\int_LF_t^*\Omega$ は一定。SLagの虚部零・実部正から $Z=e^{i\theta(t)}\operatorname{Vol}(F_t(L))$ である。正の体積により $Z\ne0$、絶対値を取ると $\operatorname{Vol}(F_t(L))=|Z|$。ゆえに $e^{i\theta(t)}=Z/|Z|$ は一定で、連続な $\theta(t)$ の分枝は局所的に一定となる。
 <!-- solution-end -->
 
 ### Level B：右逆の計算と局所パラメータ
@@ -557,7 +557,7 @@ $L=T^2$ として $\xi=dx\wedge dy$ を指定する。周期1形式 $\alpha$ に
 <!-- solution-start -->
 ### 詳細解答
 
-もし $d*\alpha=dx\wedge dy$ なら、[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から
+もし $d*\alpha=dx\wedge dy$ なら、[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から
 
 $$
 0=\int_{T^2}d*\alpha=\int_{T^2}dx\wedge dy=1,
@@ -611,7 +611,7 @@ $Dv=0$ なので $D(\mathrm d\varphi_0(v))=0$。$\mathrm d\varphi_0(v)\in\mathca
 
 第2節のコンパクト境界なしSLag $L$ と $\mathcal F$ について以下を証明せよ。
 
-1. $F_t$ のホモトピー公式から $\mathcal F(\alpha)$ の二つの成分が完全であることを示せ。
+1. $F_t$ の[ホモトピー公式](../../GEO/GEO9/index.md#thm-geo9-homotopy-formula)から $\mathcal F(\alpha)$ の二つの成分が完全であることを示せ。
 2. 線形化を計算し、核が調和1形式であることを示せ。
 3. $D$ が完全形式値域へ全射であることを、$G_2$ とPoisson方程式を用いて構成的に示せ（$n=1$ では2形式を省く）。
 4. 楕円型Schauder評価とBanach空間陰関数定理を解析的入力として、局所moduliの接空間と次元を結論せよ。
@@ -641,7 +641,7 @@ $$
 
 $\delta^2=0$、$d^2=0$ により二つの項は相手の方程式を乱さない。$n=1$ なら $\alpha=du$ のみでよい。
 
-**4.** $C^{k+1,\gamma}\Omega^1=\mathcal H^1\oplus\mathcal K$ とし、値域を完全形式の $C^{k,\gamma}$ 空間に限定する。Schauder評価により $D|_{\mathcal K}$ は有界逆を持つ。陰関数定理から、すべての小さい調和 $h$ に対し一意に $x=\varphi(h)$ があり $\mathcal F(h+\varphi(h))=0$。さらに $D(\mathrm d\varphi_0(v))=0$ と $\mathcal K\cap\ker D=\{0\}$ から $\mathrm d\varphi_0=0$。従って接空間は $\mathcal H^1(L)$、[Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)から次元は $b_1(L)$ である。
+**4.** $C^{k+1,\gamma}\Omega^1=\mathcal H^1\oplus\mathcal K$ とし、値域を完全形式の $C^{k,\gamma}$ 空間に限定する。Schauder評価により $D|_{\mathcal K}$ は有界逆を持つ。[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)のBanach空間版から、すべての小さい調和 $h$ に対し一意に $x=\varphi(h)$ があり $\mathcal F(h+\varphi(h))=0$。さらに $D(\mathrm d\varphi_0(v))=0$ と $\mathcal K\cap\ker D=\{0\}$ から $\mathrm d\varphi_0=0$。従って接空間は $\mathcal H^1(L)$、[Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)から次元は $b_1(L)$ である。
 
 **5.** ここで作ったのは**固定した一つのコンパクトSLagの近傍**での変形空間である。$X$ 全体がこのSLagたちで互いに交わらず覆われること、変形族が大域的に貼り合わさって滑らかな射影 $\pi:X\to B$ を作ること、すべてのファイバーがトーラスになることは、いずれも陰関数定理の結論に含まれない。次講ではそれを別途仮定する。
 <!-- solution-end -->
