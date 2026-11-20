@@ -567,6 +567,26 @@ try{
   await writeFile('_wgl_browser_review/wgl11-initial.png',Buffer.from(shot11.data,'base64'));
   console.log('WGL11 depth-only FBO, shadow comparison and 4 GPU/CPU rays: PASS');
 
+  // Verify actual moving-shadow pixels inside the learner's sandbox, not a
+  // separate reference animation or text/status changes outside the canvas.
+  await evalJS('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"center"})');
+  await new Promise(ok=>setTimeout(ok,180));
+  const rect11=await evalJS('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height};})()');
+  assert.ok(rect11.width>150&&rect11.height>150,JSON.stringify(rect11));
+  // The upper ~25% of the 320x240 scene is empty sky. Crop the central
+  // canvas region containing the floor, box and actual shadow, not the sky.
+  const clip11={x:rect11.x,y:rect11.y+Math.floor(rect11.height*.30),
+    width:rect11.width,height:Math.min(280,Math.floor(rect11.height*.52)),scale:1};
+  const first11=await cdp('Page.captureScreenshot',{format:'png',clip:clip11,captureBeyondViewport:true});
+  await new Promise(ok=>setTimeout(ok,950));
+  const second11=await cdp('Page.captureScreenshot',{format:'png',clip:clip11,captureBeyondViewport:true});
+  assert.notEqual(first11.data,second11.data,
+    'WGL11 live depth pass must move genuine shadow pixels');
+  await writeFile('_wgl_browser_review/wgl11-live-shadow.png',
+    Buffer.from(second11.data,'base64'));
+  console.log('WGL11 animated shadow pixels re-render from original depth FBO: PASS');
+
+
   await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const depthBias = 0.002;', 'const depthBias = 0.30;');})()");
   await click('run');
   await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
@@ -591,6 +611,38 @@ try{
   await click('stop');
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   console.log('WGL11 shader error, reset and opaque sandbox disposal: PASS');
+
+  // FCG6: obstacle movement must animate the same learner-editable 16x16
+  // masked MAC solver, not a separate independently rendered smoke demo.
+  await cdp('Page.navigate',{url:url+'?lesson=FCG6'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("advanceObstacleStep")'));
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.match(/独立画素検算|基準画素と不一致|WebGL2実行エラー|タイムアウト/)',25000);
+  const diagnostic6=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent})');
+  assert.match(diagnostic6.status,/独立画素検算に合格/,
+    'FCG6 original MAC obstacle or GPU oracle failed: '+JSON.stringify(diagnostic6));
+  const fcg6=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox"),log:document.getElementById("diagnostics").textContent})');
+  assert.equal(fcg6.rows.length,9);
+  assert.ok(fcg6.rows.every(row=>row[4]==='OK'),JSON.stringify(fcg6.rows));
+  assert.equal(fcg6.sandbox,'allow-scripts');
+  assert.match(fcg6.log,/PROJECTION/);
+  assert.match(fcg6.log,/GEOMETRY/);
+  await evalJS('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"center"})');
+  await new Promise(ok=>setTimeout(ok,200));
+  const rect6=await evalJS('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height};})()');
+  const clip6={...rect6,height:Math.min(180,rect6.height),scale:1};
+  assert.ok(clip6.width>200&&clip6.height>100,JSON.stringify(clip6));
+  const first6=await cdp('Page.captureScreenshot',{format:'png',clip:clip6,captureBeyondViewport:true});
+  await new Promise(ok=>setTimeout(ok,1100));
+  const second6=await cdp('Page.captureScreenshot',{format:'png',clip:clip6,captureBeyondViewport:true});
+  assert.notEqual(first6.data,second6.data,
+    'FCG6 same editable MAC mask/dye GPU texture must evolve across physical steps');
+  await writeFile('_wgl_browser_review/fcg6-live-obstacle.png',
+    Buffer.from(second6.data,'base64'));
+  console.log('FCG6 9 CPU/GPU static R8 probes and original live moving obstacle: PASS');
+  await click('stop');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
 
   // WGL12: compiled GGX shader, real linear Fresnel diagnostic RGBA8 pixels,
   // material-change screenshot and GLSL syntax error handling in an opaque iframe.

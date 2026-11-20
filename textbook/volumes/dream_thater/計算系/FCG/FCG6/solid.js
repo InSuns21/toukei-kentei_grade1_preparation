@@ -62,7 +62,7 @@ for(let k=0;k<N*N;k++)if(geom.s[k])dye[k]=0;
 boundary(u,v,geom.s,geom.wallU);
 let before=0,after=0,residual=0,identity=0,meanRemoved=0;
 let forceX=0,forceY=0,cutCount=0,changedMask=0;
-for(let step=0;step<steps;step++){
+function advanceObstacleStep(step){
   const old=geom.s;
   geom=geometry((step+1)*dt);
   const s=geom.s;
@@ -153,6 +153,7 @@ for(let step=0;step<steps;step++){
   }
   dye=qNext;
 }
+for(let step=0;step<steps;step++)advanceObstacleStep(step);
 const solid=geom.s;
 const divField=new Float64Array(N*N),speedField=new Float64Array(N*N);
 let integral=0,maxSpeed=0,wallError=0;
@@ -220,3 +221,114 @@ report('REACTION','pressure-only Fx='+forceX.toExponential(4)+', Fy='+forceY.toE
 report('GEOMETRY','cut faces='+cutCount+', mask cell transitions='+changedMask+' (volume transfer not conservative)');
 report('DYE','area integral='+integral.toPrecision(8)+' m^2, max center speed='+maxSpeed.toPrecision(5)+' m/s');
 report('DISPLAY','3 panels dye | 70*abs(div) | speed/0.6; solid gray, normal arrows yellow; R8 only');
+
+
+// Initial independent CPU/R8 pixel probes have already been obtained by the
+// outer runner before the next animation frame. The *same editable* MAC step
+// and 16x16 solid mask now update the animated scene; no separate solver.
+if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
+  const mode=gl.getUniformLocation(prog,'u_viewMode');
+  const aspect=gl.getUniformLocation(prog,'u_aspect');
+  if(mode===null||aspect===null)throw Error('missing FCG6 view uniforms');
+  const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches??false;
+  let playing=!reduced,stepNumber=steps,last=0,raf=0,firstCycle=true;
+  // Only the visualized textures use bilinear filtering; the MAC solver
+  // always works with un-interpolated Float64 cell/face values.
+  for(const unit of [0,2]){
+    gl.activeTexture(gl.TEXTURE0+unit);
+    gl.bindTexture(gl.TEXTURE_2D,textures[unit]);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+  }
+  const initialDye=Float64Array.from({length:N*N},(_,k)=>{
+    const i=k%N,j=Math.floor(k/N),x=(i+.5)*h,y=(j+.5)*h;
+    const dyeAt=Math.exp(-((x-.26)**2+(y-.46)**2)/(.105**2));
+    return geometry(0).s[k]?0:dyeAt;
+  });
+  const note=document.createElement('output');
+  note.style.cssText='display:block;margin:5px 0;color:#c8eaff;font:13px system-ui';
+  note.setAttribute('aria-live','off');
+  canvas.insertAdjacentElement('afterend',note);
+  canvas.tabIndex=0;
+  canvas.title='FCG6 16×16障害物流れ。Space/Enter再生停止、→1物理step、R初期化';
+  canvas.setAttribute('aria-label','FCG6 動く階段境界マスクと染料。Spaceで再生停止、矢印右で一歩進める');
+  function resetState(){
+    u=new Float64Array((N+1)*N);
+    v=new Float64Array(N*(N+1));
+    dye=initialDye.slice();geom=geometry(0);
+    p=new Float64Array(N*N);
+    before=after=residual=identity=meanRemoved=0;
+    forceX=forceY=cutCount=changedMask=0;
+    boundary(u,v,geom.s,geom.wallU);
+    stepNumber=0;
+  }
+  function uploadState(){
+    const solidMask=geom.s;
+    const displayDye=new Float64Array(N*N),div=new Float64Array(N*N),
+      speed=new Float64Array(N*N);
+    let peak=0,wallFlux=0;
+    for(let j=0;j<N;j++)for(let i=0;i<N;i++){
+      const k=ci(i,j);
+      if(solidMask[k])continue;
+      displayDye[k]=dye[k];
+      const vx=.5*(u[ui(i,j)]+u[ui(i+1,j)]),
+            vy=.5*(v[vi(i,j)]+v[vi(i,j+1)]);
+      div[k]=divergence(u,v,i,j);
+      speed[k]=Math.hypot(vx,vy);
+      peak=Math.max(peak,Math.abs(div[k]));
+    }
+    for(let j=0;j<N;j++)for(let i=0;i<=N;i++)
+      if(blockedU(solidMask,i,j))
+        wallFlux=Math.max(wallFlux,Math.abs(u[ui(i,j)]-geom.wallU));
+    for(let j=0;j<=N;j++)for(let i=0;i<N;i++)
+      if(blockedV(solidMask,i,j))
+        wallFlux=Math.max(wallFlux,Math.abs(v[vi(i,j)]));
+    for(const [unit,arr,convert] of [
+      [0,displayDye,x=>x],[1,div,x=>70*Math.abs(x)],
+      [2,speed,x=>x/.6],[3,solidMask,x=>x]]){
+      gl.activeTexture(gl.TEXTURE0+unit);
+      gl.bindTexture(gl.TEXTURE_2D,textures[unit]);
+      gl.texSubImage2D(gl.TEXTURE_2D,0,0,0,N,N,gl.RED,gl.UNSIGNED_BYTE,
+        Uint8Array.from(arr,x=>enc(convert(x))));
+    }
+    gl.useProgram(prog);gl.bindVertexArray(vao);
+    gl.uniform1i(mode,1);
+    gl.uniform1f(aspect,canvas.width/canvas.height);
+    gl.viewport(0,0,canvas.width,canvas.height);
+    gl.drawArrays(gl.TRIANGLES,0,3);
+    note.textContent='実16×16 MAC：t='+(stepNumber*dt).toFixed(2)+' s'+
+      '、固体中心x='+geom.cx.toFixed(3)+' m、壁速度x='+geom.wallU.toFixed(3)+' m/s'+
+      '、最大|発散|='+peak.toExponential(2)+' s⁻¹'+
+      '、壁法線誤差='+wallFlux.toExponential(1)+' m/s'+
+      ' ／ Space停止/再生・→1step・R初期化';
+  }
+  function advance(){
+    if(stepNumber>=24)resetState();
+    else{advanceObstacleStep(stepNumber);stepNumber++;}
+  }
+  canvas.addEventListener('keydown',e=>{
+    if(e.key===' '||e.key==='Enter'){
+      e.preventDefault();playing=!playing;last=0;
+    }else if(e.key==='ArrowRight'){
+      e.preventDefault();playing=false;last=0;
+      if(firstCycle){firstCycle=false;resetState();}
+      advance();uploadState();
+    }else if(e.key==='r'||e.key==='R'){
+      e.preventDefault();playing=false;last=0;firstCycle=false;
+      resetState();uploadState();
+    }
+  });
+  function frame(now){
+    if(playing&&!document.hidden){
+      if(firstCycle){firstCycle=false;resetState();uploadState();}
+      if(!last)last=now;
+      if(now-last>=140){
+        last=now;advance();uploadState();
+      }
+    }else last=0;
+    raf=requestAnimationFrame(frame);
+  }
+  note.textContent='初期'+steps+'stepの画素検算後、同じ編集ソルバーをt=0から再生します。Space停止/再生、→1step、R初期化';
+  raf=requestAnimationFrame(frame);
+  window.addEventListener('pagehide',()=>cancelAnimationFrame(raf),{once:true});
+}

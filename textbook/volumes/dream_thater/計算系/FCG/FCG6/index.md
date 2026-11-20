@@ -367,7 +367,7 @@ $W>0$ のとき $\lambda_k=w_k\chi_k/W$ と置けば $\lambda_k\ge0$、$\sum_k\l
 
 <iframe src="simulation/wgl-lab.html?lesson=FCG6" title="FCG6 固体境界のJavaScript・GLSL編集と独立CPU・GPU画素診断" loading="lazy" style="width:100%;height:1050px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
 
-この**3タブラボ**は「実験条件・課題 → JavaScriptと頂点/断片GLSLの編集 → 描画結果と数値検査」を同じ画面で行う。数値更新は編集可能な [solid.js](solid.js)、描画頂点は [solid.vert](solid.vert)、フラグメントは [solid.frag](solid.frag) にある。実行するたびに独立したsandbox iframeを生成し、物理状態をstep0から再計算する。再生ボタンは表示上の待機で、$\Delta t=0.05$ [s] とは別である。
+この**3タブラボ**は「実験条件・課題 → JavaScriptと頂点/断片GLSLの編集 → 描画結果と数値検査」を同じ画面で行う。数値更新は編集可能な [solid.js](solid.js)、描画頂点は [solid.vert](solid.vert)、フラグメントは [solid.frag](solid.frag) にある。実行するたびに独立したsandbox iframeを生成し、物理状態をstep0から再計算する。**最初に指定ステップ数の独立CPU/GPU画素を照合し、次に同じ編集コードの `advanceObstacleStep(step)` で時刻0から連続計算・描画**する。表示フレームは約0.14秒に1物理ステップを進める仕組みであり、$\Delta t=0.05$ [s] そのものではない。画面の正方形領域に16×16格子の染料・速度の色、固体セルの暗色、階段境界近くの黄色の法線矢印を表示する。キャンバスにフォーカスし **Space/Enterで再生・停止、右矢印で1物理step、Rで時刻0へ復帰** する。再生中は最大24stepまで進めて初期値へ戻る。滑らかな色の補間は表示用であり、物理格子の分解能が増えたわけではない。初期9画素のGPU検算表は実行開始時に指定したstep数だけの値で、動的フレームの全画素を検算したものではない。
 
 初期条件は $N=16$、$\rho=1$、最大24ステップ、円半径0.19 [m]。固体中心は $c_x(t)=0.5+0.10\sin(1.8t)$ [m]、$c_y(t)=0.5$ [m] とする。ここで $t$ は秒単位の時刻、0.10は振幅 [m]、1.8は角周波数 [s⁻¹] である。固体は形を変えず水平移動するので、境界の速度は中心位置の**時刻 $t$ に関する通常の導関数**で決まり、
 $$

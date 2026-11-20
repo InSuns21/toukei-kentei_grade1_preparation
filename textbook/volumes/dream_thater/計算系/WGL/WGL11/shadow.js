@@ -36,7 +36,8 @@ function uniform(name) {
 }
 const mvpLoc=uniform('u_mvp'),lightLoc=uniform('u_lightMatrix'),
       passLoc=uniform('u_pass'),biasLoc=uniform('u_bias'),
-      samplerLoc=uniform('u_shadow'),useShadowLoc=uniform('u_useShadow');
+      samplerLoc=uniform('u_shadow'),useShadowLoc=uniform('u_useShadow'),
+      lightDirectionLoc=uniform('u_lightDirection');
 // Column-major orthographic SHEAR projection. A ray P+t(.5,.25,1)
 // retains (x-.5z,y-.25z). Its depth is .75-z/4 (nearer = smaller).
 const light = new Float32Array([
@@ -62,6 +63,7 @@ gl.uniformMatrix4fv(lightLoc,false,light);
 gl.uniform1i(samplerLoc,0);
 gl.uniform1f(biasLoc,depthBias);
 gl.uniform1i(useShadowLoc,useShadow?1:0);
+gl.uniform3f(lightDirectionLoc,0.5,0.25,1.0);
 gl.disable(gl.CULL_FACE);
 gl.disable(gl.DITHER);
 gl.disable(gl.BLEND);
@@ -179,7 +181,87 @@ report('COMPARE',matches?'PASS: all four CPU/GPU RGBA results match':
   'MISMATCH: GPU results differ from independent CPU geometry reference');
 report('BIAS','depthBias='+depthBias+'; visibility=receiverDepth-bias <= nearestDepth');
 report('STATE','depth pass and shaded pass use distinct framebuffer targets');
-gl.bindTexture(gl.TEXTURE_2D,null);
-gl.deleteBuffer(probeVbo);gl.deleteVertexArray(probeVao);
-gl.deleteFramebuffer(fbo);gl.deleteTexture(depthTexture);
-gl.deleteBuffer(vbo);gl.deleteVertexArray(vao);gl.deleteProgram(program);
+// The immutable four-ray CPU/GPU test above checks ONLY the initial
+// direction (0.5,0.25,1) and original bias, not moving-shadow frames.
+// Redraw the SAME depth-only FBO in each frame. Never move the light uniform
+// without re-rendering its depth texture in exactly the same projection.
+if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
+  const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches??false;
+  let playing=!reduced,phase=0,manual=0,last=0,raf=0;
+  canvas.tabIndex=0;
+  canvas.title='WGL11 同じshadow mapから動く影。Space停止/再生、←→ライト調整、R初期角。';
+  canvas.setAttribute('aria-label','WGL11 動く光源と影。Spaceで停止または再生、左右矢印で光を調整');
+  const note=document.createElement('output');
+  note.setAttribute('aria-live','off');
+  note.style.cssText='display:block;margin:5px 0;color:#c8eaff;font:13px system-ui';
+  canvas.insertAdjacentElement('afterend',note);
+  function drawLightShadow(){
+    const dx=.5+.36*Math.sin(phase)+manual;
+    const dy=.25+.24*Math.sin(.73*phase);
+    // The initial RGBA8 visibility probes used dx=.5,dy=.25.
+    // The matrix stores columns in WebGL's column-major convention:
+    // clip x=.5*(world.x-dx*world.z), clip y=.5*(world.y-dy*world.z).
+    light[8]=-.5*dx;light[9]=-.5*dy;
+    gl.useProgram(program);gl.bindVertexArray(vao);
+    gl.uniformMatrix4fv(lightLoc,false,light);
+    gl.uniform3f(lightDirectionLoc,dx,dy,1.0);
+    gl.enable(gl.DEPTH_TEST);
+    gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);
+    gl.drawBuffers([gl.NONE]);gl.readBuffer(gl.NONE);
+    gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,null);
+    gl.viewport(0,0,shadowResolution,shadowResolution);
+    gl.clear(gl.DEPTH_BUFFER_BIT);
+    gl.uniformMatrix4fv(mvpLoc,false,light);
+    gl.uniform1i(passLoc,0);
+    gl.drawArrays(gl.TRIANGLES,0,vertices.length/6);
+    // Never sample the depth attachment of the FBO while it is attached.
+    gl.bindFramebuffer(gl.FRAMEBUFFER,null);
+    gl.drawBuffers([gl.BACK]);
+    gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,depthTexture);
+    gl.viewport(0,0,canvas.width,canvas.height);
+    gl.clearColor(.04,.055,.08,1);
+    gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+    gl.uniformMatrix4fv(mvpLoc,false,camera);
+    gl.uniform1i(passLoc,1);
+    gl.drawArrays(gl.TRIANGLES,0,vertices.length/6);
+    note.textContent='方向光→物体 (x,y,1)=('+dx.toFixed(2)+','+dy.toFixed(2)+',1)'+
+       ' ／深度専用FBO '+shadowResolution+'² を毎フレーム再描画'+
+       ' ／Space '+(playing?'停止':'再生')+'・←→光源移動・R初期化'+
+       ' ／4つのCPU/GPU光線検算は最初の固定光源のみ';
+  }
+  canvas.addEventListener('keydown',e=>{
+    if(e.key===' '||e.key==='Enter'){
+      e.preventDefault();playing=!playing;last=0;drawLightShadow();
+    }else if(e.key==='ArrowLeft'||e.key==='ArrowRight'){
+      e.preventDefault();playing=false;last=0;
+      manual=Math.max(-.35,Math.min(.35,manual+(e.key==='ArrowRight' ? .06 : -.06)));
+      drawLightShadow();
+    }else if(e.key==='r'||e.key==='R'){
+      e.preventDefault();playing=false;manual=0;phase=0;last=0;drawLightShadow();
+    }
+  });
+  function frame(now){
+    if(playing&&!document.hidden){
+      if(!last)last=now;
+      const delta=Math.min(.08,Math.max(0,(now-last)/1000));
+      if(delta>=1/30){last=now;phase+=delta*.95;drawLightShadow();}
+    }else last=0;
+    raf=requestAnimationFrame(frame);
+  }
+  note.textContent='光源移動に応じ同じ深度FBOを再生成して影を表示。Space/Enter再生、←→光、R初期化';
+  raf=requestAnimationFrame(frame);
+  window.addEventListener('pagehide',()=>{
+    cancelAnimationFrame(raf);
+    gl.bindFramebuffer(gl.FRAMEBUFFER,null);
+    gl.bindTexture(gl.TEXTURE_2D,null);
+    gl.deleteBuffer(probeVbo);gl.deleteVertexArray(probeVao);
+    gl.deleteFramebuffer(fbo);gl.deleteTexture(depthTexture);
+    gl.deleteBuffer(vbo);gl.deleteVertexArray(vao);gl.deleteProgram(program);
+  },{once:true});
+}else{
+  gl.bindTexture(gl.TEXTURE_2D,null);
+  gl.deleteBuffer(probeVbo);gl.deleteVertexArray(probeVao);
+  gl.deleteFramebuffer(fbo);gl.deleteTexture(depthTexture);
+  gl.deleteBuffer(vbo);gl.deleteVertexArray(vao);gl.deleteProgram(program);
+}
+

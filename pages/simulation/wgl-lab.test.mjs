@@ -270,3 +270,4 @@ import './wgl-fcg-visual.test.mjs';
 import './wgl-fcg-ux-wave1.test.mjs';
 import './wgl-fcg-ux-wave2.test.mjs';
 import './wgl-fcg-ux-wave3.test.mjs';
+import './wgl-fcg-ux-wave4.test.mjs';
