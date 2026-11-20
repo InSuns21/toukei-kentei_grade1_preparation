@@ -301,7 +301,17 @@ $$
 +|1\rangle_M|1\rangle_C|\Psi_+\rangle_{DE}}{\sqrt2}.
 $$
 
-$DE$ 側の二つのBell状態は直交するので、$C$ を捨てた $\rho_{MDE}$ から受信者は $M$ の計算基底ラベルと相関するBell測定結果を得られます。しかし $\rho_{MC}=\tfrac12(|00\rangle\langle00|+|11\rangle\langle11|)$ であり、$\rho_M\otimes\rho_C=I_{MC}/4$ と異なります。$C$ に計算基底のラベルが残り、$DE$ のみから重ね合わせの位相を復元できないため、未知の量子状態の完全回収はできません。この違いは[QINF29の参照環境の成分条件](../../../応用系/QINF/QINF29/index.md#lem-qinf29-blocks)に対応します。
+$DE$ 側の二つのBell状態は直交します。残存系 $C$ を捨てた状態では、受信者がBell測定によって参照系 $M$ の計算基底ラベルと相関した結果を得られます。
+
+しかし残存系 $C$ と参照系 $M$ の縮約は
+
+$$
+\rho_{MC}=\frac12\bigl(|00\rangle\langle00|+|11\rangle\langle11|\bigr),
+\qquad
+\rho_M\otimes\rho_C=\frac{I_{MC}}4
+$$
+
+であり、両者は一致しません。$C$ に計算基底のラベルが残り、受信側 $DE$ のみから重ね合わせの位相を復元できないため、未知の量子状態の完全回収はできません。これは[QINF29の参照環境の成分条件](../../../応用系/QINF/QINF29/index.md#lem-qinf29-blocks)と整合します。
 
 ## 7. 少なくとも日記と同じ次元の追加放射が必要
 
