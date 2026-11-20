@@ -14,7 +14,7 @@ concepts:
     requires: [algebraic-geometry.noetherian-ring, algebraic-geometry.integral-element, algebra.prime-ideal, algebra.maximal-ideal]
 
   - id: number-theory.number-ring-dedekind
-    name: 数体の整数環はDedekind整域
+    name: 数体の整数環は Dedekind整域
     kind: theorem
     introduction: formal
     requires: [number-theory.dedekind-domain, number-theory.integral-basis, algebraic-geometry.integral-tower]
