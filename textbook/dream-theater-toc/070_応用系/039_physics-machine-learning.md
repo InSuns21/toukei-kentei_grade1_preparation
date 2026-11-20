@@ -13,3 +13,4 @@
 10. [PML1-10 不変分布と詳細釣合いは同じか](textbook/volumes/dream_thater/応用系/PML/PML1-10/index.md)
 11. [PML1-11 Langevinの数値離散化はどこで偏るか](textbook/volumes/dream_thater/応用系/PML/PML1-11/index.md)
 12. [PML1-12 SGDの揺らぎは熱雑音と等しいか](textbook/volumes/dream_thater/応用系/PML/PML1-12/index.md)
+13. [PML1-13 SGDを局所OU過程で近似できるのはいつか](textbook/volumes/dream_thater/応用系/PML/PML1-13/index.md)

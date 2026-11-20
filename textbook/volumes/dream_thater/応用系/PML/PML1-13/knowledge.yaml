@@ -1,0 +1,43 @@
+chapter: PML1-13
+scope: dream-theater
+coverage: complete
+prerequisites: [PML1-12]
+concepts:
+  - id: physics-machine-learning.local-linear-sgd
+    name: SGDの局所線形モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（SGDの局所線形モデル）"]
+    requires:
+      - physics-machine-learning.minibatch-replacement-moments
+      - physics-machine-learning.gradient-scatter-matrix
+  - id: physics-machine-learning.local-ou-surrogate
+    name: 局所OU代理過程
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所OU代理過程）"]
+    requires:
+      - physics-machine-learning.local-linear-sgd
+  - id: physics-machine-learning.ou-stationary-lyapunov
+    name: 正定値ドリフトを持つOUの定常Gaussian分布
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正定値ドリフトを持つOUの定常Gaussian分布）"]
+    requires:
+      - physics-machine-learning.local-ou-surrogate
+  - id: physics-machine-learning.discrete-sgd-lyapunov
+    name: 線形SGDの定常共分散と有限学習率補正
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（線形SGDの定常共分散と有限学習率補正）"]
+    requires:
+      - physics-machine-learning.local-linear-sgd
+      - physics-machine-learning.ou-stationary-lyapunov
+  - id: physics-machine-learning.local-sgd-remainders
+    name: 勾配線形化と雑音共分散の局所誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（勾配線形化と雑音共分散の局所誤差）"]
+    requires:
+      - physics-machine-learning.local-linear-sgd
+      - physics-machine-learning.minibatch-replacement-moments

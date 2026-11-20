@@ -1,0 +1,40 @@
+id: "PML1-13"
+title: "SGDを局所OU過程で近似できるのはいつか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML1-12
+official_scope: []
+learning_objectives:
+  - 停留点近くの二次近似と固定雑音によるSGD局所線形モデルを導出し仮定を確かめられる
+  - OU代理の雑音係数をSGD一歩共分散に合わせられ連続と離散を区別できる
+  - 正定値Hessian下でOUの定常Gaussian共分散と連続Lyapunov方程式を証明できる
+  - 線形SGDの収縮条件と定常分布・離散Lyapunov方程式を証明できる
+  - 固有基底で共分散を求め有限学習率補正の次数を検算できる
+  - 局所剰余・非Gaussian性・平坦方向の反例から近似可能な範囲を判定できる
+definitions:
+  - { id: PML1-13-DEF-01, name: SGDの局所線形モデル }
+  - { id: PML1-13-DEF-02, name: 局所OU代理過程 }
+theorems:
+  - { id: PML1-13-THM-01, name: 正定値ドリフトを持つOUの定常Gaussian分布 }
+  - { id: PML1-13-THM-02, name: 線形SGDの定常共分散と有限学習率補正 }
+  - { id: PML1-13-PROP-01, name: 勾配線形化と雑音共分散の局所誤差 }
+canonical_examples:
+  - 二次損失と線形個別勾配偏差による厳密な線形SGD
+  - OUの二次元対角共分散と非対角雑音のLyapunov計算
+  - 有限学習率での離散定常分散の偏り
+  - 平坦方向と最適点で消える雑音の近似破綻例
+problem_patterns:
+  - PML1-13-A01
+  - PML1-13-A02
+  - PML1-13-A03
+  - PML1-13-A04
+  - PML1-13-A05
+  - PML1-13-B01
+  - PML1-13-B02
+  - PML1-13-B03
+  - PML1-13-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
