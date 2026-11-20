@@ -1,0 +1,57 @@
+chapter: PML1-19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML1-18
+  - AMECH5
+forward_references: []
+concepts:
+  - id: physics-machine-learning.regular-lnn
+    name: 正則な Lagrangian neural network
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則な Lagrangian neural network）"]
+    requires:
+      - analytical-mechanics.regular-lagrangian
+      - analytical-mechanics.lagrange-equations
+  - id: physics-machine-learning.lnn-acceleration
+    name: 正則 LNN の加速度と局所運動
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.regular-lnn
+      - analytical-mechanics.lagrange-equations
+  - id: physics-machine-learning.singular-acceleration
+    name: 特異速度 Hessian と加速度の不定性
+    kind: proposition
+    introduction: formal
+    requires:
+      - analytical-mechanics.regular-lagrangian
+  - id: physics-machine-learning.positive-mass-lnn
+    name: 正定値質量行列型 LNN
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正定値質量行列型 LNN）"]
+    requires:
+      - physics-machine-learning.regular-lnn
+      - analytical-mechanics.mechanical-lagrangian
+  - id: physics-machine-learning.lnn-losses
+    name: LNN の加速度損失と方程式残差損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（LNN の加速度損失と方程式残差損失）"]
+    requires:
+      - physics-machine-learning.regular-lnn
+  - id: physics-machine-learning.lnn-residual-error
+    name: 逆行列による加速度誤差の増幅
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.lnn-losses
+  - id: physics-machine-learning.lnn-energy-conservation
+    name: LNN の連続時間エネルギー収支
+    kind: proposition
+    introduction: formal
+    requires:
+      - analytical-mechanics.lagrange-equations
+      - analytical-mechanics.hamiltonian
