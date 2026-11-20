@@ -150,7 +150,26 @@ $L_\theta\in C^3(U)$ なので $\nabla_qL_\theta,C_\theta,W_\theta$ は少なく
 
 <!-- formal-statement-start -->
 > **命題（特異速度 Hessian と加速度の不定性）**  
-> $L\in C^2(U)$ を与え、状態 $(q,v)\in U$ において $W=\nabla^2_{vv}L(q,v)$ が特異とする。$g=\nabla_qL(q,v)-C(q,v)v$ と置く。この点で Euler--Lagrange 方程式が要求する加速度は $Wa=g$ の解である。$g\notin\operatorname{im}W$ なら解はなく、$g\in\operatorname{im}W$ なら、ある解 $a_0$ に対し全解は $a_0+\ker W$ で表され、一意ではない。
+> $L\in C^2(U)$ を与え、状態 $(q,v)\in U$ で速度 Hessian $W$ が特異とする。ここで
+
+$
+W=\nabla^2_{vv}L(q,v),\qquad
+g=\nabla_qL(q,v)-C(q,v)v
+$
+
+> と置く。この点で Euler--Lagrange 方程式が要求する加速度は、線形方程式
+
+$
+Wa=g
+$
+
+> の解である。$g$ が $W$ の像 $\operatorname{im}W$ に属さなければ加速度は存在しない。像に属する場合、一つの解を $a_0$ とすると加速度の全解集合は
+
+$
+a_0+\ker W=\{a_0+n:n\in\ker W\}
+$
+
+> であり、$W$ が特異なので一意ではない。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
