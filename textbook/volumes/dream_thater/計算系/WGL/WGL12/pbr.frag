@@ -6,6 +6,7 @@ uniform vec3 u_baseColor;
 uniform float u_roughness[3];
 uniform float u_metallic[3];
 uniform int u_probe;
+uniform vec3 u_lightDirection;
 out vec4 outColor;
 const float PI = 3.14159265358979323846;
 
@@ -75,7 +76,7 @@ void main() {
   // Orthographic view: the front hemisphere of three unit spheres.
   vec3 n = normalize(vec3(q, sqrt(max(0.0, 1.0 - dot(q, q)))));
   vec3 v = vec3(0.0, 0.0, 1.0);
-  vec3 l = normalize(vec3(0.40, 0.55, 1.0));
+  vec3 l = normalize(u_lightDirection);
   vec3 linear = materialBRDF(n, v, l, u_roughness[hit], u_metallic[hit]);
   outColor = vec4(linearToSRGB(clamp(linear, 0.0, 1.0)), 1.0);
 }
