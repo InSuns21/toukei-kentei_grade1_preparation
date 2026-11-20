@@ -175,7 +175,7 @@ $$
 **定義の確認に使う変形**：$\Sigma_a\succ0$ なのでその逆 $\Omega_a$ が存在し、任意の $v\ne0$ について $v^{\mathsf T}\Omega_a v>0$ です。よって残差が0なら指数部は0、非零なら負になります。単に行列式を計算したから正定値というのではなく、この二次形式で判定します。
 
 <!-- definition-example-start: def-u2-23-gaussian-factor -->
-**直接例**：距離と方位の二成分（単位 m と rad）を局所座標で使い、$\Sigma=\operatorname{diag}(4,1)$、$e=(2,-1)^{\mathsf T}$ とします。任意の非零 $(v_1,v_2)$ で $4v_1^2+v_2^2>0$ だから $\Sigma\succ0$ です。その逆行列は $\Omega=\operatorname{diag}(1/4,1)$ で、
+**定義の確認**：距離と方位の二成分（単位 m と rad）を局所座標で使い、$\Sigma=\operatorname{diag}(4,1)$、$e=(2,-1)^{\mathsf T}$ とします。任意の非零 $(v_1,v_2)$ で $4v_1^2+v_2^2>0$ だから $\Sigma\succ0$ です。その逆行列は $\Omega=\operatorname{diag}(1/4,1)$ で、
 
 $$
 e^{\mathsf T}\Omega e
