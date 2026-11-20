@@ -43,7 +43,7 @@ $$
 
 ## 2. なぜOU過程が候補になるか
 
-[PML1-11の二次Langevinモデル](../PML1-11/index.md#thm-pml1-11-ou-exact-step)と同じ発想で、連続時間において線形の復元力 $-HX_t$ と一定のGaussian雑音を持つ過程を考える。ここで $W_t$ は独立な成分から成る $d$ 次元標準ブラウン運動とする。
+[PML1-11の二次Langevinモデル](../PML1-11/index.md#thm-pml1-11-exact-ou-step)と同じ発想で、連続時間において線形の復元力 $-HX_t$ と一定のGaussian雑音を持つ過程を考える。ここで $W_t$ は独立な成分から成る $d$ 次元標準ブラウン運動とする。
 
 $C_\star$ は[散布行列の定義](../PML1-12/index.md#def-pml1-12-gradient-scatter)から対称半正定値なので、直交固有分解により $BB^{\mathsf T}=C_\star$ を満たす実行列 $B$ を選べる（例えば非負の平方根を対角成分にした $C_\star^{1/2}$）。この分解は $C_\star$ が特異でも作れる。
 
@@ -124,7 +124,7 @@ U_t=e^{-Ht}U_0+
 \sqrt{\frac{\eta}{b}}\int_0^t e^{-H(t-s)}B\,dW_s
 $$
 
-を得る。確率積分は平均0で、[ブラウン運動の増分とItô等長性](../../../解析系/STO/STO7/index.md#thm-sto7-ito-isometry)に基づいて共分散は
+を得る。確率積分は平均0で、[ブラウン運動の増分とItô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-ito-isometry-simple)に基づいて共分散は
 
 $$
 \frac{\eta}{b}\int_0^t e^{-H(t-s)}BB^{\mathsf T}e^{-H(t-s)}\,ds
