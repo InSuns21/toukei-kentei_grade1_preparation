@@ -128,6 +128,33 @@ try {
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
   console.log('FCG3 editable GLSL, shader compile error, reset and recovery: PASS');
 
+  // G4: the GUI edits the *same* JS that the shader runner executes. A saved
+  // edit must be restored as source only, without executing any persisted JS.
+  assert.equal(await evaluate('document.getElementById("parameter-radius")?.value'),'0.14');
+  assert.equal(await evaluate('document.getElementById("parameter-radius")?.disabled'),false);
+  await evaluate('(()=>{const e=document.getElementById("parameter-radius");e.value="0.24";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  assert.equal(await evaluate('document.getElementById("js-source").value.includes("radius=0.24;")'),true);
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',25000);
+  assert.equal(await evaluate('document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")'),'allow-scripts');
+  assert.match(await evaluate('document.getElementById("numeric-summary").textContent'),/編集版/);
+  await click('save');
+  assert.match(await evaluate('document.getElementById("save-status").textContent'),/保存しました/);
+  await cdp('Page.navigate',{url});
+  await waitFor('document.querySelector("#status")?.textContent==="実行できます"');
+  assert.equal(await evaluate('document.querySelector("#canvas-slot iframe")===null'),true);
+  assert.equal(await evaluate('document.getElementById("parameter-radius").value'),'0.24');
+  assert.equal(await evaluate('document.getElementById("js-source").value.includes("radius=0.24;")'),true);
+  await evaluate('(()=>{const e=document.getElementById("js-source");e.value=e.value.replace("radius=0.24;","radius=1/5;");e.dispatchEvent(new Event("input",{bubbles:true}));})()');
+  assert.equal(await evaluate('document.getElementById("parameter-radius").disabled'),true);
+  assert.equal(await evaluate('document.getElementById("js-source").value.includes("radius=1/5;")'),true);
+  await click('reset');
+  assert.equal(await evaluate('document.getElementById("parameter-radius").value'),'0.14');
+  assert.equal(await evaluate('document.getElementById("parameter-radius").disabled'),false);
+  await click('run');
+  await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
+  assert.equal(await evaluate('document.querySelectorAll("#results-table tbody tr").length'),6);
+  console.log('G4 FCG3 GUI→GPU→save→safe restore→nonliteral protection→reset→GPU oracle: PASS');
+
   await cdp('Emulation.setDeviceMetricsOverride',
     {width:360,height:760,deviceScaleFactor:2,mobile:true});
   await click('tab-code');
