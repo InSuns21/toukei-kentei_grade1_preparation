@@ -89,6 +89,41 @@ try{
   assert.equal(await evalJS('document.querySelectorAll("[role=tabpanel]").length'),3);
   assert.ok(await evalJS('document.getElementById("js-source").value.includes("gl.drawArrays")'));
   await click('tab-code');
+  // G4 keyboard regression: real CDP key events, not synthetic DOM events.
+  // Tab still indents editable JS/GLSL; Escape, then Tab, lets focus exit.
+  const pressKey=async(key,code,keyCode,modifiers=0)=>{
+    const params={key,code,windowsVirtualKeyCode:keyCode,
+      nativeVirtualKeyCode:keyCode,modifiers};
+    await cdp('Input.dispatchKeyEvent',{...params,type:'keyDown'});
+    await cdp('Input.dispatchKeyEvent',{...params,type:'keyUp'});
+  };
+  const originalJS=await evalJS('document.getElementById("js-source").value');
+  const originalVertex=await evalJS('document.getElementById("vertex-source").value');
+  assert.equal(await evalJS('document.getElementById("js-source").getAttribute("aria-describedby")'),
+    'editor-keyboard-help');
+  assert.match(await evalJS('document.getElementById("editor-keyboard-help").textContent'),
+    /Esc.*Tab/);
+  await evalJS('(()=>{const e=document.getElementById("js-source");e.focus();e.setSelectionRange(0,0);})()');
+  await pressKey('Tab','Tab',9);
+  assert.equal(await evalJS('document.activeElement.id'),'js-source');
+  assert.equal(await evalJS('document.getElementById("js-source").value'),
+    '  '+originalJS);
+  await pressKey('Escape','Escape',27);
+  await pressKey('Tab','Tab',9);
+  assert.equal(await evalJS('document.activeElement.id'),'vertex-source',
+    'Escape+Tab should leave the JS editor for the next source field');
+  await evalJS('document.getElementById("vertex-source").setSelectionRange(0,0)');
+  await pressKey('Tab','Tab',9);
+  assert.equal(await evalJS('document.activeElement.id'),'vertex-source');
+  assert.equal(await evalJS('document.getElementById("vertex-source").value'),
+    '  '+originalVertex);
+  await pressKey('Tab','Tab',9,8);
+  assert.equal(await evalJS('document.activeElement.id'),'js-source',
+    'Shift+Tab should navigate backwards without indentation');
+  await evalJS('(()=>{const j=document.getElementById("js-source");const v=document.getElementById("vertex-source");j.value=j.value.slice(2);v.value=v.value.slice(2);for(const e of [j,v])e.dispatchEvent(new Event("input",{bubbles:true}));})()');
+  assert.equal(await evalJS('document.getElementById("js-source").value'),originalJS);
+  assert.equal(await evalJS('document.getElementById("vertex-source").value'),originalVertex);
+  console.log('G4 real keyboard Tab indent / Escape+Tab exit / Shift+Tab navigation: PASS');
   // WGL and FCG share this host: editors must be wide, vertically ordered,
   // and the run/save group must stay above them on desktop and mobile.
   const getEditorLayout = () => evalJS(`(() => {
@@ -123,8 +158,13 @@ try{
   assert.ok(narrowLayout.rects[0].top < narrowLayout.rects[1].top &&
     narrowLayout.rects[1].top < narrowLayout.rects[2].top);
   assert.ok(narrowLayout.rects.every(r => Math.abs(r.left - narrowLayout.rects[0].left) < 2));
+  await cdp('Emulation.setDeviceMetricsOverride',{width:1280,height:900,deviceScaleFactor:1,mobile:false});
+  const wide1280=await getEditorLayout();
+  assert.ok(wide1280.rects.every(r=>r.width>=wide1280.panelWidth-25),JSON.stringify(wide1280));
+  assert.ok(await evalJS('document.documentElement.scrollWidth<=window.innerWidth+2'),
+    '1280px page must not overflow horizontally');
   await cdp('Emulation.setDeviceMetricsOverride',{width:1000,height:900,deviceScaleFactor:1,mobile:false});
-  console.log('WGL/FCG single-column editors and sticky actions at desktop/mobile widths: PASS');
+  console.log('WGL/FCG single-column editors and sticky actions at 420/1000/1280px widths: PASS');
   const syntax=await evalJS('({count:document.querySelectorAll(".wgl-code-editor").length,js:document.querySelector("#js-source").previousElementSibling.innerHTML,vertex:document.querySelector("#vertex-source").previousElementSibling.innerHTML,fragment:document.querySelector("#fragment-source").previousElementSibling.innerHTML,color:getComputedStyle(document.getElementById("js-source")).color})');
   assert.equal(syntax.count,3);
   assert.match(syntax.js,/wgl-token-keyword/);
