@@ -143,9 +143,9 @@ $L_\theta\in C^3(U)$ なので、$\nabla_qL_\theta,C_\theta,W_\theta$ は少な�
 
 従って、状態から時間微分を作るベクトル場
 
-$
+$$
 (q,v)\longmapsto \bigl(v,F_\theta(q,v)\bigr)
-$
+$$
 
 は $U$ 上で $C^1$ 級、特に局所 Lipschitz 連続である。[Picard--Lindelöf の局所存在一意性定理](../../../解析系/ODE/ODE1/index.md#thm-ode1-picard-lindelof)を[ベクトル値自律系に適用する議論](../../../解析系/ODE/ODE4/index.md#def-ode4-nonlinear-autonomous-system)によれば、有限次元の $C^1$ 級ベクトル場について、閉球上で導関数を抑え、Picard 反復を Euclid ノルムで評価できる。
 
@@ -164,22 +164,22 @@ $
 > **命題（特異速度 Hessian と加速度の不定性）**  
 > $L\in C^2(U)$ を与え、状態 $(q,v)\in U$ で速度 Hessian $W$ が特異とする。ここで
 
-$
+$$
 W=\nabla^2_{vv}L(q,v),\qquad
 g=\nabla_qL(q,v)-C(q,v)v
-$
+$$
 
 > と置く。この点で Euler--Lagrange 方程式が要求する加速度は、線形方程式
 
-$
+$$
 Wa=g
-$
+$$
 
 > の解である。$g$ が $W$ の像 $\operatorname{im}W$ に属さなければ加速度は存在しない。像に属する場合、一つの解を $a_0$ とすると加速度の全解集合は
 
-$
+$$
 a_0+\ker W=\{a_0+n:n\in\ker W\}
-$
+$$
 
 > であり、$W$ が特異なので一意ではない。
 <!-- formal-statement-end -->
@@ -235,9 +235,9 @@ $$
 
 対称正定値行列は零固有値を持たない。ゆえに、このモデルの速度 Hessian は
 
-$
+$$
 W_\theta(q,v)=M_\theta(q)
-$
+$$
 
 となり、すべての状態で可逆である。さらに $M_\theta,V_\theta$ が $C^3$ 級だから $L_\theta$ も $C^3$ 級であり、[正則 LNN](#def-pml1-19-lnn)と[局所運動定理](#thm-pml1-19-acceleration)の仮定を満たす。
 
@@ -371,9 +371,9 @@ $$
 
 [正則 LNN の加速度写像](#def-pml1-19-lnn)を定めた等式に、左から $W_\theta$ を掛けると
 
-$
+$$
 W_\theta F_\theta=\nabla_qL_\theta-C_\theta v
-$
+$$
 
 となる。従って
 
@@ -384,23 +384,23 @@ $$
 
 可逆性から $e=W_\theta^{-1}r$ である。ここで $d\times d$ 行列 $A$ の作用素ノルムを
 
-$
+$$
 \|A\|_2=\sup_{\|x\|_2=1}\|Ax\|_2
-$
+$$
 
 と置けば、任意の $x$ に対して $\|Ax\|_2\le\|A\|_2\|x\|_2$ が成り立つ。$x=r$、$A=W_\theta^{-1}$ と代入して
 
-$
+$$
 \|e\|_2=\|W_\theta^{-1}r\|_2
 \le\|W_\theta^{-1}\|_2\|r\|_2
-$
+$$
 
 を得る。さらに $W_\theta$ が対称正定値なら、直交固有基底に沿う各固有値 $\lambda_i$ は $\lambda_i\ge\mu>0$ を満たす。逆行列の固有値は $1/\lambda_i$ だから
 
-$
+$$
 \|W_\theta^{-1}\|_2=\max_i\frac1{\lambda_i}
 \le\frac1\mu
-$
+$$
 
 となり、命題の後半の上界も従う。
 <!-- proof-end -->
