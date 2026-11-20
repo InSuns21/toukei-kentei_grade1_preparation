@@ -1688,6 +1688,17 @@ const sizeHint=(isFCG4||isFCG5||isFCG6||isFCG7||isFCG8)?[900,300]:
   (lesson==='WGL1'||isWGL2||isWGL3)?[480,480]:[320,240];
 byId('width').value=String(sizeHint[0]);
 byId('height').value=String(sizeHint[1]);
+// An animated scene is only validated at its first static snapshot.
+// Keep that boundary visible next to the real GPU canvas, not just in theory.
+if (['FCG3','WGL5','WGL9'].includes(lesson)) {
+  const note=document.createElement('p');
+  note.className='visual-snapshot-note';
+  note.setAttribute('role','note');
+  note.textContent='最初の静止フレームをCPU/GPUで照合した後、同じ編集コードが連続描画します。' +
+    '以下の数値表は初期時刻の基準値です。動いている画面全フレームの検算結果ではありません。' +
+    'GPU画面をクリックまたはSpace/Enterで停止・再生できます。';
+  byId('canvas-slot').before(note);
+}
 mountVisualGuide(lesson,byId('panel-conditions'),{run,focusResult:selectTab});
 load();
 // 画素の期待値は、GPUに触れる前に CPU 側で示せる.
