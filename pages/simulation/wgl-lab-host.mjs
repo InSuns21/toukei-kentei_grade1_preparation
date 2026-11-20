@@ -91,7 +91,12 @@ const FILES = isWGL20 ? {js:'terrain.js',vertex:'terrain.vert',fragment:'terrain
 const oracle = isWGL20 ? expectedWGL20Samples : isFCG8 ? expectedFCG8Samples : isFCG7 ? expectedFCG7Samples : isFCG6 ? expectedFCG6Samples : isFCG5 ? expectedFCG5Samples : isFCG4 ? expectedFCG4Samples : isFCG3 ? expectedFCG3Samples : isFCG2 ? expectedFCG2Samples : isWGL19 ? expectedWGL19Samples : isWGL18 ? expectedWGL18Samples : isWGL17 ? expectedWGL17Samples : isWGL16 ? expectedWGL16Samples : isWGL15 ? expectedWGL15Samples : isWGL14 ? expectedWGL14Samples : isWGL13 ? expectedWGL13Samples : isWGL12 ? expectedWGL12Samples : isWGL11 ? expectedWGL11Samples : isWGL10 ? expectedWGL10Samples : isWGL9 ? expectedWGL9Samples : isWGL8 ? expectedWGL8Samples : isWGL7 ? expectedWGL7Samples : isWGL6 ? expectedWGL6Samples : isWGL5 ? expectedWGL5Samples : isWGL4 ? expectedWGL4Samples :
   isWGL3 ? expectedWGL3Samples : isWGL2 ? expectedWGL2Samples : expectedSamples;
 const SOURCE_LIMIT = 30000;
-const MAX_PIXELS = 2097152;
+// Some lessons have deliberately bounded CPU pixel oracles: mirror those limits
+// in the host, rather than failing during initial oracle construction.
+const legacyViewport = isFCG2 || isFCG3 ||
+  (lesson.startsWith('WGL') && Number(lesson.slice(3)) >= 7);
+const MAX_PIXELS = legacyViewport ? 524288 : 2097152;
+const MAX_SIDE = legacyViewport ? 1024 : 2048;
 const TIMEOUT_MS = 6000;
 const byId = id => document.getElementById(id);
 const inputs = {
@@ -192,9 +197,10 @@ function sanitizeSize() {
   const width = Number(byId('width').value);
   const height = Number(byId('height').value);
   if (!Number.isInteger(width) || !Number.isInteger(height) ||
-      width < 64 || height < 64 || width > 2048 || height > 2048 ||
+      width < 64 || height < 64 || width > MAX_SIDE || height > MAX_SIDE ||
       width * height > MAX_PIXELS) {
-    throw new RangeError('幅・高さは64〜2048の整数、画素総数は2,097,152以下にしてください');
+    throw new RangeError('幅・高さは64〜'+MAX_SIDE+'の整数、画素総数は'+
+      MAX_PIXELS.toLocaleString('en-US')+'以下にしてください');
   }
   return {width, height};
 }
@@ -1742,8 +1748,16 @@ if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-condi
 // Three physical panels must have square pixel footprints: avoid stretching a
 // 1x1 metre domain into ~100x240 strips at the original 320x240 default.
 const sizeHint=(isFCG4||isFCG5||isFCG6||isFCG7||isFCG8)?[1536,512]:
-  isFCG3?[1280,640]:isFCG2?[960,960]:
-  (lesson==='WGL1'||isWGL2||isWGL3)?[960,960]:[960,720];
+  isFCG3?[1024,512]:isFCG2?[720,720]:
+  (lesson==='WGL1'||isWGL2||isWGL3)?[960,960]:
+  legacyViewport?[800,600]:[960,720];
+// Make the actual limits legible when a lesson's independent CPU oracle
+// intentionally supports fewer pixels than the shared WebGL2 host.
+byId('width').max=String(MAX_SIDE);byId('height').max=String(MAX_SIDE);
+const limits=byId('panel-conditions').querySelector('small');
+if(limits)limits.textContent='幅・高さはCSSサイズではなく描画バッファ。最大'+
+  MAX_PIXELS.toLocaleString('en-US')+'画素、各辺'+MAX_SIDE+
+  'pxまで（負荷が重い場合は縮小）。保存したソースは端末に保持します。';
 byId('width').value=String(sizeHint[0]);
 byId('height').value=String(sizeHint[1]);
 // An animated scene is only validated at its first static snapshot.
