@@ -10,6 +10,7 @@ test('FCG4 animated convergence uses EXACT initial numerical Jacobi update',asyn
   assert.match(js,/function jacobiIteration\(\)/);
   assert.match(js,/for\(let k=0;k<iterations;k\+\+\)jacobiIteration\(\)/);
   assert.match(js,/if\(iter>=160\)restart\(\)/);
+  assert.match(js,/if\(firstCycle\)\{firstCycle=false;restart\(\);refreshProjectedState\(\);\}/);
   assert.match(js,/jacobiIteration\(\);iter\+\+;/);
   assert.match(js,/u\.set\(uStar\);v\.set\(vStar\)/);
   assert.match(js,/Math\.abs\(div\+dt\/rho\*residual\)/);
