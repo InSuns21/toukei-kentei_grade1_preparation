@@ -60,7 +60,7 @@ chapters:
     title: "K3と超Kähler回転"
   - id: SYZ1-14
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-14
-    status: planned
+    status: completed
     title: "特異ファイバーとモノドロミー"
   - id: SYZ1-15
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-15
