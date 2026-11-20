@@ -90,7 +90,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf4-ideal-norm -->
-**定義の確認**：$A=\mathbb Z$ として $I=(12)$ なら、$\mathbb Z/(12)$ は $0,1,\ldots,11$ の12個の剰余類を持つので $N((12))=12$ です。一般の数体で $I=(m)$、$0\ne m\in\mathbb Z$ なら、整数基底に沿って $A/(m)\cong(\mathbb Z/m\mathbb Z)^n$（加法群）となるため $N((m))=|m|^n$ です。
+**定義の確認**：最も単純な例として $K=\mathbb Q$、$A=\mathbb Z$ を考えます（この例のみ次数1です）。$I=(12)$ なら、$\mathbb Z/(12)$ は $0,1,\ldots,11$ の12個の剰余類を持つので $N((12))=12$ です。一般の数体で $I=(m)$、$0\ne m\in\mathbb Z$ なら、整数基底に沿って $A/(m)\cong(\mathbb Z/m\mathbb Z)^n$（加法群）となるため $N((m))=|m|^n$ です。
 <!-- definition-example-end -->
 
 次の補題が「一つの素イデアルの冪を一つ増やすと、剰余体の大きさだけ商が増える」ことを保証します。
