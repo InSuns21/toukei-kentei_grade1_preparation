@@ -47,36 +47,15 @@ $$
 
 この写像は $\mathbb Q$ 上線形です。整数基底の像が実一次独立であることは、次節の判別式を用いた行列式計算で確かめます。その像がどんな配置になるかを見るには、まず「格子の間隔」を測る必要があります。
 
-<a id="def-anf5-lattice-covolume"></a>
+整数ベクトルの組 $(v_1,\ldots,v_n)$ が実一次独立であれば、その整数係数結合は[全階数格子](../../NDA/NDA3/index.md#def-nda3-lattice)です。基底を列にした行列 $B$ の行列式の絶対値が、基本平行体の体積である[格子の共体積](../../NDA/NDA3/index.md#def-nda3-lattice)を与えます。[共体積の基底不変性](../../NDA/NDA3/index.md#prop-nda3-covolume-independent)は既に証明済みです。
 
-<!-- formal-statement-start -->
-> **定義（全階数格子と共体積）**  
-> 実ベクトル空間 $\mathbb R^n$ で、実一次独立な $v_1,\ldots,v_n$ の整数係数結合全体
+**定義をここで使う例。** $v_1=(2,0)$、$v_2=(1,3)$ を取ると、行列式が $6\ne0$ なので実一次独立です。整数係数結合は
 
 $$
-\Lambda=\mathbb Z v_1+\cdots+\mathbb Z v_n
+\Lambda=\{(2a+b,3b):a,b\in\mathbb Z\}
 $$
 
-> を **全階数格子**という。半開基本平行体
-
-$$
-P=\left\{\sum_{i=1}^{n}t_iv_i:0\leq t_i<1\right\}
-$$
-
-> の体積、すなわち列が $v_i$ である実行列 $B$ に対する
-
-$$
-\operatorname{covol}(\Lambda)=|\det B|
-$$
-
-> を格子の **共体積**という。
-<!-- formal-statement-end -->
-
-整数係数基底を変える行列 $U\in\operatorname{GL}_n(\mathbb Z)$ は行列式が $\pm1$ なので、共体積は基底の選び方によらず定まります。基本平行体の平行移動 $P+\lambda$（$\lambda\in\Lambda$）は、境界を除いて空間を重複なく覆います。
-
-<!-- definition-example-start: def-anf5-lattice-covolume -->
-**定義の確認**： $v_1=(2,0)$、$v_2=(1,3)$ は実一次独立で、$\Lambda=\{(2a+b,3b):a,b\in\mathbb Z\}$ は全階数格子です。$P$ はこの二辺を張る平行四辺形で、$\operatorname{covol}(\Lambda)=|2\cdot3-0\cdot1|=6$。格子点の間隔は座標軸方向に一様でなくても、共体積は一定です。
-<!-- definition-example-end -->
+となり、半開基本平行体の面積は $6$ です。この格子の各平行移動領域は重複なく平面を覆い、座標軸に平行でなくても共体積が計算できます。
 
 ## 2. 判別式から共体積を計算する
 
@@ -163,92 +142,27 @@ $K=\mathbb Q(\sqrt{-5})$ と $s=\sqrt{-5}$ を取ります。[二次体の整数
 
 さらに $\mathfrak p=(2,1+s)$ では $A/\mathfrak p\cong\mathbb F_2$ ですから $N(\mathfrak p)=2$。基底 $(2,1+s)$ の像は $(2,0),(1,\sqrt5)$、行列式の絶対値は $2\sqrt5$。公式の右辺 $2^{-1}\sqrt{20}\cdot2=2\sqrt5$ と一致します。
 
-## 3. 大きい凸体には格子点がある
+## 3. 体積から非零格子点を保証する
 
-面積だけで格子点を見つけるには、集合の形が重要です。ここでいう **凸**とは、集合の任意の二点を結ぶ線分が集合内にあること、**原点対称**とは $x$ が集合内なら $-x$ も集合内にあることです。例えば閉円盤や原点中心の長方形は両方を満たしますが、原点から離れた小円盤は原点対称ではありません。
+格子の共体積を計算できても、特定の集合の中に格子点があるかは分かりません。ここで [NDA3のBlichfeldt補題](../../NDA/NDA3/index.md#lem-nda3-blichfeldt)と[Minkowskiの凸体定理](../../NDA/NDA3/index.md#thm-nda3-minkowski)を利用します。二つの定理の完全な証明と等号の場合の議論はリンク先にあります。数体の元の探索に使うため、どの仮定がどこで働くかを確認しましょう。
 
-まず、格子の基本平行体を使う「鳩の巣原理」を体積に拡張します。体積は通常の $\mathbb R^n$ の体積を使い、境界は体積ゼロとして数えます。
-
-<a id="lem-anf5-volume-pigeonhole"></a>
-
-<!-- formal-statement-start -->
-> **補題（体積による鳩の巣原理）**  
-> $\Lambda\subset\mathbb R^n$ を全階数格子とする。有界で体積を持つ可測集合 $S$ が
-
-$$
-\operatorname{vol}(S)>\operatorname{covol}(\Lambda)
-$$
-
-> を満たすなら、異なる二点 $x,y\in S$ で $x-y\in\Lambda$ となるものが存在する。
-<!-- formal-statement-end -->
-
-**証明の見取り図。** $S$ の点を基本平行体 $P$ へ格子ベクトルだけ平行移動して戻します。重なりが一度もなければ、$P$ の体積を超えることはできません。
-
-<!-- proof-start -->
-### 証明
-
-前節の半開基本平行体 $P$ は、$P+\lambda$ ($\lambda\in\Lambda$) により $\mathbb R^n$ を重複なく分割します。有界な $S$ と交わる平行移動は有限個です。各部分
-
-$$
-S_\lambda=(S\cap(P+\lambda))-\lambda\subseteq P
-$$
-
-は平行移動で体積が変わりません。従って
-
-$$
-\sum_{\lambda\in\Lambda}\operatorname{vol}(S_\lambda)
-=\operatorname{vol}(S)
->\operatorname{vol}(P).
-$$
-
-もし $S_\lambda$ がすべて互いに交わらなければ、左辺はそれらの和集合の体積で $P$ の体積以下となり、矛盾します。よって異なる $\lambda,\mu$ に対して、ある $u\in S_\lambda\cap S_\mu$ が存在します。$x=u+\lambda$ と $y=u+\mu$ は $S$ に属し、$x-y=\lambda-\mu\in\Lambda\setminus\{0\}$ です。
-<!-- proof-end -->
-
-<a id="thm-anf5-minkowski-convex-body"></a>
-
-<!-- formal-statement-start -->
-> **定理（Minkowskiの凸体定理）**  
-> $\Lambda\subset\mathbb R^n$ を全階数格子とし、$C\subset\mathbb R^n$ をコンパクト（閉かつ有界）、凸、原点対称で内部が空でない集合とする。もし
+$n$ 次元の全階数格子 $\Lambda$ と、閉・有界、内部非空、凸かつ原点対称な集合 $C$ を取ります。共体積と体積が
 
 $$
 \operatorname{vol}(C)\geq2^n\operatorname{covol}(\Lambda)
 $$
 
-> ならば、$C$ は零でない格子点、すなわち $(C\cap\Lambda)\setminus\{0\}$ の元を持つ。
-<!-- formal-statement-end -->
+を満たせば、[Minkowskiの凸体定理](../../NDA/NDA3/index.md#thm-nda3-minkowski)により $C$ 内の非零格子点が存在します。
 
-**証明の見取り図。** 体積を $2^{-n}$ 倍にする $C/2$ に先ほどの補題を使うと、二点の差が格子ベクトルになります。凸性と原点対称性によって、二点の差が元の $C$ に戻ります。等号の場合は集合をわずかに拡大してから極限を取ります。
-
-<!-- proof-start -->
-### 証明
-
-まず $\operatorname{vol}(C)>2^n\operatorname{covol}(\Lambda)$ とします。$S=\frac12 C=\{x/2:x\in C\}$ と置くと、$n$ 次元の拡大率によって
+**証明機構の確認。** 厳密不等号の場合、$S=C/2$ の体積は $\operatorname{vol}(S)=2^{-n}\operatorname{vol}(C)>\operatorname{covol}(\Lambda)$。そこで [Blichfeldt補題](../../NDA/NDA3/index.md#lem-nda3-blichfeldt)を $S$ に適用すると、異なる $x,y\in S$ が得られ、その差 $\lambda=x-y$ は非零格子点になります。$2x,2y\in C$ と原点対称性から $-2y\in C$、さらに凸性から
 
 $$
-\operatorname{vol}(S)=2^{-n}\operatorname{vol}(C)
->\operatorname{covol}(\Lambda).
+\lambda=x-y=\frac{(2x)+(-2y)}2\in C
 $$
 
-[体積による鳩の巣原理](#lem-anf5-volume-pigeonhole)で、異なる $x,y\in S$ と $x-y=\lambda\in\Lambda\setminus\{0\}$ が得られます。$2x,2y\in C$ です。原点対称性から $-2y\in C$、凸性からその二点の中点
+となります。等号の場合は $(1+1/m)C$ に厳密不等号の議論を使い、共通の有界領域に格子点が有限個しかないこと、$C$ が閉じていることから極限の格子点を得ます。この有限性も[NDA3の共体積の命題](../../NDA/NDA3/index.md#prop-nda3-covolume-independent)で確認できます。
 
-$$
-\frac{2x+(-2y)}2=x-y=\lambda\in C
-$$
-
-となります。
-
-等号の場合は各整数 $m\geq1$ に対し $C_m=(1+1/m)C$ を取ります。$C$ は内部が空でないので体積が正であり、
-
-$$
-\operatorname{vol}(C_m)
-=(1+1/m)^n\operatorname{vol}(C)
->2^n\operatorname{covol}(\Lambda).
-$$
-
-従って $0\ne\lambda_m\in C_m\cap\Lambda$ が存在します。すべての $C_m$ は $2C$ に含まれ、格子 $\Lambda$ とコンパクト集合 $2C$ の交わりは有限です（整数座標が有界だからです）。ある非零 $\lambda$ が無限回現れ、$C_m$ が $C$ に近づくことと $C$ が閉じていることから $\lambda\in C$ です。
-<!-- proof-end -->
-
-**仮定を外すとどうなるか。** $\Lambda=\mathbb Z^2$、$C=[1/10,9/10]\times[-10,10]$ とします。$C$ は閉、有界、凸で内部を持ち、面積は $16>2^2\operatorname{covol}(\Lambda)=4$ です。それでも第一座標が整数となる点はなく、格子点を一つも含みません。失ったのは**原点対称性**であり、上の証明で $2y\in C$ から $-2y\in C$ と言い換える箇所が使えなくなります。
+**対称性が必要な理由。** $\Lambda=\mathbb Z^2$、$C=[1/10,9/10]\times[-10,10]$ は閉・有界、凸、内部非空で面積 $16>4=2^2\operatorname{covol}(\Lambda)$ ですが、第一座標が整数になる点がなく格子点を含みません。原点対称性がないため $2y\in C$ から $-2y\in C$ と言えず、二点差を $C$ に戻す核心が壊れます。
 
 ## 4. ノルムを上から抑える凸体を作る
 
@@ -328,12 +242,12 @@ $$
 > を満たす。
 <!-- formal-statement-end -->
 
-**証明の見取り図。** [共体積の公式](#thm-anf5-ideal-covolume)と [凸体の体積](#lem-anf5-weighted-body-volume)を [凸体定理](#thm-anf5-minkowski-convex-body)へ代入して $t$ を決めます。続いて、$n$ 個の非負実数への相加相乗平均を用います。
+**証明の見取り図。** [共体積の公式](#thm-anf5-ideal-covolume)と [凸体の体積](#lem-anf5-weighted-body-volume)を [凸体定理](../../NDA/NDA3/index.md#thm-nda3-minkowski)へ代入して $t$ を決めます。続いて、$n$ 個の非負実数への相加相乗平均を用います。
 
 <!-- proof-start -->
 ### 証明
 
-$C_t$ に [Minkowskiの凸体定理](#thm-anf5-minkowski-convex-body)を使うため、体積条件を比較します。[イデアル格子の共体積](#thm-anf5-ideal-covolume)から必要なのは
+$C_t$ に [Minkowskiの凸体定理](../../NDA/NDA3/index.md#thm-nda3-minkowski)を使うため、体積条件を比較します。[イデアル格子の共体積](#thm-anf5-ideal-covolume)から必要なのは
 
 $$
 \frac{2^{r_1-r_2}\pi^{r_2}}{n!}\,t^n
@@ -465,7 +379,7 @@ $\Lambda=2\mathbb Z\times3\mathbb Z$、$C=[-2,2]\times[-3,3]$ とする。凸体
 - ID: ANF5-A4
 
 <!-- solution-start -->
-**詳細解答**　基底 $(2,0),(0,3)$ は実一次独立なので $\Lambda$ は全階数格子で、共体積は $6$。$C$ は閉、有界、内部を持ち、各座標について区間の凸性と原点対称性を満たします。面積は $4\cdot6=24$ で、$2^2\operatorname{covol}(\Lambda)=4\cdot6=24$ と等しいです。[凸体定理](#thm-anf5-minkowski-convex-body)を等号の場合で適用でき、例えば $(2,0)\in C\cap\Lambda$ は非零です。
+**詳細解答**　基底 $(2,0),(0,3)$ は実一次独立なので $\Lambda$ は全階数格子で、共体積は $6$。$C$ は閉、有界、内部を持ち、各座標について区間の凸性と原点対称性を満たします。面積は $4\cdot6=24$ で、$2^2\operatorname{covol}(\Lambda)=4\cdot6=24$ と等しいです。[凸体定理](../../NDA/NDA3/index.md#thm-nda3-minkowski)を等号の場合で適用でき、例えば $(2,0)\in C\cap\Lambda$ は非零です。
 <!-- solution-end -->
 
 ### A5. ノルム評価を数値で読む
@@ -520,7 +434,7 @@ $$
 \operatorname{covol}(\Lambda).
 $$
 
-[体積による鳩の巣原理](#lem-anf5-volume-pigeonhole)は異なる $x,y\in S$ と $x-y\in\Lambda\setminus\{0\}$ を与えます。$2x,2y\in C$、原点対称性で $-2y\in C$、凸性で $(2x-2y)/2=x-y\in C$ です。
+[体積による鳩の巣原理](../../NDA/NDA3/index.md#lem-nda3-blichfeldt)は異なる $x,y\in S$ と $x-y\in\Lambda\setminus\{0\}$ を与えます。$2x,2y\in C$、原点対称性で $-2y\in C$、凸性で $(2x-2y)/2=x-y\in C$ です。
 
 対称性がない反例は $\Lambda=\mathbb Z^2$、$C=[1/10,9/10]\times[-10,10]$ です。$C$ はコンパクト・凸・内部非空、面積 $(8/10)\cdot20=16>2^2\cdot1$ ですが、第一座標が $1/10$ と $9/10$ の間にある整数は存在しません。証明の $-2y\in C$ が使えないのが失敗機構です。
 <!-- solution-end -->
@@ -574,7 +488,7 @@ $$
 次数 $n=r_1+2r_2$、判別式 $D_K$ の数体 $K$ と非零整イデアル $I$ に対して、次を示せ。
 
 1. $j(I)$ の共体積を $N(I)$、$D_K$、$r_2$ で表せ。
-2. $C_t$ の体積から、非零元の存在に必要な $t^n$ の下限を導け。
+2. $C_t$ の体積から、非零元の存在に十分な $t^n$ の条件を導け。
 3. $n$ 個の非負数への相加相乗平均を適用し、$|N_{K/\mathbb Q}(\alpha)|\leq M_KN(I)$ を証明せよ。
 4. $K=\mathbb Q(\sqrt{-3})$ で $M_K$ の数値と $\alpha=1$ のノルムを比較せよ。
 
@@ -589,7 +503,7 @@ $$
 =2^{-r_2}\sqrt{|D_K|}N(I).
 $$
 
-[体積公式](#lem-anf5-weighted-body-volume)と [凸体定理](#thm-anf5-minkowski-convex-body)の仮定を組み合わせると
+[体積公式](#lem-anf5-weighted-body-volume)と [凸体定理](../../NDA/NDA3/index.md#thm-nda3-minkowski)の仮定を組み合わせると
 
 $$
 \frac{2^{r_1-r_2}\pi^{r_2}}{n!}t^n
@@ -603,7 +517,7 @@ t^n\geq 2^{n-r_1}\pi^{-r_2}n!\sqrt{|D_K|}N(I)
 =\left(\frac4\pi\right)^{r_2}n!\sqrt{|D_K|}N(I).
 $$
 
-この下限に等しい $t^n$ を選び、凸体定理から $0\ne\alpha\in I$、$j(\alpha)\in C_t$ を得ます。実埋め込みから $r_1$ 個、各非実埋め込みから同じ絶対値を二つずつ取れば、計 $n$ 個の非負数です。和は $t$ 以下、積は [体ノルム公式](../ANF2/index.md#thm-anf2-embedding-formulas)で $|N_{K/\mathbb Q}(\alpha)|$ です。相加相乗平均から
+この条件の右辺に等しい $t^n$ を選び、凸体定理から $0\ne\alpha\in I$、$j(\alpha)\in C_t$ を得ます。実埋め込みから $r_1$ 個、各非実埋め込みから同じ絶対値を二つずつ取れば、計 $n$ 個の非負数です。和は $t$ 以下、積は [体ノルム公式](../ANF2/index.md#thm-anf2-embedding-formulas)で $|N_{K/\mathbb Q}(\alpha)|$ です。相加相乗平均から
 
 $$
 |N_{K/\mathbb Q}(\alpha)|
