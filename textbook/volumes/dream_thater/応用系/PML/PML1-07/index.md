@@ -6,7 +6,15 @@
 
 しかし「損失が下がる」ことから「大域最小値へ着く」ことは出てこない。本章では、連続時間に変えたからこそ証明できる散逸の等式と、それだけでは保証できない収束を分ける。確率的な揺らぎを加えるのは次のPML1-08であり、本章の運動は決定論的である。
 
-ここでは有限次元ユークリッド空間 $\mathbb R^d$（$d\ge1$）、標準内積 $\langle u,v\rangle=u^\mathsf Tv$ とノルム $\|u\|^2=\langle u,u\rangle$ を使う。時間 $t$ と勾配を取る変数 $x=(x_1,\ldots,x_d)$ は別物で、$\dot x(t)=dx(t)/dt$ は時間微分、$\nabla f(x)=(\partial f/\partial x_i)_{i=1}^d$ は状態の各座標に関する偏微分を並べた勾配とする。$d=1$ の例では $f'(x)=df(x)/dx=\nabla f(x)$ と書くが、軌道の時間微分 $\dot x(t)$ とは区別する。
+ここでは有限次元ユークリッド空間 $\mathbb R^d$（$d\ge1$）を使う。標準内積とノルムを次で定める。
+
+$$
+\langle u,v\rangle=u^\mathsf Tv,\qquad \|u\|^2=\langle u,u\rangle.
+$$
+
+時間 $t$ と状態変数 $x=(x_1,\ldots,x_d)$ は区別する。$\dot x(t)=dx(t)/dt$ は時間微分であり、$\nabla f(x)=(\partial f/\partial x_i)_{i=1}^d$ は状態の各座標に関する偏微分を並べた勾配である。
+
+$d=1$ では $\mathbb R^1$ を $\mathbb R$ と同一視し、$f'(x)=df(x)/dx=\nabla f(x)$ と書く。これは状態変数による微分であり、軌道の時間微分 $\dot x(t)$ とは異なる。
 
 ## 1. 最急降下の差分から勾配流へ
 
@@ -169,7 +177,13 @@ $$
 
 散逸恒等式から、全時刻に存在して損失が下に有界な軌道について、勾配の**二乗積分**が有限だと分かった。だが一般の連続関数では、二乗積分が有限でもときどき細い峰を作れるため、値そのものがゼロへ収束すると即断できない。ここでは軌道の有界性と滑らかさを加えて、その隙間を埋める。
 
-$C^2$ 級関数の Hessian（勾配の導関数を表す $d\times d$ 行列）を $\nabla^2 f(x)=(\partial^2 f/\partial x_i\partial x_j)_{i,j=1}^d$ と書く。行列 $A$ の作用素ノルムは $\|A\|_{\mathrm{op}}=\sup_{\|v\|=1}\|Av\|$ であり、定義から $\|Av\|\le\|A\|_{\mathrm{op}}\|v\|$ である。この表示を使うのは、勾配の時間変化を各座標の連鎖律から計算するためである。
+$C^2$ 級関数の Hessian は勾配の導関数を表す $d\times d$ 行列である。その各成分は次の二階偏導関数である。
+
+$$
+\nabla^2 f(x)=\left(\frac{\partial^2 f}{\partial x_i\partial x_j}(x)\right)_{i,j=1}^d.
+$$
+
+行列 $A$ の作用素ノルムを $\|A\|_{\mathrm{op}}=\sup_{\|v\|=1}\|Av\|$ と書く。したがって $\|Av\|\le\|A\|_{\mathrm{op}}\|v\|$ である。この行列表示を使うのは、勾配の時間変化を各座標の連鎖律から計算するためである。
 
 <a id="prop-pml1-07-bounded-critical"></a>
 
@@ -200,21 +214,23 @@ $$
 
 が成り立つ。$g(t)=\sum_{i=1}^d(\partial_i f(x(t)))^2$ に[連鎖律](../../../基礎科目/RA/RA3/index.md#prop-ra3-chain-rule)を適用する。まず各成分を $t$ で微分して
 
-$
+$$
 \frac{d}{dt}\partial_i f(x(t))
 =\sum_{j=1}^d\partial_j\partial_i f(x(t))\,\dot x_j(t)
-$
+$$
 
 となる。これを $g$ の微分へ代入すると、先に定めた Hessian の行列積で
 
-$
-\begin{aligned}
-g'(t)
-&=2\sum_{i=1}^d\sum_{j=1}^d
-\partial_i f(x(t))\,\partial_j\partial_i f(x(t))\,\dot x_j(t)\\
-&=2\left\langle\nabla f(x(t)),\nabla^2 f(x(t))\dot x(t)\right\rangle
-\end{aligned}
-$
+$$
+g'(t)=2\sum_{i=1}^d\sum_{j=1}^d
+\partial_i f(x(t))\,\partial_j\partial_i f(x(t))\,\dot x_j(t)
+$$
+
+二重和は Hessian と速度の行列積の成分表示なので、
+
+$$
+g'(t)=2\left\langle\nabla f(x(t)),\nabla^2 f(x(t))\dot x(t)\right\rangle
+$$
 
 と表せる。
 
@@ -289,10 +305,10 @@ $$
 
 [OPT7 の強凸性の定義](../../../応用系/OPT/OPT7/index.md#def-opt7-strong-convexity)で $x=0$、$y=z$ とすると
 
-$
+$$
 f(z)\ge f(0)+\langle\nabla f(0),z\rangle+\frac{\mu}{2}\|z\|^2
 \ge f(0)-\|\nabla f(0)\|\|z\|+\frac{\mu}{2}\|z\|^2.
-$
+$$
 
 $\mu>0$ だから $\|z\|\to\infty$ で右辺は $+\infty$ へ発散する。よって $f$ は十分大きい閉球の外側では $f(0)$ より大きく、連続性と閉球のコンパクト性から最小点を持つ。[OPT7 の最小点一意性](../../../応用系/OPT/OPT7/index.md#thm-opt7-strong-convex-unique)より、その点はただ一つである。[OPT7 の強凸勾配下界](../../../応用系/OPT/OPT7/index.md#thm-opt7-strong-convex-gradient-bound)を時刻 $t$ の点 $x(t)$ に使うと
 
@@ -339,14 +355,17 @@ $$
 
 **直接例**：$f(x_1,x_2)=(x_1^2+4x_2^2)/2$ について、標準座標基底での勾配は $\nabla f(x)=(x_1,4x_2)$、Hessianは $\operatorname{diag}(1,4)$ である。固有値だけを宣言する代わりに、[強凸性の定義](../../../応用系/OPT/OPT7/index.md#def-opt7-strong-convexity)と[勾配Lipschitz性](../../../応用系/OPT/OPT7/index.md#def-opt7-lipschitz-gradient)を差分 $v=y-x$ で直接確認する。
 
-$
-\begin{aligned}
+$$
 f(y)-f(x)-\langle\nabla f(x),y-x\rangle
-&=\frac12(v_1^2+4v_2^2)\ge\frac12\|v\|^2,\\
+=\frac12(v_1^2+4v_2^2)\ge\frac12\|v\|^2.
+$$
+
+一方、勾配の差については
+
+$$
 \|\nabla f(y)-\nabla f(x)\|^2
-&=v_1^2+16v_2^2\le16\|v\|^2.
-\end{aligned}
-$
+=v_1^2+16v_2^2\le16\|v\|^2.
+$$
 
 前者は $\mu=1$ の強凸性、後者は $L=4$ の大域勾配Lipschitz性そのものである。Hessianの対角成分 $1,4$ は、この二方向の勾配変化率を表す。流れは
 
@@ -671,7 +690,11 @@ $$
 \dot x=x(1-x^2).
 $$
 
-$0<x<1$ では右辺が正、両端 $0,1$ は停留点である。多項式ベクトル場は局所Lipschitzであるため、有限時刻に停留点へ到着して別の軌道へ抜けることは一意性に反する。したがって初期値が $(0,1)$ なら軌道はこの区間を出ず、単調に増える。$[0,1]$ に閉じ込められてベクトル場もそこで有界であるため、局所解は有限時刻で発散せず全時刻へ延長できる。上に $1$ で有界なので極限 $\ell\in(0,1]$ が存在する。もし $\ell<1$ なら $\ell(1-\ell^2)>0$。連続性から十分大きい時刻には $\dot x\ge c>0$ となり、$x$ が有界であることに矛盾する。よって $\ell=1$。
+$0<x<1$ では右辺が正で、両端 $0,1$ は停留点である。多項式ベクトル場は局所Lipschitzなので、有限時刻に停留点へ到着して別の軌道へ抜けることは[初期値の一意性](../../../解析系/ODE/ODE1/index.md#thm-ode1-picard-lindelof)に反する。
+
+したがって初期値が $(0,1)$ なら軌道はこの区間を出ず、単調に増える。$[0,1]$ に閉じ込められて速度も有界なので、局所解は有限時刻で発散せず、全時刻へ延長できる。
+
+単調かつ上に有界だから、極限 $\ell\in(0,1]$ が存在する。もし $\ell<1$ なら $\ell(1-\ell^2)>0$ である。連続性により十分大きい時刻では $\dot x(t)\ge c>0$ となる正定数 $c$ を選べる。このとき $x(t)\ge x(T)+c(t-T)$（$t\ge T$）となり、上界 $1$ に矛盾する。したがって $\ell=1$。
 
 二番目は $f'(0)=0$ なので $x(t)\equiv0$。散逸率 $-|f'(0)|^2=0$ だが $f(0)=1/4>f(\pm1)=0$ である。ここでは「平衡」と「最小」を同一視するのが誤りである。
 
