@@ -11,7 +11,7 @@ chapters:
     title: "代数的整数と整数環"
   - id: ANF2
     path: textbook/volumes/dream_thater/代数系/ANF/ANF2
-    status: planned
+    status: completed
     title: "跡・ノルム・判別式"
   - id: ANF3
     path: textbook/volumes/dream_thater/代数系/ANF/ANF3
