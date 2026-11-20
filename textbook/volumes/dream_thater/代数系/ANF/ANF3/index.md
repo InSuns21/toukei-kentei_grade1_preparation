@@ -51,7 +51,7 @@ $K$ の整数環でもこの三条件が成り立つことを示します。こ�
 <!-- proof-start -->
 ### 証明
 
-**(1) Noether性。** $n=[K:\mathbb Q]$ とすると、[ANF1の整数基底定理](../ANF1/index.md#thm-anf1-integral-basis)により $\mathcal O_K\simeq\mathbb Z^n$（加法群として）です。任意のイデアル $I\subseteq\mathcal O_K$ は $\mathbb Z^n$ の部分群なので、有限個の元 $a_1,\ldots,a_r$ で $\mathbb Z$ 加群として生成されます。これらの元が生成する $\mathcal O_K$ イデアルは、$I$ に含まれ、かつ $I$ のすべての元を含みます。したがって $I=(a_1,\ldots,a_r)$ で、[有限生成とNoether性の同値](../../AG/AG1-05/index.md#prop-ag1-05-acc-finite-generation)により Noether性が従います。
+**(1) Noether性。** $n=[K:\mathbb Q]$ とすると、[整数環の有限生成性と整数基底](../ANF1/index.md#thm-anf1-integral-basis)により $\mathcal O_K\simeq\mathbb Z^n$（加法群として）です。任意のイデアル $I\subseteq\mathcal O_K$ は $\mathbb Z^n$ の部分群なので、有限個の元 $a_1,\ldots,a_r$ で $\mathbb Z$ 加群として生成されます。これらの元が生成する $\mathcal O_K$ イデアルは、$I$ に含まれ、かつ $I$ のすべての元を含みます。したがって $I=(a_1,\ldots,a_r)$ で、[有限生成とNoether性の同値](../../AG/AG1-05/index.md#prop-ag1-05-acc-finite-generation)により Noether性が従います。
 
 **(2) 整閉性。** $x\in K$ が $\mathcal O_K$ 上整だとします。$\mathcal O_K$ のすべての元は $\mathbb Z$ 上整なので、[整性の推移性](../../AG/AG1-06/index.md#prop-ag1-06-finite-generators)から $x$ は $\mathbb Z$ 上整です。[整数環の定義](../ANF1/index.md#def-anf1-ring-of-integers)により $x\in\mathcal O_K$ となります。
 
@@ -157,7 +157,7 @@ z^r+b_{r-1}z^{r-1}+b_{r-2}sz^{r-2}
 +\cdots+b_0s^{r-1}=0.
 $$
 
-したがって $z$ は $A$ 上整です。$A$ が整閉なので $z\in A$、ゆえに $y=z/s\in R$ です。
+したがって $z$ は $A$ 上整です。[Dedekind整域の定義](#def-anf3-dedekind-domain)の整閉性（第2条件）を $A$ 上整な $z$ に適用すると $z\in A$ であり、$y=z/s\in R$ です。
 
 **極大イデアルの単項性。** $0\ne a\in\mathfrak m$ を取ります。$(a)$ を含む素イデアルは $\mathfrak m$ のみなので $\sqrt{(a)}=\mathfrak m$ です。Noether性により $\mathfrak m=(x_1,\ldots,x_k)$。各 $x_i$ は根基に属するため $x_i^{n_i}\in(a)$ となる $n_i\ge1$ があり、$N=1+\sum_i(n_i-1)$ とすれば、$N$ 個の生成元の積には必ず $x_i^{n_i}$ が含まれます。従って $\mathfrak m^N\subseteq(a)$ です。
 
@@ -358,9 +358,9 @@ $$
 =(1+s)(1-s).
 $$
 
-まず四つの因子 $2,3,1+s,1-s$ がすべて既約であることも確認できます。[数体のノルムの積公式](../ANF2/index.md#prop-anf2-trace-norm-properties)により、非単元への積に分かれれば正整数ノルムも $1$ より大きい二整数の積になります。一方、$a+bs$ のノルムは $a^2+5b^2$ で、$2$ や $3$ という値にはなりません。$N(2)=4$ の非自明な積は $2\cdot2$、$N(3)=9$ のものは $3\cdot3$、$N(1\pm s)=6$ のものは $2\cdot3$ しかないので、いずれも非単元への分解は不可能です。単元のノルムは $1$ ですから、単元は $\pm1$ に限られます。四因子はノルムが異なるか、$1+s\ne\pm(1-s)$ によって同伴でもありません。従って冒頭の二つは本当に異なる既約元分解です。
+まず四つの因子 $2,3,1+s,1-s$ がすべて既約であることも確認できます。[跡・ノルムの演算則と整性](../ANF2/index.md#prop-anf2-trace-norm-properties)によればノルムは積を保ちます。非単元への積に分かれれば正整数ノルムも $1$ より大きい二整数の積になります。一方、$a+bs$ のノルムは $a^2+5b^2$ で、$2$ や $3$ という値にはなりません。$N(2)=4$ の非自明な積は $2\cdot2$、$N(3)=9$ のものは $3\cdot3$、$N(1\pm s)=6$ のものは $2\cdot3$ しかないので、いずれも非単元への分解は不可能です。単元のノルムは $1$ ですから、単元は $\pm1$ に限られます。四因子はノルムが異なるか、$1+s\ne\pm(1-s)$ によって同伴でもありません。従って冒頭の二つは本当に異なる既約元分解です。
 
-**元の分解が壊れた仕組み。** $\mathfrak p$ は主イデアルではありません。もし $\mathfrak p=(a+bs)$（$a,b\in\mathbb Z$）なら、上と同じ指数計算と[ノルムの積公式](../ANF2/index.md#thm-anf2-embedding-formulas)から
+**元の分解が壊れた仕組み。** $\mathfrak p$ は主イデアルではありません。もし $\mathfrak p=(a+bs)$（$a,b\in\mathbb Z$）なら、上と同じ指数計算と[跡・ノルムの演算則と整性](../ANF2/index.md#prop-anf2-trace-norm-properties)から
 
 $$
 2=|A/\mathfrak p|
@@ -505,7 +505,7 @@ $$
 - ID: ANF3-B4
 
 <!-- solution-start -->
-**詳細解答**　[整数基底定理](../ANF1/index.md#thm-anf1-integral-basis)により $A=\bigoplus_{i=1}^n\mathbb Z\omega_i$ です。$\alpha\omega_j\in A$ なので、$\alpha\omega_j=\sum_i m_{ij}\omega_i$（$m_{ij}\in\mathbb Z$）と一意に書けます。$M=(m_{ij})$ は $K$ 上の乗法写像 $\mu_\alpha$ の、この整数基底に関する行列です。$\alpha\ne0$ なので $\mu_\alpha$ は可逆、$\det M\ne0$ です。
+**詳細解答**　[整数環の有限生成性と整数基底](../ANF1/index.md#thm-anf1-integral-basis)により $A=\bigoplus_{i=1}^n\mathbb Z\omega_i$ です。$\alpha\omega_j\in A$ なので、$\alpha\omega_j=\sum_i m_{ij}\omega_i$（$m_{ij}\in\mathbb Z$）と一意に書けます。$M=(m_{ij})$ は $K$ 上の乗法写像 $\mu_\alpha$ の、この整数基底に関する行列です。$\alpha\ne0$ なので $\mu_\alpha$ は可逆、$\det M\ne0$ です。
 
 $(\alpha)=\alpha A$ の基底座標は $M\mathbb Z^n$ だから
 
