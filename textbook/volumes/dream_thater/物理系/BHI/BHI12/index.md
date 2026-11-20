@@ -290,7 +290,7 @@ $DE$ 側の二つのBell状態は直交するので、$C$ を捨てた $\rho_{MD
 
 ## 7. 少なくとも日記と同じ次元の追加放射が必要
 
-完全回収を可能にするにはどのくらいの $D$ が最低限必要でしょうか。ランダム行列の評価に入る前に、[命題の初期独立性](#prop-bhi12-early-independence)だけで、回収の**必要条件**を一つ導けます。既知の早期放射 $E$ は、投入前から新しい日記と相関していたわけではない点が効きます。
+完全回収を可能にするにはどのくらいの $D$ が最低限必要でしょうか。ランダム行列の評価に入る前に、[参照系と早期放射の独立性](#prop-bhi12-early-independence)だけで、回収の**ために必要な次元下界**を一つ導けます。既知の早期放射 $E$ は、投入前から新しい日記と相関していたわけではない点が効きます。
 
 <a id="prop-bhi12-output-lower-bound"></a>
 
@@ -474,7 +474,7 @@ $$
 回収チャネルを $\mathcal N_{A\to DE}$ としたとき、[QINF29の完全復号定理](../../../応用系/QINF/QINF29/index.md#thm-qinf29-recovery)の「論理入力、符号化、Stinespring等長写像、受信出力、環境、参照系」に相当する本講の対象を全て書き、$\rho_{MC}=\rho_M\otimes\rho_C$ が必要十分であることを導け。
 
 <!-- solution-start -->
-**詳細解答**：論理入力は $A$、等長符号化は $I_A$、Stinespring等長写像は $W|\psi\rangle=(U\otimes I_E)(|\psi\rangle_A|\Phi_{d_B}\rangle_{BE})$、受信出力は $DE$、環境は $C$、参照系は $M\cong A$ です。$W^\dagger W=I_A$ は $U^\dagger U=I_{AB}$ と $\langle\Phi|\Phi\rangle=1$ から成り立ちます。$M A$ の初期Bell対へ $I_M\otimes W$ を作用させた出力が $|\Psi_U\rangle$ なので、QINF29定理の参照環境縮約はちょうど $\rho_{MC}$ です。従って完全回収 $\Longleftrightarrow\rho_{MC}=\rho_M\otimes\rho_C$。さらに[初期独立性の命題](#prop-bhi12-early-independence)により $\rho_M=I_M/d_A$ で、[本講の完全回収条件](#thm-bhi12-recovery-condition)へ帰着します。
+**詳細解答**：論理入力は $A$、等長符号化は $I_A$、Stinespring等長写像は $W|\psi\rangle=(U\otimes I_E)(|\psi\rangle_A|\Phi_{d_B}\rangle_{BE})$、受信出力は $DE$、環境は $C$、参照系は $M\cong A$ です。$W^\dagger W=I_A$ は $U^\dagger U=I_{AB}$ と $\langle\Phi|\Phi\rangle=1$ から成り立ちます。$M A$ の初期Bell対へ $I_M\otimes W$ を作用させた出力が $|\Psi_U\rangle$ なので、QINF29定理の参照環境縮約はちょうど $\rho_{MC}$ です。従って完全回収 $\Longleftrightarrow\rho_{MC}=\rho_M\otimes\rho_C$。さらに[参照系と早期放射の独立性](#prop-bhi12-early-independence)により $\rho_M=I_M/d_A$ で、[本講の完全回収条件](#thm-bhi12-recovery-condition)へ帰着します。
 <!-- solution-end -->
 
 <a id="ex-bhi12-b04"></a>
