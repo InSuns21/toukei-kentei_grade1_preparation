@@ -1,0 +1,47 @@
+id: "PML1-08"
+title: "Langevin方程式に何のノイズが必要か"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML1-07
+  - STO9
+  - STO11
+official_scope: []
+learning_objectives:
+  - ブラウン運動の時間増分の分散がh、典型幅が平方根hであることを説明できる
+  - 過減衰Langevin方程式のドリフト・拡散係数・局所分散共分散行列を区別し、係数条件と存在一意性の適用を検証できる
+  - 定数移動度と温度を指定した熱雑音の整合条件Sigma Sigma^T=2tau Mを行列で検査し、係数の非一意性を説明できる
+  - Itô公式から過減衰Langevin型方程式の生成作用素と二階補正項を導出できる
+  - 一次元二次損失のLangevin方程式を積分因子で解き、平均・分散とそれらの極限を計算できる
+  - 誤ったノイズ係数による定常分散のずれと移動度の作用を定量的に診断できる
+  - 確率雑音下で期待損失と各標本路の散逸が一致しないことを反例で説明できる
+definitions:
+  - { id: PML1-08-DEF-01, name: 過減衰Langevin方程式 }
+  - { id: PML1-08-DEF-02, name: 温度と移動度に整合する熱雑音 }
+theorems:
+  - { id: PML1-08-PROP-01, name: 過減衰Langevin型拡散の生成作用素 }
+  - { id: PML1-08-THM-01, name: 二次模型の明示解・平均・分散 }
+  - { id: PML1-08-PROP-02, name: 二次模型のノイズ係数の不整合 }
+  - { id: PML1-08-PROP-03, name: 二次Langevin模型の期待損失 }
+canonical_examples:
+  - 一次元二次関数でドリフトと拡散係数の条件を確認する
+  - 非等方移動度の二次模型でSigma Sigma^Tの熱雑音整合を検算する
+  - OU型二次模型の明示解を積分因子で導き分散を積分する
+  - 移動度とノイズの不整合で分散が本来の半分になる例を調べる
+  - 損失最小点から出発したとき期待損失が増加する反例を計算する
+  - 直交変換した拡散係数が同じ生成作用素を持つことを確認する
+problem_patterns:
+  - PML1-08-A01
+  - PML1-08-A02
+  - PML1-08-A03
+  - PML1-08-A04
+  - PML1-08-A05
+  - PML1-08-B01
+  - PML1-08-B02
+  - PML1-08-B03
+  - PML1-08-B04
+  - PML1-08-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
