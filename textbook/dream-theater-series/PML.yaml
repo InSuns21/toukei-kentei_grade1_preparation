@@ -39,7 +39,7 @@ chapters:
     title: "Langevin方程式に何のノイズが必要か"
   - id: PML1-09
     path: textbook/volumes/dream_thater/応用系/PML/PML1-09
-    status: planned
+    status: completed
     title: "Gibbs密度が不変なのはどの条件か"
   - id: PML1-10
     path: textbook/volumes/dream_thater/応用系/PML/PML1-10
