@@ -23,7 +23,23 @@ $$
 
 ## 2. 周期余接格子から双対トーラスを作る
 
-双対を定義する前に、同じ点 $b$ の余接ベクトル $p$ と接ベクトル $\xi$ の組 $\langle p,\xi\rangle=p(\xi)$ を考える。周期格子上でこの値が整数となる接ベクトルを集めれば、余接格子に対して整数双対な接格子になる。
+双対を定義する前に、同じ点 $b$ の余接ベクトル $p$ と接ベクトル $\xi$ の対合 $\langle p,\xi\rangle=p(\xi)$ を考える。周期格子のすべての元に対してこの値が整数となる接ベクトルを集めれば、整数双対な接格子になる。
+
+ここで $\partial_{u^i}$ は $u^i$ を増やす座標接方向であり、各座標の微分との対合は
+
+$$
+du^j(\partial_{u^i})=\delta_i^j
+\quad(\delta_i^j=1\text{ if }i=j,\;0\text{ otherwise})
+$$
+
+となる。従って、接ベクトルをこの基底で展開すると
+
+$$
+\xi=\sum_i v^i\partial_{u^i},
+\qquad du^j(\xi)=v^j.
+$$
+
+周期余接格子の生成元が $du^j$ なら、定義の全整数値条件は各係数 $v^j\in\mathbb Z$ と同値である。
 
 <a id="def-syz1-10-dual-tangent-lattice"></a>
 
@@ -51,7 +67,7 @@ $B_0=\mathbb R^2$、$u^1=x$、$u^2=y$ とし $\Lambda_\omega^*=\mathbb Z\,dx+\ma
 次に $u'^1=x+y,\ u'^2=y$ とする。$du'^1=dx+dy,\ du'^2=dy$ は同じ余接格子の基底である。新しい基底の整数条件は $a+b\in\mathbb Z,\ b\in\mathbb Z$ であり、結局 $a,b\in\mathbb Z$ に戻る。**定義の確認**：全格子、各生成元への整数対合、商の実次元2、基底変更による不変性をすべて確認した。
 <!-- definition-example-end -->
 
-各 $L_b$ の1サイクル $\gamma\in H_1(L_b;\mathbb Z)$ に位相因子を割り当てる群準同型をホロノミー文字と呼ぶ。[格子の文字と双対トーラスの定義](../SYZ1-01/index.md#def-syz1-01-character-dual)で既習の、$\operatorname{Hom}_{\mathbb Z}(H_1(L_b;\mathbb Z),U(1))$ である。平坦 $U(1)$ 接続のゲージ同値類がこの文字で指定される、という[前講以前の文字構成](../SYZ1-01/index.md#prop-syz1-01-character-quotient)をここでは直接用いる。基底の局所系を変えると文字の値も連動して変化する。
+各 $L_b$ の1サイクル $\gamma\in H_1(L_b;\mathbb Z)$ に位相因子を割り当てる群準同型をホロノミー文字と呼ぶ。[格子の文字と双対トーラスの定義](../SYZ1-01/index.md#def-syz1-01-character-dual)で既習の、$\operatorname{Hom}_{\mathbb Z}(H_1(L_b;\mathbb Z),U(1))$ である。平坦 $U(1)$ 接続のゲージ同値類がこの文字で指定されることは、トーラス上の[平坦局所系のホロノミー分類定理](../SYZ1-01/index.md#thm-syz1-01-holonomy-classification)から従う。基底の局所系を変えると文字の値も連動して変化する。
 
 <a id="prop-syz1-10-holonomy-dual"></a>
 
@@ -137,7 +153,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-syz1-10-semi-flat-complex-chart -->
-### 直接例：円環ではなく $\mathbb C^*$ になる
+### 直接例：円環を $\mathbb C^*$ の開領域として表す
 
 $n=1$、$B_0=(0,2)$、$u=x$、$\Lambda_\omega^*=\mathbb Z\,dx$ とする。$\check X_0=(0,2)\times(\mathbb R/\mathbb Z)$ で、$z=x+iv$、$W=e^{2\pi x}e^{2\pi i v}$ だから
 
@@ -261,7 +277,7 @@ $v^1,v^2$ のどちらを整数だけ動かしても、新しい虚部は整数�
 
 ## 5. 指数座標では遷移がLaurent単項式になる
 
-指数座標 $W_i=e^{2\pi z^i}$ はホロノミーの周期1を消す。この座標での変換式は複素多様体のトーラス的な姿を示すが、接格子を双対化したことを正確に反映していなければならない。
+指数座標 $W_i=e^{2\pi z^i}$ はホロノミーの周期1を消す。$W_j\ne0$ のもとで、各変数の整数冪（負の冪も含む）の積 $\prod_jW_j^{m_j}$（$m_j\in\mathbb Z$）を **Laurent単項式** と呼ぶ。この座標での変換式は複素多様体のトーラス的な姿を示すが、接格子を双対化したことを正確に反映していなければならない。
 
 <a id="prop-syz1-10-monomial-transitions"></a>
 
@@ -556,7 +572,7 @@ $H=\operatorname{diag}(\sqrt6/2,\sqrt6/3)$ は前講の基底計量の行列だ�
 
 - Level: C
 
-$B_0$ を実2次元整数アフィン多様体とし、$U_\alpha,U_\beta,U_\gamma$ の連結な重なりで
+第1節の滑らかなSLagトーラス束 $\pi:X_0\to B_0$ を $n=2$ として仮定し、実2次元の基底 $B_0$ 上でシンプレクティック周期による整数アフィン構造を用いる。各チャート $U_\alpha,U_\beta,U_\gamma$ では1サイクル基底 $\gamma_{\alpha,1},\gamma_{\alpha,2}$ を運び、$du_\alpha^i=p_{\gamma_{\alpha,i}}$ と対応させる（[周期余接格子の定義](../SYZ1-08/index.md#def-syz1-08-two-period-covectors)）。連結な重なりで
 
 $$
 u_\beta=A_{\beta\alpha}u_\alpha+c_{\beta\alpha},\qquad
@@ -570,7 +586,32 @@ $$
 
 (i) $du_\beta=A_{\beta\alpha}du_\alpha$。整数行列が可逆でその逆も整数なので、両側の整数線形結合が一致し $\Lambda_{\omega,\beta}^*=\Lambda_{\omega,\alpha}^*$ である。接係数は $v_\beta=A_{\beta\alpha}v_\alpha$ であり、$v_\alpha\in\mathbb Z^2$ と $v_\beta\in\mathbb Z^2$ は同値である。従って双対接格子も一致する。
 
-(ii) 基本1サイクル $\gamma_{\alpha,i}$ への文字の値を $e^{2\pi i v_\alpha^i}$ と割り当てる。$\gamma_\beta=A_{\beta\alpha}\gamma_\alpha$ なので新基底への値は $e^{2\pi i (A_{\beta\alpha}v_\alpha)^i}$、すなわち $v_\beta$ の指数である。文字の核は全基本サイクルへの位相が1となる $\mathbb Z^2$ で、任意の二つの位相は $v_\alpha$ から作れる。従って商と文字群の同型がチャートに依存しない。
+(ii) 問題の周期対応を使うと、$\xi\in T_bB_0$ から文字の位相成分を
+
+$$
+v_\alpha^i=du_\alpha^i(\xi)=p_{\gamma_{\alpha,i}}(\xi)
+$$
+
+と得る。[双対接トーラスとホロノミー文字の命題](#prop-syz1-10-holonomy-dual)により、基本1サイクルへの文字の値は $\rho(\gamma_{\alpha,i})=e^{2\pi i v_\alpha^i}$ である。
+
+[二重整数アフィン構造の定理](../SYZ1-08/index.md#thm-syz1-08-two-integral-affine)における周期対応はサイクル基底上の線形同型である。従って座標微分の変換から
+
+$$
+du_\beta=A_{\beta\alpha}du_\alpha,
+\qquad \gamma_\beta=A_{\beta\alpha}\gamma_\alpha,
+\qquad v_\beta=A_{\beta\alpha}v_\alpha
+$$
+
+と順に導かれる。新基底への文字の値も
+
+$$
+\rho(\gamma_{\beta,i})
+=\prod_j\rho(\gamma_{\alpha,j})^{(A_{\beta\alpha})_{ij}}
+=e^{2\pi i(A_{\beta\alpha}v_\alpha)^i}
+=e^{2\pi i v_\beta^i}
+$$
+
+となる。文字の核は全基本サイクルへの位相が1となる $\mathbb Z^2$ で、任意の二つの位相は $v_\alpha$ から作れる。従って商と文字群の同型はチャートに依存しない。
 
 (iii) 係数変換を用い
 
