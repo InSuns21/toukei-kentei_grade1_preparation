@@ -42,7 +42,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf5-minkowski-embedding -->
-**定義の確認（実二次体）**：$K=\mathbb Q(\sqrt5)$ の元を $a+b\sqrt5$（$a,b\in\mathbb Q$）と書くと、二つの実埋め込みは $\sigma_\pm(a+b\sqrt5)=a\pm b\sqrt5$ です。したがって
+**定義の確認**（実二次体）：$K=\mathbb Q(\sqrt5)$ の元を $a+b\sqrt5$（$a,b\in\mathbb Q$）と書くと、二つの実埋め込みは $\sigma_\pm(a+b\sqrt5)=a\pm b\sqrt5$ です。したがって
 
 $$
 j(a+b\sqrt5)=(a+b\sqrt5,a-b\sqrt5),\qquad
@@ -51,7 +51,7 @@ $$
 
 $r_1=2,r_2=0$ で $r_1+2r_2=2$ です。$j(a+b\sqrt5)=0$ なら二座標の和と差から $a=b=0$ となるので単射です。各埋め込みが有理数を固定するため、$j$ は有理線形でもあります。
 
-**定義の確認（虚二次体）**：$K=\mathbb Q(\sqrt{-5})$ で $s=\sqrt{-5}$、$\tau(s)=i\sqrt5$ を選ぶと、$r_1=0,r_2=1$ で
+**定義の確認**（虚二次体）：$K=\mathbb Q(\sqrt{-5})$ で $s=\sqrt{-5}$、$\tau(s)=i\sqrt5$ を選ぶと、$r_1=0,r_2=1$ で
 
 $$
 j(a+bs)=a+ib\sqrt5\ \longleftrightarrow\ (a,b\sqrt5)\in\mathbb R^2,
