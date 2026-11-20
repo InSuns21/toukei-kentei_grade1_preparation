@@ -1,0 +1,36 @@
+chapter: BHI6
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI5, QINF33]
+forward_references: []
+concepts:
+  - id: black-hole-information.pure-evaporation-stage-model
+    name: 段階的純粋蒸発の有限模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（段階的純粋蒸発の有限模型）]
+    requires: [black-hole-information.endpoint-system-split, quantum.stepwise-swap-emission]
+  - id: black-hole-information.pure-evaporation-entropy-budget
+    name: 純粋蒸発模型のエントロピー収支と残存次元上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（純粋蒸発模型のエントロピー収支と残存次元上界）]
+    requires: [black-hole-information.pure-evaporation-stage-model, quantum.reversible-reduced-entropy, quantum.von-neumann-entropy-bounds]
+  - id: black-hole-information.emission-entropy-increment
+    name: 放出一歩のエントロピー増分と相関条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（放出一歩のエントロピー増分と相関条件）]
+    requires: [quantum.conditional-entropy, quantum.mutual-information, quantum.araki-lieb-inequality]
+  - id: black-hole-information.evaporation-turnover-necessity
+    name: 残存系消滅の下でのエントロピー減少の必要性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（残存系消滅の下でのエントロピー減少の必要性）]
+    requires: [black-hole-information.pure-evaporation-entropy-budget, black-hole-information.emission-entropy-increment]
+  - id: black-hole-information.hidden-purifier-entropy-bound
+    name: 未観測の純粋化系が残る場合の上界の限界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（未観測の純粋化系が残る場合の上界の限界）]
+    requires: [black-hole-information.endpoint-system-split, quantum.entropy-pure-bipartite, quantum.von-neumann-entropy-bounds]
