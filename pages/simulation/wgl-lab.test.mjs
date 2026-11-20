@@ -262,3 +262,4 @@ import './wgl-fcg-visual.test.mjs';
 
 // Cross-series observational UX contracts (all currently implemented WGL/FCG labs).
 import './wgl-fcg-ux-wave1.test.mjs';
+import './wgl-fcg-ux-wave2.test.mjs';

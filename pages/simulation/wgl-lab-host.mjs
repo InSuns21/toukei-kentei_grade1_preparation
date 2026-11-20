@@ -1690,7 +1690,7 @@ byId('width').value=String(sizeHint[0]);
 byId('height').value=String(sizeHint[1]);
 // An animated scene is only validated at its first static snapshot.
 // Keep that boundary visible next to the real GPU canvas, not just in theory.
-if (['FCG3','WGL5','WGL9'].includes(lesson)) {
+if (['FCG3','FCG5','WGL5','WGL9','WGL12'].includes(lesson)) {
   const note=document.createElement('p');
   note.className='visual-snapshot-note';
   note.setAttribute('role','note');

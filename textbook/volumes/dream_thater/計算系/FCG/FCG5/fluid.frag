@@ -5,8 +5,32 @@ in vec2 v_uv;
 uniform sampler2D u_dye;
 uniform sampler2D u_div;
 uniform sampler2D u_speed;
+uniform int u_displayMode;
+uniform float u_aspect;
 out vec4 outColor;
 void main(){
+  // mode=0: unchanged deterministic 3-panel R8 pixel oracle.
+  // mode=1: an aspect-correct, smooth large view of the *same 12x12 dye*.
+  // It is not an 80x80 fluid solver: interpolation is only rendering.
+  if(u_displayMode==1){
+    vec2 xy=(v_uv-0.5)*vec2(u_aspect,1.0)+0.5;
+    if(any(lessThan(xy,vec2(0.0)))||any(greaterThan(xy,vec2(1.0)))){
+      outColor=vec4(0.013,0.029,0.055,1.0);return;
+    }
+    float q=texture(u_dye,xy).r,flow=texture(u_speed,xy).r;
+    float bloom=pow(max(q,0.0),0.72);
+    vec3 dyeColor=vec3(0.015,0.035,0.085)
+      +bloom*vec3(0.10,0.42,0.71)
+      +pow(bloom,2.2)*vec3(0.62,0.28,0.16);
+    // Velocity is encoded as |u|/0.4 and influences only the display.
+    dyeColor+=0.055*flow*vec3(0.11,0.24,0.34);
+    // Faint cell lines remind readers that this is a coarse 12x12 model.
+    vec2 g=fract(xy*12.0),edges=min(g,1.0-g);
+    float grid=1.0-smoothstep(0.0,0.025,min(edges.x,edges.y));
+    dyeColor*=1.0-0.10*grid;
+    outColor=vec4(clamp(dyeColor,0.0,1.0),1.0);
+    return;
+  }
   int panel=min(2,int(floor(v_uv.x*3.0)));
   vec2 uv=vec2(fract(v_uv.x*3.0),v_uv.y);
   ivec2 ij=ivec2(clamp(floor(uv*12.0),vec2(0.0),vec2(11.0)));

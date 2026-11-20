@@ -595,6 +595,13 @@ try{
   assert.ok(frameRect12.width>100 && frameRect12.height>100);
   const clip12={...frameRect12,scale:1};
   const initialMaterial12=await cdp('Page.captureScreenshot',{format:'png',clip:clip12,captureBeyondViewport:true});
+  await new Promise(ok=>setTimeout(ok,740));
+  const animatedMaterial12=await cdp('Page.captureScreenshot',{format:'png',clip:clip12,captureBeyondViewport:true});
+  assert.notEqual(animatedMaterial12.data,initialMaterial12.data,
+    'moving original GGX light must animate shader frame in the sandbox');
+  await writeFile('_wgl_browser_review/wgl12-moving-light.png',
+    Buffer.from(animatedMaterial12.data,'base64'));
+  console.log('WGL12 same editable GGX shader animates light with real Chromium GPU frames: PASS');
   await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const roughness = [0.16, 0.55, 0.32];', 'const roughness = [0.8, 0.8, 0.8];');})()");
   await click('run');
   await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);

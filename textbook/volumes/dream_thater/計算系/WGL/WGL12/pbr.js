@@ -44,6 +44,9 @@ const base = uniform('u_baseColor');
 const rough = uniform('u_roughness[0]');
 const metal = uniform('u_metallic[0]');
 const probe = uniform('u_probe');
+const light = uniform('u_lightDirection');
+const initialLight=[0.40,0.55,1.0];
+gl.uniform3fv(light,new Float32Array(initialLight));
 gl.uniform2f(res, canvas.width, canvas.height);
 gl.uniform3fv(base, new Float32Array(baseColor));
 gl.uniform1fv(rough, new Float32Array(roughness));
@@ -93,6 +96,41 @@ report('GPU READBACK', actual.map(v => v.toFixed(6)).join(', ') +
 report('CHECK', maxError <= 2/255 ? 'PASS: 4/4 Fresnel probes within 2/255' :
   'FAIL: GPU/CPU Fresnel disagreement');
 report('SCOPE', 'Fresnel probes test F only; they do NOT prove GGX energy conservation or browser pixel appearance.');
-gl.deleteBuffer(vbo);
-gl.deleteVertexArray(vao);
-gl.deleteProgram(program);
+
+// The initial CPU/GPU Fresnel probes above are a deterministic snapshot.
+// Only AFTER that pass do we animate the *same editable* GGX shader.
+// Probe mode and existing pixel oracles never depend on this moving light.
+// The program/buffers live until the opaque sandbox iframe is disposed.
+if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
+  const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches??false;
+  let playing=!reduced,stamp=null,phase=0,raf=0;
+  canvas.tabIndex=0;
+  canvas.title='WGL12 光源の往復：Space/Enterで再生・一時停止。初期画素検算は動く前の4点です。';
+  canvas.setAttribute('aria-label','WGL12 GGX材質の3球。Spaceで光源を再生または停止');
+  canvas.addEventListener('keydown',event=>{
+    if(event.key===' '||event.key==='Enter'){
+      event.preventDefault();playing=!playing;stamp=null;
+    }
+  });
+  function drawMovingMaterial(a){
+    const c=Math.cos(a),s=Math.sin(a);
+    const x=c*initialLight[0]+s*initialLight[2],
+      y=initialLight[1],z=-s*initialLight[0]+c*initialLight[2];
+    gl.useProgram(program);gl.bindVertexArray(vao);
+    gl.uniform3f(light,x,y,z);
+    gl.uniform1i(probe,0);
+    gl.viewport(0,0,canvas.width,canvas.height);
+    gl.drawArrays(gl.TRIANGLES,0,6);
+  }
+  function frame(t){
+    if(playing&&!document.hidden){
+      if(stamp===null)stamp=t;
+      const delta=Math.min(.08,Math.max(0,(t-stamp)/1000));stamp=t;
+      phase+=delta*.6;
+      drawMovingMaterial(.60*Math.sin(phase));
+    }else stamp=null;
+    raf=requestAnimationFrame(frame);
+  }
+  raf=requestAnimationFrame(frame);
+  window.addEventListener('pagehide',()=>cancelAnimationFrame(raf),{once:true});
+}

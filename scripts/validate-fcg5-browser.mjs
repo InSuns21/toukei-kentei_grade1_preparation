@@ -123,6 +123,19 @@ try {
   assert.equal(initial.sandbox,'allow-scripts');
   assert.equal(initial.opaque,true);
   console.log('FCG5 actual GPU texture, nine readPixels, independent CPU and opaque sandbox: PASS');
+  // Source-linked mode runs *inside the learner JS sandbox*, not the separate
+  // 80x80 Canvas/WebGL observation. Crop to the isolated runner iframe.
+  await evaluate('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"center"})');
+  await new Promise(ok=>setTimeout(ok,180));
+  const linkedBox=await evaluate('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height};})()');
+  assert.ok(linkedBox.width>200&&linkedBox.height>100,JSON.stringify(linkedBox));
+  const linkedCrop={...linkedBox,scale:1};
+  const linkedFirst=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
+  await new Promise(ok=>setTimeout(ok,950));
+  const linkedSecond=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
+  assert.notEqual(linkedFirst.data,linkedSecond.data,'real 12x12 solver should change GPU dye frames over time');
+  console.log('FCG5 editable 12x12 MAC solver animates actual GPU dye frames: PASS');
+
 
   await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="1ステップ")).click()');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格") && document.querySelector("#fcg5-cpu-prediction")?.textContent.includes("steps=9")',25000);
