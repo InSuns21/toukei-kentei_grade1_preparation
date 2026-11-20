@@ -556,7 +556,7 @@ $H=\operatorname{diag}(\sqrt6/2,\sqrt6/3)$ は前講の基底計量の行列だ�
 
 - Level: C
 
-第1節の滑らかなSLagトーラス束 $\pi:X_0\to B_0$ を仮定し、$B_0$ 上のシンプレクティック周期による整数アフィン構造を用いる。各チャート $U_\alpha,U_\beta,U_\gamma$ では1サイクル基底 $\gamma_{\alpha,1},\gamma_{\alpha,2}$ を運び、$du_\alpha^i=p_{\gamma_{\alpha,i}}$ と対応させる（[周期余接格子の定義](../SYZ1-08/index.md#def-syz1-08-two-period-covectors)）。連結な重なりで
+第1節の滑らかなSLagトーラス束 $\pi:X_0\to B_0$ を $n=2$ として仮定し、実2次元の基底 $B_0$ 上でシンプレクティック周期による整数アフィン構造を用いる。各チャート $U_\alpha,U_\beta,U_\gamma$ では1サイクル基底 $\gamma_{\alpha,1},\gamma_{\alpha,2}$ を運び、$du_\alpha^i=p_{\gamma_{\alpha,i}}$ と対応させる（[周期余接格子の定義](../SYZ1-08/index.md#def-syz1-08-two-period-covectors)）。連結な重なりで
 
 $$
 u_\beta=A_{\beta\alpha}u_\alpha+c_{\beta\alpha},\qquad
@@ -570,7 +570,7 @@ $$
 
 (i) $du_\beta=A_{\beta\alpha}du_\alpha$。整数行列が可逆でその逆も整数なので、両側の整数線形結合が一致し $\Lambda_{\omega,\beta}^*=\Lambda_{\omega,\alpha}^*$ である。接係数は $v_\beta=A_{\beta\alpha}v_\alpha$ であり、$v_\alpha\in\mathbb Z^2$ と $v_\beta\in\mathbb Z^2$ は同値である。従って双対接格子も一致する。
 
-(ii) 問題の周期対応 $du_\alpha^i=p_{\gamma_{\alpha,i}}$ により $T_bB_0$ のベクトル $\xi$ から $v_\alpha^i=du_\alpha^i(\xi)$ を得る。[双対接トーラスとホロノミー文字の命題](#prop-syz1-10-holonomy-dual)に従って、基本1サイクル $\gamma_{\alpha,i}$ への文字の値を $e^{2\pi i v_\alpha^i}$ と割り当てる。$\gamma_\beta=A_{\beta\alpha}\gamma_\alpha$ なので新基底への値は $e^{2\pi i (A_{\beta\alpha}v_\alpha)^i}$、すなわち $v_\beta$ の指数である。文字の核は全基本サイクルへの位相が1となる $\mathbb Z^2$ で、任意の二つの位相は $v_\alpha$ から作れる。従って商と文字群の同型がチャートに依存しない。
+(ii) 問題の周期対応 $du_\alpha^i=p_{\gamma_{\alpha,i}}$ により $T_bB_0$ のベクトル $\xi$ から $v_\alpha^i=du_\alpha^i(\xi)$ を得る。[双対接トーラスとホロノミー文字の命題](#prop-syz1-10-holonomy-dual)に従って、基本1サイクル $\gamma_{\alpha,i}$ への文字の値を $e^{2\pi i v_\alpha^i}$ と割り当てる。[二重整数アフィン構造の定理](../SYZ1-08/index.md#thm-syz1-08-two-integral-affine)の周期対応はサイクル基底上の線形同型を与える。従って $du_\beta=A_{\beta\alpha}du_\alpha$ と各 $du=p_\gamma$ から $\gamma_\beta=A_{\beta\alpha}\gamma_\alpha$ が従い、新基底への値は $e^{2\pi i (A_{\beta\alpha}v_\alpha)^i}$、すなわち $v_\beta$ の指数である。文字の核は全基本サイクルへの位相が1となる $\mathbb Z^2$ で、任意の二つの位相は $v_\alpha$ から作れる。従って商と文字群の同型がチャートに依存しない。
 
 (iii) 係数変換を用い
 
