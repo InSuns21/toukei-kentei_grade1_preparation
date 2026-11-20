@@ -121,13 +121,13 @@ def self_test():
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--scenario", choices=("anchored", "gauge"),
+    parser.add_argument("--scenario", choices=("anchored", "unanchored"),
                         default="anchored")
     parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args()
     if args.self_test:
         self_test()
-    elif args.scenario == "gauge":
+    elif args.scenario == "unanchored":
         gauge()
     else:
         anchored()
