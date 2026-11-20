@@ -54,7 +54,13 @@ $$
 > ここで $z=x+\tau y$、$(x,y)\in(\mathbb R/\mathbb Z)^2$ である。**複素化Kählerパラメータ**を $\rho=\beta+iA$ と記す。$\beta$ は $B$場の積分値を表し、整数だけ変えると指数位相は不変である。
 <!-- formal-statement-end -->
 
-この計量を座標で判定するとき、$G_{ij}=g(\partial_i,\partial_j)$（$i,j\in\{x,y\}$）を座標基底 $(\partial_x,\partial_y)$ に関する係数行列とする。$g=(A/b)|dz|^2$ はベクトルの長さの二乗を与える対称な二次形式である。一方、$\omega$ が同じ計量のKähler形式であることは、複素座標で $\omega=(A/b)(i/2)dz\wedge d\bar z$ を確認して判定する。これらは別々の判定であり、行列式による面積計算は後の命題で導く。
+この計量を座標で判定するとき、$G_{ij}=g(\partial_i,\partial_j)$（$i,j\in\{x,y\}$）を座標基底 $(\partial_x,\partial_y)$ に関する係数行列とする。$g=(A/b)|dz|^2$ はベクトルの長さの二乗を与える対称な二次形式である。
+
+一方、$\omega$ が同じ計量のKähler形式であることは、複素座標で
+$$
+\omega=\frac A b\frac i2\,dz\wedge d\bar z
+$$
+を確認して判定する。これらは別々の判定であり、行列式による面積計算は後の命題で導く。
 
 <!-- definition-example-start: def-syz1-12-elliptic-data -->
 ### 直接例：傾いた格子でも面積は $A$
@@ -229,7 +235,13 @@ $$
 -\iota_{\partial_y}\omega=A\,dx.
 $$
 
-$\gamma_x$ 上で $dx$ の積分は1だから周期は $A$。一方、$dz=dx+a\,dy+ib\,dy$ から $\operatorname{Im}\Omega=b\,dy$、$\iota_{\partial_y}\operatorname{Im}\Omega=b$ である。したがって $du=A\,dy$、$dq=b\,dy$。正の定数倍 $\Omega_{\rm cal}=\sqrt{A/b}\Omega$ を使えば $dq_{\rm cal}=\sqrt{A/b}\,b\,dy=\sqrt{Ab}\,dy$。ここで $u,q_{\rm cal}$ は実変数 $y$ の局所関数で、$du/dy=A>0$ だから $y$ から $u$ への座標変更は可逆である。連鎖律より
+$\gamma_x$ 上で $dx$ の積分は1だから周期は $A$。一方、$dz=dx+a\,dy+ib\,dy$ から $\operatorname{Im}\Omega=b\,dy$、$\iota_{\partial_y}\operatorname{Im}\Omega=b$ である。
+
+したがって $du=A\,dy$、$dq=b\,dy$。正の定数倍 $\Omega_{\rm cal}=\sqrt{A/b}\Omega$ を使うと
+$$
+dq_{\rm cal}=\sqrt{\frac A b}\,b\,dy=\sqrt{Ab}\,dy.
+$$
+ここで $u,q_{\rm cal}$ は実変数 $y$ の局所関数で、$du/dy=A>0$ だから $y$ から $u$ への座標変更は可逆である。連鎖律より
 $$
 \frac{dq_{\rm cal}}{du}
 =\frac{dq_{\rm cal}/dy}{du/dy}
@@ -253,7 +265,9 @@ $$
 
 が正則座標になる。$t$ の一周は $w\mapsto w+1$、$y$ の一周は $w\mapsto w+iA$ となる。したがって $B=0$ の双対複素曲線は $\mathbb C/(\mathbb Z+iA\mathbb Z)$ である。
 
-$B=\beta\,dx\wedge dy$ を加えた場合、基底の一周に沿うファイバー接続の位相ずれを $\beta$ とする。これは追加の**位相の貼り合わせ規則**であり、単に $TB/\Lambda$ を取るだけの構成とは区別する。被覆 $\mathbb R^2$ の座標 $(t,y)$ では、局所ホロノミー角を $t+\beta y$ と書けば同じ規則を表せる。$y\mapsto y+1$ でこの角は $\beta$ だけ変わるので、$\beta\notin\mathbb Z$ なら $t+\beta y$ 自体は商トーラス上の一価な角ではない。このずれを複素格子の二番目の周期へ記録するのが、以下の貼り合わせである。
+$B=\beta\,dx\wedge dy$ を加えた場合、基底の一周に沿うファイバー接続の位相ずれを $\beta$ とする。これは追加の**位相の貼り合わせ規則**であり、単に $TB/\Lambda$ を取るだけの構成とは区別する。
+
+被覆 $\mathbb R^2$ の座標 $(t,y)$ では、局所ホロノミー角を $t+\beta y$ と書けば同じ規則を表せる。$y\mapsto y+1$ でこの角は $\beta$ だけ変わるので、$\beta\notin\mathbb Z$ なら $t+\beta y$ 自体は商トーラス上の一価な角ではない。このずれを複素格子の二番目の周期へ記録するのが、以下の貼り合わせである。
 
 <a id="def-syz1-12-b-twisted-dual"></a>
 
