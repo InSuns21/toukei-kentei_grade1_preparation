@@ -81,6 +81,8 @@ $$
 <!-- definition-example-start: def-pml1-19-lnn -->
 ### 例：一定質量の調和振動子
 
+**定義の確認**
+
 $d=1$、$U=\mathbb R^2$、$m,k>0$、$L_\theta(q,v)=mv^2/2-kq^2/2$、$\theta=(m,k)$ とする。多項式なので $C^3$ 級である。偏微分を順に計算すると
 
 $$
@@ -242,6 +244,8 @@ $
 <!-- definition-example-start: def-pml1-19-natural-mass -->
 ### 例：位置依存の正の質量
 
+**定義の確認**
+
 $d=1$、$Q=\mathbb R$、$M(q)=1+q^2$、$V(q)=q^2/2$ とする。$M,V$ は滑らかで、$x\neq0$ に対して $x^2(1+q^2)>0$ である。従って定義の全条件を満たし、
 
 $$
@@ -333,6 +337,8 @@ $$
 
 <!-- definition-example-start: def-pml1-19-losses -->
 ### 例：小さな残差でも加速度誤差が大きい
+
+**定義の確認**
 
 $d=N=1$、$\varepsilon>0$、$L_\varepsilon(q,v)=\varepsilon(v^2/2+q)$ とし、観測加速度を $a_1=0$ とする。$q_1,v_1$ は任意でよい。$W_\varepsilon=\varepsilon$、$C_\varepsilon=0$、$\partial_qL_\varepsilon=\varepsilon$ だから、加速度予測は $F_\varepsilon=1$ である。よって
 
