@@ -55,7 +55,7 @@ U|ij\rangle_{AB}=\sum_{\mu,\nu=0}^{1}U_{\mu\nu,ij}|\mu\nu\rangle_{CD},
 \qquad U_{\mu\nu,ij}=\langle\mu\nu|U|ij\rangle
 $
 
-と展開すると、係数 $U_{\mu\nu,ij}$ を並べたものが $4\times4$ 行列です。ユニタリ性 $\langle Uij|Ui'j'\rangle=\langle ij|i'j'\rangle$ は、列の正規直交性
+と展開すると、係数 $U_{\mu\nu,ij}$ を並べたものが $4\times4$ 行列です。ユニタリ性 $\langle ij|U^\dagger U|i'j'\rangle=\langle ij|i'j'\rangle$ は、列の正規直交性
 
 $
 \sum_{\mu,\nu=0}^{1}\overline{U_{\mu\nu,ij}}U_{\mu\nu,i'j'}
@@ -106,7 +106,7 @@ $$
 \rho_C(U)=\operatorname{Tr}_D\rho_{CD}(U)=\frac{I_C}{c}.
 $$
 
-したがって本講に限っては $\rho_C$ はどの標本でも一定で、比較相手は $\pi_M\otimes\pi_C$ です。この事実は後の二コピー計算でも独立に検算します。
+$\pi_C:=I_C/c$ と書きます。したがって本講に限っては $\rho_C$ はどの標本でも一定で、比較相手は $\pi_M\otimes\pi_C$ です。この事実は後の二コピー計算でも独立に検算します。
 
 <!-- definition-example-start: def-bhi13-decoupling-error -->
 **定義の確認**： 前講のSWAP型配置 $U_{\rm good}|i,j\rangle=|j,i\rangle_{CD}$ なら $|\Psi_U\rangle=|\Phi_a\rangle_{MD}\otimes|\Phi_b\rangle_{CE}$（ここでは $a=b=c=d=2$）で、$\rho_{MC}=\pi_M\otimes\pi_C$、$X=0$、$L=Q=0$ です。
