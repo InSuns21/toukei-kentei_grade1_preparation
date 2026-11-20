@@ -1,0 +1,50 @@
+chapter: PML1-12
+scope: dream-theater
+coverage: complete
+prerequisites: [PML1-11]
+concepts:
+  - id: physics-machine-learning.finite-data-minibatch-sgd
+    name: 有限データの復元抽出ミニバッチSGD
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限データの復元抽出ミニバッチSGD）"]
+    requires:
+      - optimization.fixed-step-gradient-method
+  - id: physics-machine-learning.gradient-scatter-matrix
+    name: 個別勾配の散布行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（個別勾配の散布行列）"]
+    requires:
+      - physics-machine-learning.finite-data-minibatch-sgd
+  - id: physics-machine-learning.minibatch-replacement-moments
+    name: 復元抽出SGDの条件付き平均・分散共分散行列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（復元抽出SGDの条件付き平均・分散共分散行列）"]
+    requires:
+      - physics-machine-learning.finite-data-minibatch-sgd
+      - physics-machine-learning.gradient-scatter-matrix
+  - id: physics-machine-learning.minibatch-without-replacement
+    name: 非復元ミニバッチの分散共分散行列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非復元ミニバッチの分散共分散行列）"]
+    requires:
+      - physics-machine-learning.minibatch-replacement-moments
+  - id: physics-machine-learning.sgd-thermal-covariance-criterion
+    name: 等方的熱雑音との一歩共分散一致条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（等方的熱雑音との一歩共分散一致条件）"]
+    requires:
+      - physics-machine-learning.minibatch-replacement-moments
+      - physics-machine-learning.thermal-noise-matching
+      - physics-machine-learning.euler-maruyama-langevin
+  - id: physics-machine-learning.sgd-noise-time-bound
+    name: 固定時間内のSGD雑音の二乗平均上界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定時間内のSGD雑音の二乗平均上界）"]
+    requires:
+      - physics-machine-learning.minibatch-replacement-moments
