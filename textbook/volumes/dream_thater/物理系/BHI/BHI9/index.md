@@ -35,7 +35,7 @@ $$
 \Delta_R(b):=S(Rb)-S(R)=S(b|R)
 $$
 
-> と定める。右端の条件付きエントロピーは[QINF18の定義](../../../応用系/QINF/QINF18/index.md#def-qinf18-conditional)である。
+> と定める。右端は[QINF18の量子条件付きエントロピーの定義](../../../応用系/QINF/QINF18/index.md#def-qinf18-conditional)の差 $S(Rb)-S(R)$ を、底2から自然対数へ換算したものである。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi9-emission-increment -->
@@ -464,7 +464,15 @@ $$
 任意の状態 $\rho_R$ とBell対 $\Phi_{bc}$ の積で、$S(bc),S(c),S(Rb)-S(R)$ を求め、[小補正条件](#def-bhi9-entropy-smallness)と下界の等号を検査せよ。
 
 <!-- solution-start -->
-**詳細解答**：Bell対の非零固有値は1個の1なので $S(bc)=0$。部分トレースで $\rho_c=I_2/2$、ゆえに $S(c)=\ln2$。独立性より $\rho_{Rb}=\rho_R\otimes I_2/2$ だから、[QINF17のエントロピー加法性](../../../応用系/QINF/QINF17/index.md#prop-qinf17-tensor)を使い $S(Rb)=S(R)+\ln2$。増分は $\ln2$ で、$\varepsilon=0$ の下界 $\ln2-2\cdot0=\ln2$ と一致する。
+**詳細解答**：Bell対 $\Phi_{bc}$ は階数1の純粋状態なので $S(bc)=0$ です。計算基底で $c$ を部分トレースすると、交差項が消えて $\rho_c=I_2/2$、従って $S(c)=\ln2$ です。
+
+積状態という仮定から $\rho_{Rb}=\rho_R\otimes I_2/2$ です。[QINF17のエントロピー加法性](../../../応用系/QINF/QINF17/index.md#prop-qinf17-tensor)を使うと
+
+$$
+S(Rb)-S(R)=S(R)+\ln2-S(R)=\ln2.
+$$
+
+[小補正条件](#def-bhi9-entropy-smallness)は $\varepsilon=0$ で満たされ、[Mathur型下界](#thm-bhi9-small-corrections)の $\ln2-2\cdot0=\ln2$ に等号が成立します。
 <!-- solution-end -->
 
 <a id="ex-bhi9-a02"></a>
@@ -474,7 +482,26 @@ $$
 $R$ と独立な純粋対 $\lvert\psi_q\rangle_{bc}=\sqrt q\lvert00\rangle+\sqrt{1-q}\lvert11\rangle$（$0<q<1$）について、$S(bc),S(c),\Delta_R(b)$ を求めよ。定義の $\varepsilon$ に選べる最小値も示せ。
 
 <!-- solution-start -->
-**詳細解答**：$\lvert\psi_q\rangle$ は直交二項でノルムの二乗が $q+(1-q)=1$ なので $S(bc)=0$。$\rho_b,\rho_c$ の固有値はともに $q,1-q$ だから $S(c)=S(b)=h_2(q)$。$R$ との積から $\Delta_R(b)=S(b)=h_2(q)$。二条件は $0\le\varepsilon$ と $h_2(q)\ge\ln2-\varepsilon$ なので最小 $\varepsilon_{\min}=\ln2-h_2(q)$。$q=1/2$ のときだけ $\varepsilon_{\min}=0$ となる。
+**詳細解答**：直交する二項のノルムの二乗は $q+(1-q)=1$ なので、$bc$ は純粋で $S(bc)=0$ です。$b$ または $c$ の一方を跡消去すると、異なる基底間の交差項は消えて
+
+$$
+\rho_b=\rho_c=\operatorname{diag}(q,1-q),
+\qquad S(b)=S(c)=h_2(q).
+$$
+
+$R$ と $bc$ は独立なので、[エントロピー加法性](../../../応用系/QINF/QINF17/index.md#prop-qinf17-tensor)を $\rho_{Rb}=\rho_R\otimes\rho_b$ に適用すると
+
+$$
+\Delta_R(b)=S(Rb)-S(R)=S(b)=h_2(q).
+$$
+
+[小補正条件](#def-bhi9-entropy-smallness)の二本は $0\le\varepsilon$ と $h_2(q)\ge\ln2-\varepsilon$ です。従って最小値は
+
+$$
+\varepsilon_{\min}=\ln2-h_2(q)\ge0.
+$$
+
+[二値エントロピーの最大値](../../../応用系/QINF/QINF17/index.md#thm-qinf17-entropy-bounds)より、$\varepsilon_{\min}=0$ は $q=1/2$ のときだけです。
 <!-- solution-end -->
 
 <a id="ex-bhi9-a03"></a>
@@ -517,7 +544,16 @@ $0\le\varepsilon<\ln2$ では $S(bc)\le\varepsilon$ と $S(c)\ge\ln2-\varepsilon
 小補正条件を $\varepsilon=0.2$ nat または $\varepsilon=0.35$ nat で満たすとする。各下界を計算し、何が保証されるかを述べよ。
 
 <!-- solution-start -->
-**詳細解答**：[Mathur型下界](#thm-bhi9-small-corrections)から $\varepsilon=0.2$ なら $\Delta\ge\ln2-0.4\simeq0.293147>0$。$\varepsilon=0.35$ なら $\Delta\ge\ln2-0.7\simeq-0.006853$。後者では下界が負でも実際の増分が負と決まるわけではなく、**符号を保証できなくなる**だけである。しきい値は $\varepsilon=(\ln2)/2\simeq0.346574$。
+**詳細解答**：[Mathur型下界](#thm-bhi9-small-corrections)にそれぞれ代入します。
+
+$$
+\begin{aligned}
+\varepsilon=0.20:\quad &\Delta_R(b)\ge\ln2-0.40\simeq0.293147>0,\\
+\varepsilon=0.35:\quad &\Delta_R(b)\ge\ln2-0.70\simeq-0.006853.
+\end{aligned}
+$$
+
+前者は厳密な増加を保証します。後者は下界が負でも実際の増分が負だとは限らず、**符号が保証できなくなる**だけです。増加保証の十分条件は $\varepsilon<(\ln2)/2\simeq0.346574$ です。
 <!-- solution-end -->
 
 ### Level B：不等式の導出と相関例
