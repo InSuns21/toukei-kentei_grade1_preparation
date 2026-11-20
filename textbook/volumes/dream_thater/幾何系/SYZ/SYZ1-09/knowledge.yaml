@@ -4,10 +4,10 @@ coverage: complete
 prerequisites: [SYZ1-08]
 concepts:
   - id: syz.base-l2-metric
-    name: SLag変形のL2計量
+    name: SLag変形の積分計量
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（SLag変形の $L^2$ 計量）"]
+    introduction_aliases: ["定義（SLag変形の積分計量）"]
     requires: [syz.two-cohomology-maps, syz.mclean-hodge-identification]
   - id: syz.dual-period-pairing
     name: 双対周期による積分対合
