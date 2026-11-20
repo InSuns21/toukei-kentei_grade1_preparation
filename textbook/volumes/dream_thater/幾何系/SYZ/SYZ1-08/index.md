@@ -515,7 +515,7 @@ $\partial K$ のうち $\partial\gamma$ に対応する部分は $\gamma$ がサ
 
 - Level: B
 
-二次元余接空間の格子 $\Lambda=\mathbb Z\,du^1\oplus\mathbb Z\,du^2$ とする。$A=\begin{pmatrix}1&1\\1&2\end{pmatrix}$、$B=\begin{pmatrix}1&1/2\\0&1\end{pmatrix}$ に対し、$Adu$ と $Bdu$ の整数包がそれぞれ $\Lambda$ と一致するか、生成元の逆変換まで示して判定せよ。
+二次元余接空間の格子 $\Lambda=\mathbb Z\,du^1\oplus\mathbb Z\,du^2$ とする。$A=\begin{pmatrix}1&1\\1&2\end{pmatrix}$、$B=\begin{pmatrix}1&1/2\\0&1\end{pmatrix}$ に対し、$Adu$ と $Bdu$ の各成分の整数係数線形結合で張る格子が、それぞれ $\Lambda$ と一致するか、生成元の逆変換まで示して判定せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -526,7 +526,7 @@ $$
 A^{-1}=\begin{pmatrix}2&-1\\-1&1\end{pmatrix}
 $$
 
-も整数なので、$Adu$ の各成分は $\Lambda$ に属し、逆に $du=A^{-1}(Adu)$ も新生成元の整数和である。従って格子は一致する。$Bdu$ の第1成分は $du^1+\frac12du^2$ であり、これ自体が $\Lambda$ に属さない。新しい整数包は元の格子とは異なる。$\det B=1$ という条件だけでは、整数格子を保つ十分条件にならない。
+も整数なので、$Adu$ の各成分は $\Lambda$ に属し、逆に $du=A^{-1}(Adu)$ も新生成元の整数和である。従って格子は一致する。$Bdu$ の第1成分は $du^1+\frac12du^2$ であり、これ自体が $\Lambda$ に属さない。$Bdu$ の成分の整数係数線形結合で張る格子は、元の格子とは異なる。$\det B=1$ という条件だけでは、整数格子を保つ十分条件にならない。
 <!-- solution-end -->
 
 <a id="ex-syz1-08-b03"></a>
