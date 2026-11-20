@@ -29,6 +29,7 @@ $$
 > と定義する。分数イデアル $\mathfrak a$ の類を $[\mathfrak a]$ と書く。類の積は $[\mathfrak a][\mathfrak b]=[\mathfrak a\mathfrak b]$、単位元は $[A]$ である。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-anf6-ideal-class-group -->
 **定義を直接確かめる。** $\mathcal P_K$ は $(\alpha)(\beta)=(\alpha\beta)$、$(1)=A$、$(\alpha)^{-1}=(\alpha^{-1})$ により部分群です。$\mathcal I_K$ が可換なので正規部分群でもあり、商群が定義できます。さらに
 
 $$
@@ -43,6 +44,7 @@ $$
 第一の同値は商群の定義、第二の同値は $\mathfrak b\mathfrak b^{-1}=A$ を両辺に掛けたものです。とくに $[\mathfrak a]=[A]$ と $\mathfrak a$ が主分数イデアルであることは同値です。整数環 $A=\mathbb Z$ ならすべての分数イデアルが $q\mathbb Z$ なので $\operatorname{Cl}(\mathbb Q)=\{[A]\}$ です。
 
 もう一つの例として $K=\mathbb Q(\sqrt{-5})$ と $s=\sqrt{-5}$ を考えます。$\mathfrak p=(2,1+s)$ は $A/\mathfrak p\simeq\mathbb F_2$ を持つ整イデアルです。この $\mathfrak p$ が主イデアルでないこと、しかし $\mathfrak p^2$ は主イデアルであることを第5節で確認します。元の一意分解の失敗を類群が記録するのです。
+<!-- definition-example-end -->
 
 ## 2. 有限性への橋：同じ類の小さい代表
 
@@ -191,7 +193,9 @@ $$
 > を $K$ の**類数**と呼ぶ。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-anf6-class-number -->
 類数は「互いに主イデアル倍で移り合わない非零分数イデアルが何種類あるか」という数です。$h_K=1$ は、[分数イデアルの可逆性](../ANF3/index.md#prop-anf3-invertible-ideals)を備えた整数環 $A$ ではすべての整イデアルが主イデアルであることを意味します。$A=\mathbb Z$ の場合、既に確認した通り $h_{\mathbb Q}=1$ です。
+<!-- definition-example-end -->
 
 ## 5. 小さい素イデアルだけを調べる
 
