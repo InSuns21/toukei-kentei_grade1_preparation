@@ -41,7 +41,7 @@ $$
 
 ## 2. 動かすのはロボットだけでも、交差項は動く
 
-既知入力 $u_t$ の下でロボットは $g_t=f(g_{t-1},u_t,\xi_t)$ に従い、地図 $m$ は静止するとします。$f$ は微分可能な局所運動写像、$\xi_t\in\mathbb R^d$ は平均0・共分散 $M_t\succeq0$ の過程雑音で、直前の増補状態の誤差と独立です。誤差を一次 Taylor 展開した行列を
+既知入力 $u_t$ の下でロボットは $g_t=f(g_{t-1},u_t,\xi_t)$ に従い、地図 $m$ は静止するとします。$f$ は微分可能な局所運動写像、$\xi_t\in\mathbb R^d$ は平均0・共分散 $M_t\succeq0$ の過程雑音で、直前の増補状態の誤差と独立です。誤差を一次 Taylor 展開した行列を作ります。ここで $D_gf$ は入力 $u_t$ と雑音 $\xi_t$ を固定して姿勢 $g$ を動かす微分、$D_{\xi}f$ は $g,u_t$ を固定して雑音 $\xi_t$ を動かす微分です。
 
 $$
 F_t=D_gf(\hat g_{t-1}^{+},u_t,0)\in\mathbb R^{3\times3},\qquad
@@ -76,7 +76,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-直前の推定誤差を $\delta s=(\delta g^{\mathsf T},\delta m^{\mathsf T})^{\mathsf T}$ とします。平均値で一次 Taylor 展開すると
+直前の推定誤差を $\delta s=(\delta g^{\mathsf T},\delta m^{\mathsf T})^{\mathsf T}$ とします。以下、この証明の行列積では $P^+=P_{t-1}^+$ と略記します。平均値で一次 Taylor 展開すると
 
 $$
 \delta g_t^-\simeq F_t\delta g_{t-1}^+ +G_t\xi_t,
@@ -106,6 +106,16 @@ $F_t$ はここでは任意の局所線形運動の例で、平面剛体運動�
 [既知ランドマークの測距・方位予測](../U2-08/index.md#def-u2-08-range-bearing)は、既知の地図座標を入力していました。本講では同じ関数の**地図座標も未知変数**として微分します。目印 $j$ の測定は2成分（距離 m、方位 rad）で、独立な観測雑音の共分散は $R_j\succ0$（$2\times2$）とします。
 
 姿勢 $\hat g^-=(x,y,\theta)$、目印 $\hat m_j^-=(a,b)$ に対し、$d_x=a-x$、$d_y=b-y$、$q=d_x^2+d_y^2>0$、$r=\sqrt q$ とします。角度残差が wrap の切替点にない局所枝でだけ通常の偏微分を使います。
+
+観測行列は、**姿勢と該当目印をそれぞれ微小に動かしたときの測距・方位の一次変化**を行ごとに表します。$\Delta d_x=\Delta a-\Delta x$、$\Delta d_y=\Delta b-\Delta y$ と置くと、連鎖律と[既知目印の観測微分](../U2-08/index.md#prop-u2-08-observation-jacobian)により
+
+$$
+\Delta r\simeq\frac{d_x\Delta d_x+d_y\Delta d_y}{r},
+\qquad
+\Delta\beta\simeq\frac{-d_y\Delta d_x+d_x\Delta d_y}{q}-\Delta\theta.
+$$
+
+したがって $\Delta x,\Delta y,\Delta\theta$ の係数が姿勢の3列、$\Delta a,\Delta b$ の係数が目印の2列となります。他の目印はこれらの式に現れないため、その列は0です。これが以下の $D_sh_j$ をブロックに分けて計算できる理由です。
 
 <a id="def-u2-22-landmark-jacobian"></a>
 
@@ -147,7 +157,7 @@ H_g=\begin{pmatrix}-3/5&-4/5&0\\4/25&-3/25&-1\end{pmatrix},
 H_{m_1}=\begin{pmatrix}3/5&4/5\\-4/25&3/25\end{pmatrix}
 $$
 
-となります。$H_j$ の列数は目印1個なら5、2個なら7で、2個目に関係しない列は0です。$q>0$ と角度の局所枝の条件を確認し、距離の微分と角度の微分を混ぜません。
+となります。$H_j$ の列数は目印1個なら5、2個なら7で、2個目に関係しない列は0です。$q=25>0$ で、方位 $\operatorname{atan2}(4,3)\in(0,\pi/2)$ は wrap の切替境界から離れているため、表示した局所偏微分を使えます。距離の微分と角度の微分は、それぞれ観測行列の第1行と第2行です。
 <!-- definition-example-end -->
 
 <a id="prop-u2-22-jacobian-derivation"></a>
@@ -165,15 +175,15 @@ $$
 $r=(d_x^2+d_y^2)^{1/2}$ なので、$q>0$ の下で $\partial r/\partial d_x=d_x/r$、$\partial r/\partial d_y=d_y/r$ です。$\alpha=\operatorname{atan2}(d_y,d_x)$ の局所微分は
 
 $$
-d\alpha=\frac{-d_y\,dd_x+d_x\,dd_y}{q}.
+\mathrm d\alpha=\frac{-d_y\,\mathrm d(d_x)+d_x\,\mathrm d(d_y)}{q}.
 $$
 
-$dd_x=da-dx$、$dd_y=db-dy$ を代入し、$d\beta=d\alpha-d\theta$ とすると、姿勢列は $(-d_x/r,-d_y/r,0)$ と $(d_y/q,-d_x/q,-1)$、目印列は $(d_x/r,d_y/r)$ と $(-d_y/q,d_x/q)$ です。他の $m_\ell$（$\ell\ne j$）は $h_j$ の引数の式に登場せず、対応偏微分は0となります。wrap の枝が変わる点ではこの通常微分を使用していません。
+ここで $\mathrm d(d_x)=\mathrm da-\mathrm dx$、$\mathrm d(d_y)=\mathrm db-\mathrm dy$ は変位の微分であり、例えば $\mathrm d(d_x)$ は $d$ と $d_x$ の積ではありません。これらを代入し、$\mathrm d\beta=\mathrm d\alpha-\mathrm d\theta$ とすると、姿勢列は $(-d_x/r,-d_y/r,0)$ と $(d_y/q,-d_x/q,-1)$、目印列は $(d_x/r,d_y/r)$ と $(-d_y/q,d_x/q)$ です。他の $m_\ell$（$\ell\ne j$）は $h_j$ の引数の式に登場せず、対応偏微分は0となります。wrap の枝が変わる点ではこの通常微分を使用していません。
 <!-- proof-end -->
 
 ## 4. 一つの観測が地図全体を更新する
 
-測定 $z_j=(r_j^{\rm obs},\beta_j^{\rm obs})^{\mathsf T}$ に対し、[距離・方位の観測残差](../U2-08/index.md#def-u2-08-innovation) $\nu_j$ は距離の差と wrap した角度差から作ります。状態は観測前 $N(\hat s^-,P^-)$、雑音は平均0・正定値共分散 $R_j$ の Gaussian で状態と独立と仮定します。以下の数式は予測点で固定した線形模型に対する更新であり、実際の非線形事後が必ず Gaussian になるという主張ではありません。
+予測関数の二成分を $h_j(s)=(r_j(s),\beta_j(s))^{\mathsf T}$ と書きます。測定 $z_j=(r_j^{\rm obs},\beta_j^{\rm obs})^{\mathsf T}$ に対し、[距離・方位の観測残差](../U2-08/index.md#def-u2-08-innovation) $\nu_j$ は距離の差と wrap した角度差から作ります。状態は観測前 $N(\hat s^-,P^-)$、雑音は平均0・正定値共分散 $R_j$ の Gaussian で状態と独立と仮定します。以下の数式は予測点で固定した線形模型に対する更新であり、実際の非線形事後が必ず Gaussian になるという主張ではありません。
 
 <a id="thm-u2-22-ekf-update"></a>
 
@@ -182,8 +192,8 @@ $dd_x=da-dx$、$dd_y=db-dy$ を代入し、$d\beta=d\alpha-d\theta$ とすると
 > $P^-\succ0$、$R_j\succ0$、$q>0$、正しい目印対応と有効な局所角度枝を仮定する。[観測行列](#def-u2-22-landmark-jacobian)を $H=H_j$ と置く。一次線形化した模型では
 
 $$
-\nu_j=\begin{pmatrix}r_j^{\rm obs}-r(\hat s^-)\\
-\operatorname{wrap}(\beta_j^{\rm obs}-\beta(\hat s^-))\end{pmatrix},
+\nu_j=\begin{pmatrix}r_j^{\rm obs}-r_j(\hat s^-)\\
+\operatorname{wrap}(\beta_j^{\rm obs}-\beta_j(\hat s^-))\end{pmatrix},
 \quad S=HP^-H^{\mathsf T}+R_j,
 \quad K=P^-H^{\mathsf T}S^{-1}
 $$
@@ -310,6 +320,14 @@ $$
 > と定める。$P_{sg}$ は旧 $P$ の先頭3列、$P_{gs}=P_{sg}^{\mathsf T}$ とする。
 <!-- formal-statement-end -->
 
+$J_g$ は測距・方位 $(\rho,\gamma)$ を固定して姿勢 $(x,y,\theta)$ を動かした微分、$J_z$ は姿勢を固定して $(\rho,\gamma)$ を動かした微分です。$E_g$ を旧状態から姿勢3成分を取り出す行列とすると、真値から推定値を引いた局所誤差は、実測が真の観測に雑音 $\varepsilon_z$ を加えたものなので
+
+$$
+\delta m_{\rm new}\simeq J_gE_g\delta s-J_z\varepsilon_z
+$$
+
+となります。したがって旧状態と測定雑音が独立な場合、共分散の交差項は $PE_g^{\mathsf T}J_g^{\mathsf T}=P_{sg}J_g^{\mathsf T}$、新目印の分散は二つの独立な誤差の分散の和です。この一次誤差伝播が、上の共分散ブロック式と次の数値判定を結び付けます。
+
 <!-- definition-example-start: def-u2-22-landmark-birth -->
 **定義の確認**：$\hat g=(0,0,0)$、$\rho=2,\gamma=0$、$P_{gg}=\operatorname{diag}(1,1,1/4)$、$R_{\rm new}=\operatorname{diag}(1/4,1/16)$ とします。距離は正、両共分散は正定値です。$J_g=\begin{pmatrix}1&0&0\\0&1&2\end{pmatrix}$、$J_z=\begin{pmatrix}1&0\\0&2\end{pmatrix}$ となり、新目印の平均は $(2,0)$、姿勢との交差共分散は
 
@@ -390,7 +408,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$P$ は主座小行列式が $1>0$、行列式が $5/4-1=1/4>0$ なので正定値です。正しい 観測残差 共分散と状態・観測残差 の共分散は
+$P$ は実対称で、[2次元の正定値判定](../U2-05/index.md#remark-u2-05-positive-definite-2x2)に必要な左上成分が $1>0$、行列式が $5/4-1=1/4>0$ なので正定値です。正しい 観測残差 共分散と状態・観測残差 の共分散は
 
 $$
 S=HPH^{\mathsf T}+1/4=1+5/4-2+1/4=1/2,
