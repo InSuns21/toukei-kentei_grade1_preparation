@@ -68,6 +68,10 @@ $$
 > を最小にする操作を位置合わせと呼ぶ。$R_\phi=\begin{pmatrix}\cos\phi&-\sin\phi\\ \sin\phi&\cos\phi\end{pmatrix}$ とし、拡大縮小は許さない。位置合わせした RMSE は、元の絶対座標誤差と区別して報告する。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-u2-27-rigid-alignment -->
+**定義の確認**：対応点を真値 $(0,0),(1,0)$ m、推定 $(1,2),(1,3)$ m とし、全二時刻で $\phi=-\pi/2$、$a=(-2,1)$ を共通に使うとします。$R_\phi(1,2)+a=(0,0)$、$R_\phi(1,3)+a=(1,0)$ で、目的関数 $J(\phi,a)=0$ になります。回転は直交行列で倍率を変えず、同じ角度と並進を両点へ適用したので定義の条件を満たします。
+<!-- definition-example-end -->
+
 回転行列を使うのは、[姿勢の世界座標変換](../U2-06/index.md#def-u2-06-planar-pose)が回転と並進で表され、距離が保存されるためです。軌跡の各時刻を別々に合わせる操作は、相対距離という推定結果まで壊すので許しません。
 
 <a id="thm-u2-27-alignment"></a>
