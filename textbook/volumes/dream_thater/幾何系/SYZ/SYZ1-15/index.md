@@ -309,7 +309,11 @@ $$
 \end{aligned}
 $$
 
-$V$ は $dw(V)=0$ かつ $d\lambda(V)=0$ を満たすファイバー接ベクトルである。もう一つの接ベクトル $W$ を $dw(W)=i(w-1)$ となるように取れば、$r>0$ より $dw(W)\ne0$ なので $V,W$ は一次独立である。$W$ も $\lambda$ の準位集合に接するから、$\omega_0(V,W)=-d\lambda(W)=0$。接空間は実2次元でこの二つに張られ、2形式の交代性から $\omega_0(V,V)=\omega_0(W,W)=0$ も成り立つ。よって[先に確認したLagrange条件](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold)を満たす。ここで $\iota_V\omega_0=-d\lambda$ という符号は、前述のHamilton関数 $H=-\lambda$ と一致する。
+$V$ は $dw(V)=0$ かつ $d\lambda(V)=0$ を満たすファイバー接ベクトルである。もう一つの接ベクトル $W$ を $dw(W)=i(w-1)$ となるように取る。$r>0$ より $dw(W)\ne0$ なので、$V$ と $W$ は一次独立である。
+
+$W$ も $\lambda$ の準位集合に接するから、$\omega_0(V,W)=-d\lambda(W)=0$。接空間は実2次元でこの二つに張られる。また2形式の交代性から $\omega_0(V,V)=\omega_0(W,W)=0$ も成り立つ。以上が[先に確認したLagrange条件](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold)の直接検算である。
+
+この計算で得た $\iota_V\omega_0=-d\lambda$ という符号は、前述のHamilton関数 $H=-\lambda$ と一致する。
 
 位相を直接確認する。円周方向のベクトルを $V=(ix,-iy)$、$w$ の周回方向の接ベクトルを $W$ として $dw(W)=i(w-1)$ と取れる。$V$ と $W$ は正則ファイバー上で一次独立であり、
 
@@ -682,7 +686,21 @@ $$
 
 $x$ の偏角が円周座標で、$y=c/x$ が定まる。$c=0$ を通るのは $r=1$ の場合のみで、そのとき $\lambda>0$ なら $y=0,|x|=\sqrt{2\lambda}$、$\lambda<0$ なら $x=0,|y|=\sqrt{-2\lambda}$ で円周が残る。正則な基底では円周束は滑らかである。自明化を具体化すると、$\lambda>0$ では $x=\sqrt a>0,y=c/x$、$\lambda<0$ では $y=\sqrt b>0,x=c/y$ を大域断面に取れる。$\lambda=0$ なら $r\ne1$ で $c\ne0$ だから $x=\sqrt{|c|}>0,y=c/x$ を取れる。断面を円周作用で一周させて $\gamma_r\times S^1\cong L_{r,\lambda}$ を得るので $T^2$ である。
 
-**(2) Lagrange性と位相。** 円周作用の生成ベクトル場 $V=(ix,-iy)$ は $dw(V)=0$ を満たす。[Hamiltonベクトル場の定義](../../SYM/SYM4/index.md#def-sym4-hamiltonian-vector-field)の符号では $\iota_V\omega_0=-d\lambda$、すなわちHamilton関数は $-\lambda$ である。実座標 $x=x_1+ix_2$、$y=y_1+iy_2$ で $\omega_0=dx_1\wedge dx_2+dy_1\wedge dy_2$ に $V$ を代入すれば、任意の接ベクトル $Z$ に対して $\omega_0(V,Z)=-d\lambda(Z)$ と直接計算できる。$dw(W)=i(w-1)$ を満たす周回接ベクトル $W$ は $d\lambda(W)=0$ なので $\omega_0(V,W)=0$。また $dw(W)\ne0=dw(V)$ より二つは一次独立である。従って実2次元の接平面に $\omega_0$ が零となり、[Lagrange部分多様体の定義](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold)を満たす。さらにこの $W$ を使うと
+**(2) Lagrange性と位相。** 円周作用の生成ベクトル場を $V=(ix,-iy)$ とする。このとき $dw(V)=0$ である。[Hamiltonベクトル場の定義](../../SYM/SYM4/index.md#def-sym4-hamiltonian-vector-field)の符号規約では、Hamilton関数は $-\lambda$ となる。
+
+実座標 $x=x_1+ix_2$、$y=y_1+iy_2$ を使い、$\omega_0=dx_1\wedge dx_2+dy_1\wedge dy_2$ に $V$ を代入すると、任意の実接ベクトル $Z$ について
+
+$
+\begin{aligned}
+\omega_0(V,Z)
+&=-x_1Z(x_1)-x_2Z(x_2)+y_1Z(y_1)+y_2Z(y_2)\\
+&=-d\lambda(Z)
+\end{aligned}
+$
+
+を得る。したがって $\iota_V\omega_0=-d\lambda$ である。周回方向の接ベクトル $W$ は $dw(W)=i(w-1)$ と取れ、$d\lambda(W)=0$ だから $\omega_0(V,W)=0$。また $dw(W)\ne0=dw(V)$ なので二つは一次独立である。
+
+実2次元の接平面はこの二つに張られ、2形式の交代性から[Lagrange部分多様体の定義](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold)を満たす。さらにこの $W$ を使うと
 
 $$
 (dx\wedge dy)(V,W)
