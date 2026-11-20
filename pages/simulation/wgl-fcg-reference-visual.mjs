@@ -183,9 +183,15 @@ export function mountReferenceObservation({lesson,parent}){
     return cache.get(k);
   };
   const duration=isFluid?12:8,maxSteps=96;
-  let position=0,playing=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+  let position=0,playing=!reducedMotion.matches;
   let previous=0,raf=0,frames=0;
   if(!playing)button.textContent='再生';
+  // An OS preference can change while this page is open. Never resume
+  // automatically when it changes back; the learner can press Play.
+  reducedMotion.addEventListener('change',event=>{
+    if(event.matches){playing=false;previous=0;button.textContent='再生';paint();}
+  });
   const speed=section.querySelector('[data-action="speed"]');
   function paint(){
     const fraction=position/duration;

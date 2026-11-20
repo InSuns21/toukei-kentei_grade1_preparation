@@ -109,6 +109,19 @@ try {
   await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:x+28,y:y+18,button:'left',buttons:0,clickCount:1});
   await waitFor('Number(document.querySelector(".visual-renderer-status")?.dataset.inputCount||0)>0');
   console.log('FCG5 live WebGL2 color, square layout, rAF time and pointer dye injection: PASS');
+  // G4: the independent 80x80 observation must also honor a motion preference
+  // changed *after* loading, without destroying the interactive dye canvas.
+  await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
+  await waitFor('document.querySelector(".visual-smoke [data-action=play]")?.textContent==="再生"');
+  const frozenTime=await evaluate('document.querySelector(".visual-clock").textContent');
+  await new Promise(ok=>setTimeout(ok,350));
+  assert.equal(await evaluate('document.querySelector(".visual-clock").textContent'),frozenTime);
+  await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
+  await new Promise(ok=>setTimeout(ok,180));
+  assert.equal(await evaluate('document.querySelector(".visual-clock").textContent'),frozenTime);
+  await evaluate('document.querySelector(".visual-smoke [data-action=play]").click()');
+  await waitFor('document.querySelector(".visual-clock")?.textContent!=='+JSON.stringify(frozenTime));
+  console.log('G4 FCG5 motion preference pauses on change and resumes only on Play: PASS');
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
   const initial=await evaluate('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(x=>x.textContent)),log:document.querySelector("#diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox"),opaque:(()=>{try{return !!document.querySelector("#canvas-slot iframe").contentWindow.document.body}catch{return true}})()})');
