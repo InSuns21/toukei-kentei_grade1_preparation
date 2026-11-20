@@ -311,7 +311,11 @@ $$
 
 が成り立ちます。$g_i^{m_i-1}$ の次数は $g_i^{m_i}$ の次数より小さく、前者は後者で割り切れません。これが二つ目の不等式の根拠です。
 
-一方、[Dedekind整域の素イデアル分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)から $(p)=\prod_i\mathfrak p_i^{e_i}$ です。$R$ における $\mathfrak p_i$ の像を $\mathfrak m_i=\mathfrak p_i/(p)$ と書きます。$\mathfrak m_i$ で局所化すると、他の $\mathfrak p_j$（$j\ne i$）には $\mathfrak p_i$ に属さない元があるため、それらは単位イデアルになります。したがって [局所単項性](../ANF3/index.md#lem-anf3-local-principal)を適用して
+一方、[Dedekind整域の素イデアル分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)から $(p)=\prod_i\mathfrak p_i^{e_i}$ です。
+
+$R$ における $\mathfrak p_i$ の像を $\mathfrak m_i=\mathfrak p_i/(p)$ と書きます。この極大イデアルで局所化します。
+
+$j\ne i$ なら $\mathfrak p_j$ には $\mathfrak p_i$ に属さない元があるため、$\mathfrak p_j$ は局所化後に単位イデアルになります。[局所単項性](../ANF3/index.md#lem-anf3-local-principal)を適用すると
 
 $$
 R_{\mathfrak m_i}
@@ -322,7 +326,7 @@ $$
 
 他方、上で得た $R\cong\prod_jR_j$ を $\mathfrak m_i$ で局所化すると、対応する $i$ 番目以外の直積因子は消えます。$R_i$ は唯一の極大イデアルを持つ局所環なので、$R_{\mathfrak m_i}\cong R_i$ です。この対応は $\mathfrak p_i/(p)$ が「$g_i$ を零にする」極大イデアルの逆像であることから確かめられます。
 
-$A_{\mathfrak p_i}/(\pi^{e_i})$ の極大イデアル $(\pi)/(\pi^{e_i})$ は、$e_i$ 乗で初めて零になります。実際、局所環は整域で $\pi$ は非単元なので $\pi^{e_i-1}\notin(\pi^{e_i})$ です。これは $R_i$ で求めた最小指数 $m_i$ と一致するため、$e_i=m_i$ が従います。
+$A_{\mathfrak p_i}/(\pi^{e_i})$ の極大イデアル $(\pi)/(\pi^{e_i})$ は、$e_i$ 乗で初めて零になります。実際、商を取る前の局所環 $A_{\mathfrak p_i}$ は整域で $\pi$ は非単元なので $\pi^{e_i-1}\notin(\pi^{e_i})$ です。これは $R_i$ で求めた最小指数 $m_i$ と一致するため、$e_i=m_i$ が従います。
 <!-- proof-end -->
 
 この定理の **$A=\mathbb Z[\theta]$** という仮定は重要です。一般の整元 $\theta$ が生成する部分環 $\mathbb Z[\theta]$ と整数環 $A$ が異なる場合、多項式を単に法 $p$ で分解する方法は、$p$ が指数 $[A:\mathbb Z[\theta]]$ を割るときにはそのまま使えません。整数基底を確定させてから適用します。
