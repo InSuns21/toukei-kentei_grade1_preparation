@@ -88,7 +88,7 @@ const FILES = isWGL20 ? {js:'terrain.js',vertex:'terrain.vert',fragment:'terrain
 const oracle = isWGL20 ? expectedWGL20Samples : isFCG8 ? expectedFCG8Samples : isFCG7 ? expectedFCG7Samples : isFCG6 ? expectedFCG6Samples : isFCG5 ? expectedFCG5Samples : isFCG4 ? expectedFCG4Samples : isFCG3 ? expectedFCG3Samples : isFCG2 ? expectedFCG2Samples : isWGL19 ? expectedWGL19Samples : isWGL18 ? expectedWGL18Samples : isWGL17 ? expectedWGL17Samples : isWGL16 ? expectedWGL16Samples : isWGL15 ? expectedWGL15Samples : isWGL14 ? expectedWGL14Samples : isWGL13 ? expectedWGL13Samples : isWGL12 ? expectedWGL12Samples : isWGL11 ? expectedWGL11Samples : isWGL10 ? expectedWGL10Samples : isWGL9 ? expectedWGL9Samples : isWGL8 ? expectedWGL8Samples : isWGL7 ? expectedWGL7Samples : isWGL6 ? expectedWGL6Samples : isWGL5 ? expectedWGL5Samples : isWGL4 ? expectedWGL4Samples :
   isWGL3 ? expectedWGL3Samples : isWGL2 ? expectedWGL2Samples : expectedSamples;
 const SOURCE_LIMIT = 30000;
-const MAX_PIXELS = 524288;
+const MAX_PIXELS = 2097152;
 const TIMEOUT_MS = 6000;
 const byId = id => document.getElementById(id);
 const inputs = {
@@ -113,7 +113,14 @@ let fcg6Timer = null;
 let fcg7Steps = 8;
 let fcg7Timer = null;
 let fcg8Steps = 8;
-let fcg8Timer = null;
+let fcg8Timer = null; // legacy slot; FCG8 playback now runs inside the sandbox
+let fcg8Playing=false,fcg8Pending=null,fcg8Mark=null;
+function fcg8Control(action){
+  if(!active?.completed)return false;
+  active.frame.contentWindow.postMessage({type:'fcg8-control',action,
+    requestId:active.id,generation:active.generation,session:active.session},'*');
+  return true;
+}
 
 function initializeHighlightedEditors() {
   const refreshers = {};
@@ -182,9 +189,9 @@ function sanitizeSize() {
   const width = Number(byId('width').value);
   const height = Number(byId('height').value);
   if (!Number.isInteger(width) || !Number.isInteger(height) ||
-      width < 64 || height < 64 || width > 1024 || height > 1024 ||
+      width < 64 || height < 64 || width > 2048 || height > 2048 ||
       width * height > MAX_PIXELS) {
-    throw new RangeError('幅・高さは64〜1024の整数、画素総数は524,288以下にしてください');
+    throw new RangeError('幅・高さは64〜2048の整数、画素総数は2,097,152以下にしてください');
   }
   return {width, height};
 }
@@ -303,6 +310,24 @@ function isolatedRunner() {
       const hooks = await run(gl, canvas, request.vertex, request.fragment, report,
         {steps: ['FCG2','FCG3','FCG4','FCG5','FCG6','FCG7','FCG8'].includes(request.lesson) ? request.steps : undefined,
          snapshot: request.lesson === 'WGL20' ? request.snapshot : undefined});
+      if(request.lesson==='FCG8' && hooks &&
+        ['play','pause','step','reset'].every(key=>typeof hooks[key]==='function')){
+        canvas.addEventListener('fcg8-progress',event=>{
+          const d=event.detail;
+          if(!d||!Number.isInteger(d.steps)||d.steps<0||d.steps>96)return;
+          send({...scope,type:'fcg8-progress',steps:d.steps,playing:!!d.playing,time:d.time});
+        });
+        window.addEventListener('message',event=>{
+          const m=event.data;
+          if(event.source!==parent||!m||m.type!=='fcg8-control'||
+            m.session!==scope.session||m.requestId!==scope.requestId||
+            m.generation!==scope.generation)return;
+          if(!['play','pause','step','reset'].includes(m.action))return;
+          try{hooks[m.action]();}
+          catch(error){send({...scope,type:'fcg8-control-error',
+            message:String(error?.message||error).slice(0,300)});}
+        });
+      }
       if (request.lesson === 'WGL15' && hooks && typeof hooks.pick === 'function') {
         let cursorX = Math.floor(canvas.width / 2);
         let cursorY = Math.floor(canvas.height / 2);
@@ -511,6 +536,16 @@ window.addEventListener('message', event => {
   }
   if (data.session !== active.session ||
       data.requestId !== active.id || data.generation !== active.generation) return;
+  if(isFCG8 && data.type==='fcg8-progress'){
+    if(!Number.isInteger(data.steps)||data.steps<0||data.steps>96)return;
+    fcg8Steps=data.steps;fcg8Playing=!!data.playing;
+    fcg8Mark?.();
+    return;
+  }
+  if(isFCG8 && data.type==='fcg8-control-error'){
+    setStatus('FCG8 ライブ操作エラー: '+String(data.message).slice(0,300),true);
+    fcg8Playing=false;fcg8Mark?.();return;
+  }
   if (data.type === 'context-lost' || data.type === 'context-restored') {
     byId('diagnostics').textContent += '\n' + String(data.message).slice(0, 300);
     return;
@@ -579,7 +614,7 @@ window.addEventListener('message', event => {
       Math.hypot(px-0.5-0.6*field.time*(py-0.5),py-0.5)-0.18;
     byId('result-note').textContent='panel '+panel+', cell('+i+','+j+
       '), CPU phi='+phi.toPrecision(7)+'m / GPU '+rgba.join('/')+
-      '（編集コードの場合CPUは初期基準）';
+      '（CPUは開始時step '+active.payload.steps+'の初期基準。再生中の画素を保証しません）';
     return;
   }
   if (isFCG7 && data.type === 'fcg7-cursor') {
@@ -796,6 +831,13 @@ window.addEventListener('message', event => {
       ((isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8) ? '±2' : isWGL20 ? '±1' : isWGL19 ? '±2' : isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
   }
+  if(isFCG8){
+    active.completed=!!data.ok;
+    if(data.ok&&fcg8Pending){
+      const action=fcg8Pending;fcg8Pending=null;
+      fcg8Control(action);
+    }else if(!data.ok){fcg8Pending=null;fcg8Playing=false;fcg8Mark?.();}
+  }
 });
 
 function run() {
@@ -921,7 +963,8 @@ function run() {
   iframe.srcdoc = runnerHtml();
   const generation = ++sequence;
   active = {frame: iframe, payload, id: generation, generation,
-    session: token(), started: false, timer: null};
+    session: token(), started: false, completed:false, timer: null};
+  if(isFCG8){fcg8Playing=false;fcg8Mark?.();}
   active.timer = setTimeout(() => {
     if (active?.generation !== generation) return;
     stop('タイムアウト（iframeを破棄）。ブラウザ/GPUの停止を完全には防げません。');
@@ -1061,17 +1104,18 @@ byId('preset').addEventListener('change', event => {
   selectTab('code');
 });
 if (isFCG8) {
-  document.title='FCG8 自由表面：Level Set編集・検算ラボ';
-  document.querySelector('h1').textContent='FCG8 界面の移流・再初期化・厳密粒子比較';
+  document.title='FCG8 自由表面：Level Set編集・連続再生ラボ';
+  document.querySelector('h1').textContent='FCG8 界面を実際に動かす：移流・再初期化・厳密粒子';
   document.querySelector('#panel-conditions > p').textContent=
-    '48×48セル中心Level Setを既知の非圧縮せん断で移流。左=生の移流、中央=Godunov再初期化、右=厳密な変形円周と64粒子。面積・距離勾配のCPU診断とGPU画素を比較する。圧力・表面張力は解かない。';
+    '48×48セル中心のFloat64 Level Setをせん断流で移流。3画面の再生には編集した同一JS/GLSLを使います。'+
+    '描画画素の増加と表示補間は数値格子の高精度化とは異なります。';
   document.querySelector('#panel-conditions ol').innerHTML=
-    '<li>step0/1/8/24で面積・距離勾配誤差と64粒子の軌道を比較する。</li>'+
-    '<li>1ステップ、再生、一時停止、step0へ戻す操作で物理時刻とfpsを分ける。</li>'+
-    '<li>levelset.jsのredistanceIterationsを0に、shearを0に変更しCPU基準と比較する。</li>'+
-    '<li>levelset.fragの輪郭幅0.014を変更して画素と物理量を分離する。</li>'+
-    '<li>fragment構文エラー、クリック/キーボード画素検査、GPU非対応時のCPU値を確認する。</li>';
-  byId('preset').options[0].textContent='移流／再初期化／厳密界面・粒子の3表示';
+    '<li>step0/8/24/96で界面の伸びと格子境界の影響を観察する。</li>'+
+    '<li>再生・一時停止・1ステップ・step0を操作し、物理時間と画面フレームを区別する。</li>'+
+    '<li>JSのredistanceIterationsを0、shearを0にし、再実行後のライブ表示の差を観察する。</li>'+
+    '<li>GLSLの色帯閾値0.014を変え、計算値と表示の差を確認する。</li>'+
+    '<li>初回GPU画素検算とライブ中の画素を混同しない。96stepは安全上限で、長時間では境界に達する。</li>';
+  byId('preset').options[0].textContent='移流／再初期化／解析界面の3表示';
   byId('preset').options[1].textContent='fragment構文エラー';
   const controls=document.createElement('div');controls.className='controls';
   const step=document.createElement('button'),play=document.createElement('button'),
@@ -1083,29 +1127,31 @@ if (isFCG8) {
   controls.append(marker);byId('run').parentElement.before(controls);
   const preview=document.createElement('p');preview.id='fcg8-cpu-prediction';
   preview.setAttribute('aria-live','polite');
-  preview.textContent='GPU非対応でも独立CPUの面積・勾配誤差を表示します。';
+  preview.textContent='GPU非対応でも独立CPUの初期面積・勾配誤差を確認できます。';
   byId('panel-result').append(preview);
-  function mark(){
-    marker.textContent='物理step '+fcg8Steps+'/24、時刻 '+(fcg8Steps*0.04).toFixed(2)+'s（描画fpsとは独立）';
-    pause.disabled=fcg8Timer===null;play.disabled=fcg8Timer!==null;
+  const note=document.createElement('p');note.className='visual-snapshot-note';
+  note.textContent='初期画素を独立CPUで検算した後、同じ編集コードが96stepまで連続更新します。'+
+    '表とCPU数値は開始時刻の静止基準であり、再生中の毎フレームを検算したものではありません。'+
+    '48×48格子の表示補間は数値解像度の向上ではありません。';
+  byId('canvas-slot').before(note);
+  fcg8Mark=function(){
+    marker.textContent='物理step '+fcg8Steps+'/96、時刻 '+(fcg8Steps*.04).toFixed(2)+
+      's ／ '+(fcg8Playing?'再生中':'停止中');
+    pause.disabled=!fcg8Playing;
+    play.disabled=fcg8Playing;
+    step.disabled=fcg8Steps>=96;
+  };
+  function control(action){
+    if(!ready){setStatus('教材ソースの読み込みを確認してください',true);return;}
+    if(!fcg8Control(action)){fcg8Pending=action;run();}
   }
-  function pausePlay(){if(fcg8Timer!==null){clearInterval(fcg8Timer);fcg8Timer=null;}mark();}
-  step.addEventListener('click',()=>{
-    pausePlay();if(fcg8Steps>=24){setStatus('24 stepで上限。step0へ戻してください');return;}
-    fcg8Steps++;mark();run();
-  });
-  play.addEventListener('click',()=>{
-    if(fcg8Timer!==null)return;
-    fcg8Timer=setInterval(()=>{
-      if(fcg8Steps>=24){pausePlay();return;}
-      fcg8Steps++;mark();run();if(fcg8Steps>=24)pausePlay();
-    },1000);mark();
-  });
-  pause.addEventListener('click',pausePlay);
-  back.addEventListener('click',()=>{pausePlay();fcg8Steps=0;mark();run();});
-  byId('reset').addEventListener('click',mark);
-  byId('stop').addEventListener('click',mark);
-  mark();
+  step.addEventListener('click',()=>control('step'));
+  play.addEventListener('click',()=>control('play'));
+  pause.addEventListener('click',()=>control('pause'));
+  back.addEventListener('click',()=>control('reset'));
+  byId('reset').addEventListener('click',()=>{fcg8Steps=8;fcg8Playing=false;fcg8Pending=null;fcg8Mark();});
+  byId('stop').addEventListener('click',()=>{fcg8Playing=false;fcg8Pending=null;fcg8Mark();});
+  fcg8Mark();
 }
 if (isFCG7) {
   document.title='FCG7 PIC/FLIP：編集・検算ラボ';
@@ -1683,9 +1729,9 @@ if (isFCG5) mountSmokeObservation(byId('panel-conditions'));
 if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-conditions')});
 // Three physical panels must have square pixel footprints: avoid stretching a
 // 1x1 metre domain into ~100x240 strips at the original 320x240 default.
-const sizeHint=(isFCG4||isFCG5||isFCG6||isFCG7||isFCG8)?[900,300]:
-  isFCG3?[640,320]:isFCG2?[480,480]:
-  (lesson==='WGL1'||isWGL2||isWGL3)?[480,480]:[320,240];
+const sizeHint=(isFCG4||isFCG5||isFCG6||isFCG7||isFCG8)?[1536,512]:
+  isFCG3?[1280,640]:isFCG2?[960,960]:
+  (lesson==='WGL1'||isWGL2||isWGL3)?[960,960]:[960,720];
 byId('width').value=String(sizeHint[0]);
 byId('height').value=String(sizeHint[1]);
 // An animated scene is only validated at its first static snapshot.
