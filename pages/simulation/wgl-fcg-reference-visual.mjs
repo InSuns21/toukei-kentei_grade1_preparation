@@ -32,7 +32,10 @@ function initialFrame(lesson){
   const canvases=names.map((name,i)=>{
     const figure=document.createElement('figure'),figcaption=document.createElement('figcaption');
     figcaption.textContent=name;
-    const canvas=document.createElement('canvas');canvas.width=canvas.height=isFluid?280:440;
+    const canvas=document.createElement('canvas');
+    // Retina sharpness, independent of the underlying 48-cell numerical grid.
+    const ratio=clamp(Number(window.devicePixelRatio)||1,1,2);
+    canvas.width=canvas.height=Math.round((isFluid?320:440)*ratio);
     canvas.setAttribute('aria-label',name+'。正方形の物理表示領域');
     const legend=document.createElement('small');legend.textContent=legends[i];
     figure.append(figcaption,canvas,legend);grid.append(figure);return canvas;
@@ -40,7 +43,7 @@ function initialFrame(lesson){
   return {section,canvases};
 }
 function paintGrid(ctx,n){
-  ctx.save();ctx.strokeStyle='rgba(210,234,250,.13)';ctx.lineWidth=.8;
+  ctx.save();ctx.strokeStyle='rgba(210,234,250,.13)';ctx.lineWidth=.8*n/320;
   for(let k=1;k<5;k++){
     const a=k*n/5;
     ctx.beginPath();ctx.moveTo(a,0);ctx.lineTo(a,n);
@@ -59,7 +62,7 @@ function contour(ctx,n,t,fill=false){
   }
   ctx.closePath();
   if(fill){ctx.fillStyle='rgba(31,143,210,.65)';ctx.fill();}
-  ctx.setLineDash([6,4]);ctx.strokeStyle='#f8fafc';ctx.lineWidth=1.7;ctx.stroke();ctx.restore();
+  ctx.setLineDash([6*n/320,4*n/320]);ctx.strokeStyle='#f8fafc';ctx.lineWidth=1.7*n/320;ctx.stroke();ctx.restore();
 }
 function levelMap(canvas,field){
   const ctx=canvas.getContext('2d'),N=48,n=canvas.width;
@@ -72,7 +75,7 @@ function levelMap(canvas,field){
     img.data[k+3]=255;
   }
   off.putImageData(img,0,0);
-  ctx.imageSmoothingEnabled=false;ctx.drawImage(tmp,0,0,n,n);
+  ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';ctx.drawImage(tmp,0,0,n,n);
 }
 function interpolated(a,b,t){
   const out=new Float64Array(a.length);
@@ -85,7 +88,7 @@ function zeroLines(ctx,n,field){
     const f=a===b?.5:clamp(a/(a-b),0,1);
     return [(i+.5+f*dx)/N*n,(1-(j+.5+f*dy)/N)*n];
   };
-  ctx.save();ctx.beginPath();ctx.strokeStyle='#ffd16a';ctx.lineWidth=2;
+  ctx.save();ctx.beginPath();ctx.strokeStyle='#ffd16a';ctx.lineWidth=2*n/320;
   for(let j=0;j<N-1;j++)for(let i=0;i<N-1;i++){
     const a=val(i,j),b=val(i+1,j),c=val(i+1,j+1),d=val(i,j+1);
     const pts=[];
@@ -102,7 +105,7 @@ function particles(ctx,n,t){
   for(let k=0;k<64;k++){
     const a=k*2*Math.PI/64,y=.5+.18*Math.sin(a);
     const x=.5+.18*Math.cos(a)+.6*t*(y-.5);
-    ctx.beginPath();ctx.arc(x*n,(1-y)*n,2.7,0,2*Math.PI);
+    ctx.beginPath();ctx.arc(x*n,(1-y)*n,2.7*n/320,0,2*Math.PI);
     ctx.fill();ctx.lineWidth=.7;ctx.stroke();
   }
   ctx.restore();
@@ -162,8 +165,8 @@ export function mountReferenceObservation({lesson,parent}){
   const button=section.querySelector('[data-action="play"]'),stats=section.querySelector('.visual-stats');
   const notes=section.querySelector('.visual-model-warning');
   notes.textContent=isFluid?
-    'FCG8の独立CPU基準を使い、24stepの間を表示だけ線形補間します。中間フレームは新しいPDE解ではありません。'+
-    'GPU編集コードの出力は下の3タブラボで検証してください。':
+    'FCG8の独立CPU基準を使い、96stepの間を表示だけ線形補間します。中間フレームは新しいPDE解ではありません。'+
+    'GPU編集コードの連続再生は下の3タブラボで行います。後半は境界付近の数値誤差に注意してください。':
     'WGL4の実際の変換 T×R×S（scaleY=0.5、平行移動=(0.25,-0.10)）を使うWebGL2の観察用シェーダです。'+
     '下の編集欄とは独立であり、コード編集による画素変化は従来のラボで確かめます。';
   let renderer=null;
@@ -179,12 +182,13 @@ export function mountReferenceObservation({lesson,parent}){
     if(!cache.has(k))cache.set(k,fcg8State(k));
     return cache.get(k);
   };
+  const duration=isFluid?12:8,maxSteps=96;
   let position=0,playing=!matchMedia('(prefers-reduced-motion: reduce)').matches;
   let previous=0,raf=0,frames=0;
   if(!playing)button.textContent='再生';
   const speed=section.querySelector('[data-action="speed"]');
   function paint(){
-    const fraction=position/8;
+    const fraction=position/duration;
     seek.value=String(Math.round(fraction*1000));
     if(!isFluid){
       const deg=90+fraction*360;
@@ -193,8 +197,8 @@ export function mountReferenceObservation({lesson,parent}){
       stats.textContent='T×R×S / 回転の基準角90° / 赤と緑の座標軸も同じ行列で変換';
       return;
     }
-    const progress=fraction*24,k=Math.min(24,Math.floor(progress)),alpha=progress-k;
-    const a=state(k),b=state(Math.min(24,k+1)),t=progress*.04;
+    const progress=fraction*maxSteps,k=Math.min(maxSteps,Math.floor(progress)),alpha=progress-k;
+    const a=state(k),b=state(Math.min(maxSteps,k+1)),t=progress*.04;
     clock.textContent='物理時刻 '+t.toFixed(2)+' s / step '+progress.toFixed(1);
     for(let i=0;i<3;i++){
       const canvas=canvases[i],ctx=canvas.getContext('2d'),size=canvas.width;
@@ -218,14 +222,14 @@ export function mountReferenceObservation({lesson,parent}){
     if(!previous)previous=now;
     const delta=clamp((now-previous)/1000,0,.05);
     previous=now;
-    position=isFluid?Math.min(8,position+delta*Number(speed.value)):
-      (position+delta*Number(speed.value))%8;
-    if(isFluid&&position>=8){playing=false;button.textContent='再生';}
+    position=isFluid?Math.min(duration,position+delta*Number(speed.value)):
+      (position+delta*Number(speed.value))%duration;
+    if(isFluid&&position>=duration){playing=false;button.textContent='再生';}
     frames++;paint();
   }
   button.addEventListener('click',()=>{playing=!playing;button.textContent=playing?'一時停止':'再生';previous=0;});
   section.querySelector('[data-action="back"]').addEventListener('click',()=>{position=0;paint();});
-  seek.addEventListener('input',()=>{position=Number(seek.value)/1000*8;paint();previous=0;});
+  seek.addEventListener('input',()=>{position=Number(seek.value)/1000*duration;paint();previous=0;});
   paint();raf=requestAnimationFrame(tick);
   window.addEventListener('pagehide',()=>cancelAnimationFrame(raf),{once:true});
   return section;
