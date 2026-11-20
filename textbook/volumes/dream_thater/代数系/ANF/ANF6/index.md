@@ -372,15 +372,15 @@ $[K:\mathbb Q]=n$ の整数環 $A$ について、正整数 $m$ と整イデア�
 <!-- solution-start -->
 **詳細解答**　[整数基底](../ANF1/index.md#thm-anf1-integral-basis)を使うと、整数環は加法群として $A\simeq\mathbb Z^n$ です。よって
 
-$
+$$
 A/mA\simeq(\mathbb Z/m\mathbb Z)^n,\qquad |A/mA|=m^n.
-$
+$$
 
 $A/J$ は位数 $m$ の加法群です。その各元の位数は $m$ を割る（その元が生成する巡回部分群の剰余類で群を分割できる）ので、全ての $x\in A$ について
 
-$
+$$
 m(x+J)=0+J,\qquad mA\subseteq J.
-$
+$$
 
 従って $J/mA$ は有限環 $A/mA$ のイデアルであり、その候補数は有限です。ノルムの値を $k=1,\dots,m$ に固定して同じ議論を繰り返せば、ノルムが $m$ 以下の整イデアルも有限個となります。
 <!-- solution-end -->
