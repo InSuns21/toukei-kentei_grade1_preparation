@@ -26,14 +26,14 @@ $N(0,hI_r)$ は平均 $0$、分散共分散行列 $hI_r$ の正規分布を表�
 
 この行列積が現れる理由を確かめる。$\Delta W_t=W_{t+h}-W_t$ と置くと、$r$ 次元ブラウン増分の共分散は $hI_r$ である。拡散係数を掛けた変位 $\Sigma\Delta W_t\in\mathbb R^d$ について、転置を取る順序に注意して
 
-$
+$$
 \begin{aligned}
 \mathbb E\!\left[(\Sigma\Delta W_t)(\Sigma\Delta W_t)^\mathsf T\right]
 &=\Sigma\,\mathbb E[\Delta W_t\Delta W_t^\mathsf T]\,\Sigma^\mathsf T\\
 &=h\Sigma I_r\Sigma^\mathsf T
 =h\Sigma\Sigma^\mathsf T.
 \end{aligned}
-$
+$$
 
 従って $\Sigma\Sigma^\mathsf T$ は**単位時間当たりのブラウン駆動部分の共分散**を表す。ドリフトによる変位は時間幅 $h$ の一次の大きさで、共分散を $h$ で割った極限では二次変動を作るブラウン項だけが残る。この対応を用いて、以下では $A=\Sigma\Sigma^\mathsf T$ を局所分散共分散行列と呼ぶ。
 
@@ -641,14 +641,14 @@ $$
 
 両者のドリフトは $-\nabla f$ で、$\Delta\varphi:=\partial_{11}\varphi+\partial_{22}\varphi$ を二次元の Laplace 作用素と定めれば、[過減衰Langevin型拡散の生成作用素](#prop-pml1-08-generator)よりどちらも $L\varphi=-\nabla f\cdot\nabla\varphi+\tau\Delta\varphi$ となる。しかし同じ $W$ に対し拡散項は $\sqrt{2\tau}\,dW$ と $\sqrt{2\tau}R\,dW$ で異なる。例えば $f(x)=\|x\|^2/2$ とし、同じ初期値 $X_0=0$ とブラウン運動 $W$ の下で $\Sigma_1,\Sigma_2$ をそれぞれ用いた解を $X^{(1)},X^{(2)}$ と書けば、時刻 $t>0$ の明示解の差は $\sqrt{2\tau}\int_0^t e^{-(t-s)}(I_2-R)dW_s$ で、その二乗平均は正である。実際、$(I_2-R)(I_2-R)^\mathsf T=2I_2$ だから、[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-l2-construction)より
 
-$
+$$
 \begin{aligned}
 \mathbb E\|X_t^{(1)}-X_t^{(2)}\|^2
 &=2\tau\int_0^t e^{-2(t-s)}
   \operatorname{tr}\!\left((I_2-R)(I_2-R)^\mathsf T\right)\,ds\\
 &=4\tau(1-e^{-2t})>0.
 \end{aligned}
-$
+$$
 
 生成作用素が同じことは、固定した雑音標本路ごとの一致を意味しない。
 <!-- solution-end -->
