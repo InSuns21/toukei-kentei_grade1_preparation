@@ -1108,6 +1108,42 @@ try{
     assert.match(edited18.log,/CPU独立基準 vs GPU RGBA32F: max absolute error=.*一致/);
     console.log('WGL18 learner-edited step count validates against independent CPU: PASS');
   }
+  // G4: changing an actual source-backed parameter, saving, reloading, and
+  // resetting must preserve a single execution model, not a parallel preview.
+  // This also checks the source contract when float framebuffers are unavailable.
+  const g4Initial18=await evalJS('({value:document.getElementById("parameter-rate")?.value,disabled:document.getElementById("parameter-rate")?.disabled})');
+  assert.deepEqual(g4Initial18,{value:'0.2',disabled:false});
+  await evalJS('(()=>{const e=document.getElementById("parameter-rate");e.value="0.1";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  assert.equal(await evalJS('document.getElementById("js-source").value.includes("const rate = 0.1;")'),true);
+  assert.equal(await evalJS('document.getElementById("parameter-rate").value'),'0.1');
+  await waitFor('document.getElementById("status")?.textContent.match(/編集コードを実行しました|WebGL2実行エラー|タイムアウト/)',22000);
+  const g4Changed18=await evalJS('({status:document.getElementById("status").textContent,summary:document.getElementById("numeric-summary").textContent,frame:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
+  if(!w18.status.includes('WebGL2実行エラー')){
+    assert.match(g4Changed18.status,/編集コードを実行しました/,'G4 GUI execution: '+JSON.stringify(g4Changed18));
+    assert.match(g4Changed18.summary,/編集版/);
+  }
+  assert.equal(g4Changed18.frame,'allow-scripts');
+  await click('save');
+  assert.match(await evalJS('document.getElementById("save-status").textContent'),/保存しました/);
+  await cdp('Page.navigate',{url:url+'?lesson=WGL18'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true,
+    'restoring saved JS must never auto-execute an opaque sandbox');
+  assert.equal(await evalJS('document.getElementById("js-source").value.includes("const rate = 0.1;")'),true);
+  assert.equal(await evalJS('document.getElementById("parameter-rate").value'),'0.1');
+  await evalJS('(()=>{const e=document.getElementById("js-source");e.value=e.value.replace("const rate = 0.1;","const rate = 1/5;");e.dispatchEvent(new Event("input",{bubbles:true}));})()');
+  assert.equal(await evalJS('document.getElementById("parameter-rate").disabled'),true,
+    'nonliteral learner JS must not be overwritten by a slider');
+  assert.equal(await evalJS('document.getElementById("js-source").value.includes("const rate = 1/5;")'),true);
+  await click('reset');
+  assert.equal(await evalJS('document.getElementById("parameter-rate").value'),'0.2');
+  assert.equal(await evalJS('document.getElementById("parameter-rate").disabled'),false);
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
+  await click('tab-conditions');
+  await evalJS('(()=>{const t=document.getElementById("tab-conditions");t.focus();t.dispatchEvent(new KeyboardEvent("keydown",{key:"ArrowRight",bubbles:true}));})()');
+  assert.equal(await evalJS('document.activeElement.id'),'tab-code');
+  assert.equal(await evalJS('document.getElementById("tab-code").getAttribute("aria-selected")'),'true');
+  console.log('G4 WGL18 GUI→edited sandbox→save→no-auto-run restore→source priority→reset→keyboard: PASS');
   await click('stop');
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
 
