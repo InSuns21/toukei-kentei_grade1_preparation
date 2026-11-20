@@ -17,6 +17,7 @@
 <button class="action" type="button" id="save">編集を保存</button>
 <button class="action" type="button" id="reset">初期ソースへ戻す</button>
 <span id="save-status" role="status" aria-live="polite"></span>
+<span id="action-feedback" role="alert"></span>
 </div>
 </div>
 <section role="tabpanel" id="panel-conditions" aria-labelledby="tab-conditions">
@@ -37,12 +38,22 @@
 </div>
 </section>
 <section role="tabpanel" id="panel-result" aria-labelledby="tab-result" hidden>
+<div class="result-heading">
+<h2>描画結果</h2>
+<button type="button" class="action" id="edit-after-run">コードを編集</button>
+</div>
 <p id="status" role="status" aria-live="polite">未実行</p>
 <div id="canvas-slot" aria-label="隔離された WebGL2 描画結果"></div>
-<h2>CPU予測とGPU画素の照合</h2>
-<p id="result-note">結果は実行後に表示されます。</p>
-<div id="results-table"></div>
-<h2>診断ログ</h2><pre id="diagnostics" aria-live="polite">未実行</pre>
+<p id="result-note" role="status" aria-live="polite">結果は実行後に表示されます。</p>
+<details id="numeric-details" class="lab-details">
+<summary>CPU予測とGPU画素の照合 <span id="numeric-summary">（未実行）</span></summary>
+<p id="numeric-note">数値検算は実行後に表示されます。</p>
+<div class="lab-table-scroll" role="region" aria-label="CPU予測とGPU画素の照合表" tabindex="0"><div id="results-table"></div></div>
+</details>
+<details id="diagnostics-details" class="lab-details">
+<summary>GLSL診断・実行ログ</summary>
+<pre id="diagnostics" aria-live="polite">未実行</pre>
+</details>
 </section>
 <small>保存内容は教材の更新時に自動実行しません。GPU非対応時は CPU 側の予測だけを示し、GPU課題の達成とは判定しません。</small>
 </main><script type="module" src="wgl-lab-host.mjs"></script></body></html>
