@@ -15,7 +15,7 @@ chapters:
     title: "跡・ノルム・判別式"
   - id: ANF3
     path: textbook/volumes/dream_thater/代数系/ANF/ANF3
-    status: planned
+    status: completed
     title: "Dedekind環とイデアルの分解"
   - id: ANF4
     path: textbook/volumes/dream_thater/代数系/ANF/ANF4

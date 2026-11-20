@@ -1,0 +1,52 @@
+chapter: ANF3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF2
+forward_references: []
+
+concepts:
+  - id: number-theory.dedekind-domain
+    name: Dedekind整域
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Dedekind整域）"]
+    requires: [algebraic-geometry.noetherian-ring, algebraic-geometry.integral-element, algebra.prime-ideal, algebra.maximal-ideal]
+
+  - id: number-theory.number-ring-dedekind
+    name: 数体の整数環は Dedekind整域
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.dedekind-domain, number-theory.integral-basis, algebraic-geometry.integral-tower]
+
+  - id: number-theory.fractional-ideal
+    name: 分数イデアル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（分数イデアル）"]
+    requires: [algebra.ideal-product, number-theory.dedekind-domain]
+
+  - id: number-theory.ideal-inverse-invertibility
+    name: イデアルの逆と可逆性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（イデアルの逆と可逆性）"]
+    requires: [number-theory.fractional-ideal, algebra.ideal-product]
+
+  - id: number-theory.local-principal-dedekind
+    name: Dedekind整域の局所単項性
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.dedekind-domain, algebraic-geometry.localization, algebraic-geometry.quotient-localization-noether]
+
+  - id: number-theory.invertible-ideals-dedekind
+    name: 非零分数イデアルの可逆性
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.ideal-inverse-invertibility, number-theory.local-principal-dedekind]
+
+  - id: number-theory.prime-ideal-factorization
+    name: Dedekind整域の素イデアル分解
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.invertible-ideals-dedekind, number-theory.local-principal-dedekind, algebraic-geometry.ideal-acc]
