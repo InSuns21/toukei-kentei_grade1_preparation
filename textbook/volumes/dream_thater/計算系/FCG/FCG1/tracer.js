@@ -49,6 +49,8 @@ function createLab(canvas, settings, emit) {
   function snapshot() {
     return {
       time, steps, mode, dt: h,
+      // Report the actual editable drawing viewport and buffer, not a host-side copy.
+      view: {...view}, canvasWidth: canvas.width, canvasHeight: canvas.height,
       particles: particles.map(p => {
         const reference = exact(p.start, time);
         const difference = Math.hypot(p.position[0] - reference[0],
