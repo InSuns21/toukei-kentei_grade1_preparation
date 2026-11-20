@@ -1482,59 +1482,115 @@ if (isFCG3) {
   mark();
 }
 if (isFCG2) {
-  document.title='FCG2 物理格子からWebGL2へ：編集・検算ラボ';
-  document.querySelector('h1').textContent='FCG2 時間発展する8×8スカラー場とGPU表示';
+  document.title='FCG2 連続時間のスカラー場とGPU検算';
+  document.querySelector('h1').textContent='FCG2 数値が色になるまで：連続時間とGPU検算';
   document.querySelector('#panel-conditions > p').textContent=
-    '解析式で毎step更新する8×8のスカラー場をR8 textureにしてGPU表示します。流体PDEは解きません。画素から格子へ戻す式、R8丸め、GPU表示を独立CPU基準と照合してください。';
+    'この色は温度や実測流速ではなく、解析式で作った架空のスカラー場qです。'+
+    'JSで64値を計算し、R8に量子化してGPUで偽色表示します。流体PDEは解きません。';
   document.querySelector('#panel-conditions ol').innerHTML=
-    '<li>初期のstep1で5画素のCPU予測・GPU照合を確認する。</li>'+
-    '<li>1step・再生・一時停止・時刻0への復帰を実行する。</li>'+
-    '<li>描画canvasをクリック（または矢印キー＋Enter）して格子・q・色を検査する。</li>'+
-    '<li>density.jsの解析場・density.fragの色変換を編集し、変化を比較する。</li>'+
-    '<li>構文エラープリセットとGPU非対応時の診断を確認する。</li>';
-  byId('preset').options[0].textContent='8×8解析スカラー場・R8量子化';
+    '<li>実行して凡例の青紫（小さいq）と赤紫（大きいq）を確認する。</li>'+
+    '<li>再生で滑らかな連続時間、スライダーで任意の時刻、1stepで演習用のπ/2秒の節目を確かめる。</li>'+
+    '<li>キャンバスをクリック、または矢印キー＋Enterで選択セルを検算する。</li>'+
+    '<li>density.jsの振幅やdensity.fragの色変換を編集し、初期CPU基準と比較する。</li>'+
+    '<li>構文エラー・GPU非対応時の診断を確認する。</li>';
+  byId('preset').options[0].textContent='解析場8×8の連続表示とR8検算';
   byId('preset').options[1].textContent='fragmentの構文エラー';
-  byId('result-note').textContent='GPU非対応でもCPUの独立予測値は下に表示します。';
-  const controls=document.createElement('div');
-  controls.className='controls';
-  const step=document.createElement('button');
-  const play=document.createElement('button');
-  const pause=document.createElement('button');
-  const back=document.createElement('button');
-  const marker=document.createElement('output');
+  const controls=document.createElement('div');controls.className='controls fcg2-time-controls';
+  const step=document.createElement('button'),play=document.createElement('button'),
+    pause=document.createElement('button'),back=document.createElement('button'),
+    marker=document.createElement('output');
   for(const [button,label] of [[step,'1step'],[play,'再生'],[pause,'一時停止'],[back,'時刻0へ戻す']]){
-    button.type='button';button.textContent=label;button.className='action';controls.append(button);
+    button.type='button';button.className='action';button.textContent=label;controls.append(button);
   }
-  controls.append(marker);
-  // Put physical-step controls outside all tabpanels; they must remain visible with GPU canvas.
+  const seekLabel=document.createElement('label');seekLabel.textContent='物理時刻';
+  const seek=document.createElement('input');seek.type='range';seek.id='fcg2-time-slider';
+  seek.min='0';seek.max=String(FCG2_PERIOD);seek.step='0.01';
+  seek.setAttribute('aria-label','解析場の物理時刻（0から2π秒）');
+  seekLabel.append(seek);controls.append(seekLabel);
+  marker.id='fcg2-time-display';controls.append(marker);
   byId('run').parentElement.before(controls);
-  const cpuPreview=document.createElement('p');
-  cpuPreview.id='fcg2-cpu-prediction';
-  cpuPreview.setAttribute('aria-live','polite');
-  byId('panel-result').append(cpuPreview);
-  function mark(){marker.textContent='物理step '+fcg2Steps+' / 4、t='+
-    (fcg2Steps*Math.PI/2).toFixed(3)+' s（再描画だけでは物理時刻は進みません）';
-    pause.disabled=fcg2Timer===null;play.disabled=fcg2Timer!==null;}
-  function pausePlay(){if(fcg2Timer!==null){clearInterval(fcg2Timer);fcg2Timer=null;}mark();}
+  const panel=byId('panel-result'),canvasSlot=byId('canvas-slot');
+  panel.classList.add('fcg2-result');
+  const stage=document.createElement('div');stage.className='fcg2-stage';
+  const inspector=document.createElement('aside');inspector.id='fcg2-inspector';
+  inspector.setAttribute('aria-label','選択セルの数値とGPU画素');
+  inspector.innerHTML=
+    '<h2>セルをクリックして検算</h2>'+
+    '<p class="fcg2-explain">64セルは解析的な合成データであり、実測物理量ではありません。</p>'+
+    '<div class="fcg2-legend-label"><span>小 q=0.25</span><span>中 0.50</span><span>大 q=0.75</span></div>'+
+    '<div class="fcg2-gradient" role="img" aria-label="小さい値は青紫、大きい値は赤紫"></div>'+
+    '<p class="fcg2-selected" id="fcg2-selected">セル(1,1)／左下原点</p>'+
+    '<div class="fcg2-metrics">'+
+    '<div><small>解析値 q（独立CPU）</small><strong id="fcg2-q">—</strong></div>'+
+    '<div><small>R8 byte → 復元値</small><strong id="fcg2-byte">—</strong></div>'+
+    '<div><small>GPU実測 RGBA</small><strong id="fcg2-gpu">—</strong></div>'+
+    '<div><small>予測との差（最大階調）</small><strong id="fcg2-difference">—</strong></div>'+
+    '</div>'+
+    '<p id="fcg2-inspection-note" class="fcg2-explain">実行するとGPU画素を読み戻します。</p>'+
+    '<p class="fcg2-explain">初期shaderの予測は (R8,38,255-R8,255)。'+
+    '初期コードのみ±2階調で照合。ソース編集後は参考比較です。</p>';
+  canvasSlot.before(stage);stage.append(canvasSlot,inspector);
+  const cpuPreview=document.createElement('p');cpuPreview.id='fcg2-cpu-prediction';
+  cpuPreview.setAttribute('aria-live','polite');panel.append(cpuPreview);
+  fcg2Inspector=(time,x,y,actual)=>{
+    const [i,j]=fcg2PixelCell(x,y,active?.payload.width||512,active?.payload.height||512);
+    const q=fcg2FieldAtTime(i,j,time),byte=fcg2Encode(q);
+    const expected=[byte,38,255-byte,255];
+    const valid=Array.isArray(actual)&&actual.length===4&&
+      actual.every(v=>Number.isInteger(v)&&v>=0&&v<=255);
+    const difference=valid?Math.max(...expected.map((v,k)=>Math.abs(v-actual[k]))):null;
+    const unchanged=active?.payload&&Object.keys(defaults).every(key=>
+      active.payload[key]===defaults[key]);
+    byId('fcg2-selected').textContent='セル('+i+','+j+')／画素('+x+','+y+')／t='+time.toFixed(2)+' s';
+    byId('fcg2-q').textContent=q.toFixed(6);
+    byId('fcg2-byte').textContent=byte+' → '+(byte/255).toFixed(6);
+    byId('fcg2-gpu').textContent=valid?actual.join(', '):'未取得';
+    byId('fcg2-difference').textContent=difference===null?'—':difference+' / 255';
+    byId('fcg2-inspection-note').textContent=!valid?
+      'GPU未取得。独立CPU予測を表示しています。':
+      unchanged?(difference<=2?'初期コードのCPU/GPUは±2階調以内で一致。':
+        '初期CPU/GPUが不一致。UV・shader・テクスチャを確認してください。'):
+      '編集コードです。初期基準との差は参考値で、誤答判定ではありません。';
+  };
+  fcg2Mark=()=>{
+    marker.textContent='t='+fcg2Time.toFixed(2)+' s / '+FCG2_PERIOD.toFixed(2)+
+      ' s（各描画時刻で実際に再計算・単なる画像補間ではありません）';
+    seek.value=String(Math.max(0,Math.min(FCG2_PERIOD,fcg2Time)));
+    seek.disabled=!active?.completed;
+    play.disabled=fcg2Playing;pause.disabled=!fcg2Playing;
+  };
   step.addEventListener('click',()=>{
-    pausePlay();if(fcg2Steps>=4){setStatus('step4で終了。時刻0へ戻してください');return;}
-    fcg2Steps++;mark();run();
+    fcg2Control('pause');fcg2Playing=false;fcg2Pending=null;
+    const n=Math.floor((fcg2Time+1e-8)/(Math.PI/2))+1;
+    fcg2Steps=n>4?0:n;fcg2Time=fcg2Steps*Math.PI/2;
+    fcg2Mark();run();
   });
   play.addEventListener('click',()=>{
-    if(fcg2Timer!==null)return;
-    fcg2Timer=setInterval(()=>{
-      if(fcg2Steps>=4){pausePlay();return;}
-      fcg2Steps++;mark();run();
-      if(fcg2Steps>=4)pausePlay();
-    },1500);
-    mark();
+    if(fcg2Playing)return;
+    if(!fcg2Control('play')){
+      fcg2Pending='play';if(!active?.started)run();
+    }
   });
-  pause.addEventListener('click',pausePlay);
-  back.addEventListener('click',()=>{pausePlay();fcg2Steps=0;mark();run();});
-  byId('reset').addEventListener('click',mark);
-  byId('stop').addEventListener('click',mark);
-  mark();
+  pause.addEventListener('click',()=>{
+    fcg2Pending=null;fcg2Control('pause');fcg2Playing=false;fcg2Mark();
+  });
+  back.addEventListener('click',()=>{
+    fcg2Pending=null;fcg2Playing=false;fcg2Steps=0;fcg2Time=0;
+    if(active?.completed)fcg2Control('reset');else run();
+    fcg2Mark();
+  });
+  seek.addEventListener('input',()=>{
+    if(!active?.completed)return;
+    fcg2Playing=false;fcg2Time=Number(seek.value);
+    fcg2Control('pause');fcg2Control('seek',fcg2Time);fcg2Mark();
+  });
+  byId('stop').addEventListener('click',()=>{
+    fcg2Playing=false;fcg2Pending=null;fcg2Mark();
+  });
+  byId('reset').addEventListener('click',fcg2Mark);
+  fcg2Mark();
 }
+
 if (isWGL2) {
   document.title = 'WGL2 頂点属性・uniform・varying 共通ラボ';
   document.querySelector('h1').textContent = 'WGL2 頂点ごとのRGB色を画素へ補間する';
@@ -1821,7 +1877,7 @@ if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-condi
 // Three physical panels must have square pixel footprints: avoid stretching a
 // 1x1 metre domain into ~100x240 strips at the original 320x240 default.
 const sizeHint=(isFCG4||isFCG5||isFCG6||isFCG7||isFCG8)?[1536,512]:
-  isFCG3?[1024,512]:isFCG2?[720,720]:
+  isFCG3?[1024,512]:isFCG2?[512,512]:
   (lesson==='WGL1'||isWGL2||isWGL3)?[960,960]:
   legacyViewport?[800,600]:[960,720];
 // Make the actual limits legible when a lesson's independent CPU oracle
