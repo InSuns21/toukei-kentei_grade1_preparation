@@ -77,8 +77,8 @@ try {
       await evaluate('({status:document.querySelector("#status")?.textContent,logs:document.querySelector("#diagnostics")?.textContent?.slice(-400)})'))+
       ' exceptions='+JSON.stringify(exceptions.slice(-2)));
   };
-  const action=label=>evaluate('([...document.querySelectorAll("button")].find(x=>x.textContent.trim()==='+JSON.stringify(label)+')).click()');
-  const step=()=>evaluate('Number(document.querySelector("output")?.textContent?.match(/物理step (\\d+)/)?.[1]||NaN)');
+  const action=label=>evaluate('([...document.querySelectorAll("#lab-actions button")].find(x=>x.textContent.trim()==='+JSON.stringify(label)+')).click()');
+  const step=()=>evaluate('Number(document.querySelector("#lab-actions output")?.textContent?.match(/物理step (\\d+)/)?.[1]||NaN)');
   await cdp('Runtime.enable');await cdp('Page.enable');
   await cdp('Emulation.setDeviceMetricsOverride',{width:1200,height:850,deviceScaleFactor:1,mobile:false});
   await cdp('Page.navigate',{url});
@@ -98,16 +98,16 @@ try {
   const first=(await cdp('Page.captureScreenshot',{format:'png',clip,captureBeyondViewport:true})).data;
   assert.equal(await step(),8);
   await action('再生');
-  await waitFor('Number(document.querySelector("output")?.textContent?.match(/物理step (\\d+)/)?.[1]||0)>15');
+  await waitFor('Number(document.querySelector("#lab-actions output")?.textContent?.match(/物理step (\\d+)/)?.[1]||0)>15');
   await action('一時停止');
   const now=await step();
   assert.ok(now>15&&now<=96,'editable physical state must progress: '+now);
   const after=(await cdp('Page.captureScreenshot',{format:'png',clip,captureBeyondViewport:true})).data;
   assert.notEqual(first,after,'the same sandbox GPU canvas must visibly change under Play');
   await action('step 0へ戻す');
-  await waitFor('document.querySelector("output")?.textContent.includes("物理step 0/96")');
+  await waitFor('document.querySelector("#lab-actions output")?.textContent.includes("物理step 0/96")');
   await action('1ステップ');
-  await waitFor('document.querySelector("output")?.textContent.includes("物理step 1/96")');
+  await waitFor('document.querySelector("#lab-actions output")?.textContent.includes("物理step 1/96")');
   assert.equal(await evaluate('document.querySelectorAll("#canvas-slot iframe").length'),1,
     'step and reset must retain a single live sandbox');
   console.log('FCG8 initial CPU/GPU pixels, actual animated sandbox GPU screenshot, pause, reset, step and high-res: PASS');
