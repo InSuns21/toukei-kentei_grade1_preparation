@@ -44,7 +44,7 @@ $$
 この台帳は新しい物理法則ではなく、既習の不等式の前提を落とさず使うための記法です。定義の条件を二つの四量子ビット例で直接確かめます。
 
 <!-- definition-example-start: def-bhi16-consistent-ledger -->
-**定義の確認。** $R,b,c,D$ をそれぞれ量子ビットとし、$|\Phi\rangle=(|00\rangle+|11\rangle)/\sqrt2$ とします。
+**定義の確認**： $R,b,c,D$ をそれぞれ量子ビットとし、$|\Phi\rangle=(|00\rangle+|11\rangle)/\sqrt2$ とします。
 
 - **内外対が純粋**：$|\Psi_H\rangle=|0\rangle_R|\Phi\rangle_{bc}|0\rangle_D$。$\rho_R$ は純粋、$\rho_{Rb}=|0\rangle\langle0|_R\otimes I_b/2$、$\rho_{bc}=|\Phi\rangle\langle\Phi|$、$\rho_c=I_c/2$。したがって $(\Delta,h,q)=(\ln2,\ln2,0)$。
 - **後期モードが早期放射と純粋対**：$|\Psi_U\rangle=|\Phi\rangle_{Rb}|0\rangle_c|0\rangle_D$。$\rho_R=I_R/2$、$\rho_{Rb}$ は純粋、$\rho_{bc}=I_b/2\otimes|0\rangle\langle0|_c$。したがって $(\Delta,h,q)=(-\ln2,0,\ln2)$。
