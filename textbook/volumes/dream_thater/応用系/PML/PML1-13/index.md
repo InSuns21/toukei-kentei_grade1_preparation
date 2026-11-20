@@ -368,7 +368,7 @@ $$
 4. 離散SGDの共分散なら[離散Lyapunov方程式](#thm-pml1-13-discrete-covariance)、連続OU代理の共分散なら[連続Lyapunov方程式](#thm-pml1-13-ou-covariance)を使い分ける。
 5. 分布までGaussianと扱うなら、**小さな独立雑音の多数回の蓄積**を裏付ける極限定理や追加の近似根拠を別途確認する。共分散一致だけでは足りない。
 
-正定値 $H$ と一定の非零 $C_\star$、固定 $b$ のもとで、[OUの公式](#thm-pml1-13-ou-covariance)では $\Sigma_{\mathrm{OU}}=O(\eta)$ で、標準偏差は $O(\sqrt\eta)$。これは近傍の幅の目安になるが、元の非線形SGDの全時間について同じ評価を自動的に与えるものではない。
+正定値 $H$ と一定の非零 $C_\star$、固定 $b$ のもとで、[正定値ドリフトを持つOUの定常Gaussian分布](#thm-pml1-13-ou-covariance)では $\Sigma_{\mathrm{OU}}=O(\eta)$ で、標準偏差は $O(\sqrt\eta)$。これは近傍の幅の目安になるが、元の非線形SGDの全時間について同じ評価を自動的に与えるものではない。
 
 ## 6. 近似が破綻する機構を二つ確認する
 
@@ -513,7 +513,7 @@ $H=\operatorname{diag}(1,2)$、$C_\star=\begin{pmatrix}2&1\\1&2\end{pmatrix}$、
 <!-- solution-start -->
 #### 詳細解答
 
-$C_\star$ は固有値 $3,1$ を持つため対称正定値である。$H$ はすでに対角行列で、その固有値は $\lambda_1=1,\lambda_2=2$。[OUの成分公式](#thm-pml1-13-ou-covariance)から
+$C_\star$ は固有値 $3,1$ を持つため対称正定値である。$H$ はすでに対角行列で、その固有値は $\lambda_1=1,\lambda_2=2$。[正定値ドリフトを持つOUの定常Gaussian分布](#thm-pml1-13-ou-covariance)から
 
 $$
 \begin{aligned}
