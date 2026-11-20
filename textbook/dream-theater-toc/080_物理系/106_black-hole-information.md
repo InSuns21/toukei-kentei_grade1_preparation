@@ -9,3 +9,4 @@
 6. [BHI6 ユニタリ蒸発のエントロピー制約](textbook/volumes/dream_thater/物理系/BHI/BHI6/index.md)
 7. [BHI7 Page曲線の物理的意味](textbook/volumes/dream_thater/物理系/BHI/BHI7/index.md)
 8. [BHI8 Page時刻の模型依存推定](textbook/volumes/dream_thater/物理系/BHI/BHI8/index.md)
+9. [BHI9 Mathurのsmall-corrections制約](textbook/volumes/dream_thater/物理系/BHI/BHI9/index.md)
