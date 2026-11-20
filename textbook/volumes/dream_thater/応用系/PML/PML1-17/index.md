@@ -291,7 +291,7 @@ $$
 \end{aligned}
 $$
 
-ここで $A^{\mathsf T}A=I_2$ より $\|Aq\|=\|q\|$。Cauchy--Schwarz の不等式から
+ここで $A^{\mathsf T}A=I_2$ より $\|Aq\|=\|q\|$。[Cauchy--Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |\mathcal R_\theta\cdot Aq|
