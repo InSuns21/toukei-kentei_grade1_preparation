@@ -175,6 +175,30 @@ try{
   assert.match(first.result[1][2],/0, 0, 0, 255/);
   assert.match(first.log,/DRAW/);
   assert.match(first.log,/GL error: 0x0/);
+  // G1: the learner first sees the actual sandbox canvas. Numeric evidence
+  // remains available in a native disclosure without taking over the result.
+  const g1Layout=await evalJS(`(() => {
+    const box = id => document.getElementById(id).getBoundingClientRect();
+    return {
+      canvasTop:box('canvas-slot').top,
+      numericTop:box('numeric-details').top,
+      diagnosticsTop:box('diagnostics-details').top,
+      numericOpen:document.getElementById('numeric-details').open,
+      diagnosticsOpen:document.getElementById('diagnostics-details').open,
+      summary:document.getElementById('numeric-summary').textContent,
+      visible:!document.getElementById('panel-result').hidden
+    };
+  })()`);
+  assert.equal(g1Layout.visible,true);
+  assert.ok(g1Layout.canvasTop < g1Layout.numericTop &&
+    g1Layout.numericTop < g1Layout.diagnosticsTop,JSON.stringify(g1Layout));
+  assert.equal(g1Layout.numericOpen,false);
+  assert.equal(g1Layout.diagnosticsOpen,false);
+  assert.match(g1Layout.summary,/2\/2/);
+  await click('edit-after-run');
+  assert.ok(await evalJS('!document.getElementById("panel-code").hidden && document.activeElement.id==="js-source"'));
+  await click('tab-result');
+  console.log('G1 actual canvas before folded diagnostics, successful pixel summary and code-return focus: PASS');
   console.log('WGL1 GPU draw, shader compile, readPixels, CPU reference and opaque iframe: PASS');
   await mkdir('_wgl_browser_review',{recursive:true});
   const shot=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
@@ -193,7 +217,14 @@ try{
   await click('run');
   await waitFor('document.getElementById("status")?.textContent.includes("WebGL2実行エラー")',22000);
   assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/FRAGMENT/i);
-  console.log('WGL1 invalid GLSL stage error: PASS');
+  const g1Error=await evalJS('({open:document.getElementById("diagnostics-details").open,alert:document.getElementById("action-feedback").textContent,visible:getComputedStyle(document.getElementById("action-feedback")).display})');
+  assert.equal(g1Error.open,true,'GLSL failure must unfold the log');
+  assert.match(g1Error.alert,/WebGL2実行エラー/);
+  assert.notEqual(g1Error.visible,'none');
+  await click('tab-code');
+  assert.match(await evalJS('document.getElementById("action-feedback").textContent'),/WebGL2実行エラー/,
+    'failure must remain visible while editing');
+  console.log('WGL1 invalid GLSL stage error and G1 persistent visible failure alert: PASS');
   await click('reset');
   assert.ok(await evalJS('document.getElementById("fragment-source").previousElementSibling.textContent.includes("vec4(1.0, 0.5, 0.0, 1.0)")'));
   await evalJS('(()=>{document.getElementById("width").value="640";document.getElementById("height").value="360";})()');
@@ -212,7 +243,23 @@ try{
   const mobileWrap=await evalJS('(()=>{const e=document.getElementById("js-source");return [e.scrollWidth,e.clientWidth]})()');
   assert.ok(mobileWrap[0]<=mobileWrap[1]+1,'narrow viewport source editor has horizontal overflow');
   await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
-  console.log('WGL1 narrow 360px and reduced motion: PASS');
+  await click('tab-result');
+  const g1Mobile=await evalJS(`(() => {
+    const main=document.querySelector('main').getBoundingClientRect();
+    const slot=document.getElementById('canvas-slot').getBoundingClientRect();
+    const detail=document.getElementById('numeric-details').getBoundingClientRect();
+    const scroll=document.querySelector('.lab-table-scroll');
+    return {mainWidth:main.width,canvasWidth:slot.width,detailWidth:detail.width,
+      viewport:innerWidth,scrollWidth:document.documentElement.scrollWidth,
+      tableContainerWidth:scroll.clientWidth,tableWidth:scroll.scrollWidth};
+  })()`);
+  assert.ok(g1Mobile.mainWidth<=g1Mobile.viewport+1,JSON.stringify(g1Mobile));
+  assert.ok(g1Mobile.canvasWidth<=g1Mobile.mainWidth+1,JSON.stringify(g1Mobile));
+  assert.ok(g1Mobile.detailWidth<=g1Mobile.mainWidth+1,JSON.stringify(g1Mobile));
+  assert.ok(g1Mobile.scrollWidth<=g1Mobile.viewport+2,JSON.stringify(g1Mobile));
+  const g1MobileShot=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  await writeFile('_wgl_browser_review/wgl1-g1-mobile.png',Buffer.from(g1MobileShot.data,'base64'));
+  console.log('WGL1 narrow 360px and reduced motion with G1 canvas and foldable table: PASS');
 
   // WGL2: WGL1と同じホスト・隔離方式で、頂点色の4画素とリンク失敗を実測する。
   await cdp('Emulation.setDeviceMetricsOverride',{width:1000,height:900,deviceScaleFactor:1,mobile:false});
