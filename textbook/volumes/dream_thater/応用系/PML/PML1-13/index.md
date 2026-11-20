@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-[PML1-12の復元抽出SGDの条件付き共分散](../PML1-12/index.md#prop-pml1-12-replacement-moments)から、一歩の更新雑音は $\eta^2C(\theta)/b$ である。しかし、一歩の分散が分かることと、長時間のパラメータ分布が分かることは別問題である。特に最適点の近くでは、損失の勾配が元の位置へ戻す力となり、雑音がその周囲へ押し広げる。この釣合いを計算してみよう。
+[PML1-12の復元抽出SGDの条件付き共分散](../PML1-12/index.md#prop-pml1-12-replacement-moments)から、一歩の更新雑音の条件付き共分散は $\eta^2C(\theta)/b$ である。しかし、一歩の分散が分かることと、長時間のパラメータ分布が分かることは別問題である。特に最適点の近くでは、損失の勾配が元の位置へ戻す力となり、雑音がその周囲へ押し広げる。この釣合いを計算してみよう。
 
 本講で扱うのは、**局所的に曲率が正で、勾配の散布がほぼ一定で、十分小さい学習率の固定バッチSGD**である。中心となる式は、線形化されたドリフトと雑音から得る *Lyapunov方程式* である。同時に、線形な離散更新と連続時間のOrnstein–Uhlenbeck（OU）過程を区別し、Gaussian近似が正当化される範囲を明確にする。
 
@@ -10,13 +10,35 @@
 
 パラメータ $\theta\in\mathbb R^d$、平均損失 $F=N^{-1}\sum_i f_i$、学習率 $\eta>0$、復元抽出のバッチサイズ $1\le b\le N$ は前講と同じである。$\theta_\star$ を $\nabla F(\theta_\star)=0$ を満たす点とする。$\theta_n-\theta_\star$ の大きさと方向を追うため、列ベクトル $x_n=\theta_n-\theta_\star$ を使う。
 
-$F$ が $\theta_\star$ 近傍で二回連続微分可能なら、勾配の変化はHessian（勾配のJacobi行列）で表せる。$H=\nabla^2F(\theta_\star)$ とする。$H$ が対称正定値とは、任意の非零 $v$ で $v^{\mathsf T}Hv>0$ となることを意味する。このとき曲率固有値はすべて正であり、$-Hx$ は全方向で原点へ戻す力となる。
+$F$ が $\theta_\star$ 近傍で二回連続微分可能なら、勾配の変化はHessian（勾配のJacobi行列）で表せる。$H=\nabla^2F(\theta_\star)$ とする。標準基底で $1\le r,s\le d$ とすると、Hessianの成分と、それが変位 $x$ に作用した第 $r$ 成分は
+
+$$
+H_{rs}=\partial_{\theta_s}(\partial_{\theta_r}F)(\theta_\star),
+\qquad
+(Hx)_r=\sum_{s=1}^dH_{rs}x_s
+$$
+
+と書ける。線分を動かす変数 $s\in[0,1]$ について、各成分の関数 $g_r(s)=\partial_{\theta_r}F(\theta_\star+sx)$ を考える。連鎖律より
+
+$$
+g_r'(s)=\sum_{k=1}^d\partial_{\theta_k}(\partial_{\theta_r}F)(\theta_\star+sx)x_k
+$$
+
+である。各 $r$ について $g_r(1)-g_r(0)=\int_0^1g_r'(s)\,ds$ と積分し、$\nabla F(\theta_\star)=0$ を代入して
+
+$$
+\nabla F(\theta_\star+x)
+=\int_0^1\nabla^2F(\theta_\star+sx)x\,ds
+=Hx+\int_0^1(\nabla^2F(\theta_\star+sx)-H)x\,ds.
+$$
+
+ここで最初の項 $Hx$ が線形近似、残りが局所誤差である。[対称正定値行列の定義](../../../基礎科目/F0/F0-00F1/index.md#def-f0-00f1-positive-semidefinite)により、任意の非零 $v$ に対して $v^{\mathsf T}Hv>0$ なら全固有値が正で、$-Hx$ は全方向で原点へ戻す力となる。
 
 <a id="def-pml1-13-local-model"></a>
 
 <!-- formal-statement-start -->
 > **定義（SGDの局所線形モデル）**  
-> $d\ge1$、$\eta>0$、整数 $1\le b\le N$ とする。$F:\mathbb R^d\to\mathbb R$ が停留点 $\theta_\star$ 近傍で $C^2$ 級で、$H=\nabla^2F(\theta_\star)$ は対称正定値であるとする。また個別勾配の[散布行列](../PML1-12/index.md#def-pml1-12-gradient-scatter) $C(\theta)$ が $\theta_\star$ で有限であるとし、$C_\star=C(\theta_\star)$ と置く。各時刻に平均ゼロ・共分散 $C_\star/b$ の同分布で独立なベクトル $\varepsilon_{n+1}$ を用意し、
+> $d\ge1$、$\eta>0$、整数 $1\le b\le N$ とする。$F:\mathbb R^d\to\mathbb R$ が停留点 $\theta_\star$ 近傍で $C^2$ 級で、$H=\nabla^2F(\theta_\star)$ は対称正定値であるとする。また個別勾配の[散布行列](../PML1-12/index.md#def-pml1-12-gradient-scatter) $C(\theta)$ が $\theta_\star$ で有限であるとし、$C_\star=C(\theta_\star)$ と置く。初期値 $X_0$ と独立で、時刻間でも独立同分布な平均ゼロ・共分散 $C_\star/b$ のベクトル $\varepsilon_{n+1}$ を用意し、
 
 $$
 X_{n+1}=(I_d-\eta H)X_n-\eta\varepsilon_{n+1}
@@ -36,16 +58,24 @@ $$
 
 とする。平均損失 $F(\theta)=\theta^2$ の最適点は $\theta_\star=0$、$H=F''(0)=2>0$。個別勾配は $2\theta\pm1$、全勾配は $2\theta$ であり、偏差はそれぞれ $\pm1$、従って $C(\theta)=1$ は一定である。
 
-復元抽出SGDは $X_{n+1}=(1-2\eta)X_n-\eta\varepsilon_{n+1}$ となり、$\varepsilon_{n+1}=\pm1$ は各確率 $1/2$ で独立に選ばれる。平均0、分散1なので定義の全条件を満たす。ここでは局所模型が元のSGDに**厳密に一致**する。ただし一歩の雑音は二点分布であってGaussianではない。
+初期値を $X_0=0$ とすれば新しい抽出雑音と独立である。復元抽出SGDは $X_{n+1}=(1-2\eta)X_n-\eta\varepsilon_{n+1}$ となり、$\varepsilon_{n+1}=\pm1$ は各確率 $1/2$ で独立に選ばれる。平均0、分散1なので定義の全条件を満たす。ここでは局所模型が元のSGDに**厳密に一致**する。ただし一歩の雑音は二点分布であってGaussianではない。
 <!-- definition-example-end -->
 
 実際の一般的な損失については、$\nabla F(\theta_\star+x)$ の $Hx$ からのずれと、$C(\theta_\star+x)$ の $C_\star$ からのずれを別々に検査する。
 
 ## 2. なぜOU過程が候補になるか
 
-[PML1-11の二次Langevinモデル](../PML1-11/index.md#thm-pml1-11-exact-ou-step)と同じ発想で、連続時間において線形の復元力 $-HX_t$ と一定のGaussian雑音を持つ過程を考える。ここで $W_t$ は独立な成分から成る $d$ 次元標準ブラウン運動とする。
+[PML1-11の二次Langevinモデル](../PML1-11/index.md#thm-pml1-11-exact-ou-step)と同じ発想で、連続時間において線形の復元力 $-HU_t$ と一定のGaussian雑音を持つ過程を考える。ここで $W_t$ は[多次元ブラウン運動の定義](../../../解析系/STO/STO7/index.md#def-sto7-vector-brownian)に従う、独立な成分から成る $d$ 次元標準ブラウン運動である。以下の $dW_t$ は通常の時間微分ではなく、区間ごとのブラウン増分をItô積分する記法とする。
 
-$C_\star$ は[散布行列の定義](../PML1-12/index.md#def-pml1-12-gradient-scatter)から対称半正定値なので、直交固有分解により $BB^{\mathsf T}=C_\star$ を満たす実行列 $B$ を選べる（例えば非負の平方根を対角成分にした $C_\star^{1/2}$）。この分解は $C_\star$ が特異でも作れる。
+$C_\star$ は[散布行列の定義](../PML1-12/index.md#def-pml1-12-gradient-scatter)から対称半正定値なので、直交行列 $R$（$R^{\mathsf T}R=I_d$）と固有値 $c_i\ge0$ によって $C_\star=R\operatorname{diag}(c_1,\ldots,c_d)R^{\mathsf T}$ と表せる。各固有方向の分散 $c_i$ を平方根に分け、
+
+$$
+B=R\operatorname{diag}(\sqrt{c_1},\ldots,\sqrt{c_d})R^{\mathsf T},
+\qquad
+BB^{\mathsf T}=R\operatorname{diag}(c_1,\ldots,c_d)R^{\mathsf T}=C_\star
+$$
+
+と作る。この $B$ は $d\times d$ 行列で、零固有値があっても構成できる。
 
 <a id="def-pml1-13-ou-surrogate"></a>
 
@@ -61,13 +91,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-13-ou-surrogate -->
-**定義の確認**：第1節の $H=2$、$C_\star=1$、$b=1$ の例では $B=1$ を選べ、方程式は
+**定義の確認**：第1節の $H=2$、$C_\star=1$、$b=1$ の例では $B=1$ を選び、初期値を $U_0=0$ とする。$U_0$ は定数だからブラウン運動と独立であり、方程式は
 
 $$
 dU_t=-2U_t\,dt+\sqrt{\eta}\,dW_t
 $$
 
-となる。$H>0$、$BB^{\mathsf T}=1=C_\star$、係数は一定、初期値はブラウン運動と独立という条件をすべて満たす。この過程を時刻幅 $\eta$ でEuler–Maruyama離散化すると、
+となる。$H>0$、$BB^{\mathsf T}=1=C_\star$、係数は一定、初期値はブラウン運動と独立という条件をすべて満たす。[Euler–Maruyama法](../PML1-11/index.md#def-pml1-11-euler-maruyama)では、時間積分 $\int_{n\eta}^{(n+1)\eta}(-2U_s)\,ds$ を $-2\eta U_{n\eta}^{\mathrm{EM}}$ で近似し、ブラウン増分は正確に
+
+$$
+W_{(n+1)\eta}-W_{n\eta}=\sqrt{\eta}\,\xi_{n+1},
+\qquad \xi_{n+1}\sim N(0,1)
+$$
+
+と表せる。したがって雑音増分は $\sqrt{\eta}\sqrt{\eta}\,\xi_{n+1}=\eta\xi_{n+1}$ となり、
 
 $$
 U_{(n+1)\eta}^{\mathrm{EM}}
@@ -131,7 +168,17 @@ $$
 =\frac{\eta}{b}\int_0^t e^{-Hu}C_\star e^{-Hu}\,du
 $$
 
-となる。$H=Q\operatorname{diag}(\lambda_1,\ldots,\lambda_d)Q^{\mathsf T}$、$\lambda_i>0$ の直交対角化を用いると、$\|e^{-Ht}\|_{\mathrm{op}}\le e^{-\lambda_{\min}t}$。従って積分は有限である。決定論的初期値から出発すると、上の確率積分はGaussianで、その平均は $e^{-Ht}U_0\to0$、共分散は表示積分へ収束する。任意の初期分布に対しても、初期値の寄与 $e^{-Ht}U_0$ は確率収束で0となるので同じ極限分布を持つ。
+となる。ここでは $C_\star$ の固有基底 $R$ とは別に、$H=Q\operatorname{diag}(\lambda_1,\ldots,\lambda_d)Q^{\mathsf T}$（$\lambda_i>0$）と直交対角化する。すると $\|e^{-Ht}\|_{\mathrm{op}}\le e^{-\lambda_{\min}t}$ なので積分は有限である。
+
+決定論的初期値から出発すると、上の確率積分は[決定論的ブラウン積分のGaussian性](../../../解析系/STO/STO6/index.md#prop-sto6-deterministic-gaussian)から多次元でもGaussianである。実際、任意の $v\in\mathbb R^d$ に対し、左から掛けたスカラー積分は
+
+$$
+v^{\mathsf T}\int_0^t e^{-H(t-s)}B\,dW_s
+=\sum_{\ell=1}^d\int_0^t
+\bigl(v^{\mathsf T}e^{-H(t-s)}B\bigr)_\ell\,dW_s^\ell
+$$
+
+であり、右辺は互いに独立なブラウン成分の決定論的積分の和なのでGaussianとなる。すべての一次元射影がGaussianであるから積分ベクトルは多次元Gaussianである。平均は $e^{-Ht}U_0\to0$、共分散は表示積分へ収束する。任意の初期分布に対しても、初期値の寄与 $e^{-Ht}U_0$ は確率収束で0となるので同じ極限分布を持つ。
 
 $\Sigma_{\mathrm{OU}}$ の積分の両側へ $H$ を掛けて足すと、
 
@@ -167,7 +214,7 @@ $$
 =\frac{\eta\,\widetilde C_{ij}}{b(\lambda_i+\lambda_j)}}.
 $$
 
-したがって**曲率が小さい方向は揺らぎが大きくなる**。ただし非対角の $\widetilde C_{ij}$ も一般に残るので、曲率と雑音が同じ固有基底で対角化されるとは限らない。
+したがって**同じ雑音強度 $\widetilde C_{ii}>0$ の方向同士を比較すれば**、曲率 $\lambda_i$ が小さいほど定常分散 $\widetilde\Sigma_{ii}=\eta\widetilde C_{ii}/(2b\lambda_i)$ は大きくなる。雑音強度も方向で違う場合に曲率だけで大小は決められない。非対角の $\widetilde C_{ij}$ も一般に残るので、曲率と雑音が同じ固有基底で対角化されるとは限らない。
 
 **直接計算**：$H=\operatorname{diag}(1,3)$、$C_\star=\operatorname{diag}(4,2)$、$b=2$ とする。独立な方向ごとに
 
@@ -195,7 +242,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（線形SGDの定常共分散と有限学習率補正）**  
-> $H=H^{\mathsf T}\succ0$、$C_\star=C_\star^{\mathsf T}\succeq0$、$b\ge1$、$0<\eta<2/\lambda_{\max}(H)$ とする。$\varepsilon_n$ は独立同分布で $\mathbb E\varepsilon_n=0$、$\operatorname{Cov}(\varepsilon_n)=C_\star/b$、二乗可積分とする。[局所線形SGDモデル](#def-pml1-13-local-model)は有限二次モーメントを持つ唯一の定常分布を有し、その平均は0、共分散 $\Sigma_\eta$ は次の**離散Lyapunov方程式**を満たす。
+> $H=H^{\mathsf T}\succ0$、$C_\star=C_\star^{\mathsf T}\succeq0$、$b\ge1$、$0<\eta<2/\lambda_{\max}(H)$ とする。$\varepsilon_n$ は初期値から独立な独立同分布列で $\mathbb E\varepsilon_n=0$、$\operatorname{Cov}(\varepsilon_n)=C_\star/b$、二乗可積分とする。[局所線形SGDモデル](#def-pml1-13-local-model)と同形の更新 $X_{n+1}=(I_d-\eta H)X_n-\eta\varepsilon_{n+1}$ は有限二次モーメントを持つ唯一の定常分布を有し、その平均は0、共分散 $\Sigma_\eta$ は次の**離散Lyapunov方程式**を満たす。
 
 $$
 \Sigma_\eta=(I_d-\eta H)\Sigma_\eta(I_d-\eta H)
@@ -306,7 +353,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（勾配線形化と雑音共分散の局所誤差）**  
-> $\nabla F(\theta_\star)=0$ とし、$\theta_\star$ を中心とする凸な近傍 $D$ で $F$ は $C^2$ 級とする。Hessianが $L$-Lipschitz、すなわち $\theta_\star+x\in D$ で $0\le s\le1$ に対し
+> $\nabla F(\theta_\star)=0$ とし、$\theta_\star$ を中心とする凸な近傍 $D$ で $F$ は $C^2$ 級とする。Hessianが $D$ 上で $L$-Lipschitzであるとする。すると $\theta_\star+x\in D$ で $0\le s\le1$ に対し
 
 $$
 \|\nabla^2F(\theta_\star+sx)-H\|_{\mathrm{op}}
