@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - PML1-10
+  - STO6
   - STO7
 official_scope: []
 learning_objectives:

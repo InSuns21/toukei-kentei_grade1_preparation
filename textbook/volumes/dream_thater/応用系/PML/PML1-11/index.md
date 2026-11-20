@@ -22,7 +22,7 @@ X_{t_{n+1}}-X_{t_n}
 +\sqrt{2\tau}(W_{t_{n+1}}-W_{t_n}).
 $$
 
-**離散化で置き換える場所はドリフトの積分**である。$f'(X_s)$ を区間左端の $f'(Y_n)$ で代表させて $\int f'(X_s)\,ds$ を $h f'(Y_n)$ と近似する。一方、ブラウン運動の独立増分は正確に $N(0,h)$ に従うから、$\Delta W_n=\sqrt h\,\xi_{n+1}$、$\xi_n$ は独立な標準正規変数として実現できる。この二つの操作が次の更新則になる。
+**離散化で置き換える場所はドリフトの積分**である。$f'(X_s)$ を区間左端の $f'(Y_n)$ で代表させて $\int f'(X_s)\,ds$ を $h f'(Y_n)$ と近似する。一方、[STO7のブラウン運動の定義](../../../解析系/STO/STO7/index.md#def-sto7-vector-brownian)から、ブラウン運動の独立増分は正確に $N(0,h)$ に従うから、$\Delta W_n=\sqrt h\,\xi_{n+1}$、$\xi_n$ は独立な標準正規変数として実現できる。この二つの操作が次の更新則になる。
 
 <a id="def-pml1-11-euler-maruyama"></a>
 
@@ -311,12 +311,12 @@ $$
 
 ### 証明の見取り図
 
-積分因子で解くと、残るのは決定論的な関数を掛けたブラウン運動の積分である。[決定論的被積分関数のItô積分の正規性](../../../解析系/STO/STO7/index.md#thm-sto7-deterministic-integral-gaussian)と分散公式を用いて、その係数を求める。
+積分因子で解くと、残るのは決定論的な関数を掛けたブラウン運動の積分である。[決定論的被積分関数のItô積分の正規性](../../../解析系/STO/STO6/index.md#prop-sto6-deterministic-gaussian)と[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-l2-construction)を用いて、その係数を求める。
 
 <!-- proof-start -->
 ### 証明
 
-$U_t=X_t-a$ と置き、積の微分則を $e^{\lambda t}U_t$ に適用する。指数関数は決定論的な有限変動関数なので二次共変動項はゼロであり、
+$U_t=X_t-a$ と置き、[STO7の時間依存Itô公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を $g(t,u)=e^{\lambda t}u$ に適用する。偏微分は $\partial_tg=\lambda e^{\lambda t}u$、$\partial_ug=e^{\lambda t}$、$\partial_{uu}g=0$ である。指数関数は決定論的な有限変動関数なので二次共変動項はゼロであり、
 
 $$
 d(e^{\lambda t}U_t)
@@ -332,7 +332,7 @@ X_{t_n+h}-a=e^{-\lambda h}(X_{t_n}-a)
 +\sqrt{2\tau}\int_{t_n}^{t_n+h}e^{-\lambda(t_n+h-s)}\,dW_s.
 $$
 
-ブラウン運動の独立増分により積分項は $X_{t_n}$ と独立で、平均 $0$ である。上記の[Itô積分の分散公式](../../../解析系/STO/STO7/index.md#thm-sto7-deterministic-integral-gaussian)で被積分関数を $s\mapsto\sqrt{2\tau}e^{-\lambda(t_n+h-s)}$ とすると
+ブラウン運動の独立増分により積分項は $X_{t_n}$ と独立で、平均 $0$ である。[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-l2-construction)で被積分関数を $s\mapsto\sqrt{2\tau}e^{-\lambda(t_n+h-s)}$ とすると
 
 $$
 \begin{aligned}

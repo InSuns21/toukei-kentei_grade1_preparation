@@ -1,7 +1,7 @@
 chapter: PML1-11
 scope: dream-theater
 coverage: complete
-prerequisites: [PML1-10, STO7]
+prerequisites: [PML1-10, STO6, STO7]
 concepts:
   - id: physics-machine-learning.euler-maruyama-langevin
     name: 過減衰Langevin方程式のEuler–Maruyama離散化
