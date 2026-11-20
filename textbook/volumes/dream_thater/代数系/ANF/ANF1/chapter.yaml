@@ -1,0 +1,47 @@
+id: "ANF1"
+title: "代数的整数と整数環"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLD2
+  - AG1-06
+official_scope: []
+learning_objectives:
+  - 数体と代数的整数を定義し、整数係数のモニック方程式から直接判定できる
+  - 有理数が代数的整数であるための必要十分条件を証明できる
+  - 最小多項式が整数係数であることと整性の同値をGaussの補題から証明できる
+  - 整元の有限加群判定を用いて整数環の加法・乗法の閉性を証明できる
+  - 跡形式の非退化性と整数値性から整数環の有限生成性・整数基底の存在を証明できる
+  - 平方自由整数dの法4による二次体整数環の違いを計算し整数基底を決定できる
+  - 整数環が一意分解整域とは限らない理由を具体的な反例で説明できる
+definitions:
+  - { id: ANF1-DEF-01, name: 代数的整数 }
+  - { id: ANF1-DEF-02, name: 数体の整数環 }
+  - { id: ANF1-DEF-03, name: 数体の跡と跡双線形形式 }
+theorems:
+  - { id: ANF1-PROP-01, name: 有理数の中の代数的整数 }
+  - { id: ANF1-THM-01, name: 最小多項式による整性判定 }
+  - { id: ANF1-THM-02, name: 整数環の閉性 }
+  - { id: ANF1-LEM-01, name: 整数の跡と跡形式の非退化性 }
+  - { id: ANF1-THM-03, name: 整数環の有限生成性と整数基底 }
+  - { id: ANF1-THM-04, name: 二次体の整数環 }
+canonical_examples:
+  - sqrt(2)と(1+sqrt(5))/2の整数係数モニック多項式
+  - 有理数7/3は整でない
+  - 体Q(sqrt(2))における乗法の行列と跡
+  - Q(sqrt(5))ではZ[sqrt(5)]が整数環より真に小さい
+  - Q(sqrt(-5))の整数基底と6の一意でない既約分解
+  - Q(sqrt(13))の跡行列と整数基底
+problem_patterns:
+  - ANF1-RATIONAL-INTEGRAL-TEST
+  - ANF1-MINIMAL-POLYNOMIAL-TEST
+  - ANF1-QUADRATIC-INTEGER-TEST
+  - ANF1-DISALLOWED-HALF-INTEGER
+  - ANF1-ALGEBRAIC-NONINTEGRAL
+  - ANF1-CLEAR-DENOMINATORS
+  - ANF1-NON-UFD-EXAMPLE
+  - ANF1-TRACE-DISCRIMINANT-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 6.0, review: 1.0 }

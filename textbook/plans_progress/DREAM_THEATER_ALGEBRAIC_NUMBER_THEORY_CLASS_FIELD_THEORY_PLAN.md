@@ -1,7 +1,7 @@
 # DREAM THEATER 代数的整数論・局所体・類体論（ANF1〜ANF22）
 
 設計確定: 2026-11-21 JST  
-状態: designed / 未着手。**22講（ANF1〜ANF22）で講数を確定**。本文・章メタデータ・系列manifest・公開目次の実装は未着手。  
+状態: in_progress / ANF1 completed・ANF2〜ANF22 planned。全22講。ANF1の本文・メタデータ・系列manifest・公開目次を実装済み。
 系列ID: \`ANF\`（Algebraic Number Fields）。分野: 代数系。対応ルート: [岩澤理論・保型表現・RH講読](DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)。
 
 ## 目的・既存教材との差分
@@ -76,7 +76,7 @@
 - ANF14〜21でHilbert 90から類体論本体への飛躍を放置しない。局所・大域の中心定理に必要な補題が多すぎるなら、本文作成時に講義分割を**計画変更として明示**し、無断で「証明済み」としない。
 - ANF22のKronecker–Weberは主要結果の立証範囲を分ける。類体論からの帰結を掲げる際は既習の類体論定理の仮定を全て照合する。
 - 学習者本文では編集記号を説明しない。各講の\`index.md\`・\`chapter.yaml\`・\`knowledge.yaml\`・該当科目目次を成果物と同時に確定する。
-- 設計のみなのでseries manifestはまだ作成しない。最初の章に着手するPRで\`ANF.yaml\`を全22講\`planned\`として初期化し、完了章のみ公開目次へ登録する。planを\`plans_progress/\`へ**移動**してmanifestの\`plan\`と同時更新する。
+- ANF1着手時にANF.yamlを全22講で初期化し、ANF1 completed、ANF2〜ANF22 plannedとして登録済み。今後は完成した講の本文・メタデータ・公開目次とmanifestのstatusを同期する。
 - 全講と横断監査・必要CIが完了するまで\`plan_done/\`へ移さない。
 
 ## 前後のルート
@@ -84,3 +84,8 @@
 \`RNG/FLD/AG1/NT\` → ANF1〜ANF8 → ANF9〜ANF13 → ANF14〜ANF22 → \`IWA1〜IWA20\`。  
 ANF9〜13とANF19の結果は \`AFR\` 側のアデール・局所表現へ提供する。  
 **岩澤理論をリーマン予想と同一の命題とする説明はしない。**
+
+## 実装進捗（2026-11-21 JST）
+
+- ANF1「代数的整数と整数環」: 完成。本文・定義・主要結果・8題と詳細解答・metadata・公開目次を追加。
+- 次回: ANF2「跡・ノルム・判別式」。ANF3〜ANF22は未着手。
