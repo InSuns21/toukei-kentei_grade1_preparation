@@ -138,7 +138,7 @@ $$
 したがって[群平均の定義](#def-pml1-16-averaging)により
 
 $$
-(P_{C_4}f)(x,y)=\frac32(x^2+y^2).
+(P_{C_4}f)(\boldsymbol z)=\frac32(x^2+y^2).
 $$
 
 これは物理的な距離の二乗と同じ回転不変量になった。一方、有限群 $C_4$ で平均しただけでは、**任意の連続角の回転**に対する不変性は一般に保証されない。例えば
@@ -391,7 +391,7 @@ $$
 \end{aligned}
 $$
 
-定数のずれ $b$ は消え、$(\mathcal P_\rho F)(-\boldsymbol z)=-A\boldsymbol z$ は $\rho(-I_2)(\mathcal P_\rho F)(\boldsymbol z)$ に一致する。スカラーの単純平均なら $Ax$ の符号まで失う。出力側の作用を指定することが重要である。
+定数のずれ $b$ は消え、$(\mathcal P_\rho F)(-\boldsymbol z)=-A\boldsymbol z$ は $\rho(-I_2)(\mathcal P_\rho F)(\boldsymbol z)$ に一致する。スカラーの単純平均なら $A\boldsymbol z$ の符号まで失う。出力側の作用を指定することが重要である。
 
 ここで $\rho(g)$ に直交性は要求していない。したがってこの定理が保証するのは**等変性と射影性**であり、ベクトルの通常のユークリッド二乗誤差が減るという主張ではない。誤差について同様の直交射影を示すには、評価重みの不変性に加え、少なくとも $\rho(g)^{\mathsf T}\rho(g)=I_d$ などの内積保存条件が必要になる。
 
@@ -615,7 +615,7 @@ $X=\mathbb R^2$、$G=C_4=\{I_2,R,R^2,R^3\}$、$R(x,y)^{\mathsf T}=(-y,x)^{\maths
 <!-- solution-start -->
 #### 詳細解答
 
-[等変平均の定義](#thm-pml1-16-equivariant)に代入すると、$R^{-k}F(R^k\boldsymbol z)=R^{-k}AR^k\boldsymbol z+R^{-k}b$ である。$R^2=-I$ より
+[等変平均の定義](#thm-pml1-16-equivariant)に代入すると、$R^{-k}F(R^k\boldsymbol z)=R^{-k}AR^k\boldsymbol z+R^{-k}b$ である。$R^2=-I_2$ より
 
 $$
 R^{-0}AR^0=R^{-2}AR^2=A,
@@ -626,7 +626,7 @@ R^{-1}AR=R^{-3}AR^3
 =\begin{pmatrix}0&0\\0&2\end{pmatrix}.
 $$
 
-四つの行列の和は $2A+2\operatorname{diag}(0,2)=4I$。また
+四つの行列の和は $2A+2\operatorname{diag}(0,2)=4I_2$。また
 
 $$
 \sum_{k=0}^3 R^{-k}b
