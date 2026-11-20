@@ -21,20 +21,17 @@ $$
 
 例えば $\sqrt2$ は $T^2-2$ の根ですが、$1/2$ を根にもつ一次式 $T-1/2$ は整数係数ではありません。この違いを、式の次数や根の表示に依存せず定義します。
 
-<a id="def-anf1-algebraic-integer"></a>
+<a id="ref-anf1-algebraic-integer"></a>
 
-<!-- formal-statement-start -->
-> **定義（代数的整数）**  
-> $\alpha\in K$ に対し、ある整数 $m\ge1$ と $a_0,\ldots,a_{m-1}\in\mathbb Z$ が存在して
+[代数的整数の定義](../../TRN/TRN1/index.md#def-trn1-algebraic-integer)をこの数体 $K$ に適用すると、$\alpha\in K$ が代数的整数であるとは、整数 $m\ge1$ と係数 $a_0,\ldots,a_{m-1}\in\mathbb Z$ があって
 
 $$
 \alpha^m+a_{m-1}\alpha^{m-1}+\cdots+a_1\alpha+a_0=0
 $$
 
-> となるとき、$\alpha$ を **代数的整数** という。これは $\alpha$ が $\mathbb Z$ 上整であるという意味である。
-<!-- formal-statement-end -->
+となることです。元の定義と同じ条件を、対象を $K$ に限定して書き直しました。
 
-<!-- definition-example-start: def-anf1-algebraic-integer -->
+<!-- definition-example-start: ref-anf1-algebraic-integer -->
 **定義の確認**： $\sqrt2$ は $T^2-2\in\mathbb Z[T]$ の根なので代数的整数です。一方、$(1+\sqrt5)/2$ は上の $T^2-T-1$ の根なので、分母があっても代数的整数です。いずれも最高次係数が $1$ で、**他の係数がすべて整数**であることを具体的に確認しました。
 <!-- definition-example-end -->
 
@@ -174,19 +171,23 @@ $$
 
 数体 $K$ は $\mathbb Q$ 上有限次元です。しかし一般に、有理数ベクトル空間の中の部分加群が $\mathbb Z$ 上有限生成とは限りません。例えば $\mathbb Q$ 自身は $\mathbb Z$ 上有限生成ではありません。整数環の場合に有限生成となる理由は、整数係数の方程式によって分母が制限されるからです。
 
-その制限を取り出すため、行列の対角成分の和である**跡（trace）**を補助的に導入します。体の元 $x\in K$ に対し、$y\mapsto xy$ は $K$ を $\mathbb Q$ ベクトル空間と見た線形写像です。その行列の対角成分の和を $\operatorname{Tr}_{K/\mathbb Q}(x)$ と書きます。基底を変更すると行列は相似になり、跡は変わりません。次章ではこれを埋め込みとの関係から詳しく研究します。
+その制限を取り出すため、行列の対角成分の和である**トレース**を補助的に導入します。体の元 $x\in K$ に対し、$y\mapsto xy$ は $K$ を $\mathbb Q$ ベクトル空間と見た線形写像です。
+
+[双線形形式](../../../基礎科目/LA/LA3E/index.md#def-la3e-bilinear-form)は二つの変数のそれぞれについて線形な写像です。ここでは係数体を $\mathbb Q$ とし、$\operatorname{Tr}_{K/\mathbb Q}(xy)$ が双線形であることを、乗法と行列の対角和の線形性から確認します。
+
+その行列の対角成分の和を $\operatorname{Tr}_{K/\mathbb Q}(x)$ と書きます。基底を変更すると行列は相似になり、トレースは変わりません。次章ではこれを埋め込みとの関係から詳しく研究します。
 
 <a id="def-anf1-trace-pairing"></a>
 
 <!-- formal-statement-start -->
 > **定義（数体のトレースと双線形形式）**  
-> 次数 $n$ の数体 $K/\mathbb Q$ と $x\in K$ に対し、$\mathbb Q$ 線形写像 $\mu_x(y)=xy$ の跡を $\operatorname{Tr}_{K/\mathbb Q}(x)$ とする。$x,y\in K$ について
+> 次数 $n$ の数体 $K/\mathbb Q$ と $x\in K$ に対し、$\mathbb Q$ 線形写像 $\mu_x(y)=xy$ のトレースを $\operatorname{Tr}_{K/\mathbb Q}(x)$ とする。$x,y\in K$ について
 
 $$
 B(x,y)=\operatorname{Tr}_{K/\mathbb Q}(xy)
 $$
 
-> と定める。これを跡双線形形式と呼ぶ。
+> と定める。これをトレース双線形形式と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf1-trace-pairing -->
@@ -204,7 +205,7 @@ $$
 <a id="lem-anf1-integral-trace"></a>
 
 <!-- formal-statement-start -->
-> **補題（整数の跡と跡形式の非退化性）**  
+> **補題（整数のトレースとトレース形式の非退化性）**  
 > 数体 $K/\mathbb Q$ の次数を $n$ とする。
 >
 > 1. $x\in\mathcal O_K$ なら $\operatorname{Tr}_{K/\mathbb Q}(x)\in\mathbb Z$。
@@ -241,7 +242,7 @@ $$
 となり仮定に矛盾します。
 <!-- proof-end -->
 
-この非退化性は、どの $\mathbb Q$ 基底を選んでも跡形式の行列が可逆であることと同値です。実際、基底 $\beta_1,\ldots,\beta_n$ と
+この非退化性は、どの $\mathbb Q$ 基底を選んでもトレース形式の行列が可逆であることと同値です。実際、基底 $\beta_1,\ldots,\beta_n$ と
 
 $$
 G=(B(\beta_i,\beta_j))_{1\le i,j\le n}
@@ -262,7 +263,7 @@ $$
 > と表せる。このような組を**整数基底**と呼ぶ。
 <!-- formal-statement-end -->
 
-**証明の見取り図。** 最初に整な $\mathbb Q$ 基底を作り、その跡行列 $G$ を使って任意の整数環の元の分母を $1/\det G$ 以下の固定された格子へ押し込みます。ここでいう「格子」は、$\mathbb Q$ ベクトル空間の基底の**整数係数の和**です。
+**証明の見取り図。** 最初に整な $\mathbb Q$ 基底を作り、そのトレース行列 $G$ を使って任意の整数環の元の分母を $1/\det G$ 以下の固定された格子へ押し込みます。ここでいう「格子」は、$\mathbb Q$ ベクトル空間の基底の**整数係数の和**です。
 
 <!-- proof-start -->
 ### 証明
@@ -289,7 +290,7 @@ $$
 G_{ij}=\operatorname{Tr}_{K/\mathbb Q}(\beta_i\beta_j)\in\mathbb Z
 $$
 
-を作ります。各 $\beta_i\beta_j$ は[整数環の閉性](#thm-anf1-ring-closure)から整なので、[整数の跡の補題](#lem-anf1-integral-trace)が使えます。同じ補題の非退化性によって $G$ は可逆であり、$D=\det G$ は非零整数です。
+を作ります。各 $\beta_i\beta_j$ は[整数環の閉性](#thm-anf1-ring-closure)から整なので、[整数のトレースの補題](#lem-anf1-integral-trace)が使えます。同じ補題の非退化性によって $G$ は可逆であり、$D=\det G$ は非零整数です。
 
 任意の $\alpha\in\mathcal O_K$ を $\alpha=\sum_i q_i\beta_i$（$q_i\in\mathbb Q$）と展開します。各 $j$ について $\alpha\beta_j$ は整なので
 
@@ -297,7 +298,7 @@ $$
 v_j=\operatorname{Tr}_{K/\mathbb Q}(\alpha\beta_j)\in\mathbb Z.
 $$
 
-跡の線形性から $v=Gq$ です。余因子行列を使って
+トレースの線形性から $v=Gq$ です。余因子行列を使って
 
 $$
 q=G^{-1}v=\frac{\operatorname{adj}(G)v}{D}
@@ -320,7 +321,7 @@ $n\ge2$ の場合、第1座標への射影像はある $d\ge0$ について $d\m
 従って $\mathcal O_K$ は有限生成自由 $\mathbb Z$ 加群です。さらに $L\subseteq\mathcal O_K\subseteq K$ で、$L$ の $\mathbb Q$ 線形包は $K$ 全体だから、その階数は少なくとも $n$、一方 $K$ の $\mathbb Q$ 次元が $n$ なので高々 $n$ です。ゆえに階数はちょうど $n$ です。
 <!-- proof-end -->
 
-この証明で $D$ は選んだ基底の跡行列式です。その意味を二次体で具体的に調べ、次章では判別式として体系化します。**整数基底が存在する**ことと、**最初に選んだ整な基底がすでに整数基底である**ことは別です。
+この証明で $D$ は選んだ基底のトレース行列式です。その意味を二次体で具体的に調べ、次章では判別式として体系化します。**整数基底が存在する**ことと、**最初に選んだ整な基底がすでに整数基底である**ことは別です。
 
 ## 4. 二次体の整数環を完全に計算する
 
@@ -564,15 +565,15 @@ $$
 の各因子は既約です。$q$ の値が $4,9,6$ で異なるものは同伴ではなく、$1+\sqrt{-5}$ と $1-\sqrt{-5}$ も $\pm1$ 倍では一致しません。従って分解は同伴を除いて異なり、$R$ は一意分解整域ではありません。
 <!-- solution-end -->
 
-**Level C：有限生成性・跡・二次体の統合**
+**Level C：有限生成性・トレース・二次体の統合**
 
-### C1. $\mathbb Q(\sqrt{13})$ の跡行列と整数基底
+### C1. $\mathbb Q(\sqrt{13})$ のトレース行列と整数基底
 
 $K=\mathbb Q(\sqrt{13})$、$w=(1+\sqrt{13})/2$ とする。
 
 1. $w$ の最小多項式を求め、$w$ が整であることを示せ。
 2. $\beta_1=1,\beta_2=w$ に対し $G_{ij}=\operatorname{Tr}_{K/\mathbb Q}(\beta_i\beta_j)$ を計算し、$\det G$ を求めよ。
-3. 跡行列から $\mathcal O_K\subseteq(1/13)(\mathbb Z\beta_1+\mathbb Z\beta_2)$ を導け。
+3. トレース行列から $\mathcal O_K\subseteq(1/13)(\mathbb Z\beta_1+\mathbb Z\beta_2)$ を導け。
 4. さらに $\mathcal O_K=\mathbb Z\beta_1\oplus\mathbb Z\beta_2$ を証明し、$\alpha=(3+\sqrt{13})/2$ と $\gamma=(1+2\sqrt{13})/2$ の整性を判定せよ。
 
 - Level: C
@@ -589,14 +590,14 @@ $$
 
 $w\notin\mathbb Q$ より $T^2-T-3$ はモニック最小多項式で、整数係数ゆえ $w$ は整です。
 
-**(2)** 基底 $(1,w)$ で乗法写像の対角和を求めます。$\operatorname{Tr}(1)=2$ です。また共役根 $w'=(1-\sqrt{13})/2$ を使うか乗法行列を作れば $\operatorname{Tr}(w)=w+w'=1$ です。$w^2=w+3$ だから跡の線形性より $\operatorname{Tr}(w^2)=1+3\cdot2=7$。従って
+**(2)** 基底 $(1,w)$ で乗法写像の対角和を求めます。$\operatorname{Tr}(1)=2$ です。また共役根 $w'=(1-\sqrt{13})/2$ を使うか乗法行列を作れば $\operatorname{Tr}(w)=w+w'=1$ です。$w^2=w+3$ だからトレースの線形性より $\operatorname{Tr}(w^2)=1+3\cdot2=7$。従って
 
 $$
 G=\begin{pmatrix}2&1\\1&7\end{pmatrix},
 \qquad \det G=14-1=13.
 $$
 
-**(3)** $\delta\in\mathcal O_K$ を $\delta=q_1\beta_1+q_2\beta_2$ と書きます。$\delta\beta_j$ は整なので [整数の跡の補題](#lem-anf1-integral-trace)により $v_j=\operatorname{Tr}(\delta\beta_j)\in\mathbb Z$ です。$Gq=v$ を解くと
+**(3)** $\delta\in\mathcal O_K$ を $\delta=q_1\beta_1+q_2\beta_2$ と書きます。$\delta\beta_j$ は整なので [整数のトレースの補題](#lem-anf1-integral-trace)により $v_j=\operatorname{Tr}(\delta\beta_j)\in\mathbb Z$ です。$Gq=v$ を解くと
 
 $$
 \begin{pmatrix}q_1\\q_2\end{pmatrix}
@@ -624,4 +625,4 @@ $$
 
 ## 6. 次の講義へ
 
-数体の整数環は、[代数的整数の定義](#def-anf1-algebraic-integer)から始まり、有限個の整数基底を持つ環であることまで示せました。ただし整数基底の取り方は体によって異なり、二次体では $d\bmod4$ で変わります。次の ANF2 では、ここで補助的に使った**跡**を体系化し、ノルムと**判別式**によって整数基底の情報を読み取ります。
+数体の整数環は、[代数的整数の定義](../../TRN/TRN1/index.md#def-trn1-algebraic-integer)から始まり、有限個の整数基底を持つ環であることまで示せました。ただし整数基底の取り方は体によって異なり、二次体では $d\bmod4$ で変わります。次の ANF2 では、ここで補助的に使った**トレース**を体系化し、ノルムと**判別式**によって整数基底の情報を読み取ります。
