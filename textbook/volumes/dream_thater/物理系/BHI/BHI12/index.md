@@ -50,7 +50,22 @@ $$
 \otimes(|00\rangle+|11\rangle)_{BE}.
 $$
 
-各Bell対の二成分は直交し、全四項の振幅は $1/2$ なのでノルム平方は $4(1/2)^2=1$ です。[部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)では、たとえば $A$ を捨てると $|i\rangle\langle k|_M$ の係数に $\langle k|i\rangle_A=\delta_{ik}$ が掛かり、$\rho_M=I_M/2$ となります。同様に $\rho_E=I_E/2$。$MA$ と $BE$ が積であるため $\rho_{ME}=(I_M/2)\otimes(I_E/2)=I_{ME}/4$ です。つまり、**投入前の早期放射 $E$ は新しい日記の参照系 $M$ と無相関**です。
+各Bell対の二成分は直交し、全四項の振幅は $1/2$ なので、ノルム平方は $4(1/2)^2=1$ です。
+
+[部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)で日記 $A$ を捨てると、参照系の交差項には $\langle k|i\rangle_A=\delta_{ik}$ が掛かります。したがって
+
+$
+\rho_M=\frac12\sum_{i,k=0}^1|i\rangle\langle k|_M\,\delta_{ik}
+=\frac{I_M}{2}.
+$
+
+同じ計算で $\rho_E=I_E/2$ です。初期状態の $MA$ 対と $BE$ 対は積なので、その部分トレースも積です。
+
+$
+\rho_{ME}=\frac{I_M}{2}\otimes\frac{I_E}{2}=\frac{I_{ME}}4.
+$
+
+つまり、**投入前の早期放射 $E$ は新しい日記の参照系 $M$ と無相関**です。
 <!-- definition-example-end -->
 
 物理的な蒸発ブラックホールで $BE$ が厳密に一つの最大エンタングル対になることまでは仮定できません。ここでは新たな日記を入れる直前に、利用可能な早期放射が内部を精製している理想化として用います。[BHI7のPage型期待曲線](../BHI7/index.md)と同じく、有限次元の典型性や初期純粋性を物理時間発展の証明と同一視しません。
@@ -474,7 +489,23 @@ $$
 回収チャネルを $\mathcal N_{A\to DE}$ としたとき、[QINF29の完全復号定理](../../../応用系/QINF/QINF29/index.md#thm-qinf29-recovery)の「論理入力、符号化、Stinespring等長写像、受信出力、環境、参照系」に相当する本講の対象を全て書き、$\rho_{MC}=\rho_M\otimes\rho_C$ が必要十分であることを導け。
 
 <!-- solution-start -->
-**詳細解答**：論理入力は $A$、等長符号化は $I_A$、Stinespring等長写像は $W|\psi\rangle=(U\otimes I_E)(|\psi\rangle_A|\Phi_{d_B}\rangle_{BE})$、受信出力は $DE$、環境は $C$、参照系は $M\cong A$ です。$W^\dagger W=I_A$ は $U^\dagger U=I_{AB}$ と $\langle\Phi|\Phi\rangle=1$ から成り立ちます。$M A$ の初期Bell対へ $I_M\otimes W$ を作用させた出力が $|\Psi_U\rangle$ なので、QINF29定理の参照環境縮約はちょうど $\rho_{MC}$ です。従って完全回収 $\Longleftrightarrow\rho_{MC}=\rho_M\otimes\rho_C$。さらに[参照系と早期放射の独立性](#prop-bhi12-early-independence)により $\rho_M=I_M/d_A$ で、[本講の完全回収条件](#thm-bhi12-recovery-condition)へ帰着します。
+**詳細解答**： [QINF29の完全復号定理](../../../応用系/QINF/QINF29/index.md#thm-qinf29-recovery)の論理入力を $A$、等長符号化を恒等写像 $I_A$、受信出力を $DE$、環境を $C$、参照系を $M\cong A$ と対応させます。
+
+このときStinespring等長写像は、初期Bell対を付加してから発展させる写像
+
+$
+W|\psi\rangle=(U\otimes I_E)(|\psi\rangle_A|\Phi_{d_B}\rangle_{BE})
+$
+
+です。$U^\dagger U=I_{AB}$ と $\langle\Phi_{d_B}|\Phi_{d_B}\rangle=1$ を用いて内積を計算すると、$W^\dagger W=I_A$ となり、定理の等長性の仮定を満たします。
+
+初期Bell対 $MA$ に $I_M\otimes W$ を作用させた出力が $|\Psi_U\rangle$ なので、QINF29定理でいう参照環境縮約は $\rho_{MC}$ です。ゆえに完全回収と、次の積状態条件が同値です。
+
+$
+\rho_{MC}=\rho_M\otimes\rho_C.
+$
+
+さらに[参照系と早期放射の独立性](#prop-bhi12-early-independence)から $\rho_M=I_M/d_A$。これを代入すれば[本講の完全回収条件](#thm-bhi12-recovery-condition)が得られます。
 <!-- solution-end -->
 
 <a id="ex-bhi12-b04"></a>
