@@ -163,8 +163,27 @@ function initializeHighlightedEditors() {
     editor.addEventListener('scroll', () => {
       highlight.scrollTop = editor.scrollTop;
     });
+    // Tab indents code, but Escape then Tab must let keyboard-only learners
+    // reach the next editor/control. Shift+Tab keeps native reverse navigation.
+    let leaveOnTab = false;
+    editor.addEventListener('blur', () => { leaveOnTab = false; });
     editor.addEventListener('keydown', event => {
-      if (event.key !== 'Tab' || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+      if (event.key === 'Escape' && !event.altKey && !event.ctrlKey && !event.metaKey) {
+        leaveOnTab = true;
+        return;
+      }
+      if (event.key !== 'Tab') {
+        leaveOnTab = false;
+        return;
+      }
+      if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) {
+        leaveOnTab = false;
+        return;
+      }
+      if (leaveOnTab) {
+        leaveOnTab = false;
+        return; // browser moves focus instead of inserting indentation
+      }
       event.preventDefault();
       editor.setRangeText('  ', editor.selectionStart, editor.selectionEnd, 'end');
       refresh();
