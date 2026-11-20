@@ -43,7 +43,7 @@ chapters:
     title: "Gibbs密度が不変なのはどの条件か"
   - id: PML1-10
     path: textbook/volumes/dream_thater/応用系/PML/PML1-10
-    status: planned
+    status: completed
     title: "不変分布と詳細釣合いは同じか"
   - id: PML1-11
     path: textbook/volumes/dream_thater/応用系/PML/PML1-11
