@@ -208,10 +208,15 @@ $$
 \operatorname{Tr}[(\pi_M\otimes\rho_C)Z_MZ_1]=0.
 $$
 
-$Z_MZ_1$ の作用素ノルムは1です。[BHI13で定義した距離 $L$](../BHI13/index.md#def-bhi13-decoupling-error)を用い、$X=\rho_{MC}-\pi_M\otimes\rho_C$、$Y=Z_MZ_1$ と置くと、特異値に関する不等式から
+$Z_MZ_1$ の作用素ノルムは1です。[BHI13で定義した距離 $L$](../BHI13/index.md#def-bhi13-decoupling-error)の差を $X=\rho_{MC}-\pi_M\otimes\rho_C$、$Y=Z_MZ_1$ と書きます。$X$ はHermitianなので直交固有基底 $|j\rangle$ で $X=\sum_j\lambda_j|j\rangle\langle j|$ と展開できます。すると各対角成分の絶対値は $\|Y\|_\infty=1$ 以下であり、
 
 $$
-|\operatorname{Tr}(XY)|\le\|X\|_1\|Y\|_\infty=\|X\|_1.
+\begin{aligned}
+|\operatorname{Tr}(XY)|
+&=\left|\sum_j\lambda_j\langle j|Y|j\rangle\right|\\
+&\le\sum_j|\lambda_j|\,|\langle j|Y|j\rangle|\\
+&\le\sum_j|\lambda_j|=\|X\|_1.
+\end{aligned}
 $$
 
 したがって
