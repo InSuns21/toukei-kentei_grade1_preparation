@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - SYZ1-11
+  - CYG1-13
 official_scope: []
 learning_objectives:
   - 楕円曲線の複素格子と平坦Kähler形式を周期1座標から導き面積を検算できる
