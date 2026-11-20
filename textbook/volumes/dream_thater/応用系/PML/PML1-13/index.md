@@ -10,7 +10,15 @@
 
 パラメータ $\theta\in\mathbb R^d$、平均損失 $F=N^{-1}\sum_i f_i$、学習率 $\eta>0$、復元抽出のバッチサイズ $1\le b\le N$ は前講と同じである。$\theta_\star$ を $\nabla F(\theta_\star)=0$ を満たす点とする。$\theta_n-\theta_\star$ の大きさと方向を追うため、列ベクトル $x_n=\theta_n-\theta_\star$ を使う。
 
-$F$ が $\theta_\star$ 近傍で二回連続微分可能なら、勾配の変化はHessian（勾配のJacobi行列）で表せる。$H=\nabla^2F(\theta_\star)$ とする。標準基底では $H_{rs}=\partial_{\theta_s}(\partial_{\theta_r}F)(\theta_\star)$ であり、$Hx$ の第 $r$ 成分は $\sum_{s=1}^dH_{rs}x_s$ である。停留点条件と線分に沿う微積分の基本定理から
+$F$ が $\theta_\star$ 近傍で二回連続微分可能なら、勾配の変化はHessian（勾配のJacobi行列）で表せる。$H=\nabla^2F(\theta_\star)$ とする。標準基底で $1\le r,s\le d$ とすると、Hessianの成分と、それが変位 $x$ に作用した第 $r$ 成分は
+
+$
+H_{rs}=\partial_{\theta_s}(\partial_{\theta_r}F)(\theta_\star),
+\qquad
+(Hx)_r=\sum_{s=1}^dH_{rs}x_s
+$
+
+と書ける。停留点条件と線分に沿う微積分の基本定理から
 
 $$
 \nabla F(\theta_\star+x)
@@ -53,12 +61,12 @@ $$
 
 [PML1-11の二次Langevinモデル](../PML1-11/index.md#thm-pml1-11-exact-ou-step)と同じ発想で、連続時間において線形の復元力 $-HU_t$ と一定のGaussian雑音を持つ過程を考える。ここで $W_t$ は[多次元ブラウン運動の定義](../../../解析系/STO/STO7/index.md#def-sto7-vector-brownian)に従う、独立な成分から成る $d$ 次元標準ブラウン運動である。以下の $dW_t$ は通常の時間微分ではなく、区間ごとのブラウン増分をItô積分する記法とする。
 
-$C_\star$ は[散布行列の定義](../PML1-12/index.md#def-pml1-12-gradient-scatter)から対称半正定値なので、直交行列 $Q$ と $c_i\ge0$ によって $C_\star=Q\operatorname{diag}(c_1,\ldots,c_d)Q^{\mathsf T}$ と表せる。各固有方向の分散 $c_i$ を平方根に分け、
+$C_\star$ は[散布行列の定義](../PML1-12/index.md#def-pml1-12-gradient-scatter)から対称半正定値なので、直交行列 $R$（$R^{\mathsf T}R=I_d$）と固有値 $c_i\ge0$ によって $C_\star=R\operatorname{diag}(c_1,\ldots,c_d)R^{\mathsf T}$ と表せる。各固有方向の分散 $c_i$ を平方根に分け、
 
 $$
-B=Q\operatorname{diag}(\sqrt{c_1},\ldots,\sqrt{c_d})Q^{\mathsf T},
+B=R\operatorname{diag}(\sqrt{c_1},\ldots,\sqrt{c_d})R^{\mathsf T},
 \qquad
-BB^{\mathsf T}=Q\operatorname{diag}(c_1,\ldots,c_d)Q^{\mathsf T}=C_\star
+BB^{\mathsf T}=R\operatorname{diag}(c_1,\ldots,c_d)R^{\mathsf T}=C_\star
 $$
 
 と作る。この $B$ は $d\times d$ 行列で、零固有値があっても構成できる。
@@ -154,7 +162,17 @@ $$
 =\frac{\eta}{b}\int_0^t e^{-Hu}C_\star e^{-Hu}\,du
 $$
 
-となる。$H=Q\operatorname{diag}(\lambda_1,\ldots,\lambda_d)Q^{\mathsf T}$、$\lambda_i>0$ の直交対角化を用いると、$\|e^{-Ht}\|_{\mathrm{op}}\le e^{-\lambda_{\min}t}$。従って積分は有限である。決定論的初期値から出発すると、上の確率積分は[決定論的ブラウン積分のGaussian性](../../../解析系/STO/STO6/index.md#prop-sto6-deterministic-gaussian)から多次元でもGaussianである。実際、任意の列ベクトル $v$ を左から掛けた $v^{\mathsf T}\int_0^te^{-H(t-s)}B\,dW_s$ は、独立なブラウン成分に対する決定論的積分の和なので一次元Gaussianとなる。平均は $e^{-Ht}U_0\to0$、共分散は表示積分へ収束する。任意の初期分布に対しても、初期値の寄与 $e^{-Ht}U_0$ は確率収束で0となるので同じ極限分布を持つ。
+となる。ここでは $C_\star$ の固有基底 $R$ とは別に、$H=Q\operatorname{diag}(\lambda_1,\ldots,\lambda_d)Q^{\mathsf T}$（$\lambda_i>0$）と直交対角化する。すると $\|e^{-Ht}\|_{\mathrm{op}}\le e^{-\lambda_{\min}t}$ なので積分は有限である。
+
+決定論的初期値から出発すると、上の確率積分は[決定論的ブラウン積分のGaussian性](../../../解析系/STO/STO6/index.md#prop-sto6-deterministic-gaussian)から多次元でもGaussianである。実際、任意の $v\in\mathbb R^d$ に対し、左から掛けたスカラー積分は
+
+$
+v^{\mathsf T}\int_0^t e^{-H(t-s)}B\,dW_s
+=\sum_{\ell=1}^d\int_0^t
+\bigl(v^{\mathsf T}e^{-H(t-s)}B\bigr)_\ell\,dW_s^\ell
+$
+
+であり、右辺は互いに独立なブラウン成分の決定論的積分の和なのでGaussianとなる。すべての一次元射影がGaussianであるから積分ベクトルは多次元Gaussianである。平均は $e^{-Ht}U_0\to0$、共分散は表示積分へ収束する。任意の初期分布に対しても、初期値の寄与 $e^{-Ht}U_0$ は確率収束で0となるので同じ極限分布を持つ。
 
 $\Sigma_{\mathrm{OU}}$ の積分の両側へ $H$ を掛けて足すと、
 
