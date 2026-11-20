@@ -1,6 +1,6 @@
 # ANF4 素数の分解・分岐・惰性
 
-[ANF3 の素イデアル分解定理](../ANF3/index.md#thm-anf3-prime-ideal-factorization)により、整数環の非零イデアルは素イデアルの冪積に一意に分解されます。しかし有理素数 $p$ を数体 $K$ へ持ち込むと、$(p)$ が素イデアルのままとは限りません。たとえば $\mathbb Z[\sqrt{-5}]$ では $(2)$ が一つの素イデアルの **平方**になり、$(3)$ は **異なる二つ**の素イデアルに分かれます。
+[Dedekind整域の素イデアル分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)により、整数環の非零イデアルは素イデアルの冪積に一意に分解されます。しかし有理素数 $p$ を数体 $K$ へ持ち込むと、$(p)$ が素イデアルのままとは限りません。たとえば $\mathbb Z[\sqrt{-5}]$ では $(2)$ が一つの素イデアルの **平方**になり、$(3)$ は **異なる二つ**の素イデアルに分かれます。
 
 この違いを、素イデアルの数だけではなく、冪指数と剰余体の大きさで測ります。さらに [ANF2 の体の判別式](../ANF2/index.md#def-anf2-field-discriminant)が二次体のどの素数の分岐を検出するか、証明と計算をつなぎます。
 
@@ -291,7 +291,7 @@ $$
 
 ## 5. 二次体では判別式で三つの型を判定する
 
-$d\ne1$ を平方因子を持たない整数とし、$K=\mathbb Q(\sqrt d)$ とします。[二次体の整数環](../ANF1/index.md#thm-anf1-quadratic-integers)と [判別式公式](../ANF2/index.md#thm-anf2-quadratic-discriminant)から、整数環を生成する元 $\theta$、そのモニック多項式 $h(T)$、体の判別式 $D_K$ は次の通りです。
+$d\ne1$ を平方因子を持たない整数とし、$K=\mathbb Q(\sqrt d)$ とします。[二次体の整数環の定理](../ANF1/index.md#thm-anf1-quadratic-integers)から整数環を生成する元 $\theta$ が決まります。続いてその最小多項式 $h(T)$ に [二次体の判別式公式](../ANF2/index.md#thm-anf2-quadratic-discriminant)を適用すると、体の判別式 $D_K$ と合わせて次の表を得ます。
 
 | $d$ の条件 | $\theta$ | $h(T)$ | $D_K$ |
 | --- | --- | --- | --- |
@@ -344,7 +344,7 @@ $$
 (2T-t)^2=t^2-4u=D_K\pmod p
 $$
 
-と同値です。$D_K\equiv0\pmod p$ なら唯一の重根 $t/2$ を持ち、$\overline h=(T-t/2)^2$。$D_K$ が非零平方なら相異なる二根 $(t\pm\sqrt{D_K})/2$ を持ち、二つの一次因子へ分かれます。非平方なら根がなく、二次多項式なので既約です。[単項生成の分解定理](#thm-anf4-monogenic-factorization)から順に $(e,f)=(2,1)$、$(1,1)$ が二つ、$(1,2)$ となります。
+と同値です。$D_K\equiv0\pmod p$ なら唯一の重根 $t/2$ を持ち、$\overline h=(T-t/2)^2$。$D_K$ が非零平方なら相異なる二根 $(t\pm\sqrt{D_K})/2$ を持ち、二つの一次因子へ分かれます。非平方なら根がなく、二次多項式なので既約です。[整数環が単項生成されるときの素イデアル分解](#thm-anf4-monogenic-factorization)から順に $(e,f)=(2,1)$、$(1,1)$ が二つ、$(1,2)$ となります。
 
 **$p=2$ の場合。** $D_K$ が偶数なら $d\equiv2,3\pmod4$ で $h(T)=T^2-d$ です。$d$ が偶数なら $\overline h=T^2$、奇数なら $\overline h=T^2+1=(T+1)^2$ です。いずれも一次因子の二乗なので分岐します。
 
@@ -392,7 +392,7 @@ $K=\mathbb Q(\sqrt2)$、$p=3$ とする。$T^2-2$ を法 $3$ で調べ、$(3)$ �
 - ID: ANF4-A1
 
 <!-- solution-start -->
-**詳細解答**　$\overline h=T^2+1$ です。$T=0,1,2$ を代入した値は順に $1,2,2$ なので根はありません。二次式なので既約です。[単項生成の分解定理](#thm-anf4-monogenic-factorization)より $(3)$ 自身が素イデアル、$g=1,e_1=1,f_1=2$ で惰性です。[次数公式](#thm-anf4-fundamental-identity)では $1\cdot2=2$。整数基底 $(1,\sqrt2)$ での加法商は $\mathbb F_3^2$ なので $N((3))=3^2=9$ です。
+**詳細解答**　$\overline h=T^2+1$ です。$T=0,1,2$ を代入した値は順に $1,2,2$ なので根はありません。二次式なので既約です。[整数環が単項生成されるときの素イデアル分解](#thm-anf4-monogenic-factorization)より $(3)$ 自身が素イデアル、$g=1,e_1=1,f_1=2$ で惰性です。[次数公式](#thm-anf4-fundamental-identity)では $1\cdot2=2$。整数基底 $(1,\sqrt2)$ での加法商は $\mathbb F_3^2$ なので $N((3))=3^2=9$ です。
 <!-- solution-end -->
 
 ### A2. 二つの素イデアルを作る
@@ -403,7 +403,7 @@ $K=\mathbb Q(\sqrt{-5})$、$s=\sqrt{-5}$、$p=3$ とする。$A=\mathbb Z[s]$ �
 - ID: ANF4-A2
 
 <!-- solution-start -->
-**詳細解答**　$T^2+5\equiv T^2-1=(T-1)(T+1)\pmod3$ です。従って [単項生成の分解定理](#thm-anf4-monogenic-factorization)より
+**詳細解答**　$T^2+5\equiv T^2-1=(T-1)(T+1)\pmod3$ です。従って [整数環が単項生成されるときの素イデアル分解](#thm-anf4-monogenic-factorization)より
 
 $$
 (3)=(3,s-1)(3,s+1).
@@ -431,7 +431,7 @@ $K=\mathbb Q(\sqrt5)$ について $p=5$ の分解を判別式と多項式の両
 - ID: ANF4-A4
 
 <!-- solution-start -->
-**詳細解答**　[二次体の判別式公式](../ANF2/index.md#thm-anf2-quadratic-discriminant)から $D_K=5$ で、$5\mid D_K$ です。[二次体の分裂定理](#thm-anf4-quadratic-splitting)より分岐します。直接には $h=T^2-T-1$ を法 $5$ に落として
+**詳細解答**　[二次体の判別式公式](../ANF2/index.md#thm-anf2-quadratic-discriminant)から $D_K=5$ で、$5\mid D_K$ です。[二次体での分裂・惰性・分岐判定](#thm-anf4-quadratic-splitting)より分岐します。直接には $h=T^2-T-1$ を法 $5$ に落として
 
 $$
 (T-3)^2=T^2-6T+9\equiv T^2-T-1\pmod5
@@ -467,7 +467,7 @@ $$
 2\cdot1+1\cdot2+1\cdot2=6
 $$
 
-で、$[K:\mathbb Q]=6$ に一致します。[イデアルノルムの定義](#def-anf4-ideal-norm)および [素イデアル冪の補題](#lem-anf4-prime-power-norm)から、$N(\mathfrak p_1)=p$、$N(\mathfrak p_2)=N(\mathfrak p_3)=p^2$。従って
+で、$[K:\mathbb Q]=6$ に一致します。[整イデアルのノルム](#def-anf4-ideal-norm)は商環の元数として定義されています。ここで [素イデアル冪のノルム](#lem-anf4-prime-power-norm)を各素イデアルに適用すると、$N(\mathfrak p_1)=p$、$N(\mathfrak p_2)=N(\mathfrak p_3)=p^2$ です。従って
 
 $$
 N((p))=p^{2\cdot1}\,p^{1\cdot2}\,p^{1\cdot2}=p^6.
@@ -548,7 +548,7 @@ $K=\mathbb Q(\sqrt{-5})$、$s=\sqrt{-5}$、$A=\mathbb Z[s]$ とする。
 
 **1. 判別式。** $-5\equiv3\pmod4$ なので $A=\mathbb Z[s]$、$\theta=s$ の多項式は $h=T^2+5$ です。[二次体の判別式公式](../ANF2/index.md#thm-anf2-quadratic-discriminant)から $D_K=4(-5)=-20$。これを割る $2,5$ は [二次体の分岐判定](#thm-anf4-quadratic-splitting)で分岐します。$p=3$ では $D_K\equiv1$ は非零平方なので完全分裂、$p=11$ では $D_K\equiv2$ で非平方（平方集合 $1,3,4,5,9$）なので惰性です。
 
-**2. イデアルと指数。** 多項式を法 $p$ へ落として [単項生成の分解定理](#thm-anf4-monogenic-factorization)を適用します。
+**2. イデアルと指数。** 多項式を法 $p$ へ落として [整数環が単項生成されるときの素イデアル分解](#thm-anf4-monogenic-factorization)を適用します。
 
 - $p=2$：$T^2+5\equiv(T+1)^2$。$\mathfrak p_2=(2,s+1)$ で $(2)=\mathfrak p_2^2$、$(e,f)=(2,1)$。
 - $p=3$：$T^2+5\equiv(T-1)(T+1)$。$\mathfrak q_+=(3,s-1)$、$\mathfrak q_-=(3,s+1)$ で $(3)=\mathfrak q_+\mathfrak q_-$、各 $(e,f)=(1,1)$。
