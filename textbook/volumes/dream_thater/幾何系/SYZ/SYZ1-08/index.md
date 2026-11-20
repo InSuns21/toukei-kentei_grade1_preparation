@@ -158,7 +158,19 @@ $$
 
 **定義の確認**
 
-$X=(\mathbb C/(\mathbb Z+i\mathbb Z))^2$、$z^j=x^j+i y^j$、$\omega=dx^1\wedge dy^1+dx^2\wedge dy^2$、$\Omega=dz^1\wedge dz^2$、$\pi([x+iy])=[y]$ とする。ファイバーを $dx^1\wedge dx^2$ の向きに取ると、$dy^j|_{L_y}=0$ なので $\omega|_{L_y}=0$、$\Omega|_{L_y}=dx^1\wedge dx^2=\operatorname{vol}_{L_y}$。したがって位相0のSLagトーラスである。
+$X=(\mathbb C/(\mathbb Z+i\mathbb Z))^2$ とし、実座標 $x^j,y^j\pmod{\mathbb Z}$ を使って
+
+$
+z^j=x^j+i y^j,\qquad
+\omega=dx^1\wedge dy^1+dx^2\wedge dy^2,
+$
+
+$
+\Omega=dz^1\wedge dz^2,\qquad
+\pi([x+iy])=[y]
+$
+
+と定める。ファイバーを $dx^1\wedge dx^2$ の向きに取ると、$dy^j|_{L_y}=0$ なので $\omega|_{L_y}=0$、$\Omega|_{L_y}=dx^1\wedge dx^2=\operatorname{vol}_{L_y}$。したがって位相0のSLagトーラスである。
 
 法線方向 $V_j=\partial_{y^j}$ に対し
 
@@ -560,7 +572,14 @@ $\partial K$ のうち $\partial\gamma$ に対応する部分は $\gamma$ がサ
 
 - Level: B
 
-二次元余接空間の格子 $\Lambda=\mathbb Z\,du^1\oplus\mathbb Z\,du^2$ とする。$A=\begin{pmatrix}1&1\\1&2\end{pmatrix}$、$B=\begin{pmatrix}1&1/2\\0&1\end{pmatrix}$ に対し、$Adu$ と $Bdu$ の各成分の整数係数の線形結合で張る格子が、それぞれ $\Lambda$ と一致するか、生成元の逆変換まで示して判定せよ。
+二次元余接空間の格子 $\Lambda=\mathbb Z\,du^1\oplus\mathbb Z\,du^2$ とする。$du=(du^1,du^2)^{\mathsf T}$ を列ベクトルとして
+
+$
+A=\begin{pmatrix}1&1\\1&2\end{pmatrix},\qquad
+B=\begin{pmatrix}1&1/2\\0&1\end{pmatrix}
+$
+
+を考える。$Adu$ と $Bdu$ の各成分の整数係数の線形結合で張る格子が、それぞれ $\Lambda$ と一致するか、生成元の逆変換まで示して判定せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -591,7 +610,14 @@ $$
 u=(4y^1,9y^2),\qquad t=(6y^1,6y^2).
 $$
 
-$\Lambda_\omega^*=\mathbb Z(4dy^1)\oplus\mathbb Z(9dy^2)$、$\Lambda_\Omega^*=\mathbb Z(6dy^1)\oplus\mathbb Z(6dy^2)$ である。$y^1=u^1/4$、$y^2=u^2/9$ を代入すると
+二つの余接格子は
+
+$
+\Lambda_\omega^*=\mathbb Z(4dy^1)\oplus\mathbb Z(9dy^2),\qquad
+\Lambda_\Omega^*=\mathbb Z(6dy^1)\oplus\mathbb Z(6dy^2)
+$
+
+である。$y^1=u^1/4$、$y^2=u^2/9$ を代入すると
 
 $$
 t=(\tfrac32u^1,\tfrac23u^2),\qquad
