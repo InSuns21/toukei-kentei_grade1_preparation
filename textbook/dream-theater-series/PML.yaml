@@ -59,7 +59,7 @@ chapters:
     title: "SGDを局所OU過程で近似できるのはいつか"
   - id: PML1-14
     path: textbook/volumes/dream_thater/応用系/PML/PML1-14
-    status: planned
+    status: completed
     title: "SGD=熱平衡という比喩が壊れる例は何か"
   - id: PML1-15
     path: textbook/volumes/dream_thater/応用系/PML/PML1-15
