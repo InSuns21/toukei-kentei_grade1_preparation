@@ -1,0 +1,44 @@
+id: "ANF4"
+title: "素数の分解・分岐・惰性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANF3
+official_scope: []
+learning_objectives:
+  - 有理素数の上にある素イデアルと分岐指数・剰余次数・剰余体の定義を具体例で確認できる
+  - 非零整イデアルのノルムと素イデアル冪のノルム公式を局所単項性から証明できる
+  - 中国剰余分解と整数基底から分岐指数・剰余次数の次数公式を導出できる
+  - 完全分裂・惰性・分岐を区別し次数2の可能な分解型を列挙できる
+  - 整数環がZ[theta]に一致するとき最小多項式の法p分解から素イデアル分解を構成・証明できる
+  - 二次体の判別式と法pの多項式から奇素数および2の分裂・分岐を判定できる
+  - Q(sqrt(-5))の素数2・3・5・11および(6)の分解とノルムを紙上計算できる
+definitions:
+  - { id: ANF4-DEF-01, name: 分岐指数と剰余次数 }
+  - { id: ANF4-DEF-02, name: 整イデアルのノルム }
+  - { id: ANF4-DEF-03, name: 完全分裂・惰性・分岐 }
+theorems:
+  - { id: ANF4-LEM-01, name: 素イデアル冪のノルム }
+  - { id: ANF4-THM-01, name: 分岐指数・剰余次数の次数公式 }
+  - { id: ANF4-THM-02, name: 整数環が単項生成されるときの素イデアル分解 }
+  - { id: ANF4-THM-03, name: 二次体での分裂・惰性・分岐判定 }
+canonical_examples:
+  - Zでのイデアルノルム12と分岐指数・剰余次数
+  - Q(sqrt(-5))の3の完全分裂と2・5の分岐と11の惰性
+  - Q(sqrt(5))で2の惰性と5の分岐
+  - Q(sqrt(-5))で(6)のノルム36の検算
+problem_patterns:
+  - ANF4-QUADRATIC-INERT-REDUCTION
+  - ANF4-QUADRATIC-SPLIT-IDEALS
+  - ANF4-RESIDUE-FIELD-DEGREE
+  - ANF4-RAMIFICATION-DISCRIMINANT
+  - ANF4-QUADRATIC-LEGENDRE
+  - ANF4-DEGREE-SUM-CHECK
+  - ANF4-RAMIFIED-IDEAL-SQUARE
+  - ANF4-TWO-ADIC-QUADRATIC-SPLITTING
+  - ANF4-SPLIT-VS-RAMIFIED
+  - ANF4-IDEAL-FACTORIZATION-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11.0, exercises: 8.0, review: 2.0 }
