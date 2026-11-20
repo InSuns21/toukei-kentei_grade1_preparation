@@ -88,16 +88,16 @@ $$
 > **定理（OU代理の損失Gibbs一致条件）**  
 > $d\ge1$、$\eta>0$、整数 $b\ge1$、対称正定値 $H\in\mathbb R^{d\times d}$、対称半正定値 $C_\star\in\mathbb R^{d\times d}$ を与える。OU代理
 >
-> $$
+$$
 > dU_t=-HU_t\,dt+\sqrt{\eta/b}\,B\,dW_t,
 > \qquad BB^{\mathsf T}=C_\star
-> $$
+$$
 >
 > の一意な定常分布が、二次損失 $F_{\mathrm{quad}}(x)=x^{\mathsf T}Hx/2$ に対する温度 $T>0$ のGibbs密度に一致するための必要十分条件は
 >
-> $$
+$$
 > C_\star=\frac{2bT}{\eta}I_d
-> $$
+$$
 >
 > である。特に、ある正の温度での一致が可能であることと、$C_\star=cI_d$ を満たす定数 $c>0$ が存在することは同値であり、このとき $T=\eta c/(2b)$ である。
 <!-- formal-statement-end -->
@@ -164,10 +164,10 @@ $$
 >
 > さらに $D=\eta C_\star/(2b)$ と置くと、定常密度 $p$ の確率流は
 >
-> $$
+$$
 > J(x)=\bigl(-Hx+D\Sigma^{-1}x\bigr)p(x)
 > =\frac12(\Sigma H-H\Sigma)\Sigma^{-1}x\,p(x)
-> $$
+$$
 >
 > である。従ってこれらの条件が成立するとき、かつそのときに限り、$J(x)$ は全点で0となる。
 <!-- formal-statement-end -->
@@ -283,15 +283,15 @@ $$
 > **命題（有限学習率と非Gaussian定常分布の反例）**  
 > 上の二損失から作る一次元SGDで $0<\eta<1$ とする。この更新には有限二次モーメントの一意な定常分布があり、平均0・分散
 >
-> $$
+$$
 > v_{\mathrm{SGD}}=\frac{\eta}{4(1-\eta)}
-> $$
+$$
 >
 > を持つ。対応するOU代理の定常分布は正の温度 $T=\eta/2$ の損失Gibbs分布 $N(0,\eta/4)$ である。特に $\eta=1/2$ の離散SGDの定常分布は
 >
-> $$
+$$
 > \frac12\delta_{-1/2}+\frac12\delta_{1/2}
-> $$
+$$
 >
 > であり、OUのGaussian分布と一致しない。$0<\eta\le1/2$ では離散定常分布の台は区間 $[-1/2,1/2]$ に含まれる。
 <!-- formal-statement-end -->
