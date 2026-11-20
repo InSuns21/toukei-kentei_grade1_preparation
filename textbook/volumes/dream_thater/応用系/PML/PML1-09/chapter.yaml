@@ -1,0 +1,49 @@
+id: "PML1-09"
+title: "Gibbs密度が不変なのはどの条件か"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML1-08
+  - STO11
+  - OTR21
+  - PDE1
+  - TOP5A
+  - VC4
+official_scope: []
+learning_objectives:
+  - 連続状態Gibbs密度の分配関数と正規化可能性を計算できる
+  - 不変確率分布をMarkov半群の等式で定義し、二次Langevin模型で直接検証できる
+  - 熱雑音整合した定数移動度Langevin拡散のFokker–Planck方程式と確率流を導出できる
+  - Gibbs候補の零確率流を連鎖律で示し、形式的な定常解と真の不変分布を区別できる
+  - 非爆発性・無限遠の境界項・正規化とモーメントの役割を区別し、半群から不変性を証明できる
+  - 二次下界による積分可能性の十分条件を証明できる
+  - 雑音不整合・正規化不能・境界からの流出の反例を計算で診断できる
+definitions:
+  - { id: PML1-09-DEF-01, name: 連続状態のGibbs確率密度 }
+  - { id: PML1-09-DEF-02, name: 不変確率分布 }
+  - { id: PML1-09-DEF-03, name: 零確率流 }
+theorems:
+  - { id: PML1-09-PROP-01, name: 整合Langevin拡散のFokker–Planck方程式 }
+  - { id: PML1-09-THM-01, name: 定数移動度Langevin拡散のGibbs不変性（十分条件） }
+  - { id: PML1-09-PROP-02, name: 二次下界を持つ損失では正規化と一階モーメントが有限 }
+canonical_examples:
+  - Gaussianの連続分配関数と零確率流を直接検算する
+  - 二次Langevinで不変初期分布を選び分散を時間発展させる
+  - 異方二次模型で各成分の確率流が零であることを示す
+  - 正規化不能な定数候補と雑音係数不整合を区別する
+  - 有界領域での流束と吸収境界による質量の消失を比較する
+problem_patterns:
+  - PML1-09-A01
+  - PML1-09-A02
+  - PML1-09-A03
+  - PML1-09-A04
+  - PML1-09-A05
+  - PML1-09-B01
+  - PML1-09-B02
+  - PML1-09-B03
+  - PML1-09-B04
+  - PML1-09-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
