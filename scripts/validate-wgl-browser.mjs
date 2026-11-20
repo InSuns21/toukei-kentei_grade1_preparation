@@ -1083,6 +1083,8 @@ try{
     assert.equal(w18.rows.length,16);
     assert.ok(w18.rows.every(row=>row[4]==='OK'));
     assert.match(w18.log,/CPU独立基準 vs GPU RGBA32F: max absolute error=.*一致/);
+    assert.equal((w18.log.match(/CPU独立基準 vs GPU RGBA32F:/g)||[]).length,1,
+      'a single GPU float diagnostic must not duplicate its numerical evidence');
     assert.match(w18.log,/mass=1/);
     const shot18=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
     await writeFile('_wgl_browser_review/wgl18-diffusion.png',Buffer.from(shot18.data,'base64'));
