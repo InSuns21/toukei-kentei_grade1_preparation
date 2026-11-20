@@ -1,0 +1,40 @@
+chapter: PML1-18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML1-17
+  - AMECH6
+forward_references: []
+concepts:
+  - id: physics-machine-learning.canonical-hnn
+    name: 正準 Hamiltonian neural network
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正準 Hamiltonian neural network）"]
+    requires: [analytical-mechanics.hamiltonian-vector-field, analytical-mechanics.hamilton-equations]
+  - id: physics-machine-learning.hnn-velocity-fit-loss
+    name: HNN の速度適合損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（HNN の速度適合損失）"]
+    requires: [physics-machine-learning.canonical-hnn]
+  - id: physics-machine-learning.hnn-energy-conservation
+    name: 自律正準 HNN の連続時間エネルギー保存
+    kind: theorem
+    introduction: formal
+    requires: [physics-machine-learning.canonical-hnn, analytical-mechanics.hamilton-equations]
+  - id: physics-machine-learning.hnn-true-energy-mismatch
+    name: 真のエネルギーのモデル軌道沿いの変化
+    kind: proposition
+    introduction: formal
+    requires: [physics-machine-learning.hnn-energy-conservation]
+  - id: physics-machine-learning.hnn-divergence-free
+    name: 正準 HNN ベクトル場の発散消失
+    kind: proposition
+    introduction: formal
+    requires: [physics-machine-learning.canonical-hnn, analytical-mechanics.hamiltonian-divergence-free]
+  - id: physics-machine-learning.hnn-euler-energy-drift
+    name: 二次 HNN の陽的 Euler エネルギードリフト
+    kind: proposition
+    introduction: formal
+    requires: [physics-machine-learning.hnn-energy-conservation]
