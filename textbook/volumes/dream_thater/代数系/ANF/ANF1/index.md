@@ -340,7 +340,7 @@ $$
 v_j=\operatorname{Tr}_{K/\mathbb Q}(\alpha\beta_j)\in\mathbb Z.
 $$
 
-トレースの線形性から $v=Gq$ です。余因子行列を使って
+トレースの線形性から $v=Gq$ です。整数係数行列 $G$ は $\det G=D\ne0$ なので、[余因子行列の恒等式](../../../基礎科目/LA/LA3C/index.md#thm-la3c-adjugate-identity)を使って
 
 $$
 q=G^{-1}v=\frac{\operatorname{adj}(G)v}{D}
@@ -418,7 +418,7 @@ $$
 ds^2=r^2-4N\in\mathbb Z.
 $$
 
-$s=u/v$（$u\in\mathbb Z,\ v\in\mathbb Z_{>0},\ \gcd(u,v)=1$）と既約に書けば、$ds^2\in\mathbb Z$ より $v^2\mid du^2$ です。$\gcd(u^2,v^2)=1$ なので Euclid の補題から $v^2\mid d$ が従います。$d$ は平方自由であり、$v>1$ ならその素因子の平方が $d$ を割って矛盾するため、$v=1$ です。すなわち $s\in\mathbb Z$ です。したがって
+$s=u/v$（$u\in\mathbb Z,\ v\in\mathbb Z_{>0},\ \gcd(u,v)=1$）と既約に書けば、$ds^2\in\mathbb Z$ より $v^2\mid du^2$ です。$\gcd(u^2,v^2)=1$ なので、整数の[Bézout 等式](../../RNG/RNG3/index.md#def-rng3-gcd-bezout)により $hu^2+kv^2=1$ となる整数 $h,k$ が存在します。この両辺に $d$ を掛けると、$v^2$ は $hdu^2$ と $kdv^2$ の両方を割るため、$v^2\mid d$ が従います。$d$ は平方自由であり、$v>1$ ならその素因子の平方が $d$ を割って矛盾するため、$v=1$ です。すなわち $s\in\mathbb Z$ です。したがって
 
 $$
 \alpha=\frac{r+s\sqrt d}{2},
@@ -589,7 +589,7 @@ $R=\mathbb Z[\sqrt{-5}]$ で $2,3,1+\sqrt{-5},1-\sqrt{-5}$ が既約元である
 - ID: ANF1-B3
 
 <!-- solution-start -->
-**詳細解答**　$z=a+b\sqrt{-5}$（$a,b\in\mathbb Z$）の共役を $\bar z=a-b\sqrt{-5}$ とすると
+**詳細解答**　[単元・同伴](../../RNG/RNG3/index.md#def-rng3-divisibility-unit-associate)と[既約元](../../RNG/RNG3/index.md#def-rng3-irreducible-prime)の定義を使います。$z=a+b\sqrt{-5}$（$a,b\in\mathbb Z$）の共役を $\bar z=a-b\sqrt{-5}$ とすると
 
 $$
 q(z)=z\bar z=a^2+5b^2\in\mathbb Z_{\ge0}.
