@@ -1,0 +1,34 @@
+chapter: PML1-16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML1-15
+  - MFL23
+forward_references: []
+concepts:
+  - id: physics-machine-learning.finite-group-averaging
+    name: 有限群平均作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限群平均作用素）"]
+    requires: [algebra.group-action, manifold-learning.invariant-map]
+  - id: physics-machine-learning.group-average-projection
+    name: 有限群平均の不変性と射影性
+    kind: theorem
+    introduction: formal
+    requires: [physics-machine-learning.finite-group-averaging, manifold-learning.orbit-fiber-count]
+  - id: physics-machine-learning.group-average-orthogonal
+    name: 不変な評価重みに関する直交射影
+    kind: theorem
+    introduction: formal
+    requires: [physics-machine-learning.group-average-projection]
+  - id: physics-machine-learning.group-average-risk
+    name: 教師値の対称性と群平均後の二乗誤差
+    kind: proposition
+    introduction: formal
+    requires: [physics-machine-learning.group-average-orthogonal, manifold-learning.orbit-label-variance-floor]
+  - id: physics-machine-learning.group-equivariant-average
+    name: 有限群平均による等変化
+    kind: theorem
+    introduction: formal
+    requires: [physics-machine-learning.finite-group-averaging, manifold-learning.equivariant-map]

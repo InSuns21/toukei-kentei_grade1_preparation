@@ -1,0 +1,46 @@
+id: BHI14
+title: "scrambling時間と情報放出時間"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI13
+  - BHI4
+official_scope: []
+learning_objectives:
+  - BHI13のHaar回収閾値が時間発展と復号計算量を与えない理由を説明できる
+  - 平均場の拡散微分方程式を解いて対数到達時間とその定数項を導出できる
+  - 二体ゲート層の作用素台の上界を証明し、fanoutによる等号達成を構成できる
+  - 作用素台の全域拡散とデカップリングの相違をBell参照系の相関から定量的に検証できる
+  - Hawking逆温度と面積エントロピーからscrambling代理時間のスケーリング・係数依存を導出できる
+  - 追加放射の量子ビット率を定義し、高確率回復に必要な収集完了時刻を条件付きで導出できる
+  - 逐次収集と並行収集の必要条件、回復存在と計算・実行を区別できる
+definitions:
+  - { id: BHI14-DEF-01, name: "平均場の拡散時計" }
+  - { id: BHI14-DEF-02, name: "二段階の放射収集模型" }
+theorems:
+  - { id: BHI14-THM-01, name: "平均場模型の対数到達時間" }
+  - { id: BHI14-LEM-01, name: "二体ゲート回路の作用素台の上界" }
+  - { id: BHI14-PROP-01, name: "作用素の全域拡散だけではデカップリングしない" }
+  - { id: BHI14-PROP-02, name: "熱的拡散模型の時間スケーリング" }
+  - { id: BHI14-THM-02, name: "二段階模型での条件付き回収完了時刻" }
+canonical_examples:
+  - n=8の平均場拡散の増殖・飽和と境界
+  - n=64の対数到達時間と熱時計の分離
+  - 二体CNOT木の作用素全域拡散と参照相関の保存
+  - 日記2量子ビット・余剰放射3量子ビットの高確率回収収集時間
+  - 逐次放射・並行放射と計算時間の非同一性
+problem_patterns:
+  - BHI14-LOGISTIC-SOLUTION
+  - BHI14-THRESHOLD-SEPARATION
+  - BHI14-LIGHT-CONE-DEPTH
+  - BHI14-SCHWARZSCHILD-TIME-UNITS
+  - BHI14-QUANTUM-BIT-DIMENSION
+  - BHI14-FANOUT-DECOUPLING-COUNTEREXAMPLE
+  - BHI14-PARALLEL-RELEASE-BOUND
+  - BHI14-HAAR-RECOVERY-RATE
+  - BHI14-EVAPORATION-COMPARISON
+  - BHI14-INTEGRATED-CLOCKS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 5 }

@@ -1,0 +1,48 @@
+chapter: BHI14
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI13, BHI4]
+forward_references: []
+concepts:
+  - id: black-hole-information.mean-field-spreading-clock
+    name: 平均場の拡散時計
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（平均場の拡散時計）]
+    requires: []
+  - id: black-hole-information.logarithmic-spreading-time
+    name: 平均場模型の対数到達時間
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（平均場模型の対数到達時間）]
+    requires: [black-hole-information.mean-field-spreading-clock]
+  - id: black-hole-information.two-site-operator-lightcone
+    name: 二体ゲート回路の作用素台の上界
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（二体ゲート回路の作用素台の上界）]
+    requires: []
+  - id: black-hole-information.fanout-not-decoupling
+    name: 作用素の全域拡散だけではデカップリングしない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（作用素の全域拡散だけではデカップリングしない）]
+    requires: [black-hole-information.two-site-operator-lightcone, black-hole-information.decoupling-leakage-error]
+  - id: black-hole-information.thermal-log-spreading
+    name: 熱的拡散模型の時間スケーリング
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（熱的拡散模型の時間スケーリング）]
+    requires: [black-hole-information.logarithmic-spreading-time, black-hole-thermodynamics.schwarzschild-entropy-mass-law]
+  - id: black-hole-information.staged-radiation-collection
+    name: 二段階の放射収集模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二段階の放射収集模型）]
+    requires: [black-hole-information.haar-input-output-experiment, black-hole-information.extra-radiation-qubits]
+  - id: black-hole-information.conditional-collection-time
+    name: 二段階模型での条件付き回収完了時刻
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二段階模型での条件付き回収完了時刻）]
+    requires: [black-hole-information.staged-radiation-collection, black-hole-information.haar-recovery-threshold]
