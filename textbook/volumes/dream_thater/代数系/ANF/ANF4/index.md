@@ -54,7 +54,7 @@ $$
 <!-- definition-example-start: def-anf4-ramification-residue -->
 **定義の確認**：$K=\mathbb Q(\sqrt{-5})$ では $s=\sqrt{-5}$ と置くと、[二次体の整数環の定理](../ANF1/index.md#thm-anf1-quadratic-integers)から $A=\mathbb Z[s]$ です。$p=3$ の上の候補として $\mathfrak q_+=(3,s-1)$、$\mathfrak q_-=(3,s+1)$ を作ります。ここで添字 $\pm$ は二つのイデアルを区別するラベルです。
 
-$s^2=-5\equiv1\pmod3$ なので、$a+bs\mapsto a+b\bmod3$ と $a+bs\mapsto a-b\bmod3$ はそれぞれ $A$ から $\mathbb F_3$ への全射環準同型です。核は順に $\mathfrak q_+$、$\mathfrak q_-$ であり、
+$s^2=-5\equiv1\pmod3$ なので、$a+bs\mapsto a+b\bmod3$ と $a+bs\mapsto a-b\bmod3$ はそれぞれ $A$ から $\mathbb F_3$ への全射環準同型です。例えば第一の写像で $a+b\equiv0\pmod3$ なら $a+bs=(a+b)+b(s-1)\in\mathfrak q_+$ であり、生成元 $3,s-1$ はいずれも零へ写ります。第二の写像でも $a+bs=(a-b)+b(s+1)$ と表せるため、核は順に $\mathfrak q_+$、$\mathfrak q_-$ であり、
 
 $$
 A/\mathfrak q_+\cong\mathbb F_3,\qquad
@@ -633,7 +633,7 @@ $$
 (1+s)\subseteq\mathfrak p_2\cap\mathfrak q_-=\mathfrak p_2\mathfrak q_-.
 $$
 
-左辺の商では $s=-1$、$s^2=-5$ から $6=0$ となるため $A/(1+s)\cong\mathbb Z/6\mathbb Z$、元数は6です。右辺の商の元数も中国剰余分解により $2\cdot3=6$ なので、包含は等号です。同じく $s=1$ とすることで
+左辺の商では $s=-1$、$s^2=-5$ から $6=0$ となるため $A/(1+s)\cong\mathbb Z/6\mathbb Z$、元数は6です。右辺の商の元数も[中国剰余定理](../../RNG/RNG2/index.md#thm-rng2-crt-two)により $2\cdot3=6$ なので、包含は等号です。同じく $s=1$ とすることで
 
 $$
 (1+s)=\mathfrak p_2\mathfrak q_-,\qquad
