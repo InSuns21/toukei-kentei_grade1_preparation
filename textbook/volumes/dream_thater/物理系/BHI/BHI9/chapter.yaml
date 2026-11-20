@@ -1,0 +1,47 @@
+id: BHI9
+title: "Mathurのsmall-corrections制約"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI8
+  - BHI6
+  - BHI3
+  - QINF19
+official_scope: []
+learning_objectives:
+  - 放出前後のR・b・cの分割と条件付きエントロピーによる増分を定義・計算できる
+  - 強劣加法性を純粋化に適用し弱単調性を系の代入とともに証明できる
+  - 内外対の共同状態に対するエントロピー小補正条件からMathur型の増分下界を導ける
+  - トレース距離と射影による二部エントロピー評価から定量的な増分下界を証明できる
+  - 早期放射との相関を持つ三qubitの例と局所熱性だけでは不十分な反例を再計算できる
+  - 逐次放出の誤差総和と純粋終期条件の両立不能性を証明し、物理的な仮定を区別できる
+definitions:
+  - { id: BHI9-DEF-01, name: "外部放射の一歩増分" }
+  - { id: BHI9-DEF-02, name: "エントロピーによるsmall-corrections条件" }
+  - { id: BHI9-DEF-03, name: "Bell対に対するトレース距離補正" }
+theorems:
+  - { id: BHI9-LEM-01, name: "内外対を使う弱単調性" }
+  - { id: BHI9-THM-01, name: "Mathur型small-correctionsの増分下界" }
+  - { id: BHI9-THM-02, name: "トレース距離からの増分保証" }
+  - { id: BHI9-PROP-01, name: "逐次小補正の累積下界と終期純粋性" }
+canonical_examples:
+  - 完全Bell対と非最大もつれ純粋対の小補正判定
+  - 早期放射と相関した三qubit状態の弱単調性等号例
+  - 外部量子ビットが最大混合でも内外対は純粋でない反例
+  - トレース距離0.1のエントロピー増分保証と数値比較
+  - 一様・非一様誤差を持つ逐次蒸発と終期純粋性の矛盾
+problem_patterns:
+  - BHI9-BELL-PAIR-STEP
+  - BHI9-TILTED-PAIR
+  - BHI9-UNEQUAL-ENTROPY-ERRORS
+  - BHI9-LOCAL-THERMAL-COUNTEREXAMPLE
+  - BHI9-POSITIVE-THRESHOLD
+  - BHI9-SSA-WEAK-MONOTONICITY
+  - BHI9-CORRELATED-TRACE-EXAMPLE
+  - BHI9-CUMULATIVE-VARIABLE-ERRORS
+  - BHI9-PURIFICATION-PARTNER
+  - BHI9-QUDIT-NO-GO
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }
