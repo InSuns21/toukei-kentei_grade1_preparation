@@ -1,0 +1,30 @@
+chapter: BHI10
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI9, BHI7, QINF19]
+forward_references: []
+concepts:
+  - id: black-hole-information.amps-entropy-conditions
+    name: AMPS三部系の二つの要請
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（AMPS三部系の二つの要請）]
+    requires: [black-hole-information.emission-step-increment, black-hole-information.entropy-small-pair-corrections]
+  - id: black-hole-information.amps-entanglement-tradeoff
+    name: AMPSの三部エントロピー制約
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（AMPSの三部エントロピー制約）]
+    requires: [black-hole-information.amps-entropy-conditions, quantum.strong-subadditivity]
+  - id: black-hole-information.amps-exact-pair-decoupling
+    name: 純粋な内外対は早期放射から分離する
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（純粋な内外対は早期放射から分離する）]
+    requires: [black-hole-information.horizon-pair-toy, black-hole-information.amps-entanglement-tradeoff]
+  - id: black-hole-information.amps-negative-step
+    name: 放射エントロピー減少区間には負の一歩がある
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（放射エントロピー減少区間には負の一歩がある）]
+    requires: [black-hole-information.emission-step-increment, black-hole-information.amps-entanglement-tradeoff]
