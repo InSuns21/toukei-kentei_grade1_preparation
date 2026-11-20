@@ -12,10 +12,10 @@
 
 たとえば $K=\mathbb Q(\sqrt2)$ で $x=3+2\sqrt2$ とし、$K$ を $\mathbb Q$ 上の二次元空間と見ます。乗法写像 $\mu_x:y\mapsto xy$ は、基底 $(1,\sqrt2)$ の各元を
 
-$
+$$
 \mu_x(1)=3+2\sqrt2,\qquad
 \mu_x(\sqrt2)=4+3\sqrt2
-$
+$$
 
 に移します。これらを同じ基底の座標列 $(3,2)^{\mathsf T}$、$(4,3)^{\mathsf T}$ として並べると、行列は
 
@@ -209,10 +209,10 @@ $$
 
 この行列は、[ANF1 の跡双線形形式](../ANF1/index.md#def-anf1-trace-pairing) $B(u,v)=\operatorname{Tr}(uv)$ の基底表示です。$u=\sum_i s_i\beta_i$、$v=\sum_j t_j\beta_j$（$s_i,t_j\in\mathbb Q$）と展開すると、
 
-$
+$$
 B(u,v)=\sum_{i,j}s_it_j\operatorname{Tr}(\beta_i\beta_j)
 =s^{\mathsf T}G_\beta t.
-$
+$$
 
 従って行列の各成分は基底元どうしの積の跡を表し、$\det G_\beta\ne0$ はこの形式の非退化性を行列で判定する条件です。実際、$G_\beta$ は対称行列なので $G_\beta s=0$ と $B(u,v)=0$ が全ての $v$ について成立することは同値であり、この対応は[ANF1 の非退化性と跡行列の証明](../ANF1/index.md#lem-anf1-integral-trace)でも確かめられます。
 
@@ -513,10 +513,10 @@ $K=\mathbb Q(\sqrt5)$、$w=(1+\sqrt5)/2$ の跡・ノルムと $\operatorname{Tr
 <!-- solution-start -->
 **詳細解答**　$\sigma_\pm:\sqrt5\mapsto\pm\sqrt5$ を二つの $\mathbb Q$ 固定埋め込みとし、その像を $w_\pm=\sigma_\pm(w)=(1\pm\sqrt5)/2$ と置きます。[埋め込みによる跡・ノルムの公式](#thm-anf2-embedding-formulas)から
 
-$
+$$
 \operatorname{Tr}(w)=w_++w_-=1,\qquad
 N(w)=w_+w_-=\frac{1-5}{4}=-1.
-$
+$$
 
 $w^2-w-1=0$ から $w^2=w+1$ なので、跡の線形性と $\operatorname{Tr}(1)=2$ より $\operatorname{Tr}(w^2)=1+2=3$ です。
 <!-- solution-end -->
@@ -542,17 +542,17 @@ $K=\mathbb Q(\sqrt2)$ の基底 $\beta=(1,\sqrt2)$ と $\beta'=(1,3\sqrt2)$ の�
 <!-- solution-start -->
 **詳細解答**　$\operatorname{Tr}(1)=2$、$\operatorname{Tr}(\sqrt2)=0$、$\operatorname{Tr}(2)=4$ から、最初の基底では
 
-$
+$$
 G_\beta=\begin{pmatrix}2&0\\0&4\end{pmatrix},
 \qquad \operatorname{disc}(\beta)=2\cdot4=8.
-$
+$$
 
 次の基底では $\operatorname{Tr}(3\sqrt2)=0$、$\operatorname{Tr}((3\sqrt2)^2)=\operatorname{Tr}(18)=36$ なので
 
-$
+$$
 G_{\beta'}=\begin{pmatrix}2&0\\0&36\end{pmatrix},
 \qquad \operatorname{disc}(\beta')=2\cdot36=72.
-$
+$$
 
 $\beta'=\beta A$ に対応する変換行列は $A=\operatorname{diag}(1,3)$ で、$\det A=3$ です。[判別式の基底変換則](#thm-anf2-basis-change)の予測 $72=3^2\cdot8$ と一致します。
 <!-- solution-end -->
