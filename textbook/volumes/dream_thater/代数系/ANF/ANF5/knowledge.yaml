@@ -1,0 +1,33 @@
+chapter: ANF5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF4
+  - NDA3
+forward_references: []
+
+concepts:
+  - id: number-theory.minkowski-number-field-embedding
+    name: Minkowski埋め込み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Minkowski埋め込み）"]
+    requires: [number-theory.trace-norm-embedding-formulas]
+
+  - id: number-theory.number-ideal-lattice-covolume
+    name: 整数環とイデアルの共体積
+    kind: theorem
+    introduction: formal
+    requires: [diophantine.lattice-covolume, number-theory.field-discriminant, number-theory.absolute-ideal-norm, number-theory.integral-basis]
+
+  - id: number-theory.minkowski-norm-body-volume
+    name: ノルム評価用凸体の体積
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.minkowski-number-field-embedding, diophantine.symmetric-convex-body]
+
+  - id: number-theory.minkowski-small-norm-element
+    name: Minkowskiの小ノルム元の存在
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.number-ideal-lattice-covolume, diophantine.minkowski-convex-body-theorem, number-theory.minkowski-norm-body-volume, number-theory.trace-norm-embedding-formulas]

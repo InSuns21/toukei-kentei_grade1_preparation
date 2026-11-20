@@ -1,0 +1,39 @@
+id: BHI16
+title: "前半総合：矛盾を構成する仮定と選択肢"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI15
+official_scope: []
+learning_objectives:
+  - Hawking・Page・Mathur・AMPSの同一状態分割と時刻を揃え、成立する仮定を明示できる
+  - 局所モードの熱性と全放射の精細エントロピーが異なることをBell対で計算できる
+  - 一段のAMPS不等式から逐次小補正の累積必要条件を導出し、終期純粋性を定量監査できる
+  - 相補性・fuzzball・remnant・非局所性・重力局所代数の提案が緩める仮定と残件を区別できる
+  - Hayden–Preskillの回復存在保証とscrambling時間・収集時間・復号計算量を区別できる
+  - 第II部のisland計算へ渡す状態・領域・entropy・近似の台帳を作れる
+definitions:
+  - { id: BHI16-DEF-01, name: "放出一段の整合した仮定台帳" }
+theorems:
+  - { id: BHI16-PROP-01, name: "放出列の累積小補正の必要条件" }
+canonical_examples:
+  - 内外Bell対と早期放射Bell対の三つ組の比較
+  - 四因子模型の負の条件付きエントロピーの両立検査
+  - 10段の小補正誤差予算と終期純粋性の不両立
+  - remnant次元と累積放射エントロピー下界の比較
+  - Haar回収次元閾値と逐次収集時計の分離
+problem_patterns:
+  - BHI16-BELL-PURIFICATION-CONTRAST
+  - BHI16-ONE-STEP-ERROR-BUDGET
+  - BHI16-CONDITIONAL-ENTROPIES
+  - BHI16-CUMULATIVE-BOUND
+  - BHI16-HAAR-RECEIVER-DIMENSION
+  - BHI16-NONUNIFORM-ERROR-BUDGET
+  - BHI16-REMNANT-CAPACITY
+  - BHI16-GAUGE-ALGEBRA-ASSUMPTION
+  - BHI16-CLOCK-RECOVERY-SEPARATION
+  - BHI16-INTEGRATED-ASSUMPTION-AUDIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 5 }

@@ -5,3 +5,4 @@
 2. [ANF2 跡・ノルム・判別式](textbook/volumes/dream_thater/代数系/ANF/ANF2/index.md)
 3. [ANF3 Dedekind環とイデアルの分解](textbook/volumes/dream_thater/代数系/ANF/ANF3/index.md)
 4. [ANF4 素数の分解・分岐・惰性](textbook/volumes/dream_thater/代数系/ANF/ANF4/index.md)
+5. [ANF5 Minkowski埋め込みと格子](textbook/volumes/dream_thater/代数系/ANF/ANF5/index.md)

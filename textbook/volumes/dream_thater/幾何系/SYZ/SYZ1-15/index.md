@@ -15,7 +15,7 @@
 
 ## 2. 円板の類・面積・ホロノミー
 
-$(X,\omega,J)$ をKähler曲面、$L\subset X$ を滑らかなコンパクトLagrangeトーラスとする。ここで $J$ は複素構造、$\omega$ は閉じた正の $(1,1)$ 形式で、$\omega|_L=0$ である。[滑らかなLagrangeファイバーの意味](../SYZ1-07/index.md#def-syz1-07-regular-fibration)に沿って、今は**一つの**ファイバー $L$ を固定する。
+$(X,\omega,J)$ をKähler曲面、$L\subset X$ を滑らかなコンパクトLagrangeトーラスとする。[Lagrange部分多様体の定義](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold)では、実次元が全空間の半分で、接空間へのシンプレクティック形式の制限が零であることを要求する。ここで $J$ は複素構造、$\omega$ は閉じた正の $(1,1)$ 形式で、$\omega|_L=0$ である。[滑らかなLagrangeファイバーの意味](../SYZ1-07/index.md#def-syz1-07-regular-fibration)に沿って、今は**一つの**ファイバー $L$ を固定する。
 
 閉単位円板を $\overline{\mathbb D}=\{|\zeta|\leq1\}$ と書く。$u:\overline{\mathbb D}\to X$ が境界を $L$ に送り、内部で複素正則なとき、$u$ は $L$ を境界とする **$J$ 正則円板**である。全空間への写像として連続で、必要な微分を行えるほど境界まで滑らかと仮定する。$\partial\mathbb D$ の向きは $\zeta=e^{i\theta}$ の $\theta$ 増加方向である。
 
@@ -147,10 +147,10 @@ $$
 <!-- definition-example-start: def-syz1-15-maslov -->
 ### 直接例：積トーラスでは各座標円板が指数2
 
-先ほどの $L_{R,S}$ で、角度接ベクトルは
+先ほどの $L_{R,S}$ で、$x=Re^{i\theta_1}$、$y=Se^{i\theta_2}$ と角度座標を取る。境界の接平面は $\theta_1,\theta_2$ をそれぞれ動かした実接ベクトルで張られ、その複素行列式を標準自明化の中で計算すると
 
 $$
-v_1=(ix,0),\qquad v_2=(0,iy),
+v_1=\partial_{\theta_1}(x,y)=(ix,0),\qquad v_2=\partial_{\theta_2}(x,y)=(0,iy),
 \qquad
 \det_{\mathbb C}(v_1,v_2)=-xy.
 $$
@@ -209,13 +209,13 @@ $$
 
 を $X$ 上で零でない正則2形式として扱うためである。$\Omega$ のノルムは標準平坦計量に対して一定ではなく、**この模型をコンパクトCalabi–YauのRicci平坦SLag束と同一視しない**。
 
-$w=xy$、$\lambda=(|x|^2-|y|^2)/2$ と置き、$\gamma_r=\{w\in\mathbb C:|w-1|=r\}$、$r>0$ とする。$\gamma_r$ は常に $w=1$ を避ける。$\lambda$ は
+$w=xy$、$\lambda=(|x|^2-|y|^2)/2$ と置き、$\gamma_r=\{w\in\mathbb C:|w-1|=r\}$、$r>0$ とする。$\gamma_r$ は常に $w=1$ を避ける。円周作用を
 
 $$
-(x,y)\longmapsto(e^{i\theta}x,e^{-i\theta}y)
+(x,y)\longmapsto(e^{is}x,e^{-is}y),\qquad s\in\mathbb R/2\pi\mathbb Z
 $$
 
-という円周作用の運動量であり、$w=xy$ はこの作用で不変である。
+とする。ここで $s$ は作用の角度で、円板境界の $\theta$ とは独立である。生成ベクトル場は $V=(ix,-iy)$ である。[Hamiltonベクトル場の符号規約](../../SYM/SYM4/index.md#def-sym4-hamiltonian-vector-field)を $\iota_{X_H}\omega_0=dH$ とすると、この作用のHamilton関数は **$H=-\lambda$** である（$\iota_V\omega_0=-d\lambda$）。$w=xy$ はこの作用で不変である。
 
 <a id="def-syz1-15-local-fibration"></a>
 
@@ -299,7 +299,21 @@ $$
 
 という積表示が得られる。$\gamma_r$ はコンパクトで、上の半径公式から $|x|,|y|$ も有界なので、ファイバーはコンパクトである。
 
-$\lambda$ は上のHamilton円周作用の運動量、$|w-1|^2$ はこの作用で不変なので両者のPoisson括弧は零。各正則ファイバーの接空間は二つのHamiltonベクトル場で張られ、その $\omega_0$ による組はPoisson括弧に等しく零である。実2次元の等方部分空間は複素2次元のシンプレクティック空間でLagrangeとなる。
+次に、定義の条件 $\omega_0|_{L_{r,\lambda}}=0$ を座標から確かめる。$x=x_1+ix_2$、$y=y_1+iy_2$ と書くと $\omega_0=dx_1\wedge dx_2+dy_1\wedge dy_2$ である。任意の実接ベクトル $Z$ について、$V=(ix,-iy)$ の実成分を代入すると
+
+$$
+\begin{aligned}
+\omega_0(V,Z)
+&=-x_2 Z(x_2)-x_1 Z(x_1)+y_2 Z(y_2)+y_1 Z(y_1)\\
+&=-\frac12 Z(|x|^2-|y|^2)=-d\lambda(Z).
+\end{aligned}
+$$
+
+$V$ は $dw(V)=0$ かつ $d\lambda(V)=0$ を満たすファイバー接ベクトルである。もう一つの接ベクトル $W$ を $dw(W)=i(w-1)$ となるように取る。$r>0$ より $dw(W)\ne0$ なので、$V$ と $W$ は一次独立である。
+
+$W$ も $\lambda$ の準位集合に接するから、$\omega_0(V,W)=-d\lambda(W)=0$。接空間は実2次元でこの二つに張られる。また2形式の交代性から $\omega_0(V,V)=\omega_0(W,W)=0$ も成り立つ。以上が[先に確認したLagrange条件](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold)の直接検算である。
+
+この計算で得た $\iota_V\omega_0=-d\lambda$ という符号は、前述のHamilton関数 $H=-\lambda$ と一致する。
 
 位相を直接確認する。円周方向のベクトルを $V=(ix,-iy)$、$w$ の周回方向の接ベクトルを $W$ として $dw(W)=i(w-1)$ と取れる。$V$ と $W$ は正則ファイバー上で一次独立であり、
 
@@ -519,7 +533,7 @@ $u:\overline{\mathbb D}\to\mathbb C^*$ が正則、$|u|=R>0$ が境界上で成�
 <!-- solution-start -->
 ### 詳細解答
 
-$u$ は円板上で零にならないから $1/u$ も正則である。最大値原理で $|u|\leq R$、また $|1/u|\leq1/R$ を得る。後者は $|u|\geq R$ と同値なので円板全体で $|u|=R$。非定数正則関数は開写像だが、値域が円周に含まれる写像は開にならない。従って $u$ は定数である。
+$u$ は円板上で零にならないから $1/u$ も正則である。最大値原理で $|u|\leq R$、また $|1/u|\leq1/R$ を得る。後者は $|u|\geq R$ と同値なので円板全体で $|u|=R$。[正則関数が開集合を開集合に写す定理](../../../解析系/CA/CA3/index.md#thm-ca3-open-mapping)によれば非定数正則関数の像は開集合だが、値域が円周に含まれる写像の像は開にならない。従って $u$ は定数である。
 <!-- solution-end -->
 
 <a id="ex-syz1-15-a03"></a>
@@ -672,7 +686,19 @@ $$
 
 $x$ の偏角が円周座標で、$y=c/x$ が定まる。$c=0$ を通るのは $r=1$ の場合のみで、そのとき $\lambda>0$ なら $y=0,|x|=\sqrt{2\lambda}$、$\lambda<0$ なら $x=0,|y|=\sqrt{-2\lambda}$ で円周が残る。正則な基底では円周束は滑らかである。自明化を具体化すると、$\lambda>0$ では $x=\sqrt a>0,y=c/x$、$\lambda<0$ では $y=\sqrt b>0,x=c/y$ を大域断面に取れる。$\lambda=0$ なら $r\ne1$ で $c\ne0$ だから $x=\sqrt{|c|}>0,y=c/x$ を取れる。断面を円周作用で一周させて $\gamma_r\times S^1\cong L_{r,\lambda}$ を得るので $T^2$ である。
 
-**(2) Lagrange性と位相。** $V=(ix,-iy)$ は運動量 $\lambda$ のHamiltonベクトル場である。$w$ はこの作用に不変なので $\{\lambda,|w-1|^2\}=0$。正則な同時準位集合の2接ベクトルは二つのHamiltonベクトル場で張られ、$\omega_0$ による組が0だからLagrangeである。$dw(W)=i(w-1)$ を満たす周回接ベクトル $W$ を取ると
+**(2) Lagrange性と位相。** 円周作用の生成ベクトル場を $V=(ix,-iy)$ とする。このとき $dw(V)=0$ である。[Hamiltonベクトル場の定義](../../SYM/SYM4/index.md#def-sym4-hamiltonian-vector-field)の符号規約では、Hamilton関数は $-\lambda$ となる。
+
+実座標 $x=x_1+ix_2$、$y=y_1+iy_2$ を使い、$\omega_0=dx_1\wedge dx_2+dy_1\wedge dy_2$ に $V$ を代入すると、任意の実接ベクトル $Z$ について
+
+$$
+\omega_0(V,Z)
+=-x_1Z(x_1)-x_2Z(x_2)+y_1Z(y_1)+y_2Z(y_2)
+=-d\lambda(Z).
+$$
+
+を得る。したがって $\iota_V\omega_0=-d\lambda$ である。周回方向の接ベクトル $W$ は $dw(W)=i(w-1)$ と取れ、$d\lambda(W)=0$ だから $\omega_0(V,W)=0$。また $dw(W)\ne0=dw(V)$ なので二つは一次独立である。
+
+実2次元の接平面はこの二つに張られ、2形式の交代性から[Lagrange部分多様体の定義](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold)を満たす。さらにこの $W$ を使うと
 
 $$
 (dx\wedge dy)(V,W)
