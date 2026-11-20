@@ -71,7 +71,7 @@ chapters:
     title: "因数分解・ゲージ制約・局所代数"
   - id: BHI16
     path: textbook/volumes/dream_thater/物理系/BHI/BHI16
-    status: planned
+    status: completed
     title: "前半総合：矛盾を構成する仮定と選択肢"
   - id: BHI17
     path: textbook/volumes/dream_thater/物理系/BHI/BHI17
