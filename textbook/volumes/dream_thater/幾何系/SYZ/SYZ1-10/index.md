@@ -23,7 +23,23 @@ $$
 
 ## 2. 周期余接格子から双対トーラスを作る
 
-双対を定義する前に、同じ点 $b$ の余接ベクトル $p$ と接ベクトル $\xi$ の組 $\langle p,\xi\rangle=p(\xi)$ を考える。周期格子上でこの値が整数となる接ベクトルを集めれば、余接格子に対して整数双対な接格子になる。ここで $\partial_{u^i}$ は $u^i$ を1だけ増やす座標接方向であり、$du^j(\partial_{u^i})=\delta_i^j$（$i=j$ なら1、それ以外は0）を満たす。この基底で $\xi=\sum_i v^i\partial_{u^i}$ と展開すれば、$du^j(\xi)=v^j$ となるので、すべての周期余接ベクトルでの整数値条件を各係数 $v^j\in\mathbb Z$ だけで判定できる。
+双対を定義する前に、同じ点 $b$ の余接ベクトル $p$ と接ベクトル $\xi$ の対合 $\langle p,\xi\rangle=p(\xi)$ を考える。周期格子のすべての元に対してこの値が整数となる接ベクトルを集めれば、整数双対な接格子になる。
+
+ここで $\partial_{u^i}$ は $u^i$ を増やす座標接方向であり、各座標の微分との対合は
+
+$
+du^j(\partial_{u^i})=\delta_i^j
+\quad(\delta_i^j=1\text{ if }i=j,\;0\text{ otherwise})
+$
+
+となる。従って、接ベクトルをこの基底で展開すると
+
+$
+\xi=\sum_i v^i\partial_{u^i},
+\qquad du^j(\xi)=v^j.
+$
+
+周期余接格子の生成元が $du^j$ なら、定義の全整数値条件は各係数 $v^j\in\mathbb Z$ と同値である。
 
 <a id="def-syz1-10-dual-tangent-lattice"></a>
 
@@ -570,7 +586,32 @@ $$
 
 (i) $du_\beta=A_{\beta\alpha}du_\alpha$。整数行列が可逆でその逆も整数なので、両側の整数線形結合が一致し $\Lambda_{\omega,\beta}^*=\Lambda_{\omega,\alpha}^*$ である。接係数は $v_\beta=A_{\beta\alpha}v_\alpha$ であり、$v_\alpha\in\mathbb Z^2$ と $v_\beta\in\mathbb Z^2$ は同値である。従って双対接格子も一致する。
 
-(ii) 問題の周期対応 $du_\alpha^i=p_{\gamma_{\alpha,i}}$ により $T_bB_0$ のベクトル $\xi$ から $v_\alpha^i=du_\alpha^i(\xi)$ を得る。[双対接トーラスとホロノミー文字の命題](#prop-syz1-10-holonomy-dual)に従って、基本1サイクル $\gamma_{\alpha,i}$ への文字の値を $e^{2\pi i v_\alpha^i}$ と割り当てる。[二重整数アフィン構造の定理](../SYZ1-08/index.md#thm-syz1-08-two-integral-affine)の周期対応はサイクル基底上の線形同型を与える。従って $du_\beta=A_{\beta\alpha}du_\alpha$ と各 $du=p_\gamma$ から $\gamma_\beta=A_{\beta\alpha}\gamma_\alpha$ が従い、新基底への値は $e^{2\pi i (A_{\beta\alpha}v_\alpha)^i}$、すなわち $v_\beta$ の指数である。文字の核は全基本サイクルへの位相が1となる $\mathbb Z^2$ で、任意の二つの位相は $v_\alpha$ から作れる。従って商と文字群の同型がチャートに依存しない。
+(ii) 問題の周期対応を使うと、$\xi\in T_bB_0$ から文字の位相成分を
+
+$
+v_\alpha^i=du_\alpha^i(\xi)=p_{\gamma_{\alpha,i}}(\xi)
+$
+
+と得る。[双対接トーラスとホロノミー文字の命題](#prop-syz1-10-holonomy-dual)により、基本1サイクルへの文字の値は $\rho(\gamma_{\alpha,i})=e^{2\pi i v_\alpha^i}$ である。
+
+[二重整数アフィン構造の定理](../SYZ1-08/index.md#thm-syz1-08-two-integral-affine)における周期対応はサイクル基底上の線形同型である。従って座標微分の変換から
+
+$
+du_\beta=A_{\beta\alpha}du_\alpha,
+\qquad \gamma_\beta=A_{\beta\alpha}\gamma_\alpha,
+\qquad v_\beta=A_{\beta\alpha}v_\alpha
+$
+
+と順に導かれる。新基底への文字の値も
+
+$
+\rho(\gamma_{\beta,i})
+=\prod_j\rho(\gamma_{\alpha,j})^{(A_{\beta\alpha})_{ij}}
+=e^{2\pi i(A_{\beta\alpha}v_\alpha)^i}
+=e^{2\pi i v_\beta^i}
+$
+
+となる。文字の核は全基本サイクルへの位相が1となる $\mathbb Z^2$ で、任意の二つの位相は $v_\alpha$ から作れる。従って商と文字群の同型はチャートに依存しない。
 
 (iii) 係数変換を用い
 
