@@ -7,7 +7,7 @@
 今回の問いは、学習器が予測する **Lagrangian**（運動の位置と速度から決まる関数）を使ったとき、連続回転対称性が角運動量型の一定量を与える条件は何か、である。[AMECH4 の Noether の定理](../../../物理系/AMECH/AMECH4/index.md#thm-amech4-noether)はその一般的な関係を既に証明している。ここでは学習器の出力へ実際に代入し、次の三つを分けて検証する。
 
 1. **モデルの対称性**：学習した Lagrangian が、すべての角度の回転で変わらないか。
-2. **軌道の条件**：その Lagrangian の Euler--Lagrange 方程式に、時間発展が実際に従うか。
+2. **運動方程式の確認**：その Lagrangian の Euler--Lagrange 方程式に、時間発展が実際に従うか。
 3. **離散実装**：連続軌道の保存量が、数値的な一歩ごとにも一定になるか。
 
 以下では座標と速度を列ベクトル $q=(x,y)^{\mathsf T}$、$v=(v_x,v_y)^{\mathsf T}$ とし、点は時間による常微分、$\nabla_q$ と $\nabla_v$ はそれぞれ位置と速度の二成分に関する勾配を表す。ベクトルは標準直交基底で表す。
@@ -53,7 +53,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-17-rotational-lagrangian -->
-### 定義の確認：等方的な二次モデル
+### 例：等方的な二次モデル
+
+**定義の確認**
 
 $m>0$、$k>0$ を固定し、
 
@@ -111,7 +113,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-17-symmetry-defect -->
-### 定義の確認：等方性と異方性
+### 例：等方性と異方性
+
+**定義の確認**
 
 前の $L_\theta$ では $\nabla_qL_\theta=-kq$、$\nabla_vL_\theta=mv$。$A^{\mathsf T}=-A$ だから、任意の $u=(u_1,u_2)^{\mathsf T}$ に対し
 
@@ -350,7 +354,7 @@ $$
 \qquad J=q_1v_2-q_2v_1
 $$
 
-を刻み幅 $h>0$ の**陽的 Euler 法**で更新する。
+を刻み幅 $h>0$ の**[陽的 Euler 法](../../../計算系/NA/NA6/index.md#def-na6-euler-method)**で更新する。
 
 $$
 q_{n+1}=q_n+hv_n,\qquad
@@ -598,7 +602,7 @@ $$
 \dot J(t)=(a-b)x(t)y(t).
 $$
 
-積分と三角不等式より
+上式を $0$ から $T$ まで積分し、積分の絶対値は被積分関数の絶対値の積分以下であることを使うと
 
 $$
 \begin{aligned}
