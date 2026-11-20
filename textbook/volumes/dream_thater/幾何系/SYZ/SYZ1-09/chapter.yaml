@@ -16,7 +16,7 @@ learning_objectives:
   - 異方的平坦SLagトーラスで二種類の座標とポテンシャルを完全に計算できる
   - 局所Hessian構造と大域SLag束の存在を論理的に区別できる
 definitions:
-  - { id: SYZ1-09-DEF-01, name: "SLag変形のL2計量" }
+  - { id: SYZ1-09-DEF-01, name: "SLag変形の積分計量" }
   - { id: SYZ1-09-DEF-02, name: "Hessian計量" }
   - { id: SYZ1-09-DEF-03, name: "局所Legendre双対" }
 theorems:
