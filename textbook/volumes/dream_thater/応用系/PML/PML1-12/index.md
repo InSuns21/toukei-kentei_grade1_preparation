@@ -283,7 +283,7 @@ $$
 
 ## 5. Langevinの熱雑音との比較：学習率の次数が違う
 
-[PML1-08の熱雑音の整合条件](../PML1-08/index.md#def-pml1-08-thermal-noise)に対応する移動度 $1$、温度 $\tau>0$ の等方的Langevin法を、[PML1-11のEuler–Maruyama離散化](../PML1-11/index.md#def-pml1-11-euler-maruyama)と同じ刻み幅 $\eta$ で書くと
+[PML1-08の熱雑音の整合条件](../PML1-08/index.md#def-pml1-08-thermal-matching)に対応する移動度 $1$、温度 $\tau>0$ の等方的Langevin法を、[PML1-11のEuler–Maruyama離散化](../PML1-11/index.md#def-pml1-11-euler-maruyama)と同じ刻み幅 $\eta$ で書くと
 
 $$
 Y_{n+1}=Y_n-\eta g(Y_n)+\sqrt{2\tau\eta}\,\xi_{n+1}
@@ -738,10 +738,10 @@ $$
 4本を平均して $g=(x_1,0)^{\mathsf T}$、これを各 $g_i$ から引くと
 
 $$
-e_1=(1,0)^{\mathsf T},\
-e_2=(-1,0)^{\mathsf T},\
-e_3=(0,2)^{\mathsf T},\
-e_4=(0,-2)^{\mathsf T}.
+\begin{aligned}
+e_1&=(1,0)^{\mathsf T},&e_2&=(-1,0)^{\mathsf T},\\
+e_3&=(0,2)^{\mathsf T},&e_4&=(0,-2)^{\mathsf T}.
+\end{aligned}
 $$
 
 外積の平均をとると
