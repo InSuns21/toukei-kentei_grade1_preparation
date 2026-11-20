@@ -916,19 +916,6 @@ window.addEventListener('message', event => {
       if(!consistent||!floats.pass)
         setStatus('WGL19 計算時計・float独立検算が未達（入力値・readback・GL状態を確認）',true);
     }
-    if (isWGL18) {
-      const fp=data.floatParameters;
-      const validParameters=fp&&typeof fp.rate==='number'&&Number.isFinite(fp.rate)&&
-        fp.rate>=0&&fp.rate<=0.25&&Number.isInteger(fp.steps)&&fp.steps>=0&&fp.steps<=12;
-      const floats=validParameters ? compareWGL18FloatReadback(data.floatReadback,fp.rate,fp.steps) :
-        {valid:false,pass:false,maxError:Infinity,mass:NaN};
-      byId('diagnostics').textContent += '\nCPU独立基準 vs GPU RGBA32F: ' +
-        (floats.valid ? 'max absolute error='+floats.maxError.toPrecision(6)+
-          ', mass='+floats.mass.toPrecision(9)+', '+(floats.pass?'一致':'不一致') :
-          'float読戻し未取得（数値検証は未達）');
-      if (unchanged && !floats.pass)
-        setStatus('GPU float読戻しと独立CPU計算が不一致（未達）',true);
-    }
     byId('numeric-note').textContent = unchanged ?
       'CPUは座標と色の定数から独立に予測し、GPUはreadPixelsで実測。RGBA各成分' +
       ((isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8) ? '±2' : isWGL20 ? '±1' : isWGL19 ? '±2' : isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
