@@ -23,11 +23,11 @@ $$
 
 **対数の底と単位を先に統一します。** [QINF17のvon Neumannエントロピー](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)、[QINF18の量子相互情報量](../../../応用系/QINF/QINF18/index.md#def-qinf18-mutual)、[QINF20の量子相対エントロピー](../../../応用系/QINF/QINF20/index.md#def-qinf20-relative-entropy)は底2の対数（単位はビット）で定義されています。一方、本講では自然対数 $\log=\ln$（単位はナット）を使います。既習の底2の量を $S_2,I_2,D_2$ と書けば、$\log x=(\ln2)\log_2x$ より
 
-$
+$$
 S=(\ln2)S_2,\qquad
 I=(\ln2)I_2,\qquad
 D=(\ln2)D_2.
-$
+$$
 
 以下では $S(\rho)=-\operatorname{Tr}(\rho\log\rho)$、$S(R)=S(\rho_R)$ と書き、$I(A:B)=S(A)+S(B)-S(AB)$ とします。$D(\rho\Vert\sigma)$ も自然対数で計算し、台が含まれるときは $\operatorname{Tr}(\rho\log\rho)-\operatorname{Tr}(\rho\log\sigma)$ です。零固有値は $0\log0=0$ と解釈します。対数の底をそろえると、既習の非負性・等号条件は正の定数倍なのでそのまま使えます。
 
@@ -72,7 +72,7 @@ $$
 \end{pmatrix}.
 $$
 
-ここで部分トレースの定義を成分で確認します。$A$ 側の行列要素は $(\rho_A)_{aa'}=\sum_{b=0}^1\langle ab|\rho_{AB}|a'b\rangle$ です。$\rho_{\rm pure}$ の $|00\rangle\langle11|$ は $b=0$ と $b=1$ を同時には満たさないため、$A$ 側へ縮約すると消えます。従って
+[部分トレースの定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)を成分で確認します。$A$ 側の行列要素は $(\rho_A)_{aa'}=\sum_{b=0}^1\langle ab|\rho_{AB}|a'b\rangle$ です。$\rho_{\rm pure}$ の $|00\rangle\langle11|$ は $b=0$ と $b=1$ を同時には満たさないため、$A$ 側へ縮約すると消えます。従って
 
 $$
 \operatorname{Tr}_B\rho_{\rm pure}
@@ -125,17 +125,17 @@ $$
 <!-- definition-example-start: def-bhi5-local-coarse -->
 **定義の確認**：第2節で $q=1/4$、$\beta\varepsilon=\log3$ とすれば、三つの全体状態のいずれも周辺状態は $\gamma=\operatorname{diag}(3/4,1/4)$ です。定義が要求するのは、**この二つの周辺状態を保つ積状態**を作り、そのエントロピーを求めることです。計算基底 $|00\rangle,|01\rangle,|10\rangle,|11\rangle$ では
 
-$
+$$
 \sigma_{\rm loc}=\gamma\otimes\gamma
 =\operatorname{diag}\left(\frac9{16},\frac3{16},\frac3{16},\frac1{16}\right).
-$
+$$
 
 対角成分は積の固有値で、すべて非負、和は $(9+3+3+1)/16=1$ です。従って $\sigma_{\rm loc}$ が正半定値・跡1の状態であることも確認できました。[エントロピーのテンソル積加法性](../../../応用系/QINF/QINF17/index.md#prop-qinf17-tensor)をこの積へ適用すると
 
-$
+$$
 S_{\rm loc}^{\rm coarse}=S(\gamma\otimes\gamma)
 =S(\gamma)+S(\gamma)=2h(1/4).
-$
+$$
 
 他方、$\rho_{\rm pure}$ では $S_{\rm fine}=0$、$\rho_{\rm class}$ では $S_{\rm fine}=h(1/4)$、$\rho_{\rm prod}$ では $S_{\rm fine}=2h(1/4)$。同じ局所値から粗視化値は同じでも、精細値は変わることを確認できました。
 <!-- definition-example-end -->
@@ -213,12 +213,12 @@ $$
 <!-- definition-example-start: def-bhi5-thermal-reference -->
 **定義の確認**：$H_i=\varepsilon|1\rangle\langle1|$、$\beta_i\varepsilon=\log3$ とします。エネルギー固有基底 $|0\rangle,|1\rangle$ で $H_i=\operatorname{diag}(0,\varepsilon)$ です。[二準位Gibbs表示の導出](../BHI2/index.md#prop-bhi2-gibbs)と同じく、指数行列は各固有値を指数化して
 
-$
+$$
 e^{-\beta_iH_i}=\operatorname{diag}(1,1/3),\qquad
 Z_i=\operatorname{Tr}e^{-\beta_iH_i}=\frac43>0,
 \qquad
 \gamma_i=\operatorname{diag}(3/4,1/4).
-$
+$$
 
 両固有値は正で和1なので、$\gamma_i$ は正定値・跡1という参照状態の条件を満たします。さらに $\operatorname{Tr}(\gamma_iH_i)=0\cdot3/4+\varepsilon\cdot1/4=\varepsilon/4$ です。定義式に代入すると
 
@@ -477,7 +477,7 @@ $0<q<1/2$、$0\le\lambda\le1$ とし、第2節の $\rho_{\rm pure}$、$\rho_{\rm
 <!-- solution-start -->
 **詳細解答**
 
-両状態の縮約はともに $\gamma$ であり、部分トレースは線形なので $\rho_{\lambda,A}=\rho_{\lambda,B}=\gamma$ です。従って局所粗視化値は常に $2h(q)$。
+両状態の縮約はともに $\gamma$ であり、[部分トレースの線形性](../../../応用系/QINF/QINF3/index.md#prop-qinf3-state-product)により $\rho_{\lambda,A}=\rho_{\lambda,B}=\gamma$ です。従って局所粗視化値は常に $2h(q)$。
 
 $\rho_\lambda$ は $|00\rangle,|11\rangle$ の張る二次元部分空間に台を持ち、その基底での行列は
 
@@ -533,7 +533,7 @@ $A$ は三準位、$B$ は二準位とする。$H_A=\operatorname{diag}(0,\varep
 
 実状態は積なので[テンソル積加法性](../../../応用系/QINF/QINF17/index.md#prop-qinf17-tensor)から $S_{\rm fine}(AB)=2\log2$、定義から $S_{\rm loc}^{\rm coarse}(AB)=2\log2$、熱的参照値は $S_{\rm thermal}^{\rm ref}=\log3+\log2$ です。
 
-従って $\Delta_{\rm corr}=0$。一方 $D(\rho_A\Vert\gamma_A)=\log(3/2)$ は前問の計算、$D(\rho_B\Vert\gamma_B)=0$ なので和は $\log(3/2)$。実際
+従って $\Delta_{\rm corr}=0$。一方 $D(\rho_A\Vert\gamma_A)=\log(3/2)$ は[前問の計算](#ex-bhi5-b03)より、$D(\rho_B\Vert\gamma_B)=0$ なので和は $\log(3/2)$。実際
 
 $$
 (\log3+\log2)-2\log2
