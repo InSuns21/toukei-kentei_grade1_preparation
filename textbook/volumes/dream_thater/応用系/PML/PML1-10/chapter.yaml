@@ -4,10 +4,11 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - PML1-09
+  - SP13
 official_scope: []
 learning_objectives:
   - 遷移核による詳細釣合いと不変性を定義し、詳細釣合いが不変性を含意することを証明できる
-  - 有限状態Markov連鎖の正味確率流と流入出保存を区別し、詳細釣合いの必要十分条件を証明できる
+  - 有限状態Markov連鎖の正味確率流と流入出保存を区別し、SP13の詳細釣合い判定を適用できる
   - 三状態の循環連鎖から不変だが非可逆な具体例を構成できる
   - 定常エントロピー生成率の非負性と等号条件を導き、巡回模型で計算できる
   - 回転OU拡散のGibbs不変性を線形SDEの明示解から示し、非零確率流と非可逆性を検証できる
@@ -18,7 +19,6 @@ definitions:
   - { id: PML1-10-DEF-03, name: 有限状態の定常エントロピー生成率 }
 theorems:
   - { id: PML1-10-PROP-01, name: 詳細釣合いから不変性 }
-  - { id: PML1-10-THM-01, name: 有限状態での不変性・詳細釣合いの判定 }
   - { id: PML1-10-PROP-02, name: 定常エントロピー生成率の非負性 }
   - { id: PML1-10-THM-02, name: 回転する二次拡散の不変性と非可逆性 }
   - { id: PML1-10-PROP-03, name: 定常循環があっても相対エントロピーは減少する }
