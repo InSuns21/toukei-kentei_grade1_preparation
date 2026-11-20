@@ -1,0 +1,45 @@
+id: BHI7
+title: "Page曲線の物理的意味"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI6
+  - QINF32
+official_scope: []
+learning_objectives:
+  - Page型の時点別Haar比較模型を定義し、物理的な逐次等長発展との論理的な違いを説明できる
+  - Haar平均の自然対数単位への換算と上下界・平均欠損界を再導出できる
+  - 有限次元のPage厳密平均式を文献結果として正しく扱い、低次元の数表を再現できる
+  - 時間依存の有効次元に対する包絡線の交点と単調性を仮定付きで証明できる
+  - 平均値・典型性の確率評価・個々の履歴を分離し、natでのしきい値を変換できる
+  - 同じ次元系列から異なる放射履歴を構成し、相互情報量から後期の減少を説明できる
+  - ブラックホールの熱力学的状態数とHilbert空間の次元を同一視する追加仮定を列挙できる
+definitions:
+  - { id: BHI7-DEF-01, name: "時点別Haar比較模型" }
+  - { id: BHI7-DEF-02, name: "Page比較の次元包絡線と欠損" }
+theorems:
+  - { id: BHI7-PROP-01, name: "時点別Page平均の上下界" }
+  - { id: BHI7-PROP-02, name: "次元包絡線の折返し条件" }
+  - { id: BHI7-THM-01, name: "固定時点でのPage型典型性の確率上界" }
+  - { id: BHI7-PROP-03, name: "同一次元系列でも放射エントロピー履歴は一意でない" }
+canonical_examples:
+  - 4量子ビットの1:16・2:8・4:4・8:2・16:1のHaar平均と包絡線
+  - 複素Gaussianを正規化する2×8の時点別Haar構成
+  - 同じ4量子ビット次元系列で積状態と二つのBell対の異なる履歴
+  - 6量子ビットの交点と奇数個量子ビットで離散最大段階が複数となる例
+  - natでのHaar典型性確率界と残存純粋化系による上界の失敗例
+problem_patterns:
+  - BHI7-DIMENSION-SWAP
+  - BHI7-HARMONIC-MEAN
+  - BHI7-AVERAGE-VS-SAMPLE
+  - BHI7-NAT-TAIL
+  - BHI7-HIDDEN-PURIFIER
+  - BHI7-CROSSOVER
+  - BHI7-TYPICALITY-TAIL
+  - BHI7-EMISSION-MUTUAL-INFORMATION
+  - BHI7-DISCRETE-CROSSOVER
+  - BHI7-THREE-CURVES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 5 }
