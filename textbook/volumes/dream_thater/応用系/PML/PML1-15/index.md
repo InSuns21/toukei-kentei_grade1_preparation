@@ -39,15 +39,15 @@ $$
 > **定義（平面の剛体変換群と粒子配置への作用）**  
 > $O(2)=\{R\in\mathbb R^{2\times2}:R^{\mathsf T}R=I_2\}$ とする。集合 $E(2)=O(2)\times\mathbb R^2$ に積
 >
-> $$
-> (R,a)(S,b)=(RS,a+Rb)
-> $$
+$$
+(R,a)(S,b)=(RS,a+Rb)
+$$
 >
 > を定める。これを平面の**ユークリッド運動群**という。正の整数 $N$ に対し、ラベルを固定した $N$ 個の粒子配置の空間を $Q=(\mathbb R^2)^N$ とし、$q=(q_1,\ldots,q_N)$ への作用を
 >
-> $$
-> (R,a)\cdot q=(Rq_1+a,\ldots,Rq_N+a)
-> $$
+$$
+(R,a)\cdot q=(Rq_1+a,\ldots,Rq_N+a)
+$$
 >
 > と定める。回転だけを許す群は $SO(2)=\{R\in O(2):\det R=1\}$ である。
 <!-- formal-statement-end -->
@@ -69,7 +69,7 @@ $$
 なので二つの作用公理が成立する。
 
 <!-- definition-example-start: def-pml1-15-rigid-action -->
-**定義の直接例。** $R=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$、$g=(R,(1,0)^{\mathsf T})$、$h=(I_2,(0,2)^{\mathsf T})$、$q=((1,0)^{\mathsf T},(0,0)^{\mathsf T})$ とする。$Rb=(-2,0)^{\mathsf T}$ だから $gh=(R,(-1,0)^{\mathsf T})$。第1粒子について
+**定義の確認**（具体的な剛体変換）。 $R=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$、$g=(R,(1,0)^{\mathsf T})$、$h=(I_2,(0,2)^{\mathsf T})$、$q=((1,0)^{\mathsf T},(0,0)^{\mathsf T})$ とする。$Rb=(-2,0)^{\mathsf T}$ だから $gh=(R,(-1,0)^{\mathsf T})$。第1粒子について
 
 $$
 (gh)\cdot q_1=R(1,0)^{\mathsf T}+(-1,0)^{\mathsf T}
@@ -261,15 +261,15 @@ $q_1=(1,0)^{\mathsf T},q_2=0$ では $U=1/2$、$F_1=(-1,0)^{\mathsf T}$。90度�
 > **命題（並進・回転対称性からの力とモーメントの恒等式）**  
 > $U:(\mathbb R^2)^N\to\mathbb R$ を $C^1$ 級、$F_i=-\nabla_{q_i}U$ とする。全ての $a\in\mathbb R^2$ に対し $U(q_1+a,\ldots,q_N+a)=U(q)$ なら
 >
-> $$
-> \sum_{i=1}^N F_i(q)=0.
-> $$
+$$
+\sum_{i=1}^N F_i(q)=0.
+$$
 >
 > また全ての $\theta\in\mathbb R$ に対し $U(R_\theta q_1,\ldots,R_\theta q_N)=U(q)$ なら、平面の原点まわりの力のモーメントは
 >
-> $$
-> \sum_{i=1}^N\bigl(q_{i,1}F_{i,2}-q_{i,2}F_{i,1}\bigr)=0.
-> $$
+$$
+\sum_{i=1}^N\bigl(q_{i,1}F_{i,2}-q_{i,2}F_{i,1}\bigr)=0.
+$$
 >
 > ここで $R_\theta$ は反時計回り角 $\theta$ の回転行列である。
 <!-- formal-statement-end -->
@@ -328,9 +328,9 @@ $$
 > **命題（符号付き面積の変換則）**  
 > $N\ge3$ の粒子配置 $q$ と任意の $g=(R,a)\in E(2)$ に対して
 >
-> $$
-> A(g\cdot q)=\det(R)\,A(q).
-> $$
+$$
+A(g\cdot q)=\det(R)\,A(q).
+$$
 >
 > 従って $A$ は並進と $SO(2)$ の回転には不変であり、$\det R=-1$ の鏡映を含む変換では符号が反転する。
 <!-- formal-statement-end -->
