@@ -1,0 +1,41 @@
+id: BHI8
+title: "Page時刻の模型依存推定"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI7
+  - BHI4
+  - BHI5
+official_scope: []
+learning_objectives:
+  - 面積エントロピーの減少と放射の粗視化エントロピー生成を別々の模型入力として定義し、微分・積分でつなげられる
+  - Page時刻の収支推定を定義し、一定生成率比と逆二乗光度から交点質量と形式時刻比を完全に導出できる
+  - 停止質量の下で交点の存在条件を判定し、質量依存生成率の零点の一意性と時間積分を証明できる
+  - 生成率比と光度係数の依存性を区別し、定数の上下界による交点時刻の評価と数値検算ができる
+  - 粗視化の交点を実際の精細Page曲線の極大と同一視できない理由を、純粋性・有効次元・典型性から説明できる
+definitions:
+  - { id: BHI8-DEF-01, name: "放射エントロピー生成率の収支模型" }
+  - { id: BHI8-DEF-02, name: "Page時刻のエントロピー収支推定" }
+theorems:
+  - { id: BHI8-THM-01, name: "一定生成率比と逆二乗光度のPage収支推定" }
+  - { id: BHI8-PROP-01, name: "質量依存生成率の交点判定と時間積分" }
+canonical_examples:
+  - 理想黒体4/3の生成率に対する交点質量・形式経過時間と停止質量条件
+  - 仮想生成率比1・4/3・1.48・2の交点時刻比較
+  - 停止質量が交点より大きく推定時刻が存在しない反例
+  - 質量依存生成率と質量依存光度の解析的交点・数値検算
+problem_patterns:
+  - BHI8-BLACKBODY-CROSSOVER
+  - BHI8-HALF-MASS-VS-TIME
+  - BHI8-EQUAL-RATIO-CROSSOVER
+  - BHI8-CUTOFF-NO-CROSSING
+  - BHI8-HALF-FORMAL-TIME-BETA
+  - BHI8-VARIABLE-BETA-BOUNDS
+  - BHI8-VARIABLE-BETA-NO-CROSSING
+  - BHI8-LUMINOSITY-COEFFICIENT-SENSITIVITY
+  - BHI8-COARSE-VS-FINE-COUNTEREXAMPLE
+  - BHI8-INTEGRATED-VARIABLE-RATES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 5 }

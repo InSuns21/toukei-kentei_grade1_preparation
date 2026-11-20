@@ -1,0 +1,30 @@
+chapter: BHI8
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI7, BHI4, BHI5]
+forward_references: []
+concepts:
+  - id: black-hole-information.radiation-entropy-production-ledger
+    name: 放射エントロピー生成率の収支模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（放射エントロピー生成率の収支模型）]
+    requires: [black-hole-information.horizon-entropy-decrease-rate]
+  - id: black-hole-information.page-balance-time
+    name: Page時刻のエントロピー収支推定
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Page時刻のエントロピー収支推定）]
+    requires: [black-hole-information.radiation-entropy-production-ledger, black-hole-information.page-dimension-envelope]
+  - id: black-hole-information.constant-page-balance-time
+    name: 一定生成率比と逆二乗光度のPage収支推定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（一定生成率比と逆二乗光度のPage収支推定）]
+    requires: [black-hole-information.page-balance-time, black-hole-information.mass-fraction-time-law]
+  - id: black-hole-information.variable-page-balance
+    name: 質量依存生成率の交点判定と時間積分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（質量依存生成率の交点判定と時間積分）]
+    requires: [black-hole-information.page-balance-time, black-hole-information.variable-coefficient-evaporation]
