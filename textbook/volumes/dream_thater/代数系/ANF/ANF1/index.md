@@ -173,9 +173,9 @@ $$
 
 その制限を取り出すため、行列の対角成分の和である**トレース**を補助的に導入します。体の元 $x\in K$ に対し、$y\mapsto xy$ は $K$ を $\mathbb Q$ ベクトル空間と見た線形写像です。
 
-[双線形形式](../../../基礎科目/LA/LA3E/index.md#def-la3e-bilinear-form)は二つの変数のそれぞれについて線形な写像です。ここでは係数体を $\mathbb Q$ とし、$\operatorname{Tr}_{K/\mathbb Q}(xy)$ が双線形であることを、乗法と行列の対角和の線形性から確認します。
-
 その行列の対角成分の和を $\operatorname{Tr}_{K/\mathbb Q}(x)$ と書きます。基底を変更すると行列は相似になり、トレースは変わりません。次章ではこれを埋め込みとの関係から詳しく研究します。
+
+[双線形形式](../../../基礎科目/LA/LA3E/index.md#def-la3e-bilinear-form)は二つの変数のそれぞれについて線形な写像です。ここでは係数体を $\mathbb Q$ とし、$\operatorname{Tr}_{K/\mathbb Q}(xy)$ が双線形であることを、乗法と行列の対角和の線形性から確認します。
 
 <a id="def-anf1-trace-pairing"></a>
 
