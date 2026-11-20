@@ -295,10 +295,10 @@ $$
 
 **中間例（古典情報だけ読める）**：$U$ を $A$ 制御・$B$ 標的のCNOTとし、出力を $C=A,D=B$ と名付けます。計算基底での作用は
 
-$
+$$
 U|a\rangle_A|b\rangle_B
 =|a\rangle_C|b\oplus a\rangle_D,\qquad a,b\in\{0,1\}
-$
+$$
 
 です。ここで $\oplus$ は2を法とする加法です。この作用は四つの基底ベクトルの置換なのでユニタリです。$BE$ の初期Bell対を $|\Phi_+\rangle=(|00\rangle+|11\rangle)/\sqrt2$ と置き、$D$ 側のビット反転で得られる $|\Psi_+\rangle=(|01\rangle+|10\rangle)/\sqrt2$ を使います。$A=0$ なら $BE$ は $|\Phi_+\rangle_{DE}$、$A=1$ なら $|\Psi_+\rangle_{DE}$ に移るため、
 
@@ -407,19 +407,19 @@ $d_A=2,d_B=8,d_D=4$ とする。[投入・発展・放出の写像](#def-bhi12-e
 <!-- solution-start -->
 **詳細解答**：ユニタリの入力と出力は等しい次元を持つので、
 
-$
+$$
 d_Ad_B=d_Cd_D,\qquad
 d_C=\frac{d_Ad_B}{d_D}=\frac{2\cdot8}{4}=4.
-$
+$$
 
 従って入力 $AB$ は $2\cdot8=16$ 次元、出力 $CD$ も $4\cdot4=16$ 次元であり、$U$ の行列は16行16列です。
 
 参照系は $d_M=d_A=2$、早期放射は $d_E=d_B=8$ なので、全出力と全入力の次元はそれぞれ
 
-$
+$$
 \dim H_{MCDE}=2\cdot4\cdot4\cdot8=256,\qquad
 \dim H_{MABE}=2\cdot2\cdot8\cdot8=256.
-$
+$$
 
 $U$ が作用するのは16次元の $AB$ のみで、$M,E$ には単位作用素が作用します。
 <!-- solution-end -->
@@ -434,25 +434,25 @@ $d_A=d_B=2$ の初期状態について $\rho_M,\rho_E,\rho_{ME}$ を求め、$\
 <!-- solution-start -->
 **詳細解答**：[部分トレースの基底表示](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)を使います。Bell対の射影作用素を計算基底で展開すると
 
-$
+$$
 |\Phi_2\rangle\langle\Phi_2|
 =\frac12\sum_{i,k=0}^{1}|i\rangle\langle k|\otimes|i\rangle\langle k|.
-$
+$$
 
 片側を捨てる際に $\operatorname{Tr}(|i\rangle\langle k|)=\delta_{ik}$ となるので、各Bell対の片側は $I_2/2$ です。初期状態は $MA$ と $BE$ の積なので、
 
-$
+$$
 \rho_M=\frac{I_2}{2},\qquad
 \rho_E=\frac{I_2}{2},\qquad
 \rho_{ME}=\frac{I_2}{2}\otimes\frac{I_2}{2}
 =\frac{I_4}{4}.
-$
+$$
 
 正規化は $\operatorname{Tr}\rho_{ME}=4\cdot(1/4)=1$ と確認できます。$M,E$ の固有値は各々 $(1/2,1/2)$、$ME$ は $(1/4,1/4,1/4,1/4)$ です。したがって
 
-$
+$$
 S(M)=S(E)=\ln2,\qquad S(ME)=2\ln2,
-$
+$$
 
 となり、[量子相互情報量の定義](../../../応用系/QINF/QINF18/index.md#def-qinf18-mutual)に代入すると $I(M:E)=\ln2+\ln2-2\ln2=0$ です。
 <!-- solution-end -->
@@ -467,25 +467,25 @@ $d_A=d_B=2$ とし $U|a,b\rangle=|b\rangle_C|a\rangle_D$ を選ぶ。全状態�
 <!-- solution-start -->
 **詳細解答**：入力の $MA$ と $BE$ をそれぞれBell対としておきます。$U$ は $A$ の基底ラベルを $D$、$B$ のラベルを $C$ へ移すだけなので、
 
-$
+$$
 |\Psi_U\rangle=|\Phi_2\rangle_{MD}\otimes|\Phi_2\rangle_{CE},\qquad
 \rho_{MDE}=|\Phi_2\rangle\langle\Phi_2|_{MD}\otimes\frac{I_E}{2}.
-$
+$$
 
 第二式では $CE$ のBell対から $C$ を部分トレースしました。回復写像を $\mathcal D=\operatorname{Tr}_E$ とすれば、これはCPTPで、参照系付き出力について
 
-$
+$$
 (\mathrm{id}_M\otimes\mathcal D)(\rho_{MDE})
 =|\Phi_2\rangle\langle\Phi_2|_{M\widehat A}
-$
+$$
 
 を得ます。さらに任意の密度演算子 $\tau_A$ に対しても
 
-$
+$$
 \mathcal N(\tau_A)=\tau_D\otimes I_E/2,\qquad
 \mathcal D\mathcal N(\tau_A)=\operatorname{Tr}_E(\tau_D\otimes I_E/2)
 =\tau_{\widehat A}
-$
+$$
 
 となり、参照系試験だけでなく全入力での完全回収を確認できました。
 <!-- solution-end -->
@@ -500,23 +500,23 @@ $d_A=d_B=2$、$U|a,b\rangle=|a\rangle_C|b\rangle_D$ とする。$\rho_{MC}$ と 
 <!-- solution-start -->
 **詳細解答**：恒等配置では $A$ のラベルが $C$ に残るので、
 
-$
+$$
 |\Psi_U\rangle=|\Phi_2\rangle_{MC}\otimes|\Phi_2\rangle_{DE}.
-$
+$$
 
 $DE$ を捨てると $MC$ のBell対が残ります。計算基底でその射影を書けば、
 
-$
+$$
 \rho_{MC}=\frac12
 \bigl(|00\rangle\langle00|+|00\rangle\langle11|
 +|11\rangle\langle00|+|11\rangle\langle11|\bigr).
-$
+$$
 
 周辺系をさらに縮約すると $\rho_M=\rho_C=I_2/2$ なので、
 
-$
+$$
 \rho_M\otimes\rho_C=\frac{I_4}{4}\ne\rho_{MC}.
-$
+$$
 
 $\rho_{MC}$ は階数1、積状態は階数4です。[完全回収条件](#thm-bhi12-recovery-condition)のデカップリングが破れるため、$DE$ だけでは全量子入力を完全回収できません。日記の参照系との相関が $C$ に残ることが、復号定理の十分性を使えなくする機構です。
 <!-- solution-end -->
@@ -531,9 +531,9 @@ $\rho_{MC}$ は階数1、積状態は階数4です。[完全回収条件](#thm-b
 <!-- solution-start -->
 **詳細解答**：各量子ビットのHilbert次元は2なので、
 
-$
+$$
 d_A=2^3=8,\qquad d_D=2^2=4<8.
-$
+$$
 
 [完全回収に必要な次元下界](#prop-bhi12-output-lower-bound) $d_D\ge d_A$ に反するため、全量子入力を完全回収することはできません。
 
@@ -585,17 +585,17 @@ $$
 
 これは $\rho_M\otimes\rho_C=I_{MC}/4$ ではありません。日記を $|0\rangle,|1\rangle$ に制限すれば、$DE$ の直交したBell測定結果でラベルを読み取れます。しかし、未知の重ね合わせ $\alpha|0\rangle+\beta|1\rangle$（$|\alpha|^2+|\beta|^2=1$）を入れると、出力は
 
-$
+$$
 \alpha|0\rangle_C|\Phi_+\rangle_{DE}
 +\beta|1\rangle_C|\Psi_+\rangle_{DE}
-$
+$$
 
 です。$C$ を捨てれば $\langle0|1\rangle_C=0$ により交差項が消え、
 
-$
+$$
 \rho_{DE}=|\alpha|^2|\Phi_+\rangle\langle\Phi_+|
 +|\beta|^2|\Psi_+\rangle\langle\Psi_+|
-$
+$$
 
 となります。相対位相は $DE$ に現れないので、[完全回収条件](#thm-bhi12-recovery-condition)が破れ、量子入力の完全復号にはなりません。
 <!-- solution-end -->
@@ -646,16 +646,16 @@ $$
 
 [部分加法性](../../../応用系/QINF/QINF18/index.md#thm-qinf18-subadditivity)から $S(DE)\le S(D)+S(E)$、[Araki–Lieb不等式](../../../応用系/QINF/QINF18/index.md#thm-qinf18-araki-lieb)から $S(DME)\ge S(ME)-S(D)$ です。従って
 
-$
+$$
 S(D|E)\le S(D),\qquad S(D|ME)\ge-S(D),
-$
+$$
 
 となります。有限次元のエントロピー上界 $S(D)\le\ln d_D$ を併用すると、
 
-$
+$$
 2\ln d_A=S(D|E)-S(D|ME)
 \le2S(D)\le2\ln d_D.
-$
+$$
 
 対数の単調性により $d_A\le d_D$ が必要です。$d_D=d_A$ でも[BHI12-A04](#ex-bhi12-a04)の恒等配置は失敗するため、下界は十分条件ではありません。
 <!-- solution-end -->
@@ -690,11 +690,11 @@ $$
 
 $DE$ を捨てると、$MD$ のBell対から $M$ に $I_M/2$、$C_iE_i$ のBell対から各 $C_i$ に $I_{C_i}/2$ が残ります。よって
 
-$
+$$
 \rho_{MC}=\frac{I_M}{2}\otimes\frac{I_{C_1}}{2}\otimes\frac{I_{C_2}}{2}
 =\frac{I_M}{2}\otimes\frac{I_C}{4},\qquad
 \rho_M=\frac{I_M}{2},\quad\rho_C=\frac{I_C}{4}.
-$
+$$
 
 これは[完全回収条件](#thm-bhi12-recovery-condition)の積状態に一致します。実際に $E$ を捨て $D$ を $\widehat A$ とみなす回復は、全入力を戻します。
 
@@ -709,11 +709,11 @@ $$
 
 $DE$ を捨てると、$MC_1$ のBell対を残し、$C_2E_1$ のBell対から $C_2$ に $I_{C_2}/2$ が残るため、
 
-$
+$$
 \rho_{MC}=|\Phi_2\rangle\langle\Phi_2|_{MC_1}\otimes\frac{I_{C_2}}2,\qquad
 \rho_M=\frac{I_M}2,\quad
 \rho_C=\frac{I_{C_1}}2\otimes\frac{I_{C_2}}2=\frac{I_C}4.
-$
+$$
 
 $MC_1$ 部分のBell射影は階数1ですが、$\rho_M\otimes(I_{C_1}/2)$ は階数4です。従って $\rho_{MC}\ne(I_M/2)\otimes(I_C/4)$。残存系に参照系との相関が残り、[完全回収条件](#thm-bhi12-recovery-condition)が破れるので、$DE$ だけでは未知の日記を戻せません。
 
