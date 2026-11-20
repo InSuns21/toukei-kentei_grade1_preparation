@@ -58,15 +58,18 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（二つの変形・コホモロジー同型）**  
-> 規格化されたKähler多様体における、固定位相のコンパクト・境界なしSLagトーラスをファイバーとする滑らかな局所自明束 $\pi:X_0\to B_0$ を取る。各 $b\in B_0$ において、上記の対応
+> 複素次元 $n\ge1$ の規格化されたKähler多様体 $(X,J,g,\omega,\Omega)$ と、実 $n$ 次元基底 $B_0$ 上に局所的に位相 $\theta$ を固定した連結・コンパクト・境界なしSLagトーラス $L_b\cong T^n$ をファイバーとして持つ滑らかな局所自明束 $\pi:X_0\to B_0$ を取る。$\chi=\operatorname{Im}(e^{-i\theta}\Omega)$ とし、$v\in T_bB_0$ のファイバー沿いの持ち上げを $\widetilde v$ とする。対応
 
-$$
-\mathcal A_b:T_bB_0\xrightarrow{\ \cong\ }H^1(L_b;\mathbb R),
-\qquad
-\mathcal C_b:T_bB_0\xrightarrow{\ \cong\ }H^{n-1}(L_b;\mathbb R)
-$$
+$
+\begin{aligned}
+\mathcal A_b(v)&=[\alpha_v]\in H^1(L_b;\mathbb R),
+&\alpha_v&=-\bigl(\iota_{\widetilde v}\omega\bigr)|_{L_b},\\
+\mathcal C_b(v)&=[\beta_v]\in H^{n-1}(L_b;\mathbb R),
+&\beta_v&=\bigl(\iota_{\widetilde v}\chi\bigr)|_{L_b}
+\end{aligned}
+$
 
-> は実ベクトル空間の線形同型であり、$\mathcal C_b(v)=[*_{L_b}\alpha_v]$ である。
+> はいずれも実ベクトル空間の線形同型であり、$\mathcal C_b(v)=[*_{L_b}\alpha_v]$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -267,7 +270,26 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず第2節の [$\mathcal A_b,\mathcal C_b$ の同型](#prop-syz1-08-two-cohomology-isomorphisms) を使う。$T^n$ について $H_1(T^n;\mathbb Z)$、$H_{n-1}(T^n;\mathbb Z)$ はそれぞれ階数 $n$ の自由群である。de Rhamコホモロジーとサイクルの積分対応は非退化であるから、各 $b$ で
+まず第2節の [$\mathcal A_b,\mathcal C_b$ の同型](#prop-syz1-08-two-cohomology-isomorphisms) を使う。基底の実次元が $n$ なので、$H^1(L_b;\mathbb R)$ と $H^{n-1}(L_b;\mathbb R)$ はともに実次元 $n$ である。
+
+ここでサイクルとの積分が各コホモロジー類を判定できる理由を、$L_b\cong T^n=(\mathbb R/\mathbb Z)^n$ の座標 $s^1,\ldots,s^n$ で確かめる。$\widehat{ds^j}$ はその因子を除くことを意味するとし、
+
+$
+\sigma_j=ds^j,\qquad
+\rho_j=(-1)^{j-1}ds^1\wedge\cdots\wedge
+\widehat{ds^j}\wedge\cdots\wedge ds^n
+$
+
+と置く。$\gamma_i^0$ を第 $i$ 座標の正向き円周、$\delta_i^0$ を第 $i$ 座標を固定した $(n-1)$ 次元トーラス（$\rho_i$ が正になる向き）とすれば、各座標の周期が1であるため
+
+$
+\int_{\gamma_i^0}\sigma_j=\delta_{ij},\qquad
+\int_{\delta_i^0}\rho_j=\delta_{ij}
+$
+
+となる。$n=1$ では $\rho_1=1$、$\delta_1^0$ は正の点1個と解釈する。これらの閉形式のコホモロジー類は積分行列が単位行列なのでそれぞれ一次独立で、上の次元 $n$ と合わせると各群の基底である。従ってサイクルへの積分は両方の群で非退化であり、任意の整数サイクル基底へ替えても $GL(n,\mathbb Z)$ の可逆な基底変換を合成するだけである。
+
+よって各 $b$ で
 
 $$
 v\longmapsto
@@ -369,12 +391,26 @@ $$
 
 任意の基底速度 $v=v^1\partial_{y^1}+v^2\partial_{y^2}$ を持ち上げると
 
-$$
+$
 \alpha_v=a_1v^1dx^1+a_2v^2dx^2,
 \quad
 \beta_v=\sqrt{a_1a_2}
 \bigl(v^1dx^2-v^2dx^1\bigr).
-$$
+$
+
+後者は $\chi=\sqrt{a_1a_2}(dy^1\wedge dx^2+dx^1\wedge dy^2)$ の縮約から得られる。計量側からも対応を確かめる。$L_y$ 上の正向き正規直交余接基底は $e^j=\sqrt{a_j}\,dx^j$ なので、$*e^1=e^2$、$*e^2=-e^1$ により
+
+$
+*dx^1=\sqrt{\frac{a_2}{a_1}}\,dx^2,\qquad
+*dx^2=-\sqrt{\frac{a_1}{a_2}}\,dx^1,
+$
+
+$
+*\alpha_v=\sqrt{a_1a_2}
+\bigl(v^1dx^2-v^2dx^1\bigr)=\beta_v.
+$
+
+ここで星はファイバーの誘導計量と向きに対するHodge星であり、外側の基底速度 $v^j$ は固定して形式に作用している。
 
 第4節と同じ整数サイクル基底 $\gamma_1=[x^1],\gamma_2=[x^2]$ および $\delta_1=[x^2],\delta_2=-[x^1]$ で積分すれば、
 
@@ -664,7 +700,7 @@ $$
 =\begin{pmatrix}\sqrt6/2&0\\0&\sqrt6/3\end{pmatrix}.
 $$
 
-この行列の成分は整数でないため、二つの整数アフィン構造は一致しない。それでも各構造の**内部**で行う (4) の変更は $A,B\in GL(2,\mathbb Z)$ だから許される。外部定理なしに大域SLagトーラス束が存在するという主張は、この与えられた平坦模型からは導けない。
+この行列の成分は整数でないため、二つの整数アフィン構造は一致しない。それでも各構造の**内部**で行う (4) の変更は $A,B\in GL(2,\mathbb Z)$ だから許される。この平坦模型では射影 $\pi:X\to(\mathbb R/\mathbb Z)^2$ が実際に大域SLagトーラス束を与えるが、その事実から一般のCalabi–Yau多様体にも同様の大域束が存在するとは結論できない。
 <!-- solution-end -->
 
 ## 9. 何が得られ、次に何を求めるか
