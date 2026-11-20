@@ -11,6 +11,7 @@ import {expectedFCG8Samples,compareFCG8Readback,fcg8State} from './fcg8-lab-core
 import { highlightSource } from './wgl-lab-highlight.mjs';
 import {mountSmokeObservation} from './wgl-fcg-fluid-visual.mjs';
 import {mountReferenceObservation} from './wgl-fcg-reference-visual.mjs';
+import {mountVisualGuide} from './wgl-fcg-visual-guide.mjs';
 import { compareWGL2Readback, expectedWGL2Samples } from './wgl2-lab-core.mjs';
 import { compareWGL3Readback, expectedWGL3Samples } from './wgl3-lab-core.mjs';
 import { compareWGL4Readback, expectedWGL4Samples } from './wgl4-lab-core.mjs';
@@ -1687,8 +1688,9 @@ const sizeHint=(isFCG4||isFCG5||isFCG6||isFCG7||isFCG8)?[900,300]:
   (lesson==='WGL1'||isWGL2||isWGL3)?[480,480]:[320,240];
 byId('width').value=String(sizeHint[0]);
 byId('height').value=String(sizeHint[1]);
+mountVisualGuide(lesson,byId('panel-conditions'),{run,focusResult:selectTab});
 load();
-// 画素の期待値は、GPUに触れる前に CPU 側で示せる。
+// 画素の期待値は、GPUに触れる前に CPU 側で示せる.
 byId('result-note').textContent = '初期サイズでのCPU予測: ' +
   oracle(sizeHint[0],sizeHint[1])
   .map(item => item.label + '=' + item.rgba.join('/')).join('、');
