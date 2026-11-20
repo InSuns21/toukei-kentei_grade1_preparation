@@ -111,7 +111,7 @@ test('FCG5 real learner JS numerical state equals separately coded CPU oracle be
     RangeError);
 });
 test('FCG5 CPU pixel probes, panel mapping and deliberate mismatch',()=>{
-  for(const [w,h] of [[320,240],[384,256],[64,64],[1024,512]]){
+  for(const [w,h] of [[320,240],[384,256],[64,64],[1024,512],[1536,512]]){
     for(const steps of [0,1,8,16,32]){
       const expected=expectedFCG5Samples(w,h,steps);
       assert.equal(expected.length,9);

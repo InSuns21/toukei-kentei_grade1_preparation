@@ -13,9 +13,16 @@ void main(){
   vec2 xy=vec2(fract(v_uv.x*3.0),v_uv.y);
   float phi;
   if(panel<2){
-    ivec2 ij=clamp(ivec2(floor(xy*48.0)),ivec2(0),ivec2(47));
-    float encoded=panel==0?texelFetch(u_raw,ij,0).r:texelFetch(u_reinit,ij,0).r;
-    phi=(encoded-0.5)*0.5;
+    // Bilinear DISPLAY reconstruction of the 48x48 cell-centred R8 field.
+    // The numerical step remains 48x48 Float64; smoothing is not refinement.
+    vec2 grid=clamp(xy*48.0-0.5,vec2(0.0),vec2(47.0));
+    ivec2 ij=ivec2(floor(grid)),ij1=min(ij+ivec2(1),ivec2(47));
+    vec2 f=fract(grid);
+    float v00=panel==0?texelFetch(u_raw,ij,0).r:texelFetch(u_reinit,ij,0).r;
+    float v10=panel==0?texelFetch(u_raw,ivec2(ij1.x,ij.y),0).r:texelFetch(u_reinit,ivec2(ij1.x,ij.y),0).r;
+    float v01=panel==0?texelFetch(u_raw,ivec2(ij.x,ij1.y),0).r:texelFetch(u_reinit,ivec2(ij.x,ij1.y),0).r;
+    float v11=panel==0?texelFetch(u_raw,ij1,0).r:texelFetch(u_reinit,ij1,0).r;
+    phi=(mix(mix(v00,v10,f.x),mix(v01,v11,f.x),f.y)-0.5)*0.5;
   } else {
     vec2 original=vec2(xy.x-u_shear*u_time*(xy.y-0.5),xy.y);
     phi=length(original-vec2(0.5))-0.18;

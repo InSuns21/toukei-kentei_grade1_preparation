@@ -241,8 +241,14 @@ test('FCG8 editable Level Set source and shared host are wired consistently', as
   assert.ok(host.includes("js:'levelset.js',vertex:'levelset.vert',fragment:'levelset.frag'"));
   assert.ok(host.includes('compareFCG8Readback('));
   assert.ok(host.includes("id='fcg8-cpu-prediction'"));
-  assert.ok(host.includes('fcg8Steps++'));
-  assert.ok(host.includes('fcg8Timer=setInterval('));
+  // The former per-second iframe recreation is deliberately gone. Ensure
+  // controls reach the SAME sandboxed simulation via session-scoped messages.
+  assert.ok(host.includes("type:'fcg8-control'"));
+  assert.ok(host.includes("if(!fcg8Control(action)){fcg8Pending=action;run();}"));
+  assert.ok(host.includes("active.completed=!!data.ok"));
+  assert.ok(!host.includes('fcg8Timer=setInterval('));
+  assert.ok(js.includes('return {play:playLive,pause:pauseLive,step:stepLive,reset:resetLive};'));
+  assert.ok(js.includes('gl.texSubImage2D(gl.TEXTURE_2D'));
   assert.ok(host.includes("data.type === 'fcg8-pick'"));
   assert.match(js,/const N=48,h=1\/N,dt=0\.04/);
   assert.ok(js.includes('redistance(advect(reinit),redistanceIterations)'));

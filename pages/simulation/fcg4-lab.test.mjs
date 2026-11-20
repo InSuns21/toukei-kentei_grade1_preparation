@@ -34,7 +34,7 @@ test('FCG4 residual declines and exact pure curl target is reached',()=>{
 });
 
 test('FCG4 9 GPU probes and textural pixel mapping',()=>{
-  for(const [w,h] of [[320,240],[384,256],[64,64],[1024,512]]){
+  for(const [w,h] of [[320,240],[384,256],[64,64],[1024,512],[1536,512]]){
     for(const k of [0,1,16,80,128,160]){
       const expected=expectedFCG4Samples(w,h,k);
       assert.equal(expected.length,9);

@@ -24,10 +24,10 @@
 <p>予測：背景は黒、三角形は橙色。描画バッファ中央の画素は三角形内、左下角は背景です。三角形の座標と描画結果を比較してください。</p>
 <ol><li>最初は初期ソースで実行し、中央と左下の RGBA を確認する。</li><li>fragment shader の色を変え、画素診断の変化を観察する。</li><li>「構文エラー」プリセットで GLSL の失敗箇所を観察する。</li><li>縦横ピクセル数を変更し、viewport と検査対象座標を確認する。</li></ol>
 <p>JavaScript は隔離された sandbox iframe で実行します。GPU／ブラウザのハングを完全には防げません。自分のコード以外を貼り付けないでください。</p>
-<div class="controls"><label>描画幅<input id="width" type="number" min="64" max="1024" value="320"></label>
-<label>描画高<input id="height" type="number" min="64" max="1024" value="240"></label>
+<div class="controls"><label>描画幅<input id="width" type="number" min="64" max="2048" value="320"></label>
+<label>描画高<input id="height" type="number" min="64" max="2048" value="240"></label>
 <label>プリセット<select id="preset"><option value="default">初期の三角形</option><option value="error">fragment の構文エラー</option></select></label></div>
-<p><small>幅・高さは CSS 表示サイズではなく描画バッファの画素数。最大 524,288 画素です。ソースはこの端末にバージョン付きで保存できます。</small></p>
+<p><small>幅・高さは CSS 表示サイズではなく描画バッファの画素数。最大 2,097,152 画素（負荷が重い場合は縮小）です。ソースはこの端末にバージョン付きで保存できます。</small></p>
 </section>
 <section role="tabpanel" id="panel-code" aria-labelledby="tab-code" hidden>
 <div class="editors">

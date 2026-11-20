@@ -1,8 +1,9 @@
 // FCG8 editable simulation: 1m square, divergence-free horizontal shear.
 // This solves a prescribed advection test, NOT a Navier-Stokes/free-boundary solver.
 const N=48,h=1/N,dt=0.04,steps=settings.steps,shear=0.6,radius=0.18;
+const maxSteps=96; // finite 1m window; late-time contours may reach its boundary
 const redistanceIterations=6,redistanceCFL=0.30,particlesCount=64;
-if(!Number.isInteger(steps)||steps<0||steps>24)throw RangeError('steps must be 0..24');
+if(!Number.isInteger(steps)||steps<0||steps>maxSteps)throw RangeError('steps must be 0..96');
 const id=(i,j)=>i+N*j, clamp=(a,l,r)=>Math.max(l,Math.min(r,a));
 const field0=new Float64Array(N*N);
 for(let j=0;j<N;j++)for(let i=0;i<N;i++){
@@ -50,11 +51,14 @@ let particles=Array.from({length:particlesCount},(_,k)=>{
   const a=2*Math.PI*k/particlesCount;
   return [0.5+radius*Math.cos(a),0.5+radius*Math.sin(a)];
 });
-for(let t=0;t<steps;t++){
+let currentStep=0;
+function advanceOne(){
   raw=advect(raw);
   reinit=redistance(advect(reinit),redistanceIterations);
   particles=particles.map(([x,y])=>[x+dt*shear*(y-0.5),y]);
+  currentStep++;
 }
+for(let t=0;t<steps;t++)advanceOne();
 function metrics(phi){
   let area=0,grad=0,samples=0,max=0;
   for(let j=1;j<N-1;j++)for(let i=1;i<N-1;i++){
@@ -84,7 +88,7 @@ function texture(field,unit){
     Uint8Array.from(field,encode));
   return tex;
 }
-texture(raw,0);texture(reinit,1);
+const rawTexture=texture(raw,0),reinitTexture=texture(reinit,1);
 function compile(type,source){
   const shader=gl.createShader(type);if(!shader)throw Error('shader allocation failed');
   gl.shaderSource(shader,source);gl.compileShader(shader);
@@ -100,9 +104,10 @@ if(!gl.getProgramParameter(program,gl.LINK_STATUS))
 gl.deleteShader(vs);gl.deleteShader(fs);gl.useProgram(program);
 const loc=n=>{const l=gl.getUniformLocation(program,n);if(l===null)throw Error('missing uniform '+n);return l;};
 gl.uniform1i(loc('u_raw'),0);gl.uniform1i(loc('u_reinit'),1);
-gl.uniform1f(loc('u_time'),steps*dt);
+const timeLocation=loc('u_time'),particleLocation=loc('u_particles[0]');
+gl.uniform1f(timeLocation,steps*dt);
 gl.uniform1f(loc('u_shear'),shear);
-gl.uniform2fv(loc('u_particles[0]'),new Float32Array(particles.flat()));
+gl.uniform2fv(particleLocation,new Float32Array(particles.flat()));
 const vao=gl.createVertexArray();if(!vao)throw Error('VAO allocation');
 gl.bindVertexArray(vao);
 gl.disable(gl.DITHER);gl.disable(gl.BLEND);gl.disable(gl.DEPTH_TEST);
@@ -120,3 +125,69 @@ report('DISTANCE','mean ||grad(phi)|-1| in |phi|<3h: raw='+ma.meanGradientError.
 report('PARTICLES','64 contour markers follow exact shear characteristics; markers do not conserve level-set area');
 report('DISPLAY','left: advected phi, middle: six pseudo-time redistance iterations per step, right: exact contour/particles');
 report('LIMIT','cell-count area is a proxy, not an exact mass or volume; reinitialization does not guarantee conservation');
+
+// These controls operate the SAME editable solver and shader, not an observer clone.
+// Initial readPixels is performed by the sandbox host before it sends any control
+// command. Live frames are intentionally not compared with the initial CPU oracle.
+let playing=false,frameRequest=0,lastFrame=0,accumulator=0;
+const animationStepMs=75; // about 13 physical steps/s; 96 steps ≈ 7 seconds
+const initialParticles=()=>Array.from({length:particlesCount},(_,k)=>{
+  const a=2*Math.PI*k/particlesCount;
+  return [0.5+radius*Math.cos(a),0.5+radius*Math.sin(a)];
+});
+function progress(){
+  canvas.dispatchEvent(new CustomEvent('fcg8-progress',{
+    detail:{steps:currentStep,playing,time:currentStep*dt,maxSteps}
+  }));
+}
+function liveDraw(){
+  for(const [unit,tex,field] of [[0,rawTexture,raw],[1,reinitTexture,reinit]]){
+    gl.activeTexture(gl.TEXTURE0+unit);gl.bindTexture(gl.TEXTURE_2D,tex);
+    gl.texSubImage2D(gl.TEXTURE_2D,0,0,0,N,N,gl.RED,gl.UNSIGNED_BYTE,
+      Uint8Array.from(field,encode));
+  }
+  gl.useProgram(program);
+  gl.uniform1f(timeLocation,currentStep*dt);
+  gl.uniform2fv(particleLocation,new Float32Array(particles.flat()));
+  gl.viewport(0,0,canvas.width,canvas.height);
+  gl.drawArrays(gl.TRIANGLES,0,3);
+}
+function pauseLive(){
+  playing=false;
+  if(frameRequest)cancelAnimationFrame(frameRequest);
+  frameRequest=0;lastFrame=0;accumulator=0;progress();
+}
+function stepLive(){
+  pauseLive();
+  if(currentStep<maxSteps){advanceOne();liveDraw();}
+  progress();
+}
+function resetLive(){
+  pauseLive();
+  raw=field0.slice();reinit=field0.slice();particles=initialParticles();currentStep=0;
+  liveDraw();progress();
+}
+function liveFrame(now){
+  frameRequest=0;
+  if(!playing)return;
+  if(document.hidden){lastFrame=now;frameRequest=requestAnimationFrame(liveFrame);return;}
+  if(lastFrame)accumulator+=Math.min(120,Math.max(0,now-lastFrame));
+  lastFrame=now;
+  const count=Math.min(2,Math.floor(accumulator/animationStepMs));
+  if(count){
+    for(let k=0;k<count&&currentStep<maxSteps;k++)advanceOne();
+    accumulator-=count*animationStepMs;
+    liveDraw();progress();
+  }
+  if(currentStep>=maxSteps){pauseLive();return;}
+  frameRequest=requestAnimationFrame(liveFrame);
+}
+function playLive(){
+  if(currentStep>=maxSteps)resetLive();
+  if(playing)return;
+  playing=true;lastFrame=0;accumulator=0;progress();
+  frameRequest=requestAnimationFrame(liveFrame);
+}
+// Keeping these hooks inside the opaque-origin runner makes student code edits
+// affect the playing result directly, without re-creating an iframe every step.
+return {play:playLive,pause:pauseLive,step:stepLive,reset:resetLive};
