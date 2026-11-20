@@ -161,7 +161,24 @@ try {
   const narrow=await evaluate('({page:document.querySelector("main").getBoundingClientRect().width,editor:document.querySelector("#js-source").getBoundingClientRect().width,scroll:document.querySelector("#js-source").scrollWidth,client:document.querySelector("#js-source").clientWidth})');
   assert.ok(narrow.client>0&&narrow.scroll<=narrow.client+2,JSON.stringify(narrow));
   assert.ok(narrow.editor<=narrow.page+2,JSON.stringify(narrow));
-  console.log('FCG3 360px editable editor: PASS');
+  await click('tab-result');
+  const mobileResult=await evaluate(`(() => {
+    const frame=document.querySelector('#canvas-slot iframe');
+    const canvas=frame?.getBoundingClientRect();
+    const main=document.querySelector('main').getBoundingClientRect();
+    const scene=document.querySelector('#scene-info').getBoundingClientRect();
+    return {viewport:innerWidth,documentWidth:document.documentElement.scrollWidth,
+      mainWidth:main.width,canvasWidth:canvas?.width??0,sceneWidth:scene.width,
+      sandbox:frame?.getAttribute('sandbox'),
+      numericCollapsed:!document.querySelector('#numeric-details').open};
+  })()`);
+  assert.ok(mobileResult.canvasWidth>200&&mobileResult.canvasWidth<=mobileResult.mainWidth+2,
+    JSON.stringify(mobileResult));
+  assert.ok(mobileResult.sceneWidth<=mobileResult.mainWidth+2,JSON.stringify(mobileResult));
+  assert.ok(mobileResult.documentWidth<=mobileResult.viewport+2,JSON.stringify(mobileResult));
+  assert.equal(mobileResult.sandbox,'allow-scripts');
+  assert.equal(mobileResult.numericCollapsed,true);
+  console.log('FCG3 360px live GPU canvas, legend and collapsed diagnostics: PASS');
 } finally {
   try {ws?.close();}catch{}
   browser.kill('SIGTERM');
