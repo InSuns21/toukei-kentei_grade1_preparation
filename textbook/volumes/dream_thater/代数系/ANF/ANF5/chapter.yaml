@@ -4,22 +4,20 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - ANF4
+  - NDA3
 official_scope: []
 learning_objectives:
   - 実埋め込みと複素共役の組を区別し次数n=r1+2r2および体ノルム公式を具体例で確認できる
-  - 全階数格子と共体積を定義し整数環・整イデアルの実座標像を格子として構成できる
+  - NDA3で導入した全階数格子・共体積を使い整数環・整イデアルの実座標像を構成できる
   - 判別式の埋め込み行列と整数基底からcovol(j(I))=2^(-r2)sqrt(abs(D_K))N(I)を証明できる
-  - 体積による鳩の巣原理と原点対称性・凸性を使いMinkowski凸体定理を等号の場合まで証明できる
+  - NDA3で証明済みのBlichfeldt補題とMinkowski凸体定理の適用条件・証明機構を具体的な格子で確認できる
   - ノルム評価用凸体の体積を実座標と複素極座標の積分から求められる
   - 凸体定理と相加相乗平均から明示定数(4/pi)^r2 n!/n^nによる小ノルム元の存在を証明できる
   - 実二次体と虚二次体の共体積・ノルム上界を手計算で検算し後続の類群有限性へ接続できる
 definitions:
   - { id: ANF5-DEF-01, name: Minkowski埋め込み }
-  - { id: ANF5-DEF-02, name: 全階数格子と共体積 }
 theorems:
   - { id: ANF5-THM-01, name: 整数環とイデアルの共体積 }
-  - { id: ANF5-LEM-01, name: 体積による鳩の巣原理 }
-  - { id: ANF5-THM-02, name: Minkowskiの凸体定理 }
   - { id: ANF5-LEM-02, name: ノルム評価用凸体の体積 }
   - { id: ANF5-THM-03, name: Minkowskiの小ノルム元の存在 }
 canonical_examples:
