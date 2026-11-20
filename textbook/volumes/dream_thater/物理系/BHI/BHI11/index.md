@@ -400,7 +400,34 @@ $$
 $R,b,c$ が各二準位で、状態 (i) $\lvert0\rangle_R\otimes\lvert\Phi\rangle_{bc}$ と (ii) $\lvert\Phi\rangle_{Rb}\otimes\lvert0\rangle_c$ を考える。各状態の $S(b|R),S(b|c)$ を求め、Bobが内部へ入れないと仮定しただけで両条件付きエントロピーを負にできるか判定せよ。
 
 <!-- solution-start -->
-**詳細解答**：(i) は $S(R)=0$、$S(Rb)=\ln2$、$S(bc)=0$、$S(c)=\ln2$ なので $S(b|R)=\ln2$、$S(b|c)=-\ln2$。(ii) は $S(R)=\ln2$、$S(Rb)=0$、$S(bc)=\ln2$、$S(c)=0$ なので $S(b|R)=-\ln2$、$S(b|c)=\ln2$。どちらも和は0で[AMPS制約](../BHI10/index.md#thm-bhi10-amps-tradeoff)を満たします。Bobの入射禁止は状態の固有値を変えないため、同じ独立三部状態に二つの負の条件付きエントロピーは作れません。AMPSの仮定を変更するなら、同時適用する部分系・状態・近真空条件を具体的に見直す必要があります。
+**詳細解答**：(i) では $R$ が純粋、$bc$ がBell対です。したがって縮約エントロピーは
+
+$$
+S(R)=0,\quad S(Rb)=\ln2,\quad
+S(bc)=0,\quad S(c)=\ln2.
+$$
+
+条件付きエントロピーの定義に代入すると
+
+$$
+S(b|R)=S(Rb)-S(R)=\ln2,\qquad
+S(b|c)=S(bc)-S(c)=-\ln2.
+$$
+
+(ii) では $Rb$ がBell対、$c$ が純粋です。そのため
+
+$$
+S(R)=\ln2,\quad S(Rb)=0,\quad
+S(bc)=\ln2,\quad S(c)=0,
+$$
+
+から
+
+$$
+S(b|R)=-\ln2,\qquad S(b|c)=\ln2
+$$
+
+となります。どちらも和は0で[AMPS制約](../BHI10/index.md#thm-bhi10-amps-tradeoff)を満たします。Bobの入射禁止は状態の固有値を変えません。同じ独立三部状態に二つの負の条件付きエントロピーは作れないため、AMPSの仮定を変更するなら、同時適用する部分系・状態・近真空条件を具体的に見直す必要があります。
 <!-- solution-end -->
 
 <a id="ex-bhi11-b04"></a>
