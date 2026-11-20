@@ -32,7 +32,7 @@ $$
 <a id="def-syz1-09-l2-metric"></a>
 
 <!-- formal-statement-start -->
-> **定義（SLag変形の $L^2$ 計量）**  
+> **定義（SLag変形の積分計量）**  
 > 上記の規格化された滑らかなSLagトーラス束において、$b\in B_0$ と $v,w\in T_bB_0$ に対し
 
 $$
@@ -153,7 +153,7 @@ $$
 
 つまり二種類の周期座標の関係は、まさに **$G$ の行列表現**を与えている。
 
-アフィン座標 $u$ で計量の成分がある関数 $\phi$ の二階偏微分と一致するとき、このような計量をHessian計量という。二階微分を定義するには、$\phi$ が少なくとも $C^2$ 級であることが必要となる。
+アフィン座標 $u$ で計量の成分を、ある関数 $\phi$ の二階偏微分として表せるかを考える。これは一般の座標で自動的に成立する性質ではない。二階微分を考えるため、$\phi$ は少なくとも $C^2$ 級である必要がある。
 
 <a id="def-syz1-09-hessian-metric"></a>
 
@@ -178,7 +178,7 @@ $$
 =\begin{pmatrix}2&0\\0&3\end{pmatrix}.
 $$
 
-この行列は対称で、零でない $(v^1,v^2)$ について二次形式 $2(v^1)^2+3(v^2)^2>0$ である。従って $G=2(du^1)^2+3(du^2)^2$ は定義を満たす。ここでの行列は、計量を座標基底 $\partial/\partial u^i$ で評価した $G_{ij}$ である。
+**定義の確認**：この行列は対称で、零でない $(v^1,v^2)$ について二次形式 $2(v^1)^2+3(v^2)^2>0$ である。従って $G=2(du^1)^2+3(du^2)^2$ は滑らかな正定値計量であり、二階偏微分が計量成分と一致する。ここでの行列は、座標基底 $\partial/\partial u^i$ で評価した $G_{ij}$ である。
 <!-- definition-example-end -->
 
 <a id="thm-syz1-09-hessian"></a>
@@ -272,7 +272,7 @@ $$
 =\frac{t_1^2}{4}+\frac{t_2^2}{6}.
 $$
 
-そのHessianは $\operatorname{diag}(1/2,1/3)$。元のHessianの逆行列であり、両方とも正定値である。
+**定義の確認**：$U=\mathbb R^2$ は開凸集合で元のHessianは全域で正定値である。勾配写像の像は $V=\mathbb R^2$ で、上に求めた逆写像は各点で一意に存在する。$\phi^*$ は定義の $u(t)^{\mathsf T}t-\phi(u(t))$ から計算したもので、そのHessianは $\operatorname{diag}(1/2,1/3)$。元のHessianの逆行列であり、両方とも正定値である。
 <!-- definition-example-end -->
 
 <a id="thm-syz1-09-legendre-duality"></a>
@@ -292,12 +292,12 @@ $$
 
 ### 証明の見取り図
 
-正定値のHessianが勾配写像の局所可逆性と単射性を与える。双対関数を微分すると、$t=\nabla\phi(u)$ による二項の打ち消しで $u$ が残る。さらに連鎖律でHessianが逆行列になる。
+正定値のHessianが勾配写像の局所可逆性と単射性を与える。Legendreポテンシャルを微分すると、$t=\nabla\phi(u)$ による二項の打ち消しで $u$ が残る。さらに連鎖律でHessianが逆行列になる。
 
 <!-- proof-start -->
 ### 証明
 
-$\nabla\phi$ のJacobianは $H(u)$ で、正定値だから $\det H(u)>0$。[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)から各点の近傍で滑らかな逆が存在する。さらに $u\ne v$ を $U$ に取り、$h=u-v$ として線分 $v+sh\in U$ 上で基本定理を適用すると
+$\nabla\phi$ のJacobianは $H(u)$ で、正定値だから $\det H(u)>0$。[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)から各点の近傍で滑らかな逆が存在する。さらに $u\ne v$ を $U$ に取り、$h=u-v$ とする。凸性から線分 $v+sh$（$0\le s\le1$）は $U$ に含まれる。補助関数 $q(s)=\nabla\phi(v+sh)\cdot h$ を考え、連鎖律で $q'(s)=h^{\mathsf T}H(v+sh)h$ を得る。$q(1)-q(0)=\int_0^1q'(s)\,ds$ に代入すると
 
 $$
 (\nabla\phi(u)-\nabla\phi(v))\cdot h
@@ -552,7 +552,7 @@ $\alpha_v\wedge\beta_w=6vw\,dx$ なので積分は $6vw$。周期は $\int_\gamm
 
 <a id="ex-syz1-09-b01"></a>
 
-#### SYZ1-09-B01 対称性がない周期写像
+#### SYZ1-09-B01 対称性のない周期座標の変換式
 
 - Level: B
 
