@@ -50,17 +50,17 @@ $$
 
 入力基底 $|ij\rangle_{AB}$ と出力基底 $|\mu\nu\rangle_{CD}$（添字はいずれも $0,1$）を固定します。線形写像の各基底ベクトルへの作用を
 
-$
+$$
 U|ij\rangle_{AB}=\sum_{\mu,\nu=0}^{1}U_{\mu\nu,ij}|\mu\nu\rangle_{CD},
 \qquad U_{\mu\nu,ij}=\langle\mu\nu|U|ij\rangle
-$
+$$
 
 と展開すると、係数 $U_{\mu\nu,ij}$ を並べたものが $4\times4$ 行列です。ユニタリ性 $\langle ij|U^\dagger U|i'j'\rangle=\langle ij|i'j'\rangle$ は、列の正規直交性
 
-$
+$$
 \sum_{\mu,\nu=0}^{1}\overline{U_{\mu\nu,ij}}U_{\mu\nu,i'j'}
 =\delta_{ii'}\delta_{jj'},\qquad U^\dagger U=I_4
-$
+$$
 
 に対応します。このように両側の基底を固定して $U(4)$ のHaar分布を取るので、左右から固定ユニタリ行列を掛けても分布は変わりません。
 
@@ -113,10 +113,10 @@ $\pi_C:=I_C/c$ と書きます。したがって本講に限っては $\rho_C$ �
 
 反対に $U_{\rm bad}|i,j\rangle=|i,j\rangle_{CD}$ として日記を $C$ に残せば、$\rho_{MC}=|\Phi_2\rangle\langle\Phi_2|$、$\rho_C=I_C/2$ です。ここで $P_\Phi=|\Phi_2\rangle\langle\Phi_2|$ は規格化されたBellベクトルへの直交射影です。したがって
 
-$
+$$
 P_\Phi|\Phi_2\rangle=|\Phi_2\rangle,
 \qquad P_\Phi|v\rangle=0\quad (\langle\Phi_2|v\rangle=0)
-$
+$$
 
 となります。$MC$ は4次元なので、Bellベクトルの方向は1次元、直交補空間は3次元です。差 $X=P_\Phi-I_{MC}/4$ は前者で $3/4$ 倍、後者で $-1/4$ 倍として作用します。これが固有値 $3/4$（1個）と $-1/4$（3個）の根拠です。$X$ はHermitianなので特異値は固有値の絶対値であり、$\operatorname{Tr}X^2$ は固有値の二乗和です。よって
 
