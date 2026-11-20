@@ -45,11 +45,21 @@ $$
 
 が成立しているものとする。$\operatorname{vol}_L$ は誘導計量と指定した向きの体積形式である。次の局所的な一次変分を求めるだけなら、$L$ のコンパクト性や境界なしの仮定は必要ない。
 
-変形は滑らかな埋め込み族 $F_t:L\to X$（$|t|<\varepsilon$）で表し、$F_0$ は包含写像、$V=\left.\partial_t F_t\right|_{t=0}$ はその速度場とする。ここで $\partial_tF_t(p)$ は点 $p\in L$ を固定して時刻 $t$ で微分したベクトル、$F_t^*\eta$ は $F_t$ による微分形式 $\eta$ の[引き戻し](../../GEO/GEO7/index.md#def-geo7-pullback-form)である。後で使う $d/dt$ はこの引き戻し形式の $t$ に関する微分を表し、$d$ は $L$ 上の外微分を表す。接方向への速度はパラメータの付け替えなので、まず $V$ を各点で $T_pL$ に直交する**法線ベクトル場**とする。一般の速度の場合も第6節で接成分が一次式に寄与しないことを確認する。
+変形は滑らかな埋め込み族 $F_t:L\to X$（$|t|<\varepsilon$）で表し、$F_0$ は包含写像、$V=\left.\partial_t F_t\right|_{t=0}$ はその速度場とする。
+
+ここで $\partial_tF_t(p)$ は点 $p\in L$ を固定して時刻 $t$ で微分したベクトル、$F_t^*\eta$ は $F_t$ による微分形式 $\eta$ の[引き戻し](../../GEO/GEO7/index.md#def-geo7-pullback-form)である。後で使う $d/dt$ はこの引き戻し形式の $t$ に関する微分を表し、$d$ は $L$ 上の外微分を表す。
+
+接方向への速度はパラメータの付け替えなので、まず $V$ を各点で $T_pL$ に直交する**法線ベクトル場**とする。一般の速度の場合も第6節で接成分が一次式に寄与しないことを確認する。
 
 ## 3. 法線場を二つの微分形式へ移す
 
-$\omega$ に法線ベクトルを代入すると1形式が得られる。$n$ 形式 $\operatorname{Im}(e^{-i\theta}\Omega)$ に代入すると $(n-1)$ 形式になる。ここで[内部積（縮約）](../../GEO/GEO7/index.md#def-geo7-interior-product) $\iota_V\eta$ は、$k$ 形式 $\eta$ の最初の引数に $V$ を代入して $k-1$ 形式を作る操作、すなわち $(\iota_V\eta)(U_1,\ldots,U_{k-1})=\eta(V,U_1,\ldots,U_{k-1})$ である。$|_{TL}$ は残る引数を $L$ の接ベクトルに制限することを表す。符号を曖昧にしないため、1形式側には**マイナス**を付ける。
+$\omega$ に法線ベクトルを代入すると1形式が得られる。$n$ 形式 $\operatorname{Im}(e^{-i\theta}\Omega)$ に代入すると $(n-1)$ 形式になる。ここで[内部積（縮約）](../../GEO/GEO7/index.md#def-geo7-interior-product) $\iota_V\eta$ は、$k$ 形式 $\eta$ の最初の引数に $V$ を代入して $k-1$ 形式を作る操作である。具体的には
+
+$$
+(\iota_V\eta)(U_1,\ldots,U_{k-1})=\eta(V,U_1,\ldots,U_{k-1}).
+$$
+
+$|_{TL}$ は残る引数を $L$ の接ベクトルに制限することを表す。符号を曖昧にしないため、1形式側には**マイナス**を付ける。
 
 <a id="def-syz1-05-variation-forms"></a>
 
@@ -144,14 +154,26 @@ $$
 d*\alpha(p)=\sum_{j=1}^n e_j(a_j)(p)\,\operatorname{vol}_L(p).
 $$
 
-一方、計量との両立性と $\nabla_{e_j}e_k(p)=0$ より、$e_j(a_j)(p)=(\nabla_{e_j}\alpha)(e_j)(p)=g(\nabla_{e_j}\alpha^\sharp,e_j)(p)$ である。従って
+計量との両立性と $\nabla_{e_j}e_k(p)=0$ より、1形式の共変微分の積の法則を使って
+
+$$
+\begin{aligned}
+(\nabla_{e_j}\alpha)(e_j)(p)
+&=e_j\bigl(\alpha(e_j)\bigr)(p)-\alpha\bigl(\nabla_{e_j}e_j\bigr)(p)\\
+&=e_j(a_j)(p),\\
+g(\nabla_{e_j}\alpha^\sharp,e_j)(p)
+&=(\nabla_{e_j}\alpha)(e_j)(p)
+\end{aligned}
+$$
+
+が得られる。発散を $\operatorname{div}_L W=\sum_j g(\nabla_{e_j}W,e_j)$ と定義すると
 
 $$
 d^*\alpha=-\sum_{j=1}^n(\nabla_{e_j}\alpha)(e_j)
 =-\operatorname{div}_L(\alpha^\sharp).
 $$
 
-ここで発散 $\operatorname{div}_L W$ は $\sum_j g(\nabla_{e_j}W,e_j)$ である。局所枠は各点で選び直せるので、最後の等式は $L$ 全体で成立する。
+局所枠は各点で選び直せるので、最後の等式は $L$ 全体で成立する。
 <!-- definition-example-end -->
 
 ここで **閉** は $d\alpha=0$、**余閉** は $d^*\alpha=0$ を意味する。両方を満たす1形式をこの講義では**調和1形式**と呼ぶ。境界なしのコンパクト多様体上での調和形式の有限次元性・非線形変形への持ち上げは、次講で扱う。
