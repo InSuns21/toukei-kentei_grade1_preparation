@@ -134,7 +134,23 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[STO9 の積分形SDE](../../../解析系/STO/STO9/index.md#def-sto9-sde)で $dX^i=b_i(X)\,dt+\sum_{\alpha=1}^r\Sigma_{i\alpha}\,dW^\alpha$ と書く。ここで $i,j\in\{1,\ldots,d\}$ は状態の座標、$\alpha,\beta\in\{1,\ldots,r\}$ はブラウン運動の成分を表す。$\partial_i\varphi=\partial\varphi/\partial x_i$、$\partial_{ij}\varphi=\partial^2\varphi/(\partial x_i\partial x_j)$ とし、微分は状態変数 $x$ について行う。$W^\alpha$ と $W^\beta$ の共変分が $\delta_{\alpha\beta}t$ であることは[STO7 の多次元ブラウン運動の共変分命題](../../../解析系/STO/STO7/index.md#prop-sto7-vector-brownian-covariation)による。従って
+状態の座標成分を $X^i$（$1\le i\le d$）、ブラウン運動の成分を $W^\alpha$（$1\le\alpha\le r$）と書く。[STO9 の積分形SDE](../../../解析系/STO/STO9/index.md#def-sto9-sde)によると、各座標の方程式は
+
+$$
+dX^i=b_i(X)\,dt+\sum_{\alpha=1}^r\Sigma_{i\alpha}\,dW^\alpha
+$$
+
+となる。以降は $i,j$ を状態座標、$\alpha,\beta$ をブラウン運動の成分の添字とする。状態変数 $x$ についての一階・二階偏微分を
+
+$$
+\partial_i\varphi=\frac{\partial\varphi}{\partial x_i},
+\qquad
+\partial_{ij}\varphi=\frac{\partial^2\varphi}{\partial x_i\partial x_j}
+$$
+
+と書く。
+
+[STO7 の多次元ブラウン運動の共変分命題](../../../解析系/STO/STO7/index.md#prop-sto7-vector-brownian-covariation)から $[W^\alpha,W^\beta]_t=\delta_{\alpha\beta}t$ である。従って
 
 $$
 d[X^i,X^j]_t
@@ -639,7 +655,28 @@ $$
 \Sigma_2\Sigma_2^\mathsf T=2\tau RR^\mathsf T=2\tau I_2.
 $$
 
-両者のドリフトは $-\nabla f$ で、$\Delta\varphi:=\partial_{11}\varphi+\partial_{22}\varphi$ を二次元の Laplace 作用素と定めれば、[過減衰Langevin型拡散の生成作用素](#prop-pml1-08-generator)よりどちらも $L\varphi=-\nabla f\cdot\nabla\varphi+\tau\Delta\varphi$ となる。しかし同じ $W$ に対し拡散項は $\sqrt{2\tau}\,dW$ と $\sqrt{2\tau}R\,dW$ で異なる。例えば $f(x)=\|x\|^2/2$ とし、同じ初期値 $X_0=0$ とブラウン運動 $W$ の下で $\Sigma_1,\Sigma_2$ をそれぞれ用いた解を $X^{(1)},X^{(2)}$ と書けば、時刻 $t>0$ の明示解の差は $\sqrt{2\tau}\int_0^t e^{-(t-s)}(I_2-R)dW_s$ で、その二乗平均は正である。実際、$(I_2-R)(I_2-R)^\mathsf T=2I_2$ だから、[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-l2-construction)より
+両者のドリフトは $-\nabla f$ で共通である。二次元の Laplace 作用素を
+
+$$
+\Delta\varphi:=\partial_{11}\varphi+\partial_{22}\varphi
+$$
+
+と定める。[過減衰Langevin型拡散の生成作用素](#prop-pml1-08-generator)に、両者共通の共分散 $2\tau I_2$ を代入すると、
+
+$$
+L\varphi=-\nabla f\cdot\nabla\varphi+\tau\Delta\varphi
+$$
+
+がどちらにも成り立つ。
+
+しかし同じ $W$ に対し、拡散項は $\sqrt{2\tau}\,dW$ と $\sqrt{2\tau}R\,dW$ で異なる。例えば $f(x)=\|x\|^2/2$ とし、同じ初期値 $X_0=0$ とブラウン運動 $W$ の下で $\Sigma_1,\Sigma_2$ をそれぞれ用いた解を $X^{(1)},X^{(2)}$ と書く。各座標の二次模型の明示解を適用すると、時刻 $t>0$ の差は
+
+$$
+X_t^{(1)}-X_t^{(2)}
+=\sqrt{2\tau}\int_0^t e^{-(t-s)}(I_2-R)\,dW_s
+$$
+
+である。$(I_2-R)(I_2-R)^\mathsf T=2I_2$ を用い、[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-l2-construction)から二乗平均を計算する。
 
 $$
 \begin{aligned}
@@ -755,7 +792,11 @@ $$
 
 と一致する。二階の Itô 補正は $18$ ではなく $36$ である。
 
-時刻 $s>0$ の $X_s$ は分散 $2(1-e^{-12s})>0$ の正規分布なので、$|X_s-2|<\sqrt2$ の事象には正の確率がある。もしほとんどすべての標本路で $f(X_t)$ が単調非増加なら、$f(X_{s+h})\le f(X_s)$ の条件付き期待値も非増加でなければならない。しかし上の事象上で厳密な逆不等式が成り立つため矛盾する。
+時刻 $s>0$ の $X_s$ は分散 $2(1-e^{-12s})>0$ の正規分布である。このため、$|X_s-2|<\sqrt2$ という事象の確率は正である。
+
+もしほとんどすべての標本路で $f(X_t)$ が単調非増加なら、$f(X_{s+h})\le f(X_s)$ の条件付き期待値も非増加でなければならない。
+
+しかし上の正の確率を持つ事象では、すべての $h>0$ に対して厳密な逆不等式が成り立つ。従って標本路の単調非増加性は否定される。
 
 この設問では「初期値からの平均損失は減る」と「標本路ごとの損失が必ず減る」を取り違えない。
 <!-- solution-end -->
