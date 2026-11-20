@@ -1,0 +1,18 @@
+chapter: BHI16
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI15]
+forward_references: []
+concepts:
+  - id: black-hole-information.consistent-emission-assumption-ledger
+    name: 放出一段の整合した仮定台帳
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（放出一段の整合した仮定台帳）]
+    requires: []
+  - id: black-hole-information.cumulative-correction-budget
+    name: 放出列の累積小補正の必要条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（放出列の累積小補正の必要条件）]
+    requires: [black-hole-information.consistent-emission-assumption-ledger]
