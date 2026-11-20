@@ -1,0 +1,42 @@
+chapter: BHI12
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI11, BHI7, QINF29, QINF30, QINF18]
+forward_references: []
+concepts:
+  - id: black-hole-information.old-hole-diary-input
+    name: 古いブラックホールへの日記投入状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（古いブラックホールへの日記投入状態）]
+    requires: [quantum.reference-channel-state, black-hole-information.page-dimension-envelope]
+  - id: black-hole-information.diary-unitary-release
+    name: 投入・発展・放出の写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（投入・発展・放出の写像）]
+    requires: [black-hole-information.old-hole-diary-input]
+  - id: black-hole-information.hayden-preskill-recovery-task
+    name: Hayden–Preskill回収課題
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Hayden–Preskill回収課題）]
+    requires: [black-hole-information.diary-unitary-release, quantum.entanglement-recovery-fidelity]
+  - id: black-hole-information.early-radiation-independent
+    name: 参照系と早期放射の独立性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（参照系と早期放射の独立性）]
+    requires: [black-hole-information.old-hole-diary-input, quantum.mutual-information]
+  - id: black-hole-information.hayden-preskill-exact-recovery
+    name: 投入模型の完全回収条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（投入模型の完全回収条件）]
+    requires: [black-hole-information.hayden-preskill-recovery-task, quantum.decoupling-recovery-theorem]
+  - id: black-hole-information.hayden-preskill-emission-lower-bound
+    name: 完全回収に必要な追加放射の次元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（完全回収に必要な追加放射の次元）]
+    requires: [black-hole-information.hayden-preskill-exact-recovery, black-hole-information.early-radiation-independent]
