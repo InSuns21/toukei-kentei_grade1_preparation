@@ -657,8 +657,29 @@ window.addEventListener('message', event => {
     setStatus('FCG8 ライブ操作エラー: '+String(data.message).slice(0,300),true);
     fcg8Playing=false;fcg8Mark?.();return;
   }
-  if (data.type === 'context-lost' || data.type === 'context-restored') {
-    byId('diagnostics').textContent += '\n' + String(data.message).slice(0, 300);
+  if (data.type === 'context-lost') {
+    // A lost drawing context invalidates even a previously successful GPU readback.
+    // Keep WGL19 alive only for its deliberate lose/restore/rebuild exercise.
+    byId('diagnostics').textContent += '\nWebGL2 context lost; previous readback invalid';
+    byId('results-table').replaceChildren();
+    byId('numeric-summary').textContent = '（context lost・旧検算は無効）';
+    byId('result-note').textContent =
+      'GPUコンテキストが失われました。実行中の描画は無効です。新しく実行してください。';
+    active.contextLost = true;
+    if (!isWGL19) byId('stop').click(); // also stops host-driven step timers
+    setStatus('WebGL2コンテキストが失われました。実行し直してください', true);
+    return;
+  }
+  if (data.type === 'context-restored') {
+    byId('diagnostics').textContent += '\nWebGL2 context restored; revalidation required';
+    if (isWGL19) {
+      // WGL19 explicitly rebuilds GPU resources and independently checks its
+      // output after restoration. Other lessons require a fresh sandbox run.
+      active.contextLost = false;
+      setStatus('WGL19 GPU復旧後の数値再検査中', true);
+    } else {
+      setStatus('WebGL2が復旧しました。実行し直してください', true);
+    }
     return;
   }
   if (isWGL20 && data.type === 'wgl20-pick-error') {
@@ -873,7 +894,7 @@ window.addEventListener('message', event => {
        '編集後は参考比較');
     return;
   }
-  if (data.type !== 'result') return;
+  if (data.type !== 'result' || active.contextLost) return;
   updateSceneInfo(data.ok ? {
     width: active.payload.width, height: active.payload.height,
     steps: isWGL18 ? data.floatParameters?.steps : active.payload.steps
@@ -1096,7 +1117,7 @@ function run() {
   iframe.srcdoc = runnerHtml();
   const generation = ++sequence;
   active = {frame: iframe, payload, id: generation, generation,
-    session: token(), started: false, completed:false, timer: null};
+    session: token(), started: false, completed:false, contextLost:false, timer: null};
   if(isFCG8){fcg8Playing=false;fcg8Mark?.();}
   active.timer = setTimeout(() => {
     if (active?.generation !== generation) return;
