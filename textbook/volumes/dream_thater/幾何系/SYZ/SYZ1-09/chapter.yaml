@@ -1,0 +1,46 @@
+id: "SYZ1-09"
+title: "Hessian計量とLegendre双対"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYZ1-08
+official_scope: []
+learning_objectives:
+  - 追加仮定としての滑らかなSLagトーラス束と位相・規格化の条件を確認できる
+  - 法線変形のHodge内積から基底の正定値L2計量を構成できる
+  - Poincaré双対な周期サイクルの向きと積分対合を計算できる
+  - 周期積分による計量の座標表示とJacobianの対称性を証明できる
+  - 閉1形式からHessianポテンシャルを積分し正定値性を検算できる
+  - Legendre双対の逆写像と双対Hessianの逆行列公式を途中式から導ける
+  - 双対サイクルの逆転置遷移と計量の座標不変性を証明できる
+  - 異方的平坦SLagトーラスで二種類の座標とポテンシャルを完全に計算できる
+  - 局所Hessian構造と大域SLag束の存在を論理的に区別できる
+definitions:
+  - { id: SYZ1-09-DEF-01, name: "SLag変形の積分計量" }
+  - { id: SYZ1-09-DEF-02, name: "Hessian計量" }
+  - { id: SYZ1-09-DEF-03, name: "局所Legendre双対" }
+theorems:
+  - { id: SYZ1-09-LEM-01, name: "双対周期による積分対合" }
+  - { id: SYZ1-09-THM-01, name: "SLag基底のHessian計量" }
+  - { id: SYZ1-09-THM-02, name: "Legendre座標の逆変換と双対Hessian" }
+  - { id: SYZ1-09-PROP-01, name: "双対周期座標とポテンシャルの遷移" }
+canonical_examples:
+  - 標準平坦二次元トーラスでのL2計量と向きの検算
+  - 二次元双対サイクルの向きと積分対合
+  - 正定値な二次HessianポテンシャルとLegendre双対
+  - 異方的平坦SLagトーラスでの計量と双対ポテンシャル
+problem_patterns:
+  - SYZ1-09-WEDGE-INTEGRAL-SIGN
+  - SYZ1-09-POINCARE-DUAL-SIGN
+  - SYZ1-09-HESSIAN-POSITIVE
+  - SYZ1-09-ONE-DIM-LEGENDRE
+  - SYZ1-09-ZERO-CYCLE-PAIRING
+  - SYZ1-09-NON-CLOSED-PERIOD-MAP
+  - SYZ1-09-NONDIAGONAL-LEGENDRE
+  - SYZ1-09-INVERSE-TRANSPOSE-TRANSITION
+  - SYZ1-09-ANISOTROPIC-METRIC
+  - SYZ1-09-COMPLETE-HESSIAN-LEGENDRE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 12, review: 5 }

@@ -1,0 +1,47 @@
+chapter: SYZ1-09
+scope: dream-theater
+coverage: complete
+prerequisites: [SYZ1-08]
+concepts:
+  - id: syz.base-l2-metric
+    name: SLag変形の積分計量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（SLag変形の積分計量）"]
+    requires: [syz.two-cohomology-maps, syz.mclean-hodge-identification]
+  - id: syz.dual-period-pairing
+    name: 双対周期による積分対合
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（双対周期による積分対合）"]
+    requires: [syz.two-period-cotangent-lattices]
+  - id: syz.hessian-metric
+    name: Hessian計量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hessian計量）"]
+    requires: [syz.base-l2-metric]
+  - id: syz.slag-base-hessian
+    name: SLag基底のHessian計量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（SLag基底のHessian計量）"]
+    requires: [syz.hessian-metric, syz.dual-period-pairing, syz.double-integral-affine]
+  - id: syz.local-legendre-dual
+    name: 局所Legendre双対
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所Legendre双対）"]
+    requires: [syz.hessian-metric]
+  - id: syz.legendre-hessian-inverse
+    name: Legendre座標の逆変換と双対Hessian
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Legendre座標の逆変換と双対Hessian）"]
+    requires: [syz.local-legendre-dual, syz.slag-base-hessian]
+  - id: syz.dual-affine-transition
+    name: 双対周期座標とポテンシャルの遷移
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（双対周期座標とポテンシャルの遷移）"]
+    requires: [syz.dual-period-pairing, syz.legendre-hessian-inverse, syz.integral-affine-structure]
