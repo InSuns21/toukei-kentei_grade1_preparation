@@ -42,7 +42,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf5-minkowski-embedding -->
-**定義の確認。** $K=\mathbb Q(\sqrt5)$ では実埋め込みが二つあり、$j(a+b\sqrt5)=(a+b\sqrt5,a-b\sqrt5)$ です。両成分の積は $a^2-5b^2=N_{K/\mathbb Q}(a+b\sqrt5)$。一方、$K=\mathbb Q(\sqrt{-5})$ では $r_1=0,r_2=1$ で、$\sqrt{-5}\mapsto i\sqrt5$ を選ぶと $j(a+b\sqrt{-5})=a+i b\sqrt5$。その絶対値の二乗は $a^2+5b^2$ です。どちらも次数 $r_1+2r_2=2$ と体ノルム公式を直接満たします。
+**定義の確認**： $K=\mathbb Q(\sqrt5)$ では実埋め込みが二つあり、$j(a+b\sqrt5)=(a+b\sqrt5,a-b\sqrt5)$ です。両成分の積は $a^2-5b^2=N_{K/\mathbb Q}(a+b\sqrt5)$。一方、$K=\mathbb Q(\sqrt{-5})$ では $r_1=0,r_2=1$ で、$\sqrt{-5}\mapsto i\sqrt5$ を選ぶと $j(a+b\sqrt{-5})=a+i b\sqrt5$。その絶対値の二乗は $a^2+5b^2$ です。どちらも次数 $r_1+2r_2=2$ と体ノルム公式を直接満たします。
 <!-- definition-example-end -->
 
 この写像は $\mathbb Q$ 上線形です。整数基底の像が実一次独立であることは、次節の判別式を用いた行列式計算で確かめます。その像がどんな配置になるかを見るには、まず「格子の間隔」を測る必要があります。
@@ -75,7 +75,7 @@ $$
 整数係数基底を変える行列 $U\in\operatorname{GL}_n(\mathbb Z)$ は行列式が $\pm1$ なので、共体積は基底の選び方によらず定まります。基本平行体の平行移動 $P+\lambda$（$\lambda\in\Lambda$）は、境界を除いて空間を重複なく覆います。
 
 <!-- definition-example-start: def-anf5-lattice-covolume -->
-**定義の確認。** $v_1=(2,0)$、$v_2=(1,3)$ は実一次独立で、$\Lambda=\{(2a+b,3b):a,b\in\mathbb Z\}$ は全階数格子です。$P$ はこの二辺を張る平行四辺形で、$\operatorname{covol}(\Lambda)=|2\cdot3-0\cdot1|=6$。格子点の間隔は座標軸方向に一様でなくても、共体積は一定です。
+**定義の確認**： $v_1=(2,0)$、$v_2=(1,3)$ は実一次独立で、$\Lambda=\{(2a+b,3b):a,b\in\mathbb Z\}$ は全階数格子です。$P$ はこの二辺を張る平行四辺形で、$\operatorname{covol}(\Lambda)=|2\cdot3-0\cdot1|=6$。格子点の間隔は座標軸方向に一様でなくても、共体積は一定です。
 <!-- definition-example-end -->
 
 ## 2. 判別式から共体積を計算する
