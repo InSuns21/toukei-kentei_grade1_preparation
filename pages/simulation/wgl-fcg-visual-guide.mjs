@@ -40,28 +40,34 @@ export function mountVisualGuide(lesson,parent,{run,focusResult}={}){
   section.className='visual-lesson-guide';
   section.setAttribute('aria-label',lesson+' 画面を見るための導入');
   const heading=document.createElement('h2');
-  heading.textContent='画面から始める · '+lesson;
+  heading.textContent=lesson+' · 観察と操作';
   const main=document.createElement('strong');
   main.className='visual-guide-focus';
   main.textContent=values[0];
   const grid=document.createElement('dl');
   grid.className='visual-guide-steps';
-  for(const [key,value]of [['目に見えるもの',values[1]],['自分で変える',values[2]],['確かめること',values[3]]]){
+  for(const [key,value]of [['表示',values[1]],['操作',values[2]]]){
     const item=document.createElement('div'),dt=document.createElement('dt'),dd=document.createElement('dd');
     dt.textContent=key;dd.textContent=value;item.append(dt,dd);grid.append(item);
   }
+  // The numeric/technical observation belongs in optional details, not the default task.
+  const details=document.createElement('details');
+  details.className='visual-guide-details';
+  const summary=document.createElement('summary');
+  summary.textContent='詳しい観察ポイント';
+  const detailText=document.createElement('p');
+  detailText.textContent=values[3];
+  details.append(summary,detailText);
   const row=document.createElement('div');row.className='visual-guide-actions';
   const view=document.createElement('button');view.type='button';
-  view.textContent='このコードで描画して観察する';
+  view.textContent='描画して観察';
   view.className='action primary';
   view.addEventListener('click',()=>run());
   const code=document.createElement('button');code.type='button';
-  code.className='action';code.textContent='編集画面へ';
+  code.className='action';code.textContent='コードを編集';
   code.addEventListener('click',()=>focusResult?.('code'));
   row.append(view,code);
-  const note=document.createElement('p');note.className='visual-guide-note';
-  note.textContent='上のボタンは編集欄の実際のJS・GLSLを隔離環境で実行します。物理計算・描画結果・CPU/GPU検算を確認してください。既存のソースを自動実行することはありません。';
-  section.append(heading,main,grid,row,note);
+  section.append(heading,main,grid,row,details);
   // When a real animated scene exists, let learners see the *motion* first;
   // explanations follow below. Static labs keep the guide as their entry point.
   const scene=parent.querySelector('.visual-observation');

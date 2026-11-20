@@ -31,7 +31,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi7-page-snapshot -->
-**定義の確認**：$N=4$、$r_k=2^k$、$b_k=2^{4-k}$ とします。例えば $k=1$ では $R_1=\mathbb C^2$、$B_1=\mathbb C^8$、全系は16次元です。複素Gaussian係数 $z_{i\alpha}$（$i=0,1$、$\alpha=0,\ldots,7$）を独立に取り、
+**定義の確認**：$N=4$、$r_k=2^k$、$b_k=2^{4-k}$ とします。例えば $k=1$ では $R_1=\mathbb C^2$、$B_1=\mathbb C^8$、全系は16次元です。独立同分布の複素標準Gaussian係数 $z_{i\alpha}$（$i=0,1$、$\alpha=0,\ldots,7$、各実部・虚部は独立な $N(0,1/2)$）を取り、
 
 $$
 |\Psi_1\rangle=
@@ -39,7 +39,32 @@ $$
 {\sqrt{\sum_{i=0}^{1}\sum_{\alpha=0}^{7}|z_{i\alpha}|^2}}
 $$
 
-と構成します。分母は確率1で正、分子の二乗ノルムは分母の二乗なので規格化されています。独立な複素Gaussianベクトルのユニタリ不変性と規格化によるHaar性は[QINF31の構成定理](../../../応用系/QINF/QINF31/index.md#thm-qinf31-gaussian-haar)で確認済みです。部分トレースは $2\times2$ の密度行列を与えます。他の $k$ にも同じ手順をそれぞれの次元で行えば定義の条件を満たします。ただし、これだけでは $|\Psi_{k+1}\rangle$ が前段階の $|\Psi_k\rangle$ から生じるという[BHI6の段階的純粋蒸発の有限模型](../BHI6/index.md#def-bhi6-pure-evaporation)で必要な、$|\Psi_{k+1}\rangle$ を $|\Psi_k\rangle$ から生成する各写像の等長性 $W_k^\dagger W_k=I$ は確認していません。
+と構成します。分母は確率1で正であり、分子の二乗ノルムが分母の二乗に等しいので、$|\Psi_1\rangle$ は規格化された純粋状態です。係数を**同じ分散の複素標準Gaussian**としたのは、ベクトルの分布が全ユニタリ変換で不変となる条件を満たすためです。単に独立な複素Gaussianを選ぶだけではHaar性は保証されません。規格化によるHaar性は[QINF31の構成定理](../../../応用系/QINF/QINF31/index.md#thm-qinf31-gaussian-haar)から従います。
+
+ここで $c_{i\alpha}=z_{i\alpha}/\sqrt{\sum_{j=0}^1\sum_{\beta=0}^7|z_{j\beta}|^2}$ と置きます。$|i\rangle_R$ と $|\alpha\rangle_B$ はそれぞれの正規直交基底です。[部分トレースの定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)で $B_1$ 側の基底を縮約すると、$R_1$ 上の密度行列の $(i,j)$ 成分は
+
+$$
+(\rho_{R_1})_{ij}
+=\sum_{\alpha=0}^7 c_{i\alpha}\overline{c_{j\alpha}},
+\qquad i,j\in\{0,1\}
+$$
+
+です。これは $R_1$ の基底についての $2\times2$ 行列であり、定義で要求した縮約状態そのものを表しています。さらに、
+
+$$
+\operatorname{Tr}\rho_{R_1}
+=\sum_{i=0}^1\sum_{\alpha=0}^7|c_{i\alpha}|^2=1,
+$$
+
+$$
+v^\dagger\rho_{R_1}v
+=\sum_{\alpha=0}^7
+\left|\sum_{i=0}^1\overline{v_i}c_{i\alpha}\right|^2
+\ge0
+\qquad(v\in\mathbb C^2)
+$$
+
+なので、トレース1と正値性も元の係数展開から確認できます。他の $k$ にも、それぞれの次元の独立同分布な複素標準Gaussian係数を使えば同じ検証ができます。ただし、これだけでは $|\Psi_{k+1}\rangle$ が前段階の $|\Psi_k\rangle$ から生じるという[BHI6の段階的純粋蒸発の有限模型](../BHI6/index.md#def-bhi6-pure-evaporation)で必要な、$|\Psi_{k+1}\rangle$ を $|\Psi_k\rangle$ から生成する各写像の等長性 $W_k^\dagger W_k=I$ は確認していません。
 <!-- definition-example-end -->
 
 [BHI6の段階的純粋蒸発模型](../BHI6/index.md#def-bhi6-pure-evaporation)では、一つの初期状態と写像 $W_k$ を指定し、全時点の状態をつなぎました。今回の比較模型は、各時点の**分布**を別々に指定したものです。これが両者の決定的な違いです。
@@ -65,7 +90,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi7-page-envelope -->
-**定義の確認**：第2節の $k=1$ では $(r_1,b_1)=(2,8)$、従って $m_1=2$、$n_1=8$、$L_1=\ln2$ です。後述のPage平均 $\overline S_1\simeq0.600372$ natを代入すれば、$D_1\simeq0.693147-0.600372=0.092775$ natで非負です。$k=0$ では $m_0=1$ なので $L_0=0$、純粋性から $\overline S_0=0$、$D_0=0$ です。両例とも定義の非自明な減算と境界値を確認しました。
+**定義の確認**：第2節の $k=1$ では $(r_1,b_1)=(2,8)$、従って $m_1=2$、$n_1=8$、$L_1=\ln2$ です。第3節で出典を示す文献上のPage厳密平均式に $m_1=2,n_1=8$ を代入すると
+
+$$
+\overline S_1
+=H_{16}-H_8-\frac1{16}
+=\sum_{j=9}^{15}\frac1j
+\simeq0.600372\ \text{nat},
+\qquad
+D_1=\ln2-\overline S_1\simeq0.092775\ \text{nat}.
+$$
+
+これは $D_1\ge0$ を具体的に確認する計算であり、後の命題の**平均の上下界だけ**から厳密平均式を導いたわけではありません。$k=0$ では $m_0=1$ なので $L_0=0$、全系が純粋で放射側が一次元だから $\rho_{R_0}=(1)$、$\overline S_0=0$、$D_0=0$ です。両例で定義の減算と境界値を確認しました。
 <!-- definition-example-end -->
 
 <a id="prop-bhi7-mean-bounds"></a>
@@ -234,7 +270,7 @@ Page平均は多数の状態にわたる平均値です。平均値が最大値�
 <!-- formal-statement-start -->
 > **定理（固定時点でのPage型典型性の確率上界）**
 >
-> [時点別Haar比較模型](#def-bhi7-page-snapshot)の任意の固定した $k$ において、$m=m_k\le n=n_k$ とし、標本ごとの小さい側のエントロピーを $S_k$ (nat) とおく。任意の $\varepsilon>0$ に対し、
+> [時点別Haar比較模型](#def-bhi7-page-snapshot)の任意の固定した $k$ において、$m=m_k\le n=n_k$ とし、標本ごとの放射エントロピーを $S_k=-\operatorname{Tr}(\rho_{R_k}\ln\rho_{R_k})$ (nat) とおく。純粋二部系なので $S_k$ は小さい側のエントロピーにも等しく、$\mathbb E_{\mathrm{Haar}}S_k=\overline S_k$ である。任意の $\varepsilon>0$ に対し、
 
 $$
 \Pr\{\ln m-S_k\ge\varepsilon\}
@@ -330,7 +366,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-各段階で「残存の先頭量子ビットを放射として取り出し、残りを残存とする」写像を計算基底上で $|a_1\cdots a_\ell\rangle\mapsto|a_1\rangle\otimes|a_2\cdots a_\ell\rangle$ と定めます。像は正規直交基底なので、[等長写像の条件](../BHI6/index.md#def-bhi6-pure-evaporation) $W^\dagger W=I$ を満たし、全状態は純粋なままです。
+各段階で「残存の先頭量子ビットを放射として取り出し、残りを残存とする」写像を、$\ell\ge1$ 個の残存量子ビットの計算基底上で $W_\ell|a_1\cdots a_\ell\rangle=|a_1\rangle\otimes|a_2\cdots a_\ell\rangle$（$a_j\in\{0,1\}$、$\ell=1$ の右端は一次元の空状態）と定めます。二つの基底ベクトル $|a_1\cdots a_\ell\rangle,|a'_1\cdots a'_\ell\rangle$ の像の内積は
+
+$$
+\langle W_\ell a|W_\ell a'\rangle
+=\delta_{a_1a'_1}\prod_{j=2}^{\ell}\delta_{a_ja'_j}
+=\langle a|a'\rangle.
+$$
+
+空積は1とします。任意の入力ベクトルへの線形結合でも内積は保存されるので、[等長写像の条件](../BHI6/index.md#def-bhi6-pure-evaporation) $W_\ell^\dagger W_\ell=I$ を満たします。したがって全段階で規格化純粋状態が保たれます。
 
 (a) ではどの $k$ でも $|0\rangle^{\otimes k}$ が放射の純粋状態なので $S(R_k)=0$ です。(b) は $\rho_{R_k}$ を明示して計算します。
 
