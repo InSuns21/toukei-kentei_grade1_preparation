@@ -32,11 +32,11 @@ $$
 $$
 
 > とする。$b_0\in\Delta_\pi$ の近くで、局所方程式 $uv=t$ を持つ孤立節点を考える。十分小さい $t\ne0$ に対して
->
-> $$
-> \delta_t=\{(u,v):u=\sqrt{|t|}e^{i\theta},\ v=t/u,\ 0\leq\theta<2\pi\}
-> $$
->
+
+$$
+\delta_t=\{(u,v):u=\sqrt{|t|}e^{i\theta},\ v=t/u,\ 0\leq\theta<2\pi\}
+$$
+
 > を正の $\theta$ 方向に向けた閉曲線とする。その $L_t$ 内のホモロジー類（符号を除いて定まる）を節点の**消滅サイクル**という。局所模型の選択で具体的な曲線は変わっても、節点の周りのホモロジー類は平行移動と全体の符号を除いて同じである。
 <!-- formal-statement-end -->
 
@@ -46,6 +46,7 @@ $$
 $t=\rho e^{i\psi}$、$0<\rho\ll1$ とし、$u=\sqrt\rho\,e^{i\theta}$、$v=\sqrt\rho\,e^{i(\psi-\theta)}$ と置く。積は $uv=\rho e^{i\psi}=t$。したがって $\delta_t$ は確かに滑らかなファイバー内の閉曲線で、$|u|=|v|=\sqrt\rho$ だから $\rho\downarrow0$ で節点 $(0,0)$ へ縮む。
 
 半径 $\eta>0$ を固定し、$|u|,|v|\leq\eta$ の局所領域を取ると、$v=t/u$ から $|t|/\eta\leq |u|\leq\eta$ である。$u$ の偏角は一周できるため、この部分は**円環**であって円板ではない。$uv=t$ の勾配 $(v,u)$ は $t\ne0$ なら同時に零にならず、定義の正則性も確認できる。中心輪は円環の $H_1$ の生成元である。
+**定義の確認**：$uv=t$ の勾配は $t\ne0$ で零にならず、上の閉曲線は滑らかなファイバー内にある。環の非自明な一次ホモロジーを代表し、$t\to0$ で節点へ収縮するので、消滅サイクルの局所模型の条件をすべて満たす。
 <!-- definition-example-end -->
 
 なぜこれが楕円K3の節点に適用できるのか。前講の[節点の定義と直接例](../SYZ1-13/index.md#def-syz1-13-nodal)を局所の写像の形へ接続する。
@@ -140,11 +141,11 @@ $D^*$ 上では各 $L_t$ が滑らかなトーラスなので、局所的な積�
 <!-- formal-statement-start -->
 > **定義（トーラス束のモノドロミー）**  
 > 向き付けられた実2トーラスをファイバーとする滑らかな局所自明束 $\pi:X_0\to B_0$ と基点 $b_*\in B_0$ を取る。基点から始まり基点へ戻るループ $\ell$ に沿って局所自明化を接続し、ファイバーの一次整数ホモロジーに誘導される自己同型
->
-> $$
-> T_\ell:H_1(L_{b_*};\mathbb Z)\longrightarrow H_1(L_{b_*};\mathbb Z)
-> $$
->
+
+$$
+T_\ell:H_1(L_{b_*};\mathbb Z)\longrightarrow H_1(L_{b_*};\mathbb Z)
+$$
+
 > をモノドロミーという。交点数を保つので、向きの付いた交点数が $a\cdot b=+1$ となる基底 $(a,b)$ について $T_\ell$ は $SL(2,\mathbb Z)$ の行列となる。ループの向きの逆転は逆行列に対応する。
 <!-- formal-statement-end -->
 
@@ -169,6 +170,7 @@ T(a)=a,\qquad T(b)=b+a,\qquad
 $$
 
 整数行列で行列式は1、しかも $T(a)\cdot T(b)=a\cdot(b+a)=1$ である。したがってモノドロミーの定義にある非自明条件をすべて満たす。この環状のひねりを**Dehnひねり**という。次の定理で、節点の周囲を正に一周することが実際にこの操作になると分かる。
+**定義の確認**：ひねりを表す向き保存同相写像 $f:T^2\to T^2$ の写像トーラス $(T^2\times[0,1])/(x,1)\sim(f(x),0)$ は、$S^1$ 上の局所自明な向き付きトーラス束である。基底ループを一周する輸送は $f$ を誘導し、上の $SL(2,\mathbb Z)$ 行列が定義どおりのモノドロミーとなる。
 <!-- definition-example-end -->
 
 ## 4. 節点のPicard–Lefschetz行列を導く
@@ -180,17 +182,17 @@ $$
 <!-- formal-statement-start -->
 > **定理（節点型退化のPicard–Lefschetzモノドロミー）**  
 > 滑らかな複素曲面から複素円板への固有な正則写像 $\pi:X\to D$ を考える。$D^*$ 上のファイバーは向き付けられた滑らかな楕円曲線で、中心ファイバーは**既約な節点型（Kodaira型 $I_1$）**で、通常節点をちょうど一つ持ち、それ以外に臨界点を持たず、節点近傍で写像は $uv=t$ と表されるとする。$t=0$ の周りの正向きループのモノドロミーは、消滅サイクル $\delta$ と交点数 $\cdot$ に対して
->
-> $$
-> T_\delta(x)=x+(\delta\cdot x)\delta
-> $$
->
+
+$$
+T_\delta(x)=x+(\delta\cdot x)\delta
+$$
+
 > である。特に $\delta=a$、$a\cdot b=+1$ となる整数基底では
->
-> $$
-> T_\delta(a)=a,\quad T_\delta(b)=b+a,\quad
-> M_a=\begin{pmatrix}1&1\\0&1\end{pmatrix}\in SL(2,\mathbb Z).
-> $$
+
+$$
+T_\delta(a)=a,\quad T_\delta(b)=b+a,\quad
+M_a=\begin{pmatrix}1&1\\0&1\end{pmatrix}\in SL(2,\mathbb Z).
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -235,15 +237,15 @@ $$
 <!-- formal-statement-start -->
 > **命題（任意の原始消滅サイクルに対するshear）**  
 > 上の[節点型退化のモノドロミー](#thm-syz1-14-picard-lefschetz)の仮定で、交点数 $a\cdot b=+1$ の整数基底に関し消滅サイクルが $\delta=pa+qb$、$\gcd(p,q)=1$ と表されるとする。正向きの節点モノドロミーとその逆は
->
-> $$
-> M_\delta=
-> \begin{pmatrix}1-pq&p^2\\-q^2&1+pq\end{pmatrix},
-> \qquad
-> M_\delta^{-1}=
-> \begin{pmatrix}1+pq&-p^2\\q^2&1-pq\end{pmatrix}.
-> $$
->
+
+$$
+M_\delta=
+\begin{pmatrix}1-pq&p^2\\-q^2&1+pq\end{pmatrix},
+\qquad
+M_\delta^{-1}=
+\begin{pmatrix}1+pq&-p^2\\q^2&1-pq\end{pmatrix}.
+$$
+
 > 特に $\det M_\delta=1$、$\operatorname{tr}M_\delta=2$、$(M_\delta-I)^2=0$、$M_\delta(\delta)=\delta$ である。
 <!-- formal-statement-end -->
 
@@ -302,12 +304,12 @@ $$
 <!-- formal-statement-start -->
 > **命題（周期と双対格子のモノドロミー）**  
 > 向き付けられた滑らかなトーラス束をループ $\ell$ に沿って輸送した一次ホモロジーの行列を $M\in SL(2,\mathbb Z)$ とする。輸送した基底に同一の1形式を積分する周期列ベクトルは $M^{\mathsf T}P$ となる。輸送される整数コホモロジー局所系 $H^1(L_b;\mathbb Z)$ の、固定した基点双対基底に関するモノドロミーは $M^{-\mathsf T}$ となる。節点で $M=M_a$ なら
->
-> $$
-> M_a^{\mathsf T}=\begin{pmatrix}1&0\\1&1\end{pmatrix},
-> \qquad
-> M_a^{-\mathsf T}=\begin{pmatrix}1&0\\-1&1\end{pmatrix}.
-> $$
+
+$$
+M_a^{\mathsf T}=\begin{pmatrix}1&0\\1&1\end{pmatrix},
+\qquad
+M_a^{-\mathsf T}=\begin{pmatrix}1&0\\-1&1\end{pmatrix}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
