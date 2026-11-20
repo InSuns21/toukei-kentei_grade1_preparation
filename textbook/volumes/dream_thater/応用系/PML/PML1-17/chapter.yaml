@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - PML1-16
   - AMECH4
+  - NA6
 official_scope: []
 learning_objectives:
   - 学習済み Lagrangian の連続回転作用と有限群平均を区別し無限小生成方向を計算できる
