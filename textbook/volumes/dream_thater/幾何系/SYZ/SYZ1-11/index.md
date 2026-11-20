@@ -20,9 +20,29 @@ $$
 
 ## 2. HessianからKähler形式を作る
 
-計量 $g$ は二つの接ベクトルへ実数を返す対称な双線形形式であり、Kähler形式 $\check\omega$ は二つの接ベクトルへ実数を返す交代2形式である。複素構造 $J$ と $g$ の組に対して $\check\omega(V,W)=g(JV,W)$ とする。ここではKähler計量の要件を、$g$ が正定値で、$J$ と両立し、$d\check\omega=0$ であることとして確認する。[正の基本形式とHermite行列の対応](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)で学んだ判定を、今回は実座標で構成する。
+計量 $g$ は二つの接ベクトルへ実数を返す対称双線形形式であり、Kähler形式 $\check\omega$ は交代2形式である。複素構造 $J$ と計量の関係を、基本形式
 
-以後、$\partial_i=\partial/\partial u^i$ は他の $u$ と $v$ を固定した偏微分を表す。座標接ベクトル $V=\sum_i(a^i\partial_{u^i}+b^i\partial_{v^i})$ の列成分を $a,b$ とすると、これから定義する実計量 $\check g$ の係数行列が $(u,v)$ 基底で $\operatorname{diag}(H,H)$ となり、$\check g(V,V)=a^{\mathsf T}Ha+b^{\mathsf T}Hb$ となる。したがってHessianの正定値性は、計量の正定値性を直接判定するための条件である。
+$$
+\check\omega(V,W)=g(JV,W)
+$$
+
+で確認する。
+
+ここでは $g$ の正定値性、$J$ との両立、基本形式の閉性 $d\check\omega=0$ を調べる。[正の基本形式とHermite行列の対応](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)で学んだ判定を、今回は実座標で構成する。
+
+以後、$\partial_i=\partial/\partial u^i$ は他の座標を固定した偏微分を表す。実接ベクトルの座標成分を
+
+$$
+V=\sum_i(a^i\partial_{u^i}+b^i\partial_{v^i})
+$$
+
+とし、その二つの列ベクトルを $a,b$ とする。これから定義する計量 $\check g$ の実座標係数は $\operatorname{diag}(H,H)$ なので、
+
+$$
+\check g(V,V)=a^{\mathsf T}Ha+b^{\mathsf T}Hb.
+$$
+
+Hessianの正定値性は、計量の正定値性をこの表示から直接判定する条件である。
 
 <a id="def-syz1-11-semiflat-kahler"></a>
 
@@ -354,10 +374,32 @@ $$
 =\frac12\sum_\ell H^{k\ell}\phi_{ij\ell}.
 $$
 
-$u^k$ が上添字で下が二つとも $v$ なら、初めの二つの微分は $v$ に関するものなので零で、残る項は $-\frac12\sum_\ell H^{k\ell}\partial_\ell H_{ij}$。$v^k$ が上添字で下が $u^i,v^j$ なら、唯一残る項は $\frac12\sum_\ell H^{k\ell}\partial_iH_{j\ell}$。それぞれ $\partial_\ell H_{ij}=\partial_iH_{j\ell}=\phi_{ij\ell}$ を代入すれば命題の正負の符号を得る。反転した下添字はねじれなし性から同値である。他の組では $v$ 微分または混合計量が零である。
+上添字が $u^k$、下添字が二つとも $v$ の場合は、最初の二つの微分が消えて
+
+$$
+\Gamma^{u^k}_{v^iv^j}
+=-\frac12\sum_\ell H^{k\ell}\partial_\ell H_{ij}.
+$$
+
+上添字が $v^k$、下添字が $u^i,v^j$ の場合には
+
+$$
+\Gamma^{v^k}_{u^iv^j}
+=\frac12\sum_\ell H^{k\ell}\partial_iH_{j\ell}.
+$$
+
+Hessianの三階微分の対称性 $\partial_\ell H_{ij}=\partial_iH_{j\ell}=\phi_{ij\ell}$ を代入すれば、命題の各符号を得る。下添字を反転した成分はねじれなし性により等しい。他の成分は $v$ 微分または混合計量が零となるので消える。
 <!-- proof-end -->
 
-元のファイバー上で使うのは、[平坦 $U(1)$ 局所系の定義](../SYZ1-01/index.md#def-syz1-01-flat-local-system)にある、純虚数値1形式 $A$ で書く接続 $\nabla=d+A$ である。ここでは $d$ はファイバー座標 $x$ についての外微分、$v$ は固定したホロノミーのパラメータとする。線束の曲率は $dA$ であり、座標 $x^j$ の基本閉路に沿った平行移動は、断面の微分方程式を積分して求める。
+元のファイバー上では、[平坦 $U(1)$ 局所系の定義](../SYZ1-01/index.md#def-syz1-01-flat-local-system)で学んだ接続を使う。純虚数値1形式 $A$ により、局所接続を
+
+$$
+\nabla=d+A
+$$
+
+と書く。
+
+この $d$ はファイバー座標 $x$ についての外微分、$v$ は固定したホロノミーのパラメータである。線束の曲率は $dA$ であり、基本閉路に沿う平行移動は断面の微分方程式を積分して求める。
 
 <a id="def-syz1-11-flat-holonomy"></a>
 
@@ -408,7 +450,16 @@ $$
 <!-- definition-example-start: def-syz1-11-b-field-phase -->
 ### 直接例：2トーラス上のB場
 
-$X_0=(\mathbb R/\mathbb Z)^2$ を座標 $(x,y)$、向き $dx\wedge dy$ で表し、$B=b\,dx\wedge dy$ と取る。$dB=0$、$\int_{T^2}B=b$ より位相は $e^{2\pi i b}$。$B'=B+m\,dx\wedge dy$（$m\in\mathbb Z$）なら位相は同じ。一方 $b=1/2$ の位相は $-1$ で、$b=0$ の位相1とは区別できる。**定義の確認**：閉性、整数周期での同値性、異なる位相の区別を検証した。これは**2サイクル**の位相であり、前節の $\rho(\gamma)=e^{2\pi i v}$ は**1サイクル**のホロノミーである。
+$X_0=(\mathbb R/\mathbb Z)^2$ に座標 $(x,y)$ と向き $dx\wedge dy$ を入れ、$B=b\,dx\wedge dy$ と取る。係数は定数なので $dB=0$ であり、
+
+$$
+\int_{T^2}B=b,\qquad
+\operatorname{phase}_B(T^2)=e^{2\pi i b}.
+$$
+
+$B'=B+m\,dx\wedge dy$（整数 $m$）では積分値の差が整数だから位相は等しい。一方、$b=1/2$ の位相 $-1$ は $b=0$ の位相1と区別できる。
+
+**定義の確認**：閉性、整数周期での同値性、異なる位相を検証した。これは**2サイクル**の位相であり、前節の $\rho(\gamma)=e^{2\pi i v}$ は**1サイクル**のホロノミーである。
 <!-- definition-example-end -->
 
 B場の情報はしばしば面積を測る $\omega$ と合わせて $B+i\omega$ と表す。ただしここでの式は閉2形式の位相を定める範囲に限り、**任意のB場を追加しても同じ単純な双対チャートがそのまま完全な鏡像になる**とは結論しない。非自明なB場のねじれや正則円板による補正は後続講義で仮定を追加して扱う。
@@ -565,7 +616,15 @@ $n=1$、$\phi=e^{2u}/4$ とする。$H$、Ricci形式、$\check\Omega=dz$ のノ
 <!-- solution-start -->
 ### 詳細解答
 
-$\phi'=e^{2u}/2$、$\phi''=e^{2u}=H>0$。$\log H=2u$ で二階微分は0だから、[semi-flat Ricci形式と実Monge–Ampère条件](#thm-syz1-11-ricci-ma)より $\rho=0$。一方、体積形式のノルムは $\lvert dz\rvert_{\check g}^2=c_1/H=c_1 e^{-2u}$ で一定でない。Monge–Ampère方程式の $\det H=C$ は $e^{2u}=C$ を全区間に要求し、成立しない。Ricci形式は対数行列式の二階微分だけを見るため、一次関数 $2u$ を区別できない。
+一階微分は $\phi'=e^{2u}/2$、二階微分は $\phi''=e^{2u}=H>0$。$\log H=2u$ で二階微分が0だから、[semi-flat Ricci形式と実Monge–Ampère条件](#thm-syz1-11-ricci-ma)より $\rho=0$。
+
+一方、正則体積形式のノルム二乗は
+
+$$
+\lvert dz\rvert_{\check g}^2=\frac{c_1}{H}=c_1e^{-2u}
+$$
+
+で一定でない。Monge–Ampère方程式 $\det H=C$ は $e^{2u}=C$ を全区間に要求し、成立しない。Ricci形式は対数行列式の二階微分しか見ないため、一次関数 $2u$ を検知できない。
 <!-- solution-end -->
 
 <a id="ex-syz1-11-b03"></a>
@@ -667,7 +726,16 @@ $$
 \nabla=d-2\pi i\left(\frac12dx^1+\frac14dx^2\right).
 $$
 
-曲率は $-2\pi i\,d(\frac12dx^1+\frac14dx^2)=0$。$\gamma_1+\gamma_2$ のホロノミーは $e^{2\pi i(1/2+1/4)}=e^{3\pi i/2}=-i$。一方、$T^2$ を正向きに積分したB場の位相は $e^{2\pi i(1/2)}=-1$。両者はそれぞれ1サイクル上の平行移動と2サイクル上の閉2形式の積分という**異なる入力**から得られる。等しい必要はない。
+曲率は $d(dx^j)=0$ から零である。二つの位相を別々に計算すると
+
+$$
+\operatorname{hol}(\gamma_1+\gamma_2)
+=e^{2\pi i(1/2+1/4)}=e^{3\pi i/2}=-i,
+\qquad
+\operatorname{phase}_B(T^2)=e^{2\pi i(1/2)}=-1.
+$$
+
+前者は1サイクル上の平行移動、後者は2サイクル上の閉2形式の積分という**異なる入力**から得られ、等しい必要はない。
 <!-- solution-end -->
 
 ## 9. 次講へ：楕円曲線で規格化を確かめる
