@@ -20,10 +20,10 @@ $$
 
 整域 $A$ の分数体を $F$ とします。[整元の定義](../../AG/AG1-06/index.md#def-ag1-06-integral-element)を $A\subset F$ に適用すると、$x\in F$ の整性は $A$ 係数のモニック方程式で調べます。
 
-$
+$$
 x^r+a_{r-1}x^{r-1}+\cdots+a_0=0,
 \qquad a_i\in A.
-$
+$$
 
 分数体の中でこの方程式を満たす元が必ず $A$ に戻る性質が、次の定義で必要になる**整閉性**です。
 
@@ -43,7 +43,7 @@ $
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf3-dedekind-domain -->
-**定義の確認：$\mathbb Z$。** 任意のイデアルは $(n)$ なので有限生成です。既習の[有理数の整性判定](../ANF1/index.md#prop-anf1-rational-integers)より $\mathbb Q$ の $\mathbb Z$ 上整な元は整数で、整閉です。零でない素イデアルは素数 $p$ の $(p)$ に限られ、$\mathbb Z/(p)$ は体なので極大です。三条件が別々に確かめられました。
+**定義の確認**：$\mathbb Z$。 任意のイデアルは $(n)$ なので有限生成です。既習の[有理数の整性判定](../ANF1/index.md#prop-anf1-rational-integers)より $\mathbb Q$ の $\mathbb Z$ 上整な元は整数で、整閉です。零でない素イデアルは素数 $p$ の $(p)$ に限られ、$\mathbb Z/(p)$ は体なので極大です。三条件が別々に確かめられました。
 <!-- definition-example-end -->
 
 $K$ の整数環でもこの三条件が成り立つことを示します。ここでは[整数基底の存在](../ANF1/index.md#thm-anf1-integral-basis)が、単なる基底の計算を超えて、イデアルの有限性を保証します。
@@ -62,9 +62,9 @@ $K$ の整数環でもこの三条件が成り立つことを示します。こ�
 
 **(1) Noether性。** $n=[K:\mathbb Q]$ とします。[整数環の有限生成性と整数基底](../ANF1/index.md#thm-anf1-integral-basis)により、加法群として次の同型があります。
 
-$
+$$
 \mathcal O_K\simeq\mathbb Z^n.
-$
+$$
 
 任意のイデアル $I\subseteq\mathcal O_K$ は $\mathbb Z^n$ の部分群なので、有限個の元 $a_1,\ldots,a_r$ で $\mathbb Z$ 加群生成されます。
 
@@ -109,7 +109,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf3-fractional-ideal -->
-**定義の確認。** $A=\mathbb Z$、$F=\mathbb Q$ なら $J=\frac16\mathbb Z$ は非零な $\mathbb Z$ 加群で、$6J=\mathbb Z$ です。したがって分数イデアルですが、$1/6\notin\mathbb Z$ のため整イデアルではありません。また $(2)\cdot\frac12\mathbb Z=\mathbb Z$ は積の定義から確かめられます。
+**定義の確認**： $A=\mathbb Z$、$F=\mathbb Q$ なら $J=\frac16\mathbb Z$ は非零な $\mathbb Z$ 加群で、$6J=\mathbb Z$ です。したがって分数イデアルですが、$1/6\notin\mathbb Z$ のため整イデアルではありません。また $(2)\cdot\frac12\mathbb Z=\mathbb Z$ は積の定義から確かめられます。
 <!-- definition-example-end -->
 
 イデアル $I$ を掛けて $A$ に戻せる元を集めれば、逆数に相当するものを作れます。単に $I$ を集合として分母へ置くのではなく、すべての元との積を同時に制御するのがポイントです。
@@ -119,16 +119,16 @@ $$
 <!-- formal-statement-start -->
 > **定義（イデアルの逆と可逆性）**  
 > 整域 $A$ の非零な分数イデアル $I$ に対し、
->
-> $$
-> I^{-1}=\{x\in\operatorname{Frac}(A):xI\subseteq A\}
-> $$
->
+
+$$
+I^{-1}=\{x\in\operatorname{Frac}(A):xI\subseteq A\}
+$$
+
 > と置く。$II^{-1}=A$ であるとき、$I$ を可逆分数イデアルという。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf3-inverse-ideal -->
-**定義の確認。** $A=\mathbb Z$、$I=(6)$ なら、$xI\subseteq\mathbb Z$ は $6x\in\mathbb Z$ と同値なので $I^{-1}=\frac16\mathbb Z$。その積は $\mathbb Z$ です。反対に $I=\frac16\mathbb Z$ の場合は $I^{-1}=6\mathbb Z$ です。どちらも積が単位イデアルとなることまで確認できます。
+**定義の確認**： $A=\mathbb Z$、$I=(6)$ なら、$xI\subseteq\mathbb Z$ は $6x\in\mathbb Z$ と同値なので $I^{-1}=\frac16\mathbb Z$。その積は $\mathbb Z$ です。反対に $I=\frac16\mathbb Z$ の場合は $I^{-1}=6\mathbb Z$ です。どちらも積が単位イデアルとなることまで確認できます。
 <!-- definition-example-end -->
 
 一般の整域では非零イデアルがすべて可逆とは限りません。次に Dedekind の三条件が、まさにこの可逆性を保証することを示します。
@@ -222,11 +222,11 @@ $$
 <!-- formal-statement-start -->
 > **命題（非零分数イデアルの可逆性）**  
 > $A$ を Dedekind整域とする。このとき $A$ の任意の非零分数イデアル $I$ は可逆であり、
->
-> $$
-> I I^{-1}=A
-> $$
->
+
+$$
+I I^{-1}=A
+$$
+
 > が成り立つ。特に任意の非零整イデアルは可逆である。
 <!-- formal-statement-end -->
 
@@ -269,11 +269,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（Dedekind整域の素イデアル分解）**  
 > $A$ を Dedekind整域とする。任意の非零整イデアル $I$ は、相異なる非零素イデアル $\mathfrak p_1,\ldots,\mathfrak p_r$ と正整数 $e_1,\ldots,e_r$ によって
->
-> $$
-> I=\mathfrak p_1^{e_1}\cdots\mathfrak p_r^{e_r}
-> $$
->
+
+$$
+I=\mathfrak p_1^{e_1}\cdots\mathfrak p_r^{e_r}
+$$
+
 > と表せる。$\mathfrak p_i$ と $e_i$ の組は順序を除いて一意である。$I=A$ のときは空積とする。
 <!-- formal-statement-end -->
 
@@ -306,9 +306,9 @@ $$
 
 一方、$\mathfrak pA_{\mathfrak p}=(\pi)$ です。両分解を局所化すると、$\mathfrak p$ に対応する因子だけが残ります。
 
-$
+$$
 (\pi^{e_{\mathfrak p}})=(\pi^{f_{\mathfrak p}}).
-$
+$$
 
 [冪指数の一意性](#lem-anf3-local-principal)から $e_{\mathfrak p}=f_{\mathfrak p}$ です。各 $\mathfrak p$ で同じ比較をすれば、二つの分解の素イデアルと指数は一致します。
 <!-- proof-end -->
@@ -395,9 +395,9 @@ $$
 
 四つの因子がすべて既約であることも確かめます。[跡・ノルムの演算則と整性](../ANF2/index.md#prop-anf2-trace-norm-properties)によりノルムは積を保ちます。非単元のノルムは $1$ より大きい正整数です。一方、
 
-$
+$$
 N(a+bs)=a^2+5b^2
-$
+$$
 
 なので、このノルムが $2$ や $3$ になる整数の組は存在しません。
 
@@ -496,9 +496,9 @@ Dedekind整域 $A$ の相異なる非零素イデアル $\mathfrak p,\mathfrak q
 
 そこで $s\in\mathfrak q\setminus\mathfrak p$ を取ります。[局所化の定義](../../AG/AG1-04/index.md#def-ag1-04-localization)により $1/s\in A_{\mathfrak p}$ です。$\mathfrak qA_{\mathfrak p}$ には $s$ が属するため、
 
-$
+$$
 1=(1/s)s\in\mathfrak qA_{\mathfrak p}.
-$
+$$
 
 したがって $\mathfrak qA_{\mathfrak p}=A_{\mathfrak p}$ です。整数の例では $5\notin(3)$ なので $1/5\in\mathbb Z_{(3)}$ が存在し、$(5)\mathbb Z_{(3)}=\mathbb Z_{(3)}$ となります。
 <!-- solution-end -->
