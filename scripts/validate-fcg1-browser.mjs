@@ -109,7 +109,11 @@ try {
   await waitFor('document.getElementById("status")?.textContent.includes("初期ソースを読み込みました")');
   assert.equal(await evaluate('document.querySelectorAll("[role=tabpanel]").length'),3);
   assert.ok(await evaluate('document.getElementById("js-source").value.includes("createLab")'));
-  await click('tab-code');
+  // G5: the first screen reaches the same editable physics source, not a mock demo.
+  assert.match(await evaluate('document.getElementById("panel-conditions").textContent'),/settings.mode/);
+  await click('fcg1-edit-velocity');
+  assert.equal(await evaluate('document.getElementById("tab-code").getAttribute("aria-selected")'),'true');
+  assert.equal(await evaluate('(()=>{const e=document.getElementById("js-source");return e.value.slice(e.selectionStart,e.selectionEnd)})()'),'function velocity(');
   assert.equal(await evaluate('document.querySelectorAll(".wgl-code-editor").length'),1);
   assert.equal(await evaluate('document.getElementById("js-source").wrap'),'soft');
   await mkdir('_fcg1_browser_review', {recursive:true});
@@ -128,11 +132,18 @@ try {
   assert.equal(initial.rows[0][0],'1');
   assert.equal(initial.rows[1][0],'2');
   assert.equal(initial.rows[0][5],'一致');
+  assert.equal(await evaluate('document.getElementById("fcg1-numerics").open'),false);
+  assert.match(await evaluate('document.getElementById("fcg1-scene-info").textContent'),/定常回転.*0.1 s.*660×410 px/);
+  await click('fcg1-edit-euler');
+  assert.equal(await evaluate('document.getElementById("tab-code").getAttribute("aria-selected")'),'true');
+  assert.equal(await evaluate('(()=>{const e=document.getElementById("js-source");return e.value.slice(e.selectionStart,e.selectionEnd)})()'),'function euler(');
+  await click('tab-result');
   await runStepCount(10);
   assert.ok(await evaluate('document.querySelectorAll("#particle-diagnostics tbody tr").length===2'));
   const after = await evaluate('([...document.querySelectorAll("#particle-diagnostics tbody tr")].map(r=>[...r.cells].map(c=>c.textContent)))');
   assert.ok(after.every(r=>r[5]==='一致'));
   assert.ok(Number(after[0][3])>0,'forward Euler must have nonzero physical error');
+  assert.match(await evaluate('document.getElementById("fcg1-scene-info").textContent'),/1.000 s・10 step/);
   const image = await cdp('Page.captureScreenshot',
     {format:'png',captureBeyondViewport:true});
   await writeFile('_fcg1_browser_review/fcg1-rotation.png',
@@ -150,6 +161,16 @@ try {
     assert.ok(rows.every(r=>r[5]==='一致'),mode+' CPU reference mismatch');
     console.log('FCG1 '+mode+' physical stepping and independent Euler oracle: PASS');
   }
+  // A changed form value does not secretly alter an already running physical model.
+  await evaluate('(()=>{const e=document.getElementById("dt");e.value="0.05";e.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  assert.match(await evaluate('document.getElementById("fcg1-pending").textContent'),/実行・リセット/);
+  assert.match(await evaluate('document.getElementById("fcg1-scene-info").textContent'),/h=0.1 s/);
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("Canvas2D実行準備完了")',22000);
+  assert.match(await evaluate('document.getElementById("fcg1-scene-info").textContent'),/h=0.05 s/);
+  assert.equal(await evaluate('document.getElementById("fcg1-pending").textContent'),'');
+  console.log('FCG1 source-backed settings, explicit rerun and live physical clock: PASS');
+
   // Modifying the actual learner script must change the model, not just the legend.
   await click('tab-code');
   const altered = await evaluate('(()=>{const e=document.getElementById("js-source");' +
@@ -183,7 +204,19 @@ try {
   assert.ok(mobile.width > 0 && mobile.scroll <= mobile.width + 2);
   assert.ok(mobile.editor <= mobile.page + 2);
   await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
-  console.log('FCG1 narrow layout, source editing, reduced-motion settings: PASS');
+  await click('fcg1-observe');
+  await waitFor('document.getElementById("status")?.textContent.includes("Canvas2D実行準備完了")',22000);
+  const mobileCanvas = await evaluate('(()=>{const f=document.querySelector("#canvas-slot iframe");const r=f.getBoundingClientRect();return {width:r.width,height:r.height,innerWidth:innerWidth,scrollWidth:document.documentElement.scrollWidth};})()');
+  assert.ok(mobileCanvas.width>250 && mobileCanvas.width<=mobileCanvas.innerWidth+2,JSON.stringify(mobileCanvas));
+  assert.ok(Math.abs(mobileCanvas.height/mobileCanvas.width-410/660)<0.025,JSON.stringify(mobileCanvas));
+  assert.ok(mobileCanvas.scrollWidth<=mobileCanvas.innerWidth+2,JSON.stringify(mobileCanvas));
+  const mobileShot=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  await writeFile('_fcg1_browser_review/fcg1-mobile.png',Buffer.from(mobileShot.data,'base64'));
+  await click('play');
+  await waitFor('document.getElementById("status")?.textContent.includes("stepを表示")',22000);
+  await click('pause');
+  assert.match(await evaluate('document.getElementById("status").textContent'),/一時停止/);
+  console.log('FCG1 360px Canvas aspect, observation action, play/pause, reduced-motion: PASS');
 } finally {
   try {ws?.close();} catch {}
   browser.kill('SIGTERM');
