@@ -37,7 +37,7 @@ $$
 \qquad x(0)=1
 $$
 
-> の解とする。$1/n<\theta<1$ に対し、$x(u)=\theta n$ に初めて達する時刻を $t_\theta$ とする。特に半数到達時刻 $t_{1/2}$ を**この模型でのscrambling代理時間**とする。$\gamma$ は逆時間の単位を持つ。
+> の解とする。$1/n\le\theta<1$ に対し、$x(u)=\theta n$ に初めて達する時刻を $t_\theta$ とする。特に半数到達時刻 $t_{1/2}$ を**この模型でのscrambling代理時間**とする。$\gamma$ は逆時間の単位を持つ。
 <!-- formal-statement-end -->
 
 この式では $x$ が小さいほど $dx/du\simeq\gamma x$、$x=n$ に近づくほど変化率が小さくなります。分母の $n$ は「内部の自由度の数」であり、Hilbert空間の次元 $2^n$ ではありません。
@@ -59,7 +59,7 @@ $$
 x(u)=\frac{n}{1+(n-1)e^{-\gamma u}}
 $$
 
-> が成り立つ。$1/n<\theta<1$ に対して到達時刻は
+> が成り立つ。$1/n\le\theta<1$ に対して到達時刻は
 
 $$
 t_\theta=\frac1\gamma
