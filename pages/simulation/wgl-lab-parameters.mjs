@@ -49,6 +49,9 @@ function inspect(source, spec) {
   const value = values[spec.index === null ? 0 : spec.index];
   if (value < spec.min || value > spec.max)
     return {ok: false, reason: '現在値がGUIの設定範囲外です。JSソースを確認してください'};
+  if (Math.abs((value - spec.min) / spec.step -
+      Math.round((value - spec.min) / spec.step)) > 1e-7)
+    return {ok: false, reason: '現在値がGUIの刻みと異なります。JSソースを優先します'};
   return {ok: true, value, match, literals};
 }
 
