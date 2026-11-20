@@ -535,7 +535,7 @@ $$
 =S(D|E)-S(D|ME).
 $$
 
-部分加法性から $S(D|E)\le S(D)$、Araki–Lieb不等式から $S(D|ME)\ge-S(D)$ です。$S(D)\le\ln d_D$ を合わせ、$2\ln d_A\le2S(D)\le2\ln d_D$。指数関数は単調なので $d_A\le d_D$ を得ます。$d_D=d_A$ でも[BHI12-A04](#ex-bhi12-a04)の恒等配置が失敗するため、下界は十分条件ではありません。
+[部分加法性](../../../応用系/QINF/QINF18/index.md#thm-qinf18-subadditivity)から $S(D|E)\le S(D)$、[Araki–Lieb不等式](../../../応用系/QINF/QINF18/index.md#thm-qinf18-araki-lieb)から $S(D|ME)\ge-S(D)$ です。$S(D)\le\ln d_D$ を合わせ、$2\ln d_A\le2S(D)\le2\ln d_D$。指数関数は単調なので $d_A\le d_D$ を得ます。$d_D=d_A$ でも[BHI12-A04](#ex-bhi12-a04)の恒等配置が失敗するため、下界は十分条件ではありません。
 <!-- solution-end -->
 
 ### Level C：同じ次元の二つの発展を対照する
