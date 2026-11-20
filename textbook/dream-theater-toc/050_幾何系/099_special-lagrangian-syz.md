@@ -12,3 +12,4 @@
 9. [SYZ1-09 Hessian計量とLegendre双対](textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-09/index.md)
 10. [SYZ1-10 semi-flat鏡像I――双対トーラスと複素構造](textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-10/index.md)
 11. [SYZ1-11 semi-flat鏡像II――Kähler形式・計量・接続](textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-11/index.md)
+12. [SYZ1-12 楕円曲線の完全計算](textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-12/index.md)
