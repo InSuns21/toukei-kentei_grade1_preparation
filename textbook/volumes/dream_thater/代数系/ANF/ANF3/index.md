@@ -82,7 +82,7 @@ $$
 
 整数の $(6)$ は $(2)(3)$ と書けます。イデアルを積へ分けるには、途中で片方のイデアルを「割る」操作が必要です。しかし一般のイデアルには一つの生成元がありません。そこで、分数体の部分集合まで許すことにします。
 
-整域 $A$ の分数体を $F$ とし、$A$ に関する**分数イデアル**を、$F$ の非零な $A$ 部分加群 $J$ で、ある $0\ne d\in A$ について $dJ\subseteq A$ が成立するものとして扱います。
+整域 $A$ の分数体を $F$ とします。分母を一つ払うと整イデアルに戻るような $F$ の部分集合を考えれば、分数での積が可能になります。
 
 <a id="def-anf3-fractional-ideal"></a>
 
@@ -358,6 +358,8 @@ $$
 =(1+s)(1-s).
 $$
 
+まず四つの因子 $2,3,1+s,1-s$ がすべて既約であることも確認できます。[数体のノルムの積公式](../ANF2/index.md#prop-anf2-trace-norm-properties)により、非単元への積に分かれれば正整数ノルムも $1$ より大きい二整数の積になります。一方、$a+bs$ のノルムは $a^2+5b^2$ で、$2$ や $3$ という値にはなりません。$N(2)=4$ の非自明な積は $2\cdot2$、$N(3)=9$ のものは $3\cdot3$、$N(1\pm s)=6$ のものは $2\cdot3$ しかないので、いずれも非単元への分解は不可能です。単元のノルムは $1$ ですから、単元は $\pm1$ に限られます。四因子はノルムが異なるか、$1+s\ne\pm(1-s)$ によって同伴でもありません。従って冒頭の二つは本当に異なる既約元分解です。
+
 **元の分解が壊れた仕組み。** $\mathfrak p$ は主イデアルではありません。もし $\mathfrak p=(a+bs)$（$a,b\in\mathbb Z$）なら、上と同じ指数計算と[ノルムの積公式](../ANF2/index.md#thm-anf2-embedding-formulas)から
 
 $$
@@ -539,7 +541,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-**(1)** $a+bs\mapsto a+b\bmod2$ の核は $\mathfrak p$ です（A4の表示では $a+bs=(a-b)+b(1+s)$）。同様に $a+bs\mapsto a-b\bmod3$ の核は $\mathfrak q$、$a+bs\mapsto a+b\bmod3$ の核は $\mathfrak q'$ です。$s^2=-5$ は $\mathbb F_3$ で $1$ になり、$s\mapsto\pm1$ の両方が関係式を保ちます。従って各商は $\mathbb F_2,\mathbb F_3,\mathbb F_3$ で極大です。$\mathfrak q$ では $s=-1$、$\mathfrak q'$ では $s=1$ であり、$1\ne-1$ in $\mathbb F_3$ なので両者は異なります。また $\mathfrak p$ は商の標数が $2$ なので他二つと異なります。
+**(1)** $a+bs\mapsto a+b\bmod2$ の核は $\mathfrak p$ です（A4の表示では $a+bs=(a-b)+b(1+s)$）。同様に $a+bs\mapsto a-b\bmod3$ の核は $\mathfrak q$、$a+bs\mapsto a+b\bmod3$ の核は $\mathfrak q'$ です。$s^2=-5$ は $\mathbb F_3$ で $1$ になり、$s\mapsto\pm1$ の両方が関係式を保ちます。従って各商は $\mathbb F_2,\mathbb F_3,\mathbb F_3$ で極大です。$\mathfrak q$ では $s=-1$、$\mathfrak q'$ では $s=1$ であり、$1\ne-1$ が $\mathbb F_3$ で成立する なので両者は異なります。また $\mathfrak p$ は商の標数が $2$ なので他二つと異なります。
 
 **(2)** $\mathfrak p^2=(4,2+2s,-4+2s)$。全生成元は $(2)$ に属し、$6=(2+2s)-(-4+2s)$ と $4$ の差から $2\in\mathfrak p^2$ を得るので $\mathfrak p^2=(2)$。一方
 
@@ -555,7 +557,7 @@ $$
 (1+s)\subseteq\mathfrak p\cap\mathfrak q=\mathfrak p\mathfrak q.
 $$
 
-[中国剰余定理](../../RNG/RNG2/index.md#thm-rng2-crt-two)で $|A/\mathfrak p\mathfrak q|=2\cdot3=6$。[主イデアルの指数とノルム](#thm-anf3-prime-ideal-factorization)を使う代わりに、B4で証明した行列式計算を行います：
+[中国剰余定理](../../RNG/RNG2/index.md#thm-rng2-crt-two)で $|A/\mathfrak p\mathfrak q|=2\cdot3=6$。B4で証明した、[整数基底での行列式による指数計算](../ANF2/index.md#thm-anf2-discriminant-index)を使い、乗法行列を作ります：
 
 $$
 [\mu_{1+s}]=\begin{pmatrix}1&-5\\1&1\end{pmatrix},
