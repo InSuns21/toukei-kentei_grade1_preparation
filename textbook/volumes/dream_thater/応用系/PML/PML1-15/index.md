@@ -119,12 +119,18 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（剛体変換に不変なポテンシャルの力は等変）**  
-> $Q=(\mathbb R^2)^N$、$U:Q\to\mathbb R$ を $C^1$ 級とし、$E(2)$ の部分群 $G$ の全ての $g=(R,a)$ と全ての $q\in Q$ に対して $U(g\cdot q)=U(q)$ とする。各粒子の力を $F_i(q)=-\nabla_{q_i}U(q)$ と定める。このとき各 $i=1,\ldots,N$ に対し
->
-> $$
-> F_i(g\cdot q)=R F_i(q)
-> $$
->
+> $Q=(\mathbb R^2)^N$ とする。$U:Q\to\mathbb R$ は $C^1$ 級、$G$ は $E(2)$ の部分群とする。すべての $g=(R,a)\in G$ と $q\in Q$ に対して
+
+$$
+U(g\cdot q)=U(q)
+$$
+
+> と仮定する。各粒子の力を $F_i(q)=-\nabla_{q_i}U(q)$ と定める。このとき各 $i=1,\ldots,N$ について
+
+$$
+F_i(g\cdot q)=RF_i(q)
+$$
+
 > が成立する。従って $F=(F_1,\ldots,F_N)$ は出力作用 $\rho_g$ に関して等変である。
 <!-- formal-statement-end -->
 
@@ -168,21 +174,39 @@ $$
 <!-- formal-statement-start -->
 > **定理（距離型ポテンシャルとNewton方程式の剛体対称性）**  
 > $N\ge2$、$\phi\in C^2([0,\infty))$ とし、$Q=(\mathbb R^2)^N$ に
->
-> $$
-> U(q)=\sum_{1\le i<j\le N}\phi(\|q_i-q_j\|^2)
-> $$
->
+
+$$
+U(q)=\sum_{1\le i<j\le N}\phi(\|q_i-q_j\|^2)
+$$
+
 > を定める。各 $m_i>0$ は粒子ラベルに付随する定数とする。
 >
-> **（1）** $U$ は $E(2)$ の作用に不変で、$F_i=-\nabla_{q_i}U$ は
+> **（1）** $U$ は $E(2)$ の作用に不変であり、$F_i(q)=-\nabla_{q_i}U(q)$ は
+
+$$
+F_i(q)=-2\sum_{j\ne i}
+\phi'(\|q_i-q_j\|^2)(q_i-q_j)
+$$
+
+> と書ける。
 >
-> $$
-> F_i(q)=-2\sum_{j\ne i}
-> \phi'(\|q_i-q_j\|^2)(q_i-q_j)
-> $$
->
-> と書ける。**（2）** $C^2$ 級軌道 $q_i(t)$ が $m_i\ddot q_i(t)=F_i(q(t))$ を満たすなら、固定した任意の $(R,a)\in E(2)$ による軌道 $\widetilde q_i(t)=Rq_i(t)+a$ も同じ質量と同じ力の法則の解である。
+> **（2）** $q_i(t)$ を $C^2$ 級の軌道とし、次のNewton方程式を満たすとする。
+
+$$
+m_i\ddot q_i(t)=F_i(q(t))
+$$
+
+> 時間に依存しない任意の $(R,a)\in E(2)$ を選び、変換後の軌道を
+
+$$
+\widetilde q_i(t)=Rq_i(t)+a
+$$
+
+> と定める。この軌道も同じ質量と力の法則に従う。
+
+$$
+m_i\ddot{\widetilde q}_i(t)=F_i(\widetilde q(t))
+$$
 <!-- formal-statement-end -->
 
 **証明の見取り図。** 並進は差で打ち消し合い、直交変換は距離を保つ。微分では一つの対 $(i,j)$ が $i$ と $j$ に反対向きの寄与を出す。運動方程式では固定された $R,a$ を時間微分の外へ出す。
