@@ -1,0 +1,38 @@
+chapter: U2-26
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-25
+  - F0-00P3A
+forward_references: []
+concepts:
+  - id: robotics.rbpf-indexed-model
+    name: 既知対応・独立目印の有限 SLAM 模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（既知対応・独立目印の有限 SLAM 模型）"]
+    requires: [robotics.slam-finite-generative-model, robotics.slam-marginal-conditional-map]
+  - id: robotics.rbpf-map-factorization
+    name: 軌跡条件付き地図の積分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（軌跡条件付き地図の積分解）"]
+    requires: [robotics.rbpf-indexed-model, robotics.slam-marginal-conditional-map]
+  - id: robotics.rbpf-particle-mixture
+    name: 軌跡粒子と条件付き地図
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（軌跡粒子と条件付き地図）"]
+    requires: [robotics.rbpf-map-factorization, robotics.selfnormalized-particle-belief]
+  - id: robotics.rbpf-weight-map-update
+    name: RBPF-SLAM の一歩の重み・地図更新
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（RBPF-SLAM の一歩の重み・地図更新）"]
+    requires: [robotics.rbpf-particle-mixture, robotics.sequential-importance-weight-recursion]
+  - id: robotics.rbpf-variance-reduction
+    name: 条件付き平均による標本分散の低減
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（条件付き平均による標本分散の低減）"]
+    requires: [robotics.rbpf-particle-mixture]
