@@ -11,3 +11,4 @@
 8. [BHI8 Page時刻の模型依存推定](textbook/volumes/dream_thater/物理系/BHI/BHI8/index.md)
 9. [BHI9 Mathurのsmall-corrections制約](textbook/volumes/dream_thater/物理系/BHI/BHI9/index.md)
 10. [BHI10 AMPSのエンタングルメント矛盾](textbook/volumes/dream_thater/物理系/BHI/BHI10/index.md)
+11. [BHI11 相補性・no-cloning・観測者](textbook/volumes/dream_thater/物理系/BHI/BHI11/index.md)

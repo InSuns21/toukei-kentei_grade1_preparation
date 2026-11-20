@@ -1,0 +1,24 @@
+chapter: BHI11
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI10, BHI8, QINF12]
+forward_references: []
+concepts:
+  - id: black-hole-information.observer-comparison-protocol
+    name: 内外情報の比較プロトコル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（内外情報の比較プロトコル）]
+    requires: [quantum.pure-no-cloning, black-hole-information.amps-entropy-conditions]
+  - id: black-hole-information.causal-window
+    name: 地平線内信号の因果的到達窓
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（地平線内信号の因果的到達窓）]
+    requires: [black-hole-information.observer-comparison-protocol]
+  - id: black-hole-information.causal-waiting
+    name: Schwarzschild模型の待ち時間と送信窓
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Schwarzschild模型の待ち時間と送信窓）]
+    requires: [black-hole-information.causal-window]

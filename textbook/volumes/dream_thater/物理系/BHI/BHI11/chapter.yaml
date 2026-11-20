@@ -1,0 +1,39 @@
+id: BHI11
+title: "相補性・no-cloning・観測者"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI10
+  - BHI8
+  - QINF12
+official_scope: []
+learning_objectives:
+  - 量子複製不能定理と内外二観測者の操作的比較不能性を区別し、独立コピー仮定を検査できる
+  - 符号空間における同じ論理作用素の複数表示と未知量子状態の独立複製を具体例で区別できる
+  - SchwarzschildのKruskal座標とUV=1の特異点から内部光信号の因果的到達窓を導ける
+  - 動径落下者の保存Killingエネルギーと地平線四速度から待ち時間の指数的送信窓を計算できる
+  - 波束エネルギー・外部復号時間の仮定を明示し、操作的制約だけではAMPS三部不等式を解消できないと説明できる
+definitions:
+  - { id: BHI11-DEF-01, name: "内外情報の比較プロトコル" }
+  - { id: BHI11-DEF-02, name: "地平線内信号の因果的到達窓" }
+theorems:
+  - { id: BHI11-THM-01, name: "Schwarzschild模型の待ち時間と送信窓" }
+canonical_examples:
+  - CNOTの直交状態の複写と非直交量子状態の複製不能
+  - 三量子ビット符号の論理Zの多重表示と混合周辺状態
+  - Kruskal座標での発信点とBobの地平線入射断面の到達可能性
+  - AMPSの二種類のBell対による条件付きエントロピーの符号比較
+problem_patterns:
+  - BHI11-NO-CLONING-OVERLAP
+  - BHI11-LOGICAL-OPERATOR-REDUNDANCY
+  - BHI11-CAUSAL-WINDOW
+  - BHI11-KILLING-TIME-SHIFT
+  - BHI11-KRUSKAL-METRIC
+  - BHI11-ENERGY-SCALING
+  - BHI11-AMPS-OPERATIONAL-DISTINCTION
+  - BHI11-DECODE-TRAVEL-BUDGET
+  - BHI11-INTEGRATED-PROTOCOL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }
