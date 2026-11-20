@@ -12,14 +12,14 @@
 
 ## 2. 放出前と放出後の系を固定する
 
-放出前に遠方へ逃れたすべての放射を $R$、今回新しく外へ出る量子ビットを $b$、その内側の相手量子ビットを $c$ とします。放出後の全放射は $Rb$ です。$b,c$ 以外の残存ブラックホール側の自由度を $D$ とします。略記 $XY$ は $\mathcal H_X\otimes\mathcal H_Y$、$\rho_{XY}$ は全体の密度演算子をそれ以外の系で部分トレースした状態です。
+放出前に遠方へ逃れたすべての放射を $R$、今回新しく外へ出る量子ビットを $b$、その内側の相手量子ビットを $c$ とします。放出後の全放射は $Rb$ です。$b,c$ 以外の残存ブラックホール側の自由度を $E$ とします。$E$ は放出後に残る**物理的な系**を指し、第4節で任意の混合状態を純粋化するために導入する補助系 $D$ と同一視しません。略記 $XY$ は $\mathcal H_X\otimes\mathcal H_Y$、$\rho_{XY}$ は[QINF3の部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)で全体から他の系を除いた状態です。
 
-次の状態分割が本講義の作業場です。
+放出前の残存側全体を $B_{\rm old}$ と書きます。次の状態分割が本講義の作業場です。
 
 | 区分 | 一歩前 | 一歩後 |
 | --- | --- | --- |
 | 遠方放射 | $R$ | $Rb$ |
-| 残存側 | $B_{\rm old}$ | $cD$ |
+| 残存側 | $B_{\rm old}$ | $cE$ |
 | 一歩の精細エントロピー | $S(R)$ | $S(Rb)$ |
 
 **同じ古い放射 $R$ はこの一歩で操作しない**と仮定します。古い放射へ後から直接作用する機構がある場合には、ここで比較する前後の $\rho_R$ が一致するかを改めて調べる必要があります。
@@ -74,7 +74,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi9-entropy-smallness -->
-**定義の確認**：任意の $\rho_R$ と $\Phi_{bc}$ の積 $\rho_R\otimes\Phi_{bc}$ を取ります。$\rho_{bc}=\Phi_{bc}$ は階数1の射影で $S(bc)=0$、$\rho_c=I_2/2$ は固有値 $(1/2,1/2)$ なので $S(c)=\ln2$。ゆえに**二条件とも** $\varepsilon=0$ で満たされます。$\varepsilon>0$ の非積状態を第5節で実際に構成します。
+**定義の確認**：任意の $\rho_R$ と $\Phi_{bc}$ の積 $\rho_R\otimes\Phi_{bc}$ を取ります。$\rho_{bc}=\Phi_{bc}$ は階数1の射影で $S(bc)=0$、$\rho_c=I_2/2$ は固有値 $(1/2,1/2)$ なので $S(c)=\ln2$。ゆえに**二条件とも** $\varepsilon=0$ で満たされます。$\varepsilon>0$ の非積状態を第6節で実際に構成します。
 <!-- definition-example-end -->
 
 注意すべきは、$S(b)\simeq\ln2$ **だけ**をsmall-corrections条件としない点です。$b$ は古い放射 $R$ とBell対を作る場合も単独では最大混合です。その状態では内部相手 $c$ との純粋対は存在しません。
@@ -186,7 +186,35 @@ T(\rho,\sigma)=\frac12\|\rho-\sigma\|_1,\qquad
 \|X\|_1=\operatorname{Tr}\sqrt{X^\dagger X}
 $$
 
-とします。今回使う性質は、部分トレースで $T$ が増えないことと、任意の射影 $P$ について $|\operatorname{Tr}P(\rho-\sigma)|\le T(\rho,\sigma)$ となることです。後者はHermitian行列の正・負固有空間への分解から確かめられます。
+とします。ここで $\rho,\sigma$ は同じ有限次元空間上の密度演算子です。距離の $1/2$ と部分トレースの扱いを確かめます。
+
+$X=\rho-\sigma$ はトレース零のHermitian行列です。その正・負固有空間に対応する正値部分を $X_+,X_-$ とすると、$X=X_+-X_-$、$X_+X_-=0$ で、
+
+$
+\operatorname{Tr}X_+=\operatorname{Tr}X_-=\frac12\|X\|_1=T(\rho,\sigma)
+$
+
+となります。$0\le M\le I$ を満たす作用素 $M$ について、$0\le\operatorname{Tr}(MX_\pm)\le\operatorname{Tr}X_\pm$ なので
+
+$
+-T(\rho,\sigma)\le\operatorname{Tr}(MX)\le T(\rho,\sigma).
+$
+
+正固有空間への射影を $M$ に選ぶと右側の等号を達成するため、
+
+$
+T(\rho,\sigma)=\max_{0\le M\le I}\operatorname{Tr}\bigl[M(\rho-\sigma)\bigr].
+$
+
+特に任意の射影 $P$ は $0\le P\le I$ を満たすので、$|\operatorname{Tr}P(\rho-\sigma)|\le T(\rho,\sigma)$ です。また、[部分トレースの定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)から、系 $b$ を捨てる場合、残る系 $c$ 上の $0\le M_c\le I_c$ について
+
+$
+\operatorname{Tr}\!\bigl[M_c(\rho_c-\sigma_c)\bigr]
+=\operatorname{Tr}\!\bigl[(I_b\otimes M_c)(\rho_{bc}-\sigma_{bc})\bigr]
+\le T(\rho_{bc},\sigma_{bc})
+$
+
+です。左辺を $M_c$ 全体で最大化すると、**部分トレースではトレース距離が増えない**ことも分かります。
 
 二値エントロピー関数は
 
@@ -265,13 +293,41 @@ $$
 0\le q=|\operatorname{Tr}Q(\rho_{bc}-\Phi_{bc})|\le\delta.
 $$
 
-$\rho_{bc}$ の $P,Q$ 間の非対角ブロックを消す写像
-$\mathcal P(\rho)=P\rho P+Q\rho Q$ は、$U=P-Q$ を使えば
-$\mathcal P(\rho)=(\rho+U\rho U^\dagger)/2$ と書けます。エントロピーの凹性とユニタリ不変性から $S(\rho)\le S(\mathcal P(\rho))$ です。$\mathcal P(\rho_{bc})$ は重み $1-q$ の一次元ブロックと重み $q$ の三次元ブロックに分かれます。後者を規格化した状態のエントロピーは高々 $\ln3$ なので
+$\rho_{bc}$ の $P,Q$ 間の非対角ブロックを消す写像を $\mathcal P(\rho)=P\rho P+Q\rho Q$ とします。$P+Q=I$、$PQ=0$ なので $U=P-Q$ は $U^\dagger U=I$ を満たし、
+
+$
+\mathcal P(\rho)=\frac12(\rho+U\rho U^\dagger)
+$
+
+です。混合してもエントロピーが減らないことを、既習の[QINF18の対数比較補題](../../../応用系/QINF/QINF18/index.md#lem-qinf18-log)で確認します。$\tau=\mathcal P(\rho_{bc})$ とおくと、$\tau=(\rho_{bc}+U\rho_{bc}U^\dagger)/2$ は正値です。$\tau$ の核にあるベクトルではこの二つの正値項の期待値がともに零となり、$\rho_{bc}$ もそのベクトルを零へ写します。従って $\operatorname{supp}\rho_{bc}\subseteq\operatorname{supp}\tau$ であり、対数比較補題の台条件を満たします。
+
+$\tau$ は $P,Q$ に関してブロック対角なので、$\ln\tau$ もその台の上でブロック対角です。よって非対角ブロックはトレースに寄与せず、
+
+$
+\operatorname{Tr}(\rho_{bc}\ln\tau)
+=\operatorname{Tr}(\tau\ln\tau).
+$
+
+対数比較補題を自然対数へ換算すると
+
+$
+\begin{aligned}
+0&\le\operatorname{Tr}(\rho_{bc}\ln\rho_{bc})
+-\operatorname{Tr}(\rho_{bc}\ln\tau)\\
+&=S(\tau)-S(\rho_{bc}),
+\end{aligned}
+$
+
+従って $S(\rho_{bc})\le S(\tau)$ です。$\tau$ は重み $1-q$ の一次元ブロックと重み $q$ の三次元ブロックに分かれます。$q>0$ なら後者の規格化状態を $\omega=Q\rho_{bc}Q/q$ と置き、ブロックの固有値を使えば
+
+$
+S(\tau)=h_2(q)+qS(\omega)\le h_2(q)+q\ln3
+$
+
+です。最後の不等式は[QINF17のエントロピー次元上界](../../../応用系/QINF/QINF17/index.md#thm-qinf17-entropy-bounds)を三次元ブロックに適用しました。従って
 
 $$
-S(bc)\le S(\mathcal P(\rho_{bc}))
-\le h_2(q)+q\ln3.
+S(bc)\le h_2(q)+q\ln3.
 $$
 
 $q=0$ では三次元ブロックの項を0と読めば同じ式です。関数 $f(q)=h_2(q)+q\ln3$ の導関数は、$0<q<1$ で
@@ -316,11 +372,17 @@ $$
 +\sqrt\eta\,\lvert1\rangle_R\lvert01\rangle_{bc}
 $$
 
-を取ります。二つの項は正規直交するため、全状態は規格化された純粋状態です。$R$ を跡消去すると第5節の $\rho_{bc}$ が出ます。非零固有値は $1-\eta,\eta$ なので
+を取ります。二つの項は正規直交するため、全状態は規格化された純粋状態です。[部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)で $R$ を跡消去すると、$\langle0|1\rangle_R=0$ により交差項が消え、第5節の $\rho_{bc}=(1-\eta)\Phi_{bc}+\eta|01\rangle\langle01|$ が出ます。二つの直交射影の重みがそのまま非零固有値 $1-\eta,\eta$ です。また、$b$ を跡消去すると
+
+$
+\rho_c=\frac{1-\eta}{2}I_2+\eta|1\rangle\langle1|
+=\operatorname{diag}\!\left(\frac{1-\eta}{2},\frac{1+\eta}{2}\right).
+$
+
+よって
 
 $$
 S(bc)=h_2(\eta),\qquad
-\rho_c=\operatorname{diag}\!\left(\frac{1-\eta}{2},\frac{1+\eta}{2}\right),\qquad
 S(c)=h_2\!\left(\frac{1+\eta}{2}\right).
 $$
 
@@ -432,7 +494,20 @@ $R$ と独立な純粋対 $\lvert\psi_q\rangle_{bc}=\sqrt q\lvert00\rangle+\sqrt
 $\lvert\Phi\rangle_{Rb}\otimes\lvert0\rangle_c$ に対し $\rho_b,\rho_{bc}$ の固有値、$S(c),S(bc),\Delta_R(b)$ を計算せよ。$\varepsilon<\ln2$ の小補正条件に入るか。
 
 <!-- solution-start -->
-**詳細解答**：Bell対の部分トレースで $\rho_b=I_2/2$、固有値は $(1/2,1/2)$。$\rho_{bc}=I_2/2\otimes\lvert0\rangle\langle0\rvert$ の固有値は $(1/2,1/2,0,0)$、ゆえに $S(bc)=\ln2$。$c$ は純粋なので $S(c)=0$。一方 $Rb$ は純粋なので $S(Rb)=0$、$S(R)=\ln2$、$\Delta=-\ln2$。$\varepsilon<\ln2$ だと $S(bc)\le\varepsilon$ も $S(c)\ge\ln2-\varepsilon$ も破れる。
+**詳細解答**：Bell対の部分トレースから $\rho_b=I_2/2$ で、固有値は $(1/2,1/2)$ です。$c$ は $|0\rangle$ の純粋状態なので、
+
+$
+\rho_{bc}=\frac{I_2}{2}\otimes|0\rangle\langle0|,
+\qquad \operatorname{spec}(\rho_{bc})=(1/2,1/2,0,0).
+$
+
+従って $S(c)=0$、$S(bc)=\ln2$ です。反対に $Rb$ はBell純粋対だから $S(Rb)=0$、その片側 $R$ は最大混合で $S(R)=\ln2$。よって
+
+$
+\Delta_R(b)=S(Rb)-S(R)=-\ln2.
+$
+
+$0\le\varepsilon<\ln2$ では $S(bc)\le\varepsilon$ と $S(c)\ge\ln2-\varepsilon$ の**両条件**が破れます。
 <!-- solution-end -->
 
 <a id="ex-bhi9-a05"></a>
@@ -484,7 +559,36 @@ $$
 第6節の $\lvert\Psi_\eta\rangle$ を $\eta=1/10$ として、(1) $\rho_{bc}$ とBell対のトレース距離、(2) $S(R)$ と $S(Rb)$、(3) [トレース距離の下界](#thm-bhi9-trace-bound)と実際の増分を比較せよ。
 
 <!-- solution-start -->
-**詳細解答**：$R$ を部分トレースすると $\rho_{bc}=0.9\Phi+0.1\lvert01\rangle\langle01\rvert$。直交射影の差の固有値が $-0.1,0.1$ なので $T=\tfrac12(0.1+0.1)=0.1$。全体純粋状態の $R|bc$ 分割より $S(R)=S(bc)=h_2(0.1)\simeq0.325083$。$Rb|c$ 分割より $S(Rb)=S(c)=h_2(0.55)\simeq0.688139$。実際の増分は約 $0.363056$ nat。[定理](#thm-bhi9-trace-bound)の保証値は $h_2(0.6)-h_2(0.1)-0.1\ln3\simeq0.238068$ nat。$0.363056\ge0.238068>0$ で、距離だけからの下界は一般に鋭くない。
+**詳細解答**：$R$ の計算基底の直交性から交差項が消え、
+
+$
+\rho_{bc}=0.9\Phi_{bc}+0.1|01\rangle\langle01|.
+$
+
+$\Phi_{bc}$ と $|01\rangle$ は直交するので、$\rho_{bc}-\Phi_{bc}$ の非零固有値は $-0.1,0.1$ です。[トレース距離の定義](#def-bhi9-trace-smallness)とその直前の式から
+
+$
+T(\rho_{bc},\Phi_{bc})
+=\frac12(|-0.1|+|0.1|)=0.1.
+$
+
+全体は純粋なので、[相補系の縮約エントロピー一致](../../../応用系/QINF/QINF17/index.md#prop-qinf17-bipartite)を $R|bc$ と $Rb|c$ の分割に適用します。
+
+$
+\begin{aligned}
+S(R)&=S(bc)=h_2(0.1)\simeq0.325083,\\
+S(Rb)&=S(c)=h_2(0.55)\simeq0.688139.
+\end{aligned}
+$
+
+従って実際の増分は $S(Rb)-S(R)\simeq0.363056$ nat です。一方、[トレース距離の下界](#thm-bhi9-trace-bound)に $\delta=0.1$ を代入すると
+
+$
+h_2(0.6)-h_2(0.1)-0.1\ln3
+\simeq0.238068\ {\rm nat}.
+$
+
+$0.363056\ge0.238068>0$ であり、距離のみから得る一様下界はこの例では等号になりません。
 <!-- solution-end -->
 
 <a id="ex-bhi9-b03"></a>
@@ -494,7 +598,23 @@ $$
 $R_0$ は自明、三段階で $\varepsilon_1=0.05,\varepsilon_2=0.10,\varepsilon_3=0.20$ nat とする。$S(R_3)$ の下界を求め、最後に放射だけが残る閉じた純粋蒸発模型との両立性を判定せよ。
 
 <!-- solution-start -->
-**詳細解答**：各段階で[一歩の下界](#thm-bhi9-small-corrections)から $\Delta_k\ge\ln2-2\varepsilon_k$。和を取れば $S(R_3)-S(R_0)\ge3\ln2-2(0.05+0.10+0.20)=3\ln2-0.70\simeq1.379442$ nat。$R_0$ は自明なので $S(R_0)=0$。しかし閉じた初期純粋状態からの等長発展で最終残存系が一次元なら、[BHI6の終期純粋性](../BHI6/index.md#thm-bhi6-entropy-budget)により $S(R_3)=0$。二つは両立しない。これは**すべての三段階で小補正条件が保たれる**場合の矛盾である。
+**詳細解答**：[一歩のMathur型下界](#thm-bhi9-small-corrections)を $k=1,2,3$ の各段階に適用すると、古い放射を保持する仮定の下で
+
+$
+S(R_k)-S(R_{k-1})\ge\ln2-2\varepsilon_k
+$
+
+です。三式を足すと中間の $S(R_1),S(R_2)$ が消えて、
+
+$
+\begin{aligned}
+S(R_3)-S(R_0)
+&\ge 3\ln2-2(0.05+0.10+0.20)\\
+&=3\ln2-0.70\simeq1.379442\ {\rm nat}.
+\end{aligned}
+$
+
+$R_0$ は自明なので $S(R_0)=0$。しかし閉じた純粋初期状態から等長発展し最終残存系が一次元なら、[BHI6の終期純粋性](../BHI6/index.md#thm-bhi6-entropy-budget)により $S(R_3)=0$ です。よって両立しません。これは**三段階のすべてで小補正条件を満たす**ことを前提にした矛盾です。
 <!-- solution-end -->
 
 <a id="ex-bhi9-b04"></a>
