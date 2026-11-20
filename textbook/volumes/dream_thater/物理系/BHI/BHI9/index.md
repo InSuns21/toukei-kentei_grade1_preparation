@@ -454,7 +454,27 @@ $\lvert\Phi\rangle_{Rb}\otimes\lvert0\rangle_c$ に対し $\rho_b,\rho_{bc}$ の
 任意の $\rho_{Rbc}$ を $D$ で純粋化し、強劣加法性の $A,B,C$ への割り当てと相補エントロピーの等式をすべて書き、$\Delta_R(b)\ge S(c)-S(bc)$ を証明せよ。
 
 <!-- solution-start -->
-**詳細解答**：純粋状態 $\lvert\Psi\rangle_{RbcD}$ を取り、全体を $RD|bc$ と $RbD|c$ に分ける。[純粋二部系のエントロピー一致](../../../応用系/QINF/QINF17/index.md#prop-qinf17-bipartite)から $S(RD)=S(bc)$ と $S(RbD)=S(c)$。次に[強劣加法性](../../../応用系/QINF/QINF19/index.md#thm-qinf19-ssa)で $A=b,B=R,C=D$ と選ぶと $S(bR)+S(RD)\ge S(R)+S(bRD)$。二等式を代入して $S(Rb)+S(bc)\ge S(R)+S(c)$。移項すれば $S(Rb)-S(R)\ge S(c)-S(bc)$ となる。**中央に置いた系は $R$** であって $b$ ではない。
+**詳細解答**
+
+純粋状態 $\lvert\Psi\rangle_{RbcD}$ を取り、全体を $RD|bc$ と $RbD|c$ に分けます。[純粋二部系のエントロピー一致](../../../応用系/QINF/QINF17/index.md#prop-qinf17-bipartite)から
+
+$$
+S(RD)=S(bc),\qquad S(RbD)=S(c)
+$$
+
+を得ます。次に[強劣加法性](../../../応用系/QINF/QINF19/index.md#thm-qinf19-ssa)へ $A=b,B=R,C=D$ を代入します。
+
+$$
+S(bR)+S(RD)\ge S(R)+S(bRD).
+$$
+
+純粋系の二等式をそれぞれ左辺第2項と右辺第2項へ代入して
+
+$$
+S(Rb)+S(bc)\ge S(R)+S(c).
+$$
+
+両辺から $S(R)+S(bc)$ を引けば $\Delta_R(b)\ge S(c)-S(bc)$ です。**中央に置いた系は $R$** であって $b$ ではありません。
 <!-- solution-end -->
 
 <a id="ex-bhi9-b02"></a>
@@ -484,7 +504,17 @@ $R_0$ は自明、三段階で $\varepsilon_1=0.05,\varepsilon_2=0.10,\varepsilo
 (1) $\rho_{bc}=\Phi_{bc}$ と $\rho_R$ が任意に相関し得るかを議論せよ。(2) $\rho_b=I_2/2$ だけを仮定すると、増分の符号を決められないことを符号の異なる二つの純粋三部状態で示せ。
 
 <!-- solution-start -->
-**詳細解答**：(1) $\rho_{bc}$ が純粋なら、全体の任意の拡張は $\rho_{Rbc}=\rho_R\otimes\Phi_{bc}$ となる。[BHI3の純粋な新規対の因数分解](../BHI3/index.md#prop-bhi3-pure-pair-rigidity)がこの事実を示す。小さいが零ではない誤差で相関が許されることは第6節の例で確かめた。(2) 第一例を $\lvert0\rangle_R\otimes\lvert\Phi\rangle_{bc}$ とすると、$b$ は最大混合で $\Delta=+\ln2$。第二例を $\lvert\Phi\rangle_{Rb}\otimes\lvert0\rangle_c$ とすると、同じ $\rho_b=I_2/2$ なのに $\Delta=-\ln2$。どちらも全三部系は純粋であり、異なるのは $b$ の**純粋化相手**である。
+**詳細解答**
+
+**純粋な共同状態の場合**：$\rho_{bc}=\Phi_{bc}$ が階数1の純粋状態なら、[BHI3の純粋な新規対の因数分解](../BHI3/index.md#prop-bhi3-pure-pair-rigidity)が使えます。$R$ を含む任意の拡張は
+
+$$
+\rho_{Rbc}=\rho_R\otimes\Phi_{bc}
+$$
+
+と因数分解し、古い放射との相関はありません。第6節のように補正が小さいが零ではない場合には、相関は許されます。
+
+**局所最大混合の比較**：第一の純粋三部状態を $\lvert0\rangle_R\otimes\lvert\Phi\rangle_{bc}$ とすると、$b$ は最大混合で $\Delta=+\ln2$ です。第二の純粋三部状態を $\lvert\Phi\rangle_{Rb}\otimes\lvert0\rangle_c$ とすると、同じ $\rho_b=I_2/2$ なのに $\Delta=-\ln2$ です。両者の違いは $b$ の**純粋化相手**が $c$ か $R$ かにあります。
 <!-- solution-end -->
 
 ### Level C：一般化と仮定の監査
@@ -493,10 +523,69 @@ $R_0$ は自明、三段階で $\varepsilon_1=0.05,\varepsilon_2=0.10,\varepsilo
 #### BHI9-C01 $d$ 準位対でのsmall-corrections不等式
 - Level: C
 
-整数 $d\ge2$ とし、$R,b,c$ を有限次元系、$\dim b=\dim c=d$ とする。最大もつれ状態 $\lvert\Phi_d\rangle=d^{-1/2}\sum_{j=0}^{d-1}\lvert j\rangle_b\lvert j\rangle_c$ に対応する内外対を考える。各放出で $S(bc)\le\varepsilon_k$、$S(c)\ge\ln d-\varepsilon_k$ が成立するとき、(1) 一歩の増分下界、(2) $N$ 段階の累積下界、(3) $d=3,\varepsilon_k=0.2$ nat の場合に全段階で増加が保証されること、(4) 終期純粋性との両立不能が成立するための追加仮定をそれぞれ導け。
+整数 $d\ge2$ とし、$R,b,c$ を有限次元系、$\dim b=\dim c=d$ とします。最大もつれ状態を
+
+$$
+\lvert\Phi_d\rangle=\frac1{\sqrt d}\sum_{j=0}^{d-1}\lvert j\rangle_b\lvert j\rangle_c
+$$
+
+と置きます。各放出で次の条件が成立するとします。
+
+$$
+S(b_kc_k)\le\varepsilon_k,\qquad
+S(c_k)\ge\ln d-\varepsilon_k.
+$$
+
+1. 一歩の放射エントロピー増分の下界を導け。
+2. $N$ 段階の累積下界を導け。
+3. $d=3$、全段階で $\varepsilon_k=0.2$ nat のとき、毎段階で増加が保証されることを示せ。
+4. 終期純粋性との両立不能をいうために追加する仮定を列挙せよ。
 
 <!-- solution-start -->
-**詳細解答**：(1) 弱単調性の証明は $b,c$ の次元に依存せず、[補題](#lem-bhi9-weak-monotonicity)により $\Delta_k\ge S(c_k)-S(b_kc_k)$。最大もつれ対の $\rho_c=I_d/d$ は固有値 $1/d$ を $d$ 個持つので、そのエントロピーは $-\sum_{j=1}^d(1/d)\ln(1/d)=\ln d$。仮定を代入すると $\Delta_k\ge\ln d-2\varepsilon_k$。(2) $R_k=R_{k-1}b_k$ とし、古い放射の状態が各段階で保持されるとき、左辺を $k=1,\ldots,N$ で足せば $S(R_N)-S(R_0)\ge N\ln d-2\sum_k\varepsilon_k$。(3) $d=3$ なら一歩下界は $\ln3-0.4\simeq0.698612$ nat。よって全段階で厳密に正。(4) $R_0$ が自明、初期全系が純粋、各放出は閉じた系の等長発展、終期残存系が一次元であれば、[BHI6の純粋蒸発エントロピー収支](../BHI6/index.md#thm-bhi6-entropy-budget)から $S(R_N)=0$。一方、小補正を全段階で保てば $S(R_N)\ge N(\ln3-0.4)>0$ で矛盾する。終期に残存系・環境が残る、途中で小補正を破る、または古い放射へ非局所的操作を加える場合は、この矛盾の仮定を満たさない。
+**詳細解答**
+
+**一歩の増分**：[弱単調性](#lem-bhi9-weak-monotonicity)は量子ビット数に依存しないため、$d$ 次元でも
+
+$$
+\Delta_k\ge S(c_k)-S(b_kc_k)
+$$
+
+です。最大もつれ対の縮約 $\rho_c=I_d/d$ は $1/d$ の固有値を $d$ 個持ち、エントロピーは
+
+$$
+-\sum_{j=1}^{d}\frac1d\ln\frac1d=\ln d
+$$
+
+です。問題の小補正条件を二つとも使うと
+
+$$
+\boxed{\Delta_k\ge\ln d-2\varepsilon_k}.
+$$
+
+**累積評価**：$R_k=R_{k-1}b_k$ とし、古い放射の状態を各段階で保持します。望遠鏡和により
+
+$$
+\begin{aligned}
+S(R_N)-S(R_0)
+&=\sum_{k=1}^N[S(R_k)-S(R_{k-1})]\\
+&\ge\sum_{k=1}^N(\ln d-2\varepsilon_k)
+=N\ln d-2\sum_{k=1}^N\varepsilon_k.
+\end{aligned}
+$$
+
+**三準位の例**：$d=3$、$\varepsilon_k=0.2$ を代入すると、一歩ごとの増分は
+
+$$
+\Delta_k\ge\ln3-0.4\simeq0.698612\ {\rm nat}>0.
+$$
+
+**終期での両立性**：$R_0$ が自明、初期全系が純粋、各放出が閉じた系の等長発展、終期残存系が一次元であれば、[BHI6の純粋蒸発のエントロピー収支](../BHI6/index.md#thm-bhi6-entropy-budget)により $S(R_N)=0$ です。一方、全段階で上の小補正条件を保てば
+
+$$
+S(R_N)\ge N(\ln3-0.4)>0,
+$$
+
+となり矛盾します。終期に残存系・環境が残る場合、小補正を途中で破る場合、または古い放射へ非局所的に作用する場合には、この結論の前提が欠けています。
 <!-- solution-end -->
 
 ## 9. この制約が示すこと
