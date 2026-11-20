@@ -4,8 +4,6 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - SYZ1-14
-  - SYZ1-10
-  - SYZ1-04
 official_scope: []
 learning_objectives:
   - Lagrangeトーラス境界の正則円板の相対類・面積・境界ホロノミーを定義し加法性を証明できる
