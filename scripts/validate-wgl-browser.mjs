@@ -675,14 +675,11 @@ try{
   const frameRect13=await evalJS('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height};})()');
   const clip13={...frameRect13,scale:1};
   const initial13=await cdp('Page.captureScreenshot',{format:'png',clip:clip13,captureBeyondViewport:true});
-  await new Promise(ok=>setTimeout(ok,760));
-  const later13=await cdp('Page.captureScreenshot',{format:'png',
-    clip:{...clip13,height:Math.min(190,clip13.height)},captureBeyondViewport:true});
   const initial13Canvas=await cdp('Page.captureScreenshot',{format:'png',
     clip:{...clip13,height:Math.min(190,clip13.height)},captureBeyondViewport:true});
   // A second pair avoids comparing against textual output and keeps the
   // comparison strictly within the upper canvas pixels.
-  await new Promise(ok=>setTimeout(ok,600));
+  await new Promise(ok=>setTimeout(ok,860));
   const later13Canvas=await cdp('Page.captureScreenshot',{format:'png',
     clip:{...clip13,height:Math.min(190,clip13.height)},captureBeyondViewport:true});
   assert.notEqual(initial13Canvas.data,later13Canvas.data,
