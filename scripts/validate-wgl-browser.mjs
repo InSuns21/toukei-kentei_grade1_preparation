@@ -505,7 +505,7 @@ try{
   assert.equal(wgl10.rows.length,8);
   assert.ok(wgl10.rows.every(row=>row[4]==='OK'));
   assert.equal(wgl10.sandbox,'allow-scripts');
-  assert.match(wgl10.log,/FRAMEBUFFER_COMPLETE, RGBA8 480x720/);
+  assert.match(wgl10.log,/FRAMEBUFFER_COMPLETE, RGBA8 400x600/);
   assert.match(wgl10.log,/PASS1: offscreen lower-left quarter RGBA=/);
   assert.match(wgl10.log,/GL error: 0x0/);
   const checkRgba = (value,expected) => {
