@@ -1,0 +1,69 @@
+chapter: PML1-10
+scope: dream-theater
+coverage: complete
+prerequisites: [PML1-09]
+concepts:
+  - id: physics-machine-learning.detailed-balance
+    name: 時間一様Markov過程の詳細釣合い
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時間一様Markov過程の詳細釣合い）"]
+    requires:
+      - physics-machine-learning.invariant-probability-distribution
+      - stochastic.markov-semigroup
+  - id: physics-machine-learning.detailed-balance-invariance
+    name: 詳細釣合いから不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（詳細釣合いから不変性）"]
+    requires:
+      - physics-machine-learning.detailed-balance
+      - physics-machine-learning.invariant-probability-distribution
+  - id: physics-machine-learning.finite-stationary-current
+    name: 有限状態の定常確率流
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限状態の定常確率流）"]
+    requires:
+      - physics-machine-learning.detailed-balance
+  - id: physics-machine-learning.finite-balance-characterization
+    name: 有限状態での不変性・詳細釣合いの判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限状態での不変性・詳細釣合いの判定）"]
+    requires:
+      - physics-machine-learning.finite-stationary-current
+      - physics-machine-learning.detailed-balance
+  - id: physics-machine-learning.stationary-entropy-production
+    name: 有限状態の定常エントロピー生成率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限状態の定常エントロピー生成率）"]
+    requires:
+      - physics-machine-learning.finite-stationary-current
+      - physics-machine-learning.finite-balance-characterization
+  - id: physics-machine-learning.entropy-production-nonnegative
+    name: 定常エントロピー生成率の非負性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（定常エントロピー生成率の非負性）"]
+    requires:
+      - physics-machine-learning.stationary-entropy-production
+      - physics-machine-learning.finite-balance-characterization
+  - id: physics-machine-learning.rotating-ou-invariant-nonreversible
+    name: 回転する二次拡散の不変性と非可逆性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（回転する二次拡散の不変性と非可逆性）"]
+    requires:
+      - physics-machine-learning.invariant-probability-distribution
+      - physics-machine-learning.langevin-fokker-planck
+      - physics-machine-learning.detailed-balance
+  - id: physics-machine-learning.stationary-relative-entropy-decay
+    name: 定常循環があっても相対エントロピーは減少する
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（定常循環があっても相対エントロピーは減少する）"]
+    requires:
+      - physics-machine-learning.rotating-ou-invariant-nonreversible
+      - physics-machine-learning.langevin-fokker-planck
