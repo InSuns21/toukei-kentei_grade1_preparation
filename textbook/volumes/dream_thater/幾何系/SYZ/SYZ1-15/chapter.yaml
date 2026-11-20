@@ -1,0 +1,48 @@
+id: "SYZ1-15"
+title: "正則円板と壁越えの発生条件"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYZ1-14
+official_scope: []
+learning_objectives:
+  - Lagrangeトーラス境界の正則円板の相対類・面積・境界ホロノミーを定義し加法性を証明できる
+  - 接Lagrange平面の位相の二乗からMaslov指数を計算し積トーラスの座標円板が指数2と導ける
+  - Maslov指数0の形式的な相対類が正則円板で代表されない反例を偏角原理と面積正値性で示せる
+  - 対数型局所模型のLagrangeトーラス性と位相一定をHamilton円周作用と行列式から導ける
+  - 最大値原理を二度使い局所模型のMaslov指数0の正則円板の存在壁を厳密に決定できる
+  - 壁の正負の半直線で基本円板の面積・境界向き・ホロノミー・多重被覆を計算できる
+  - 局所的な正則円板の存在と符号付き円板計数・鏡像座標補正・Maslov指数2のsuperpotentialを区別できる
+definitions:
+  - { id: SYZ1-15-DEF-01, name: "正則円板・相対類・面積" }
+  - { id: SYZ1-15-DEF-02, name: "境界ホロノミーと円板の重み" }
+  - { id: SYZ1-15-DEF-03, name: "円板のMaslov指数" }
+  - { id: SYZ1-15-DEF-04, name: "対数型円板模型のトーラス" }
+  - { id: SYZ1-15-DEF-05, name: "Maslov指数0の円板の存在壁" }
+theorems:
+  - { id: SYZ1-15-PROP-01, name: "面積と境界の加法性" }
+  - { id: SYZ1-15-PROP-02, name: "指数0・面積0は存在条件ではない" }
+  - { id: SYZ1-15-PROP-03, name: "局所模型は滑らかなLagrangeトーラス束を与える" }
+  - { id: SYZ1-15-THM-01, name: "Maslov指数0の正則円板が現れる壁の位置" }
+  - { id: SYZ1-15-PROP-04, name: "壁の円板の面積と境界ホロノミー" }
+canonical_examples:
+  - 積トーラスの座標円板とMaslov指数2
+  - 形式的な差の相対類が指数0でも正則円板を代表しない反例
+  - xy-1を使ったlog型トーラスのLagrange性と位相一定
+  - 壁r=1の正負の半直線でのMaslov指数0の基本円板
+  - 非零の正則関数に最大値原理を二度適用する壁の完全証明
+problem_patterns:
+  - SYZ1-15-PRODUCT-DISK-INVARIANTS
+  - SYZ1-15-NONVANISHING-MAXIMUM
+  - SYZ1-15-REGULAR-BASE
+  - SYZ1-15-POSITIVE-WALL
+  - SYZ1-15-NEGATIVE-MASLOV
+  - SYZ1-15-WALL-NECESSITY
+  - SYZ1-15-FORMAL-CLASS-COUNTEREXAMPLE
+  - SYZ1-15-MULTIPLE-COVERS
+  - SYZ1-15-TWO-HALFLINES
+  - SYZ1-15-COMPLETE-LOCAL-WALL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 4 }
