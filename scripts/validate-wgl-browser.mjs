@@ -734,11 +734,26 @@ try{
   console.log('WGL15 4 real GPU display probes, RGBA8/depth FBO and separate CPU ray oracle: PASS');
 
   // The nested sandbox canvas receives an actual mouse click through Chromium input.
-  const clickPoint15=await evalJS('(()=>{const frame=document.querySelector("#canvas-slot iframe");frame.scrollIntoView({block:"center"});const r=frame.getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2};})()');
-  await cdp('Input.dispatchMouseEvent',{type:'mouseMoved',...clickPoint15});
-  await cdp('Input.dispatchMouseEvent',{type:'mousePressed',...clickPoint15,button:'left',clickCount:1});
-  await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',...clickPoint15,button:'left',clickCount:1});
-  await waitFor('document.getElementById("result-note")?.textContent.includes("選択座標")',10000);
+  await evalJS('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"center"})');
+  // Avoid measuring during the scroll/layout tick. Other lessons can enlarge
+  // preceding content; the screenshot-size sandbox itself is not resized.
+  await new Promise(ok=>setTimeout(ok,160));
+  const clickPoint15=await evalJS('(()=>{const frame=document.querySelector("#canvas-slot iframe");const r=frame.getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2,top:r.top,bottom:r.bottom,viewport:window.innerHeight};})()');
+  assert.ok(clickPoint15.y>=1&&clickPoint15.y<clickPoint15.viewport-1,
+    'WGL15 click target must be visible: '+JSON.stringify(clickPoint15));
+  const {x:x15,y:y15}=clickPoint15;
+  for(let attempt=0;attempt<3;attempt++){
+    const point={x:x15+(attempt?attempt*2:0),y:y15+(attempt?attempt*2:0)};
+    await cdp('Input.dispatchMouseEvent',{type:'mouseMoved',...point,buttons:0});
+    await cdp('Input.dispatchMouseEvent',{type:'mousePressed',...point,button:'left',buttons:1,clickCount:1});
+    await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',...point,button:'left',buttons:0,clickCount:1});
+    await new Promise(ok=>setTimeout(ok,200));
+    if(await evalJS('document.getElementById("result-note")?.textContent.includes("選択座標")'))break;
+  }
+  const found15=await evalJS('document.getElementById("result-note")?.textContent.includes("選択座標")');
+  assert.equal(found15,true,'WGL15 mouse event did not reach the sandbox: '+
+    JSON.stringify({clickPoint15,status:await evalJS('document.getElementById("status").textContent'),
+      note:await evalJS('document.getElementById("result-note").textContent')}));
   const pick15=await evalJS('({status:document.getElementById("status").textContent,text:document.getElementById("result-note").textContent})');
   assert.match(pick15.text,/独立CPU=1、ラボCPU=1、GPU=1/);
   assert.match(pick15.status,/CPU射線とGPU ID選択が一致/);
