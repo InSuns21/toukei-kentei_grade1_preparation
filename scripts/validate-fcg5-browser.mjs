@@ -175,7 +175,10 @@ try {
   const f8=await evaluate('(()=>{const cs=[...document.querySelectorAll(".visual-observation-grid canvas")];return {count:cs.length,rects:cs.map(c=>{const r=c.getBoundingClientRect();return [r.width,r.height]}),clock:document.querySelector(".visual-clock")?.textContent}})()');
   assert.equal(f8.count,3);
   assert.ok(f8.rects.every(([w,h])=>w>160&&Math.abs(w-h)<2),JSON.stringify(f8));
-  await new Promise(ok=>setTimeout(ok,330));
+  // FCG8 advances a CPU-derived three-canvas field on each rAF. Its first
+  // rendered frames can take longer than a fixed wall-clock sleep on CI GPUs.
+  // Poll the *actual physical clock*, rather than assuming 330 ms is enough.
+  await waitFor('document.querySelector(".visual-clock")?.textContent!=='+JSON.stringify(f8.clock),25000);
   const f8clock=await evaluate('document.querySelector(".visual-clock").textContent');
   assert.notEqual(f8clock,f8.clock,'FCG8 should animate physical interpolation with rAF');
   await evaluate('document.querySelector(".visual-observation [data-action=play]").click()');
