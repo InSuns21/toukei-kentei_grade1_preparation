@@ -55,7 +55,7 @@ chapters:
     title: "相補性・no-cloning・観測者"
   - id: BHI12
     path: textbook/volumes/dream_thater/物理系/BHI/BHI12
-    status: planned
+    status: completed
     title: "Hayden–Preskillの情報投入模型"
   - id: BHI13
     path: textbook/volumes/dream_thater/物理系/BHI/BHI13

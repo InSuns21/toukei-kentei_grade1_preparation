@@ -1,0 +1,47 @@
+id: BHI12
+title: "Hayden–Preskillの情報投入模型"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI11
+  - BHI7
+  - QINF29
+  - QINF30
+  - QINF18
+official_scope: []
+learning_objectives:
+  - 日記A・参照M・古い内部B・早期放射Eの最大エンタングル初期状態を規格化し、縮約を計算できる
+  - U:AB→CDの入出力次元と受信者DE・残存系C・参照Mの役割を固定し、有限次元模型を構成できる
+  - 受信者側CPTP回収チャネルを定義し、参照系による全量子状態の検証と古典ビット読出しを区別できる
+  - QINF29の完全復号定理を写像Wに適用し、ρ_MCのデカップリングと完全回収の同値を証明できる
+  - SWAP・恒等配置・CNOTで量子情報の回収成否を縮約密度演算子から判定できる
+  - 早期放射の初期独立性と相互情報量の上界からd_D≥d_Aの必要条件を示し、十分条件との違いを説明できる
+definitions:
+  - { id: BHI12-DEF-01, name: "古いブラックホールへの日記投入状態" }
+  - { id: BHI12-DEF-02, name: "投入・発展・放出の写像" }
+  - { id: BHI12-DEF-03, name: "Hayden–Preskill回収課題" }
+theorems:
+  - { id: BHI12-PROP-01, name: "参照系と早期放射の独立性" }
+  - { id: BHI12-THM-01, name: "投入模型の完全回収条件" }
+  - { id: BHI12-PROP-02, name: "完全回収に必要な追加放射の次元" }
+canonical_examples:
+  - 独立なBell対の規格化・縮約・初期独立性
+  - SWAP型放出で日記がDに移って完全回収できる例
+  - 恒等配置で日記がCに残り回収不能となる反例
+  - CNOTで古典ラベルは読めても未知の量子日記は回収できない例
+  - 2量子ビット内部の二種類のユニタリ並べ替えの対照
+problem_patterns:
+  - BHI12-DIMENSION-ACCOUNTING
+  - BHI12-INITIAL-BELL-REDUCTION
+  - BHI12-SWAP-RECOVERY
+  - BHI12-IDENTITY-COUNTEREXAMPLE
+  - BHI12-EMISSION-DIMENSION-BOUND
+  - BHI12-STINESPRING-ISOMETRY
+  - BHI12-CNOT-CLASSICAL-VS-QUANTUM
+  - BHI12-DECOUPLING-APPLICATION
+  - BHI12-MUTUAL-INFORMATION-BOUND
+  - BHI12-INTEGRATED-PERMUTATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }

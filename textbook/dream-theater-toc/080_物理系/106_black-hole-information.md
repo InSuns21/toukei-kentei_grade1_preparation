@@ -12,3 +12,4 @@
 9. [BHI9 Mathurのsmall-corrections制約](textbook/volumes/dream_thater/物理系/BHI/BHI9/index.md)
 10. [BHI10 AMPSのエンタングルメント矛盾](textbook/volumes/dream_thater/物理系/BHI/BHI10/index.md)
 11. [BHI11 相補性・no-cloning・観測者](textbook/volumes/dream_thater/物理系/BHI/BHI11/index.md)
+12. [BHI12 Hayden–Preskillの情報投入模型](textbook/volumes/dream_thater/物理系/BHI/BHI12/index.md)
