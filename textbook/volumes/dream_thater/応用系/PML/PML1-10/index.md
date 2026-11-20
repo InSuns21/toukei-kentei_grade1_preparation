@@ -12,9 +12,9 @@
 
 確率分布 $\pi$ に従って初期状態を選ぶと、順序付きの二点 $(X_0,X_t)$ の同時確率は次の積測度で表される。
 
-$
+$$
 \pi(dx)P_t(x,dy).
-$
+$$
 
 **不変性**が指定するのは二点分布の後半、すなわち $X_t$ の周辺分布だけである。
 
@@ -35,7 +35,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-10-detailed-balance -->
-**定義の直接確認**：$E=\{0,1\}$、$0<r<1$ とし、独立な指数待ち時間の後に相手の状態へ移る率が両方向とも $r$ の連続時間Markov連鎖を考える。率行列は $Q=\left(\begin{smallmatrix}-r&r\\r&-r\end{smallmatrix}\right)$ であり、時間 $t$ の遷移行列は
+**定義の確認**：$E=\{0,1\}$、$0<r<1$ とし、独立な指数待ち時間の後に相手の状態へ移る率が両方向とも $r$ の連続時間Markov連鎖を考える。率行列は $Q=\left(\begin{smallmatrix}-r&r\\r&-r\end{smallmatrix}\right)$ であり、時間 $t$ の遷移行列は
 $$
 P_t=e^{tQ}
 =\frac12
@@ -99,17 +99,17 @@ $$
 [詳細釣合いと CTMC の可逆性](../../../解析系/SP/SP13/index.md#thm-sp13-reversibility)を再利用し、ここでは確率流という観点から両者を読み直す。状態空間は有限集合 $E=\{0,\ldots,n-1\}$ とする。
 
 状態 $i$ から異なる状態 $j$ への**単位時間当たりの遷移率**を $q_{ij}\ge0$ とする。対角成分は各行の和がゼロになるよう
-$
+$$
 q_{ii}=-\sum_{j\ne i}q_{ij}
-$
+$$
 と定める。行を出発状態、列を到着状態とする率行列 $Q=(q_{ij})$ の遷移行列と、行分布 $\pi$ の時間発展は、それぞれ
-$
+$$
 P_t=e^{tQ},\qquad \pi P_t
-$
+$$
 である。確率核との関係は、異なる $i,j$ について次の右微分で与えられる。
-$
+$$
 q_{ij}=\lim_{h\downarrow0}\frac{P_h(i,j)}h.
-$
+$$
 これが、瞬間の移動量と遷移核を結び付ける。
 
 状態 $i$ から $j$ へ単位時間に移る確率の量は $\pi_iq_{ij}$ である。逆向きの量を引いた差が、その辺に残る正味の流れになる。
@@ -128,7 +128,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-10-edge-current -->
-**定義の直接確認**：三状態 $0,1,2$ を巡回順序 $0\to1\to2\to0$ として、順方向の率を $a=2$、逆方向の率を $c=1$ とする。各状態からの総脱出率は $3$ であり、率行列は
+**定義の確認**：三状態 $0,1,2$ を巡回順序 $0\to1\to2\to0$ として、順方向の率を $a=2$、逆方向の率を $c=1$ とする。各状態からの総脱出率は $3$ であり、率行列は
 $$
 Q=\begin{pmatrix}
 -3&2&1\\
@@ -190,7 +190,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-10-entropy-production -->
-**定義の直接確認**：巡回三状態で順方向 $a=2$、逆方向 $c=1$ とすると、$\pi_i=1/3$ が正かつ不変で、全ての異なる状態間に双方向の正の率がある。各順方向の辺について、正味流と対数比は
+**定義の確認**：巡回三状態で順方向 $a=2$、逆方向 $c=1$ とすると、$\pi_i=1/3$ が正かつ不変で、全ての異なる状態間に双方向の正の率がある。各順方向の辺について、正味流と対数比は
 $$
 J_{\rm forward}=\frac{a-c}{3}=\frac13,
 \qquad
@@ -297,18 +297,18 @@ $$
 従って $X_t\sim N(0,S)$ が任意の $t$ で成り立つ。正規密度の公式に $\det S=(\tau/\alpha)^2$ と $S^{-1}=(\alpha/\tau)I_2$ を代入した密度が（1）の $\rho$ である。正規化と不変性の両方が示された。
 
 次に[STO11の前進方程式](../../../解析系/STO/STO11/index.md#thm-sto11-forward-fokker-planck)を、このSDEのドリフトと一定拡散共分散へ適用する。具体的には
-$
+$$
 b(x)=Ax,\qquad \Sigma\Sigma^{\mathsf T}=2\tau I_2
-$
+$$
 を代入して、密度が存在し十分滑らかな場合の前進方程式を得る。
-$
+$$
 \partial_t p=-\nabla\cdot(bp)+\tau\Delta p
 =-\nabla\cdot(bp-\tau\nabla p).
-$
+$$
 従って確率流は $J_p=bp-\tau\nabla p$ である。Gibbs密度の勾配
-$
+$$
 \nabla\rho=-\frac{\alpha}{\tau}x\rho
-$
+$$
 を代入すると
 $$
 \begin{aligned}
