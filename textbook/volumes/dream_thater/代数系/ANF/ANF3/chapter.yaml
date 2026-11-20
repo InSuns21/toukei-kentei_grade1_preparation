@@ -1,0 +1,43 @@
+id: "ANF3"
+title: "Dedekind環とイデアルの分解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANF2
+official_scope: []
+learning_objectives:
+  - Dedekind整域のNoether性・整閉性・零でない素イデアルの極大性を区別して確認できる
+  - 数体の整数環がDedekind整域となる三条件を整数基底・整性の推移性・有限商から証明できる
+  - 分数イデアル・逆イデアル・可逆性を定義し整数環の具体例で積を計算できる
+  - Dedekind整域の非零素イデアルでの局所化が単項極大イデアルを持ち非零イデアルがその冪となることを証明できる
+  - 局所単項性から非零分数イデアルの可逆性を証明できる
+  - イデアル昇鎖停止と局所指数を使って素イデアル分解の存在と一意性を証明できる
+  - Q(sqrt(-5))の非主素イデアルを用い元の非一意分解とイデアルの一意分解を計算で両立させられる
+definitions:
+  - { id: ANF3-DEF-01, name: Dedekind整域 }
+  - { id: ANF3-DEF-02, name: 分数イデアル }
+  - { id: ANF3-DEF-03, name: イデアルの逆と可逆性 }
+theorems:
+  - { id: ANF3-THM-01, name: 数体の整数環はDedekind整域 }
+  - { id: ANF3-LEM-01, name: Dedekind整域の局所単項性 }
+  - { id: ANF3-PROP-01, name: 非零分数イデアルの可逆性 }
+  - { id: ANF3-THM-02, name: Dedekind整域の素イデアル分解 }
+canonical_examples:
+  - ZのNoether性・整閉性・次元1の直接確認
+  - Zの分数イデアルと逆イデアル
+  - Z_(3)での局所指数と単元
+  - Q(sqrt(-5))でp=(2,1+sqrt(-5))の非主性とp^2=(2)
+  - Q(sqrt(-5))で(6)=p^2 q q'=(1+s)(1-s)
+problem_patterns:
+  - ANF3-DEDEKIND-THREE-CONDITIONS
+  - ANF3-FRACTIONAL-INVERSE
+  - ANF3-PRIME-QUOTIENT-FIELD
+  - ANF3-LOCAL-PRIME-EXPONENT
+  - ANF3-IDEAL-PRODUCT-GENERATORS
+  - ANF3-PRINCIPAL-IDEAL-NORM-INDEX
+  - ANF3-NONPRINCIPAL-IDEAL
+  - ANF3-IDEAL-FACTOR-COMPARISON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 7.0, review: 2.0 }
