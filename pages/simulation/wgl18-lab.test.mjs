@@ -81,6 +81,8 @@ test('live WebGL18 draws the SAME edited GPU state after initial independent pro
   assert.match(js,/prefers-reduced-motion: reduce/);
   assert.match(js,/document\.hidden/);
   assert.match(js,/requestAnimationFrame\(frame\)/);
+  assert.match(js,/initialOracleCaptured && playing/);
+  assert.match(js,/wgl18-initial-oracle-captured/);
   assert.match(js,/pagehide.*cancelAnimationFrame\(raf\)/);
   assert.match(js,/event\.key==='ArrowRight'/);
   assert.match(js,/event\.key==='r'/);
