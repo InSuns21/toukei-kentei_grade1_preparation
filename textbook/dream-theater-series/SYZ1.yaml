@@ -72,7 +72,7 @@ chapters:
     title: "インスタントン補正と座標の貼り合わせ"
   - id: SYZ1-17
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-17
-    status: planned
+    status: completed
     title: "Gross–Siebertとトロピカル退化"
   - id: SYZ1-18
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-18
