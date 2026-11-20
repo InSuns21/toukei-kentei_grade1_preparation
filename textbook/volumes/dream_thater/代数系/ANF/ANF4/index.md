@@ -52,7 +52,24 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf4-ramification-residue -->
-**定義の確認**：$K=\mathbb Q(\sqrt{-5})$ では $s=\sqrt{-5}$ と置くと $A=\mathbb Z[s]$ です。[ANF3 の具体的なイデアル](../ANF3/index.md#thm-anf3-prime-ideal-factorization)と同じ $\mathfrak q=(3,s-1)$ を考えます。$A/\mathfrak q$ では $3=0,\ s=1$ となるので $\mathbb F_3$ そのものです。よって $f(\mathfrak q\mid3)=1$。後で $(3)=\mathfrak q(3,s+1)$ と証明するので、$\mathfrak q$ の分岐指数は $e=1$ です。剰余体の計算と、イデアルの積の計算を分けて確認できました。
+**定義の確認**：$K=\mathbb Q(\sqrt{-5})$ では $s=\sqrt{-5}$ と置くと、[二次体の整数環の定理](../ANF1/index.md#thm-anf1-quadratic-integers)から $A=\mathbb Z[s]$ です。$p=3$ の上の候補として $\mathfrak q_+=(3,s-1)$、$\mathfrak q_-=(3,s+1)$ を作ります。ここで添字 $\pm$ は二つのイデアルを区別するラベルです。
+
+$s^2=-5\equiv1\pmod3$ なので、$a+bs\mapsto a+b\bmod3$ と $a+bs\mapsto a-b\bmod3$ はそれぞれ $A$ から $\mathbb F_3$ への全射環準同型です。例えば第一の写像で $a+b\equiv0\pmod3$ なら $a+bs=(a+b)+b(s-1)\in\mathfrak q_+$ であり、生成元 $3,s-1$ はいずれも零へ写ります。第二の写像でも $a+bs=(a-b)+b(s+1)$ と表せるため、核は順に $\mathfrak q_+$、$\mathfrak q_-$ であり、
+
+$$
+A/\mathfrak q_+\cong\mathbb F_3,\qquad
+A/\mathfrak q_-\cong\mathbb F_3.
+$$
+
+したがって両イデアルは相異なる極大イデアルで、定義の剰余次数は $f_+=f_-=1$ です。次に分岐指数を、[素イデアル分解の一意性](../ANF3/index.md#thm-anf3-prime-ideal-factorization)を使う前に積で確かめます。
+
+$$
+\mathfrak q_+\mathfrak q_-
+=(9,\ 3(s-1),\ 3(s+1),\ (s-1)(s+1))
+=(9,\ 3(s-1),\ 3(s+1),\ -6).
+$$
+
+全生成元は $3A$ に属し、逆に $3=9-6$ も積に属するので $(3)=\mathfrak q_+\mathfrak q_-$ です。両者は相異なる素イデアルなので、分岐指数は $e_+=e_-=1$、個数は $g=2$。これで $e_i,f_i,g$ を定義に戻ってそれぞれ直接確認できました。
 <!-- definition-example-end -->
 
 ## 2. イデアルの大きさから次数公式を導く
@@ -73,7 +90,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf4-ideal-norm -->
-**定義の確認**：$A=\mathbb Z$ として $I=(12)$ なら、$\mathbb Z/(12)$ は $0,1,\ldots,11$ の12個の剰余類を持つので $N((12))=12$ です。一般の数体で $I=(m)$、$0\ne m\in\mathbb Z$ なら、整数基底に沿って $A/(m)\cong(\mathbb Z/m\mathbb Z)^n$（加法群）となるため $N((m))=|m|^n$ です。
+**定義の確認**：最も単純な例として $K=\mathbb Q$、$A=\mathbb Z$ を考えます（この例のみ次数1です）。$I=(12)$ なら、$\mathbb Z/(12)$ は $0,1,\ldots,11$ の12個の剰余類を持つので $N((12))=12$ です。一般の数体で $I=(m)$、$0\ne m\in\mathbb Z$ なら、整数基底に沿って $A/(m)\cong(\mathbb Z/m\mathbb Z)^n$（加法群）となるため $N((m))=|m|^n$ です。
 <!-- definition-example-end -->
 
 次の補題が「一つの素イデアルの冪を一つ増やすと、剰余体の大きさだけ商が増える」ことを保証します。
@@ -227,7 +244,7 @@ $$
 A\cong\mathbb Z[T]/(h(T))
 $$
 
-を与えます。実際、整元 $\theta$ のモニック最小多項式で割れば余りは次数 $n$ 未満となり、$1,\theta,\ldots,\theta^{n-1}$ は $\mathbb Q$ 上独立なので余りが零のときだけ代入値が零です。この表示を法 $p$ に落とすと
+を与えます。実際、整元 $\theta$ のモニック最小多項式で割れば余りは次数 $n$ 未満となり、$1,\theta,\ldots,\theta^{n-1}$ は $\mathbb Q$ 上独立なので余りが零のときだけ代入値が零です。この表示を法 $p$ に落とします。ここで $\overline h(T)$ は $h(T)$ の各整数係数を法 $p$ で還元した多項式です。すると
 
 $$
 A/(p)\cong \mathbb F_p[T]/(\overline h(T)).
@@ -294,11 +311,22 @@ $$
 
 が成り立ちます。$g_i^{m_i-1}$ の次数は $g_i^{m_i}$ の次数より小さく、前者は後者で割り切れません。これが二つ目の不等式の根拠です。
 
-一方、[Dedekind整域の素イデアル分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)から $(p)=\prod_i\mathfrak p_i^{e_i}$。互いに素な冪による商の直積に分けると、$i$ 番目は $A/\mathfrak p_i^{e_i}$ です。
+一方、[Dedekind整域の素イデアル分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)から $(p)=\prod_i\mathfrak p_i^{e_i}$ です。
 
-この局所成分で極大イデアルの冪が零になる最小指数は $e_i$ です。[局所単項性](../ANF3/index.md#lem-anf3-local-principal)から $\mathfrak p_i^{e_i-1}\ne\mathfrak p_i^{e_i}$ となるためです。
+$R$ における $\mathfrak p_i$ の像を $\mathfrak m_i=\mathfrak p_i/(p)$ と書きます。この極大イデアルで局所化します。
 
-この局所成分は $R_i$ と同型なので、最小指数を比較して $e_i=m_i$ です。
+$j\ne i$ なら $\mathfrak p_j$ には $\mathfrak p_i$ に属さない元があるため、$\mathfrak p_j$ は局所化後に単位イデアルになります。[局所単項性](../ANF3/index.md#lem-anf3-local-principal)を適用すると
+
+$$
+R_{\mathfrak m_i}
+\cong A_{\mathfrak p_i}/(p)A_{\mathfrak p_i}
+=A_{\mathfrak p_i}/(\pi^{e_i}),
+\qquad \mathfrak p_iA_{\mathfrak p_i}=(\pi).
+$$
+
+他方、上で得た $R\cong\prod_jR_j$ を $\mathfrak m_i$ で局所化すると、対応する $i$ 番目以外の直積因子は消えます。$R_i$ は唯一の極大イデアルを持つ局所環なので、$R_{\mathfrak m_i}\cong R_i$ です。この対応は $\mathfrak p_i/(p)$ が「$g_i$ を零にする」極大イデアルの逆像であることから確かめられます。
+
+$A_{\mathfrak p_i}/(\pi^{e_i})$ の極大イデアル $(\pi)/(\pi^{e_i})$ は、$e_i$ 乗で初めて零になります。実際、商を取る前の局所環 $A_{\mathfrak p_i}$ は整域で $\pi$ は非単元なので $\pi^{e_i-1}\notin(\pi^{e_i})$ です。これは $R_i$ で求めた最小指数 $m_i$ と一致するため、$e_i=m_i$ が従います。
 <!-- proof-end -->
 
 この定理の **$A=\mathbb Z[\theta]$** という仮定は重要です。一般の整元 $\theta$ が生成する部分環 $\mathbb Z[\theta]$ と整数環 $A$ が異なる場合、多項式を単に法 $p$ で分解する方法は、$p$ が指数 $[A:\mathbb Z[\theta]]$ を割るときにはそのまま使えません。整数基底を確定させてから適用します。
@@ -314,7 +342,14 @@ $d\ne1$ を平方因子を持たない整数とし、$K=\mathbb Q(\sqrt d)$ と�
 
 両方で $A=\mathbb Z[\theta]$ なので、[単項生成の場合の素イデアル分解定理](#thm-anf4-monogenic-factorization)を任意の $p$ に適用できます。
 
-二次多項式 $h=T^2-tT+u$ の根を $\theta,\theta'$ とすると、基底 $(1,\theta)$ の跡行列は
+二次多項式 $h=T^2-tT+u$ の二つの根を $\theta,\theta'$ と書きます。$\theta'$ は共役根のラベルであり、微分ではありません。$A=\mathbb Z[\theta]$ で $\theta$ の次数が2だから $(1,\theta)$ は整数基底です。二つの根の和は $t$、積は $u$ なので、[埋め込みによる跡・ノルムの公式](../ANF2/index.md#thm-anf2-embedding-formulas)から
+
+$$
+\operatorname{Tr}(1)=2,\qquad
+\operatorname{Tr}(\theta)=\theta+\theta'=t.
+$$
+
+また $\theta^2=t\theta-u$ であるため、跡の線形性から $\operatorname{Tr}(\theta^2)=t^2-2u$ です。したがって基底 $(1,\theta)$ の跡行列、すなわち $(\operatorname{Tr}(\omega_i\omega_j))_{i,j=1,2}$ は
 
 $$
 \begin{pmatrix}
@@ -594,7 +629,22 @@ $$
 
 これは整数基底 $(1,s)$ からの $A/(6)\cong(\mathbb Z/6\mathbb Z)^2$ の36元とも一致します。
 
-**4. 元とイデアル。** 元では $6=2\cdot3=(1+s)(1-s)$ と異なる既約因子の積を持ちますが、素イデアルに直すとどちらも上の **同じ一意な分解**になります。[ANF3 の具体計算](../ANF3/index.md#thm-anf3-prime-ideal-factorization)のとおり、元が一意分解しないことと、イデアルが一意分解することは両立します。分岐指数 $2$ は「元 $2$ が平方である」とは主張していません。
+**4. 元とイデアル。** 元では $6=2\cdot3=(1+s)(1-s)$ と異なる既約因子の積を持ちます。両者が同じイデアル分解になることも、各因子から直接確かめます。
+
+$(1+s)\subseteq\mathfrak p_2$ かつ $(1+s)\subseteq\mathfrak q_-$ です。$\mathfrak p_2$ と $\mathfrak q_-$ は相異なる極大イデアルなので互いに素であり、
+
+$$
+(1+s)\subseteq\mathfrak p_2\cap\mathfrak q_-=\mathfrak p_2\mathfrak q_-.
+$$
+
+左辺の商では $s=-1$、$s^2=-5$ から $6=0$ となるため $A/(1+s)\cong\mathbb Z/6\mathbb Z$、元数は6です。[中国剰余定理（二つのイデアル）](../../RNG/RNG2/index.md#thm-rng2-crt-two)より、右辺の商も $2\cdot3=6$ 元です。したがって包含は等号です。同じく $s=1$ とすることで
+
+$$
+(1+s)=\mathfrak p_2\mathfrak q_-,\qquad
+(1-s)=\mathfrak p_2\mathfrak q_+.
+$$
+
+よって $(1+s)(1-s)=\mathfrak p_2^2\mathfrak q_-\mathfrak q_+=(6)$ です。[ANF3 の素イデアル分解の一意性](../ANF3/index.md#thm-anf3-prime-ideal-factorization)に反せず、元が一意分解しないこととイデアルが一意分解することは両立します。分岐指数 $2$ は「元 $2$ が平方である」とは主張していません。
 <!-- solution-end -->
 
 ## 7. 次講への橋
