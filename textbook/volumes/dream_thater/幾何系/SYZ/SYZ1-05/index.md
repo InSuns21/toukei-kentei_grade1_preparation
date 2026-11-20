@@ -45,11 +45,11 @@ $$
 
 が成立しているものとする。$\operatorname{vol}_L$ は誘導計量と指定した向きの体積形式である。次の局所的な一次変分を求めるだけなら、$L$ のコンパクト性や境界なしの仮定は必要ない。
 
-変形は滑らかな埋め込み族 $F_t:L\to X$（$|t|<\varepsilon$）で表し、$F_0$ は包含写像、$V=\left.\partial_t F_t\right|_{t=0}$ はその速度場とする。接方向への速度はパラメータの付け替えなので、まず $V$ を各点で $T_pL$ に直交する**法線ベクトル場**とする。一般の速度の場合も第6節で接成分が一次式に寄与しないことを確認する。
+変形は滑らかな埋め込み族 $F_t:L\to X$（$|t|<\varepsilon$）で表し、$F_0$ は包含写像、$V=\left.\partial_t F_t\right|_{t=0}$ はその速度場とする。ここで $\partial_tF_t(p)$ は点 $p\in L$ を固定して時刻 $t$ で微分したベクトル、$F_t^*\eta$ は $F_t$ による微分形式 $\eta$ の[引き戻し](../../GEO/GEO7/index.md#def-geo7-pullback-form)である。後で使う $d/dt$ はこの引き戻し形式の $t$ に関する微分を表し、$d$ は $L$ 上の外微分を表す。接方向への速度はパラメータの付け替えなので、まず $V$ を各点で $T_pL$ に直交する**法線ベクトル場**とする。一般の速度の場合も第6節で接成分が一次式に寄与しないことを確認する。
 
 ## 3. 法線場を二つの微分形式へ移す
 
-$\omega$ に法線ベクトルを代入すると1形式が得られる。$n$ 形式 $\operatorname{Im}(e^{-i\theta}\Omega)$ に代入すると $(n-1)$ 形式になる。ここで内部積（縮約） $\iota_V\eta$ は、$\eta$ の最初の引数に $V$ を代入する操作である。符号を曖昧にしないため、1形式側には**マイナス**を付ける。
+$\omega$ に法線ベクトルを代入すると1形式が得られる。$n$ 形式 $\operatorname{Im}(e^{-i\theta}\Omega)$ に代入すると $(n-1)$ 形式になる。ここで[内部積（縮約）](../../GEO/GEO7/index.md#def-geo7-interior-product) $\iota_V\eta$ は、$k$ 形式 $\eta$ の最初の引数に $V$ を代入して $k-1$ 形式を作る操作、すなわち $(\iota_V\eta)(U_1,\ldots,U_{k-1})=\eta(V,U_1,\ldots,U_{k-1})$ である。$|_{TL}$ は残る引数を $L$ の接ベクトルに制限することを表す。符号を曖昧にしないため、1形式側には**マイナス**を付ける。
 
 <a id="def-syz1-05-variation-forms"></a>
 
@@ -132,14 +132,26 @@ d*\alpha=(\partial_xa+\partial_yb)\,dx\wedge dy,\qquad
 d^*\alpha=-(\partial_xa+\partial_yb).
 $$
 
-したがって $d^*\alpha=0$ は、係数ベクトル場の発散が0であることに等しい。一般の誘導計量でも、点 $p$ に正規直交枠を選んで共変微分で計算すれば
+したがって $d^*\alpha=0$ は、係数ベクトル場の発散が0であることに等しい。一般の誘導計量でも符号は同じである。$\alpha^\sharp$ を $g(\alpha^\sharp,U)=\alpha(U)$ で定まる接ベクトル場、$\nabla$ を計量を保ち捩れのないLevi-Civita接続とする。点 $p$ の近傍で、$p$ において $\nabla_{e_j}e_k=0$ となる正規直交局所枠 $e_1,\ldots,e_n$ と双対余接枠 $e^1,\ldots,e^n$ を選ぶ。$p$ では $de^j=0$ で、Hodge星の基底公式
 
 $$
-d^*\alpha=-\operatorname{div}_L(\alpha^\sharp)
-=-\sum_{j=1}^n(\nabla_{e_j}\alpha)(e_j)
+*e^j=(-1)^{j-1}e^1\wedge\cdots\wedge\widehat{e^j}\wedge\cdots\wedge e^n
 $$
 
-となる。$\alpha^\sharp$ は計量で1形式に対応させた接ベクトル場、$\nabla$ はLevi-Civita接続である。
+を $\alpha=\sum_j a_j e^j$ に適用すると、各項を外微分したとき $e^j$ 方向の微分だけが残り、
+
+$$
+d*\alpha(p)=\sum_{j=1}^n e_j(a_j)(p)\,\operatorname{vol}_L(p).
+$$
+
+一方、計量との両立性と $\nabla_{e_j}e_k(p)=0$ より、$e_j(a_j)(p)=(\nabla_{e_j}\alpha)(e_j)(p)=g(\nabla_{e_j}\alpha^\sharp,e_j)(p)$ である。従って
+
+$$
+d^*\alpha=-\sum_{j=1}^n(\nabla_{e_j}\alpha)(e_j)
+=-\operatorname{div}_L(\alpha^\sharp).
+$$
+
+ここで発散 $\operatorname{div}_L W$ は $\sum_j g(\nabla_{e_j}W,e_j)$ である。局所枠は各点で選び直せるので、最後の等式は $L$ 全体で成立する。
 <!-- definition-example-end -->
 
 ここで **閉** は $d\alpha=0$、**余閉** は $d^*\alpha=0$ を意味する。両方を満たす1形式をこの講義では**調和1形式**と呼ぶ。境界なしのコンパクト多様体上での調和形式の有限次元性・非線形変形への持ち上げは、次講で扱う。
@@ -238,7 +250,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $V$ を $L$ の近傍へ滑らかに延長する。任意の閉 $k$ 形式 $\eta$ に対する引き戻しの微分公式とCartanの公式は
+まず $V$ を $L$ の近傍へ滑らかに延長する。任意の閉 $k$ 形式 $\eta$ に対する引き戻しの微分公式と[Cartanの公式](../../GEO/GEO7/index.md#thm-geo7-cartan-formula)は
 
 $$
 \begin{aligned}
@@ -249,7 +261,7 @@ $$
 \end{aligned}
 $$
 
-ここでは $d\eta=0$ を使い、最後の $d$ は $L$ 上の外微分である。式は延長の選択に依存しない。
+ここでは $d\eta=0$ を使い、最後の $d$ は $L$ 上の外微分である。$F_t$ は必ずしも $V$ の流れではないが、$t=0$ の引き戻しの一次変化は速度場 $V$ のみで決まる。したがって近傍への延長をどのように選んでも同じ結果になる。
 
 $\eta=\omega$ とすると、$\iota_V\omega|_{TL}=-\alpha$ だから
 
@@ -281,7 +293,7 @@ $$
 
 ## 7. 位相まで動かすと何が変わるか
 
-位相を $\theta(t)$ として変えてよい場合、虚部の式の微分には位相自体の変化も入る。コンパクト性をどこで使うかを見るために、ここだけ $L$ をコンパクト・境界なしと仮定する。
+位相を $\theta(t)$ として変えてよい場合、虚部の式の微分には位相自体の変化も入る。ここでは $\dot\theta(0)=\left.\frac{d\theta(t)}{dt}\right|_{t=0}$ と書き、$\theta(t)$ は $L$ 上の位置には依存しないものとする。コンパクト性をどこで使うかを見るために、ここだけ $L$ をコンパクト・境界なしと仮定する。
 
 <a id="prop-syz1-05-phase-rigidity"></a>
 
@@ -354,10 +366,17 @@ $$
 
 ### 例3：一次解が直線的な非線形解とは限らない
 
-$\mathbb C^3$ の水平平面で $f(x,y,z)=xyz$ とし、$V=J\nabla f$（実軸方向の勾配を $J$ で法線に移したもの）を取る。$\alpha=df$ は閉じており、$\Delta f=0$ より $d^*\alpha=0$ でもある。ところが有限のグラフ $F_t(q)=q+i t\nabla f(q)$ に対し、Hessian
+$\mathbb C^3$ の水平平面で $f(x,y,z)=xyz$ とし、$V=J\nabla f$（実軸方向の勾配を $J$ で法線に移したもの）を取る。$\alpha=df$ は閉じており、$\Delta f=0$ より $d^*\alpha=0$ でもある。ところが有限のグラフ $F_t(q)=q+i t\nabla f(q)$ は、実部 $q=(x,y,z)$ を固定して虚部を $t\nabla f$ とする。接基底 $\partial_{q^k}$ に対して
 
 $$
-H=D^2 f=
+dz^j\bigl(dF_t(\partial_{q^k})\bigr)
+=\delta^j_k+it\,\partial_{q^k}\partial_{q^j}f
+$$
+
+となるため、[勾配グラフの特殊Lagrange方程式](../SYZ1-04/index.md#thm-syz1-04-graph-equation)で用いた複素評価行列は $I+itH$ である。ここで $H=D^2f$ は実座標でのHessian
+
+$$
+H=
 \begin{pmatrix}
 0&z&y\\
 z&0&x\\
@@ -365,7 +384,7 @@ y&x&0
 \end{pmatrix}
 $$
 
-の $\operatorname{tr}H=0$、$\det H=2xyz$ を用いると
+で、$\operatorname{tr}H=0$、$\det H=2xyz$。これを用いると
 
 $$
 \operatorname{Im}\det(I+i tH)=-t^3\det H=-2t^3xyz.
@@ -648,7 +667,14 @@ $$
 =xyz+xyz=2xyz.
 $$
 
-**3.** 3次行列の基本対称式展開は
+**3.** $q=(x,y,z)$ の各座標で $F_t$ を微分すると
+
+$$
+dz^j\bigl(dF_t(\partial_{q^k})\bigr)
+=\delta^j_k+it\,f_{jk}
+$$
+
+であり、$f_{jk}=\partial_{q^j}\partial_{q^k}f$ は $H$ の $(j,k)$ 成分である。このため[勾配グラフの方程式](../SYZ1-04/index.md#thm-syz1-04-graph-equation)より $F_t^*\Omega=\det(I+itH)\,dx\wedge dy\wedge dz$ となる。3次行列の基本対称式展開は
 
 $$
 \det(I+itH)=1+it\,\sigma_1-t^2\sigma_2-it^3\sigma_3.
