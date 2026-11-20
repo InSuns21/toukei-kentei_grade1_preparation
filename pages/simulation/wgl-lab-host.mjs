@@ -1690,13 +1690,13 @@ byId('width').value=String(sizeHint[0]);
 byId('height').value=String(sizeHint[1]);
 // An animated scene is only validated at its first static snapshot.
 // Keep that boundary visible next to the real GPU canvas, not just in theory.
-if (['FCG3','FCG5','WGL5','WGL9','WGL12'].includes(lesson)) {
+if (['FCG3','FCG5','WGL5','WGL9','WGL12'].includes(lesson) || ['FCG4','WGL7','WGL13'].includes(lesson)) {
   const note=document.createElement('p');
   note.className='visual-snapshot-note';
   note.setAttribute('role','note');
   note.textContent='最初の静止フレームをCPU/GPUで照合した後、同じ編集コードが連続描画します。' +
-    '以下の数値表は初期時刻の基準値です。動いている画面全フレームの検算結果ではありません。' +
-    'GPU画面をクリックまたはSpace/Enterで停止・再生できます。';
+    '以下の数値表は実行開始時に指定した固定条件（FCG4はPoisson反復数、WGL7はUV、WGL13は6面そのもの）での基準値です。再生中の全フレームの検算ではありません。' +
+    'GPU画面にフォーカスしてSpace/Enterで再生・停止できます。FCG4は矢印とR、WGL13は左右矢印でも操作できます。';
   byId('canvas-slot').before(note);
 }
 mountVisualGuide(lesson,byId('panel-conditions'),{run,focusResult:selectTab});
