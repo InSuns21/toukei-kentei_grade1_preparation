@@ -26,6 +26,17 @@
 <button type="button" role="tab" id="tab-result" aria-controls="panel-result" aria-selected="false" tabindex="-1">3. 実行結果</button>
 </div>
 <section id="panel-conditions" role="tabpanel" aria-labelledby="tab-conditions">
+<section class="visual-lesson-guide" aria-label="FCG1 画面から理解する">
+<h2>画面から始める · FCG1</h2>
+<strong class="visual-guide-focus">流線と流跡は同じなのか？</strong>
+<dl class="visual-guide-steps">
+<div><dt>目に見えるもの</dt><dd>粒子の実際の移動と、同時刻で凍結させた流線を重ねる</dd></div>
+<div><dt>自分で変える</dt><dd>解析速度場と物理時間刻みを切り替える</dd></div>
+<div><dt>確かめること</dt><dd>定常・非定常の違い、数値Euler誤差、破線と点線の意味</dd></div>
+</dl>
+<div class="visual-guide-actions"><button type="button" class="action primary" id="fcg1-observe">編集コードで描画して観察する</button></div>
+<p class="visual-guide-note">実際のtracer.jsを不透明originのsandboxで実行します。編集済みソースは勝手に自動実行されません。再生ボタンは物理stepを一定間隔で進めます。</p>
+</section>
 <h2>初期値・検算する量</h2>
 <div class="controls">
 <label>解析速度場
