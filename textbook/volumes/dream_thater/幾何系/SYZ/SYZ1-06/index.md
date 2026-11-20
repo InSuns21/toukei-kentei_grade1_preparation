@@ -266,7 +266,16 @@ $\sup$ は異なる2点についての上限である。この条件は、近い
 
 未知数には $C^{k+1,\gamma}\Omega^1(L)$ を使い、値には $C^{k,\gamma}$ の完全な2形式と最高次形式の対からなる空間 $\mathcal E^{k,\gamma}$ を使う。調和成分を除いた1形式の閉補空間を $\mathcal K^{k+1,\gamma}$ と書く。
 
-ここで「完全」は、$C^{k+1,\gamma}$ の原始形式の外微分として表せるという意味である。[Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)と[Hodge分解](../../GA/GA6/index.md#thm-ga6-hodge-decomposition)により、$n\ge2$ では完全2形式 $\eta$ の条件は $d\eta=0$ と $P_2\eta=0$、完全最高次形式 $\xi$ の条件は $\int_L\xi=0$ と同値になる。$n=1$ では第1成分は零だけとする。外微分と調和射影はHölder空間上で連続なので、これらの条件で切り出した $\mathcal E^{k,\gamma}$ は閉部分空間、従ってBanach空間である。また $\mathcal K^{k+1,\gamma}=\ker P_1$ と明示すれば、こちらも閉部分空間になる。
+ここで「完全」は、$C^{k+1,\gamma}$ の原始形式の外微分として表せるという意味である。[Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)と[Hodge分解](../../GA/GA6/index.md#thm-ga6-hodge-decomposition)を用いると、$n\ge2$ で $C^{k,\gamma}$ の2形式 $\eta$、最高次形式 $\xi$ が完全である条件はそれぞれ
+
+$$
+d\eta=0,\qquad P_2\eta=0;
+\qquad \int_L\xi=0
+$$
+
+となる。これらの同値性では、Green作用素のSchauder評価によって原始形式を $C^{k+1,\gamma}$ で取れることも使う。$n=1$ では第1成分は零だけとする。
+
+外微分と調和射影はHölder空間上で連続なので、これらの条件で切り出した $\mathcal E^{k,\gamma}$ は閉部分空間、従ってBanach空間である。また $\mathcal K^{k+1,\gamma}=\ker P_1$ と明示すれば、こちらも閉部分空間になる。
 
 前節で作った逆公式を連続な逆として使うため、以下の**楕円型作用素の $C^{k,\gamma}$ ノルム評価**を解析的入力とする。$j$ 次の形式 $\rho$ が調和成分に直交すれば、滑らかな係数を持つ閉多様体のHodge Laplacianに対するGreen作用素は
 
@@ -519,7 +528,27 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-閉じた $\Omega$ と $F_t$ のホモトピーに[Cartanの公式](../../GEO/GEO7/index.md#thm-geo7-cartan-formula)を使うと $\frac d{dt}\int_LF_t^*\Omega=\int_Ld(\cdots)$。$L$ はコンパクト境界なしなので、[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から右辺は0である。従って $Z=\int_LF_t^*\Omega$ は一定。SLagの虚部零・実部正から $Z=e^{i\theta(t)}\operatorname{Vol}(F_t(L))$ である。正の体積により $Z\ne0$、絶対値を取ると $\operatorname{Vol}(F_t(L))=|Z|$。ゆえに $e^{i\theta(t)}=Z/|Z|$ は一定で、連続な $\theta(t)$ の分枝は局所的に一定となる。
+閉じた $\Omega$ と $F_t$ のホモトピーに[Cartanの公式](../../GEO/GEO7/index.md#thm-geo7-cartan-formula)を適用する。$L$ はコンパクト境界なしなので、[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から
+
+$$
+\frac d{dt}\int_LF_t^*\Omega
+=\int_Ld(\cdots)=0
+$$
+
+である。従って $Z=\int_LF_t^*\Omega$ は一定である。SLagの虚部零・実部正の条件より
+
+$$
+Z=e^{i\theta(t)}\operatorname{Vol}(F_t(L)),
+\qquad |Z|=\operatorname{Vol}(F_t(L))>0
+$$
+
+となる。従って
+
+$$
+e^{i\theta(t)}=\frac{Z}{|Z|}
+$$
+
+は一定であり、連続な $\theta(t)$ の分枝も局所的に一定である。
 <!-- solution-end -->
 
 ### Level B：右逆の計算と局所パラメータ
