@@ -317,7 +317,27 @@ $$
 
 ## 5. Langevinの熱雑音との比較：学習率の次数が違う
 
-[PML1-08の熱雑音の整合条件](../PML1-08/index.md#def-pml1-08-thermal-matching)で移動度 $M=I_d$、拡散係数 $\Sigma=\sqrt{2\tau}\,I_d$ を選ぶ。$I_d$ は $d\times d$ 単位行列、$\tau>0$ は温度である。[d次元ブラウン運動](../../../解析系/STO/STO7/index.md#def-sto7-vector-brownian)を $B_t$ とし、幅 $\eta>0$ の増分を $\Delta B_n=B_{(n+1)\eta}-B_{n\eta}$ と定める。この増分は $N_d(0,\eta I_d)$ に従うので、$\xi_{n+1}=\Delta B_n/\sqrt\eta$ と置けば $\Delta B_n=\sqrt\eta\,\xi_{n+1}$ と書ける。ここで $\xi_{n+1}$ は $N_d(0,I_d)$ に従い、過去の増分から独立である。
+[PML1-08の熱雑音の整合条件](../PML1-08/index.md#def-pml1-08-thermal-matching)に従い、温度 $\tau>0$ で移動度と拡散係数を次のように選ぶ。$I_d$ は $d\times d$ 単位行列である。
+
+$$
+M=I_d,\qquad \Sigma=\sqrt{2\tau}\,I_d.
+$$
+
+[d次元ブラウン運動](../../../解析系/STO/STO7/index.md#def-sto7-vector-brownian)を $B_t$ とし、時間刻み $\eta>0$ での増分を定める。この増分の分布は
+
+$$
+\Delta B_n=B_{(n+1)\eta}-B_{n\eta}
+\sim N_d(0,\eta I_d)
+$$
+
+となる。$\xi_{n+1}=\Delta B_n/\sqrt\eta$ と置けば
+
+$$
+\xi_{n+1}\sim N_d(0,I_d),\qquad
+\Delta B_n=\sqrt\eta\,\xi_{n+1}
+$$
+
+である。異なる時刻のブラウン増分は独立なので、$\xi_{n+1}$ も過去の増分から独立である。
 
 [PML1-11のEuler–Maruyama離散化](../PML1-11/index.md#def-pml1-11-euler-maruyama)で一次元に行ったのと同じく、ドリフト積分を左端の $g(Y_n)$ と刻み幅 $\eta$ の積で近似し、ブラウン増分はそのまま用いる。$g=\nabla F$ とすると、多次元の一歩は
 
