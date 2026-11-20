@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - PML1-18
   - AMECH5
+  - ODE4
 official_scope: []
 learning_objectives:
   - Euler--Lagrange 方程式を連鎖律で展開し速度 Hessian と混合微分から加速度を導ける
