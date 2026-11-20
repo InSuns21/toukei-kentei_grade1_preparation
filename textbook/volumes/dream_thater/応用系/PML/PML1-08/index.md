@@ -150,7 +150,7 @@ $$
 
 と書く。
 
-[STO7 の多次元ブラウン運動の共変分命題](../../../解析系/STO/STO7/index.md#prop-sto7-vector-brownian-covariation)から $[W^\alpha,W^\beta]_t=\delta_{\alpha\beta}t$ である。従って
+[命題（多次元ブラウン運動の共変分）](../../../解析系/STO/STO7/index.md#prop-sto7-vector-brownian-covariation)から $[W^\alpha,W^\beta]_t=\delta_{\alpha\beta}t$ である。従って
 
 $$
 d[X^i,X^j]_t
