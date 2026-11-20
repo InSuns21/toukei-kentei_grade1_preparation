@@ -8,7 +8,9 @@
 
 ## 1. 主イデアルからのずれを積で測る
 
-$K/\mathbb Q$ を次数 $n$ の数体、$A=\mathcal O_K$ をその整数環とします。[分数イデアル](../ANF3/index.md#def-anf3-fractional-ideal)とは $K$ の中にある、ある非零整数倍が $A$ の整イデアルになる非零 $A$-加群でした。[可逆性](../ANF3/index.md#prop-anf3-invertible-ideals)から零でない分数イデアルは積について可換群を作り、単位元は $A$、$\mathfrak a$ の逆元は $\mathfrak a^{-1}$ です。
+$K/\mathbb Q$ を次数 $n$ の数体とし、その整数環を $A=\mathcal O_K$ とします。[分数イデアル](../ANF3/index.md#def-anf3-fractional-ideal)は、$K$ の非零加群であり、ある非零整数倍が $A$ の整イデアルになるものでした。
+
+[非零分数イデアルの可逆性](../ANF3/index.md#prop-anf3-invertible-ideals)から、これらは積について可換群を作ります。単位元は $A$ です。分数イデアル $\mathfrak a$ の逆元は $\mathfrak a^{-1}$ です。
 
 元 $\gamma\in K^\times$ が作る分数イデアル $(\gamma)=\gamma A$ は**主分数イデアル**です。これらは積で閉じ、$(\gamma)^{-1}=(\gamma^{-1})$。たとえば $\mathbb Z$ では分数イデアルがすべて $q\mathbb Z$（$q\in\mathbb Q^\times$）なので、非主イデアルの障害は一つもありません。
 
@@ -368,7 +370,19 @@ $[K:\mathbb Q]=n$ の整数環 $A$ について、正整数 $m$ と整イデア�
 - ID: ANF6-B1
 
 <!-- solution-start -->
-**詳細解答**　[整数基底](../ANF1/index.md#thm-anf1-integral-basis)によって $A\simeq\mathbb Z^n$（加法群）なので $A/mA\simeq(\mathbb Z/m\mathbb Z)^n$、位数は $m^n$ です。一方、$A/J$ は位数 $m$ の加法群であるから $m(x+J)=0$ が全 $x\in A$ で成り立ち $mA\subseteq J$。すると $J/mA$ は有限環 $A/mA$ のイデアルであり、その種類は有限個です。各 $k=1,\dots,m$ に同じ議論を適用し、有限集合を有限個合併すればノルムが $m$ 以下のイデアル全体は有限です。
+**詳細解答**　[整数基底](../ANF1/index.md#thm-anf1-integral-basis)を使うと、整数環は加法群として $A\simeq\mathbb Z^n$ です。よって
+
+$
+A/mA\simeq(\mathbb Z/m\mathbb Z)^n,\qquad |A/mA|=m^n.
+$
+
+$A/J$ は位数 $m$ の加法群です。その各元の位数は $m$ を割る（その元が生成する巡回部分群の剰余類で群を分割できる）ので、全ての $x\in A$ について
+
+$
+m(x+J)=0+J,\qquad mA\subseteq J.
+$
+
+従って $J/mA$ は有限環 $A/mA$ のイデアルであり、その候補数は有限です。ノルムの値を $k=1,\dots,m$ に固定して同じ議論を繰り返せば、ノルムが $m$ 以下の整イデアルも有限個となります。
 <!-- solution-end -->
 
 ### B2. 虚二次体の類数1
