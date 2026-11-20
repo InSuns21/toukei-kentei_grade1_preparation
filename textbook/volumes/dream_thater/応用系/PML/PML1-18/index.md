@@ -162,7 +162,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（HNN の速度適合損失）**  
-> 整数 $d\ge1$、開集合 $U\subset\mathbb R^{2d}$、固定した $\theta$ と $C^1$ 級関数 $H_\theta:U\to\mathbb R$ をとる。正準行列を
+> 整数 $d\ge1$、開集合 $U\subset\mathbb R^{2d}$ とパラメータ集合 $\Theta$ をとる。各 $\theta\in\Theta$ に対して $H_\theta:U\to\mathbb R$ が $C^1$ 級であるとする。正準行列を
 
 $$
 J_d=\begin{pmatrix}
@@ -171,7 +171,7 @@ J_d=\begin{pmatrix}
 \end{pmatrix}
 $$
 
-> とし、正準 HNN の速度場を $f_\theta=J_d\nabla_zH_\theta$ で定める。整数 $N\ge1$ と $N$ 個の状態・速度データ $(z_i,w_i)\in U\times\mathbb R^{2d}$ を与え、各 $w_i$ はその状態での観測時間微分とする。速度適合損失を
+> とし、各 $\theta$ で正準 HNN の速度場を $f_\theta=J_d\nabla_zH_\theta$ と定める。整数 $N\ge1$ と $N$ 個の状態・速度データ $(z_i,w_i)\in U\times\mathbb R^{2d}$ を与え、各 $w_i$ はその状態での観測時間微分とする。速度適合損失を
 
 $$
 \mathcal L(\theta)
