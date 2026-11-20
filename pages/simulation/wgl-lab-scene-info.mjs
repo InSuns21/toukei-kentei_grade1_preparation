@@ -1,5 +1,29 @@
 // G3: describe the actual editable sandbox canvas; never compute or display a second simulation.
 const descriptions = Object.freeze({
+  WGL1: Object.freeze({
+    requiresSteps: false,
+    grid: '数値計算格子なし（3頂点から三角形をラスタライズ）',
+    color: '初期シェーダは三角形内部をRGBA=(1, 0.5, 0, 1)の橙色、背景を黒に描画',
+    clock: () => '静止描画1回（物理stepなし）',
+    mode: '位置はclip座標w=1のためNDCと一致。GPUが描画画素ごとに三角形の内外を判定',
+    source: 'triangle.js（coordinates）/ triangle.vert（a_position）/ triangle.frag（outColor）'
+  }),
+  WGL2: Object.freeze({
+    requiresSteps: false,
+    grid: '数値計算格子なし（3頂点の位置と色をGPUへ入力）',
+    color: '初期の頂点A=赤・B=緑・C=青。内部画素では3色を補間し、fragment shaderでu_gainを乗算',
+    clock: () => '静止描画1回（物理stepなし）',
+    mode: '位置のclip座標w=1。画素中心の色は頂点間補間で決まり、表示はGPU描画バッファの画素',
+    source: 'colors.js（vertices, gl.uniform3f）/ colors.vert（v_color）/ colors.frag（u_gain）'
+  }),
+  WGL3: Object.freeze({
+    requiresSteps: false,
+    grid: 'gridSteps=nでn×nに分割する幾何メッシュ（頂点(n+1)²、三角形2n²）。数値計算格子ではない',
+    color: '初期fragment shaderは正方形の内側をRGBA=(0.2, 0.6, 0.8, 1)、背景を黒に描画',
+    clock: () => '静止描画1回（物理stepなし）',
+    mode: 'drawModeでdrawElements（頂点共有）とdrawArrays（頂点展開）を切替。三角形の面積と画素の色を比較',
+    source: 'mesh.js（gridSteps, drawMode, indices）/ mesh.vert / mesh.frag'
+  }),
   FCG2: Object.freeze({
     grid: '8×8（実際のスカラー場、R8テクスチャ2枚を交互に更新）',
     color: '解析値 q=0.5+0.25 sin(2πx) cos(2πy) sin(t)。R8への丸め後、(q, 0.15, 1−q) の赤青で表示',
