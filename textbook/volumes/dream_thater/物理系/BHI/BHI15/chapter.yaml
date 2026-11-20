@@ -1,0 +1,47 @@
+id: BHI15
+title: "因数分解・ゲージ制約・局所代数"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI14
+  - AQFT15
+  - AQFT16
+official_scope: []
+learning_objectives:
+  - 二リンクのZ2 Gauss制約の物理空間と許される左右局所作用素を行列で全件計算できる
+  - 電束セクターを持つ物質付き模型で局所代数・可換子・共有中心を証明できる
+  - 局所代数の非自明中心が鋭い全行列テンソル因子分解を妨げる理由を説明できる
+  - 拡張Hilbert空間の部分トレースと物理空間の因子分解を区別できる
+  - 代数エントロピーをセクター確率とセクター内の量子エントロピーへ分解して検算できる
+  - 局所制限で消える電束間のコヒーレンスを非局所ゲージ不変演算子で検出できる
+  - AMPSの独立因子仮定とType III・split property・重力ドレッシングの適用境界を区別できる
+definitions:
+  - { id: BHI15-DEF-01, name: "二リンクのGauss物理空間" }
+  - { id: BHI15-DEF-02, name: "Gauss制約下の左右局所代数" }
+  - { id: BHI15-DEF-03, name: "本有限模型の局所代数エントロピー" }
+theorems:
+  - { id: BHI15-LEM-01, name: "二リンク模型の局所観測量" }
+  - { id: BHI15-THM-01, name: "Gauss制約による共有中心と可換子" }
+  - { id: BHI15-PROP-01, name: "共有中心は鋭い全行列因子分解を妨げる" }
+  - { id: BHI15-THM-02, name: "電束セクターのエントロピー分解" }
+canonical_examples:
+  - 二リンク四つの電束基底とGauss射影のrank2の直接計算
+  - 二リンクの局所電束と全域Wilson型反転作用素の違い
+  - 物質付き八次元物理空間の共有中心射影と行列ブロック
+  - 電束50対50とBell状態による3/2 ln2の代数エントロピー
+  - 純粋重ね合わせとセクター混合状態の局所不識別と全域干渉
+problem_patterns:
+  - BHI15-GAUSS-PROJECTOR
+  - BHI15-LOCAL-COMMUTANT
+  - BHI15-NONLOCAL-WILSON
+  - BHI15-CENTRAL-PROJECTION
+  - BHI15-COHERENCE-VS-MIXTURE
+  - BHI15-MATRIX-UNITS-COMMUTANT
+  - BHI15-ALGEBRA-ENTROPY
+  - BHI15-TENSOR-FACTOR-OBSTRUCTION
+  - BHI15-FIXED-SUPERSELECTION-SECTOR
+  - BHI15-INTEGRATED-GAUGE-ENTROPY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 6 }
