@@ -194,6 +194,9 @@ main{max-width:1120px}
   .lab-details summary{padding:.8rem .1rem}
 }
 
+/* Keyboard-only exit help: visible text also labels all three source editors. */
+.editor-keyboard-help{margin:.35rem 0 .75rem;color:#41566e;font-size:.85rem;line-height:1.5}
+
 /* G2: compact source-backed controls without a second visualization layer. */
 .lab-parameters{border-top:1px solid #cbd5e1;padding:.5rem 0;margin-top:.75rem}
 .lab-parameter-row{display:grid;grid-template-columns:minmax(8rem,1fr) minmax(8rem,2fr) auto;gap:.3rem .8rem;align-items:center;margin:.65rem 0}
