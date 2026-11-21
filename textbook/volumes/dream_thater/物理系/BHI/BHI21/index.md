@@ -277,7 +277,7 @@ M'(y)=\frac{a(cy+d)-c(ay+b)}{(cy+d)^2}
 =\frac{ad-bc}{(cy+d)^2}
 $
 
-です。したがって合成関数の連鎖律により $\widetilde F'(u)=M'(F(u))F'(u)>0$ となります。つまり行列 $\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)$ の行列式 $ad-bc$ の正値性と分母の非零条件は、座標が滑らかで向きを保つことを直接保証します。
+です。したがって合成関数の連鎖律により $\widetilde F'(u)=M'(F(u))F'(u)>0$ となります。つまり係数の組 $(a,b,c,d)$ に課した $ad-bc>0$ と分母の非零条件は、座標が滑らかで向きを保つことを直接保証します。
 
 <!-- definition-example-start: def-bhi21-projective-boundary-transform -->
 **定義の確認**：長さ定数 $L>0$ に対し $u>0$、$F(u)=u$、$M(y)=L(y+L)/(y+2L)$ とします。係数は $a=L,b=L^2,c=1,d=2L$ なので $ad-bc=2L^2-L^2=L^2>0$、分母は $F(u)+2L=u+2L>0$。さらに $\widetilde F'(u)=L^2/(u+2L)^2>0$ です。新旧座標はいずれも長さの次元を持ち、写像は指定した区間で滑らかで向きも保ちます。
