@@ -9,7 +9,6 @@ import {expectedFCG6Samples,compareFCG6Readback,fcg6State,fcg6PixelCell} from '.
 import {expectedFCG7Samples,compareFCG7Readback,fcg7State} from './fcg7-lab-core.mjs';
 import {expectedFCG8Samples,compareFCG8Readback,fcg8State} from './fcg8-lab-core.mjs';
 import { highlightSource } from './wgl-lab-highlight.mjs';
-import {mountSmokeObservation} from './wgl-fcg-fluid-visual.mjs';
 import {mountReferenceObservation} from './wgl-fcg-reference-visual.mjs';
 import {mountVisualGuide} from './wgl-fcg-visual-guide.mjs';
 import {mountLabParameters,parametersFor,readLabParameter,writeLabParameter} from './wgl-lab-parameters.mjs';
@@ -1451,6 +1450,7 @@ if (isFCG5) {
   document.querySelector('#panel-conditions ol').innerHTML=
     '<li>静止初期場の性質、step0/1/8/24の染料積分・最大発散・Poisson残差を比較する。</li>'+
     '<li>1step・再生・一時停止・step0へ復帰を行い、物理時刻と画面更新間隔を区別する。</li>'+
+    '<li>実行した12×12の染料画面をShift+ドラッグで塗り足し、Spaceで再生／停止する。</li>'+ 
     '<li>結果canvasで画素をクリック、または矢印キーとEnterで物理格子値を検査する。</li>'+
     '<li>fluid.jsのnuまたはforceAmplitudeを変更し、物理値と初期CPU予測の差を説明する。</li>'+
     '<li>fluid.fragの中央色の倍率・構文エラーを試してCPU残差とGPU表示を区別する。</li>';
@@ -1975,9 +1975,9 @@ if (isWGL3) {
   byId('preset').options[0].textContent = '初期の格子（添字描画）';
   byId('preset').options[1].textContent = 'fragment の構文エラー';
 }
-// A separate reference animation runs on requestAnimationFrame. Edited lesson code
-// remains in the existing sandboxed runner and is never executed by this view.
-if (isFCG5) mountSmokeObservation(byId('panel-conditions'));
+// FCG5 observes only its editable sandboxed 12×12 MAC solver; do not mount
+// a second independent fluid simulation in the conditions tab.
+// FCG8/WGL4 retain their separate reference observations.
 if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-conditions')});
 // Three physical panels must have square pixel footprints: avoid stretching a
 // 1x1 metre domain into ~100x240 strips at the original 320x240 default.
