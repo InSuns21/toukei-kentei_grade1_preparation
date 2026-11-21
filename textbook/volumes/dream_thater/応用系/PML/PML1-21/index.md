@@ -128,7 +128,13 @@ $$
 \end{aligned}
 $$
 
-$\xi$ の各成分で微分すると $\nabla_\xi=2\Theta^{\mathsf T}\Theta\xi-2\Theta^{\mathsf T}y$。従って停留点は正規方程式 $\Theta^{\mathsf T}\Theta\xi=\Theta^{\mathsf T}y$ を満たす。
+目的関数 $J(\xi)=\|\Theta\xi-y\|_2^2$ を $\xi$ の各成分で微分すると、勾配は
+
+$$
+\nabla_\xi J(\xi)=2\Theta^{\mathsf T}\Theta\xi-2\Theta^{\mathsf T}y
+$$
+
+となる。従って停留点は正規方程式 $\Theta^{\mathsf T}\Theta\xi=\Theta^{\mathsf T}y$ を満たす。
 
 $\operatorname{rank}\Theta=p$ なら、任意の非零 $v\in\mathbb R^p$ で
 
@@ -138,7 +144,13 @@ $$
 
 よって $\Theta^{\mathsf T}\Theta$ は正定値かつ可逆で、上記の解が唯一の最小点となる。各列に適用して行列式を得る。
 
-$\operatorname{rank}\Theta<p$ の場合、$\Theta v=0$ を満たす非零 $v$ がある。有限次元の列空間への直交射影によって最小二乗解 $\xi_0$ が存在し、$\Theta(\xi_0+tv)=\Theta\xi_0$ が全 $t\in\mathbb R$ で成立するため非一意となる。複数列の場合も一つの列をこの方向にずらせる。
+$\operatorname{rank}\Theta<p$ の場合、$\Theta v=0$ を満たす非零 $v$ がある。最小化解の存在も確認する。列空間 $W=\{\Theta\xi:\xi\in\mathbb R^p\}\subset\mathbb R^N$ の正規直交基底を $u_1,\ldots,u_r$ とする（$r=0$ なら空集合とする）。$w=\sum_{j=1}^r(u_j^{\mathsf T}y)u_j\in W$ と置けば、任意の $z\in W$ に対して $y-w$ と $w-z$ が直交するので、
+
+$$
+\|y-z\|_2^2=\|y-w\|_2^2+\|w-z\|_2^2\ge\|y-w\|_2^2.
+$$
+
+$w\in W$ だから $\Theta\xi_0=w$ を満たす係数 $\xi_0$ が存在し、最小値を達成する。さらに $\Theta(\xi_0+tv)=\Theta\xi_0$ が全 $t\in\mathbb R$ で成立するため非一意となる。複数出力の場合も一つの係数列をこの方向にずらせる。
 
 最後に $Y=\Theta\Xi_\ast$ かつ列フルランクなら、上の一意性により $\widehat\Xi=\Xi_\ast$ となる。
 <!-- proof-end -->
@@ -206,7 +218,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（中央差分の切断誤差と観測誤差）**  
-> $x\in C^3([t-h,t+h])$、$|x^{(3)}(s)|\le M$ とする。観測値 $z_\pm=x(t\pm h)+\eta_\pm$ が $|\eta_\pm|\le\delta$ を満たすとき、
+> $x\in C^3([t-h,t+h])$、全 $s\in[t-h,t+h]$ で $|x^{(3)}(s)|\le M$ とする。観測値 $z_\pm=x(t\pm h)+\eta_\pm$ が $|\eta_\pm|\le\delta$ を満たすとき、
 
 $$
 \left|\frac{z_+-z_-}{2h}-x'(t)\right|
@@ -538,7 +550,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$q=\pm1$ では $q^2-1=0$ なので第二成分はともに $-q$。エネルギーの連鎖律により
+$q=\pm1$ では $q^2-1=0$ なので第二成分はともに $-q$。[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を $H(q(t),p(t))$ に適用すると、
 
 $$
 \frac{dH}{dt}=q p+p[-q+\alpha(q^2-1)]
