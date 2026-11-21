@@ -34,7 +34,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi18-cft-ledger -->
-**定義の確認。** $b=2$、$L=5$、$a=10^{-2}$、$t_*=0$、自由bosonの無限直線真空（$c=\bar c=1$）を浴へ制限し、重力接合面からの反射効果がない延長を仮定します。$0<b<L$、$\ell_R=3$、$\ell_R/a=300\gg1$ が成立します。状態・端点・正則化・境界条件まで指定でき、以下で導く普遍部分は $(1/3)\ln300$、端点定数を $k_{\rm vac}$ として $S_{\rm matter}^{(a)}=(1/3)\ln300+k_{\rm vac}+o(1)$ です。$k_{\rm vac}$ を数値として知らないことと、状態が未指定であることは違います。
+**定義の確認**： $b=2$、$L=5$、$a=10^{-2}$、$t_*=0$、自由bosonの無限直線真空（$c=\bar c=1$）を浴へ制限し、重力接合面からの反射効果がない延長を仮定します。$0<b<L$、$\ell_R=3$、$\ell_R/a=300\gg1$ が成立します。状態・端点・正則化・境界条件まで指定でき、以下で導く普遍部分は $(1/3)\ln300$、端点定数を $k_{\rm vac}$ として $S_{\rm matter}^{(a)}=(1/3)\ln300+k_{\rm vac}+o(1)$ です。$k_{\rm vac}$ を数値として知らないことと、状態が未指定であることは違います。
 <!-- definition-example-end -->
 
 <a id="prop-bhi18-vacuum-bath"></a>
@@ -117,7 +117,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi18-endpoint-scale -->
-**定義の確認。** $f(u)=\lambda u+\alpha$、$g(v)=\mu v+\gamma$（$\lambda,\mu>0$）を取ります。差は $|\lambda(u_2-u_1)|=\lambda\ell_R$、両端の導関数は $\lambda,\lambda$ なので $D_f=\lambda\ell_R/\sqrt{\lambda^2}=\ell_R$。$g$ についても $D_g=\mu\ell_R/\sqrt{\mu^2}=\ell_R$ です。定義に必要な正値・非零差・微分条件も直接確認できました。単なる線形尺度変更がエントロピーに偽の差を作らないことを示す最小例です。
+**定義の確認**： $f(u)=\lambda u+\alpha$、$g(v)=\mu v+\gamma$（$\lambda,\mu>0$）を取ります。差は $|\lambda(u_2-u_1)|=\lambda\ell_R$、両端の導関数は $\lambda,\lambda$ なので $D_f=\lambda\ell_R/\sqrt{\lambda^2}=\ell_R$。$g$ についても $D_g=\mu\ell_R/\sqrt{\mu^2}=\ell_R$ です。定義に必要な正値・非零差・微分条件も直接確認できました。単なる線形尺度変更がエントロピーに偽の差を作らないことを示す最小例です。
 <!-- definition-example-end -->
 
 <a id="prop-bhi18-conformal-bath"></a>
