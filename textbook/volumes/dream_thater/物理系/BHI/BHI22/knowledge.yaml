@@ -1,0 +1,54 @@
+chapter: BHI22
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI21, BHI18, QCURV16]
+forward_references: []
+concepts:
+  - id: black-hole-information.jt-bath-clock-gluing
+    name: JT正則化境界と平坦浴の時計接合
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（JT正則化境界と平坦浴の時計接合）]
+    requires: [black-hole-information.jt-regulated-boundary, black-hole-information.regulated-gravity-bath-model]
+  - id: black-hole-information.jt-bath-transmission
+    name: 重力浴の透過接合と反射接合
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（重力浴の透過接合と反射接合）]
+    requires: [black-hole-information.jt-bath-clock-gluing, black-hole-information.transparent-bath-interface]
+  - id: black-hole-information.jt-bath-wave-transmission
+    name: 自由スカラーの反射率・透過率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（自由スカラーの反射率・透過率）]
+    requires: [black-hole-information.jt-bath-transmission, black-hole-information.interface-test-field-flux]
+  - id: black-hole-information.jt-bath-outgoing-state
+    name: 透過浴の出射真空写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（透過浴の出射真空写像）]
+    requires: [black-hole-information.jt-bath-transmission, qcurv.schwarzian-derivative]
+  - id: black-hole-information.jt-bath-anomalous-flux
+    name: 透過浴のSchwarzian出射流束
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（透過浴のSchwarzian出射流束）]
+    requires: [black-hole-information.jt-bath-outgoing-state, qcurv.schwarzian-state-transformation]
+  - id: black-hole-information.jt-bath-energy-decay
+    name: 真空浴へ完全透過するJTのエネルギー減衰
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（真空浴へ完全透過するJTのエネルギー減衰）]
+    requires: [black-hole-information.jt-schwarzian-lorentz-energy, black-hole-information.jt-bath-anomalous-flux]
+  - id: black-hole-information.jt-bath-local-clock
+    name: 指定エネルギーからの局所境界時計
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（指定エネルギーからの局所境界時計）]
+    requires: [black-hole-information.jt-bath-energy-decay, qcurv.schwarzian-derivative]
+  - id: black-hole-information.jt-bath-thermal-balance
+    name: 一定温度の浴との熱収支
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一定温度の浴との熱収支）]
+    requires: [black-hole-information.jt-bath-energy-decay, black-hole-information.jt-schwarzian-thermal-thermodynamics]
