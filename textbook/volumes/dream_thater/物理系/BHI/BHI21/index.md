@@ -65,7 +65,7 @@ $$
 
 ## 3. Schwarzian微分と境界の曲がり方
 
-曲線の外部曲率を展開すると、$F$ の三階微分までを含む特別な組合せが現れます。これは[QCURV16で定義したSchwarzian微分](../QCURV/QCURV16/index.md#def-qcurv16-schwarzian)です。そこでの光線座標 $p(u)$ を、今度は**JT重力の境界座標** $F(u)$ に置き換えて使用します。
+曲線の外部曲率を展開すると、$F$ の三階微分までを含む特別な組合せが現れます。これは[QCURV16で定義したSchwarzian微分](../../QCURV/QCURV16/index.md#def-qcurv16-schwarzian)です。そこでの光線座標 $p(u)$ を、今度は**JT重力の境界座標** $F(u)$ に置き換えて使用します。
 
 $
 \{F,u\}=\frac{F'''(u)}{F'(u)}
@@ -245,12 +245,12 @@ $
 
 ### 証明の見取り図
 
-[QCURV16のSchwarzian合成則](../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)を、外側の関数 $M$、内側の関数 $F$ として使います。$M$ の導関数を三階まで計算すると $\{M,y\}=0$ になり、作用の積分値が変わらないと分かります。
+[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)を、外側の関数 $M$、内側の関数 $F$ として使います。$M$ の導関数を三階まで計算すると $\{M,y\}=0$ になり、作用の積分値が変わらないと分かります。
 
 <!-- proof-start -->
 ### 証明
 
-[Schwarzian合成則](../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)の $q$ に $M$、$p$ に $F$ を代入すると
+[Schwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)の $q$ に $M$、$p$ に $F$ を代入すると
 
 $
 \{M\circ F,u\}=F'^2\{M,F(u)\}+\{F,u\}
