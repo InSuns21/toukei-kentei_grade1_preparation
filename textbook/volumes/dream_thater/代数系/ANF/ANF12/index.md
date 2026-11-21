@@ -4,7 +4,9 @@
 
 本講では整数環の単元を「剰余体で見える部分」と「$1$ に近い部分」に分けます。非分岐拡大では、剰余体のノルム・跡と $p$ 進的な逐次修正を組み合わせ、単元のノルム全射性を**証明**します。最後に分岐二次拡大で、なぜ一般化できないかを計算します。
 
-以下、$p$ は素数、$K=\mathbb Q_p$、$L/K$ は次数 $n$ の有限拡大とします。$A=\mathcal O_L$、$\mathfrak m=\mathfrak m_L=(\pi)$、$k=A/\mathfrak m=\mathbb F_{p^f}$、$e=v_L(p)$ とします。$v_p(p)=v_L(\pi)=1$ であり、$n=ef$ です。整数環と一様化元の構成は [ANF11 の整数環定理](../ANF11/index.md#thm-anf11-local-dvr)、跡・ノルムの線形代数的定義は [ANF2 の跡とノルム](../ANF2/index.md#prop-anf2-trace-norm-properties)を参照してください。
+以下、$p$ は素数、$K=\mathbb Q_p$ とし、$L/K$ を次数 $n$ の有限拡大とします。整数環 $A=\mathcal O_L$ と極大イデアル $\mathfrak m=(\pi)$ は [局所体の整数環定理](../ANF11/index.md#thm-anf11-local-dvr)で構成しました。
+
+剰余体を $k=A/\mathfrak m=\mathbb F_{p^f}$、分岐指数を $e=v_L(p)$ と書きます。付値は $v_p(p)=v_L(\pi)=1$ に規格化し、$n=ef$ です。跡・ノルムは [乗法写像の跡・行列式](../ANF2/index.md#prop-anf2-trace-norm-properties)で定義します。
 
 <!-- definition-example-audit: strict -->
 
@@ -122,7 +124,7 @@ $$
 
 ## 3. 非分岐拡大では、剰余体の計算を持ち上げられる
 
-**非分岐**とは $e=1$ のことです。このとき [ANF11 の次数公式](../ANF11/index.md#thm-anf11-ef-degree)から $n=f$、$\mathfrak m=pA$ となり、$p$ 自身を一様化元に選べます。したがって
+**非分岐**とは $e=1$ のことです。このとき [局所拡大の次数公式](../ANF11/index.md#thm-anf11-ef-degree)から $n=f$、$\mathfrak m=pA$ となり、$p$ 自身を一様化元に選べます。したがって
 $$
 U_L^r=1+p^r A,\qquad
 U_K^r=1+p^r\mathbb Z_p\qquad(r\ge1).
@@ -151,7 +153,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $k^\times$ が巡回群であることを確認します。有限可換群 $G\subseteq k^\times$ の各元の位数の最小公倍数を $m$ とします。各素数冪因子ごとに最大の冪位数を持つ元から、その素数冪位数の元を取り出して掛け合わせると位数が $m$ の元が得られます。一方 $G$ の全元は $X^m-1$ の根です。体上の次数 $m$ の多項式の根は高々 $m$ 個なので $|G|\le m$。$m$ は元の位数の最小公倍数ですから Lagrange の定理より $m$ は $|G|$ を割り、特に $m\le|G|$。ゆえに $m=|G|$、$G$ は巡回群です。
+まず有限体の乗法群 $G=k^\times$ が巡回群であることを確認します。各元の位数の最小公倍数を $m$ とします。
+
+$m$ の各素数冪因子について、その素数冪を位数に持つ元を取り、互いに素な位数のそれらを掛け合わせます。得られた元の位数は $m$ です。
+
+他方、$G$ の全元は多項式 $X^m-1$ の根です。根は次数を超えないので $|G|\le m$。各元の位数は Lagrange の定理によって $|G|$ を割るため、その最小公倍数も $|G|$ を割ります。よって $m\le|G|$ です。両不等式から $m=|G|$ となり、$G$ は巡回群です。
 
 $k^\times$ の生成元 $g$ は位数 $p^f-1$ を持ちます。$N(g)=g^{(p^f-1)/(p-1)}$ の位数は $p-1$ なので、$\mathbb F_p^\times$ 全体を生成します。
 
@@ -242,12 +248,12 @@ $
 
 ### 証明の見取り図
 
-有限体跡の全射性から、まず整数環の跡に値 $1$ を持つ元を作れます。ノルムについては有限体ノルムで法 $p$ の値を合わせ、有限体跡で誤差を一段ずつ消します。得られた単元の極限がノルムの原像です。$p$ の付値部分は [ノルムの付値公式](#prop-anf12-norm-valuation)が決めます。
+有限体跡の全射性から、まず整数環の跡に値 $1$ を持つ元を作れます。ノルムについては有限体ノルムで法 $p$ の値を合わせ、有限体跡で誤差を一段ずつ消します。得られた単元の極限がノルムの原像です。$p$ の付値部分は [ノルムの付値と整数環の跡](#prop-anf12-norm-valuation)が決めます。
 
 <!-- proof-start -->
 ### 証明
 
-**(1) 跡。** [有限体跡の全射性](#lem-anf12-finite-field-maps)により $\bar a\in k$ を $\operatorname{Tr}_{k/\mathbb F_p}(\bar a)=1$ と選べます。$a\in A$ に持ち上げると [還元と跡の命題](#prop-anf12-residue-norm-trace)から $\operatorname{Tr}_{L/K}(a)\equiv1\pmod p$。この跡は $\mathbb Z_p^\times$ です。従って $a/\operatorname{Tr}(a)\in A$ で、その跡は $1$。$\operatorname{Tr}(A)\subseteq\mathbb Z_p$ は既知なので $\operatorname{Tr}(A)=\mathbb Z_p$。$p^r$ 倍して最後の跡の式も従います。
+**(1) 跡。** [有限体跡の全射性](#lem-anf12-finite-field-maps)により $\bar a\in k$ を $\operatorname{Tr}_{k/\mathbb F_p}(\bar a)=1$ と選べます。$a\in A$ に持ち上げると [非分岐拡大の段階商でのノルム・跡](#prop-anf12-residue-norm-trace)から $\operatorname{Tr}_{L/K}(a)\equiv1\pmod p$。この跡は $\mathbb Z_p^\times$ です。従って $a/\operatorname{Tr}(a)\in A$ で、その跡は $1$。$\operatorname{Tr}(A)\subseteq\mathbb Z_p$ は既知なので $\operatorname{Tr}(A)=\mathbb Z_p$。$p^r$ 倍して最後の跡の式も従います。
 
 **(2) 深さ $r$ の主単数のノルム。** $y\in1+p^r\mathbb Z_p$（$r\ge1$）を与えます。まず $x_r=1\in1+p^r A$ と置けば $N(x_r)\equiv y\pmod{p^r}$ です。以下 $x_s\in1+p^r A$ が $N(x_s)\equiv y\pmod{p^s}$ を満たすと仮定します（$s\ge r$）。
 
@@ -267,7 +273,7 @@ N(x_{s+1})=N(x_s)N(1+p^s a_s)
 $$
 しかも $x_{s+1}-x_s\in p^s A$。従って $(x_s)$ は $p$ 進 Cauchy 列であり、[整数環の完備性](../ANF11/index.md#thm-anf11-local-dvr)から $x=\lim_s x_s\in1+p^r A$ が存在します。ノルムは行列式という係数多項式なので連続で、$N(x)=y$。逆包含は $N(1+p^r a)\equiv1\pmod{p^r}$（行列式の展開）から従います。
 
-**(3) 単元全体。** 任意の $u\in\mathbb Z_p^\times$ の剰余 $\bar u\in\mathbb F_p^\times$ を考えます。[有限体ノルムの全射性](#lem-anf12-finite-field-maps)で $\bar b\in k^\times$ を $N_{k/\mathbb F_p}(\bar b)=\bar u$ と選び、その単元代表 $b\in A^\times$ を取ります。[還元とノルムの命題](#prop-anf12-residue-norm-trace)から $u/N(b)\in1+p\mathbb Z_p$。前段で $U_L^1$ のノルムは $U_K^1$ に全射なので、$c\in U_L^1$ で $N(c)=u/N(b)$ を選べます。よって $N(bc)=u$。
+**(3) 単元全体。** 任意の $u\in\mathbb Z_p^\times$ の剰余 $\bar u\in\mathbb F_p^\times$ を考えます。[有限体ノルムの全射性](#lem-anf12-finite-field-maps)で $\bar b\in k^\times$ を $N_{k/\mathbb F_p}(\bar b)=\bar u$ と選び、その単元代表 $b\in A^\times$ を取ります。[非分岐拡大の段階商でのノルム・跡](#prop-anf12-residue-norm-trace)から $u/N(b)\in1+p\mathbb Z_p$。前段で $U_L^1$ のノルムは $U_K^1$ に全射なので、$c\in U_L^1$ で $N(c)=u/N(b)$ を選べます。よって $N(bc)=u$。
 
 **(4) 全元。** $e=1$ だから $p$ は $L$ の一様化元で、任意の $x\in L^\times$ は $x=p^j u$（$j\in\mathbb Z$、$u\in A^\times$）です。$N(p)=p^f$（$p$ は基礎体の元なので乗法行列は $pI_f$）。従って
 $$
@@ -333,7 +339,7 @@ $L=\mathbb Q_5(\pi)$、$\pi^2=5$ とし、$x=\pi^3(1+\pi)$ とする。$v_5(N(x)
 - ID: ANF12-A3
 
 <!-- solution-start -->
-**詳細解答。** この拡大は $f=1$、$v_L(\pi)=1$ で、$1+\pi$ は単元だから $v_L(x)=3$ です。[ノルムの付値公式](#prop-anf12-norm-valuation)から $v_5(N(x))=1\cdot3=3$。共役 $\pi\mapsto-\pi$ により $N(\pi)=-5$、$N(1+\pi)=1-5=-4$ ですから
+**詳細解答。** この拡大は $f=1$、$v_L(\pi)=1$ で、$1+\pi$ は単元だから $v_L(x)=3$ です。[ノルムの付値と整数環の跡](#prop-anf12-norm-valuation)から $v_5(N(x))=1\cdot3=3$。共役 $\pi\mapsto-\pi$ により $N(\pi)=-5$、$N(1+\pi)=1-5=-4$ ですから
 $$
 N(x)=(-5)^3(-4)=500=5^3\cdot4.
 $$
@@ -364,7 +370,7 @@ $L/\mathbb Q_3$ を次数 $4$ の有限非分岐拡大とする。$3^8\cdot2$ �
 - ID: ANF12-A5
 
 <!-- solution-start -->
-**詳細解答。** 非分岐なので $f=[L:K]=4$ で、[非分岐ノルム定理](#thm-anf12-unramified-norm)によってノルム群は $3^{4\mathbb Z}\mathbb Z_3^\times$ です。$2\in\mathbb Z_3^\times$ は単元なのでその値自体に追加条件はありません。$8$ は $4$ の倍数なので $3^8\cdot2$ はノルムです。一方 $3$ は $4$ の倍数でないため $3^3\cdot2$ はノルムではありません。
+**詳細解答。** 非分岐なので $f=[L:K]=4$ で、[非分岐局所拡大のノルム・跡](#thm-anf12-unramified-norm)によってノルム群は $3^{4\mathbb Z}\mathbb Z_3^\times$ です。$2\in\mathbb Z_3^\times$ は単元なのでその値自体に追加条件はありません。$8$ は $4$ の倍数なので $3^8\cdot2$ はノルムです。一方 $3$ は $4$ の倍数でないため $3^3\cdot2$ はノルムではありません。
 <!-- solution-end -->
 
 ### B1. 有限体の跡で段階のノルムを求める
@@ -392,7 +398,7 @@ $L=\mathbb Q_5(\sqrt5)$ で任意の整数環の単元 $u$ に対し、$N(u)\bmo
 - ID: ANF12-B2
 
 <!-- solution-start -->
-**詳細解答。** $\pi=\sqrt5$ とすると [Eisenstein の整数環定理](../ANF10/index.md#thm-anf10-eisenstein-extension)から $A=\mathbb Z_5[\pi]$、$e=2,f=1$ です。$u=a+b\pi$ が単元であるための必要十分条件は $a\not\equiv0\pmod5$。共役計算で
+**詳細解答。** $\pi=\sqrt5$ とすると [Eisenstein 拡大の局所体構造](../ANF10/index.md#thm-anf10-eisenstein-extension)から $A=\mathbb Z_5[\pi]$、$e=2,f=1$ です。$u=a+b\pi$ が単元であるための必要十分条件は $a\not\equiv0\pmod5$。共役計算で
 $$
 N(u)=(a+b\pi)(a-b\pi)=a^2-5b^2\equiv a^2\pmod5.
 $$
@@ -444,16 +450,25 @@ $$
 - ID: ANF12-C1
 
 <!-- solution-start -->
-**詳細解答。** まず $L_1$ は $X^2+1\bmod3$ が既約な非分岐二次拡大で、[整数環と剰余体の例](../ANF11/index.md#def-anf11-e-f)より $(e,f)=(1,2)$ です。[非分岐ノルム定理](#thm-anf12-unramified-norm)から
+**詳細解答。** まず $L_1$ は $X^2+1\bmod3$ が既約な非分岐二次拡大で、[整数環と剰余体の例](../ANF11/index.md#def-anf11-e-f)より $(e,f)=(1,2)$ です。[非分岐局所拡大のノルム・跡](#thm-anf12-unramified-norm)から
 $$
 N_{L_1/\mathbb Q_3}(L_1^\times)
 =3^{2\mathbb Z}\mathbb Z_3^\times.
 $$
 したがって $3$ は付値 $1$ が $2$ の倍数でないため不可能。一方 $2$ は単元であり実際 $N(1+i)=1+1=2$ です。
 
-$L_2$ では $X^2-5$ が Eisenstein なので $(e,f)=(2,1)$。$N(\pi)=-5$、$N(1)=1$ です。$5$ は $N(-\pi)$ ではなく $N(\pi)$ と同じ $-5$ なので、この情報だけで可否を決めてはいけません。$5=N(\pi)\cdot(-1)$ ですから $5$ がノルムかどうかは $-1$ が単元ノルムかに帰着します。$-1\equiv4\pmod5$ は平方で、$2^2\equiv-1\pmod5$。[単純根の Hensel の補題](../ANF10/index.md#thm-anf10-hensel-simple)を $X^2+1$ と法 $5$ の根 $2$ に適用すると $t\in\mathbb Z_5$ で $t^2=-1$ を満たすものが存在します（$2t\equiv4\not\equiv0\pmod5$）。基礎体元 $t$ のノルムは $t^2=-1$ なので $N(t\pi)=(-1)(-5)=5$。従って $5$ はノルムです。
+$L_2$ では $X^2-5$ が Eisenstein なので $(e,f)=(2,1)$ です。$N(\pi)=-5$ だけでは $5$ 自身がノルムかどうかは分かりません。必要なのは $-1$ の単元ノルムです。
 
-一方 $2$ は付値 $0$ なので、もし $2=N(x)$ なら [ノルムの付値公式](#prop-anf12-norm-valuation)から $v_L(x)=0$、すなわち $x$ は単元です。$x=a+b\pi$（$a,b\in\mathbb Z_5$, $a$ は単元）と書くと
+$-1\equiv4\pmod5$ は平方で、$2$ は法 $5$ で $X^2+1$ の単純根です。実際、導関数 $2X$ の値は $X=2$ で $4$ となり、$5$ で割れません。
+
+[単純根の Hensel の補題](../ANF10/index.md#thm-anf10-hensel-simple)から、$t\in\mathbb Z_5$ で $t^2=-1$ を満たすものが存在します。基礎体元 $t$ の二次拡大でのノルムは $t^2=-1$ です。従って
+$
+N_{L_2/\mathbb Q_5}(t\pi)
+=N(t)N(\pi)=(-1)(-5)=5.
+$
+よって $5$ はノルムです。
+
+一方 $2$ は付値 $0$ なので、もし $2=N(x)$ なら [ノルムの付値と整数環の跡](#prop-anf12-norm-valuation)から $v_L(x)=0$、すなわち $x$ は単元です。$x=a+b\pi$（$a,b\in\mathbb Z_5$, $a$ は単元）と書くと
 $$
 N(x)=a^2-5b^2\equiv a^2\pmod5.
 $$
