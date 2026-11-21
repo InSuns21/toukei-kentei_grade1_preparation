@@ -296,7 +296,12 @@ $\lambda\in U(1)$ に対して $\Phi_{s_a}((x,e^{it})\lambda)=(x,e^{-2ix}e^{it}\
 #### GBG3-A02 行列群でファイバー座標を変える
 - Level: A
 
-$P=\mathbb R\times GL(2,\mathbb R)$ の section を $s(x)=(x,I)$ から $s'(x)=(x,H(x))$、$H(x)=\left(\begin{smallmatrix}1&x\\0&1\end{smallmatrix}\right)$ に変える。$p=(x,K)$、$K=\left(\begin{smallmatrix}2&0\\1&1\end{smallmatrix}\right)$ の新しい群座標を求めよ。
+$P=\mathbb R\times GL(2,\mathbb R)$ の section を $s(x)=(x,I)$ から $s'(x)=(x,H(x))$ に変更する。ただし、点 $p=(x,K)$ と行列を
+$
+H(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix},
+\qquad K=\begin{pmatrix}2&0\\1&1\end{pmatrix}
+$
+とする。$p$ の新しい群座標を求めよ。
 
 <!-- solution-start -->
 **詳細解答**。$\det H=1$ だから $s'$ は群値関数による滑らかな section。$p=s(x)K=s'(x)K'=s(x)H(x)K'$ なので自由性から $K'=H^{-1}K$。すなわち
@@ -334,7 +339,7 @@ $g'_{01}g'_{10}=1$ で逆関係が保たれている。
 $(0,\infty)$ で $y=\log x$ とする。$E_x=\partial/\partial x$、$E_y=\partial/\partial y$ の変更関数を求め、枠 $v=5E_x$ を $E_y$ で表せ。
 
 <!-- solution-start -->
-**詳細解答**。$x=e^y$ から $dx/dy=x$。連鎖律で $E_y=xE_x$ となるため $H(x)=x\in GL(1,\mathbb R)$。$5E_x=E_y k'$ なら $5=xk'$ で $k'=5/x$。$E_y(5/x)=5E_x$ で正しい。
+**詳細解答**。$x=e^y$ から $dx/dy=x$。連鎖律で $E_y=xE_x$ となるため $H(x)=x\in GL(1,\mathbb R)$。$5E_x=E_y k'$ なら $5=xk'$ で $k'=5/x$。$(5/x)E_y=5E_x$ で正しい。ここで $5/x$ は接ベクトル $E_y$ に掛ける係数であり、$E_y$ を関数 $5/x$ に作用させる意味ではない。
 <!-- solution-end -->
 
 ### Level B：導出と非可換性
@@ -343,10 +348,20 @@ $(0,\infty)$ で $y=\log x$ とする。$E_x=\partial/\partial x$、$E_y=\partia
 #### GBG3-B01 変換の積順序
 - Level: B
 
-$G=GL(2,\mathbb R)$、$U_0=U_1=\mathbb R$ とし、$g_{01}=I$、$h_0=\left(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\right)$、$h_1=\left(\begin{smallmatrix}1&0\\1&1\end{smallmatrix}\right)$ を定数関数とする。$g'_{01},g'_{10}$ を求め、互いに逆であることを行列積で確認せよ。
+$G=GL(2,\mathbb R)$、$U_0=U_1=\mathbb R$ とし、$g_{01}=I$ とする。sectionの変更関数は、次の行列を値に持つ定数関数である。
+$
+h_0=\begin{pmatrix}1&1\\0&1\end{pmatrix},
+\qquad h_1=\begin{pmatrix}1&0\\1&1\end{pmatrix}.
+$
+$g'_{01},g'_{10}$ を求め、互いに逆であることを行列積で確認せよ。
 
 <!-- solution-start -->
-**詳細解答**。$h_0^{-1}=\left(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\right)$、$h_1^{-1}=\left(\begin{smallmatrix}1&0\\-1&1\end{smallmatrix}\right)$。右作用の[変換則](#thm-gbg3-transition-change)で
+**詳細解答**。両行列の行列式は $1$ で、逆行列は
+$
+h_0^{-1}=\begin{pmatrix}1&-1\\0&1\end{pmatrix},
+\qquad h_1^{-1}=\begin{pmatrix}1&0\\-1&1\end{pmatrix}
+$
+である。右作用の[変換則](#thm-gbg3-transition-change)で
 $$
 g'_{01}=h_0^{-1}h_1=\begin{pmatrix}0&-1\\1&1\end{pmatrix},\qquad
 g'_{10}=h_1^{-1}h_0=\begin{pmatrix}1&1\\-1&0\end{pmatrix}.
@@ -403,7 +418,11 @@ $$
 #### GBG3-B04 遷移関数を消す
 - Level: B
 
-$G=GL(2,\mathbb R)$、$U_0=U_1=\mathbb R$、$a_0=I$、$a_1(x)=\left(\begin{smallmatrix}1&x\\0&1\end{smallmatrix}\right)$、$g_{ij}=a_i a_j^{-1}$ とする。$g_{01}$ と $g_{10}$ を計算し、$s'_i=s_i a_i$ に変更すると遷移関数が恒等となることを示せ。
+$G=GL(2,\mathbb R)$、$U_0=U_1=\mathbb R$、$a_0=I$ とする。滑らかな関数
+$
+a_1(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix}
+$
+に対し $g_{ij}=a_i a_j^{-1}$ と定める。$g_{01}$ と $g_{10}$ を計算し、$s'_i=s_i a_i$ に変更すると遷移関数が恒等となることを示せ。
 
 <!-- solution-start -->
 **詳細解答**。$a_1^{-1}=\left(\begin{smallmatrix}1&-x\\0&1\end{smallmatrix}\right)$ なので
