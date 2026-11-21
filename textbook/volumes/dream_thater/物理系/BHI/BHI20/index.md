@@ -81,7 +81,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-計量の逆成分は $g^{tt}=-1/f,\ g^{rr}=f$ です。$\partial_r$ は $t$ を固定した偏微分、$\partial_t$ は $r$ を固定した偏微分です。$f',\Phi'$ は既に宣言した $r$ に関する導関数で、他方の時間微分と混同しません。$\Phi$ はスカラー場なので、[Levi-Civita接続のChristoffel係数公式](../../../幾何系/GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)と[BHI19で用いたHessianの座標表示](../BHI19/index.md#prop-bhi19-trace-hessian)を使うと
+計量の逆成分をこの座標基底で計算すると
+
+$$
+g^{tt}=-\frac1f,\qquad g^{rr}=f
+$$
+
+です。$\partial_r$ は $t$ を固定した偏微分、$\partial_t$ は $r$ を固定した偏微分を表します。先に宣言したプライムは空間座標に関する導関数であり、時間微分とは区別します。
+
+$\Phi$ はスカラー場です。[Levi-Civita接続のChristoffel係数公式](../../../幾何系/GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)から係数を求め、[BHI19で用いたHessianの座標表示](../BHI19/index.md#prop-bhi19-trace-hessian)に代入すると
 
 $$
 \nabla_\mu\nabla_\nu\Phi
