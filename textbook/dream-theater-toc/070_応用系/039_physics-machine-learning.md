@@ -1,5 +1,5 @@
 <a id="dt-subject-physics-machine-learning"></a>
-### 機械学習と物理学 I
+### 機械学習と物理学 I・II
 
 1. [PML1-01 損失と物理エネルギーは何が同じで何が違うか](textbook/volumes/dream_thater/応用系/PML/PML1-01/index.md)
 2. [PML1-02 有限状態からGibbs分布を構成できるか](textbook/volumes/dream_thater/応用系/PML/PML1-02/index.md)
@@ -24,6 +24,4 @@
 21. [PML1-21 データから動力学を同定すると何が失われるか](textbook/volumes/dream_thater/応用系/PML/PML1-21/index.md)
 22. [PML1-22 物理制約付きモデルは本当に優れるか](textbook/volumes/dream_thater/応用系/PML/PML1-22/index.md)
 
-### 機械学習と物理学 II
-
-1. [PML2-01 何を「PDEを解く」と呼ぶか](textbook/volumes/dream_thater/応用系/PML/PML2-01/index.md)
+23. [PML2-01 何を「PDEを解く」と呼ぶか](textbook/volumes/dream_thater/応用系/PML/PML2-01/index.md)
