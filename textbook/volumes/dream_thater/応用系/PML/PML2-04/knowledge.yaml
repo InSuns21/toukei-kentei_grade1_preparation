@@ -33,6 +33,13 @@ concepts:
     introduction_aliases: ["定義（差分法の整合性と安定性）"]
     requires:
       - physics-machine-learning.pml2-03-fd
+  - id: physics-machine-learning.pml2-04-grid-convergence
+    name: 格子点収束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（差分法の整合性と安定性）"]
+    requires:
+      - physics-machine-learning.pml2-04-consistency-stability
   - id: physics-machine-learning.pml2-04-convergence
     name: 整合性と安定性による二次精度の誤差評価
     kind: theorem
