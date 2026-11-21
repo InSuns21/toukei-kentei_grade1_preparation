@@ -1,0 +1,36 @@
+chapter: BHI24
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI23, BHI20, HOLO24]
+forward_references: []
+concepts:
+  - id: black-hole-information.jt-island-candidate
+    name: 接合浴に対する二端点island候補
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（接合浴に対する二端点island候補）]
+    requires: [black-hole-information.bath-radiation-entropy-ledger, black-hole-information.jt-horizon-entropy, holography.qes-generalized-entropy]
+  - id: black-hole-information.island-radiation-cross-ratio
+    name: island・放射の交差比
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（island・放射の交差比）]
+    requires: [black-hole-information.jt-island-candidate]
+  - id: black-hole-information.island-four-endpoint-entropy
+    name: 共形真空における二つの区間の物質エントロピー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（共形真空における二つの区間の物質エントロピー）]
+    requires: [black-hole-information.island-radiation-cross-ratio, black-hole-information.bath-conformal-interval-entropy]
+  - id: black-hole-information.jt-island-generalized-entropy-ledger
+    name: JT浴模型のisland候補の一般化エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（JT浴模型のisland候補の一般化エントロピー）]
+    requires: [black-hole-information.jt-island-candidate, black-hole-information.jt-horizon-entropy, holography.qes-generalized-entropy]
+  - id: black-hole-information.jt-island-assembled-ledger
+    name: 共通cutoffで組み立てたisland枝
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（共通cutoffで組み立てたisland枝）]
+    requires: [black-hole-information.jt-island-generalized-entropy-ledger, black-hole-information.island-four-endpoint-entropy]

@@ -103,7 +103,7 @@ chapters:
     title: "islandなしの放射エントロピー"
   - id: BHI24
     path: textbook/volumes/dream_thater/物理系/BHI/BHI24
-    status: planned
+    status: completed
     title: "island候補と一般化エントロピー"
   - id: BHI25
     path: textbook/volumes/dream_thater/物理系/BHI/BHI25
