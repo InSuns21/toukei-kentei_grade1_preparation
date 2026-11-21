@@ -10,6 +10,8 @@
 
 ここでいう作用とは、場とその導関数から積分で作る汎関数 $I$ であり、境界で指定したデータを保つ微小な変化に対して $\delta I=0$ を要求します。計量の各成分と $\Phi$ は、変分の段階では独立な変数です。
 
+座標を $x^\mu$（$\mu=0,1$）と書き、$g_{\mu\nu}$ を計量成分、$g^{\mu\nu}$ をその逆行列の成分とします。上下に一度ずつ現れる添字は $0,1$ にわたって和を取ります。$\partial_\mu=\partial/\partial x^\mu$ は他方の座標を固定した偏微分、$\nabla_\mu$ は計量のLevi-Civita接続による共変微分です。また $\delta_\Phi$ は計量と物質場を固定した $\Phi$ の変分、$\delta_g$ は $\Phi$ と物質場を固定した計量変分を意味します。偏微分、共変微分、場の変分を同じ記号で代用しません。
+
 本講の約束は次のとおりです。
 
 - 時空 $M$ は向きと時間向きを固定した二次元Lorentz多様体で、計量符号は $(-,+)$、曲率規約は $R^\rho{}_{\sigma\mu\nu}v^\sigma=(\nabla_\mu\nabla_\nu-\nabla_\nu\nabla_\mu)v^\rho$ とします。
@@ -83,11 +85,35 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi19-jt-action -->
-**定義の確認**（変数と各項を実際に指定）。 $G_2=1$、$\ell=2$、$\Phi_0=3$ を選び、滑らかな時間的境界を持つ二次元Lorentz領域の計量と $C^2$ の実スカラー場 $\Phi$ を用意します。境界では計量の制限 $h$ と dilaton $\Phi$ を固定し、物質作用を零とします。
+**定義の確認**（作用に入れる幾何と境界データを指定）。 長さの単位を選んで $G_2=1$、$\ell=2$、$\Phi_0=3$ とし、$t\in\mathbb R$、$z\ge1$ の領域 $M$ 上で
 
-このとき正の結合定数と曲率半径、スカラー場の定義域、境界で固定するデータはすべて指定されています。bulkのdilaton係数は $1/(16\pi)$、曲率を拘束する因子は $R+1/2$ です。境界項の係数は $2/(16\pi)$ です。
+$$
+ds^2=\frac{4}{z^2}(-dt^2+dz^2),\qquad
+\Phi(t,z)=\frac{2}{z},\qquad I_{\rm m}=0
+$$
 
-標準反項はこの値で $-(16\pi)^{-1}\int_{\partial M}\sqrt{-h}\,\Phi$ となります。後の第6節では、実際の計量と場を入れた**方程式の解**も確認します。
+を選びます。$\det(g_{\mu\nu})=-16/z^4<0$ なので計量は非退化で符号は $(-,+)$、$\Phi$ は $z\ge1$ で滑らかな実スカラー場です。境界 $z=1$ の接線は時間方向で、誘導計量 $h_{tt}=-4<0$ は時間的です。外向き単位法線は $n^z=-1/2$、$n^t=0$ で、$g_{zz}(n^z)^2=4(1/4)=1$ を満たします。外部曲率はこの法線の発散なので、境界近傍で $n^z=-z/2$ と延長し、$\sqrt{-g}=4/z^2$ を用いて
+
+$$
+K=\frac{1}{\sqrt{-g}}\partial_z(\sqrt{-g}\,n^z)
+=\frac{z^2}{4}\partial_z\left(-\frac{2}{z}\right)
+=\frac12
+$$
+
+を得ます。これは座標成分の値を当てはめただけでなく、定義した $K=\nabla_\mu n^\mu$ を確認した計算です。
+
+この具体例で境界値 $h_{tt}=-4$ と $\Phi|_{z=1}=2$ を固定して変分します。bulkの係数は $1/(16\pi)$、曲率拘束因子は $R+1/2$、$\Phi K$ 境界項の係数は $1/(8\pi)$ です。標準反項の係数は $-1/(16\pi)$ です。さらに境界の単位 $t$ 幅当たり、$\sqrt{-h}=2$ を使えば
+
+$$
+\frac{\sqrt{-h}\,\Phi K}{8\pi}
+=\frac{2\cdot2\cdot(1/2)}{8\pi}
+=\frac{1}{4\pi},\qquad
+-\frac{\sqrt{-h}\,\Phi}{16\pi}
+=-\frac{2\cdot2}{16\pi}
+=-\frac{1}{4\pi}.
+$$
+
+この例では境界二項が相殺します。無限の時間・空間方向を含む**全作用の数値**を求めたわけではなく、定義に必要な計量・場・境界の各条件と被積分密度を実際に確認したものです。第6・7節では、同じ型の幾何が場の方程式と境界計算を満たすことを一般の $\ell,\alpha,\varepsilon$ で再確認します。
 <!-- definition-example-end -->
 
 境界データを固定するとは、$\delta h=0$、$\delta\Phi|_{\partial M}=0$ として変分することです。境界の $\Phi K$ 項は、固定するのが計量の値であって**法線方向の一階微分までではない**という点で重要です。外部曲率の変分が、bulkの $\Phi R$ からの法線微分項を相殺します。境界を動かす自由度を調べるのはBHI21の役目です。
@@ -195,7 +221,7 @@ $$
 
 曲率の変分には、二次元の特別な事情があります。二次元では $R_{\mu\nu}=\tfrac12g_{\mu\nu}R$ なので、計量変分におけるEinsteinテンソル $R_{\mu\nu}-\tfrac12g_{\mu\nu}R$ は恒等的に0です。それでも **$\Phi R$ の変分は0ではありません**。曲率が持つ二階微分を二度部分積分すると、$\Phi$ の二階微分が残るためです。
 
-コンパクト台の内部変分で境界の積分を一旦除くと、一般のスカラー $F$ に対する恒等式は
+コンパクト台を持つ内部の計量変分で境界の積分を一旦除き、スカラー $F$ は計量変分中に固定するとします。このときの変分恒等式は
 
 $$
 \delta_g\!\int_M\sqrt{-g}\,F R
@@ -221,7 +247,34 @@ $$
 -\nabla_\nu\delta\Gamma^\rho_{\mu\rho}
 $$
 
-です。第二式を $F g^{\mu\nu}$ と収縮し、$\nabla g=0$ を使って二度部分積分すると、$\nabla_\mu\nabla_\nu F$ と $g_{\mu\nu}\Box F$ が現れます。境界まで変分を許す際は $2\int\Phi K$ の項が計量変分の法線微分を相殺します。
+です。ここで $q=g_{\alpha\beta}q^{\alpha\beta}$ は逆計量変分の跡です。$\nabla g=0$ を用いて第二式を収縮すると、二つの接続変分から作るベクトルは
+
+$$
+\begin{aligned}
+W^\rho
+&:=g^{\mu\nu}\delta\Gamma^\rho_{\mu\nu}
+-g^{\rho\nu}\delta\Gamma^\mu_{\mu\nu}\\
+&=-\nabla_\mu q^{\mu\rho}+\nabla^\rho q,
+\qquad g^{\mu\nu}\delta R_{\mu\nu}=\nabla_\rho W^\rho.
+\end{aligned}
+$$
+
+となります。$F$ を計量変分中は固定し、$q^{\mu\nu}$ が内部にコンパクトな台を持つ場合、一度目と二度目の部分積分を区別して書くと
+
+$$
+\begin{aligned}
+\int_M\sqrt{-g}\,F g^{\mu\nu}\delta R_{\mu\nu}
+&=\int_M\sqrt{-g}\,F\nabla_\rho W^\rho\\
+&=-\int_M\sqrt{-g}\,(\nabla_\rho F)W^\rho\\
+&=\int_M\sqrt{-g}\,
+\left[(\nabla_\rho F)\nabla_\mu q^{\mu\rho}
+-(\nabla_\rho F)\nabla^\rho q\right]\\
+&=\int_M\sqrt{-g}\,
+(-\nabla_\mu\nabla_\nu F+g_{\mu\nu}\Box F)q^{\mu\nu}.
+\end{aligned}
+$$
+
+最後に $\delta R=R_{\mu\nu}q^{\mu\nu}+g^{\mu\nu}\delta R_{\mu\nu}$ と $\delta\sqrt{-g}$ を組み合わせれば、上に掲げた $\delta\int\sqrt{-g}\,FR$ の恒等式になります。境界まで変分を許す際は $2\int\Phi K$ の項が計量変分の法線微分を相殺します。
 
 ### 物質が計量を動かすときの符号
 
@@ -251,7 +304,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi19-stress-source -->
-**定義の確認**（質量零実スカラー）。 $I_{\rm m}=-\frac12\int\sqrt{-g}\,g^{\mu\nu}\partial_\mu\psi\partial_\nu\psi$ とすると、計量のみを変分した積分内は
+**定義の確認**（質量零実スカラー）。 $I_{\rm m}=-\frac12\int\sqrt{-g}\,g^{\mu\nu}\partial_\mu\psi\partial_\nu\psi$ とします。ここで $(\nabla\psi)^2:=g^{\alpha\beta}\partial_\alpha\psi\partial_\beta\psi$ は逆計量で縮約した量で、正値ノルムとは限りません。計量のみを変分した積分内は
 
 $$
 \delta_g I_{\rm m}
@@ -409,7 +462,26 @@ $$
 
 ### 次に dilaton の二階共変微分を確かめる
 
-Christoffel記号は、$\nabla_\mu\nabla_\nu\Phi=\partial_\mu\partial_\nu\Phi-\Gamma^\rho_{\mu\nu}\partial_\rho\Phi$ で偏微分と共変微分をつなぐ係数です。この計量の非零成分は
+この節の $x^0=t,x^1=z$ では、$\partial_t$ は $z$ を固定した $t$ 微分、$\partial_z$ は $t$ を固定した $z$ 微分です。$\partial_z^2\Phi$ は二階偏微分であり、$\nabla_z\nabla_z\Phi$ とは接続項の分だけ異なります。
+
+Christoffel記号は、$\nabla_\mu\nabla_\nu\Phi=\partial_\mu\partial_\nu\Phi-\Gamma^\rho_{\mu\nu}\partial_\rho\Phi$ で偏微分と共変微分をつなぐ係数です。[Levi-Civita接続のChristoffel係数公式](../../../幾何系/GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)は計量両立性と捩率零から得られ、この座標の非退化Lorentz計量にも同じ座標計算が適用できます。逆計量と一階偏微分は
+
+$$
+g^{tt}=-\frac{z^2}{\ell^2},\quad
+g^{zz}=\frac{z^2}{\ell^2},\quad
+\partial_zg_{tt}=\frac{2\ell^2}{z^3},\quad
+\partial_zg_{zz}=-\frac{2\ell^2}{z^3}.
+$$
+
+$$
+\Gamma^\rho_{\mu\nu}
+=\frac12g^{\rho\sigma}
+(\partial_\mu g_{\nu\sigma}
++\partial_\nu g_{\mu\sigma}
+-\partial_\sigma g_{\mu\nu})
+$$
+
+へ代入すると、たとえば $\Gamma^z_{tt}=-(1/2)g^{zz}\partial_z g_{tt}=-1/z$、$\Gamma^z_{zz}=(1/2)g^{zz}\partial_z g_{zz}=-1/z$ です。同じく $\Gamma^t_{tz}=(1/2)g^{tt}\partial_z g_{tt}=-1/z$ なので、非零成分は
 
 $$
 \Gamma^z_{tt}=-\frac1z,\quad
@@ -639,7 +711,14 @@ $$
 - 問題: 平坦な局所座標 $(t,x)$ で質量零実スカラー $\psi=f(t-x)$（$f$ は $C^2$）を取る。$I_{\rm m}=-\frac12\int\sqrt{-g}(\nabla\psi)^2$ の応力テンソルについて $T$ と $T_{tt}$ を計算し、$T=0$ から $T_{\mu\nu}=0$ と結論できるか述べよ。
 
 <!-- solution-start -->
-**詳細解答。** $u=t-x$ と置くと $\partial_t\psi=f'(u)$、$\partial_x\psi=-f'(u)$。平坦計量 $\operatorname{diag}(-1,1)$ に対して $(\nabla\psi)^2=-(f')^2+(f')^2=0$ です。
+**詳細解答。** $u=t-x$ と置き、$f'(u)=df/du$ と定めます。このプライムは $t$ 微分でも $x$ 微分でもなく、関数 $f$ の引数 $u$ に関する通常の導関数です。連鎖律と $\partial_tu=1$、$\partial_xu=-1$ より
+
+$$
+\partial_t\psi=f'(u)\partial_tu=f'(u),\qquad
+\partial_x\psi=f'(u)\partial_xu=-f'(u).
+$$
+
+平坦計量 $\operatorname{diag}(-1,1)$ に対して $(\nabla\psi)^2=-(f')^2+(f')^2=0$ です。
 
 [応力テンソルの直接例](#def-bhi19-stress-source)より、成分を一つずつ計算すると
 
