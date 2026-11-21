@@ -103,7 +103,7 @@ chapters:
     title: "forwardとinverseはどこで問題が変わるか"
   - id: PML2-03
     path: textbook/volumes/dream_thater/応用系/PML/PML2-03
-    status: planned
+    status: completed
     title: "機械学習なしでどう解くか"
   - id: PML2-04
     path: textbook/volumes/dream_thater/応用系/PML/PML2-04

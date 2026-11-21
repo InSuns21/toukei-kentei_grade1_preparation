@@ -1,0 +1,55 @@
+chapter: PML2-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-02
+  - FEM2
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-03-fd
+    name: 零Dirichlet Poisson問題の三点差分法
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（零Dirichlet Poisson問題の三点差分法）"]
+    requires:
+      - physics-machine-learning.pml2-01-energy-estimate
+  - id: physics-machine-learning.pml2-03-dmp
+    name: 離散最大値原理
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-03-fd
+  - id: physics-machine-learning.pml2-03-fd-error
+    name: 三点差分法の二次精度と最大誤差評価
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-03-dmp
+  - id: physics-machine-learning.pml2-03-fem
+    name: 区分一次有限要素のGalerkin解
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（区分一次有限要素のGalerkin解）"]
+    requires:
+      - physics-machine-learning.pml2-01-energy-estimate
+      - numerical.finite-element
+  - id: physics-machine-learning.pml2-03-fem-unique
+    name: 区分一次Galerkin解の存在と一意性
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-03-fem
+  - id: physics-machine-learning.pml2-03-best
+    name: Galerkin直交性とエネルギー最良近似
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-03-fem-unique
+      - physics-machine-learning.pml2-01-energy-estimate
+  - id: physics-machine-learning.pml2-03-quadratic
+    name: 定数外力の節点一致と区間内誤差
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-03-fd
+      - physics-machine-learning.pml2-03-best
