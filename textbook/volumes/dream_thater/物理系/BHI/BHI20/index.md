@@ -20,14 +20,22 @@ $$
 
 ## 2. 地平線のある静的計量を求める
 
-静的とは、時間の平行移動 $t\mapsto t+c$ で計量が変わらないことです。外部領域で時刻 $t$ に垂直な空間方向を $r$ で表し、計量の候補を次の形に取ります。
+本講では、時間の平行移動 $t\mapsto t+c$ で計量が変わらず、時間方向と空間方向を直交させる座標を選べる場合を静的形として扱います。時間に依存しないという条件だけで一般の静的性を定義するのではありません。外部領域の時間座標を $t$、それに直交する空間座標を $r$ とし、計量の候補を次の形に取ります。
 
 $$
 ds^2=-f(r)\,dt^2+\frac{dr^2}{f(r)},\qquad
 \Phi(r)=\frac{a r}{\ell},\qquad a>0.
 $$
 
-ここで $f(r)>0$ の領域が静的外部です。この形は**静的な解を探すための座標・dilatonの選択**であり、すべての大域的JT解がこの座標で覆われるという仮定ではありません。$a$ は境界側で指定するdilatonの傾きです。$g_{tt}=-f$、$g_{rr}=f^{-1}$、$g_{tr}=0$ なので、$f>0$ なら固有値の符号が一つずつ異なり、行列式は $-1$ です。
+ここで $f(r)>0$ の領域が静的外部です。以下では $f'(r)=df/dr$、$\Phi'(r)=d\Phi/dr$ と書き、プライムは空間座標 $r$ での常微分だけを表します。この形は**静的な解を探すための座標・dilatonの選択**であり、すべての大域的JT解がこの座標で覆われるという仮定ではありません。$a$ は境界側で指定するdilatonの傾きです。ここで計量成分の行列とは、座標基底 $(\partial_t,\partial_r)$ で二つの接ベクトルの内積を表す行列です。実際、$X=p\partial_t+q\partial_r$ に対して
+
+$$
+g(X,X)=-f(r)p^2+f(r)^{-1}q^2,
+\qquad
+(g_{\mu\nu})=\begin{pmatrix}-f&0\\0&f^{-1}\end{pmatrix}.
+$$
+
+$f>0$ なら、独立な時間・空間の基底方向で内積がそれぞれ負・正となり、計量符号は $(-,+)$ です。さらに $\det(g_{\mu\nu})=(-f)f^{-1}=-1\ne0$ なので逆計量も存在します。このように、行列の符号と行列式は[BHI19で指定したLorentz計量](../BHI19/index.md#def-bhi19-jt-action)の符号・非退化性を判定するために使います。
 
 <a id="def-bhi20-static-patch"></a>
 
@@ -73,7 +81,26 @@ $$
 <!-- proof-start -->
 ### 証明
 
-計量の逆成分は $g^{tt}=-1/f,\ g^{rr}=f$ です。$r$ 微分をプライムで表すと、Christoffel記号の非零成分は
+計量の逆成分をこの座標基底で計算すると
+
+$$
+g^{tt}=-\frac1f,\qquad g^{rr}=f
+$$
+
+です。$\partial_r$ は $t$ を固定した偏微分、$\partial_t$ は $r$ を固定した偏微分を表します。先に宣言したプライムは空間座標に関する導関数であり、時間微分とは区別します。
+
+$\Phi$ はスカラー場です。[Levi-Civita接続のChristoffel係数公式](../../../幾何系/GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)から係数を求め、[BHI19で用いたHessianの座標表示](../BHI19/index.md#prop-bhi19-trace-hessian)に代入すると
+
+$$
+\nabla_\mu\nabla_\nu\Phi
+=\partial_\mu\partial_\nu\Phi
+-\Gamma^\rho_{\mu\nu}\partial_\rho\Phi,
+\qquad
+\Gamma^r_{tt}=-\frac12g^{rr}\partial_rg_{tt}
+=\frac{ff'}2.
+$$
+
+残りのChristoffel記号も同じ座標基底で求めると、非零成分は
 
 $$
 \Gamma^r_{tt}=\frac{ff'}2,\qquad
@@ -127,9 +154,9 @@ h_{tt}=-f(r_b),\qquad
 \Phi_b=\frac{ar_b}{\ell}.
 $$
 
-実際に境界で固定する固有時間は $d\tau_b=\sqrt{f(r_b)}\,dt$ です。有限 $r_b$ の測定者の温度と、漸近時刻 $t$ で規格化した温度は異なります。この区別は、後の浴との接合で役立ちます。
+有限cutoff境界の静止観測者のLorentz固有時間を $s_b$ と書くと、$ds_b=\sqrt{f(r_b)}\,dt$ です（後のEuclid時間 $\tau$ とは別の記号です）。有限 $r_b$ の測定者の温度と、漸近時刻 $t$ で規格化した温度は異なります。この区別は、後の浴との接合で役立ちます。
 
-境界外向き単位法線は $n^r=\sqrt{f}$ です。$\sqrt{-g}=1$ なので、[BHI19の外部曲率の規約](../BHI19/index.md#def-bhi19-jt-action)に従うと
+境界 $r=r_b$ の接線は $\partial_t$ で、その誘導計量は $h_{tt}=g(\partial_t,\partial_t)=-f(r_b)<0$ です。従って境界の一次元体積密度は $\sqrt{-h}=\sqrt{f(r_b)}$ です。外向き法線は $n^r=\sqrt f$、$n^t=0$ であり、$g_{rr}(n^r)^2=f^{-1}f=1$ だから単位法線になっています。$\det g=-1$ により $\sqrt{-g}=1$ なので、[BHI19の外部曲率の規約](../BHI19/index.md#def-bhi19-jt-action)に従うと
 
 $$
 K=\nabla_\mu n^\mu=\partial_r\sqrt f
@@ -163,7 +190,7 @@ $$
 
 静的ベクトル $\partial_t$ のノルムは $g_{tt}=-f$ です。$r=r_h$ で $f=0$ となるため、この曲面は$\partial_t$が零ノルムになる候補です。外部での二重零点ではなく、$f'(r_h)=2r_h/\ell^2>0$ の**単純零点**であることが重要です。
 
-Euclid時間 $\tau$ は $t=-i\tau$ により導入し、地平線の外側で
+Euclid時間 $\tau$ は $t=-i\tau$ というWick回転で導入します。第3節のLorentz固有時間 $s_b$ とは異なる座標ですが、Euclid周期 $\beta$ に対する境界の固有円周長は同じ計量因子 $\sqrt{f(r_b)}$ で計算できます。地平線の外側で
 
 $$
 ds_E^2=f(r)\,d\tau^2+\frac{dr^2}{f(r)}
@@ -233,7 +260,17 @@ $$
 U=-e^{-\kappa u},\qquad V=e^{\kappa v}
 $$
 
-と置くと、$UV=-(r-r_h)/(r+r_h)$ です。従って
+と置くと、$UV=-(r-r_h)/(r+r_h)$ です。$U,V$ の微分と元の計量との関係を順に求めると
+
+$$
+\begin{aligned}
+dU&=-\kappa U\,du,&dV&=\kappa V\,dv,\\
+du\,dv&=-\frac{dU\,dV}{\kappa^2UV},&
+\frac{f(r)}{\kappa^2UV}&=-\frac{(r+r_h)^2\ell^2}{r_h^2}.
+\end{aligned}
+$$
+
+また $1+UV=2r_h/(r+r_h)$ だから、これらを $ds^2=-f\,du\,dv$ に代入して
 
 $$
 r=r_h\frac{1-UV}{1+UV},\qquad
@@ -242,13 +279,23 @@ ds^2=-\frac{4\ell^2}{(1+UV)^2}\,dU\,dV,
 \Phi=\frac{ar_h}{\ell}\frac{1-UV}{1+UV}.
 $$
 
-これは $UV>-1$ のうち分母が零でない近傍で正則です。外部 $r>r_h$ は $-1<UV<0$ に対応し、$U=0$ または $V=0$ は滑らかな零曲面（地平線）です。交点 $U=V=0$ は静的対称性の**分岐点**で、そこで $\Phi=\Phi_h$ となります。ここで使う分岐点とは、未来・過去の二つの地平線が交わり、静的Killingベクトルが零になる点です。
+これは $UV>-1$ の範囲で正則です。外部 $r>r_h$ は $-1<UV<0$ に対応し、$U=0$ または $V=0$ は滑らかな零曲面（地平線）です。
+
+時刻移動 $t\mapsto t+c$ は計量を保つ等長変換であり、その時間並進を無限小に動かすベクトル場 $\partial_t$ をKillingベクトルと呼びます。$r$ を固定して $t$ で微分すると $\partial_tu=\partial_tv=1$ なので、連鎖律から
+
+$$
+\partial_tU=-\kappa U,\qquad
+\partial_tV=\kappa V,\qquad
+\partial_t=-\kappa U\partial_U+\kappa V\partial_V.
+$$
+
+したがって交点 $U=V=0$ ではKillingベクトルが零になります。このように未来・過去の二つの地平線が交わり、そのKillingベクトルが零になる点を分岐点と呼びます。そこでは $\Phi=\Phi_h$ です。
 
 局所曲率は常に $-2/\ell^2$ で、$r=r_h$ に曲率発散はありません。地平線の位置や最大拡張を指定することと、浴に放射が流れる時間依存の蒸発模型を指定することは別の作業です。
 
 ## 6. dilaton値から重力エントロピーを出す
 
-[BHI19の位相項](../BHI19/index.md#prop-bhi19-topology)は $S_0=\Phi_0/(4G_2)$ を与えました。今回の動的な項は、定常地平線の分岐点における $\Phi_h$ に比例します。二次元では地平線断面が点なので、Waldエントロピーの積分はこの点の寄与になります。
+[BHI19の位相項](../BHI19/index.md#prop-bhi19-topology)は $S_0=\Phi_0/(4G_2)$ を与えました。今回の動的な項は、定常地平線の分岐点における $\Phi_h$ に比例します。曲率項を含む重力作用から求める定常地平線の幾何学的エントロピーをWaldエントロピーと呼びます。二次元では地平線断面が点なので、その局所的な寄与は分岐点で評価されます。今回はこの係数をEuclid円錐角の計算から直接求めます。
 
 <a id="def-bhi20-horizon-dilaton"></a>
 
@@ -283,7 +330,7 @@ $$
 
 ### 証明の見取り図
 
-作用の曲率項は $(\Phi_0+\Phi)R/(16\pi G_2)$ です。Euclid円板の原点に小さな円錐角欠損を入れると、その周囲の曲率積分が $4\pi(1-n)$ だけ変化します。これをEuclid作用へ入れ、レプリカ数 $n$ の微分でエントロピーを取り出すと $1/(4G_2)$ が生じます。
+作用の曲率項は $(\Phi_0+\Phi)R/(16\pi G_2)$ です。Euclid円板の原点で角の周期を通常の $2\pi$ から $2\pi n$ に変更し、$n=1$ が滑らかな場合となるようなパラメータ $n$ を導入します。このとき原点の円錐角欠損は $2\pi(1-n)$、曲率積分への寄与は $4\pi(1-n)$ です。Euclid作用の $n$ 微分からエントロピーを取り出すと $1/(4G_2)$ が生じます。
 
 <!-- proof-start -->
 ### 証明
@@ -295,7 +342,7 @@ I^E_{\rm curv}=-\frac1{16\pi G_2}
 \int\sqrt g\,(\Phi_0+\Phi)R
 $$
 
-です。第4節の平面極座標 $(\rho,\theta)$ の角周期を $2\pi n$ に変形し、$n=1$ の滑らかな円板へ戻す近傍を調べます。原点を囲む小円のGauss–Bonnet関係から、先端に集中するスカラー曲率の積分は
+です。第4節の平面極座標 $(\rho,\theta)$ の角周期を $2\pi n$ に変形し、$n=1$ の滑らかな円板へ戻す近傍を調べます。[BHI19で用いた境界付きGauss–Bonnet関係](../BHI19/index.md#prop-bhi19-topology)を原点を囲む小円へ適用します。角周期を $2\pi$ から $2\pi n$ に変えた際の角欠損は $2\pi(1-n)$ で、二次元ではスカラー曲率がGauss曲率の2倍だから、先端に集中するスカラー曲率の積分は
 
 $$
 \int_{\rm tip}\sqrt g\,R=4\pi(1-n).
@@ -480,7 +527,18 @@ $\Phi_h=ar_h/\ell$ とも一致します。$\square$
 - 問題: $\ell=3,\ r_h=2$ のとき $f'(r_h)$、$\kappa=f'(r_h)/2$、Euclid周期 $\beta$ と $T_H$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $f'(r)=2r/\ell^2=2r/9$ なので $f'(2)=4/9$、$\kappa=2/9$ です。[Euclid正則性の命題](#prop-bhi20-temperature)の $\beta=2\pi/\kappa$ より $\beta=9\pi$、従って $T_H=1/(9\pi)$。$\beta$ の次元は長さ、$T_H$ は長さの逆数です。
+**詳細解答。** $f'(r)=2r/\ell^2=2r/9$ に地平線半径 $r_h=2$ を代入します。[Euclid正則性とJTブラックホールの温度](#prop-bhi20-temperature)を適用すると
+
+$$
+f'(r_h)=\frac49,\qquad
+\kappa=\frac{f'(r_h)}2=\frac29,
+\qquad
+\beta=\frac{2\pi}{\kappa}=9\pi,
+\qquad
+T_H=\beta^{-1}=\frac1{9\pi}.
+$$
+
+$\beta$ の次元は長さ、$T_H$ は長さの逆数です。
 <!-- solution-end -->
 
 <a id="ex-bhi20-a03"></a>
@@ -491,7 +549,24 @@ $\Phi_h=ar_h/\ell$ とも一致します。$\square$
 - 問題: $\Phi=ar/\ell$ と静的計量 $ds^2=-fdt^2+f^{-1}dr^2$ を使い、$\nabla_r\nabla_r\Phi$ をChristoffel記号から計算し、$f'=2r/\ell^2$ のとき $\Phi g_{rr}/\ell^2$ と一致することを示せ。
 
 <!-- solution-start -->
-**詳細解答。** $\partial_r^2\Phi=0$、$\Gamma^r_{rr}=-f'/(2f)$ より $\nabla_r\nabla_r\Phi=0-\Gamma^r_{rr}(a/\ell)=af'/(2\ell f)$。仮定を入れると $af'/(2\ell f)=ar/(\ell^3f)$ です。一方 $g_{rr}=1/f$、$\Phi=ar/\ell$ から $\Phi g_{rr}/\ell^2=ar/(\ell^3f)$。従って[真空Hessian方程式](../BHI19/index.md#prop-bhi19-trace-hessian)の $rr$ 成分が成立します。$f>0$ を用いた座標内の計算です。
+**詳細解答。** $\partial_r^2\Phi=0$、$\partial_r\Phi=a/\ell$ であり、$\Gamma^r_{rr}=-f'/(2f)$ です。[真空Hessian方程式](../BHI19/index.md#prop-bhi19-trace-hessian)の左辺を座標成分に直すと
+
+$$
+\nabla_r\nabla_r\Phi
+=\partial_r^2\Phi-\Gamma^r_{rr}\partial_r\Phi
+=0+\frac{f'}{2f}\frac a\ell
+=\frac{af'}{2\ell f}.
+$$
+
+仮定 $f'=2r/\ell^2$ を代入した左辺と、$g_{rr}=1/f,\ \Phi=ar/\ell$ を代入した右辺は、それぞれ
+
+$$
+\nabla_r\nabla_r\Phi=\frac{ar}{\ell^3f},
+\qquad
+\frac{\Phi}{\ell^2}g_{rr}=\frac{ar}{\ell^3f}.
+$$
+
+従って $rr$ 成分が成立します。計算範囲は $f>0$ の静的外部です。
 <!-- solution-end -->
 
 <a id="ex-bhi20-a04"></a>
@@ -502,7 +577,7 @@ $\Phi_h=ar_h/\ell$ とも一致します。$\square$
 - 問題: $\ell=2,r_h=1,r_b=\sqrt{17}$ において、$\sqrt{f(r_b)}$、$\beta_b/\beta$ と $T_b/T_H$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $f(r_b)=(17-1)/4=4$ なので $\sqrt f=2$ です。第3・4節の固有時間関係 $d\tau_b=\sqrt f\,dt$ から $\beta_b/\beta=\sqrt f=2$、温度は逆周期なので $T_b/T_H=1/\sqrt f=1/2$。座標を変えた温度の比較ではなく、この境界で正規化した固有時計の比較です。
+**詳細解答。** $f(r_b)=(17-1)/4=4$ なので $\sqrt f=2$ です。第3節の固有時間関係 $ds_b=\sqrt f\,dt$ と第4節のEuclid固有周期 $\beta_b=\sqrt{f(r_b)}\,\beta$ から、$\beta_b/\beta=\sqrt f=2$ です。温度は固有周期の逆数なので $T_b/T_H=1/\sqrt f=1/2$。座標を変えた温度の比較ではなく、この境界で正規化した固有時計の比較です。
 <!-- solution-end -->
 
 <a id="ex-bhi20-a05"></a>
@@ -562,7 +637,24 @@ $$
 - 問題: $\kappa=r_h/\ell^2$ とし、$r_*=\int dr/f$、$u=t-r_*$、$v=t+r_*$、$U=-e^{-\kappa u}$、$V=e^{\kappa v}$ を用いる。$UV$ を $r$ で表し、計量が $U=0$ と $V=0$ で有限になることを計算せよ。
 
 <!-- solution-start -->
-**詳細解答。** 部分分数分解は $1/(r^2-r_h^2)=[1/(2r_h)][1/(r-r_h)-1/(r+r_h)]$。従って $r_*=\ell^2/(2r_h)\log[(r-r_h)/(r+r_h)]$、積分定数は $r_*(\infty)=0$ とします。$UV=-e^{\kappa(v-u)}=-e^{2\kappa r_*}=-(r-r_h)/(r+r_h)$。$dU=-\kappa U\,du$、$dV=\kappa V\,dv$ より $du\,dv=-dU\,dV/(\kappa^2UV)$、従って
+**詳細解答。** $r>r_h>0$ の領域で部分分数分解を行います。
+
+$$
+\frac1{f(r)}=\frac{\ell^2}{2r_h}
+\left(\frac1{r-r_h}-\frac1{r+r_h}\right).
+$$
+
+これを積分し、$r_*(\infty)=0$ と規格化すると
+
+$$
+r_*(r)=\frac{\ell^2}{2r_h}
+\log\left(\frac{r-r_h}{r+r_h}\right),
+\qquad
+UV=-e^{\kappa(v-u)}=-e^{2\kappa r_*}
+=-\frac{r-r_h}{r+r_h}.
+$$
+
+ここで $v-u=2r_*$ を使いました。次に $dU=-\kappa U\,du$ と $dV=\kappa V\,dv$ から $du\,dv=-dU\,dV/(\kappa^2UV)$ を得て、$ds^2=-f\,du\,dv$ に代入します。従って
 
 $$
 ds^2=-fdu\,dv=\frac{f}{\kappa^2UV}dU\,dV
@@ -580,7 +672,15 @@ $$
 - 問題: 第3節の $r=r_b$ における $K$、$\sqrt{-h}$、$\Phi_b$ をそれぞれ導き、標準反項とGHY項の和の $r_b\to\infty$ 極限を求めよ。$r_h,\ell,a,G_2$ を固定する。
 
 <!-- solution-start -->
-**詳細解答。** 外向き単位法線は $n^r=\sqrt f$ で、$\sqrt{-g}=1$ から $K=\partial_r\sqrt f=f'/(2\sqrt f)=r_b/[\ell\sqrt{r_b^2-r_h^2}]$。また $\sqrt{-h}=\sqrt{f(r_b)}=\sqrt{r_b^2-r_h^2}/\ell$、$\Phi_b=ar_b/\ell$ です。[標準反項の定義](../BHI19/index.md#def-bhi19-jt-action)を使い
+**詳細解答。** 外向き単位法線は $n^r=\sqrt f$ で、$\sqrt{-g}=1$ から $K=\partial_r\sqrt f=f'/(2\sqrt f)$ です。境界の誘導計量は $h_{tt}=-f(r_b)$ ですから、必要な三つの量は
+
+$$
+K=\frac{r_b}{\ell\sqrt{r_b^2-r_h^2}},\qquad
+\sqrt{-h}=\frac{\sqrt{r_b^2-r_h^2}}\ell,\qquad
+\Phi_b=\frac{ar_b}\ell.
+$$
+
+いずれも $r_b>r_h$ の境界で評価します。[標準反項の定義](../BHI19/index.md#def-bhi19-jt-action)を使い
 
 $$
 I_{\Phi K}+I_{\rm ct}
