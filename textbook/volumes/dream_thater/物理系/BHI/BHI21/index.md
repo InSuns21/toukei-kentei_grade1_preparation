@@ -227,7 +227,33 @@ $$
 
 ## 5. なぜ三つの変換が同じ境界幾何を表すか
 
-Poincaré座標 $F$ を、$M(y)=(ay+b)/(cy+d)$ の形の**射影変換**で取り換えます。$a,b,c,d$ は実数で、$ad-bc>0$、$cy+d\ne0$ を満たす区間に制限すれば、$M'(y)>0$ で向きが保たれます。これらの座標の取り換えが、JT境界のSchwarzian作用を変えないことを示します。
+[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)では、分数線形写像を合成した場合の微分を既に計算しました。今回はこの写像を、AdS$_2$ の境界座標 $F$ の貼り替えとして使います。作用する座標と向きを限定して定義します。
+
+<a id="def-bhi21-projective-boundary-transform"></a>
+
+<!-- formal-statement-start -->
+> **定義（JT境界の射影変換）**
+>
+> 区間 $J$ 上の局所境界座標 $F\in C^3(J)$ が $F'>0$ を満たすとする。実係数 $a,b,c,d$ が各点で次の条件を満たすものを選ぶ。
+>
+$$
+ad-bc>0,\qquad cF(u)+d\ne0\quad(u\in J).
+$$
+>
+> このとき、$F$ に作用する**JT境界の射影変換**を次で定める。
+>
+$$
+M(y)=\frac{ay+b}{cy+d},\qquad \widetilde F(u)=M(F(u)).
+$$
+>
+> ここで係数の単位は $M(F)$ が境界座標と同じ長さの次元を持つよう選ぶ。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-bhi21-projective-boundary-transform -->
+**定義の確認**：長さ定数 $L>0$ に対し $u>0$、$F(u)=u$、$M(y)=L(y+L)/(y+2L)$ とします。係数は $a=L,b=L^2,c=1,d=2L$ なので $ad-bc=2L^2-L^2=L^2>0$、分母は $F(u)+2L=u+2L>0$。さらに $\widetilde F'(u)=L^2/(u+2L)^2>0$ です。新旧座標はいずれも長さの次元を持ち、写像は指定した区間で滑らかで向きも保ちます。
+<!-- definition-example-end -->
+
+この境界座標の取り換えが、Schwarzian作用を変えないことを示します。
 
 <a id="prop-bhi21-projective-action"></a>
 
@@ -246,7 +272,7 @@ $$
 ad-bc>0,\qquad cF(u)+d\ne0
 $$
 >
-> とする。射影変換による新しい座標を
+> とする。[JT境界の射影変換](#def-bhi21-projective-boundary-transform)による新しい座標を
 >
 $$
 M(y)=\frac{ay+b}{cy+d},\qquad \widetilde F=M\circ F
