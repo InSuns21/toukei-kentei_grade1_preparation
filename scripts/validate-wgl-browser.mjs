@@ -1466,7 +1466,7 @@ try{
   if(!w19.status.includes('WebGL2実行エラー')){
     assert.match(gui19.status,/編集コードを実行しました/,'WGL19 edited GUI: '+JSON.stringify(gui19));
     assert.equal(gui19.rows.length,16);
-    assert.ok(gui19.rows.every(row=>row[4]==='OK'),'edited WGL19 GPU RGBA must match current CPU baseline');
+    assert.ok(gui19.rows.every(row=>row[4]==='OK'),'edited WGL19 GPU RGBA vs current CPU baseline: '+JSON.stringify(gui19));
     assert.match(gui19.log,/ticks\/frame=0,0,1,1; total ticks=2; remainder=0\.00000ms; dropped=40ms/);
     assert.match(gui19.log,/WGL19 clock: 一致 \/ independent CPU-FLOAT: maxError=.*一致/);
   }
