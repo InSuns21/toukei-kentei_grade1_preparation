@@ -10,7 +10,7 @@ export const LAB_PARAMETERS = Object.freeze({
       meaning: '4近傍拡散の1数値stepで隣接セルへ配分する割合',
       sourceLocation: 'audit.js / const rate → u_rate（GPU更新）',
       sourceFile: 'js', index: null,
-      matcher: /^([ \\t]*const rate[ \\t]*=[ \\t]*)([^;\\n]+)(;)/gm
+      matcher: /^([ \t]*const rate[ \t]*=[ \t]*)([^;\n]+)(;)/gm
     }),
     Object.freeze({
       id: 'fixed-ms', type: 'integer', label: '数値stepの刻み', default: 20,
@@ -18,7 +18,7 @@ export const LAB_PARAMETERS = Object.freeze({
       meaning: '合成フレーム経過時間を積算し、何回GPU拡散を更新するか決める時間（描画FPSとは別）',
       sourceLocation: 'audit.js / const fixedMs → while (accumulator >= fixedMs)',
       sourceFile: 'js', index: null,
-      matcher: /^([ \\t]*const fixedMs[ \\t]*=[ \\t]*)([^;\\n]+)(;)/gm
+      matcher: /^([ \t]*const fixedMs[ \t]*=[ \t]*)([^;\n]+)(;)/gm
     }),
     Object.freeze({
       id: 'max-steps-per-frame', type: 'integer', label: 'フレーム当たり最大更新回数', default: 4,
@@ -26,7 +26,7 @@ export const LAB_PARAMETERS = Object.freeze({
       meaning: '1回の描画で計算を打ち切る上限。残った整数step分は破棄時間として計上',
       sourceLocation: 'audit.js / const maxStepsPerFrame → while の上限',
       sourceFile: 'js', index: null,
-      matcher: /^([ \\t]*const maxStepsPerFrame[ \\t]*=[ \\t]*)([^;\\n]+)(;)/gm
+      matcher: /^([ \t]*const maxStepsPerFrame[ \t]*=[ \t]*)([^;\n]+)(;)/gm
     })
   ]),
   WGL18: Object.freeze([Object.freeze({
