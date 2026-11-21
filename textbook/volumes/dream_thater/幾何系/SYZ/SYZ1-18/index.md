@@ -40,7 +40,7 @@ $$
 \eta|_{L'}\le\mathrm{vol}_{L'}
 $$
 
-が成り立つ。コンパクトで境界なし、同じホモロジー類に属する向き付き $L'$ について、$d\eta=0$ とStokesの定理から $\int_{L'}\eta=\int_L\eta$ である。そこで
+が成り立つ。コンパクトで境界なし、同じホモロジー類に属する向き付き $L'$ について、$d\eta=0$ と[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から $\int_{L'}\eta=\int_L\eta$ である。そこで
 
 $$
 \operatorname{Vol}(L')
@@ -89,7 +89,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-変形埋め込み $F_t:L\to X$ が $F_0$ で元の包含、速度が $V$ とする。$d\omega=0$ なのでCartanの公式を使い、
+変形埋め込み $F_t:L\to X$ が $F_0$ で元の包含、速度が $V$ とする。$d\omega=0$ なので[Cartanの公式](../../GEO/GEO7/index.md#thm-geo7-cartan-formula)を使い、
 
 $$
 \left.\frac{d}{dt}\right|_0F_t^*\omega
@@ -350,7 +350,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-較正の定義より、$L'$ の各向き付き接平面で $\eta|_{L'}\le\mathrm{vol}_{L'}$。これを積分すると $\int_{L'}\eta\le\operatorname{Vol}(L')$。$[L']=[L]$ なので境界でつながる鎖上にStokesの定理を使い、$d\eta=0$ から $\int_{L'}\eta=\int_L\eta$。最後に $L$ の較正条件から $\int_L\eta=\operatorname{Vol}(L)$。ゆえに
+較正の定義より、$L'$ の各向き付き接平面で $\eta|_{L'}\le\mathrm{vol}_{L'}$。これを積分すると $\int_{L'}\eta\le\operatorname{Vol}(L')$。$[L']=[L]$ なので境界でつながる鎖上に[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を使い、$d\eta=0$ から $\int_{L'}\eta=\int_L\eta$。最後に $L$ の較正条件から $\int_L\eta=\operatorname{Vol}(L)$。ゆえに
 
 $$
 \operatorname{Vol}(L')\ge\int_{L'}\eta
@@ -449,7 +449,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-[線形化](../SYZ1-05/index.md#thm-syz1-05-linearization)で核は $\mathcal H^1(L)$。コンパクト境界なしなのでHodge理論を適用でき、$\dim\mathcal H^1(L)=b_1(L)=n$。次に[無障害性定理](../SYZ1-06/index.md#thm-syz1-06-mclean-unobstructed)は、値域を完全形式へ限定し右逆と楕円型陰関数定理を使って、核の近傍の各パラメータから実際の局所変形を構成する。
+[線形化](../SYZ1-05/index.md#thm-syz1-05-linearization)で核は $\mathcal H^1(L)$。コンパクト境界なしなのでHodge理論を適用でき、$\dim\mathcal H^1(L)=b_1(L)=n$。次に[無障害性定理](../SYZ1-06/index.md#thm-syz1-06-mclean-unobstructed)は、値域を完全形式へ限定し右逆を構成したうえで、[有限次元陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)のBanach空間版を解析的入力として用い、核の近傍の各パラメータから実際の局所変形を構成する。
 
 しかし得たものは**元の部分多様体の近くの解空間**である。すべての点があるSLagファイバーに属すること（全射性）、異なるファイバーが交わらないこと、特異値を跨いだ大域的な連続性は示していない。従って滑らかな大域写像 $\pi:X\to B$ の存在を結論する推論には不足がある。
 <!-- solution-end -->
