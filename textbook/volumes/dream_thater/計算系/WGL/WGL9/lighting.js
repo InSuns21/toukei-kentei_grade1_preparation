@@ -217,7 +217,7 @@ function wgl9Frame(now){
     const delta=Math.min(.08,Math.max(0,(now-wgl9Stamp)/1000));
     wgl9Stamp=now;wgl9Phase+=delta*.8;wgl9Draw(wgl9Phase);
   }else wgl9Stamp=null;
-  requestAnimationFrame(wgl9Frame);
+  wgl9Raf=requestAnimationFrame(wgl9Frame);
 }
 const onWgl9Reduced=event=>{
   if(event.matches){wgl9Playing=false;wgl9Stamp=null;wgl9Draw(wgl9Phase);}
