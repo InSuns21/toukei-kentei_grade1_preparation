@@ -38,6 +38,20 @@ test('six-step independent grid and 16 RGBA/FLOAT probes',()=>{
   assert.equal(compareWGL19FloatReadback(grid.map((v,i)=>i===5?v+0.01:v)).pass,false);
   assert.equal(compareWGL19FloatReadback(null).valid,false);
 });
+test('edited WGL19 diffusion pixels use source-backed rate and audited clock',()=>{
+  const schedule=scheduleWGL19([16,16,72,16],40,1);
+  assert.equal(schedule.steps,2);
+  assert.equal(schedule.droppedMs,40);
+  const custom=expectedWGL19Samples(320,240,0.1,schedule.steps);
+  assert.equal(custom.length,16);
+  assert.ok(compareWGL19Readback(custom,320,240,2,0.1,schedule.steps).every(p=>p.pass));
+  assert.ok(compareWGL19FloatReadback(expectedWGL19Grid(0.1,[16,16,72,16],40,1),0.1,2).pass);
+  assert.ok(compareWGL19Readback(custom,320,240).some(p=>!p.pass),
+    'default 6-step pixels must not pass an edited 2-step run');
+  assert.throws(()=>expectedWGL19Samples(320,240,0.5,2),RangeError);
+  assert.throws(()=>expectedWGL19Samples(320,240,0.1,13),RangeError);
+});
+
 test('independent clock audit rejects fabricated step and drop counters',()=>{
   const valid={deltas:[16,16,72,16],fixedMs:20,maxStepsPerFrame:4,
     steps:6,droppedMs:0,frames:4};
