@@ -4,7 +4,17 @@
 
 次は **多項式方程式の解**です。法 $p$ で根を見つけても、法 $p^2$ で根があるとは限りません。しかし、根の位置で導関数が $p$ の倍数でないなら、近似解を一意に持ち上げられます。これを Hensel の補題と呼びます。さらに、$\mathbb Q_p$ 自身に根を持たない多項式を使い、新しい局所体を作ります。
 
-本講では素数 $p$ を固定し、$v_p(p)=1$、$v_p(0)=\infty$ とします。[Z_pの単元とイデアル](../ANF9/index.md#prop-anf9-dvr-structure)より、$x\in\mathbb Z_p$ が単元であることと $v_p(x)=0$ は同値です。$\mathbb F_p=\mathbb Z_p/p\mathbb Z_p$ は $p$ 個の元からなる体です。多項式 $f\in\mathbb Z_p[X]$ の係数を法 $p$ に写したものを $\bar f\in\mathbb F_p[X]$ と記し、$a\in\mathbb Z_p$ の像を $\bar a$ と書きます。$f(X)=\sum_{i=0}^n a_iX^i$ に対する $f'(X)=\sum_{i=1}^n ia_iX^{i-1}$ は、変数 $X$ に関する**形式微分**です。法 $p$ での $\bar f'$ も係数を還元して得られ、実数関数の極限を計算する必要はありません。
+本講では素数 $p$ を固定し、$v_p(p)=1$、$v_p(0)=\infty$ とします。[Z_pの単元とイデアル](../ANF9/index.md#prop-anf9-dvr-structure)より、$x\in\mathbb Z_p$ が単元であることと $v_p(x)=0$ は同値です。
+
+$\mathbb F_p=\mathbb Z_p/p\mathbb Z_p$ は $p$ 個の元からなる体です。多項式 $f\in\mathbb Z_p[X]$ の係数を法 $p$ に写したものを $\bar f\in\mathbb F_p[X]$ と記し、$a\in\mathbb Z_p$ の像を $\bar a$ と書きます。
+
+$f(X)=\sum_{i=0}^n a_iX^i$ に対する、変数 $X$ に関する**形式微分**は
+
+$$
+f'(X)=\sum_{i=1}^n ia_iX^{i-1}
+$$
+
+です。係数を法 $p$ に還元すると $\overline{f'}=(\bar f)'$ が成り立ちます。通常の解析学の導関数と同じ記号を使いますが、ここでは多項式の係数に対する代数的操作です。
 
 <!-- definition-example-audit: strict -->
 
@@ -407,7 +417,17 @@ $$
 |b|_L=p^{-v_L(b)/n}=p^{-nv_p(b)/n}=p^{-v_p(b)}=|b|_p
 $$
 
-となり、零についても一致するので $|\cdot|_L$ は $\mathbb Q_p$ 上の絶対値を延長します。位相の基底 $\pi^k A$ と $p^kA$ は互いに包含し合うほど細かくでき、係数ごとの完備性を利用できます。具体的には $L=\bigcup_{m\ge0}\pi^{-m}A$ の Cauchy 列 $(x_j)$ を取り、十分大きな $N$ 以降は $v_L(x_j-x_N)\ge0$ とします。$x_N\in\pi^{-m}A$ となる $m\ge0$ を選ぶと、$j\ge N$ の全項が $\pi^{-m}A$ に入ります。$(\pi^m x_j)_{j\ge N}$ は $A$ の Cauchy 列であり、$p$ 進完備性と $pA=\pi^nA$ から $A$ で収束します。極限を $\pi^{-m}$ 倍すれば $(x_j)$ は $L$ で収束します。剰余体は上で示した $\mathbb F_p$ です。
+となり、零についても一致するので $|\cdot|_L$ は $\mathbb Q_p$ 上の絶対値を延長します。位相の基底 $\pi^k A$ と $p^kA$ は互いに包含し合うほど細かくでき、係数ごとの完備性を利用できます。
+
+実際、$L=\bigcup_{m\ge0}\pi^{-m}A$ の Cauchy 列 $(x_j)$ を取ります。Cauchy 条件から、ある $N$ について
+
+$$
+v_L(x_j-x_N)\ge0\qquad(j\ge N)
+$$
+
+が成り立ちます。$x_N\in\pi^{-m}A$ となる $m\ge0$ を選ぶと、差 $x_j-x_N\in A$ なので、すべての $j\ge N$ で $x_j\in\pi^{-m}A$ です。
+
+そこで $(\pi^m x_j)_{j\ge N}$ を考えると、これは $A$ の Cauchy 列です。$pA=\pi^nA$ により $\pi$ 進と $p$ 進の Cauchy 条件は同値なので、$A$ の $p$ 進完備性から収束します。その極限を $\pi^{-m}$ 倍すれば元の列 $(x_j)$ も $L$ で収束します。剰余体は上で示した $\mathbb F_p$ です。
 
 最後に基底表示 $x=\sum b_i\pi^i$ の各非零項の付値は $nv_p(b_i)+i$ です。異なる $i\in\{0,\ldots,n-1\}$ に対してこの値は法 $n$ の剰余が異なり、最小値を与える項はただ一つです。[付値の和の等号条件](../ANF9/index.md#prop-anf9-valuation-rules)と同じ因数分解の議論を $v_L$ に適用すると、全体の付値は各項の付値の最小値と等しくなります。
 <!-- proof-end -->
