@@ -54,7 +54,15 @@ $
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi17-regulated-coupling -->
-**定義の確認**： 上の計量を使い、物質場を両側で実数値の質量零スカラー場、cutoffを $a=\ell/100$、赤外観測区間を $0\le x\le10\ell$ とします。$\Omega(0)=\ell/\ell=1$ なので接合面の誘導計量は一致します。場の接合条件には次節の連続・透過条件を使います。時刻 $t=t_*$ の量子状態 $\omega$ には、正規化と正値性に加え、**結合系のどの観測量に期待値を与えるか**の指定が必要です。[密度演算子の条件](../../../応用系/QINF/QINF2/index.md#def-qinf2-ensemble-density)を満たす有限格子の試験物質模型を例に取り、重力側の補助セル $g_1$ と、浴の区間 $[0,10\ell]$ に置く $10\ell/a=1000$ 個の量子ビットセルを考えます。この試験物質模型に限り
+**定義の確認**： 上の計量を使い、物質場を両側で実数値の質量零スカラー場とします。短距離cutoffを $a=\ell/100$、浴の赤外観測区間を $[0,10\ell]$ と固定します。接合面では $\Omega(0)=1$ なので、前述の誘導計量の計算から一致を確認できます。場には次節の連続・透過条件を使います。
+
+時刻 $t=t_*$ の量子状態 $\omega$ には、正規化と正値性に加え、**結合系のどの観測量に期待値を与えるか**の指定が必要です。[密度演算子の条件](../../../応用系/QINF/QINF2/index.md#def-qinf2-ensemble-density)を満たす有限格子の試験物質模型を例に取り、重力側の補助セル $g_1$ と浴の1000個の量子ビットセルを考えます。浴のセル数は区間長を格子間隔で割った
+
+$
+N=\frac{10\ell}{a}=\frac{10\ell}{\ell/100}=1000
+$
+
+から定まります。この試験物質模型に限り
 
 $
 \mathcal H_{\rm toy}=\mathbb C^2_{g_1}\otimes
@@ -377,12 +385,15 @@ $
 **詳細解答。** $u=t-x$ と置き、$f'$ は $u$ による一変数微分とします。$x$ を固定する $t$ 微分と、$t$ を固定する $x$ 微分では、連鎖律の最後の因子が異なります。
 
 $
-\begin{aligned}
-\partial_t\phi&=f'(u)\partial_tu=f'(u),&
-\partial_x\phi&=f'(u)\partial_xu=-f'(u),\\
-\partial_t^2\phi&=f''(u),&
-\partial_x^2\phi&=(-1)^2f''(u)=f''(u).
-\end{aligned}
+\partial_t\phi=f'(u)\partial_tu=f'(u),\qquad
+\partial_x\phi=f'(u)\partial_xu=-f'(u).
+$
+
+さらに同じ連鎖律をもう一度適用すると
+
+$
+\partial_t^2\phi=f''(u),\qquad
+\partial_x^2\phi=(-1)^2f''(u)=f''(u).
 $
 
 従って両側で波動方程式を満たします。接合面の両側で $\phi(t,0)=f(t)$ と $\partial_x\phi(t,0)=-f'(t)$ が一致し、$C^2$ 性から境界への $C^1$ 延長も可能なので、[透過条件](#def-bhi17-transparent-interface)を満たします。流束は
@@ -504,15 +515,17 @@ $$
 **詳細解答。** この問題では三つの有限次元因子を**明示的に**仮定しています。$g$ が積状態なので、[部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)の和を計算すると
 
 $
-\begin{aligned}
-\rho_{ar}
-&=\operatorname{Tr}_g\bigl(
+\rho_{ar}=\operatorname{Tr}_g\bigl(
 |0\rangle\langle0|_g\otimes|\Phi\rangle\langle\Phi|_{ar}\bigr)
 =\operatorname{Tr}(|0\rangle\langle0|_g)\,
- |\Phi\rangle\langle\Phi|_{ar}\\
-&=|\Phi\rangle\langle\Phi|_{ar},\\
-\rho_r&=\operatorname{Tr}_a\rho_{ar}=I_2/2.
-\end{aligned}
+|\Phi\rangle\langle\Phi|_{ar}
+=|\Phi\rangle\langle\Phi|_{ar}.
+$
+
+さらに浴のセル $a$ を部分トレースすると
+
+$
+\rho_r=\operatorname{Tr}_a\rho_{ar}=I_2/2.
 $
 
 従って $S(R)=\ln2$。$R'=\{a,r\}$ なら $\rho_{R'}=\rho_{ar}$ は階数1で $S(R')=0$ です。**何を重力側からトレースしたか**という問いには、この補助模型の $|0\rangle_g\langle0|$ だけ、と答えます。一般の重力領域が独立Hilbert因子として分離するとの結論には使えません（[Gauss制約の例](../BHI15/index.md#def-bhi15-gauss-space)と区別）。
@@ -536,11 +549,14 @@ $
 この流束条件が成立する有限の時間窓 $[t_0,t_0+T]$ で積分し、
 
 $
-\begin{aligned}
-\Delta E_G&=\int_{t_0}^{t_0+T}(-J)dt=-JT,\\
-\Delta E_B&=\int_{t_0}^{t_0+T}J\,dt=JT,\\
-\Delta(E_G+E_B)&=0
-\end{aligned}
+\Delta E_G=\int_{t_0}^{t_0+T}(-J)dt=-JT,\qquad
+\Delta E_B=\int_{t_0}^{t_0+T}J\,dt=JT.
+$
+
+両辺を足し合わせると
+
+$
+\Delta(E_G+E_B)=-JT+JT=0.
 $
 
 です。有限な $E_G$ はこの条件だけでは時間とともに減ります。これを一定に保ってなお浴へ正の流束を永久に出すには、左側境界・外部熱浴などから同じ率 $J$ を補給するか、試験場以外のエネルギー収支項を加える必要があります。固定背景を選んだだけでは補給の仕組みは与えられません。
