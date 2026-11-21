@@ -8,7 +8,7 @@
 
 ## 1. 主イデアルからのずれを積で測る
 
-$K/\mathbb Q$ を次数 $n$ の数体とし、その整数環を $A=\mathcal O_K$ とします。[分数イデアル](../ANF3/index.md#def-anf3-fractional-ideal)は、$K$ の非零加群であり、ある非零整数倍が $A$ の整イデアルになるものでした。
+$K/\mathbb Q$ を次数 $n$ の数体とし、その整数環を $A=\mathcal O_K$ とします。[分数イデアル](../ANF3/index.md#def-anf3-fractional-ideal)は、$K$ の中の零でない $A$-部分加群であり、ある $0\ne d\in A$ を掛けると $dI\subseteq A$ となるものです。$K$-加群ではなく $A$-加群である点に注意してください。
 
 [非零分数イデアルの可逆性](../ANF3/index.md#prop-anf3-invertible-ideals)から、これらは積について可換群を作ります。単位元は $A$ です。分数イデアル $\mathfrak a$ の逆元は $\mathfrak a^{-1}$ です。
 
@@ -43,7 +43,13 @@ $$
 
 第一の同値は商群の定義、第二の同値は $\mathfrak b\mathfrak b^{-1}=A$ を両辺に掛けたものです。とくに $[\mathfrak a]=[A]$ と $\mathfrak a$ が主分数イデアルであることは同値です。整数環 $A=\mathbb Z$ ならすべての分数イデアルが $q\mathbb Z$ なので $\operatorname{Cl}(\mathbb Q)=\{[A]\}$ です。
 
-もう一つの例として $K=\mathbb Q(\sqrt{-5})$ と $s=\sqrt{-5}$ を考えます。$\mathfrak p=(2,1+s)$ は $A/\mathfrak p\simeq\mathbb F_2$ を持つ整イデアルです。この $\mathfrak p$ が主イデアルでないこと、しかし $\mathfrak p^2$ は主イデアルであることを第5節で確認します。元の一意分解の失敗を類群が記録するのです。
+もう一つの例として $K=\mathbb Q(\sqrt{-5})$ と $s=\sqrt{-5}$ を考えます。[二次体の整数環](../ANF1/index.md#thm-anf1-quadratic-integers)から $A=\mathbb Z[s]$ です。$s^2+5=0$ と $1^2+5\equiv0\pmod2$ により
+
+$$
+\varphi:A\longrightarrow\mathbb F_2,\qquad a+bs\longmapsto a+b\pmod2
+$$
+
+は全射環準同型です。$a+b$ が偶数であることは $a-b$ が偶数であることと同値で、$a+bs=(a-b)+b(1+s)$ なので、核は $\mathfrak p=(2,1+s)$ です。したがって $A/\mathfrak p\simeq\mathbb F_2$、$N(\mathfrak p)=2$ と確認できます。この $\mathfrak p$ が主イデアルでないこと、しかし $\mathfrak p^2$ は主イデアルであることを第6節で証明します。元の一意分解の失敗を類群が記録するのです。
 <!-- definition-example-end -->
 
 ## 2. 有限性への橋：同じ類の小さい代表
@@ -60,13 +66,28 @@ $$
 N(\mathfrak a\mathfrak b)=N(\mathfrak a)N(\mathfrak b)
 $$
 
-が従います。実際、異なる素イデアルの冪は互いに素であるため中国剰余定理で商の位数が積となり、同じ素イデアルの冪では指数が加算されます。また $0\ne\alpha\in A$ の主イデアル $(\alpha)$ について、整数基底での $\alpha$ 倍写像の行列式から
+が従います。実際、異なる素イデアルの冪は互いに素であるため中国剰余定理で商の位数が積となり、同じ素イデアルの冪では指数が加算されます。また $0\ne\alpha\in A$ の主イデアル $(\alpha)$ のノルムは、[整数基底](../ANF1/index.md#thm-anf1-integral-basis) $\omega_1,\ldots,\omega_n$ を使って元の商の個数へ帰着できます。各 $\alpha\omega_j$ を
 
 $$
-N((\alpha))=|N_{K/\mathbb Q}(\alpha)|
+\alpha\omega_j=\sum_{i=1}^n c_{ij}\omega_i,\qquad c_{ij}\in\mathbb Z
 $$
 
-です。[体ノルムの埋め込み公式](../ANF2/index.md#thm-anf2-embedding-formulas)とも整合します。
+と展開し、$\alpha$ 倍写像の整数係数行列を $C_\alpha=(c_{ij})$ とします。基底の係数ベクトルで $A\simeq\mathbb Z^n$、$\alpha A\simeq C_\alpha\mathbb Z^n$ となるため、
+
+$$
+A/(\alpha)\simeq\mathbb Z^n/C_\alpha\mathbb Z^n,
+\qquad
+N((\alpha))=|\det C_\alpha|.
+$$
+
+$\alpha\ne0$ なので乗法写像は $\mathbb Q$ 上可逆で、行列式は非零です。[体ノルムの定義](../ANF2/index.md#def-anf2-field-norm)はこの乗法写像の行列式なので、
+
+$$
+N((\alpha))=|\det C_\alpha|
+=|N_{K/\mathbb Q}(\alpha)|.
+$$
+
+これは[体ノルムの埋め込み公式](../ANF2/index.md#thm-anf2-embedding-formulas)とも一致します。整数基底での座標が、商の位数と体ノルムの両方を同じ行列式で結び付ける点が判定の根拠です。
 
 次数 $n=r_1+2r_2$、体判別式 $D_K$ の数体に対し、正の定数を
 
@@ -147,7 +168,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$c\in\operatorname{Cl}(K)$ を任意に取ります。逆類 $c^{-1}$ の分数イデアル代表を $\mathfrak b$ とします。[分数イデアルの定義](../ANF3/index.md#def-anf3-fractional-ideal)から、ある正整数 $d$ について $I=d\mathfrak b$ は非零整イデアルです。$(d)$ は主分数イデアルなので $[I]=[\mathfrak b]=c^{-1}$ です。
+$c\in\operatorname{Cl}(K)$ を任意に取ります。逆類 $c^{-1}$ の分数イデアル代表を $\mathfrak b$ とします。[分数イデアルの定義](../ANF3/index.md#def-anf3-fractional-ideal)から、ある $0\ne d\in A$ について $I=d\mathfrak b$ は非零整イデアルです。$(d)$ は主分数イデアルなので $[I]=[\mathfrak b]=c^{-1}$ です。
 
 $I$ に [小ノルム元の定理](../ANF5/index.md#thm-anf5-small-norm-element)を適用し、$0\ne\alpha\in I$ かつ
 
@@ -289,7 +310,28 @@ $$
 
 **虚二次体。** $K=\mathbb Q(i)$ なら $D_K=-4$ だから $M_K=4/\pi<2$。$K=\mathbb Q(\sqrt{-2})$ なら $D_K=-8$ だから $M_K=4\sqrt2/\pi<2$。どちらも類数1です。
 
-**$\mathbb Q(\sqrt{-6})$ の見通し。** $s^2=-6$、$A=\mathbb Z[s]$、$D_K=-24$。このとき $M_K=4\sqrt6/\pi\approx3.119$ なのでノルム1,2,3の整イデアルを調べれば足ります。ノルム2の素イデアルは $\mathfrak p_2=(2,s)$、ノルム3は $\mathfrak p_3=(3,s)$ に一意に定まり、$a^2+6b^2=2,3$ に整数解がないので両者とも非主です。$(s)\subseteq\mathfrak p_2\mathfrak p_3$ かつ双方のノルムが6であることから $\mathfrak p_2\mathfrak p_3=(s)$。ゆえに両者は逆の類です。さらに $\mathfrak p_2^2=(2)$ なので逆類は自分自身であり、類群は二元です。演習B4でこれらの包含とノルムを省略せず確かめます。
+**$\mathbb Q(\sqrt{-6})$ の見通し。** $s^2=-6$、$A=\mathbb Z[s]$、$D_K=-24$ と置きます。このとき
+
+$$
+M_K=\frac{4\sqrt6}{\pi}\approx3.119<4
+$$
+
+なので、類数上界からノルム1,2,3の整イデアルを調べれば足ります。ノルム2の素イデアルは $\mathfrak p_2=(2,s)$、ノルム3の素イデアルは $\mathfrak p_3=(3,s)$ に一意に定まります。両者の商では $s$ の像がそれぞれ $\mathbb F_2,\mathbb F_3$ の中で $t^2=0$ を満たし、$t=0$ に限られるためです。また、元のノルム
+
+$$
+N_{K/\mathbb Q}(a+bs)=a^2+6b^2
+$$
+
+は2にも3にもならないので、両者は非主イデアルです。
+
+$\mathfrak p_2,\mathfrak p_3$ は異なる極大イデアルで互いに素です。$s$ は両者に属するので、$(s)\subseteq\mathfrak p_2\cap\mathfrak p_3=\mathfrak p_2\mathfrak p_3$。左辺のノルムは6、右辺のノルムも $2\cdot3=6$ なので
+
+$$
+\mathfrak p_2\mathfrak p_3=(s),
+\qquad [\mathfrak p_3]=[\mathfrak p_2]^{-1}.
+$$
+
+さらに $\mathfrak p_2^2=(4,2s,-6)$ は $(2)$ に含まれ、$2=(-6)+2\cdot4$ も含むため $\mathfrak p_2^2=(2)$ です。したがって $[\mathfrak p_2]^{-1}=[\mathfrak p_2]$。候補は $[A]$ と非自明な $[\mathfrak p_2]$ の二類だけです。演習B4で全段階をもう一度独立に証明します。
 
 ## 8. 演習：有限性の証明と小さい素イデアルの計算
 
@@ -468,7 +510,13 @@ $$
 (1+s)\subseteq\mathfrak p\cap\mathfrak q=\mathfrak p\mathfrak q.
 $$
 
-左辺のノルムは $N_{K/\mathbb Q}(1+s)=(1+s)(1-s)=6$、右辺も $2\cdot3=6$ だから等号です。同じ計算で $(1-s)=\mathfrak p\mathfrak q'$ となります。
+左辺のノルムは $N_{K/\mathbb Q}(1+s)=(1+s)(1-s)=6$、右辺も $2\cdot3=6$ だから等号です。他方 $1-s$ は $\mathfrak p$ では $s\equiv1\pmod2$、$\mathfrak q'$ では $s\equiv1\pmod3$ なので両方に含まれます。これらはノルム2と3の異なる極大イデアルで互いに素です。ゆえに
+
+$$
+(1-s)\subseteq\mathfrak p\cap\mathfrak q'=\mathfrak p\mathfrak q'.
+$$
+
+両辺のノルムは $N_{K/\mathbb Q}(1-s)=6$ と $N(\mathfrak p)N(\mathfrak q')=2\cdot3=6$ で一致し、$(1-s)=\mathfrak p\mathfrak q'$ です。
 
 **(3)** [類数上界](#thm-anf6-minkowski-class-bound)から全類の代表はノルム1または2に取れ、A5でそれらは $A,\mathfrak p$ に限ると示しました。$\mathfrak p$ は非主なので両類は異なります。(2) により $[A]=[\mathfrak p][\mathfrak q]$、また $[\mathfrak p]^2=[A]$ なので $[\mathfrak q]=[\mathfrak p]^{-1}=[\mathfrak p]$。同じ理由で $[\mathfrak q']=[\mathfrak p]$ です。
 
