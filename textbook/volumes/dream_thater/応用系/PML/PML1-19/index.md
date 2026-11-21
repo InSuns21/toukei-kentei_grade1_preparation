@@ -20,7 +20,11 @@ $$
 
 ## 2. Euler--Lagrange 方程式を加速度について解く
 
-一見して分かりにくいのは、速度に関する偏微分 $\partial L/\partial v_i$ を、軌道に沿ってさらに時間微分する箇所である。位置も速度も時刻とともに動くので、[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を成分ごとに使う。ここで $d/dt$ は $(q(t),v(t))$ に沿う**全時間微分**である。一方、$\partial/\partial q_j$ と $\partial/\partial v_j$ は、それぞれ他方の変数と学習パラメータ $\theta$ を固定する偏微分である。$\dot q_j=dq_j/dt=v_j$、$\dot v_j=dv_j/dt=a_j$ として連鎖律を適用する。
+一見して分かりにくいのは、速度に関する偏微分 $\partial L/\partial v_i$ を、軌道に沿ってさらに時間微分する箇所である。位置も速度も時刻とともに動くので、[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を成分ごとに使う。
+
+ここで $d/dt$ は軌道 $(q(t),v(t))$ に沿う**全時間微分**を表す。$\partial/\partial q_j$ は速度を固定する位置偏微分、$\partial/\partial v_j$ は位置を固定する速度偏微分である。学習パラメータ $\theta$ はいずれでも固定する。
+
+軌道では $\dot q_j=dq_j/dt=v_j$、$\dot v_j=dv_j/dt=a_j$ だから、これらを連鎖律の各項に代入する。
 
 $$
 \begin{aligned}
