@@ -258,7 +258,7 @@ $$
 L=\mathbb Q_p[X]/(f),\qquad \pi=X\bmod(f)
 $$
 
-は体で、$1,\pi,\ldots,\pi^{n-1}$ が $\mathbb Q_p$ 上の基底です。したがって $[L:\mathbb Q_p]=n$ です。体であることは既約多項式が生成するイデアルが極大であることから従います。基底による一意表示は多項式の除法で得られます。
+は体で、$1,\pi,\ldots,\pi^{n-1}$ が $\mathbb Q_p$ 上の基底です。したがって $[L:\mathbb Q_p]=n$ です。体であることは既約多項式が生成するイデアルが極大であることから従います。基底による一意表示は[多項式の除法](../../../基礎科目/LA/LA4/index.md#lem-la4-polynomial-division)で得られます。
 
 ## 6. 新しい根を作る既約多項式
 
@@ -364,7 +364,7 @@ $A$ は有限個の $p$ 進整数係数で表せるので完備です。多項�
 <!-- proof-start -->
 ### 証明
 
-[p進 Eisenstein 既約性判定](#thm-anf10-eisenstein-irreducible)と多項式の除法から $[L:\mathbb Q_p]=n$、$A=\bigoplus_{i=0}^{n-1}\mathbb Z_p\pi^i$ です。$f(X)=X^n+p\sum_{i=0}^{n-1}b_iX^i$ と書け、$b_i\in\mathbb Z_p$、$b_0\in\mathbb Z_p^\times$ です。$f(\pi)=0$ から
+[p進 Eisenstein 既約性判定](#thm-anf10-eisenstein-irreducible)と[多項式の除法](../../../基礎科目/LA/LA4/index.md#lem-la4-polynomial-division)から $[L:\mathbb Q_p]=n$、$A=\bigoplus_{i=0}^{n-1}\mathbb Z_p\pi^i$ です。$f(X)=X^n+p\sum_{i=0}^{n-1}b_iX^i$ と書け、$b_i\in\mathbb Z_p$、$b_0\in\mathbb Z_p^\times$ です。$f(\pi)=0$ から
 
 $$
 \pi^n=-pU,\qquad
