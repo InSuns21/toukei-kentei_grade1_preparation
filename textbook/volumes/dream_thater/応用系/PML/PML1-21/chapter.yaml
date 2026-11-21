@@ -1,0 +1,51 @@
+id: "PML1-21"
+title: "データから動力学を同定すると何が失われるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML1-20
+  - ODE4
+official_scope: []
+learning_objectives:
+  - 速度観測から有限辞書の SINDy ベクトル場と辞書行列を定義し残差を計算できる
+  - 疎同定と通常最小二乗の違いを説明できる
+  - 列フルランクに基づく最小二乗係数の一意性と非識別の反例を証明できる
+  - 最小特異値を使い観測雑音から係数誤差への増幅を評価できる
+  - 中央差分の切断誤差と観測誤差を導き刻み幅の最適な釣合いを求められる
+  - 状態写像に対する Koopman 作用素と有限不変辞書・行列の意味を説明できる
+  - 有限観測の Koopman 行列一致と領域全体の閉包性の違いを反例で示せる
+  - 一様なベクトル場誤差から有限時間の軌道誤差上界を導ける
+  - 同定モデルが観測上は一致しても元のエネルギーを保存しない例を構成できる
+  - 速度残差、係数誤差、未観測点での予測誤差、積分誤差を区別できる
+definitions:
+  - { id: PML1-21-DEF-01, name: 有限辞書によるベクトル場の模型 }
+  - { id: PML1-21-DEF-02, name: 辞書行列・速度残差・疎同定 }
+  - { id: PML1-21-DEF-03, name: 状態写像に対する Koopman 作用素 }
+  - { id: PML1-21-DEF-04, name: Koopman 不変な有限辞書と近似行列 }
+theorems:
+  - { id: PML1-21-THM-01, name: 有限辞書の最小二乗係数の一意性 }
+  - { id: PML1-21-PROP-01, name: 係数誤差と辞書行列の条件 }
+  - { id: PML1-21-PROP-02, name: 中央差分の切断誤差と観測誤差 }
+  - { id: PML1-21-PROP-03, name: 有限辞書の閉包判定と有限標本の限界 }
+  - { id: PML1-21-PROP-04, name: ベクトル場誤差から有限時間の軌道誤差へ }
+canonical_examples:
+  - 二つの観測点による x と x² の識別と一観測点による非識別
+  - 中央差分の h² と観測雑音 δ/h の釣合い
+  - F(x)=ax での有限次元 Koopman 行列と F(x)=x² の有限標本反例
+  - 調和振動子の未観測領域で元のエネルギー保存が破れる模型
+  - 2×2 の正規方程式を純 Python で再現する実験
+problem_patterns:
+  - PML1-21-A01
+  - PML1-21-A02
+  - PML1-21-A03
+  - PML1-21-A04
+  - PML1-21-A05
+  - PML1-21-B01
+  - PML1-21-B02
+  - PML1-21-B03
+  - PML1-21-B04
+  - PML1-21-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
