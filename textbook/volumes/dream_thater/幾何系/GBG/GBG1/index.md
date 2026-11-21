@@ -303,7 +303,7 @@ $$
 
 写像 $(x,k)\mapsto(x,g_{ij}(x)k)$ は、[Lie 群の定義](../../../代数系/LIE/LIE1/index.md#def-lie1-lie-group)で要求した群演算の滑らかさと $g_{ij}$ の滑らかさから連続である。従って、上に書いた逆像は $U_j\times G$ の開集合である。
 
-[商位相の定義](../../../基礎科目/TOP/TOP1/index.md#def-top1-quotient-topology)により $q_i(V)$ は $P_g$ で開になる。特に $V=U_i\times G$ とすると、$q_i(V)=\pi^{-1}(U_i)$ は開である。
+[商位相](../../../基礎科目/TOP/TOP1/index.md#def-top1-quotient-topology)により $q_i(V)$ は $P_g$ で開になる。特に $V=U_i\times G$ とすると、$q_i(V)=\pi^{-1}(U_i)$ は開である。
 
 また、$q_i$ は商写像 $q$ を第 $i$ 成分へ制限した写像なので連続である。よって $q_i$ は、開部分集合 $\pi^{-1}(U_i)$ への同相写像である。
 
