@@ -9,3 +9,4 @@
 6. [ANF6 イデアル類群の有限性](textbook/volumes/dream_thater/代数系/ANF/ANF6/index.md)
 7. [ANF7 単数定理とレギュレータ](textbook/volumes/dream_thater/代数系/ANF/ANF7/index.md)
 8. [ANF8 Dedekindゼータと解析類数公式](textbook/volumes/dream_thater/代数系/ANF/ANF8/index.md)
+9. [ANF9 付値・局所化・完備化](textbook/volumes/dream_thater/代数系/ANF/ANF9/index.md)
