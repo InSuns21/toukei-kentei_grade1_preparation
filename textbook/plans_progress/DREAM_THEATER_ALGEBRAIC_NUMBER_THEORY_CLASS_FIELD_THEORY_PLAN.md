@@ -1,7 +1,7 @@
 # DREAM THEATER 代数的整数論・局所体・類体論（ANF1〜ANF22）
 
 設計確定: 2026-11-21 JST  
-状態: in_progress / ANF1〜ANF9 completed・ANF10〜ANF22 planned。全22講。ANF1〜ANF9の本文・メタデータ・系列manifest・公開目次を実装済み。
+状態: in_progress / ANF1〜ANF10 completed・ANF11〜ANF22 planned。全22講。ANF1〜ANF10の本文・メタデータ・系列manifest・公開目次を実装済み。
 系列ID: \`ANF\`（Algebraic Number Fields）。分野: 代数系。対応ルート: [岩澤理論・保型表現・RH講読](DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)。
 
 ## 目的・既存教材との差分
@@ -76,7 +76,7 @@
 - ANF14〜21でHilbert 90から類体論本体への飛躍を放置しない。局所・大域の中心定理に必要な補題が多すぎるなら、本文作成時に講義分割を**計画変更として明示**し、無断で「証明済み」としない。
 - ANF22のKronecker–Weberは主要結果の立証範囲を分ける。類体論からの帰結を掲げる際は既習の類体論定理の仮定を全て照合する。
 - 学習者本文では編集記号を説明しない。各講の\`index.md\`・\`chapter.yaml\`・\`knowledge.yaml\`・該当科目目次を成果物と同時に確定する。
-- ANF1着手時にANF.yamlを全22講で初期化した。ANF9完了時点でANF1〜ANF9 completed、ANF10〜ANF22 planned。今後も完成した講の本文・メタデータ・公開目次とmanifestのstatusを同期する。
+- ANF1着手時にANF.yamlを全22講で初期化した。ANF10完了時点でANF1〜ANF10 completed、ANF11〜ANF22 planned。今後も完成した講の本文・メタデータ・公開目次とmanifestのstatusを同期する。
 - 全講と横断監査・必要CIが完了するまで\`plan_done/\`へ移さない。
 
 ## 前後のルート
@@ -96,4 +96,5 @@ ANF9〜13とANF19の結果は \`AFR\` 側のアデール・局所表現へ提供
 - ANF7「単数定理とレギュレータ」: 対数埋め込みの核と離散性、Minkowski凸体による有界距離被覆、Dirichlet単数定理、レギュレータの不変性、10題の詳細解答を追加。
 - ANF8「Dedekindゼータと解析類数公式」: Euler積、単数基本領域の体積、Lipschitz境界の格子点計数、各類の漸近式から留数を導出し、10題の詳細解答とQ・二次体の検算を追加。
 - ANF9「付値・局所化・完備化」: p進付値・非Archimedes絶対値・局所環・Cauchy完備化・p進整数環と逆極限の同型・桁展開・局所体の剰余環を証明し、10題の詳細解答を追加。
-- 次回: ANF10「Henselの補題と局所体の拡大」。ANF10〜ANF22は未着手。
+- ANF10「Henselの補題と局所体の拡大」: 単純根・強いHensel、Newton反復、Eisenstein既約性、Eisenstein拡大の付値環・完備性と10題の詳細解答を追加。
+- 次回: ANF11「局所体の整数環・分岐」。ANF11〜ANF22は未着手。
