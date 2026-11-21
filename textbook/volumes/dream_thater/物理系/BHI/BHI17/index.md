@@ -352,7 +352,24 @@ $$
 - 問題: $f$ は二階連続微分可能で、$\phi(t,x)=f(t-x)$ とする。波動方程式、透過接合条件、流束 $j$ を順に計算せよ。
 
 <!-- solution-start -->
-**詳細解答。** 合成関数の微分から $\partial_t\phi=f'(t-x)$、$\partial_x\phi=-f'(t-x)$ です。再び微分すると $\partial_t^2\phi=\partial_x^2\phi=f''(t-x)$ で波動方程式を満たします。接合面ではどちらの側からも $\phi(t,0)=f(t)$、$\partial_x\phi(t,0)=-f'(t)$ であるため透過条件を満たします。流束の定義に代入すると $j=-(f')( -f')=[f'(t-x)]^2\ge0$。従って右向きです。
+**詳細解答。** $u=t-x$ と置き、$f'$ は $u$ による一変数微分とします。$x$ を固定する $t$ 微分と、$t$ を固定する $x$ 微分では、連鎖律の最後の因子が異なります。
+
+$
+\begin{aligned}
+\partial_t\phi&=f'(u)\partial_tu=f'(u),&
+\partial_x\phi&=f'(u)\partial_xu=-f'(u),\\
+\partial_t^2\phi&=f''(u),&
+\partial_x^2\phi&=(-1)^2f''(u)=f''(u).
+\end{aligned}
+$
+
+従って両側で波動方程式を満たします。接合面の両側で $\phi(t,0)=f(t)$ と $\partial_x\phi(t,0)=-f'(t)$ が一致し、$C^2$ 性から境界への $C^1$ 延長も可能なので、[透過条件](#def-bhi17-transparent-interface)を満たします。流束は
+
+$
+j(t,x)=-f'(u)(-f'(u))=[f'(t-x)]^2\ge0
+$
+
+で右向きです。
 <!-- solution-end -->
 
 <a id="ex-bhi17-a04"></a>
@@ -363,7 +380,27 @@ $$
 - 問題: 浴の近接セル $a_1$ と遠方セル $r_1$ の純粋状態を $(|00\rangle+|11\rangle)/\sqrt2$ とする。$R=\{r_1\}$ と $R'=\{a_1,r_1\}$ のエントロピーを、縮約状態の固有値を示して求めよ。
 
 <!-- solution-start -->
-**詳細解答。** 全密度行列を $|\Phi\rangle\langle\Phi|$ とすると、$a_1$ を部分トレースした交差項 $|00\rangle\langle11|$ などは $\langle1|0\rangle=0$ で消えます。残るのは $(|0\rangle\langle0|+|1\rangle\langle1|)/2=I_2/2$ で、固有値は $1/2,1/2$。従って $S(R)=-2(1/2)\ln(1/2)=\ln2$ です。$R'$ は両セルなので元の純粋状態が残り、固有値 $1,0,0,0$ から $S(R')=-1\ln1=0$ です。
+**詳細解答。** $|\Phi\rangle=(|00\rangle+|11\rangle)/\sqrt2$ は正規化された状態です。[部分トレースの定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)では、捨てる $a_1$ の正規直交基底で対角ブロックを足します。交差項は $\langle1|0\rangle=0$ で消え、
+
+$
+\rho_{r_1}=\operatorname{Tr}_{a_1}|\Phi\rangle\langle\Phi|
+=\tfrac12|0\rangle\langle0|+\tfrac12|1\rangle\langle1|
+=\begin{pmatrix}1/2&0\\0&1/2\end{pmatrix}_{\{|0\rangle,|1\rangle\}}.
+$
+
+これは明示した計算基底で対角なので固有値は $1/2,1/2$ です。[エントロピーの固有値表示](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)をnatで用いると
+
+$
+S(R)=-\frac12\ln\frac12-\frac12\ln\frac12=\ln2.
+$
+
+$R'$ は両セルを含み、密度演算子は階数1の $|\Phi\rangle\langle\Phi|$ のままです。固有値 $1,0,0,0$ を代入して
+
+$
+S(R')=-1\ln1-3(0\ln0)=0
+$
+
+を得ます。
 <!-- solution-end -->
 
 <a id="ex-bhi17-a05"></a>
@@ -374,7 +411,17 @@ $$
 - 問題: 長さ $4$ の浴区間を、間隔 $a=1$ の4個の量子ビットセルで近似する。さらに同一区間を $a=1/2$ の8セルで近似する。各模型のHilbert空間の次元とエントロピー上界を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $N$ 個の量子ビットのテンソル積次元は $2^N$ です。$a=1$ では $N=4$ だから次元16、上界 $\ln16=4\ln2$。$a=1/2$ では $N=8$ だから次元256、上界 $\ln256=8\ln2$ です。上界が変わっても、同じ物理状態の実際のエントロピーが必ず倍になるという結論は出ません。
+**詳細解答。** 区間長を $W=4$ とするとセル数は $N=W/a$、各セルの空間は $\mathbb C^2$ なのでテンソル積の次元は $2^N$ です。[一般の有限次元エントロピー上界](../../../応用系/QINF/QINF17/index.md#thm-qinf17-entropy-bounds)は、密度演算子の純粋性を仮定せず $S\le\log_2d$（bit）を与えます。自然対数なら $S\le\ln d$ です。
+
+$
+\begin{array}{c|c|c|c}
+a & N=4/a & d=2^N & S_{\max}=\ln d\\ \hline
+1&4&16&4\ln2\\
+1/2&8&256&8\ln2
+\end{array}
+$
+
+上界が変わっても、同じ物理状態の実際のエントロピーが必ず倍になるという結論は出ません。
 <!-- solution-end -->
 
 ### Level B：仮定が働く箇所を検算する
@@ -407,7 +454,7 @@ $$
 \partial_x\phi_B(t,0^+)=\frac{-f'(t)+f'(t)}2=0.
 $$
 
-値は一致しますが、$f'(t)\ne0$ なら導関数の透過条件に反します。
+値は一致しますが、$f'(t)\ne0$ なら[透過接合条件](#def-bhi17-transparent-interface)の空間導関数一致に反します。
 
 (iii) 時間導関数は左右とも $f'(t)$ なので、接合面での流束は
 
@@ -426,7 +473,21 @@ $$
 - 問題: 三量子ビットの状態が $|\Psi\rangle=|0\rangle_g\otimes(|00\rangle+|11\rangle)_{ar}/\sqrt2$ で、$g$ は重力側を表す補助系、$a,r$ は浴のセルとする。$R=\{r\}$ と $R'=\{a,r\}$ について縮約状態とエントロピーを求め、何を重力側からトレースしたか説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** 浴の状態は $g$ が積状態であるため $\rho_{ar}=|\Phi\rangle\langle\Phi|$ です。$R=\{r\}$ にすると $a$ を部分トレースして $\rho_r=I_2/2$、従って $S(R)=\ln2$ です。$R'=\{a,r\}$ なら $\rho_{R'}=\rho_{ar}$ は純粋で $S(R')=0$ です。この計算では $g$ の状態は最初から直積として指定されており、$\rho_{ar}$ の構成はその明示的な有限模型だけで可能です。一般の重力領域が独立Hilbert因子として分離するとの結論は使っていません。
+**詳細解答。** この問題では三つの有限次元因子を**明示的に**仮定しています。$g$ が積状態なので、[部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)の和を計算すると
+
+$
+\begin{aligned}
+\rho_{ar}
+&=\operatorname{Tr}_g\bigl(
+|0\rangle\langle0|_g\otimes|\Phi\rangle\langle\Phi|_{ar}\bigr)
+=\operatorname{Tr}(|0\rangle\langle0|_g)\,
+ |\Phi\rangle\langle\Phi|_{ar}\\
+&=|\Phi\rangle\langle\Phi|_{ar},\\
+\rho_r&=\operatorname{Tr}_a\rho_{ar}=I_2/2.
+\end{aligned}
+$
+
+従って $S(R)=\ln2$。$R'=\{a,r\}$ なら $\rho_{R'}=\rho_{ar}$ は階数1で $S(R')=0$ です。**何を重力側からトレースしたか**という問いには、この補助模型の $|0\rangle_g\langle0|$ だけ、と答えます。一般の重力領域が独立Hilbert因子として分離するとの結論には使えません（[Gauss制約の例](../BHI15/index.md#def-bhi15-gauss-space)と区別）。
 <!-- solution-end -->
 
 <a id="ex-bhi17-b04"></a>
@@ -437,7 +498,24 @@ $$
 - 問題: 外側境界で流束が零の区間で、接合面流束 $j(0)=J>0$ が時間幅 $T$ だけ一定とする。[流束保存命題](#prop-bhi17-interface-flux)を用いて二つの区間のエネルギー変化を求めよ。その結果と「重力側の有限エネルギーが永久に一定」という言明を両立させるには何が必要か。
 
 <!-- solution-start -->
-**詳細解答。** $j(-A)=j(A)=0$ を命題の二式へ代入して $dE_G/dt=-J$、$dE_B/dt=J$ を得ます。$t_0$ から $t_0+T$ まで積分すると $\Delta E_G=-JT$、$\Delta E_B=JT$ です。従って総和は零です。有限な $E_G$ を一定に保ってなお浴へ正の流束を永久に出すには、左側境界・外部熱浴などから同じ率 $J$ を補給するか、試験場以外のエネルギー収支項を加える必要があります。固定背景を選んだだけでは補給の仕組みは与えられません。
+**詳細解答。** 両端の流束が零という仮定と $j(0)=J$ を[保存命題](#prop-bhi17-interface-flux)へ代入すると
+
+$
+\frac{dE_G}{dt}=0-J=-J,\qquad
+\frac{dE_B}{dt}=J-0=J.
+$
+
+この流束条件が成立する有限の時間窓 $[t_0,t_0+T]$ で積分し、
+
+$
+\begin{aligned}
+\Delta E_G&=\int_{t_0}^{t_0+T}(-J)dt=-JT,\\
+\Delta E_B&=\int_{t_0}^{t_0+T}J\,dt=JT,\\
+\Delta(E_G+E_B)&=0
+\end{aligned}
+$
+
+です。有限な $E_G$ はこの条件だけでは時間とともに減ります。これを一定に保ってなお浴へ正の流束を永久に出すには、左側境界・外部熱浴などから同じ率 $J$ を補給するか、試験場以外のエネルギー収支項を加える必要があります。固定背景を選んだだけでは補給の仕組みは与えられません。
 <!-- solution-end -->
 
 ### Level C：重力浴模型の条件台帳を作る
