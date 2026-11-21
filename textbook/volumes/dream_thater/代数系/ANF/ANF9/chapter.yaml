@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - ANF8
+  - F0-00D
 official_scope: []
 learning_objectives:
   - 有理数のp進付値・p進絶対値を定義し積・和の非Archimedes評価を証明できる
