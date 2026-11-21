@@ -137,6 +137,38 @@ test('G3 legends derive their initial step and GPU buffer dimensions from the ru
     assert.equal(sceneDescription(lesson,{width:0,height:240}),null);
     assert.equal(sceneDescription(lesson,{width:320,height:0}),null);
   }
+  const obstacle=sceneDescription('FCG6',{width:960,height:320,steps:8});
+  assert.match(obstacle.grid,/16×16.*u=17×16.*R8/);
+  assert.match(obstacle.color,/70\|発散\|.*速さ\/0.6/);
+  assert.equal(obstacle.clock,'物理step 8、t=0.40 s（dt=0.05 s）');
+  assert.match(obstacle.mode,/u_viewMode=0.*u_viewMode=1/);
+  assert.match(obstacle.source,/wallAmplitude.*advanceObstacleStep.*solid.frag/);
+  assert.equal(obstacle.pixels,'960×320 px（GPU描画バッファ）');
+  const particles=sceneDescription('FCG7',{width:960,height:320,steps:8});
+  assert.match(particles.grid,/8×8.*各16個.*3列/);
+  assert.match(particles.color,/水色.*橙.*R8/);
+  assert.equal(particles.clock,'物理step 8、t=0.64 s（dt=0.08 s）');
+  assert.match(particles.mode,/picMix=0.*flipMix=1.*最近傍/);
+  assert.match(particles.source,/particle.js.*particle.frag/);
+  const levelSet=sceneDescription('FCG8',{width:960,height:320,steps:8});
+  assert.match(levelSet.grid,/48×48.*Float64.*R8/);
+  assert.match(levelSet.color,/再初期化6反復.*64粒子.*0.014 m/);
+  assert.equal(levelSet.clock,'物理step 8、t=0.32 s（dt=0.04 s）');
+  assert.match(levelSet.mode,/R8.*双線形補間.*48×48/);
+  assert.match(levelSet.source,/levelset.js.*levelset.frag/);
+  const terrain=sceneDescription('WGL20',{width:1024,height:512});
+  assert.match(terrain.grid,/4×4セル.*5×5頂点.*LOD1/);
+  assert.match(terrain.color,/地形は緑.*建物は茶色.*α=0.48/);
+  assert.match(terrain.mode,/EPSG:6697.*水深.*m/);
+  assert.match(terrain.source,/terrain.js.*terrain.frag/);
+  assert.match(terrain.clock,/物理stepなし/);
+  assert.equal(terrain.pixels,'1024×512 px（GPU描画バッファ）');
+  for (const id of ['FCG6','FCG7','FCG8']) {
+    assert.equal(sceneDescription(id,{width:320,height:240}),null,
+      'physical-step labs require the executed step count: '+id);
+    assert.equal(sceneDescription(id,{width:320,height:240,steps:-1}),null);
+  }
+  assert.equal(sceneDescription('WGL20',{width:0,height:400}),null);
   assert.equal(sceneDescription('FCG3',{width:NaN,height:320,steps:1}),null);
   assert.equal(sceneDescription('FCG3',{width:320,height:320,steps:-1}),null);
 });

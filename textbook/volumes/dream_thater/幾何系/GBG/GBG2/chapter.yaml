@@ -1,0 +1,47 @@
+id: "GBG2"
+title: "主G束とは何か――自由・推移的な右作用"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG1
+  - GEO2
+official_scope: []
+learning_objectives:
+  - 射影・右作用・自由性・推移性・同変局所自明化から主G束を定義し積主束で全条件を検証できる
+  - 局所自明化から自由・推移性と遷移関数のcocycle条件を証明できる
+  - 基底を固定した主束同型と自明性を区別し同変写像の逆の滑らかさを構成できる
+  - Hopf写像S3からS2の二つの局所自明化と遷移関数を明示的に計算できる
+  - 接空間の順序付き基底から枠束を作り可逆行列の右作用と座標変換を検証できる
+  - 自由・推移性のみでは滑らかな局所自明化が従わない反例を説明できる
+definitions:
+  - { id: GBG2-DEF-01, name: 滑らかな主G束 }
+  - { id: GBG2-DEF-02, name: 基底を固定した主束同型 }
+  - { id: GBG2-DEF-03, name: 自明な主束 }
+  - { id: GBG2-DEF-04, name: Hopf写像と右位相作用 }
+  - { id: GBG2-DEF-05, name: 接束の枠束 }
+theorems:
+  - { id: GBG2-PROP-01, name: 局所自明化から自由・推移性が従う }
+  - { id: GBG2-PROP-02, name: 局所自明化の間の変換 }
+  - { id: GBG2-THM-01, name: 同じ基底の同変写像は同型 }
+  - { id: GBG2-THM-02, name: Hopf主U(1)束 }
+  - { id: GBG2-THM-03, name: 枠束の主束構造 }
+canonical_examples:
+  - M×Gの積主束と非可換行列群の右作用
+  - Hopf主U(1)束S3→S2の二枚の局所自明化
+  - 接束の枠束Fr(M)と可逆行列右作用
+  - 非恒等cocycleによる自明主束
+  - t→t³と自明群による局所自明化欠落の反例
+problem_patterns:
+  - GBG2-PRODUCT-ACTION
+  - GBG2-EQUIVARIANT-MAP
+  - GBG2-HOPF-INVARIANCE
+  - GBG2-FRAME-MATRIX
+  - GBG2-COCYCLE-TRIVIAL
+  - GBG2-FIBER-MORPHISM
+  - GBG2-HOPF-TRANSITION
+  - GBG2-FRAME-COORDINATE
+  - GBG2-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 3 }
