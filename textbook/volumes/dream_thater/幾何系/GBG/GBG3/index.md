@@ -83,7 +83,7 @@ $\Phi_{s_a}((x,h)g)=(x,a(x)^{-1}hg)=\Phi_{s_a}(x,h)g$。$a$ は定数でなく�
 <a id="def-gbg3-section-change"></a>
 
 <!-- formal-statement-start -->
-> **定義（局所sectionの変更）**  
+> **定義（局所sectionの変更関数）**  
 > $\pi:P\to M$ を滑らかな主 $G$ 束とし、$U\subset M$ 上の二つの滑らかな局所section $s,s'$ を取る。写像 $h:U\to G$ で
 $$
 s'(x)=s(x)h(x)
@@ -186,7 +186,16 @@ $$
 $$
 F:M\times G\to P,\quad F(x,k)=s(x)k
 $$
-と定める。群作用の滑らかさにより $F$ は滑らか。$\pi(F(x,k))=\pi(s(x)k)=x$ で、$F(x,kg)=s(x)(kg)=F(x,k)g$ だから射影と右作用を保存する。[ファイバー内の自由・推移性](../GBG2/index.md#prop-gbg2-free-transitive)から各 $p$ には唯一の $k$ があり $p=s(\pi(p))k$ と表せるので、$F$ は全単射である。[局所sectionの自明化](#thm-gbg3-section-trivialization)を $U=M$ に適用すると $F^{-1}=\Phi_s$ は滑らか。よって $F$ は主束同型となる。
+と定める。右作用の滑らかさにより $F$ は滑らかである。射影保存と右同変性は
+$$
+\pi(F(x,k))=\pi(s(x)k)=x,\qquad
+F(x,kg)=s(x)(kg)=F(x,k)g
+$$
+から従う。
+
+[ファイバー内の自由・推移性](../GBG2/index.md#prop-gbg2-free-transitive)により、各 $p\in P$ は $x=\pi(p)$ として一意な $k\in G$ を用いて $p=s(x)k$ と表せる。従って $F$ は全単射である。
+
+[局所sectionの自明化](#thm-gbg3-section-trivialization)を $U=M$ に適用すれば $F^{-1}=\Phi_s$ は滑らかなので、$F$ は主束同型となる。
 
 **自明性から大域section**。主束同型 $F:M\times G\to P$ があるなら $s(x)=F(x,e)$ と置く。$x\mapsto(x,e)$ と $F$ は滑らかなので $s$ も滑らかであり、同型が基底を保存することから
 $$
@@ -349,7 +358,13 @@ $$
 $P\to M$ の滑らかな大域section $s$ から $F(x,g)=s(x)g$ を作り、全単射性・逆の滑らかさ・右同変性を証明せよ。
 
 <!-- solution-start -->
-**詳細解答**。[自由・推移性](../GBG2/index.md#prop-gbg2-free-transitive)により、各 $p$ に唯一の $g$ があり $p=s(\pi(p))g$ と書けるから $F$ は全単射。$s$ と作用が滑らかなので $F$ も滑らか。逆の滑らかさは[局所sectionの自明化定理](#thm-gbg3-section-trivialization)の証明を用い、既知の局所自明化 $\Psi(p)=(x,h)$ で $\Psi(s(x))=(x,b(x))$ とおけば $F^{-1}(p)=(x,b(x)^{-1}h)$ となることから従う。$\pi(F(x,g))=x$ で射影を保ち、
+**詳細解答**。[自由・推移性](../GBG2/index.md#prop-gbg2-free-transitive)により、各 $p\in P$ について $x=\pi(p)$ を固定すれば、唯一の $g\in G$ が存在し $p=s(x)g$ となる。この表示の一意性から $F$ は全単射である。$s$ と右作用は滑らかなので $F$ も滑らかである。
+
+逆写像の滑らかさは局所座標で確認する。$x$ の近傍の既知の自明化を $\Psi(p)=(x,h)$ と書き、$\Psi(s(x))=(x,b(x))$ と置く。[局所sectionの自明化定理](#thm-gbg3-section-trivialization)の構成により
+$$
+F^{-1}(p)=(x,b(x)^{-1}h)
+$$
+となる。$b$ と群の積・逆元が滑らかなので、逆写像も局所的に滑らかであり、従って全域で滑らかである。$\pi(F(x,g))=x$ で射影を保ち、
 $$
 F(x,gh)=s(x)(gh)=(s(x)g)h=F(x,g)h
 $$
@@ -420,7 +435,7 @@ $$
 t_j=s_j a_j=s_i g_{ij}a_j
 =s_i(a_i a_j^{-1})a_j=s_i a_i=t_i.
 $$
-従って $t(x)=t_i(x)$（$x\in U_i$）はどの $i$ を選んでも同じで、局所的に滑らかだから大域sectionになる。$F:M\times G\to P$ を $F(x,k)=t(x)k$ とすれば、群作用の滑らかさで $F$ は滑らか、[自由・推移性](../GBG2/index.md#prop-gbg2-free-transitive)で全単射、右作用にも同変である。$p=s_i(x)k_i$ のとき
+従って $t(x)=t_i(x)$（$x\in U_i$）はどの $i$ を選んでも同じで、局所的に滑らかだから大域sectionになる。$F:M\times G\to P$ を $F(x,k)=t(x)k$ とすれば、右作用の滑らかさで $F$ は滑らか、[自由・推移性](../GBG2/index.md#prop-gbg2-free-transitive)で全単射、右作用にも同変である。$p=s_i(x)k_i$ のとき
 $$
 F^{-1}(p)=(x,a_i(x)^{-1}k_i)
 $$

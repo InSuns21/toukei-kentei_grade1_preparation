@@ -14,7 +14,7 @@ learning_objectives:
   - 遷移関数が局所関数で消去可能なことと自明性の同値を証明しHopf束・枠束で局所表示を計算できる
 definitions:
   - { id: GBG3-DEF-01, name: 主束の局所sectionと大域section }
-  - { id: GBG3-DEF-02, name: 局所sectionの変更 }
+  - { id: GBG3-DEF-02, name: 局所sectionの変更関数 }
 theorems:
   - { id: GBG3-THM-01, name: 局所sectionと同変自明化の対応 }
   - { id: GBG3-THM-02, name: 局所section変更による遷移関数の変換則 }

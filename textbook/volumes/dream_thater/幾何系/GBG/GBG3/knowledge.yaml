@@ -21,10 +21,10 @@ concepts:
     requires: [gauge.local-section, gauge.local-trivialization-free-transitive]
 
   - id: gauge.local-section-change
-    name: 局所sectionの変更
+    name: 局所sectionの変更関数
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（局所sectionの変更）"]
+    introduction_aliases: ["定義（局所sectionの変更関数）"]
     requires: [gauge.local-section, gauge.section-trivialization]
 
   - id: gauge.transition-section-change
