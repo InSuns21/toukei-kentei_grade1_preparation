@@ -1,0 +1,66 @@
+chapter: PML1-21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML1-20
+  - ODE4
+forward_references: []
+concepts:
+  - id: physics-machine-learning.finite-dictionary-field
+    name: 有限辞書によるベクトル場の模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限辞書によるベクトル場の模型）"]
+    requires:
+      - ode.ode4-nonlinear-autonomous-system
+  - id: physics-machine-learning.sindy-design
+    name: 辞書行列・速度残差・疎同定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（辞書行列・速度残差・疎同定）"]
+    requires:
+      - physics-machine-learning.finite-dictionary-field
+  - id: physics-machine-learning.sindy-rank-identification
+    name: 有限辞書の最小二乗係数の一意性
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.sindy-design
+  - id: physics-machine-learning.sindy-noise-amplification
+    name: 係数誤差と辞書行列の条件
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.sindy-rank-identification
+  - id: physics-machine-learning.central-difference-observation-error
+    name: 中央差分の切断誤差と観測誤差
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.sindy-design
+  - id: physics-machine-learning.discrete-koopman
+    name: 状態写像に対する Koopman 作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（状態写像に対する Koopman 作用素）"]
+    requires:
+      - physics-machine-learning.one-step-update-map
+  - id: physics-machine-learning.finite-koopman-dictionary
+    name: Koopman 不変な有限辞書と近似行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Koopman 不変な有限辞書と近似行列）"]
+    requires:
+      - physics-machine-learning.discrete-koopman
+  - id: physics-machine-learning.koopman-finite-sample-limits
+    name: 有限辞書の閉包判定と有限標本の限界
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.finite-koopman-dictionary
+  - id: physics-machine-learning.trajectory-error-from-vector-field
+    name: ベクトル場誤差から有限時間の軌道誤差へ
+    kind: proposition
+    introduction: formal
+    requires:
+      - ode.ode4-nonlinear-autonomous-system
