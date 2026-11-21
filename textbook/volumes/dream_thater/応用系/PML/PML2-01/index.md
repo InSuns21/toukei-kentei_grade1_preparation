@@ -179,7 +179,7 @@ $$
 =\int_0^1f\varphi_n\,dx.
 $$
 
-Cauchy–Schwarz不等式から
+[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \left|\int_0^1u'(\varphi_n'-v')\,dx\right|
@@ -220,7 +220,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず Cauchy–Schwarz不等式から
+まず [Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |F(x)|=\left|\int_0^xf(s)\,ds\right|
@@ -257,7 +257,7 @@ $$
 
 [Hadamardの意味での適切性](../../../解析系/PDE/PDE1/index.md#def-pde1-well-posedness)には、存在・一意性・連続依存という三条件が要る。どのノルムで近さを測るかを具体化するため、右辺では $L^2$ ノルム、解では**導関数の $L^2$ ノルム** $\|u'\|_{L^2}$ を使う。端点が零であれば、微分が零の関数は定数、さらに端点値も零なので零関数に限られ、この量は実際にノルムとなる。
 
-まず、$v\in H_0^1(0,1)$ の絶対連続代表元について、$v(0)=0$ と Cauchy–Schwarz から
+まず、$v\in H_0^1(0,1)$ の絶対連続代表元について、$v(0)=0$ と [Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |v(x)|=\left|\int_0^xv'(s)\,ds\right|
@@ -288,7 +288,7 @@ $$
 > を満たす。従って、右辺の $L^2$ ノルムと解の $H_0^1$ 上の導関数の $L^2$ ノルムを用いると、この問題はHadamardの意味で適切である。
 <!-- formal-statement-end -->
 
-**証明の見取り図。** 存在は前節の構成で済む。二つの解の差を弱形式の試験関数に代入すると、左辺は差の導関数の二乗積分となる。Cauchy–Schwarz と直前の評価が連続依存を与え、右辺の差が零なら一意性が出る。
+**証明の見取り図。** 存在は前節の構成で済む。二つの解の差を弱形式の試験関数に代入すると、左辺は差の導関数の二乗積分となる。[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)と直前の評価が連続依存を与え、右辺の差が零なら一意性が出る。
 
 <!-- proof-start -->
 ### 証明
