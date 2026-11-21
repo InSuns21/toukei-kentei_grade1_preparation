@@ -112,8 +112,11 @@ report('DISPLAY','RGBA8 readPixels is 8-bit even after R32F sampling; do not inf
 // Values come exclusively from this editable script's typed buffers, not from
 // a fabricated visualization or an independent simulation model.
 if(typeof document!=='undefined'){
-  const panel=document.createElement('section');
+  const panel=document.createElement('details');
   panel.className='wgl17-texel-inspector';
+  const toggle=document.createElement('summary');
+  toggle.textContent='8セルの格納値・誤差を見る';
+  toggle.style.cssText='cursor:pointer;font-weight:600';
   panel.setAttribute('aria-label','実データのテクセル選択と量子化');
   panel.style.cssText='position:absolute;right:8px;bottom:8px;z-index:2;'+
     'background:rgba(4,20,35,.95);color:#fff;padding:8px 10px;'+
@@ -157,7 +160,7 @@ if(typeof document!=='undefined'){
       ' ／画面色は物理値の正規化表示';
   }
   document.body.style.position='relative';
-  panel.append(heading,intro,matrix,detail);
+  panel.append(toggle,heading,intro,matrix,detail);
   canvas.insertAdjacentElement('afterend',panel);
   inspect(0);
 }
