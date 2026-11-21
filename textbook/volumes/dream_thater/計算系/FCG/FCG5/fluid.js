@@ -181,13 +181,30 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
     const motionPreference=window.matchMedia?.('(prefers-reduced-motion: reduce)');
     let stateStep=steps,playing=!(motionPreference?.matches??false);
     let last=0,acc=0,raf=0,dragging=false;
+    // This progress event is relayed by the isolated host with its session token.
+    // The UI's live clock and the rendered solver therefore share one state.
+    function emitProgress(){
+      canvas.dispatchEvent(new CustomEvent('fcg5-physics-progress',{
+        detail:{step:stateStep,playing}
+      }));
+    }
+    function pauseForMotionPreference(){
+      playing=false;last=0;acc=0;
+      canvas.title='FCG5 再生停止中（OSの動きを減らす設定）。Spaceで手動再生';
+      emitProgress();
+    }
     const onMotionPreferenceChange=event=>{
-      if(event.matches){
-        playing=false;last=0;acc=0;
-        canvas.title='FCG5 再生停止中（OSの動きを減らす設定）。Spaceで手動再生';
-      }
+      if(event.matches)pauseForMotionPreference();
+    };
+    // A sandboxed iframe can have a separate media-emulation target. Mirror
+    // the parent's OS preference through a one-way, parent-only message.
+    const onParentMotion=event=>{
+      if(event.source!==window.parent||event.data?.type!=='fcg5-motion-policy')return;
+      if(event.data.reduced===true)pauseForMotionPreference();
+      else emitProgress(); // Removing the preference never resumes playback.
     };
     motionPreference?.addEventListener?.('change',onMotionPreferenceChange);
+    window.addEventListener('message',onParentMotion);
     canvas.tabIndex=0;
     canvas.title='FCG5 12×12実ソルバー：Spaceで再生・停止、Shift+ドラッグ（タッチならドラッグ）で染料追加。通常クリックはGPU画素診断です。';
     canvas.setAttribute('aria-label','FCG5 実際のMAC格子ソルバーの染料アニメーション。Spaceで再生停止、Shift+ドラッグで色を投入');
@@ -250,6 +267,7 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
         e.preventDefault();playing=!playing;last=0;acc=0;
         canvas.title=playing?'FCG5 再生中：Spaceで停止、Shift+ドラッグで染料追加':
           'FCG5 一時停止中：Spaceで再生、Shift+ドラッグで染料追加';
+        emitProgress();
       }
     });
     // Draw the first presentation frame on rAF. The runner has already read
@@ -265,6 +283,7 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
           if(stateStep>=32)resetPhysics();
           else{advanceFluidStep();stateStep++;}
           refreshGpuFields();
+          emitProgress();
         }
       }else last=0;
       // Avoid continuously issuing WebGL draw calls in a background tab.
@@ -275,6 +294,7 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
     window.addEventListener('pagehide',()=>{
       cancelAnimationFrame(raf);
       motionPreference?.removeEventListener?.('change',onMotionPreferenceChange);
+      window.removeEventListener('message',onParentMotion);
     },{once:true});
     report('ANIMATION','12x12 EDITABLE solver draws the same dye state after the static R8 pixel oracle; Shift+drag adds external dye, Space pauses');
   }
