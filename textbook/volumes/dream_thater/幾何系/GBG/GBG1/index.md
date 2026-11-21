@@ -158,12 +158,12 @@ $$
 
 ## 3. 局所積を商空間として貼り合わせる
 
-「$i$ 番目で見た点」と「$j$ 番目で見た同じ点」を同一視する。商集合とは、この同一視で得られる同値類の集合である。位相は各局所積で開かどうかから定める。
+「$i$ 番目で見た点」と「$j$ 番目で見た同じ点」を同一視する。商集合と同一視の仕組みは、既習の[同値関係による同一視空間](../../../基礎科目/TOP/TOP2/index.md#def-top2-identification-space)を応用する。[位相的直和](../../../基礎科目/TOP/TOP2/index.md#def-top2-disjoint-union)で区別した局所積から出発し、[商位相](../../../基礎科目/TOP/TOP1/index.md#def-top1-quotient-topology)を使って一つの空間を作る。
 
 <a id="def-gbg1-glued-space"></a>
 
 <!-- formal-statement-start -->
-> **定義（cocycle による貼り合わせ集合と商位相）**  
+> **定義（cocycle による局所積の貼り合わせ）**  
 > [遷移関数の1-cocycle](#def-gbg1-cocycle)が与えられたとする。互いに区別した局所積の和集合を
 
 $$
