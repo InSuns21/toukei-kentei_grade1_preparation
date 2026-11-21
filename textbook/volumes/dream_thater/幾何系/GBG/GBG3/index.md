@@ -67,14 +67,12 @@ $$
 逆に同変自明化 $\Phi$ が与えられたら、$s(x)=\Phi^{-1}(x,e)$ は滑らかで、$\pi(s(x))=x$。同変性から $\Phi(s(x)k)=(x,k)$ なので $\Phi=\Phi_s$ である。二つの構成は互いに逆であり、一対一対応が成立する。
 <!-- proof-end -->
 
-<!-- definition-example-start: thm-gbg3-section-trivialization -->
-**定義の確認**：sectionに対応する自明化の検算。積主束 $M\times G$ で滑らかな $a:M\to G$ を取り、$s_a(x)=(x,a(x))$ とする。$(x,h)=s_a(x)k$ から $h=a(x)k$、従って
+**具体例：自明化の検算**。積主束 $M\times G$ で滑らかな $a:M\to G$ を取り、$s_a(x)=(x,a(x))$ とする。$(x,h)=s_a(x)k$ から $h=a(x)k$、従って
 $$
 \Phi_{s_a}(x,h)=(x,a(x)^{-1}h),\qquad
 \Phi_{s_a}^{-1}(x,k)=(x,a(x)k).
 $$
 $\Phi_{s_a}((x,h)g)=(x,a(x)^{-1}hg)=\Phi_{s_a}(x,h)g$。$a$ は定数でなくてよい。
-<!-- definition-example-end -->
 
 ## 2. section変更と群座標の変換
 
