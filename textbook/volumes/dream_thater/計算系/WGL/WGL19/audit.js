@@ -190,8 +190,11 @@ return (async()=>{
   // deltas, number of GPU diffusion updates, and dropped simulated time.
   // This is intentionally distinct from wall-clock measuredFps.
   if(typeof document!=='undefined'){
-    const panel=document.createElement('section');
+    const panel=document.createElement('details');
     panel.setAttribute('aria-label','描画フレームとGPU数値stepの実行履歴');
+    const toggle=document.createElement('summary');
+    toggle.style.cssText='cursor:pointer;font-weight:600';
+    toggle.textContent='実行'+steps+' step／破棄'+droppedMs+' ms：各フレーム';
     panel.style.cssText='position:absolute;right:8px;top:8px;z-index:2;'+
       'width:min(330px,calc(100% - 32px));max-height:calc(100% - 24px);'+
       'overflow:auto;background:rgba(3,16,30,.94);color:#fff;'+
@@ -201,7 +204,7 @@ return (async()=>{
     const subtitle=document.createElement('p');subtitle.style.cssText='margin:3px 0 6px';
     subtitle.textContent='仮想フレーム間隔（入力配列）→実際に進めたGPU step。'+
       '1 step='+fixedMs+' ms、1フレーム最大'+maxStepsPerFrame+' step。';
-    panel.append(title,subtitle);
+    panel.append(toggle,title,subtitle);
     const maxDelta=Math.max(1,...frameDeltasMs);
     for(let k=0;k<frames.length;k++){
       const row=document.createElement('div');
