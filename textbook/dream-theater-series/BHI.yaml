@@ -79,7 +79,7 @@ chapters:
     title: "重力領域と非重力浴の設定"
   - id: BHI18
     path: textbook/volumes/dream_thater/物理系/BHI/BHI18
-    status: planned
+    status: completed
     title: "二次元CFT放射領域のエントロピー"
   - id: BHI19
     path: textbook/volumes/dream_thater/物理系/BHI/BHI19
