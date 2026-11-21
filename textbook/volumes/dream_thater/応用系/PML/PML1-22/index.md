@@ -21,6 +21,16 @@ z_\ast(t)=
 \begin{pmatrix}\cos t&\sin t\\-\sin t&\cos t\end{pmatrix}z_0.
 $$
 
+この式が基準系の解であることは、行列 $R(t)$ を上の $\cos t,\sin t$ の行列とおいて
+
+$$
+R(0)=I_2,\qquad
+R'(t)=\begin{pmatrix}-\sin t&\cos t\\-\cos t&-\sin t\end{pmatrix}
+=JR(t)
+$$
+
+と微分して確かめられる。よって $z_\ast(0)=z_0$、$\dot z_\ast(t)=Jz_\ast(t)$ である。さらに $R(t)^{\mathsf T}R(t)=I_2$ より $\|z_\ast(t)\|_2=\|z_0\|_2$。
+
 初期値を $z_0=(1,0)^{\mathsf T}$ とすれば $H_0(z_\ast(t))=1/2$ である。この正解を**訓練に使わず**、予測の検証に用いる。
 
 ## 2. 三つのモデルが何を学ぶか
@@ -65,7 +75,7 @@ $$
 =\ddot q+kq.
 $$
 
-$p=v$ によって $z=(q,p)^{\mathsf T}$ に移すと $\dot q=p$、$\dot p=-kq$ である。
+ここで [共役運動量を定める Legendre 写像](../../../物理系/AMECH/AMECH5/index.md#def-amech5-legendre-map)を用いると、この模型の共役運動量は $p=\partial L_k/\partial v=v$ である。したがって $v=\dot q=p$、$\dot p=\dot v=-kq$ となる。これが状態 $z=(q,p)^{\mathsf T}$ での速度場であり、質量を変えた場合には $p=v$ は成り立たない。
 
 <a id="def-pml1-22-model-classes"></a>
 
@@ -89,7 +99,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-22-model-classes -->
-**定義の確認**。 $W=J$、$S=I_2$、$k=1$ とする。$S$ は対称、$L_1$ の速度 Hessian は $1\ne0$、線形NNの $W$ は実 $2\times2$ 行列である。三者すべてで
+**定義の確認**。 $W=J$、$S=I_2$、$k=1$ とする。線形NNの $W$ は実 $2\times2$ 行列、$S=I_2=S^{\mathsf T}$ は対称行列である。LNN の元の関数は $L_1(q,v)=v^2/2-q^2/2$ で、$\partial_vL_1=v$、$\partial_v^2L_1=1\ne0$ だから、正則性と $p=v$ の両方が確認できる。三者すべてで
 
 $$
 f(z)=Jz=(p,-q)^{\mathsf T}
@@ -141,7 +151,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-22-comparison-metrics -->
-**定義の確認**。 $f=Jz$、真の場も $f_\ast=Jz$、未使用点を $z_{\mathrm{test}}=(3/5,4/5)^{\mathsf T}$ とすれば、$f(z_{\mathrm{test}})=f_\ast(z_{\mathrm{test}})$ なので $E_{\mathrm{test}}=0$。一方、訓練速度にずれがあれば $R_{\mathrm{train}}>0$ はあり得る。軌道と保存量を比較するには、さらに積分方法と刻みを指定する必要がある。
+**定義の確認**。 真の速度場と候補をともに $f_\ast(z)=f(z)=Jz$ とし、四点の訓練ラベルだけ $y_i=(J+\frac15I_2)z_i$ にずらす。各四点の残差は $-z_i/5$、$\|z_i\|_2=1$ なので、訓練損失は $R_{\mathrm{train}}=1/25$ である。一方、未使用点 $z_{\mathrm{test}}=(3/5,4/5)^{\mathsf T}$ では候補と真値が一致し、$E_{\mathrm{test}}=0$。
+
+軌道誤差とエネルギー誤差には数値積分法も指定する。$z_0=(1,0)^{\mathsf T}$、$h=1/2$、$N=1$ で陽的 Euler 法を使うと、予測は $\widehat z_1=(1,-1/2)^{\mathsf T}$、真値は $z_\ast(1/2)=(\cos(1/2),-\sin(1/2))^{\mathsf T}$ だから、
+
+$$
+\|\widehat z_1-z_\ast(1/2)\|_2
+=\sqrt{(1-\cos(1/2))^2+(\sin(1/2)-1/2)^2}.
+$$
+
+また $H_0(z_0)=1/2$、$H_0(\widehat z_1)=5/8$ より、基準エネルギーの相対誤差は $|(5/8)/(1/2)-1|=1/4$ となる。速度の未使用点誤差がゼロでも、離散軌道の誤差はゼロとは限らない。
 <!-- definition-example-end -->
 
 学習は各仮説クラス内の**大域的な最小二乗解**を解析式で求める。従って乱数初期化・最適化の不成功という別要因を比較から外せる。ただし、パラメータ数も演算量も同一ではない。一般の深いNN同士の「同じ学習予算」比較をしたことにはならない。
@@ -162,7 +181,30 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（同一データでの三モデルの厳密な最小二乗解）**  
-> 第3節の四状態と $y_i=(J+\delta I_2)z_i$ を用いる。第2節の各モデルをその訓練損失で最小化すると、すべての $\delta\in\mathbb R$ について、一意な最適パラメータと最小損失は
+> 標準基底と反対称行列を
+
+$$
+e_1=\begin{pmatrix}1\\0\end{pmatrix},\quad
+e_2=\begin{pmatrix}0\\1\end{pmatrix},\quad
+J=\begin{pmatrix}0&1\\-1&0\end{pmatrix}
+$$
+
+> とする。四つの入力状態と観測速度を
+
+$$
+(z_1,z_2,z_3,z_4)=(e_1,e_2,-e_1,-e_2),\qquad
+y_i=(J+\delta I_2)z_i,\quad\delta\in\mathbb R
+$$
+
+> で定める。$z=(q,p)^{\mathsf T}$ に対し、候補速度場は
+
+$$
+f_{\mathrm N}(z)=Wz,\quad
+f_{\mathrm H}(z)=JSz,\quad
+f_{\mathrm L}(z)=(p,-kq)^{\mathsf T}
+$$
+
+> であり、パラメータ範囲は $W\in\mathbb R^{2\times2}$、$S=S^{\mathsf T}\in\mathbb R^{2\times2}$、$k\in\mathbb R$（LNN は質量 $1$ で $p=v$）とする。三者を共通損失 $\frac14\sum_{i=1}^4\|f(z_i)-y_i\|_2^2$ で最小化すると、一意な最適パラメータと最小損失は
 
 $$
 \begin{array}{c|c|c}
@@ -249,13 +291,21 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（観測バイアスと実際の散逸で優劣が逆転する）**  
-> $\gamma>0$ とする。第4節の最小二乗解について、次の二場合を分ける。
+> $\gamma>0$ とし、行列・標準基底・四つの訓練状態を
+
+$$
+J=\begin{pmatrix}0&1\\-1&0\end{pmatrix},\quad
+e_1=(1,0)^{\mathsf T},\quad e_2=(0,1)^{\mathsf T},
+\qquad (z_1,z_2,z_3,z_4)=(e_1,e_2,-e_1,-e_2)
+$$
+
+> とする。線形NN $Wz$（実 $2\times2$ 行列 $W$）、二次HNN $JSz$（実対称行列 $S$）、質量 $1$ の二次LNN $(p,-kq)^{\mathsf T}$（$z=(q,p)^{\mathsf T}$、$k\in\mathbb R$）を、四点の共通損失 $\frac14\sum_i\|f(z_i)-y_i\|_2^2$ でそれぞれ最小化する。次の二場合を分ける。
 >
 > **場合A（保存系に観測バイアス）**：真の速度は $f_\ast(z)=Jz$、訓練ラベルは $y_i=(J+\gamma I_2)z_i$ とする。
 >
 > **場合B（実際に散逸する系）**：真の速度も訓練ラベルも $f_\ast(z)=(J-\gamma I_2)z$ から正確に得る。
 >
-> 未使用点 $z_{\mathrm{test}}$ での速度予測誤差は次のとおり。
+> 未使用点 $z_{\mathrm{test}}=(3/5,4/5)^{\mathsf T}$（四つの訓練状態と異なり、$\|z_{\mathrm{test}}\|_2=1$）での二乗速度予測誤差は次のとおり。
 
 $$
 \begin{array}{c|cc}
@@ -311,7 +361,20 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（同一積分器でも保存則は離散化で壊れる）**  
-> $h>0$、$\delta\in\mathbb R$、$z_0\ne0$ とする。連続系 $\dot z=(J+\delta I_2)z$ に陽的 Euler 法を $N$ 回適用すると、各 $n=0,\ldots,N$ で
+> $J$ と基準エネルギー $H_0$ を
+
+$$
+J=\begin{pmatrix}0&1\\-1&0\end{pmatrix},\qquad
+H_0(z)=\frac12\|z\|_2^2
+$$
+
+> とする。$h>0$、$\delta\in\mathbb R$、$z_0\in\mathbb R^2\setminus\{0\}$、非負整数 $N$ を与える。連続系 $\dot z=(J+\delta I_2)z$ に陽的 Euler 法
+
+$$
+z_{n+1}=z_n+h(J+\delta I_2)z_n
+$$
+
+> を $N$ 回適用すると、各 $n=0,\ldots,N$ で
 
 $$
 \frac{H_0(z_n)}{H_0(z_0)}
@@ -591,7 +654,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-第4節と同じ四点の計算で、損失は $\frac12\|JS-A\|_F^2$。$J^{\mathsf T}=-J$、$J^{\mathsf T}J=I_2$ を使えば
+[三モデルの最小二乗解の証明](#prop-pml1-22-exact-fit)と同じ四点の計算で、損失は $\frac12\|JS-A\|_F^2$。$J^{\mathsf T}=-J$、$J^{\mathsf T}J=I_2$ を使えば
 
 $$
 \|JS-A\|_F^2=\|S-(-JA)\|_F^2.
