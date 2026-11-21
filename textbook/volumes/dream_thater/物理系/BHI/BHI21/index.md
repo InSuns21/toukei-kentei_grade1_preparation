@@ -439,7 +439,13 @@ $$
 <!-- formal-statement-start -->
 > **命題（熱的Schwarzian鞍点の熱力学）**
 >
-> $C>0,L_*>0,S_0\in\mathbb R,\beta>0$ とし、$L_*$ は長さとする。Euclid円板型の真空JTの古典的境界作用を $I_E=-S_0-C\int_0^\beta du\,\{L_*\tan(\pi f/\beta),u\}$ とする。熱的基準時計 $f(u)=u$ の鞍点では
+> $C,L_*,\beta>0$、$S_0\in\mathbb R$ とし、$L_*$ は長さとする。Euclid円板型の真空JTの古典的境界作用を
+>
+$$
+I_E=-S_0-C\int_0^\beta du\,\left\{L_*\tan\left(\frac{\pi f(u)}{\beta}\right),u\right\}
+$$
+>
+> とする。熱的基準時計 $f(u)=u$ の鞍点では
 >
 $$
 I_E^{\rm on\,shell}=-S_0-\frac{2\pi^2C}{\beta},
