@@ -1,0 +1,41 @@
+chapter: BHI18
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI17, QFT60]
+forward_references: []
+
+concepts:
+  - id: black-hole-information.cft-radiation-entropy-ledger
+    name: 放射浴のCFTエントロピー台帳
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（放射浴のCFTエントロピー台帳）]
+    requires: [black-hole-information.bath-radiation-entropy-ledger, qft.conditional-interval-von-neumann]
+
+  - id: black-hole-information.conformal-endpoint-scale
+    name: 共形写像の端点間有効尺度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（共形写像の端点間有効尺度）]
+    requires: [qft.cylinder-interval-lengths]
+
+  - id: black-hole-information.bath-vacuum-interval-entropy
+    name: 透過的な平坦浴での真空区間普遍項
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（透過的な平坦浴での真空区間普遍項）]
+    requires: [black-hole-information.cft-radiation-entropy-ledger, qft.conditional-interval-von-neumann]
+
+  - id: black-hole-information.bath-conformal-interval-entropy
+    name: 共形変換で指定した浴状態の区間普遍項
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（共形変換で指定した浴状態の区間普遍項）]
+    requires: [black-hole-information.conformal-endpoint-scale, qft.cyclic-twist-weight, qft.conditional-interval-von-neumann]
+
+  - id: black-hole-information.bath-thermal-interval-entropy
+    name: 無限直線熱状態を制限した浴の区間普遍項
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（無限直線熱状態を制限した浴の区間普遍項）]
+    requires: [black-hole-information.bath-conformal-interval-entropy, qft.conditional-cylinder-von-neumann]
