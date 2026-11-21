@@ -38,18 +38,18 @@ $$
 >
 > 二次元の重力領域と非重力浴が、共通の空間的断面、透過する物質状態 $\omega_{\rm m}$ と正のcutoff $a$ を共有するとする。座標 $y$ と時刻 $\tau_*$ を取り、重力領域・浴と二つの区間を次のように指定する。
 >
-$
+$$
 \begin{gathered}
 G=\{y<0\},\qquad B=\{y>0\},\qquad R=[b,L],\\
 y_1<y_2<0<b<L,\qquad I=[y_1,y_2].
 \end{gathered}
-$
+$$
 >
 > $I$ が $R$ と同じ空間的断面上にあり、両端点で物質の正則化とdilaton値が定義できるとき、これを **二端点island候補**とする。端点集合は次の通りである。
 >
-$
+$$
 \partial I=\{Q_1,Q_2\},\qquad Q_j=(\tau_*,y_j).
-$
+$$
 >
 > 空の候補 $I=\varnothing$ は別枝として許す。
 <!-- formal-statement-end -->
@@ -57,10 +57,10 @@ $
 <!-- definition-example-start: def-bhi24-island-candidate -->
 **定義の確認**：共通断面を $\tau_*=0$、接合面を $y=0$、候補と浴を $I=[-4,-2]$、$R=[1,5]$、cutoffを $a=10^{-2}$ と指定します。端点の並びと長さは
 
-$
+$$
 -4<-2<0<1<5,\qquad
 \ell_I=2,\quad \ell_R=4,\quad \delta=3.
-$
+$$
 
 重力側の端点は $Q_1=(0,-4)$、$Q_2=(0,-2)$ の二点です。二つの区間は共通の空間断面上で交わりません。状態を同じ共形真空の制限とし、各端点へ物理cutoff $a=0.01\ll2,3,4$ を指定します。
 
@@ -105,8 +105,14 @@ x=\frac{2\cdot4}{(2+3)(4+3)}=\frac8{35},
 \qquad 1-x=\frac{27}{35}>0.
 $$
 
-分母と分子の差は $(\ell_I+\delta)(\ell_R+\delta)-\ell_I\ell_R
-=\delta(\ell_I+\ell_R+\delta)>0$ であり、$0<x<1$ を直接検証できます。座標を一斉に $y\mapsto\lambda y+\mu$（$\lambda>0$）と変えると分子・分母に $\lambda^2$ が掛かり、交差比は変わりません。
+分母と分子の差は
+
+$
+(\ell_I+\delta)(\ell_R+\delta)-\ell_I\ell_R
+=\delta(\ell_I+\ell_R+\delta)>0
+$
+
+であり、$0<x<1$ を直接検証できます。座標を一斉に $y\mapsto\lambda y+\mu$（$\lambda>0$）と変えると分子・分母に $\lambda^2$ が掛かり、交差比は変わりません。
 <!-- definition-example-end -->
 
 交差比の出現は「四点なら全部分かる」という意味ではありません。二点相関を二組掛けた値で四点相関を割った**交差比に依存する因子**を、各CFT・状態ごとに決めなければなりません。
@@ -171,11 +177,11 @@ $$
 >
 > さらに、同一正則化の下で $\mathcal I(x)$ は次の相互情報量の有限な普遍部分である。
 >
-$
+$$
 \mathcal I(x)
 =S_{\rm matter}(I)+S_{\rm matter}(R)
  -S_{\rm matter}(I\cup R).
-$
+$$
 >
 > 一般のCFTでは $\mathcal I(x)$ は中心電荷のみで決まらない。
 <!-- formal-statement-end -->
@@ -291,9 +297,9 @@ $$
 >
 > とする。$S_{\rm loc}^{(a)}$ は必要な局所端点項・反項であり、既に各有効結合に吸収した規約では零と記す。空の候補には重力端点項を足さず、
 >
-$
+$$
 S_{\rm gen}^{(a)}[\varnothing;R]=S_{\rm matter}^{(a)}(R)
-$
+$$
 >
 > とする。**候補の値**を定義したのであり、極値・支配鞍点はまだ指定しない。
 <!-- formal-statement-end -->
