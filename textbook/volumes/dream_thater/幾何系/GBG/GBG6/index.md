@@ -267,7 +267,7 @@ $\pi\circ s=\operatorname{id}_U$ を微分して $d\pi\,ds=\operatorname{id}$ �
 <!-- proof-start -->
 ### 証明
 
-[多様体上の連鎖律](../../GEO/GEO2/index.md#thm-geo2-chain-rule)を $\pi\circ s=\operatorname{id}_U$ に適用すると
+[多様体上の連鎖律](../../GEO/GEO2/index.md#thm-geo2-composition-differential)を $\pi\circ s=\operatorname{id}_U$ に適用すると
 $$
 d\pi_{s(x)}\circ ds_x=\operatorname{id}_{T_xM}.
 $$
