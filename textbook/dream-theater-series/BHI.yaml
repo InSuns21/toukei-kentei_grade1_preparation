@@ -91,7 +91,7 @@ chapters:
     title: "JTブラックホール解・dilaton・エントロピー"
   - id: BHI21
     path: textbook/volumes/dream_thater/物理系/BHI/BHI21
-    status: planned
+    status: completed
     title: "境界モードとSchwarzian力学"
   - id: BHI22
     path: textbook/volumes/dream_thater/物理系/BHI/BHI22
