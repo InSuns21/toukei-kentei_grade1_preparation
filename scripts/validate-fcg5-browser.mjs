@@ -120,6 +120,7 @@ try {
   const linkedSecond=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
   assert.notEqual(linkedFirst.data,linkedSecond.data,'real 12x12 solver should change GPU dye frames over time');
   console.log('FCG5 editable 12x12 MAC solver animates actual GPU dye frames: PASS');
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("再生中")',25000);
   const focusPoint=await evaluate('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2};})()');
   await cdp('Input.dispatchMouseEvent',{type:'mousePressed',x:focusPoint.x,y:focusPoint.y,button:'left',buttons:1,clickCount:1});
   await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:focusPoint.x,y:focusPoint.y,button:'left',buttons:0,clickCount:1});
@@ -128,20 +129,27 @@ try {
   // G4: switching reduced motion at runtime pauses the very same editable
   // solver. Removing the preference alone must not resume physical steps.
   await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("一時停止中")',25000);
   // Motion is emitted from the sandbox after the initial readPixels report;
   // verify the actual image, not the initial-only diagnostic snapshot.
   await new Promise(ok=>setTimeout(ok,350));
+  const frozenStep=await evaluate('document.querySelector("#fcg5-live-state").textContent');
   const frozenFirst=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
   await new Promise(ok=>setTimeout(ok,550));
   const frozenSecond=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
+  assert.equal(await evaluate('document.querySelector("#fcg5-live-state").textContent'),
+    frozenStep,'live physics steps must remain frozen under reduced motion');
   assert.equal(frozenSecond.data,frozenFirst.data,'real solver GPU dye must stop when OS reduces motion');
   await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
   await new Promise(ok=>setTimeout(ok,450));
   const stillFrozen=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
   assert.equal(stillFrozen.data,frozenFirst.data,'removing reduced motion must not auto-resume real solver');
+  assert.equal(await evaluate('document.querySelector("#fcg5-live-state").textContent'),
+    frozenStep,'removing preference must not advance physical steps');
   await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:' ',code:'Space',windowsVirtualKeyCode:32,nativeVirtualKeyCode:32,text:' '});
   await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:' ',code:'Space',windowsVirtualKeyCode:32,nativeVirtualKeyCode:32});
-  await new Promise(ok=>setTimeout(ok,950));
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("再生中")',25000);
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.match(/step (\\d+)/)?.[1] !== '+JSON.stringify(frozenStep.match(/step (\d+)/)?.[1]),10000);
   const resumed=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
   assert.notEqual(resumed.data,frozenFirst.data,'Space must resume the same GPU fluid solver');
   console.log('FCG5 single solver reduced-motion change, no auto-resume and keyboard Space: PASS');
