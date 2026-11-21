@@ -6,7 +6,7 @@
 
 以下、$p$ は素数、$K=\mathbb Q_p$ とし、$L/K$ を次数 $n$ の有限拡大とします。整数環 $A=\mathcal O_L$ と極大イデアル $\mathfrak m=(\pi)$ は [局所体の整数環定理](../ANF11/index.md#thm-anf11-local-dvr)で構成しました。
 
-剰余体を $k=A/\mathfrak m=\mathbb F_{p^f}$、分岐指数を $e=v_L(p)$ と書きます。付値は $v_p(p)=v_L(\pi)=1$ に規格化し、$n=ef$ です。跡・ノルムは [乗法写像の跡・行列式](../ANF2/index.md#prop-anf2-trace-norm-properties)で定義します。
+剰余体を $k=A/\mathfrak m=\mathbb F_{p^f}$、分岐指数を $e=v_L(p)$ と書きます。付値は $v_p(p)=v_L(\pi)=1$ に規格化し、$n=ef$ です。跡・ノルムは [乗法写像の跡・行列式](../ANF2/index.md#prop-anf2-trace-norm-properties)で定義します。この線形代数的定義は数体だけでなく、今回の有限次拡大 $L/K$ にもそのまま適用できます。
 
 <!-- definition-example-audit: strict -->
 
@@ -63,7 +63,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-剰余写像 $A^\times\to k^\times$ は全射です。任意の $\bar a\ne0$ の代表 $a$ は極大イデアルに入らず単元だからです。核は剰余が $1$ の単元、すなわち $1+\mathfrak m=U_L^1$ です。[第一同型定理](../../../基礎科目/LA/LA2/index.md#thm-la2-first-isomorphism)から最初の同型を得ます。
+剰余写像 $A^\times\to k^\times$ は全射です。任意の $\bar a\ne0$ の代表 $a$ は極大イデアルに入らず単元だからです。核は剰余が $1$ の単元、すなわち $1+\mathfrak m=U_L^1$ です。ここでは乗法群の商を扱うので、商からの写像を直接確かめます。$uU_L^1\mapsto\bar u$ と置くと、
+$$
+uU_L^1=vU_L^1
+\ \Longleftrightarrow\ uv^{-1}\in U_L^1
+\ \Longleftrightarrow\ \bar u=\bar v.
+$$
+従ってこの写像は代表によらず定まり、単射です。積の剰余は剰余の積なので群準同型であり、上の全射性と合わせて $U_L^0/U_L^1\simeq k^\times$ を得ます。
 
 次に $r\ge1$ とします。$a$ の代表を $a+\pi b$ に変えると
 $1+\pi^r(a+\pi b)-(1+\pi^r a)=\pi^{r+1}b$ です。比を取っても $U_L^{r+1}$ に属するため写像は代表によらず定まります。
@@ -111,7 +117,19 @@ $$
 v_p(N(x))=r\,v_p(N(\pi))+v_p(N(u))=rf.
 $$
 
-最後に $a\in A$ は $\mathbb Z_p$ 上整です。乗法写像 $m_a$ の特性多項式の係数は $\mathbb Z_p$ に属するので、その $X^{n-1}$ 係数の符号を反転した跡は $\mathbb Z_p$ に属します。この整性による跡の議論は [ANF11 の整数環定理の証明](../ANF11/index.md#thm-anf11-local-dvr)でも使いました。
+最後に、[局所体の整数環は完備な離散付値環](../ANF11/index.md#thm-anf11-local-dvr)であることの証明から、$A$ は階数 $n$ の自由 $\mathbb Z_p$ 加群です。$a\in A$ なら $aA\subseteq A$ なので、$\mathbb Z_p$ 基底 $b_1,\ldots,b_n$ に関し
+$$
+ab_j=\sum_{i=1}^n M_{ij}b_i\qquad(M_{ij}\in\mathbb Z_p)
+$$
+と表せます。これが $m_a$ の乗法行列 $M$ です。従って
+$$
+\det(XI_n-M)=X^n-(\operatorname{tr}M)X^{n-1}+\cdots\in\mathbb Z_p[X].
+$$
+特に
+$$
+\operatorname{Tr}_{L/K}(a)=\operatorname{tr}M=\sum_{i=1}^n M_{ii}\in\mathbb Z_p.
+$$
+これは「整数環の元である」という条件から、跡を計算する行列の成分の整数性へ移る根拠です。
 <!-- proof-end -->
 
 たとえば $L=\mathbb Q_5(\pi)$、$\pi^2=5$ では $\pi$ の共役が $-\pi$ ですから
@@ -130,7 +148,15 @@ U_L^r=1+p^r A,\qquad
 U_K^r=1+p^r\mathbb Z_p\qquad(r\ge1).
 $$
 
-$\bar a\in k=\mathbb F_{p^f}$ の有限体ノルムと跡は、$\mathbb F_p$ 線形写像「$\bar a$ による掛け算」の行列式と跡です。有限体の元を $p$ 乗すると共役が得られるので、具体的には
+$\bar a\in k=\mathbb F_{p^f}$ の有限体ノルムと跡は、$\mathbb F_p$ 線形写像「$\bar a$ による掛け算」の行列式と跡です。なぜ $p$ 乗が式に現れるのでしょうか。標数 $p$ では $(x+y)^p=x^p+y^p$、$(xy)^p=x^py^p$ です。よって $F(z)=z^p$ は体準同型で、有限体上では単射ゆえ全射、すなわち **Frobenius 自己同型**です。$F^f(z)=z$ であり、$F(z)=z$ の解は $\mathbb F_p$ の $p$ 個だけです（$X^p-X$ の次数は $p$）。
+
+$\bar a$ の $F$ による軌道長を $d$ とすれば $d\mid f$ で、軌道の $d$ 個の元は相異なります。軌道多項式は
+$$
+P_{\bar a}(X)=\prod_{j=0}^{d-1}(X-\bar a^{p^j})
+$$
+です。$F$ は根を巡回させるので係数を固定し、$P_{\bar a}\in\mathbb F_p[X]$ です。逆に $\mathbb F_p$ 係数の多項式が $\bar a$ を根に持てば、$F$ を繰り返すことで軌道の全元を根に持ちます。従って $P_{\bar a}$ が $\bar a$ の最小多項式です。
+
+$[\mathbb F_p(\bar a):\mathbb F_p]=d$、$[k:\mathbb F_p(\bar a)]=f/d$ なので、[乗法行列の最小多項式による計算](../ANF2/index.md#thm-anf2-embedding-formulas)と同じ基底展開によって、行列式は軌道の積を $f/d$ 回、跡は軌道の和を $f/d$ 回集めたものになります。すなわち、軌道を重複込みで $f$ 項並べると
 $$
 N_{k/\mathbb F_p}(\bar a)
 =\bar a^{1+p+\cdots+p^{f-1}},\qquad
@@ -155,9 +181,17 @@ $$
 
 まず有限体の乗法群 $G=k^\times$ が巡回群であることを確認します。各元の位数の最小公倍数を $m$ とします。
 
-$m$ の各素数冪因子について、その素数冪を位数に持つ元を取り、互いに素な位数のそれらを掛け合わせます。得られた元の位数は $m$ です。
+$m=\prod_i\ell_i^{a_i}$ と素因数分解します。各 $a_i$ は、$G$ の元の位数に現れる素数 $\ell_i$ の指数の最大値です。従って各 $i$ について、位数が $\ell_i^{a_i}$ でちょうど割れる元 $h_i$ を選べます。$\operatorname{ord}(h_i)=\ell_i^{a_i}q_i$（$\ell_i\nmid q_i$）と置けば $g_i=h_i^{q_i}$ は
+$$
+\operatorname{ord}(g_i)=\ell_i^{a_i}
+$$
+を満たします。$G$ は体の乗法群なので可換であり、互いに素な位数の元を掛け合わせると位数も掛け合わされます。従って
+$$
+\operatorname{ord}\left(\prod_i g_i\right)=\prod_i\ell_i^{a_i}=m.
+$$
+なお $m=1$ のときは単位元を取ります。
 
-他方、$G$ の全元は多項式 $X^m-1$ の根です。根は次数を超えないので $|G|\le m$。各元の位数は Lagrange の定理によって $|G|$ を割るため、その最小公倍数も $|G|$ を割ります。よって $m\le|G|$ です。両不等式から $m=|G|$ となり、$G$ は巡回群です。
+他方、$G$ の全元は多項式 $X^m-1$ の根です。根は次数を超えないので $|G|\le m$。任意の $a\in G$ について、$G$ は部分群 $\langle a\rangle$ の剰余類に分割され、各類には $\operatorname{ord}(a)$ 個の元があるので $\operatorname{ord}(a)\mid|G|$ です。従って各元の位数の最小公倍数 $m$ も $|G|$ を割り、$m\le|G|$。両不等式から $m=|G|$ となり、$G$ は巡回群です。
 
 $k^\times$ の生成元 $g$ は位数 $p^f-1$ を持ちます。$N(g)=g^{(p^f-1)/(p-1)}$ の位数は $p-1$ なので、$\mathbb F_p^\times$ 全体を生成します。
 
@@ -261,7 +295,7 @@ $N(x_s)$ は単元なので
 $$
 y/N(x_s)\equiv1+p^s c_s\pmod{p^{s+1}}
 $$
-と書けます（$c_s\in\mathbb F_p$）。[有限体跡の全射性](#lem-anf12-finite-field-maps)で $\bar a_s\in k$ を選び $\operatorname{Tr}_{k/\mathbb F_p}(\bar a_s)=c_s$ とし、代表 $a_s\in A$ に対して
+と書けます。ここで $c_s\in\{0,\ldots,p-1\}$ は $(y/N(x_s)-1)/p^s\in\mathbb Z_p$ の法 $p$ での代表です。[有限体跡の全射性](#lem-anf12-finite-field-maps)で $\bar a_s\in k$ を選び $\operatorname{Tr}_{k/\mathbb F_p}(\bar a_s)=\overline{c_s}$ とし、代表 $a_s\in A$ に対して
 $$
 x_{s+1}=x_s(1+p^s a_s)
 $$
