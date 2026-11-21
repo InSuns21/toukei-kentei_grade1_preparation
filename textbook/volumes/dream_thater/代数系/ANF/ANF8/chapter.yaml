@@ -1,0 +1,48 @@
+id: "ANF8"
+title: "Dedekindゼータと解析類数公式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANF7
+official_scope: []
+learning_objectives:
+  - 整イデアルとイデアル類に関するDedekindゼータ関数と部分ゼータ関数を定義できる
+  - 素イデアル分解と次数公式からEuler積の絶対収束と局所因子を証明できる
+  - 中心化対数座標の定義と単数による平行移動を導出し生成元のw_K重複を説明できる
+  - 角度積分と対数変換のJacobianを計算して単数基本領域の体積を導ける
+  - Lipschitz境界の格子点計数の誤差を説明して各イデアル類のノルム計数漸近式を証明できる
+  - 部分積分からDedekindゼータ関数のs=1近傍の有理型延長と解析類数公式を導ける
+  - QとQ(i)でEuler積および格子点の二つの経路から留数を検算できる
+  - Q(sqrt(-5))とQ(sqrt(2))の公式における類数とレギュレータの役割を説明できる
+definitions:
+  - { id: ANF8-DEF-01, name: Dedekindゼータ関数 }
+  - { id: ANF8-DEF-02, name: 部分ゼータ関数と類別計数 }
+  - { id: ANF8-DEF-03, name: 中心化対数座標 }
+theorems:
+  - { id: ANF8-PROP-01, name: Euler積と絶対収束 }
+  - { id: ANF8-LEM-01, name: 類のイデアルと単数軌道 }
+  - { id: ANF8-LEM-02, name: 単数基本領域の体積 }
+  - { id: ANF8-LEM-03, name: 境界がLipschitzな領域の格子点計数 }
+  - { id: ANF8-THM-01, name: 各イデアル類の計数漸近式 }
+  - { id: ANF8-THM-02, name: 解析類数公式 }
+canonical_examples:
+  - Qの整イデアルとリーマンゼータ関数
+  - Q(i)のEuler局所因子と格子点による留数pi/4の検算
+  - Q(sqrt(-5))の類数2が留数へ現れる例
+  - Q(sqrt(2))のレギュレータと留数
+  - 中心化対数の拡大不変性と実二次体の具体座標
+problem_patterns:
+  - ANF8-Q-COUNT
+  - ANF8-INERT-EULER-FACTOR
+  - ANF8-QUADRATIC-RESIDUES
+  - ANF8-CENTERED-LOG-SCALING
+  - ANF8-IDEAL-GENERATORS-NORM
+  - ANF8-GAUSSIAN-LATTICE-COUNT
+  - ANF8-JACOBIAN-COORDINATES
+  - ANF8-PARTIAL-SUMMATION-ANALYTIC
+  - ANF8-LIPSCHITZ-BOUNDARY-ERROR
+  - ANF8-GAUSSIAN-TWO-PROOFS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12.0, exercises: 8.0, review: 2.0 }
