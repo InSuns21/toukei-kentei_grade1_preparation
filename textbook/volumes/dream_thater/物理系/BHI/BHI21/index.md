@@ -6,7 +6,7 @@
 
 [BHI19のJT作用](../BHI19/index.md#def-bhi19-jt-action)は、二次元の曲率を一定の負値に固定する一方、境界にdilatonと外部曲率の積を持ちます。[BHI20の静的ブラックホール](../BHI20/index.md#def-bhi20-static-patch)では地平線半径を変えるだけで温度とエネルギーが変わりました。今回は**境界の時計を再パラメータ化したとき、境界作用がどのような一次元力学を生むか**を調べます。
 
-浴への放射を計算する際には、重力領域の境界が浴の時刻に対してどう動くかを記述する変数が必要です。その変数を境界曲線の時間座標 $F(u)$ として導入します。本講では真空JTの境界力学を導出し、熱的な解で[BHI20の第一法則から得たエネルギー](../BHI20/index.md#prop-bhi20-first-law)と一致することを検算します。浴の透過境界条件と具体的な放射流束は次講で固定します。
+浴への放射を計算する際には、重力領域の境界が浴の時刻に対してどう動くかを記述する変数が必要です。その変数を境界曲線の時間座標 $F(u)$ として導入します。本講では真空JTの境界力学を導出し、熱的解のエネルギーを求めます。その値は[JTブラックホール族の第一法則と比熱](../BHI20/index.md#prop-bhi20-first-law)から得たエネルギーと係数まで照合します。浴の透過境界条件と具体的な放射流束は次講で固定します。
 
 計算は $\hbar=k_{\rm B}=1$、$\ell,G_2>0$、$(-,+)$ のLorentz符号で行い、境界の計算時だけEuclid化します。$G_2$ とdilaton $\Phi$ は無次元です。長さの次元を持つ固有時刻座標を $u$、無次元の小さなcutoffを $\varepsilon>0$ とします。Euclid作用には上付き $E$、Lorentz時間には $t$ を付け、両者を混同しません。
 
@@ -65,26 +65,16 @@ $$
 
 ## 3. Schwarzian微分と境界の曲がり方
 
-曲線の外部曲率を展開すると、$F$ の三階微分までを含む特別な組合せが現れます。そこで先にこの組合せを定義します。
+曲線の外部曲率を展開すると、$F$ の三階微分までを含む特別な組合せが現れます。これは[QCURV16で定義したSchwarzian微分](../QCURV/QCURV16/index.md#def-qcurv16-schwarzian)です。そこでの光線座標 $p(u)$ を、今度は**JT重力の境界座標** $F(u)$ に置き換えて使用します。
 
-<a id="def-bhi21-schwarzian"></a>
+$
+\{F,u\}=\frac{F'''(u)}{F'(u)}
+-\frac32\left(\frac{F''(u)}{F'(u)}\right)^2.
+$
 
-<!-- formal-statement-start -->
-> **定義（Schwarzian微分）**
->
-> 区間上の三回連続微分可能な実関数 $F$ が $F'\ne0$ を満たすとき、そのSchwarzian微分は
->
-$$
-\{F,u\}:=\frac{F'''(u)}{F'(u)}
--\frac32\left(\frac{F''(u)}{F'(u)}\right)^2
-$$
->
-> である。分母が0でない区間ごとに定義する。
-<!-- formal-statement-end -->
+$F\in C^3$ かつ $F'>0$ の区間で定義できます。物理的な役割は異なりますが、微分の組合せ自体は既習のものと同じです。
 
-<!-- definition-example-start: def-bhi21-schwarzian -->
-**定義の確認**：$F(u)=u$ なら $F'=1,F''=F'''=0$ なので $\{F,u\}=0$。$F(u)=e^{ku}$（$k>0$）なら $F'=ke^{ku}>0$、$F''/F'=k$、$F'''/F'=k^2$ より $\{F,u\}=-k^2/2$ です。$F'$ の非零条件と三階微分の存在を両方確かめました。
-<!-- definition-example-end -->
+**直接計算**：$F(u)=u$ なら $F'=1,F''=F'''=0$ なので $\{F,u\}=0$。$F(u)=e^{ku}$（$k>0$）なら $F'=ke^{ku}>0$、$F''/F'=k$、$F'''/F'=k^2$ より $\{F,u\}=-k^2/2$ です。導関数の非零条件と三階微分の存在をともに確かめました。
 
 ### 曲線の外部曲率を計算する
 
@@ -237,46 +227,36 @@ $$
 
 ## 5. なぜ三つの変換が同じ境界幾何を表すか
 
-$F$ の値を一様にずらしたり、一次分数変換したりしても、同じ負曲率の幾何の座標の付け替えとなる場合があります。そのためSchwarzian作用は一次分数変換に不変である必要があります。
+Poincaré座標 $F$ を、$M(y)=(ay+b)/(cy+d)$ の形の**射影変換**で取り換えます。$a,b,c,d$ は実数で、$ad-bc>0$、$cy+d\ne0$ を満たす区間に制限すれば、$M'(y)>0$ で向きが保たれます。これらの座標の取り換えが、JT境界のSchwarzian作用を変えないことを示します。
 
-<a id="prop-bhi21-chain-rule"></a>
+<a id="prop-bhi21-projective-action"></a>
 
 <!-- formal-statement-start -->
-> **命題（Schwarzian微分の合成則と射影変換不変性）**
+> **命題（JT境界Schwarzian作用の射影変換不変性）**
 >
-> $F\in C^3$、$H\in C^3$ がそれぞれの定義域で導関数が零でなく、合成 $H\circ F$ が定義されるとする。このとき
+> $C>0$、$F\in C^3$、$F'>0$ とし、局所Poincaré座標 $F(u)$ に対する境界作用を $I_{\rm Sch}^{E}[F]=-C\int du\,\{F,u\}$ とする。実係数 $a,b,c,d$ が $ad-bc>0$、$cF(u)+d\ne0$ を満たす区間で
 >
-$$
-\{H\circ F,u\}=F'(u)^2\{H,F(u)\}+\{F,u\}.
-$$
+$
+M(y)=\frac{ay+b}{cy+d},\qquad \widetilde F=M\circ F
+$
 >
-> とくに $M(y)=(ay+b)/(cy+d)$、$ad-bc\ne0$、$cy+d\ne0$ なら $\{M\circ F,u\}=\{F,u\}$ である。
+> と置く。このとき $\widetilde F'>0$、$\{\widetilde F,u\}=\{F,u\}$ であり、同じ積分区間での境界作用も不変である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-合成関数の導関数を三階まで計算し、$H''/H'$ を含む交差項を打ち消します。一次分数変換では $H'''/H'=(3/2)(H''/H')^2$ が成り立ち、合成則の第一項が消えます。
+[QCURV16のSchwarzian合成則](../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)を、外側の関数 $M$、内側の関数 $F$ として使います。$M$ の導関数を三階まで計算すると $\{M,y\}=0$ になり、作用の積分値が変わらないと分かります。
 
 <!-- proof-start -->
 ### 証明
 
-$A=H'(F),B=H''(F),D=H'''(F)$ と略します。$Y=H(F(u))$ と置くと
+[Schwarzian合成則](../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)の $q$ に $M$、$p$ に $F$ を代入すると
 
-$$
-Y'=AF',\qquad Y''=BF'^2+AF'',\qquad
-Y'''=DF'^3+3BF'F''+AF'''.
-$$
+$
+\{M\circ F,u\}=F'^2\{M,F(u)\}+\{F,u\}
+$
 
-したがって
-
-$$
-\frac{Y'''}{Y'}=\frac DA F'^2+3\frac BA F''+\frac{F'''}{F'},\qquad
-\frac{Y''}{Y'}=\frac BA F'+\frac{F''}{F'}.
-$$
-
-後者を二乗すると $\frac{B^2}{A^2}F'^2+2\frac BA F''+(F''/F')^2$。前者からその $3/2$ 倍を引くと交差項 $3(B/A)F''$ が相殺し、主張の合成則が残ります。
-
-$M(y)=(ay+b)/(cy+d)$ には $D_0=ad-bc\ne0$ として
+です。$M(y)=(ay+b)/(cy+d)$ の $D_0=ad-bc>0$ に対して
 
 $$
 M'=\frac{D_0}{(cy+d)^2},\quad
@@ -284,7 +264,7 @@ M'=\frac{D_0}{(cy+d)^2},\quad
 \frac{M'''}{M'}=\frac{6c^2}{(cy+d)^2}.
 $$
 
-よって $\{M,y\}=6c^2/(cy+d)^2-(3/2)4c^2/(cy+d)^2=0$ です。合成則へ代入すれば結論を得ます。$\square$
+よって $\{M,y\}=6c^2/(cy+d)^2-(3/2)4c^2/(cy+d)^2=0$ です。さらに $\widetilde F'=D_0 F'/(cF+d)^2>0$ であるため同じ境界方向を保ちます。合成則へ代入して $\{\widetilde F,u\}=\{F,u\}$ を得ます。積分区間と $C$ が同じなので $I_{\rm Sch}^{E}[\widetilde F]=I_{\rm Sch}^{E}[F]$ です。$\square$
 <!-- proof-end -->
 
 $ad-bc>0$ の変換は向きを保ちます。重力の境界力学ではこれら三パラメータの $PSL(2,\mathbb R)$ 変換で同値とみなし、独立の物理的揺らぎと二重に数えません。たとえば $F=e^{ku}$ と $(aF+b)/(cF+d)$ は、定義される区間で同じSchwarzian $-k^2/2$ を持ちます。$F'$ が0になったり変換の分母が消えたりする点をまたいで、単一のPoincaré座標式を使用することはできません。
@@ -309,7 +289,7 @@ $$
 
 ### 証明の見取り図
 
-変分を $\delta F=F'\eta$ と書くと、$\eta$ は境界座標の微小変更です。[合成則](#prop-bhi21-chain-rule)を $u\mapsto u+\eta$ に適用し、$\delta\{F,u\}=\eta'''+2\{F,u\}\eta'+\{F,u\}'\eta$ を出します。部分積分により停留条件はSchwarzianの微分が零になることです。
+変分を $\delta F=F'\eta$ と書くと、$\eta$ は境界座標の微小変更です。[合成則](#prop-bhi21-projective-action)を $u\mapsto u+\eta$ に適用し、$\delta\{F,u\}=\eta'''+2\{F,u\}\eta'+\{F,u\}'\eta$ を出します。部分積分により停留条件はSchwarzianの微分が零になることです。
 
 <!-- proof-start -->
 ### 証明
@@ -345,21 +325,33 @@ $$
 F(u)=\tan\left(\frac{\pi f(u)}{\beta}\right)
 $$
 
-で表します。$\tan$ の極では別の一次分数変換の座標へ貼り替えます。[射影変換不変性](#prop-bhi21-chain-rule)によりSchwarzianと作用はその貼り替えで一意です。これが「境界は円だが $F$ は実直線の一枚の座標でない」という違いです。
+で表します。$\tan$ の極では別の射影変換の座標へ貼り替えます。[射影変換不変性](#prop-bhi21-projective-action)によりSchwarzianと作用はその貼り替えで一意です。これが「境界は円だが $F$ は実直線の一枚の座標でない」という違いです。
 
 <a id="def-bhi21-thermal-clock"></a>
 
 <!-- formal-statement-start -->
-> **定義（温度逆数 $\beta$ の熱的境界時計）**
+> **定義（熱的境界時計）**
 >
-> $\beta>0$ とし、$f\in C^4(\mathbb R)$ が $f'>0$、$f(u+\beta)=f(u)+\beta$ を満たすとする。$\tan(\pi f(u)/\beta)$ を局所Poincaré座標とし、極を射影変換で貼り合わせた円周上の境界時計を熱的境界時計とする。基準時計は $f(u)=u$ である。
+> 周期 $\beta>0$ と $f\in C^4(\mathbb R)$ を選び、次の条件を課す。
+>
+$
+f'(u)>0,\qquad f(u+\beta)=f(u)+\beta.
+$
+>
+> 局所Poincaré座標を
+>
+$
+F(u)=\tan\left(\frac{\pi f(u)}{\beta}\right)
+$
+>
+> とし、極を射影変換で貼り合わせたEuclid円周上の境界時計を**熱的境界時計**とする。基準時計は $f(u)=u$ である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi21-thermal-clock -->
-**定義の確認**：$f(u)=u$ なら $f'=1>0$、$f(u+\beta)=u+\beta=f(u)+\beta$ です。$F=\tan(\pi u/\beta)$ は $u=\beta/2$ で発散しますが、$1/F=\cot(\pi u/\beta)$ はこの点で滑らかな別の座標です。両者は $M(y)=1/y$ で結ばれ、$M'\ne0$ の範囲では[合成則](#prop-bhi21-chain-rule)から同じSchwarzianを持ちます。物理境界の特異点ではなく座標の貼替えです。
+**定義の確認**：$f(u)=u$ なら $f'=1>0$、$f(u+\beta)=u+\beta=f(u)+\beta$ です。$F=\tan(\pi u/\beta)$ は $u=\beta/2$ で発散しますが、$1/F=\cot(\pi u/\beta)$ はこの点で滑らかな別の座標です。両者は $M(y)=1/y$ で結ばれ、$M'\ne0$ の範囲では[合成則](#prop-bhi21-projective-action)から同じSchwarzianを持ちます。物理境界の特異点ではなく座標の貼替えです。
 <!-- definition-example-end -->
 
-[合成則](#prop-bhi21-chain-rule)で $H(y)=\tan(\pi y/\beta)$ を選ぶと、$\{H,y\}=2\pi^2/\beta^2$ なので
+[合成則](#prop-bhi21-projective-action)で $H(y)=\tan(\pi y/\beta)$ を選ぶと、$\{H,y\}=2\pi^2/\beta^2$ なので
 
 $$
 \left\{\tan\left(\frac{\pi f}{\beta}\right),u\right\}
@@ -384,7 +376,7 @@ $$
 
 ### 証明の見取り図
 
-$\tan$ のSchwarzianを直接微分で計算し、$f=u$ では定数になるので周期 $\beta$ で積分します。熱力学的な微分では、結合 $C,S_0$ を固定し、$\beta$ だけを動かします。
+$\tan$ のSchwarzianを直接微分で計算し、$f=u$ では定数になるので周期 $\beta$ で積分します。熱力学的な微分では、係数 $C,S_0$ を固定し、$\beta$ だけを動かします。
 
 <!-- proof-start -->
 ### 証明
@@ -436,7 +428,7 @@ $$
 C_V=\frac{dE}{dT}=4\pi^2CT>0
 $$
 
-です。係数 $C$ はSchwarzian作用の結合であり、比熱 $C_V$ と記号を区別します。
+です。係数 $C$ はSchwarzian作用の係数であり、比熱 $C_V$ と記号を区別します。
 
 ## 8. Lorentz境界エネルギーと浴への受け渡し
 
@@ -507,7 +499,7 @@ H=-C\frac{F'''}{F'}+\frac{3C}{2}
 \left(\frac{F''}{F'}\right)^2=-C\{F,t\}=E_L.
 $$
 
-$L$ は明示的な $t$ 依存を持たないので、Euler–Lagrange方程式を満たす軌道では $\dot H=0$ です。次に $H_1(y)=\tanh y$ とおけば $\{H_1,y\}=-2$ です（$H_1'=1-H_1^2$、$H_1''/H_1'=-2H_1$ を代入）。[合成則](#prop-bhi21-chain-rule)で $F(t)=H_1(\pi t/\beta)$ として、内側の一次関数のSchwarzianが0であることから $\{F,t\}=-2(\pi/\beta)^2$ を得ます。$\square$
+$L$ は明示的な $t$ 依存を持たないので、Euler–Lagrange方程式を満たす軌道では $\dot H=0$ です。次に $H_1(y)=\tanh y$ とおけば $\{H_1,y\}=-2$ です（$H_1'=1-H_1^2$、$H_1''/H_1'=-2H_1$ を代入）。[合成則](#prop-bhi21-projective-action)で $F(t)=H_1(\pi t/\beta)$ として、内側の一次関数のSchwarzianが0であることから $\{F,t\}=-2(\pi/\beta)^2$ を得ます。$\square$
 <!-- proof-end -->
 
 浴と接合した模型では、境界から外へ出る正味のエネルギー流束を $P(t)$（正なら境界がエネルギーを失う、単位は時間当たりのエネルギー）と定めます。**境界と浴を合わせてエネルギーが保存されるという接合条件を採用した場合**、収支は
@@ -583,7 +575,7 @@ $$
 
 <a id="ex-bhi21-a04"></a>
 
-#### BHI21-A04 Schwarzian結合の次元
+#### BHI21-A04 Schwarzian係数の次元
 
 - Level: A
 - 問題: $\Phi_r,G_2$ が無次元、$\ell,u$ が長さを持つとする。$C=\ell\Phi_r/(8\pi G_2)$ と $\{F,u\}$ の次元を求め、$\int du\,C\{F,u\}$ が無次元であることを検算せよ。
@@ -600,20 +592,20 @@ $$
 - 問題: $E(T)=2\pi^2CT^2$（$C>0,T>0$）について $C_V=dE/dT$ を求め、$T=1/(2\pi)$ で $E$ と $C_V$ を $C$ で表せ。
 
 <!-- solution-start -->
-**詳細解答。** $C$ を固定して微分すると $C_V=4\pi^2CT$ です。$T=1/(2\pi)$ で $E=2\pi^2C/(4\pi^2)=C/2$、$C_V=4\pi^2C/(2\pi)=2\pi C$。$C_V>0$ で、結合 $C$ と比熱は別の量です。
+**詳細解答。** $C$ を固定して微分すると $C_V=4\pi^2CT$ です。$T=1/(2\pi)$ で $E=2\pi^2C/(4\pi^2)=C/2$、$C_V=4\pi^2C/(2\pi)=2\pi C$。$C_V>0$ で、係数 $C$ と比熱は別の量です。
 <!-- solution-end -->
 
 ### Level B：複数の計算を結ぶ
 
 <a id="ex-bhi21-b01"></a>
 
-#### BHI21-B01 一次分数変換の不変性
+#### BHI21-B01 射影変換の不変性
 
 - Level: B
-- 問題: $F(u)=e^{ku}$（$k>0$）および $M(y)=y/(1+y)$ を考える。(1) $M'(y)$ と $\{M,y\}$ を求めよ。(2) $u\in\mathbb R$ において $G(u)=M(F(u))$ のSchwarzianを[合成則](#prop-bhi21-chain-rule)で求めよ。(3) 変換の定義域を説明せよ。
+- 問題: $F(u)=e^{ku}$（$k>0$）および $M(y)=y/(1+y)$ を考える。(1) $M'(y)$ と $\{M,y\}$ を求めよ。(2) $u\in\mathbb R$ において $G(u)=M(F(u))$ のSchwarzianを[合成則](#prop-bhi21-projective-action)で求めよ。(3) 変換の定義域を説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** (1) $M'=1/(1+y)^2$、$M''=-2/(1+y)^3$、$M'''=6/(1+y)^4$ です。従って $M'''/M'=6/(1+y)^2$、$(M''/M')^2=4/(1+y)^2$ だから $\{M,y\}=6/(1+y)^2-6/(1+y)^2=0$。(2) $F'=ke^{ku}>0$、$\{F,u\}=-k^2/2$ です。[合成則](#prop-bhi21-chain-rule)から $\{M\circ F,u\}=F'^2\cdot0+\{F,u\}=-k^2/2$。(3) $M$ の分母は $1+y\ne0$ を要します。$F(u)=e^{ku}>0$ なので全ての実 $u$ で $1+F(u)>1$、$G$ は定義され $G'>0$ です。
+**詳細解答。** (1) $M'=1/(1+y)^2$、$M''=-2/(1+y)^3$、$M'''=6/(1+y)^4$ です。従って $M'''/M'=6/(1+y)^2$、$(M''/M')^2=4/(1+y)^2$ だから $\{M,y\}=6/(1+y)^2-6/(1+y)^2=0$。(2) $F'=ke^{ku}>0$、$\{F,u\}=-k^2/2$ です。[合成則](#prop-bhi21-projective-action)から $\{M\circ F,u\}=F'^2\cdot0+\{F,u\}=-k^2/2$。(3) $M$ の分母は $1+y\ne0$ を要します。$F(u)=e^{ku}>0$ なので全ての実 $u$ で $1+F(u)>1$、$G$ は定義され $G'>0$ です。
 <!-- solution-end -->
 
 <a id="ex-bhi21-b02"></a>
@@ -686,7 +678,7 @@ ds\,\Phi_b\left(K-\ell^{-1}\right)
 $$
 有限区間で余項の積分が消えるから、$I_\partial^E\to-C\int\{F,u\}\,du$、$C=a\ell/(8\pi G_2)$。
 
-(2) $H(u)=\tan(\alpha u)$、$\alpha=\pi/\beta$ について $H'=\alpha(1+H^2)$、$H''/H'=2\alpha H$、$H'''/H'=2\alpha^2(1+H^2)+4\alpha^2H^2$ なので、二次項が消えて $\{H,u\}=2\alpha^2=2\pi^2/\beta^2$。極では $1/H$ 等の局所座標へ移り、[一次分数変換不変性](#prop-bhi21-chain-rule)で値をつなぎます。円周長 $\beta$ で積分して $I_E=-S_0-2\pi^2 C/\beta$。
+(2) $H(u)=\tan(\alpha u)$、$\alpha=\pi/\beta$ について $H'=\alpha(1+H^2)$、$H''/H'=2\alpha H$、$H'''/H'=2\alpha^2(1+H^2)+4\alpha^2H^2$ なので、二次項が消えて $\{H,u\}=2\alpha^2=2\pi^2/\beta^2$。極では $1/H$ 等の局所座標へ移り、[射影変換不変性](#prop-bhi21-projective-action)で値をつなぎます。円周長 $\beta$ で積分して $I_E=-S_0-2\pi^2 C/\beta$。
 
 (3) $\log Z_{\rm cl}=S_0+2\pi^2 C/\beta$ です。$\beta$ 微分は $-\partial_\beta\log Z_{\rm cl}=2\pi^2C/\beta^2$、$\log Z_{\rm cl}+\beta E=S_0+4\pi^2C/\beta$。従って $E=2\pi^2CT^2$、$S=S_0+4\pi^2CT$。
 
