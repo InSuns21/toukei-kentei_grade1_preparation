@@ -68,7 +68,7 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: thm-gbg3-section-trivialization -->
-**対応の検算**。積主束 $M\times G$ で滑らかな $a:M\to G$ を取り、$s_a(x)=(x,a(x))$ とする。$(x,h)=s_a(x)k$ から $h=a(x)k$、従って
+**定義の確認**：sectionに対応する自明化の検算。積主束 $M\times G$ で滑らかな $a:M\to G$ を取り、$s_a(x)=(x,a(x))$ とする。$(x,h)=s_a(x)k$ から $h=a(x)k$、従って
 $$
 \Phi_{s_a}(x,h)=(x,a(x)^{-1}h),\qquad
 \Phi_{s_a}^{-1}(x,k)=(x,a(x)k).
