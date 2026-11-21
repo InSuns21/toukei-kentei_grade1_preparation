@@ -45,7 +45,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg2-principal-bundle -->
-**定義の確認：積主束**。$P=M\times G$ に
+**定義の確認**：積主束。$P=M\times G$ に
 $$
 \pi(x,h)=x,\qquad (x,h)\cdot g=(x,hg)
 $$
@@ -151,9 +151,9 @@ $$
 > $P,Q$ を同じ滑らかな多様体 $M$ 上の、同じ Lie 群 $G$ を構造群とする主束とする。
 > 滑らかな写像 $F:P\to Q$ が任意の $p\in P$、$g\in G$ に対して
 
-$
+$$
 \pi_Q\circ F=\pi_P,\qquad F(pg)=F(p)g
-$
+$$
 
 > を満たすなら、$F$ は主束同型である。
 <!-- formal-statement-end -->
@@ -343,7 +343,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg2-frame-bundle -->
-**定義の確認：$\mathbb R^2$ の枠**。標準基底 $(e_1,e_2)$ を固定すると、各枠は $(e_1,e_2)\cdot A$ と唯一表せる。$A$ が可逆であれば列ベクトルは一次独立であり、逆に枠の二列は基底なので行列式は非零である。例えば
+**定義の確認**：$\mathbb R^2$ の枠。標準基底 $(e_1,e_2)$ を固定すると、各枠は $(e_1,e_2)\cdot A$ と唯一表せる。$A$ が可逆であれば列ベクトルは一次独立であり、逆に枠の二列は基底なので行列式は非零である。例えば
 $$
 A=\begin{pmatrix}1&1\\0&1\end{pmatrix},
 \quad
