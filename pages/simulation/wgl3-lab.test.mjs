@@ -45,3 +45,13 @@ test('WGL3 actual source implements both VAOs and indexed / expanded drawing', a
   assert.match(vert,/layout\(location = 0\) in vec2 a_position/);
   assert.match(frag,/vec4\(0\.2, 0\.6, 0\.8, 1\.0\)/);
 });
+
+test('WGL3 visual mesh overlay derives faces and counts from uploaded buffers',async()=>{
+  const js=await readFile(new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL3/mesh.js',import.meta.url),'utf8');
+  for(const marker of ["indices.slice(face*3,face*3+3)","vertices.byteLength+elements.byteLength",
+    "expanded.byteLength","point(id)","canvas.insertAdjacentElement('afterend',svg)"]){
+    assert.ok(js.includes(marker),marker);
+  }
+  assert.match(js,/grid-template-columns/);
+  assert.ok(js.includes("n<=12"),'dense mesh grids must not flood the overlay');
+});
