@@ -1,0 +1,41 @@
+id: "SYZ1-18"
+title: "滑らかな定理から一般予想への証明地図・総合演習"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYZ1-17
+official_scope: []
+learning_objectives:
+  - 較正による体積最小性とMcLean変形理論の仮定・主要中間式・結論を再導出できる
+  - McLeanの局所moduliと大域SLagトーラス束の追加存在仮定を論理的に区別できる
+  - 二重整数アフィン周期からHessian・Legendre双対・semi-flat複素及びKähler構造を手計算できる
+  - 節点モノドロミーの接格子・余接格子への作用と滑らかな延長障害を証明できる
+  - 指定した壁関数の形式的な貼り合わせを次数2まで検算し幾何的円板計数との区別を説明できる
+  - Gross–Siebert型の代数的再構成の追加条件と一般的SYZ予想の証明上の停止線を分類できる
+definitions:
+  - { id: SYZ1-18-DEF-01, name: "証明地図の三分類" }
+theorems:
+  - { id: SYZ1-18-PROP-01, name: "較正からMcLean接空間への証明連鎖" }
+  - { id: SYZ1-18-PROP-02, name: "正定値二次ポテンシャルのsemi-flat双対化" }
+  - { id: SYZ1-18-PROP-03, name: "非自明な周回が示す延長障害" }
+  - { id: SYZ1-18-PROP-04, name: "二壁の二次不整合と条件付き補正" }
+canonical_examples:
+  - McLeanの局所変形と大域ファイブレーションの論理的差
+  - 非対角正定値二次ポテンシャルと逆Hessian
+  - 節点のshearモノドロミーと逆転置
+  - 二壁の順序差と二次散乱補正
+problem_patterns:
+  - SYZ1-18-CALIBRATION-HOMOLOGY
+  - SYZ1-18-HARMONIC-LOCAL-GLOBAL
+  - SYZ1-18-AFFINE-DUAL-TRANSFORM
+  - SYZ1-18-LEGENDRE-QUADRATIC
+  - SYZ1-18-MONODROMY-OBSTRUCTION
+  - SYZ1-18-MCLEAN-EXISTENCE-GAP
+  - SYZ1-18-KAHLER-RICCI-DISTINCTION
+  - SYZ1-18-WALL-SECOND-ORDER
+  - SYZ1-18-DISCRETE-DUAL-SCOPE
+  - SYZ1-18-INTEGRATED-PROOF-MAP
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 12, review: 4 }

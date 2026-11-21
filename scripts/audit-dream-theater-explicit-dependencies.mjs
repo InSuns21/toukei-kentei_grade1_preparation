@@ -69,6 +69,9 @@ for (const page of pages.values()) {
   for (let i = 0; i < lines.length; i += 1) {
     const rawLine = lines[i];
     if (!rawLine.trim()) continue;
+    // Section headings name topics and do not assert an evidential inference.
+    // In particular, a chapter title such as 「定理から予想へ」 is not a use of a theorem.
+    if (/^#{1,6}\s/u.test(rawLine.trim())) continue;
     if (isNavigationOrChecklistLine(rawLine)) continue;
 
     const lineNumber = i + 1;
