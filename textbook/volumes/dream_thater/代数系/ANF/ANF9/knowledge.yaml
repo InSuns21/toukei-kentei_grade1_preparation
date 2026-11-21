@@ -1,0 +1,104 @@
+chapter: ANF9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF8
+  - F0-00D
+forward_references: []
+
+concepts:
+  - id: number-theory.p-adic-valuation
+    name: p進付値
+    kind: definition
+    introduction: formal
+    requires: [number-theory.prime-ideal-factorization]
+
+  - id: number-theory.valuation-product-sum
+    name: 付値の積と和
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.p-adic-valuation]
+
+  - id: number-theory.p-adic-absolute-value
+    name: p進絶対値と距離
+    kind: definition
+    introduction: formal
+    requires: [number-theory.p-adic-valuation]
+
+  - id: number-theory.p-adic-ultrametric
+    name: 非Archimedes三角不等式
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.valuation-product-sum, number-theory.p-adic-absolute-value]
+
+  - id: number-theory.localize-integers-at-p
+    name: 素数pにおけるZの局所化
+    kind: definition
+    introduction: formal
+    requires: [algebraic-geometry.localization, number-theory.p-adic-valuation]
+
+  - id: number-theory.local-ring-valuation
+    name: 局所化の単元と極大イデアル
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.localize-integers-at-p, number-theory.valuation-product-sum]
+
+  - id: number-theory.p-adic-cauchy-completion
+    name: p進数体のCauchy完備化
+    kind: definition
+    introduction: formal
+    requires: [number-theory.p-adic-absolute-value]
+
+  - id: number-theory.p-adic-complete-field
+    name: 完備化は体となる
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.p-adic-cauchy-completion, number-theory.p-adic-ultrametric]
+
+  - id: number-theory.p-adic-integers
+    name: p進整数環
+    kind: definition
+    introduction: formal
+    requires: [number-theory.p-adic-complete-field]
+
+  - id: number-theory.p-adic-inverse-limit
+    name: 互換な剰余列・逆極限
+    kind: definition
+    introduction: formal
+    requires: [number-theory.p-adic-integers]
+
+  - id: number-theory.localized-finite-quotients
+    name: 局所化と有限剰余環
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.local-ring-valuation]
+
+  - id: number-theory.p-adic-inverse-limit-isomorphism
+    name: Z_pと逆極限の同定
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.p-adic-inverse-limit, number-theory.localized-finite-quotients, number-theory.p-adic-complete-field]
+
+  - id: number-theory.p-adic-digit-expansion
+    name: p進整数の桁展開
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.p-adic-inverse-limit-isomorphism]
+
+  - id: number-theory.p-adic-dvr
+    name: Z_pの単元とイデアル
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.p-adic-digit-expansion, number-theory.p-adic-complete-field]
+
+  - id: number-theory.prime-ideal-valuation-completion
+    name: 数体の素イデアル付値と局所完備化
+    kind: definition
+    introduction: formal
+    requires: [number-theory.local-principal-dedekind, number-theory.absolute-ideal-norm, number-theory.p-adic-complete-field]
+
+  - id: number-theory.number-field-local-completion-quotients
+    name: 局所体へ向かう基本構造
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.prime-ideal-valuation-completion, number-theory.p-adic-inverse-limit-isomorphism, number-theory.local-principal-dedekind]

@@ -1,0 +1,58 @@
+id: "ANF9"
+title: "付値・局所化・完備化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANF8
+  - F0-00D
+official_scope: []
+learning_objectives:
+  - 有理数のp進付値・p進絶対値を定義し積・和の非Archimedes評価を証明できる
+  - Z_(p)の元・単元・極大イデアルを付値で判定し局所化と完備化を区別できる
+  - Cauchy列の同値類からQ_pの演算・逆元・完備性・稠密性を構成し証明できる
+  - Z_(p)の有限剰余環がZ/p^n Zと一致することを示せる
+  - Z_pと互換な剰余列の逆極限との同型を両方向の構成で証明できる
+  - p進桁展開の存在と一意性を証明し有理数の桁を計算できる
+  - Z_pの単元・主イデアル・剰余体を付値を使って証明できる
+  - 数体の素イデアル付値を局所単項性から導入し局所完備化と有限剰余環の関係を導ける
+definitions:
+  - { id: ANF9-DEF-01, name: p進付値 }
+  - { id: ANF9-DEF-02, name: p進絶対値と距離 }
+  - { id: ANF9-DEF-03, name: 素数pにおけるZの局所化 }
+  - { id: ANF9-DEF-04, name: p進数体のCauchy完備化 }
+  - { id: ANF9-DEF-05, name: p進整数環 }
+  - { id: ANF9-DEF-06, name: 互換な剰余列・逆極限 }
+  - { id: ANF9-DEF-07, name: 数体の素イデアル付値と局所完備化 }
+theorems:
+  - { id: ANF9-PROP-01, name: 付値の積と和 }
+  - { id: ANF9-PROP-02, name: 非Archimedes三角不等式 }
+  - { id: ANF9-PROP-03, name: 局所化の単元と極大イデアル }
+  - { id: ANF9-THM-01, name: 完備化は体となる }
+  - { id: ANF9-LEM-01, name: 局所化と有限剰余環 }
+  - { id: ANF9-THM-02, name: Z_pと逆極限の同定 }
+  - { id: ANF9-THM-03, name: p進整数の桁展開 }
+  - { id: ANF9-PROP-04, name: Z_pの単元とイデアル }
+  - { id: ANF9-PROP-05, name: 局所体へ向かう基本構造 }
+canonical_examples:
+  - 98/45での7進・3進付値
+  - 5進絶対値の距離と等号が破れる和
+  - Z_(5)の単元と極大イデアル
+  - 5進の有限等比級数が有理数へ収束する例
+  - 逆極限での17の互換剰余列
+  - 1/3の5進最初の三桁
+  - Z[i]で素イデアル(2+i)を選ぶ局所付値の例
+problem_patterns:
+  - ANF9-RATIONAL-VALUATION
+  - ANF9-CANCELLATION-VALUATION
+  - ANF9-LOCALIZATION-UNIT
+  - ANF9-CAUCHY-GEOMETRIC-SERIES
+  - ANF9-DIGIT-INVERSE
+  - ANF9-STRICT-ULTRAMETRIC
+  - ANF9-NONRATIONAL-PADIC-LIMIT
+  - ANF9-INVERSE-LIMIT-RECONSTRUCTION
+  - ANF9-PRIME-IDEAL-VALUATION
+  - ANF9-COMPLETE-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12.0, exercises: 9.0, review: 2.0 }

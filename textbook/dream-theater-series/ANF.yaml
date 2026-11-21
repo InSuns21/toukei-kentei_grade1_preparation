@@ -39,7 +39,7 @@ chapters:
     title: "Dedekindゼータと解析類数公式"
   - id: ANF9
     path: textbook/volumes/dream_thater/代数系/ANF/ANF9
-    status: planned
+    status: completed
     title: "付値・局所化・完備化"
   - id: ANF10
     path: textbook/volumes/dream_thater/代数系/ANF/ANF10
