@@ -189,7 +189,14 @@ e_2=\begin{pmatrix}0\\1\end{pmatrix},\quad
 J=\begin{pmatrix}0&1\\-1&0\end{pmatrix}
 $$
 
-> とする。四状態 $z_1=e_1,z_2=e_2,z_3=-e_1,z_4=-e_2$ に、観測速度 $y_i=(J+\delta I_2)z_i$（$\delta\in\mathbb R$）を与える。$z=(q,p)^{\mathsf T}$ に対し、候補速度場は
+> とする。四つの入力状態と観測速度を
+
+$$
+(z_1,z_2,z_3,z_4)=(e_1,e_2,-e_1,-e_2),\qquad
+y_i=(J+\delta I_2)z_i,\quad\delta\in\mathbb R
+$$
+
+> で定める。$z=(q,p)^{\mathsf T}$ に対し、候補速度場は
 
 $$
 f_{\mathrm N}(z)=Wz,\quad
