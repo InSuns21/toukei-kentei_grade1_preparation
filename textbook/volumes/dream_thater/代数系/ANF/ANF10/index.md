@@ -232,7 +232,9 @@ $$
 \bar f'(\bar a_i)=\prod_{j\ne i}(\bar a_i-\bar a_j)\ne0
 $$
 
-です。したがって [単純根の Hensel の補題](#thm-anf10-hensel-simple)を各 $\bar a_i$ に適用でき、根 $\alpha_i\in\mathbb Z_p$ を得ます。剰余が異なるのでこれらの根も相異なります。係数環 $\mathbb Z_p$ でモニック一次式による割り算は可能なので、根 $\alpha_i$ ごとに因子 $X-\alpha_i$ が割り切れます。相異なる $n$ 個の根を持つ次数 $n$ のモニック多項式は、体 $\mathbb Q_p$ 上でこの積に等しく、両辺は $\mathbb Z_p[X]$ に属するので要求の等式が従います。
+です。[単純根の Hensel の補題](#thm-anf10-hensel-simple)を各 $\bar a_i$ に適用すると、根 $\alpha_i\in\mathbb Z_p$ を得ます。剰余が異なるため、根も相異なります。
+
+$\mathbb Z_p[X]$ ではモニック一次式による除法ができます。$f(\alpha_i)=0$ だから各 $X-\alpha_i$ は $f$ を割り切ります。体 $\mathbb Q_p$ 上で次数 $n$ の多項式 $f$ は相異なる $n$ 個の根を持つため、その積に等しくなります。両辺は $\mathbb Z_p[X]$ にも属するので、要求の恒等式が成立します。
 <!-- proof-end -->
 
 **適用の範囲。** ここでは法 $p$ の因数が **相異なる一次式**であると仮定しました。法 $p$ の一般の互いに素な多項式因子を持ち上げる形もありますが、本講の証明をそのまま一般因子へ拡張したと主張はしません。
@@ -337,16 +339,18 @@ $$
 > **定理（Eisenstein 拡大の局所体構造）**  
 > $p$ を素数、$f\in\mathbb Z_p[X]$ を次数 $n\ge1$ の Eisenstein モニック多項式、$\pi$ をその根とする。$L=\mathbb Q_p(\pi)$、$A=\mathbb Z_p[\pi]$ と置く。このとき
 >
-> 1. $[L:\mathbb Q_p]=n$、$A/(\pi)\cong\mathbb F_p$。
-> 2. $A$ の非零元は $\pi^m u$（$m\ge0$、$u\in A^\times$）と一意に書ける。$L^\times$ では同じ表示で指数 $m\in\mathbb Z$ を許す。$v_L(\pi^m u)=m$ は離散付値であり、その整数環は $A$ である。
-> 3. $L$ の付値を $v_L(\pi)=1$ で規格化する。そのとき $v_L(p)=n$ であり、$v_L$ は $\mathbb Q_p$ 上で $n v_p$ と一致する。絶対値
+> **（1）** 拡大次数は $[L:\mathbb Q_p]=n$、剰余体は $A/(\pi)\cong\mathbb F_p$ となる。
+>
+> **（2）** $A$ の各非零元は $\pi^m u$（$m\ge0$、$u\in A^\times$）と一意に書ける。$L^\times$ では整数指数 $m\in\mathbb Z$ を許す。こうして得られる $v_L(\pi^m u)=m$ は離散付値で、その整数環は $A$ となる。
+>
+> **（3）** $v_L(\pi)=1$ と規格化する。このとき $v_L(p)=n$ かつ $v_L|_{\mathbb Q_p}=nv_p$ である。絶対値
 
 $$
 |x|_L=p^{-v_L(x)/n}
 $$
 
 > は $|\cdot|_p$ を延長する。$L$ はこの距離について完備で、剰余体は $\mathbb F_p$ である。
-> 4. $x\in L^\times$ を基底 $1,\pi,\ldots,\pi^{n-1}$ で表し、その係数を $b_i\in\mathbb Q_p$ とする。$v_p(0)=\infty$ と約束すると、
+> **（4）** $x\in L^\times$ を基底 $1,\pi,\ldots,\pi^{n-1}$ で表す。係数を $b_i\in\mathbb Q_p$ とし、$v_p(0)=\infty$ と約束すると、
 
 $$
 v_L\left(\sum_{i=0}^{n-1}b_i\pi^i\right)
@@ -454,7 +458,15 @@ $p=2$ における $g=X^2-1$ と $h=X^2-2$ を考える。両者の法 $2$ の�
 - ID: ANF10-A3
 
 <!-- solution-start -->
-**詳細解答**　$g(1)=0$、$g'(1)=2\equiv0\pmod2$ です。$g(1)=g(-1)=0$ で $1\equiv-1\pmod2$ だから、一つの剰余根から二つの根が現れます。$h(0)=-2\equiv0$、$h'(0)=0$ ですが、仮に $x\in\mathbb Q_2$ が $x^2=2$ を満たすとします。[付値の積と和](../ANF9/index.md#prop-anf9-valuation-rules)をこの等式に適用すると $2v_2(x)=v_2(2)=1$ となり、整数 $v_2(x)$ について不可能です。従って $h$ は $\mathbb Q_2$ に根を持ちません。両例とも単純根の仮定を落とすと、存在・一意性の結論を保証できないことが分かります。
+**詳細解答**　$g(1)=0$、$g'(1)=2\equiv0\pmod2$ です。しかも $g(1)=g(-1)=0$ で $1\equiv-1\pmod2$。したがって一つの剰余根に二つの異なる根が対応し、一意性が失われています。
+
+一方 $h(0)=-2\equiv0\pmod2$、$h'(0)=0$ です。仮に $x\in\mathbb Q_2$ が $x^2=2$ を満たすとします。[付値の積と和](../ANF9/index.md#prop-anf9-valuation-rules)を適用すると
+
+$$
+2v_2(x)=v_2(2)=1
+$$
+
+となります。$v_2(x)$ は整数なので、左辺が偶数であることに矛盾します。したがって $h$ は $\mathbb Q_2$ に根を持ちません。単純根条件がない場合、存在も一意性も一般には保証されません。
 <!-- solution-end -->
 
 ### A4. Eisenstein 条件の点検
@@ -465,7 +477,11 @@ $f=X^3+3X+3\in\mathbb Z_3[X]$ が Eisenstein 型であることを確認し、�
 - ID: ANF10-A4
 
 <!-- solution-start -->
-**詳細解答**　$f$ はモニックで、非先頭係数 $0,3,3$ はすべて $3$ の倍数、定数項 $3$ は $9$ の倍数ではありません。[Eisensteinの定義](#def-anf10-eisenstein)を満たすので、[既約性定理](#thm-anf10-eisenstein-irreducible)から $\mathbb Q_3$ 上既約です。従って $1,\pi,\pi^2$ は基底で $[\mathbb Q_3(\pi):\mathbb Q_3]=3$ です。一方 $X^2-9$ は定数項 $-9$ が $9\mathbb Z_3$ に入り、最後の条件を満たしません。実際 $X^2-9=(X-3)(X+3)$ と可約です。
+**詳細解答**　$f$ はモニックで、非先頭係数 $0,3,3$ はすべて $3$ の倍数です。定数項 $3$ は $9$ の倍数ではないため、[Eisenstein多項式の定義](#def-anf10-eisenstein)を満たします。
+
+[p進 Eisenstein 既約性判定](#thm-anf10-eisenstein-irreducible)から $f$ は $\mathbb Q_3$ 上既約です。$1,\pi,\pi^2$ は基底となり、拡大次数は $[\mathbb Q_3(\pi):\mathbb Q_3]=3$ です。
+
+一方、$X^2-9$ の定数項は $-9\in9\mathbb Z_3$ で、条件に反します。実際 $X^2-9=(X-3)(X+3)$ と可約です。
 <!-- solution-end -->
 
 ### A5. 係数の最小付値
@@ -577,7 +593,9 @@ $p=5$、$f=X^2-5$、$L=\mathbb Q_5(\pi)$（$\pi^2=5$）を考える。次の問�
 
 **（1）** 法 $5$ では $\bar f=X^2$ なので $\bar a=0$ が根ですが、$\bar f'(0)=0$ で単純根ではありません。仮に $x\in\mathbb Q_5$ が $x^2=5$ を満たせば $2v_5(x)=v_5(5)=1$。$v_5(x)\in\mathbb Z$ なので矛盾です。従って単純根の補題で持ち上げられないだけでなく、実際に $\mathbb Q_5$ に根はありません。
 
-**（2）** $f=X^2+0X-5$ はモニック、非先頭係数は $5$ の倍数、定数項 $-5$ は $25$ の倍数ではありません。[p進 Eisenstein 既約性判定](#thm-anf10-eisenstein-irreducible)から次数 $2$ で既約です。従って $[L:\mathbb Q_5]=2$ で $1,\pi$ が基底です。[Eisenstein 拡大の局所体構造](#thm-anf10-eisenstein-extension)により $A$ は付値環、$A/(\pi)\cong\mathbb F_5$、$L$ は完備です。
+**（2）** $f=X^2+0X-5$ はモニックです。非先頭係数は $5$ の倍数で、定数項 $-5$ は $25$ の倍数ではありません。したがって [p進 Eisenstein 既約性判定](#thm-anf10-eisenstein-irreducible)から $f$ は次数 $2$ で既約です。
+
+そのため $[L:\mathbb Q_5]=2$ で $1,\pi$ は基底です。[Eisenstein 拡大の局所体構造](#thm-anf10-eisenstein-extension)によって $A$ は付値環、$A/(\pi)\cong\mathbb F_5$ が剰余体、$L$ は完備であることが分かります。
 
 **（3）** $v_L(\pi)=1$、$\pi^2=5$ より $v_L(5)=2$ です。$5+\pi=\pi(\pi+1)$ で $\pi+1$ の法 $\pi$ の像は $1\ne0$ なので単元、よって $v_L(5+\pi)=1$。同様に $5-\pi=\pi(\pi-1)$ も付値 $1$ です。積を展開すると
 
