@@ -1,0 +1,49 @@
+id: "PML1-20"
+title: "連続系の保存則と数値積分での保存は同じか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML1-19
+  - AMECH6
+official_scope: []
+learning_objectives:
+  - 自律 Hamilton 系の連続時間エネルギー保存と一段更新での離散保存を区別できる
+  - 陽的 Euler と運動量先行 symplectic Euler の更新式を行列表示できる
+  - 調和振動子の陽的 Euler が面積とエネルギーを増幅する倍率を証明できる
+  - 分離形 Hamiltonian の symplectic Euler における Jacobian と逆写像を計算して面積保存を証明できる
+  - 面積保存と元のエネルギーの保存が異なることを一歩の反例で検証できる
+  - 調和振動子の修正エネルギーを導出して不変性を行列恒等式から証明できる
+  - 無次元刻み s の 0<s<2 条件と長時間有界性を区別して説明できる
+  - 刻み幅が境界以上のとき面積保存が安定性を保証しないことを証明できる
+  - モデルの連続保存と離散ドリフトと真のエネルギーとの不一致を別の評価量として区別できる
+definitions:
+  - { id: PML1-20-DEF-01, name: 一段数値更新写像 }
+  - { id: PML1-20-DEF-02, name: 調和振動子の陽的 Euler 法 }
+  - { id: PML1-20-DEF-03, name: 運動量先行 symplectic Euler 法 }
+theorems:
+  - { id: PML1-20-PROP-01, name: 陽的 Euler 法の面積拡大とエネルギー増大 }
+  - { id: PML1-20-THM-01, name: 分離形 Hamiltonian の symplectic Euler 面積保存 }
+  - { id: PML1-20-PROP-02, name: 面積保存は元のエネルギー保存を含意しない }
+  - { id: PML1-20-THM-02, name: 調和振動子の修正エネルギーと一様有界性 }
+  - { id: PML1-20-PROP-03, name: 刻み幅と長時間有界性の境界 }
+canonical_examples:
+  - 同一初期値から二つの Euler 法を一歩進めてエネルギーを比較する例
+  - 分離形 Hamiltonian を二つのせん断写像に分解して Jacobian を検算する例
+  - 調和振動子の修正エネルギーの二次形式を行列積で確認する例
+  - 境界 s=2 で面積を保ちながら線形増大する反例
+  - 同一刻みと初期値で通常 Euler と symplectic Euler を比較する Python 数値実験
+problem_patterns:
+  - PML1-20-A01
+  - PML1-20-A02
+  - PML1-20-A03
+  - PML1-20-A04
+  - PML1-20-A05
+  - PML1-20-B01
+  - PML1-20-B02
+  - PML1-20-B03
+  - PML1-20-B04
+  - PML1-20-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
