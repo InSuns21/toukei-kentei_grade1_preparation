@@ -71,7 +71,7 @@ $$
 単位元も恒等変換として作用する。ゆえにこの軌道関係は同値関係を与える。$\pi(pg)=\pi(p)$ だから $\pi_E$ は代表元に依存しない。
 
 <!-- definition-example-start: def-gbg4-associated-bundle -->
-**定義の確認：積主束**。$P=M\times G$ とし、$\rho$ を任意の滑らかな左表現とする。写像
+**定義の確認**。積主束で $P=M\times G$ とし、$\rho$ を任意の滑らかな左表現とする。写像
 $$
 J([\, (x,g),v\,])=(x,\rho(g)v)
 $$
