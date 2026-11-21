@@ -36,7 +36,22 @@ $$
 <!-- formal-statement-start -->
 > **定義（接合浴に対する二端点island候補）**
 >
-> 二次元の重力領域 $G=\{y<0\}$ と非重力浴 $B=\{y>0\}$ が、共通の空間的断面 $\tau=\tau_*$、透過する物質状態 $\omega_{\rm m}$ と正のcutoff $a$ を共有するとする。浴領域を $R=[b,L]$、$0<b<L$ に固定する。$y_1<y_2<0$ にある重力側の区間 $I=[y_1,y_2]$ で、$R$ と同じ断面上にあり、端点で物質の正則化とdilaton値が定義できるものを、**二端点island候補**とする。端点集合を $\partial I=\{Q_1,Q_2\}$ と記す。空の候補 $I=\varnothing$ は別枝として許す。
+> 二次元の重力領域と非重力浴が、共通の空間的断面、透過する物質状態 $\omega_{\rm m}$ と正のcutoff $a$ を共有するとする。座標 $y$ と時刻 $\tau_*$ を取り、重力領域・浴と二つの区間を次のように指定する。
+>
+$
+\begin{gathered}
+G=\{y<0\},\qquad B=\{y>0\},\qquad R=[b,L],\\
+y_1<y_2<0<b<L,\qquad I=[y_1,y_2].
+\end{gathered}
+$
+>
+> $I$ が $R$ と同じ空間的断面上にあり、両端点で物質の正則化とdilaton値が定義できるとき、これを **二端点island候補**とする。端点集合は次の通りである。
+>
+$
+\partial I=\{Q_1,Q_2\},\qquad Q_j=(\tau_*,y_j).
+$
+>
+> 空の候補 $I=\varnothing$ は別枝として許す。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi24-island-candidate -->
@@ -145,7 +160,15 @@ S_{\rm matter}^{(a)}(I\cup R)
 }
 $$
 >
-> さらに $\mathcal I(x)=S_{\rm matter}(I)+S_{\rm matter}(R)-S_{\rm matter}(I\cup R)$ は同一正則化での相互情報量の有限な普遍部分である。一般のCFTでは $\mathcal I(x)$ は中心電荷のみで決まらない。
+> さらに、同一正則化の下で $\mathcal I(x)$ は次の相互情報量の有限な普遍部分である。
+>
+$
+\mathcal I(x)
+=S_{\rm matter}(I)+S_{\rm matter}(R)
+ -S_{\rm matter}(I\cup R).
+$
+>
+> 一般のCFTでは $\mathcal I(x)$ は中心電荷のみで決まらない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -257,7 +280,13 @@ S_{\rm gen}^{(a)}[I;R]
 }
 $$
 >
-> とする。$S_{\rm loc}^{(a)}$ は必要な局所端点項・反項であり、既に各有効結合に吸収した規約では零と記す。空の候補では重力端点項を足さず、$S_{\rm gen}^{(a)}[\varnothing;R]=S_{\rm matter}^{(a)}(R)$ とする。**候補の値**を定義したのであり、極値・支配鞍点はまだ指定しない。
+> とする。$S_{\rm loc}^{(a)}$ は必要な局所端点項・反項であり、既に各有効結合に吸収した規約では零と記す。空の候補には重力端点項を足さず、
+>
+$
+S_{\rm gen}^{(a)}[\varnothing;R]=S_{\rm matter}^{(a)}(R)
+$
+>
+> とする。**候補の値**を定義したのであり、極値・支配鞍点はまだ指定しない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi24-jt-island-ledger -->
