@@ -1,0 +1,49 @@
+id: "GBG5"
+title: "ゲージ変換群は何に作用するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG4
+  - LIE2
+official_scope: []
+learning_objectives:
+  - 固定した主G束のゲージ変換を基底固定・右同変な自己同型として定義し、局所左乗法から群構造を証明できる
+  - 共役作用と随伴表現から随伴群束Ad(P)と随伴Lie環束ad(P)を構成し、ファイバー演算のwell-defined性を確かめられる
+  - ゲージ群と随伴群束の滑らかな切断の群同型を、共役同変関数を介して両方向に証明できる
+  - 局所ゲージ関数の共役整合条件を導出し、整合したデータから大域ゲージ変換を再構成できる
+  - 任意の局所section変更と固定した主束のゲージ変換を区別し、非可換な行列で検算できる
+  - ゲージ変換の結合ベクトル束とその切断への作用を導出し、能動的変換と受動的表示変更を区別できる
+  - 随伴群束と随伴Lie環束の切断への共役作用・Lie括弧保存を証明できる
+  - U(1)とGL(2,R)の具体例で可換性の有無、局所座標、表現作用を計算できる
+definitions:
+  - { id: GBG5-DEF-01, name: ゲージ変換とゲージ群 }
+  - { id: GBG5-DEF-02, name: 随伴群束 }
+  - { id: GBG5-DEF-03, name: 随伴Lie環束 }
+  - { id: GBG5-DEF-04, name: 共役同変なゲージ関数 }
+theorems:
+  - { id: GBG5-THM-01, name: ゲージ変換は合成で群をなす }
+  - { id: GBG5-PROP-01, name: 随伴束のファイバー演算と局所成分 }
+  - { id: GBG5-THM-02, name: ゲージ群と随伴群束の切断の同型 }
+  - { id: GBG5-THM-03, name: 局所ゲージ関数の整合条件と再構成 }
+  - { id: GBG5-THM-04, name: ゲージ群の結合束への作用 }
+  - { id: GBG5-PROP-02, name: 随伴Lie環値の場への共役作用 }
+canonical_examples:
+  - GL(2,R)積主束での左乗法ゲージ変換と右乗法の非例
+  - 非可換GL(2,R)遷移関数上の局所共役整合条件
+  - 任意の主U(1)束での随伴群束と随伴Lie環束
+  - GL(2,R)の随伴Lie環の共役と括弧保存
+  - 結合束の切断への能動変換と受動的な局所section変更
+problem_patterns:
+  - GBG5-TRIVIAL-GAUGE-AUTOMORPHISM
+  - GBG5-LOCAL-CONJUGACY
+  - GBG5-ABELIAN-GAUGE
+  - GBG5-LIE-ADJOINT-BRACKET
+  - GBG5-SECTION-CHANGE-CRITERION
+  - GBG5-COMPOSITION-MATTER-ACTION
+  - GBG5-CENTRAL-RIGHT-MULTIPLICATION
+  - GBG5-ADJOINT-ACTION-INVARIANTS
+  - GBG5-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 4 }
