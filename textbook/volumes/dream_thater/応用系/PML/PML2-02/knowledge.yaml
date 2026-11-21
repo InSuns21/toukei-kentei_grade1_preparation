@@ -1,0 +1,43 @@
+chapter: PML2-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-01
+  - INV1
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-02-pipeline
+    name: Poisson方程式のパラメータ・状態・観測の連鎖
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Poisson方程式のパラメータ・状態・観測の連鎖）"]
+    requires:
+      - physics-machine-learning.pml2-01-energy-estimate
+      - inverse.forward-map
+  - id: physics-machine-learning.pml2-02-single-point
+    name: 中央一点観測による非識別
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-02-pipeline
+      - inverse.identifiability
+  - id: physics-machine-learning.pml2-02-two-point
+    name: 二点観測による外力パラメータの厳密復元
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-02-pipeline
+      - inverse.finite-linear-wellposedness
+  - id: physics-machine-learning.pml2-02-placement
+    name: 観測点が接近したときの逆問題の誤差増幅
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-02-two-point
+      - inverse.noise-amplification
+  - id: physics-machine-learning.pml2-02-regularized
+    name: 一点観測の二乗正則化が選ぶ値
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-02-single-point
