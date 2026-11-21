@@ -29,11 +29,11 @@ $$
 
 ここで $f(r)>0$ の領域が静的外部です。この形は**静的な解を探すための座標・dilatonの選択**であり、すべての大域的JT解がこの座標で覆われるという仮定ではありません。$a$ は境界側で指定するdilatonの傾きです。ここで計量成分の行列とは、座標基底 $(\partial_t,\partial_r)$ で二つの接ベクトルの内積を表す行列です。実際、$X=p\partial_t+q\partial_r$ に対して
 
-$
+$$
 g(X,X)=-f(r)p^2+f(r)^{-1}q^2,
 \qquad
 (g_{\mu\nu})=\begin{pmatrix}-f&0\\0&f^{-1}\end{pmatrix}.
-$
+$$
 
 $f>0$ なら、独立な時間・空間の基底方向で内積がそれぞれ負・正となり、計量符号は $(-,+)$ です。さらに $\det(g_{\mu\nu})=(-f)f^{-1}=-1\ne0$ なので逆計量も存在します。このように、行列の符号と行列式は[BHI19で指定したLorentz計量](../BHI19/index.md#def-bhi19-jt-action)の符号・非退化性を判定するために使います。
 
@@ -83,14 +83,14 @@ $$
 
 計量の逆成分は $g^{tt}=-1/f,\ g^{rr}=f$ です。ここから $f'(r)=df/dr$、$\Phi'(r)=d\Phi/dr$ と書き、$\partial_r$ は $t$ を固定した微分、$\partial_t$ は $r$ を固定した微分とします。$\Phi$ はスカラー場なので、[Levi-Civita接続のChristoffel係数公式](../../../幾何系/GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)と[BHI19で用いたHessianの座標表示](../BHI19/index.md#prop-bhi19-trace-hessian)を使うと
 
-$
+$$
 \nabla_\mu\nabla_\nu\Phi
 =\partial_\mu\partial_\nu\Phi
 -\Gamma^\rho_{\mu\nu}\partial_\rho\Phi,
 \qquad
 \Gamma^r_{tt}=-\frac12g^{rr}\partial_rg_{tt}
 =\frac{ff'}2.
-$
+$$
 
 残りのChristoffel記号も同じ座標基底で求めると、非零成分は
 
@@ -254,17 +254,17 @@ $$
 
 と置くと、$UV=-(r-r_h)/(r+r_h)$ です。$U,V$ の微分と元の計量との関係を順に求めると
 
-$
+$$
 \begin{aligned}
 dU&=-\kappa U\,du,&dV&=\kappa V\,dv,\\
 du\,dv&=-\frac{dU\,dV}{\kappa^2UV},&
 \frac{f(r)}{\kappa^2UV}&=-\frac{(r+r_h)^2\ell^2}{r_h^2}.
 \end{aligned}
-$
+$$
 
 また $1+UV=2r_h/(r+r_h)$ だから、これらを $ds^2=-f\,du\,dv$ に代入して
 
-$
+$$
 r=r_h\frac{1-UV}{1+UV},\qquad
 ds^2=-\frac{4\ell^2}{(1+UV)^2}\,dU\,dV,
 \qquad
@@ -511,14 +511,14 @@ $\Phi_h=ar_h/\ell$ とも一致します。$\square$
 <!-- solution-start -->
 **詳細解答。** $f'(r)=2r/\ell^2=2r/9$ に地平線半径 $r_h=2$ を代入します。[Euclid正則性の命題](#prop-bhi20-temperature)を適用すると
 
-$
+$$
 f'(r_h)=\frac49,\qquad
 \kappa=\frac{f'(r_h)}2=\frac29,
 \qquad
 \beta=\frac{2\pi}{\kappa}=9\pi,
 \qquad
 T_H=\beta^{-1}=\frac1{9\pi}.
-$
+$$
 
 $\beta$ の次元は長さ、$T_H$ は長さの逆数です。
 <!-- solution-end -->
@@ -533,20 +533,20 @@ $\beta$ の次元は長さ、$T_H$ は長さの逆数です。
 <!-- solution-start -->
 **詳細解答。** $\partial_r^2\Phi=0$、$\partial_r\Phi=a/\ell$ であり、$\Gamma^r_{rr}=-f'/(2f)$ です。[真空Hessian方程式](../BHI19/index.md#prop-bhi19-trace-hessian)の左辺を座標成分に直すと
 
-$
+$$
 \nabla_r\nabla_r\Phi
 =\partial_r^2\Phi-\Gamma^r_{rr}\partial_r\Phi
 =0+\frac{f'}{2f}\frac a\ell
 =\frac{af'}{2\ell f}.
-$
+$$
 
 仮定 $f'=2r/\ell^2$ を代入した左辺と、$g_{rr}=1/f,\ \Phi=ar/\ell$ を代入した右辺は、それぞれ
 
-$
+$$
 \nabla_r\nabla_r\Phi=\frac{ar}{\ell^3f},
 \qquad
 \frac{\Phi}{\ell^2}g_{rr}=\frac{ar}{\ell^3f}.
-$
+$$
 
 従って $rr$ 成分が成立します。計算範囲は $f>0$ の静的外部です。
 <!-- solution-end -->
@@ -621,20 +621,20 @@ $$
 <!-- solution-start -->
 **詳細解答。** $r>r_h>0$ の領域で部分分数分解を行います。
 
-$
+$$
 \frac1{f(r)}=\frac{\ell^2}{2r_h}
 \left(\frac1{r-r_h}-\frac1{r+r_h}\right).
-$
+$$
 
 これを積分し、$r_*(\infty)=0$ と規格化すると
 
-$
+$$
 r_*(r)=\frac{\ell^2}{2r_h}
 \log\left(\frac{r-r_h}{r+r_h}\right),
 \qquad
 UV=-e^{\kappa(v-u)}=-e^{2\kappa r_*}
 =-\frac{r-r_h}{r+r_h}.
-$
+$$
 
 ここで $v-u=2r_*$ を使いました。次に $dU=-\kappa U\,du$ と $dV=\kappa V\,dv$ から $du\,dv=-dU\,dV/(\kappa^2UV)$ を得て、$ds^2=-f\,du\,dv$ に代入します。従って
 
@@ -656,11 +656,11 @@ $$
 <!-- solution-start -->
 **詳細解答。** 外向き単位法線は $n^r=\sqrt f$ で、$\sqrt{-g}=1$ から $K=\partial_r\sqrt f=f'/(2\sqrt f)$ です。境界の誘導計量は $h_{tt}=-f(r_b)$ ですから、必要な三つの量は
 
-$
+$$
 K=\frac{r_b}{\ell\sqrt{r_b^2-r_h^2}},\qquad
 \sqrt{-h}=\frac{\sqrt{r_b^2-r_h^2}}\ell,\qquad
 \Phi_b=\frac{ar_b}\ell.
-$
+$$
 
 いずれも $r_b>r_h$ の境界で評価します。[標準反項の定義](../BHI19/index.md#def-bhi19-jt-action)を使い
 
