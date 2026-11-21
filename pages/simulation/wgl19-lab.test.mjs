@@ -76,3 +76,14 @@ test('editable sources include real RAF, loss/rebuild, GPU disposal and host ora
     'expectedWGL19Samples'])
     assert.ok(host.includes(bit),bit);
 });
+
+test('WGL19 timeline uses the same audited GPU tick counts and dropped intervals',async()=>{
+  const js=await readFile(new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL19/audit.js',import.meta.url),'utf8');
+  for(const marker of ['frames.push(thisFrame)','discardedPerFrame.push(discardedHere)',
+    'droppedMs+=discardedHere','frameDeltasMs[k]','frames[k]',
+    'measuredFps.toFixed(1)','canvas.insertAdjacentElement(\'afterend\',panel)']){
+    assert.ok(js.includes(marker),marker);
+  }
+  assert.ok(js.indexOf("canvas.insertAdjacentElement('afterend',panel)")>
+    js.indexOf('dispose();'),'timeline must be derived after actual GPU run');
+});
