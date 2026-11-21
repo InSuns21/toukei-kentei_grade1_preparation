@@ -361,7 +361,7 @@ $$
 ### 非可換な行列を実際に掛ける
 
 積主束 $P=\mathbb R\times GL(2,\mathbb R)$ を $U_0=U_1=\mathbb R$ で覆い、$s_0(x)=(x,I)$、$s_1=s_0g_{01}$ とする。ここで $I$ は単位行列である。遷移関数と局所ゲージ関数を全ての $x\in\mathbb R$ で
-$
+$$
 g_{01}(x)=H(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix},
 \qquad
 a_0(x)=D=\begin{pmatrix}2&0\\0&1\end{pmatrix}
