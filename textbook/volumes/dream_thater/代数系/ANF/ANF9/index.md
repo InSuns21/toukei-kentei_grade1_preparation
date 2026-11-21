@@ -11,7 +11,7 @@
 <a id="def-anf9-p-adic-valuation"></a>
 
 <!-- formal-statement-start -->
-> **定義（$p$ 進付値）**  
+> **定義（p進付値）**  
 > 素数 $p$ と有理数 $x$ に対して、$x\ne0$ なら $x=p^e a/b$（$p\nmid a,b$）を満たす整数 $e$ を $v_p(x)$ とし、$v_p(0)=\infty$ と定める。
 <!-- formal-statement-end -->
 
@@ -59,7 +59,7 @@ $$
 <a id="def-anf9-p-adic-absolute"></a>
 
 <!-- formal-statement-start -->
-> **定義（$p$ 進絶対値と距離）**  
+> **定義（p進絶対値と距離）**  
 > 素数 $p$ と有理数 $x$ に対し、$x\ne0$ なら $|x|_p=p^{-v_p(x)}$、$|0|_p=0$ とする。また $d_p(x,y)=|x-y|_p$ と定める。
 <!-- formal-statement-end -->
 
@@ -86,12 +86,12 @@ $
 
 ### 証明の見取り図
 
-[付値の三性質](#prop-anf9-valuation-rules)で不等号を反転させる指数関数 $p^{-t}$ を取ります。普通の三角不等式より強い評価なので、距離の三角不等式も含まれます。
+[付値の三性質](#prop-anf9-valuation-rules)で不等号を反転させる指数関数 $p^{-t}$ を取ります。右辺が最大値なので、二つの絶対値の和で抑える通常の距離公理も満たされます。
 
 <!-- proof-start -->
 ### 証明
 
-$x,y$ が非零なら [付値の積の公式](#prop-anf9-valuation-rules)より $p^{-v_p(xy)}=p^{-v_p(x)}p^{-v_p(y)}$ です。零の場合にも成立します。同命題（2）から
+非零の $x,y$ について $v_p(xy)=v_p(x)+v_p(y)$ であることは [先ほどの命題](#prop-anf9-valuation-rules)で確かめました。従って $p^{-v_p(xy)}=p^{-v_p(x)}p^{-v_p(y)}$ です。零の場合にも成立します。同命題（2）から
 
 $$
 |x+y|_p=p^{-v_p(x+y)}
@@ -111,7 +111,7 @@ $$
 <a id="def-anf9-localized-integers"></a>
 
 <!-- formal-statement-start -->
-> **定義（素数 $p$ における $\mathbb Z$ の局所化）**  
+> **定義（素数pにおけるZの局所化）**  
 > 素数 $p$ に対して
 >
 $$
@@ -159,14 +159,14 @@ $$
 
 ## 3. Cauchy列から $\mathbb Q_p$ を作る
 
-距離 $d_p$ のもとで、列 $(x_n)$ が **Cauchy列** であるとは、任意の $\varepsilon>0$ について、ある $N$ 以降のすべての $m,n\ge N$ で $|x_m-x_n|_p<\varepsilon$ となることです。**完備**とは、その距離の Cauchy列が必ず空間内の点に収束する性質を指します。これは既習の距離空間での概念を、今定めた $d_p$ に適用するものです。
+距離 $d_p$ のもとで、列 $(x_n)$ が **Cauchy列** であるとは、任意の $\varepsilon>0$ について、ある $N$ 以降のすべての $m,n\ge N$ で $|x_m-x_n|_p<\varepsilon$ となることです。**完備**とは、その距離の Cauchy列が必ず空間内の点に収束する性質を指します。これは既習の [Cauchy列の定義](../../../基礎科目/F0/F0-00D/index.md#def-f0-00d-01) と [完備距離空間の定義](../../../基礎科目/F0/F0-00D/index.md#def-f0-00d-02) を、今定めた $d_p$ に適用するものです。
 
 有理数の Cauchy列同士を、差が $0$ に近づくときに同一視します。
 
 <a id="def-anf9-completion"></a>
 
 <!-- formal-statement-start -->
-> **定義（$p$ 進数体のCauchy完備化）**  
+> **定義（p進数体のCauchy完備化）**  
 > $\mathbb Q$ 上の $d_p$-Cauchy列全体を $C_p$ とする。$(x_n)\sim(y_n)$ を
 >
 $$
@@ -216,7 +216,7 @@ Cauchy列の絶対値は有界です。この有界性で積の差を抑えれ�
 
 **（1）同値関係と演算。** [強三角不等式](#prop-anf9-ultrametric)により $\sim$ は反射的・対称的で、$|x_n-z_n|_p\le\max(|x_n-y_n|_p,|y_n-z_n|_p)$ から推移的です。Cauchy列 $(x_n)$ の絶対値は有界です。実際、ある $N$ 以降は $|x_n-x_N|_p<1$ なので $|x_n|_p\le\max(1,|x_N|_p)$、前方には有限個しか項がありません。
 
-$(x_n)$ と $(y_n)$ が Cauchy なら、和については強三角不等式を使います。積については
+$(x_n)$ と $(y_n)$ が Cauchy なら、和がCauchy列になることは [非Archimedes三角不等式](#prop-anf9-ultrametric)の最大値評価を二つの差へ適用して確認できます。積については
 
 $$
 |x_ny_n-x_my_m|_p
@@ -224,7 +224,7 @@ $$
 |y_m|_p|x_n-x_m|_p\}\to0
 $$
 
-> です。有界性と同じ評価を $x_n-x'_n$、$y_n-y'_n$ に用いると、同値な代表から得た和・積も同値です。体の結合・分配法則は有理数の各項で成立するので同値類でも成立します。
+> です。有界性と同じ評価を $x_n-x'_n$、$y_n-y'_n$ に用いると、同値な代表から得た和・積も同値です。体の演算の結合法則・分配法則は有理数の各項で成立するので同値類でも成立します。
 
 **（2）逆元。** 零同値類とは $|x_n|_p\to0$ となる類です。それ以外の Cauchy列 $(x_n)$ について、$|x_n|_p$ はある時点以降同じ正の値 $c$ になります。理由を確認します。零へ収束しないためある $\delta>0$ について $|x_N|_p>\delta$ となる後方の項を取れます。Cauchy条件でその後の $|x_m-x_N|_p<\delta$ を保証すると、[異なる絶対値のときの等号](#prop-anf9-ultrametric)から $|x_m|_p=|x_N|_p=c$ です。さらに後方の項についても同じです。
 
@@ -264,7 +264,7 @@ $\mathbb Q_p$ のうち絶対値が $1$ 以下の元を集めます。これは�
 <a id="def-anf9-p-adic-integers"></a>
 
 <!-- formal-statement-start -->
-> **定義（$p$ 進整数環）**  
+> **定義（p進整数環）**  
 > 素数 $p$ に対し
 >
 $$
@@ -333,7 +333,7 @@ $$
 <a id="thm-anf9-inverse-limit-isomorphism"></a>
 
 <!-- formal-statement-start -->
-> **定理（$\mathbb Z_p$ と逆極限の同定）**  
+> **定理（Z_pと逆極限の同定）**  
 > 任意の素数 $p$ について、$\mathbb Z_{(p)}$ の $p$ 進距離による完備化は $\mathbb Z_p$ であり、自然な環同型
 >
 $$
@@ -374,7 +374,7 @@ $$
 <a id="thm-anf9-digit-expansion"></a>
 
 <!-- formal-statement-start -->
-> **定理（$p$ 進整数の桁展開）**  
+> **定理（p進整数の桁展開）**  
 > 任意の $x\in\mathbb Z_p$ は、ただ一通り
 >
 $$
@@ -412,7 +412,7 @@ $$
 <a id="prop-anf9-dvr-structure"></a>
 
 <!-- formal-statement-start -->
-> **命題（$\mathbb Z_p$ の単元とイデアル）**  
+> **命題（Z_pの単元とイデアル）**  
 > 任意の素数 $p$ に対し、$\mathbb Z_p$ の単元は $|x|_p=1$ の元（同値に最初の桁 $d_0\ne0$）であり、零でない任意の元は一意の $k\ge0$ に対して $x=p^ku$（$u$ は単元）と書ける。全ての非零イデアルは $(p^k)$（$k\ge0$）で、唯一の極大イデアルは $p\mathbb Z_p$、剰余体は $\mathbb F_p$ である。
 <!-- formal-statement-end -->
 
@@ -559,7 +559,7 @@ $s_n=\sum_{j=0}^{n}5^j$ のCauchy性と $\mathbb Q_5$ での極限を示せ。
 - ID: ANF9-A4
 
 <!-- solution-start -->
-**詳細解答**　$m>n$ なら $s_m-s_n=5^{n+1}(1+\cdots+5^{m-n-1})$ です。括弧は法 $5$ で $1$ に等しいので付値 $0$ です。従って $|s_m-s_n|_5=5^{-(n+1)}\to0$、Cauchy条件を満たします。有限等比級数の恒等式
+**詳細解答**　$m>n$ なら $s_m-s_n=5^{n+1}(1+\cdots+5^{m-n-1})$ です。括弧は法 $5$ で $1$ に等しいので付値 $0$ です。従って $|s_m-s_n|_5=5^{-(n+1)}\to0$、Cauchy条件を満たします。各項を5倍して元の和から引いた等式
 
 $$
 (1-5)s_n=1-5^{n+1}
