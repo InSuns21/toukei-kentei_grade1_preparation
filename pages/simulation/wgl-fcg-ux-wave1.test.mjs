@@ -40,7 +40,7 @@ test('animated teaching code uses original lesson state and shader',async()=>{
   for(const [path,signals] of [
     ['FCG/FCG3/advection.js',['requestAnimationFrame(fcg3VisualFrame)','fcg3UpdateOnce()',
       'gl.texSubImage2D(', 'gl.drawArrays(gl.TRIANGLES,0,3)']],
-    ['WGL/WGL5/camera.js',['requestAnimationFrame(wgl5Frame)','wgl5DrawOrbit(wgl5Phase)',
+    ['WGL/WGL5/camera.js',['requestAnimationFrame(wgl5Frame)','updateOrbit()',
       'gl.uniformMatrix4fv(uView,false,eyeView)','gl.drawElements(gl.TRIANGLES,36,gl.UNSIGNED_SHORT,0)']],
     ['WGL/WGL9/lighting.js',['requestAnimationFrame(wgl9Frame)','wgl9Draw(wgl9Phase)',
       'gl.uniform3fv(wgl9LightLoc,orbit)','gl.drawArrays(gl.TRIANGLES,0,meshes[i].array.length/6)']]
@@ -48,7 +48,12 @@ test('animated teaching code uses original lesson state and shader',async()=>{
     const text=await readFile(new URL(path,root),'utf8');
     for(const signature of signals)assert.ok(text.includes(signature),path+': '+signature);
     assert.ok(text.includes("prefers-reduced-motion: reduce"),path);
-    assert.ok(text.includes("canvas.addEventListener('click'"),path);
+    if(path==='WGL/WGL5/camera.js'){
+      for(const interaction of ["canvas.addEventListener('pointerdown'",
+        "canvas.addEventListener('pointermove'","canvas.addEventListener('wheel'",
+        "canvas.addEventListener('keydown'"])
+        assert.ok(text.includes(interaction),path+': '+interaction);
+    }else assert.ok(text.includes("canvas.addEventListener('click'"),path);
     const first=text.indexOf('gl.flush()');
     const animation=text.indexOf('requestAnimationFrame(');
     if(first>=0)assert.ok(first<animation,path+' must finish static GPU oracle first');
