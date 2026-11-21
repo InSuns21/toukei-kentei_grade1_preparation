@@ -73,13 +73,13 @@ $$
 > **命題（非Archimedes三角不等式）**  
 > 任意の $x,y\in\mathbb Q$ と素数 $p$ に対して、次の積・和の評価が成り立つ。
 
-$
+$$
 |xy|_p=|x|_p|y|_p.
-$
+$$
 
-$
+$$
 |x+y|_p\le\max\{|x|_p,|y|_p\}.
-$
+$$
 
 > さらに $|x|_p\ne|y|_p$ なら後者は等号である。従って $d_p$ は距離である。
 <!-- formal-statement-end -->
@@ -230,9 +230,9 @@ $$
 
 Cauchy条件の添字以降でこの $N$ を選べば、さらに後方の $m$ について
 
-$
+$$
 |x_m-x_N|_p<\delta<|x_N|_p.
-$
+$$
 
 > [異なる絶対値のときの等号](#prop-anf9-ultrametric)を $x_m=x_N+(x_m-x_N)$ に適用すると、$|x_m|_p=|x_N|_p$ です。従って絶対値は十分後ろで同じ正の値 $c$ になります。
 
@@ -410,9 +410,9 @@ $$
 
 > 一意性を確認します。二つの桁列が初めて $j$ 番目で異なるなら、差を $w\in\mathbb Z_p$ を使って次の形に書けます。
 
-$
+$$
 x-y=p^j(d_j-e_j)+p^{j+1}w.
-$
+$$
 
 > 二つの桁は $0,\ldots,p-1$ に属して異なるため、$d_j-e_j$ は $p$ で割り切れません。括弧をくくれば付値が $j$ となり、$x\ne y$ です。最初の非零桁と $0$ の桁列との比較でも、$v_p(x)$ がその桁の位置になることが従います。
 <!-- proof-end -->
@@ -458,16 +458,16 @@ $\mathbb Q$ だけでなく数体 $K$ の素イデアル $\mathfrak p\subsetneq\
 >
 > $x\in K^\times$ の一意な表示 $x=\pi^e u$（$e\in\mathbb Z$、$u\in R^\times$）に対し、付値を次で定める。
 
-$
+$$
 v_{\mathfrak p}(x)=e,\qquad v_{\mathfrak p}(0)=\infty.
-$
+$$
 
 > $q=|\mathcal O_K/\mathfrak p|$ と置き、次の絶対値を定める。
 
-$
+$$
 |x|_{\mathfrak p}=q^{-v_{\mathfrak p}(x)}\quad(x\ne0),
 \qquad |0|_{\mathfrak p}=0.
-$
+$$
 
 > この絶対値に付随する距離による $K$ のCauchy完備化を $K_{\mathfrak p}$ と書く。
 <!-- formal-statement-end -->
@@ -523,21 +523,21 @@ $$
 
 積については $|x_ny_n-x_my_m|_{\mathfrak p}$ を二つの差の最大値で抑えます。非零Cauchy類では絶対値が最終的に同じ正の値となり、その逆数列の差は次の式で零に近づきます。
 
-$
+$$
 \left|\frac1{x_n}-\frac1{x_m}\right|_{\mathfrak p}
 =\frac{|x_m-x_n|_{\mathfrak p}}
 {|x_m|_{\mathfrak p}|x_n|_{\mathfrak p}}
 \longrightarrow0.
-$
+$$
 
 > 完備性は各Cauchy類を $q^{-n}$ 以下で近似する $K$ の元を選ぶ対角構成で従います。これで完備な付値体を得ました。
 
 整数環についても、$|x|_{\mathfrak p}\le1$ の元を $r_n\in K$ で十分高精度に近似します。強三角不等式から
 
-$
+$$
 |r_n|_{\mathfrak p}\le
 \max\{|r_n-x|_{\mathfrak p},|x|_{\mathfrak p}\}\le1
-$
+$$
 
 > となるので、各 $r_n$ は $R$ に属します。逆に $R$ のCauchy列の極限もこの閉じた絶対値の単位球に属します。従って整数環は $R$ の完備化です。
 
@@ -545,15 +545,25 @@ $
 
 したがって有限環 $A/\mathfrak p^n$ の唯一の極大イデアルは $\mathfrak p/\mathfrak p^n$ です。$s\notin\mathfrak p$ の像はこの極大イデアルの外にあり単元なので、局所化しても商環は変わりません。
 
-$
+$$
 A/\mathfrak p^n
 \ \cong\ R/\mathfrak p^nR
 \ =\ R/\pi^nR.
-$
+$$
 
 > 最後の等号には [局所単項性](../ANF3/index.md#lem-anf3-local-principal)から得られる $\mathfrak p R=\pi R$ を使いました。
 
-さらに、$R$ のCauchy列は各 $n$ について法 $\pi^n$ でやがて一定の剰余を持ちます。[逆極限の同定](#thm-anf9-inverse-limit-isomorphism)で用いた構成に従い、互換な剰余列の第 $n$ 成分を $r_n\in R$ で代表させます。$m>n$ なら $r_m-r_n\in\pi^nR$ なので、その付値は $n$ 以上です。従って $(r_n)$ はCauchy列となり、完備化に元を定めます。この相互の操作が逆写像であるため、完備化の法 $\pi^n$ の商も $R/\pi^nR$ と一致します。
+さらに、$R$ のCauchy列は、各正整数 $n$ について法 $\pi^n$ でやがて一定の剰余を持ちます。この剰余を並べると互換列になります。
+
+逆向きには [逆極限の同定](#thm-anf9-inverse-limit-isomorphism)と同じ構成を使います。互換な剰余列の第 $n$ 成分を $r_n\in R$ で代表させると、$m>n$ に対して差が $\pi^nR$ に属します。
+
+$$
+v_{\mathfrak p}(r_m-r_n)\ge n,
+\qquad
+|r_m-r_n|_{\mathfrak p}\le q^{-n}.
+$$
+
+> 従って $(r_n)$ はCauchy列となり、完備化の元を定めます。これらの操作は相互に逆です。法 $\pi^n$ の成分を固定すれば、その核は付値が $n$ 以上の元、すなわち $\pi^n\mathcal O_{K_{\mathfrak p}}$ なので、完備化の剰余環も $R/\pi^nR$ と一致します。
 <!-- proof-end -->
 
 この構成により、次講の Hensel の補題では「法 $\mathfrak p^n$ で解ける方程式を、高い精度へ持ち上げる」ことを厳密に表現できます。
@@ -704,17 +714,17 @@ $K=\mathbb Q(i)$、$A=\mathbb Z[i]$、$\mathfrak p=(2+i)$ とする。$A/\mathfr
 
 この写像は $2+i$ を零へ送るので、核は $(2+i)$ を含みます。一方、[ANF4のイデアルノルム](../ANF4/index.md#def-anf4-ideal-norm)から
 
-$
+$$
 |\mathbb Z[i]/(2+i)|
 =|N_{\mathbb Q(i)/\mathbb Q}(2+i)|
 =2^2+1^2=5.
-$
+$$
 
 > この商の位数は像の位数と同じなので、核はちょうど $(2+i)$ です。従って剰余体の位数は $q=5$ です。
 
-$
+$$
 5=(2+i)(2-i),\qquad 2-i\longmapsto4\ne0\pmod5.
-$
+$$
 
 > よって $2-i$ は局所環の単元です。[数体の素イデアル付値](#def-anf9-prime-valuation)により
 
