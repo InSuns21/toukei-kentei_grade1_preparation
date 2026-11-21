@@ -2,7 +2,7 @@
 
 [ANF6 のイデアル類群](../ANF6/index.md#def-anf6-ideal-class-group)は、整数環のイデアルがいくつの類に分かれるかを測りました。[ANF7 の単数定理](../ANF7/index.md#thm-anf7-dirichlet-unit)は、同じ主イデアルの生成元を取り替える自由度を有限個の基本単数で記述します。
 
-これらは別々の結果に見えます。しかし「ノルムが $X$ 以下の整イデアルは何個あるか」を数えると、類の個数と単数の対数格子の体積が同時に現れます。その個数の漸近係数こそが、これから定義する数体の級数の $s=1$ における留数です。ここで留数とは、関数を $s=1$ の周囲で $c/(s-1)+$ 正則な項と表したときの係数 $c$ です。「有理型に延長する」とは、正則な関数だけでなく有限位数の極を許して定義域を広げることを意味します。
+これらは別々の結果に見えます。しかし「ノルムが $X$ 以下の整イデアルは何個あるか」を数えると、類の個数と単数の対数格子の体積が同時に現れます。その個数の漸近係数こそが、これから定義する数体の級数の $s=1$ における留数です。ここで [留数](../../../解析系/CA/CA4/index.md#def-ca4-residue)とは、関数を $s=1$ の周囲で $c/(s-1)+$ 正則な項と表したときの係数 $c$ です。「[有理型関数](../../../解析系/CA/CA4/index.md#def-ca4-meromorphic)として延長する」とは、正則な関数だけでなく有限位数の極を許して定義域を広げることを意味します。
 
 本講では、有限なイデアル類群と単数格子から格子点を数え、留数を類数とレギュレータで表す関係式を証明します。特に**複素埋め込みの係数、単数の有限位数部分、レギュレータの規格化**を最後まで追います。
 
@@ -179,7 +179,7 @@ $$
 
 $[\mathfrak b][\mathfrak a]=1$ なので $\mathfrak b\mathfrak a=(\alpha)$ と書けます。$\mathfrak b\subseteq A$ より $(\alpha)=\mathfrak b\mathfrak a\subseteq\mathfrak a$、従って $\alpha\in\mathfrak a\setminus\{0\}$ です。
 
-逆に $0\ne\alpha\in\mathfrak a$ なら $(\alpha)\subseteq\mathfrak a$ です。[可逆分数イデアルの積](../ANF3/index.md#thm-anf3-prime-ideal-factorization)により $(\alpha)\mathfrak a^{-1}\subseteq A$ は整イデアルで、その類は $C$ です。絶対ノルムの乗法性と[主イデアルのノルム公式](../ANF4/index.md#def-anf4-ideal-norm)からノルムの等式が従います。
+逆に $0\ne\alpha\in\mathfrak a$ なら $(\alpha)\subseteq\mathfrak a$ です。[非零分数イデアルの可逆性](../ANF3/index.md#prop-anf3-invertible-ideals)により $(\alpha)\mathfrak a^{-1}\subseteq A$ は整イデアルで、その類は $C$ です。[整イデアルのノルム](../ANF4/index.md#def-anf4-ideal-norm)は積について乗法的であり、[数体のノルム](../ANF2/index.md#def-anf2-field-norm)を用いて $N((\alpha))=|N_{K/\mathbb Q}(\alpha)|$ と評価できるので、ノルムの等式が従います。
 
 二つの生成元が同じ $\mathfrak b\mathfrak a$ を生成する必要十分条件は $\beta=u\alpha$（$u\in U_K$）です。[単数定理の核の記述](../ANF7/index.md#lem-anf7-kernel-discrete)では $\ker L=\mu(K)$ です。$x(j(u\alpha))=x(j(\alpha))+L(u)$ であり、$P$ は $\Gamma$ の半開基本領域だから、$\Gamma$ の移動量は規格化によりただ一つに定まります。その移動量の逆像の単数は $\mu(K)$ の一つの剰余類で、要素数は $w_K$ です。
 <!-- proof-end -->
