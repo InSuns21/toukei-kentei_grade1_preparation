@@ -188,6 +188,8 @@ try {
   await click('save');
   await cdp('Page.reload',{ignoreCache:true});
   await waitFor('document.querySelector("#status")?.textContent==="実行できます"',25000);
+  assert.equal(await evaluate('document.querySelectorAll(".visual-smoke canvas").length'),0,
+    'reload must not restore the independent fluid observation');
   assert.match(await evaluate('document.querySelector("#js-source").value'),/nu=0\.012,forceAmplitude=0\.02/);
   assert.equal(await evaluate('document.querySelector("#parameter-nu").value'),'0.012');
   assert.equal(await evaluate('document.querySelector("#parameter-force").value'),'0.02');
