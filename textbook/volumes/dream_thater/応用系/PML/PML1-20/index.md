@@ -12,15 +12,15 @@ $$
 
 とする。[Hamilton の正準方程式](../../../物理系/AMECH/AMECH5/index.md#thm-amech5-hamilton-equations)をこの例に適用する。点は時刻 $t$ による微分を表し、$\dot q=dq/dt$、$\dot p=dp/dt$ と書く。
 
-$
+$$
 \dot q=\frac pm,\qquad \dot p=-kq.
-$
+$$
 
 $H$ の位置偏微分では運動量を、運動量偏微分では位置を固定する。従って
 
-$
+$$
 \partial_qH=kq,\qquad \partial_pH=\frac pm.
-$
+$$
 
 軌道 $t\mapsto(q(t),p(t))$ に沿う全時間微分には[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を使い、
 
@@ -152,9 +152,9 @@ $$
 
 まず、二階連続微分可能な実数値関数 $T,V$ で表される**分離形**の Hamiltonian を扱う。
 
-$
+$$
 H(q,p)=T(p)+V(q).
-$
+$$
 
 以下の $q',p'$ は**一歩後の状態**を表し、時間微分ではない。一方、$T'(p)=dT/dp$ と $V'(q)=dV/dq$ のプライムは、それぞれの引数で微分した導関数を表す。
 
