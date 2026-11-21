@@ -275,3 +275,156 @@ $$
 
 場合Aのラベルは、独立で平均0の確率雑音ではなく、状態に依存する系統的なずれである。物理的先験知識が正しいときの構造的な補正を明瞭に見るための模型であり、一般の観測雑音への平均的な汎化保証ではない。場合Bでは同じ制約が本当の散逸を排除するため、モデルのずれ（表現バイアス）になる。[HNN の発散消失命題](../PML1-18/index.md#prop-pml1-18-divergence)もこの障害を別の角度から説明する。実際、$J-\gamma I_2$ の跡は $-2\gamma\ne0$ で、HNN の $JS$ の跡は常にゼロである。
 
+## 6. 保存されるのはどのエネルギーで、どの時間発展か
+
+[HNN の連続時間保存定理](../PML1-18/index.md#thm-pml1-18-energy)を、$S=I_2$（実対称、$H_S\in C^\infty$）の場合に適用すれば、学習済み HNN の連続軌道では $H_0$ が保存される。LNN の $k=1$ も、速度 Hessian が $1$ で正則な自律 Lagrangian なので、[LNN の連続時間エネルギー収支](../PML1-19/index.md#prop-pml1-19-energy)から $H_0$ が保存される。
+
+一方、線形NN の最適解 $f_{\mathrm N}(z)=W_\delta z$ に沿う $H_0$ の変化は、[連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を $H_0(z)=z^{\mathsf T}z/2$ に適用して、
+
+$$
+\begin{aligned}
+\frac{d}{dt}H_0(z(t))
+&=(\nabla H_0)^{\mathsf T}\dot z\\
+&=z^{\mathsf T}(J+\delta I_2)z\\
+&=z^{\mathsf T}Jz+\delta z^{\mathsf T}z
+=2\delta H_0(z).
+\end{aligned}
+$$
+
+最後の等式では $z^{\mathsf T}Jz=-(z^{\mathsf T}Jz)^{\mathsf T}$ よりゼロとした。初期エネルギーが正なら $H_0(t)=e^{2\delta t}H_0(0)$。しかし場合Bの真の系も散逸するため、この増減だけを理由にNNを不適切とは言えない。また一般の HNN が保存するのは**学習した $H_S$**であり、真の $H_0$ と同一とは限らない。[真のエネルギーのモデル軌道沿いの変化](../PML1-18/index.md#prop-pml1-18-mismatch)が示すように、二つは区別する。
+
+### 6.1 同じ陽的 Euler 法で更新すると
+
+数値計算では[一段数値更新写像](../PML1-20/index.md#def-pml1-20-one-step)を定めなければならない。比較の最初は三モデルとも、刻み $h>0$ の陽的 Euler 法だけを使い、$z_0$ と更新回数 $N$ を共有する。
+
+<a id="prop-pml1-22-euler-energy"></a>
+
+<!-- formal-statement-start -->
+> **命題（同一積分器でも保存則は離散化で壊れる）**  
+> $h>0$、$\delta\in\mathbb R$、$z_0\ne0$ とする。連続系 $\dot z=(J+\delta I_2)z$ に陽的 Euler 法を $N$ 回適用すると、各 $n=0,\ldots,N$ で
+
+$$
+\frac{H_0(z_n)}{H_0(z_0)}
+=\left((1+h\delta)^2+h^2\right)^n.
+$$
+
+> 特に、真の Hamiltonian モデル $Jz$（$\delta=0$）であっても、各一段でエネルギーは $1+h^2>1$ 倍になる。
+<!-- formal-statement-end -->
+
+**証明の見取り図。** Euler の更新行列とその転置の積を計算すると、単位行列の定数倍になる。これを $n$ 回反復する。
+
+<!-- proof-start -->
+### 証明
+
+$A_h=I_2+h(J+\delta I_2)=(1+h\delta)I_2+hJ$ と置く。$J^{\mathsf T}=-J$、$J^2=-I_2$ より
+
+$$
+\begin{aligned}
+A_h^{\mathsf T}A_h
+&=((1+h\delta)I_2-hJ)((1+h\delta)I_2+hJ)\\
+&=(1+h\delta)^2I_2-h^2J^2\\
+&=\left((1+h\delta)^2+h^2\right)I_2.
+\end{aligned}
+$$
+
+$z_{n+1}=A_hz_n$、$H_0(z)=\|z\|_2^2/2$ だから
+
+$$
+H_0(z_{n+1})=\frac12z_n^{\mathsf T}A_h^{\mathsf T}A_hz_n
+=\left((1+h\delta)^2+h^2\right)H_0(z_n).
+$$
+
+同じ等式を $n$ 回掛けると結論を得る。$\delta=0$ なら倍率は $1+h^2$。
+<!-- proof-end -->
+
+従って「HNNなら数値的にもエネルギー誤差ゼロ」という結論は誤りである。[調和振動子に対する陽的 Euler のドリフト](../PML1-20/index.md#prop-pml1-20-explicit-drift)と同じ現象を確認した。積分器を symplectic Euler に変えると別の保存性が現れるが、三モデルの比較でHNNだけ積分器を変更すれば、モデル構造と数値手法の効果が交絡する。
+
+## 7. 純Pythonで三モデルを学習・予測・検算する
+
+次のコードは外部パッケージなしで実行できる。いずれも同じ四つの $(q,p)$、同じ速度ラベル、同じ初期値 $(1,0)$、同じ $h=0.1$、$N=100$ に統一する。学習は最小二乗の厳密解であり、深いネットワークを勾配法で訓練する実験ではない。線形NNは列方向の最小二乗、HNNは対称行列への射影、LNNは $k$ の一変数最小二乗を実装する。
+
+~~~python
+import math
+
+states = [(1., 0.), (0., 1.), (-1., 0.), (0., -1.)]
+test = (0.6, 0.8)
+h, steps = 0.1, 100
+z0 = (1., 0.)
+
+def observations(delta):
+    return [(p + delta*q, -q + delta*p) for q, p in states]
+
+def fit_all(delta):
+    ys = observations(delta)
+    # sum_i z_i z_i^T = 2I: each NN row is a 2-variable least-squares fit.
+    w = [[0.5 * sum(y[r]*z[s] for y, z in zip(ys, states))
+          for s in range(2)] for r in range(2)]
+    # -J W = [[-W10, -W11], [W00, W01]], projected onto symmetric S.
+    raw = [[-w[1][0], -w[1][1]], [w[0][0], w[0][1]]]
+    s = [[raw[0][0], (raw[0][1]+raw[1][0])/2],
+         [(raw[0][1]+raw[1][0])/2, raw[1][1]]]
+    b_h = [[s[1][0], s[1][1]], [-s[0][0], -s[0][1]]]
+    # L = v^2/2 - k q^2/2, so least squares for p_dot = -k q.
+    k = -sum(z[0]*y[1] for z, y in zip(states, ys)) / sum(z[0]**2 for z in states)
+    b_l = [[0., 1.], [-k, 0.]]
+    return {"linear NN": w, "HNN": b_h, "LNN": b_l}, (s, k)
+
+def apply(b, z):
+    return (b[0][0]*z[0] + b[0][1]*z[1],
+            b[1][0]*z[0] + b[1][1]*z[1])
+
+def loss(b, delta):
+    return sum(sum((u-v)**2 for u, v in zip(apply(b, z), y))
+               for z, y in zip(states, observations(delta))) / 4
+
+def test_error(b, true_delta):
+    actual = (test[1]+true_delta*test[0], -test[0]+true_delta*test[1])
+    return sum((u-v)**2 for u, v in zip(apply(b, test), actual))
+
+def integrate(b):
+    z = z0
+    for _ in range(steps):
+        dz = apply(b, z)
+        z = (z[0] + h*dz[0], z[1] + h*dz[1])
+    return z
+
+for world, observed_delta, true_delta in [
+    ("A: biased labels, conservative truth", 0.1, 0.0),
+    ("B: exact labels, dissipative truth", -0.1, -0.1),
+]:
+    models, (s, k) = fit_all(observed_delta)
+    t = h*steps
+    exact = (math.exp(true_delta*t)*math.cos(t),
+             -math.exp(true_delta*t)*math.sin(t))
+    print(world, "S =", s, "k =", k)
+    for name, b in models.items():
+        zn = integrate(b)
+        trajectory_error = math.dist(zn, exact)
+        energy_ratio = (zn[0]**2+zn[1]**2)/(z0[0]**2+z0[1]**2)
+        print(name, "train", round(loss(b, observed_delta), 8),
+              "test", round(test_error(b, true_delta), 8),
+              "trajectory", round(trajectory_error, 6),
+              "H0 ratio", round(energy_ratio, 6))
+        if name == "linear NN":
+            expected = 0.0
+        else:
+            expected = observed_delta**2
+        assert abs(loss(b, observed_delta)-expected) < 1e-12
+    assert abs(models["HNN"][0][0]) < 1e-12
+    assert abs(models["HNN"][0][1]-1) < 1e-12
+    assert abs(k-1) < 1e-12
+~~~
+
+実行結果は、場合Aで訓練損失が線形NNのみ $0$、HNN/LNNは $0.01$ となる一方、未使用点での真の速度誤差は線形NNのみ $0.01$ になる。場合Bでは線形NNの未使用点誤差が $0$、HNN/LNNが $0.01$ になる。場合Aの HNN/LNN は同じ $J$ を学ぶため、三モデルが同一でないとはいえ予測軌道は両者で一致する。
+
+$h=0.1,N=100$ の場合、HNN/LNN の $H_0$ 倍率は $(1+0.1^2)^{100}=(1.01)^{100}\approx2.7048$ であり、**正しい速度場を学んでも積分器だけで保存量が増える**。一方、場合Aの線形NNでは倍率が $\{(1+0.01)^2+0.01\}^{100}=(1.0301)^{100}$ となる。学習誤差・連続模型の保存性・離散計算の保存性をそれぞれ別の列で見る。
+
+## 8. 比較から読めることと、次に必要な実験
+
+- **物理的制約が正しいとき**：場合Aのように観測ラベルが不適切な径方向成分を含んでいれば、候補を絞ることで未使用点の真の速度に近づける。これは本例について計算で示された利点である。
+- **物理的制約が誤っているとき**：場合Bで失うのは散逸の自由度であり、訓練損失の増大と未使用点での系統的な誤差が生じる。
+- **構造と解法を分ける**：全モデルに同じ積分器を用い、変えた場合は別実験として記録する。保存量が正しくても位相や軌道の誤差は残り得る。
+- **性能の一般化には追加条件がいる**：モデル容量（4・3・1パラメータ）、データ数、初期化、最適化時間、異なる真の系、未見初期値、長時間予測、計算費用を変えた検証が必要である。今回の線形模型は、通常の非線形NNや任意のHNN/LNNの優劣を結論する実験ではない。
+
+科学計算の比較では「訓練誤差が低い」「物理量を保つ」「実際の系に近い」「計算が速い」のどれを目標にするかを先に決める。次の PML2-01 からは、この区別を PDE の解、残差、境界条件、真の解誤差へ拡張する。
+
