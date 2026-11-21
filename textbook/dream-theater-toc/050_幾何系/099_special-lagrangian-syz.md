@@ -18,3 +18,4 @@
 15. [SYZ1-15 正則円板と壁越えの発生条件](textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-15/index.md)
 16. [SYZ1-16 インスタントン補正と座標の貼り合わせ](textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-16/index.md)
 17. [SYZ1-17 Gross–Siebertとトロピカル退化](textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-17/index.md)
+18. [SYZ1-18 滑らかな定理から一般予想への証明地図・総合演習](textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-18/index.md)

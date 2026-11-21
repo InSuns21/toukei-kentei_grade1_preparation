@@ -1,0 +1,35 @@
+chapter: SYZ1-18
+scope: dream-theater
+coverage: complete
+prerequisites: [SYZ1-17]
+concepts:
+  - id: syz.proof-map-three-status
+    name: 証明地図の三分類
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（証明地図の三分類）"]
+    requires: []
+  - id: syz.calibration-mclean-proof-chain
+    name: 較正からMcLean接空間への証明連鎖
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（較正からMcLean接空間への証明連鎖）"]
+    requires: [syz.calibrated-volume-minimization, syz.mclean-unobstructed]
+  - id: syz.quadratic-semiflat-bridge
+    name: 正定値二次ポテンシャルのsemi-flat双対化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正定値二次ポテンシャルのsemi-flat双対化）"]
+    requires: [syz.legendre-hessian-inverse, syz.semiflat-kahler-metric, syz.semiflat-ricci-ma]
+  - id: syz.nodal-lattice-extension-stop
+    name: 非自明な周回が示す延長障害
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非自明な周回が示す延長障害）"]
+    requires: [syz.torus-monodromy, syz.smooth-extension-obstruction]
+  - id: syz.second-order-scattering-stop
+    name: 二壁の二次不整合と条件付き補正
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二壁の二次不整合と条件付き補正）"]
+    requires: [syz.wall-path-consistency, syz.scattering-order-two]
