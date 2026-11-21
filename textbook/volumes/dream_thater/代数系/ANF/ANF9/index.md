@@ -226,7 +226,15 @@ $$
 
 > です。有界性と同じ評価を $x_n-x'_n$、$y_n-y'_n$ に用いると、同値な代表から得た和・積も同値です。体の演算の結合法則・分配法則は有理数の各項で成立するので同値類でも成立します。
 
-**（2）逆元。** 零同値類とは $|x_n|_p\to0$ となる類です。それ以外の Cauchy列 $(x_n)$ について、$|x_n|_p$ はある時点以降同じ正の値 $c$ になります。理由を確認します。零へ収束しないためある $\delta>0$ について $|x_N|_p>\delta$ となる後方の項を取れます。Cauchy条件でその後の $|x_m-x_N|_p<\delta$ を保証すると、[異なる絶対値のときの等号](#prop-anf9-ultrametric)から $|x_m|_p=|x_N|_p=c$ です。さらに後方の項についても同じです。
+**（2）逆元。** 零同値類とは $|x_n|_p\to0$ となる類です。それ以外の Cauchy列 $(x_n)$ では、ある正数 $\delta$ に対し、後方に $|x_N|_p>\delta$ となる項を取れます。
+
+Cauchy条件の添字以降でこの $N$ を選べば、さらに後方の $m$ について
+
+$
+|x_m-x_N|_p<\delta<|x_N|_p.
+$
+
+> [異なる絶対値のときの等号](#prop-anf9-ultrametric)を $x_m=x_N+(x_m-x_N)$ に適用すると、$|x_m|_p=|x_N|_p$ です。従って絶対値は十分後ろで同じ正の値 $c$ になります。
 
 有限個の前方の項を $1$ に取り替えて $x_n\ne0$ としてよいです。十分大きな $m,n$ について
 
@@ -398,7 +406,15 @@ $$
 z_n=d_0+d_1p+\cdots+d_{n-1}p^{n-1}.
 $$
 
-> $m>n$ では尾部が $p^n$ で割れるので部分和はCauchy列です。[逆極限の全射構成](#thm-anf9-inverse-limit-isomorphism)でその極限は元の $x$ です。もし二つの桁列が初めて $j$ 番目で異なれば、二つの数の差は $p^j(d_j-e_j)$ に $p^{j+1}$ の倍数を加えた形です。$d_j-e_j$ は $p$ の倍数でないので、差の付値は $j$ となり、同じ $x$ を表せません。最初の非零桁に同じ議論を適用すれば最後の主張が従います。
+> $m>n$ では尾部が $p^n$ で割れるため、部分和はCauchy列です。[逆極限の全射構成](#thm-anf9-inverse-limit-isomorphism)によって、その極限は元の $x$ に一致します。
+
+> 一意性を確認します。二つの桁列が初めて $j$ 番目で異なるなら、差を $w\in\mathbb Z_p$ を使って次の形に書けます。
+
+$
+x-y=p^j(d_j-e_j)+p^{j+1}w.
+$
+
+> 二つの桁は $0,\ldots,p-1$ に属して異なるため、$d_j-e_j$ は $p$ で割り切れません。括弧をくくれば付値が $j$ となり、$x\ne y$ です。最初の非零桁と $0$ の桁列との比較でも、$v_p(x)$ がその桁の位置になることが従います。
 <!-- proof-end -->
 
 **無限桁の例。** $-1$ の法 $p^n$ の代表は $p^n-1$ です。よって
@@ -503,9 +519,41 @@ $$
 
 > その括弧内は $R$ に属すので和の付値は $r$ 以上です。$r<s$ なら括弧は法 $\pi R$ で単元 $u$ に一致するため付値はちょうど $r$ です。これで非Archimedes絶対値の公理が得られます。
 
-完備化の同値関係、積、逆元、完備性については [本講のCauchy列による体の構成](#thm-anf9-completion-field)の各証明において「$p$ を $\pi$、$p^{-1}$ を $q^{-1}$」に取り替えます。必要な事実は、値が離散集合 $q^{\mathbb Z}$ に属し、強三角不等式と乗法性を満たすことだけであり、すべて今証明しました。整数環が $R$ の完備化になることも、任意の $x$ の近似 $r_n\in K$ が十分高精度なら $|r_n|_{\mathfrak p}\le1$ となるという第4節と同じ不等式で従います。
+完備化の構成には、直前に得た付値の積・和の性質を使います。絶対値の非零値は離散集合 $q^{\mathbb Z}$ に入り、強三角不等式も成立するので、[本講のCauchy列による体の構成](#thm-anf9-completion-field)と同じ評価を各段階で適用できます。
 
-最後に $A=\mathcal O_K$ と置きます。$A/\mathfrak p^n$ の素イデアルは $\mathfrak p/\mathfrak p^n$ だけです。実際、$\mathfrak p^n$ を含む素イデアルは $\mathfrak p$ を含み、[Dedekind環の素イデアルの極大性](../ANF3/index.md#def-anf3-dedekind-domain)から $\mathfrak p$ に等しくなります。従って $s\notin\mathfrak p$ の像は商環で単元となり、局所化しても $A/\mathfrak p^n$ は変わりません。さらに $\mathfrak p R=\pi R$ なので $\mathfrak p^n R=\pi^nR$ です。完備化後の剰余同型は [逆極限の同定の証明](#thm-anf9-inverse-limit-isomorphism)の「剰余が安定する・整数代表を選ぶ」操作を有限剰余環 $R/\pi^nR$ について実施して得られます。逆向きの近似では各剰余の代表を $R$ から選び、差が $\pi^n$ で割れるのでCauchyとなります。
+積については $|x_ny_n-x_my_m|_{\mathfrak p}$ を二つの差の最大値で抑えます。非零Cauchy類では絶対値が最終的に同じ正の値となり、その逆数列の差は次の式で零に近づきます。
+
+$
+\left|\frac1{x_n}-\frac1{x_m}\right|_{\mathfrak p}
+=\frac{|x_m-x_n|_{\mathfrak p}}
+{|x_m|_{\mathfrak p}|x_n|_{\mathfrak p}}
+\longrightarrow0.
+$
+
+> 完備性は各Cauchy類を $q^{-n}$ 以下で近似する $K$ の元を選ぶ対角構成で従います。これで完備な付値体を得ました。
+
+整数環についても、$|x|_{\mathfrak p}\le1$ の元を $r_n\in K$ で十分高精度に近似します。強三角不等式から
+
+$
+|r_n|_{\mathfrak p}\le
+\max\{|r_n-x|_{\mathfrak p},|x|_{\mathfrak p}\}\le1
+$
+
+> となるので、各 $r_n$ は $R$ に属します。逆に $R$ のCauchy列の極限もこの閉じた絶対値の単位球に属します。従って整数環は $R$ の完備化です。
+
+最後に $A=\mathcal O_K$ と置き、剰余環を比較します。$\mathfrak p^n$ を含む素イデアルは $\mathfrak p$ を含むため、[Dedekind整域の次元1の条件](../ANF3/index.md#def-anf3-dedekind-domain)から $\mathfrak p$ に等しいです。
+
+したがって有限環 $A/\mathfrak p^n$ の唯一の極大イデアルは $\mathfrak p/\mathfrak p^n$ です。$s\notin\mathfrak p$ の像はこの極大イデアルの外にあり単元なので、局所化しても商環は変わりません。
+
+$
+A/\mathfrak p^n
+\ \cong\ R/\mathfrak p^nR
+\ =\ R/\pi^nR.
+$
+
+> 最後の等号には [局所単項性](../ANF3/index.md#lem-anf3-local-principal)から得られる $\mathfrak p R=\pi R$ を使いました。
+
+さらに、$R$ のCauchy列は各 $n$ について法 $\pi^n$ でやがて一定の剰余を持ちます。[逆極限の同定](#thm-anf9-inverse-limit-isomorphism)で用いた構成に従い、互換な剰余列の第 $n$ 成分を $r_n\in R$ で代表させます。$m>n$ なら $r_m-r_n\in\pi^nR$ なので、その付値は $n$ 以上です。従って $(r_n)$ はCauchy列となり、完備化に元を定めます。この相互の操作が逆写像であるため、完備化の法 $\pi^n$ の商も $R/\pi^nR$ と一致します。
 <!-- proof-end -->
 
 この構成により、次講の Hensel の補題では「法 $\mathfrak p^n$ で解ける方程式を、高い精度へ持ち上げる」ことを厳密に表現できます。
@@ -652,7 +700,23 @@ $K=\mathbb Q(i)$、$A=\mathbb Z[i]$、$\mathfrak p=(2+i)$ とする。$A/\mathfr
 - ID: ANF9-B4
 
 <!-- solution-start -->
-**詳細解答**　$i\mapsto-2$ を代入する環準同型 $A\to\mathbb F_5$ の核は $(2+i)$ です。実際 $2+i$ は核に入り、$A/(2+i)$ の加法群の位数は [ANF4のイデアルノルム](../ANF4/index.md#def-anf4-ideal-norm)で $|N_{\mathbb Q(i)/\mathbb Q}(2+i)|=5$ なので、全射の核はこれ以上大きくなりません。従って $q=5$ です。$5=(2+i)(2-i)$、$2-i\mapsto4\ne0$ なので後者は局所環の単元です。[数体の素イデアル付値](#def-anf9-prime-valuation)により
+**詳細解答**　$\mathbb Z[i]$ から $\mathbb F_5$ への代入 $i\mapsto-2$ は環準同型です。実際、$(-2)^2+1=5$ なので $i^2+1=0$ の関係を保ちます。定数整数の像だけですでに全射です。
+
+この写像は $2+i$ を零へ送るので、核は $(2+i)$ を含みます。一方、[ANF4のイデアルノルム](../ANF4/index.md#def-anf4-ideal-norm)から
+
+$
+|\mathbb Z[i]/(2+i)|
+=|N_{\mathbb Q(i)/\mathbb Q}(2+i)|
+=2^2+1^2=5.
+$
+
+> この商の位数は像の位数と同じなので、核はちょうど $(2+i)$ です。従って剰余体の位数は $q=5$ です。
+
+$
+5=(2+i)(2-i),\qquad 2-i\longmapsto4\ne0\pmod5.
+$
+
+> よって $2-i$ は局所環の単元です。[数体の素イデアル付値](#def-anf9-prime-valuation)により
 
 $$
 v_{\mathfrak p}(5)=1,\quad
