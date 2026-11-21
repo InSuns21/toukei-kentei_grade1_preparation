@@ -1,0 +1,45 @@
+id: "PML1-22"
+title: "物理制約付きモデルは本当に優れるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML1-21
+official_scope: []
+learning_objectives:
+  - 線形NN・二次HNN・質量1の二次LNNを同一の状態と訓練データで比較できる
+  - HNNの二次形式から速度行列を計算し対称性・跡ゼロを確認できる
+  - LNNの速度Hessianの可逆性を確かめ共役運動量と速度を正しく対応できる
+  - 四つの観測状態に対する三モデルの最小二乗解を出発点から導ける
+  - 観測バイアスと実際の散逸で未使用点の誤差順位が逆転する反例を示せる
+  - 学習した保存量と真の保存量の違いを連鎖律で計算できる
+  - 同一陽的Euler法におけるエネルギー倍率を導出し離散保存と連続保存を区別できる
+  - 同じデータ・初期値・時間刻みで三モデルを再現比較し損失と軌道誤差を区別できる
+  - 表現力・パラメータ数・物理先験知識・計算予算の交絡を説明できる
+definitions:
+  - { id: PML1-22-DEF-01, name: 三つの比較モデル }
+  - { id: PML1-22-DEF-02, name: 共通損失と評価量 }
+theorems:
+  - { id: PML1-22-PROP-01, name: 同一データでの三モデルの厳密な最小二乗解 }
+  - { id: PML1-22-PROP-02, name: 観測バイアスと実際の散逸で優劣が逆転する }
+  - { id: PML1-22-PROP-03, name: 同一積分器でも保存則は離散化で壊れる }
+canonical_examples:
+  - 質量1の振動子で線形NNと二次HNNと二次LNNの速度が一致する直接例
+  - 四つの対称な状態でHNNの対称行列射影とLNNの一変数最小二乗を解析的に計算する例
+  - 保存系の観測バイアスと散逸系の正確な観測で汎化誤差の順位が逆転する例
+  - 同じ陽的Euler法で正しいHNNにも離散エネルギードリフトが出る例
+  - 純Pythonで四点学習と未使用点・長時間予測を再現する実験
+problem_patterns:
+  - PML1-22-A01
+  - PML1-22-A02
+  - PML1-22-A03
+  - PML1-22-A04
+  - PML1-22-A05
+  - PML1-22-B01
+  - PML1-22-B02
+  - PML1-22-B03
+  - PML1-22-B04
+  - PML1-22-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
