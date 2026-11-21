@@ -30,9 +30,7 @@ $$
 
 よって両者は整数環に入ります。
 
-逆に $\pi^{-1}$ が整なら、後の定理からその付値は非負のはずですが $v_L(\pi^{-1})=-1$ なので整ではありません。
-
-実際、この例の整数環全体は[前講の定理](../ANF10/index.md#thm-anf10-eisenstein-extension)から $\mathbb Z_5[\pi]$ です。
+逆に[前講の Eisenstein 拡大の定理](../ANF10/index.md#thm-anf10-eisenstein-extension)によれば、この例の整数環全体は $\mathbb Z_5[\pi]=\mathbb Z_5\oplus\mathbb Z_5\pi$ です。$\pi^{-1}=\pi/5$ は基底 $(1,\pi)$ に関する係数 $1/5\notin\mathbb Z_5$ を持つので、整数環には入りません。この段階でまだ定義していない $v_L$ は用いません。
 <!-- definition-example-end -->
 
 一般の $\mathcal O_L$ がいつも一つの極大イデアルを持ち、しかもそのイデアルが一つの元で生成されることを証明します。その準備として、任意の $x\in L$ に対する $\mathbb Q_p$ 線形写像 $m_x(y)=xy$ の跡を $\operatorname{Tr}_{L/K}(x)$、行列式を $N_{L/K}(x)$ と書きます。
@@ -65,13 +63,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(1) 有限生成性。** 分離拡大 $L/K$ では原始元 $\theta$ を選べます。$\theta$ に $p$ の十分高い冪を掛ければ整な原始元にできるので、$\theta\in\mathcal O_L$ とします。
+**(1) 有限生成性。** 分離拡大 $L/K$ では原始元 $\alpha$ を選べます。その最小多項式を $X^n+c_{n-1}X^{n-1}+\cdots+c_0$（$c_j\in K$）とすると、$\theta=p^s\alpha$ は
+
+$
+X^n+p^sc_{n-1}X^{n-1}+\cdots+p^{sn}c_0
+$
+
+の根です。$s$ を十分大きく選べばすべての係数が $\mathbb Z_p$ に入るので $\theta$ は整で、$K(\theta)=L$ も保たれます。
 
 $E=\mathbb Z_p[\theta]$ は基底 $1,\theta,\ldots,\theta^{n-1}$ を持つ自由加群です。
 
 [整元の積についての閉性](../../AG/AG1-06/index.md#prop-ag1-06-finite-generators)より、$x\in\mathcal O_L$ と $0\le j<n$ について $x\theta^j$ も整です。
 
-整元の乗法写像の特性多項式は $\mathbb Z_p$ 係数なので、その跡は $\mathbb Z_p$ に属します。したがって
+整元 $z$ の最小多項式は $\mathbb Z_p$ 係数です。実際、モニック整方程式の根の中から $z$ の共役を選んで作る最小多項式の係数は $\mathbb Z_p$ 上整で、しかも $K$ に属するので、[整数環 $\mathbb Z_p$ の整閉性](../ANF9/index.md#prop-anf9-dvr-structure)によって $\mathbb Z_p$ に入ります。[共役による跡の表示](../ANF2/index.md#thm-anf2-embedding-formulas)を $K$ 上に移すと、$z$ の跡は最小多項式の整数係数の整数倍であり、$\mathbb Z_p$ に属します。したがって
 
 $$
 \operatorname{Tr}(x\theta^j)\in\mathbb Z_p
@@ -84,7 +88,16 @@ $$
 \det T=\left(\prod_{a<b}(\theta_b-\theta_a)\right)^2\ne0.
 $$
 
-$x=\sum_i b_i\theta^i$ と書くと、上の跡条件は $T(b_i)_i\in\mathbb Z_p^n$ です。よって $x$ の係数ベクトルは $T^{-1}\mathbb Z_p^n$ に含まれます。$T^{-1}$ の成分の分母を払う $p^s$ を選べば
+任意の $x\in L$ を冪基底で $x=\sum_{i=0}^{n-1}b_i\theta^i$（$b_i\in K$）と表します。跡の線形性から
+
+$
+\operatorname{Tr}(x\theta^j)
+=\sum_{i=0}^{n-1}b_i\operatorname{Tr}(\theta^{i+j})
+=(T\boldsymbol b)_j,\qquad
+\boldsymbol b=(b_0,\ldots,b_{n-1})^{\mathsf T}.
+$
+
+従って整元に対する跡条件は $T\boldsymbol b\in\mathbb Z_p^n$ であり、$T$ が可逆なので $\boldsymbol b\in T^{-1}\mathbb Z_p^n$ と判定できます。$T^{-1}$ の成分の分母を払う $p^s$ を選べば
 
 $$
 E\subseteq\mathcal O_L\subseteq p^{-s}E.
@@ -92,7 +105,7 @@ $$
 
 $\mathbb Z_p$ は PID で、有限自由加群の部分加群は有限自由です。また $E$ を含むので階数は $n$ です。従って $\mathcal O_L$ は $p$ 進完備で、$\mathcal O_L/p\mathcal O_L$ は有限環です。
 
-**(2) 極大イデアルは一つ。** $\mathcal O_L$ は $\mathbb Z_p$ 上有限かつ整です。その極大イデアルは $\mathbb Z_p$ の極大イデアル $(p)$ の上にあるので、すべて $p\mathcal O_L$ を含みます。$R=\mathcal O_L/p\mathcal O_L$ を考えます。
+**(2) 極大イデアルは一つ。** $\mathcal O_L$ は $\mathbb Z_p$ 上有限かつ整です。$\mathbb Z_p$ は整閉なので $\mathcal O_L\cap K=\mathbb Z_p$ であり、$1/p\notin\mathcal O_L$、従って $p\mathcal O_L$ は真のイデアルです。$\mathcal O_L$ の極大イデアル $M$ の $\mathbb Z_p$ への縮約は整拡大の性質で極大となります（体 $\mathcal O_L/M$ が $\mathbb Z_p/(M\cap\mathbb Z_p)$ 上整なら後者も体）。$\mathbb Z_p$ の唯一の極大イデアルは $(p)$ なので、すべての $M$ は $p\mathcal O_L$ を含みます。$R=\mathcal O_L/p\mathcal O_L$ を考えます。
 
 有限可換環 $R$ に非自明な冪等元がなければ $R$ は局所環です。実際、任意の $a\in R$ について冪列は有限性からいずれ周期に入り、十分大きい周期の倍数 $M$ を選ぶと $a^{2M}=a^M$ です。従って $a^M$ は冪等元で、$0$ または $1$。前者なら $a$ は冪零、後者なら $a$ は単元です。冪零元は和と環元による積で閉じるため、非単元全体がただ一つの極大イデアルになります。
 
@@ -102,9 +115,13 @@ $$
 e_{k+1}=e_k-\frac{e_k^2-e_k}{2e_k-1}
 $$
 
-を行うと、分子の誤差の付値は少なくとも二倍になり、$p$ 進完備性によって $e^2=e$ を満たす $e\in\mathcal O_L$ に収束します。
+を行います。$h_k=-F(e_k)/F'(e_k)$ と置くと二次式の展開から
 
-これは[Newton 反復の残差評価](../ANF10/index.md#prop-anf10-newton-doubling)と同じ多項式恒等式を、完備環 $\mathcal O_L$ に適用したものです。
+$
+F(e_k+h_k)=F(e_k)+F'(e_k)h_k+h_k^2=h_k^2
+$
+
+です。$F'(e_k)^2=1+4F(e_k)$ なので $F(e_k)\in p\mathcal O_L$ なら $F'(e_k)$ は単元であり、この性質は反復で保たれます。帰納的に $F(e_k),h_k\in p^{2^k}\mathcal O_L$ となるので、[Newton 反復の残差評価](../ANF10/index.md#prop-anf10-newton-doubling)と同様に $(e_k)$ は Cauchy 列です。$\mathcal O_L$ の $p$ 進完備性と多項式の連続性から $e_k\to e\in\mathcal O_L$、$F(e)=0$ が従います。
 
 ところが $\mathcal O_L\subset L$ は整域なので冪等元は $0,1$ に限られ、非自明な $\bar e$ に矛盾します。よって $R$ は局所環、従って $\mathcal O_L$ も局所環です。
 
@@ -118,7 +135,7 @@ $$
 
 しかも $\mathcal O_L$ は局所環なので、[Dedekind 整域の局所単項性](../ANF3/index.md#lem-anf3-local-principal)を $\mathcal O_L$ 自身に適用すると唯一の極大イデアルは $(\pi)$、非零元は一意に $u\pi^r$ と表せます。
 
-$L=\operatorname{Frac}(\mathcal O_L)$ であることも確かめます。任意の $x\in L$ は $p^s x\in\mathcal O_L$ となるよう $s$ を大きくできます（$x$ の最小多項式の分母を払うため）。従って $x=(p^s x)/p^s$ です。任意の $x\in L^\times$ は $\pi^r u$（$r\in\mathbb Z$）と表せます。剰余体は $\mathcal O_L/p\mathcal O_L$ の商で有限です。最後に、$p\in(\pi)$ であり、後に示すよう $p$ と $\pi$ の冪は相互に比較できるので、$p$ 進完備性は $\pi$ 進完備性を与えます。
+$L=\operatorname{Frac}(\mathcal O_L)$ であることも確かめます。任意の $x\in L$ は $p^s x\in\mathcal O_L$ となるよう $s$ を大きくできます（$x$ の最小多項式の分母を払うため）。従って $x=(p^s x)/p^s$ です。任意の $x\in L^\times$ は $\pi^r u$（$r\in\mathbb Z$）と表せます。剰余体は $\mathcal O_L/p\mathcal O_L$ の商で有限です。最後に、$p$ は非単元なので $p=u\pi^e$（$u$ は単元、$e\ge1$）と書けます。よって $p^k\mathcal O_L=\pi^{ek}\mathcal O_L$ で、$p$ 進位相と $\pi$ 進位相は同じです。$\pi$ 進 Cauchy 列の尾部はある $\pi^{-r}\mathcal O_L$ に入り、$\pi^r$ を掛けて $\mathcal O_L$ の完備性を適用し、再び $\pi^{-r}$ を掛ければ $L$ での完備性も従います。
 <!-- proof-end -->
 
 **何が分かったか。** Eisenstein 型でなくても整数環が構成され、分母・分子を一様化元 $\pi$ の整数冪で数えられます。これは局所体での「素数の指数」です。
@@ -204,9 +221,17 @@ $p\mathcal O_L=\mathfrak m_L^e$ だから $p^n=p^{ef}$、すなわち $n=ef$ で
 
 [離散付値の和と積の性質](../ANF9/index.md#prop-anf9-valuation-rules)を $\pi$ の冪表示に適用すれば $p^{-v_L(x)/e}$ は非Archimedes絶対値となり、制限は $|a|_p=p^{-v_p(a)}$ です。
 
-延長の一意性を確かめるには、任意の拡張絶対値 $|\cdot|'$ に対し、$\mathbb Z_p$ 上整な元はモニック方程式から $|x|'\le1$ となることを使います（$|x|'>1$ なら最高次項の絶対値が残りの全項を厳密に上回り矛盾）。
+延長の一意性では、通常の絶対値 $|\cdot|'$ が $|\cdot|_p$ を延長すると仮定します。まず $a,b\in L$、$M=\max(|a|',|b|')$ に対して二項定理と $|\binom Nk|'=|\binom Nk|_p\le1$ から
 
-単元 $u$ とその逆元は整なので $|u|'=1$。$p=u\pi^e$ から $|\pi|'=p^{-1/e}$、従って $|x|'=p^{-v_L(x)/e}$ です。
+$
+|a+b|'^N
+\le\sum_{k=0}^N\left|\binom Nk\right|'|a|'^k|b|'^{N-k}
+\le(N+1)M^N.
+$
+
+$N$ 乗根を取って $N\to\infty$ とすれば $|a+b|'\le M$ です。従って拡張絶対値は非Archimedes的です。整元 $x$ のモニック方程式の係数 $a_j\in\mathbb Z_p$ は $|a_j|'\le1$ を満たすので、$|x|'>1$ なら最高次項だけが他の各項より絶対値が大きくなり、強三角不等式と矛盾します。ゆえに $|x|'\le1$ です。
+
+単元 $u$ とその逆元はともに整なので $|u|'=1$。$p=u\pi^e$ から $|\pi|'=p^{-1/e}$、従って $x=\pi^ru$ を代入すると $|x|'=p^{-v_L(x)/e}$ です。
 
 最後に、$\mathcal O_L$ の $p$ 進位相と $\pi$ 進位相は、$p\mathcal O_L=\pi^e\mathcal O_L$ により同じです。$\mathcal O_L$ は $p$ 進完備なので $L$ は $v_L$ の距離で完備です（Cauchy 列の尾部を一つの $\pi^{-r}\mathcal O_L$ に移して収束させる）。
 <!-- proof-end -->
