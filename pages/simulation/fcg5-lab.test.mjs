@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
+import {parametersFor,readLabParameter,writeLabParameter} from './wgl-lab-parameters.mjs';
 import {
   FCG5_N,FCG5_DT,FCG5_RHO,FCG5_NU,fcg5State,fcg5PixelCell,
   expectedFCG5Samples,compareFCG5Readback
@@ -154,4 +155,65 @@ test('FCG5 shared three-tab sandbox, lesson/manifest/TOC and detailed exercises'
   assert.equal((md.match(/- Level: B/g)||[]).length,3);
   assert.equal((md.match(/- Level: C/g)||[]).length,1);
   assert.equal((md.match(/<!-- solution-start -->/g)||[]).length,8);
+});
+
+
+test('FCG5 G2 UI edits exactly the viscosity and force used by the live solver',async()=>{
+  const source=await readFile(new URL('fluid.js',dir),'utf8');
+  const specs=parametersFor('FCG5');
+  assert.deepEqual(specs.map(spec=>spec.id),['nu','force']);
+  assert.deepEqual(specs.map(spec=>spec.unit),['m²/s','m²/s²']);
+  const targets=[0.012,0.02];
+  let changed=source;
+  for(let i=0;i<specs.length;i++){
+    const spec=specs[i];
+    assert.deepEqual(readLabParameter(source,spec),{ok:true,value:spec.default});
+    changed=writeLabParameter(changed,spec,targets[i]);
+    assert.deepEqual(readLabParameter(changed,spec),{ok:true,value:targets[i]});
+    assert.throws(()=>writeLabParameter(source,spec,spec.max+spec.step),RangeError);
+    assert.throws(()=>writeLabParameter(source,spec,spec.min+spec.step/2),RangeError);
+  }
+  assert.match(changed,/dt=0\.04,rho=1,nu=0\.012,forceAmplitude=0\.02;/);
+  assert.match(changed,/const r=dt\*nu\/\(h\*h\)/);
+  assert.match(changed,/psi\(i,j\+1,forceAmplitude\)/);
+  assert.equal(changed.replace('nu=0.012','nu=0.002')
+    .replace('forceAmplitude=0.02','forceAmplitude=0.08'),source);
+  for(let i=specs.length-1;i>=0;i--)
+    changed=writeLabParameter(changed,specs[i],specs[i].default);
+  assert.equal(changed,source);
+
+  const altered=writeLabParameter(
+    writeLabParameter(source,specs[0],targets[0]),specs[1],targets[1]);
+  const [vertex,fragment]=await Promise.all(['fluid.vert','fluid.frag']
+    .map(f=>readFile(new URL(f,dir),'utf8')));
+  const gl=mockGL();
+  new Function('gl','canvas','vertexSource','fragmentSource','report','settings',altered)(
+    gl,{width:320,height:240},vertex,fragment,()=>{},{steps:8});
+  const expected=fcg5State(8,{nu:targets[0],force:targets[1]});
+  const panels=[
+    Uint8Array.from(expected.q,png8),
+    Uint8Array.from(expected.divergence,v=>png8(Math.abs(v)*80)),
+    Uint8Array.from(expected.speed,v=>png8(v/0.4))
+  ];
+  assert.equal(gl._textures.length,3);
+  for(let i=0;i<3;i++)assert.deepEqual(gl._textures[i],panels[i],
+    'edited learner JS and independent CPU still agree for texture '+i);
+  const probes=expectedFCG5Samples(320,240,8,{nu:targets[0],force:targets[1]});
+  assert.ok(compareFCG5Readback(probes,320,240,8,2,
+    {nu:targets[0],force:targets[1]}).every(row=>row.pass));
+  assert.ok(compareFCG5Readback(probes,320,240,8).some(row=>!row.pass),
+    'the unchanged reference must not be misreported for edited physics');
+});
+test('FCG5 G2 gives edited expressions and noncanonical declarations precedence',async()=>{
+  const source=await readFile(new URL('fluid.js',dir),'utf8');
+  const [nu,force]=parametersFor('FCG5');
+  const expression=source.replace('nu=0.002','nu=0.001+0.001');
+  assert.equal(readLabParameter(expression,nu).ok,false);
+  assert.throws(()=>writeLabParameter(expression,nu,0.01),/JSソース/);
+  const duplicate=source+'\n'+source.split('\n').find(line=>line.startsWith('const N=12'));
+  assert.equal(readLabParameter(duplicate,nu).ok,false);
+  assert.equal(readLabParameter(duplicate,force).ok,false);
+  const customGrid=source.replace('const N=12','const N=16');
+  assert.equal(readLabParameter(customGrid,nu).ok,false);
+  assert.equal(readLabParameter(customGrid,force).ok,false);
 });

@@ -138,8 +138,8 @@ export function fcg5PixelCell(x,y,width,height){
     j:Math.min(FCG5_N-1,Math.floor(FCG5_N*(y+0.5)/height))};
 }
 const enc=x=>Math.round(255*clamp(x,0,1));
-export function expectedFCG5Samples(width,height,steps=8){
-  const state=fcg5State(steps),N=FCG5_N,coords=[[6,6],[8,5],[9,6]];
+export function expectedFCG5Samples(width,height,steps=8,physics={}){
+  const state=fcg5State(steps,physics),N=FCG5_N,coords=[[6,6],[8,5],[9,6]];
   return ['dye','divergence','speed'].flatMap((panel,p)=>
     coords.map(([i,j])=>{
       const x=Math.floor((p+(i+0.5)/N)*width/3);
@@ -152,9 +152,9 @@ export function expectedFCG5Samples(width,height,steps=8){
           [31,q,enc(0.8-0.5*q/255),255]};
     }));
 }
-export function compareFCG5Readback(actual,width,height,steps=8,tolerance=2){
+export function compareFCG5Readback(actual,width,height,steps=8,tolerance=2,physics={}){
   if(!Number.isFinite(tolerance)||tolerance<0)throw new RangeError('tolerance');
-  return expectedFCG5Samples(width,height,steps).map((p,k)=>{
+  return expectedFCG5Samples(width,height,steps,physics).map((p,k)=>{
     const a=actual?.[k],ok=!!a&&a.x===p.x&&a.y===p.y&&
       Array.isArray(a.rgba)&&a.rgba.length===4&&
       a.rgba.every(v=>Number.isInteger(v)&&v>=0&&v<=255);
