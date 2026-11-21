@@ -47,7 +47,7 @@ chapters:
     title: "Henselの補題と局所体の拡大"
   - id: ANF11
     path: textbook/volumes/dream_thater/代数系/ANF/ANF11
-    status: planned
+    status: completed
     title: "局所体の整数環・分岐"
   - id: ANF12
     path: textbook/volumes/dream_thater/代数系/ANF/ANF12

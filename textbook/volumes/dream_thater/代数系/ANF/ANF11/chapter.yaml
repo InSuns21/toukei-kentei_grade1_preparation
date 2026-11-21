@@ -1,0 +1,46 @@
+id: "ANF11"
+title: "局所体の整数環・分岐"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANF10
+official_scope: []
+learning_objectives:
+  - 有限次p進拡大の整数環を整元全体として定義し跡双対格子から有限自由性を証明できる
+  - 整数環の局所性を完備性と冪等元の持ち上げから証明しDedekind環の局所単項性に接続できる
+  - 一様化元・規格化付値・剰余体を構成し分岐指数と剰余次数を定義例で確認できる
+  - 有限局所拡大の次数公式ef=nを商加群のフィルトレーションから証明できる
+  - 跡双対の整数性を使って余異なる・異なるを構成し単項生成の場合に導関数公式を証明できる
+  - ノルムの付値公式と判別式のp進指数を計算できる
+  - 非分岐二次拡大Q_3(i)の整数環を跡双対から厳密に確定できる
+  - Q_5(sqrt5)とQ_2(sqrt2)を比較し同じeでも異なる指数が変わる仕組みを説明できる
+definitions:
+  - { id: ANF11-DEF-01, name: 局所拡大の整数環 }
+  - { id: ANF11-DEF-02, name: 一様化元と規格化付値 }
+  - { id: ANF11-DEF-03, name: 局所拡大の分岐指数・剰余次数 }
+  - { id: ANF11-DEF-04, name: 余異なる・異なる }
+theorems:
+  - { id: ANF11-THM-01, name: 局所体の整数環は完備な離散付値環 }
+  - { id: ANF11-THM-02, name: 局所拡大の次数公式 }
+  - { id: ANF11-THM-03, name: 単項生成の整数環の異なる公式 }
+  - { id: ANF11-PROP-01, name: ノルムと付値・異なる指数 }
+canonical_examples:
+  - Q_5(sqrt5)の整数環と一様化元と剰余体
+  - Q_3(i)の跡双対による整数環の確認と非分岐の例
+  - Q_5(sqrt5)の導関数2sqrt5による異なる指数1と判別式20
+  - Q_2(sqrt2)の導関数2sqrt2による異なる指数3と判別式8
+problem_patterns:
+  - ANF11-UNIFORMIZER-CHANGE
+  - ANF11-UNRAMIFIED-RESIDUE
+  - ANF11-INTEGRAL-VALUATION
+  - ANF11-DIFFERENT-DERIVATIVE
+  - ANF11-NORM-VALUATION
+  - ANF11-EF-FILTRATION-PROOF
+  - ANF11-CODIFFERENT-TRACE
+  - ANF11-TAME-WILD-COMPARISON
+  - ANF11-TRACE-DUAL-INTEGRAL-RING
+  - ANF11-INTEGRATED-LOCAL-EXTENSIONS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13.0, exercises: 9.0, review: 3.0 }
