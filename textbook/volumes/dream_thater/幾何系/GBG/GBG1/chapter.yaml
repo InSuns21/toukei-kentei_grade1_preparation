@@ -1,0 +1,42 @@
+id: "GBG1"
+title: "被覆・遷移関数から大域的な束を作る"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO1
+  - LIE1
+official_scope: []
+learning_objectives:
+  - 開被覆と二重・三重重なりを具体的に求め、貼り合わせ条件が必要となる場所を説明できる
+  - 非可換Lie群における遷移関数の1-cocycle条件から正規化と積順序を導ける
+  - 局所積の同一視が同値関係になることを証明し、商位相の局所表示を構成できる
+  - 貼り合わせ商空間のHausdorff性・第二可算性・滑らかさと右作用の自由性・推移性を検証できる
+  - 局所積表示から遷移関数を復元し、貼り合わせ多様体との同型を構成できる
+  - 行列群の具体例とcocycle違反の反例で定義の条件を判定できる
+definitions:
+  - { id: GBG1-DEF-01, name: 開被覆と重なり }
+  - { id: GBG1-DEF-02, name: 滑らかな遷移関数と1-cocycle }
+  - { id: GBG1-DEF-03, name: cocycleによる局所積の貼り合わせ }
+theorems:
+  - { id: GBG1-PROP-01, name: cocycleの正規化 }
+  - { id: GBG1-THM-01, name: 滑らかなcocycleからの貼り合わせ }
+  - { id: GBG1-THM-02, name: 局所積表示とcocycleの逆向きの対応 }
+canonical_examples:
+  - 実直線上の三重重なりと正値関数のcocycle
+  - 非可換GL(2,R)遷移関数と行列積順序
+  - 自明な大域束だが非恒等な遷移関数
+  - 三重重なり条件違反による局所座標の崩壊
+problem_patterns:
+  - GBG1-COVER
+  - GBG1-NORMALIZE
+  - GBG1-EXPONENTIAL
+  - GBG1-RIGHT-ACTION
+  - GBG1-MATRIX-COCYCLE
+  - GBG1-TRIVIALIZATION
+  - GBG1-COCYCLE-FAILURE
+  - GBG1-REVERSE
+  - GBG1-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 3 }

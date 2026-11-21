@@ -2,7 +2,7 @@
 
 設計: 2026-10-13  
 講義構成確定: 2026-11-21（標準教科書・公開講義ノートによる校正、全30講）  
-状態: planned（設計のみ。章本文・series manifest・公開導線は未着手）
+状態: in_progress（GBG1は実装済み、GBG2〜GBG30は未着手）
 
 ## 1. 中心問いと到達点
 
@@ -26,7 +26,7 @@ GEOはベクトル束・Levi–Civita接続・微分形式・de Rhamを、LIEは
 - GBG15〜17：閉曲線のホモトピー・基本群を利用する際は必要な既習TOP章を指定し、経路の固定端点ホモトピーと自由ホモトピーを区別する。
 - GBG18〜24：de Rham類に加え、Chern数の**整数性**を論じるときは整数係数コホモロジー、長完全系列または遷移関数の巻き数という必要部分を、その講の前段で導入する。de Rham閉形式だけから整数性は導けない。
 - GBG25〜28：球面・clutching・次数／π3(SU(2))、向き付け、Hodge星、4次元積分のうち未習の道具を該当講に導入する。一般のホモトピー群分類や全Yang–Mills方程式の解空間分類を暗黙前提にしない。
-- GBG29〜30：Spin(n)被覆・Clifford表現は[Lie群の表現・スピノル](DREAM_THEATER_LIE_REPRESENTATIONS_SPINORS_PLAN.md)の関連成果に接続する。ただし未完成のLREPを既存完成章の必修前提へ遡及追加しない。Z/2係数Čech cohomologyと第二Stiefel–Whitney類はGBG29の必要最小限を先に導入する。
+- GBG29〜30：Spin(n)被覆・Clifford表現は[Lie群の表現・スピノル](../plans/DREAM_THEATER_LIE_REPRESENTATIONS_SPINORS_PLAN.md)の関連成果に接続する。ただし未完成のLREPを既存完成章の必修前提へ遡及追加しない。Z/2係数Čech cohomologyと第二Stiefel–Whitney類はGBG29の必要最小限を先に導入する。
 
 ### canonical ownership と停止線
 
@@ -153,7 +153,7 @@ GEOはベクトル束・Levi–Civita接続・微分形式・de Rhamを、LIEは
 
 ## 7. 実装・査読・完了条件
 
-1. **今回の改稿は設計と全30講の確定のみ**。GBG本文・series manifest・公開導線をまだ作成せず、PLANはtextbook/plans/のplannedに維持する。実装開始時に実在ID／prerequisite／章パス／知識ID／stable anchorを照合し、初めて固有実装に着手したときにplans_progressへ**移動**しmanifestのplan参照を同期する。
+1. **実装進捗（2026-11-21）**：GBG1の本文・詳細解答付き演習・章metadata・系列manifest・公開導線を整備し、PLANをtextbook/plans_progress/へ移動した。GBG2〜GBG30は未着手であり、主束接続以降の横断検算も残る。全30講・必要な横断査読の完了までplan_doneへ移さない。
 2. 各章で初出専門語をformal statementより前に導入するか、既習定義への実在stable anchorリンクで接続する。主要定義には条件を実際に確認する例を置き、結果を使う**箇所**からcanonical anchorへリンクする。
 3. 新章（実質改稿含む）は全主要定理・全演習と詳細解答を出発点から再計算する自己査読と、完成本文の別観点再読を分ける。第三者査読が未実施なら同一担当の二度読みを独立査読と称しない。
 4. 実装時はchapter.yaml／knowledge.yaml／当該series manifest／科目目次ソースを同じ変更単位で更新し、変更範囲に見合う検証を行う。別完了章の追跡監査はユーザーが章IDを明示したときのみ。

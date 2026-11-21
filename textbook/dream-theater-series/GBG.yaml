@@ -1,0 +1,128 @@
+version: 1
+id: GBG
+title: "主束・接続・ゲージ理論の幾何"
+plan: textbook/plans_progress/DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 公開索引には完成した講義のみ追加する。
+chapters:
+  - id: GBG1
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG1
+    status: completed
+    title: "被覆・遷移関数から大域的な束を作る"
+  - id: GBG2
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG2
+    status: planned
+    title: "主G束とは何か――自由・推移的な右作用"
+  - id: GBG3
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG3
+    status: planned
+    title: "なぜゲージ選択は局所sectionの選択か"
+  - id: GBG4
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG4
+    status: planned
+    title: "主束から物質場の束をどう作るか"
+  - id: GBG5
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG5
+    status: planned
+    title: "ゲージ変換群は何に作用するか"
+  - id: GBG6
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG6
+    status: planned
+    title: "接空間を水平と垂直に分けるには"
+  - id: GBG7
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG7
+    status: planned
+    title: "水平分布とLie環値接続1形式はなぜ同値か"
+  - id: GBG8
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG8
+    status: planned
+    title: "局所ゲージポテンシャルはどう変換するか"
+  - id: GBG9
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG9
+    status: planned
+    title: "結合束上で場をどう微分するか"
+  - id: GBG10
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG10
+    status: planned
+    title: "曲率とはどの失敗を測るか"
+  - id: GBG11
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG11
+    status: planned
+    title: "Bianchi恒等式はどこから生じるか"
+  - id: GBG12
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG12
+    status: planned
+    title: "接続は存在するか、二つの接続の差は何か"
+  - id: GBG13
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG13
+    status: planned
+    title: "ゲージ軌道とゲージ固定はどこが異なるか"
+  - id: GBG14
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG14
+    status: planned
+    title: "接続は曲線に沿って何を運ぶか"
+  - id: GBG15
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG15
+    status: planned
+    title: "閉路の平行移動から何が分かるか"
+  - id: GBG16
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG16
+    status: planned
+    title: "曲率ゼロでも大域的な効果は残るか"
+  - id: GBG17
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG17
+    status: planned
+    title: "Wilson loopは何に関して不変か"
+  - id: GBG18
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG18
+    status: planned
+    title: "U(1)の非自明束はどう見えるか"
+  - id: GBG19
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG19
+    status: planned
+    title: "Dirac monopoleの電荷はなぜ量子化されるか"
+  - id: GBG20
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG20
+    status: planned
+    title: "曲率から不変な多項式を作る条件は"
+  - id: GBG21
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG21
+    status: planned
+    title: "Chern–Weil形式はなぜ閉じるか"
+  - id: GBG22
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG22
+    status: planned
+    title: "接続を変えても特性類が変わらないのはなぜか"
+  - id: GBG23
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG23
+    status: planned
+    title: "Chern類・Chern指標はどの式で正規化するか"
+  - id: GBG24
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG24
+    status: planned
+    title: "Pontryagin・Euler型不変量をどう見分けるか"
+  - id: GBG25
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG25
+    status: planned
+    title: "S⁴上のSU(2)主束はどう貼り合わされるか"
+  - id: GBG26
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG26
+    status: planned
+    title: "第二Chern数は純ゲージ場と非自明な場をどう区別するか"
+  - id: GBG27
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG27
+    status: planned
+    title: "自己双対性はYang–Mills作用に何を与えるか"
+  - id: GBG28
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG28
+    status: planned
+    title: "BPST instantonは実際に何を満たすか"
+  - id: GBG29
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG29
+    status: planned
+    title: "なぜ任意の多様体にspin構造があるとは限らないか"
+  - id: GBG30
+    path: textbook/volumes/dream_thater/幾何系/GBG/GBG30
+    status: planned
+    title: "Spinor・ゲージ場・指数・異常はどうつながるか"
