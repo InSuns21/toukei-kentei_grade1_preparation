@@ -428,3 +428,356 @@ $h=0.1,N=100$ の場合、HNN/LNN の $H_0$ 倍率は $(1+0.1^2)^{100}=(1.01)^{1
 
 科学計算の比較では「訓練誤差が低い」「物理量を保つ」「実際の系に近い」「計算が速い」のどれを目標にするかを先に決める。次の PML2-01 からは、この区別を PDE の解、残差、境界条件、真の解誤差へ拡張する。
 
+## 9. 演習 Level A
+
+<a id="ex-pml1-22-a01"></a>
+
+### PML1-22-A01 HNNの行列と保存量
+- Level: A
+
+$S=\begin{pmatrix}2&1\\1&3\end{pmatrix}$ とする。$H_S(z)$、$JS$、その跡を求め、$S$ が対称であることと、連続系 $\dot z=JSz$ で $H_S$ が保存されることを確認せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$S^{\mathsf T}=S$ なので二次 HNN の許容パラメータであり、
+
+$$
+H_S(q,p)=\frac12(2q^2+2qp+3p^2)
+=q^2+qp+\frac32p^2.
+$$
+
+$J=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ を左から掛け、
+
+$$
+JS=\begin{pmatrix}1&3\\-2&-1\end{pmatrix},
+\qquad\operatorname{tr}(JS)=1-1=0.
+$$
+
+$\nabla H_S=(2q+p,q+3p)^{\mathsf T}$ であり、$\dot q=q+3p,\ \dot p=-2q-p$。従って
+
+$$
+\begin{aligned}
+\frac{dH_S}{dt}
+&=(2q+p)(q+3p)+(q+3p)(-2q-p)\\
+&=(2q+p)(q+3p)-(q+3p)(2q+p)=0.
+\end{aligned}
+$$
+
+$H_S$ が $C^\infty$ 級で、$J$ が反対称であることも[HNNの保存定理](../PML1-18/index.md#thm-pml1-18-energy)の仮定を満たす。
+<!-- solution-end -->
+
+<a id="ex-pml1-22-a02"></a>
+
+### PML1-22-A02 LNNの質量を確かめる
+- Level: A
+
+$L(q,v)=v^2/2-2q^2/2$ を考える。速度 Hessian を求め、Euler–Lagrange 方程式から加速度を計算し、$p=v$ での速度行列を書け。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$\partial_vL=v$、$\partial_v^2L=1$ で、速度 Hessian は可逆である。$\partial_qL=-2q$ なので
+
+$$
+0=\frac d{dt}(\partial_vL)-\partial_qL
+=\frac d{dt}v+2q=\ddot q+2q.
+$$
+
+従って $\ddot q=-2q$。質量 $1$ のため $p=v$ であり $\dot q=p$、$\dot p=-2q$ だから、
+
+$$
+\dot z=
+\begin{pmatrix}0&1\\-2&0\end{pmatrix}z.
+$$
+
+質量の同一視を忘れると、他のモデルと異なる状態変数を比較してしまう。
+<!-- solution-end -->
+
+<a id="ex-pml1-22-a03"></a>
+
+### PML1-22-A03 訓練損失を四点から計算する
+- Level: A
+
+観測を $y_i=(J+\frac15I_2)z_i$ とし、$z_i=\pm e_1,\pm e_2$ を一回ずつ使う。候補 $f_1(z)=Jz$ と $f_2(z)=(J+\frac15I_2)z$ の訓練損失を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$f_1(z_i)-y_i=-z_i/5$ であり、各 $z_i$ は単位ベクトルなので、各二乗誤差は $1/25$。従って
+
+$$
+R_{\mathrm{train}}(f_1)
+=\frac14\left(4\cdot\frac1{25}\right)=\frac1{25}.
+$$
+
+$f_2(z_i)-y_i=0$ が四点すべてで成立するので $R_{\mathrm{train}}(f_2)=0$。この結果は、真の速度が $f_1$ と $f_2$ のどちらかをまだ決めない。
+<!-- solution-end -->
+
+<a id="ex-pml1-22-a04"></a>
+
+### PML1-22-A04 未使用点で評価を反転させる
+- Level: A
+
+$z_{\mathrm{test}}=(3/5,4/5)^{\mathsf T}$ とする。モデル $Jz$ と $(J+\gamma I_2)z$ を、真の場がそれぞれ $Jz$、$(J+\gamma I_2)z$ の二通りで評価し、各二乗誤差を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$\|z_{\mathrm{test}}\|_2^2=(3/5)^2+(4/5)^2=1$。両候補の出力差は $\gamma z_{\mathrm{test}}$ なので、
+
+$$
+\|\gamma z_{\mathrm{test}}\|_2^2=\gamma^2.
+$$
+
+真の場が $Jz$ なら、$Jz$ の誤差は $0$、$J+\gamma I_2$ の誤差は $\gamma^2$。真の場が $J+\gamma I_2$ なら、前者は $\gamma^2$、後者は $0$ となる。候補間の距離だけで「真値に近い方」は決まらない。
+<!-- solution-end -->
+
+<a id="ex-pml1-22-a05"></a>
+
+### PML1-22-A05 正しい連続モデルをEuler法で進める
+- Level: A
+
+$\dot z=Jz$、$z_0=(1,0)^{\mathsf T}$、$h=1/5$ とする。陽的 Euler 法を二歩実行し、$H_0(z_2)/H_0(z_0)$ を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$J(1,0)^{\mathsf T}=(0,-1)^{\mathsf T}$ だから
+
+$$
+z_1=z_0+\frac15Jz_0=(1,-1/5)^{\mathsf T}.
+$$
+
+次に $Jz_1=(-1/5,-1)^{\mathsf T}$ を代入し、
+
+$$
+z_2=z_1+\frac15Jz_1
+=(1-1/25,-1/5-1/5)^{\mathsf T}
+=(24/25,-2/5)^{\mathsf T}.
+$$
+
+$H_0(z_0)=1/2$、$H_0(z_2)=\frac12[(24/25)^2+(2/5)^2]$ なので
+
+$$
+\frac{H_0(z_2)}{H_0(z_0)}
+=\frac{576}{625}+\frac4{25}
+=\frac{676}{625}
+=\left(1+\frac1{25}\right)^2.
+$$
+
+[離散エネルギー倍率](#prop-pml1-22-euler-energy)の $h=1/5,n=2$ と一致する。連続系ならこの比は $1$ である。
+<!-- solution-end -->
+
+## 10. 演習 Level B
+
+<a id="ex-pml1-22-b01"></a>
+
+### PML1-22-B01 対称射影を任意の観測行列で導く
+- Level: B
+
+四状態を $\pm e_1,\pm e_2$ とし、観測行列が任意の実 $2\times2$ 行列 $A$ で $y_i=Az_i$ とする。二次 HNN の最小二乗で対称行列 $S$ の一意な解を求めよ。また $A=\begin{pmatrix}2&3\\-1&4\end{pmatrix}$ で計算せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+第4節と同じ四点の計算で、損失は $\frac12\|JS-A\|_F^2$。$J^{\mathsf T}=-J$、$J^{\mathsf T}J=I_2$ を使えば
+
+$$
+\|JS-A\|_F^2=\|S-(-JA)\|_F^2.
+$$
+
+$M=-JA$ を対称部分 $M_{\mathrm s}=(M+M^{\mathsf T})/2$ と反対称部分 $M_{\mathrm a}=(M-M^{\mathsf T})/2$ に分ける。対称な $S$ に対して Frobenius 内積 $\langle S-M_{\mathrm s},M_{\mathrm a}\rangle_F=0$ であるため、
+
+$$
+\|S-M\|_F^2
+=\|S-M_{\mathrm s}\|_F^2+\|M_{\mathrm a}\|_F^2.
+$$
+
+第一項がゼロのときだけ最小なので $S=M_{\mathrm s}$ が一意解である。指定した $A$ では
+
+$$
+-JA=
+\begin{pmatrix}1&-4\\2&3\end{pmatrix},
+\qquad
+S=\frac12
+\left(
+\begin{pmatrix}1&-4\\2&3\end{pmatrix}
++
+\begin{pmatrix}1&2\\-4&3\end{pmatrix}
+\right)
+=\begin{pmatrix}1&-1\\-1&3\end{pmatrix}.
+$$
+
+実際 $S=S^{\mathsf T}$ であり、$JS=\begin{pmatrix}-1&3\\-1&1\end{pmatrix}$ は跡ゼロを満たす。$A$ の跡は $6$ なので、二次 HNN が $A$ に完全一致できないこととも整合する。
+<!-- solution-end -->
+
+<a id="ex-pml1-22-b02"></a>
+
+### PML1-22-B02 学習したエネルギーと真のエネルギーを区別する
+- Level: B
+
+$H_S(q,p)=q^2+p^2/2$ を学習した HNN が $\dot z=J\nabla H_S$ に従うとする。$H_S$ と $H_0=(q^2+p^2)/2$ の時間微分をそれぞれ求め、初期値 $(q,p)=(1,1)$ では $H_0$ が保存されないことを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$H_S=\frac12z^{\mathsf T}\operatorname{diag}(2,1)z$ で $S$ は対称である。偏微分は $\partial_qH_S=2q,\ \partial_pH_S=p$、正準方程式は
+
+$$
+\dot q=p,\qquad\dot p=-2q.
+$$
+
+連鎖律で
+
+$$
+\frac{dH_S}{dt}
+=(2q)\dot q+p\dot p
+=2qp-2pq=0.
+$$
+
+一方、真の基準エネルギー $H_0$ では
+
+$$
+\frac{dH_0}{dt}
+=q\dot q+p\dot p=qp-2pq=-qp.
+$$
+
+初期値 $(1,1)$ で $dH_0/dt=-1\ne0$。従って HNN 自身の $H_S$ が保存されても、基準 $H_0$ が保存されるとは限らない。[真のエネルギーとの不一致](../PML1-18/index.md#prop-pml1-18-mismatch)の具体例である。
+<!-- solution-end -->
+
+<a id="ex-pml1-22-b03"></a>
+
+### PML1-22-B03 質量を変えると座標の比較が変わる
+- Level: B
+
+$L(q,v)=mv^2/2-kq^2/2$、$m>0$ とする。Euler–Lagrange 方程式を導き、共役運動量 $p=mv$ を用いた $(q,p)$ の一次方程式を書け。$m=2,k=2$ のとき、誤って $p=v$ と置いたモデルの $\dot q$ と比較せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$\partial_vL=mv$、$\partial_qL=-kq$ だから
+
+$$
+\frac d{dt}(mv)+kq=0
+\quad\Longrightarrow\quad
+m\ddot q=-kq,\qquad \ddot q=-\frac{k}{m}q.
+$$
+
+共役運動量は $p=\partial_vL=mv$ であり、$m>0$ なので $v=p/m$ と解ける。従って
+
+$$
+\dot q=\frac{p}{m},\qquad
+\dot p=m\dot v=-kq,\qquad
+\dot z=\begin{pmatrix}0&1/m\\-k&0\end{pmatrix}z.
+$$
+
+$m=k=2$ なら $\dot q=p/2$ だが、誤って $p=v$ と置くと $\dot q=p$ になって二倍の速度を予測する。二つのモデルが同じ座標に作用しているかを確認しなければ、誤差比較は解釈できない。
+<!-- solution-end -->
+
+<a id="ex-pml1-22-b04"></a>
+
+### PML1-22-B04 散逸系でもEulerの誤差を分ける
+- Level: B
+
+真の場が $(J-I_2)z$、$h=1/4$ とする。陽的 Euler 一歩の $H_0$ 倍率と、正確な連続時間解を同じ時間 $h$ だけ進めたときの倍率を求めよ。二者は一致するか。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$\delta=-1$ と $h=1/4$ を[離散エネルギー倍率](#prop-pml1-22-euler-energy)に代入すると、
+
+$$
+(1+h\delta)^2+h^2
+=\left(1-\frac14\right)^2+\frac1{16}
+=\frac9{16}+\frac1{16}=\frac58.
+$$
+
+連続系では第6節の導出により $dH_0/dt=2\delta H_0=-2H_0$。この一次方程式を解けば $H_0(t)=H_0(0)e^{-2t}$ なので、$t=h=1/4$ の正確な倍率は $e^{-1/2}$ である。$\frac58\ne e^{-1/2}$。どちらもエネルギーは減少するが、その**減少率**は異なる。符号だけ一致しても時間積分が正確とは言えない。
+<!-- solution-end -->
+
+## 11. 演習 Level C
+
+<a id="ex-pml1-22-c01"></a>
+
+### PML1-22-C01 学習・構造・汎化・積分誤差の総合判定
+- Level: C
+
+状態 $z_1=e_1,z_2=e_2,z_3=-e_1,z_4=-e_2$ に対し、速度観測を $y_i=(J+\delta I_2)z_i$、$\delta=1/5$ とする。候補は本講の線形NN、二次HNN、質量 $1$ の二次LNNとする。次を示せ。
+
+1. 四つの観測速度を明記し、三モデルの最小二乗パラメータと訓練損失を求めよ。
+2. 真の場が $Jz$ で、観測ラベルに系統的なずれがある場合、未使用点 $z=(3/5,4/5)^{\mathsf T}$ での真の速度との二乗誤差を求めよ。
+3. 逆に観測ラベルを $y_i=(J-\frac15I_2)z_i$ に変更し、真の場も $(J-\frac15I_2)z$ であるとする。学習結果と未使用点での順位はどう変わるか。
+4. (1) の三モデルに $z_0=(1,0)^{\mathsf T}$、$h=1/10$、陽的 Euler 二歩を適用したときの $H_0$ 倍率を求めよ。正しい連続場を学んだモデルでも離散的に保存されない理由を述べよ。
+5. (1)〜(4) を踏まえ、「訓練誤差が最低のモデルが最良」「物理制約付きモデルはいつも最良」の二主張に対して、それぞれ反例のどの部分が効くか説明せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+**(1) 四点の観測と最小化。** $J(q,p)^{\mathsf T}=(p,-q)^{\mathsf T}$ だから、$\delta=1/5$ を各点に代入すると
+
+$$
+\begin{aligned}
+y_1&=(1/5,-1)^{\mathsf T},&
+y_2&=(1,1/5)^{\mathsf T},\\
+y_3&=(-1/5,1)^{\mathsf T},&
+y_4&=(-1,-1/5)^{\mathsf T}.
+\end{aligned}
+$$
+
+入力の外積の和は $2I_2$ なので、通常NNの最小二乗重みは観測行列そのもの：
+
+$$
+W=\begin{pmatrix}1/5&1\\-1&1/5\end{pmatrix}.
+$$
+
+HNNでは $-JW=I_2-\frac15J$ の対称部分が $I_2$ となるため $S=I_2$。LNNの $p$ 側の残差は $(-kq_i)-(-q_i+p_i/5)$ で、$q_i^2$ と $q_ip_i$ を合計すると $\sum q_i^2=2,\ \sum q_ip_i=0$。よって一変数最小二乗は $k=1$。訓練損失は
+
+$$
+R_{\mathrm{train}}(W)=0,\qquad
+R_{\mathrm{train}}(JS)=R_{\mathrm{train}}(B_k)=1/25.
+$$
+
+**(2) 保存系の真値との比較。** 真の場は $Jz$ なので、通常NNとの差は $z/5$。未使用点の長さは $1$ であるから
+
+$$
+E_{\mathrm{test}}(W)=\frac1{25}\|z\|_2^2=\frac1{25},
+\qquad
+E_{\mathrm{test}}(JS)=E_{\mathrm{test}}(B_k)=0.
+$$
+
+訓練誤差がゼロのNNが、真の速度では劣る。
+
+**(3) 実際の散逸との比較。** $\delta=-1/5$ になっても[三モデルの最小二乗解](#prop-pml1-22-exact-fit)の導出は変わらず、
+
+$$
+W=J-\frac15I_2,\quad S=I_2,\quad k=1.
+$$
+
+真の場は今回 $Wz$ であるから $E_{\mathrm{test}}(W)=0$、構造制約付きの両者は $E_{\mathrm{test}}=1/25$。物理的な散逸を候補から排除するという、(2) で有利に働いた制約が今回は欠点になる。
+
+**(4) 離散積分。** (1) の通常NNは $\delta=1/5$、HNNとLNNは $\delta=0$ である。$h=1/10$、$n=2$ を[陽的Eulerの倍率命題](#prop-pml1-22-euler-energy)に代入すると、
+
+$$
+\begin{aligned}
+\frac{H_0(z_2^{\mathrm N})}{H_0(z_0)}
+&=\left[\left(1+\frac1{50}\right)^2+\frac1{100}\right]^2
+=\left(\frac{2626}{2500}\right)^2
+=(1.0504)^2,\\
+\frac{H_0(z_2^{\mathrm H})}{H_0(z_0)}
+&=\frac{H_0(z_2^{\mathrm L})}{H_0(z_0)}
+=\left(1+\frac1{100}\right)^2
+=(1.01)^2.
+\end{aligned}
+$$
+
+HNNとLNNは真の $Jz$ を学んでいるが、Euler の更新行列 $I_2+hJ$ は直交行列ではなく、その転置との積が $(1+h^2)I_2$ となる。連続場の反対称性から従う保存性を、数値更新は継承しない。
+
+**(5) 判定。** 「訓練誤差が最低なら最良」は (1) の $0$ と (2) の未使用点誤差 $1/25$ の逆転で否定される。「物理制約付きならいつも最良」は (3) の実散逸で否定される。(4) からは、仮に正しい構造を学習していても、別途数値積分法の誤差を検査する必要がある。したがって構造、訓練適合、真値への汎化、積分器を分けた評価が必要である。
+<!-- solution-end -->
+
+## 12. 次の講義へ
+
+ここまで、物理法則を**モデルの形**に取り込むと、正しい法則である限り観測バイアスを除く助けになること、誤った法則を固定すると逆に真の運動から離れることを検証した。PML I の22講を通じて見てきた自由エネルギー・散逸・確率過程・対称性・保存量・同定を、以後は偏微分方程式の解法・残差・誤差に接続する。
+
+[PML2-01「何を『PDEを解く』と呼ぶか」](../PML2-01/index.md) では、解の意味と初期・境界条件を明確にし、どの量を比較するかを定める。
