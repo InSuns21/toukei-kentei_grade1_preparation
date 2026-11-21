@@ -47,3 +47,15 @@ test('WGL5 real JS and GLSL use projection, view, model, depth and two draws',as
   assert.ok(host.includes('expectedWGL5Samples(payload.width,payload.height)'));
   assert.ok(host.includes('compareWGL5Readback'));
 });
+
+test('WGL5 orbit moves yaw, pitch and distance in the editable camera model',async()=>{
+  const js=await readFile(new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL5/camera.js',import.meta.url),'utf8');
+  for(const marker of ['manualYaw','manualPitch','manualZoom',
+    "canvas.addEventListener('pointermove'", "canvas.addEventListener('wheel'",
+    "canvas.addEventListener('keydown'",'Math.sin(yaw)*Math.cos(pitch)',
+    "gl.uniformMatrix4fv(uView,false,eyeView)","motionMedia.addEventListener('change'"]){
+    assert.ok(js.includes(marker),marker);
+  }
+  assert.ok(js.indexOf('// The initial four CPU/GPU rays')>
+    js.indexOf("report('FRUSTUM'"),'time-varying orbit must follow the baseline GPU pass');
+});
