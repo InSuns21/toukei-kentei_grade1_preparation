@@ -113,7 +113,7 @@ $L(u)=0$ なら、実・非実の全埋め込みで $|u|=1$ なので前段の�
 
 離散性だけでは、単数の階数が $s-1$ とまではいえません。たとえば平面内の $\mathbb Z(1,0)$ は離散ですが、縦方向へ無制限に離れられます。必要なのは、**超平面のどの点も、ある単数の対数から一定の距離以内にある**ことです（相対稠密性）。
 
-ここで前講の二つの結果を使います。第一に [Minkowski の凸体定理と整数環の共体積](../ANF5/index.md#thm-anf5-ideal-covolume)によって、一定体積を超える対称凸体は非零整数を含みます。第二に [ノルム有界な整イデアルの有限性](../ANF6/index.md#lem-anf6-bounded-ideal-norm)によって、その整数が生成する主イデアルの種類は有限個です。
+ここで前講の二つの結果を使います。第一に [Minkowskiの凸体定理](../../NDA/NDA3/index.md#thm-nda3-minkowski) と [整数環の共体積](../ANF5/index.md#thm-anf5-ideal-covolume)によって、一定体積を超える対称凸体は非零整数を含みます。第二に [ノルム有界な整イデアルの有限性](../ANF6/index.md#lem-anf6-bounded-ideal-norm)によって、その整数が生成する主イデアルの種類は有限個です。
 
 <a id="lem-anf7-coarse-cover"></a>
 
@@ -162,7 +162,7 @@ $$
 >2^n\,2^{-r_2}\sqrt{|D_K|}
 $$
 
-となるように固定します。[Minkowski の凸体定理](../ANF5/index.md#thm-anf5-ideal-covolume)を格子 $j(A)$ と $C_x$ に適用でき、$0\ne a\in A$ で $j(a)\in C_x$ となるものが存在します。
+となるように固定します。[Minkowskiの凸体定理](../../NDA/NDA3/index.md#thm-nda3-minkowski)を格子 $j(A)$ と $C_x$ に適用でき、$0\ne a\in A$ で $j(a)\in C_x$ となるものが存在します。
 
 [体ノルムの埋め込み公式](../ANF2/index.md#thm-anf2-embedding-formulas)へ各座標の上界を代入すると
 
