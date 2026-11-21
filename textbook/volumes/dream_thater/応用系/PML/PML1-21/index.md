@@ -528,7 +528,7 @@ $F(x)=-2x$、辞書 $\phi(x)=(1,x)^{\mathsf T}$ とする。$K_F1$、$K_Fx$、�
 <!-- solution-start -->
 #### 詳細解答
 
-定数関数 $g_1(x)\equiv1$ と恒等関数 $g_2(x)=x$ に対し、[Koopman作用素の定義](#def-pml1-21-koopman)から $(K_Fg_1)(x)=g_1(F(x))=1$、$(K_Fg_2)(x)=g_2(F(x))=-2x$。従って
+定数関数 $g_1(x)\equiv1$ と恒等関数 $g_2(x)=x$ に対し、[状態写像に対する Koopman 作用素](#def-pml1-21-koopman)の定義から $(K_Fg_1)(x)=g_1(F(x))=1$、$(K_Fg_2)(x)=g_2(F(x))=-2x$。従って
 
 $$
 (1,F(x))=(1,x)
