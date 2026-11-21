@@ -95,7 +95,7 @@ chapters:
     title: "物理制約付きモデルは本当に優れるか"
   - id: PML2-01
     path: textbook/volumes/dream_thater/応用系/PML/PML2-01
-    status: planned
+    status: completed
     title: "何を「PDEを解く」と呼ぶか"
   - id: PML2-02
     path: textbook/volumes/dream_thater/応用系/PML/PML2-02
