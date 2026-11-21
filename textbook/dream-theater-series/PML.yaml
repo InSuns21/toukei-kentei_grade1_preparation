@@ -87,7 +87,7 @@ chapters:
     title: "連続系の保存則と数値積分での保存は同じか"
   - id: PML1-21
     path: textbook/volumes/dream_thater/応用系/PML/PML1-21
-    status: planned
+    status: completed
     title: "データから動力学を同定すると何が失われるか"
   - id: PML1-22
     path: textbook/volumes/dream_thater/応用系/PML/PML1-22
