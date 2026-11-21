@@ -18,7 +18,21 @@ $$
 ds_G^2=\frac{\ell^2}{z^2}(-dT^2+dz^2)
 $$
 
-を置きます。[BHI21の正則化境界](../BHI21/index.md#def-bhi21-regulated-boundary)のLorentz版として、重力側の接合曲線を $u\mapsto(T,z)=(F(u),Z(u))$ と書き、この曲線を $\Sigma_G$ と呼びます。ここで $F'=dF/du$、$Z'=dZ/du$ とし、二階・三階のプライムも同じ変数 $u$ に関する常微分を表します。接線は $(dT/du,dz/du)=(F',Z')$ です。$F'>0$、$Z>0$、$F'^2>Z'^2$ として時間的曲線を選びます。$i_G^*g_G$ はこの接線へ計量を引き戻した誘導計量であり、$dT=F'du$、$dz=Z'du$ を代入すると、
+を置きます。[BHI21の正則化境界](../BHI21/index.md#def-bhi21-regulated-boundary)のLorentz版として、重力側の接合曲線を次のように表し、$\Sigma_G$ と呼びます。
+
+$$
+u\longmapsto(T,z)=(F(u),Z(u)).
+$$
+
+プライムは境界時刻 $u$ に関する常微分を表し、二階・三階でも微分変数は同じです。接線とその成分は
+
+$$
+\frac{dT}{du}=F'(u),\qquad \frac{dz}{du}=Z'(u)
+$$
+
+です。$F'>0$、$Z>0$、$F'^2>Z'^2$ を課せば、曲線は未来向きで時間的です。
+
+$i_G^*g_G$ は接線へ計量を引き戻した誘導計量です。$dT=F'du$、$dz=Z'du$ を代入すると、
 
 $$
 i_G^*g_G=-\frac{\ell^2}{Z^2}(F'^2-Z'^2)\,du^2.
@@ -663,7 +677,38 @@ $$
 - 問題: $C,k>0$、$[C]=L$、$[k]=L^{-1}$ として $E=Ck^2/2$ を指定する。基準長さ $L_*>0$ を用い、二階方程式 $y''-Ey/(2C)=0$ の二解を与え、その比を長さの次元の時計 $F$ としてSchwarzianを検算せよ。また、入射のない完全透過浴でこれが定常蒸発解になるか述べよ。
 
 <!-- solution-start -->
-**詳細解答。** $E/(2C)=k^2/4$ なので $y''-(k^2/4)y=0$。[局所境界時計の構成命題](#prop-bhi22-local-clock)に従い $y_1=L_*e^{ku/2}$、$y_2=e^{-ku/2}$ を取ると、二回微分で各々 $(k^2/4)y_i$ に戻り、$W=L_*k>0$ です。比 $F=L_*e^{ku}$ は長さの次元を持ち、$F'=L_*ke^{ku}>0$、$F''/F'=k$、$F'''/F'=k^2$。よって $\{F,u\}=k^2-\frac32k^2=-k^2/2=-E/C$。ただし[真空浴の減衰命題](#prop-bhi22-energy-decay)では $P=\gamma E>0$ と $\dot E=-P$ が必要です。今回の定数 $E>0$ は $\dot E=0$ なので両立しません。時計の幾何学的構成と放射付きの力学方程式は別です。
+**詳細解答。** $E/(2C)=k^2/4$ なので、求める二階方程式は
+
+$$
+y''-\frac{k^2}{4}y=0.
+$$
+
+[局所境界時計の構成命題](#prop-bhi22-local-clock)に従って二解を
+
+$$
+y_1=L_*e^{ku/2},\qquad y_2=e^{-ku/2}
+$$
+
+と選びます。各解を二回微分すると $(k^2/4)y_i$ に戻り、Wronskianも
+
+$$
+W=y_1'y_2-y_1y_2'=L_*k>0
+$$
+
+と確かめられます。したがって、長さの次元を持つ時計 $F=y_1/y_2=L_*e^{ku}$ の導関数は
+
+$$
+F'=L_*ke^{ku}>0,\qquad
+\frac{F''}{F'}=k,\qquad \frac{F'''}{F'}=k^2.
+$$
+
+[Schwarzianの定義](../../QCURV/QCURV16/index.md#def-qcurv16-schwarzian)に代入すると
+
+$$
+\{F,u\}=k^2-\frac32k^2=-\frac{k^2}{2}=-\frac{E}{C}.
+$$
+
+ただし[真空浴の減衰命題](#prop-bhi22-energy-decay)では $P=\gamma E>0$ と $\dot E=-P$ が必要です。今回の定数 $E>0$ では $\dot E=0$ なので両立しません。時計の幾何学的構成と放射付きの力学方程式は別です。
 <!-- solution-end -->
 
 ### Level C：模型を作り、どの結論まで出せるか確かめる
@@ -689,7 +734,13 @@ P_{\rm out}=-\frac{c_{\rm m}}{24\pi}\{F,u\}
 =\frac{c_{\rm m}}{24\pi C}E.
 $$
 
-$\gamma=c_{\rm m}/(24\pi C)>0$ と置き、$\dot E=-P_{\rm out}$ を解くと $dE/E=-\gamma du$、よって $E(u)=E_0e^{-\gamma(u-u_0)}$。準静的に[BHI21の熱的エネルギー公式](../BHI21/index.md#prop-bhi21-thermal-thermodynamics) $E=2\pi^2CT_{\rm eff}^2$ を用いる場合に限って
+$\gamma=c_{\rm m}/(24\pi C)>0$ と置き、$\dot E=-P_{\rm out}$ を解くと $dE/E=-\gamma du$、よって $E(u)=E_0e^{-\gamma(u-u_0)}$。準静的近似の下で、[熱的Schwarzian鞍点の熱力学](../BHI21/index.md#prop-bhi21-thermal-thermodynamics)から得た
+
+$$
+E=2\pi^2CT_{\rm eff}^2
+$$
+
+を各時刻に適用する場合に限って
 
 $$
 T_{\rm eff}(u)=\sqrt{\frac{E_0}{2\pi^2C}}\,
