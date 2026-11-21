@@ -384,3 +384,232 @@ $$
 
 この体では基本単数は $\varepsilon$ で、対数格子は $\mathbb Z(\log\varepsilon,-\log\varepsilon)$、レギュレータは $\log(1+\sqrt2)$ です。単数が無限にあっても、主イデアル $(\varepsilon^m)=A$ はすべて同じです。
 
+## 9. 演習：対数、格子、レギュレータを手で確かめる
+
+まず単元のノルム判定と対数座標の計算を練習し、次に単数定理の証明の各橋渡しを独立に再現します。最後に別の実二次体で基本単数とレギュレータを決定します。
+
+### A1. $\mathbb Q$ の単数群と階数
+
+$K=\mathbb Q$ について $U_K,\mu(K),r_1,r_2,H,L(U_K),R_K$ をすべて求めよ。
+
+- Level: A
+- ID: ANF7-A1
+
+<!-- solution-start -->
+**詳細解答**　$\mathcal O_K=\mathbb Z$ で、整数 $a$ が整数の逆元をもつのは $a=\pm1$ のときだけです。従って $U_K=\{\pm1\}=\mu(K)$。唯一の埋め込みは恒等写像なので $r_1=1,r_2=0,s=1$、$H=\{x\in\mathbb R:x=0\}=\{0\}$ です。$L(\pm1)=(\log1)=(0)$ なので対数像は零群、自由階数 $s-1=0$。レギュレータの[空行列の規約](#def-anf7-regulator)から $R_K=1$ です。
+<!-- solution-end -->
+
+### A2. $\mathbb Q(i)$ の有限単数群
+
+$K=\mathbb Q(i)$ の単数をノルム方程式から列挙し、対数写像の核と自由階数を示せ。
+
+- Level: A
+- ID: ANF7-A2
+
+<!-- solution-start -->
+**詳細解答**　[二次体の整数環公式](../ANF1/index.md#thm-anf1-quadratic-integers)より $\mathcal O_K=\mathbb Z[i]$ です。$a+bi$（$a,b\in\mathbb Z$）のノルムは $a^2+b^2$。[単元のノルム判定](../ANF2/index.md#prop-anf2-unit-norm)より単数の条件は $a^2+b^2=1$ であり、整数解は $(a,b)=(1,0),(-1,0),(0,1),(0,-1)$ です。従って $U_K=\{\pm1,\pm i\}=\mu(K)$。$r_1=0,r_2=1$ より $H=\{0\}$ で、全単数の対数は $(2\log1)=(0)$。したがって $\ker L=U_K$、自由階数0です。
+<!-- solution-end -->
+
+### A3. $\mathbb Q(\sqrt2)$ の対数ベクトル
+
+$\varepsilon=1+\sqrt2$ の逆元とノルムを求め、$L(\varepsilon^m)$ と $L(-\varepsilon^m)$ を任意の整数 $m$ について計算せよ。
+
+- Level: A
+- ID: ANF7-A3
+
+<!-- solution-start -->
+**詳細解答**　$(1+\sqrt2)(\sqrt2-1)=1$ から $\varepsilon^{-1}=\sqrt2-1$、ノルムは $(1+\sqrt2)(1-\sqrt2)=-1$ です。二つの実埋め込みにおける絶対値は $\varepsilon,\varepsilon^{-1}$ なので[対数写像](#def-anf7-log-embedding)から
+
+$$
+L(\varepsilon)=(\log\varepsilon,-\log\varepsilon).
+$$
+
+> $L$ は乗法準同型で、$L(-1)=(0,0)$ です。従って任意の $m\in\mathbb Z$ で
+
+$$
+L(\varepsilon^m)=L(-\varepsilon^m)
+=(m\log\varepsilon,-m\log\varepsilon).
+$$
+
+> 和が0になることは $|N(\varepsilon^m)|=1$ と一致します。
+<!-- solution-end -->
+
+### A4. $\mathbb Q(\sqrt3)$ で単数を直接見つける
+
+$\mathcal O_{\mathbb Q(\sqrt3)}=\mathbb Z[\sqrt3]$ とする。$2+\sqrt3$ と $1+\sqrt3$ のノルムを計算し、どちらが単数か判定せよ。単数の方について逆元も明示せよ。
+
+- Level: A
+- ID: ANF7-A4
+
+<!-- solution-start -->
+**詳細解答**　実二次体の共役を用いると $N(a+b\sqrt3)=a^2-3b^2$ です。従って $N(2+\sqrt3)=4-3=1$、$N(1+\sqrt3)=1-3=-2$。[単元のノルム判定](../ANF2/index.md#prop-anf2-unit-norm)により $2+\sqrt3$ は単数で、$1+\sqrt3$ は単数ではありません。また
+
+$$
+(2+\sqrt3)(2-\sqrt3)=1
+$$
+
+> なので逆元 $2-\sqrt3$ も $\mathbb Z[\sqrt3]$ に属します。単に実数として逆数が存在するだけでは、整数環の単数とは判定できません。
+<!-- solution-end -->
+
+### A5. 複素埋め込みの重み2
+
+$\theta$ を $f(T)=T^3-T-1$ の唯一の実根とし、$K=\mathbb Q(\theta)$ とする。$f$ の既約性、実根が一つであること、$\theta$ が単数であることを確かめよ。二つの非実共役根の一方を $\tau(\theta)$ とし、$L(\theta)$ を $\theta$ を用いて表せ。ただし $\theta>1$ とする。
+
+- Level: A
+- ID: ANF7-A5
+
+<!-- solution-start -->
+**詳細解答**　有理根定理により、モニック三次式 $f$ が有理根を持つなら候補は $\pm1$ のみですが、$f(1)=-1,\ f(-1)=-1$ です。よって既約で $[K:\mathbb Q]=3$。$f'(T)=3T^2-1$ で、極大点 $T=-1/\sqrt3$ でも $f(T)=2/(3\sqrt3)-1<0$。従ってグラフは負の極大値から下がり、その後一度だけ零を横切ります。$f(1)=-1,\ f(2)=5$ より唯一の実根 $\theta$ は $1<\theta<2$ です。
+
+$\theta$ はモニック整数係数多項式の根なので代数的整数です。根の積は $-(-1)=1$ で、[ノルムの埋め込み公式](../ANF2/index.md#thm-anf2-embedding-formulas)から $N_{K/\mathbb Q}(\theta)=1$。従って [単元のノルム判定](../ANF2/index.md#prop-anf2-unit-norm)で $\theta$ は単数です。実埋め込み1個、複素共役組1組なので $r_1=r_2=1$。根の積から $\theta|\tau(\theta)|^2=1$、すなわち $|\tau(\theta)|^2=\theta^{-1}$ です。よって
+
+$$
+L(\theta)=(\log\theta,\ 2\log|\tau(\theta)|)
+=(\log\theta,-\log\theta).
+$$
+
+> 複素成分に係数2を付けて初めて二つの座標の和が零になります。ここから $\theta$ が**基本単数**とまでは結論しません。
+<!-- solution-end -->
+
+### B1. 対数像の離散性を独力で証明する
+
+任意の数体 $K$ で、$L(u)$ が一定の有界集合に属する単数 $u$ は有限個であると示せ。なぜ $L(U_K)$ が離散群となるかも説明せよ。
+
+- Level: B
+- ID: ANF7-B1
+
+<!-- solution-start -->
+**詳細解答**　有界集合 $B\subset\mathbb R^s$ に $L(u)$ が入るなら、ある $M$ により各座標 $L_i(u)\leq M$ です。実埋め込みでは $|\sigma_i(u)|\leq e^M$、複素では $|\tau_j(u)|\leq e^{M/2}$。よって $j(u)$ は $\mathbb R^{r_1}\times\mathbb C^{r_2}$ の有界集合に入ります。[整数環の全階数格子](../ANF5/index.md#thm-anf5-ideal-covolume)は有界集合と有限個しか交わらず、$j$ は単射なので候補となる $u$ は有限個です。
+
+従って $L(U_K)$ は任意の有界集合と有限個しか交わりません。特に原点を含む閉球内の $\Gamma=L(U_K)$ は有限集合なので、原点以外の最小距離を取れば原点の近傍から非零の $\Gamma$ を排除できます（球内に原点以外がなければその球自体を採用します）。$\Gamma$ は加法群なので任意の点も平行移動で孤立し、離散群となります。
+<!-- solution-end -->
+
+### B2. Kronecker の有限位数判定
+
+$0\ne a\in\mathcal O_K$ がすべての埋め込み $\sigma:K\hookrightarrow\mathbb C$ について $|\sigma(a)|\leq1$ を満たすなら、$a$ は1の冪根であることを証明せよ。ヒント：$a^m$ の乗法写像の特性多項式を調べる。
+
+- Level: B
+- ID: ANF7-B2
+
+<!-- solution-start -->
+**詳細解答**　$[K:\mathbb Q]=n$ とします。各 $m\geq1$ で $a^m\in A$ なので、[整数基底](../ANF1/index.md#thm-anf1-integral-basis)に関する「$a^m$ を掛ける写像」は整数係数 $n\times n$ 行列を持ちます。従って特性多項式 $P_m(T)$ は次数 $n$ のモニック整数係数多項式です。
+
+[埋め込みによるノルムと特性根の表示](../ANF2/index.md#thm-anf2-embedding-formulas)により、$P_m$ の根は重複込みで $\sigma(a^m)=\sigma(a)^m$ です。仮定からこれらの絶対値はすべて1以下です。$T^{n-j}$ の係数は根 $n$ 個の $j$ 個積を符号付きで足した値なので、絶対値は高々 $\binom nj$。従って $P_m$ の各係数は有限個の整数値しか取れず、多項式 $P_m$ 自体も有限種類です。
+
+各多項式の複素根は高々 $n$ 個なので、$a^m$ はそれら有限個の根の集合に属します。従って異なる $p<q$ で $a^p=a^q$。$a\ne0$ で体 $K$ の元だから割り算でき、$a^{q-p}=1$ です。ゆえに $a$ は1の冪根です。**代数的整数であるという仮定**は、特性多項式の係数が整数になる箇所で使いました。
+<!-- solution-end -->
+
+### B3. 動かせる凸体を実二次体で具体化する
+
+$K=\mathbb Q(\sqrt5)$、$x=(t,-t)\in H$、$t\in\mathbb R$ とする。$R=2$ に対して
+
+$$
+C_x=\{(y_1,y_2)\in\mathbb R^2:
+|y_1|\leq2e^t,\ |y_2|\leq2e^{-t}\}
+$$
+
+> と置く。$(i)$ 体積と Minkowski の適用条件を確認せよ。$(ii)$ 得られる非零代数的整数 $a$ のノルム上界を求めよ。$(iii)$ 主イデアルの種類が有限個であることを用いて、$L(U_K)$ が $H$ を一定距離以内で被覆する理由を説明せよ。
+
+- Level: B
+- ID: ANF7-B3
+
+<!-- solution-start -->
+**詳細解答**　[二次体の判別式公式](../ANF2/index.md#thm-anf2-quadratic-discriminant)より $D_K=5$ です。$(i)$ 辺の長さは $4e^t,4e^{-t}$ なので $\operatorname{vol}(C_x)=16$。一方 [整数環の共体積](../ANF5/index.md#thm-anf5-ideal-covolume)は $\sqrt5$ で、二次元の凸体定理の閾値は $2^2\sqrt5=4\sqrt5<16$ です。$C_x$ は対称凸体だから、$j(A)$ の非零点 $j(a)$ を含みます。
+
+$(ii)$ 二つの実埋め込みの積は体ノルムだから
+
+$$
+1\leq |N_{K/\mathbb Q}(a)|
+=|\sigma_1(a)\sigma_2(a)|
+\leq(2e^t)(2e^{-t})=4.
+$$
+
+> $(iii)$ [ノルム有界な整イデアルの有限性](../ANF6/index.md#lem-anf6-bounded-ideal-norm)から $N((a))\leq4$ を満たす主整イデアルは有限個です。それらの生成元 $b_1,\ldots,b_h$ を固定すると、$(a)=(b_j)$ となる $j$ があり、$u=a/b_j$ は単数です。$d=L(a)-x$ の第一・第二成分はどちらも上から $\log2$、和は $\log|N(a)|\geq0$ なので、どちらも下から $-\log2$ です。従って
+
+$$
+\|L(u)-x\|_\infty
+=\|d-L(b_j)\|_\infty
+\leq\log2+\max_{1\leq j\leq h}\|L(b_j)\|_\infty.
+$$
+
+> 右辺は $t$ と無関係で、有界距離被覆を示しました。ここでは主イデアルの生成元をすべて列挙する必要はありません。
+<!-- solution-end -->
+
+### B4. 行の削除と対数格子の面積
+
+$r_1+r_2=3$ で自由階数2の場合、単数の対数列が
+
+$$
+M=\begin{pmatrix}
+a&b\\ c&d\\-a-c&-b-d
+\end{pmatrix}
+$$
+
+> であるとする。任意の一行を消した行列式の絶対値を求め、$H=\{x_1+x_2+x_3=0\}$ 内の格子基本領域のユークリッド面積を計算せよ。さらに基本単数の整数基底変更で値が不変であることを示せ。
+
+- Level: B
+- ID: ANF7-B4
+
+<!-- solution-start -->
+**詳細解答**　第三行を削除すると行列式は $ad-bc$。第二行削除なら $a(-b-d)-b(-a-c)=bc-ad$、第一行削除なら $c(-b-d)-d(-a-c)=ad-bc$ です。したがって [レギュレータの定義](#def-anf7-regulator)による値は $R_K=|ad-bc|$ です。
+
+$H$ の座標表示 $(y_1,y_2)\mapsto(y_1,y_2,-y_1-y_2)$ における基底列は $(1,0,-1)$ と $(0,1,-1)$ です。内積の Gram 行列は
+
+$$
+G=\begin{pmatrix}2&1\\1&2\end{pmatrix},
+\qquad\det G=3.
+$$
+
+> 従って対数格子の基本平行四辺形の面積は $\sqrt{\det(M_0^{\mathsf T}GM_0)}=\sqrt3\,|\det M_0|=\sqrt3\,|ad-bc|$（$M_0$ は上二行）です。基本単数の変更は指数の整数係数行列 $P\in\mathrm{GL}_2(\mathbb Z)$ を右から掛ける操作で、$|\det P|=1$。従って $\det(M_0P)$ の絶対値も変わりません。ユークリッド面積をレギュレータと取り違えると $\sqrt3$ 倍の誤差が生じます。
+<!-- solution-end -->
+
+### C1. $\mathbb Q(\sqrt3)$ の全単数とレギュレータ
+
+$K=\mathbb Q(\sqrt3)$、$\mathcal O_K=\mathbb Z[\sqrt3]$ とする。以下を証明せよ。
+
+1. $\varepsilon=2+\sqrt3$ は単数であり、第一実埋め込みで $1<u<2+\sqrt3$ を満たす単数 $u$ は存在しない。
+2. $U_K=\{\pm(2+\sqrt3)^m:m\in\mathbb Z\}$ を示せ。
+3. 対数格子の基底と $R_K$ を求めよ。$2$ と $1+\sqrt3$ が基本単数でない理由も述べよ。
+
+- Level: C
+- ID: ANF7-C1
+
+<!-- solution-start -->
+**詳細解答**　まず[二次体の整数環公式](../ANF1/index.md#thm-anf1-quadratic-integers)から $A=\mathbb Z[\sqrt3]$ です。ノルム公式は $N(a+b\sqrt3)=a^2-3b^2$。$N(2+\sqrt3)=4-3=1$ なので [単元のノルム判定](../ANF2/index.md#prop-anf2-unit-norm)から $\varepsilon$ は単数で、$\varepsilon^{-1}=2-\sqrt3\in A$ です。
+
+第一実埋め込みで $1\leq t=\sigma_1(v)<\varepsilon$ を満たす単数 $v=a+b\sqrt3$ を考えます。第二実埋め込みの値を $t'=\sigma_2(v)$ とすると $tt'=\pm1$ なので $|t'|=1/t\leq1$。二つの埋め込み値から
+
+$$
+a=\frac{t+t'}2,\qquad b=\frac{t-t'}{2\sqrt3}.
+$$
+
+> $1\leq t<2+\sqrt3$ と $|t'|\leq1$ より
+
+$$
+0\leq b<\frac{3+\sqrt3}{2\sqrt3}<2.
+$$
+
+> 整数 $b$ は0か1です。$b=0$ の場合は整数 $a$ が正の単数だから $a=1$。$b=1$ の場合、$1\leq a+\sqrt3<2+\sqrt3$ により整数 $a$ は0か1です。しかし $N(\sqrt3)=-3$、$N(1+\sqrt3)=-2$ なのでどちらも単数ではありません。従って $v=1$ だけであり、$1<u<\varepsilon$ の単数は存在しません。
+
+任意の $u\in U_K$ について、第一実埋め込みの符号を $-1$ の乗法で正に変えられます。$\varepsilon>1$ なのである $m\in\mathbb Z$ を選んで $1\leq\sigma_1(\pm u\varepsilon^{-m})<\varepsilon$ とできます。括弧内は単数ですから前段により1となり、$u=\pm\varepsilon^m$ です。$\varepsilon^m$ はいずれも単数なので逆向きの包含も成立します。これで第1・2問が示されました。
+
+最後に $r_1=2,r_2=0$、$N(\varepsilon)=1$ から第二埋め込み値は $\varepsilon^{-1}$ です。[対数写像](#def-anf7-log-embedding)より
+
+$$
+L(\varepsilon)=(\log(2+\sqrt3),-\log(2+\sqrt3)).
+$$
+
+> したがって $L(U_K)=\mathbb Z L(\varepsilon)$ であり、[レギュレータの定義](#def-anf7-regulator)から
+
+$$
+R_K=\log(2+\sqrt3).
+$$
+
+> $2$ はノルム $4$、$1+\sqrt3$ はノルム $-2$ なので単数ですらありません。大きさが1を超える代数的整数なら何でも基本単数になる、という推論は成り立ちません。
+<!-- solution-end -->
+
+## 10. 次講へ：単数格子がゼータ関数に現れる
+
+[イデアル類群の有限性](../ANF6/index.md#thm-anf6-minkowski-class-bound)はイデアル類の個数 $h_K$ を有限とし、本講の [Dirichlet 単数定理](#thm-anf7-dirichlet-unit)は単数の自由階数を決定しました。さらに [レギュレータ](#def-anf7-regulator)はその格子の大きさを表します。次の ANF8 では、これらが Dedekind ゼータ関数の $s=1$ における留数に組み合わさる仕組みを扱います。
+
+参考となる講義ノート：J. S. Milne, *Algebraic Number Theory*, Chapter 5；MIT 18.785, *Number Theory I*, Lecture 15（Dirichlet's Unit Theorem）。本講の証明と演習は、既習の凸体・イデアル有限性から紙上で再構成できるように記したものです。
