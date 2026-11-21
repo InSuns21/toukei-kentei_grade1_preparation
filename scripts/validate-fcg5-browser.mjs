@@ -89,39 +89,11 @@ try {
   assert.equal(await evaluate('document.querySelectorAll("[role=tabpanel]").length'),3);
   assert.match(await evaluate('document.querySelector("#js-source").value'),/texImage2D/);
   assert.match(await evaluate('document.querySelector("#fragment-source").value'),/texelFetch/);
-  // Observation studio must really animate on screen, not merely describe the
-  // 12x12 editable model. It is intentionally a different, higher-resolution
-  // 2D flow with WebGL2 display and its own CPU state.
-  const visual=await evaluate('(()=>{const c=document.querySelector(".visual-smoke canvas");const r=c?.getBoundingClientRect();return {count:document.querySelectorAll(".visual-smoke canvas").length,wide:r?.width,tall:r?.height,gpu:document.querySelector(".visual-renderer-status")?.textContent,clock:document.querySelector(".visual-clock")?.textContent}})()');
-  assert.equal(visual.count,1);
-  assert.ok(visual.wide>280&&Math.abs(visual.wide-visual.tall)<2,JSON.stringify(visual));
-  assert.match(visual.gpu,/WebGL2/);
-  const beforeClock=Number(visual.clock.match(/([0-9]+\.[0-9]+) s/)?.[1]||0);
-  await new Promise(ok=>setTimeout(ok,340));
-  const afterClock=await evaluate('Number(document.querySelector(".visual-clock").textContent.match(/([0-9]+\.[0-9]+) s/)?.[1]||0)');
-  assert.ok(afterClock>beforeClock,'requestAnimationFrame must advance model time');
-  await evaluate('document.querySelector(".visual-smoke canvas").scrollIntoView({block:"center"})');
-  const bounds=await evaluate('(()=>{const r=document.querySelector(".visual-smoke canvas").getBoundingClientRect();return {x:r.left,y:r.top,w:r.width,h:r.height}})()');
-  const x=bounds.x+bounds.w*.45,y=bounds.y+bounds.h*.45;
-  await cdp('Input.dispatchMouseEvent',{type:'mouseMoved',x,y,buttons:0});
-  await cdp('Input.dispatchMouseEvent',{type:'mousePressed',x,y,button:'left',buttons:1,clickCount:1});
-  await cdp('Input.dispatchMouseEvent',{type:'mouseMoved',x:x+28,y:y+18,buttons:1});
-  await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:x+28,y:y+18,button:'left',buttons:0,clickCount:1});
-  await waitFor('Number(document.querySelector(".visual-renderer-status")?.dataset.inputCount||0)>0');
-  console.log('FCG5 live WebGL2 color, square layout, rAF time and pointer dye injection: PASS');
-  // G4: the independent 80x80 observation must also honor a motion preference
-  // changed *after* loading, without destroying the interactive dye canvas.
-  await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
-  await waitFor('document.querySelector(".visual-smoke [data-action=play]")?.textContent==="再生"');
-  const frozenTime=await evaluate('document.querySelector(".visual-clock").textContent');
-  await new Promise(ok=>setTimeout(ok,350));
-  assert.equal(await evaluate('document.querySelector(".visual-clock").textContent'),frozenTime);
-  await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
-  await new Promise(ok=>setTimeout(ok,180));
-  assert.equal(await evaluate('document.querySelector(".visual-clock").textContent'),frozenTime);
-  await evaluate('document.querySelector(".visual-smoke [data-action=play]").click()');
-  await waitFor('document.querySelector(".visual-clock")?.textContent!=='+JSON.stringify(frozenTime));
-  console.log('G4 FCG5 motion preference pauses on change and resumes only on Play: PASS');
+  // The initial task must lead to the actual sandboxed learner source.
+  // A second independent 80x80 fluid canvas must not be mounted.
+  assert.equal(await evaluate('document.querySelectorAll(".visual-smoke canvas").length'),0);
+  assert.match(await evaluate('document.querySelector(".visual-guide")?.textContent || document.querySelector("#panel-conditions")?.textContent'),/12×12/);
+  assert.equal(await evaluate('document.querySelector("#canvas-slot iframe")===null'),true);
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
   const initial=await evaluate('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(x=>x.textContent)),log:document.querySelector("#diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox"),opaque:(()=>{try{return !!document.querySelector("#canvas-slot iframe").contentWindow.document.body}catch{return true}})()})');
@@ -136,8 +108,8 @@ try {
   assert.equal(initial.sandbox,'allow-scripts');
   assert.equal(initial.opaque,true);
   console.log('FCG5 actual GPU texture, nine readPixels, independent CPU and opaque sandbox: PASS');
-  // Source-linked mode runs *inside the learner JS sandbox*, not the separate
-  // 80x80 Canvas/WebGL observation. Crop to the isolated runner iframe.
+  // The only running observation is the source-linked learner JS sandbox.
+  // Crop to its actual GPU canvas, not an independent reference simulation.
   await evaluate('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"center"})');
   await new Promise(ok=>setTimeout(ok,180));
   const linkedBox=await evaluate('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height};})()');
@@ -148,6 +120,40 @@ try {
   const linkedSecond=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
   assert.notEqual(linkedFirst.data,linkedSecond.data,'real 12x12 solver should change GPU dye frames over time');
   console.log('FCG5 editable 12x12 MAC solver animates actual GPU dye frames: PASS');
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("再生中")',25000);
+  const focusPoint=await evaluate('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2};})()');
+  await cdp('Input.dispatchMouseEvent',{type:'mousePressed',x:focusPoint.x,y:focusPoint.y,button:'left',buttons:1,clickCount:1});
+  await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:focusPoint.x,y:focusPoint.y,button:'left',buttons:0,clickCount:1});
+  // Focus the real sandbox canvas before freezing screenshots, so an outline
+  // change alone cannot be mistaken for a resumed physical animation.
+  // G4: switching reduced motion at runtime pauses the very same editable
+  // solver. Removing the preference alone must not resume physical steps.
+  await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("一時停止中")',25000);
+  // Motion is emitted from the sandbox after the initial readPixels report;
+  // verify the actual image, not the initial-only diagnostic snapshot.
+  await new Promise(ok=>setTimeout(ok,350));
+  const frozenStep=await evaluate('document.querySelector("#fcg5-live-state").textContent');
+  const frozenFirst=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
+  await new Promise(ok=>setTimeout(ok,550));
+  const frozenSecond=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
+  assert.equal(await evaluate('document.querySelector("#fcg5-live-state").textContent'),
+    frozenStep,'live physics steps must remain frozen under reduced motion');
+  assert.equal(frozenSecond.data,frozenFirst.data,'real solver GPU dye must stop when OS reduces motion');
+  await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
+  await new Promise(ok=>setTimeout(ok,450));
+  const stillFrozen=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
+  assert.equal(stillFrozen.data,frozenFirst.data,'removing reduced motion must not auto-resume real solver');
+  assert.equal(await evaluate('document.querySelector("#fcg5-live-state").textContent'),
+    frozenStep,'removing preference must not advance physical steps');
+  await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:' ',code:'Space',windowsVirtualKeyCode:32,nativeVirtualKeyCode:32,text:' '});
+  await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:' ',code:'Space',windowsVirtualKeyCode:32,nativeVirtualKeyCode:32});
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("再生中")',25000);
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.match(/step (\\d+)/)?.[1] !== '+JSON.stringify(frozenStep.match(/step (\d+)/)?.[1]),10000);
+  const resumed=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
+  assert.notEqual(resumed.data,frozenFirst.data,'Space must resume the same GPU fluid solver');
+  console.log('FCG5 single solver reduced-motion change, no auto-resume and keyboard Space: PASS');
+
 
 
   await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="1ステップ")).click()');
@@ -171,8 +177,8 @@ try {
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
   console.log('FCG5 editable GLSL, shader compile error, reset and recovery: PASS');
 
-  // G2: parameters must drive the learner's editable 12x12 MAC source and
-  // the independent CPU oracle, not the separate 80x80 observation studio.
+  // G2: GUI parameters, the animation and the independent CPU oracle all
+  // target the same editable 12x12 MAC source.
   await click('tab-conditions');
   const gui=await evaluate('(()=>{const n=document.querySelector("#parameter-nu"),f=document.querySelector("#parameter-force");return {nu:n?.value,force:f?.value,nuDisabled:n?.disabled,forceDisabled:f?.disabled,labels:[...document.querySelectorAll("#lab-parameters .lab-parameter-row small")].map(x=>x.textContent)}})()');
   assert.equal(gui.nu,'0.002');assert.equal(gui.force,'0.08');
@@ -192,6 +198,8 @@ try {
   await click('save');
   await cdp('Page.reload',{ignoreCache:true});
   await waitFor('document.querySelector("#status")?.textContent==="実行できます"',25000);
+  assert.equal(await evaluate('document.querySelectorAll(".visual-smoke canvas").length'),0,
+    'reload must not restore the independent fluid observation');
   assert.match(await evaluate('document.querySelector("#js-source").value'),/nu=0\.012,forceAmplitude=0\.02/);
   assert.equal(await evaluate('document.querySelector("#parameter-nu").value'),'0.012');
   assert.equal(await evaluate('document.querySelector("#parameter-force").value'),'0.02');
