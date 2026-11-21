@@ -380,6 +380,9 @@ function isolatedRunner() {
              typeof d.playing!=='boolean')return;
           send({...scope,type:'fcg5-physics-progress',step:d.step,playing:d.playing});
         });
+        // Get the state that is already running in the editable learner JS.
+        // Its first physics tick may predate the relay or be delayed by rAF.
+        canvas.dispatchEvent(new Event('fcg5-request-progress'));
       }
       const fcg8Hooks=request.lesson==='FCG8'&&!!hooks&&
         ['play','pause','step','reset'].every(key=>typeof hooks[key]==='function');
