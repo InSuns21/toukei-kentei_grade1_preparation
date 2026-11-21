@@ -209,7 +209,7 @@ H=\begin{pmatrix}2&1\\1&2\end{pmatrix},
 H^{-1}=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}.
 $$
 
-この $H$ は $\phi(u)=\frac12u^{\mathsf T}Hu$ の座標基底でのHessian行列であり、$\check g$ の $du$・$dv$ 成分にもなる。$H$ の対称性は表示から確認でき、任意の零でない $w=(a,b)^{\mathsf T}$ に対して
+[Hessian計量の定義](../SYZ1-09/index.md#def-syz1-09-hessian-metric)によれば、この $H$ は $\phi(u)=\frac12u^{\mathsf T}Hu$ の座標基底でのHessian行列であり、$\check g$ の $du$・$dv$ 成分にもなる。$H$ の対称性は表示から確認でき、任意の零でない $w=(a,b)^{\mathsf T}$ に対して
 
 $$
 w^{\mathsf T}Hw=2a^2+2ab+2b^2=(a+b)^2+a^2+b^2>0
