@@ -46,7 +46,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi23-no-island-ledger -->
-**定義の確認**：$b=1$、$L=4$、$a=10^{-2}$、$c=1$、$t=0$、状態を平坦真空とします。$0<b<L$、$\ell_R=3\gg a$ で、観測区間は完全に浴にあり、端点もcutoffも指定しました。[BHI18の真空区間命題](../BHI18/index.md#prop-bhi18-vacuum-bath)から
+**定義の確認**：$b=1$、$L=4$、$a=10^{-2}$、$c=1$、$t=0$、状態を平坦真空とします。$0<b<L$、$\ell_R=3\gg a$ で、観測区間は完全に浴にあり、端点もcutoffも指定しました。[透過的な平坦浴での真空区間普遍項](../BHI18/index.md#prop-bhi18-vacuum-bath)から
 
 $$
 S_{\rm no\text{-}island}^{(a)}=\frac13\ln300+k+o(1),
@@ -624,7 +624,7 @@ $$
 =-\kappa^2(p-p^2/2).
 $$
 
-[BHI22の異常流束命題](../BHI22/index.md#prop-bhi22-anomalous-flux)を使えば
+[透過浴のSchwarzian出射流束](../BHI22/index.md#prop-bhi22-anomalous-flux)を使えば
 
 $$
 F(u)=\frac{c\kappa^2}{24\pi}(p-p^2/2).
@@ -693,7 +693,7 @@ f(u_b)-f(u_L)=\frac1\kappa\ln\frac{H+q}{1+q},
 \quad f'(u_L)=\frac1{1+q/H}.
 $$
 
-よって[BHI18の二端点尺度](../BHI18/index.md#def-bhi18-endpoint-scale)と[共形区間公式](../BHI18/index.md#prop-bhi18-conformal-bath)から
+よって[共形写像の端点間有効尺度](../BHI18/index.md#def-bhi18-endpoint-scale)と[共形変換で指定した浴状態の区間普遍項](../BHI18/index.md#prop-bhi18-conformal-bath)から
 
 $$
 \begin{aligned}
