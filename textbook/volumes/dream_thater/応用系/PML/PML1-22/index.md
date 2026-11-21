@@ -482,7 +482,7 @@ $H_S$ が $C^\infty$ 級で、$J$ が反対称であることも[HNNの保存定
 ### PML1-22-A02 LNNの質量を確かめる
 - Level: A
 
-$L(q,v)=v^2/2-2q^2/2$ を考える。速度 Hessian を求め、Euler–Lagrange 方程式から加速度を計算し、$p=v$ での速度行列を書け。
+$L(q,v)=v^2/2-2q^2/2$ を考える。速度 Hessian を求め、[Euler–Lagrange 方程式](../../../物理系/AMECH/AMECH2/index.md#thm-amech2-lagrange-equations)から加速度を計算し、$p=v$ での速度行列を書け。
 
 <!-- solution-start -->
 #### 詳細解答
