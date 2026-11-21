@@ -1,0 +1,55 @@
+chapter: BHI20
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI19]
+forward_references: []
+
+concepts:
+  - id: black-hole-information.jt-static-black-hole-patch
+    name: JTの静的ブラックホール外部パッチ
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（JTの静的ブラックホール外部パッチ）]
+    requires: [black-hole-information.jt-trace-hessian, black-hole-information.jt-curvature-equation]
+
+  - id: black-hole-information.jt-static-metric-solution
+    name: 静的dilatonから定まるJTブラックホール解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（静的dilatonから定まるJTブラックホール解）]
+    requires: [black-hole-information.jt-static-black-hole-patch, black-hole-information.jt-trace-hessian]
+
+  - id: black-hole-information.jt-euclidean-regularity-temperature
+    name: Euclid正則性とJTブラックホールの温度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Euclid正則性とJTブラックホールの温度）]
+    requires: [black-hole-information.jt-static-metric-solution]
+
+  - id: black-hole-information.jt-horizon-dilaton-entropy
+    name: 地平線dilatonと重力エントロピーの幾何項
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（地平線dilatonと重力エントロピーの幾何項）]
+    requires: [black-hole-information.jt-static-black-hole-patch, black-hole-information.jt-topological-entropy]
+
+  - id: black-hole-information.jt-horizon-entropy
+    name: JT重力の定常地平線エントロピー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（JT重力の定常地平線エントロピー）]
+    requires: [black-hole-information.jt-horizon-dilaton-entropy, black-hole-information.jt-action-boundary, black-hole-information.jt-euclidean-regularity-temperature]
+
+  - id: black-hole-information.jt-first-law-family
+    name: JTブラックホール族の第一法則と比熱
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（JTブラックホール族の第一法則と比熱）]
+    requires: [black-hole-information.jt-horizon-entropy, black-hole-information.jt-euclidean-regularity-temperature]
+
+  - id: black-hole-information.jt-dilaton-invariant
+    name: 真空JTにおけるdilatonの保存量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（真空JTにおけるdilatonの保存量）]
+    requires: [black-hole-information.jt-trace-hessian, black-hole-information.jt-static-metric-solution]
