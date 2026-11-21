@@ -156,6 +156,15 @@ try {
   assert.equal(stillFrozen.data,frozenFirst.data,'removing reduced motion must not auto-resume real solver');
   assert.equal(await evaluate('document.querySelector("#fcg5-live-state").textContent'),
     frozenStep,'removing preference must not advance physical steps');
+  // Screenshot capture and emulation can leave the page/iframe unfocused.
+  // Refocus the real sandbox canvas before testing its keyboard control.
+  await cdp('Page.bringToFront');
+  await evaluate('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"center"})');
+  const resumePoint=await evaluate('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2};})()');
+  await cdp('Input.dispatchMouseEvent',{type:'mousePressed',x:resumePoint.x,y:resumePoint.y,button:'left',buttons:1,clickCount:1});
+  await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:resumePoint.x,y:resumePoint.y,button:'left',buttons:0,clickCount:1});
+  assert.equal(await evaluate('document.activeElement===document.querySelector("#canvas-slot iframe")'),
+    true,'opaque WebGL iframe must own keyboard focus before Space');
   await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:' ',code:'Space',windowsVirtualKeyCode:32,nativeVirtualKeyCode:32,text:' '});
   await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:' ',code:'Space',windowsVirtualKeyCode:32,nativeVirtualKeyCode:32});
   await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("再生中")',25000);
