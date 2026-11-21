@@ -178,14 +178,14 @@ $$
 
 **例：** $\kappa=1$、$\ell_R=20$、$t-b=0$、$c=1$ とすると $q=1,H=e^{20}$ です。指数を数値化する前に対数を取ると、
 
-$
+$$
 \begin{aligned}
 D_f&=\bigl[20-\ln2+\ln(1+e^{-20})\bigr]
 \sqrt{2(1+e^{-20})}\simeq27.3040,\\
 \Delta S_L^{\rm univ}&=\frac16\ln\frac{D_f}{20}
 \simeq0.051884\ \mathrm{nat}.
 \end{aligned}
-$
+$$
 
 これは真空からの**差**であり、区間エントロピー全体の絶対値ではありません。
 
