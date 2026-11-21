@@ -55,7 +55,29 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf8-partial-zeta -->
-**定義の確認**　$\mathbb Q$ の類群は自明なので唯一の類 $C$ に対して $A_C(X)=\lfloor X\rfloor$ です。また [ANF6 の計算](../ANF6/index.md#thm-anf6-q-sqrt-minus-five-class-group)で $\mathbb Q(\sqrt{-5})$ の類群は2元と分かっています。この体のゼータ級数は2つの部分ゼータ級数の和になります。
+**定義の確認**　$\mathbb Q$ の類群は自明なので唯一の類 $C=[\mathbb Z]$ に対して $A_C(X)=\lfloor X\rfloor$ です。これは「整イデアルの類を固定する」という条件が制限を加えない例です。
+
+一方、$K=\mathbb Q(\sqrt{-5})$ では整数環が $A=\mathbb Z[\sqrt{-5}]$ です。[ANF6 の類群計算](../ANF6/index.md#thm-anf6-q-sqrt-minus-five-class-group)によると、次のイデアルは非主で、類群には2つの類があります。
+
+$$
+\mathfrak p=(2,1+\sqrt{-5}),\qquad
+\operatorname{Cl}(K)=\{[A],[\mathfrak p]\}.
+$$
+
+$\sqrt{-5}\equiv1\pmod{\mathfrak p}$ によって整数環の剰余を計算すると
+
+$$
+A/\mathfrak p\simeq\mathbb F_2,\qquad N\mathfrak p=2.
+$$
+
+また $D_K=-20$ です。[二次体の分岐判定](../ANF4/index.md#thm-anf4-quadratic-splitting)を素数2に適用すると、その上にある素イデアルは $\mathfrak p$ だけです。したがって $X=2$ では
+
+$$
+A_{[A]}(2)=1\quad(\text{単位イデアル }A),\qquad
+A_{[\mathfrak p]}(2)=1\quad(\text{ノルム2の }\mathfrak p).
+$$
+
+> この体では $\zeta_K(s)=\zeta_{[A]}(s)+\zeta_{[\mathfrak p]}(s)$ であり、類を固定することで実際に異なる整イデアルを数え分けます。
 <!-- definition-example-end -->
 
 ## 2. 素イデアルの Euler 積
@@ -121,7 +143,14 @@ $$
 
 > とします。体の元 $0\ne\alpha\in K$ に対しては、[埋め込みによる跡・ノルムの公式](../ANF2/index.md#thm-anf2-embedding-formulas)から $Q(j(\alpha))=|N_{K/\mathbb Q}(\alpha)|$ です。
 
-単に $y_i$ を取ると、元の大きさを変えたとき和も変化します。大きさの共通成分を取り除き、単数による移動だけを見えるようにします。
+単に $y_i$ を取ると、元の大きさを変えたとき和も変化します。大きさの共通成分を取り除き、単数による移動だけを見えるようにします。実際、$\sum_i y_i=\log Q(z)$ かつ $\sum_i w_i=n$ なので、以下で定める座標は
+
+$$
+\sum_{i=1}^m\left(y_i(z)-\frac{w_i}{n}\log Q(z)\right)
+=\log Q(z)-\log Q(z)=0
+$$
+
+> を満たします。この和零条件により、座標が $H$ に入ると判定できます。
 
 <a id="def-anf8-centered-log"></a>
 
@@ -137,10 +166,11 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf8-centered-log -->
-**定義の確認**　$K=\mathbb Q(\sqrt2)$ で $\alpha=1+\sqrt2$ とすると、二つの実埋め込みの絶対値は $\varepsilon=1+\sqrt2$ と $\varepsilon^{-1}$ で $Q=1$ です。従って
+**定義の確認**　$K=\mathbb Q(\sqrt2)$ で $\alpha=1+\sqrt2$ とすると、二つの実埋め込みにおける座標は $j(\alpha)=(1+\sqrt2,1-\sqrt2)$ です。$\varepsilon=1+\sqrt2$ と置けば $|1-\sqrt2|=\sqrt2-1=\varepsilon^{-1}$ なので、$Q(j(\alpha))=\varepsilon\varepsilon^{-1}=1$、$y=(\log\varepsilon,-\log\varepsilon)$ です。従って
 
 $$
-x(j(\alpha))=(\log\varepsilon,-\log\varepsilon)\in H.
+x(j(\alpha))=(\log\varepsilon,-\log\varepsilon),\qquad
+\sum_i x_i=\log\varepsilon-\log\varepsilon=0.
 $$
 
 > また $K=\mathbb Q(i)$ では $m=1,w_1=n=2$ なので任意の $z\in\mathbb C^\times$ に対し $x_1(z)=\log|z|^2-\log|z|^2=0$ です。これは単数の自由階数が0の状況に一致します。
@@ -255,7 +285,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（境界が Lipschitz な領域の格子点計数）**  
-> $\Lambda\subset\mathbb R^n$ を全階数格子、$\Omega\subset\mathbb R^n$ を有界領域とする。境界が有限個の有界な $(n-1)$ 次元パラメータ領域からの Lipschitz 写像で覆えるなら、$t\geq1$ に対して
+> $\Lambda\subset\mathbb R^n$ を全階数格子、$\Omega\subset\mathbb R^n$ を有界集合（半開の境界を含んでもよい）とする。境界が有限個の有界な $(n-1)$ 次元パラメータ領域からの Lipschitz 写像で覆えるなら、$t\geq1$ に対して
 
 $$
 \#(\Lambda\cap t\Omega)
@@ -284,7 +314,21 @@ $n=1$ では境界は有限個の点で覆えるという条件から境界と�
 
 $\Omega_P$ にもこの補題を使えます。$P$ の閉包は、有限個の面を持つ有界閉平行多面体です。$Q(z)=1$ の切断面を $x\in\overline P$、実座標の符号、複素座標の偏角で表すと、座標の絶対値は $\exp(x_i/w_i)$ です。
 
-この切断面は有限個の有界な座標箱で滑らかに記述できます。半径 $0\leq\lambda\leq1$ の縮小によって、外側の面と $P$ の境界面から生じる円錐状の面が現れます。写像 $(\lambda,x,\theta)\mapsto\lambda z(x,\theta)$ は有界閉なパラメータ領域で Lipschitz です。従って境界は必要な有限枚の Lipschitz 面で覆えます。半開境界の選択は主項を変えません。
+この切断面では実座標の符号を固定し、複素偏角を有限個の閉区間に分けます。すると、$x\in\overline P$ と偏角 $\theta$ から滑らかな関数 $z(x,\theta)$ で各点を表せます。半径を $0\leq\lambda\leq1$ 倍したときは
+
+$$
+Q(\lambda z)=\lambda^nQ(z)=\lambda^n,\qquad
+x(\lambda z)=x(z)\quad(\lambda>0).
+$$
+
+境界は $\lambda=1$ の外面、$x\in\partial P$ の側面、および原点からなります。それぞれの面のパラメータ数は
+
+$$
+\text{外面}:\ (m-1)+r_2=n-1,\qquad
+\text{側面}:\ 1+(m-2)+r_2=n-1
+$$
+
+> です。$m=1$ では側面はありません。写像 $(\lambda,x,\theta)\mapsto\lambda z(x,\theta)$ は有界閉なパラメータ箱で導関数が有界なので Lipschitz です。従って境界は有限枚の Lipschitz 面で覆え、半開境界の選択は主項を変えません。
 
 ## 5. 類ごとに主項を取り出す
 
@@ -316,7 +360,7 @@ $[\mathfrak a]=C^{-1}$ の非零整イデアル $\mathfrak a$ を一つ固定し
 $$
 w_K A_C(X)
 =\#\{0\ne\alpha\in\mathfrak a:
-|N(\alpha)|\leq XN\mathfrak a,\ x(j(\alpha))\in P\}.
+|N_{K/\mathbb Q}(\alpha)|\leq XN\mathfrak a,\ x(j(\alpha))\in P\}.
 $$
 
 > $t=(XN\mathfrak a)^{1/n}$ とすると、右辺の集合は格子 $j(\mathfrak a)$ の $t\Omega_P$ 内の点（原点を除く）と一致します。$n\geq1$ について [境界が Lipschitz な領域の格子点計数](#lem-anf8-lattice-count)を適用して
@@ -348,7 +392,7 @@ $$
 > 最後に $\mu(K)$ の要素数 $w_K$ で割って結論を得ます。$\mathfrak a$ は固定したまま $X\to\infty$ としたので、誤差定数が $C$ に依存することは許されますが、主項係数には依存しません。
 <!-- proof-end -->
 
-**なぜ $w_K$ で割るか。** 対数写像の核は根付き単数群 $\mu(K)$ です。対数基本領域で除けるのは自由部分だけで、各イデアルには根付き単数の数だけ生成元が残ります。$R_K$ を定義しただけではこの分母は出ません。
+**なぜ $w_K$ で割るか。** 対数写像の核は1の冪根からなる有限単数群 $\mu(K)$ です。対数基本領域で除けるのは自由部分だけで、各イデアルには根付き単数の数だけ生成元が残ります。$R_K$ を定義しただけではこの分母は出ません。
 
 ## 6. 解析類数公式
 
@@ -414,7 +458,13 @@ $$
 +s\int_1^\infty E(x)x^{-s-1}\,dx.
 $$
 
-> 右辺第2項の被積分関数は、$x\geq1$ において定数倍の $x^{-\Re(s)-1/n}$ で抑えられます。この積分は $\Re(s)>1-1/n$ で収束します。さらに同領域のコンパクト集合上で $\log^k x$ を掛けた導関数の積分も一様収束するので、第2項はその半平面で正則です。従って右辺が $\zeta_K$ の $s=1$ 近傍への有理型延長を与えます。
+> 右辺第2項の被積分関数は、$x\geq1$ において定数倍の $x^{-\Re(s)-1/n}$ で抑えられます。この積分は $\Re(s)>1-1/n$ で収束します。ここで積分変数は $x$、複素微分する変数は $s$ であり、
+
+$$
+\frac{d^k}{ds^k}x^{-s-1}=(-\log x)^k x^{-s-1}\qquad(k\geq0)
+$$
+
+> です。同領域のコンパクト集合上では、任意の固定した $k$ に対して $|E(x)|\log^k x\,x^{-\Re(s)-1}$ の積分が一様収束するので、第2項は $\Re(s)>1-1/n$ で正則です。従って右辺が $\zeta_K$ の $s=1$ 近傍への有理型延長を与えます。
 
 $$
 \frac{\kappa_Ks}{s-1}
@@ -448,7 +498,14 @@ $$
 =\frac{2\pi}{4\cdot2}=\frac{\pi}{4}.
 $$
 
-> これは独立にも検算できます。[二次体の分解](../ANF4/index.md#thm-anf4-quadratic-splitting)に従い、$\chi_{-4}(m)$ を「$m\equiv1\pmod4$ なら1、$m\equiv3\pmod4$ なら $-1$、偶数なら0」と定めると、$\Re(s)>1$ で Euler 因子を照合して
+> これは独立にも検算できます。[二次体の分解](../ANF4/index.md#thm-anf4-quadratic-splitting)に従い、整数 $m\geq1$ に対して $\chi_{-4}(m)$ を「$m\equiv1\pmod4$ なら1、$m\equiv3\pmod4$ なら $-1$、偶数なら0」と定めます。この関数は $\chi_{-4}(ab)=\chi_{-4}(a)\chi_{-4}(b)$ を満たします。実際、偶数因子があれば両辺とも0で、奇数の剰余類 $1,3$ については $3\cdot3\equiv1\pmod4$ です。従って $\Re(s)>1$ の絶対収束の下で
+
+$$
+\sum_{m\geq1}\frac{\chi_{-4}(m)}{m^s}
+=\prod_p\left(1-\chi_{-4}(p)p^{-s}\right)^{-1}
+$$
+
+> と幾何級数を展開できます。各素数の因子を [DedekindのEuler積](#prop-anf8-euler-product)と照合すると
 
 $$
 \zeta_{\mathbb Q(i)}(s)=\zeta(s)L(s,\chi_{-4}),
@@ -550,7 +607,7 @@ $$
 - ID: ANF8-A5
 
 <!-- solution-start -->
-**詳細解答**　$\alpha\in\mathfrak a$ から $(\alpha)\subseteq\mathfrak a$ です。Dedekind環のイデアルが可逆であることを [ANF3 の分解定理](../ANF3/index.md#thm-anf3-prime-ideal-factorization)で使い、$\mathfrak a^{-1}$ を掛ければ $(\alpha)\mathfrak a^{-1}\subseteq A$ です。非零であるため非零整イデアルになります。
+**詳細解答**　$\alpha\in\mathfrak a$ から $(\alpha)\subseteq\mathfrak a$ です。[ANF3 の非零分数イデアルの可逆性](../ANF3/index.md#prop-anf3-invertible-ideals)によって $\mathfrak a\mathfrak a^{-1}=A$ なので、$\mathfrak a^{-1}$ を掛ければ $(\alpha)\mathfrak a^{-1}\subseteq A$ です。非零であるため非零整イデアルになります。
 
 両辺に $\mathfrak a$ を掛けると $\mathfrak a\mathfrak b=(\alpha)$ です。絶対ノルムの乗法性から $(N\mathfrak a)(N\mathfrak b)=N((\alpha))=|N_{K/\mathbb Q}(\alpha)|$。$N\mathfrak a>0$ で割って結論を得ます。
 <!-- solution-end -->
@@ -565,7 +622,7 @@ $K=\mathbb Q(i)$ とする。基本領域の条件が全ての非零 $z\in\mathb
 <!-- solution-start -->
 **詳細解答**　$K$ は実埋め込み0、複素共役組1なので $m=1,n=2,w_1=2$ です。[中心化対数](#def-anf8-centered-log)は $x_1(z)=0$、$H=P=\{0\}$ です。$Q(z)=|z|^2$ なので $\Omega_P=\{z:0<|z|\leq1\}$ となり、体積は $\pi$ です。
 
-$\mathbb Z[i]\cong\mathbb Z^2$ は共体積1の格子です。$X^{1/2}\Omega_P$ に入る非零格子点は面積 $\pi X$、境界誤差 $O(\sqrt X)$ により $\pi X+O(\sqrt X)$ 個です。単数 $\{\pm1,\pm i\}$ は4個で、非零元 $\alpha$ と $u\alpha$ は同じ主イデアルを生成します。類数が1なので全ての非零整イデアルが主であり、4で割ると
+$\mathbb Z[i]\cong\mathbb Z^2$ は共体積1の格子です。$X^{1/2}\Omega_P$ に入る非零格子点は面積 $\pi X$、境界誤差 $O(\sqrt X)$ により $\pi X+O(\sqrt X)$ 個です。単数 $\{\pm1,\pm i\}$ は4個で、非零元 $\alpha$ と $u\alpha$ は同じ主イデアルを生成します。[ANF6 の類数1判定](../ANF6/index.md#cor-anf6-class-number-one)により全ての非零整イデアルが主であり、4で割ると
 
 $$
 A_K(X)=\frac14(\pi X+O(\sqrt X))
@@ -590,13 +647,19 @@ $m\geq2$、$w_i>0$、$\sum_iw_i=n$ とする。$y_i=x_i+(w_i/n)T$、$x_m=-\sum_{
 
 ### B3. 計数の誤差から正則性へ
 
-$A(X)=\kappa X+O(X^\theta)$（$0\leq\theta<1$）が成り立ち、Dirichlet級数 $F(s)=\sum_{m\geq1}a_mm^{-s}$ の係数は非負、$A(X)=\sum_{m\leq X}a_m$ とする。$F$ の $s=1$ 近傍への延長と留数を導け。
+$F(s)=\sum_{m\geq1}a_mm^{-s}$ という級数を考える。係数はすべて $a_m\geq0$ とし、その部分和 $A(X)=\sum_{m\leq X}a_m$ が次の漸近式を満たすとする。
+
+$$
+A(X)=\kappa X+O(X^\theta),\qquad 0\leq\theta<1.
+$$
+
+$F$ の $s=1$ 近傍への延長と留数を導け。
 
 - Level: B
 - ID: ANF8-B3
 
 <!-- solution-start -->
-**詳細解答**　非負係数なので $\Re(s)>1$ で部分積分を正当化し、
+**詳細解答**　$A(x)=\kappa x+O(x^\theta)=O(x)$ なので、$\Re(s)>1$ で $A(Y)Y^{-s}\to0$ です。この増大度と係数の非負性から級数 $F(s)$ は同領域で絶対収束します。有限和の部分積分で端の項を消すと
 
 $$
 F(s)=s\int_1^\infty A(x)x^{-s-1}\,dx.
@@ -638,13 +701,13 @@ $K=\mathbb Q(i)$ とする。次の問いを一続きで解け。
 - ID: ANF8-C1
 
 <!-- solution-start -->
-**詳細解答**　まず [ANF4 の二次体分解判定](../ANF4/index.md#thm-anf4-quadratic-splitting)により $p=2$ は分岐、$p\equiv1\pmod4$ は分裂、$p\equiv3\pmod4$ は惰性です。一方 $\chi_{-4}$ を本文のように定めたとき、$\zeta(s)L(s,\chi_{-4})$ の $p$ 因子は
+**詳細解答**　まず [ANF4 の二次体分解判定](../ANF4/index.md#thm-anf4-quadratic-splitting)により $p=2$ は分岐、$p\equiv1\pmod4$ は分裂、$p\equiv3\pmod4$ は惰性です。一方、本文で定義した $\chi_{-4}$ は剰余類 $1,3$ の乗法と偶数に対する値0から完全乗法的です。よって $\Re(s)>1$ の絶対収束の下で $L(s,\chi_{-4})$ を各素数の幾何級数へ展開でき、$\zeta(s)L(s,\chi_{-4})$ の $p$ 因子は
 
 $$
 (1-p^{-s})^{-1}(1-\chi_{-4}(p)p^{-s})^{-1}.
 $$
 
-> $p=2$ では $\chi=0$ で $(1-2^{-s})^{-1}$、$p\equiv1$ では $(1-p^{-s})^{-2}$、$p\equiv3$ では $(1-p^{-s})^{-1}(1+p^{-s})^{-1}=(1-p^{-2s})^{-1}$ です。いずれも [Dedekindの Euler積](#prop-anf8-euler-product)の対応因子に一致します。$\Re(s)>1$ の絶対収束から積全体が一致します。
+> $p=2$ では $\chi_{-4}(2)=0$ で $(1-2^{-s})^{-1}$、$p\equiv1$ では $(1-p^{-s})^{-2}$、$p\equiv3$ では $(1-p^{-s})^{-1}(1+p^{-s})^{-1}=(1-p^{-2s})^{-1}$ です。いずれも [Dedekindの Euler積](#prop-anf8-euler-product)の対応因子に一致します。$\Re(s)>1$ の絶対収束から積全体が一致します。
 
 次に
 

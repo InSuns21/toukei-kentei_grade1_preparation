@@ -840,9 +840,49 @@ try{
     'FCG6 same editable MAC mask/dye GPU texture must evolve across physical steps');
   await writeFile('_wgl_browser_review/fcg6-live-obstacle.png',
     Buffer.from(second6.data,'base64'));
+  const scene6obstacle=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
+  assert.match(scene6obstacle.grid,/16×16.*17×16.*R8/);
+  assert.match(scene6obstacle.color,/固体セル.*黄/);
+  assert.match(scene6obstacle.clock,/物理step 8、t=0.40 s/);
+  assert.match(scene6obstacle.mode,/u_viewMode=0.*u_viewMode=1/);
+  assert.match(scene6obstacle.source,/solid.js.*solid.frag/);
   console.log('FCG6 9 CPU/GPU static R8 probes and original live moving obstacle: PASS');
   await click('stop');
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
+
+  // FCG7: all three panels, the same 8x8 PIC/FLIP transfer and its physical-step legend.
+  await cdp('Page.navigate',{url:url+'?lesson=FCG7'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.match(/独立画素検算|基準画素と不一致|WebGL2実行エラー|タイムアウト/)',22000);
+  const picflip=await evalJS('({status:document.getElementById("status").textContent,rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>row.cells[4]?.textContent),sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox"),grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
+  assert.match(picflip.status,/独立画素検算に合格/,JSON.stringify(picflip));
+  assert.ok(picflip.rows.length>0&&picflip.rows.every(x=>x==='OK'));
+  assert.equal(picflip.sandbox,'allow-scripts');
+  assert.match(picflip.grid,/8×8.*各16個/);
+  assert.match(picflip.color,/PIC粒子.*FLIP粒子.*赤青/);
+  assert.match(picflip.clock,/物理step 8、t=0.64 s/);
+  assert.match(picflip.source,/particle.js.*particle.frag/);
+  await click('stop');
+  console.log('FCG7 actual PIC/FLIP GPU pixels and source-linked G3 legend: PASS');
+
+  // WGL20: official LOD1 mesh and synthetic DEM/water must remain distinguishable.
+  await cdp('Page.navigate',{url:url+'?lesson=WGL20'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"',25000);
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.match(/独立画素検算|基準画素と不一致|WebGL2実行エラー|タイムアウト|編集コードを実行/)',25000);
+  const terrain=await evalJS('({status:document.getElementById("status").textContent,rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>row.cells[4]?.textContent),sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox"),grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
+  assert.match(terrain.status,/独立画素検算に合格|編集コードを実行しました/,JSON.stringify(terrain));
+  assert.equal(terrain.rows.length,4);
+  assert.ok(terrain.rows.every(x=>x==='OK'),JSON.stringify(terrain));
+  assert.equal(terrain.sandbox,'allow-scripts');
+  assert.match(terrain.grid,/4×4セル.*PLATEAU実LOD1/);
+  assert.match(terrain.color,/合成地形.*仮想水面/);
+  assert.match(terrain.clock,/静止GPU描画.*物理stepなし/);
+  assert.match(terrain.mode,/EPSG:6697.*32 m.*1.5倍/);
+  assert.match(terrain.source,/terrain.js.*terrain.frag/);
+  await click('stop');
+  console.log('WGL20 actual terrain GPU scene and EPSG/height/source-linked G3 legend: PASS');
 
   // WGL12: compiled GGX shader, real linear Fresnel diagnostic RGBA8 pixels,
   // material-change screenshot and GLSL syntax error handling in an opaque iframe.

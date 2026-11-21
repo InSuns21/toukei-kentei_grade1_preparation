@@ -87,7 +87,7 @@ chapters:
     title: "JT重力の作用と場の方程式"
   - id: BHI20
     path: textbook/volumes/dream_thater/物理系/BHI/BHI20
-    status: planned
+    status: completed
     title: "JTブラックホール解・dilaton・エントロピー"
   - id: BHI21
     path: textbook/volumes/dream_thater/物理系/BHI/BHI21
