@@ -1,7 +1,7 @@
 version: 1
 id: SYZ1
 title: "特殊Lagrange幾何とSYZ"
-plan: textbook/plans_progress/DREAM_THEATER_SYZ_SPECIAL_LAGRANGIAN_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_SYZ_SPECIAL_LAGRANGIAN_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 初講をSYZ1-01とし、全18講。完成章のみ公開目次へ登録する。
