@@ -746,6 +746,12 @@ try{
   const diagnostic11=await evalJS('({status:document.getElementById("status").textContent,diagnostics:document.getElementById("diagnostics").textContent})');
   assert.match(diagnostic11.status,/独立画素検算に合格/,
     'WGL11 GPU error: '+JSON.stringify(diagnostic11));
+  const scene11=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
+  assert.match(scene11.grid,/256×256.*DEPTH_COMPONENT24/);
+  assert.match(scene11.color,/可視／遮蔽/);
+  assert.match(scene11.clock,/物理stepなし/);
+  assert.match(scene11.mode,/depthBias.*初期4画素検算/);
+  assert.match(scene11.source,/shadow.js.*shadow.frag/);
   const wgl11=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
   assert.equal(wgl11.rows.length,4);
   assert.ok(wgl11.rows.every(row=>row[4]==='OK'));
@@ -927,6 +933,12 @@ try{
   const diagnostic13=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent})');
   assert.match(diagnostic13.status,/独立画素検算に合格/,
     'WGL13 GPU shader/probes failed: '+JSON.stringify(diagnostic13));
+  const scene13=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
+  assert.match(scene13.grid,/6面.*2×2 texel.*RGBA8/);
+  assert.match(scene13.color,/SchlickのF0/);
+  assert.match(scene13.clock,/12画素GPU検算.*物理stepなし/);
+  assert.match(scene13.mode,/yawDegrees.*12画素検算方向は固定/);
+  assert.match(scene13.source,/environment.js.*environment.frag/);
   const wgl13=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
   assert.equal(wgl13.rows.length,12);
   assert.ok(wgl13.rows.every(row=>row[4]==='OK'));
@@ -986,6 +998,12 @@ try{
   const diagnostic14=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent})');
   assert.match(diagnostic14.status,/独立画素検算に合格/,
     'WGL14 GPU FBO/shader/CPU probes failed: '+JSON.stringify(diagnostic14));
+  const scene14=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
+  assert.match(scene14.grid,/2枚の8×8 RGBA8 FBO/);
+  assert.match(scene14.color,/Reinhard/);
+  assert.match(scene14.clock,/3パス.*物理stepなし/);
+  assert.match(scene14.mode,/blur.*edge.*CLAMP_TO_EDGE/);
+  assert.match(scene14.source,/postprocess.js.*postprocess.frag/);
   const wgl14=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
   assert.equal(wgl14.rows.length,7);
   assert.ok(wgl14.rows.every(row=>row[4]==='OK'));

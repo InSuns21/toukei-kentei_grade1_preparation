@@ -108,6 +108,14 @@ const descriptions = Object.freeze({
     mode: '再生は同一GLSLのUVオフセットだけを移動。模様の8×8 texelと描画バッファの画素を区別',
     source: 'sampling.js / sampling.frag（u_repeats, u_offset, gl.TEXTURE_MIN_FILTER）'
   }),
+  WGL11: Object.freeze({
+    requiresSteps: false,
+    grid: '影の深度FBOは初期256×256 px・DEPTH_COMPONENT24（shadowResolutionで変更）。数値計算格子ではなく床と箱の幾何',
+    color: '床は線形RGB=(0.38, 0.53, 0.64)、箱は(0.82, 0.25, 0.15)を光と影で調整しsRGB表示。左下4画素の白黒は可視／遮蔽の診断',
+    clock: () => '初期の光源条件での静止GPU画素検算（物理stepなし）',
+    mode: '第1パスで光源からの深度を記録、第2パスでdepthBiasを使い影を比較。以後の影の動きは同じ編集GLSLの描画更新で、初期4画素検算とは別',
+    source: 'shadow.js（shadowResolution, depthBias, useShadow, gl.framebufferTexture2D）/ shadow.frag（u_bias, visibility）'
+  }),
   WGL12: Object.freeze({
     requiresSteps: false,
     grid: '数値計算格子なし（fragment shaderが画素ごとに3球のBRDFを評価）',
@@ -115,6 +123,22 @@ const descriptions = Object.freeze({
     clock: () => 'JSで指定した初期光源方向の静止フレーム',
     mode: '光源の回転はuniformだけを更新。画素ごとのGGX評価と初期Fresnel診断は異なる測定',
     source: 'pbr.js / pbr.frag（roughness, metallic, u_lightDirection）'
+  }),
+  WGL13: Object.freeze({
+    requiresSteps: false,
+    grid: '数値計算格子なし（キューブマップ6面はそれぞれ2×2 texelのRGBA8入力。表示GPU画素とは別）',
+    color: '±X・±Y・±Zの6面それぞれにRGB色、各面4 texelに明度0.55／0.70／0.85／1。反射色にSchlickのF0を混合',
+    clock: () => '6面の方向を固定した12画素GPU検算（物理stepなし）',
+    mode: '球面は反射ベクトル、外側は背景用の方向でキューブマップを標本化。yawDegreesと手動回転は描画方向を変え、12画素検算方向は固定',
+    source: 'environment.js（faceColors, brightness, yawDegrees, fresnelF0）/ environment.frag（u_env, u_yaw, schlick）'
+  }),
+  WGL14: Object.freeze({
+    requiresSteps: false,
+    grid: '2枚の8×8 RGBA8 FBO（A=原画、B=3×3フィルタ）。左右のGPU表示画素はその結果を拡大表示',
+    color: '原画は(0,0)に90/255、(3,3)に1の灰度値。右側はBの値へReinhard露出変換を適用しRGBの0〜1で表示',
+    clock: () => '原画A→畳込みB→画面の左右比較という3パス（物理stepなし）',
+    mode: '左は原画A、右はfilterModeのblur（3×3平均）またはedge（正の4近傍Laplacian）をexposureで調整。境界はCLAMP_TO_EDGE',
+    source: 'postprocess.js（filterMode, exposure, makeTarget）/ postprocess.frag（u_pass, u_filterMode, u_exposure）'
   }),
   WGL19: Object.freeze({
     grid: '4×4（GPUのRGBA32F濃度格子、2枚のping-pongテクスチャ）',
