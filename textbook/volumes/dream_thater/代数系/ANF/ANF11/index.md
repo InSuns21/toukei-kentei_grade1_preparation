@@ -252,9 +252,9 @@ $$
 
 ## 4. 跡双対から異なるを定義する
 
-分岐指数 $e$ は、$p$ の零点が何重になるかを数えます。しかし例えば $p=2$ の分岐と奇素数の分岐では、同じ $e=2$ でも判別式への影響が異なります。これを測るため、跡の整数性を判定する格子を作ります。
+分岐指数 $e$ は、素数 $p$ が整数環の極大イデアル $\mathfrak m_L$ の何乗に対応するかを数えます。しかし例えば $p=2$ の分岐と奇素数の分岐では、同じ $e=2$ でも判別式への影響が異なります。これを測るため、跡の整数性を判定する格子を作ります。
 
-[ANF2 の跡形式と判別式](../ANF2/index.md#def-anf2-basis-discriminant)を、$\mathbb Q$ 上の数体から $\mathbb Q_p$ 上の拡大へ移します。$L/\mathbb Q_p$ は分離拡大なので、跡形式は非退化です。
+[ANF2 の跡形式と判別式](../ANF2/index.md#def-anf2-basis-discriminant)を、$\mathbb Q$ 上の数体から $\mathbb Q_p$ 上の拡大へ移します。$L/\mathbb Q_p$ は分離拡大なので、跡形式は非退化です。逆を取る対象は[ANF3 の分数イデアル](../ANF3/index.md#def-anf3-fractional-ideal)であり、その[逆分数イデアルの定義](../ANF3/index.md#def-anf3-inverse-ideal)を使います。跡の整数性を、まず基底上の有限個の条件へ直します。
 
 <a id="def-anf11-codifferent"></a>
 
@@ -281,7 +281,23 @@ $$
 **定義の確認**： $L=\mathbb Q_p$ なら跡は恒等写像です。$\{x:x\mathbb Z_p\subseteq\mathbb Z_p\}=\mathbb Z_p$ なので余異なるも異なるも $\mathbb Z_p$ です。従って $d=0$。ここでは元 $x=1$ を試すだけでなく、すべての $y\in\mathbb Z_p$ に対する条件が $x\in\mathbb Z_p$ と同値であることを確かめました。
 <!-- definition-example-end -->
 
-**分数イデアル性の確認。** 跡形式が非退化なので、$\mathbb Z_p$ 基底を選ぶと余異なるは可逆行列 $T$ による係数の双対加群 $T^{-1}\mathbb Z_p^n$ です。よって有限自由 $\mathbb Z_p$ 加群で、$L$ を張ります。
+**定義から基底による判定へ。** $\mathcal O_L$ の $\mathbb Z_p$ 基底を $\omega_1,\ldots,\omega_n$ とします。$x=\sum_i b_i\omega_i$（$b_i\in K$）、$y=\sum_jc_j\omega_j$（$c_j\in\mathbb Z_p$）と書き、
+
+$
+T_{ij}=\operatorname{Tr}(\omega_i\omega_j),\qquad
+\operatorname{Tr}(xy)=\sum_{i,j}b_iT_{ij}c_j
+=\boldsymbol b^{\mathsf T}T\boldsymbol c
+$
+
+を得ます。従って**すべての** $y\in\mathcal O_L$ に対する跡の整数性は、$y=\omega_j$ の $n$ 通りの検査、すなわち $T\boldsymbol b\in\mathbb Z_p^n$ と同値です。第1節で示した非退化性から $T$ は $K$ 上可逆なので
+
+$
+\mathfrak D^{-1}
+=\left\{\sum_i b_i\omega_i:
+\boldsymbol b\in T^{-1}\mathbb Z_p^n\right\}.
+$
+
+**分数イデアル性の確認。** この表示は余異なるが階数 $n$ の有限自由 $\mathbb Z_p$ 加群で $L$ を張ることを示します。$T^{-1}$ の全成分について共通分母 $p^s$ を払えば $p^s\mathfrak D^{-1}\subseteq\mathcal O_L$ です。従って残る $\mathcal O_L$ 加群性を確かめれば[分数イデアルの定義](../ANF3/index.md#def-anf3-fractional-ideal)を満たします。
 
 また $a\in\mathcal O_L$、$x$ が余異なる、$y\in\mathcal O_L$ なら $axy$ は $x(ay)$ と書け、$ay\in\mathcal O_L$ なので $\operatorname{Tr}(axy)\in\mathbb Z_p$。
 
@@ -289,7 +305,7 @@ $$
 
 整数環の元の跡は整なので $\mathcal O_L\subseteq\mathfrak D^{-1}$、その逆イデアル $\mathfrak D$ は $\mathcal O_L$ に含まれ、$d\ge0$ が従います。
 
-一つの多項式で整数環が書けるとき、異なるは導関数一つで計算できます。
+一つの多項式で整数環が書けるとき、異なるは導関数一つで計算できます。以下 $g'(X)$ は $g(X)$ を多項式の変数 $X$ で形式微分したもの、$g'(\theta)$ はそれに $\theta$ を代入した元を表します（時間微分ではありません）。
 
 <a id="thm-anf11-monogenic-different"></a>
 
@@ -362,7 +378,14 @@ $$
 
 ### 5.1 非分岐：$\mathbb Q_3(i)$
 
-先ほどの $E=\mathbb Z_3[i]$ に対し $g(X)=X^2+1$、$g'(i)=2i$ です。$i^{-1}=-i$ で、$2$ は $\mathbb Z_3$ の単元だから $2i$ は $E$ の単元です。前節の**証明中の跡双対計算**は $E$ に対しても使え、$E^\vee=(2i)^{-1}E=E$ と分かります。
+先ほどの $E=\mathbb Z_3[i]=\mathbb Z_3\oplus\mathbb Z_3i$ について、まず跡の定義を基底 $(1,i)$ で調べます。共役 $i\mapsto-i$ により $\operatorname{Tr}(1)=2$、$\operatorname{Tr}(i)=0$、$\operatorname{Tr}(i^2)=-2$ なので
+
+$
+T=\begin{pmatrix}2&0\\0&-2\end{pmatrix},
+\qquad T^{-1}=\begin{pmatrix}1/2&0\\0&-1/2\end{pmatrix}.
+$
+
+$2$ は $\mathbb Z_3$ の単元ですから、$x=a+bi$ に対する条件 $\operatorname{Tr}(x)=2a\in\mathbb Z_3$ と $\operatorname{Tr}(xi)=-2b\in\mathbb Z_3$ は $a,b\in\mathbb Z_3$ と同値です。従って第4節の基底判定の通り、$E$ の跡双対 $E^\vee=\{x\in L:\operatorname{Tr}(xE)\subseteq\mathbb Z_3\}$ は $E$ 自身です。ここでは $E=\mathcal O_L$ をまだ仮定していません。なお $g(X)=X^2+1$ の $g'(i)=2i$ は $E$ の単元なので、単項生成の跡双対公式 $E^\vee=(2i)^{-1}E$ とも一致します。
 
 任意の $x\in\mathcal O_L$ と $y\in E$ はともに整なので $\operatorname{Tr}(xy)\in\mathbb Z_3$ です。よって $\mathcal O_L\subseteq E^\vee=E$。逆に $E\subseteq\mathcal O_L$ なので $\mathcal O_L=E$ が証明できました。従って
 
@@ -411,7 +434,17 @@ $$
 
 ## 6. 異なる指数と判別式の $p$ 進指数
 
-任意の $x\in L^\times$ に対して、そのノルムの付値は $v_L(x)$ に剰余次数 $f$ を掛けた値になります。実際 $x=u\pi^r$ と表すと、単元 $u$ は $\mathcal O_L$ 上の乗法で可逆なので $N(u)\in\mathbb Z_p^\times$ です。一方、$\pi$ による乗法は $\mathbb Z_p$ 上階数 $n$ の自由加群 $\mathcal O_L$ を部分加群 $\pi\mathcal O_L$ に写し、その商は $\kappa_L$ で元数 $p^f$ です。乗法行列の行列式の $p$ 進指数はこの指数と等しいので $v_p(N(\pi))=f$。従って
+任意の $x\in L^\times$ に対して、そのノルムの付値は $v_L(x)$ に剰余次数 $f$ を掛けた値になります。実際 $x=u\pi^r$ と表すと、単元 $u$ は $\mathcal O_L$ 上の乗法で可逆なので $N(u)\in\mathbb Z_p^\times$ です。一方、$\pi$ による乗法は $\mathbb Z_p$ 上階数 $n$ の自由加群 $\mathcal O_L$ を部分加群 $\pi\mathcal O_L$ に写し、その商は $\kappa_L$ で元数 $p^f$ です。この乗法写像を $\mathbb Z_p$ 基底で $A\in M_n(\mathbb Z_p)$ と表すと、$A\mathbb Z_p^n$ は $\pi\mathcal O_L$ に対応します。$\mathbb Z_p$ は PID なので行・列の可逆基本変形で $A$ を $\operatorname{diag}(p^{a_1},\ldots,p^{a_n})$（$a_j\ge0$、単元因子は吸収）へ変形できます。従って
+
+$
+|\mathcal O_L/\pi\mathcal O_L|
+=\prod_{j=1}^n|\mathbb Z_p/p^{a_j}\mathbb Z_p|
+=p^{\sum_j a_j},
+\qquad
+v_p(\det A)=\sum_ja_j.
+$
+
+左辺は $p^f$ なので、$N(\pi)=\det A$ により $v_p(N(\pi))=f$ です。従って
 
 <a id="prop-anf11-norm-valuation"></a>
 
@@ -430,7 +463,7 @@ v_p(\Delta)=f\,v_L(g'(\theta))=fd.
 $$
 <!-- formal-statement-end -->
 
-上の議論はこの命題の証明でもあります。計算例の $p=5$ では $(f,d)=(1,1)$ なので判別式の指数 $1$、$p=2$ では $(1,3)$ なので指数 $3$、非分岐例の $p=3$ では $(2,0)$ なので指数 $0$ と一致します。整数環の別の基底へ変えても行列式は $\mathbb Z_p$ の単元の平方倍しか変わらないため、判別式の $p$ 進指数は不変です。
+上の議論はこの命題の証明でもあります。計算例の $p=5$ では $(f,d)=(1,1)$ なので判別式の指数 $1$、$p=2$ では $(1,3)$ なので指数 $3$、非分岐例の $p=3$ では $(2,0)$ なので指数 $0$ と一致します。[判別式の基底変換則](../ANF2/index.md#thm-anf2-basis-change)を $\mathbb Z_p$ 基底の変換行列 $U\in\operatorname{GL}_n(\mathbb Z_p)$ に適用すると、新しい跡行列は $U^{\mathsf T}TU$ となります。その行列式は $(\det U)^2\det T$ で、$\det U$ は $p$ 進単元なので判別式の $p$ 進指数は不変です。
 
 ## 7. 演習：整数環から分岐・異なるまで
 
