@@ -240,7 +240,7 @@ $d=0$ は $V=\{0\}$ なので成立します。$d\geq1$ では相対稠密性か
 
 $\Gamma$ は各有界集合と有限個しか交わらないので、非零元の長さには正の最小値があり、その長さを達成する $v\in\Gamma\setminus\{0\}$ を選べます。直交射影 $p:V\to v^\perp$ を考え、$\Gamma'=p(\Gamma)$ と置きます。
 
-まず射影像 $\Gamma'$ が任意の有界集合と有限個しか交わらないことを示します。$\gamma\in\Gamma$ を $p(\gamma)+tv$ と直交分解すると、$t=\langle\gamma,v\rangle/\|v\|^2$ です。$|t-m|\leq1/2$ を満たす整数 $m$ を選べば、$\widetilde\gamma=\gamma-mv\in\Gamma$ で、$p(\widetilde\gamma)=p(\gamma)$ のままです。しかも
+まず射影像 $\Gamma'$ が任意の有界集合と有限個しか交わらないことを示します。直交射影の定義より、$\gamma\in\Gamma$ は $\gamma=p(\gamma)+tv$ と書けます。ここで $t=\langle\gamma,v\rangle/\|v\|^2$ です。$|t-m|\leq1/2$ を満たす整数 $m$ を選べば、$\widetilde\gamma=\gamma-mv\in\Gamma$ で、$p(\widetilde\gamma)=p(\gamma)$ のままです。しかも
 
 $$
 \|\widetilde\gamma\|^2
@@ -364,7 +364,13 @@ $s=1$ は両辺1なので、$s\geq2$ とします。二組の基本単数の対�
 
 各列は $H$ に入るので、$M$ の行ベクトルの和は零です。ある行を残りの行の和の負として書いて行展開すれば、削除する行を $i$ から $j$ に変えたときの行列式は符号だけが異なります。非実埋め込みを共役へ変更しても $|\tau_j(\varepsilon_k)|$ は変わりません。行の順序変更も符号だけを変えます。
 
-行を第 $s$ 行で削除した場合、$H$ は最初の $s-1$ 座標 $y$ に対し $(y_1,\ldots,y_{s-1},-\sum y_i)$ と表されます。この座標写像の逆で $\mathbb R^{s-1}$ の第 $j$ 標準基底に対応するベクトルは $e_j-e_s\in H$ です（右辺の $e_1,\ldots,e_s$ は $\mathbb R^s$ の標準基底）。従って内積は $\langle e_i-e_s,e_j-e_s\rangle=\delta_{ij}+1$ となり、Gram 行列は $G=I_{s-1}+\mathbf1\mathbf1^{\mathsf T}$ です。$\mathbf1=(1,\ldots,1)^{\mathsf T}$ とすると $G\mathbf1=s\mathbf1$、$\mathbf1$ に直交する $y$ には $Gy=y$ です。よって固有値は $s$ が一つ、$1$ が $s-2$ 個で、$\det G=s$ です。よって $H$ 内の共体積は
+行を第 $s$ 行で削除した場合、$H$ は最初の $s-1$ 座標 $y$ に対し $(y_1,\ldots,y_{s-1},-\sum y_i)$ と表されます。この座標写像の逆で $\mathbb R^{s-1}$ の第 $j$ 標準基底に対応するのは $e_j-e_s\in H$ です（右辺の $e_1,\ldots,e_s$ は $\mathbb R^s$ の標準基底）。これらの内積を直接計算すると
+
+$$
+\langle e_i-e_s,e_j-e_s\rangle=\delta_{ij}+1
+$$
+
+です。従って、この基底の Gram 行列は $G=I_{s-1}+\mathbf1\mathbf1^{\mathsf T}$ です。ここで $\mathbf1=(1,\ldots,1)^{\mathsf T}$ とします。$G\mathbf1=s\mathbf1$ で、$\mathbf1$ に直交する $y$ なら $Gy=y$ です。よって固有値は $s$ が一つ、$1$ が $s-2$ 個であり、$\det G=s$ です。よって $H$ 内の共体積は
 
 $$
 \sqrt{\det((M^{(s)})^{\mathsf T}G M^{(s)})}
@@ -493,7 +499,21 @@ $\theta$ を $f(T)=T^3-T-1$ の唯一の実根とし、$K=\mathbb Q(\theta)$ と
 - ID: ANF7-A5
 
 <!-- solution-start -->
-**詳細解答**　[有理根定理](../../RNG/RNG4/index.md#thm-rng4-rational-root)により、モニック三次式 $f$ が有理根を持つなら候補は $\pm1$ のみですが、$f(1)=-1,\ f(-1)=-1$ です。よって既約で $[K:\mathbb Q]=3$。ここで $f'(T)=df/dT=3T^2-1$ は実変数 $T$ に関する導関数です。極大点 $T=-1/\sqrt3$ でも $f(T)=2/(3\sqrt3)-1<0$。従ってグラフは負の極大値から下がり、その後一度だけ零を横切ります。$f(1)=-1,\ f(2)=5$ より唯一の実根 $\theta$ は $1<\theta<2$ です。
+**詳細解答**　[有理根定理](../../RNG/RNG4/index.md#thm-rng4-rational-root)により、モニック三次式 $f$ が有理根を持つなら候補は $\pm1$ のみです。実際、$f(1)=f(-1)=-1$ なので有理根はなく、三次式 $f$ は既約で $[K:\mathbb Q]=3$ です。
+
+次に実根の個数を確かめます。$f'(T)=df/dT$ は実変数 $T$ に関する導関数であり、
+
+$$
+f'(T)=3T^2-1,\qquad f'\left(-\frac1{\sqrt3}\right)=f'\left(\frac1{\sqrt3}\right)=0.
+$$
+
+極大点 $T=-1/\sqrt3$ における値は
+
+$$
+f\left(-\frac1{\sqrt3}\right)=\frac2{3\sqrt3}-1<0
+$$
+
+です。この極大値が負で、極小値はそれ以下なので、$f$ が実軸と交わるのは右側の増加区間で一度だけです。$f(1)=-1,\ f(2)=5$ から唯一の実根は $1<\theta<2$ と分かります。
 
 $\theta$ はモニック整数係数多項式の根なので代数的整数です。根の積は $-(-1)=1$ で、[埋め込みによる跡・ノルムの公式](../ANF2/index.md#thm-anf2-embedding-formulas)から $N_{K/\mathbb Q}(\theta)=1$。従って [単元のノルム判定](../ANF2/index.md#prop-anf2-unit-norm)で $\theta$ は単数です。実埋め込み1個、複素共役組1組なので $r_1=r_2=1$。根の積から $\theta|\tau(\theta)|^2=1$、すなわち $|\tau(\theta)|^2=\theta^{-1}$ です。よって
 
