@@ -418,7 +418,7 @@ $$
 $$
 \rho_{r_1}=\operatorname{Tr}_{a_1}|\Phi\rangle\langle\Phi|
 =\tfrac12|0\rangle\langle0|+\tfrac12|1\rangle\langle1|
-=\begin{pmatrix}1/2&0\\0&1/2\end{pmatrix}_{\{|0\rangle,|1\rangle\}}.
+=\operatorname{diag}(1/2,1/2)_{\{|0\rangle,|1\rangle\}}.
 $$
 
 これは明示した計算基底で対角なので固有値は $1/2,1/2$ です。[エントロピーの固有値表示](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)をnatで用いると
@@ -447,11 +447,11 @@ $$
 **詳細解答。** 区間長を $W=4$ とするとセル数は $N=W/a$、各セルの空間は $\mathbb C^2$ なのでテンソル積の次元は $2^N$ です。[一般の有限次元エントロピー上界](../../../応用系/QINF/QINF17/index.md#thm-qinf17-entropy-bounds)は、密度演算子の純粋性を仮定せず $S\le\log_2d$（bit）を与えます。自然対数なら $S\le\ln d$ です。
 
 $$
-\begin{array}{c|c|c|c}
-a & N=4/a & d=2^N & S_{\max}=\ln d\\ \hline
-1&4&16&4\ln2\\
-1/2&8&256&8\ln2
-\end{array}
+a=1:\quad N=4,\quad d=2^4=16,\quad S_{\max}=\ln16=4\ln2.
+$$
+
+$$
+a=1/2:\quad N=8,\quad d=2^8=256,\quad S_{\max}=\ln256=8\ln2.
 $$
 
 上界が変わっても、同じ物理状態の実際のエントロピーが必ず倍になるという結論は出ません。
