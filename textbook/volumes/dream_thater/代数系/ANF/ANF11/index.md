@@ -26,7 +26,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf11-integer-ring -->
-**定義の確認。** $L=\mathbb Q_5(\pi)$、$\pi^2=5$ では $\pi$ は $X^2-5$、$1+\pi$ は $(X-1)^2-5=X^2-2X-4$ という、それぞれ $\mathbb Z_5$ 係数のモニック方程式を満たします。
+**定義の確認**： $L=\mathbb Q_5(\pi)$、$\pi^2=5$ では $\pi$ は $X^2-5$、$1+\pi$ は $(X-1)^2-5=X^2-2X-4$ という、それぞれ $\mathbb Z_5$ 係数のモニック方程式を満たします。
 
 よって両者は整数環に入ります。
 
@@ -141,7 +141,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf11-uniformizer-valuation -->
-**定義の確認。** $L=\mathbb Q_5(\pi)$、$\pi^2=5$ なら、[前講の構成](../ANF10/index.md#thm-anf10-eisenstein-extension)で $\mathfrak m_L=\pi\mathbb Z_5[\pi]$ かつ $5=\pi^2$ です。従って $\pi$ は一様化元、$v_L(\pi)=1$、$v_L(5)=2$、$v_L(1+\pi)=0$。最後の等式は $1+\pi$ が法 $\pi$ で $1$ に写るので単元であることから従います。
+**定義の確認**： $L=\mathbb Q_5(\pi)$、$\pi^2=5$ なら、[前講の構成](../ANF10/index.md#thm-anf10-eisenstein-extension)で $\mathfrak m_L=\pi\mathbb Z_5[\pi]$ かつ $5=\pi^2$ です。従って $\pi$ は一様化元、$v_L(\pi)=1$、$v_L(5)=2$、$v_L(1+\pi)=0$。最後の等式は $1+\pi$ が法 $\pi$ で $1$ に写るので単元であることから従います。
 <!-- definition-example-end -->
 
 一様化元以外の候補 $\pi'=u\pi$ も $u$ が単元なら同じ極大イデアルを生成します。指数 $r$ は変わらず、付値は選択に依存しません。
@@ -161,7 +161,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf11-e-f -->
-**定義の確認。** $L=\mathbb Q_5(\sqrt5)$ では $v_L(5)=2$ なので $e=2$、$\mathcal O_L/(\pi)\cong\mathbb F_5$ なので $f=1$。一方、基礎体 $L=\mathbb Q_5$ 自身では一様化元が $5$、剰余体が $\mathbb F_5$ であり $e=f=1$ です。分岐指数は付値の値、剰余次数は剰余体の次元と、別の定義条件を実際に確認しました。
+**定義の確認**： $L=\mathbb Q_5(\sqrt5)$ では $v_L(5)=2$ なので $e=2$、$\mathcal O_L/(\pi)\cong\mathbb F_5$ なので $f=1$。一方、基礎体 $L=\mathbb Q_5$ 自身では一様化元が $5$、剰余体が $\mathbb F_5$ であり $e=f=1$ です。分岐指数は付値の値、剰余次数は剰余体の次元と、別の定義条件を実際に確認しました。
 <!-- definition-example-end -->
 
 <a id="thm-anf11-ef-degree"></a>
@@ -253,7 +253,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf11-codifferent -->
-**定義の確認。** $L=\mathbb Q_p$ なら跡は恒等写像です。$\{x:x\mathbb Z_p\subseteq\mathbb Z_p\}=\mathbb Z_p$ なので余異なるも異なるも $\mathbb Z_p$ です。従って $d=0$。ここでは元 $x=1$ を試すだけでなく、すべての $y\in\mathbb Z_p$ に対する条件が $x\in\mathbb Z_p$ と同値であることを確かめました。
+**定義の確認**： $L=\mathbb Q_p$ なら跡は恒等写像です。$\{x:x\mathbb Z_p\subseteq\mathbb Z_p\}=\mathbb Z_p$ なので余異なるも異なるも $\mathbb Z_p$ です。従って $d=0$。ここでは元 $x=1$ を試すだけでなく、すべての $y\in\mathbb Z_p$ に対する条件が $x\in\mathbb Z_p$ と同値であることを確かめました。
 <!-- definition-example-end -->
 
 **分数イデアル性の確認。** 跡形式が非退化なので、$\mathbb Z_p$ 基底を選ぶと余異なるは可逆行列 $T$ による係数の双対加群 $T^{-1}\mathbb Z_p^n$ です。よって有限自由 $\mathbb Z_p$ 加群で、$L$ を張ります。
@@ -323,8 +323,12 @@ $$
 =(-1)^{n(n-1)/2}\prod_{j<k}(\theta_j-\theta_k)^2.
 $$
 
-ゆえに $\operatorname{disc}(1,\theta,\ldots,\theta^{n-1})
-=(-1)^{n(n-1)/2}N(g'(\theta))$ です。
+ゆえに判別式は次の値です。
+
+$$
+\operatorname{disc}(1,\theta,\ldots,\theta^{n-1})
+=(-1)^{n(n-1)/2}N(g'(\theta)).
+$$
 <!-- proof-end -->
 
 **仮定が重要です。** $L=\mathbb Q_p(\theta)$ であるだけではこの公式を $\mathcal O_L$ の異なるへ適用できません。$\mathbb Z_p[\theta]$ が**整数環全体**であることを確認して初めて使えます。そうでなければ、上の計算が求めるのは部分環 $\mathbb Z_p[\theta]$ の跡双対です。
@@ -548,7 +552,7 @@ $2$ は $\mathbb Z_3$ の単元なので、係数ベクトル $(a,b)^{\mathsf T}
 <!-- solution-start -->
 **詳細解答。**
 
-**(1) $L_1/\mathbb Q_3$。** $X^2+1$ は法 $3$ に根がなく既約です。$E=\mathbb Z_3[i]$ において $(1,i)$ の跡行列は $\operatorname{diag}(2,-2)$、行列式は $-4$ で $3$ 進単元です。B4と同じ双対格子の計算により $\mathcal O_{L_1}=E$ です。$E/(3)\cong\mathbb F_3[X]/(X^2+1)=\mathbb F_9$ だから一様化元は $3$、$e=1$、$f=2$、$ef=2=[L_1:\mathbb Q_3]$。$g'(i)=2i$ は単元なので $\mathfrak D_{L_1/\mathbb Q_3}=(1)$、$d=0$、判別式は $-4$ で $v_3(-4)=0$ です。
+**(1) $L_1/\mathbb Q_3$。** $X^2+1$ は法 $3$ に根がなく既約です。$E=\mathbb Z_3[i]$ において $(1,i)$ の跡行列は $\operatorname{diag}(2,-2)$、行列式は $-4$ で $3$ 進単元です。B4と同じ跡双対の計算により $\mathcal O_{L_1}=E$ です。$E/(3)\cong\mathbb F_3[X]/(X^2+1)=\mathbb F_9$ だから一様化元は $3$、$e=1$、$f=2$、$ef=2=[L_1:\mathbb Q_3]$。$g'(i)=2i$ は単元なので $\mathfrak D_{L_1/\mathbb Q_3}=(1)$、$d=0$、判別式は $-4$ で $v_3(-4)=0$ です。
 
 **(2) $L_2/\mathbb Q_5$。** $X^2-5$ は Eisenstein なので既約で、[Eisenstein 拡大の局所体構造](../ANF10/index.md#thm-anf10-eisenstein-extension)から $\mathcal O_{L_2}=\mathbb Z_5[\alpha]$。一様化元 $\alpha$ の付値は $1$、$v_{L_2}(5)=2$、剰余体は $\mathbb F_5$、従って $(e,f,n)=(2,1,2)$。導関数は $2\alpha$、$2$ は $5$ 進単元なので異なるは $(2\alpha)=(\alpha)$、$d=1$。跡行列は $\operatorname{diag}(2,10)$、判別式 $20$ の指数は $v_5(20)=1=fd$ です。
 
