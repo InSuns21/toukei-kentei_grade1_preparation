@@ -29,7 +29,7 @@ $$
 > と定める。点の値は一次元の $H_0^1$ 関数の連続な代表元で評価する。
 <!-- formal-statement-end -->
 
-[前講の存在・一意性定理](../PML2-01/index.md#thm-pml2-01-energy)により、各 $f_\theta$ に対応する弱解は一意である。また[区間上の $H_0^1$ の零トレース表示](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-h01-trace-kernel-interval)によって、各解には連続な代表元がある。したがって上の点観測は意味を持つ。合成の順序は
+[Dirichlet Poisson問題の存在・一意性・安定性](../PML2-01/index.md#thm-pml2-01-energy)により、各 $f_\theta$ に対応する弱解は一意である。また[区間上の $H_0^1$ の零トレース表示](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-h01-trace-kernel-interval)によって、各解には連続な代表元がある。したがって上の点観測は意味を持つ。合成の順序は
 
 $$
 \theta\ \longmapsto\ f_\theta\ \longmapsto\ u_\theta\ \longmapsto\ \mathcal G(\theta)
@@ -38,7 +38,7 @@ $$
 であり、**順問題は左から右へ進む**。逆問題は、観測ベクトル $y$ から $\mathcal G(\theta)=y$ を満たす $\theta$ を求める方向に進む。ただし途中の矢印を逆にできるとは限らない。
 
 <!-- definition-example-start: def-pml2-02-pipeline -->
-**定義の確認。** $\Theta=\mathbb R$、$f_a(x)=2a$、観測点 $x_1=1/2$ を選ぶ。$f_a$ は定数なので $L^2(0,1)$ に属する。$u_a(x)=a x(1-x)$ は端点で零、$-u_a''=2a$ だから[前講の古典解から弱解への命題](../PML2-01/index.md#prop-pml2-01-classical-weak)により指定した弱解である。一意性から他の状態はない。点評価を実行すると
+**定義の確認**。 $\Theta=\mathbb R$、$f_a(x)=2a$、観測点 $x_1=1/2$ を選ぶ。$f_a$ は定数なので $L^2(0,1)$ に属する。$u_a(x)=a x(1-x)$ は端点で零、$-u_a''=2a$ であり、[古典解はエネルギー弱解になる](../PML2-01/index.md#prop-pml2-01-classical-weak)により指定した弱解である。一意性から他の状態はない。点評価を実行すると
 
 $$
 \mathcal G(a)=u_a(1/2)=a/4.
@@ -94,7 +94,7 @@ $$
 u_{a,b}(0)=u_{a,b}(1)=0
 $$
 
-を満たす。多項式は $C^2([0,1])$ に属するから古典解であり、[古典解から弱解への命題](../PML2-01/index.md#prop-pml2-01-classical-weak)と[弱解の一意性](../PML2-01/index.md#thm-pml2-01-energy)によって**この関数が定義された状態そのもの**である。
+を満たす。多項式は $C^2([0,1])$ に属するから古典解であり、[古典解はエネルギー弱解になる](../PML2-01/index.md#prop-pml2-01-classical-weak)と[弱解の一意性](../PML2-01/index.md#thm-pml2-01-energy)によって**この関数が定義された状態そのもの**である。
 
 ここでは $\theta=(a,b)$ はPDEの右辺を動かす未知数である。PDEの最高階微分の係数を未知とする問題は別の逆問題であり、後のPML2-21で扱う。一般のPDE係数同定の条件を、この簡単な外力同定から主張するわけではない。
 
@@ -367,7 +367,7 @@ $$
 u(x)=2x(1-x).
 $$
 
-これは多項式なので $C^2$ に属し、$-u''=4$ と端点条件を満たす。[前講のエネルギー弱解の一意性](../PML2-01/index.md#thm-pml2-01-energy)と[古典解から弱解への命題](../PML2-01/index.md#prop-pml2-01-classical-weak)から、他の古典解も同じ弱解に等しく、解は一意である。
+これは多項式なので $C^2$ に属し、$-u''=4$ と端点条件を満たす。[Dirichlet Poisson問題の存在・一意性・安定性](../PML2-01/index.md#thm-pml2-01-energy)と[古典解はエネルギー弱解になる](../PML2-01/index.md#prop-pml2-01-classical-weak)から、他の古典解も同じ弱解に等しく、解は一意である。
 <!-- solution-end -->
 
 <a id="ex-pml2-02-a02"></a>
@@ -559,7 +559,7 @@ u^\ast(x)=p(x)+2q(x),\qquad
 u^\ast(0)=u^\ast(1)=0.
 $$
 
-多項式なので $C^2$ に属する。[前講の古典解から弱解への命題](../PML2-01/index.md#prop-pml2-01-classical-weak)と[存在・一意性](../PML2-01/index.md#thm-pml2-01-energy)より、これが一意の弱解である。基底の値を使うと
+多項式なので $C^2$ に属する。[古典解はエネルギー弱解になる](../PML2-01/index.md#prop-pml2-01-classical-weak)と[存在・一意性](../PML2-01/index.md#thm-pml2-01-energy)より、これが一意の弱解である。基底の値を使うと
 
 $$
 y_1^\ast=1/4+2(0)=1/4,\qquad
