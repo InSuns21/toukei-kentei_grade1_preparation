@@ -24,3 +24,4 @@
 21. [BHI21 境界モードとSchwarzian力学](textbook/volumes/dream_thater/物理系/BHI/BHI21/index.md)
 22. [BHI22 JTと非重力浴の接合](textbook/volumes/dream_thater/物理系/BHI/BHI22/index.md)
 23. [BHI23 islandなしの放射エントロピー](textbook/volumes/dream_thater/物理系/BHI/BHI23/index.md)
+24. [BHI24 island候補と一般化エントロピー](textbook/volumes/dream_thater/物理系/BHI/BHI24/index.md)
