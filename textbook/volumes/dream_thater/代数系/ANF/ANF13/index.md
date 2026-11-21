@@ -355,11 +355,11 @@ $$
 
 任意の $x\in\mathcal O_{K_0}$ を $x=\sum_{j=0}^{f-1}a_j\theta^j$（$a_j\in K$）と一意に書き、$x\ne0$ のとき $m=\min_j v_K(a_j)$ と置きます。もし $m<0$ なら、$b_j=\varpi_K^{-m}a_j\in B$ のうち少なくとも一つは単元です。一方、$K_0/K$ の分岐指数は $1$ なので
 
-$
+$$
 \varpi_K^{-m}x\in\varpi_K\mathcal O_{K_0}
 \quad\Longrightarrow\quad
 \sum_{j=0}^{f-1}\bar b_j\bar\theta^j=0.
-$
+$$
 
 これは剰余体上の基底の一次独立性と、少なくとも一つの $\bar b_j$ が非零であることに反します。よって $m\ge0$、すべての $a_j\in B$ であり、$\mathcal O_{K_0}=B[\theta]$ です。
 
@@ -367,29 +367,29 @@ $\theta$ の最小多項式 $h$ は法 $\mathfrak m_K$ で分離的なので $h'
 
 **(2) 非分岐中間体を通した跡双対。** 有限拡大の跡の合成から
 
-$
+$$
 \operatorname{Tr}_{L/K}
 =\operatorname{Tr}_{K_0/K}\circ\operatorname{Tr}_{L/K_0}
-$
+$$
 
 です。[余異なるの定義](../ANF11/index.md#def-anf11-codifferent)を使います。まず $x\in\mathfrak D^{-1}_{L/K_0}$ なら、任意の $a\in A$ に対し $\operatorname{Tr}_{L/K_0}(xa)\in\mathcal O_{K_0}$ です。$\operatorname{Tr}_{K_0/K}(\mathcal O_{K_0})\subseteq B$ なので、合成跡も $B$ に入り $x\in\mathfrak D^{-1}_{L/K}$ です。
 
 逆に $x\in\mathfrak D^{-1}_{L/K}$ とします。任意の $a\in A$、$b\in\mathcal O_{K_0}$ では $ab\in A$ だから
 
-$
+$$
 \operatorname{Tr}_{K_0/K}
 \bigl(b\,\operatorname{Tr}_{L/K_0}(xa)\bigr)
 =\operatorname{Tr}_{L/K}(xab)\in B.
-$
+$$
 
 これは $\operatorname{Tr}_{L/K_0}(xa)$ が $\mathfrak D^{-1}_{K_0/K}=\mathcal O_{K_0}$ に属するという条件そのものです。任意の $a\in A$ に対し成立するので $x\in\mathfrak D^{-1}_{L/K_0}$ です。両包含から
 
-$
+$$
 \mathfrak D^{-1}_{L/K}
 =\mathfrak D^{-1}_{L/K_0},
 \qquad
 \mathfrak D_{L/K}=\mathfrak D_{L/K_0}
-$
+$$
 
 を得ます。
 
