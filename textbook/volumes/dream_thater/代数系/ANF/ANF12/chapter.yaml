@@ -1,0 +1,44 @@
+id: "ANF12"
+title: "局所単数・ノルム・跡"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANF11
+official_scope: []
+learning_objectives:
+  - 局所単数のフィルトレーションを定義し剰余群と段階商を具体計算できる
+  - U^0/U^1の乗法群とU^r/U^{r+1}の加法群の同型を証明できる
+  - 局所ノルムの付値公式と整数環の跡の整数性を確認できる
+  - 非分岐拡大で剰余体ノルムと跡を乗法行列の還元から導ける
+  - 有限体ノルム・跡の全射性を証明できる
+  - 非分岐拡大で主単数と全単元のノルム全射性を逐次近似で証明できる
+  - 非分岐ノルム群p^{fZ}Z_p^timesを求め付値による判定ができる
+  - 分岐二次拡大で単元剰余の障害と跡の非全射を具体的に示せる
+definitions:
+  - { id: ANF12-DEF-01, name: 局所単数のフィルトレーション }
+theorems:
+  - { id: ANF12-THM-01, name: 局所単数の段階商 }
+  - { id: ANF12-PROP-01, name: ノルムの付値と整数環の跡 }
+  - { id: ANF12-LEM-01, name: 有限体のノルム・跡は全射 }
+  - { id: ANF12-PROP-02, name: 非分岐拡大の段階商でのノルム・跡 }
+  - { id: ANF12-THM-02, name: 非分岐局所拡大のノルム・跡 }
+canonical_examples:
+  - Q_5におけるU^0,U^1,U^2の包含
+  - Q_3(i)の有限体跡とノルムの法9合同
+  - Q_5(sqrt5)の非ノルム単元2とQ_2(sqrt2)の跡像
+  - 非分岐拡大での主単数のノルム逐次持ち上げ
+problem_patterns:
+  - ANF12-UNIT-DEPTH
+  - ANF12-GRADED-ADDITION
+  - ANF12-NORM-VALUATION
+  - ANF12-RESIDUE-TRACE
+  - ANF12-UNRAMIFIED-NORM-INDEX
+  - ANF12-FIRST-ORDER-NORM
+  - ANF12-RAMIFIED-NORM-OBSTRUCTION
+  - ANF12-FINITE-FIELD-TRACE
+  - ANF12-NORM-LIFT
+  - ANF12-INTEGRATED-NORM-OBSTRUCTIONS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 7.0, review: 2.5 }
