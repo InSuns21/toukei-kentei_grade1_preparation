@@ -1,0 +1,47 @@
+id: "ANF7"
+title: "単数定理とレギュレータ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANF6
+official_scope: []
+learning_objectives:
+  - 整数環の単数群と1の冪根群を定義し生成元の取り替えとの関係を示せる
+  - 実・複素埋め込みの重み付き対数写像を定義しノルム公式から和零超平面への包含を導出できる
+  - 対数写像の核が有限の1の冪根群であり対数像が離散であることをMinkowski格子から証明できる
+  - 動かせる対称凸体とノルム有界な整イデアルの有限性から対数像の有界距離被覆を示せる
+  - 離散かつ相対稠密な部分群が全格子となる補題を証明しDirichlet単数定理を導出できる
+  - 基本単数の対数行列とレギュレータの定義および基底・削除行に関する不変性を証明できる
+  - Q、Q(i)、Q(sqrt(2))、Q(sqrt(3))で単数・基本単数・レギュレータを計算できる
+  - 実1複素1の三次数体で複素対数の重み2を使って和零条件を検算できる
+definitions:
+  - { id: ANF7-DEF-01, name: 数体の単数群 }
+  - { id: ANF7-DEF-02, name: 重み付き対数埋め込み }
+  - { id: ANF7-DEF-03, name: レギュレータ }
+theorems:
+  - { id: ANF7-LEM-01, name: 対数写像の核と離散性 }
+  - { id: ANF7-LEM-02, name: 対数像による有界距離被覆 }
+  - { id: ANF7-LEM-03, name: 離散かつ相対稠密な部分群 }
+  - { id: ANF7-THM-01, name: Dirichletの単数定理 }
+  - { id: ANF7-PROP-01, name: レギュレータの不変性 }
+canonical_examples:
+  - QとQ(i)の有限単数群とレギュレータ1
+  - Q(sqrt(2))で基本単数1+sqrt(2)の最小性と全単数の表示
+  - Q(sqrt(3))で基本単数2+sqrt(3)を用いた全単数の決定
+  - 三次多項式T^3-T-1における複素対数重み2の確認
+  - 動かせる凸体から有限個の主イデアルを経由して単数を構成する証明
+problem_patterns:
+  - ANF7-UNITS-OF-Q
+  - ANF7-IMAGINARY-QUADRATIC-UNITS
+  - ANF7-REAL-QUADRATIC-LOGS
+  - ANF7-UNIT-NORM-CRITERION
+  - ANF7-CUBIC-COMPLEX-WEIGHT
+  - ANF7-LOG-IMAGE-DISCRETENESS
+  - ANF7-KRONECKER-ROOT-OF-UNITY
+  - ANF7-MINKOWSKI-BOX-COARSE-COVER
+  - ANF7-REGULATOR-INVARIANCE
+  - ANF7-FUNDAMENTAL-UNIT-PELL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11.0, exercises: 8.0, review: 2.0 }

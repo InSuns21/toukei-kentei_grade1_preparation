@@ -31,7 +31,7 @@ chapters:
     title: "イデアル類群の有限性"
   - id: ANF7
     path: textbook/volumes/dream_thater/代数系/ANF/ANF7
-    status: planned
+    status: completed
     title: "単数定理とレギュレータ"
   - id: ANF8
     path: textbook/volumes/dream_thater/代数系/ANF/ANF8
