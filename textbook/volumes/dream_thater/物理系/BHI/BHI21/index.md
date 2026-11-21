@@ -234,13 +234,25 @@ Poincaré座標 $F$ を、$M(y)=(ay+b)/(cy+d)$ の形の**射影変換**で取�
 <!-- formal-statement-start -->
 > **命題（JT境界Schwarzian作用の射影変換不変性）**
 >
-> $C>0$、$F\in C^3$、$F'>0$ とし、局所Poincaré座標 $F(u)$ に対する境界作用を $I_{\rm Sch}^{E}[F]=-C\int du\,\{F,u\}$ とする。実係数 $a,b,c,d$ が $ad-bc>0$、$cF(u)+d\ne0$ を満たす区間で
+> $C>0$、局所Poincaré座標 $F\in C^3(J)$、$F'>0$ とし、開区間 $J$ 上の境界作用を
+>
+$
+I^E_{\rm Sch}[F]=-C\int_J \{F,u\}\,du
+$
+>
+> とする。実係数 $a,b,c,d$ に対して、区間の全点 $u\in J$ で
+>
+$
+ad-bc>0,\qquad cF(u)+d\ne0
+$
+>
+> とする。射影変換による新しい座標を
 >
 $
 M(y)=\frac{ay+b}{cy+d},\qquad \widetilde F=M\circ F
 $
 >
-> と置く。このとき $\widetilde F'>0$、$\{\widetilde F,u\}=\{F,u\}$ であり、同じ積分区間での境界作用も不変である。
+> と定める。このとき $\widetilde F'>0$、$\{\widetilde F,u\}=\{F,u\}$ であり、作用は $I^E_{\rm Sch}[\widetilde F]=I^E_{\rm Sch}[F]$ を満たす。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
