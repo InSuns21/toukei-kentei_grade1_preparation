@@ -121,7 +121,15 @@ $$
 $$
 ab_j=\sum_{i=1}^n M_{ij}b_i\qquad(M_{ij}\in\mathbb Z_p)
 $$
-と表せます。これが $m_a$ の乗法行列 $M$ です。従って $\det(XI_n-M)\in\mathbb Z_p[X]$ で、$X^{n-1}$ の係数は $-\operatorname{tr}M$ です。ゆえに $\operatorname{Tr}_{L/K}(a)=\sum_iM_{ii}\in\mathbb Z_p$。これは「整数環の元である」という条件から、跡を計算する行列の成分の整数性へ移る根拠です。
+と表せます。これが $m_a$ の乗法行列 $M$ です。従って
+$$
+\det(XI_n-M)=X^n-(\operatorname{tr}M)X^{n-1}+\cdots\in\mathbb Z_p[X].
+$$
+特に
+$$
+\operatorname{Tr}_{L/K}(a)=\operatorname{tr}M=\sum_{i=1}^n M_{ii}\in\mathbb Z_p.
+$$
+これは「整数環の元である」という条件から、跡を計算する行列の成分の整数性へ移る根拠です。
 <!-- proof-end -->
 
 たとえば $L=\mathbb Q_5(\pi)$、$\pi^2=5$ では $\pi$ の共役が $-\pi$ ですから
@@ -173,7 +181,15 @@ $$
 
 まず有限体の乗法群 $G=k^\times$ が巡回群であることを確認します。各元の位数の最小公倍数を $m$ とします。
 
-$m=\prod_i\ell_i^{a_i}$ と素因数分解します。最小公倍数の定義から、各 $i$ について位数が $\ell_i^{a_i}$ でちょうど割れる元 $h_i$ が存在します。$\operatorname{ord}(h_i)=\ell_i^{a_i}q_i$（$\ell_i\nmid q_i$）と置けば $g_i=h_i^{q_i}$ の位数は $\ell_i^{a_i}$ です。$G$ は体の乗法群なので可換であり、互いに素な位数の $g_i$ を掛けた元 $g=\prod_i g_i$ の位数は $\prod_i\ell_i^{a_i}=m$ です（$m=1$ のときは $g=1$ とします）。
+$m=\prod_i\ell_i^{a_i}$ と素因数分解します。最小公倍数の定義から、各 $i$ について位数が $\ell_i^{a_i}$ でちょうど割れる元 $h_i$ が存在します。$\operatorname{ord}(h_i)=\ell_i^{a_i}q_i$（$\ell_i\nmid q_i$）と置けば $g_i=h_i^{q_i}$ は
+$$
+\operatorname{ord}(g_i)=\ell_i^{a_i}
+$$
+を満たします。$G$ は体の乗法群なので可換であり、互いに素な位数の元を掛け合わせると位数も掛け合わされます。従って
+$$
+\operatorname{ord}\left(\prod_i g_i\right)=\prod_i\ell_i^{a_i}=m.
+$$
+なお $m=1$ のときは単位元を取ります。
 
 他方、$G$ の全元は多項式 $X^m-1$ の根です。根は次数を超えないので $|G|\le m$。任意の $a\in G$ について、$G$ は部分群 $\langle a\rangle$ の剰余類に分割され、各類には $\operatorname{ord}(a)$ 個の元があるので $\operatorname{ord}(a)\mid|G|$ です。従って各元の位数の最小公倍数 $m$ も $|G|$ を割り、$m\le|G|$。両不等式から $m=|G|$ となり、$G$ は巡回群です。
 
