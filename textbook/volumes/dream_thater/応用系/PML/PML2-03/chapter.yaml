@@ -1,0 +1,48 @@
+id: "PML2-03"
+title: "機械学習なしでどう解くか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-02
+  - FEM2
+official_scope: []
+learning_objectives:
+  - 一次元Poisson問題の格子と三点差分法を定義し連立方程式を組み立てられる
+  - 離散エネルギー恒等式と最大値原理から差分法の一意性と安定性を証明できる
+  - Taylor剰余から局所切断誤差を導き障壁関数で格子点誤差を評価できる
+  - 零Dirichlet弱形式から区分一次有限要素空間と帽子関数を構成できる
+  - 剛性行列と厳密荷重ベクトルを積分で組み立て正定値性を証明できる
+  - Galerkin直交性とエネルギー最良近似を導出できる
+  - 二次真解の節点一致と区間内L2およびH1半ノルム誤差を厳密に計算できる
+  - 四次真解で差分法と有限要素法の右辺の違いを検算できる
+  - 標準Pythonによる格子変更実験で節点誤差と関数誤差を区別できる
+definitions:
+  - { id: PML2-03-DEF-01, name: 零Dirichlet Poisson問題の三点差分法 }
+  - { id: PML2-03-DEF-02, name: 区分一次有限要素のGalerkin解 }
+theorems:
+  - { id: PML2-03-PROP-01, name: 離散最大値原理 }
+  - { id: PML2-03-THM-01, name: 三点差分法の二次精度と最大誤差評価 }
+  - { id: PML2-03-PROP-02, name: 区分一次Galerkin解の存在と一意性 }
+  - { id: PML2-03-THM-02, name: Galerkin直交性とエネルギー最良近似 }
+  - { id: PML2-03-THM-03, name: 定数外力の節点一致と区間内誤差 }
+canonical_examples:
+  - 二分割格子の三点差分および帽子関数の定義条件確認
+  - 四分割Poissonの差分と有限要素の同一節点値
+  - 四次解の差分値とGalerkin節点値の不一致
+  - 二次解の連続L2およびH1半ノルム誤差の厳密式
+  - 外部ライブラリ不要のPythonコードによる格子変更の検算
+problem_patterns:
+  - PML2-03-A01
+  - PML2-03-A02
+  - PML2-03-A03
+  - PML2-03-A04
+  - PML2-03-A05
+  - PML2-03-B01
+  - PML2-03-B02
+  - PML2-03-B03
+  - PML2-03-B04
+  - PML2-03-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
