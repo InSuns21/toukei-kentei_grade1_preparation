@@ -1,0 +1,42 @@
+id: "GBG4"
+title: "主束から物質場の束をどう作るか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG3
+official_scope: []
+learning_objectives:
+  - 右主G束に対する滑らかな左線形表現と結合束の同値関係を定義し積の順序を確認できる
+  - 結合束のファイバーの線形構造と滑らかな局所自明化を構成し遷移関数を導出できる
+  - 結合束の滑らかな切断と主束上の同変関数の一対一対応を両方向に証明できる
+  - 局所成分の変換則と局所section変更に対する整合性を非可換群でも検算できる
+  - 局所成分の貼り合わせが大域的な切断を一意に定めることを証明できる
+  - U(1)の電荷q線束と枠束から接束を復元する標準表現の例を計算できる
+definitions:
+  - { id: GBG4-DEF-01, name: 滑らかな左線形表現 }
+  - { id: GBG4-DEF-02, name: 結合ベクトル束 }
+  - { id: GBG4-DEF-03, name: 表現に関する同変関数 }
+theorems:
+  - { id: GBG4-THM-01, name: 結合束の滑らかなベクトル束構造 }
+  - { id: GBG4-THM-02, name: 結合束の切断と同変関数の対応 }
+  - { id: GBG4-THM-03, name: 切断の局所成分とsection変更の変換則 }
+  - { id: GBG4-PROP-01, name: 局所成分の貼り合わせ判定 }
+canonical_examples:
+  - U(1)の電荷q表現と複素線束の局所変換
+  - 積主束の結合束と同変関数の直接構成
+  - 枠束と標準表現による接束の再構成
+  - GL(2,R)の非可換なsection変更と局所成分
+problem_patterns:
+  - GBG4-QUOTIENT-ACTION
+  - GBG4-NEUTRAL-CHARGE
+  - GBG4-CHARGED-TRANSITION
+  - GBG4-FRAME-COORDINATES
+  - GBG4-EQUIVARIANT-SECTION
+  - GBG4-NONCOMMUTATIVE-GLUING
+  - GBG4-SECTION-CHANGE
+  - GBG4-HOPF-CHARGES
+  - GBG4-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 3 }
