@@ -31,10 +31,10 @@ $$
 =\rho_q(z)\rho_q(w)v.
 $$
 $a,b,v,w\in\mathbb C$ に対して
-$
+$$
 \rho_q(z)(av+bw)=z^q(av+bw)
 =a\rho_q(z)v+b\rho_q(z)w
-$
+$$
 だから各 $\rho_q(z)$ は複素線形である。$\rho_q(1)=I_{\mathbb C}$ で、$|z^q|=1$ だから各 $\rho_q(z)$ は可逆。従って表現の全条件を満たす。$q=0$ は全ての群元を恒等変換へ送る表現である。ここで $q$ は表現を指定する整数（重み）であり、物理的な電荷との対応には規格化の指定が別に必要になる。また $G=GL(n,\mathbb R)$、$V=\mathbb R^n$ の $\rho(A)v=Av$ も、行列積の結合律と可逆性から滑らかな左表現となる。
 <!-- definition-example-end -->
 
@@ -346,15 +346,15 @@ $$
 で、結合束の同値関係と一致する。各 $x$ では $p:\mathbb R^n\to T_xM$ が同型であり、局所枠に対して両辺の座標は同じ $v$。よって $\Theta$ とその逆は局所座標で恒等写像となる滑らかなベクトル束同型である。
 
 例えば $M=(0,\infty)$ で $y=\log x$、従って $x=e^y$ とする。$e_x=\partial/\partial x$ と $e_y=\partial/\partial y$ は、滑らかな関数にそれぞれの座標で微分を作用させる接ベクトルである（[GBG2 の座標枠](../GBG2/index.md#thm-gbg2-frame-principal)）。この1次元の計算では、他の変数を固定する必要がないので偏微分と通常の1変数微分が一致する。任意の滑らかな $f$ に連鎖律を適用すると
-$
+$$
 e_y(f)=\frac{d}{dy}f(e^y)
 =\frac{df}{dx}(x)\frac{dx}{dy}
 =x\,e_x(f).
-$
+$$
 すべての $f$ への作用が一致するから $e_y=x e_x$。従って同じ接ベクトルは
-$
+$$
 5e_x=\frac{5}{x}e_y
-$
+$$
 であり、成分は $e_x$ 基準で $5$、$e_y$ 基準で $5/x$。[本章の局所成分の変換則](#thm-gbg4-component-transformation)に枠の変更行列 $h=x\in GL(1,\mathbb R)$ を代入した $v_y=h^{-1}v_x=x^{-1}v_x$ に一致する。
 
 ---
@@ -411,10 +411,10 @@ $e'_1=e_1+e_2$、$e'_2=e_2$ とするとき、$w=2e_1+3e_2$ の新しい枠で�
 
 <!-- solution-start -->
 **詳細解答**。[枠束における行列の作り方](../GBG2/index.md#def-gbg2-frame-bundle)に従い、旧枠 $p=(e_1,e_2)$ に対して新枠 $p'=(e'_1,e'_2)$ の各列を旧枠で展開する。$e'_1=1e_1+1e_2$、$e'_2=0e_1+1e_2$ なので、係数を列に並べると
-$
+$$
 p'=pA,\qquad
 A=\begin{pmatrix}1&0\\1&1\end{pmatrix},\qquad \det A=1.
-$
+$$
 行列式が非零だから $p'$ も枠であり、$A^{-1}$ が存在する。同じベクトルの旧成分 $v=(2,3)^{\mathsf T}$ と新成分 $v'$ は $w=pv=p'v'=p(Av')$ を満たす。$p:\mathbb R^2\to T_xM$ は線形同型なので $Av'=v$。従って
 $$
 v'=A^{-1}v
