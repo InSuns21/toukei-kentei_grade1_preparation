@@ -228,7 +228,6 @@ $$
 > $K$ を完備な離散付値体で剰余体が有限のものとする。体拡大 $L/K$ の拡大次数 $[L:K]$ が有限であり、$K$ の付値が $L$ に拡張され、その付値で $L$ が完備・剰余体が有限となるとき、$L/K$ を局所体の有限拡大という。本講では $K=\mathbb Q_p$ とし、後述の Eisenstein 多項式による拡大について、この条件を直接証明する。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-anf10-finite-local-extension -->
 **定義の確認への準備。** $\mathbb Q_p$ は [ANF9の構成](../ANF9/index.md#thm-anf9-completion-field)により完備で、$\mathbb Z_p/p\mathbb Z_p=\mathbb F_p$ は有限です。$L=\mathbb Q_p(\pi)$、$\pi^2=p$ とした場合に、$[L:\mathbb Q_p]=2$、$L$ の整数環が $\mathbb Z_p[\pi]$ で、その付値の規格化が $v_L(\pi)=1$、$v_L(p)=2$、剰余体が $\mathbb F_p$ であることを第7節で導きます。単に記号を書くだけでなく、有限拡大の各条件をそこで実際に確認します。
 <!-- definition-example-end -->
 
