@@ -1,0 +1,48 @@
+chapter: GBG1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO1
+  - LIE1
+concepts:
+  - id: gauge.open-cover
+    name: 開被覆と重なり
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（開被覆と重なり）"]
+    requires: [geometry.smooth-manifold, topology.topological-space]
+
+  - id: gauge.smooth-transition-cocycle
+    name: 滑らかな遷移関数と1-cocycle
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（滑らかな遷移関数と1-cocycle）"]
+    requires: [gauge.open-cover, lie.lie-group]
+
+  - id: gauge.cocycle-normalization
+    name: cocycleの正規化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（cocycle の正規化）"]
+    requires: [gauge.smooth-transition-cocycle]
+
+  - id: gauge.cocycle-glued-space
+    name: cocycleによる局所積の貼り合わせ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（cocycle による局所積の貼り合わせ）"]
+    requires: [gauge.smooth-transition-cocycle, topology.quotient-topology-map, topology.disjoint-union-topology]
+
+  - id: gauge.smooth-gluing-theorem
+    name: 滑らかなcocycleからの貼り合わせ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな cocycle からの貼り合わせ）"]
+    requires: [gauge.cocycle-glued-space, geometry.smooth-manifold, lie.lie-group]
+
+  - id: gauge.local-trivialization-cocycle-correspondence
+    name: 局所積表示とcocycleの逆向きの対応
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所積表示と cocycle の逆向きの対応）"]
+    requires: [gauge.smooth-gluing-theorem, geometry.diffeomorphism]
