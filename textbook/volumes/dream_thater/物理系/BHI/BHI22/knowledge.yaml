@@ -33,7 +33,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: [命題（透過浴のSchwarzian出射流束）]
-    requires: [black-hole-information.jt-bath-outgoing-state, qcurv.schwarzian-state-transformation]
+    requires: [black-hole-information.jt-bath-outgoing-state, qcurv.schwarzian-vacuum-flux]
   - id: black-hole-information.jt-bath-energy-decay
     name: 真空浴へ完全透過するJTのエネルギー減衰
     kind: proposition
