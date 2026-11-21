@@ -72,7 +72,7 @@ test('WGL9 lesson sources / host bridge / edit and readback',async()=>{
 test('WGL9 moving 3D model rotates positions and inverse-transpose normals together',async()=>{
   const js=await readFile(new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL9/lighting.js',import.meta.url),'utf8');
   const source=js.match(/function rotationPitchScale\(yaw,pitch,\[sx,sy,sz\]\)\{[\s\S]*?\n\}/)?.[0];
-  assert.ok(source,'learner's source must contain the actual model rotation');
+  assert.ok(source,"learner's source must contain the actual model rotation");
   const rotation=new Function(source+';return rotationPitchScale;')();
   for(const yaw of [0,.6,-1])for(const pitch of [0,.25,-.5]){
     const m=rotation(yaw,pitch,[2,3,4]);
