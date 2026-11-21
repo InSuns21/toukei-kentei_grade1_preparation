@@ -4,12 +4,14 @@ coverage: complete
 prerequisites:
   - GBG1
   - GEO2
+forward_references:
+  - complex-analysis.winding-number
 concepts:
   - id: gauge.principal-bundle
     name: 滑らかな主G束
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（滑らかな主 $G$ 束）"]
+    introduction_aliases: ["定義（滑らかな主G束）"]
     requires: [gauge.smooth-gluing-theorem, lie.lie-group]
 
   - id: gauge.local-trivialization-free-transitive
@@ -58,7 +60,7 @@ concepts:
     name: Hopf主U(1)束
     kind: theorem
     introduction: formal
-    introduction_aliases: ["定理（Hopf主 $U(1)$ 束）"]
+    introduction_aliases: ["定理（Hopf主U(1)束）"]
     requires: [gauge.hopf-map, gauge.local-trivialization-free-transitive]
 
   - id: gauge.frame-bundle
