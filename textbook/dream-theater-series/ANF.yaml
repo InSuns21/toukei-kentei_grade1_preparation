@@ -55,7 +55,7 @@ chapters:
     title: "局所単数・ノルム・跡"
   - id: ANF13
     path: textbook/volumes/dream_thater/代数系/ANF/ANF13
-    status: planned
+    status: completed
     title: "局所拡大とGalois分岐群"
   - id: ANF14
     path: textbook/volumes/dream_thater/代数系/ANF/ANF14
