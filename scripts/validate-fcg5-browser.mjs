@@ -122,10 +122,18 @@ try {
   const linkedSecond=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
   assert.notEqual(linkedFirst.data,linkedSecond.data,'real 12x12 solver should change GPU dye frames over time');
   console.log('FCG5 editable 12x12 MAC solver animates actual GPU dye frames: PASS');
-  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("再生中")',25000);
+  // Capture can change motion preference or leave the learner solver paused.
+  // Inspect its authenticated *actual* progress before forcing reduce below.
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.match(/(?:再生中|一時停止中)/)',25000);
   const focusPoint=await evaluate('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2};})()');
   await cdp('Input.dispatchMouseEvent',{type:'mousePressed',x:focusPoint.x,y:focusPoint.y,button:'left',buttons:1,clickCount:1});
   await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:focusPoint.x,y:focusPoint.y,button:'left',buttons:0,clickCount:1});
+  if(await evaluate('document.querySelector("#fcg5-live-state").textContent.includes("一時停止中")')){
+    // Resume via the same keyboard control learners use, not a test-only clock.
+    await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:' ',code:'Space',windowsVirtualKeyCode:32,nativeVirtualKeyCode:32,text:' '});
+    await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:' ',code:'Space',windowsVirtualKeyCode:32,nativeVirtualKeyCode:32});
+  }
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("再生中")',25000);
   // Focus the real sandbox canvas before freezing screenshots, so an outline
   // change alone cannot be mistaken for a resumed physical animation.
   // G4: switching reduced motion at runtime pauses the very same editable
