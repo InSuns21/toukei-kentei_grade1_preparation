@@ -4,6 +4,7 @@ volume: foundations
 status: supplementary
 prerequisites:
   - BHI18
+  - GEO19
 official_scope: []
 learning_objectives:
   - 二次元JT作用のbulk・dilaton GHY境界項・位相項・反項を符号と次元を固定して記述できる
