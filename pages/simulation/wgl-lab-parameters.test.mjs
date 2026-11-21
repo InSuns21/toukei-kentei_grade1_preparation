@@ -25,6 +25,35 @@ for (const [lesson, path, initial, altered, consumer] of cases) {
     assert.throws(() => writeLabParameter(source, spec, spec.min + spec.step / 2), RangeError);
   });
 }
+test('WGL19 G2 clock/rate controls edit only their corresponding runtime values', async () => {
+  const source = await readFile(new URL('WGL/WGL19/audit.js', base), 'utf8');
+  const specs = parametersFor('WGL19');
+  assert.deepEqual(specs.map(s => s.id), ['rate','fixed-ms','max-steps-per-frame']);
+  const changes = [0.1,40,1];
+  let edited = source;
+  for (let i=0;i<specs.length;i++) {
+    const spec=specs[i];
+    assert.equal(spec.sourceFile,'js');
+    assert.deepEqual(readLabParameter(source,spec),{ok:true,value:spec.default});
+    edited=writeLabParameter(edited,spec,changes[i]);
+    assert.deepEqual(readLabParameter(edited,spec),{ok:true,value:changes[i]});
+    assert.throws(()=>writeLabParameter(source,spec,spec.max+spec.step),RangeError);
+    assert.throws(()=>writeLabParameter(source,spec,spec.min+spec.step/2),RangeError);
+  }
+  assert.match(edited,/const rate=0\.1;/);
+  assert.match(edited,/const fixedMs=40;/);
+  assert.match(edited,/const maxStepsPerFrame=1;/);
+  assert.match(edited,/gl\.uniform1f\(uniforms\.rate,rate\)/);
+  assert.match(edited,/while\(accumulator\+1e-9>=fixedMs && thisFrame<maxStepsPerFrame\)/);
+  for(let i=specs.length-1;i>=0;i--)
+    edited=writeLabParameter(edited,specs[i],specs[i].default);
+  assert.equal(edited,source);
+  const expression=source.replace('const fixedMs=20;','const fixedMs=10+10;');
+  assert.equal(readLabParameter(expression,specs[1]).ok,false);
+  assert.throws(()=>writeLabParameter(expression,specs[1],40),/JSソース/);
+  assert.equal(readLabParameter(source+'\nconst fixedMs=30;',specs[1]).ok,false);
+});
+
 test('WGL12 array edit retains the two other sphere materials and edited GLSL', async () => {
   const source = await readFile(new URL('WGL/WGL12/pbr.js', base), 'utf8');
   const spec = parametersFor('WGL12')[0];
