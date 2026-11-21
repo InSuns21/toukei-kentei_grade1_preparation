@@ -99,7 +99,7 @@ chapters:
     title: "JTと非重力浴の接合"
   - id: BHI23
     path: textbook/volumes/dream_thater/物理系/BHI/BHI23
-    status: planned
+    status: completed
     title: "islandなしの放射エントロピー"
   - id: BHI24
     path: textbook/volumes/dream_thater/物理系/BHI/BHI24
