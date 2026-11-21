@@ -65,9 +65,9 @@ $$
 
 **(1) 有限生成性。** 分離拡大 $L/K$ では原始元 $\alpha$ を選べます。その最小多項式を $X^n+c_{n-1}X^{n-1}+\cdots+c_0$（$c_j\in K$）とすると、$\theta=p^s\alpha$ は
 
-$
+$$
 X^n+p^sc_{n-1}X^{n-1}+\cdots+p^{sn}c_0
-$
+$$
 
 の根です。$s$ を十分大きく選べばすべての係数が $\mathbb Z_p$ に入るので $\theta$ は整で、$K(\theta)=L$ も保たれます。
 
@@ -90,12 +90,12 @@ $$
 
 任意の $x\in L$ を冪基底で $x=\sum_{i=0}^{n-1}b_i\theta^i$（$b_i\in K$）と表します。跡の線形性から
 
-$
+$$
 \operatorname{Tr}(x\theta^j)
 =\sum_{i=0}^{n-1}b_i\operatorname{Tr}(\theta^{i+j})
 =(T\boldsymbol b)_j,\qquad
 \boldsymbol b=(b_0,\ldots,b_{n-1})^{\mathsf T}.
-$
+$$
 
 従って整元に対する跡条件は $T\boldsymbol b\in\mathbb Z_p^n$ であり、$T$ が可逆なので $\boldsymbol b\in T^{-1}\mathbb Z_p^n$ と判定できます。$T^{-1}$ の成分の分母を払う $p^s$ を選べば
 
@@ -117,9 +117,9 @@ $$
 
 を行います。$h_k=-F(e_k)/F'(e_k)$ と置くと二次式の展開から
 
-$
+$$
 F(e_k+h_k)=F(e_k)+F'(e_k)h_k+h_k^2=h_k^2
-$
+$$
 
 です。$F'(e_k)^2=1+4F(e_k)$ なので $F(e_k)\in p\mathcal O_L$ なら $F'(e_k)$ は単元であり、この性質は反復で保たれます。帰納的に $F(e_k),h_k\in p^{2^k}\mathcal O_L$ となるので、[Newton 反復の残差評価](../ANF10/index.md#prop-anf10-newton-doubling)と同様に $(e_k)$ は Cauchy 列です。$\mathcal O_L$ の $p$ 進完備性と多項式の連続性から $e_k\to e\in\mathcal O_L$、$F(e)=0$ が従います。
 
@@ -223,11 +223,11 @@ $p\mathcal O_L=\mathfrak m_L^e$ だから $p^n=p^{ef}$、すなわち $n=ef$ で
 
 延長の一意性では、通常の絶対値 $|\cdot|'$ が $|\cdot|_p$ を延長すると仮定します。まず $a,b\in L$、$M=\max(|a|',|b|')$ に対して二項定理と $|\binom Nk|'=|\binom Nk|_p\le1$ から
 
-$
+$$
 |a+b|'^N
 \le\sum_{k=0}^N\left|\binom Nk\right|'|a|'^k|b|'^{N-k}
 \le(N+1)M^N.
-$
+$$
 
 $N$ 乗根を取って $N\to\infty$ とすれば $|a+b|'\le M$ です。従って拡張絶対値は非Archimedes的です。整元 $x$ のモニック方程式の係数 $a_j\in\mathbb Z_p$ は $|a_j|'\le1$ を満たすので、$|x|'>1$ なら最高次項だけが他の各項より絶対値が大きくなり、強三角不等式と矛盾します。ゆえに $|x|'\le1$ です。
 
@@ -283,19 +283,19 @@ $$
 
 **定義から基底による判定へ。** $\mathcal O_L$ の $\mathbb Z_p$ 基底を $\omega_1,\ldots,\omega_n$ とします。$x=\sum_i b_i\omega_i$（$b_i\in K$）、$y=\sum_jc_j\omega_j$（$c_j\in\mathbb Z_p$）と書き、
 
-$
+$$
 T_{ij}=\operatorname{Tr}(\omega_i\omega_j),\qquad
 \operatorname{Tr}(xy)=\sum_{i,j}b_iT_{ij}c_j
 =\boldsymbol b^{\mathsf T}T\boldsymbol c
-$
+$$
 
 を得ます。従って**すべての** $y\in\mathcal O_L$ に対する跡の整数性は、$y=\omega_j$ の $n$ 通りの検査、すなわち $T\boldsymbol b\in\mathbb Z_p^n$ と同値です。第1節で示した非退化性から $T$ は $K$ 上可逆なので
 
-$
+$$
 \mathfrak D^{-1}
 =\left\{\sum_i b_i\omega_i:
 \boldsymbol b\in T^{-1}\mathbb Z_p^n\right\}.
-$
+$$
 
 **分数イデアル性の確認。** この表示は余異なるが階数 $n$ の有限自由 $\mathbb Z_p$ 加群で $L$ を張ることを示します。$T^{-1}$ の全成分について共通分母 $p^s$ を払えば $p^s\mathfrak D^{-1}\subseteq\mathcal O_L$ です。従って残る $\mathcal O_L$ 加群性を確かめれば[分数イデアルの定義](../ANF3/index.md#def-anf3-fractional-ideal)を満たします。
 
@@ -380,10 +380,10 @@ $$
 
 先ほどの $E=\mathbb Z_3[i]=\mathbb Z_3\oplus\mathbb Z_3i$ について、まず跡の定義を基底 $(1,i)$ で調べます。共役 $i\mapsto-i$ により $\operatorname{Tr}(1)=2$、$\operatorname{Tr}(i)=0$、$\operatorname{Tr}(i^2)=-2$ なので
 
-$
+$$
 T=\begin{pmatrix}2&0\\0&-2\end{pmatrix},
 \qquad T^{-1}=\begin{pmatrix}1/2&0\\0&-1/2\end{pmatrix}.
-$
+$$
 
 $2$ は $\mathbb Z_3$ の単元ですから、$x=a+bi$ に対する条件 $\operatorname{Tr}(x)=2a\in\mathbb Z_3$ と $\operatorname{Tr}(xi)=-2b\in\mathbb Z_3$ は $a,b\in\mathbb Z_3$ と同値です。従って第4節の基底判定の通り、$E$ の跡双対 $E^\vee=\{x\in L:\operatorname{Tr}(xE)\subseteq\mathbb Z_3\}$ は $E$ 自身です。ここでは $E=\mathcal O_L$ をまだ仮定していません。なお $g(X)=X^2+1$ の $g'(i)=2i$ は $E$ の単元なので、単項生成の跡双対公式 $E^\vee=(2i)^{-1}E$ とも一致します。
 
@@ -436,13 +436,13 @@ $$
 
 任意の $x\in L^\times$ に対して、そのノルムの付値は $v_L(x)$ に剰余次数 $f$ を掛けた値になります。実際 $x=u\pi^r$ と表すと、単元 $u$ は $\mathcal O_L$ 上の乗法で可逆なので $N(u)\in\mathbb Z_p^\times$ です。一方、$\pi$ による乗法は $\mathbb Z_p$ 上階数 $n$ の自由加群 $\mathcal O_L$ を部分加群 $\pi\mathcal O_L$ に写し、その商は $\kappa_L$ で元数 $p^f$ です。この乗法写像を $\mathbb Z_p$ 基底で $A\in M_n(\mathbb Z_p)$ と表すと、$A\mathbb Z_p^n$ は $\pi\mathcal O_L$ に対応します。$\mathbb Z_p$ は PID なので行・列の可逆基本変形で $A$ を $\operatorname{diag}(p^{a_1},\ldots,p^{a_n})$（$a_j\ge0$、単元因子は吸収）へ変形できます。従って
 
-$
+$$
 |\mathcal O_L/\pi\mathcal O_L|
 =\prod_{j=1}^n|\mathbb Z_p/p^{a_j}\mathbb Z_p|
 =p^{\sum_j a_j},
 \qquad
 v_p(\det A)=\sum_ja_j.
-$
+$$
 
 左辺は $p^f$ なので、$N(\pi)=\det A$ により $v_p(N(\pi))=f$ です。従って
 
@@ -544,38 +544,38 @@ $4$ は $5$ 進単元で、指数 $3$ と一致します。
 <!-- solution-start -->
 **詳細解答。** $j\ge0$ を固定し、写像を
 
-$
+$$
 \phi_j:\kappa_L\longrightarrow\mathfrak m_L^j/\mathfrak m_L^{j+1},
 \qquad
 a+\mathfrak m_L\longmapsto a\pi^j+\mathfrak m_L^{j+1}
-$
+$$
 
 と定めます。代表を $\pi b$ だけ変えると像は $\pi^{j+1}b$ だけ変わるので、写像は well-defined です。任意の $\mathfrak m_L^j$ の元は $\pi^j a$ と書けるため全射です。さらに
 
-$
+$$
 \phi_j(a+\mathfrak m_L)=0
 \ \Longrightarrow\
 \pi^j a=\pi^{j+1}b
 \ \Longrightarrow\
 a=\pi b\in\mathfrak m_L
-$
+$$
 
 であり、非零元 $\pi^j$ を整域で消去できるため単射です。従って商の元数は $|\kappa_L|=p^f$ となります。
 
 一方 $\mathcal O_L$ は $\mathbb Z_p$ 上階数 $n$ の自由加群なので
 
-$
+$$
 |\mathcal O_L/p\mathcal O_L|
 =|(\mathbb Z_p/p\mathbb Z_p)^n|
 =p^n.
-$
+$$
 
 $p\mathcal O_L=\mathfrak m_L^e$ により $j=0,\ldots,e-1$ の $e$ 個の商の元数を掛けると
 
-$
+$$
 p^n=|\mathcal O_L/\mathfrak m_L^e|
 =\prod_{j=0}^{e-1}p^f=p^{ef}.
-$
+$$
 
 よって $n=ef$ です。
 <!-- solution-end -->
@@ -609,17 +609,17 @@ $L_5=\mathbb Q_5(\sqrt5)$、$L_2=\mathbb Q_2(\sqrt2)$ の $e,f,d$ をそれぞ�
 <!-- solution-start -->
 **詳細解答。** いずれも $X^2-p$ は Eisenstein なので[前講の局所体構造定理](../ANF10/index.md#thm-anf10-eisenstein-extension)から
 
-$
+$$
 \mathcal O_{L_p}=\mathbb Z_p[\pi],\qquad
 \pi^2=p,\qquad e=2,\quad f=1
-$
+$$
 
 です。[異なる公式](#thm-anf11-monogenic-different)の仮定 $\mathcal O_{L_p}=\mathbb Z_p[\pi]$ を満たすので
 
-$
+$$
 d=v_{L_p}(g'(\pi))
 =v_{L_p}(2\pi)=v_{L_p}(2)+1
-$
+$$
 
 となります。$p=5$ では $2$ は単元だから $v_{L_5}(2)=0$ であり、$d=1=e-1$ です。$p=2$ では[付値の制限定理](#thm-anf11-ef-degree)により $v_{L_2}(2)=e\,v_2(2)=2$、従って $d=3\ne e-1$ です。
 
@@ -644,11 +644,11 @@ $$
 
 $2$ は $\mathbb Z_3$ の単元です。$x=a+bi$ の係数ベクトルを $\boldsymbol b=(a,b)^{\mathsf T}$ と置くと、[余異なるの基底判定](#def-anf11-codifferent)の条件は
 
-$
+$$
 T\boldsymbol b=(2a,-2b)^{\mathsf T}\in\mathbb Z_3^2
 \quad\Longleftrightarrow\quad
 a,b\in\mathbb Z_3.
-$
+$$
 
 これが $E^\vee=E$ の理由です。$x\in\mathcal O_L$ と $y\in E$ はともに整で、その積の跡は $\mathbb Z_3$ に属します。従って $\mathcal O_L\subseteq E^\vee=E$ です。逆包含は $i^2+1=0$ というモニック整方程式から $1,i$ が整であるため成立します。
 
