@@ -67,10 +67,10 @@ $$
 
 曲線の外部曲率を展開すると、$F$ の三階微分までを含む特別な組合せが現れます。これは[QCURV16で定義したSchwarzian微分](../../QCURV/QCURV16/index.md#def-qcurv16-schwarzian)です。そこでの光線座標 $p(u)$ を、今度は**JT重力の境界座標** $F(u)$ に置き換えて使用します。
 
-$
+$$
 \{F,u\}=\frac{F'''(u)}{F'(u)}
 -\frac32\left(\frac{F''(u)}{F'(u)}\right)^2.
-$
+$$
 
 $F\in C^3$ かつ $F'>0$ の区間で定義できます。物理的な役割は異なりますが、微分の組合せ自体は既習のものと同じです。
 
@@ -236,21 +236,21 @@ Poincaré座標 $F$ を、$M(y)=(ay+b)/(cy+d)$ の形の**射影変換**で取�
 >
 > $C>0$、局所Poincaré座標 $F\in C^3(J)$、$F'>0$ とし、開区間 $J$ 上の境界作用を
 >
-$
+$$
 I^E_{\rm Sch}[F]=-C\int_J \{F,u\}\,du
-$
+$$
 >
 > とする。実係数 $a,b,c,d$ に対して、区間の全点 $u\in J$ で
 >
-$
+$$
 ad-bc>0,\qquad cF(u)+d\ne0
-$
+$$
 >
 > とする。射影変換による新しい座標を
 >
-$
+$$
 M(y)=\frac{ay+b}{cy+d},\qquad \widetilde F=M\circ F
-$
+$$
 >
 > と定める。このとき $\widetilde F'>0$、$\{\widetilde F,u\}=\{F,u\}$ であり、作用は $I^E_{\rm Sch}[\widetilde F]=I^E_{\rm Sch}[F]$ を満たす。
 <!-- formal-statement-end -->
@@ -264,9 +264,9 @@ $
 
 [Schwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)の $q$ に $M$、$p$ に $F$ を代入すると
 
-$
+$$
 \{M\circ F,u\}=F'^2\{M,F(u)\}+\{F,u\}
-$
+$$
 
 です。$M(y)=(ay+b)/(cy+d)$ の $D_0=ad-bc>0$ に対して
 
@@ -346,15 +346,15 @@ $$
 >
 > 周期 $\beta>0$ と $f\in C^4(\mathbb R)$ を選び、次の条件を課す。
 >
-$
+$$
 f'(u)>0,\qquad f(u+\beta)=f(u)+\beta.
-$
+$$
 >
 > 局所Poincaré座標を
 >
-$
+$$
 F(u)=\tan\left(\frac{\pi f(u)}{\beta}\right)
-$
+$$
 >
 > とし、極を射影変換で貼り合わせたEuclid円周上の境界時計を**熱的境界時計**とする。基準時計は $f(u)=u$ である。
 <!-- formal-statement-end -->
