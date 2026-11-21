@@ -421,6 +421,8 @@ $p(u)\to1$ を両式へ入れて後期の値が確定します。$\square$
 <a id="ex-bhi23-a01"></a>
 #### BHI23-A01 どの区間が固定されるか
 
+- Level: A
+
 時刻 $t=6$、$b=2$、$L=9$ のとき $u_b,u_L,v_b,v_L$ を求め、区間長を確かめよ。また $t$ を1増やしたときに動くものと固定されるものを区別せよ。
 
 <!-- solution-start -->
@@ -436,6 +438,8 @@ $\ell_R=9-2=7$ で、$|u_b-u_L|=|v_L-v_b|=7$ です。時刻を7へ変えると�
 
 <a id="ex-bhi23-a02"></a>
 #### BHI23-A02 微分の正値
+
+- Level: A
 
 $\kappa>0$ で $f'(u)$、$f''(u)/f'(u)$ を求め、$f$ が全実軸で単調か判定せよ。
 
@@ -460,6 +464,8 @@ $q_u>0$ なので $f'(u)>0$ が全実軸で成り立ち、任意の $u_1<u_2$ �
 <a id="ex-bhi23-a03"></a>
 #### BHI23-A03 左向き成分が真空であること
 
+- Level: A
+
 $g(v)=v$ を固定し、等時刻区間の $D_g$ を計算せよ。$D_g=0$ にならない条件を示せ。
 
 <!-- solution-start -->
@@ -474,6 +480,8 @@ $0<b<L$ なので $\ell_R>0$、従って $D_g$ は正で消えません。これ
 
 <a id="ex-bhi23-a04"></a>
 #### BHI23-A04 真空の差引き
+
+- Level: A
 
 $a_1=a_2=a$、$D_f=D_g=\ell_R$ のとき、区間の普遍エントロピーと同じ真空との差を求めよ。cutoff項の消失を式で確認せよ。
 
@@ -499,6 +507,8 @@ $$
 <a id="ex-bhi23-a05"></a>
 #### BHI23-A05 初期・後期の対数
 
+- Level: A
+
 $s\in\mathbb R$ に対して $h(s)=\ln(1+e^s)$ を考える。$s\to-\infty$ と $s\to+\infty$ の先頭二項を求めよ。
 
 <!-- solution-start -->
@@ -523,6 +533,8 @@ $$
 
 <a id="ex-bhi23-b01"></a>
 #### BHI23-B01 二端点の全導出
+
+- Level: B
 
 $q=e^{\kappa(t-b)}$、$H=e^{\kappa(L-b)}$ を使い、出射の $D_f$ と、真空との差の普遍項を**端点の代入から**導け。
 
@@ -559,6 +571,8 @@ $$
 <a id="ex-bhi23-b02"></a>
 #### BHI23-B02 二つの順序の極限
 
+- Level: B
+
 $L$ 固定で $t\to\infty$ を先に行う場合と、$t$ 固定で $L\to\infty$ を先に行う場合の $\Delta S_L^{\rm univ}$ を計算し、その後の $t\to\infty$ まで比較せよ。
 
 <!-- solution-start -->
@@ -581,6 +595,8 @@ $$
 
 <a id="ex-bhi23-b03"></a>
 #### BHI23-B03 流束の係数
+
+- Level: B
 
 $p=e^{\kappa u}/(1+e^{\kappa u})$ を使い、$f'''/f'$ とSchwarzian微分を導出せよ。$u\to\pm\infty$ の流束と、後期の温度 $T=\kappa/(2\pi)$ との対応を示せ。
 
@@ -620,6 +636,8 @@ $u\to-\infty$ で $p\to0$ より $F\to0$、$u\to+\infty$ で $p\to1$ より $F\t
 <a id="ex-bhi23-b04"></a>
 #### BHI23-B04 早期・後期と有限赤外誤差
 
+- Level: B
+
 $s=\kappa(t-b)$、$K=\kappa\ell_R$ とする。$K\gg1$、$e^{s-K}\ll1$、$\ln(1+e^s)/K\ll1$ のもとで $\Delta S_L^{\rm univ}-\Delta S_\infty^{\rm univ}$ の先頭補正を求めよ。
 
 <!-- solution-start -->
@@ -654,6 +672,8 @@ $$
 
 <a id="ex-bhi23-c01"></a>
 #### BHI23-C01 出射状態からHawking枝まで
+
+- Level: C
 
 平坦浴の出射写像を $f(u)=u-\kappa^{-1}\ln(1+e^{\kappa u})$、入射写像を $g(v)=v$ とする。$R(t)=[b,L]$、$0<b<L$ で、共通cutoff $a$ の二端点CFT相関を使用できると仮定する。
 
