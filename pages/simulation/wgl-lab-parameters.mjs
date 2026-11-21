@@ -29,6 +29,24 @@ export const LAB_PARAMETERS = Object.freeze({
       matcher: /^([ \t]*const maxStepsPerFrame[ \t]*=[ \t]*)([^;\n]+)(;)/gm
     })
   ]),
+  FCG5: Object.freeze([
+    Object.freeze({
+      id: 'nu', type: 'number', label: '動粘性係数 ν', default: 0.002,
+      min: 0, max: 0.02, step: 0.001, unit: 'm²/s',
+      meaning: '面速度の陽的粘性拡散（既定のN=12、dt=0.04ではr=dt·ν/h²≤1/4）',
+      sourceLocation: 'fluid.js / const nu → advanceFluidStep() の r',
+      sourceFile: 'js', index: null,
+      matcher: /^([ \t]*const N=12,h=1\/N,dt=0\.04,rho=1,nu=)([^,\n]+)(,forceAmplitude=[^;\n]+;)/gm
+    }),
+    Object.freeze({
+      id: 'force', type: 'number', label: '外力の流れ関数振幅', default: 0.08,
+      min: 0, max: 0.2, step: 0.01, unit: 'm²/s²',
+      meaning: '外力加速度の回転差分に用いる流れ関数の振幅（0では外力なし）',
+      sourceLocation: 'fluid.js / const forceAmplitude → psi() → starU/starV',
+      sourceFile: 'js', index: null,
+      matcher: /^([ \t]*const N=12,h=1\/N,dt=0\.04,rho=1,nu=[^,\n]+,forceAmplitude=)([^;\n]+)(;)/gm
+    })
+  ]),
   WGL18: Object.freeze([Object.freeze({
     id: 'rate', type: 'number', label: '拡散係数 r', default: 0.2,
     min: 0, max: 0.25, step: 0.05, unit: '無次元',
