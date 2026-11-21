@@ -1,0 +1,49 @@
+id: BHI22
+title: "JTと非重力浴の接合"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI21
+  - BHI18
+  - QCURV16
+official_scope: []
+learning_objectives:
+  - JT正則化境界と平坦浴の時計を誘導計量・dilaton値で接合しLorentz符号のcutoff展開を検算できる
+  - 自由スカラーの境界変分から透過条件を導き反射・透過振幅とエネルギー保存を検算できる
+  - 出射真空のnull座標写像にQCURV16の異常変換則を適用し浴の正味流束を計算できる
+  - Schwarzian境界エネルギーと浴の流束を同じ時間規格化で結び真空浴での減衰を導出できる
+  - 二階線形方程式の二解の比からエネルギーを指定した局所境界時計を再構成できる
+  - 一定温度浴の入射を加え平衡・加熱・冷却を区別しエネルギー流束と放射精細エントロピーを混同しない
+definitions:
+  - { id: BHI22-DEF-01, name: "JT正則化境界と平坦浴の時計接合" }
+  - { id: BHI22-DEF-02, name: "重力浴の透過接合と反射接合" }
+  - { id: BHI22-DEF-03, name: "透過浴の出射真空写像" }
+theorems:
+  - { id: BHI22-PROP-01, name: "自由スカラーの反射率・透過率" }
+  - { id: BHI22-PROP-02, name: "透過浴のSchwarzian出射流束" }
+  - { id: BHI22-PROP-03, name: "真空浴へ完全透過するJTのエネルギー減衰" }
+  - { id: BHI22-PROP-04, name: "指定エネルギーからの局所境界時計" }
+  - { id: BHI22-PROP-05, name: "一定温度の浴との熱収支" }
+canonical_examples:
+  - F=uとZ=ell epsilonによる二つの誘導計量の一致
+  - Lorentz正則化境界のcutoff展開とEuclid符号との差
+  - 同一自由スカラーの完全透過と境界反射
+  - 規格化の異なる自由場の反射率・透過率
+  - 指数null写像のSchwarzianと正の出射流束
+  - 指定エネルギーからの二階線形方程式による時計構成
+  - 真空浴の指数減衰と熱浴との平衡
+problem_patterns:
+  - BHI22-INDUCED-CLOCK
+  - BHI22-TRANSPARENT-SCALAR
+  - BHI22-IMPEDANCE-FLUX
+  - BHI22-AFFINE-VACUUM
+  - BHI22-EXPONENTIAL-FLUX
+  - BHI22-INTERFACE-VARIATION
+  - BHI22-THERMAL-BALANCE
+  - BHI22-PROPER-TIME-RESCALING
+  - BHI22-LOCAL-CLOCK
+  - BHI22-INTEGRATED-JT-BATH
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 14, review: 7 }

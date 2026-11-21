@@ -95,7 +95,7 @@ chapters:
     title: "境界モードとSchwarzian力学"
   - id: BHI22
     path: textbook/volumes/dream_thater/物理系/BHI/BHI22
-    status: planned
+    status: completed
     title: "JTと非重力浴の接合"
   - id: BHI23
     path: textbook/volumes/dream_thater/物理系/BHI/BHI23
