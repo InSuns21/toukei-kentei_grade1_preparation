@@ -5,32 +5,43 @@ prerequisites:
   - GBG5
   - GEO2
   - LIE2
+  - LIE4
 forward_references: []
 concepts:
   - id: gauge.vertical-tangent-space
-    name: 垂直接空間と垂直分布
+    name: 垂直接空間
     kind: definition
+    aliases: [垂直接空間]
     introduction: formal
     introduction_aliases: ["定義（垂直接空間と垂直分布）"]
     requires: [gauge.principal-bundle, geometry.differential, geometry.tangent-bundle]
 
-  - id: gauge.fundamental-vector-field
-    name: 基本ベクトル場
+  - id: gauge.vertical-distribution
+    name: 垂直分布
+    kind: definition
+    aliases: [垂直分布]
+    introduction: formal
+    introduction_aliases: ["定義（垂直接空間と垂直分布）"]
+    requires: [gauge.vertical-tangent-space, geometry.tangent-bundle]
+
+  - id: gauge.right-principal-fundamental-vector-field
+    name: 右主束の基本ベクトル場
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（基本ベクトル場）"]
-    requires: [gauge.principal-bundle, lie.exponential-map, geometry.curve-derivation-tangent-equivalence]
+    introduction_aliases: ["定義（右主束の基本ベクトル場）"]
+    requires: [gauge.principal-bundle, lie.fundamental-vector-field, lie.exponential-map, geometry.curve-derivation-tangent-equivalence]
 
   - id: gauge.vertical-fundamental-isomorphism
     name: 垂直接空間とLie環の同型
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（垂直接空間と Lie 環の同型）"]
-    requires: [gauge.vertical-tangent-space, gauge.fundamental-vector-field, lie.adjoint-representation, gauge.section-trivialization]
+    requires: [gauge.vertical-tangent-space, gauge.right-principal-fundamental-vector-field, lie.adjoint-representation, gauge.section-trivialization]
 
   - id: gauge.horizontal-distribution
     name: 右主束の水平分布
     kind: definition
+    aliases: [水平分布]
     introduction: formal
     introduction_aliases: ["定義（右主束の水平分布）"]
     requires: [gauge.vertical-tangent-space, geometry.vector-bundle, gauge.principal-bundle]
