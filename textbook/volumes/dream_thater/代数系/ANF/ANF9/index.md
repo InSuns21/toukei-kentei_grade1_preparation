@@ -71,13 +71,17 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（非Archimedes三角不等式）**  
-> 任意の $x,y\in\mathbb Q$ と素数 $p$ に対して
->
-> $|xy|_p=|x|_p|y|_p$、
->
-> $|x+y|_p\le\max\{|x|_p,|y|_p\}$
->
-> が成り立つ。さらに $|x|_p\ne|y|_p$ なら後者は等号である。従って $d_p$ は距離である。
+> 任意の $x,y\in\mathbb Q$ と素数 $p$ に対して、次の積・和の評価が成り立つ。
+
+$
+|xy|_p=|x|_p|y|_p.
+$
+
+$
+|x+y|_p\le\max\{|x|_p,|y|_p\}.
+$
+
+> さらに $|x|_p\ne|y|_p$ なら後者は等号である。従って $d_p$ は距離である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -434,7 +438,22 @@ $\mathbb Q$ だけでなく数体 $K$ の素イデアル $\mathfrak p\subsetneq\
 
 <!-- formal-statement-start -->
 > **定義（数体の素イデアル付値と局所完備化）**  
-> $K/\mathbb Q$ を数体、$\mathfrak p\ne(0)$ を $\mathcal O_K$ の素イデアルとする。局所環 $R=\mathcal O_{K,\mathfrak p}$ の極大イデアルを $\pi R$ とし、$x\in K^\times$ の一意な表示 $x=\pi^e u$（$e\in\mathbb Z,\ u\in R^\times$）の指数を $v_{\mathfrak p}(x)=e$ と定め、$v_{\mathfrak p}(0)=\infty$ とする。$q=|\mathcal O_K/\mathfrak p|$ に対し $|x|_{\mathfrak p}=q^{-v_{\mathfrak p}(x)}$（$x\ne0$）、$|0|_{\mathfrak p}=0$ とし、この距離による $K$ のCauchy完備化を $K_{\mathfrak p}$ と書く。
+> $K/\mathbb Q$ を数体、$\mathfrak p\ne(0)$ を $\mathcal O_K$ の素イデアルとする。局所環 $R=\mathcal O_{K,\mathfrak p}$ の極大イデアルを $\pi R$ とする。
+>
+> $x\in K^\times$ の一意な表示 $x=\pi^e u$（$e\in\mathbb Z$、$u\in R^\times$）に対し、付値を次で定める。
+
+$
+v_{\mathfrak p}(x)=e,\qquad v_{\mathfrak p}(0)=\infty.
+$
+
+> $q=|\mathcal O_K/\mathfrak p|$ と置き、次の絶対値を定める。
+
+$
+|x|_{\mathfrak p}=q^{-v_{\mathfrak p}(x)}\quad(x\ne0),
+\qquad |0|_{\mathfrak p}=0.
+$
+
+> この絶対値に付随する距離による $K$ のCauchy完備化を $K_{\mathfrak p}$ と書く。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf9-prime-valuation -->
