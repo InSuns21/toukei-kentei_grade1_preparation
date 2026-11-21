@@ -20,11 +20,11 @@ $A^\times$ の元は $\mathfrak m$ に属さない元であり、剰余体 $k$ �
 > **定義（局所単数のフィルトレーション）**  
 > 有限拡大 $L/\mathbb Q_p$ の整数環 $A$ と極大イデアル $\mathfrak m$ に対し、
 >
-$
+$$
 > U_L^0=A^\times,\qquad
 > U_L^r=1+\mathfrak m^r
 > =\{1+x:x\in\mathfrak m^r\}\quad(r\ge1)
-$
+$$
 >
 > と置く。$U_L^r$ を深さ $r$ の**主単数群**（$r\ge1$）、列 $U_L^0\supset U_L^1\supset\cdots$ を単数のフィルトレーションという。
 <!-- formal-statement-end -->
@@ -42,16 +42,16 @@ $1+x$（$x\in\mathfrak m$）が単元である理由も確認しましょう。�
 > **定理（局所単数の段階商）**  
 > 上の有限拡大 $L/\mathbb Q_p$ について、剰余写像は群同型
 >
-$
+$$
 > U_L^0/U_L^1\simeq k^\times
-$
+$$
 >
 > を与える。またすべての整数 $r\ge1$ について、写像
 >
-$
+$$
 > k\longrightarrow U_L^r/U_L^{r+1},
 > \qquad \bar a\longmapsto (1+\pi^r a)U_L^{r+1}
-$
+$$
 >
 > は、左辺を加法群とした群同型である。ここで $a\in A$ は $\bar a\in k$ の任意の代表である。
 <!-- formal-statement-end -->
@@ -90,9 +90,9 @@ $2r\ge r+1$ なので最後の項は $\mathfrak m^{r+1}$ に入り、群準同�
 > **命題（ノルムの付値と整数環の跡）**  
 > $L/\mathbb Q_p$ を有限拡大、$f=[k:\mathbb F_p]$ とする。任意の $x\in L^\times$ に対し
 >
-$
+$$
 > v_p(N_{L/K}(x))=f\,v_L(x).
-$
+$$
 >
 > さらに $N_{L/K}(A^\times)\subseteq\mathbb Z_p^\times$ および $\operatorname{Tr}_{L/K}(A)\subseteq\mathbb Z_p$ が成り立つ。
 <!-- formal-statement-end -->
@@ -172,20 +172,20 @@ $k^\times$ の生成元 $g$ は位数 $p^f-1$ を持ちます。$N(g)=g^{(p^f-1)
 > **命題（非分岐拡大の段階商でのノルム・跡）**  
 > $L/\mathbb Q_p$ を有限非分岐拡大、剰余体を $k=\mathbb F_{p^f}$ とする。$a\in A$ に対して
 >
-$
+$$
 > \overline{N_{L/K}(a)}=N_{k/\mathbb F_p}(\bar a),
 > \qquad
 > \overline{\operatorname{Tr}_{L/K}(a)}
 > =\operatorname{Tr}_{k/\mathbb F_p}(\bar a).
-$
+$$
 >
 > またすべての $r\ge1$ と $a\in A$ について
 >
-$
+$$
 > N_{L/K}(1+p^r a)
 > \equiv1+p^r\operatorname{Tr}_{k/\mathbb F_p}(\bar a)
 > \pmod{p^{r+1}}.
-$
+$$
 >
 > 右辺の有限体跡は $\mathbb F_p$ の元を整数で代表したものと解釈する。この合同式により、段階商 $U_L^r/U_L^{r+1}\to U_K^r/U_K^{r+1}$ のノルムは有限体跡になる。
 <!-- formal-statement-end -->
@@ -233,15 +233,15 @@ $$
 > **定理（非分岐局所拡大のノルム・跡）**  
 > $L/\mathbb Q_p$ を有限非分岐拡大、$f=[L:\mathbb Q_p]$ とする。このとき
 >
-$
+$$
 > \operatorname{Tr}_{L/K}(A)=\mathbb Z_p,
 > \qquad N_{L/K}(A^\times)=\mathbb Z_p^\times,
-$
+$$
 >
-$
+$$
 > N_{L/K}(U_L^r)=U_K^r\quad(r\ge1),\qquad
 > N_{L/K}(L^\times)=p^{f\mathbb Z}\mathbb Z_p^\times.
-$
+$$
 >
 > さらに $\operatorname{Tr}_{L/K}(p^rA)=p^r\mathbb Z_p$（$r\ge0$）である。
 <!-- formal-statement-end -->
@@ -461,11 +461,11 @@ $L_2$ では $X^2-5$ が Eisenstein なので $(e,f)=(2,1)$ です。$N(\pi)=-5$
 
 $-1\equiv4\pmod5$ は平方で、$2$ は法 $5$ で $X^2+1$ の単純根です。実際、導関数 $2X$ の値は $X=2$ で $4$ となり、$5$ で割れません。
 
-[単純根の Hensel の補題](../ANF10/index.md#thm-anf10-hensel-simple)から、$t\in\mathbb Z_5$ で $t^2=-1$ を満たすものが存在します。基礎体元 $t$ の二次拡大でのノルムは $t^2=-1$ です。従って
-$
+[単純根に対する Hensel の補題](../ANF10/index.md#thm-anf10-hensel-simple)から、$t\in\mathbb Z_5$ で $t^2=-1$ を満たすものが存在します。基礎体元 $t$ の二次拡大でのノルムは $t^2=-1$ です。従って
+$$
 N_{L_2/\mathbb Q_5}(t\pi)
 =N(t)N(\pi)=(-1)(-5)=5.
-$
+$$
 よって $5$ はノルムです。
 
 一方 $2$ は付値 $0$ なので、もし $2=N(x)$ なら [ノルムの付値と整数環の跡](#prop-anf12-norm-valuation)から $v_L(x)=0$、すなわち $x$ は単元です。$x=a+b\pi$（$a,b\in\mathbb Z_5$, $a$ は単元）と書くと
