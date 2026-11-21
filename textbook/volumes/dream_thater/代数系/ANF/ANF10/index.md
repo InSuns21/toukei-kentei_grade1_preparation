@@ -405,7 +405,7 @@ $p=-\pi^nU^{-1}$ なので $v_L(p)=n$。$b=p^r w\in\mathbb Q_p^\times$（$w\in\m
 <!-- proof-end -->
 
 <!-- definition-example-start: def-anf10-finite-local-extension -->
-**定義の直接確認。** $f=X^2-5$ は $5$ に関して Eisenstein 型であるため既約です。$L=\mathbb Q_5(\pi)$、$\pi^2=5$ とすると
+**定義の確認**　 $f=X^2-5$ は $5$ に関して Eisenstein 型であるため既約です。$L=\mathbb Q_5(\pi)$、$\pi^2=5$ とすると
 
 $$
 [L:\mathbb Q_5]=2,\qquad A=\mathbb Z_5\oplus\mathbb Z_5\pi,
