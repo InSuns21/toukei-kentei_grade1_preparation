@@ -327,7 +327,7 @@ $$
 
 ### 証明の見取り図
 
-変分を $\delta F=F'\eta$ と書くと、$\eta$ は境界座標の微小変更です。[合成則](#prop-bhi21-projective-action)を $u\mapsto u+\eta$ に適用し、$\delta\{F,u\}=\eta'''+2\{F,u\}\eta'+\{F,u\}'\eta$ を出します。部分積分により停留条件はSchwarzianの微分が零になることです。
+変分を $\delta F=F'\eta$ と書くと、$\eta$ は境界座標の微小変更です。[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)を $u\mapsto u+\eta$ に適用し、$\delta\{F,u\}=\eta'''+2\{F,u\}\eta'+\{F,u\}'\eta$ を出します。部分積分により停留条件はSchwarzianの微分が零になることです。
 
 <!-- proof-start -->
 ### 証明
@@ -386,10 +386,10 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi21-thermal-clock -->
-**定義の確認**：$f(u)=u$ なら $f'=1>0$、$f(u+\beta)=u+\beta=f(u)+\beta$ です。$F=\tan(\pi u/\beta)$ は $u=\beta/2$ で発散しますが、$1/F=\cot(\pi u/\beta)$ はこの点で滑らかな別の座標です。両者は $M(y)=1/y$ で結ばれ、$M'\ne0$ の範囲では[合成則](#prop-bhi21-projective-action)から同じSchwarzianを持ちます。物理境界の特異点ではなく座標の貼替えです。
+**定義の確認**：$f(u)=u$ なら $f'=1>0$、$f(u+\beta)=u+\beta=f(u)+\beta$ です。$F=\tan(\pi u/\beta)$ は $u=\beta/2$ で発散しますが、$1/F=\cot(\pi u/\beta)$ はこの点で滑らかな別の座標です。両者は $M(y)=1/y$ で結ばれ、$M'\ne0$ の範囲では[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)から同じSchwarzianを持ちます。物理境界の特異点ではなく座標の貼替えです。
 <!-- definition-example-end -->
 
-[合成則](#prop-bhi21-projective-action)で $H(y)=\tan(\pi y/\beta)$ を選ぶと、$\{H,y\}=2\pi^2/\beta^2$ なので
+[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)で $H(y)=\tan(\pi y/\beta)$ を選ぶと、$\{H,y\}=2\pi^2/\beta^2$ なので
 
 $$
 \left\{\tan\left(\frac{\pi f}{\beta}\right),u\right\}
@@ -537,7 +537,7 @@ H=-C\frac{F'''}{F'}+\frac{3C}{2}
 \left(\frac{F''}{F'}\right)^2=-C\{F,t\}=E_L.
 $$
 
-$L$ は明示的な $t$ 依存を持たないので、Euler–Lagrange方程式を満たす軌道では $\dot H=0$ です。次に $H_1(y)=\tanh y$ とおけば $\{H_1,y\}=-2$ です（$H_1'=1-H_1^2$、$H_1''/H_1'=-2H_1$ を代入）。[合成則](#prop-bhi21-projective-action)で $F(t)=H_1(\pi t/\beta)$ として、内側の一次関数のSchwarzianが0であることから $\{F,t\}=-2(\pi/\beta)^2$ を得ます。$\square$
+$L$ は明示的な $t$ 依存を持たないので、Euler–Lagrange方程式を満たす軌道では $\dot H=0$ です。次に $H_1(y)=\tanh y$ とおけば $\{H_1,y\}=-2$ です（$H_1'=1-H_1^2$、$H_1''/H_1'=-2H_1$ を代入）。[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)で $F(t)=H_1(\pi t/\beta)$ として、内側の一次関数のSchwarzianが0であることから $\{F,t\}=-2(\pi/\beta)^2$ を得ます。$\square$
 <!-- proof-end -->
 
 浴と接合した模型では、境界から外へ出る正味のエネルギー流束を $P(t)$（正なら境界がエネルギーを失う、単位は時間当たりのエネルギー）と定めます。**境界と浴を合わせてエネルギーが保存されるという接合条件を採用した場合**、収支は
@@ -640,10 +640,28 @@ $$
 #### BHI21-B01 射影変換の不変性
 
 - Level: B
-- 問題: $F(u)=e^{ku}$（$k>0$）および $M(y)=y/(1+y)$ を考える。(1) $M'(y)$ と $\{M,y\}$ を求めよ。(2) $u\in\mathbb R$ において $G(u)=M(F(u))$ のSchwarzianを[合成則](#prop-bhi21-projective-action)で求めよ。(3) 変換の定義域を説明せよ。
+- 問題: $F(u)=e^{ku}$（$k>0$）および $M(y)=y/(1+y)$ を考える。(1) $M'(y)$ と $\{M,y\}$ を求めよ。(2) $u\in\mathbb R$ において $G(u)=M(F(u))$ のSchwarzianを[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)で求めよ。(3) 変換の定義域を説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** (1) $M'=1/(1+y)^2$、$M''=-2/(1+y)^3$、$M'''=6/(1+y)^4$ です。従って $M'''/M'=6/(1+y)^2$、$(M''/M')^2=4/(1+y)^2$ だから $\{M,y\}=6/(1+y)^2-6/(1+y)^2=0$。(2) $F'=ke^{ku}>0$、$\{F,u\}=-k^2/2$ です。[合成則](#prop-bhi21-projective-action)から $\{M\circ F,u\}=F'^2\cdot0+\{F,u\}=-k^2/2$。(3) $M$ の分母は $1+y\ne0$ を要します。$F(u)=e^{ku}>0$ なので全ての実 $u$ で $1+F(u)>1$、$G$ は定義され $G'>0$ です。
+**詳細解答。**
+
+**(1)** $M'=1/(1+y)^2$、$M''=-2/(1+y)^3$、$M'''=6/(1+y)^4$ です。Schwarzianの二つの項をそれぞれ求めると
+
+$$
+\frac{M'''}{M'}=\frac6{(1+y)^2},\qquad
+\left(\frac{M''}{M'}\right)^2=\frac4{(1+y)^2}.
+$$
+
+したがって $\{M,y\}=6/(1+y)^2-6/(1+y)^2=0$ です。
+
+**(2)** $F'=ke^{ku}>0$、$\{F,u\}=-k^2/2$ です。[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)から
+
+$$
+\{M\circ F,u\}=F'^2\{M,F\}+\{F,u\}
+=F'^2\cdot0-\frac{k^2}{2}=-\frac{k^2}{2}.
+$$
+
+**(3)** $M$ の分母は $1+y\ne0$ を要します。$F(u)=e^{ku}>0$ なので、すべての実 $u$ で $1+F(u)>1$。この区間では $G$ は滑らかに定義され、$G'=F'/(1+F)^2>0$ です。
 <!-- solution-end -->
 
 <a id="ex-bhi21-b02"></a>
@@ -702,7 +720,25 @@ $$
 #### BHI21-C01 境界SchwarzianとJTブラックホールの一致
 
 - Level: C
-- 問題: $G_2,\ell,a,\beta>0$、$S_0\in\mathbb R$、Euclid円板を仮定する。境界では $ds=du/\varepsilon$、$\Phi_b=a/\varepsilon$、$K=\ell^{-1}+\ell\varepsilon^2\{F,u\}+O(\varepsilon^4)$、境界作用は $I_\partial^E=-(8\pi G_2)^{-1}\int ds\,\Phi_b(K-1/\ell)$ とする。(1) cutoff極限でSchwarzian係数 $C$ を求めよ。(2) $F(u)=\tan(\pi u/\beta)$（射影座標の貼り替えを許す）のSchwarzianを求め、位相項 $-S_0$ を加えた古典作用 $I_E$ を求めよ。(3) $\log Z_{\rm cl}=-I_E$ から $E$ と $S$ を求めよ。(4) $T=1/\beta=r_h/(2\pi\ell^2)$ を用い、[BHI20の静的結果](../BHI20/index.md#prop-bhi20-first-law)と比較せよ。微分では $\ell,G_2,a,S_0$ を固定する。
+- 問題: $G_2,\ell,a,\beta>0$、$S_0\in\mathbb R$、Euclid円板を仮定する。境界における固有長・dilaton・曲率・動的作用は、次の正規化で与えられている。
+
+$$
+\begin{aligned}
+ds&=\frac{du}{\varepsilon},\qquad
+\Phi_b=\frac{a}{\varepsilon},\\
+K&=\frac1\ell+\ell\varepsilon^2\{F,u\}+O(\varepsilon^4),\\
+I_\partial^E&=-\frac{1}{8\pi G_2}
+\int ds\,\Phi_b\left(K-\frac1\ell\right).
+\end{aligned}
+$$
+
+**小問1**：cutoff極限でSchwarzian係数 $C$ を求めよ。
+
+**小問2**：$F(u)=\tan(\pi u/\beta)$（射影座標の貼り替えを許す）のSchwarzianを求め、位相項 $-S_0$ を加えた古典作用 $I_E$ を求めよ。
+
+**小問3**：$\log Z_{\rm cl}=-I_E$ から、熱的エネルギー $E$ とエントロピー $S$ を求めよ。
+
+**小問4**：$T=1/\beta=r_h/(2\pi\ell^2)$ を用い、[BHI20の静的結果](../BHI20/index.md#prop-bhi20-first-law)と比較せよ。微分では $\ell,G_2,a,S_0$ を固定する。
 
 <!-- solution-start -->
 **詳細解答。**
