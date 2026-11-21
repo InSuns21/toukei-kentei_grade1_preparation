@@ -123,7 +123,8 @@ try {
   // G4: switching reduced motion at runtime pauses the very same editable
   // solver. Removing the preference alone must not resume physical steps.
   await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
-  await waitFor('document.querySelector("#diagnostics")?.textContent.includes("reduced motion: paused")',25000);
+  // Motion is emitted from the sandbox after the initial readPixels report;
+  // verify the actual image, not the initial-only diagnostic snapshot.
   await new Promise(ok=>setTimeout(ok,350));
   const frozenFirst=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
   await new Promise(ok=>setTimeout(ok,550));
@@ -138,7 +139,6 @@ try {
   await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:focusPoint.x,y:focusPoint.y,button:'left',buttons:0,clickCount:1});
   await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:' ',code:'Space',windowsVirtualKeyCode:32,nativeVirtualKeyCode:32,text:' '});
   await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:' ',code:'Space',windowsVirtualKeyCode:32,nativeVirtualKeyCode:32});
-  await waitFor('document.querySelector("#diagnostics")?.textContent.includes("manual play")',25000);
   await new Promise(ok=>setTimeout(ok,950));
   const resumed=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
   assert.notEqual(resumed.data,frozenFirst.data,'Space must resume the same GPU fluid solver');
