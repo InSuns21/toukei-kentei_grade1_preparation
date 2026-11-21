@@ -140,7 +140,13 @@ U_L^r=1+p^r A,\qquad
 U_K^r=1+p^r\mathbb Z_p\qquad(r\ge1).
 $$
 
-$\bar a\in k=\mathbb F_{p^f}$ の有限体ノルムと跡は、$\mathbb F_p$ 線形写像「$\bar a$ による掛け算」の行列式と跡です。なぜ $p$ 乗が式に現れるのでしょうか。Frobenius 自己同型 $F(z)=z^p$ は $F^f(z)=z$ を満たします。$\bar a$ の軌道長を $d$ とすると $d\mid f$ で、$\bar a,\bar a^p,\ldots,\bar a^{p^{d-1}}$ は互いに異なります。この軌道から作る多項式は $F$ で不変だから $\mathbb F_p[X]$ に属し、一方 $\bar a$ を根に持つ $\mathbb F_p$ 多項式は軌道の全元を根に持ちます。よってこの軌道多項式が $\bar a$ の最小多項式です。
+$\bar a\in k=\mathbb F_{p^f}$ の有限体ノルムと跡は、$\mathbb F_p$ 線形写像「$\bar a$ による掛け算」の行列式と跡です。なぜ $p$ 乗が式に現れるのでしょうか。標数 $p$ では $(x+y)^p=x^p+y^p$、$(xy)^p=x^py^p$ です。よって $F(z)=z^p$ は体準同型で、有限体上では単射ゆえ全射、すなわち **Frobenius 自己同型**です。$F^f(z)=z$ であり、$F(z)=z$ の解は $\mathbb F_p$ の $p$ 個だけです（$X^p-X$ の次数は $p$）。
+
+$\bar a$ の $F$ による軌道長を $d$ とすれば $d\mid f$ で、軌道の $d$ 個の元は相異なります。軌道多項式は
+$$
+P_{\bar a}(X)=\prod_{j=0}^{d-1}(X-\bar a^{p^j})
+$$
+です。$F$ は根を巡回させるので係数を固定し、$P_{\bar a}\in\mathbb F_p[X]$ です。逆に $\mathbb F_p$ 係数の多項式が $\bar a$ を根に持てば、$F$ を繰り返すことで軌道の全元を根に持ちます。従って $P_{\bar a}$ が $\bar a$ の最小多項式です。
 
 $[\mathbb F_p(\bar a):\mathbb F_p]=d$、$[k:\mathbb F_p(\bar a)]=f/d$ なので、[乗法行列の最小多項式による計算](../ANF2/index.md#thm-anf2-embedding-formulas)と同じ基底展開によって、行列式は軌道の積を $f/d$ 回、跡は軌道の和を $f/d$ 回集めたものになります。すなわち、軌道を重複込みで $f$ 項並べると
 $$
@@ -169,7 +175,7 @@ $$
 
 $m=\prod_i\ell_i^{a_i}$ と素因数分解します。最小公倍数の定義から、各 $i$ について位数が $\ell_i^{a_i}$ でちょうど割れる元 $h_i$ が存在します。$\operatorname{ord}(h_i)=\ell_i^{a_i}q_i$（$\ell_i\nmid q_i$）と置けば $g_i=h_i^{q_i}$ の位数は $\ell_i^{a_i}$ です。$G$ は体の乗法群なので可換であり、互いに素な位数の $g_i$ を掛けた元 $g=\prod_i g_i$ の位数は $\prod_i\ell_i^{a_i}=m$ です（$m=1$ のときは $g=1$ とします）。
 
-他方、$G$ の全元は多項式 $X^m-1$ の根です。根は次数を超えないので $|G|\le m$。各元の位数は Lagrange の定理によって $|G|$ を割るため、その最小公倍数も $|G|$ を割ります。よって $m\le|G|$ です。両不等式から $m=|G|$ となり、$G$ は巡回群です。
+他方、$G$ の全元は多項式 $X^m-1$ の根です。根は次数を超えないので $|G|\le m$。任意の $a\in G$ について、$G$ は部分群 $\langle a\rangle$ の剰余類に分割され、各類には $\operatorname{ord}(a)$ 個の元があるので $\operatorname{ord}(a)\mid|G|$ です。従って各元の位数の最小公倍数 $m$ も $|G|$ を割り、$m\le|G|$。両不等式から $m=|G|$ となり、$G$ は巡回群です。
 
 $k^\times$ の生成元 $g$ は位数 $p^f-1$ を持ちます。$N(g)=g^{(p^f-1)/(p-1)}$ の位数は $p-1$ なので、$\mathbb F_p^\times$ 全体を生成します。
 
