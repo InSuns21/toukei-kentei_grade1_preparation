@@ -480,6 +480,7 @@ $$
 \Gamma^z_{zz}=-\frac1z,\quad
 \Gamma^t_{tz}=\Gamma^t_{zt}=-\frac1z.
 $$
+
 $\partial_t\Phi=0$、$\partial_z\Phi=-\alpha/z^2$、$\partial_z^2\Phi=2\alpha/z^3$ を使うと
 
 $$
@@ -708,6 +709,7 @@ $$
 \partial_t\psi=f'(u)\partial_tu=f'(u),\qquad
 \partial_x\psi=f'(u)\partial_xu=-f'(u).
 $$
+
 平坦計量 $\operatorname{diag}(-1,1)$ に対して $(\nabla\psi)^2=-(f')^2+(f')^2=0$ です。
 
 [応力テンソルの直接例](#def-bhi19-stress-source)より、成分を一つずつ計算すると
