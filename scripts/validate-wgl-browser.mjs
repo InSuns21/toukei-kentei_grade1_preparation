@@ -1444,6 +1444,50 @@ try{
     assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/FRAGMENT/i);
     console.log('WGL19 fragment shader compilation diagnostics: PASS');
   }
+  // G2/G4 WGL19: all GUI values rewrite the learner's real audit.js.
+  // A single final change triggers execution of that edited clock, not a
+  // separate preview. The independent CPU grid must follow its actual steps.
+  await click('reset');
+  const initialControls19=await evalJS('["rate","fixed-ms","max-steps-per-frame"].map(id=>{const e=document.getElementById("parameter-"+id);return {id,value:e?.value,disabled:e?.disabled};})');
+  assert.deepEqual(initialControls19,[
+    {id:'rate',value:'0.2',disabled:false},
+    {id:'fixed-ms',value:'20',disabled:false},
+    {id:'max-steps-per-frame',value:'4',disabled:false}
+  ]);
+  await evalJS('(()=>{for(const [id,value] of [["rate","0.1"],["fixed-ms","40"],["max-steps-per-frame","1"]]){const e=document.getElementById("parameter-"+id);e.value=value;e.dispatchEvent(new Event("input",{bubbles:true}));}document.getElementById("parameter-max-steps-per-frame").dispatchEvent(new Event("change",{bubbles:true}));})()');
+  const editedSource19=await evalJS('document.getElementById("js-source").value');
+  assert.match(editedSource19,/const rate=0\.1;/);
+  assert.match(editedSource19,/const fixedMs=40;/);
+  assert.match(editedSource19,/const maxStepsPerFrame=1;/);
+  assert.match(editedSource19,/gl\.uniform1f\(uniforms\.rate,rate\)/);
+  await waitFor('document.getElementById("status")?.textContent.match(/編集コードを実行しました|WebGL2実行エラー|タイムアウト|未達/)',22000);
+  const gui19=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent,rows:[...document.querySelectorAll("#results-table tbody tr")].map(tr=>[...tr.cells].map(c=>c.textContent)),sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
+  assert.equal(gui19.sandbox,'allow-scripts');
+  if(!w19.status.includes('WebGL2実行エラー')){
+    assert.match(gui19.status,/編集コードを実行しました/,'WGL19 edited GUI: '+JSON.stringify(gui19));
+    assert.equal(gui19.rows.length,16);
+    assert.ok(gui19.rows.every(row=>row[4]==='OK'),'edited WGL19 GPU RGBA must match current CPU baseline');
+    assert.match(gui19.log,/ticks\/frame=0,0,1,1; total ticks=2; remainder=0\.00000ms; dropped=40ms/);
+    assert.match(gui19.log,/WGL19 clock: 一致 \/ independent CPU-FLOAT: maxError=.*一致/);
+  }
+  await click('save');
+  await cdp('Page.navigate',{url:url+'?lesson=WGL19'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true,
+    'WGL19 saved learner source must not run on reload');
+  assert.equal(await evalJS('document.getElementById("parameter-fixed-ms").value'),'40');
+  assert.equal(await evalJS('document.getElementById("parameter-max-steps-per-frame").value'),'1');
+  assert.equal(await evalJS('document.getElementById("parameter-rate").value'),'0.1');
+  await evalJS('(()=>{const e=document.getElementById("js-source");e.value=e.value.replace("const fixedMs=40;","const fixedMs=20*2;");e.dispatchEvent(new Event("input",{bubbles:true}));})()');
+  assert.equal(await evalJS('document.getElementById("parameter-fixed-ms").disabled'),true);
+  assert.equal(await evalJS('document.getElementById("js-source").value.includes("const fixedMs=20*2;")'),true);
+  await click('reset');
+  assert.equal(await evalJS('document.getElementById("parameter-fixed-ms").value'),'20');
+  assert.equal(await evalJS('document.getElementById("parameter-fixed-ms").disabled'),false);
+  assert.equal(await evalJS('document.getElementById("parameter-rate").value'),'0.2');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
+  console.log('G4 WGL19 GUI rate/clock cap → edited GPU+CPU → save → safe reload → expression priority → reset: PASS');
+
   await click('stop');
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   assert.deepEqual(exceptions,[]);
