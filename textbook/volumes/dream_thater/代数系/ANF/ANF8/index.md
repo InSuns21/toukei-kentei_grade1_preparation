@@ -60,7 +60,7 @@ $$
 
 ## 2. 素イデアルの Euler 積
 
-整数の素因数分解に相当するのが、[Dedekind環でのイデアル分解](../ANF3/index.md#thm-anf3-ideal-factorization)です。これによって、ゼータ関数の級数を各素イデアルでの幾何級数に分離できます。
+整数の素因数分解に相当するのが、[Dedekind環でのイデアル分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)です。これによって、ゼータ関数の級数を各素イデアルでの幾何級数に分離できます。
 
 <a id="prop-anf8-euler-product"></a>
 
@@ -94,7 +94,7 @@ $$
 
 > 右辺をすべての $p$ で掛けると $\zeta(\sigma)^n<\infty$ です。実際、$\sum_{m\geq1}m^{-\sigma}$ は積分比較で収束し、その有限な Euler 部分積はこの級数以下です。従って左辺の非負項展開も有限な和へ収束します。
 
-有限個の素イデアルについて各因子を幾何級数展開すると、積はそれらを素因子とする整イデアルの $(N\mathfrak a)^{-s}$ の総和になります。[素イデアル分解の存在と一意性](../ANF3/index.md#thm-anf3-ideal-factorization)により重複・欠落はありません。絶対収束により素イデアル全体へ極限を移し、式を得ます。
+有限個の素イデアルについて各因子を幾何級数展開すると、積はそれらを素因子とする整イデアルの $(N\mathfrak a)^{-s}$ の総和になります。[素イデアル分解の存在と一意性](../ANF3/index.md#thm-anf3-prime-ideal-factorization)により重複・欠落はありません。絶対収束により素イデアル全体へ極限を移し、式を得ます。
 <!-- proof-end -->
 
 各 $p$ における局所因子は、分解型が異なると変わります。たとえば $K=\mathbb Q(i)$ では、[二次体の素数分解](../ANF4/index.md#thm-anf4-quadratic-splitting)から $p=2$ は分岐し、奇素数 $p\equiv1\pmod4$ は分裂、$p\equiv3\pmod4$ は惰性です。したがって対応する局所因子はそれぞれ
@@ -179,7 +179,7 @@ $$
 
 $[\mathfrak b][\mathfrak a]=1$ なので $\mathfrak b\mathfrak a=(\alpha)$ と書けます。$\mathfrak b\subseteq A$ より $(\alpha)=\mathfrak b\mathfrak a\subseteq\mathfrak a$、従って $\alpha\in\mathfrak a\setminus\{0\}$ です。
 
-逆に $0\ne\alpha\in\mathfrak a$ なら $(\alpha)\subseteq\mathfrak a$ です。[可逆分数イデアルの積](../ANF3/index.md#thm-anf3-ideal-factorization)により $(\alpha)\mathfrak a^{-1}\subseteq A$ は整イデアルで、その類は $C$ です。絶対ノルムの乗法性と[主イデアルのノルム公式](../ANF4/index.md#def-anf4-ideal-norm)からノルムの等式が従います。
+逆に $0\ne\alpha\in\mathfrak a$ なら $(\alpha)\subseteq\mathfrak a$ です。[可逆分数イデアルの積](../ANF3/index.md#thm-anf3-prime-ideal-factorization)により $(\alpha)\mathfrak a^{-1}\subseteq A$ は整イデアルで、その類は $C$ です。絶対ノルムの乗法性と[主イデアルのノルム公式](../ANF4/index.md#def-anf4-ideal-norm)からノルムの等式が従います。
 
 二つの生成元が同じ $\mathfrak b\mathfrak a$ を生成する必要十分条件は $\beta=u\alpha$（$u\in U_K$）です。[単数定理の核の記述](../ANF7/index.md#lem-anf7-kernel-discrete)では $\ker L=\mu(K)$ です。$x(j(u\alpha))=x(j(\alpha))+L(u)$ であり、$P$ は $\Gamma$ の半開基本領域だから、$\Gamma$ の移動量は規格化によりただ一つに定まります。その移動量の逆像の単数は $\mu(K)$ の一つの剰余類で、要素数は $w_K$ です。
 <!-- proof-end -->
@@ -548,7 +548,7 @@ $$
 - ID: ANF8-A5
 
 <!-- solution-start -->
-**詳細解答**　$\alpha\in\mathfrak a$ から $(\alpha)\subseteq\mathfrak a$ です。Dedekind環のイデアルが可逆であることを [ANF3 の分解定理](../ANF3/index.md#thm-anf3-ideal-factorization)で使い、$\mathfrak a^{-1}$ を掛ければ $(\alpha)\mathfrak a^{-1}\subseteq A$ です。非零であるため非零整イデアルになります。
+**詳細解答**　$\alpha\in\mathfrak a$ から $(\alpha)\subseteq\mathfrak a$ です。Dedekind環のイデアルが可逆であることを [ANF3 の分解定理](../ANF3/index.md#thm-anf3-prime-ideal-factorization)で使い、$\mathfrak a^{-1}$ を掛ければ $(\alpha)\mathfrak a^{-1}\subseteq A$ です。非零であるため非零整イデアルになります。
 
 両辺に $\mathfrak a$ を掛けると $\mathfrak a\mathfrak b=(\alpha)$ です。絶対ノルムの乗法性から $(N\mathfrak a)(N\mathfrak b)=N((\alpha))=|N_{K/\mathbb Q}(\alpha)|$。$N\mathfrak a>0$ で割って結論を得ます。
 <!-- solution-end -->
