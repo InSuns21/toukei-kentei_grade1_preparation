@@ -55,9 +55,9 @@ $$
 
 状態 $x_i\in D$ と、その位置で測った速度 $y_i\in\mathbb R^d$ を $i=1,\ldots,N$ について与える。辞書を各観測点で評価し、その値を行へ並べると、係数を掛けた結果が予測速度になる。実際、観測点番号を $i$、辞書関数番号を $j$、速度成分番号を $k$ とすれば、
 
-$
+$$
 (f_\Xi(x_i))_k=\sum_{j=1}^p\phi_j(x_i)\xi_{jk}
-$
+$$
 
 となる。これが辞書行列の第 $i$ 行と係数行列の第 $k$ 列の積に等しいため、全標本をまとめると予測速度行列は $\Theta\Xi$ となる。また $N\times d$ 行列 $A$ の Frobenius ノルムは $\|A\|_F^2=\sum_{i=1}^N\sum_{k=1}^d A_{ik}^2$ と定め、全成分の残差平方を足すために使う。
 
@@ -178,14 +178,14 @@ $$
 
 列フルランクなので $N\ge p$ である。既習の[特異値分解](../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-svd)を縮約形 $\Theta=U\Sigma V^{\mathsf T}$ と書く。ここで $U\in\mathbb R^{N\times p}$ は $U^{\mathsf T}U=I_p$ を満たし、$V\in\mathbb R^{p\times p}$ は直交行列、$\Sigma=\operatorname{diag}(\sigma_1,\ldots,\sigma_p)$ は正の特異値を並べた対角行列である。すると
 
-$
+$$
 \begin{aligned}
 (\Theta^{\mathsf T}\Theta)^{-1}\Theta^{\mathsf T}
 &=(V\Sigma^2V^{\mathsf T})^{-1}V\Sigma U^{\mathsf T}\\
 &=V\Sigma^{-2}V^{\mathsf T}V\Sigma U^{\mathsf T}\\
 &=V\Sigma^{-1}U^{\mathsf T}.
 \end{aligned}
-$
+$$
 
 $U^{\mathsf T}$ と $V$ はノルムを増やさず、$\Sigma^{-1}$ の最大対角成分は $1/\sigma_{\min}(\Theta)$ である。よって上式の作用素ノルムは $1/\sigma_{\min}(\Theta)$、主張の誤差上界を得る。
 <!-- proof-end -->
@@ -273,9 +273,9 @@ $$
 
 有限辞書が時間発展後にも同じ関数の張る空間に戻るなら、無限に多い観測関数を扱う代わりに行列を使える。何を行列の列とするかを確認するため、辞書の各成分 $\phi_j(F(x))$ を、元の $\phi_\ell(x)$ の線形結合として表す。つまり各 $j$ について係数 $B_{\ell j}$ を選び、
 
-$
+$$
 \phi_j(F(x))=\sum_{\ell=1}^p\phi_\ell(x)B_{\ell j}\qquad(x\in D)
-$
+$$
 
 が成立するかを問う。$j$ 番目の更新後の関数を表す係数が行列 $B$ の第 $j$ 列になる。辞書関数が線形独立なら、その係数は一意である。観測対 $(x_i,x_i^+)$ では $x_i^+$ を一回更新した後の状態とし、正確な対なら $x_i^+=F(x_i)$ である。
 
@@ -404,7 +404,7 @@ $$
 
 と置く。観測状態を $q=1$ と $q=-1$ に限れば、どの $p$ でも $f_\alpha=f$ なので、どの $\alpha$ も速度観測に完全に一致する。しかし任意のモデル軌道上で[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を $H(q(t),p(t))$ に適用すると、
 
-$
+$$
 \begin{aligned}
 \frac{dH}{dt}
 &=q\dot q+p\dot p\\
