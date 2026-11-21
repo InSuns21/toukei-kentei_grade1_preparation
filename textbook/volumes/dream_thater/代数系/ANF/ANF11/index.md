@@ -542,7 +542,42 @@ $4$ は $5$ 進単元で、指数 $3$ と一致します。
 - ID: ANF11-B1
 
 <!-- solution-start -->
-**詳細解答。** 写像 $\phi_j:\kappa_L\to\mathfrak m_L^j/\mathfrak m_L^{j+1}$ を $a+\mathfrak m_L\mapsto a\pi^j+\mathfrak m_L^{j+1}$ と定めます。$a$ の代表を $\pi b$ だけ変えても値は $\pi^{j+1}b$ だけ変わるので well-defined です。任意の $\mathfrak m_L^j$ の元は $\pi^j a$ だから全射。$\phi_j(a)=0$ なら $\pi^j a=\pi^{j+1}b$、整域で $\pi^j$ を消去して $a=\pi b\in\mathfrak m_L$ だから単射です。従って商の元数は $|\kappa_L|=p^f$。また $\mathcal O_L/p\mathcal O_L\cong(\mathbb Z_p/p\mathbb Z_p)^n$ なので元数は $p^n$。$p\mathcal O_L=\mathfrak m_L^e$ の長さ $e$ のフィルトレーションの商を掛けると $p^n=(p^f)^e$ です。従って $n=ef$。
+**詳細解答。** $j\ge0$ を固定し、写像を
+
+$
+\phi_j:\kappa_L\longrightarrow\mathfrak m_L^j/\mathfrak m_L^{j+1},
+\qquad
+a+\mathfrak m_L\longmapsto a\pi^j+\mathfrak m_L^{j+1}
+$
+
+と定めます。代表を $\pi b$ だけ変えると像は $\pi^{j+1}b$ だけ変わるので、写像は well-defined です。任意の $\mathfrak m_L^j$ の元は $\pi^j a$ と書けるため全射です。さらに
+
+$
+\phi_j(a+\mathfrak m_L)=0
+\ \Longrightarrow\
+\pi^j a=\pi^{j+1}b
+\ \Longrightarrow\
+a=\pi b\in\mathfrak m_L
+$
+
+であり、非零元 $\pi^j$ を整域で消去できるため単射です。従って商の元数は $|\kappa_L|=p^f$ となります。
+
+一方 $\mathcal O_L$ は $\mathbb Z_p$ 上階数 $n$ の自由加群なので
+
+$
+|\mathcal O_L/p\mathcal O_L|
+=|(\mathbb Z_p/p\mathbb Z_p)^n|
+=p^n.
+$
+
+$p\mathcal O_L=\mathfrak m_L^e$ により $j=0,\ldots,e-1$ の $e$ 個の商の元数を掛けると
+
+$
+p^n=|\mathcal O_L/\mathfrak m_L^e|
+=\prod_{j=0}^{e-1}p^f=p^{ef}.
+$
+
+よって $n=ef$ です。
 <!-- solution-end -->
 
 ### B2. 跡の直接計算と余異なる
@@ -572,7 +607,23 @@ $L_5=\mathbb Q_5(\sqrt5)$、$L_2=\mathbb Q_2(\sqrt2)$ の $e,f,d$ をそれぞ�
 - ID: ANF11-B3
 
 <!-- solution-start -->
-**詳細解答。** いずれも $X^2-p$ は Eisenstein なので $\mathcal O_{L_p}=\mathbb Z_p[\pi]$、$\pi^2=p$、$e=2,f=1$ です。[異なる公式](#thm-anf11-monogenic-different)により $d=v_{L_p}(2\pi)=v_{L_p}(2)+1$。$p=5$ では $2$ は単元で $v_{L_5}(2)=0$、$d=1=e-1$。$p=2$ では $v_{L_2}(2)=e\,v_2(2)=2$、$d=3\ne e-1$。差は係数 $2$ が剰余標数 $2$ で可逆でないため、導関数 $g'(\pi)=2\pi$ に余分な付値が付くことです。$p\nmid e$ の仮定を落とすと、この典型例では $d=e-1$ という式が壊れます。
+**詳細解答。** いずれも $X^2-p$ は Eisenstein なので[前講の局所体構造定理](../ANF10/index.md#thm-anf10-eisenstein-extension)から
+
+$
+\mathcal O_{L_p}=\mathbb Z_p[\pi],\qquad
+\pi^2=p,\qquad e=2,\quad f=1
+$
+
+です。[異なる公式](#thm-anf11-monogenic-different)の仮定 $\mathcal O_{L_p}=\mathbb Z_p[\pi]$ を満たすので
+
+$
+d=v_{L_p}(g'(\pi))
+=v_{L_p}(2\pi)=v_{L_p}(2)+1
+$
+
+となります。$p=5$ では $2$ は単元だから $v_{L_5}(2)=0$ であり、$d=1=e-1$ です。$p=2$ では[付値の制限定理](#thm-anf11-ef-degree)により $v_{L_2}(2)=e\,v_2(2)=2$、従って $d=3\ne e-1$ です。
+
+差は剰余標数 $2$ のもとで導関数の係数 $2$ が単元でなくなり、$g'(\pi)=2\pi$ に余分な付値が付くことです。$p\nmid e$ という穏分岐の仮定を落とすと、この例では $d=e-1$ という式が壊れます。
 <!-- solution-end -->
 
 ### B4. 剰余体が拡がる二次例と跡双対
@@ -591,7 +642,17 @@ T=\begin{pmatrix}2&0\\0&-2\end{pmatrix},
 T^{-1}=\begin{pmatrix}1/2&0\\0&-1/2\end{pmatrix}.
 $$
 
-$2$ は $\mathbb Z_3$ の単元なので、係数ベクトル $(a,b)^{\mathsf T}$ が $T(a,b)^{\mathsf T}\in\mathbb Z_3^2$ を満たすことと $a,b\in\mathbb Z_3$ は同値です。従って $E^\vee=E$。$x\in\mathcal O_L$ なら $x$ と各 $y\in E$ の積は整で跡は $\mathbb Z_3$ に属しますから $x\in E^\vee=E$。逆包含は $1,i$ が整であるため成立します。結局 $\mathcal O_L=E$ で、一様化元 $3$、$e=1$、$f=2$ です。
+$2$ は $\mathbb Z_3$ の単元です。$x=a+bi$ の係数ベクトルを $\boldsymbol b=(a,b)^{\mathsf T}$ と置くと、[余異なるの基底判定](#def-anf11-codifferent)の条件は
+
+$
+T\boldsymbol b=(2a,-2b)^{\mathsf T}\in\mathbb Z_3^2
+\quad\Longleftrightarrow\quad
+a,b\in\mathbb Z_3.
+$
+
+これが $E^\vee=E$ の理由です。$x\in\mathcal O_L$ と $y\in E$ はともに整で、その積の跡は $\mathbb Z_3$ に属します。従って $\mathcal O_L\subseteq E^\vee=E$ です。逆包含は $i^2+1=0$ というモニック整方程式から $1,i$ が整であるため成立します。
+
+結局 $\mathcal O_L=E$ となり、$E/(3)\cong\mathbb F_9$ が体なので $\mathfrak m_L=(3)$、一様化元は $3$、$e=1$、$f=2$ です。
 <!-- solution-end -->
 
 ### C1. 三種類の局所拡大を一枚の計算表へ
