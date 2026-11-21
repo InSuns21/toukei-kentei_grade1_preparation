@@ -253,7 +253,18 @@ $$
 t=\frac{X+iY}{1-Z}\quad (U_w),\qquad
 u=\frac{X-iY}{1+Z}\quad (U_z)
 $$
-を対応させる。分母は領域内で正なので式は滑らかである。
+を対応させる。分母は領域内で正なので式は滑らかである。これらは球面上の点を表す座標である。一方、$H(z,w)=(X,Y,Z)$ のとき、$H$ の定義から
+$$
+X+iY=2z\overline w,\qquad
+X-iY=2\overline z w,\qquad
+1-Z=2|w|^2,\quad 1+Z=2|z|^2
+$$
+となる。したがって、$w\ne0$ と $z\ne0$ の各領域ではそれぞれ
+$$
+t=\frac{2z\overline w}{2w\overline w}=\frac zw,\qquad
+u=\frac{2\overline z w}{2z\overline z}=\frac wz.
+$$
+つまり $t,u$ は、同じ位相を両座標に掛けても変わらない**複素座標の比**である。局所自明化ではこの比を基底側の座標とし、残る位相 $w/|w|$ または $z/|z|$ を群座標にする。
 
 <a id="thm-gbg2-hopf-principal"></a>
 
@@ -289,7 +300,9 @@ $$
 よって $H(s_w(t))=(X,Y,Z)$。$U_z$ でも
 $$
 |u|^2=\frac{1-Z}{1+Z},\qquad
-\frac{2\overline u}{1+|u|^2}=X+iY
+\frac{2\overline u}{1+|u|^2}=X+iY,
+\qquad
+\frac{1-|u|^2}{1+|u|^2}=Z
 $$
 より $H(s_z(u))=(X,Y,Z)$ を得る。二領域が球面を覆うので $H$ は全射である。
 
@@ -324,7 +337,17 @@ $$
 
 ## 5. 枠束は $GL(n,\mathbb R)$ 主束になる
 
-Hopf束は複素位相の例だった。もう一つ、任意の $n$ 次元滑らかな多様体から機械的に作れる主束がある。各点 $x$ の[接空間](../../GEO/GEO2/index.md#def-geo2-tangent-derivation) $T_xM$ に**順序付き基底** $(v_1,\ldots,v_n)$ を選ぶ。基底を別の基底へ取り替える行列は必ず可逆であり、その全体が $GL(n,\mathbb R)$ をなす。
+Hopf束は複素位相の例だった。もう一つ、任意の $n$ 次元滑らかな多様体から、各点の接空間の基底を集めて主束を作れる。
+
+各点 $x$ の[接空間](../../GEO/GEO2/index.md#def-geo2-tangent-derivation)で、**順序付き基底**を一つ選ぶ。[接ベクトルの座標表示](../../GEO/GEO2/index.md#thm-geo2-coordinate-expression)によれば、局所座標の基底 $E=(E_1,\ldots,E_n)$ に関し、選んだ基底 $v=(v_1,\ldots,v_n)$ は各列について一意に
+
+$$
+v_j=\sum_{i=1}^{n} E_i A^i{}_j
+$$
+
+と書ける。第 $j$ 列に $v_j$ の座標係数を並べた $n\times n$ 行列 $A$ が、枠の座標表現となる。
+
+$v$ が基底であるためには $A$ の列が一次独立でなければならない。これは有限次元の正方行列では $\det A\ne0$ と同値である。このような行列全体が[一般線形群](../../../代数系/LIE/LIE1/index.md#prop-lie1-general-linear-group) $GL(n,\mathbb R)$ であり、枠の取り替えを右からの行列積として記述できる。
 
 <a id="def-gbg2-frame-bundle"></a>
 
@@ -343,13 +366,24 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg2-frame-bundle -->
-**定義の確認**：$\mathbb R^2$ の枠。標準基底 $(e_1,e_2)$ を固定すると、各枠は $(e_1,e_2)\cdot A$ と唯一表せる。$A$ が可逆であれば列ベクトルは一次独立であり、逆に枠の二列は基底なので行列式は非零である。例えば
+**定義の確認**：$M=\mathbb R^2$ の枠束。各点 $x$ で標準座標基底 $E(x)=(e_1,e_2)$ を取る。上の列表示により、$x$ 上の枠は $E(x)\cdot A$ と唯一表せ、$A\in GL(2,\mathbb R)$ であることが枠の条件に一致する。例えば
 $$
-A=\begin{pmatrix}1&1\\0&1\end{pmatrix},
-\quad
-(e_1,e_2)\cdot A=(e_1,e_1+e_2).
+A=\begin{pmatrix}1&1\\0&1\end{pmatrix},\qquad
+\det A=1,\qquad
+E(x)\cdot A=(e_1,e_1+e_2).
 $$
-この作用の後さらに $B$ を掛けると、$j$ 番目のベクトルは $\sum_{i,k} e_i A^i{}_k B^k{}_j$ となり、行列積 $AB$ の第 $j$ 列に一致する。よって右作用の規則と整合する。
+射影を $\pi(E(x)A)=x$ と定めれば全射であり、$\pi((E(x)A)B)=x$ だから（P1）が成立する。$AB=A$ なら $B=I$、二つの枠 $E(x)A,E(x)C$ の間の群元は唯一 $B=A^{-1}C$ なので（P2）も成立する。さらに
+$$
+\Phi:\operatorname{Fr}(\mathbb R^2)\longrightarrow
+\mathbb R^2\times GL(2,\mathbb R),\qquad
+\Phi(E(x)A)=(x,A)
+$$
+は、逆 $(x,A)\mapsto E(x)A$ を持つ。いずれも標準座標の成分で表されて滑らかであり、$\Phi((E(x)A)B)=(x,AB)$ だから（P3）も成立する。右作用の結合律も、$j$ 番目のベクトルが
+$$
+\sum_k\left(\sum_i e_i A^i{}_k\right)B^k{}_j
+=\sum_i e_i\left(\sum_k A^i{}_kB^k{}_j\right)
+$$
+となることから、行列積 $(AB)^i{}_j$ と一致すると確認できる。
 <!-- definition-example-end -->
 
 <a id="thm-gbg2-frame-principal"></a>
@@ -383,7 +417,7 @@ $$
 $$
 E'_j=\sum_i E_i\frac{\partial x^i}{\partial y^j}.
 $$
-よって $E'=EJ$、$J=(\partial x^i/\partial y^j)$ である。$J$ は座標変換の微分として可逆かつ滑らかなので、$v=EA=E'(J^{-1}A)$ の成分変換も滑らかである。
+よって $E'=EJ$、$J=(\partial x^i/\partial y^j)$ である。ここで $\partial x^i/\partial y^j$ は他の $y$ 座標を固定して $y^j$ を変化させる偏導関数である。$J$ は座標変換の微分として可逆かつ滑らかなので、$v=EA=E'(J^{-1}A)$ の成分変換も滑らかである。
 
 作用 $v\cdot B$ は局所積で $(x,A)\mapsto(x,AB)$ となり、射影を保存し、滑らかである。$AB=A$ なら $B=I$。任意の枠 $EA,EC$ の間には唯一 $B=A^{-1}C$ があり、$(EA)B=EC$。従って自由・推移性も成立し、主束の全条件を満たす。
 <!-- proof-end -->
@@ -536,12 +570,18 @@ $$
 $M=(0,\infty)$ で座標 $x$ と $y=\log x$ を使う。座標枠 $E_x=\partial/\partial x$、$E_y=\partial/\partial y$ の間の変換行列を計算し、同じ接ベクトル $v=3\partial/\partial x$ の枠係数が両座標でどう変わるか示せ。
 
 <!-- solution-start -->
-**詳細解答**。$x=e^y$ なので連鎖律から
+**詳細解答**。$x=e^y$ なので、滑らかな試験関数 $f$ に対する一変数の連鎖律は
+$$
+\frac{d}{dy}f(e^y)=\frac{df}{dx}(x)\frac{dx}{dy}
+=x\frac{df}{dx}(x)
+$$
+である。座標方向の接ベクトル $\partial/\partial y$、$\partial/\partial x$ は関数に作用する微分作用素を表すので、この恒等式を両作用素に読み替えて
 $$
 \frac{\partial}{\partial y}
 =\frac{dx}{dy}\frac{\partial}{\partial x}
-=x\frac{\partial}{\partial x}.
+=x\frac{\partial}{\partial x}
 $$
+を得る。
 従って $E_y=E_x\cdot x$ であり、構造群 $GL(1,\mathbb R)=\mathbb R^\times$ の遷移行列は $x>0$。$v=E_x\cdot3=E_y\cdot(3/x)$ である。枠係数の変換は $A_y=x^{-1}A_x$。乗法の順は一般次元では $J^{-1}A_x$ となる。
 <!-- solution-end -->
 
