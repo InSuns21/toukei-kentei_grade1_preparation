@@ -49,7 +49,7 @@ $$
 
 ### 2.3 LNNは Euler–Lagrange 方程式を満たす加速度を作る
 
-[正則 LNN の加速度定理](../PML1-19/index.md#thm-pml1-19-acceleration)を使うため、質量 $1$、ばね係数 $k\in\mathbb R$ の模型を選ぶ。
+[正則 LNN の加速度と局所運動](../PML1-19/index.md#thm-pml1-19-acceleration)を使うため、質量 $1$、ばね係数 $k\in\mathbb R$ の模型を選ぶ。
 
 $$
 L_k(q,v)=\frac{v^2}{2}-\frac{kq^2}{2},\qquad
