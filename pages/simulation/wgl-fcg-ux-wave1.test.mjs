@@ -69,3 +69,22 @@ test('FCG1 has the same visual-first contract in its separate editable Canvas ho
   assert.ok(host.includes("el('fcg1-observe')?.addEventListener('click',()=>el('run').click())"));
   assert.ok(host.includes("frame.setAttribute('sandbox', 'allow-scripts')"));
 });
+
+test('WGL wave1 numerical overlays stay collapsed until requested',async()=>{
+  const root=new URL('../../textbook/volumes/dream_thater/計算系/WGL/',import.meta.url);
+  for(const [path,container,contents] of [
+    ['WGL3/mesh.js','panel',['selected.setAttribute(\'points\'','toggle.textContent','back.addEventListener','next.addEventListener']],
+    ['WGL17/data-grid.js','panel',['physicalValues[k]','bytes[k]','floatData[k]','inspect(0)']],
+    ['WGL18/diffusion.js','valuesPanel',['liveReadback()','refreshNumbers()','stepNumber']],
+    ['WGL19/audit.js','panel',['discardedPerFrame[k]','frameDeltasMs[k]','droppedMs']]
+  ]){
+    const source=await readFile(new URL(path,root),'utf8');
+    assert.match(source,new RegExp('const '+container+"=document\\.createElement\\('details'\\)"),path);
+    assert.match(source,/const toggle=document\.createElement\('summary'\)/,path);
+    assert.ok(source.includes(container+'.append(toggle,'),path+' summary comes before inspector');
+    assert.doesNotMatch(source,new RegExp(container+'\\.open\\s*=\\s*true'),path+' starts closed');
+    for(const item of contents)assert.ok(source.includes(item),path+': '+item);
+    assert.ok(source.includes("canvas.insertAdjacentElement('afterend',"+container+")"),
+      path+' must be attached to the real GPU canvas');
+  }
+});
