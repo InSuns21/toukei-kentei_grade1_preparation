@@ -65,11 +65,19 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（較正からMcLean接空間への証明連鎖）**  
-> $X$ を規格化された正則体積形式を持つCalabi–Yau $n$ 次元複素多様体、$L\subset X$ をコンパクト・境界なし・向き付きの埋め込まれたSLagとする。法線場 $V$ に対応する1形式を $\alpha=-\iota_V\omega|_L$ と置き、位相を固定する。SLag条件の線形化は
+> $X$ を規格化された正則体積形式を持つCalabi–Yau $n$ 次元複素多様体とする。
+> $L\subset X$ はコンパクト・境界なし・向き付きに埋め込まれたSLagとする。
+> 法線場 $V$ に対応する1形式を次で定め、位相は固定する。
+
+$
+\alpha=-\iota_V\omega|_L
+$
+
+> SLag条件の線形化は
 >
-> $$
+$
 > d\alpha=0,\qquad d^*\alpha=0
-> $$
+$
 >
 > であり、線形化の核は調和1形式と一致する。さらに既習の楕円型陰関数定理による非線形の無障害性を適用すると、SLagの局所変形空間は滑らかで接空間の次元が $b_1(L)$ となる。
 <!-- formal-statement-end -->
@@ -95,7 +103,7 @@ $$
 =d\bigl(\iota_V\operatorname{Im}(e^{-i\theta}\Omega)|_L\bigr).
 $$
 
-[法線場とHodge星の対応](../SYZ1-05/index.md#prop-syz1-05-hodge-identification)を上の規約で代入すれば、後者は符号の選択を除き $d(*\alpha)$ となる。Hodge星と余微分の関係から $d(*\alpha)=0$ と $d^*\alpha=0$ は同値である。ゆえに一次の核は
+[法線場とHodge星の対応](../SYZ1-05/index.md#prop-syz1-05-hodge-identification)を上の規約で代入すれば、後者は正確に $d(*\alpha)$ となる。Hodge星と余微分の関係から $d(*\alpha)=0$ と $d^*\alpha=0$ は同値である。ゆえに一次の核は
 
 $$
 \ker(d\oplus d^*)=
@@ -141,12 +149,20 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（正定値二次ポテンシャルのsemi-flat双対化）**  
-> $U\subset\mathbb R^n$ を単連結な開集合、$H$ を定数の実対称正定値 $n\times n$ 行列とする。$\phi(u)=\frac12u^{\mathsf T}Hu$ と置き、周期1の角 $v\in(\mathbb R/\mathbb Z)^n$ を持つ局所双対トーラス $U\times(\mathbb R/\mathbb Z)^n$ を考える。複素座標 $z^i=u^i+iv^i$ と
+> $U\subset\mathbb R^n$ を単連結な開集合、$H$ を定数の実対称正定値行列とする。
+> ポテンシャル $\phi$ と周期1の角 $v$ を持つ局所双対束を次のように定める。
+
+$
+\phi(u)=\frac12u^{\mathsf T}Hu,\qquad
+\check X=U\times(\mathbb R/\mathbb Z)^n
+$
+
+> 複素座標 $z^i=u^i+iv^i$ と次の計量・基本2形式は局所Kähler構造を与える。
 >
-> $$
+$
 > \check g=\sum_{i,j}H_{ij}(du^i\,du^j+dv^i\,dv^j),\qquad
 > \check\omega=\sum_{i,j}H_{ij}\,du^i\wedge dv^j
-> $$
+$
 >
 > は局所Kähler構造を与え、そのRicci形式は0である。Legendre双対ポテンシャルは $\phi^*(t)=\frac12t^{\mathsf T}H^{-1}t$ である。
 <!-- formal-statement-end -->
@@ -252,16 +268,16 @@ $$
 > **命題（二壁の二次不整合と条件付き補正）**  
 > 上の $A_t,B_t$ について、合成の順序差は
 >
-> $$
+$
 > (A_t\circ B_t)-(B_t\circ A_t)
 > =(t^2x^2y,-t^2xy^2).
-> $$
+$
 >
 > さらに $C_t(x,y)=\left(x(1+t^2xy),\,y/(1+t^2xy)\right)$ とすれば、$t^3$ を法として
 >
-> $$
+$
 > C_t\circ B_t\circ A_t=A_t\circ B_t.
-> $$
+$
 >
 > この結論は指定された形式的変換の次数2までの整合性についてのみ述べる。
 <!-- formal-statement-end -->
