@@ -126,6 +126,7 @@ let fcg4Steps = 128;
 let fcg4Timer = null;
 let fcg5Steps = 8;
 let fcg5Timer = null;
+let forwardFcg5MotionPreference = () => {};
 let fcg6Steps = 8;
 let fcg6Timer = null;
 let fcg7Steps = 8;
@@ -321,6 +322,10 @@ function stop(message = '停止しました。実行 iframe を破棄しまし�
     active = null;
   }
   byId('canvas-slot').replaceChildren();
+  if(isFCG5){
+    const live=byId('fcg5-live-state');
+    if(live)live.textContent='ライブ物理step：未実行';
+  }
   updateSceneInfo(null);
   setStatus(message);
 }
@@ -368,6 +373,14 @@ function isolatedRunner() {
       const hooks = await run(gl, canvas, request.vertex, request.fragment, report,
         {steps: ['FCG2','FCG3','FCG4','FCG5','FCG6','FCG7','FCG8'].includes(request.lesson) ? request.steps : undefined,
          snapshot: request.lesson === 'WGL20' ? request.snapshot : undefined});
+      if(request.lesson==='FCG5'){
+        canvas.addEventListener('fcg5-physics-progress',event=>{
+          const d=event.detail;
+          if(!d||!Number.isInteger(d.step)||d.step<0||d.step>32||
+             typeof d.playing!=='boolean')return;
+          send({...scope,type:'fcg5-physics-progress',step:d.step,playing:d.playing});
+        });
+      }
       const fcg8Hooks=request.lesson==='FCG8'&&!!hooks&&
         ['play','pause','step','reset'].every(key=>typeof hooks[key]==='function');
       if(fcg8Hooks){
@@ -630,6 +643,14 @@ window.addEventListener('message', event => {
   }
   if (data.session !== active.session ||
       data.requestId !== active.id || data.generation !== active.generation) return;
+  if(isFCG5 && data.type==='fcg5-physics-progress'){
+    if(!Number.isInteger(data.step)||data.step<0||data.step>32||
+       typeof data.playing!=='boolean')return;
+    const view=byId('fcg5-live-state');
+    if(view)view.textContent='実行中の物理step '+data.step+'/32、時刻 '+
+      (data.step*0.04).toFixed(2)+' s（'+(data.playing?'再生中':'一時停止中')+'）';
+    return;
+  }
   if(isFCG2 && data.type==='fcg2-progress'){
     if(!Number.isFinite(data.time)||data.time<0||data.time>FCG2_PERIOD||
        !Number.isInteger(data.x)||!Number.isInteger(data.y)||
@@ -1014,6 +1035,7 @@ window.addEventListener('message', event => {
       }
     }else fcg2Pending=null;
   }
+  if(isFCG5 && data.ok)forwardFcg5MotionPreference();
   if(isFCG8){
     active.completed=!!data.ok&&!!data.liveHooks;
     if(data.ok&&!data.liveHooks){
@@ -1468,6 +1490,19 @@ if (isFCG5) {
   preview.setAttribute('aria-live','polite');
   preview.textContent='WebGL2非対応でも独立CPUによる物理診断を利用できます。';
   byId('panel-result').append(preview);
+  const live=document.createElement('output');
+  live.id='fcg5-live-state';
+  live.setAttribute('aria-live','off');
+  live.textContent='ライブ物理step：未実行';
+  byId('canvas-slot').after(live);
+  const motionPreference=window.matchMedia('(prefers-reduced-motion: reduce)');
+  forwardFcg5MotionPreference=()=>{
+    if(active?.started&&!active.contextLost)
+      active.frame.contentWindow.postMessage({
+        type:'fcg5-motion-policy',reduced:motionPreference.matches
+      },'*');
+  };
+  motionPreference.addEventListener('change',forwardFcg5MotionPreference);
   function mark(){
     marker.textContent='物理step '+fcg5Steps+'/32、時刻 '+(fcg5Steps*0.04).toFixed(2)+'s（描画fpsとは独立）';
     pause.disabled=fcg5Timer===null;play.disabled=fcg5Timer!==null;
