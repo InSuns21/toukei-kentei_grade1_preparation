@@ -146,8 +146,10 @@ if(typeof document!=='undefined'){
   }
   const selected=add('polygon',{fill:'#ffe08b','fill-opacity':.30,
     stroke:'#ffe08b','stroke-width':.8});
-  const panel=document.createElement('div');
+  const panel=document.createElement('details');
   panel.className='wgl3-mesh-inspector';
+  const toggle=document.createElement('summary');
+  toggle.style.cssText='cursor:pointer;font-weight:600';
   panel.style.cssText='position:absolute;left:8px;bottom:8px;z-index:2;'+
     'background:rgba(4,21,37,.93);color:#fff;padding:7px 9px;'+
     'font:12px/1.5 system-ui;max-width:calc(100% - 32px)';
@@ -164,6 +166,7 @@ if(typeof document!=='undefined'){
   function selectFace(){
     const ids=indices.slice(face*3,face*3+3);
     selected.setAttribute('points',ids.map(id=>point(id).join(',')).join(' '));
+    toggle.textContent='三角形 '+(face+1)+' / '+(indices.length/3)+'：頂点 '+ids.join(', ')+'（選択）';
     detail.textContent='三角形 '+(face+1)+' / '+(indices.length/3)+
       ' ／頂点ID ['+ids.join(', ')+']　'+
       '\n共有頂点 '+(vertices.length/2)+' 個・展開頂点 '+indices.length+' 個'+
@@ -173,7 +176,7 @@ if(typeof document!=='undefined'){
   }
   back.addEventListener('click',()=>{face=(face-1+indices.length/3)%(indices.length/3);selectFace();});
   next.addEventListener('click',()=>{face=(face+1)%(indices.length/3);selectFace();});
-  panel.append(title,detail,back,next);
+  panel.append(toggle,title,detail,back,next);
   canvas.insertAdjacentElement('afterend',svg);
   svg.insertAdjacentElement('afterend',panel);
   selectFace();
