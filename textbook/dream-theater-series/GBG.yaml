@@ -24,7 +24,7 @@ chapters:
     title: "主束から物質場の束をどう作るか"
   - id: GBG5
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG5
-    status: planned
+    status: completed
     title: "ゲージ変換群は何に作用するか"
   - id: GBG6
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG6

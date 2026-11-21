@@ -1,0 +1,77 @@
+chapter: GBG5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG4
+  - LIE2
+forward_references: []
+concepts:
+  - id: gauge.gauge-automorphism
+    name: ゲージ変換とゲージ群
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ゲージ変換とゲージ群）"]
+    requires: [gauge.principal-bundle-isomorphism, gauge.equivariant-bundle-map-isomorphism]
+
+  - id: gauge.gauge-group-composition
+    name: ゲージ変換は合成で群をなす
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ゲージ変換は合成で群をなす）"]
+    requires: [gauge.gauge-automorphism, gauge.section-trivialization]
+
+  - id: gauge.adjoint-group-bundle
+    name: 随伴群束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（随伴群束）"]
+    requires: [gauge.principal-bundle, lie.conjugation-automorphism, gauge.smooth-transition-cocycle]
+
+  - id: gauge.adjoint-lie-algebra-bundle
+    name: 随伴Lie環束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（随伴Lie環束）"]
+    requires: [gauge.principal-bundle, lie.adjoint-representation, gauge.associated-vector-bundle]
+
+  - id: gauge.adjoint-fiber-operations
+    name: 随伴束のファイバー演算と局所成分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（随伴束のファイバー演算と局所成分）"]
+    requires: [gauge.adjoint-group-bundle, gauge.adjoint-lie-algebra-bundle, lie.adjoint-homomorphism]
+
+  - id: gauge.conjugation-equivariant-function
+    name: 共役同変なゲージ関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共役同変なゲージ関数）"]
+    requires: [gauge.gauge-automorphism, gauge.adjoint-group-bundle]
+
+  - id: gauge.gauge-sections-isomorphism
+    name: ゲージ群と随伴群束の切断の同型
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ゲージ群と随伴群束の切断の同型）"]
+    requires: [gauge.conjugation-equivariant-function, gauge.adjoint-fiber-operations, gauge.gauge-group-composition]
+
+  - id: gauge.local-gauge-compatibility
+    name: 局所ゲージ関数の整合条件と再構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所ゲージ関数の整合条件と再構成）"]
+    requires: [gauge.gauge-sections-isomorphism, gauge.transition-section-change, gauge.section-trivialization]
+
+  - id: gauge.gauge-associated-action
+    name: ゲージ群の結合束への作用
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ゲージ群の結合束への作用）"]
+    requires: [gauge.local-gauge-compatibility, gauge.associated-vector-bundle, gauge.associated-component-transformation]
+
+  - id: gauge.adjoint-gauge-action
+    name: 随伴Lie環値の場への共役作用
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（随伴Lie環値の場への共役作用）"]
+    requires: [gauge.gauge-associated-action, gauge.adjoint-lie-algebra-bundle, lie.adjoint-homomorphism]
