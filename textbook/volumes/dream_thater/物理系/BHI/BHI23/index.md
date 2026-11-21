@@ -359,7 +359,7 @@ $$
 
 右向きに熱的な定常出射が始まると、[BHI22のSchwarzian流束命題](../BHI22/index.md#prop-bhi22-anomalous-flux)によって局所エネルギー流束が求まります。ただしその流束から区間エントロピー全体を積分で定義したわけではありません。**ここではtwist相関による結果と流束による結果を照合**します。
 
-本節では出射流束を $F(u)$ と書きます（[BHI22の流束](../BHI22/index.md#prop-bhi22-anomalous-flux)の $P(u)$ と同じ量です）。計算を簡潔にするため $p(u)=e^{\kappa u}/(1+e^{\kappa u})$ と置きます。この $p$ は**本節の無次元の補助関数**であり、前講で $U=p(w)$ と書いた光線写像ではありません。$p'=dp/du=\kappa p(1-p)$、$f''/f'=-\kappa p$ なので、
+本節では出射流束を $F(u)$ と書きます（[BHI22の流束](../BHI22/index.md#prop-bhi22-anomalous-flux)の $P(u)$ と同じ量です）。計算を簡潔にするため $p(u)=e^{\kappa u}/(1+e^{\kappa u})$ と置きます。この $p$ は本節の計算に用いる無次元の補助量であり、前講で $U=p(w)$ と書いた光線写像ではありません。$p'=dp/du=\kappa p(1-p)$、$f''/f'=-\kappa p$ なので、
 
 $$
 \frac{f'''}{f'}=-\kappa^2p(1-2p),
