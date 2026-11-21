@@ -184,7 +184,7 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
     const onMotionPreferenceChange=event=>{
       if(event.matches){
         playing=false;last=0;acc=0;
-        report('MOTION','reduced motion: paused (Space to restart manually)');
+        canvas.title='FCG5 再生停止中（OSの動きを減らす設定）。Spaceで手動再生';
       }
     };
     motionPreference?.addEventListener?.('change',onMotionPreferenceChange);
@@ -248,7 +248,8 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
     canvas.addEventListener('keydown',e=>{
       if(e.key===' '){
         e.preventDefault();playing=!playing;last=0;acc=0;
-        report('MOTION',playing?'manual play':'paused by Space');
+        canvas.title=playing?'FCG5 再生中：Spaceで停止、Shift+ドラッグで染料追加':
+          'FCG5 一時停止中：Spaceで再生、Shift+ドラッグで染料追加';
       }
     });
     // Draw the first presentation frame on rAF. The runner has already read
