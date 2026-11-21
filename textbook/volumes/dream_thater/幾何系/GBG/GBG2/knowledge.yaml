@@ -1,0 +1,76 @@
+chapter: GBG2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG1
+  - GEO2
+concepts:
+  - id: gauge.principal-bundle
+    name: 滑らかな主G束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（滑らかな主 $G$ 束）"]
+    requires: [gauge.smooth-gluing-theorem, lie.lie-group]
+
+  - id: gauge.local-trivialization-free-transitive
+    name: 局所自明化から自由・推移性が従う
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所自明化から自由・推移性が従う）"]
+    requires: [gauge.principal-bundle]
+
+  - id: gauge.principal-bundle-transition
+    name: 局所自明化の間の変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所自明化の間の変換）"]
+    requires: [gauge.principal-bundle, gauge.local-trivialization-cocycle-correspondence]
+
+  - id: gauge.principal-bundle-isomorphism
+    name: 基底を固定した主束同型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（基底を固定した主束同型）"]
+    requires: [gauge.principal-bundle]
+
+  - id: gauge.equivariant-bundle-map-isomorphism
+    name: 同じ基底の同変写像は同型
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（同じ基底の同変写像は同型）"]
+    requires: [gauge.principal-bundle-isomorphism, gauge.local-trivialization-free-transitive]
+
+  - id: gauge.trivial-principal-bundle
+    name: 自明な主束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（自明な主束）"]
+    requires: [gauge.principal-bundle-isomorphism]
+
+  - id: gauge.hopf-map
+    name: Hopf写像と右位相作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hopf写像と右位相作用）"]
+    requires: [gauge.principal-bundle, lie.lie-group]
+
+  - id: gauge.hopf-principal-bundle
+    name: Hopf主U(1)束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hopf主 $U(1)$ 束）"]
+    requires: [gauge.hopf-map, gauge.local-trivialization-free-transitive]
+
+  - id: gauge.frame-bundle
+    name: 接束の枠束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接束の枠束）"]
+    requires: [geometry.tangent-space, geometry.coordinate-tangent-basis, gauge.principal-bundle]
+
+  - id: gauge.frame-principal-bundle
+    name: 枠束の主束構造
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（枠束の主束構造）"]
+    requires: [gauge.frame-bundle, geometry.tangent-bundle-smooth-structure]
