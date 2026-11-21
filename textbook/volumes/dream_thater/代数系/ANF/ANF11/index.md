@@ -30,18 +30,29 @@ $$
 
 よって両者は整数環に入ります。
 
-逆に $\pi^{-1}$ が整なら、後の定理からその付値は非負のはずですが $v_L(\pi^{-1})=-1$ なので整ではありません。
-
-実際、この例の整数環全体は[前講の定理](../ANF10/index.md#thm-anf10-eisenstein-extension)から $\mathbb Z_5[\pi]$ です。
+逆に[Eisenstein 拡大の局所体構造](../ANF10/index.md#thm-anf10-eisenstein-extension)によれば、この例の整数環全体は $\mathbb Z_5[\pi]=\mathbb Z_5\oplus\mathbb Z_5\pi$ です。$\pi^{-1}=\pi/5$ は基底 $(1,\pi)$ に関する係数 $1/5\notin\mathbb Z_5$ を持つので、整数環には入りません。
 <!-- definition-example-end -->
 
-一般の $\mathcal O_L$ がいつも一つの極大イデアルを持ち、しかもそのイデアルが一つの元で生成されることを証明します。その準備として、任意の $x\in L$ に対する $\mathbb Q_p$ 線形写像 $m_x(y)=xy$ の跡を $\operatorname{Tr}_{L/K}(x)$、行列式を $N_{L/K}(x)$ と書きます。
+一般の $\mathcal O_L$ がいつも一つの極大イデアルを持ち、しかもそのイデアルが一つの元で生成されることを証明します。準備として、$K=\mathbb Q_p$ とし、$x\in L$ に対する乗法写像を
 
-[跡・ノルムの乗法行列による定義](../ANF2/index.md#prop-anf2-trace-norm-properties)と同じ構成です。
+$$
+m_x:L\longrightarrow L,\qquad y\longmapsto xy
+$$
 
-$L/K$ は標数 $0$ なので分離拡大であり、跡の双線形形式 $(x,y)\mapsto\operatorname{Tr}(xy)$ は非退化です。
+と置きます。この $K$ 線形写像の跡を $\operatorname{Tr}_{L/K}(x)$、行列式を $N_{L/K}(x)$ と書きます。拡大 $L/K$ を固定した箇所では添字を省いて $\operatorname{Tr},N$ と記します。これは[跡・ノルムの乗法行列による定義と演算則](../ANF2/index.md#prop-anf2-trace-norm-properties)を $\mathbb Q_p$ 上に移したものです。
 
-これは、原始元の相異なる共役根で作る Vandermonde 行列が可逆であることから従います。
+$L/K$ は標数 $0$ の有限拡大なので分離的です。双線形形式 $(x,y)\mapsto\operatorname{Tr}(xy)$ が**非退化**とは、$x\ne0$ に対して $\operatorname{Tr}(xy)\ne0$ となる $y\in L$ を選べることをいいます。
+
+[共役による跡の表示](../ANF2/index.md#thm-anf2-embedding-formulas)から、原始元 $\theta$ の相異なる共役 $\theta_1,\ldots,\theta_n$ を用いた冪基底上の行列は
+
+$$
+T=VV^{\mathsf T},\qquad
+V=(\theta_j^i)_{0\le i<n,\,1\le j\le n}.
+$$
+
+Vandermonde 行列 $V$ は可逆なので $T$ も可逆となり、非退化性が従います。
+
+次の定理では、整数環の非零元を一つの元の冪と単元の積で一意に表せることを示します。この構造が離散付値環を具体的に扱う鍵です。論証には[既習の局所単項性](../ANF3/index.md#lem-anf3-local-principal)を用います。
 
 <a id="thm-anf11-local-dvr"></a>
 
@@ -65,13 +76,21 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(1) 有限生成性。** 分離拡大 $L/K$ では原始元 $\theta$ を選べます。$\theta$ に $p$ の十分高い冪を掛ければ整な原始元にできるので、$\theta\in\mathcal O_L$ とします。
+**(1) 有限生成性。** 分離拡大 $L/K$ では原始元 $\alpha$ を選べます。その最小多項式を $X^n+c_{n-1}X^{n-1}+\cdots+c_0$（$c_j\in K$）とすると、$\theta=p^s\alpha$ は
+
+$$
+X^n+p^sc_{n-1}X^{n-1}+\cdots+p^{sn}c_0
+$$
+
+の根です。$s$ を十分大きく選べばすべての係数が $\mathbb Z_p$ に入るので $\theta$ は整で、$K(\theta)=L$ も保たれます。
 
 $E=\mathbb Z_p[\theta]$ は基底 $1,\theta,\ldots,\theta^{n-1}$ を持つ自由加群です。
 
 [整元の積についての閉性](../../AG/AG1-06/index.md#prop-ag1-06-finite-generators)より、$x\in\mathcal O_L$ と $0\le j<n$ について $x\theta^j$ も整です。
 
-整元の乗法写像の特性多項式は $\mathbb Z_p$ 係数なので、その跡は $\mathbb Z_p$ に属します。したがって
+整元 $z$ の最小多項式の係数が整数となる理由を確認します。$z$ の共役を根とするモニック最小多項式の係数は、整元の和・積なので $\mathbb Z_p$ 上整です。一方、それらの係数は $K$ に属します。[整数環の整閉性](../ANF9/index.md#prop-anf9-dvr-structure)から、係数は $\mathbb Z_p$ に入ります。
+
+[共役による跡の表示](../ANF2/index.md#thm-anf2-embedding-formulas)を $K$ 上に適用します。最小多項式の次数が $d$、拡大次数が $n$ なら、各共役値は $n/d$ 回ずつ現れます。従って跡は最小多項式の整数係数の整数倍であり、$\mathbb Z_p$ に属します。特に
 
 $$
 \operatorname{Tr}(x\theta^j)\in\mathbb Z_p
@@ -84,7 +103,16 @@ $$
 \det T=\left(\prod_{a<b}(\theta_b-\theta_a)\right)^2\ne0.
 $$
 
-$x=\sum_i b_i\theta^i$ と書くと、上の跡条件は $T(b_i)_i\in\mathbb Z_p^n$ です。よって $x$ の係数ベクトルは $T^{-1}\mathbb Z_p^n$ に含まれます。$T^{-1}$ の成分の分母を払う $p^s$ を選べば
+任意の $x\in L$ を冪基底で $x=\sum_{i=0}^{n-1}b_i\theta^i$（$b_i\in K$）と表します。跡の線形性から
+
+$$
+\operatorname{Tr}(x\theta^j)
+=\sum_{i=0}^{n-1}b_i\operatorname{Tr}(\theta^{i+j})
+=(T\boldsymbol b)_j,\qquad
+\boldsymbol b=(b_0,\ldots,b_{n-1})^{\mathsf T}.
+$$
+
+従って整元に対する跡条件は $T\boldsymbol b\in\mathbb Z_p^n$ であり、$T$ が可逆なので $\boldsymbol b\in T^{-1}\mathbb Z_p^n$ と判定できます。$T^{-1}$ の成分の分母を払う $p^s$ を選べば
 
 $$
 E\subseteq\mathcal O_L\subseteq p^{-s}E.
@@ -92,7 +120,7 @@ $$
 
 $\mathbb Z_p$ は PID で、有限自由加群の部分加群は有限自由です。また $E$ を含むので階数は $n$ です。従って $\mathcal O_L$ は $p$ 進完備で、$\mathcal O_L/p\mathcal O_L$ は有限環です。
 
-**(2) 極大イデアルは一つ。** $\mathcal O_L$ は $\mathbb Z_p$ 上有限かつ整です。その極大イデアルは $\mathbb Z_p$ の極大イデアル $(p)$ の上にあるので、すべて $p\mathcal O_L$ を含みます。$R=\mathcal O_L/p\mathcal O_L$ を考えます。
+**(2) 極大イデアルは一つ。** $\mathcal O_L$ は $\mathbb Z_p$ 上有限かつ整です。$\mathbb Z_p$ は整閉なので $\mathcal O_L\cap K=\mathbb Z_p$ であり、$1/p\notin\mathcal O_L$、従って $p\mathcal O_L$ は真のイデアルです。$\mathcal O_L$ の極大イデアル $M$ の $\mathbb Z_p$ への縮約は整拡大の性質で極大となります（体 $\mathcal O_L/M$ が $\mathbb Z_p/(M\cap\mathbb Z_p)$ 上整なら後者も体）。$\mathbb Z_p$ の唯一の極大イデアルは $(p)$ なので、すべての $M$ は $p\mathcal O_L$ を含みます。$R=\mathcal O_L/p\mathcal O_L$ を考えます。
 
 有限可換環 $R$ に非自明な冪等元がなければ $R$ は局所環です。実際、任意の $a\in R$ について冪列は有限性からいずれ周期に入り、十分大きい周期の倍数 $M$ を選ぶと $a^{2M}=a^M$ です。従って $a^M$ は冪等元で、$0$ または $1$。前者なら $a$ は冪零、後者なら $a$ は単元です。冪零元は和と環元による積で閉じるため、非単元全体がただ一つの極大イデアルになります。
 
@@ -102,9 +130,13 @@ $$
 e_{k+1}=e_k-\frac{e_k^2-e_k}{2e_k-1}
 $$
 
-を行うと、分子の誤差の付値は少なくとも二倍になり、$p$ 進完備性によって $e^2=e$ を満たす $e\in\mathcal O_L$ に収束します。
+を行います。$h_k=-F(e_k)/F'(e_k)$ と置くと二次式の展開から
 
-これは[Newton 反復の残差評価](../ANF10/index.md#prop-anf10-newton-doubling)と同じ多項式恒等式を、完備環 $\mathcal O_L$ に適用したものです。
+$$
+F(e_k+h_k)=F(e_k)+F'(e_k)h_k+h_k^2=h_k^2
+$$
+
+です。$F'(e_k)^2=1+4F(e_k)$ なので $F(e_k)\in p\mathcal O_L$ なら $F'(e_k)$ は単元であり、この性質は反復で保たれます。帰納的に $F(e_k),h_k\in p^{2^k}\mathcal O_L$ となるので、[Newton 反復の残差評価](../ANF10/index.md#prop-anf10-newton-doubling)と同様に $(e_k)$ は Cauchy 列です。$\mathcal O_L$ の $p$ 進完備性と多項式の連続性から $e_k\to e\in\mathcal O_L$、$F(e)=0$ が従います。
 
 ところが $\mathcal O_L\subset L$ は整域なので冪等元は $0,1$ に限られ、非自明な $\bar e$ に矛盾します。よって $R$ は局所環、従って $\mathcal O_L$ も局所環です。
 
@@ -116,9 +148,24 @@ $$
 
 これで[Dedekind 整域の三条件](../ANF3/index.md#def-anf3-dedekind-domain)を満たします。
 
-しかも $\mathcal O_L$ は局所環なので、[Dedekind 整域の局所単項性](../ANF3/index.md#lem-anf3-local-principal)を $\mathcal O_L$ 自身に適用すると唯一の極大イデアルは $(\pi)$、非零元は一意に $u\pi^r$ と表せます。
+しかも $\mathcal O_L$ は局所環なので、その唯一の極大イデアル $\mathfrak m_L$ で局所化しても $\mathcal O_{L,\mathfrak m_L}=\mathcal O_L$ です。[Dedekind 整域の局所単項性](../ANF3/index.md#lem-anf3-local-principal)をここに適用すると唯一の極大イデアルは $(\pi)$、非零元は一意に $u\pi^r$ と表せます。
 
-$L=\operatorname{Frac}(\mathcal O_L)$ であることも確かめます。任意の $x\in L$ は $p^s x\in\mathcal O_L$ となるよう $s$ を大きくできます（$x$ の最小多項式の分母を払うため）。従って $x=(p^s x)/p^s$ です。任意の $x\in L^\times$ は $\pi^r u$（$r\in\mathbb Z$）と表せます。剰余体は $\mathcal O_L/p\mathcal O_L$ の商で有限です。最後に、$p\in(\pi)$ であり、後に示すよう $p$ と $\pi$ の冪は相互に比較できるので、$p$ 進完備性は $\pi$ 進完備性を与えます。
+分数体も確かめます。任意の $x\in L$ の最小多項式の係数の分母を払うように $s$ を大きく選ぶと、$p^s x$ は整になります。そのため
+
+$$
+x=\frac{p^s x}{p^s}\in\operatorname{Frac}(\mathcal O_L),
+\qquad L=\operatorname{Frac}(\mathcal O_L).
+$$
+
+従って非零元の表示は、分数体まで拡げると $\pi^r u$（整数 $r$、単元 $u$）となります。剰余体は有限環 $\mathcal O_L/p\mathcal O_L$ の商なので有限です。
+
+最後に完備性を確認します。非単元 $p$ は $p=u\pi^e$（単元 $u$、$e\ge1$）と書けます。従って任意の正整数 $k$ について
+
+$$
+p^k\mathcal O_L=\pi^{ek}\mathcal O_L.
+$$
+
+両冪が定める近傍系は同じなので、$p$ 進位相と $\pi$ 進位相は一致します。$\pi$ 進 Cauchy 列の尾部はある $\pi^{-r}\mathcal O_L$ に入るため、$\pi^r$ を掛けて整数環の完備性を適用し、極限を得てから $\pi^{-r}$ を掛ければ $L$ 自身も完備です。
 <!-- proof-end -->
 
 **何が分かったか。** Eisenstein 型でなくても整数環が構成され、分母・分子を一様化元 $\pi$ の整数冪で数えられます。これは局所体での「素数の指数」です。
@@ -204,9 +251,17 @@ $p\mathcal O_L=\mathfrak m_L^e$ だから $p^n=p^{ef}$、すなわち $n=ef$ で
 
 [離散付値の和と積の性質](../ANF9/index.md#prop-anf9-valuation-rules)を $\pi$ の冪表示に適用すれば $p^{-v_L(x)/e}$ は非Archimedes絶対値となり、制限は $|a|_p=p^{-v_p(a)}$ です。
 
-延長の一意性を確かめるには、任意の拡張絶対値 $|\cdot|'$ に対し、$\mathbb Z_p$ 上整な元はモニック方程式から $|x|'\le1$ となることを使います（$|x|'>1$ なら最高次項の絶対値が残りの全項を厳密に上回り矛盾）。
+延長の一意性では、通常の絶対値 $|\cdot|'$ が $|\cdot|_p$ を延長すると仮定します。まず $a,b\in L$、$M=\max(|a|',|b|')$ と正整数 $m$ を取ります。二項定理と $|\binom mk|'=|\binom mk|_p\le1$ から
 
-単元 $u$ とその逆元は整なので $|u|'=1$。$p=u\pi^e$ から $|\pi|'=p^{-1/e}$、従って $|x|'=p^{-v_L(x)/e}$ です。
+$$
+|a+b|'^m
+\le\sum_{k=0}^m\left|\binom mk\right|'|a|'^k|b|'^{m-k}
+\le(m+1)M^m.
+$$
+
+$m$ 乗根を取って $m\to\infty$ とすれば $|a+b|'\le M$ です。従って拡張絶対値は非Archimedes的です。整元 $x$ のモニック方程式の係数 $a_j\in\mathbb Z_p$ は $|a_j|'\le1$ を満たすので、$|x|'>1$ なら最高次項だけが他の各項より絶対値が大きくなり、強三角不等式と矛盾します。ゆえに $|x|'\le1$ です。
+
+単元 $u$ とその逆元はともに整なので $|u|'=1$。$p=u\pi^e$ から $|\pi|'=p^{-1/e}$、従って $x=\pi^ru$ を代入すると $|x|'=p^{-v_L(x)/e}$ です。
 
 最後に、$\mathcal O_L$ の $p$ 進位相と $\pi$ 進位相は、$p\mathcal O_L=\pi^e\mathcal O_L$ により同じです。$\mathcal O_L$ は $p$ 進完備なので $L$ は $v_L$ の距離で完備です（Cauchy 列の尾部を一つの $\pi^{-r}\mathcal O_L$ に移して収束させる）。
 <!-- proof-end -->
@@ -227,9 +282,9 @@ $$
 
 ## 4. 跡双対から異なるを定義する
 
-分岐指数 $e$ は、$p$ の零点が何重になるかを数えます。しかし例えば $p=2$ の分岐と奇素数の分岐では、同じ $e=2$ でも判別式への影響が異なります。これを測るため、跡の整数性を判定する格子を作ります。
+分岐指数 $e$ は、素数 $p$ が整数環の極大イデアル $\mathfrak m_L$ の何乗に対応するかを数えます。しかし例えば $p=2$ の分岐と奇素数の分岐では、同じ $e=2$ でも判別式への影響が異なります。これを測るため、跡の整数性を判定する格子を作ります。
 
-[ANF2 の跡形式と判別式](../ANF2/index.md#def-anf2-basis-discriminant)を、$\mathbb Q$ 上の数体から $\mathbb Q_p$ 上の拡大へ移します。$L/\mathbb Q_p$ は分離拡大なので、跡形式は非退化です。
+[ANF2 の跡形式と判別式](../ANF2/index.md#def-anf2-basis-discriminant)を、$\mathbb Q$ 上の数体から $\mathbb Q_p$ 上の拡大へ移します。$L/\mathbb Q_p$ は分離拡大なので、跡形式は非退化です。逆を取る対象は[ANF3 の分数イデアル](../ANF3/index.md#def-anf3-fractional-ideal)であり、その[逆分数イデアルの定義](../ANF3/index.md#def-anf3-inverse-ideal)を使います。跡の整数性を、まず基底上の有限個の条件へ直します。
 
 <a id="def-anf11-codifferent"></a>
 
@@ -256,7 +311,23 @@ $$
 **定義の確認**： $L=\mathbb Q_p$ なら跡は恒等写像です。$\{x:x\mathbb Z_p\subseteq\mathbb Z_p\}=\mathbb Z_p$ なので余異なるも異なるも $\mathbb Z_p$ です。従って $d=0$。ここでは元 $x=1$ を試すだけでなく、すべての $y\in\mathbb Z_p$ に対する条件が $x\in\mathbb Z_p$ と同値であることを確かめました。
 <!-- definition-example-end -->
 
-**分数イデアル性の確認。** 跡形式が非退化なので、$\mathbb Z_p$ 基底を選ぶと余異なるは可逆行列 $T$ による係数の双対加群 $T^{-1}\mathbb Z_p^n$ です。よって有限自由 $\mathbb Z_p$ 加群で、$L$ を張ります。
+**定義から基底による判定へ。** $\mathcal O_L$ の $\mathbb Z_p$ 基底を $\omega_1,\ldots,\omega_n$ とします。$x=\sum_i b_i\omega_i$（$b_i\in K$）、$y=\sum_jc_j\omega_j$（$c_j\in\mathbb Z_p$）と書き、
+
+$$
+T_{ij}=\operatorname{Tr}(\omega_i\omega_j),\qquad
+\operatorname{Tr}(xy)=\sum_{i,j}b_iT_{ij}c_j
+=\boldsymbol b^{\mathsf T}T\boldsymbol c
+$$
+
+を得ます。従って**すべての** $y\in\mathcal O_L$ に対する跡の整数性は、$y=\omega_j$ の $n$ 通りの検査、すなわち $T\boldsymbol b\in\mathbb Z_p^n$ と同値です。第1節で示した非退化性から $T$ は $K$ 上可逆なので
+
+$$
+\mathfrak D^{-1}
+=\left\{\sum_i b_i\omega_i:
+\boldsymbol b\in T^{-1}\mathbb Z_p^n\right\}.
+$$
+
+**分数イデアル性の確認。** この表示は余異なるが階数 $n$ の有限自由 $\mathbb Z_p$ 加群で $L$ を張ることを示します。$T^{-1}$ の全成分について共通分母 $p^s$ を払えば $p^s\mathfrak D^{-1}\subseteq\mathcal O_L$ です。従って残る $\mathcal O_L$ 加群性を確かめれば[分数イデアルの定義](../ANF3/index.md#def-anf3-fractional-ideal)を満たします。
 
 また $a\in\mathcal O_L$、$x$ が余異なる、$y\in\mathcal O_L$ なら $axy$ は $x(ay)$ と書け、$ay\in\mathcal O_L$ なので $\operatorname{Tr}(axy)\in\mathbb Z_p$。
 
@@ -264,7 +335,7 @@ $$
 
 整数環の元の跡は整なので $\mathcal O_L\subseteq\mathfrak D^{-1}$、その逆イデアル $\mathfrak D$ は $\mathcal O_L$ に含まれ、$d\ge0$ が従います。
 
-一つの多項式で整数環が書けるとき、異なるは導関数一つで計算できます。
+一つの多項式で整数環が書けるとき、異なるは導関数一つで計算できます。以下 $g'(X)$ は $g(X)$ を多項式の変数 $X$ で形式微分したもの、$g'(\theta)$ はそれに $\theta$ を代入した元を表します（時間微分ではありません）。
 
 <a id="thm-anf11-monogenic-different"></a>
 
@@ -337,7 +408,14 @@ $$
 
 ### 5.1 非分岐：$\mathbb Q_3(i)$
 
-先ほどの $E=\mathbb Z_3[i]$ に対し $g(X)=X^2+1$、$g'(i)=2i$ です。$i^{-1}=-i$ で、$2$ は $\mathbb Z_3$ の単元だから $2i$ は $E$ の単元です。前節の**証明中の跡双対計算**は $E$ に対しても使え、$E^\vee=(2i)^{-1}E=E$ と分かります。
+先ほどの $E=\mathbb Z_3[i]=\mathbb Z_3\oplus\mathbb Z_3i$ について、まず跡の定義を基底 $(1,i)$ で調べます。共役 $i\mapsto-i$ により $\operatorname{Tr}(1)=2$、$\operatorname{Tr}(i)=0$、$\operatorname{Tr}(i^2)=-2$ なので
+
+$$
+T=\begin{pmatrix}2&0\\0&-2\end{pmatrix},
+\qquad T^{-1}=\begin{pmatrix}1/2&0\\0&-1/2\end{pmatrix}.
+$$
+
+$2$ は $\mathbb Z_3$ の単元ですから、$x=a+bi$ に対する条件 $\operatorname{Tr}(x)=2a\in\mathbb Z_3$ と $\operatorname{Tr}(xi)=-2b\in\mathbb Z_3$ は $a,b\in\mathbb Z_3$ と同値です。従って[第4節の余異なるの基底判定](#def-anf11-codifferent)の通り、$E$ の跡双対 $E^\vee=\{x\in L:\operatorname{Tr}(xE)\subseteq\mathbb Z_3\}$ は $E$ 自身です。ここでは $E=\mathcal O_L$ をまだ仮定していません。なお $g(X)=X^2+1$ の $g'(i)=2i$ は $E$ の単元なので、単項生成の跡双対公式 $E^\vee=(2i)^{-1}E$ とも一致します。
 
 任意の $x\in\mathcal O_L$ と $y\in E$ はともに整なので $\operatorname{Tr}(xy)\in\mathbb Z_3$ です。よって $\mathcal O_L\subseteq E^\vee=E$。逆に $E\subseteq\mathcal O_L$ なので $\mathcal O_L=E$ が証明できました。従って
 
@@ -386,7 +464,26 @@ $$
 
 ## 6. 異なる指数と判別式の $p$ 進指数
 
-任意の $x\in L^\times$ に対して、そのノルムの付値は $v_L(x)$ に剰余次数 $f$ を掛けた値になります。実際 $x=u\pi^r$ と表すと、単元 $u$ は $\mathcal O_L$ 上の乗法で可逆なので $N(u)\in\mathbb Z_p^\times$ です。一方、$\pi$ による乗法は $\mathbb Z_p$ 上階数 $n$ の自由加群 $\mathcal O_L$ を部分加群 $\pi\mathcal O_L$ に写し、その商は $\kappa_L$ で元数 $p^f$ です。乗法行列の行列式の $p$ 進指数はこの指数と等しいので $v_p(N(\pi))=f$。従って
+ノルムの付値を計算します。非零元を $x=u\pi^r$（単元 $u$、整数 $r$）と表します。単元による乗法は整数環の自己同型なので、その行列式 $N(u)$ も $\mathbb Z_p$ の単元です。残る問題は一様化元のノルムです。
+
+$\pi$ による乗法は、階数 $n$ の自由 $\mathbb Z_p$ 加群 $\mathcal O_L$ を $\pi\mathcal O_L$ に写し、その商は剰余体 $\kappa_L$ で元数は $p^f$ です。この乗法写像の行列を、同じ $\mathbb Z_p$ 基底を使って $A$ と書くと
+
+$$
+A\in M_n(\mathbb Z_p),\qquad
+\operatorname{coker} A\cong\kappa_L.
+$$
+
+$\mathbb Z_p$ は PID なので可逆な行・列の基本変形によって $A$ を対角行列へ変形できます。対角成分の単元因子を取り除き、非負整数 $a_1,\ldots,a_n$ に対して $\operatorname{diag}(p^{a_1},\ldots,p^{a_n})$ が得られます。従って
+
+$$
+|\mathcal O_L/\pi\mathcal O_L|
+=\prod_{j=1}^n|\mathbb Z_p/p^{a_j}\mathbb Z_p|
+=p^{\sum_j a_j},
+\qquad
+v_p(\det A)=\sum_ja_j.
+$$
+
+左辺は $p^f$ なので、$N(\pi)=\det A$ により $v_p(N(\pi))=f$ です。従って
 
 <a id="prop-anf11-norm-valuation"></a>
 
@@ -405,7 +502,24 @@ v_p(\Delta)=f\,v_L(g'(\theta))=fd.
 $$
 <!-- formal-statement-end -->
 
-上の議論はこの命題の証明でもあります。計算例の $p=5$ では $(f,d)=(1,1)$ なので判別式の指数 $1$、$p=2$ では $(1,3)$ なので指数 $3$、非分岐例の $p=3$ では $(2,0)$ なので指数 $0$ と一致します。整数環の別の基底へ変えても行列式は $\mathbb Z_p$ の単元の平方倍しか変わらないため、判別式の $p$ 進指数は不変です。
+上の議論で命題が示されました。計算例を照合すると、各体の剰余次数と異なる指数は次の通りです。
+
+$$
+\begin{array}{c|ccc}
+p&5&2&3\\ \hline
+(f,d)&(1,1)&(1,3)&(2,0)\\
+v_p(\Delta)=fd&1&3&0
+\end{array}
+$$
+
+基底に依存しないことも確認します。[判別式の基底変換則](../ANF2/index.md#thm-anf2-basis-change)を使い、整数環の二つの $\mathbb Z_p$ 基底の変換行列を $U\in\operatorname{GL}_n(\mathbb Z_p)$、元の跡行列を $T$ とします。新しい跡行列と判別式には
+
+$$
+T_{\mathrm{new}}=U^{\mathsf T}TU,\qquad
+\det T_{\mathrm{new}}=(\det U)^2\det T
+$$
+
+が成り立ちます。$\det U$ は $p$ 進単元なので、判別式の $p$ 進指数は不変です。
 
 ## 7. 演習：整数環から分岐・異なるまで
 
@@ -484,7 +598,42 @@ $4$ は $5$ 進単元で、指数 $3$ と一致します。
 - ID: ANF11-B1
 
 <!-- solution-start -->
-**詳細解答。** 写像 $\phi_j:\kappa_L\to\mathfrak m_L^j/\mathfrak m_L^{j+1}$ を $a+\mathfrak m_L\mapsto a\pi^j+\mathfrak m_L^{j+1}$ と定めます。$a$ の代表を $\pi b$ だけ変えても値は $\pi^{j+1}b$ だけ変わるので well-defined です。任意の $\mathfrak m_L^j$ の元は $\pi^j a$ だから全射。$\phi_j(a)=0$ なら $\pi^j a=\pi^{j+1}b$、整域で $\pi^j$ を消去して $a=\pi b\in\mathfrak m_L$ だから単射です。従って商の元数は $|\kappa_L|=p^f$。また $\mathcal O_L/p\mathcal O_L\cong(\mathbb Z_p/p\mathbb Z_p)^n$ なので元数は $p^n$。$p\mathcal O_L=\mathfrak m_L^e$ の長さ $e$ のフィルトレーションの商を掛けると $p^n=(p^f)^e$ です。従って $n=ef$。
+**詳細解答。** $j\ge0$ を固定し、写像を
+
+$$
+\phi_j:\kappa_L\longrightarrow\mathfrak m_L^j/\mathfrak m_L^{j+1},
+\qquad
+a+\mathfrak m_L\longmapsto a\pi^j+\mathfrak m_L^{j+1}
+$$
+
+と定めます。代表を $\pi b$ だけ変えると像は $\pi^{j+1}b$ だけ変わるので、写像は well-defined です。任意の $\mathfrak m_L^j$ の元は $\pi^j a$ と書けるため全射です。さらに
+
+$$
+\phi_j(a+\mathfrak m_L)=0
+\ \Longrightarrow\
+\pi^j a=\pi^{j+1}b
+\ \Longrightarrow\
+a=\pi b\in\mathfrak m_L
+$$
+
+であり、非零元 $\pi^j$ を整域で消去できるため単射です。従って商の元数は $|\kappa_L|=p^f$ となります。
+
+一方 $\mathcal O_L$ は $\mathbb Z_p$ 上階数 $n$ の自由加群なので
+
+$$
+|\mathcal O_L/p\mathcal O_L|
+=|(\mathbb Z_p/p\mathbb Z_p)^n|
+=p^n.
+$$
+
+$p\mathcal O_L=\mathfrak m_L^e$ により $j=0,\ldots,e-1$ の $e$ 個の商の元数を掛けると
+
+$$
+p^n=|\mathcal O_L/\mathfrak m_L^e|
+=\prod_{j=0}^{e-1}p^f=p^{ef}.
+$$
+
+よって $n=ef$ です。
 <!-- solution-end -->
 
 ### B2. 跡の直接計算と余異なる
@@ -514,7 +663,23 @@ $L_5=\mathbb Q_5(\sqrt5)$、$L_2=\mathbb Q_2(\sqrt2)$ の $e,f,d$ をそれぞ�
 - ID: ANF11-B3
 
 <!-- solution-start -->
-**詳細解答。** いずれも $X^2-p$ は Eisenstein なので $\mathcal O_{L_p}=\mathbb Z_p[\pi]$、$\pi^2=p$、$e=2,f=1$ です。[異なる公式](#thm-anf11-monogenic-different)により $d=v_{L_p}(2\pi)=v_{L_p}(2)+1$。$p=5$ では $2$ は単元で $v_{L_5}(2)=0$、$d=1=e-1$。$p=2$ では $v_{L_2}(2)=e\,v_2(2)=2$、$d=3\ne e-1$。差は係数 $2$ が剰余標数 $2$ で可逆でないため、導関数 $g'(\pi)=2\pi$ に余分な付値が付くことです。$p\nmid e$ の仮定を落とすと、この典型例では $d=e-1$ という式が壊れます。
+**詳細解答。** いずれも $X^2-p$ は Eisenstein なので[前講の局所体構造定理](../ANF10/index.md#thm-anf10-eisenstein-extension)から
+
+$$
+\mathcal O_{L_p}=\mathbb Z_p[\pi],\qquad
+\pi^2=p,\qquad e=2,\quad f=1
+$$
+
+です。[異なる公式](#thm-anf11-monogenic-different)の仮定 $\mathcal O_{L_p}=\mathbb Z_p[\pi]$ を満たすので
+
+$$
+d=v_{L_p}(g'(\pi))
+=v_{L_p}(2\pi)=v_{L_p}(2)+1
+$$
+
+となります。$p=5$ では $2$ は単元だから $v_{L_5}(2)=0$ であり、$d=1=e-1$ です。$p=2$ では[局所拡大の次数公式](#thm-anf11-ef-degree)により $v_{L_2}(2)=e\,v_2(2)=2$、従って $d=3\ne e-1$ です。
+
+差は剰余標数 $2$ のもとで導関数の係数 $2$ が単元でなくなり、$g'(\pi)=2\pi$ に余分な付値が付くことです。$p\nmid e$ という穏分岐の仮定を落とすと、この例では $d=e-1$ という式が壊れます。
 <!-- solution-end -->
 
 ### B4. 剰余体が拡がる二次例と跡双対
@@ -533,7 +698,17 @@ T=\begin{pmatrix}2&0\\0&-2\end{pmatrix},
 T^{-1}=\begin{pmatrix}1/2&0\\0&-1/2\end{pmatrix}.
 $$
 
-$2$ は $\mathbb Z_3$ の単元なので、係数ベクトル $(a,b)^{\mathsf T}$ が $T(a,b)^{\mathsf T}\in\mathbb Z_3^2$ を満たすことと $a,b\in\mathbb Z_3$ は同値です。従って $E^\vee=E$。$x\in\mathcal O_L$ なら $x$ と各 $y\in E$ の積は整で跡は $\mathbb Z_3$ に属しますから $x\in E^\vee=E$。逆包含は $1,i$ が整であるため成立します。結局 $\mathcal O_L=E$ で、一様化元 $3$、$e=1$、$f=2$ です。
+$2$ は $\mathbb Z_3$ の単元です。$x=a+bi$ の係数ベクトルを $\boldsymbol b=(a,b)^{\mathsf T}$ と置くと、[余異なるの基底判定](#def-anf11-codifferent)の条件は
+
+$$
+T\boldsymbol b=(2a,-2b)^{\mathsf T}\in\mathbb Z_3^2
+\quad\Longleftrightarrow\quad
+a,b\in\mathbb Z_3.
+$$
+
+これが $E^\vee=E$ の理由です。$x\in\mathcal O_L$ と $y\in E$ はともに整で、その積の跡は $\mathbb Z_3$ に属します。従って $\mathcal O_L\subseteq E^\vee=E$ です。逆包含は $i^2+1=0$ というモニック整方程式から $1,i$ が整であるため成立します。
+
+結局 $\mathcal O_L=E$ となり、$E/(3)\cong\mathbb F_9$ が体なので $\mathfrak m_L=(3)$、一様化元は $3$、$e=1$、$f=2$ です。
 <!-- solution-end -->
 
 ### C1. 三種類の局所拡大を一枚の計算表へ
@@ -550,15 +725,65 @@ $2$ は $\mathbb Z_3$ の単元なので、係数ベクトル $(a,b)^{\mathsf T}
 - ID: ANF11-C1
 
 <!-- solution-start -->
-**詳細解答。**
+**詳細解答。** それぞれについて、整数環を確定してから一様化元、剰余体、異なるを求めます。最小多項式の微分だけでは整数環全体の異なるを計算できないので、まずその条件を検証します。
 
-**(1) $L_1/\mathbb Q_3$。** $X^2+1$ は法 $3$ に根がなく既約です。$E=\mathbb Z_3[i]$ において $(1,i)$ の跡行列は $\operatorname{diag}(2,-2)$、行列式は $-4$ で $3$ 進単元です。B4と同じ跡双対の計算により $\mathcal O_{L_1}=E$ です。$E/(3)\cong\mathbb F_3[X]/(X^2+1)=\mathbb F_9$ だから一様化元は $3$、$e=1$、$f=2$、$ef=2=[L_1:\mathbb Q_3]$。$g'(i)=2i$ は単元なので $\mathfrak D_{L_1/\mathbb Q_3}=(1)$、$d=0$、判別式は $-4$ で $v_3(-4)=0$ です。
+**(1) $L_1/\mathbb Q_3$。** $X^2+1$ は法 $3$ に根がないので既約です。$E=\mathbb Z_3[i]$ の冪基底 $(1,i)$ について、共役 $i\mapsto-i$ を用いると
 
-**(2) $L_2/\mathbb Q_5$。** $X^2-5$ は Eisenstein なので既約で、[Eisenstein 拡大の局所体構造](../ANF10/index.md#thm-anf10-eisenstein-extension)から $\mathcal O_{L_2}=\mathbb Z_5[\alpha]$。一様化元 $\alpha$ の付値は $1$、$v_{L_2}(5)=2$、剰余体は $\mathbb F_5$、従って $(e,f,n)=(2,1,2)$。導関数は $2\alpha$、$2$ は $5$ 進単元なので異なるは $(2\alpha)=(\alpha)$、$d=1$。跡行列は $\operatorname{diag}(2,10)$、判別式 $20$ の指数は $v_5(20)=1=fd$ です。
+$$
+T=\begin{pmatrix}2&0\\0&-2\end{pmatrix},
+\qquad \det T=-4\in\mathbb Z_3^\times.
+$$
 
-**(3) $L_3/\mathbb Q_2$。** $X^2-2$ は Eisenstein なので既約、$\mathcal O_{L_3}=\mathbb Z_2[\beta]$。一様化元は $\beta$、$v_{L_3}(2)=2$、剰余体は $\mathbb F_2$、従って $(e,f,n)=(2,1,2)$。導関数は $2\beta$、その付値は $v_{L_3}(2)+v_{L_3}(\beta)=2+1=3$。よって異なるは $(2\beta)=(\beta^3)$、$d=3$。跡行列は $\operatorname{diag}(2,4)$、判別式は $8$、$v_2(8)=3=fd$ です。
+任意の $x=a+bi$ に対し $\operatorname{Tr}(x)=2a$、$\operatorname{Tr}(xi)=-2b$ です。従って $E$ の跡双対は $E^\vee=E$。整元の積の跡の整数性から $\mathcal O_{L_1}\subseteq E^\vee$、逆包含は $i^2+1=0$ による整性から従い、$\mathcal O_{L_1}=E$ です。
 
-**比較。** $L_2,L_3$ はともに $e=2,f=1$ ですが、判別式の指数は $1$ と $3$ で異なります。よって $e$ だけでは異なるの深さも判別式の指数も決まりません。導関数の係数が剰余標数で単元かどうかを検査する必要があります。
+法 $3$ の既約多項式から剰余環は体になり、
+
+$$
+\kappa_{L_1}=\mathbb F_3[X]/(X^2+1)\cong\mathbb F_9,
+\qquad (e,f,n)=(1,2,2).
+$$
+
+一様化元は $3$ です。[単項生成の異なる公式](#thm-anf11-monogenic-different)で $g'(i)=2i$ は単元なので
+
+$$
+\mathfrak D_{L_1/\mathbb Q_3}=(1),\quad
+d=0,\quad \Delta_1=-4,\quad v_3(\Delta_1)=0=fd.
+$$
+
+**(2) $L_2/\mathbb Q_5$。** $X^2-5$ は Eisenstein なので既約で、[前講の整数環構成](../ANF10/index.md#thm-anf10-eisenstein-extension)から $\mathcal O_{L_2}=\mathbb Z_5[\alpha]$、一様化元は $\alpha$、剰余体は $\mathbb F_5$ です。$\alpha^2=5$ より $v_{L_2}(5)=2$、従って $(e,f,n)=(2,1,2)$ です。
+
+最小多項式の導関数は $g'(\alpha)=2\alpha$ で、$2$ は $5$ 進単元です。[異なる公式](#thm-anf11-monogenic-different)と基底 $(1,\alpha)$ の跡行列を用いると
+
+$$
+\mathfrak D_{L_2/\mathbb Q_5}=(2\alpha)=(\alpha),\qquad d=1,
+$$
+
+$$
+T=\begin{pmatrix}2&0\\0&10\end{pmatrix},\qquad
+\Delta_2=\det T=20,\qquad v_5(\Delta_2)=1=fd.
+$$
+
+**(3) $L_3/\mathbb Q_2$。** $X^2-2$ は Eisenstein なので既約で、同じ[整数環構成定理](../ANF10/index.md#thm-anf10-eisenstein-extension)から $\mathcal O_{L_3}=\mathbb Z_2[\beta]$、一様化元は $\beta$、剰余体は $\mathbb F_2$ です。$\beta^2=2$ より $(e,f,n)=(2,1,2)$ です。
+
+ここでは $2$ が単元でないため、導関数の付値は
+
+$$
+v_{L_3}(g'(\beta))=v_{L_3}(2\beta)
+=v_{L_3}(2)+v_{L_3}(\beta)=2+1=3.
+$$
+
+従って
+
+$$
+\mathfrak D_{L_3/\mathbb Q_2}=(2\beta)=(\beta^3),\qquad d=3,
+$$
+
+$$
+T=\begin{pmatrix}2&0\\0&4\end{pmatrix},\qquad
+\Delta_3=\det T=8,\qquad v_2(\Delta_3)=3=fd.
+$$
+
+**比較。** $L_2,L_3$ はともに $e=2,f=1$ ですが、判別式の指数はそれぞれ $1$ と $3$ です。従って $e$ だけでは異なる指数も判別式の指数も決まりません。導関数の係数が剰余標数で単元かどうかが差を生みます。
 <!-- solution-end -->
 
 ---
