@@ -30,7 +30,7 @@ $$
 
 よって両者は整数環に入ります。
 
-逆に[前講の Eisenstein 拡大の定理](../ANF10/index.md#thm-anf10-eisenstein-extension)によれば、この例の整数環全体は $\mathbb Z_5[\pi]=\mathbb Z_5\oplus\mathbb Z_5\pi$ です。$\pi^{-1}=\pi/5$ は基底 $(1,\pi)$ に関する係数 $1/5\notin\mathbb Z_5$ を持つので、整数環には入りません。
+逆に[Eisenstein 拡大の局所体構造](../ANF10/index.md#thm-anf10-eisenstein-extension)によれば、この例の整数環全体は $\mathbb Z_5[\pi]=\mathbb Z_5\oplus\mathbb Z_5\pi$ です。$\pi^{-1}=\pi/5$ は基底 $(1,\pi)$ に関する係数 $1/5\notin\mathbb Z_5$ を持つので、整数環には入りません。
 <!-- definition-example-end -->
 
 一般の $\mathcal O_L$ がいつも一つの極大イデアルを持ち、しかもそのイデアルが一つの元で生成されることを証明します。準備として、$K=\mathbb Q_p$ とし、$x\in L$ に対する乗法写像を
@@ -88,7 +88,9 @@ $E=\mathbb Z_p[\theta]$ は基底 $1,\theta,\ldots,\theta^{n-1}$ を持つ自由
 
 [整元の積についての閉性](../../AG/AG1-06/index.md#prop-ag1-06-finite-generators)より、$x\in\mathcal O_L$ と $0\le j<n$ について $x\theta^j$ も整です。
 
-整元 $z$ の最小多項式は $\mathbb Z_p$ 係数です。実際、モニック整方程式の根の中から $z$ の共役を選んで作る最小多項式の係数は $\mathbb Z_p$ 上整で、しかも $K$ に属するので、[整数環 $\mathbb Z_p$ の整閉性](../ANF9/index.md#prop-anf9-dvr-structure)によって $\mathbb Z_p$ に入ります。[共役による跡の表示](../ANF2/index.md#thm-anf2-embedding-formulas)を $K$ 上に移すと、$z$ の跡は最小多項式の整数係数の整数倍であり、$\mathbb Z_p$ に属します。したがって
+整元 $z$ の最小多項式の係数が整数となる理由を確認します。$z$ の共役を根とするモニック最小多項式の係数は、整元の和・積なので $\mathbb Z_p$ 上整です。一方、それらの係数は $K$ に属します。[整数環の整閉性](../ANF9/index.md#prop-anf9-dvr-structure)から、係数は $\mathbb Z_p$ に入ります。
+
+[共役による跡の表示](../ANF2/index.md#thm-anf2-embedding-formulas)を $K$ 上に適用します。最小多項式の次数が $d$、拡大次数が $n$ なら、各共役値は $n/d$ 回ずつ現れます。従って跡は最小多項式の整数係数の整数倍であり、$\mathbb Z_p$ に属します。特に
 
 $$
 \operatorname{Tr}(x\theta^j)\in\mathbb Z_p
@@ -148,7 +150,22 @@ $$
 
 しかも $\mathcal O_L$ は局所環なので、その唯一の極大イデアル $\mathfrak m_L$ で局所化しても $\mathcal O_{L,\mathfrak m_L}=\mathcal O_L$ です。[Dedekind 整域の局所単項性](../ANF3/index.md#lem-anf3-local-principal)をここに適用すると唯一の極大イデアルは $(\pi)$、非零元は一意に $u\pi^r$ と表せます。
 
-$L=\operatorname{Frac}(\mathcal O_L)$ であることも確かめます。任意の $x\in L$ は $p^s x\in\mathcal O_L$ となるよう $s$ を大きくできます（$x$ の最小多項式の分母を払うため）。従って $x=(p^s x)/p^s$ です。任意の $x\in L^\times$ は $\pi^r u$（$r\in\mathbb Z$）と表せます。剰余体は $\mathcal O_L/p\mathcal O_L$ の商で有限です。最後に、$p$ は非単元なので $p=u\pi^e$（$u$ は単元、$e\ge1$）と書けます。よって $p^k\mathcal O_L=\pi^{ek}\mathcal O_L$ で、$p$ 進位相と $\pi$ 進位相は同じです。$\pi$ 進 Cauchy 列の尾部はある $\pi^{-r}\mathcal O_L$ に入り、$\pi^r$ を掛けて $\mathcal O_L$ の完備性を適用し、再び $\pi^{-r}$ を掛ければ $L$ での完備性も従います。
+分数体も確かめます。任意の $x\in L$ の最小多項式の係数の分母を払うように $s$ を大きく選ぶと、$p^s x$ は整になります。そのため
+
+$$
+x=\frac{p^s x}{p^s}\in\operatorname{Frac}(\mathcal O_L),
+\qquad L=\operatorname{Frac}(\mathcal O_L).
+$$
+
+従って非零元の表示は、分数体まで拡げると $\pi^r u$（整数 $r$、単元 $u$）となります。剰余体は有限環 $\mathcal O_L/p\mathcal O_L$ の商なので有限です。
+
+最後に完備性を確認します。非単元 $p$ は $p=u\pi^e$（単元 $u$、$e\ge1$）と書けます。従って任意の正整数 $k$ について
+
+$$
+p^k\mathcal O_L=\pi^{ek}\mathcal O_L.
+$$
+
+両冪が定める近傍系は同じなので、$p$ 進位相と $\pi$ 進位相は一致します。$\pi$ 進 Cauchy 列の尾部はある $\pi^{-r}\mathcal O_L$ に入るため、$\pi^r$ を掛けて整数環の完備性を適用し、極限を得てから $\pi^{-r}$ を掛ければ $L$ 自身も完備です。
 <!-- proof-end -->
 
 **何が分かったか。** Eisenstein 型でなくても整数環が構成され、分母・分子を一様化元 $\pi$ の整数冪で数えられます。これは局所体での「素数の指数」です。
@@ -447,7 +464,16 @@ $$
 
 ## 6. 異なる指数と判別式の $p$ 進指数
 
-任意の $x\in L^\times$ に対して、そのノルムの付値は $v_L(x)$ に剰余次数 $f$ を掛けた値になります。実際 $x=u\pi^r$ と表すと、単元 $u$ は $\mathcal O_L$ 上の乗法で可逆なので $N(u)\in\mathbb Z_p^\times$ です。一方、$\pi$ による乗法は $\mathbb Z_p$ 上階数 $n$ の自由加群 $\mathcal O_L$ を部分加群 $\pi\mathcal O_L$ に写し、その商は $\kappa_L$ で元数 $p^f$ です。この乗法写像を $\mathbb Z_p$ 基底で $A\in M_n(\mathbb Z_p)$ と表すと、$A\mathbb Z_p^n$ は $\pi\mathcal O_L$ に対応します。$\mathbb Z_p$ は PID なので行・列の可逆基本変形で $A$ を $\operatorname{diag}(p^{a_1},\ldots,p^{a_n})$（$a_j\ge0$、単元因子は吸収）へ変形できます。従って
+ノルムの付値を計算します。非零元を $x=u\pi^r$（単元 $u$、整数 $r$）と表します。単元による乗法は整数環の自己同型なので、その行列式 $N(u)$ も $\mathbb Z_p$ の単元です。残る問題は一様化元のノルムです。
+
+$\pi$ による乗法は、階数 $n$ の自由 $\mathbb Z_p$ 加群 $\mathcal O_L$ を $\pi\mathcal O_L$ に写し、その商は剰余体 $\kappa_L$ で元数は $p^f$ です。この乗法写像の行列を、同じ $\mathbb Z_p$ 基底を使って $A$ と書くと
+
+$$
+A\in M_n(\mathbb Z_p),\qquad
+\operatorname{coker} A\cong\kappa_L.
+$$
+
+$\mathbb Z_p$ は PID なので可逆な行・列の基本変形によって $A$ を対角行列へ変形できます。対角成分の単元因子を取り除き、非負整数 $a_1,\ldots,a_n$ に対して $\operatorname{diag}(p^{a_1},\ldots,p^{a_n})$ が得られます。従って
 
 $$
 |\mathcal O_L/\pi\mathcal O_L|
@@ -476,7 +502,24 @@ v_p(\Delta)=f\,v_L(g'(\theta))=fd.
 $$
 <!-- formal-statement-end -->
 
-上の議論はこの命題の証明でもあります。計算例の $p=5$ では $(f,d)=(1,1)$ なので判別式の指数 $1$、$p=2$ では $(1,3)$ なので指数 $3$、非分岐例の $p=3$ では $(2,0)$ なので指数 $0$ と一致します。[判別式の基底変換則](../ANF2/index.md#thm-anf2-basis-change)を $\mathbb Z_p$ 基底の変換行列 $U\in\operatorname{GL}_n(\mathbb Z_p)$ に適用すると、新しい跡行列は $U^{\mathsf T}TU$ となります。その行列式は $(\det U)^2\det T$ で、$\det U$ は $p$ 進単元なので判別式の $p$ 進指数は不変です。
+上の議論で命題が示されました。計算例を照合すると、各体の剰余次数と異なる指数は次の通りです。
+
+$$
+\begin{array}{c|ccc}
+p&5&2&3\\ \hline
+(f,d)&(1,1)&(1,3)&(2,0)\\
+v_p(\Delta)=fd&1&3&0
+\end{array}
+$$
+
+基底に依存しないことも確認します。[判別式の基底変換則](../ANF2/index.md#thm-anf2-basis-change)を使い、整数環の二つの $\mathbb Z_p$ 基底の変換行列を $U\in\operatorname{GL}_n(\mathbb Z_p)$、元の跡行列を $T$ とします。新しい跡行列と判別式には
+
+$$
+T_{\mathrm{new}}=U^{\mathsf T}TU,\qquad
+\det T_{\mathrm{new}}=(\det U)^2\det T
+$$
+
+が成り立ちます。$\det U$ は $p$ 進単元なので、判別式の $p$ 進指数は不変です。
 
 ## 7. 演習：整数環から分岐・異なるまで
 
@@ -634,7 +677,7 @@ d=v_{L_p}(g'(\pi))
 =v_{L_p}(2\pi)=v_{L_p}(2)+1
 $$
 
-となります。$p=5$ では $2$ は単元だから $v_{L_5}(2)=0$ であり、$d=1=e-1$ です。$p=2$ では[付値の制限定理](#thm-anf11-ef-degree)により $v_{L_2}(2)=e\,v_2(2)=2$、従って $d=3\ne e-1$ です。
+となります。$p=5$ では $2$ は単元だから $v_{L_5}(2)=0$ であり、$d=1=e-1$ です。$p=2$ では[局所拡大の次数公式](#thm-anf11-ef-degree)により $v_{L_2}(2)=e\,v_2(2)=2$、従って $d=3\ne e-1$ です。
 
 差は剰余標数 $2$ のもとで導関数の係数 $2$ が単元でなくなり、$g'(\pi)=2\pi$ に余分な付値が付くことです。$p\nmid e$ という穏分岐の仮定を落とすと、この例では $d=e-1$ という式が壊れます。
 <!-- solution-end -->
