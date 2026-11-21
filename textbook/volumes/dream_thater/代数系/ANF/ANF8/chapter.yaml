@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - ANF7
+  - CA4
 official_scope: []
 learning_objectives:
   - 整イデアルとイデアル類に関するDedekindゼータ関数と部分ゼータ関数を定義できる
