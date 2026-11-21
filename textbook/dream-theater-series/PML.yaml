@@ -99,7 +99,7 @@ chapters:
     title: "何を「PDEを解く」と呼ぶか"
   - id: PML2-02
     path: textbook/volumes/dream_thater/応用系/PML/PML2-02
-    status: planned
+    status: completed
     title: "forwardとinverseはどこで問題が変わるか"
   - id: PML2-03
     path: textbook/volumes/dream_thater/応用系/PML/PML2-03
