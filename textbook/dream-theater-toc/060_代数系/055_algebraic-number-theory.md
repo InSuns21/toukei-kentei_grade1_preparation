@@ -12,3 +12,4 @@
 9. [ANF9 付値・局所化・完備化](textbook/volumes/dream_thater/代数系/ANF/ANF9/index.md)
 10. [ANF10 Henselの補題と局所体の拡大](textbook/volumes/dream_thater/代数系/ANF/ANF10/index.md)
 11. [ANF11 局所体の整数環・分岐](textbook/volumes/dream_thater/代数系/ANF/ANF11/index.md)
+12. [ANF12 局所単数・ノルム・跡](textbook/volumes/dream_thater/代数系/ANF/ANF12/index.md)

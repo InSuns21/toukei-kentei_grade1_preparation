@@ -1,0 +1,43 @@
+chapter: ANF12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF11
+forward_references: []
+
+concepts:
+  - id: number-theory.local-unit-filtration
+    name: 局所単数のフィルトレーション
+    kind: definition
+    introduction: formal
+    requires: [number-theory.local-uniformizer-valuation]
+
+  - id: number-theory.local-graded-units
+    name: 局所単数の段階商
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.local-unit-filtration, number-theory.local-ramification-index-residue-degree]
+
+  - id: number-theory.local-norm-integral-trace
+    name: ノルムの付値と整数環の跡
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.local-norm-different-valuation, number-theory.local-integer-ring]
+
+  - id: number-theory.finite-field-norm-trace-surjection
+    name: 有限体のノルム・跡は全射
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.local-ramification-index-residue-degree]
+
+  - id: number-theory.unramified-graded-norm-trace
+    name: 非分岐拡大の段階商でのノルム・跡
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.local-graded-units, number-theory.finite-field-norm-trace-surjection]
+
+  - id: number-theory.unramified-local-norm-surjection
+    name: 非分岐局所拡大のノルム・跡
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.unramified-graded-norm-trace, number-theory.local-norm-integral-trace]
