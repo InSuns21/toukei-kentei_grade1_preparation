@@ -91,6 +91,8 @@ $$
 
 [局所sectionと自明化の対応](#thm-gbg3-section-trivialization)により $\Phi_s(s'(x))=(x,h(x))$ なので $h$ は滑らかで、一意である。これは定義に存在を余分に仮定したのではなく、ファイバーでの自由・推移性から従う。
 
+行列による例では、$GL(2,\mathbb R)$ は $\mathbb R^2$ の可逆な線形変換の行列群である。$2\times2$ 実正方行列がその元であることは、行列式が $0$ でないことと同値である（[GBG2での枠の行列表現](../GBG2/index.md#def-gbg2-frame-bundle)）。したがって、変更関数を行列で与える場合は、各点で行列式を検査して群値であることを確かめる。
+
 <!-- definition-example-start: def-gbg3-section-change -->
 **定義の確認**。$P=\mathbb R\times GL(2,\mathbb R)$、$s(x)=(x,I)$ とし、
 $$
@@ -164,7 +166,7 @@ $$
 
 ## 3. 大域sectionは束全体の原点を定める
 
-局所sectionは主束の定義で保証される。一方、すべてのファイバーで滑らかに基準点を一つずつ選べるかは別問題である。
+局所sectionは[主束の同変局所自明化](../GBG2/index.md#def-gbg2-principal-bundle)で $(x,e)$ の逆像を取れば得られる。一方、すべてのファイバーで滑らかに基準点を一つずつ選べるかは別問題である。
 
 <a id="thm-gbg3-global-section-trivial"></a>
 
@@ -250,15 +252,24 @@ $$
 
 ### 枠束の局所section
 
-[枠束の主束構造](../GBG2/index.md#thm-gbg2-frame-principal)で、$n$ 次元多様体上の局所座標から得る基底 $E(x)=(E_1(x),\ldots,E_n(x))$ は枠束の局所sectionである。別の滑らかな基底 $E'(x)=E(x)H(x)$ の変更関数は $H(x)\in GL(n,\mathbb R)$ であり、同じ枠 $v=E(x)K=E'(x)K'$ の群座標は $K'=H(x)^{-1}K$ となる。
+[枠束の主束構造](../GBG2/index.md#thm-gbg2-frame-principal)で、$n$ 次元多様体上の局所座標から得る基底 $E(x)=(E_1(x),\ldots,E_n(x))$ は枠束の局所sectionである。同じ接空間の別の滑らかな基底 $E'(x)=(E'_1(x),\ldots,E'_n(x))$ を選ぶと、基底展開により各列について
+$$
+E'_j(x)=\sum_{i=1}^n E_i(x)H^i{}_j(x),\qquad E'(x)=E(x)H(x)
+$$
+と書ける。$E'$ も基底なので係数行列 $H(x)$ は可逆であり、$H(x)\in GL(n,\mathbb R)$ がsectionの変更関数となる。同じ枠を $v=E(x)K=E'(x)K'$ と表すと $K=HK'$ だから、群座標は $K'=H(x)^{-1}K$ と変わる。
 
-たとえば $M=(0,\infty)$、$y=\log x$ とすると、連鎖律から
+たとえば $M=(0,\infty)$、$y=\log x$ とする。$E_x=\partial/\partial x$ と $E_y=\partial/\partial y$ は同じ点の接ベクトルを、座標関数への微分作用として記述する。任意の滑らかな関数 $f$ に対し、$x=e^y$ で一変数の連鎖律を使うと
+$$
+\frac{d}{dy}f(e^y)=\frac{df}{dx}(x)\frac{dx}{dy}
+=x\frac{df}{dx}(x).
+$$
+左辺の $d/dy$ は合成された一変数関数の導関数であり、$\partial/\partial y$ は接ベクトルを表す作用素である。すべての $f$ に対する作用が一致するため、
 $$
 E_y=\frac{\partial}{\partial y}
 =\frac{dx}{dy}\frac{\partial}{\partial x}
-=xE_x.
+=xE_x
 $$
-従って $H(x)=x>0$ で、$v=3E_x$ は $v=(3/x)E_y$ と表示される。これが「基準を変えると座標が逆に変わる」ことの一次元版である。
+を得る。$H(x)=x$ は $x>0$ で可逆なので、$v=3E_x$ は $v=(3/x)E_y$ と表示される。これが「基準を変えると座標が逆に変わる」ことの一次元版である。
 
 ---
 
@@ -285,7 +296,12 @@ $\lambda\in U(1)$ に対して $\Phi_{s_a}((x,e^{it})\lambda)=(x,e^{-2ix}e^{it}\
 #### GBG3-A02 行列群でファイバー座標を変える
 - Level: A
 
-$P=\mathbb R\times GL(2,\mathbb R)$ の section を $s(x)=(x,I)$ から $s'(x)=(x,H(x))$、$H(x)=\left(\begin{smallmatrix}1&x\\0&1\end{smallmatrix}\right)$ に変える。$p=(x,K)$、$K=\left(\begin{smallmatrix}2&0\\1&1\end{smallmatrix}\right)$ の新しい群座標を求めよ。
+$P=\mathbb R\times GL(2,\mathbb R)$ の section を $s(x)=(x,I)$ から $s'(x)=(x,H(x))$ に変更する。ただし、点 $p=(x,K)$ と行列を
+$$
+H(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix},
+\qquad K=\begin{pmatrix}2&0\\1&1\end{pmatrix}
+$$
+とする。$p$ の新しい群座標を求めよ。
 
 <!-- solution-start -->
 **詳細解答**。$\det H=1$ だから $s'$ は群値関数による滑らかな section。$p=s(x)K=s'(x)K'=s(x)H(x)K'$ なので自由性から $K'=H^{-1}K$。すなわち
@@ -323,7 +339,7 @@ $g'_{01}g'_{10}=1$ で逆関係が保たれている。
 $(0,\infty)$ で $y=\log x$ とする。$E_x=\partial/\partial x$、$E_y=\partial/\partial y$ の変更関数を求め、枠 $v=5E_x$ を $E_y$ で表せ。
 
 <!-- solution-start -->
-**詳細解答**。$x=e^y$ から $dx/dy=x$。連鎖律で $E_y=xE_x$ となるため $H(x)=x\in GL(1,\mathbb R)$。$5E_x=E_y k'$ なら $5=xk'$ で $k'=5/x$。$E_y(5/x)=5E_x$ で正しい。
+**詳細解答**。$x=e^y$ から $dx/dy=x$。連鎖律で $E_y=xE_x$ となるため $H(x)=x\in GL(1,\mathbb R)$。$5E_x=E_y k'$ なら $5=xk'$ で $k'=5/x$。$(5/x)E_y=5E_x$ で正しい。ここで $5/x$ は接ベクトル $E_y$ に掛ける係数であり、$E_y$ を関数 $5/x$ に作用させる意味ではない。
 <!-- solution-end -->
 
 ### Level B：導出と非可換性
@@ -332,10 +348,20 @@ $(0,\infty)$ で $y=\log x$ とする。$E_x=\partial/\partial x$、$E_y=\partia
 #### GBG3-B01 変換の積順序
 - Level: B
 
-$G=GL(2,\mathbb R)$、$g_{01}=I$、$h_0=\left(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\right)$、$h_1=\left(\begin{smallmatrix}1&0\\1&1\end{smallmatrix}\right)$ とする。$g'_{01},g'_{10}$ を求め、互いに逆であることを行列積で確認せよ。
+$G=GL(2,\mathbb R)$、$U_0=U_1=\mathbb R$ とし、$g_{01}=I$ とする。sectionの変更関数は、次の行列を値に持つ定数関数である。
+$$
+h_0=\begin{pmatrix}1&1\\0&1\end{pmatrix},
+\qquad h_1=\begin{pmatrix}1&0\\1&1\end{pmatrix}.
+$$
+$g'_{01},g'_{10}$ を求め、互いに逆であることを行列積で確認せよ。
 
 <!-- solution-start -->
-**詳細解答**。$h_0^{-1}=\left(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\right)$、$h_1^{-1}=\left(\begin{smallmatrix}1&0\\-1&1\end{smallmatrix}\right)$。右作用の[変換則](#thm-gbg3-transition-change)で
+**詳細解答**。両行列の行列式は $1$ で、逆行列は
+$$
+h_0^{-1}=\begin{pmatrix}1&-1\\0&1\end{pmatrix},
+\qquad h_1^{-1}=\begin{pmatrix}1&0\\-1&1\end{pmatrix}
+$$
+である。右作用の[変換則](#thm-gbg3-transition-change)で
 $$
 g'_{01}=h_0^{-1}h_1=\begin{pmatrix}0&-1\\1&1\end{pmatrix},\qquad
 g'_{10}=h_1^{-1}h_0=\begin{pmatrix}1&1\\-1&0\end{pmatrix}.
@@ -392,7 +418,11 @@ $$
 #### GBG3-B04 遷移関数を消す
 - Level: B
 
-$G=GL(2,\mathbb R)$、$U_0=U_1=\mathbb R$、$a_0=I$、$a_1(x)=\left(\begin{smallmatrix}1&x\\0&1\end{smallmatrix}\right)$、$g_{ij}=a_i a_j^{-1}$ とする。$g_{01}$ と $g_{10}$ を計算し、$s'_i=s_i a_i$ に変更すると遷移関数が恒等となることを示せ。
+$G=GL(2,\mathbb R)$、$U_0=U_1=\mathbb R$、$a_0=I$ とする。滑らかな関数
+$$
+a_1(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix}
+$$
+に対し $g_{ij}=a_i a_j^{-1}$ と定める。$g_{01}$ と $g_{10}$ を計算し、$s'_i=s_i a_i$ に変更すると遷移関数が恒等となることを示せ。
 
 <!-- solution-start -->
 **詳細解答**。$a_1^{-1}=\left(\begin{smallmatrix}1&-x\\0&1\end{smallmatrix}\right)$ なので
@@ -412,7 +442,7 @@ $g_{00}=g_{11}=I$ である。各行列は滑らかで行列式 $1$。[変換則
 $P\to M$ を滑らかな主 $G$ 束、$s_i$ を開被覆 $\{U_i\}$ 上の局所sectionとし、$s_j=s_i g_{ij}$ とする。
 
 1. 三重重なりの cocycle 条件を導け。
-2. $s'_i=s_i h_i$ に変更したとき、$g'_{ij}$ と同一点の群座標 $k'_i$ を導け。
+2. $s'_i=s_i h_i$ に変更したとき、$g'_{ij}$ を導け。また同じ点 $p\in\pi^{-1}(U_i)$ を $p=s_i(x)k_i=s'_i(x)k'_i$（$x=\pi(p)$）と表すとき、群座標 $k'_i$ を $k_i$ で表せ。
 3. 滑らかな $a_i:U_i\to G$ があり $g_{ij}=a_i a_j^{-1}$ とする。局所sectionを貼り合わせて大域sectionを作り、$P$ と $M\times G$ の同型と逆写像を示せ。
 4. 逆に束が自明なら、そのような $a_i$ を必ず作れることを証明せよ。
 
