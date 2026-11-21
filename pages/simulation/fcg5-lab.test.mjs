@@ -217,3 +217,20 @@ test('FCG5 G2 gives edited expressions and noncanonical declarations precedence'
   assert.equal(readLabParameter(customGrid,nu).ok,false);
   assert.equal(readLabParameter(customGrid,force).ok,false);
 });
+
+test('FCG5 authenticated live-clock handshake reports actual running solver state',async()=>{
+  const [learner,host]=await Promise.all([
+    readFile(new URL('fluid.js',dir),'utf8'),
+    readFile(new URL('./wgl-lab-host.mjs',import.meta.url),'utf8')
+  ]);
+  assert.match(learner,/function emitProgress\(\)\{/);
+  assert.match(learner,/detail:\{step:stateStep,playing\}/);
+  assert.match(learner,/canvas\.addEventListener\('fcg5-request-progress',emitProgress\)/);
+  assert.match(learner,/canvas\.removeEventListener\('fcg5-request-progress',emitProgress\)/);
+  assert.match(host,/canvas\.dispatchEvent\(new Event\('fcg5-request-progress'\)\)/);
+  const relay=host.indexOf("canvas.addEventListener('fcg5-physics-progress'");
+  const request=host.indexOf("canvas.dispatchEvent(new Event('fcg5-request-progress'))");
+  assert.ok(relay>=0&&request>relay,'host must subscribe before requesting real physics state');
+  assert.match(host,/send\(\{\.\.\.scope,type:'fcg5-physics-progress',step:d.step,playing:d.playing\}\)/);
+  assert.match(host,/data\.session !== active\.session/);
+});
