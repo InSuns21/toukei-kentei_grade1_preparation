@@ -526,7 +526,32 @@ $\Phi_h=ar_h/\ell$ とも一致します。$\square$
 - 問題: 真空の静的計量 $ds^2=-fdt^2+dr^2/f$ と $\Phi=ar/\ell$ を仮定する。$R=-f''$ だけなら $f$ はどの形か。さらにHessian方程式を適用して一次項を制限し、地平線 $r_h>0$ を持つ $f$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [曲率方程式](../BHI19/index.md#prop-bhi19-curvature-eom)と $R=-f''$ より $f''=2/\ell^2$。二度積分すると $f=r^2/\ell^2+br+c$ となり、$b,c$ は定数です。一方 $\Phi'=a/\ell$ と $\Gamma^r_{tt}=ff'/2$ から $\nabla_t\nabla_t\Phi=-aff'/(2\ell)$。[Hessian方程式](../BHI19/index.md#prop-bhi19-trace-hessian)の右辺は $-afr/\ell^3$ なので $f>0,a>0$ の区間で $f'=2r/\ell^2$ です。$f'=2r/\ell^2+b$ と比較して $b=0$。地平線条件 $f(r_h)=0$ から $c=-r_h^2/\ell^2$。従って $f=(r^2-r_h^2)/\ell^2$ です。曲率だけでは $b$ が残ることが、この問題の重要点です。
+**詳細解答。** まず[曲率方程式](../BHI19/index.md#prop-bhi19-curvature-eom)に $R=-f''$ を代入して、二度積分します。
+
+$
+f''=\frac{2}{\ell^2}
+\quad\Longrightarrow\quad
+f(r)=\frac{r^2}{\ell^2}+br+c.
+$
+
+ここで $b,c$ は積分定数です。次に $\Phi'=a/\ell$ と $\Gamma^r_{tt}=ff'/2$ を使うと、[Hessian方程式](../BHI19/index.md#prop-bhi19-trace-hessian)の $tt$ 成分は
+
+$
+-\frac{aff'}{2\ell}
+=\nabla_t\nabla_t\Phi
+=\frac{\Phi}{\ell^2}g_{tt}
+=-\frac{afr}{\ell^3}.
+$
+
+静的外部では $f>0$、仮定より $a>0$ なので、両辺を $-af$ で割れます。したがって $f'=2r/\ell^2$。上の積分結果を微分した $f'=2r/\ell^2+b$ と比較し、$b=0$ を得ます。最後に地平線条件を代入すると
+
+$
+0=f(r_h)=\frac{r_h^2}{\ell^2}+c
+\quad\Longrightarrow\quad
+f(r)=\frac{r^2-r_h^2}{\ell^2}.
+$
+
+曲率条件だけでは決められなかった一次項が、Hessian方程式によって消えた点を確認してください。
 <!-- solution-end -->
 
 <a id="ex-bhi20-b02"></a>
@@ -599,7 +624,24 @@ $a$ の固定が重要で、$\mathcal C$ と $E$ は同じ境界規格化の解�
 #### BHI20-C01 JTブラックホールの総合再構成
 
 - Level: C
-- 問題: $\ell,G_2,a>0$ と $\Phi_0$ を固定する。真空JTで $ds^2=-fdt^2+f^{-1}dr^2$、$\Phi=ar/\ell$ を採用する。(i) Hessian方程式から $f$ を求め、$f(r_h)=0,\ r_h>0$ を課せ。(ii) 曲率と地平線正則性を検証せよ。(iii) Euclid原点の正則性から $\beta$ と $T_H$ を得よ。(iv) 曲率項の円錐角欠損から $S_{\rm grav,h}$ を導け。(v) 同じ $a$ の解の族で $E(0)=0$ としたエネルギーおよび比熱を求め、$dE=T_HdS_{\rm grav,h}$ を直接確認せよ。(vi) なぜ浴の放射エントロピーはこの地平線エントロピーだけでは決まらないか述べよ。
+- 問題: 真空JTで $\ell,G_2,a>0$ と $\Phi_0$ を固定し、次の静的形を採用する。
+
+$
+ds^2=-f(r)dt^2+\frac{dr^2}{f(r)},
+\qquad \Phi(r)=\frac{ar}{\ell}.
+$
+
+  (i) Hessian方程式から $f$ を求め、$f(r_h)=0$ を満たす $r_h>0$ を指定せよ。
+
+  (ii) 曲率と地平線の正則性を検証せよ。
+
+  (iii) Euclid原点の正則性から周期 $\beta$ と温度 $T_H$ を得よ。
+
+  (iv) 曲率項の円錐角欠損から $S_{\rm grav,h}$ を導け。
+
+  (v) 同じ境界傾き $a$ の解の族で $E(0)=0$ としたエネルギーおよび比熱を求め、第一法則を直接確認せよ。
+
+  (vi) 浴の放射エントロピーが地平線エントロピーだけで決まらない理由を述べよ。
 
 <!-- solution-start -->
 **詳細解答。**
