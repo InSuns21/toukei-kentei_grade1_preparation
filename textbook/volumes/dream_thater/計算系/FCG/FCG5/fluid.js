@@ -266,13 +266,18 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
     const release=()=>{dragging=false;};
     canvas.addEventListener('pointerup',release);
     canvas.addEventListener('pointercancel',release);
+    function toggleLivePlayback(){
+      playing=!playing;last=0;acc=0;
+      canvas.title=playing?'FCG5 再生中：Spaceで停止、Shift+ドラッグで染料追加':
+        'FCG5 一時停止中：Spaceで再生、Shift+ドラッグで染料追加';
+      emitProgress();
+    }
+    const onLiveControl=event=>{
+      if(event.detail?.action==='toggle')toggleLivePlayback();
+    };
+    canvas.addEventListener('fcg5-physics-control',onLiveControl);
     canvas.addEventListener('keydown',e=>{
-      if(e.key===' '){
-        e.preventDefault();playing=!playing;last=0;acc=0;
-        canvas.title=playing?'FCG5 再生中：Spaceで停止、Shift+ドラッグで染料追加':
-          'FCG5 一時停止中：Spaceで再生、Shift+ドラッグで染料追加';
-        emitProgress();
-      }
+      if(e.key===' '){e.preventDefault();toggleLivePlayback();}
     });
     // Draw the first presentation frame on rAF. The runner has already read
     // the untouched 3-panel oracle because it executes synchronously before
@@ -300,6 +305,7 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
       motionPreference?.removeEventListener?.('change',onMotionPreferenceChange);
       window.removeEventListener('message',onParentMotion);
       canvas.removeEventListener('fcg5-request-progress',emitProgress);
+      canvas.removeEventListener('fcg5-physics-control',onLiveControl);
     },{once:true});
     report('ANIMATION','12x12 EDITABLE solver draws the same dye state after the static R8 pixel oracle; Shift+drag adds external dye, Space pauses');
   }
