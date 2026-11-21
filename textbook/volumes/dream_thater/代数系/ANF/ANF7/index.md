@@ -4,7 +4,7 @@
 
 有限性を証明する前講とは対照的に、実埋め込みをもつ数体では単数が無限に存在することがあります。乗法を加法へ変える対数埋め込みと、[ANF5 の Minkowski 埋め込み](../ANF5/index.md#def-anf5-minkowski-embedding)が作る格子を組み合わせると、その無限集合の規則正しさが見えます。
 
-学習後には、単数群の有限位数部分と自由部分を分離し、Dirichlet の単数定理を証明し、レギュレータを基底の取り方に依存しない量として計算できます。
+学習後には、単数群の有限位数部分と自由部分を分離し、単数の全体構造を証明できます。また、対数格子の大きさを基底の取り方に依存しない量として計算できます。
 
 ## 1. 単数：同じ主イデアルを生成する元
 
@@ -102,7 +102,7 @@ $L(u)$ が有界なら各埋め込みの $|u|$ は上から抑えられます。
 
 $B\subset\mathbb R^s$ を有界集合とします。$L(u)\in B$ である単数 $u$ について、ある $M>0$ により全座標で $L_i(u)\leq M$ です。実埋め込みでは $|\sigma_i(u)|\leq e^M$、非実埋め込みでは $|\tau_j(u)|\leq e^{M/2}$ です。従って [Minkowski 埋め込み](../ANF5/index.md#def-anf5-minkowski-embedding) $j(u)\in\mathbb R^{r_1}\times\mathbb C^{r_2}$ は有界集合に属します。
 
-[整数環の格子定理](../ANF5/index.md#thm-anf5-ideal-covolume)により $j(A)$ は全階数格子です。整数基底の実座標行列が可逆なので、基底係数が整数の点のうち有界領域に入るものは有限個です。ゆえに $L(u)\in B$ となる単数 $u$ は有限個です。特に $L(U_K)\cap B$ は有限個であり、対数像は離散的です。
+[整数環とイデアルの共体積](../ANF5/index.md#thm-anf5-ideal-covolume)により $j(A)$ は全階数格子です。整数基底の実座標行列が可逆なので、基底係数が整数の点のうち有界領域に入るものは有限個です。ゆえに $L(u)\in B$ となる単数 $u$ は有限個です。特に $L(U_K)\cap B$ は有限個であり、対数像は離散的です。
 
 $L(u)=0$ なら、実・非実の全埋め込みで $|u|=1$ なので前段の有限集合に属します。$L$ は準同型だから、$u^m$ もすべて核に属します。核は有限集合なので、異なる二つの自然数 $p<q$ で $u^p=u^q$ となり、$u^{q-p}=1$ です。よって $u\in\mu(K)$ です。逆に $\zeta^m=1$ なら各埋め込みで $|\sigma(\zeta)|^m=1$ なので $L(\zeta)=0$ です。$\mu(K)$ が有限であることも核の有限性から従います。
 <!-- proof-end -->
@@ -173,7 +173,7 @@ $$
 =R^n.
 $$
 
-左辺は $a$ が非零代数的整数なのでノルムが非零整数であるためです。[主イデアルのノルム公式](../ANF6/index.md#thm-anf6-minkowski-class-bound)を使うと $N((a))=|N_{K/\mathbb Q}(a)|\leq R^n$ です。[有界ノルムの有限性補題](../ANF6/index.md#lem-anf6-bounded-ideal-norm)により、このような主整イデアルの集合 $\mathcal S$ は有限です。
+左辺は $a$ が非零代数的整数なのでノルムが非零整数であるためです。前講の [Minkowskiの類数上界と類群の有限性](../ANF6/index.md#thm-anf6-minkowski-class-bound) の証明でも使った主イデアルのノルム等式により $N((a))=|N_{K/\mathbb Q}(a)|\leq R^n$ です。[ノルム有界な整イデアルの有限性](../ANF6/index.md#lem-anf6-bounded-ideal-norm)により、このような主整イデアルの集合 $\mathcal S$ は有限です。
 
 各 $I\in\mathcal S$ に一つの生成元 $b_I\in A\setminus\{0\}$ を固定します。$(a)=I=(b_I)$ なら、[単数群の定義](#def-anf7-unit-group)で確かめた主イデアル生成元の同値性により $u=a/b_I\in U_K$ です。
 
@@ -247,14 +247,14 @@ $\Gamma$ は各有界集合と有限個しか交わらないので、非零元�
 任意の $\gamma\in\Gamma$ の射影を $p(\gamma)=\sum_{i=2}^d m_i p(v_i)$ と一意に書けば、$\gamma-\sum_{i=2}^d m_iv_i$ は $\Gamma\cap\mathbb Rv=\mathbb Zv$ に属します。従って $\gamma=m_1v+\sum_{i=2}^d m_iv_i$ です。射影の基底性と $v\ne0$ により、この表示は一意で、$v,v_2,\ldots,v_d$ は $V$ の実基底でもあります。
 <!-- proof-end -->
 
-## 6. Dirichlet の単数定理
+## 6. Dirichletの単数定理
 
 これで単数の無限位数部分の階数を決められます。
 
 <a id="thm-anf7-dirichlet-unit"></a>
 
 <!-- formal-statement-start -->
-> **定理（Dirichlet の単数定理）**  
+> **定理（Dirichletの単数定理）**  
 > 次数 $n$ の数体 $K$ に実埋め込みが $r_1$ 個、非実埋め込みの共役組が $r_2$ 組あるとし、$s=r_1+r_2$ とする。整数環の単数群 $U_K=\mathcal O_K^\times$ について、次を満たす単数 $\varepsilon_1,\ldots,\varepsilon_{s-1}$ が存在する。
 
 $$
@@ -305,7 +305,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（レギュレータ）**  
-> Dirichlet の単数定理の自由部分の基底 $\varepsilon_1,\ldots,\varepsilon_{s-1}$ を選び、各列を重み付き対数ベクトル $L(\varepsilon_j)$ とする $s\times(s-1)$ 行列を $M$ とする。任意の1行を削除した $(s-1)\times(s-1)$ 行列を $M^{(i)}$ とし、数体 $K$ の**レギュレータ**を
+> Dirichletの単数定理の自由部分の基底 $\varepsilon_1,\ldots,\varepsilon_{s-1}$ を選び、各列を重み付き対数ベクトル $L(\varepsilon_j)$ とする $s\times(s-1)$ 行列を $M$ とする。任意の1行を削除した $(s-1)\times(s-1)$ 行列を $M^{(i)}$ とし、数体 $K$ の**レギュレータ**を
 
 $$
 R_K=\left|\det M^{(i)}\right|
@@ -333,7 +333,7 @@ $$
 
 ### 証明の見取り図
 
-基底変換は整数係数の可逆行列（行列式 $\pm1$）です。行の合計が零なので、消した行を別の行に換えると行列式の符号しか変わりません。最後の共体積係数 $\sqrt{s}$ は、$H$ を最初の $s-1$ 座標で表す写像の Gram 行列から出ます。
+基底の取り替えは整数係数の可逆行列（行列式 $\pm1$）です。行の合計が零なので、消した行を別の行に換えると行列式の符号しか変わりません。最後の共体積係数 $\sqrt{s}$ は、$H$ を最初の $s-1$ 座標で表す写像の Gram 行列から出ます。
 
 <!-- proof-start -->
 ### 証明
@@ -359,7 +359,7 @@ $$
 
 ### 有限単数群だけになる場合
 
-$\mathbb Q$ では $A=\mathbb Z,\ U_K=\{\pm1\}$ です。$\mathbb Q(i)$ では $A=\mathbb Z[i]$ で、$a+bi$ が単数なら [ノルム判定](../ANF2/index.md#prop-anf2-unit-norm)より $a^2+b^2=1$ となるので、$U_K=\{\pm1,\pm i\}$ です。いずれも $s=1$、自由階数0、レギュレータ1です。一般の虚二次体でも単数定理により単数は有限群です。
+$\mathbb Q$ では $A=\mathbb Z,\ U_K=\{\pm1\}$ です。$\mathbb Q(i)$ では $A=\mathbb Z[i]$ で、$a+bi$ が単数なら [ノルム判定](../ANF2/index.md#prop-anf2-unit-norm)より $a^2+b^2=1$ となるので、$U_K=\{\pm1,\pm i\}$ です。いずれも $s=1$、自由階数0、レギュレータ1です。一般の虚二次体でも [Dirichletの単数定理](#thm-anf7-dirichlet-unit) により単数は有限群です。
 
 ### 実二次体 $\mathbb Q(\sqrt2)$ の基本単数
 
@@ -473,7 +473,7 @@ $\theta$ を $f(T)=T^3-T-1$ の唯一の実根とし、$K=\mathbb Q(\theta)$ と
 <!-- solution-start -->
 **詳細解答**　有理根定理により、モニック三次式 $f$ が有理根を持つなら候補は $\pm1$ のみですが、$f(1)=-1,\ f(-1)=-1$ です。よって既約で $[K:\mathbb Q]=3$。$f'(T)=3T^2-1$ で、極大点 $T=-1/\sqrt3$ でも $f(T)=2/(3\sqrt3)-1<0$。従ってグラフは負の極大値から下がり、その後一度だけ零を横切ります。$f(1)=-1,\ f(2)=5$ より唯一の実根 $\theta$ は $1<\theta<2$ です。
 
-$\theta$ はモニック整数係数多項式の根なので代数的整数です。根の積は $-(-1)=1$ で、[ノルムの埋め込み公式](../ANF2/index.md#thm-anf2-embedding-formulas)から $N_{K/\mathbb Q}(\theta)=1$。従って [単元のノルム判定](../ANF2/index.md#prop-anf2-unit-norm)で $\theta$ は単数です。実埋め込み1個、複素共役組1組なので $r_1=r_2=1$。根の積から $\theta|\tau(\theta)|^2=1$、すなわち $|\tau(\theta)|^2=\theta^{-1}$ です。よって
+$\theta$ はモニック整数係数多項式の根なので代数的整数です。根の積は $-(-1)=1$ で、[埋め込みによる跡・ノルムの公式](../ANF2/index.md#thm-anf2-embedding-formulas)から $N_{K/\mathbb Q}(\theta)=1$。従って [単元のノルム判定](../ANF2/index.md#prop-anf2-unit-norm)で $\theta$ は単数です。実埋め込み1個、複素共役組1組なので $r_1=r_2=1$。根の積から $\theta|\tau(\theta)|^2=1$、すなわち $|\tau(\theta)|^2=\theta^{-1}$ です。よって
 
 $$
 L(\theta)=(\log\theta,\ 2\log|\tau(\theta)|)
@@ -506,7 +506,7 @@ $0\ne a\in\mathcal O_K$ がすべての埋め込み $\sigma:K\hookrightarrow\mat
 <!-- solution-start -->
 **詳細解答**　$[K:\mathbb Q]=n$ とします。各 $m\geq1$ で $a^m\in A$ なので、[整数基底](../ANF1/index.md#thm-anf1-integral-basis)に関する「$a^m$ を掛ける写像」は整数係数 $n\times n$ 行列を持ちます。従って特性多項式 $P_m(T)$ は次数 $n$ のモニック整数係数多項式です。
 
-[埋め込みによるノルムと特性根の表示](../ANF2/index.md#thm-anf2-embedding-formulas)により、$P_m$ の根は重複込みで $\sigma(a^m)=\sigma(a)^m$ です。仮定からこれらの絶対値はすべて1以下です。$T^{n-j}$ の係数は根 $n$ 個の $j$ 個積を符号付きで足した値なので、絶対値は高々 $\binom nj$。従って $P_m$ の各係数は有限個の整数値しか取れず、多項式 $P_m$ 自体も有限種類です。
+[埋め込みによる跡・ノルムの公式](../ANF2/index.md#thm-anf2-embedding-formulas)により、$P_m$ の根は重複込みで $\sigma(a^m)=\sigma(a)^m$ です。仮定からこれらの絶対値はすべて1以下です。$T^{n-j}$ の係数は根 $n$ 個の $j$ 個積を符号付きで足した値なので、絶対値は高々 $\binom nj$。従って $P_m$ の各係数は有限個の整数値しか取れず、多項式 $P_m$ 自体も有限種類です。
 
 各多項式の複素根は高々 $n$ 個なので、$a^m$ はそれら有限個の根の集合に属します。従って異なる $p<q$ で $a^p=a^q$。$a\ne0$ で体 $K$ の元だから割り算でき、$a^{q-p}=1$ です。ゆえに $a$ は1の冪根です。**代数的整数であるという仮定**は、特性多項式の係数が整数になる箇所で使いました。
 <!-- solution-end -->
@@ -576,7 +576,7 @@ G=\begin{pmatrix}2&1\\1&2\end{pmatrix},
 \qquad\det G=3.
 $$
 
-> 従って対数格子の基本平行四辺形の面積は $\sqrt{\det(M_0^{\mathsf T}GM_0)}=\sqrt3\,|\det M_0|=\sqrt3\,|ad-bc|$（$M_0$ は上二行）です。基本単数の変更は指数の整数係数行列 $P\in\mathrm{GL}_2(\mathbb Z)$ を右から掛ける操作で、$|\det P|=1$。従って $\det(M_0P)$ の絶対値も変わりません。ユークリッド面積をレギュレータと取り違えると $\sqrt3$ 倍の誤差が生じます。
+> 従って対数格子の基本領域の平行四辺形の面積は $\sqrt{\det(M_0^{\mathsf T}GM_0)}=\sqrt3\,|\det M_0|=\sqrt3\,|ad-bc|$（$M_0$ は上二行）です。基本単数の変更は指数の整数係数行列 $P\in\mathrm{GL}_2(\mathbb Z)$ を右から掛ける操作で、$|\det P|=1$。従って $\det(M_0P)$ の絶対値も変わりません。ユークリッド面積をレギュレータと取り違えると $\sqrt3$ 倍の誤差が生じます。
 <!-- solution-end -->
 
 ### C1. $\mathbb Q(\sqrt3)$ の全単数とレギュレータ
@@ -626,6 +626,6 @@ $$
 
 ## 10. 次講へ：単数格子がゼータ関数に現れる
 
-[イデアル類群の有限性](../ANF6/index.md#thm-anf6-minkowski-class-bound)はイデアル類の個数 $h_K$ を有限とし、本講の [Dirichlet 単数定理](#thm-anf7-dirichlet-unit)は単数の自由階数を決定しました。さらに [レギュレータ](#def-anf7-regulator)はその格子の大きさを表します。次の ANF8 では、これらが Dedekind ゼータ関数の $s=1$ における留数に組み合わさる仕組みを扱います。
+[イデアル類群の有限性](../ANF6/index.md#thm-anf6-minkowski-class-bound)はイデアル類の個数 $h_K$ を有限とし、本講の [Dirichletの単数定理](#thm-anf7-dirichlet-unit)は単数の自由階数を決定しました。さらに [レギュレータ](#def-anf7-regulator)はその格子の大きさを表します。次の ANF8 では、これらが Dedekind ゼータ関数の $s=1$ における主要項の係数に組み合わさる仕組みを扱います。
 
 参考となる講義ノート：J. S. Milne, *Algebraic Number Theory*, Chapter 5；MIT 18.785, *Number Theory I*, Lecture 15（Dirichlet's Unit Theorem）。本講の証明と演習は、既習の凸体・イデアル有限性から紙上で再構成できるように記したものです。
