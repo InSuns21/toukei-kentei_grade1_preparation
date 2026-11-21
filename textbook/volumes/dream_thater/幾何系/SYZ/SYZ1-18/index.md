@@ -143,7 +143,15 @@ t=\nabla\phi(u),\qquad
 \nabla_t^2\phi^*=H^{-1}
 $$
 
-と求まる。この最後の式は $\partial t/\partial u=H$、$\partial u/\partial t=H^{-1}$ を連鎖律に代入した結果である。
+と求まる。この最後の式を詳しく見る。$t_i=\partial_i\phi$ と $\partial_jt_i=H_{ij}$ から、正定値な $H$ は可逆で、局所逆写像 $u=u(t)$ がある。$\phi^*(t)=\sum_i t_i u^i(t)-\phi(u(t))$ を $t_j$ で微分すると、$t_i=\partial\phi/\partial u^i$ の項が相殺され、
+ 
+$$
+\frac{\partial\phi^*}{\partial t_j}
+=u^j+\sum_i\left(t_i-\frac{\partial\phi}{\partial u^i}\right)\frac{\partial u^i}{\partial t_j}
+=u^j.
+$$
+
+さらに $\partial t/\partial u=H$、$\partial u/\partial t=H^{-1}$ なので、$\partial^2\phi^*/(\partial t_i\partial t_j)=(H^{-1})_{ij}$ となる。
 
 <a id="prop-syz1-18-semiflat-bridge"></a>
 
@@ -157,14 +165,14 @@ $$
 \check X=U\times(\mathbb R/\mathbb Z)^n
 $$
 
-> 複素座標 $z^i=u^i+iv^i$ と次の計量・基本2形式は局所Kähler構造を与える。
+> 角 $v^i\in\mathbb R/\mathbb Z$ を局所的に実数 $\widetilde v^i$ へ持ち上げ、$z^i=u^i+i\widetilde v^i$ を局所複素座標とする。次の計量・基本2形式を定める。
 >
 $$
 > \check g=\sum_{i,j}H_{ij}(du^i\,du^j+dv^i\,dv^j),\qquad
 > \check\omega=\sum_{i,j}H_{ij}\,du^i\wedge dv^j
 $$
 >
-> は局所Kähler構造を与え、そのRicci形式は0である。Legendre双対ポテンシャルは $\phi^*(t)=\frac12t^{\mathsf T}H^{-1}t$ である。
+> は局所Kähler構造を与え、そのRicci形式は0である。Legendre双対ポテンシャルは $t=Hu$ の像 $HU$ 上で $\phi^*(t)=\frac12t^{\mathsf T}H^{-1}t$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -174,7 +182,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$H>0$ なので非零ベクトル $(a,b)$ に対して $a^{\mathsf T}Ha+b^{\mathsf T}Hb>0$ であり、$\check g$ は正定値である。標準複素構造 $J\partial_{u^i}=\partial_{v^i}$ に対して $\check\omega(\cdot,\cdot)=\check g(J\cdot,\cdot)$ となる。$z^i$ は局所正則座標だから可積分であり、$H$ は定数なので $d\check\omega=0$。角の整数平行移動では $du^i,dv^i$ が不変で、両形式は商へ降りる。
+$H>0$ なので非零ベクトル $(a,b)$ に対して $a^{\mathsf T}Ha+b^{\mathsf T}Hb>0$ であり、$\check g$ は正定値である。標準複素構造 $J\partial_{u^i}=\partial_{v^i}$ に対して $\check\omega(\cdot,\cdot)=\check g(J\cdot,\cdot)$ となる。$z^i$ は局所正則座標だから可積分であり、$H$ は定数なので $d\check\omega=0$。持ち上げの変更 $\widetilde v\mapsto\widetilde v+m$（$m\in\mathbb Z^n$）では $z\mapsto z+im$ となる。これは正則な平行移動であり、局所複素構造は商の上で整合する。また $du^i,dv^i$ は整数平行移動で不変なので、両形式も商へ降りる。
 
 複素座標でのHermite計量行列は定数倍を除いて $H$ だから、[Ricci形式と実Monge–Ampère条件](../SYZ1-11/index.md#thm-syz1-11-ricci-ma)により
 
@@ -201,7 +209,13 @@ H=\begin{pmatrix}2&1\\1&2\end{pmatrix},
 H^{-1}=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}.
 $$
 
-最初の主小行列式が2、行列式が3なので正定値である。$t_1=2u^1+u^2,\ t_2=u^1+2u^2$、従って $u^1=(2t_1-t_2)/3,\ u^2=(-t_1+2t_2)/3$。実際に二次式を展開すると
+この $H$ は $\phi(u)=\frac12u^{\mathsf T}Hu$ の座標基底でのHessian行列であり、$\check g$ の $du$・$dv$ 成分にもなる。$H$ の対称性は表示から確認でき、任意の零でない $w=(a,b)^{\mathsf T}$ に対して
+
+$$
+w^{\mathsf T}Hw=2a^2+2ab+2b^2=(a+b)^2+a^2+b^2>0
+$$
+
+である。従って定義どおり正定値であり、第一主小行列式2と行列式3による判定とも一致する。$t_1=2u^1+u^2,\ t_2=u^1+2u^2$、従って $u^1=(2t_1-t_2)/3,\ u^2=(-t_1+2t_2)/3$。実際に二次式を展開すると
 
 $$
 \phi^*(t)=\frac13(t_1^2-t_1t_2+t_2^2).
@@ -253,7 +267,9 @@ $D$ は単連結だから、その上の局所定数格子の任意の閉路に�
 
 [壁越え文字変換](../SYZ1-16/index.md#def-syz1-16-wall-automorphism)は、Maslov指数0の円板に由来する壁関数を指定した場合の局所代数模型を与える。正則円板の存在、面積・境界ホロノミー、符号付き円板計数は別のデータである。[円板重みの定義](../SYZ1-15/index.md#def-syz1-15-disk-weight)からは、壁関数の全係数まで自動的に決まらない。
 
-形式的な計算として $R=\mathbb C[x^{\pm1},y^{\pm1}][[t]]$ 上の二つの代入
+ここからの $t$ は壁越えを次数別に調べる**形式変数**であり、前節のLegendre座標 $t_i$ とは別である。$R=\mathbb C[x^{\pm1},y^{\pm1}][[t]]$ は $t$ の形式的冪級数環、$O(t^k)$ は $t^kR$ に属する項を表す。
+
+形式的な計算として $R$ 上の二つの代入
 
 $$
 A_t(x,y)=(x(1+ty),y),\qquad
@@ -266,7 +282,8 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（二壁の二次不整合と条件付き補正）**  
-> 上の $A_t,B_t$ について、合成の順序差は
+> $R=\mathbb C[x^{\pm1},y^{\pm1}][[t]]$ 上で
+> $A_t(x,y)=(x(1+ty),y)$、$B_t(x,y)=(x,y(1+tx))$ と定める。右から左へ写像を合成したとき、その順序差は
 >
 $$
 > (A_t\circ B_t)-(B_t\circ A_t)
@@ -405,7 +422,13 @@ $\phi(u)=\frac12u^{\mathsf T}Hu$、$H=\begin{pmatrix}2&1\\1&2\end{pmatrix}$ と�
 <!-- solution-start -->
 ### 詳細解答
 
-$H$ の先頭主小行列式は2、行列式は $4-1=3$。対称行列のSylvester判定から正定値である。
+$H$ は $\phi$ の二階微分行列で、$H_{ij}=\partial_i\partial_j\phi$ である。$H_{12}=H_{21}=1$ なので対称であり、零でない $w=(a,b)^{\mathsf T}$ に対して
+
+$$
+w^{\mathsf T}Hw=(a+b)^2+a^2+b^2>0
+$$
+
+となる。従って定義から正定値である。先頭主小行列式2と行列式 $4-1=3$ もこの判定と整合する。
 
 $$
 t=Hu=(2u^1+u^2,\ u^1+2u^2)^{\mathsf T}.
@@ -483,7 +506,14 @@ $$
 =-\frac{\varepsilon^2}{(1+\varepsilon u^1)^2}\ne0.
 $$
 
-[semi-flat Ricci形式の式](../SYZ1-11/index.md#thm-syz1-11-ricci-ma)では、この非零の複素二階微分がRicci形式に寄与するのでRicci平坦ではない。KählerであることとRicci平坦であることを混同できない。
+[semi-flat Ricci形式の式](../SYZ1-11/index.md#thm-syz1-11-ricci-ma)へ、変数 $u^1$ の二階微分を代入すると
+
+$$
+\rho=-\frac12\frac{\partial^2\log\det H}{\partial(u^1)^2}\,du^1\wedge dv^1
+=\frac{\varepsilon^2}{2(1+\varepsilon u^1)^2}\,du^1\wedge dv^1\ne0.
+$$
+
+従ってRicci平坦ではない。KählerであることとRicci平坦であることを混同できない。
 <!-- solution-end -->
 
 <a id="ex-syz1-18-b03"></a>
@@ -551,7 +581,13 @@ $xy=t$ は中心ファイバーが二直線、$t\ne0$ のファイバーは $\ma
 <!-- solution-start -->
 ### 詳細解答
 
-**1. 滑らかなsemi-flat模型。** $H$ は対称で第一主小行列式が3、行列式が $3\cdot2-1=5$。従って正定値である。勾配と逆写像を計算すると
+**1. 滑らかなsemi-flat模型。** $H$ は $\phi$ の座標表示Hessianであり、対称である。零でない $w=(a,b)^{\mathsf T}$ について
+
+$$
+w^{\mathsf T}Hw=3a^2+2ab+2b^2=2a^2+(a+b)^2+b^2>0
+$$
+
+だから正定値である。第一主小行列式3、行列式 $3\cdot2-1=5$ という計算も一致する。勾配と逆写像を計算すると
 
 $$
 t=Hu=(3u^1+u^2,\ u^1+2u^2)^{\mathsf T},\qquad
