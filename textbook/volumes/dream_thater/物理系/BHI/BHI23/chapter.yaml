@@ -1,0 +1,44 @@
+id: BHI23
+title: "islandなしの放射エントロピー"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI22
+  - BHI18
+official_scope: []
+learning_objectives:
+  - islandを含めない浴区間の精細エントロピーと同じcutoff規約での真空差を区別できる
+  - 滑らかな出射null写像と二端点のJacobianから時間依存CFT区間エントロピーを導ける
+  - 固定有限区間での初期真空極限・後期飽和と赤外極限の順序の違いを証明できる
+  - 真空差を先に取る赤外極限からHawking型の線形成長とその誤差条件を導ける
+  - Schwarzian出射流束と放射エントロピーの時間微分を独立に検算し解釈できる
+definitions:
+  - { id: BHI23-DEF-01, name: "islandなしの放射エントロピーと真空差" }
+  - { id: BHI23-DEF-02, name: "滑らかな立上りを持つ出射CFT模型" }
+theorems:
+  - { id: BHI23-PROP-01, name: "固定有限区間のislandなしエントロピー" }
+  - { id: BHI23-PROP-02, name: "固定有限区間の初期極限と後期飽和" }
+  - { id: BHI23-PROP-03, name: "赤外差引き後のislandなしHawking型枝" }
+  - { id: BHI23-PROP-04, name: "出射エントロピーの傾きとSchwarzian流束" }
+canonical_examples:
+  - 固定浴区間の真空差と共通cutoffの相殺
+  - 正の導関数を持つ滑らかな出射写像の直接検査
+  - 両端を明示したtwist相関のJacobians
+  - 有限区間と赤外差引きの異なる時間極限
+  - 数表による有限赤外誤差とHawking型近似の比較
+  - Schwarzian流束と熱的出射の係数比較
+problem_patterns:
+  - BHI23-REGION-ENDPOINTS
+  - BHI23-SMOOTH-MAP
+  - BHI23-INGOING-SCALE
+  - BHI23-VACUUM-SUBTRACTION
+  - BHI23-SOFTPLUS-ASYMPTOTICS
+  - BHI23-TWIST-ENDPOINTS
+  - BHI23-ORDER-OF-LIMITS
+  - BHI23-SCHWARZIAN-FLUX
+  - BHI23-INFRARED-ERROR
+  - BHI23-INTEGRATED-HAWKING-BRANCH
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 14, review: 6 }
