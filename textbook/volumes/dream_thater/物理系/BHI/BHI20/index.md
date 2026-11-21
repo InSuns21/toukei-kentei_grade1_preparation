@@ -27,7 +27,7 @@ ds^2=-f(r)\,dt^2+\frac{dr^2}{f(r)},\qquad
 \Phi(r)=\frac{a r}{\ell},\qquad a>0.
 $$
 
-ここで $f(r)>0$ の領域が静的外部です。この形は**静的な解を探すための座標・dilatonの選択**であり、すべての大域的JT解がこの座標で覆われるという仮定ではありません。$a$ は境界側で指定するdilatonの傾きです。ここで計量成分の行列とは、座標基底 $(\partial_t,\partial_r)$ で二つの接ベクトルの内積を表す行列です。実際、$X=p\partial_t+q\partial_r$ に対して
+ここで $f(r)>0$ の領域が静的外部です。以下では $f'(r)=df/dr$、$\Phi'(r)=d\Phi/dr$ と書き、プライムは空間座標 $r$ での常微分だけを表します。この形は**静的な解を探すための座標・dilatonの選択**であり、すべての大域的JT解がこの座標で覆われるという仮定ではありません。$a$ は境界側で指定するdilatonの傾きです。ここで計量成分の行列とは、座標基底 $(\partial_t,\partial_r)$ で二つの接ベクトルの内積を表す行列です。実際、$X=p\partial_t+q\partial_r$ に対して
 
 $$
 g(X,X)=-f(r)p^2+f(r)^{-1}q^2,
@@ -81,7 +81,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-計量の逆成分は $g^{tt}=-1/f,\ g^{rr}=f$ です。ここから $f'(r)=df/dr$、$\Phi'(r)=d\Phi/dr$ と書き、$\partial_r$ は $t$ を固定した微分、$\partial_t$ は $r$ を固定した微分とします。$\Phi$ はスカラー場なので、[Levi-Civita接続のChristoffel係数公式](../../../幾何系/GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)と[BHI19で用いたHessianの座標表示](../BHI19/index.md#prop-bhi19-trace-hessian)を使うと
+計量の逆成分は $g^{tt}=-1/f,\ g^{rr}=f$ です。$\partial_r$ は $t$ を固定した偏微分、$\partial_t$ は $r$ を固定した偏微分です。$f',\Phi'$ は既に宣言した $r$ に関する導関数で、他方の時間微分と混同しません。$\Phi$ はスカラー場なので、[Levi-Civita接続のChristoffel係数公式](../../../幾何系/GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)と[BHI19で用いたHessianの座標表示](../BHI19/index.md#prop-bhi19-trace-hessian)を使うと
 
 $$
 \nabla_\mu\nabla_\nu\Phi
@@ -559,7 +559,7 @@ $$
 - 問題: $\ell=2,r_h=1,r_b=\sqrt{17}$ において、$\sqrt{f(r_b)}$、$\beta_b/\beta$ と $T_b/T_H$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $f(r_b)=(17-1)/4=4$ なので $\sqrt f=2$ です。第3・4節の固有時間関係 $d\tau_b=\sqrt f\,dt$ から $\beta_b/\beta=\sqrt f=2$、温度は逆周期なので $T_b/T_H=1/\sqrt f=1/2$。座標を変えた温度の比較ではなく、この境界で正規化した固有時計の比較です。
+**詳細解答。** $f(r_b)=(17-1)/4=4$ なので $\sqrt f=2$ です。第3節の固有時間関係 $ds_b=\sqrt f\,dt$ と第4節のEuclid固有周期 $\beta_b=\sqrt{f(r_b)}\,\beta$ から、$\beta_b/\beta=\sqrt f=2$ です。温度は固有周期の逆数なので $T_b/T_H=1/\sqrt f=1/2$。座標を変えた温度の比較ではなく、この境界で正規化した固有時計の比較です。
 <!-- solution-end -->
 
 <a id="ex-bhi20-a05"></a>
