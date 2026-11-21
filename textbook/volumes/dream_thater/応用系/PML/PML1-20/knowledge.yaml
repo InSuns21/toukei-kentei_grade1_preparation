@@ -1,0 +1,64 @@
+chapter: PML1-20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML1-19
+  - AMECH6
+forward_references: []
+concepts:
+  - id: physics-machine-learning.one-step-update-map
+    name: 一段数値更新写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一段数値更新写像）"]
+    requires:
+      - analytical-mechanics.hamiltonian-flow
+  - id: physics-machine-learning.harmonic-explicit-euler
+    name: 調和振動子の陽的 Euler 法
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（調和振動子の陽的 Euler 法）"]
+    requires:
+      - physics-machine-learning.one-step-update-map
+      - physics-machine-learning.canonical-hnn
+  - id: physics-machine-learning.momentum-first-symplectic-euler
+    name: 運動量先行 symplectic Euler 法
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（運動量先行 symplectic Euler 法）"]
+    requires:
+      - physics-machine-learning.one-step-update-map
+      - analytical-mechanics.hamilton-equations
+  - id: physics-machine-learning.explicit-euler-area-energy-growth
+    name: 陽的 Euler 法の面積拡大とエネルギー増大
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.harmonic-explicit-euler
+      - physics-machine-learning.hnn-euler-energy-drift
+  - id: physics-machine-learning.symplectic-euler-area-preservation
+    name: 分離形 Hamiltonian の symplectic Euler 面積保存
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.momentum-first-symplectic-euler
+      - analytical-mechanics.liouville-volume-preservation
+  - id: physics-machine-learning.area-versus-energy-counterexample
+    name: 面積保存は元のエネルギー保存を含意しない
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.symplectic-euler-area-preservation
+  - id: physics-machine-learning.symplectic-euler-modified-energy
+    name: 調和振動子の修正エネルギーと一様有界性
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.momentum-first-symplectic-euler
+      - physics-machine-learning.hnn-energy-conservation
+  - id: physics-machine-learning.symplectic-euler-stability-threshold
+    name: 刻み幅と長時間有界性の境界
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.symplectic-euler-modified-energy

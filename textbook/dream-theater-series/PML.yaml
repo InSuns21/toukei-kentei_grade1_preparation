@@ -83,7 +83,7 @@ chapters:
     title: "Lagrangian NNに可逆な質量行列が必要なのはなぜか"
   - id: PML1-20
     path: textbook/volumes/dream_thater/応用系/PML/PML1-20
-    status: planned
+    status: completed
     title: "連続系の保存則と数値積分での保存は同じか"
   - id: PML1-21
     path: textbook/volumes/dream_thater/応用系/PML/PML1-21
