@@ -272,7 +272,7 @@ v_p(X)=k\quad(X\in\mathbb Q_p^\times,\ |X|_p=p^{-k}),
 \qquad v_p(0)=\infty
 $$
 
-と定めます。これは定数列で埋め込んだ有理数上の元の $v_p$ と一致します。絶対値の乗法性と強三角不等式から、[有理数の場合の付値公式](#prop-anf9-valuation-rules)も $\mathbb Q_p$ 上で成り立ちます。特に $|X|_p\le1$ と $v_p(X)\ge0$ は同値です。これを次節の整数環の定義に使います。
+と定めます。これは定数列で埋め込んだ有理数上の元の $v_p$ と一致します。$|XY|_p=|X|_p|Y|_p$ と $|X+Y|_p\le\max\{|X|_p,|Y|_p\}$ を指数に読み替えることで、[付値の積と和](#prop-anf9-valuation-rules)と同じ公式が $\mathbb Q_p$ 上で成り立ちます。特に $|X|_p\le1$ と $v_p(X)\ge0$ は同値です。これを次節の整数環の定義に使います。
 
 ## 4. $\mathbb Z_p$ と互換な剰余列
 
@@ -369,7 +369,7 @@ Cauchy列では高い冪 $p^n$ の精度で剰余が安定します。逆に互�
 
 **（1）完備化の対象。** $\mathbb Z_p$ は $\mathbb Q_p$ の閉部分集合です。実際 $x_j\in\mathbb Z_p$、$x_j\to x$ なら、強三角不等式より $|x|_p\le\max(|x-x_j|_p,1)\le1$ が十分大きな $j$ で成り立ちます。[完備性定理](#thm-anf9-completion-field)から $\mathbb Z_p$ は完備です。直前に示した $\mathbb Z_{(p)}$ の稠密性によりその完備化になります。
 
-**（2）安定する剰余。** $x\in\mathbb Z_p$ の近似 $q_k\in\mathbb Z_{(p)}$ を取ります。$q_k\to x$ なので固定した $n$ について十分大きな $k,l$ では $|q_k-q_l|_p\le p^{-n}$ です。[局所化と剰余環の補題](#lem-anf9-localized-quotients)を適用すると、$q_k-q_l\in p^n\mathbb Z_{(p)}$ と $v_p(q_k-q_l)\ge n$ は同値なので、$\rho_n(q_k)=\rho_n(q_l)$。これを $a_n$ とすれば近似列の選択に依存せず、$a_{n+1}\bmod p^n=a_n$ です。和・積を成分ごとに保つ写像 $\Phi:\mathbb Z_p\to R_p$ を得ます。
+**（2）安定する剰余。** $x\in\mathbb Z_p$ の近似 $q_k\in\mathbb Z_{(p)}$ を取ります。$q_k\to x$ なので固定した $n$ について十分大きな $k,l$ では $|q_k-q_l|_p\le p^{-n}$ です。[局所化と有限剰余環](#lem-anf9-localized-quotients)の補題を適用すると、$q_k-q_l\in p^n\mathbb Z_{(p)}$ と $v_p(q_k-q_l)\ge n$ は同値なので、$\rho_n(q_k)=\rho_n(q_l)$。これを $a_n$ とすれば近似列の選択に依存せず、$a_{n+1}\bmod p^n=a_n$ です。和・積を成分ごとに保つ写像 $\Phi:\mathbb Z_p\to R_p$ を得ます。
 
 **（3）単射。** $\Phi(x)=0$ とします。固定した $n$ に対し、上で選んだ近似列 $q_k\to x$ は十分大きな $k$ で $\rho_n(q_k)=0$ です。[剰余環の補題](#lem-anf9-localized-quotients)から $q_k\in p^n\mathbb Z_{(p)}$、よって $|q_k|_p\le p^{-n}$ です。$k\to\infty$ として $|x|_p\le p^{-n}$ を得ます。これは任意の $n$ で成り立つため $|x|_p=0$、従って $x=0$ です。
 
