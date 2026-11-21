@@ -23,11 +23,11 @@ $$
 
 この式が基準系の解であることは、行列 $R(t)$ を上の $\cos t,\sin t$ の行列とおいて
 
-$
+$$
 R(0)=I_2,\qquad
 R'(t)=\begin{pmatrix}-\sin t&\cos t\\-\cos t&-\sin t\end{pmatrix}
 =JR(t)
-$
+$$
 
 と微分して確かめられる。よって $z_\ast(0)=z_0$、$\dot z_\ast(t)=Jz_\ast(t)$ である。さらに $R(t)^{\mathsf T}R(t)=I_2$ より $\|z_\ast(t)\|_2=\|z_0\|_2$。
 
@@ -155,10 +155,10 @@ $$
 
 軌道誤差とエネルギー誤差には数値積分法も指定する。$z_0=(1,0)^{\mathsf T}$、$h=1/2$、$N=1$ で陽的 Euler 法を使うと、予測は $\widehat z_1=(1,-1/2)^{\mathsf T}$、真値は $z_\ast(1/2)=(\cos(1/2),-\sin(1/2))^{\mathsf T}$ だから、
 
-$
+$$
 \|\widehat z_1-z_\ast(1/2)\|_2
 =\sqrt{(1-\cos(1/2))^2+(\sin(1/2)-1/2)^2}.
-$
+$$
 
 また $H_0(z_0)=1/2$、$H_0(\widehat z_1)=5/8$ より、基準エネルギーの相対誤差は $|(5/8)/(1/2)-1|=1/4$ となる。速度の未使用点誤差がゼロでも、離散軌道の誤差はゼロとは限らない。
 <!-- definition-example-end -->
@@ -183,19 +183,19 @@ $$
 > **命題（同一データでの三モデルの厳密な最小二乗解）**  
 > 標準基底と反対称行列を
 
-$
+$$
 e_1=\begin{pmatrix}1\\0\end{pmatrix},\quad
 e_2=\begin{pmatrix}0\\1\end{pmatrix},\quad
 J=\begin{pmatrix}0&1\\-1&0\end{pmatrix}
-$
+$$
 
 > とする。四状態 $z_1=e_1,z_2=e_2,z_3=-e_1,z_4=-e_2$ に、観測速度 $y_i=(J+\delta I_2)z_i$（$\delta\in\mathbb R$）を与える。$z=(q,p)^{\mathsf T}$ に対し、候補速度場は
 
-$
+$$
 f_{\mathrm N}(z)=Wz,\quad
 f_{\mathrm H}(z)=JSz,\quad
 f_{\mathrm L}(z)=(p,-kq)^{\mathsf T}
-$
+$$
 
 > であり、パラメータ範囲は $W\in\mathbb R^{2\times2}$、$S=S^{\mathsf T}\in\mathbb R^{2\times2}$、$k\in\mathbb R$（LNN は質量 $1$ で $p=v$）とする。三者を共通損失 $\frac14\sum_{i=1}^4\|f(z_i)-y_i\|_2^2$ で最小化すると、一意な最適パラメータと最小損失は
 
@@ -286,11 +286,11 @@ $$
 > **命題（観測バイアスと実際の散逸で優劣が逆転する）**  
 > $\gamma>0$ とし、行列・標準基底・四つの訓練状態を
 
-$
+$$
 J=\begin{pmatrix}0&1\\-1&0\end{pmatrix},\quad
 e_1=(1,0)^{\mathsf T},\quad e_2=(0,1)^{\mathsf T},
 \qquad (z_1,z_2,z_3,z_4)=(e_1,e_2,-e_1,-e_2)
-$
+$$
 
 > とする。線形NN $Wz$（実 $2\times2$ 行列 $W$）、二次HNN $JSz$（実対称行列 $S$）、質量 $1$ の二次LNN $(p,-kq)^{\mathsf T}$（$z=(q,p)^{\mathsf T}$、$k\in\mathbb R$）を、四点の共通損失 $\frac14\sum_i\|f(z_i)-y_i\|_2^2$ でそれぞれ最小化する。次の二場合を分ける。
 >
@@ -356,16 +356,16 @@ $$
 > **命題（同一積分器でも保存則は離散化で壊れる）**  
 > $J$ と基準エネルギー $H_0$ を
 
-$
+$$
 J=\begin{pmatrix}0&1\\-1&0\end{pmatrix},\qquad
 H_0(z)=\frac12\|z\|_2^2
-$
+$$
 
 > とする。$h>0$、$\delta\in\mathbb R$、$z_0\in\mathbb R^2\setminus\{0\}$、非負整数 $N$ を与える。連続系 $\dot z=(J+\delta I_2)z$ に陽的 Euler 法
 
-$
+$$
 z_{n+1}=z_n+h(J+\delta I_2)z_n
-$
+$$
 
 > を $N$ 回適用すると、各 $n=0,\ldots,N$ で
 
