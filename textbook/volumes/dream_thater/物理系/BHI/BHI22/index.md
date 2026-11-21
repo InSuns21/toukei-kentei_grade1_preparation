@@ -18,7 +18,7 @@ $$
 ds_G^2=\frac{\ell^2}{z^2}(-dT^2+dz^2)
 $$
 
-を置きます。[BHI21の正則化境界](../BHI21/index.md#def-bhi21-regulated-boundary)のLorentz版として、重力側の接合曲線を $u\mapsto(T,z)=(F(u),Z(u))$ と書きます。$F'>0$、$Z>0$、$F'^2>Z'^2$ として時間的曲線を選びます。このとき接線 $(F',Z')$ に計量を制限すると、
+を置きます。[BHI21の正則化境界](../BHI21/index.md#def-bhi21-regulated-boundary)のLorentz版として、重力側の接合曲線を $u\mapsto(T,z)=(F(u),Z(u))$ と書きます。ここで $F'=dF/du$、$Z'=dZ/du$ とし、二階・三階のプライムも同じ変数 $u$ に関する常微分を表します。接線は $(dT/du,dz/du)=(F',Z')$ です。$F'>0$、$Z>0$、$F'^2>Z'^2$ として時間的曲線を選びます。$i_G^*g_G$ はこの接線へ計量を引き戻した誘導計量であり、$dT=F'du$、$dz=Z'du$ を代入すると、
 
 $$
 i_G^*g_G=-\frac{\ell^2}{Z^2}(F'^2-Z'^2)\,du^2.
@@ -64,7 +64,15 @@ $$
 =\frac{\ell^2}{\ell^2\varepsilon^2}=\varepsilon^{-2}.
 $$
 
-重力側と浴側はともに $-du^2/\varepsilon^2$ を誘導し、dilatonの境界値も $\Phi_r/\varepsilon$ と指定できます。時計条件だけから浴の透過性や量子状態が決まるわけではありません。
+重力側と浴側はともに $-du^2/\varepsilon^2$ を誘導します。dilatonの条件も具体的に確かめます。[BHI19の真空Hessian方程式](../BHI19/index.md#prop-bhi19-trace-hessian)を満たすPoincaré型の解 $\Phi(T,z)=\alpha/z$ に $\alpha=\ell\Phi_r>0$ を選べば、接合曲線上で
+
+$$
+\Phi(F(u),Z(u))
+=\frac{\ell\Phi_r}{\ell\varepsilon}
+=\frac{\Phi_r}{\varepsilon}.
+$$
+
+これは既習の真空解について、誘導計量と境界dilatonの二条件を別々に満たす直接例です。時計条件だけから浴の透過性や量子状態が決まるわけではありません。
 <!-- definition-example-end -->
 
 **動く曲線のcutoff展開。** 上の一致条件を $Z>0$ について解けば
@@ -73,7 +81,7 @@ $$
 Z=\ell\varepsilon\sqrt{F'^2-Z'^2}.
 $$
 
-$F'$ が零から離れ、導関数と漸近展開が一様に制御される有限区間で $Z=O(\varepsilon)$ とします。$Z'=\ell\varepsilon F''+O(\varepsilon^3)$ を右辺へ代入すると
+$F'$ が零から離れ、$Z$ とその導関数の漸近展開が一様に制御される有限区間で $Z=O(\varepsilon)$、$Z'=O(\varepsilon)$ とします。まず平方根の中身が $1+O(\varepsilon^2)$ なので $Z=\ell\varepsilon F'+O(\varepsilon^3)$ です。この余剰項も $u$ で微分して $O(\varepsilon^3)$ に保たれると仮定すれば、$Z'=\ell\varepsilon F''+O(\varepsilon^3)$。これを右辺へ代入すると
 
 $$
 \begin{aligned}
@@ -99,7 +107,14 @@ I_{\rm m}=-\frac12\sum_{s=G,B}\lambda_s
 \partial_a\phi_s\partial_b\phi_s.
 $$
 
-二次元の共形計量 $g_s=\Omega_s^2\operatorname{diag}(-1,1)$ では $\sqrt{-g_s}g_s^{ab}=\operatorname{diag}(-1,1)$。従って場の方程式は両側とも $\partial_u^2\phi_s-\partial_x^2\phi_s=0$ です。
+添字 $a,b$ は座標 $(u,x)$ を走り、$\partial_u$ は $x$ を固定した微分、$\partial_x$ は $u$ を固定した微分です。計量成分の行列はこの座標基底で $g_{s,ab}=\Omega_s^2\operatorname{diag}(-1,1)$ なので、その行列式は $-\Omega_s^4$、逆行列は $\Omega_s^{-2}\operatorname{diag}(-1,1)$ です。従って
+
+$$
+\sqrt{-g_s}=\Omega_s^2,\qquad
+\sqrt{-g_s}\,g_s^{ab}=\operatorname{diag}(-1,1)
+$$
+
+となり、二次元では共形係数が自由場の作用から打ち消されます。[BHI17の自由場の変分](../BHI17/index.md#def-bhi17-transparent-interface)と同じ部分積分を適用すると、場の方程式は両側とも $\partial_u^2\phi_s-\partial_x^2\phi_s=0$ です。
 
 接合面で変分 $\delta\phi_G=\delta\phi_B$ を許し、場の値を連続に取ると、[BHI17の透過接合](../BHI17/index.md#def-bhi17-transparent-interface)と同じ積分境界項の相殺が、係数付きで
 
@@ -137,7 +152,7 @@ $$
 **定義の確認**：$\lambda_G=\lambda_B=1$、$f\in C^2$ に対して両側で $\phi_s(u,x)=f(u-x)$ を取ります。$\phi_s(u,0)=f(u)$、$\partial_x\phi_s(u,0)=-f'(u)$ が一致し、波動方程式も $\partial_u^2\phi_s=\partial_x^2\phi_s=f''(u)$ なので透過条件の全項を満たします。境界までの $C^1$ 性も $f\in C^2$ から従います。一方、$\phi_G=f(u-x)+f(u+x)$ なら界面で $\partial_x\phi_G=-f'(u)+f'(u)=0$ となり、重力側だけで反射が完結します。
 <!-- definition-example-end -->
 
-透過率が1になる条件を波束から導いてみましょう。左から入る同じ滑らかな波形 $f$ に対して
+透過率が1になる条件を波束から導いてみましょう。ここで $f'(\xi)=df(\xi)/d\xi$ は波形の一変数の導関数で、$f(u-x)$ なら連鎖律により $\partial_u f=f'(u-x)$、$\partial_x f=-f'(u-x)$ となります。左から入る同じ滑らかな波形 $f$ に対して
 
 $$
 \phi_G=f(u-x)+r\,f(u+x),\qquad
@@ -197,11 +212,13 @@ e_s=\frac{\lambda_s}{2}\left[(\partial_u\phi_s)^2+
 \qquad j_s=-\lambda_s(\partial_u\phi_s)(\partial_x\phi_s).
 $$
 
-重力側では $f'(u-x)$ と $rf'(u+x)$ が混じりますが、積を展開すると交差項は
+重力側の右向き・左向き微分を $f'_-:=f'(u-x)$、$f'_+:=f'(u+x)$ と区別します。連鎖律で $\partial_u\phi_G=f'_-+rf'_+$、$\partial_x\phi_G=-f'_-+rf'_+$ となるため、流束の交差項は相殺され、
 
 $$
--\lambda_G[f'_-(+rf'_+)]\,[-f'_-+rf'_+]
-=\lambda_G(f'_-)^2-\lambda_Gr^2(f'_+)^2.
+\begin{aligned}
+j_G&=-\lambda_G(f'_-+rf'_+)(-f'_-+rf'_+)\\
+&=\lambda_G(f'_-)^2-\lambda_Gr^2(f'_+)^2.
+\end{aligned}
 $$
 
 同じ時刻の界面 $x=0$ で $f'_-=f'_+=f'(u)$。従って入射 $j_{\rm in}=\lambda_G[f'(u)]^2$、反射 $j_{\rm refl}=-\lambda_Gr^2[f'(u)]^2$、透過 $j_{\rm tr}=\lambda_Bt^2[f'(u)]^2$ です。$f'$ が零でない点で入射で割ると、主張した比率を得ます。最後に
@@ -232,7 +249,7 @@ P(u)=\langle T_{ww}\rangle_{\Sigma_B}
 -\langle T_{vv}\rangle_{\Sigma_B}.
 $$
 
-右向きの出射成分について、単調な真空座標 $U=p(w)$ を使い、$U$ に正周波数を取った状態を浴へ延長できると仮定します。これは浴の**量子状態を選ぶ追加条件**です。$p\in C^3$、$p'>0$ とし、短距離規格化を固定します。
+右向きの出射成分について、単調な真空座標 $U=p(w)$ を使い、$U$ に正周波数を取った状態を浴へ延長できると仮定します。これは浴の**量子状態を選ぶ追加条件**です。ここで $p'=dp/dw$、$p''=d^2p/dw^2$、$p'''=d^3p/dw^3$ は光線ラベル $w$ に関する常微分です。$p\in C^3$、$p'>0$ とし、短距離規格化を固定します。接合面 $x=0$ では $w=u$ なので、その面上で $p(w)$ を $p(u)$ と書き換えたときの導関数は $u$ 微分と一致します。
 
 <a id="def-bhi22-outgoing-state"></a>
 
@@ -341,14 +358,20 @@ P=-\frac{c_{\rm m}}{24\pi}\{F,u\}
 =\frac{c_{\rm m}}{24\pi C}E=\gamma E.
 $$
 
-ここで $[C]=L$、$[E]=L^{-1}$、$[P]=L^{-2}$、$[\gamma]=L^{-1}$ なので次元も一致します。保存条件 $\dot E=-P$ に代入すると $\dot E=-\gamma E$。$E>0$ の区間で変数分離し、
+ここで $[C]=L$、$[E]=L^{-1}$、$[P]=L^{-2}$、$[\gamma]=L^{-1}$ なので次元も一致します。保存条件 $\dot E=-P$ に代入すると $\dot E=dE/du=-\gamma E$。$E_0>0$ で、解は零を通過しないため、正値の区間では対数の連鎖律から
 
 $$
-\frac{dE}{E}=-\gamma\,du,\qquad
-\ln\frac{E(u)}{E_0}=-\gamma(u-u_0)
+\frac{d}{du}\ln E(u)=\frac{1}{E(u)}\frac{dE}{du}=-\gamma.
 $$
 
-を積分して解を得ます。初期値 $E_0>0$ と指数の正値性により、有限時刻での $E$ は正です。$\square$
+両辺を $u_0$ から $u$ まで積分すると、
+
+$$
+\ln E(u)-\ln E_0=-\gamma(u-u_0),
+\qquad E(u)=E_0e^{-\gamma(u-u_0)}.
+$$
+
+変数分離の略記 $dE/E=-\gamma\,du$ はこの連鎖律と定積分を表します。初期値と指数の正値性により、有限時刻での $E$ は正です。$\square$
 <!-- proof-end -->
 
 準静的に[BHI21の熱的エネルギー](../BHI21/index.md#prop-bhi21-thermal-thermodynamics) $E=2\pi^2CT_{\rm eff}^2$ を各時刻に適用できるなら、
@@ -421,7 +444,7 @@ $$
 初期点 $u_*$ で $y_1(u_*)=0,y_1'(u_*)=1,y_2(u_*)=1,y_2'(u_*)=0$ とすれば $W=1$ で、連続係数の線形常微分方程式の局所解が存在し、連続性から十分小さな近傍で $y_2\ne0$ です。$\square$
 <!-- proof-end -->
 
-例えば一定の $E=Ck^2/2$（$k>0$）なら $y_1=e^{ku/2}$、$y_2=e^{-ku/2}$ を選べて $F=e^{ku}$、$\{F,u\}=-k^2/2$ です。ただし**真空浴へ出射する場合**には $P=\gamma E>0$ なので、一定の正の $E$ は保存式と両立しません。この例は時計構成の確認であり、エネルギーを真空浴へ放出し続ける定常解ではありません。
+例えば一定の $E=Ck^2/2$（$k>0$、$[k]=L^{-1}$）では、基準長さ $L_*>0$ を取り $y_1=L_*e^{ku/2}$、$y_2=e^{-ku/2}$ と選べます。どちらも $y''-k^2y/4=0$ を満たし、Wronskianは $W=L_*k>0$。比 $F=L_*e^{ku}$ は境界時間座標と同じ長さの次元を持ち、$\{F,u\}=-k^2/2$ です。ただし**真空浴へ出射する場合**には $P=\gamma E>0$ なので、一定の正の $E$ は保存式と両立しません。この例は時計構成の確認であり、エネルギーを真空浴へ放出し続ける定常解ではありません。
 
 ## 6. 熱い浴からの入射を加える
 
@@ -635,10 +658,10 @@ $$
 #### BHI22-B04 エネルギーと時計の両立
 
 - Level: B
-- 問題: $C,k>0$ として $E=Ck^2/2$ を指定する。二階方程式 $y''-E y/(2C)=0$ の二解を与え、その比 $F$ のSchwarzianを検算せよ。また、入射のない完全透過浴でこれが定常蒸発解になるか述べよ。
+- 問題: $C,k>0$、$[C]=L$、$[k]=L^{-1}$ として $E=Ck^2/2$ を指定する。基準長さ $L_*>0$ を用い、二階方程式 $y''-Ey/(2C)=0$ の二解を与え、その比を長さの次元の時計 $F$ としてSchwarzianを検算せよ。また、入射のない完全透過浴でこれが定常蒸発解になるか述べよ。
 
 <!-- solution-start -->
-**詳細解答。** $E/(2C)=k^2/4$ なので $y''-(k^2/4)y=0$。$y_1=e^{ku/2}$、$y_2=e^{-ku/2}$ は二回微分すると各々 $(k^2/4)y_i$ になり、方程式を満たします。比は $F=e^{ku}$ で $F'=ke^{ku}>0$、$F''/F'=k$、$F'''/F'=k^2$。よって $\{F,u\}=k^2-\frac32k^2=-k^2/2=-E/C$。ただし[真空浴の減衰命題](#prop-bhi22-energy-decay)では $P=\gamma E>0$ と $\dot E=-P$ が必要です。今回の定数 $E>0$ は $\dot E=0$ なので両立しません。時計の幾何学的構成と放射付きの力学方程式は別です。
+**詳細解答。** $E/(2C)=k^2/4$ なので $y''-(k^2/4)y=0$。[局所境界時計の構成命題](#prop-bhi22-local-clock)に従い $y_1=L_*e^{ku/2}$、$y_2=e^{-ku/2}$ を取ると、二回微分で各々 $(k^2/4)y_i$ に戻り、$W=L_*k>0$ です。比 $F=L_*e^{ku}$ は長さの次元を持ち、$F'=L_*ke^{ku}>0$、$F''/F'=k$、$F'''/F'=k^2$。よって $\{F,u\}=k^2-\frac32k^2=-k^2/2=-E/C$。ただし[真空浴の減衰命題](#prop-bhi22-energy-decay)では $P=\gamma E>0$ と $\dot E=-P$ が必要です。今回の定数 $E>0$ は $\dot E=0$ なので両立しません。時計の幾何学的構成と放射付きの力学方程式は別です。
 <!-- solution-end -->
 
 ### Level C：模型を作り、どの結論まで出せるか確かめる
@@ -664,7 +687,7 @@ P_{\rm out}=-\frac{c_{\rm m}}{24\pi}\{F,u\}
 =\frac{c_{\rm m}}{24\pi C}E.
 $$
 
-$\gamma=c_{\rm m}/(24\pi C)>0$ と置き、$\dot E=-P_{\rm out}$ を解くと $dE/E=-\gamma du$、よって $E(u)=E_0e^{-\gamma(u-u_0)}$。準静的に $E=2\pi^2CT_{\rm eff}^2$ を用いる場合に限って
+$\gamma=c_{\rm m}/(24\pi C)>0$ と置き、$\dot E=-P_{\rm out}$ を解くと $dE/E=-\gamma du$、よって $E(u)=E_0e^{-\gamma(u-u_0)}$。準静的に[BHI21の熱的エネルギー公式](../BHI21/index.md#prop-bhi21-thermal-thermodynamics) $E=2\pi^2CT_{\rm eff}^2$ を用いる場合に限って
 
 $$
 T_{\rm eff}(u)=\sqrt{\frac{E_0}{2\pi^2C}}\,
