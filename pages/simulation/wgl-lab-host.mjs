@@ -912,7 +912,15 @@ window.addEventListener('message', event => {
     byId('numeric-summary').textContent = '（画素比較なし）';
   } else {
     const samples = Array.isArray(data.samples) ? data.samples : [];
-    const rows = (isWGL20 ? compareWGL20Readback : isFCG8 ? (got,w,h)=>compareFCG8Readback(got,w,h,active.payload.steps) : isFCG7 ? (got,w,h)=>compareFCG7Readback(got,w,h,active.payload.steps) : isFCG6 ? (got,w,h)=>compareFCG6Readback(got,w,h,active.payload.steps) : isFCG5 ? (got,w,h)=>compareFCG5Readback(got,w,h,active.payload.steps) : isFCG4 ? (got,w,h)=>compareFCG4Readback(got,w,h,active.payload.steps) : isFCG3 ? (got,w,h)=>compareFCG3Readback(got,w,h,active.payload.steps) : isFCG2 ? (got,w,h)=>compareFCG2Readback(got,w,h,active.payload.steps) : isWGL19 ? compareWGL19Readback : isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
+    // For WGL19 only, compare the editable GPU clock/rate against an independently
+    // recomputed CPU grid. An inconsistent clock must never be treated as verified.
+    const wgl19Clock = isWGL19 ? auditWGL19Clock(data.frameAudit) : null;
+    const wgl19Params = data.floatParameters;
+    const wgl19Valid = isWGL19 && wgl19Clock.pass && wgl19Params &&
+      Number.isFinite(wgl19Params.rate) && wgl19Params.rate >= 0 && wgl19Params.rate <= 0.25 &&
+      Number.isInteger(wgl19Params.steps) && wgl19Params.steps >= 0 && wgl19Params.steps <= 12 &&
+      wgl19Params.steps === data.frameAudit.steps;
+    const rows = (isWGL20 ? compareWGL20Readback : isFCG8 ? (got,w,h)=>compareFCG8Readback(got,w,h,active.payload.steps) : isFCG7 ? (got,w,h)=>compareFCG7Readback(got,w,h,active.payload.steps) : isFCG6 ? (got,w,h)=>compareFCG6Readback(got,w,h,active.payload.steps) : isFCG5 ? (got,w,h)=>compareFCG5Readback(got,w,h,active.payload.steps) : isFCG4 ? (got,w,h)=>compareFCG4Readback(got,w,h,active.payload.steps) : isFCG3 ? (got,w,h)=>compareFCG3Readback(got,w,h,active.payload.steps) : isFCG2 ? (got,w,h)=>compareFCG2Readback(got,w,h,active.payload.steps) :  isWGL19 ? (got,w,h)=>wgl19Valid ? compareWGL19Readback(got,w,h,2,wgl19Params.rate,wgl19Params.steps) : compareWGL19Readback(got,w,h) : isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
       samples, active.payload.width, active.payload.height);
     showTable(rows, unchanged);
     byId('result-note').textContent = 'GPUへ描画しました。コードや条件を変えて再実行できます。';
@@ -943,21 +951,18 @@ window.addEventListener('message', event => {
         setStatus('GPU float読戻しと独立CPU計算が不一致（未達）',true);
     }
     if (isWGL19) {
-      const fp=data.floatParameters;
-      const validParameters=fp&&Number.isFinite(fp.rate)&&fp.rate>=0&&fp.rate<=0.25&&
-        Number.isInteger(fp.steps)&&fp.steps>=0&&fp.steps<=12;
-      const clock=auditWGL19Clock(data.frameAudit);
-      const consistent=clock.pass&&validParameters&&fp.steps===data.frameAudit.steps;
-      const floats=validParameters ? compareWGL19FloatReadback(data.floatReadback,fp.rate,fp.steps) :
+      const floats=wgl19Valid ? compareWGL19FloatReadback(data.floatReadback,wgl19Params.rate,wgl19Params.steps) :
         {valid:false,pass:false,maxError:Infinity,mass:NaN};
-      byId('diagnostics').textContent += '\nWGL19 clock: '+(clock.pass?'一致':'不一致')+
+      byId('diagnostics').textContent += '\nWGL19 clock: '+(wgl19Clock.pass?'一致':'不一致')+
         ' / independent CPU-FLOAT: '+(floats.valid ?
         'maxError='+floats.maxError.toPrecision(6)+', mass='+floats.mass.toPrecision(9)+
         ', '+(floats.pass?'一致':'不一致') : '読戻し未取得');
-      if(!consistent||!floats.pass)
-        setStatus('WGL19 計算時計・float独立検算が未達（入力値・readback・GL状態を確認）',true);
+      if(!wgl19Valid||!floats.pass||!rows.every(row=>row.pass))
+        setStatus('WGL19 計算時計・画素・float独立検算が未達（入力値・readback・GL状態を確認）',true);
     }
-    byId('numeric-note').textContent = unchanged ?
+    byId('numeric-note').textContent = isWGL19 && wgl19Valid && !unchanged ?
+      'WGL19：実行時の数値step・拡散係数を独立CPUで再計算し、RGBA各成分±2で比較。GLSL自体を変更した場合は不一致になり得ます。' :
+      unchanged ?
       'CPUは座標と色の定数から独立に予測し、GPUはreadPixelsで実測。RGBA各成分' +
       ((isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8) ? '±2' : isWGL20 ? '±1' : isWGL19 ? '±2' : isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
