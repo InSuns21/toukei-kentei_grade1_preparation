@@ -219,7 +219,14 @@ $Wa=g$ の第2成分は $0=-q_2$ を要求する。$q_2\neq0$ なら加速度は
 
 ## 5. 「質量行列」が本当に質量を表す場合
 
-自然な力学系では位置に応じて変わる対称行列 $M(q)$ を用いて、運動エネルギー $T(q,v)=v^{\mathsf T}M(q)v/2$ を表す。[力学的 Lagrangian](../../../物理系/AMECH/AMECH2/index.md#def-amech2-mechanical-lagrangian)は $L=T-V$ の形であり、$M(q)$ が正定値なら正の運動エネルギーを与える。一般の LNN の $W_\theta$ と違い、この形では $W=M$ が速度によらない。まず標準座標基底で $v=(v_1,\ldots,v_d)^{\mathsf T}$、$M=(M_{ij})$ と表示すれば、$v^{\mathsf T}Mv/2=\sum_{i,j}M_{ij}v_iv_j/2$ である。そこで「速度について二階微分した係数行列が $M$ に一致するか」と「この二次形式が非零の速度に対して正か」をそれぞれ確認する。
+自然な力学系では位置に応じて変わる対称行列 $M(q)$ を用いて、運動エネルギー $T(q,v)=v^{\mathsf T}M(q)v/2$ を表す。[力学的 Lagrangian](../../../物理系/AMECH/AMECH2/index.md#def-amech2-mechanical-lagrangian)は $L=T-V$ の形であり、$M(q)$ が正定値なら正の運動エネルギーを与える。一般の LNN の速度 Hessian と異なり、この形では速度に依存しない $M$ が Hessian に一致することを以下で確認する。標準座標基底で $v=(v_1,\ldots,v_d)^{\mathsf T}$、$M=(M_{ij})$ と表示すると、運動エネルギーは
+
+$$
+T(q,v)=\frac12v^{\mathsf T}M(q)v
+=\frac12\sum_{i,j=1}^d M_{ij}(q)v_iv_j.
+$$
+
+この表示から「速度を二階微分した係数が $M$ に一致するか」と「非零速度に対して二次形式が正か」を、それぞれ確認する。
 
 <a id="def-pml1-19-natural-mass"></a>
 
@@ -231,7 +238,7 @@ $$
 L_\theta(q,v)=\frac12v^{\mathsf T}M_\theta(q)v-V_\theta(q)
 $$
 
-> と定めるものを正定値質量行列型 LNN と呼ぶ。ここでは $M_\theta(q)$ を質量行列と呼ぶ。
+> を $Q\times\mathbb R^d$ 上で定めるものを正定値質量行列型 LNN と呼ぶ。ここでは $M_\theta(q)$ を質量行列と呼ぶ。
 <!-- formal-statement-end -->
 
 対称性 $M_{ij}=M_{ji}$ と $M$ が速度 $v$ に依存しないことを使って、標準座標成分を順に微分する。
@@ -325,7 +332,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（LNN の加速度損失と方程式残差損失）**  
-> $N\ge1$、観測データ $(q_n,v_n,a_n)$、候補パラメータ $\theta$ に対応する $L_\theta\in C^2(U)$ を与える。各観測状態で $W_\theta$ が可逆な場合、$F_\theta(q_n,v_n):=W_\theta(q_n,v_n)^{-1}(\nabla_qL_\theta(q_n,v_n)-C_\theta(q_n,v_n)v_n)$ と置き、加速度損失を
+> $N\ge1$、観測データ $(q_n,v_n,a_n)$、候補パラメータ $\theta$ に対応する $L_\theta\in C^2(U)$ を与える。各観測状態で $W_\theta$ が可逆な場合、
+
+$$
+F_\theta(q_n,v_n)
+:=W_\theta(q_n,v_n)^{-1}
+\bigl(\nabla_qL_\theta(q_n,v_n)-C_\theta(q_n,v_n)v_n\bigr)
+$$
+
+> と置き、加速度損失を
 
 $$
 \mathcal L_{\mathrm{acc}}(\theta)
