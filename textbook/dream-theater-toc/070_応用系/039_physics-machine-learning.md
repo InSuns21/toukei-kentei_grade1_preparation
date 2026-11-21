@@ -27,3 +27,4 @@
 23. [PML2-01 何を「PDEを解く」と呼ぶか](textbook/volumes/dream_thater/応用系/PML/PML2-01/index.md)
 24. [PML2-02 forwardとinverseはどこで問題が変わるか](textbook/volumes/dream_thater/応用系/PML/PML2-02/index.md)
 25. [PML2-03 機械学習なしでどう解くか](textbook/volumes/dream_thater/応用系/PML/PML2-03/index.md)
+26. [PML2-04 計算された値の何を「誤差」と呼ぶか](textbook/volumes/dream_thater/応用系/PML/PML2-04/index.md)
