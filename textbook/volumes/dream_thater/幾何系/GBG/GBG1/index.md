@@ -303,11 +303,11 @@ $$
 
 写像 $(x,k)\mapsto(x,g_{ij}(x)k)$ は、[Lie 群の定義](../../../代数系/LIE/LIE1/index.md#def-lie1-lie-group)で要求した群演算の滑らかさと $g_{ij}$ の滑らかさから連続なので、この集合は $U_j\times G$ で開である。よって商位相の定義から $q_i(V)$ は $P_g$ で開である。特に $V=U_i\times G$ とすると $\pi^{-1}(U_i)$ は開になる。一方 $q_i$ の連続性は商位相の定義から直ちに従う。ゆえに $q_i$ は開集合 $\pi^{-1}(U_i)$ への同相写像である。
 
-**（3）多様体の条件**。各 $\pi^{-1}(U_i)$ は $U_i\times G$ と同相である。$U_i$ は $M$ の開部分多様体、$G$ は Lie 群なので、[GEO1の積多様体の定理](../../GEO/GEO1/index.md#thm-geo1-product-manifold)により $U_i\times G$ は局所 Euclid 的である。異なる基底点 $x\ne y$ の上の点は、$M$ のHausdorff性で選んだ互いに交わらない開集合の $\pi$ による逆像で分離できる。$\pi$ が連続なのは、各 $q_i$ 上の合成 $\pi q_i(x,h)=x$ が連続であるためである。
+**（3）多様体の条件**。各 $\pi^{-1}(U_i)$ は $U_i\times G$ と同相である。$U_i$ は $M$ の開部分多様体、$G$ は Lie 群なので、[GEO1の積多様体の定理](../../GEO/GEO1/index.md#thm-geo1-product-manifold)により $U_i\times G$ は局所 Euclid 的である。異なる基底点 $x\ne y$ の上の点は、$M$ の[Hausdorff性](../../../基礎科目/TOP/TOP4/index.md#def-top4-t2)で選んだ互いに交わらない開集合の $\pi$ による逆像で分離できる。$\pi$ が連続なのは、各 $q_i$ 上の合成 $\pi q_i(x,h)=x$ が連続であるためである。
 
-同じ $x$ の上の異なる点 $p,q$ は、$x\in U_i$ を選べば $\Phi_i(p)=(x,h)$、$\Phi_i(q)=(x,k)$ と表され、$h\ne k$ である。$G$ がHausdorffなので、$h,k$ を分離する互いに交わらない開集合 $V_h,V_k\subset G$ を選べる。$q_i(U_i\times V_h)$ と $q_i(U_i\times V_k)$ は $P_g$ 内の互いに交わらない開集合であり、$p,q$ を分離する。
+同じ $x$ の上の異なる点 $p,q$ は、$x\in U_i$ を選べば $\Phi_i(p)=(x,h)$、$\Phi_i(q)=(x,k)$ と表され、$h\ne k$ である。$G$ は Lie 群、従って[位相多様体の定義](../../GEO/GEO1/index.md#def-geo1-topological-manifold)からHausdorffなので、$h,k$ を分離する互いに交わらない開集合 $V_h,V_k\subset G$ を選べる。$q_i(U_i\times V_h)$ と $q_i(U_i\times V_k)$ は $P_g$ 内の互いに交わらない開集合であり、$p,q$ を分離する。
 
-第二可算性も確認する。$M$ の可算基底を $\{B_n\}$ とする。ある $U_i$ に含まれる各 $B_n$ について、そのような $U_i$ を一つ選び $V_n$ と書く。選ばれた $V_n$ は高々可算個である。
+第二可算性も確認する。[第二可算性の定義](../../../基礎科目/TOP/TOP4/index.md#def-top4-second-countable)から $M$ の可算基底を $\{B_n\}$ とする。ある $U_i$ に含まれる各 $B_n$ について、そのような $U_i$ を一つ選び $V_n$ と書く。選ばれた $V_n$ は高々可算個である。
 
 任意の点 $x\in M$ に対し、被覆から $x\in U_i$ となる添字を一つ取る。基底の定義により、ある $B_n$ が存在して
 
