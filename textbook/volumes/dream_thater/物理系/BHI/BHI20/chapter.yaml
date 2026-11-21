@@ -1,0 +1,44 @@
+id: BHI20
+title: "JTブラックホール解・dilaton・エントロピー"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI19
+official_scope: []
+learning_objectives:
+  - 静的Ansatzとdilaton Hessian方程式からJTブラックホールのf(r)を導出しR=-2/ell^2を全成分検算できる
+  - 地平線と有限cutoff境界の規格化・外部曲率・反項を明示できる
+  - Euclid近地平線正則性とKruskal型座標から温度と地平線の滑らかさを導出できる
+  - JT曲率作用の円錐角寄与を計算しS0+Phi_h/(4G2)の係数を導ける
+  - 固定境界傾きの定常解族で第一法則・エネルギー・比熱とdilaton保存量を検算できる
+  - 定常地平線の幾何エントロピーと将来のisland端点・浴物質エントロピーの役割を区別できる
+definitions:
+  - { id: BHI20-DEF-01, name: "JTの静的ブラックホール外部パッチ" }
+  - { id: BHI20-DEF-02, name: "地平線dilatonと重力エントロピーの幾何項" }
+theorems:
+  - { id: BHI20-PROP-01, name: "静的dilatonから定まるJTブラックホール解" }
+  - { id: BHI20-PROP-02, name: "Euclid正則性とJTブラックホールの温度" }
+  - { id: BHI20-PROP-03, name: "JT重力の定常地平線エントロピー" }
+  - { id: BHI20-PROP-04, name: "JTブラックホール族の第一法則と比熱" }
+  - { id: BHI20-PROP-05, name: "真空JTにおけるdilatonの保存量" }
+canonical_examples:
+  - 静的外部パッチのLorentz符号・地平線dilatonの直接検算
+  - Euclid円錐の正則性とcutoff局所時計の比較
+  - Kruskal座標での分岐地平線の正則性
+  - 位相項と動的エントロピー項の具体的数値例
+  - 境界GHY項・反項の有限極限
+problem_patterns:
+  - BHI20-HORIZON-DILATON
+  - BHI20-TEMPERATURE-EUCLID
+  - BHI20-HESSIAN-RR
+  - BHI20-CUTOFF-CLOCK
+  - BHI20-TOPOLOGICAL-SHIFT
+  - BHI20-SOLVE-STATIC-EQUATIONS
+  - BHI20-KRUSKAL-REGULARITY
+  - BHI20-BOUNDARY-COUNTERTERM
+  - BHI20-CASIMIR-FIRST-LAW
+  - BHI20-INTEGRATED-JT-THERMODYNAMICS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 15, review: 6 }
