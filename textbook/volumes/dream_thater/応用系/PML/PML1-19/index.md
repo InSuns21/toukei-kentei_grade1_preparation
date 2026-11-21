@@ -20,7 +20,7 @@ $$
 
 ## 2. Euler--Lagrange 方程式を加速度について解く
 
-一見して分かりにくいのは、速度に関する偏微分 $\partial L/\partial v_i$ を、軌道に沿ってさらに時間微分する箇所である。位置も速度も時刻とともに動くので、[多変数の連鎖律](../../../基礎科目/RA/RA3/index.md#prop-ra3-chain-rule)を成分ごとに使う。
+一見して分かりにくいのは、速度に関する偏微分 $\partial L/\partial v_i$ を、軌道に沿ってさらに時間微分する箇所である。位置も速度も時刻とともに動くので、[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を成分ごとに使う。ここで $d/dt$ は $(q(t),v(t))$ に沿う**全時間微分**である。一方、$\partial/\partial q_j$ と $\partial/\partial v_j$ は、それぞれ他方の変数と学習パラメータ $\theta$ を固定する偏微分である。$\dot q_j=dq_j/dt=v_j$、$\dot v_j=dv_j/dt=a_j$ として連鎖律を適用する。
 
 $$
 \begin{aligned}
@@ -41,7 +41,7 @@ $$
 (C_\theta)_{ij}=\frac{\partial^2L_\theta}{\partial v_i\partial q_j}
 $$
 
-と置く。どちらも $d\times d$ 行列で、$W_\theta$ は $C^2$ 級の仮定から対称である。運動方程式は
+と置く。どちらも $d\times d$ 行列である。[混合偏微分の交換](../../../基礎科目/RA/RA6/index.md#thm-ra6-mixed-partials)が $C^2$ 級の仮定で使えるから、$\partial^2L_\theta/(\partial q_j\partial v_i)=\partial^2L_\theta/(\partial v_i\partial q_j)=(C_\theta)_{ij}$ となり、$W_\theta$ は対称である。したがって上の成分ごとの式は次の行列方程式に一致する。
 
 $$
 W_\theta(q,v)a+C_\theta(q,v)v-\nabla_qL_\theta(q,v)=0.
@@ -166,6 +166,7 @@ $$
 
 $$
 W=\nabla^2_{vv}L(q,v),\qquad
+C=\left(\frac{\partial^2L}{\partial v_i\partial q_j}(q,v)\right)_{ij},\qquad
 g=\nabla_qL(q,v)-C(q,v)v
 $$
 
@@ -218,7 +219,7 @@ $Wa=g$ の第2成分は $0=-q_2$ を要求する。$q_2\neq0$ なら加速度は
 
 ## 5. 「質量行列」が本当に質量を表す場合
 
-自然な力学系では位置に応じて変わる対称行列 $M(q)$ を用いて、運動エネルギー $T(q,v)=v^{\mathsf T}M(q)v/2$ を表す。[力学的 Lagrangian](../../../物理系/AMECH/AMECH2/index.md#def-amech2-mechanical-lagrangian)は $L=T-V$ の形であり、$M(q)$ が正定値なら正の運動エネルギーを与える。一般の LNN の $W_\theta$ と違い、この形では $W=M$ が速度によらない。
+自然な力学系では位置に応じて変わる対称行列 $M(q)$ を用いて、運動エネルギー $T(q,v)=v^{\mathsf T}M(q)v/2$ を表す。[力学的 Lagrangian](../../../物理系/AMECH/AMECH2/index.md#def-amech2-mechanical-lagrangian)は $L=T-V$ の形であり、$M(q)$ が正定値なら正の運動エネルギーを与える。一般の LNN の $W_\theta$ と違い、この形では $W=M$ が速度によらない。まず標準座標基底で $v=(v_1,\ldots,v_d)^{\mathsf T}$、$M=(M_{ij})$ と表示すれば、$v^{\mathsf T}Mv/2=\sum_{i,j}M_{ij}v_iv_j/2$ である。そこで「速度について二階微分した係数行列が $M$ に一致するか」と「この二次形式が非零の速度に対して正か」をそれぞれ確認する。
 
 <a id="def-pml1-19-natural-mass"></a>
 
@@ -233,13 +234,20 @@ $$
 > と定めるものを正定値質量行列型 LNN と呼ぶ。ここでは $M_\theta(q)$ を質量行列と呼ぶ。
 <!-- formal-statement-end -->
 
-対称正定値行列は零固有値を持たない。ゆえに、このモデルの速度 Hessian は
+対称性 $M_{ij}=M_{ji}$ と $M$ が速度 $v$ に依存しないことを使って、標準座標成分を順に微分する。
 
 $$
-W_\theta(q,v)=M_\theta(q)
+\begin{aligned}
+\frac{\partial L_\theta}{\partial v_i}
+&=\frac12\sum_j(M_{ij}+M_{ji})v_j
+=\sum_jM_{ij}v_j,\\
+(W_\theta)_{ij}
+&=\frac{\partial}{\partial v_j}\left(\sum_kM_{ik}v_k\right)
+=M_{ij}.
+\end{aligned}
 $$
 
-となり、すべての状態で可逆である。さらに $M_\theta,V_\theta$ が $C^3$ 級だから $L_\theta$ も $C^3$ 級であり、[正則 LNN](#def-pml1-19-lnn)と[局所運動定理](#thm-pml1-19-acceleration)の仮定を満たす。
+よって $W_\theta(q,v)=M_\theta(q)$ である。また $Mx=0$ なら $x^{\mathsf T}Mx=0$ となるが、正定値性は非零 $x$ についてこれを禁じる。したがって $\ker M=\{0\}$ であり、有限次元の正方行列 $M$ は可逆である。さらに $M_\theta,V_\theta$ が $C^3$ 級だから $L_\theta$ も $C^3$ 級であり、[正則 LNN](#def-pml1-19-lnn)と[局所運動定理](#thm-pml1-19-acceleration)の仮定を満たす。
 
 <!-- definition-example-start: def-pml1-19-natural-mass -->
 ### 例：位置依存の正の質量
@@ -311,13 +319,13 @@ $$
 
 位置・速度と加速度を測った有限データを $(q_n,v_n,a_n)$、$n=1,\ldots,N$ とする。$N\ge1$、$(q_n,v_n)\in U$、$a_n\in\mathbb R^d$ とし、各サンプルは同じ固定パラメータのモデルを学習するために用いる。
 
-**加速度損失**は明示的に逆行列を用いる。このとき学習データの各状態で $W_\theta$ が可逆でなければならない。一方、**Euler--Lagrange 残差損失**は直接 $W_\theta a_n+C_\theta v_n-\nabla_qL_\theta$ を小さくする。両者は特異な方向で大きく異なり得る。
+**加速度損失**は明示的に逆行列を用いる。このとき学習データの各状態で $W_\theta$ が可逆でなければならない。一方、**Euler--Lagrange 残差損失**は直接 $W_\theta a_n+C_\theta v_n-\nabla_qL_\theta$ を小さくする。両者は特異な方向で大きく異なり得る。損失を観測点で**評価するだけ**なら、二階偏微分が連続な $C^2$ 級で十分である。以下の $F_\theta$ は、$W_\theta$ が可逆な観測点に限り第2節の逆行列式で定める値を指す。連続時間の局所解の存在一意性に用いた $C^3$ 級とは区別する。
 
 <a id="def-pml1-19-losses"></a>
 
 <!-- formal-statement-start -->
 > **定義（LNN の加速度損失と方程式残差損失）**  
-> $N\ge1$、観測データ $(q_n,v_n,a_n)$、固定した候補 $L_\theta\in C^2(U)$ を与える。各観測状態で $W_\theta$ が可逆な場合、加速度損失を
+> $N\ge1$、観測データ $(q_n,v_n,a_n)$、候補パラメータ $\theta$ に対応する $L_\theta\in C^2(U)$ を与える。各観測状態で $W_\theta$ が可逆な場合、$F_\theta(q_n,v_n):=W_\theta(q_n,v_n)^{-1}(\nabla_qL_\theta(q_n,v_n)-C_\theta(q_n,v_n)v_n)$ と置き、加速度損失を
 
 $$
 \mathcal L_{\mathrm{acc}}(\theta)
