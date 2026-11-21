@@ -1,6 +1,6 @@
 # ANF13 局所拡大と Galois 分岐群
 
-[ANF11 の分岐指数・剰余次数](../ANF11/index.md#def-anf11-e-f)と[ANF12 の単数フィルトレーション](../ANF12/index.md#def-anf12-unit-filtration)によって、局所拡大の算術を整数環と付値から測れるようになりました。しかし $e=2$ という数字だけでは、$\mathbb Q_5(\sqrt5)$ と $\mathbb Q_2(\sqrt2)$ の違いを説明できません。前者の異なる指数は $1$、後者は $3$ でした（[単項生成の異なる公式](../ANF11/index.md#thm-anf11-monogenic-different)）。この差はどこから生まれるのでしょうか。
+[ANF11 の分岐指数・剰余次数](../ANF11/index.md#def-anf11-e-f)と[ANF12 の単数フィルトレーション](../ANF12/index.md#def-anf12-unit-filtration)によって、局所拡大の算術を整数環と付値から測れるようになりました。しかし $e=2$ という数字だけでは、$\mathbb Q_5(\sqrt5)$ と $\mathbb Q_2(\sqrt2)$ の違いを説明できません。前者の異なる指数は $1$、後者は $3$ でした（[単項生成の整数環の異なる公式](../ANF11/index.md#thm-anf11-monogenic-different)）。この差はどこから生まれるのでしょうか。
 
 拡大体の自己同型が剰余体や一様化元をどの程度動かすかを調べます。剰余体を動かさない自己同型をまず集め、次に「一様化元を法 $\pi^2,\pi^3,\ldots$ まで動かさない」という段階を作ります。ここから異なる指数まで計算できるようになります。
 
@@ -347,7 +347,7 @@ $$
 
 **(1) 非分岐部分の異なるは単位。** $K_0/K$ には前節で作った整元 $\theta$ があり、$K_0=K(\theta)$、$\mathcal O_{K_0}=B[\theta]$ です。後の等号は $K_0/K$ の $e=1$ と剰余体基底の持ち上げを使って確認できます。$1,\theta,\ldots,\theta^{f-1}$ は剰余体上で一次独立なので、これらが $B$ 上の整数基底となります。$\theta$ の最小多項式 $h$ は法 $\mathfrak m_K$ で分離的ゆえ $h'(\theta)$ は単元です。
 
-[単項生成の異なる公式](../ANF11/index.md#thm-anf11-monogenic-different)の跡双対計算は任意の完備離散付値環を基礎体にして同様に成り立つので、$\mathfrak D_{K_0/K}=(h'(\theta))=\mathcal O_{K_0}$ です。
+[単項生成の整数環の異なる公式](../ANF11/index.md#thm-anf11-monogenic-different)の跡双対計算は任意の完備離散付値環を基礎体にして同様に成り立つので、$\mathfrak D_{K_0/K}=(h'(\theta))=\mathcal O_{K_0}$ です。
 
 **(2) 異なるの塔公式を確認する。** 有限自由拡大の跡は合成し、$\operatorname{Tr}_{L/K}=\operatorname{Tr}_{K_0/K}\circ\operatorname{Tr}_{L/K_0}$ です。跡双対の定義から余異なるは
 
@@ -359,7 +359,7 @@ $$
 
 ここで等号を確認するには、$\mathcal O_{K_0}$ の $B$ 基底と $A$ の $\mathcal O_{K_0}$ 基底の積を $A$ の $B$ 基底に取り、二段階の跡双対基底の積を作ればよいです。$\mathfrak D^{-1}_{K_0/K}=\mathcal O_{K_0}$ なので $\mathfrak D_{L/K}=\mathfrak D_{L/K_0}$ です。
 
-**(3) 共役との差。** [一様化元基底補題](#lem-anf13-monogenic)から $L/K_0$ の最小多項式は
+**(3) 共役との差。** [全分岐部分の一様化元基底](#lem-anf13-monogenic)から $L/K_0$ の最小多項式は
 
 $$
 F(X)=\prod_{\sigma\in G_0}(X-\sigma\pi).
@@ -372,7 +372,7 @@ F'(\pi)=\prod_{\substack{\sigma\in G_0\\\sigma\ne1}}
 (\pi-\sigma\pi)
 $$
 
-を得ます。単項生成の異なる公式から
+を得ます。[単項生成の整数環の異なる公式](../ANF11/index.md#thm-anf11-monogenic-different)から
 
 $$
 d=v_L(F'(\pi))
@@ -439,7 +439,7 @@ $L=\mathbb Q_5(\pi)$、$\pi^2=5$ とする。$G_0,G_1$ と $d=v_L(\mathfrak D_{L
 - ID: ANF13-A2
 
 <!-- solution-start -->
-**詳細解答。** Eisenstein 既約性から $[L:\mathbb Q_5]=2$、$e=2,f=1$、$G=\{1,\sigma\}$、$\sigma\pi=-\pi$ です。剰余体は $\mathbb F_5$ なので $G_0=G$。一様化元の差は $\sigma\pi-\pi=-2\pi$。$v_L(2)=0$、$v_L(\pi)=1$ から $v_L(\sigma\pi-\pi)=1$ です。[判定命題](#prop-anf13-pi-test)より $G_1=1$。[異なる指数公式](#thm-anf13-different-sum)で $d=(|G_0|-1)=1$ です。$5\nmid2$ なので緩分岐という定義とも一致します。
+**詳細解答。** Eisenstein 既約性から $[L:\mathbb Q_5]=2$、$e=2,f=1$、$G=\{1,\sigma\}$、$\sigma\pi=-\pi$ です。剰余体は $\mathbb F_5$ なので $G_0=G$。一様化元の差は $\sigma\pi-\pi=-2\pi$。$v_L(2)=0$、$v_L(\pi)=1$ から $v_L(\sigma\pi-\pi)=1$ です。[判定命題](#prop-anf13-pi-test)より $G_1=1$。[分岐群による異なる指数公式](#thm-anf13-different-sum)で $d=(|G_0|-1)=1$ です。$5\nmid2$ なので緩分岐という定義とも一致します。
 <!-- solution-end -->
 
 ### A3. 激分岐二次拡大
@@ -490,14 +490,14 @@ $L=\mathbb Q_2(\sqrt2)$ とする。分岐群の位数和と最小多項式の�
 - ID: ANF13-B1
 
 <!-- solution-start -->
-**詳細解答。** $\pi=\sqrt2$、$F(X)=X^2-2$。$e=2,f=1$ で非自明な $\sigma$ は $\pi\mapsto-\pi$ です。$v_L(\sigma\pi-\pi)=v_L(-2\pi)=3$ より $G_0=G_1=G_2=G$、$G_3=1$。[異なる指数公式](#thm-anf13-different-sum)から
+**詳細解答。** $\pi=\sqrt2$、$F(X)=X^2-2$。$e=2,f=1$ で非自明な $\sigma$ は $\pi\mapsto-\pi$ です。$v_L(\sigma\pi-\pi)=v_L(-2\pi)=3$ より $G_0=G_1=G_2=G$、$G_3=1$。[分岐群による異なる指数公式](#thm-anf13-different-sum)から
 
 $$
 d=\sum_{i\ge0}(|G_i|-1)
 =(2-1)+(2-1)+(2-1)=3.
 $$
 
-他方 $A=\mathbb Z_2[\pi]$、$F'(\pi)=2\pi$ です。[単項生成の異なる公式](../ANF11/index.md#thm-anf11-monogenic-different)で $\mathfrak D=(2\pi)$。$v_L(2\pi)=2+1=3$ なので同じ結果です。
+他方 $A=\mathbb Z_2[\pi]$、$F'(\pi)=2\pi$ です。[単項生成の整数環の異なる公式](../ANF11/index.md#thm-anf11-monogenic-different)で $\mathfrak D=(2\pi)$。$v_L(2\pi)=2+1=3$ なので同じ結果です。
 <!-- solution-end -->
 
 ### B2. 高次分岐群の段階商が加法的な理由
@@ -576,7 +576,7 @@ v_{L_5}(\sigma\pi_5-\pi_5)
 =v_{L_5}(-2\pi_5)=1.
 $$
 
-[一様化元判定](#prop-anf13-pi-test)から $G_1=1$、それ以降も $1$ です。$5\nmid e=2$ より緩分岐です。[異なる指数公式](#thm-anf13-different-sum)は $d_5=|G_0|-1=1$ を与え、$F_5'(X)=2X$ で $v_{L_5}(F_5'(\pi_5))=v_{L_5}(2\pi_5)=1$ とも一致します。
+[一様化元判定](#prop-anf13-pi-test)から $G_1=1$、それ以降も $1$ です。$5\nmid e=2$ より緩分岐です。[分岐群による異なる指数公式](#thm-anf13-different-sum)は $d_5=|G_0|-1=1$ を与え、$F_5'(X)=2X$ で $v_{L_5}(F_5'(\pi_5))=v_{L_5}(2\pi_5)=1$ とも一致します。
 
 $p=2$ では $v_{L_2}(2)=2$ だから
 
