@@ -12,18 +12,12 @@ concepts:
     introduction_aliases: [定義（JTの正則化境界と再パラメータ化）]
     requires: [black-hole-information.jt-action-boundary, black-hole-information.jt-static-black-hole-patch]
 
-  - id: black-hole-information.schwarzian-derivative
-    name: Schwarzian微分
-    kind: definition
-    introduction: formal
-    introduction_aliases: [定義（Schwarzian微分）]
-
   - id: black-hole-information.jt-schwarzian-extrinsic-expansion
     name: 正則化境界の外部曲率展開
     kind: proposition
     introduction: formal
     introduction_aliases: [命題（正則化境界の外部曲率展開）]
-    requires: [black-hole-information.jt-regulated-boundary, black-hole-information.schwarzian-derivative]
+    requires: [black-hole-information.jt-regulated-boundary, qcurv.schwarzian-derivative]
 
   - id: black-hole-information.jt-schwarzian-effective-action
     name: 真空JTのSchwarzian有効作用
@@ -32,26 +26,26 @@ concepts:
     introduction_aliases: [命題（真空JTのSchwarzian有効作用）]
     requires: [black-hole-information.jt-action-boundary, black-hole-information.jt-schwarzian-extrinsic-expansion]
 
-  - id: black-hole-information.schwarzian-projective-chain-rule
-    name: Schwarzian微分の合成則と射影変換不変性
+  - id: black-hole-information.jt-projective-action-invariance
+    name: JT境界Schwarzian作用の射影変換不変性
     kind: proposition
     introduction: formal
-    introduction_aliases: [命題（Schwarzian微分の合成則と射影変換不変性）]
-    requires: [black-hole-information.schwarzian-derivative]
+    introduction_aliases: [命題（JT境界Schwarzian作用の射影変換不変性）]
+    requires: [qcurv.schwarzian-chain-law, black-hole-information.jt-schwarzian-effective-action]
 
   - id: black-hole-information.jt-schwarzian-boundary-eom
     name: 真空Schwarzian境界運動方程式
     kind: proposition
     introduction: formal
     introduction_aliases: [命題（真空Schwarzian境界運動方程式）]
-    requires: [black-hole-information.jt-schwarzian-effective-action, black-hole-information.schwarzian-projective-chain-rule]
+    requires: [black-hole-information.jt-schwarzian-effective-action, black-hole-information.jt-projective-action-invariance]
 
   - id: black-hole-information.jt-thermal-boundary-clock
-    name: 温度逆数betaの熱的境界時計
+    name: 熱的境界時計
     kind: definition
     introduction: formal
-    introduction_aliases: [定義（温度逆数βの熱的境界時計）]
-    requires: [black-hole-information.schwarzian-projective-chain-rule]
+    introduction_aliases: [定義（熱的境界時計）]
+    requires: [black-hole-information.jt-projective-action-invariance]
 
   - id: black-hole-information.jt-schwarzian-thermal-thermodynamics
     name: 熱的Schwarzian鞍点の熱力学
@@ -65,4 +59,4 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: [命題（Lorentz境界の保存エネルギーと熱的解）]
-    requires: [black-hole-information.schwarzian-derivative, black-hole-information.jt-schwarzian-boundary-eom, black-hole-information.jt-schwarzian-thermal-thermodynamics]
+    requires: [qcurv.schwarzian-derivative, black-hole-information.jt-schwarzian-boundary-eom, black-hole-information.jt-schwarzian-thermal-thermodynamics]
