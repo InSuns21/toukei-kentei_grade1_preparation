@@ -1,0 +1,56 @@
+chapter: GBG4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG3
+forward_references:
+  - complex-analysis.winding-number
+concepts:
+  - id: gauge.linear-representation
+    name: 滑らかな左線形表現
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（滑らかな左線形表現）"]
+    requires: [lie.lie-group]
+
+  - id: gauge.associated-vector-bundle
+    name: 結合ベクトル束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（結合ベクトル束）"]
+    requires: [gauge.principal-bundle, gauge.linear-representation]
+
+  - id: gauge.associated-vector-bundle-structure
+    name: 結合束の滑らかなベクトル束構造
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（結合束の滑らかなベクトル束構造）"]
+    requires: [gauge.associated-vector-bundle, gauge.section-trivialization, gauge.smooth-transition-cocycle]
+
+  - id: gauge.equivariant-matter-function
+    name: 表現に関する同変関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（表現に関する同変関数）"]
+    requires: [gauge.associated-vector-bundle]
+
+  - id: gauge.sections-equivariant-correspondence
+    name: 結合束の切断と同変関数の対応
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（結合束の切断と同変関数の対応）"]
+    requires: [gauge.equivariant-matter-function, gauge.associated-vector-bundle-structure, gauge.local-section]
+
+  - id: gauge.associated-component-transformation
+    name: 切断の局所成分とsection変更の変換則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（切断の局所成分とsection変更の変換則）"]
+    requires: [gauge.sections-equivariant-correspondence, gauge.transition-section-change]
+
+  - id: gauge.associated-local-gluing
+    name: 局所成分の貼り合わせ判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所成分の貼り合わせ判定）"]
+    requires: [gauge.associated-component-transformation, gauge.associated-vector-bundle-structure]
