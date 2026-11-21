@@ -103,7 +103,7 @@ $$
 \widehat\Xi=(\Theta^{\mathsf T}\Theta)^{-1}\Theta^{\mathsf T}Y
 $$
 
-> に等しい。逆に $\operatorname{rank}\Theta<p$ なら最小化解は存在するが、一意ではない。真の係数との一致は、さらに観測方程式 $Y=\Theta\Xi_\ast$ が正確に成立することを要する。
+> に等しい。逆に $\operatorname{rank}\Theta<p$ なら最小化解は存在するが、一意ではない。特に観測が $Y=\Theta\Xi_\ast$ を正確に満たせば、推定係数は $\Xi_\ast$ と一致する。これは十分条件であり、係数一致に観測誤差ゼロが必須という意味ではない。
 <!-- formal-statement-end -->
 
 **証明の見取り図。** 残差平方を係数方向へ動かして正規方程式を導く。行列 $\Theta^{\mathsf T}\Theta$ の二次形式は $\|\Theta v\|_2^2$ であり、核の有無が一意性を決める。
