@@ -216,7 +216,7 @@ $$
 
 交差項がゼロなのは、対称行列 $A$ と反対称行列 $J$ に対して次が成り立つためである。
 
-$
+$$
 \begin{aligned}
 \operatorname{tr}(A^{\mathsf T}J)
 &=\operatorname{tr}((A^{\mathsf T}J)^{\mathsf T})\\
@@ -225,7 +225,7 @@ $
 &=-\operatorname{tr}(AJ)
 =-\operatorname{tr}(A^{\mathsf T}J).
 \end{aligned}
-$
+$$
 
 従って交差項は自分の負に等しく、ゼロとなる。よって一意に $S=I_2$、最小損失は $\delta^2$。
 
