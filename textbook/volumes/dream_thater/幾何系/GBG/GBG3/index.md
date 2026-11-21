@@ -253,22 +253,22 @@ $$
 ### 枠束の局所section
 
 [枠束の主束構造](../GBG2/index.md#thm-gbg2-frame-principal)で、$n$ 次元多様体上の局所座標から得る基底 $E(x)=(E_1(x),\ldots,E_n(x))$ は枠束の局所sectionである。同じ接空間の別の滑らかな基底 $E'(x)=(E'_1(x),\ldots,E'_n(x))$ を選ぶと、基底展開により各列について
-$
+$$
 E'_j(x)=\sum_{i=1}^n E_i(x)H^i{}_j(x),\qquad E'(x)=E(x)H(x)
-$
+$$
 と書ける。$E'$ も基底なので係数行列 $H(x)$ は可逆であり、$H(x)\in GL(n,\mathbb R)$ がsectionの変更関数となる。同じ枠を $v=E(x)K=E'(x)K'$ と表すと $K=HK'$ だから、群座標は $K'=H(x)^{-1}K$ と変わる。
 
 たとえば $M=(0,\infty)$、$y=\log x$ とする。$E_x=\partial/\partial x$ と $E_y=\partial/\partial y$ は同じ点の接ベクトルを、座標関数への微分作用として記述する。任意の滑らかな関数 $f$ に対し、$x=e^y$ で一変数の連鎖律を使うと
-$
+$$
 \frac{d}{dy}f(e^y)=\frac{df}{dx}(x)\frac{dx}{dy}
 =x\frac{df}{dx}(x).
-$
+$$
 左辺の $d/dy$ は合成された一変数関数の導関数であり、$\partial/\partial y$ は接ベクトルを表す作用素である。すべての $f$ に対する作用が一致するため、
-$
+$$
 E_y=\frac{\partial}{\partial y}
 =\frac{dx}{dy}\frac{\partial}{\partial x}
 =xE_x
-$
+$$
 を得る。$H(x)=x$ は $x>0$ で可逆なので、$v=3E_x$ は $v=(3/x)E_y$ と表示される。これが「基準を変えると座標が逆に変わる」ことの一次元版である。
 
 ---
@@ -297,10 +297,10 @@ $\lambda\in U(1)$ に対して $\Phi_{s_a}((x,e^{it})\lambda)=(x,e^{-2ix}e^{it}\
 - Level: A
 
 $P=\mathbb R\times GL(2,\mathbb R)$ の section を $s(x)=(x,I)$ から $s'(x)=(x,H(x))$ に変更する。ただし、点 $p=(x,K)$ と行列を
-$
+$$
 H(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix},
 \qquad K=\begin{pmatrix}2&0\\1&1\end{pmatrix}
-$
+$$
 とする。$p$ の新しい群座標を求めよ。
 
 <!-- solution-start -->
@@ -349,18 +349,18 @@ $(0,\infty)$ で $y=\log x$ とする。$E_x=\partial/\partial x$、$E_y=\partia
 - Level: B
 
 $G=GL(2,\mathbb R)$、$U_0=U_1=\mathbb R$ とし、$g_{01}=I$ とする。sectionの変更関数は、次の行列を値に持つ定数関数である。
-$
+$$
 h_0=\begin{pmatrix}1&1\\0&1\end{pmatrix},
 \qquad h_1=\begin{pmatrix}1&0\\1&1\end{pmatrix}.
-$
+$$
 $g'_{01},g'_{10}$ を求め、互いに逆であることを行列積で確認せよ。
 
 <!-- solution-start -->
 **詳細解答**。両行列の行列式は $1$ で、逆行列は
-$
+$$
 h_0^{-1}=\begin{pmatrix}1&-1\\0&1\end{pmatrix},
 \qquad h_1^{-1}=\begin{pmatrix}1&0\\-1&1\end{pmatrix}
-$
+$$
 である。右作用の[変換則](#thm-gbg3-transition-change)で
 $$
 g'_{01}=h_0^{-1}h_1=\begin{pmatrix}0&-1\\1&1\end{pmatrix},\qquad
@@ -419,9 +419,9 @@ $$
 - Level: B
 
 $G=GL(2,\mathbb R)$、$U_0=U_1=\mathbb R$、$a_0=I$ とする。滑らかな関数
-$
+$$
 a_1(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix}
-$
+$$
 に対し $g_{ij}=a_i a_j^{-1}$ と定める。$g_{01}$ と $g_{10}$ を計算し、$s'_i=s_i a_i$ に変更すると遷移関数が恒等となることを示せ。
 
 <!-- solution-start -->
