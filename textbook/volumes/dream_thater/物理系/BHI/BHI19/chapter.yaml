@@ -1,0 +1,42 @@
+id: BHI19
+title: "JT重力の作用と場の方程式"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI18
+official_scope: []
+learning_objectives:
+  - 二次元JT作用のbulk・dilaton GHY境界項・位相項・反項を符号と次元を固定して記述できる
+  - dilaton変分からR=-2/ell^2を導出し物質作用の非依存条件を説明できる
+  - 計量変分の二階微分項と物質応力テンソルからJT方程式の符号・係数を導ける
+  - トレース方程式と真空Hessian方程式を導出して定数dilatonの制限を確認できる
+  - Poincare AdS2パッチで曲率・Hessian・cutoff境界Kと反項を検算できる
+  - Euclid位相項のS0と後続の幾何学的エントロピーの役割を区別できる
+definitions:
+  - { id: BHI19-DEF-01, name: "境界を持つJT重力の作用" }
+  - { id: BHI19-DEF-02, name: "JT模型の物質応力テンソル" }
+theorems:
+  - { id: BHI19-PROP-01, name: "Euclid化した位相項と定数S0" }
+  - { id: BHI19-PROP-02, name: "dilaton方程式と一定負曲率" }
+  - { id: BHI19-PROP-03, name: "物質を含むJT計量方程式" }
+  - { id: BHI19-PROP-04, name: "トレース方程式と真空のHessian形" }
+canonical_examples:
+  - smooth Euclid円板と円環の位相作用の比較
+  - 質量零実スカラー物質の応力テンソルと跡
+  - AdS2 Poincareパッチの曲率・dilaton Hessianの全成分検算
+  - cutoff境界の外部曲率・GHY項・反項の相殺
+problem_patterns:
+  - BHI19-TOPOLOGY-WEIGHT
+  - BHI19-DILATON-VARIATION
+  - BHI19-TRACE-COEFFICIENT
+  - BHI19-CONFORMAL-CURVATURE
+  - BHI19-CONSTANT-DILATON
+  - BHI19-METRIC-VARIATION
+  - BHI19-PURE-TRACE-STRESS
+  - BHI19-BOUNDARY-COUNTERTERM
+  - BHI19-TRACELESS-NONZERO-STRESS
+  - BHI19-INTEGRATED-JT-VALIDATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 15, review: 6 }
