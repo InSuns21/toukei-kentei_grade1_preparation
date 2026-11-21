@@ -178,8 +178,16 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
   const modeLoc=gl.getUniformLocation(prog,'u_displayMode');
   const aspectLoc=gl.getUniformLocation(prog,'u_aspect');
   if(modeLoc!==null&&aspectLoc!==null){
-    let stateStep=steps,playing=!(window.matchMedia?.('(prefers-reduced-motion: reduce)').matches??false);
+    const motionPreference=window.matchMedia?.('(prefers-reduced-motion: reduce)');
+    let stateStep=steps,playing=!(motionPreference?.matches??false);
     let last=0,acc=0,raf=0,dragging=false;
+    const onMotionPreferenceChange=event=>{
+      if(event.matches){
+        playing=false;last=0;acc=0;
+        report('MOTION','reduced motion: paused (Space to restart manually)');
+      }
+    };
+    motionPreference?.addEventListener?.('change',onMotionPreferenceChange);
     canvas.tabIndex=0;
     canvas.title='FCG5 12×12実ソルバー：Spaceで再生・停止、Shift+ドラッグ（タッチならドラッグ）で染料追加。通常クリックはGPU画素診断です。';
     canvas.setAttribute('aria-label','FCG5 実際のMAC格子ソルバーの染料アニメーション。Spaceで再生停止、Shift+ドラッグで色を投入');
@@ -238,7 +246,10 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
     canvas.addEventListener('pointerup',release);
     canvas.addEventListener('pointercancel',release);
     canvas.addEventListener('keydown',e=>{
-      if(e.key===' '){e.preventDefault();playing=!playing;last=0;acc=0;}
+      if(e.key===' '){
+        e.preventDefault();playing=!playing;last=0;acc=0;
+        report('MOTION',playing?'manual play':'paused by Space');
+      }
     });
     // Draw the first presentation frame on rAF. The runner has already read
     // the untouched 3-panel oracle because it executes synchronously before
@@ -260,7 +271,10 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
       raf=requestAnimationFrame(frame);
     }
     raf=requestAnimationFrame(frame);
-    window.addEventListener('pagehide',()=>cancelAnimationFrame(raf),{once:true});
+    window.addEventListener('pagehide',()=>{
+      cancelAnimationFrame(raf);
+      motionPreference?.removeEventListener?.('change',onMotionPreferenceChange);
+    },{once:true});
     report('ANIMATION','12x12 EDITABLE solver draws the same dye state after the static R8 pixel oracle; Shift+drag adds external dye, Space pauses');
   }
 }
