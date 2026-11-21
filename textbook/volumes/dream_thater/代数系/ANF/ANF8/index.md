@@ -57,12 +57,25 @@ $$
 <!-- definition-example-start: def-anf8-partial-zeta -->
 **定義の確認**　$\mathbb Q$ の類群は自明なので唯一の類 $C=[\mathbb Z]$ に対して $A_C(X)=\lfloor X\rfloor$ です。これは「整イデアルの類を固定する」という条件が制限を加えない例です。
 
-一方、$K=\mathbb Q(\sqrt{-5})$、$A=\mathbb Z[\sqrt{-5}]$ とします。[ANF6 の類群計算](../ANF6/index.md#thm-anf6-q-sqrt-minus-five-class-group)によれば $\mathfrak p=(2,1+\sqrt{-5})$ は非主イデアルで、類群は $[A]$ と $[\mathfrak p]$ の2元です。$\sqrt{-5}\equiv1\pmod{\mathfrak p}$ なので $A/\mathfrak p\simeq\mathbb F_2$、従って $N\mathfrak p=2$。$D_K=-20$ であり、[二次体の分岐判定](../ANF4/index.md#thm-anf4-quadratic-splitting)から2の上の素イデアルは $\mathfrak p$ だけです。よって $X=2$ では
+一方、$K=\mathbb Q(\sqrt{-5})$ では整数環が $A=\mathbb Z[\sqrt{-5}]$ です。[ANF6 の類群計算](../ANF6/index.md#thm-anf6-q-sqrt-minus-five-class-group)によると、次のイデアルは非主で、類群には2つの類があります。
 
-$
+$$
+\mathfrak p=(2,1+\sqrt{-5}),\qquad
+\operatorname{Cl}(K)=\{[A],[\mathfrak p]\}.
+$$
+
+$\sqrt{-5}\equiv1\pmod{\mathfrak p}$ によって整数環の剰余を計算すると
+
+$$
+A/\mathfrak p\simeq\mathbb F_2,\qquad N\mathfrak p=2.
+$$
+
+また $D_K=-20$ です。[二次体の分岐判定](../ANF4/index.md#thm-anf4-quadratic-splitting)を素数2に適用すると、その上にある素イデアルは $\mathfrak p$ だけです。したがって $X=2$ では
+
+$$
 A_{[A]}(2)=1\quad(\text{単位イデアル }A),\qquad
 A_{[\mathfrak p]}(2)=1\quad(\text{ノルム2の }\mathfrak p).
-$
+$$
 
 > この体では $\zeta_K(s)=\zeta_{[A]}(s)+\zeta_{[\mathfrak p]}(s)$ であり、類を固定することで実際に異なる整イデアルを数え分けます。
 <!-- definition-example-end -->
@@ -132,10 +145,10 @@ $$
 
 単に $y_i$ を取ると、元の大きさを変えたとき和も変化します。大きさの共通成分を取り除き、単数による移動だけを見えるようにします。実際、$\sum_i y_i=\log Q(z)$ かつ $\sum_i w_i=n$ なので、以下で定める座標は
 
-$
+$$
 \sum_{i=1}^m\left(y_i(z)-\frac{w_i}{n}\log Q(z)\right)
 =\log Q(z)-\log Q(z)=0
-$
+$$
 
 > を満たします。この和零条件により、座標が $H$ に入ると判定できます。
 
@@ -301,7 +314,21 @@ $n=1$ では境界は有限個の点で覆えるという条件から境界と�
 
 $\Omega_P$ にもこの補題を使えます。$P$ の閉包は、有限個の面を持つ有界閉平行多面体です。$Q(z)=1$ の切断面を $x\in\overline P$、実座標の符号、複素座標の偏角で表すと、座標の絶対値は $\exp(x_i/w_i)$ です。
 
-この切断面は、実座標の符号を固定し、複素偏角を有限個の閉区間に分ければ、$x\in\overline P$ と偏角 $\theta$ の滑らかな関数 $z(x,\theta)$ で記述できます。半径 $0\leq\lambda\leq1$ を掛けた点は $Q(\lambda z)=\lambda^n$、$x(\lambda z)=x(z)$（$\lambda>0$）を満たします。境界は主に $\lambda=1$ の外面と $x\in\partial P$ の側面、および原点からなります。外面のパラメータ数は $(m-1)+r_2=n-1$、側面は $1+(m-2)+r_2=n-1$ です（$m=1$ では側面なし）。写像 $(\lambda,x,\theta)\mapsto\lambda z(x,\theta)$ は有界閉な各パラメータ箱で導関数が有界なので Lipschitz です。従って境界は有限枚の Lipschitz 面で覆え、半開境界の選択は主項を変えません。
+この切断面では実座標の符号を固定し、複素偏角を有限個の閉区間に分けます。すると、$x\in\overline P$ と偏角 $\theta$ から滑らかな関数 $z(x,\theta)$ で各点を表せます。半径を $0\leq\lambda\leq1$ 倍したときは
+
+$$
+Q(\lambda z)=\lambda^nQ(z)=\lambda^n,\qquad
+x(\lambda z)=x(z)\quad(\lambda>0).
+$$
+
+境界は $\lambda=1$ の外面、$x\in\partial P$ の側面、および原点からなります。それぞれの面のパラメータ数は
+
+$$
+\text{外面}:\ (m-1)+r_2=n-1,\qquad
+\text{側面}:\ 1+(m-2)+r_2=n-1
+$$
+
+> です。$m=1$ では側面はありません。写像 $(\lambda,x,\theta)\mapsto\lambda z(x,\theta)$ は有界閉なパラメータ箱で導関数が有界なので Lipschitz です。従って境界は有限枚の Lipschitz 面で覆え、半開境界の選択は主項を変えません。
 
 ## 5. 類ごとに主項を取り出す
 
@@ -433,9 +460,9 @@ $$
 
 > 右辺第2項の被積分関数は、$x\geq1$ において定数倍の $x^{-\Re(s)-1/n}$ で抑えられます。この積分は $\Re(s)>1-1/n$ で収束します。ここで積分変数は $x$、複素微分する変数は $s$ であり、
 
-$
+$$
 \frac{d^k}{ds^k}x^{-s-1}=(-\log x)^k x^{-s-1}\qquad(k\geq0)
-$
+$$
 
 > です。同領域のコンパクト集合上では、任意の固定した $k$ に対して $|E(x)|\log^k x\,x^{-\Re(s)-1}$ の積分が一様収束するので、第2項は $\Re(s)>1-1/n$ で正則です。従って右辺が $\zeta_K$ の $s=1$ 近傍への有理型延長を与えます。
 
@@ -473,10 +500,10 @@ $$
 
 > これは独立にも検算できます。[二次体の分解](../ANF4/index.md#thm-anf4-quadratic-splitting)に従い、整数 $m\geq1$ に対して $\chi_{-4}(m)$ を「$m\equiv1\pmod4$ なら1、$m\equiv3\pmod4$ なら $-1$、偶数なら0」と定めます。この関数は $\chi_{-4}(ab)=\chi_{-4}(a)\chi_{-4}(b)$ を満たします。実際、偶数因子があれば両辺とも0で、奇数の剰余類 $1,3$ については $3\cdot3\equiv1\pmod4$ です。従って $\Re(s)>1$ の絶対収束の下で
 
-$
+$$
 \sum_{m\geq1}\frac{\chi_{-4}(m)}{m^s}
 =\prod_p\left(1-\chi_{-4}(p)p^{-s}\right)^{-1}
-$
+$$
 
 > と幾何級数を展開できます。各素数の因子を [DedekindのEuler積](#prop-anf8-euler-product)と照合すると
 
@@ -626,7 +653,7 @@ $A(X)=\kappa X+O(X^\theta)$（$0\leq\theta<1$）が成り立ち、Dirichlet級�
 - ID: ANF8-B3
 
 <!-- solution-start -->
-**詳細解答**　$A(x)=\kappa x+O(x^\theta)=O(x)$ だから $\Re(s)>1$ で $A(Y)Y^{-s}\to0$ です。非負係数の Dirichlet 級数はこの領域で絶対収束し、有限和の部分積分から
+**詳細解答**　$A(x)=\kappa x+O(x^\theta)=O(x)$ なので、$\Re(s)>1$ で $A(Y)Y^{-s}\to0$ です。この増大度と係数の非負性から級数 $F(s)$ は同領域で絶対収束します。有限和の部分積分で端の項を消すと
 
 $$
 F(s)=s\int_1^\infty A(x)x^{-s-1}\,dx.
