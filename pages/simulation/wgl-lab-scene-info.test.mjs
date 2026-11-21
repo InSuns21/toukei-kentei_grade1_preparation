@@ -114,7 +114,29 @@ test('G3 legends derive their initial step and GPU buffer dimensions from the ru
   assert.match(post.source,/filterMode.*exposure.*postprocess.frag/);
   assert.equal(post.clock,'原画A→畳込みB→画面の左右比較という3パス（物理stepなし）');
   assert.equal(post.pixels,'800×600 px（GPU描画バッファ）');
-  assert.equal(sceneDescription('WGL15',{width:320,height:240,steps:0}),null);
+  const picking=sceneDescription('WGL15',{width:320,height:240});
+  assert.match(picking.grid,/RGBA8 ID.*DEPTH_COMPONENT16/);
+  assert.match(picking.color,/ID1.*ID2.*背景/);
+  assert.match(picking.mode,/CPU射線.*深度LESS/);
+  assert.match(picking.source,/picking.js.*picking.frag/);
+  assert.match(picking.clock,/物理stepなし/);
+  assert.equal(picking.pixels,'320×240 px（GPU描画バッファ）');
+  const instances=sceneDescription('WGL16',{width:640,height:480});
+  assert.match(instances.grid,/8×8.*64個.*数値計算格子ではない/);
+  assert.match(instances.color,/橙RGB.*青RGB/);
+  assert.match(instances.mode,/64 draw calls.*1 draw call.*gl.finish/);
+  assert.match(instances.source,/gridSize.*drawMode.*instancing.frag/);
+  assert.match(instances.clock,/物理stepなし/);
+  const textures=sceneDescription('WGL17',{width:512,height:384});
+  assert.match(textures.grid,/4×2.*R8.*最近傍/);
+  assert.match(textures.color,/−2〜2.*0〜255.*赤青/);
+  assert.match(textures.mode,/R8正規化.*R8UI整数.*R32F.*FLOAT/);
+  assert.match(textures.source,/physicalValues.*texelFetch/);
+  assert.equal(textures.pixels,'512×384 px（GPU描画バッファ）');
+  for (const lesson of ['WGL15','WGL16','WGL17']) {
+    assert.equal(sceneDescription(lesson,{width:0,height:240}),null);
+    assert.equal(sceneDescription(lesson,{width:320,height:0}),null);
+  }
   assert.equal(sceneDescription('FCG3',{width:NaN,height:320,steps:1}),null);
   assert.equal(sceneDescription('FCG3',{width:320,height:320,steps:-1}),null);
 });

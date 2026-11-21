@@ -1054,6 +1054,12 @@ try{
   assert.equal(wgl15.sandbox,'allow-scripts');
   assert.match(wgl15.log,/RGBA8 ID texture \+ DEPTH_COMPONENT16 renderbuffer, FBO complete/);
   assert.match(wgl15.log,/GL error: 0x0/);
+  const scene15=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
+  assert.match(scene15.grid,/RGBA8 ID.*DEPTH_COMPONENT16/);
+  assert.match(scene15.color,/ID1.*ID2/);
+  assert.match(scene15.mode,/CPU射線.*深度LESS/);
+  assert.match(scene15.clock,/物理stepなし/);
+  assert.match(scene15.source,/picking.js.*picking.frag/);
   const expected15=['230, 70, 35, 255','30, 150, 220, 255',
     '230, 70, 35, 255','10, 18, 29, 255'];
   for(let i=0;i<4;i++) {
@@ -1129,6 +1135,12 @@ try{
   assert.match(wgl16.log,/384 vertex invocations/);
   assert.match(wgl16.log,/0 mismatched RGBA pixels between loop and instanced/);
   assert.match(wgl16.log,/GL error: 0x0/);
+  const scene16=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
+  assert.match(scene16.grid,/8×8.*64個.*数値計算格子ではない/);
+  assert.match(scene16.color,/橙RGB.*青RGB/);
+  assert.match(scene16.mode,/64 draw calls.*1 draw call.*gl.finish/);
+  assert.match(scene16.source,/gl.drawArraysInstanced.*instancing.frag/);
+  assert.match(scene16.clock,/物理stepなし/);
   const shot16=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
   await writeFile('_wgl_browser_review/wgl16-initial.png',Buffer.from(shot16.data,'base64'));
   console.log('WGL16 real GPU instancing: 64 vs 1 draw calls, 384 vertices, same full framebuffer and six CPU probes: PASS');
@@ -1185,6 +1197,12 @@ try{
   assert.equal(initial17.sandbox,'allow-scripts');
   assert.match(initial17.log,/R8 \/ RED \/ UNSIGNED_BYTE/);
   assert.match(initial17.log,/GL error: 0x0/);
+  const scene17=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
+  assert.match(scene17.grid,/4×2.*R8.*最近傍/);
+  assert.match(scene17.color,/−2〜2.*赤青/);
+  assert.match(scene17.mode,/R8正規化.*R8UI整数.*R32F.*FLOAT/);
+  assert.match(scene17.source,/data-grid.js.*data-grid.frag/);
+  assert.match(scene17.clock,/物理stepなし/);
   const shot17=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
   await writeFile('_wgl_browser_review/wgl17-r8.png',Buffer.from(shot17.data,'base64'));
   console.log('WGL17 R8 texture upload and 8 independent CPU/GPU sample matches: PASS');
