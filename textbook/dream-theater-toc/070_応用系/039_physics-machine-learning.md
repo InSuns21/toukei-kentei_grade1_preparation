@@ -23,3 +23,7 @@
 20. [PML1-20 連続系の保存則と数値積分での保存は同じか](textbook/volumes/dream_thater/応用系/PML/PML1-20/index.md)
 21. [PML1-21 データから動力学を同定すると何が失われるか](textbook/volumes/dream_thater/応用系/PML/PML1-21/index.md)
 22. [PML1-22 物理制約付きモデルは本当に優れるか](textbook/volumes/dream_thater/応用系/PML/PML1-22/index.md)
+
+### 機械学習と物理学 II
+
+1. [PML2-01 何を「PDEを解く」と呼ぶか](textbook/volumes/dream_thater/応用系/PML/PML2-01/index.md)

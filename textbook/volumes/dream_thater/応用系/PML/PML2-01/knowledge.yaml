@@ -1,0 +1,53 @@
+chapter: PML2-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML1-22
+  - PDE1
+  - GPDE4
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-01-problem
+    name: PDE解問題の指定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（PDE解問題の指定）"]
+    requires:
+      - pde.pde1-initial-boundary-value-problem
+  - id: physics-machine-learning.pml2-01-classical
+    name: Dirichlet Poisson問題の古典解
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Dirichlet Poisson問題の古典解）"]
+    requires:
+      - physics-machine-learning.pml2-01-problem
+  - id: physics-machine-learning.pml2-01-energy-weak
+    name: 零Dirichlet Poisson問題のエネルギー弱解
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（零Dirichlet Poisson問題のエネルギー弱解）"]
+    requires:
+      - physics-machine-learning.pml2-01-problem
+      - sobolev.h01
+  - id: physics-machine-learning.pml2-01-classical-implies-weak
+    name: 古典解はエネルギー弱解になる
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-01-classical
+      - physics-machine-learning.pml2-01-energy-weak
+  - id: physics-machine-learning.pml2-01-construction
+    name: 一次元Dirichlet Poisson問題の解の構成
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-01-energy-weak
+      - sobolev.h01-trace-kernel-interval
+  - id: physics-machine-learning.pml2-01-energy-estimate
+    name: Dirichlet Poisson問題の存在・一意性・安定性
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-01-construction
+      - pde.pde1-well-posedness
+      - sobolev.poincare-h01

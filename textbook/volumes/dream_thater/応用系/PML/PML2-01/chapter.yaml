@@ -1,0 +1,49 @@
+id: "PML2-01"
+title: "何を「PDEを解く」と呼ぶか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML1-22
+  - PDE1
+  - GPDE4
+official_scope: []
+learning_objectives:
+  - PDE問題の領域・演算子・右辺・初期境界データ・解空間・等式の意味を明示できる
+  - 時間依存のPDEで初期条件と境界条件および交点での整合性を直接検証できる
+  - 一次元Poissonの古典解とエネルギー弱解を定義しそれぞれ直接例で確認できる
+  - 古典解から弱解への移行を部分積分と近似列の極限から証明できる
+  - L2右辺の零Dirichlet解を二回の積分で構成しH0^1の境界条件を確認できる
+  - 弱形式とPoincare評価から存在・一意性・データ連続依存を導出できる
+  - 不連続右辺で弱解が存在してもC2古典解が存在しない例を計算できる
+  - 境界条件を欠くと一意性証明が壊れる反例を説明できる
+  - 内部残差の消失・境界条件・真の解との誤差を区別できる
+definitions:
+  - { id: PML2-01-DEF-01, name: PDE解問題の指定 }
+  - { id: PML2-01-DEF-02, name: Dirichlet Poisson問題の古典解 }
+  - { id: PML2-01-DEF-03, name: 零Dirichlet Poisson問題のエネルギー弱解 }
+theorems:
+  - { id: PML2-01-PROP-01, name: 古典解はエネルギー弱解になる }
+  - { id: PML2-01-THM-01, name: 一次元Dirichlet Poisson問題の解の構成 }
+  - { id: PML2-01-THM-02, name: Dirichlet Poisson問題の存在・一意性・安定性 }
+canonical_examples:
+  - f=2に対するx(1-x)の古典解と全弱試験関数での確認
+  - 熱方程式の正弦単一モードでの初期・境界・内部方程式の同時検証
+  - f=4xからのDirichlet解の積分構成
+  - 不連続L2右辺によるC1かつ非C2の弱解
+  - 境界条件欠落による二定数自由度と弱形式試験の破綻
+  - 内部残差ゼロでも端点で誤る定数平行移動
+problem_patterns:
+  - PML2-01-A01
+  - PML2-01-A02
+  - PML2-01-A03
+  - PML2-01-A04
+  - PML2-01-A05
+  - PML2-01-B01
+  - PML2-01-B02
+  - PML2-01-B03
+  - PML2-01-B04
+  - PML2-01-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
