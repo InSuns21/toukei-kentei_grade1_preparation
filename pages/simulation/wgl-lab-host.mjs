@@ -12,7 +12,7 @@ import { highlightSource } from './wgl-lab-highlight.mjs';
 import {mountSmokeObservation} from './wgl-fcg-fluid-visual.mjs';
 import {mountReferenceObservation} from './wgl-fcg-reference-visual.mjs';
 import {mountVisualGuide} from './wgl-fcg-visual-guide.mjs';
-import {mountLabParameters} from './wgl-lab-parameters.mjs';
+import {mountLabParameters,parametersFor,readLabParameter,writeLabParameter} from './wgl-lab-parameters.mjs';
 import {mountSceneInfo} from './wgl-lab-scene-info.mjs';
 import { compareWGL2Readback, expectedWGL2Samples } from './wgl2-lab-core.mjs';
 import { compareWGL3Readback, expectedWGL3Samples } from './wgl3-lab-core.mjs';
@@ -920,17 +920,40 @@ window.addEventListener('message', event => {
       Number.isFinite(wgl19Params.rate) && wgl19Params.rate >= 0 && wgl19Params.rate <= 0.25 &&
       Number.isInteger(wgl19Params.steps) && wgl19Params.steps >= 0 && wgl19Params.steps <= 12 &&
       wgl19Params.steps === data.frameAudit.steps;
-    const rows = (isWGL20 ? compareWGL20Readback : isFCG8 ? (got,w,h)=>compareFCG8Readback(got,w,h,active.payload.steps) : isFCG7 ? (got,w,h)=>compareFCG7Readback(got,w,h,active.payload.steps) : isFCG6 ? (got,w,h)=>compareFCG6Readback(got,w,h,active.payload.steps) : isFCG5 ? (got,w,h)=>compareFCG5Readback(got,w,h,active.payload.steps) : isFCG4 ? (got,w,h)=>compareFCG4Readback(got,w,h,active.payload.steps) : isFCG3 ? (got,w,h)=>compareFCG3Readback(got,w,h,active.payload.steps) : isFCG2 ? (got,w,h)=>compareFCG2Readback(got,w,h,active.payload.steps) : isWGL19 ? (got,w,h)=>wgl19Valid ? compareWGL19Readback(got,w,h,2,wgl19Params.rate,wgl19Params.steps) : compareWGL19Readback(got,w,h) : isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
+    // Only the two known FCG5 literals may differ from the canonical JS.
+    // If any other JS/GLSL was edited, the initial CPU model is only a reference.
+    let fcg5Physics=null;
+    if(isFCG5&&active.payload.vertex===defaults.vertex&&
+       active.payload.fragment===defaults.fragment){
+      const specs=parametersFor('FCG5');
+      const readings=specs.map(spec=>readLabParameter(active.payload.js,spec));
+      if(readings.length===2&&readings.every(state=>state.ok)){
+        try{
+          let canonical=active.payload.js;
+          for(const spec of specs)
+            canonical=writeLabParameter(canonical,spec,spec.default);
+          if(canonical===defaults.js)
+            fcg5Physics={nu:readings[0].value,force:readings[1].value};
+        }catch{/* Custom JS remains editable; independent comparison is reference only. */}
+      }
+    }
+    const verifiedComparison=unchanged||!!fcg5Physics;
+    const rows = (isWGL20 ? compareWGL20Readback : isFCG8 ? (got,w,h)=>compareFCG8Readback(got,w,h,active.payload.steps) : isFCG7 ? (got,w,h)=>compareFCG7Readback(got,w,h,active.payload.steps) : isFCG6 ? (got,w,h)=>compareFCG6Readback(got,w,h,active.payload.steps) : isFCG5 ? (got,w,h)=>compareFCG5Readback(got,w,h,active.payload.steps,2,fcg5Physics||{}) : isFCG4 ? (got,w,h)=>compareFCG4Readback(got,w,h,active.payload.steps) : isFCG3 ? (got,w,h)=>compareFCG3Readback(got,w,h,active.payload.steps) : isFCG2 ? (got,w,h)=>compareFCG2Readback(got,w,h,active.payload.steps) : isWGL19 ? (got,w,h)=>wgl19Valid ? compareWGL19Readback(got,w,h,2,wgl19Params.rate,wgl19Params.steps) : compareWGL19Readback(got,w,h) : isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
       samples, active.payload.width, active.payload.height);
-    showTable(rows, unchanged);
+    showTable(rows, verifiedComparison);
     byId('result-note').textContent = 'GPUへ描画しました。コードや条件を変えて再実行できます。';
-    byId('numeric-summary').textContent = unchanged ?
-      '（基準画素 ' + rows.filter(row => row.pass).length + '/' + rows.length + '）' :
+    byId('numeric-summary').textContent = verifiedComparison ?
+      '（' + (isFCG5&&!unchanged ? '変更係数の独立CPU画素 ' : '基準画素 ') +
+      rows.filter(row => row.pass).length + '/' + rows.length + '）' :
       '（編集版・参考比較）';
     const pass = rows.every(row => row.pass);
-    setStatus(unchanged && pass ? '初期ソースの独立画素検算に合格' :
-      unchanged ? '基準画素と不一致（viewport/色/GL状態を再確認）' : '編集コードを実行しました（基準との差を比較）',
-      unchanged && !pass);
+    setStatus(isFCG5&&!unchanged&&fcg5Physics ?
+      (pass ? 'FCG5 編集した粘性・外力の独立画素検算に合格' :
+        'FCG5 編集した粘性・外力の独立画素検算が不一致') :
+      unchanged && pass ? '初期ソースの独立画素検算に合格' :
+      unchanged ? '基準画素と不一致（viewport/色/GL状態を再確認）' :
+        '編集コードを実行しました（基準との差を比較）',
+      verifiedComparison && !pass);
     if (isWGL20) {
       const verified=verifyWGL20Report(data.checkpoints,plateauSnapshot);
       byId('diagnostics').textContent += '\nWGL20 independent CPU geodetic→local, mesh count, ground/water/depth: '+
@@ -964,6 +987,12 @@ window.addEventListener('message', event => {
       'CPUは座標と色の定数から独立に予測し、GPUはreadPixelsで実測。RGBA各成分' +
       ((isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8) ? '±2' : isWGL20 ? '±1' : isWGL19 ? '±2' : isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
+    if (isFCG5 && fcg5Physics && !unchanged) {
+      byId('numeric-note').textContent =
+        'FCG5：実行したnu='+fcg5Physics.nu+' m²/s、外力振幅='+
+        fcg5Physics.force+' m²/s²で独立CPUの12×12格子を再計算し、'+
+        'GPUの9画素と各成分±2で比較（その他のJS/GLSLは初期ソースと同一）。';
+    }
     if (isWGL19 && wgl19Valid && !unchanged) {
       byId('numeric-note').textContent =
         'WGL19：実行時の数値step・拡散係数を独立CPUで再計算し、RGBA各成分±2で比較。GLSL自体を変更した場合は不一致になり得ます。';
