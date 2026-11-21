@@ -6,6 +6,7 @@ prerequisites:
   - GBG5
   - GEO2
   - LIE2
+  - LIE4
 official_scope: []
 learning_objectives:
   - 主束の垂直接空間を射影の微分の核として定め、局所自明化で次元と滑らかさを確認できる
@@ -17,7 +18,7 @@ learning_objectives:
   - 局所sectionから水平分布を構成し、固定分布の表示変更と別の分布選択を区別できる
 definitions:
   - { id: GBG6-DEF-01, name: 垂直接空間と垂直分布 }
-  - { id: GBG6-DEF-02, name: 基本ベクトル場 }
+  - { id: GBG6-DEF-02, name: 右主束の基本ベクトル場 }
   - { id: GBG6-DEF-03, name: 右主束の水平分布 }
 theorems:
   - { id: GBG6-THM-01, name: 垂直接空間とLie環の同型 }
