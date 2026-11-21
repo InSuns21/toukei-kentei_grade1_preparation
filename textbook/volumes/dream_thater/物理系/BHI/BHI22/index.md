@@ -18,7 +18,7 @@ $$
 ds_G^2=\frac{\ell^2}{z^2}(-dT^2+dz^2)
 $$
 
-を置きます。[BHI21の正則化境界](../BHI21/index.md#def-bhi21-regulated-boundary)のLorentz版として、重力側の接合曲線を $u\mapsto(T,z)=(F(u),Z(u))$ と書きます。ここで $F'=dF/du$、$Z'=dZ/du$ とし、二階・三階のプライムも同じ変数 $u$ に関する常微分を表します。接線は $(dT/du,dz/du)=(F',Z')$ です。$F'>0$、$Z>0$、$F'^2>Z'^2$ として時間的曲線を選びます。$i_G^*g_G$ はこの接線へ計量を引き戻した誘導計量であり、$dT=F'du$、$dz=Z'du$ を代入すると、
+を置きます。[BHI21の正則化境界](../BHI21/index.md#def-bhi21-regulated-boundary)のLorentz版として、重力側の接合曲線を $u\mapsto(T,z)=(F(u),Z(u))$ と書き、この曲線を $\Sigma_G$ と呼びます。ここで $F'=dF/du$、$Z'=dZ/du$ とし、二階・三階のプライムも同じ変数 $u$ に関する常微分を表します。接線は $(dT/du,dz/du)=(F',Z')$ です。$F'>0$、$Z>0$、$F'^2>Z'^2$ として時間的曲線を選びます。$i_G^*g_G$ はこの接線へ計量を引き戻した誘導計量であり、$dT=F'du$、$dz=Z'du$ を代入すると、
 
 $$
 i_G^*g_G=-\frac{\ell^2}{Z^2}(F'^2-Z'^2)\,du^2.
@@ -31,7 +31,7 @@ ds_B^2=\varepsilon^{-2}(-du^2+dx^2),
 \qquad \Sigma_B=\{x=0\}
 $$
 
-と取ります。浴の $x=0$ 上では $i_B^*g_B=-du^2/\varepsilon^2$。従って誘導計量を合わせる条件は
+と取ります。浴の埋め込み $i_B(u)=(u,0)$ で $dx=0$ を代入すると $i_B^*g_B=-du^2/\varepsilon^2$。従って誘導計量を合わせる条件は
 
 $$
 \frac{\ell^2}{Z^2}(F'^2-Z'^2)=\varepsilon^{-2},
@@ -107,7 +107,7 @@ I_{\rm m}=-\frac12\sum_{s=G,B}\lambda_s
 \partial_a\phi_s\partial_b\phi_s.
 $$
 
-添字 $a,b$ は座標 $(u,x)$ を走り、$\partial_u$ は $x$ を固定した微分、$\partial_x$ は $u$ を固定した微分です。計量成分の行列はこの座標基底で $g_{s,ab}=\Omega_s^2\operatorname{diag}(-1,1)$ なので、その行列式は $-\Omega_s^4$、逆行列は $\Omega_s^{-2}\operatorname{diag}(-1,1)$ です。従って
+添字 $a,b$ は座標 $(u,x)$ を走り、$\partial_u$ は $x$ を固定した微分、$\partial_x$ は $u$ を固定した微分です。各側の正の共形因子を $\Omega_s(u,x)>0$ とすると、計量成分の行列はこの座標基底で $g_{s,ab}=\Omega_s^2\operatorname{diag}(-1,1)$ です。その行列式は $-\Omega_s^4$、逆行列は $\Omega_s^{-2}\operatorname{diag}(-1,1)$ です。従って
 
 $$
 \sqrt{-g_s}=\Omega_s^2,\qquad
