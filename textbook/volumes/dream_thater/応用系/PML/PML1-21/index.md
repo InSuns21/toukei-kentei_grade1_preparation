@@ -53,7 +53,13 @@ $$
 となり、二係数のうち非零は一つである。
 <!-- definition-example-end -->
 
-状態 $x_i\in D$ と、その位置で測った速度 $y_i\in\mathbb R^d$ を $i=1,\ldots,N$ について与える。辞書を各観測点で評価し、その値を行へ並べると、係数を掛けた結果が予測速度になる。この対応を先に確認してから行列で書く。
+状態 $x_i\in D$ と、その位置で測った速度 $y_i\in\mathbb R^d$ を $i=1,\ldots,N$ について与える。辞書を各観測点で評価し、その値を行へ並べると、係数を掛けた結果が予測速度になる。実際、観測点番号を $i$、辞書関数番号を $j$、速度成分番号を $k$ とすれば、
+
+$$
+(f_\Xi(x_i))_k=\sum_{j=1}^p\phi_j(x_i)\xi_{jk}
+$$
+
+となる。これが辞書行列の第 $i$ 行と係数行列の第 $k$ 列の積に等しいため、全標本をまとめると予測速度行列は $\Theta\Xi$ となる。また $N\times d$ 行列 $A$ の Frobenius ノルムは $\|A\|_F^2=\sum_{i=1}^N\sum_{k=1}^d A_{ik}^2$ と定め、全成分の残差平方を足すために使う。
 
 <a id="def-pml1-21-design"></a>
 
@@ -122,7 +128,13 @@ $$
 \end{aligned}
 $$
 
-$\xi$ の各成分で微分すると $\nabla_\xi=2\Theta^{\mathsf T}\Theta\xi-2\Theta^{\mathsf T}y$。従って停留点は正規方程式 $\Theta^{\mathsf T}\Theta\xi=\Theta^{\mathsf T}y$ を満たす。
+目的関数 $J(\xi)=\|\Theta\xi-y\|_2^2$ を $\xi$ の各成分で微分すると、勾配は
+
+$$
+\nabla_\xi J(\xi)=2\Theta^{\mathsf T}\Theta\xi-2\Theta^{\mathsf T}y
+$$
+
+となる。従って停留点は正規方程式 $\Theta^{\mathsf T}\Theta\xi=\Theta^{\mathsf T}y$ を満たす。
 
 $\operatorname{rank}\Theta=p$ なら、任意の非零 $v\in\mathbb R^p$ で
 
@@ -132,7 +144,13 @@ $$
 
 よって $\Theta^{\mathsf T}\Theta$ は正定値かつ可逆で、上記の解が唯一の最小点となる。各列に適用して行列式を得る。
 
-$\operatorname{rank}\Theta<p$ の場合、$\Theta v=0$ を満たす非零 $v$ がある。有限次元の列空間への直交射影によって最小二乗解 $\xi_0$ が存在し、$\Theta(\xi_0+tv)=\Theta\xi_0$ が全 $t\in\mathbb R$ で成立するため非一意となる。複数列の場合も一つの列をこの方向にずらせる。
+$\operatorname{rank}\Theta<p$ の場合、$\Theta v=0$ を満たす非零 $v$ がある。最小化解の存在も確認する。列空間 $W=\{\Theta\xi:\xi\in\mathbb R^p\}\subset\mathbb R^N$ の正規直交基底を $u_1,\ldots,u_r$ とする（$r=0$ なら空集合とする）。$w=\sum_{j=1}^r(u_j^{\mathsf T}y)u_j\in W$ と置けば、任意の $z\in W$ に対して $y-w$ と $w-z$ が直交するので、
+
+$$
+\|y-z\|_2^2=\|y-w\|_2^2+\|w-z\|_2^2\ge\|y-w\|_2^2.
+$$
+
+$w\in W$ だから $\Theta\xi_0=w$ を満たす係数 $\xi_0$ が存在し、最小値を達成する。さらに $\Theta(\xi_0+tv)=\Theta\xi_0$ が全 $t\in\mathbb R$ で成立するため非一意となる。複数出力の場合も一つの係数列をこの方向にずらせる。
 
 最後に $Y=\Theta\Xi_\ast$ かつ列フルランクなら、上の一意性により $\widehat\Xi=\Xi_\ast$ となる。
 <!-- proof-end -->
@@ -170,7 +188,18 @@ $$
 =\xi_\ast+(\Theta^{\mathsf T}\Theta)^{-1}\Theta^{\mathsf T}e.
 $$
 
-実数行列の特異値分解を $\Theta=U\Sigma V^{\mathsf T}$（列フルランク）と書くと、上式の誤差作用素は $V\Sigma^{-1}U^{\mathsf T}$ で、その作用素ノルムは $1/\sigma_{\min}(\Theta)$。従ってノルム不等式から主張を得る。
+列フルランクなので $N\ge p$ である。既習の[特異値分解](../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-svd)を縮約形 $\Theta=U\Sigma V^{\mathsf T}$ と書く。ここで $U\in\mathbb R^{N\times p}$ は $U^{\mathsf T}U=I_p$ を満たし、$V\in\mathbb R^{p\times p}$ は直交行列、$\Sigma=\operatorname{diag}(\sigma_1,\ldots,\sigma_p)$ は正の特異値を並べた対角行列である。すると
+
+$$
+\begin{aligned}
+(\Theta^{\mathsf T}\Theta)^{-1}\Theta^{\mathsf T}
+&=(V\Sigma^2V^{\mathsf T})^{-1}V\Sigma U^{\mathsf T}\\
+&=V\Sigma^{-2}V^{\mathsf T}V\Sigma U^{\mathsf T}\\
+&=V\Sigma^{-1}U^{\mathsf T}.
+\end{aligned}
+$$
+
+$U^{\mathsf T}$ と $V$ はノルムを増やさず、$\Sigma^{-1}$ の最大対角成分は $1/\sigma_{\min}(\Theta)$ である。よって上式の作用素ノルムは高々 $1/\sigma_{\min}(\Theta)$ であり、主張の誤差上界を得る。
 <!-- proof-end -->
 
 行列が可逆でも、二列がほぼ同じ観測値を返せば最小特異値は小さくなる。**一意であることと、雑音に安定であることは別**である。また $\lambda>0$ の疎同定では正規方程式だけで最適化できず、係数をゼロにすることによる偏りも生じる。
@@ -183,13 +212,13 @@ $$
 D_hx(t)=\frac{x(t+h)-x(t-h)}{2h}
 $$
 
-を計算する。測定誤差があると、分子の二つの測定値の誤差も $2h$ で割られる。
+を計算する。第1節の $\dot x(t)$ と、以下で使う $x'(t)=dx(t)/dt$ は、ともに**時間 $t$ に関する一階微分**である。$x^{(3)}(s)=d^3x(s)/ds^3$ は時間変数 $s$ による三階微分を表す。測定誤差があると、分子の二つの測定値の誤差も $2h$ で割られる。
 
 <a id="prop-pml1-21-difference-error"></a>
 
 <!-- formal-statement-start -->
 > **命題（中央差分の切断誤差と観測誤差）**  
-> $x\in C^3([t-h,t+h])$、$|x^{(3)}(s)|\le M$ とする。観測値 $z_\pm=x(t\pm h)+\eta_\pm$ が $|\eta_\pm|\le\delta$ を満たすとき、
+> $x\in C^3([t-h,t+h])$、全 $s\in[t-h,t+h]$ で $|x^{(3)}(s)|\le M$ とする。観測値 $z_\pm=x(t\pm h)+\eta_\pm$ が $|\eta_\pm|\le\delta$ を満たすとき、
 
 $$
 \left|\frac{z_+-z_-}{2h}-x'(t)\right|
@@ -254,7 +283,13 @@ $$
 任意の実数 $b,c$ で $K_F(bg_1+cg_2)(x)=b+cax=bK_Fg_1(x)+cK_Fg_2(x)$ と直接確かめられる。
 <!-- definition-example-end -->
 
-有限辞書が時間発展後にも同じ関数の張る空間に戻るなら、無限に多い観測関数を扱う代わりに行列を使える。何を行列の列とするかを確認するため、辞書の各成分 $\phi_j(F(x))$ を、元の $\phi_\ell(x)$ の線形結合として表す。
+有限辞書が時間発展後にも同じ関数の張る空間に戻るなら、無限に多い観測関数を扱う代わりに行列を使える。何を行列の列とするかを確認するため、辞書の各成分 $\phi_j(F(x))$ を、元の $\phi_\ell(x)$ の線形結合として表す。つまり各 $j$ について係数 $B_{\ell j}$ を選び、
+
+$$
+\phi_j(F(x))=\sum_{\ell=1}^p\phi_\ell(x)B_{\ell j}\qquad(x\in D)
+$$
+
+が成立するかを問う。$j$ 番目の更新後の関数を表す係数が行列 $B$ の第 $j$ 列になる。辞書関数が線形独立なら、その係数は一意である。観測対 $(x_i,x_i^+)$ では $x_i^+$ を一回更新した後の状態とし、正確な対なら $x_i^+=F(x_i)$ である。
 
 <a id="def-pml1-21-koopman-matrix"></a>
 
@@ -285,7 +320,7 @@ $$
 =(1,x)\begin{pmatrix}1&0\\0&a\end{pmatrix}.
 $$
 
-従って $B=\operatorname{diag}(1,a)$ がすべての $x\in\mathbb R$ で成立し、$V=\operatorname{span}\{1,x\}$ は不変である。観測行列が列フルランクなら、観測対からもこの $B$ を一意に復元できる。
+辞書関数 $1,x$ は線形独立である。実際、$b+cx=0$ が全実数 $x$ で成立するなら、$x=0,1$ を代入して $b=c=0$ となる。また $F:\mathbb R\to\mathbb R$ なので、定義の写像条件を満たす。上の式は全 $x$ で成立するから、$B=\operatorname{diag}(1,a)$ が一意に定まり、$V=\operatorname{span}\{1,x\}$ は不変である。観測行列が列フルランクなら、観測対からもこの $B$ を一意に復元できる。
 <!-- definition-example-end -->
 
 <a id="prop-pml1-21-koopman-closure"></a>
@@ -379,7 +414,7 @@ $$
 f_\alpha(q,p)=(p,\,-q+\alpha(q^2-1))
 $$
 
-と置く。観測状態を $q=1$ と $q=-1$ に限れば、どの $p$ でも $f_\alpha=f$ なので、どの $\alpha$ も速度観測に完全に一致する。しかし任意のモデル軌道上で
+と置く。観測状態を $q=1$ と $q=-1$ に限れば、どの $p$ でも $f_\alpha=f$ なので、どの $\alpha$ も速度観測に完全に一致する。しかし任意のモデル軌道上で[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を $H(q(t),p(t))$ に適用すると、
 
 $$
 \begin{aligned}
@@ -493,7 +528,7 @@ $F(x)=-2x$、辞書 $\phi(x)=(1,x)^{\mathsf T}$ とする。$K_F1$、$K_Fx$、�
 <!-- solution-start -->
 #### 詳細解答
 
-定義から $(K_F1)(x)=1(F(x))=1$、$(K_Fx)(x)=F(x)=-2x$。従って
+定数関数 $g_1(x)\equiv1$ と恒等関数 $g_2(x)=x$ に対し、[状態写像に対する Koopman 作用素](#def-pml1-21-koopman)の定義から $(K_Fg_1)(x)=g_1(F(x))=1$、$(K_Fg_2)(x)=g_2(F(x))=-2x$。従って
 
 $$
 (1,F(x))=(1,x)
@@ -515,7 +550,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$q=\pm1$ では $q^2-1=0$ なので第二成分はともに $-q$。エネルギーの連鎖律により
+$q=\pm1$ では $q^2-1=0$ なので第二成分はともに $-q$。[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を $H(q(t),p(t))$ に適用すると、
 
 $$
 \frac{dH}{dt}=q p+p[-q+\alpha(q^2-1)]
@@ -602,7 +637,7 @@ $$
 \quad Z=\begin{pmatrix}1&0\\1&1\end{pmatrix}.
 $$
 
-$\det\Theta=1$ なので $\Theta B=Z$ の唯一解は $B=I_2$。しかし $K_Fx=x^2$。もし $x^2=a+bx$ が全実数で成り立つなら、$x=0$ から $a=0$、$x=1$ から $b=1$、$x=2$ から $4=2$ となり矛盾する。よって $K_FV\not\subset V$ である。行列の $x=2$ での予測は $2$、真の $F(2)$ は $4$。標本上の閉包と関数空間上の閉包は異なる。
+$\det\Theta=1$ なので $\Theta B=Z$ の唯一解は $B=I_2$。しかし $K_Fx=x^2$。もし $x^2=a+bx$ が全実数で成り立つなら、$x=0$ から $a=0$、$x=1$ から $b=1$、$x=2$ から $4=2$ となり矛盾する。よって[有限辞書の閉包判定](#prop-pml1-21-koopman-closure)から $K_FV\not\subset V$ である。行列の $x=2$ での予測は $2$、真の $F(2)$ は $4$。標本上の閉包と関数空間上の閉包は異なる。
 <!-- solution-end -->
 
 <a id="ex-pml1-21-b04"></a>
