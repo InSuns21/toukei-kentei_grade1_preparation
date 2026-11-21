@@ -1,0 +1,57 @@
+chapter: GBG6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG5
+  - GEO2
+  - LIE2
+forward_references: []
+concepts:
+  - id: gauge.vertical-tangent-space
+    name: 垂直接空間と垂直分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（垂直接空間と垂直分布）"]
+    requires: [gauge.principal-bundle, geometry.differential, geometry.tangent-bundle]
+
+  - id: gauge.fundamental-vector-field
+    name: 基本ベクトル場
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（基本ベクトル場）"]
+    requires: [gauge.principal-bundle, lie.exponential-map, geometry.curve-derivation-tangent-equivalence]
+
+  - id: gauge.vertical-fundamental-isomorphism
+    name: 垂直接空間とLie環の同型
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（垂直接空間と Lie 環の同型）"]
+    requires: [gauge.vertical-tangent-space, gauge.fundamental-vector-field, lie.adjoint-representation, gauge.section-trivialization]
+
+  - id: gauge.horizontal-distribution
+    name: 右主束の水平分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（右主束の水平分布）"]
+    requires: [gauge.vertical-tangent-space, geometry.vector-bundle, gauge.principal-bundle]
+
+  - id: gauge.horizontal-lift-splitting
+    name: 水平持ち上げと直和射影
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（水平持ち上げと直和射影）"]
+    requires: [gauge.horizontal-distribution, geometry.differential]
+
+  - id: gauge.product-horizontal-classification
+    name: 積主束の水平分布の具体形
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（積主束の水平分布の具体形）"]
+    requires: [gauge.horizontal-lift-splitting, geometry.product-tangent-space, gauge.trivial-principal-bundle]
+
+  - id: gauge.section-horizontal-distribution
+    name: 局所sectionから誘導される水平分布
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所sectionから誘導される水平分布）"]
+    requires: [gauge.horizontal-distribution, gauge.local-section, geometry.manifold-chain-rule]
