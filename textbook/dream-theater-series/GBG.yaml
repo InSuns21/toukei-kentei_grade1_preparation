@@ -28,7 +28,7 @@ chapters:
     title: "ゲージ変換群は何に作用するか"
   - id: GBG6
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG6
-    status: planned
+    status: completed
     title: "接空間を水平と垂直に分けるには"
   - id: GBG7
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG7
