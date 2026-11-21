@@ -6,7 +6,7 @@
 
 ## 1. 割り切れるほど小さい：$p$ 進付値
 
-素数 $p$ を固定します。$0\ne x\in\mathbb Q$ は一意に $x=p^e a/b$（$e\in\mathbb Z$、$a,b$ は $p$ で割り切れない整数）と表せます。この指数 $e$ を取り出したいのです。$x=0$ の場合を区別するため、$\infty$ はどの整数よりも大きく、$\infty+m=\infty$ と約束します。
+素数 $p$ を固定します。$0\ne x\in\mathbb Q$ は一意に $x=p^e a/b$（$e\in\mathbb Z$、$a,b$ は $p$ で割り切れない整数）と表せます。この指数 $e$ を取り出したいのです。$x=0$ の場合を区別するため、$\infty$ はどの整数よりも大きく、$m\in\mathbb Z\cup\{\infty\}$ に対し $\infty+m=m+\infty=\infty$ と約束します。絶対値への読み替えでは $p^{-\infty}=0$ とします。これにより、零を含む積・和でも後の公式が同じ意味を持ちます。
 
 <a id="def-anf9-p-adic-valuation"></a>
 
@@ -265,6 +265,15 @@ $$
 > となり、$(q_k)$ は有理数のCauchy列です。その類 $Q=[(q_k)]$ に対して $|Q-q_k|_p\to0$ です。さらに $|X_k-Q|_p\le\max(|X_k-q_k|_p,|q_k-Q|_p)\to0$ なので $X_k\to Q$ です。代表の有理数列が任意の類を近似することから稠密性も確定します。
 <!-- proof-end -->
 
+**付値の定義域を広げます。** 上の逆元の証明から、$0\ne X=[(x_n)]\in\mathbb Q_p$ では、ある整数 $k$ に対して代表列の絶対値が十分後ろで $|x_n|_p=p^{-k}$ に一定となります。したがって $|X|_p=p^{-k}$ であり、$k$ は $X$ だけで一意に決まります。そこで今後は
+
+$$
+v_p(X)=k\quad(X\in\mathbb Q_p^\times,\ |X|_p=p^{-k}),
+\qquad v_p(0)=\infty
+$$
+
+と定めます。これは定数列で埋め込んだ有理数上の元の $v_p$ と一致します。絶対値の乗法性と強三角不等式から、[有理数の場合の付値公式](#prop-anf9-valuation-rules)も $\mathbb Q_p$ 上で成り立ちます。特に $\mathbb Z_p$ の元の付値は非負です。
+
 ## 4. $\mathbb Z_p$ と互換な剰余列
 
 $\mathbb Q_p$ のうち絶対値が $1$ 以下の元を集めます。これは通常の整数環に相当する部分です。
@@ -360,9 +369,9 @@ Cauchy列では高い冪 $p^n$ の精度で剰余が安定します。逆に互�
 
 **（1）完備化の対象。** $\mathbb Z_p$ は $\mathbb Q_p$ の閉部分集合です。実際 $x_j\in\mathbb Z_p$、$x_j\to x$ なら、強三角不等式より $|x|_p\le\max(|x-x_j|_p,1)\le1$ が十分大きな $j$ で成り立ちます。[完備性定理](#thm-anf9-completion-field)から $\mathbb Z_p$ は完備です。直前に示した $\mathbb Z_{(p)}$ の稠密性によりその完備化になります。
 
-**（2）安定する剰余。** $x\in\mathbb Z_p$ の近似 $q_k\in\mathbb Z_{(p)}$ を取ります。$q_k\to x$ なので固定した $n$ について十分大きな $k,l$ では $|q_k-q_l|_p\le p^{-n}$ です。[剰余環の補題](#lem-anf9-localized-quotients)により $\rho_n(q_k)=\rho_n(q_l)$。これを $a_n$ とすれば近似列の選択に依存せず、$a_{n+1}\bmod p^n=a_n$ です。和・積を成分ごとに保つ写像 $\Phi:\mathbb Z_p\to R_p$ を得ます。
+**（2）安定する剰余。** $x\in\mathbb Z_p$ の近似 $q_k\in\mathbb Z_{(p)}$ を取ります。$q_k\to x$ なので固定した $n$ について十分大きな $k,l$ では $|q_k-q_l|_p\le p^{-n}$ です。[局所化と剰余環の補題](#lem-anf9-localized-quotients)を適用すると、$q_k-q_l\in p^n\mathbb Z_{(p)}$ と $v_p(q_k-q_l)\ge n$ は同値なので、$\rho_n(q_k)=\rho_n(q_l)$。これを $a_n$ とすれば近似列の選択に依存せず、$a_{n+1}\bmod p^n=a_n$ です。和・積を成分ごとに保つ写像 $\Phi:\mathbb Z_p\to R_p$ を得ます。
 
-**（3）単射。** $\Phi(x)=0$ なら、全ての $n$ で $x$ は $p^n$ の精度で零に近づき、$|x|_p\le p^{-n}$ です。$n\to\infty$ で $|x|_p=0$、従って $x=0$ です。
+**（3）単射。** $\Phi(x)=0$ とします。固定した $n$ に対し、上で選んだ近似列 $q_k\to x$ は十分大きな $k$ で $\rho_n(q_k)=0$ です。[剰余環の補題](#lem-anf9-localized-quotients)から $q_k\in p^n\mathbb Z_{(p)}$、よって $|q_k|_p\le p^{-n}$ です。$k\to\infty$ として $|x|_p\le p^{-n}$ を得ます。これは任意の $n$ で成り立つため $|x|_p=0$、従って $x=0$ です。
 
 **（4）全射。** 任意の互換列 $(a_n)\in R_p$ を取り、$0\le z_n<p^n$ を満たす整数代表を選びます。$m>n$ なら互換条件を繰り返して $z_m\equiv z_n\pmod{p^n}$、従って
 
@@ -443,7 +452,7 @@ $$
 
 非零イデアル $I\subseteq\mathbb Z_p$ の非零元の付値の集合は $\mathbb Z_{\ge0}$ の非空部分集合なので最小元 $k$ を持ちます。$x=p^ku\in I$ を選ぶと単元 $u^{-1}$ を掛けて $p^k\in I$、従って $(p^k)\subseteq I$。一方 $y\in I$ は零または $v_p(y)\ge k$ なので $y\in(p^k)$。これで $I=(p^k)$ です。
 
-最後に $\mathbb Z_p\cong R_p$ の第1成分への射影は $\mathbb Z/p\mathbb Z$ への全射環準同型であり、核は付値が1以上の元、すなわち $(p)$ です。単元以外はすべてこの核に入るため $(p)$ が唯一の極大イデアルです。
+最後に [逆極限との同型](#thm-anf9-inverse-limit-isomorphism) $\mathbb Z_p\cong R_p$ の第1成分への射影は $\mathbb Z/p\mathbb Z$ への全射環準同型であり、核は付値が1以上の元、すなわち $(p)$ です。単元以外はすべてこの核に入るため $(p)$ が唯一の極大イデアルです。
 <!-- proof-end -->
 
 ## 6. 数体の素イデアルへ広げる
@@ -473,14 +482,26 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf9-prime-valuation -->
-**定義の確認**　$K=\mathbb Q(i)$、$\mathfrak p=(2+i)\subset\mathbb Z[i]$ とします。$\mathbb Z[i]/(2+i)\cong\mathbb F_5$ です（$i\mapsto-2$ を代入すると $(-2)^2+1\equiv0\pmod5$、核はノルム5のイデアル）。$\pi=2+i$ は局所環の極大イデアルを生成します。また
+**定義の確認**　$K=\mathbb Q(i)$、$\mathcal O_K=\mathbb Z[i]$、$\mathfrak p=(2+i)$ とします。まず剰余体の大きさ $q$ を確認します。$i$ は $2+i$ を法として $-2$ に等しいので、任意の $a+bi\in\mathbb Z[i]$ に対し
+
+$$
+a+bi=b(2+i)+(a-2b)
+$$
+
+> が成り立ちます。従って「$i$ に $-2$ を代入する」とは、$\mathbb Z[i]$ から $\mathbb F_5$ への写像 $f(a+bi)=a-2b\bmod5$ を作ることです。$(-2)^2+1=5\equiv0\pmod5$ なので積も保ち、整数の像によって全射です。さらに $f(a+bi)=0$ なら $a-2b=5c$ と書け、$5=(2+i)(2-i)$ から
+
+$$
+a+bi=(2+i)\bigl(b+c(2-i)\bigr)
+$$
+
+> となります。逆に $(2+i)$ の元の像は零なので $\ker f=(2+i)$ です。ゆえに $\mathbb Z[i]/(2+i)\cong\mathbb F_5$、すなわち $q=5$ と分かります。これで [局所単項性](../ANF3/index.md#lem-anf3-local-principal)の設定における一様化元を $\pi=2+i$ と取れます。
 
 $$
 5=(2+i)(2-i),\qquad
-2-i\equiv2-(-2)=4\not\equiv0\pmod{\mathfrak p}.
+f(2-i)=2-(-2)=4\ne0\pmod5.
 $$
 
-> 従って後者は局所環で単元であり、$v_{\mathfrak p}(5)=1$、$|5|_{\mathfrak p}=1/5$ です。ここでは数体の素イデアルを一つ選んで初めて付値が決まりました。
+> $2-i$ は極大イデアルの外にあるので局所環で単元です。従って $v_{\mathfrak p}(5)=1$、$|5|_{\mathfrak p}=1/5$ です。剰余写像で単元を判定した後、一様化元の指数を数えるという順序になっています。
 <!-- definition-example-end -->
 
 <a id="prop-anf9-number-field-completion"></a>
@@ -530,7 +551,7 @@ $$
 \longrightarrow0.
 $$
 
-> 完備性は各Cauchy類を $q^{-n}$ 以下で近似する $K$ の元を選ぶ対角構成で従います。これで完備な付値体を得ました。
+> 完備性は各Cauchy類を $q^{-n}$ 以下で近似する $K$ の元を選ぶ対角構成で従います。これで完備な付値体を得ました。さらに $0\ne X\in K_{\mathfrak p}$ の代表列の絶対値は、[有理数からの完備化](#thm-anf9-completion-field)と同じ議論により後方で $q^{-e}$（$e\in\mathbb Z$）に一定となります。以後 $v_{\mathfrak p}(X)=e$、$v_{\mathfrak p}(0)=\infty$ と定めれば、もとの $K$ の付値を拡張します。
 
 整数環についても、$|x|_{\mathfrak p}\le1$ の元を $r_n\in K$ で十分高精度に近似します。強三角不等式から
 
@@ -553,7 +574,15 @@ $$
 
 > 最後の等号には [局所単項性](../ANF3/index.md#lem-anf3-local-principal)から得られる $\mathfrak p R=\pi R$ を使いました。
 
-さらに、$R$ のCauchy列は、各正整数 $n$ について法 $\pi^n$ でやがて一定の剰余を持ちます。この剰余を並べると互換列になります。
+さらに、$r,s\in R$ について「法 $\pi^n$ で同じ剰余」の判定は、局所単項性と付値の定義によって
+
+$$
+r-s\in\pi^nR
+\ \Longleftrightarrow\ v_{\mathfrak p}(r-s)\ge n
+\ \Longleftrightarrow\ |r-s|_{\mathfrak p}\le q^{-n}
+$$
+
+> です。従って $R$ のCauchy列は、各正整数 $n$ について法 $\pi^n$ でやがて一定の剰余を持ちます。この剰余を並べると互換列になります。
 
 逆向きには [逆極限の同定](#thm-anf9-inverse-limit-isomorphism)と同じ構成を使います。互換な剰余列の第 $n$ 成分を $r_n\in R$ で代表させると、$m>n$ に対して差が $\pi^nR$ に属します。
 
@@ -668,7 +697,7 @@ $$
 |t_m-t_n|_5\le5^{-(n+1)!}\longrightarrow0.
 $$
 
-> 従って [完備化の定理](#thm-anf9-completion-field)から極限 $t$ が存在します。その桁は $j=k!$（$k\ge1$）の位置で $1$、他では $0$ です。階乗位置は増加し、隣り合う $k!$ の差は $(k+1)!-k!=k\,k!\to\infty$ です。
+> 従って [完備化の定理](#thm-anf9-completion-field)から極限 $t$ が存在します。[桁展開定理](#thm-anf9-digit-expansion)を使うと、級数の有限部分和に桁の繰上がりがないため、その桁は $j=k!$（$k\ge1$）の位置で $1$、他では $0$ です。階乗位置は増加し、隣り合う $k!$ の差は $(k+1)!-k!=k\,k!\to\infty$ です。
 
 > ヒントの周期性も導きます。仮に $t=a/b\in\mathbb Q$（$a,b\in\mathbb Z$、$5\nmid b$）なら、$t$ の下位 $n$ 桁の整数を $A_n=\sum_{j=0}^{n-1}d_j5^j$ と書けます。$a-bA_n$ は $5^n$ で割れるので整数
 
@@ -710,17 +739,16 @@ $K=\mathbb Q(i)$、$A=\mathbb Z[i]$、$\mathfrak p=(2+i)$ とする。$A/\mathfr
 - ID: ANF9-B4
 
 <!-- solution-start -->
-**詳細解答**　$\mathbb Z[i]$ から $\mathbb F_5$ への代入 $i\mapsto-2$ は環準同型です。実際、$(-2)^2+1=5$ なので $i^2+1=0$ の関係を保ちます。定数整数の像だけですでに全射です。
+**詳細解答**　$\mathbb Z[i]$ から $\mathbb F_5$ への代入 $i\mapsto-2$ は環準同型 $f(a+bi)=a-2b\bmod5$ です。実際、$(-2)^2+1=5$ なので $i^2+1=0$ の関係を保ち、整数定数の像ですでに全射です。
 
-この写像は $2+i$ を零へ送るので、核は $(2+i)$ を含みます。一方、[ANF4のイデアルノルム](../ANF4/index.md#def-anf4-ideal-norm)から
+核の確認では、$a+bi=b(2+i)+(a-2b)$ を使います。$f(a+bi)=0$ なら $a-2b=5c$ となり、$5=(2+i)(2-i)$ なので $a+bi=(2+i)(b+c(2-i))$ です。逆に $(2+i)$ の全元は零へ写るため $\ker f=(2+i)$。従って
 
 $$
-|\mathbb Z[i]/(2+i)|
-=|N_{\mathbb Q(i)/\mathbb Q}(2+i)|
-=2^2+1^2=5.
+\mathbb Z[i]/(2+i)\cong\mathbb F_5,\qquad
+q=|\mathbb Z[i]/(2+i)|=5.
 $$
 
-> この商の位数は像の位数と同じなので、核はちょうど $(2+i)$ です。従って剰余体の位数は $q=5$ です。
+> これは [絶対イデアルノルムの定義](../ANF4/index.md#def-anf4-ideal-norm)では $N((2+i))=5$ を意味します。単に複素数のノルムを計算したのではなく、核を確認して商環の元数を求めました。
 
 $$
 5=(2+i)(2-i),\qquad 2-i\longmapsto4\ne0\pmod5.
