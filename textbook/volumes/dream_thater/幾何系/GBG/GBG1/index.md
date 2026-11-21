@@ -531,7 +531,7 @@ $$
 
 $G=GL(2,\mathbb R)$ とし、三重重なり上で次の行列を選ぶ。$GL(2,\mathbb R)$ は $\mathbb R^2$ の可逆な線形変換を表す行列の群で、[LIE1の一般線形群の命題](../../../代数系/LIE/LIE1/index.md#prop-lie1-general-linear-group)により、行列式が $0$ でないことが群への所属条件である。ここで $a_i$ は、各局所表示の群座標 $h$ を共通の表示 $a_i h$ へ移すための左乗法の行列として選ぶ。
 
-$
+$$
 a_0=I,\qquad
 a_1=\begin{pmatrix}1&1\\0&1\end{pmatrix},\qquad
 a_2=\begin{pmatrix}1&0\\1&1\end{pmatrix}
@@ -616,16 +616,16 @@ $M=\mathbb R$ を三つの開集合 $U_0=U_1=U_2=\mathbb R$ で覆い、$G=\{\pm
 <!-- solution-start -->
 **詳細解答**。$x=0$ とし、$p=(0,0,+1)$、$q=(1,0,+1)$、$r=(2,0,+1)$ とする。$g_{01}=g_{12}=1$ より
 
-$
+$$
 p=(0,0,+1)\sim(1,0,+1)=q
 \sim(2,0,+1)=r.
-$
+$$
 
 しかし、直接の $0\to2$ の規則では
 
-$
+$$
 p=(0,0,+1)\sim(2,0,-1)
-$
+$$
 
 であり、$r=(2,0,+1)$ とは直接同一視されない。従って元の規則には推移律がない。
 
@@ -672,7 +672,7 @@ $$
 
 で覆い、$G=GL(2,\mathbb R)$ とする。[LIE1の一般線形群の命題](../../../代数系/LIE/LIE1/index.md#prop-lie1-general-linear-group)のとおり、$G$ の元は行列式が $0$ でない $2$ 次実正方行列である。各 $U_i$ 上の行列 $a_i(x)$ は、局所表示の群座標 $h$ を共通表示 $a_i(x)h$ へ移す変換候補として
 
-$
+$$
 a_0(x)=I,\qquad
 a_1(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix},\qquad
 a_2(x)=\begin{pmatrix}1&0\\x&1\end{pmatrix}
@@ -692,15 +692,15 @@ $$
 
 **（2）** 行列積を用いて $\det a_i=1$ の逆行列を具体的に求めると
 
-$
+$$
 a_1(x)^{-1}=\begin{pmatrix}1&-x\\0&1\end{pmatrix},
 \qquad
 a_2(x)^{-1}=\begin{pmatrix}1&0\\-x&1\end{pmatrix}
-$
+$$
 
 となる。各 $g_{ij}=a_i^{-1}a_j$ は $a_i^{-1}$ を**左から**掛けるので、
 
-$
+$$
 g_{01}=\begin{pmatrix}1&x\\0&1\end{pmatrix},\qquad
 g_{12}=\begin{pmatrix}1-x^2&-x\\x&1\end{pmatrix},\qquad
 g_{02}=\begin{pmatrix}1&0\\x&1\end{pmatrix}.
