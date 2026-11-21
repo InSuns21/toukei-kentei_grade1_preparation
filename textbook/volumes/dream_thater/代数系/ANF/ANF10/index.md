@@ -103,9 +103,19 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（単純根の Newton 反復）**  
-> 素数 $p$、$f\in\mathbb Z_p[X]$、$a_0\in\mathbb Z_p$ について $r_0=v_p(f(a_0))\ge1$、$v_p(f'(a_0))=0$ とする。$a_{j+1}=N_f(a_j)$ と定めると、各反復は定義でき、$v_p(f'(a_j))=0$ が保たれ、
->
-> $v_p(f(a_j))\ge 2^j r_0$ が成り立つ。したがって $a_j$ は $f$ の根へ収束する。
+> 素数 $p$、$f\in\mathbb Z_p[X]$、$a_0\in\mathbb Z_p$ とし、次の条件を仮定する。
+
+$$
+r_0=v_p(f(a_0))\ge1,\qquad v_p(f'(a_0))=0.
+$$
+
+> $a_{j+1}=N_f(a_j)$ と置くと各反復は定義でき、導関数は単元のまま保たれる。誤差には
+
+$$
+v_p(f'(a_j))=0,\qquad v_p(f(a_j))\ge2^jr_0
+$$
+
+> が成り立ち、$a_j$ は $f$ の根へ収束する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -139,11 +149,19 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（強い形の Hensel の補題）**  
-> 素数 $p$、$f\in\mathbb Z_p[X]$、$a\in\mathbb Z_p$ とし、$f'(a)\ne0$ とする。$r=v_p(f(a))$、$d=v_p(f'(a))\ge0$ が
->
-> $r>2d$
->
-> を満たすなら、$f(\alpha)=0$ かつ $v_p(\alpha-a)\ge r-d$ を満たす $\alpha\in\mathbb Z_p$ が存在する。この $\alpha$ は $a+p^{d+1}\mathbb Z_p$ にある根として一意である。$f(a)=0$ の場合は $\alpha=a$ とする。
+> 素数 $p$、$f\in\mathbb Z_p[X]$、$a\in\mathbb Z_p$ とし、$f'(a)\ne0$ とする。残差と導関数の付値 $r,d$ が条件
+
+$$
+r=v_p(f(a)),\qquad d=v_p(f'(a))\ge0,\qquad r>2d
+$$
+
+> を満たすとする。このとき $f$ の根 $\alpha\in\mathbb Z_p$ が存在し、距離の評価は
+
+$$
+v_p(\alpha-a)\ge r-d
+$$
+
+> である。この $\alpha$ は $a+p^{d+1}\mathbb Z_p$ の中で一意な根である。$f(a)=0$ の場合は $\alpha=a$ とする。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -198,9 +216,11 @@ $$
 > **系（相異なる根の持ち上げと分解）**  
 > 素数 $p$ とモニック多項式 $f\in\mathbb Z_p[X]$（次数 $n\ge1$）を取り、$\bar f\in\mathbb F_p[X]$ が次数 $n$ の相異なる一次因子へ分解すると仮定する。このとき相異なる $\alpha_1,\ldots,\alpha_n\in\mathbb Z_p$ が存在し、
 >
-> $f(X)=\prod_{i=1}^{n}(X-\alpha_i)$
->
-> が $\mathbb Z_p[X]$ で成立する。
+$$
+f(X)=\prod_{i=1}^{n}(X-\alpha_i).
+$$
+
+> この恒等式は $\mathbb Z_p[X]$ で成り立つ。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -249,9 +269,11 @@ $$
 > **定義（Eisenstein 多項式）**  
 > 素数 $p$ と次数 $n\ge1$ のモニック多項式
 >
-> $f(X)=X^n+a_{n-1}X^{n-1}+\cdots+a_1X+a_0\in\mathbb Z_p[X]$
->
-> に対し、$a_i\in p\mathbb Z_p$（$0\le i<n$）、かつ $a_0\notin p^2\mathbb Z_p$ が成り立つとき、$f$ は $p$ に関して Eisenstein 型であるという。
+$$
+f(X)=X^n+a_{n-1}X^{n-1}+\cdots+a_1X+a_0\in\mathbb Z_p[X]
+$$
+
+> に対して、非先頭係数はすべて $a_i\in p\mathbb Z_p$（$0\le i<n$）であり、定数項は $a_0\notin p^2\mathbb Z_p$ であるとする。このとき $f$ は $p$ に関して Eisenstein 型であるという。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf10-eisenstein -->
@@ -266,9 +288,9 @@ $$
 > **補題（係数の最小付値の積公式）**  
 > 素数 $p$ と非零多項式 $g,h\in\mathbb Q_p[X]$ について、
 >
-> $c(gh)=c(g)+c(h)$
->
-> が成り立つ。
+$$
+c(gh)=c(g)+c(h).
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -316,13 +338,20 @@ $$
 > $p$ を素数、$f\in\mathbb Z_p[X]$ を次数 $n\ge1$ の Eisenstein モニック多項式、$\pi$ をその根とする。$L=\mathbb Q_p(\pi)$、$A=\mathbb Z_p[\pi]$ と置く。このとき
 >
 > 1. $[L:\mathbb Q_p]=n$、$A/(\pi)\cong\mathbb F_p$。
-> 2. $A$ の非零元はただ一通り $\pi^m u$（$m\ge0$、$u\in A^\times$）と書け、$L^\times$ の元は $\pi^m u$（$m\in\mathbb Z$、$u\in A^\times$）と書ける。従って $v_L(\pi^mu)=m$ は離散付値で、その整数環は $A$ である。
-> 3. $v_L(p)=n$、$v_L|_{\mathbb Q_p}=n v_p$、$|x|_L=p^{-v_L(x)/n}$ は $|\cdot|_p$ を延長する。$L$ はこの距離で完備、剰余体は $\mathbb F_p$ である。
-> 4. $0\ne x=\sum_{i=0}^{n-1}b_i\pi^i\in L$（$b_i\in\mathbb Q_p$）について、$v_p(0)=\infty$ として
->
-> $v_L(x)=\min_{0\le i<n}\{n v_p(b_i)+i\}$
->
-> が成り立つ。
+> 2. $A$ の非零元は $\pi^m u$（$m\ge0$、$u\in A^\times$）と一意に書ける。$L^\times$ では同じ表示で指数 $m\in\mathbb Z$ を許す。$v_L(\pi^m u)=m$ は離散付値であり、その整数環は $A$ である。
+> 3. $L$ の付値を $v_L(\pi)=1$ で規格化する。そのとき $v_L(p)=n$ であり、$v_L$ は $\mathbb Q_p$ 上で $n v_p$ と一致する。絶対値
+
+$$
+|x|_L=p^{-v_L(x)/n}
+$$
+
+> は $|\cdot|_p$ を延長する。$L$ はこの距離について完備で、剰余体は $\mathbb F_p$ である。
+> 4. $x\in L^\times$ を基底 $1,\pi,\ldots,\pi^{n-1}$ で表し、その係数を $b_i\in\mathbb Q_p$ とする。$v_p(0)=\infty$ と約束すると、
+
+$$
+v_L\left(\sum_{i=0}^{n-1}b_i\pi^i\right)
+=\min_{0\le i<n}\{n v_p(b_i)+i\}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
