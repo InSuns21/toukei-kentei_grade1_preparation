@@ -21,3 +21,4 @@
 18. [PML1-18 Hamiltonian NNは何を構造として固定するか](textbook/volumes/dream_thater/応用系/PML/PML1-18/index.md)
 19. [PML1-19 Lagrangian NNに可逆な質量行列が必要なのはなぜか](textbook/volumes/dream_thater/応用系/PML/PML1-19/index.md)
 20. [PML1-20 連続系の保存則と数値積分での保存は同じか](textbook/volumes/dream_thater/応用系/PML/PML1-20/index.md)
+21. [PML1-21 データから動力学を同定すると何が失われるか](textbook/volumes/dream_thater/応用系/PML/PML1-21/index.md)
