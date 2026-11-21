@@ -30,7 +30,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf12-unit-filtration -->
-**定義の確認。** $L=K=\mathbb Q_5$ なら $\mathfrak m=5\mathbb Z_5$ で、
+**定義の確認**： $L=K=\mathbb Q_5$ なら $\mathfrak m=5\mathbb Z_5$ で、
 $6=1+5\in U_K^1$ ですが $6\notin U_K^2$ です。実際 $6-1=5\in5\mathbb Z_5$、$5\notin25\mathbb Z_5$ です。また $2\in U_K^0$ ですが法 $5$ で $2\ne1$ なので $2\notin U_K^1$ です。各集合の包含が真に異なることを確かめられます。
 <!-- definition-example-end -->
 
