@@ -272,7 +272,7 @@ v_p(X)=k\quad(X\in\mathbb Q_p^\times,\ |X|_p=p^{-k}),
 \qquad v_p(0)=\infty
 $$
 
-と定めます。これは定数列で埋め込んだ有理数上の元の $v_p$ と一致します。絶対値の乗法性と強三角不等式から、[有理数の場合の付値公式](#prop-anf9-valuation-rules)も $\mathbb Q_p$ 上で成り立ちます。特に $\mathbb Z_p$ の元の付値は非負です。
+と定めます。これは定数列で埋め込んだ有理数上の元の $v_p$ と一致します。絶対値の乗法性と強三角不等式から、[有理数の場合の付値公式](#prop-anf9-valuation-rules)も $\mathbb Q_p$ 上で成り立ちます。特に $|X|_p\le1$ と $v_p(X)\ge0$ は同値です。これを次節の整数環の定義に使います。
 
 ## 4. $\mathbb Z_p$ と互換な剰余列
 
