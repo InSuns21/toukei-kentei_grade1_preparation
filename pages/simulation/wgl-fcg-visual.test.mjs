@@ -32,14 +32,16 @@ test('FCG5 pointer splat changes dye and flow in the local area and validates se
   assert.throws(()=>advanceSmoke(a,0),RangeError);
   assert.throws(()=>splatSmoke(a,.5,.5,Infinity,0),RangeError);
 });
-test('WGL/FCG reference studio shares readable, aspect-correct independent displays',async()=>{
+test('FCG5 uses only editable GPU observation while WGL4/FCG8 keep independent references',async()=>{
   const [host,css,mod,smoke]=await Promise.all([
     readFile(new URL('./wgl-lab-host.mjs',import.meta.url),'utf8'),
     readFile(new URL('./wgl-lab.css',import.meta.url),'utf8'),
     readFile(new URL('./wgl-fcg-reference-visual.mjs',import.meta.url),'utf8'),
     readFile(new URL('./wgl-fcg-fluid-visual.mjs',import.meta.url),'utf8')
   ]);
-  assert.ok(host.includes("mountSmokeObservation(byId('panel-conditions'))"));
+  assert.ok(!host.includes("mountSmokeObservation(byId('panel-conditions'))"));
+  assert.ok(!host.includes("from './wgl-fcg-fluid-visual.mjs'"));
+  assert.ok(host.includes("if (isFCG8 || isWGL4) mountReferenceObservation"));
   assert.ok(host.includes("mountReferenceObservation({lesson,parent:byId('panel-conditions')})"));
   assert.ok(host.includes("[1536,512]")); // three 1:1 physical panels, 512px each
   assert.ok(host.includes("legacyViewport ? 524288 : 2097152"));

@@ -1,0 +1,46 @@
+id: "GBG6"
+title: "接空間を水平と垂直に分けるには"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG5
+  - GEO2
+  - LIE2
+  - LIE4
+official_scope: []
+learning_objectives:
+  - 主束の垂直接空間を射影の微分の核として定め、局所自明化で次元と滑らかさを確認できる
+  - Lie環元から基本ベクトル場を定義し、各点で垂直接空間との線形同型を証明できる
+  - 基本ベクトル場の右移動に現れる随伴表現の向きと逆元を導出できる
+  - 水平分布の滑らかさ・直和条件・右作用同変条件を区別し、水平持ち上げの一意性を証明できる
+  - 積主束で水平分布の一般的なグラフ表示と右同変性を直接検算できる
+  - 非可換行列で右同変性を満たさない補空間の反例を示せる
+  - 局所sectionから水平分布を構成し、固定分布の表示変更と別の分布選択を区別できる
+definitions:
+  - { id: GBG6-DEF-01, name: 垂直接空間と垂直分布 }
+  - { id: GBG6-DEF-02, name: 右主束の基本ベクトル場 }
+  - { id: GBG6-DEF-03, name: 右主束の水平分布 }
+theorems:
+  - { id: GBG6-THM-01, name: 垂直接空間とLie環の同型 }
+  - { id: GBG6-PROP-01, name: 水平持ち上げと直和射影 }
+  - { id: GBG6-THM-02, name: 積主束の水平分布の具体形 }
+  - { id: GBG6-PROP-02, name: 局所sectionから誘導される水平分布 }
+canonical_examples:
+  - 積主束上の射影の核と基本ベクトル場の接ベクトル表示
+  - GL(2,R)の基本ベクトル場の右作用と随伴共役
+  - 積主束の標準水平分布と傾いた水平グラフ
+  - GL(2,R)の左・右行列積の順序による右同変性の反例
+  - 二つの局所sectionが作る異なる分布と固定分布の表示変更
+problem_patterns:
+  - GBG6-VERTICAL-KERNEL
+  - GBG6-FUNDAMENTAL-ADJOINT
+  - GBG6-HORIZONTAL-LIFT
+  - GBG6-MATRIX-SPLITTING
+  - GBG6-ORBIT-TANGENT-PROOF
+  - GBG6-RIGHT-EQUIVARIANCE-COUNTEREXAMPLE
+  - GBG6-SECTION-INDUCED-SPLITTING
+  - GBG6-INTEGRATED-RECOORDINATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 4 }
