@@ -1,0 +1,55 @@
+chapter: ANF11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF10
+forward_references: []
+
+concepts:
+  - id: number-theory.local-integer-ring
+    name: 局所拡大の整数環
+    kind: definition
+    introduction: formal
+    requires: [number-theory.finite-local-field-extension, number-theory.p-adic-integers]
+
+  - id: number-theory.local-integer-ring-dvr
+    name: 局所体の整数環は完備な離散付値環
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.local-integer-ring, number-theory.local-principal-dedekind, number-theory.p-adic-complete-field]
+
+  - id: number-theory.local-uniformizer-valuation
+    name: 一様化元と規格化付値
+    kind: definition
+    introduction: formal
+    requires: [number-theory.local-integer-ring-dvr]
+
+  - id: number-theory.local-ramification-index-residue-degree
+    name: 局所拡大の分岐指数・剰余次数
+    kind: definition
+    introduction: formal
+    requires: [number-theory.local-uniformizer-valuation, number-theory.prime-ramification-index-residue-degree]
+
+  - id: number-theory.local-ef-identity
+    name: 局所拡大の次数公式
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.local-ramification-index-residue-degree, number-theory.local-integer-ring-dvr]
+
+  - id: number-theory.local-codifferent-different
+    name: 余異なる・異なる
+    kind: definition
+    introduction: formal
+    requires: [number-theory.local-integer-ring-dvr, number-theory.field-trace-discriminant]
+
+  - id: number-theory.local-monogenic-different
+    name: 単項生成の整数環の異なる公式
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.local-codifferent-different, number-theory.local-eisenstein-irreducibility]
+
+  - id: number-theory.local-norm-different-valuation
+    name: ノルムと付値・異なる指数
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.local-ef-identity, number-theory.local-monogenic-different]
