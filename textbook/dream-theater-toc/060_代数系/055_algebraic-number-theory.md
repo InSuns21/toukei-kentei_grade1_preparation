@@ -7,3 +7,4 @@
 4. [ANF4 素数の分解・分岐・惰性](textbook/volumes/dream_thater/代数系/ANF/ANF4/index.md)
 5. [ANF5 Minkowski埋め込みと格子](textbook/volumes/dream_thater/代数系/ANF/ANF5/index.md)
 6. [ANF6 イデアル類群の有限性](textbook/volumes/dream_thater/代数系/ANF/ANF6/index.md)
+7. [ANF7 単数定理とレギュレータ](textbook/volumes/dream_thater/代数系/ANF/ANF7/index.md)
