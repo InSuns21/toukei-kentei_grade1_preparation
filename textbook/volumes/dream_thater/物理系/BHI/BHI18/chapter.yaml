@@ -1,0 +1,42 @@
+id: BHI18
+title: "二次元CFT放射領域のエントロピー"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI17
+  - QFT60
+official_scope: []
+learning_objectives:
+  - 非重力浴Rの端点・状態・cutoffを固定し無限直線CFT真空の区間エントロピー普遍項を適用できる
+  - 光円錐共形写像の両端のJacobianとcutoffを追って二端点エントロピー公式を導出できる
+  - 指数写像からsinhを導き両向き熱状態と片向き熱状態の係数を比較できる
+  - 真空極限・大区間極限・異なるcutoffの再表示を計算できる
+  - 反射境界や蒸発模型に無限直線定常CFT公式を無条件適用できない理由を説明できる
+definitions:
+  - { id: BHI18-DEF-01, name: "放射浴のCFTエントロピー台帳" }
+  - { id: BHI18-DEF-02, name: "共形写像の端点間有効尺度" }
+theorems:
+  - { id: BHI18-PROP-01, name: "透過的な平坦浴での真空区間普遍項" }
+  - { id: BHI18-PROP-02, name: "共形変換で指定した浴状態の区間普遍項" }
+  - { id: BHI18-PROP-03, name: "無限直線熱状態を制限した浴の区間普遍項" }
+canonical_examples:
+  - 自由bosonの平坦浴真空でL-bを入れる計算
+  - 線形共形写像のJacobianの相殺
+  - 指数写像による熱円筒のsinh尺度
+  - 片向き熱的な浴の主項と両向きとの差
+  - 異なる二端点cutoffと端点定数の再表示
+problem_patterns:
+  - BHI18-VACUUM-INTERVAL
+  - BHI18-THERMAL-INTERVAL
+  - BHI18-AFFINE-JACOBIAN
+  - BHI18-ENDPOINT-CUTOFF
+  - BHI18-LOW-TEMPERATURE
+  - BHI18-THERMAL-VACUUM-DIFFERENCE
+  - BHI18-EXPONENTIAL-MAP
+  - BHI18-NONLINEAR-JACOBIAN
+  - BHI18-CHIRAL-THERMAL
+  - BHI18-INTEGRATED-STATE-AND-CUTOFF
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 15, review: 6 }
