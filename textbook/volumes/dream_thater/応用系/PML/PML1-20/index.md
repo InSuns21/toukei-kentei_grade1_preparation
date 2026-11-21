@@ -10,7 +10,19 @@ $$
 H(q,p)=\frac{p^2}{2m}+\frac{kq^2}{2}
 $$
 
-とする。[Hamilton の正準方程式](../../../物理系/AMECH/AMECH5/index.md#thm-amech5-hamilton-equations)は $\dot q=p/m,\ \dot p=-kq$ である。点は時刻 $t$ による微分であり、$\dot q=dq/dt$、$\dot p=dp/dt$ と書く。$H(q,p)$ の偏微分 $\partial_qH=kq$、$\partial_pH=p/m$ は他方の変数を固定して求める。一方、軌道 $t\mapsto(q(t),p(t))$ 上の全時間微分には[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を使い、
+とする。[Hamilton の正準方程式](../../../物理系/AMECH/AMECH5/index.md#thm-amech5-hamilton-equations)をこの例に適用する。点は時刻 $t$ による微分を表し、$\dot q=dq/dt$、$\dot p=dp/dt$ と書く。
+
+$
+\dot q=\frac pm,\qquad \dot p=-kq.
+$
+
+$H$ の位置偏微分では運動量を、運動量偏微分では位置を固定する。従って
+
+$
+\partial_qH=kq,\qquad \partial_pH=\frac pm.
+$
+
+軌道 $t\mapsto(q(t),p(t))$ に沿う全時間微分には[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を使い、
 
 $$
 \frac{d}{dt}H(q(t),p(t))
@@ -182,13 +194,13 @@ $$
 となる。
 <!-- proof-end -->
 
-二変数では、**向きを保つ面積保存**と symplectic 条件が一致する。理由を行列で確かめよう。正準座標 $(q,p)$ に対し
+二変数では、**向きを保つ面積保存**と正準面積形式の保存が一致する。理由を行列で確かめよう。正準座標 $(q,p)$ に対し
 
 $$
 J=\begin{pmatrix}0&1\\-1&0\end{pmatrix}
 $$
 
-と置き、各点の微分行列 $M=D\Phi_h$ が $M^{\mathsf T}JM=J$ を満たすことを symplectic 条件と呼ぶ。任意の $2\times2$ 行列 $M=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ に対し、
+と置く。各点の微分行列 $M=D\Phi_h$ について $M^{\mathsf T}JM=J$ が正準面積形式を保つ条件であり、この意味で写像を symplectic と呼ぶ。任意の $2\times2$ 行列 $M=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ に対し、
 
 $$
 M^{\mathsf T}JM
@@ -196,7 +208,7 @@ M^{\mathsf T}JM
 =(\det M)J
 $$
 
-となるので、上で示した $\det D\Phi_h=1$ はこの条件も保証する。一方、$(q,p)\mapsto(q,-p)$ は $|\det M|=1$ で面積を保つが、$\det M=-1$ なので symplectic ではない。四変数以上でも行列式 $1$ だけでは symplectic 条件を保証しない。
+となるので、上で示した $\det D\Phi_h=1$ はこの条件も保証する。一方、$(q,p)\mapsto(q,-p)$ は $|\det M|=1$ で面積を保つが、$\det M=-1$ なので symplectic ではない。四変数以上でも行列式 $1$ だけでは正準構造の保存を保証しない。
 
 <a id="prop-pml1-20-area-not-energy"></a>
 
@@ -598,7 +610,7 @@ $m=k=1,h=1/10,z_0=(1,0)$ とする。陽的 Euler の $H_N$ を求め、symplect
 <!-- solution-start -->
 #### 詳細解答
 
-[陽的 Euler のエネルギー増大命題](#prop-pml1-20-explicit-drift)から倍率は $1+h^2=101/100$ だから
+[陽的 Euler 法の面積拡大とエネルギー増大](#prop-pml1-20-explicit-drift)から倍率は $1+h^2=101/100$ だから
 
 $$
 H_N=\frac12(101/100)^N.
