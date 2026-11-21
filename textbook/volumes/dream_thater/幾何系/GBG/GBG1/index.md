@@ -301,13 +301,25 @@ $$
 (x,g_{ij}(x)k)\in V\right\}.
 $$
 
-写像 $(x,k)\mapsto(x,g_{ij}(x)k)$ は、[Lie 群の定義](../../../代数系/LIE/LIE1/index.md#def-lie1-lie-group)で要求した群演算の滑らかさと $g_{ij}$ の滑らかさから連続なので、この集合は $U_j\times G$ で開である。よって商位相の定義から $q_i(V)$ は $P_g$ で開である。特に $V=U_i\times G$ とすると $\pi^{-1}(U_i)$ は開になる。一方 $q_i$ の連続性は商位相の定義から直ちに従う。ゆえに $q_i$ は開集合 $\pi^{-1}(U_i)$ への同相写像である。
+写像 $(x,k)\mapsto(x,g_{ij}(x)k)$ は、[Lie 群の定義](../../../代数系/LIE/LIE1/index.md#def-lie1-lie-group)で要求した群演算の滑らかさと $g_{ij}$ の滑らかさから連続である。従って、上に書いた逆像は $U_j\times G$ の開集合である。
 
-**（3）多様体の条件**。各 $\pi^{-1}(U_i)$ は $U_i\times G$ と同相である。$U_i$ は $M$ の開部分多様体、$G$ は Lie 群なので、[GEO1の積多様体の定理](../../GEO/GEO1/index.md#thm-geo1-product-manifold)により $U_i\times G$ は局所 Euclid 的である。異なる基底点 $x\ne y$ の上の点は、$M$ の[Hausdorff性](../../../基礎科目/TOP/TOP4/index.md#def-top4-t2)で選んだ互いに交わらない開集合の $\pi$ による逆像で分離できる。$\pi$ が連続なのは、各 $q_i$ 上の合成 $\pi q_i(x,h)=x$ が連続であるためである。
+[商位相の定義](../../../基礎科目/TOP/TOP1/index.md#def-top1-quotient-topology)により $q_i(V)$ は $P_g$ で開になる。特に $V=U_i\times G$ とすると、$q_i(V)=\pi^{-1}(U_i)$ は開である。
 
-同じ $x$ の上の異なる点 $p,q$ は、$x\in U_i$ を選べば $\Phi_i(p)=(x,h)$、$\Phi_i(q)=(x,k)$ と表され、$h\ne k$ である。$G$ は Lie 群、従って[位相多様体の定義](../../GEO/GEO1/index.md#def-geo1-topological-manifold)からHausdorffなので、$h,k$ を分離する互いに交わらない開集合 $V_h,V_k\subset G$ を選べる。$q_i(U_i\times V_h)$ と $q_i(U_i\times V_k)$ は $P_g$ 内の互いに交わらない開集合であり、$p,q$ を分離する。
+また、$q_i$ は商写像 $q$ を第 $i$ 成分へ制限した写像なので連続である。よって $q_i$ は、開部分集合 $\pi^{-1}(U_i)$ への同相写像である。
 
-第二可算性も確認する。[第二可算性の定義](../../../基礎科目/TOP/TOP4/index.md#def-top4-second-countable)から $M$ の可算基底を $\{B_n\}$ とする。ある $U_i$ に含まれる各 $B_n$ について、そのような $U_i$ を一つ選び $V_n$ と書く。選ばれた $V_n$ は高々可算個である。
+**（3）多様体の条件**。各 $\pi^{-1}(U_i)$ は $U_i\times G$ と同相である。$U_i$ は $M$ の開部分多様体、$G$ は Lie 群なので、[GEO1の積多様体の定理](../../GEO/GEO1/index.md#thm-geo1-product-manifold)により $U_i\times G$ は局所 Euclid 的である。
+
+まず、$\pi$ は連続である。実際、各 $q_i$ との合成 $\pi\circ q_i(x,h)=x$ は第一成分への射影で連続であるから、商位相の定義により $\pi$ も連続となる。
+
+基底点が異なる二点は、それぞれの基底点 $x\ne y$ を $M$ の[Hausdorff性](../../../基礎科目/TOP/TOP4/index.md#def-top4-t2)で分離する互いに交わらない開集合を選び、その $\pi$ による逆像で分離できる。
+
+同じ基底点 $x$ の上の異なる点 $p,q$ は、$x\in U_i$ を選んで $\Phi_i(p)=(x,h)$、$\Phi_i(q)=(x,k)$ と表せる。このとき $h\ne k$ である。$G$ は Lie 群なので、[位相多様体の定義](../../GEO/GEO1/index.md#def-geo1-topological-manifold)によりHausdorffであり、$h,k$ を分離する互いに交わらない開集合 $V_h,V_k\subset G$ を選べる。
+
+$q_i(U_i\times V_h)$ と $q_i(U_i\times V_k)$ は、先に示した $q_i$ の開性によって $P_g$ 内で開である。両者は互いに交わらず、それぞれ $p,q$ を含むので、同じファイバーの二点も分離できる。
+
+第二可算性も確認する。[第二可算](../../../基礎科目/TOP/TOP4/index.md#def-top4-second-countable)な $M$ の位相には可算基底 $\{B_n\}$ が存在する。
+
+ある $U_i$ に含まれる各 $B_n$ について、そのような $U_i$ を一つ選んで $V_n=B_n$ と書く。選ばれた $V_n$ は高々可算個である。
 
 任意の点 $x\in M$ に対し、被覆から $x\in U_i$ となる添字を一つ取る。基底の定義により、ある $B_n$ が存在して
 
@@ -529,7 +541,9 @@ $$
 #### GBG1-B01 行列群で積順序を検査する
 - Level: B
 
-$G=GL(2,\mathbb R)$ とし、三重重なり上で次の行列を選ぶ。$GL(2,\mathbb R)$ は $\mathbb R^2$ の可逆な線形変換を表す行列の群で、[LIE1の一般線形群の命題](../../../代数系/LIE/LIE1/index.md#prop-lie1-general-linear-group)により、行列式が $0$ でないことが群への所属条件である。ここで $a_i$ は、各局所表示の群座標 $h$ を共通の表示 $a_i h$ へ移すための左乗法の行列として選ぶ。
+$G=GL(2,\mathbb R)$ とする。$GL(2,\mathbb R)$ は $\mathbb R^2$ の可逆な線形変換を表す行列の群で、[一般線形群は Lie 群](../../../代数系/LIE/LIE1/index.md#prop-lie1-general-linear-group)の命題により、行列式が $0$ でないことが所属条件となる。
+
+三重重なり上で、各局所表示の群座標 $h$ を共通の表示 $a_i h$ へ移す左乗法の行列として、次の $a_i$ を選ぶ。
 
 $$
 a_0=I,\qquad
@@ -670,7 +684,9 @@ $$
 U_0=(-2,2),\quad U_1=(-1,3),\quad U_2=(0,4)
 $$
 
-で覆い、$G=GL(2,\mathbb R)$ とする。[LIE1の一般線形群の命題](../../../代数系/LIE/LIE1/index.md#prop-lie1-general-linear-group)のとおり、$G$ の元は行列式が $0$ でない $2$ 次実正方行列である。各 $U_i$ 上の行列 $a_i(x)$ は、局所表示の群座標 $h$ を共通表示 $a_i(x)h$ へ移す変換候補として
+で覆い、$G=GL(2,\mathbb R)$ とする。[一般線形群は Lie 群](../../../代数系/LIE/LIE1/index.md#prop-lie1-general-linear-group)の命題により、$G$ の元は行列式が $0$ でない $2$ 次実正方行列である。
+
+各 $U_i$ 上の行列 $a_i(x)$ は、局所表示の群座標 $h$ を共通表示 $a_i(x)h$ へ移す変換候補として
 
 $$
 a_0(x)=I,\qquad
@@ -688,9 +704,17 @@ $$
 <!-- solution-start -->
 **詳細解答**。
 
-**（1）** 三つとも $M$ の開集合である。$x<2$ は $U_0$、$x\ge2$ は $U_2$ に入るから合併は $M$。三重重なりは $(0,2)$ である。各 $a_i$ は成分が滑らかな多項式で、$\det a_0(x)=\det a_1(x)=\det a_2(x)=1\ne0$ である。[一般線形群の判定条件](../../../代数系/LIE/LIE1/index.md#prop-lie1-general-linear-group)により $a_i(x)\in GL(2,\mathbb R)$ であり、行列の逆元は次の（2）の式のように成分が滑らかなので、逆写像も滑らかである。
+**（1）** 三つとも $M$ の開集合である。$x<2$ は $U_0$、$x\ge2$ は $U_2$ に入るから合併は $M$。三重重なりは $(0,2)$ である。
 
-**（2）** 行列積を用いて $\det a_i=1$ の逆行列を具体的に求めると
+各 $a_i$ は成分が滑らかな多項式である。また、それぞれの行列式は
+
+$$
+\det a_0(x)=\det a_1(x)=\det a_2(x)=1\ne0
+$$
+
+である。[一般線形群は Lie 群](../../../代数系/LIE/LIE1/index.md#prop-lie1-general-linear-group)の命題により、各 $a_i(x)$ は $G$ に属する。次の（2）で求めるように逆行列の成分も多項式なので、逆行列値関数 $x\mapsto a_i(x)^{-1}$ も滑らかである。
+
+**（2）** 各 $a_i$ の逆行列を行列積で検算すると、
 
 $$
 a_1(x)^{-1}=\begin{pmatrix}1&-x\\0&1\end{pmatrix},
