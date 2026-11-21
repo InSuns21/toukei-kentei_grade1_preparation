@@ -16,7 +16,7 @@ chapters:
     title: "主G束とは何か――自由・推移的な右作用"
   - id: GBG3
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG3
-    status: planned
+    status: completed
     title: "なぜゲージ選択は局所sectionの選択か"
   - id: GBG4
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG4
