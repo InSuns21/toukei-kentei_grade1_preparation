@@ -386,7 +386,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi21-thermal-clock -->
-**定義の確認**：$f(u)=u$ なら $f'=1>0$、$f(u+\beta)=u+\beta=f(u)+\beta$ です。$F=\tan(\pi u/\beta)$ は $u=\beta/2$ で発散しますが、$1/F=\cot(\pi u/\beta)$ はこの点で滑らかな別の座標です。両者は $M(y)=1/y$ で結ばれ、$M'\ne0$ の範囲では[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)から同じSchwarzianを持ちます。物理境界の特異点ではなく座標の貼替えです。
+**定義の確認**：$f(u)=u$ を取ります。$f'=1>0$ かつ $f(u+\beta)=u+\beta=f(u)+\beta$ なので、周期と向きの条件を満たします。
+
+局所座標 $F=\tan(\pi u/\beta)$ は $u=\beta/2$ で発散します。ここでは別の局所座標を
+
+$$
+\widetilde F(u)=-\frac{1}{F(u)}=-\cot\left(\frac{\pi u}{\beta}\right)
+$$
+
+と選べば、$\widetilde F$ はその点で滑らかです。両座標は $M(y)=-1/y$ で結ばれ、その行列式を正に選べるので、[JT境界の射影変換](#def-bhi21-projective-boundary-transform)の貼り替えです。[射影変換不変性](#prop-bhi21-projective-action)によりSchwarzianが一致します。発散は物理境界の特異点ではなく、座標表示の切替えを表します。
 <!-- definition-example-end -->
 
 [QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)で $H(y)=\tan(\pi y/\beta)$ を選ぶと、$\{H,y\}=2\pi^2/\beta^2$ なので
@@ -537,7 +545,21 @@ H=-C\frac{F'''}{F'}+\frac{3C}{2}
 \left(\frac{F''}{F'}\right)^2=-C\{F,t\}=E_L.
 $$
 
-$L$ は明示的な $t$ 依存を持たないので、Euler–Lagrange方程式を満たす軌道では $\dot H=0$ です。次に $H_1(y)=\tanh y$ とおけば $\{H_1,y\}=-2$ です（$H_1'=1-H_1^2$、$H_1''/H_1'=-2H_1$ を代入）。[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)で $F(t)=H_1(\pi t/\beta)$ として、内側の一次関数のSchwarzianが0であることから $\{F,t\}=-2(\pi/\beta)^2$ を得ます。$\square$
+$L$ は明示的な $t$ 依存を持たないので、Euler–Lagrange方程式を満たす軌道では時間並進のNoether量が保存され、$\dot H=0$ です。
+
+次に $H_1(y)=\tanh y$ と置きます。$H_1'=1-H_1^2$、$H_1''/H_1'=-2H_1$ を上のSchwarzianの定義に代入して
+
+$$
+\{H_1,y\}=-2
+$$
+
+を得ます。[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)を $F(t)=H_1(\pi t/\beta)$ に適用します。内側の一次関数のSchwarzianは0、導関数は $\pi/\beta$ なので、
+
+$$
+\{F,t\}=-2\left(\frac{\pi}{\beta}\right)^2
+$$
+
+です。$\square$
 <!-- proof-end -->
 
 浴と接合した模型では、境界から外へ出る正味のエネルギー流束を $P(t)$（正なら境界がエネルギーを失う、単位は時間当たりのエネルギー）と定めます。**境界と浴を合わせてエネルギーが保存されるという接合条件を採用した場合**、収支は
