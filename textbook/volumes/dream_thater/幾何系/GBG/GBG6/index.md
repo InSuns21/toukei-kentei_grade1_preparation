@@ -4,7 +4,11 @@
 
 まず射影の微分で消える方向を「垂直」とし、Lie 群の作用からその方向を全部作る。次に、基底の接ベクトルを一意に持ち上げるため、垂直方向を補う「水平」部分空間を各点で選ぶ。右主束では、同じファイバーの別の基準点で水平の意味が変わらないよう、右作用との整合性も課す。この選択が次講の接続1形式の出発点になる。
 
-本講では $M$ を Hausdorff・第二可算な境界のない有限次元滑らかな多様体、$G$ を有限次元 Lie 群、$\pi:P\to M$ を[滑らかな右主 $G$ 束](../GBG2/index.md#def-gbg2-principal-bundle)とする。$\mathfrak g=T_eG$ と書く。接空間と写像の微分は [GEO2 の定義](../../GEO/GEO2/index.md#def-geo2-tangent-derivation)、[微分の定義](../../GEO/GEO2/index.md#def-geo2-differential)を用いる。[Lie 群の指数写像](../../../代数系/LIE/LIE2/index.md#def-lie2-exponential-map)は $\exp(t\xi)$ と書き、$R_g:P\to P$ を $R_g(p)=pg$、$r_g:G\to G$ を $r_g(k)=kg$ とする。
+本講では $M$ を Hausdorff・第二可算な境界のない有限次元滑らかな多様体、$G$ を有限次元 Lie 群とする。$\pi:P\to M$ は[滑らかな右主 $G$ 束](../GBG2/index.md#def-gbg2-principal-bundle)である。
+
+接空間には [GEO2 の接ベクトルの定義](../../GEO/GEO2/index.md#def-geo2-tangent-derivation)、写像の微分には [GEO2 の微分の定義](../../GEO/GEO2/index.md#def-geo2-differential)を用いる。Lie 環は $\mathfrak g=T_eG$ と記す。
+
+[Lie 群の指数写像](../../../代数系/LIE/LIE2/index.md#def-lie2-exponential-map)を $\exp(t\xi)$ と書く。右作用は $R_g:P\to P$、$R_g(p)=pg$、群の右乗法は $r_g:G\to G$、$r_g(k)=kg$ と区別する。
 
 <!-- definition-example-audit: strict -->
 
@@ -226,7 +230,13 @@ $$
 $$
 なので（H2）を満たす。
 
-逆に任意の水平分布 $H$ を取る。[水平持ち上げの命題](#prop-gbg6-horizontal-lift)により、$(x,e)$ では各 $v$ に対する唯一の水平ベクトルが $(v,-b_x(v))$ と表せる。この第二成分は $T_eG=\mathfrak g$ にあり、持ち上げの線形性から $b_x$ は線形、部分束の滑らかさから $x$ に関しても滑らかである。（H2）を $(x,e)$ から $(x,k)$ への右作用に適用すると、そこでの水平空間は必ず上の $H^b$ となる。一意性も $(x,e)$ での値から従う。
+逆に任意の水平分布 $H$ を取る。[水平持ち上げの命題](#prop-gbg6-horizontal-lift)により、単位元の上では各 $v\in T_xM$ に対する唯一の水平ベクトルが
+$
+\operatorname{hor}_{(x,e)}(v)=(v,-b_x(v))
+$
+と表せる。第二成分は $\mathfrak g=T_eG$ に属す。持ち上げの線形性から $b_x$ は線形であり、部分束の滑らかさから基底点 $x$ に関しても滑らかである。
+
+（H2）を $(x,e)$ から $(x,k)$ への右作用に適用すると、そこでの水平空間は必ず上で構成した $H^b$ になる。$b_x$ の一意性も単位元での水平ベクトルの一意性から従う。
 <!-- proof-end -->
 
 特に $G=GL(2,\mathbb R)$ では $T_KG=M_2(\mathbb R)$、$(dr_K)_I(B)=BK$ だから
