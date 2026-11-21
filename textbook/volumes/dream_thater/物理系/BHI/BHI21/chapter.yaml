@@ -14,7 +14,8 @@ learning_objectives:
   - Lorentz境界Noetherエネルギーと浴流束の収支を区別し接合条件が追加で必要なことを説明できる
 definitions:
   - { id: BHI21-DEF-01, name: "JTの正則化境界と再パラメータ化" }
-  - { id: BHI21-DEF-02, name: "熱的境界時計" }
+  - { id: BHI21-DEF-02, name: "JT境界の射影変換" }
+  - { id: BHI21-DEF-03, name: "熱的境界時計" }
 theorems:
   - { id: BHI21-PROP-01, name: "正則化境界の外部曲率展開" }
   - { id: BHI21-PROP-02, name: "真空JTのSchwarzian有効作用" }
