@@ -136,7 +136,7 @@ $$
 
 ## 4. 位相面積は保ってもエネルギーは保たない
 
-正確な Hamiltonian flow は[Liouville の定理](../../../物理系/AMECH/AMECH6/index.md#thm-amech6-liouville)の条件下で位相体積を保存する。数値更新でも、二変数の Jacobian 行列式が $1$ かを直接検査する。Jacobian は各点近傍の面積倍率を表すが、領域全体の面積保存には更新が一対一で、逆向きにも滑らかに戻せることが要る。最初は一般の**分離形** $H(q,p)=T(p)+V(q)$ に進もう。ここで $T,V$ は二階連続微分可能な実数値関数である。
+正確な Hamiltonian flow は[Liouville の定理](../../../物理系/AMECH/AMECH6/index.md#thm-amech6-liouville)の条件下で位相体積を保存する。数値更新でも、二変数の Jacobian 行列式が $1$ かを直接検査する。Jacobian は各点近傍の面積倍率を表すが、領域全体の面積保存には更新が一対一で、逆向きにも滑らかに戻せることが要る。最初は一般の**分離形** $H(q,p)=T(p)+V(q)$ に進もう。ここで $T,V$ は二階連続微分可能な実数値関数である。以下の $q',p'$ は**一歩後の状態**を表し、時間微分ではない。一方、$T'(p)=dT/dp$、$V'(q)=dV/dq$ のプライムは、それぞれ引数に関する導関数を表す。
 
 <a id="thm-pml1-20-area"></a>
 
@@ -188,10 +188,12 @@ $$
 J=\begin{pmatrix}0&1\\-1&0\end{pmatrix}
 $$
 
-と置き、各点の微分行列 $M=D\Phi_h$ が $M^{\mathsf T}JM=J$ を満たすことを symplectic 条件と呼ぶ。任意の $2\times2$ 行列 $M$ では直接の積から
+と置き、各点の微分行列 $M=D\Phi_h$ が $M^{\mathsf T}JM=J$ を満たすことを symplectic 条件と呼ぶ。任意の $2\times2$ 行列 $M=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ に対し、
 
 $$
-M^{\mathsf T}JM=(\det M)J
+M^{\mathsf T}JM
+=\begin{pmatrix}0&ad-bc\\bc-ad&0\end{pmatrix}
+=(\det M)J
 $$
 
 となるので、上で示した $\det D\Phi_h=1$ はこの条件も保証する。一方、$(q,p)\mapsto(q,-p)$ は $|\det M|=1$ で面積を保つが、$\det M=-1$ なので symplectic ではない。四変数以上でも行列式 $1$ だけでは symplectic 条件を保証しない。
@@ -486,7 +488,15 @@ $m=4,k=9$ の振動子で、修正エネルギーが正定値となる $h>0$ の
 <!-- solution-start -->
 #### 詳細解答
 
-$\omega=\sqrt{k/m}=3/2$。$0<h\omega<2$ より $0<h<4/3$。$h=1$ なら $s=3/2<2$ で正定値、$h=3/2$ なら $s=9/4>2$ で正定値ではない。判定するのは $h$ 単独でなく無次元積 $h\omega$ である。
+振動数は $\omega=\sqrt{k/m}=3/2$ である。修正エネルギーの正定値条件は
+
+$$
+0<h\omega=\frac32h<2
+\quad\Longleftrightarrow\quad
+0<h<\frac43.
+$$
+
+$h=1$ なら $s=3/2<2$ なので正定値だが、$h=3/2$ なら $s=9/4>2$ なので正定値ではない。判定するのは $h$ 単独でなく無次元積 $h\omega$ である。
 <!-- solution-end -->
 
 <a id="ex-pml1-20-a05"></a>
