@@ -1,0 +1,57 @@
+chapter: PML2-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-03
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-04-error-metrics
+    name: 誤差の測定対象とノルム
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（誤差の測定対象とノルム）"]
+    requires:
+      - physics-machine-learning.pml2-03-fd
+      - physics-machine-learning.pml2-03-fem
+  - id: physics-machine-learning.pml2-04-residual
+    name: 局所切断誤差と計算残差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所切断誤差と計算残差）"]
+    requires:
+      - physics-machine-learning.pml2-04-error-metrics
+  - id: physics-machine-learning.pml2-04-error-budget
+    name: 右辺誤差と計算残差を含む三項誤差分解
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-04-residual
+  - id: physics-machine-learning.pml2-04-consistency-stability
+    name: 差分法の整合性と安定性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（差分法の整合性と安定性）"]
+    requires:
+      - physics-machine-learning.pml2-03-fd
+  - id: physics-machine-learning.pml2-04-grid-convergence
+    name: 格子点収束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（差分法の整合性と安定性）"]
+    requires:
+      - physics-machine-learning.pml2-04-consistency-stability
+  - id: physics-machine-learning.pml2-04-convergence
+    name: 整合性と安定性による二次精度の誤差評価
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-04-consistency-stability
+      - physics-machine-learning.pml2-04-error-budget
+      - physics-machine-learning.pml2-03-dmp
+  - id: physics-machine-learning.pml2-04-galerkin-error
+    name: Galerkin解と計算値のエネルギー誤差直交分解
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-03-best
+      - physics-machine-learning.pml2-04-error-metrics
