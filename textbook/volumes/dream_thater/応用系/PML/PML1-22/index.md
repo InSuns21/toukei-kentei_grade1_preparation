@@ -89,7 +89,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-22-model-classes -->
-**定義の確認。** $W=J$、$S=I_2$、$k=1$ とする。$S$ は対称、$L_1$ の速度 Hessian は $1\ne0$、線形NNの $W$ は実 $2\times2$ 行列である。三者すべてで
+**定義の確認**。 $W=J$、$S=I_2$、$k=1$ とする。$S$ は対称、$L_1$ の速度 Hessian は $1\ne0$、線形NNの $W$ は実 $2\times2$ 行列である。三者すべてで
 
 $$
 f(z)=Jz=(p,-q)^{\mathsf T}
@@ -141,7 +141,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-22-comparison-metrics -->
-**定義の確認。** $f=Jz$、真の場も $f_\ast=Jz$、未使用点を $z_{\mathrm{test}}=(3/5,4/5)^{\mathsf T}$ とすれば、$f(z_{\mathrm{test}})=f_\ast(z_{\mathrm{test}})$ なので $E_{\mathrm{test}}=0$。一方、訓練速度にずれがあれば $R_{\mathrm{train}}>0$ はあり得る。軌道と保存量を比較するには、さらに積分方法と刻みを指定する必要がある。
+**定義の確認**。 $f=Jz$、真の場も $f_\ast=Jz$、未使用点を $z_{\mathrm{test}}=(3/5,4/5)^{\mathsf T}$ とすれば、$f(z_{\mathrm{test}})=f_\ast(z_{\mathrm{test}})$ なので $E_{\mathrm{test}}=0$。一方、訓練速度にずれがあれば $R_{\mathrm{train}}>0$ はあり得る。軌道と保存量を比較するには、さらに積分方法と刻みを指定する必要がある。
 <!-- definition-example-end -->
 
 学習は各仮説クラス内の**大域的な最小二乗解**を解析式で求める。従って乱数初期化・最適化の不成功という別要因を比較から外せる。ただし、パラメータ数も演算量も同一ではない。一般の深いNN同士の「同じ学習予算」比較をしたことにはならない。
@@ -214,10 +214,20 @@ $$
 \end{aligned}
 $$
 
-交差項がゼロなのは、対称行列 $A$ と反対称行列 $J$ について
-$\operatorname{tr}(A^{\mathsf T}J)=\operatorname{tr}((A^{\mathsf T}J)^{\mathsf T})
-=\operatorname{tr}(J^{\mathsf T}A)=-\operatorname{tr}(JA)
-=-\operatorname{tr}(AJ)$ だからである。よって一意に $S=I_2$、最小損失は $\delta^2$。
+交差項がゼロなのは、対称行列 $A$ と反対称行列 $J$ に対して次が成り立つためである。
+
+$
+\begin{aligned}
+\operatorname{tr}(A^{\mathsf T}J)
+&=\operatorname{tr}((A^{\mathsf T}J)^{\mathsf T})\\
+&=\operatorname{tr}(J^{\mathsf T}A)
+=-\operatorname{tr}(JA)\\
+&=-\operatorname{tr}(AJ)
+=-\operatorname{tr}(A^{\mathsf T}J).
+\end{aligned}
+$
+
+従って交差項は自分の負に等しく、ゼロとなる。よって一意に $S=I_2$、最小損失は $\delta^2$。
 
 LNN に許される行列は $B_k=\begin{pmatrix}0&1\\-k&0\end{pmatrix}$。従って
 
