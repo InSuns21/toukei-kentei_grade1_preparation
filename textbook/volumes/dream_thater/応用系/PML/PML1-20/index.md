@@ -28,7 +28,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（一段数値更新写像）**  
-> $D\subset\mathbb R^2$、刻み幅 $h>0$ と写像 $\Phi_h:D\to D$ を与える。初期値 $z_0\in D$ と、反復 $z_{n+1}=\Phi_h(z_n)$ により得られる列を離散軌道と呼び、$\Phi_h$ を一段数値更新写像と呼ぶ。
+> $D\subset\mathbb R^2$、刻み幅 $h>0$ と写像 $\Phi_h:D\to D$ を与える。初期値 $z_0\in D$ から次の反復で列を定める。
+
+$
+z_{n+1}=\Phi_h(z_n).
+$
+
+> この列を離散軌道、$\Phi_h$ を一段数値更新写像と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-20-one-step -->
@@ -298,7 +304,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（刻み幅と長時間有界性の境界）**  
-> $A_s=\begin{pmatrix}1-s^2&s\\-s&1\end{pmatrix}$、$s>0$ とする。$\det A_s=1$ であるが、$0<s<2$ ではすべての初期値の $A_s^nu_0$ が有界、$s=2$ では無界な初期値が存在し、$s>2$ では指数的に増大する初期値が存在する。
+> $s>0$ とし、次の行列を与える。
+
+$
+A_s=\begin{pmatrix}1-s^2&s\\-s&1\end{pmatrix}.
+$
+
+> 行列式は $1$ である。$0<s<2$ ではすべての初期値の反復列が有界、$s=2$ では無界な初期値が存在し、$s>2$ では指数的に増大する初期値が存在する。
 <!-- formal-statement-end -->
 
 **証明の見取り図。** 最初は修正エネルギーの正定値性を使う。境界では冪を直接求め、外側では固有値を計算する。
