@@ -1,0 +1,55 @@
+chapter: ANF7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF6
+forward_references: []
+
+concepts:
+  - id: number-theory.number-field-unit-group
+    name: 数体の単数群
+    kind: definition
+    introduction: formal
+    requires: [number-theory.unit-norm-criterion]
+
+  - id: number-theory.weighted-logarithmic-embedding
+    name: 重み付き対数埋め込み
+    kind: definition
+    introduction: formal
+    requires: [number-theory.number-field-unit-group, number-theory.trace-norm-embedding-formulas]
+
+  - id: number-theory.unit-log-kernel-discreteness
+    name: 対数写像の核と離散性
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.weighted-logarithmic-embedding, number-theory.number-ideal-lattice-covolume]
+
+  - id: number-theory.unit-log-coarse-cover
+    name: 対数像による有界距離被覆
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.weighted-logarithmic-embedding, number-theory.bounded-ideal-norm-finiteness, number-theory.number-ideal-lattice-covolume]
+
+  - id: number-theory.discrete-relatively-dense-full-lattice
+    name: 離散かつ相対稠密な部分群
+    kind: lemma
+    introduction: formal
+    requires: []
+
+  - id: number-theory.dirichlet-unit-theorem
+    name: Dirichletの単数定理
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.unit-log-kernel-discreteness, number-theory.unit-log-coarse-cover, number-theory.discrete-relatively-dense-full-lattice]
+
+  - id: number-theory.number-field-regulator
+    name: レギュレータ
+    kind: definition
+    introduction: formal
+    requires: [number-theory.dirichlet-unit-theorem]
+
+  - id: number-theory.regulator-invariance
+    name: レギュレータの不変性
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.number-field-regulator]
