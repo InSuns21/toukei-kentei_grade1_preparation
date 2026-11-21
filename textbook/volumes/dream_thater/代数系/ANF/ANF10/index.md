@@ -4,7 +4,7 @@
 
 次は **多項式方程式の解**です。法 $p$ で根を見つけても、法 $p^2$ で根があるとは限りません。しかし、根の位置で導関数が $p$ の倍数でないなら、近似解を一意に持ち上げられます。これを Hensel の補題と呼びます。さらに、$\mathbb Q_p$ 自身に根を持たない多項式を使い、新しい局所体を作ります。
 
-本講では素数 $p$ を固定し、$v_p(p)=1$、$v_p(0)=\infty$ とします。[付値と単元の定理](../ANF9/index.md#prop-anf9-dvr-structure)より、$x\in\mathbb Z_p$ が単元であることと $v_p(x)=0$ は同値です。$\mathbb F_p=\mathbb Z_p/p\mathbb Z_p$ は $p$ 個の元からなる体です。多項式 $f\in\mathbb Z_p[X]$ の係数を法 $p$ に写したものを $\bar f\in\mathbb F_p[X]$ と記し、$f'$ は形式微分を表します。
+本講では素数 $p$ を固定し、$v_p(p)=1$、$v_p(0)=\infty$ とします。[Z_pの単元とイデアル](../ANF9/index.md#prop-anf9-dvr-structure)より、$x\in\mathbb Z_p$ が単元であることと $v_p(x)=0$ は同値です。$\mathbb F_p=\mathbb Z_p/p\mathbb Z_p$ は $p$ 個の元からなる体です。多項式 $f\in\mathbb Z_p[X]$ の係数を法 $p$ に写したものを $\bar f\in\mathbb F_p[X]$ と記し、$f'$ は形式微分を表します。
 
 <!-- definition-example-audit: strict -->
 
@@ -24,7 +24,7 @@ $$
 <a id="def-anf10-simple-residue-root"></a>
 
 <!-- formal-statement-start -->
-> **定義（法 $p$ の単純根）**  
+> **定義（法pの単純根）**  
 > 素数 $p$、$f\in\mathbb Z_p[X]$、$a\in\mathbb Z_p$ とする。$f(a)\equiv0\pmod p$ かつ $f'(a)\not\equiv0\pmod p$ のとき、剰余類 $\bar a\in\mathbb F_p$ を $\bar f$ の **単純根**という。すなわち、根であると同時に導関数の値が $\mathbb F_p$ で非零である。
 <!-- formal-statement-end -->
 
@@ -245,7 +245,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（局所体の有限拡大）**  
-> $K$ を完備な離散付値体で剰余体が有限のものとする。体拡大 $L/K$ の拡大次数 $[L:K]$ が有限であり、$K$ の付値が $L$ に拡張され、その付値で $L$ が完備・剰余体が有限となるとき、$L/K$ を局所体の有限拡大という。本講では $K=\mathbb Q_p$ とし、後述の Eisenstein 多項式による拡大について、この条件を直接証明する。
+> $K$ を完備な離散付値体で剰余体が有限のものとする。体拡大 $L/K$ の拡大次数 $[L:K]$ が有限であり、$K$ の付値が $L$ に拡張され、その付値で $L$ が完備・剰余体が有限となるとき、$L/K$ を局所体の有限拡大という。本講では $K=\mathbb Q_p$ とし、後述する具体的な多項式から作る拡大について、この条件を直接証明する。
 <!-- formal-statement-end -->
 
 **定義の確認への準備。** $\mathbb Q_p$ は [ANF9の構成](../ANF9/index.md#thm-anf9-completion-field)により完備で、$\mathbb Z_p/p\mathbb Z_p=\mathbb F_p$ は有限です。$L=\mathbb Q_p(\pi)$、$\pi^2=p$ とした場合に、$[L:\mathbb Q_p]=2$、$L$ の整数環が $\mathbb Z_p[\pi]$ で、その付値の規格化が $v_L(\pi)=1$、$v_L(p)=2$、剰余体が $\mathbb F_p$ であることを第7節で導きます。単に記号を書くだけでなく、有限拡大の各条件をそこで実際に確認します。
@@ -259,7 +259,7 @@ $$
 
 は体で、$1,\pi,\ldots,\pi^{n-1}$ が $\mathbb Q_p$ 上の基底です。したがって $[L:\mathbb Q_p]=n$ です。体であることは既約多項式が生成するイデアルが極大であることから従います。基底による一意表示は多項式の除法で得られます。
 
-## 6. Eisenstein 多項式は既約になる
+## 6. 新しい根を作る既約多項式
 
 単純根の補題では元の体の **中**に根が現れました。一方 $X^2-p$ は $\mathbb Q_p$ には根がありません（$2v_p(x)=1$ が不可能）。こうした多項式からは、体を拡大して根を付け加えることができます。
 
@@ -302,13 +302,13 @@ $r=c(g)$、$s=c(h)$ と置き、$G=p^{-r}g$、$H=p^{-s}h$ とします。両者�
 <a id="thm-anf10-eisenstein-irreducible"></a>
 
 <!-- formal-statement-start -->
-> **定理（$p$ 進 Eisenstein 既約性判定）**  
+> **定理（p進 Eisenstein 既約性判定）**  
 > 素数 $p$ に関して Eisenstein 型のモニック多項式 $f\in\mathbb Z_p[X]$ は、$\mathbb Q_p[X]$ で既約である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-もし $f=gh$ と正次数のモニック多項式に分解すれば、[係数最小付値の補題](#lem-anf10-gauss-content)から $g,h$ はどちらも整数係数になります。法 $p$ では $\bar f=X^n$ なので、両因子の定数項が $p$ の倍数になり、$a_0$ が $p^2$ の倍数という矛盾に至ります。
+もし $f=gh$ と正次数のモニック多項式に分解すれば、[係数の最小付値の積公式](#lem-anf10-gauss-content)から $g,h$ はどちらも整数係数になります。法 $p$ では $\bar f=X^n$ なので、両因子の定数項が $p$ の倍数になり、$a_0$ が $p^2$ の倍数という矛盾に至ります。
 
 <!-- proof-start -->
 ### 証明
@@ -361,7 +361,7 @@ $A$ は有限個の $p$ 進整数係数で表せるので完備です。多項�
 <!-- proof-start -->
 ### 証明
 
-[既約性判定](#thm-anf10-eisenstein-irreducible)と多項式の除法から $[L:\mathbb Q_p]=n$、$A=\bigoplus_{i=0}^{n-1}\mathbb Z_p\pi^i$ です。$f(X)=X^n+p\sum_{i=0}^{n-1}b_iX^i$ と書け、$b_i\in\mathbb Z_p$、$b_0\in\mathbb Z_p^\times$ です。$f(\pi)=0$ から
+[p進 Eisenstein 既約性判定](#thm-anf10-eisenstein-irreducible)と多項式の除法から $[L:\mathbb Q_p]=n$、$A=\bigoplus_{i=0}^{n-1}\mathbb Z_p\pi^i$ です。$f(X)=X^n+p\sum_{i=0}^{n-1}b_iX^i$ と書け、$b_i\in\mathbb Z_p$、$b_0\in\mathbb Z_p^\times$ です。$f(\pi)=0$ から
 
 $$
 \pi^n=-pU,\qquad
@@ -454,7 +454,7 @@ $p=2$ における $g=X^2-1$ と $h=X^2-2$ を考える。両者の法 $2$ の�
 - ID: ANF10-A3
 
 <!-- solution-start -->
-**詳細解答**　$g(1)=0$、$g'(1)=2\equiv0\pmod2$ です。$g(1)=g(-1)=0$ で $1\equiv-1\pmod2$ だから、一つの剰余根から二つの根が現れます。$h(0)=-2\equiv0$、$h'(0)=0$ ですが、$x\in\mathbb Q_2$ が $x^2=2$ を満たすなら [付値の積公式](../ANF9/index.md#prop-anf9-valuation-rules)から $2v_2(x)=v_2(2)=1$ となり、整数 $v_2(x)$ について不可能です。従って $h$ は $\mathbb Q_2$ に根を持ちません。両例とも単純根の仮定を落とすと、存在・一意性の結論を保証できないことが分かります。
+**詳細解答**　$g(1)=0$、$g'(1)=2\equiv0\pmod2$ です。$g(1)=g(-1)=0$ で $1\equiv-1\pmod2$ だから、一つの剰余根から二つの根が現れます。$h(0)=-2\equiv0$、$h'(0)=0$ ですが、仮に $x\in\mathbb Q_2$ が $x^2=2$ を満たすとします。[付値の積と和](../ANF9/index.md#prop-anf9-valuation-rules)をこの等式に適用すると $2v_2(x)=v_2(2)=1$ となり、整数 $v_2(x)$ について不可能です。従って $h$ は $\mathbb Q_2$ に根を持ちません。両例とも単純根の仮定を落とすと、存在・一意性の結論を保証できないことが分かります。
 <!-- solution-end -->
 
 ### A4. Eisenstein 条件の点検
@@ -533,7 +533,7 @@ $$
 - ID: ANF10-B3
 
 <!-- solution-start -->
-**詳細解答**　$f=gh$ とし、$g,h$ はモニックで正次数とします。$f$ の係数は整数環にあり、先頭係数は $1$ なので $c(f)=0$。一方モニック性から $c(g),c(h)\le0$ です。[係数付値の積公式](#lem-anf10-gauss-content)を適用すると
+**詳細解答**　$f=gh$ とし、$g,h$ はモニックで正次数とします。$f$ の係数は整数環にあり、先頭係数は $1$ なので $c(f)=0$。一方モニック性から $c(g),c(h)\le0$ です。[係数の最小付値の積公式](#lem-anf10-gauss-content)を適用すると
 
 $$
 0=c(f)=c(g)+c(h).
@@ -577,7 +577,7 @@ $p=5$、$f=X^2-5$、$L=\mathbb Q_5(\pi)$（$\pi^2=5$）を考える。次の問�
 
 **（1）** 法 $5$ では $\bar f=X^2$ なので $\bar a=0$ が根ですが、$\bar f'(0)=0$ で単純根ではありません。仮に $x\in\mathbb Q_5$ が $x^2=5$ を満たせば $2v_5(x)=v_5(5)=1$。$v_5(x)\in\mathbb Z$ なので矛盾です。従って単純根の補題で持ち上げられないだけでなく、実際に $\mathbb Q_5$ に根はありません。
 
-**（2）** $f=X^2+0X-5$ はモニック、非先頭係数は $5$ の倍数、定数項 $-5$ は $25$ の倍数ではありません。[Eisenstein 既約性判定](#thm-anf10-eisenstein-irreducible)から次数 $2$ で既約です。従って $[L:\mathbb Q_5]=2$ で $1,\pi$ が基底です。[拡大の局所体構造定理](#thm-anf10-eisenstein-extension)により $A$ は付値環、$A/(\pi)\cong\mathbb F_5$、$L$ は完備です。
+**（2）** $f=X^2+0X-5$ はモニック、非先頭係数は $5$ の倍数、定数項 $-5$ は $25$ の倍数ではありません。[p進 Eisenstein 既約性判定](#thm-anf10-eisenstein-irreducible)から次数 $2$ で既約です。従って $[L:\mathbb Q_5]=2$ で $1,\pi$ が基底です。[Eisenstein 拡大の局所体構造](#thm-anf10-eisenstein-extension)により $A$ は付値環、$A/(\pi)\cong\mathbb F_5$、$L$ は完備です。
 
 **（3）** $v_L(\pi)=1$、$\pi^2=5$ より $v_L(5)=2$ です。$5+\pi=\pi(\pi+1)$ で $\pi+1$ の法 $\pi$ の像は $1\ne0$ なので単元、よって $v_L(5+\pi)=1$。同様に $5-\pi=\pi(\pi-1)$ も付値 $1$ です。積を展開すると
 
