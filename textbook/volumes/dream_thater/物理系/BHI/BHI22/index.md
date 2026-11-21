@@ -211,7 +211,7 @@ $$
 w=u-x,\qquad v=u+x
 $$
 
-と置きます。以下、浴の右向き流束は $\langle T_{ww}\rangle$、左向き入射は $\langle T_{vv}\rangle$ です。[QCURV16のnull流束](../BHI21/index.md#prop-bhi21-lorentz-energy)とは違い、ここでは応力テンソルの成分そのものを直接比較します。[QCURV16での正しい符号定義](../../QCURV/QCURV16/index.md#def-qcurv16-null-flux)によれば、正味の右向き流束は
+と置きます。以下、浴の右向き流束は $\langle T_{ww}\rangle$、左向き入射は $\langle T_{vv}\rangle$ です。[QCURV16のnull流束の定義](../../QCURV/QCURV16/index.md#def-qcurv16-null-flux)に従い、正味の右向き流束は
 
 $$
 P(u)=\langle T_{ww}\rangle_{\Sigma_B}
