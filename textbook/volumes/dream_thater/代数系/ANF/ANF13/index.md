@@ -4,7 +4,7 @@
 
 拡大体の自己同型が剰余体や一様化元をどの程度動かすかを調べます。剰余体を動かさない自己同型をまず集め、次に「一様化元を法 $\pi^2,\pi^3,\ldots$ まで動かさない」という段階を作ります。ここから異なる指数まで計算できるようになります。
 
-以下、$p$ は素数、$K/\mathbb Q_p$ は有限拡大、**$L/K$ は有限 Galois 拡大**とします。$G=\operatorname{Gal}(L/K)$、$n=[L:K]$ です。[有限 Galois 拡大の定義](../FLD/FLD4/index.md#def-fld4-finite-galois)によって $|G|=n$ です。整数環を $A=\mathcal O_L$, $B=\mathcal O_K$、極大イデアルを $\mathfrak m_L=(\pi)$, $\mathfrak m_K$、剰余体を $k_L,k_K$ とします。付値は $v_L(\pi)=1$ に規格化し、$q=|k_K|=p^{f(K/\mathbb Q_p)}$ と置きます。
+以下、$p$ は素数、$K/\mathbb Q_p$ は有限拡大、**$L/K$ は有限 Galois 拡大**とします。$G=\operatorname{Gal}(L/K)$、$n=[L:K]$ です。[有限 Galois 拡大の定義](../../FLD/FLD4/index.md#def-fld4-finite-galois)によって $|G|=n$ です。整数環を $A=\mathcal O_L$, $B=\mathcal O_K$、極大イデアルを $\mathfrak m_L=(\pi)$, $\mathfrak m_K$、剰余体を $k_L,k_K$ とします。付値は $v_L(\pi)=1$ に規格化し、$q=|k_K|=p^{f(K/\mathbb Q_p)}$ と置きます。
 
 [局所体の整数環が離散付値環になる定理](../ANF11/index.md#thm-anf11-local-dvr)とその証明は、$\mathbb Q_p$ 上だけでなく有限拡大 $K$ を基礎体としても適用できます。[局所次数公式](../ANF11/index.md#thm-anf11-ef-degree)により
 
@@ -89,9 +89,9 @@ $$
 
 $K_0/K$ の $f$ 個の自己同型は、それぞれ $\bar\theta\mapsto\bar\theta^{q^j}$ を誘導します。したがって剰余体への写像は位数 $f$ の同型で、特に Frobenius を持ち上げる自己同型が存在します。
 
-**(3) 自己同型を $L$ まで延長する。** $L/K$ は Galois、$K_0/K$ も Galois です。[有限 Galois 理論の正規部分群と制限準同型](../FLD/FLD4/index.md#thm-fld4-normal-subgroup-correspondence)を $K\subset K_0\subset L$ に適用すると、制限写像 $G\to\operatorname{Gal}(K_0/K)$ は全射です。剰余体への作用はこの制限で決まるので、$\rho$ も全射です。
+**(3) 自己同型を $L$ まで延長する。** $L/K$ は Galois、$K_0/K$ も Galois です。[有限 Galois 理論の正規部分群と制限準同型](../../FLD/FLD4/index.md#thm-fld4-normal-subgroup-correspondence)を $K\subset K_0\subset L$ に適用すると、制限写像 $G\to\operatorname{Gal}(K_0/K)$ は全射です。剰余体への作用はこの制限で決まるので、$\rho$ も全射です。
 
-**(4) 位数。** 核は定義により $I$ です。[Galois 群の位数公式](../FLD/FLD4/index.md#cor-fld4-galois-order-degree)で $|G|=n$、有限体の Galois 群の位数は $f$ だから $|I|=n/f=e$。完全列と三つの位数が従います。
+**(4) 位数。** 核は定義により $I$ です。[Galois 群の位数公式](../../FLD/FLD4/index.md#cor-fld4-galois-order-degree)で $|G|=n$、有限体の Galois 群の位数は $f$ だから $|I|=n/f=e$。完全列と三つの位数が従います。
 <!-- proof-end -->
 
 この $K_0$ は $L$ の最大非分岐中間体です。もし $K\subset E\subset L$ が非分岐なら、$[E:K]=[k_E:k_K]\le f$ です。また惰性群は $k_L$ を固定するので $K_0=L^I$ であり、非分岐中間体 $E$ の元は惰性群で固定されます。後者は $E/K$ の剰余体への作用が単射なことと制限写像から従います。
@@ -121,7 +121,7 @@ $L/K_0$ の剰余次数は $1$、分岐指数は $e$ です。$\pi$ の冪 $1,\p
 <!-- proof-start -->
 ### 証明
 
-$K_0=L^I$ なので [Galois 対応](../FLD/FLD4/index.md#thm-fld4-fundamental-galois)から $[L:K_0]=|I|=e$ です。剰余体は共に $k_L$、従って $f(L/K_0)=1$、$e(L/K_0)=e$ です。
+$K_0=L^I$ なので [Galois 対応](../../FLD/FLD4/index.md#thm-fld4-fundamental-galois)から $[L:K_0]=|I|=e$ です。剰余体は共に $k_L$、従って $f(L/K_0)=1$、$e(L/K_0)=e$ です。
 
 $v_L(\pi)=1$ なので、$K_0(\pi)/K_0$ の分岐指数は少なくとも $e$ です。実際、$K_0(\pi)$ 上の付値を規格化すると $v_L|_{K_0}=e v_{K_0}$ であり、$\pi$ の付値が $1$ なので値群は整数全体になります。従って次数公式で $[K_0(\pi):K_0]\ge e$、一方この体は $L$ に含まれるので次数は $e$ に等しく、$L=K_0(\pi)$ です。
 
