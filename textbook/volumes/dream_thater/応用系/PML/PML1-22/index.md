@@ -105,7 +105,7 @@ $$
 $$
 z_1=e_1,\quad z_2=e_2,\quad
 z_3=-e_1,\quad z_4=-e_2,\quad
-e_1=\begin{pmatrix}1\\0\end{pmatrix},\
+e_1=\begin{pmatrix}1\\0\end{pmatrix},\qquad
 e_2=\begin{pmatrix}0\\1\end{pmatrix}.
 $$
 
