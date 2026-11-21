@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - PML1-20
   - ODE4
+  - INV1
 official_scope: []
 learning_objectives:
   - 速度観測から有限辞書の SINDy ベクトル場と辞書行列を定義し残差を計算できる
