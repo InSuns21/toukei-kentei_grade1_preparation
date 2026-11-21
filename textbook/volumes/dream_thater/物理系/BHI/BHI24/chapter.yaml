@@ -1,0 +1,46 @@
+id: BHI24
+title: "island候補と一般化エントロピー"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI23
+  - BHI20
+  - HOLO24
+official_scope: []
+learning_objectives:
+  - 重力側の二端点island候補と浴の放射区間を共通の空間断面・状態・cutoffで指定し空候補と区別できる
+  - 二つの離れた区間の四端点交差比を導き一般CFTでは四点相関の関数が残ることを説明できる
+  - レプリカ四点対二点相関の比と単一区間CFT公式からS_matter(I∪R)をWeyl端点因子込みで構成できる
+  - 質量零自由Dirac真空の二領域相互情報量を具体的な端点で検算し一般CFTの普遍結果と混同しない
+  - JTの二つのdilaton端点項と物質エントロピーを同じ正則化で加えて一般化エントロピーを計算できる
+  - 候補と空枝の差を相互情報量で表し値の計算とQES極値化・Page転移を区別できる
+definitions:
+  - { id: BHI24-DEF-01, name: "接合浴に対する二端点island候補" }
+  - { id: BHI24-DEF-02, name: "island・放射の交差比" }
+  - { id: BHI24-DEF-03, name: "JT浴模型のisland候補の一般化エントロピー" }
+theorems:
+  - { id: BHI24-PROP-01, name: "共形真空における二つの区間の物質エントロピー" }
+  - { id: BHI24-PROP-02, name: "共通cutoffで組み立てたisland枝" }
+canonical_examples:
+  - 同じ断面にある重力側island候補の端点と浴領域の確認
+  - 四端点の交差比と間隔の検算
+  - 端点Weyl因子から物理cutoffと座標cutoffを変換
+  - レプリカ相関比から二区間エントロピーへの微分
+  - 自由Dirac真空の相互情報量と一般CFTとの差
+  - 二点のdilaton項・空候補との差分を共通正則化で計算
+  - QESではない非停留候補の局所反例
+problem_patterns:
+  - BHI24-CANDIDATE-DOMAIN
+  - BHI24-CROSS-RATIO
+  - BHI24-WEYL-CUTOFF
+  - BHI24-TWO-ENDPOINT-AREA
+  - BHI24-MUTUAL-INFORMATION
+  - BHI24-REPLICA-DERIVATIVE
+  - BHI24-DIRAC-GAP
+  - BHI24-JT-LEDGER-DIFFERENCE
+  - BHI24-CUTOFF-CONSISTENCY
+  - BHI24-INTEGRATED-ISLAND-CANDIDATE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 14, review: 6 }
