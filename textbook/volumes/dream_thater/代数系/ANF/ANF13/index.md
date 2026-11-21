@@ -345,19 +345,47 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(1) 非分岐部分の異なるは単位。** $K_0/K$ には前節で作った整元 $\theta$ があり、$K_0=K(\theta)$、$\mathcal O_{K_0}=B[\theta]$ です。後の等号は $K_0/K$ の $e=1$ と剰余体基底の持ち上げを使って確認できます。$1,\theta,\ldots,\theta^{f-1}$ は剰余体上で一次独立なので、これらが $B$ 上の整数基底となります。$\theta$ の最小多項式 $h$ は法 $\mathfrak m_K$ で分離的ゆえ $h'(\theta)$ は単元です。
+**(1) 非分岐部分の異なるは単位。** $K_0/K$ には前節で構成した整元 $\theta$ があり、$K_0=K(\theta)$ です。$\bar\theta$ の最小多項式の次数は $f$ なので、$1,\bar\theta,\ldots,\bar\theta^{f-1}$ は $k_K$ 上の基底です。これを使って $\mathcal O_{K_0}=B[\theta]$ を確認します。
 
-[単項生成の整数環の異なる公式](../ANF11/index.md#thm-anf11-monogenic-different)の跡双対計算は任意の完備離散付値環を基礎体にして同様に成り立つので、$\mathfrak D_{K_0/K}=(h'(\theta))=\mathcal O_{K_0}$ です。
+任意の $x\in\mathcal O_{K_0}$ を $x=\sum_{j=0}^{f-1}a_j\theta^j$（$a_j\in K$）と一意に書き、$x\ne0$ のとき $m=\min_j v_K(a_j)$ と置きます。もし $m<0$ なら、$b_j=\varpi_K^{-m}a_j\in B$ のうち少なくとも一つは単元です。一方、$K_0/K$ の分岐指数は $1$ なので
 
-**(2) 異なるの塔公式を確認する。** 有限自由拡大の跡は合成し、$\operatorname{Tr}_{L/K}=\operatorname{Tr}_{K_0/K}\circ\operatorname{Tr}_{L/K_0}$ です。跡双対の定義から余異なるは
+$
+\varpi_K^{-m}x\in\varpi_K\mathcal O_{K_0}
+\quad\Longrightarrow\quad
+\sum_{j=0}^{f-1}\bar b_j\bar\theta^j=0.
+$
 
-$$
+これは剰余体上の基底の一次独立性と、少なくとも一つの $\bar b_j$ が非零であることに反します。よって $m\ge0$、すべての $a_j\in B$ であり、$\mathcal O_{K_0}=B[\theta]$ です。
+
+$\theta$ の最小多項式 $h$ は法 $\mathfrak m_K$ で分離的なので $h'(\theta)$ は単元です。[単項生成の整数環の異なる公式](../ANF11/index.md#thm-anf11-monogenic-different)の跡双対計算を $B$ 上に適用すると、$\mathfrak D_{K_0/K}=(h'(\theta))=\mathcal O_{K_0}$ となります。
+
+**(2) 非分岐中間体を通した跡双対。** 有限拡大の跡の合成から
+
+$
+\operatorname{Tr}_{L/K}
+=\operatorname{Tr}_{K_0/K}\circ\operatorname{Tr}_{L/K_0}
+$
+
+です。[余異なるの定義](../ANF11/index.md#def-anf11-codifferent)を使います。まず $x\in\mathfrak D^{-1}_{L/K_0}$ なら、任意の $a\in A$ に対し $\operatorname{Tr}_{L/K_0}(xa)\in\mathcal O_{K_0}$ です。$\operatorname{Tr}_{K_0/K}(\mathcal O_{K_0})\subseteq B$ なので、合成跡も $B$ に入り $x\in\mathfrak D^{-1}_{L/K}$ です。
+
+逆に $x\in\mathfrak D^{-1}_{L/K}$ とします。任意の $a\in A$、$b\in\mathcal O_{K_0}$ では $ab\in A$ だから
+
+$
+\operatorname{Tr}_{K_0/K}
+\bigl(b\,\operatorname{Tr}_{L/K_0}(xa)\bigr)
+=\operatorname{Tr}_{L/K}(xab)\in B.
+$
+
+これは $\operatorname{Tr}_{L/K_0}(xa)$ が $\mathfrak D^{-1}_{K_0/K}=\mathcal O_{K_0}$ に属するという条件そのものです。任意の $a\in A$ に対し成立するので $x\in\mathfrak D^{-1}_{L/K_0}$ です。両包含から
+
+$
 \mathfrak D^{-1}_{L/K}
-=\mathfrak D^{-1}_{L/K_0}
-\,\mathfrak D^{-1}_{K_0/K}\,A.
-$$
+=\mathfrak D^{-1}_{L/K_0},
+\qquad
+\mathfrak D_{L/K}=\mathfrak D_{L/K_0}
+$
 
-ここで等号を確認するには、$\mathcal O_{K_0}$ の $B$ 基底と $A$ の $\mathcal O_{K_0}$ 基底の積を $A$ の $B$ 基底に取り、二段階の跡双対基底の積を作ればよいです。$\mathfrak D^{-1}_{K_0/K}=\mathcal O_{K_0}$ なので $\mathfrak D_{L/K}=\mathfrak D_{L/K_0}$ です。
+を得ます。
 
 **(3) 共役との差。** [全分岐部分の一様化元基底](#lem-anf13-monogenic)から $L/K_0$ の最小多項式は
 
