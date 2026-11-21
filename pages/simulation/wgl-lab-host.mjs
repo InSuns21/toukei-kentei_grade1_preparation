@@ -1450,7 +1450,7 @@ if (isFCG5) {
   document.querySelector('#panel-conditions ol').innerHTML=
     '<li>静止初期場の性質、step0/1/8/24の染料積分・最大発散・Poisson残差を比較する。</li>'+
     '<li>1step・再生・一時停止・step0へ復帰を行い、物理時刻と画面更新間隔を区別する。</li>'+
-    '<li>実行した12×12の染料画面をShift+ドラッグで塗り足し、Spaceで再生／停止する。</li>'+ 
+    '<li>実行した12×12の染料画面をShift+ドラッグで塗り足し、Spaceで再生／停止する。</li>'+
     '<li>結果canvasで画素をクリック、または矢印キーとEnterで物理格子値を検査する。</li>'+
     '<li>fluid.jsのnuまたはforceAmplitudeを変更し、物理値と初期CPU予測の差を説明する。</li>'+
     '<li>fluid.fragの中央色の倍率・構文エラーを試してCPU残差とGPU表示を区別する。</li>';
