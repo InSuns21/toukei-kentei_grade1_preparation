@@ -1,7 +1,7 @@
 chapter: BHI19
 scope: dream-theater
 coverage: complete
-prerequisites: [BHI18]
+prerequisites: [BHI18, GEO19]
 forward_references: []
 
 concepts:
@@ -17,7 +17,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: [命題（Euclid化した位相項と定数S0）]
-    requires: [black-hole-information.jt-action-boundary]
+    requires: [black-hole-information.jt-action-boundary, geometry.gauss-bonnet-boundary-theorem]
 
   - id: black-hole-information.jt-curvature-equation
     name: dilaton方程式と一定負曲率
