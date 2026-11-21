@@ -61,7 +61,11 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi19-jt-action -->
-**定義の確認（変数と各項を実際に指定）。** $G_2=1$、$\ell=2$、$\Phi_0=3$ を選び、滑らかな時間的境界を持つ二次元Lorentz領域の計量と $C^2$ の実スカラー場 $\Phi$ を用意します。境界では $h,\Phi$ を固定し、物質作用を $I_{\rm m}=0$ とします。このとき正の結合定数と曲率半径、スカラー場の定義域、境界で固定するデータはすべて指定されています。bulkのdilaton係数は $1/(16\pi)$、曲率を拘束する因子は $R+1/2$ です。境界項の係数は $2/(16\pi)$、標準反項は $-1/(16\pi)\int_{\partial M}\sqrt{-h}\,\Phi$ です。後の第6節では、実際の計量と場を入れた**方程式の解**も確認します。
+**定義の確認（変数と各項を実際に指定）。** $G_2=1$、$\ell=2$、$\Phi_0=3$ を選び、滑らかな時間的境界を持つ二次元Lorentz領域の計量と $C^2$ の実スカラー場 $\Phi$ を用意します。境界では計量の制限 $h$ と dilaton $\Phi$ を固定し、物質作用を零とします。
+
+このとき正の結合定数と曲率半径、スカラー場の定義域、境界で固定するデータはすべて指定されています。bulkのdilaton係数は $1/(16\pi)$、曲率を拘束する因子は $R+1/2$ です。境界項の係数は $2/(16\pi)$ です。
+
+標準反項はこの値で $-(16\pi)^{-1}\int_{\partial M}\sqrt{-h}\,\Phi$ となります。後の第6節では、実際の計量と場を入れた**方程式の解**も確認します。
 <!-- definition-example-end -->
 
 境界データを固定するとは、$\delta h=0$、$\delta\Phi|_{\partial M}=0$ として変分することです。境界の $\Phi K$ 項は、固定するのが計量の値であって**法線方向の一階微分までではない**という点で重要です。外部曲率の変分が、bulkの $\Phi R$ からの法線微分項を相殺します。境界を動かす自由度を調べるのはBHI21の役目です。
@@ -613,7 +617,17 @@ $$
 - 問題: 平坦な局所座標 $(t,x)$ で質量零実スカラー $\psi=f(t-x)$（$f$ は $C^2$）を取る。$I_{\rm m}=-\frac12\int\sqrt{-g}(\nabla\psi)^2$ の応力テンソルについて $T$ と $T_{tt}$ を計算し、$T=0$ から $T_{\mu\nu}=0$ と結論できるか述べよ。
 
 <!-- solution-start -->
-**詳細解答。** $u=t-x$ と置くと $\partial_t\psi=f'(u)$、$\partial_x\psi=-f'(u)$。平坦計量 $\operatorname{diag}(-1,1)$ に対して $(\nabla\psi)^2=-(f')^2+(f')^2=0$ です。[応力テンソルの直接例](#def-bhi19-stress-source)より $T_{tt}=(\partial_t\psi)^2-\tfrac12g_{tt}(\nabla\psi)^2=(f')^2$、$T_{xx}=(f')^2$、$T_{tx}=-(f')^2$ です。一方 $T=-T_{tt}+T_{xx}=0$。$f'$ が非零の点では $T_{\mu\nu}\ne0$ です。よってトレース式が真空と同じ形でも、[計量方程式](#prop-bhi19-metric-eom)の各成分には物質源が残ります。これは局所の応力テンソルの検算であり、全体が平坦計量のJT解になるという主張ではありません。
+**詳細解答。** $u=t-x$ と置くと $\partial_t\psi=f'(u)$、$\partial_x\psi=-f'(u)$。平坦計量 $\operatorname{diag}(-1,1)$ に対して $(\nabla\psi)^2=-(f')^2+(f')^2=0$ です。
+
+[応力テンソルの直接例](#def-bhi19-stress-source)より、成分を一つずつ計算すると
+
+$$
+T_{tt}=(\partial_t\psi)^2-\frac12g_{tt}(\nabla\psi)^2=(f')^2,
+\qquad
+T_{xx}=(f')^2,\qquad T_{tx}=-(f')^2.
+$$
+
+一方、跡は $T=-T_{tt}+T_{xx}=0$ です。$f'$ が非零の点では $T_{\mu\nu}\ne0$ です。よってトレース式が真空と同じ形でも、[計量方程式](#prop-bhi19-metric-eom)の各成分には物質源が残ります。これは局所の応力テンソルの検算であり、全体が平坦計量のJT解になるという主張ではありません。
 <!-- solution-end -->
 
 ### Level C：曲率・dilaton・境界の一貫性
@@ -623,7 +637,23 @@ $$
 #### BHI19-C01 Poincaréパッチの作用変分を総合検査する
 
 - Level: C
-- 問題: 真空JT模型で $\ell>0,\alpha>0$、$z\ge\varepsilon>0$ とし、$ds^2=(\ell^2/z^2)(-dt^2+dz^2)$、$\Phi=\alpha/z$ と置く。(i) $\Phi$ 変分が要求する曲率、(ii) $\Phi$ のHessianの $tt,zz,tz$ 成分とトレース、(iii) $z=\varepsilon$ における $K$ と $\Phi K$ 境界項・標準反項の相殺、(iv) $\Phi=C\ne0$ に置き換える場合の失敗、(v) [BHI18の浴区間式](../BHI18/index.md#prop-bhi18-vacuum-bath)だけからisland端点のエントロピーを決定できるか、を順に検算せよ。時間境界の角項は含めず時間幅 $\Delta t$ で比較してよい。
+- 問題: 真空JT模型で正の定数 $\ell,\alpha$ を取り、$z\ge\varepsilon>0$ とする。計量と dilaton は次の通りとする。
+
+$$
+ds^2=\frac{\ell^2}{z^2}(-dt^2+dz^2),\qquad \Phi=\frac{\alpha}{z}.
+$$
+
+  (i) dilaton変分が要求する曲率を計算せよ。
+
+  (ii) dilatonのHessianの $tt,zz,tz$ 成分とトレースを求めよ。
+
+  (iii) $z=\varepsilon$ での $K$ と境界項・標準反項の相殺を示せ。
+
+  (iv) $\Phi=C\ne0$ に置き換える場合の失敗を説明せよ。
+
+  (v) [BHI18の浴区間式](../BHI18/index.md#prop-bhi18-vacuum-bath)だけからisland端点のエントロピーを決定できるか判定せよ。
+
+時間境界の角項は含めず、時間幅 $\Delta t$ で比較してよい。
 
 <!-- solution-start -->
 **詳細解答。** (i) $\omega=\ln\ell-\ln z$、$\partial_z^2\omega=z^{-2}$ を使うと $R=-2(z^2/\ell^2)(z^{-2})=-2/\ell^2$。これは[曲率方程式](#prop-bhi19-curvature-eom)です。
