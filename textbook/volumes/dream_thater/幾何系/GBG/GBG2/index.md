@@ -254,16 +254,16 @@ t=\frac{X+iY}{1-Z}\quad (U_w),\qquad
 u=\frac{X-iY}{1+Z}\quad (U_z)
 $$
 を対応させる。分母は領域内で正なので式は滑らかである。これらは球面上の点を表す座標である。一方、$H(z,w)=(X,Y,Z)$ のとき、$H$ の定義から
-$
+$$
 X+iY=2z\overline w,\qquad
 X-iY=2\overline z w,\qquad
 1-Z=2|w|^2,\quad 1+Z=2|z|^2
-$
+$$
 となる。したがって、$w\ne0$ と $z\ne0$ の各領域ではそれぞれ
-$
+$$
 t=\frac{2z\overline w}{2w\overline w}=\frac zw,\qquad
 u=\frac{2\overline z w}{2z\overline z}=\frac wz.
-$
+$$
 つまり $t,u$ は、同じ位相を両座標に掛けても変わらない**複素座標の比**である。局所自明化ではこの比を基底側の座標とし、残る位相 $w/|w|$ または $z/|z|$ を群座標にする。
 
 <a id="thm-gbg2-hopf-principal"></a>
@@ -303,7 +303,7 @@ $$
 \frac{2\overline u}{1+|u|^2}=X+iY,
 \qquad
 \frac{1-|u|^2}{1+|u|^2}=Z
-$
+$$
 より $H(s_z(u))=(X,Y,Z)$ を得る。二領域が球面を覆うので $H$ は全射である。
 
 $w\ne0$ の点 $(z,w)\in S^3$ に対し $t=z/w$ とおくと、$|w|=(1+|t|^2)^{-1/2}$ なので
@@ -359,22 +359,22 @@ $$
 
 <!-- definition-example-start: def-gbg2-frame-bundle -->
 **定義の確認**：$M=\mathbb R^2$ の枠束。各点 $x$ で標準座標基底 $E(x)=(e_1,e_2)$ を取る。上の列表示により、$x$ 上の枠は $E(x)\cdot A$ と唯一表せ、$A\in GL(2,\mathbb R)$ であることが枠の条件に一致する。例えば
-$
+$$
 A=\begin{pmatrix}1&1\\0&1\end{pmatrix},\qquad
 \det A=1,\qquad
 E(x)\cdot A=(e_1,e_1+e_2).
-$
+$$
 射影を $\pi(x,E(x)A)=x$ と定めれば全射であり、$\pi((E(x)A)B)=x$ だから（P1）が成立する。$AB=A$ なら $B=I$、二つの枠 $E(x)A,E(x)C$ の間の群元は唯一 $B=A^{-1}C$ なので（P2）も成立する。さらに
-$
+$$
 \Phi:\operatorname{Fr}(\mathbb R^2)\longrightarrow
 \mathbb R^2\times GL(2,\mathbb R),\qquad
 \Phi(E(x)A)=(x,A)
-$
+$$
 は、逆 $(x,A)\mapsto E(x)A$ を持つ。いずれも標準座標の成分で表されて滑らかであり、$\Phi((E(x)A)B)=(x,AB)$ だから（P3）も成立する。右作用の結合律も、$j$ 番目のベクトルが
-$
+$$
 \sum_k\left(\sum_i e_i A^i{}_k\right)B^k{}_j
 =\sum_i e_i\left(\sum_k A^i{}_kB^k{}_j\right)
-$
+$$
 となることから、行列積 $(AB)^i{}_j$ と一致すると確認できる。
 <!-- definition-example-end -->
 
@@ -563,16 +563,16 @@ $M=(0,\infty)$ で座標 $x$ と $y=\log x$ を使う。座標枠 $E_x=\partial/
 
 <!-- solution-start -->
 **詳細解答**。$x=e^y$ なので、滑らかな試験関数 $f$ に対する一変数の連鎖律は
-$
+$$
 \frac{d}{dy}f(e^y)=\frac{df}{dx}(x)\frac{dx}{dy}
 =x\frac{df}{dx}(x)
-$
+$$
 である。座標方向の接ベクトル $\partial/\partial y$、$\partial/\partial x$ は関数に作用する微分作用素を表すので、この恒等式を両作用素に読み替えて
-$
+$$
 \frac{\partial}{\partial y}
 =\frac{dx}{dy}\frac{\partial}{\partial x}
 =x\frac{\partial}{\partial x}
-$
+$$
 を得る。
 従って $E_y=E_x\cdot x$ であり、構造群 $GL(1,\mathbb R)=\mathbb R^\times$ の遷移行列は $x>0$。$v=E_x\cdot3=E_y\cdot(3/x)$ である。枠係数の変換は $A_y=x^{-1}A_x$。乗法の順は一般次元では $J^{-1}A_x$ となる。
 <!-- solution-end -->
