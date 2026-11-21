@@ -104,3 +104,77 @@ report('DRAW', 'mode=' + drawMode + ' grid=' + n + 'x' + n +
   ' vertices=' + (vertices.length / 2) + ' triangles=' + (indices.length / 3) +
   ' references=' + indices.length + ' indexedBytes=' + (vertices.byteLength + elements.byteLength) +
   ' expandedBytes=' + expanded.byteLength + ' area=1.44');
+
+// Learner-visible mesh inspector: derive every line and selected face from
+// the same positions/indices actually uploaded to the GPU. No second scene.
+if(typeof document!=='undefined'){
+  const ns='http://www.w3.org/2000/svg';
+  const svg=document.createElementNS(ns,'svg');
+  svg.setAttribute('viewBox','0 0 100 100');
+  svg.setAttribute('preserveAspectRatio','none');
+  svg.setAttribute('role','img');
+  svg.setAttribute('aria-label','GPUの正方形と同一頂点番号・三角形分割');
+  svg.style.cssText='position:absolute;inset:0;width:100%;height:100%;'+
+    'pointer-events:none;z-index:1';
+  document.body.style.position='relative';
+  const add=(tag,attrs)=>{const el=document.createElementNS(ns,tag);
+    for(const [key,value]of Object.entries(attrs))el.setAttribute(key,String(value));
+    svg.append(el);return el;};
+  const point=id=>[20+60*(id%(n+1))/n,80-60*Math.floor(id/(n+1))/n];
+  // Dense grids remain honest GPU meshes, but do not flood the overlay with
+  // thousands of fine lines or illegible indices.
+  if(n<=12){
+    for(let k=0;k<=n;k++){
+      const p=20+60*k/n;
+      add('line',{x1:p,y1:20,x2:p,y2:80,stroke:'#fff',
+        'stroke-opacity':.72,'stroke-width':.20});
+      add('line',{x1:20,y1:p,x2:80,y2:p,stroke:'#fff',
+        'stroke-opacity':.72,'stroke-width':.20});
+    }
+    for(let j=0;j<n;j++)for(let i=0;i<n;i++){
+      const [x1,y1]=point(j*(n+1)+i),[x2,y2]=point((j+1)*(n+1)+i+1);
+      add('line',{x1,y1,x2,y2,stroke:'#ffd984',
+        'stroke-dasharray':'.65 .45','stroke-width':.25});
+    }
+    if(n<=4)for(let id=0;id<(n+1)**2;id++){
+      const [x,y]=point(id);
+      add('circle',{cx:x,cy:y,r:1.4,fill:'#fff',stroke:'#122035','stroke-width':.35});
+      const label=add('text',{x:x+1.35,y:y-1.6,fill:'#fff','font-size':2.8,
+        'font-family':'system-ui','paint-order':'stroke',stroke:'#081c34',
+        'stroke-width':.75});label.textContent=String(id);
+    }
+  }
+  const selected=add('polygon',{fill:'#ffe08b','fill-opacity':.30,
+    stroke:'#ffe08b','stroke-width':.8});
+  const panel=document.createElement('div');
+  panel.className='wgl3-mesh-inspector';
+  panel.style.cssText='position:absolute;left:8px;bottom:8px;z-index:2;'+
+    'background:rgba(4,21,37,.93);color:#fff;padding:7px 9px;'+
+    'font:12px/1.5 system-ui;max-width:calc(100% - 32px)';
+  const title=document.createElement('strong');title.textContent='格子の頂点と三角形';
+  const detail=document.createElement('output');detail.setAttribute('aria-live','polite');
+  detail.style.cssText='display:block;white-space:normal';
+  const back=document.createElement('button'),next=document.createElement('button');
+  back.textContent='前の三角形';next.textContent='次の三角形';
+  for(const button of [back,next]){
+    button.type='button';
+    button.style.cssText='padding:3px 6px;margin:4px 5px 0 0;font:inherit';
+  }
+  let face=0;
+  function selectFace(){
+    const ids=indices.slice(face*3,face*3+3);
+    selected.setAttribute('points',ids.map(id=>point(id).join(',')).join(' '));
+    detail.textContent='三角形 '+(face+1)+' / '+(indices.length/3)+
+      ' ／頂点ID ['+ids.join(', ')+']　'+
+      '\n共有頂点 '+(vertices.length/2)+' 個・展開頂点 '+indices.length+' 個'+
+      ' ／転送 '+(vertices.byteLength+elements.byteLength)+' / '+
+      expanded.byteLength+' byte（indexed / arrays）'+
+      ' ／実描画 '+drawMode;
+  }
+  back.addEventListener('click',()=>{face=(face-1+indices.length/3)%(indices.length/3);selectFace();});
+  next.addEventListener('click',()=>{face=(face+1)%(indices.length/3);selectFace();});
+  panel.append(title,detail,back,next);
+  canvas.insertAdjacentElement('afterend',svg);
+  svg.insertAdjacentElement('afterend',panel);
+  selectFace();
+}
