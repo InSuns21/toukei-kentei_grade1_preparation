@@ -1,0 +1,46 @@
+id: "PML2-02"
+title: "forwardとinverseはどこで問題が変わるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-01
+  - INV1
+official_scope: []
+learning_objectives:
+  - 順問題のパラメータから外力・解・点観測への連鎖を関数空間とともに指定できる
+  - 一次元Poissonの二パラメータ解を二階微分と境界条件から構成し一意性を示せる
+  - 点観測行列がパラメータ空間の標準基底の像から生じることを説明できる
+  - 中央一点観測の非識別を異なる外力が同じ観測を生む具体例で証明できる
+  - 中央と左四分点の二点観測から未知パラメータを一意に復元できる
+  - 観測ノイズによる推定誤差と観測点接近に伴う増幅を導出できる
+  - 順問題の安定性と逆問題の安定性が評価する異なる写像を区別できる
+  - 一点観測の二乗正則化解を計算し一意な最小化解と識別性を区別できる
+definitions:
+  - { id: PML2-02-DEF-01, name: Poisson方程式のパラメータ・状態・観測の連鎖 }
+theorems:
+  - { id: PML2-02-PROP-01, name: 中央一点観測による非識別 }
+  - { id: PML2-02-THM-01, name: 二点観測による外力パラメータの厳密復元 }
+  - { id: PML2-02-PROP-02, name: 観測点が接近したときの逆問題の誤差増幅 }
+  - { id: PML2-02-PROP-03, name: 一点観測の二乗正則化が選ぶ値 }
+canonical_examples:
+  - 定数外力2aから一意な状態ax(1-x)と中央観測a/4を計算
+  - 二パラメータ外力2a+(6x-3)bと二つの基底状態p,qの構成
+  - 中央一点の観測ではb方向が消える非識別の反例
+  - 中央と左四分点の二点観測行列と逆行列による厳密復元
+  - 観測点が接近するとb方向の誤差増幅が発散する例
+  - ノイズを伴わない不完全観測でも正則化はbの真値を復元しない例
+problem_patterns:
+  - PML2-02-A01
+  - PML2-02-A02
+  - PML2-02-A03
+  - PML2-02-A04
+  - PML2-02-A05
+  - PML2-02-B01
+  - PML2-02-B02
+  - PML2-02-B03
+  - PML2-02-B04
+  - PML2-02-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
