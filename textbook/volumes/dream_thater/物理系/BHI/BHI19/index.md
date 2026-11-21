@@ -87,7 +87,7 @@ $$
 
 ### 証明の見取り図
 
-[Gauss–Bonnetの曲率積分](../../GEO/GEO12/index.md)に相当する二次元の等式を使い、角のない場合の $\int R+2\int K=4\pi\chi$ を係数に代入します。ここでは定数項がどこから来るかを独立に検算します。
+[GEO19の境界付きGauss–Bonnetの定理](../../../幾何系/GEO/GEO19/index.md#thm-geo19-gauss-bonnet-boundary)を使い、GEO19でのGauss曲率 $K_{\rm G}$ と本講での境界外部曲率 $K$ を区別します。二次元では $R=2K_{\rm G}$、境界向きと外向き法線を揃えると測地曲率 $k_g=K$ なので、二倍した等式を使い、角のない場合の $\int R+2\int K=4\pi\chi$ を係数に代入します。ここでは定数項がどこから来るかを独立に検算します。
 
 <!-- proof-start -->
 ### 証明
