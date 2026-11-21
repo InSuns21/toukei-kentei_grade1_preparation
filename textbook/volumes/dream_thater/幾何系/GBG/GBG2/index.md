@@ -364,7 +364,7 @@ A=\begin{pmatrix}1&1\\0&1\end{pmatrix},\qquad
 \det A=1,\qquad
 E(x)\cdot A=(e_1,e_1+e_2).
 $$
-射影を $\pi(x,E(x)A)=x$ と定めれば全射であり、$\pi((E(x)A)B)=x$ だから（P1）が成立する。$AB=A$ なら $B=I$、二つの枠 $E(x)A,E(x)C$ の間の群元は唯一 $B=A^{-1}C$ なので（P2）も成立する。さらに
+射影を $\pi(E(x)A)=x$ と定めれば全射であり、$\pi((E(x)A)B)=x$ だから（P1）が成立する。$AB=A$ なら $B=I$、二つの枠 $E(x)A,E(x)C$ の間の群元は唯一 $B=A^{-1}C$ なので（P2）も成立する。さらに
 $$
 \Phi:\operatorname{Fr}(\mathbb R^2)\longrightarrow
 \mathbb R^2\times GL(2,\mathbb R),\qquad
