@@ -1,7 +1,7 @@
 # DREAM THEATER 代数的整数論・局所体・類体論（ANF1〜ANF22）
 
 設計確定: 2026-11-21 JST  
-状態: in_progress / ANF1〜ANF12 completed・ANF13〜ANF22 planned。全22講。ANF1〜ANF12の本文・メタデータ・系列manifest・公開目次を実装済み。
+状態: in_progress / ANF1〜ANF13 completed・ANF14〜ANF22 planned。全22講。ANF1〜ANF13の本文・メタデータ・系列manifest・公開目次を実装済み。
 系列ID: \`ANF\`（Algebraic Number Fields）。分野: 代数系。対応ルート: [岩澤理論・保型表現・RH講読](DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)。
 
 ## 目的・既存教材との差分
@@ -99,4 +99,5 @@ ANF9〜13とANF19の結果は \`AFR\` 側のアデール・局所表現へ提供
 - ANF10「Henselの補題と局所体の拡大」: 単純根・強いHensel、Newton反復、Eisenstein既約性、Eisenstein拡大の付値環・完備性と10題の詳細解答を追加。
 - ANF11「局所体の整数環・分岐」: 完成。整数環の構成、ef次数公式、異なる公式と10題の詳細解答を追加。
 - ANF12「局所単数・ノルム・跡」: 完成。主単数の段階商、剰余体ノルム・跡、非分岐ノルムの逐次持ち上げ、分岐反例と10題の詳細解答を追加。
-- 次回: ANF13「局所拡大とGalois分岐群」。ANF13〜ANF22は未着手。
+- ANF13「局所拡大と Galois 分岐群」: 惰性群の完全列、最大非分岐中間体、全分岐一様化元基底、分岐群の段階商、緩分岐・激分岐、異なる指数公式、二次拡大の比較と10題の詳細解答を追加。
+- 次回: ANF14「Hilbertの定理90・群コホモロジー」。ANF14〜ANF22は未着手。

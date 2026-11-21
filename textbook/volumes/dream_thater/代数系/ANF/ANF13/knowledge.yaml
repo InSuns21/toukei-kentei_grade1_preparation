@@ -1,0 +1,62 @@
+chapter: ANF13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF12
+  - FLD4
+forward_references: []
+
+concepts:
+  - id: number-theory.local-inertia-group
+    name: 惰性群
+    kind: definition
+    introduction: formal
+    requires: [algebra.galois-group, number-theory.local-ramification-index-residue-degree]
+
+  - id: number-theory.local-inertia-exact-sequence
+    name: 惰性群と剰余次数の完全列
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.local-inertia-group, algebra.galois-normal-subgroup-correspondence, number-theory.local-ef-identity]
+
+  - id: number-theory.local-totally-ramified-uniformizer-basis
+    name: 全分岐部分の一様化元基底
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.local-inertia-exact-sequence, number-theory.local-uniformizer-valuation]
+
+  - id: number-theory.local-lower-ramification-groups
+    name: 下番号 Galois 分岐群
+    kind: definition
+    introduction: formal
+    requires: [number-theory.local-inertia-group, number-theory.local-unit-filtration]
+
+  - id: number-theory.local-ramification-uniformizer-test
+    name: 一様化元による分岐群の判定
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.local-lower-ramification-groups, number-theory.local-totally-ramified-uniformizer-basis]
+
+  - id: number-theory.local-ramification-quotients
+    name: 分岐群の段階商
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.local-ramification-uniformizer-test, number-theory.local-graded-units]
+
+  - id: number-theory.local-tame-wild-ramification
+    name: 緩分岐・激分岐
+    kind: definition
+    introduction: formal
+    requires: [number-theory.local-inertia-group, number-theory.local-ramification-quotients]
+
+  - id: number-theory.local-tame-group-criterion
+    name: 緩分岐の群論的判定
+    kind: corollary
+    introduction: formal
+    requires: [number-theory.local-tame-wild-ramification, number-theory.local-ramification-quotients]
+
+  - id: number-theory.local-different-ramification-sum
+    name: 分岐群による異なる指数公式
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.local-codifferent-different, number-theory.local-monogenic-different, number-theory.local-ramification-uniformizer-test]

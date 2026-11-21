@@ -1,0 +1,49 @@
+id: "ANF13"
+title: "局所拡大と Galois 分岐群"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANF12
+  - FLD4
+official_scope: []
+learning_objectives:
+  - 有限Galois局所拡大で剰余作用と惰性群を定義し、具体例で核を計算できる
+  - 最大非分岐中間体をHensel持ち上げから構成し、惰性群の完全列と位数公式を証明できる
+  - 全分岐部分で一様化元のEisenstein多項式と整数環の冪基底を証明できる
+  - 下番号分岐群を定義し一様化元による判定と正規性を証明できる
+  - G0/G1の乗法群への単射とGi/G(i+1)の加法群への単射を導ける
+  - 緩分岐と激分岐の判定をpとeおよびG1の両方から行える
+  - Galois分岐群の位数和による異なる指数公式を証明できる
+  - Q5(sqrt5)とQ2(sqrt2)の分岐群・異なる指数を検算できる
+  - 非Galois局所拡大では自己同型群の位数公式が失敗する具体例を説明できる
+definitions:
+  - { id: ANF13-DEF-01, name: 惰性群 }
+  - { id: ANF13-DEF-02, name: 下番号 Galois 分岐群 }
+  - { id: ANF13-DEF-03, name: 緩分岐・激分岐 }
+theorems:
+  - { id: ANF13-THM-01, name: 惰性群と剰余次数の完全列 }
+  - { id: ANF13-LEM-01, name: 全分岐部分の一様化元基底 }
+  - { id: ANF13-PROP-01, name: 一様化元による分岐群の判定 }
+  - { id: ANF13-THM-02, name: 分岐群の段階商 }
+  - { id: ANF13-COR-01, name: 緩分岐の群論的判定 }
+  - { id: ANF13-THM-03, name: 分岐群による異なる指数公式 }
+canonical_examples:
+  - Q3(i)の非分岐二次拡大で惰性群が自明となる例
+  - Q5(sqrt5)の緩分岐二次拡大と異なる指数1
+  - Q2(sqrt2)の激分岐二次拡大とG0=G1=G2と異なる指数3
+  - Q5(cuberoot5)の非Galois三次拡大で自己同型群が自明な反例
+problem_patterns:
+  - ANF13-INERTIA-FROBENIUS
+  - ANF13-TAME-QUADRATIC
+  - ANF13-WILD-QUADRATIC
+  - ANF13-EXACT-ORDER
+  - ANF13-LOWER-NUMBERING
+  - ANF13-DIFFERENT-TWO-WAYS
+  - ANF13-GRADED-ADDITIVE
+  - ANF13-NONGALOIS-OBSTRUCTION
+  - ANF13-WILD-PART-ORDER
+  - ANF13-COMPARE-BREAKS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13.0, exercises: 9.0, review: 3.0 }
