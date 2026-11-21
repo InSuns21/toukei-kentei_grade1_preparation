@@ -669,15 +669,65 @@ $
 - ID: ANF11-C1
 
 <!-- solution-start -->
-**詳細解答。**
+**詳細解答。** それぞれについて、整数環を確定してから一様化元、剰余体、異なるを求めます。最小多項式の微分だけでは整数環全体の異なるを計算できないので、まずその条件を検証します。
 
-**(1) $L_1/\mathbb Q_3$。** $X^2+1$ は法 $3$ に根がなく既約です。$E=\mathbb Z_3[i]$ において $(1,i)$ の跡行列は $\operatorname{diag}(2,-2)$、行列式は $-4$ で $3$ 進単元です。B4と同じ跡双対の計算により $\mathcal O_{L_1}=E$ です。$E/(3)\cong\mathbb F_3[X]/(X^2+1)=\mathbb F_9$ だから一様化元は $3$、$e=1$、$f=2$、$ef=2=[L_1:\mathbb Q_3]$。$g'(i)=2i$ は単元なので $\mathfrak D_{L_1/\mathbb Q_3}=(1)$、$d=0$、判別式は $-4$ で $v_3(-4)=0$ です。
+**(1) $L_1/\mathbb Q_3$。** $X^2+1$ は法 $3$ に根がないので既約です。$E=\mathbb Z_3[i]$ の冪基底 $(1,i)$ について、共役 $i\mapsto-i$ を用いると
 
-**(2) $L_2/\mathbb Q_5$。** $X^2-5$ は Eisenstein なので既約で、[Eisenstein 拡大の局所体構造](../ANF10/index.md#thm-anf10-eisenstein-extension)から $\mathcal O_{L_2}=\mathbb Z_5[\alpha]$。一様化元 $\alpha$ の付値は $1$、$v_{L_2}(5)=2$、剰余体は $\mathbb F_5$、従って $(e,f,n)=(2,1,2)$。導関数は $2\alpha$、$2$ は $5$ 進単元なので異なるは $(2\alpha)=(\alpha)$、$d=1$。跡行列は $\operatorname{diag}(2,10)$、判別式 $20$ の指数は $v_5(20)=1=fd$ です。
+$$
+T=\begin{pmatrix}2&0\\0&-2\end{pmatrix},
+\qquad \det T=-4\in\mathbb Z_3^\times.
+$$
 
-**(3) $L_3/\mathbb Q_2$。** $X^2-2$ は Eisenstein なので既約、$\mathcal O_{L_3}=\mathbb Z_2[\beta]$。一様化元は $\beta$、$v_{L_3}(2)=2$、剰余体は $\mathbb F_2$、従って $(e,f,n)=(2,1,2)$。導関数は $2\beta$、その付値は $v_{L_3}(2)+v_{L_3}(\beta)=2+1=3$。よって異なるは $(2\beta)=(\beta^3)$、$d=3$。跡行列は $\operatorname{diag}(2,4)$、判別式は $8$、$v_2(8)=3=fd$ です。
+任意の $x=a+bi$ に対し $\operatorname{Tr}(x)=2a$、$\operatorname{Tr}(xi)=-2b$ です。従って $E$ の跡双対は $E^\vee=E$。整元の積の跡の整数性から $\mathcal O_{L_1}\subseteq E^\vee$、逆包含は $i^2+1=0$ による整性から従い、$\mathcal O_{L_1}=E$ です。
 
-**比較。** $L_2,L_3$ はともに $e=2,f=1$ ですが、判別式の指数は $1$ と $3$ で異なります。よって $e$ だけでは異なるの深さも判別式の指数も決まりません。導関数の係数が剰余標数で単元かどうかを検査する必要があります。
+法 $3$ の既約多項式から剰余環は体になり、
+
+$$
+\kappa_{L_1}=\mathbb F_3[X]/(X^2+1)\cong\mathbb F_9,
+\qquad (e,f,n)=(1,2,2).
+$$
+
+一様化元は $3$ です。[単項生成の異なる公式](#thm-anf11-monogenic-different)で $g'(i)=2i$ は単元なので
+
+$$
+\mathfrak D_{L_1/\mathbb Q_3}=(1),\quad
+d=0,\quad \Delta_1=-4,\quad v_3(\Delta_1)=0=fd.
+$$
+
+**(2) $L_2/\mathbb Q_5$。** $X^2-5$ は Eisenstein なので既約で、[前講の整数環構成](../ANF10/index.md#thm-anf10-eisenstein-extension)から $\mathcal O_{L_2}=\mathbb Z_5[\alpha]$、一様化元は $\alpha$、剰余体は $\mathbb F_5$ です。$\alpha^2=5$ より $v_{L_2}(5)=2$、従って $(e,f,n)=(2,1,2)$ です。
+
+最小多項式の導関数は $g'(\alpha)=2\alpha$ で、$2$ は $5$ 進単元です。[異なる公式](#thm-anf11-monogenic-different)と基底 $(1,\alpha)$ の跡行列を用いると
+
+$$
+\mathfrak D_{L_2/\mathbb Q_5}=(2\alpha)=(\alpha),\qquad d=1,
+$$
+
+$$
+T=\begin{pmatrix}2&0\\0&10\end{pmatrix},\qquad
+\Delta_2=\det T=20,\qquad v_5(\Delta_2)=1=fd.
+$$
+
+**(3) $L_3/\mathbb Q_2$。** $X^2-2$ は Eisenstein なので既約で、同じ[整数環構成定理](../ANF10/index.md#thm-anf10-eisenstein-extension)から $\mathcal O_{L_3}=\mathbb Z_2[\beta]$、一様化元は $\beta$、剰余体は $\mathbb F_2$ です。$\beta^2=2$ より $(e,f,n)=(2,1,2)$ です。
+
+ここでは $2$ が単元でないため、導関数の付値は
+
+$$
+v_{L_3}(g'(\beta))=v_{L_3}(2\beta)
+=v_{L_3}(2)+v_{L_3}(\beta)=2+1=3.
+$$
+
+従って
+
+$$
+\mathfrak D_{L_3/\mathbb Q_2}=(2\beta)=(\beta^3),\qquad d=3,
+$$
+
+$$
+T=\begin{pmatrix}2&0\\0&4\end{pmatrix},\qquad
+\Delta_3=\det T=8,\qquad v_2(\Delta_3)=3=fd.
+$$
+
+**比較。** $L_2,L_3$ はともに $e=2,f=1$ ですが、判別式の指数はそれぞれ $1$ と $3$ です。従って $e$ だけでは異なる指数も判別式の指数も決まりません。導関数の係数が剰余標数で単元かどうかが差を生みます。
 <!-- solution-end -->
 
 ---
