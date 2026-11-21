@@ -34,7 +34,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-04-error-metrics -->
-**定義の確認。** $u(x)=x(1-x)$、$n=2$ では、[定数外力の節点一致と区間内誤差](../PML2-03/index.md#thm-pml2-03-quadratic)から、格子点列 $z_j=u(x_j)$ と区分一次Galerkin解 $u_h$ がある。端点と中央点を直接比較すると $E_{\rm grid}(u,z)=0$。一方、区間ごとの弦との差を積分すれば
+**定義の確認**。 $u(x)=x(1-x)$、$n=2$ では、[定数外力の節点一致と区間内誤差](../PML2-03/index.md#thm-pml2-03-quadratic)から、格子点列 $z_j=u(x_j)$ と区分一次Galerkin解 $u_h$ がある。端点と中央点を直接比較すると $E_{\rm grid}(u,z)=0$。一方、区間ごとの弦との差を積分すれば
 
 $$
 E_{L^2}(u,u_h)=\frac{h^2}{\sqrt{30}}=\frac1{4\sqrt{30}},
@@ -77,7 +77,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-04-residual -->
-**定義の確認。** $f=2$、$u=x(1-x)$、$n=2$ なら $u^I_1=1/4$、$A_h$ の唯一の成分は $8$。正しい入力を $\widehat b_1=b_1=2$ とし、計算を途中で止めた値を $\widetilde z_1=0$ とすると
+**定義の確認**。 $f=2$、$u=x(1-x)$、$n=2$ なら $u^I_1=1/4$、$A_h$ の唯一の成分は $8$。正しい入力を $\widehat b_1=b_1=2$ とし、計算を途中で止めた値を $\widetilde z_1=0$ とすると
 
 $$
 \tau_1=8\cdot\frac14-2=0,\qquad
@@ -164,26 +164,26 @@ $$
 >
 > **整合性**：固定した十分滑らかな古典解 $u$ に対し、次が成り立つこと。
 
-$
+$$
 \|A_hu^I-b_h\|_{\infty,h}\to0\qquad(h\to0).
-$
+$$
 
 > **最大ノルムでの一様安定性**：各 $A_h$ が可逆で、格子幅に依存しない定数 $M$ が存在し、任意の内部格子列 $g$ について次が成り立つこと。
 
-$
+$$
 \|A_h^{-1}g\|_{\infty,h}\le M\|g\|_{\infty,h}.
-$
+$$
 
 > **格子点収束**：正しい入力 $b_h$ の理想差分解について、次が成り立つこと。
 
-$
+$$
 z_h=A_h^{-1}b_h,\qquad
 \|u^I-z_h\|_{\infty,h}\to0\qquad(h\to0).
-$
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-04-consistency-stability -->
-**定義の確認。** $u=x(1-x)$ と $f=2$ なら、二次式の二階差分はどの格子でも厳密なので $\tau=0$、整合性が成立する。また任意の内部列 $g$ に対し、$A_hw=g$ を満たす $w$ と障壁関数 $a_j=x_j(1-x_j)/2$ を比較する。$A_ha=1$、$0\le a_j\le1/8$ を直接二階差分で確認し、$G=\|g\|_{\infty,h}$ とすれば $A_h(Ga\pm w)=G\pm g\ge0$。よって[離散最大値原理](../PML2-03/index.md#prop-pml2-03-dmp)から
+**定義の確認**。 $u=x(1-x)$ と $f=2$ なら、二次式の二階差分はどの格子でも厳密なので $\tau=0$、整合性が成立する。また任意の内部列 $g$ に対し、$A_hw=g$ を満たす $w$ と障壁関数 $a_j=x_j(1-x_j)/2$ を比較する。$A_ha=1$、$0\le a_j\le1/8$ を直接二階差分で確認し、$G=\|g\|_{\infty,h}$ とすれば $A_h(Ga\pm w)=G\pm g\ge0$。よって[離散最大値原理](../PML2-03/index.md#prop-pml2-03-dmp)から
 
 $$
 |w_j|\le Ga_j\le\frac G8,\qquad
