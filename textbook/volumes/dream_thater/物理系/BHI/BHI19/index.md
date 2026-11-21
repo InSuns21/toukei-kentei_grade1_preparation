@@ -75,7 +75,16 @@ Euler標数 $\chi(M_E)$ は、滑らかなコンパクトEuclid二次元曲面 $
 <!-- formal-statement-start -->
 > **命題（Euclid化した位相項と定数 $S_0$）**
 >
-> $M_E$ を滑らかなコンパクトな向き付け可能二次元Riemann曲面で、境界は滑らかとする。Euclid作用で $I_{\rm top}^E=-\Phi_0(16\pi G_2)^{-1}[\int_{M_E}\sqrt g R+2\int_{\partial M_E}\sqrt h K]$ を採用すると、
+> $M_E$ を滑らかなコンパクトな向き付け可能二次元Riemann曲面で、境界は滑らかとする。Euclid化した位相作用を
+>
+$
+I_{\rm top}^E
+=-\frac{\Phi_0}{16\pi G_2}
+\left[\int_{M_E}\sqrt g\,R
++2\int_{\partial M_E}\sqrt h\,K\right]
+$
+>
+> と採用すると、
 >
 $$
 I_{\rm top}^E=-S_0\chi(M_E),\qquad
