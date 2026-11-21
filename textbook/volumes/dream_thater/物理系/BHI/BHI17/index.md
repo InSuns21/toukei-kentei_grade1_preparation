@@ -36,10 +36,10 @@ $$
 
 ここで $\ell$ は長さの定数です。$x\le0$ なら $\ell-x\ge\ell>0$ なので $\Omega$ は正で有限、接合面では $\Omega(0)=1$ です。**誘導計量**とは、時空の計量を接合世界線上の接ベクトルに制限したものです。接合面を $i(t)=(t,0)$ と媒介表示すると、接ベクトルに沿う変位は $(dt,dx)=(dt,0)$ なので、
 
-$
+$$
 i^*g_G=-\Omega(0)^2dt^2=-dt^2,\qquad
 i^*g_B=-dt^2.
-$
+$$
 
 ここで $i^*g$ はこの制限を表します。この計算が、単に $\Omega(0)$ を求めるだけでなく、**接合面上の誘導計量が一致する**ことの判定になっています。この幾何は曲率一定のAdS型パッチを平坦な半直線につないだ局所的な**背景の例**です。重力の運動方程式や境界応力テンソルをここで解いたという主張ではありません。
 
@@ -58,18 +58,18 @@ $
 
 時刻 $t=t_*$ の量子状態 $\omega$ には、正規化と正値性に加え、**結合系のどの観測量に期待値を与えるか**の指定が必要です。[密度演算子の条件](../../../応用系/QINF/QINF2/index.md#def-qinf2-ensemble-density)を満たす有限格子の試験物質模型を例に取り、重力側の補助セル $g_1$ と浴の1000個の量子ビットセルを考えます。浴のセル数は区間長を格子間隔で割った
 
-$
+$$
 N=\frac{10\ell}{a}=\frac{10\ell}{\ell/100}=1000
-$
+$$
 
 から定まります。この試験物質模型に限り
 
-$
+$$
 \mathcal H_{\rm toy}=\mathbb C^2_{g_1}\otimes
 (\mathbb C^2)^{\otimes1000},\qquad
 |\Psi_0\rangle=|0\rangle_{g_1}\otimes|0\rangle^{\otimes1000},\qquad
 \omega(O)=\langle\Psi_0|O|\Psi_0\rangle
-$
+$$
 
 とすれば、$\langle\Psi_0|\Psi_0\rangle=1$ で $\omega(I)=1$、さらに $\omega(O^\dagger O)=\|O\Psi_0\|^2\ge0$ です。浴の縮約状態も $|0\rangle^{\otimes1000}$ の純粋状態になります。**これは固定背景上の試験物質を有限次元で正則化した例**であって、ゲージ制約を持つ量子重力のHilbert空間が同じテンソル積に分解すると仮定したものではありません。この例で定義に必要な領域・計量・物質・接合・状態・cutoff・赤外範囲を指定しました。ただし、これだけで量子重力の完成した解は得られません。
 <!-- definition-example-end -->
@@ -80,44 +80,44 @@ $
 
 二次元の質量零スカラー場 $\phi$ を、まず古典的な試験場として扱います。$\partial_t$ は $x$ を固定して $t$ で、$\partial_x$ は $t$ を固定して $x$ で偏微分する記号です。添字 $\mu,\nu$ は $t,x$ の二値を取り、繰り返し添字は和を取ります。作用は
 
-$
+$$
 I_{\rm m}[\phi]=-\frac12\int dtdx\,\sqrt{-g}\,
 g^{\mu\nu}\partial_\mu\phi\,\partial_\nu\phi
-$
+$$
 
 です。対角計量 $g_{\mu\nu}=\operatorname{diag}(-\Omega^2,\Omega^2)$ の行列式は $-\Omega^4$ なので、$\sqrt{-g}=\Omega^2$、$g^{tt}=-\Omega^{-2}$、$g^{xx}=\Omega^{-2}$ です（浴側は $\Omega=1$）。したがって作用の被積分密度は
 
-$
+$$
 \mathcal L=\frac12\bigl[(\partial_t\phi)^2-(\partial_x\phi)^2\bigr].
-$
+$$
 
 境界で消える変分 $\delta\phi$ をまず各側の内部で取ると、部分積分により
 
-$
+$$
 \delta I_{\rm m}
 =\int dtdx\,\bigl(\partial_t\phi\,\partial_t\delta\phi
 -\partial_x\phi\,\partial_x\delta\phi\bigr).
-$
+$$
 
 時間積分・空間積分それぞれで部分積分し、内部変分の支持の外で境界項が消えることから
 
-$
+$$
 \delta I_{\rm m}=\int dtdx\,\delta\phi\,
 \bigl(-\partial_t^2\phi+\partial_x^2\phi\bigr).
-$
+$$
 
 任意の内部変分でこれが零になるため、両側の場の方程式は
 
-$
+$$
 \partial_t^2\phi-\partial_x^2\phi=0
-$
+$$
 
 です。境界の変分まで許し、接合面で $\delta\phi_G=\delta\phi_B$ と同定すると、左右の空間積分から生じる接合面の項は
 
-$
+$$
 \int dt\,\bigl(\partial_x\phi_B(t,0^+)
  -\partial_x\phi_G(t,0^-)\bigr)\delta\phi(t,0).
-$
+$$
 
 接合面に別の作用を置かないとき、この項を零にする自然な条件が空間導関数の一致です。場の値そのものも界面で連続につなぐことで、以下の透過条件になります。この取消しは**二次元の古典的な質量零スカラー場**の性質です。量子論の共形異常や境界の力学まで消えるという意味ではありません。
 
@@ -137,9 +137,9 @@ $$
 >
 > と定める。境界まで $C^1$ という仮定の下では、第一式の共通境界値を $h(t)$ と置くと
 >
-$
+$$
 \partial_t\phi_G(t,0^-)=h'(t)=\partial_t\phi_B(t,0^+)
-$
+$$
 >
 > も従う。
 <!-- formal-statement-end -->
@@ -147,27 +147,27 @@ $
 <!-- definition-example-start: def-bhi17-transparent-interface -->
 **定義の確認**： $f$ を台が有界な二階連続微分可能な実関数とし、両側で $\phi_G(t,x)=\phi_B(t,x)=f(t-x)$ と置きます。これは右向きの波束です。$u=t-x$ を $f$ の一変数の引数とし、$f'(u)=df/du$、$f''(u)=d^2f/du^2$ と書きます。連鎖律と $\partial_tu=1$、$\partial_xu=-1$ より
 
-$
+$$
 \partial_t\phi=f'(u),\qquad
 \partial_x\phi=-f'(u),\qquad
 \partial_t^2\phi=\partial_x^2\phi=f''(u).
-$
+$$
 
 従って両領域で波動方程式を満たし、$x=0$ で場の値は両側とも $f(t)$、空間導関数は $-f'(t)$ です。$f$ が $C^2$ なので境界までの $C^1$ 条件も満たし、**二つの接合条件を実際に確認**できます。
 <!-- definition-example-end -->
 
 波の流れを数字で確かめます。上の $\mathcal L$ の時間方向の共役運動量は $\pi=\partial\mathcal L/\partial(\partial_t\phi)=\partial_t\phi$ です。共通時刻 $t$ に対するエネルギー密度は
 
-$
+$$
 e=\pi\,\partial_t\phi-\mathcal L
 =\frac12\bigl[(\partial_t\phi)^2+(\partial_x\phi)^2\bigr].
-$
+$$
 
 また $\partial_t e=\partial_x(\partial_t\phi\,\partial_x\phi)$ となるように、右向きを正とした流束を
 
-$
+$$
 j=-\partial_t\phi\,\partial_x\phi
-$
+$$
 
 と定めます。従って局所保存式は $\partial_t e+\partial_xj=0$ です。この $e,j$ は背景の共通座標時刻 $t$ に関する試験場のエネルギーと流束で、重力側の全エネルギーを表すものではありません。単位は、場の規格化で決まるエネルギー／長さとエネルギー／時間です。接合面で $j>0$ ならエネルギーが重力側から浴側へ流れます。
 
@@ -282,9 +282,9 @@ $$
 
 ここで対数は自然対数、単位はnatです。[von Neumannエントロピーの定義](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)では底2を使っているため、そこでのbit単位の値に $\ln2$ を掛けます。密度演算子 $\rho_R^{(a)}$ の固有値を $\lambda_i\ge0$（総和1）とすれば
 
-$
+$$
 S_a(R,t_*)=-\sum_i\lambda_i\ln\lambda_i
-$
+$$
 
 であり、零固有値は連続延長 $\lim_{z\downarrow0}z\ln z=0$ で扱います。$\ln\rho$ 単独を零固有空間で作用させるという意味ではありません。
 
@@ -292,10 +292,10 @@ $
 **定義の確認**： 浴に隣り合う二つの量子ビットセル $a_1,r_1$ があり、$a_1$ は $[0,b)$、$r_1$ は $R$ に入るとします。状態を
 $|\Phi\rangle_{a_1r_1}=(|00\rangle+|11\rangle)/\sqrt2$ とします。これは $\langle00|11\rangle=0$ からノルムが1です。[部分トレースの定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)を計算基底に使うと、$a_1$ の対角ブロックだけが残り
 
-$
+$$
 \rho_{r_1}=\operatorname{Tr}_{a_1}|\Phi\rangle\langle\Phi|
 =\frac12\bigl(|0\rangle\langle0|+|1\rangle\langle1|\bigr)=I_2/2.
-$
+$$
 
 これは $r_1$ の計算基底で対角行列なので、固有値は $1/2,1/2$ です。従って
 
@@ -359,17 +359,17 @@ $$
 <!-- solution-start -->
 **詳細解答。** (i) $\ell>0$ を用いて分母を整理すると
 
-$
+$$
 \Omega(-\ell)=\frac{\ell}{\ell+\ell}=\frac12,\qquad
 \Omega(0)=\frac{\ell}{\ell}=1.
-$
+$$
 
 (ii) 接合世界線 $i(t)=(t,0)$ の接ベクトルは $dx=0$ を満たします。計量をこの接ベクトルへ制限するので
 
-$
+$$
 i^*g_G=-\Omega(0)^2dt^2=-dt^2,\qquad
 i^*g_B=-dt^2.
-$
+$$
 
 これが誘導計量の一致です。$x=-\ell$ での値は接合面での一致条件に関与しません。
 <!-- solution-end -->
@@ -384,23 +384,23 @@ $
 <!-- solution-start -->
 **詳細解答。** $u=t-x$ と置き、$f'$ は $u$ による一変数微分とします。$x$ を固定する $t$ 微分と、$t$ を固定する $x$ 微分では、連鎖律の最後の因子が異なります。
 
-$
+$$
 \partial_t\phi=f'(u)\partial_tu=f'(u),\qquad
 \partial_x\phi=f'(u)\partial_xu=-f'(u).
-$
+$$
 
 さらに同じ連鎖律をもう一度適用すると
 
-$
+$$
 \partial_t^2\phi=f''(u),\qquad
 \partial_x^2\phi=(-1)^2f''(u)=f''(u).
-$
+$$
 
 従って両側で波動方程式を満たします。接合面の両側で $\phi(t,0)=f(t)$ と $\partial_x\phi(t,0)=-f'(t)$ が一致し、$C^2$ 性から境界への $C^1$ 延長も可能なので、[透過条件](#def-bhi17-transparent-interface)を満たします。流束は
 
-$
+$$
 j(t,x)=-f'(u)(-f'(u))=[f'(t-x)]^2\ge0
-$
+$$
 
 で右向きです。
 <!-- solution-end -->
@@ -415,23 +415,23 @@ $
 <!-- solution-start -->
 **詳細解答。** $|\Phi\rangle=(|00\rangle+|11\rangle)/\sqrt2$ は正規化された状態です。[部分トレースの定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)では、捨てる $a_1$ の正規直交基底で対角ブロックを足します。交差項は $\langle1|0\rangle=0$ で消え、
 
-$
+$$
 \rho_{r_1}=\operatorname{Tr}_{a_1}|\Phi\rangle\langle\Phi|
 =\tfrac12|0\rangle\langle0|+\tfrac12|1\rangle\langle1|
 =\begin{pmatrix}1/2&0\\0&1/2\end{pmatrix}_{\{|0\rangle,|1\rangle\}}.
-$
+$$
 
 これは明示した計算基底で対角なので固有値は $1/2,1/2$ です。[エントロピーの固有値表示](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)をnatで用いると
 
-$
+$$
 S(R)=-\frac12\ln\frac12-\frac12\ln\frac12=\ln2.
-$
+$$
 
 $R'$ は両セルを含み、密度演算子は階数1の $|\Phi\rangle\langle\Phi|$ のままです。固有値 $1,0,0,0$ を代入して
 
-$
+$$
 S(R')=-1\ln1-3(0\ln0)=0
-$
+$$
 
 を得ます。
 <!-- solution-end -->
@@ -446,13 +446,13 @@ $
 <!-- solution-start -->
 **詳細解答。** 区間長を $W=4$ とするとセル数は $N=W/a$、各セルの空間は $\mathbb C^2$ なのでテンソル積の次元は $2^N$ です。[一般の有限次元エントロピー上界](../../../応用系/QINF/QINF17/index.md#thm-qinf17-entropy-bounds)は、密度演算子の純粋性を仮定せず $S\le\log_2d$（bit）を与えます。自然対数なら $S\le\ln d$ です。
 
-$
+$$
 \begin{array}{c|c|c|c}
 a & N=4/a & d=2^N & S_{\max}=\ln d\\ \hline
 1&4&16&4\ln2\\
 1/2&8&256&8\ln2
 \end{array}
-$
+$$
 
 上界が変わっても、同じ物理状態の実際のエントロピーが必ず倍になるという結論は出ません。
 <!-- solution-end -->
@@ -469,9 +469,9 @@ $
 <!-- solution-start -->
 **詳細解答。** 接合世界線に沿う同一の固有時間間隔 $d\tau$ を二つの座標で表すと
 
-$
+$$
 d\tau^2=q^2dt_G^2=dt_B^2.
-$
+$$
 
 $q>0$ で双方の未来向きが揃うので $dt_B=q\,dt_G$ であり、負符号の枝は取りません。$q$ は定数なので積分すれば $t_B=qt_G+c$ です。両時計の原点を揃えると $c=0$。例えば $q=2,dt_G=3$ なら $dt_B=6$ です。$t_B=t_G$ と無条件に置くと固有時間の不一致を隠します。
 <!-- solution-end -->
@@ -514,19 +514,19 @@ $$
 <!-- solution-start -->
 **詳細解答。** この問題では三つの有限次元因子を**明示的に**仮定しています。$g$ が積状態なので、[部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)の和を計算すると
 
-$
+$$
 \rho_{ar}=\operatorname{Tr}_g\bigl(
 |0\rangle\langle0|_g\otimes|\Phi\rangle\langle\Phi|_{ar}\bigr)
 =\operatorname{Tr}(|0\rangle\langle0|_g)\,
 |\Phi\rangle\langle\Phi|_{ar}
 =|\Phi\rangle\langle\Phi|_{ar}.
-$
+$$
 
 さらに浴のセル $a$ を部分トレースすると
 
-$
+$$
 \rho_r=\operatorname{Tr}_a\rho_{ar}=I_2/2.
-$
+$$
 
 従って $S(R)=\ln2$。$R'=\{a,r\}$ なら $\rho_{R'}=\rho_{ar}$ は階数1で $S(R')=0$ です。**何を重力側からトレースしたか**という問いには、この補助模型の $|0\rangle_g\langle0|$ だけ、と答えます。一般の重力領域が独立Hilbert因子として分離するとの結論には使えません（[Gauss制約の例](../BHI15/index.md#def-bhi15-gauss-space)と区別）。
 <!-- solution-end -->
@@ -541,23 +541,23 @@ $
 <!-- solution-start -->
 **詳細解答。** 両端の流束が零という仮定と $j(0)=J$ を[保存命題](#prop-bhi17-interface-flux)へ代入すると
 
-$
+$$
 \frac{dE_G}{dt}=0-J=-J,\qquad
 \frac{dE_B}{dt}=J-0=J.
-$
+$$
 
 この流束条件が成立する有限の時間窓 $[t_0,t_0+T]$ で積分し、
 
-$
+$$
 \Delta E_G=\int_{t_0}^{t_0+T}(-J)dt=-JT,\qquad
 \Delta E_B=\int_{t_0}^{t_0+T}J\,dt=JT.
-$
+$$
 
 両辺を足し合わせると
 
-$
+$$
 \Delta(E_G+E_B)=-JT+JT=0.
-$
+$$
 
 です。有限な $E_G$ はこの条件だけでは時間とともに減ります。これを一定に保ってなお浴へ正の流束を永久に出すには、左側境界・外部熱浴などから同じ率 $J$ を補給するか、試験場以外のエネルギー収支項を加える必要があります。固定背景を選んだだけでは補給の仕組みは与えられません。
 <!-- solution-end -->
@@ -579,28 +579,28 @@ $
 <!-- solution-start -->
 **詳細解答。** (1) 接合面を $i(t)=(t,0)$ とおくと $\Omega(0)=\ell/(\ell-0)=1$ で、接ベクトルは $dx=0$ です。従って
 
-$
+$$
 i^*g_G=-\Omega(0)^2dt^2=-dt^2=i^*g_B.
-$
+$$
 
 $u=t-x$ とし $f'$ は引数 $u$ による微分とすると、連鎖律で $\partial_t\phi=f'(u)$、$\partial_x\phi=-f'(u)$、$\partial_t^2\phi=\partial_x^2\phi=f''(u)$ です。従って波動方程式が成立し、接合面で $\phi_G=\phi_B=f(t)$ と $\partial_x\phi_G=\partial_x\phi_B=-f'(t)$ が一致します。$C^2$ 性により境界までの $C^1$ 延長もあります。
 
 (2) 上で定義した流束 $j$ と[透過接合による試験場の流束保存](#prop-bhi17-interface-flux)を使うと
 
-$
+$$
 j(t,x)=-\partial_t\phi\,\partial_x\phi
 =-f'(u)(-f'(u))=[f'(u)]^2,
 \qquad j(t,0^-)=j(t,0^+)=[f'(t)]^2>0.
-$
+$$
 
 したがって接合面の両側で同じ正の右向き流束です。これは古典的試験場についての結論です。
 
 (3) $R$ に含まれない浴セル $a_1$ を[部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)し、Bell状態の交差項が $\langle0|1\rangle=0$ で消えることから
 
-$
+$$
 \rho_{r_1}=\tfrac12(|0\rangle\langle0|+|1\rangle\langle1|)=I_2/2,
 \qquad S_a(R)= -2\left(\tfrac12\ln\tfrac12\right)=\ln2.
-$
+$$
 
 $R$ 内の他セルは純粋な積状態なので、追加の非零エントロピーはありません。
 
