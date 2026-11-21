@@ -24,7 +24,7 @@
 <!-- definition-example-start: def-syz1-18-proof-status -->
 ### 直接例：変形できることと空間全体を覆うこと
 
-コンパクトで境界のないSLag $L\subset X$ に[McLeanの変形定理](../SYZ1-06/index.md#thm-syz1-06-mclean-unobstructed)を適用すると、局所変形空間の次元は $b_1(L)$ となる。これは必要なコンパクト性と正則性の下での**証明済み**の結論である。$L=T^n$ のとき $b_1(T^n)=n$ と数えられる。
+コンパクトで境界のないSLag $L\subset X$ に[McLeanの局所無障害性](../SYZ1-06/index.md#thm-syz1-06-mclean-unobstructed)を適用すると、局所変形空間の次元は $b_1(L)$ となる。これは必要なコンパクト性と正則性の下での**証明済み**の結論である。$L=T^n$ のとき $b_1(T^n)=n$ と数えられる。
 
 他方、写像 $\pi:X\to B$ が存在し、正則値上のファイバーすべてがSLagトーラスであるという条件は、[滑らかなファイブレーションの定義](../SYZ1-07/index.md#def-syz1-07-regular-fibration)で**追加している**。局所変形空間の次元が $n$ でも、別々の変形が $X$ を重なりなく覆うことは出ない。「$b_1=n$ だから任意の $X$ に大域SLagトーラス束が存在する」という推論は、局所の解空間から大域の全射・非交叉性へ飛んでいる。
 
@@ -51,7 +51,7 @@ $$
 
 これが**ホモロジー類内での体積最小**の証明である。単に第一変分が0であるという主張より強い。一方、競争相手が同じホモロジー類にいなければ真ん中の積分の等号には根拠がない。
 
-Calabi–Yauで正規化した正則体積形式 $\Omega$ と位相 $\theta$ を固定すると、[SLag較正の定理](../SYZ1-03/index.md#thm-syz1-03-special-lagrangian-calibration)から $\operatorname{Re}(e^{-i\theta}\Omega)$ が上の $\eta$ になる。向きを指定したLagrange $L$ で
+Calabi–Yauで正規化した正則体積形式 $\Omega$ と位相 $\theta$ を固定すると、[平坦空間での特殊Lagrange較正](../SYZ1-03/index.md#thm-syz1-03-special-lagrangian-calibration)を各接空間のユニタリ枠で用いると $\operatorname{Re}(e^{-i\theta}\Omega)$ が上の $\eta$ になる。向きを指定したLagrange $L$ で
 
 $$
 \omega|_L=0,\qquad
