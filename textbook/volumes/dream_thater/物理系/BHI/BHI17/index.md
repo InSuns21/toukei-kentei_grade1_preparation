@@ -86,14 +86,16 @@ $
 境界で消える変分 $\delta\phi$ をまず各側の内部で取ると、部分積分により
 
 $
-\begin{aligned}
 \delta I_{\rm m}
-&=\int dtdx\,
-\bigl(\partial_t\phi\,\partial_t\delta\phi
-      -\partial_x\phi\,\partial_x\delta\phi\bigr)\\
-&=\int dtdx\,\delta\phi\,
+=\int dtdx\,\bigl(\partial_t\phi\,\partial_t\delta\phi
+-\partial_x\phi\,\partial_x\delta\phi\bigr).
+$
+
+時間積分・空間積分それぞれで部分積分し、内部変分の支持の外で境界項が消えることから
+
+$
+\delta I_{\rm m}=\int dtdx\,\delta\phi\,
 \bigl(-\partial_t^2\phi+\partial_x^2\phi\bigr).
-\end{aligned}
 $
 
 任意の内部変分でこれが零になるため、両側の場の方程式は
@@ -125,7 +127,13 @@ $$
 \partial_x\phi_G(t,0^-)=\partial_x\phi_B(t,0^+)
 $$
 >
-> と定める。境界まで $C^1$ という仮定の下では、第一式の共通境界値を $h(t)$ と置いて $\partial_t\phi_G(t,0^-)=h'(t)=\partial_t\phi_B(t,0^+)$ も従う。
+> と定める。境界まで $C^1$ という仮定の下では、第一式の共通境界値を $h(t)$ と置くと
+>
+$
+\partial_t\phi_G(t,0^-)=h'(t)=\partial_t\phi_B(t,0^+)
+$
+>
+> も従う。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi17-transparent-interface -->
@@ -561,7 +569,7 @@ $
 
 $u=t-x$ とし $f'$ は引数 $u$ による微分とすると、連鎖律で $\partial_t\phi=f'(u)$、$\partial_x\phi=-f'(u)$、$\partial_t^2\phi=\partial_x^2\phi=f''(u)$ です。従って波動方程式が成立し、接合面で $\phi_G=\phi_B=f(t)$ と $\partial_x\phi_G=\partial_x\phi_B=-f'(t)$ が一致します。$C^2$ 性により境界までの $C^1$ 延長もあります。
 
-(2) [流束の定義と保存命題](#prop-bhi17-interface-flux)を使うと
+(2) 上で定義した流束 $j$ と[透過接合による試験場の流束保存](#prop-bhi17-interface-flux)を使うと
 
 $
 j(t,x)=-\partial_t\phi\,\partial_x\phi
