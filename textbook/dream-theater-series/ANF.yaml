@@ -35,7 +35,7 @@ chapters:
     title: "単数定理とレギュレータ"
   - id: ANF8
     path: textbook/volumes/dream_thater/代数系/ANF/ANF8
-    status: planned
+    status: completed
     title: "Dedekindゼータと解析類数公式"
   - id: ANF9
     path: textbook/volumes/dream_thater/代数系/ANF/ANF9

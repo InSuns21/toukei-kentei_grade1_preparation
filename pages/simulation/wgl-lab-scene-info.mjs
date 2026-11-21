@@ -140,6 +140,30 @@ const descriptions = Object.freeze({
     mode: '左は原画A、右はfilterModeのblur（3×3平均）またはedge（正の4近傍Laplacian）をexposureで調整。境界はCLAMP_TO_EDGE',
     source: 'postprocess.js（filterMode, exposure, makeTarget）/ postprocess.frag（u_pass, u_filterMode, u_exposure）'
   }),
+  WGL15: Object.freeze({
+    requiresSteps: false,
+    grid: '数値計算格子なし（奥d=3と手前d=2の2枚の矩形、各2三角形）。選択用FBOは画面と同寸のRGBA8 IDテクスチャ＋DEPTH_COMPONENT16深度',
+    color: '初期表示：ID1の手前面は橙RGB=(230,70,35)、ID2の奥面は青RGB=(30,150,220)、背景RGB=(10,18,29)。選択時は対象面を明るく強調（8bit値、0〜255）',
+    clock: () => '初期の静止描画・ID画素検査（物理stepなし）',
+    mode: '画素選択でGPUのID赤成分（0=背景、1=手前、2=奥）とCPU射線の交点を照合。深度LESSで重なりを解決し、選択後は同じGLSLで色を更新',
+    source: 'picking.js（panels, enableDepthTest, reverseDrawOrder, cpuRayId, pick）/ picking.frag（u_idMode, u_selected）'
+  }),
+  WGL16: Object.freeze({
+    requiresSteps: false,
+    grid: '初期gridSize=8の8×8配置＝64個の四角形（各2三角形、6頂点）。描画インスタンスの配置であり数値計算格子ではない',
+    color: '初期は行＋列の偶奇で橙RGB=(230,80,40)と青RGB=(40,150,220)を交互に配置。背景RGB=(12,20,32)、全成分0〜255',
+    clock: () => '通常ループとインスタンス描画を各1回実行・全画素比較（物理stepなし）',
+    mode: '初期64個ならloopは64 draw calls、instancedは1 draw call。表示はdrawModeで選択。gl.finish同期込み時間は環境依存の参考値',
+    source: 'instancing.js（gridSize, drawMode, gl.vertexAttribDivisor, gl.drawArraysInstanced）/ instancing.vert（u_instanced）/ instancing.frag（v_color）'
+  }),
+  WGL17: Object.freeze({
+    requiresSteps: false,
+    grid: '物理値8点の4×2データテクスチャ（初期R8、各texelが1セル）。表示用GPUバッファ画素は別で最近傍表示',
+    color: '入力の物理値範囲は−2〜2。初期R8の0〜255へ丸めた値qを正規化してRGB=(q/255, 0.2, 1−q/255)の赤青へ写像',
+    clock: () => '4×2の8値を静止GPU画素として読み戻す（物理stepなし）',
+    mode: 'modeでR8正規化／R8UI整数／R32F浮動小数点を切替。初期mode=r8。画面RGBA8読戻しとEXT_color_buffer_float使用時のFLOAT検算を区別',
+    source: 'data-grid.js（mode, physicalValues, lower, upper, gl.texImage2D）/ data-grid.frag（texelFetch, u_mode, normalized）'
+  }),
   WGL19: Object.freeze({
     grid: '4×4（GPUのRGBA32F濃度格子、2枚のping-pongテクスチャ）',
     color: '濃度qを0〜1に切り詰め、(q, 0.2, 1−q)の赤青で画素に表示',
