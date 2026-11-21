@@ -33,13 +33,11 @@ $$
 逆に[前講の Eisenstein 拡大の定理](../ANF10/index.md#thm-anf10-eisenstein-extension)によれば、この例の整数環全体は $\mathbb Z_5[\pi]=\mathbb Z_5\oplus\mathbb Z_5\pi$ です。$\pi^{-1}=\pi/5$ は基底 $(1,\pi)$ に関する係数 $1/5\notin\mathbb Z_5$ を持つので、整数環には入りません。この段階でまだ定義していない $v_L$ は用いません。
 <!-- definition-example-end -->
 
-一般の $\mathcal O_L$ がいつも一つの極大イデアルを持ち、しかもそのイデアルが一つの元で生成されることを証明します。その準備として、任意の $x\in L$ に対する $\mathbb Q_p$ 線形写像 $m_x(y)=xy$ の跡を $\operatorname{Tr}_{L/K}(x)$、行列式を $N_{L/K}(x)$ と書きます。
+一般の $\mathcal O_L$ がいつも一つの極大イデアルを持ち、しかもそのイデアルが一つの元で生成されることを証明します。その準備として、任意の $x\in L$ に対する $K=\mathbb Q_p$ 線形写像 $m_x:L\to L$、$m_x(y)=xy$ の跡を $\operatorname{Tr}_{L/K}(x)$、行列式を $N_{L/K}(x)$ と書きます。拡大 $L/K$ を固定した箇所では添字を省いて $\operatorname{Tr},N$ と記します。
 
-[跡・ノルムの乗法行列による定義](../ANF2/index.md#prop-anf2-trace-norm-properties)と同じ構成です。
+これは[跡・ノルムの乗法行列による定義と演算則](../ANF2/index.md#prop-anf2-trace-norm-properties)を $\mathbb Q_p$ 上に移したものです。$L/K$ は標数 $0$ の有限拡大なので分離的です。跡の双線形形式 $(x,y)\mapsto\operatorname{Tr}(xy)$ が**非退化**とは、$x\ne0$ に対して $\operatorname{Tr}(xy)\ne0$ となる $y\in L$ を選べることをいいます。[共役による跡の表示](../ANF2/index.md#thm-anf2-embedding-formulas)から、原始元 $\theta$ の相異なる共役 $\theta_1,\ldots,\theta_n$ を用いた冪基底上の行列は $T=VV^{\mathsf T}$、$V=(\theta_j^i)_{0\le i<n,\,1\le j\le n}$ です。Vandermonde 行列 $V$ は可逆なので $T$ も可逆となり、非退化性が従います。
 
-$L/K$ は標数 $0$ なので分離拡大であり、跡の双線形形式 $(x,y)\mapsto\operatorname{Tr}(xy)$ は非退化です。
-
-これは、原始元の相異なる共役根で作る Vandermonde 行列が可逆であることから従います。
+唯一の非零素イデアルが単項で、非零元がその生成元の非負整数冪と単元の積に一意分解される局所整域を、ここでは**離散付値環**と呼びます。これは[既習の局所単項性](../ANF3/index.md#lem-anf3-local-principal)によって確認する性質です。
 
 <a id="thm-anf11-local-dvr"></a>
 
@@ -133,7 +131,7 @@ $$
 
 これで[Dedekind 整域の三条件](../ANF3/index.md#def-anf3-dedekind-domain)を満たします。
 
-しかも $\mathcal O_L$ は局所環なので、[Dedekind 整域の局所単項性](../ANF3/index.md#lem-anf3-local-principal)を $\mathcal O_L$ 自身に適用すると唯一の極大イデアルは $(\pi)$、非零元は一意に $u\pi^r$ と表せます。
+しかも $\mathcal O_L$ は局所環なので、その唯一の極大イデアル $\mathfrak m_L$ で局所化しても $\mathcal O_{L,\mathfrak m_L}=\mathcal O_L$ です。[Dedekind 整域の局所単項性](../ANF3/index.md#lem-anf3-local-principal)をここに適用すると唯一の極大イデアルは $(\pi)$、非零元は一意に $u\pi^r$ と表せます。
 
 $L=\operatorname{Frac}(\mathcal O_L)$ であることも確かめます。任意の $x\in L$ は $p^s x\in\mathcal O_L$ となるよう $s$ を大きくできます（$x$ の最小多項式の分母を払うため）。従って $x=(p^s x)/p^s$ です。任意の $x\in L^\times$ は $\pi^r u$（$r\in\mathbb Z$）と表せます。剰余体は $\mathcal O_L/p\mathcal O_L$ の商で有限です。最後に、$p$ は非単元なので $p=u\pi^e$（$u$ は単元、$e\ge1$）と書けます。よって $p^k\mathcal O_L=\pi^{ek}\mathcal O_L$ で、$p$ 進位相と $\pi$ 進位相は同じです。$\pi$ 進 Cauchy 列の尾部はある $\pi^{-r}\mathcal O_L$ に入り、$\pi^r$ を掛けて $\mathcal O_L$ の完備性を適用し、再び $\pi^{-r}$ を掛ければ $L$ での完備性も従います。
 <!-- proof-end -->
@@ -221,15 +219,15 @@ $p\mathcal O_L=\mathfrak m_L^e$ だから $p^n=p^{ef}$、すなわち $n=ef$ で
 
 [離散付値の和と積の性質](../ANF9/index.md#prop-anf9-valuation-rules)を $\pi$ の冪表示に適用すれば $p^{-v_L(x)/e}$ は非Archimedes絶対値となり、制限は $|a|_p=p^{-v_p(a)}$ です。
 
-延長の一意性では、通常の絶対値 $|\cdot|'$ が $|\cdot|_p$ を延長すると仮定します。まず $a,b\in L$、$M=\max(|a|',|b|')$ に対して二項定理と $|\binom Nk|'=|\binom Nk|_p\le1$ から
+延長の一意性では、通常の絶対値 $|\cdot|'$ が $|\cdot|_p$ を延長すると仮定します。まず $a,b\in L$、$M=\max(|a|',|b|')$ と正整数 $m$ を取ります。二項定理と $|\binom mk|'=|\binom mk|_p\le1$ から
 
 $$
-|a+b|'^N
-\le\sum_{k=0}^N\left|\binom Nk\right|'|a|'^k|b|'^{N-k}
-\le(N+1)M^N.
+|a+b|'^m
+\le\sum_{k=0}^m\left|\binom mk\right|'|a|'^k|b|'^{m-k}
+\le(m+1)M^m.
 $$
 
-$N$ 乗根を取って $N\to\infty$ とすれば $|a+b|'\le M$ です。従って拡張絶対値は非Archimedes的です。整元 $x$ のモニック方程式の係数 $a_j\in\mathbb Z_p$ は $|a_j|'\le1$ を満たすので、$|x|'>1$ なら最高次項だけが他の各項より絶対値が大きくなり、強三角不等式と矛盾します。ゆえに $|x|'\le1$ です。
+$m$ 乗根を取って $m\to\infty$ とすれば $|a+b|'\le M$ です。従って拡張絶対値は非Archimedes的です。整元 $x$ のモニック方程式の係数 $a_j\in\mathbb Z_p$ は $|a_j|'\le1$ を満たすので、$|x|'>1$ なら最高次項だけが他の各項より絶対値が大きくなり、強三角不等式と矛盾します。ゆえに $|x|'\le1$ です。
 
 単元 $u$ とその逆元はともに整なので $|u|'=1$。$p=u\pi^e$ から $|\pi|'=p^{-1/e}$、従って $x=\pi^ru$ を代入すると $|x|'=p^{-v_L(x)/e}$ です。
 
