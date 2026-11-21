@@ -272,10 +272,10 @@ $$
 
 分母が零でない区間では、この写像の導関数は商の微分則から
 
-$
+$$
 M'(y)=\frac{a(cy+d)-c(ay+b)}{(cy+d)^2}
 =\frac{ad-bc}{(cy+d)^2}
-$
+$$
 
 です。したがって合成関数の連鎖律により $\widetilde F'(u)=M'(F(u))F'(u)>0$ となります。つまり係数の組 $(a,b,c,d)$ に課した $ad-bc>0$ と分母の非零条件は、座標が滑らかで向きを保つことを直接保証します。
 
@@ -418,7 +418,7 @@ $$
 <!-- definition-example-start: def-bhi21-thermal-clock -->
 **定義の確認**：$f(u)=u$ を取ります。$f'=1>0$ かつ $f(u+\beta)=u+\beta=f(u)+\beta$ なので、周期と向きの条件を満たします。
 
-局所座標 $F=\tan(\pi u/\beta)$ は $u=\beta/2$ で発散します。ここでは別の局所座標を
+局所座標 $F=L_*\tan(\pi u/\beta)$ は $u=\beta/2$ で発散します。ここでは別の局所座標を
 
 $$
 \widetilde F(u)=-\frac{L_*^2}{F(u)}=-L_*\cot\left(\frac{\pi u}{\beta}\right)
@@ -427,10 +427,10 @@ $$
 と選べば、$\widetilde F$ はその点で滑らかです。両座標は $M(y)=-L_*^2/y$ で結ばれ、$a=0,b=-L_*^2,c=1,d=0$ と取れば $ad-bc=L_*^2>0$ です。両方の座標は長さの次元を持ち、[JT境界の射影変換](#def-bhi21-projective-boundary-transform)の貼り替えです。[射影変換不変性](#prop-bhi21-projective-action)によりSchwarzianが一致します。発散は物理境界の特異点ではなく、座標表示の切替えを表します。
 <!-- definition-example-end -->
 
-[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)で無次元の補助関数 $H(y)=\tan(\pi y/\beta)$ を選ぶと、$F=L_*H(f)$ の定数倍はSchwarzianを変えないので、$\{H,y\}=2\pi^2/\beta^2$ なので
+[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)で無次元の補助関数 $H(y)=\tan(\pi y/\beta)$ を選ぶと、$F=L_*H(f)$ の定数倍はSchwarzianを変えません。$\{H,y\}=2\pi^2/\beta^2$ だから
 
 $$
-\left\{\tan\left(\frac{\pi f}{\beta}\right),u\right\}
+\left\{L_*\tan\left(\frac{\pi f}{\beta}\right),u\right\}
 =\{f,u\}+\frac{2\pi^2}{\beta^2}f'^2.
 $$
 
@@ -583,7 +583,7 @@ $$
 \{H_1,y\}=-2
 $$
 
-を得ます。[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)を $F(t)=L_*H_1(\pi t/\beta)$ に適用します。外側の関数 $L_*H_1$ のSchwarzianは $H_1$ と等しいので、内側の一次関数のSchwarzianは0、導関数は $\pi/\beta$ なので、
+を得ます。[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)を $F(t)=L_*H_1(\pi t/\beta)$ に適用します。外側の関数 $L_*H_1$ のSchwarzianは $H_1$ と等しいことを使います。内側の一次関数のSchwarzianは0、導関数は $\pi/\beta$ なので、
 
 $$
 \{F,t\}=-2\left(\frac{\pi}{\beta}\right)^2
@@ -706,7 +706,7 @@ $$
 
 したがって $\{M,y\}=6/(L_*+y)^2-6/(L_*+y)^2=0$ です。
 
-**(2)** $F'=ke^{ku}>0$、$\{F,u\}=-k^2/2$ です。[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)から
+**(2)** $F'=L_*ke^{ku}>0$、$\{F,u\}=-k^2/2$ です。[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)から
 
 $$
 \{M\circ F,u\}=F'^2\{M,F\}+\{F,u\}
@@ -751,7 +751,7 @@ $$
 - 問題: $S(u)=\{F,u\}$、$\eta=\delta F/F'$ とし、周期境界条件の下で $\delta S=\eta'''+2S\eta'+S'\eta$ が成り立つとする。$I=-C\int_0^\beta S\,du$ の停留条件を求めよ。また $F=L_*e^{ku}$、$k>0$ が局所的に条件を満たすことを確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\delta I=-C\int_0^\beta(\eta'''+2S\eta'+S'\eta)du$。周期条件で $\int\eta'''=0$、部分積分で $\int2S\eta'=-\int2S'\eta$ なので $\delta I=C\int_0^\beta S'\eta\,du$。任意の周期的で滑らかな $\eta$ について停留するには $S'=0$ が必要十分です。$F=e^{ku}$ のSchwarzianは $-k^2/2$ で定数なので、方程式を局所的に満たします。ただし $L_*e^{ku}$ は一般に熱円周上の $F(u+\beta)=F(u)$ という単一座標条件を満たすわけではなく、局所解と熱円周の貼り合わせ条件は別です。
+**詳細解答。** $\delta I=-C\int_0^\beta(\eta'''+2S\eta'+S'\eta)du$。周期条件で $\int\eta'''=0$、部分積分で $\int2S\eta'=-\int2S'\eta$ なので $\delta I=C\int_0^\beta S'\eta\,du$。任意の周期的で滑らかな $\eta$ について停留するには $S'=0$ が必要十分です。$F=L_*e^{ku}$ のSchwarzianは $-k^2/2$ で定数なので、方程式を局所的に満たします。ただし $L_*e^{ku}$ は一般に熱円周上の $F(u+\beta)=F(u)$ という単一座標条件を満たすわけではなく、局所解と熱円周の貼り合わせ条件は別です。
 <!-- solution-end -->
 
 <a id="ex-bhi21-b04"></a>
@@ -786,7 +786,7 @@ $$
 
 **小問1**：cutoff極限でSchwarzian係数 $C$ を求めよ。
 
-**小問2**：$F(u)=\tan(\pi u/\beta)$（射影座標の貼り替えを許す）のSchwarzianを求め、位相項 $-S_0$ を加えた古典作用 $I_E$ を求めよ。
+**小問2**：$F(u)=L_*\tan(\pi u/\beta)$（射影座標の貼り替えを許す）のSchwarzianを求め、位相項 $-S_0$ を加えた古典作用 $I_E$ を求めよ。
 
 **小問3**：$\log Z_{\rm cl}=-I_E$ から、熱的エネルギー $E$ とエントロピー $S$ を求めよ。
 
@@ -804,7 +804,7 @@ ds\,\Phi_b\left(K-\ell^{-1}\right)
 $$
 有限区間で余項の積分が消えるから、$I_\partial^E\to-C\int\{F,u\}\,du$、$C=a\ell/(8\pi G_2)$。
 
-(2) $H(u)=\tan(\alpha u)$、$\alpha=\pi/\beta$ について、$F=L_*H$ の定数倍はSchwarzianを変えないので、 $H'=\alpha(1+H^2)$、$H''/H'=2\alpha H$、$H'''/H'=2\alpha^2(1+H^2)+4\alpha^2H^2$ なので、二次項が消えて $\{H,u\}=2\alpha^2=2\pi^2/\beta^2$。極では $1/H$ 等の局所座標へ移り、[射影変換不変性](#prop-bhi21-projective-action)で値をつなぎます。円周長 $\beta$ で積分して $I_E=-S_0-2\pi^2 C/\beta$。
+(2) $H(u)=\tan(\alpha u)$、$\alpha=\pi/\beta$ について、$F=L_*H$ の定数倍はSchwarzianを変えません。$H'=\alpha(1+H^2)$、$H''/H'=2\alpha H$、$H'''/H'=2\alpha^2(1+H^2)+4\alpha^2H^2$ なので、二次項が消えて $\{H,u\}=2\alpha^2=2\pi^2/\beta^2$。極では長さ座標 $\widetilde F=-L_*^2/F$ に切り替え、[射影変換不変性](#prop-bhi21-projective-action)で値をつなぎます。円周長 $\beta$ で積分して $I_E=-S_0-2\pi^2 C/\beta$。
 
 (3) $\log Z_{\rm cl}=S_0+2\pi^2 C/\beta$ です。$\beta$ 微分は $-\partial_\beta\log Z_{\rm cl}=2\pi^2C/\beta^2$、$\log Z_{\rm cl}+\beta E=S_0+4\pi^2C/\beta$。従って $E=2\pi^2CT^2$、$S=S_0+4\pi^2CT$。
 
