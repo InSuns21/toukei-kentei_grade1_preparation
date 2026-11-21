@@ -1,0 +1,42 @@
+chapter: BHI23
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI22, BHI18]
+forward_references: []
+concepts:
+  - id: black-hole-information.no-island-radiation-ledger
+    name: islandなしの放射エントロピーと真空差
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（islandなしの放射エントロピーと真空差）]
+    requires: [black-hole-information.cft-radiation-entropy-ledger]
+  - id: black-hole-information.smooth-outgoing-cft-map
+    name: 滑らかな立上りを持つ出射CFT模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（滑らかな立上りを持つ出射CFT模型）]
+    requires: [black-hole-information.jt-bath-outgoing-state]
+  - id: black-hole-information.no-island-finite-interval
+    name: 固定有限区間のislandなしエントロピー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（固定有限区間のislandなしエントロピー）]
+    requires: [black-hole-information.no-island-radiation-ledger, black-hole-information.smooth-outgoing-cft-map, black-hole-information.bath-conformal-interval-entropy]
+  - id: black-hole-information.no-island-finite-saturation
+    name: 固定有限区間の初期極限と後期飽和
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（固定有限区間の初期極限と後期飽和）]
+    requires: [black-hole-information.no-island-finite-interval]
+  - id: black-hole-information.no-island-hawking-growth
+    name: 赤外差引き後のislandなしHawking型枝
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（赤外差引き後のislandなしHawking型枝）]
+    requires: [black-hole-information.no-island-finite-interval]
+  - id: black-hole-information.no-island-entropy-flux-check
+    name: 出射エントロピーの傾きとSchwarzian流束
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（出射エントロピーの傾きとSchwarzian流束）]
+    requires: [black-hole-information.no-island-hawking-growth, black-hole-information.jt-bath-anomalous-flux]
