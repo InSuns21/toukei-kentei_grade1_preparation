@@ -76,7 +76,7 @@ try {
       if(await evaluate(expression))return;
       await new Promise(ok=>setTimeout(ok,100));
     }
-    const state=await evaluate('({status:document.querySelector("#status")?.textContent,diagnostics:document.querySelector("#diagnostics")?.textContent?.slice(-800)})');
+    const state=await evaluate('({status:document.querySelector("#status")?.textContent,live:document.querySelector("#fcg5-live-state")?.textContent,hidden:document.hidden,reduced:matchMedia("(prefers-reduced-motion: reduce)").matches,events:window.__fcg5Events?.slice(-12),diagnostics:document.querySelector("#diagnostics")?.textContent?.slice(-800)})');
     throw Error('Timed out: '+expression+' last state='+JSON.stringify(state)+' exceptions '+JSON.stringify(exceptions.slice(-2)));
   };
   const click=id=>evaluate('document.getElementById('+JSON.stringify(id)+').click()');
@@ -94,6 +94,8 @@ try {
   assert.equal(await evaluate('document.querySelectorAll(".visual-smoke canvas").length'),0);
   assert.match(await evaluate('document.querySelector(".visual-guide")?.textContent || document.querySelector("#panel-conditions")?.textContent'),/12×12/);
   assert.equal(await evaluate('document.querySelector("#canvas-slot iframe")===null'),true);
+  // Diagnose session-scoped progress delivery independently of GPU rendering.
+  await evaluate('window.__fcg5Events=[];window.addEventListener("message",e=>{if(e.data?.type?.startsWith("fcg5"))window.__fcg5Events.push({type:e.data.type,step:e.data.step,playing:e.data.playing,requestId:e.data.requestId});})');
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
   const initial=await evaluate('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(x=>x.textContent)),log:document.querySelector("#diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox"),opaque:(()=>{try{return !!document.querySelector("#canvas-slot iframe").contentWindow.document.body}catch{return true}})()})');
