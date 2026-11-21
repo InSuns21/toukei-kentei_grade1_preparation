@@ -13,6 +13,7 @@ concepts:
     requires:
       - physics-machine-learning.canonical-hnn
       - physics-machine-learning.regular-lnn
+      - physics-machine-learning.lnn-acceleration
   - id: physics-machine-learning.pml22-comparison-metrics
     name: 共通損失と評価量
     kind: definition
