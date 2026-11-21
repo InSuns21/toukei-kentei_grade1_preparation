@@ -1,0 +1,48 @@
+chapter: BHI19
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI18]
+forward_references: []
+
+concepts:
+  - id: black-hole-information.jt-action-boundary
+    name: 境界を持つJT重力の作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（境界を持つJT重力の作用）]
+    requires: [black-hole-information.regulated-gravity-bath-model]
+
+  - id: black-hole-information.jt-topological-entropy
+    name: Euclid化した位相項と定数S0
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Euclid化した位相項と定数S0）]
+    requires: [black-hole-information.jt-action-boundary]
+
+  - id: black-hole-information.jt-curvature-equation
+    name: dilaton方程式と一定負曲率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（dilaton方程式と一定負曲率）]
+    requires: [black-hole-information.jt-action-boundary]
+
+  - id: black-hole-information.jt-matter-stress-source
+    name: JT模型の物質応力テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（JT模型の物質応力テンソル）]
+    requires: [black-hole-information.jt-action-boundary]
+
+  - id: black-hole-information.jt-metric-equation
+    name: 物質を含むJT計量方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（物質を含むJT計量方程式）]
+    requires: [black-hole-information.jt-action-boundary, black-hole-information.jt-matter-stress-source]
+
+  - id: black-hole-information.jt-trace-hessian
+    name: トレース方程式と真空のHessian形
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（トレース方程式と真空のHessian形）]
+    requires: [black-hole-information.jt-metric-equation]
