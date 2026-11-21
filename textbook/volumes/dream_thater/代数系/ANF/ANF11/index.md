@@ -30,12 +30,27 @@ $$
 
 よって両者は整数環に入ります。
 
-逆に[前講の Eisenstein 拡大の定理](../ANF10/index.md#thm-anf10-eisenstein-extension)によれば、この例の整数環全体は $\mathbb Z_5[\pi]=\mathbb Z_5\oplus\mathbb Z_5\pi$ です。$\pi^{-1}=\pi/5$ は基底 $(1,\pi)$ に関する係数 $1/5\notin\mathbb Z_5$ を持つので、整数環には入りません。この段階でまだ定義していない $v_L$ は用いません。
+逆に[前講の Eisenstein 拡大の定理](../ANF10/index.md#thm-anf10-eisenstein-extension)によれば、この例の整数環全体は $\mathbb Z_5[\pi]=\mathbb Z_5\oplus\mathbb Z_5\pi$ です。$\pi^{-1}=\pi/5$ は基底 $(1,\pi)$ に関する係数 $1/5\notin\mathbb Z_5$ を持つので、整数環には入りません。
 <!-- definition-example-end -->
 
-一般の $\mathcal O_L$ がいつも一つの極大イデアルを持ち、しかもそのイデアルが一つの元で生成されることを証明します。その準備として、任意の $x\in L$ に対する $K=\mathbb Q_p$ 線形写像 $m_x:L\to L$、$m_x(y)=xy$ の跡を $\operatorname{Tr}_{L/K}(x)$、行列式を $N_{L/K}(x)$ と書きます。拡大 $L/K$ を固定した箇所では添字を省いて $\operatorname{Tr},N$ と記します。
+一般の $\mathcal O_L$ がいつも一つの極大イデアルを持ち、しかもそのイデアルが一つの元で生成されることを証明します。準備として、$K=\mathbb Q_p$ とし、$x\in L$ に対する乗法写像を
 
-これは[跡・ノルムの乗法行列による定義と演算則](../ANF2/index.md#prop-anf2-trace-norm-properties)を $\mathbb Q_p$ 上に移したものです。$L/K$ は標数 $0$ の有限拡大なので分離的です。跡の双線形形式 $(x,y)\mapsto\operatorname{Tr}(xy)$ が**非退化**とは、$x\ne0$ に対して $\operatorname{Tr}(xy)\ne0$ となる $y\in L$ を選べることをいいます。[共役による跡の表示](../ANF2/index.md#thm-anf2-embedding-formulas)から、原始元 $\theta$ の相異なる共役 $\theta_1,\ldots,\theta_n$ を用いた冪基底上の行列は $T=VV^{\mathsf T}$、$V=(\theta_j^i)_{0\le i<n,\,1\le j\le n}$ です。Vandermonde 行列 $V$ は可逆なので $T$ も可逆となり、非退化性が従います。
+$$
+m_x:L\longrightarrow L,\qquad y\longmapsto xy
+$$
+
+と置きます。この $K$ 線形写像の跡を $\operatorname{Tr}_{L/K}(x)$、行列式を $N_{L/K}(x)$ と書きます。拡大 $L/K$ を固定した箇所では添字を省いて $\operatorname{Tr},N$ と記します。これは[跡・ノルムの乗法行列による定義と演算則](../ANF2/index.md#prop-anf2-trace-norm-properties)を $\mathbb Q_p$ 上に移したものです。
+
+$L/K$ は標数 $0$ の有限拡大なので分離的です。双線形形式 $(x,y)\mapsto\operatorname{Tr}(xy)$ が**非退化**とは、$x\ne0$ に対して $\operatorname{Tr}(xy)\ne0$ となる $y\in L$ を選べることをいいます。
+
+[共役による跡の表示](../ANF2/index.md#thm-anf2-embedding-formulas)から、原始元 $\theta$ の相異なる共役 $\theta_1,\ldots,\theta_n$ を用いた冪基底上の行列は
+
+$$
+T=VV^{\mathsf T},\qquad
+V=(\theta_j^i)_{0\le i<n,\,1\le j\le n}.
+$$
+
+Vandermonde 行列 $V$ は可逆なので $T$ も可逆となり、非退化性が従います。
 
 唯一の非零素イデアルが単項で、非零元がその生成元の非負整数冪と単元の積に一意分解される局所整域を、ここでは**離散付値環**と呼びます。これは[既習の局所単項性](../ANF3/index.md#lem-anf3-local-principal)によって確認する性質です。
 
@@ -383,7 +398,7 @@ T=\begin{pmatrix}2&0\\0&-2\end{pmatrix},
 \qquad T^{-1}=\begin{pmatrix}1/2&0\\0&-1/2\end{pmatrix}.
 $$
 
-$2$ は $\mathbb Z_3$ の単元ですから、$x=a+bi$ に対する条件 $\operatorname{Tr}(x)=2a\in\mathbb Z_3$ と $\operatorname{Tr}(xi)=-2b\in\mathbb Z_3$ は $a,b\in\mathbb Z_3$ と同値です。従って第4節の基底判定の通り、$E$ の跡双対 $E^\vee=\{x\in L:\operatorname{Tr}(xE)\subseteq\mathbb Z_3\}$ は $E$ 自身です。ここでは $E=\mathcal O_L$ をまだ仮定していません。なお $g(X)=X^2+1$ の $g'(i)=2i$ は $E$ の単元なので、単項生成の跡双対公式 $E^\vee=(2i)^{-1}E$ とも一致します。
+$2$ は $\mathbb Z_3$ の単元ですから、$x=a+bi$ に対する条件 $\operatorname{Tr}(x)=2a\in\mathbb Z_3$ と $\operatorname{Tr}(xi)=-2b\in\mathbb Z_3$ は $a,b\in\mathbb Z_3$ と同値です。従って[第4節の余異なるの基底判定](#def-anf11-codifferent)の通り、$E$ の跡双対 $E^\vee=\{x\in L:\operatorname{Tr}(xE)\subseteq\mathbb Z_3\}$ は $E$ 自身です。ここでは $E=\mathcal O_L$ をまだ仮定していません。なお $g(X)=X^2+1$ の $g'(i)=2i$ は $E$ の単元なので、単項生成の跡双対公式 $E^\vee=(2i)^{-1}E$ とも一致します。
 
 任意の $x\in\mathcal O_L$ と $y\in E$ はともに整なので $\operatorname{Tr}(xy)\in\mathbb Z_3$ です。よって $\mathcal O_L\subseteq E^\vee=E$。逆に $E\subseteq\mathcal O_L$ なので $\mathcal O_L=E$ が証明できました。従って
 
