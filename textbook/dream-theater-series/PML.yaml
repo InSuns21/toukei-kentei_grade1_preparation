@@ -91,7 +91,7 @@ chapters:
     title: "データから動力学を同定すると何が失われるか"
   - id: PML1-22
     path: textbook/volumes/dream_thater/応用系/PML/PML1-22
-    status: planned
+    status: completed
     title: "物理制約付きモデルは本当に優れるか"
   - id: PML2-01
     path: textbook/volumes/dream_thater/応用系/PML/PML2-01
