@@ -229,6 +229,8 @@ $$
 だから共役同変である。$G=GL(2,\mathbb R)$、$a=\operatorname{diag}(2,1)$ では $k$ に依存するので、単なる $M$ 上の関数を $P$ に引き戻したものとは限らない。
 <!-- definition-example-end -->
 
+以下、束 $B\to M$ の滑らかな大域切断全体を $\Gamma^\infty(B)$ と書く。随伴群束の切断は、同じ基底点のファイバーにある群元の積で掛ける。
+
 <a id="thm-gbg5-gauge-sections"></a>
 
 <!-- formal-statement-start -->
@@ -358,8 +360,8 @@ $$
 
 ### 非可換な行列を実際に掛ける
 
-$G=GL(2,\mathbb R)$ とし、二つのパッチの重なりで
-$$
+積主束 $P=\mathbb R\times GL(2,\mathbb R)$ を $U_0=U_1=\mathbb R$ で覆い、$s_0(x)=(x,I)$、$s_1=s_0g_{01}$ とする。ここで $I$ は単位行列である。遷移関数と局所ゲージ関数を全ての $x\in\mathbb R$ で
+$
 g_{01}(x)=H(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix},
 \qquad
 a_0(x)=D=\begin{pmatrix}2&0\\0&1\end{pmatrix}
@@ -651,14 +653,14 @@ $$
 #### GBG5-B03 定数右乗法が許される条件
 - Level: B
 
-連結性を仮定しない任意の基底 $M$ 上の主 $G$ 束 $P$ と固定元 $h\in G$ について $R_h(p)=ph$ を考える。$R_h$ がゲージ変換であるための必要十分条件が $h\in Z(G)$（中心）であることを示せ。なお $Z(G)=\{h\in G: hg=gh\ \text{for all }g\in G\}$ とする。
+空でない滑らかな基底多様体 $M$（連結性は仮定しない）上の主 $G$ 束 $P$ と固定元 $h\in G$ について $R_h(p)=ph$ を考える。$R_h$ がゲージ変換であるための必要十分条件が $h\in Z(G)$（中心）であることを示せ。なお $Z(G)=\{h\in G: hg=gh\ \text{for all }g\in G\}$ とする。
 
 <!-- solution-start -->
 **詳細解答**。右作用によって $R_h$ は滑らかな全単射で、逆は $R_{h^{-1}}$、射影も保存する。残る条件は右同変性だけである。任意の $p,g$ について
 $$
 R_h(pg)=pgh,\qquad R_h(p)g=phg.
 $$
-主作用の[自由性](../GBG2/index.md#prop-gbg2-free-transitive)によりこれらが等しいことは $gh=hg$ と同値。$g$ は任意だから $h\in Z(G)$ が必要十分である。ただし $G$ 非可換でも、積主束における $F_a(x,k)=(x,a(x)k)$ は任意の滑らかな $a$ についてゲージ変換である。左からの作用と右からの作用を混同してはならない。
+$M$ が空でなく $\pi:P\to M$ が全射なので、少なくとも一つの $p\in P$ を取れる。その $p$ に対する主作用の[自由性](../GBG2/index.md#prop-gbg2-free-transitive)により、これらが等しいことは $gh=hg$ と同値。$g$ は任意だから $h\in Z(G)$ が必要十分である。ただし $G$ 非可換でも、積主束における $F_a(x,k)=(x,a(x)k)$ は任意の滑らかな $a$ についてゲージ変換である。左からの作用と右からの作用を混同してはならない。
 <!-- solution-end -->
 
 <a id="ex-gbg5-b04"></a>
