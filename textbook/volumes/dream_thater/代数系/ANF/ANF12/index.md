@@ -117,7 +117,7 @@ $$
 v_p(N(x))=r\,v_p(N(\pi))+v_p(N(u))=rf.
 $$
 
-最後に、[ANF11 の整数環定理](../ANF11/index.md#thm-anf11-local-dvr)より $A$ は階数 $n$ の自由 $\mathbb Z_p$ 加群です。$a\in A$ なら $aA\subseteq A$ なので、$\mathbb Z_p$ 基底 $b_1,\ldots,b_n$ に関し
+最後に、[局所体の整数環は完備な離散付値環](../ANF11/index.md#thm-anf11-local-dvr)であることの証明から、$A$ は階数 $n$ の自由 $\mathbb Z_p$ 加群です。$a\in A$ なら $aA\subseteq A$ なので、$\mathbb Z_p$ 基底 $b_1,\ldots,b_n$ に関し
 $$
 ab_j=\sum_{i=1}^n M_{ij}b_i\qquad(M_{ij}\in\mathbb Z_p)
 $$
@@ -181,7 +181,7 @@ $$
 
 まず有限体の乗法群 $G=k^\times$ が巡回群であることを確認します。各元の位数の最小公倍数を $m$ とします。
 
-$m=\prod_i\ell_i^{a_i}$ と素因数分解します。最小公倍数の定義から、各 $i$ について位数が $\ell_i^{a_i}$ でちょうど割れる元 $h_i$ が存在します。$\operatorname{ord}(h_i)=\ell_i^{a_i}q_i$（$\ell_i\nmid q_i$）と置けば $g_i=h_i^{q_i}$ は
+$m=\prod_i\ell_i^{a_i}$ と素因数分解します。各 $a_i$ は、$G$ の元の位数に現れる素数 $\ell_i$ の指数の最大値です。従って各 $i$ について、位数が $\ell_i^{a_i}$ でちょうど割れる元 $h_i$ を選べます。$\operatorname{ord}(h_i)=\ell_i^{a_i}q_i$（$\ell_i\nmid q_i$）と置けば $g_i=h_i^{q_i}$ は
 $$
 \operatorname{ord}(g_i)=\ell_i^{a_i}
 $$
