@@ -10,7 +10,14 @@ $$
 H(q,p)=\frac{p^2}{2m}+\frac{kq^2}{2}
 $$
 
-とする。[Hamilton の正準方程式](../../../物理系/AMECH/AMECH5/index.md#thm-amech5-hamilton-equations)は $\dot q=p/m,\ \dot p=-kq$ である。連続軌道上の微分は
+とする。[Hamilton の正準方程式](../../../物理系/AMECH/AMECH5/index.md#thm-amech5-hamilton-equations)は $\dot q=p/m,\ \dot p=-kq$ である。点は時刻 $t$ による微分であり、$\dot q=dq/dt$、$\dot p=dp/dt$ と書く。$H(q,p)$ の偏微分 $\partial_qH=kq$、$\partial_pH=p/m$ は他方の変数を固定して求める。一方、軌道 $t\mapsto(q(t),p(t))$ 上の全時間微分には[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を使い、
+
+$$
+\frac{d}{dt}H(q(t),p(t))
+=\partial_qH\,\frac{dq}{dt}+\partial_pH\,\frac{dp}{dt}
+$$
+
+とする。この対応で連続軌道上の微分は
 
 $$
 \frac{dH}{dt}
@@ -79,7 +86,7 @@ $$
 
 ## 3. 通常 Euler 法では何が壊れるか
 
-線形更新は $z_{n+1}=Az_n$ と行列表示できる。入力の $q,p$ の係数をそれぞれ行列の第1列・第2列に並べればよい。相平面の小領域をどれだけ拡大するかは、この行列の行列式の絶対値から分かる。
+線形更新は $z_{n+1}=Az_n$ と行列表示できる。座標順は $(q,p)$ とし、入力の $q,p$ の係数をそれぞれ行列の第1列・第2列に並べる。単位正方形の二つの辺 $(1,0)^{\mathsf T},(0,1)^{\mathsf T}$ は更新によって $A$ の第1列・第2列へ移るため、写された平行四辺形の符号付き面積は $\det A$ である。一般の領域の面積倍率は、[AMECH6 の Liouville 定理で用いた変数変換](../../../物理系/AMECH/AMECH6/index.md#thm-amech6-liouville)と同じく $|\det A|$ で判定する。
 
 <a id="prop-pml1-20-explicit-drift"></a>
 
@@ -175,7 +182,19 @@ $$
 となる。
 <!-- proof-end -->
 
-二変数では面積保存と symplectic 条件が一致するが、四変数以上では行列式が $1$ という一条件だけでは不十分である。高次元の構造までこの面積計算だけで証明したことにはならない。
+二変数では、**向きを保つ面積保存**と symplectic 条件が一致する。理由を行列で確かめよう。正準座標 $(q,p)$ に対し
+
+$$
+J=\begin{pmatrix}0&1\\-1&0\end{pmatrix}
+$$
+
+と置き、各点の微分行列 $M=D\Phi_h$ が $M^{\mathsf T}JM=J$ を満たすことを symplectic 条件と呼ぶ。任意の $2\times2$ 行列 $M$ では直接の積から
+
+$$
+M^{\mathsf T}JM=(\det M)J
+$$
+
+となるので、上で示した $\det D\Phi_h=1$ はこの条件も保証する。一方、$(q,p)\mapsto(q,-p)$ は $|\det M|=1$ で面積を保つが、$\det M=-1$ なので symplectic ではない。四変数以上でも行列式 $1$ だけでは symplectic 条件を保証しない。
 
 <a id="prop-pml1-20-area-not-energy"></a>
 
@@ -202,7 +221,7 @@ $$
 
 元の $H$ が毎歩変化することは分かった。それでも小さい刻み幅なら symplectic Euler の軌道が遠くへ飛んでいかないことを説明したい。
 
-振動数 $\omega=\sqrt{k/m}$ と無次元刻み $s=h\omega$ を導入する。変数を $x=\sqrt{k}\,q$、$y=p/\sqrt m$ と置けば $2H=x^2+y^2$ となる。新しい座標はエネルギーを円の式にするための表示であり、元の正準座標 $(q,p)$ と同じ単位ではない。
+振動数 $\omega=\sqrt{k/m}$ と無次元刻み $s=h\omega$ を導入する。変数を $x=\sqrt{k}\,q$、$y=p/\sqrt m$ と置けば $2H=x^2+y^2$ となる。これはエネルギーの二つの係数をそろえるための座標変換であり、元の正準座標 $(q,p)$ と同じ単位ではない。$m,k>0$ なので逆に $q=x/\sqrt k$、$p=\sqrt m\,y$ と戻せる。従って、元の更新式へこの対応を代入して得る行列は同じ一段写像を可逆な別座標で表す。
 
 定義の二つの更新式に代入すると
 
@@ -245,7 +264,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$x=\sqrt k\,q$、$y=p/\sqrt m$ により
+$x=\sqrt k\,q$、$y=p/\sqrt m$ により $sxy=(h\sqrt{k/m})(\sqrt k\,q)(p/\sqrt m)=hkqp/m$ となる。したがって、対称行列の二つの非対角成分を $-s/2$ に選ぶと交差項が $-sxy$ となり、
 
 $$
 \widetilde H_h=\frac12(x^2+y^2-sxy)
@@ -393,7 +412,22 @@ $m=k=1$、$h=1/2$、$z_0=(1,0)$ とする。両方式の $z_1$ と元のエネ�
 <!-- solution-start -->
 #### 詳細解答
 
-陽的 Euler は $q_1=1+(1/2)0=1$、$p_1=0-(1/2)1=-1/2$。従って $H_1=(1+1/4)/2=5/8$。運動量先行法は $p_1=-1/2$ の後、$q_1=1+(1/2)(-1/2)=3/4$、従って $H_1=(9/16+1/4)/2=13/32$。初期 $H_0=1/2$ と比べ、変化の符号まで異なる。
+陽的 Euler では両方の右辺に初期値を入れるので
+
+$$
+q_1=1+\frac12\cdot0=1,\qquad
+p_1=0-\frac12\cdot1=-\frac12,\qquad
+H_1=\frac12\left(1+\frac14\right)=\frac58.
+$$
+
+運動量先行法では $p_1=-1/2$ を先に求め、その値で位置を更新する。
+
+$$
+q_1=1+\frac12\left(-\frac12\right)=\frac34,\qquad
+H_1=\frac12\left(\frac9{16}+\frac14\right)=\frac{13}{32}.
+$$
+
+初期値 $H_0=1/2$ と比べると、変化の符号まで異なる。
 <!-- solution-end -->
 
 <a id="ex-pml1-20-a02"></a>
@@ -431,7 +465,7 @@ $m=k=1,h=1/2,z_0=(1,0)$ の運動量先行法について、修正エネルギ�
 <!-- solution-start -->
 #### 詳細解答
 
-A01 より $z_1=(3/4,-1/2)$。初期値では $\widetilde H_h(z_0)=1/2$。一歩後は
+[A01 の一歩計算](#ex-pml1-20-a01)より $z_1=(3/4,-1/2)$。初期値では $\widetilde H_h(z_0)=1/2$。一歩後は
 
 $$
 2\widetilde H_h(z_1)
@@ -490,7 +524,14 @@ D\Phi_h=\begin{pmatrix}
 \det D\Phi_h=1.
 $$
 
-逆向きには $q=q'-h(p')^3$ を先に、$p=p'+hq$ を後に求める。両方向とも滑らかなので微分同相であり、面積を保つ。一方 $h=1$、$(1,0)$ では $p'=-1$、$q'=0$、$H_0=1/2$、$H_1=1/4$ で元の $H$ は保存されない。
+逆向きには $q=q'-h(p')^3$ を先に、$p=p'+hq$ を後に求める。$T,V$ は多項式なので二階連続微分可能であり、両方向とも滑らかである。[分離形 Hamiltonian の面積保存定理](#thm-pml1-20-area)の仮定を満たすから、行列式が $1$ のこの微分同相は面積を保つ。一方、$h=1$、$(q,p)=(1,0)$ では
+
+$$
+p'=-1,\quad q'=1+(-1)^3=0,\qquad
+H_0=\frac12,\quad H_1=\frac14
+$$
+
+となり、元の $H$ は保存されない。
 <!-- solution-end -->
 
 <a id="ex-pml1-20-b02"></a>
@@ -510,12 +551,20 @@ A_{\mathrm Q}=\begin{pmatrix}1&h/m\\-hk&1-h^2k/m\end{pmatrix},
 \quad\det A_{\mathrm Q}=1.
 $$
 
-$x=\sqrt{k}q$、$y=p/\sqrt m$、$s=h\sqrt{k/m}$ を使えば、$x'=x+sy,\ y'=-sx+(1-s^2)y$。$B_s=\begin{pmatrix}1&s\\-s&1-s^2\end{pmatrix}$ とすると直接の行列積で
+$x=\sqrt{k}q$、$y=p/\sqrt m$、$s=h\sqrt{k/m}$ を使えば、$x'=x+sy,\ y'=-sx+(1-s^2)y$。$B_s=\begin{pmatrix}1&s\\-s&1-s^2\end{pmatrix}$ と置く。$G_+=\begin{pmatrix}1&s/2\\s/2&1\end{pmatrix}$ を候補にすると、まず
 
 $$
-B_s^{\mathsf T}
-\begin{pmatrix}1&s/2\\s/2&1\end{pmatrix}
-B_s=\begin{pmatrix}1&s/2\\s/2&1\end{pmatrix}
+G_+B_s=
+\begin{pmatrix}
+1-s^2/2&s(3-s^2)/2\\
+-s/2&1-s^2/2
+\end{pmatrix}
+$$
+
+を得る。左から $B_s^{\mathsf T}$ を掛ければ、対角成分はともに $1$、非対角成分はともに $s/2$ だから
+
+$$
+B_s^{\mathsf T}G_+B_s=G_+
 $$
 
 となる。従って保存する二次形式は
@@ -539,7 +588,7 @@ $m=k=1,h=1/10,z_0=(1,0)$ とする。陽的 Euler の $H_N$ を求め、symplect
 <!-- solution-start -->
 #### 詳細解答
 
-陽的 Euler の倍率は $1+h^2=101/100$ だから
+[陽的 Euler のエネルギー増大命題](#prop-pml1-20-explicit-drift)から倍率は $1+h^2=101/100$ だから
 
 $$
 H_N=\frac12(101/100)^N.
@@ -591,7 +640,7 @@ $0<s<2$ では両係数が正で、零は $(0,0)$ に限る。$s=2$ では $Q_2=
 <!-- solution-start -->
 #### 詳細解答
 
-**(1)** $\partial_pH_\theta=p$、$\partial_qH_\theta=4q$ なので $\dot q=p$、$\dot p=-4q$。連鎖律から
+**(1)** [Hamilton の正準方程式](../../../物理系/AMECH/AMECH5/index.md#thm-amech5-hamilton-equations)を用いる。$\partial_p$ は $q$ を固定した $p$ 微分、$\partial_q$ は $p$ を固定した $q$ 微分なので、$\partial_pH_\theta=p$、$\partial_qH_\theta=4q$ から $\dot q=dq/dt=p$、$\dot p=dp/dt=-4q$。第1節と同じく、軌道に沿う全時間微分は連鎖律から
 
 $$
 \frac{dH_\theta}{dt}=4qp+p(-4q)=0,\qquad
@@ -624,7 +673,7 @@ A_\theta=\begin{pmatrix}1-4h^2&h\\-4h&1\end{pmatrix},
 \quad\det A_\theta=1-4h^2+4h^2=1.
 $$
 
-修正エネルギー公式へ $m=1,k=4$ を代入すると
+[調和振動子の修正エネルギー定理](#thm-pml1-20-modified-energy)の公式へ $m=1,k=4$ を代入すると
 
 $$
 \widetilde H_{\theta,h}=\frac{p^2}{2}+2q^2-2hqp.
@@ -639,7 +688,7 @@ $$
 =\frac12(p-2q)^2.
 $$
 
-非零状態 $(q,p)=(1,2)$ に対しても零となり、状態の大きさを下から抑えられない。さらに $s=2$ は前命題の無界な反復が存在する境界である。
+非零状態 $(q,p)=(1,2)$ に対しても零となり、状態の大きさを下から抑えられない。さらに $s=2$ は[刻み幅と長時間有界性の命題](#prop-pml1-20-stability)で無界な反復が存在する境界である。
 
 **(5)** 連続モデルが保存するのは $H_\theta$ で、学習した係数 $4$ が真の係数 $1$ と一致することは保証しない。離散法は $H_\theta$ ですら一歩で変えるが、$\widetilde H_{\theta,h}$ は保存する。真のエネルギーのモデル軌道上の差は独立に残る。よって、構造・積分法・真値との一致は三つの別々の検査である。
 <!-- solution-end -->
