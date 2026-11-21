@@ -1,0 +1,69 @@
+chapter: BHI21
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI20]
+forward_references: []
+
+concepts:
+  - id: black-hole-information.jt-regulated-boundary
+    name: JTの正則化境界と再パラメータ化
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（JTの正則化境界と再パラメータ化）]
+    requires: [black-hole-information.jt-action-boundary, black-hole-information.jt-static-black-hole-patch]
+
+  - id: black-hole-information.jt-schwarzian-extrinsic-expansion
+    name: 正則化境界の外部曲率展開
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（正則化境界の外部曲率展開）]
+    requires: [black-hole-information.jt-regulated-boundary, qcurv.schwarzian-derivative]
+
+  - id: black-hole-information.jt-schwarzian-effective-action
+    name: 真空JTのSchwarzian有効作用
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（真空JTのSchwarzian有効作用）]
+    requires: [black-hole-information.jt-action-boundary, black-hole-information.jt-schwarzian-extrinsic-expansion]
+
+  - id: black-hole-information.jt-boundary-projective-transform
+    name: JT境界の射影変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（JT境界の射影変換）]
+    requires: [qcurv.schwarzian-chain-law, black-hole-information.jt-regulated-boundary]
+
+  - id: black-hole-information.jt-projective-action-invariance
+    name: JT境界Schwarzian作用の射影変換不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（JT境界Schwarzian作用の射影変換不変性）]
+    requires: [qcurv.schwarzian-chain-law, black-hole-information.jt-schwarzian-effective-action, black-hole-information.jt-boundary-projective-transform]
+
+  - id: black-hole-information.jt-schwarzian-boundary-eom
+    name: 真空Schwarzian境界運動方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（真空Schwarzian境界運動方程式）]
+    requires: [black-hole-information.jt-schwarzian-effective-action, black-hole-information.jt-projective-action-invariance]
+
+  - id: black-hole-information.jt-thermal-boundary-clock
+    name: 熱的境界時計
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（熱的境界時計）]
+    requires: [black-hole-information.jt-projective-action-invariance]
+
+  - id: black-hole-information.jt-schwarzian-thermal-thermodynamics
+    name: 熱的Schwarzian鞍点の熱力学
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（熱的Schwarzian鞍点の熱力学）]
+    requires: [black-hole-information.jt-thermal-boundary-clock, black-hole-information.jt-schwarzian-effective-action, black-hole-information.jt-first-law-family]
+
+  - id: black-hole-information.jt-schwarzian-lorentz-energy
+    name: Lorentz境界の保存エネルギーと熱的解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Lorentz境界の保存エネルギーと熱的解）]
+    requires: [qcurv.schwarzian-derivative, black-hole-information.jt-schwarzian-boundary-eom, black-hole-information.jt-schwarzian-thermal-thermodynamics]

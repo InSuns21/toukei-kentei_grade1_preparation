@@ -1,0 +1,47 @@
+id: BHI21
+title: "境界モードとSchwarzian力学"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI20
+official_scope: []
+learning_objectives:
+  - 正則化AdS2境界の誘導計量とdilaton境界条件からZ(u)のcutoff展開を導ける
+  - 外向き単位法線と境界外部曲率を計算しK=1/ell+ell epsilon^2 Schwarzian+O(epsilon^4)を導ける
+  - JT境界GHY項と反項からSchwarzian作用の係数C=ell Phi_r/(8pi G2)を規格化つきで導ける
+  - Schwarzianの合成則・射影変換不変性と真空境界変分の運動方程式を検算できる
+  - 熱円周の鞍点作用からエネルギー・エントロピー・比熱を計算しBHI20の静的解と係数比較できる
+  - Lorentz境界Noetherエネルギーと浴流束の収支を区別し接合条件が追加で必要なことを説明できる
+definitions:
+  - { id: BHI21-DEF-01, name: "JTの正則化境界と再パラメータ化" }
+  - { id: BHI21-DEF-02, name: "JT境界の射影変換" }
+  - { id: BHI21-DEF-03, name: "熱的境界時計" }
+theorems:
+  - { id: BHI21-PROP-01, name: "正則化境界の外部曲率展開" }
+  - { id: BHI21-PROP-02, name: "真空JTのSchwarzian有効作用" }
+  - { id: BHI21-PROP-03, name: "JT境界Schwarzian作用の射影変換不変性" }
+  - { id: BHI21-PROP-04, name: "真空Schwarzian境界運動方程式" }
+  - { id: BHI21-PROP-05, name: "熱的Schwarzian鞍点の熱力学" }
+  - { id: BHI21-PROP-06, name: "Lorentz境界の保存エネルギーと熱的解" }
+canonical_examples:
+  - 水平cutoff境界の誘導計量と外部曲率の直接検査
+  - 指数時計と三次時計のSchwarzian値
+  - PSL2射影変換による境界座標の同値性
+  - 熱円周tan表示の局所座標貼替えと鞍点計算
+  - 同じdilaton傾きaに対するSchwarzian結合と静的JTエネルギーの一致
+  - 外から指定した正味流束による準静的冷却の玩具模型
+problem_patterns:
+  - BHI21-INDUCED-METRIC
+  - BHI21-SCHWARZIAN-EXPONENTIAL
+  - BHI21-SCHWARZIAN-CUBIC
+  - BHI21-COEFFICIENT-DIMENSIONS
+  - BHI21-HEAT-CAPACITY
+  - BHI21-PROJECTIVE-INVARIANCE
+  - BHI21-EXTRINSIC-EXPANSION
+  - BHI21-BOUNDARY-VARIATION
+  - BHI21-PRESCRIBED-FLUX
+  - BHI21-THERMAL-JT-MATCHING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 15, review: 6 }
