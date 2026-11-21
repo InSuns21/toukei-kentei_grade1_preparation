@@ -495,7 +495,7 @@ $$
 
 これらは**エネルギー流束と境界応答**の計算です。浴の状態はまだ、時刻ごとに観測する放射領域 $R$ の全相関を計算したものではありません。[BHI18の二端点のエントロピー](../BHI18/index.md#prop-bhi18-conformal-bath)へ接合後の状態・光線写像・cutoffを入れる作業は次のBHI23で行います。エネルギーの単調減少だけから精細エントロピーのPage曲線は導けません。
 
-参考：[Maldacena–Stanford–YangによるSchwarzian作用](https://doi.org/10.1093/ptep/ptw124)、[JT重力の可解模型レビュー](https://doi.org/10.1007/s41114-023-00046-1)、[JTブラックホール蒸発の模型](https://doi.org/10.1007/JHEP07(2019)097)。
+参考：[Maldacena–Stanford–YangによるSchwarzian作用](https://doi.org/10.1093/ptep/ptw124)、[JT重力の可解模型レビュー](https://doi.org/10.1007/s41114-023-00046-1)、[JTブラックホール蒸発の模型](https://doi.org/10.1007/JHEP07%282019%29097)。
 
 ## 8. 演習：接合条件・流束・エネルギーを一続きに検算する
 
