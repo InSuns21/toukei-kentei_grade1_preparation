@@ -107,3 +107,57 @@ gl.activeTexture(gl.TEXTURE0);
 gl.clearColor(0,0,0,1);gl.clear(gl.COLOR_BUFFER_BIT);
 draw(canvas.width,canvas.height,false);
 report('DISPLAY','RGBA8 readPixels is 8-bit even after R32F sampling; do not infer float storage accuracy');
+
+// Inspect the actual uploaded eight texels beside the GPU's four-by-two image.
+// Values come exclusively from this editable script's typed buffers, not from
+// a fabricated visualization or an independent simulation model.
+if(typeof document!=='undefined'){
+  const panel=document.createElement('section');
+  panel.className='wgl17-texel-inspector';
+  panel.setAttribute('aria-label','実データのテクセル選択と量子化');
+  panel.style.cssText='position:absolute;right:8px;bottom:8px;z-index:2;'+
+    'background:rgba(4,20,35,.95);color:#fff;padding:8px 10px;'+
+    'font:12px/1.55 system-ui;max-width:calc(100% - 32px)';
+  const heading=document.createElement('strong');
+  heading.textContent='何を確かめる？　8個の値をGPUへ保存';
+  const intro=document.createElement('p');
+  intro.style.cssText='margin:3px 0 5px';
+  intro.textContent='上段 j=1／下段 j=0。セルを選ぶと元の値と格納値を比較できます。';
+  const matrix=document.createElement('div');
+  matrix.style.cssText='display:grid;grid-template-columns:repeat(4,minmax(44px,1fr));gap:3px';
+  const cells=[];
+  for(let row=gridHeight-1;row>=0;row--)for(let col=0;col<gridWidth;col++){
+    const k=col+row*gridWidth;
+    const button=document.createElement('button');
+    button.type='button';
+    button.textContent='('+col+','+row+') '+physicalValues[k];
+    button.setAttribute('aria-label','セル ('+col+','+row+') 元の値 '+physicalValues[k]);
+    button.style.cssText='font:11px/1.4 system-ui;padding:4px 2px;'+
+      'background:#17344b;border:1px solid #7b9db8;color:#fff;cursor:pointer';
+    button.addEventListener('click',()=>inspect(k));
+    matrix.append(button);cells[k]=button;
+  }
+  const detail=document.createElement('output');
+  detail.setAttribute('aria-live','polite');
+  detail.style.cssText='display:block;margin-top:5px;white-space:pre-wrap;'+
+    'font-variant-numeric:tabular-nums';
+  function inspect(k){
+    const j=Math.floor(k/gridWidth),i=k%gridWidth;
+    const original=physicalValues[k];
+    const stored=mode==='r32f'?floatData[k]:bytes[k];
+    const decoded=mode==='r32f'?floatData[k]:
+      lower+(upper-lower)*bytes[k]/255;
+    for(const [id,button]of cells.entries())
+      button.style.outline=id===k?'2px solid #ffcf66':'none';
+    detail.textContent='選択セル ('+i+','+j+') / k='+k+
+      '　格納形式：'+mode.toUpperCase()+'\n'+
+      '入力 x='+original+' → '+(mode==='r32f'?'float32':'8-bit byte')+
+      ' '+stored+' → 復元 x≈'+decoded.toFixed(6)+'\n'+
+      '丸め誤差 '+Math.abs(decoded-original).toPrecision(4)+
+      ' ／画面色は物理値の正規化表示';
+  }
+  document.body.style.position='relative';
+  panel.append(heading,intro,matrix,detail);
+  canvas.insertAdjacentElement('afterend',panel);
+  inspect(0);
+}
