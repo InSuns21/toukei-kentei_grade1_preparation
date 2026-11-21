@@ -11,21 +11,21 @@ learning_objectives:
   - 強いHensel補題のr>2d条件・存在・一意性の範囲を検算できる
   - 単純根でない場合の存在と一意性の失敗を具体例で区別できる
   - 相異なる法pの一次根からZ_p上での多項式の分解を導ける
-  - Eisenstein多項式を判定し係数の最小付値の積公式を通じて既約性を証明できる
+  - Eisenstein 多項式を判定し係数の最小付値の積公式を通じて既約性を証明できる
   - Eisenstein拡大の整数環・一様化元・正規化付値・剰余体・完備性を構成できる
   - Q_5(sqrt(5))の付値と単元・逆元を基底表示で紙上計算できる
 definitions:
   - { id: ANF10-DEF-01, name: 法pの単純根 }
   - { id: ANF10-DEF-02, name: 局所体の有限拡大 }
-  - { id: ANF10-DEF-03, name: Eisenstein多項式 }
+  - { id: ANF10-DEF-03, name: Eisenstein 多項式 }
 theorems:
-  - { id: ANF10-THM-01, name: 単純根に対するHenselの補題 }
-  - { id: ANF10-PROP-01, name: 単純根のNewton反復 }
-  - { id: ANF10-THM-02, name: 強い形のHenselの補題 }
+  - { id: ANF10-THM-01, name: 単純根に対する Hensel の補題 }
+  - { id: ANF10-PROP-01, name: 単純根の Newton 反復 }
+  - { id: ANF10-THM-02, name: 強い形の Hensel の補題 }
   - { id: ANF10-COR-01, name: 相異なる根の持ち上げと分解 }
   - { id: ANF10-LEM-01, name: 係数の最小付値の積公式 }
-  - { id: ANF10-THM-03, name: p進Eisenstein既約性判定 }
-  - { id: ANF10-THM-04, name: Eisenstein拡大の局所体構造 }
+  - { id: ANF10-THM-03, name: p進 Eisenstein 既約性判定 }
+  - { id: ANF10-THM-04, name: Eisenstein 拡大の局所体構造 }
 canonical_examples:
   - X^2-2の7進単純根3から法49の根10への持ち上げ
   - X^2-1の2進剰余根1が二つの根に分かれる例
