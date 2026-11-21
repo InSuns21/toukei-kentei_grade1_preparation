@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - ANF7
+  - CA4
 forward_references: []
 
 concepts:
