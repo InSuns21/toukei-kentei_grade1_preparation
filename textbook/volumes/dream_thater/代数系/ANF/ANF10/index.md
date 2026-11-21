@@ -29,7 +29,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf10-simple-residue-root -->
-**定義の確認。** $p=7$、$f=X^2-2$、$a=3$ なら $f(3)=7\equiv0$、$f'(3)=6\not\equiv0$ で、二条件が成り立ちます。一方、$p=2$、$g=X^2-1$、$a=1$ では $g(1)=0$ ですが $g'(1)=2\equiv0$ なので単純根ではありません。
+**定義の確認**　 $p=7$、$f=X^2-2$、$a=3$ なら $f(3)=7\equiv0$、$f'(3)=6\not\equiv0$ で、二条件が成り立ちます。一方、$p=2$、$g=X^2-1$、$a=1$ では $g(1)=0$ ですが $g'(1)=2\equiv0$ なので単純根ではありません。
 <!-- definition-example-end -->
 
 <a id="thm-anf10-hensel-simple"></a>
@@ -250,8 +250,7 @@ $\mathbb Z_p[X]$ ではモニック一次式による除法ができます。$f(
 > $K$ を完備な離散付値体で剰余体が有限のものとする。体拡大 $L/K$ の拡大次数 $[L:K]$ が有限であり、$K$ の付値が $L$ に拡張され、その付値で $L$ が完備・剰余体が有限となるとき、$L/K$ を局所体の有限拡大という。本講では $K=\mathbb Q_p$ とし、後述する具体的な多項式から作る拡大について、この条件を直接証明する。
 <!-- formal-statement-end -->
 
-**定義の確認への準備。** $\mathbb Q_p$ は [ANF9の構成](../ANF9/index.md#thm-anf9-completion-field)により完備で、$\mathbb Z_p/p\mathbb Z_p=\mathbb F_p$ は有限です。$L=\mathbb Q_p(\pi)$、$\pi^2=p$ とした場合に、$[L:\mathbb Q_p]=2$、$L$ の整数環が $\mathbb Z_p[\pi]$ で、その付値の規格化が $v_L(\pi)=1$、$v_L(p)=2$、剰余体が $\mathbb F_p$ であることを第7節で導きます。単に記号を書くだけでなく、有限拡大の各条件をそこで実際に確認します。
-<!-- definition-example-end -->
+**具体例の準備。** $\mathbb Q_p$ は [ANF9の構成](../ANF9/index.md#thm-anf9-completion-field)により完備で、$\mathbb Z_p/p\mathbb Z_p=\mathbb F_p$ は有限です。$L=\mathbb Q_p(\pi)$、$\pi^2=p$ とした場合に、$[L:\mathbb Q_p]=2$、$L$ の整数環が $\mathbb Z_p[\pi]$ で、その付値の規格化が $v_L(\pi)=1$、$v_L(p)=2$、剰余体が $\mathbb F_p$ であることを第7節で導きます。単に記号を書くだけでなく、有限拡大の各条件をそこで実際に確認します。
 
 **体としての作り方。** $\mathbb Q_p[X]$ の次数 $n$ の既約モニック多項式 $f$ を取ると、
 
@@ -279,7 +278,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf10-eisenstein -->
-**定義の確認。** $f=X^3+3X+3$ は $p=3$ について、非先頭係数 $a_2=0,a_1=3,a_0=3$ がすべて $3\mathbb Z_3$ に入り、$a_0=3$ は $9\mathbb Z_3$ に入らないので Eisenstein 型です。一方 $X^2-9$ は定数項が $9\mathbb Z_3$ に入り、最後の条件を満たしません。
+**定義の確認**　 $f=X^3+3X+3$ は $p=3$ について、非先頭係数 $a_2=0,a_1=3,a_0=3$ がすべて $3\mathbb Z_3$ に入り、$a_0=3$ は $9\mathbb Z_3$ に入らないので Eisenstein 型です。一方 $X^2-9$ は定数項が $9\mathbb Z_3$ に入り、最後の条件を満たしません。
 <!-- definition-example-end -->
 
 既約性を示す前に、係数の最小付値を測ります。非零多項式 $g=\sum b_iX^i\in\mathbb Q_p[X]$ に対して $c(g)=\min_i v_p(b_i)$ と置きます。
