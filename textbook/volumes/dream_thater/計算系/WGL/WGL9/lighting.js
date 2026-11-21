@@ -148,22 +148,57 @@ report('MESH', 'cube=12 triangles, sphere=' + (48*72*2) + ' triangles');
 // the isolated runner has sampled the initial frame for CPU/GPU validation.
 const wgl9Reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
 let wgl9Playing=!wgl9Reduced.matches,wgl9Stamp=null,wgl9Phase=0;
+let manualYaw=0,manualPitch=0;
 canvas.tabIndex=0;
-canvas.setAttribute('aria-label','WGL9 ライトの往復アニメーション。クリック・Spaceで一時停止と再生');
-canvas.title='クリック／Space：ライトの再生・停止（GPU検算値は時刻0の静止画）';
+canvas.setAttribute('aria-label','WGL9 面法線の立方体と補間法線の球。Spaceで停止、矢印で上下左右回転、Rで初期化');
+canvas.title='Space：再生・停止　←→：水平回転　↑↓：上下回転　R：初期化';
 function wgl9Toggle(){wgl9Playing=!wgl9Playing;wgl9Stamp=null;}
 canvas.addEventListener('click',wgl9Toggle);
 canvas.addEventListener('keydown',e=>{
   if(e.key===' '||e.key==='Enter'){e.preventDefault();wgl9Toggle();}
+  else if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key)){
+    e.preventDefault();wgl9Playing=false;wgl9Stamp=null;
+    if(e.key==='ArrowLeft')manualYaw-=.15;
+    if(e.key==='ArrowRight')manualYaw+=.15;
+    if(e.key==='ArrowUp')manualPitch=Math.min(1,manualPitch+.12);
+    if(e.key==='ArrowDown')manualPitch=Math.max(-1,manualPitch-.12);
+    wgl9Draw(wgl9Phase);
+  }else if(e.key==='r'||e.key==='R'){
+    e.preventDefault();wgl9Playing=false;wgl9Stamp=null;
+    manualYaw=manualPitch=wgl9Phase=0;wgl9Draw(0);
+  }
 });
+const orientation=document.createElement('output');
+orientation.setAttribute('aria-live','off');
+orientation.style.cssText='position:absolute;left:8px;top:8px;'+
+  'max-width:calc(100% - 16px);background:rgba(3,13,27,.9);color:white;'+
+  'padding:4px 7px;font:12px/1.5 system-ui;pointer-events:none';
+document.body.style.position='relative';
+canvas.insertAdjacentElement('afterend',orientation);
+// With M=R_y R_x diag(scale), inverse-transpose of M is R_y R_x diag(1/scale).
+function rotationPitchScale(yaw,pitch,[sx,sy,sz]){
+  const c=Math.cos(yaw),s=Math.sin(yaw),a=Math.cos(pitch),b=Math.sin(pitch);
+  return new Float32Array([
+    c*sx,0,-s*sx, s*b*sy,a*sy,c*b*sy, s*a*sz,-b*sz,c*a*sz
+  ]);
+}
 const wgl9LightLoc=loc('u_lightDirection');
 const wgl9Base=[...lightDirection];
 function wgl9Draw(phase){
   const a=.8*Math.sin(phase),ca=Math.cos(a),sa=Math.sin(a);
   const orbit=[ca*wgl9Base[0]+sa*wgl9Base[2],wgl9Base[1],
                -sa*wgl9Base[0]+ca*wgl9Base[2]];
+  const yaw=theta+.43*Math.sin(.69*phase)+manualYaw;
+  const pitch=.35*Math.sin(.82*phase)+manualPitch;
   gl.useProgram(program);
+  gl.uniformMatrix3fv(loc('u_model'),false,rotationPitchScale(yaw,pitch,scale));
+  gl.uniformMatrix3fv(loc('u_normalMatrix'),false,
+    rotationPitchScale(yaw,pitch,useCorrectNormals?scale.map(x=>1/x):scale));
   gl.uniform3fv(wgl9LightLoc,orbit);
+  orientation.textContent='立方体=面法線 ／ 球=補間法線'+
+    '　水平 '+(yaw*180/Math.PI).toFixed(0)+'°'+
+    '・上下 '+(pitch*180/Math.PI).toFixed(0)+'°'+
+    '　Space：'+(wgl9Playing?'停止':'再生')+'　矢印：姿勢調整';
   gl.bindVertexArray(vao);
   for(let i=0;i<2;i++){
     const x=i===0?0:leftWidth,w=i===0?leftWidth:canvas.width-leftWidth;
@@ -182,6 +217,14 @@ function wgl9Frame(now){
     const delta=Math.min(.08,Math.max(0,(now-wgl9Stamp)/1000));
     wgl9Stamp=now;wgl9Phase+=delta*.8;wgl9Draw(wgl9Phase);
   }else wgl9Stamp=null;
-  requestAnimationFrame(wgl9Frame);
+  wgl9Raf=requestAnimationFrame(wgl9Frame);
 }
-requestAnimationFrame(wgl9Frame);
+const onWgl9Reduced=event=>{
+  if(event.matches){wgl9Playing=false;wgl9Stamp=null;wgl9Draw(wgl9Phase);}
+};
+wgl9Reduced.addEventListener('change',onWgl9Reduced);
+let wgl9Raf=requestAnimationFrame(wgl9Frame);
+window.addEventListener('pagehide',()=>{
+  cancelAnimationFrame(wgl9Raf);
+  wgl9Reduced.removeEventListener('change',onWgl9Reduced);
+},{once:true});

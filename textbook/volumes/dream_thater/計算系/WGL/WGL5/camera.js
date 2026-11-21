@@ -95,31 +95,46 @@ for(const [name,d] of [['NEAR_FRONT',2.5],['FAR_FRONT',3.5]]){
 }
 
 
-// Visual observation after the deterministic readPixels snapshot.
-// This intentionally uses *the same editable* camera matrices, geometry,
-// program and depth settings as the initial oracle. The GL runner reads the
-// original snapshot synchronously; requestAnimationFrame then animates only
-// its display. Stop/dispose removes the containing sandbox and this loop.
+// The initial four CPU/GPU rays above remain a deterministic snapshot.
+// This orbit uses the *same* source-defined matrices, meshes and GPU program.
+// Yaw, pitch and distance can now be explored on all three camera axes;
+// no separate demonstration renderer or independent camera model is introduced.
 const motionMedia=window.matchMedia('(prefers-reduced-motion: reduce)');
-let wgl5Playing=!motionMedia.matches, wgl5Start=null, wgl5Phase=0;
+let wgl5Playing=!motionMedia.matches, wgl5Stamp=null, wgl5Phase=0;
+let manualYaw=0,manualPitch=0,manualZoom=1,dragPoint=null;
+const limit=(x,a,b)=>Math.max(a,Math.min(b,x));
+const baseOffset=eye.map((value,k)=>value-target[k]);
+const baseRadius=Math.hypot(...baseOffset);
+const baseYaw=Math.atan2(baseOffset[0],baseOffset[2]);
+const basePitch=Math.asin(limit(baseOffset[1]/baseRadius,-1,1));
 canvas.tabIndex=0;
-canvas.setAttribute('aria-label','WGL5 視点の往復アニメーション。クリックかSpaceで再生・停止');
-canvas.title='クリック／Space：視点の再生・停止（初期画素検算は時刻0のスナップショット）';
-function wgl5Toggle(){wgl5Playing=!wgl5Playing;wgl5Start=null;}
-canvas.addEventListener('click',wgl5Toggle);
-canvas.addEventListener('keydown',e=>{
-  if(e.key===' '||e.key==='Enter'){e.preventDefault();wgl5Toggle();}
-});
-function wgl5DrawOrbit(phase){
-  const displacement=eye.map((v,i)=>v-target[i]);
-  const a=0.50*Math.sin(phase),ca=Math.cos(a),sa=Math.sin(a);
-  const orbit=[target[0]+ca*displacement[0]+sa*displacement[2],
-    eye[1],target[2]-sa*displacement[0]+ca*displacement[2]];
-  const f=unit(target.map((v,i)=>v-orbit[i]));
-  const r=unit(cross(f,worldUp)),bb=f.map(v=>-v),uu=cross(bb,r);
+canvas.style.touchAction='none';
+canvas.setAttribute('aria-label',
+  'WGL5 手前の橙と奥の青い立方体。ドラッグで水平・上下に視点移動、ホイールで距離調整、Spaceで自動周回停止、Rで初期視点');
+canvas.title='ドラッグ：視点の水平・上下移動／ホイール：距離／Space：自動周回／R：初期視点';
+const viewNote=document.createElement('output');
+viewNote.setAttribute('aria-live','off');
+viewNote.style.cssText='position:absolute;left:8px;top:8px;max-width:calc(100% - 16px);'+
+  'padding:4px 7px;background:rgba(3,13,27,.86);color:white;'+
+  'font:12px/1.5 system-ui;pointer-events:none;white-space:pre-wrap';
+document.body.style.position='relative';
+canvas.insertAdjacentElement('afterend',viewNote);
+function pauseOrbit(){wgl5Playing=false;wgl5Stamp=null;}
+function toggleOrbit(){wgl5Playing=!wgl5Playing;wgl5Stamp=null;updateOrbit();}
+function updateOrbit(){
+  const yaw=baseYaw+0.58*Math.sin(wgl5Phase)+manualYaw;
+  const pitch=limit(basePitch+0.34*Math.sin(.71*wgl5Phase)+manualPitch,-1.25,1.25);
+  const radius=baseRadius*limit(manualZoom*(1+.22*Math.sin(.53*wgl5Phase)),.72,3.5);
+  const orbit=[target[0]+radius*Math.sin(yaw)*Math.cos(pitch),
+    target[1]+radius*Math.sin(pitch),
+    target[2]+radius*Math.cos(yaw)*Math.cos(pitch)];
+  const forward=unit(target.map((v,k)=>v-orbit[k]));
+  const right=unit(cross(forward,worldUp));
+  const back=forward.map(v=>-v),up=cross(back,right);
   const eyeView=new Float32Array([
-    r[0],uu[0],bb[0],0, r[1],uu[1],bb[1],0,
-    r[2],uu[2],bb[2],0, -dot(r,orbit),-dot(uu,orbit),-dot(bb,orbit),1
+    right[0],up[0],back[0],0,right[1],up[1],back[1],0,
+    right[2],up[2],back[2],0,
+    -dot(right,orbit),-dot(up,orbit),-dot(back,orbit),1
   ]);
   gl.useProgram(program);gl.bindVertexArray(vao);
   gl.uniformMatrix4fv(uView,false,eyeView);
@@ -132,15 +147,63 @@ function wgl5DrawOrbit(phase){
   gl.uniformMatrix4fv(uModel,false,translation(farCenter));
   gl.uniform4f(uColor,.2,.6,.9,1);
   gl.drawElements(gl.TRIANGLES,36,gl.UNSIGNED_SHORT,0);
+  viewNote.textContent='視点 E = ('+orbit.map(v=>v.toFixed(2)).join(', ')+')'+
+    ' ／水平 '+((yaw-baseYaw)*180/Math.PI).toFixed(0)+'°'+
+    '・仰角 '+(pitch*180/Math.PI).toFixed(0)+'°\n'+
+    'ドラッグ：水平/上下　ホイール：距離　Space：'+
+    (wgl5Playing?'停止':'再生')+'　R：初期';
 }
+canvas.addEventListener('pointerdown',event=>{
+  if(event.button!==0)return;
+  canvas.focus();pauseOrbit();
+  dragPoint={id:event.pointerId,x:event.clientX,y:event.clientY};
+  canvas.setPointerCapture(event.pointerId);
+});
+canvas.addEventListener('pointermove',event=>{
+  if(!dragPoint||event.pointerId!==dragPoint.id)return;
+  const rect=canvas.getBoundingClientRect();
+  manualYaw+=(event.clientX-dragPoint.x)/Math.max(1,rect.width)*2.4;
+  manualPitch=limit(manualPitch-(event.clientY-dragPoint.y)/
+    Math.max(1,rect.height)*1.6,-1.2,1.2);
+  dragPoint={id:event.pointerId,x:event.clientX,y:event.clientY};
+  updateOrbit();
+});
+const release=event=>{if(dragPoint?.id===event.pointerId)dragPoint=null;};
+canvas.addEventListener('pointerup',release);
+canvas.addEventListener('pointercancel',release);
+canvas.addEventListener('wheel',event=>{
+  event.preventDefault();pauseOrbit();
+  manualZoom=limit(manualZoom*Math.exp(event.deltaY*.001),.72,3.2);
+  updateOrbit();
+},{passive:false});
+canvas.addEventListener('keydown',event=>{
+  if(event.key===' '||event.key==='Enter'){
+    event.preventDefault();toggleOrbit();
+  }else if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key)){
+    event.preventDefault();pauseOrbit();
+    if(event.key==='ArrowLeft')manualYaw-=.12;
+    if(event.key==='ArrowRight')manualYaw+=.12;
+    if(event.key==='ArrowUp')manualPitch=limit(manualPitch+.1,-1.2,1.2);
+    if(event.key==='ArrowDown')manualPitch=limit(manualPitch-.1,-1.2,1.2);
+    updateOrbit();
+  }else if(event.key==='r'||event.key==='R'){
+    event.preventDefault();pauseOrbit();
+    manualYaw=manualPitch=0;manualZoom=1;wgl5Phase=0;updateOrbit();
+  }
+});
+const onMotionChange=event=>{if(event.matches){pauseOrbit();updateOrbit();}};
+motionMedia.addEventListener('change',onMotionChange);
 function wgl5Frame(stamp){
   if(wgl5Playing&&!document.hidden){
-    if(wgl5Start===null)wgl5Start=stamp;
-    const elapsed=Math.min(0.08,Math.max(0,(stamp-wgl5Start)/1000));
-    wgl5Start=stamp;
-    wgl5Phase+=elapsed*.8;
-    wgl5DrawOrbit(wgl5Phase);
-  }else{wgl5Start=null;}
-  requestAnimationFrame(wgl5Frame);
+    if(wgl5Stamp===null)wgl5Stamp=stamp;
+    const dt=Math.min(.08,Math.max(0,(stamp-wgl5Stamp)/1000));
+    wgl5Stamp=stamp;wgl5Phase+=dt*.72;
+    updateOrbit();
+  }else wgl5Stamp=null;
+  wgl5Raf=requestAnimationFrame(wgl5Frame);
 }
-requestAnimationFrame(wgl5Frame);
+let wgl5Raf=requestAnimationFrame(wgl5Frame);
+window.addEventListener('pagehide',()=>{
+  cancelAnimationFrame(wgl5Raf);
+  motionMedia.removeEventListener('change',onMotionChange);
+},{once:true});

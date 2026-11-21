@@ -116,6 +116,39 @@ if(typeof window!=='undefined' && typeof requestAnimationFrame==='function'){
   window.addEventListener('wgl18-initial-oracle-captured',()=>{initialOracleCaptured=true;},{once:true});
   const MAX_STEP=24; // bounded cycle; no claim that GPU frames are independently verified
   const liveRaw=new Float32Array(N*N*4);
+  // The companion 4×4 values come directly from the GPU float framebuffer
+  // updated by the learner's same editable diffusion shader.
+  const valuesPanel=document.createElement('section');
+  valuesPanel.setAttribute('aria-label','実GPUから読んだ拡散濃度の4×4格子');
+  valuesPanel.style.cssText='position:absolute;right:8px;top:8px;z-index:2;'+
+    'background:rgba(3,17,31,.94);color:#fff;padding:6px 8px;'+
+    'font:12px/1.45 system-ui;max-width:calc(100% - 32px)';
+  const gridTitle=document.createElement('strong');
+  gridTitle.textContent='GPUの濃度：上が j=3、下が j=0';
+  const grid=document.createElement('div');
+  grid.style.cssText='display:grid;grid-template-columns:repeat(4,minmax(38px,1fr));gap:3px;margin-top:4px';
+  const cells=Array.from({length:N*N},()=>document.createElement('output'));
+  for(let j=N-1;j>=0;j--)for(let i=0;i<N;i++){
+    const k=i+N*j,cell=cells[k];
+    cell.style.cssText='display:block;padding:4px 2px;text-align:center;'+
+      'border:1px solid #9fb8ce;font-variant-numeric:tabular-nums';
+    cell.setAttribute('aria-label','濃度セル ('+i+','+j+')');
+    grid.append(cell);
+  }
+  const unitNote=document.createElement('p');
+  unitNote.style.cssText='margin:4px 0 0';
+  unitNote.textContent='各セル：FLOAT読戻し値。表示色は固定 0〜1 で符号化。';
+  valuesPanel.append(gridTitle,grid,unitNote);
+  document.body.style.position='relative';
+  canvas.insertAdjacentElement('afterend',valuesPanel);
+  function refreshNumbers(){
+    for(let k=0;k<N*N;k++){
+      const value=liveRaw[4*k],t=Math.max(0,Math.min(1,value));
+      const red=Math.round(40+174*t),green=Math.round(58+105*t);
+      cells[k].style.background='rgb('+red+','+green+',72)';
+      cells[k].textContent=value.toFixed(3);
+    }
+  }
   function liveReadback(){
     gl.bindFramebuffer(gl.FRAMEBUFFER,fbos[active]);
     gl.readPixels(0,0,N,N,gl.RGBA,gl.FLOAT,liveRaw);
@@ -126,6 +159,7 @@ if(typeof window!=='undefined' && typeof requestAnimationFrame==='function'){
       const value=liveRaw[4*k];
       mass+=value;min=Math.min(min,value);max=Math.max(max,value);
     }
+    refreshNumbers();
     return {mass,min,max};
   }
   function drawLive(){

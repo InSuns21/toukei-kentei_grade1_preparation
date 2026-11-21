@@ -93,3 +93,12 @@ test('live WebGL18 draws the SAME edited GPU state after initial independent pro
   assert.match(md,/独立CPUとの厳密な数値照合は実行直後/);
   assert.equal(expectedWGL18Grid(0.2,2).reduce((a,c)=>a+c,0).toFixed(10),'1.0000000000');
 });
+
+test('WGL18 numeric overlay reads the same live GPU FLOAT buffer as the solver',async()=>{
+  const js=await readFile(new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL18/diffusion.js',import.meta.url),'utf8');
+  assert.match(js,/gl\.readPixels\(0,0,N,N,gl\.RGBA,gl\.FLOAT,liveRaw\)/);
+  assert.match(js,/const value=liveRaw\[4\*k\]/);
+  assert.match(js,/cells\[k\]\.textContent=value\.toFixed\(3\)/);
+  assert.match(js,/grid\.style\.cssText=.*repeat\(4/);
+  assert.ok(js.indexOf('refreshNumbers();')>js.indexOf('gl.readPixels(0,0,N,N,gl.RGBA,gl.FLOAT,liveRaw)'));
+});

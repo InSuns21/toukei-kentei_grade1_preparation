@@ -128,7 +128,7 @@ function dispose(){
 return (async()=>{
   initialize();
   let accumulator=0,steps=0,droppedMs=0;
-  const frames=[];let firstRaf=null,lastRaf=null;
+  const frames=[],discardedPerFrame=[];let firstRaf=null,lastRaf=null;
   const startMs=performance.now();
   for(const delta of frameDeltasMs){
     const stamp=await new Promise(resolve=>requestAnimationFrame(resolve));
@@ -140,13 +140,16 @@ return (async()=>{
       tick();accumulator-=fixedMs;steps++;thisFrame++;
     }
     // Drop only complete overdue ticks, not the fractional remainder.
+    let discardedHere=0;
     if(accumulator+1e-9>=fixedMs){
       const skipped=Math.floor((accumulator+1e-9)/fixedMs);
-      droppedMs+=skipped*fixedMs;
-      accumulator-=skipped*fixedMs;
+      discardedHere=skipped*fixedMs;
+      droppedMs+=discardedHere;
+      accumulator-=discardedHere;
     }
     drawScreen();
     frames.push(thisFrame);
+    discardedPerFrame.push(discardedHere);
   }
   const measuredFps=frameDeltasMs.length>1&&lastRaf>firstRaf?
     (frameDeltasMs.length-1)*1000/(lastRaf-firstRaf):null;
@@ -183,6 +186,51 @@ return (async()=>{
   const renderError=gl.getError();
   if(renderError!==gl.NO_ERROR)throw new Error('final GL error 0x'+renderError.toString(16));
   dispose();
+  // Timeline from the *actual executed audit loop*: source-defined virtual
+  // deltas, number of GPU diffusion updates, and dropped simulated time.
+  // This is intentionally distinct from wall-clock measuredFps.
+  if(typeof document!=='undefined'){
+    const panel=document.createElement('section');
+    panel.setAttribute('aria-label','描画フレームとGPU数値stepの実行履歴');
+    panel.style.cssText='position:absolute;right:8px;top:8px;z-index:2;'+
+      'width:min(330px,calc(100% - 32px));max-height:calc(100% - 24px);'+
+      'overflow:auto;background:rgba(3,16,30,.94);color:#fff;'+
+      'padding:7px 9px;font:12px/1.45 system-ui';
+    const title=document.createElement('strong');
+    title.textContent='何が違う？　描画1回と計算step数';
+    const subtitle=document.createElement('p');subtitle.style.cssText='margin:3px 0 6px';
+    subtitle.textContent='仮想フレーム間隔（入力配列）→実際に進めたGPU step。'+
+      '1 step='+fixedMs+' ms、1フレーム最大'+maxStepsPerFrame+' step。';
+    panel.append(title,subtitle);
+    const maxDelta=Math.max(1,...frameDeltasMs);
+    for(let k=0;k<frames.length;k++){
+      const row=document.createElement('div');
+      row.style.cssText='display:grid;grid-template-columns:65px 1fr;'+
+        'align-items:center;gap:6px;margin:3px 0';
+      const label=document.createElement('span');
+      label.textContent='描画 '+(k+1);
+      const track=document.createElement('div');
+      track.style.cssText='height:15px;position:relative;'+
+        'background:#18364b;border:1px solid #799aaf';
+      const bar=document.createElement('div');
+      bar.style.cssText='height:100%;background:#65bddf;width:'+
+        (100*frameDeltasMs[k]/maxDelta).toFixed(2)+'%';
+      const caption=document.createElement('span');
+      caption.textContent=frameDeltasMs[k]+'ms → '+frames[k]+' step'+
+        (discardedPerFrame[k]?'、破棄'+discardedPerFrame[k]+'ms':'');
+      caption.style.cssText='font-size:11px;display:block';
+      track.append(bar);const summary=document.createElement('div');
+      summary.append(track,caption);row.append(label,summary);panel.append(row);
+    }
+    const outcome=document.createElement('p');
+    outcome.style.cssText='margin:6px 0 0;border-top:1px solid #527184;padding-top:5px';
+    outcome.textContent='実行 '+steps+' step / 破棄 '+droppedMs+' ms'+
+      ' / 実測rAF '+(measuredFps===null?'測定不可':measuredFps.toFixed(1)+' FPS')+
+      '（実測FPSは上の仮想間隔とは別）';
+    panel.append(outcome);
+    document.body.style.position='relative';
+    canvas.insertAdjacentElement('afterend',panel);
+  }
   return {floatReadback,floatParameters:{rate,steps},
     frameAudit:{deltas:frameDeltasMs,fixedMs,maxStepsPerFrame,
                 droppedMs,steps,frames:frameDeltasMs.length,

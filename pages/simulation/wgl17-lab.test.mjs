@@ -29,3 +29,14 @@ test('GPU source keeps integer sampler, float readback separate from display',as
   assert.ok(Math.abs(Math.fround(-1.3)+1.3)<1e-6);
   assert.ok(Math.abs(wgl17DecodeR8(wgl17EncodeR8(-1.3))+1.3)>0.005);
 });
+
+test('WGL17 physical-value inspector reads the actual uploaded eight texels',async()=>{
+  const js=await readFile(new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL17/data-grid.js',import.meta.url),'utf8');
+  for(const marker of ['physicalValues[k]','bytes[k]','floatData[k]',
+    "col+row*gridWidth",'lower+(upper-lower)*bytes[k]/255',
+    'maxInputError','texel','inspect(0)']){
+    assert.ok(js.includes(marker),marker);
+  }
+  assert.ok(js.indexOf("canvas.insertAdjacentElement('afterend',panel)")>
+    js.indexOf("report('DISPLAY'"),'inspector must not replace actual GPU display');
+});
