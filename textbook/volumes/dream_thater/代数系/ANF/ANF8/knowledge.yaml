@@ -1,0 +1,62 @@
+chapter: ANF8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF7
+  - CA4
+forward_references: []
+
+concepts:
+  - id: number-theory.dedekind-zeta-function
+    name: Dedekindゼータ関数
+    kind: definition
+    introduction: formal
+    requires: [number-theory.absolute-ideal-norm, number-theory.prime-ideal-factorization]
+
+  - id: number-theory.partial-dedekind-zeta
+    name: 部分ゼータ関数と類別計数
+    kind: definition
+    introduction: formal
+    requires: [number-theory.dedekind-zeta-function, number-theory.ideal-class-group]
+
+  - id: number-theory.dedekind-zeta-euler-product
+    name: Euler積と絶対収束
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.dedekind-zeta-function, number-theory.prime-ideal-factorization, number-theory.ramification-degree-identity]
+
+  - id: number-theory.centered-archimedean-log
+    name: 中心化対数座標
+    kind: definition
+    introduction: formal
+    requires: [number-theory.weighted-logarithmic-embedding, number-theory.trace-norm-embedding-formulas]
+
+  - id: number-theory.class-generator-unit-orbits
+    name: 類のイデアルと単数軌道
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.partial-dedekind-zeta, number-theory.centered-archimedean-log, number-theory.unit-log-kernel-discreteness, number-theory.invertible-ideals-dedekind]
+
+  - id: number-theory.unit-domain-volume
+    name: 単数基本領域の体積
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.centered-archimedean-log, number-theory.number-field-regulator, number-theory.regulator-invariance]
+
+  - id: number-theory.lipschitz-lattice-count
+    name: 境界が Lipschitz な領域の格子点計数
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.number-ideal-lattice-covolume]
+
+  - id: number-theory.ideal-class-counting-asymptotic
+    name: 各イデアル類の計数漸近式
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.class-generator-unit-orbits, number-theory.unit-domain-volume, number-theory.lipschitz-lattice-count, number-theory.number-ideal-lattice-covolume]
+
+  - id: number-theory.analytic-class-number-formula
+    name: 解析類数公式
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.ideal-class-counting-asymptotic, number-theory.minkowski-class-number-bound]
