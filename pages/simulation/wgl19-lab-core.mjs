@@ -29,10 +29,12 @@ export function scheduleWGL19(deltas=WGL19_DELTAS,fixedMs=WGL19_DT,maxStepsPerFr
 export function expectedWGL19Grid(rate=0.2,deltas=WGL19_DELTAS,fixedMs=20,cap=4){
   return expectedWGL18Grid(rate,scheduleWGL19(deltas,fixedMs,cap).steps);
 }
-export function expectedWGL19Samples(width,height){
+export function expectedWGL19Samples(width,height,rate=0.2,steps=6){
   if(!Number.isInteger(width)||!Number.isInteger(height)||width<64||height<64||
      width>1024||height>1024||width*height>524288)throw new RangeError('invalid viewport');
-  const grid=expectedWGL19Grid();
+  if(!Number.isFinite(rate)||rate<0||rate>0.25||
+     !Number.isInteger(steps)||steps<0||steps>12)throw new RangeError('invalid physical input');
+  const grid=expectedWGL18Grid(rate,steps);
   const samples=[];
   for(let j=0;j<4;j++)for(let i=0;i<4;i++){
     const v=grid[i+4*j];
@@ -42,9 +44,9 @@ export function expectedWGL19Samples(width,height){
   }
   return samples;
 }
-export function compareWGL19Readback(actual,width,height,tolerance=2){
+export function compareWGL19Readback(actual,width,height,tolerance=2,rate=0.2,steps=6){
   if(!Number.isFinite(tolerance)||tolerance<0)throw new RangeError('bad tolerance');
-  return expectedWGL19Samples(width,height).map((p,i)=>{
+  return expectedWGL19Samples(width,height,rate,steps).map((p,i)=>{
     const a=actual?.[i];
     const valid=!!a&&a.x===p.x&&a.y===p.y&&Array.isArray(a.rgba)&&
       a.rgba.length===4&&a.rgba.every(v=>Number.isInteger(v)&&v>=0&&v<=255);
