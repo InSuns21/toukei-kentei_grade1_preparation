@@ -28,7 +28,7 @@ concepts:
     name: 局所拡大の分岐指数・剰余次数
     kind: definition
     introduction: formal
-    requires: [number-theory.local-uniformizer-valuation, number-theory.prime-ramification-index-residue-degree]
+    requires: [number-theory.local-uniformizer-valuation, number-theory.ramification-residue-degree]
 
   - id: number-theory.local-ef-identity
     name: 局所拡大の次数公式
@@ -40,7 +40,7 @@ concepts:
     name: 余異なる・異なる
     kind: definition
     introduction: formal
-    requires: [number-theory.local-integer-ring-dvr, number-theory.field-trace-discriminant]
+    requires: [number-theory.local-integer-ring-dvr, number-theory.basis-discriminant]
 
   - id: number-theory.local-monogenic-different
     name: 単項生成の整数環の異なる公式
