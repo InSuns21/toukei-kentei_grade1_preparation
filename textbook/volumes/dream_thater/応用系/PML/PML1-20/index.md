@@ -30,15 +30,15 @@ $$
 > **定義（一段数値更新写像）**  
 > $D\subset\mathbb R^2$、刻み幅 $h>0$ と写像 $\Phi_h:D\to D$ を与える。初期値 $z_0\in D$ から次の反復で列を定める。
 
-$
+$$
 z_{n+1}=\Phi_h(z_n).
-$
+$$
 
 > この列を離散軌道、$\Phi_h$ を一段数値更新写像と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-20-one-step -->
-**定義の確認。** $D=\mathbb R^2$、$h>0$ とし、$\Phi_h(q,p)=(q+hp/m,\ p-hkq)$ と置く。任意の入力と出力がともに $\mathbb R^2$ に入る。$(q_0,p_0)=(1,0)$ なら $z_1=(1,-hk)$、さらに $z_2=(1-h^2k/m,-2hk)$。状態が領域から出ないので反復できる。
+**定義の確認**。 $D=\mathbb R^2$、$h>0$ とし、$\Phi_h(q,p)=(q+hp/m,\ p-hkq)$ と置く。任意の入力と出力がともに $\mathbb R^2$ に入る。$(q_0,p_0)=(1,0)$ なら $z_1=(1,-hk)$、さらに $z_2=(1-h^2k/m,-2hk)$。状態が領域から出ないので反復できる。
 <!-- definition-example-end -->
 
 <a id="def-pml1-20-explicit-euler"></a>
@@ -56,7 +56,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-20-explicit-euler -->
-**定義の確認。** $m=k=1$、$h=1/5$、$z_0=(1,0)$ なら、$z_1=(1,-1/5)$ となる。$q$ と $p$ は更新前の値を使う。
+**定義の確認**。 $m=k=1$、$h=1/5$、$z_0=(1,0)$ なら、$z_1=(1,-1/5)$ となる。$q$ と $p$ は更新前の値を使う。
 <!-- definition-example-end -->
 
 <a id="def-pml1-20-symplectic-euler"></a>
@@ -74,7 +74,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-20-symplectic-euler -->
-**定義の確認。** 同じ $m=k=1$、$h=1/5$、$z_0=(1,0)$ では、$p_1=-1/5$ を先に算出し、$q_1=1+(1/5)(-1/5)=24/25$。陽的 Euler と異なり新しい運動量を使う。名前の symplectic の意味は次節で相平面の面積から確認する。
+**定義の確認**。 同じ $m=k=1$、$h=1/5$、$z_0=(1,0)$ では、$p_1=-1/5$ を先に算出し、$q_1=1+(1/5)(-1/5)=24/25$。陽的 Euler と異なり新しい運動量を使う。名前の symplectic の意味は次節で相平面の面積から確認する。
 <!-- definition-example-end -->
 
 ## 3. 通常 Euler 法では何が壊れるか
@@ -306,9 +306,9 @@ $$
 > **命題（刻み幅と長時間有界性の境界）**  
 > $s>0$ とし、次の行列を与える。
 
-$
+$$
 A_s=\begin{pmatrix}1-s^2&s\\-s&1\end{pmatrix}.
-$
+$$
 
 > 行列式は $1$ である。$0<s<2$ ではすべての初期値の反復列が有界、$s=2$ では無界な初期値が存在し、$s>2$ では指数的に増大する初期値が存在する。
 <!-- formal-statement-end -->
