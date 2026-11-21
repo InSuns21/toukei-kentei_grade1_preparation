@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - PML1-20
   - ODE4
+  - INV1
 forward_references: []
 concepts:
   - id: physics-machine-learning.finite-dictionary-field
