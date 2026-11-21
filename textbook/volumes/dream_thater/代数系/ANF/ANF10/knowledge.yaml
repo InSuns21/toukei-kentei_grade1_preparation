@@ -1,0 +1,67 @@
+chapter: ANF10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF9
+forward_references: []
+
+concepts:
+  - id: number-theory.simple-residue-root
+    name: 法pの単純根
+    kind: definition
+    introduction: formal
+    requires: [number-theory.p-adic-dvr]
+
+  - id: number-theory.hensel-simple-root
+    name: 単純根に対するHenselの補題
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.simple-residue-root, number-theory.p-adic-complete-field]
+
+  - id: number-theory.hensel-newton-doubling
+    name: 単純根のNewton反復
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.hensel-simple-root, number-theory.valuation-product-sum]
+
+  - id: number-theory.hensel-strong
+    name: 強い形のHenselの補題
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.hensel-newton-doubling, number-theory.p-adic-complete-field]
+
+  - id: number-theory.hensel-distinct-root-splitting
+    name: 相異なる根の持ち上げと分解
+    kind: corollary
+    introduction: formal
+    requires: [number-theory.hensel-simple-root]
+
+  - id: number-theory.finite-local-field-extension
+    name: 局所体の有限拡大
+    kind: definition
+    introduction: formal
+    requires: [number-theory.p-adic-complete-field, number-theory.p-adic-dvr]
+
+  - id: number-theory.eisenstein-polynomial
+    name: Eisenstein多項式
+    kind: definition
+    introduction: formal
+    requires: [number-theory.p-adic-dvr]
+
+  - id: number-theory.polynomial-gauss-content
+    name: 係数の最小付値の積公式
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.p-adic-dvr, number-theory.valuation-product-sum]
+
+  - id: number-theory.local-eisenstein-irreducibility
+    name: p進Eisenstein既約性判定
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.eisenstein-polynomial, number-theory.polynomial-gauss-content]
+
+  - id: number-theory.eisenstein-local-extension
+    name: Eisenstein拡大の局所体構造
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.local-eisenstein-irreducibility, number-theory.finite-local-field-extension, number-theory.p-adic-complete-field]
