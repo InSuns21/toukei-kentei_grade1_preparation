@@ -100,6 +100,27 @@ const descriptions = Object.freeze({
     mode: '染料表示の線形補間は描画のみ。12×12計算格子を高解像度で再計算してはいない',
     source: 'fluid.js / fluid.frag'
   }),
+  FCG6: Object.freeze({
+    grid: '16×16（MACのセル中心に染料・発散・速さ・固体mask、速度面はu=17×16／v=16×17）。GPUへは4枚のR8テクスチャ',
+    color: '連続表示: 染料は青〜橙、固体セルは灰、流体側の階段境界とmask差分による法線矢印は黄。初期3列: 染料(q, 0.15, 1−q)、70|発散|の赤、速さ/0.6の緑（R8は0〜1に制限）',
+    clock: step => '物理step '+step+'、t='+(step*0.05).toFixed(2)+' s（dt=0.05 s）',
+    mode: '初期CPU/GPU照合は3列のu_viewMode=0。連続表示は同じ16×16 MAC状態をu_viewMode=1で拡大し染料のみ描画補間。法線は階段maskの差分で円の解析法線ではない',
+    source: 'solid.js（N, dt, shape, centerY, wallAmplitude, wallFrequency, acceleration, advanceObstacleStep）/ solid.frag（u_viewMode, u_dye, u_div, u_speed, u_solid）'
+  }),
+  FCG7: Object.freeze({
+    grid: '8×8周期節点速度格子（粒子はPIC/FLIP各16個、描画は3列）。格子の速さをR8テクスチャに格納',
+    color: '左PIC粒子は水色、中央FLIP粒子は橙。右はPIC格子の速さ/0.7を0〜1に制限してR8化し、RGB=(q, 0.2, 1−q)の赤青で表示',
+    clock: step => '物理step '+step+'、t='+(step*0.08).toFixed(2)+' s（dt=0.08 s）',
+    mode: 'PICはpicMix=0、FLIPはflipMix=1。粒子の位置と速度を物理stepごとに更新し、右列の8×8節点値は画面画素へ最近傍表示。描画フレームとの同一視をしない',
+    source: 'particle.js（N, count, dt, damp, force, picMix, flipMix, transfer）/ particle.frag（u_pic, u_flip, u_speed）'
+  }),
+  FCG8: Object.freeze({
+    grid: '48×48セル中心の符号付き距離値をFloat64で移流・再初期化。各48×48のR8テクスチャ2枚へ符号化して3列に描画',
+    color: '左: 移流のみ、中央: 毎step再初期化6反復、右: 解析輪郭＋64粒子。内側は青、界面帯|φ|≤0.014 mは黄、外側は暗色、解析粒子は橙',
+    clock: step => '物理step '+step+'、t='+(step*0.04).toFixed(2)+' s（dt=0.04 s）',
+    mode: 'R8はclamp(0.5+2φ,0,1)に丸め、表示時は双線形補間してφ=(q−0.5)/2へ復元。48×48の物理格子を細分化しない。連続再生・step操作は初期GPU照合後の同じ編集ソースを更新',
+    source: 'levelset.js（N, dt, shear, redistanceIterations, advanceOne）/ levelset.frag（u_raw, u_reinit, u_time, u_particles）'
+  }),
   WGL7: Object.freeze({
     requiresSteps: false,
     grid: '初期checker模様は8×8 RGBA8、data模様へ変更した場合は4×4 RGBA8（計算格子ではなく入力テクスチャ）',
@@ -172,6 +193,14 @@ const descriptions = Object.freeze({
     mode: snapshot => '合成フレーム '+snapshot.frameAudit.frames+' 回、更新しきれず破棄した時間 '+
       snapshot.frameAudit.droppedMs+' ms。実ブラウザのRAF間隔・FPSとは別',
     source: 'audit.js / audit.frag（fixedMs, frameDeltasMs, maxStepsPerFrame）'
+  }),
+  WGL20: Object.freeze({
+    requiresSteps: false,
+    grid: '合成DEMは初期4×4セル・5×5頂点（gridStepsで変更）。PLATEAU実LOD1建物は別メッシュ。いずれも物理流体の計算格子ではない',
+    color: '合成地形は緑、LOD1建物は茶色、仮想水面は半透明の青（α=0.48）。画面下12pxの4色帯はGPU画素照合用で地理データではない',
+    clock: () => '地形・建物・水面の静止GPU描画（物理stepなし）',
+    mode: '原点近傍の東・北・上をmで表す。PLATEAU標本の座標系はEPSG:6697。初期水面標高32 mと標高強調1.5倍は描画条件で、水深はmax(0, 水面標高−合成地盤標高) m',
+    source: 'terrain.js（scenario, zExaggeration, waterLevelM, usePlateau, showWater, gridSteps, dem, depth）/ terrain.frag（v_kind, u_attributeMode）'
   }),
   WGL18: Object.freeze({
     grid: '4×4（GPUの浮動小数点濃度格子）',

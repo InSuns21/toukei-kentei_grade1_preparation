@@ -92,6 +92,13 @@ try {
   assert.equal(initial.rows.length,7);
   assert.ok(initial.rows.every(r=>r[4]==='OK'),JSON.stringify(initial.rows));
   assert.equal(initial.iframe,'allow-scripts');
+  const scene8levelset=await evaluate('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
+  assert.match(scene8levelset.grid,/48×48.*Float64.*R8/);
+  assert.match(scene8levelset.color,/再初期化6反復.*64粒子.*0.014 m/);
+  assert.match(scene8levelset.clock,/物理step 8、t=0.32 s/);
+  assert.match(scene8levelset.mode,/R8.*双線形補間.*初期GPU照合後/);
+  assert.match(scene8levelset.source,/levelset.js.*levelset.frag/);
+
   const position=await evaluate('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.left+window.scrollX,y:r.top+window.scrollY,width:r.width,height:r.height}})()');
   assert.ok(position.width>600&&position.height>100,JSON.stringify(position));
   const clip={...position,scale:1};
