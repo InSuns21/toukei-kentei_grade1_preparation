@@ -107,7 +107,7 @@ chapters:
     title: "機械学習なしでどう解くか"
   - id: PML2-04
     path: textbook/volumes/dream_thater/応用系/PML/PML2-04
-    status: planned
+    status: completed
     title: "計算された値の何を「誤差」と呼ぶか"
   - id: PML2-05
     path: textbook/volumes/dream_thater/応用系/PML/PML2-05

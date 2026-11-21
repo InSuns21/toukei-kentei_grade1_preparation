@@ -1,0 +1,45 @@
+id: "PML2-04"
+title: "計算された値の何を「誤差」と呼ぶか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-03
+official_scope: []
+learning_objectives:
+  - 格子点最大誤差、関数のL2誤差、エネルギー半ノルム誤差、残差を測定対象とともに区別できる
+  - 真値・理想離散解・入力誤差付き離散解・計算値の三項分解を導き、各項の意味を説明できる
+  - 三点差分の離散安定性と整合性から真値に対する誤差上界と収束を証明できる
+  - 離散化誤差と代数的計算誤差をGalerkin直交性で分離できる
+  - 近似空間による表現誤差、最適化不足、標本誤差、入力モデルのずれを混同せず説明できる
+  - 小さい残差だけでは誤差が保証されない状況を反例と逆作用素の安定性から示せる
+  - 格子数、右辺摂動、計算残差を変える標準Python実験の結果を解析式と照合できる
+definitions:
+  - { id: PML2-04-DEF-01, name: 誤差の測定対象とノルム }
+  - { id: PML2-04-DEF-02, name: 局所切断誤差と計算残差 }
+  - { id: PML2-04-DEF-03, name: 差分法の整合性と安定性 }
+theorems:
+  - { id: PML2-04-THM-01, name: 右辺誤差と計算残差を含む三項誤差分解 }
+  - { id: PML2-04-THM-02, name: 整合性と安定性による二次精度の誤差評価 }
+  - { id: PML2-04-PROP-01, name: Galerkin解と計算値のエネルギー誤差直交分解 }
+canonical_examples:
+  - 二分割格子の格子点誤差と残差の直接計算
+  - 四次真解の最大格子点誤差と右辺摂動による相殺
+  - 格子点誤差ゼロでも連続関数の誤差が非零となる例
+  - 逆作用素が不安定なら小残差でも大誤差となる一次元反例
+  - 標本平均から右辺を作るときの誤差分散
+  - 外部ライブラリ不要の格子数・摂動・計算残差の数値実験
+problem_patterns:
+  - PML2-04-A01
+  - PML2-04-A02
+  - PML2-04-A03
+  - PML2-04-A04
+  - PML2-04-A05
+  - PML2-04-B01
+  - PML2-04-B02
+  - PML2-04-B03
+  - PML2-04-B04
+  - PML2-04-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
