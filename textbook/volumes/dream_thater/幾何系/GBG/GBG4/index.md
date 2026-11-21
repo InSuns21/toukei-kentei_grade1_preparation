@@ -355,7 +355,7 @@ $
 $
 5e_x=\frac{5}{x}e_y
 $
-であり、成分は $e_x$ 基準で $5$、$e_y$ 基準で $5/x$。[GBG3 の局所section変更による変換則](../GBG3/index.md#thm-gbg3-transition-change)で枠の変更行列を $h=x\in GL(1,\mathbb R)$ と取ったときの $v_y=h^{-1}v_x=x^{-1}v_x$ に一致する。
+であり、成分は $e_x$ 基準で $5$、$e_y$ 基準で $5/x$。[本章の局所成分の変換則](#thm-gbg4-component-transformation)に枠の変更行列 $h=x\in GL(1,\mathbb R)$ を代入した $v_y=h^{-1}v_x=x^{-1}v_x$ に一致する。
 
 ---
 
