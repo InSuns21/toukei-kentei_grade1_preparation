@@ -1,0 +1,49 @@
+chapter: GBG3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG2
+forward_references:
+  - complex-analysis.winding-number
+concepts:
+  - id: gauge.local-section
+    name: 主束の局所sectionと大域section
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（主束の局所sectionと大域section）"]
+    requires: [gauge.principal-bundle]
+
+  - id: gauge.section-trivialization
+    name: 局所sectionと同変自明化の対応
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所sectionと同変自明化の対応）"]
+    requires: [gauge.local-section, gauge.local-trivialization-free-transitive]
+
+  - id: gauge.local-section-change
+    name: 局所sectionの変更
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所sectionの変更）"]
+    requires: [gauge.local-section, gauge.section-trivialization]
+
+  - id: gauge.transition-section-change
+    name: 局所section変更による遷移関数の変換則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所section変更による遷移関数の変換則）"]
+    requires: [gauge.local-section-change, gauge.principal-bundle-transition, gauge.smooth-transition-cocycle]
+
+  - id: gauge.global-section-triviality
+    name: 大域sectionと自明性の同値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（大域sectionと自明性の同値）"]
+    requires: [gauge.section-trivialization, gauge.trivial-principal-bundle]
+
+  - id: gauge.cocycle-triviality-criterion
+    name: 遷移関数による自明性の判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（遷移関数による自明性の判定）"]
+    requires: [gauge.global-section-triviality, gauge.transition-section-change]
