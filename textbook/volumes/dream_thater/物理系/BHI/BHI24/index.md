@@ -107,10 +107,10 @@ $$
 
 分母と分子の差は
 
-$
+$$
 (\ell_I+\delta)(\ell_R+\delta)-\ell_I\ell_R
 =\delta(\ell_I+\ell_R+\delta)>0
-$
+$$
 
 であり、$0<x<1$ を直接検証できます。座標を一斉に $y\mapsto\lambda y+\mu$（$\lambda>0$）と変えると分子・分母に $\lambda^2$ が掛かり、交差比は変わりません。
 <!-- definition-example-end -->
