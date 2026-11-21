@@ -52,6 +52,6 @@ test('WGL3 visual mesh overlay derives faces and counts from uploaded buffers',a
     "expanded.byteLength","point(id)","canvas.insertAdjacentElement('afterend',svg)"]){
     assert.ok(js.includes(marker),marker);
   }
-  assert.match(js,/grid-template-columns/);
+  assert.match(js,/const selected=add\('polygon'/);
   assert.ok(js.includes("n<=12"),'dense mesh grids must not flood the overlay');
 });
