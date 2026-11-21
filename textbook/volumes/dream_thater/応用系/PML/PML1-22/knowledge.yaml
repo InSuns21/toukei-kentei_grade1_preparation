@@ -1,0 +1,42 @@
+chapter: PML1-22
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML1-21
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml22-three-model-comparison
+    name: 三つの比較モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（三つの比較モデル）"]
+    requires:
+      - physics-machine-learning.canonical-hnn
+      - physics-machine-learning.regular-lnn
+  - id: physics-machine-learning.pml22-comparison-metrics
+    name: 共通損失と評価量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共通損失と評価量）"]
+    requires:
+      - physics-machine-learning.pml22-three-model-comparison
+      - physics-machine-learning.sindy-design
+  - id: physics-machine-learning.pml22-exact-three-model-fit
+    name: 同一データでの三モデルの厳密な最小二乗解
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml22-comparison-metrics
+  - id: physics-machine-learning.pml22-constraint-reversal
+    name: 観測バイアスと実際の散逸で優劣が逆転する
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml22-exact-three-model-fit
+  - id: physics-machine-learning.pml22-euler-drift
+    name: 同一積分器でも保存則は離散化で壊れる
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml22-three-model-comparison
+      - physics-machine-learning.one-step-update-map
