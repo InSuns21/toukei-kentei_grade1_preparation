@@ -568,7 +568,44 @@ $$
 - 問題: 左右の自由場作用の係数を $\lambda_G,\lambda_B>0$、共通の界面変分を $\delta\phi_G(0)=\delta\phi_B(0)$ とする。境界項を計算して導関数の一致を導き、界面流束の保存を示せ。
 
 <!-- solution-start -->
-**詳細解答。** 二次元共形因子が作用の運動項から消えるので、空間部分は $-\frac12\lambda_s(\partial_x\phi_s)^2$ です。変分して左区間 $(-A,0)$ の空間積分を部分積分すると、界面項は $-\int du\,\lambda_G\partial_x\phi_G(0^-)\delta\phi_G(0)$。右区間 $(0,A)$ では下端の符号が反転し $+\int du\,\lambda_B\partial_x\phi_B(0^+)\delta\phi_B(0)$。共通変分を外へ出し、任意性から $\lambda_G\partial_x\phi_G=\lambda_B\partial_x\phi_B$。場の値も連続で境界まで $C^1$ だから $\partial_u\phi_G=\partial_u\phi_B$。流束の定義 $j_s=-\lambda_s\partial_u\phi_s\partial_x\phi_s$ へ両条件を代入すると $j_G(0^-)=j_B(0^+)$。この結果を[BHI17の保存式](../BHI17/index.md#prop-bhi17-interface-flux)と同じ両半区間の積分に使えば界面の $-j_G(0^-)+j_B(0^+)$ は0です。
+**詳細解答。** 二次元の共形計量では、$\sqrt{-g_s}g_s^{ab}$ から共形因子が消えます。各半直線の空間微分を含む作用密度は
+
+$$
+\mathcal L_{s,x}=-\frac{\lambda_s}{2}(\partial_x\phi_s)^2
+$$
+
+です。空間部分を変分・部分積分すると、重力側の積分区間 $(-A,0)$ からは右端の負の項が出ます。浴側の $(0,A)$ では左端の符号が反転します。したがって接合面での寄与を合わせると
+
+$$
+\delta I_{\rm m}\big|_\Sigma
+=\int du\,\left[-\lambda_G\partial_x\phi_G(u,0^-)
++\lambda_B\partial_x\phi_B(u,0^+)\right]\delta\phi(u,0).
+$$
+
+共通の界面変分は任意なので、括弧内が零となり、
+
+$$
+\lambda_G\partial_x\phi_G(u,0^-)
+=\lambda_B\partial_x\phi_B(u,0^+).
+$$
+
+場の値も連続で境界まで $C^1$ なので、共通の境界値を $h(u)$ と置けば
+
+$$
+\partial_u\phi_G(u,0^-)=h'(u)=\partial_u\phi_B(u,0^+).
+$$
+
+右向き流束 $j_s=-\lambda_s\partial_u\phi_s\partial_x\phi_s$ に二条件を入れると
+
+$$
+\begin{aligned}
+j_G(u,0^-)&=-h'(u)\lambda_G\partial_x\phi_G(u,0^-)\\
+&=-h'(u)\lambda_B\partial_x\phi_B(u,0^+)
+=j_B(u,0^+).
+\end{aligned}
+$$
+
+[BHI17の保存式](../BHI17/index.md#prop-bhi17-interface-flux)と同じく左右のエネルギー収支を加えれば、界面項は $-j_G(u,0^-)+j_B(u,0^+)=0$ と相殺されます。
 <!-- solution-end -->
 
 <a id="ex-bhi22-b02"></a>
