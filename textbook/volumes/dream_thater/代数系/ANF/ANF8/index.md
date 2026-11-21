@@ -647,7 +647,13 @@ $m\geq2$、$w_i>0$、$\sum_iw_i=n$ とする。$y_i=x_i+(w_i/n)T$、$x_m=-\sum_{
 
 ### B3. 計数の誤差から正則性へ
 
-$A(X)=\kappa X+O(X^\theta)$（$0\leq\theta<1$）が成り立ち、Dirichlet級数 $F(s)=\sum_{m\geq1}a_mm^{-s}$ の係数は非負、$A(X)=\sum_{m\leq X}a_m$ とする。$F$ の $s=1$ 近傍への延長と留数を導け。
+$F(s)=\sum_{m\geq1}a_mm^{-s}$ という級数を考える。係数はすべて $a_m\geq0$ とし、その部分和 $A(X)=\sum_{m\leq X}a_m$ が次の漸近式を満たすとする。
+
+$$
+A(X)=\kappa X+O(X^\theta),\qquad 0\leq\theta<1.
+$$
+
+$F$ の $s=1$ 近傍への延長と留数を導け。
 
 - Level: B
 - ID: ANF8-B3
