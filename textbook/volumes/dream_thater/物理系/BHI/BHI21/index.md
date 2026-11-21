@@ -72,9 +72,15 @@ $$
 -\frac32\left(\frac{F''(u)}{F'(u)}\right)^2.
 $$
 
-$F\in C^3$ かつ $F'>0$ の区間で定義できます。物理的な役割は異なりますが、微分の組合せ自体は既習のものと同じです。
+$F\in C^3$ かつ $F'>0$ の区間で定義できます。物理的な役割は異なりますが、微分の組合せ自体は既習のものと同じです。無次元の補助関数 $h(u)$ を長さを持つ境界座標として使うときは、固定した基準長さ $L_*>0$ を掛けて $F=L_*h$ とします。$L_*$ は $u$ に依存せず、三つの導関数がすべて同じ倍数を受けるため、
 
-**直接計算**：$F(u)=u$ なら $F'=1,F''=F'''=0$ なので $\{F,u\}=0$。$F(u)=e^{ku}$（$k>0$）なら $F'=ke^{ku}>0$、$F''/F'=k$、$F'''/F'=k^2$ より $\{F,u\}=-k^2/2$ です。導関数の非零条件と三階微分の存在をともに確かめました。
+$$
+\{L_*h,u\}=\frac{L_*h'''}{L_*h'}-\frac32\left(\frac{L_*h''}{L_*h'}\right)^2=\{h,u\}.
+$$
+
+この等式は座標の次元を整えるための定数倍に限ったものです。
+
+**直接計算**：$F(u)=u$ なら $F'=1,F''=F'''=0$ なので $\{F,u\}=0$。$F(u)=L_*e^{ku}$（$k>0$、$[k]=L^{-1}$）なら $F'=L_*ke^{ku}>0$、$F''/F'=k$、$F'''/F'=k^2$ より $\{F,u\}=-k^2/2$ です。導関数の非零条件と三階微分の存在をともに確かめました。
 
 ### 曲線の外部曲率を計算する
 
@@ -85,7 +91,22 @@ n^x=\frac{Z Z'}{\ell v},\qquad
 n^z=-\frac{Z F'}{\ell v}.
 $$
 
-実際、$g_{\mu\nu}n^\mu n^\nu=(\ell^2/Z^2)(Z^2v^2/\ell^2v^2)=1$、接ベクトルとの内積は $0$、$F'>0$ なら $n^z<0$ です。[BHI19で採用した外向き曲率の規約](../BHI19/index.md#def-bhi19-jt-action) $K=\nabla_\mu n^\mu$ に従い、単位接ベクトルの共変加速度の法線射影を取ると
+実際、$g_{\mu\nu}n^\mu n^\nu=(\ell^2/Z^2)(Z^2v^2/\ell^2v^2)=1$、接ベクトルとの内積は $0$、$F'>0$ なら $n^z<0$ です。[BHI19で採用した外向き曲率の規約](../BHI19/index.md#def-bhi19-jt-action)は $K=\nabla_\mu n^\mu$ です。
+
+ここで単位接ベクトルを $T^\mu=Z(F',Z')/(\ell v)$ とします。単位法線と接ベクトルの直交性を接線方向に微分すると $g(\nabla_Tn,T)=-g(n,\nabla_TT)$ なので、境界の外部曲率は $K=-g(n,\nabla_TT)$ と計算できます。使用するChristoffel記号は
+
+$$
+\Gamma^x_{xz}=\Gamma^x_{zx}=-\frac1Z,\qquad
+\Gamma^z_{xx}=\frac1Z,\qquad \Gamma^z_{zz}=-\frac1Z.
+$$
+
+これらを $\nabla_T T$ に代入し、$v^2=F'^2+Z'^2$ を用いて接線方向の項を整理すると
+
+$$
+K=\frac{F'}{\ell v}+\frac{Z(F'Z''-Z'F'')}{\ell v^3}
+$$
+
+となり、通分すると
 
 $$
 K=\frac{F'(F'^2+Z'^2)+Z(F'Z''-Z'F'')}
@@ -305,7 +326,7 @@ $$
 よって $\{M,y\}=6c^2/(cy+d)^2-(3/2)4c^2/(cy+d)^2=0$ です。さらに $\widetilde F'=D_0 F'/(cF+d)^2>0$ であるため同じ境界方向を保ちます。合成則へ代入して $\{\widetilde F,u\}=\{F,u\}$ を得ます。積分区間と $C$ が同じなので $I_{\rm Sch}^{E}[\widetilde F]=I_{\rm Sch}^{E}[F]$ です。$\square$
 <!-- proof-end -->
 
-$ad-bc>0$ の変換は向きを保ちます。重力の境界力学ではこれら三パラメータの $PSL(2,\mathbb R)$ 変換で同値とみなし、独立の物理的揺らぎと二重に数えません。たとえば $F=e^{ku}$ と $(aF+b)/(cF+d)$ は、定義される区間で同じSchwarzian $-k^2/2$ を持ちます。$F'$ が0になったり変換の分母が消えたりする点をまたいで、単一のPoincaré座標式を使用することはできません。
+$ad-bc>0$ の変換は向きを保ちます。重力の境界力学ではこれら三パラメータの $PSL(2,\mathbb R)$ 変換で同値とみなし、独立の物理的揺らぎと二重に数えません。たとえば $F=L_*e^{ku}$ と $(aF+b)/(cF+d)$ は、定義される区間で同じSchwarzian $-k^2/2$ を持ちます。$F'$ が0になったり変換の分母が消えたりする点をまたいで、単一のPoincaré座標式を使用することはできません。
 
 ## 6. 境界の運動方程式
 
@@ -360,7 +381,7 @@ $$
 Euclid時刻が周期 $\beta>0$ の円周である熱的な状態では、Poincaré直線座標 $F$ 一枚で円全体を覆えません。円上の向きを保つ座標 $f(u)$ を $f(u+\beta)=f(u)+\beta$、$f'>0$ として、局所Poincaré座標を
 
 $$
-F(u)=\tan\left(\frac{\pi f(u)}{\beta}\right)
+F(u)=L_*\tan\left(\frac{\pi f(u)}{\beta}\right)
 $$
 
 で表します。$\tan$ の極では別の射影変換の座標へ貼り替えます。[射影変換不変性](#prop-bhi21-projective-action)によりSchwarzianと作用はその貼り替えで一意です。これが「境界は円だが $F$ は実直線の一枚の座標でない」という違いです。
@@ -370,7 +391,7 @@ $$
 <!-- formal-statement-start -->
 > **定義（熱的境界時計）**
 >
-> 周期 $\beta>0$ と $f\in C^4(\mathbb R)$ を選び、次の条件を課す。
+> 周期 $\beta>0$、基準長さ $L_*>0$ と $f\in C^4(\mathbb R)$ を選び、次の条件を課す。
 >
 $$
 f'(u)>0,\qquad f(u+\beta)=f(u)+\beta.
@@ -379,7 +400,7 @@ $$
 > 局所Poincaré座標を
 >
 $$
-F(u)=\tan\left(\frac{\pi f(u)}{\beta}\right)
+F(u)=L_*\tan\left(\frac{\pi f(u)}{\beta}\right)
 $$
 >
 > とし、極を射影変換で貼り合わせたEuclid円周上の境界時計を**熱的境界時計**とする。基準時計は $f(u)=u$ である。
@@ -391,13 +412,13 @@ $$
 局所座標 $F=\tan(\pi u/\beta)$ は $u=\beta/2$ で発散します。ここでは別の局所座標を
 
 $$
-\widetilde F(u)=-\frac{1}{F(u)}=-\cot\left(\frac{\pi u}{\beta}\right)
+\widetilde F(u)=-\frac{L_*^2}{F(u)}=-L_*\cot\left(\frac{\pi u}{\beta}\right)
 $$
 
-と選べば、$\widetilde F$ はその点で滑らかです。両座標は $M(y)=-1/y$ で結ばれ、その行列式を正に選べるので、[JT境界の射影変換](#def-bhi21-projective-boundary-transform)の貼り替えです。[射影変換不変性](#prop-bhi21-projective-action)によりSchwarzianが一致します。発散は物理境界の特異点ではなく、座標表示の切替えを表します。
+と選べば、$\widetilde F$ はその点で滑らかです。両座標は $M(y)=-L_*^2/y$ で結ばれ、$a=0,b=-L_*^2,c=1,d=0$ と取れば $ad-bc=L_*^2>0$ です。両方の座標は長さの次元を持ち、[JT境界の射影変換](#def-bhi21-projective-boundary-transform)の貼り替えです。[射影変換不変性](#prop-bhi21-projective-action)によりSchwarzianが一致します。発散は物理境界の特異点ではなく、座標表示の切替えを表します。
 <!-- definition-example-end -->
 
-[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)で $H(y)=\tan(\pi y/\beta)$ を選ぶと、$\{H,y\}=2\pi^2/\beta^2$ なので
+[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)で無次元の補助関数 $H(y)=\tan(\pi y/\beta)$ を選ぶと、$F=L_*H(f)$ の定数倍はSchwarzianを変えないので、$\{H,y\}=2\pi^2/\beta^2$ なので
 
 $$
 \left\{\tan\left(\frac{\pi f}{\beta}\right),u\right\}
@@ -409,7 +430,7 @@ $$
 <!-- formal-statement-start -->
 > **命題（熱的Schwarzian鞍点の熱力学）**
 >
-> $C>0,S_0\in\mathbb R,\beta>0$ とし、Euclid円板型の真空JTの古典的境界作用を $I_E=-S_0-C\int_0^\beta du\,\{\tan(\pi f/\beta),u\}$ とする。熱的基準時計 $f(u)=u$ の鞍点では
+> $C>0,L_*>0,S_0\in\mathbb R,\beta>0$ とし、$L_*$ は長さとする。Euclid円板型の真空JTの古典的境界作用を $I_E=-S_0-C\int_0^\beta du\,\{L_*\tan(\pi f/\beta),u\}$ とする。熱的基準時計 $f(u)=u$ の鞍点では
 >
 $$
 I_E^{\rm on\,shell}=-S_0-\frac{2\pi^2C}{\beta},
@@ -427,7 +448,7 @@ $\tan$ のSchwarzianを直接微分で計算し、$f=u$ では定数になるの
 <!-- proof-start -->
 ### 証明
 
-$\alpha=\pi/\beta$ として $H(y)=\tan(\alpha y)$ を取ります。$H'=\alpha(1+H^2)$、$H''/H'=2\alpha H$、従って
+$\alpha=\pi/\beta$ として無次元の補助関数 $H(y)=\tan(\alpha y)$ を取ります。境界座標は $F=L_*H(f)$ であり、定数倍はSchwarzianを変えません。$H'=\alpha(1+H^2)$、$H''/H'=2\alpha H$、従って
 
 $$
 \frac{H'''}{H'}=\frac{d}{dy}\left(\frac{H''}{H'}\right)
@@ -491,10 +512,10 @@ $$
 <!-- formal-statement-start -->
 > **命題（Lorentz境界の保存エネルギーと熱的解）**
 >
-> $C>0$、$F_L\in C^4$、$F_L'>0$ とし、Lorentz境界のSchwarzian力学で時間並進対称性と真空の変分方程式を仮定する。Noetherエネルギーは $E_L=-C\{F_L,t\}$、真空では $\dot E_L=0$ となる。また $\beta>0$ として
+> $C>0$、基準長さ $L_*>0$、$F_L\in C^4$、$F_L'>0$ とし、Lorentz境界のSchwarzian力学で時間並進対称性と真空の変分方程式を仮定する。Noetherエネルギーは $E_L=-C\{F_L,t\}$、真空では $\dot E_L=0$ となる。また $\beta>0$ として
 >
 $$
-F_L(t)=\tanh\left(\frac{\pi t}{\beta}\right)
+F_L(t)=L_*\tanh\left(\frac{\pi t}{\beta}\right)
 $$
 >
 > を取ると
@@ -553,7 +574,7 @@ $$
 \{H_1,y\}=-2
 $$
 
-を得ます。[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)を $F(t)=H_1(\pi t/\beta)$ に適用します。内側の一次関数のSchwarzianは0、導関数は $\pi/\beta$ なので、
+を得ます。[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)を $F(t)=L_*H_1(\pi t/\beta)$ に適用します。外側の関数 $L_*H_1$ のSchwarzianは $H_1$ と等しいので、内側の一次関数のSchwarzianは0、導関数は $\pi/\beta$ なので、
 
 $$
 \{F,t\}=-2\left(\frac{\pi}{\beta}\right)^2
@@ -596,7 +617,7 @@ $$
 
 ## 10. 演習：境界の時計を自力で動かす
 
-各問では $\ell,G_2,\Phi_r,C,\beta>0$ とし、必要なら $C=\ell\Phi_r/(8\pi G_2)$、$S_0=\Phi_0/(4G_2)$ とします。Schwarzianを計算する区間で導関数が0にならないこと、熱的な計算で何を固定するかを確認してください。
+各問では $\ell,G_2,\Phi_r,C,\beta,L_*>0$ とし、$L_*$ は固定した長さとします。必要なら $C=\ell\Phi_r/(8\pi G_2)$、$S_0=\Phi_0/(4G_2)$ とします。Schwarzianを計算する区間で導関数が0にならないこと、熱的な計算で何を固定するかを確認してください。
 
 ### Level A：基本の判定と係数
 
@@ -616,10 +637,10 @@ $$
 #### BHI21-A02 指数時計のSchwarzian
 
 - Level: A
-- 問題: $F(u)=e^{ku}$（$k>0$）について、$\{F,u\}$ を定義から求め、$F'>0$ を確認せよ。
+- 問題: $F(u)=L_*e^{ku}$（$k>0$、$[k]=L^{-1}$）について、$\{F,u\}$ を定義から求め、$F'>0$ を確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $F'=ke^{ku}>0$、$F''=k^2e^{ku}$、$F'''=k^3e^{ku}$ です。従って $F'''/F'=k^2$、$(F''/F')^2=k^2$。定義に入れると $\{F,u\}=k^2-(3/2)k^2=-k^2/2$。すべての実 $u$ で分母は正です。
+**詳細解答。** $F'=L_*ke^{ku}>0$、$F''=L_*k^2e^{ku}$、$F'''=L_*k^3e^{ku}$ です。従って $F'''/F'=k^2$、$(F''/F')^2=k^2$。[Schwarzian微分の定義](../../QCURV/QCURV16/index.md#def-qcurv16-schwarzian)に入れると $\{F,u\}=k^2-(3/2)k^2=-k^2/2$。すべての実 $u$ で分母は正です。
 <!-- solution-end -->
 
 <a id="ex-bhi21-a03"></a>
@@ -662,19 +683,19 @@ $$
 #### BHI21-B01 射影変換の不変性
 
 - Level: B
-- 問題: $F(u)=e^{ku}$（$k>0$）および $M(y)=y/(1+y)$ を考える。(1) $M'(y)$ と $\{M,y\}$ を求めよ。(2) $u\in\mathbb R$ において $G(u)=M(F(u))$ のSchwarzianを[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)で求めよ。(3) 変換の定義域を説明せよ。
+- 問題: $F(u)=L_*e^{ku}$（$k>0$、$[k]=L^{-1}$）および $M(y)=L_*y/(L_*+y)$ を考える。(1) $M'(y)$ と $\{M,y\}$ を求めよ。(2) $u\in\mathbb R$ において $G(u)=M(F(u))$ のSchwarzianを[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)で求めよ。(3) 変換の定義域を説明せよ。
 
 <!-- solution-start -->
 **詳細解答。**
 
-**(1)** $M'=1/(1+y)^2$、$M''=-2/(1+y)^3$、$M'''=6/(1+y)^4$ です。Schwarzianの二つの項をそれぞれ求めると
+**(1)** $M'=L_*^2/(L_*+y)^2$、$M''=-2L_*^2/(L_*+y)^3$、$M'''=6L_*^2/(L_*+y)^4$ です。Schwarzianの二つの項をそれぞれ求めると
 
 $$
-\frac{M'''}{M'}=\frac6{(1+y)^2},\qquad
-\left(\frac{M''}{M'}\right)^2=\frac4{(1+y)^2}.
+\frac{M'''}{M'}=\frac6{(L_*+y)^2},\qquad
+\left(\frac{M''}{M'}\right)^2=\frac4{(L_*+y)^2}.
 $$
 
-したがって $\{M,y\}=6/(1+y)^2-6/(1+y)^2=0$ です。
+したがって $\{M,y\}=6/(L_*+y)^2-6/(L_*+y)^2=0$ です。
 
 **(2)** $F'=ke^{ku}>0$、$\{F,u\}=-k^2/2$ です。[QCURV16のSchwarzian合成則](../../QCURV/QCURV16/index.md#prop-qcurv16-schwarzian-chain)から
 
@@ -683,7 +704,7 @@ $$
 =F'^2\cdot0-\frac{k^2}{2}=-\frac{k^2}{2}.
 $$
 
-**(3)** $M$ の分母は $1+y\ne0$ を要します。$F(u)=e^{ku}>0$ なので、すべての実 $u$ で $1+F(u)>1$。この区間では $G$ は滑らかに定義され、$G'=F'/(1+F)^2>0$ です。
+**(3)** $M$ の分母は $L_*+y\ne0$ を要します。$F(u)=L_*e^{ku}>0$ なので、すべての実 $u$ で $L_*+F(u)>L_*>0$。また射影変換の係数を $(a,b,c,d)=(L_*,0,1,L_*)$ と取れば $ad-bc=L_*^2>0$ です。この区間では $G$ は滑らかに定義され、$G'=L_*^2 F'/(L_*+F)^2>0$ です。
 <!-- solution-end -->
 
 <a id="ex-bhi21-b02"></a>
@@ -718,10 +739,10 @@ $$
 #### BHI21-B03 境界の変分と運動方程式
 
 - Level: B
-- 問題: $S(u)=\{F,u\}$、$\eta=\delta F/F'$ とし、周期境界条件の下で $\delta S=\eta'''+2S\eta'+S'\eta$ が成り立つとする。$I=-C\int_0^\beta S\,du$ の停留条件を求めよ。また $F=e^{ku}$、$k>0$ が局所的に条件を満たすことを確認せよ。
+- 問題: $S(u)=\{F,u\}$、$\eta=\delta F/F'$ とし、周期境界条件の下で $\delta S=\eta'''+2S\eta'+S'\eta$ が成り立つとする。$I=-C\int_0^\beta S\,du$ の停留条件を求めよ。また $F=L_*e^{ku}$、$k>0$ が局所的に条件を満たすことを確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\delta I=-C\int_0^\beta(\eta'''+2S\eta'+S'\eta)du$。周期条件で $\int\eta'''=0$、部分積分で $\int2S\eta'=-\int2S'\eta$ なので $\delta I=C\int_0^\beta S'\eta\,du$。任意の周期的で滑らかな $\eta$ について停留するには $S'=0$ が必要十分です。$F=e^{ku}$ のSchwarzianは $-k^2/2$ で定数なので、方程式を局所的に満たします。ただし $e^{ku}$ は一般に熱円周上の $F(u+\beta)=F(u)$ という単一座標条件を満たすわけではなく、局所解と熱円周の貼り合わせ条件は別です。
+**詳細解答。** $\delta I=-C\int_0^\beta(\eta'''+2S\eta'+S'\eta)du$。周期条件で $\int\eta'''=0$、部分積分で $\int2S\eta'=-\int2S'\eta$ なので $\delta I=C\int_0^\beta S'\eta\,du$。任意の周期的で滑らかな $\eta$ について停留するには $S'=0$ が必要十分です。$F=e^{ku}$ のSchwarzianは $-k^2/2$ で定数なので、方程式を局所的に満たします。ただし $L_*e^{ku}$ は一般に熱円周上の $F(u+\beta)=F(u)$ という単一座標条件を満たすわけではなく、局所解と熱円周の貼り合わせ条件は別です。
 <!-- solution-end -->
 
 <a id="ex-bhi21-b04"></a>
@@ -742,7 +763,7 @@ $$
 #### BHI21-C01 境界SchwarzianとJTブラックホールの一致
 
 - Level: C
-- 問題: $G_2,\ell,a,\beta>0$、$S_0\in\mathbb R$、Euclid円板を仮定する。境界における固有長・dilaton・曲率・動的作用は、次の正規化で与えられている。
+- 問題: $G_2,\ell,a,\beta,L_*>0$、$S_0\in\mathbb R$、Euclid円板を仮定する。$L_*$ は固定した長さとする。境界における固有長・dilaton・曲率・動的作用は、次の正規化で与えられている。
 
 $$
 \begin{aligned}
@@ -774,7 +795,7 @@ ds\,\Phi_b\left(K-\ell^{-1}\right)
 $$
 有限区間で余項の積分が消えるから、$I_\partial^E\to-C\int\{F,u\}\,du$、$C=a\ell/(8\pi G_2)$。
 
-(2) $H(u)=\tan(\alpha u)$、$\alpha=\pi/\beta$ について $H'=\alpha(1+H^2)$、$H''/H'=2\alpha H$、$H'''/H'=2\alpha^2(1+H^2)+4\alpha^2H^2$ なので、二次項が消えて $\{H,u\}=2\alpha^2=2\pi^2/\beta^2$。極では $1/H$ 等の局所座標へ移り、[射影変換不変性](#prop-bhi21-projective-action)で値をつなぎます。円周長 $\beta$ で積分して $I_E=-S_0-2\pi^2 C/\beta$。
+(2) $H(u)=\tan(\alpha u)$、$\alpha=\pi/\beta$ について、$F=L_*H$ の定数倍はSchwarzianを変えないので、 $H'=\alpha(1+H^2)$、$H''/H'=2\alpha H$、$H'''/H'=2\alpha^2(1+H^2)+4\alpha^2H^2$ なので、二次項が消えて $\{H,u\}=2\alpha^2=2\pi^2/\beta^2$。極では $1/H$ 等の局所座標へ移り、[射影変換不変性](#prop-bhi21-projective-action)で値をつなぎます。円周長 $\beta$ で積分して $I_E=-S_0-2\pi^2 C/\beta$。
 
 (3) $\log Z_{\rm cl}=S_0+2\pi^2 C/\beta$ です。$\beta$ 微分は $-\partial_\beta\log Z_{\rm cl}=2\pi^2C/\beta^2$、$\log Z_{\rm cl}+\beta E=S_0+4\pi^2C/\beta$。従って $E=2\pi^2CT^2$、$S=S_0+4\pi^2CT$。
 
