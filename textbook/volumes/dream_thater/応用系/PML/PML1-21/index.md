@@ -15,7 +15,7 @@ $$
 一つの軌道の上で $f$ を正確に知っても、**軌道が通らなかった状態での $f$ は直接には分からない**。さらに実際の観測には、標本時刻の離散化と測定誤差がある。以下では次を分けて調べる。
 
 1. どの関数の組合せを候補に入れたか（モデル化）。
-2. どこで観測したか（識別可能性）。
+2. どこで観測したか（[識別可能性](../../../解析系/INV/INV1/index.md#def-inv1-identifiability)）。
 3. 微分と最小二乗推定にどれだけ誤差が入るか（推定）。
 4. 観測点で合っているモデルが、新しい点や長時間でも合うか（予測）。
 
@@ -43,7 +43,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-21-library -->
-**定義の確認。** $d=1$、$D=\mathbb R$、$\phi_1(x)=x$、$\phi_2(x)=x^2$、$\Xi=(-1,0)^{\mathsf T}$ とすると、二つの辞書関数はともに $D$ 上で定義され、$\Xi$ は $2\times1$ 行列である。実際に
+**定義の確認**。 $d=1$、$D=\mathbb R$、$\phi_1(x)=x$、$\phi_2(x)=x^2$、$\Xi=(-1,0)^{\mathsf T}$ とすると、二つの辞書関数はともに $D$ 上で定義され、$\Xi$ は $2\times1$ 行列である。実際に
 
 $$
 f_\Xi(x)=(-1,0)
@@ -77,7 +77,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-21-design -->
-**定義の確認。** $d=1$、$\phi(x)=(x,x^2)^{\mathsf T}$、観測状態 $(-1,1)$、速度 $(1,-1)$ とする。標本 $x=-1$ では辞書は $(-1,1)$、$x=1$ では $(1,1)$ なので
+**定義の確認**。 $d=1$、$\phi(x)=(x,x^2)^{\mathsf T}$、観測状態 $(-1,1)$、速度 $(1,-1)$ とする。標本 $x=-1$ では辞書は $(-1,1)$、$x=1$ では $(1,1)$ なので
 
 $$
 \Theta=\begin{pmatrix}-1&1\\1&1\end{pmatrix},
@@ -245,7 +245,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-21-koopman -->
-**定義の確認。** $D=\mathbb R$、$F(x)=ax$（$a\in\mathbb R$）、$g_1(x)=1$、$g_2(x)=x$ とする。$F(D)\subset D$ が成立し、
+**定義の確認**。 $D=\mathbb R$、$F(x)=ax$（$a\in\mathbb R$）、$g_1(x)=1$、$g_2(x)=x$ とする。$F(D)\subset D$ が成立し、
 
 $$
 K_Fg_1(x)=1,\qquad K_Fg_2(x)=ax.
@@ -278,7 +278,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-21-koopman-matrix -->
-**定義の確認。** $F(x)=ax$、$\phi(x)=(1,x)^{\mathsf T}$ なら
+**定義の確認**。 $F(x)=ax$、$\phi(x)=(1,x)^{\mathsf T}$ なら
 
 $$
 \phi(F(x))^{\mathsf T}=(1,ax)
