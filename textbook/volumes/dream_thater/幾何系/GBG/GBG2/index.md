@@ -21,7 +21,7 @@
 <a id="def-gbg2-principal-bundle"></a>
 
 <!-- formal-statement-start -->
-> **定義（滑らかな主 $G$ 束）**  
+> **定義（滑らかな主G束）**  
 > $M$ を有限次元滑らかな多様体、$G$ を有限次元 Lie 群とする。**主 $G$ 束**とは、有限次元滑らかな多様体 $P$、滑らかな全射 $\pi:P\to M$ および滑らかな右作用 $P\times G\to P$ の組で、次を満たすものをいう。
 >
 > **（P1）射影の保存**：任意の $p\in P$、$g\in G$ について $\pi(pg)=\pi(p)$。
@@ -79,7 +79,7 @@ $p g=q$ なら $hg=k$ なので左から $h^{-1}$ を掛けて $g=h^{-1}k$ が�
 
 ## 2. 局所積の貼り合わせと主束の公理は一致する
 
-既習の[貼り合わせ定理](../GBG1/index.md#thm-gbg1-gluing)は（P1）〜（P3）をすべて与える。逆に局所自明化があれば、[cocycleの復元定理](../GBG1/index.md#thm-gbg1-converse)を使い、基底を覆う開集合上の群座標から $g_{ij}$ を得る。ここでは主束の定義が「前講の構成の結果を特徴付ける」ことを確認する。
+既習の[貼り合わせ定理](../GBG1/index.md#thm-gbg1-gluing)は（P1）〜（P3）をすべて与える。逆に局所自明化があれば、[局所積表示とcocycleの逆向きの対応](../GBG1/index.md#thm-gbg1-converse)を使い、基底を覆う開集合上の群座標から $g_{ij}$ を得る。ここでは主束の定義が「前講の構成の結果を特徴付ける」ことを確認する。
 
 <a id="prop-gbg2-transition"></a>
 
@@ -258,7 +258,7 @@ $$
 <a id="thm-gbg2-hopf-principal"></a>
 
 <!-- formal-statement-start -->
-> **定理（Hopf主 $U(1)$ 束）**  
+> **定理（Hopf主U(1)束）**  
 > 上の $H:S^3\to S^2$ は滑らかな全射であり、$(z,w)\cdot\lambda=(z\lambda,w\lambda)$ とともに滑らかな主 $U(1)$ 束をなす。$U_w,U_z$ 上の基準点はそれぞれ
 $$
 s_w(t)=\frac{(t,1)}{\sqrt{1+|t|^2}},
