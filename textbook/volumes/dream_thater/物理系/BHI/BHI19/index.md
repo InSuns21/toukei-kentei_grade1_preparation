@@ -61,7 +61,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi19-jt-action -->
-**定義の確認（変数と各項を実際に指定）。** $G_2=1$、$\ell=2$、$\Phi_0=3$ を選び、滑らかな時間的境界を持つ二次元Lorentz領域の計量と $C^2$ の実スカラー場 $\Phi$ を用意します。境界では計量の制限 $h$ と dilaton $\Phi$ を固定し、物質作用を零とします。
+**定義の確認**（変数と各項を実際に指定）。 $G_2=1$、$\ell=2$、$\Phi_0=3$ を選び、滑らかな時間的境界を持つ二次元Lorentz領域の計量と $C^2$ の実スカラー場 $\Phi$ を用意します。境界では計量の制限 $h$ と dilaton $\Phi$ を固定し、物質作用を零とします。
 
 このとき正の結合定数と曲率半径、スカラー場の定義域、境界で固定するデータはすべて指定されています。bulkのdilaton係数は $1/(16\pi)$、曲率を拘束する因子は $R+1/2$ です。境界項の係数は $2/(16\pi)$ です。
 
@@ -229,7 +229,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi19-stress-source -->
-**定義の確認（質量零実スカラー）。** $I_{\rm m}=-\frac12\int\sqrt{-g}\,g^{\mu\nu}\partial_\mu\psi\partial_\nu\psi$ とすると、計量のみを変分した積分内は
+**定義の確認**（質量零実スカラー）。 $I_{\rm m}=-\frac12\int\sqrt{-g}\,g^{\mu\nu}\partial_\mu\psi\partial_\nu\psi$ とすると、計量のみを変分した積分内は
 
 $$
 \delta_g I_{\rm m}
