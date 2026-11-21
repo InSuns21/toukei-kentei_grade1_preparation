@@ -5,6 +5,7 @@ prerequisites:
   - GBG3
 forward_references:
   - complex-analysis.winding-number
+  - electromagnetism.electric-charge
 concepts:
   - id: gauge.linear-representation
     name: 滑らかな左線形表現
