@@ -337,9 +337,17 @@ $$
 
 ## 5. 枠束は $GL(n,\mathbb R)$ 主束になる
 
-Hopf束は複素位相の例だった。もう一つ、任意の $n$ 次元滑らかな多様体から機械的に作れる主束がある。各点 $x$ の[接空間](../../GEO/GEO2/index.md#def-geo2-tangent-derivation) $T_xM$ に**順序付き基底** $(v_1,\ldots,v_n)$ を選ぶ。[接ベクトルの座標表示](../../GEO/GEO2/index.md#thm-geo2-coordinate-expression)により、局所座標の基底 $E=(E_1,\ldots,E_n)$ に関し、各 $v_j$ は $v_j=\sum_i E_i A^i{}_j$ と一意に書ける。この係数を**第 $j$ 列**に並べた $n\times n$ 行列 $A$ が、枠を座標で表す行列である。
+Hopf束は複素位相の例だった。もう一つ、任意の $n$ 次元滑らかな多様体から、各点の接空間の基底を集めて主束を作れる。
 
-$(v_1,\ldots,v_n)$ が基底であることは、$A$ の列が一次独立であること、すなわち $\det A\ne0$ と同値である。この条件を満たす行列全体が[一般線形群](../../../代数系/LIE/LIE1/index.md#prop-lie1-general-linear-group) $GL(n,\mathbb R)$ であり、枠の取り替えを右からの行列積として記述できる。
+各点 $x$ の[接空間](../../GEO/GEO2/index.md#def-geo2-tangent-derivation)で、**順序付き基底**を一つ選ぶ。[接ベクトルの座標表示](../../GEO/GEO2/index.md#thm-geo2-coordinate-expression)によれば、局所座標の基底 $E=(E_1,\ldots,E_n)$ に関し、選んだ基底 $v=(v_1,\ldots,v_n)$ は各列について一意に
+
+$$
+v_j=\sum_{i=1}^{n} E_i A^i{}_j
+$$
+
+と書ける。第 $j$ 列に $v_j$ の座標係数を並べた $n\times n$ 行列 $A$ が、枠の座標表現となる。
+
+$v$ が基底であるためには $A$ の列が一次独立でなければならない。これは有限次元の正方行列では $\det A\ne0$ と同値である。このような行列全体が[一般線形群](../../../代数系/LIE/LIE1/index.md#prop-lie1-general-linear-group) $GL(n,\mathbb R)$ であり、枠の取り替えを右からの行列積として記述できる。
 
 <a id="def-gbg2-frame-bundle"></a>
 
