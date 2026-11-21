@@ -53,7 +53,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(1) 有限生成性。** 分離拡大 $L/K$ では原始元 $\theta$ を選べます。$\theta$ に $p$ の十分高い冪を掛ければ整な原始元にできるので、$\theta\in\mathcal O_L$ とします。$E=\mathbb Z_p[\theta]$ は基底 $1,\theta,\ldots,\theta^{n-1}$ を持つ自由加群です。[整元の積についての閉性](../../AG/AG1-06/index.md#prop-ag1-06-integral-elements-subring)より、$x\in\mathcal O_L$ と $0\le j<n$ について $x\theta^j$ も整です。整元の乗法写像の特性多項式は $\mathbb Z_p$ 係数なので、その跡は $\mathbb Z_p$ に属します。したがって
+**(1) 有限生成性。** 分離拡大 $L/K$ では原始元 $\theta$ を選べます。$\theta$ に $p$ の十分高い冪を掛ければ整な原始元にできるので、$\theta\in\mathcal O_L$ とします。$E=\mathbb Z_p[\theta]$ は基底 $1,\theta,\ldots,\theta^{n-1}$ を持つ自由加群です。[整元の積についての閉性](../../AG/AG1-06/index.md#prop-ag1-06-finite-generators)より、$x\in\mathcal O_L$ と $0\le j<n$ について $x\theta^j$ も整です。整元の乗法写像の特性多項式は $\mathbb Z_p$ 係数なので、その跡は $\mathbb Z_p$ に属します。したがって
 
 $$
 \operatorname{Tr}(x\theta^j)\in\mathbb Z_p
