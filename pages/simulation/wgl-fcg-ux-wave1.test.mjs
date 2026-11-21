@@ -84,7 +84,8 @@ test('WGL wave1 numerical overlays stay collapsed until requested',async()=>{
     assert.ok(source.includes(container+'.append(toggle,'),path+' summary comes before inspector');
     assert.doesNotMatch(source,new RegExp(container+'\\.open\\s*=\\s*true'),path+' starts closed');
     for(const item of contents)assert.ok(source.includes(item),path+': '+item);
-    assert.ok(source.includes("canvas.insertAdjacentElement('afterend',"+container+")"),
-      path+' must be attached to the real GPU canvas');
+    const anchor=path.startsWith('WGL3/')?'svg':'canvas';
+    assert.ok(source.includes(anchor+".insertAdjacentElement('afterend',"+container+")"),
+      path+' must be attached to the real GPU mesh/canvas');
   }
 });
