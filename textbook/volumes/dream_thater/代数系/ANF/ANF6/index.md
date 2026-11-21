@@ -8,7 +8,7 @@
 
 ## 1. 主イデアルからのずれを積で測る
 
-$K/\mathbb Q$ を次数 $n$ の数体とし、その整数環を $A=\mathcal O_K$ とします。[分数イデアル](../ANF3/index.md#def-anf3-fractional-ideal)は、$K$ の中の零でない $A$-部分加群であり、ある $0\ne d\in A$ を掛けると $dI\subseteq A$ となるものです。$K$-加群ではなく $A$-加群である点に注意してください。
+$K/\mathbb Q$ を次数 $n$ の数体とし、その整数環を $A=\mathcal O_K$ とします。[分数イデアル](../ANF3/index.md#def-anf3-fractional-ideal) $I$ は、$K$ の中の零でない $A$-部分加群であり、ある $0\ne d\in A$ を掛けると $dI\subseteq A$ となるものです。$K$-加群ではなく $A$-加群である点に注意してください。
 
 [非零分数イデアルの可逆性](../ANF3/index.md#prop-anf3-invertible-ideals)から、これらは積について可換群を作ります。単位元は $A$ です。分数イデアル $\mathfrak a$ の逆元は $\mathfrak a^{-1}$ です。
 
@@ -49,7 +49,7 @@ $$
 \varphi:A\longrightarrow\mathbb F_2,\qquad a+bs\longmapsto a+b\pmod2
 $$
 
-は全射環準同型です。$a+b$ が偶数であることは $a-b$ が偶数であることと同値で、$a+bs=(a-b)+b(1+s)$ なので、核は $\mathfrak p=(2,1+s)$ です。したがって $A/\mathfrak p\simeq\mathbb F_2$、$N(\mathfrak p)=2$ と確認できます。この $\mathfrak p$ が主イデアルでないこと、しかし $\mathfrak p^2$ は主イデアルであることを第6節で証明します。元の一意分解の失敗を類群が記録するのです。
+は全射環準同型です。$a+b$ が偶数であることは $a-b$ が偶数であることと同値で、$a+bs=(a-b)+b(1+s)$ なので、核は $\mathfrak p=(2,1+s)$ です。したがって $A/\mathfrak p\simeq\mathbb F_2$、つまり商にちょうど2元があると確認できます。この $\mathfrak p$ が主イデアルでないこと、しかし $\mathfrak p^2$ は主イデアルであることを第6節で証明します。元の一意分解の失敗を類群が記録するのです。
 <!-- definition-example-end -->
 
 ## 2. 有限性への橋：同じ類の小さい代表
@@ -75,7 +75,7 @@ $$
 と展開し、$\alpha$ 倍写像の整数係数行列を $C_\alpha=(c_{ij})$ とします。基底の係数ベクトルで $A\simeq\mathbb Z^n$、$\alpha A\simeq C_\alpha\mathbb Z^n$ となるため、
 
 $$
-A/(\alpha)\simeq\mathbb Z^n/C_\alpha\mathbb Z^n,
+A/(\alpha)\simeq\mathbb Z^n/C_\alpha\mathbb Z^n\quad\text{（加法群として）},
 \qquad
 N((\alpha))=|\det C_\alpha|.
 $$
