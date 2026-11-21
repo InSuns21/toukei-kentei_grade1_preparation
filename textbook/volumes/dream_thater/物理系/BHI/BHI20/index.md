@@ -46,7 +46,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi20-static-patch -->
-**定義の確認。** $\ell=2,\ a=3,\ r_h=1$ なら $r>1$ において $f=(r^2-1)/4>0$ です。$g_{tt}<0$、$g_{rr}>0$、$g_{tt}g_{rr}=-1$ でLorentz計量が非退化であり、$\Phi=3r/2$ は滑らかで無次元です。$r\downarrow1$ において $f\to0$、$\Phi_h=3/2$ となります。$r=1$ では静的座標の $g_{rr}$ が発散するため、この座標成分だけでは地平線の幾何学的正則性を判定できません。第5節で正則な座標へ移ります。
+**定義の確認**： $\ell=2,\ a=3,\ r_h=1$ なら $r>1$ において $f=(r^2-1)/4>0$ です。$g_{tt}<0$、$g_{rr}>0$、$g_{tt}g_{rr}=-1$ でLorentz計量が非退化であり、$\Phi=3r/2$ は滑らかで無次元です。$r\downarrow1$ において $f\to0$、$\Phi_h=3/2$ となります。$r=1$ では静的座標の $g_{rr}$ が発散するため、この座標成分だけでは地平線の幾何学的正則性を判定できません。第5節で正則な座標へ移ります。
 <!-- definition-example-end -->
 
 この形がどこから出るかを、[BHI19の真空Hessian方程式](../BHI19/index.md#prop-bhi19-trace-hessian)に代入して確かめます。
@@ -265,7 +265,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi20-horizon-dilaton -->
-**定義の確認。** $\ell=2,a=3,r_h=1,G_2=1/4,\Phi_0=2$ なら、[正則な座標](#ref-bhi20-kruskal)で $U=V=0$ に対応する点の $\Phi$ は $3/2$ です。$4G_2=1$ より $S_{\rm dyn,h}=3/2$、位相項は $S_0=2$、合計 $S_{\rm grav,h}=7/2$ です。単に $r$ を代入しただけでなく、評価点が正則な分岐地平線であること、$G_2>0$、それぞれの項の規格化を確認しました。
+**定義の確認**： $\ell=2,a=3,r_h=1,G_2=1/4,\Phi_0=2$ なら、[正則な座標](#ref-bhi20-kruskal)で $U=V=0$ に対応する点の $\Phi$ は $3/2$ です。$4G_2=1$ より $S_{\rm dyn,h}=3/2$、位相項は $S_0=2$、合計 $S_{\rm grav,h}=7/2$ です。単に $r$ を代入しただけでなく、評価点が正則な分岐地平線であること、$G_2>0$、それぞれの項の規格化を確認しました。
 <!-- definition-example-end -->
 
 <a id="prop-bhi20-entropy"></a>
@@ -528,28 +528,28 @@ $\Phi_h=ar_h/\ell$ とも一致します。$\square$
 <!-- solution-start -->
 **詳細解答。** まず[曲率方程式](../BHI19/index.md#prop-bhi19-curvature-eom)に $R=-f''$ を代入して、二度積分します。
 
-$
+$$
 f''=\frac{2}{\ell^2}
 \quad\Longrightarrow\quad
 f(r)=\frac{r^2}{\ell^2}+br+c.
-$
+$$
 
 ここで $b,c$ は積分定数です。次に $\Phi'=a/\ell$ と $\Gamma^r_{tt}=ff'/2$ を使うと、[Hessian方程式](../BHI19/index.md#prop-bhi19-trace-hessian)の $tt$ 成分は
 
-$
+$$
 -\frac{aff'}{2\ell}
 =\nabla_t\nabla_t\Phi
 =\frac{\Phi}{\ell^2}g_{tt}
 =-\frac{afr}{\ell^3}.
-$
+$$
 
 静的外部では $f>0$、仮定より $a>0$ なので、両辺を $-af$ で割れます。したがって $f'=2r/\ell^2$。上の積分結果を微分した $f'=2r/\ell^2+b$ と比較し、$b=0$ を得ます。最後に地平線条件を代入すると
 
-$
+$$
 0=f(r_h)=\frac{r_h^2}{\ell^2}+c
 \quad\Longrightarrow\quad
 f(r)=\frac{r^2-r_h^2}{\ell^2}.
-$
+$$
 
 曲率条件だけでは決められなかった一次項が、Hessian方程式によって消えた点を確認してください。
 <!-- solution-end -->
@@ -626,10 +626,10 @@ $a$ の固定が重要で、$\mathcal C$ と $E$ は同じ境界規格化の解�
 - Level: C
 - 問題: 真空JTで $\ell,G_2,a>0$ と $\Phi_0$ を固定し、次の静的形を採用する。
 
-$
+$$
 ds^2=-f(r)dt^2+\frac{dr^2}{f(r)},
 \qquad \Phi(r)=\frac{ar}{\ell}.
-$
+$$
 
   (i) Hessian方程式から $f$ を求め、$f(r_h)=0$ を満たす $r_h>0$ を指定せよ。
 
