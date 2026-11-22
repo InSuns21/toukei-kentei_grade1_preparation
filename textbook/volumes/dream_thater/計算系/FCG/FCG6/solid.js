@@ -102,7 +102,7 @@ function advanceObstacleStep(step){
   // A fixed 240 Jacobi sweeps cannot resolve a 48x48 obstacle mask.
   // The constant pressure mode is fixed by subtracting the fluid-cell mean.
   p=new Float64Array(N*N);
-  const omega=1.8,maxSweeps=32*N,tolerance=1e-6;
+  const omega=1.94,maxSweeps=32*N,tolerance=1e-6;
   sweeps=0;let converged=false;
   for(let it=0;it<maxSweeps;it++){
     for(let color=0;color<2;color++)
