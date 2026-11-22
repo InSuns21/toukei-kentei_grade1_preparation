@@ -4,7 +4,7 @@
 
 この二つの「失敗」を一つの幾何学的量で測るのが**曲率**である。今回は主束上の大域的な曲率2形式を定義し、局所公式、ゲージ変換、結合束の共変微分との対応を証明する。次の GBG11 で扱う Bianchi 恒等式は、今回得る構造方程式をさらに微分したときに現れる。
 
-**全節の規約**：$M$ は Hausdorff・第二可算で境界のない滑らかな有限次元多様体、$G$ は有限次元 Lie 群、$\mathfrak g=T_eG$、$\pi:P\to M$ は滑らかな右主 $G$ 束とする。[GBG7 の接続1形式](../GBG7/index.md#def-gbg7-connection-form) $\omega\in\Omega^1(P;\mathfrak g)$ は
+**全節の規約**：$M$ は Hausdorff・第二可算で境界のない滑らかな有限次元多様体、$G$ は有限次元 Lie 群、$\mathfrak g=T_eG$、$\pi:P\to M$ は滑らかな右主 $G$ 束とする。[GBG7 の主束接続形式](../GBG7/index.md#def-gbg7-connection-form) $\omega\in\Omega^1(P;\mathfrak g)$ は
 
 $$
 \omega(\xi_P)=\xi,\qquad R_g^*\omega=\operatorname{Ad}_{g^{-1}}\omega
@@ -34,41 +34,27 @@ $$
 
 つまり外微分 $d\omega$ は、水平な二方向を合成したときの**垂直成分**を検出する。ところが $d\omega$ をそのまま曲率と呼ぶと、垂直な方向に入れたときにも値が残る。主束の接続が基底方向に対して持つ性質を取り出すため、補正項が必要となる。
 
-### Lie環値形式の積の意味
+### 既習の括弧付き外積を使う
 
-通常の実数値微分形式の積は交代的だが、Lie 環値形式では係数に Lie 括弧がある。とくに $\mathfrak g$ 値1形式 $\alpha,\beta$ に対して、次の交代2形式を用いる。
-
-<a id="def-gbg10-wedge-bracket"></a>
-
-<!-- formal-statement-start -->
-> **定義（Lie環値1形式の括弧付き外積）**  
-> 滑らかな多様体 $N$ 上の $\mathfrak g$ 値1形式 $\alpha,\beta$ について、接ベクトル $U,V\in T_pN$ に対し
+Lie 環値1形式の係数は一般には交換できない。[LIE4 の括弧付き外積の定義](../../../代数系/LIE/LIE4/index.md#def-lie4-bracket-wedge)は、$\mathfrak g$ 値1形式 $\alpha$ の二つの接方向の値を Lie 括弧で交代化するものである。$U,V$ を接ベクトルとすると
 
 $$
-[\alpha\wedge\beta](U,V)
-=[\alpha(U),\beta(V)]-[\alpha(V),\beta(U)]
+[\alpha\wedge\alpha](U,V)
+=[\alpha(U),\alpha(V)]-[\alpha(V),\alpha(U)]
+=2[\alpha(U),\alpha(V)].
 $$
 
-> と定める。特に同じ形式を二回入れたときは
+この係数2を除くために構造方程式では $\frac12[\alpha\wedge\alpha]$ を使う。行列係数の通常の外積では、$A\wedge A(U,V)=A(U)A(V)-A(V)A(U)$ と計算する。
+
+**手計算での確認**。$N=\mathbb R^2$、$\mathfrak g=\mathfrak{gl}_2(\mathbb R)$ とし、$B=E_{11}$、$C=E_{12}$、$\alpha=B\,dx+C\,dy$ とおく。$\alpha(\partial_x)=B$、$\alpha(\partial_y)=C$。行列積 $BC=C$、$CB=0$ より
 
 $$
-\frac12[\alpha\wedge\alpha](U,V)=[\alpha(U),\alpha(V)].
-$$
-
-> 右辺の括弧は Lie 環 $\mathfrak g$ の Lie 括弧である。
-<!-- formal-statement-end -->
-
-<!-- definition-example-start: def-gbg10-wedge-bracket -->
-**定義の確認**。$N=\mathbb R^2$、$\mathfrak g=\mathfrak{gl}_2(\mathbb R)$ とし、$B=E_{11}$、$C=E_{12}$、$\alpha=B\,dx+C\,dy$ とおく。標準基底 $\partial_x,\partial_y$ で $\alpha(\partial_x)=B$、$\alpha(\partial_y)=C$。行列積は $BC=C$、$CB=0$ だから、Lie 括弧は $[B,C]=C$ である。従って
-
-$$
-[\alpha\wedge\alpha](\partial_x,\partial_y)
-=[B,C]-[C,B]=2C,\qquad
+\frac12[\alpha\wedge\alpha](\partial_x,\partial_y)
+=[B,C]=C,\qquad
 \frac12[\alpha\wedge\alpha]=C\,dx\wedge dy.
 $$
 
-$dx\wedge dy$ はこの順の基底で値 $1$、逆順で $-1$ を取るため、右辺はたしかに交代2形式である。係数が非可換なため、同じ1形式でも括弧付き外積は零とは限らない。
-<!-- definition-example-end -->
+$dx\wedge dy$ はこの順の基底で $1$、逆順で $-1$ を取る。係数が非可換なら、同じ1形式でも括弧付き外積が非零になる。
 
 ## 2. 主束上の曲率2形式
 
@@ -208,7 +194,7 @@ d\omega(X^H,Y^H)
 \end{aligned}
 $$
 
-よって等式が成立する。$\Omega=0$ なら右辺は零で、$\ker\omega=H$ より水平括弧も水平である。逆に任意の水平ベクトル場の括弧が水平なら、等式から二つの水平入力で $\Omega=0$。直前の水平性定理により、任意の入力でも零となる。基底の任意の接方向が局所水平リフトで得られることは[GBG6 の水平リフト](../GBG6/index.md#prop-gbg6-horizontal-lift)による。さらに局所水平ベクトル場 $U=\sum_i f_iX_i^H$、$V=\sum_j h_jY_j^H$ の括弧を展開すると、係数関数の微分に由来する項は $X_i^H,Y_j^H$ の線形結合で水平であり、非水平になり得るのは $f_ih_j[X_i^H,Y_j^H]$ の項だけである。従って任意の水平ベクトル場についても同値性が成立する。
+よって等式が成立する。$\Omega=0$ なら右辺は零で、$\ker\omega=H$ より水平括弧も水平である。逆に任意の水平ベクトル場の括弧が水平なら、等式から二つの水平入力で $\Omega=0$。[曲率の水平性と右作用の同変性](#thm-gbg10-basic-properties)により、任意の入力でも零となる。基底の任意の接方向が局所水平リフトで得られることは[GBG6 の水平リフト](../GBG6/index.md#prop-gbg6-horizontal-lift)による。さらに局所水平ベクトル場 $U=\sum_i f_iX_i^H$、$V=\sum_j h_jY_j^H$ の括弧を展開すると、係数関数の微分に由来する項は $X_i^H,Y_j^H$ の線形結合で水平であり、非水平になり得るのは $f_ih_j[X_i^H,Y_j^H]$ の項だけである。従って任意の水平ベクトル場についても同値性が成立する。
 <!-- proof-end -->
 
 ここで測っているのは、二つの方向への**無限小の移動順序**が水平性を保たないという現象である。有限の閉路に沿う平行移動は GBG14〜15 で、曲率の零性から得られる大域的結論の追加条件は GBG16 で調べる。
@@ -506,7 +492,7 @@ D_yD_xu&=\partial_y\partial_xu+iqx\,\partial_xu.
 \end{aligned}
 $$
 
-$\partial_x,\partial_y$ の括弧は零で、差は $iq\,u$ となる。先に得た $F(\partial_x,\partial_y)=i$ に $\rho_{q*}$ を適用しても $\rho_{q*}(i)u=iq\,u$。一致した。$q=0$ なら接続の曲率は非零でも、この自明表現の場からは曲率が見えない。**一つの表現に対する交換子が零でも主束の曲率そのものが零とは限らない**。
+$\partial_x,\partial_y$ の括弧は零で、差は $iq\,u$ となる。先に得た $F(\partial_x,\partial_y)=i$ に $\rho_{q*}$ を適用しても $\rho_{q*}(i)u=iq\,u$。一致した。$q=0$ なら主束の曲率は非零でも、この自明表現の場からは曲率が見えない。**一つの表現に対する交換子が零でも主束の曲率そのものが零とは限らない**。
 
 ## 6. 演習と詳細解答
 
@@ -620,7 +606,7 @@ F=(E_{11}E_{12}-E_{12}E_{11})\,dx\wedge dy
 =E_{12}\,dx\wedge dy\ne0.
 $$
 
-[曲率と水平括弧の定理](#thm-gbg10-horizontal-bracket)により、基底方向 $\partial_x,\partial_y$ の水平リフトに対して $\omega([\partial_x^H,\partial_y^H])=-F(\partial_x,\partial_y)=-E_{12}\ne0$（標準 section 上での値を同一視）。従って Lie 括弧には非零の垂直成分があり、水平に閉じない。破綻するのは、定数係数なら $dA=0$ だから平坦とみなす誤った推論である。
+[曲率と水平ベクトル場の括弧](#thm-gbg10-horizontal-bracket)により、基底方向 $\partial_x,\partial_y$ の水平リフトに対して $\omega([\partial_x^H,\partial_y^H])=-F(\partial_x,\partial_y)=-E_{12}\ne0$（標準 section 上での値を同一視）。従って Lie 括弧には非零の垂直成分があり、水平に閉じない。破綻するのは、定数係数なら $dA=0$ だから平坦とみなす誤った推論である。
 <!-- solution-end -->
 
 <a id="ex-gbg10-b02"></a>
