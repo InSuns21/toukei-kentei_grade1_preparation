@@ -1,10 +1,24 @@
 # GBG8 局所ゲージポテンシャルはどう変換するか
 
-[GBG7 の接続1形式](../GBG7/index.md#def-gbg7-connection-form)は主束 $P$ 全体に定義される。しかし、物理の式で見る $A=A_\mu dx^\mu$ は基底多様体上の1形式である。非自明な主束では「一つの $A$ が全空間にある」と最初から考えることはできない。それでも、各パッチで基準となる [局所section](../GBG3/index.md#def-gbg3-local-section) を選べば、接続形式を基底へ引き戻して計算できる。
+[GBG7 の主束接続形式](../GBG7/index.md#def-gbg7-connection-form)は主束 $P$ 全体に定義される。しかし、物理の式で見る $A=A_\mu dx^\mu$ は基底多様体上の1形式である。非自明な主束では「一つの $A$ が全空間にある」と最初から考えることはできない。それでも、各パッチで基準となる [局所section](../GBG3/index.md#def-gbg3-local-section) を選べば、接続形式を基底へ引き戻して計算できる。
 
 問題は、別のsectionを選んだときに同じ接続をどう表すかである。普通のベクトルの座標変換と違い、ポテンシャルには群値関数の**微分**が加わる。本講ではその出所を接ベクトルの分解から導き、重なりの整合条件だけから大域的な接続を復元する。最後に「局所座標の変更」と「ゲージ自己同型による接続そのものの変換」を区別する。
 
-$M$ は Hausdorff・第二可算、境界のない有限次元滑らかな多様体、$G$ は有限次元 Lie 群、$\pi:P\to M$ は滑らかな右主 $G$ 束とする。$\mathfrak g=T_eG$、$R_k(p)=pk$、$U_{ij}=U_i\cap U_j$ と置く。局所sectionは $s_j=s_i g_{ij}$、したがって $g_{ij}g_{jk}=g_{ik}$ とする。[GBG6 の基本ベクトル場](../GBG6/index.md#def-gbg6-fundamental-field)は $\xi_P(p)=\left.\frac d{dt}\right|_0p\exp(t\xi)$、接続形式は $\omega(\xi_P)=\xi$ および $R_k^*\omega=\operatorname{Ad}_{k^{-1}}\omega$ を満たす。以降、群の逆元の向きはすべてこの**右主作用**に従う。
+$M$ は Hausdorff・第二可算、境界のない有限次元滑らかな多様体とする。$G$ は有限次元 Lie 群、$\pi:P\to M$ は滑らかな右主 $G$ 束である。
+
+Lie 環を $\mathfrak g=T_eG$、右作用を $R_k(p)=pk$ と記す。開被覆上のsectionは $s_j=s_i g_{ij}$、重なりは $U_{ij}=U_i\cap U_j$、遷移関数は $g_{ij}g_{jk}=g_{ik}$ とする。
+
+[GBG6 の基本ベクトル場](../GBG6/index.md#def-gbg6-fundamental-field)と [GBG7 の主束接続形式](../GBG7/index.md#def-gbg7-connection-form) は、それぞれ次の関係を満たす。
+
+$$
+\xi_P(p)=\left.\frac{d}{dt}\right|_0p\exp(t\xi),
+\qquad
+\omega(\xi_P)=\xi,
+\qquad
+R_k^*\omega=\operatorname{Ad}_{k^{-1}}\omega.
+$$
+
+群の逆元の向きは、この**右主作用**に従う。
 
 <!-- definition-example-audit: strict -->
 
@@ -18,7 +32,7 @@ $M$ は Hausdorff・第二可算、境界のない有限次元滑らかな多様
 
 <!-- formal-statement-start -->
 > **定義（局所ゲージポテンシャル）**  
-> 滑らかな右主 $G$ 束 $\pi:P\to M$ の[接続1形式](../GBG7/index.md#def-gbg7-connection-form) $\omega$ と、開集合 $U\subset M$ 上の滑らかな局所section $s:U\to P$ に対し、$\mathfrak g$ 値1形式
+> 滑らかな右主 $G$ 束 $\pi:P\to M$ の[主束接続形式](../GBG7/index.md#def-gbg7-connection-form) $\omega$ と、開集合 $U\subset M$ 上の滑らかな局所section $s:U\to P$ に対し、$\mathfrak g$ 値1形式
 
 $$
 A_s:=s^*\omega\in\Omega^1(U;\mathfrak g),\qquad
@@ -64,7 +78,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（局所ゲージポテンシャルの変換則）**  
-> $P\to M$ を滑らかな右主 $G$ 束、$\omega$ を主束接続1形式、$s,s':U\to P$ を同じ開集合上の滑らかな局所section とする。滑らかな $g:U\to G$ が $s'=sg$ を満たすとき、$A=s^*\omega$ と $A'=(s')^*\omega$ は
+> $P\to M$ を滑らかな右主 $G$ 束、$\omega$ を主束接続形式、$s,s':U\to P$ を同じ開集合上の滑らかな局所section とする。滑らかな $g:U\to G$ が $s'=sg$ を満たすとき、$A=s^*\omega$ と $A'=(s')^*\omega$ は
 
 $$
 \boxed{\displaystyle
@@ -297,7 +311,7 @@ $$
 
 **必要性**。$\omega$ が存在すれば、[局所変換定理](#thm-gbg8-local-transform)を $s_j=s_i g_{ij}$ へ適用して重なり条件を得る。
 
-**十分性**。各 $U_i$ で $p=s_i(x)k_i$ と表し、積座標の接ベクトルを $(v,W_i)\in T_xU_i\oplus T_{k_i}G$ とする。[積主束の構成定理](../GBG7/index.md#prop-gbg7-product-form)から
+**十分性**。各 $U_i$ で $p=s_i(x)k_i$ と表し、積座標の接ベクトルを $(v,W_i)\in T_xU_i\oplus T_{k_i}G$ とする。[GBG7 の積主束接続形式の具体式](../GBG7/index.md#prop-gbg7-product-form)から
 
 $$
 (\omega_i)_{(x,k_i)}(v,W_i)
@@ -345,7 +359,7 @@ $$
 \end{aligned}
 $$
 
-したがって局所形式は $P$ 上で矛盾なく貼り合わさり、一つの滑らかな $\mathfrak g$ 値1形式 $\omega$ になる。（C1）と（C2）は各ファイバーの局所積表示で成り立つため、大域の $\omega$ にも成立する。[接続1形式の定義](../GBG7/index.md#def-gbg7-connection-form)より $\omega$ は主束接続である。単位元を代入すると $s_i(x)$ で $k_i=e$、$dk_i=0$ なので $s_i^*\omega=A_i$。
+したがって局所形式は $P$ 上で矛盾なく貼り合わさり、一つの滑らかな $\mathfrak g$ 値1形式 $\omega$ になる。（C1）と（C2）は各ファイバーの局所積表示で成り立つため、大域の $\omega$ にも成立する。[主束接続形式の定義](../GBG7/index.md#def-gbg7-connection-form)より $\omega$ は主束接続である。単位元を代入すると $s_i(x)$ で $k_i=e$、$dk_i=0$ なので $s_i^*\omega=A_i$。
 
 **一意性**。別の接続 $\widetilde\omega$ が同じ $A_i$ を与えたとする。任意の $p=s_i(x)k$ の接ベクトルは、$(ds_i)_xv$ を右移動したものと基本ベクトル場の和へ分解できる。[右同変条件と再生条件](../GBG7/index.md#def-gbg7-connection-form)はその二成分の値をそれぞれ $\operatorname{Ad}_{k^{-1}}A_i(v)$ と $\theta_k(W)$ に一意に決める。従って $\widetilde\omega=\omega_i$ がすべてのパッチで成り立ち、$\widetilde\omega=\omega$。
 <!-- proof-end -->
@@ -611,7 +625,7 @@ $$
 g'_{ij}=h_i^{-1}g_{ij}h_j.
 $$
 
-これが[GBG3 の遷移変換則](../GBG3/index.md#thm-gbg3-transition-change)である。[GBG5 の局所ゲージ関数定理](../GBG5/index.md#thm-gbg5-local-gauge)によれば、滑らかな $(h_i)$ が一つの $F$ を定める必要十分条件は
+これが[GBG3 の遷移変換則](../GBG3/index.md#thm-gbg3-transition-change)である。[GBG5 の局所ゲージ関数の整合条件と再構成](../GBG5/index.md#thm-gbg5-local-gauge)によれば、滑らかな $(h_i)$ が一つの $F$ を定める必要十分条件は
 
 $$
 h_j=g_{ij}^{-1}h_i g_{ij}.
@@ -619,7 +633,7 @@ $$
 
 実際、この条件なら $g'_{ij}=h_i^{-1}g_{ij}(g_{ij}^{-1}h_i g_{ij})=g_{ij}$。逆に $g'_{ij}=g_{ij}$ を左から $h_i$、右から $g_{ij}^{-1}$ で解くと同じ条件が出る。
 
-このとき $F(s_i)=s_i h_i$ なので、[ゲージ自己同型の接続引き戻し命題](#prop-gbg8-gauge-pullback)より
+このとき $F(s_i)=s_i h_i$ なので、[本章のゲージ自己同型による接続の引き戻し](#prop-gbg8-gauge-pullback)より
 
 $$
 s_i^*(F^*\omega)=
