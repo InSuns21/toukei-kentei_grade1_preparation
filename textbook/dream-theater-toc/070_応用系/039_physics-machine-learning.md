@@ -31,3 +31,4 @@
 27. [PML2-05 学習用のPDEデータはどう作り検証するか](textbook/volumes/dream_thater/応用系/PML/PML2-05/index.md)
 28. [PML2-06 PINNの強形式残差はどう定義されるか](textbook/volumes/dream_thater/応用系/PML/PML2-06/index.md)
 29. [PML2-07 自動微分で必要な導関数を本当に計算できるか](textbook/volumes/dream_thater/応用系/PML/PML2-07/index.md)
+30. [PML2-08 初期/境界条件を強制する二つの方法は何か](textbook/volumes/dream_thater/応用系/PML/PML2-08/index.md)
