@@ -38,7 +38,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf17-finite-reciprocity -->
-**定義の確認（非分岐二次）。** $K=\mathbb Q_3$、$E=\mathbb Q_3(i)$（$i^2=-1$）では[非分岐 Frobenius の具体例](../ANF15/index.md#prop-anf15-frobenius-lift)により $F(i)=-i$、$F^2=1$ です。任意の $a=3^m u$（$m\in\mathbb Z$、$u\in\mathbb Z_3^\times$）に対して
+**定義の確認**（非分岐二次）。 $K=\mathbb Q_3$、$E=\mathbb Q_3(i)$（$i^2=-1$）では[非分岐 Frobenius の具体例](../ANF15/index.md#prop-anf15-frobenius-lift)により $F(i)=-i$、$F^2=1$ です。任意の $a=3^m u$（$m\in\mathbb Z$、$u\in\mathbb Z_3^\times$）に対して
 
 $$
 \operatorname{rec}_{E/K}(3^m u)=F^m,\quad
