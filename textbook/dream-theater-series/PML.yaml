@@ -127,7 +127,7 @@ chapters:
     title: "初期/境界条件を強制する二つの方法は何か"
   - id: PML2-09
     path: textbook/volumes/dream_thater/応用系/PML/PML2-09
-    status: planned
+    status: completed
     title: "物理残差の重みは何を変えるか"
   - id: PML2-10
     path: textbook/volumes/dream_thater/応用系/PML/PML2-10
