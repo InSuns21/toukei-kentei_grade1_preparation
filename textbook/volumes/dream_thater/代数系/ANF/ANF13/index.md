@@ -79,9 +79,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(1) 剰余体の生成元を持ち上げる。** 有限体 $k_L=\mathbb F_{q^f}$ の乗法群は巡回なので、$k_L=k_K(\bar\theta)$ を満たす $\bar\theta$ を選べます。$\bar\theta$ の $k_K$ 上最小多項式を $\bar h(X)\in k_K[X]$ とすると、次数は $f$、有限体拡大は分離的なので相異なる根 $\bar\theta,\bar\theta^q,\ldots,\bar\theta^{q^{f-1}}$ を $k_L$ に持ちます。
+**(1) 剰余体の生成元を持ち上げる。** [有限体の乗法群が巡回であることの証明](../ANF12/index.md#lem-anf12-finite-field-maps)を $k_L=\mathbb F_{q^f}$ に用い、乗法群の生成元 $\bar\theta$ を選びます。$k_L^\times$ の全元は $\bar\theta$ の冪なので、$k_L=k_K(\bar\theta)$ です。$\bar\theta$ の $k_K$ 上最小多項式を $\bar h(X)\in k_K[X]$ とすると、次数は $f$、有限体拡大は分離的なので相異なる根 $\bar\theta,\bar\theta^q,\ldots,\bar\theta^{q^{f-1}}$ を $k_L$ に持ちます。
 
-係数を $B$ に持ち上げたモニック多項式 $h(X)\in B[X]$ を選びます。各剰余根で $\bar h'(\bar\theta^{q^j})\ne0$ だから、[単純根に対する Hensel の補題](../ANF10/index.md#thm-anf10-hensel-simple)の Newton 反復を、完備離散付値環 $A$ で行えます。実際、初期値を剰余根の代表に選ぶと導関数は単元で、誤差付値が倍増し、$A$ の完備性からそれぞれ唯一の根 $\theta_j\in A$ へ収束します。
+係数を $B$ に持ち上げたモニック多項式 $h(X)\in B[X]$ を選びます。ここで $h'$ は多項式変数 $X$ に関する形式的導関数です。各剰余根で $\bar h'(\bar\theta^{q^j})\ne0$ だから、[単純根に対する Hensel の補題](../ANF10/index.md#thm-anf10-hensel-simple)の証明を、$\mathbb Z_p$ の代わりに完備離散付値環 $A$ で繰り返せます。剰余根の代表 $x_0\in A$ から始め、$h'(x_m)\in A^\times$ のもとで
+
+$
+x_{m+1}=x_m-\frac{h(x_m)}{h'(x_m)},\qquad
+h(x_m+t)=h(x_m)+t h'(x_m)+t^2R_m(t)
+$
+
+と置きます。$t=-h(x_m)/h'(x_m)\in\mathfrak m_L$ を代入すると $v_L(h(x_{m+1}))\ge2v_L(h(x_m))$ です。導関数は各段階で同じ非零剰余を持ち、補正量の付値は増大するので、$A$ の完備性から各剰余根に一致する唯一の根 $\theta_j\in A$ へ収束します。
 
 これら $f$ 個の根は剰余が相異なるので $L$ でも相異なり、$\deg h=f$ ゆえ $h$ は $L$ で完全分解します。$\theta=\theta_0$、$K_0=K(\theta)$ と置きます。$h$ は法 $\mathfrak m_K$ で既約ですから $K$ 上でも既約で、$[K_0:K]=f$ です。
 
@@ -98,7 +105,9 @@ $K_0/K$ の $f$ 個の自己同型は、それぞれ $\bar\theta\mapsto\bar\thet
 **(4) 位数。** 核は定義により $I$ です。[Galois 群の位数公式](../../FLD/FLD4/index.md#cor-fld4-galois-order-degree)で $|G|=n$、有限体の Galois 群の位数は $f$ だから $|I|=n/f=e$。完全列と三つの位数が従います。
 <!-- proof-end -->
 
-この $K_0$ は $L$ の最大非分岐中間体です。もし $K\subset E\subset L$ が非分岐なら、$[E:K]=[k_E:k_K]\le f$ です。また惰性群は $k_L$ を固定するので $K_0=L^I$ であり、非分岐中間体 $E$ の元は惰性群で固定されます。後者は $E/K$ の剰余体への作用が単射なことと制限写像から従います。
+この $K_0$ は $L$ の最大非分岐中間体です。まず $I$ の元を $K_0$ に制限すると、$k_{K_0}=k_L$ に自明に作用します。上で構成した $\operatorname{Gal}(K_0/K)\simeq\operatorname{Gal}(k_L/k_K)$ は単射なので、$I$ は $K_0$ を固定します。$[L^I:K]=|G/I|=f=[K_0:K]$ と合わせて $K_0=L^I$ です。
+
+さらに任意の非分岐中間体 $K\subset E\subset L$ について、$k_E/k_K$ の生成元 $\bar u$ の最小多項式 $\bar g\in k_K[X]$ を取り、係数を $B$ に持ち上げます。$\bar g$ は分離的なので、その単純根 $\bar u$ は Hensel の一意性により $\mathcal O_E$ と $\mathcal O_{K_0}$ の双方で同じ根 $u\in L$ に持ち上がります。$[K(u):K]=[k_E:k_K]=[E:K]$ は非分岐性と次数公式によるので、$E=K(u)\subseteq K_0$ です。
 
 ## 2. 一様化元は何桁まで固定されるか
 
@@ -215,7 +224,23 @@ v_L((\tau\sigma\tau^{-1})(a)-a)
 =v_L\bigl(\sigma(\tau^{-1}a)-\tau^{-1}a\bigr)\ge i+1
 $$
 
-だから $\tau\sigma\tau^{-1}\in G_i$ です。閉性と逆元についても、同じ差の式を用いれば $G_i$ は部分群であり、正規性が従います。
+だから $\tau\sigma\tau^{-1}\in G_i$ です。部分群であることも具体的に確かめます。$\sigma,\eta\in G_i$ と $a\in A$ について
+
+$
+(\sigma\eta)(a)-a
+=\sigma(\eta(a)-a)+(\sigma(a)-a)
+\in\mathfrak m_L^{i+1}
+$
+
+です。ここでは $\sigma(\mathfrak m_L^{i+1})=\mathfrak m_L^{i+1}$ を使いました。また
+
+$
+\sigma^{-1}(a)-a
+=-\sigma^{-1}(\sigma(a)-a)
+\in\mathfrak m_L^{i+1}
+$
+
+なので逆元にも閉じます。恒等元を含むことと合わせて $G_i$ は部分群です。先の共役不変性により正規部分群となります。
 
 最後に $\sigma\in G_0\setminus\{1\}$ が $\pi$ を固定すれば、$\sigma$ は $K_0$ も固定するため $L=K_0(\pi)$ の全体を固定し矛盾します。各非自明元の $v_L(\sigma\pi-\pi)$ は有限です。$G_0$ は有限群なので、それらの最大値を越える $i$ では非自明元が残りません。
 <!-- proof-end -->
@@ -351,6 +376,32 @@ $$
 <!-- proof-start -->
 ### 証明
 
+まず、後で二度使う跡双対の計算を、一般の基礎局所体について確認します。[単項生成の整数環の異なる公式](../ANF11/index.md#thm-anf11-monogenic-different)は $\mathbb Q_p$ 上で証明されているため、ここではその計算を有限拡大の整数環にも適用できる形で示します。
+
+$R$ を標数 $0$ の完備離散付値環、$T$ をその分数体とします。$E=T(\alpha)$ を次数 $m$ の有限分離拡大、$\mathcal O_E=R[\alpha]$、$P(X)\in R[X]$ を $\alpha$ のモニック最小多項式とします。$P$ の相異なる根 $\alpha_1,\ldots,\alpha_m$ に対する Lagrange 補間で最高次係数を比較すると、次数 $m$ 未満の多項式 $H$ について
+
+$
+\operatorname{Tr}_{E/T}\left(\frac{H(\alpha)}{P'(\alpha)}\right)
+=\sum_{j=1}^{m}\frac{H(\alpha_j)}{P'(\alpha_j)}
+=[X^{m-1}]H(X)
+$
+
+です。$P'$ は $X$ に関する形式的導関数、$[X^{m-1}]$ はその係数を取り出す記号です。$a,b\in R[X]$ を次数 $m$ 未満とし、モニック $P$ で $ab$ を割った余りを $r\in R[X]$ とすると
+
+$
+\operatorname{Tr}_{E/T}\left(\frac{a(\alpha)b(\alpha)}{P'(\alpha)}\right)
+=[X^{m-1}]r(X)\in R.
+$
+
+特に基底 $1,\alpha,\ldots,\alpha^{m-1}$ に対するこの跡の行列の $(i,j)$ 成分は $[X^{m-1}](X^{i+j}\bmod P)$ です。$i+j<m-1$ では $0$、$i+j=m-1$ では $1$ なので、列を逆順にすると対角成分 $1$ の三角行列になります。従って行列式は $R$ の単元で、跡双対はちょうど $P'(\alpha)^{-1}R[\alpha]$ です。以上により
+
+$
+\mathfrak D_{E/T}=P'(\alpha)\mathcal O_E
+\qquad(\mathcal O_E=R[\alpha])
+$
+
+が基礎体 $T$ を $\mathbb Q_p$ に限定せず成立します。
+
 **(1) 非分岐部分の異なるは単位。** $K_0/K$ には前節で構成した整元 $\theta$ があり、$K_0=K(\theta)$ です。$\bar\theta$ の最小多項式の次数は $f$ なので、$1,\bar\theta,\ldots,\bar\theta^{f-1}$ は $k_K$ 上の基底です。これを使って $\mathcal O_{K_0}=B[\theta]$ を確認します。
 
 任意の $x\in\mathcal O_{K_0}$ を $x=\sum_{j=0}^{f-1}a_j\theta^j$（$a_j\in K$）と一意に書き、$x\ne0$ のとき $m=\min_j v_K(a_j)$ と置きます。もし $m<0$ なら、$b_j=\varpi_K^{-m}a_j\in B$ のうち少なくとも一つは単元です。一方、$K_0/K$ の分岐指数は $1$ なので
@@ -363,7 +414,7 @@ $$
 
 これは剰余体上の基底の一次独立性と、少なくとも一つの $\bar b_j$ が非零であることに反します。よって $m\ge0$、すべての $a_j\in B$ であり、$\mathcal O_{K_0}=B[\theta]$ です。
 
-$\theta$ の最小多項式 $h$ は法 $\mathfrak m_K$ で分離的なので $h'(\theta)$ は単元です。[単項生成の整数環の異なる公式](../ANF11/index.md#thm-anf11-monogenic-different)の跡双対計算を $B$ 上に適用すると、$\mathfrak D_{K_0/K}=(h'(\theta))=\mathcal O_{K_0}$ となります。
+$\theta$ の最小多項式 $h$ は法 $\mathfrak m_K$ で分離的なので $h'(\theta)$ は単元です。直前に $R=B$、$T=K$、$E=K_0$、$\alpha=\theta$ として示した相対的な跡双対公式を適用すると、$\mathfrak D_{K_0/K}=(h'(\theta))=\mathcal O_{K_0}$ となります。
 
 **(2) 非分岐中間体を通した跡双対。** 有限拡大の跡の合成から
 
@@ -406,7 +457,7 @@ F'(\pi)=\prod_{\substack{\sigma\in G_0\\\sigma\ne1}}
 (\pi-\sigma\pi)
 $$
 
-を得ます。[単項生成の整数環の異なる公式](../ANF11/index.md#thm-anf11-monogenic-different)から
+を得ます。先に示した相対的な跡双対公式を $R=\mathcal O_{K_0}$、$T=K_0$、$E=L$、$\alpha=\pi$ に適用すると、
 
 $$
 d=v_L(F'(\pi))
