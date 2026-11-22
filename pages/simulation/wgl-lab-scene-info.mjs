@@ -94,10 +94,10 @@ const descriptions = Object.freeze({
     source: 'projection.js / projection.frag'
   }),
   FCG5: Object.freeze({
-    grid: '12×12（染料・発散・速度のR8格子）',
+    grid: '初期48×48（12〜48の実計算MAC格子、R8転送）',
     color: '連続表示: 染料の濃さを青・橙の色と明るさで表現。初期検算: 染料（赤青）・|発散|（赤）・速度（緑）の3列',
     clock: step => '物理step '+step+'、t='+(step*0.04).toFixed(2)+' s（dt=0.04 s）',
-    mode: '染料表示の線形補間は描画のみ。12×12計算格子を高解像度で再計算してはいない',
+    mode: '染料表示の線形補間は描画のみ。GLSL補間でセル数は増えない。GUIでNを変えると実計算から変更する',
     source: 'fluid.js / fluid.frag'
   }),
   FCG6: Object.freeze({
