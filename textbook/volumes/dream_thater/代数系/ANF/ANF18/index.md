@@ -20,10 +20,10 @@ $$
 > **命題（素数冪円分局所拡大の次数・全分岐）**  
 > 奇素数 $p$ と整数 $r\ge1$ に対し、次の拡大は Galois 拡大である。
 
-$
+$$
 C_r=\mathbb Q_p(\zeta_{p^r}),\qquad
 [C_r:\mathbb Q_p]=p^{r-1}(p-1).
-$
+$$
 
 > さらに $C_r/\mathbb Q_p$ は全分岐で、$\zeta_{p^r}-1$ はその一様化元である。
 <!-- formal-statement-end -->
@@ -76,16 +76,16 @@ $C_r/K$ の自己同型は $\zeta_{p^r}$ の像を決めれば一意に定まり
 > **定義（円分 Galois 指数）**  
 > $C_r=\mathbb Q_p(\zeta_{p^r})$ とし、$\sigma\in\operatorname{Gal}(C_r/\mathbb Q_p)$ を取る。次の式を満たす唯一の合同類を円分 Galois 指数とする。
 
-$
+$$
 \chi_r(\sigma)=\bar b_r\in(\mathbb Z/p^r\mathbb Z)^\times,
 \qquad \sigma(\zeta_{p^r})=\zeta_{p^r}^{\,b}.
-$
+$$
 
 > 逆に $\chi_r(\sigma_b)=\bar b_r$ と書く。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf18-cyclotomic-exponent -->
-**定義の確認。** $p=5,r=1$ とします。前節の次数は $4$、原始五乗根は $\zeta_5,\zeta_5^2,\zeta_5^3,\zeta_5^4$ の四つです。$\Phi_5$ は分解体 $C_1$ で分離的なので各根へ送る $K$-自己同型 $\sigma_1,\ldots,\sigma_4$ が一意に存在します。$\sigma_2(\zeta_5)=\zeta_5^2$、$\sigma_3(\zeta_5)=\zeta_5^3$、さらに
+**定義の確認**。 $p=5,r=1$ とします。前節の次数は $4$、原始五乗根は $\zeta_5,\zeta_5^2,\zeta_5^3,\zeta_5^4$ の四つです。$\Phi_5$ は分解体 $C_1$ で分離的なので各根へ送る $K$-自己同型 $\sigma_1,\ldots,\sigma_4$ が一意に存在します。$\sigma_2(\zeta_5)=\zeta_5^2$、$\sigma_3(\zeta_5)=\zeta_5^3$、さらに
 
 $$
 (\sigma_b\circ\sigma_c)(\zeta_5)=\sigma_b(\zeta_5^c)=\zeta_5^{bc}
@@ -209,9 +209,9 @@ $C/K$ のノルム群は[円分ノルム判定](#prop-anf18-cyclotomic-norm-test
 
 $D/K$ は $4\mid(5-1)$ を満たします。[緩分岐 Kummer ノルム群の公式](../ANF16/index.md#prop-anf16-tame-kummer-norm)を $e=4$、$\pi_K=5$ に適用します。$\mathbb F_5^\times$ の位数は $4$ なので、その四乗部分群は $\{1\}$ です。また一様化元のノルムを計算すると、
 
-$
+$$
 N_{D/K}(\alpha)=(-1)^4(-5)=-5.
-$
+$$
 
 これらを公式へ代入すると命題の二式が得られます。
 
@@ -332,18 +332,18 @@ $$
 
 $\zeta_5=\zeta_{25}^5$ なので、指数 $b$ の自己同型を制限した作用は
 
-$
+$$
 \sigma_b(\zeta_5)=\sigma_b(\zeta_{25}^5)
 =\zeta_{25}^{5b}=\zeta_5^{b}
-$
+$$
 
 です。従って制限は法 $5$ の還元に一致します。
 
 $\bar b_{25}$ が核に入る条件は $b\equiv1\pmod5$ です。法 $25$ では
 
-$
+$$
 b=1+5j,\qquad j=0,1,2,3,4
-$
+$$
 
 の五通りで、すべて $5$ と互いに素です。これらが位数 $5$ の核をなします。
 
