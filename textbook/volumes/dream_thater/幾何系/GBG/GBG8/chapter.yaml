@@ -1,0 +1,41 @@
+id: "GBG8"
+title: "局所ゲージポテンシャルはどう変換するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG7
+official_scope: []
+learning_objectives:
+  - 主束上の大域接続と基底上の局所ポテンシャルを区別し、引き戻しの定義と直接例を説明できる
+  - section変更の接ベクトルを右移動部分と基本ベクトル場部分へ分解して非斉次変換則を導出できる
+  - U(1)とSU(2)の具体例で共役項とMaurer–Cartan項をそれぞれ計算できる
+  - 変換の合成を積の微分と随伴作用から検算し三重重なりでの整合性を説明できる
+  - 重なり条件を満たす局所ポテンシャルから大域接続を構成し存在・一意性を証明できる
+  - 局所sectionの表示変更とゲージ自己同型による接続の引き戻しを区別できる
+definitions:
+  - { id: GBG8-DEF-01, name: 局所ゲージポテンシャル }
+theorems:
+  - { id: GBG8-THM-01, name: 局所ゲージポテンシャルの変換則 }
+  - { id: GBG8-PROP-01, name: 局所変換則の合成 }
+  - { id: GBG8-THM-02, name: 局所ポテンシャルからの大域接続の再構成 }
+  - { id: GBG8-PROP-02, name: ゲージ自己同型による接続の引き戻し }
+canonical_examples:
+  - GL(2,R)積束で接続のsection引き戻しを直接計算
+  - U(1)の位相関数から非斉次項を計算
+  - SU(2)の対角ゲージ変換で共役と微分項を明示
+  - 二つの局所自明化からの大域接続再構成
+problem_patterns:
+  - GBG8-PULLBACK
+  - GBG8-U1-PHASE
+  - GBG8-SU2-ADJOINT
+  - GBG8-CONSTANT-GAUGE
+  - GBG8-MAURER-CARTAN-PRODUCT
+  - GBG8-TRIPLE-OVERLAP
+  - GBG8-RECONSTRUCTION
+  - GBG8-AUTOMORPHISM-VS-SECTION
+  - GBG8-INHOMOGENEOUS-NECESSITY
+  - GBG8-SU2-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }
