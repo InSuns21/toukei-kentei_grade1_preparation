@@ -22,6 +22,8 @@ T_{(x,k)}P\simeq T_xM\oplus T_kG
 $$
 となり、射影 $\pi(x,k)=x$ の微分は $(v,w)\mapsto v$ である。したがって $(0,w)$ は、点を動かしても基底の $x$ を一次の速さでは動かさない。一般の主束でも、この性質は座標なしで表せる。
 
+ここで「分布」は各点の接空間に部分空間を割り当てるものをいう。部分空間が局所座標で一定の次元を持ち、滑らかに変化するときは、[GEO2 のベクトル束](../../GEO/GEO2/index.md#def-geo2-vector-bundle)と同じ局所自明化の考え方に従い、接束の**滑らかな部分束**と呼ぶ。以下では核が実際にこの性質を持つことも確認する。
+
 <a id="def-gbg6-vertical-space"></a>
 
 <!-- formal-statement-start -->
@@ -34,7 +36,23 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg6-vertical-space -->
-**定義の確認**。$P=\mathbb R\times GL(2,\mathbb R)$、$p=(x,K)$ を取る。$T_KG$ は行列空間 $M_2(\mathbb R)$ と同一視でき、$d\pi_{(x,K)}(v,W)=v$ だから
+**定義の確認**。積主束 $P=\mathbb R\times GL(2,\mathbb R)$ の点を $p=(x,K)$ とする。まず群
+$$
+GL(2,\mathbb R)=\{K\in M_2(\mathbb R):\det K\ne0\}
+$$
+は、行列式の連続性によって行列空間 $M_2(\mathbb R)$ の開集合である。
+
+任意の行列 $W\in M_2(\mathbb R)$ について、曲線 $t\mapsto K+tW$ は十分小さい $|t|$ で群内にあり、$t=0$ での速度は $W$ となる。[GEO2 の曲線の速度と接ベクトルの同値](../../GEO/GEO2/index.md#thm-geo2-curve-derivation-equivalence)から、この速度は接空間 $T_KG$ の元である。逆に群内の曲線の速度も行列なので、
+$$
+T_KG\simeq M_2(\mathbb R)
+$$
+と同一視できる。
+
+[積接空間](../../GEO/GEO2/index.md#prop-geo2-product-tangent)によって接ベクトルを $(v,W)$ と書く。射影 $\pi(x,K)=x$ は第一成分だけを取るので、微分は
+$$
+d\pi_{(x,K)}(v,W)=v
+$$
+となる。したがって
 $$
 V_{(x,K)}P=\{(0,W):W\in M_2(\mathbb R)\}.
 $$
@@ -46,8 +64,6 @@ $$
 ## 2. Lie 環の元で垂直方向をすべて作る
 
 Lie 環 $\mathfrak g$ の $\xi$ は、[LIE2 の Lie 群指数写像](../../../代数系/LIE/LIE2/index.md#def-lie2-exponential-map)により群の曲線 $t\mapsto\exp(t\xi)$ を作る。これを $p$ の右側から作用させると、$\pi(p\exp(t\xi))=\pi(p)$ だからファイバーの中だけを走る。曲線の速度が $\xi$ に対応する垂直接ベクトルとなる。
-
-[LIE4 の Lie 群の左作用から作る基本ベクトル場](../../../代数系/LIE/LIE4/index.md#def-lie4-fundamental-vector-field)との対応も確かめておこう。主束の右作用から $g\cdot p:=pg^{-1}$ と左作用を作ると、その $\xi$ に対する LIE4 の場は $\left.\frac{d}{dt}\right|_0 p\exp(-t\xi)=-\xi_P(p)$ になる。本講では右から $\exp(t\xi)$ を作用させる速度を正符号で使う。
 
 <a id="def-gbg6-fundamental-field"></a>
 
@@ -67,6 +83,8 @@ p\exp(tB)=(x,K+tKB),\qquad B_P(x,K)=(0,KB).
 $$
 $KB$ は $T_KG=M_2(\mathbb R)$ の元で、射影の微分が $(0,KB)$ を $0$ に送る。$K$ に滑らかに依存するから滑らかなベクトル場でもある。
 <!-- definition-example-end -->
+
+[LIE4 の Lie 群の左作用から作る基本ベクトル場](../../../代数系/LIE/LIE4/index.md#def-lie4-fundamental-vector-field)との符号も照合する。右作用から $g\cdot p:=pg^{-1}$ と左作用を作ると、$\exp(t\xi)\cdot p=p\exp(-t\xi)$ である。したがって LIE4 の基本ベクトル場は $\left.\frac{d}{dt}\right|_{t=0}p\exp(-t\xi)=-\xi_P(p)$ となる。以後、本講では右から $\exp(t\xi)$ を作用させる速度を正符号で使う。
 
 基本ベクトル場は、単なる垂直方向の一部ではない。すべての垂直方向を重複なく記述できる。
 
@@ -241,7 +259,7 @@ $$
 （H2）を $(x,e)$ から $(x,k)$ への右作用に適用すると、そこでの水平空間は必ず上で構成した $H^b$ になる。$b_x$ の一意性も単位元での水平ベクトルの一意性から従う。
 <!-- proof-end -->
 
-特に $G=GL(2,\mathbb R)$ では $T_KG=M_2(\mathbb R)$、$(dr_K)_I(B)=BK$ だから
+特に $G=GL(2,\mathbb R)$ では $T_KG\simeq M_2(\mathbb R)$ である。右乗法では $r_K(I+tB)=(I+tB)K=K+tBK$、左乗法では $\ell_K(I+tB)=K+tKB$ だから、それぞれの $t=0$ での速度は $BK$ と $KB$ になる。従って $(dr_K)_I(B)=BK$ であり、水平空間の式は
 $$
 H^b_{(x,K)}P=\{(v,-b_x(v)K):v\in T_xM\}.
 $$
@@ -305,6 +323,12 @@ $$
 ---
 
 ## 6. 演習と詳細解答
+
+以下で使う $E_{12}$ は、$(1,2)$ 成分だけが $1$ で他が $0$ の $2\times2$ 行列
+$$
+E_{12}:=\begin{pmatrix}0&1\\0&0\end{pmatrix}
+$$
+を表す。前節までの行列 $B$ と同じもので、$E_{12}^2=0$ である。
 
 ### Level A：定義と行列の向きを自分で確かめる
 
@@ -453,7 +477,23 @@ $$
 
 **第1問**。$H$ は[積主束の水平分布の具体形](#thm-gbg6-product-horizontal)で $b_x(v)=vB$ としたものであり、滑らかである。直接確認しても、任意の $(v,W)$ が $(v,-vBK)+(0,W+vBK)$ と一意に分かれるため（H1）、$(dR_g)(v,-vBK)=(v,-vBKg)$ が $H_{(x,Kg)}$ に属するため（H2）が成立する。
 
-**第2問**。同じ点の旧座標は $K=h(x)L$。曲線 $(x(t),L(t))$ に沿って積を微分すると、$v=x'(0)$、$W_L=L'(0)$ として
+**第2問**。同じ点の旧座標は $K=h(x)L$。ここで $h'(x)=dh/dx$ は基底変数 $x$ による行列の成分ごとの導関数、$t$ は曲線のパラメータとする。$x=x(0)$、$L=L(0)$ として、曲線 $K(t)=h(x(t))L(t)$ を取る。
+
+行列の行・列番号 $i,j\in\{1,2\}$ と積で和を取る添字 $m$ に対し、
+$$
+K_{ij}(t)=\sum_{m=1}^2 h_{im}(x(t))L_{mj}(t).
+$$
+各項には[RA3 の積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)を、合成された $h_{im}(x(t))$ には[GEO2 の連鎖律](../../GEO/GEO2/index.md#thm-geo2-composition-differential)を適用できる。したがって
+$$
+K_{ij}'(0)=\sum_{m=1}^2
+\bigl(h_{im}'(x)x'(0)L_{mj}+h_{im}(x)L_{mj}'(0)\bigr).
+$$
+この成分式を行列に戻すと
+$$
+\left.\frac{d}{dt}h(x(t))\right|_{t=0}=h'(x)x'(0),\qquad
+K'(0)=h'(x)x'(0)L+h(x)L'(0).
+$$
+$v:=x'(0)$、$W_L:=L'(0)$、$W_K:=K'(0)$ と置けば
 $$
 W_K=h'(x)vL+h(x)W_L.
 $$
