@@ -138,7 +138,7 @@ try {
       })()`);
       assert.equal(await evaluate('document.getElementById("parameter-shape").disabled'),true);
       await click('reset');
-      await waitFor('document.querySelector("#js-source")?.value.includes("shape=\\'circle\\'")');
+      await waitFor('document.getElementById("parameter-shape")?.value==="circle"');
       assert.equal(await evaluate('document.getElementById("parameter-shape").disabled'),false);
       console.log('FCG6 1280px: edited shape/wall controls, GPU/independent CPU, invalid-source guard and reset: PASS');
     }
