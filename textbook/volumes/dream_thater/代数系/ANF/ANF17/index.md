@@ -201,7 +201,7 @@ $$
 
 ### 証明の見取り図
 
-$LM/M$ も非分岐です。$M$ の剰余体は $q^f$ 元なので、その算術的 Frobenius を $L$ の剰余体で見ると $q$ 乗 Frobenius の $f$ 乗です。他方[ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)も $f$ を掛けます。この二つの指数が一致することを確かめます。
+$LM/M$ も非分岐です。$M$ の剰余体は $q^f$ 元なので、その算術的 Frobenius を $L$ の剰余体で見ると $q$ 乗 Frobenius の $f$ 乗です。他方[ノルムの付値と整数環の跡](../ANF12/index.md#prop-anf12-norm-valuation)も $f$ を掛けます。この二つの指数が一致することを確かめます。
 
 <!-- proof-start -->
 ### 証明
@@ -220,7 +220,7 @@ $$
 =F_{L/K}^{\,fr}.
 $$
 
-他方、[ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)は $v_K(N_{M/K}(b))=f\,v_M(b)=fr$ を与えます。再度[非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)を $L/K$ に適用すれば
+他方、[ノルムの付値と整数環の跡](../ANF12/index.md#prop-anf12-norm-valuation)は $v_K(N_{M/K}(b))=f\,v_M(b)=fr$ を与えます。再度[非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)を $L/K$ に適用すれば
 
 $$
 \operatorname{rec}_{L/K}(N_{M/K}(b))
@@ -339,7 +339,7 @@ $M/K$ を有限局所拡大で剰余次数 $f=3$、$b\in M^\times$ の $v_M(b)=2
 - ID: ANF17-A4
 
 <!-- solution-start -->
-**詳細解答。** [ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)を $M/K$ に適用すると $v_K(N_{M/K}(b))=3\cdot2=6$ です。[非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)から Artin 像は $F_{L/K}^6$。$F_{L/K}$ は位数4なので $F^6=F^2$ です。
+**詳細解答。** [ノルムの付値と整数環の跡](../ANF12/index.md#prop-anf12-norm-valuation)を $M/K$ に適用すると $v_K(N_{M/K}(b))=3\cdot2=6$ です。[非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)から Artin 像は $F_{L/K}^6$。$F_{L/K}$ は位数4なので $F^6=F^2$ です。
 <!-- solution-end -->
 
 ### A5. 有限商への写像が well-defined になる条件
@@ -392,7 +392,7 @@ $$
 \operatorname{rec}_{LM/M}(b)|_L=(F_{L/K}^2)^5=F_{L/K}^{10}=F_{L/K}^4.
 $$
 
-一方、[ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)から $v_K(Nb)=2\cdot5=10$、従って $\operatorname{rec}_{L/K}(Nb)=F_{L/K}^{10}=F_{L/K}^4$。$F_{L/K}$ の位数6で指数を6で割った余りが4なので両辺は一致します。
+一方、[ノルムの付値と整数環の跡](../ANF12/index.md#prop-anf12-norm-valuation)から $v_K(Nb)=2\cdot5=10$、従って $\operatorname{rec}_{L/K}(Nb)=F_{L/K}^{10}=F_{L/K}^4$。$F_{L/K}$ の位数6で指数を6で割った余りが4なので両辺は一致します。
 <!-- solution-end -->
 
 ### B3. ノルム群を包含で比較する
@@ -471,7 +471,7 @@ $$
 
 したがって $H_M/H_L$ は $[\pi_K^3]$ で生成され、$\pi_K^3$ の4乗が $\pi_K^{12}$ に等しくなるので位数4です。[中間体への制限](#prop-anf17-restriction-square)によってこれが $\operatorname{Gal}(L/M)$ に対応し、$[L:M]=12/3=4$ とも一致します。
 
-**第3問。** $LT/T$ は非分岐です。$|k_T|=q^2$ なので、その Frobenius の $L$ への制限は $F^2$。$\pi_T$ は $v_T(\pi_T)=1$ ですから左辺は $F^2$ です。他方、[ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)に $f(T/K)=2$ を代入すると
+**第3問。** $LT/T$ は非分岐です。$|k_T|=q^2$ なので、その Frobenius の $L$ への制限は $F^2$。$\pi_T$ は $v_T(\pi_T)=1$ ですから左辺は $F^2$ です。他方、[ノルムの付値と整数環の跡](../ANF12/index.md#prop-anf12-norm-valuation)に $f(T/K)=2$ を代入すると
 
 $$
 v_K(N_{T/K}\pi_T)=2\,v_T(\pi_T)=2,
