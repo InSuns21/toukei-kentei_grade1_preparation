@@ -209,7 +209,22 @@ $$
 
 ## 4. 時間のあるPDEでは初期値と境界値を同時に扱う
 
-熱方程式 $u_t-\kappa u_{xx}=0$（$\kappa>0$）を時間区間 $0\le t\le T$、空間区間 $0\le x\le1$ で考える。ここでは $u=u(t,x)$ に対して $u_t=\partial u/\partial t$ は **$x$ を固定した時間偏微分**、$u_{xx}=\partial^2u/\partial x^2$ は **$t$ を固定した空間二階偏微分**を表す。[先行講のPDE解問題の指定](../PML2-01/index.md#def-pml2-01-problem)と同じ記法で、一変数のプライムによる $d/dx$ とは変数の固定の仕方を区別する。初期値 $u(0,x)=h(x)$ と境界値 $u(t,0)=a(t)$、$u(t,1)=b(t)$ が与えられたとき、点 $(0,0)$ と $(0,1)$ は両条件を同時に受ける。連続な関数を探すなら
+時間区間 $0\le t\le T$、空間区間 $0\le x\le1$ で熱方程式
+
+$$
+u_t-\kappa u_{xx}=0,\qquad \kappa>0
+$$
+
+を考える。[先行講のPDE解問題の指定](../PML2-01/index.md#def-pml2-01-problem)と同じく $u=u(t,x)$ とし、二種類の偏微分を
+
+$$
+u_t=\frac{\partial u}{\partial t}\quad(x\text{ を固定}),\qquad
+u_{xx}=\frac{\partial^2u}{\partial x^2}\quad(t\text{ を固定})
+$$
+
+で表す。一変数のプライム $v'=dv/dx$ と異なり、動かさない変数も指定する。
+
+初期値 $u(0,x)=h(x)$ と境界値 $u(t,0)=a(t)$、$u(t,1)=b(t)$ が与えられたとき、点 $(0,0)$ と $(0,1)$ は両条件を同時に受ける。連続な関数を探すなら
 
 $$
 h(0)=a(0),\qquad h(1)=b(0)
