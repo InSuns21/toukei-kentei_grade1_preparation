@@ -23,7 +23,7 @@ function mockGL(){
     createTexture(){return {};},activeTexture(x){active=x-33984;},
     bindTexture(){},pixelStorei(){},texParameteri(){},getError(){return 0;},
     texImage2D(target,level,internal,w,h,border,format,type,bytes){
-      assert.equal(w,12);assert.equal(h,12);assert.equal(internal,33321);
+      assert.ok([12,24,36,48].includes(w));assert.equal(w,h);assert.equal(internal,33321);
       textures[active]=Uint8Array.from(bytes);
     },
     createShader(){return {};},shaderSource(){},compileShader(){},
@@ -61,7 +61,8 @@ test('FCG5 full split update: nonzero motion, projection identity, extrema, diag
     assert.ok(s.divergenceBefore>0);
     assert.ok(s.divergenceAfter<s.divergenceBefore);
     assert.ok(s.divergenceAfter<0.03);
-    assert.ok(s.poissonResidual>=0);
+    assert.ok(s.poissonResidual<1e-6);
+    assert.ok(s.pressureIterations>0&&s.pressureIterations<=8*s.N);
     assert.ok(s.identityError<1e-10);
     assert.ok(Math.abs(s.divergenceAfter-s.dt/FCG5_RHO*s.poissonResidual)<1e-10);
     assert.ok(s.mass>0&&s.mass<1);
@@ -111,6 +112,32 @@ test('FCG5 real learner JS numerical state equals separately coded CPU oracle be
   assert.throws(()=>execute(mockGL(),{width:320,height:240},vertex,fragment,()=>{},{steps:40}),
     RangeError);
 });
+test('FCG5 R1 refined grids retain independent pressure and GPU R8 state',async()=>{
+  const [js,vertex,fragment]=await Promise.all(['fluid.js','fluid.vert','fluid.frag']
+    .map(name=>readFile(new URL(name,dir),'utf8')));
+  const grid=parametersFor('FCG5')[0];
+  for(const N of [12,24,36,48]){
+    const source=writeLabParameter(js,grid,N);
+    const gpu=mockGL();
+    new Function('gl','canvas','vertexSource','fragmentSource','report','settings',source)(
+      gpu,{width:320,height:240},vertex,fragment,()=>{},{steps:1});
+    const cpu=fcg5State(1,{N});
+    assert.ok(cpu.poissonResidual<1e-6, 'N='+N);
+    assert.ok(cpu.identityError<1e-10);
+    assert.equal(cpu.wall,0);
+    const panels=[
+      Uint8Array.from(cpu.q,png8),
+      Uint8Array.from(cpu.divergence,v=>png8(80*Math.abs(v))),
+      Uint8Array.from(cpu.speed,v=>png8(v/0.4))
+    ];
+    for(let k=0;k<3;k++)assert.deepEqual(gpu._textures[k],panels[k],
+      'N='+N+', texture '+k);
+    assert.ok(compareFCG5Readback(
+      expectedFCG5Samples(320,240,1,{N}),320,240,1,2,{N}).every(row=>row.pass));
+  }
+  assert.throws(()=>fcg5State(1,{N:48,nu:0.003}),RangeError,
+    'grid refinement must not bypass explicit viscosity stability');
+});
 test('FCG5 CPU pixel probes, panel mapping and deliberate mismatch',()=>{
   for(const [w,h] of [[320,240],[384,256],[64,64],[1024,512],[1536,512]]){
     for(const steps of [0,1,8,16,32]){
@@ -158,12 +185,12 @@ test('FCG5 shared three-tab sandbox, lesson/manifest/TOC and detailed exercises'
 });
 
 
-test('FCG5 G2 UI edits exactly the viscosity and force used by the live solver',async()=>{
+test('FCG5 R1 GUI edits actual grid, viscosity and force in the same source',async()=>{
   const source=await readFile(new URL('fluid.js',dir),'utf8');
   const specs=parametersFor('FCG5');
-  assert.deepEqual(specs.map(spec=>spec.id),['nu','force']);
-  assert.deepEqual(specs.map(spec=>spec.unit),['m²/s','m²/s²']);
-  const targets=[0.012,0.02];
+  assert.deepEqual(specs.map(spec=>spec.id),['grid','nu','force']);
+  assert.deepEqual(specs.map(spec=>spec.unit),['セル/辺','m²/s','m²/s²']);
+  const targets=[24,0.0025,0.02];
   let changed=source;
   for(let i=0;i<specs.length;i++){
     const spec=specs[i];
@@ -173,23 +200,22 @@ test('FCG5 G2 UI edits exactly the viscosity and force used by the live solver',
     assert.throws(()=>writeLabParameter(source,spec,spec.max+spec.step),RangeError);
     assert.throws(()=>writeLabParameter(source,spec,spec.min+spec.step/2),RangeError);
   }
-  assert.match(changed,/dt=0\.04,rho=1,nu=0\.012,forceAmplitude=0\.02;/);
+  assert.match(changed,/const N=24,h=1\/N,dt=0\.04,rho=1,nu=0\.0025,forceAmplitude=0\.02;/);
   assert.match(changed,/const r=dt\*nu\/\(h\*h\)/);
   assert.match(changed,/psi\(i,j\+1,forceAmplitude\)/);
-  assert.equal(changed.replace('nu=0.012','nu=0.002')
+  assert.equal(changed.replace('N=24','N=48').replace('nu=0.0025','nu=0.002')
     .replace('forceAmplitude=0.02','forceAmplitude=0.08'),source);
   for(let i=specs.length-1;i>=0;i--)
     changed=writeLabParameter(changed,specs[i],specs[i].default);
   assert.equal(changed,source);
 
-  const altered=writeLabParameter(
-    writeLabParameter(source,specs[0],targets[0]),specs[1],targets[1]);
+  const altered=specs.reduce((code,spec,i)=>writeLabParameter(code,spec,targets[i]),source);
   const [vertex,fragment]=await Promise.all(['fluid.vert','fluid.frag']
     .map(f=>readFile(new URL(f,dir),'utf8')));
   const gl=mockGL();
   new Function('gl','canvas','vertexSource','fragmentSource','report','settings',altered)(
     gl,{width:320,height:240},vertex,fragment,()=>{},{steps:8});
-  const expected=fcg5State(8,{nu:targets[0],force:targets[1]});
+  const expected=fcg5State(8,{N:targets[0],nu:targets[1],force:targets[2]});
   const panels=[
     Uint8Array.from(expected.q,png8),
     Uint8Array.from(expected.divergence,v=>png8(Math.abs(v)*80)),
@@ -198,7 +224,7 @@ test('FCG5 G2 UI edits exactly the viscosity and force used by the live solver',
   assert.equal(gl._textures.length,3);
   for(let i=0;i<3;i++)assert.deepEqual(gl._textures[i],panels[i],
     'edited learner JS and independent CPU still agree for texture '+i);
-  const probes=expectedFCG5Samples(320,240,8,{nu:targets[0],force:targets[1]});
+  const probes=expectedFCG5Samples(320,240,8,{N:targets[0],nu:targets[1],force:targets[2]});
   assert.ok(compareFCG5Readback(probes,320,240,8,2,
     {nu:targets[0],force:targets[1]}).every(row=>row.pass));
   assert.ok(compareFCG5Readback(probes,320,240,8).some(row=>!row.pass),
@@ -206,16 +232,17 @@ test('FCG5 G2 UI edits exactly the viscosity and force used by the live solver',
 });
 test('FCG5 G2 gives edited expressions and noncanonical declarations precedence',async()=>{
   const source=await readFile(new URL('fluid.js',dir),'utf8');
-  const [nu,force]=parametersFor('FCG5');
+  const [grid,nu,force]=parametersFor('FCG5');
   const expression=source.replace('nu=0.002','nu=0.001+0.001');
   assert.equal(readLabParameter(expression,nu).ok,false);
-  assert.throws(()=>writeLabParameter(expression,nu,0.01),/JSソース/);
-  const duplicate=source+'\n'+source.split('\n').find(line=>line.startsWith('const N=12'));
+  assert.throws(()=>writeLabParameter(expression,nu,0.0025),/JSソース/);
+  const duplicate=source+'\n'+source.split('\n').find(line=>line.startsWith('const N=48'));
   assert.equal(readLabParameter(duplicate,nu).ok,false);
   assert.equal(readLabParameter(duplicate,force).ok,false);
-  const customGrid=source.replace('const N=12','const N=16');
-  assert.equal(readLabParameter(customGrid,nu).ok,false);
-  assert.equal(readLabParameter(customGrid,force).ok,false);
+  const customGrid=source.replace('const N=48','const N=16');
+  assert.equal(readLabParameter(customGrid,grid).ok,false);
+  assert.equal(readLabParameter(customGrid,nu).ok,true);
+  assert.equal(readLabParameter(customGrid,force).ok,true);
 });
 
 test('FCG5 authenticated live-clock handshake reports actual running solver state',async()=>{
