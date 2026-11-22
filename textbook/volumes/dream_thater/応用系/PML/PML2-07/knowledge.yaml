@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - PML2-06
+  - ML2-14
 forward_references: []
 concepts:
   - id: physics-machine-learning.pml2-07-second-jet
@@ -18,6 +19,7 @@ concepts:
     introduction: formal
     requires:
       - physics-machine-learning.pml2-07-second-jet
+      - learning.computational-graph
   - id: physics-machine-learning.pml2-07-tanh-derivatives
     name: tanhユニットの入力微分
     kind: theorem

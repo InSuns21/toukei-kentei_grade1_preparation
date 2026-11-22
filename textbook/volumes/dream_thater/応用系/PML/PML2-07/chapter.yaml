@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - PML2-06
+  - ML2-14
 official_scope: []
 learning_objectives:
   - 入力の二階微分とパラメータ勾配の変数を区別しPINN残差へ適用できる
