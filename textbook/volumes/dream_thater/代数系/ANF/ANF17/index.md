@@ -251,7 +251,13 @@ $$
 
 任意の開有限指数部分群 $H$ に対し、[局所存在定理](../ANF16/index.md#thm-anf16-local-existence)は一意な有限 Abel 拡大 $L$ を与え、$H=N_{L/K}(L^\times)$ とします。従って対応は全射であり、ノルム群が同じなら拡大も同じなので単射です。
 
-$L\supset M$ なら[ノルムの塔での包含](../ANF16/index.md#prop-anf16-norm-tower)により $H_L\subset H_M$ です。逆に $H_L\subset H_M$ なら、[局所 Artin 商同型](#prop-anf17-artin-quotient)を用いると、$K^\times$ の各元で $M$ への Artin 作用を決めることができ、$H_L$ を固定する作用は $M$ でも自明です。より形式的には、固定した最大 Abel 拡大上の[相互法則の両立性](#thm-anf17-local-reciprocity)により $H_X$ は $X$ 上で自明に作用する元の核です。$H_L\subset H_M$ は $\operatorname{Gal}(K^{\mathrm{ab}}/L)\subset\operatorname{Gal}(K^{\mathrm{ab}}/M)$ を意味し、Galois 対応により $M\subset L$ です。指数の主張は[商同型](#prop-anf17-artin-quotient)から従います。
+$L\supset M$ なら[ノルムの塔での包含](../ANF16/index.md#prop-anf16-norm-tower)により $H_L\subset H_M$ です。逆に $H_L\subset H_M$ とします。二つの拡大の合成体 $F=LM$ は有限 Abel Galois 拡大です。$H_F=N_{F/K}(F^\times)$ とすると、[ノルム塔の包含](../ANF16/index.md#prop-anf16-norm-tower)から $H_F\subset H_L\cap H_M$。従って[商の同型](#prop-anf17-artin-quotient)で、$H_L/H_F$ と $H_M/H_F$ を $\operatorname{Gal}(F/K)$ の部分群として比較できます。[中間体への制限](#prop-anf17-restriction-square)の核の記述から、前者は $\operatorname{Gal}(F/L)$、後者は $\operatorname{Gal}(F/M)$ に対応します。$H_L\subset H_M$ により
+
+$$
+\operatorname{Gal}(F/L)\subset\operatorname{Gal}(F/M).
+$$
+
+有限 Galois 対応では固定体の包含が逆転するので $M\subset L$ です。指数の主張は[商同型](#prop-anf17-artin-quotient)から従います。
 <!-- proof-end -->
 
 ここまでで、非分岐例では Frobenius を追い、任意の有限 Abel 拡大ではノルムと有限 Galois 群の対応を追えるようになりました。次講ではこの仕組みを $\mathbb Q_p$ の円分・分岐拡大の数値計算へ適用します。
@@ -369,7 +375,7 @@ $$
 - ID: ANF17-B3
 
 <!-- solution-start -->
-**詳細解答。** [局所相互法則](#thm-anf17-local-reciprocity)は全有限 Abel 拡大で両立するので、最大 Abel 拡大 $K^{\mathrm{ab}}$ に作用する Artin 像を通して比較できます。$H_i$ は $L_i$ に自明に作用する元の集合です。$H_1\subset H_2$ なら、$L_1$ 上で自明に作用する元は全て $L_2$ 上でも自明に作用します。これらの閉部分群の固定体の包含は逆向きですから $L_2\subset L_1$。これは[存在対応の系](#cor-anf17-correspondence)にも一致します。
+**詳細解答。** $F=L_1L_2$ は有限 Abel Galois 拡大で、[ノルム塔の包含](../ANF16/index.md#prop-anf16-norm-tower)から $H_F\subset H_1\cap H_2$ です。[Artin 商同型](#prop-anf17-artin-quotient)により $K^\times/H_F\cong\operatorname{Gal}(F/K)$。さらに[制限の核の記述](#prop-anf17-restriction-square)を $F/L_i$ へ適用すると、$H_i/H_F$ は $\operatorname{Gal}(F/L_i)$ に対応します。$H_1\subset H_2$ なので $\operatorname{Gal}(F/L_1)\subset\operatorname{Gal}(F/L_2)$。有限 Galois 対応で固定体の包含は逆向きですから $L_2\subset L_1$ です。
 <!-- solution-end -->
 
 ### B4. 分岐拡大では付値だけで十分か
