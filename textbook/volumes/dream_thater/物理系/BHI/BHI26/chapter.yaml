@@ -1,0 +1,40 @@
+id: BHI26
+title: "Page転移と複数鞍点の比較"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI25
+official_scope: []
+learning_objectives:
+  - 二浴JT・自由Diracの同じ状態と浴領域から空island枝のエントロピーをcutoff込みで導出できる
+  - 等時刻を有限時刻で先取りせずisland候補の二変数停留を解いた後に枝の値を比較できる
+  - 後期の唯一の対称island根から飽和値とPage交点を計算し存在域と近似誤差を明示できる
+  - 交点におけるエントロピーの連続性と勾配の折れ目を包絡線微分で導出できる
+  - 複数鞍点の局所的候補選択と大域的支配・レプリカの導出を混同しない
+  - 熱平衡二浴模型のPage型転移と時間依存する実蒸発模型を区別できる
+definitions:
+  - { id: BHI26-DEF-01, name: "同一模型の空枝と極値化済みisland枝" }
+theorems:
+  - { id: BHI26-PROP-01, name: "二浴平衡模型の空islandエントロピー" }
+  - { id: BHI26-PROP-02, name: "後期のisland飽和値とPage交点" }
+  - { id: BHI26-PROP-03, name: "枝選択による折れ目と勾配" }
+canonical_examples:
+  - 四端点と空枝二端点のKruskal距離・Jacobian・固有cutoffの直接照合
+  - 対称な実数QES根の定義条件と二変数残差の数値検算
+  - 後期根から交点と両枝エントロピーの数表を再生成
+  - 鞍点の時間方向負曲率とエントロピー枝選択の違い
+  - BHI23の非定常模型と二浴平衡模型を同一視できない例
+problem_patterns:
+  - BHI26-EMPTY-INTERVAL
+  - BHI26-CUTOFF-LEDGER
+  - BHI26-QES-DOMAIN
+  - BHI26-LATE-ROOT
+  - BHI26-PAGE-CROSSING
+  - BHI26-ERROR-ESTIMATE
+  - BHI26-ENVELOPE-DERIVATIVE
+  - BHI26-SADDLE-COMPARISON
+  - BHI26-INTEGRATED-PAGE-CURVE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 15, review: 6 }
