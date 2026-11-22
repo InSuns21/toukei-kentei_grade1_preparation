@@ -28,8 +28,8 @@ def tridiagonal_poisson(rhs, h):
     """Solve (-z[j-1]+2*z[j]-z[j+1])/h**2=rhs[j] with zero endpoints."""
     m = len(rhs)
     assert m >= 1 and 0 < h < 1
-    # Thomas elimination for the positive definite, strictly diagonally
-    # dominant 1D Dirichlet matrix (interior row sums can be zero).
+    # Thomas elimination for the positive definite Dirichlet tridiagonal
+    # matrix (only boundary-adjacent rows are strictly diagonally dominant).
     d = [2.0] * m
     r = [h * h * value for value in rhs]
     for i in range(1, m):
