@@ -1,0 +1,38 @@
+chapter: GBG9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG8
+forward_references: []
+concepts:
+  - id: gauge.infinitesimal-representation-action
+    name: 表現の無限小作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（表現の無限小作用）"]
+    requires: [gauge.linear-representation, lie.lie-group]
+
+  - id: gauge.associated-covariant-derivative
+    name: 結合束上の共変微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（結合束上の共変微分）"]
+    requires: [gauge.associated-vector-bundle, gauge.sections-equivariant-correspondence, gauge.principal-connection-form, gauge.horizontal-lift-splitting, gauge.infinitesimal-representation-action]
+
+  - id: gauge.associated-horizontal-well-defined
+    name: 水平微分の整合性とLeibniz則
+    kind: theorem
+    introduction: formal
+    requires: [gauge.associated-covariant-derivative, gauge.horizontal-distribution, gauge.sections-equivariant-correspondence]
+
+  - id: gauge.associated-local-formula
+    name: 結合束の共変微分の局所公式
+    kind: theorem
+    introduction: formal
+    requires: [gauge.associated-horizontal-well-defined, gauge.local-connection-potential, gauge.right-principal-fundamental-vector-field, gauge.infinitesimal-representation-action]
+
+  - id: gauge.associated-covariance
+    name: 局所共変微分のゲージ共変性
+    kind: theorem
+    introduction: formal
+    requires: [gauge.associated-local-formula, gauge.local-potential-transformation, gauge.associated-component-transformation, gauge.infinitesimal-representation-action]
