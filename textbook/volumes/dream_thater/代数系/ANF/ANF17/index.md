@@ -8,7 +8,7 @@ $\pi_K$ は $v_K(\pi_K)=1$ の一様化元です。[局所体の単数と付値�
 
 有限 Galois 拡大の Galois 群とノルムは既習です。また[算術的 Frobenius の定義](../ANF15/index.md#def-anf15-arithmetic-frobenius)では、剰余体上の自己同型を $x\mapsto x^q$ としました。
 
-この講で証明するのは、相互法則の有限商から得られる自然な射の可換性・核・一意性、非分岐拡大での規格化と基礎体変更の直接計算です。**すべての分岐 Abel 拡大について相互法則の写像を構成する深い存在部分と、その一般的な基礎体変更則は外部定理**として使用します。この区別は後の具体計算でも維持します。
+この講で証明するのは、相互法則の有限商から得られる同型・核と自然な射の可換性、非分岐拡大での規格化と基礎体変更の直接計算です。**すべての分岐 Abel 拡大について相互法則の写像を構成する深い存在部分と、その一般的な基礎体変更則は外部定理**として使用します。この区別は後の具体計算でも維持します。
 
 ## 1. どちら向きの Frobenius を対応させるか
 
@@ -20,9 +20,9 @@ K^\times/(\pi_K^{n\mathbb Z}\mathcal O_K^\times)
 \qquad [\pi_K]\longmapsto F_{E/K}.
 $$
 
-$F_{E/K}$ は剰余体上の $x\mapsto x^q$ の唯一の持ち上げで、単数の像は $1$ です。$x\mapsto x^{q^{-1}}$ という逆向きの作用を採用する流儀もありますが、本講は**算術的 Frobenius** を採用します。この選択により、一様化元と Frobenius の向きが一致します。
+$F_{E/K}$ は剰余体上の $x\mapsto x^q$ の唯一の持ち上げで、単数の像は $1$ です。剰余体 $k_E$（$q^n$ 元）上の逆自己同型 $x\mapsto x^{q^{n-1}}$ に対応させる流儀もありますが、本講は**算術的 Frobenius** を採用します。この選択により、一様化元と Frobenius の向きが一致します。
 
-より一般の有限 Abel 拡大 $L/K$ でも、$K^\times$ から $\operatorname{Gal}(L/K)$ へ同時に射を作りたいのです。そこで、まず対応させたい写像と必要条件を明示します。
+より一般の有限 Abel 拡大 $L/K$ でも、$K^\times$ から $\operatorname{Gal}(L/K)$ へ同時に射を作りたいのです。ここで**有限 Abel 拡大**とは、$L/K$ が有限 Galois 拡大で、その Galois 群が可換であることです。以下では、局所相互法則から得られる写像を定義し、その必要条件を確かめます。
 
 <a id="def-anf17-finite-reciprocity"></a>
 
@@ -38,7 +38,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf17-finite-reciprocity -->
-**定義の確認**（非分岐二次）。 $K=\mathbb Q_3$、$E=\mathbb Q_3(i)$（$i^2=-1$）では[非分岐 Frobenius の具体例](../ANF15/index.md#prop-anf15-frobenius-lift)により $F(i)=-i$、$F^2=1$ です。任意の $a=3^m u$（$m\in\mathbb Z$、$u\in\mathbb Z_3^\times$）に対して
+**定義の確認**（非分岐二次）。 $K=\mathbb Q_3$、$E=\mathbb Q_3(i)$（$i^2=-1$）は[非分岐 Frobenius の具体例](../ANF15/index.md#prop-anf15-frobenius-lift)で確認した次数 $2$ の Galois 拡大です。$F(i)=-i$ かつ $F^2=1$ なので、Galois 群は位数 $2$ の可換群です。
+
+[非分岐局所 Artin 写像](../ANF15/index.md#thm-anf15-unramified-reciprocity)では、$a$ の付値を $2$ で割った余りから Frobenius の冪を判定します。具体的に $a=3^m u$ と書き、$m=v_3(a)\in\mathbb Z$、$u\in\mathbb Z_3^\times$ とすると
 
 $$
 \operatorname{rec}_{E/K}(3^m u)=F^m,\quad
@@ -46,10 +48,10 @@ $$
 \operatorname{rec}_{E/K}(-1)=1.
 $$
 
-実際 $F^{m+\ell}=F^mF^\ell$ なので準同型です。$3$ の像が $F$ で全射、核は $m$ が偶数の元、すなわち $3^{2\mathbb Z}\mathbb Z_3^\times=N_{E/K}(E^\times)$ です。単数が全て核に入ることも計算から分かります。
+実際 $v_3(ab)=v_3(a)+v_3(b)$ と $F^{m+\ell}=F^mF^\ell$ から準同型です。$3$ の像が $F$ なので全射で、核は $m$ が偶数の元、すなわち $3^{2\mathbb Z}\mathbb Z_3^\times=N_{E/K}(E^\times)$ です。単数は $m=0$ なので核に含まれます。またこの核は $3$ 進位相で開です（$3^{2\mathbb Z}\mathbb Z_3^\times$ は開集合の和）。よって有限離散群への準同型は連続であり、定義の有限性・Abel 性・準同型性・連続性・規格化・ノルム核をこの例で確認できました。
 <!-- definition-example-end -->
 
-ここで有限 Abel 拡大とは、$L/K$ が有限・Galois で $\operatorname{Gal}(L/K)$ が可換であることです。[非分岐ノルム群](../ANF15/index.md#prop-anf15-unramified-norm-quotient)なら上の写像を構成できました。一方、分岐一般では Hilbert 90 やノルム群の開性だけでは構成できません。
+[非分岐ノルム群](../ANF15/index.md#prop-anf15-unramified-norm-quotient)なら上の写像を構成できました。一方、分岐一般では Hilbert 90 やノルム群の開性だけでは構成できません。
 
 <a id="thm-anf17-local-reciprocity"></a>
 
@@ -66,7 +68,7 @@ $$
 
 ### 定理を使うための境界
 
-これは**局所類体論の外部定理**です。分岐拡大も含む存在・両立性の証明には、局所基本類と群コホモロジー、または Lubin–Tate 理論などが必要です。[前講の一般存在定理](../ANF16/index.md#thm-anf16-local-existence)はノルム部分群に対応する拡大の存在を述べるのであって、この自然な写像の構成を単独で与えるわけではありません。標準的な証明は J. S. Milne *Class Field Theory*（https://www.jmilne.org/math/CourseNotes/cft.html）および K. Kedlaya *Class Field Theory*, §4.1（https://kskedlaya.org/cft/sec_localrecip.html）を参照してください。
+これは**局所類体論の外部定理**です。ここで述べた全拡大にわたる写像族の一意性も、本文中の有限商の計算だけから証明したものではなく、外部定理の一部として採用します。分岐拡大も含む存在・両立性の証明には、局所基本類と群コホモロジー、または Lubin–Tate 理論などが必要です。[前講の一般存在定理](../ANF16/index.md#thm-anf16-local-existence)はノルム部分群に対応する拡大の存在を述べるのであって、この自然な写像の構成を単独で与えるわけではありません。標準的な証明は J. S. Milne *Class Field Theory*（https://www.jmilne.org/math/CourseNotes/cft.html）および K. Kedlaya *Class Field Theory*, §4.1（https://kskedlaya.org/cft/sec_localrecip.html）を参照してください。
 
 以下の命題では、この外部定理を**入力として使う箇所**を明示し、その先の群論・計算は全て示します。
 
@@ -163,7 +165,18 @@ H_L=\langle-5\rangle(1+5\mathbb Z_5),\qquad
 H_M=5^{\mathbb Z}\{u\in\mathbb Z_5^\times:\bar u\in\{1,4\}\}.
 $$
 
-$K^\times/H_L$ は $[2]$ で生成される位数4の巡回群、$K^\times/H_M$ は $[2]$ で生成される位数2の巡回群です。従って制限は生成元を生成元へ送り、$[2]^2$ を核に送ります。Galois 側の核は次数 $[L:M]=2$ の群に一致します。この例は Artin 写像の **Galois 群への具体的な生成元の像をまだ計算していない** 点にも注意してください。位数だけから分岐拡大の生成元を決めつけることはできません。
+$H_L$ は付値 $1$ の元 $-5$ を含むため、剰余類から付値を取り除いて単数代表にできます。その単数の剰余は、$H_L$ の単数部分が $1+5\mathbb Z_5$ なので $\mathbb F_5^\times$ の元で区別できます。
+
+$$
+\mathbb F_5^\times=\langle2\rangle,\qquad
+2^2\equiv4\ne1,\quad2^4\equiv1\pmod5.
+$$
+
+従って $K^\times/H_L$ は $[2]$ で生成される位数 $4$ の巡回群です。一方、$H_M$ の単数剰余は $\{1,4\}$ なので、$K^\times/H_M$ は $[2]$ で生成される位数 $2$ の巡回群です。
+
+商への制限は生成元を生成元へ送り、$[2]^2$ を核に送ります。Galois 側の核は $\operatorname{Gal}(L/M)$ であり、その位数は $[L:M]=2$ です。
+
+ただし、この計算だけでは Artin 写像による **Galois 群の具体的な生成元の像** までは決まりません。分岐拡大の Artin 像を商群の位数だけから推定することはできません。
 
 ## 4. 基礎体を変えた場合：ノルムと制限
 
@@ -201,7 +214,9 @@ $$
 
 ### 証明の見取り図
 
-$LM/M$ も非分岐です。$M$ の剰余体は $q^f$ 元なので、その算術的 Frobenius を $L$ の剰余体で見ると $q$ 乗 Frobenius の $f$ 乗です。他方[ノルムの付値と整数環の跡](../ANF12/index.md#prop-anf12-norm-valuation)も $f$ を掛けます。この二つの指数が一致することを確かめます。
+$LM/M$ も非分岐です。$M$ の剰余体は $q^f$ 元なので、その算術的 Frobenius を $L$ に制限すると、$q$ 乗 Frobenius の $f$ 乗になります。
+
+他方、[ノルム商の付値・単数完全列](../ANF16/index.md#prop-anf16-valuation-unit-sequence)の直前では、一般の有限局所拡大 $M/K$ に対するノルム付値公式が導出されています。ANF12 の対応する命題は基礎体 $\mathbb Q_p$ の場合なので、ここでは ANF16 の一般化を使います。両側の指数を照合しましょう。
 
 <!-- proof-start -->
 ### 証明
@@ -220,7 +235,13 @@ $$
 =F_{L/K}^{\,fr}.
 $$
 
-他方、[ノルムの付値と整数環の跡](../ANF12/index.md#prop-anf12-norm-valuation)は $v_K(N_{M/K}(b))=f\,v_M(b)=fr$ を与えます。再度[非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)を $L/K$ に適用すれば
+他方、[ノルム商の付値・単数完全列](../ANF16/index.md#prop-anf16-valuation-unit-sequence)を使います。そこでは $\mathcal O_M$ の $\mathcal O_K$ 基底上で一様化元 $\pi_M$ の乗法行列を作り、$\#(\mathcal O_M/\pi_M\mathcal O_M)=\#k_M=q^f$ から $v_K(\det m_{\pi_M})=f$ と求めました。単数の乗法行列の行列式は単数なので、$b=\pi_M^r u$ に対して
+
+$$
+v_K(N_{M/K}(b))=r\,v_K(N_{M/K}(\pi_M))+v_K(N_{M/K}(u))=fr.
+$$
+
+これを[非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)に代入すると、
 
 $$
 \operatorname{rec}_{L/K}(N_{M/K}(b))
@@ -339,7 +360,7 @@ $M/K$ を有限局所拡大で剰余次数 $f=3$、$b\in M^\times$ の $v_M(b)=2
 - ID: ANF17-A4
 
 <!-- solution-start -->
-**詳細解答。** [ノルムの付値と整数環の跡](../ANF12/index.md#prop-anf12-norm-valuation)を $M/K$ に適用すると $v_K(N_{M/K}(b))=3\cdot2=6$ です。[非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)から Artin 像は $F_{L/K}^6$。$F_{L/K}$ は位数4なので $F^6=F^2$ です。
+**詳細解答。** [ノルム商の付値・単数完全列](../ANF16/index.md#prop-anf16-valuation-unit-sequence)を $M/K$ に適用すると $v_K(N_{M/K}(b))=3\cdot2=6$ です。[非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)から Artin 像は $F_{L/K}^6$。$F_{L/K}$ は位数4なので $F^6=F^2$ です。
 <!-- solution-end -->
 
 ### A5. 有限商への写像が well-defined になる条件
@@ -392,7 +413,7 @@ $$
 \operatorname{rec}_{LM/M}(b)|_L=(F_{L/K}^2)^5=F_{L/K}^{10}=F_{L/K}^4.
 $$
 
-一方、[ノルムの付値と整数環の跡](../ANF12/index.md#prop-anf12-norm-valuation)から $v_K(Nb)=2\cdot5=10$、従って $\operatorname{rec}_{L/K}(Nb)=F_{L/K}^{10}=F_{L/K}^4$。$F_{L/K}$ の位数6で指数を6で割った余りが4なので両辺は一致します。
+一方、[ノルム商の付値・単数完全列](../ANF16/index.md#prop-anf16-valuation-unit-sequence)から $v_K(Nb)=2\cdot5=10$、従って $\operatorname{rec}_{L/K}(Nb)=F_{L/K}^{10}=F_{L/K}^4$。$F_{L/K}$ の位数6で指数を6で割った余りが4なので両辺は一致します。
 <!-- solution-end -->
 
 ### B3. ノルム群を包含で比較する
@@ -469,9 +490,9 @@ H_L=\pi_K^{12\mathbb Z}\mathcal O_K^\times,\qquad
 H_M=\pi_K^{3\mathbb Z}\mathcal O_K^\times.
 $$
 
-したがって $H_M/H_L$ は $[\pi_K^3]$ で生成され、$\pi_K^3$ の4乗が $\pi_K^{12}$ に等しくなるので位数4です。[中間体への制限](#prop-anf17-restriction-square)によってこれが $\operatorname{Gal}(L/M)$ に対応し、$[L:M]=12/3=4$ とも一致します。
+したがって $H_M/H_L$ は $[\pi_K^3]$ で生成され、$\pi_K^{3j}\in H_L$ となるのは $12\mid3j$、すなわち $4\mid j$ のときだけなので、位数は正確に4です。[中間体への制限](#prop-anf17-restriction-square)によってこれが $\operatorname{Gal}(L/M)$ に対応し、$[L:M]=12/3=4$ とも一致します。
 
-**第3問。** $LT/T$ は非分岐です。$|k_T|=q^2$ なので、その Frobenius の $L$ への制限は $F^2$。$\pi_T$ は $v_T(\pi_T)=1$ ですから左辺は $F^2$ です。他方、[ノルムの付値と整数環の跡](../ANF12/index.md#prop-anf12-norm-valuation)に $f(T/K)=2$ を代入すると
+**第3問。** $LT/T$ は非分岐です。$|k_T|=q^2$ なので、その Frobenius の $L$ への制限は $F^2$。$\pi_T$ は $v_T(\pi_T)=1$ ですから左辺は $F^2$ です。他方、[ノルム商の付値・単数完全列](../ANF16/index.md#prop-anf16-valuation-unit-sequence)に $f(T/K)=2$ を代入すると
 
 $$
 v_K(N_{T/K}\pi_T)=2\,v_T(\pi_T)=2,
