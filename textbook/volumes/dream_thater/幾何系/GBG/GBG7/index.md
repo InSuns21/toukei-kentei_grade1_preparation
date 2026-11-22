@@ -44,9 +44,9 @@ $$
 
 > すなわち任意の $p\in P$、$z\in T_pP$ について
 
-$
+$$
 \omega_{pg}((dR_g)_p z)=\operatorname{Ad}_{g^{-1}}(\omega_p(z))
-$
+$$
 
 > が成立する。
 <!-- formal-statement-end -->
