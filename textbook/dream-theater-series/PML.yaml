@@ -115,7 +115,7 @@ chapters:
     title: "学習用のPDEデータはどう作り検証するか"
   - id: PML2-06
     path: textbook/volumes/dream_thater/応用系/PML/PML2-06
-    status: planned
+    status: completed
     title: "PINNの強形式残差はどう定義されるか"
   - id: PML2-07
     path: textbook/volumes/dream_thater/応用系/PML/PML2-07

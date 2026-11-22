@@ -30,6 +30,8 @@ $$
 
 $C$ は固定された浴端点、$S_0$、cutoffと端点定数からの、$y_1,y_2$ に依存しない項です。局所反項の形状依存は有効結合に吸収済みとし、そうでなければその偏導関数も加えます。物質状態のレプリカ相関が定める $\mathcal I(x)$ は微分可能と仮定します。
 
+以下、この節のプライムは **表示した一変数についての導関数**を意味し、$\Phi'(y_j)=(d\Phi/dy)|_{y=y_j}$、$\omega'(y_j)=(d\omega/dy)|_{y=y_j}$、$\mathcal I'(x)=d\mathcal I/dx$ とします。一方 $\partial_{y_1},\partial_{y_2}$ は、他方の重力端点と浴端点 $b,L$ を固定した偏微分です。例えば $\partial_{y_1}\mathcal I(x)=\mathcal I'(x)\partial_{y_1}x$ であり、両方のプライムは同じ変数の微分ではありません。
+
 交差比を直接微分する前に対数を取ると、分母の微分の符号を取り違えにくくなります。
 
 $$
@@ -122,6 +124,20 @@ $$
 
 です。物質の実際の端点固有cutoffを $\epsilon_g,\epsilon_b>0$ とし、$S_0$ には同じ局所繰り込み処方を含めます。
 
+**空間的分離の判定**も計量から確かめます。同じ外部領域の重力端点 $(t_a,-a)$ と浴端点 $(t,b)$ は、正の共形因子を除くと共通の計量 $-dt^2+d\sigma^2$ に従います。したがって両端点の座標差は $\Delta\sigma=a+b>0$、$\Delta t=t-t_a$ であり、空間的に分離するための条件は
+
+$$
+(\Delta\sigma)^2-(\Delta t)^2>0
+\ \Longleftrightarrow\ 
+a+b>|t-t_a|
+\ \Longleftrightarrow\
+X>|U-V|
+\ \Longleftrightarrow\
+\cosh X-\cosh(U-V)>0.
+$$
+
+最後の同値は $X=A+B>0$ と $\cosh z$ の偶性・$z\ge0$ での狭義単調増加によります。左右それぞれでこの条件を満たす領域を採用します。これは端点間の因果関係の条件であって、停留方程式を満たすかどうかの判定とは別です。
+
 <a id="def-bhi25-equilibrium-model"></a>
 
 <!-- formal-statement-start -->
@@ -137,7 +153,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi25-equilibrium-model -->
-**定義の確認**：$\kappa=\ell=1$、$a=2$、$b=1$、$t=t_a=0$、$S_h=3$、$\epsilon_g=\epsilon_b=10^{-2}$、$c=1$ とします。$A=2,B=1,X=3,U=V=0$ なので $F=\cosh3-1>0$。重力端点は左右それぞれ $\sigma=-2$、浴端点はそれぞれ $\sigma=1$ です。両方のcutoffは正で、$\epsilon_{g,b}\ll a+b$。幾何項は $2S_0+6\coth2$ と、二端点分になります。この例は**領域と定義条件**を確認したもので、まだ停留解ではありません。
+**定義の確認**：$\kappa=\ell=1$、$a=2$、$b=1$、$t=t_a=0$、$S_h=3$、$\epsilon_g=\epsilon_b=10^{-2}$、$c=1$ とします。$A=2,B=1,X=3,U=V=0$ なので、空間的分離を判定する $X=3>|U-V|=0$ が成立し、$F=\cosh3-1>0$ です。重力端点は左右それぞれ $\sigma=-2$、浴端点はそれぞれ $\sigma=1$ です。両方のcutoffは正で、$\epsilon_{g,b}\ll a+b$。幾何項は $2S_0+6\coth2$ と、二端点分になります。この例は**領域と定義条件**を確認したもので、まだ停留解ではありません。
 <!-- definition-example-end -->
 
 ### 四端点の物質エントロピー
@@ -149,7 +165,7 @@ w^+=e^{\kappa(\sigma+t)},\qquad
 w^-=-e^{\kappa(\sigma-t)}
 $$
 
-と選べます。左外部は符号と未来向きの時間を反転して指定します。同じ側の浴点と重力点の二つの光円錐差の積は
+と選べます。左外部では未来向きの時間とKruskal符号を対応させ、$w_L^+=-e^{\kappa(\sigma-t_L)}$、$w_L^-=e^{\kappa(\sigma+t_L)}$ と選びます。右外部と左外部を通じた距離の二つの光円錐差は、計量 $-dw^+dw^-$ に対応する **$-\Delta w^+\Delta w^-$** の符号で組み合わせます。まず同じ側の浴点と重力点については
 
 $$
 \begin{aligned}
@@ -162,7 +178,24 @@ D_{\rm same}
 \end{aligned}
 $$
 
-左右をまたぐ距離では $w^\pm$ の符号が逆になるため、同じ計算の引き算が足し算へ変わり、両端点に対する光円錐差の積は
+左右をまたぐ距離では両外部のKruskal符号と時間の向きが異なるため、例えば右浴点 $(t,b)$ と左重力端点 $(t_a,-a)$ について
+
+$$
+\begin{aligned}
+D_{\rm cross}
+&=(e^{B+V}+e^{-A-U})(e^{B-V}+e^{-A+U})\\
+&=e^{2B}+e^{-2A}+2e^{B-A}\cosh(U+V).
+\end{aligned}
+$$
+
+ここで、半角公式を使うため
+
+$$
+C_\pm:=\cosh\frac{X\pm(U+V)}2>0,\qquad
+\cosh X+\cosh(U+V)=2C_-C_+
+$$
+
+と定義します。すると両端点に対する光円錐差の積は
 
 $$
 D_{\rm cross}
@@ -177,11 +210,7 @@ $$
 =\left(\frac{2e^{B-A}F\cosh U\cosh V}{C_-C_+}\right)^2.
 $$
 
-Kruskal座標へのJacobian（各点で $\kappa e^{\kappa\sigma}$）と端点Weyl因子（重力側 $\kappa\ell/\sinh A$、浴側 $1$）を固有cutoffに対応付けます。二端点ごとの局所長の積を差し引くと、指数因子 $e^{B-A}$ は打ち消し合い、次の $C_\pm$ が分母に残ります。
-
-$$
-C_\pm=\cosh\frac{X\pm(U+V)}2,\qquad C_\pm>0.
-$$
+Kruskal座標へのJacobian（各点の二つの光円錐座標の微分の幾何平均が $\kappa e^{\kappa\sigma}$）と端点Weyl因子（重力側 $\kappa\ell/\sinh A$、浴側 $1$）を固有cutoffに対応付けます。二端点ごとの局所長の積を差し引くと、指数因子 $e^{B-A}$ は打ち消し合い、上で定義した $C_\pm$ が分母に残ります。
 
 <a id="prop-bhi25-thermal-functional"></a>
 
@@ -198,7 +227,7 @@ S_I(A,U;V)=2S_0+2S_h\coth A
 }
 $$
 >
-> $T_\pm=\tanh[(X\pm(U+V))/2]$ とおくと、端点の半径方向と時間方向の必要十分な**対称変分での一次停留条件**は、次の連立方程式である。
+> $\operatorname{csch}A:=1/\sinh A$ とし、$T_\pm=\tanh[(X\pm(U+V))/2]$ とおくと、端点の半径方向と時間方向の必要十分な**対称変分での一次停留条件**は、次の連立方程式である。
 >
 $$
 \boxed{\begin{aligned}
@@ -217,7 +246,25 @@ $$
 <!-- proof-start -->
 ### 証明
 
-自由Dirac真空では同一cutoffでの二区間エントロピーを各単一区間の和から交差比の相互情報量を引いて得ます。[BHI24で確定した端点と相互情報量の処方](../BHI24/index.md#prop-bhi24-four-endpoint-entropy)をKruskal真空で使います。二つの単一区間の距離積は $D_{\rm same}^2$、二区間の交差相関は $D_{gg}D_{bb}/D_{\rm cross}^2$ を与えます。直前で個別に計算した四種の距離を入れると上の平方の式になります。Kruskal座標での各端点の座標cutoffは、$\sigma$ の座標cutoffへ $|dw^\pm/d\sigma|=\kappa e^{\kappa\sigma}$ を掛けたものです。さらに固有cutoffへの変換には $e^{\omega_g}=\kappa\ell/\sinh A$、浴側には $e^{\omega_b}=1$ を使います。従って $e^{B-A}$ が相殺され、残った端点因子は
+自由Dirac真空では同一cutoffでの二区間エントロピーを各単一区間の和から交差比の相互情報量を引いて得ます。[BHI24で確定した端点と相互情報量の処方](../BHI24/index.md#prop-bhi24-four-endpoint-entropy)をKruskal真空で使います。二つの単一区間の距離積は $D_{\rm same}^2$、二区間の交差相関は $D_{gg}D_{bb}/D_{\rm cross}^2$ を与えます。直前で個別に計算した四種の距離を入れると上の平方の式になります。Kruskal座標の二つの光円錐方向では、右外部のJacobianはそれぞれ $|\partial_\sigma w^+|=\kappa e^{\kappa(\sigma+t)}$、$|\partial_\sigma w^-|=\kappa e^{\kappa(\sigma-t)}$ です。左外部では $t$ の符号が反転して両者が入れ替わります。**個々の偏微分が $\kappa e^{\kappa\sigma}$ なのではなく、いずれの外部でも両者の幾何平均が $\kappa e^{\kappa\sigma}$** です。
+
+重力端点の座標cutoffを $\delta_g$、浴端点の座標cutoffを $\delta_b$ とします。各点 $p$ でのKruskal座標cutoffを $\delta_p^{(w)}:=\sqrt{|\partial_\sigma w^+||\partial_\sigma w^-|}\,\delta_p$ と定めれば、固有cutoffとの関係は $\epsilon_g=e^{\omega_g}\delta_g$、$\epsilon_b=e^{\omega_b}\delta_b$ であり、$e^{\omega_g}=\kappa\ell/\sinh A$、$e^{\omega_b}=1$ です。従って四つの端点におけるKruskal座標cutoffの積と、先に求めた距離の比は
+
+$$
+\begin{aligned}
+\prod_{p\in\{g_L,g_R,b_L,b_R\}}\delta_p^{(w)}
+&=\kappa^4e^{2(B-A)}\delta_g^2\delta_b^2
+=\frac{\kappa^2e^{2(B-A)}\epsilon_g^2\epsilon_b^2\sinh^2 A}{\ell^2},\\
+\frac{D_{\rm same}^2D_{gg}D_{bb}}
+     {D_{\rm cross}^2\prod_p\delta_p^{(w)}}
+&=\left(
+\frac{2\ell\cosh U\cosh V\,F}
+{\kappa\epsilon_g\epsilon_b\sinh A\,C_-C_+}
+\right)^2.
+\end{aligned}
+$$
+
+自由Dirac場の四端点エントロピーはこの比の対数に $c/6$ を掛けたものなので、指数因子 $e^{B-A}$ が相殺され、残った対数の引数は
 
 $$
 \frac{2\ell\cosh U\cosh V\,F}

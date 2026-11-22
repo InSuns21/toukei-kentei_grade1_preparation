@@ -52,17 +52,23 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg7-connection-form -->
-**定義の確認**（積主束の標準接続）。$P=M\times GL(n,\mathbb R)$、$p=(x,K)$ とする。まず[積多様体の接空間](../../GEO/GEO2/index.md#prop-geo2-product-tangent)を $T_xM\oplus M_n(\mathbb R)$ と同一視する。[LIE4 の左 Maurer–Cartan 形式](../../../代数系/LIE/LIE4/index.md#def-lie4-maurer-cartan-form)は $K$ において $W\mapsto K^{-1}W$ である。したがって
+**定義の確認**（積主束の標準接続）。$P=M\times GL(n,\mathbb R)$、$p=(x,K)$ とし、$M_n(\mathbb R)$ は実 $n$ 次正方行列全体とする。行列群 $GL(n,\mathbb R)$ は $\det K\ne0$ で指定される $M_n(\mathbb R)$ の開集合である。実際、行列式は成分の連続関数なので、任意の $W\in M_n(\mathbb R)$ に対して十分小さい $t$ では $\det(K+tW)\ne0$ となる。曲線 $t\mapsto K+tW$ の $t=0$ での速度は $W$ だから、$T_KGL(n,\mathbb R)$ を $M_n(\mathbb R)$ と同一視できる。
+
+よって[積多様体の接空間の命題](../../GEO/GEO2/index.md#prop-geo2-product-tangent)から
+$$
+T_{(x,K)}P\simeq T_xM\oplus M_n(\mathbb R)
+$$
+を得る。以下の $(v,W)$ はこの表示での接ベクトルであり、$\mathfrak{gl}_n=T_IGL(n,\mathbb R)=M_n(\mathbb R)$ とする。[LIE4 の左 Maurer–Cartan 形式](../../../代数系/LIE/LIE4/index.md#def-lie4-maurer-cartan-form)は $K$ において $W\mapsto K^{-1}W$ である。これは左乗法 $\ell_{K^{-1}}(L)=K^{-1}L$ の微分であり、上の行列による接ベクトル表示で計算したものである。したがって
 $$
 \omega^0_{(x,K)}(v,W):=K^{-1}W
 $$
 と置く。これは各 $(x,K)$ で線形で、逆行列と行列積が滑らかなので滑らかな $\mathfrak{gl}_n$ 値1形式である。
 
-基本ベクトルは $\xi_P(x,K)=(0,K\xi)$ だから
+右作用の曲線 $t\mapsto(x,K\exp(t\xi))$ の $t=0$ における速度は $(0,K\xi)$ なので、基本ベクトルは $\xi_P(x,K)=(0,K\xi)$ となる。従って
 $$
 \omega^0_{(x,K)}(0,K\xi)=K^{-1}K\xi=\xi.
 $$
-これが（C1）である。$R_g(x,K)=(x,Kg)$、$(dR_g)(v,W)=(v,Wg)$ を使うと
+これが（C1）である。右作用 $R_g(x,K)=(x,Kg)$ の微分は、$g$ を固定した曲線 $K(t)$ の速度 $W=K'(0)$ に対して $(K(t)g)'|_{0}=Wg$ となることから、$(dR_g)(v,W)=(v,Wg)$ である。これを使うと
 $$
 \begin{aligned}
 \omega^0_{(x,Kg)}(v,Wg)
@@ -104,7 +110,13 @@ $$
 
 滑らかさを確認する。局所自明化 $p=s(x)k$ を取る。$\mathfrak g$ の基底 $\xi_1,\ldots,\xi_m$ に対応する基本ベクトル $\xi_{a,P}$ は、$VP$ の滑らかな局所枠となる。
 
-$H$ は滑らかな部分束なので、$H$ の局所枠と上記の垂直局所枠を合わせると $TP$ の局所枠になる。局所枠の変換行列は滑らかで各点可逆だから、その逆行列の成分も滑らかである。従って、直和分解で得られる垂直係数、すなわち $\omega^H$ の各成分は滑らかである。
+$H$ は滑らかな部分束なので、$H$ の局所枠 $h_1,\ldots,h_d$ と上記の垂直局所枠を合わせると $TP$ の局所枠になる。各 $p$ の接ベクトルは一意に
+$$
+z=\sum_{i=1}^d u_i h_i(p)+\sum_{a=1}^m c_a\xi_{a,P}(p),
+\qquad
+\omega^H_p(z)=\sum_{a=1}^m c_a\xi_a
+$$
+と表示される。ここで $d=\dim M$ である。局所枠の変換行列は滑らかで各点可逆だから、その逆行列の成分も滑らかである。従って、$z$ から求める係数 $c_a$ も滑らかに変わり、$\omega^H$ は滑らかである。
 
 （C1）を確かめる。$\xi_P(p)\in V_pP$ だから
 $$
@@ -260,11 +272,13 @@ $$
 
 ## 5. 積主束上で両方の表示を計算する
 
-[GBG6 の積主束の水平分布の具体形](../GBG6/index.md#thm-gbg6-product-horizontal)は、滑らかな $\mathfrak g$ 値1形式 $b$ を $M$ 上に選ぶことで
+ここで $\Omega^1(M;\mathfrak g)$ は、[LIE4 で定義した滑らかな Lie 環値1形式](../../../代数系/LIE/LIE4/index.md#def-lie4-lie-algebra-valued-one-form)の全体を表す。$b\in\Omega^1(M;\mathfrak g)$ なら、各 $x$ で $b_x:T_xM\to\mathfrak g$ は線形である。
+
+[GBG6 の積主束の水平分布の具体形](../GBG6/index.md#thm-gbg6-product-horizontal)は、このような $b$ を $M$ 上に選ぶことで
 $$
 H^b_{(x,k)}P=\{(v,-(dr_k)_e b_x(v)):v\in T_xM\}
 $$
-と表せた。これを主束接続形式へ変換する。ここで $r_k(h)=hk$ は群の右乗法、$\theta_k=(d\ell_{k^{-1}})_k$ は左 Maurer–Cartan 形式である。二つの微分を混同しないことが重要である。
+と表せた。これを主束接続形式へ変換する。ここで $r_k(h)=hk$ は群の右乗法、$\ell_k(h)=kh$ は左乗法である。$(dr_k)_e$ は単位元から $k$ への右乗法の微分であり、$\theta_k=(d\ell_{k^{-1}})_k$ は $k$ から単位元へ戻す左 Maurer–Cartan 形式である。二つの微分を混同しないことが重要である。
 
 <a id="prop-gbg7-product-form"></a>
 
@@ -302,7 +316,7 @@ $$
 $$
 よって（C1）。
 
-$g\in G$ による右移動を考える。[Maurer–Cartan 形式の右移動則](../../../代数系/LIE/LIE4/index.md#prop-lie4-maurer-cartan-equivariance)と随伴表現の積の規則を用いると
+$g\in G$ による右移動を考える。[Maurer–Cartan 形式の右移動則](../../../代数系/LIE/LIE4/index.md#prop-lie4-maurer-cartan-equivariance)と[LIE2 の随伴表現](../../../代数系/LIE/LIE2/index.md#def-lie2-adjoint-representation)の合成則 $\operatorname{Ad}_{(kg)^{-1}}=\operatorname{Ad}_{g^{-1}}\operatorname{Ad}_{k^{-1}}$ を用いると
 $$
 \begin{aligned}
 \omega^b_{(x,kg)}(v,(dr_g)_kW)
@@ -314,11 +328,18 @@ $$
 $$
 よって（C2）。
 
-次に、右乗法方向の速度 $W=-(dr_k)_e b_x(v)$ を代入する。二つの乗法の微分を合成すると
+次に、右乗法方向の速度 $W=-(dr_k)_e b_x(v)$ を代入する。$h\in G$ に対し
 $$
+(\ell_{k^{-1}}\circ r_k)(h)=k^{-1}hk
+$$
+である。これは $k^{-1}$ による共役写像だから、[随伴表現の定義](../../../代数系/LIE/LIE2/index.md#def-lie2-adjoint-representation)と連鎖律により
+$$
+\begin{aligned}
 \theta_k((dr_k)_e\eta)
-=(d\ell_{k^{-1}})_k(dr_k)_e\eta
-=\operatorname{Ad}_{k^{-1}}\eta
+&=(d\ell_{k^{-1}})_k(dr_k)_e\eta\\
+&=d(\ell_{k^{-1}}\circ r_k)_e\eta\\
+&=\operatorname{Ad}_{k^{-1}}\eta
+\end{aligned}
 $$
 である。$\eta=b_x(v)$ とすれば
 $$
@@ -439,7 +460,7 @@ $$
 $G=(\mathbb R^2,+)$ を右主束 $G\to\{\mathrm{pt}\}$ とみなす。基本ベクトルと接続形式を標準座標で求め、水平空間が $\{0\}$ である理由を示せ。
 
 <!-- solution-start -->
-**詳細解答**。加法群では[LIE2 の Lie 群指数の定義](../../../代数系/LIE/LIE2/index.md#def-lie2-exponential-map)から $\exp(t\xi)=t\xi$ である。右作用は $k\mapsto k+a$ だから、基本ベクトルの速度は
+**詳細解答**。加法群では $\gamma_\xi(t)=t\xi$ が $\gamma_\xi(t+s)=\gamma_\xi(t)+\gamma_\xi(s)$ と $\gamma_\xi'(0)=\xi$ を満たす。[LIE2 の Lie 群指数の定義](../../../代数系/LIE/LIE2/index.md#def-lie2-exponential-map)はこの一意な1パラメータ部分群を用いるので、$\exp(t\xi)=t\xi$ である。右作用は $k\mapsto k+a$ だから、基本ベクトルの速度は
 
 $$
 \xi_G(k)=\left.\frac{d}{dt}\right|_0(k+t\xi)=\xi.
@@ -495,7 +516,12 @@ $B\ne0$ なので（C2）は成立しない。これに対して[正しい積主
 積主束 $P=M\times G$ の接続形式 $\omega$ と標準 section $s(x)=(x,e)$ について、$b_x(v):=\omega_{(x,e)}(v,0)$ と置く。この $b$ が滑らかな Lie 環値1形式であることを示し、任意の $(x,k)$、$(v,W)$ において $\omega=\omega^b$ を直接導け。
 
 <!-- solution-start -->
-**詳細解答**。$s$ は滑らかで、$ds_x(v)=(v,0)$ である。[Lie 環値1形式の引き戻し](../../../代数系/LIE/LIE4/index.md#def-lie4-lie-algebra-valued-one-form)として $b=s^*\omega$ は各 $x$ で線形・滑らかになる。
+**詳細解答**。$s$ は滑らかで、$ds_x(v)=(v,0)$ である。[Lie 環値1形式](../../../代数系/LIE/LIE4/index.md#def-lie4-lie-algebra-valued-one-form)の引き戻しを定義どおりに展開すると
+$$
+(s^*\omega)_x(v)=\omega_{s(x)}(ds_xv)
+=\omega_{(x,e)}(v,0)=b_x(v)
+$$
+となる。$ds$ と $\omega$ が滑らかで各点の写像が線形だから、$b$ は滑らかな Lie 環値1形式である。
 
 任意の $(v,W)$ を
 $$
@@ -598,7 +624,7 @@ $$
 g^{-1}Bg=\tfrac13B\ne B.
 $$
 
-そのため右同変条件が失われ、[形式から核の右同変性を導く証明](#thm-gbg7-form-to-horizontal)の「零が右移動でも零になる」という段階が使えない。従って $\ker\widetilde\omega$ は一般に主束の水平分布にならない。
+そのため右同変条件が失われる。実際、$(v,W)=((1,0),-B)$ は $K=I$ における $\widetilde\omega$ の核に入る。ところが右移動後は $((1,0),-Bg)=((1,0),-B)$ となり、$K=g$ での核に入る条件 $W=-gB=-3B$ を満たさない。従って[形式から核の右同変性を導く証明](#thm-gbg7-form-to-horizontal)の「零が右移動でも零になる」という段階が使えず、$\ker\widetilde\omega$ は水平分布の右同変条件（H2）を破る。
 <!-- solution-end -->
 
 ---
