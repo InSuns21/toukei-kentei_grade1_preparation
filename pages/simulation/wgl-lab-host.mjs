@@ -986,7 +986,7 @@ window.addEventListener('message', event => {
     const pass = rows.every(row => row.pass);
     setStatus(isFCG5&&!unchanged&&fcg5Physics ?
       (pass ? 'FCG5 編集した格子・粘性・外力の独立画素検算に合格' :
-        'FCG5 編集した粘性・外力の独立画素検算が不一致') :
+        'FCG5 編集した格子・粘性・外力の独立画素検算が不一致') :
       unchanged && pass ? '初期ソースの独立画素検算に合格' :
       unchanged ? '基準画素と不一致（viewport/色/GL状態を再確認）' :
         '編集コードを実行しました（基準との差を比較）',
