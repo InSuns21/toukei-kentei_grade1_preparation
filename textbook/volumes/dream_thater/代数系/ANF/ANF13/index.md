@@ -414,7 +414,7 @@ $$
 
 これは剰余体上の基底の一次独立性と、少なくとも一つの $\bar b_j$ が非零であることに反します。よって $m\ge0$、すべての $a_j\in B$ であり、$\mathcal O_{K_0}=B[\theta]$ です。
 
-$\theta$ の最小多項式 $h$ は法 $\mathfrak m_K$ で分離的なので $h'(\theta)$ は単元です。直前に $R=B$、$T=K$、$E=K_0$、$\alpha=\theta$ として示した相対的な跡双対公式を適用すると、$\mathfrak D_{K_0/K}=(h'(\theta))=\mathcal O_{K_0}$ となります。
+$\theta$ の最小多項式 $h$ は法 $\mathfrak m_K$ で分離的なので $h'(\theta)$ は単元です。前述の Lagrange 補間と跡行列の計算で $R=B$、$T=K$、$E=K_0$、$\alpha=\theta$ と置きます。すでに $\mathcal O_{K_0}=B[\theta]$ を確かめたので、跡双対は $h'(\theta)^{-1}\mathcal O_{K_0}$ です。$h'(\theta)$ が単元であることから、$\mathfrak D_{K_0/K}=(h'(\theta))=\mathcal O_{K_0}$ となります。
 
 **(2) 非分岐中間体を通した跡双対。** 有限拡大の跡の合成から
 
@@ -457,7 +457,7 @@ F'(\pi)=\prod_{\substack{\sigma\in G_0\\\sigma\ne1}}
 (\pi-\sigma\pi)
 $$
 
-を得ます。先に示した相対的な跡双対公式を $R=\mathcal O_{K_0}$、$T=K_0$、$E=L$、$\alpha=\pi$ に適用すると、
+を得ます。前述の Lagrange 補間と跡行列の計算に $R=\mathcal O_{K_0}$、$T=K_0$、$E=L$、$\alpha=\pi$ を代入します。[一様化元基底](#lem-anf13-monogenic)により $A=R[\pi]$ なので、その跡双対は $F'(\pi)^{-1}A$ となり、
 
 $$
 d=v_L(F'(\pi))
