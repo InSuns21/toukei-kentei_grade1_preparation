@@ -518,7 +518,7 @@ $K=\mathbb Q_5$、$E=K(\sqrt2)$、$C_2=K(\zeta_{25})$、$B=EC_2$ とする。
 1. $X^2-2$ は $\mathbb F_5$ で既約なので $E/K$ は非分岐二次。[円分拡大の次数・全分岐](#prop-anf18-cyclotomic-degree)から $C_2/K$ は全分岐二十次です。共通中間体は $K$ しかないので $[B:K]=2\cdot20=40$、Galois 群は
 
 $$
-\operatorname{Gal}(B/K)\simeq C_2\times(\mathbb Z/25\mathbb Z)^\times.
+\operatorname{Gal}(B/K)\simeq\operatorname{Gal}(E/K)\times(\mathbb Z/25\mathbb Z)^\times.
 $$
 
 2. $a=5^7\cdot6$ は $m=7,u=6$ です。[合成体の Artin 公式](#prop-anf18-mixed-reciprocity)に代入すると
