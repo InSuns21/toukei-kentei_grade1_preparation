@@ -56,7 +56,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（第1余境界と第1コホモロジー群）**  
-> 上記の $G,M$ に対し、$b\in M$ の定める写像を
+> 有限群 $G$ が可換群 $M$ に自己同型として作用するとする。$b\in M$ の定める写像を
 
 $$
 (\delta b)_\sigma=b^{-1}\sigma(b)
@@ -197,7 +197,7 @@ c_{\sigma^j}=u\,\sigma(u)\cdots\sigma^{j-1}(u)
 \qquad(1\le j\le n)
 $$
 
-です。$\sigma^n=1$、$c_1=1$ なので、右辺で $j=n$ と置いた積は $1$ でなければなりません。この積は[体ノルムの定義と計算](../ANF12/index.md#prop-anf12-norm-valuation)で扱った $N_{L/K}(u)$ です。
+です。$\sigma^n=1$、$c_1=1$ なので、右辺で $j=n$ と置いた積は $1$ でなければなりません。有限 Galois 拡大では体ノルムを $N_{L/K}(u)=\prod_{\tau\in G}\tau(u)$ と書きます。従って上の積は $N_{L/K}(u)$ です。
 
 <a id="thm-anf14-cyclic90"></a>
 
@@ -249,7 +249,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（巡回拡大の比とノルムの完全性）**  
-> 上の巡回拡大に対し、$D:L^\times\to L^\times$ を $D(b)=\sigma(b)/b$ とする。このとき、次の列は表示した各中間位置で完全である。
+> $L/K$ を巡回 Galois 拡大、$G=\langle\sigma\rangle$ とする。$D:L^\times\to L^\times$ を $D(b)=\sigma(b)/b$ とする。このとき、次の列は表示した各中間位置で完全である。
 
 $$
 1\longrightarrow K^\times
