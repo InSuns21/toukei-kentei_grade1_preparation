@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - GBG9
+  - VC1
 official_scope: []
 learning_objectives:
   - Lie環値1形式の括弧付き外積を定義から計算し、係数2分の1の必要性を説明できる
@@ -13,9 +14,8 @@ learning_objectives:
   - 局所曲率のゲージ共変性を大域の水平性と行列外積の二通りで示せる
   - 共変微分の交換子を展開し曲率の表現作用との等式を証明できる
 definitions:
-  - { id: GBG10-DEF-01, name: Lie環値1形式の括弧付き外積 }
-  - { id: GBG10-DEF-02, name: 主束接続の曲率2形式 }
-  - { id: GBG10-DEF-03, name: 局所曲率形式 }
+  - { id: GBG10-DEF-01, name: 主束接続の曲率2形式 }
+  - { id: GBG10-DEF-02, name: 局所曲率形式 }
 theorems:
   - { id: GBG10-THM-01, name: 曲率の水平性と右作用の同変性 }
   - { id: GBG10-THM-02, name: 曲率と水平ベクトル場の括弧 }
