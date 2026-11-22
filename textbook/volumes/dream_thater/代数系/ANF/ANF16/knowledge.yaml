@@ -1,0 +1,55 @@
+chapter: ANF16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF15
+forward_references: []
+
+concepts:
+  - id: number-theory.local-norm-subgroup
+    name: ノルム部分群とノルム指数
+    kind: definition
+    introduction: formal
+    requires: [number-theory.unramified-norm-quotient, number-theory.local-norm-integral-trace]
+
+  - id: number-theory.local-norm-unit-exact-sequence
+    name: ノルム商の付値・単数完全列
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.local-norm-subgroup, number-theory.local-norm-integral-trace]
+
+  - id: number-theory.deep-local-units-power-roots
+    name: 十分深い主単数は n 乗
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.hensel-strong, number-theory.local-unit-filtration]
+
+  - id: number-theory.local-norm-openness-finite-index
+    name: 有限局所拡大のノルム群は開・有限指数
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.deep-local-units-power-roots, number-theory.local-norm-unit-exact-sequence]
+
+  - id: number-theory.tame-kummer-norm-group
+    name: 緩分岐 Kummer 巡回拡大のノルム群
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.local-norm-unit-exact-sequence, number-theory.local-inertia-exact-sequence, number-theory.local-eisenstein-irreducibility]
+
+  - id: number-theory.local-norm-tower-inclusion
+    name: ノルム部分群の塔での包含
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.local-norm-subgroup]
+
+  - id: number-theory.local-class-field-candidate-subgroup
+    name: 類体論で扱う開有限指数部分群
+    kind: definition
+    introduction: formal
+    requires: [number-theory.local-norm-openness-finite-index]
+
+  - id: number-theory.local-class-field-existence
+    name: 局所類体論の存在定理・一般形
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.local-class-field-candidate-subgroup, number-theory.tame-kummer-norm-group, number-theory.unramified-local-reciprocity]
