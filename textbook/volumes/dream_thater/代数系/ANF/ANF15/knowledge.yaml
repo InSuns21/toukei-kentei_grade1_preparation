@@ -10,7 +10,7 @@ concepts:
     name: 算術的 Frobenius
     kind: definition
     introduction: formal
-    requires: [number-theory.inertia-group]
+    requires: [number-theory.local-inertia-exact-sequence]
 
   - id: number-theory.unramified-frobenius-lift
     name: 非分岐局所拡大の Frobenius
@@ -22,7 +22,7 @@ concepts:
     name: 非分岐ノルム商
     kind: proposition
     introduction: formal
-    requires: [number-theory.local-norm-integral-trace]
+    requires: [number-theory.unramified-local-norm-surjection]
 
   - id: number-theory.unramified-local-artin-map
     name: 非分岐局所 Artin 写像
@@ -40,4 +40,4 @@ concepts:
     name: 分岐二次拡大のノルム群の例
     kind: proposition
     introduction: formal
-    requires: [number-theory.local-norm-integral-trace]
+    requires: [number-theory.local-norm-integral-trace, number-theory.hensel-simple-root]
