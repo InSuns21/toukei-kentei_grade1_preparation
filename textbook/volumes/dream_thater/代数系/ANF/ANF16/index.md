@@ -262,7 +262,7 @@ $$
 
 ## 4. 中間体とノルムの向き
 
-有限体拡大の塔 $L/M/K$ については、[ノルムの推移律](../ANF2/index.md#thm-anf2-norm-trace-transitivity)を使います（ノルムを線形写像の行列式として定義すると、合成ノルムの等式を直接確かめられます）。
+有限体拡大の塔 $L/M/K$ については、ノルムの推移律を考えます（以下で合成ノルムの等式も証明します）。
 
 <a id="prop-anf16-norm-tower"></a>
 
@@ -284,7 +284,19 @@ $L$ から $K$ へのノルムは、まず $M$ まで取って、もう一度 $K
 <!-- proof-start -->
 ### 証明
 
-任意の $x\in L^\times$ に対し、[ノルムの推移律](../ANF2/index.md#thm-anf2-norm-trace-transitivity)を $L/M/K$ に適用すると
+有限拡大は標数 $0$ なので分離的です。$M$ の $K$ 上の埋め込みを $\tau:M\hookrightarrow\overline K$ と書き、各 $\tau$ の $L$ への延長を $\sigma:L\hookrightarrow\overline K$ と書きます。各 $\tau$ はちょうど $[L:M]$ 個の延長を持つため、積の順序を並べ替えると任意の $x\in L^\times$ について
+
+$
+\begin{aligned}
+N_{L/K}(x)
+&=\prod_{\sigma:L\hookrightarrow\overline K}\sigma(x)
+=\prod_{\tau:M\hookrightarrow\overline K}\left(\prod_{\sigma|_M=\tau}\sigma(x)\right)\\
+&=\prod_{\tau:M\hookrightarrow\overline K}\tau(N_{L/M}(x))
+=N_{M/K}(N_{L/M}(x)).
+\end{aligned}
+$
+
+これがノルムの推移律です。従って
 
 $$
 N_{L/K}(x)=N_{M/K}(N_{L/M}(x)).
@@ -400,7 +412,7 @@ $L=\mathbb Q_3(\sqrt3)$、$K=\mathbb Q_3$ において、$-3$ と $3$ がそれ�
 - ID: ANF16-A5
 
 <!-- solution-start -->
-**詳細解答。** $y=N_{L/M}(x)$ は $M^\times$ に属します。[ノルムの推移律](../ANF2/index.md#thm-anf2-norm-trace-transitivity)を $L/M/K$ に使うと
+**詳細解答。** $y=N_{L/M}(x)$ は $M^\times$ に属します。[ノルムの塔での包含の証明](#prop-anf16-norm-tower)にある推移律を $L/M/K$ に使うと
 
 $$
 a=N_{L/K}(x)=N_{M/K}(N_{L/M}(x))=N_{M/K}(y).
