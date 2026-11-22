@@ -4,7 +4,7 @@
 
 ## 1. 放射のエントロピーを、重力の境界値問題に翻訳する
 
-[BHI27の時間依存する放射区間](../BHI27/index.md#def-bhi27-radiation-ledger)では、浴の有限区間 $R=[b,L]$ の精細エントロピーの真空差と、重力の準静的エントロピー収支を別々に計算しました。[BHI26の枝比較](../BHI26/index.md#def-bhi26-branch-comparison)では、island端点を極値化した後に候補値を比較しました。では、その複数候補が重力の計算から現れる入り口はどこでしょうか。
+[BHI27の時間依存する放射区間](../BHI27/index.md#def-bhi27-radiation-ledger)では、浴の有限区間 $R=[b,L]$ の精細エントロピーの真空差と、重力の準静的エントロピー収支を別々に計算しました。[BHI26の枝比較](../BHI26/index.md#def-bhi26-extremized-branches)では、island端点を極値化した後に候補値を比較しました。では、その複数候補が重力の計算から現れる入り口はどこでしょうか。
 
 密度演算子の固有値を直接求めなくても、整数 $n\ge2$ に対する $\operatorname{Tr}\rho_R^n$ を計算すれば、その固有値に関する情報が得られます。非重力の量子場なら、$n$ 枚の経路積分を $R$ に沿って貼り合わせます。重力を含む場合は、これに加えて**指定した境界を持つ重力幾何そのものを和に含める**必要があります。
 
@@ -134,7 +134,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi28-jt-replica-boundary -->
-**定義の直接例（二枚、有限cutoff）**：$\ell=1$、$G_2=1$、$\Phi_r=2$、$\varepsilon=1/100$、$a=1/100$、$b=1$、$L=3$ とします。浴の各枚をEuclid平坦計量 $ds_B^2=d\tau^2+dx^2$ で取り、$R_1^- \sim R_2^+$、$R_2^-\sim R_1^+$、補集合では各枚の上下縁を自身へ貼ります。$\Sigma_k$ では $h_\Sigma=d\tau^2/\varepsilon^2$ という固定された固有長規格化と $\Phi|_{\Sigma_k}=200$ を与えます。この境界規格化は、浴の接合座標を適宜 $\tau/\varepsilon$ に規格化して読んだものです。
+**定義の直接例（二枚、有限cutoff）**：$\ell=1$、$G_2=1$、$\Phi_r=2$、$\varepsilon=1/100$、$a=1/100$、$b=1$、$L=3$ とします。浴の各枚をEuclid平坦計量 $ds_B^2=\varepsilon^{-2}(d\tau^2+dx^2)$ で取り、$R_1^- \sim R_2^+$、$R_2^-\sim R_1^+$、補集合では各枚の上下縁を自身へ貼ります。$\Sigma_k$ では $h_\Sigma=d\tau^2/\varepsilon^2$ という固定された固有長規格化と $\Phi|_{\Sigma_k}=200$ を与えます。同じ $\tau$ を使うので、浴の接合境界の誘導計量も $d\tau^2/\varepsilon^2$ です。
 
 重力側の局所的な境界候補として、Euclid Poincaré計量 $ds_G^2=(dT^2+dz^2)/z^2$ の曲線 $T=\tau/\varepsilon$、$z=1$ を使えば誘導計量は $d\tau^2/\varepsilon^2$。dilatonに $\Phi=200/z$ を置けば境界値も $200$ です。物質は同一の自由場を両側で連続にし、同じ向きの法線流が一致する界面条件を加えます。$a=0.01< L-b=2$ で端点はcutoff幅より離れています。これは**境界データの適合性を確認する局所例**であり、二枚の浴切断を含む全Euclid鞍点がこの単純な曲線で解けたという意味ではありません。
 <!-- definition-example-end -->
