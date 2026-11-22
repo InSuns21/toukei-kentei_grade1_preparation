@@ -10,7 +10,11 @@
 
 $L/K$ を有限拡大とし、$k_L$ を $L$ の剰余体、$f=f(L/K)=[k_L:k_K]$ を剰余次数、$\pi_L$ を $L$ の一様化元とします。$v_L(\pi_L)=1$ と規格化し、この節では $N=N_{L/K}$ と略記します。
 
-[局所ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)は基礎体 $\mathbb Q_p$ について述べられていました。ここでは $K/\mathbb Q_p$ が有限の場合にも使えることを確かめます。[整数環の完備離散付値環としての構造](../ANF11/index.md#thm-anf11-local-dvr)を用います。$\mathcal O_L$ は $\mathbb Z_p$ 上有限生成なので $\mathcal O_K$ 上も有限生成、しかもねじれのない加群です。離散付値環 $\mathcal O_K$ は単項イデアル整域なので、$\mathcal O_L$ は階数 $n=[L:K]$ の自由加群となります。
+[局所ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)は基礎体 $\mathbb Q_p$ について述べられていました。ここでは一般の有限拡大 $K/\mathbb Q_p$ についても証明します。
+
+[整数環の完備離散付値環としての構造](../ANF11/index.md#thm-anf11-local-dvr)を用います。$\mathcal O_L$ は $\mathbb Z_p$ 上有限生成なので $\mathcal O_K$ 上も有限生成で、しかもねじれのない加群です。
+
+離散付値環 $\mathcal O_K$ は単項イデアル整域です。従って $\mathcal O_L$ は、階数 $n=[L:K]$ の自由加群になります。
 
 $\pi_L$ による乗法 $m_{\pi_L}:\mathcal O_L\to\mathcal O_L$ は $\mathcal O_K$ 線形で、体ノルムはその行列式です。$\mathcal O_K$ 上の基底を取った行列について、最小付値の成分を行・列の交換で左上に移し、その成分の倍数を他の行・列から引く操作を繰り返すと、可逆な基本変形で対角形にできます。単元倍を吸収した対角成分を $\pi_K^{a_1},\ldots,\pi_K^{a_n}$（$a_i\ge0$）と書けば、
 
@@ -224,7 +228,11 @@ $$
 
 $F'(a)$ の剰余が非零だから、$t\bmod\mathfrak p_K$ を一意に選んで右辺を $0$ にできます。これを繰り返した根の近似列は完備性により収束します。$F(T)=T^e-1$ に適用すると、導関数の剰余は $e\bar\zeta^{\,e-1}\ne0$ なので、上の $e$ 個の根はすべて $K$ に持ち上がります。
 
-$\alpha^e=\pi_K$ となる根 $\alpha$ を取り、$L=K(\alpha)$ とします。$X^e-\pi_K$ の既約性についても [ANF10 の Eisenstein の証明](../ANF10/index.md#thm-anf10-eisenstein-irreducible)を一般の $\mathcal O_K$ に移せます。実際、もし正次数モニックな $G,H\in K[T]$ に分解したなら、係数の最小付値を $c(G),c(H)$ とします。各多項式から最小付値の $\pi_K$ の冪を取り出すと、残った多項式の剰余はともに零でありません。$k_K[T]$ は整域なので、その積も零でなく、
+$\alpha^e=\pi_K$ となる根 $\alpha$ を取り、$L=K(\alpha)$ とします。$X^e-\pi_K$ の既約性についても、[ANF10 の Eisenstein の証明](../ANF10/index.md#thm-anf10-eisenstein-irreducible)を一般の整数環に移せます。
+
+実際、正次数モニックな $G,H\in K[T]$ に分解したと仮定します。係数の最小付値をそれぞれ $c(G),c(H)$ と書きます。
+
+各多項式から、その最小付値の $\pi_K$ の冪を取り出すと、残った多項式の剰余はともに零ではありません。$k_K[T]$ は整域なので、その積も零ではなく、
 
 $$
 c(GH)=c(G)+c(H)=c(T^e-\pi_K)=0.
