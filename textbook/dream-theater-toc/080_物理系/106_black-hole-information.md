@@ -26,3 +26,4 @@
 23. [BHI23 islandなしの放射エントロピー](textbook/volumes/dream_thater/物理系/BHI/BHI23/index.md)
 24. [BHI24 island候補と一般化エントロピー](textbook/volumes/dream_thater/物理系/BHI/BHI24/index.md)
 25. [BHI25 island端点の極値化](textbook/volumes/dream_thater/物理系/BHI/BHI25/index.md)
+26. [BHI26 Page転移と複数鞍点の比較](textbook/volumes/dream_thater/物理系/BHI/BHI26/index.md)
