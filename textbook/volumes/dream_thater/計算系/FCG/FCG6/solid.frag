@@ -7,19 +7,19 @@ uniform int u_viewMode;
 uniform float u_aspect;
 out vec4 outColor;
 float maskAt(ivec2 a){
-  ivec2 c=clamp(a,ivec2(0),ivec2(15));
+  ivec2 c=clamp(a,ivec2(0),textureSize(u_solid,0)-ivec2(1));
   return texelFetch(u_solid,c,0).r>0.5?1.0:0.0;
 }
 void main(){
   // u_viewMode=0 is the unmodified 3-panel R8 static pixel oracle.
-  // u_viewMode=1 is a larger square view of the SAME 16x16 MAC state.
+  // u_viewMode=1 is a larger square view of the SAME NxN MAC state.
   if(u_viewMode==1){
     vec2 uv=(v_uv-0.5)*vec2(u_aspect,1.0)+0.5;
     if(any(lessThan(uv,vec2(0.0)))||
        any(greaterThan(uv,vec2(1.0)))){
       outColor=vec4(0.012,0.024,0.043,1.0);return;
     }
-    vec2 xy=clamp(uv*16.0,vec2(0.0),vec2(15.999));
+    vec2 xy=clamp(uv*float(textureSize(u_solid,0).x),vec2(0.0),vec2(float(textureSize(u_solid,0).x)-0.001));
     ivec2 ij=ivec2(floor(xy));
     bool isSolid=maskAt(ij)>0.5;
     // Label the *cell-step* boundary, not the exact moving circle.
@@ -54,7 +54,7 @@ void main(){
   }
   int panel=min(2,int(floor(v_uv.x*3.0)));
   vec2 uv=vec2(fract(v_uv.x*3.0),v_uv.y);
-  vec2 xy=clamp(uv*16.0,vec2(0.0),vec2(15.999));
+  vec2 xy=clamp(uv*float(textureSize(u_solid,0).x),vec2(0.0),vec2(float(textureSize(u_solid,0).x)-0.001));
   ivec2 ij=ivec2(floor(xy));
   if(maskAt(ij)>0.5){
     outColor=vec4(0.2,0.23,0.27,1.0);
