@@ -163,7 +163,7 @@ $$
 
 ## 3. 非分岐局所 Artin 写像を実際に作る
 
-前二節の結果を並べると、左のノルム商も右の Galois 群も同じ巡回群 $\mathbb Z/f\mathbb Z$ で表せます。ここで対応の向きを決めるため、**一様化元を算術的 Frobenius に送る**という規格化を選びます（幾何学的 Frobenius を採用する文献では逆元になるため、向きを確認してください）。
+前二節の結果を並べると、左のノルム商も右の Galois 群も同じ巡回群 $\mathbb Z/f\mathbb Z$ で表せます。ここで対応の向きを決めるため、**一様化元を算術的 Frobenius に送る**という規格化を選びます（幾何学的 Frobenius は算術的 Frobenius の逆自己同型なので、その規格化では向きが逆になります）。
 
 <a id="def-anf15-unramified-artin"></a>
 
@@ -260,7 +260,7 @@ $$
 e(L/K)=2,\ f(L/K)=1
 $$
 
-です。$\sigma(\sqrt5)=-\sqrt5$ とすると、$a+b\sqrt5$ のノルムは
+です。$X^2-5$ は $L$ 内で $\pm\sqrt5$ に分解し、標数 $0$ なので分離的です。従って $L/K$ は二次 Galois 拡大で、非自明な自己同型 $\sigma$ は $\sigma(\sqrt5)=-\sqrt5$ を満たします。[体ノルムの共役積表示](../ANF2/index.md#thm-anf2-embedding-formulas)から、$a+b\sqrt5$ のノルムは
 
 $$
 N_{L/K}(a+b\sqrt5)=(a+b\sqrt5)(a-b\sqrt5)=a^2-5b^2.
@@ -315,13 +315,13 @@ $\mathbb F_5^\times$ の平方類は $\{1,4\}$ と $\{2,3\}$ の二つです。�
 
 ## 5. 一般の局所 Artin 写像で何を目指すか
 
-有限 Abel Galois 拡大 $L/K$ では、目標となる局所相互法則は正規化された全射群準同型
+Galois 群が可換な有限 Galois 拡大（有限 Abel 拡大）$L/K$ では、目標となる局所相互法則は正規化された全射群準同型
 
 $$
 \operatorname{rec}_{L/K}:K^\times\longrightarrow\operatorname{Gal}(L/K)
 $$
 
-を与え、その核を $N_{L/K}(L^\times)$ と一致させるものです。ここで「Abel」とは Galois 群が可換であることを意味します。非分岐拡大では前節までに具体的な写像を構成しました。分岐拡大では付値の情報に加えて単数群からの寄与を組み込む必要があります。
+を与え、その核を $N_{L/K}(L^\times)$ と一致させるものです。非分岐拡大では前節までに具体的な写像を構成しました。分岐拡大では付値の情報に加えて単数群からの寄与を組み込む必要があります。
 
 一般の有限 Abel 拡大についての存在・関手性を、ここでは証明済みとはしません。ANF16 でノルム群と存在に必要な論理を整理し、ANF17 で正規化と関手性を含めて局所相互法則を扱います。特に「ノルム群の指数が拡大次数に等しい」という主張を、Hilbert 90 の直後に無条件で使うことはできません。
 
@@ -373,7 +373,7 @@ $L/K$ を次数 $f$ の有限 Galois 拡大とする。$a\in K^\times$ につい
 - ID: ANF15-A3
 
 <!-- solution-start -->
-**詳細解答。** 体ノルムは $N(a)=\prod_{\sigma\in\operatorname{Gal}(L/K)}\sigma(a)$ です。$a\in K$ はすべての $\sigma$ に固定され、群の位数は $f=[L:K]$ なので
+**詳細解答。** [体ノルムの共役積表示](../ANF2/index.md#thm-anf2-embedding-formulas)から $N(a)=\prod_{\sigma\in\operatorname{Gal}(L/K)}\sigma(a)$ です。$a\in K$ はすべての $\sigma$ に固定され、群の位数は $f=[L:K]$ なので
 
 $$
 N(a)=\prod_{\sigma}a=a^f.
