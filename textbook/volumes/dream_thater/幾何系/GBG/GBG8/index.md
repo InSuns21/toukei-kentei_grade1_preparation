@@ -1,6 +1,6 @@
 # GBG8 局所ゲージポテンシャルはどう変換するか
 
-[GBG7 の主束接続形式](../GBG7/index.md#def-gbg7-connection-form)は主束 $P$ 全体に定義される。しかし、物理の式で見る $A=A_\mu dx^\mu$ は基底多様体上の1形式である。非自明な主束では「一つの $A$ が全空間にある」と最初から考えることはできない。それでも、各パッチで基準となる [局所section](../GBG3/index.md#def-gbg3-local-section) を選べば、接続形式を基底へ引き戻して計算できる。
+[GBG7 の主束接続形式](../GBG7/index.md#def-gbg7-connection-form)は主束 $P$ 全体に定義される。しかし、物理の式で見る $A=\sum_\mu A_\mu\,dx^\mu$ は基底多様体上の1形式である。ここで $(x^\mu)$ は局所座標、$A_\mu$ はその座標方向の Lie 環値係数で、$\mu$ について和を取っている。非自明な主束では「一つの $A$ が全空間にある」と最初から考えることはできない。それでも、各パッチで基準となる [局所section](../GBG3/index.md#def-gbg3-local-section) を選べば、接続形式を基底へ引き戻して計算できる。
 
 問題は、別のsectionを選んだときに同じ接続をどう表すかである。普通のベクトルの座標変換と違い、ポテンシャルには群値関数の**微分**が加わる。本講ではその出所を接ベクトルの分解から導き、重なりの整合条件だけから大域的な接続を復元する。最後に「局所座標の変更」と「ゲージ自己同型による接続そのものの変換」を区別する。
 
@@ -32,7 +32,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（局所ゲージポテンシャル）**  
-> 滑らかな右主 $G$ 束 $\pi:P\to M$ の[主束接続形式](../GBG7/index.md#def-gbg7-connection-form) $\omega$ と、開集合 $U\subset M$ 上の滑らかな局所section $s:U\to P$ に対し、$\mathfrak g$ 値1形式
+> 滑らかな右主 $G$ 束 $\pi:P\to M$ の[主束接続形式](../GBG7/index.md#def-gbg7-connection-form) $\omega$ と、開集合 $U\subset M$ 上の滑らかな局所section $s:U\to P$ に対し、[Lie 環値1形式](../../../代数系/LIE/LIE4/index.md#def-lie4-lie-algebra-valued-one-form)
 
 $$
 A_s:=s^*\omega\in\Omega^1(U;\mathfrak g),\qquad
@@ -43,7 +43,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg8-local-potential -->
-**定義の確認**。$P=\mathbb R^2\times GL(2,\mathbb R)$ とし、座標を $(x,y)$、section を $s(x,y)=((x,y),I)$ とする。行列 $B=E_{12}$ と基底の1形式 $b=B\,dy$ を選ぶ。[GBG7 の積主束接続形式](../GBG7/index.md#prop-gbg7-product-form)へ $b$ を代入すると、点 $((x,y),K)$ の接ベクトル $(v,W)$ に対して
+**定義の確認**。$P=\mathbb R^2\times GL(2,\mathbb R)$ とし、座標を $(x,y)$、section を $s(x,y)=((x,y),I)$ とする。$GL(2,\mathbb R)$ の Lie 環は実 $2\times2$ 行列全体 $\mathfrak{gl}_2(\mathbb R)=M_2(\mathbb R)$ である。$(1,2)$ 成分だけが $1$ の行列 $E_{12}$ を $B$ と置き、基底多様体上の1形式 $b=B\,dy$ を選ぶ。座標接ベクトルと $b$ の対応は
+
+$$
+B=E_{12}=\begin{pmatrix}0&1\\0&0\end{pmatrix},\qquad
+v=v_x\partial_x+v_y\partial_y,\qquad
+b_{(x,y)}(v)=v_yB.
+$$
+
+これは $v$ に線形で係数が定数の、滑らかな $\mathfrak{gl}_2(\mathbb R)$ 値1形式である。[GBG7 の積主束接続形式](../GBG7/index.md#prop-gbg7-product-form)にこの $b$ を代入すると、点 $((x,y),K)$ の接ベクトル $(v,W)$ に対して
 
 $$
 \omega_{((x,y),K)}(v,W)=K^{-1}b(v)K+K^{-1}W
@@ -686,7 +694,15 @@ $$
 3. 原点での $A_1,A_2,A_3$ の値と、三つが同じ大域接続を表す理由。
 
 <!-- solution-start -->
-**詳細解答**。$T_a^\dagger=-T_a$、$\operatorname{tr}T_a=0$ だから、$e^{tT_a}$ はユニタリで行列式は $e^{t\operatorname{tr}T_a}=1$。行列指数は滑らかなので三つとも $SU(2)$ 値の滑らかな関数である。また $s_3=s_1g_{12}g_{23}=s_1g_{13}$ なので、主束の自由性から三重重なり条件が確かめられる。
+**詳細解答**。第2節の行列について $T_1^2=T_3^2=-I$ である。行列指数を偶数次と奇数次に分けると
+
+$$
+g_{12}=\begin{pmatrix}e^{ix}&0\\0&e^{-ix}\end{pmatrix},\qquad
+g_{23}=\cos y\,I+\sin y\,T_1
+=\begin{pmatrix}\cos y&i\sin y\\i\sin y&\cos y\end{pmatrix}.
+$$
+
+両者とも随伴行列との積が $I$ で、行列式はそれぞれ $e^{ix}e^{-ix}=1$、$\cos^2y+\sin^2y=1$ である。したがって $g_{12},g_{23}$ は滑らかな $SU(2)$ 値関数であり、積 $g_{13}=g_{12}g_{23}$ も同様である。また $s_3=s_1g_{12}g_{23}=s_1g_{13}$ なので、主束の自由性から三重重なり条件が確かめられる。
 
 [局所変換定理](#thm-gbg8-local-transform)を $g_{12}$ に適用する。$g_{12}=\operatorname{diag}(e^{ix},e^{-ix})$ だから、第2節と同じ中間行列積により
 
@@ -696,11 +712,39 @@ A_2=
 +T_3\,dx.
 $$
 
-$g_{23}=e^{yT_1}$ は $T_1$ と可換なので、$dg_{23}=g_{23}T_1\,dy$、$g_{23}^{-1}dg_{23}=T_1\,dy$ である。したがって
+$g_{23}=e^{yT_1}$ は $T_1$ と可換なので、$dg_{23}=g_{23}T_1\,dy$、$g_{23}^{-1}dg_{23}=T_1\,dy$ である。共役の行列計算を示すため
 
 $$
-A_3=\operatorname{Ad}_{g_{23}^{-1}}A_2+T_1\,dy.
+T_2:=\begin{pmatrix}0&1\\-1&0\end{pmatrix},\qquad
+g_{12}^{-1}T_1g_{12}=\cos(2x)T_1+\sin(2x)T_2
 $$
+
+と置く。$g_{23}^{-1}=\cos y\,I-\sin y\,T_1$ と、行列積 $T_1T_2=-T_3$、$T_2T_1=T_3$、$T_1T_3=T_2$、$T_3T_1=-T_2$ を使って両側から掛けると
+
+$$
+\begin{aligned}
+g_{23}^{-1}T_2g_{23}&=\cos(2y)T_2+\sin(2y)T_3,\\
+g_{23}^{-1}T_3g_{23}&=\cos(2y)T_3-\sin(2y)T_2.
+\end{aligned}
+$$
+
+よって $A_3=\operatorname{Ad}_{g_{23}^{-1}}A_2+T_1\,dy$ の係数行列まで展開すると
+
+$$
+\begin{aligned}
+A_3
+={}&\begin{pmatrix}
+i\cos(2y)&-\sin(2y)\\
+\sin(2y)&-i\cos(2y)
+\end{pmatrix}dx\\
+&+\begin{pmatrix}
+i\sin(2x)\sin(2y)&i(1+\cos(2x))+\sin(2x)\cos(2y)\\
+i(1+\cos(2x))-\sin(2x)\cos(2y)&-i\sin(2x)\sin(2y)
+\end{pmatrix}dy.
+\end{aligned}
+$$
+
+各係数は反 Hermite で跡が零なので $A_3$ も $\mathfrak{su}(2)$ 値1形式である。
 
 他方、[変換合成命題](#prop-gbg8-transform-composition)を $g=g_{12}$、$h=g_{23}$ へ適用すると
 
