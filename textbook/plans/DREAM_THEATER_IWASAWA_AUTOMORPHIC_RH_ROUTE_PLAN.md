@@ -1,19 +1,20 @@
 # DREAM THEATER 岩澤理論・保型形式／保型表現・リーマン予想（履修ルート）
 
-設計確定: 2026-11-21 JST  
-状態: designed / 未着手。**新規講義は合計66講、3系列で確定**。この横断ルート自体は新規講義を所有しない。  
-正本: [ANF 22講](DREAM_THEATER_ALGEBRAIC_NUMBER_THEORY_CLASS_FIELD_THEORY_PLAN.md)、[IWA 20講](DREAM_THEATER_IWASAWA_THEORY_PLAN.md)、[AFR 24講](DREAM_THEATER_AUTOMORPHIC_FORMS_REPRESENTATIONS_PLAN.md)。
+設計初版: 2026-11-21 JST／改訂: 2026-11-23 JST  
+状態: 4系列を横断する設計。**現行案86講（ANF22・IWA20・AFR24・RHP20）**。基礎のANFは実装進行中、残り3系列は設計段階。横断ルート自身は講義を所有しない。  
+正本: [ANF 22講](../plans_progress/DREAM_THEATER_ALGEBRAIC_NUMBER_THEORY_CLASS_FIELD_THEORY_PLAN.md)、[IWA 20講](DREAM_THEATER_IWASAWA_THEORY_PLAN.md)、[AFR 24講](DREAM_THEATER_AUTOMORPHIC_FORMS_REPRESENTATIONS_PLAN.md)、[RHP 20講](DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md)。
 
-## 0. なぜ3系列か
+## 0. なぜ基礎3系列とRHの独立研究講読を分けるか
 
 既存教材では `NT`（初等整数論）、`ANT`（解析的整数論・RHの標準命題）、`MF`（正則モジュラー形式）、`EC`（楕円曲線）が完成している。ここからいきなり「岩澤理論」と「保型形式」を独立に追加すると、代数的整数論・局所体・類体論が定義されていないまま使用され、しかも既存`MF`の重複になる。
 
 **中心問いを分ける:**
 1. **ANF1〜ANF22**（22講）: 数体・イデアル・局所体・局所／大域類体論を自力で計算できる基盤にする。
 2. **IWA1〜IWA20**（20講）: 円分`Z_p`塔を通して類群・単数・p進L関数がどうつながるか。
-3. **AFR1〜AFR24**（24講）: 古典的`MF`から保型表現、theta対応・周期・跡公式に進み、RH/GRHの研究講読へ接続する。
+3. **AFR1〜AFR24**（24講）: 古典的`MF`から保型表現、theta対応・周期・跡公式に進む。AFR23/24は解析的還元と形式的認証の橋渡しをする。
+4. **RHP1〜RHP20**（計画上20講）: RH・Dirichlet GRH形式証明の数学的再構成。主不等式(M)、CM素点、theta kernel、格子傾き、相対跡公式、Galoisコホモロジー、形式的検証まで独立した学習サイクルで扱う。
 
-**総数: 22 + 20 + 24 = 66講。** この66講は当該計画の設計上の確定値であり、既存の完了教材`NT`・`ANT`・`MF`・`EC`の講数を含まない。「15回」のような旧シラバスの数合わせではない。本文の証明・演習が収まらない場合はPLAN改訂と参照同期を伴う明示的な分割判断を行う。
+**設計時点の合計: 22 + 20 + 24 + 20 = 86講。** 既存の完了教材`NT/ANT/MF/EC`の講数は含まない。66講への固定は撤廃。2026-11-21以降にLean/Mathlibの認証と人間可読な証明の解説が進んだため、長大な証明の核心をAFR23/24の2講へ押し込まずRHPに独立させた。20講は論証単位から導いた**現行設計値**であり、証明の自然言語化が進めば必要な分割・統合を明示的に行う。未検証の補題を水増しせず証明済みとも扱わない。
 
 ~~~text
 RNG / FLD / GRP / AG1 / NT
@@ -32,12 +33,14 @@ RNG / FLD / GRP / AG1 / NT
                                             │
                               ANT7-8 ＋ IWAの必要部分
                                             ↓
-                              AFR23-24（RH/GRH研究講読）
+                              AFR23-24（解析的還元・形式認証の入口）
+                                            ↓
+                                 RHP1-20（RH/Dirichlet GRH証明の専門研究講読）
 ~~~
 
 - `AFR1〜7`は`MF/ANT`だけで独立に開始可能。`ANF`が未完了だから全AFRを一括ブロックしない。
 - `IWA1`の直接前提と`AFR8`以降の直接前提は、各講の`chapter.yaml`執筆時に最小化。未実装講を既証明の根拠にしない。
-- `IWA20`と`AFR24`の間で循環を作らない。RH側はIWA19までの必要結果が完成していれば利用し、IWA20はAFRの専門結果を証明済み扱いしない。
+- `IWA20`と`AFR24`の間で循環を作らない。RHの専門講読RHPの必要部分だけIWA/AFRを参照し、IWA20はAFR/RHPの将来結果を証明済み扱いしない。RHPの早い解析的講は完成した`ANT/CA12`だけで着手可能、RHP中盤の高次保型・局所体講はANF/IWA/AFRの実装を待つ。
 - 岩澤主予想とRiemann予想は**別の命題**であり、どちらかが他方を直接含意するかのような単純化はしない。
 
 ## 1. 書誌・講義資料との比較
@@ -49,7 +52,7 @@ RNG / FLD / GRP / AG1 / NT
 | 数体から局所・大域 | Neukirch *Algebraic Number Theory* / Milne *Algebraic Number Theory*・*Class Field Theory* / MIT 18.785 | 類群・単数・局所相互法則をIWAの暗黙前提にしない |
 | 無限円分塔からp進L | Washington *Introduction to Cyclotomic Fields* / Coates–Sujatha *Cyclotomic Fields and Zeta Values* / Sharifiの講義ノート | 岩澤代数・成長公式・主予想を段階的に配置 |
 | 古典からアデール・表現 | Bump / Gelbart / Deitmar / Goldfeld–Hundley | 既存MFの再学習ではなく、局所・大域`GL_2`を新しい中心問にする |
-| 現代のRH主張を読む | `ANT7-8`の既習結果、発表者の2026-11-20付一次メモ、Clayの問題ページ | 発表と検証を分け、theta lift・Iwasawa tower等を勉強する目的を与える |
+| 形式的に認証されたRH／Dirichlet GRHの数学的再構成 | 2026-11-20付発表者メモ、Lean/Mathlib 11/21共同声明、Rubinsteinの164頁作業稿、Robin Zhang／Slijepčevićの予備ノート、MIT・Waterlooの検証ログ | 形式的正しさは認証済み。一方で主不等式(M)の自然言語による全証明は未完なので、20講の独立RHPとして核心論証を段階的に整理 |
 
 参照URL・各文献の適用範囲は個別PLANに記す。教科書の説明・問題の転載をせず、現行本文のprerequisiteに沿って独自の中間式と演習を執筆する。
 
@@ -74,6 +77,8 @@ RNG / FLD / GRP / AG1 / NT
 - Sutherlandの検証記録（2026-11-22 16:20 UTC更新）: https://math.mit.edu/~drew/grh/
 - Clay数学研究所の公式RHページ: https://www.claymath.org/millennium/Riemann-Hypothesis/
 
+**拡張結果の厳密な境界:** Dirichlet L関数のGRHから、Abel数体のDedekind ζのRHはArtinの指標分解を介して帰結する。ただしこれは、Leanで直接照合された5命題の一つではない。一般の非Abel数体・Hecke/保型L関数のGRHとは区別する。
+
 ### 2.2 何が証明されたか：Leanの5つの到達命題
 
 原著者公開の`Main.lean`の主要宣言は `riemannHypothesis`, `riemannZeta_eq_zero_re`, `LFunction_ne_zero_of_half_lt_re`, `LFunction_eq_zero_re`, `LFunction_eq_zero_re_of_isPrimitive` である。前二者はζの非自明零点の実部1/2を主張し、後三者はDirichlet指標のL関数について右半平面での零点不存在／臨界帯内の零点の実部1/2を主張する。後者には法`N >= 1`、自明指標の極`s=1`の例外、原始／非原始指標の区別が必要。**任意のDedekind ζ関数、Hecke L関数、全保型L関数についての一般的GRHやExtended RHまで形式的に証明済みだとは書かない。**
@@ -96,11 +101,11 @@ SutherlandはRHからRobin／Lagarias型の**整数の約数和に関する不�
 
 **現段階の研究講読の到達点**は「形式的な正しさを何が担保したか」を説明し、「人間可読な証明のどの補題が既に再構成され、どの入力がLeanからの引用か」を一覧化できること。17,374,215行の全Lean証明を人間が通読したとは主張しない。
 
-### 2.4 証明の数学的な依存関係と66講の担当
+### 2.4 証明の数学的な依存関係と4系列の担当
 
 1. **零点→素数冪和:** Dirichlet Lの対数微分、平滑化したvon Mangoldt和とMellin変換、零点による極、適切な片側上界から零点を排除する論理。正本は既存`ANT5〜8`と`AFR23`。Rubinsteinの`(M)`と補助評価`(B),(C)`の**関係を導出**し、(M)を未立証のまま教材独自に証明したと称さない。
 2. **整除性→素数の和:** CM楕円曲線、整数構造、慣性素点での局所可除性、Stepanov型の重複度とtheta liftの反復。既存`EC`、`ANF4,11,13`、`AFR19〜22`を接続。一般の高ランク反復の核心は研究資料から必要補題を列挙。
-3. **保型周期の大小・傾き:** Weil／theta対応、seesaw、Rallis内積、相対跡公式、整数格子の共体積・傾きの比較、Harder–Narasimhan・Bostの不等式。`AFR20〜22`は具体的な低ランク例と基礎積分を扱う。**算術的Hermitian格子の傾き・Bostの一般定理は既存66講で証明済みとはしない**。研究講読で正確な外部入力として固定する。
+3. **保型周期の大小・傾き:** Weil／theta対応、seesaw、Rallis内積、相対跡公式、整数格子の共体積・傾きの比較、Harder–Narasimhan・Bostの不等式。`AFR20〜22`は具体的な低ランク例と基礎積分を扱う。**算術的Hermitian格子の傾き・Bostの一般定理は基礎3系列で証明済みとはしない**。研究講読で正確な外部入力として固定する。
 4. **分母・合同・Galois側:** Hecke固有空間への射影で生じる分母、Galois表現の剰余拡大、局所・大域`H^1/H^2`、Tate–Poitou、円分塔、`mu`不変量の消失、Ferrero–Washington・Selmer型群・Vandiver関連の条件。基礎は`ANF14〜21`・`IWA7,9,12,18〜20`。一般`p`進Hodge理論、変形環、`GL_n`の深い局所大域対応は別の外部入力として明示。
 5. **最後のパラメータ選択:** 任意に大きいスケールの区間での上界、指標成分の非相殺、補助素数の選択、ゼロの不存在との結合。`AFR23〜24`では必要な不等式の量化順、例外集合、補間を追い、前段の未説明入力を消さない。
 
@@ -114,20 +119,21 @@ SutherlandはRHからRobin／Lagarias型の**整数の約数和に関する不�
 4. **人間向け再構成:** 各中核補題について「正式な対象・仮定・結論 → 最小例 → 証明の主要中間式 → 参照する既証明結果 → Lean由来の未説明入力」の5点を記録。Rubinsteinの`(M),(B),(C)`、Zhangの節2〜6、Leanの`allChi`等の対応を照合する。
 5. **更新条件:** 専門家の改訂解説が中核補題の役割を修正した場合は依存地図を更新。公式の受容や新たなL関数の証明を**既存RH/Dirichlet GRH検証から推測して**拡大しない。
 
-既存の**全66講と3系列を維持**する。前二段の基礎証明を`ANF/IWA/AFR`に配置し、`AFR23`は解析的還元、`AFR24`は形式的認証と人間向けの依存地図を扱う。これら2講だけで長大な研究論文全体の証明を閉じると宣言せず、将来人間可読な完全証明が確定したときの**追加研究講読PLANの判断基準**（主要補題を独立の講義サイクルで閉じられるか）を明記しておく。
+**RHP1〜RHP20の独立系列を今回新設**する。基礎3系列は保型表現・岩澤理論の一般教育を所有し、`AFR23/24`は解析的還元と形式認証の入口、`RHP1〜20`は主不等式(M)の全体像・解析的帰結・theta／格子／局所大域コホモロジーの証明責務を所有する。現行自然言語文献で引用しているLean依存補題が完成したとは主張しない。[RHPの計画書](DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md)の数学的ゲートを満たすため必要なら講数を増減する。
 
 ## 3. 実装・査読・状態遷移
 
 - 今回は**PLANの設計・文献照合・講数確定のみ**。series manifest、空の章、公開目次、global knowledge DAGには未実装章を先行登録しない。
-- 最初の講が着手される際、対象PLANを`textbook/plans/`から`textbook/plans_progress/`へ**移動**し、当該系列manifest（`ANF.yaml`／`IWA.yaml`／`AFR.yaml`）の`plan`と一致させる。全講を`planned`として登録し、本文・meta・必須査読・CIを終えた講だけ`completed`へ遷移させる。
+- 最初の講が着手される際、対象PLANを`textbook/plans/`から`textbook/plans_progress/`へ**移動**し、当該系列manifest（ANFは既に`ANF.yaml`で管理中、IWA／AFR／RHPは着手時に新設）の`plan`と一致させる。全講を`planned`として登録し、本文・meta・必須査読・CIを終えた講だけ`completed`へ遷移させる。
 - 新規講は変更区分C（すべての主要証明・全演習と詳細解答の自己再計算、別観点再読）。A4/B3/C1は最低数であり水増し禁止。初出専門語、仮定、定義域、素点、規格化、演習の使用箇所リンクを確認。
 - 外部研究水準の定理を引用するなら、引用の厳密な適用条件、教科書で本当に証明済みの範囲、学生が追える小模型を記載。証明を閉じる目標を損なう場合は講数や対象を明示的に再検討する。
-- 各系列が全講完了しても必要な横断依存監査・公開索引・CIまで完了した後にだけ`plan_done/`へ移動。ルートPLANは最後の3系列の実装と横断監査を終えるまで`plans/`または作業開始後`plans_progress/`に保持する。
+- 各系列が全講完了しても必要な横断依存監査・公開索引・CIまで完了した後にだけ`plan_done/`へ移動。ルートPLANは対象4系列の実装と横断監査を終えるまで`plans/`または作業開始後`plans_progress/`に保持する。
 
 ## 4. 最初に着手できる講
 
-- **ANF1:** `RNG/FLD/NT`の実在する必要部分のみで開始できる。整数環・二次体を直接例とする。
+- **ANF14:** 2026-11-23のANF系列manifestでANF1〜13が完了、ANF14が次の計画講。着手時は最新版manifestを再確認する（並行執筆により更新され得る）。
 - **AFR1:** 完成済み`MF`系列を直接再利用でき、ANF/IWA完了を待たず開始可能。
 - **IWA1:** ANFの局所体・円分塔の必要部分が実装済みになってから着手。既存`NT`だけで`IWA1`を完了可能とは見なさない。
+- **RHP1:** 既存`ANT3/7/8`と`CA12`の実在する完成本文を参照して、Leanの到達命題とRH/Dirichlet GRHの条件・例外を講義化できる。RHP中盤の高階保型・Galoisコホモロジーは未実装のANF/IWA/AFRを暗黙前提にしない。
 
-講義IDと全66講の内容を変更するときはこのルートと個別PLANの**両方**を同じPRで同期する。完了済み`NT/ANT/MF/EC` PLANは改稿しない。
+講義IDと現行86講の内容を変更するときはこのルートと個別PLANの**双方**を同じPRで同期する。完了済み`NT/ANT/MF/EC` PLANは改稿しない。
