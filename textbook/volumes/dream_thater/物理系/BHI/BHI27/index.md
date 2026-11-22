@@ -613,7 +613,7 @@ $$
 - 問題: $a(u)=E(u)/(2C)$、二解の初期値は第3節のとおりとする。固定した $s\ge u_0$ に対し $D(v,s)=y_1(v)y_2(s)-y_1(s)y_2(v)$ の初期条件を求め、$v=s+\ell$ でのエントロピー真空差の二次係数を導け。
 
 <!-- solution-start -->
-**詳細解答**：各 $y_j''=ay_j$ により $D_{vv}=a(v)D$。$D(s,s)=0$。$D_v(s,s)=y_1'(s)y_2(s)-y_1(s)y_2'(s)=W(s)=1$。[時計の構成](#prop-bhi27-exact-clock)で $W=1$ である。さらに $D_{vv}(s,s)=a(s)D(s,s)=0$、$D_{vvv}(s,s)=a'(s)D(s,s)+a(s)D_v(s,s)=a(s)$。Taylorの定理から $D(s+\ell,s)=\ell+a(s)\ell^3/6+O(\ell^4)$。従って
+**詳細解答**：各 $y_j''=ay_j$ により $D_{vv}=a(v)D$。$D(s,s)=0$。$D_v(s,s)=y_1'(s)y_2(s)-y_1(s)y_2'(s)=W(s)=1$。[時計の構成](#prop-bhi27-exact-clock)で $W=1$ である。さらに $D_{vv}(s,s)=a(s)D(s,s)=0$、$D_{vvv}(s,s)=a'(s)D(s,s)+a(s)D_v(s,s)=a(s)$。[Taylorの定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-taylor)から $D(s+\ell,s)=\ell+a(s)\ell^3/6+O(\ell^4)$。従って
 
 $$
 \frac c6\ln\frac D\ell
