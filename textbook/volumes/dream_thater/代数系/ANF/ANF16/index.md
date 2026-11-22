@@ -8,11 +8,26 @@
 
 ## 1. ノルム群を、基礎体のどこで測るか
 
-$L/K$ を有限拡大とし、[局所ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)を思い出します。$f=f(L/K)=[k_L:k_K]$ を剰余次数とすると、任意の $x\in L^\times$ に対して
+$L/K$ を有限拡大とし、$k_L$ を $L$ の剰余体、$f=f(L/K)=[k_L:k_K]$ を剰余次数、$\pi_L$ を $L$ の一様化元とします。$v_L(\pi_L)=1$ と規格化し、この節では $N=N_{L/K}$ と略記します。
+
+[局所ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)は基礎体 $\mathbb Q_p$ について述べられていました。ここでは $K/\mathbb Q_p$ が有限の場合にも使えることを確かめます。$\mathcal O_L$ は離散付値環 $\mathcal O_K$ 上の有限自由加群で、その階数は $n=[L:K]$ です。$\pi_L$ による乗法 $m_{\pi_L}:\mathcal O_L\to\mathcal O_L$ は $\mathcal O_K$ 線形で、体ノルムはその行列式です。$\mathcal O_K$ 上で基底を取ると、単因子の指数 $a_1,\ldots,a_n\ge0$ を用いて
 
 $$
-v_K(N_{L/K}(x))=f\,v_L(x).
+\begin{aligned}
+\#(\mathcal O_L/\pi_L\mathcal O_L)
+&=\prod_{i=1}^n\#(\mathcal O_K/\pi_K^{a_i}\mathcal O_K)
+=q^{\sum_i a_i},\\
+v_K(\det m_{\pi_L})&=\sum_i a_i.
+\end{aligned}
 $$
+
+一方、左辺は $\#k_L=q^f$ です。従って $v_K(N(\pi_L))=f$ です。また、$u\in\mathcal O_L^\times$ なら $m_u$ と $m_{u^{-1}}$ が互いに逆の整数行列になるため、$N(u)\in\mathcal O_K^\times$ です。任意の $x=\pi_L^j u$（$j\in\mathbb Z$）にノルムの乗法性を適用すると、
+
+$$
+v_K(N_{L/K}(x))=f\,v_L(x)
+$$
+
+を得ます。これは [ANF11 の行列式と指数の計算](../ANF11/index.md#prop-anf11-norm-valuation)を基礎体 $\mathcal O_K$ で書き直したものです。
 
 したがってノルムの付値は必ず $f$ の倍数です。しかし逆に、付値が $f$ の倍数であれば必ずノルムになるわけではありません。単数に障害が残ることがあります。
 
@@ -38,7 +53,7 @@ $$
 H_{L/K}=3^{2\mathbb Z}\mathbb Z_3^\times.
 $$
 
-積と逆元で閉じた $K^\times$ の部分群で、剰余類は $[1],[3]$ の二つです。$3$ はノルムではない一方 $9=N_{L/K}(3)$ はノルムです。よってノルム指数は $2$ です。
+$N(1)=1$ とノルムの乗法性により、この像は単位元・積・逆元について閉じた $K^\times$ の部分群です。任意の $a=3^j u$（$u\in\mathbb Z_3^\times$）は、上の表示により $j$ の偶奇だけで所属を判定できます。剰余類は $[1],[3]$ の二つです。$3$ はノルムではない一方 $9=N_{L/K}(3)$ はノルムです。よって定義のノルム指数は $2$ です。
 <!-- definition-example-end -->
 
 次の完全列は、商に残る二種類の情報を直接分離します。
@@ -116,14 +131,26 @@ $F(X)=X^n-u$ の初期値 $X=1$ では、$F(1)=1-u$ が十分小さく、$F'(1)=
 
 $u=1$ なら $x=1$ でよいので、以下 $u\ne1$ とします。$F(X)=X^n-u\in\mathcal O_K[X]$ とおき、$r=v_K(F(1))=v_K(1-u)\ge m>2d$ とします。$F'(1)=n$ なので $v_K(F'(1))=d$ です。
 
-ここで一般の完備離散付値環 $\mathcal O_K$ でも、Newton 反復 $a_{j+1}=a_j-F(a_j)/F'(a_j)$ は $\mathcal O_K$ 内で構成できます。初期点 $a_0=1$ において $r>2d$ であり、帰納的に $d_j=v_K(F'(a_j))=d$、$r_j=v_K(F(a_j))>2d$ が保たれ、
+$F'(T)=nT^{n-1}$ は変数 $T$ に関する形式微分です。初期点 $a_0=1$ から始め、$r_j=v_K(F(a_j))$、$h_j=-F(a_j)/F'(a_j)$、$a_{j+1}=a_j+h_j$ と置きます。$a_j\in\mathcal O_K^\times$ かつ $r_j>2d$ を仮定すると、$F'(a_j)=na_j^{n-1}$ の付値は $d$ なので
 
 $$
-v_K(a_{j+1}-a_j)=r_j-d,\qquad
-r_{j+1}\ge2(r_j-d)
+v_K(h_j)=r_j-d>d\ge0.
 $$
 
-となります。前者は増大して無限大へ向かいます。従って完備性から $a_j\to x\in\mathcal O_K$、多項式の連続性から $F(x)=0$ です。最初の差は $\mathfrak p_K^{r-d}\subset\mathfrak p_K$ に入り、後の補正もさらに深いため $x\equiv1\pmod{\mathfrak p_K}$ です。特に $x\in\mathcal O_K^\times$ で、$x^n=u$ が成立します。
+従って $h_j\in\mathfrak p_K$、$a_{j+1}$ も単数です。整数係数多項式の Taylor 展開（[ANF10 の Newton 反復](../ANF10/index.md#thm-anf10-hensel-strong)と同じ計算）を $a_j$ と $h_j$ に適用すると、ある $R_j\in\mathcal O_K$ について
+
+$$
+F(a_j+h_j)=F(a_j)+F'(a_j)h_j+h_j^2R_j=h_j^2R_j.
+$$
+
+したがって
+
+$$
+r_{j+1}\ge2(r_j-d),\qquad
+r_{j+1}-2d\ge2(r_j-2d)>0.
+$$
+
+初期値 $r_0=r>2d$ なので帰納法でこの条件が保たれ、$r_j-2d$ は少なくとも二倍ずつ増えます。補正の付値 $v_K(h_j)=r_j-d$ も無限大へ向かい、$a_j$ は完備な $\mathcal O_K$ 内で Cauchy 列となります。極限 $x$ について多項式の連続性から $F(x)=0$。また全補正が $\mathfrak p_K$ に入るため $x\equiv1\pmod{\mathfrak p_K}$ で、$x\in\mathcal O_K^\times$ かつ $x^n=u$ です。
 <!-- proof-end -->
 
 補題は、$n$ が $p$ で割り切れても、主単数の段を十分深く取れば $n$ 乗根を求められることを示します。これを体ノルムに戻します。
@@ -148,7 +175,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の $a\in K^\times$ を $L$ の元と見れば、$K$ 上の $n$ 次元線形空間 $L$ 上で「$a$ を掛ける写像」の行列式が $a^n$ なので $N_{L/K}(a)=a^n$ です。
+$K$ 上の $n$ 次元線形空間 $L$ の基底 $b_1,\ldots,b_n$ を取ります。$a\in K^\times$ による乗法写像 $m_a:L\to L$ は各基底ベクトルを $m_a(b_i)=ab_i$ に送るので、この基底での表示行列は $aI_n$ です。体ノルムは乗法写像の行列式で定義されるため、
+
+$$
+N_{L/K}(a)=\det(aI_n)=a^n
+$$
+
+です。この計算では $a$ が **基礎体 $K$ の元**であることを使っています。
 
 $m>2v_K(n)$、$m\ge1$ を選びます。[深い主単数の冪根](#lem-anf16-deep-power-roots)から、各 $u\in U_K^m$ は $x^n$（$x\in\mathcal O_K^\times$）と表せます。従って
 
@@ -179,9 +212,19 @@ $$
 
 ## 3. 緩分岐巡回拡大では指数を最後まで計算できる
 
-一般定理へ進む前に、分岐していても全計算ができる族を調べます。$e\ge2$ が $q-1$ を割るとします。このとき $p\nmid e$ で、剰余体 $k_K^\times$ に $e$ 個の $e$ 乗根が存在します。[単純根の Hensel の補題](../ANF10/index.md#thm-anf10-hensel-simple)によってそれらは $K$ の $e$ 乗根へ持ち上がります。
+一般定理へ進む前に、分岐していても全計算ができる族を調べます。$e\ge2$ が $q-1$ を割るとします。このとき $p\nmid e$ で、剰余体 $k_K^\times$ に $e$ 個の $e$ 乗根が存在します。
 
-$\alpha^e=\pi_K$ となる根 $\alpha$ を取り、$L=K(\alpha)$ とします。$X^e-\pi_K$ は [Eisenstein 既約性](../ANF10/index.md#thm-anf10-eisenstein-irreducible)で既約、$L/K$ は次数 $e$ の全分岐拡大です。$e$ 個の根 $\zeta\alpha$（$\zeta^e=1$）がすべて $L$ にあるため、これは巡回 Galois 拡大です。
+ここで [ANF10 の単純根の Hensel の補題](../ANF10/index.md#thm-anf10-hensel-simple)は $\mathbb Z_p$ 上で述べられていますが、$\mathcal O_K$ は完備離散付値環なので同じ一桁ずつの証明が使えます。具体的には $F\in\mathcal O_K[T]$、$F(a)\equiv0\pmod{\pi_K^r}$（$r\ge1$）、$F'(a)\in\mathcal O_K^\times$ とし、補正 $a'=a+\pi_K^r t$ を取ると、
+
+$$
+F(a')\equiv F(a)+\pi_K^r tF'(a)\pmod{\pi_K^{r+1}}.
+$$
+
+$F'(a)$ の剰余が非零だから、$t\bmod\mathfrak p_K$ を一意に選んで右辺を $0$ にできます。これを繰り返した根の近似列は完備性により収束します。$F(T)=T^e-1$ に適用すると、導関数の剰余は $e\bar\zeta^{\,e-1}\ne0$ なので、上の $e$ 個の根はすべて $K$ に持ち上がります。
+
+$\alpha^e=\pi_K$ となる根 $\alpha$ を取り、$L=K(\alpha)$ とします。$X^e-\pi_K$ の既約性についても [ANF10 の Eisenstein の証明](../ANF10/index.md#thm-anf10-eisenstein-irreducible)を一般の $\mathcal O_K$ に移せます。実際、もし正次数モニックな $G,H\in K[T]$ に分解したなら、係数の最小 $v_K$ 付値を積について加える計算から両因子は $\mathcal O_K[T]$ に入ります。法 $\mathfrak p_K$ の積は $T^e$ だから両因子の定数項が $\mathfrak p_K$ に入り、積が $\mathfrak p_K^2$ に入るのに $-\pi_K\notin\mathfrak p_K^2$ となって矛盾します。よって $[L:K]=e$ です。
+
+$L$ 上の正規化付値を使えば $e\,v_L(\alpha)=v_L(\pi_K)=e(L/K)$ です。従って $e$ は分岐指数 $e(L/K)$ を割り、$e(L/K)\le[L:K]=e$ から $e(L/K)=e$、$f(L/K)=1$ です。$L/K$ は全分岐し $\alpha$ が一様化元になります。さらに $e$ 個の根 $\zeta\alpha$（$\zeta^e=1$）がすべて $L$ にあるため、この拡大は巡回 Galois 拡大です。
 
 <a id="prop-anf16-tame-kummer-norm"></a>
 
@@ -209,7 +252,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $X^e-\pi_K$ が Eisenstein なので $[L:K]=e$、$v_L(\alpha)=1$、$f(L/K)=1$ です。$p\nmid e$ なので $X^e-1$ の相異なる $e$ 個の剰余体根は Hensel により $K$ に持ち上がり、$\alpha\mapsto\zeta\alpha$（$\zeta^e=1$）が $e$ 個の自己同型を与えます。$k_K^\times$ は巡回で、$e$ 個の根は巡回群を作るので Galois 群も巡回です。
+上で $\mathcal O_K$ 上に拡張した Eisenstein 判定・Hensel の構成から、$[L:K]=e$、$v_L(\alpha)=1$、$f(L/K)=1$ と、$K$ 内の相異なる $e$ 個の $e$ 乗根 $\zeta$ が得られています。$\alpha$ を $\zeta\alpha$ へ送る $K$ 自己同型は $e$ 個あり、これが全 Galois 群です。$k_K^\times$ は巡回で $e$ 乗根の群も巡回なので、この群は巡回です。
 
 $x\in\mathcal O_L^\times$ とすると、全分岐拡大の各 Galois 自己同型は剰余体上で恒等的に作用します。[惰性群の完全列](../ANF13/index.md#thm-anf13-inertia-exact)の $f=1$ の場合です。従って
 
@@ -220,7 +263,13 @@ $$
 =\bar x^{\,e}.
 $$
 
-ゆえに単数ノルムの剰余は $e$ 乗です。逆に $u\in\mathcal O_K^\times$ の剰余が $e$ 乗であれば、$a_0\in k_K^\times$ で $a_0^e=\bar u$ を選べます。$F(T)=T^e-u$ の導関数は $F'(a_0)\equiv e a_0^{e-1}\ne0\pmod{\mathfrak p_K}$ なので Hensel により $a\in\mathcal O_K^\times$ が存在して $a^e=u$ となります。$a$ は基礎体の元ですから $N_{L/K}(a)=a^e=u$ です。これで単数ノルムの両包含が分かりました。
+ゆえに単数ノルムの剰余は $e$ 乗です。逆に $u\in\mathcal O_K^\times$ の剰余が $e$ 乗であれば、$\bar a_0\in k_K^\times$ で $\bar a_0^{\,e}=\bar u$ を選び、その持ち上げ $a_0\in\mathcal O_K^\times$ を取ります。$F(T)=T^e-u$ は $F(a_0)\equiv0\pmod{\mathfrak p_K}$ を満たし、$T$ に関する形式導関数の剰余は
+
+$$
+\overline{F'(a_0)}=e\bar a_0^{\,e-1}\ne0
+$$
+
+です。$p\nmid e$ と $\bar a_0\ne0$ がこの非零条件を保証します。上で示した $\mathcal O_K$ 版 Hensel の持ち上げにより $a\in\mathcal O_K^\times$ が存在して $a^e=u$ となります。$a$ は基礎体の元ですから $N_{L/K}(a)=a^e=u$ です。これで単数ノルムの両包含が分かりました。
 
 $\alpha$ の最小多項式は $T^e-\pi_K$ なので、根の積から
 
@@ -425,9 +474,9 @@ $K/\mathbb Q_p$ の剰余体の位数を $q$ とし、$e\mid(q-1)$、$e\ge2$ と
 - ID: ANF16-B1
 
 <!-- solution-start -->
-**詳細解答。** $X^e-\pi_K$ は [Eisenstein 既約性](../ANF10/index.md#thm-anf10-eisenstein-irreducible)で既約なので、$[L:K]=e$、剰余次数は $1$ です。
+**詳細解答。** $X^e-\pi_K$ は $\mathcal O_K$ 上の Eisenstein 多項式で、[第3節の一般基礎体への拡張](#prop-anf16-tame-kummer-norm)で確かめた定数項の議論から $[L:K]=e$、$e(L/K)=e$、$f(L/K)=1$ です。
 
-$e\mid(q-1)$ から $p\nmid e$ です。$\mathbb F_q^\times$ にある $e$ 個の $e$ 乗根は [Hensel](../ANF10/index.md#thm-anf10-hensel-simple)で $K$ に持ち上がります。
+$e\mid(q-1)$ から $p\nmid e$ です。剰余体 $k_K^\times$ にある相異なる $e$ 個の $e$ 乗根は、同節で示した $\mathcal O_K$ 上の Hensel の一桁補正によって $K$ に持ち上がります。
 
 各根 $\zeta$ によって $\sqrt[e]{\pi_K}\mapsto\zeta\sqrt[e]{\pi_K}$ という自己同型が得られます。$\mathbb F_q^\times$ が巡回群であるため、これらの自己同型も位数 $e$ の巡回群をなします。
 
