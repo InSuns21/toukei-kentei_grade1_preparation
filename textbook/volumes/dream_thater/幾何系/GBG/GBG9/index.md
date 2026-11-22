@@ -36,7 +36,11 @@ $$
 
 よって $du'$ は一般には $W^{-1}du$ と等しくない。微分する位置に依存して基底を取り替えると、基底の変化を測る一項が余分に出る。
 
-この差を補うため、Lie 環の元 $\xi$ が表現空間 $V$ をどのように無限小で動かすかを先に整理する。[Lie 群の指数写像](../../../代数系/LIE/LIE2/index.md#def-lie2-exponential-map)を用い、群の単位元の近くで表現を微分する。以下、$\operatorname{End}_{\mathbb F}(V)$ は $V$ から $V$ への $\mathbb F$ 線形写像全体（可逆とは限らない）を表す。微分変数 $t$ は実数で、$w$ と $\xi$ を固定して動かす。
+この差を補うため、Lie 環の元 $\xi$ が表現空間 $V$ をどのように無限小で動かすかを先に整理する。[Lie 群の指数写像](../../../代数系/LIE/LIE2/index.md#def-lie2-exponential-map)を用い、群の単位元の近くで表現を微分する。
+
+$\operatorname{End}_{\mathbb F}(V)$ は $V$ から $V$ への $\mathbb F$ 線形写像全体を表す。可逆である必要はない。
+
+以下の定義では微分変数 $t$ は実数で、$w$ と $\xi$ を固定して動かす。
 
 <a id="def-gbg9-infinitesimal-representation"></a>
 
