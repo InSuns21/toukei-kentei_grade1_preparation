@@ -2,7 +2,11 @@
 
 [前講のノルム群と存在定理](../ANF16/index.md#thm-anf16-local-existence)では、有限 Abel 拡大を開有限指数部分群で指定できることを学びました。しかし、群の位数が一致するだけでは、商群の**どの元がどの Galois 自己同型に対応するか**は定まりません。今回の問いは、対応の向きを Frobenius で固定し、拡大・中間体を変えても同じ対応が働くことを理解することです。
 
-本講では $K/\mathbb Q_p$ を有限拡大、$\mathcal O_K$ を整数環、$\mathfrak p_K$ を極大イデアル、$k_K$ を $q$ 元の剰余体、$v_K(K^\times)=\mathbb Z$ とします。$\pi_K$ は $v_K(\pi_K)=1$ の一様化元です。[局所体の単数と付値の分解](../ANF16/index.md#prop-anf16-valuation-unit-sequence)を使います。有限 Galois 拡大の Galois 群、ノルム、算術的 Frobenius はそれぞれ既習で、特に[算術的 Frobenius の定義](../ANF15/index.md#def-anf15-arithmetic-frobenius)は $x\mapsto x^q$ です。
+本講では $K/\mathbb Q_p$ を有限拡大、$\mathcal O_K$ を整数環、$\mathfrak p_K$ を極大イデアルとします。剰余体 $k_K$ の位数を $q$ とし、付値を $v_K(K^\times)=\mathbb Z$ と規格化します。
+
+$\pi_K$ は $v_K(\pi_K)=1$ の一様化元です。[局所体の単数と付値の分解](../ANF16/index.md#prop-anf16-valuation-unit-sequence)を使います。
+
+有限 Galois 拡大の Galois 群とノルムは既習です。また[算術的 Frobenius の定義](../ANF15/index.md#def-anf15-arithmetic-frobenius)では、剰余体上の自己同型を $x\mapsto x^q$ としました。
 
 この講で証明するのは、相互法則の有限商から得られる自然な射の可換性・核・一意性、非分岐拡大での規格化と基礎体変更の直接計算です。**すべての分岐 Abel 拡大について相互法則の写像を構成する深い存在部分と、その一般的な基礎体変更則は外部定理**として使用します。この区別は後の具体計算でも維持します。
 
@@ -251,7 +255,17 @@ $$
 
 任意の開有限指数部分群 $H$ に対し、[局所存在定理](../ANF16/index.md#thm-anf16-local-existence)は一意な有限 Abel 拡大 $L$ を与え、$H=N_{L/K}(L^\times)$ とします。従って対応は全射であり、ノルム群が同じなら拡大も同じなので単射です。
 
-$L\supset M$ なら[ノルムの塔での包含](../ANF16/index.md#prop-anf16-norm-tower)により $H_L\subset H_M$ です。逆に $H_L\subset H_M$ とします。二つの拡大の合成体 $F=LM$ は有限 Abel Galois 拡大です。$H_F=N_{F/K}(F^\times)$ とすると、[ノルム塔の包含](../ANF16/index.md#prop-anf16-norm-tower)から $H_F\subset H_L\cap H_M$。従って[商の同型](#prop-anf17-artin-quotient)で、$H_L/H_F$ と $H_M/H_F$ を $\operatorname{Gal}(F/K)$ の部分群として比較できます。[中間体への制限](#prop-anf17-restriction-square)の核の記述から、前者は $\operatorname{Gal}(F/L)$、後者は $\operatorname{Gal}(F/M)$ に対応します。$H_L\subset H_M$ により
+$L\supset M$ なら[ノルムの塔での包含](../ANF16/index.md#prop-anf16-norm-tower)により $H_L\subset H_M$ です。
+
+逆に $H_L\subset H_M$ とします。合成体 $F=LM$ は有限 Abel Galois 拡大です。$H_F=N_{F/K}(F^\times)$ と置き、[ノルムの塔での包含](../ANF16/index.md#prop-anf16-norm-tower)を適用すると、
+
+$
+H_F\subset H_L\cap H_M
+$
+
+となります。[商の同型](#prop-anf17-artin-quotient)により、$H_L/H_F$ と $H_M/H_F$ を $\operatorname{Gal}(F/K)$ の部分群として比較できます。
+
+[中間体への制限](#prop-anf17-restriction-square)の核の記述から、前者は $\operatorname{Gal}(F/L)$、後者は $\operatorname{Gal}(F/M)$ に対応します。仮定 $H_L\subset H_M$ により
 
 $$
 \operatorname{Gal}(F/L)\subset\operatorname{Gal}(F/M).
@@ -347,7 +361,21 @@ $K=\mathbb Q_5$、$L=K(\sqrt[4]5)$、$M=K(\sqrt5)$ とする。$K^\times/H_L$ �
 - ID: ANF17-B1
 
 <!-- solution-start -->
-**詳細解答。** [緩分岐 Kummer ノルム計算](../ANF16/index.md#prop-anf16-tame-kummer-norm)では $H_L=\langle-5\rangle(1+5\mathbb Z_5)$ です。$2\bmod5$ は位数4なので $[2]$ は位数4です。$H_M$ の単数の剰余は平方集合 $\{1,4\}$。$[2]$ は $H_M$ に入りませんが $[2]^2=[4]$ は入ります。従って[制限の核](#prop-anf17-restriction-square)は $\{[1],[2]^2\}$、位数2です。Galois 側で固定される中間体は $M$ で、その固定群も位数 $[L:M]=2$ です。
+**詳細解答。** [緩分岐 Kummer ノルム計算](../ANF16/index.md#prop-anf16-tame-kummer-norm)から
+
+$
+H_L=\langle-5\rangle(1+5\mathbb Z_5)
+$
+
+です。$2\bmod5$ は位数4なので、$[2]$ も商群で位数4です。
+
+$H_M$ の単数の剰余は平方集合 $\{1,4\}$ です。$[2]$ は $H_M$ に入らず、$[2]^2=[4]$ は入ります。従って[制限の核](#prop-anf17-restriction-square)は
+
+$
+\{[1],[2]^2\}
+$
+
+で、位数2です。Galois 側でも $M$ を固定する群は $\operatorname{Gal}(L/M)$ で、位数は $[L:M]=2$ です。
 <!-- solution-end -->
 
 ### B2. 合成体で Frobenius の指数を追う
@@ -375,7 +403,21 @@ $$
 - ID: ANF17-B3
 
 <!-- solution-start -->
-**詳細解答。** $F=L_1L_2$ は有限 Abel Galois 拡大で、[ノルム塔の包含](../ANF16/index.md#prop-anf16-norm-tower)から $H_F\subset H_1\cap H_2$ です。[Artin 商同型](#prop-anf17-artin-quotient)により $K^\times/H_F\cong\operatorname{Gal}(F/K)$。さらに[制限の核の記述](#prop-anf17-restriction-square)を $F/L_i$ へ適用すると、$H_i/H_F$ は $\operatorname{Gal}(F/L_i)$ に対応します。$H_1\subset H_2$ なので $\operatorname{Gal}(F/L_1)\subset\operatorname{Gal}(F/L_2)$。有限 Galois 対応で固定体の包含は逆向きですから $L_2\subset L_1$ です。
+**詳細解答。** $F=L_1L_2$ は有限 Abel Galois 拡大です。[ノルムの塔での包含](../ANF16/index.md#prop-anf16-norm-tower)から $H_F\subset H_1\cap H_2$ です。
+
+[Artin 商同型](#prop-anf17-artin-quotient)を $F/K$ に適用すると、
+
+$
+K^\times/H_F\cong\operatorname{Gal}(F/K).
+$
+
+ここで[制限の核の記述](#prop-anf17-restriction-square)を $F/L_i$ に適用すると、$H_i/H_F$ は $\operatorname{Gal}(F/L_i)$ に対応します。仮定 $H_1\subset H_2$ から
+
+$
+\operatorname{Gal}(F/L_1)\subset\operatorname{Gal}(F/L_2)
+$
+
+です。有限 Galois 対応では固定体の包含が逆になるので、$L_2\subset L_1$ が従います。
 <!-- solution-end -->
 
 ### B4. 分岐拡大では付値だけで十分か
@@ -386,7 +428,21 @@ $K=\mathbb Q_3$、$L=\mathbb Q_3(\sqrt3)$ とする。$-3$ と $3$ の Artin 像
 - ID: ANF17-B4
 
 <!-- solution-start -->
-**詳細解答。** [緩分岐 Kummer ノルム群](../ANF16/index.md#prop-anf16-tame-kummer-norm)から $H_L=\langle-3\rangle(1+3\mathbb Z_3)$ です。$\sqrt3$ のノルムは $-3$ だから $\operatorname{rec}_{L/K}(-3)=1$。しかし $3=(-3)(-1)$ で $-1\bmod3=2$ は平方でないので $-1\notin H_L$、よって $3\notin H_L$。したがって[Artin 核の同値](#prop-anf17-artin-quotient)から $\operatorname{rec}_{L/K}(3)\ne1$ です。両元の付値はともに1ですが像は異なります。分岐では単数 $-1$ が障害になるため、[非分岐での付値公式](../ANF15/index.md#thm-anf15-unramified-reciprocity)をこの拡大へ流用してはいけません。
+**詳細解答。** [緩分岐 Kummer ノルム群](../ANF16/index.md#prop-anf16-tame-kummer-norm)によれば
+
+$
+H_L=\langle-3\rangle(1+3\mathbb Z_3).
+$
+
+$\sqrt3$ のノルムは $-3$ だから、$\operatorname{rec}_{L/K}(-3)=1$ です。
+
+一方、$3=(-3)(-1)$ ですが、$-1\bmod3=2$ は平方でありません。従って $-1\notin H_L$、さらに $3\notin H_L$ です。[Artin 核の同値](#prop-anf17-artin-quotient)を使うと
+
+$
+\operatorname{rec}_{L/K}(3)\ne1.
+$
+
+$3$ と $-3$ の付値はともに1ですが、Artin 像は異なります。分岐拡大では単数が障害になるため、[非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)の付値だけによる公式をこの拡大へ流用できません。
 <!-- solution-end -->
 
 ### C1. 非分岐12次の部分体と基礎体変更を一括検算する
