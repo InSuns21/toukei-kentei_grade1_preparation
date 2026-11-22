@@ -1,0 +1,30 @@
+chapter: BHI26
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI25]
+forward_references: []
+concepts:
+  - id: black-hole-information.jt-two-bath-empty-entropy
+    name: 二浴平衡模型の空islandエントロピー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二浴平衡模型の空islandエントロピー）]
+    requires: [black-hole-information.jt-two-bath-symmetric-island-model]
+  - id: black-hole-information.jt-extremized-branch-comparison
+    name: 同一模型の空枝と極値化済みisland枝
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（同一模型の空枝と極値化済みisland枝）]
+    requires: [black-hole-information.jt-two-bath-empty-entropy, black-hole-information.jt-two-bath-extremality-equations]
+  - id: black-hole-information.jt-late-page-crossing
+    name: 後期のisland飽和値とPage交点
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（後期のisland飽和値とPage交点）]
+    requires: [black-hole-information.jt-extremized-branch-comparison, black-hole-information.jt-late-island-unique-root]
+  - id: black-hole-information.jt-page-kink-envelope
+    name: 枝選択による折れ目と勾配
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（枝選択による折れ目と勾配）]
+    requires: [black-hole-information.jt-late-page-crossing, black-hole-information.jt-extremized-branch-comparison]
