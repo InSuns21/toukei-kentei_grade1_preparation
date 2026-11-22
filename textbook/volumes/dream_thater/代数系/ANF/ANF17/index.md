@@ -38,7 +38,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf17-finite-reciprocity -->
-**定義の確認**（非分岐二次）。 $K=\mathbb Q_3$、$E=\mathbb Q_3(i)$（$i^2=-1$）は[非分岐 Frobenius の具体例](../ANF15/index.md#prop-anf15-frobenius-lift)で確認した次数 $2$ の Galois 拡大です。$F(i)=-i$、$F^2=1$ なので Galois 群は位数 $2$ の可換群です。[非分岐局所 Artin 写像](../ANF15/index.md#thm-anf15-unramified-reciprocity)は $v_3$ の剰余 $m\bmod2$ を $F^m$ に対応させます。すなわち $a=3^m u$（$m=v_3(a)\in\mathbb Z$、$u\in\mathbb Z_3^\times$）に対して
+**定義の確認**（非分岐二次）。 $K=\mathbb Q_3$、$E=\mathbb Q_3(i)$（$i^2=-1$）は[非分岐 Frobenius の具体例](../ANF15/index.md#prop-anf15-frobenius-lift)で確認した次数 $2$ の Galois 拡大です。$F(i)=-i$ かつ $F^2=1$ なので、Galois 群は位数 $2$ の可換群です。
+
+[非分岐局所 Artin 写像](../ANF15/index.md#thm-anf15-unramified-reciprocity)では、$a$ の付値を $2$ で割った余りから Frobenius の冪を判定します。具体的に $a=3^m u$ と書き、$m=v_3(a)\in\mathbb Z$、$u\in\mathbb Z_3^\times$ とすると
 
 $$
 \operatorname{rec}_{E/K}(3^m u)=F^m,\quad
@@ -163,7 +165,14 @@ H_L=\langle-5\rangle(1+5\mathbb Z_5),\qquad
 H_M=5^{\mathbb Z}\{u\in\mathbb Z_5^\times:\bar u\in\{1,4\}\}.
 $$
 
-$H_L$ は付値 $1$ の元 $-5$ と剰余 $1$ の単数を含むので、各剰余類は単数代表で表せます。単数の剰余群 $\mathbb F_5^\times=\langle2\rangle$ は位数 $4$ で、$2^2\equiv4\ne1$、$2^4\equiv1\pmod5$ です。従って $K^\times/H_L$ は $[2]$ で生成される位数4の巡回群です。一方 $H_M$ の単数剰余は $\{1,4\}$ なので、$K^\times/H_M$ は $[2]$ で生成される位数2の巡回群です。従って制限は生成元を生成元へ送り、$[2]^2$ を核に送ります。Galois 側の核は次数 $[L:M]=2$ の群に一致します。この例は Artin 写像の **Galois 群への具体的な生成元の像をまだ計算していない** 点にも注意してください。位数だけから分岐拡大の生成元を決めつけることはできません。
+$H_L$ は付値 $1$ の元 $-5$ を含むため、剰余類から付値を取り除いて単数代表にできます。その単数の剰余は、$H_L$ の単数部分が $1+5\mathbb Z_5$ なので $\mathbb F_5^\times$ の元で区別できます。
+
+$$
+\mathbb F_5^\times=\langle2\rangle,\qquad
+2^2\equiv4\ne1,\quad2^4\equiv1\pmod5.
+$$
+
+従って $K^\times/H_L$ は $[2]$ で生成される位数 $4$ の巡回群です。一方、$H_M$ の単数剰余は $\{1,4\}$ なので、$K^\times/H_M$ は $[2]$ で生成される位数 $2$ の巡回群です。従って制限は生成元を生成元へ送り、$[2]^2$ を核に送ります。Galois 側の核は次数 $[L:M]=2$ の群に一致します。この例は Artin 写像の **Galois 群への具体的な生成元の像をまだ計算していない** 点にも注意してください。位数だけから分岐拡大の生成元を決めつけることはできません。
 
 ## 4. 基礎体を変えた場合：ノルムと制限
 
@@ -201,7 +210,9 @@ $$
 
 ### 証明の見取り図
 
-$LM/M$ も非分岐です。$M$ の剰余体は $q^f$ 元なので、その算術的 Frobenius を $L$ の剰余体で見ると $q$ 乗 Frobenius の $f$ 乗です。他方、[一般の基礎体 $K$ に拡張して証明したノルムの付値公式](../ANF16/index.md#prop-anf16-valuation-unit-sequence)も剰余次数 $f$ を掛けます。ANF12 の元の命題は基礎体 $\mathbb Q_p$ の場合であり、ここでは $M/K$ 一般に対する ANF16 の証明を使います。この二つの指数が一致することを確かめます。
+$LM/M$ も非分岐です。$M$ の剰余体は $q^f$ 元なので、その算術的 Frobenius を $L$ に制限すると、$q$ 乗 Frobenius の $f$ 乗になります。
+
+他方、[ノルム商の付値・単数完全列](../ANF16/index.md#prop-anf16-valuation-unit-sequence)の直前では、一般の有限局所拡大 $M/K$ に対するノルム付値公式が導出されています。ANF12 の対応する命題は基礎体 $\mathbb Q_p$ の場合なので、ここでは ANF16 の一般化を使います。両側の指数を照合しましょう。
 
 <!-- proof-start -->
 ### 証明
@@ -220,7 +231,7 @@ $$
 =F_{L/K}^{\,fr}.
 $$
 
-他方、[ANF16 で一般の有限拡大 $M/K$ に対して導出したノルム付値公式](../ANF16/index.md#prop-anf16-valuation-unit-sequence)を使います。そこでは $\mathcal O_M$ の $\mathcal O_K$ 基底上で一様化元 $\pi_M$ の乗法行列を作り、$\#(\mathcal O_M/\pi_M\mathcal O_M)=\#k_M=q^f$ から $v_K(\det m_{\pi_M})=f$ と求めました。単数の乗法行列の行列式は単数なので、$b=\pi_M^r u$ に対して
+他方、[ノルム商の付値・単数完全列](../ANF16/index.md#prop-anf16-valuation-unit-sequence)を使います。そこでは $\mathcal O_M$ の $\mathcal O_K$ 基底上で一様化元 $\pi_M$ の乗法行列を作り、$\#(\mathcal O_M/\pi_M\mathcal O_M)=\#k_M=q^f$ から $v_K(\det m_{\pi_M})=f$ と求めました。単数の乗法行列の行列式は単数なので、$b=\pi_M^r u$ に対して
 
 $$
 v_K(N_{M/K}(b))=r\,v_K(N_{M/K}(\pi_M))+v_K(N_{M/K}(u))=fr.
@@ -345,7 +356,7 @@ $M/K$ を有限局所拡大で剰余次数 $f=3$、$b\in M^\times$ の $v_M(b)=2
 - ID: ANF17-A4
 
 <!-- solution-start -->
-**詳細解答。** [一般基礎体でのノルム付値公式](../ANF16/index.md#prop-anf16-valuation-unit-sequence)を $M/K$ に適用すると $v_K(N_{M/K}(b))=3\cdot2=6$ です。[非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)から Artin 像は $F_{L/K}^6$。$F_{L/K}$ は位数4なので $F^6=F^2$ です。
+**詳細解答。** [ノルム商の付値・単数完全列](../ANF16/index.md#prop-anf16-valuation-unit-sequence)を $M/K$ に適用すると $v_K(N_{M/K}(b))=3\cdot2=6$ です。[非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)から Artin 像は $F_{L/K}^6$。$F_{L/K}$ は位数4なので $F^6=F^2$ です。
 <!-- solution-end -->
 
 ### A5. 有限商への写像が well-defined になる条件
@@ -398,7 +409,7 @@ $$
 \operatorname{rec}_{LM/M}(b)|_L=(F_{L/K}^2)^5=F_{L/K}^{10}=F_{L/K}^4.
 $$
 
-一方、[一般基礎体でのノルム付値公式](../ANF16/index.md#prop-anf16-valuation-unit-sequence)から $v_K(Nb)=2\cdot5=10$、従って $\operatorname{rec}_{L/K}(Nb)=F_{L/K}^{10}=F_{L/K}^4$。$F_{L/K}$ の位数6で指数を6で割った余りが4なので両辺は一致します。
+一方、[ノルム商の付値・単数完全列](../ANF16/index.md#prop-anf16-valuation-unit-sequence)から $v_K(Nb)=2\cdot5=10$、従って $\operatorname{rec}_{L/K}(Nb)=F_{L/K}^{10}=F_{L/K}^4$。$F_{L/K}$ の位数6で指数を6で割った余りが4なので両辺は一致します。
 <!-- solution-end -->
 
 ### B3. ノルム群を包含で比較する
@@ -477,7 +488,7 @@ $$
 
 したがって $H_M/H_L$ は $[\pi_K^3]$ で生成され、$\pi_K^{3j}\in H_L$ となるのは $12\mid3j$、すなわち $4\mid j$ のときだけなので、位数は正確に4です。[中間体への制限](#prop-anf17-restriction-square)によってこれが $\operatorname{Gal}(L/M)$ に対応し、$[L:M]=12/3=4$ とも一致します。
 
-**第3問。** $LT/T$ は非分岐です。$|k_T|=q^2$ なので、その Frobenius の $L$ への制限は $F^2$。$\pi_T$ は $v_T(\pi_T)=1$ ですから左辺は $F^2$ です。他方、[一般基礎体でのノルム付値公式](../ANF16/index.md#prop-anf16-valuation-unit-sequence)に $f(T/K)=2$ を代入すると
+**第3問。** $LT/T$ は非分岐です。$|k_T|=q^2$ なので、その Frobenius の $L$ への制限は $F^2$。$\pi_T$ は $v_T(\pi_T)=1$ ですから左辺は $F^2$ です。他方、[ノルム商の付値・単数完全列](../ANF16/index.md#prop-anf16-valuation-unit-sequence)に $f(T/K)=2$ を代入すると
 
 $$
 v_K(N_{T/K}\pi_T)=2\,v_T(\pi_T)=2,
