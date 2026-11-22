@@ -14,14 +14,14 @@ learning_objectives:
   - 基礎体変更のノルムと制限の向きを正しく記述し非分岐例で直接証明できる
   - 有限Abel拡大と開有限指数部分群の包含反転対応を導ける
 definitions:
-  - { id: ANF17-DEF-01, name: 有限拡大の局所Artin写像・ノルム剰余記号 }
+  - { id: ANF17-DEF-01, name: 有限拡大の局所 Artin 写像・ノルム剰余記号 }
 theorems:
   - { id: ANF17-THM-01, name: 局所相互法則・有限商による表示（一般形は外部定理） }
-  - { id: ANF17-PROP-01, name: 有限局所Artin写像の核と位数 }
+  - { id: ANF17-PROP-01, name: 有限局所 Artin 写像の核と位数 }
   - { id: ANF17-PROP-02, name: 中間体への制限と自然性 }
   - { id: ANF17-THM-02, name: 局所相互法則のノルム・制限の関手性（一般形は外部定理） }
   - { id: ANF17-PROP-03, name: 非分岐拡大での基礎体変更 }
-  - { id: ANF17-COR-01, name: 有限Abel拡大と開有限指数部分群の対応 }
+  - { id: ANF17-COR-01, name: 有限 Abel 拡大と開有限指数部分群の対応 }
 canonical_examples:
   - Q3(i)の非分岐二次Artin写像と核
   - Q5(5の四乗根)からQ5(sqrt5)へのGalois制限とノルム商
