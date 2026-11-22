@@ -657,7 +657,7 @@ $$
 #### GBG8-C01 三つの $SU(2)$ ゲージで同じ大域接続を記述する
 - Level: C
 
-$M=\mathbb R^2$ を $U_1=U_2=U_3=M$ で覆い、$P=M\times SU(2)$ を考える。$T_1,T_3$ は第2節の行列とし、
+$M=\mathbb R^2$ を $U_1=U_2=U_3=M$ で覆い、$P=M\times SU(2)$ を考える。標準sectionを $s_1(x,y)=((x,y),I)$ とする。$T_1,T_3$ は第2節の行列とし、
 
 $$
 g_{12}(x,y)=\exp(xT_3),\qquad
