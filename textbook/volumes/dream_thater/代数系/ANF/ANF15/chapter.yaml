@@ -1,0 +1,41 @@
+id: "ANF15"
+title: "局所相互法則への導入"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANF14
+official_scope: []
+learning_objectives:
+  - 有限体の算術的Frobeniusを定義し具体的な九元体で作用を計算できる
+  - 非分岐Galois局所拡大でFrobeniusの唯一の持ち上げと生成性を証明できる
+  - 非分岐局所ノルム群を単数全射性と付値公式から導出し商を計算できる
+  - 算術的Frobenius規格化の非分岐局所Artin写像を構成し全射性・核を証明できる
+  - 分岐二次拡大Q5(sqrt5)のノルム群をHenselの補題で求め単数の障害を説明できる
+  - Hilbert90のH1消滅とノルム商を区別し一般の局所相互法則への証明責務を説明できる
+definitions:
+  - { id: ANF15-DEF-01, name: 算術的Frobenius }
+  - { id: ANF15-DEF-02, name: 非分岐局所Artin写像 }
+theorems:
+  - { id: ANF15-PROP-01, name: 非分岐局所拡大のFrobenius }
+  - { id: ANF15-PROP-02, name: 非分岐ノルム商 }
+  - { id: ANF15-THM-01, name: 非分岐局所相互法則 }
+  - { id: ANF15-PROP-03, name: 分岐二次拡大のノルム群の例 }
+canonical_examples:
+  - 九元体F9でFrobeniusがiを-iに送ることを検算
+  - Q3(i)/Q3で3をFrobeniusへ送りノルム群を付値偶数で判定
+  - Q5(sqrt5)/Q5で5はノルムだが単数2は非ノルムとなる例
+problem_patterns:
+  - ANF15-FINITE-FIELD-FROBENIUS
+  - ANF15-UNRAMIFIED-RECIPROCITY
+  - ANF15-BASE-FIELD-NORM
+  - ANF15-RAMIFIED-UNIT-OBSTRUCTION
+  - ANF15-UNRAMIFIED-QUOTIENT-ORDER
+  - ANF15-UNIFORMIZER-INDEPENDENCE
+  - ANF15-UNRAMIFIED-TOWER-RESTRICTION
+  - ANF15-RAMIFIED-QUADRATIC-NORM-GROUP
+  - ANF15-HILBERT90-VS-NORM-COKERNEL
+  - ANF15-INTEGRATED-RECIPROCITY-CONTRAST
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12.0, exercises: 8.0, review: 3.0 }

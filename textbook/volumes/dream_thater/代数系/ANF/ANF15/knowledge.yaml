@@ -1,0 +1,43 @@
+chapter: ANF15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF14
+forward_references: []
+
+concepts:
+  - id: number-theory.arithmetic-frobenius
+    name: 算術的 Frobenius
+    kind: definition
+    introduction: formal
+    requires: [number-theory.local-inertia-exact-sequence]
+
+  - id: number-theory.unramified-frobenius-lift
+    name: 非分岐局所拡大の Frobenius
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.arithmetic-frobenius]
+
+  - id: number-theory.unramified-norm-quotient
+    name: 非分岐ノルム商
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.unramified-local-norm-surjection]
+
+  - id: number-theory.unramified-local-artin-map
+    name: 非分岐局所 Artin 写像
+    kind: definition
+    introduction: formal
+    requires: [number-theory.unramified-frobenius-lift, number-theory.unramified-norm-quotient]
+
+  - id: number-theory.unramified-local-reciprocity
+    name: 非分岐局所相互法則
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.unramified-local-artin-map, number-theory.unramified-norm-quotient]
+
+  - id: number-theory.ramified-quadratic-norm-example
+    name: 分岐二次拡大のノルム群の例
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.local-norm-integral-trace, number-theory.hensel-simple-root]
