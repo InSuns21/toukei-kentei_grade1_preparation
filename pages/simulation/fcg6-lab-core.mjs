@@ -1,6 +1,7 @@
 // FCG6 deterministic CPU reference for unchanged editable source.
 // Recomputes masked pressure and transport without running learner JS/GLSL.
-const N=16,H=1/16,DT=0.05,RHO=1;
+export const FCG6_N=48;
+const N=FCG6_N,H=1/N,DT=0.05,RHO=1;
 const id=(x,y)=>x+N*y,ix=(x,y)=>x+(N+1)*y,iy=(x,y)=>x+N*y;
 const inside=(x,y)=>x>=0&&x<N&&y>=0&&y<N;
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
@@ -79,19 +80,43 @@ export function fcg6State(steps=8){
     }
     mean=total/n;
     for(let k=0;k<N*N;k++)if(!m[k])rhs[k]-=mean;
+    // Independent reference: graph conjugate gradient for -H² L,
+    // not the learner's red-black SOR. Only fluid cells participate.
     p=new Float64Array(N*N);
-    for(let count=0;count<240;count++){
-      const next=new Float64Array(N*N);let avg=0;
-      for(let z=0;z<N*N;z++){
-        if(m[z])continue;
-        const ns=adj[z],ss=ns.reduce((sum,k)=>sum+p[k],0);
-        next[z]=p[z]/3+(2/3)*(ss-H*H*rhs[z])/ns.length;
-        avg+=next[z];
-      }
-      avg/=n;
-      for(let z=0;z<N*N;z++)if(!m[z])next[z]-=avg;
-      p=next;
+    const bCG=new Float64Array(N*N),rCG=new Float64Array(N*N),
+      dir=new Float64Array(N*N);
+    let rhsMean=0;
+    for(let z=0;z<N*N;z++)if(!m[z]){
+      bCG[z]=-H*H*rhs[z];rhsMean+=bCG[z];
     }
+    rhsMean/=n;
+    let rr=0;
+    for(let z=0;z<N*N;z++)if(!m[z]){
+      bCG[z]-=rhsMean;rCG[z]=dir[z]=bCG[z];rr+=rCG[z]*rCG[z];
+    }
+    let converged=Math.max(...rCG.map(v=>Math.abs(v)))/(H*H)<1e-6;
+    for(let it=0;it<16*N&&!converged;it++){
+      const Ap=new Float64Array(N*N);let denominator=0;
+      for(let z=0;z<N*N;z++)if(!m[z]){
+        const ns=adj[z];Ap[z]=ns.length*dir[z]-ns.reduce((a,k)=>a+dir[k],0);
+        denominator+=dir[z]*Ap[z];
+      }
+      if(!(denominator>0))throw new Error('FCG6 independent CG breakdown');
+      const alpha=rr/denominator;
+      let nextRR=0,maxError=0;
+      for(let z=0;z<N*N;z++)if(!m[z]){
+        p[z]+=alpha*dir[z];rCG[z]-=alpha*Ap[z];
+        maxError=Math.max(maxError,Math.abs(rCG[z])/(H*H));
+        nextRR+=rCG[z]*rCG[z];
+      }
+      if(maxError<1e-6){converged=true;break;}
+      const beta=nextRR/rr;
+      for(let z=0;z<N*N;z++)if(!m[z])dir[z]=rCG[z]+beta*dir[z];
+      rr=nextRR;
+    }
+    if(!converged)throw new Error('FCG6 independent CG residual failed');
+    let pMean=0;for(let z=0;z<N*N;z++)if(!m[z])pMean+=p[z];
+    pMean/=n;for(let z=0;z<N*N;z++)if(!m[z])p[z]-=pMean;
     u=a;v=b;
     for(let y=0;y<N;y++)for(let x=1;x<N;x++)if(horizontal(m,x,y))
       u[ix(x,y)]-=DT/RHO*(p[id(x,y)]-p[id(x-1,y)])/H;
@@ -139,7 +164,7 @@ export function fcg6PixelCell(x,y,width,height){
   if(![x,y,width,height].every(Number.isInteger)||width<64||height<64||
     x<0||y<0||x>=width||y>=height)throw new RangeError('FCG6 pixel');
   const X=3*(x+0.5)/width,panel=Math.min(2,Math.floor(X)),u=X-panel;
-  return {panel,i:Math.min(N-1,Math.floor(16*u)),j:Math.min(N-1,Math.floor(16*(y+0.5)/height)),
+  return {panel,i:Math.min(N-1,Math.floor(N*u)),j:Math.min(N-1,Math.floor(N*(y+0.5)/height)),
     uvX:u,uvY:(y+0.5)/height};
 }
 const enc=x=>Math.round(255*clamp(x,0,1));
@@ -151,11 +176,11 @@ function predicted(pixel,s){
   let rgba=c.panel===0?[dye,38,255-dye,255]:c.panel===1?[dv,20,20,255]:
     [31,speed,enc(0.8-0.5*speed/255),255];
   if(c.panel===2){
-    const near=(i,j)=>isSolid(mask,clamp(i,0,15),clamp(j,0,15))?1:0;
+    const near=(i,j)=>isSolid(mask,clamp(i,0,N-1),clamp(j,0,N-1))?1:0;
     const nx=near(c.i+1,c.j)-near(c.i-1,c.j),
       ny=near(c.i,c.j+1)-near(c.i,c.j-1),length=Math.hypot(nx,ny);
     if(length>0.5){
-      const fx=(c.uvX*16)%1-0.5,fy=(c.uvY*16)%1-0.5;
+      const fx=(c.uvX*N)%1-0.5,fy=(c.uvY*N)%1-0.5;
       const along=(fx*nx+fy*ny)/length,
         across=Math.abs((nx*fy-ny*fx)/length);
       if((along>-0.28&&along<0.22&&across<0.055)||
