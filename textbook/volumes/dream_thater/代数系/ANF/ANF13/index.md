@@ -83,10 +83,10 @@ $$
 
 係数を $B$ に持ち上げたモニック多項式 $h(X)\in B[X]$ を選びます。ここで $h'$ は多項式変数 $X$ に関する形式的導関数です。各剰余根で $\bar h'(\bar\theta^{q^j})\ne0$ だから、[単純根に対する Hensel の補題](../ANF10/index.md#thm-anf10-hensel-simple)の証明を、$\mathbb Z_p$ の代わりに完備離散付値環 $A$ で繰り返せます。剰余根の代表 $x_0\in A$ から始め、$h'(x_m)\in A^\times$ のもとで
 
-$
+$$
 x_{m+1}=x_m-\frac{h(x_m)}{h'(x_m)},\qquad
 h(x_m+t)=h(x_m)+t h'(x_m)+t^2R_m(t)
-$
+$$
 
 と置きます。$t=-h(x_m)/h'(x_m)\in\mathfrak m_L$ を代入すると $v_L(h(x_{m+1}))\ge2v_L(h(x_m))$ です。導関数は各段階で同じ非零剰余を持ち、補正量の付値は増大するので、$A$ の完備性から各剰余根に一致する唯一の根 $\theta_j\in A$ へ収束します。
 
@@ -226,19 +226,19 @@ $$
 
 だから $\tau\sigma\tau^{-1}\in G_i$ です。部分群であることも具体的に確かめます。$\sigma,\eta\in G_i$ と $a\in A$ について
 
-$
+$$
 (\sigma\eta)(a)-a
 =\sigma(\eta(a)-a)+(\sigma(a)-a)
 \in\mathfrak m_L^{i+1}
-$
+$$
 
 です。ここでは $\sigma(\mathfrak m_L^{i+1})=\mathfrak m_L^{i+1}$ を使いました。また
 
-$
+$$
 \sigma^{-1}(a)-a
 =-\sigma^{-1}(\sigma(a)-a)
 \in\mathfrak m_L^{i+1}
-$
+$$
 
 なので逆元にも閉じます。恒等元を含むことと合わせて $G_i$ は部分群です。先の共役不変性により正規部分群となります。
 
@@ -380,25 +380,25 @@ $$
 
 $R$ を標数 $0$ の完備離散付値環、$T$ をその分数体とします。$E=T(\alpha)$ を次数 $m$ の有限分離拡大、$\mathcal O_E=R[\alpha]$、$P(X)\in R[X]$ を $\alpha$ のモニック最小多項式とします。$P$ の相異なる根 $\alpha_1,\ldots,\alpha_m$ に対する Lagrange 補間で最高次係数を比較すると、次数 $m$ 未満の多項式 $H$ について
 
-$
+$$
 \operatorname{Tr}_{E/T}\left(\frac{H(\alpha)}{P'(\alpha)}\right)
 =\sum_{j=1}^{m}\frac{H(\alpha_j)}{P'(\alpha_j)}
 =[X^{m-1}]H(X)
-$
+$$
 
 です。$P'$ は $X$ に関する形式的導関数、$[X^{m-1}]$ はその係数を取り出す記号です。$a,b\in R[X]$ を次数 $m$ 未満とし、モニック $P$ で $ab$ を割った余りを $r\in R[X]$ とすると
 
-$
+$$
 \operatorname{Tr}_{E/T}\left(\frac{a(\alpha)b(\alpha)}{P'(\alpha)}\right)
 =[X^{m-1}]r(X)\in R.
-$
+$$
 
 特に基底 $1,\alpha,\ldots,\alpha^{m-1}$ に対するこの跡の行列の $(i,j)$ 成分は $[X^{m-1}](X^{i+j}\bmod P)$ です。$i+j<m-1$ では $0$、$i+j=m-1$ では $1$ なので、列を逆順にすると対角成分 $1$ の三角行列になります。従って行列式は $R$ の単元で、跡双対はちょうど $P'(\alpha)^{-1}R[\alpha]$ です。以上により
 
-$
+$$
 \mathfrak D_{E/T}=P'(\alpha)\mathcal O_E
 \qquad(\mathcal O_E=R[\alpha])
-$
+$$
 
 が基礎体 $T$ を $\mathbb Q_p$ に限定せず成立します。
 
