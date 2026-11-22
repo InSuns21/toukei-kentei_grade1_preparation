@@ -111,7 +111,7 @@ $$
 
 ### 証明の見取り図
 
-右作用の微小変化は $\xi_P$ に沿う Lie 微分で表す。接続の同変性から $\mathcal L_{\xi_P}\omega=-[\xi,\omega]$ が出る一方、[Cartan の公式](../GEO/GEO7/index.md#thm-geo7-cartan-formula)を使うと $\iota_{\xi_P}d\omega=\mathcal L_{\xi_P}\omega$。二つを合わせ、構造方程式の補正項と相殺させる。右作用の同変性は外微分と Lie 括弧が固定された随伴作用と交換することから従う。
+右作用の微小変化は $\xi_P$ に沿う Lie 微分で表す。接続の同変性から $\mathcal L_{\xi_P}\omega=-[\xi,\omega]$ が出る一方、[Cartan の公式](../../GEO/GEO7/index.md#thm-geo7-cartan-formula)を使うと $\iota_{\xi_P}d\omega=\mathcal L_{\xi_P}\omega$。二つを合わせ、構造方程式の補正項と相殺させる。右作用の同変性は外微分と Lie 括弧が固定された随伴作用と交換することから従う。
 
 <!-- proof-start -->
 ### 証明
@@ -129,7 +129,7 @@ $$
 \mathcal L_{\xi_P}\omega=-[\xi,\omega].
 $$
 
-ここで $[\xi,\omega](Z)=[\xi,\omega(Z)]$ である。また、[GBG7 の再生条件](../GBG7/index.md#def-gbg7-connection-form)から $\iota_{\xi_P}\omega=\xi$ は $P$ 上の定数関数なので $d(\iota_{\xi_P}\omega)=0$。[Cartan の公式](../GEO/GEO7/index.md#thm-geo7-cartan-formula) $\mathcal L_{\xi_P}\omega=d(\iota_{\xi_P}\omega)+\iota_{\xi_P}d\omega$ に代入して
+ここで $[\xi,\omega](Z)=[\xi,\omega(Z)]$ である。また、[GBG7 の再生条件](../GBG7/index.md#def-gbg7-connection-form)から $\iota_{\xi_P}\omega=\xi$ は $P$ 上の定数関数なので $d(\iota_{\xi_P}\omega)=0$。[Cartan の公式](../../GEO/GEO7/index.md#thm-geo7-cartan-formula) $\mathcal L_{\xi_P}\omega=d(\iota_{\xi_P}\omega)+\iota_{\xi_P}d\omega$ に代入して
 
 $$
 d\omega(\xi_P,Z)
@@ -715,7 +715,7 @@ $$
 <!-- solution-start -->
 **詳細解答**。
 
-**1. 水平性**。任意の $\xi\in\mathfrak{gl}_2$ に対し、接続の同変性を $g=e^{t\xi}$ で微分すると $\mathcal L_{\xi_P}\omega=-[\xi,\omega]$。再生条件は $\iota_{\xi_P}\omega=\xi$ なので $d(\iota_{\xi_P}\omega)=0$。[Cartan の公式](../GEO/GEO7/index.md#thm-geo7-cartan-formula)から
+**1. 水平性**。任意の $\xi\in\mathfrak{gl}_2$ に対し、接続の同変性を $g=e^{t\xi}$ で微分すると $\mathcal L_{\xi_P}\omega=-[\xi,\omega]$。再生条件は $\iota_{\xi_P}\omega=\xi$ なので $d(\iota_{\xi_P}\omega)=0$。[Cartan の公式](../../GEO/GEO7/index.md#thm-geo7-cartan-formula)から
 
 $$
 d\omega(\xi_P,Z)=-[\xi,\omega(Z)].
