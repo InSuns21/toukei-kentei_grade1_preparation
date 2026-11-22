@@ -19,7 +19,7 @@ definitions:
   - { id: PML2-09-DEF-02, name: 損失項別のパラメータ勾配 }
 theorems:
   - { id: PML2-09-PROP-01, name: 残差の尺度変更に対する重みの変換 }
-  - { id: PML2-09-THM-01, name: 二次PINN損失の重みと最小点 }
+  - { id: PML2-09-THM-01, name: 境界重みへの最小点の感度 }
   - { id: PML2-09-PROP-02, name: 二項の勾配が釣り合う条件 }
   - { id: PML2-09-THM-02, name: 重み付き二次損失の勾配降下安定条件 }
   - { id: PML2-09-PROP-03, name: 観測と物理残差の競合 }
