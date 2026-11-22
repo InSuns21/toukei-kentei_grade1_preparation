@@ -1,0 +1,42 @@
+chapter: PML2-06
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-05
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-06-strong-residual
+    name: PDEの強形式残差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（PDEの強形式残差）"]
+    requires:
+      - physics-machine-learning.pml2-01-classical
+      - physics-machine-learning.pml2-05-manufactured
+  - id: physics-machine-learning.pml2-06-collocation
+    name: collocation点と経験物理損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（collocation点と経験物理損失）"]
+    requires:
+      - physics-machine-learning.pml2-06-strong-residual
+  - id: physics-machine-learning.pml2-06-unbiased
+    name: 固定候補に対する物理損失の標本平均
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-06-collocation
+  - id: physics-machine-learning.pml2-06-composite-loss
+    name: 内部・境界・観測の複合損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（内部・境界・観測の複合損失）"]
+    requires:
+      - physics-machine-learning.pml2-06-collocation
+      - physics-machine-learning.pml2-05-observation
+  - id: physics-machine-learning.pml2-06-trial-identification
+    name: 三係数の候補空間における零損失の一意性
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-06-composite-loss

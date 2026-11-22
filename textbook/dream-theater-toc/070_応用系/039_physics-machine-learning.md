@@ -29,3 +29,4 @@
 25. [PML2-03 機械学習なしでどう解くか](textbook/volumes/dream_thater/応用系/PML/PML2-03/index.md)
 26. [PML2-04 計算された値の何を「誤差」と呼ぶか](textbook/volumes/dream_thater/応用系/PML/PML2-04/index.md)
 27. [PML2-05 学習用のPDEデータはどう作り検証するか](textbook/volumes/dream_thater/応用系/PML/PML2-05/index.md)
+28. [PML2-06 PINNの強形式残差はどう定義されるか](textbook/volumes/dream_thater/応用系/PML/PML2-06/index.md)
