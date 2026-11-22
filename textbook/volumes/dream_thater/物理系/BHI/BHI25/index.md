@@ -126,7 +126,7 @@ $$
 
 **空間的分離の判定**も計量から確かめます。同じ外部領域の重力端点 $(t_a,-a)$ と浴端点 $(t,b)$ は、正の共形因子を除くと共通の計量 $-dt^2+d\sigma^2$ に従います。したがって両端点の座標差は $\Delta\sigma=a+b>0$、$\Delta t=t-t_a$ であり、空間的に分離するための条件は
 
-$
+$$
 (\Delta\sigma)^2-(\Delta t)^2>0
 \ \Longleftrightarrow\ 
 a+b>|t-t_a|
@@ -134,7 +134,7 @@ a+b>|t-t_a|
 X>|U-V|
 \ \Longleftrightarrow\
 \cosh X-\cosh(U-V)>0.
-$
+$$
 
 最後の同値は $X=A+B>0$ と $\cosh z$ の偶性・$z\ge0$ での狭義単調増加によります。左右それぞれでこの条件を満たす領域を採用します。これは端点間の因果関係の条件であって、停留方程式を満たすかどうかの判定とは別です。
 
@@ -180,28 +180,28 @@ $$
 
 左右をまたぐ距離では両外部のKruskal符号と時間の向きが異なるため、例えば右浴点 $(t,b)$ と左重力端点 $(t_a,-a)$ について
 
-$
+$$
 \begin{aligned}
 D_{\rm cross}
 &=(e^{B+V}+e^{-A-U})(e^{B-V}+e^{-A+U})\\
 &=e^{2B}+e^{-2A}+2e^{B-A}\cosh(U+V).
 \end{aligned}
-$
+$$
 
 ここで、半角公式を使うため
 
-$
+$$
 C_\pm:=\cosh\frac{X\pm(U+V)}2>0,\qquad
 \cosh X+\cosh(U+V)=2C_-C_+
-$
+$$
 
 と定義します。すると両端点に対する光円錐差の積は
 
-$
+$$
 D_{\rm cross}
 =2e^{B-A}\{\cosh X+\cosh(U+V)\}
 =4e^{B-A}C_-C_+
-$
+$$
 
 となります。一方、左右の**重力端点どうし**の差の積は $D_{gg}=4e^{-2A}\cosh^2U$、左右の**浴端点どうし**は $D_{bb}=4e^{2B}\cosh^2V$ です。これら四種の距離を自由Dirac場の二区間公式へ代入します。
 
@@ -250,7 +250,7 @@ $$
 
 重力端点の座標cutoffを $\delta_g$、浴端点の座標cutoffを $\delta_b$ とします。各点 $p$ でのKruskal座標cutoffを $\delta_p^{(w)}:=\sqrt{|\partial_\sigma w^+||\partial_\sigma w^-|}\,\delta_p$ と定めれば、固有cutoffとの関係は $\epsilon_g=e^{\omega_g}\delta_g$、$\epsilon_b=e^{\omega_b}\delta_b$ であり、$e^{\omega_g}=\kappa\ell/\sinh A$、$e^{\omega_b}=1$ です。従って四つの端点におけるKruskal座標cutoffの積と、先に求めた距離の比は
 
-$
+$$
 \begin{aligned}
 \prod_{p\in\{g_L,g_R,b_L,b_R\}}\delta_p^{(w)}
 &=\kappa^4e^{2(B-A)}\delta_g^2\delta_b^2
@@ -262,7 +262,7 @@ $
 {\kappa\epsilon_g\epsilon_b\sinh A\,C_-C_+}
 \right)^2.
 \end{aligned}
-$
+$$
 
 自由Dirac場の四端点エントロピーはこの比の対数に $c/6$ を掛けたものなので、指数因子 $e^{B-A}$ が相殺され、残った対数の引数は
 
