@@ -17,7 +17,7 @@ $$
 <a id="prop-anf18-cyclotomic-degree"></a>
 
 <!-- formal-statement-start -->
-> **命題（$p$ 冪円分局所拡大の次数・全分岐）**  
+> **命題（素数冪円分局所拡大の次数・全分岐）**  
 > 奇素数 $p$ と整数 $r\ge1$ に対し、次の拡大は Galois 拡大である。
 
 $
@@ -30,7 +30,7 @@ $
 
 ### 証明の見取り図
 
-円分多項式を $T=1+X$ へ移し、$p$ を法として還元します。定数項が $p$、その他の非最高次係数が $p$ の倍数なので、[Eisenstein の既約性判定](../ANF10/index.md#thm-anf10-eisenstein-irreducible)を適用できます。
+原始 $p^r$ 乗根すべてを零点にもつ多項式を $T=1+X$ へ移し、$p$ を法として還元します。定数項が $p$、その他の非最高次係数が $p$ の倍数なので、[Eisenstein の既約性判定](../ANF10/index.md#thm-anf10-eisenstein-irreducible)を適用できます。
 
 <!-- proof-start -->
 ### 証明
@@ -99,7 +99,7 @@ $$
 <a id="thm-anf18-explicit-cyclotomic-reciprocity"></a>
 
 <!-- formal-statement-start -->
-> **定理（$\mathbb Q_p$ の $p$ 冪円分拡大での明示相互法則：外部定理）**  
+> **定理（素数冪円分拡大の明示局所相互法則）**  
 > 奇素数 $p$、整数 $r\ge1$ と $C_r=\mathbb Q_p(\zeta_{p^r})$ をとる。$a=p^m u$（$m\in\mathbb Z$、$u\in\mathbb Z_p^\times$）に対する算術的 Frobenius 規格化の局所 Artin 写像は
 
 $$
@@ -185,7 +185,7 @@ $K=\mathbb Q_5$ にはすでに五乗根の円分四次拡大 $C=K(\zeta_5)$ が
 <a id="prop-anf18-quartic-contrast"></a>
 
 <!-- formal-statement-start -->
-> **命題（$\mathbb Q_5$ 上の二種類の巡回四次拡大）**  
+> **命題（五進体上の二種類の巡回四次拡大）**  
 > $C=\mathbb Q_5(\zeta_5)$、$D=\mathbb Q_5(\sqrt[4]5)$ とする。両者は巡回四次であるが、
 
 $$
@@ -251,7 +251,7 @@ $\sigma_b(t)=\zeta_5^b+\zeta_5^{-b}$ です。$\sigma_1$ と $\sigma_4$ では $
 
 ## 6. 非分岐成分を足すと、付値と単数を同時に検査できる
 
-$E=\mathbb Q_5(\sqrt2)$ とします。$X^2-2$ は $\mathbb F_5$ で根を持たない（平方は $0,1,4$）ので、[非分岐 Frobenius の定理](../ANF15/index.md#prop-anf15-frobenius-lift)により $E/K$ は非分岐二次、$F(\sqrt2)=-\sqrt2$ となります。$C_r/K$ は全分岐なので $E\cap C_r=K$ です。よって $B_r=EC_r$ は次数 $2d_r$ の Abel Galois 拡大です。
+$E=\mathbb Q_5(\sqrt2)$ とします。$X^2-2$ は $\mathbb F_5$ で根を持たない（平方は $0,1,4$）ので、[非分岐拡大の Frobenius 持ち上げ](../ANF15/index.md#prop-anf15-frobenius-lift)により $E/K$ は非分岐二次、$F(\sqrt2)=-\sqrt2$ となります。$C_r/K$ は全分岐なので $E\cap C_r=K$ です。よって $B_r=EC_r$ は次数 $2d_r$ の Abel Galois 拡大です。
 
 <a id="prop-anf18-mixed-reciprocity"></a>
 
@@ -472,7 +472,7 @@ $$
 =\{\sigma_1,\sigma_6,\sigma_{11},\sigma_{16},\sigma_{21}\}.
 $$
 
-$6^{-1}\equiv21\pmod{25}$ なので[明示相互法則](#thm-anf18-explicit-cyclotomic-reciprocity)から $\operatorname{rec}_{C_2/K}(6)=\sigma_{21}$ です。$21^2\equiv16$、$21^3\equiv11$、$21^4\equiv6$、$21^5\equiv1\pmod{25}$ なので $\sigma_{21}$ は五つの核元をすべて巡回し生成します。法 $5$ では $6\equiv1$ のため、$C_1$ への制限が恒等なのも一致します。
+$6^{-1}\equiv21\pmod{25}$ なので、[明示相互法則](#thm-anf18-explicit-cyclotomic-reciprocity)から $\operatorname{rec}_{C_2/K}(6)=\sigma_{21}$ です。$21^2\equiv16$、$21^3\equiv11$、$21^4\equiv6$、$21^5\equiv1\pmod{25}$ なので $\sigma_{21}$ は五つの核元をすべて巡回し生成します。法 $5$ では $6\equiv1$ のため、$C_1$ への制限が恒等なのも一致します。
 <!-- solution-end -->
 
 ### C1. 非分岐と二十五乗根を一括して計算する

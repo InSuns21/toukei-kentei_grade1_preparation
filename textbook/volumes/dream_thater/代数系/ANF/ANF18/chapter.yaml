@@ -7,19 +7,19 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - p冪円分局所拡大の次数と全分岐性をEisenstein判定で証明できる
-  - 円分Galois指数を定義し自己同型の作用と合成を合同式で計算できる
+  - 円分 Galois 指数を定義し自己同型の作用と合成を合同式で計算できる
   - 算術的Frobenius規格化の明示局所相互法則を外部入力として正しく適用できる
   - Qpの円分拡大のノルム群をArtin写像の核から導出し判定できる
   - 円分四次と緩分岐Kummer四次のノルム群の違いを符号を含めて計算できる
   - 二次中間体への制限とp冪円分塔の射影・核を直接計算できる
   - 非分岐拡大と円分拡大の合成体で付値と単数の条件を同時に用いられる
 definitions:
-  - { id: ANF18-DEF-01, name: 円分Galois指数 }
+  - { id: ANF18-DEF-01, name: 円分 Galois 指数 }
 theorems:
-  - { id: ANF18-PROP-01, name: p冪円分局所拡大の次数・全分岐 }
-  - { id: ANF18-THM-01, name: Qpのp冪円分拡大での明示相互法則（外部定理） }
+  - { id: ANF18-PROP-01, name: 素数冪円分局所拡大の次数・全分岐 }
+  - { id: ANF18-THM-01, name: 素数冪円分拡大の明示局所相互法則（外部定理） }
   - { id: ANF18-PROP-02, name: 円分局所拡大のノルム合同判定 }
-  - { id: ANF18-PROP-03, name: Q5の二種類の巡回四次拡大 }
+  - { id: ANF18-PROP-03, name: 五進体上の二種類の巡回四次拡大 }
   - { id: ANF18-PROP-04, name: 四次円分拡大から二次中間体への制限 }
   - { id: ANF18-PROP-05, name: 非分岐二次と円分拡大の合成 }
   - { id: ANF18-PROP-06, name: 五乗根から二十五乗根への制限 }
