@@ -640,7 +640,7 @@ $$
 [A_1,[A_2,A_3]]+[A_2,[A_3,A_1]]+[A_3,[A_1,A_2]]=0
 $$
 
-であり、Jacobi 恒等式から零である。
+であり、[GEO5のLie括弧のJacobi恒等式](../../GEO/GEO5/index.md#thm-geo5-bracket-identities)を[Lie環の接空間構成](../../../代数系/LIE/LIE1/index.md#thm-lie1-tangent-lie-algebra)に適用して零である。
 <!-- solution-end -->
 
 <a id="ex-gbg11-b03"></a>
@@ -693,7 +693,7 @@ $$
 
 滑らかな右主 $G=GL(2,\mathbb R)$ 束 $P\to M$ と主束接続 $\omega$ を考える。$s_1,s_2:U\to P$ は $s_2=s_1g$ を満たし、$A_a=s_a^*\omega$、$F_a=s_a^*\Omega$（$a=1,2$）とする。
 
-1. $\Omega$ が水平・随伴同変である事実を使い、$d_\omega\Omega$ が定義できる理由を述べ、$d_\omega\Omega=0$ を次数付き括弧と Jacobi 恒等式から証明せよ。
+1. $\Omega$ が水平・随伴同変である事実を使い、$d_\omega\Omega$ が定義できる理由を述べ、$d_\omega\Omega=0$ を次数付き括弧と[GEO5のLie括弧のJacobi恒等式](../../GEO/GEO5/index.md#thm-geo5-bracket-identities)（[Lie環への移送](../../../代数系/LIE/LIE1/index.md#thm-lie1-tangent-lie-algebra)）から証明せよ。
 2. 各パッチで $dF_a+[A_a\wedge F_a]=0$ を導き、$D_iF_{jk}$ の巡回和に直せ。
 3. $A_2=g^{-1}A_1g+g^{-1}dg$ と $F_2=g^{-1}F_1g$ から、$d_{A_2}F_2=g^{-1}(d_{A_1}F_1)g$ を示せ。
 4. $\mathbb R^3$ の $A_1=zE_{11}\,dx+E_{12}\,dy$ で、$dF_1$ と $[A_1\wedge F_1]$ が両方非零だが和は零になることを検算せよ。
