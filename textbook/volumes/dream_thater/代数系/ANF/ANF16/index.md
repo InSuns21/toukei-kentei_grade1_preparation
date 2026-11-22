@@ -286,7 +286,7 @@ $L$ から $K$ へのノルムは、まず $M$ まで取って、もう一度 $K
 
 有限拡大は標数 $0$ なので分離的です。$M$ の $K$ 上の埋め込みを $\tau:M\hookrightarrow\overline K$ と書き、各 $\tau$ の $L$ への延長を $\sigma:L\hookrightarrow\overline K$ と書きます。各 $\tau$ はちょうど $[L:M]$ 個の延長を持つため、積の順序を並べ替えると任意の $x\in L^\times$ について
 
-$
+$$
 \begin{aligned}
 N_{L/K}(x)
 &=\prod_{\sigma:L\hookrightarrow\overline K}\sigma(x)
@@ -294,13 +294,9 @@ N_{L/K}(x)
 &=\prod_{\tau:M\hookrightarrow\overline K}\tau(N_{L/M}(x))
 =N_{M/K}(N_{L/M}(x)).
 \end{aligned}
-$
-
-これがノルムの推移律です。従って
-
 $$
-N_{L/K}(x)=N_{M/K}(N_{L/M}(x)).
-$$
+
+これがノルムの推移律です。
 
 $N_{L/M}(x)\in M^\times$ なので右辺は $N_{M/K}(M^\times)$ の元です。両部分群は $K^\times$ の正規部分群（$K^\times$ は可換）なので、剰余類 $aN_{L/K}(L^\times)\mapsto aN_{M/K}(M^\times)$ は well-defined な全射準同型です。
 <!-- proof-end -->
