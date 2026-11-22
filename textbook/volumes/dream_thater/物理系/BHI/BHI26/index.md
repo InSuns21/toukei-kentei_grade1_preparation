@@ -24,13 +24,13 @@ $$
 
 を課します。同じ側の浴端点と重力端点の座標差は $\Delta\sigma=a+b$、$\Delta t=t-t_a$ です。正の共形因子を除いた計量は $-dt^2+d\sigma^2$ なので、空間的分離は
 
-$
+$$
 (\Delta\sigma)^2-(\Delta t)^2>0
 \quad\Longleftrightarrow\quad
 X>|U-V|
 \quad\Longleftrightarrow\quad
 F>0
-$
+$$
 
 と判定できます。最後の同値は $X>0$ と $\cosh$ の偶性・非負域での狭義単調増加から従い、[BHI25の二浴模型の定義](../BHI25/index.md#def-bhi25-equilibrium-model)に一致します。ここでの模型は**出入りの流束が釣り合う定常系**であり、右向き出射状態を指定した[BHI23の出射模型](../BHI23/index.md#def-bhi23-smooth-outgoing-map)とは状態も放射領域も違います。BHI23の式をそのままBHI25のisland枝から引くことはしません。
 
@@ -38,49 +38,49 @@ $
 
 islandを空にした候補では、重力端点はありません。物質全体の純粋状態を仮定すると、二つの浴半直線のエントロピーは、その補集合を結ぶ二区間の代わりに**左右浴端点間の一つの区間**のエントロピーとして計算できます。ここで利用するのは[BHI18の共形写像下の単一区間公式](../BHI18/index.md#prop-bhi18-conformal-bath)と、[BHI25の左右Kruskal座標](../BHI25/index.md#prop-bhi25-thermal-functional)です。浴端点での光円錐座標は
 
-$
+$$
 \begin{aligned}
 w_R^+&=e^{B+V},&w_R^-&=-e^{B-V},\\
 w_L^+&=-e^{B-V},&w_L^-&=e^{B+V}.
 \end{aligned}
-$
+$$
 
 従って左右浴端点の光円錐差の積（空間的分離に対応する正の符号を採用）は
 
-$
+$$
 \begin{aligned}
 D_{bb}
 &=-(w_R^+-w_L^+)(w_R^--w_L^-)\\
 &=(e^{B+V}+e^{B-V})^2
 =4e^{2B}\cosh^2 V.
 \end{aligned}
-$
+$$
 
 各光円錐方向の座標Jacobianは時刻に依存し、右浴では
 
-$
+$$
 \left|\frac{\partial w_R^+}{\partial\sigma}\right|_b
 =\kappa e^{B+V},\qquad
 \left|\frac{\partial w_R^-}{\partial\sigma}\right|_b
 =\kappa e^{B-V},
-$
+$$
 
 左浴ではこの二つが入れ替わります。左右の外部座標は向きが異なるため、局所尺度の変換では両側ともJacobianの**絶対値**を用います。**各方向のJacobianそのもの**が $\kappa e^B$ なのではなく、各端点での**二方向の幾何平均**が
 
-$
+$$
 J_b=\sqrt{\left|\frac{\partial w^+}{\partial\sigma}\right|_b
 \left|\frac{\partial w^-}{\partial\sigma}\right|_b}
 =\sqrt{\kappa e^{B+V}\,\kappa e^{B-V}}
 =\kappa e^B
-$
+$$
 
 です。浴側のWeyl因子は1なので、BHI18の単一区間公式で両端点の固有cutoff $\epsilon_b$ を入れると
 
-$
+$$
 S_{\varnothing}(V)
 =\frac c6\ln\frac{D_{bb}}{(J_b\epsilon_b)^2}
 =\frac c3\ln\frac{\sqrt{D_{bb}}}{\kappa e^B\epsilon_b}.
-$
+$$
 
 したがってエントロピーに入る無次元の区間長は $\sqrt{D_{bb}}/(\kappa e^B\epsilon_b)=2\cosh V/(\kappa\epsilon_b)$ です。
 
@@ -293,11 +293,11 @@ $$
 
 最後の不等号は $\ln(1+z)\le z$ と $\cosh2V+1\ge e^{2V}/2$ によります。有限時刻の停留方程式からのずれも確認します。$D=U-V$ を動く端点時刻と浴時刻の無次元差とし、$A$ と $D$ が有界な後期近傍を考えます。BHI25の停留式に出る $T_\pm=\tanh[(X\pm(U+V))/2]$ について
 
-$
+$$
 \tanh U=1+O(e^{-2V}),\quad
 T_+=1+O(e^{-2V}),\quad
 T_-=-1+O(e^{-2V})
-$
+$$
 
 です。従って $(A,D)=(A_*,0)$ を有限時刻の二つの停留式に入れると、後期方程式を満たす主項は消え、残差は両方向とも $O(e^{-2V})$ です。$F(A_*,V;V)=\cosh(A_*+B)-1>0$ なので分母は零になりません。
 
