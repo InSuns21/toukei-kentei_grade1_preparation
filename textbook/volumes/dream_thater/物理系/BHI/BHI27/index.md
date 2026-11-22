@@ -426,7 +426,22 @@ S_{\rm BH}^{\rm ad}(u)-S_0&=\frac{\Phi_h^{\rm ad}(u)}{4G_2}.
 \end{aligned}
 $$
 
-この式は**dilatonの地平線値の準静的収支**です。時間依存する時空全域のdilaton場の偏微分方程式を解いたという主張ではありません。微分すれば $\dot\Phi_h^{\rm ad}=-(\gamma/2)\Phi_h^{\rm ad}$ となり、エネルギーの減衰率 $\gamma$ と地平線dilatonの減衰率 $\gamma/2$ が異なることも確かめられます。出射CFTを各瞬間に温度 $T_{\rm eff}$ の片向きの熱流と近似すると、そのエネルギー流は $P_{\rm th}=\pi cT^2/12$、熱的エントロピー流は $j_{S,\rm th}=\pi cT/6$ です。後者は $dP_{\rm th}/dT=(\pi c/6)T$ に $dS=dE/T$ を適用し、零温度を基準に積分しても得られます。
+この式は**dilatonの地平線値の準静的収支**です。時間依存する時空全域のdilaton場の偏微分方程式を解いたという主張ではありません。地平線値を時間微分すると、
+
+$$
+\dot\Phi_h^{\rm ad}=-\frac{\gamma}{2}\Phi_h^{\rm ad}
+$$
+
+です。エネルギーは率 $\gamma$、dilatonの地平線値は率 $\gamma/2$ で減衰します。
+
+出射CFTを各瞬間に温度 $T_{\rm eff}$ の片向き熱流と近似します。対応する熱エネルギー流とエントロピー流は、
+
+$$
+P_{\rm th}=\frac{\pi c}{12}T_{\rm eff}^2,\qquad
+j_{S,\rm th}=\frac{\pi c}{6}T_{\rm eff}
+$$
+
+です。後者は $dP_{\rm th}/dT=(\pi c/6)T$ と熱力学の関係 $dS=dE/T$ から、零温度を基準に積分して得られます。
 
 <a id="prop-bhi27-entropy-budget"></a>
 
@@ -535,7 +550,8 @@ $$
 
 #### BHI27-A01 エネルギーと冷却率
 
-$C,c,E_0>0$、$u\ge u_0$ で $E=-C\{F,u\}$、$P=-c\{F,u\}/(24\pi)$、$\dot E=-P$ とする。$E(u)$ とその半減時刻を求めよ。
+- Level: A
+- 問題: $C,c,E_0>0$、$u\ge u_0$ で $E=-C\{F,u\}$、$P=-c\{F,u\}/(24\pi)$、$\dot E=-P$ とする。$E(u)$ とその半減時刻を求めよ。
 
 <!-- solution-start -->
 **詳細解答**：二式の比から $P=cE/(24\pi C)=\gamma E$、$\gamma=c/(24\pi C)$。保存条件は $\dot E=-\gamma E$ なので $E(u)=E_0e^{-\gamma(u-u_0)}$。半減条件 $E/E_0=1/2$ に代入すると $-\gamma(u-u_0)=-\ln2$、従って半減までの時間は $\ln2/\gamma$ である。
@@ -545,7 +561,8 @@ $C,c,E_0>0$、$u\ge u_0$ で $E=-C\{F,u\}$、$P=-c\{F,u\}/(24\pi)$、$\dot E=-P$
 
 #### BHI27-A02 Wronskianと時計の向き
 
-$y_j''=a(u)y_j$、$a(u)>0$、$y_1(u_0)=0,y_1'(u_0)=1,y_2(u_0)=1,y_2'(u_0)=0$ とする。$W=y_1'y_2-y_1y_2'$ と $F'=(y_1/y_2)'$ を求めよ。
+- Level: A
+- 問題: $y_j''=a(u)y_j$、$a(u)>0$、$y_1(u_0)=0,y_1'(u_0)=1,y_2(u_0)=1,y_2'(u_0)=0$ とする。$W=y_1'y_2-y_1y_2'$ と $F'=(y_1/y_2)'$ を求めよ。
 
 <!-- solution-start -->
 **詳細解答**：$W'=y_1''y_2-y_1y_2''=a y_1y_2-a y_1y_2=0$。初期値から $W(u_0)=1$ なので $W=1$。$y_2''=a y_2$、$y_2(u_0)=1,y_2'(u_0)=0$ であり、最初の零点があると仮定すると、その手前で $y_2''>0$、$y_2'\ge0$、$y_2\ge1$ となり矛盾する。よって $y_2>0$。比を微分して $F'=W/y_2^2=1/y_2^2>0$。
@@ -555,7 +572,8 @@ $y_j''=a(u)y_j$、$a(u)>0$、$y_1(u_0)=0,y_1'(u_0)=1,y_2(u_0)=1,y_2'(u_0)=0$ と
 
 #### BHI27-A03 時計の三階微分と初期流束
 
-$u_0=0,E_0=2C$ とする。初期値規格化した $F$ の $F'(0),F''(0),F'''(0)$ と出射流束 $P(0)$ を求めよ。
+- Level: A
+- 問題: $u_0=0,E_0=2C$ とする。初期値規格化した $F$ の $F'(0),F''(0),F'''(0)$ と出射流束 $P(0)$ を求めよ。
 
 <!-- solution-start -->
 **詳細解答**：$a(0)=E_0/(2C)=1$。$y_2(0)=1,y_2'(0)=0,y_2''(0)=1$ と $F'=y_2^{-2}$ から $F'(0)=1$、$F''=-2y_2'/y_2^3$ より $F''(0)=0$。さらに $F'''=-2y_2''/y_2^3+6y_2'^2/y_2^4$ なので $F'''(0)=-2$。Schwarzianは $\{F,0\}=-2$、[BHI22の流束公式](../BHI22/index.md#prop-bhi22-anomalous-flux)で $P(0)=-c\{F,0\}/(24\pi)=c/(12\pi)$。
@@ -565,7 +583,8 @@ $u_0=0,E_0=2C$ とする。初期値規格化した $F$ の $F'(0),F''(0),F'''(0
 
 #### BHI27-A04 二端点の真空差
 
-$u_L<u_b$、$\ell=u_b-u_L$、右向き真空写像を $p(u)=au+d$（$a>0$）とする。[有限区間台帳](#def-bhi27-radiation-ledger)の普遍的な真空差が零であることを示せ。
+- Level: A
+- 問題: $u_L<u_b$、$\ell=u_b-u_L$、右向き真空写像を $p(u)=au+d$（$a>0$）とする。[有限区間台帳](#def-bhi27-radiation-ledger)の普遍的な真空差が零であることを示せ。
 
 <!-- solution-start -->
 **詳細解答**：$p(u_b)-p(u_L)=a\ell$、両端で $p'=a$。従って[BHI23の有限区間公式](../BHI23/index.md#prop-bhi23-finite-interval)の対数内は $(a\ell)/(\ell\sqrt{a\cdot a})=1$。$\ln1=0$ なので真空差は零。共通cutoffと規格化の定数は、同じ区間の真空を差し引いた段階で既に消えている。
@@ -575,7 +594,8 @@ $u_L<u_b$、$\ell=u_b-u_L$、右向き真空写像を $p(u)=au+d$（$a>0$）と�
 
 #### BHI27-A05 瞬間指数近似の破綻点
 
-$\kappa(u)=\kappa_0e^{-\gamma(u-u_0)/2}$、$p''/p'=-\kappa$ とする。近似流束が零になる時刻を求め、その時点の準静的条件を判定せよ。$\kappa_0>\gamma$ とする。
+- Level: A
+- 問題: $\kappa(u)=\kappa_0e^{-\gamma(u-u_0)/2}$、$p''/p'=-\kappa$ とする。近似流束が零になる時刻を求め、その時点の準静的条件を判定せよ。$\kappa_0>\gamma$ とする。
 
 <!-- solution-start -->
 **詳細解答**：[導関数補正命題](#prop-bhi27-adiabatic-correction)から $P_p=c\kappa(\kappa-\gamma)/(48\pi)$。$\kappa>0$ なので零は $\kappa=\gamma$ で起こる。$\kappa_0e^{-\gamma\tau/2}=\gamma$ を解けば $\tau=(2/\gamma)\ln(\kappa_0/\gamma)>0$。この時点で $\gamma/\kappa=1$ となり、必要条件 $\gamma/\kappa\ll1$ を満たさない。厳密時計の流束 $c\kappa^2/(48\pi)$ はこの時点でも正である。
@@ -587,7 +607,8 @@ $\kappa(u)=\kappa_0e^{-\gamma(u-u_0)/2}$、$p''/p'=-\kappa$ とする。近似�
 
 #### BHI27-B01 二解の比から区間の局所エントロピーまで
 
-$a(u)=E(u)/(2C)$、二解の初期値は第3節のとおりとする。固定した $s\ge u_0$ に対し $D(v,s)=y_1(v)y_2(s)-y_1(s)y_2(v)$ の初期条件を求め、$v=s+\ell$ でのエントロピー真空差の二次係数を導け。
+- Level: B
+- 問題: $a(u)=E(u)/(2C)$、二解の初期値は第3節のとおりとする。固定した $s\ge u_0$ に対し $D(v,s)=y_1(v)y_2(s)-y_1(s)y_2(v)$ の初期条件を求め、$v=s+\ell$ でのエントロピー真空差の二次係数を導け。
 
 <!-- solution-start -->
 **詳細解答**：各 $y_j''=ay_j$ により $D_{vv}=a(v)D$。$D(s,s)=0$。$D_v(s,s)=y_1'(s)y_2(s)-y_1(s)y_2'(s)=W(s)=1$。[時計の構成](#prop-bhi27-exact-clock)で $W=1$ である。さらに $D_{vv}(s,s)=a(s)D(s,s)=0$、$D_{vvv}(s,s)=a'(s)D(s,s)+a(s)D_v(s,s)=a(s)$。Taylorの定理から $D(s+\ell,s)=\ell+a(s)\ell^3/6+O(\ell^4)$。従って
@@ -605,7 +626,8 @@ $$
 
 #### BHI27-B02 有限検出区間の後期上界
 
-$E(u)=E_0e^{-\gamma(u-u_0)}$、$\ell=L-b>0$ を固定する。$s=t-L$ に対し $a_s=E(s)/(2C)$ と置き、$0\le\Delta S_R^{\rm univ}$ の後期上界と極限を示せ。
+- Level: B
+- 問題: $E(u)=E_0e^{-\gamma(u-u_0)}$、$\ell=L-b>0$ を固定する。$s=t-L$ に対し $a_s=E(s)/(2C)$ と置き、$0\le\Delta S_R^{\rm univ}$ の後期上界と極限を示せ。
 
 <!-- solution-start -->
 **詳細解答**：$u\in[s,s+\ell]$ で $0<a(u)\le a_s$。$D''=aD$、$D(s,s)=0,D_v(s,s)=1$ の積分表示から $D(s+\ell,s)\ge\ell$。同じ初期値を持つ定数係数方程式 $H''=a_sH$ の解 $H(h)=\sinh(\sqrt{a_s}h)/\sqrt{a_s}$ は逐次積分項の各係数を上から抑えるので $D(s+\ell,s)\le H(\ell)$。従って[放射区間の命題](#prop-bhi27-radiation-entropy)より
@@ -623,7 +645,8 @@ $s\to\infty$ で $a_s\to0$。$\sinh z/z=1+z^2/6+O(z^4)$ を使うと右辺は零
 
 #### BHI27-B03 熱流と第一法則を別々に積分する
 
-$E=2\pi^2CT^2$、$S_{\rm BH}^{\rm ad}-S_0=4\pi^2CT$、$P=\pi cT^2/12$、$T=T_0e^{-\gamma\tau/2}$ とする。$dE=T\,dS_{\rm BH}^{\rm ad}$ と、片向き熱流のエントロピー流 $j_S$ を確かめ、二つのエントロピー率の比を求めよ。
+- Level: B
+- 問題: $E=2\pi^2CT^2$、$S_{\rm BH}^{\rm ad}-S_0=4\pi^2CT$、$P=\pi cT^2/12$、$T=T_0e^{-\gamma\tau/2}$ とする。$dE=T\,dS_{\rm BH}^{\rm ad}$ と、片向き熱流のエントロピー流 $j_S$ を確かめ、二つのエントロピー率の比を求めよ。
 
 <!-- solution-start -->
 **詳細解答**：温度微分は $dE/dT=4\pi^2CT$、$dS_{\rm BH}^{\rm ad}/dT=4\pi^2C$ なので $T(dS_{\rm BH}^{\rm ad}/dT)=dE/dT$。出射の熱エネルギー流の温度微分は $dP/dT=\pi cT/6$ であり、熱的な片向き流れのエントロピー流は零温度を基準に $j_S=\int_0^T (1/T') (dP/dT')\,dT'=\pi cT/6$。また $\dot S_{\rm BH}^{\rm ad}=\dot E/T=-P/T=-\pi cT/12$。従って $j_S/(-\dot S_{\rm BH}^{\rm ad})=(\pi cT/6)/(\pi cT/12)=2$。精細エントロピーの時間微分に同じ等式を置いたわけではない。
@@ -633,7 +656,8 @@ $E=2\pi^2CT^2$、$S_{\rm BH}^{\rm ad}-S_0=4\pi^2CT$、$P=\pi cT^2/12$、$T=T_0e^
 
 #### BHI27-B04 交点の存在と近似の条件
 
-$S_0\ge0$ とし、[収支命題](#prop-bhi27-entropy-budget)の二曲線が有限時刻で交わる条件を求めよ。さらに $S_0=0$ での交点の $\gamma/\kappa_{\rm eff}$ を計算し、何を確認すれば準静的近似として使えるか述べよ。
+- Level: B
+- 問題: $S_0\ge0$ とし、[収支命題](#prop-bhi27-entropy-budget)の二曲線が有限時刻で交わる条件を求めよ。さらに $S_0=0$ での交点の $\gamma/\kappa_{\rm eff}$ を計算し、何を確認すれば準静的近似として使えるか述べよ。
 
 <!-- solution-start -->
 **詳細解答**：交点は $4\pi C\kappa_0(1-x)=S_0+2\pi C\kappa_0x$、従って $x=(4\pi C\kappa_0-S_0)/(6\pi C\kappa_0)$。有限 $\tau\ge0$ なら $0<x\le1$。$S_0\ge0$ の下では上限は自動的に満たされ、正値条件は $S_0<4\pi C\kappa_0$。$S_0=0$ なら $x=2/3$ で、$\kappa_{\rm eff}(\tau_*)=2\kappa_0/3$。従って $\gamma/\kappa_{\rm eff}(\tau_*)=3\gamma/(2\kappa_0)$。これが十分小さいことに加え、半古典的な重力・熱流近似がその時点でも適用できることを確認する必要がある。交点だけではQESの存在・支配性を示さない。
@@ -645,7 +669,8 @@ $S_0\ge0$ とし、[収支命題](#prop-bhi27-entropy-budget)の二曲線が有�
 
 #### BHI27-C01 蒸発模型の一貫性検査
 
-$C>0,c=1,u_0=0,E_0=C/2,S_0=0$ を取り、$\gamma=1/(24\pi C)$ とする。
+- Level: C
+- 問題: $C>0,c=1,u_0=0,E_0=C/2,S_0=0$ を取り、$\gamma=1/(24\pi C)$ とする。
 
 1. エネルギー、瞬間的な $\kappa_{\rm eff}$、正味流束を求め、次元と符号を検査せよ。
 2. 二つの二階方程式の初期値から時計 $F$ を構成し、$\{F,u\}=-E/C$ を示せ。
