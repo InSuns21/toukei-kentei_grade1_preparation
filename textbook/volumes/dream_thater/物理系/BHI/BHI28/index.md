@@ -16,7 +16,7 @@
 
 量子重力全体のHilbert空間の素朴なテンソル積分解は[BHI15のGauss制約の議論](../BHI15/index.md#def-bhi15-gauss-space)により一般には保証されません。しかし、外部の**非重力浴**の有限cutoff観測領域には、ここで必要な密度演算子を定義できます。[HOLO21の正規化された重力レプリカ量](../../HOLO/HOLO21/index.md#def-holo21-gravity-replica)をこの接合模型へ適用することが本講の中心課題です。
 
-以下、自然単位 $\hbar=k_{\rm B}=1$、Euclid化した二次元JT重力、$G_2,\ell,\varepsilon,a>0$ を使います。$a$ は浴の物質場の短距離cutoff、$\varepsilon$ はJT境界のcutoffを表し、最初はともに有限のまま固定します。時刻の初期状態を経路積分で準備できる状況を選びます。**任意の非平衡蒸発状態が単純なEuclid鞍点だけで準備できるという仮定はしません**。
+以下、自然単位 $\hbar=k_{\rm B}=1$、Euclid化した二次元JT重力、$G_2,\ell,\varepsilon,a>0$ を使います。$a$ は浴の物質場の短距離cutoff、$\varepsilon$ はJT境界のcutoffを表し、最初はともに有限のまま固定します。 [BHI27の放射台帳](../BHI27/index.md#def-bhi27-radiation-ledger)では浴のcutoffを $\epsilon$ と書きましたが、本講では浴を $a$、JT境界を $\varepsilon$ と書き分けます。いずれも正の長さで、同じ記号に置いたからといって両cutoffの数値が等しいとは仮定しません。時刻の初期状態を経路積分で準備できる状況を選びます。**任意の非平衡蒸発状態が単純なEuclid鞍点だけで準備できるという仮定はしません**。
 
 ## 2. 密度行列の積を、切断面の貼り合わせへ直す
 
