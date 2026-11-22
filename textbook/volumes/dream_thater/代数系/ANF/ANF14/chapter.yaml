@@ -1,0 +1,45 @@
+id: "ANF14"
+title: "Hilbert の定理90・群コホモロジー"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANF13
+official_scope: []
+learning_objectives:
+  - 群作用、1-cocycle、1-coboundary、H^1の条件を例で検証できる
+  - 余境界が余サイクルの部分群となることを式で証明できる
+  - Artinの独立性を用いて有限Galois拡大の乗法的Hilbert90を構成的に証明できる
+  - 巡回拡大についてノルム1と自己同型の比の同値を導き完全列の中間での完全性を説明できる
+  - 加法的Hilbert90を跡1の元から証明し巡回拡大の跡0条件を示せる
+  - H^1の消滅、ノルムの非全射、別の係数群の非消滅を区別できる
+definitions:
+  - { id: ANF14-DEF-01, name: 第1余サイクル }
+  - { id: ANF14-DEF-02, name: 第1余境界と第1コホモロジー群 }
+  - { id: ANF14-DEF-03, name: 加法的第1余サイクルと余境界 }
+theorems:
+  - { id: ANF14-THM-01, name: 乗法的Hilbertの定理90 }
+  - { id: ANF14-COR-01, name: 巡回型Hilbertの定理90 }
+  - { id: ANF14-PROP-01, name: 巡回拡大の比とノルムの完全性 }
+  - { id: ANF14-THM-02, name: 加法的Hilbertの定理90 }
+  - { id: ANF14-COR-02, name: 巡回拡大の跡0と差 }
+canonical_examples:
+  - Q3(i)でc_sigma=iを余境界b=1-iから実現
+  - Q5(sqrt5)で比(2+sqrt5)/(2-sqrt5)のノルムを検算
+  - Q5(sqrt5)の加法的余境界と跡1の元からの復元
+  - Q3(i)でH^1消滅とKx/Norm(Lx)の位数2を比較
+  - 自明なC2作用の係数群{1,-1}でH^1が非自明となる反例
+problem_patterns:
+  - ANF14-COCYCLE-ORDER-TWO
+  - ANF14-COCYCLE-ORDER-THREE
+  - ANF14-ADDITIVE-COCYCLE
+  - ANF14-TRIVIAL-ACTION-H1
+  - ANF14-TELESCOPE-NORM
+  - ANF14-EXPLICIT-QUADRATIC-HILBERT90
+  - ANF14-TRACE-ONE-CONSTRUCTION
+  - ANF14-NORM-COKERNEL
+  - ANF14-TRACE-ZERO
+  - ANF14-INTEGRATED-CYCLIC-EXACTNESS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12.0, exercises: 8.0, review: 3.0 }
