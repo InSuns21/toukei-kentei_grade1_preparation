@@ -25,7 +25,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf15-arithmetic-frobenius -->
-**定義を具体的に確認する。** $k=\mathbb F_3$、$k'=\mathbb F_3[t]/(t^2+1)$ とし、$i$ を $t$ の剰余類とします。$\mathbb F_3$ では $-1=2$ が平方でないので、この商は $9$ 元の体です。$i^2=-1$ より
+**定義の確認**： $k=\mathbb F_3$、$k'=\mathbb F_3[t]/(t^2+1)$ とし、$i$ を $t$ の剰余類とします。$\mathbb F_3$ では $-1=2$ が平方でないので、この商は $9$ 元の体です。$i^2=-1$ より
 
 $$
 \operatorname{Frob}_3(i)=i^3=-i.
@@ -85,7 +85,7 @@ $$
 
 と一意に書けます。非分岐なので $e(L/K)=1$ で $\pi_K$ を $L$ の一様化元としても使えます。
 
-[ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation) では $v_K(N_{L/K}(x))=f\,v_L(x)$ です。また [非分岐拡大の単数ノルム全射性](../ANF12/index.md#thm-anf12-unramified-norm) により $\mathcal O_L^\times$ のノルム像は $\mathcal O_K^\times$ 全体です。
+[ノルムの付値と整数環の跡](../ANF12/index.md#prop-anf12-norm-valuation) では $v_K(N_{L/K}(x))=f\,v_L(x)$ です。また [非分岐拡大の単数ノルム全射性](../ANF12/index.md#thm-anf12-unramified-norm) により $\mathcal O_L^\times$ のノルム像は $\mathcal O_K^\times$ 全体です。
 
 <a id="prop-anf15-unramified-norm-quotient"></a>
 
@@ -154,7 +154,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf15-unramified-artin -->
-**定義を直接確認する。** $K=\mathbb Q_3$、$L=\mathbb Q_3(i)$、$\sigma(i)=-i$ とすると $f=2$、$\pi_K=3$、$F=\sigma$ です。任意の $u\in\mathbb Z_3^\times$ に対し
+**定義の確認**： $K=\mathbb Q_3$、$L=\mathbb Q_3(i)$、$\sigma(i)=-i$ とすると $f=2$、$\pi_K=3$、$F=\sigma$ です。任意の $u\in\mathbb Z_3^\times$ に対し
 
 $$
 \operatorname{rec}_{L/K}(9u)=\sigma^2=1,
@@ -189,12 +189,12 @@ $$
 
 ### 証明の見取り図
 
-[非分岐局所拡大の生成元の命題](#prop-anf15-frobenius-lift)から $F$ は位数 $f$ の生成元です。一方 [非分岐ノルム商の命題](#prop-anf15-unramified-norm-quotient)からノルムかどうかは付値が $f$ の倍数かどうかで決まります。これを同じ式の核の条件に代入します。
+[非分岐局所拡大の Frobenius](#prop-anf15-frobenius-lift)から $F$ は位数 $f$ の生成元です。一方 [非分岐ノルム商の命題](#prop-anf15-unramified-norm-quotient)からノルムかどうかは付値が $f$ の倍数かどうかで決まります。これを同じ式の核の条件に代入します。
 
 <!-- proof-start -->
 ### 証明
 
-$a,b\in K^\times$ に対し、付値の加法性から
+$a,b\in K^\times$ に対し、$v_K(ab)=v_K(a)+v_K(b)$ を用いて
 
 $$
 \begin{aligned}
@@ -206,7 +206,7 @@ $$
 \end{aligned}
 $$
 
-従って群準同型です。$v_K(\pi_K)=1$ なので $\operatorname{rec}_{L/K}(\pi_K)=F$。[非分岐局所拡大の生成元の命題](#prop-anf15-frobenius-lift)により $F$ は Galois 群を生成するから、写像は全射です。
+従って群準同型です。$v_K(\pi_K)=1$ なので $\operatorname{rec}_{L/K}(\pi_K)=F$。[非分岐局所拡大の Frobenius](#prop-anf15-frobenius-lift)により $F$ は Galois 群を生成するから、写像は全射です。
 
 また $F$ の位数は $f$ なので
 
@@ -251,7 +251,7 @@ $$
 N_{L/K}(s\sqrt5)=s^2(-5)=5.
 $$
 
-[ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)ではこの全分岐拡大について $v_5(N(x))=v_L(x)$ なので、ノルムが単数であることと $x$ が単数であることは同値です。以上の必要条件・十分条件と $5$ がノルムであることを組み合わせると、次が分かります。
+[ノルムの付値と整数環の跡](../ANF12/index.md#prop-anf12-norm-valuation)ではこの全分岐拡大について $v_5(N(x))=v_L(x)$ なので、ノルムが単数であることと $x$ が単数であることは同値です。以上の必要条件・十分条件と $5$ がノルムであることを組み合わせると、次が分かります。
 
 <a id="prop-anf15-ramified-quadratic-norm"></a>
 
@@ -371,7 +371,7 @@ $$
 N(\sqrt5)=\sqrt5(-\sqrt5)=-5.
 $$
 
-仮に $N(x)=2$ なら $v_5(2)=0$ と [ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation) の $f=1$ から $v_L(x)=0$、すなわち $x$ は単数です。$x=a+b\sqrt5$（$a,b\in\mathbb Z_5$、$a\bmod5\ne0$）と書けば $N(x)=a^2-5b^2\equiv a^2\pmod5$。しかし $2$ は $\mathbb F_5^\times$ の平方ではないので矛盾します。
+仮に $N(x)=2$ なら $v_5(2)=0$ と [ノルムの付値と整数環の跡](../ANF12/index.md#prop-anf12-norm-valuation) の $f=1$ から $v_L(x)=0$、すなわち $x$ は単数です。$x=a+b\sqrt5$（$a,b\in\mathbb Z_5$、$a\bmod5\ne0$）と書けば $N(x)=a^2-5b^2\equiv a^2\pmod5$。しかし $2$ は $\mathbb F_5^\times$ の平方ではないので矛盾します。
 <!-- solution-end -->
 
 ### A5. 非分岐四次での商の群演算
@@ -418,7 +418,7 @@ $L/K$ を次数 $6$ の非分岐 Galois 局所拡大、$M/K$ を $L$ に含ま�
 - ID: ANF15-B2
 
 <!-- solution-start -->
-**詳細解答。** [非分岐局所拡大の生成元の命題](#prop-anf15-frobenius-lift)から $F_L$ の位数は $6$、$F_M$ の位数は $2$ です。ゆえに
+**詳細解答。** [非分岐局所拡大の Frobenius](#prop-anf15-frobenius-lift)から $F_L$ の位数は $6$、$F_M$ の位数は $2$ です。ゆえに
 
 $$
 \operatorname{rec}_{L/K}(a)=F_L^5,\qquad
@@ -504,7 +504,7 @@ $$
 N(s\sqrt5)=N(s)N(\sqrt5)=(-1)(-5)=5.
 $$
 
-ゆえに $5$ はノルムです。一方、[ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)から、ノルム $2$ を持つ元は単数でなければなりません。単数のノルムは法 $5$ で平方剰余であり、$2\notin\{1,4\}$ なので $2$ はノルムではありません。[分岐二次のノルム群](#prop-anf15-ramified-quadratic-norm)により、商の剰余類は $[1]$ と $[2]$ の二つです。
+ゆえに $5$ はノルムです。一方、[ノルムの付値と整数環の跡](../ANF12/index.md#prop-anf12-norm-valuation)から、ノルム $2$ を持つ元は単数でなければなりません。単数のノルムは法 $5$ で平方剰余であり、$2\notin\{1,4\}$ なので $2$ はノルムではありません。[分岐二次のノルム群](#prop-anf15-ramified-quadratic-norm)により、商の剰余類は $[1]$ と $[2]$ の二つです。
 
 **第3問。** 非分岐拡大では単数はすべてノルムなので、付値の剰余が Galois 群の元を区別します。分岐二次例では逆に付値 $1$ の $5$ がノルムで、付値 $0$ の $2$ が非ノルムです。したがって、分岐の場合の写像は単数部分の情報を受け取らなければなりません。加えて分岐すると惰性群が自明でなくなり、剰余 Frobenius の持ち上げは非分岐の場合のように一意とは限りません。この二つが、一般の局所 Artin 写像の構成に追加理論が必要な理由です。
 <!-- solution-end -->
