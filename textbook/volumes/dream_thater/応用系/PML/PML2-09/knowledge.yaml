@@ -19,7 +19,7 @@ concepts:
     requires:
       - physics-machine-learning.pml2-09-normalized-loss
   - id: physics-machine-learning.pml2-09-weight-tradeoff
-    name: 二次PINN損失の重みと最小点
+    name: 境界重みへの最小点の感度
     kind: theorem
     introduction: formal
     requires:
