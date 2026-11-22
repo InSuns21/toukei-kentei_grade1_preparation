@@ -40,7 +40,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-06-strong-residual -->
-**定義の確認。** $f=2$、$q(x)=x(1-x)$、$v_\theta(x)=\theta q(x)+c$（$\theta,c\in\mathbb R$）と置く。$q''=-2$ だから
+**定義の確認**。 $f=2$、$q(x)=x(1-x)$、$v_\theta(x)=\theta q(x)+c$（$\theta,c\in\mathbb R$）と置く。$q''=-2$ だから
 
 $$
 v_\theta''=-2\theta,\qquad r_\theta(x)=2(\theta-1).
@@ -72,7 +72,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-06-collocation -->
-**定義の確認。** $f=2$、$v_\theta(x)=\theta x(1-x)$、$X_{\mathrm r}=\{1/4,1/2,3/4\}$ とする。前節の微分により各点で $r_\theta=2(\theta-1)$。従って
+**定義の確認**。 $f=2$、$v_\theta(x)=\theta x(1-x)$、$X_{\mathrm r}=\{1/4,1/2,3/4\}$ とする。前節の微分により各点で $r_\theta=2(\theta-1)$。従って
 
 $$
 L_{\mathrm{phys}}(\theta)
@@ -112,7 +112,7 @@ $$
 
 ### 証明の見取り図
 
-候補を固定すれば $g$ は決まった連続関数であり、標本平均の線形性と、独立変数の分散の加法性を使える。
+候補を固定すれば $g$ は決まった連続関数であり、標本平均の線形性と、独立な変数の和の分散が各分散の和になる性質を使える。
 
 <!-- proof-start -->
 ### 証明
@@ -177,7 +177,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-06-composite-loss -->
-**定義の確認。** $f=2$、両端値零、観測 $z_1=1/2,y_1=1/4$、$v_{\alpha,c}(x)=\alpha x(1-x)+c$、内部の選点は任意の三点とする。直接代入して
+**定義の確認**。 $f=2$、両端値零、観測 $z_1=1/2,y_1=1/4$、$v_{\alpha,c}(x)=\alpha x(1-x)+c$、内部の選点は任意の三点とする。直接代入して
 
 $$
 L_{\mathrm{phys}}=4(\alpha-1)^2,\quad
