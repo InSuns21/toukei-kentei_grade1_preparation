@@ -28,3 +28,4 @@
 25. [BHI25 island端点の極値化](textbook/volumes/dream_thater/物理系/BHI/BHI25/index.md)
 26. [BHI26 Page転移と複数鞍点の比較](textbook/volumes/dream_thater/物理系/BHI/BHI26/index.md)
 27. [BHI27 時間依存の蒸発JT模型](textbook/volumes/dream_thater/物理系/BHI/BHI27/index.md)
+28. [BHI28 重力レプリカの分配関数](textbook/volumes/dream_thater/物理系/BHI/BHI28/index.md)
