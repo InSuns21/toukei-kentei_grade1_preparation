@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - GBG10
+  - GEO7
 forward_references: []
 concepts:
   - id: gauge.covariant-exterior-derivative
@@ -22,7 +23,7 @@ concepts:
     name: 主束曲率の Bianchi 恒等式・大域形式
     kind: theorem
     introduction: formal
-    requires: [gauge.covariant-exterior-derivative, gauge.principal-curvature-form, lie.lie-algebra-valued-bracket-wedge]
+    requires: [gauge.covariant-exterior-derivative, gauge.principal-curvature-form, lie.lie-algebra-valued-bracket-wedge, geometry.exterior-derivative-graded-leibniz]
 
   - id: gauge.local-covariant-exterior-derivative
     name: 局所共変外微分
