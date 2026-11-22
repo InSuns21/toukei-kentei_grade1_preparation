@@ -98,40 +98,42 @@ function advanceObstacleStep(step){
   // divergence defect instead of falsely claiming incompressibility.
   meanRemoved=sum/count;
   for(let k=0;k<N*N;k++)if(!s[k])rhs[k]-=meanRemoved;
-  // Red-black SOR solves the *same* fluid-fluid Neumann graph equation.
-  // A fixed 240 Jacobi sweeps cannot resolve a 48x48 obstacle mask.
-  // The constant pressure mode is fixed by subtracting the fluid-cell mean.
+  // Build the active fluid graph once per moving-mask step. Only
+  // those cells participate in SOR; all wall-face values stay prescribed.
+  const adj=new Int32Array(4*N*N);adj.fill(-1);
+  const colors=[[],[]],fluid=[];
+  for(let j=0;j<N;j++)for(let i=0;i<N;i++){
+    const k=ci(i,j);if(s[k])continue;
+    fluid.push(k);colors[(i+j)&1].push(k);
+    adj.set([fluidAt(s,i-1,j)?ci(i-1,j):-1,
+      fluidAt(s,i+1,j)?ci(i+1,j):-1,
+      fluidAt(s,i,j-1)?ci(i,j-1):-1,
+      fluidAt(s,i,j+1)?ci(i,j+1):-1],4*k);
+  }
   p=new Float64Array(N*N);
   const omega=1.94,maxSweeps=32*N,tolerance=1e-6;
   sweeps=0;let converged=false;
   for(let it=0;it<maxSweeps;it++){
-    for(let color=0;color<2;color++)
-      for(let j=0;j<N;j++)for(let i=0;i<N;i++){
-        if(s[ci(i,j)]||((i+j)&1)!==color)continue;
-        const k=ci(i,j);
-        let neighbors=0;
-        if(fluidAt(s,i-1,j))neighbors+=p[ci(i-1,j)];
-        if(fluidAt(s,i+1,j))neighbors+=p[ci(i+1,j)];
-        if(fluidAt(s,i,j-1))neighbors+=p[ci(i,j-1)];
-        if(fluidAt(s,i,j+1))neighbors+=p[ci(i,j+1)];
-        const target=(neighbors-h*h*rhs[k])/degree[k];
-        p[k]+=omega*(target-p[k]);
+    for(const cells of colors)for(const k of cells){
+      let neighbors=0,base=4*k;
+      for(let a=0;a<4;a++){
+        const z=adj[base+a];if(z>=0)neighbors+=p[z];
       }
+      p[k]+=omega*((neighbors-h*h*rhs[k])/degree[k]-p[k]);
+    }
     sweeps=it+1;
     if(sweeps%8!==0&&sweeps!==maxSweeps)continue;
     let maxResidual=0,pressureMean=0;
-    for(let j=0;j<N;j++)for(let i=0;i<N;i++){
-      const k=ci(i,j);if(s[k])continue;
-      let neighbors=0;
-      if(fluidAt(s,i-1,j))neighbors+=p[ci(i-1,j)];
-      if(fluidAt(s,i+1,j))neighbors+=p[ci(i+1,j)];
-      if(fluidAt(s,i,j-1))neighbors+=p[ci(i,j-1)];
-      if(fluidAt(s,i,j+1))neighbors+=p[ci(i,j+1)];
-      maxResidual=Math.max(maxResidual,Math.abs((neighbors-degree[k]*p[k])/(h*h)-rhs[k]));
+    for(const k of fluid){
+      let sum=0,base=4*k;
+      for(let a=0;a<4;a++){
+        const z=adj[base+a];if(z>=0)sum+=p[z];
+      }
+      maxResidual=Math.max(maxResidual,Math.abs((sum-degree[k]*p[k])/(h*h)-rhs[k]));
       pressureMean+=p[k];
     }
     pressureMean/=count;
-    for(let k=0;k<N*N;k++)if(!s[k])p[k]-=pressureMean;
+    for(const k of fluid)p[k]-=pressureMean;
     if(maxResidual<tolerance){converged=true;break;}
   }
   if(!converged)throw new Error('masked Neumann SOR residual failed: N='+N+', sweeps='+sweeps);
