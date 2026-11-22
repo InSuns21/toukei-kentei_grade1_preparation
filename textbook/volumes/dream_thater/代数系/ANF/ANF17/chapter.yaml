@@ -1,0 +1,44 @@
+id: "ANF17"
+title: "局所類体論：相互法則・関手性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANF16
+official_scope: []
+learning_objectives:
+  - 算術的Frobeniusで規格化した有限局所Artin写像の対象・核・像を説明できる
+  - 非分岐拡大でArtin写像を直接計算しノルム群との対応を検証できる
+  - 一般の局所相互法則で使う外部定理とこの講で証明する帰結を区別できる
+  - 有限Abel拡大のArtin商同型とノルム判定を証明できる
+  - 中間体へのGalois制限とノルム商の射影の可換性・核を証明できる
+  - 基礎体変更のノルムと制限の向きを正しく記述し非分岐例で直接証明できる
+  - 有限Abel拡大と開有限指数部分群の包含反転対応を導ける
+definitions:
+  - { id: ANF17-DEF-01, name: 有限拡大の局所Artin写像・ノルム剰余記号 }
+theorems:
+  - { id: ANF17-THM-01, name: 局所相互法則・有限商による表示（一般形は外部定理） }
+  - { id: ANF17-PROP-01, name: 有限局所Artin写像の核と位数 }
+  - { id: ANF17-PROP-02, name: 中間体への制限と自然性 }
+  - { id: ANF17-THM-02, name: 局所相互法則のノルム・制限の関手性（一般形は外部定理） }
+  - { id: ANF17-PROP-03, name: 非分岐拡大での基礎体変更 }
+  - { id: ANF17-COR-01, name: 有限Abel拡大と開有限指数部分群の対応 }
+canonical_examples:
+  - Q3(i)の非分岐二次Artin写像と核
+  - Q5(5の四乗根)からQ5(sqrt5)へのGalois制限とノルム商
+  - 非分岐三次を非分岐二次基礎体へ変更したときのFrobenius二乗
+  - Q3(sqrt3)の3と-3で異なるノルム剰余記号
+problem_patterns:
+  - ANF17-UNRAMIFIED-ARTIN-POWER
+  - ANF17-KERNEL-NORM-TEST
+  - ANF17-RESTRICTION-KERNEL
+  - ANF17-NORM-VALUATION-BASECHANGE
+  - ANF17-WELL-DEFINED-QUOTIENT
+  - ANF17-QUARTIC-QUADRATIC-RESTRICTION
+  - ANF17-UNRAMIFIED-COMPOSITUM
+  - ANF17-ORDER-REVERSING-CORRESPONDENCE
+  - ANF17-RAMIFIED-UNIT-OBSTRUCTION
+  - ANF17-UNRAMIFIED-TWELVE-DEGREE-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13.0, exercises: 8.0, review: 4.0 }
