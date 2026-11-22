@@ -17,3 +17,4 @@
 14. [ANF14 Hilbert の定理90・群コホモロジー](textbook/volumes/dream_thater/代数系/ANF/ANF14/index.md)
 15. [ANF15 局所相互法則への導入](textbook/volumes/dream_thater/代数系/ANF/ANF15/index.md)
 16. [ANF16 局所類体論：ノルム群と存在](textbook/volumes/dream_thater/代数系/ANF/ANF16/index.md)
+17. [ANF17 局所類体論：相互法則・関手性](textbook/volumes/dream_thater/代数系/ANF/ANF17/index.md)

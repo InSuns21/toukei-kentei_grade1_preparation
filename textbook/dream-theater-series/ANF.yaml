@@ -71,7 +71,7 @@ chapters:
     title: "局所類体論：ノルム群と存在"
   - id: ANF17
     path: textbook/volumes/dream_thater/代数系/ANF/ANF17
-    status: planned
+    status: completed
     title: "局所類体論：相互法則・関手性"
   - id: ANF18
     path: textbook/volumes/dream_thater/代数系/ANF/ANF18
