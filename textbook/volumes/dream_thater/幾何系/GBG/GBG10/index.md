@@ -46,7 +46,9 @@ $$
 
 この係数2を除くために構造方程式では $\frac12[\alpha\wedge\alpha]$ を使う。行列係数の通常の外積では、$A\wedge A(U,V)=A(U)A(V)-A(V)A(U)$ と計算する。
 
-**手計算での確認**。$N=\mathbb R^2$、$\mathfrak g=\mathfrak{gl}_2(\mathbb R)$ とし、$B=E_{11}$、$C=E_{12}$、$\alpha=B\,dx+C\,dy$ とおく。$\alpha(\partial_x)=B$、$\alpha(\partial_y)=C$。行列積 $BC=C$、$CB=0$ より
+**手計算での確認**。$N=\mathbb R^2$ とし、係数の Lie 環に $\mathfrak g=\mathfrak{gl}_2(\mathbb R)$ を選ぶ。これは $GL(2,\mathbb R)$ の単位行列での接空間であり、実 $2\times2$ 行列全体からなる。実際、任意の実行列 $T$ について $I+tT$ は十分小さい $t$ で可逆なので、$T$ は単位行列を通る可逆行列の曲線の速度として現れる。$E_{ij}$ は $(i,j)$ 成分だけが $1$、他が $0$ の行列とする。
+
+$B=E_{11}$、$C=E_{12}$、$\alpha=B\,dx+C\,dy$ と置く。この表示は各接ベクトル $(v_x,v_y)$ に行列 $Bv_x+Cv_y$ を対応させるため、$\alpha(\partial_x)=B$、$\alpha(\partial_y)=C$ である。ここで $\partial_x=\partial/\partial x$、$\partial_y=\partial/\partial y$ は座標接ベクトルを表す。行列積 $BC=C$、$CB=0$ より
 
 $$
 \frac12[\alpha\wedge\alpha](\partial_x,\partial_y)
@@ -231,7 +233,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg10-local-curvature -->
-**定義の確認**。$P=\mathbb R^2\times U(1)$、$s(x,y)=(x,y,1)$ とする。[GBG7 の積主束公式](../GBG7/index.md#prop-gbg7-product-form)によって $A=i x\,dy$ を指定すれば、滑らかな主束接続が存在する。$s^*\Omega$ は $s$ の接方向二つを入力した2形式である。$U(1)$ の Lie 括弧が零であることから
+**定義の確認**。$P=\mathbb R^2\times U(1)$、$s(x,y)=(x,y,1)$ とする。まず基底上に $b=ix\,dy$ を選ぶ。[GBG7 の積主束公式](../GBG7/index.md#prop-gbg7-product-form)をこの $b$ に適用すると、$v\in T_{(x,y)}\mathbb R^2$、$W\in T_kU(1)$ に対して接続形式は
+
+$
+\omega_{((x,y),k)}(v,W)
+=\operatorname{Ad}_{k^{-1}}\bigl(b_{(x,y)}(v)\bigr)+k^{-1}W
+=ix\,dy(v)+k^{-1}W
+$
+
+となる。最後の等号では $U(1)$ の可換性を使った。この積束公式は接続の再生条件と右同変条件を満たす。さらに $ds_{(x,y)}v=(v,0)$ だから、$A=s^*\omega=b$ と直接確かめられる。定義 $F=s^*\Omega$ の意味は、$v,w\in T_{(x,y)}\mathbb R^2$ に対して
+
+$
+F_{(x,y)}(v,w)=\Omega_{s(x,y)}(ds_{(x,y)}v,ds_{(x,y)}w)
+$
+
+と、$P$ 上の2形式に section の接方向を入力することである。$U(1)$ の Lie 括弧が零であることから
 
 $$
 s^*\Omega=s^*(d\omega)=d(s^*\omega)=d(ix\,dy)=i\,dx\wedge dy.
@@ -257,7 +273,7 @@ $$
 \boxed{\displaystyle F=dA+A\wedge A}
 $$
 
-> と書ける。局所座標 $x^1,\ldots,x^m$ で $A=\sum_iA_i\,dx^i$ とすると
+> と書ける。局所座標 $(x^1,\ldots,x^m)$ で $\partial_i:=\partial/\partial x^i$ とし、$A_i(x):=A_x(\partial_i)$ と置く。$A_i$ は行列値係数関数であり、$\partial_iA_j$ は $x^i$ についての偏微分を表す。このとき $A=\sum_iA_i\,dx^i$ とすると
 
 $$
 F=\sum_{i<j}
@@ -378,24 +394,36 @@ $$
 
 となる。最後は[同変性定理](#thm-gbg10-basic-properties)を使った。$x,v,w$ が任意なので2形式として成立する。
 
-行列群の場合は局所式でも確かめられる。$\beta=g^{-1}dg$、$C=g^{-1}Ag$ とおくと、積の外微分と $d(g^{-1})=-g^{-1}(dg)g^{-1}$ より
+行列群の場合は局所式でも確かめられる。以下の $d$ は基底 $U$ 上の外微分であり、$g$ は行列値0形式、$A$ は行列値1形式である。$\beta=g^{-1}dg$、$C=g^{-1}Ag$ とおく。$d(gg^{-1})=0$ から $d(g^{-1})=-g^{-1}(dg)g^{-1}$。次数1の $A$ を含む積の微分では符号が変わるため、
 
-$$
-dC=g^{-1}(dA)g-\beta\wedge C-C\wedge\beta.
-$$
+$
+\begin{aligned}
+dC
+&=d(g^{-1})\wedge Ag+g^{-1}(dA)g-g^{-1}A\wedge dg\\
+&=g^{-1}(dA)g-\beta\wedge C-C\wedge\beta.
+\end{aligned}
+$
 
-さらに $dg=g\beta$ から $d\beta=-\beta\wedge\beta$ が従う。これらを $A'=C+\beta$ に代入し、
+また外微分の二乗は零なので、
 
-$$
+$
+d\beta=d(g^{-1})\wedge dg
+=-g^{-1}(dg)g^{-1}\wedge dg
+=-\beta\wedge\beta.
+$
+
+これらを $A'=C+\beta$ に代入する。$C\wedge C=g^{-1}(A\wedge A)g$ であることにも注意すると、
+
+$
 \begin{aligned}
 dA'+A'\wedge A'
-&=g^{-1}(dA)g-\beta C-C\beta-\beta^2\\
-&\quad+C^2+C\beta+\beta C+\beta^2\\
+&=g^{-1}(dA)g-\beta\wedge C-C\wedge\beta-\beta\wedge\beta\\
+&\quad+C\wedge C+C\wedge\beta+\beta\wedge C+\beta\wedge\beta\\
 &=g^{-1}(dA+A\wedge A)g.
 \end{aligned}
-$$
+$
 
-ここで積は全て行列係数の外積であり、順序は交換していない。両側の混合項がそれぞれ消えるので、$F'=g^{-1}Fg$ を得る。
+行列係数の外積では行列積の順序を交換していない。混合項が対になって消えるので、$F'=g^{-1}Fg$ を得る。
 <!-- proof-end -->
 
 この定理の「共変」は「各成分が同一」を意味しない。$SU(2)$ の例のような非可換群では、同じ曲率が異なる局所行列で表される。
@@ -547,7 +575,7 @@ d(i x^2dy)=2ix\,dx\wedge dy,\qquad
 d(iy\,dx)=i\,dy\wedge dx=-i\,dx\wedge dy.
 $$
 
-ゆえに $F=i(2x-1)\,dx\wedge dy$ で、$F(\partial_x,\partial_y)=i(2x-1)$。点 $x=\frac12$ でのみ曲率が零になる。
+ゆえに $F=i(2x-1)\,dx\wedge dy$ で、$F(\partial_x,\partial_y)=i(2x-1)$。直線 $x=\frac12$ 上でのみ曲率が零になる。
 <!-- solution-end -->
 
 <a id="ex-gbg10-a03"></a>
@@ -594,7 +622,7 @@ $$
 $G=U(1)$、$A=ix\,dy$ とし、整数重み $q=0$ と $q=3$ の表現 $\rho_q(z)w=z^qw$ を考える。$\rho_{q*}(F(\partial_x,\partial_y))$ を求め、何が違うか説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。$F(\partial_x,\partial_y)=i$。[GBG9 の無限小作用](../GBG9/index.md#def-gbg9-infinitesimal-representation)より
+**詳細解答**。$F(\partial_x,\partial_y)=i$。[GBG9 の無限小作用](../GBG9/index.md#def-gbg9-infinitesimal-representation)を群の曲線 $t\mapsto e^{it}$ に適用する。ここで $d/dt$ は実パラメータ $t$ に関する微分であり、基底座標 $x,y$ に関する偏微分や外微分 $dA$ とは異なる。従って
 
 $$
 \rho_{q*}(i)w=\left.\frac d{dt}\right|_0e^{iqt}w=iqw.
@@ -620,7 +648,21 @@ F=(E_{11}E_{12}-E_{12}E_{11})\,dx\wedge dy
 =E_{12}\,dx\wedge dy\ne0.
 $$
 
-[曲率と水平ベクトル場の括弧](#thm-gbg10-horizontal-bracket)により、基底方向 $\partial_x,\partial_y$ の水平リフトに対して $\omega([\partial_x^H,\partial_y^H])=-F(\partial_x,\partial_y)=-E_{12}\ne0$（標準 section 上での値を同一視）。従って Lie 括弧には非零の垂直成分があり、水平に閉じない。破綻するのは、定数係数なら $dA=0$ だから平坦とみなす誤った推論である。
+基底方向 $\partial_x,\partial_y$ の水平リフトを $X^H,Y^H$ とする。標準 section $s(x,y)=((x,y),I)$ では $ds(\partial_x)-X^H$、$ds(\partial_y)-Y^H$ は垂直ベクトルである。[曲率の水平性](#thm-gbg10-basic-properties)から
+
+$
+F(\partial_x,\partial_y)
+=\Omega_{s(x,y)}(ds\,\partial_x,ds\,\partial_y)
+=\Omega_{s(x,y)}(X^H,Y^H).
+$
+
+ここで[曲率と水平ベクトル場の括弧](#thm-gbg10-horizontal-bracket)を適用すると、標準 section 上で
+
+$
+\omega([X^H,Y^H])=-F(\partial_x,\partial_y)=-E_{12}\ne0.
+$
+
+従って Lie 括弧には非零の垂直成分があり、水平に閉じない。破綻するのは、定数係数なら $dA=0$ だから平坦とみなす誤った推論である。
 <!-- solution-end -->
 
 <a id="ex-gbg10-b02"></a>
@@ -684,7 +726,11 @@ $$
 
 - Level: B
 
-$U=\mathbb R^2$ の $U(1)$ 積主束で $A=i\,d(xy)=i(y\,dx+x\,dy)$ とする。(1) $F=0$ を計算せよ。(2) $g=e^{-ixy}$ として変換後 $A'$ を求めよ。(3) 最初から $A=0$ とした場合と同じ局所接続表示へ移せる理由を説明せよ。
+$U=\mathbb R^2$ の $U(1)$ 積主束で $A=i\,d(xy)=i(y\,dx+x\,dy)$ とする。
+
+1. $F=0$ を計算せよ。
+2. $g=e^{-ixy}$ として変換後 $A'$ を求めよ。
+3. 最初から $A=0$ とした場合と同じ局所接続表示へ移せる理由を説明せよ。
 
 <!-- solution-start -->
 **詳細解答**。(1) 可換群なので
@@ -733,7 +779,13 @@ $$
 
 $\omega$ のときは $dg$ の補正が残るのに、$\Omega$ では垂直入力が消えることが違いである。
 
-**3. 場への作用**。[GBG9 の場の成分変換](../GBG9/index.md#thm-gbg9-gauge-covariance)より $u_2=g^{-1}u_1$、$D_2u_2=g^{-1}D_1u_1$。交換子定理を各パッチで適用すると
+**3. 場への作用**。[GBG9 の共変微分の成分変換](../GBG9/index.md#thm-gbg9-gauge-covariance)を方向 $Z$ に沿って書くと、$w_2=g^{-1}w_1$ を満たす任意の局所成分に対して
+
+$
+D_{2,Z}w_2=g^{-1}D_{1,Z}w_1
+$
+
+である。まず $w_i=u_i$ に使い、次に $w_i=D_{i,Y}u_i$ に使えば、二階の作用も $D_{2,X}D_{2,Y}u_2=g^{-1}D_{1,X}D_{1,Y}u_1$ と変換する。$X,Y$ を交換した項と $[X,Y]$ の方向も同じである。さらに本章の[交換子定理](#thm-gbg10-commutator)を各パッチで適用すると
 
 $$
 F_2(X,Y)u_2
