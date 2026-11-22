@@ -157,7 +157,7 @@ $$
 \qquad 0<q<y<1.
 $$
 
-根を $q_*$、$A_*=-\ln q_*$ と書きます。後期には $U-V\to0$ ですが、これは**有限時刻の方程式を解いた後の極限**です。$U=V$ で評価した関数について、双曲線関数の積和公式から正確に
+根を $q_*$、$A_*=-\ln q_*$ と書きます。後期には $U-V\to0$ ですが、これは**有限時刻の方程式を解いた後の極限**です。$U=V$ で評価した関数について、$2\cosh x\cosh y=\cosh(x+y)+\cosh(x-y)$ を代入すると正確に
 
 $$
 \begin{aligned}
@@ -375,7 +375,7 @@ $$
 #### BHI26-A01 空枝のJacobianとWeyl因子
 
 - Level: A
-- 問題: $D_{bb}=4e^{2B}\cosh^2V$、浴端点のJacobianが $\kappa e^B$、Weyl因子が1であるとする。固有cutoff $\epsilon_b$ の自由Dirac一区間公式から $S_{\varnothing}(V)$ を導け。
+- 問題: $D_{bb}=4e^{2B}\cosh^2V$、浴端点のJacobianが $\kappa e^B$、Weyl因子が1であるとする。固有cutoff $\epsilon_b$ と[BHI24の真空区間エントロピー](../BHI24/index.md#prop-bhi24-four-endpoint-entropy)を使い $S_{\varnothing}(V)$ を導け。
 
 <!-- solution-start -->
 **詳細解答。** 光円錐距離積の正の平方根は $2e^B\cosh V$。左右端点の座標cutoffの幾何平均は $\kappa e^B\epsilon_b$ です。よって比は
@@ -533,7 +533,7 @@ $2V_{\rm P}^{\rm late}\simeq23.94$ は $A_*+B\simeq3.93$ より十分大きく�
 - 問題: $U=V$ での評価関数と後期関数 $K(A)$ の差を正確に書き、$V\ge0$ における誤差の上界を導け。さらに $V=12$、$A=3.24129045011$、$B=\ln2$、$c=1$ で評価せよ。
 
 <!-- solution-start -->
-**詳細解答。** 第4節の恒等式を使い、
+**詳細解答。** 第4節で直接計算した $C_-C_+$ の表示を代入し、
 
 $$
 K(A)-S_I(A,V;V)
