@@ -1,0 +1,45 @@
+id: "ANF16"
+title: "局所類体論：ノルム群と存在"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANF15
+official_scope: []
+learning_objectives:
+  - 有限局所拡大のノルム部分群・指数を定義し非分岐例で検証できる
+  - 付値・単数の完全列を証明しノルム商の障害を二つの部分へ分解できる
+  - HenselのNewton反復から深い主単数のn乗根を構成しノルム群の開性・有限指数を証明できる
+  - eがq-1を割る緩分岐巡回Kummer拡大で単数ノルム群と指数を完全計算できる
+  - Q3(sqrt3)とQ5(5の四乗根)で一様化元・ノルム一様化元の差を符号込みで判定できる
+  - ノルムの塔の推移律と部分群の逆向きの包含を証明できる
+  - 局所類体論の一般存在定理と一般ノルム指数等式の未証明の依存関係を区別できる
+definitions:
+  - { id: ANF16-DEF-01, name: ノルム部分群とノルム指数 }
+  - { id: ANF16-DEF-02, name: 類体論で扱う開有限指数部分群 }
+theorems:
+  - { id: ANF16-PROP-01, name: ノルム商の付値・単数完全列 }
+  - { id: ANF16-LEM-01, name: 十分深い主単数はn乗 }
+  - { id: ANF16-THM-01, name: 有限局所拡大のノルム群は開・有限指数 }
+  - { id: ANF16-PROP-02, name: 緩分岐Kummer巡回拡大のノルム群 }
+  - { id: ANF16-PROP-03, name: ノルム部分群の塔での包含 }
+  - { id: ANF16-THM-02, name: 局所類体論の存在定理・一般形（外部定理、証明依存を明示） }
+canonical_examples:
+  - Q3(i)の非分岐二次ノルム群と商
+  - Q3(sqrt3)で-3はノルムだが3は非ノルム
+  - Q5(5の四乗根)で-5はノルムだが5は非ノルム
+  - Q5(5の四乗根)とQ5(sqrt5)のノルム群の包含と位数4から位数2への射影
+problem_patterns:
+  - ANF16-NORM-EXACT-SEQUENCE-INDEX
+  - ANF16-DEEP-UNITS-NTH-POWER
+  - ANF16-RAMIFIED-QUADRATIC-UNIT-QUOTIENT
+  - ANF16-THREE-ADIC-SIGN-OBSTRUCTION
+  - ANF16-NORM-TOWER
+  - ANF16-TAME-KUMMER-GROUP
+  - ANF16-FOURTH-ROOT-NORM-GROUP
+  - ANF16-UNRAMIFIED-EXISTENCE-CONSTRUCTION
+  - ANF16-NECESSARY-VS-SUFFICIENT
+  - ANF16-QUARTIC-QUADRATIC-TOWER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 14.0, exercises: 9.0, review: 4.0 }
