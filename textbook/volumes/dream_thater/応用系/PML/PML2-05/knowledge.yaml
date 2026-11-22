@@ -1,0 +1,43 @@
+chapter: PML2-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-04
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-05-manufactured
+    name: 製造解と整合するPDEデータ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（製造解と整合するPDEデータ）"]
+    requires:
+      - physics-machine-learning.pml2-01-classical
+      - physics-machine-learning.pml2-04-error-metrics
+  - id: physics-machine-learning.pml2-05-sine-grid
+    name: 正弦製造解に対する三点差分ラベルの誤差
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-05-manufactured
+      - physics-machine-learning.pml2-03-fd
+      - physics-machine-learning.pml2-04-convergence
+  - id: physics-machine-learning.pml2-05-group-split
+    name: 解単位の訓練・検証・テスト分割
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（解単位の訓練・検証・テスト分割）"]
+    requires:
+      - physics-machine-learning.pml2-05-manufactured
+  - id: physics-machine-learning.pml2-05-observation
+    name: 独立観測雑音と評価量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（独立観測雑音と評価量）"]
+    requires:
+      - physics-machine-learning.pml2-05-group-split
+  - id: physics-machine-learning.pml2-05-noise-mse
+    name: 評価用雑音に独立な予測の二乗誤差分解
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-05-observation

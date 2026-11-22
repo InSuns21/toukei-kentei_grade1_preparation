@@ -1,0 +1,44 @@
+id: "PML2-05"
+title: "学習用のPDEデータはどう作り検証するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-04
+official_scope: []
+learning_objectives:
+  - 製造解から右辺・境界条件を導いてPDEデータの整合性を直接検証できる
+  - 同じ製造解の解析真値ラベル・数値ラベル・観測ラベルを区別して記録できる
+  - 正弦製造解の三点差分解と格子幅依存のラベル誤差を厳密に導出できる
+  - 解単位のtrain・validation・test分割によって未見パラメータの評価漏洩を防げる
+  - 観測雑音の独立性条件の下で真値MSEと観測MSEの関係を証明できる
+  - パラメータ補間・外挿、空間格子変更、時間外挿を別々に設計できる
+  - 標準Pythonでデータ生成・数値ソルバ残差・解析解誤差を別経路で検算できる
+definitions:
+  - { id: PML2-05-DEF-01, name: 製造解と整合するPDEデータ }
+  - { id: PML2-05-DEF-02, name: 解単位の訓練・検証・テスト分割 }
+  - { id: PML2-05-DEF-03, name: 独立観測雑音と評価量 }
+theorems:
+  - { id: PML2-05-THM-01, name: 正弦製造解に対する三点差分ラベルの誤差 }
+  - { id: PML2-05-THM-02, name: 評価用雑音に独立な予測の二乗誤差分解 }
+canonical_examples:
+  - 二次製造解の方程式・境界値・正則性の直接検証
+  - 正弦摂動を含むPoisson製造解族と四分割格子のラベル誤差
+  - 未見の問題パラメータと同一解内の座標分割の対比
+  - 零平均独立観測雑音による真値誤差と観測誤差の差
+  - 熱方程式の製造解と時間外挿に対する初期境界条件の確認
+  - 標準Pythonによる解単位分割と数値・解析ラベルの独立検算
+problem_patterns:
+  - PML2-05-A01
+  - PML2-05-A02
+  - PML2-05-A03
+  - PML2-05-A04
+  - PML2-05-A05
+  - PML2-05-B01
+  - PML2-05-B02
+  - PML2-05-B03
+  - PML2-05-B04
+  - PML2-05-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }

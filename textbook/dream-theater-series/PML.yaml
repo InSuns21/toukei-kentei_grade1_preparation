@@ -111,7 +111,7 @@ chapters:
     title: "計算された値の何を「誤差」と呼ぶか"
   - id: PML2-05
     path: textbook/volumes/dream_thater/応用系/PML/PML2-05
-    status: planned
+    status: completed
     title: "学習用のPDEデータはどう作り検証するか"
   - id: PML2-06
     path: textbook/volumes/dream_thater/応用系/PML/PML2-06
