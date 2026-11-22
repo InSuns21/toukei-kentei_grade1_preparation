@@ -38,7 +38,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf17-finite-reciprocity -->
-**定義の直接確認（非分岐二次）。** $K=\mathbb Q_3$、$E=\mathbb Q_3(i)$（$i^2=-1$）では[非分岐 Frobenius の具体例](../ANF15/index.md#prop-anf15-frobenius-lift)により $F(i)=-i$、$F^2=1$ です。任意の $a=3^m u$（$m\in\mathbb Z$、$u\in\mathbb Z_3^\times$）に対して
+**定義の確認（非分岐二次）。** $K=\mathbb Q_3$、$E=\mathbb Q_3(i)$（$i^2=-1$）では[非分岐 Frobenius の具体例](../ANF15/index.md#prop-anf15-frobenius-lift)により $F(i)=-i$、$F^2=1$ です。任意の $a=3^m u$（$m\in\mathbb Z$、$u\in\mathbb Z_3^\times$）に対して
 
 $$
 \operatorname{rec}_{E/K}(3^m u)=F^m,\quad
@@ -259,9 +259,9 @@ $L\supset M$ なら[ノルムの塔での包含](../ANF16/index.md#prop-anf16-no
 
 逆に $H_L\subset H_M$ とします。合成体 $F=LM$ は有限 Abel Galois 拡大です。$H_F=N_{F/K}(F^\times)$ と置き、[ノルムの塔での包含](../ANF16/index.md#prop-anf16-norm-tower)を適用すると、
 
-$
+$$
 H_F\subset H_L\cap H_M
-$
+$$
 
 となります。[商の同型](#prop-anf17-artin-quotient)により、$H_L/H_F$ と $H_M/H_F$ を $\operatorname{Gal}(F/K)$ の部分群として比較できます。
 
@@ -363,17 +363,17 @@ $K=\mathbb Q_5$、$L=K(\sqrt[4]5)$、$M=K(\sqrt5)$ とする。$K^\times/H_L$ �
 <!-- solution-start -->
 **詳細解答。** [緩分岐 Kummer ノルム計算](../ANF16/index.md#prop-anf16-tame-kummer-norm)から
 
-$
+$$
 H_L=\langle-5\rangle(1+5\mathbb Z_5)
-$
+$$
 
 です。$2\bmod5$ は位数4なので、$[2]$ も商群で位数4です。
 
 $H_M$ の単数の剰余は平方集合 $\{1,4\}$ です。$[2]$ は $H_M$ に入らず、$[2]^2=[4]$ は入ります。従って[制限の核](#prop-anf17-restriction-square)は
 
-$
+$$
 \{[1],[2]^2\}
-$
+$$
 
 で、位数2です。Galois 側でも $M$ を固定する群は $\operatorname{Gal}(L/M)$ で、位数は $[L:M]=2$ です。
 <!-- solution-end -->
@@ -407,15 +407,15 @@ $$
 
 [Artin 商同型](#prop-anf17-artin-quotient)を $F/K$ に適用すると、
 
-$
+$$
 K^\times/H_F\cong\operatorname{Gal}(F/K).
-$
+$$
 
 ここで[制限の核の記述](#prop-anf17-restriction-square)を $F/L_i$ に適用すると、$H_i/H_F$ は $\operatorname{Gal}(F/L_i)$ に対応します。仮定 $H_1\subset H_2$ から
 
-$
+$$
 \operatorname{Gal}(F/L_1)\subset\operatorname{Gal}(F/L_2)
-$
+$$
 
 です。有限 Galois 対応では固定体の包含が逆になるので、$L_2\subset L_1$ が従います。
 <!-- solution-end -->
@@ -430,17 +430,17 @@ $K=\mathbb Q_3$、$L=\mathbb Q_3(\sqrt3)$ とする。$-3$ と $3$ の Artin 像
 <!-- solution-start -->
 **詳細解答。** [緩分岐 Kummer ノルム群](../ANF16/index.md#prop-anf16-tame-kummer-norm)によれば
 
-$
+$$
 H_L=\langle-3\rangle(1+3\mathbb Z_3).
-$
+$$
 
 $\sqrt3$ のノルムは $-3$ だから、$\operatorname{rec}_{L/K}(-3)=1$ です。
 
 一方、$3=(-3)(-1)$ ですが、$-1\bmod3=2$ は平方でありません。従って $-1\notin H_L$、さらに $3\notin H_L$ です。[Artin 核の同値](#prop-anf17-artin-quotient)を使うと
 
-$
+$$
 \operatorname{rec}_{L/K}(3)\ne1.
-$
+$$
 
 $3$ と $-3$ の付値はともに1ですが、Artin 像は異なります。分岐拡大では単数が障害になるため、[非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)の付値だけによる公式をこの拡大へ流用できません。
 <!-- solution-end -->
