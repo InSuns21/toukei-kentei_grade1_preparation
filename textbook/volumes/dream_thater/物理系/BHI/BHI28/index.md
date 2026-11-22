@@ -140,7 +140,15 @@ $$
 
 重力側の局所的な境界候補として、Euclid Poincaré計量 $ds_G^2=(dT^2+dz^2)/z^2$ の曲線 $T=\tau/\varepsilon$、$z=1$ を使います。接線方向では $dT=d\tau/\varepsilon$、$dz=0$ なので誘導計量は $d\tau^2/\varepsilon^2$。dilatonに $\Phi=200/z$ を置けば境界値も $200$ です。
 
-物質の透過条件も数値だけで宣言せず、局所場で確かめます。重力側で $s=\varepsilon(z-1)<0$、浴側で $s=x>0$ と取り、両側の $s$ は重力から浴へ向かう同じ方向とします。接合面 $s=0$ で双方の計量は $\varepsilon^{-2}(d\tau^2+ds^2)$ に一致します。物質を同一の質量零実スカラー場、作用係数を $\lambda_G=\lambda_B=1$ とし、両側で局所的に
+物質の透過条件も数値だけで宣言せず、局所場で確かめます。重力側の局所領域を $z>1$ とし、$s=-\varepsilon(z-1)<0$、浴側で $s=x>0$ と取ります。両側の $s$ は重力から浴へ向かう同じ方向です。$T=\tau/\varepsilon$ と $z=1-s/\varepsilon$ を計量へ代入すると、接合面付近で
+
+$
+ds_G^2=\frac{d\tau^2+ds^2}{\varepsilon^2(1-s/\varepsilon)^2},
+\qquad
+ds_B^2=\frac{d\tau^2+ds^2}{\varepsilon^2}
+$
+
+なので、$s=0$ で誘導計量だけでなく局所共形因子も $\varepsilon^{-2}$ に一致します。物質を同一の質量零実スカラー場、作用係数を $\lambda_G=\lambda_B=1$ とし、両側で局所的に
 
 $$
 \varphi_G(\tau,s)=\varphi_B(\tau,s)
