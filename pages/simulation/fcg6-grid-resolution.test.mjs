@@ -4,6 +4,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {FCG6_N,fcg6State} from './fcg6-lab-core.mjs';
+import {parametersFor,writeLabParameter} from './wgl-lab-parameters.mjs';
 
 const sourceURL=new URL('../../textbook/volumes/dream_thater/計算系/FCG/FCG6/solid.js',import.meta.url);
 const encode=value=>Math.round(255*Math.max(0,Math.min(1,value)));
@@ -38,5 +39,32 @@ test('FCG6 48x48 edited solver and independent masked CG match across full CPU R
       }
     }
     if(steps===8)assert.ok(actual.changedMask>0,'moving mask crossed a cell boundary');
+  }
+});
+
+test('FCG6 edited rectangle and moving-wall coefficients preserve independent masked-CG fields',async()=>{
+  const base=await readFile(sourceURL,'utf8');
+  const specs=parametersFor('FCG6');
+  const options={shape:'rectangle',centerY:0.55,wallAmplitude:0.12,wallFrequency:2.2};
+  let edited=base;
+  for(const spec of specs)edited=writeLabParameter(edited,spec,options[spec.id]);
+  assert.notEqual(edited,base,'the learner JS itself changes');
+  const cutoff=edited.indexOf('const enc=(x)=>');
+  const execute=new Function('settings',edited.slice(0,cutoff)+
+    ';return {mask:geom.s,q:dye,div:divField,speed:speedField,wallError,residual,identity};');
+  for(const steps of [1,2]){
+    const actual=execute({steps}),ref=fcg6State(steps,options);
+    assert.ok(actual.wallError<1e-10,'real moving rectangle has zero normal mismatch');
+    assert.ok(actual.residual<1.1e-6&&ref.residual<1.1e-6,'independent masked Poisson');
+    assert.ok(actual.identity<1e-8&&ref.identity<1e-8,'pressure divergence identity');
+    for(let k=0;k<FCG6_N*FCG6_N;k++){
+      assert.equal(actual.mask[k],ref.solid[k],'same rectangle footprint, cell '+k);
+      for(const [name,a,b] of [
+        ['dye',actual.q[k],ref.q[k]],
+        ['divergence',70*Math.abs(actual.div[k]),70*Math.abs(ref.divergence[k])],
+        ['speed',actual.speed[k]/.6,ref.speed[k]/.6]
+      ])assert.ok(Math.abs(encode(a)-encode(b))<=1,
+        name+' R8 mismatch at cell '+k+' step '+steps);
+    }
   }
 });
