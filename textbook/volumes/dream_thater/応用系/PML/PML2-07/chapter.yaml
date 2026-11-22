@@ -1,0 +1,46 @@
+id: "PML2-07"
+title: "自動微分で必要な導関数を本当に計算できるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-06
+  - ML2-14
+official_scope: []
+learning_objectives:
+  - 入力の二階微分とパラメータ勾配の変数を区別しPINN残差へ適用できる
+  - 微分三つ組の和・積・合成の規則を連鎖律から導き有限計算グラフでの正しさを証明できる
+  - tanh・softplusユニットの二階入力微分を実際に計算できる
+  - ReLUの折れ点が強形式二階残差の正則性を壊す場所と理由を説明できる
+  - 正弦関数の二階中心差分と解析導関数の差を展開し刻み幅依存を示せる
+  - 滑らかな候補の物理損失のパラメータ勾配を混合微分の条件下で導ける
+  - 二パラメータ候補で二階AD・差分残差・学習停留点を区別して検算できる
+definitions:
+  - { id: PML2-07-DEF-01, name: 二階の微分三つ組 }
+theorems:
+  - { id: PML2-07-THM-01, name: 滑らかな計算グラフの二階ADの正しさ }
+  - { id: PML2-07-THM-02, name: tanhユニットの入力微分 }
+  - { id: PML2-07-THM-03, name: ReLUによる強形式二階残差の障害 }
+  - { id: PML2-07-THM-04, name: 正弦関数の中心差分二階微分 }
+  - { id: PML2-07-THM-05, name: 滑らかなPINN物理損失のパラメータ勾配 }
+canonical_examples:
+  - 二階三つ組の合成と積の伝播
+  - tanhとsoftplusの入力二階導関数
+  - ReLUの折れ点と有限選点で見逃される非滑らかさ
+  - 正弦関数の中心差分とADの二階値の比較
+  - 二パラメータPoisson候補の零でない損失における停留点
+  - 多項式試行関数の二階AD・差分誤差・勾配の統合計算
+problem_patterns:
+  - PML2-07-A01
+  - PML2-07-A02
+  - PML2-07-A03
+  - PML2-07-A04
+  - PML2-07-A05
+  - PML2-07-B01
+  - PML2-07-B02
+  - PML2-07-B03
+  - PML2-07-B04
+  - PML2-07-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
