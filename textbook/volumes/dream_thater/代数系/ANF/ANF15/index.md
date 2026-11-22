@@ -10,7 +10,7 @@
 
 有限体 $k$ の要素数が $q$ なら、任意の $a\in k$ は $a^q=a$ を満たします。$k'/k$ を次数 $f$ の有限拡大とします。
 
-[相対 Frobenius 自己同型](../../FLD/FLD3/index.md#thm-fld3-relative-frobenius)から、$x\mapsto x^q$ は $k$ を固定する $k'$ の自己同型になります。既習の記法 $\Phi_q$ を、本講では $\operatorname{Frob}_q$ と書き、算術的 Frobenius と呼びます。
+[相対 Frobenius 自己同型](../../FLD/FLD3/index.md#thm-fld3-relative-frobenius)から、$x\mapsto x^q$ は $k$ を固定する $k'$ の自己同型になります。既習の記法 $\Phi_q$ を、本講では $\operatorname{Frob}_q$ と書きます。この写像に付ける名称を次で定義します。
 
 <a id="def-anf15-arithmetic-frobenius"></a>
 
