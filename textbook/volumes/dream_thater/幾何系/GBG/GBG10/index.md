@@ -46,9 +46,29 @@ $$
 
 この係数2を除くために構造方程式では $\frac12[\alpha\wedge\alpha]$ を使う。行列係数の通常の外積では、$A\wedge A(U,V)=A(U)A(V)-A(V)A(U)$ と計算する。
 
-**手計算での確認**。$N=\mathbb R^2$ とし、係数の Lie 環に $\mathfrak g=\mathfrak{gl}_2(\mathbb R)$ を選ぶ。これは $GL(2,\mathbb R)$ の単位行列での接空間であり、実 $2\times2$ 行列全体からなる。実際、任意の実行列 $T$ について $I+tT$ は十分小さい $t$ で可逆なので、$T$ は単位行列を通る可逆行列の曲線の速度として現れる。$E_{ij}$ は $(i,j)$ 成分だけが $1$、他が $0$ の行列とする。
+**手計算での確認**。$N=\mathbb R^2$ とし、係数の Lie 環に $GL(2,\mathbb R)$ の単位行列 $I$ における接空間を選ぶ。これは実 $2\times2$ 行列全体であり、
 
-$B=E_{11}$、$C=E_{12}$、$\alpha=B\,dx+C\,dy$ と置く。この表示は各接ベクトル $(v_x,v_y)$ に行列 $Bv_x+Cv_y$ を対応させるため、$\alpha(\partial_x)=B$、$\alpha(\partial_y)=C$ である。ここで $\partial_x=\partial/\partial x$、$\partial_y=\partial/\partial y$ は座標接ベクトルを表す。行列積 $BC=C$、$CB=0$ より
+$
+\mathfrak g=\mathfrak{gl}_2(\mathbb R)
+=T_I GL(2,\mathbb R)=M_2(\mathbb R)
+$
+
+と同一視できる。実際、任意の実行列 $T$ に対して
+
+$
+\det(I+tT)\longrightarrow\det I=1\qquad(t\to0)
+$
+
+だから $I+tT$ は十分小さい $t$ で可逆であり、$T$ は可逆行列の曲線の速度として実現する。$E_{ij}$ は $(i,j)$ 成分だけが $1$、他が $0$ の行列とする。
+
+$B=E_{11}$、$C=E_{12}$ とし、$\alpha=B\,dx+C\,dy$ と置く。これは各接ベクトルに行列を対応させる1形式であり、
+
+$
+\alpha(v_x\partial_x+v_y\partial_y)=Bv_x+Cv_y,\qquad
+\alpha(\partial_x)=B,\quad\alpha(\partial_y)=C
+$
+
+となる。ここで $\partial_x=\partial/\partial x$、$\partial_y=\partial/\partial y$ は座標接ベクトルを表す。行列積 $BC=C$、$CB=0$ より
 
 $$
 \frac12[\alpha\wedge\alpha](\partial_x,\partial_y)
@@ -394,7 +414,13 @@ $$
 
 となる。最後は[同変性定理](#thm-gbg10-basic-properties)を使った。$x,v,w$ が任意なので2形式として成立する。
 
-行列群の場合は局所式でも確かめられる。以下の $d$ は基底 $U$ 上の外微分であり、$g$ は行列値0形式、$A$ は行列値1形式である。$\beta=g^{-1}dg$、$C=g^{-1}Ag$ とおく。$d(gg^{-1})=0$ から $d(g^{-1})=-g^{-1}(dg)g^{-1}$。次数1の $A$ を含む積の微分では符号が変わるため、
+行列群の場合は局所式でも確かめられる。以下の $d$ は基底 $U$ 上の外微分であり、$g$ は行列値0形式、$A$ は行列値1形式である。$\beta=g^{-1}dg$、$C=g^{-1}Ag$ とおく。積の微分 $d(gg^{-1})=0$ から
+
+$
+d(g^{-1})=-g^{-1}(dg)g^{-1}
+$
+
+を得る。次数1の $A$ を含む積の微分では符号が変わるため、
 
 $
 \begin{aligned}
@@ -785,7 +811,14 @@ $
 D_{2,Z}w_2=g^{-1}D_{1,Z}w_1
 $
 
-である。まず $w_i=u_i$ に使い、次に $w_i=D_{i,Y}u_i$ に使えば、二階の作用も $D_{2,X}D_{2,Y}u_2=g^{-1}D_{1,X}D_{1,Y}u_1$ と変換する。$X,Y$ を交換した項と $[X,Y]$ の方向も同じである。さらに本章の[交換子定理](#thm-gbg10-commutator)を各パッチで適用すると
+である。まず $w_i=u_i$ に使い、次に $w_i=D_{i,Y}u_i$ に使う。これらは最初の適用によって同じ成分変換則を満たすので、
+
+$
+D_{2,X}D_{2,Y}u_2
+=g^{-1}D_{1,X}D_{1,Y}u_1
+$
+
+と二階の作用にも拡張できる。$X,Y$ を交換した項と $[X,Y]$ の方向も同じである。さらに本章の[交換子定理](#thm-gbg10-commutator)を各パッチで適用すると
 
 $$
 F_2(X,Y)u_2
