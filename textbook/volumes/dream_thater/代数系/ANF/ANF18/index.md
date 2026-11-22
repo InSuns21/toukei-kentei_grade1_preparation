@@ -48,7 +48,7 @@ $$
 
 ここで分数表示は $\mathbb F_p[X]$ の多項式恒等式を表します。従って最高次以外の全係数は $p$ で割り切れます。一方、$G_r(0)=\Phi_{p^r}(1)=p$ は $p^2$ では割り切れず、最高次係数は $1$ です。[Eisenstein の既約性判定](../ANF10/index.md#thm-anf10-eisenstein-irreducible)から $G_r$ は $\mathbb Q_p$ 上既約で、$[\mathbb Q_p(\zeta_{p^r}-1):\mathbb Q_p]=d_r$ です。
 
-さらに、[Eisenstein 拡大の付値環と一様化元](../ANF10/index.md#prop-anf10-eisenstein-extension)により $\zeta_{p^r}-1$ が一様化元、分岐指数が $d_r$ です。ゆえに剰余次数は $1$ で全分岐です。$\Phi_{p^r}$ の根はすべて $\zeta_{p^r}^b$（$p\nmid b$）で $C_r$ 内にあるため、標数 $0$ で分離的な分解体 $C_r/K$ は Galois です。
+さらに、[Eisenstein 拡大の付値環と一様化元](../ANF10/index.md#thm-anf10-eisenstein-extension)により $\zeta_{p^r}-1$ が一様化元、分岐指数が $d_r$ です。ゆえに剰余次数は $1$ で全分岐です。$\Phi_{p^r}$ の根はすべて $\zeta_{p^r}^b$（$p\nmid b$）で $C_r$ 内にあるため、標数 $0$ で分離的な分解体 $C_r/K$ は Galois です。
 <!-- proof-end -->
 
 **手計算例。** $p=5,r=1$ なら
@@ -335,7 +335,7 @@ $$
 \Phi_5(1+X)=X^4+5X^3+10X^2+10X+5.
 $$
 
-最高次係数は $1$、それ以外は $5$ で割り切れ、定数項は $25$ で割り切れません。[Eisenstein の既約性](../ANF10/index.md#thm-anf10-eisenstein-irreducible)から次数は $4$、[Eisenstein 拡大の一様化元](../ANF10/index.md#prop-anf10-eisenstein-extension)から全分岐なので $e=4,f=1$ です。
+最高次係数は $1$、それ以外は $5$ で割り切れ、定数項は $25$ で割り切れません。[Eisenstein の既約性](../ANF10/index.md#thm-anf10-eisenstein-irreducible)から次数は $4$、[Eisenstein 拡大の一様化元](../ANF10/index.md#thm-anf10-eisenstein-extension)から全分岐なので $e=4,f=1$ です。
 <!-- solution-end -->
 
 ### A2. 五乗根への Artin 作用
