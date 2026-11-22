@@ -123,7 +123,7 @@ R_{\exp(t\xi)}^*\omega
 =\operatorname{Ad}_{\exp(-t\xi)}\omega.
 $$
 
-$t=0$ で微分し、[Lie 環における随伴作用の微分](../../../代数系/LIE/LIE2/index.md#def-lie2-adjoint-representation)を用いると
+$t=0$ で微分し、[無限小随伴作用と Lie 括弧の関係](../../../代数系/LIE/LIE2/index.md#thm-lie2-infinitesimal-adjoint-bracket)を用いると
 
 $$
 \mathcal L_{\xi_P}\omega=-[\xi,\omega].
@@ -208,7 +208,7 @@ d\omega(X^H,Y^H)
 \end{aligned}
 $$
 
-よって等式が成立する。$\Omega=0$ なら右辺は零で、$\ker\omega=H$ より水平括弧も水平である。逆に任意の水平ベクトル場の括弧が水平なら、等式から二つの水平入力で $\Omega=0$。直前の水平性定理により、任意の入力でも零となる。基底の任意の接方向が局所水平リフトで得られることは[GBG6 の水平リフト](../GBG6/index.md#prop-gbg6-horizontal-lift)による。
+よって等式が成立する。$\Omega=0$ なら右辺は零で、$\ker\omega=H$ より水平括弧も水平である。逆に任意の水平ベクトル場の括弧が水平なら、等式から二つの水平入力で $\Omega=0$。直前の水平性定理により、任意の入力でも零となる。基底の任意の接方向が局所水平リフトで得られることは[GBG6 の水平リフト](../GBG6/index.md#prop-gbg6-horizontal-lift)による。さらに局所水平ベクトル場 $U=\sum_i f_iX_i^H$、$V=\sum_j h_jY_j^H$ の括弧を展開すると、係数関数の微分に由来する項は $X_i^H,Y_j^H$ の線形結合で水平であり、非水平になり得るのは $f_ih_j[X_i^H,Y_j^H]$ の項だけである。従って任意の水平ベクトル場についても同値性が成立する。
 <!-- proof-end -->
 
 ここで測っているのは、二つの方向への**無限小の移動順序**が水平性を保たないという現象である。有限の閉路に沿う平行移動は GBG14〜15 で、曲率の零性から得られる大域的結論の追加条件は GBG16 で調べる。
@@ -452,7 +452,7 @@ $B_X=\rho_*(A(X))$、$B_Y=\rho_*(A(Y))$ と書き、積の微分を順に展開�
 <!-- proof-start -->
 ### 証明
 
-[GBG9 の表現の無限小作用](../GBG9/index.md#def-gbg9-infinitesimal-representation)について、群準同型の微分が Lie 括弧を保つため
+[GBG9 の表現の無限小作用](../GBG9/index.md#def-gbg9-infinitesimal-representation)は、滑らかな群準同型 $\rho:G\to GL_{\mathbb F}(V)$ を単位元で微分した写像である。[Lie群準同型の微分はLie環準同型](../../../代数系/LIE/LIE1/index.md#thm-lie1-homomorphism-differential)をこの $\rho$ に適用すると
 
 $$
 [\rho_*(\xi),\rho_*(\eta)]=\rho_*([\xi,\eta])
