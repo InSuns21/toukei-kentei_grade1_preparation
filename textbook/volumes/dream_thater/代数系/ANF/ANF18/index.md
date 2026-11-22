@@ -205,7 +205,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$C/K$ のノルム群は[円分ノルム判定](#prop-anf18-cyclotomic-norm-test)で $r=1$ とすれば得られます。$D/K$ は $4\mid(5-1)$ を満たすので、[緩分岐 Kummer ノルム群の公式](../ANF16/index.md#prop-anf16-tame-kummer-norm)を $e=4$、$\pi_K=5$ に適用できます。$\mathbb F_5^\times$ の位数は $4$ なのでその四乗部分群は $\{1\}$ です。また $N_{D/K}(\alpha)=(-1)^4(-5)=-5$ なので、上の二式が得られます。
+$C/K$ のノルム群は[円分ノルム判定](#prop-anf18-cyclotomic-norm-test)で $r=1$ とすれば得られます。
+
+$D/K$ は $4\mid(5-1)$ を満たします。[緩分岐 Kummer ノルム群の公式](../ANF16/index.md#prop-anf16-tame-kummer-norm)を $e=4$、$\pi_K=5$ に適用します。$\mathbb F_5^\times$ の位数は $4$ なので、その四乗部分群は $\{1\}$ です。また一様化元のノルムを計算すると、
+
+$
+N_{D/K}(\alpha)=(-1)^4(-5)=-5.
+$
+
+これらを公式へ代入すると命題の二式が得られます。
 
 $5^m u=(-5)^m((-1)^m u)$ だから、$D$ のノルム群へ入るのは $(-1)^m u\in1+5\mathbb Z_5$ のときだけ、すなわち $\bar u_1=(-1)^m$ のときです。
 <!-- proof-end -->
@@ -322,7 +330,24 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\sigma_b(\zeta_5)=\sigma_b(\zeta_{25}^5)=\zeta_{25}^{5b}=\zeta_5^{b}$ なので、制限は法 $5$ の還元に一致します。$\bar b_{25}$ が核に入るのは $b\equiv1\pmod5$ のときで、法 $25$ では $b=1+5j$（$j=0,1,2,3,4$）の五通りです。すべて $5$ と互いに素で、位数 $5$ の核をなします。ノルム群の包含は[円分ノルム判定](#prop-anf18-cyclotomic-norm-test)を $r=1,2$ に適用すれば従います。[中間体への Artin 写像の制限](../ANF17/index.md#prop-anf17-restriction-square)とも整合します。
+$\zeta_5=\zeta_{25}^5$ なので、指数 $b$ の自己同型を制限した作用は
+
+$
+\sigma_b(\zeta_5)=\sigma_b(\zeta_{25}^5)
+=\zeta_{25}^{5b}=\zeta_5^{b}
+$
+
+です。従って制限は法 $5$ の還元に一致します。
+
+$\bar b_{25}$ が核に入る条件は $b\equiv1\pmod5$ です。法 $25$ では
+
+$
+b=1+5j,\qquad j=0,1,2,3,4
+$
+
+の五通りで、すべて $5$ と互いに素です。これらが位数 $5$ の核をなします。
+
+ノルム群の包含は[円分ノルム判定](#prop-anf18-cyclotomic-norm-test)を $r=1,2$ に適用して得られ、[Artin 写像の中間体への制限](../ANF17/index.md#prop-anf17-restriction-square)とも一致します。
 <!-- proof-end -->
 
 ここまでで、$\mathbb Q_p$ 上の局所類体を、**付値の剰余、単数の合同類、Galois 自己同型の作用**の三つの座標で計算できるようになりました。次講では、これらをすべての素点でまとめるアデール・イデールへ進みます。
@@ -505,7 +530,13 @@ $$
 
 $F$ の位数は $2$。$21^2\equiv16$、$21^4\equiv6$、$21^5\equiv1\pmod{25}$ だから $\sigma_{21}$ の位数は $5$。よって像の位数は $\operatorname{lcm}(2,5)=10$ です。
 
-3. [非分岐ノルムの付値条件](../ANF15/index.md#prop-anf15-unramified-norm-quotient)から $a$ が $E$ のノルムである条件は $7\equiv0\pmod2$ であり、不成立です。[円分ノルム判定](#prop-anf18-cyclotomic-norm-test)では $6\equiv1\pmod5$ なので $C_1$ からはノルム、$6\not\equiv1\pmod{25}$ なので $C_2$ からは非ノルムです。$B$ のノルムになるには付値が偶数**かつ**単数が $1\bmod25$ である必要がありますが、いずれも満たさないため非ノルムです。
+3. [非分岐ノルムの付値条件](../ANF15/index.md#prop-anf15-unramified-norm-quotient)から、$E$ のノルムになるには付値が偶数でなければなりません。しかし $v_5(a)=7$ は奇数なので、$E$ からのノルムではありません。
+
+   [円分ノルム判定](#prop-anf18-cyclotomic-norm-test)では、$a$ の単数部 $6$ が判定対象です。
+
+   $6\equiv1\pmod5$ なので $C_1$ からはノルムです。一方 $6\not\equiv1\pmod{25}$ なので $C_2$ からは非ノルムです。
+
+   $B$ のノルムになる条件は、付値が偶数であり、かつ単数が法 $25$ で $1$ に合同であることです。$a$ はいずれも満たさず、$B$ からのノルムではありません。
 
 4. $b=5^8(1+75)=5^8\cdot76$ で $8$ は偶数、$76\equiv1\pmod{25}$ です。[合成体のノルム群](#prop-anf18-mixed-reciprocity)は $5^{2\mathbb Z}(1+25\mathbb Z_5)$ なので $b$ は $B$ からのノルムです。一般に $5^m u$ が $B$ からのノルムである必要十分条件は $m\in2\mathbb Z$ かつ $u\equiv1\pmod{25}$ です。
 <!-- solution-end -->
