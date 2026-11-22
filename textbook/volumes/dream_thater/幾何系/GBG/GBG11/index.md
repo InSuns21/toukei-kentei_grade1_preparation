@@ -12,7 +12,7 @@ $$
 
 **全節の設定と規約**：$M$ は Hausdorff・第二可算・境界のない有限次元滑らかな多様体、$G$ は有限次元 Lie 群、$\mathfrak g$ はその Lie 環とする。
 
-$\pi:P\to M$ は滑らかな右主 $G$ 束である。$\omega\in\Omega^1(P;\mathfrak g)$ は[GBG7の接続1形式](../GBG7/index.md#def-gbg7-connection-form)、$\Omega$ はその曲率とする。
+$\pi:P\to M$ は滑らかな右主 $G$ 束である。$\omega\in\Omega^1(P;\mathfrak g)$ は[GBG7の主束接続形式](../GBG7/index.md#def-gbg7-connection-form)、$\Omega$ はその曲率とする。
 
 局所 section $s:U\to P$ に対する表示を $A=s^*\omega$、$F=s^*\Omega$ とする。
 
@@ -681,7 +681,7 @@ $$
 d_AK=[A\wedge K]=C\,dx\wedge dy\wedge dz\ne0.
 $$
 
-一方 $dA=0$、$A\wedge A=B^2dx\wedge dx=0$ なので、この $A$ の曲率は $F=0$。従って $K\ne F$ であり、[Bianchi 恒等式](#thm-gbg11-bianchi-local)は $d_AK=0$ を要求しない。必要な仮定は「$K$ が同じ接続の曲率であること」である。
+一方 $dA=0$、$A\wedge A=B^2dx\wedge dx=0$ なので、この $A$ の曲率は $F=0$。従って $K\ne F$ であり、[Bianchi 恒等式](#thm-gbg11-bianchi-local)は $d_AK=0$ を要求しない。必要な仮定は「$K$ がこの $A$ から構成した曲率と一致すること」である。
 <!-- solution-end -->
 
 ### Level C：大域から局所、成分、ゲージまで
