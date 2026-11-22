@@ -52,7 +52,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg7-connection-form -->
-**定義の確認：積主束の標準接続**。$P=M\times GL(n,\mathbb R)$、$p=(x,K)$ とする。まず[積多様体の接空間](../../GEO/GEO2/index.md#prop-geo2-product-tangent)を $T_xM\oplus M_n(\mathbb R)$ と同一視する。[LIE4 の左 Maurer–Cartan 形式](../../../代数系/LIE/LIE4/index.md#def-lie4-maurer-cartan-form)は $K$ において $W\mapsto K^{-1}W$ である。したがって
+**定義の確認**（積主束の標準接続）。$P=M\times GL(n,\mathbb R)$、$p=(x,K)$ とする。まず[積多様体の接空間](../../GEO/GEO2/index.md#prop-geo2-product-tangent)を $T_xM\oplus M_n(\mathbb R)$ と同一視する。[LIE4 の左 Maurer–Cartan 形式](../../../代数系/LIE/LIE4/index.md#def-lie4-maurer-cartan-form)は $K$ において $W\mapsto K^{-1}W$ である。したがって
 $$
 \omega^0_{(x,K)}(v,W):=K^{-1}W
 $$
@@ -144,7 +144,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（接続1形式から水平分布への構成）**  
-> 滑らかな右主 $G$ 束 $P\to M$ の接続1形式 $\omega$ が与えられたとする。各 $p\in P$ で
+> 滑らかな右主 $G$ 束 $P\to M$ に[上で定義した主束接続形式](#def-gbg7-connection-form) $\omega$ が与えられたとする。各 $p\in P$ で
 
 $$
 H^\omega_pP:=\ker(\omega_p:T_pP\to\mathfrak g)
