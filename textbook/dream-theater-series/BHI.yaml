@@ -111,7 +111,7 @@ chapters:
     title: "island端点の極値化"
   - id: BHI26
     path: textbook/volumes/dream_thater/物理系/BHI/BHI26
-    status: planned
+    status: completed
     title: "Page転移と複数鞍点の比較"
   - id: BHI27
     path: textbook/volumes/dream_thater/物理系/BHI/BHI27
