@@ -226,7 +226,7 @@ test('FCG5 R1 GUI edits actual grid, viscosity and force in the same source',asy
     'edited learner JS and independent CPU still agree for texture '+i);
   const probes=expectedFCG5Samples(320,240,8,{N:targets[0],nu:targets[1],force:targets[2]});
   assert.ok(compareFCG5Readback(probes,320,240,8,2,
-    {nu:targets[0],force:targets[1]}).every(row=>row.pass));
+    {N:targets[0],nu:targets[1],force:targets[2]}).every(row=>row.pass));
   assert.ok(compareFCG5Readback(probes,320,240,8).some(row=>!row.pass),
     'the unchanged reference must not be misreported for edited physics');
 });
