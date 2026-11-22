@@ -90,7 +90,7 @@ $$
 \omega^H_p(z):=\iota_p^{-1}\bigl(\operatorname{pr}^V_p(z)\bigr)
 $$
 
-> は滑らかな主束接続1形式である。また $\ker\omega^H_p=H_pP$ であり、この核と再生条件を満たす接続1形式は一意である。
+> は滑らかな主束接続1形式である。また $\ker\omega^H_p=H_pP$ であり、この核と再生条件を満たす主束接続形式は一意である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -193,7 +193,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（水平分布と接続1形式の一対一対応）**  
-> 滑らかな右主 $G$ 束 $P\to M$ において、滑らかな右同変水平分布 $H$ と、再生条件・右同変条件を満たす $\mathfrak g$ 値接続1形式 $\omega$ は、
+> 滑らかな右主 $G$ 束 $P\to M$ において、滑らかな右同変水平分布 $H$ と、再生条件・右同変条件を満たす $\mathfrak g$ 値の主束接続形式 $\omega$ は、
 
 $$
 H\longmapsto\omega^H,\qquad
@@ -219,13 +219,13 @@ $$
 
 ## 4. Maurer–Cartan 形式が必要になる理由
 
-基底が一点の主束 $G\to\{\mathrm{pt}\}$ を考える。射影の微分は零なので垂直空間は $T_kG$ 全体であり、水平空間は $\{0\}$ しかない。したがって[水平分布と接続1形式の対応](#thm-gbg7-equivalence)は、この主束上の接続形式を一つに決める。
+基底が一点の主束 $G\to\{\mathrm{pt}\}$ を考える。射影の微分は零なので垂直空間は $T_kG$ 全体であり、水平空間は $\{0\}$ しかない。したがって[先に証明した一対一対応](#thm-gbg7-equivalence)は、この主束上の接続形式を一つに決める。
 
 <a id="prop-gbg7-maurer-cartan-fibre"></a>
 
 <!-- formal-statement-start -->
 > **命題（一点上の主束とMaurer–Cartan形式）**  
-> 有限次元 Lie 群 $G$ を右主束 $\pi:G\to\{\mathrm{pt}\}$ とみなす。この主束の唯一の接続1形式は、[LIE4 の左 Maurer–Cartan 形式](../../../代数系/LIE/LIE4/index.md#def-lie4-maurer-cartan-form)
+> 有限次元 Lie 群 $G$ を右主束 $\pi:G\to\{\mathrm{pt}\}$ とみなす。この主束の唯一の主束接続形式は、[LIE4 の左 Maurer–Cartan 形式](../../../代数系/LIE/LIE4/index.md#def-lie4-maurer-cartan-form)
 
 $$
 \theta_k=(d\ell_{k^{-1}})_k:T_kG\to\mathfrak g
@@ -253,7 +253,7 @@ $$
 $$
 よって（C1）である。（C2）は[右移動則](../../../代数系/LIE/LIE4/index.md#prop-lie4-maurer-cartan-equivariance)を主束の右作用に適用して得る。$\theta_k$ は逆同型なので $\ker\theta_k=\{0\}$。
 
-一意性も直接示せる。$\omega$ が接続1形式なら、任意の $W\in T_kG$ は $W=(d\ell_k)_e\xi$ と一意に書ける。（C1）から $\omega_k(W)=\xi=(d\ell_{k^{-1}})_kW=\theta_k(W)$ である。
+一意性も直接示せる。$\omega$ が主束接続形式なら、任意の $W\in T_kG$ は $W=(d\ell_k)_e\xi$ と一意に書ける。（C1）から $\omega_k(W)=\xi=(d\ell_{k^{-1}})_kW=\theta_k(W)$ である。
 <!-- proof-end -->
 
 **符号と左右の確認**。行列群では $\theta_K(W)=K^{-1}W$ である。一方、主束の基本ベクトルは $K\xi$ なので、$K^{-1}(K\xi)=\xi$ となる。$WK^{-1}$ を使ってしまうと $\xi$ ではなく $K\xi K^{-1}$ が返り、一般には（C1）を満たさない。Maurer–Cartan 形式の「左」がここで必要になる。
@@ -264,7 +264,7 @@ $$
 $$
 H^b_{(x,k)}P=\{(v,-(dr_k)_e b_x(v)):v\in T_xM\}
 $$
-と表せた。これを接続1形式へ変換する。ここで $r_k(h)=hk$ は群の右乗法、$\theta_k=(d\ell_{k^{-1}})_k$ は左 Maurer–Cartan 形式である。二つの微分を混同しないことが重要である。
+と表せた。これを主束接続形式へ変換する。ここで $r_k(h)=hk$ は群の右乗法、$\theta_k=(d\ell_{k^{-1}})_k$ は左 Maurer–Cartan 形式である。二つの微分を混同しないことが重要である。
 
 <a id="prop-gbg7-product-form"></a>
 
@@ -285,7 +285,7 @@ $$
 =K^{-1}\bigl(b_x(v)K+W\bigr).
 $$
 
-> 逆に積主束上のすべての接続1形式は、一意な $b$ についてこの形である。
+> 逆に積主束上のすべての主束接続形式は、一意な $b$ についてこの形である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -605,7 +605,7 @@ $$
 
 ## 7. この講義で得た道具
 
-水平分布を選ぶと、接ベクトルを「水平」と「Lie 環の元に対応する垂直」に一意に分けられる。これを測るのが接続1形式であり、
+水平分布を選ぶと、接ベクトルを「水平」と「Lie 環の元に対応する垂直」に一意に分けられる。これを測るのが主束接続形式であり、
 $$
 \omega(\xi_P)=\xi,\qquad R_g^*\omega=\operatorname{Ad}_{g^{-1}}\omega,\qquad H=\ker\omega
 $$
