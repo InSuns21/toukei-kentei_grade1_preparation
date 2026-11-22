@@ -1,0 +1,55 @@
+chapter: ANF18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF17
+forward_references: []
+
+concepts:
+  - id: number-theory.local-cyclotomic-degree
+    name: 素数冪円分局所拡大の次数・全分岐
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.local-eisenstein-irreducibility]
+
+  - id: number-theory.local-cyclotomic-galois-exponent
+    name: 円分 Galois 指数
+    kind: definition
+    introduction: formal
+    requires: [number-theory.local-cyclotomic-degree]
+
+  - id: number-theory.explicit-cyclotomic-local-reciprocity
+    name: 素数冪円分拡大の明示局所相互法則
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.local-cyclotomic-galois-exponent, number-theory.finite-local-artin-map]
+
+  - id: number-theory.local-cyclotomic-norm-congruence
+    name: 円分局所拡大のノルム合同判定
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.explicit-cyclotomic-local-reciprocity, number-theory.local-artin-quotient-isomorphism]
+
+  - id: number-theory.local-cyclotomic-kummer-contrast
+    name: 五進体上の二種類の巡回四次拡大
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.local-cyclotomic-norm-congruence, number-theory.tame-kummer-norm-group]
+
+  - id: number-theory.local-cyclotomic-quadratic-restriction
+    name: 四次円分拡大から二次中間体への制限
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.local-cyclotomic-norm-congruence, number-theory.local-artin-restriction-naturality]
+
+  - id: number-theory.local-mixed-cyclotomic-reciprocity
+    name: 非分岐二次と円分拡大の合成
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.explicit-cyclotomic-local-reciprocity, number-theory.unramified-local-reciprocity, number-theory.local-artin-restriction-naturality]
+
+  - id: number-theory.local-cyclotomic-tower-restriction
+    name: 五乗根から二十五乗根への制限
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.local-cyclotomic-galois-exponent, number-theory.local-artin-restriction-naturality]
