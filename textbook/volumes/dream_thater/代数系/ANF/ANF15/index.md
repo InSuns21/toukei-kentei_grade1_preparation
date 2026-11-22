@@ -131,7 +131,7 @@ $$
 
 よって両側の包含が一致します。
 
-最後に写像 $\psi:K^\times\to\mathbb Z/f\mathbb Z$、$\psi(a)=v_K(a)\bmod f$ を考えます。$v_K(ab)=v_K(a)+v_K(b)$ なので $\psi(ab)=\psi(a)+\psi(b)$ です。$\psi(\pi_K)=1\bmod f$ なので全射であり、上で示した等式より $\ker\psi=N(L^\times)$。従って群の第一同型定理から商の同型が従います。
+最後に写像 $\psi:K^\times\to\mathbb Z/f\mathbb Z$、$\psi(a)=v_K(a)\bmod f$ を考えます。$v_K(ab)=v_K(a)+v_K(b)$ なので $\psi(ab)=\psi(a)+\psi(b)$ です。$\psi(\pi_K)=1\bmod f$ なので全射であり、上で示した等式より $\ker\psi=N(L^\times)$。従って[群の第一同型定理](../../GRP/GRP2/index.md#thm-grp2-first-isomorphism)から商の同型が従います。
 <!-- proof-end -->
 
 ここで [Hilbert の定理90](../ANF14/index.md#thm-anf14-hilbert90) と比較しましょう。同定理が消すのは $H^1(G,L^\times)$ であり、本節の商 $K^\times/N(L^\times)$ ではありません。後者の位数は $f$ で、$f>1$ なら非自明です。
@@ -219,7 +219,7 @@ $$
 \end{aligned}
 $$
 
-最後の同値は [非分岐ノルム商の命題](#prop-anf15-unramified-norm-quotient) によります。従って核はノルム群であり、第一同型定理から表示した商同型が成立します。
+最後の同値は [非分岐ノルム商の命題](#prop-anf15-unramified-norm-quotient) によります。従って核はノルム群であり、[群の第一同型定理](../../GRP/GRP2/index.md#thm-grp2-first-isomorphism)から表示した商同型が成立します。
 <!-- proof-end -->
 
 この定理は **非分岐** という仮定の下で、写像の構成・全射性・核の記述まで証明したものです。分岐拡大の一般論の証明ではありません。
