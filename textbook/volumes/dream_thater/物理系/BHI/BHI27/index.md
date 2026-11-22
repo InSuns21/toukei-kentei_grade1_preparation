@@ -412,9 +412,21 @@ $$
 $$
 S_{\rm BH}^{\rm ad}(u)=S_0+4\pi^2CT_{\rm eff}(u)
 =S_0+2\pi C\kappa_{\rm eff}(u).
-$$
+$
 
-これは準静的な**重力側の熱力学的エントロピー**です。出射CFTを各瞬間に温度 $T_{\rm eff}$ の片向きの熱流と近似すると、そのエネルギー流は $P_{\rm th}=\pi cT^2/12$、熱的エントロピー流は $j_{S,\rm th}=\pi cT/6$ です。後者は $dP_{\rm th}/dT=(\pi c/6)T$ に $dS=dE/T$ を適用し、零温度を基準に積分しても得られます。
+これは準静的な**重力側の熱力学的エントロピー**です。幾何学的には[BHI20の定常JT地平線エントロピー](../BHI20/index.md#prop-bhi20-entropy)と[第一法則](../BHI20/index.md#prop-bhi20-first-law)を各瞬間に対応させます。AdS半径 $\ell>0$、Newton定数 $G_2>0$、正のdilaton境界傾き $a$ を固定し、$C=a\ell/(8\pi G_2)$ という[BHI21の係数規格化](../BHI21/index.md#prop-bhi21-thermal-thermodynamics)を採用すれば、瞬間的な静的解の地平線位置とdilaton値は
+
+$
+\begin{aligned}
+r_h^{\rm ad}(u)&=\ell^2\kappa_{\rm eff}(u)
+=\ell^2\kappa_0e^{-\gamma\tau/2},\\
+\Phi_h^{\rm ad}(u)&=\frac a\ell r_h^{\rm ad}(u)
+=8\pi G_2 C\kappa_0e^{-\gamma\tau/2},\\
+S_{\rm BH}^{\rm ad}(u)-S_0&=\frac{\Phi_h^{\rm ad}(u)}{4G_2}.
+\end{aligned}
+$
+
+この式は**dilatonの地平線値の準静的収支**です。時間依存する時空全域のdilaton場の偏微分方程式を解いたという主張ではありません。微分すれば $\dot\Phi_h^{\rm ad}=-(\gamma/2)\Phi_h^{\rm ad}$ となり、エネルギーの減衰率 $\gamma$ と地平線dilatonの減衰率 $\gamma/2$ が異なることも確かめられます。出射CFTを各瞬間に温度 $T_{\rm eff}$ の片向きの熱流と近似すると、そのエネルギー流は $P_{\rm th}=\pi cT^2/12$、熱的エントロピー流は $j_{S,\rm th}=\pi cT/6$ です。後者は $dP_{\rm th}/dT=(\pi c/6)T$ に $dS=dE/T$ を適用し、零温度を基準に積分しても得られます。
 
 <a id="prop-bhi27-entropy-budget"></a>
 
