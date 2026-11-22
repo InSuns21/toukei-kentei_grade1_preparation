@@ -104,19 +104,21 @@ $$
 \begin{aligned}
 N(1+\pi_K^r z)
 &=\prod_\sigma(1+\pi_K^r\sigma(z))\\
-&\equiv1+\pi_K^r\sum_\sigma\sigma(z)
-\equiv1+\pi_K^r\operatorname{Tr}_{k_L/k_K}(\bar z)
+&\equiv1+\pi_K^r\sum_\sigma\sigma(z)\\
+&\equiv1+\pi_K^r\operatorname{Tr}_{k_L/k_K}(\bar z)
 \pmod{\pi_K^{r+1}}.
 \end{aligned}
 $$
 
 二つ以上の一次項の積は $\pi_K^{2r}$ を含み、$2r\ge r+1$ なので消えます。また、単数 $b\in\mathcal O_L^\times$ に対して共役積を法 $\pi_K$ で還元すると
 
-$
+$$
+\begin{aligned}
 \overline{N_{L/K}(b)}
-=\prod_{\sigma\in\operatorname{Gal}(L/K)}\overline{\sigma(b)}
-=N_{k_L/k_K}(\bar b)
-$
+&=\prod_{\sigma\in\operatorname{Gal}(L/K)}\overline{\sigma(b)}\\
+&=N_{k_L/k_K}(\bar b).
+\end{aligned}
+$$
 
 となります。これは[段階商でのノルムと剰余体ノルムの対応](../ANF12/index.md#prop-anf12-residue-norm-trace)を相対拡大で書いた式です。従って有限体ノルムの全射性で目的の単数 $u$ の剰余を合わせた後、各段階で有限体跡の全射性により $1+\pi_K^r z_r$ を掛けて誤差を法 $\pi_K^{r+1}$ まで消せます。この積は完備な $\mathcal O_L$ で単数へ収束し、ノルムの連続性から極限のノルムが $u$ になります。ゆえに $N(\mathcal O_L^\times)=\mathcal O_K^\times$ であり、本講の一般の基礎体に対しても必要な二つの事実を得ました。
 
