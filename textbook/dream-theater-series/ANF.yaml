@@ -63,7 +63,7 @@ chapters:
     title: "Hilbertの定理90・群コホモロジー"
   - id: ANF15
     path: textbook/volumes/dream_thater/代数系/ANF/ANF15
-    status: planned
+    status: completed
     title: "局所相互法則への導入"
   - id: ANF16
     path: textbook/volumes/dream_thater/代数系/ANF/ANF16
