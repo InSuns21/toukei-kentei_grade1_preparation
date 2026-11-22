@@ -17,9 +17,9 @@ definitions:
   - { id: GBG11-DEF-02, name: 局所共変外微分 }
 theorems:
   - { id: GBG11-THM-01, name: 共変外微分の水平性と同変性 }
-  - { id: GBG11-THM-02, name: 第二Bianchi恒等式・大域形式 }
-  - { id: GBG11-THM-03, name: 第二Bianchi恒等式・局所形式 }
-  - { id: GBG11-THM-04, name: Bianchi恒等式の成分表示 }
+  - { id: GBG11-THM-02, name: 主束曲率の Bianchi 恒等式・大域形式 }
+  - { id: GBG11-THM-03, name: 主束曲率の Bianchi 恒等式・局所形式 }
+  - { id: GBG11-THM-04, name: 主束曲率の Bianchi 恒等式・座標成分 }
   - { id: GBG11-THM-05, name: 局所共変外微分のゲージ共変性 }
 canonical_examples:
   - U(1)の共変外微分と可換Bianchi恒等式
