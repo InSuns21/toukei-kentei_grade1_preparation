@@ -96,7 +96,23 @@ $$
 
 従って $v_K(N(x))=f\,v_L(x)$ です。これは[ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)を相対拡大へ書き直したものです。
 
-単数についても同じ持ち上げを行います。非分岐なので $e=1$、$\pi_K$ は $L$ の一様化元で、剰余拡大は、有限体の同型を通じて $\mathbb F_{q^f}/\mathbb F_q$ と見なせます。[有限体のノルム・跡の全射性](../ANF12/index.md#lem-anf12-finite-field-maps)の証明を $p$ の代わりに $q$ で行うと、両写像は全射です。実際、有限体の乗法群の生成元 $g$ に対し $N_{k_L/k_K}(g)=g^{(q^f-1)/(q-1)}$ は位数 $q-1$ を持ち、跡多項式 $\sum_{j=0}^{f-1}X^{q^j}$ は零多項式ではなく次数が $q^f$ 未満なので、跡写像は零写像ではありません。$k_K$ 線形性から跡も全射です。
+単数についても同じ持ち上げを行います。非分岐なので $e=1$、$\pi_K$ は $L$ の一様化元です。剰余拡大は、有限体の同型を通じて $\mathbb F_{q^f}/\mathbb F_q$ と見なせます。
+
+[有限体のノルム・跡の全射性](../ANF12/index.md#lem-anf12-finite-field-maps)の証明を $p$ の代わりに $q$ で行うと、両写像は全射です。実際、有限体の乗法群の生成元 $g$ に対し
+
+$$
+N_{k_L/k_K}(g)=g^{(q^f-1)/(q-1)},
+\qquad \operatorname{ord}(N_{k_L/k_K}(g))=q-1
+$$
+
+だからノルムは全射です。また、跡多項式
+
+$$
+T(X)=\sum_{j=0}^{f-1}X^{q^j},
+\qquad \deg T=q^{f-1}<q^f
+$$
+
+は零多項式でないので、$k_L$ 上の値はどこかで非零です。跡写像は $k_K$ 線形で値域が $k_K$ だから、零写像でなければ全射です。
 
 さらに任意の $z\in\mathcal O_L$、$r\ge1$ について、共役の積の一次項を取り出すと
 
@@ -120,7 +136,25 @@ $$
 \end{aligned}
 $$
 
-となります。これは[段階商でのノルムと剰余体ノルムの対応](../ANF12/index.md#prop-anf12-residue-norm-trace)を相対拡大で書いた式です。従って有限体ノルムの全射性で目的の単数 $u$ の剰余を合わせた後、各段階で有限体跡の全射性により $1+\pi_K^r z_r$ を掛けて誤差を法 $\pi_K^{r+1}$ まで消せます。この積は完備な $\mathcal O_L$ で単数へ収束し、ノルムの連続性から極限のノルムが $u$ になります。ゆえに $N(\mathcal O_L^\times)=\mathcal O_K^\times$ であり、本講の一般の基礎体に対しても必要な二つの事実を得ました。
+となります。これは[段階商でのノルムと剰余体ノルムの対応](../ANF12/index.md#prop-anf12-residue-norm-trace)を相対拡大で書いた式です。
+
+任意の $u\in\mathcal O_K^\times$ に対して、有限体ノルムの全射性により $x_1\in\mathcal O_L^\times$ を $N(x_1)\equiv u\pmod{\pi_K}$ と選びます。$N(x_r)\equiv u\pmod{\pi_K^r}$ まで達したとします。$c_r\in\mathcal O_K$ を選んで
+
+$$
+u/N(x_r)\equiv1+\pi_K^r c_r\pmod{\pi_K^{r+1}}
+$$
+
+と書き、剰余体跡の全射性から $\operatorname{Tr}_{k_L/k_K}(\bar z_r)=\bar c_r$ を満たす $z_r\in\mathcal O_L$ を選びます。そこで
+
+$$
+\begin{aligned}
+x_{r+1}&=x_r(1+\pi_K^r z_r),\\
+N(x_{r+1})&\equiv N(x_r)(1+\pi_K^r c_r)
+\equiv u\pmod{\pi_K^{r+1}}
+\end{aligned}
+$$
+
+となります。$x_{r+1}-x_r\in\pi_K^r\mathcal O_L$ なので、完備性から $x_r$ は単数 $x$ に収束します。ノルムは連続だから $N(x)=u$ です。従って $N(\mathcal O_L^\times)=\mathcal O_K^\times$ であり、本講の一般の基礎体に対しても必要な二つの事実を得ました。
 
 <a id="prop-anf15-unramified-norm-quotient"></a>
 
