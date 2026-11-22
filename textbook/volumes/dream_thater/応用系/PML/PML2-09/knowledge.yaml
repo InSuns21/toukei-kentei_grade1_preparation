@@ -1,0 +1,52 @@
+chapter: PML2-09
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-08
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-09-normalized-loss
+    name: 無次元化した複合PINN損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（無次元化した複合PINN損失）"]
+    requires:
+      - physics-machine-learning.pml2-06-composite-loss
+  - id: physics-machine-learning.pml2-09-scale-weight
+    name: 残差の尺度変更に対する重みの変換
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-09-normalized-loss
+  - id: physics-machine-learning.pml2-09-weight-tradeoff
+    name: 二次PINN損失の重みと最小点
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-08-soft-penalty
+  - id: physics-machine-learning.pml2-09-term-gradients
+    name: 損失項別のパラメータ勾配
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（損失項別のパラメータ勾配）"]
+    requires:
+      - physics-machine-learning.pml2-07-loss-gradient
+  - id: physics-machine-learning.pml2-09-gradient-cancellation
+    name: 二項の勾配が釣り合う条件
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-09-term-gradients
+  - id: physics-machine-learning.pml2-09-curvature-step
+    name: 重み付き二次損失の勾配降下安定条件
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-09-term-gradients
+  - id: physics-machine-learning.pml2-09-data-competition
+    name: 観測と物理残差の競合
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-09-weight-tradeoff
+      - physics-machine-learning.pml2-06-composite-loss
