@@ -30,7 +30,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（無次元化した複合PINN損失）**  
-> 区間 $\Omega=(0,L_0)$ 上の $-u''=f$ と端点値 $g_0,g_1$ を考える。$L_0,U_0>0$ とし、$R_0=U_0/L_0^2$ と置く。$v_\theta\in C^2([0,L_0])$、内部選点 $x_1,\ldots,x_N\in\Omega$（$N\ge1$）、観測 $(z_k,y_k)$（$k=1,\ldots,M$, $M\ge1$）を固定する。無次元の各損失を
+> $f\in C([0,L_0])$、$g_0,g_1\in\mathbb R$ とし、区間 $\Omega=(0,L_0)$ 上の $-u''=f$ と端点値 $g_0,g_1$ を考える。$L_0,U_0>0$ とし、$R_0=U_0/L_0^2$ と置く。$v_\theta\in C^2([0,L_0])$、内部選点 $x_1,\ldots,x_N\in\Omega$（$N\ge1$）、観測 $(z_k,y_k)$（$k=1,\ldots,M$, $M\ge1$）を固定する。無次元の各損失を
 
 $$
 \begin{aligned}
@@ -126,61 +126,84 @@ $$
 <a id="thm-pml2-09-weight-tradeoff"></a>
 
 <!-- formal-statement-start -->
-> **定理（二次PINN損失の重みと最小点）**  
-> $q=x(1-x)$、$v_a=a(q+1)$、$f=2$、零Dirichlet条件、任意の $N\ge1$ 個の内部選点を仮定する。$L_P=4(a-1)^2$、$L_B=2a^2$ に対し、$\lambda>0$ の $F_\lambda=L_P+\lambda L_B$ は唯一の最小点
+> **定理（境界重みへの最小点の感度）**  
+> $q=x(1-x)$、$v_a=a(q+1)$、$f=2$、零Dirichlet条件、任意の $N\ge1$ 個の内部選点、$\lambda>0$ を仮定する。$F_\lambda(a)=4(a-1)^2+2\lambda a^2$ とすると、唯一の最小点 $a_\lambda$、内部残差 $r_\lambda$、両端違反 $b_\lambda$、最小値 $m_\lambda$ はそれぞれ
 
 $$
-a_\lambda=\frac{2}{2+\lambda}
+a_\lambda=b_\lambda=\frac{2}{2+\lambda},
+\quad r_\lambda=-\frac{2\lambda}{2+\lambda},
+\quad m_\lambda=\frac{4\lambda}{2+\lambda}
 $$
 
-> を持ち、その点での内部残差と両端の境界違反は
+> である。これらの境界重み $\lambda$ に対する導関数は
 
 $$
-r_\lambda=-\frac{2\lambda}{2+\lambda},
-\qquad b_\lambda=\frac{2}{2+\lambda}
+\frac{da_\lambda}{d\lambda}
+=\frac{db_\lambda}{d\lambda}
+=-\frac{2}{(2+\lambda)^2},
 $$
 
-> である。$F_\lambda''=8+4\lambda>0$ で、最小値は $4\lambda/(2+\lambda)$ となる。
+$$
+\frac{dr_\lambda}{d\lambda}
+=-\frac{4}{(2+\lambda)^2},
+\quad
+\frac{dm_\lambda}{d\lambda}
+=\frac{8}{(2+\lambda)^2}.
+$$
+
+> 従って $\lambda$ を増やすと境界違反は減少し、内部残差の絶対値と最小損失は増加する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-平方を展開し、導関数の零点と二階導関数を調べる。次に最小点を元の残差・端点値へ戻す。重みを変えると「どちらの違反を優先して減らすか」が変わることを確かめる。
+前講の[有限重みで残る境界違反の命題](../PML2-08/index.md#prop-pml2-08-soft-tradeoff)で得た最小点を、重み $\lambda$ の関数として微分する。新しい主張は、最小点・残差・最小損失が重みに応じて動く向きと大きさである。
 
 <!-- proof-start -->
 ### 証明
 
-$q''=-2$、$v_a''=-2a$ より残差 $r_a=-v_a''-2=2(a-1)$、両端では $v_a(0)=v_a(1)=a$。従って
+まず $q''=-2$、$v_a''=-2a$ より残差は $2(a-1)$、両端値は $a$。従って
 
 $$
-F_\lambda(a)=4(a^2-2a+1)+2\lambda a^2
-=(4+2\lambda)a^2-8a+4.
+F_\lambda=4(a-1)^2+2\lambda a^2.
 $$
 
-微分すると
-
-$$
-F_\lambda'(a)=(8+4\lambda)a-8,\qquad
-F_\lambda''(a)=8+4\lambda>0.
-$$
-
-正の二次係数を持つ二次式のため停留点は一つで、そこが大域的最小点となる。方程式 $F_\lambda'(a)=0$ を解けば $a_\lambda=8/(8+4\lambda)=2/(2+\lambda)$ である。内部残差へ戻すと
+$\lambda>0$ なので $F_\lambda''=8+4\lambda>0$ であり、[前講の最小点の計算](../PML2-08/index.md#prop-pml2-08-soft-tradeoff)を適用できる。従って $a_\lambda=2/(2+\lambda)$ が唯一の最小点。ここから
 
 $$
 r_\lambda=2(a_\lambda-1)
-=2\left(\frac2{2+\lambda}-1\right)
-=-\frac{2\lambda}{2+\lambda}.
+=-\frac{2\lambda}{2+\lambda},
+\quad b_\lambda=a_\lambda
 $$
 
-両端違反は $a_\lambda$ に等しい。最後に両損失の和へ代入すると
+を得る。最小値は代入して
 
 $$
-F_\lambda(a_\lambda)
+m_\lambda
 =4\frac{\lambda^2}{(2+\lambda)^2}
 +2\lambda\frac4{(2+\lambda)^2}
-=\frac{4\lambda(\lambda+2)}{(2+\lambda)^2}
 =\frac{4\lambda}{2+\lambda}.
 $$
+
+最後に分数の微分法を逐次適用する。
+
+$$
+\frac{d}{d\lambda}\frac2{2+\lambda}
+=-\frac2{(2+\lambda)^2},
+$$
+
+$$
+\frac{d}{d\lambda}\left(-\frac{2\lambda}{2+\lambda}\right)
+=\frac{-2(2+\lambda)+2\lambda}{(2+\lambda)^2}
+=-\frac4{(2+\lambda)^2},
+$$
+
+$$
+\frac{d}{d\lambda}\frac{4\lambda}{2+\lambda}
+=\frac{4(2+\lambda)-4\lambda}{(2+\lambda)^2}
+=\frac8{(2+\lambda)^2}.
+$$
+
+分母は常に正である。さらに $r_\lambda<0$ なので、残差の値が減少することは絶対値が増加することを意味する。
 <!-- proof-end -->
 
 $\lambda\downarrow0$ では残差は零に近づくが端点違反は1に近づく。$\lambda\to\infty$ では端点違反は零に近づくが残差は $-2$ に近づく。「重みを無限にすれば両方解決」という推論が破れるのは、候補族に両条件を同時に満たす関数がないからである。
@@ -375,7 +398,7 @@ $$
 
 実験の手順を具体的にまとめる。正規化と重みの選択を先に固定し、内部点・境界点・観測点の配置を記録する。同じ初期パラメータと最適化手法を使用して、重みだけを変更する。学習中は各未加重損失、重み付き損失、各パラメータ勾配のノルム、学習率、更新回数を別々に保存する。
 
-学習後には訓練点以外でも残差と条件違反を測り、可能なら既知の解析解・数値ベースラインと比較する。学習損失が小さいことと、全領域での解誤差が小さいことは異なる。[学習用PDEデータの検証](../PML2-05/index.md#def-pml2-05-manufactured-solution)で作る製造解などは、この比較に使える。重みの自動調整を試す際も、勾配の大きさだけをそろえたことを物理的妥当性の証明として扱わない。
+学習後には訓練点以外でも残差と条件違反を測り、可能なら既知の解析解・数値ベースラインと比較する。学習損失が小さいことと、全領域での解誤差が小さいことは異なる。[学習用PDEデータの検証](../PML2-05/index.md#def-pml2-05-manufactured)で作る製造解などは、この比較に使える。重みの自動調整を試す際も、勾配の大きさだけをそろえたことを物理的妥当性の証明として扱わない。
 
 ## 8. 演習問題
 
