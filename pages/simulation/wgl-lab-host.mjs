@@ -833,7 +833,9 @@ window.addEventListener('message', event => {
   if (isFCG5 && data.type === 'fcg5-cursor') {
     if(Number.isInteger(data.x)&&Number.isInteger(data.y)&&data.x>=0&&
        data.y>=0&&data.x<active.payload.width&&data.y<active.payload.height){
-      const c=fcg5PixelCell(data.x,data.y,active.payload.width,active.payload.height);
+      const gridSetting=readLabParameter(active.payload.js,parametersFor('FCG5')[0]);
+      const c=fcg5PixelCell(data.x,data.y,active.payload.width,active.payload.height,
+        gridSetting.ok?gridSetting.value:48);
       byId('result-note').textContent=c.panel+' セル('+c.i+','+c.j+') Enter/Spaceで画素検査';
     }
     return;
@@ -843,7 +845,10 @@ window.addEventListener('message', event => {
     if(!Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||
        x>=width||y>=height||!Array.isArray(rgba)||rgba.length!==4||
        !rgba.every(v=>Number.isInteger(v)&&v>=0&&v<=255))return;
-    const c=fcg5PixelCell(x,y,width,height),k=c.i+12*c.j,s=fcg5State(steps);
+    const gridSetting=readLabParameter(active.payload.js,parametersFor('FCG5')[0]);
+    const N=gridSetting.ok?gridSetting.value:48;
+    const c=fcg5PixelCell(x,y,width,height,N),k=c.i+N*c.j;
+    const s=fcg5State(steps,{N});
     const val=c.panel==='dye'?s.q[k]:c.panel==='divergence'?s.divergence[k]:s.speed[k];
     const edited=Object.keys(defaults).some(key=>active.payload[key]!==defaults[key]);
     byId('result-note').textContent=c.panel+' セル('+c.i+','+c.j+
@@ -952,20 +957,20 @@ window.addEventListener('message', event => {
       Number.isFinite(wgl19Params.rate) && wgl19Params.rate >= 0 && wgl19Params.rate <= 0.25 &&
       Number.isInteger(wgl19Params.steps) && wgl19Params.steps >= 0 && wgl19Params.steps <= 12 &&
       wgl19Params.steps === data.frameAudit.steps;
-    // Only the two known FCG5 literals may differ from the canonical JS.
+    // Only the three known FCG5 literals may differ from the canonical JS.
     // If any other JS/GLSL was edited, the initial CPU model is only a reference.
     let fcg5Physics=null;
     if(isFCG5&&active.payload.vertex===defaults.vertex&&
        active.payload.fragment===defaults.fragment){
       const specs=parametersFor('FCG5');
       const readings=specs.map(spec=>readLabParameter(active.payload.js,spec));
-      if(readings.length===2&&readings.every(state=>state.ok)){
+      if(readings.length===3&&readings.every(state=>state.ok)){
         try{
           let canonical=active.payload.js;
           for(const spec of specs)
             canonical=writeLabParameter(canonical,spec,spec.default);
           if(canonical===defaults.js)
-            fcg5Physics={nu:readings[0].value,force:readings[1].value};
+            fcg5Physics={N:readings[0].value,nu:readings[1].value,force:readings[2].value};
         }catch{/* Custom JS remains editable; independent comparison is reference only. */}
       }
     }
@@ -980,7 +985,7 @@ window.addEventListener('message', event => {
       '（編集版・参考比較）';
     const pass = rows.every(row => row.pass);
     setStatus(isFCG5&&!unchanged&&fcg5Physics ?
-      (pass ? 'FCG5 編集した粘性・外力の独立画素検算に合格' :
+      (pass ? 'FCG5 編集した格子・粘性・外力の独立画素検算に合格' :
         'FCG5 編集した粘性・外力の独立画素検算が不一致') :
       unchanged && pass ? '初期ソースの独立画素検算に合格' :
       unchanged ? '基準画素と不一致（viewport/色/GL状態を再確認）' :
@@ -1021,8 +1026,8 @@ window.addEventListener('message', event => {
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
     if (isFCG5 && fcg5Physics && !unchanged) {
       byId('numeric-note').textContent =
-        'FCG5：実行したnu='+fcg5Physics.nu+' m²/s、外力振幅='+
-        fcg5Physics.force+' m²/s²で独立CPUの12×12格子を再計算し、'+
+        'FCG5：実行したN='+fcg5Physics.N+'×'+fcg5Physics.N+'、nu='+fcg5Physics.nu+' m²/s、外力振幅='+
+        fcg5Physics.force+' m²/s²で独立CPUの'+fcg5Physics.N+'×'+fcg5Physics.N+'格子を再計算し、'+
         'GPUの9画素と各成分±2で比較（その他のJS/GLSLは初期ソースと同一）。';
     }
     if (isWGL19 && wgl19Valid && !unchanged) {
@@ -1114,7 +1119,7 @@ function run() {
       const predicted=expectedFCG5Samples(payload.width,payload.height,fcg5Steps);
       payload.probes=predicted.map(p=>[p.x,p.y]);
       const s=fcg5State(fcg5Steps);
-      byId('fcg5-cpu-prediction').textContent='独立CPU time='+(fcg5Steps*s.dt).toFixed(3)+
+      byId('fcg5-cpu-prediction').textContent='独立CPU N='+s.N+'×'+s.N+', CG反復='+s.pressureIterations+', time='+(fcg5Steps*s.dt).toFixed(3)+
         's, steps='+fcg5Steps+', dye integral='+s.mass.toPrecision(7)+
         ', peak='+s.peak.toPrecision(6)+', div before='+s.divergenceBefore.toExponential(2)+
         ', div after='+s.divergenceAfter.toExponential(2)+
@@ -1480,11 +1485,11 @@ if (isFCG5) {
   document.title='FCG5 流体・染料更新：編集・検算ラボ';
   document.querySelector('h1').textContent='FCG5 2D染料流体の時間分割ソルバー';
   document.querySelector('#panel-conditions > p').textContent=
-    '12×12 MAC格子で半Lagrange速度移流、陽的粘性、外力、Poisson射影120反復、染料移流を実行します。左=染料、中央=絶対発散、右=速度。物理値・残差とGPU画素を分けて検算します。';
+    '48×48（12/24/36/48へ変更可）のMAC格子で半Lagrange速度移流、陽的粘性、外力、残差収束付きPoisson射影、染料移流を実行。左=染料、中央=絶対発散、右=速度。';
   document.querySelector('#panel-conditions ol').innerHTML=
     '<li>静止初期場の性質、step0/1/8/24の染料積分・最大発散・Poisson残差を比較する。</li>'+
     '<li>1step・再生・一時停止・step0へ復帰を行い、物理時刻と画面更新間隔を区別する。</li>'+
-    '<li>実行した12×12の染料画面をShift+ドラッグで塗り足し、Spaceで再生／停止する。</li>'+
+    '<li>実行した48×48の染料画面をShift+ドラッグで塗り足し、Spaceで再生／停止する。</li>'+
     '<li>結果canvasで画素をクリック、または矢印キーとEnterで物理格子値を検査する。</li>'+
     '<li>fluid.jsのnuまたはforceAmplitudeを変更し、物理値と初期CPU予測の差を説明する。</li>'+
     '<li>fluid.fragの中央色の倍率・構文エラーを試してCPU残差とGPU表示を区別する。</li>';
@@ -2034,7 +2039,7 @@ if (isWGL3) {
   byId('preset').options[0].textContent = '初期の格子（添字描画）';
   byId('preset').options[1].textContent = 'fragment の構文エラー';
 }
-// FCG5 observes only its editable sandboxed 12×12 MAC solver; do not mount
+// FCG5 observes only its editable sandboxed N×N MAC solver; do not mount
 // a second independent fluid simulation in the conditions tab.
 // FCG8/WGL4 retain their separate reference observations.
 if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-conditions')});
