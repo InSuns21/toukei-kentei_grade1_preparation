@@ -376,7 +376,26 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(1) 跡が $1$ の元。** [Artin の独立性](../../FLD/FLD4/index.md#lem-fld4-artin-independence)より、相異なる自己同型の和 $\operatorname{Tr}_{L/K}(x)=\sum_{\tau\in G}\tau(x)$ は零写像ではありません（各係数が $1\ne0$）。ある $a\in L$ について $d=\operatorname{Tr}(a)\ne0$ です。任意の $\sigma\in G$ に対して $\sigma(d)=d$ なので、[有限 Galois 理論の基本定理](../../FLD/FLD4/index.md#thm-fld4-fundamental-galois)の固定体の結論 $L^G=K$ から $d\in K^\times$。よって $t=a/d$ と置けば
+**(1) 跡が $1$ の元。** 相異なる自己同型についての[Artin の独立性](../../FLD/FLD4/index.md#lem-fld4-artin-independence)より、
+
+$$
+\operatorname{Tr}_{L/K}(x)=\sum_{\tau\in G}\tau(x)
+$$
+
+は零写像ではありません。実際、相異なる自己同型の係数がすべて $1\ne0$ なので、線形独立性により恒等的に零にはなりません。そこで $a\in L$ を選び、
+
+$$
+d=\operatorname{Tr}_{L/K}(a)\ne0
+$$
+
+とします。任意の $\sigma\in G$ に対し、添字 $\rho=\sigma\tau$ の置換により
+
+$$
+\sigma(d)=\sum_{\tau\in G}(\sigma\tau)(a)
+=\sum_{\rho\in G}\rho(a)=d
+$$
+
+です。[有限 Galois 理論の基本定理](../../FLD/FLD4/index.md#thm-fld4-fundamental-galois)の固定体の結論 $L^G=K$ から $d\in K^\times$ であり、$t=a/d$ と置けます。このとき
 
 $$
 \operatorname{Tr}(t)
