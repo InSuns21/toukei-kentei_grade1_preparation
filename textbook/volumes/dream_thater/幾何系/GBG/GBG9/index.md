@@ -20,7 +20,7 @@ $$
 
 ## 1. なぜ普通の微分は貼り合わないか
 
-まず、変換する成分をそのまま微分する。$W(x)=\rho(g(x))$、$u'(x)=W(x)^{-1}u(x)$ とすると、積の微分から
+まず、変換する成分をそのまま微分する。$W(x)=\rho(g(x))$、$u'(x)=W(x)^{-1}u(x)$ と置く。ここで $u'$ のプライムは**別の局所sectionで表した成分**を意味し、$x$ による導関数ではない。$d$ は基底の変数 $x$ に関する外微分である。積の微分から
 
 $$
 du'=d(W^{-1})u+W^{-1}du.
@@ -37,6 +37,10 @@ $$
 よって $du'$ は一般には $W^{-1}du$ と等しくない。微分する位置に依存して基底を取り替えると、基底の変化を測る一項が余分に出る。
 
 この差を補うため、Lie 環の元 $\xi$ が表現空間 $V$ をどのように無限小で動かすかを先に整理する。[Lie 群の指数写像](../../../代数系/LIE/LIE2/index.md#def-lie2-exponential-map)を用い、群の単位元の近くで表現を微分する。
+
+$\operatorname{End}_{\mathbb F}(V)$ は $V$ から $V$ への $\mathbb F$ 線形写像全体を表す。可逆である必要はない。
+
+以下の定義では微分変数 $t$ は実数で、$w$ と $\xi$ を固定して動かす。
 
 <a id="def-gbg9-infinitesimal-representation"></a>
 
@@ -55,7 +59,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg9-infinitesimal-representation -->
-**定義の確認**。$G=GL(2,\mathbb R)$、$V=\mathbb R^2$ の標準表現 $\rho(K)w=Kw$ を使う。$\rho$ は行列積と単位元を保ち、各 $K$ は可逆で、行列の成分に関して滑らかである。$\xi\in\mathfrak{gl}_2(\mathbb R)$ について $\exp(t\xi)=I+t\xi+O(t^2)$ なので、任意の列ベクトル $w$ に対し
+**定義の確認**。$G=GL(2,\mathbb R)$、$V=\mathbb R^2$ の標準表現 $\rho(K)w=Kw$ を使う。$GL(2,\mathbb R)$ は行列空間 $M_2(\mathbb R)$ のうち $\det K\ne0$ を満たす開集合なので、単位行列での接空間 $T_I G=\mathfrak{gl}_2(\mathbb R)$ は行列空間 $M_2(\mathbb R)$ と同一視できる。この同一視により、Lie 環の元 $\xi$ は行列として列ベクトル $w$ に作用する。
+
+$\rho$ は行列積と単位元を保ち、各 $K$ は可逆で、行列の成分に関して滑らかである。[行列群の指数写像](../../../代数系/LIE/LIE2/index.md#thm-lie2-general-linear-exponential)により、$\xi\in\mathfrak{gl}_2(\mathbb R)$ について $\exp(t\xi)=I+t\xi+O(t^2)$。したがって、固定した列ベクトル $w$ に対し
 
 $$
 \left.\frac d{dt}\right|_0\rho(\exp(t\xi))w
@@ -77,7 +83,20 @@ $$
 \rho_*(g^{-1}dg)=\rho(g)^{-1}d(\rho(g))
 $$
 
-が成り立つ。第一式は $g^{-1}\exp(t\xi)g=\exp(t\operatorname{Ad}_{g^{-1}}\xi)$ の両辺に $\rho$ を適用して $t=0$ で微分したもの、第二式は $g(x)^{-1}g(x(t))$ の速度を単位元で測って $\rho$ に渡したものである。これらの等式が、次に作る微分の変換を保証する。
+が成り立つ。第一式は $g^{-1}\exp(t\xi)g=\exp(t\operatorname{Ad}_{g^{-1}}\xi)$ の両辺に $\rho$ を適用して $t=0$ で微分したもの。このとき $g$ と $\xi$ は固定して $t$ だけを動かす。
+
+第二式では $g:U\to G$ を滑らかな群値関数、$x\in U$、$v\in T_xU$ とする。$x(0)=x$、$\dot x(0)=v$ を満たす曲線 $x(r)$ を選ぶ。$g^{-1}dg$ は [左 Maurer–Cartan 形式](../../../代数系/LIE/LIE4/index.md#def-lie4-maurer-cartan-form)の引き戻しであり、$g(x)$ における速度を左移動で単位元の接空間へ戻したものである。したがって連鎖律と群準同型性により
+
+$$
+\begin{aligned}
+\rho_*((g^{-1}dg)_x(v))
+&=\left.\frac{d}{dr}\right|_{0}\rho(g(x)^{-1}g(x(r)))\\
+&=\rho(g(x))^{-1}\left.\frac{d}{dr}\right|_0\rho(g(x(r)))\\
+&=\rho(g(x))^{-1}\bigl(d(\rho\circ g)\bigr)_x(v).
+\end{aligned}
+$$
+
+ここで $r$ は曲線の変数、$d(\rho\circ g)$ は基底の方向 $v$ に沿う微分である。これらの等式が、次に作る微分の変換を保証する。
 
 ## 2. 水平方向だけで場の変化を測る
 
@@ -91,7 +110,7 @@ $$
 
 を満たす。同じ場を表すため、ファイバー内の移動に沿った $f_\sigma$ の変化はあらかじめ決まっている。そこで $x$ から $v\in T_xM$ の方向へ進むとき、接続で選ばれる**水平な速度**だけを $f_\sigma$ に入力する。
 
-[GBG6 の水平リフトの一意性](../GBG6/index.md#prop-gbg6-horizontal-lift)から、$p\in\pi^{-1}(x)$ と $v\in T_xM$ に対して、$d\pi_p(h_pv)=v$、$h_pv\in H_p$ を満たす接ベクトル $h_pv$ が一意にある。
+[GBG6 の水平リフトの一意性](../GBG6/index.md#prop-gbg6-horizontal-lift)から、$p\in\pi^{-1}(x)$ と $v\in T_xM$ に対して、$d\pi_p(h_pv)=v$、$h_pv\in H_p$ を満たす接ベクトル $h_pv$ が一意にある。各 $x$ で接方向 $v$ を $E_x$ の元へ線形に送る滑らかな族を **$E$ 値1形式** と呼び、その全体を $\Omega^1(M;E)$ と書く。
 
 <a id="def-gbg9-covariant-derivative"></a>
 
@@ -107,9 +126,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg9-covariant-derivative -->
-**定義の確認**（積主束の定数場）。$M=\mathbb R$、$G=U(1)$、$V=\mathbb C$、$\rho(z)w=zw$、$P=\mathbb R\times U(1)$ とする。[GBG7 の積主束接続形式](../GBG7/index.md#prop-gbg7-product-form)で $A=0$ を選ぶと、点 $(x,k)$ の水平リフトは $h_{(x,k)}(v)=(v,0)$ である。実際、$d\pi(v,0)=v$ であり、接続形式 $\omega(v,W)=k^{-1}W$ に代入すると $\omega(v,0)=0$。水平条件と射影条件の双方を確認した。
+**定義の確認**（積主束上の二次関数の場）。$M=\mathbb R$、$G=U(1)$、$V=\mathbb C$、$\rho(z)w=zw$、$P=\mathbb R\times U(1)$ とする。[GBG7 の積主束接続形式](../GBG7/index.md#prop-gbg7-product-form)で $A=0$ を選ぶと、点 $(x,k)$ の水平リフトは $h_{(x,k)}(v)=(v,0)$ である。実際、$d\pi(v,0)=v$ であり、接続形式 $\omega(v,W)=k^{-1}W$ に代入すると $\omega(v,0)=0$。水平条件と射影条件の双方を確認した。
 
-切断 $\sigma(x)=[(x,1),x^2]$ に対する同変関数は[GBG4 の対応定理](../GBG4/index.md#thm-gbg4-sections-equivariant)から $f(x,k)=k^{-1}x^2$。したがって
+切断 $\sigma(x)=[(x,1),x^2]$ に対する同変関数は[GBG4 の対応定理](../GBG4/index.md#thm-gbg4-sections-equivariant)から $f(x,k)=k^{-1}x^2$。実際、$h\in U(1)$ に対し $f(x,kh)=h^{-1}f(x,k)=\rho(h^{-1})f(x,k)$ であり、同変条件を満たす。したがって
 
 $$
 (df)_{(x,k)}(v,0)=k^{-1}2xv,
@@ -120,7 +139,7 @@ $$
 最後の等号は $[pg,w]=[p,\rho(g)w]$ に $p=(x,1)$、$g=k$ を代入したもの。同じ計算を任意の $k\in U(1)$ で行ったので、結果は代表点に依存しない。この例では $\nabla_{\partial_x}\sigma=[(x,1),2x]$ となり、接続が $A=0$ の基準では普通の微分に戻る。
 <!-- definition-example-end -->
 
-一般の束で定義が代表点に依存しない理由を確認しよう。
+一般の束で定義が代表点に依存しない理由を確認しよう。以下の Leibniz 則で $da\otimes\sigma$ は $E$ 値1形式を表し、$(da\otimes\sigma)_x(v)=da_x(v)\,\sigma(x)$ と定める。
 
 <a id="thm-gbg9-well-defined"></a>
 
@@ -411,7 +430,7 @@ $$
 滑らかな $W:\mathbb R\to GL(2,\mathbb R)$ が与えられたとき、$W^{-1}$ の微分公式を $WW^{-1}=I$ から証明せよ。$W(x)=\operatorname{diag}(e^x,e^{-x})$ に適用して両辺を比較せよ。
 
 <!-- solution-start -->
-**詳細解答**。恒等式の両辺を微分すると $W'W^{-1}+W(W^{-1})'=0$。左から $W^{-1}$ を掛けて
+**詳細解答**。ここで $W'(x)=dW(x)/dx$ は $x$ に関する導関数であり、第1節で局所成分の変更を表した $u'$ とはプライムの意味が異なる。恒等式の両辺を $x$ で微分すると $W'W^{-1}+W(W^{-1})'=0$。左から $W^{-1}$ を掛けて
 
 $$
 (W^{-1})'=-W^{-1}W'W^{-1}.
