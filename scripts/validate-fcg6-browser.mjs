@@ -106,6 +106,42 @@ try {
     assert.ok(result.pageWidth<=width+8,'mobile main content overflow: '+result.pageWidth);
     // Never mistake GPU pixel prediction for actual animation acceptance.
     console.log('FCG6 '+width+'px: 48x48 edited solver, real GPU nine pixels, Neumann logs and opaque sandbox: PASS');
+    if(width===1280){
+      // Change the actual learner JS through the shared G2 controls. There must
+      // be no second display-only shape or motion model.
+      await evaluate(`(() => {
+        const edits=[['shape','rectangle'],['centerY','0.55'],
+          ['wallAmplitude','0.12'],['wallFrequency','2.2']];
+        for(const [name,value] of edits){
+          const control=document.getElementById('parameter-'+name);
+          if(!control||control.disabled)throw Error('FCG6 control unavailable: '+name);
+          control.value=value;
+          control.dispatchEvent(new Event('input',{bubbles:true}));
+        }
+        document.getElementById('parameter-wallFrequency')
+          .dispatchEvent(new Event('change',{bubbles:true}));
+      })()`);
+      await waitFor('document.querySelector("#status")?.textContent.includes("FCG6 編集した形状・壁運動の独立CPU画素検算に合格")',90000);
+      const changed=await evaluate('({js:document.querySelector("#js-source").value,rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(x=>x.textContent)),log:document.querySelector("#diagnostics").textContent,summary:document.querySelector("#numeric-note").textContent})');
+      assert.match(changed.js,/shape='rectangle',centerY=0.55/);
+      assert.match(changed.js,/wallAmplitude=0.12,wallFrequency=2.2/);
+      assert.ok(changed.rows.length===9&&changed.rows.every(r=>r[4]==='OK'),
+        'source-linked GPU and rectangle independent CPU pixels');
+      assert.match(changed.log,/staircase rectangle mask/);
+      assert.match(changed.summary,/独立CPU/);
+      // Unsupported source expressions may still run, but should disable the
+      // corresponding GUI rather than replace an arbitrary learner expression.
+      await evaluate(`(() => {
+        const source=document.getElementById('js-source');
+        source.value=source.value.replace("shape='rectangle'","shape=['rectangle'][0]");
+        source.dispatchEvent(new Event('input',{bubbles:true}));
+      })()`);
+      assert.equal(await evaluate('document.getElementById("parameter-shape").disabled'),true);
+      await click('reset');
+      await waitFor('document.getElementById("parameter-shape")?.value==="circle"');
+      assert.equal(await evaluate('document.getElementById("parameter-shape").disabled'),false);
+      console.log('FCG6 1280px: edited shape/wall controls, GPU/independent CPU, invalid-source guard and reset: PASS');
+    }
   }
 
 } finally {

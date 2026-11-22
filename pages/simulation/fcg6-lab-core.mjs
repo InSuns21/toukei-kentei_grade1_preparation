@@ -5,12 +5,18 @@ const N=FCG6_N,H=1/N,DT=0.05,RHO=1;
 const id=(x,y)=>x+N*y,ix=(x,y)=>x+(N+1)*y,iy=(x,y)=>x+N*y;
 const inside=(x,y)=>x>=0&&x<N&&y>=0&&y<N;
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
-function body(t){
-  const cx=0.5+0.10*Math.sin(1.8*t),vx=0.18*Math.cos(1.8*t);
+function body(t,options){
+  const {shape='circle',centerY=0.5,wallAmplitude=0.1,wallFrequency=1.8}=options;
+  if(!['circle','rectangle'].includes(shape)||![centerY,wallAmplitude,wallFrequency].every(Number.isFinite)||
+     centerY<0.35||centerY>0.65||wallAmplitude<0||wallAmplitude>0.15||
+     wallFrequency<0.6||wallFrequency>3)throw new RangeError('FCG6 body controls');
+  const cx=0.5+wallAmplitude*Math.sin(wallFrequency*t),
+        vx=wallAmplitude*wallFrequency*Math.cos(wallFrequency*t);
   const solid=new Uint8Array(N*N);
   for(let y=0;y<N;y++)for(let x=0;x<N;x++){
-    const a=(x+0.5)*H-cx,b=(y+0.5)*H-0.5;
-    solid[id(x,y)]=Number(a*a+b*b<0.19*0.19);
+    const a=(x+0.5)*H-cx,b=(y+0.5)*H-centerY;
+    solid[id(x,y)]=Number(shape==='rectangle'?
+      (Math.abs(a)<0.17&&Math.abs(b)<0.12):(a*a+b*b<0.19*0.19));
   }
   return {cx,vx,solid};
 }
@@ -46,18 +52,18 @@ function adjacency(m,x,y){
   if(isFluid(m,x,y+1))items.push(id(x,y+1));
   return items;
 }
-export function fcg6State(steps=8){
+export function fcg6State(steps=8,options={}){
   if(!Number.isInteger(steps)||steps<0||steps>24)throw new RangeError('FCG6 step');
   let u=new Float64Array((N+1)*N),v=new Float64Array(N*(N+1)),q=new Float64Array(N*N);
   for(let y=0;y<N;y++)for(let x=0;x<N;x++){
     const px=(x+0.5)*H,py=(y+0.5)*H;
     q[id(x,y)]=Math.exp(-((px-0.26)**2+(py-0.46)**2)/(0.105**2));
   }
-  let g=body(0),p=new Float64Array(N*N),divBefore=0,divAfter=0,identity=0,residual=0,mean=0;
+  let g=body(0,options),p=new Float64Array(N*N),divBefore=0,divAfter=0,identity=0,residual=0,mean=0;
   for(let i=0;i<N*N;i++)if(g.solid[i])q[i]=0;
   impose(u,v,g.solid,g.vx);
   for(let s=0;s<steps;s++){
-    g=body((s+1)*DT);
+    g=body((s+1)*DT,options);
     const m=g.solid;
     for(let z=0;z<N*N;z++)if(m[z])q[z]=0;
     const a=u.slice(),b=v.slice();
@@ -190,8 +196,8 @@ function predicted(pixel,s){
   }
   return rgba;
 }
-export function expectedFCG6Samples(width,height,steps=8){
-  const s=fcg6State(steps),cells=[[8,8],[3,7],[11,11]];
+export function expectedFCG6Samples(width,height,steps=8,options={}){
+  const s=fcg6State(steps,options),cells=[[8,8],[3,7],[11,11]];
   return [0,1,2].flatMap(panel=>cells.map(([i,j])=>{
     const x=Math.floor(width*(panel+(i+0.5)/N)/3),
       y=Math.floor(height*(j+0.5)/N);
@@ -199,8 +205,8 @@ export function expectedFCG6Samples(width,height,steps=8){
     return {x,y,label:'panel '+panel+' ('+i+','+j+')',rgba};
   }));
 }
-export function compareFCG6Readback(got,width,height,steps=8,tolerance=2){
-  return expectedFCG6Samples(width,height,steps).map((ref,k)=>{
+export function compareFCG6Readback(got,width,height,steps=8,tolerance=2,options={}){
+  return expectedFCG6Samples(width,height,steps,options).map((ref,k)=>{
     const actual=got?.[k],valid=actual&&actual.x===ref.x&&actual.y===ref.y&&
       Array.isArray(actual.rgba)&&actual.rgba.length===4&&
       actual.rgba.every(z=>Number.isInteger(z)&&z>=0&&z<=255);

@@ -29,6 +29,40 @@ export const LAB_PARAMETERS = Object.freeze({
       matcher: /^([ \t]*const maxStepsPerFrame[ \t]*=[ \t]*)([^;\n]+)(;)/gm
     })
   ]),
+  FCG6: Object.freeze([
+    Object.freeze({
+      id: 'shape', type: 'enum', values: ['circle','rectangle'],
+      label: '固体の形状', default: 'circle', unit: '形状',
+      meaning: '円か矩形のセル中心マスク。固体・境界面・圧力射影・描画を同じ格子から更新',
+      sourceLocation: 'solid.js / const shape → geometry() → 固体マスク',
+      sourceFile: 'js', index: null,
+      matcher: /^([ \t]*const N=48,h=1\/N,dt=0\.05,rho=1,shape=)([^,\n]+)(,centerY=[^;\n]+;)/gm
+    }),
+    Object.freeze({
+      id: 'centerY', type: 'number', label: '固体中心の高さ', default: 0.5,
+      min: 0.35, max: 0.65, step: 0.05, unit: 'm（領域は1×1 m）',
+      meaning: '壁の位置と染料の回り込みを変える。初期値へ戻すと元の障害物位置',
+      sourceLocation: 'solid.js / const centerY → geometry()',
+      sourceFile: 'js', index: null,
+      matcher: /^([ \t]*const N=48,h=1\/N,dt=0\.05,rho=1,shape=[^,\n]+,centerY=)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id: 'wallAmplitude', type: 'number', label: '壁の水平移動振幅', default: 0.1,
+      min: 0, max: 0.15, step: 0.01, unit: 'm',
+      meaning: 'cx=0.5+A sin(ωt)、壁速度は Aω cos(ωt) [m/s]。A=0で静止',
+      sourceLocation: 'solid.js / const wallAmplitude → geometry()',
+      sourceFile: 'js', index: null,
+      matcher: /^([ \t]*const wallAmplitude=)([^,\n]+)(,wallFrequency=[^;\n]+;)/gm
+    }),
+    Object.freeze({
+      id: 'wallFrequency', type: 'number', label: '壁の角周波数', default: 1.8,
+      min: 0.6, max: 3, step: 0.2, unit: 'rad/s',
+      meaning: '移動する固体の位相・壁速度に同時に反映。描画FPSや物理刻みとは別',
+      sourceLocation: 'solid.js / const wallFrequency → geometry()',
+      sourceFile: 'js', index: null,
+      matcher: /^([ \t]*const wallAmplitude=[^,\n]+,wallFrequency=)([^,\n]+)(,acceleration=[^;\n]+;)/gm
+    })
+  ]),
   FCG5: Object.freeze([
     Object.freeze({
       id: 'grid', type: 'integer', label: '実計算格子 N×N', default: 48,
@@ -90,6 +124,13 @@ function inspect(source, spec) {
   if (matches.length !== 1) return {ok: false, reason: '対象の宣言が一意に見つかりません'};
   const match = matches[0];
   const literals = spec.index === null ? [match[2]] : match[2].split(',');
+  if (spec.type === 'enum') {
+    const raw = match[2].trim();
+    const value = /^'[^']*'$/.test(raw) ? raw.slice(1,-1) : null;
+    return value !== null && spec.values.includes(value) ?
+      {ok: true, value, match, literals} :
+      {ok: false, reason: 'GUI対象の文字列リテラルではありません。JSソースを直接編集してください'};
+  }
   if (spec.index !== null && literals.length !== 3)
     return {ok: false, reason: '配列は3要素の数値リテラルを使用してください'};
   const values = literals.map(raw => {
@@ -113,11 +154,12 @@ export function readLabParameter(source, spec) {
 }
 
 export function writeLabParameter(source, spec, proposed) {
-  const value = Number(proposed);
-  if (!Number.isFinite(value) || value < spec.min || value > spec.max ||
-      (spec.type === 'integer' && !Number.isInteger(value)) ||
-      Math.abs((value - spec.min) / spec.step -
-        Math.round((value - spec.min) / spec.step)) > 1e-7) {
+  const value = spec.type === 'enum' ? proposed : Number(proposed);
+  if (spec.type === 'enum' ? !spec.values.includes(value) :
+      (!Number.isFinite(value) || value < spec.min || value > spec.max ||
+       (spec.type === 'integer' && !Number.isInteger(value)) ||
+       Math.abs((value - spec.min) / spec.step -
+         Math.round((value - spec.min) / spec.step)) > 1e-7)) {
     throw new RangeError(spec.id + ': GUI値は範囲と刻みに従ってください');
   }
   const found = inspect(source, spec);
@@ -125,7 +167,7 @@ export function writeLabParameter(source, spec, proposed) {
   const {match, literals} = found;
   let replacement;
   if (spec.index === null) {
-    replacement = match[1] + String(value) + match[3];
+    replacement = match[1] + (spec.type === 'enum' ? "'"+value+"'" : String(value)) + match[3];
   } else {
     literals[spec.index] = literals[spec.index].replace(
       literals[spec.index].trim(), String(value));
@@ -152,12 +194,20 @@ export function mountLabParameters(lesson, container,
     const id = 'parameter-' + spec.id;
     label.htmlFor = id;
     label.textContent = spec.label;
-    const slider = document.createElement('input');
-    slider.type = 'range';
+    const slider = document.createElement(spec.type === 'enum' ? 'select' : 'input');
+    if (spec.type === 'enum') {
+      for (const value of spec.values) {
+        const option=document.createElement('option');
+        option.value=value;option.textContent=value;
+        slider.append(option);
+      }
+    } else {
+      slider.type = 'range';
+      slider.min = String(spec.min);
+      slider.max = String(spec.max);
+      slider.step = String(spec.step);
+    }
     slider.id = id;
-    slider.min = String(spec.min);
-    slider.max = String(spec.max);
-    slider.step = String(spec.step);
     slider.value = String(spec.default);
     slider.disabled = true;
     const display = document.createElement('output');
@@ -165,8 +215,9 @@ export function mountLabParameters(lesson, container,
     display.textContent = String(spec.default);
     const description = document.createElement('small');
     description.textContent = spec.meaning + ' / 初期値 ' + spec.default +
-      ' / ' + spec.min + '〜' + spec.max + '（刻み ' + spec.step + '） / ' +
-      spec.unit + ' / ' + spec.sourceLocation;
+      (spec.type === 'enum' ? ' / 選択肢 ' + spec.values.join(' / ') :
+        ' / ' + spec.min + '〜' + spec.max + '（刻み ' + spec.step + '）') +
+      ' / ' + spec.unit + ' / ' + spec.sourceLocation;
     const status = document.createElement('p');
     status.className = 'lab-parameter-status';
     status.setAttribute('role', 'status');
