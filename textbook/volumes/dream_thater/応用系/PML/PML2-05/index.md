@@ -81,7 +81,7 @@ $$
 
 [三点差分法の定義](../PML2-03/index.md#def-pml2-03-fd)に従い $n\ge2$、$h=1/n$、$x_j=jh$（$0\le j\le n$）とする。端点値は零とし、内部の数値ラベルを $z^{(a,h)}_j$ と書く。
 
-ここで $z=(z_1,\ldots,z_{n-1})^{\mathsf T}$ は内部点の値を並べた列である。三点差分行列 $A_h$ は各行で
+ここで $z=(z^{(a,h)}_1,\ldots,z^{(a,h)}_{n-1})^{\mathsf T}$ は内部点の値を並べた列である。以下、$a,h$ を固定した行列計算では $z_j=z^{(a,h)}_j$ と略記する。三点差分行列 $A_h$ は各行で
 
 $$
 (A_hz)_j=\frac{2z_j-z_{j-1}-z_{j+1}}{h^2}
@@ -90,7 +90,7 @@ $$
 
 を計算する。右辺列 $b^{(a)}_j=f_a(x_j)$ と対応させて $A_hz=b^{(a)}$ を解くのは、元の条件 $-u_a''=f_a$ を格子点の差分式へ置き換えるためである。端点の値 $z_0=z_n=0$ は境界条件として別に固定する。
 
-多項式部分 $q(x)=x(1-x)$ は二階差分でも $A_hq=2$ を厳密に満たす。一方、正弦の二階差分は連続二階微分と一致しない。このずれを計算すれば、製造解で作った数値ラベルの誤差を**格子ごとに予測**できる。
+多項式部分 $q(x)=x(1-x)$ の格子列を $q^I=(q(x_1),\ldots,q(x_{n-1}))^{\mathsf T}$ とする。二階差分では各内部点で $(A_hq^I)_j=2$ が厳密に成り立つ。一方、正弦の二階差分は連続二階微分と一致しない。このずれを計算すれば、製造解で作った数値ラベルの誤差を**格子ごとに予測**できる。
 
 <a id="thm-pml2-05-sine-grid"></a>
 
@@ -128,7 +128,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$s_j=\sin(\pi jh)$ とおく。$\sin(\theta-\delta)+\sin(\theta+\delta)=2\sin\theta\cos\delta$ に $\theta=\pi jh,\ \delta=\pi h$ を代入し、三点差分を展開すると
+$s_j=\sin(\pi jh)$、$s=(s_1,\ldots,s_{n-1})^{\mathsf T}$ とおく。$\sin(\theta-\delta)+\sin(\theta+\delta)=2\sin\theta\cos\delta$ に $\theta=\pi jh,\ \delta=\pi h$ を代入し、三点差分を展開すると
 
 $$
 \begin{aligned}
@@ -140,15 +140,18 @@ $$
 \end{aligned}
 $$
 
-また $q=x(1-x)$ は $q(x_j+h)-2q(x_j)+q(x_j-h)=-2h^2$ を満たすので $A_hq=2$。従って上記の $z^{(a,h)}$ を $A_h$ に代入すると
+また $q(x)=x(1-x)$ は $q(x_j+h)-2q(x_j)+q(x_j-h)=-2h^2$ を満たすので、前節で導入した格子列について $(A_hq^I)_j=2$ である。したがって各内部点で
 
 $$
-A_hz^{(a,h)}
-=2+a\frac{\pi^2}{\lambda_h}\lambda_hs
-=2+a\pi^2s=b^{(a)}.
+\begin{aligned}
+(A_hz^{(a,h)})_j
+&=(A_hq^I)_j+a\frac{\pi^2}{\lambda_h}(A_hs)_j\\
+&=2+a\frac{\pi^2}{\lambda_h}\lambda_hs_j
+=2+a\pi^2s_j=b^{(a)}_j.
+\end{aligned}
 $$
 
-端点で $q=s=0$。解の一意性は[差分法の可逆性と離散最大値原理](../PML2-03/index.md#prop-pml2-03-dmp)で保証される。解析真値 $q+as$ を引けば節点差の式が得られる。
+端点では $q(0)=q(1)=s_0=s_n=0$。解の一意性は[差分法の可逆性と離散最大値原理](../PML2-03/index.md#prop-pml2-03-dmp)で保証される。格子列での解析真値 $q^I+as$ と数値解 $q^I+a(\pi^2/\lambda_h)s$ を引けば節点差の式が得られる。
 
 $0<\pi h/2\le\pi/4$ では $0<\sin t<t$ なので $0<\lambda_h<\pi^2$。偶数 $n$ なら $x_{n/2}=1/2$ が格子にあり、$0\le\sin(\pi x_j)\le1$ の最大値 $1$ をとる。よって最大誤差の式を得る。
 
