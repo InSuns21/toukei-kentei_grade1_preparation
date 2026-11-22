@@ -18,7 +18,7 @@ definitions:
   - { id: ANF16-DEF-02, name: 類体論で扱う開有限指数部分群 }
 theorems:
   - { id: ANF16-PROP-01, name: ノルム商の付値・単数完全列 }
-  - { id: ANF16-LEM-01, name: 十分深い主単数はn乗 }
+  - { id: ANF16-LEM-01, name: 深い主単数の冪根 }
   - { id: ANF16-THM-01, name: 有限局所拡大のノルム群は開・有限指数 }
   - { id: ANF16-PROP-02, name: 緩分岐Kummer巡回拡大のノルム群 }
   - { id: ANF16-PROP-03, name: ノルム部分群の塔での包含 }
