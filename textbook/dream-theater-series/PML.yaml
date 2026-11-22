@@ -123,7 +123,7 @@ chapters:
     title: "自動微分で必要な導関数を本当に計算できるか"
   - id: PML2-08
     path: textbook/volumes/dream_thater/応用系/PML/PML2-08
-    status: planned
+    status: completed
     title: "初期/境界条件を強制する二つの方法は何か"
   - id: PML2-09
     path: textbook/volumes/dream_thater/応用系/PML/PML2-09
