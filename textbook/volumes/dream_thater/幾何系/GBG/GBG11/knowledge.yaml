@@ -19,7 +19,7 @@ concepts:
     requires: [gauge.covariant-exterior-derivative, gauge.right-principal-fundamental-vector-field, gauge.curvature-horizontal-equivariant]
 
   - id: gauge.bianchi-identity
-    name: 第二Bianchi恒等式・大域形式
+    name: 主束曲率の Bianchi 恒等式・大域形式
     kind: theorem
     introduction: formal
     requires: [gauge.covariant-exterior-derivative, gauge.principal-curvature-form, lie.lie-algebra-valued-bracket-wedge]
@@ -32,13 +32,13 @@ concepts:
     requires: [gauge.covariant-exterior-derivative, gauge.local-connection-potential]
 
   - id: gauge.local-bianchi-identity
-    name: 第二Bianchi恒等式・局所形式
+    name: 主束曲率の Bianchi 恒等式・局所形式
     kind: theorem
     introduction: formal
     requires: [gauge.bianchi-identity, gauge.local-covariant-exterior-derivative, gauge.local-curvature-structure-equation]
 
   - id: gauge.bianchi-component-form
-    name: Bianchi恒等式の成分表示
+    name: 主束曲率の Bianchi 恒等式・座標成分
     kind: theorem
     introduction: formal
     requires: [gauge.local-bianchi-identity, gauge.local-curvature-structure-equation]
