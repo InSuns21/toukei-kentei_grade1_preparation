@@ -935,7 +935,8 @@ window.addEventListener('message', event => {
   updateSceneInfo(data.ok ? {
     width: active.payload.width, height: active.payload.height,
     steps: (isWGL18 || isWGL19) ? data.floatParameters?.steps : active.payload.steps,
-    frameAudit: isWGL19 ? data.frameAudit : undefined
+    frameAudit: isWGL19 ? data.frameAudit : undefined,
+    gridN: isFCG5 ? readLabParameter(active.payload.js,parametersFor('FCG5')[0]).value : undefined
   } : null);
   clearTimeout(active.timer);
   active.timer = null;
