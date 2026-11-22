@@ -76,7 +76,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg10-curvature -->
-**定義の確認（最も簡単な平坦例）**。積主束 $P=\mathbb R^2\times U(1)$ を取り、標準 section のポテンシャルを $A=0$ とする。[GBG7 の積主束公式](../GBG7/index.md#prop-gbg7-product-form)より、$U(1)$ 成分 $k$ の方向での接続形式は
+**定義の確認（最も簡単な平坦例）**。積主束 $P=\mathbb R^2\times U(1)$ を取り、標準 section のポテンシャルを $A=0$ とする。[積主束における接続形式の具体式](../GBG7/index.md#prop-gbg7-product-form)より、$U(1)$ 成分 $k$ の方向での接続形式は
 
 $
 \omega_{(x,k)}=k^{-1}dk
