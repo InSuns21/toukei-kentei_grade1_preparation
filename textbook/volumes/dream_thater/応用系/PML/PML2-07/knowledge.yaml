@@ -1,0 +1,45 @@
+chapter: PML2-07
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-06
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-07-second-jet
+    name: 二階の微分三つ組
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二階の微分三つ組）"]
+    requires:
+      - physics-machine-learning.pml2-06-strong-residual
+  - id: physics-machine-learning.pml2-07-jet-correctness
+    name: 滑らかな計算グラフの二階ADの正しさ
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-07-second-jet
+  - id: physics-machine-learning.pml2-07-tanh-derivatives
+    name: tanhユニットの入力微分
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-07-jet-correctness
+  - id: physics-machine-learning.pml2-07-relu-obstruction
+    name: ReLUによる強形式二階残差の障害
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-06-strong-residual
+  - id: physics-machine-learning.pml2-07-difference-sine
+    name: 正弦関数の中心差分二階微分
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-07-jet-correctness
+  - id: physics-machine-learning.pml2-07-loss-gradient
+    name: 滑らかなPINN物理損失のパラメータ勾配
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-06-collocation
+      - physics-machine-learning.pml2-07-jet-correctness

@@ -30,3 +30,4 @@
 26. [PML2-04 計算された値の何を「誤差」と呼ぶか](textbook/volumes/dream_thater/応用系/PML/PML2-04/index.md)
 27. [PML2-05 学習用のPDEデータはどう作り検証するか](textbook/volumes/dream_thater/応用系/PML/PML2-05/index.md)
 28. [PML2-06 PINNの強形式残差はどう定義されるか](textbook/volumes/dream_thater/応用系/PML/PML2-06/index.md)
+29. [PML2-07 自動微分で必要な導関数を本当に計算できるか](textbook/volumes/dream_thater/応用系/PML/PML2-07/index.md)

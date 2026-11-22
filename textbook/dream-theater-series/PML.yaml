@@ -119,7 +119,7 @@ chapters:
     title: "PINNの強形式残差はどう定義されるか"
   - id: PML2-07
     path: textbook/volumes/dream_thater/応用系/PML/PML2-07
-    status: planned
+    status: completed
     title: "自動微分で必要な導関数を本当に計算できるか"
   - id: PML2-08
     path: textbook/volumes/dream_thater/応用系/PML/PML2-08
