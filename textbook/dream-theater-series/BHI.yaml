@@ -123,7 +123,7 @@ chapters:
     title: "重力レプリカの分配関数"
   - id: BHI29
     path: textbook/volumes/dream_thater/物理系/BHI/BHI29
-    status: planned
+    status: completed
     title: "レプリカ・ワームホールの鞍点"
   - id: BHI30
     path: textbook/volumes/dream_thater/物理系/BHI/BHI30
