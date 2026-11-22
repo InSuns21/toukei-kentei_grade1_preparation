@@ -1,0 +1,47 @@
+chapter: PML2-08
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-07
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-08-hard-trial
+    name: Dirichlet条件を組み込んだ試行関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Dirichlet条件を組み込んだ試行関数）"]
+    requires:
+      - physics-machine-learning.pml2-06-strong-residual
+  - id: physics-machine-learning.pml2-08-hard-boundary
+    name: hard試行関数の境界保証と内部残差
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-08-hard-trial
+      - physics-machine-learning.pml2-06-strong-residual
+  - id: physics-machine-learning.pml2-08-soft-penalty
+    name: 境界条件のsoft penalty
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（境界条件のsoft penalty）"]
+    requires:
+      - physics-machine-learning.pml2-06-composite-loss
+  - id: physics-machine-learning.pml2-08-soft-tradeoff
+    name: 有限重みで残る境界違反
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-08-soft-penalty
+  - id: physics-machine-learning.pml2-08-heat-trial
+    name: 初期・境界データを組み込んだ熱方程式の試行関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（初期・境界データを組み込んだ熱方程式の試行関数）"]
+    requires:
+      - physics-machine-learning.pml2-08-hard-trial
+  - id: physics-machine-learning.pml2-08-heat-compatibility
+    name: 初期・境界の整合性とhard試行関数の保証
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-08-heat-trial
