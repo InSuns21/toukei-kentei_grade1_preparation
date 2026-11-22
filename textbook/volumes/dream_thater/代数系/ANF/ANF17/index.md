@@ -222,11 +222,13 @@ $$
 
 他方、[ANF16 で一般の有限拡大 $M/K$ に対して導出したノルム付値公式](../ANF16/index.md#prop-anf16-valuation-unit-sequence)を使います。そこでは $\mathcal O_M$ の $\mathcal O_K$ 基底上で一様化元 $\pi_M$ の乗法行列を作り、$\#(\mathcal O_M/\pi_M\mathcal O_M)=\#k_M=q^f$ から $v_K(\det m_{\pi_M})=f$ と求めました。単数の乗法行列の行列式は単数なので、$b=\pi_M^r u$ に対して
 
-$
+$$
 v_K(N_{M/K}(b))=r\,v_K(N_{M/K}(\pi_M))+v_K(N_{M/K}(u))=fr.
-$
+$$
 
-これを[非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)に代入すると、$
+これを[非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)に代入すると、
+
+$$
 \operatorname{rec}_{L/K}(N_{M/K}(b))
 =F_{L/K}^{v_K(N_{M/K}(b))}
 =F_{L/K}^{fr}.
