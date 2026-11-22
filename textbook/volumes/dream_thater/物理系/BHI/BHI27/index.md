@@ -621,7 +621,7 @@ F'''=-2\frac{y_2''}{y_2^3}+6\frac{y_2'^2}{y_2^4},
 \qquad F'''(0)=-2k^2.
 $$
 
-従って $\{F,0\}=-2k^2$。[BHI22の流束公式](../BHI22/index.md#prop-bhi22-anomalous-flux)から $P(0)=-c\{F,0\}/(24\pi)=ck^2/(12\pi)$。$[k^2]=L^{-2}$ なので流束の次元も一致する。
+従って $\{F,0\}=-2k^2$。[透過浴のSchwarzian出射流束](../BHI22/index.md#prop-bhi22-anomalous-flux)から $P(0)=-c\{F,0\}/(24\pi)=ck^2/(12\pi)$。$[k^2]=L^{-2}$ なので流束の次元も一致する。
 <!-- solution-end -->
 
 <a id="ex-bhi27-a04"></a>
