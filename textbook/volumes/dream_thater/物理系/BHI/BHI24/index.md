@@ -239,7 +239,7 @@ $$
 x=\frac8{35},\qquad
 \mathcal I_{\rm Dirac}
 =-\frac13\ln\frac{27}{35}
-=\frac13\ln\frac{35}{27}\simeq0.0864\ {\rm nat}.
+=\frac13\ln\frac{35}{27}\simeq0.0865\ {\rm nat}.
 $$
 
 そこで端点のWeyl係数を $e^{\omega_1}=2,e^{\omega_2}=3$、浴側を $e^{\omega_3}=e^{\omega_4}=1$ と仮に指定すると
@@ -270,7 +270,19 @@ $$
 
 ## 6. JTの重力端点を足した一般化エントロピー
 
-[HOLO24の一般化エントロピーの定義](../../HOLO/HOLO24/index.md#def-holo24-generalized-entropy)では、幾何項と物質エントロピーを**同じ面・同じ状態・整合する正則化**で足します。[BHI20のJTエントロピー](../BHI20/index.md#prop-bhi20-entropy)に合わせ、$G_2>0$、位相的な定数 $S_0=\Phi_0/(4G_2)$、各端点のdilaton $\Phi(Q_j)$ を使います。二端点islandに対する幾何項は
+[HOLO24の一般化エントロピーの定義](../../HOLO/HOLO24/index.md#def-holo24-generalized-entropy)では、幾何項と物質エントロピーを**同じ面・同じ状態・整合する正則化**で足します。JTでこの幾何項を任意の候補端点へ評価できる理由を、地平線での公式から一段戻って確かめます。
+
+[BHI19のJT作用](../BHI19/index.md#def-bhi19-jt-action)をEuclid化した曲率項は $-(16\pi G_2)^{-1}\int\sqrt g\,(\Phi_0+\Phi)R$ です。[BHI20の円錐法による地平線エントロピーの証明](../BHI20/index.md#prop-bhi20-entropy)で使った**局所的な**計算は、点 $Q_j$ でdilatonが滑らかなら、そこが地平線上かどうかによらず候補位置で実行できます。角周期を $2\pi n$ とした円錐の先端では、スカラー曲率の集中寄与と、それを作用へ代入した寄与がそれぞれ
+
+$$
+\int_{\mathrm{tip}\,Q_j}\sqrt g\,R=4\pi(1-n),\qquad
+\left.(I_n^E-nI_1^E)\right|_{\mathrm{tip}\,Q_j}
+=-(1-n)\frac{\Phi_0+\Phi(Q_j)}{4G_2}+O((n-1)^2)
+$$
+
+となります。したがってレプリカ微分 $-\partial_n(\ln Z_n-n\ln Z_1)|_{n=1}$ に対応する**局所幾何項**は、各端点で $S_0+\Phi(Q_j)/(4G_2)$ です。二点ならこの寄与を二回足します。この計算が与えるのは候補汎関数の端点係数であり、任意の点に円錐を置いた配置が重力レプリカの鞍点になるという結論ではありません。
+
+$G_2>0$、$S_0=\Phi_0/(4G_2)$ とし、端点の値 $\Phi(Q_j)$ を指定すると、二端点islandに対する幾何項は
 
 $$
 A_{\rm JT}(\partial I)
