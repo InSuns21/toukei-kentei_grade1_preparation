@@ -6,9 +6,11 @@
 
 ## 1. 非分岐拡大に残る自己同型：Frobenius
 
-$K$ を有限剰余体を持つ非 Archimedes 局所体、$\mathcal O_K$ を整数環、$\mathfrak m_K$ を極大イデアル、$k_K=\mathcal O_K/\mathfrak m_K$ を要素数 $q$ の剰余体とします。$\pi_K$ は付値 $v_K(\pi_K)=1$ の一様化元で、$v_K(K^\times)=\mathbb Z$ と規格化します。
+素数 $p$ を固定し、本講では $K/\mathbb Q_p$ を有限拡大とします。$\mathcal O_K$ を整数環、$\mathfrak m_K$ を極大イデアル、$k_K=\mathcal O_K/\mathfrak m_K$ を要素数 $q=p^r$ の剰余体（$r\ge1$）とします。$\pi_K$ は付値 $v_K(\pi_K)=1$ の一様化元で、$v_K(K^\times)=\mathbb Z$ と規格化します。
 
-有限体 $k$ の要素数が $q$ なら、任意の $a\in k$ について $a^q=a$ です。一方、次数 $f$ の有限拡大 $k'/k$ では写像 $x\mapsto x^q$ が $k$ を固定する自己同型になります。以下で、この自己同型に名前を付けます。
+有限体 $k$ の要素数が $q$ なら、任意の $a\in k$ は $a^q=a$ を満たします。$k'/k$ を次数 $f$ の有限拡大とします。
+
+[相対 Frobenius 自己同型](../../FLD/FLD3/index.md#thm-fld3-relative-frobenius)から、$x\mapsto x^q$ は $k$ を固定する $k'$ の自己同型になります。既習の記法 $\Phi_q$ を、本講では $\operatorname{Frob}_q$ と書きます。この写像に付ける名称を次で定義します。
 
 <a id="def-anf15-arithmetic-frobenius"></a>
 
@@ -25,7 +27,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf15-arithmetic-frobenius -->
-**定義の確認**： $k=\mathbb F_3$、$k'=\mathbb F_3[t]/(t^2+1)$ とし、$i$ を $t$ の剰余類とします。$\mathbb F_3$ では $-1=2$ が平方でないので、この商は $9$ 元の体です。$i^2=-1$ より
+**定義の確認**： $k=\mathbb F_3$、$k'=\mathbb F_3[t]/(t^2+1)$ とし、$i$ を $t$ の剰余類とします。$\mathbb F_3$ では $-1=2$ が平方でないので、この商は $9$ 元の体です。二次多項式で割ったため各剰余類は $a+bi$（$a,b\in\mathbb F_3$）で一意に表せ、関係式 $i^2=-1$ を使って積を計算できます。特に $i^2=-1$ より
 
 $$
 \operatorname{Frob}_3(i)=i^3=-i.
@@ -40,7 +42,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（非分岐局所拡大の Frobenius）**  
-> $L/K$ を次数 $f\ge1$ の有限非分岐 Galois 局所拡大、$|k_K|=q$ とする。このとき、剰余体上の $\operatorname{Frob}_q:x\mapsto x^q$ を誘導する自己同型 $F\in\operatorname{Gal}(L/K)$ がただ一つ存在し、
+> $K/\mathbb Q_p$ を有限拡大、$L/K$ を次数 $f\ge1$ の有限非分岐 Galois 拡大、$|k_K|=q$ とする。このとき、剰余体上の $\operatorname{Frob}_q:x\mapsto x^q$ を誘導する自己同型 $F\in\operatorname{Gal}(L/K)$ がただ一つ存在し、
 
 $$
 \operatorname{Gal}(L/K)=\langle F\rangle,
@@ -73,7 +75,7 @@ $$
 上の同型による原像を $F$ とすれば存在・一意性が従い、$F$ の位数も $f$、従って $G=\langle F\rangle$ です。
 <!-- proof-end -->
 
-例えば $L=\mathbb Q_3(i)$、$i^2=-1$ とすると、法 $3$ で $X^2+1$ は既約・分離的なので $L/K$ は非分岐二次拡大です。剰余体で $i\mapsto-i$ となる持ち上げは $L$ 上の共役 $\sigma(i)=-i$ であり、$F=\sigma$ です。
+例えば $L=\mathbb Q_3(i)$、$i^2=-1$ とします。法 $3$ で $X^2+1$ は既約ですが、それだけで整数環の同定を済ませることはできません。[整数環と分岐指数の計算](../ANF11/index.md#def-anf11-e-f)で $\mathcal O_L=\mathbb Z_3[i]$、$e=1$、$f=2$ を確認済みなので、$L/K$ は非分岐二次拡大です。剰余体で $i\mapsto-i$ となる持ち上げは $L$ 上の共役 $\sigma(i)=-i$ であり、$F=\sigma$ です。
 
 ## 2. ノルム群の商を付値で測る
 
@@ -85,13 +87,82 @@ $$
 
 と一意に書けます。非分岐なので $e(L/K)=1$ で $\pi_K$ を $L$ の一様化元としても使えます。
 
-[ノルムの付値と整数環の跡](../ANF12/index.md#prop-anf12-norm-valuation) では $v_K(N_{L/K}(x))=f\,v_L(x)$ です。また [非分岐拡大の単数ノルム全射性](../ANF12/index.md#thm-anf12-unramified-norm) により $\mathcal O_L^\times$ のノルム像は $\mathcal O_K^\times$ 全体です。
+ここで $N=N_{L/K}$ と略記します。[ANF12 のノルム付値・非分岐単数の証明](../ANF12/index.md#thm-anf12-unramified-norm)は基礎体 $\mathbb Q_p$ について述べられているので、以下で本講の $K/\mathbb Q_p$ にも同じ計算が適用できることを確かめます。
+
+まず $n=[L:K]=ef$ とし、$v_L|_K=e v_K$ とします。Galois 自己同型は規格化付値を保つので、任意の $x\in L^\times$ について
+
+$$
+e\,v_K(N(x))=v_L\!\left(\prod_{\sigma\in\operatorname{Gal}(L/K)}\sigma(x)\right)
+=\sum_\sigma v_L(\sigma(x))=n\,v_L(x).
+$$
+
+従って $v_K(N(x))=f\,v_L(x)$ です。これは[ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)を相対拡大へ書き直したものです。
+
+単数についても同じ持ち上げを行います。非分岐なので $e=1$、$\pi_K$ は $L$ の一様化元です。剰余拡大は、有限体の同型を通じて $\mathbb F_{q^f}/\mathbb F_q$ と見なせます。
+
+[有限体のノルム・跡の全射性](../ANF12/index.md#lem-anf12-finite-field-maps)の証明を $p$ の代わりに $q$ で行うと、両写像は全射です。実際、有限体の乗法群の生成元 $g$ に対し
+
+$$
+N_{k_L/k_K}(g)=g^{(q^f-1)/(q-1)},
+\qquad \operatorname{ord}(N_{k_L/k_K}(g))=q-1
+$$
+
+だからノルムは全射です。また、跡多項式
+
+$$
+T(X)=\sum_{j=0}^{f-1}X^{q^j},
+\qquad \deg T=q^{f-1}<q^f
+$$
+
+は零多項式でないので、$k_L$ 上の値はどこかで非零です。跡写像は $k_K$ 線形で値域が $k_K$ だから、零写像でなければ全射です。
+
+さらに任意の $z\in\mathcal O_L$、$r\ge1$ について、共役の積の一次項を取り出すと
+
+$$
+\begin{aligned}
+N(1+\pi_K^r z)
+&=\prod_\sigma(1+\pi_K^r\sigma(z))\\
+&\equiv1+\pi_K^r\sum_\sigma\sigma(z)\\
+&\equiv1+\pi_K^r\operatorname{Tr}_{k_L/k_K}(\bar z)
+\pmod{\pi_K^{r+1}}.
+\end{aligned}
+$$
+
+この合同式の剰余体の跡は $\mathcal O_K$ に持ち上げた代表元で表し、代表元を替えた差は $\pi_K^{r+1}$ の倍数になります。二つ以上の一次項の積は $\pi_K^{2r}$ を含み、$2r\ge r+1$ なので消えます。また、単数 $b\in\mathcal O_L^\times$ に対して共役積を法 $\pi_K$ で還元すると
+
+$$
+\begin{aligned}
+\overline{N_{L/K}(b)}
+&=\prod_{\sigma\in\operatorname{Gal}(L/K)}\overline{\sigma(b)}\\
+&=N_{k_L/k_K}(\bar b).
+\end{aligned}
+$$
+
+となります。これは[段階商でのノルムと剰余体ノルムの対応](../ANF12/index.md#prop-anf12-residue-norm-trace)を相対拡大で書いた式です。
+
+任意の $u\in\mathcal O_K^\times$ に対して、有限体ノルムの全射性により $x_1\in\mathcal O_L^\times$ を $N(x_1)\equiv u\pmod{\pi_K}$ と選びます。$N(x_r)\equiv u\pmod{\pi_K^r}$ まで達したとします。$c_r\in\mathcal O_K$ を選んで
+
+$$
+u/N(x_r)\equiv1+\pi_K^r c_r\pmod{\pi_K^{r+1}}
+$$
+
+と書き、剰余体跡の全射性から $\operatorname{Tr}_{k_L/k_K}(\bar z_r)=\bar c_r$ を満たす $z_r\in\mathcal O_L$ を選びます。そこで
+
+$$
+\begin{aligned}
+x_{r+1}&=x_r(1+\pi_K^r z_r),\\
+N(x_{r+1})&\equiv N(x_r)(1+\pi_K^r c_r)
+\equiv u\pmod{\pi_K^{r+1}}
+\end{aligned}
+$$
+
+となります。$x_{r+1}-x_r\in\pi_K^r\mathcal O_L$ なので、完備性から $x_r$ は単数 $x$ に収束します。ノルムは連続だから $N(x)=u$ です。従って $N(\mathcal O_L^\times)=\mathcal O_K^\times$ であり、本講の一般の基礎体に対しても必要な二つの事実を得ました。
 
 <a id="prop-anf15-unramified-norm-quotient"></a>
 
 <!-- formal-statement-start -->
 > **命題（非分岐ノルム商）**  
-> $L/K$ を次数 $f\ge1$ の有限非分岐 Galois 局所拡大とし、$v_K(K^\times)=\mathbb Z$ とする。このとき
+> $K/\mathbb Q_p$ を有限拡大、$L/K$ を次数 $f\ge1$ の有限非分岐 Galois 拡大とし、$v_K(K^\times)=\mathbb Z$ とする。このとき
 
 $$
 N_{L/K}(L^\times)
@@ -123,7 +194,7 @@ N_{L/K}(x)=\pi_K^{fj}N_{L/K}(w)
 \in \pi_K^{f\mathbb Z}\mathcal O_K^\times.
 $$
 
-逆に $a=\pi_K^{fj}u$（$u\in\mathcal O_K^\times$）を取ります。[非分岐単数ノルム全射性](../ANF12/index.md#thm-anf12-unramified-norm) から $w\in\mathcal O_L^\times$ で $N(w)=u$ となる元が存在し、
+逆に $a=\pi_K^{fj}u$（$u\in\mathcal O_K^\times$）を取ります。上で $K$ に拡張した[非分岐単数ノルム全射性](../ANF12/index.md#thm-anf12-unramified-norm)から $w\in\mathcal O_L^\times$ で $N(w)=u$ となる元が存在し、
 
 $$
 N(\pi_K^jw)=\pi_K^{fj}u=a.
@@ -138,13 +209,13 @@ $$
 
 ## 3. 非分岐局所 Artin 写像を実際に作る
 
-前二節の結果を並べると、左のノルム商も右の Galois 群も同じ巡回群 $\mathbb Z/f\mathbb Z$ で表せます。ここで対応の向きを決めるため、**一様化元を算術的 Frobenius に送る**という規格化を選びます（幾何学的 Frobenius を採用する文献では逆元になるため、向きを確認してください）。
+前二節の結果を並べると、左のノルム商も右の Galois 群も同じ巡回群 $\mathbb Z/f\mathbb Z$ で表せます。ここで対応の向きを決めるため、**一様化元を算術的 Frobenius に送る**という規格化を選びます（幾何学的 Frobenius は算術的 Frobenius の逆自己同型なので、その規格化では向きが逆になります）。
 
 <a id="def-anf15-unramified-artin"></a>
 
 <!-- formal-statement-start -->
 > **定義（非分岐局所 Artin 写像）**  
-> $L/K$ を次数 $f$ の有限非分岐 Galois 局所拡大、$F$ を算術的 Frobenius の唯一の持ち上げとする。任意の $a=\pi_K^m u\in K^\times$（$u\in\mathcal O_K^\times$）に対して
+> $K/\mathbb Q_p$ を有限拡大、$L/K$ を次数 $f\ge1$ の有限非分岐 Galois 拡大、$F$ を算術的 Frobenius の唯一の持ち上げとする。任意の $a=\pi_K^m u\in K^\times$（$u\in\mathcal O_K^\times$）に対して
 
 $$
 \operatorname{rec}_{L/K}(a)=F^m
@@ -154,7 +225,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf15-unramified-artin -->
-**定義の確認**： $K=\mathbb Q_3$、$L=\mathbb Q_3(i)$、$\sigma(i)=-i$ とすると $f=2$、$\pi_K=3$、$F=\sigma$ です。任意の $u\in\mathbb Z_3^\times$ に対し
+**定義の確認**： $K=\mathbb Q_3$、$L=\mathbb Q_3(i)$、$\sigma(i)=-i$ とすると $f=2$、$\pi_K=3$、$F=\sigma$ です。任意の $u\in\mathbb Z_3^\times$ に対し、$v_3(9u)=2$、$v_3(3u)=1$ だから
 
 $$
 \operatorname{rec}_{L/K}(9u)=\sigma^2=1,
@@ -171,7 +242,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（非分岐局所相互法則）**  
-> $L/K$ を次数 $f\ge1$ の有限非分岐 Galois 局所拡大とする。算術的 Frobenius の持ち上げ $F$ を用いて
+> $K/\mathbb Q_p$ を有限拡大、$L/K$ を次数 $f\ge1$ の有限非分岐 Galois 拡大とする。算術的 Frobenius の持ち上げ $F$ を用いて
 
 $$
 \operatorname{rec}_{L/K}(a)=F^{v_K(a)}
@@ -235,13 +306,13 @@ $$
 e(L/K)=2,\ f(L/K)=1
 $$
 
-です。$\sigma(\sqrt5)=-\sqrt5$ とすると、$a+b\sqrt5$ のノルムは
+です。$X^2-5$ は $L$ 内で $\pm\sqrt5$ に分解し、標数 $0$ なので分離的です。従って $L/K$ は二次 Galois 拡大で、非自明な自己同型 $\sigma$ は $\sigma(\sqrt5)=-\sqrt5$ を満たします。[体ノルムの共役積表示](../ANF2/index.md#thm-anf2-embedding-formulas)から、$a+b\sqrt5$ のノルムは
 
 $$
 N_{L/K}(a+b\sqrt5)=(a+b\sqrt5)(a-b\sqrt5)=a^2-5b^2.
 $$
 
-$x=a+b\sqrt5\in\mathcal O_L^\times$ なら $a,b\in\mathbb Z_5$ で $a\bmod5\ne0$ です。従って $N(x)$ の剰余は $(a\bmod5)^2$ で、必ず $\mathbb F_5^\times$ の平方です。特に平方集合は $\{1,4\}$ なので $2$ はノルムではありません。
+整数環の表示より $x=a+b\sqrt5\in\mathcal O_L$（$a,b\in\mathbb Z_5$）と書けます。極大イデアルは $(\sqrt5)$ であり、$x$ を剰余体 $\mathcal O_L/(\sqrt5)\cong\mathbb F_5$ に送ると $a\bmod5$ になるため、$x\in\mathcal O_L^\times$ と $a\bmod5\ne0$ は同値です。従って $N(x)$ の剰余は $(a\bmod5)^2$ で、必ず $\mathbb F_5^\times$ の平方です。特に平方集合は $\{1,4\}$ なので $2$ はノルムではありません。
 
 逆に $u\in\mathbb Z_5^\times$ で $u\bmod5$ が平方なら、$r_0^2\equiv u\pmod5$ を満たす $r_0\not\equiv0$ が存在します。$2r_0\not\equiv0\pmod5$ なので [単純根の Hensel の補題](../ANF10/index.md#thm-anf10-hensel-simple) を多項式 $T^2-u$ に適用し、$r\in\mathbb Z_5^\times$ で $r^2=u$ が得られます。基礎体の元 $r$ のノルムは $r^2=u$ です。
 
@@ -290,13 +361,13 @@ $\mathbb F_5^\times$ の平方類は $\{1,4\}$ と $\{2,3\}$ の二つです。�
 
 ## 5. 一般の局所 Artin 写像で何を目指すか
 
-有限 Abel Galois 拡大 $L/K$ では、目標となる局所相互法則は正規化された全射群準同型
+Galois 群が可換な有限 Galois 拡大（有限 Abel 拡大）$L/K$ では、目標となる局所相互法則は正規化された全射群準同型
 
 $$
 \operatorname{rec}_{L/K}:K^\times\longrightarrow\operatorname{Gal}(L/K)
 $$
 
-を与え、その核を $N_{L/K}(L^\times)$ と一致させるものです。ここで「Abel」とは Galois 群が可換であることを意味します。非分岐拡大では前節までに具体的な写像を構成しました。分岐拡大では付値の情報に加えて単数群からの寄与を組み込む必要があります。
+を与え、その核を $N_{L/K}(L^\times)$ と一致させるものです。非分岐拡大では前節までに具体的な写像を構成しました。分岐拡大では付値の情報に加えて単数群からの寄与を組み込む必要があります。
 
 一般の有限 Abel 拡大についての存在・関手性を、ここでは証明済みとはしません。ANF16 でノルム群と存在に必要な論理を整理し、ANF17 で正規化と関手性を含めて局所相互法則を扱います。特に「ノルム群の指数が拡大次数に等しい」という主張を、Hilbert 90 の直後に無条件で使うことはできません。
 
@@ -331,7 +402,7 @@ $$
 
 ### A2. 三次非分岐拡大の元の像
 
-$L/K$ を次数 $3$ の非分岐 Galois 局所拡大、$\pi_K$ を一様化元、$u\in\mathcal O_K^\times$ とする。$\operatorname{rec}_{L/K}(\pi_K^7u)$ と $\operatorname{rec}_{L/K}(\pi_K^{-3}u)$ を求めよ。
+$K/\mathbb Q_p$ を有限拡大、$L/K$ を次数 $3$ の非分岐 Galois 拡大、$\pi_K$ を一様化元、$u\in\mathcal O_K^\times$ とする。$\operatorname{rec}_{L/K}(\pi_K^7u)$ と $\operatorname{rec}_{L/K}(\pi_K^{-3}u)$ を求めよ。
 
 - Level: A
 - ID: ANF15-A2
@@ -348,7 +419,7 @@ $L/K$ を次数 $f$ の有限 Galois 拡大とする。$a\in K^\times$ につい
 - ID: ANF15-A3
 
 <!-- solution-start -->
-**詳細解答。** 体ノルムは $N(a)=\prod_{\sigma\in\operatorname{Gal}(L/K)}\sigma(a)$ です。$a\in K$ はすべての $\sigma$ に固定され、群の位数は $f=[L:K]$ なので
+**詳細解答。** [体ノルムの共役積表示](../ANF2/index.md#thm-anf2-embedding-formulas)から $N(a)=\prod_{\sigma\in\operatorname{Gal}(L/K)}\sigma(a)$ です。$a\in K$ はすべての $\sigma$ に固定され、群の位数は $f=[L:K]$ なので
 
 $$
 N(a)=\prod_{\sigma}a=a^f.
@@ -376,7 +447,7 @@ $$
 
 ### A5. 非分岐四次での商の群演算
 
-$L/K$ を次数 $4$ の非分岐 Galois 局所拡大とする。$[a]$ を $K^\times/N(L^\times)$ の剰余類とする。$a=\pi_K^{-1}u$、$b=\pi_K^6v$（$u,v\in\mathcal O_K^\times$）のとき $[a][b]$ とその位数を求めよ。
+$K/\mathbb Q_p$ を有限拡大、$L/K$ を次数 $4$ の非分岐 Galois 拡大とする。$[a]$ を $K^\times/N(L^\times)$ の剰余類とする。$a=\pi_K^{-1}u$、$b=\pi_K^6v$（$u,v\in\mathcal O_K^\times$）のとき $[a][b]$ とその位数を求めよ。
 
 - Level: A
 - ID: ANF15-A5
@@ -393,7 +464,7 @@ $[\pi_K]^j=1$ と $4\mid j$ は同値なので、位数は $4$ です。$u,v$ �
 
 ### B1. 一様化元を取り替えても同じ写像
 
-$L/K$ を次数 $f$ の非分岐 Galois 局所拡大、$\pi$ と $\pi'$ を $K$ の一様化元とする。任意の $a\in K^\times$ に対し $a=\pi^m u=(\pi')^{m'}u'$（$u,u'\in\mathcal O_K^\times$）と書けることを使い、$m=m'$ と Artin 写像の一意性（単数を $1$ に、一様化元を $F$ に送る準同型の一意性）を示せ。
+$K/\mathbb Q_p$ を有限拡大、$L/K$ を次数 $f\ge1$ の非分岐 Galois 拡大、$\pi$ と $\pi'$ を $K$ の一様化元とする。任意の $a\in K^\times$ に対し $a=\pi^m u=(\pi')^{m'}u'$（$u,u'\in\mathcal O_K^\times$）と書けることを使い、$m=m'$ と Artin 写像の一意性（単数を $1$ に、一様化元を $F$ に送る準同型の一意性）を示せ。
 
 - Level: B
 - ID: ANF15-B1
@@ -412,7 +483,7 @@ $$
 
 ### B2. 二次中間体への制限
 
-$L/K$ を次数 $6$ の非分岐 Galois 局所拡大、$M/K$ を $L$ に含まれる次数 $2$ の非分岐中間拡大とする。$F_L$、$F_M$ をそれぞれの算術的 Frobenius 持ち上げとする。$a=\pi_K^5u$（$u\in\mathcal O_K^\times$）について $\operatorname{rec}_{L/K}(a)$ と $\operatorname{rec}_{M/K}(a)$ を求め、前者の $M$ への制限と後者が一致することを示せ。
+$K/\mathbb Q_p$ を有限拡大、$L/K$ を次数 $6$ の非分岐 Galois 拡大、$M/K$ を $L$ に含まれる次数 $2$ の非分岐中間拡大とする。$F_L$、$F_M$ をそれぞれの算術的 Frobenius 持ち上げとする。$a=\pi_K^5u$（$u\in\mathcal O_K^\times$）について $\operatorname{rec}_{L/K}(a)$ と $\operatorname{rec}_{M/K}(a)$ を求め、前者の $M$ への制限と後者が一致することを示せ。
 
 - Level: B
 - ID: ANF15-B2
@@ -425,7 +496,11 @@ $$
 \operatorname{rec}_{M/K}(a)=F_M^5=F_M.
 $$
 
-$F_L$ は剰余体上で $x\mapsto x^q$ を誘導するので、中間体 $M$ に制限した自己同型も $k_M$ 上で $x\mapsto x^q$ を誘導します。[唯一の持ち上げ](#prop-anf15-frobenius-lift)から $F_L|_M=F_M$ です。従って
+$\operatorname{Gal}(L/K)=\langle F_L\rangle$ は巡回群なので、その部分群 $H=\operatorname{Gal}(L/M)$ は正規です。[正規部分群と Galois 中間拡大の対応](../../FLD/FLD4/index.md#thm-fld4-normal-subgroup-correspondence)から $F_L(M)=M$ となります。
+
+従って制限 $F_L|_M$ を $M/K$ の自己同型として定義できます。$F_L$ は剰余体上で $x\mapsto x^q$ を誘導するため、制限も $k_M$ 上で $x\mapsto x^q$ を誘導します。
+
+[非分岐 Frobenius の唯一の持ち上げ](#prop-anf15-frobenius-lift)から $F_L|_M=F_M$ です。従って
 
 $$
 (F_L^5)|_M=(F_L|_M)^5=F_M^5=F_M.
@@ -487,7 +562,7 @@ $K_1=\mathbb Q_3$、$L_1=\mathbb Q_3(i)$（$i^2=-1$）、$K_2=\mathbb Q_5$、$L_
 <!-- solution-start -->
 **詳細解答。**
 
-**第1問。** $X^2+1$ は $\mathbb F_3$ で既約だから拡大は非分岐で、$\operatorname{Frob}_3(i)=i^3=-i$。従って持ち上げは $\sigma(i)=-i$ です。[非分岐ノルム商](#prop-anf15-unramified-norm-quotient)によって
+**第1問。** $X^2+1$ は $\mathbb F_3$ で既約で、[ANF11 の整数環・剰余体の確認](../ANF11/index.md#def-anf11-e-f)から $\mathcal O_{L_1}=\mathbb Z_3[i]$、$(e,f)=(1,2)$ なので非分岐です。$\operatorname{Frob}_3(i)=i^3=-i$。従って持ち上げは $\sigma(i)=-i$ です。[非分岐ノルム商](#prop-anf15-unramified-norm-quotient)によって
 
 $$
 N(L_1^\times)=3^{2\mathbb Z}\mathbb Z_3^\times,\qquad
