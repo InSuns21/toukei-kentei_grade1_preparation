@@ -81,7 +81,7 @@ $$
 
 が成り立つ。第一式は $g^{-1}\exp(t\xi)g=\exp(t\operatorname{Ad}_{g^{-1}}\xi)$ の両辺に $\rho$ を適用して $t=0$ で微分したもの。このとき $g$ と $\xi$ は固定して $t$ だけを動かす。
 
-第二式では $g:U\to G$ を滑らかな群値関数、$x\in U$、$v\in T_xU$ とする。$x(0)=x$、$\dot x(0)=v$ を満たす曲線 $x(r)$ を選ぶ。$g^{-1}dg$ は [左 Maurer–Cartan 形式](../../../代数系/LIE/LIE4/index.md#def-lie4-left-maurer-cartan-form)の引き戻しであり、$g(x)$ における速度を左移動で単位元の接空間へ戻したものである。したがって連鎖律と群準同型性により
+第二式では $g:U\to G$ を滑らかな群値関数、$x\in U$、$v\in T_xU$ とする。$x(0)=x$、$\dot x(0)=v$ を満たす曲線 $x(r)$ を選ぶ。$g^{-1}dg$ は [左 Maurer–Cartan 形式](../../../代数系/LIE/LIE4/index.md#def-lie4-maurer-cartan-form)の引き戻しであり、$g(x)$ における速度を左移動で単位元の接空間へ戻したものである。したがって連鎖律と群準同型性により
 
 $$
 \begin{aligned}
