@@ -1,0 +1,49 @@
+id: "PML2-09"
+title: "物理残差の重みは何を変えるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-08
+official_scope: []
+learning_objectives:
+  - Poisson残差と境界違反の物理単位を区別し基準尺度で無次元損失を構成できる
+  - 残差尺度の変更に対して等価な物理重みを導き勾配の一致を示せる
+  - 競合する二次損失の重み付き最小点と残差・端点違反を再計算できる
+  - パラメータ勾配の大きさと相殺方向を区別し勾配ノルム均衡の限界を説明できる
+  - 二変数二次損失のHessian条件数と固定学習率の収束条件を導ける
+  - パラメータ座標の変更が条件数と勾配降下更新へ及ぼす影響を計算できる
+  - 誤差を含む観測と物理残差の妥協点を求め条件の不整合を判定できる
+  - 訓練損失、勾配、検証残差、解誤差を区別して重み選択実験を設計できる
+definitions:
+  - { id: PML2-09-DEF-01, name: 無次元化した複合PINN損失 }
+  - { id: PML2-09-DEF-02, name: 損失項別のパラメータ勾配 }
+theorems:
+  - { id: PML2-09-PROP-01, name: 残差の尺度変更に対する重みの変換 }
+  - { id: PML2-09-THM-01, name: 二次PINN損失の重みと最小点 }
+  - { id: PML2-09-PROP-02, name: 二項の勾配が釣り合う条件 }
+  - { id: PML2-09-THM-02, name: 重み付き二次損失の勾配降下安定条件 }
+  - { id: PML2-09-PROP-03, name: 観測と物理残差の競合 }
+canonical_examples:
+  - Poisson残差と端点違反の単位を基準尺度で無次元化
+  - 残差スケーリングと重み逆二乗変換の厳密な等価性
+  - 一パラメータ候補の相反する境界と内部残差の重み付き最小点
+  - 対向する項別勾配と等ノルムでも停留しない反例
+  - 二変数二次損失のHessianと固定学習率の安定範囲
+  - 座標再パラメータ化による条件数の変化
+  - 誤差を含む中央観測と物理条件の一意最小化
+  - 内部境界観測の三項を同時に解く統合計算
+problem_patterns:
+  - PML2-09-A01
+  - PML2-09-A02
+  - PML2-09-A03
+  - PML2-09-A04
+  - PML2-09-A05
+  - PML2-09-B01
+  - PML2-09-B02
+  - PML2-09-B03
+  - PML2-09-B04
+  - PML2-09-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
