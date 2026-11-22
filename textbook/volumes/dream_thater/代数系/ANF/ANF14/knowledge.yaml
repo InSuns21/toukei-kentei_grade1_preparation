@@ -1,0 +1,73 @@
+chapter: ANF14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF13
+forward_references: []
+
+concepts:
+  - id: number-theory.group-first-cocycle
+    name: 第1余サイクル
+    kind: definition
+    introduction: formal
+    aliases: [1-cocycle]
+    requires: [algebra.galois-group, algebra.group]
+
+  - id: number-theory.group-first-coboundary
+    name: 第1余境界
+    kind: definition
+    introduction: formal
+    aliases: [1-coboundary]
+    introduction_aliases: ["定義（第1余境界と第1コホモロジー群）"]
+    requires: [number-theory.group-first-cocycle]
+
+  - id: number-theory.group-first-cohomology
+    name: 第1コホモロジー群
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（第1余境界と第1コホモロジー群）"]
+    requires: [number-theory.group-first-coboundary]
+
+  - id: number-theory.hilbert90-multiplicative
+    name: 乗法的 Hilbert の定理90
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.group-first-cohomology, algebra.artin-independence, algebra.finite-galois-extension]
+
+  - id: number-theory.hilbert90-cyclic
+    name: 巡回型 Hilbert の定理90
+    kind: corollary
+    introduction: formal
+    requires: [number-theory.hilbert90-multiplicative, number-theory.local-norm-integral-trace]
+
+  - id: number-theory.cyclic-norm-ratio-exactness
+    name: 巡回拡大の比とノルムの完全性
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.hilbert90-cyclic, algebra.fundamental-theorem-finite-galois]
+
+  - id: number-theory.additive-first-cocycle
+    name: 加法的第1余サイクル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（加法的第1余サイクルと余境界）"]
+    requires: [number-theory.group-first-cocycle]
+
+  - id: number-theory.additive-first-coboundary
+    name: 加法的第1余境界
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（加法的第1余サイクルと余境界）"]
+    requires: [number-theory.additive-first-cocycle]
+
+  - id: number-theory.hilbert90-additive
+    name: 加法的 Hilbert の定理90
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.additive-first-coboundary, algebra.artin-independence]
+
+  - id: number-theory.cyclic-trace-difference
+    name: 巡回拡大の跡0と差
+    kind: corollary
+    introduction: formal
+    requires: [number-theory.hilbert90-additive]
