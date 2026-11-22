@@ -273,7 +273,25 @@ $D(b)=1$ は $\sigma(b)=b$ と同値で、生成元 $\sigma$ に固定される�
 <!-- proof-start -->
 ### 証明
 
-$D(b)=1$ は $b\ne0$ に対して $\sigma(b)=b$ と同値です。$\sigma$ が $G$ を生成するから $\sigma^j(b)=b$ がすべての $j$ で成り立ち、[有限 Galois 理論の基本定理](../../FLD/FLD4/index.md#thm-fld4-fundamental-galois)の固定体 $L^G=K$ より $b\in K^\times$ です。逆に $K^\times$ は固定されるので $\ker D=K^\times$ です。[巡回型定理90](#thm-anf14-cyclic90)の両方向を合わせると、$D(b)$ の全体はノルムが $1$ の元全体に等しくなり、$\operatorname{im}D=\ker N$ です。
+まず非零元 $b\in L^\times$ に対し、比の定義を代入すると
+
+$
+D(b)=1\quad\Longleftrightarrow\quad \sigma(b)=b.
+$
+
+$\sigma$ は $G$ を生成するので、この等式が成り立てばすべての整数 $j$ について $\sigma^j(b)=b$ です。[有限 Galois 理論の基本定理](../../FLD/FLD4/index.md#thm-fld4-fundamental-galois)によれば、$G$ 全体の固定体は $L^G=K$。従って $b\in K^\times$ です。逆に基礎体の元はすべて $\sigma$ に固定されるため
+
+$
+\ker D=K^\times.
+$
+
+次に[巡回型定理90](#thm-anf14-cyclic90)を $L/K$ と生成元 $\sigma$ に適用します。ノルムが $1$ なら比で表せ、比ならノルムが $1$ なので
+
+$
+\operatorname{im}D
+=\{u\in L^\times:N_{L/K}(u)=1\}
+=\ker N_{L/K}.
+$
 <!-- proof-end -->
 
 例えば[非分岐二次拡大のノルム群](../ANF12/index.md#thm-anf12-unramified-norm)は
