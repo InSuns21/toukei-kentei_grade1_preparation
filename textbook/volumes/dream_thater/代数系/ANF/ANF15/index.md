@@ -8,7 +8,9 @@
 
 素数 $p$ を固定し、本講では $K/\mathbb Q_p$ を有限拡大とします。$\mathcal O_K$ を整数環、$\mathfrak m_K$ を極大イデアル、$k_K=\mathcal O_K/\mathfrak m_K$ を要素数 $q=p^r$ の剰余体（$r\ge1$）とします。$\pi_K$ は付値 $v_K(\pi_K)=1$ の一様化元で、$v_K(K^\times)=\mathbb Z$ と規格化します。
 
-有限体 $k$ の要素数が $q$ なら、任意の $a\in k$ について $a^q=a$ です。一方、次数 $f$ の有限拡大 $k'/k$ では、[相対 Frobenius 自己同型](../../FLD/FLD3/index.md#thm-fld3-relative-frobenius)によって写像 $x\mapsto x^q$ が $k$ を固定する自己同型になります。既習の記法 $\Phi_q$ と同じ写像を、本講では $\operatorname{Frob}_q$ と書き、算術的 Frobenius と呼びます。
+有限体 $k$ の要素数が $q$ なら、任意の $a\in k$ は $a^q=a$ を満たします。$k'/k$ を次数 $f$ の有限拡大とします。
+
+[相対 Frobenius 自己同型](../../FLD/FLD3/index.md#thm-fld3-relative-frobenius)から、$x\mapsto x^q$ は $k$ を固定する $k'$ の自己同型になります。既習の記法 $\Phi_q$ を、本講では $\operatorname{Frob}_q$ と書き、算術的 Frobenius と呼びます。
 
 <a id="def-anf15-arithmetic-frobenius"></a>
 
@@ -494,7 +496,11 @@ $$
 \operatorname{rec}_{M/K}(a)=F_M^5=F_M.
 $$
 
-$\operatorname{Gal}(L/K)=\langle F_L\rangle$ は巡回群なので、$H=\operatorname{Gal}(L/M)$ は正規部分群です。[正規部分群と Galois 中間拡大の対応](../../FLD/FLD4/index.md#thm-fld4-normal-subgroup-correspondence)から $F_L(M)=M$ となり、初めて $F_L|_M$ を $M/K$ の自己同型として定義できます。$F_L$ は剰余体上で $x\mapsto x^q$ を誘導するので、その制限も $k_M$ 上で $x\mapsto x^q$ を誘導します。[唯一の持ち上げ](#prop-anf15-frobenius-lift)から $F_L|_M=F_M$ です。従って
+$\operatorname{Gal}(L/K)=\langle F_L\rangle$ は巡回群なので、その部分群 $H=\operatorname{Gal}(L/M)$ は正規です。[正規部分群と Galois 中間拡大の対応](../../FLD/FLD4/index.md#thm-fld4-normal-subgroup-correspondence)から $F_L(M)=M$ となります。
+
+従って制限 $F_L|_M$ を $M/K$ の自己同型として定義できます。$F_L$ は剰余体上で $x\mapsto x^q$ を誘導するため、制限も $k_M$ 上で $x\mapsto x^q$ を誘導します。
+
+[非分岐 Frobenius の唯一の持ち上げ](#prop-anf15-frobenius-lift)から $F_L|_M=F_M$ です。従って
 
 $$
 (F_L^5)|_M=(F_L|_M)^5=F_M^5=F_M.
