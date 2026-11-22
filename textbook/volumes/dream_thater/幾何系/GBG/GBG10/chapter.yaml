@@ -1,0 +1,44 @@
+id: "GBG10"
+title: "曲率とはどの失敗を測るか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG9
+  - VC1
+official_scope: []
+learning_objectives:
+  - Lie環値1形式の括弧付き外積を定義から計算し、係数2分の1の必要性を説明できる
+  - 主束の曲率2形式の水平性と右作用に対する同変性を再生条件・Cartan公式から証明できる
+  - 曲率が水平リフトのLie括弧の垂直成分を測ることを符号込みで導ける
+  - 局所曲率F=dA+[A wedge A]/2とその座標成分を導出し可換・非可換の例で検算できる
+  - 局所曲率のゲージ共変性を大域の水平性と行列外積の二通りで示せる
+  - 共変微分の交換子を展開し曲率の表現作用との等式を証明できる
+definitions:
+  - { id: GBG10-DEF-01, name: 主束接続の曲率2形式 }
+  - { id: GBG10-DEF-02, name: 局所曲率形式 }
+theorems:
+  - { id: GBG10-THM-01, name: 曲率の水平性と右作用の同変性 }
+  - { id: GBG10-THM-02, name: 曲率と水平ベクトル場の括弧 }
+  - { id: GBG10-THM-03, name: 曲率の局所構造方程式 }
+  - { id: GBG10-THM-04, name: 局所曲率のゲージ共変性 }
+  - { id: GBG10-THM-05, name: 共変微分の交換子と曲率 }
+canonical_examples:
+  - GL(2,R)の非可換括弧と行列外積
+  - U(1)の平坦接続と位置依存非零曲率
+  - SU(2)定数係数ポテンシャルの非零曲率と局所ゲージ変換
+  - U(1)荷電場の共変微分交換子と中性場の不可視性
+problem_patterns:
+  - GBG10-WEDGE-BRACKET
+  - GBG10-ABELIAN-CURVATURE
+  - GBG10-HORIZONTAL-BRACKET
+  - GBG10-U1-GAUGE
+  - GBG10-REPRESENTATION-KERNEL
+  - GBG10-NONABELIAN-CONNECTION
+  - GBG10-COVARIANT-DERIVATIVE-COMMUTATOR
+  - GBG10-NONABELIAN-GAUGE
+  - GBG10-FLAT-PURE-GAUGE
+  - GBG10-GLOBAL-LOCAL-REPRESENTATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 4 }
