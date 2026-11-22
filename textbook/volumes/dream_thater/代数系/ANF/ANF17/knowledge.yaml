@@ -1,0 +1,49 @@
+chapter: ANF17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF16
+forward_references: []
+
+concepts:
+  - id: number-theory.finite-local-artin-map
+    name: 有限拡大の局所Artin写像
+    kind: definition
+    introduction: formal
+    requires: [number-theory.unramified-local-reciprocity, number-theory.local-class-field-existence]
+
+  - id: number-theory.local-reciprocity-finite-quotients
+    name: 局所相互法則・有限商による表示
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.finite-local-artin-map, number-theory.local-class-field-existence]
+
+  - id: number-theory.local-artin-quotient-isomorphism
+    name: 有限局所Artin写像の核と位数
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.local-reciprocity-finite-quotients, number-theory.local-norm-subgroup]
+
+  - id: number-theory.local-artin-restriction-naturality
+    name: 中間体への制限と自然性
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.local-artin-quotient-isomorphism, number-theory.local-norm-tower-inclusion]
+
+  - id: number-theory.local-reciprocity-basechange
+    name: 局所相互法則のノルム・制限の関手性
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.local-reciprocity-finite-quotients, number-theory.local-norm-integral-trace]
+
+  - id: number-theory.unramified-reciprocity-basechange
+    name: 非分岐拡大での基礎体変更
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.local-reciprocity-basechange, number-theory.unramified-local-reciprocity, number-theory.local-norm-integral-trace]
+
+  - id: number-theory.local-class-field-order-reversal
+    name: 有限Abel拡大と開有限指数部分群の対応
+    kind: corollary
+    introduction: formal
+    requires: [number-theory.local-class-field-existence, number-theory.local-artin-restriction-naturality]
