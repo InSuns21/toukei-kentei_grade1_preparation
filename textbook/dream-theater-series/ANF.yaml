@@ -67,7 +67,7 @@ chapters:
     title: "局所相互法則への導入"
   - id: ANF16
     path: textbook/volumes/dream_thater/代数系/ANF/ANF16
-    status: planned
+    status: completed
     title: "局所類体論：ノルム群と存在"
   - id: ANF17
     path: textbook/volumes/dream_thater/代数系/ANF/ANF17

@@ -1,7 +1,7 @@
 # DREAM THEATER 代数的整数論・局所体・類体論（ANF1〜ANF22）
 
 設計確定: 2026-11-21 JST  
-状態: in_progress / ANF1〜ANF15 completed・ANF16〜ANF22 planned。全22講。ANF1〜ANF15の本文・メタデータ・系列manifest・公開目次を実装済み。
+状態: in_progress / ANF1〜ANF16 completed・ANF17〜ANF22 planned。全22講。ANF1〜ANF16の本文・メタデータ・系列manifest・公開目次を実装済み。
 系列ID: \`ANF\`（Algebraic Number Fields）。分野: 代数系。対応ルート: [岩澤理論・保型表現・RH講読](../plans/DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)。
 
 ## 目的・既存教材との差分
@@ -102,4 +102,5 @@ ANF9〜13とANF19の結果は \`AFR\` 側のアデール・局所表現へ提供
 - ANF13「局所拡大と Galois 分岐群」: 惰性群の完全列、最大非分岐中間体、全分岐一様化元基底、分岐群の段階商、緩分岐・激分岐、異なる指数公式、二次拡大の比較と10題の詳細解答を追加。
 - ANF14「Hilbert の定理90・群コホモロジー」: 1-cocycle / 1-coboundary / H^1 の定義と例、乗法的・加法的 Hilbert 90 の全証明、巡回型とノルム・跡の完全性、10題と詳細解答を追加。
 - ANF15「局所相互法則への導入」: 非分岐Frobeniusの持ち上げ、非分岐ノルム商・Artin写像の全射性と核を証明し、分岐二次で単数のノルム障害を計算。全10題と詳細解答を追加。一般の局所類体論はANF16・ANF17へ明確に切り分けた。
-- 次回: ANF16「局所類体論：ノルム群と存在」。ANF16〜ANF22は未着手。
+- ANF16「局所類体論：ノルム群と存在」: 付値・単数完全列、深い主単数のn乗根、有限拡大ノルム群の開性・有限指数を証明。緩分岐巡回Kummer拡大の単数ノルムと指数を計算し、Q3・Q5の例と塔を検算。一般存在定理・一般指数等式は外部定理として証明依存を明示。全10題の詳細解答を追加。
+- 次回: ANF17「局所類体論：相互法則・関手性」。ANF17〜ANF22は未着手。
