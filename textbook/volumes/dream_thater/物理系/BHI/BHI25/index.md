@@ -227,7 +227,7 @@ S_I(A,U;V)=2S_0+2S_h\coth A
 }
 $$
 >
-> $T_\pm=\tanh[(X\pm(U+V))/2]$ とおくと、端点の半径方向と時間方向の必要十分な**対称変分での一次停留条件**は、次の連立方程式である。
+> $\operatorname{csch}A:=1/\sinh A$ とし、$T_\pm=\tanh[(X\pm(U+V))/2]$ とおくと、端点の半径方向と時間方向の必要十分な**対称変分での一次停留条件**は、次の連立方程式である。
 >
 $$
 \boxed{\begin{aligned}
@@ -246,9 +246,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-自由Dirac真空では同一cutoffでの二区間エントロピーを各単一区間の和から交差比の相互情報量を引いて得ます。[BHI24で確定した端点と相互情報量の処方](../BHI24/index.md#prop-bhi24-four-endpoint-entropy)をKruskal真空で使います。二つの単一区間の距離積は $D_{\rm same}^2$、二区間の交差相関は $D_{gg}D_{bb}/D_{\rm cross}^2$ を与えます。直前で個別に計算した四種の距離を入れると上の平方の式になります。Kruskal座標の二つの光円錐方向では、同じ側の点におけるJacobianはそれぞれ $|\partial_\sigma w^+|=\kappa e^{\kappa(\sigma+t)}$、$|\partial_\sigma w^-|=\kappa e^{\kappa(\sigma-t)}$ です。**個々の偏微分が $\kappa e^{\kappa\sigma}$ なのではなく、両者の幾何平均が $\kappa e^{\kappa\sigma}$** です。
+自由Dirac真空では同一cutoffでの二区間エントロピーを各単一区間の和から交差比の相互情報量を引いて得ます。[BHI24で確定した端点と相互情報量の処方](../BHI24/index.md#prop-bhi24-four-endpoint-entropy)をKruskal真空で使います。二つの単一区間の距離積は $D_{\rm same}^2$、二区間の交差相関は $D_{gg}D_{bb}/D_{\rm cross}^2$ を与えます。直前で個別に計算した四種の距離を入れると上の平方の式になります。Kruskal座標の二つの光円錐方向では、右外部のJacobianはそれぞれ $|\partial_\sigma w^+|=\kappa e^{\kappa(\sigma+t)}$、$|\partial_\sigma w^-|=\kappa e^{\kappa(\sigma-t)}$ です。左外部では $t$ の符号が反転して両者が入れ替わります。**個々の偏微分が $\kappa e^{\kappa\sigma}$ なのではなく、いずれの外部でも両者の幾何平均が $\kappa e^{\kappa\sigma}$** です。
 
-重力端点の座標cutoffを $\delta_g$、浴端点の座標cutoffを $\delta_b$ とすると、固有cutoffとの関係は $\epsilon_g=e^{\omega_g}\delta_g$、$\epsilon_b=e^{\omega_b}\delta_b$ であり、$e^{\omega_g}=\kappa\ell/\sinh A$、$e^{\omega_b}=1$ です。従って四つの端点におけるKruskal座標cutoffの積と、先に求めた距離の比は
+重力端点の座標cutoffを $\delta_g$、浴端点の座標cutoffを $\delta_b$ とします。各点 $p$ でのKruskal座標cutoffを $\delta_p^{(w)}:=\sqrt{|\partial_\sigma w^+||\partial_\sigma w^-|}\,\delta_p$ と定めれば、固有cutoffとの関係は $\epsilon_g=e^{\omega_g}\delta_g$、$\epsilon_b=e^{\omega_b}\delta_b$ であり、$e^{\omega_g}=\kappa\ell/\sinh A$、$e^{\omega_b}=1$ です。従って四つの端点におけるKruskal座標cutoffの積と、先に求めた距離の比は
 
 $
 \begin{aligned}
