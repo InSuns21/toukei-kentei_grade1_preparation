@@ -36,7 +36,23 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg6-vertical-space -->
-**定義の確認**。$P=\mathbb R\times GL(2,\mathbb R)$、$p=(x,K)$ を取る。$GL(2,\mathbb R)=\{K\in M_2(\mathbb R):\det K\ne0\}$ は行列空間 $M_2(\mathbb R)$ の開集合である。したがって任意の行列 $W$ に対して $K+tW$ は十分小さい $|t|$ で $GL(2,\mathbb R)$ に属し、その $t=0$ での速度は $W$ となる。[GEO2 の曲線の速度と接ベクトルの同値](../../GEO/GEO2/index.md#thm-geo2-curve-derivation-equivalence)により、これが $T_KG$ の元を与える。逆にこの開集合内の曲線の速度も行列なので、$T_KG\simeq M_2(\mathbb R)$ と同一視できる。[積接空間](../../GEO/GEO2/index.md#prop-geo2-product-tangent)で $(v,W)$ と書けば、射影が第一成分を取ることから $d\pi_{(x,K)}(v,W)=v$。よって
+**定義の確認**。積主束 $P=\mathbb R\times GL(2,\mathbb R)$ の点を $p=(x,K)$ とする。まず群
+$$
+GL(2,\mathbb R)=\{K\in M_2(\mathbb R):\det K\ne0\}
+$$
+は、行列式の連続性によって行列空間 $M_2(\mathbb R)$ の開集合である。
+
+任意の行列 $W\in M_2(\mathbb R)$ について、曲線 $t\mapsto K+tW$ は十分小さい $|t|$ で群内にあり、$t=0$ での速度は $W$ となる。[GEO2 の曲線の速度と接ベクトルの同値](../../GEO/GEO2/index.md#thm-geo2-curve-derivation-equivalence)から、この速度は接空間 $T_KG$ の元である。逆に群内の曲線の速度も行列なので、
+$$
+T_KG\simeq M_2(\mathbb R)
+$$
+と同一視できる。
+
+[積接空間](../../GEO/GEO2/index.md#prop-geo2-product-tangent)によって接ベクトルを $(v,W)$ と書く。射影 $\pi(x,K)=x$ は第一成分だけを取るので、微分は
+$$
+d\pi_{(x,K)}(v,W)=v
+$$
+となる。したがって
 $$
 V_{(x,K)}P=\{(0,W):W\in M_2(\mathbb R)\}.
 $$
