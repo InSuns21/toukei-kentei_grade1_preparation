@@ -10,7 +10,7 @@ $$
 -u''(x)=f(x)\quad(0<x<1),\qquad u(0)=u(1)=0
 $$
 
-を用いる。等間隔格子は $n\ge2$、$h=1/n$、$x_j=jh$（$0\le j\le n$）とし、差分行列 $A_h=-D_h^2$ は内部点 $j=1,\ldots,n-1$ に作用する。端点の近似値と真値は零に固定する。$u$ は比較の基準となる正確な解で、数値計算の中で常に利用できるとは限らない。
+を用いる。等間隔格子は $n\ge2$、$h=1/n$、$x_j=jh$（$0\le j\le n$）とし、差分行列 $A_h=-D_h^2$ は内部点 $j=1,\ldots,n-1$ に作用する。端点の近似値と真値は零に固定する。$u$ は比較の基準となる正確な解で、数値計算の中で常に利用できるとは限らない。ここで $u'(x)=du/dx$、$u''(x)=d^2u/dx^2$ は位置 $x$ に関する微分であり、後で使う $u^{(4)}=d^4u/dx^4$ も同じ変数で微分する。一方、[前講で定義した三点差分](../PML2-03/index.md#def-pml2-03-fd)の $D_h^2$ は格子点列へ作用する差分演算子で、$h$ に関する微分ではない。
 
 まず二つの値の差を「誤差」と呼ぶとしても、対象が格子点列か連続関数かで数値は変わる。ノルムとは差の大きさを一つの非負実数で測る規則である。有限列の最大絶対値と、区間上の関数の二乗積分を、本講で使う測定規約として導入する。
 
@@ -34,13 +34,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-04-error-metrics -->
-**定義の確認**。 $u(x)=x(1-x)$、$n=2$ では、[定数外力の節点一致と区間内誤差](../PML2-03/index.md#thm-pml2-03-quadratic)から、格子点列 $z_j=u(x_j)$ と区分一次Galerkin解 $u_h$ がある。端点と中央点を直接比較すると $E_{\rm grid}(u,z)=0$。一方、区間ごとの弦との差を積分すれば
+**定義の確認**。 $u(x)=x(1-x)$、$n=2$ では、[定数外力の節点一致と区間内誤差](../PML2-03/index.md#thm-pml2-03-quadratic)から、格子点列 $z_j=u(x_j)$ と区分一次Galerkin解 $u_h$ がある。端点と中央点を直接比較すると $E_{\rm grid}(u,z)=0$。この例では $f=2$、零端点、区分一次要素、厳密荷重積分という[前講の節点一致定理](../PML2-03/index.md#thm-pml2-03-quadratic)の仮定が満たされ、$u_h$ は $u$ の節点補間（各区間の弦）である。区間 $[x_j,x_{j+1}]$ ごとに $t=x-x_j\in[0,h]$ と置くと、曲線と弦の差は $u-u_h=t(h-t)$、その $x$ に関する導関数の差は $u'-u_h'=h-2t$。よって
 
 $$
-E_{L^2}(u,u_h)=\frac{h^2}{\sqrt{30}}=\frac1{4\sqrt{30}},
-\qquad
-E_{\rm en}(u,u_h)=\frac h{\sqrt3}=\frac1{2\sqrt3}.
+\begin{aligned}
+E_{L^2}(u,u_h)^2
+&=n\int_0^h t^2(h-t)^2\,dt
+=n\frac{h^5}{30}=\frac{h^4}{30},\\
+E_{\rm en}(u,u_h)^2
+&=n\int_0^h(h-2t)^2\,dt
+=n\frac{h^3}{3}=\frac{h^2}{3}.
+\end{aligned}
 $$
+
+平方根を取れば $E_{L^2}(u,u_h)=h^2/\sqrt{30}=1/(4\sqrt{30})$、$E_{\rm en}(u,u_h)=h/\sqrt3=1/(2\sqrt3)$ となる。格子上では節点一致を判定し、連続関数については差を積分して判定した。
 
 > 最初は格子列、残りは連続関数を比較した。同じ計算結果でも測定対象の違いで誤差が零と非零に分かれる。
 <!-- definition-example-end -->
@@ -183,7 +190,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-04-consistency-stability -->
-**定義の確認**。 $u=x(1-x)$ と $f=2$ なら、二次式の二階差分はどの格子でも厳密なので $\tau=0$、整合性が成立する。また任意の内部列 $g$ に対し、$A_hw=g$ を満たす $w$ と障壁関数 $a_j=x_j(1-x_j)/2$ を比較する。$A_ha=1$、$0\le a_j\le1/8$ を直接二階差分で確認し、$G=\|g\|_{\infty,h}$ とすれば $A_h(Ga\pm w)=G\pm g\ge0$。よって[離散最大値原理](../PML2-03/index.md#prop-pml2-03-dmp)から
+**定義の確認**。 $u=x(1-x)$ と $f=2$ なら、二次式の二階差分はどの格子でも厳密なので $\tau=0$、整合性が成立する。また任意の内部列 $g$ に対し、$A_hw=g$ を満たす $w$ と障壁関数 $a_j=x_j(1-x_j)/2$ を比較する。$D_h^2x=0$、$D_h^2(x^2)=2$ より $A_ha=-D_h^2(x-x^2)/2=1$ である。また $0\le x_j(1-x_j)\le1/4$ から $0\le a_j\le1/8$ となる。これらを確認して $G=\|g\|_{\infty,h}$ とすれば $A_h(Ga\pm w)=G\pm g\ge0$。よって[離散最大値原理](../PML2-03/index.md#prop-pml2-03-dmp)から
 
 $$
 |w_j|\le Ga_j\le\frac G8,\qquad
@@ -341,7 +348,14 @@ $$
 =\frac{\sigma^2}{m}
 $$
 
-が成立する。異なる $i$ の共分散が零なのは独立性による。零端点で $-e''=\delta$ を二回積分すれば、入力差に対応する解の差は $e(x)=\delta x(1-x)/2$。従って中央点の二乗誤差期待値は
+が成立する。異なる $i$ の共分散が零なのは独立性による。正しい右辺 $c$ に対する解を $u$、標本平均 $\widehat c$ に対する解を $\widehat u$ として $e=\widehat u-u$ と置くと、$-e''=\delta$、$e(0)=e(1)=0$。位置 $x$ で二回積分すれば
+
+$$
+e'(x)=-\delta x+C_1,\qquad
+e(x)=-\frac{\delta x^2}{2}+C_1x+C_0.
+$$
+
+$e(0)=0$ より $C_0=0$、$e(1)=0$ より $C_1=\delta/2$ だから $e(x)=\delta x(1-x)/2$。従って中央点の二乗誤差期待値は
 
 $$
 \mathbb E|e(1/2)|^2=\frac{\mathbb E\delta^2}{64}
@@ -419,7 +433,7 @@ $$
 $u=x-x^4$、$f=12x^2$、$n=4$ で正確な差分解 $z$ を用いる。$x_2=1/2$ における $u-z$ と全格子での最大絶対誤差を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $h=1/4$、前講の四次式の差分計算によれば $u(x_j)-z_j=h^2x_j(1-x_j)$。中央では
+**詳細解答。** $h=1/4$。[前講の四次式の差分計算](../PML2-03/index.md#thm-pml2-03-quadratic)では $D_h^2(x^4)=12x_j^2+2h^2$ なので、$A_h(u^I-z)=2h^2\mathbf1$。また $A_h(x_j(1-x_j))=2$ であり、差分解の一意性から $u(x_j)-z_j=h^2x_j(1-x_j)$。中央では
 
 $$
 u(1/2)=\frac12-\frac1{16}=\frac7{16},\qquad
@@ -437,7 +451,14 @@ $x(1-x)=1/4-(x-1/2)^2$ は $[0,1]$ で中央最大なので $E_{\rm grid}=1/64$�
 独立な $m$ 個の観測が平均 $c$、分散 $9$ を持つ。右辺を標本平均 $\widehat c$ で置き換えるとき、Poisson解の中央点の二乗誤差の期待値を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $\delta=\widehat c-c$ とすると独立性から $\mathbb E\delta^2=9/m$。二回積分で $-e''=\delta$、$e(0)=e(1)=0$ の解は $e(x)=\delta x(1-x)/2$。中央では $e(1/2)=\delta/8$ だから
+**詳細解答。** $\delta=\widehat c-c$ とすると、観測の独立性と分散 $9$ から $\mathbb E\delta=0$、$\mathbb E\delta^2=9/m$。推定右辺による解を $\widehat u$、真の右辺による解を $u$ とし、$e=\widehat u-u$ と置く。$-e''=\delta$、$e(0)=e(1)=0$ を位置 $x$ で積分すると
+
+$$
+e'(x)=-\delta x+C_1,\qquad
+e(x)=-\frac{\delta x^2}{2}+C_1x+C_0.
+$$
+
+端点条件から $C_0=0$、$C_1=\delta/2$、従って $e(x)=\delta x(1-x)/2$。中央では $e(1/2)=\delta/8$ だから
 
 $$
 \mathbb E[e(1/2)^2]=\frac1{64}\mathbb E\delta^2
@@ -519,7 +540,7 @@ $$
 $u=x-x^4$、$n=4$、$f=12x^2$ とする。$\widehat b=b+\delta\mathbf1$、$\rho=0$ で $\delta=2h^2$ とする。三項誤差の各項を求め、真の格子点誤差が零でも上界が正となる理由を説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** $h^2=1/16$、$\delta=1/8$。[切断誤差の定義](#def-pml2-04-residual)と四次式の二階差分から、$u^I-z=h^2x_j(1-x_j)$ である。右辺変更による差は
+**詳細解答。** $h^2=1/16$、$\delta=1/8$。[切断誤差の定義](#def-pml2-04-residual)と[前講の四次式の二階差分](../PML2-03/index.md#thm-pml2-03-quadratic)から、$\tau=2h^2\mathbf1$。$A_h(x_j(1-x_j))=2$ かつ $A_h$ は可逆なので、$A_h(u^I-z)=\tau$ を解けば $u^I_j-z_j=h^2x_j(1-x_j)$ となる。右辺変更による差は
 
 $$
 z_j-\widehat z_j=-\frac\delta2 x_j(1-x_j)
@@ -564,7 +585,20 @@ $$
 $0<\varepsilon<1$ とし、方程式 $\varepsilon x=\varepsilon$ の近似値を $0$ とする。残差と解誤差を求め、なぜ「残差が小さいほど解も近い」と推論できないのか、安定定数で説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** 真の解は $\varepsilon>0$ で割って $x=1$。$\widetilde x=0$ の残差は $r=\varepsilon-\varepsilon\cdot0=\varepsilon$、解誤差は $|1-0|=1$。残差と解誤差は $|x-\widetilde x|=(1/\varepsilon)|r|$ で結ばれる。$\varepsilon\to0$ で必要な逆写像の増幅率 $1/\varepsilon$ は無限大になる。前節のPoisson差分法で成り立った格子幅に依存しない $\|A_h^{-1}\|\le1/8$ に対応する仮定が失われているため、残差だけを見た推論は成立しない。
+**詳細解答。** $\varepsilon>0$ なので真の解は方程式の両辺を $\varepsilon$ で割った $x=1$ である。計算値 $\widetilde x=0$ に対し
+
+$$
+r=\varepsilon-\varepsilon\widetilde x=\varepsilon,\qquad
+|x-\widetilde x|=|1-0|=1.
+$$
+
+残差の定義を差の式へ戻すと $\varepsilon(x-\widetilde x)=r$ であり、$\varepsilon\ne0$ だから
+
+$$
+|x-\widetilde x|=\frac1{\varepsilon}|r|.
+$$
+
+$\varepsilon\to0^+$ で残差は零へ向かうが、逆作用素の増幅率 $1/\varepsilon$ は発散する。[Poisson差分の一様安定性](#def-pml2-04-consistency-stability)では格子幅に依存しない $1/8$ が存在したのに対し、この例では一様な定数を選べない。従って小残差だけから小解誤差を導くことはできない。
 <!-- solution-end -->
 
 <a id="ex-pml2-04-c01"></a>
@@ -583,14 +617,23 @@ $u=x-x^4$、$f=12x^2$、$n=4$、$h=1/4$、端点零の三点差分とする。�
 
 $$
 A_hu^I=b+2h^2\mathbf1,\qquad
-u^I-z=h^2x_j(1-x_j).
+A_h(u^I-z)=2h^2\mathbf1.
 $$
 
-次に $q_j=x_j(1-x_j)/2$ に対し $A_hq=\mathbf1$ だから、入力誤差と計算残差から
+$q_j=x_j(1-x_j)/2$ と置くと、二次式の差分により $A_hq=\mathbf1$、端点は $q_0=q_n=0$。したがって $A_h(2h^2q)=2h^2\mathbf1$。$A_h$ の可逆性から
 
 $$
-\widehat z=z+\delta q,\qquad
-\widetilde z=\widehat z-\rho q.
+u^I_j-z_j=2h^2q_j=h^2x_j(1-x_j).
+$$
+
+さらに $\widehat b=b+\delta\mathbf1$ と $\rho=\widehat b-A_h\widetilde z$ にそれぞれ代入すれば
+
+$$
+A_h(z+\delta q)=\widehat b,\qquad
+A_h(\widehat z-\rho q)=\widehat b-\rho\mathbf1.
+$$
+
+ゆえに一意性から $\widehat z=z+\delta q$、$\widetilde z=\widehat z-\rho q$.
 $$
 
 ゆえに全内部点について
