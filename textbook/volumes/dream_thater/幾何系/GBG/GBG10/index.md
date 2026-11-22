@@ -76,19 +76,19 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg10-curvature -->
-**定義の確認（最も簡単な平坦例）**。積主束 $P=\mathbb R^2\times U(1)$ を取り、標準 section のポテンシャルを $A=0$ とする。[積主束における接続形式の具体式](../GBG7/index.md#prop-gbg7-product-form)より、$U(1)$ 成分 $k$ の方向での接続形式は
+**定義の確認**（最も簡単な平坦例）。積主束 $P=\mathbb R^2\times U(1)$ を取り、標準 section のポテンシャルを $A=0$ とする。[積主束における接続形式の具体式](../GBG7/index.md#prop-gbg7-product-form)より、$U(1)$ 成分 $k$ の方向での接続形式は
 
-$
+$$
 \omega_{(x,k)}=k^{-1}dk
-$
+$$
 
 となる。$U(1)$ は可換なので Lie 括弧は零である。局所座標 $k=e^{i\theta}$ を用いて直接微分すると
 
-$
+$$
 \omega=i\,d\theta,\qquad
 d\omega=i\,d(d\theta)=0,\qquad
 \Omega=d\omega+\frac12[\omega\wedge\omega]=0.
-$
+$$
 
 この計算は任意の局所角度座標で成り立つので、大域的にも曲率は零。接続形式そのものは垂直方向に零ではないが、曲率は零になる。
 <!-- definition-example-end -->
