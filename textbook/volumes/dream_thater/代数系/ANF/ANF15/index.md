@@ -110,7 +110,15 @@ N(1+\pi_K^r z)
 \end{aligned}
 $$
 
-二つ以上の一次項の積は $\pi_K^{2r}$ を含み、$2r\ge r+1$ なので消えます。有限体ノルムの全射性で目的の単数 $u$ の剰余を合わせた後、各段階で有限体跡の全射性により $1+\pi_K^r z_r$ を掛けて誤差を法 $\pi_K^{r+1}$ まで消せます。この積は完備な $\mathcal O_L$ で単数へ収束し、ノルムの連続性から極限のノルムが $u$ になります。ゆえに $N(\mathcal O_L^\times)=\mathcal O_K^\times$ であり、本講の一般の基礎体に対しても必要な二つの事実を得ました。
+二つ以上の一次項の積は $\pi_K^{2r}$ を含み、$2r\ge r+1$ なので消えます。また、単数 $b\in\mathcal O_L^\times$ に対して共役積を法 $\pi_K$ で還元すると
+
+$
+\overline{N_{L/K}(b)}
+=\prod_{\sigma\in\operatorname{Gal}(L/K)}\overline{\sigma(b)}
+=N_{k_L/k_K}(\bar b)
+$
+
+となります。これは[段階商でのノルムと剰余体ノルムの対応](../ANF12/index.md#prop-anf12-residue-norm-trace)を相対拡大で書いた式です。従って有限体ノルムの全射性で目的の単数 $u$ の剰余を合わせた後、各段階で有限体跡の全射性により $1+\pi_K^r z_r$ を掛けて誤差を法 $\pi_K^{r+1}$ まで消せます。この積は完備な $\mathcal O_L$ で単数へ収束し、ノルムの連続性から極限のノルムが $u$ になります。ゆえに $N(\mathcal O_L^\times)=\mathcal O_K^\times$ であり、本講の一般の基礎体に対しても必要な二つの事実を得ました。
 
 <a id="prop-anf15-unramified-norm-quotient"></a>
 
@@ -356,7 +364,7 @@ $$
 
 ### A2. 三次非分岐拡大の元の像
 
-$L/K$ を次数 $3$ の非分岐 Galois 局所拡大、$\pi_K$ を一様化元、$u\in\mathcal O_K^\times$ とする。$\operatorname{rec}_{L/K}(\pi_K^7u)$ と $\operatorname{rec}_{L/K}(\pi_K^{-3}u)$ を求めよ。
+$K/\mathbb Q_p$ を有限拡大、$L/K$ を次数 $3$ の非分岐 Galois 拡大、$\pi_K$ を一様化元、$u\in\mathcal O_K^\times$ とする。$\operatorname{rec}_{L/K}(\pi_K^7u)$ と $\operatorname{rec}_{L/K}(\pi_K^{-3}u)$ を求めよ。
 
 - Level: A
 - ID: ANF15-A2
@@ -401,7 +409,7 @@ $$
 
 ### A5. 非分岐四次での商の群演算
 
-$L/K$ を次数 $4$ の非分岐 Galois 局所拡大とする。$[a]$ を $K^\times/N(L^\times)$ の剰余類とする。$a=\pi_K^{-1}u$、$b=\pi_K^6v$（$u,v\in\mathcal O_K^\times$）のとき $[a][b]$ とその位数を求めよ。
+$K/\mathbb Q_p$ を有限拡大、$L/K$ を次数 $4$ の非分岐 Galois 拡大とする。$[a]$ を $K^\times/N(L^\times)$ の剰余類とする。$a=\pi_K^{-1}u$、$b=\pi_K^6v$（$u,v\in\mathcal O_K^\times$）のとき $[a][b]$ とその位数を求めよ。
 
 - Level: A
 - ID: ANF15-A5
@@ -418,7 +426,7 @@ $[\pi_K]^j=1$ と $4\mid j$ は同値なので、位数は $4$ です。$u,v$ �
 
 ### B1. 一様化元を取り替えても同じ写像
 
-$L/K$ を次数 $f$ の非分岐 Galois 局所拡大、$\pi$ と $\pi'$ を $K$ の一様化元とする。任意の $a\in K^\times$ に対し $a=\pi^m u=(\pi')^{m'}u'$（$u,u'\in\mathcal O_K^\times$）と書けることを使い、$m=m'$ と Artin 写像の一意性（単数を $1$ に、一様化元を $F$ に送る準同型の一意性）を示せ。
+$K/\mathbb Q_p$ を有限拡大、$L/K$ を次数 $f\ge1$ の非分岐 Galois 拡大、$\pi$ と $\pi'$ を $K$ の一様化元とする。任意の $a\in K^\times$ に対し $a=\pi^m u=(\pi')^{m'}u'$（$u,u'\in\mathcal O_K^\times$）と書けることを使い、$m=m'$ と Artin 写像の一意性（単数を $1$ に、一様化元を $F$ に送る準同型の一意性）を示せ。
 
 - Level: B
 - ID: ANF15-B1
@@ -437,7 +445,7 @@ $$
 
 ### B2. 二次中間体への制限
 
-$L/K$ を次数 $6$ の非分岐 Galois 局所拡大、$M/K$ を $L$ に含まれる次数 $2$ の非分岐中間拡大とする。$F_L$、$F_M$ をそれぞれの算術的 Frobenius 持ち上げとする。$a=\pi_K^5u$（$u\in\mathcal O_K^\times$）について $\operatorname{rec}_{L/K}(a)$ と $\operatorname{rec}_{M/K}(a)$ を求め、前者の $M$ への制限と後者が一致することを示せ。
+$K/\mathbb Q_p$ を有限拡大、$L/K$ を次数 $6$ の非分岐 Galois 拡大、$M/K$ を $L$ に含まれる次数 $2$ の非分岐中間拡大とする。$F_L$、$F_M$ をそれぞれの算術的 Frobenius 持ち上げとする。$a=\pi_K^5u$（$u\in\mathcal O_K^\times$）について $\operatorname{rec}_{L/K}(a)$ と $\operatorname{rec}_{M/K}(a)$ を求め、前者の $M$ への制限と後者が一致することを示せ。
 
 - Level: B
 - ID: ANF15-B2
