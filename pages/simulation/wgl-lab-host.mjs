@@ -254,9 +254,14 @@ function fcg6PhysicsFor(js,vertex,fragment) {
   const readings=specs.map(spec=>readLabParameter(js,spec));
   if(!readings.every(state=>state.ok))return null;
   try {
-    let canonical=js;
-    for(const spec of specs)canonical=writeLabParameter(canonical,spec,spec.default);
-    if(canonical!==defaults.js)return null;
+    let canonical=js,baseline=defaults.js;
+    // Compare normalized literal values, preserving the harmless 0.10 vs 0.1
+    // spelling difference without permitting any other source edit.
+    for(const spec of specs){
+      canonical=writeLabParameter(canonical,spec,spec.default);
+      baseline=writeLabParameter(baseline,spec,spec.default);
+    }
+    if(canonical!==baseline)return null;
   }catch{return null;}
   return Object.fromEntries(specs.map((spec,i)=>[spec.id,readings[i].value]));
 }
