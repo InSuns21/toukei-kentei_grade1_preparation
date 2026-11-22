@@ -91,8 +91,8 @@ try {
       await cdp('Page.navigate',{url});
       await waitFor('document.querySelector("#status")?.textContent==="実行できます"');
       assert.equal(await evaluate('document.querySelectorAll("[role=tabpanel]").length'),3);
-      assert.match(await evaluate('document.querySelector("#js-source").value'),/const N=48,h=1\\/N/);
-      assert.match(await evaluate('document.querySelector("#fragment-source").value'),/textureSize\\(u_solid,0\\)/);
+      assert.ok((await evaluate('document.querySelector("#js-source").value')).includes('const N=48,h=1/N'));
+      assert.ok((await evaluate('document.querySelector("#fragment-source").value')).includes('textureSize(u_solid,0)'));
     }
     await click('run');
     await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',90000);
