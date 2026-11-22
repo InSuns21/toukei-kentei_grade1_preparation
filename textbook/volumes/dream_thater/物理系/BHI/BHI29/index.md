@@ -280,7 +280,12 @@ $$
 \nabla_xF(x_*)=0.
 $$
 >
-> とくに $F(x)=\sum_{p\in\partial I}[\Phi_0+\Phi(p)]/(4G_2)+S_{\rm matter}(R\cup I)$ と評価できる模型なら、極限端点は一般化エントロピーの停留条件を満たす。
+> とくに $F$ が次の一般化エントロピーに等しいと評価できる模型なら、極限端点はその停留条件を満たす。
+>
+$
+F(x)=\sum_{p\in\partial I}\frac{\Phi_0+\Phi(p)}{4G_2}
++S_{\rm matter}(R\cup I).
+$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
