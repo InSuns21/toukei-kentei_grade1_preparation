@@ -1,0 +1,38 @@
+chapter: GBG8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG7
+forward_references: []
+concepts:
+  - id: gauge.local-connection-potential
+    name: 局所ゲージポテンシャル
+    kind: definition
+    aliases: [局所接続形式]
+    introduction: formal
+    introduction_aliases: ["定義（局所ゲージポテンシャル）"]
+    requires: [gauge.principal-connection-form, gauge.local-section]
+
+  - id: gauge.local-potential-transformation
+    name: 局所ゲージポテンシャルの変換則
+    kind: theorem
+    introduction: formal
+    requires: [gauge.local-connection-potential, gauge.local-section-change, lie.left-maurer-cartan-form, lie.adjoint-representation]
+
+  - id: gauge.local-potential-composition
+    name: 局所変換則の合成
+    kind: proposition
+    introduction: formal
+    requires: [gauge.local-potential-transformation, lie.adjoint-homomorphism, gauge.smooth-transition-cocycle]
+
+  - id: gauge.local-connection-reconstruction
+    name: 局所ポテンシャルからの大域接続の再構成
+    kind: theorem
+    introduction: formal
+    requires: [gauge.local-potential-transformation, gauge.product-principal-connection-form, gauge.section-trivialization]
+
+  - id: gauge.gauge-connection-pullback
+    name: ゲージ自己同型による接続の引き戻し
+    kind: proposition
+    introduction: formal
+    requires: [gauge.local-potential-transformation, gauge.gauge-automorphism, gauge.local-gauge-compatibility]
