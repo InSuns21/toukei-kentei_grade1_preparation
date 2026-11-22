@@ -185,7 +185,19 @@ ReLU関数は $\rho(z)=\max(0,z)$ である。$z<0$ では定数、$z>0$ では�
 
 <!-- formal-statement-start -->
 > **命題（ReLUによる強形式二階残差の障害）**  
-> $c\in(0,1)$、$v(x)=\max(0,x-c)$ とする。$x\ne c$ で $v''(x)=0$ であるが、$x=c$ で $v'(c)$ は存在せず、$v\notin C^2([0,1])$ である。従ってPoisson方程式 $-u''=2$ の[強形式残差](../PML2-06/index.md#def-pml2-06-strong-residual)を全内部点で定義する候補にはならない。
+> $c\in(0,1)$、$v(x)=\max(0,x-c)$ とする。折れ点以外の二階導関数は零である。
+
+$
+v''(x)=0\qquad (x\in(0,1),\ x\ne c).
+$
+
+> ところが $x=c$ では一階微分が存在しない。特に
+
+$
+v\notin C^2([0,1]).
+$
+
+> 従ってPoisson方程式 $-u''=2$ の[強形式残差](../PML2-06/index.md#def-pml2-06-strong-residual)を全内部点で定義する候補にはならない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
