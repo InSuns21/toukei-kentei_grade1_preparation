@@ -22,7 +22,7 @@ $$
 $$
 と定める。単に実数値の1形式を使うのとは違い、値が群の随伴作用で変わる可能性がある。
 
-必要な二条件を考えよう。垂直方向 $\xi_P(p)$ に与える値は、元のラベル $\xi$ そのものであってほしい。これを**再生条件**とする。また、主束の点を $p$ から $pg$ へ移しても測っている幾何は同じだから、[基本ベクトル場の右移動公式](../GBG6/index.md#thm-gbg6-vertical-fundamental)に合わせて値を $\operatorname{Ad}_{g^{-1}}$ で変換させる。これを**右同変条件**とする。
+必要な二条件を考えよう。垂直方向 $\xi_P(p)$ に与える値は、元のラベル $\xi$ そのものであってほしい。これを後の（C1）で要求する。また、主束の点を $p$ から $pg$ へ移しても測っている幾何は同じだから、[基本ベクトル場の右移動公式](../GBG6/index.md#thm-gbg6-vertical-fundamental)に合わせて値を $\operatorname{Ad}_{g^{-1}}$ で変換させる。これを（C2）で要求する。
 
 <a id="def-gbg7-connection-form"></a>
 
@@ -71,7 +71,7 @@ $$
 &=\operatorname{Ad}_{g^{-1}}\bigl(\omega^0_{(x,K)}(v,W)\bigr),
 \end{aligned}
 $$
-だから（C2）も満たす。この二条件を実際に確認したので、$\omega^0$ は接続1形式である。
+だから（C2）も満たす。この二条件を実際に確認したので、$\omega^0$ は定義した主束接続形式である。
 <!-- definition-example-end -->
 
 標準接続では $\omega^0(v,W)=0$ の条件は $W=0$ と同値である。すなわち、[GBG6 の標準水平分布](../GBG6/index.md#def-gbg6-horizontal-distribution)が零となる方向として復元された。以下ではこの対応を任意の主束へ広げる。
@@ -100,7 +100,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[GBG6 の垂直同型定理](../GBG6/index.md#thm-gbg6-vertical-fundamental)により $\iota_p$ は各点で線形同型である。[水平直和射影](../GBG6/index.md#prop-gbg6-horizontal-lift)により $\operatorname{pr}^V_p$ は線形なので、$\omega^H_p$ も線形である。滑らかさを確認する。局所自明化 $p=s(x)k$ を取り、$\mathfrak g$ の基底 $\xi_1,\ldots,\xi_m$ を選ぶと、対応する $\xi_{a,P}$ は $VP$ の滑らかな局所枠となる。$H$ は滑らかな部分束なので、$H$ とこの枠による $TP$ の直和分解の係数は局所的な滑らかな逆行列で求められる。ゆえに垂直射影の $\xi_{a,P}$ 方向の係数、すなわち $\omega^H$ の各成分は滑らかである。
+[垂直接空間とLie環の同型](../GBG6/index.md#thm-gbg6-vertical-fundamental)から、$\iota_p$ は各点で線形同型である。また[水平持ち上げと直和射影](../GBG6/index.md#prop-gbg6-horizontal-lift)により垂直射影は線形だから、合成である $\omega^H_p$ も線形である。
+
+滑らかさを確認する。局所自明化 $p=s(x)k$ を取る。$\mathfrak g$ の基底 $\xi_1,\ldots,\xi_m$ に対応する基本ベクトル $\xi_{a,P}$ は、$VP$ の滑らかな局所枠となる。
+
+$H$ は滑らかな部分束なので、$H$ の局所枠と上記の垂直局所枠を合わせると $TP$ の局所枠になる。局所枠の変換行列は滑らかで各点可逆だから、その逆行列の成分も滑らかである。従って、直和分解で得られる垂直係数、すなわち $\omega^H$ の各成分は滑らかである。
 
 （C1）を確かめる。$\xi_P(p)\in V_pP$ だから
 $$
@@ -220,7 +224,7 @@ $$
 <a id="prop-gbg7-maurer-cartan-fibre"></a>
 
 <!-- formal-statement-start -->
-> **命題（一点上の主束と Maurer–Cartan 形式）**  
+> **命題（一点上の主束とMaurer–Cartan形式）**  
 > 有限次元 Lie 群 $G$ を右主束 $\pi:G\to\{\mathrm{pt}\}$ とみなす。この主束の唯一の接続1形式は、[LIE4 の左 Maurer–Cartan 形式](../../../代数系/LIE/LIE4/index.md#def-lie4-maurer-cartan-form)
 
 $$
@@ -237,7 +241,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の $k\in G$、$\xi\in\mathfrak g$ について、[基本ベクトルの定義](../GBG6/index.md#def-gbg6-fundamental-field)から
+任意の $k\in G$、$\xi\in\mathfrak g$ について、[右主束の基本ベクトル場](../GBG6/index.md#def-gbg6-fundamental-field)から
 $$
 \xi_G(k)=(d\ell_k)_e\xi.
 $$
@@ -435,7 +439,15 @@ $$
 $G=(\mathbb R^2,+)$ を右主束 $G\to\{\mathrm{pt}\}$ とみなす。基本ベクトルと接続形式を標準座標で求め、水平空間が $\{0\}$ である理由を示せ。
 
 <!-- solution-start -->
-**詳細解答**。群の指数写像は $\exp(t\xi)=t\xi$、右作用は $k\mapsto k+a$ だから、$\xi_G(k)=\left.\frac{d}{dt}\right|_0(k+t\xi)=\xi$。[左 Maurer–Cartan 形式](../../../代数系/LIE/LIE4/index.md#def-lie4-maurer-cartan-form)は加法群では $\theta_k(W)=W$ であり、$\theta_k(\xi_G(k))=\xi$。平行移動の微分と随伴作用はともに恒等写像なので（C2）も成立する。$\pi$ は一点への写像だから $d\pi=0$、従って $V_kG=T_kG$。直和条件 $T_kG=H_kG\oplus V_kG$ は $H_kG=\{0\}$ を強制し、$\ker\theta_k=\{0\}$ と一致する。
+**詳細解答**。加法群では[LIE2 の Lie 群指数の定義](../../../代数系/LIE/LIE2/index.md#def-lie2-exponential-map)から $\exp(t\xi)=t\xi$ である。右作用は $k\mapsto k+a$ だから、基本ベクトルの速度は
+
+$$
+\xi_G(k)=\left.\frac{d}{dt}\right|_0(k+t\xi)=\xi.
+$$
+
+[左 Maurer–Cartan 形式](../../../代数系/LIE/LIE4/index.md#def-lie4-maurer-cartan-form)は加法群では $\theta_k(W)=W$ なので、$\theta_k(\xi_G(k))=\xi$、すなわち（C1）が成立する。加法群の随伴作用と右平行移動の微分は恒等写像だから（C2）も成立する。
+
+$\pi$ は一点への写像だから $d\pi=0$、従って $V_kG=T_kG$。直和条件から水平空間は零だけであり、上の形式の核も $\ker\theta_k=\{0\}$ となる。
 <!-- solution-end -->
 
 ### Level B：一般論の理由を自分の言葉で証明する
@@ -578,7 +590,15 @@ g^{-1}\eta g
 $$
 両辺は一致する。
 
-**第4問**。$\widetilde\omega$ も垂直基本ベクトルを正しく再生する。しかし $x=1$、$v=(1,0)$、$W=0$、$K=I$ を取ると $b(v)=B$、右移動後の形式の値も $B$ である。一方、上の $g$ による随伴変換は $g^{-1}Bg=\tfrac13B$ で一致しない。右同変条件が失われ、[形式から核の右同変性を導く証明](#thm-gbg7-form-to-horizontal)の「零が右移動でも零になる」という段階が使えない。したがって $\ker\widetilde\omega$ は一般に主束の水平分布にならない。
+**第4問**。$\widetilde\omega$ も垂直基本ベクトルを正しく再生する。$x=1$、$v=(1,0)$、$W=0$、$K=I$ とすると $b(v)=B$ で、右移動後の形式の値も $B$ のままである。
+
+一方、$g=\operatorname{diag}(3,1)$ による随伴変換は
+
+$$
+g^{-1}Bg=\tfrac13B\ne B.
+$$
+
+そのため右同変条件が失われ、[形式から核の右同変性を導く証明](#thm-gbg7-form-to-horizontal)の「零が右移動でも零になる」という段階が使えない。従って $\ker\widetilde\omega$ は一般に主束の水平分布にならない。
 <!-- solution-end -->
 
 ---
