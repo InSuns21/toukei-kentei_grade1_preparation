@@ -10,7 +10,13 @@ $$
 
 曲率をもう一度外微分すると何が起こるだろうか。通常の2形式なら $d^2=0$ がある。しかし非可換な係数では $dF$ が零とは限らない。接続 $A$ の分だけ補正した微分を用いると、**曲率自身には必ず成り立つ整合条件**が現れる。これが Bianchi 恒等式である。
 
-**全節の設定と規約**：$M$ は Hausdorff・第二可算・境界のない有限次元滑らかな多様体、$G$ は有限次元 Lie 群、$\mathfrak g$ はその Lie 環とする。$\pi:P\to M$ は滑らかな右主 $G$ 束、$\omega\in\Omega^1(P;\mathfrak g)$ は[GBG7の接続1形式](../GBG7/index.md#def-gbg7-connection-form)、$\Omega$ はその曲率である。局所 section $s:U\to P$ に関して $A=s^*\omega$、$F=s^*\Omega$ と書く。係数 Lie 括弧の規約は行列群で $[X,Y]=XY-YX$ とし、右主作用の局所変換は $s'=sg$ である。以下の式に計量・向き・基底の次元制限は不要である。
+**全節の設定と規約**：$M$ は Hausdorff・第二可算・境界のない有限次元滑らかな多様体、$G$ は有限次元 Lie 群、$\mathfrak g$ はその Lie 環とする。
+
+$\pi:P\to M$ は滑らかな右主 $G$ 束である。$\omega\in\Omega^1(P;\mathfrak g)$ は[GBG7の接続1形式](../GBG7/index.md#def-gbg7-connection-form)、$\Omega$ はその曲率とする。
+
+局所 section $s:U\to P$ に対する表示を $A=s^*\omega$、$F=s^*\Omega$ とする。
+
+係数 Lie 括弧は行列群で $[X,Y]=XY-YX$ とし、右主作用の局所変換は $s'=sg$ である。以下の式に計量・向き・基底の次元制限は不要である。
 
 <!-- definition-example-audit: strict -->
 
