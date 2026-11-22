@@ -268,7 +268,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（対称商の固定点からの一次変分）**  
-> $x$ は開集合 $U\subset\mathbb R^m$ の端点座標、$n$ は1の右近傍の実数とする。$\mathcal J(n,x)=(n-1)F(x)+E(n,x)$ が $x$ に関して微分可能で、ある定数 $C$ に対して
+> $x$ は開集合 $U\subset\mathbb R^m$ の端点座標、$n$ は1の右近傍の実数とする。$F$ は $U$ 上で連続微分可能とし、$\mathcal J(n,x)=(n-1)F(x)+E(n,x)$ が $x$ に関して微分可能で、ある定数 $C$ に対して
 >
 $$
 \sup_{x\in U_0}\|\nabla_xE(n,x)\|\le C(n-1)^2
