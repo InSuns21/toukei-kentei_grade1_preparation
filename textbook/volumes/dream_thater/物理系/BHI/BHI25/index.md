@@ -246,7 +246,25 @@ $$
 <!-- proof-start -->
 ### 証明
 
-自由Dirac真空では同一cutoffでの二区間エントロピーを各単一区間の和から交差比の相互情報量を引いて得ます。[BHI24で確定した端点と相互情報量の処方](../BHI24/index.md#prop-bhi24-four-endpoint-entropy)をKruskal真空で使います。二つの単一区間の距離積は $D_{\rm same}^2$、二区間の交差相関は $D_{gg}D_{bb}/D_{\rm cross}^2$ を与えます。直前で個別に計算した四種の距離を入れると上の平方の式になります。Kruskal座標での各端点の座標cutoffは、$\sigma$ の座標cutoffへ $|dw^\pm/d\sigma|=\kappa e^{\kappa\sigma}$ を掛けたものです。さらに固有cutoffへの変換には $e^{\omega_g}=\kappa\ell/\sinh A$、浴側には $e^{\omega_b}=1$ を使います。従って $e^{B-A}$ が相殺され、残った端点因子は
+自由Dirac真空では同一cutoffでの二区間エントロピーを各単一区間の和から交差比の相互情報量を引いて得ます。[BHI24で確定した端点と相互情報量の処方](../BHI24/index.md#prop-bhi24-four-endpoint-entropy)をKruskal真空で使います。二つの単一区間の距離積は $D_{\rm same}^2$、二区間の交差相関は $D_{gg}D_{bb}/D_{\rm cross}^2$ を与えます。直前で個別に計算した四種の距離を入れると上の平方の式になります。Kruskal座標の二つの光円錐方向では、同じ側の点におけるJacobianはそれぞれ $|\partial_\sigma w^+|=\kappa e^{\kappa(\sigma+t)}$、$|\partial_\sigma w^-|=\kappa e^{\kappa(\sigma-t)}$ です。**個々の偏微分が $\kappa e^{\kappa\sigma}$ なのではなく、両者の幾何平均が $\kappa e^{\kappa\sigma}$** です。
+
+重力端点の座標cutoffを $\delta_g$、浴端点の座標cutoffを $\delta_b$ とすると、固有cutoffとの関係は $\epsilon_g=e^{\omega_g}\delta_g$、$\epsilon_b=e^{\omega_b}\delta_b$ であり、$e^{\omega_g}=\kappa\ell/\sinh A$、$e^{\omega_b}=1$ です。従って四つの端点におけるKruskal座標cutoffの積と、先に求めた距離の比は
+
+$
+\begin{aligned}
+\prod_{p\in\{g_L,g_R,b_L,b_R\}}\delta_p^{(w)}
+&=\kappa^4e^{2(B-A)}\delta_g^2\delta_b^2
+=\frac{\kappa^2e^{2(B-A)}\epsilon_g^2\epsilon_b^2\sinh^2 A}{\ell^2},\\
+\frac{D_{\rm same}^2D_{gg}D_{bb}}
+     {D_{\rm cross}^2\prod_p\delta_p^{(w)}}
+&=\left(
+\frac{2\ell\cosh U\cosh V\,F}
+{\kappa\epsilon_g\epsilon_b\sinh A\,C_-C_+}
+\right)^2.
+\end{aligned}
+$
+
+自由Dirac場の四端点エントロピーはこの比の対数に $c/6$ を掛けたものなので、指数因子 $e^{B-A}$ が相殺され、残った対数の引数は
 
 $$
 \frac{2\ell\cosh U\cosh V\,F}
