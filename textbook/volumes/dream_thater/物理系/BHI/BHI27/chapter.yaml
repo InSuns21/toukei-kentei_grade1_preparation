@@ -1,0 +1,48 @@
+id: BHI27
+title: "時間依存の蒸発JT模型"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI26
+official_scope: []
+learning_objectives:
+  - 真空浴へ完全透過するJTの境界エネルギー減衰と準静的温度の時間則を初期値から導ける
+  - 二階線形方程式の基本解とWronskianから向き保存の時間依存境界時計を構成しSchwarzian流束を検算できる
+  - 瞬間指数時計に残る時間微分補正を計算し準静的近似の成立条件を判定できる
+  - 同一の境界時計と浴区間の二端点Jacobianから精細エントロピーの真空差を求め局所・後期極限を検証できる
+  - 準静的重力エントロピーと熱的出射の粗視化エントロピー流を積分し両者の係数差を導ける
+  - 時間依存の片側蒸発模型と定常二浴のPage転移を区別しisland端点を解かない交点の限界を説明できる
+definitions:
+  - { id: BHI27-DEF-01, name: "真空浴に冷却される半古典JT境界模型" }
+  - { id: BHI27-DEF-02, name: "初期値で規格化した蒸発境界時計" }
+  - { id: BHI27-DEF-03, name: "蒸発浴の有限区間エントロピー台帳" }
+theorems:
+  - { id: BHI27-PROP-01, name: "蒸発境界のエネルギーと準静的温度" }
+  - { id: BHI27-PROP-02, name: "減衰流束と両立する時間依存時計の構成" }
+  - { id: BHI27-PROP-03, name: "指数型の瞬間近似に残る導関数補正" }
+  - { id: BHI27-PROP-04, name: "蒸発時計による放射区間の精細エントロピー差" }
+  - { id: BHI27-PROP-05, name: "固定長の浴検出区間の後期極限" }
+  - { id: BHI27-PROP-06, name: "準静的なエントロピー収支と収支交点" }
+canonical_examples:
+  - 初期Schwarzianとエネルギー流束の係数一致
+  - 初期値付き基本解のWronskianと境界時計の正の導関数
+  - 近似的指数時計の時間微分補正と負流束になる不適用域
+  - 共通cutoffの二端点精細エントロピー真空差と短区間係数
+  - 固定有限検出区間の後期上界と赤外極限の順序
+  - 粗視化出射熱エントロピーと重力熱エントロピーの二倍の率
+  - 粗視化の交点とisland極値化の区別
+problem_patterns:
+  - BHI27-ENERGY-DECAY
+  - BHI27-WRONSKIAN-ORIENTATION
+  - BHI27-INITIAL-SCHWARZIAN
+  - BHI27-VACUUM-SUBTRACTION
+  - BHI27-ADIABATIC-BREAKDOWN
+  - BHI27-INTERVAL-SHORT-LIMIT
+  - BHI27-FINITE-DETECTOR-LATE
+  - BHI27-THERMAL-ENTROPY-CURRENT
+  - BHI27-CROSSING-DOMAIN
+  - BHI27-INTEGRATED-EVAPORATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 14, review: 6 }

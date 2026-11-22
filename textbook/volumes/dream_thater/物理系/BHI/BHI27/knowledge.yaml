@@ -1,0 +1,60 @@
+chapter: BHI27
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI26]
+forward_references: []
+concepts:
+  - id: black-hole-information.evaporating-jt-boundary-model
+    name: 真空浴に冷却される半古典JT境界模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（真空浴に冷却される半古典JT境界模型）]
+    requires: [black-hole-information.jt-bath-energy-decay, black-hole-information.jt-schwarzian-lorentz-energy]
+  - id: black-hole-information.evaporating-jt-cooling-law
+    name: 蒸発境界のエネルギーと準静的温度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（蒸発境界のエネルギーと準静的温度）]
+    requires: [black-hole-information.evaporating-jt-boundary-model, black-hole-information.jt-schwarzian-thermal-thermodynamics]
+  - id: black-hole-information.evaporating-jt-fundamental-clock
+    name: 初期値で規格化した蒸発境界時計
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（初期値で規格化した蒸発境界時計）]
+    requires: [black-hole-information.evaporating-jt-cooling-law, black-hole-information.jt-bath-local-clock]
+  - id: black-hole-information.evaporating-jt-exact-clock
+    name: 減衰流束と両立する時間依存時計の構成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（減衰流束と両立する時間依存時計の構成）]
+    requires: [black-hole-information.evaporating-jt-fundamental-clock, qcurv.schwarzian-derivative]
+  - id: black-hole-information.evaporating-jt-adiabatic-correction
+    name: 指数型の瞬間近似に残る導関数補正
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（指数型の瞬間近似に残る導関数補正）]
+    requires: [black-hole-information.evaporating-jt-exact-clock, black-hole-information.jt-bath-anomalous-flux]
+  - id: black-hole-information.evaporating-jt-radiation-ledger
+    name: 蒸発浴の有限区間エントロピー台帳
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（蒸発浴の有限区間エントロピー台帳）]
+    requires: [black-hole-information.evaporating-jt-exact-clock, black-hole-information.no-island-radiation-ledger]
+  - id: black-hole-information.evaporating-jt-radiation-entropy
+    name: 蒸発時計による放射区間の精細エントロピー差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（蒸発時計による放射区間の精細エントロピー差）]
+    requires: [black-hole-information.evaporating-jt-radiation-ledger, black-hole-information.no-island-finite-interval]
+  - id: black-hole-information.evaporating-jt-finite-detector
+    name: 固定長の浴検出区間の後期極限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（固定長の浴検出区間の後期極限）]
+    requires: [black-hole-information.evaporating-jt-radiation-entropy]
+  - id: black-hole-information.evaporating-jt-entropy-budget
+    name: 準静的なエントロピー収支と収支交点
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（準静的なエントロピー収支と収支交点）]
+    requires: [black-hole-information.evaporating-jt-cooling-law, black-hole-information.jt-schwarzian-thermal-thermodynamics]

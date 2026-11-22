@@ -115,7 +115,7 @@ chapters:
     title: "Page転移と複数鞍点の比較"
   - id: BHI27
     path: textbook/volumes/dream_thater/物理系/BHI/BHI27
-    status: planned
+    status: completed
     title: "時間依存の蒸発JT模型"
   - id: BHI28
     path: textbook/volumes/dream_thater/物理系/BHI/BHI28
