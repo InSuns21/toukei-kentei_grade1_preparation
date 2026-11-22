@@ -119,7 +119,7 @@ chapters:
     title: "時間依存の蒸発JT模型"
   - id: BHI28
     path: textbook/volumes/dream_thater/物理系/BHI/BHI28
-    status: planned
+    status: completed
     title: "重力レプリカの分配関数"
   - id: BHI29
     path: textbook/volumes/dream_thater/物理系/BHI/BHI29

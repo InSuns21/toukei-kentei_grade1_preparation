@@ -1,0 +1,43 @@
+id: BHI28
+title: "重力レプリカの分配関数"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI27
+official_scope: []
+learning_objectives:
+  - 浴の放射部分領域と補集合について整数レプリカの縁同定を区別し積分核からTr rho_R^nを導ける
+  - 一枚の状態準備の分配関数Z1とn枚のZnの関係を検算し正規化Z_n/Z_1^nの必要性を説明できる
+  - JTと非重力浴のレプリカ境界値問題について誘導計量・dilaton・透過条件・cutoffを具体的に指定できる
+  - 浴の巡回貼合せと重力内部の連結性が別の選択であることを反例と境界条件から論証できる
+  - JTの位相作用とEuler標数から非連結および連結位相候補の相対重みを検算できる
+  - Euclid鞍点の存在・支配・解析接続とエントロピーの関係で未検証の条件を区別できる
+definitions:
+  - { id: BHI28-DEF-01, name: "浴の放射レプリカ台帳" }
+  - { id: BHI28-DEF-02, name: "JT・浴レプリカの境界値問題" }
+  - { id: BHI28-DEF-03, name: "放射領域に対するJT重力レプリカ分配関数" }
+theorems:
+  - { id: BHI28-PROP-01, name: "巡回貼合せと正規化モーメント" }
+  - { id: BHI28-PROP-02, name: "放射の貼合せは重力内部の連結性を指定しない" }
+  - { id: BHI28-PROP-03, name: "JTの位相重みによる複製連結性の比較" }
+canonical_examples:
+  - 二準位の浴密度行列を使った二枚巡回貼合せと同一枚閉包との差
+  - 二枚のJTと浴に対する誘導計量・dilaton・透過接合の境界値指定
+  - 非連結JT円板でも浴の二枚モーメントが非自明となる直接例
+  - 非連結円板と連結多境界曲面のEuler標数と位相重み
+  - 整数モーメントの一致とnを連続化した微分の非一意性
+problem_patterns:
+  - BHI28-FINITE-KERNEL-SEWING
+  - BHI28-CUT-CONVENTION
+  - BHI28-JT-BOUNDARY-CUTOFF
+  - BHI28-EULER-CHARACTERISTIC
+  - BHI28-RENYI-ENTROPY
+  - BHI28-NORMALIZATION-CANCELLATION
+  - BHI28-TOPOLOGY-VS-MATTER
+  - BHI28-GENUS-TOPOLOGY
+  - BHI28-ANALYTIC-CONTINUATION
+  - BHI28-INTEGRATED-REPLICA
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 14, review: 6 }

@@ -1,0 +1,42 @@
+chapter: BHI28
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI27]
+forward_references: []
+concepts:
+  - id: black-hole-information.bath-radiation-replica-ledger
+    name: 浴の放射レプリカ台帳
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（浴の放射レプリカ台帳）]
+    requires: [black-hole-information.evaporating-jt-radiation-ledger, holography.gravitational-replica-normalization]
+  - id: black-hole-information.radiation-cyclic-sewing
+    name: 巡回貼合せと正規化モーメント
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（巡回貼合せと正規化モーメント）]
+    requires: [black-hole-information.bath-radiation-replica-ledger]
+  - id: black-hole-information.jt-bath-replica-boundary
+    name: JT・浴レプリカの境界値問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（JT・浴レプリカの境界値問題）]
+    requires: [black-hole-information.bath-radiation-replica-ledger, black-hole-information.jt-bath-local-clock, black-hole-information.jt-bath-transmission]
+  - id: black-hole-information.jt-radiation-gravity-partition
+    name: 放射領域に対するJT重力レプリカ分配関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（放射領域に対するJT重力レプリカ分配関数）]
+    requires: [black-hole-information.jt-bath-replica-boundary, holography.gravitational-replica-normalization]
+  - id: black-hole-information.bath-replica-gravity-topology-independence
+    name: 放射の貼合せは重力内部の連結性を指定しない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（放射の貼合せは重力内部の連結性を指定しない）]
+    requires: [black-hole-information.jt-radiation-gravity-partition]
+  - id: black-hole-information.jt-replica-topology-weight
+    name: JTの位相重みによる複製連結性の比較
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（JTの位相重みによる複製連結性の比較）]
+    requires: [black-hole-information.bath-replica-gravity-topology-independence, black-hole-information.jt-topological-entropy]
