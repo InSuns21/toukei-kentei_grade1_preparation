@@ -22,25 +22,67 @@ A>0,\qquad
 F(A,U;V)=\cosh(A+B)-\cosh(U-V)>0
 $$
 
-を課します。後者は対象の光円錐間隔が空間的な実数領域にあることを保証します。ここでの模型は**出入りの流束が釣り合う定常系**であり、右向き出射状態を指定した[BHI23の出射模型](../BHI23/index.md#def-bhi23-smooth-outgoing-map)とは状態も放射領域も違います。BHI23の式をそのままBHI25のisland枝から引くことはしません。
+を課します。同じ側の浴端点と重力端点の座標差は $\Delta\sigma=a+b$、$\Delta t=t-t_a$ です。正の共形因子を除いた計量は $-dt^2+d\sigma^2$ なので、空間的分離は
+
+$
+(\Delta\sigma)^2-(\Delta t)^2>0
+\quad\Longleftrightarrow\quad
+X>|U-V|
+\quad\Longleftrightarrow\quad
+F>0
+$
+
+と判定できます。最後の同値は $X>0$ と $\cosh$ の偶性・非負域での狭義単調増加から従い、[BHI25の二浴模型の定義](../BHI25/index.md#def-bhi25-equilibrium-model)に一致します。ここでの模型は**出入りの流束が釣り合う定常系**であり、右向き出射状態を指定した[BHI23の出射模型](../BHI23/index.md#def-bhi23-smooth-outgoing-map)とは状態も放射領域も違います。BHI23の式をそのままBHI25のisland枝から引くことはしません。
 
 ## 2. 同じ二浴模型で空island枝を作る
 
-islandを空にした候補では、重力端点はありません。物質全体の純粋状態を仮定すると、二つの浴半直線のエントロピーは、その補集合を結ぶ二区間の代わりに**左右浴端点間の一つの区間**のエントロピーとして計算できます。ここで利用するのは[BHI24の共形真空区間公式](../BHI24/index.md#prop-bhi24-four-endpoint-entropy)と、BHI25で導入したKruskal座標です。
+islandを空にした候補では、重力端点はありません。物質全体の純粋状態を仮定すると、二つの浴半直線のエントロピーは、その補集合を結ぶ二区間の代わりに**左右浴端点間の一つの区間**のエントロピーとして計算できます。ここで利用するのは[BHI18の共形写像下の単一区間公式](../BHI18/index.md#prop-bhi18-conformal-bath)と、[BHI25の左右Kruskal座標](../BHI25/index.md#prop-bhi25-thermal-functional)です。浴端点での光円錐座標は
 
-左右浴端点の光円錐差の積と各端点の座標Jacobianは、それぞれ
+$
+\begin{aligned}
+w_R^+&=e^{B+V},&w_R^-&=-e^{B-V},\\
+w_L^+&=-e^{B-V},&w_L^-&=e^{B+V}.
+\end{aligned}
+$
 
-$$
-D_{bb}=4e^{2B}\cosh^2 V,\qquad
-\left|\frac{\partial w^\pm}{\partial\sigma}\right|_b=\kappa e^B
-$$
+従って左右浴端点の光円錐差の積（空間的分離に対応する正の符号を採用）は
 
-です。浴側のWeyl因子は1なので、固有cutoff $\epsilon_b$ を使った無次元の区間長は
+$
+\begin{aligned}
+D_{bb}
+&=-(w_R^+-w_L^+)(w_R^--w_L^-)\\
+&=(e^{B+V}+e^{B-V})^2
+=4e^{2B}\cosh^2 V.
+\end{aligned}
+$
 
-$$
-\frac{\sqrt{D_{bb}}}{\kappa e^B\epsilon_b}
-=\frac{2\cosh V}{\kappa\epsilon_b}.
-$$
+各光円錐方向の座標Jacobianは時刻に依存し、右浴では
+
+$
+\left|\frac{\partial w_R^+}{\partial\sigma}\right|_b
+=\kappa e^{B+V},\qquad
+\left|\frac{\partial w_R^-}{\partial\sigma}\right|_b
+=\kappa e^{B-V},
+$
+
+左浴ではこの二つが入れ替わります。**各方向のJacobianそのもの**が $\kappa e^B$ なのではなく、各端点での**二方向の幾何平均**が
+
+$
+J_b=\sqrt{\left|\frac{\partial w^+}{\partial\sigma}\right|_b
+\left|\frac{\partial w^-}{\partial\sigma}\right|_b}
+=\sqrt{\kappa e^{B+V}\,\kappa e^{B-V}}
+=\kappa e^B
+$
+
+です。浴側のWeyl因子は1なので、BHI18の単一区間公式で両端点の固有cutoff $\epsilon_b$ を入れると
+
+$
+S_{\varnothing}(V)
+=\frac c6\ln\frac{D_{bb}}{(J_b\epsilon_b)^2}
+=\frac c3\ln\frac{\sqrt{D_{bb}}}{\kappa e^B\epsilon_b}.
+$
+
+したがってエントロピーに入る無次元の区間長は $\sqrt{D_{bb}}/(\kappa e^B\epsilon_b)=2\cosh V/(\kappa\epsilon_b)$ です。
 
 <a id="prop-bhi26-empty-two-bath"></a>
 
@@ -78,7 +120,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-左右浴端点の座標をBHI25の左右Kruskal貼り合わせで書くと、光円錐差の積は $D_{bb}$ です。自由Dirac真空の一区間エントロピーは、端点の共通繰り込み定数を固定した規約で、区間長を両端の座標cutoffの幾何平均で割った対数に $c/3$ を掛けます。両端とも $\kappa e^B\epsilon_b$ なので、
+上で求めた左右浴端点の光円錐差の積は $D_{bb}$、各端点の二方向Jacobianの幾何平均は $J_b=\kappa e^B$ です。[BHI18の単一区間公式](../BHI18/index.md#prop-bhi18-conformal-bath)では、同じ繰り込み規約で座標差と両端cutoffを組み合わせます。各浴端点での有効cutoffは $J_b\epsilon_b$ なので、
 
 $$
 S_{\varnothing}(V)
@@ -249,7 +291,17 @@ $$
 \le\frac{2c}{3}[\cosh(A_*+B)-1]e^{-2V}.
 $$
 
-最後の不等号は $\ln(1+z)\le z$ と $\cosh2V+1\ge e^{2V}/2$ によります。さらに、有限時刻の停留方程式の誤差は $O(e^{-2V})$、極限の二変数Jacobian（Hessian）が非退化という仮定の下で[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)を適用すると、近傍の実数停留解は
+最後の不等号は $\ln(1+z)\le z$ と $\cosh2V+1\ge e^{2V}/2$ によります。有限時刻の停留方程式からのずれも確認します。$D=U-V$ を動く端点時刻と浴時刻の無次元差とし、$A$ と $D$ が有界な後期近傍を考えます。BHI25の停留式に出る $T_\pm=\tanh[(X\pm(U+V))/2]$ について
+
+$
+\tanh U=1+O(e^{-2V}),\quad
+T_+=1+O(e^{-2V}),\quad
+T_-=-1+O(e^{-2V})
+$
+
+です。従って $(A,D)=(A_*,0)$ を有限時刻の二つの停留式に入れると、後期方程式を満たす主項は消え、残差は両方向とも $O(e^{-2V})$ です。$F(A_*,V;V)=\cosh(A_*+B)-1>0$ なので分母は零になりません。
+
+パラメータ $\tau=e^{-2V}$ と未知数 $(A,D)$ を使えば、停留式は $\tau=0$ の近傍で滑らかに延長され、未知数に関するJacobianは $\tau=0$ での二変数Hessianに等しい（$\partial_D=\partial_U$）。その非退化性の仮定から[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)を適用し、近傍の実数停留解は
 
 $$
 A(V)=A_*+O(e^{-2V}),\qquad
@@ -328,7 +380,7 @@ $$
 
 ### 証明の見取り図
 
-端点を固定した偏微分と、端点が時刻とともに動く全微分を区別します。QESでは空間・時間の一次変分が零なので、包絡線の微分には外部時刻 $V$ の偏微分だけが残ります。
+端点を固定した偏微分 $\partial_VS_I$（$A,U$ を固定して無次元浴時刻 $V$ だけ動かす）と、停留解 $(A(V),U(V))$ に沿う全微分 $dS_I^{\rm ext}/dV$ を区別します。QESでは空間・時間の一次変分が零なので、包絡線の微分には外部時刻 $V$ の偏微分だけが残ります。物理時刻は $V=\kappa t$ であり、$\kappa$ を固定すれば $d/dt=\kappa\,d/dV$ です。
 
 <!-- proof-start -->
 ### 証明
@@ -343,14 +395,14 @@ $$
 =\partial_VS_I.
 $$
 
-$F=\cosh X-\cosh(U-V)$、$C_\pm=\cosh[(X\pm(U+V))/2]$ なので
+$F=\cosh X-\cosh(U-V)$、$C_\pm=\cosh[(X\pm(U+V))/2]$ とし、前節で導入した $T_\pm=\tanh[(X\pm(U+V))/2]$ を使うと
 
 $$
 \partial_V\ln F=\frac{\sinh(U-V)}F,\qquad
 \partial_V\ln(C_-C_+)=\frac{T_+-T_-}{2},
 $$
 
-ただし $T_\pm=\tanh[(X\pm(U+V))/2]$。従って
+ここでは $U$ を固定したまま $V$ を微分するので、$\partial_V(U-V)=-1$、$\partial_V(U+V)=1$ です。従って
 
 $$
 \boxed{\displaystyle
@@ -384,10 +436,10 @@ $$
 #### BHI26-A01 空枝のJacobianとWeyl因子
 
 - Level: A
-- 問題: $D_{bb}=4e^{2B}\cosh^2V$、浴端点のJacobianが $\kappa e^B$、Weyl因子が1であるとする。固有cutoff $\epsilon_b$ と[BHI24の真空区間エントロピー](../BHI24/index.md#prop-bhi24-four-endpoint-entropy)を使い $S_{\varnothing}(V)$ を導け。
+- 問題: $D_{bb}=4e^{2B}\cosh^2V$、各浴端点での二方向のJacobianの幾何平均が $\kappa e^B$、Weyl因子が1であるとする。固有cutoff $\epsilon_b$ と[BHI18の単一区間エントロピー](../BHI18/index.md#prop-bhi18-conformal-bath)を使い $S_{\varnothing}(V)$ を導け。
 
 <!-- solution-start -->
-**詳細解答。** 光円錐距離積の正の平方根は $2e^B\cosh V$。左右端点の座標cutoffの幾何平均は $\kappa e^B\epsilon_b$ です。よって比は
+**詳細解答。** 光円錐距離積の正の平方根は $2e^B\cosh V$。各浴端点では $\left|\partial_\sigma w^+\right|\left|\partial_\sigma w^-\right|=\kappa^2e^{2B}$ なので、二方向の幾何平均は $\kappa e^B$ です。Weyl因子が1であるため各端点の座標cutoffは $\kappa e^B\epsilon_b$。よって比は
 
 $$
 \frac{2e^B\cosh V}{\kappa e^B\epsilon_b}
@@ -577,7 +629,7 @@ $$
 =\partial_AS_I\,A'(V)+\partial_US_I\,U'(V)+\partial_VS_I.
 $$
 
-停留条件で最初の二項が零になります。[枝選択の命題](#prop-bhi26-page-kink)の $\partial_VS_I$ に $U-V=O(e^{-2V})$、$T_+\to1$、$T_-\to-1$ を入れると
+ここで $A'(V)=dA/dV$、$U'(V)=dU/dV$ はそれぞれ停留枝に沿う全導関数です。停留条件で最初の二項が零になります。[枝選択の命題](#prop-bhi26-page-kink)の $\partial_VS_I$ に $U-V=O(e^{-2V})$、$T_+\to1$、$T_-\to-1$ を入れると
 
 $$
 \frac{dS_I^{\rm ext}}{dV}=O(e^{-2V}).
