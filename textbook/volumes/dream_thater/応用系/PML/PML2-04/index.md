@@ -208,7 +208,16 @@ $$
 \|A_h^{-1}g\|_{\infty,h}\le\frac18\|g\|_{\infty,h}.
 $$
 
-> 可逆性は、端点零の $w$ について $h\sum_{j=1}^{n-1}w_j(A_hw)_j=h^{-1}\sum_{j=1}^{n}(w_j-w_{j-1})^2$ を展開すると確認できる。$A_hw=0$ なら各差が零で、$w_0=0$ から $w=0$。有限次元の正方行列なので $A_h$ は可逆である。定義の全右辺・格子幅に依存しない定数も確認した。二次解では実際に $z_h=u^I$ なので格子点収束も成立する。
+可逆性には、端点零の格子列 $w$ についての離散エネルギー恒等式を使う。
+
+$$
+h\sum_{j=1}^{n-1}w_j(A_hw)_j
+=\frac1h\sum_{j=1}^{n}(w_j-w_{j-1})^2.
+$$
+
+$A_hw=0$ なら右辺が零だから隣接差はすべて零となり、$w_0=0$ から $w=0$。$A_h$ は $(n-1)\times(n-1)$ の正方行列で核が零なので可逆である。
+
+> 定義の全右辺・格子幅に依存しない安定定数も確認した。二次解では実際に $z_h=u^I$ なので格子点収束も成立する。
 <!-- definition-example-end -->
 
 この差分法は安定定数 $M=1/8$ を持つ。$u\in C^4([0,1])$ の場合、[前講のTaylor剰余評価](../PML2-03/index.md#thm-pml2-03-fd-error)から
@@ -582,7 +591,15 @@ $$
 $f\in L^2(0,1)$ とし、弱解 $u$、厳密Galerkin解 $u_h$、任意の $\widetilde u_h\in V_h$ に対してエネルギー誤差の平方分解を最初から導け。どこで $\widetilde u_h\in V_h$ が必要かも答えよ。
 
 <!-- solution-start -->
-**詳細解答。** [連続弱形式](../PML2-01/index.md#def-pml2-01-weak)では全ての $v_h\in V_h$ に対して $\int u'v_h'=\int fv_h$。[Galerkin解の定義](../PML2-03/index.md#def-pml2-03-fem)でも $\int u_h'v_h'=\int fv_h$。差を取って
+**詳細解答。** $V_h\subset H_0^1(0,1)$ なので、[連続弱形式](../PML2-01/index.md#def-pml2-01-weak)と[Galerkin解の定義](../PML2-03/index.md#def-pml2-03-fem)を同じ $v_h\in V_h$ に適用できる。
+
+$$
+\int_0^1u'v_h'\,dx
+=\int_0^1fv_h\,dx
+=\int_0^1u_h'v_h'\,dx.
+$$
+
+両端を引いて
 
 $$
 \int_0^1(u'-u_h')v_h'\,dx=0.
