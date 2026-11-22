@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - GBG10
+  - GEO7
 official_scope: []
 learning_objectives:
   - 水平かつ随伴同変なLie環値形式に対して共変外微分を定義し、出力の水平性・同変性を証明できる
