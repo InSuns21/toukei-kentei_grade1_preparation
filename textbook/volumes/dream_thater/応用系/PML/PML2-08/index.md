@@ -12,7 +12,7 @@ $$
 
 候補を作る段階で端点を満たすようにする方法と、端点での違反を損失に加える方法がある。本講ではそれぞれ **hard ansatz（条件を組み込む試行関数）** と **soft penalty（違反への罰則）** を計算し、解の正確さ・表現できる関数・最適化の問題を分けて評価する。
 
-以下、一変数関数のプライムは $x$ での導関数、$\theta$ は学習パラメータを表す。$C^2([0,1])$ は端点まで二階導関数が連続に延長される関数の空間である。数値例の右辺は特に断らない限り $f(x)=2$ とする。
+以下、一変数関数の $v'(x)$ と $v''(x)$ は、それぞれ $dv/dx$ と $d^2v/dx^2$ を表し、いずれも $x$ で微分する。$\theta$ は学習パラメータを表す。$C^2([0,1])$ は端点まで二階導関数が連続に延長される関数の空間である。数値例の右辺は特に断らない限り $f(x)=2$ とする。
 
 ## 2. 端点を関数の形に組み込む
 
@@ -119,15 +119,17 @@ $N_\theta$ をニューラルネットワークに制限すれば、境界を満
 
 逆に、多項式 $w$ が両端零なら $w=x(1-x)P(x)$ と多項式 $P$ で書ける。$x$ と $(x-1)$ がともに $w$ の因数なので、$-x(x-1)=q(x)$ を因数として取り出せるからである。この場合は $N=P$ を選べば正確に表せる。
 
+ここまでのDirichlet条件は端点での**関数値**を指定する。一方、端点での**導関数** $v'(0),v'(1)$ を指定する条件をNeumann条件という。$q(0)=q(1)=0$ でも $q'(0)=1$, $q'(1)=-1$ だから、Dirichlet条件を保証する因子 $q$ がNeumann条件まで保証するとは限らない（演習A05で確かめる）。
+
 ## 3. 境界違反を罰則に入れる
 
-試行関数の形を固定せず $v_\theta\in C^2([0,1])$ を直接学習することもできる。その場合、[collocation点と経験物理損失](../PML2-06/index.md#def-pml2-06-collocation)に加え、境界での値のずれを測る。ここでは端点が二つなので単純に二乗和を採用する。重み $\lambda_B>0$ はPDEの残差と境界違反をどれだけ重視するかを決める数である。
+試行関数の形を固定せず $v_\theta\in C^2([0,1])$ を直接学習することもできる。その場合、[collocation点と経験物理損失](../PML2-06/index.md#def-pml2-06-collocation)に加え、境界での値のずれを測る。ここでは端点が二つなので単純に二乗和を採用する。重み $\lambda_B>0$ はPDEの残差と境界違反をどれだけ重視するかを決める数である。以下の $N$ は内部選点の**個数**であり、第2節の関数 $N_\theta(x)$ とは別の記号である。$x_i$ は $i$ 番目の内部選点を表す。
 
 <a id="def-pml2-08-soft-penalty"></a>
 
 <!-- formal-statement-start -->
 > **定義（境界条件のsoft penalty）**  
-> $f\in C([0,1])$、$g_0,g_1\in\mathbb R$、$\lambda_B>0$、$N\ge1$、$x_i\in(0,1)$ を固定する。$v_\theta\in C^2([0,1])$ の残差 $r_\theta=-v_\theta''-f$ に対して
+> $f\in C([0,1])$、$g_0,g_1\in\mathbb R$、$\lambda_B>0$、$N\in\mathbb N$、$x_i\in(0,1)$（$i=1,\ldots,N$）を固定する。$v_\theta\in C^2([0,1])$ の残差 $r_\theta=-v_\theta''-f$ に対して
 >
 $$
 L_{\mathrm{int}}(\theta)=\frac1N\sum_{i=1}^N r_\theta(x_i)^2,
@@ -207,7 +209,7 @@ $$
 
 ## 4. 時間のあるPDEでは初期値と境界値を同時に扱う
 
-熱方程式 $u_t-\kappa u_{xx}=0$（$\kappa>0$）を時間区間 $0\le t\le T$、空間区間 $0\le x\le1$ で考える。初期値 $u(0,x)=h(x)$ と境界値 $u(t,0)=a(t)$、$u(t,1)=b(t)$ が与えられたとき、点 $(0,0)$ と $(0,1)$ は両条件を同時に受ける。連続な関数を探すなら
+熱方程式 $u_t-\kappa u_{xx}=0$（$\kappa>0$）を時間区間 $0\le t\le T$、空間区間 $0\le x\le1$ で考える。ここでは $u=u(t,x)$ に対して $u_t=\partial u/\partial t$ は **$x$ を固定した時間偏微分**、$u_{xx}=\partial^2u/\partial x^2$ は **$t$ を固定した空間二階偏微分**を表す。[先行講のPDE解問題の指定](../PML2-01/index.md#def-pml2-01-problem)と同じ記法で、一変数のプライムによる $d/dx$ とは変数の固定の仕方を区別する。初期値 $u(0,x)=h(x)$ と境界値 $u(t,0)=a(t)$、$u(t,1)=b(t)$ が与えられたとき、点 $(0,0)$ と $(0,1)$ は両条件を同時に受ける。連続な関数を探すなら
 
 $$
 h(0)=a(0),\qquad h(1)=b(0)
@@ -294,13 +296,23 @@ $x=0$ では $\ell(t,0)=a(t)$、$q(0)=0$、$h(0)-\ell(0,0)=h(0)-a(0)=0$。従っ
 
 物理残差を計算するときは、hard法の積 $qN_\theta$ に対しても[二階ADの正しさの定理](../PML2-07/index.md#thm-pml2-07-jet-correctness)で要求される滑らかさを確認する。$N_\theta$ に非滑らかな活性化を使うと、係数 $q$ を掛けただけで全内点の二階導関数が回復するとは限らない。
 
-学習パラメータによる勾配も、たとえば固定された境界データで $N_\theta$ が十分滑らかなら
+学習パラメータについては、$\Theta\subset\mathbb R^p$ を開集合、$\theta=(\theta_1,\ldots,\theta_p)\in\Theta$ とする。境界データ $g_0,g_1$ と右辺 $f$ が $\theta$ に依存せず、$N(x,\theta)=N_\theta(x)$ が $(x,\theta)$ に関して $C^3$ なら、$q$ と $\ell$ も $\theta$ に依存しないので
 
 $$
-\partial_{\theta_j}v_\theta(x)=q(x)\partial_{\theta_j}N_\theta(x)
+\partial_{\theta_j}v_\theta(x)
+=\partial_{\theta_j}\bigl(\ell(x)+q(x)N_\theta(x)\bigr)
+=q(x)\partial_{\theta_j}N_\theta(x).
 $$
 
-をまず求め、[物理損失の勾配公式](../PML2-07/index.md#thm-pml2-07-loss-gradient)の仮定を確認してから $-\partial_x^2\partial_{\theta_j}v_\theta$ を残差勾配へ代入する。境界条件をhardにしても、最適化の難しさそのものは消えない。
+ここで $x$ は固定して $\theta_j$ で微分する。$v$ が $C^3$ であるため混合偏微分を交換でき、さらに
+
+$$
+\partial_{\theta_j}r_\theta(x)
+=-\partial_{\theta_j}\partial_x^2v_\theta(x)
+=-\partial_x^2\bigl(q(x)\partial_{\theta_j}N_\theta(x)\bigr)
+$$
+
+となる。固定した内部選点でこの式を[物理損失の勾配公式](../PML2-07/index.md#thm-pml2-07-loss-gradient)へ代入する。境界条件をhardにしても、最適化の難しさそのものは消えない。
 
 ## 6. 演習問題
 
