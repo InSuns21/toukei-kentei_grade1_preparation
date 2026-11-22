@@ -19,6 +19,8 @@ $$
 
 ## 2. エネルギーの初期値を与え、蒸発の時間尺度を決める
 
+[BHI22の減衰則](../BHI22/index.md#prop-bhi22-energy-decay)はエネルギーの時間変化を与えますが、蒸発し始める時刻と初期エネルギーを指定し、同じ時計から放射まで計算するための初期値問題が必要です。まず、入射真空と完全透過の条件を持つ計算対象を定めます。
+
 <a id="def-bhi27-evaporating-jt"></a>
 
 <!-- formal-statement-start -->
@@ -259,7 +261,7 @@ $\kappa\gg\gamma$ ではこの差は小さいですが、$\kappa<\gamma$ では�
 
 浴の観測区間を固定してからエントロピーを求めます。平坦浴の座標 $(t,x)$ で $R(t)=[b,L]$、$0<b<L$、右向き光線ラベルは $u=t-x$ とします。端点を $u_b=t-b$、$u_L=t-L$ と記し、$u_L\ge u_0$ の時刻だけを扱います。長さ $\ell=L-b=u_b-u_L$ は固定です。
 
-左向き成分は平坦真空、右向き成分は上の $U=p(u)=F(u)$ 真空です。[BHI23の有限区間真空差公式](../BHI23/index.md#prop-bhi23-finite-interval)を使うため、同じ浴区間、同じ正の紫外cutoff、同じ端点規格化を持つ平坦真空との差を取ります。これは二側永遠系の[BHI26の空island枝](../BHI26/index.md#prop-bhi26-empty-two-bath)とは**別の状態・別の領域**です。
+左向き成分は平坦真空、右向き成分は上の $U=p(u)=F(u)$ 真空です。[固定有限区間のislandなしエントロピー](../BHI23/index.md#prop-bhi23-finite-interval)を使うため、同じ浴区間、同じ正の紫外cutoff、同じ端点規格化を持つ平坦真空との差を取ります。これは二側永遠系の[BHI26の空island枝](../BHI26/index.md#prop-bhi26-empty-two-bath)とは**別の状態・別の領域**です。
 
 <a id="def-bhi27-radiation-ledger"></a>
 
@@ -313,7 +315,7 @@ $$
 
 ### 証明の見取り図
 
-[BHI23の二端点公式](../BHI23/index.md#prop-bhi23-finite-interval)へ $p=F$ を代入し、両端のJacobianを残します。二解の比で書くと分母の $y_2$ が正確に消え、$D$ は正係数の二階微分方程式を満たします。短い区間の展開はその初期条件から求めます。
+[固定有限区間のislandなしエントロピー](../BHI23/index.md#prop-bhi23-finite-interval)へ $p=F$ を代入し、両端のJacobianを残します。二解の比で書くと分母の $y_2$ が正確に消え、$D$ は正係数の二階微分方程式を満たします。短い区間の展開はその初期条件から求めます。
 
 <!-- proof-start -->
 ### 証明
@@ -587,7 +589,7 @@ $$
 - 問題: $u_L<u_b$、$\ell=u_b-u_L$、右向き真空写像を $p(u)=au+d$（$a>0$）とする。[有限区間台帳](#def-bhi27-radiation-ledger)の普遍的な真空差が零であることを示せ。
 
 <!-- solution-start -->
-**詳細解答**：$p(u_b)-p(u_L)=a\ell$、両端で $p'=a$。従って[BHI23の有限区間公式](../BHI23/index.md#prop-bhi23-finite-interval)の対数内は $(a\ell)/(\ell\sqrt{a\cdot a})=1$。$\ln1=0$ なので真空差は零。共通cutoffと規格化の定数は、同じ区間の真空を差し引いた段階で既に消えている。
+**詳細解答**：$p(u_b)-p(u_L)=a\ell$、両端で $p'=a$。従って[固定有限区間のislandなしエントロピー](../BHI23/index.md#prop-bhi23-finite-interval)の対数内は $(a\ell)/(\ell\sqrt{a\cdot a})=1$。$\ln1=0$ なので真空差は零。共通cutoffと規格化の定数は、同じ区間の真空を差し引いた段階で既に消えている。
 <!-- solution-end -->
 
 <a id="ex-bhi27-a05"></a>
@@ -598,7 +600,7 @@ $$
 - 問題: $\kappa(u)=\kappa_0e^{-\gamma(u-u_0)/2}$、$p''/p'=-\kappa$ とする。近似流束が零になる時刻を求め、その時点の準静的条件を判定せよ。$\kappa_0>\gamma$ とする。
 
 <!-- solution-start -->
-**詳細解答**：[導関数補正命題](#prop-bhi27-adiabatic-correction)から $P_p=c\kappa(\kappa-\gamma)/(48\pi)$。$\kappa>0$ なので零は $\kappa=\gamma$ で起こる。$\kappa_0e^{-\gamma\tau/2}=\gamma$ を解けば $\tau=(2/\gamma)\ln(\kappa_0/\gamma)>0$。この時点で $\gamma/\kappa=1$ となり、必要条件 $\gamma/\kappa\ll1$ を満たさない。厳密時計の流束 $c\kappa^2/(48\pi)$ はこの時点でも正である。
+**詳細解答**：[指数型の瞬間近似に残る導関数補正](#prop-bhi27-adiabatic-correction)から $P_p=c\kappa(\kappa-\gamma)/(48\pi)$。$\kappa>0$ なので零は $\kappa=\gamma$ で起こる。$\kappa_0e^{-\gamma\tau/2}=\gamma$ を解けば $\tau=(2/\gamma)\ln(\kappa_0/\gamma)>0$。この時点で $\gamma/\kappa=1$ となり、必要条件 $\gamma/\kappa\ll1$ を満たさない。厳密時計の流束 $c\kappa^2/(48\pi)$ はこの時点でも正である。
 <!-- solution-end -->
 
 ### Level B：複数の結果を接続する
@@ -701,7 +703,7 @@ $$
 
 したがって流束の式は（1）に一致する。
 
-**（3）** $u_L=t-L$、$u_b=t-b$ はともに非負、$\ell=L-b$。両端のJacobianを保った[BHI23の真空差公式](../BHI23/index.md#prop-bhi23-finite-interval)から
+**（3）** $u_L=t-L$、$u_b=t-b$ はともに非負、$\ell=L-b$。両端のJacobianを保った[固定有限区間のislandなしエントロピー](../BHI23/index.md#prop-bhi23-finite-interval)から
 
 $$
 \Delta S_R^{\rm univ}
