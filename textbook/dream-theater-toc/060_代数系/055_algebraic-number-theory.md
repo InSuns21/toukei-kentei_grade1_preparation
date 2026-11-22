@@ -18,3 +18,4 @@
 15. [ANF15 局所相互法則への導入](textbook/volumes/dream_thater/代数系/ANF/ANF15/index.md)
 16. [ANF16 局所類体論：ノルム群と存在](textbook/volumes/dream_thater/代数系/ANF/ANF16/index.md)
 17. [ANF17 局所類体論：相互法則・関手性](textbook/volumes/dream_thater/代数系/ANF/ANF17/index.md)
+18. [ANF18 類体論の計算例](textbook/volumes/dream_thater/代数系/ANF/ANF18/index.md)
