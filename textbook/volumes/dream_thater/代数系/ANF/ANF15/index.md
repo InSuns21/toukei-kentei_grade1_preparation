@@ -8,7 +8,7 @@
 
 $K$ を有限剰余体を持つ非 Archimedes 局所体、$\mathcal O_K$ を整数環、$\mathfrak m_K$ を極大イデアル、$k_K=\mathcal O_K/\mathfrak m_K$ を要素数 $q$ の剰余体とします。$\pi_K$ は付値 $v_K(\pi_K)=1$ の一様化元で、$v_K(K^\times)=\mathbb Z$ と規格化します。
 
-有限体 $k$ の要素数が $q$ なら、任意の $a\in k$ について $a^q=a$ です。一方、次数 $f$ の有限拡大 $k'/k$ では写像 $x\mapsto x^q$ が $k$ を固定する自己同型になります。この自己同型を、拡大体での算術的 Frobenius と考えます。
+有限体 $k$ の要素数が $q$ なら、任意の $a\in k$ について $a^q=a$ です。一方、次数 $f$ の有限拡大 $k'/k$ では写像 $x\mapsto x^q$ が $k$ を固定する自己同型になります。以下で、この自己同型に名前を付けます。
 
 <a id="def-anf15-arithmetic-frobenius"></a>
 
@@ -131,7 +131,7 @@ $$
 
 よって両側の包含が一致します。
 
-最後に写像 $\psi:K^\times\to\mathbb Z/f\mathbb Z$、$\psi(a)=v_K(a)\bmod f$ を考えます。付値の加法性から $\psi(ab)=\psi(a)+\psi(b)$ です。$\psi(\pi_K)=1\bmod f$ なので全射であり、上で示した等式より $\ker\psi=N(L^\times)$。従って群の第一同型定理から商の同型が従います。
+最後に写像 $\psi:K^\times\to\mathbb Z/f\mathbb Z$、$\psi(a)=v_K(a)\bmod f$ を考えます。$v_K(ab)=v_K(a)+v_K(b)$ なので $\psi(ab)=\psi(a)+\psi(b)$ です。$\psi(\pi_K)=1\bmod f$ なので全射であり、上で示した等式より $\ker\psi=N(L^\times)$。従って群の第一同型定理から商の同型が従います。
 <!-- proof-end -->
 
 ここで [Hilbert の定理90](../ANF14/index.md#thm-anf14-hilbert90) と比較しましょう。同定理が消すのは $H^1(G,L^\times)$ であり、本節の商 $K^\times/N(L^\times)$ ではありません。後者の位数は $f$ で、$f>1$ なら非自明です。
@@ -189,7 +189,7 @@ $$
 
 ### 証明の見取り図
 
-[非分岐 Frobenius の命題](#prop-anf15-frobenius-lift)から $F$ は位数 $f$ の生成元です。一方 [非分岐ノルム商の命題](#prop-anf15-unramified-norm-quotient)からノルムかどうかは付値が $f$ の倍数かどうかで決まります。これを同じ式の核の条件に代入します。
+[非分岐局所拡大の生成元の命題](#prop-anf15-frobenius-lift)から $F$ は位数 $f$ の生成元です。一方 [非分岐ノルム商の命題](#prop-anf15-unramified-norm-quotient)からノルムかどうかは付値が $f$ の倍数かどうかで決まります。これを同じ式の核の条件に代入します。
 
 <!-- proof-start -->
 ### 証明
@@ -206,7 +206,7 @@ $$
 \end{aligned}
 $$
 
-従って群準同型です。$v_K(\pi_K)=1$ なので $\operatorname{rec}_{L/K}(\pi_K)=F$。[Frobenius の命題](#prop-anf15-frobenius-lift)により $F$ は Galois 群を生成するから、写像は全射です。
+従って群準同型です。$v_K(\pi_K)=1$ なので $\operatorname{rec}_{L/K}(\pi_K)=F$。[非分岐局所拡大の生成元の命題](#prop-anf15-frobenius-lift)により $F$ は Galois 群を生成するから、写像は全射です。
 
 また $F$ の位数は $f$ なので
 
@@ -337,7 +337,7 @@ $L/K$ を次数 $3$ の非分岐 Galois 局所拡大、$\pi_K$ を一様化元�
 - ID: ANF15-A2
 
 <!-- solution-start -->
-**詳細解答。** [非分岐 Artin 写像の定義](#def-anf15-unramified-artin)から前者は $F^7=F$、後者は $F^{-3}=1$ です。ここで $F$ の位数は $3$ なので $7\equiv1\pmod3$、$-3\equiv0\pmod3$ を用いました。単数部分の付値は $0$ であり像へ寄与しません。
+**詳細解答。** [非分岐局所 Artin 写像](#def-anf15-unramified-artin)から前者は $F^7=F$、後者は $F^{-3}=1$ です。ここで $F$ の位数は $3$ なので $7\equiv1\pmod3$、$-3\equiv0\pmod3$ を用いました。単数部分の付値は $0$ であり像へ寄与しません。
 <!-- solution-end -->
 
 ### A3. 基礎体から来る元のノルム
@@ -399,7 +399,7 @@ $L/K$ を次数 $f$ の非分岐 Galois 局所拡大、$\pi$ と $\pi'$ を $K$ 
 - ID: ANF15-B1
 
 <!-- solution-start -->
-**詳細解答。** 両側の付値を取ると $v_K(a)=m+v_K(u)=m$、同様に $v_K(a)=m'$。単数の付値は $0$ なので $m=m'$ です。$a$ のどちらの分解からも [定義](#def-anf15-unramified-artin) により像は $F^{v_K(a)}$ となります。
+**詳細解答。** 両側の付値を取ると $v_K(a)=m+v_K(u)=m$、同様に $v_K(a)=m'$。単数の付値は $0$ なので $m=m'$ です。$a$ のどちらの分解からも [非分岐局所 Artin 写像の定義](#def-anf15-unramified-artin) により像は $F^{v_K(a)}$ となります。
 
 さらに準同型 $\rho:K^\times\to\langle F\rangle$ が $\rho(\pi)=F$、すべての単数 $u$ について $\rho(u)=1$ を満たすなら
 
@@ -418,7 +418,7 @@ $L/K$ を次数 $6$ の非分岐 Galois 局所拡大、$M/K$ を $L$ に含ま�
 - ID: ANF15-B2
 
 <!-- solution-start -->
-**詳細解答。** [非分岐 Frobenius の命題](#prop-anf15-frobenius-lift)から $F_L$ の位数は $6$、$F_M$ の位数は $2$ です。ゆえに
+**詳細解答。** [非分岐局所拡大の生成元の命題](#prop-anf15-frobenius-lift)から $F_L$ の位数は $6$、$F_M$ の位数は $2$ です。ゆえに
 
 $$
 \operatorname{rec}_{L/K}(a)=F_L^5,\qquad
@@ -442,7 +442,7 @@ $L=\mathbb Q_5(\sqrt5)$、$K=\mathbb Q_5$ とする。$v_5(N(x))=v_L(x)$、$\mat
 - ID: ANF15-B3
 
 <!-- solution-start -->
-**詳細解答。** $x\in\mathcal O_L^\times$ なら $x=a+b\sqrt5$、$a\bmod5\ne0$ と書けるので、$N(x)\equiv a^2\pmod5$ は平方剰余です。逆に単数 $u$ の剰余が平方なら、$T^2-u$ は法 $5$ で非零な単純根を持ち、[Hensel の補題](../ANF10/index.md#thm-anf10-hensel-simple)で $r^2=u$ と解けます。$r\in K$ なので $N(r)=r^2=u$ です。
+**詳細解答。** $x\in\mathcal O_L^\times$ なら $x=a+b\sqrt5$、$a\bmod5\ne0$ と書けるので、$N(x)\equiv a^2\pmod5$ は平方剰余です。逆に単数 $u$ の剰余が平方なら、$T^2-u$ は法 $5$ で非零な単純根を持ち、[単純根に対する Hensel の補題](../ANF10/index.md#thm-anf10-hensel-simple)で $r^2=u$ と解けます。$r\in K$ なので $N(r)=r^2=u$ です。
 
 また $-1$ の剰余は $4$ なので $s^2=-1$ となる $s\in K$ があり、$N(s\sqrt5)=(-1)(-5)=5$。これで付値部分の $5$ の任意の整数冪もノルムであり、
 
@@ -496,7 +496,15 @@ $$
 
 [非分岐相互法則](#thm-anf15-unramified-reciprocity) は $[1]\mapsto1$、$[3]\mapsto\sigma$ を与えます。
 
-**第2問。** $\sigma(\sqrt5)=-\sqrt5$ なので $N(\sqrt5)=-5$。さらに $\mathbb F_5$ の $4=-1$ は平方で、[Hensel の補題](../ANF10/index.md#thm-anf10-hensel-simple)により $s^2=-1$ となる $s\in\mathbb Z_5^\times$ が存在します。従って $N(s\sqrt5)=5$ で、$5$ はノルムです。一方、付値公式からノルム $2$ を持つ元は単数でなければならず、単数のノルムは法 $5$ で平方剰余です。$2\notin\{1,4\}$ なので $2$ はノルムでありません。[分岐二次のノルム群](#prop-anf15-ramified-quadratic-norm)により商の剰余類は $[1]$ と $[2]$ の二つです。
+**第2問。** $\sigma(\sqrt5)=-\sqrt5$ より、$N(\sqrt5)=-5$ です。さらに $\mathbb F_5$ では $-1=4$ が平方なので、[単純根に対する Hensel の補題](../ANF10/index.md#thm-anf10-hensel-simple)から、$s^2=-1$ を満たす $s\in\mathbb Z_5^\times$ が存在します。
+
+従って
+
+$$
+N(s\sqrt5)=N(s)N(\sqrt5)=(-1)(-5)=5.
+$$
+
+ゆえに $5$ はノルムです。一方、[ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)から、ノルム $2$ を持つ元は単数でなければなりません。単数のノルムは法 $5$ で平方剰余であり、$2\notin\{1,4\}$ なので $2$ はノルムではありません。[分岐二次のノルム群](#prop-anf15-ramified-quadratic-norm)により、商の剰余類は $[1]$ と $[2]$ の二つです。
 
 **第3問。** 非分岐拡大では単数はすべてノルムなので、付値の剰余が Galois 群の元を区別します。分岐二次例では逆に付値 $1$ の $5$ がノルムで、付値 $0$ の $2$ が非ノルムです。したがって、分岐の場合の写像は単数部分の情報を受け取らなければなりません。加えて分岐すると惰性群が自明でなくなり、剰余 Frobenius の持ち上げは非分岐の場合のように一意とは限りません。この二つが、一般の局所 Artin 写像の構成に追加理論が必要な理由です。
 <!-- solution-end -->
