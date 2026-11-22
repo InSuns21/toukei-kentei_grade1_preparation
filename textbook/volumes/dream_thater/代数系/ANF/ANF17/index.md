@@ -208,7 +208,7 @@ $$
 \left.F_{LM/M}\right|_L=F_{L/K}^{\,f}.
 $$
 
-$b=\pi_M^r u$（$r=v_M(b)$、$u\in\mathcal O_M^\times$）と書くと、[非分岐相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)を $LM/M$ に適用して
+$b=\pi_M^r u$（$r=v_M(b)$、$u\in\mathcal O_M^\times$）と書くと、[非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)を $LM/M$ に適用して
 
 $$
 \left.\operatorname{rec}_{LM/M}(b)\right|_L
@@ -216,7 +216,7 @@ $$
 =F_{L/K}^{\,fr}.
 $$
 
-他方、[ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)は $v_K(N_{M/K}(b))=f\,v_M(b)=fr$ を与えます。再度[非分岐相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)を $L/K$ に適用すれば
+他方、[ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)は $v_K(N_{M/K}(b))=f\,v_M(b)=fr$ を与えます。再度[非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)を $L/K$ に適用すれば
 
 $$
 \operatorname{rec}_{L/K}(N_{M/K}(b))
@@ -272,7 +272,7 @@ $K/\mathbb Q_p$ を有限拡大、$E/K$ を非分岐三次、$F=F_{E/K}$ とす�
 - ID: ANF17-A1
 
 <!-- solution-start -->
-**詳細解答。** [非分岐相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)では単数が核、$\pi_K$ が $F$ に写ります。よって
+**詳細解答。** [非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)では単数が核、$\pi_K$ が $F$ に写ります。よって
 
 $$
 \operatorname{rec}_{E/K}(a)=F^{v_K(a)}=F^8=F^2
@@ -325,7 +325,7 @@ $M/K$ を有限局所拡大で剰余次数 $f=3$、$b\in M^\times$ の $v_M(b)=2
 - ID: ANF17-A4
 
 <!-- solution-start -->
-**詳細解答。** [ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)を $M/K$ に適用すると $v_K(N_{M/K}(b))=3\cdot2=6$ です。[非分岐相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)から Artin 像は $F_{L/K}^6$。$F_{L/K}$ は位数4なので $F^6=F^2$ です。
+**詳細解答。** [ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)を $M/K$ に適用すると $v_K(N_{M/K}(b))=3\cdot2=6$ です。[非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)から Artin 像は $F_{L/K}^6$。$F_{L/K}$ は位数4なので $F^6=F^2$ です。
 <!-- solution-end -->
 
 ### A5. 有限商への写像が well-defined になる条件
@@ -358,13 +358,13 @@ $L/K$ を非分岐六次、$M/K$ を剰余次数2の有限局所拡大、$b=\pi_
 - ID: ANF17-B2
 
 <!-- solution-start -->
-**詳細解答。** $LM/M$ は非分岐で、$F_{LM/M}$ を $L$ に制限すると $F_{L/K}^2$ です。従って[非分岐相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)から
+**詳細解答。** $LM/M$ は非分岐で、$F_{LM/M}$ を $L$ に制限すると $F_{L/K}^2$ です。従って[非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)から
 
 $$
 \operatorname{rec}_{LM/M}(b)|_L=(F_{L/K}^2)^5=F_{L/K}^{10}=F_{L/K}^4.
 $$
 
-一方、[ノルム付値公式](../ANF12/index.md#prop-anf12-norm-valuation)から $v_K(Nb)=2\cdot5=10$、従って $\operatorname{rec}_{L/K}(Nb)=F_{L/K}^{10}=F_{L/K}^4$。$F_{L/K}$ の位数6で指数を6で割った余りが4なので両辺は一致します。
+一方、[ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)から $v_K(Nb)=2\cdot5=10$、従って $\operatorname{rec}_{L/K}(Nb)=F_{L/K}^{10}=F_{L/K}^4$。$F_{L/K}$ の位数6で指数を6で割った余りが4なので両辺は一致します。
 <!-- solution-end -->
 
 ### B3. ノルム群を包含で比較する
@@ -404,7 +404,7 @@ $K/\mathbb Q_p$ を有限拡大、$L/K$ を非分岐12次、$F=F_{L/K}$ とす�
 <!-- solution-start -->
 **詳細解答。**
 
-**第1問。** [非分岐相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)で単数 $u$ は核なので $\operatorname{rec}_{L/K}(\pi_K^7u)=F^7$ です。$M/K$ は非分岐三次で、$F|_M$ は位数3の算術的 Frobenius です。従って $F^7|_M=(F|_M)^7=(F|_M)^1$（$7\equiv1\pmod3$）です。
+**第1問。** [非分岐局所相互法則](../ANF15/index.md#thm-anf15-unramified-reciprocity)で単数 $u$ は核なので $\operatorname{rec}_{L/K}(\pi_K^7u)=F^7$ です。$M/K$ は非分岐三次で、$F|_M$ は位数3の算術的 Frobenius です。従って $F^7|_M=(F|_M)^7=(F|_M)^1$（$7\equiv1\pmod3$）です。
 
 **第2問。** [非分岐ノルム群](../ANF15/index.md#prop-anf15-unramified-norm-quotient)より
 
@@ -415,7 +415,7 @@ $$
 
 したがって $H_M/H_L$ は $[\pi_K^3]$ で生成され、$\pi_K^3$ の4乗が $\pi_K^{12}$ に等しくなるので位数4です。[中間体への制限](#prop-anf17-restriction-square)によってこれが $\operatorname{Gal}(L/M)$ に対応し、$[L:M]=12/3=4$ とも一致します。
 
-**第3問。** $LT/T$ は非分岐です。$|k_T|=q^2$ なので、その Frobenius の $L$ への制限は $F^2$。$\pi_T$ は $v_T(\pi_T)=1$ ですから左辺は $F^2$ です。他方、[ノルム付値公式](../ANF12/index.md#prop-anf12-norm-valuation)に $f(T/K)=2$ を代入すると
+**第3問。** $LT/T$ は非分岐です。$|k_T|=q^2$ なので、その Frobenius の $L$ への制限は $F^2$。$\pi_T$ は $v_T(\pi_T)=1$ ですから左辺は $F^2$ です。他方、[ノルムの付値公式](../ANF12/index.md#prop-anf12-norm-valuation)に $f(T/K)=2$ を代入すると
 
 $$
 v_K(N_{T/K}\pi_T)=2\,v_T(\pi_T)=2,
