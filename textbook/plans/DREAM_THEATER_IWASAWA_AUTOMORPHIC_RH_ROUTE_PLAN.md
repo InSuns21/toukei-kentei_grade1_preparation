@@ -131,7 +131,7 @@ SutherlandはRHからRobin／Lagarias型の**整数の約数和に関する不�
 
 ## 4. 最初に着手できる講
 
-- **ANF14:** 2026-11-23のANF系列manifestでANF1〜13が完了、ANF14が次の計画講。着手時は最新版manifestを再確認する（並行執筆により更新され得る）。
+- **ANF系列の次講:** ANFは進行中であり、現在の完了境界・次講は`textbook/dream-theater-series/ANF.yaml`の先頭からの連続`completed`直後の最初の`planned`から導く。並行実装で日々変化するため、横断PLANへ固定の次章IDを複製しない。
 - **AFR1:** 完成済み`MF`系列を直接再利用でき、ANF/IWA完了を待たず開始可能。
 - **IWA1:** ANFの局所体・円分塔の必要部分が実装済みになってから着手。既存`NT`だけで`IWA1`を完了可能とは見なさない。
 - **RHP1:** 既存`ANT3/7/8`と`CA12`の実在する完成本文を参照して、Leanの到達命題とRH/Dirichlet GRHの条件・例外を講義化できる。RHP中盤の高階保型・Galoisコホモロジーは未実装のANF/IWA/AFRを暗黙前提にしない。
