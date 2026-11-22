@@ -1,0 +1,44 @@
+id: BHI25
+title: "island端点の極値化"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI24
+official_scope: []
+learning_objectives:
+  - 共通cutoffで組み立てた二端点islandの一般化エントロピーを両端点で独立微分し交差比の連鎖律と符号を検算できる
+  - 等時刻の空間停留と時空の全法線変分によるQES条件を区別できる
+  - 二浴の熱平衡JT・自由Dirac模型のKruskal四端点距離とWeyl因子から時間依存の一般化エントロピーを再構成できる
+  - 半径方向と端点時刻の二変数停留方程式を導き有限時刻に等時刻条件を先取りしない
+  - 後期極限の一意な実数根・近地平線固有距離・存在域を導出できる
+  - Hessianの空間・時間方向と初期に停留解がない条件を検算し鞍点と全変数の最小値を区別できる
+  - island枝の極値化と空枝との比較および復号を別の問題として位置づけられる
+definitions:
+  - { id: BHI25-DEF-01, name: "二浴JTの対称island端点模型" }
+theorems:
+  - { id: BHI25-PROP-01, name: "二端点の等時刻停留方程式" }
+  - { id: BHI25-PROP-02, name: "二浴JTの一般化エントロピーと二つの停留方程式" }
+  - { id: BHI25-PROP-03, name: "後期対称枝の一意な外部極値と近地平線距離" }
+  - { id: BHI25-PROP-04, name: "後期枝の二次変分と初期の失敗例" }
+canonical_examples:
+  - 自由Dirac四端点の交差比微分と幾何・Weyl項の釣合い
+  - 二浴JTの領域・Kruskal状態・固有cutoff・空間的分離条件の直接確認
+  - Lorentz光円錐端点間隔と四点相関の分母を導く計算
+  - 時間・空間二変数の有限時刻停留数値例と残差
+  - 一変数三次方程式の一意な外部根と地平線までの固有距離
+  - 初期時刻に偽のQESを延長できない反例
+problem_patterns:
+  - BHI25-CROSS-RATIO-DERIVATIVES
+  - BHI25-DIRAC-CHAIN-RULE
+  - BHI25-WEYL-PROPER-CUTOFF
+  - BHI25-SPACELIKE-ENDPOINT-DOMAIN
+  - BHI25-DILATON-DERIVATIVES
+  - BHI25-TIME-VARIATION
+  - BHI25-THERMAL-ROOT
+  - BHI25-ROOT-UNIQUENESS
+  - BHI25-EARLY-TIME-NO-QES
+  - BHI25-INTEGRATED-JT-ENDPOINT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 15, review: 6 }

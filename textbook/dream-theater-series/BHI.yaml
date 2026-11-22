@@ -4,7 +4,7 @@ title: "ブラックホール情報 I・II"
 plan: textbook/plans_progress/DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
-# 2026-11-20時点。先頭から連続するcompletedの次のplannedが次講。
+# 先頭から連続するcompletedの次のplannedが次講。
 parts:
   - { title: "ブラックホール情報 I：情報損失・Page曲線・AMPS・回収条件", from: BHI1, to: BHI16 }
   - { title: "ブラックホール情報 II：JT重力・island・レプリカと復号", from: BHI17, to: BHI36 }
@@ -107,7 +107,7 @@ chapters:
     title: "island候補と一般化エントロピー"
   - id: BHI25
     path: textbook/volumes/dream_thater/物理系/BHI/BHI25
-    status: planned
+    status: completed
     title: "island端点の極値化"
   - id: BHI26
     path: textbook/volumes/dream_thater/物理系/BHI/BHI26
