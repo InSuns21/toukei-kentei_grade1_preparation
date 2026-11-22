@@ -18,7 +18,14 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（$p$ 冪円分局所拡大の次数・全分岐）**  
-> 奇素数 $p$、$r\ge1$ に対し、$C_r=\mathbb Q_p(\zeta_{p^r})$ は Galois 拡大で、次数は $d_r=p^{r-1}(p-1)$ である。拡大は全分岐で、$\zeta_{p^r}-1$ は $C_r$ の一様化元になる。
+> 奇素数 $p$ と整数 $r\ge1$ に対し、次の拡大は Galois 拡大である。
+
+$
+C_r=\mathbb Q_p(\zeta_{p^r}),\qquad
+[C_r:\mathbb Q_p]=p^{r-1}(p-1).
+$
+
+> さらに $C_r/\mathbb Q_p$ は全分岐で、$\zeta_{p^r}-1$ はその一様化元である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -67,7 +74,14 @@ $C_r/K$ の自己同型は $\zeta_{p^r}$ の像を決めれば一意に定まり
 
 <!-- formal-statement-start -->
 > **定義（円分 Galois 指数）**  
-> $C_r=\mathbb Q_p(\zeta_{p^r})$ とし、$\sigma\in\operatorname{Gal}(C_r/\mathbb Q_p)$ に対して、$\sigma(\zeta_{p^r})=\zeta_{p^r}^{\,b}$ を満たす唯一の $\bar b_r\in(\mathbb Z/p^r\mathbb Z)^\times$ を $\chi_r(\sigma)$ とする。逆に $\chi_r(\sigma_b)=\bar b_r$ と書く。
+> $C_r=\mathbb Q_p(\zeta_{p^r})$ とし、$\sigma\in\operatorname{Gal}(C_r/\mathbb Q_p)$ を取る。次の式を満たす唯一の合同類を円分 Galois 指数とする。
+
+$
+\chi_r(\sigma)=\bar b_r\in(\mathbb Z/p^r\mathbb Z)^\times,
+\qquad \sigma(\zeta_{p^r})=\zeta_{p^r}^{\,b}.
+$
+
+> 逆に $\chi_r(\sigma_b)=\bar b_r$ と書く。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf18-cyclotomic-exponent -->
