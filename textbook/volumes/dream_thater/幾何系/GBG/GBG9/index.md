@@ -36,16 +36,37 @@ $$
 
 よって $du'$ は一般には $W^{-1}du$ と等しくない。微分する位置に依存して基底を取り替えると、基底の変化を測る一項が余分に出る。
 
-この差を補うため、Lie 環の元 $\xi$ が表現空間 $V$ をどのように無限小で動かすかを先に整理する。[Lie 群の指数写像](../../../代数系/LIE/LIE2/index.md#def-lie2-exponential-map)を用い、滑らかな表現の単位元での微分を
+この差を補うため、Lie 環の元 $\xi$ が表現空間 $V$ をどのように無限小で動かすかを先に整理する。[Lie 群の指数写像](../../../代数系/LIE/LIE2/index.md#def-lie2-exponential-map)を用い、群の単位元の近くで表現を微分する。
 
-$$
+<a id="def-gbg9-infinitesimal-representation"></a>
+
+<!-- formal-statement-start -->
+> **定義（表現の無限小作用）**  
+> 有限次元 Lie 群 $G$ の Lie 環 $\mathfrak g=T_eG$、有限次元 $\mathbb F$ ベクトル空間 $V$、滑らかな左線形表現 $\rho:G\to GL_{\mathbb F}(V)$ に対して、各 $\xi\in\mathfrak g$ と $w\in V$ で
+
+$
 \rho_*:\mathfrak g\longrightarrow\operatorname{End}_{\mathbb F}(V),
 \qquad
 \rho_*(\xi)w=
 \left.\frac{d}{dt}\right|_{t=0}\rho(\exp(t\xi))w
-$$
+$
 
-と記す。これは $\mathbb F$ 線形作用素を値に取る実線形写像である（複素表現でも Lie 環に関しては実線形）。以下の形式 $\rho_*(A)$ は、1形式 $A$ の各値に $\rho_*$ を適用して得る $\operatorname{End}_{\mathbb F}(V)$ 値1形式を意味する。
+> と定まる $\rho_*$ を **表現の無限小作用** と呼ぶ。これは $\mathbb F$ 線形作用素を値に取る実線形写像である（複素表現でも Lie 環に関しては実線形）。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-gbg9-infinitesimal-representation -->
+**定義の確認**。$G=GL(2,\mathbb R)$、$V=\mathbb R^2$ の標準表現 $\rho(K)w=Kw$ を使う。$\rho$ は行列積と単位元を保ち、各 $K$ は可逆で、行列の成分に関して滑らかである。$\xi\in\mathfrak{gl}_2(\mathbb R)$ について $\exp(t\xi)=I+t\xi+O(t^2)$ なので、任意の列ベクトル $w$ に対し
+
+$
+\left.\frac d{dt}\right|_0\rho(\exp(t\xi))w
+=\left.\frac d{dt}\right|_0(I+t\xi+O(t^2))w
+=\xi w.
+$
+
+したがって $\rho_*(\xi)$ は行列 $\xi$ の左からの線形作用である。各 $w$ に線形で、$\xi$ に関しても実線形であることを、この表示から直接確認できる。
+<!-- definition-example-end -->
+
+以下の形式 $\rho_*(A)$ は、1形式 $A$ の各値に $\rho_*$ を適用して得る $\operatorname{End}_{\mathbb F}(V)$ 値1形式を意味する。
 
 行列群で $\rho$ が標準表現なら $\rho_*(\xi)=\xi$。一般の表現でも滑らかな群準同型の連鎖律から
 
