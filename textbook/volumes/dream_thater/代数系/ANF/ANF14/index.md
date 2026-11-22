@@ -423,7 +423,7 @@ $\tau=1$ のときも $\tau(b)/b=1=c_1$ ですから、$c=\delta b$ です。
 
 ### A2. 積の整合条件を二段階で使う
 
-$G=\langle\sigma\rangle$ が位数 $3$ で $L^\times$ に作用するとする。第1余サイクル $c$ の $u=c_\sigma$ を使って $c_{\sigma^2},c_{\sigma^3}$ を表し、$u$ に必要な条件を求めよ。
+$L/K$ を次数 $3$ の巡回 Galois 拡大、$G=\langle\sigma\rangle$ とする。第1余サイクル $c$ の $u=c_\sigma$ を使って $c_{\sigma^2},c_{\sigma^3}$ を表し、$u$ に必要な条件を求めよ。
 
 - Level: A
 - ID: ANF14-A2
