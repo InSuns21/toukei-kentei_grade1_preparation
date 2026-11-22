@@ -652,8 +652,15 @@ $$
 +\frac c3\left(\frac2{\sinh(A+1)}-\coth A\right).
 $$
 
-$\sinh(A+1)/\tanh A
-=\cosh A\cosh1+(\sinh A+1/\sinh A)\sinh1$ であり、$\cosh A\ge1$ と $\sinh A+1/\sinh A\ge2$ から右辺は $2$ より大きいです。よって $2/\sinh(A+1)<\coth A$。$S_h,c>0$ なら両項とも負なので停留解はありません。後期の近地平線根は $\cosh U\cosh V/(C_-C_+)\to1$ を微分まで使った近似から得たもので、$U=V=0$ ではその近似が成立しないことが失敗の原因です。
+次の恒等式を使います。
+
+$
+\frac{\sinh(A+1)}{\tanh A}
+=\cosh A\cosh1+
+\left(\sinh A+\frac1{\sinh A}\right)\sinh1.
+$
+
+ここで、$\cosh A\ge1$ と $\sinh A+1/\sinh A\ge2$ から右辺は $2$ より大きいです。よって $2/\sinh(A+1)<\coth A$。$S_h,c>0$ なら両項とも負なので停留解はありません。後期の近地平線根は $\cosh U\cosh V/(C_-C_+)\to1$ を微分まで使った近似から得たもので、$U=V=0$ ではその近似が成立しないことが失敗の原因です。
 <!-- solution-end -->
 
 ### Level C：模型・二方向の停留・適用限界を統合する
