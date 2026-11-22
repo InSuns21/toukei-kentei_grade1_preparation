@@ -1,0 +1,36 @@
+chapter: BHI25
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI24]
+forward_references: []
+concepts:
+  - id: black-hole-information.island-two-endpoint-stationarity
+    name: 二端点の等時刻停留方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二端点の等時刻停留方程式）]
+    requires: [black-hole-information.jt-island-assembled-ledger, black-hole-information.island-radiation-cross-ratio]
+  - id: black-hole-information.jt-two-bath-symmetric-island-model
+    name: 二浴JTの対称island端点模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二浴JTの対称island端点模型）]
+    requires: [black-hole-information.jt-island-candidate, black-hole-information.jt-horizon-entropy, black-hole-information.jt-bath-transmission]
+  - id: black-hole-information.jt-two-bath-extremality-equations
+    name: 二浴JTの一般化エントロピーと二つの停留方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二浴JTの一般化エントロピーと二つの停留方程式）]
+    requires: [black-hole-information.jt-two-bath-symmetric-island-model, black-hole-information.island-four-endpoint-entropy]
+  - id: black-hole-information.jt-late-island-unique-root
+    name: 後期対称枝の一意な外部極値と近地平線距離
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（後期対称枝の一意な外部極値と近地平線距離）]
+    requires: [black-hole-information.jt-two-bath-extremality-equations]
+  - id: black-hole-information.jt-island-hessian-early-obstruction
+    name: 後期枝の二次変分と初期の失敗例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（後期枝の二次変分と初期の失敗例）]
+    requires: [black-hole-information.jt-late-island-unique-root, black-hole-information.jt-two-bath-extremality-equations]
