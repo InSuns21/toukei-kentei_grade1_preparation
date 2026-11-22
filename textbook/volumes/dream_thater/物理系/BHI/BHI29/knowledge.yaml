@@ -1,0 +1,48 @@
+chapter: BHI29
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI28]
+forward_references: []
+concepts:
+  - id: black-hole-information.replica-saddle-candidates
+    name: 放射レプリカの非連結・連結鞍点候補
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（放射レプリカの非連結・連結鞍点候補）]
+    requires: [black-hole-information.jt-radiation-gravity-partition, black-hole-information.bath-replica-gravity-topology-independence]
+  - id: black-hole-information.replica-branched-cover
+    name: レプリカ対称な分岐被覆候補
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（レプリカ対称な分岐被覆候補）]
+    requires: [black-hole-information.replica-saddle-candidates]
+  - id: black-hole-information.replica-branch-euler
+    name: 二分岐点のEuler標数と位相重み
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二分岐点のEuler標数と位相重み）]
+    requires: [black-hole-information.replica-branched-cover, black-hole-information.jt-replica-topology-weight]
+  - id: black-hole-information.jt-double-trumpet
+    name: double-trumpetの連結積分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（double-trumpetの連結積分）]
+    requires: [black-hole-information.replica-saddle-candidates]
+  - id: black-hole-information.replica-saddle-effective-action
+    name: 鞍点間の有効作用差
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（鞍点間の有効作用差）]
+    requires: [black-hole-information.replica-saddle-candidates, black-hole-information.replica-branch-euler]
+  - id: black-hole-information.replica-saddle-dominance
+    name: 二候補の支配条件と規格化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二候補の支配条件と規格化）]
+    requires: [black-hole-information.replica-saddle-effective-action]
+  - id: black-hole-information.replica-fixed-point-variation
+    name: 対称商の固定点からの一次変分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（対称商の固定点からの一次変分）]
+    requires: [black-hole-information.replica-branched-cover, black-hole-information.replica-saddle-effective-action]
