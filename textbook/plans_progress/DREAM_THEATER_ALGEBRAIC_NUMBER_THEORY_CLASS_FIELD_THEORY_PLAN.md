@@ -2,7 +2,7 @@
 
 設計確定: 2026-11-21 JST  
 状態: in_progress / ANF1〜ANF14 completed・ANF15〜ANF22 planned。全22講。ANF1〜ANF14の本文・メタデータ・系列manifest・公開目次を実装済み。
-系列ID: \`ANF\`（Algebraic Number Fields）。分野: 代数系。対応ルート: [岩澤理論・保型表現・RH講読](DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)。
+系列ID: \`ANF\`（Algebraic Number Fields）。分野: 代数系。対応ルート: [岩澤理論・保型表現・RH講読](../plans/DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)。
 
 ## 目的・既存教材との差分
 
