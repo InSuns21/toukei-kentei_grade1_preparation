@@ -1005,7 +1005,8 @@ window.addEventListener('message', event => {
     showTable(rows, verifiedComparison);
     byId('result-note').textContent = 'GPUへ描画しました。コードや条件を変えて再実行できます。';
     byId('numeric-summary').textContent = verifiedComparison ?
-      '（' + ((isFCG5||isFCG6)&&!unchanged ? '変更条件の独立CPU画素 ' : '基準画素 ') +
+      '（' + (isFCG5&&!unchanged ? '変更係数の独立CPU画素 ' :
+       isFCG6&&!unchanged ? '変更条件の独立CPU画素 ' : '基準画素 ') +
       rows.filter(row => row.pass).length + '/' + rows.length + '）' :
       '（編集版・参考比較）';
     const pass = rows.every(row => row.pass);
