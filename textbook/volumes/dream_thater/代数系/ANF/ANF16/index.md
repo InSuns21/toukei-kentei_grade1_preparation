@@ -103,7 +103,7 @@ $$
 <a id="lem-anf16-deep-power-roots"></a>
 
 <!-- formal-statement-start -->
-> **補題（十分深い主単数は $n$ 乗）**  
+> **補題（深い主単数の冪根）**  
 > $K/\mathbb Q_p$ を有限拡大、$n\ge1$ を整数、$d=v_K(n)$ とする。整数 $m>2d$ かつ $m\ge1$ を取れば、任意の $u\in U_K^m$ に対し $x\in\mathcal O_K^\times$ が存在して $x^n=u$ となる。
 <!-- formal-statement-end -->
 
@@ -150,7 +150,7 @@ $$
 
 任意の $a\in K^\times$ を $L$ の元と見れば、$K$ 上の $n$ 次元線形空間 $L$ 上で「$a$ を掛ける写像」の行列式が $a^n$ なので $N_{L/K}(a)=a^n$ です。
 
-$m>2v_K(n)$、$m\ge1$ を選びます。[深い主単数の補題](#lem-anf16-deep-power-roots)から、各 $u\in U_K^m$ は $x^n$（$x\in\mathcal O_K^\times$）と表せます。従って
+$m>2v_K(n)$、$m\ge1$ を選びます。[深い主単数の冪根](#lem-anf16-deep-power-roots)から、各 $u\in U_K^m$ は $x^n$（$x\in\mathcal O_K^\times$）と表せます。従って
 
 $$
 U_K^m\subset (K^\times)^n\subset H_{L/K}.
@@ -375,7 +375,7 @@ $K=\mathbb Q_3$、$L/K$ を次数 $6$ の有限拡大とする。任意の $u\in
 - ID: ANF16-A2
 
 <!-- solution-start -->
-**詳細解答。** $n=6$ について $v_3(n)=1$ です。$u-1$ は $27\mathbb Z_3$ に属し $v_3(u-1)\ge3>2v_3(6)=2$ です。そこで[深い主単数の補題](#lem-anf16-deep-power-roots)を $n=6$、$m=3$ に適用すると、ある $x\in\mathbb Z_3^\times$ に対し $x^6=u$。$x\in K^\times\subset L^\times$ だから $N_{L/K}(x)=x^{[L:K]}=x^6=u$ です。
+**詳細解答。** $n=6$ について $v_3(n)=1$ です。$u-1$ は $27\mathbb Z_3$ に属し $v_3(u-1)\ge3>2v_3(6)=2$ です。そこで[深い主単数の冪根](#lem-anf16-deep-power-roots)を $n=6$、$m=3$ に適用すると、ある $x\in\mathbb Z_3^\times$ に対し $x^6=u$。$x\in K^\times\subset L^\times$ だから $N_{L/K}(x)=x^{[L:K]}=x^6=u$ です。
 <!-- solution-end -->
 
 ### A3. 分岐二次の単数障害
@@ -425,7 +425,11 @@ $K/\mathbb Q_p$ の剰余体の位数を $q$ とし、$e\mid(q-1)$、$e\ge2$ と
 - ID: ANF16-B1
 
 <!-- solution-start -->
-**詳細解答。** $X^e-\pi_K$ は [Eisenstein 既約性](../ANF10/index.md#thm-anf10-eisenstein-irreducible)で既約なので $[L:K]=e$、剰余次数は $1$ です。$e\mid(q-1)$ から $p\nmid e$ で、$\mathbb F_q^\times$ の $e$ 個の $e$ 乗根は [Hensel](../ANF10/index.md#thm-anf10-hensel-simple)で $K$ に持ち上がります。これらを $\zeta$ とすれば $\sqrt[e]{\pi_K}\mapsto\zeta\sqrt[e]{\pi_K}$ がすべての自己同型を与え、Galois 群は巡回位数 $e$ です。
+**詳細解答。** $X^e-\pi_K$ は [Eisenstein 既約性](../ANF10/index.md#thm-anf10-eisenstein-irreducible)で既約なので、$[L:K]=e$、剰余次数は $1$ です。
+
+$e\mid(q-1)$ から $p\nmid e$ です。$\mathbb F_q^\times$ にある $e$ 個の $e$ 乗根は [Hensel](../ANF10/index.md#thm-anf10-hensel-simple)で $K$ に持ち上がります。
+
+各根 $\zeta$ によって $\sqrt[e]{\pi_K}\mapsto\zeta\sqrt[e]{\pi_K}$ という自己同型が得られます。$\mathbb F_q^\times$ が巡回群であるため、これらの自己同型も位数 $e$ の巡回群をなします。
 
 全分岐なので単数の全ての共役は剰余で一致し、$N(x)\bmod\mathfrak p_K=(\bar x)^e$ です。逆に単数 $u$ の剰余が $e$ 乗なら、$T^e-u$ は単純剰余根を持ち、Hensel による $a^e=u$（$a\in K^\times$）から $N(a)=u$ となります。従って単数ノルムの剰余はちょうど $(k_K^\times)^e$ です。$f=1$ と[完全列](#prop-anf16-valuation-unit-sequence)から指数は $[k_K^\times:(k_K^\times)^e]=e$ です。
 <!-- solution-end -->
@@ -475,7 +479,11 @@ $$
 [K^\times:H]=2\cdot2=4.
 $$
 
-$U_K^1=1+3\mathbb Z_3\subset H$ より $H$ は開です。(i) [有限拡大ノルム群の開性定理](#thm-anf16-norm-open-finite)は「既に $L$ があればそのノルム群は開有限指数」を述べるので、$H$ が開であるという逆向きの情報だけでは $L$ の存在を導けません。(ii) [一般存在定理](#thm-anf16-local-existence)を外部定理として用いるなら、この $H$ をノルム群とする有限 Abel 拡大 $L/K$ が一意に存在し、$[L:K]=[K^\times:H]=4$ と結論できます。ここで存在の根拠は第2節ではなく一般存在定理です。
+$U_K^1=1+3\mathbb Z_3\subset H$ より $H$ は開です。
+
+**(i)** [有限拡大ノルム群の開性定理](#thm-anf16-norm-open-finite)は、既存の拡大 $L/K$ のノルム群が開かつ有限指数であると述べます。この必要条件だけでは、与えられた $H$ に対応する $L$ の存在を導けません。
+
+**(ii)** [一般存在定理](#thm-anf16-local-existence)を外部定理として適用すれば、この $H$ をノルム群とする有限 Abel 拡大 $L/K$ が一意に存在します。次数は $[L:K]=[K^\times:H]=4$ です。存在の根拠は第2節ではなく一般存在定理です。
 <!-- solution-end -->
 
 ### C1. 四次・二次のノルム群と商の射影
