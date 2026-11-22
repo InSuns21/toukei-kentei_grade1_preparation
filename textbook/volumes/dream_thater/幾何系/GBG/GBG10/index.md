@@ -48,25 +48,25 @@ $$
 
 **手計算での確認**。$N=\mathbb R^2$ とし、係数の Lie 環に $GL(2,\mathbb R)$ の単位行列 $I$ における接空間を選ぶ。これは実 $2\times2$ 行列全体であり、
 
-$
+$$
 \mathfrak g=\mathfrak{gl}_2(\mathbb R)
 =T_I GL(2,\mathbb R)=M_2(\mathbb R)
-$
+$$
 
 と同一視できる。実際、任意の実行列 $T$ に対して
 
-$
+$$
 \det(I+tT)\longrightarrow\det I=1\qquad(t\to0)
-$
+$$
 
 だから $I+tT$ は十分小さい $t$ で可逆であり、$T$ は可逆行列の曲線の速度として実現する。$E_{ij}$ は $(i,j)$ 成分だけが $1$、他が $0$ の行列とする。
 
 $B=E_{11}$、$C=E_{12}$ とし、$\alpha=B\,dx+C\,dy$ と置く。これは各接ベクトルに行列を対応させる1形式であり、
 
-$
+$$
 \alpha(v_x\partial_x+v_y\partial_y)=Bv_x+Cv_y,\qquad
 \alpha(\partial_x)=B,\quad\alpha(\partial_y)=C
-$
+$$
 
 となる。ここで $\partial_x=\partial/\partial x$、$\partial_y=\partial/\partial y$ は座標接ベクトルを表す。行列積 $BC=C$、$CB=0$ より
 
@@ -255,17 +255,17 @@ $$
 <!-- definition-example-start: def-gbg10-local-curvature -->
 **定義の確認**。$P=\mathbb R^2\times U(1)$、$s(x,y)=(x,y,1)$ とする。まず基底上に $b=ix\,dy$ を選ぶ。[GBG7 の積主束公式](../GBG7/index.md#prop-gbg7-product-form)をこの $b$ に適用すると、$v\in T_{(x,y)}\mathbb R^2$、$W\in T_kU(1)$ に対して接続形式は
 
-$
+$$
 \omega_{((x,y),k)}(v,W)
 =\operatorname{Ad}_{k^{-1}}\bigl(b_{(x,y)}(v)\bigr)+k^{-1}W
 =ix\,dy(v)+k^{-1}W
-$
+$$
 
 となる。最後の等号では $U(1)$ の可換性を使った。この積束公式は接続の再生条件と右同変条件を満たす。さらに $ds_{(x,y)}v=(v,0)$ だから、$A=s^*\omega=b$ と直接確かめられる。定義 $F=s^*\Omega$ の意味は、$v,w\in T_{(x,y)}\mathbb R^2$ に対して
 
-$
+$$
 F_{(x,y)}(v,w)=\Omega_{s(x,y)}(ds_{(x,y)}v,ds_{(x,y)}w)
-$
+$$
 
 と、$P$ 上の2形式に section の接方向を入力することである。$U(1)$ の Lie 括弧が零であることから
 
@@ -416,38 +416,38 @@ $$
 
 行列群の場合は局所式でも確かめられる。以下の $d$ は基底 $U$ 上の外微分であり、$g$ は行列値0形式、$A$ は行列値1形式である。$\beta=g^{-1}dg$、$C=g^{-1}Ag$ とおく。積の微分 $d(gg^{-1})=0$ から
 
-$
+$$
 d(g^{-1})=-g^{-1}(dg)g^{-1}
-$
+$$
 
 を得る。次数1の $A$ を含む積の微分では符号が変わるため、
 
-$
+$$
 \begin{aligned}
 dC
 &=d(g^{-1})\wedge Ag+g^{-1}(dA)g-g^{-1}A\wedge dg\\
 &=g^{-1}(dA)g-\beta\wedge C-C\wedge\beta.
 \end{aligned}
-$
+$$
 
 また外微分の二乗は零なので、
 
-$
+$$
 d\beta=d(g^{-1})\wedge dg
 =-g^{-1}(dg)g^{-1}\wedge dg
 =-\beta\wedge\beta.
-$
+$$
 
 これらを $A'=C+\beta$ に代入する。$C\wedge C=g^{-1}(A\wedge A)g$ であることにも注意すると、
 
-$
+$$
 \begin{aligned}
 dA'+A'\wedge A'
 &=g^{-1}(dA)g-\beta\wedge C-C\wedge\beta-\beta\wedge\beta\\
 &\quad+C\wedge C+C\wedge\beta+\beta\wedge C+\beta\wedge\beta\\
 &=g^{-1}(dA+A\wedge A)g.
 \end{aligned}
-$
+$$
 
 行列係数の外積では行列積の順序を交換していない。混合項が対になって消えるので、$F'=g^{-1}Fg$ を得る。
 <!-- proof-end -->
@@ -676,17 +676,17 @@ $$
 
 基底方向 $\partial_x,\partial_y$ の水平リフトを $X^H,Y^H$ とする。標準 section $s(x,y)=((x,y),I)$ では $ds(\partial_x)-X^H$、$ds(\partial_y)-Y^H$ は垂直ベクトルである。[曲率の水平性](#thm-gbg10-basic-properties)から
 
-$
+$$
 F(\partial_x,\partial_y)
 =\Omega_{s(x,y)}(ds\,\partial_x,ds\,\partial_y)
 =\Omega_{s(x,y)}(X^H,Y^H).
-$
+$$
 
 ここで[曲率と水平ベクトル場の括弧](#thm-gbg10-horizontal-bracket)を適用すると、標準 section 上で
 
-$
+$$
 \omega([X^H,Y^H])=-F(\partial_x,\partial_y)=-E_{12}\ne0.
-$
+$$
 
 従って Lie 括弧には非零の垂直成分があり、水平に閉じない。破綻するのは、定数係数なら $dA=0$ だから平坦とみなす誤った推論である。
 <!-- solution-end -->
@@ -807,16 +807,16 @@ $\omega$ のときは $dg$ の補正が残るのに、$\Omega$ では垂直入�
 
 **3. 場への作用**。[GBG9 の共変微分の成分変換](../GBG9/index.md#thm-gbg9-gauge-covariance)を方向 $Z$ に沿って書くと、$w_2=g^{-1}w_1$ を満たす任意の局所成分に対して
 
-$
+$$
 D_{2,Z}w_2=g^{-1}D_{1,Z}w_1
-$
+$$
 
 である。まず $w_i=u_i$ に使い、次に $w_i=D_{i,Y}u_i$ に使う。これらは最初の適用によって同じ成分変換則を満たすので、
 
-$
+$$
 D_{2,X}D_{2,Y}u_2
 =g^{-1}D_{1,X}D_{1,Y}u_1
-$
+$$
 
 と二階の作用にも拡張できる。$X,Y$ を交換した項と $[X,Y]$ の方向も同じである。さらに本章の[交換子定理](#thm-gbg10-commutator)を各パッチで適用すると
 
