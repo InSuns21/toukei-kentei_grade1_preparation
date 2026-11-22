@@ -10,7 +10,9 @@ $$
 -u''(x)=f(x)\quad(0<x<1),\qquad u(0)=u(1)=0
 $$
 
-を用いる。等間隔格子は $n\ge2$、$h=1/n$、$x_j=jh$（$0\le j\le n$）とし、差分行列 $A_h=-D_h^2$ は内部点 $j=1,\ldots,n-1$ に作用する。端点の近似値と真値は零に固定する。$u$ は比較の基準となる正確な解で、数値計算の中で常に利用できるとは限らない。ここで $u'(x)=du/dx$、$u''(x)=d^2u/dx^2$ は位置 $x$ に関する微分であり、後で使う $u^{(4)}=d^4u/dx^4$ も同じ変数で微分する。一方、[前講で定義した三点差分](../PML2-03/index.md#def-pml2-03-fd)の $D_h^2$ は格子点列へ作用する差分演算子で、$h$ に関する微分ではない。
+を用いる。等間隔格子は $n\ge2$、$h=1/n$、$x_j=jh$（$0\le j\le n$）とし、差分行列 $A_h=-D_h^2$ は内部点 $j=1,\ldots,n-1$ に作用する。端点の近似値と真値は零に固定する。$u$ は比較の基準となる正確な解で、数値計算の中で常に利用できるとは限らない。
+
+ここで $u'(x)=du/dx$ と $u''(x)=d^2u/dx^2$ は位置 $x$ に関する微分であり、後で使う $u^{(4)}=d^4u/dx^4$ も同じ変数で微分する。一方、[前講で定義した三点差分](../PML2-03/index.md#def-pml2-03-fd)の $D_h^2$ は格子点列へ作用する差分演算子で、$h$ に関する微分ではない。
 
 まず二つの値の差を「誤差」と呼ぶとしても、対象が格子点列か連続関数かで数値は変わる。ノルムとは差の大きさを一つの非負実数で測る規則である。有限列の最大絶対値と、区間上の関数の二乗積分を、本講で使う測定規約として導入する。
 
@@ -34,7 +36,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-04-error-metrics -->
-**定義の確認**。 $u(x)=x(1-x)$、$n=2$ では、[定数外力の節点一致と区間内誤差](../PML2-03/index.md#thm-pml2-03-quadratic)から、格子点列 $z_j=u(x_j)$ と区分一次Galerkin解 $u_h$ がある。端点と中央点を直接比較すると $E_{\rm grid}(u,z)=0$。この例では $f=2$、零端点、区分一次要素、厳密荷重積分という[前講の節点一致定理](../PML2-03/index.md#thm-pml2-03-quadratic)の仮定が満たされ、$u_h$ は $u$ の節点補間（各区間の弦）である。区間 $[x_j,x_{j+1}]$ ごとに $t=x-x_j\in[0,h]$ と置くと、曲線と弦の差は $u-u_h=t(h-t)$、その $x$ に関する導関数の差は $u'-u_h'=h-2t$。よって
+**定義の確認**。 $u(x)=x(1-x)$、$n=2$ では、[定数外力の節点一致と区間内誤差](../PML2-03/index.md#thm-pml2-03-quadratic)から、格子点列 $z_j=u(x_j)$ と区分一次Galerkin解 $u_h$ がある。端点と中央点を直接比較すると $E_{\rm grid}(u,z)=0$。
+
+この例は $f=2$、零端点、区分一次要素、厳密荷重積分という前講の定理の仮定を満たし、$u_h$ は $u$ の節点補間（各区間の弦）である。各区間 $[x_j,x_{j+1}]$ で $t=x-x_j\in[0,h]$ と置けば、曲線と弦の差は $u-u_h=t(h-t)$、その $x$ に関する導関数の差は $u'-u_h'=h-2t$。よって
 
 $$
 \begin{aligned}
@@ -190,7 +194,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-04-consistency-stability -->
-**定義の確認**。 $u=x(1-x)$ と $f=2$ なら、二次式の二階差分はどの格子でも厳密なので $\tau=0$、整合性が成立する。また任意の内部列 $g$ に対し、$A_hw=g$ を満たす $w$ と障壁関数 $a_j=x_j(1-x_j)/2$ を比較する。$D_h^2x=0$、$D_h^2(x^2)=2$ より $A_ha=-D_h^2(x-x^2)/2=1$ である。また $0\le x_j(1-x_j)\le1/4$ から $0\le a_j\le1/8$ となる。これらを確認して $G=\|g\|_{\infty,h}$ とすれば $A_h(Ga\pm w)=G\pm g\ge0$。よって[離散最大値原理](../PML2-03/index.md#prop-pml2-03-dmp)から
+**定義の確認**。 $u=x(1-x)$ と $f=2$ なら、二次式の二階差分はどの格子でも厳密なので $\tau=0$、整合性が成立する。また任意の内部列 $g$ に対し、$A_hw=g$ を満たす $w$ と障壁関数 $a_j=x_j(1-x_j)/2$ を比較する。一次式と二次式の差分を計算すると
+
+$$
+D_h^2(x)=0,\qquad D_h^2(x^2)=2,\qquad
+A_ha=-D_h^2\left(\frac{x-x^2}{2}\right)=1.
+$$
+
+また $0\le x_j(1-x_j)\le1/4$ から $0\le a_j\le1/8$ となる。$G=\|g\|_{\infty,h}$ とすれば $A_h(Ga\pm w)=G\pm g\ge0$。よって[離散最大値原理](../PML2-03/index.md#prop-pml2-03-dmp)から
 
 $$
 |w_j|\le Ga_j\le\frac G8,\qquad
@@ -433,7 +444,14 @@ $$
 $u=x-x^4$、$f=12x^2$、$n=4$ で正確な差分解 $z$ を用いる。$x_2=1/2$ における $u-z$ と全格子での最大絶対誤差を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $h=1/4$。[前講の四次式の差分計算](../PML2-03/index.md#thm-pml2-03-quadratic)では $D_h^2(x^4)=12x_j^2+2h^2$ なので、$A_h(u^I-z)=2h^2\mathbf1$。また $A_h(x_j(1-x_j))=2$ であり、差分解の一意性から $u(x_j)-z_j=h^2x_j(1-x_j)$。中央では
+**詳細解答。** $h=1/4$。[前講の四次式の差分計算](../PML2-03/index.md#thm-pml2-03-quadratic)では $D_h^2(x^4)=12x_j^2+2h^2$ なので、
+
+$$
+A_h(u^I-z)=2h^2\mathbf1
+=A_h\bigl(h^2x_j(1-x_j)\bigr).
+$$
+
+右辺最後の $A_h$ は格子列 $h^2x_j(1-x_j)$ へ作用する。差分解の一意性から $u(x_j)-z_j=h^2x_j(1-x_j)$。中央では
 
 $$
 u(1/2)=\frac12-\frac1{16}=\frac7{16},\qquad
@@ -540,7 +558,13 @@ $$
 $u=x-x^4$、$n=4$、$f=12x^2$ とする。$\widehat b=b+\delta\mathbf1$、$\rho=0$ で $\delta=2h^2$ とする。三項誤差の各項を求め、真の格子点誤差が零でも上界が正となる理由を説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** $h^2=1/16$、$\delta=1/8$。[切断誤差の定義](#def-pml2-04-residual)と[前講の四次式の二階差分](../PML2-03/index.md#thm-pml2-03-quadratic)から、$\tau=2h^2\mathbf1$。$A_h(x_j(1-x_j))=2$ かつ $A_h$ は可逆なので、$A_h(u^I-z)=\tau$ を解けば $u^I_j-z_j=h^2x_j(1-x_j)$ となる。右辺変更による差は
+**詳細解答。** $h^2=1/16$、$\delta=1/8$。[切断誤差の定義](#def-pml2-04-residual)と[前講の四次式の二階差分](../PML2-03/index.md#thm-pml2-03-quadratic)から $\tau=2h^2\mathbf1$ である。$A_h(x_j(1-x_j))=2$ と $A_h$ の可逆性を用い、
+
+$$
+A_h(u^I-z)=\tau=A_h\bigl(h^2x_j(1-x_j)\bigr)
+$$
+
+より $u^I_j-z_j=h^2x_j(1-x_j)$。右辺変更による差は
 
 $$
 z_j-\widehat z_j=-\frac\delta2 x_j(1-x_j)
@@ -633,10 +657,9 @@ A_h(z+\delta q)=\widehat b,\qquad
 A_h(\widehat z-\rho q)=\widehat b-\rho\mathbf1.
 $$
 
-ゆえに一意性から $\widehat z=z+\delta q$、$\widetilde z=\widehat z-\rho q$.
-$$
+ゆえに $A_h$ の一意性から $\widehat z=z+\delta q$、$\widetilde z=\widehat z-\rho q$ となる。
 
-ゆえに全内部点について
+従って全内部点について
 
 $$
 u(x_j)-\widetilde z_j
