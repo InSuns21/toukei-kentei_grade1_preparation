@@ -7,3 +7,4 @@
 4. [GBG4 主束から物質場の束をどう作るか](textbook/volumes/dream_thater/幾何系/GBG/GBG4/index.md)
 5. [GBG5 ゲージ変換群は何に作用するか](textbook/volumes/dream_thater/幾何系/GBG/GBG5/index.md)
 6. [GBG6 接空間を水平と垂直に分けるには](textbook/volumes/dream_thater/幾何系/GBG/GBG6/index.md)
+7. [GBG7 水平分布とLie環値接続1形式はなぜ同値か](textbook/volumes/dream_thater/幾何系/GBG/GBG7/index.md)

@@ -32,7 +32,7 @@ chapters:
     title: "接空間を水平と垂直に分けるには"
   - id: GBG7
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG7
-    status: planned
+    status: completed
     title: "水平分布とLie環値接続1形式はなぜ同値か"
   - id: GBG8
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG8

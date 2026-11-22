@@ -1,0 +1,43 @@
+id: "GBG7"
+title: "水平分布とLie環値接続1形式はなぜ同値か"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG6
+official_scope: []
+learning_objectives:
+  - Lie環値1形式の線形性と滑らかさを既習定義から確認し、主束接続1形式の再生条件と右同変条件を独立に検算できる
+  - 垂直射影と基本ベクトル場の同型から接続形式を構成し、滑らかさ・再生・右同変性・核・一意性を証明できる
+  - 接続形式の核から水平分布を構成し、直和分解・滑らかな一定階数部分束・右作用同変性を証明できる
+  - 双方向構成が互いに逆であることを中間式から証明できる
+  - 左Maurer–Cartan形式が一点上の主束の唯一の接続形式であることを確認できる
+  - 積主束で一般の接続形式と水平グラフの対応を計算し、右乗法と左乗法の向きを区別できる
+  - 非可換行列の反例で右同変条件と再生条件を別々に失った場合の破綻を説明できる
+definitions:
+  - { id: GBG7-DEF-01, name: 主束の接続1形式 }
+theorems:
+  - { id: GBG7-THM-01, name: 水平分布から接続1形式への構成 }
+  - { id: GBG7-THM-02, name: 接続1形式から水平分布への構成 }
+  - { id: GBG7-THM-03, name: 水平分布と接続1形式の一対一対応 }
+  - { id: GBG7-PROP-01, name: 一点上の主束とMaurer–Cartan形式 }
+  - { id: GBG7-PROP-02, name: 積主束における接続1形式の具体式 }
+canonical_examples:
+  - GL(n,R)積主束の標準接続と基本ベクトル・右同変性・核
+  - 一点上の主G束におけるMaurer–Cartan形式の一意性
+  - 任意の積主束の水平グラフとLie環値1形式bの対応
+  - GL(2,R)で随伴項を落とした形式の右同変性違反
+  - 再生条件を落として形式を2倍した例
+problem_patterns:
+  - GBG7-U1-STANDARD-CONNECTION
+  - GBG7-NONABELIAN-REPRODUCTION
+  - GBG7-VERTICAL-PROJECTION-LABEL
+  - GBG7-RESCALED-FORM-COUNTEREXAMPLE
+  - GBG7-POINT-FIBRE-MAURER-CARTAN
+  - GBG7-KERNEL-SMOOTH-SPLITTING
+  - GBG7-ADJOINT-FAILURE-COUNTEREXAMPLE
+  - GBG7-TRIVIAL-CONNECTION-CLASSIFICATION
+  - GBG7-NONABELIAN-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 4 }

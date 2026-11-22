@@ -1,0 +1,64 @@
+chapter: GBG7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG6
+forward_references: []
+concepts:
+  - id: gauge.principal-connection-form
+    name: 主束の接続1形式
+    kind: definition
+    aliases: [主束接続形式, 主束接続1形式]
+    introduction: formal
+    introduction_aliases: ["定義（主束の接続1形式）"]
+    requires:
+      - lie.lie-algebra-valued-one-form
+      - gauge.right-principal-fundamental-vector-field
+      - lie.adjoint-representation
+      - gauge.principal-bundle
+
+  - id: gauge.horizontal-to-connection-form
+    name: 水平分布から接続1形式への構成
+    kind: theorem
+    introduction: formal
+    requires:
+      - gauge.principal-connection-form
+      - gauge.horizontal-distribution
+      - gauge.vertical-fundamental-isomorphism
+      - gauge.horizontal-lift-splitting
+
+  - id: gauge.connection-form-to-horizontal
+    name: 接続1形式から水平分布への構成
+    kind: theorem
+    introduction: formal
+    requires:
+      - gauge.principal-connection-form
+      - gauge.horizontal-distribution
+      - gauge.vertical-fundamental-isomorphism
+
+  - id: gauge.horizontal-connection-equivalence
+    name: 水平分布と接続1形式の一対一対応
+    kind: theorem
+    introduction: formal
+    requires:
+      - gauge.horizontal-to-connection-form
+      - gauge.connection-form-to-horizontal
+
+  - id: gauge.maurer-cartan-principal-fibre
+    name: 一点上の主束とMaurer–Cartan形式
+    kind: proposition
+    introduction: formal
+    requires:
+      - lie.left-maurer-cartan-form
+      - lie.maurer-cartan-equivariance
+      - gauge.principal-connection-form
+
+  - id: gauge.product-principal-connection-form
+    name: 積主束における接続1形式の具体式
+    kind: proposition
+    introduction: formal
+    requires:
+      - gauge.principal-connection-form
+      - gauge.product-horizontal-classification
+      - lie.left-maurer-cartan-form
+      - lie.maurer-cartan-equivariance
