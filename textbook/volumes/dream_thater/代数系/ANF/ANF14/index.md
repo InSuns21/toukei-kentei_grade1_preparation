@@ -39,6 +39,19 @@ $$
 
 これにより逆元側の値も勝手には選べません。逆に、作用と値が決まれば他の値は整合条件で拘束されます。
 
+余サイクル $c,d$ の点ごとの積を $(cd)_\sigma=c_\sigma d_\sigma$ と定めると、$M$ が可換で作用が群自己同型であることから
+
+$$
+\begin{aligned}
+(cd)_{\sigma\tau}
+&=c_\sigma\sigma(c_\tau)d_\sigma\sigma(d_\tau)\\
+&=(c_\sigma d_\sigma)\sigma(c_\tau d_\tau)
+=(cd)_\sigma\,\sigma((cd)_\tau).
+\end{aligned}
+$$
+
+単位元は定数写像 $c_\sigma=1_M$、逆元は点ごとの $c_\sigma^{-1}$ で、いずれも同じ条件を満たします。これが $Z^1(G,M)$ を群として扱える理由です。
+
 <!-- definition-example-start: def-anf14-cocycle -->
 **定義の確認**：$L=\mathbb Q_3(i)$、$i^2=-1$、$\sigma(i)=-i$ とします。$G=\{1,\sigma\}$ に対して $c_1=1$、$c_\sigma=i$ と置くと、非自明な組 $(\sigma,\sigma)$ における条件は
 
@@ -50,7 +63,7 @@ $$
 残る組 $(1,1),(1,\sigma),(\sigma,1)$ では $c_1=1$ なので等式が成立します。これで全組を検証できました。$\sigma(i)=-i$ の作用を無視して単に $i^2$ を掛けるのは誤りです。
 <!-- definition-example-end -->
 
-次に、最初の比から得られる特別な余サイクルを取り出します。
+次に、最初の比から得られる特別な余サイクルを取り出します。元 $b\in M$ を写像 $\sigma\mapsto b^{-1}\sigma(b)$ に送る操作を $\delta$ と書き、そのような写像だけを集めた部分群で余サイクル全体を割った商を $H^1$ とします。
 
 <a id="def-anf14-coboundary"></a>
 
@@ -233,14 +246,28 @@ $$
 c_{\sigma^j}=\prod_{h=0}^{j-1}\sigma^h(u)
 $$
 
-と置きます。$j+k<n$ の場合には右辺の積を最初の $j$ 個とその後の $k$ 個に分割でき、
+と置きます。指数が一巡する場合も含めて確かめます。任意の整数 $m\ge0$ に対して
 
 $$
-c_{\sigma^{j+k}}
-=c_{\sigma^j}\,\sigma^j(c_{\sigma^k})
+P_m=\prod_{h=0}^{m-1}\sigma^h(u),\qquad P_0=1
 $$
 
-となります。$j+k\ge n$ の場合も、積の最初の $n$ 因子が $N(u)=1$ であり $\sigma^n=1$ だから同じ等式が成り立ちます。したがって $c$ は第1余サイクルです。[乗法的 Hilbert の定理90](#thm-anf14-hilbert90)から $c_\tau=\tau(b)/b$ と表せ、特に $\tau=\sigma$ として $u=\sigma(b)/b$ を得ます。
+と書けば、積を前半の $j$ 因子と後半の $k$ 因子に分けることで、$0\le j,k<n$ に対し
+
+$$
+P_{j+k}
+=\left(\prod_{h=0}^{j-1}\sigma^h(u)\right)
+ \sigma^j\left(\prod_{h=0}^{k-1}\sigma^h(u)\right)
+=P_j\,\sigma^j(P_k)
+$$
+
+を得ます。さらに $P_n=N_{L/K}(u)=1$、$\sigma^n=1$ より、$0\le r<n$ について
+
+$$
+P_{n+r}=P_n\,\sigma^n(P_r)=P_r.
+$$
+
+従って $j+k<n$ なら $c_{\sigma^{j+k}}=P_{j+k}$、$j+k\ge n$ なら $c_{\sigma^{j+k}}=P_{j+k-n}=P_{j+k}$ です。いずれの場合も $c_{\sigma^{j+k}}=c_{\sigma^j}\,\sigma^j(c_{\sigma^k})$ となり、$c$ は第1余サイクルです。[乗法的 Hilbert の定理90](#thm-anf14-hilbert90)から $c_\tau=\tau(b)/b$ と表せ、特に $\tau=\sigma$ として $u=\sigma(b)/b$ を得ます。
 <!-- proof-end -->
 
 この系は一般の $G$ の作用についても「$N$ の核を比の像と比較する」という考え方の手本になります。ただし、巡回群の生成元を一つ選んだ式なので、非巡回拡大にそのまま転記しません。
@@ -349,7 +376,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(1) 跡が $1$ の元。** [Artin の独立性](../../FLD/FLD4/index.md#lem-fld4-artin-independence)より、相異なる自己同型の和 $\operatorname{Tr}_{L/K}(x)=\sum_{\tau\in G}\tau(x)$ は零写像ではありません（各係数が $1\ne0$）。ある $a\in L$ について $d=\operatorname{Tr}(a)\ne0$ です。任意の $\sigma\in G$ に対して $\sigma(d)=d$ なので $d\in K^\times$。よって $t=a/d$ と置けば
+**(1) 跡が $1$ の元。** [Artin の独立性](../../FLD/FLD4/index.md#lem-fld4-artin-independence)より、相異なる自己同型の和 $\operatorname{Tr}_{L/K}(x)=\sum_{\tau\in G}\tau(x)$ は零写像ではありません（各係数が $1\ne0$）。ある $a\in L$ について $d=\operatorname{Tr}(a)\ne0$ です。任意の $\sigma\in G$ に対して $\sigma(d)=d$ なので、[有限 Galois 理論の基本定理](../../FLD/FLD4/index.md#thm-fld4-fundamental-galois)の固定体の結論 $L^G=K$ から $d\in K^\times$。よって $t=a/d$ と置けば
 
 $$
 \operatorname{Tr}(t)
@@ -400,7 +427,19 @@ $$
 =\sigma^n(b)-b=0.
 $$
 
-(1) なら $c_1=0$、$c_{\sigma^j}=\sum_{h=0}^{j-1}\sigma^h(u)$（$1\le j<n$）と置きます。指数の和が $n$ 以上の場合にも $\operatorname{Tr}(u)=0$ で一巡分が消えるため、$c_{\sigma^{j+k}}=c_{\sigma^j}+\sigma^j(c_{\sigma^k})$ が成立します。[加法的定理90](#thm-anf14-additive90)で $c_\tau=\tau(b)-b$ と書き、$\tau=\sigma$ とすれば結論です。
+(1) なら $c_1=0$、$c_{\sigma^j}=\sum_{h=0}^{j-1}\sigma^h(u)$（$1\le j<n$）と置きます。乗法版と同様に $m\ge0$ について $Q_m=\sum_{h=0}^{m-1}\sigma^h(u)$、$Q_0=0$ と定めると、$0\le j,k<n$ に対し
+
+$$
+Q_{j+k}=Q_j+\sigma^j(Q_k).
+$$
+
+一方、$\operatorname{Tr}_{L/K}(u)=Q_n=0$ と $\sigma^n=1$ を使えば
+
+$$
+Q_{n+r}=Q_n+\sigma^n(Q_r)=Q_r\qquad(0\le r<n)
+$$
+
+です。従って $j+k\ge n$ で指数を $n$ だけ戻しても同じ等式が成り立ち、$c_{\sigma^{j+k}}=c_{\sigma^j}+\sigma^j(c_{\sigma^k})$ が全組で成立します。[加法的定理90](#thm-anf14-additive90)で $c_\tau=\tau(b)-b$ と書き、$\tau=\sigma$ とすれば結論です。
 <!-- proof-end -->
 
 ## 5. Hilbert 90 が語っていないこと
@@ -618,7 +657,7 @@ $$
 <!-- solution-start -->
 **詳細解答。**
 
-**(1) 核と像。** $D(b)=1$ は $\sigma(b)=b$ と同値です。$\sigma$ は $G$ を生成するため、固定体の性質 $L^G=K$ を使うと
+**(1) 核と像。** $D(b)=1$ は $\sigma(b)=b$ と同値です。$\sigma$ は $G$ を生成するため、[有限 Galois 理論の基本定理](../../FLD/FLD4/index.md#thm-fld4-fundamental-galois)の $L^G=K$ を使うと
 
 $$
 \ker D=K^\times.
