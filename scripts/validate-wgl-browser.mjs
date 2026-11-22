@@ -841,7 +841,7 @@ try{
   await writeFile('_wgl_browser_review/fcg6-live-obstacle.png',
     Buffer.from(second6.data,'base64'));
   const scene6obstacle=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
-  assert.match(scene6obstacle.grid,/16×16.*17×16.*R8/);
+  assert.match(scene6obstacle.grid,/48×48.*49×48.*R8/);
   assert.match(scene6obstacle.color,/固体セル.*黄/);
   assert.match(scene6obstacle.clock,/物理step 8、t=0.40 s/);
   assert.match(scene6obstacle.mode,/u_viewMode=0.*u_viewMode=1/);

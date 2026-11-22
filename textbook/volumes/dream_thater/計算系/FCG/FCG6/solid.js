@@ -1,7 +1,7 @@
 // FCG6 editable educational MAC obstacle solver. Physics: CPU Float64;
 // GPU visualizes R8 fields. This is a staircase-mask approximation, not CFD validation.
 // Change shape ('circle'/'rectangle'), centerY, wall speed, or acceleration here.
-const N=16,h=1/N,dt=0.05,rho=1,shape='circle',centerY=0.5;
+const N=48,h=1/N,dt=0.05,rho=1,shape='circle',centerY=0.5;
 const wallAmplitude=0.10,wallFrequency=1.8,acceleration=0.07;
 const steps=settings.steps;
 if(!Number.isInteger(steps)||steps<0||steps>24)throw new RangeError('steps: 0..24');
@@ -60,7 +60,7 @@ for(let j=0;j<N;j++)for(let i=0;i<N;i++){
 let geom=geometry(0),p=new Float64Array(N*N);
 for(let k=0;k<N*N;k++)if(geom.s[k])dye[k]=0;
 boundary(u,v,geom.s,geom.wallU);
-let before=0,after=0,residual=0,identity=0,meanRemoved=0;
+let before=0,after=0,residual=0,identity=0,meanRemoved=0,sweeps=0;
 let forceX=0,forceY=0,cutCount=0,changedMask=0;
 function advanceObstacleStep(step){
   const old=geom.s;
@@ -98,24 +98,45 @@ function advanceObstacleStep(step){
   // divergence defect instead of falsely claiming incompressibility.
   meanRemoved=sum/count;
   for(let k=0;k<N*N;k++)if(!s[k])rhs[k]-=meanRemoved;
-  p=new Float64Array(N*N);
-  const next=new Float64Array(N*N),omega=2/3;
-  for(let it=0;it<240;it++){
-    let pMean=0;
-    for(let j=0;j<N;j++)for(let i=0;i<N;i++){
-      const k=ci(i,j);if(s[k])continue;
-      let neighbors=0;
-      if(fluidAt(s,i-1,j))neighbors+=p[ci(i-1,j)];
-      if(fluidAt(s,i+1,j))neighbors+=p[ci(i+1,j)];
-      if(fluidAt(s,i,j-1))neighbors+=p[ci(i,j-1)];
-      if(fluidAt(s,i,j+1))neighbors+=p[ci(i,j+1)];
-      const target=(neighbors-h*h*rhs[k])/degree[k];
-      next[k]=(1-omega)*p[k]+omega*target;pMean+=next[k];
-    }
-    pMean/=count;
-    for(let k=0;k<N*N;k++)if(!s[k])next[k]-=pMean;
-    p.set(next);
+  // Build the active fluid graph once per moving-mask step. Only
+  // those cells participate in SOR; all wall-face values stay prescribed.
+  const adj=new Int32Array(4*N*N);adj.fill(-1);
+  const colors=[[],[]],fluid=[];
+  for(let j=0;j<N;j++)for(let i=0;i<N;i++){
+    const k=ci(i,j);if(s[k])continue;
+    fluid.push(k);colors[(i+j)&1].push(k);
+    adj.set([fluidAt(s,i-1,j)?ci(i-1,j):-1,
+      fluidAt(s,i+1,j)?ci(i+1,j):-1,
+      fluidAt(s,i,j-1)?ci(i,j-1):-1,
+      fluidAt(s,i,j+1)?ci(i,j+1):-1],4*k);
   }
+  p=new Float64Array(N*N);
+  const omega=1.94,maxSweeps=32*N,tolerance=1e-6;
+  sweeps=0;let converged=false;
+  for(let it=0;it<maxSweeps;it++){
+    for(const cells of colors)for(const k of cells){
+      let neighbors=0,base=4*k;
+      for(let a=0;a<4;a++){
+        const z=adj[base+a];if(z>=0)neighbors+=p[z];
+      }
+      p[k]+=omega*((neighbors-h*h*rhs[k])/degree[k]-p[k]);
+    }
+    sweeps=it+1;
+    if(sweeps%8!==0&&sweeps!==maxSweeps)continue;
+    let maxResidual=0,pressureMean=0;
+    for(const k of fluid){
+      let sum=0,base=4*k;
+      for(let a=0;a<4;a++){
+        const z=adj[base+a];if(z>=0)sum+=p[z];
+      }
+      maxResidual=Math.max(maxResidual,Math.abs((sum-degree[k]*p[k])/(h*h)-rhs[k]));
+      pressureMean+=p[k];
+    }
+    pressureMean/=count;
+    for(const k of fluid)p[k]-=pressureMean;
+    if(maxResidual<tolerance){converged=true;break;}
+  }
+  if(!converged)throw new Error('masked Neumann SOR residual failed: N='+N+', sweeps='+sweeps);
   // Pressure changes ONLY fluid-fluid faces, preserving prescribed wall flux.
   u=a;v=b;
   for(let j=0;j<N;j++)for(let i=1;i<N;i++)if(openU(s,i,j))
@@ -215,7 +236,7 @@ report('MODEL','staircase '+shape+' mask, N='+N+', dt='+dt+' s, steps='+steps);
 report('BODY','center=('+geom.cx.toFixed(4)+','+centerY+'), wallUx='+geom.wallU.toFixed(5)+' m/s');
 report('FLUX','max |face normal-wall normal|='+wallError.toExponential(3)+' m/s');
 report('PROJECTION','pre='+before.toExponential(3)+', post='+after.toExponential(3)+' s^-1');
-report('POISSON','residual='+residual.toExponential(3)+' Pa/m^2, mean(rhs) removed='+meanRemoved.toExponential(3));
+report('POISSON','red-black SOR '+(steps?sweeps:0)+' sweeps, residual='+residual.toExponential(3)+' Pa/m^2, mean(rhs) removed='+meanRemoved.toExponential(3));
 report('IDENTITY','max |D+dt/rho*R-dt/rho*mean|='+identity.toExponential(3));
 report('REACTION','pressure-only Fx='+forceX.toExponential(4)+', Fy='+forceY.toExponential(4)+' N per m depth');
 report('GEOMETRY','cut faces='+cutCount+', mask cell transitions='+changedMask+' (volume transfer not conservative)');
@@ -225,7 +246,7 @@ report('DISPLAY','3 panels dye | 70*abs(div) | speed/0.6; solid gray, normal arr
 
 // Initial independent CPU/R8 pixel probes have already been obtained by the
 // outer runner before the next animation frame. The *same editable* MAC step
-// and 16x16 solid mask now update the animated scene; no separate solver.
+// and NxN solid mask now update the animated scene; no separate solver.
 if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
   const mode=gl.getUniformLocation(prog,'u_viewMode');
   const aspect=gl.getUniformLocation(prog,'u_aspect');
@@ -250,14 +271,14 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
   note.setAttribute('aria-live','off');
   canvas.insertAdjacentElement('afterend',note);
   canvas.tabIndex=0;
-  canvas.title='FCG6 16×16障害物流れ。Space/Enter再生停止、→1物理step、R初期化';
+  canvas.title='FCG6 '+N+'×'+N+'障害物流れ。Space/Enter再生停止、→1物理step、R初期化';
   canvas.setAttribute('aria-label','FCG6 動く階段境界マスクと染料。Spaceで再生停止、矢印右で一歩進める');
   function resetState(){
     u=new Float64Array((N+1)*N);
     v=new Float64Array(N*(N+1));
     dye=initialDye.slice();geom=geometry(0);
     p=new Float64Array(N*N);
-    before=after=residual=identity=meanRemoved=0;
+    before=after=residual=identity=meanRemoved=sweeps=0;
     forceX=forceY=cutCount=changedMask=0;
     boundary(u,v,geom.s,geom.wallU);
     stepNumber=0;
@@ -296,7 +317,7 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
     gl.uniform1f(aspect,canvas.width/canvas.height);
     gl.viewport(0,0,canvas.width,canvas.height);
     gl.drawArrays(gl.TRIANGLES,0,3);
-    note.textContent='実16×16 MAC：t='+(stepNumber*dt).toFixed(2)+' s'+
+    note.textContent='実'+N+'×'+N+' MAC：t='+(stepNumber*dt).toFixed(2)+' s'+
       '、固体中心x='+geom.cx.toFixed(3)+' m、壁速度x='+geom.wallU.toFixed(3)+' m/s'+
       '、最大|発散|='+peak.toExponential(2)+' s⁻¹'+
       '、壁法線誤差='+wallFlux.toExponential(1)+' m/s'+

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {fcg6State,expectedFCG6Samples,compareFCG6Readback}
+import {FCG6_N,fcg6State,expectedFCG6Samples,compareFCG6Readback}
   from './fcg6-lab-core.mjs';
 import {LIGHT_RAY,expectedWGL11Samples,compareWGL11Readback}
   from './wgl11-lab-core.mjs';
@@ -9,7 +9,7 @@ import {LIGHT_RAY,expectedWGL11Samples,compareWGL11Readback}
 const base=new URL('../../textbook/volumes/dream_thater/計算系/',import.meta.url);
 const read=path=>readFile(new URL(path,base),'utf8');
 
-test('FCG6 live obstacle uses the ORIGINAL editable 16x16 MAC step and mask',async()=>{
+test('FCG6 live obstacle uses the same editable 48x48 MAC step and mask',async()=>{
   const [js,frag]=await Promise.all([read('FCG/FCG6/solid.js'),read('FCG/FCG6/solid.frag')]);
   assert.match(js,/function advanceObstacleStep\(step\)\{/);
   assert.match(js,/for\(let step=0;step<steps;step\+\+\)advanceObstacleStep\(step\)/);
@@ -30,7 +30,11 @@ test('FCG6 live obstacle uses the ORIGINAL editable 16x16 MAC step and mask',asy
   assert.match(frag,/texelFetch\(u_speed,ij,0\)/);
   assert.doesNotThrow(()=>new Function('gl','canvas','settings','vertexSource','fragmentSource','report',js));
   const snapshot=fcg6State(8);
-  assert.equal(snapshot.solid.length,256);
+  assert.equal(FCG6_N,48);
+  assert.equal(snapshot.solid.length,48*48);
+  assert.ok(snapshot.residual<2e-6,'independent CG residual');
+  assert.ok(snapshot.identity<1e-7,'masked projection identity');
+  assert.match(frag,/textureSize\(u_solid,0\)/);
   assert.ok(snapshot.wall<1e-10);
   const ex=expectedFCG6Samples(1536,512,8);
   assert.equal(ex.length,9);

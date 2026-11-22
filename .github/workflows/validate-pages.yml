@@ -136,6 +136,14 @@ jobs:
         if: steps.scope.outputs.full == 'true'
         run: node scripts/validate-fcg5-browser.mjs
 
+      - name: Test FCG6 independent masked MAC solver and 48-cell regression
+        if: steps.scope.outputs.full == 'true'
+        run: node --test pages/simulation/fcg6-grid-resolution.test.mjs pages/simulation/wgl-fcg-ux-wave4.test.mjs pages/simulation/wgl-lab-scene-info.test.mjs
+
+      - name: Test FCG6 real edited solver and GPU pixels in Chromium
+        if: steps.scope.outputs.full == 'true'
+        run: node scripts/validate-fcg6-browser.mjs
+
       - name: Test FCG3 editable advection and GPU error map in Chromium
         if: steps.scope.outputs.full == 'true'
         run: node scripts/validate-fcg3-browser.mjs
