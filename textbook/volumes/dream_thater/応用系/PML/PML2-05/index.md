@@ -29,7 +29,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-05-manufactured -->
-**定義の確認。** $u_*(x)=x(1-x)$ を選ぶと $u_*'(x)=1-2x$、$u_*''(x)=-2$。したがって $f_*=2$、$g_*=(0,0)$ であり、$u_*\in C^2([0,1])$、$-u_*''=f_*$ が全内点で成り立つ。ここでは解を先に決めたので、[前講の数値誤差の定義](../PML2-04/index.md#def-pml2-04-error-metrics)における比較対象を明示できる。
+**定義の確認**。 $u_*(x)=x(1-x)$ を選ぶと $u_*'(x)=1-2x$、$u_*''(x)=-2$。したがって $f_*=2$、$g_*=(0,0)$ であり、$u_*\in C^2([0,1])$、$-u_*''=f_*$ が全内点で成り立つ。ここでは解を先に決めたので、[前講の数値誤差の定義](../PML2-04/index.md#def-pml2-04-error-metrics)における比較対象を明示できる。
 <!-- definition-example-end -->
 
 学習用には一つの解だけでは足りないため、係数 $a$ を動かす。以下、$a\in[-1/4,1/4]$ を**問題パラメータ**とし、$x$ は空間座標、$j$ は格子点番号とする。
@@ -167,7 +167,7 @@ case ID は「同一のPDE問題と一つの解」に属するレコードを識
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-05-group-split -->
-**定義の確認。** 次の三集合を使う。
+**定義の確認**。 次の三集合を使う。
 
 $$
 A_{\rm train}=\{-0.2,0,0.2\},\quad
@@ -198,21 +198,21 @@ $$
 > **定義（独立観測雑音と評価量）**  
 > 固定した問題パラメータ $a$ と内部位置 $x$ における解析真値、観測ラベル、雑音の条件を次のように指定する。
 
-$
+$$
 Y=u_a(x)+\varepsilon,\qquad
 \mathbb E[\varepsilon]=0,\qquad
 \mathbb E[\varepsilon^2]=\sigma^2<\infty.
-$
+$$
 
 > 評価する予測値 $\widehat u(a,x)$ はこの評価用雑音から独立に作られたものとする。真値に対する二乗誤差と観測ラベルに対する二乗誤差を、それぞれ次で測る。
 
-$
+$$
 (\widehat u-u_a(x))^2,\qquad (\widehat u-Y)^2.
-$
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-05-observation -->
-**定義の確認。** $a=0$、$x=1/2$ では解析真値 $u_0(1/2)=1/4$。独立な雑音を $+\eta$ または $-\eta$ と等確率で発生させれば $\mathbb E\varepsilon=0$、$\sigma^2=\eta^2$、観測は $1/4\pm\eta$ となる。予測を $1/4$ に固定したとき、真値誤差は零でも観測二乗誤差は毎回 $\eta^2$ である。
+**定義の確認**。 $a=0$、$x=1/2$ では解析真値 $u_0(1/2)=1/4$。独立な雑音を $+\eta$ または $-\eta$ と等確率で発生させれば $\mathbb E\varepsilon=0$、$\sigma^2=\eta^2$、観測は $1/4\pm\eta$ となる。予測を $1/4$ に固定したとき、真値誤差は零でも観測二乗誤差は毎回 $\eta^2$ である。
 <!-- definition-example-end -->
 
 <a id="thm-pml2-05-noise-mse"></a>
