@@ -94,7 +94,7 @@ const descriptions = Object.freeze({
     source: 'projection.js / projection.frag'
   }),
   FCG5: Object.freeze({
-    grid: '初期48×48（12〜48の実計算MAC格子、R8転送）',
+    grid: snapshot => '実計算'+(snapshot.gridN || 48)+'×'+(snapshot.gridN || 48)+'（MAC格子、R8転送）',
     color: '連続表示: 染料の濃さを青・橙の色と明るさで表現。初期検算: 染料（赤青）・|発散|（赤）・速度（緑）の3列',
     clock: step => '物理step '+step+'、t='+(step*0.04).toFixed(2)+' s（dt=0.04 s）',
     mode: '染料表示の線形補間は描画のみ。GLSL補間でセル数は増えない。GUIでNを変えると実計算から変更する',
@@ -224,7 +224,7 @@ export function sceneDescription(lesson, snapshot) {
        !Number.isFinite(snapshot.frameAudit.droppedMs) || snapshot.frameAudit.droppedMs < 0 ||
        snapshot.frameAudit.steps !== steps)) return null;
   return Object.freeze({
-    grid: item.grid, pixels: width+'×'+height+' px（GPU描画バッファ）',
+    grid: typeof item.grid === 'function' ? item.grid(snapshot) : item.grid, pixels: width+'×'+height+' px（GPU描画バッファ）',
     color: item.color, clock: item.clock(steps, snapshot),
     mode: typeof item.mode === 'function' ? item.mode(snapshot) : item.mode,
     source: item.source
