@@ -476,7 +476,7 @@ $$
 - 問題: 同じcutoffで $S(I)=5,S(R)=7,S(I\cup R)=9$ nat と計算された。相互情報量を求め、相互情報量が零の場合と比較せよ。
 
 <!-- solution-start -->
-**詳細解答。** [相互情報量の定義](../BHI5/index.md#thm-bhi5-correlation-gap)から $\mathcal I=S(I)+S(R)-S(I\cup R)=5+7-9=3$ nat。零なら独立性の判定には追加の条件が要りますが、少なくともこのエントロピーの等式では $S(I\cup R)=S(I)+S(R)=12$ nat になります。ここでは相関により二領域のエントロピーが3 nat小さくなっています。
+**詳細解答。** [相互情報量の定義](../BHI5/index.md#thm-bhi5-correlation-gap)から $\mathcal I=S(I)+S(R)-S(I\cup R)=5+7-9=3$ nat。本章の固定cutoffで $I,R$ を有限次元のテンソル積部分系として扱える場合には、[QINF18の部分加法性の等号条件](../../../応用系/QINF/QINF18/index.md#thm-qinf18-subadditivity)から $\mathcal I=0$ と $\rho_{I\cup R}=\rho_I\otimes\rho_R$ は同値です。この場合は $S(I\cup R)=S(I)+S(R)=12$ nat になります。因数分解できない領域代数へこの等号条件を無条件に移すことはできません。与えた数値では相関により二領域のエントロピーが3 nat小さくなっています。
 <!-- solution-end -->
 
 ### Level B：CFTの相関と重力の値を接続する
