@@ -10,10 +10,10 @@
 
 自然対数で測り、island端点の位置 $a$ と時刻 $t_a$ を次の無次元変数で表します。
 
-$
+$$
 A=\kappa a,\quad B=\kappa b,\quad
 U=\kappa t_a,\quad V=\kappa t,\quad X=A+B.
-$
+$$
 
 両浴と両重力端点の位置・Kruskal状態はBHI25と同じです。有限時刻のisland端点には
 
@@ -139,7 +139,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi26-extremized-branches -->
-**定義の直接例**：$c=\kappa=\ell=1$、$S_h=1$、$S_0=0$、$B=\ln2$、$\epsilon_g=\epsilon_b=10^{-2}$、$V=12$ とします。BHI25の二つの停留方程式を同時に数値で解いた**後期枝**は
+**定義の確認**：$c=\kappa=\ell=1$、$S_h=1$、$S_0=0$、$B=\ln2$、$\epsilon_g=\epsilon_b=10^{-2}$、$V=12$ とします。BHI25の二つの停留方程式を同時に数値で解いた**後期枝**は
 
 $$
 A\simeq3.24129050,\qquad U-V\simeq4.56\times10^{-8}.
