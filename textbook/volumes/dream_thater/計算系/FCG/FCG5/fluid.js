@@ -1,9 +1,10 @@
 // FCG5 learner-editable 2D incompressible toy solver (Float64 CPU + R8 GPU).
-// 12x12 MAC mesh, fixed zero normal walls; tangential ghost values are copied.
+// Selectable 12/24/36/48 MAC grid; no-normal-flux walls, free-slip tangential approximation.
 // This is a visualization model, not a validated CFD prediction.
-const N=12,h=1/N,dt=0.04,rho=1,nu=0.002,forceAmplitude=0.08;
+const N=48,h=1/N,dt=0.04,rho=1,nu=0.002,forceAmplitude=0.08;
 const steps=settings.steps;
 if(!Number.isInteger(steps)||steps<0||steps>32)throw new RangeError('physical steps 0..32');
+if(![12,24,36,48].includes(N))throw new RangeError('grid N must be 12,24,36,48');
 if(dt*nu/(h*h)>0.25)throw new Error('explicit viscosity bound violated');
 const ci=(i,j)=>i+N*j,ui=(i,j)=>i+(N+1)*j,vi=(i,j)=>i+N*j;
 const clip=(a,lo,hi)=>Math.max(lo,Math.min(hi,a));
@@ -30,7 +31,7 @@ for(let j=1;j<N;j++)for(let i=0;i<N;i++)
 // A discrete curl starts divergence-free. Advection and viscosity will not
 // generally preserve that property: pressure correction is still required.
 let p=new Float64Array(N*N),rhs=new Float64Array(N*N);
-let divBefore=0,divAfter=0,poissonMax=0,identityError=0;
+let divBefore=0,divAfter=0,poissonMax=0,identityError=0,pressureIterations=0;
 const initialU=u.slice(),initialV=v.slice(),initialDye=dye.slice();
 function advanceFluidStep(){
   const starU=new Float64Array(u.length),starV=new Float64Array(v.length);
@@ -57,24 +58,39 @@ function advanceFluidStep(){
     divBefore=Math.max(divBefore,Math.abs(d));
     rhs[ci(i,j)]=rho/dt*d;
   }
-  p=new Float64Array(N*N);let next=new Float64Array(N*N);
-  const omega=2/3;
-  for(let it=0;it<120;it++){
-    let mean=0;
-    for(let j=0;j<N;j++)for(let i=0;i<N;i++){
-      let sum=0,m=0;
-      if(i>0){sum+=p[ci(i-1,j)];m++;}
-      if(i<N-1){sum+=p[ci(i+1,j)];m++;}
-      if(j>0){sum+=p[ci(i,j-1)];m++;}
-      if(j<N-1){sum+=p[ci(i,j+1)];m++;}
-      const k=ci(i,j);
-      next[k]=(1-omega)*p[k]+omega*(sum-h*h*rhs[k])/m;
-      mean+=next[k];
+  p=new Float64Array(N*N);
+  // Neumann Poisson solve; convergence is checked on the actual fine grid.
+  // The fixed 120 Jacobi sweeps are replaced by red/black SOR.
+  const omega=2/(1+Math.sin(Math.PI/N));
+  let converged=false;
+  for(let it=1;it<=12*N;it++){
+    for(let parity=0;parity<2;parity++)
+      for(let j=0;j<N;j++)for(let i=(j+parity)%2;i<N;i+=2){
+        let sum=0,m=0;
+        if(i>0){sum+=p[ci(i-1,j)];m++;}
+        if(i<N-1){sum+=p[ci(i+1,j)];m++;}
+        if(j>0){sum+=p[ci(i,j-1)];m++;}
+        if(j<N-1){sum+=p[ci(i,j+1)];m++;}
+        const k=ci(i,j);
+        p[k]+=omega*((sum-h*h*rhs[k])/m-p[k]);
+      }
+    if(it%4===0||it===12*N){
+      let maxR=0;
+      for(let j=0;j<N;j++)for(let i=0;i<N;i++){
+        let sum=0,m=0;
+        if(i>0){sum+=p[ci(i-1,j)];m++;}
+        if(i<N-1){sum+=p[ci(i+1,j)];m++;}
+        if(j>0){sum+=p[ci(i,j-1)];m++;}
+        if(j<N-1){sum+=p[ci(i,j+1)];m++;}
+        maxR=Math.max(maxR,Math.abs((sum-m*p[ci(i,j)])/(h*h)-rhs[ci(i,j)]));
+      }
+      if(maxR<1e-6){converged=true;pressureIterations=it;break;}
     }
-    mean/=N*N;
-    for(let k=0;k<N*N;k++)next[k]-=mean;
-    [p,next]=[next,p];
   }
+  if(!converged)throw new Error('Neumann Poisson SOR did not converge');
+  // Fix the constant nullspace by choosing a mean-zero pressure.
+  let pmean=0;for(const value of p)pmean+=value;
+  pmean/=N*N;for(let k=0;k<N*N;k++)p[k]-=pmean;
   u=starU;v=starV;
   for(let j=0;j<N;j++)for(let i=1;i<N;i++)
     u[ui(i,j)]-=dt/rho*(p[ci(i,j)]-p[ci(i-1,j)])/h;
@@ -161,7 +177,7 @@ gl.disable(gl.DEPTH_TEST);gl.disable(gl.CULL_FACE);gl.disable(gl.SCISSOR_TEST);
 gl.viewport(0,0,canvas.width,canvas.height);gl.clearColor(0,0,0,1);
 gl.clear(gl.COLOR_BUFFER_BIT);gl.drawArrays(gl.TRIANGLES,0,3);
 report('TIME','physical steps='+steps+', t='+(steps*dt).toFixed(3)+' s, dt='+dt+' s, render FPS is separate');
-report('SPLIT','backtrace + explicit viscosity nu='+nu+' + curl force='+forceAmplitude+' + Jacobi 120 + dye');
+report('SPLIT','backtrace + explicit viscosity nu='+nu+' + curl force='+forceAmplitude+' + red/black SOR '+pressureIterations+' sweeps + dye');
 report('DIVERGENCE','before='+divBefore.toExponential(5)+', after='+maxDiv.toExponential(5)+' s^-1');
 report('POISSON','max residual='+poissonMax.toExponential(5)+' Pa/m^2'+(poissonMax>0.02?' / 未収束注意':''));
 report('IDENTITY','max |div+dt/rho*residual|='+identityError.toExponential(3));
@@ -171,7 +187,7 @@ report('ENERGY','cell-centred 0.5*integral speed^2='+kinetic.toPrecision(8)+' m^
 report('DISPLAY','left=dye, middle=80*abs(div), right=speed/0.4; R8 only for display');
 
 
-// Learner-source-linked 12x12 presentation, after the initial GPU snapshot.
+// Learner-source-linked N×N presentation, after the initial GPU snapshot.
 // The original draw/readPixels checks three R8 fields in mode 0. Animated mode
 // 1 changes only the display mapping; physical steps still use advanceFluidStep.
 if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
@@ -210,7 +226,7 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
     motionPreference?.addEventListener?.('change',onMotionPreferenceChange);
     window.addEventListener('message',onParentMotion);
     canvas.tabIndex=0;
-    canvas.title='FCG5 12×12実ソルバー：Spaceで再生・停止、Shift+ドラッグ（タッチならドラッグ）で染料追加。通常クリックはGPU画素診断です。';
+    canvas.title='FCG5 '+N+'×'+N+'実ソルバー：Spaceで再生・停止、Shift+ドラッグ（タッチならドラッグ）で染料追加。通常クリックはGPU画素診断です。';
     canvas.setAttribute('aria-label','FCG5 実際のMAC格子ソルバーの染料アニメーション。Spaceで再生停止、Shift+ドラッグで色を投入');
     for(const tex of [textures[0],textures[2]]){
       gl.bindTexture(gl.TEXTURE_2D,tex);
@@ -307,6 +323,6 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
       canvas.removeEventListener('fcg5-request-progress',emitProgress);
       canvas.removeEventListener('fcg5-physics-control',onLiveControl);
     },{once:true});
-    report('ANIMATION','12x12 EDITABLE solver draws the same dye state after the static R8 pixel oracle; Shift+drag adds external dye, Space pauses');
+    report('ANIMATION','N='+N+' EDITABLE solver draws the same dye state after the static R8 pixel oracle; Shift+drag adds external dye, Space pauses');
   }
 }

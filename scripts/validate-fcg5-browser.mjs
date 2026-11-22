@@ -92,7 +92,7 @@ try {
   // The initial task must lead to the actual sandboxed learner source.
   // A second independent 80x80 fluid canvas must not be mounted.
   assert.equal(await evaluate('document.querySelectorAll(".visual-smoke canvas").length'),0);
-  assert.match(await evaluate('document.querySelector(".visual-guide")?.textContent || document.querySelector("#panel-conditions")?.textContent'),/12×12/);
+  assert.match(await evaluate('document.querySelector(".visual-guide")?.textContent || document.querySelector("#panel-conditions")?.textContent'),/48×48/);
   assert.equal(await evaluate('document.querySelector("#canvas-slot iframe")===null'),true);
   // Diagnose session-scoped progress delivery independently of GPU rendering.
   await evaluate('window.__fcg5Events=[];window.addEventListener("message",e=>{if(e.data?.type?.startsWith("fcg5"))window.__fcg5Events.push({type:e.data.type,step:e.data.step,playing:e.data.playing,requestId:e.data.requestId});})');
@@ -120,8 +120,8 @@ try {
   const linkedFirst=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
   await new Promise(ok=>setTimeout(ok,950));
   const linkedSecond=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
-  assert.notEqual(linkedFirst.data,linkedSecond.data,'real 12x12 solver should change GPU dye frames over time');
-  console.log('FCG5 editable 12x12 MAC solver animates actual GPU dye frames: PASS');
+  assert.notEqual(linkedFirst.data,linkedSecond.data,'real 48x48 solver should change GPU dye frames over time');
+  console.log('FCG5 editable 48x48 MAC solver animates actual GPU dye frames: PASS');
   // Capture can change motion preference or leave the learner solver paused.
   // Inspect its authenticated *actual* progress before forcing reduce below.
   await waitFor('document.querySelector("#fcg5-live-state")?.textContent.match(/(?:再生中|一時停止中)/)',25000);
@@ -187,44 +187,48 @@ try {
   console.log('FCG5 editable GLSL, shader compile error, reset and recovery: PASS');
 
   // G2: GUI parameters, the animation and the independent CPU oracle all
-  // target the same editable 12x12 MAC source.
+  // target the same editable N×N MAC source.
   await click('tab-conditions');
-  const gui=await evaluate('(()=>{const n=document.querySelector("#parameter-nu"),f=document.querySelector("#parameter-force");return {nu:n?.value,force:f?.value,nuDisabled:n?.disabled,forceDisabled:f?.disabled,labels:[...document.querySelectorAll("#lab-parameters .lab-parameter-row small")].map(x=>x.textContent)}})()');
-  assert.equal(gui.nu,'0.002');assert.equal(gui.force,'0.08');
-  assert.equal(gui.nuDisabled,false);assert.equal(gui.forceDisabled,false);
+  const gui=await evaluate('(()=>{const g=document.querySelector("#parameter-grid"),n=document.querySelector("#parameter-nu"),f=document.querySelector("#parameter-force");return {grid:g?.value,nu:n?.value,force:f?.value,gridDisabled:g?.disabled,nuDisabled:n?.disabled,forceDisabled:f?.disabled,labels:[...document.querySelectorAll("#lab-parameters .lab-parameter-row small")].map(x=>x.textContent)}})()');
+  assert.equal(gui.grid,'48');assert.equal(gui.nu,'0.002');assert.equal(gui.force,'0.08');
+  assert.equal(gui.gridDisabled,false);assert.equal(gui.nuDisabled,false);assert.equal(gui.forceDisabled,false);
+  assert.ok(gui.labels.some(t=>t.includes('セル/辺')&&t.includes('fluid.js')));
   assert.ok(gui.labels.some(t=>t.includes('m²/s')&&t.includes('fluid.js')));
   assert.ok(gui.labels.some(t=>t.includes('m²/s²')&&t.includes('forceAmplitude')));
-  await evaluate('(()=>{const e=document.querySelector("#parameter-nu");e.value="0.012";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}))})()');
-  await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した粘性・外力の独立画素検算に合格")',25000);
-  assert.match(await evaluate('document.querySelector("#js-source").value'),/nu=0\.012,forceAmplitude=0\.08/);
+  await evaluate('(()=>{const e=document.querySelector("#parameter-grid");e.value="24";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}))})()');
+  await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した格子・粘性・外力の独立画素検算に合格")',25000);
+  assert.match(await evaluate('document.querySelector("#js-source").value'),/const N=24,h=1\/N/);
+  await evaluate('(()=>{const e=document.querySelector("#parameter-nu");e.value="0.0025";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}))})()');
+  await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した格子・粘性・外力の独立画素検算に合格") && document.querySelector("#js-source")?.value.includes("nu=0.0025")',25000);
   await evaluate('(()=>{const e=document.querySelector("#parameter-force");e.value="0.02";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}))})()');
-  await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した粘性・外力の独立画素検算に合格") && document.querySelector("#js-source")?.value.includes("nu=0.012,forceAmplitude=0.02")',25000);
+  await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した格子・粘性・外力の独立画素検算に合格") && document.querySelector("#js-source")?.value.includes("nu=0.0025,forceAmplitude=0.02")',25000);
   const edited=await evaluate('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>r.cells[4]?.textContent),note:document.querySelector("#numeric-note")?.textContent,summary:document.querySelector("#numeric-summary")?.textContent})');
   assert.equal(edited.rows.length,9);
   assert.ok(edited.rows.every(x=>x==='OK'),JSON.stringify(edited));
-  assert.match(edited.note,/独立CPUの12×12格子/);
+  assert.match(edited.note,/独立CPUの24×24格子/);
   assert.match(edited.summary,/変更係数の独立CPU画素 9\/9/);
   await click('save');
   await cdp('Page.reload',{ignoreCache:true});
   await waitFor('document.querySelector("#status")?.textContent==="実行できます"',25000);
   assert.equal(await evaluate('document.querySelectorAll(".visual-smoke canvas").length'),0,
     'reload must not restore the independent fluid observation');
-  assert.match(await evaluate('document.querySelector("#js-source").value'),/nu=0\.012,forceAmplitude=0\.02/);
-  assert.equal(await evaluate('document.querySelector("#parameter-nu").value'),'0.012');
+  assert.match(await evaluate('document.querySelector("#js-source").value'),/nu=0\.0025,forceAmplitude=0\.02/);
+  assert.equal(await evaluate('document.querySelector("#parameter-grid").value'),'24');
+  assert.equal(await evaluate('document.querySelector("#parameter-nu").value'),'0.0025');
   assert.equal(await evaluate('document.querySelector("#parameter-force").value'),'0.02');
   assert.equal(await evaluate('document.querySelector("#canvas-slot iframe")===null'),true,
     'saved code must not run automatically after reload');
   await click('run');
-  await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した粘性・外力の独立画素検算に合格")',25000);
+  await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した格子・粘性・外力の独立画素検算に合格")',25000);
   await click('tab-code');
-  await evaluate('(()=>{const e=document.querySelector("#js-source");e.value=e.value.replace("nu=0.012","nu=0.006+0.006");e.dispatchEvent(new Event("input",{bubbles:true}))})()');
+  await evaluate('(()=>{const e=document.querySelector("#js-source");e.value=e.value.replace("nu=0.0025","nu=0.001+0.0015");e.dispatchEvent(new Event("input",{bubbles:true}))})()');
   assert.equal(await evaluate('document.querySelector("#parameter-nu").disabled'),true);
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("編集コードを実行しました（基準との差を比較）")',25000);
   assert.equal(await evaluate('document.querySelector("#results-table tbody tr:first-child td:nth-child(5)")?.textContent'),'変更版: 参考');
   await click('reset');await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
-  console.log('FCG5 G2 viscosity/force GUI, independent CPU pixels, save/reload and expression safety: PASS');
+  console.log('FCG5 R1 grid/viscosity/force GUI, independent CPU pixels, save/reload and expression safety: PASS');
 
 
   await cdp('Emulation.setDeviceMetricsOverride',

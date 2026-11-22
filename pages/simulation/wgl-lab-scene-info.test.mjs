@@ -14,6 +14,8 @@ test('G3 legends derive their initial step and GPU buffer dimensions from the ru
   assert.match(b.mode,/物理stepではなく/);
   const c=sceneDescription('FCG5',{width:900,height:300,steps:8});
   assert.match(c.clock,/t=0.32 s/);
+  assert.match(c.grid,/48×48/);
+  assert.match(sceneDescription('FCG5',{width:900,height:300,steps:8,gridN:24}).grid,/24×24/);
   assert.match(c.mode,/線形補間は描画のみ/);
   const d=sceneDescription('WGL18',{width:320,height:240,steps:12});
   assert.match(d.grid,/4×4/);

@@ -1,7 +1,7 @@
 // FCG5 independent CPU reference. Does not execute learner-edited JS/GLSL.
 // MAC no-penetration box, explicit viscous predictor, semi-Lagrangian transport,
 // mean-zero damped Jacobi projection; not a conservative dye scheme.
-export const FCG5_N=12, FCG5_DT=0.04, FCG5_RHO=1, FCG5_NU=0.002, FCG5_OMEGA=2/3;
+export const FCG5_N=48, FCG5_DT=0.04, FCG5_RHO=1, FCG5_NU=0.002, FCG5_OMEGA=2/3;
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 const cell=(i,j,n)=>i+n*j;
 const faceU=(i,j,n)=>i+(n+1)*j;
@@ -29,7 +29,7 @@ function div(u,v,i,j,n,h){
 }
 export function fcg5State(steps=8,{N=FCG5_N,dt=FCG5_DT,nu=FCG5_NU,force=0.08,stationary=false}={}){
   if(!Number.isInteger(steps)||steps<0||steps>32||
-    !Number.isInteger(N)||N<4||N>32||
+    !Number.isInteger(N)||![12,24,32,36,48].includes(N)||
     ![dt,nu,force].every(Number.isFinite)||dt<=0||dt>0.1||nu<0||force<0||
     dt*nu*N*N>0.25)throw new RangeError('invalid FCG5 timestep/grid/viscosity');
   const h=1/N,r=dt*nu/(h*h),nc=N*N;
@@ -44,7 +44,7 @@ export function fcg5State(steps=8,{N=FCG5_N,dt=FCG5_DT,nu=FCG5_NU,force=0.08,sta
       v[faceV(i,j,N)]=-(stream(i+1,j,0.075)-stream(i,j,0.075))/h;
   }
   let pressure=new Float64Array(nc),source=new Float64Array(nc);
-  let divergenceBefore=0,divergenceAfter=0,poissonResidual=0,identityError=0;
+  let divergenceBefore=0,divergenceAfter=0,poissonResidual=0,identityError=0,pressureIterations=0;
   for(let t=0;t<steps;t++){
     const advU=new Float64Array(u.length),advV=new Float64Array(v.length);
     // At the face, sample the full MAC velocity to determine a backtraced foot.
@@ -75,19 +75,43 @@ export function fcg5State(steps=8,{N=FCG5_N,dt=FCG5_DT,nu=FCG5_NU,force=0.08,sta
       source[cell(i,j,N)]=FCG5_RHO/dt*d;
       divergenceBefore=Math.max(divergenceBefore,Math.abs(d));
     }
+    // Independent CPU oracle: conjugate gradient on the positive
+    // semidefinite Neumann graph Laplacian A=-h²L, rather than learner SOR.
+    // Zero-mean right-hand side removes the constant nullspace.
     pressure=new Float64Array(nc);
     const adj=Array.from({length:nc},(_,k)=>neighbors(pressure,k%N,Math.floor(k/N),N));
-    for(let k=0;k<120;k++){
-      const pnext=new Float64Array(nc);let sum=0;
+    const rhs=new Float64Array(nc),res=new Float64Array(nc),direction=new Float64Array(nc);
+    let rhsMean=0;
+    for(let m=0;m<nc;m++){rhs[m]=-h*h*source[m];rhsMean+=rhs[m];}
+    rhsMean/=nc;
+    for(let m=0;m<nc;m++){rhs[m]-=rhsMean;res[m]=direction[m]=rhs[m];}
+    let rr=0;for(const value of res)rr+=value*value;
+    let converged=Math.max(...res.map(v=>Math.abs(v)))/(h*h)<1e-6;
+    pressureIterations=0;
+    for(let it=0;it<8*N&&!converged;it++){
+      const Ap=new Float64Array(nc);
+      let denom=0;
       for(let m=0;m<nc;m++){
-        const ns=adj[m],target=(ns.reduce((s,id)=>s+pressure[id],0)-h*h*source[m])/ns.length;
-        pnext[m]=pressure[m]+FCG5_OMEGA*(target-pressure[m]);
-        sum+=pnext[m];
+        const ns=adj[m];
+        Ap[m]=ns.length*direction[m]-ns.reduce((v,k)=>v+direction[k],0);
+        denom+=direction[m]*Ap[m];
       }
-      const mean=sum/nc;
-      for(let m=0;m<nc;m++)pnext[m]-=mean;
-      pressure=pnext;
+      if(!(denom>0)||!Number.isFinite(denom))throw new Error('CG pressure breakdown');
+      const alpha=rr/denom;
+      let nextRR=0,maxError=0;
+      for(let m=0;m<nc;m++){
+        pressure[m]+=alpha*direction[m];res[m]-=alpha*Ap[m];
+        nextRR+=res[m]*res[m];maxError=Math.max(maxError,Math.abs(res[m])/(h*h));
+      }
+      pressureIterations=it+1;
+      if(maxError<1e-6){converged=true;break;}
+      const beta=nextRR/rr;
+      for(let m=0;m<nc;m++)direction[m]=res[m]+beta*direction[m];
+      rr=nextRR;
     }
+    if(!converged)throw new Error('independent Neumann CG did not converge');
+    let mean=0;for(const value of pressure)mean+=value;
+    mean/=nc;for(let m=0;m<nc;m++)pressure[m]-=mean;
     u=advU;v=advV;
     for(let j=0;j<N;j++)for(let i=1;i<N;i++)
       u[faceU(i,j,N)]-=dt/FCG5_RHO*(pressure[cell(i,j,N)]-pressure[cell(i-1,j,N)])/h;
@@ -123,10 +147,10 @@ export function fcg5State(steps=8,{N=FCG5_N,dt=FCG5_DT,nu=FCG5_NU,force=0.08,sta
   for(let j=0;j<N;j++)wall=Math.max(wall,Math.abs(u[faceU(0,j,N)]),Math.abs(u[faceU(N,j,N)]));
   for(let i=0;i<N;i++)wall=Math.max(wall,Math.abs(v[faceV(i,0,N)]),Math.abs(v[faceV(i,N,N)]));
   if([...q,...u,...v,...pressure].some(x=>!Number.isFinite(x)))throw new Error('nonfinite FCG5 state');
-  return {N,dt,nu,steps,q,u,v,pressure,source,divergence,speed,mass,peak,kinetic,wall,
+  return {N,dt,nu,steps,pressureIterations,q,u,v,pressure,source,divergence,speed,mass,peak,kinetic,wall,
     divergenceBefore,divergenceAfter,poissonResidual,identityError};
 }
-export function fcg5PixelCell(x,y,width,height){
+export function fcg5PixelCell(x,y,width,height,N=FCG5_N){
   if(!Number.isInteger(width)||!Number.isInteger(height)||width<64||height<64||
     width>2048||height>2048||width*height>2097152||
     !Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||x>=width||y>=height)
@@ -134,17 +158,18 @@ export function fcg5PixelCell(x,y,width,height){
   const panel=Math.min(2,Math.floor(3*(x+0.5)/width));
   const local=3*(x+0.5)/width-panel;
   return {panel:['dye','divergence','speed'][panel],
-    i:Math.min(FCG5_N-1,Math.floor(FCG5_N*local)),
-    j:Math.min(FCG5_N-1,Math.floor(FCG5_N*(y+0.5)/height))};
+    i:Math.min(N-1,Math.floor(N*local)),
+    j:Math.min(N-1,Math.floor(N*(y+0.5)/height))};
 }
 const enc=x=>Math.round(255*clamp(x,0,1));
 export function expectedFCG5Samples(width,height,steps=8,physics={}){
-  const state=fcg5State(steps,physics),N=FCG5_N,coords=[[6,6],[8,5],[9,6]];
+  const state=fcg5State(steps,physics),N=state.N;
+  const coords=[[6,6],[8,5],[9,6]].map(([i,j])=>[(i+0.5)/12,(j+0.5)/12]);
   return ['dye','divergence','speed'].flatMap((panel,p)=>
-    coords.map(([i,j])=>{
-      const x=Math.floor((p+(i+0.5)/N)*width/3);
-      const y=Math.floor((j+0.5)*height/N);
-      const selected=fcg5PixelCell(x,y,width,height),k=selected.i+N*selected.j;
+    coords.map(([fx,fy])=>{
+      const x=Math.floor((p+fx)*width/3);
+      const y=Math.floor(fy*height);
+      const selected=fcg5PixelCell(x,y,width,height,N),k=selected.i+N*selected.j;
       const value=panel==='dye'?state.q[k]:panel==='divergence'?state.divergence[k]:state.speed[k];
       const q=panel==='dye'?enc(value):panel==='divergence'?enc(80*Math.abs(value)):enc(value/0.4);
       return {label:panel+'('+selected.i+','+selected.j+')',x,y,value,
