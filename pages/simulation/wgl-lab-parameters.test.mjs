@@ -54,6 +54,35 @@ test('WGL19 G2 clock/rate controls edit only their corresponding runtime values'
   assert.equal(readLabParameter(source+'\nconst fixedMs=30;',specs[1]).ok,false);
 });
 
+test('FCG6 shape and moving wall controls rewrite only the executed solid.js literals', async () => {
+  const source=await readFile(new URL('FCG/FCG6/solid.js',base),'utf8');
+  const specs=parametersFor('FCG6');
+  assert.deepEqual(specs.map(spec=>spec.id),
+    ['shape','centerY','wallAmplitude','wallFrequency']);
+  const changes=['rectangle',0.55,0.12,2.2];
+  let edited=source;
+  for(let i=0;i<specs.length;i++){
+    const spec=specs[i];
+    assert.deepEqual(readLabParameter(source,spec),{ok:true,value:spec.default});
+    edited=writeLabParameter(edited,spec,changes[i]);
+    assert.deepEqual(readLabParameter(edited,spec),{ok:true,value:changes[i]});
+  }
+  assert.match(edited,/shape='rectangle',centerY=0.55/);
+  assert.match(edited,/wallAmplitude=0.12,wallFrequency=2.2/);
+  assert.match(edited,/shape==='rectangle'/);
+  assert.match(edited,/wallAmplitude\*wallFrequency\*Math.cos/);
+  assert.throws(()=>writeLabParameter(source,specs[0],'triangle'),RangeError);
+  assert.throws(()=>writeLabParameter(source,specs[1],0.95),RangeError);
+  assert.throws(()=>writeLabParameter(source,specs[2],0.123),RangeError);
+  const expression=source.replace("shape='circle'","shape=['circle'][0]");
+  assert.equal(readLabParameter(expression,specs[0]).ok,false);
+  const duplicate=source+"\nconst wallAmplitude=0.10,wallFrequency=1.8,acceleration=0.07;";
+  assert.equal(readLabParameter(duplicate,specs[2]).ok,false);
+  for(let i=specs.length-1;i>=0;i--)
+    edited=writeLabParameter(edited,specs[i],specs[i].default);
+  assert.equal(edited,source,'all controls restore the canonical JS exactly');
+});
+
 test('WGL12 array edit retains the two other sphere materials and edited GLSL', async () => {
   const source = await readFile(new URL('WGL/WGL12/pbr.js', base), 'utf8');
   const spec = parametersFor('WGL12')[0];
