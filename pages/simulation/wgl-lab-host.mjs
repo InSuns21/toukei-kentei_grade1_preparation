@@ -380,6 +380,18 @@ function isolatedRunner() {
              typeof d.playing!=='boolean')return;
           send({...scope,type:'fcg5-physics-progress',step:d.step,playing:d.playing});
         });
+        // Get the state that is already running in the editable learner JS.
+        // Its first physics tick may predate the relay or be delayed by rAF.
+        canvas.dispatchEvent(new Event('fcg5-request-progress'));
+        window.addEventListener('message',event=>{
+          const m=event.data;
+          if(event.source!==parent||!m||m.type!=='fcg5-physics-control'||
+            m.session!==scope.session||m.requestId!==scope.requestId||
+            m.generation!==scope.generation||m.action!=='toggle')return;
+          canvas.dispatchEvent(new CustomEvent('fcg5-physics-control',{
+            detail:{action:'toggle'}
+          }));
+        });
       }
       const fcg8Hooks=request.lesson==='FCG8'&&!!hooks&&
         ['play','pause','step','reset'].every(key=>typeof hooks[key]==='function');
@@ -1495,6 +1507,18 @@ if (isFCG5) {
   live.setAttribute('aria-live','off');
   live.textContent='ライブ物理step：未実行';
   byId('canvas-slot').after(live);
+  const liveToggle=document.createElement('button');
+  liveToggle.id='fcg5-live-toggle';liveToggle.type='button';liveToggle.className='action';
+  liveToggle.textContent='GPUの再生・停止';
+  liveToggle.setAttribute('aria-label','FCG5 実GPUソルバーの再生・停止を切り替える');
+  live.after(liveToggle);
+  liveToggle.addEventListener('click',()=>{
+    if(!active?.started||active.contextLost)return;
+    active.frame.contentWindow.postMessage({
+      type:'fcg5-physics-control',action:'toggle',
+      requestId:active.id,generation:active.generation,session:active.session
+    },'*');
+  });
   const motionPreference=window.matchMedia('(prefers-reduced-motion: reduce)');
   forwardFcg5MotionPreference=()=>{
     if(active?.started&&!active.contextLost)

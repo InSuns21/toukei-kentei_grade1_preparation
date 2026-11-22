@@ -118,8 +118,11 @@ if(typeof window!=='undefined' && typeof requestAnimationFrame==='function'){
   const liveRaw=new Float32Array(N*N*4);
   // The companion 4×4 values come directly from the GPU float framebuffer
   // updated by the learner's same editable diffusion shader.
-  const valuesPanel=document.createElement('section');
+  const valuesPanel=document.createElement('details');
   valuesPanel.setAttribute('aria-label','実GPUから読んだ拡散濃度の4×4格子');
+  const toggle=document.createElement('summary');
+  toggle.textContent='濃度4×4の実数値を見る';
+  toggle.style.cssText='cursor:pointer;font-weight:600';
   valuesPanel.style.cssText='position:absolute;right:8px;top:8px;z-index:2;'+
     'background:rgba(3,17,31,.94);color:#fff;padding:6px 8px;'+
     'font:12px/1.45 system-ui;max-width:calc(100% - 32px)';
@@ -138,7 +141,7 @@ if(typeof window!=='undefined' && typeof requestAnimationFrame==='function'){
   const unitNote=document.createElement('p');
   unitNote.style.cssText='margin:4px 0 0';
   unitNote.textContent='各セル：FLOAT読戻し値。表示色は固定 0〜1 で符号化。';
-  valuesPanel.append(gridTitle,grid,unitNote);
+  valuesPanel.append(toggle,gridTitle,grid,unitNote);
   document.body.style.position='relative';
   canvas.insertAdjacentElement('afterend',valuesPanel);
   function refreshNumbers(){

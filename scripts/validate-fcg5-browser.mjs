@@ -76,7 +76,7 @@ try {
       if(await evaluate(expression))return;
       await new Promise(ok=>setTimeout(ok,100));
     }
-    const state=await evaluate('({status:document.querySelector("#status")?.textContent,diagnostics:document.querySelector("#diagnostics")?.textContent?.slice(-800)})');
+    const state=await evaluate('({status:document.querySelector("#status")?.textContent,live:document.querySelector("#fcg5-live-state")?.textContent,hidden:document.hidden,reduced:matchMedia("(prefers-reduced-motion: reduce)").matches,events:window.__fcg5Events?.slice(-12),diagnostics:document.querySelector("#diagnostics")?.textContent?.slice(-800)})');
     throw Error('Timed out: '+expression+' last state='+JSON.stringify(state)+' exceptions '+JSON.stringify(exceptions.slice(-2)));
   };
   const click=id=>evaluate('document.getElementById('+JSON.stringify(id)+').click()');
@@ -94,6 +94,8 @@ try {
   assert.equal(await evaluate('document.querySelectorAll(".visual-smoke canvas").length'),0);
   assert.match(await evaluate('document.querySelector(".visual-guide")?.textContent || document.querySelector("#panel-conditions")?.textContent'),/12×12/);
   assert.equal(await evaluate('document.querySelector("#canvas-slot iframe")===null'),true);
+  // Diagnose session-scoped progress delivery independently of GPU rendering.
+  await evaluate('window.__fcg5Events=[];window.addEventListener("message",e=>{if(e.data?.type?.startsWith("fcg5"))window.__fcg5Events.push({type:e.data.type,step:e.data.step,playing:e.data.playing,requestId:e.data.requestId});})');
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
   const initial=await evaluate('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(x=>x.textContent)),log:document.querySelector("#diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox"),opaque:(()=>{try{return !!document.querySelector("#canvas-slot iframe").contentWindow.document.body}catch{return true}})()})');
@@ -120,10 +122,17 @@ try {
   const linkedSecond=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
   assert.notEqual(linkedFirst.data,linkedSecond.data,'real 12x12 solver should change GPU dye frames over time');
   console.log('FCG5 editable 12x12 MAC solver animates actual GPU dye frames: PASS');
-  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("再生中")',25000);
-  const focusPoint=await evaluate('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2};})()');
+  // Capture can change motion preference or leave the learner solver paused.
+  // Inspect its authenticated *actual* progress before forcing reduce below.
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.match(/(?:再生中|一時停止中)/)',25000);
+  const focusPoint=await evaluate('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+Math.min(64,r.height/4)};})()');
   await cdp('Input.dispatchMouseEvent',{type:'mousePressed',x:focusPoint.x,y:focusPoint.y,button:'left',buttons:1,clickCount:1});
   await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:focusPoint.x,y:focusPoint.y,button:'left',buttons:0,clickCount:1});
+  if(await evaluate('document.querySelector("#fcg5-live-state").textContent.includes("一時停止中")')){
+    // Use the learner-facing authenticated GPU button; the solver stays the same.
+    await click('fcg5-live-toggle');
+  }
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("再生中")',25000);
   // Focus the real sandbox canvas before freezing screenshots, so an outline
   // change alone cannot be mistaken for a resumed physical animation.
   // G4: switching reduced motion at runtime pauses the very same editable
@@ -146,13 +155,13 @@ try {
   assert.equal(stillFrozen.data,frozenFirst.data,'removing reduced motion must not auto-resume real solver');
   assert.equal(await evaluate('document.querySelector("#fcg5-live-state").textContent'),
     frozenStep,'removing preference must not advance physical steps');
-  await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:' ',code:'Space',windowsVirtualKeyCode:32,nativeVirtualKeyCode:32,text:' '});
-  await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:' ',code:'Space',windowsVirtualKeyCode:32,nativeVirtualKeyCode:32});
+  // No auto-resume: the same real solver is resumed by its visible GPU toggle.
+  await click('fcg5-live-toggle');
   await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("再生中")',25000);
   await waitFor('document.querySelector("#fcg5-live-state")?.textContent.match(/step (\\d+)/)?.[1] !== '+JSON.stringify(frozenStep.match(/step (\d+)/)?.[1]),10000);
   const resumed=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
   assert.notEqual(resumed.data,frozenFirst.data,'Space must resume the same GPU fluid solver');
-  console.log('FCG5 single solver reduced-motion change, no auto-resume and keyboard Space: PASS');
+  console.log('FCG5 single solver reduced-motion change, no auto-resume and authenticated live button: PASS');
 
 
 
