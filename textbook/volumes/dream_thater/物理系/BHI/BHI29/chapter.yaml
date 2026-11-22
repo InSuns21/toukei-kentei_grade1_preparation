@@ -1,0 +1,43 @@
+id: BHI29
+title: "レプリカ・ワームホールの鞍点"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI28
+official_scope: []
+learning_objectives:
+  - 浴のレプリカ貼合せと重力内部の連結性を独立な指定として比較できる
+  - レプリカ対称な二分岐点被覆のEuler標数を導き非連結枝との位相作用差を計算できる
+  - 固定境界条件を持つ許容幾何と作用の停留解と支配鞍点を区別できる
+  - JT二境界のdouble-trumpet積分で連結寄与の具体例を計算し放射レプリカとの違いを説明できる
+  - 位相・動力学・物質・一ループ因子を含む作用差とn依存から支配性の条件を判定できる
+  - レプリカ対称商の固定点とisland端点候補を結びnから1への外挿の追加条件を列挙できる
+definitions:
+  - { id: BHI29-DEF-01, name: "放射レプリカの非連結・連結鞍点候補" }
+  - { id: BHI29-DEF-02, name: "レプリカ対称な分岐被覆候補" }
+  - { id: BHI29-DEF-03, name: "鞍点間の有効作用差" }
+theorems:
+  - { id: BHI29-PROP-01, name: "二分岐点のEuler標数と位相重み" }
+  - { id: BHI29-PROP-02, name: "double-trumpetの連結積分" }
+  - { id: BHI29-PROP-03, name: "二候補の支配条件と規格化" }
+  - { id: BHI29-PROP-04, name: "対称商の固定点からの一次変分" }
+canonical_examples:
+  - 二枚の浴巡回接着を固定した円板二枚と二境界連結幾何の比較
+  - 2個の分岐点を持つn重被覆のEuler標数検算
+  - 二境界JT double-trumpetの長さ積分と係数
+  - 物質寄与が位相抑制を打ち消す条件付き作用模型
+  - レプリカ微分における単純二枝和の規格化違反
+problem_patterns:
+  - BHI29-TOPOLOGY-SEWING
+  - BHI29-BRANCH-COVER
+  - BHI29-EULER-COUNT
+  - BHI29-DOUBLE-TRUMPET
+  - BHI29-JT-SADDLE
+  - BHI29-EFFECTIVE-ACTION
+  - BHI29-ONE-LOOP
+  - BHI29-NORMALIZATION
+  - BHI29-QUOTIENT-FIXED-POINT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 14, review: 6 }
