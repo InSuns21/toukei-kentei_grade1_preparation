@@ -1,0 +1,43 @@
+id: "GBG11"
+title: "Bianchi恒等式はどこから生じるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG10
+  - GEO7
+official_scope: []
+learning_objectives:
+  - 水平かつ随伴同変なLie環値形式に対して共変外微分を定義し、出力の水平性・同変性を証明できる
+  - 括弧付き外積の次数符号とJacobi恒等式を用いて大域的な第二Bianchi恒等式を導出できる
+  - 局所式dF+[A wedge F]=0を構造方程式から二通りで導出し行列外積の順序を検算できる
+  - 非可換な三次元の例でdFと[A wedge F]が個別には非零でも相殺することを計算できる
+  - Bianchi恒等式の座標巡回形と局所共変外微分のゲージ共変性を証明できる
+  - 任意の2形式への共変外微分と接続の曲率に対するBianchi恒等式を区別できる
+definitions:
+  - { id: GBG11-DEF-01, name: 主束上の共変外微分 }
+  - { id: GBG11-DEF-02, name: 局所共変外微分 }
+theorems:
+  - { id: GBG11-THM-01, name: 共変外微分の水平性と同変性 }
+  - { id: GBG11-THM-02, name: 主束曲率の Bianchi 恒等式・大域形式 }
+  - { id: GBG11-THM-03, name: 主束曲率の Bianchi 恒等式・局所形式 }
+  - { id: GBG11-THM-04, name: 主束曲率の Bianchi 恒等式・座標成分 }
+  - { id: GBG11-THM-05, name: 局所共変外微分のゲージ共変性 }
+canonical_examples:
+  - U(1)の共変外微分と可換Bianchi恒等式
+  - GL(2,R)の定数係数Lie環値2形式に対する共変外微分
+  - GL(2,R)の三次元非可換接続におけるdFと[A wedge F]の相殺
+  - GL(2,R)ゲージ変換に対する局所共変外微分の整合性
+problem_patterns:
+  - GBG11-GRADED-BRACKET-SIGN
+  - GBG11-ZERO-FORM-COVARIANT-EXTERIOR
+  - GBG11-ABELIAN-BIANCHI
+  - GBG11-DEGREE-OBSTRUCTION
+  - GBG11-NONABELIAN-CANCELLATION
+  - GBG11-COMPONENT-CYCLIC-IDENTITY
+  - GBG11-GAUGE-COVARIANCE
+  - GBG11-ARBITRARY-TWO-FORM-COUNTEREXAMPLE
+  - GBG11-GLOBAL-LOCAL-GAUGE-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 4 }

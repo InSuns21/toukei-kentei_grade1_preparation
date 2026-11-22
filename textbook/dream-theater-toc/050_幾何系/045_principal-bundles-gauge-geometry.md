@@ -11,3 +11,4 @@
 8. [GBG8 局所ゲージポテンシャルはどう変換するか](textbook/volumes/dream_thater/幾何系/GBG/GBG8/index.md)
 9. [GBG9 結合束上で場をどう微分するか](textbook/volumes/dream_thater/幾何系/GBG/GBG9/index.md)
 10. [GBG10 曲率とはどの失敗を測るか](textbook/volumes/dream_thater/幾何系/GBG/GBG10/index.md)
+11. [GBG11 Bianchi恒等式はどこから生じるか](textbook/volumes/dream_thater/幾何系/GBG/GBG11/index.md)

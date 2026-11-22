@@ -1,0 +1,51 @@
+chapter: GBG11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG10
+  - GEO7
+forward_references: []
+concepts:
+  - id: gauge.covariant-exterior-derivative
+    name: 主束上の共変外微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（主束上の共変外微分）"]
+    requires: [gauge.principal-connection-form, gauge.curvature-horizontal-equivariant, lie.lie-algebra-valued-bracket-wedge]
+
+  - id: gauge.covariant-exterior-horizontal-equivariant
+    name: 共変外微分の水平性と同変性
+    kind: theorem
+    introduction: formal
+    requires: [gauge.covariant-exterior-derivative, gauge.right-principal-fundamental-vector-field, gauge.curvature-horizontal-equivariant]
+
+  - id: gauge.bianchi-identity
+    name: 主束曲率の Bianchi 恒等式・大域形式
+    kind: theorem
+    introduction: formal
+    requires: [gauge.covariant-exterior-derivative, gauge.principal-curvature-form, lie.lie-algebra-valued-bracket-wedge, geometry.exterior-derivative-graded-leibniz]
+
+  - id: gauge.local-covariant-exterior-derivative
+    name: 局所共変外微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所共変外微分）"]
+    requires: [gauge.covariant-exterior-derivative, gauge.local-connection-potential]
+
+  - id: gauge.local-bianchi-identity
+    name: 主束曲率の Bianchi 恒等式・局所形式
+    kind: theorem
+    introduction: formal
+    requires: [gauge.bianchi-identity, gauge.local-covariant-exterior-derivative, gauge.local-curvature-structure-equation]
+
+  - id: gauge.bianchi-component-form
+    name: 主束曲率の Bianchi 恒等式・座標成分
+    kind: theorem
+    introduction: formal
+    requires: [gauge.local-bianchi-identity, gauge.local-curvature-structure-equation]
+
+  - id: gauge.covariant-exterior-gauge-covariance
+    name: 局所共変外微分のゲージ共変性
+    kind: theorem
+    introduction: formal
+    requires: [gauge.local-covariant-exterior-derivative, gauge.local-curvature-gauge-covariance, gauge.local-potential-transformation]
