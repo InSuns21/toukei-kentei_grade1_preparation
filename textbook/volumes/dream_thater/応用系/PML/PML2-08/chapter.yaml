@@ -1,0 +1,45 @@
+id: "PML2-08"
+title: "初期/境界条件を強制する二つの方法は何か"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-07
+official_scope: []
+learning_objectives:
+  - 零および非零Dirichletデータのhard試行関数を構成し境界条件を直接確認できる
+  - hard試行関数の二階微分とPoisson残差を積の法則から導出できる
+  - hard試行関数の表現力が選んだ関数族と正則性に依存する例を示せる
+  - soft penaltyの内部損失と境界損失を区別し有限重みでの最小点を計算できる
+  - 熱方程式の初期・境界データの角での整合性を判定できる
+  - 整合する時間依存データをhard試行関数に組み込み初期値と両端値を検算できる
+  - hardとsoftの具体的な関数族の損失・勾配・最適化結果を比較できる
+definitions:
+  - { id: PML2-08-DEF-01, name: Dirichlet条件を組み込んだ試行関数 }
+  - { id: PML2-08-DEF-02, name: 境界条件のsoft penalty }
+  - { id: PML2-08-DEF-03, name: 初期・境界データを組み込んだ熱方程式の試行関数 }
+theorems:
+  - { id: PML2-08-PROP-01, name: hard試行関数の境界保証と内部残差 }
+  - { id: PML2-08-PROP-02, name: 有限重みで残る境界違反 }
+  - { id: PML2-08-PROP-03, name: 初期・境界の整合性とhard試行関数の保証 }
+canonical_examples:
+  - 非零Dirichlet端点を補間するhard試行関数と内部Poisson残差
+  - 二次消失因子の積微分と残差恒等式
+  - C2候補に対するhard表現の正則性上の制約
+  - 一パラメータsoft損失の有限重みにおける最小点
+  - 熱方程式の整合する初期・境界データのhard構成
+  - hard候補の二点残差と勾配の統合計算
+problem_patterns:
+  - PML2-08-A01
+  - PML2-08-A02
+  - PML2-08-A03
+  - PML2-08-A04
+  - PML2-08-A05
+  - PML2-08-B01
+  - PML2-08-B02
+  - PML2-08-B03
+  - PML2-08-B04
+  - PML2-08-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
