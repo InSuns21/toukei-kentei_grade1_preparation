@@ -32,7 +32,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf16-norm-subgroup -->
-**定義の確認。** $L=\mathbb Q_3(i)$、$K=\mathbb Q_3$、$i^2=-1$ の非分岐二次拡大では、[非分岐ノルム群](../ANF15/index.md#prop-anf15-unramified-norm-quotient)により
+**定義の確認**： $L=\mathbb Q_3(i)$、$K=\mathbb Q_3$、$i^2=-1$ の非分岐二次拡大では、[非分岐ノルム群](../ANF15/index.md#prop-anf15-unramified-norm-quotient)により
 
 $$
 H_{L/K}=3^{2\mathbb Z}\mathbb Z_3^\times.
@@ -315,7 +315,7 @@ $N_{L/M}(x)\in M^\times$ なので右辺は $N_{M/K}(M^\times)$ の元です。�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf16-class-field-subgroup -->
-**定義の確認。** $H=\pi_K^{3\mathbb Z}\mathcal O_K^\times$ とすると積と逆元に関して閉じています。また $U_K^1\subset H$ なので開です。$K^\times=\pi_K^{\mathbb Z}\mathcal O_K^\times$ から $K^\times/H\cong\mathbb Z/3\mathbb Z$、したがって指数 $3$ です。[非分岐ノルム群](../ANF15/index.md#prop-anf15-unramified-norm-quotient)によって、この候補部分群は非分岐三次拡大のノルム群として実際に現れます。
+**定義の確認**： $H=\pi_K^{3\mathbb Z}\mathcal O_K^\times$ とすると積と逆元に関して閉じています。また $U_K^1\subset H$ なので開です。$K^\times=\pi_K^{\mathbb Z}\mathcal O_K^\times$ から $K^\times/H\cong\mathbb Z/3\mathbb Z$、したがって指数 $3$ です。[非分岐ノルム群](../ANF15/index.md#prop-anf15-unramified-norm-quotient)によって、この候補部分群は非分岐三次拡大のノルム群として実際に現れます。
 <!-- definition-example-end -->
 
 <a id="thm-anf16-local-existence"></a>
