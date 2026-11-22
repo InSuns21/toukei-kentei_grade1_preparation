@@ -19,7 +19,7 @@ concepts:
     requires: [number-theory.local-norm-subgroup, number-theory.local-norm-integral-trace]
 
   - id: number-theory.deep-local-units-power-roots
-    name: 十分深い主単数は n 乗
+    name: 深い主単数の冪根
     kind: lemma
     introduction: formal
     requires: [number-theory.hensel-strong, number-theory.local-unit-filtration]
