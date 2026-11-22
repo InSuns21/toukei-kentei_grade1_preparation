@@ -40,7 +40,7 @@ chapters:
     title: "局所ゲージポテンシャルはどう変換するか"
   - id: GBG9
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG9
-    status: planned
+    status: completed
     title: "結合束上で場をどう微分するか"
   - id: GBG10
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG10

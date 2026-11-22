@@ -1,0 +1,42 @@
+id: "GBG9"
+title: "結合束上で場をどう微分するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG8
+official_scope: []
+learning_objectives:
+  - 表現の微分と結合束の同変関数を定義に基づいて使い、水平微分の入力先と代表点の独立性を証明できる
+  - 水平リフトの垂直補正から局所共変微分 d+rho_*(A) を符号込みで導出できる
+  - Leibniz則と滑らかさを確認し、通常の微分では重なりに整合しない理由を反例で説明できる
+  - 局所接続形式と局所切断成分の変換を同時に代入し、共変微分のゲージ共変性を証明できる
+  - U(1)の荷電スカラーと随伴表現の場について表現微分と共変微分を計算できる
+  - 局所接続と局所場の整合から大域的な共変微分を構成できる
+definitions:
+  - { id: GBG9-DEF-01, name: 表現の無限小作用 }
+  - { id: GBG9-DEF-02, name: 結合束上の共変微分 }
+theorems:
+  - { id: GBG9-THM-01, name: 水平微分の整合性とLeibniz則 }
+  - { id: GBG9-THM-02, name: 結合束の共変微分の局所公式 }
+  - { id: GBG9-THM-03, name: 局所共変微分のゲージ共変性 }
+canonical_examples:
+  - GL(2,R)の標準表現で表現の微分を直接確認
+  - U(1)積主束の水平リフトと定数接続下の切断
+  - U(1)荷電スカラーの表現微分と位相変換
+  - SU(2)随伴Lie環束でのLie括弧の行列計算
+  - 非定数局所基底で通常の微分が貼り合わない反例
+problem_patterns:
+  - GBG9-INVERSE-DIFFERENTIAL
+  - GBG9-CHARGE-REPRESENTATION-DERIVATIVE
+  - GBG9-HORIZONTAL-SIGN
+  - GBG9-ADJOINT-BRACKET
+  - GBG9-NEUTRAL-LEIBNIZ
+  - GBG9-U1-CHANGE
+  - GBG9-EQUIVARIANT-HORIZONTAL
+  - GBG9-CONNECTION-NONUNIQUENESS
+  - GBG9-NONABELIAN-ADJOINT
+  - GBG9-GLOBAL-GLUING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }
