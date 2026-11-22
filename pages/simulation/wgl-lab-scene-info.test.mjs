@@ -140,7 +140,7 @@ test('G3 legends derive their initial step and GPU buffer dimensions from the ru
     assert.equal(sceneDescription(lesson,{width:320,height:0}),null);
   }
   const obstacle=sceneDescription('FCG6',{width:960,height:320,steps:8});
-  assert.match(obstacle.grid,/16×16.*u=17×16.*R8/);
+  assert.match(obstacle.grid,/48×48.*u=49×48.*R8/);
   assert.match(obstacle.color,/70\|発散\|.*速さ\/0.6/);
   assert.equal(obstacle.clock,'物理step 8、t=0.40 s（dt=0.05 s）');
   assert.match(obstacle.mode,/u_viewMode=0.*u_viewMode=1/);
