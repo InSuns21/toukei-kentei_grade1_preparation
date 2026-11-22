@@ -1,6 +1,6 @@
 # GBG11 Bianchi恒等式はどこから生じるか
 
-[GBG10の曲率の構造方程式](../GBG10/index.md#def-gbg10-curvature)は、接続1形式の外微分から曲率2形式を作った。
+[GBG10の曲率の構造方程式](../GBG10/index.md#def-gbg10-curvature)は、主束接続形式の外微分から曲率2形式を作った。
 
 $$
 \Omega=d\omega+\frac12[\omega\wedge\omega],
@@ -24,7 +24,7 @@ $\pi:P\to M$ は滑らかな右主 $G$ 束である。$\omega\in\Omega^1(P;\math
 
 ## 1. なぜ普通の外微分では足りないのか
 
-[GBG10の局所構造方程式](../GBG10/index.md#thm-gbg10-local-formula)を行列群で書くと $F=dA+A\wedge A$ である。外微分の積の公式を使えば
+[GBG10の局所構造方程式](../GBG10/index.md#thm-gbg10-local-formula)を行列群で書くと $F=dA+A\wedge A$ である。[外微分の次数付き Leibniz 則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を使えば
 
 $$
 dF=d(A\wedge A)=dA\wedge A-A\wedge dA.
@@ -35,6 +35,8 @@ $$
 一方、接続 $A$ を使って場を微分するときは [GBG9の局所公式](../GBG9/index.md#thm-gbg9-local-formula) の $D=d+\rho_*(A)$ を使った。曲率についても、係数の共役変換に対応する補正が必要になる。
 
 ### 形式の次数と括弧の符号を決める
+
+<a id="gbg11-bracket-three-inputs"></a>
 
 Lie 環値 $p$ 形式 $\alpha$ と $q$ 形式 $\beta$ の**括弧付き外積**を、成分に Lie 括弧を施して交代化した $(p+q)$ 形式とする。これは[既習の括弧付き外積](../../../代数系/LIE/LIE4/index.md#def-lie4-bracket-wedge)を任意の次数へ拡張したものである。$p=1,q=2$ で必要な具体式は
 
@@ -51,7 +53,7 @@ $$
 [\alpha\wedge\beta]=-(-1)^{pq}[\beta\wedge\alpha],
 $$
 
-また外微分の積の公式は
+また[外微分の次数付き Leibniz 則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)は
 
 $$
 d[\alpha\wedge\beta]
@@ -97,7 +99,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg11-covariant-exterior-derivative -->
-**定義の直接例**。積主束 $P=\mathbb R^3\times U(1)$、標準 section $s$、$A=i x\,dy$ とする。$U(1)$ は可換なので任意の Lie 環値形式について括弧付き外積が零となる。水平・同変な形式 $\eta$ の場合
+**定義の確認**。積主束 $P=\mathbb R^3\times U(1)$、標準 section $s$、$A=i x\,dy$ とする。$U(1)$ は可換なので任意の Lie 環値形式について括弧付き外積が零となる。水平・同変な形式 $\eta$ の場合
 
 $$
 d_\omega\eta=d\eta.
@@ -172,7 +174,7 @@ $$
 <a id="thm-gbg11-bianchi-global"></a>
 
 <!-- formal-statement-start -->
-> **定理（第二 Bianchi 恒等式・大域形式）**  
+> **定理（主束曲率の Bianchi 恒等式・大域形式）**  
 > 滑らかな右主 $G$ 束 $P\to M$ 上の任意の主束接続 $\omega$ と、その曲率 $\Omega=d\omega+\frac12[\omega\wedge\omega]$ に対し、
 
 $$
@@ -188,7 +190,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[GBG10の構造方程式](../GBG10/index.md#def-gbg10-curvature)を微分すると、$d^2\omega=0$ と外微分の積の公式により
+[GBG10の構造方程式](../GBG10/index.md#def-gbg10-curvature)を微分すると、$d^2\omega=0$ と[外微分の次数付き Leibniz 則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)により
 
 $$
 \begin{aligned}
@@ -224,7 +226,7 @@ d_\omega\Omega
 \end{aligned}
 $$
 
-最後の3形式が零である理由を成分で確かめる。$U,V,W\in T_pP$ に対して、括弧付き外積の定義から
+最後の3形式が零である理由を成分で確かめる。$U,V,W\in T_pP$ に対して、[第1節の括弧付き外積の三方向の式](#gbg11-bracket-three-inputs)から
 
 $$
 \begin{aligned}
@@ -260,20 +262,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg11-local-covariant-exterior -->
-**定義の直接例**。$U=\mathbb R^3$、$\mathfrak g=\mathfrak{gl}_2(\mathbb R)$、$B=E_{11}$、$C=E_{12}$ とし、$A=B\,dx$、$K=C\,dy\wedge dz$ とする。$dK=0$ だが $[B,C]=C$ なので
+**定義の確認**。$U=\mathbb R^3$、$\mathfrak g=\mathfrak{gl}_2(\mathbb R)$、$B=E_{11}$、$C=E_{12}$ とし、$A=B\,dx$、$K=C\,dy\wedge dz$ とする。$dK=0$ だが $[B,C]=C$ なので
 
 $$
 d_AK=[B,C]\,dx\wedge dy\wedge dz
 =C\,dx\wedge dy\wedge dz\ne0.
 $$
 
-局所共変外微分は外微分に非可換な補正を加える演算である。ここでは $K$ は任意の2形式であって、この接続の曲率ではない。
+局所共変外微分は外微分に非可換な補正を加える演算である。ここでは $K$ は任意の2形式であって、この $A$ から構成した曲率 $F$ ではない。
 <!-- definition-example-end -->
 
 <a id="thm-gbg11-bianchi-local"></a>
 
 <!-- formal-statement-start -->
-> **定理（第二 Bianchi 恒等式・局所形式）**  
+> **定理（主束曲率の Bianchi 恒等式・局所形式）**  
 > $P\to M$、$\omega$、$s:U\to P$ を前節と同様に取る。$A=s^*\omega$ と $F=s^*\Omega$ に対し
 
 $$
@@ -304,7 +306,7 @@ $$
 \end{aligned}
 $$
 
-次に行列群で直接確かめる。[局所構造方程式](../GBG10/index.md#thm-gbg10-local-formula) $F=dA+A\wedge A$ から、$d^2A=0$ と外微分の積の公式により
+次に行列群で直接確かめる。[局所構造方程式](../GBG10/index.md#thm-gbg10-local-formula) $F=dA+A\wedge A$ から、$d^2A=0$ と[外微分の次数付き Leibniz 則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)により
 
 $$
 dF=dA\wedge A-A\wedge dA.
@@ -381,7 +383,7 @@ $$
 <a id="thm-gbg11-component-bianchi"></a>
 
 <!-- formal-statement-start -->
-> **定理（Bianchi 恒等式の成分表示）**  
+> **定理（主束曲率の Bianchi 恒等式・座標成分）**  
 > 上記の滑らかな行列群の局所接続について
 
 $$
@@ -414,7 +416,7 @@ $$
 =[A_i,F_{jk}]+[A_j,F_{ki}]+[A_k,F_{ij}].
 $$
 
-両辺を足し、[局所 Bianchi 恒等式](#thm-gbg11-bianchi-local)を使えば成分公式を得る。微分が交換できる滑らかな局所座標であり、$F_{ij}$ は交代的であることが使われている。
+両辺を足し、[主束曲率の Bianchi 恒等式・局所形式](#thm-gbg11-bianchi-local)を使えば成分公式を得る。微分が交換できる滑らかな局所座標であり、$F_{ij}$ は交代的であることが使われている。
 
 直接展開しても検算できる。$F_{jk}=\partial_jA_k-\partial_kA_j+[A_j,A_k]$ を代入すると、二階微分は $\partial_i\partial_jA_k-\partial_j\partial_iA_k$ の形で打ち消される。一階微分と括弧の項は
 
