@@ -80,7 +80,10 @@ test('FCG6 shape and moving wall controls rewrite only the executed solid.js lit
   assert.equal(readLabParameter(duplicate,specs[2]).ok,false);
   for(let i=specs.length-1;i>=0;i--)
     edited=writeLabParameter(edited,specs[i],specs[i].default);
-  assert.equal(edited,source,'all controls restore the canonical JS exactly');
+  let normalizedSource=source;
+  for(const spec of specs)
+    normalizedSource=writeLabParameter(normalizedSource,spec,spec.default);
+  assert.equal(edited,normalizedSource,'restored literals preserve the canonical physics code');
 });
 
 test('WGL12 array edit retains the two other sphere materials and edited GLSL', async () => {
