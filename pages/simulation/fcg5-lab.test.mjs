@@ -266,6 +266,27 @@ test('FCG5 brush GUI rewrites its only actual dye source, not a duplicate render
   assert.equal(readLabParameter(duplicate,strength).ok,false);
 });
 
+test('FCG5 live brush edits preserve every pre-injection GPU input field',async()=>{
+  const source=await readFile(new URL('fluid.js',dir),'utf8');
+  const [vertex,fragment]=await Promise.all(['fluid.vert','fluid.frag']
+    .map(f=>readFile(new URL(f,dir),'utf8')));
+  const [radius,strength]=parametersFor('FCG5').slice(3);
+  const customized=writeLabParameter(writeLabParameter(source,radius,0.15),strength,0.95);
+  const sampleTextures=code=>{
+    const gl=mockGL();
+    new Function('gl','canvas','vertexSource','fragmentSource','report','settings',code)(
+      gl,{width:320,height:240},vertex,fragment,()=>{},{steps:8});
+    return gl._textures;
+  };
+  const before=sampleTextures(source),after=sampleTextures(customized);
+  assert.equal(before.length,3);
+  for(let panel=0;panel<3;panel++){
+    assert.equal(before[panel].length,48*48,'real MAC grid texture');
+    assert.deepEqual(after[panel],before[panel],
+      'brush has no effect until the learner injects dye into actual state');
+  }
+});
+
 test('FCG5 dye injection changes the real 48x48 R8 texture under source-linked brush controls',async()=>{
   const source=await readFile(new URL('fluid.js',dir),'utf8');
   const [vertex,fragment]=await Promise.all(['fluid.vert','fluid.frag']
