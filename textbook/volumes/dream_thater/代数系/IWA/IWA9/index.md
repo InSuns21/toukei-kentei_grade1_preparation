@@ -80,7 +80,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（S分岐アーベルpro-p拡大）**  
-> 数体 $K$ と有限素点の有限集合 $S$ を固定する。$M_S(K)$ は、$K$ のすべての有限アーベル $p$ 冪次数拡大のうち、$S$ の外で非分岐であり、すべての実素点の複素化を許さないものの合成体とする。これを最大 $S$ 分岐アーベル pro-$p$ 拡大といい、
+> 数体 $K$、素数 $p$ と有限素点の有限集合 $S$ を固定する。$M_S(K)$ は、$K$ のすべての有限アーベル $p$ 冪次数拡大のうち、$S$ の外で非分岐であり、すべての実素点の複素化を許さないものの合成体とする。これを最大 $S$ 分岐アーベル pro-$p$ 拡大といい、
 >
 $$
 \mathfrak X_S(K)=\operatorname{Gal}(M_S(K)/K)
@@ -96,7 +96,19 @@ $$
 u^3-3u+1=0
 $$
 
-を満たします。なぜなら $u^3-3u=\zeta_9^3+\zeta_9^{-3}=-1$ だからです。[円分体の次数と全分岐](../../ANF/ANF22/index.md#prop-anf22-prime-power-degree)より、$\mathbb Q(u)$ は次数3のアーベル拡大で、素数3で完全分岐し、それ以外の有限素数では非分岐です。また $\mathbb Q(u)$ は全実です。従って $\mathbb Q(u)\subseteq M_S(\mathbb Q)$ ですが、第1節の $H_{\mathbb Q}^{(3)}=\mathbb Q$ には入りません。
+を満たします。なぜなら $u^3-3u=\zeta_9^3+\zeta_9^{-3}=-1$ だからです。
+
+この多項式だけから分岐条件を判定するのではなく、まず円分体の中間体として調べます。[円分体の次数と全分岐](../../ANF/ANF22/index.md#prop-anf22-prime-power-degree)から $[\mathbb Q(\zeta_9):\mathbb Q]=6$ です。$u$ は実数で、$\zeta_9$ は非実数、しかも $\zeta_9$ は $T^2-uT+1=0$ を満たすため、
+
+$$
+[\mathbb Q(\zeta_9):\mathbb Q(u)]=2,
+\qquad
+[\mathbb Q(u):\mathbb Q]=6/2=3.
+$$
+
+$\mathbb Q(\zeta_9)/\mathbb Q$ のGalois群 $(\mathbb Z/9\mathbb Z)^\times$ はアーベル群なので、この中間体もGalois拡大であり、そのGalois群は位数3の巡回群です。$\mathbb Q(\zeta_9)$ では3が完全分岐し、3以外は非分岐です。したがって中間体 $\mathbb Q(u)$ でも3の分岐指数は3（中間体の次数と等しい）、他の有限素数の分岐指数は1です。$u$ の共役はすべて実数なので $\mathbb Q(u)$ は全実でもあります。
+
+よって $\mathbb Q(u)\subseteq M_S(\mathbb Q)$ ですが、第1節の $H_{\mathbb Q}^{(3)}=\mathbb Q$ には入りません。
 <!-- definition-example-end -->
 
 **分岐の条件はGalois群の核へ翻訳できます。** $K$ が全虚数体なら、すべての $v\in S$ に対して $M_S(K)/K$ の惰性群を $\mathfrak X_S(K)$ 内の閉部分群 $I_v$ として取れます。アーベル群なので上の素点の選択に依存しません。
@@ -238,6 +250,14 @@ $$
 
 そこで $L_\infty=\bigcup_{r\ge1}H_r^{(p)}$ が定まり、その $E_\infty$ 上のGalois群は逆極限で記述できそうです。
 
+この群への作用も具体的に説明します。$E_r/E_1$ の自己同型は、無分岐アーベル $p$ 拡大という条件を保つので、その最大拡大 $H_r^{(p)}$ を保ちます。従って $L_\infty/E_1$ はGalois拡大であり、$\Gamma=\operatorname{Gal}(E_\infty/E_1)$ の元 $\sigma$ を $L_\infty$ の自己同型 $\widetilde\sigma$ に持ち上げられます。$x\in\operatorname{Gal}(L_\infty/E_\infty)$ への作用は
+
+$$
+\sigma\cdot x=\widetilde\sigma x\widetilde\sigma^{-1}
+$$
+
+です。持ち上げを替えたときの差は $\operatorname{Gal}(L_\infty/E_\infty)$ の元であり、この群は各有限層のアーベル $p$ 群の逆極限なのでアーベルです。したがって共役作用は持ち上げによらず定まります。有限層での作用とノルムの両立から、[逆極限への岩澤代数作用](../IWA4/index.md#thm-iwa4-iwasawa-action)と同じ方法で連続な $\mathbb Z_p[[\Gamma]]$ 加群作用になります。
+
 <a id="def-iwa9-unramified-iwasawa-module"></a>
 
 <!-- formal-statement-start -->
@@ -300,7 +320,7 @@ $$
 =\operatorname{Frob}_{\mathfrak P}.
 $$
 
-剰余次数 $f=f(\mathfrak P/\mathfrak p)$ に対し、[イデアルノルムの定義](../IWA4/index.md#def-iwa4-ideal-norm-extension)は $N(\mathfrak P)=\mathfrak p^f$ であり、[Frobeniusと制限の関手性](../../ANF/ANF21/index.md#prop-anf21-restriction)から
+剰余次数 $f=f(\mathfrak P/\mathfrak p)$ に対し、[イデアルノルムの定義](../IWA4/index.md#def-iwa4-ideal-norm-extension)は $N(\mathfrak P)=\mathfrak p^f$ です。下の体の剰余体を $k_{\mathfrak p}$ とすれば、上の剰余体は $[k_{\mathfrak P}:k_{\mathfrak p}]=f$ であり、$\operatorname{Frob}_{\mathfrak P}$ の作用を下の体へ制限すると、剰余体上の $a\mapsto a^{|k_{\mathfrak P}|}=a^{|k_{\mathfrak p}|^f}$ になります。これは $\operatorname{Frob}_{\mathfrak p}^f$ の作用です。[FrobeniusとArtin写像の制限の関手性](../../ANF/ANF21/index.md#prop-anf21-restriction)にも一致し、
 
 $$
 \operatorname{res}(\operatorname{Frob}_{\mathfrak P})
@@ -352,13 +372,15 @@ $z\in e_iN$ に対し全射性から $q(x)=z$ となる $x\in M$ を取ると、
 
 後のIWA18では、局所完備化への制限写像の核を用いてSelmer群を構成します。いま扱った $X_\infty$ は類群側の **Galois群** ですが、有限の定数係数に対する一次Galoisコホモロジーの側では、同じ無分岐条件を **文字（準同型）** として測れます。
 
-有限アーベル群 $A=\mathbb Z/p^m\mathbb Z$（$m\ge1$）にGalois群を自明に作用させます。連続一次余サイクル $f:G\to A$ はこのとき $f(gh)=f(g)+f(h)$ を満たすので、[第1コホモロジーの定義](../../ANF/ANF14/index.md#def-anf14-coboundary)を連続写像へ拡張すると
+有限アーベル群 $A=\mathbb Z/p^m\mathbb Z$（$m\ge1$）にGalois群を自明に作用させます。連続一次余サイクル $f:G\to A$ はこのとき $f(gh)=f(g)+f(h)$ を満たすので、[加法的な第1余サイクル・余境界の定義](../../ANF/ANF14/index.md#def-anf14-additive-cocycle)を連続写像へ拡張すると
 
 $$
 H^1_{\mathrm{cont}}(G,A)=\operatorname{Hom}_{\mathrm{cont}}(G,A)
 $$
 
-です。自明作用では一次余境界が零であることも直接確認できます。
+です。自明作用では一次余境界が $g\mapsto ga-a=a-a=0$ となります。有限離散群 $A$ への連続準同型は開核を持ち、ある有限商 $G/U$ を通じて因子化します。従って、既習の有限群の余サイクル条件を有限商ごとに確かめることで、上の連続コホモロジーの式が得られます。
+
+ここで $G_{K,S}$ は、$S$ の外の有限素点で非分岐、実素点では複素化しない最大の（必ずしもアーベルでない）Galois拡大のGalois群を表します。この段階では $S$ 内の惰性群に分岐を許しています。以下ではその惰性群上で文字が零になるという条件を加えます。
 
 <a id="def-iwa9-unramified-local-condition"></a>
 
