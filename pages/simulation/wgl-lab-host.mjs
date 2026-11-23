@@ -103,6 +103,30 @@ const byId = id => document.getElementById(id);
 const inputs = {
   js: byId('js-source'), vertex: byId('vertex-source'), fragment: byId('fragment-source')
 };
+if (isWGL20) {
+  document.querySelector('h1').textContent = 'WGL20 街区3D：建物・太陽光・地形・水位';
+  document.querySelector('#panel-conditions h2').textContent = 'このデモで何が分かる？';
+  const intro = document.querySelector('#panel-conditions > p');
+  intro.textContent = '黄土色の実在PLATEAU建物1棟と、灰白色の合成建物8棟を同じ縮尺の街区に描きます。道路と合成地盤の上へ仮想水位を重ね、太陽の方向で建物の明暗と地面への影が変わる様子を見ます。';
+  const instructions = [
+    'まず「実行（結果へ）」を押す。街区をドラッグ／矢印キーで回転し、建物の側面・屋上と影を確認する。Homeで初期視点に戻す（CS1ではクリックによるID選択を優先）。',
+    '仮想水面32 mを30 mへ下げて水に覆われる場所を比較し、原点の水深が2.29497413 mから0.29497413 mへ変わることを確かめる。',
+    '太陽方向とカメラ仰角を変え、影の方向と見え方の違いを観察する。高さの表示倍率だけを変えても水深の数値は変わらない。',
+    '「コード編集」で terrain.js／terrain.vert／terrain.frag を書き換えて実行し、シェーダの光と実PLATEAU形状・合成周辺地物の区別を確認する。'
+  ];
+  const ordered = document.querySelector('#panel-conditions > ol');
+  ordered.replaceChildren(...instructions.map(t => {
+    const li = document.createElement('li'); li.textContent = t; return li;
+  }));
+  byId('width').value = '640'; byId('height').value = '420';
+  const preset = byId('preset').options[0];
+  if (preset) preset.textContent = '初期街区と影';
+  const help = document.createElement('p');
+  help.textContent = '黄土色＝公式LOD1建物1棟／灰白色＝合成の周辺8棟／暗灰色＝合成道路／青色＝仮想水面。合成水位は洪水予測ではありません。';
+  ordered.after(help);
+}
+
+
 const tabs = ['conditions', 'code', 'result'];
 const defaults = {};
 let refreshParameterControls = () => {};
@@ -776,12 +800,12 @@ window.addEventListener('message', event => {
     const {x,y,gpuId,cpuId}=data;
     if(![x,y,gpuId,cpuId].every(Number.isInteger)||x<0||y<0||
        x>=active.payload.width||y>=active.payload.height||
-       gpuId<0||gpuId>255||cpuId<0||cpuId>1)return;
+       gpuId<0||gpuId>255||cpuId<0||cpuId>2)return;
     const equal=gpuId===cpuId;
     byId('result-note').textContent=
       'CS1 下原点画素('+x+','+y+'): GPU ID='+gpuId+
       ' / CPU三角形投影によるID='+cpuId+' / '+(equal?'一致':'不一致')+
-      '。ID0=地盤・背景、ID1=建物。輪郭上はラスタ化規則との差を調べてください。';
+      '。ID0=地盤・道路・背景、ID1=公式PLATEAU建物、ID2=合成の周辺建物。輪郭上はラスタ化規則との差を調べてください。';
     setStatus(equal?'CS1 ID FBO とCPU射影の選択結果が一致':
       'CS1 GPU/CPU選択が不一致（深度・投影・輪郭を確認）',!equal);
     return;

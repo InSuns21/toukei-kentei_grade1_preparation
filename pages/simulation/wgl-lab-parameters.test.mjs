@@ -164,3 +164,26 @@ test('WGL17 GUI rewrites the same mode and probe value uploaded to the GPU', asy
   assert.equal(readLabParameter(source.replace('const probeValue = -1.3;',
     'const probeValue = -1-0.3;'),specs[1]).ok,false);
 });
+
+test('WGL20 G2 source sliders edit the same terrain.js that builds and lights the city',async()=>{
+ const source=await readFile(new URL('WGL/WGL20/terrain.js',base),'utf8');
+ const specs=parametersFor('WGL20');
+ assert.deepEqual(specs.map(s=>s.id),
+   ['water-level','z-exaggeration','view-azimuth','view-elevation','sun-azimuth']);
+ const values=[30,2,70,62,275];
+ const expected=['clipWet','u_zScale','cameraAzimuthDeg','cameraElevationDeg','sunAzimuthDeg'];
+ for(const [i,spec] of specs.entries()){
+   assert.equal(spec.sourceFile,'js');
+   assert.equal(spec.index,null);
+   assert.equal(readLabParameter(source,spec).value,spec.default);
+   assert.ok(source.includes(expected[i]),'renderer reads '+spec.id);
+   const modified=writeLabParameter(source,spec,values[i]);
+   assert.notEqual(modified,source);
+   assert.deepEqual(readLabParameter(modified,spec),{ok:true,value:values[i]});
+   assert.throws(()=>writeLabParameter(source,spec,spec.max+spec.step),RangeError);
+   assert.throws(()=>writeLabParameter(source,spec,spec.min+spec.step/2),RangeError);
+   const broken=source.replace('const '+(i===0?'waterLevelM':i===1?'zExaggeration':i===2?'cameraAzimuthDeg':i===3?'cameraElevationDeg':'sunAzimuthDeg')+'=',
+                              'const '+(i===0?'waterLevelM':i===1?'zExaggeration':i===2?'cameraAzimuthDeg':i===3?'cameraElevationDeg':'sunAzimuthDeg')+'=(1+');
+   assert.equal(readLabParameter(broken,spec).ok,false,'nonliteral input never overwritten');
+ }
+});
