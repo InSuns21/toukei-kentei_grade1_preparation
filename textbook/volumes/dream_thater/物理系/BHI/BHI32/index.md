@@ -152,7 +152,7 @@ $$
 
 ### 4.1 量子情報が残存系から放射へ移る最小模型
 
-まず一つの論理量子ビット $L$ の状態 $\alpha|0\rangle+\beta|1\rangle$（$|\alpha|^2+|\beta|^2=1$）を考えます。初めは放射量子ビット $R$ を $|0\rangle$ に固定し、残存量子ビット $B$ に情報を置きます。後では二つの物理量子ビットの内容を交換します。
+まず一つの論理量子ビット $L$ の状態 $\alpha|0\rangle+\beta|1\rangle$（$|\alpha|^2+|\beta|^2=1$）を考えます。$L,R,B$ の $|0\rangle,|1\rangle$ はそれぞれの二次元Hilbert空間で選んだ正規直交基底で、$|rb\rangle:=|r\rangle_R\otimes|b\rangle_B$ と書きます。初めは放射量子ビット $R$ を $|0\rangle$ に固定し、残存量子ビット $B$ に情報を置きます。後では二つの物理量子ビットの内容を交換します。
 
 <a id="def-bhi32-transfer-code"></a>
 
@@ -169,13 +169,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi32-transfer-code -->
-**定義の確認**：基底で
-$$
-\langle V_{\mathrm{early}}0|V_{\mathrm{early}}1\rangle
-=\langle00|01\rangle=0,\qquad
-\|V_{\mathrm{early}}j\|^2=1
-$$
-であり、$V_{\mathrm{early}}^\dagger V_{\mathrm{early}}=I_L$ です。後期も $\langle00|10\rangle=0$、各像のノルム1なので $V_{\mathrm{late}}^\dagger V_{\mathrm{late}}=I_L$ です。また $U_{\mathrm{swap}}V_{\mathrm{early}}|j\rangle=|j\rangle_R|0\rangle_B=V_{\mathrm{late}}|j\rangle$ が二つの基底で成立します。
+**定義の確認**：早期の基底像は $|00\rangle,|01\rangle$、後期の基底像は $|00\rangle,|10\rangle$ です。いずれも各像のノルムが1で、異なる基底像の内積は0です。したがって、$V$ を早期・後期のどちらとしても
+$
+\langle Vj|Vk\rangle=\delta_{jk}\qquad (j,k\in\{0,1\})
+$
+が成立します。これは単に二つの数値を計算しただけでなく、等長性の判定です。任意の $|\psi\rangle=\sum_j c_j|j\rangle$ と $|\varphi\rangle=\sum_k d_k|k\rangle$ に対し、線形性から
+$
+\begin{aligned}
+\langle V\psi|V\varphi\rangle
+&=\sum_{j,k}\overline{c_j}d_k\langle Vj|Vk\rangle\\
+&=\sum_j\overline{c_j}d_j
+=\langle\psi|\varphi\rangle
+\end{aligned}
+$
+となります。ゆえに両符号について $V^\dagger V=I_L$ です。さらに $U_{\mathrm{swap}}V_{\mathrm{early}}|0\rangle=|00\rangle=V_{\mathrm{late}}|0\rangle$、$U_{\mathrm{swap}}V_{\mathrm{early}}|1\rangle=|10\rangle=V_{\mathrm{late}}|1\rangle$ です。両基底で一致するので $U_{\mathrm{swap}}V_{\mathrm{early}}=V_{\mathrm{late}}$ が線形写像として成立します。
 <!-- definition-example-end -->
 
 <a id="prop-bhi32-transfer-reconstruction"></a>
@@ -192,7 +199,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の論理行列 $O$ と $|\psi\rangle_L=\alpha|0\rangle+\beta|1\rangle$ に対し、
+各基底で $O_{kj}:=\langle k|O|j\rangle_L$ と置きます。$O_B$ と $O_R$ は、論理行列 $O$ と同じ成分 $O_{kj}$ をそれぞれ $B$ と $R$ の正規直交基底で作用させる物理行列です。したがって $O_B|j\rangle_B=\sum_k O_{kj}|k\rangle_B$、$O_R|j\rangle_R=\sum_k O_{kj}|k\rangle_R$ です。任意の $|\psi\rangle_L=\alpha|0\rangle+\beta|1\rangle$ に対し、
 $$
 V_{\mathrm{early}}|\psi\rangle=|0\rangle_R|\psi\rangle_B,\qquad
 V_{\mathrm{late}}|\psi\rangle=|\psi\rangle_R|0\rangle_B.
@@ -220,7 +227,7 @@ $$
 よって圧縮した論理行列は常に $\langle0|A_R|0\rangle I_L$ です。再構成条件が成り立つなら左から $V_{\mathrm{early}}^\dagger$ を掛けて $O=\langle0|A_R|0\rangle I_L$ でなければならず、非スカラーの $O$ は不可能です。$\square$
 <!-- proof-end -->
 
-例えば論理Pauli行列 $X|0\rangle=|1\rangle$、$X|1\rangle=|0\rangle$、$Z|j\rangle=(-1)^j|j\rangle$ は後期には放射の $X_R,Z_R$ で表現できます。早期にはどちらも放射だけでは表現できません。ここでは**全入力状態で**同じ行列が働いています。一つの入力状態の期待値を偶然合わせただけではありません。
+例えば論理Pauli行列 $X|0\rangle=|1\rangle$、$X|1\rangle=|0\rangle$、$Z|j\rangle=(-1)^j|j\rangle$ は後期には放射の $X_R,Z_R$ で表現できます。早期にはどちらも放射だけでは表現できません。ここでは**全入力状態で**同じ行列が働いています。一つの入力状態の期待値を偶然合わせただけではありません。以下、論理側を明示するときは $X_L:=X$、$Z_L:=Z$ と書き、$X_R,Z_R$ は同じ行列成分を放射の基底で作用させる物理演算子です。
 
 ### 4.2 エントロピー値だけでは所属先を決定できない
 
@@ -365,7 +372,16 @@ $B$ の因子のトレースは $|\alpha|^2+|\beta|^2=1$ なので、部分ト�
 - 問題: $V_{\mathrm{late}}|j\rangle=|j\rangle_R|0\rangle_B$ で、論理 $X,Z$ を第4節のPauli行列とする。$X_R$ と $Z_R$ がそれぞれ論理 $X,Z$ を表すことを $j=0,1$ の両方で確認せよ。
 
 <!-- solution-start -->
-**詳細解答**：$X_RV_{\mathrm{late}}|0\rangle=|1\rangle_R|0\rangle_B=V_{\mathrm{late}}X|0\rangle$、$X_RV_{\mathrm{late}}|1\rangle=|0\rangle_R|0\rangle_B=V_{\mathrm{late}}X|1\rangle$ です。同様に $Z_RV_{\mathrm{late}}|0\rangle=|0\rangle_R|0\rangle_B=V_{\mathrm{late}}Z|0\rangle$、$Z_RV_{\mathrm{late}}|1\rangle=-|1\rangle_R|0\rangle_B=V_{\mathrm{late}}Z|1\rangle$。二つの基底で一致するため、線形性で任意の入力に対して[再構成の定義](../../HOLO/HOLO27/index.md#def-holo27-subregion-reconstruction)を満たします。
+**詳細解答**：$X_R,Z_R$ が放射側だけに作用することを明示し、残存系には単位演算子 $I_B$ を作用させます。二つの基底で
+$
+\begin{aligned}
+(X_R\otimes I_B)V_{\mathrm{late}}|0\rangle&=|10\rangle=V_{\mathrm{late}}X_L|0\rangle,\\
+(X_R\otimes I_B)V_{\mathrm{late}}|1\rangle&=|00\rangle=V_{\mathrm{late}}X_L|1\rangle,\\
+(Z_R\otimes I_B)V_{\mathrm{late}}|0\rangle&=|00\rangle=V_{\mathrm{late}}Z_L|0\rangle,\\
+(Z_R\otimes I_B)V_{\mathrm{late}}|1\rangle&=-|10\rangle=V_{\mathrm{late}}Z_L|1\rangle
+\end{aligned}
+$
+となります。基底で一致するため、線形性で任意の入力に対して[再構成の定義](../../HOLO/HOLO27/index.md#def-holo27-subregion-reconstruction)を満たします。
 <!-- solution-end -->
 
 ### Level B：幾何・符号・仮定の境界をつなぐ
@@ -436,7 +452,7 @@ $$
 #### BHI32-B04 交点移動と停留性の確認
 
 - Level: B
-- 問題: $S_0(T)=1+3T$、$S_I(T)=9+T$（$T\ge0$）という二つの極値化済み候補を仮定する。交点、$T=2,4,6$ の支配枝を求めよ。さらに候補の「island値」$S_{\mathrm{trial}}(T,q)=9+T+(q-2)^2$ が与えられた場合、$q=3$ を選んで $S_0$ と比較してはいけない理由を、停留微分の計算で示せ。
+- 問題: $S_0(T)=1+3T$、$S_I(T)=9+T$（$T\ge0$）という二つの極値化済み候補を仮定する。交点、$T=2,4,6$ の支配枝を求めよ。さらに端点を表す実変数 $q\in\mathbb R$ による候補の「island値」$S_{\mathrm{trial}}(T,q)=9+T+(q-2)^2$ が与えられた場合、$T$ を固定して $q$ を変化させ、$q=3$ を選んで $S_0$ と比較してはいけない理由を停留微分で示せ。
 
 <!-- solution-start -->
 **詳細解答**：二枝の差は
@@ -447,7 +463,7 @@ $$
 
 です。交点は $T=4$。$T=2$ では差4なので空枝、$T=4$ では差0なので競合、$T=6$ では差 $-4$ なのでisland枝です。
 
-一方、候補の端点微分は
+一方、$T$ を固定し、端点変数 $q$ だけを動かす偏微分は
 
 $$
 \partial_q S_{\mathrm{trial}}=2(q-2)
