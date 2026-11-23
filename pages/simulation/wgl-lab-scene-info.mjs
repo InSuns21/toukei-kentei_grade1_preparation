@@ -206,12 +206,12 @@ const descriptions = Object.freeze({
     source: 'audit.js / audit.frag（fixedMs, frameDeltasMs, maxStepsPerFrame）'
   }),
   WGL20: Object.freeze({
-    requiresSteps: false,
-    grid: '合成DEMは初期4×4セル・5×5頂点（gridStepsで変更）。PLATEAU実LOD1建物は別メッシュ。いずれも物理流体の計算格子ではない',
-    color: '合成地形は緑、LOD1建物は茶色、仮想水面は半透明の青（α=0.48）。画面下12pxの4色帯はGPU画素照合用で地理データではない',
-    clock: () => '地形・建物・水面の静止GPU描画（物理stepなし）',
-    mode: '原点近傍の東・北・上をmで表す。PLATEAU標本の座標系はEPSG:6697。初期水面標高32 mと標高強調1.5倍は描画条件で、水深はmax(0, 水面標高−合成地盤標高) m',
-    source: 'terrain.js（scenario, zExaggeration, waterLevelM, usePlateau, showWater, gridSteps, dem, depth）/ terrain.frag（v_kind, u_attributeMode）'
+    requiresSteps:false,
+    grid:'240×240 mの合成地盤（初期4×4セル、各セル60 m）。実PLATEAUの1棟はEPSG:6697由来の別メッシュ、周囲8棟は合成立体',
+    color:'黄土色＝実在PLATEAU建物1棟、灰白色＝合成建物8棟、暗灰色＝合成道路、緑色＝合成地盤、青色＝仮想水面（α=0.33）。建物の面法線と太陽で明暗・1024²深度影を計算。下部12px色帯は検算専用',
+    clock:()=>'静止のWebGL2街区。ドラッグ／矢印でカメラを回転（流体stepなし）',
+    mode:'入力標高・水面はm。仮想水深はmax(0,W-G)。表示だけZ誇張。カメラ方位・仰角・太陽方位は編集terrain.jsと同じGPU描画に適用',
+    source:'terrain.js（waterLevelM, zExaggeration, cameraAzimuthDeg, cameraElevationDeg, sunAzimuthDeg, showContext, clipWet, drawScene）／terrain.vert・terrain.frag（法線Lambert陰影、shadow map、半透明水）'
   }),
   WGL18: Object.freeze({
     grid: '4×4（GPUの浮動小数点濃度格子）',
