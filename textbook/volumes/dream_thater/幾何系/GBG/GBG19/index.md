@@ -33,8 +33,10 @@ $$
 **定義の確認**（$n=1$）。まず重なりで、[局所接続の変換則](../GBG8/index.md#thm-gbg8-local-transform)が要求する差を調べる。
 $$
 A_S-A_N=\frac{i}{2}\bigl((1+\cos\vartheta)+(1-\cos\vartheta)\bigr)d\varphi
-=i\,d\varphi,
-\qquad
+=i\,d\varphi.
+$$
+また $g_{NS}=e^{i\varphi}$ を微分すると
+$$
 g_{NS}^{-1}dg_{NS}=e^{-i\varphi}(ie^{i\varphi}d\varphi)=i\,d\varphi.
 $$
 さらに極での滑らかさを、冒頭で定めた球面のCartesian座標 $(X,Y,Z)$ で確かめる。角度 $\varphi$ は極で使えないので、その微分を極を含む領域でも定義できる座標関数の微分で表す。$X=\sin\vartheta\cos\varphi$、$Y=\sin\vartheta\sin\varphi$ を微分すると、$d\vartheta$ の項が打ち消し合って
@@ -533,7 +535,7 @@ $$
 $$
 A_S-A_N=2ic\,d\varphi.
 $$
-局所遷移関数は $g^{-1}dg=2ic\,d\varphi$ を満たす必要がある。角度 $\varphi$ に沿ってこの等式を評価すると $g'(\varphi)=2ic\,g(\varphi)$ である。区間 $[0,2\pi]$ で $\frac{d}{d\varphi}(e^{-2ic\varphi}g(\varphi))=0$ だから、$g(\varphi)=e^{i(2c\varphi+\beta)}$（$\beta$ は定数）となる。$g(0)=g(2\pi)$ の必要十分条件は
+局所遷移関数は $g^{-1}dg=2ic\,d\varphi$ を満たす必要がある。角度 $\varphi$ に沿ってこの等式を評価すると $\frac{dg}{d\varphi}=2ic\,g(\varphi)$ である。区間 $[0,2\pi]$ で $\frac{d}{d\varphi}(e^{-2ic\varphi}g(\varphi))=0$ だから、$g(\varphi)=e^{i(2c\varphi+\beta)}$（$\beta$ は定数）となる。$g(0)=g(2\pi)$ の必要十分条件は
 $$
 e^{4\pi ic}=1
 \quad\Longleftrightarrow\quad 2c\in\mathbb Z.
