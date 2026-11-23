@@ -70,7 +70,7 @@ function fillInitial(){
     const gaussian=(cx,cy,s)=>Math.exp(-((x-cx)**2+(y-cy)**2)/(2*s*s));
     const value=kind==='one'?gaussian(.5,.5,.046)
       :kind==='two'?Math.max(gaussian(.28,.53,.044),gaussian(.72,.47,.044))
-      :kind==='stripe'?Math.exp(-((x-.5)/.06)**2/2)
+      :kind==='stripe'?Math.exp(-(((x-.5)/.06)**2)/2)
       :gaussian(.08,.5,.055);
     const k=4*(i+N*j);
     gpuValues[k]=value;gpuValues[k+1]=0;gpuValues[k+2]=0;gpuValues[k+3]=1;
