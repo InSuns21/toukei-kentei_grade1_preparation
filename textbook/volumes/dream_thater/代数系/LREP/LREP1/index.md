@@ -52,7 +52,7 @@ $$
 $$
 D(AB)v=(AB)v=A(Bv)=D(A)D(B)v
 $$
-です。任意の $v$ に成立するので $D(AB)=D(A)D(B)$ です。これを **標準表現**と呼びます。行列の成分の多項式で記述されるため、Lie群表現としても滑らかです。
+です。任意の $v$ に成立するので $D(AB)=D(A)D(B)$ です。これが $GL_2(\mathbb C)$ の標準表現の具体的な作用です。行列の成分の多項式で記述されるため、Lie群表現としても滑らかです。
 <!-- definition-example-end -->
 
 <a id="thm-lrep1-action-representation"></a>
