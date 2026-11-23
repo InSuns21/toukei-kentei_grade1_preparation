@@ -4,7 +4,7 @@
 
 [LREP5の二重被覆](../LREP5/index.md#thm-lrep5-double-cover)では、二次元の複素ベクトルに作用する $SU(2)$ の元 $U$ と $-U$ が、三次元空間では同じ回転を表すと分かりました。しかし標準表現だけを眺めても、三次元・四次元・さらに高次元の表現がすべて現れるのかは分かりません。
 
-今回の問いは、**有限次元複素既約表現を漏れなく作り、その次元と回転群への降下条件を決定すること**です。先に群の近くを微分して三つの行列の交換関係を調べ、最も高い固有値を持つベクトルから残りの基底を作ります。そのあとで群全体の表現へ戻します。ここで扱う表現は滑らかな有限次元複素表現です。連続表現についても有限次元 Lie 群の連続準同型の滑らかさから同じ分類になります。
+今回の問いは、**有限次元複素既約表現を漏れなく作り、その次元と回転群への降下条件を決定すること**です。先に群の近くを微分して三つの行列の交換関係を調べ、最も高い固有値を持つベクトルから残りの基底を作ります。そのあとで群全体の表現へ戻します。ここで扱う表現は滑らかな有限次元複素表現です。
 
 直接の前提は [Lie環表現](../LREP3/index.md#def-lrep3-lie-algebra-representation)、[既約表現](../LREP1/index.md#def-lrep1-irreducible)、[群からの微分](../LREP3/index.md#thm-lrep3-differentiation)、[SU(2)のLie環の形](../../LIE/LIE3/index.md#thm-lie3-unitary)、および [Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)です。双対・テンソル積は必要な箇所で [LREP4](../LREP4/index.md#def-lrep4-tensor-product)に接続します。
 
@@ -274,6 +274,38 @@ E=\begin{pmatrix}0&1&0\\0&0&2\\0&0&0\end{pmatrix},\quad
 F=\begin{pmatrix}0&0&0\\2&0&0\\0&1&0\end{pmatrix}.
 $$
 例えば $EF-FE$ の対角成分は順に $2,0,-2$ で、$[E,F]=H$ と一致します。二次元の標準表現を「二次」にしただけで三次元表現が生まれました。
+
+### なぜLie環だけの分類が群全体の分類になるのか
+
+ここまでの計算は微分した作用を分類しましたが、元の群の表現が別々に存在する可能性も排除する必要があります。[指数曲線と表現の微分](../LREP3/index.md#thm-lrep3-differentiation)を使えば、$SU(2)$ ではこの心配が解消します。
+
+<a id="prop-lrep6-group-lie-equivalence"></a>
+<!-- formal-statement-start -->
+> **命題（$SU(2)$ 表現と微分表現の既約性・同値性）**  
+> $D:SU(2)\to GL_{\mathbb C}(V)$ を滑らかな有限次元複素群表現とし、その微分の複素線形拡張を $\rho:\mathfrak{sl}_2(\mathbb C)\to\operatorname{End}_{\mathbb C}(V)$ とする。部分空間 $W\subseteq V$ が $D$ に関して不変であることと $\rho$ に関して不変であることは同値である。また二つのこのような群表現の微分が同値なら、群表現も同値である。従って任意の有限次元複素既約 $SU(2)$ 表現は、ただ一つの $D_n$ と同値になる。
+<!-- formal-statement-end -->
+
+**証明の見取り図。** 群不変なら微分で不変です。逆向きはLie環の不変性から行列指数の不変性を導き、$SU(2)$ の全元が指数で表せることを使います。同値性にも同じ指数公式を適用します。
+
+<!-- proof-start -->
+### 証明
+
+$W$ が $D(U)W\subseteq W$ を全ての $U\in SU(2)$ で満たすなら、$X\in\mathfrak{su}(2)$ と $w\in W$ に対して曲線 $t\mapsto D(\exp(tX))w$ は $W$ に入ります。$W$ は有限次元の線形部分空間だからその $t=0$ における導関数 $dD(X)w$ も $W$ に入ります。複素線形に延長しても同様です。
+
+逆に $\rho(\mathfrak{sl}_2(\mathbb C))W\subseteq W$ なら、特に各実Lie環元 $X\in\mathfrak{su}(2)$ に対し $dD(X)W\subseteq W$ です。作用を反復して $dD(X)^mW\subseteq W$ となり、行列指数の冪級数（有限次元では収束する）により
+$
+\exp(t\,dD(X))W\subseteq W.
+$
+[指数と群表現の関係](../LREP3/index.md#thm-lrep3-differentiation)から左辺は $D(\exp(tX))W$ です。[SU(2)の軸角表示](../LREP5/index.md#prop-lrep5-rodrigues)により、任意の $U\in SU(2)$ は、ある実数 $\theta$ と単位 $\boldsymbol n$ を用いて
+$
+U=\exp(-i\theta\,\boldsymbol n\cdot\boldsymbol\sigma/2)
+$
+と書けるので、$W$ はすべての群元で不変です。これで既約性の同値を得ます。
+
+二つの微分表現を結ぶ可逆な線形写像 $T$ があれば、各 $X$ に対し $T\,dD(X)=dD'(X)\,T$ です。冪級数で $T\exp(dD(X))=\exp(dD'(X))T$、従って同じ軸角表示から全 $U$ について $TD(U)=D'(U)T$ です。逆向きも微分すれば成立します。
+
+任意の既約群表現を微分すると既約な $\mathfrak{sl}_2(\mathbb C)$ 表現になるので、[分類定理](#thm-lrep6-classification)により一意な $n$ に対応します。[多項式模型](#thm-lrep6-polynomial-model)の微分と同値であるため、今示した結果で群表現としても $D_n$ と同値です。$\square$
+<!-- proof-end -->
 
 ## 5. 直交基底・整数条件・三次元回転
 

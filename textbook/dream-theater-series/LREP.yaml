@@ -27,7 +27,7 @@ chapters:
     title: "SU(2)からSO(3)への二重被覆"
   - id: LREP6
     path: textbook/volumes/dream_thater/代数系/LREP/LREP6
-    status: planned
+    status: completed
     title: "SU(2)の有限次元既約表現"
   - id: LREP7
     path: textbook/volumes/dream_thater/代数系/LREP/LREP7
