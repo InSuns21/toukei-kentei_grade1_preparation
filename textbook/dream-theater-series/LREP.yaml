@@ -15,7 +15,7 @@ chapters:
     title: "既約分解とSchurの補題"
   - id: LREP3
     path: textbook/volumes/dream_thater/代数系/LREP/LREP3
-    status: planned
+    status: completed
     title: "Lie環表現と群表現の積分"
   - id: LREP4
     path: textbook/volumes/dream_thater/代数系/LREP/LREP4
