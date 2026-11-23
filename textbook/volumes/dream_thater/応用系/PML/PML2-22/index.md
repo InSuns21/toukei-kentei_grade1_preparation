@@ -570,7 +570,31 @@ assert abs(finite_difference - direct) < 1.0e-10
 - $a>0,\ \theta>0$、一変数の線形方程式 $\theta u=a$ を考える。初期値 $u^{(0)}=0$、固定 $\alpha>0$ の反復 $u^{(k+1)}=u^{(k)}-\alpha(\theta u^{(k)}-a)$ が収束する条件を求め、二回反復した出力とその $\theta$ 微分を計算せよ。厳密解の微分と比較せよ。
 
 <!-- solution-start -->
-**詳細解答。** 厳密解 $u_*=a/\theta$ を反復式から引くと $e^{(k+1)}=(1-\alpha\theta)e^{(k)}$。すべての初期誤差から収束する必要十分条件は $|1-\alpha\theta|<1$、つまり $0<\alpha\theta<2$。一回目は $u^{(1)}=\alpha a$、二回目は $u^{(2)}=\alpha a-\alpha(\theta\alpha a-a)=2\alpha a-\alpha^2a\theta$。$\alpha$ を固定して微分すると $(u^{(2)})'=-\alpha^2a$。厳密解の感度は $u_*'=-a/\theta^2$ であり、一般には異なる。例えば $\alpha\theta=1/2$ なら二回値は $(3/4)a/\theta$、微分値は $-a/(4\theta^2)$ で厳密感度 $-a/\theta^2$ とは一致しない。ここで比較時も $\alpha$ を固定し、$\alpha=1/(2\theta)$ と再定義してから微分しないことが重要である。
+**詳細解答。** 厳密解は $u_*=a/\theta$ である。誤差 $e^{(k)}=u^{(k)}-u_*$ を置き、$\theta u_*=a$ を反復式から引くと
+
+$$
+e^{(k+1)}=(1-\alpha\theta)e^{(k)},\qquad
+e^{(k)}=(1-\alpha\theta)^k e^{(0)}.
+$$
+
+$e^{(0)}=-a/\theta\ne0$ だから収束の必要十分条件は $|1-\alpha\theta|<1$、すなわち $0<\alpha\theta<2$ である。
+
+初期値 $u^{(0)}=0$ を二回代入すると
+
+$$
+u^{(1)}=\alpha a,\qquad
+u^{(2)}=\alpha a-\alpha(\alpha a\theta-a)
+=2\alpha a-\alpha^2a\theta.
+$$
+
+$\alpha$ と $a$ を固定して $\theta$ で微分するので、
+
+$$
+\frac{du^{(2)}}{d\theta}=-\alpha^2a,\qquad
+\frac{du_*}{d\theta}=-\frac{a}{\theta^2}.
+$$
+
+例えば $\alpha\theta=1/2$ となる評価点では $u^{(2)}=3a/(4\theta)$、微分値は $-\alpha^2a=-a/(4\theta^2)$ であり、厳密感度 $-a/\theta^2$ と一致しない。値の評価に $\alpha=1/(2\theta)$ を代入してよいが、**微分前に $\alpha$ を $\theta$ の関数として置き換えてはいけない**。それは別の反復アルゴリズムを微分することになる。
 <!-- solution-end -->
 
 ### Level C：感度・随伴・連続と離散の統合
@@ -582,7 +606,51 @@ assert abs(finite_difference - direct) < 1.0e-10
 - $\kappa>0$ の連続問題 $-\kappa u''=x^2$、$u(0)=u(1)=0$ を考え、中央での損失の目標値を $y=0$ に設定する。$q(\kappa)=u(1/2;\kappa)$、$L(\kappa)=\frac12(q(\kappa)-y)^2$ とする。一方、一節点 $h=1/2$ の差分解 $q_h(\kappa)$ を用いた離散損失 $L_h(\kappa)=\frac12(q_h(\kappa)-y)^2$ を作る。(i) 連続解と離散解をそれぞれ求める。(ii) $L'(\kappa)$ を連続解から、$L_h'(\kappa)$ を離散随伴方程式から求める。(iii) $\kappa=1$ で両勾配の差と、その原因を示す。
 
 <!-- solution-start -->
-**詳細解答。** (i) 二階微分を二回積分すると $u(x)=(x-x^4)/(12\kappa)$ であり、$q=7/(192\kappa)$。差分では $A=8\kappa,\ b=1/4$、$q_h=b/A=1/(32\kappa)=6/(192\kappa)$。(ii) 連続損失は $L=\frac12(7/192)^2\kappa^{-2}$ だから $L'=-(7/192)^2\kappa^{-3}=-49/(36864\kappa^3)$。離散随伴は $J(q_h)=q_h^2/2$ より $g=J_u=q_h$、$A^T\lambda=8\kappa\lambda=q_h$、従って $\lambda=q_h/(8\kappa)=1/(256\kappa^2)$。$A'=8,\ b'=0$ なので $b'-A'q_h=-8/(32\kappa)=-1/(4\kappa)$。[随伴勾配公式](#thm-pml2-22-adjoint-gradient)により $L_h'=\lambda(b'-A'q_h)=-1/(1024\kappa^3)=-36/(36864\kappa^3)$。(iii) $\kappa=1$ で $L'-L_h'=(-49+36)/36864=-13/36864$。元の解を差分近似したときの中点値が $7/192$ と $6/192$ で異なるため、二乗損失とその感度の両方に離散化誤差が入る。離散随伴は $L_h$ を正確に微分しており、計算法の不整合ではない。
+**詳細解答。** (i) 連続方程式から $u''(x)=-x^2/\kappa$ なので、積分定数を $C_1,C_2$ として
+
+$$
+u'(x)=-\frac{x^3}{3\kappa}+C_1,\qquad
+u(x)=-\frac{x^4}{12\kappa}+C_1x+C_2.
+$$
+
+$u(0)=u(1)=0$ を代入すると $C_2=0,\ C_1=1/(12\kappa)$。一方、差分系は境界の節点値が零で $h=1/2$ なので
+
+$$
+q=\frac7{192\kappa},\qquad
+A=8\kappa,\quad b=\frac14,\qquad
+q_h=\frac bA=\frac1{32\kappa}=\frac6{192\kappa}.
+$$
+
+(ii) 連続損失とその係数微分は
+
+$$
+L=\frac12\left(\frac7{192\kappa}\right)^2,\qquad
+L'=-\frac{49}{36864\kappa^3}.
+$$
+
+離散系では $J(q_h)=q_h^2/2$ であるから、状態を動かす勾配は $g=J_u=q_h$。$A$ は一変数の非零行列で、[離散随伴変数](#def-pml2-22-adjoint)は次の方程式から定まる。
+
+$$
+8\kappa\lambda=q_h,\qquad
+\lambda=\frac{q_h}{8\kappa}=\frac1{256\kappa^2}.
+$$
+
+$A'=8,\ b'=0$ で、状態を固定した明示的な損失微分は零となる。よって[随伴勾配公式](#thm-pml2-22-adjoint-gradient)に代入すれば
+
+$$
+b'-A'q_h=-8\frac1{32\kappa}=-\frac1{4\kappa},\qquad
+L_h'=\lambda(b'-A'q_h)
+=-\frac1{1024\kappa^3}
+=-\frac{36}{36864\kappa^3}.
+$$
+
+(iii) $\kappa=1$ の差は
+
+$$
+L'(1)-L_h'(1)=\frac{-49+36}{36864}=-\frac{13}{36864}.
+$$
+
+中点値が $7/192$ と $6/192$ で異なるため、二乗損失とその感度の両方に離散化誤差が入る。離散随伴法は $L_h$ の正確な微分を返しており、この差は随伴計算の不整合ではない。
 <!-- solution-end -->
 
 ## 9. 次にどこを検証するか
