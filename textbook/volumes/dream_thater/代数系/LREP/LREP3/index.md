@@ -537,7 +537,7 @@ $$
 - Level: B
 - ID: LREP3-B02
 
-$\pi:SU(2)\to SO(3)$ が核 $\{\pm I_2\}$ を持つ二重被覆であることを用いてよい。$SU(2)$ 上の (i) 標準表現 $D_{\mathrm{std}}(U)=U$ と (ii) 複素化した随伴表現 $D_{\mathrm{ad}}(U)(X)=UXU^{-1}$（$X\in\mathfrak{su}(2)\otimes_\mathbb R\mathbb C$）が $SO(3)$ へ降下するか判定せよ。
+$\pi:SU(2)\to SO(3)$ が核 $\{\pm I_2\}$ を持つ二重被覆であることを用いてよい。$SU(2)$ 上の (i) 標準表現 $D_{\mathrm{std}}(U)=U$ と (ii) 複素化した随伴表現 $D_{\mathrm{ad}}(U)(X)=UXU^{-1}$ が $SO(3)$ へ降下するか判定せよ。(ii) の作用空間は $\mathfrak{su}(2)\otimes_{\mathbb R}\mathbb C$、すなわち実 Lie 環 $\mathfrak{su}(2)$ の実基底の係数を複素数に広げた複素ベクトル空間であり、共役作用 $X\mapsto UXU^{-1}$ を複素線形に拡張する。
 
 <!-- solution-start -->
 **詳細解答。** [被覆核による降下判定](#thm-lrep3-descent-criterion)を使います。(i) $\ker\pi$ の元 $-I_2$ は $\mathbb C^2$ に $-I_2$ として作用し、恒等写像ではありません。従って降下しません。
@@ -599,7 +599,7 @@ $$
 - Level: C
 - ID: LREP3-C01
 
-$G=SO(2)\times(\mathbb R,+)$ とし、被覆群 $\widetilde G=\mathbb R^2$ の座標を $(\theta,t)$ とする。$V=\mathbb C^2$、$A=\operatorname{diag}(i\lambda,i\mu)$、$N=\begin{pmatrix}0&1\\0&0\end{pmatrix}$ として、$\rho(x,y)=xA+yN$（$x,y\in\mathbb R$）を考える。
+$G=SO(2)\times(\mathbb R,+)$ とし、被覆群 $\widetilde G=\mathbb R^2$ の座標を $(\theta,t)$ とする。実数 $\lambda,\mu\in\mathbb R$ に対し、$V=\mathbb C^2$、$A=\operatorname{diag}(i\lambda,i\mu)$、$N=\begin{pmatrix}0&1\\0&0\end{pmatrix}$ として、$\rho(x,y)=xA+yN$（$x,y\in\mathbb R$）を考える。
 
 1. $\rho$ が Lie 環表現になる $\lambda,\mu$ の条件を導け。
 2. その条件の下で $\widetilde G$ 上の群表現 $\widetilde D(\theta,t)$ を求めよ。
