@@ -1,7 +1,7 @@
 // WGL18 observation: the very same diffusion.frag used by the 4x4 editable oracle lab.
 // The CPU writes initial conditions / pointer stamps only; time stepping is always GPU ping-pong.
 const $=id=>document.getElementById(id),canvas=$('field');
-const controls={play:$('play'),once:$('once'),reset:$('reset'),rate:$('rate'),
+const controls={play:$('play'),once:$('once'),reset:$('reset'),inject:$('inject'),rate:$('rate'),
   grid:$('grid'),speed:$('speed'),pattern:$('pattern')};
 const gl=canvas.getContext('webgl2',{alpha:false,antialias:false,preserveDrawingBuffer:true});
 let N=64,rate=.2,playing=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -160,6 +160,11 @@ function loop(now){
 controls.play.addEventListener('click',()=>{playing=!playing;lastTick=0;controls.play.textContent=playing?'一時停止':'再生';});
 controls.once.addEventListener('click',()=>{playing=false;try{step();}catch(e){fail(e);}});
 controls.reset.addEventListener('click',()=>{try{reset();}catch(e){fail(e);}});
+controls.inject.addEventListener('click',()=>{
+  const rect=canvas.getBoundingClientRect();
+  try{paint({clientX:rect.left+rect.width/2,clientY:rect.top+rect.height/2});}
+  catch(e){fail(e);}
+});
 controls.rate.addEventListener('input',()=>{$('rate-val').textContent=Number(controls.rate.value).toFixed(2);});
 controls.rate.addEventListener('change',()=>{if(ready)try{setRate();}catch(e){fail(e);}});
 controls.pattern.addEventListener('change',()=>{if(ready)try{reset();}catch(e){fail(e);}});
