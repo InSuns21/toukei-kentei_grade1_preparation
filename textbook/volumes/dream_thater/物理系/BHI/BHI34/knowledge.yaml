@@ -1,0 +1,60 @@
+chapter: BHI34
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI33, BHI27, BHI30]
+forward_references: []
+concepts:
+  - id: black-hole-information.cghs-classical-geometry
+    name: CGHSの古典二次元幾何
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（CGHSの古典二次元幾何）]
+    requires: [black-hole-information.jt-action-boundary]
+  - id: black-hole-information.cghs-classical-curvature
+    name: CGHS静的解の非一定曲率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（CGHS静的解の非一定曲率）]
+    requires: [black-hole-information.cghs-classical-geometry]
+  - id: black-hole-information.rst-comparison-boundaries
+    name: RSTとの比較に用いる条件台帳
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（RSTとの比較に用いる条件台帳）]
+    requires: [black-hole-information.cghs-classical-geometry, black-hole-information.evaporating-jt-boundary-model]
+  - id: black-hole-information.chiral-hawking-flux-ratio
+    name: 二次元CFTの出射流と二倍則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二次元CFTの出射流と二倍則）]
+    requires: [black-hole-information.rst-comparison-boundaries, black-hole-information.evaporating-jt-entropy-budget]
+  - id: black-hole-information.leading-2d-page-branches
+    name: 蒸発の二枝を比較する先頭近似
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（蒸発の二枝を比較する先頭近似）]
+    requires: [black-hole-information.chiral-hawking-flux-ratio, black-hole-information.conditional-island-rule]
+  - id: black-hole-information.leading-2d-page-crossing
+    name: 一定流束のPage時刻と境界条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一定流束のPage時刻と境界条件）]
+    requires: [black-hole-information.leading-2d-page-branches]
+  - id: black-hole-information.qes-two-coordinate-proxy
+    name: 端点の二変数局所補助模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（端点の二変数局所補助模型）]
+    requires: [black-hole-information.island-two-endpoint-stationarity, black-hole-information.leading-2d-page-branches]
+  - id: black-hole-information.proxy-extremality
+    name: 補助模型の端点と極値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（補助模型の端点と極値）]
+    requires: [black-hole-information.qes-two-coordinate-proxy]
+  - id: black-hole-information.variable-2d-page-crossing
+    name: 時間依存温度での交点の条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（時間依存温度での交点の条件）]
+    requires: [black-hole-information.leading-2d-page-crossing, black-hole-information.chiral-hawking-flux-ratio]
