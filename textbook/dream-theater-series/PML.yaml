@@ -159,7 +159,7 @@ chapters:
     title: "Fourier Neural OperatorはなぜFourier係数を用いるか"
   - id: PML2-17
     path: textbook/volumes/dream_thater/応用系/PML/PML2-17
-    status: planned
+    status: completed
     title: "解像度を変えても同じ精度が出るのか"
   - id: PML2-18
     path: textbook/volumes/dream_thater/応用系/PML/PML2-18
