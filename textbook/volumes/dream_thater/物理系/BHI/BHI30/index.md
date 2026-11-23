@@ -20,6 +20,15 @@
 
 まず、重力がなくても成立する恒等式を自分の手で確かめます。有限次元の密度演算子 $\rho_R$ の固有値を $p_i\ge0$、$\sum_i p_i=1$ とします。$p_i=0$ の項は $p_i\log p_i=0$ と約束します。
 
+正半定値の密度演算子は自己共役なので、正規直交固有基底 $\{|i\rangle\}$ を選べます。その基底で
+$$
+\rho_R=\sum_i p_i|i\rangle\langle i|,
+\qquad
+\rho_R^n=\sum_i p_i^n|i\rangle\langle i|
+\quad(n>0)
+$$
+となり、$\operatorname{Tr}\rho_R^n=\sum_i p_i^n$ です。したがって対角行列の成分 $p_i$ でモーメントと正値性・規格化を判定できるのは、**密度演算子の固有基底で表示したから**です。零固有値には $0^n=0$ を用います。
+
 [正規化モーメントの構成](../BHI28/index.md#prop-bhi28-sewing-trace)を、実数 $n$ の微分へ運ぶとき、確率の規格化と状態の固定が欠かせません。
 
 <a id="prop-bhi30-spectral-derivative"></a>
@@ -71,6 +80,8 @@ $$
 $n=2$ では $M(2)=1/16+9/16=5/8$ です。二次モーメント $5/8$ 一個を微分値の代わりにできないことにも注意します。
 
 重力付き模型で $Z_n$ を状態準備を含めた **規格化前** のレプリカ経路積分とし、$Z_1>0$ を一枚の経路積分とします。物理状態のモーメントに対応すると主張するためには、$Z_n/Z_1^n$ が同じ状態 $\rho_R$ のモーメントを実現する必要があります。以下で使う対数は、正の実寄与が支配する領域、または一貫した対数枝が指定された領域で取ります。
+
+記法を区別します。$M(n)$ のような一変数関数には $d/dn$、境界データや端点座標など他の変数を固定した $n$ 微分には $\partial_n$ を用います。境界データを固定した $\partial_n\log Z_n$ は、$n$ だけの関数として見た $d(\log Z_n)/dn$ と同じ操作です。
 
 <a id="def-bhi30-normalized-log-replica"></a>
 
@@ -160,13 +171,19 @@ $$
 
 [BHI29の二分岐点被覆](../BHI29/index.md#def-bhi29-branched-cover)は、重力側の巡回対称商に固定点を作ります。$n>1$ の商で固定点周辺の開き角は $2\pi/n$、角度不足は $2\pi(1-1/n)$ です。$n\downarrow1$ では不足角が零に近づき、固定点の位置がisland端点の候補となります。
 
-ここで **一般化エントロピー** は、JTのdilatonによる端点寄与と、同一状態・cutoffで計算した物質場のエントロピーの和です。[BHI24の一般化エントロピー台帳](../BHI24/index.md#def-bhi24-jt-island-ledger)を使い、端点の座標をまとめて $x$ と書くと
+ここで **一般化エントロピー** は、JTのdilatonによる端点寄与と、同一状態・cutoffで計算した物質場のエントロピーの和です。[BHI24の一般化エントロピー台帳](../BHI24/index.md#def-bhi24-jt-island-ledger)には局所端点項 $S_{\rm loc}$ も含まれます。本講ではこれを有効結合・端点定数へ吸収して $S_{\rm loc}=0$ と書ける規約を固定します。吸収しない処方なら $S_{\rm loc}$ を式と端点変分に残す必要があります。この規約で、端点の座標をまとめて $x$ と書くと
 $$
 F_I(x)=S_{\rm gen}(R\cup I_x)
 =\sum_{p\in\partial I_x}\frac{\Phi_0+\Phi(p)}{4G_2}
 +S_{\rm matter}(R\cup I_x).
 $$
 $R$ は固定し、$I_x$ の端点のみを変分します。面積の代わりにdilatonを使う規約は[BHI20のJTエントロピー](../BHI20/index.md#prop-bhi20-entropy)に由来します。
+
+端点を $x=(x_1,\ldots,x_m)\in U\subset\mathbb R^m$ とまとめ、$U$ を開集合とします。端点を動かす勾配は
+$$
+\nabla_x=\left(\frac{\partial}{\partial x_1},\ldots,\frac{\partial}{\partial x_m}\right)
+$$
+です。以降 $\varepsilon=n-1$ と置くと、$x$ を固定した $\partial_\varepsilon$ は $\partial_n$ に一致します。一方、$\nabla_x$ は $n$ を固定して計算します。
 
 重力固定点の近傍に現れる円錐欠損が、正規化された被覆作用の $n-1$ に比例する項へ寄与します。重力側の端点項と物質場のレプリカ微分を同じcutoffで合わせたとき、その係数が $F_I$ になる、というのがこの推論の非自明な入力です。単にEuler標数の値を微分するだけでは、dilatonの位置依存と物質の相関を求められません。
 
@@ -180,11 +197,25 @@ $$
 \mathcal J(1+\varepsilon,x)=\varepsilon F(x)+E(\varepsilon,x)
 $$
 >
-> を満たし、$E(0,x)=0$、$\partial_\varepsilon E(0,x)=0$、$E(\varepsilon,x)=o(\varepsilon)$ と $\nabla_xE(\varepsilon,x)=O(\varepsilon^2)$ が端点の近傍で一様に成立する場合、$F$ をその鞍点族の **一次係数** とする。$F$ が上記 $S_{\rm gen}$ に等しいかどうかはJT・物質の実計算によって判定する。
+> を満たし、端点の近傍で次の評価が一様に成立するとする。
+>
+$$
+E(0,x)=0,\qquad \partial_\varepsilon E(0,x)=0,
+\qquad E(\varepsilon,x)=o(\varepsilon),
+\qquad \nabla_xE(\varepsilon,x)=O(\varepsilon^2).
+$$
+>
+> このとき $F$ をその鞍点族の **一次係数** とする。$F$ が上記 $S_{\rm gen}$ に等しいかどうかはJT・物質の実計算によって判定する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi30-replica-first-order-ledger -->
-**定義の確認**：$x>0$、$\alpha,\gamma>0$、$F(x)=2S_0+\alpha x^2-\gamma\log x+C$ とし、$\mathcal J(1+\varepsilon,x)=\varepsilon F(x)+\varepsilon^2x$ とします。$E=\varepsilon^2x$ は $E(0,x)=\partial_\varepsilon E(0,x)=0$、$\partial_xE=\varepsilon^2$ なので、任意の有界区間で条件を満たします。これは[BHI29の端点変分模型](../BHI29/index.md#prop-bhi29-fixed-point)と同じ機構を確認する有限次元例であり、$F=S_{\rm gen}$ という物理的等式まで例から証明したわけではありません。
+**定義の確認**：$x>0$、$\alpha,\gamma>0$、$F(x)=2S_0+\alpha x^2-\gamma\log x+C$ とし、$\mathcal J(1+\varepsilon,x)=\varepsilon F(x)+\varepsilon^2x$ とします。$x>0$ 上で $F'(x)=2\alpha x-\gamma/x$ は連続なので $F\in C^1$ です。また $E=\varepsilon^2x$ について
+$$
+E(0,x)=\partial_\varepsilon E(0,x)=0,\qquad
+\frac{E(\varepsilon,x)}{\varepsilon}=\varepsilon x,\qquad
+\partial_xE=\varepsilon^2.
+$$
+任意の有界な端点近傍で後二者の評価は一様です。従って定義の非自明な条件をすべて満たします。これは[BHI29の端点変分模型](../BHI29/index.md#prop-bhi29-fixed-point)と同じ機構を確認する有限次元例であり、$F=S_{\rm gen}$ という物理的等式まで例から証明したわけではありません。
 <!-- definition-example-end -->
 
 <a id="prop-bhi30-on-shell-derivative"></a>
@@ -477,7 +508,7 @@ $n=1$ に代入すると $h'(1)=c\pi\ne0$。したがって整数値だけでは
 #### BHI30-A05 端点が二つあるislandの面積項
 
 - Level: A
-- 問題: 二端点 $p,q$ のislandについて $\Phi_0,G_2>0$ および実数 $\Phi(p),\Phi(q)$ を与え、重力エントロピー項を記せ。$S_{\rm matter}$ は固定し、$p$ だけを変分するときの停留条件を求めよ。
+- 問題: 二端点 $p,q$ のislandについて $\Phi_0,G_2>0$ とし、$\Phi(p),\Phi(q)$ および $S_{\rm matter}(R\cup I_{p,q})$ が端点座標の近傍で微分可能とする。局所端点項を吸収した規約で重力エントロピー項を記せ。**物質場の状態・cutoffと浴領域 $R$ は固定するが、領域依存の $S_{\rm matter}(R\cup I_{p,q})$ は変わってよい**。$q$ を固定し $p$ だけを変分するときの停留条件を求めよ。
 
 <!-- solution-start -->
 **詳細解答**：[BHI24の一般化エントロピー台帳](../BHI24/index.md#def-bhi24-jt-island-ledger)から
@@ -491,7 +522,7 @@ $$
 =\frac{\partial_{x_p}\Phi(p)}{4G_2}
 +\partial_{x_p}S_{\rm matter}(R\cup I_{p,q}).
 $$
-$\Phi_0$ の寄与は端点数が固定された変分では定数なので消えます。$q$ も動かすなら別の停留方程式が必要です。
+$\Phi_0$ の寄与は端点数が固定された変分では定数なので消えます。物質場の**状態**を固定しても、領域 $I_{p,q}$ の形が動くので物質エントロピーの端点微分は残ります。$q$ も動かすなら別の停留方程式が必要です。
 <!-- solution-end -->
 
 ### Level B：端点変分と極限の順序
@@ -537,7 +568,7 @@ $\log(\sqrt2)=\frac12\log2$ を使いました。
 #### BHI30-B02 二つの極値枝とPage交差
 
 - Level: B
-- 問題: $t\ge0$ で $F_\varnothing(t)=3t$、$F_I(t)=12-t$ とする。両者はすでに端点極値化された二枝の候補値であり、[条件付きisland則](#prop-bhi30-conditional-island)の支配枝仮定が成り立つものとする。交差時刻と主項の関数を求め、左右の傾きを示せ。
+- 問題: $0\le t\le12$ で $F_\varnothing(t)=3t$、$F_I(t)=12-t$ とする。両者はすでに端点極値化された二枝の候補値であり、[条件付きisland則](#prop-bhi30-conditional-island)の支配枝仮定が成り立つものとする。交差時刻と主項の関数を求め、左右の傾きを示せ。
 
 <!-- solution-start -->
 **詳細解答**：交差条件は $3t=12-t$ なので $4t=12$、従って $t_*=3$ です。$t<3$ では $3t<12-t$、$t>3$ では不等号が逆になるため
@@ -545,10 +576,10 @@ $$
 S_{\rm leading}(t)=
 \begin{cases}
 3t,&0\le t\le3,\\
-12-t,&t\ge3.
+12-t,&3\le t\le12.
 \end{cases}
 $$
-交差点で両枝は9、左傾きは3、右傾きは $-1$ です。これは指定した線形候補の半古典主項であり、実際のJT蒸発模型の係数や、交差点の有限補正を求めたものではありません。
+交差点で両枝は9、左傾きは3、右傾きは $-1$ です。この時間範囲では両候補が非負です。$t>12$ に機械的に延長すると人工的なisland候補が負になり、非負の量子エントロピーとして解釈できません。これは指定した線形候補の半古典主項であり、実際のJT蒸発模型の係数や、交差点の有限補正を求めたものではありません。
 <!-- solution-end -->
 
 <a id="ex-bhi30-b03"></a>
@@ -606,7 +637,7 @@ $$
 \mathcal J_I(1+\varepsilon,x;t)
 =\varepsilon[2S_0+x^2-4\log x+8-t]+\varepsilon^2x
 $$
-とし、$S_0>0$、$t\ge0$、$c$ は $t$ に依らない。両枝が物理的に許容され、各枝の一次係数が一般化エントロピーに等しく、支配枝の選択が正当化されると**仮定**する。
+とし、$S_0>0$、$0\le t\le T:=2S_0+10-2\log2$、$c$ は $t$ に依らない。両枝が物理的に許容され、各枝の一次係数が一般化エントロピーに等しく、支配枝の選択が正当化されると**仮定**する。
   1. $Z_n^{(j)}=c^n e^{-\mathcal J_j}$ とした各枝の正規化対数を求めよ。
   2. island端点の停留方程式を解き、$n\downarrow1$ の極限と二階微分を求めよ。
   3. 空枝とisland枝の先頭エントロピー値、交差時刻、選択枝を求めよ。
@@ -652,10 +683,10 @@ $$
 S_{\rm leading}(t)=
 \begin{cases}
 5+t,&0\le t\le t_*,\\
-2S_0+10-2\log2-t,&t\ge t_*.
+2S_0+10-2\log2-t,&t_*\le t\le T.
 \end{cases}
 $$
-ここで実際の時間依存JT解やcutoff依存を代入したわけではありません。
+指定した範囲 $0\le t\le T$ では両候補が非負です。範囲外で形式的なisland枝を延ばすと主項が負になり、量子エントロピーとしての解釈が破れます。ここで実際の時間依存JT解やcutoff依存を代入したわけではありません。
 
 **4. 物理への適用範囲**：第一に、表示した作用差が固定したJT・浴の場の方程式・境界条件に従う実鞍点から得られるかを調べる必要があります。任意の代数関数を重力解の作用と同一視できません。第二に、実数 $n$ への延長と $n=1$ 微分の正則性が必要です。整数値だけでは微分を決められません。第三に、他の位相・レプリカ対称性の破れ・積分輪郭と劣次項を検査して初めて最小候補が物理的な主項を与えます。さらに、$\rho_R$ の正規化モーメントとしての同一性も要ります。$n=1$ に二枝を無条件に加えると $Z_1$ の重複計上が生じ得ます。
 <!-- solution-end -->
