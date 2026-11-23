@@ -34,7 +34,7 @@ concepts:
     name: 素数冪円分体の次数
     kind: proposition
     introduction: formal
-    requires: [number-theory.cyclotomic-degree]
+    requires: [number-theory.local-cyclotomic-degree]
 
   - id: number-theory.zp-extension
     name: Z_p拡大
