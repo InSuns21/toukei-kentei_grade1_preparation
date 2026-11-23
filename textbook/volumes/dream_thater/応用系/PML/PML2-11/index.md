@@ -41,7 +41,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-11-continuous-residual -->
-**定義の確認。** $f=2$、$v(x)=\frac32x(1-x)$ は多項式なので $H^2(0,1)$ に属し、両端で零となる。$v'=\frac32(1-2x)$、$v''=-3$ だから $r_v=3-2=1$。よって $\rho(v)^2=\int_0^1 1\,dx=1$、$\rho(v)=1$ である。点ごとの値と連続ノルムを混同していない。
+**定義の確認**。 $f=2$、$v(x)=\frac32x(1-x)$ は多項式なので $H^2(0,1)$ に属し、両端で零となる。$v'=\frac32(1-2x)$、$v''=-3$ だから $r_v=3-2=1$。よって $\rho(v)^2=\int_0^1 1\,dx=1$、$\rho(v)=1$ である。点ごとの値と連続ノルムを混同していない。
 <!-- definition-example-end -->
 
 一方、[PML2-06の経験物理損失](../PML2-06/index.md#def-pml2-06-collocation)は指定された点 $x_i$ だけを使う。
@@ -182,7 +182,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-11-weak-defect -->
-**定義の確認。** $f=0$、$v(x)=x(1-x)$、$\varphi(x)=x(1-x)$ とする。両者は $H_0^1$ に属し、
+**定義の確認**。 $f=0$、$v(x)=x(1-x)$、$\varphi(x)=x(1-x)$ とする。両者は $H_0^1$ に属し、
 
 $$
 R_v(\varphi)
@@ -267,7 +267,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-11-boundary-lift -->
-**定義の確認。** $f=2$、$u=x(1-x)$、$v=u+1-2x$ では $a=1$、$b=-1$。定義による $\ell=(1-x)\cdot1+x(-1)=1-2x$、$v_0=v-\ell=u$。端点はともに零に補正され、$\ell''=0$ だから残差は補正前後とも零である。境界違反だけを切り分けている。
+**定義の確認**。 $f=2$、$u=x(1-x)$、$v=u+1-2x$ では $a=1$、$b=-1$。定義による $\ell=(1-x)\cdot1+x(-1)=1-2x$、$v_0=v-\ell=u$。端点はともに零に補正され、$\ell''=0$ だから残差は補正前後とも零である。境界違反だけを切り分けている。
 <!-- definition-example-end -->
 
 <a id="thm-pml2-11-boundary-error"></a>
