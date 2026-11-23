@@ -191,7 +191,13 @@ C^{\ell M}_{jm,kn}
 =\langle j,m;k,n\mid\ell,M\rangle
 $$
 
-> を**Clebsch–Gordan係数**と呼ぶ。$|\ell,M\rangle=\sum_{m,n} C^{\ell M}_{jm,kn}|j,m;k,n\rangle$ であり、$m+n\ne M$ なら $C^{\ell M}_{jm,kn}=0$。各 $\ell$ の最高状態の位相を選ぶと係数が定まる。
+> を**Clebsch–Gordan係数**と呼ぶ。合成基底は次の式で復元できる。
+
+$
+|\ell,M\rangle=\sum_{m,n} C^{\ell M}_{jm,kn}|j,m;k,n\rangle.
+$
+
+> また $m+n\ne M$ なら係数は零となる。各 $\ell$ の最高状態の位相を選ぶと係数が定まる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep8-cg-coefficients -->
