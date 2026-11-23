@@ -25,7 +25,7 @@ A_{t,i}=A_{0,i}+t a_i,\qquad
 F_{t,i}=dA_{t,i}+\frac12[A_{t,i}\wedge A_{t,i}]
 $$
 
-となる。$\dot A_{t,i}=a_i$ は $t$ に依存しない。別の局所 section $s_j=s_i g_{ij}$ を使うと[GBG8の接続変換則](../GBG8/index.md#thm-gbg8-local-gauge-transformation)により、両端の非斉次項が引き算で消える。
+となる。$\dot A_{t,i}=a_i$ は $t$ に依存しない。別の局所 section $s_j=s_i g_{ij}$ を使うと[GBG8の接続変換則](../GBG8/index.md#thm-gbg8-local-transform)により、両端の非斉次項が引き算で消える。
 
 $$
 a_j=\operatorname{Ad}(g_{ij}^{-1})a_i,\qquad
@@ -416,7 +416,7 @@ $$
 となり、係数 $2/3$ を得る。
 <!-- proof-end -->
 
-**なぜこの形式を全域で貼り合わせられないのか。** 重なりでの[局所ゲージ変換則](../GBG8/index.md#thm-gbg8-local-gauge-transformation)は
+**なぜこの形式を全域で貼り合わせられないのか。** 重なりでの[局所ゲージ変換則](../GBG8/index.md#thm-gbg8-local-transform)は
 
 $$
 A_j=\operatorname{Ad}(g_{ij}^{-1})A_i+g_{ij}^{-1}dg_{ij}.
@@ -599,7 +599,7 @@ $$
 主 $G$ 束の局所 section が $s_j=s_i g_{ij}$ で結ばれるとする。各パッチで参照接続表示を $A_{\mathrm{ref},i}=0$ と選んだとき、どの条件でこれらが同じ大域接続を表せるか示せ。また、そこから各局所 Chern–Simons 形式の無条件の貼り合わせを結論できない理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答**。[GBG8の局所ゲージ変換則](../GBG8/index.md#thm-gbg8-local-gauge-transformation)で二つの局所表示が一つの大域接続を表すには
+**詳細解答**。[GBG8の局所ゲージ変換則](../GBG8/index.md#thm-gbg8-local-transform)で二つの局所表示が一つの大域接続を表すには
 
 $$
 A_{\mathrm{ref},j}
