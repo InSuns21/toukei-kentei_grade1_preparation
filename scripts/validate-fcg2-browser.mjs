@@ -104,6 +104,7 @@ try {
   // reloading a new 5-image snapshot or rerunning the stale CPU table.
   await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="次の節目へ")).click()');
   await waitFor('document.querySelector("#fcg2-time-display")?.textContent.includes("t=3.14")',10000);
+  await waitFor('Number(document.querySelector("#fcg2-q").textContent)<0.1',10000);
   const second=await evaluate('({q:document.querySelector("#fcg2-q").textContent,mark:document.querySelector("#fcg2-time-display").textContent})');
   assert.ok(Number(second.q)<0.1,JSON.stringify(second));
   console.log('FCG2 time checkpoint advances physically, on the same GPU scene: PASS');
