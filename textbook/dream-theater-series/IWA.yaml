@@ -51,7 +51,7 @@ chapters:
     title: "局所／大域単数の完全列"
   - id: IWA12
     path: textbook/volumes/dream_thater/代数系/IWA/IWA12
-    status: planned
+    status: completed
     title: "控制定理（control）の原型"
   - id: IWA13
     path: textbook/volumes/dream_thater/代数系/IWA/IWA13
