@@ -3,7 +3,8 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - LREP2
-forward_references: []
+forward_references:
+  - topology.simply-connected
 concepts:
   - id: representation.lie-algebra-representation
     name: Lie 環表現
@@ -30,7 +31,7 @@ concepts:
     introduction: formal
     requires: [representation.lie-algebra-representation, lie.maurer-cartan-equation]
   - id: representation.simply-connected-integration
-    name: 閉路が収縮できる Lie 群への一意な積分
+    name: 単連結 Lie 群への一意な積分
     kind: theorem
     introduction: formal
     requires: [representation.flat-maurer-cartan, lie.exponential-local-diffeomorphism, representation.differentiation-bracket]
