@@ -302,7 +302,7 @@ $$
 
 [GBG16 の円周上の平坦接続](../GBG16/index.md#prop-gbg16-circle-holonomy)は、**自明な主束の上でも**非自明なホロノミーを持ち得る。他方、ここでの $P_n$ の非自明性は接続を選ぶ前に定まる。両者は異なる不変量である。
 
-非自明な $P_n$ の上にも接続は存在する（[主束接続の存在](../GBG12/index.md#thm-gbg12-existence)）。しかし大域sectionがないので、基底 $S^2$ 全体で一つの section から得る大域ポテンシャル $A=s^*\omega$ を使うことはできない。局所ポテンシャル $A_N,A_S$ は[ゲージポテンシャルの変換則](../GBG8/index.md#thm-gbg8-local-transform)に従って貼り合わされる。これを曲率積分と結び付け、整数電荷として回収するのが次講 **GBG19** である。
+非自明な $P_n$ の上にも接続は存在する（[主束接続の存在](../GBG12/index.md#thm-gbg12-connection-exists)）。しかし大域sectionがないので、基底 $S^2$ 全体で一つの section から得る大域ポテンシャル $A=s^*\omega$ を使うことはできない。局所ポテンシャル $A_N,A_S$ は[ゲージポテンシャルの変換則](../GBG8/index.md#thm-gbg8-local-transform)に従って貼り合わされる。これを曲率積分と結び付け、整数電荷として回収するのが次講 **GBG19** である。
 
 ---
 
@@ -409,7 +409,7 @@ $$
 $P_n$ と整数 $q$ に対し、$U(1)$ の一次元複素表現 $\rho_q(\lambda)=\lambda^q$ を使って結合線束 $L_q=P_n\times_{\rho_q}\mathbb C$ を作る。南北局所成分 $v_N,v_S$ の関係を導き、$n=2,q=-3$ のとき赤道で何周するか答えよ。
 
 <!-- solution-start -->
-**詳細解答**。[結合束の局所成分変換](../GBG4/index.md#thm-gbg4-local-components)では、$s_S=s_Ng_{NS}$ に対して
+**詳細解答**。[結合束の局所成分変換](../GBG4/index.md#thm-gbg4-component-transformation)では、$s_S=s_Ng_{NS}$ に対して
 $$
 v_S=\rho_q(g_{NS}^{-1})v_N=(g_{NS}^{(n)})^{-q}v_N.
 $$
