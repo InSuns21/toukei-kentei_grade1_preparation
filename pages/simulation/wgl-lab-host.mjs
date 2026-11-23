@@ -1359,8 +1359,8 @@ byId('preset').addEventListener('change', event => {
          'else outColor=vec4(min(1.0,5.0*abs(q-exact)),0.08,0.1,1.0)');
      } else if (isFCG2) {
        inputs.fragment.value=defaults.fragment.replace(
-        'outColor=vec4(q,0.15,1.0-q,1.0);',
-        'outColor=vec4(q,0.15,1.0-q,1.0)');
+        'outColor=vec4(mix(water,dye,q),1.0);',
+        'outColor=vec4(mix(water,dye,q),1.0)');
     } else if (isWGL19) {
       inputs.fragment.value=defaults.fragment.replace(
         'outColor=vec4(v,0.2,1.0-v,1.0);',
