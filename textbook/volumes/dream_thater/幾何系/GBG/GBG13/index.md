@@ -10,9 +10,9 @@
 
 局所 section $s_i$ での表示は $A_i=s_i^*\omega$。局所ゲージ関数は $F_u(s_i)=s_i a_i$ で定める。重なりでの整合条件は
 
-$
+$$
 a_j=g_{ij}^{-1}a_i g_{ij}
-$
+$$
 
 である（[局所ゲージ関数の整合条件](../GBG5/index.md#thm-gbg5-local-gauge)）。
 
@@ -40,9 +40,9 @@ $$
 
 > 局所表示は次の式で与えられる。
 
-$
+$$
 A_i\cdot a_i=\operatorname{Ad}_{a_i^{-1}}A_i+a_i^{-1}da_i.
-$
+$$
 
 > 一般の Lie 群では $a_i^{-1}da_i$ を左 Maurer–Cartan 形式の引き戻しと読む。
 <!-- formal-statement-end -->
@@ -103,9 +103,9 @@ $$
 
 一方、$\mathbb R^2\times U(1)$ 上で $A_0=0$、$A_2=i x\,dy$ とすると、二つは同じ軌道にない。[曲率の局所構造方程式](../GBG10/index.md#thm-gbg10-local-formula)から
 
-$
+$$
 F_0=0,\qquad F_2=i\,dx\wedge dy\ne0
-$
+$$
 
 が分かり、可換群の[局所曲率のゲージ共変性](../GBG10/index.md#thm-gbg10-gauge-transform)では曲率が不変だからである。
 <!-- definition-example-end -->
@@ -286,20 +286,20 @@ $$
 
 十分性は行列群の局所表示で示す。$d_A\varepsilon=d\varepsilon+A\varepsilon-\varepsilon A=0$ とする。各座標方向 $\partial_i$ について $A_i=A(\partial_i)$ と書き、$a_t=e^{t\varepsilon}$ に対して
 
-$
+$$
 K_i(t)=a_t^{-1}A_i a_t+a_t^{-1}\partial_i a_t
-$
+$$
 
 を考える。$\partial_t a_t=\varepsilon a_t$ と $\partial_t a_t^{-1}=-a_t^{-1}\varepsilon$ により、積を微分して
 
-$
+$$
 \begin{aligned}
 K_i'(t)
 &=a_t^{-1}[A_i,\varepsilon]a_t
 +a_t^{-1}(\partial_i\varepsilon)a_t\\
 &=a_t^{-1}(\partial_i\varepsilon+[A_i,\varepsilon])a_t=0.
 \end{aligned}
-$
+$$
 
 $K_i(0)=A_i$ なので $K_i(t)=A_i$ が全ての $t$ で成り立つ。つまり $d a_t+A a_t-a_tA=0$。左から $a_t^{-1}$ を掛けて整理すると
 
