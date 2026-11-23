@@ -254,7 +254,7 @@ $$
 \le\frac{Lh}{16}.
 $$
 
-> 任意の固定センサ型 DeepONet $\mathcal D_\theta$ に対しても
+> 同じ等間隔センサ $s_1,\ldots,s_m$ を使う任意の固定センサ型 DeepONet $\mathcal D_\theta$ に対しても
 
 $$
 \|\mathcal D_\theta f-\mathcal Gf\|_\infty
