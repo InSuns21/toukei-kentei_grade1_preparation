@@ -4,7 +4,7 @@
 
 この講義では、局所的にはどの主束も積主束になることを利用し、局所接続を重み付きで貼り合わせて接続の存在を証明する。さらに、二つの接続の差は接続そのものと違って**通常のベクトル束値1形式**になることを示す。これによって接続全体をアフィン空間として扱える。
 
-**全節の設定**：$M$ は Hausdorff・第二可算・境界のない有限次元滑らかな多様体、$G$ は有限次元 Lie 群、$\mathfrak g=T_eG$ はその Lie 環、$\pi:P\to M$ は滑らかな右主 $G$ 束とする。[GEO4のパラコンパクト性の定理](../../GEO/GEO4/index.md#thm-geo4-manifold-paracompact)と分割の1の存在定理により、滑らかな局所有限の重みを使える。一般のパラコンパクト滑らかな基底で同じ議論が成り立つ。右作用を $R_g(p)=pg$ とし、局所 section は $s_j=s_i g_{ij}$ とする。
+**全節の設定**：$M$ は Hausdorff・第二可算・境界のない有限次元滑らかな多様体、$G$ は有限次元 Lie 群、$\mathfrak g=T_eG$ はその Lie 環、$\pi:P\to M$ は滑らかな右主 $G$ 束とする。基底のパラコンパクト性は[滑らかな多様体のパラコンパクト性](../../GEO/GEO4/index.md#thm-geo4-manifold-paracompact)から従う。各局所接続を貼るための重みは[開被覆に従属する滑らかな1の分割の存在](../../GEO/GEO4/index.md#thm-geo4-partition-of-unity)を利用して選ぶ。一般のパラコンパクト滑らかな基底で同じ議論が成り立つ。右作用を $R_g(p)=pg$ とし、局所 section は $s_j=s_i g_{ij}$ とする。
 
 接続形式は[GBG7の二条件](../GBG7/index.md#def-gbg7-connection-form)を満たす $\mathfrak g$ 値1形式、すなわち $\omega(\xi_P)=\xi$ と $R_g^*\omega=\operatorname{Ad}_{g^{-1}}\omega$ を満たすものとする。局所形式 $A_i=s_i^*\omega$ は[GBG8の変換則](../GBG8/index.md#thm-gbg8-local-transform)に従う。
 
