@@ -167,7 +167,7 @@ $$
 &=(dD(X)\otimes I_W+I_V\otimes dE(X))(v\otimes w).
 \end{aligned}
 $$
-この差商の極限では第一項が $a'(0)\otimes w$、第二項が $v\otimes b'(0)$ になります。単純テンソルが全空間を張るため、作用素全体について等式が成立します。$\square$
+この差商の極限では第一項が $dD(X)v\otimes w$、第二項が $v\otimes dE(X)w$ になります。単純テンソルが全空間を張るため、作用素全体について等式が成立します。$\square$
 <!-- proof-end -->
 
 例として $G=(\mathbb R,+)$、$D(t)=e^{at}$、$E(t)=e^{bt}$（$a,b\in\mathbb C$）なら $D\otimes E(t)=e^{(a+b)t}$ で、微分は $a+b$ となります。
