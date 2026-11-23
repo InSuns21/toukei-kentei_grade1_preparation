@@ -34,3 +34,4 @@
 30. [PML2-08 初期/境界条件を強制する二つの方法は何か](textbook/volumes/dream_thater/応用系/PML/PML2-08/index.md)
 31. [PML2-09 物理残差の重みは何を変えるか](textbook/volumes/dream_thater/応用系/PML/PML2-09/index.md)
 32. [PML2-10 PINNはなぜ学習失敗することがあるか](textbook/volumes/dream_thater/応用系/PML/PML2-10/index.md)
+33. [PML2-11 残差から解誤差を評価できるのはいつか](textbook/volumes/dream_thater/応用系/PML/PML2-11/index.md)
