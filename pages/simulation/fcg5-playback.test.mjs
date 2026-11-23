@@ -27,7 +27,7 @@ function harness(source) {
   const gl={
     TEXTURE0:33984,TEXTURE_2D:3553,R8:33321,RED:6403,UNSIGNED_BYTE:5121,
     TEXTURE_MIN_FILTER:10241,TEXTURE_MAG_FILTER:10240,NEAREST:9728,LINEAR:9729,
-    TEXTURE_WRAP_S:10242,TEXTURE_WRAP_T:10497,CLAMP_TO_EDGE:33071,
+    TEXTURE_WRAP_S:10242,TEXTURE_WRAP_T:10243,CLAMP_TO_EDGE:33071,
     UNPACK_ALIGNMENT:3317,NO_ERROR:0,VERTEX_SHADER:35633,FRAGMENT_SHADER:35632,
     COMPILE_STATUS:35713,LINK_STATUS:35714,COLOR_BUFFER_BIT:16384,TRIANGLES:4,
     DITHER:3024,BLEND:3042,DEPTH_TEST:2929,CULL_FACE:2884,SCISSOR_TEST:3089,
@@ -79,7 +79,7 @@ test('FCG5 live step/reset updates the actual editable MAC texture without autop
   assert.equal(h.progress.at(-1).step,0,'paused reset must not auto advance');
   h.control('toggle');
   assert.equal(h.progress.at(-1).playing,true);
-  h.tick(1400);h.tick(1550);
+  h.tick(1400);h.tick(1550);h.tick(1610);
   assert.equal(h.progress.at(-1).step,1,'playback advances the same state');
 });
 
