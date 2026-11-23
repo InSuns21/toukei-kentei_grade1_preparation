@@ -87,14 +87,25 @@ $$
 a=p^nu,\qquad u\in\mathbb Z_p^\times.
 $$
 
-最小性から $H\subseteq p^n\mathbb Z_p$ です。一方 $a\in H$ だから $ma\in H$ は全ての整数 $m$ について成立します。整数 $\mathbb Z$ は $\mathbb Z_p$ に稠密であり、$u$ は逆元を持つため、連続写像 $x\mapsto ax$ の下で
+最小性から $H\subseteq p^n\mathbb Z_p$ です。一方 $a\in H$ だから $ma\in H$ は全ての整数 $m$ について成立します。ここで整数の稠密性を確認します。[桁展開定理](../../ANF/ANF9/index.md#thm-anf9-digit-expansion)で任意の $x\in\mathbb Z_p$ を $x=\sum_{j\ge0}b_jp^j$ と書き、$s_N=\sum_{j=0}^{N-1}b_jp^j\in\mathbb Z$ と置くと、
 
 $$
-\overline{\{ma:m\in\mathbb Z\}}
-=a\mathbb Z_p=p^nu\mathbb Z_p=p^n\mathbb Z_p.
+x-s_N\in p^N\mathbb Z_p,\qquad s_N\longrightarrow x
 $$
 
-$H$ は閉なので左辺を含み、$p^n\mathbb Z_p\subseteq H$ を得ます。両包含から等号です。逆に各 $p^n\mathbb Z_p$ は[還元写像の核](#prop-iwa1-residue-quotients)なので閉、$\{0\}$ も距離空間の閉集合です。指数は同命題の商群の位数 $p^n$ です。
+です。従って $\mathbb Z$ は $\mathbb Z_p$ に稠密です。さらに任意の $y\in\mathbb Z_p$ について、$u$ は単元なので整数列 $m_N\to u^{-1}y$ を選べます。乗法の連続性より
+
+$$
+m_Na=p^num_N\longrightarrow p^ny.
+$$
+
+したがって $p^n\mathbb Z_p\subseteq\overline{\mathbb Za}$ です。逆に $\mathbb Za\subseteq p^n\mathbb Z_p$ であり、右辺は[還元写像の核](#prop-iwa1-residue-quotients)として閉だから
+
+$$
+\overline{\mathbb Za}=p^n\mathbb Z_p.
+$$
+
+$H$ は閉で $\mathbb Za\subseteq H$ なので、$p^n\mathbb Z_p\subseteq H$ を得ます。両包含から等号です。逆に各 $p^n\mathbb Z_p$ は[還元写像の核](#prop-iwa1-residue-quotients)なので閉、$\{0\}$ も距離空間の閉集合です。指数は同命題の商群の位数 $p^n$ です。
 <!-- proof-end -->
 
 **仮定の効き方。** 閉条件を外すと、$\mathbb Z\subset\mathbb Z_p$ は加法部分群ですが、$\mathbb Z_p$ に稠密であって全体とは異なります。例えば無限に離れた位置に $1$ が現れる非周期的な $p$ 進桁列は整数ではありません。証明では $\{ma\}$ の閉包が $H$ に含まれる箇所が壊れます。
@@ -103,7 +114,7 @@ $H$ は閉なので左辺を含み、$p^n\mathbb Z_p\subseteq H$ を得ます。
 
 [前講のZ_p拡大](../../ANF/ANF22/index.md#def-anf22-zp-extension)を使い、$\Gamma=\operatorname{Gal}(K_\infty/K)$ が位相群として $\mathbb Z_p$ に同型である無限Galois拡大を固定します。同型 $\iota:\Gamma\xrightarrow{\sim}\mathbb Z_p$ は選択しておきます。
 
-無限体 $K_\infty$ を最初から一度に扱う代わりに、$\iota^{-1}(p^n\mathbb Z_p)$ が動かさない元全体を有限層にします。群の側で一段下がると、体の側で一段上がります。
+無限体 $K_\infty$ を最初から一度に扱う代わりに、$\iota^{-1}(p^n\mathbb Z_p)$ が動かさない元全体を有限層にします。群の側で一段下がると、体の側で一段上がります。同型 $\iota$ を別のものに取り替えると $\mathbb Z_p$ 側には位相群自己同型が生じますが、それは閉部分群の指数を保ちます。[閉部分群の分類](#thm-iwa1-closed-subgroups)により指数 $p^n$ の閉部分群は $p^n\mathbb Z_p$ だけなので、対応する固定体は変わりません。
 
 <a id="def-iwa1-canonical-layers"></a>
 
@@ -169,20 +180,42 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-iwa1-canonical-layers -->
-**定義の確認**（$p=3$）。 [円分的な構成](../../ANF/ANF22/index.md#thm-anf22-cyclotomic-zp-tower)で
+**定義の確認**（$p=3$）。[円分的な構成](../../ANF/ANF22/index.md#thm-anf22-cyclotomic-zp-tower)で $E_n=\mathbb Q(\zeta_{3^{n+1}})$ と置きます。そのGalois群は $(\mathbb Z/3^{n+1}\mathbb Z)^\times$ で、位数は $\varphi(3^{n+1})=2\cdot3^n$ です。$\{\pm1\}$ は $\zeta\mapsto\zeta^{\pm1}$ に対応する位数 $2$ の部分群であり、その固定体
 
 $$
-F_n=\mathbb Q(\zeta_{3^{n+1}})^{\{\pm1\}}
+F_n=E_n^{\{\pm1\}}
 $$
 
-とします。$F_0=\mathbb Q$、$[F_1:\mathbb Q]=3$、$[F_2:\mathbb Q]=9$ です。$F_\infty=\bigcup_nF_n$ のGalois群は $\mathbb Z_3$ で、$F_n$ を固定する部分群は指数 $3^n$。閉部分群の分類でこの部分群は $3^n\mathbb Z_3$ にしか対応できません。したがって上の定義の $K_n$ と、この具体的な $F_n$ が一致します。$F_1$ は$F_2$に含まれ、相対次数は $9/3=3$ です。固定群・次数・包含の三条件を個別に確認できました。
+はGalois対応から
+
+$$
+[F_n:\mathbb Q]=\frac{2\cdot3^n}{2}=3^n
+$$
+
+を満たします。最初の三層の次数は
+
+$$
+F_0=\mathbb Q,\qquad [F_1:\mathbb Q]=3,\qquad [F_2:\mathbb Q]=9
+$$
+
+です。[円分塔の定理](../../ANF/ANF22/index.md#thm-anf22-cyclotomic-zp-tower)により、これらは順に包含され、その合併のGalois群は
+
+$$
+F_n\subset F_{n+1},\qquad
+\operatorname{Gal}(F_\infty/\mathbb Q)\simeq\mathbb Z_3,
+\qquad F_\infty=\bigcup_nF_n
+$$
+
+を満たします。$F_n$ を固定する閉部分群は指数 $3^n$ です。[閉部分群の分類](#thm-iwa1-closed-subgroups)により、これは同型 $\iota$ の下で $3^n\mathbb Z_3$ に対応します。従って定義した第 $n$ 層と $F_n$ は一致します。
+
+さらに塔の次数公式より $[F_2:F_1]=9/3=3$ です。固定群・次数・包含を別々に確認できました。
 <!-- definition-example-end -->
 
 この定理は群構造から**何個の有限層があるか**を決めます。しかし、各 $K_n$ の類群がどの大きさかは、まだ何も決めていません。そこから各層の類群を解析することが岩澤理論の課題になります。
 
 ## 4. 有限層の自己同型をつなぎ直す
 
-体は合併（上向き）、Galois群は制限（下向き）でつなぎます。次は無限体の自己同型を有限段のデータから復元できる、という基本的な結果です。
+体は合併（上向き）、Galois群は制限（下向き）でつなぎます。[Krull位相の定義](../../ANF/ANF22/index.md#def-anf22-krull-topology)では、有限Galois中間体を点ごとに固定する部分群を恒等元の基本開近傍に取ります。次は無限体の自己同型を有限段のデータから復元できる、という基本的な結果です。
 
 <a id="thm-iwa1-galois-inverse-limit"></a>
 
@@ -216,7 +249,14 @@ $L/K$ は代数Galois拡大です。$\sigma\in\operatorname{Gal}(L/K)$ は各有
 
 逆に両立する族 $(\sigma_n)_n$ を取ります。任意の $x\in L$ に対して $x\in K_n$ となる $n$ を選び $\sigma(x)=\sigma_n(x)$ と定めます。$x\in K_m$（$m\ge n$）でも $\sigma_m(x)=\rho_{m,n}(\sigma_m)(x)=\sigma_n(x)$ ですから、選び方に依存しません。和・積・$K$ の固定は、二元を共に含む十分高い有限層で検証できます。逆元写像は両立する $(\sigma_n^{-1})$ から同じ方法で構成できるので、$\sigma$ は $K$ 上の自己同型です。従って全射です。
 
-Krull位相の基本開近傍は有限層を点ごとに固定する群 $\operatorname{Gal}(L/K_n)$ です。構成した同型の下でこれは逆極限の第 $n$ 射影の核へ写り、逆極限位相の基本開近傍と一致します。よって同型と逆写像は連続です。
+[Krull位相](../../ANF/ANF22/index.md#def-anf22-krull-topology)の近傍系には、有限層を点ごとに固定する群を使えます。実際、有限Galois中間体 $M/K$ は有限個の元で生成され、各生成元はどこかの $K_n$ に入ります。十分大きい $N$ を選べば
+
+$$
+M\subseteq K_N,\qquad
+\operatorname{Gal}(L/K_N)\subseteq\operatorname{Gal}(L/M).
+$$
+
+従って $\operatorname{Gal}(L/K_n)$ はKrull位相の基本開近傍系を成します。構成した同型では、この群は逆極限の第 $n$ 射影の核に写ります。これが逆極限位相の基本開近傍系なので、同型と逆写像は連続です。
 <!-- proof-end -->
 
 **計算例（制限写像）。** $K_\infty/K$ が $\mathbb Z_5$ 拡大なら
@@ -259,7 +299,27 @@ $$
 <!-- proof-start -->
 ### 証明
 
-整数の稠密性と乗法の連続性から $\overline{\mathbb Zu}=u\mathbb Z_p$ です。$u$ が単元なら $u\mathbb Z_p=\mathbb Z_p$。非単元なら[単元判定](../../ANF/ANF9/index.md#prop-anf9-dvr-structure)により $u\in p\mathbb Z_p$ だから閉包は真部分群に留まります。従って同値です。
+[桁展開](../../ANF/ANF9/index.md#thm-anf9-digit-expansion)により、整数は $\mathbb Z_p$ に稠密です。任意の元 $x$ に整数列 $m_N$ を近づけると、乗法の連続性から
+
+$$
+m_N\longrightarrow x,\qquad m_Nu\longrightarrow ux
+$$
+
+となるため、$u\mathbb Z_p\subseteq\overline{\mathbb Zu}$ です。
+
+反対の包含には $u\mathbb Z_p$ の閉性を使います。$u=0$ ならこれは閉集合 $\{0\}$ です。$u\ne0$ なら[付値による単元判定](../../ANF/ANF9/index.md#prop-anf9-dvr-structure)から
+
+$$
+u=p^kv,\qquad k=v_p(u)\ge0,\quad v\in\mathbb Z_p^\times
+$$
+
+と書けて、
+
+$$
+u\mathbb Z_p=p^k\mathbb Z_p
+$$
+
+は[還元写像の核](#prop-iwa1-residue-quotients)として閉です。従って逆向きの包含も成り立ち、$\overline{\mathbb Zu}=u\mathbb Z_p$ を得ます。$u$ が単元ならこれは $\mathbb Z_p$ 全体、非単元なら $p\mathbb Z_p$ 以下の真部分群です。これで同値が示されます。
 
 位相群同型 $\iota:\Gamma\to\mathbb Z_p$ で $\gamma$ の像は単元です。法 $p^n$ の商で単元 $u$ の加法位数を調べると、$ku\equiv0\pmod{p^n}$ は $k\equiv0\pmod{p^n}$ と同値です。よって位数 $p^n$ です。[第 $n$ 層のGalois商](#thm-iwa1-layer-tower)へ戻すと $\gamma|_{K_n}$ が生成元になります。
 <!-- proof-end -->
@@ -268,7 +328,13 @@ $$
 **定義の確認**。 $p=5$ で $u=2$ を取ります。$2$ は $\mathbb Z_5$ の単元だから、$2a\bmod5^n$（$a\in\mathbb Z$）は全ての剰余類を動きます。従って整数倍は各有限商へ全射となり、その閉包は $\mathbb Z_5$ 全体です。一方 $u=5$ の整数倍はすべて $5\mathbb Z_5$ に留まり、第1商 $\mathbb Z/5\mathbb Z$ で $0$ しか動きません。位相的生成元ではありません。
 <!-- definition-example-end -->
 
-**選択の違い。** $K_n$ は同型 $\iota$ に依存しませんが、$\gamma$ をどの位相的生成元にするかで $a\bmod p^n$ という座標は変わります。$\gamma$ と $\gamma^u$（$u\in\mathbb Z_p^\times$、有限商で整合する冪として定義）のどちらも位相的生成元です。後の岩澤代数では $T=\gamma-1$ と置くため、座標の規格化を毎回明記する必要があります。
+**選択の違い。** $K_n$ は同型 $\iota$ に依存しませんが、$\gamma$ をどの位相的生成元にするかで $a\bmod p^n$ という座標は変わります。ここで $u\in\mathbb Z_p^\times$ に対する $\gamma^u$ は通常の整数冪ではなく、各有限商で
+
+$$
+(\gamma^u)|_{K_n}=(\gamma|_{K_n})^{\,u\bmod p^n}
+$$
+
+を満たす元を意味します。$u\bmod p^n$ は指数 $p^n$ の巡回群での整数の剰余類です。この冪は上下の層への制限と両立するので、[逆極限定理](#thm-iwa1-galois-inverse-limit)から一つの元 $\gamma^u$ が定まり、[生成元判定](#prop-iwa1-generator-criterion)によって $\gamma$ と $\gamma^u$ は共に位相的生成元です。後の岩澤代数では $T=\gamma-1$ と置くため、座標の規格化を毎回明記する必要があります。
 
 ## 6. 最初の非自明な円分層を手計算する
 
@@ -279,7 +345,7 @@ $$
 =\zeta^3+\zeta^{-3}=-1
 $$
 
-から $t^3-3t+1=0$ を得ます。この三次多項式は有理整数係数の首一多項式で、考えられる有理根 $\pm1$ を代入すると $-1,3$ となっていずれも $0$ ではありません。三次多項式は有理根がなければ既約なので
+から $t^3-3t+1=0$ を得ます。この三次多項式は有理整数係数の首一多項式で、[有理根定理](../../RNG/RNG4/index.md#thm-rng4-rational-root)による有理根の候補は $\pm1$ だけです。代入すると $-1,3$ となっていずれも $0$ ではありません。三次多項式は有理根がなければ既約なので
 
 $$
 F_1=\mathbb Q(t),\qquad [F_1:\mathbb Q]=3.
@@ -427,7 +493,7 @@ $E=\mathbb Q(\sqrt[3]{2})$ が $\mathbb Q$ の $\mathbb Z_3$ 拡大の第1層に
 - ID: IWA1-B4
 
 <!-- solution-start -->
-**詳細解答。** 多項式 $X^3-2$ は素数 $2$ に関するEisenstein判定法から既約です。従って $[E:\mathbb Q]=3$ です。
+**詳細解答。** 多項式 $X^3-2$ は、最高次係数 $1$ が $2$ で割れず、ほかの係数が $2$ で割れ、定数項 $-2$ は $4$ で割れないので、[Eisensteinの既約判定](../../RNG/RNG4/index.md#thm-rng4-eisenstein)から既約です。従って $[E:\mathbb Q]=3$ です。
 
 しかし $\alpha=\sqrt[3]{2}$ の最小多項式には、$\alpha$ のほかに $\omega\alpha,\omega^2\alpha$（$\omega$ は原始3乗根）という非実根があります。$E=\mathbb Q(\alpha)\subseteq\mathbb R$ なので、$E$ はこれら非実根を含みません。よって $E/\mathbb Q$ は正規でなく、Galois拡大ではありません。
 

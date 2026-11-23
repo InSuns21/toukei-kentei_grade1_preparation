@@ -38,3 +38,4 @@
 34. [PML2-12 点上の残差ゼロで解が正しいと言えるか](textbook/volumes/dream_thater/応用系/PML/PML2-12/index.md)
 35. [PML2-13 collocation点の増加や領域分割で何が改善するか](textbook/volumes/dream_thater/応用系/PML/PML2-13/index.md)
 36. [PML2-14 単一のPDE解と「解作用素」の学習は何が違うか](textbook/volumes/dream_thater/応用系/PML/PML2-14/index.md)
+37. [PML2-15 Neural Operatorの層をどう構成するか](textbook/volumes/dream_thater/応用系/PML/PML2-15/index.md)
