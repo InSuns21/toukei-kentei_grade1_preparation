@@ -13,13 +13,15 @@ concepts:
     requires: [gauge.holonomy-group, gauge.linear-representation]
 
   - id: gauge.wilson-loop-gauge-invariance
-    name: 閉Wilson loopのゲージ不変性
+    name: 閉 Wilson loop のゲージ不変性
+    introduction_aliases: ["定理（閉 Wilson loop のゲージ不変性）"]
     kind: theorem
     introduction: formal
     requires: [gauge.wilson-loop, gauge.holonomy-base-change, gauge.local-transport-gauge-transformation, gauge.gauge-automorphism]
 
   - id: gauge.wilson-loop-reversal
-    name: 向きを反転したWilson loop
+    name: 向きを反転した Wilson loop
+    introduction_aliases: ["命題（向きを反転した Wilson loop）"]
     kind: proposition
     introduction: formal
     requires: [gauge.wilson-loop, gauge.parallel-transport-path-laws]
@@ -44,7 +46,8 @@ concepts:
     requires: [gauge.local-transport-gauge-transformation, gauge.linear-representation]
 
   - id: gauge.open-wilson-line-endpoint-transform
-    name: 開Wilson線の両端変換則
+    name: 開 Wilson 線の両端変換則
+    introduction_aliases: ["定理（開 Wilson 線の両端変換則）"]
     kind: theorem
     introduction: formal
     requires: [gauge.open-wilson-line, gauge.local-transport-gauge-transformation, gauge.associated-component-transformation]
