@@ -20,12 +20,16 @@ $$
 
 ## 1. 行列式からChern形式を作る
 
-曲率は局所ゲージの変更で[共役変換](../GBG10/index.md#thm-gbg10-gauge-transform)する。そこで、共役で変わらない量として行列式を使う。$I_r$ は $r$ 次単位行列、$t$ は形式的な変数である。$\det(I_r+tC)$ を $t$ の多項式として展開し、その次数 $k$ の係数を取り出せば、基底上の $2k$ 形式を得る。全ての係数を合わせたものを **全Chern形式**、各係数を **第 $k$ Chern形式**と呼ぶ。
+曲率は局所ゲージの変更で[共役変換](../GBG10/index.md#thm-gbg10-gauge-transform)する。そこで、共役で変わらない量として行列式を使う。
+
+$I_r$ は $r$ 次単位行列、$t$ は形式的な変数である。$\det(I_r+tC)$ を $t$ の多項式として展開する。
+
+次数 $k$ の係数は、基底上の $2k$ 形式になる。これらの係数を一つずつ取り出すだけでなく、すべてをまとめた多項式も扱えるよう、次の定義を置く。
 
 <a id="def-gbg23-total-chern"></a>
 
 <!-- formal-statement-start -->
-> **定義（全Chern形式と第 $k$ Chern形式）**  
+> **定義（全Chern形式）**  
 > 滑らかな多様体 $M$ 上の階数 $r$ の Hermite 複素ベクトル束 $E$ と、その $U(r)$ 接続 $\nabla$ を取る。局所曲率 $F$ を $C=iF/(2\pi)$ と正規化する。$c_0(E,\nabla)=1$ とし、各 $k=1,\ldots,r$ に対し、局所的に
 
 $$
@@ -471,7 +475,7 @@ $$
 \end{aligned}
 $$
 
-[指標の二次公式](#prop-gbg23-chern-character-degrees)を使い、$t$ について0から1まで積分すると
+[Chern指標と低次Chern形式の関係](#prop-gbg23-chern-character-degrees)を使い、$t$ について0から1まで積分すると
 
 $$
 \begin{aligned}
@@ -501,7 +505,7 @@ c_2(F_t)=\frac{1}{8\pi^2}
 -\operatorname{tr}F_t\wedge\operatorname{tr}F_t\bigr).
 $$
 
-第一項の微分は[前問で導出した式](#ex-gbg23-b02)から $2d\,\operatorname{tr}(a\wedge F_t)$。第二項は $\operatorname{tr}\dot F_t=d\operatorname{tr}a$（跡は括弧項を消す）であり、[曲率のBianchi恒等式](../GBG11/index.md#thm-gbg11-bianchi-local)から $d\operatorname{tr}F_t=0$。従って
+第一項の微分は[前問で導出した式](#ex-gbg23-b02)から $2d\,\operatorname{tr}(a\wedge F_t)$。第二項は $\operatorname{tr}\dot F_t=d\operatorname{tr}a$（跡は括弧項を消す）であり、[主束曲率の Bianchi 恒等式・局所形式](../GBG11/index.md#thm-gbg11-bianchi-local)から $d\operatorname{tr}F_t=0$。従って
 
 $$
 \begin{aligned}
