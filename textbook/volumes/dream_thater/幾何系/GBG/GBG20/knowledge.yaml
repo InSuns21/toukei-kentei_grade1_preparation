@@ -10,7 +10,7 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（対称Ad不変多重線形形式）"]
-    requires: [gauge.principal-curvature-form]
+    requires: [lie.adjoint-representation]
 
   - id: gauge.ad-invariant-infinitesimal-condition
     name: Ad不変性の無限小必要条件
