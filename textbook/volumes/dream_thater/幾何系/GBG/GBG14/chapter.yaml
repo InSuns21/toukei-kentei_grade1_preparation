@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - GBG13
   - ODE1
+  - GEO13
 official_scope: []
 learning_objectives:
   - 主束の水平リフトを定義し射影条件と接続形式の零条件を直接例で検査できる
