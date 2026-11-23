@@ -114,16 +114,16 @@ gl.disable(gl.DITHER);gl.disable(gl.BLEND);gl.disable(gl.DEPTH_TEST);
 gl.disable(gl.SCISSOR_TEST);gl.viewport(0,0,canvas.width,canvas.height);
 gl.clearColor(0,0,0,1);gl.clear(gl.COLOR_BUFFER_BIT);
 gl.drawArrays(gl.TRIANGLES,0,3);
-report('MODEL','prescribed shear u=(0.6(y-0.5),0) m/s, div u=0; not Navier-Stokes');
-report('TIME','step='+steps+', physical t='+(steps*dt).toFixed(2)+'s; 48x48 cell centers');
+report('MODEL','prescribed shear u=('+shear+'(y-0.5),0) m/s, div u=0');
+report('TIME','step='+steps+', physical t='+(steps*dt).toFixed(2)+'s; '+N+'x'+N+' cell centers');
 report('AREA','exact='+exactArea.toFixed(8)+'m2; raw='+ma.area.toFixed(8)+
   'm2 ('+((ma.area/exactArea-1)*100).toFixed(3)+'%); redistanced='+mb.area.toFixed(8)+
   'm2 ('+((mb.area/exactArea-1)*100).toFixed(3)+'%)');
 report('DISTANCE','mean ||grad(phi)|-1| in |phi|<3h: raw='+ma.meanGradientError.toPrecision(6)+
   ', redistanced='+mb.meanGradientError.toPrecision(6)+
   ' (central differences, not a proof of signed-distance correctness)');
-report('PARTICLES','64 contour markers follow exact shear characteristics; markers do not conserve level-set area');
-report('DISPLAY','left: advected phi, middle: six pseudo-time redistance iterations per step, right: exact contour/particles');
+report('PARTICLES',particlesCount+' contour markers follow exact shear characteristics');
+report('DISPLAY','left: advected phi, middle: '+redistanceIterations+' redistance iterations per physical step, right: exact contour/particles; '+N+'x'+N+' numeric cells (R8 textures)');
 report('LIMIT','cell-count area is a proxy, not an exact mass or volume; reinitialization does not guarantee conservation');
 
 // These controls operate the SAME editable solver and shader, not an observer clone.

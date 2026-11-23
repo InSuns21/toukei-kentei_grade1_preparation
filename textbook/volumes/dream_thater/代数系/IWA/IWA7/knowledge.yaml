@@ -1,0 +1,47 @@
+chapter: IWA7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - IWA6
+forward_references: []
+concepts:
+  - id: number-theory.iwa7-layer-quotient
+    name: 有限層作用素とcoinvariants
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwasawa-algebra, number-theory.iwa4-iwasawa-action]
+  - id: number-theory.iwa7-p-power-growth
+    name: p冪因子の位数成長
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa7-layer-quotient, number-theory.iwa6-division]
+  - id: number-theory.iwa7-valuation-growth
+    name: p冪乗の付値安定化
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.iwa7-layer-quotient]
+  - id: number-theory.iwa7-distinguished-growth
+    name: distinguished因子の成長
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa6-distinguished, number-theory.iwa7-valuation-growth]
+  - id: number-theory.iwa7-elementary-growth
+    name: 初等加群の成長公式
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa7-p-power-growth, number-theory.iwa7-distinguished-growth, number-theory.iwa6-characteristic]
+  - id: number-theory.iwa7-class-growth
+    name: Iwasawaの類数成長公式
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa4-iwasawa-action, number-theory.iwa7-elementary-growth]
+  - id: number-theory.iwa7-growth-difference
+    name: 成長差からμとλを読む
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa7-class-growth]
+  - id: number-theory.iwa7-ferrero-washington
+    name: Ferrero–Washingtonのμ=0定理
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa7-class-growth]

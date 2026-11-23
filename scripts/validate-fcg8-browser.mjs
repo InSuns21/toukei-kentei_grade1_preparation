@@ -89,7 +89,7 @@ try {
   await evaluate('document.getElementById("run").click()');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")');
   const initial=await evaluate('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(c=>c.textContent)),iframe:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
-  assert.equal(initial.rows.length,7);
+  assert.equal(initial.rows.length,13);
   assert.ok(initial.rows.every(r=>r[4]==='OK'),JSON.stringify(initial.rows));
   assert.equal(initial.iframe,'allow-scripts');
   const scene8levelset=await evaluate('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
@@ -117,7 +117,32 @@ try {
   await waitFor('document.querySelector("#lab-actions output")?.textContent.includes("物理step 1/96")');
   assert.equal(await evaluate('document.querySelectorAll("#canvas-slot iframe").length'),1,
     'step and reset must retain a single live sandbox');
-  console.log('FCG8 initial CPU/GPU pixels, actual animated sandbox GPU screenshot, pause, reset, step and high-res: PASS');
+  // R3: edit the same learner Level Set JS via the shared G2 controls.
+  // The actual GPU textures, independent CPU fields and 13 pixel probes must agree.
+  await evaluate('document.getElementById("tab-conditions").click()');
+  for(const [id,value,pattern] of [
+    ['grid','96','const N=96,h=1/N'],
+    ['shear','1','shear=1,radius=0.18'],
+    ['redistance','0','const redistanceIterations=0,redistanceCFL']
+  ]){
+    await evaluate('(()=>{const slider=document.getElementById("parameter-'+id+'");slider.value="'+value+'";slider.dispatchEvent(new Event("input",{bubbles:true}));slider.dispatchEvent(new Event("change",{bubbles:true}));})()');
+    await waitFor('document.querySelector("#status")?.textContent.includes("FCG8 編集した格子・せん断・再初期化の独立CPU初期画素検算に合格") && document.querySelectorAll("#results-table tbody tr").length===13',45000);
+    const result=await evaluate('({source:document.getElementById("js-source").value,rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(c=>c.textContent)),description:document.querySelector("#scene-info").textContent,summary:document.getElementById("fcg8-cpu-prediction").textContent})');
+    assert.ok(result.source.includes(pattern),'editable source literal '+pattern);
+    assert.ok(result.rows.every(row=>row[4]==='OK'),JSON.stringify({id,value,rows:result.rows}));
+    assert.match(result.description,/96×96.*R8/);
+    assert.match(result.summary,/N=96/);
+    console.log('FCG8 actual edited '+id+'='+value+', CPU/GPU 13 readback pixels: PASS');
+  }
+  assert.match(await evaluate('document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")'),/allow-scripts/);
+  const highGrid=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  await cdp('Emulation.setDeviceMetricsOverride',{width:360,height:760,deviceScaleFactor:1,mobile:true});
+  const narrow=await evaluate('({contentWidth:document.documentElement.scrollWidth,windowWidth:window.innerWidth,canvasWidth:document.querySelector("#canvas-slot iframe")?.getBoundingClientRect().width,controls:[...document.querySelectorAll(".lab-parameter-row input")].map(e=>e.getBoundingClientRect().width)})');
+  assert.ok(narrow.canvasWidth>50 && narrow.canvasWidth<=360,JSON.stringify(narrow));
+  assert.ok(narrow.contentWidth<=narrow.windowWidth+2,JSON.stringify(narrow));
+  const narrowImage=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  assert.notEqual(highGrid.data,narrowImage.data);
+  console.log('FCG8 actual edited grids, CPU/GPU, playback and Chromium 360px screenshot/layout: PASS');
 } finally {
   try{ws?.close();}catch{}
   browser.kill('SIGTERM');

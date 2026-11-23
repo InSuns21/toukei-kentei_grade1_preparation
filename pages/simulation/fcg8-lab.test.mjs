@@ -1,3 +1,4 @@
+import './fcg8-grid-resolution.test.mjs';
 import {test} from 'node:test';
 import {strict as assert} from 'node:assert';
 import {readFile} from 'node:fs/promises';
