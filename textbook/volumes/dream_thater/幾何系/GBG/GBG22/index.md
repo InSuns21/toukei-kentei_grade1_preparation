@@ -345,7 +345,7 @@ $$
 
 ### 非自明な束では差だけが大域的
 
-[GBG18の非自明な $U(1)$ 主束の構成](../GBG18/index.md#thm-gbg18-clutching-classification)を含め、$S^2$ 上の右主 $U(1)$ 束に二つの接続を取る。大域1形式 $\lambda$ に対して、二接続の差を $i\pi^*\lambda$ とすれば、局所表示では $A_{1,i}=A_{0,i}+i\lambda|_{U_i}$ となる。$k=1$、$p(iu)=u$ なら
+[GBG18の非自明な $U(1)$ 主束の構成](../GBG18/index.md#prop-gbg18-hopf-transition)を含め、$S^2$ 上の右主 $U(1)$ 束に二つの接続を取る。大域1形式 $\lambda$ に対して、二接続の差を $i\pi^*\lambda$ とすれば、局所表示では $A_{1,i}=A_{0,i}+i\lambda|_{U_i}$ となる。$k=1$、$p(iu)=u$ なら
 
 $$
 T_p=\lambda,\qquad \beta_p(\omega_1)-\beta_p(\omega_0)=d\lambda.
@@ -382,7 +382,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg22-local-chern-simons -->
-**定義の確認**。基底を $\mathbb R^2$ とし、$G=U(1)$、$k=1$、$p(iu)=u$（$u\in\mathbb R$）とすると、$F_t^0$ は空積であり $\operatorname{CS}_p(A)=p(A)$ である。$A=ix\,dy$ なら局所1形式は $x\,dy$、その外微分は $p(F)=dx\wedge dy$。$k=2$ では、行列 Lie 群 $G\subset GL(n,\mathbb C)$ の Lie 環の行列表現を用いて $p(X,Y)=\operatorname{tr}(XY)$ とする。[GBG20で確かめた trace の不変性](../GBG20/index.md#prop-gbg20-trace-invariance)をこの表現に適用すると、$p$ は対称（$\operatorname{tr}(XY)=\operatorname{tr}(YX)$）かつAd不変（$\operatorname{tr}(g^{-1}XYg)=\operatorname{tr}(XY)$）であり、次の具体式が得られる。
+**定義の確認**。基底を $\mathbb R^2$ とし、$G=U(1)$、$k=1$、$p(iu)=u$（$u\in\mathbb R$）とすると、$F_t^0$ は空積であり $\operatorname{CS}_p(A)=p(A)$ である。$A=ix\,dy$ なら局所1形式は $x\,dy$、その外微分は $p(F)=dx\wedge dy$。$k=2$ では、行列 Lie 群 $G\subset GL(n,\mathbb C)$ の Lie 環の行列表現を用いて $p(X,Y)=\operatorname{tr}(XY)$ とする。$k=2$ では $\frac12\operatorname{tr}(XY+YX)=\operatorname{tr}(XY)$ だから、これは [GBG20の対称化traceのAd不変性](../GBG20/index.md#thm-gbg20-trace-invariant)をそのまま使える場合である。実際、$p$ は対称（$\operatorname{tr}(XY)=\operatorname{tr}(YX)$）かつAd不変（$\operatorname{tr}(g^{-1}XYg)=\operatorname{tr}(XY)$）であり、次の具体式が得られる。
 <!-- definition-example-end -->
 
 <a id="prop-gbg22-local-cs-primitive"></a>
