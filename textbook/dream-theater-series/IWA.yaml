@@ -31,7 +31,7 @@ chapters:
     title: "Weierstrass準備・特徴イデアル"
   - id: IWA7
     path: textbook/volumes/dream_thater/代数系/IWA/IWA7
-    status: planned
+    status: completed
     title: "類数成長公式とμ不変量の役割"
   - id: IWA8
     path: textbook/volumes/dream_thater/代数系/IWA/IWA8
