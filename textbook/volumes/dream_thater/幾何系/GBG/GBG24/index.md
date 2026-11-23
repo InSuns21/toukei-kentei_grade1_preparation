@@ -487,7 +487,7 @@ $t$ は形式変数だから偶関数の多項式は奇数係数がすべて零�
 #### GBG24-B02 局所の完全形式と接続非依存性
 - Level: B
 
-$\mathbb R^4$ 上の向き付き実平面束に $A=2\pi J_+(x\,dy+z\,dw)$ を置く。$\theta=x\,dy+z\,dw$ とし、$e,p_1$ を求め、それらが $\mathbb R^4$ 上で完全形式であることを具体的な原始形式で示せ。
+$\mathbb R^4$ 上の向き付き実平面束に $A=2\pi J_+(x\,dy+z\,dw)$ を置く。$\theta=x\,dy+z\,dw$ とし、$e,p_1$ を求めよ。また、それぞれを外微分で表す具体的な1形式と3形式を挙げよ。
 
 <!-- solution-start -->
 **詳細解答**。$J_+$ は一定の交代行列、$\theta\wedge\theta=0$ なので $R=dA=2\pi J_+d\theta$。$\eta=dx\wedge dy$、$\zeta=dz\wedge dw$ とすれば $d\theta=\eta+\zeta$。よって
