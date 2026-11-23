@@ -113,7 +113,7 @@ test('WGL18 observation renders the same GPU shader with a dense real grid', asy
     readFile(new URL('diffusion.js',lesson),'utf8'),
     readFile(new URL('index.md',lesson),'utf8')
   ]);
-  for(const name of ['field','play','once','reset','rate','pattern','grid','speed',
+  for(const name of ['field','play','once','reset','inject','rate','pattern','grid','speed',
       'mass','maximum','ratio','steps','active','picked','status']){
     assert.match(html,new RegExp('id="'+name+'"'),name);
   }
