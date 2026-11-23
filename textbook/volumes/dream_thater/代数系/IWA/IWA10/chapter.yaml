@@ -22,7 +22,7 @@ theorems:
   - { id: IWA10-PROP-03, name: 実単数と群の生成 }
   - { id: IWA10-THM-01, name: 円分単数のノルム分布関係 }
   - { id: IWA10-THM-02, name: 円分単数の有限指数と実類数・外部定理 }
-  - { id: IWA10-PROP-04, name: p=5,r=1の実単数群の指数 }
+  - { id: IWA10-PROP-04, name: 5次円分体の実単数群の指数 }
   - { id: IWA10-THM-03, name: 円分単数のノルムの全射性 }
 canonical_examples:
   - p=3の1+zeta_3の単数性と単数群の指数1

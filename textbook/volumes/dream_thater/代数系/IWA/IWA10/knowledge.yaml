@@ -41,7 +41,7 @@ concepts:
     introduction: formal
     requires: [number-theory.iwa10-realness]
   - id: number-theory.iwa10-p5-index
-    name: p=5,r=1の実単数群の指数を直接計算
+    name: 5次円分体の実単数群の指数を直接計算
     kind: proposition
     introduction: formal
     requires: [number-theory.iwa10-realness]
