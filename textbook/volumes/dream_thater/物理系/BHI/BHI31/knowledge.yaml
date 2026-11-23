@@ -1,0 +1,54 @@
+chapter: BHI31
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI30]
+forward_references: []
+concepts:
+  - id: black-hole-information.fixed-boundary-factorization
+    name: 固定理論の二境界因数分解
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（固定理論の二境界因数分解）]
+    requires: [black-hole-information.replica-saddle-candidates]
+  - id: black-hole-information.fixed-boundary-tensor-trace
+    name: 独立二コピーのトレースの積
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（独立二コピーのトレースの積）]
+    requires: [black-hole-information.fixed-boundary-factorization]
+  - id: black-hole-information.ensemble-two-boundary-connected
+    name: ensembleの二境界連結相関
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（ensembleの二境界連結相関）]
+    requires: [black-hole-information.fixed-boundary-tensor-trace]
+  - id: black-hole-information.ensemble-shared-draw
+    name: 同じ理論の共有と独立抽選の差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（同じ理論の共有と独立抽選の差）]
+    requires: [black-hole-information.ensemble-two-boundary-connected]
+  - id: black-hole-information.jt-two-boundary-connected-kernel
+    name: 純粋JTの先頭二境界連結核
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（純粋JTの先頭二境界連結核）]
+    requires: [black-hole-information.jt-double-trumpet, black-hole-information.ensemble-two-boundary-connected]
+  - id: black-hole-information.jt-double-trumpet-gram
+    name: JT連結核の計算とGram性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（JT連結核の計算とGram性）]
+    requires: [black-hole-information.jt-two-boundary-connected-kernel]
+  - id: black-hole-information.ensemble-normalization-order
+    name: ensembleにおけるレプリカ規格化の順序
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（ensembleにおけるレプリカ規格化の順序）]
+    requires: [black-hole-information.replica-normalization-derivative, black-hole-information.ensemble-two-boundary-connected]
+  - id: black-hole-information.ensemble-normalization-counterexample
+    name: ensemble平均とレプリカ規格化の非可換性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（ensemble平均とレプリカ規格化の非可換性）]
+    requires: [black-hole-information.ensemble-normalization-order]

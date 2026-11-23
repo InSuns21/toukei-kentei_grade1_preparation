@@ -1,0 +1,46 @@
+id: BHI31
+title: "ensemble平均とfactorization問題"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI30
+official_scope: []
+learning_objectives:
+  - 相互作用しない固定量子理論の二境界熱トレースが積に分かれる条件を示せる
+  - 共有した理論ラベルのensemble平均と独立抽選の相違を有限模型で計算できる
+  - ensemble連結相関を共分散へ帰着し同温度の非負性と零条件を証明できる
+  - 純粋JTのdouble-trumpet核を測度を含めて積分し半正定値性を示せる
+  - 固定理論でのfactorization問題とensemble平均の解釈を区別できる
+  - ensemble平均とレプリカ規格化の非可換性を物理的モーメントの反例で判定できる
+  - 連結二点相関だけではensembleや非摂動完備化を一意に決めないことを反例で説明できる
+  - ensembleの対数平均と平均の対数を区別し放射状態への適用条件を列挙できる
+definitions:
+  - { id: BHI31-DEF-01, name: "固定理論の二境界因数分解" }
+  - { id: BHI31-DEF-02, name: "ensembleの二境界連結相関" }
+  - { id: BHI31-DEF-03, name: "純粋JTの先頭二境界連結核" }
+  - { id: BHI31-DEF-04, name: "ensembleにおけるレプリカ規格化の順序" }
+theorems:
+  - { id: BHI31-PROP-01, name: "独立二コピーのトレースの積" }
+  - { id: BHI31-PROP-02, name: "同じ理論の共有と独立抽選の差" }
+  - { id: BHI31-PROP-03, name: "JT連結核の計算とGram性" }
+  - { id: BHI31-PROP-04, name: "ensemble平均とレプリカ規格化の非可換性" }
+canonical_examples:
+  - 二準位系の相互作用しない二コピーの熱トレース
+  - 二種類の一次元Hamiltonianの共有平均と共分散
+  - 正規化されたdouble-trumpetの長さ積分とGram核
+  - 平均モーメントを後から規格化したときに1を超える反例
+  - 同じ分散を持ち四次モーメントが異なる二つの正値ensemble
+problem_patterns:
+  - BHI31-FIXED-TENSOR-TRACE
+  - BHI31-SHARED-VS-INDEPENDENT-DRAWS
+  - BHI31-ENSEMBLE-COVARIANCE
+  - BHI31-JT-DOUBLE-TRUMPET-KERNEL
+  - BHI31-GRAM-POSITIVITY
+  - BHI31-FACTORISATION-DICTIONARY
+  - BHI31-REPLICA-NORMALIZATION
+  - BHI31-MOMENT-NONUNIQUENESS
+  - BHI31-ANNEALED-QUENCHED-LOG
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 14, review: 6 }
