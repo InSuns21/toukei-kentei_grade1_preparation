@@ -4,7 +4,16 @@
 
 本講では、これらを一つの「類体論だから」という言葉で済ませず、証明済みの接合部分と、一般の大域類体論に残る深い入力を分けます。まず素点ごとの核から有限個の合同条件を取り出し、次にGalois制限とノルムとの整合性を証明し、最後に $\mathbb Q(\zeta_5)$ とその実二次部分体で具体化します。
 
-以下、$K$ は数体、$L/K$ は有限Abel Galois拡大、$\mathbb I_K$ はイデール群、$C_K=\mathbb I_K/\Delta(K^\times)$ は[イデール類群](../ANF19/index.md#def-anf19-idele-class)です。$G=\operatorname{Gal}(L/K)$ と書きます。各素点 $v$ の上に $L$ の素点 $w$ を一つ選び、[有限局所Artin写像](../ANF17/index.md#def-anf17-finite-reciprocity)を $\operatorname{rec}_{L_w/K_v}$ と書きます。その像を分解群として $G$ に入れます。規格化は**一様化元を算術的Frobeniusへ送る**ものです。
+以下、$K$ は数体、$L/K$ は有限Abel Galois拡大とします。[イデール群](../ANF19/index.md#def-anf19-idele)を $\mathbb I_K$ と書き、[イデール類群](../ANF19/index.md#def-anf19-idele-class)とGalois群を次で記します。
+
+$$
+C_K=\mathbb I_K/\Delta(K^\times),\qquad
+G=\operatorname{Gal}(L/K).
+$$
+
+各素点 $v$ の上に $L$ の素点 $w$ を一つ選びます。[有限局所Artin写像](../ANF17/index.md#def-anf17-finite-reciprocity)の記号は $\operatorname{rec}_{L_w/K_v}$ とします。その像は $G$ の分解群に入ります。
+
+規格化は**一様化元を算術的Frobeniusへ送る**ものです。
 
 ## 1. 局所の開核を一つの有限法にまとめる
 
@@ -29,7 +38,17 @@ $$
 この定義では、定義域は $\mathbb I_K$ のままです。大域相互法則をまだ使わずに条件を確認できます。
 
 <!-- definition-example-start: def-anf21-artin-modulus -->
-**定義の直接確認**。$L=\mathbb Q(\zeta_5)$、$\mathfrak m=(5)\infty$ とします。$p\ne5$ で局所単数のArtin像は非分岐性により $1$ です。$p=5$ では[明示局所相互法則](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)により $u\in1+5\mathbb Z_5$ の像は $\sigma_{u^{-1}\bmod5}=1$。実素点では $r>0$ の像は複素共役でなく恒等です。したがってすべての成分のArtin像が $1$ となり、$U((5)\infty)$ は核に含まれます。
+**定義の直接確認**。$L=\mathbb Q(\zeta_5)$、$\mathfrak m=(5)\infty$ とします。
+
+$p\ne5$ では非分岐性により局所単数のArtin像は $1$ です。$p=5$ では[素数冪円分拡大の明示局所相互法則](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)を、$u\in1+5\mathbb Z_5$ に適用します。その像は
+
+$$
+\sigma_{u^{-1}\bmod5}=\sigma_1=1
+$$
+
+となります。実素点では正元のArtin像が恒等です。
+
+以上より、$U((5)\infty)$ の各成分が局所Artin核に入るので、大域Artin積も $1$ です。
 <!-- definition-example-end -->
 
 <a id="prop-anf21-modulus-exists"></a>
@@ -57,7 +76,7 @@ $$
 
 となります。実素点では局所拡大が $\mathbb C/\mathbb R$ なら正元群 $\mathbb R_{>0}$ を、分裂したままなら $\mathbb R^\times$ を取り、複素素点では $\mathbb C^\times$ を取ります。これらの群は対応する局所Artin写像の核に含まれます。
 
-有限部分 $\mathfrak m_0=\prod_{\mathfrak p\in S}\mathfrak p^{n_{\mathfrak p}}$、無限部分を複素化する実素点の集合として法 $\mathfrak m$ を作ります。この法の $U(\mathfrak m)$ の任意の元は、各素点で局所Artin写像の核に属します。従って[大域Artin積の定義](../ANF20/index.md#def-anf20-global-artin)から、その積も $1$ です。
+有限部分 $\mathfrak m_0=\prod_{\mathfrak p\in S}\mathfrak p^{n_{\mathfrak p}}$、無限部分を複素化する実素点の集合として法 $\mathfrak m$ を作ります。この法の $U(\mathfrak m)$ の任意の元は、各素点で局所Artin写像の核に属します。従って[有限Abel拡大の大域Artin積](../ANF20/index.md#def-anf20-global-artin)から、その積も $1$ です。
 <!-- proof-end -->
 
 ## 2. 法への下降と大域相互法則が加える一歩
@@ -98,7 +117,7 @@ $$
 逆に条件2が成り立つなら、対角元 $\Delta(a)$ はイデール商で単位類です。従ってArtin像も $\overline{\operatorname{Art}}_{\mathfrak m}(1)=1$ です。
 <!-- proof-end -->
 
-**境界が重要です。** この命題は「条件1なら下降する」という群論の証明です。条件1そのものは、[大域Artin相互法則](../ANF20/index.md#thm-anf20-global-reciprocity)の深い主張であり、局所準同型の存在や有限積だけからは出ません。例えば有理数体の五次円分体では対角 $2$ の $2$ 成分と $5$ 成分が互いに打ち消し合いますが、個別の検算をすべての数体・すべての元への証明に拡張するには別の論証が要ります。
+**境界が重要です。** この命題は「条件1なら下降する」という群論の証明です。条件1そのものは、[大域Artin相互法則](../ANF20/index.md#thm-anf20-global-reciprocity)の深い主張であり、局所準同型の存在や有限個の局所因子の積だけからは出ません。例えば有理数体の五次円分体では対角 $2$ の $2$ 成分と $5$ 成分が互いに打ち消し合いますが、個別の検算をすべての数体・すべての元への証明に拡張するには別の論証が要ります。
 
 ## 3. ノルムから得られる核と、核の等号との隔たり
 
@@ -198,7 +217,7 @@ $$
 を得ます。$G$ がAbelなので素点の上の $w$ の選択によらず、因子の並び順も問題になりません。
 <!-- proof-end -->
 
-特に $U(\mathfrak m)$ が $L/K$ のArtin積で消えるなら、上の式から $M/K$ のArtin積でも消えます。一般の大域相互法則を使って法付きArtin写像に下降した後も、同じ制限可換性が剰余類群上に残ります。
+特に $U(\mathfrak m)$ が $L/K$ のArtin積で消えるなら、上の式から $M/K$ のArtin積でも消えます。[大域Artin相互法則](../ANF20/index.md#thm-anf20-global-reciprocity)を使って法付きArtin写像に下降した後も、同じ制限可換性が剰余類群上に残ります。
 
 ## 5. 大域類体論の証明をどこまで組み立てたか
 
@@ -209,7 +228,7 @@ $$
 ### 証明責務の五段階
 
 1. **局所写像の構成**：局所相互法則から $\operatorname{rec}_{L_w/K_v}$ とそのノルム核を得る。一般形の局所相互法則には[ANF17で明示した外部入力](../ANF17/index.md#thm-anf17-local-reciprocity)がある。
-2. **有限積と法への圧縮**：[ANF20の有限積命題](../ANF20/index.md#prop-anf20-artin-product)と[本講の有限法命題](#prop-anf21-modulus-exists)を使う。ここまでは局所の開核・非分岐性で証明できる。
+2. **局所因子の有限性と法への圧縮**：[大域Artin積の有限性と準同型性](../ANF20/index.md#prop-anf20-artin-product)と[Artin積を消す有限法の存在](#prop-anf21-modulus-exists)を使う。ここまでは局所の開核・非分岐性で証明できる。
 3. **対角元の消滅**：[下降判定](#prop-anf21-descent-criterion)に必要な $K^\times$ 上の積公式を示す。これは大域相互法則の深い部分で、通常は巡回拡大の相互法則やコホモロジー・解析的手法を要する。本講では[外部の大域相互法則](../ANF20/index.md#thm-anf20-global-reciprocity)として入力する。
 4. **ノルム核の等号と全射**：[本講のノルム包含](#prop-anf21-norm-in-kernel)を等号まで強め、Artin像がGalois群全体になることを示す。この逆包含・全射にも独立した深い証明が要り、前段階の群論だけでは従わない。
 5. **存在定理**：任意の開有限指数部分群 $H\subset C_K$ に対し、$N_{E/K}(C_E)=H$ となる有限Abel拡大 $E/K$ を構成する。[剰余類体の存在定理](../ANF20/index.md#thm-anf20-ray-class-field)の核心であり、有限商の群論からは構成できない。
@@ -344,7 +363,17 @@ $E/\mathbb Q$ のGalois群は $\{\sigma_1,\sigma_2,\sigma_3,\sigma_4\}$ です�
 
 [中間体へのArtin制限](#prop-anf21-restriction)を使うと、法 $(5)\infty$ の群の元 $\overline a$ は $\sigma_a|_M$ へ送られます。この制限の核は $\operatorname{Gal}(E/M)=\{1,\sigma_4\}$ です。従って核は $\{\overline1,\overline4\}$ となり、商は位数 $2$ です。
 
-一方、[有理数体の法の計算](../ANF20/index.md#prop-anf20-ray-q)で $\operatorname{Cl}_{(5)}(\mathbb Q)$ は $(\mathbb Z/5\mathbb Z)^\times/\{\pm1\}$ に同型です。$M/\mathbb Q$ は実拡大で実素点におけるArtin写像が自明、$5$ では $\pm1$ に対応する局所単数が核に入るので、法 $(5)$ の $U((5))$ も大域Artin核に含まれます。よってArtin写像はこの群から $C_2$ へ下降し、先ほどの二元商の計算により同型になります。したがって[剰余類体の一意性を含む外部存在定理](../ANF20/index.md#thm-anf20-ray-class-field)の意味で、$M$ が法 $(5)$ の剰余類体です。
+一方、[有理数体の法5∞と法5](../ANF20/index.md#prop-anf20-ray-q)により、
+
+$$
+\operatorname{Cl}_{(5)}(\mathbb Q)
+\simeq(\mathbb Z/5\mathbb Z)^\times/\{\pm1\}
+\simeq C_2.
+$$
+
+$M/\mathbb Q$ は実拡大なので、実素点での局所Artin写像は自明です。$5$ における $1+5\mathbb Z_5$ も、$E$ での局所Artin核に含まれるため、$M$ への制限後の核に入ります。他の有限素点では非分岐局所Artin写像が単数を消します。
+
+よって $U((5))$ 全体が $M$ の大域Artin核に含まれます。Artin写像は法 $(5)$ の剰余類群へ下降し、先ほどの二元商の計算により同型です。[剰余類体とArtin対応](../ANF20/index.md#thm-anf20-ray-class-field)の一意性を適用すると、$M$ が法 $(5)$ の剰余類体だと分かります。
 <!-- proof-end -->
 
 例えば $p=2$ は $E$ ではFrobeniusの位数が $4$ なので惰性次数 $4$、$g=1$ です。$M$ へ制限するとFrobeniusは位数 $2$ になり、二次体でも惰性です。$p=11$ は $11\equiv1\pmod5$ なので $E$・$M$ の両方で完全分解します。$p=19$ は $19\equiv-1\pmod5$ なので $E$ ではFrobenius位数 $2$ で二つの素点に分かれますが、$M$ ではその制限が恒等となり完全分解します。
@@ -380,7 +409,7 @@ $\mathbb Q(\zeta_5)/\mathbb Q$ の対角元 $2$ について、$2$、$5$、実�
 - ID: ANF21-A2
 
 <!-- solution-start -->
-**詳細解答**。$2$ 成分の付値は $1$ なので非分岐Frobenius $\sigma_2$。$5$ 成分は単数 $2$ なので[明示局所相互法則](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)から $\sigma_{2^{-1}\bmod5}=\sigma_3$。実成分は正なので恒等です。他の有限素点も非分岐な単数の像で $1$。よって積は
+**詳細解答**。$2$ 成分の付値は $1$ なので非分岐Frobenius $\sigma_2$。$5$ 成分は単数 $2$ なので[素数冪円分拡大の明示局所相互法則](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)から $\sigma_{2^{-1}\bmod5}=\sigma_3$。実成分は正なので恒等です。他の有限素点も非分岐な単数の像で $1$。よって積は
 
 $$
 \sigma_2\sigma_3=\sigma_6=\sigma_1=1.
@@ -442,7 +471,7 @@ $\sigma_2,\sigma_3,\sigma_4$ の $\mathbb Q(\sqrt5)$ への制限を、位数 $2
 
 ### B1. 対角元の消滅とノルム核の区別
 
-有限Abel拡大 $L/K$ の大域Artin積について、$U(\mathfrak m)$ を消すこと、$K^\times$ を消すこと、$N_{L/K}(\mathbb I_L)$ を消すことの論理関係を示し、どこに外部定理を使うか述べよ。
+有限Abel拡大 $L/K$ の大域Artin積について、$U(\mathfrak m)$ を消すこと、$K^\times$ を消すこと、$N_{L/K}(\mathbb I_L)$ を消すことの論理関係を示し、どの段階で外部入力が必要になるか述べよ。
 
 - Level: B
 - ID: ANF21-B1
@@ -461,7 +490,7 @@ $L/K$ を有限Abel Galois拡大、$M$ をその中間体とする。法 $\mathf
 - ID: ANF21-B2
 
 <!-- solution-start -->
-**詳細解答**。$u\in U(\mathfrak m)$ を任意に取ります。仮定から $\operatorname{Art}_{L/K}(u)=1$。[中間体への制限命題](#prop-anf21-restriction)を適用すると
+**詳細解答**。$u\in U(\mathfrak m)$ を任意に取ります。仮定から $\operatorname{Art}_{L/K}(u)=1$。[大域Artin積と中間体への制限](#prop-anf21-restriction)を適用すると
 
 $$
 \operatorname{Art}_{M/K}(u)
@@ -487,7 +516,7 @@ $E=\mathbb Q(\zeta_5)$ とする。法 $(5)\infty$ の剰余類群の部分群 $
 - ID: ANF21-B3
 
 <!-- solution-start -->
-**詳細解答**。[法とArtinの同型](../ANF20/index.md#prop-anf20-cyclotomic-artin)は $\overline a$ を $\sigma_a$ へ送ります。従って $H$ の像は $\{1,\sigma_4\}$、固定体は $M=\mathbb Q(\sqrt5)$ です。[部分体取り出し命題](#prop-anf21-quotient-subfields)から
+**詳細解答**。[法とArtinの同型](../ANF20/index.md#prop-anf20-cyclotomic-artin)は $\overline a$ を $\sigma_a$ へ送ります。従って $H$ の像は $\{1,\sigma_4\}$、固定体は $M=\mathbb Q(\sqrt5)$ です。[既知の類体から部分体を取り出す](#prop-anf21-quotient-subfields)から
 
 $$
 \operatorname{Gal}(M/\mathbb Q)
@@ -519,7 +548,17 @@ $E=\mathbb Q(\zeta_5)$、$M=\mathbb Q(\sqrt5)$ とする。$p=2,11,19$ を対象
 - ID: ANF21-C1
 
 <!-- solution-start -->
-**詳細解答**。まず[有理数体の剰余類同型](../ANF20/index.md#prop-anf20-ray-q)と[円分Artin同型](../ANF20/index.md#prop-anf20-cyclotomic-artin)を使います。法 $(5)\infty$ の群は $(\mathbb Z/5\mathbb Z)^\times=C_4$、$p$ の類は $\overline p$、$E$ でのArtin像は $\sigma_p$ です。$\overline2$ の位数は $4$、$\overline{11}=\overline1$ は位数 $1$、$\overline{19}=\overline4$ は位数 $2$ です。[Frobeniusの位数と分解](#prop-anf21-frobenius-order)から $E$ で
+**詳細解答**。まず[有理数体の法5∞と法5](../ANF20/index.md#prop-anf20-ray-q)と[五次円分体のArtin計算](../ANF20/index.md#prop-anf20-cyclotomic-artin)を使います。法 $(5)\infty$ の群とそのArtin像は
+
+$$
+\operatorname{Cl}_{(5)\infty}(\mathbb Q)
+\simeq(\mathbb Z/5\mathbb Z)^\times\simeq C_4,
+\qquad [p]\longmapsto\sigma_p
+$$
+
+です。$2,11,19$ の剰余は順に $2,1,4$ なので、対応するFrobeniusの位数は $4,1,2$ です。
+
+[Frobeniusの位数と分解](#prop-anf21-frobenius-order)を四次拡大 $E/\mathbb Q$ に適用すると、
 
 $$
 (f_E(2),g_E(2))=(4,1),\quad
