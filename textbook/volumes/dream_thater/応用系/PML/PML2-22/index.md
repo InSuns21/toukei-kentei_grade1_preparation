@@ -25,7 +25,21 @@ $$
 
 ### 二つの内部点を持つ Poisson の例
 
-$-\kappa u''=1$、$u(0)=u(1)=0$、$\kappa>0$ を、$x_1=1/3,\ x_2=2/3$ の二つの内部点で三点差分にすると、格子幅 $h=1/3$ なので
+$-\kappa u''=1$、$u(0)=u(1)=0$、$\kappa>0$ を、$x_1=1/3,\ x_2=2/3$ の二つの内部点で三点差分にする。ここで $u''=d^2u/dx^2$ は位置 $x$ に関する二階微分、$u_j$ は節点 $x_j$ の未知値を表す。格子幅 $h=1/3$、境界値 $u_0=u_3=0$ を[三点差分法](../PML2-03/index.md#def-pml2-03-fd)に代入すると、
+
+$$
+-\kappa\frac{u_{j-1}-2u_j+u_{j+1}}{h^2}=1
+\quad(j=1,2),\qquad u_0=u_3=0
+$$
+
+となる。$j=1,2$ の二式を順に書き下すと
+
+$$
+9\kappa(2u_1-u_2)=1,\qquad
+9\kappa(-u_1+2u_2)=1.
+$$
+
+未知ベクトルを $u=(u_1,u_2)^T$ と並べれば、この連立方程式の係数行列と右辺は
 
 $$
 A(\kappa)=9\kappa
@@ -73,7 +87,24 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-22-discrete-gradient -->
-**定義の確認**。 $p=n=1$、$\Theta=(0,\infty)$、$A(\theta)=2\theta$、$b(\theta)=2$、$J(u,\theta)=u^2+\theta$ とする。$A$ はすべての $\theta>0$ で可逆、解は $u(\theta)=1/\theta$、損失は $L(\theta)=\theta^{-2}+\theta$。直接微分すると $L'(\theta)=-2\theta^{-3}+1$ である。$J$ を $\theta$ で偏微分した値 $1$ だけでは全微分にならない。解を作る方程式、可逆性、状態を経由する微分をすべて確認した。
+**定義の確認**。 $p=n=1$、$\Theta=(0,\infty)$、$A(\theta)=2\theta$、$b(\theta)=2$、$J(u,\theta)=u^2+\theta$ とする。これらの写像は連続微分可能で、$A(\theta)=2\theta\ne0$ はすべての $\theta>0$ で可逆だから、定義の各仮定を満たす。状態を方程式から求めて損失へ代入すると
+
+$$
+2\theta u=2,\qquad
+u(\theta)=\frac1\theta,\qquad
+L(\theta)=\frac1{\theta^2}+\theta.
+$$
+
+ここでプライム $u'(\theta),L'(\theta)$ は $\theta$ に関する常微分である。状態経由と明示的依存を連鎖律で分けると
+
+$$
+u'(\theta)=-\frac1{\theta^2},\qquad
+L'(\theta)=\underbrace{(2u)u'(\theta)}_{\text{状態経由}}
++\underbrace{1}_{u\text{ を固定した偏微分}}
+=-\frac2{\theta^3}+1.
+$$
+
+$J$ を $\theta$ で偏微分した値 $1$ だけでは全微分にならない。解を作る方程式、可逆性、状態を経由する微分をすべて確認した。
 <!-- definition-example-end -->
 
 次の定理で、$\partial_i$ はパラメータ $\theta_i$ に関する偏微分、$\nabla_u J$ は列ベクトルとしての状態勾配を意味する。$\partial_i J$ は状態を固定して微分した値である。
@@ -154,13 +185,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-22-adjoint -->
-**定義の確認**。 第1節の $A=9\kappa M$、$\kappa=2$ とし、$J(u,\kappa)=u_1$ とする。このとき $g=(1,0)^T$、$A^T=18M$ は可逆である。$M^{-1}=\frac13\begin{pmatrix}2&1\\1&2\end{pmatrix}$ なので
+**定義の確認**。 第1節の二節点差分で $A=9\kappa M$、$\kappa=2$ とし、$J(u,\kappa)=u_1$ とする。$u=(u_1,u_2)^T$ の各成分を独立に動かして $J$ を偏微分するので、
+
+$$
+g=\begin{pmatrix}\partial J/\partial u_1\\ \partial J/\partial u_2\end{pmatrix}
+=\begin{pmatrix}1\\0\end{pmatrix}.
+$$
+
+$M$ は対称で $\det M=3\ne0$ だから $A^T=18M$ も可逆である。$M^{-1}=\frac13\begin{pmatrix}2&1\\1&2\end{pmatrix}$ を用いると、[離散随伴変数の定義](#def-pml2-22-adjoint)の方程式の唯一解は
 
 $$
 \lambda=(18M)^{-1}g=\frac1{54}\begin{pmatrix}2\\1\end{pmatrix}.
 $$
 
-実際 $18M\lambda=(1,0)^T$ と両成分で確認できる。この例では $\lambda$ は状態 $u$ とは異なるベクトルである。
+実際、第一成分は $18(2\cdot2/54-1/54)=1$、第二成分は $18(-2/54+2/54)=0$ となり、$A^T\lambda=g$ を両成分で満たす。この例では $\lambda$ は状態 $u$ とは異なるベクトルである。
 <!-- definition-example-end -->
 
 <a id="thm-pml2-22-adjoint-gradient"></a>
@@ -214,6 +252,8 @@ $$
 
 を最小化する。$\kappa=2$ で $u=(1/18,1/18)^T$、$u_1-y=-1/18$ である。
 
+以下の $u_1'(\kappa)=du_1/d\kappa$ と $L'(\kappa)=dL/d\kappa$ は係数 $\kappa$ に関する微分であり、第1節の空間微分 $u''=d^2u/dx^2$ とは異なる。
+
 **直接微分**では $u_1'(\kappa)=-1/(9\kappa^2)$ だから
 
 $$
@@ -221,7 +261,7 @@ L'(2)=\left(-\frac1{18}\right)
 \left(-\frac1{36}\right)=\frac1{648}.
 $$
 
-**随伴法**では $g=(-1/18,0)^T$、$A=18M$ なので
+**[随伴法](#thm-pml2-22-adjoint-gradient)**では $g=(-1/18,0)^T$、$A=18M$ なので
 
 $$
 \lambda=A^{-T}g
@@ -250,7 +290,7 @@ A(\theta)=2+\theta,\quad b(\theta)=\theta^2,\quad
 J(u,\theta)=\frac12(u-1)^2+\theta^2
 $$
 
-とする。$A>0$ で可逆、$u=\theta^2/(2+\theta)$ である。$\theta=1$ で $u=1/3$。感度方程式の右辺は $b'-A'u=2-1/3=5/3$ だから $u'=5/9$。
+とする。$A>0$ で可逆、$u=\theta^2/(2+\theta)$ である。$\theta=1$ で $u=1/3$。[感度方程式](#thm-pml2-22-tangent)の右辺は $b'-A'u=2-1/3=5/3$ だから $u'=(5/3)/3=5/9$。
 
 状態を固定した偏微分は $J_\theta=2\theta=2$、状態勾配は $J_u=u-1=-2/3$。よって
 
@@ -272,7 +312,7 @@ $$
 
 差分ソルバの出力から計算した勾配は、**その格子幅で定義した離散問題の勾配**である。元の PDE に対する勾配が必ず一致するわけではない。
 
-$a$ を一定にした第1節の問題は二次関数の厳密解を持つため、三点差分が節点値をたまたま正確に再現した。差を見えるように、外力を $f(x)=x^2$ に替えよう。
+外力を $1$ に固定した第1節の問題は二次関数の厳密解を持つため、三点差分が節点値を正確に再現した。差を見えるように、外力を $f(x)=x^2$ に替えよう。以下の $u'(x),u''(x)$ は位置 $x$ に関する微分であり、後の $q'(\kappa),q_h'(\kappa)$ は係数 $\kappa$ に関する微分である。
 
 $$
 -\kappa u''(x)=x^2,\quad u(0)=u(1)=0,\quad \kappa>0.
@@ -354,7 +394,7 @@ $$
 u^{(k+1)}=u^{(k)}-\alpha(8\kappa u^{(k)}-1/4).
 $$
 
-> 反復は厳密解 $u_*(\kappa)$ に収束するが、一回後の値と勾配は厳密解と異なる。具体的には次を満たす。
+> 反復は厳密解 $u_*(\kappa)$ に収束する。一回後の値は一般に厳密解と異なるが、$\alpha\kappa=1/8$ のとき一致する。一方、$\alpha$ を固定して微分した一回後の感度は、すべての許容 $\kappa$ で厳密解の感度と異なる。具体的には次を満たす。
 
 $$
 u_*=\frac1{32\kappa},\qquad
@@ -381,7 +421,14 @@ $$
 u^{(k)}-u_*=(1-8\alpha\kappa)^k(0-u_*)\longrightarrow0.
 $$
 
-一方、初期値は常に零なので $u^{(1)}=0-\alpha(0-1/4)=\alpha/4$、$\kappa$ に依存せず微分は零。厳密解 $1/(32\kappa)$ の微分は $-1/(32\kappa^2)$。例えば $\alpha=1/16,\ \kappa=1$ では $u^{(1)}=1/64$、残差 $8u^{(1)}-1/4=-1/8$ が残り、勾配不一致が起きる。
+一方、初期値は常に零なので $u^{(1)}=0-\alpha(0-1/4)=\alpha/4$ である。厳密解との差を同じ分母にそろえると
+
+$$
+u^{(1)}-u_*=\frac{\alpha}{4}-\frac1{32\kappa}
+=\frac{8\alpha\kappa-1}{32\kappa}.
+$$
+
+したがって一回後の**値**は $\alpha\kappa=1/8$ のときに限り厳密解と一致する。しかし $\alpha$ は $\kappa$ に依存しない定数なので、$du^{(1)}/d\kappa=0$ であり、$du_*/d\kappa=-1/(32\kappa^2)<0$ と常に異なる。値が一点で等しいことは関数としての微分が等しいことを意味しない。例えば $\alpha=1/16,\ \kappa=1$ では $u^{(1)}=1/64$、残差 $8u^{(1)}-1/4=-1/8$ が残る。一方、$\alpha=1/8,\ \kappa=1$ では一回後の値が厳密解に一致するにもかかわらず、感度は $0$ と $-1/32$ で食い違う。
 <!-- proof-end -->
 
 **実装上の選択。** 反復回数を固定した計算グラフを自動微分すれば、その**有限回アルゴリズム**の勾配を得る。厳密な方程式を暗黙微分する式を使うなら、状態と随伴の方程式を十分な精度で解く必要がある。反復停止基準、残差、格子幅を記録せずに二つの勾配を比較するのは適切でない。
@@ -441,7 +488,7 @@ assert abs(finite_difference - direct) < 1.0e-10
 - $\theta>0$、$A(\theta)=3\theta$、$b(\theta)=6$ の一変数系で $u(\theta)$ を解き、感度方程式と直接微分が同じ $u'(\theta)$ を与えることを確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $3\theta u=6$ より $u=2/\theta$、従って直接微分は $u'=-2/\theta^2$。一方 $A'=3,\ b'=0$ なので感度方程式は $3\theta s=0-3(2/\theta)=-6/\theta$。$\theta>0$ だから両辺を $3\theta$ で割れ、$s=-2/\theta^2=u'$。可逆性は $A=3\theta\ne0$ から従う。
+**詳細解答。** $3\theta u=6$ より $u=2/\theta$、従って直接微分は $u'=-2/\theta^2$。一方 $A'=3,\ b'=0$ なので[感度方程式](#thm-pml2-22-tangent)は $3\theta s=0-3(2/\theta)=-6/\theta$。$\theta>0$ だから両辺を $3\theta$ で割れ、$s=-2/\theta^2=u'$。可逆性は $A=3\theta\ne0$ から従う。
 <!-- solution-end -->
 
 <a id="ex-pml2-22-a02"></a>
@@ -451,7 +498,7 @@ assert abs(finite_difference - direct) < 1.0e-10
 - $A(\theta)=2+\theta,\ b(\theta)=\theta^2,\ \theta>0$ について、$\theta=1$ の $u$ と $u'$ を感度方程式から求めよ。右辺の微分を落とすと何が起きるか。
 
 <!-- solution-start -->
-**詳細解答。** $A(1)=3$、$b(1)=1$ なので $u(1)=1/3$。$A'(1)=1,\ b'(1)=2$ より $3u'(1)=2-1(1/3)=5/3$、従って $u'(1)=5/9$。$b'$ を誤って零と置くと $3u'=-1/3$、$u'=-1/9$ となる。$\theta$ が右辺に入ることを無視したため、符号も値も誤った。
+**詳細解答。** $A(1)=3$、$b(1)=1$ なので $u(1)=1/3$。$A'(1)=1,\ b'(1)=2$ より[感度方程式](#thm-pml2-22-tangent)は $3u'(1)=2-1(1/3)=5/3$、従って $u'(1)=5/9$。$b'$ を誤って零と置くと $3u'=-1/3$、$u'=-1/9$ となる。$\theta$ が右辺に入ることを無視したため、符号も値も誤った。
 <!-- solution-end -->
 
 <a id="ex-pml2-22-a03"></a>
@@ -461,7 +508,7 @@ assert abs(finite_difference - direct) < 1.0e-10
 - $A=\begin{pmatrix}2&-1\\-1&2\end{pmatrix}$、$J(u)=u_1$ の離散随伴方程式を解き、$A^T\lambda=(1,0)^T$ を成分で確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $A^T=A$、$\det A=3$ より $A^{-1}=\frac13\begin{pmatrix}2&1\\1&2\end{pmatrix}$。したがって $\lambda=(2/3,1/3)^T$。検算すると第一成分は $2(2/3)-1/3=1$、第二成分は $-(2/3)+2(1/3)=0$。$J=u_1$ の状態勾配が $(1,0)^T$ であることも確認できる。
+**詳細解答。** [随伴変数の定義](#def-pml2-22-adjoint)に従う。$A^T=A$、$\det A=3$ より $A^{-1}=\frac13\begin{pmatrix}2&1\\1&2\end{pmatrix}$。したがって $\lambda=(2/3,1/3)^T$。検算すると第一成分は $2(2/3)-1/3=1$、第二成分は $-(2/3)+2(1/3)=0$。$J=u_1$ の状態勾配が $(1,0)^T$ であることも確認できる。
 <!-- solution-end -->
 
 <a id="ex-pml2-22-a04"></a>
@@ -493,7 +540,7 @@ assert abs(finite_difference - direct) < 1.0e-10
 - $\theta>0$、$A(\theta)=\theta\begin{pmatrix}2&-1\\-1&2\end{pmatrix}$、$b=(1,1)^T$、$J(u)=\frac12(u_1-1)^2$ とする。$\theta=2$ の全勾配を直接法と随伴法で求めて一致させよ。
 
 <!-- solution-start -->
-**詳細解答。** $M(1,1)^T=(1,1)^T$ なので $u=(1/\theta,1/\theta)^T$。$\theta=2$ では $u=(1/2,1/2)^T$、$u'=(-1/4,-1/4)^T$、$g=\nabla_uJ=(-1/2,0)^T$。直接法の勾配は $g^T u'=(-1/2)(-1/4)=1/8$。随伴方程式は $2M\lambda=g$ で、$M^{-1}=\frac13\begin{pmatrix}2&1\\1&2\end{pmatrix}$ より $\lambda=(1/2)M^{-1}g=(-1/6,-1/12)^T$。$A'=M$、$b'=0$、$-A'u=-(1/2,1/2)^T$ だから随伴勾配は $\lambda^T(-A'u)=1/12+1/24=1/8$。$\det A=3\theta^2>0$ も成り立つ。
+**詳細解答。** $M(1,1)^T=(1,1)^T$ なので $u=(1/\theta,1/\theta)^T$。$\theta=2$ では $u=(1/2,1/2)^T$、$u'=(-1/4,-1/4)^T$、$g=\nabla_uJ=(-1/2,0)^T$。[直接勾配公式](#thm-pml2-22-tangent)による値は $g^T u'=(-1/2)(-1/4)=1/8$。随伴方程式は $2M\lambda=g$ で、$M^{-1}=\frac13\begin{pmatrix}2&1\\1&2\end{pmatrix}$ より $\lambda=(1/2)M^{-1}g=(-1/6,-1/12)^T$。$A'=M$、$b'=0$、$-A'u=-(1/2,1/2)^T$ だから[随伴勾配公式](#thm-pml2-22-adjoint-gradient)の値は $\lambda^T(-A'u)=1/12+1/24=1/8$。$\det A=3\theta^2>0$ も成り立つ。
 <!-- solution-end -->
 
 <a id="ex-pml2-22-b02"></a>
@@ -503,7 +550,7 @@ assert abs(finite_difference - direct) < 1.0e-10
 - $\theta>0$、$A=2+\theta,\ b=\theta^2,\ J(u,\theta)=\frac12(u-1)^2+\theta^2$ に対し $\theta=1$ の勾配を、直接法と随伴法で別々に求めよ。$J_\theta$ を状態微分と混同しないこと。
 
 <!-- solution-start -->
-**詳細解答。** $u(1)=1/3$、$u'(1)=(b'-A'u)/A=(2-1/3)/3=5/9$。$J_u=u-1=-2/3$、$J_\theta=2\theta=2$ なので直接法では $L'=2+(-2/3)(5/9)=2-10/27=44/27$。随伴法では $A^T\lambda=J_u$ は $3\lambda=-2/3$、$\lambda=-2/9$。$b'-A'u=5/3$ より $L'=J_\theta+\lambda(b'-A'u)=2-10/27=44/27$。明示的な $J_\theta$ と状態経由の項をそれぞれ一回だけ足す。
+**詳細解答。** $u(1)=1/3$、$u'(1)=(b'-A'u)/A=(2-1/3)/3=5/9$。$J_u=u-1=-2/3$、$J_\theta=2\theta=2$ なので[直接勾配公式](#thm-pml2-22-tangent)では $L'=2+(-2/3)(5/9)=2-10/27=44/27$。[随伴法](#thm-pml2-22-adjoint-gradient)では $A^T\lambda=J_u$ は $3\lambda=-2/3$、$\lambda=-2/9$。$b'-A'u=5/3$ より $L'=J_\theta+\lambda(b'-A'u)=2-10/27=44/27$。明示的な $J_\theta$ と状態経由の項をそれぞれ一回だけ足す。
 <!-- solution-end -->
 
 <a id="ex-pml2-22-b03"></a>
@@ -513,7 +560,7 @@ assert abs(finite_difference - direct) < 1.0e-10
 - $\theta\in\mathbb R$、$A(\theta)=\begin{pmatrix}2&0\\0&1\end{pmatrix}$、$b(\theta)=(\theta,\theta^2)^T$、$J(u)=u_1+3u_2$ とする。随伴変数を一度求め、任意の $\theta$ で $L'(\theta)$ を出せ。直接解との照合も行え。
 
 <!-- solution-start -->
-**詳細解答。** $A$ は常に可逆。$g=(1,3)^T$ に対して $A^T\lambda=g$ は $2\lambda_1=1,\ \lambda_2=3$ であり、$\lambda=(1/2,3)^T$。$A'=0$、$b'=(1,2\theta)^T$ だから随伴公式は $L'=\lambda^Tb'=1/2+6\theta$。直接解 $u=(\theta/2,\theta^2)^T$、$L=\theta/2+3\theta^2$ を微分しても $L'=1/2+6\theta$。目的関数が一つなら随伴解を再利用できる例である。
+**詳細解答。** $A$ は常に可逆。$g=(1,3)^T$ に対して $A^T\lambda=g$ は $2\lambda_1=1,\ \lambda_2=3$ であり、$\lambda=(1/2,3)^T$。$A'=0$、$b'=(1,2\theta)^T$ だから[随伴勾配公式](#thm-pml2-22-adjoint-gradient)は $L'=\lambda^Tb'=1/2+6\theta$。直接解 $u=(\theta/2,\theta^2)^T$、$L=\theta/2+3\theta^2$ を微分しても $L'=1/2+6\theta$。目的関数が一つなら随伴解を再利用できる例である。
 <!-- solution-end -->
 
 <a id="ex-pml2-22-b04"></a>
@@ -535,7 +582,7 @@ assert abs(finite_difference - direct) < 1.0e-10
 - $\kappa>0$ の連続問題 $-\kappa u''=x^2$、$u(0)=u(1)=0$ を考え、中央での損失の目標値を $y=0$ に設定する。$q(\kappa)=u(1/2;\kappa)$、$L(\kappa)=\frac12(q(\kappa)-y)^2$ とする。一方、一節点 $h=1/2$ の差分解 $q_h(\kappa)$ を用いた離散損失 $L_h(\kappa)=\frac12(q_h(\kappa)-y)^2$ を作る。(i) 連続解と離散解をそれぞれ求める。(ii) $L'(\kappa)$ を連続解から、$L_h'(\kappa)$ を離散随伴方程式から求める。(iii) $\kappa=1$ で両勾配の差と、その原因を示す。
 
 <!-- solution-start -->
-**詳細解答。** (i) 二階微分を二回積分すると $u(x)=(x-x^4)/(12\kappa)$ であり、$q=7/(192\kappa)$。差分では $A=8\kappa,\ b=1/4$、$q_h=b/A=1/(32\kappa)=6/(192\kappa)$。(ii) 連続損失は $L=\frac12(7/192)^2\kappa^{-2}$ だから $L'=-(7/192)^2\kappa^{-3}=-49/(36864\kappa^3)$。離散随伴は $J(q_h)=q_h^2/2$ より $g=J_u=q_h$、$A^T\lambda=8\kappa\lambda=q_h$、従って $\lambda=q_h/(8\kappa)=1/(256\kappa^2)$。$A'=8,\ b'=0$ なので $b'-A'q_h=-8/(32\kappa)=-1/(4\kappa)$。随伴勾配は $L_h'=\lambda(b'-A'q_h)=-1/(1024\kappa^3)=-36/(36864\kappa^3)$。(iii) $\kappa=1$ で $L'-L_h'=(-49+36)/36864=-13/36864$。元の解を差分近似したときの中点値が $7/192$ と $6/192$ で異なるため、二乗損失とその感度の両方に離散化誤差が入る。離散随伴は $L_h$ を正確に微分しており、計算法の不整合ではない。
+**詳細解答。** (i) 二階微分を二回積分すると $u(x)=(x-x^4)/(12\kappa)$ であり、$q=7/(192\kappa)$。差分では $A=8\kappa,\ b=1/4$、$q_h=b/A=1/(32\kappa)=6/(192\kappa)$。(ii) 連続損失は $L=\frac12(7/192)^2\kappa^{-2}$ だから $L'=-(7/192)^2\kappa^{-3}=-49/(36864\kappa^3)$。離散随伴は $J(q_h)=q_h^2/2$ より $g=J_u=q_h$、$A^T\lambda=8\kappa\lambda=q_h$、従って $\lambda=q_h/(8\kappa)=1/(256\kappa^2)$。$A'=8,\ b'=0$ なので $b'-A'q_h=-8/(32\kappa)=-1/(4\kappa)$。[随伴勾配公式](#thm-pml2-22-adjoint-gradient)により $L_h'=\lambda(b'-A'q_h)=-1/(1024\kappa^3)=-36/(36864\kappa^3)$。(iii) $\kappa=1$ で $L'-L_h'=(-49+36)/36864=-13/36864$。元の解を差分近似したときの中点値が $7/192$ と $6/192$ で異なるため、二乗損失とその感度の両方に離散化誤差が入る。離散随伴は $L_h$ を正確に微分しており、計算法の不整合ではない。
 <!-- solution-end -->
 
 ## 9. 次にどこを検証するか
