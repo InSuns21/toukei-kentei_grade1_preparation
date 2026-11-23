@@ -23,15 +23,15 @@ $$
 > **定義（$p$ 進分布）**  
 > $n\ge0$、$a\in\mathbb Z/p^n\mathbb Z$ に対する $\mathbb Q_p$ 値の族 $\mu_n(a)$ が **$p$ 進分布** であるとは、全ての $n,a$ で
 >
-> $$
-> \mu_n(a)=\sum_{b=0}^{p-1}\mu_{n+1}(a+bp^n)
-> $$
+$$
+\mu_n(a)=\sum_{b=0}^{p-1}\mu_{n+1}(a+bp^n)
+$$
 >
 > を満たすことをいう。さらに全ての $n,a$ で $\mu_n(a)\in\mathbb Z_p$ なら **$\mathbb Z_p$ 値測度** という。本講では後者を単に「測度」と呼ぶ。記号 $\mu(a+p^n\mathbb Z_p)=\mu_n(a)$ を使う。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa13-distribution -->
-**定義の確認（点に集中した重み）。** $c\in\mathbb Z_p$ を固定し
+**定義の確認**（点に集中した重み）。 $c\in\mathbb Z_p$ を固定し
 
 $$
 \delta_{c,n}(a)=
@@ -74,22 +74,22 @@ $$
 > **定義（$p$ 進積分）**  
 > $\mathbb Z_p$ 値測度 $\mu$ と連続関数 $f\in C(\mathbb Z_p,\mathbb Z_p)$ に対し、
 >
-> $$
-> f_n(x)=f(a)\quad(x\equiv a\pmod{p^n},\ 0\le a<p^n)
-> $$
+$$
+f_n(x)=f(a)\quad(x\equiv a\pmod{p^n},\ 0\le a<p^n)
+$$
 >
 > と置き、極限が存在するとき
 >
-> $$
-> \int_{\mathbb Z_p}f(x)\,d\mu(x)
-> =\lim_{n\to\infty}\sum_{a=0}^{p^n-1}f(a)\mu_n(a)
-> $$
+$$
+\int_{\mathbb Z_p}f(x)\,d\mu(x)
+=\lim_{n\to\infty}\sum_{a=0}^{p^n-1}f(a)\mu_n(a)
+$$
 >
 > と定める。$C(\mathbb Z_p,\mathbb Z_p)$ は連続な $\mathbb Z_p$ 値関数全体であり、ノルムは $\|f\|_\infty=\sup_x|f(x)|_p$ とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa13-integral -->
-**定義の確認（関数を代入する）。** $\mu=\delta_0+2\delta_1-\delta_3$、$f(x)=x^2$ とします。$n\ge2$ なら三点 $0,1,3$ は異なる剰余類に入るので、有限和は $0^2+2\cdot1^2-3^2=-7$ に一致します。したがって積分は $-7\in\mathbb Z_p$ です。有限和で実際に極限値が安定することまで確認できました。
+**定義の確認**（関数を代入する）。 $\mu=\delta_0+2\delta_1-\delta_3$、$f(x)=x^2$ とします。$n\ge2$ なら三点 $0,1,3$ は異なる剰余類に入るので、有限和は $0^2+2\cdot1^2-3^2=-7$ に一致します。したがって積分は $-7\in\mathbb Z_p$ です。有限和で実際に極限値が安定することまで確認できました。
 <!-- definition-example-end -->
 
 <a id="thm-iwa13-extension"></a>
@@ -98,10 +98,10 @@ $$
 > **定理（分布の積分への一意的延長）**  
 > $\mathbb Z_p$ 値測度 $\mu$ について、上の極限は全ての $f\in C(\mathbb Z_p,\mathbb Z_p)$ で存在する。写像 $I_\mu:f\mapsto\int f\,d\mu$ は連続な $\mathbb Z_p$ 線形写像で、
 >
-> $$
-> |I_\mu(f)|_p\le\|f\|_\infty,\qquad
-> I_\mu(\mathbf1_{a+p^n\mathbb Z_p})=\mu_n(a)
-> $$
+$$
+|I_\mu(f)|_p\le\|f\|_\infty,\qquad
+I_\mu(\mathbf1_{a+p^n\mathbb Z_p})=\mu_n(a)
+$$
 >
 > を満たす。この二条件を満たし、局所定数関数上で同じ値を持つ連続線形写像は $I_\mu$ に限る。
 <!-- formal-statement-end -->
@@ -153,15 +153,15 @@ $$
 > **定理（測度と連続線形汎関数の対応）**  
 > $\mathbb Z_p$ 値測度 $\mu$ の全体と、連続な $\mathbb Z_p$ 線形写像
 >
-> $$
-> L:C(\mathbb Z_p,\mathbb Z_p)\longrightarrow\mathbb Z_p
-> $$
+$$
+L:C(\mathbb Z_p,\mathbb Z_p)\longrightarrow\mathbb Z_p
+$$
 >
 > の全体は、$\mu\mapsto I_\mu$ により一対一に対応する。逆対応は
 >
-> $$
-> \mu_n(a)=L(\mathbf1_{a+p^n\mathbb Z_p})
-> $$
+$$
+\mu_n(a)=L(\mathbf1_{a+p^n\mathbb Z_p})
+$$
 >
 > で与えられる。
 <!-- formal-statement-end -->
@@ -200,16 +200,16 @@ $$
 > **定義（測度の畳み込み）**  
 > $\mathbb Z_p$ 値測度 $\mu,\nu$ に対し
 >
-> $$
-> (\mu*\nu)_n(a)
-> =\sum_{\substack{b,c\bmod p^n\\b+c\equiv a\;(\mathrm{mod}\;p^n)}}\mu_n(b)\nu_n(c)
-> $$
+$$
+(\mu*\nu)_n(a)
+=\sum_{\substack{b,c\bmod p^n\\b+c\equiv a\;(\mathrm{mod}\;p^n)}}\mu_n(b)\nu_n(c)
+$$
 >
 > で定まる族を **畳み込み** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa13-convolution -->
-**定義の確認。** $p=3$、$\mu=\delta_1$、$\nu=\delta_2$ とします。第1層では重みがそれぞれ $b=1$、$c=2$ のときだけ $1$ なので、和が $0\bmod3$ の剰余類だけに重み $1$ が残ります。第2層では $1+2=3\bmod9$ だけに重み $1$ が残ります。どの層でも同じ計算となるため $\delta_1*\delta_2=\delta_3$ です。第1層で $\delta_3=\delta_0$ に見えても、測度全体では $\delta_3\ne\delta_0$ である点に注意してください。
+**定義の確認**。 $p=3$、$\mu=\delta_1$、$\nu=\delta_2$ とします。第1層では重みがそれぞれ $b=1$、$c=2$ のときだけ $1$ なので、和が $0\bmod3$ の剰余類だけに重み $1$ が残ります。第2層では $1+2=3\bmod9$ だけに重み $1$ が残ります。どの層でも同じ計算となるため $\delta_1*\delta_2=\delta_3$ です。第1層で $\delta_3=\delta_0$ に見えても、測度全体では $\delta_3\ne\delta_0$ である点に注意してください。
 <!-- definition-example-end -->
 
 <a id="prop-iwa13-convolution"></a>
@@ -218,10 +218,10 @@ $$
 > **命題（畳み込みの整合性と積分公式）**  
 > $\mu,\nu$ が $\mathbb Z_p$ 値測度なら $\mu*\nu$ も $\mathbb Z_p$ 値測度であり、全ての $f\in C(\mathbb Z_p,\mathbb Z_p)$ について
 >
-> $$
-> \int f(z)\,d(\mu*\nu)(z)
-> =\int\!\left(\int f(x+y)\,d\nu(y)\right)d\mu(x).
-> $$
+$$
+\int f(z)\,d(\mu*\nu)(z)
+=\int\!\left(\int f(x+y)\,d\nu(y)\right)d\mu(x).
+$$
 >
 > また $\delta_0$ は畳み込みの単位元、$\delta_a*\delta_b=\delta_{a+b}$ である。
 <!-- formal-statement-end -->
@@ -284,13 +284,13 @@ $$
 > **定理（測度環と岩澤代数）**  
 > $\mathcal M(\mathbb Z_p,\mathbb Z_p)$ を $\mathbb Z_p$ 値測度全体とする。和・スカラー倍・畳み込みにより可換環になり、
 >
-> $$
-> \Phi:\mathcal M(\mathbb Z_p,\mathbb Z_p)
-> \xrightarrow{\ \simeq\ }
-> \varprojlim_n\mathbb Z_p[\mathbb Z/p^n\mathbb Z],
-> \qquad
-> \Phi(\mu)_n=\sum_{a\bmod p^n}\mu_n(a)[a]
-> $$
+$$
+\Phi:\mathcal M(\mathbb Z_p,\mathbb Z_p)
+\xrightarrow{\ \simeq\ }
+\varprojlim_n\mathbb Z_p[\mathbb Z/p^n\mathbb Z],
+\qquad
+\Phi(\mu)_n=\sum_{a\bmod p^n}\mu_n(a)[a]
+$$
 >
 > は環同型である。位相的生成元 $\gamma$ を持つ $\Gamma\simeq\mathbb Z_p$ に $a\mapsto\gamma^a$ で同一視すれば、右辺は $\Lambda=\mathbb Z_p[[\Gamma]]\simeq\mathbb Z_p[[T]]$（$T=\gamma-1$）である。
 <!-- formal-statement-end -->
@@ -345,17 +345,17 @@ $a\in\mathbb Z_p$ と自然数 $j$ に対し、二項係数 $\binom aj=a(a-1)\cd
 > **定義（二項式変換）**  
 > $\mathbb Z_p$ 値測度 $\mu$ に対し、冪級数
 >
-> $$
-> \mathcal A_\mu(T)
-> =\sum_{j=0}^\infty\left(\int_{\mathbb Z_p}\binom{x}{j}\,d\mu(x)\right)T^j
-> \in\mathbb Z_p[[T]]
-> $$
+$$
+\mathcal A_\mu(T)
+=\sum_{j=0}^\infty\left(\int_{\mathbb Z_p}\binom{x}{j}\,d\mu(x)\right)T^j
+\in\mathbb Z_p[[T]]
+$$
 >
 > を **二項式変換（Amice変換）** という。形式的には $\int_{\mathbb Z_p}(1+T)^x\,d\mu(x)$ と書く。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa13-amice-transform -->
-**定義の確認。** $\mu=\delta_2$ なら $\int\binom{x}{j}d\delta_2=\binom2j$。従って係数は順に $1,2,1,0,\ldots$ で、$\mathcal A_{\delta_2}(T)=1+2T+T^2=(1+T)^2$ です。$\mu=\delta_0-\delta_1$ なら係数は $j=0$ で $0$、$j=1$ で $-1$、それより上で $0$、従って $-T$ になります。
+**定義の確認**。 $\mu=\delta_2$ なら $\int\binom{x}{j}d\delta_2=\binom2j$。従って係数は順に $1,2,1,0,\ldots$ で、$\mathcal A_{\delta_2}(T)=1+2T+T^2=(1+T)^2$ です。$\mu=\delta_0-\delta_1$ なら係数は $j=0$ で $0$、$j=1$ で $-1$、それより上で $0$、従って $-T$ になります。
 <!-- definition-example-end -->
 
 <a id="thm-iwa13-amice-isomorphism"></a>
@@ -364,11 +364,11 @@ $a\in\mathbb Z_p$ と自然数 $j$ に対し、二項係数 $\binom aj=a(a-1)\cd
 > **定理（二項式変換と岩澤代数の積）**  
 > 第4節の位相的生成元 $\gamma$ を固定すると、$\mathcal A_\mu(T)$ は $\Phi(\mu)$ を [IWA3の冪級数表示](../IWA3/index.md#thm-iwa3-power-series-isomorphism)で表したものに一致する。特に
 >
-> $$
-> \mathcal A_{\mu*\nu}(T)
-> =\mathcal A_\mu(T)\mathcal A_\nu(T),\qquad
-> \mathcal A_{\delta_a}(T)=(1+T)^a
-> $$
+$$
+\mathcal A_{\mu*\nu}(T)
+=\mathcal A_\mu(T)\mathcal A_\nu(T),\qquad
+\mathcal A_{\delta_a}(T)=(1+T)^a
+$$
 >
 > が成り立ち、$\mu\mapsto\mathcal A_\mu$ は $\mathcal M(\mathbb Z_p,\mathbb Z_p)\simeq\mathbb Z_p[[T]]$ という環同型である。
 <!-- formal-statement-end -->
@@ -421,16 +421,16 @@ $\delta_a$ の場合、$a$ を法 $p^n$ で代表する非負整数列 $a_n$ は
 > **定義（$p$ 進 Mellin 変換）**  
 > $\mathbb Z_p$ 値測度 $\mu$ と上記の連続指標 $\kappa$ に対し
 >
-> $$
-> \mathscr M_\mu(\kappa)
-> =\int_{\mathbb Z_p}\kappa(x)\,d\mu(x)\in\mathcal O_K
-> $$
+$$
+\mathscr M_\mu(\kappa)
+=\int_{\mathbb Z_p}\kappa(x)\,d\mu(x)\in\mathcal O_K
+$$
 >
 > を **$p$ 進 Mellin 変換** という。積分は $K$ 値関数の有限和を極限にすることで定める。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa13-mellin -->
-**定義の確認。** $\mu=\delta_0-\delta_1$ なら $\mathscr M_\mu(\kappa)=\kappa(0)-\kappa(1)=1-u$。一方 $\mathcal A_\mu(T)=-T$ なので $\mathcal A_\mu(u-1)=-(u-1)=1-u$ です。指標の値を積分することと冪級数を評価することが一致します。
+**定義の確認**。 $\mu=\delta_0-\delta_1$ なら $\mathscr M_\mu(\kappa)=\kappa(0)-\kappa(1)=1-u$。一方 $\mathcal A_\mu(T)=-T$ なので $\mathcal A_\mu(u-1)=-(u-1)=1-u$ です。指標の値を積分することと冪級数を評価することが一致します。
 <!-- definition-example-end -->
 
 ここで $K$ 値関数の積分を使える理由を明示します。$\kappa(x)$ は $\mathcal O_K$ 値連続関数なので、局所定数近似の有限和は $|\mu_n(a)|_p\le1$ により最大値で抑えられ、$\mathcal O_K$ が完備なため第2節と同じ Cauchy 議論で収束します。
@@ -441,16 +441,16 @@ $\delta_a$ の場合、$a$ を法 $p^n$ で代表する非負整数列 $a_n$ は
 > **定理（Mellin 変換の評価公式）**  
 > $\mu$ を $\mathbb Z_p$ 値測度、$\kappa:\mathbb Z_p\to\mathcal O_K^\times$ を連続指標、$u=\kappa(1)$ とする。このとき
 >
-> $$
-> \mathscr M_\mu(\kappa)=\mathcal A_\mu(u-1).
-> $$
+$$
+\mathscr M_\mu(\kappa)=\mathcal A_\mu(u-1).
+$$
 >
 > 特に $\kappa$ が法 $p^n$ を通じて定まる有限位数の指標なら
 >
-> $$
-> \mathscr M_\mu(\kappa)
-> =\sum_{a=0}^{p^n-1}\kappa(a)\mu_n(a).
-> $$
+$$
+\mathscr M_\mu(\kappa)
+=\sum_{a=0}^{p^n-1}\kappa(a)\mu_n(a).
+$$
 >
 > また $\mathscr M_{\mu*\nu}(\kappa)=\mathscr M_\mu(\kappa)\mathscr M_\nu(\kappa)$ である。
 <!-- formal-statement-end -->
