@@ -203,7 +203,16 @@ $$
 
 ## 3. 積状態を全角運動量の基底に直す
 
-分解の存在だけでは、具体的な状態が分かりません。各 $V_\ell$ 上では[スピンのCasimir固有値とウェイト公式](../LREP7/index.md#thm-lrep7-spin-spectrum)を全角運動量に適用でき、$T^2=\ell(\ell+1)I$、$T_3$ の固有値は $M=-\ell,\dots,\ell$ となります。そこで両演算子の共同固有ベクトルを $|\ell,M\rangle$ と書きます。積基底 $|j,m\rangle\otimes|k,n\rangle$ は以下で $|j,m;k,n\rangle$ とも書き、第1節の $|m,n\rangle$ と同じ状態を表します。セミコロンは第一・第二因子の境界です。上の定理で重複度は1なので、各状態は位相を除いて決まります。位相の選択は係数の符号を変えますが、物理的な分解・固有値には影響しません。
+分解の存在だけでは、具体的な状態が分かりません。[スピンのCasimir固有値とウェイト公式](../LREP7/index.md#thm-lrep7-spin-spectrum)を各既約成分 $V_\ell$ に適用すると、$T_3$ 固有値は $M=-\ell,-\ell+1,\dots,\ell$ で各1次元です。その規格化固有ベクトルを $|\ell,M\rangle$ と名付ければ
+
+$$
+T^2|\ell,M\rangle=\ell(\ell+1)|\ell,M\rangle,\qquad
+T_3|\ell,M\rangle=M|\ell,M\rangle
+$$
+
+となり、二つの演算子の共同固有基底を得ます。
+
+積基底 $|j,m\rangle\otimes|k,n\rangle$ は以下で $|j,m;k,n\rangle$ とも書き、第1節の $|m,n\rangle$ と同じ状態を表します。セミコロンは第一・第二因子の境界です。上の定理で各既約成分の重複度は1なので、各合成状態は位相を除いて決まります。位相の選択は係数の符号を変えますが、物理的な分解・固有値には影響しません。
 
 <a id="def-lrep8-cg-coefficients"></a>
 
