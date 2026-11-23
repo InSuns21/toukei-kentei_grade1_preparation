@@ -102,7 +102,7 @@ $$
 
 ## 2. 変化率が外微分になる理由
 
-局所式にある $a$ は次数1、$F_t$ は次数2である。[GBG20の曲率多項式の規則](../GBG20/index.md#def-gbg20-curvature-polynomial-form)を、曲率以外の Lie環値形式にも同じ多重線形・外積規則で拡張して $p(a,F_t^{k-1})$ と書く。次数は $1+2(k-1)=2k-1$ である。
+局所式にある $a$ は次数1、$F_t$ は次数2である。[GBG20の曲率多項式の規則](../GBG20/index.md#def-gbg20-curvature-polynomial-form)を、曲率以外の Lie環値形式にも同じ多重線形・外積規則で拡張して $p(a,F_t^{k-1})$ と書く。次数は $1+2(k-1)=2k-1$ である。ここで $F_t^{k-1}$ は $k-1$ 個の $F_t$ を引数に並べる略記で、$k=1$ なら $p(a,F_t^0):=p(a)$ と読む。
 
 まず外微分の符号を確かめる。[GEO7の次数付きLeibniz則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を各項へ適用すると、最初の次数1の因子を越えて $F_t$ を微分する際に負号が付く。
 
@@ -201,7 +201,7 @@ $$
 A_t=itx\,dy,\qquad F_t=dA_t=it\,dx\wedge dy
 $$
 
-となる。$k=1$ では $F_t^0$ は因子を一つも取らない空積を表し、
+となる。積主束では標準 section の下で二接続の局所表示が全域の表示なので、この例に限り $T_p(\omega_1,\omega_0)$ を $T_p(A_1,A_0)$ と略記する。$k=1$ では $F_t^0$ は因子を一つも取らない空積を表し、
 
 $$
 T_p(A_1,A_0)
@@ -306,7 +306,7 @@ a=iz\,dw,\quad
 F_t=i(dx\wedge dy+t\,dz\wedge dw).
 $$
 
-$p(iu,iv)=uv$ と置くと、$p$ は対称双線形かつAd不変である。$\eta=dx\wedge dy$、$\zeta=dz\wedge dw$ として、2形式の交換符号は $(-1)^{2\cdot2}=+1$ だから
+$p(iu,iv)=uv$（$u,v\in\mathbb R$）と置くと、$p$ は対称双線形かつAd不変である。$\eta=dx\wedge dy$、$\zeta=dz\wedge dw$ として、2形式の交換符号は $(-1)^{2\cdot2}=+1$ だから
 
 $$
 p(F_t,F_t)=(\eta+t\zeta)^2=2t\,\eta\wedge\zeta.
