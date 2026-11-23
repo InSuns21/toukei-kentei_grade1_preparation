@@ -45,25 +45,25 @@ $$
 
 観測値 $y_1=2,y_2=0$ を得た場合を、[TSA6のKalman予測・更新再帰](../../../解析系/TSA/TSA6/index.md#thm-tsa6-kalman-recursion)で直接計算する。ここでは $H_i=1$ なので、観測残差 $z_i=y_i-m_i^-$、その分散 $S_i=P_i^-+1$、観測値による修正係数 $K_i=P_i^-/S_i$ となる。第1時刻の予測と更新は
 
-$
+$$
 \begin{aligned}
 (m_1^-,P_1^-)&=(0,1),&
 z_1&=2,&S_1&=2,&K_1&=\frac12,\\
 m_1^+&=0+\frac12\cdot2=1,&
 P_1^+&=1-\left(\frac12\right)^2 2=\frac12.
 \end{aligned}
-$
+$$
 
 第2時刻では $Q_2=0$ なので予測が前回の更新結果と同じになり、そのうえで新しい観測を取り込む。
 
-$
+$$
 \begin{aligned}
 (m_2^-,P_2^-)&=(1,\tfrac12),&
 z_2&=-1,&S_2&=\frac32,&K_2&=\frac13,\\
 m_2^+&=1+\frac13(-1)=\frac23,&
 P_2^+&=\frac12-\left(\frac13\right)^2\frac32=\frac13.
 \end{aligned}
-$
+$$
 
 従って $x_1\mid Y_0\sim\mathcal N(0,1)$ から、$Y_1=(2)$ を得ると $x_1\mid Y_1\sim\mathcal N(1,1/2)$ へ変わる。$Y_1$ だけを使う第2時刻の予測は $\mathcal N(1,1/2)$ であり、$Y_2=(2,0)$ を得た後は $x_2\mid Y_2\sim\mathcal N(2/3,1/3)$ となる。このように状態そのものは静止していても、利用する情報が $Y_0\to Y_1\to Y_2$ と増えるにつれて条件付き分布を更新する。これが定義の反復操作である。
 <!-- definition-example-end -->
