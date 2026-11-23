@@ -2319,6 +2319,7 @@ if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-condi
 const sizeHint=(isFCG4||isFCG5||isFCG6||isFCG7||isFCG8)?[1536,512]:
   isFCG3?[1024,512]:isFCG2?[512,512]:
   (lesson==='WGL1'||isWGL2||isWGL3)?[960,960]:
+  isWGL19?[640,640]: // square diffusion cells; 409600 pixels stay inside the 524288-pixel oracle limit
   legacyViewport?[800,600]:[960,720];
 // Make the actual limits legible when a lesson's independent CPU oracle
 // intentionally supports fewer pixels than the shared WebGL2 host.
