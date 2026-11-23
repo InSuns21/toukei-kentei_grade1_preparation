@@ -263,7 +263,11 @@ U\sigma_1=\begin{pmatrix}0&a\\d&0\end{pmatrix},\qquad
 $$
 だから $a=d$、従って $U=aI_2$ です。$\det U=a^2=1$ より $a=\pm1$ です。逆に $\pm I_2$ は全行列と可換なので核に入ります。
 
-**全射性。** $R\in SO(3)$ を取ります。実三次行列の特性多項式は奇数次だから実固有値 $\lambda$ を持ち、直交性から $\lambda=\pm1$ です。もし $+1$ 固有値がなければ、実固有値は全て $-1$ です。しかし非実固有値は共役対で現れ、その積は1です。三固有値の積が $\det R=1$ である以上、実固有値が一つだけなら $-1$ にはなれません。三つとも実固有値なら各々 $\pm1$ であり、全て $-1$ では積が $-1$ です。従って必ず固有値 $+1$ が存在します。
+**全射性。** 任意の $R\in SO(3)$ を取ります。実三次行列の特性多項式は奇数次なので、少なくとも一つ実固有値を持ちます。直交変換は長さを保つから、実固有値の候補は $+1$ または $-1$ に限られます。
+
+実固有値が一つだけなら、残りの二つは非実の共役対です。直交行列の固有値の絶対値は1なので、その共役対の積は1です。三固有値の積も行列式に等しく1だから、実固有値は $+1$ です。
+
+固有値が三つとも実数なら全て符号が $\pm1$ であり、その積は1です。三つとも $-1$ では積が $-1$ となるため、少なくとも一つは $+1$ です。いずれの場合も回転の固定軸が存在します。
 
 その単位固有ベクトルを $\boldsymbol n$ とします。$R\boldsymbol n=\boldsymbol n$ であり、任意の $\boldsymbol x\perp\boldsymbol n$ について
 $$
@@ -319,7 +323,23 @@ $$
 
 逆関数定理を $I_2$ で使うと、その近傍 $W_+$ が単位回転の近傍へ微分同相に写ります。$W_+$ を小さくして $W_+\cap(-W_+)=\varnothing$ とできます。$W_-=-W_+$ とすると、[核の結果](#thm-lrep5-kernel-surjectivity)から両者の像は同じで、各制限は同じ近傍に対して微分同相です。
 
-この二つ以外の逆像が残らないよう、像の近傍をさらに縮めます。もしどれほど小さくしても $W_+\cup W_-$ の外から単位回転へ写る点があれば、$\Phi(U_k)\to I_3$ で $U_k\notin W_+\cup W_-$ となる列が取れます。$SU(2)$ は先ほどの $S^3$ と同一視できるコンパクト空間なので、部分列 $U_{k_j}\to U_\infty$ を持ちます。連続性から $\Phi(U_\infty)=I_3$ であり、核は $\{I_2,-I_2\}$ です。ところが両点は $W_+\cup W_-$ の内部にあり、外側からの収束に矛盾します。従って小さい開近傍 $V$ について逆像は $W_\pm\cap\Phi^{-1}(V)$ の二枚だけです。
+この二つ以外の逆像が残らないよう、像の近傍をさらに縮めます。どれほど小さくしても二つの枝の外から単位回転へ写る点があると仮定しましょう。すると次の条件を満たす列を選べます。
+$$
+\Phi(U_k)\longrightarrow I_3,\qquad
+U_k\notin W_+\cup W_-.
+$$
+$SU(2)$ は実4次元の単位球面と同一視できるため、各元の実座標は区間 $[-1,1]$ に入ります。有界実数列の収束部分列を第一座標から第四座標へ順に選ぶと、共通の部分列が得られます。単位球面の方程式は連続なので、極限 $U_\infty$ も球面上、したがって $SU(2)$ の元です。
+
+写像の連続性から極限は核に属します。
+$$
+\Phi(U_\infty)=I_3,\qquad
+U_\infty\in\{I_2,-I_2\}.
+$$
+ところが両点は $W_+\cup W_-$ の内部にあります。外側の点列がそのいずれかへ収束するのは矛盾です。従って十分小さい開近傍 $V$ を選べば、その逆像は二つの集合
+$$
+W_+\cap\Phi^{-1}(V),\qquad W_-\cap\Phi^{-1}(V)
+$$
+だけからなり、それぞれ $V$ に微分同相に写ります。
 
 任意の $R=\Phi(U_0)$ に対しては、左から $U_0$ を掛ける操作と左から $R$ を掛ける操作によって、単位元近傍の構成を移せます。[群準同型性](#thm-lrep5-orthogonal-homomorphism)により二枚とも同じ近傍へ微分同相に写ります。これで全ての $R$ で被覆条件が成立します。$\square$
 <!-- proof-end -->
@@ -435,7 +455,7 @@ $$
 単位 $\boldsymbol n$ に対し $U(\boldsymbol n,\pi)$、$U(\boldsymbol n,2\pi)$、$U(\boldsymbol n,4\pi)$ を求め、$\pi$ 回転に対応する $SU(2)$ 元の二乗が何かを調べよ。
 
 <!-- solution-start -->
-**詳細解答。** $N=X(\boldsymbol n)$ で $N^2=I_2$ です。[軸角表示](#prop-lrep5-rodrigues)の指数公式から
+**詳細解答。** $N=X(\boldsymbol n)$ で $N^2=I_2$ です。[軸角表示と三次元回転](#prop-lrep5-rodrigues)で導いた指数公式から
 $$
 \begin{aligned}
 U(\boldsymbol n,\pi)&=\cos(\pi/2)I_2-i\sin(\pi/2)N=-iN,\\
@@ -455,7 +475,7 @@ $$
 $U(\boldsymbol n,\theta)=\cos(\theta/2)I_2-i\sin(\theta/2)X(\boldsymbol n)$ とし、$\|\boldsymbol n\|=1$ とする。任意の $\boldsymbol x$ を $\boldsymbol x_\parallel=(\boldsymbol n\cdot\boldsymbol x)\boldsymbol n$、$\boldsymbol x_\perp=\boldsymbol x-\boldsymbol x_\parallel$ に分け、共役で平行成分が固定され垂直成分が角度 $\theta$ 回ることを証明せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\boldsymbol n\times\boldsymbol x_\parallel=0$ であり、[Pauli積公式](#lem-lrep5-pauli-product)から $NX(\boldsymbol n)=X(\boldsymbol n)N=N^2=I_2$ です。よって共役は $X(\boldsymbol x_\parallel)$ を固定します。
+**詳細解答。** $\boldsymbol n\times\boldsymbol x_\parallel=0$ であり、[Pauli行列の積公式](#lem-lrep5-pauli-product)から $NX(\boldsymbol n)=X(\boldsymbol n)N=N^2=I_2$ です。よって共役は $X(\boldsymbol x_\parallel)$ を固定します。
 
 垂直成分には $\boldsymbol n\cdot\boldsymbol x_\perp=0$ です。$N=X(\boldsymbol n)$、$Y=X(\boldsymbol x_\perp)$ とすると
 $$
@@ -481,7 +501,7 @@ $$
 $A_j=-i\sigma_j/2$ ($j=1,2,3$) を $SU(2)$ のLie環の基底とする。交換子 $[A_1,A_2]$ を求め、$d\Phi_{I_2}(A_j)\boldsymbol x=\boldsymbol e_j\times\boldsymbol x$ が括弧を保つことを、$j=1,k=2$ について行列で確かめよ。
 
 <!-- solution-start -->
-**詳細解答。** [Pauli積公式](#lem-lrep5-pauli-product)から $[\sigma_1,\sigma_2]=2i\sigma_3$ です。従って
+**詳細解答。** [Pauli行列の積公式](#lem-lrep5-pauli-product)から $[\sigma_1,\sigma_2]=2i\sigma_3$ です。従って
 $$
 [A_1,A_2]=(-i/2)^2[\sigma_1,\sigma_2]
 =-\frac14(2i\sigma_3)=-\frac i2\sigma_3=A_3.
@@ -509,7 +529,7 @@ $SU(2)$ の標準表現 $D(U)=U$ を $\mathbb C^2$ 上に取る。$D$ は $SO(3)
 <!-- solution-start -->
 **詳細解答。** [被覆の核](#thm-lrep5-kernel-surjectivity)は $K=\{\pm I_2\}$ です。標準表現では $D(-I_2)=-I_2\ne I_2$ なので、同じ回転を表す $U,-U$ の作用が一致せず降下しません。
 
-一方、[テンソル積表現の群法則](../LREP4/index.md#thm-lrep4-tensor-representation)より $D\otimes D$ は四次元複素ベクトル空間上の表現です。核の非自明元の作用を単純テンソルで計算すると
+一方、[テンソル積表現の群法則と次元](../LREP4/index.md#thm-lrep4-tensor-representation)より $D\otimes D$ は四次元複素ベクトル空間上の表現です。核の非自明元の作用を単純テンソルで計算すると
 $$
 (D\otimes D)(-I_2)(v\otimes w)
 =(-v)\otimes(-w)=v\otimes w.
@@ -578,7 +598,7 @@ U^3=\exp(-i(3\cdot2\pi/3)N/2)=\exp(-i\pi N)
 $$
 [群準同型性](#thm-lrep5-orthogonal-homomorphism)から $R_U^3=R_{U^3}=R_{-I_2}=I_3$ です。標準表現では核元 $-I_2$ が $-I_2$ として作用し、降下しません。テンソル二乗では $(-I_2)\otimes(-I_2)=I_4$ となり、[B03で示した降下](#ex-lrep5-b03)が可能です。
 
-**設問3。** 一般の $2\times2$ 行列を $U=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ と置きます。$Ue_1=ae_1+ce_2$、$Ue_2=be_1+de_2$ だから、[テンソル積作用の定義](../LREP4/index.md#def-lrep4-tensor-product)を用いて
+**設問3。** 一般の $2\times2$ 行列を $U=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ と置きます。$Ue_1=ae_1+ce_2$、$Ue_2=be_1+de_2$ だから、[表現のテンソル積](../LREP4/index.md#def-lrep4-tensor-product)の定義を用いて
 $$
 \begin{aligned}
 (U\otimes U)w
