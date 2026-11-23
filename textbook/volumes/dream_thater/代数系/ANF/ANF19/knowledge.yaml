@@ -37,7 +37,7 @@ concepts:
     requires: [number-theory.adele-ring, number-theory.prime-ideal-valuation-completion]
 
   - id: number-theory.idele-topology
-    name: イデールの特徴付けと位相の相違
+    name: アデールの単元とイデール位相
     kind: proposition
     introduction: formal
     requires: [number-theory.idele-group, number-theory.restricted-product-places]
