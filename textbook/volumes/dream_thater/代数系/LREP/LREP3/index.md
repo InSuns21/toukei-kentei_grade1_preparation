@@ -35,25 +35,25 @@ $$
 
 <!-- definition-example-start: def-lrep3-lie-algebra-representation -->
 **定義の確認**： $\mathfrak g=\mathbb R$ を加法群 $(\mathbb R,+)$ の Lie 環とすると、群が可換なので括弧は常に零です。$V=\mathbb C^2$ の標準基底を $e_1,e_2$ とし、各実数 $x$ に対して
-$
+$$
 \rho(x)e_1=0,\qquad \rho(x)e_2=xe_1
-$
+$$
 という作用を定めます。この二式から、任意の複素数 $z_1,z_2$ に対して
-$
+$$
 \rho(x)(z_1e_1+z_2e_2)=xz_2e_1
-$
+$$
 です。したがって各 $\rho(x)$ は $V$ 上の**複素線形**自己写像で、同じ基底での行列は
-$
+$$
 [\rho(x)]_{(e_1,e_2)}=xN,\qquad
 N=\begin{pmatrix}0&1\\0&0\end{pmatrix}
-$
+$$
 となります。[線形作用の合成と同一基底での行列積の対応](../LREP1/index.md#def-lrep1-linear-representation)により、定義の交換子条件を行列積で検査できます。
 
 実数 $a,b,x,y$ に対して $\rho(ax+by)=(ax+by)N=a\rho(x)+b\rho(y)$ であり、**実線形性**が成り立ちます。さらに
-$
+$$
 \rho([x,y])=0,\qquad
 [\rho(x),\rho(y)]=xy(NN-NN)=0.
-$
+$$
 よって、複素線形自己写像への実線形性と括弧保存の両方を確認できました。
 <!-- definition-example-end -->
 
@@ -129,17 +129,17 @@ $$
 
 <!-- definition-example-start: def-lrep3-local-representation -->
 **定義の確認**： $G=SO(2)$、$V=\mathbb C$ とし、$|\theta|<\pi/4$ で
-$
+$$
 R_\theta=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}
-$
+$$
 と書ける単位元の近傍 $U$ を選びます。実数 $\lambda$ を固定し、$D_U(R_\theta)$ を $V$ 上で複素数 $e^{i\lambda\theta}$ を掛ける写像と定めます。この値は非零なので $GL_{\mathbb C}(\mathbb C)$ に入り、角度表示が一意な区間で滑らかに変化します。
 
 単位元 $I=R_0$ では $D_U(I)=1=I_V$ です。回転行列の積は $R_\theta R_\phi=R_{\theta+\phi}$ です。$R_\theta,R_\phi,R_\theta R_\phi\in U$ なら $|\theta+\phi|<\pi/2$ であり、積が再び $U$ にあることからこの範囲で $|\theta+\phi|<\pi/4$ です。したがって積の角度として $\theta+\phi$ をそのまま使え、
-$
+$$
 D_U(R_\theta R_\phi)=e^{i\lambda(\theta+\phi)}
 =e^{i\lambda\theta}e^{i\lambda\phi}
 =D_U(R_\theta)D_U(R_\phi).
-$
+$$
 以上で、滑らかさ・単位元・定義域内の積という定義の全条件を確認しました。実数 $\lambda$ は任意です。
 <!-- definition-example-end -->
 
@@ -154,10 +154,10 @@ U'(t)=U(t)\,\alpha_{c(t)}(c'(t)),
 \qquad U(0)=I_V
 $$
 を解けます。ここで $U'(t)=dU(t)/dt$ は**経路の変数 $t$ に関する通常の導関数**であり、$\alpha(c')$ は $\alpha_{c(t)}(c'(t))$ の略記です。左 Maurer–Cartan 形式に対応するのは $U'=U\alpha(c')$ という右側からの係数の掛け方です。係数が連続なら線形 ODE の解は一意に存在します。さらに $W'=-\alpha(c')W$、$W(0)=I_V$ の解を取ると
-$
+$$
 (UW)'=U'W+UW'
 =U\alpha(c')W-U\alpha(c')W=0.
-$
+$$
 初期値から $U(t)W(t)=I_V$ となり、有限次元の正方行列 $U(t)$ は常に可逆です。
 
 $\rho$ が括弧を保つことは、行列値1形式の可積分条件を意味します。$A\wedge A$ を $(A\wedge A)(v,w)=A(v)A(w)-A(w)A(v)$ とする規約で書きます。
@@ -232,9 +232,9 @@ A(s,t)=\alpha_{c(s,t)}(\partial_t c),\qquad
 B(s,t)=\alpha_{c(s,t)}(\partial_s c)
 $$
 と置きます。$\partial_t c$ は **$s$ を固定して $t$ で微分した接ベクトル**、$\partial_s c$ は **$t$ を固定して $s$ で微分した接ベクトル**です。したがって $A,B$ は二つの変数 $(s,t)$ に依存する行列であり、$\partial_s A$ には $c(s,t)$ と $\partial_t c$ の $s$ 依存も含まれます。各 $s$ について
-$
+$$
 \partial_t U(s,t)=U(s,t)A(s,t),\qquad U(s,0)=I_V
-$
+$$
 を解き、$C(s,t)=U(s,t)^{-1}\partial_s U(s,t)$ を定めます。前節の $U'(t)$ は経路を一つ固定した導関数で、ここではそれが $\partial_t U(s,t)$ に当たります。曲線に沿う線形 ODE の解は、滑らかな係数と初期値によりパラメータ $s$ に滑らかに依存します。
 
 $\partial_t U=UA$ を $s$ で微分して
@@ -248,20 +248,20 @@ $$
 \end{aligned}
 $$
 一方、[平坦性](#lem-lrep3-flatness)を経路変形の二つの接ベクトル $(\partial_s c,\partial_t c)$ に適用します。$(s,t)$ 平面に引き戻した1形式は $c^*\alpha=A\,dt+B\,ds$ なので、外微分と行列値外積を $ds\wedge dt$ の係数で比較すると
-$
+$$
 \begin{aligned}
 d(c^*\alpha)
 &=(\partial_s A-\partial_t B)\,ds\wedge dt,\\
 (c^*\alpha)\wedge(c^*\alpha)
 &=(BA-AB)\,ds\wedge dt.
 \end{aligned}
-$
+$$
 従って
-$
+$$
 0=\partial_s A-\partial_t B+[B,A],
 \qquad
 \partial_t B=\partial_s A+[B,A].
-$
+$$
 したがって $C,B$ は同じ線形 ODE を満たします。始点が一定で $U(s,0)=I$、$\partial_s c(s,0)=0$ だから $C(s,0)=B(s,0)=0$ です。解の一意性で $C=B$ となります。終点も一定なので $B(s,1)=0$、従って
 $$
 \partial_sU(s,1)=U(s,1)C(s,1)=0.
@@ -353,9 +353,9 @@ $$
 
 <!-- definition-example-start: def-lrep3-descent -->
 **定義の確認**： $\pi:\mathbb R\to SO(2)$ を $\pi(\theta)=R_\theta$ とします。$V=\mathbb C$ 上での乗法表現 $\widetilde D(\theta)=e^{2i\theta}$ は、$D(R_\theta)=e^{2i\theta}$ と置いても
-$
+$$
 e^{2i(\theta+2\pi k)}=e^{2i\theta}\qquad(k\in\mathbb Z)
-$
+$$
 となるため代表角の選択によらず定義できます。さらに $D(R_\theta R_\phi)=D(R_\theta)D(R_\phi)$、$D(I)=1$ です。角度を局所座標とすれば $D$ は滑らかで、$\widetilde D=D\circ\pi$ が成り立つので降下します。
 
 一方 $\widetilde D(\theta)=e^{i\theta/2}$ は滑らかな $\mathbb R$ の群表現で $\widetilde D(0)=1$ ですが $\widetilde D(2\pi)=-1$ です。同じ回転 $R_0=R_{2\pi}=I$ に異なる値を割り当てるため、$D$ を一価に定義できず降下しません。
