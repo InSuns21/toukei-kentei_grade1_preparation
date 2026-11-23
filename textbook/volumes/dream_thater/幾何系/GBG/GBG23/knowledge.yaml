@@ -9,7 +9,7 @@ concepts:
     name: 全Chern形式
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（全Chern形式と第 $k$ Chern形式）"]
+    introduction_aliases: ["定義（全Chern形式）"]
     requires: [gauge.associated-vector-bundle, gauge.chern-weil-form, gauge.local-curvature-form]
 
   - id: gauge.chern-low-degree-traces
