@@ -157,7 +157,7 @@ $
 \operatorname{Cl}_S(K)=\operatorname{Cl}(\mathcal O_{K,S}).
 $
 
-> 全虚数体 $K$ のHilbert類体の中で、$S$ のすべての素点が完全分解する最大アーベル $p$ 拡大を $H_{K,S}^{(p)}$ と呼ぶ。そのGalois群は $A_{K,S}$ と書く。
+> 数体 $K$ の[Hilbert類体](../../ANF/ANF22/index.md#def-anf22-hilbert-class-field)の中で、$S$ のすべての素点が完全分解する最大アーベル $p$ 拡大を $H_{K,S}^{(p)}$ と呼ぶ。そのGalois群は $A_{K,S}$ と書く。実素点についてはHilbert類体と同じく複素化を許さない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa9-s-class-group -->
