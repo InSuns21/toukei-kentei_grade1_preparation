@@ -77,7 +77,7 @@ $$
 存在・一意性は上の有限段持ち上げと逆極限から従います。積 $\omega(a)\omega(b)$ も $p-1$ 乗が1で、法 $p$ の値が $ab$ なので、一意性により $\omega(ab)=\omega(a)\omega(b)$ です。
 
 <!-- definition-example-start: def-iwa8-teich-character -->
-**定義の確認。** $p=5$、$a=2\bmod5$ を取ります。[IWA2の具体計算](../IWA2/index.md#def-iwa2-teichmueller-lifts)では法25の持ち上げが7でした。実際 $7\equiv2\pmod5$ かつ $7^2=49\equiv-1\pmod{25}$、したがって $7^4\equiv1\pmod{25}$。さらに $57\equiv7\pmod{25}$ かつ $57^2=3249\equiv-1\pmod{125}$ だから、法125の持ち上げは57です。両方の段で「還元」と「4乗根」の条件を確認できました。
+**定義の確認**。 $p=5$、$a=2\bmod5$ を取ります。[IWA2の具体計算](../IWA2/index.md#def-iwa2-teichmueller-lifts)では法25の持ち上げが7でした。実際 $7\equiv2\pmod5$ かつ $7^2=49\equiv-1\pmod{25}$、したがって $7^4\equiv1\pmod{25}$。さらに $57\equiv7\pmod{25}$ かつ $57^2=3249\equiv-1\pmod{125}$ だから、法125の持ち上げは57です。両方の段で「還元」と「4乗根」の条件を確認できました。
 <!-- definition-example-end -->
 
 $\Delta$ は位数 $p-1$ の巡回群です。$\omega$ はその生成元を位数 $p-1$ の根へ送るので、$\omega^0,\ldots,\omega^{p-2}$ がすべて異なる指標になります。ここから類群を分けるための係数を作ります。
@@ -110,7 +110,7 @@ $$
 上の式にある $\delta$ は数ではなく **$M$ への作用素**です。係数 $\omega(\delta)^{-i}$ は $\mathbb Z_p$ に属するので、作用素の和が $M$ に作用します。
 
 <!-- definition-example-start: def-iwa8-character-idempotent -->
-**定義の確認。** $p=3$ では $\Delta=\{1,c\}$ で、$c$ は $-1\bmod3$ に対応します。$\omega(c)=-1$ なので
+**定義の確認**。 $p=3$ では $\Delta=\{1,c\}$ で、$c$ は $-1\bmod3$ に対応します。$\omega(c)=-1$ なので
 
 $$
 e_0=\frac{1+c}{2},\qquad e_1=\frac{1-c}{2}.
@@ -258,7 +258,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa8-parity-parts -->
-**定義の確認。** 直前の $p=5$ の模型で、$c=g^2$ とすると $c(x,y)=(-x,y)$ です。第一座標では $cx=-x$、第二座標では $cy=y$ が実際に成立します。さらに $\frac{1+c}{2}(x,y)=(0,y)$、$\frac{1-c}{2}(x,y)=(x,0)$ です。$2$ の逆元はどちらの剰余環にも存在するので、二つの射影が定義できます。
+**定義の確認**。 直前の $p=5$ の模型で、$c=g^2$ とすると $c(x,y)=(-x,y)$ です。第一座標では $cx=-x$、第二座標では $cy=y$ が実際に成立します。さらに $\frac{1+c}{2}(x,y)=(0,y)$、$\frac{1-c}{2}(x,y)=(x,0)$ です。$2$ の逆元はどちらの剰余環にも存在するので、二つの射影が定義できます。
 <!-- definition-example-end -->
 
 <a id="prop-iwa8-parity-eigenspaces"></a>
