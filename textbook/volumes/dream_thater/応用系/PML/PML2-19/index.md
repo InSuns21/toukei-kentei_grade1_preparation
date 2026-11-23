@@ -108,7 +108,7 @@ $$
 <(1-\lambda)\eta+\lambda\eta=\eta.
 $$
 
-すべての $f$ と $x$ に同じ刻み幅と上界が使える。したがって主張が成り立つ。
+実際には一つ前の三角不等式で $|f(x)-f(s_j)|<3\eta/4$ が一様に成り立つため、補間誤差の上限も $3\eta/4<\eta$ である。すべての $f$ と $x$ に同じ刻み幅と上界が使え、主張が成り立つ。
 <!-- proof-end -->
 
 **具体例。** $K=\{at:0\le a\le1\}$ は二つの端点センサで一次補間が厳密なので、$I_2f=f$。これに対し $t^n$ の族では同じ刻み幅で端点近傍の変化を一律に捉えられない。$K$ の仮定の意味がこの差に現れる。
@@ -148,7 +148,7 @@ $$
 $$
 \|f-g\|_\infty<\delta
 \quad\Longrightarrow\quad
-\|\mathcal Gf-\mathcal Gg\|_\infty<\varepsilon.
+\|\mathcal Gf-\mathcal Gg\|_\infty<\varepsilon/2.
 $$
 
 一様連続性は例えば、これを否定した二列 $f_n,g_n\in K$ で $\|f_n-g_n\|_\infty\to0$ とし、$K$ のコンパクト性で $f_{n_k}\to f\in K$ を選べば、$g_{n_k}\to f$ となり $\mathcal G$ の連続性に矛盾することからも分かる。
@@ -200,18 +200,18 @@ $$
 <\frac{\delta}{8}+\frac{\delta}{2}<\delta.
 $$
 
-したがって (1) の一様連続性を適用でき、$\|\mathcal Ga_i-\mathcal Gf\|_\infty<\varepsilon$。各 $y\in[0,1]$ で
+したがって (1) の一様連続性を適用でき、$\|\mathcal Ga_i-\mathcal Gf\|_\infty<\varepsilon/2$。各 $y\in[0,1]$ で
 
 $$
 \begin{aligned}
 |(\mathcal Df)(y)-(\mathcal Gf)(y)|
 &=\left|\sum_i B_i(S_mf)\big((\mathcal Ga_i)(y)-(\mathcal Gf)(y)\big)\right|\\
 &\le\sum_i B_i(S_mf)\|\mathcal Ga_i-\mathcal Gf\|_\infty
-<\varepsilon\sum_iB_i(S_mf)=\varepsilon.
+<\frac{\varepsilon}{2}\sum_iB_i(S_mf)=\frac{\varepsilon}{2}.
 \end{aligned}
 $$
 
-実際、$\mathcal Df-\mathcal Gf$ の一様ノルムにも同じ上界が成り立つ。$\delta,m,p$ はすべて $f$ に依存せず選んだため、$K$ 上で上限を取って結論を得る。
+実際、$\mathcal Df-\mathcal Gf$ の一様ノルムは $\varepsilon/2$ 以下である。$\delta,m,p$ はすべて $f$ に依存せず選んだので、$K$ 上で上限を取っても $\varepsilon/2<\varepsilon$ が保たれ、結論を得る。
 <!-- proof-end -->
 
 **得られた保証。** コンパクトな入力族と連続作用素を**指定して初めて**、必要に応じてセンサ数とbranch/trunkの複雑さを増やす存在主張が成り立つ。一つの固定センサ数や固定幅で全精度を保証するわけではない。上の $B_i$ は明示的な連続関数であって、有限層ニューラルネットの具体的な重み列ではない。有限次元のニューラルネットへ置き換えるには、branchの関連するコンパクトなセンサ値集合とtrunkの区間上での**別途の近似定理**およびその近似誤差の積の評価が必要である。さらにそれらを学習する最適化の成功は別問題である。
