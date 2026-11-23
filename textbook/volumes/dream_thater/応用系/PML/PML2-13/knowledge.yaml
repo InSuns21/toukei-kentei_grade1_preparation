@@ -1,0 +1,51 @@
+chapter: PML2-13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-12
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-13-midpoint
+    name: 中点collocation配置と経験残差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（中点collocation配置と経験残差）"]
+    requires:
+      - physics-machine-learning.pml2-06-collocation
+      - physics-machine-learning.pml2-12-fill-distance
+  - id: physics-machine-learning.pml2-13-midpoint-bound
+    name: 中点残差から連続残差への評価
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-13-midpoint
+      - physics-machine-learning.pml2-12-lipschitz
+      - physics-machine-learning.pml2-11-energy-error
+  - id: physics-machine-learning.pml2-13-interface
+    name: 分割近似と接合点の導関数ジャンプ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（分割近似と接合点の導関数ジャンプ）"]
+    requires:
+      - physics-machine-learning.pml2-11-continuous-residual
+  - id: physics-machine-learning.pml2-13-interface-bound
+    name: 局所残差と接合ジャンプによる全域誤差評価
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-13-interface
+      - physics-machine-learning.pml2-11-energy-error
+  - id: physics-machine-learning.pml2-13-local-bound
+    name: 局所中点配置による残差上界
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-13-midpoint-bound
+      - physics-machine-learning.pml2-13-interface-bound
+  - id: physics-machine-learning.pml2-13-holdout
+    name: 独立検証残差の分散と確率的上界
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-12-holdout
+      - physics-machine-learning.pml2-11-energy-error
