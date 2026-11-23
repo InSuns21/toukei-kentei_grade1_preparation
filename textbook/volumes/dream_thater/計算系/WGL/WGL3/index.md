@@ -244,22 +244,32 @@ $$
 
 ## 6. JS・GLSLを編集して実行する
 
-<iframe src="simulation/wgl-lab.html?lesson=WGL3" title="WGL3 共有頂点・添字描画・格子とCPU画素検算ラボ" loading="lazy" style="width:100%;height:980px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
+**同じ頂点を6枚の三角形が参照すると、その頂点を動かしたとき何が起こるでしょうか。** このラボでは、実際にGPUへ送った頂点座標と添字列から作ったメッシュを、左右に同時表示します。左は共有頂点を使う `drawElements`、右は頂点を三角形ごとに複製する `drawArrays` です。最初は同じ形が表示されます。
 
-3タブの「コード編集」で `mesh.js`・`mesh.vert`・`mesh.frag` の**実ファイル**を変更できます。「実行結果」で隔離したGPU描画・画素読出し・ログを確認し、再度コードへ戻れます。初期値は `gridSteps=2`、`drawMode='elements'` です。まず初期値を実行し、次に非添字モードに切り替え、同じ画素で一致するか確かめてください。最後に `gridSteps=4` として数値ログを再計算します。シェーダの構文エラー用プリセットも試してください。
+<iframe src="simulation/wgl-lab.html?lesson=WGL3" title="WGL3 左右のGPUメッシュで頂点共有と複製を比較するラボ" loading="lazy" style="width:100%;height:980px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
 
-`mesh.js` の重要な部分は次の構造です。
+「実行（結果へ）」を押すと、まず正方格子の初期画素を確認し、その後、**同じWebGL2コンテキストの頂点バッファを更新**して比較画面に移ります。表示は `gridSteps=2` から始まり、共有頂点9個、三角形8枚、添字24個です。黄色の点が中央の共有頂点、線は実バッファの三角形辺を示します。選択中の1枚は黄色で強調します。三角形を進めると参照番号も変わります。
+
+まず **「共有点 Δx/h」「共有点 Δy/h」** を動かします。ここで $h=1.2/n$ は1セルの幅で、各入力の初期値は $0.30$ と $0.20$、範囲は $[-0.35,0.35]$、刻みは $0.05$、無次元です。例えば $n=2$ の場合、$h=0.6$ なので初期のずれは $(0.18,0.12)$ です。左では頂点表の**1件**の座標を更新するだけで、それを参照するすべての三角形が変形します。右も同じ変更後の座標を各参照へ展開しているため、同じ形です。初期の整列した格子に戻すには「位置を戻す」を押します。
+
+次に **「右の1参照だけ切り離す」** をオンにしてください。右の展開配列では、中央頂点を参照する1枚の三角形の**複製だけ**を左へ $0.12h$、下へ $0.50h$ 動かします。ほかの三角形は元の位置を保つため、右側だけ頂点が分裂し、辺の継ぎ目がずれます。左は依然として**1つの頂点表の値**を複数面で共有しています。これは「展開した頂点列の入力が等しい」という[命題](#prop-wgl3-draw-equivalence)の仮定を右だけ意図的に破った実験です。`drawArrays` 自体に亀裂があるのではなく、複製頂点を別々に編集したためです。
+
+画面下の個数表示では、$n=2$ の頂点表とEBOが $9\times8+24\times2=120$ byte、展開VBOが $24\times8=192$ byteであることも確認できます。**格子の細分化はデータ構造の違いを増幅する**ため、`mesh.js` の `gridSteps` を4へ変えて実行すると、左25頂点・右96参照になります。GUIの点移動は実行中の頂点バッファを更新し、コード編集ではその更新を行う `mesh.js` 自体を変更します。両者は別の計算モデルではありません。
+
+`mesh.js` の `drawMode` は、操作画面に入る前の**初期静止描画**でどちらのVAOを使うかを指定します。初期 `drawMode='elements'` は添字描画、`'arrays'` は展開描画で、実行結果の左右比較はその後どちらの設定でも行います。頂点シェーダ `mesh.vert` は位置属性 `a_position` をクリップ座標へ渡し、`mesh.frag` は両画面の三角形を同じ水色に塗ります。頂点番号・辺・選択面の黄色は実データから重ねた**観察用SVG**であり、GPUの塗りとは区別してください。
+
+ソースの中心となる呼び出しは次の2つです。
 
 ```js
-// VAOに属性0のVBOとEBOを結び付けてから
-gl.bindVertexArray(indexedVao);
+gl.bindVertexArray(indexedVao); // 頂点表＋EBOを持つVAO
 gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT, 0);
-// 代替方式では展開済み配列用の別VAOで
-gl.bindVertexArray(expandedVao);
+gl.bindVertexArray(expandedVao); // 各参照を展開した位置VBOのVAO
 gl.drawArrays(gl.TRIANGLES, 0, indices.length);
 ```
 
-これは構造の比較であり、ラボの実際のコードでは一方だけを選びます。GPU非対応時にはCPUの参照画素値だけ確認できますが、GPU上での同値性は未確認です。編集したソースの正誤を「初期画素と違う」ことだけから判定しないでください。JavaScriptは不透明originの隔離フレームで実行されますが、GPUドライバ停止を完全に防ぐ仕組みではありません。
+初期の独立画素予測とGPUの `readPixels` は「CPU予測とGPU画素の照合」で確認できます。スライダー・切り離し後の画面は**別の形へ更新した後の観察**であり、初期正方形に対する3画素の検査結果と同じ時点ではありません。
+
+設計の参考には [WebGL2 Fundamentals の Indexed Vertices](https://webgl2fundamentals.org/webgl/lessons/webgl-indexed-vertices.html) と [MDN の WebGL 3D objects](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL) を用いました。いずれも頂点表と添字列を分け、位置だけではなく色などの**全頂点属性が一致する場合に限り共有できる**と説明しています。今回の操作では位置2成分だけを属性として使用しています。
 
 ## 7. 演習と詳細解答
 
