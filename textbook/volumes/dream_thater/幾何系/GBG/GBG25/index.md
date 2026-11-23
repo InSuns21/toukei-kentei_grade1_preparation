@@ -383,7 +383,7 @@ $P_f$ の定義に従い、$s_S=s_Ng_{NS}$ と $[x,a]_S\cdot b=[x,ab]_S$ が貼�
 滑らかなホモトピー $H:[0,1]\times S^3\to S^3$ と、正規化体積形式 $\nu$ に対し、$d(H^*\nu)=0$ から $\int_{S^3}h_1^*\nu=\int_{S^3}h_0^*\nu$ を導け。端面の向きの符号を明示せよ。
 
 <!-- solution-start -->
-**詳細解答**。$S^3$ 上には4形式がないので $d\nu=0$。外微分と引戻しが交換することから $d(H^*\nu)=H^*(d\nu)=0$。円筒に $ds$ を先にする積の向きを入れると境界は $\partial([0,1]\times S^3)=\{1\}\times S^3-\{0\}\times S^3$。したがって[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)より
+**詳細解答**。$S^3$ 上には4形式がないので $d\nu=0$。外微分と引戻しが交換することから $d(H^*\nu)=H^*(d\nu)=0$。円筒に $ds$ を先にする積の向きを入れると境界は $\partial([0,1]\times S^3)=\{1\}\times S^3-\{0\}\times S^3$。したがって[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)より
 
 $$
 0=\int_{[0,1]\times S^3}d(H^*\nu)
