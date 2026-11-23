@@ -193,9 +193,9 @@ $$
 
 > を**Clebsch–Gordan係数**と呼ぶ。合成基底は次の式で復元できる。
 
-$
+$$
 |\ell,M\rangle=\sum_{m,n} C^{\ell M}_{jm,kn}|j,m;k,n\rangle.
-$
+$$
 
 > また $m+n\ne M$ なら係数は零となる。各 $\ell$ の最高状態の位相を選ぶと係数が定まる。
 <!-- formal-statement-end -->
