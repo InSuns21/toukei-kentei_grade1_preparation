@@ -80,10 +80,10 @@ const descriptions = Object.freeze({
     source: 'density.js / density.frag'
   }),
   FCG3: Object.freeze({
-    grid: '32×32（2枚のR8格子）',
+    grid: snapshot => (snapshot.gridN || 32)+'×'+(snapshot.gridN || 32)+'（実Float64移流格子・数値/解析2枚のR8テクスチャ）',
     color: '左: 数値染料 q → (q, 0.15, 1−q)。右: 数値と解析の差 5|q−q_exact| を1で上限処理して赤で表示',
     clock: step => '物理step '+step+'、t='+(step/32).toFixed(5)+' s（dt=1/32 s）',
-    mode: '左右の各パネルは同じ32×32計算格子。再生は計算stepを進め、描画フレームとは別',
+    mode: '左右は同じ編集JSのN×N実計算を最近傍表示。物理dt=1/32秒と描画フレームは別で、格子数を変えても同じ物理時刻を比較する',
     source: 'advection.js / advection.frag'
   }),
   FCG4: Object.freeze({

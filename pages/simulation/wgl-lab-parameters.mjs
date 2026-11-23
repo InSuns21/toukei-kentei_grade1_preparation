@@ -148,10 +148,17 @@ export const LAB_PARAMETERS = Object.freeze({
   FCG3: Object.freeze([Object.freeze({
     id: 'radius', type: 'number', label: '初期染料の半径', default: 0.14,
     min: 0.08, max: 0.3, step: 0.01, unit: '領域幅を1とする無次元座標',
-    meaning: '染料の初期分布の半径（32×32計算格子は変更しない）',
+    meaning: '実計算N×N格子の初期染料半径。格子数と物理stepを固定したときの染料輪郭を比較',
     sourceLocation: 'advection.js / const at の後の radius → initial()',
     sourceFile: 'js', index: null,
     matcher: /^([ \t]*const at=i=>[^\n]*?,[ \t]*radius[ \t]*=[ \t]*)([^;\n]+)(;)/gm
+  }),Object.freeze({
+    id: 'grid', type: 'integer', label: '実移流格子 N×N', default: 32,
+    min: 32, max: 96, step: 32, unit: 'セル/辺',
+    meaning: '32・64・96で同じ編集JSの半Lagrange移流とR8テクスチャを再計算。物理刻みdt=1/32 s・初期半径は保持し、表示画素とは区別',
+    sourceLocation: 'advection.js / const N → at、sample、Float64配列、R8テクスチャ。advection.frag は textureSize を参照',
+    sourceFile: 'js', index: null,
+    matcher: /^([ \t]*const N=)([^,\n]+)(,[ \t]*dt=1\/32,[ \t]*omega=2\*Math\.PI;)/gm
   })])
 });
 
@@ -248,6 +255,27 @@ export function verifiedFCG5Physics(js,vertex,fragment,defaults) {
   };
 }
 
+
+// Only known scalar/grid source edits may pass the independent FCG3 GPU oracle.
+const FCG3_VERIFIED_PARAMETER_IDS=Object.freeze(['radius','grid']);
+export function verifiedFCG3Physics(js,vertex,fragment,defaults) {
+  if(typeof js!=='string'||vertex!==defaults?.vertex||fragment!==defaults?.fragment)
+    return null;
+  const specs=parametersFor('FCG3');
+  if(specs.length!==FCG3_VERIFIED_PARAMETER_IDS.length||
+     specs.some((spec,i)=>spec.id!==FCG3_VERIFIED_PARAMETER_IDS[i]))return null;
+  const readings=specs.map(spec=>readLabParameter(js,spec));
+  if(!readings.every(state=>state.ok))return null;
+  try{
+    let canonical=js,baseline=defaults.js;
+    for(const spec of specs){
+      canonical=writeLabParameter(canonical,spec,spec.default);
+      baseline=writeLabParameter(baseline,spec,spec.default);
+    }
+    if(canonical!==baseline)return null;
+  }catch{return null;}
+  return {radius:readings[0].value,N:readings[1].value};
+}
 
 export const FCG5_OBSERVATION_PRESETS = Object.freeze([
   Object.freeze({id:'baseline',label:'基準：渦と染料',nu:0.002,force:0.08}),

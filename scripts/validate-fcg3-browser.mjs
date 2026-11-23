@@ -112,6 +112,25 @@ try {
   assert.equal(await evaluate('document.querySelectorAll("#results-table tbody tr").length'),6);
   console.log('FCG3 physical time step and GPU readback: PASS');
 
+  // R3: each GUI grid setting rewrites the actual edited JS, and its R8 GPU
+  // samples must match a separately recomputed CPU grid at the same step/time.
+  await click('tab-conditions');
+  assert.equal(await evaluate('document.getElementById("parameter-grid").value'),'32');
+  const gridReadbacks=[];
+  for(const N of [64,96,32]){
+    await evaluate('(()=>{const e=document.getElementById("parameter-grid");e.value='+JSON.stringify(N)+';e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));})()');
+    await waitFor('document.getElementById("fcg3-cpu-prediction")?.textContent.includes("'+N+'×'+N+'") && document.querySelector("#status")?.textContent.includes("独立") && document.querySelectorAll("#results-table tbody tr").length===6',25000);
+    const actual=await evaluate('({source:document.getElementById("js-source").value,rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(c=>c.textContent)),info:document.querySelector("#scene-info").textContent,status:document.querySelector("#status").textContent})');
+    assert.match(actual.source,new RegExp('const N='+N+', dt=1/32'));
+    assert.match(actual.info,new RegExp(N+'×'+N));
+    assert.ok(actual.rows.every(row=>row[4]==='OK'),JSON.stringify({N,rows:actual.rows}));
+    assert.match(actual.status,/独立.*画素検算に合格/);
+    gridReadbacks.push(actual.rows.map(row=>row[2]).join('|'));
+    console.log('FCG3 real '+N+'×'+N+' edited grid, independent CPU/R8 GPU 6 pixels: PASS');
+  }
+  assert.notEqual(gridReadbacks[0],gridReadbacks[1],
+    'N64 and N96 readbacks must represent different physical grid samples');
+
   await click('tab-code');
   const modified=await evaluate('(()=>{const e=document.querySelector("#fragment-source");e.value=e.value.replace("if(left)outColor=vec4(q,0.15,1.0-q,1.0);","if(left)outColor=vec4(0.0,q,0.0,1.0);");e.dispatchEvent(new Event("input",{bubbles:true}));return e.value.includes("vec4(0.0,q,0.0,1.0)")})()');
   assert.ok(modified,'shader edit not applied');
@@ -134,9 +153,9 @@ try {
   assert.equal(await evaluate('document.getElementById("parameter-radius")?.disabled'),false);
   await evaluate('(()=>{const e=document.getElementById("parameter-radius");e.value="0.24";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));})()');
   assert.equal(await evaluate('document.getElementById("js-source").value.includes("radius=0.24;")'),true);
-  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',25000);
+  await waitFor('document.getElementById("status")?.textContent.includes("FCG3 編集格子・染料半径の独立CPU初期画素検算に合格")',25000);
   assert.equal(await evaluate('document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")'),'allow-scripts');
-  assert.match(await evaluate('document.getElementById("numeric-summary").textContent'),/編集版/);
+  assert.match(await evaluate('document.getElementById("numeric-summary").textContent'),/変更格子の独立CPU初期画素/);
   await click('save');
   assert.match(await evaluate('document.getElementById("save-status").textContent'),/保存しました/);
   await cdp('Page.navigate',{url});

@@ -1,3 +1,4 @@
+import './fcg3-grid-resolution.test.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
@@ -99,4 +100,25 @@ test('FCG3 actual editable JS/GLSL, independent oracle and safe lab contract',as
   assert.equal((md.match(/- Level: B/g)||[]).length,3);
   assert.equal((md.match(/- Level: C/g)||[]).length,1);
   assert.equal((md.match(/<!-- solution-start -->/g)||[]).length,8);
+});
+
+
+test('FCG3 CPU oracle and pixel prediction follow the selected 32/64/96 grid and radius',()=>{
+  for(const N of [32,64,96]){
+    for(const radius of [0.14,0.24]){
+      const m0=fcg3Metrics(0,N,radius),m32=fcg3Metrics(32,N,radius);
+      assert.equal(fcg3Grid(16,N,radius).length,N*N);
+      assert.ok(m0.mass>0&&m32.mass>0&&m32.l1>=0);
+      for(const [w,h] of [[1024,512],[320,240],[64,64]]){
+        const p=expectedFCG3Samples(w,h,16,N,radius);
+        assert.equal(p.length,6);
+        assert.ok(p.every(s=>s.x>=0&&s.y>=0&&s.x<w&&s.y<h));
+        const got=p.map(({x,y,rgba})=>({x,y,rgba:[...rgba]}));
+        assert.ok(compareFCG3Readback(got,w,h,16,2,N,radius).every(s=>s.pass));
+      }
+    }
+    assert.equal(fcg3PixelCell(1023,511,1024,512,N).i,N-1);
+  }
+  assert.throws(()=>fcg3Grid(1,129),RangeError);
+  assert.throws(()=>fcg3Initial(.5,.5,-.1),RangeError);
 });
