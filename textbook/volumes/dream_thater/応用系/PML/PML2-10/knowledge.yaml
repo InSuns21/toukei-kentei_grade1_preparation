@@ -1,0 +1,54 @@
+chapter: PML2-10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-09
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-10-training-outcome
+    name: 有限予算での学習達成と未達成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限予算での学習達成と未達成）"]
+    requires:
+      - physics-machine-learning.pml2-06-composite-loss
+  - id: physics-machine-learning.pml2-10-two-mode-trial
+    name: Poisson問題の二モード試行族と正規化残差損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Poisson問題の二モード試行族と正規化残差損失）"]
+    requires:
+      - physics-machine-learning.pml2-06-strong-residual
+      - physics-machine-learning.pml2-08-hard-trial
+  - id: physics-machine-learning.pml2-10-frequency-stiffness
+    name: 二モード残差損失の条件数と固定学習率
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-10-two-mode-trial
+      - physics-machine-learning.pml2-09-curvature-step
+  - id: physics-machine-learning.pml2-10-representation-barrier
+    name: 低周波一モード族の表現限界
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-10-two-mode-trial
+  - id: physics-machine-learning.pml2-10-initialization-stall
+    name: 平方パラメータによる非最適停留点
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-07-loss-gradient
+  - id: physics-machine-learning.pml2-10-preconditioned-update
+    name: 二モード損失の対角前処理付き更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二モード損失の対角前処理付き更新）"]
+    requires:
+      - physics-machine-learning.pml2-10-frequency-stiffness
+  - id: physics-machine-learning.pml2-10-preconditioned-convergence
+    name: 対角前処理による周波数非依存の安定範囲
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-10-preconditioned-update
