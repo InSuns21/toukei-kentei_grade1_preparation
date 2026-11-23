@@ -374,6 +374,12 @@ test('FCG5 dye injection changes the real 48x48 R8 texture under source-linked b
 test('FCG5 host uses edited conditions in CPU preview, verified pixel oracle and click probe',async()=>{
   const host=await readFile(new URL('./wgl-lab-host.mjs',import.meta.url),'utf8');
   assert.match(host,/function fcg5PhysicsFor\(/);
+  const fcg5Section=host.indexOf("document.title='FCG5 流体・染料更新");
+  const fcg5End=host.indexOf('if (isFCG4) {',fcg5Section);
+  const markerCallback=host.indexOf('refreshFcg5StepMarker=mark;');
+  assert.ok(fcg5Section>=0 && markerCallback>fcg5Section &&
+    markerCallback<fcg5End, 'the marker callback must belong to FCG5, not FCG7');
+
   assert.match(host,/fcg5State\(fcg5Steps,fcg5Physics\|\|\{\}\)/);
   assert.match(host,/expectedFCG5Samples\(payload\.width,payload\.height,fcg5Steps,fcg5Physics\|\|\{\}\)/);
   assert.match(host,/fcg5State\(steps,fcg5Physics\)/);
