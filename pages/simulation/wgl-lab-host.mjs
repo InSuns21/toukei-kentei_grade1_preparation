@@ -126,6 +126,7 @@ let fcg4Steps = 128;
 let fcg4Timer = null;
 let fcg5Steps = 8;
 let fcg5Timer = null;
+let refreshFcg5StepMarker = () => {};
 let forwardFcg5MotionPreference = () => {};
 let fcg6Steps = 8;
 let fcg6Timer = null;
@@ -292,6 +293,7 @@ function setSources(record) {
   }
   refreshSourceHighlights();
   refreshParameterControls();
+  refreshFcg5StepMarker();
 }
 refreshParameterControls = mountLabParameters(lesson, byId('lab-parameters'), {
   getSource: () => inputs.js.value,
@@ -299,11 +301,13 @@ refreshParameterControls = mountLabParameters(lesson, byId('lab-parameters'), {
     inputs.js.value = value;
     refreshSourceHighlights();
     refreshParameterControls();
+    refreshFcg5StepMarker();
   },
   rerun: () => run(),
   isReady: () => ready
 });
 inputs.js.addEventListener('input', refreshParameterControls);
+inputs.js.addEventListener('input', () => refreshFcg5StepMarker());
 
 async function load() {
   try {
@@ -1490,6 +1494,7 @@ if (isFCG7) {
   back.addEventListener('click',()=>{pausePlay();fcg7Steps=0;mark();run();});
   byId('reset').addEventListener('click',mark);
   byId('stop').addEventListener('click',mark);
+  refreshFcg5StepMarker=mark;
   mark();
 }
 if (isFCG6) {
