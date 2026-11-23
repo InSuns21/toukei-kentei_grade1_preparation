@@ -6,7 +6,7 @@
 
 本講では区間 $(0,1)$ の零Dirichlet Poisson問題を一貫して考える。以下のプライム $u'$、$u''$ は空間変数 $x$ に関する一階・二階微分であり、滑らかな関数では $du/dx$、$d^2u/dx^2$ と同じ意味になる。弱解では必要に応じて弱微分として解釈する。
 
-$
+$$
 -u''=f\quad (0<x<1),\qquad u(0)=u(1)=0.
 $$
 
@@ -163,14 +163,6 @@ $$
 
 $H_0^1(0,1)$ は[区間上の零トレース条件](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-h01-trace-kernel-interval)により、両端で零となり一階弱微分が二乗可積分な関数の空間であり、$\|\varphi'\|_2$ はこの空間上のノルムである。試験関数 $\varphi$ ごとに実数を割り当て、$\varphi$ に関して線形な写像を**線形汎関数**という。ずれを表す線形汎関数を、試験関数のノルムで割って上限を取ることで、その大きさを測る。
 
-実際、[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)と[Poincaré評価](../PML2-01/index.md#thm-pml2-01-energy)から、後で定義する $R_v$ は任意の $\varphi\in H_0^1$ に対して
-
-$
-|R_v(\varphi)|\le\bigl(\|v'\|_2+C_P\|f\|_2\bigr)\|\varphi'\|_2
-$
-
-を満たす。これは分母 $\|\varphi'\|_2$ が正のとき、比の上限が有限であることも保証する。
-
 <a id="def-pml2-11-weak-defect"></a>
 
 <!-- formal-statement-start -->
@@ -190,6 +182,18 @@ $$
 
 > ここで $\|\cdot\|_{-1}$ は、分母に一階微分の $L^2$ ノルムを用いた双対ノルムを表す。この定義には $v''$ は必要ない。
 <!-- formal-statement-end -->
+
+この $R_v$ は、[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)と[Poincaré評価](../PML2-01/index.md#thm-pml2-01-energy)により、任意の $\varphi\in H_0^1(0,1)$ に対して
+
+$$
+\begin{aligned}
+|R_v(\varphi)|
+&\le \|v'\|_2\|\varphi'\|_2+\|f\|_2\|\varphi\|_2\\
+&\le\bigl(\|v'\|_2+C_P\|f\|_2\bigr)\|\varphi'\|_2
+\end{aligned}
+$$
+
+を満たす。よって $\|R_v\|_{-1}$ は有限で、全試験関数に対する上限を意味する。
 
 <!-- definition-example-start: def-pml2-11-weak-defect -->
 **定義の確認**。 $f=0\in L^2$、$v(x)=x(1-x)$、$\varphi(x)=x(1-x)$ とする。$v,\varphi$ は一階微分が $L^2$ に属する多項式で、端点値が零なので[区間上の零トレース条件](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-h01-trace-kernel-interval)からともに $H_0^1$ に属する。従って
