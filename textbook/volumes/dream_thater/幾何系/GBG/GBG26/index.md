@@ -57,7 +57,7 @@ $$
 となり、局所表示によらないことを直接確認できる。後で $P_Q$ に対して $k=1$ を計算する。
 <!-- definition-example-end -->
 
-[GBG22の接続非依存性](../GBG22/index.md#cor-gbg22-class-independence)は同じ束の二接続について $c_2(A_1)-c_2(A_0)=dT$ を保証する。閉多様体では [Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)によって $\int_MdT=0$ だから $k(P,A)$ は接続に依存せず、以後 $k(P)$ と書く。ただし境界のある多様体では $\int_MdT=\int_{\partial M}T$ が残るので、この結論をそのまま流用しない。
+[GBG22の接続非依存性](../GBG22/index.md#cor-gbg22-class-independence)は同じ束の二接続について $c_2(A_1)-c_2(A_0)=dT$ を保証する。閉多様体では [一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)によって $\int_MdT=0$ だから $k(P,A)$ は接続に依存せず、以後 $k(P)$ と書く。ただし境界のある多様体では $\int_MdT=\int_{\partial M}T$ が残るので、この結論をそのまま流用しない。
 
 ## 2. 局所的な純ゲージとその曲率
 
