@@ -526,7 +526,21 @@ $$
 閉4多様体上の自明 $SU(2)$ 束について $k=0$ を用い、$F\ne0$ の接続の作用が零になれないことを示せ。一方、$k=0$ から $F=0$ とは言えない理由を論証せよ。
 
 <!-- solution-start -->
-**詳細解答**。自明束には大域接続 $A=0$ があり、[第二Chern数の接続非依存性](../GBG22/index.md#cor-gbg22-class-independence)から任意の接続で $k=0$。平方完成と $k=0$ から **二つのノルムが等しい** $u=v$、従って $\operatorname{YM}=2u=2v$ となる。$F\ne0$ が滑らかならどこかで $|F|^2>0$ だから $\operatorname{YM}=\int|F|^2\operatorname{vol}>0$。$k=0$ は二つの非負量の差が零というだけで、個々の量が零とは限らない。[GBG26の自明束上の非平坦接続例](../GBG26/index.md#ex-gbg26-b04)も、この区別を示している。
+**詳細解答**。自明束には大域接続 $A=0$ がある。[第二Chern数の接続非依存性](../GBG22/index.md#cor-gbg22-class-independence)から、同じ束の任意の接続で $k=0$ となる。
+
+平方完成から非負量 $u=\|F^+\|_{L^2}^2$、$v=\|F^-\|_{L^2}^2$ を取ると、
+
+$
+8\pi^2k=-u+v=0,\qquad \operatorname{YM}=u+v=2u=2v.
+$
+
+曲率がどこかで非零なら、滑らかな非負関数 $|F|^2$ が開集合上で正となる。したがって
+
+$
+\operatorname{YM}=\int_M|F|^2\operatorname{vol}_g>0.
+$
+
+$k=0$ が意味するのは $u=v$ だけであって、$u=v=0$ ではない。[GBG26の自明束上の非平坦接続例](../GBG26/index.md#ex-gbg26-b04)がこの区別を具体的に示す。
 <!-- solution-end -->
 
 ### Level C：曲率・位相・作用・方程式を統合する
