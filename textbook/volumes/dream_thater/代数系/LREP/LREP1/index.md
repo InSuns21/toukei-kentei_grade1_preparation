@@ -18,15 +18,15 @@
 >
 > $G$ を群、$V$ を有限次元複素ベクトル空間とする。写像
 >
-> $$
-> D:G\longrightarrow GL(V)
-> $$
+$$
+D:G\longrightarrow GL(V)
+$$
 >
 > がすべての $g,h\in G$ について
 >
-> $$
-> D(e)=I_V,\qquad D(gh)=D(g)D(h)
-> $$
+$$
+D(e)=I_V,\qquad D(gh)=D(g)D(h)
+$$
 >
 > を満たすとき、$(V,D)$ を $G$ の **有限次元複素線形表現**という。$\dim_{\mathbb C}V$ を表現の次元（次数）という。
 <!-- formal-statement-end -->
@@ -42,13 +42,13 @@ $$
 と分かります。「群準同型」の意味は [GRP2の定義](../../GRP/GRP2/index.md#def-grp2-homomorphism)と一致します。なお、$G$ がLie群で **滑らかなLie群表現**を扱う場合には、上の群準同型に加えて $D:G\to GL(V)$ の滑らかさも要求します。本講の抽象群についての命題は滑らかさを仮定しません。
 
 <!-- definition-example-start: def-lrep1-linear-representation -->
-**定義の確認：自明表現。** 任意の群 $G$ と $V=\mathbb C^2$ に対し、各元を
+**定義の確認**：自明表現。 任意の群 $G$ と $V=\mathbb C^2$ に対し、各元を
 $$
 D(g)=I_2=\begin{pmatrix}1&0\\0&1\end{pmatrix}
 $$
 へ送ります。任意の $g,h$ について $D(gh)=I_2=I_2I_2=D(g)D(h)$、単位元の像も $I_2$ なので表現です。すべてのベクトルを固定する点に注意します。
 
-**定義の確認：標準表現。** $G=GL_2(\mathbb C)$、$V=\mathbb C^2$ とし $D(A)v=Av$ と置きます。$D(I_2)=I_2$ で、行列の結合律から
+**定義の確認**：標準表現。 $G=GL_2(\mathbb C)$、$V=\mathbb C^2$ とし $D(A)v=Av$ と置きます。$D(I_2)=I_2$ で、行列の結合律から
 $$
 D(AB)v=(AB)v=A(Bv)=D(A)D(B)v
 $$
@@ -61,9 +61,9 @@ $$
 >
 > 群 $G$ と有限次元複素ベクトル空間 $V$ に対し、$G$ の線形表現 $D:G\to GL(V)$ と、各 $g\in G$ が複素線形に作用する $G$ の $V$ 上の左群作用とは一対一に対応する。対応は
 >
-> $$
-> g\cdot v=D(g)v
-> $$
+$$
+g\cdot v=D(g)v
+$$
 >
 > で与えられる。
 <!-- formal-statement-end -->
@@ -103,15 +103,15 @@ $V=\mathbb C$ の場合、可逆な複素線形写像は非零の複素数を掛
 >
 > 群 $G$ から非零複素数の乗法群への準同型
 >
-> $$
-> \chi:G\longrightarrow\mathbb C^\times
-> $$
+$$
+\chi:G\longrightarrow\mathbb C^\times
+$$
 >
 > を **1次元指標**という。このとき $V=\mathbb C$ で $D(g)z=\chi(g)z$ は1次元表現である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep1-character -->
-**定義の確認。** 位数3の巡回群 $C_3=\langle r:r^3=e\rangle$ を取り、$\omega=e^{2\pi i/3}$ とします。$\chi(r^k)=\omega^k$（$k$ は法3）と定めると、$\omega^3=1$ なので代表元 $k$ の選び方に依存しません。さらに
+**定義の確認**。 位数3の巡回群 $C_3=\langle r:r^3=e\rangle$ を取り、$\omega=e^{2\pi i/3}$ とします。$\chi(r^k)=\omega^k$（$k$ は法3）と定めると、$\omega^3=1$ なので代表元 $k$ の選び方に依存しません。さらに
 $$
 \chi(r^{a+b})=\omega^{a+b}=\omega^a\omega^b
 =\chi(r^a)\chi(r^b),\qquad \chi(e)=1.
@@ -131,9 +131,9 @@ $V$ の部分空間 $W$ を取り、その中のベクトルへ $D(g)$ を作用
 >
 > 群 $G$ の有限次元複素線形表現 $(V,D)$ に対し、複素線形部分空間 $W\subseteq V$ が
 >
-> $$
-> D(g)W\subseteq W\qquad(g\in G)
-> $$
+$$
+D(g)W\subseteq W\qquad(g\in G)
+$$
 >
 > を満たすとき、$W$ を **不変部分空間**という。$W$ 上への制限 $D_W(g)=D(g)|_W$ を $W$ の **部分表現**という。
 <!-- formal-statement-end -->
@@ -145,7 +145,7 @@ $$
 したがって $D(g)W=W$ が得られます。つまり各 $D(g)$ の $W$ への制限は可逆です。
 
 <!-- definition-example-start: def-lrep1-invariant-subrepresentation -->
-**定義の確認。** $C_2=\{e,s\}$、$V=\mathbb C^2$ とし
+**定義の確認**。 $C_2=\{e,s\}$、$V=\mathbb C^2$ とし
 $$
 D(e)=I_2,\qquad D(s)=
 \begin{pmatrix}1&0\\0&-1\end{pmatrix}.
@@ -189,7 +189,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep1-irreducible -->
-**定義の確認。** すべての1次元表現は既約です。$\mathbb C$ の複素線形部分空間は $\{0\}$ と $\mathbb C$ しかないためです。一方、第3節の $C_2$ の対角行列表現は $0\ne W_+\ne\mathbb C^2$ が不変なので可約です。
+**定義の確認**。 すべての1次元表現は既約です。$\mathbb C$ の複素線形部分空間は $\{0\}$ と $\mathbb C$ しかないためです。一方、第3節の $C_2$ の対角行列表現は $0\ne W_+\ne\mathbb C^2$ が不変なので可約です。
 
 ここで「ある行列が対角化できる」ことと「群のすべての元に共通の不変部分空間がある」ことを混同してはいけません。既約性は **全ての $g\in G$** について判定します。
 <!-- definition-example-end -->
@@ -229,10 +229,10 @@ $$
 >
 > $G=(\mathbb C,+)$、$V=\mathbb C^2$ として
 >
-> $$
-> D(t)=\begin{pmatrix}1&t\\0&1\end{pmatrix}
-> \qquad(t\in\mathbb C)
-> $$
+$$
+D(t)=\begin{pmatrix}1&t\\0&1\end{pmatrix}
+\qquad(t\in\mathbb C)
+$$
 >
 > と定める。$D$ は群 $G$ の滑らかな二次元表現で、$W=\mathbb Ce_1$ は不変である。しかし $V=W\oplus U$ を満たす **不変部分空間** $U$ は存在しない。
 <!-- formal-statement-end -->
@@ -277,15 +277,15 @@ $$
 >
 > 同じ群 $G$ の有限次元複素線形表現 $(V,D)$ と $(V',D')$ に対し、複素線形写像 $T:V\to V'$ が
 >
-> $$
-> T D(g)=D'(g)T\qquad(g\in G)
-> $$
+$$
+T D(g)=D'(g)T\qquad(g\in G)
+$$
 >
 > を満たすとき、$T$ を **絡作用素**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep1-intertwiner -->
-**定義の確認。** 第5節の $V=\mathbb C^2$ の表現 $D(t)$ から、$\mathbb C$ 上の自明表現 $D'(t)=1$ への写像
+**定義の確認**。 第5節の $V=\mathbb C^2$ の表現 $D(t)$ から、$\mathbb C$ 上の自明表現 $D'(t)=1$ への写像
 $$
 T(x,y)=y
 $$
@@ -339,7 +339,7 @@ $$
 となります。次元が同じで、どちらかの基底に合わせてこの式を書いたものが行列の相似変換です。
 
 <!-- definition-example-start: def-lrep1-equivalence -->
-**定義の確認：基底変更。** 第3節の $C_2$ 表現 $D(s)=\operatorname{diag}(1,-1)$ を考えます。
+**定義の確認**：基底変更。 第3節の $C_2$ 表現 $D(s)=\operatorname{diag}(1,-1)$ を考えます。
 $$
 P=\begin{pmatrix}1&1\\1&-1\end{pmatrix},
 \qquad P^{-1}=\tfrac12P,
