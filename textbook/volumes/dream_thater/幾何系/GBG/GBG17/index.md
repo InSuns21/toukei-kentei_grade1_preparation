@@ -31,7 +31,25 @@ $$
 \end{aligned}
 $$
 
-よって群元そのものは一般に不変ではない。代わりに、[滑らかな線形表現](../GBG4/index.md#def-gbg4-representation) $\rho:G\to GL(V)$ を選ぶ。ここでは $V$ を有限次元**複素**ベクトル空間とし、$\dim_{\mathbb C}V=N$ とする。表現は群の積を線形同型の合成に保つので、$\rho(k^{-1}hk)=\rho(k)^{-1}\rho(h)\rho(k)$ が成り立つ。$V$ の任意の基底を選ぶと各 $\rho(g)$ は $N\times N$ 複素可逆行列で表示でき、そのトレースは対角成分の和 $\operatorname{tr}B=\sum_{j=1}^N B_{jj}$ である。基底変更でも表示行列は共役になるため、以下で示すトレースの共役不変性により値は基底に依存しない。
+よって群元そのものは一般に不変ではない。代わりに、[滑らかな線形表現](../GBG4/index.md#def-gbg4-representation) を選ぶ。表現空間は有限次元**複素**ベクトル空間とする。
+
+$
+\rho:G\to GL(V),\qquad \dim_{\mathbb C}V=N.
+$
+
+表現は群の積を線形同型の合成に保つ。したがって基準点変更に対応する共役は、表現の下で
+
+$
+\rho(k^{-1}hk)=\rho(k)^{-1}\rho(h)\rho(k)
+$
+
+となる。$V$ の任意の基底を選ぶと、各 $\rho(g)$ は $N\times N$ 複素可逆行列で表示できる。そのトレースは対角成分の和
+
+$
+\operatorname{tr}B=\sum_{j=1}^N B_{jj}
+$
+
+である。基底変更でも表示行列は共役になるため、以下で示すトレースの共役不変性により値は基底に依存しない。
 
 <a id="def-gbg17-wilson-loop"></a>
 
@@ -385,7 +403,13 @@ $$
 a(t):=\rho_*\bigl(A_{\gamma(t)}(\dot\gamma(t))\bigr).
 $$
 
-ここで $t$ は曲線のパラメータで、点は $\gamma(t)$、速度は $d\gamma/dt$、$a(t)$ は $V$ 上の線形作用素の行列表示である。主束輸送 $U_G(t)$ に表現を作用させた $U(t)=\rho(U_G(t))$ を $t$ で微分すると、表現の微分の連鎖律により $\dot U=-a(t)U$ となる（[GBG14 の結合束輸送と共変微分](../GBG14/index.md#thm-gbg14-associated-covariant)）。従って[経路順序指数](../GBG14/index.md#prop-gbg14-dyson-series)の微分方程式は
+ここで $t$ は曲線のパラメータであり、$a(t)$ は $V$ 上の線形作用素の行列表示である。主束の輸送行列を $U_G(t)$ とし、表現を作用させた行列を
+
+$
+U(t):=\rho(U_G(t))
+$
+
+と置く。この行列を $t$ で微分すると、[GBG14 の結合束輸送と共変微分](../GBG14/index.md#thm-gbg14-associated-covariant)で証明した表現の微分の連鎖律から、[経路順序指数](../GBG14/index.md#prop-gbg14-dyson-series)の微分方程式は
 
 $$
 \dot U(t)=-a(t)U(t),\qquad U(0)=I.
