@@ -22,6 +22,8 @@ $$
 
 観測履歴を $Y_k=(y_1,\ldots,y_k)$ と書く。$Y_0$ は観測なしを表す。予測した分布 $x_k\mid Y_{k-1}$ と、更新後の分布 $x_k\mid Y_k$ を明確に区別する。
 
+**TSA6の記法との対応。** [TSA6の予測分布とフィルタ分布](../../../解析系/TSA/TSA6/index.md#def-tsa6-prediction-filtering)は、時刻 $t$ の単時刻観測を $Y_t$、時刻 $t$ までの観測が生成する情報を $\mathcal Y_t$ と表す。本講では単時刻観測を小文字 $y_k$、履歴全体を大文字 $Y_k$ と書くため、$k=t$ と対応させれば、本講の $x_k\mid Y_{k-1}$、$x_k\mid Y_k$ はそれぞれ TSA6 の $X_t\mid\mathcal Y_{t-1}$、$X_t\mid\mathcal Y_t$ に相当する。また、TSA6 の予測平均・共分散 $(a_t,P_t)$ とフィルタ平均・共分散 $(m_t,C_t)$ を、本講では順に $(m_k^-,P_k^-)$ と $(m_k^+,P_k^+)$ と書く。上付きの $-$ と $+$ はそれぞれ**その時刻の観測前・観測後**を示し、負号・正号や微分を意味しない。
+
 <a id="def-pml2-24-filtering"></a>
 
 <!-- formal-statement-start -->
@@ -39,7 +41,31 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-24-filtering -->
-**定義の確認**。 $d=p_k=1$、$F_k=H_k=1$、$Q_k=0$ なら、状態は $x_k=x_0$ のまま変化しない。それでも時刻 $1$ に届く $y_1$ を見る前には $x_1\mid Y_0$、見た後には $x_1\mid Y_1$ を用いる。時刻 $2$ の予測は $Y_1$ を使い、二回目の観測後は $Y_2$ を使う。状態が静止していても、利用できる情報が増えるという定義の差が実際に生じる。
+**定義の確認。** $d=p_1=p_2=1$、$F_1=F_2=H_1=H_2=1$、$Q_1=Q_2=0$、$R_1=R_2=1$ とする。初期状態 $x_0\sim\mathcal N(0,1)$ と、互いにかつ $x_0$ と独立な観測雑音 $v_1,v_2\sim\mathcal N(0,1)$ を取る。状態方程式は $x_1=x_2=x_0$、観測方程式は $y_i=x_0+v_i$ となる。共分散 $Q_i=0$ は半正定値、$R_i=1$ は正定値で、定義に先立つ模型の独立性も満たす。
+
+観測値 $y_1=2,y_2=0$ を得た場合を、[TSA6のKalman予測・更新再帰](../../../解析系/TSA/TSA6/index.md#thm-tsa6-kalman-recursion)で直接計算する。ここでは $H_i=1$ なので、観測残差 $z_i=y_i-m_i^-$、その分散 $S_i=P_i^-+1$、観測値による修正係数 $K_i=P_i^-/S_i$ となる。第1時刻の予測と更新は
+
+$
+\begin{aligned}
+(m_1^-,P_1^-)&=(0,1),&
+z_1&=2,&S_1&=2,&K_1&=\frac12,\\
+m_1^+&=0+\frac12\cdot2=1,&
+P_1^+&=1-\left(\frac12\right)^2 2=\frac12.
+\end{aligned}
+$
+
+第2時刻では $Q_2=0$ なので予測が前回の更新結果と同じになり、そのうえで新しい観測を取り込む。
+
+$
+\begin{aligned}
+(m_2^-,P_2^-)&=(1,\tfrac12),&
+z_2&=-1,&S_2&=\frac32,&K_2&=\frac13,\\
+m_2^+&=1+\frac13(-1)=\frac23,&
+P_2^+&=\frac12-\left(\frac13\right)^2\frac32=\frac13.
+\end{aligned}
+$
+
+従って $x_1\mid Y_0\sim\mathcal N(0,1)$ から、$Y_1=(2)$ を得ると $x_1\mid Y_1\sim\mathcal N(1,1/2)$ へ変わる。$Y_1$ だけを使う第2時刻の予測は $\mathcal N(1,1/2)$ であり、$Y_2=(2,0)$ を得た後は $x_2\mid Y_2\sim\mathcal N(2/3,1/3)$ となる。このように状態そのものは静止していても、利用する情報が $Y_0\to Y_1\to Y_2$ と増えるにつれて条件付き分布を更新する。これが定義の反復操作である。
 <!-- definition-example-end -->
 
 「一括逆問題」は、観測を集めた後で一度に未知量を推定する設定である。逐次同化と対立する数学的原理というわけではない。同じ確率モデルに基づけば、逐次更新と一括推定は後で示す条件の下で**最終時刻の条件付き分布が一致する**。違いは情報を受け取り、計算する順序と、途中時刻の状態を必要とするかどうかである。
@@ -193,7 +219,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（静的線形Gaussianモデルの一括推定と逐次更新の同値性）**  
-> $x\sim\mathcal N(m_0,P_0)$、$P_0$ は対称正定値とする。$i=1,\ldots,n$ で $y_i=H_ix+v_i$、$v_i\sim\mathcal N(0,R_i)$、$R_i$ は対称正定値、すべての雑音と $x$ は互いに独立とする。各観測に対し前節のKalman更新を逐次施した最終分布は、一括で全観測を条件付けた正規分布と一致する。その共分散 $P$ と平均 $m$ は
+> 整数 $d,n\ge1$ に対して、未知状態 $x\in\mathbb R^d$ は $x\sim\mathcal N(m_0,P_0)$ に従い、$P_0\in\mathbb R^{d\times d}$ は対称正定値とする。各 $i=1,\ldots,n$ で $p_i\ge1$、$H_i\in\mathbb R^{p_i\times d}$、$y_i,v_i\in\mathbb R^{p_i}$ とし、$y_i=H_ix+v_i$、$v_i\sim\mathcal N(0,R_i)$、$R_i\in\mathbb R^{p_i\times p_i}$ は対称正定値、すべての雑音と $x$ は互いに独立とする。各観測に対し第4節のKalman更新を逐次施した最終分布は、一括で全観測を条件付けた正規分布と一致する。その共分散 $P$ と平均 $m$ は
 
 $$
 P=\left(P_0^{-1}+\sum_{i=1}^nH_i^TR_i^{-1}H_i\right)^{-1},
@@ -269,7 +295,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（正規化したイノベーションの二乗平均）**  
-> 予測分布と観測モデルが正しく、$R_k$ が正定値であるとする。過去の観測 $Y_{k-1}$ を固定したとき、イノベーション $z_k\in\mathbb R^{p_k}$ は平均零・共分散 $S_k$ を持ち、
+> 整数 $k\ge1$、$d,p_k\ge1$ に対し、過去の観測 $Y_{k-1}$ の下で $x_k\mid Y_{k-1}\sim\mathcal N(m_k^-,P_k^-)$、$P_k^-\in\mathbb R^{d\times d}$ は対称半正定値とする。観測 $y_k=H_kx_k+v_k$ について $H_k\in\mathbb R^{p_k\times d}$、$v_k\in\mathbb R^{p_k}$ は $x_k$ と過去の観測から独立な零平均正規雑音で、その共分散 $R_k$ は正定値とする。イノベーション $z_k=y_k-H_km_k^-\in\mathbb R^{p_k}$、その共分散 $S_k=H_kP_k^-H_k^T+R_k$ と置く。過去の観測 $Y_{k-1}$ を固定したとき、$z_k$ は平均零・共分散 $S_k$ を持ち、
 
 $$
 \mathbb E[z_k^TS_k^{-1}z_k\mid Y_{k-1}]=p_k
