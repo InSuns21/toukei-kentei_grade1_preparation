@@ -166,11 +166,11 @@ const descriptions = Object.freeze({
   }),
   WGL14: Object.freeze({
     requiresSteps: false,
-    grid: '2枚の8×8 RGBA8 FBO（A=原画、B=3×3フィルタ）。左右のGPU表示画素はその結果を拡大表示',
-    color: '原画は(0,0)に90/255、(3,3)に1の灰度値。右側はBの値へReinhard露出変換を適用しRGBの0〜1で表示',
-    clock: () => '原画A→畳込みB→画面の左右比較という3パス（物理stepなし）',
-    mode: '左は原画A、右はfilterModeのblur（3×3平均）またはedge（正の4近傍Laplacian）をexposureで調整。境界はCLAMP_TO_EDGE',
-    source: 'postprocess.js（filterMode, exposure, makeTarget）/ postprocess.frag（u_pass, u_filterMode, u_exposure）'
+    grid: '原画と加工結果は各128×128 RGBA8 texelのFBO A/B（8×8 impulseへ切替可）。表示canvasは704×704描画画素が初期値。補間NEAREST',
+    color: 'Aは家・屋根・木・太陽を描くRGB画像。境界線左は原画A、右はぼかし/輪郭フィルタBを露出変換した色。各チャネル0〜255→表示0〜1',
+    clock: () => '静止実験：Aへ描画→Bへ後処理→同じUVのbefore/afterをcanvasに表示する3パス',
+    mode: '比較割合0〜1を変更すると同じ画像位置が切替わる。blur半径1〜4 texel、edge＝正の4近傍Laplacian。処理順と露出も選べる',
+    source: 'postprocess.js（imageMode, filterMode, blurRadius, exposure, processOrder, comparison）/ postprocess.frag（sceneAt, sourceAt, toneMap, pass 0/1/2）'
   }),
   WGL15: Object.freeze({
     requiresSteps: false,
