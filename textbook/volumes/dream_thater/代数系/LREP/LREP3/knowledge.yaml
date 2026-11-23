@@ -1,0 +1,53 @@
+chapter: LREP3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP2
+forward_references: []
+concepts:
+  - id: representation.lie-algebra-representation
+    name: Lie 環表現
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（Lie 環表現）"]
+    requires: [representation.finite-dimensional-complex, lie.lie-algebra, lie.left-maurer-cartan-form]
+  - id: representation.differentiation-bracket
+    name: 群表現の微分は Lie 環表現になる
+    kind: theorem
+    introduction: formal
+    requires: [representation.lie-algebra-representation, lie.exponential-map, lie.infinitesimal-adjoint-bracket]
+  - id: representation.local-lie-group-representation
+    name: 局所群表現
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（局所群表現）"]
+    requires: [representation.finite-dimensional-complex, lie.lie-group]
+  - id: representation.flat-maurer-cartan
+    name: Lie 環表現から作る行列値1形式の平坦性
+    kind: lemma
+    introduction: formal
+    requires: [representation.lie-algebra-representation, lie.maurer-cartan-equation]
+  - id: representation.simply-connected-integration
+    name: 単連結 Lie 群への一意な積分
+    kind: theorem
+    introduction: formal
+    requires: [representation.flat-maurer-cartan, lie.exponential-local-diffeomorphism, representation.differentiation-bracket]
+  - id: representation.local-integration
+    name: Lie 環表現の局所積分
+    kind: corollary
+    introduction: formal
+    requires: [representation.local-lie-group-representation, representation.flat-maurer-cartan, representation.simply-connected-integration]
+  - id: representation.covering-descent
+    name: 被覆表現の降下
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（被覆表現の降下）"]
+    requires: [representation.finite-dimensional-complex, lie.lie-group]
+  - id: representation.covering-kernel-criterion
+    name: 被覆核による降下判定
+    kind: theorem
+    introduction: formal
+    requires: [representation.covering-descent, representation.simply-connected-integration]
