@@ -162,7 +162,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg12-tensorial-one-form -->
-**定義の確認**。積主束 $P=\mathbb R^2\times U(1)$ で、基底座標を $(x,y)$、群座標を $u$、射影を $\pi$ とし、$\alpha=\pi^*(i y\,dx)$ とする。引き戻しの定義から、任意の接ベクトル $((v_x,v_y),W)$ に対して
+**定義の確認**。積主束 $P=\mathbb R^2\times U(1)$ で、基底座標を $(x,y)$、群座標を $u$、射影を $\pi$ とし、$\alpha=\pi^*(i y\,dx)$ とする。$d\pi$ が群方向の速度を消すことから、任意の接ベクトル $((v_x,v_y),W)$ に対して
 
 $$
 \alpha_{(x,y,u)}((v_x,v_y),W)
@@ -225,7 +225,11 @@ $$
 a_x:T_xM\longrightarrow \operatorname{ad}(P)_x
 $$
 
-が滑らかに変わる族の全体である。[随伴Lie環束の定義](../GBG5/index.md#def-gbg5-adjoint-lie-bundle)により、$a_x(v)$ は $p\in P_x$ を選んで $[p,\xi]$ と表せる。$p$ を $pg$ に替えたとき同じ値を表すには、Lie 環成分を $\operatorname{Ad}_{g^{-1}}\xi$ に替えればよい。そこで $\alpha_p(X)$ を $a_x(d\pi_pX)$ の Lie 環成分として使う。水平性は $d\pi_pX$ が同じ持ち上げを区別しないこと、随伴同変性は $p$ の選択を変えても $[p,\alpha_p(X)]$ が同じ値になることを保証する。
+が滑らかに変わる族の全体である。[随伴Lie環束の定義](../GBG5/index.md#def-gbg5-adjoint-lie-bundle)により、$a_x(v)$ は $p\in P_x$ を選んで $[p,\xi]$ と表せる。
+
+同じ値を点 $pg$ から表せば、Lie 環成分は $\operatorname{Ad}_{g^{-1}}\xi$ になる。そこで $\alpha_p(X)$ を $a_x(d\pi_pX)$ の Lie 環成分として求める。
+
+この構成で水平性は $d\pi_pX$ が等しい持ち上げを区別しないこと、随伴同変性は $p$ の選択を変えても $[p,\alpha_p(X)]$ が同じ値になることを保証する。
 
 <a id="thm-gbg12-tensorial-adjoint"></a>
 
