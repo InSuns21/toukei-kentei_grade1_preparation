@@ -61,6 +61,8 @@ $$
 
 以下 $\Delta=(\mathbb Z/p\mathbb Z)^\times$ とし、[IWA2の直積分解](../IWA2/index.md#thm-iwa2-odd-splitting)で各 $G_r$ の Teichmüller 部分群と同一視します。$\Delta$ の元は $E_r$ の自己同型として作用します。
 
+**指標**とは、群の各元を可逆なスカラーに対応させ、積をスカラーの積に写す群準同型です。ここでは値域を $\mathbb Z_p^\times$ とし、$\Delta$ の作用をその指標ごとに分けます。まず有限段の持ち上げを極限に移した指標を定義します。
+
 <a id="def-iwa8-teich-character"></a>
 
 <!-- formal-statement-start -->
@@ -77,14 +79,30 @@ $$
 存在・一意性は上の有限段持ち上げと逆極限から従います。積 $\omega(a)\omega(b)$ も $p-1$ 乗が1で、法 $p$ の値が $ab$ なので、一意性により $\omega(ab)=\omega(a)\omega(b)$ です。
 
 <!-- definition-example-start: def-iwa8-teich-character -->
-**定義の確認**。 $p=5$、$a=2\bmod5$ を取ります。[IWA2の具体計算](../IWA2/index.md#def-iwa2-teichmueller-lifts)では法25の持ち上げが7でした。実際 $7\equiv2\pmod5$ かつ $7^2=49\equiv-1\pmod{25}$、したがって $7^4\equiv1\pmod{25}$。さらに $57\equiv7\pmod{25}$ かつ $57^2=3249\equiv-1\pmod{125}$ だから、法125の持ち上げは57です。両方の段で「還元」と「4乗根」の条件を確認できました。
+**定義の確認**。$p=5$、$a=2\bmod5$ を取ります。[IWA2の具体計算](../IWA2/index.md#def-iwa2-teichmueller-lifts)で法25の持ち上げは7です。還元条件と4乗根の条件を順に確かめると、
+
+$$
+7\equiv2\pmod5,\qquad
+7^2=49\equiv-1\pmod{25}
+\quad\Longrightarrow\quad 7^4\equiv1\pmod{25}.
+$$
+
+次に法125では、前段への還元と根の条件が
+
+$$
+57\equiv7\pmod{25},\qquad
+57^2=3249\equiv-1\pmod{125}
+\quad\Longrightarrow\quad57^4\equiv1\pmod{125}
+$$
+
+と成立します。[持ち上げの一意性](../IWA2/index.md#prop-iwa2-teichmueller-lifting)から法125の値は57です。これで両段の「還元」と「4乗根」の条件を確認できました。
 <!-- definition-example-end -->
 
 $\Delta$ は位数 $p-1$ の巡回群です。$\omega$ はその生成元を位数 $p-1$ の根へ送るので、$\omega^0,\ldots,\omega^{p-2}$ がすべて異なる指標になります。ここから類群を分けるための係数を作ります。
 
 ## 3. 群環の射影で指標成分を取り出す
 
-射影とは、加群の元を一つの成分だけに写し、同じ射影を二度かけても変わらない作用素です。その条件は $e^2=e$ です。複数の射影が互いに重ならないように $e_i e_j=0$（$i\ne j$）とできれば、類群全体が成分の直和になります。
+射影とは、加群の元を一つの成分だけに写し、同じ射影を二度かけても変わらない作用素です。その条件は $e^2=e$ です。類群全体を直和へ分けるには、射影同士が重ならない $e_ie_j=0$（$i\ne j$）という条件**だけでなく**、すべての成分を取り尽くす $\sum_i e_i=1$ も必要です。以下では両条件を証明します。
 
 ここで群環 $\mathbb Z_p[\Delta]$ は、$\Delta$ の元を記号として $\mathbb Z_p$ 係数の有限和を取り、群の積に従って掛け算する環です。$p-1$ は $\mathbb Z_p$ の単元であるため、その逆数を係数に使えます。
 
@@ -116,7 +134,17 @@ $$
 e_0=\frac{1+c}{2},\qquad e_1=\frac{1-c}{2}.
 $$
 
-$e_0^2=(1+2c+c^2)/4=(1+c)/2=e_0$、$e_1^2=e_1$、$e_0e_1=(1-c^2)/4=0$、$e_0+e_1=1$ です。ここで $c^2=1$ と、$2$ が $\mathbb Z_3$ 上可逆であることを使いました。射影の三条件を直接確認しました。
+$c^2=1$ と、$2$ が $\mathbb Z_3$ 上可逆であることを使うと、
+
+$$
+\begin{aligned}
+e_0^2&=\frac{1+2c+c^2}{4}=\frac{1+c}{2}=e_0,\\
+e_1^2&=\frac{1-2c+c^2}{4}=\frac{1-c}{2}=e_1,\\
+e_0e_1&=\frac{1-c^2}{4}=0,\qquad e_0+e_1=1.
+\end{aligned}
+$$
+
+冪等性・直交性・和が1となる条件を別々に確認できました。
 <!-- definition-example-end -->
 
 <a id="lem-iwa8-character-orthogonality"></a>
@@ -230,7 +258,16 @@ $$
 M=(\mathbb Z/25\mathbb Z)\oplus(\mathbb Z/5\mathbb Z)
 $$
 
-に $g(x,y)=(7x,4y)$ と作用させます。$7^2\equiv-1\pmod{25}$ と $4^2\equiv1\pmod5$ なので、$g^4=1$ は両座標で成立します。$\omega(g)\equiv7\pmod{25}$、$\omega(g)^2\equiv4\pmod5$ により、第一座標は $\omega^1$、第二座標は $\omega^2$ の固有条件を満たします。ゆえに
+に $g(x,y)=(7x,4y)$ と作用させます。$7^2\equiv-1\pmod{25}$ と $4^2\equiv1\pmod5$ なので、$g^4=1$ は両座標で成立します。$\omega(g)\equiv7\pmod{25}$、$\omega(g)^2\equiv4\pmod5$ です。$\Delta$ の任意の元は $g^k$（$0\le k<4$）と書けるので、各座標への作用を次のように判定できます。
+
+$$
+\begin{aligned}
+g^k(x,0)&=(7^kx,0)=\omega(g)^{k}(x,0),\\
+g^k(0,y)&=(0,4^ky)=\omega(g)^{2k}(0,y).
+\end{aligned}
+$$
+
+一行目は法25、二行目は法5の等式です。[指標成分の固有条件](#thm-iwa8-idempotent-decomposition)をすべての $g^k$ について確かめたので、二つの座標はそれぞれ $\omega^1$ と $\omega^2$ の成分です。他の指標の成分は直交射影により消えます。従って
 
 $$
 M^{(1)}=\mathbb Z/25\mathbb Z\oplus0,\qquad
@@ -256,6 +293,8 @@ $$
 >
 > と定義する。射影子はそれぞれ $(1+c)/2$、$(1-c)/2$ である。
 <!-- formal-statement-end -->
+
+同じ記法は、$c=-1\in\Delta$ が作用する任意の $\mathbb Z_p[\Delta]$ 加群 $M$ にも用い、$M^\pm=\{x\in M:cx=\pm x\}$ とします。これにより次の模型や演習でも偶奇部分を区別できます。
 
 <!-- definition-example-start: def-iwa8-parity-parts -->
 **定義の確認**。 直前の $p=5$ の模型で、$c=g^2$ とすると $c(x,y)=(-x,y)$ です。第一座標では $cx=-x$、第二座標では $cy=y$ が実際に成立します。さらに $\frac{1+c}{2}(x,y)=(0,y)$、$\frac{1-c}{2}(x,y)=(x,0)$ です。$2$ の逆元はどちらの剰余環にも存在するので、二つの射影が定義できます。
@@ -326,20 +365,28 @@ $jN=1+c$ と $Nj=2$ をイデアルに戻って確かめます。$2$ が $p$ 部
 <!-- proof-start -->
 ### 証明
 
-$E_r/E_r^+$ のGalois群は $\{1,c\}$ です。任意の分数イデアル $\mathfrak a$ を拡大してノルムを取る場合、素イデアル分解において分岐指数と剰余次数の積の和が拡大次数2になるので
+$E_r/E_r^+$ のGalois群は $\{1,c\}$ です。下の体の素イデアル $\mathfrak p$ を拡張すると $\mathfrak p\mathcal O_{E_r}=\prod_{\mathfrak P\mid\mathfrak p}\mathfrak P^{e_{\mathfrak P}}$ です。[イデアルのノルムと延長](../IWA4/index.md#def-iwa4-ideal-norm-extension)から $N(\mathfrak P)=\mathfrak p^{f_{\mathfrak P}}$ なので、
 
 $$
-N(j([\mathfrak b]))=2[\mathfrak b]
-\quad([\mathfrak b]\in\operatorname{Cl}(E_r^+)).
+N(\mathfrak p\mathcal O_{E_r})
+=\mathfrak p^{\sum_{\mathfrak P\mid\mathfrak p}e_{\mathfrak P}f_{\mathfrak P}}
+=\mathfrak p^{[E_r:E_r^+]}=\mathfrak p^2.
 $$
 
-逆の合成について、$E_r$ の分数イデアル $\mathfrak a$ に対して
+逆向きには、上の体の素イデアル $\mathfrak P$ に対して[延長後のノルムは共役の積](../IWA4/index.md#prop-iwa4-conjugate-product)を用います。この拡大のGalois群は $\{1,c\}$ なので、
 
 $$
-j(N([\mathfrak a]))=[\mathfrak a]+[c\mathfrak a].
+(N\mathfrak P)\mathcal O_{E_r}=\mathfrak P(c\mathfrak P)
 $$
 
-両式は主イデアルでも保たれ、$p$ 部分の上で $Nj=2$、$jN=1+c$ を得ます。
+です（分岐した素イデアルでは二つの因子が一致します）。積・逆数へ拡張してイデアル類を加法で書けば
+
+$$
+Nj([\mathfrak b])=2[\mathfrak b],\qquad
+jN([\mathfrak a])=[\mathfrak a]+[c\mathfrak a].
+$$
+
+主イデアルとの両立性もノルム・拡張で保たれるので、$p$ 部分の上で $Nj=2$、$jN=1+c$ を得ます。
 
 $j(B_r)\subset A_r^+$ です。なぜなら $c$ は $E_r^+$ のイデアルを拡張したものを固定するからです。$j(b)=0$ なら $2b=Nj(b)=0$、$p$ 奇素数ゆえ $2$ 倍が $B_r$ の自己同型なので $b=0$。従って $j$ は単射です。
 
@@ -352,7 +399,9 @@ $x\in A_r^+$ なら $jN(x)=(1+c)x=2x$。$N(x)\in B_r$ なので、$x=j(\frac12N(
 
 ## 6. 塔のノルムと射影は両立する
 
-[IWA4のノルムによる逆極限](../IWA4/index.md#thm-iwa4-iwasawa-action)を、今の指標成分ごとに組み立てます。$E_r\subset E_{r+1}$ のイデアルノルムから $N_{r+1,r}:A_{r+1}\to A_r$ が定まり、両層の $\Delta$ は同じ Teichmüller 持ち上げを使って作用します。
+[IWA4のノルムによる逆極限の構成](../IWA4/index.md#thm-iwa4-iwasawa-action)を、指標成分ごとに組み立てます。前節の $N$ は $E_r/E_r^+$ のノルムですが、ここでは $E_{r+1}/E_r$ のノルムを使います。
+
+そのノルムを $N_{r+1,r}:A_{r+1}\to A_r$ と書きます。両層の $\Delta$ は同じ Teichmüller 持ち上げを使って作用します。上層の $\delta$ とその下層への制限を同じ記号で書きます。
 
 <a id="prop-iwa8-norm-equivariance"></a>
 
@@ -387,7 +436,16 @@ $$
 =\delta\left(\prod_{h\in H}h\mathfrak a\right).
 $$
 
-これは下の体へ戻すノルムイデアルを拡張した等式に対応します。下の体で直接各素イデアルと剰余次数を比較しても同じ等式が得られ、イデアル類上では $N_{r+1,r}(\delta x)=\delta N_{r+1,r}(x)$ です。主イデアルのノルムも主イデアルなので、類群上でよく定義されています。
+これは下の体へ戻すノルムイデアルを拡張した等式に対応します。下の体でも、$\mathfrak P\subset\mathcal O_{E_{r+1}}$ の縮約を $\mathfrak p\subset\mathcal O_{E_r}$、剰余次数を $f$ とすると、$\delta$ が剰余体同型を与えることから
+
+$$
+N_{r+1,r}(\delta\mathfrak P)
+=(\delta\mathfrak p)^f
+=\delta\bigl(\mathfrak p^f\bigr)
+=\delta N_{r+1,r}(\mathfrak P).
+$$
+
+これは[IWA4のノルムとGalois作用の命題](../IWA4/index.md#prop-iwa4-norm-transitivity)の仮定を、この円分塔で確認した形です。積・逆数へ拡張し、主イデアルのノルムも主イデアルであることから、イデアル類上でも $N_{r+1,r}(\delta x)=\delta N_{r+1,r}(x)$ となります。
 
 $N_{r+1,r}$ は $\mathbb Z_p$ 線形です。従って[射影子の定義](#def-iwa8-character-idempotent)を代入し、
 
@@ -446,7 +504,17 @@ $$
 
 有限和なので成分別に互換列を作り直せます。逆に各 $i$ の互換列を足せば $X$ の互換列となり、射影の直交性により分解は一意です。
 
-円分塔の $p$ 冪部分のGalois群 $\Gamma$ は $\Delta$ と可換です（[IWA2の直積分解](../IWA2/index.md#thm-iwa2-odd-splitting)）。そのため $\Gamma$ の作用は各 $e_i$ と可換で、[IWA3の冪級数表示](../IWA3/index.md#thm-iwa3-power-series-isomorphism)に基づく $\Lambda$ 作用も各 $e_iX$ を保ちます。
+[IWA2の直積分解](../IWA2/index.md#thm-iwa2-odd-splitting)から、各 $G_r$ の $p$ 冪部分 $U_{r-1}$ は $\Delta$ と可換で、制限写像はこれらを保ちます。従って
+
+$$
+\Gamma=\varprojlim_{r\ge1}U_{r-1}\simeq\mathbb Z_p
+$$
+
+が作用する候補になります。
+
+各 $U_{r-1}$ の $A_r$ への作用は、[ノルムの塔での合成とGalois作用](../IWA4/index.md#prop-iwa4-norm-transitivity)によって、定義したノルムと可換です。IWA4の[類群の逆極限への岩澤代数作用](../IWA4/index.md#thm-iwa4-iwasawa-action)は $\Delta$ の固定体の塔を扱いますが、同じ有限群環の整合列の議論は全円分塔 $E_r$ にも適用できます。
+
+$\Gamma$ の作用は各 $e_i$ と可換です。従って[IWA3の岩澤代数の冪級数表示](../IWA3/index.md#thm-iwa3-power-series-isomorphism)に基づく $\Lambda$ 作用も各 $e_iX$ を保ちます。
 <!-- proof-end -->
 
 **位数と成長の接続。** 有限層では、直和と位数の積から
@@ -461,7 +529,7 @@ $$
 
 ## 7. p=2では同じ射影が使えない
 
-$p=2$ では $\Delta=\{\pm1\}$ を使った複素共役の分解を考えても、$2$ は $\mathbb Z_2$ の単元ではありません。そのため $(1\pm c)/2$ は $\mathbb Z_2[\Delta]$ の元ではなく、奇素数での証明をそのまま移せません。
+$p=2$ では、奇素数の場合に用いた $\Delta=(\mathbb Z/p\mathbb Z)^\times$ は自明群です。一方、[IWA2の2進円分塔の符号部分](../IWA2/index.md#thm-iwa2-two-adic-splitting)には別の位数2の群 $\{1,c\}$ があり、$c$ は複素共役です。ただし $2$ は $\mathbb Z_2$ の単元ではありません。そのため $(1\pm c)/2$ は $\mathbb Z_2[\{1,c\}]$ の元ではなく、奇素数での偶奇射影の証明をそのまま移せません。
 
 **失敗例。** $M=\mathbb Z/4\mathbb Z$ に $c(x)=-x$ と作用させます。$c^2=1$ ですが
 
@@ -497,7 +565,29 @@ $$
 $p=5$ とし、法5の元2を法25へ $2+5t$（$0\le t<5$）として持ち上げる。$(2+5t)^4\equiv1\pmod{25}$ となる $t$ を求め、得られた値がTeichmüller持ち上げの二条件を満たすことを検算せよ。
 
 <!-- solution-start -->
-**詳細解答。** 二項展開で $(2+5t)^4\equiv16+4\cdot2^3\cdot5t=16+160t\equiv16+10t\pmod{25}$。従って $10t\equiv10\pmod{25}$、両辺を5で割って $2t\equiv2\pmod5$、すなわち $t\equiv1\pmod5$。範囲内では $t=1$ だけです。値は7で、$7\equiv2\pmod5$ かつ $7^2=49\equiv-1\pmod{25}$ から $7^4\equiv1\pmod{25}$。還元と根の条件を両方満たします。
+**詳細解答。** 二項展開で二次以上の項は25の倍数なので、
+
+$$
+(2+5t)^4\equiv16+4\cdot2^3\cdot5t
+=16+160t\equiv16+10t\pmod{25}.
+$$
+
+従って $10t\equiv10\pmod{25}$ です。両辺が5の倍数であるため、5で割って法5に移すと
+
+$$
+2t\equiv2\pmod5
+\quad\Longrightarrow\quad t\equiv1\pmod5.
+$$
+
+指定範囲では $t=1$ だけで、持ち上げは7です。実際、
+
+$$
+7\equiv2\pmod5,\qquad
+7^2=49\equiv-1\pmod{25}
+\quad\Longrightarrow\quad7^4\equiv1\pmod{25}.
+$$
+
+還元と根の条件を両方満たします。
 <!-- solution-end -->
 
 <a id="ex-iwa8-a3"></a>
@@ -533,7 +623,14 @@ $p=7$ とし、$M$ を $\mathbb Z_7[\Delta]$ 加群とする。$M^{(i)}$（$0\le
 $p=3$、$M=\mathbb Z/9\mathbb Z$、$c(x)=-x$ とする。$e_0=(1+c)/2$、$e_1=(1-c)/2$ による $M$ の像を計算せよ。ただし $1/2$ は法9での2の逆元を表す。
 
 <!-- solution-start -->
-**詳細解答。** 法9で $2\cdot5=10\equiv1$ より $1/2=5$ です。$e_0(x)=5(x-x)=0$、$e_1(x)=5(x+x)=10x\equiv x\pmod9$。したがって $e_0M=0$、$e_1M=M$。$e_0e_1=0$、$e_0+e_1=1$ も作用上で成立します。$c$ は全元に $-1$ で作用するので、奇部分だけが残ることと一致します。
+**詳細解答。** 法9で $2\cdot5=10\equiv1$ なので、$1/2$ は5を表します。$c(x)=-x$ を射影の式へ代入すると、
+
+$$
+e_0(x)=5(x-x)=0,\qquad
+e_1(x)=5(x+x)=10x\equiv x\pmod9.
+$$
+
+従って $e_0M=0$、$e_1M=M$ です。この二つの作用は直交し、和は恒等作用なので、$e_0e_1=0$、$e_0+e_1=1$ も確認できます。$c$ は全元に $-1$ で作用するので、奇部分だけが残ることと一致します。
 <!-- solution-end -->
 
 ### Level B
@@ -555,7 +652,21 @@ $p=5$、$\Delta=\langle g\rangle$（$g=2\bmod5$）、$M=(\mathbb Z/25\mathbb Z)\
 
 **第1問。** $7^2=49\equiv-1\pmod{25}$ なので $7^4\equiv1$。$4^2=16\equiv1\pmod5$ なので $4^4\equiv1$ です。従って作用は位数4の群の作用として良定義です。
 
-**第2問。** [Teichmüller値](#def-iwa8-teich-character)から $\omega(g)\equiv7\pmod{25}$、$\omega(g)^2\equiv4\pmod5$。第一座標の固有指標は $\omega$、第二座標は $\omega^2$ です。[直和分解](#thm-iwa8-idempotent-decomposition)より $M^{(1)}=\mathbb Z/25\oplus0$、$M^{(2)}=0\oplus\mathbb Z/5$、他は0。
+**第2問。** [Teichmüller値](#def-iwa8-teich-character)から $\omega(g)\equiv7\pmod{25}$、$\omega(g)^2\equiv4\pmod5$ です。任意の $\delta=g^k\in\Delta$ に対して
+
+$$
+\delta(x,0)=(7^kx,0)=\omega(\delta)(x,0),\qquad
+\delta(0,y)=(0,4^ky)=\omega(\delta)^2(0,y)
+$$
+
+となるので、[固有条件と直和分解](#thm-iwa8-idempotent-decomposition)から
+
+$$
+M^{(1)}=\mathbb Z/25\mathbb Z\oplus0,\qquad
+M^{(2)}=0\oplus\mathbb Z/5\mathbb Z
+$$
+
+で、他は0です。ここでも第一座標の等式は法25、第二座標は法5で解釈します。
 
 **第3問。** $g^2(x,y)=(-x,y)$ なので $M^-=\mathbb Z/25\oplus0$（位数25）、$M^+=0\oplus\mathbb Z/5$（位数5）です。$|M|=25\cdot5=125$ とも一致します。
 <!-- solution-end -->
@@ -676,7 +787,13 @@ $$
 N(e_1(u,v))=N(u,0)=(u\bmod25,0)=e_1N(u,v).
 $$
 
-同様に $e_2$ では $(0,v\bmod5)$ が両順序で得られ、$e_0,e_3$ はどちらも0です。従って全射影子で可換です。
+$e_2$ についても、座標の還元を両順序で実行すれば
+
+$$
+N(e_2(u,v))=N(0,v)=(0,v\bmod5)=e_2N(u,v)
+$$
+
+です。$e_0,e_3$ は双方の層で零作用なので、$N(e_i(u,v))=e_iN(u,v)=0$ が成立します。従って全射影子で可換です。
 
 **第4問。** $|M_1|=25\cdot5=5^3$ なので $v_5(|M_1|)=3=2+1$、$|M_2|=125\cdot25=5^5$ なので $v_5(|M_2|)=5=3+2$ です。右辺はそれぞれ奇成分と偶成分の $5$ 進指数の和です。ただしこの加群は数体の類群でなく、しかも二つの層だけの計算です。[IWA7の類数成長公式](../IWA7/index.md#thm-iwa7-class-number-growth)には数体の無限 $\mathbb Z_p$ 塔と算術的な制御が必要であり、二層の数値差だけから $\mu,\lambda,\nu$ を決めることはできません。
 <!-- solution-end -->
