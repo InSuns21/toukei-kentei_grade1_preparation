@@ -1,0 +1,95 @@
+chapter: LREP1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GRP3
+  - LIE4
+  - LA1
+forward_references: []
+concepts:
+  - id: representation.finite-dimensional-complex
+    name: 有限次元複素線形表現
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（有限次元複素線形表現）"]
+    requires: [algebra.group-homomorphism, algebra.group-action, linear.complex-linear-map]
+  - id: representation.action-correspondence
+    name: 線形表現と線形群作用の対応
+    kind: theorem
+    introduction: formal
+    requires: [representation.finite-dimensional-complex, algebra.group-action]
+  - id: representation.one-dimensional-character
+    name: 1次元指標
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（1次元指標）"]
+    requires: [representation.finite-dimensional-complex]
+  - id: representation.invariant-subspace
+    name: 表現の不変部分空間
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（不変部分空間・部分表現）"]
+    requires: [representation.finite-dimensional-complex]
+  - id: representation.subrepresentation
+    name: 部分表現
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（不変部分空間・部分表現）"]
+    requires: [representation.invariant-subspace]
+  - id: representation.restriction
+    name: 不変部分空間への制限は部分表現
+    kind: proposition
+    introduction: formal
+    requires: [representation.subrepresentation]
+  - id: representation.irreducible
+    name: 既約表現
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（既約表現・可約表現）"]
+    requires: [representation.invariant-subspace]
+  - id: representation.reducible
+    name: 可約表現
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（既約表現・可約表現）"]
+    requires: [representation.irreducible]
+  - id: representation.standard-irreducible
+    name: 標準表現の既約性
+    kind: proposition
+    introduction: formal
+    requires: [representation.irreducible]
+  - id: representation.intertwiner
+    name: 絡作用素
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（絡作用素）"]
+    requires: [representation.finite-dimensional-complex, linear.complex-linear-map]
+  - id: representation.intertwiner-invariants
+    name: 絡作用素の核と像の不変性
+    kind: proposition
+    introduction: formal
+    requires: [representation.intertwiner, representation.invariant-subspace]
+  - id: representation.equivalent
+    name: 表現の同値
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（表現の同値）"]
+    requires: [representation.intertwiner]
+  - id: representation.equivalence-preserves-irreducibility
+    name: 同値は既約性を保存する
+    kind: proposition
+    introduction: formal
+    requires: [representation.equivalent, representation.irreducible]
+  - id: representation.nonsplit-example
+    name: 可約だが不変補空間を持たない表現
+    kind: proposition
+    introduction: formal
+    requires: [representation.reducible, representation.invariant-subspace]
