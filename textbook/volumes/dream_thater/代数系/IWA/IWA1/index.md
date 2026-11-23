@@ -233,7 +233,7 @@ $L/K$ は代数Galois拡大です。$\sigma\in\operatorname{Gal}(L/K)$ は各有
 
 逆に両立する族 $(\sigma_n)_n$ を取ります。任意の $x\in L$ に対して $x\in K_n$ となる $n$ を選び $\sigma(x)=\sigma_n(x)$ と定めます。$x\in K_m$（$m\ge n$）でも $\sigma_m(x)=\rho_{m,n}(\sigma_m)(x)=\sigma_n(x)$ ですから、選び方に依存しません。和・積・$K$ の固定は、二元を共に含む十分高い有限層で検証できます。逆元写像は両立する $(\sigma_n^{-1})$ から同じ方法で構成できるので、$\sigma$ は $K$ 上の自己同型です。従って全射です。
 
-Krull位相の基本開近傍は有限層を点ごとに固定する群 $\operatorname{Gal}(L/K_n)$ です。構成した同型の下でこれは逆極限の第 $n$ 射影の核へ写り、逆極限位相の基本開近傍と一致します。よって同型と逆写像は連続です。
+Krull位相の基本開近傍として、有限層を点ごとに固定する群 $\operatorname{Gal}(L/K_n)$ を使えます。実際、任意の有限Galois中間体 $M/K$ は有限個の元で生成され、それぞれがどこかの $K_n$ に属するので、十分大きい $N$ に対し $M\subseteq K_N$ です。従って $\operatorname{Gal}(L/K_N)\subseteq\operatorname{Gal}(L/M)$ となり、これらの群は[Krull位相](../../ANF/ANF22/index.md#def-anf22-krull-topology)の基本開近傍系を成します。構成した同型の下では $\operatorname{Gal}(L/K_n)$ が逆極限の第 $n$ 射影の核へ写り、逆極限位相の基本開近傍と一致します。よって同型と逆写像は連続です。
 <!-- proof-end -->
 
 **計算例（制限写像）。** $K_\infty/K$ が $\mathbb Z_5$ 拡大なら
