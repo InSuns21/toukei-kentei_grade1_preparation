@@ -1,0 +1,60 @@
+chapter: PML2-24
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-23
+  - PML2-02
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-24-filtering
+    name: 逐次データ同化と予測・解析分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（逐次データ同化と予測・解析分布）"]
+    requires:
+      - physics-machine-learning.pml2-02-pipeline
+  - id: physics-machine-learning.pml2-24-predict
+    name: 線形状態予測
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-24-filtering
+  - id: physics-machine-learning.pml2-24-innovation
+    name: イノベーションとその共分散
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（イノベーションとその共分散）"]
+    requires:
+      - physics-machine-learning.pml2-24-predict
+  - id: physics-machine-learning.pml2-24-gain
+    name: Kalmanゲイン
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kalmanゲイン）"]
+    requires:
+      - physics-machine-learning.pml2-24-innovation
+  - id: physics-machine-learning.pml2-24-update
+    name: 線形Gaussianの観測更新
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-24-gain
+  - id: physics-machine-learning.pml2-24-joseph
+    name: Joseph形式と共分散の半正定値性
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-24-update
+  - id: physics-machine-learning.pml2-24-batch
+    name: 静的線形Gaussianモデルの一括推定と逐次更新の同値性
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-24-update
+      - physics-machine-learning.pml2-02-pipeline
+  - id: physics-machine-learning.pml2-24-innovation-check
+    name: 正規化したイノベーションの二乗平均
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-24-innovation
