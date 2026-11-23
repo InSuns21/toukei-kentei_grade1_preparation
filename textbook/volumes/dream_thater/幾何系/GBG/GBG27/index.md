@@ -567,7 +567,7 @@ $$
 
 $m=1$ なら $\operatorname{YM}\ge8\pi^2$ で $u=0$、すなわち $F=-*F$ が等号成立の条件。$m=-1$ なら $\operatorname{YM}\ge8\pi^2$ で $v=0$、すなわち $F=*F$。$m=0$ なら $\operatorname{YM}\ge0$ で等号は $u=v=0$、つまり $F=0$。どの場合も**等号を達成するための条件**を導いたのであって、その条件を実現する接続の存在は別に証明する必要がある。
 
-**(2)** 例えば $m=1$ の等号接続では $*F=-F$ である。[曲率の共変外微分が零になる恒等式](../GBG11/index.md#thm-gbg11-bianchi-local)より $d_AF=0$。従って
+**(2)** 例えば $m=1$ の等号接続では $*F=-F$ である。[主束曲率の Bianchi 恒等式・局所形式](../GBG11/index.md#thm-gbg11-bianchi-local)より $d_AF=0$。従って
 
 $$
 d_A*F=d_A(-F)=-d_AF=0.
@@ -586,6 +586,6 @@ $$
 \operatorname{YM}(A)\ge8\pi^2|k(P)|
 $$
 
-が得られる。**前講の向きで $k>0$ で等号が成立するのは反自己双対、$k<0$ は自己双対**である。[曲率の共変外微分が零になる恒等式](../GBG11/index.md#thm-gbg11-bianchi-local)から両方ともYang–Mills方程式を満たす。
+が得られる。**前講の向きで $k>0$ で等号が成立するのは反自己双対、$k<0$ は自己双対**である。[主束曲率の Bianchi 恒等式・局所形式](../GBG11/index.md#thm-gbg11-bianchi-local)から両方ともYang–Mills方程式を満たす。
 
 **次講GBG28**では具体的な BPST 接続を構成し、曲率の双対性、有限作用、第二Chern数の絶対値1を実際に検算する。
