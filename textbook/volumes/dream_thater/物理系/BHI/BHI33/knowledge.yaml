@@ -1,0 +1,42 @@
+chapter: BHI33
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI32, BHI13, HOLO29, QINF30]
+forward_references: []
+concepts:
+  - id: black-hole-information.operational-radiation-access
+    name: 放射への操作的アクセス
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（放射への操作的アクセス）]
+    requires: [holography.erasure-region-recovery, black-hole-information.radiation-transfer-code]
+  - id: black-hole-information.keyed-radiation-code
+    name: 鍵付き放射情報移送符号
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（鍵付き放射情報移送符号）]
+    requires: [black-hole-information.operational-radiation-access, black-hole-information.hayden-preskill-recovery-task]
+  - id: black-hole-information.keyed-output-channels
+    name: 鍵付き符号の保持チャネルと残存系
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（鍵付き符号の保持チャネルと残存系）]
+    requires: [black-hole-information.keyed-radiation-code, quantum.exact-decoupling]
+  - id: black-hole-information.keyed-petz-recovery
+    name: 鍵付き放射の完全復号とPetz回復
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（鍵付き放射の完全復号とPetz回復）]
+    requires: [black-hole-information.keyed-output-channels, quantum.petz-recovery-map]
+  - id: black-hole-information.partial-key-dephasing
+    name: 片方の鍵だけで起きる位相消失
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（片方の鍵だけで起きる位相消失）]
+    requires: [black-hole-information.keyed-petz-recovery, quantum.entanglement-recovery-fidelity]
+  - id: black-hole-information.flagged-key-access
+    name: 鍵アクセス失敗率と回復忠実度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（鍵アクセス失敗率と回復忠実度）]
+    requires: [black-hole-information.partial-key-dephasing]

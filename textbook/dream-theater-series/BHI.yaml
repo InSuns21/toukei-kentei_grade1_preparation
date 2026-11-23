@@ -139,7 +139,7 @@ chapters:
     title: "放射のentanglement wedge"
   - id: BHI33
     path: textbook/volumes/dream_thater/物理系/BHI/BHI33
-    status: planned
+    status: completed
     title: "回復写像と情報への操作的アクセス"
   - id: BHI34
     path: textbook/volumes/dream_thater/物理系/BHI/BHI34
