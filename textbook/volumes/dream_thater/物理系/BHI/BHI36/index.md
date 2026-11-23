@@ -41,7 +41,15 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi36-comparison-ledger -->
-**定義の確認**：二量子ビットのBell状態 $|\Phi^+\rangle_{Rb}=(|00\rangle+|11\rangle)/\sqrt2$ を取り、$R$ だけを採取したとします。状態と部分系が指定され、部分トレースによって $\rho_R=I_2/2$ となるので、量は精細エントロピー $S(R)=\ln2$、手段は有限次元の縮約計算、仮定は $H_R\otimes H_b$ の因数分解、結論はこの模型で厳密です。同じ $S(R)$ を四次元の地平線からの実測値と記録することはできません。
+**定義の確認**：二量子ビットのBell状態 $|\Phi^+\rangle_{Rb}=(|00\rangle+|11\rangle)/\sqrt2$ を取り、$R$ だけを採取したとします。$|0\rangle,|1\rangle$ を各量子ビットの正規直交基底とすると、$b$ の基底に関する部分トレースでは $\operatorname{Tr}_b(|i\rangle\langle j|)=\delta_{ij}$ です。よって交差項が消え、
+
+$$
+\rho_R=\operatorname{Tr}_b|\Phi^+\rangle\langle\Phi^+|
+=\frac12\bigl(|0\rangle\langle0|+|1\rangle\langle1|\bigr)
+=\frac{I_2}{2},\qquad S(R)=\ln2.
+$$
+
+この例で比較台帳の五成分を実際に照合すると、（1）対象はBell状態とその部分系 $R$、（2）量は精細エントロピー、（3）手段は部分トレース、（4）仮定は $H_R\otimes H_b$ の因数分解と正規直交基底、（5）結論はこの有限模型での厳密値です。同じ $\ln2$ を四次元の地平線からの実測値と記録することはできません。
 <!-- definition-example-end -->
 
 比較対象をそろえると、次の表になります。
@@ -249,7 +257,7 @@ $$
 $0\log0=0$ と定めれば全固有値の和としても表せます。$\square$
 <!-- proof-end -->
 
-**直接検算**：$\rho=I_2/2$ なら $Z(n)=2(1/2)^n=2^{1-n}$、$F(n)=(1-n)\ln2$、よって $-F'(1)=\ln2$ です。
+**直接検算**：$\rho=I_2/2$ なら $Z(n)=2(1/2)^n=2^{1-n}$、$F(n)=(1-n)\ln2$、よって $-F'(1)=\ln2$ です。ここで $F'(1)$ は**レプリカ指数 $n$ に関する導関数**であり、放射の採取時刻 $u$ や二枝模型の時刻 $t$ による微分ではありません。$n$ を実数に拡張できることはこの有限行列では直接確かめましたが、整数レプリカの重力経路積分からの拡張には別の仮定が要ります。
 
 重力計算では[BHI30の規格化レプリカ台帳](../BHI30/index.md#def-bhi30-normalized-log-replica)を使って、境界条件の一致した分配関数の比を構成します。整数 $n$ で連結レプリカ・ワームホール鞍点が寄与しても、**どの解析接続が物理的な $n\to1$ を与えるか**、鞍点近似と極限交換が正当か、非摂動効果を制御できるかは別の論点です。
 
@@ -295,7 +303,15 @@ $X=\pm1$ を確率各 $1/2$ で取れば $\sigma^2=1$ です。この反例で�
 
 [放射のentanglement wedge相転移](../BHI32/index.md#prop-bhi32-page-wedge-transition)は、どの作用素を放射の演算子へ表現できるかという幾何学的・符号理論的主張です。[BHI33の操作的アクセス](../BHI33/index.md#def-bhi33-operational-access)は、その表示を使ってどの情報を、誰が、どんな資源で読み出せるかを問います。
 
-アクセスの差は量子一回限りパッドという有限例で直接確認できます。$X,Z$ をPauli行列とし、秘密の古典鍵 $k=(a,b)\in\{0,1\}^2$ に対して $U_k=X^aZ^b$ を使います。
+アクセスの差は[BHI33の鍵付き放射符号](../BHI33/index.md#def-bhi33-keyed-radiation-code)で使った量子一回限りパッドの有限例で確認できます。入力の計算基底を $|0\rangle=(1,0)^{\mathsf T}$、$|1\rangle=(0,1)^{\mathsf T}$ とし、基底状態の交換と相対位相の反転を表すPauli作用素は
+
+$$
+X=\begin{pmatrix}0&1\\1&0\end{pmatrix},\qquad
+Z=\begin{pmatrix}1&0\\0&-1\end{pmatrix},\qquad
+Y=iXZ=\begin{pmatrix}0&-i\\i&0\end{pmatrix}.
+$$
+
+です。秘密の古典鍵 $k=(a,b)\in\{0,1\}^2$ には $U_k=X^aZ^b$ を対応させます。$a$ はビット反転、$b$ は位相反転の有無を表し、作用する順序は右端の $Z^b$、次に $X^a$ です。$Y$ は暗号化に使う別の鍵ではなく、密度行列の三つの実係数を表示するための第三のPauli行列です。
 
 <a id="prop-bhi36-keyed-access"></a>
 
@@ -312,19 +328,27 @@ $$
 > 鍵 $k$ と暗号化状態 $U_k\rho U_k^\dagger$ の両方を受け取る受信者は、$U_k^\dagger$ を作用させて $\rho$ を厳密に回復できる。
 <!-- formal-statement-end -->
 
-**証明の見取り図**：Bloch表示で $X,Y,Z$ の三成分が鍵平均によって消えることを示します。
+**証明の見取り図**：上の計算基底で密度行列をPauli基底 $I,X,Y,Z$ に展開します。係数と正値条件を確かめてから、鍵平均が三つの非自明成分を消すことを示します。
 
 <!-- proof-start -->
 ### 証明
 
-任意の一量子ビット状態は実数 $r_x,r_y,r_z$ を使って
+上の計算基底においてHermitianな $2\times2$ 行列の実線形空間は $I,X,Y,Z$ を基底とします。実際、$\operatorname{Tr}(\sigma_i)=0$、$\operatorname{Tr}(\sigma_i\sigma_j)=2\delta_{ij}$（$\sigma_i,\sigma_j\in\{X,Y,Z\}$）なので、トレース1の密度行列は一意に
 
 $$
 \rho=\frac12(I+r_xX+r_yY+r_zZ),\qquad
-r_x^2+r_y^2+r_z^2\le1
+r_i=\operatorname{Tr}(\rho\,\sigma_i)\in\mathbb R
 $$
 
-と表せます。$Z$ による共役は $X,Y$ の符号を反転させ、$Z$ は保つので、$b=0,1$ の平均は
+と展開できます。$\operatorname{Tr}\rho=1$ が $I$ の係数を $1/2$ に固定します。また、Pauli行列の反交換関係から $(r_xX+r_yY+r_zZ)^2=(r_x^2+r_y^2+r_z^2)I$ であり、$\rho$ の固有値は
+
+$$
+\lambda_\pm=\frac{1\pm\sqrt{r_x^2+r_y^2+r_z^2}}{2}.
+$$
+
+したがって $\rho\ge0$ は $r_x^2+r_y^2+r_z^2\le1$ と同値です。これが、任意の一量子ビット密度行列をこの**Bloch表示**で扱える理由です。
+
+$Z$ による共役は $X,Y$ の符号を反転させ、$Z$ は保つので、$b=0,1$ の平均は
 
 $$
 \frac12(\rho+Z\rho Z)=\frac12(I+r_zZ).
