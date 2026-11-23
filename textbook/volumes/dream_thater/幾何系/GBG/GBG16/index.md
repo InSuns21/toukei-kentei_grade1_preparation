@@ -20,9 +20,9 @@ $$
 > **定義（平坦な主束接続）**  
 > 滑らかな右主 $G$ 束 $\pi:P\to M$ 上の接続形式 $\omega$ が **平坦** であるとは、その曲率2形式
 >
-> $$
-> \Omega=d\omega+\frac12[\omega\wedge\omega]
-> $$
+$$
+\Omega=d\omega+\frac12[\omega\wedge\omega]
+$$
 >
 > が $P$ 上のすべての点で恒等的に零、すなわち $\Omega=0$ となることをいう。局所 section $s:U\to P$ に関する接続 $A=s^*\omega$ の曲率 $F=s^*\Omega$ も、このとき $U$ 上で零となる。
 <!-- formal-statement-end -->
@@ -49,10 +49,10 @@ section $s:U\to P$ が **平行** であるとは、各 $x\in U$ と $v\in T_xM$
 > **定義（局所平行 section）**  
 > 開集合 $U\subset M$ 上の滑らかな section $s:U\to P$ を、与えられた接続 $\omega$ に関する **局所平行 section** と呼ぶのは、すべての $x\in U$、$v\in T_xM$ について
 >
-> $$
-> \omega_{s(x)}(ds_xv)=0
-> \quad\text{（同値に }s^*\omega=0\text{）}
-> $$
+$$
+\omega_{s(x)}(ds_xv)=0
+\quad\text{（同値に }s^*\omega=0\text{）}
+$$
 >
 > が成り立つときである。
 <!-- formal-statement-end -->
@@ -71,21 +71,21 @@ $s$ は各点でファイバーに入る滑らかな section であり、接ベ�
 > **定理（平坦接続の局所平行 section）**  
 > 滑らかな右主 $G$ 束の接続が平坦であるとする。基底の点と、その上の主束の点を固定する。
 >
-> $
-> x_0\in M,\qquad p_0\in P_{x_0}.
-> $
+$$
+x_0\in M,\qquad p_0\in P_{x_0}.
+$$
 >
 > このとき $x_0$ の座標近傍にある開立方体 $U$ 上に、次を満たす局所平行 section が存在する。
 >
-> $
-> s:U\to P,\qquad s(x_0)=p_0,\qquad s^*\omega=0.
-> $
+$$
+s:U\to P,\qquad s(x_0)=p_0,\qquad s^*\omega=0.
+$$
 >
 > さらに $U$ 内の任意の区分的 $C^1$ 路 $\gamma:x\to y$ に対し、
 >
-> $$
-> \operatorname{PT}_{\gamma}(s(x)g)=s(y)g\qquad(g\in G)
-> $$
+$$
+\operatorname{PT}_{\gamma}(s(x)g)=s(y)g\qquad(g\in G)
+$$
 >
 > が成立する。逆に、各点の近傍に局所平行 section があるなら $\Omega=0$ である。
 <!-- formal-statement-end -->
@@ -137,9 +137,9 @@ $$
 > **定理（平坦接続の平行移動は固定端点ホモトピーで不変）**  
 > $\Omega=0$ の滑らかな右主 $G$ 束 $(P,\omega)$ を取る。始点・終点がそれぞれ $x,y$ である二本の区分的 $C^1$ 路 $\gamma_0,\gamma_1$ が固定端点ホモトピーで結ばれていれば、
 >
-> $$
-> \operatorname{PT}_{\gamma_0}=\operatorname{PT}_{\gamma_1}:P_x\longrightarrow P_y.
-> $$
+$$
+\operatorname{PT}_{\gamma_0}=\operatorname{PT}_{\gamma_1}:P_x\longrightarrow P_y.
+$$
 >
 > 特に定値路と固定端点ホモトピーな閉路の輸送は恒等である。
 <!-- formal-statement-end -->
@@ -191,10 +191,10 @@ $$
 > **定義（平坦接続のモノドロミー表現）**  
 > 滑らかな右主 $G$ 束の平坦接続 $\omega$、基点 $x\in M$、ファイバーの点 $p\in P_x$ を固定する。[基本群](#def-gbg16-fundamental-group)の元 $[\gamma]\in\pi_1(M,x)$ に
 >
-> $$
-> \rho_{\omega,p}([\gamma])=h_\gamma(p),
-> \qquad \operatorname{PT}_\gamma(p)=p\,h_\gamma(p)
-> $$
+$$
+\rho_{\omega,p}([\gamma])=h_\gamma(p),
+\qquad \operatorname{PT}_\gamma(p)=p\,h_\gamma(p)
+$$
 >
 > を対応させる写像 $\rho_{\omega,p}:\pi_1(M,x)\to G$ を **モノドロミー表現** と呼ぶ。これは次の定理によって well-defined な群準同型となる。
 <!-- formal-statement-end -->
@@ -216,14 +216,14 @@ $$
 >
 > 1. $\rho_{\omega,p}:\pi_1(M,x)\to G$ は well-defined な群準同型である。
 > 2. $k\in G$、$p'=pk$ とすると、すべての $[\gamma]$ について
->    $$
->    \rho_{\omega,p'}([\gamma])=k^{-1}\rho_{\omega,p}([\gamma])k.
->    $$
+$$
+\rho_{\omega,p'}([\gamma])=k^{-1}\rho_{\omega,p}([\gamma])k.
+$$
 > 3. その像は $\operatorname{im}\rho_{\omega,p}=\operatorname{Hol}_p(\omega)$ である。
 > 4. $y$ を結ぶ路 $\sigma:x\to y$ と $q=\operatorname{PT}_\sigma(p)$ を選ぶと、閉路類の対応
->    $$
->    [\delta]\longmapsto[\bar\sigma*\delta*\sigma]
->    $$
+$$
+[\delta]\longmapsto[\bar\sigma*\delta*\sigma]
+$$
 >    によって $\pi_1(M,y)$ と $\pi_1(M,x)$ が同型となり、この対応の下で両基点のモノドロミーは同じ $G$ の元を与える。
 <!-- formal-statement-end -->
 
@@ -285,16 +285,16 @@ $$
 > **命題（円周上の平坦接続によるホロノミー）**  
 > 円周上の積主束と接続を次で与える。
 >
-> $
-> P=S^1\times U(1),\qquad
-> A=ia(x\,dy-y\,dx),\quad a\in\mathbb R.
-> $
+$$
+P=S^1\times U(1),\qquad
+A=ia(x\,dy-y\,dx),\quad a\in\mathbb R.
+$$
 >
 > この接続は平坦である。閉路 $\gamma$ の向き付き周回数を整数 $n$ とする。標準 section でのホロノミーは次の値となる。
 >
-> $$
-> h_\gamma=e^{-2\pi ian}.
-> $$
+$$
+h_\gamma=e^{-2\pi ian}.
+$$
 >
 > 特に $a\notin\mathbb Z$ なら、一周のホロノミーは非自明である。$a\in\mathbb Z$ であることと、この接続が大域的ゲージ変換によって $A=0$ に変換できることは同値である。
 <!-- formal-statement-end -->
@@ -337,15 +337,15 @@ $$
 > **定理（単連結な基底上の平坦接続の大域平行 section）**  
 > $M$ は道連結かつ単連結な滑らかな多様体で、平坦接続 $\omega$ をもつ滑らかな右主 $G$ 束を考える。
 >
-> $
-> \pi:P\to M,\qquad x_0\in M,\quad p_0\in P_{x_0}.
-> $
+$$
+\pi:P\to M,\qquad x_0\in M,\quad p_0\in P_{x_0}.
+$$
 >
 > このとき初期値を固定した大域平行 section が一意に存在する。
 >
-> $
-> s:M\to P,\qquad s(x_0)=p_0,\qquad s^*\omega=0.
-> $
+$$
+s:M\to P,\qquad s(x_0)=p_0,\qquad s^*\omega=0.
+$$
 >
 > 従って $P$ は積主束と同型で、すべての閉路のホロノミーは単位元である。
 <!-- formal-statement-end -->
