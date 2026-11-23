@@ -29,7 +29,7 @@
 
 ### 局所平行 section の意味
 
-section $s:U\to P$ が **平行** であるとは、各 $x\in U$ と $v\in T_xM$ に対し $ds_x(v)$ が水平、すなわち $s^*\omega=0$ となることをいう。これは接続の局所表示 $A$ が零になるようなゲージ選択である。[GBG7 の接続形式と水平分布の対応](../GBG7/index.md#thm-gbg7-horizontal-connection-equivalence)により、零条件は正確に「section の像の接ベクトルが水平」を意味する。
+section $s:U\to P$ が **平行** であるとは、各 $x\in U$ と $v\in T_xM$ に対し $ds_x(v)$ が水平、すなわち $s^*\omega=0$ となることをいう。これは接続の局所表示 $A$ が零になるようなゲージ選択である。[GBG7 の接続形式と水平分布の対応](../GBG7/index.md#thm-gbg7-equivalence)により、零条件は正確に「section の像の接ベクトルが水平」を意味する。
 
 <a id="def-gbg16-parallel-section"></a>
 
@@ -315,7 +315,7 @@ s(y)=\operatorname{PT}_{x\to y}(s(x))=s_U(y)g
 $$
 である。よって $s|_U=s_Ug$ は滑らかで水平。局所的にすべてそうだから $s$ は大域的に滑らかな平行 section となる。
 
-$s(x_0)=p_0$ を満たす別の平行 section $t$ があれば、任意の $x$ への路に沿って $t$ は $p_0$ の平行移動に一致するため $t=s$。[GBG3 の大域 section と自明性](../GBG3/index.md#thm-gbg3-global-section-triviality)から $(x,g)\mapsto s(x)g$ は主 $G$ 束の同型である。すべての閉路の輸送は $\operatorname{PT}_\gamma(s(x)g)=s(x)g$ なので、ホロノミーは単位元だけとなる。
+$s(x_0)=p_0$ を満たす別の平行 section $t$ があれば、任意の $x$ への路に沿って $t$ は $p_0$ の平行移動に一致するため $t=s$。[GBG3 の大域 section と自明性](../GBG3/index.md#thm-gbg3-global-section-trivial)から $(x,g)\mapsto s(x)g$ は主 $G$ 束の同型である。すべての閉路の輸送は $\operatorname{PT}_\gamma(s(x)g)=s(x)g$ なので、ホロノミーは単位元だけとなる。
 <!-- proof-end -->
 
 ここで **単連結だから平坦** と言っているのではない。曲率零と単連結性の **両方** を使う定理である。円周は道連結だが単連結ではないので、先ほどの $a=\frac12$ の例はこの定理に反しない。
@@ -461,7 +461,7 @@ $$
 =\operatorname{PT}_{\bar\gamma'_x*\gamma_x}(p_0)
 =p_0.
 $$
-逆輸送を適用すれば、$s(x)$ は路によらず定まる。局所平行 section $s_U$ を任意の $x$ の近傍に取り、$s(x)=s_U(x)g$ とおくと、$U$ の点 $y$ で $s(y)=s_U(y)g$。従って滑らかで $s^*\omega=0$。[大域 section の自明化定理](../GBG3/index.md#thm-gbg3-global-section-triviality)により束も自明となる。使ったのは **モノドロミーの自明性** であり、単連結性は必要ない。
+逆輸送を適用すれば、$s(x)$ は路によらず定まる。局所平行 section $s_U$ を任意の $x$ の近傍に取り、$s(x)=s_U(x)g$ とおくと、$U$ の点 $y$ で $s(y)=s_U(y)g$。従って滑らかで $s^*\omega=0$。[大域 section の自明化定理](../GBG3/index.md#thm-gbg3-global-section-trivial)により束も自明となる。使ったのは **モノドロミーの自明性** であり、単連結性は必要ない。
 <!-- solution-end -->
 
 ### Level C：ゲージ変換まで統合する
