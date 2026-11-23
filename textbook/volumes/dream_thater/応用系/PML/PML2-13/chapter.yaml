@@ -1,0 +1,46 @@
+id: "PML2-13"
+title: "collocation点の増加や領域分割で何が改善するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-12
+official_scope: []
+learning_objectives:
+  - 等間隔中点配置と経験残差を定義し充填距離を計算できる
+  - Lipschitz残差の中点区分一定近似から連続L2残差と解誤差の上界を証明できる
+  - 候補が点数とともに変わる場合に一様な残差変化率が必要なことを反例で説明できる
+  - 領域分割近似の値の連続性と導関数ジャンプを区別し直接例で検証できる
+  - 領域ごとの部分積分から接合ジャンプを含む全域誤差上界を導ける
+  - 領域長重み付き残差と局所中点置換誤差を導き総点数を保った配分を比較できる
+  - 独立検証残差の分散とChebyshev確率上界を算出し訓練点評価と区別できる
+  - 再現可能な固定予算の実験で点配置と接合条件と計算費用を切り分けられる
+definitions:
+  - { id: PML2-13-DEF-01, name: 中点collocation配置と経験残差 }
+  - { id: PML2-13-DEF-02, name: 分割近似と接合点の導関数ジャンプ }
+theorems:
+  - { id: PML2-13-THM-01, name: 中点残差から連続残差への評価 }
+  - { id: PML2-13-THM-02, name: 局所残差と接合ジャンプによる全域誤差評価 }
+  - { id: PML2-13-THM-03, name: 局所中点配置による残差上界 }
+  - { id: PML2-13-PROP-01, name: 独立検証残差の分散と確率的上界 }
+canonical_examples:
+  - 中点配置の充填距離と線形残差の経験二乗平均
+  - すべての増点格子をすり抜ける振動関数
+  - 局所残差が零でも非零接合ジャンプがある三角形候補
+  - 左右で変化率が異なる残差の八点配分比較
+  - 独立検証二乗残差の期待値と分散
+  - 標準Pythonの固定乱数種による学習点配置と検証の再現比較
+problem_patterns:
+  - PML2-13-A01
+  - PML2-13-A02
+  - PML2-13-A03
+  - PML2-13-A04
+  - PML2-13-A05
+  - PML2-13-B01
+  - PML2-13-B02
+  - PML2-13-B03
+  - PML2-13-B04
+  - PML2-13-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
