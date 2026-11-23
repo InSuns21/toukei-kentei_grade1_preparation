@@ -21,7 +21,7 @@ learning_objectives:
 definitions:
   - { id: GBG27-DEF-01, name: 4次元の2形式に作用するHodge星 }
   - { id: GBG27-DEF-02, name: 自己双対・反自己双対曲率 }
-  - { id: GBG27-DEF-03, name: Yang–Mills作用 }
+  - { id: GBG27-DEF-03, name: 4次元Riemann計量によるYang–Mills作用 }
 theorems:
   - { id: GBG27-PROP-01, name: 4次元の星の二乗 }
   - { id: GBG27-PROP-02, name: 曲率の直交分解 }
