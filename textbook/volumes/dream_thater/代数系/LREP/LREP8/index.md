@@ -24,7 +24,7 @@ $\langle v\otimes w,v'\otimes w'\rangle=\langle v,v'\rangle\langle w,w'\rangle$
 
 <!-- formal-statement-start -->
 > **定義（全角運動量と積状態）**  
-> $j,k\in\{0,\frac12,1,\frac32,\dots\}$ とし、$V_j,V_k$ をそれぞれスピン $j,k$ の有限次元複素ユニタリ $SU(2)$ 既約表現とする。$V_j\otimes_{\mathbb C}V_k$ の対角的な群作用を $D_j(U)\otimes D_k(U)$ とし、全角運量演算子を
+> $j,k\in\{0,\frac12,1,\frac32,\dots\}$ とし、$V_j,V_k$ をそれぞれスピン $j,k$ の有限次元複素ユニタリ $SU(2)$ 既約表現とする。$V_j\otimes_{\mathbb C}V_k$ の対角的な群作用を $D_j(U)\otimes D_k(U)$ とし、全角運動量演算子を
 
 $$
 T_a=J_a^{(j)}\otimes I_{V_k}+I_{V_j}\otimes J_a^{(k)}
@@ -43,7 +43,7 @@ T_3|\uparrow\downarrow\rangle
 T_3|\uparrow\uparrow\rangle=|\uparrow\uparrow\rangle.
 $$
 
-> 二つの項はそれぞれ第一因子、第二因子の演算子であり、定義上の $T_3$ が実際に量子数を加算することを確認できます。
+二つの項はそれぞれ第一因子、第二因子の演算子であり、定義上の $T_3$ が実際に量子数を加算することを確認できます。
 <!-- definition-example-end -->
 
 この節の $J_a^{(j)}$ は $V_j$ 上の自己共役演算子であり、テンソル積上で別の粒子に作用する二項は可換です。ここを区別すると合成角運動量の交換関係が計算できます。
