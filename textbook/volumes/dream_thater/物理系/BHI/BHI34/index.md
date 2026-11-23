@@ -34,17 +34,17 @@ $$
 この作用は、曲率だけを固定するJT作用と異なり、$4(\nabla\phi)^2$ と $4\lambda^2e^{-2\phi}$ を含みます。光円錐座標 $x^\pm$ はそれぞれ二つのヌル方向の座標で、$\partial_\pm:=\partial/\partial x^\pm$、$F_\pm:=\partial_\pm F$ と書きます。$ds^2=-e^{2\rho}dx^+dx^-$ は $g_{+-}=g_{-+}=-e^{2\rho}/2$ を表します。$x^\pm$ は長さの次元を持ち、$\lambda^2x^+x^-$ は無次元、以下の $A>0$ も無次元とします。
 
 **なぜこの座標表示で解を確認できるか**：$X:=e^{-2\phi}>0$ と置けば、重力部分の作用の被積分関数は $XR+(\nabla X)^2/X+4\lambda^2X$ です。$f_i=0$ として計量を変分した方程式は
-$
+$$
 E_{\mu\nu}:=g_{\mu\nu}\Box X-\nabla_\mu\nabla_\nu X
 +\frac{\partial_\mu X\partial_\nu X-\frac12g_{\mu\nu}(\nabla X)^2}{X}
 -2\lambda^2g_{\mu\nu}X=0.
-$
+$$
 ここで $\Box X:=g^{\mu\nu}\nabla_\mu\nabla_\nu X$ です。真空の共形ゲージ $\rho=\phi$ を使うと $g_{+-}=-1/(2X)$、$g^{+-}=-2X$、$\Box X=-4X\partial_+\partial_-X$、$\Gamma^\pm_{\pm\pm}=2\partial_\pm\rho=-\partial_\pm X/X$ なので、
-$
+$$
 E_{++}=-\partial_+^2X,\qquad
 E_{--}=-\partial_-^2X,\qquad
 E_{+-}=\partial_+\partial_-X+\lambda^2.
-$
+$$
 従って、このゲージの真空解の計量方程式は $\partial_\pm^2X=0$ および $\partial_+\partial_-X=-\lambda^2$ で直接判定できます。dilaton変分の方程式も別に照合します。
 
 <!-- definition-example-start: def-bhi34-cghs-geometry -->
@@ -54,10 +54,10 @@ F(x^+,x^-):=A-\lambda^2x^+x^-,\qquad
 e^{-2\phi}=e^{-2\rho}=F,\qquad F>0
 $$
 と置きます。$F>0$ の領域では $\rho=-\tfrac12\log F$ と $\phi=-\tfrac12\log F$ が実数で、計量は非退化です。さらに $X=F$ について
-$
+$$
 \partial_+^2F=\partial_-^2F=0,\qquad
 \partial_+\partial_-F=-\lambda^2
-$
+$$
 なので、上に導いた計量方程式の三成分を満たします。$f_i=0$ は物質場の波動方程式も満たします。例えば $x^-=0$ で $F=A>0$ となり、この適切な外部パッチのヌル地平線上では $e^{-2\phi}=A$ が一定です。特異な $F=0$ と混同しません。続く命題では曲率とdilaton変分の方程式も照合します。
 <!-- definition-example-end -->
 
@@ -95,17 +95,17 @@ $$
 これを規約式へ代入して $R=8F\cdot\lambda^2A/(2F^2)=4\lambda^2A/F$。$F$ が座標で変わるため一定曲率とは限りません。
 
 さらにCGHS作用を $\phi$ で変分した方程式
-$
+$$
 R-4(\nabla\phi)^2+4\Box\phi+4\lambda^2=0
-$
+$$
 を検算します。$g^{+-}=-2F$、$\phi_\pm=\lambda^2x^\mp/(2F)$ と上の混合微分から
-$
+$$
 (\nabla\phi)^2=-4F\phi_+\phi_-=
 -\frac{\lambda^4x^+x^-}{F}
 =\lambda^2\left(1-\frac AF\right),\qquad
 \Box\phi=-4F\partial_+\partial_-\phi
 =-\frac{2\lambda^2A}{F}.
-$
+$$
 ゆえに左辺は $4\lambda^2A/F-4\lambda^2(1-A/F)-8\lambda^2A/F+4\lambda^2=0$。これで真空物質場・計量・dilatonの各方程式への代入を確認しました。$\square$
 <!-- proof-end -->
 
