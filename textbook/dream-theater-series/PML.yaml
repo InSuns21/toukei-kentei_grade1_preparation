@@ -139,7 +139,7 @@ chapters:
     title: "残差から解誤差を評価できるのはいつか"
   - id: PML2-12
     path: textbook/volumes/dream_thater/応用系/PML/PML2-12
-    status: planned
+    status: completed
     title: "点上の残差ゼロで解が正しいと言えるか"
   - id: PML2-13
     path: textbook/volumes/dream_thater/応用系/PML/PML2-13
