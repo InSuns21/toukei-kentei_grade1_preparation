@@ -31,7 +31,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa7-layer-quotient -->
-**定義の確認。** $p=3$、$n=1$ では $\omega_1=(1+T)^3-1=T^3+3T^2+3T$ です。$M=\Lambda/(T+3)$ の場合、$T$ は $-3$ として作用するので、$M/\omega_1M\simeq\mathbb Z_3/((-2)^3-1)\simeq\mathbb Z_3/(9)$、位数は $9$ です。群作用による定義と多項式の代入が一致しています。
+**定義の確認**。 $p=3$、$n=1$ では $\omega_1=(1+T)^3-1=T^3+3T^2+3T$ です。$M=\Lambda/(T+3)$ の場合、$T$ は $-3$ として作用するので、$M/\omega_1M\simeq\mathbb Z_3/((-2)^3-1)\simeq\mathbb Z_3/(9)$、位数は $9$ です。群作用による定義と多項式の代入が一致しています。
 <!-- definition-example-end -->
 
 $A_n$ と $X/\omega_nX$ は**定義だけでは同型になりません**。ノルムの逆極限を作ることと、有限層の類群をそのままcoinvariantsで取り戻すことは別の主張です。分岐素点やノルム写像を制御する算術的議論が後に必要になります。
