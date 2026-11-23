@@ -1,6 +1,6 @@
 # GBG19 Dirac monopoleの電荷はなぜ量子化されるか
 
-[前講の貼り合わせ束](../GBG18/index.md#def-gbg18-clutching) $P_n\to S^2$ は、赤道を一周すると遷移関数が $n$ 回回る主 $U(1)$ 束であった。巻き数が非零なら大域sectionは存在しない。しかし前講では、接続の曲率を積分してこの整数を取り出す計算を行っていない。
+[前講の貼り合わせ束](../GBG18/index.md#def-gbg18-clutching) $P_n\to S^2$ は、赤道を一周すると遷移関数が $n$ 回回る主 $U(1)$ 束であった。巻き数が非零なら大域sectionは存在しない。しかし前講では、[GBG10で導入した曲率2形式](../GBG10/index.md#def-gbg10-curvature)を積分してこの整数を取り出す計算を行っていない。
 
 今回は南北それぞれで滑らかなゲージポテンシャルを作り、両者が同じ**大域接続**を表すことを確かめる。さらに曲率の面積分と赤道の巻き数を結び、磁束が離散的な値を取る仕組みを証明する。
 
@@ -182,7 +182,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$U(1)$ が可換なため $F|_{U_i}=dA_i$。閉北半球と閉南半球に[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を適用する。境界の向きに注意すると
+$U(1)$ が可換なため $F|_{U_i}=dA_i$。閉北半球と閉南半球に[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を適用する。境界の向きに注意すると
 $$
 \begin{aligned}
 \int_{S^2}F
@@ -237,14 +237,14 @@ $$
 $$
 \widetilde F-F=d(\widetilde A_i-A_i)=d\alpha.
 $$
-境界のない球面へのStokesの定理により $\int_{S^2}d\alpha=0$。したがって正規化積分は同じである。
+境界のない球面に[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を適用すると $\int_{S^2}d\alpha=0$。したがって正規化積分は同じである。
 <!-- proof-end -->
 
-特に $P_n$ 上ではどの接続を選んでも $c_1=n$ である。$n\ne0$ なら曲率が全域で零の接続は存在できない（零曲率なら積分が零になる）。さらに[GBG18の非自明性定理](../GBG18/index.md#thm-gbg18-obstruction)から大域sectionも存在しない。**曲率が必ずどこかで非零**という主張と、**主束が非自明**という主張は別の論証である。
+特に $P_n$ 上ではどの接続を選んでも $c_1=n$ である。$n\ne0$ なら曲率が全域で零の接続は存在できない（零曲率なら積分が零になる）。さらに[巻き数による球面主束の非自明性](../GBG18/index.md#thm-gbg18-obstruction)から大域sectionも存在しない。**曲率が必ずどこかで非零**という主張と、**主束が非自明**という主張は別の論証である。
 
 ## 4. 物理的な磁束と電荷をどの単位で読むか
 
-数式の整数 $n$ と物理的電荷は同一の量ではない。基準とする非零の電気結合定数 $q_0$ と正の定数 $\hbar$ を選び、磁場ポテンシャルの実数値1形式を $a_i$ とする。接続を
+数式の整数 $n$ と物理的電荷は同一の量ではない。[EMAG1の電荷](../../../物理系/EMAG/EMAG1/index.md)と[EMAG7の磁束](../../../物理系/EMAG/EMAG7/index.md#def-emag7-magnetic-flux)はこの幾何の物理的な応用であり、以下の計算自体には Maxwell 方程式を必要としない。基準とする非零の電気結合定数 $q_0$ と正の定数 $\hbar$ を選び、磁場ポテンシャルの実数値1形式を $a_i$ とする。接続を
 $$
 A_i=-\frac{iq_0}{\hbar}a_i
 $$
@@ -285,7 +285,7 @@ c_1[P,F]=\frac{i}{2\pi}\int_{S^2}\left(-\frac{iq_0}{\hbar}b\right)
 =\frac{q_0}{2\pi\hbar}\int_{S^2}b
 =\frac{q_0\Phi}{2\pi\hbar}.
 $$
-[磁束整数性定理](#thm-gbg19-general-integrality)により左辺は整数である。
+[任意のU(1)接続の磁束の整数性](#thm-gbg19-general-integrality)により左辺は整数である。
 
 表現 $\rho_k$ が群 $U(1)$ 上で一価になるには、$e^{it}=e^{i(t+2\pi)}$ に対して
 $$
@@ -395,7 +395,7 @@ $$
 $P_2$ 上の局所接続 $A_i$ を $A_i'=A_i+i\lambda\,dZ$（$\lambda\in\mathbb R$）に置き換える。この形式が同じ束の接続を定める理由、曲率と $c_1$ を計算せよ。
 
 <!-- solution-start -->
-**詳細解答**。$Z$ は球面全体の滑らかな関数なので $\alpha=i\lambda\,dZ$ は大域 $i\mathbb R$ 値1形式であり、$A_S'-A_N'=A_S-A_N=g_{NS}^{-1}dg_{NS}$ を満たす。よって[接続再構成定理](../GBG8/index.md#thm-gbg8-local-reconstruction)から同じ $P_2$ の接続になる。曲率は
+**詳細解答**。$Z$ は球面全体の滑らかな関数なので $\alpha=i\lambda\,dZ$ は大域 $i\mathbb R$ 値1形式であり、$A_S'-A_N'=A_S-A_N=g_{NS}^{-1}dg_{NS}$ を満たす。よって[局所ポテンシャルからの大域接続の再構成](../GBG8/index.md#thm-gbg8-local-reconstruction)から同じ $P_2$ の接続になる。曲率は
 $$
 F'=dA_i'=dA_i+i\lambda d^2Z=F
 =-i\sin\vartheta\,d\vartheta\wedge d\varphi.
@@ -437,7 +437,7 @@ $$
 $P_n\to S^2$ に曲率 $F=0$ の滑らかな接続があるなら $n=0$ を示せ。さらに $S^1$ の自明主 $U(1)$ 束上で曲率零・非自明holonomyが両立する理由を説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。[磁束整数性定理](#thm-gbg19-general-integrality)と[前講の巻き数](../GBG18/index.md#def-gbg18-winding)から
+**詳細解答**。[任意のU(1)接続の磁束の整数性](#thm-gbg19-general-integrality)と[前講の巻き数](../GBG18/index.md#def-gbg18-winding)から
 $$
 n=\frac{i}{2\pi}\int_{S^2}F.
 $$
@@ -535,4 +535,4 @@ $$
 
 ## 6. 次講へ
 
-赤道の巻き数という整数は、局所接続の曲率を球面全体で積分した値でもある。今回は可換群 $U(1)$ と二次元球面に限ったので、Stokesの定理から整数性まで直接導けた。次の **GBG20** では、非可換群でも曲率から大域的な微分形式を作れるよう、随伴作用に不変な多項式を調べる。
+赤道の巻き数という整数は、局所接続の曲率を球面全体で積分した値でもある。今回は可換群 $U(1)$ と二次元球面に限ったので、[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から整数性まで直接導けた。次の **GBG20** では、非可換群でも曲率から大域的な微分形式を作れるよう、随伴作用に不変な多項式を調べる。
