@@ -4,7 +4,7 @@
 
 本講では数体 $K/\mathbb Q$ を有限次拡大とします。有限素点は整数環 $\mathcal O_K$ の非零素イデアルに対応し、無限素点は実埋め込みまたは共役な複素埋め込みの組に対応します。素点全体を $V_K$、無限素点全体を $V_\infty$、有限素点全体を $V_f$ と記します。
 
-有限素点 $\mathfrak p$ における完備化 $K_{\mathfrak p}$ と付値環 $\mathcal O_{\mathfrak p}$ は[数体の素イデアル付値・完備化](../ANF9/index.md#def-anf9-prime-valuation)で導入しました。一様化元 $\pi_{\mathfrak p}$ の付値は次のように正規化します。
+有限素点 $\mathfrak p$ における完備化 $K_{\mathfrak p}$ と付値環 $\mathcal O_{\mathfrak p}$ は[数体の素イデアル付値・完備化](../ANF9/index.md#def-anf9-prime-valuation)で導入しました。本講の $\operatorname{ord}_{\mathfrak p}$ は、そこで定義した $v_{\mathfrak p}$ と同じ付値です。とくに $K=\mathbb Q$ では $\mathfrak p=(p)$ に対し $\operatorname{ord}_{(p)}(a)=v_p(a)$ と書けます。素点を動かす添字 $v\in V_K$ と、付値関数の名前 $v_{\mathfrak p}$ は区別します。一様化元 $\pi_{\mathfrak p}$ の付値は次のように正規化します。
 
 $$
 \operatorname{ord}_{\mathfrak p}(\pi_{\mathfrak p})=1.
@@ -94,7 +94,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-非零 $a=b/c$ を整数環の元の商で書き、$(c)$ を[素イデアル分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)します。$\mathfrak p\nmid(c)$ のとき $c$ は $\mathcal O_{\mathfrak p}$ の単数なので、$a=b/c\in\mathcal O_{\mathfrak p}$ です。例外素点は有限個ですから $\Delta(a)\in\mathbb A_K$。体から各完備化への埋め込みが単射であるため $\Delta$ も単射で、環演算は成分ごとに保存されます。
+$a=0$ はすべての成分が $0$ のアデールです。非零 $a=b/c$ を整数環の元の商で書き、$(c)$ を[素イデアル分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)します。$\mathfrak p\nmid(c)$ のとき $c$ は $\mathcal O_{\mathfrak p}$ の単数なので、$a=b/c\in\mathcal O_{\mathfrak p}$ です。例外素点は有限個ですから $\Delta(a)\in\mathbb A_K$。体から各完備化への埋め込みが単射であるため $\Delta$ も単射で、環演算は成分ごとに保存されます。
 
 次に、無限素点での絶対値として実素点では $|\sigma(a)|$、複素素点では $|\sigma(a)|^2$ を使い、
 
@@ -168,7 +168,7 @@ $$
 =N((a))^{-1}.
 $$
 
-ここで分数イデアルのノルムは整イデアルのノルムを商で延長した正有理数です。$a\in\mathcal O_K\setminus\{0\}$ なら、整数基底上の $a$ 倍写像の行列は整数行列で、像の指数は行列式の絶対値です。したがって[体ノルムの定義](../ANF2/index.md#def-anf2-field-norm)より
+ここで分数イデアルのノルムは整イデアルのノルムを商で延長した正有理数です。$a\in\mathcal O_K\setminus\{0\}$ なら、$\mathcal O_K$ の整数基底 $\omega_1,\ldots,\omega_n$ を選びます。$a\omega_j\in\mathcal O_K$ だから $a\omega_j=\sum_i m_{ij}\omega_i$ と整数係数で書けます。行列 $M=(m_{ij})$ の列は部分格子 $a\mathcal O_K$ の生成元の座標を表し、その指数は $|\det M|$ です。この $M$ は $\mathbb Q$ 線形な $a$ 倍写像 $m_a$ の行列でもあるので、[体ノルムの定義](../ANF2/index.md#def-anf2-field-norm)より
 
 $$
 N((a))=[\mathcal O_K:a\mathcal O_K]
@@ -202,7 +202,7 @@ $$
 18\cdot\frac12\cdot\frac19=1.
 $$
 
-**複素素点の検算。** $K=\mathbb Q(i)$、$a=2+i$ とします。唯一の無限素点は複素素点で、$|a|_\infty=|2+i|^2=5$ です。$N_{K/\mathbb Q}(2+i)=5$ で、$(2+i)$ はノルム $5$ の素イデアルです。他の有限素点に因子を持たないため、有限素点の積は $1/5$、全体は $1$ です。複素素点で二乗を忘れると $\sqrt5/5$ になり、積公式を壊します。
+**複素素点の検算。** $K=\mathbb Q(i)$、$a=2+i$ とします。唯一の無限素点は複素素点で、$|a|_\infty=|2+i|^2=5$ です。$N_{K/\mathbb Q}(2+i)=5$ で、$(2+i)$ がノルム $5$ の素イデアルであることは、[ANF9 の剰余体の直接計算](../ANF9/index.md#def-anf9-prime-valuation)で $\mathbb Z[i]/(2+i)\cong\mathbb F_5$ と確かめました。他の有限素点に因子を持たないため、有限素点の積は $1/5$、全体は $1$ です。複素素点で二乗を忘れると $\sqrt5/5$ になり、積公式を壊します。
 
 ## 4. 積で割れる元だけを集める：イデール
 
@@ -246,6 +246,8 @@ $$
 $x\in\mathbb A_K$ の乗法逆元が存在すれば、各 $x_v\ne0$ で逆元候補は $(x_v^{-1})_v$ に限ります。$x$ と $x^{-1}$ がともにアデールなら、それぞれ有限個以外で $\mathcal O_v$ に入り、共通してそうなる素点では $x_v,x_v^{-1}\in\mathcal O_v$、すなわち $x_v\in\mathcal O_v^\times$ です。逆にその条件があれば逆元候補は全成分で定義され、ほぼすべての有限素点で単数のままです。従って $\mathbb A_K^\times=\mathbb I_K$。
 
 イデール位相の基底は、有限集合 $S\supset V_\infty$ の中では $K_v^\times$ の開集合を、外では $\mathcal O_v^\times$ を取る直積です。局所体の乗法と逆元は連続であり、外側では部分群 $\mathcal O_v^\times$ の演算を保つので、有限個の座標だけを調整して積・逆元の連続性を得ます。
+
+まず、イデール位相はアデール部分空間位相以上に細かいことを確かめます。アデールの基本開集合 $B$ と $x\in B\cap\mathbb I_K$ を取ります。$B$ の例外集合 $S$ に加えて、$x_v\notin\mathcal O_v^\times$ となる有限素点（有限個）も $S'$ に含めます。$S'$ 内では $B$ の局所開条件と $K_v^\times$ の共通部分を選び、外では $\mathcal O_v^\times\subset\mathcal O_v$ を選べば、$x$ を含み $B\cap\mathbb I_K$ に入るイデール基本開近傍が得られます。従って $B\cap\mathbb I_K$ はイデール位相で開です。
 
 位相が一致しないことは $K=\mathbb Q$ で分かります。各素数 $p$ に対し、$e^{(p)}\in\mathbb I_{\mathbb Q}$ を、$p$ 成分が $p$ で、それ以外の成分（無限成分を含む）が $1$ のイデールとします。$p$ を大きくすると、$e^{(p)}-1$ は動く $p$ 成分でも $p-1\in\mathbb Z_p$ なので、アデール位相では $e^{(p)}\to1$ です。しかし $(e^{(p)})^{-1}-1$ は $p$ 成分が $p^{-1}-1\notin\mathbb Z_p$ であり、アデール位相で $1$ へ収束しません。従ってアデール部分空間位相での逆元写像は連続でなく、イデール位相とは一致しません。
 <!-- proof-end -->
@@ -305,7 +307,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf19-idele-class -->
-**定義の確認**（商で同一視するもの）。 $x\in\mathbb I_{\mathbb Q}$ と有理数 $a=3/2$ に対し、$x$ と $x\Delta(3/2)$ は同じ類です。一方、任意の $x$ に対して $\Delta(a)$ の全成分は同じ有理数 $a$ から来るので、ある一つの素点だけを勝手に変更しても一般に同じ類にはなりません。分母・分子の有限例外と商群の同一視を混同しないことが大切です。
+**定義の確認**（商で同一視するもの）。 $x\in\mathbb I_{\mathbb Q}$ と有理数 $a=3/2$ に対し、$x$ と $x\Delta(3/2)$ は同じ類です。一方、任意の $x$ に対して $\Delta(a)$ の全成分は同じ有理数 $a$ から来るので、ある一つの素点だけを勝手に変更しても一般に同じ類にはなりません。分母・分子の有限例外と商群の同一視を混同しないことが大切です。例えば $x=(1)_v$ とし、$y_2=2$、その他の $y_v=1$ とすると、どちらもイデールです。しかし $y=x\Delta(a)$ なら、無限成分から $a=1$ のはずなのに $2$ 成分は $2$ になり、矛盾します。したがって $[x]\ne[y]$ です。
 <!-- definition-example-end -->
 
 ## 6. イデールからイデアル類群を取り出す
@@ -444,7 +446,21 @@ $$
 |a|_\infty=|2+i|^2=(2+i)(2-i)=5.
 $$
 
-整数環 $\mathbb Z[i]$ では主イデアル $(2+i)$ の指数は $[\mathbb Z[i]:(2+i)]=5$ です。指数が素数なので $(2+i)$ は素イデアル $\mathfrak p$ で、$N\mathfrak p=5$。従って $|a|_{\mathfrak p}=5^{-1}$、他の有限素点では $1$ であり、全積は $5\cdot5^{-1}=1$ です。二乗しないと $1/\sqrt5$ になり、[積公式](#thm-anf19-product-formula)と矛盾します。
+整数環 $\mathbb Z[i]$ の整数基底 $(1,i)$ で、$a=2+i$ による乗法を計算します。
+
+$$
+a\cdot1=2+i,\qquad a\cdot i=-1+2i,\qquad
+[m_a]_{(1,i)}=\begin{pmatrix}2&-1\\1&2\end{pmatrix}.
+$$
+
+この行列の二つの列は、部分格子 $(a)=a\mathbb Z[i]$ の生成元の基底座標です。従って指数は行列式の絶対値であり、
+
+$$
+[\mathbb Z[i]:(a)]=|\det[m_a]_{(1,i)}|
+=|4+1|=5.
+$$
+
+商環 $\mathbb Z[i]/(a)$ は元が $5$ 個の単位元を持つ環なので $\mathbb F_5$ と同型であり、$(a)$ は素イデアル $\mathfrak p$ です。この剰余体による判定は[ANF9 の定義例](../ANF9/index.md#def-anf9-prime-valuation)とも一致し、$N\mathfrak p=5$ です。従って $|a|_{\mathfrak p}=5^{-1}$、他の有限素点では $1$ であり、全積は $5\cdot5^{-1}=1$ です。二乗しないと $1/\sqrt5$ になり、[積公式](#thm-anf19-product-formula)と矛盾します。
 <!-- solution-end -->
 
 ### A5. 有理数体のイデアル写像
@@ -488,7 +504,7 @@ $$
 他方、$a$ は非零の代数的整数なのでノルムは非零整数、従って絶対値は $1$ 以上です。矛盾から $a=0$ です。この条件で作る近傍が[対角像の離散性](#prop-anf19-diagonal-discrete)を示します。有限素点だけなら $a=n\in\mathbb Z\setminus\{0\}$ はどの素点でも整なので、非零元を排除できません。
 <!-- solution-end -->
 
-### B2. 単位イデールと積公式の違い
+### B2. 絶対値が1のイデールと積公式の違い
 
 $K=\mathbb Q$ とし、$x_\infty=6$、$x_2=2$、$x_3=3$、それ以外の有限成分を $1$ とする。$|x|_{\mathbb A}$ を計算し、$x$ が対角イデールかどうか判定せよ。さらに $x\Delta(6)^{-1}$ の有限素点での付値を求めよ。
 
