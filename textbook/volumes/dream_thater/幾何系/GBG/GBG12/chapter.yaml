@@ -6,6 +6,7 @@ prerequisites:
   - GBG11
   - GBG8
   - GBG5
+  - GEO4
 official_scope: []
 learning_objectives:
   - 分割の1の台と局所有限性を説明し、二つのパッチで具体的に構成できる
@@ -15,11 +16,9 @@ learning_objectives:
   - 接続空間のアフィン構造と接続補間を説明できる
   - 接続の差による曲率変化公式を非可換項と符号まで展開し具体例で検算できる
 definitions:
-  - { id: GBG12-DEF-01, name: 開被覆に従属する滑らかな分割の1 }
   - { id: GBG12-DEF-02, name: 水平・随伴同変なテンソル的1形式 }
   - { id: GBG12-DEF-03, name: ベクトル空間をモデルとするアフィン空間 }
 theorems:
-  - { id: GBG12-LEM-01, name: 滑らかな分割の1の存在 }
   - { id: GBG12-THM-01, name: 主束接続の存在 }
   - { id: GBG12-THM-02, name: 接続の差とテンソル的1形式 }
   - { id: GBG12-THM-03, name: テンソル的1形式と随伴束値1形式の対応 }
