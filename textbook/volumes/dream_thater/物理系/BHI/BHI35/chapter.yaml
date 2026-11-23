@@ -1,0 +1,55 @@
+id: BHI35
+title: "四次元・実在ブラックホールへの外挿"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI34
+  - BHI8
+  - BHI4
+  - BHI30
+  - BHI33
+official_scope: []
+learning_objectives:
+  - Schwarzschildの質量・面積・温度の関係と四次元の放射採取領域を説明できる
+  - 球面調和モードの縮退度と質量零スカラーの有効ポテンシャルを波動方程式から導出できる
+  - 透過・反射の流束保存から灰色体因子を定義し対象スピンの制約を説明できる
+  - モードの出射占有数とボソン熱的エントロピーの凹性を微分で証明できる
+  - 透過率込みのエネルギー光度と粗視化エントロピー流を区別して組み立てられる
+  - 四次元の準静的質量三乗則と粗視化エントロピーのPage交点を停止質量とともに検算できる
+  - 光子・重力子の文献数値の粒子種限定と二次元の二倍則との違いを説明できる
+  - 四次元一般化エントロピーの面積項と物質項を組み立て球面半径・時刻の停留条件を導ける
+  - 球対称局所補助模型の一意な停留半径と適用限界を検算できる
+  - 重力揺らぎ・解析接続・蒸発終期・観測可能な復号を別個の条件として評価できる
+definitions:
+  - { id: BHI35-DEF-01, name: "Schwarzschildスカラー放射チャネル" }
+  - { id: BHI35-DEF-02, name: "独立スカラー出射モードの粗視化エントロピー" }
+  - { id: BHI35-DEF-03, name: "四次元island候補の一般化エントロピー台帳" }
+theorems:
+  - { id: BHI35-PROP-01, name: "質量零スカラー場の角運動量散乱ポテンシャル" }
+  - { id: BHI35-PROP-02, name: "熱的モードエントロピーの単調性と凹性" }
+  - { id: BHI35-PROP-03, name: "四次元スカラーの光度と粗視化エントロピー流" }
+  - { id: BHI35-PROP-04, name: "球対称制限におけるQES停留方程式" }
+canonical_examples:
+  - Schwarzschild面積とHawking温度の微分
+  - 球面調和関数の縮退とスカラーのポテンシャルの分離計算
+  - Wronskian流束保存と灰色体因子
+  - 透過確率半分のモード占有数とエントロピー
+  - 四次元の光子と重力子の粗視化収支係数の限定例
+  - 面積項と対数物質エントロピーの球対称局所補助模型
+  - 温度の断熱変化と停止質量の適用区間
+problem_patterns:
+  - BHI35-SCHWARZSCHILD-AREA-TEMPERATURE
+  - BHI35-SCALAR-ANGULAR-POTENTIAL
+  - BHI35-GREYBODY-FLUX-CONSERVATION
+  - BHI35-BOSON-MODE-ENTROPY
+  - BHI35-CUBIC-EVAPORATION-STOP
+  - BHI35-ENERGY-VS-ENTROPY
+  - BHI35-PAGE-CROSSING-DOMAIN
+  - BHI35-FOUR-D-SPHERICAL-QES
+  - BHI35-ADIABATIC-TIME
+  - BHI35-RECOVERY-ASSUMPTIONS
+  - BHI35-INTEGRATED-FOUR-D-AUDIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 12, review: 6 }
