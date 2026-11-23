@@ -1,0 +1,52 @@
+chapter: IWA5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - IWA4
+forward_references: []
+concepts:
+  - id: number-theory.iwa5-fg-torsion
+    name: 有限生成torsion岩澤加群
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa4-iwasawa-action, number-theory.iwasawa-power-series-isomorphism]
+  - id: number-theory.iwa5-common-annihilator
+    name: 有限生成torsionの共通消去元
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa5-fg-torsion]
+  - id: number-theory.iwa5-pseudonull
+    name: 擬零岩澤加群
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa5-fg-torsion]
+  - id: number-theory.iwa5-pseudonull-finite
+    name: 擬零と有限性
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa5-pseudonull]
+  - id: number-theory.iwa5-pseudoisomorphism
+    name: 擬同型
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa5-pseudonull]
+  - id: number-theory.iwa5-residue-pseudoiso
+    name: pTの商加群の擬同型
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa5-pseudoisomorphism, number-theory.iwa5-pseudonull-finite]
+  - id: number-theory.iwa5-local-pseudoiso
+    name: 擬同型の局所判定
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa5-pseudoisomorphism, number-theory.iwa5-pseudonull]
+  - id: number-theory.iwa5-structure
+    name: 有限生成torsion岩澤加群の構造定理
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa5-fg-torsion, number-theory.iwa5-local-pseudoiso, number-theory.iwa5-common-annihilator]
+  - id: number-theory.iwa5-finite-coinvariants
+    name: 有限なT商からtorsionを導く
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa5-fg-torsion, number-theory.iwa5-common-annihilator]

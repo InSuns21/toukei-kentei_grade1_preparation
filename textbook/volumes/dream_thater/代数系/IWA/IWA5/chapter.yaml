@@ -1,0 +1,46 @@
+id: "IWA5"
+title: "岩澤加群のtorsion／擬同型"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IWA4
+official_scope: []
+learning_objectives:
+  - 岩澤代数の加群作用と有限生成性・torsion性を区別し共通消去元の同値条件を証明できる
+  - 高さ1の局所化による擬零性と有限集合としての有限性の同値を説明できる
+  - 擬同型の核と余核を求め実際の同型との差を説明できる
+  - R/(pT)からR/(p)とR/(T)への剰余写像の核・余核を計算できる
+  - 構造定理の環論的入力・適用条件と擬同型の初等因子の一意性を説明できる
+  - M/TMが有限の有限生成加群に対するtorsion判定を行列式から証明できる
+  - 算術的な逆極限の有限生成性・torsion性は別に証明が必要であると判断できる
+definitions:
+  - { id: IWA5-DEF-01, name: 有限生成torsion岩澤加群 }
+  - { id: IWA5-DEF-02, name: 擬零岩澤加群 }
+  - { id: IWA5-DEF-03, name: 擬同型 }
+theorems:
+  - { id: IWA5-PROP-01, name: 有限生成torsionの共通消去元 }
+  - { id: IWA5-PROP-02, name: 擬零と有限性 }
+  - { id: IWA5-PROP-03, name: pTの商加群の擬同型 }
+  - { id: IWA5-PROP-04, name: 擬同型の局所判定 }
+  - { id: IWA5-THM-01, name: 有限生成torsion岩澤加群の構造定理 }
+  - { id: IWA5-PROP-05, name: 有限なT商からtorsionを導く }
+canonical_examples:
+  - R/(T)とRのtorsion性の比較
+  - R/(p,T)とR/(p,T^2)の擬零性
+  - R/(pT)からR/(p)とR/(T)への単射と有限余核
+  - 3成分の直和を用いた擬同型の核・余核と非同型性
+problem_patterns:
+  - IWA5-THREE-MODULES
+  - IWA5-COMMON-ANNIHILATOR
+  - IWA5-FINITE-QUOTIENT
+  - IWA5-PSEUDOISOMORPHISM-ZERO
+  - IWA5-POWER-P-QUOTIENT
+  - IWA5-RESIDUE-MAP-COKERNEL
+  - IWA5-LOCALIZATION-FINITE
+  - IWA5-T-COINVARIANTS
+  - IWA5-DETERMINANT-TRICK
+  - IWA5-COMBINED-CLASSIFICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 3 }

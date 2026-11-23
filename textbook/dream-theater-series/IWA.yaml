@@ -23,7 +23,7 @@ chapters:
     title: "ノルム・制限と逆極限"
   - id: IWA5
     path: textbook/volumes/dream_thater/代数系/IWA/IWA5
-    status: planned
+    status: completed
     title: "岩澤加群のtorsion／擬同型"
   - id: IWA6
     path: textbook/volumes/dream_thater/代数系/IWA/IWA6
