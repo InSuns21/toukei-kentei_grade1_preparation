@@ -3,6 +3,33 @@
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
 
 export const LAB_PARAMETERS = Object.freeze({
+  FCG2: Object.freeze([
+    Object.freeze({
+      id:'omega',type:'number',label:'中心の基本角速度',default:1,
+      min:0,max:2.5,step:0.25,unit:'rad/s',
+      meaning:'全半径での回転速度の基準。0なら染料はその場に停止',
+      sourceLocation:'density.js / const omega → concentration() の回転角',
+      sourceFile:'js',index:null,
+      matcher:/^([ \t]*const omega=)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id:'shear',type:'number',label:'外側ほど速く回る割合',default:3,
+      min:0,max:6,step:0.5,unit:'1/m',
+      meaning:'角速度Ω(r)=omega×(1+shear×r)。0なら剛体回転で染料は巻かれない',
+      sourceLocation:'density.js / const shear → Ω(r) と逆回転角',
+      sourceFile:'js',index:null,
+      matcher:/^([ \t]*const shear=)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id:'amplitude',type:'number',label:'染料の最大濃度',default:0.9,
+      min:0,max:1,step:0.1,unit:'無次元 (0–1)',
+      meaning:'濃度を一様倍率で変える。回転速度や染料の形は変えない',
+      sourceLocation:'density.js / const amplitude → concentration()',
+      sourceFile:'js',index:null,
+      matcher:/^([ \t]*const amplitude=)([^;\n]+)(;)/gm
+    })
+  ]),
+
   WGL19: Object.freeze([
     Object.freeze({
       id: 'rate', type: 'number', label: '拡散係数 r', default: 0.2,
@@ -275,6 +302,28 @@ export function verifiedFCG3Physics(js,vertex,fragment,defaults) {
     if(canonical!==baseline)return null;
   }catch{return null;}
   return {radius:readings[0].value,N:readings[1].value};
+}
+
+// Admit only the three source-linked FCG2 physics literals as verified variants.
+// GLSL edits or structural JS changes remain unverified (not automatically wrong).
+const FCG2_PARAMETER_IDS=Object.freeze(['omega','shear','amplitude']);
+export function verifiedFCG2Physics(js,vertex,fragment,defaults){
+  if(typeof js!=='string'||vertex!==defaults?.vertex||fragment!==defaults?.fragment)
+    return null;
+  const specs=parametersFor('FCG2');
+  if(specs.length!==FCG2_PARAMETER_IDS.length||
+     specs.some((spec,i)=>spec.id!==FCG2_PARAMETER_IDS[i]))return null;
+  const values=specs.map(spec=>readLabParameter(js,spec));
+  if(!values.every(value=>value.ok))return null;
+  try{
+    let normalized=js,baseline=defaults.js;
+    for(const spec of specs){
+      normalized=writeLabParameter(normalized,spec,spec.default);
+      baseline=writeLabParameter(baseline,spec,spec.default);
+    }
+    if(normalized!==baseline)return null;
+  }catch{return null;}
+  return Object.fromEntries(specs.map((spec,i)=>[spec.id,values[i].value]));
 }
 
 export const FCG5_OBSERVATION_PRESETS = Object.freeze([
