@@ -1,0 +1,53 @@
+chapter: GBG25
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG24
+  - GEO8
+forward_references:
+  - gauge.chern-total-form
+concepts:
+  - id: gauge.su2-s3-identification
+    name: S³とSU(2)の標準同一視
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（S³ と SU(2) の標準同一視）"]
+    requires: [lie.lie-group]
+
+  - id: gauge.s4-su2-clutching
+    name: S⁴上のSU(2)クラッチング束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（S⁴ 上の SU(2) クラッチング束）"]
+    requires: [gauge.su2-s3-identification, gauge.smooth-gluing-theorem, gauge.principal-bundle]
+
+  - id: gauge.s4-clutching-principal
+    name: クラッチング商は滑らかな主束
+    kind: proposition
+    introduction: formal
+    requires: [gauge.s4-su2-clutching, gauge.smooth-gluing-theorem]
+
+  - id: gauge.s3-integral-degree
+    name: S³写像の積分次数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（S³ 写像の積分次数）"]
+    requires: [gauge.su2-s3-identification]
+
+  - id: gauge.s3-degree-homotopy
+    name: 積分次数のホモトピー不変性と延長障害
+    kind: lemma
+    introduction: formal
+    requires: [gauge.s3-integral-degree]
+
+  - id: gauge.s4-clutching-degree-obstruction
+    name: S⁴上のクラッチング束の次数障害
+    kind: theorem
+    introduction: formal
+    requires: [gauge.s4-clutching-principal, gauge.s3-degree-homotopy, gauge.global-section-triviality]
+
+  - id: gauge.s4-clutching-degree-invariance
+    name: クラッチング次数の束同型不変性
+    kind: proposition
+    introduction: formal
+    requires: [gauge.s4-clutching-degree-obstruction, gauge.transition-section-change]
