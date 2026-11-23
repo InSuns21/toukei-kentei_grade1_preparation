@@ -115,7 +115,7 @@ $$
 **定義の確認**。 一変数の $m_k^-=1,\ P_k^-=2,\ H_k=2,\ R_k=1,\ y_k=5$ なら、予測した観測は $2$、実測との差は $z_k=3$。予測状態の分散は観測写像によって $2^2\cdot2=8$ となり、観測雑音の分散1を加えて $S_k=9$ となる。$z_k$ と $S_k$ の次元が観測空間側にあることも確認できる。
 <!-- definition-example-end -->
 
-ここでは[TSA6で定義したKalmanゲイン](../../../解析系/TSA/TSA6/index.md#def-tsa6-kalman-gain)を、観測残差から状態の修正量への $d\times p_k$ 行列として使う。行列の各因子は「状態と観測の共分散」$\operatorname{Cov}(x_k,z_k\mid Y_{k-1})=P_k^-H_k^T$ と「観測残差の共分散」$S_k$ に対応する。
+ここでは[TSA6の観測補正係数の定義](../../../解析系/TSA/TSA6/index.md#def-tsa6-kalman-gain)を、観測残差から状態の修正量への $d\times p_k$ 行列として使う。行列の各因子は「状態と観測の共分散」$\operatorname{Cov}(x_k,z_k\mid Y_{k-1})=P_k^-H_k^T$ と「観測残差の共分散」$S_k$ に対応する。
 
 <a id="def-pml2-24-gain"></a>
 
