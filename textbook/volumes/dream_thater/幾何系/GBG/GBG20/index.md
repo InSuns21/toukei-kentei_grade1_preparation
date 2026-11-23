@@ -36,9 +36,11 @@ $$
 
 ## 2. 対称Ad不変多重線形形式
 
-$k\ge1$ を整数とする。$\mathfrak g^k$ から $\mathbb C$ への写像 $p$ が**$k$ 重線形**とは、ほかの $k-1$ 個の引数を固定すると、残る引数について複素線形であることをいう。ただし $\mathfrak g$ が実Lie環の場合は各引数で**実線形**とし、値域だけを $\mathbb C$ とする。これは実係数を複素数として扱うための区別である。
+$k\ge1$ を整数とする。Lie群 $G$ のLie環 $\mathfrak g=T_eG$ は、ここでは**実ベクトル空間**として扱う。写像 $p:\mathfrak g^k\to\mathbb C$ が **$k$ 重線形**とは、ほかの $k-1$ 個の引数を固定すると残る引数について実線形であることをいう。例えば第1引数では、実数 $a,b$ に対し $p(aX+bY,X_2,\ldots,X_k)=ap(X,X_2,\ldots,X_k)+bp(Y,X_2,\ldots,X_k)$ を要求する。$G=GL(n,\mathbb C)$ の場合も、Lie環を実Lie環として扱うので複素線形性までは要求しない。
 
 **対称**とは任意の置換 $\sigma$ に対して $p(X_{\sigma(1)},\ldots,X_{\sigma(k)})=p(X_1,\ldots,X_k)$ となること、**Ad不変**とは全引数を同じ群元で随伴変換しても値が変わらないことをいう。随伴変換そのものは[Lie群の随伴表現](../../../代数系/LIE/LIE2/index.md#def-lie2-adjoint-representation)で導入されている。
+
+また、各引数に同じ $X$ を入れる写像 $q(X)=p(X,\ldots,X)$ は、$\mathfrak g$ の実線形座標で見れば次数 $k$ の斉次多項式（零多項式も含む）になる。斉次性とは任意の実数 $t$ について $q(tX)=t^kq(X)$ となることをいう。
 
 <a id="def-gbg20-invariant-polynomial"></a>
 
@@ -54,7 +56,7 @@ $$
 > を満たすとき、$p$ を **次数 $k$ の対称Ad不変多重線形形式**と呼ぶ。この $p$ に対応する斉次多項式は $q(X)=p(X,\ldots,X)$ である。
 <!-- formal-statement-end -->
 
-ここで $q$ が次数 $k$ というのは $q(tX)=t^kq(X)$（実数 $t$）という意味である。$p$ の各引数の対称性と $q$ のAd不変性を混同しない。**対称化**を行っていない任意の積のtraceは $k\ge3$ で対称とは限らない。
+$p$ の各引数の対称性と $q$ のAd不変性を混同しない。**対称化**を行っていない任意の積のtraceは $k\ge3$ で対称とは限らない。
 
 <!-- definition-example-start: def-gbg20-invariant-polynomial -->
 **定義の確認**（可換群の例）。$G=U(1)$ なら $\mathfrak g=i\mathbb R$ で、任意の $g$ に対して $\operatorname{Ad}_gX=X$ である。$X_j=it_j$（$t_j\in\mathbb R$）として
@@ -63,7 +65,7 @@ $$
 p_k(it_1,\ldots,it_k)=t_1\cdots t_k
 $$
 
-と定めると、各 $t_j$ への実線形性、任意の引数置換に対する積の一致、全引数へのAd作用の自明性を順に確認できる。よってこれはすべての $k\ge1$ で定義を満たす。特に $p_1(X)=iX/(2\pi)$ は実数値になり、前講の正規化と一致する。
+と定めると、各 $t_j$ への実線形性、任意の引数置換に対する積の一致、全引数へのAd作用の自明性を順に確認できる。よってこれはすべての $k\ge1$ で定義を満たす。この族の $p_1(it)=t$ に対し、[GBG19の第一Chern数の正規化](../GBG19/index.md#def-gbg19-chern-number)で用いる別の実線形形式は $p_{\mathrm{Ch},1}(X)=iX/(2\pi)$ であり、$p_{\mathrm{Ch},1}(it)=-t/(2\pi)$、すなわち $p_{\mathrm{Ch},1}=-p_1/(2\pi)$ である。両者ともAd不変だが、同じ形式ではない。
 <!-- definition-example-end -->
 
 **非例**。$G=GL(2,\mathbb C)$ を実Lie群として見て $p(X)=X_{11}$ と置くと線形かつ1重のため対称だが、前節の $g$ と $X$ では $p(g^{-1}Xg)=-1\ne1=p(X)$。破れているのはAd不変性である。したがって成分 $(F_i)_{11}$ は一般に貼り合わせられない。
@@ -98,7 +100,15 @@ $$
 
 を得る。これは必要性を示す。
 
-逆にこの恒等式を仮定する。任意の固定した $Y$ と $X_j$ に対し $Z_j(t)=\operatorname{Ad}_{\exp(tY)}X_j$ と書くと、$Z_j'(t)=[Y,Z_j(t)]$ である。従って
+逆にこの恒等式を仮定する。$Y$ と $X_j$ を固定して $t$ を動かし、$Z_j(t)=\operatorname{Ad}_{\exp(tY)}X_j$ と置く。1パラメータ部分群の積 $\exp((t+h)Y)=\exp(hY)\exp(tY)$ と[無限小随伴作用](../../../代数系/LIE/LIE2/index.md#def-lie2-infinitesimal-adjoint)により
+
+$
+Z_j'(t)=\left.\frac{d}{dh}\right|_{h=0}
+\operatorname{Ad}_{\exp(hY)}Z_j(t)
+=[Y,Z_j(t)]
+$
+
+となる。従って
 
 $$
 h'(t)=\sum_{j=1}^kp(Z_1(t),\ldots,[Y,Z_j(t)],\ldots,Z_k(t))=0.
@@ -119,7 +129,14 @@ $$
 
 [GBG17のWilson loop](../GBG17/index.md#def-gbg17-wilson-loop)では、行列の共役でtraceが変わらないことを利用した。曲率にも、行列traceの巡回不変性を適用できる。ただし行列積は一般に非可換なので、複数の引数を受け取る形では**置換の平均**を取る。
 
-$\rho:G\to GL(V)$ を有限次元複素表現とし、微分表現 $\rho_*:\mathfrak g\to\operatorname{End}_{\mathbb C}(V)$ を用いる。これは実線形で、$\rho_*(\operatorname{Ad}_gX)=\rho(g)\rho_*(X)\rho(g)^{-1}$ を満たす。$\mathfrak S_k$ は $k$ 個の位置を入れ替える置換全体、$k!$ は置換の個数である。
+$\rho:G\to GL(V)$ を有限次元複素表現とし、その単位元での微分（微分表現）を
+
+$
+\rho_*(X)=\left.\frac{d}{dt}\right|_{t=0}\rho(\exp(tX))
+\in\operatorname{End}_{\mathbb C}(V)
+$
+
+と書く。ここでは $X\in\mathfrak g$ とし、$t$ は実数を動く。$\rho_*$ は実線形で、$\rho_*(\operatorname{Ad}_gX)=\rho(g)\rho_*(X)\rho(g)^{-1}$ を満たす（共役による導出は次の定理の証明で行う）。$V$ の基底を一つ選べば $\rho_*(X)$ は正方行列で表され、その行列のtraceは基底を取り替えても共役不変なので元の線形作用素のtraceに等しい。$\mathfrak S_k$ は $k$ 個の位置を入れ替える置換全体、$k!$ は置換の個数である。
 
 <a id="def-gbg20-symmetrized-trace"></a>
 
@@ -187,7 +204,7 @@ $$
 任意の正方行列 $B$ について $\operatorname{tr}(TBT^{-1})=\operatorname{tr}(BT^{-1}T)=\operatorname{tr}B$ だから、各項が変わらない。その有限和も変わらず、定義の二条件を満たす。
 <!-- proof-end -->
 
-**対称化が必要な直接例**。$E_{ab}$ を第 $(a,b)$ 成分が1で他が0の $3\times3$ 行列とする。標準表現で $X=E_{12}$、$Y=E_{23}$、$Z=E_{31}$ を取ると
+**対称化が必要な直接例**。$E_{ab}$ を第 $(a,b)$ 成分が1で他が0の $3\times3$ 行列とする。$G=GL(3,\mathbb C)$ の標準表現では $\rho_*(X)=X$ なので、抽象的なtrace形式を行列積で判定できる。行列単位の積 $E_{ab}E_{cd}=\delta_{bc}E_{ad}$（$\delta_{bc}$ は添字が一致するとき1、それ以外は0）を用い、$X=E_{12}$、$Y=E_{23}$、$Z=E_{31}$ を取ると
 
 $$
 XYZ=E_{11},\quad \operatorname{tr}(XYZ)=1;
@@ -207,7 +224,7 @@ $$
 F_i=\sum_{a=1}^m F_i^a e_a,\qquad F_i^a\in\Omega^2(U_i;\mathbb R)
 $$
 
-と書く。$p$ の多重線形性を使えば、係数を先に評価して微分形式を外積することができる。曲率は偶数次数なので $F_i^a\wedge F_i^b=F_i^b\wedge F_i^a$ である。基底を替えても多重線形性により同じ形式を得る。
+と書く。$e_a$ は実ベクトル空間 $\mathfrak g$ の基底、$F_i^a$ は対応する実数値の2形式である。$p$ の多重線形性を使えば、係数を先に評価して微分形式を外積することができる。曲率は偶数次数なので $F_i^a\wedge F_i^b=(-1)^{2\cdot2}F_i^b\wedge F_i^a=F_i^b\wedge F_i^a$ である。
 
 一般に $\alpha_j=\sum_a\alpha_j^a e_a$ が次数 $r_j$ のLie環値微分形式のとき、記号 $p(\alpha_1,\ldots,\alpha_k)$ は
 
@@ -218,7 +235,16 @@ p(e_{a_1},\ldots,e_{a_k})\,
 \alpha_1^{a_1}\wedge\cdots\wedge\alpha_k^{a_k}
 $$
 
-という次数 $r_1+\cdots+r_k$ の複素数値形式を表す。各 $e_a$ は固定した実基底で、複素係数は外積の係数に掛ける。
+という次数 $r_1+\cdots+r_k$ の複素数値形式を表す。各 $e_a$ は固定した実基底で、複素係数は外積の係数に掛ける。基底を $e'_a=\sum_b C_{ba}e_b$ に替えたとき、同じ形式の係数は $\alpha_j^b=\sum_a C_{ba}\alpha_j^{\prime a}$ を満たす。したがって
+
+$
+\sum_{a_1,\ldots,a_k}p(e'_{a_1},\ldots,e'_{a_k})
+\,\alpha_1^{\prime a_1}\wedge\cdots\wedge\alpha_k^{\prime a_k}
+=\sum_{b_1,\ldots,b_k}p(e_{b_1},\ldots,e_{b_k})
+\,\alpha_1^{b_1}\wedge\cdots\wedge\alpha_k^{b_k}.
+$
+
+これは各 $e'_a$ を展開して多重線形性を適用した等式であり、外積による評価が基底の選び方に依存しない理由である。
 
 <a id="def-gbg20-curvature-polynomial-form"></a>
 
@@ -241,15 +267,15 @@ A=i(x^1dx^2+x^3dx^4),\qquad
 F=dA=i(dx^1\wedge dx^2+dx^3\wedge dx^4)
 $$
 
-とする。可換なので $A\wedge A$ の括弧項は零である。$p_2(it_1,it_2)=t_1t_2$ を使うと
+とする。可換なので $A\wedge A$ の括弧項は零である。$\mathfrak u(1)=\mathbb R e$ の実基底 $e=i$ と、$\eta=dx^1\wedge dx^2$、$\zeta=dx^3\wedge dx^4$ を取ると $F=e(\eta+\zeta)$ である。$p_2(it_1,it_2)=t_1t_2$ は $p_2(e,e)=1$ を満たすので、定義の係数評価規則から
 
-$$
-p_2(F,F)
-=(dx^1\wedge dx^2+dx^3\wedge dx^4)^2
+$
+p_2(F,F)=p_2(e,e)(\eta+\zeta)\wedge(\eta+\zeta)
+=\eta\wedge\eta+\eta\wedge\zeta+\zeta\wedge\eta+\zeta\wedge\zeta
 =2\,dx^1\wedge dx^2\wedge dx^3\wedge dx^4.
-$$
+$
 
-外積の二つの交差項は2形式どうしの交換符号 $(-1)^{2\cdot2}=+1$ により足し合わされる。同じ2形式の自己外積は零である。$p_2$ の2重線形性、対称性とAd不変性は先の $U(1)$ の確認と同じであり、ここでは定義の外積規則によってLie環値2形式が複素数値4形式へ写ることまで確かめた。
+ここでは $\eta\wedge\eta=\zeta\wedge\zeta=0$ である。例えば $\eta\wedge\eta$ には $dx^1$ が重複して現れるためである。交差項は2形式どうしの交換符号 $(-1)^{2\cdot2}=+1$ により足し合わされる。**一般の2形式の自己外積が零という意味ではなく**、実際に $(\eta+\zeta)\wedge(\eta+\zeta)\ne0$ となる。$p_2$ の実2重線形性、対称性とAd不変性は先の $U(1)$ の確認に従い、外積規則の適用も基底表示から確かめられた。
 <!-- definition-example-end -->
 
 ### 何が「大域の形式」なのか
@@ -295,7 +321,22 @@ $$
 =p(F_i^k)=\beta_i.
 $$
 
-従って $\beta_i$ は重なりで一致し、唯一の滑らかな形式 $\beta$ に貼り合わさる。$u\in P$ に対し、ある局所section $s_i$ と $h\in G$ を用いて $u=s_i(x)h$ と一意に書ける。水平性により、任意の接ベクトルの値を底への射影だけで決めてよい。右不変性によって $s_i(x)$ で計算した値と $u=s_i(x)h$ で計算した値が等しくなる。したがって $\pi^*\beta=p(\Omega^k)$ が成り立つ。
+従って $\beta_i$ は重なりで一致し、唯一の滑らかな形式 $\beta$ に貼り合わさる。$u\in P$ に対し、局所section $s_i$ と $h\in G$ を用いて $u=s_i(x)h$ と一意に書ける。$v_1,\ldots,v_{2k}\in T_uP$ とし $w_\ell=d\pi_u(v_\ell)\in T_xM$ と置く。$d\pi\circ dR_h=d\pi$ と $\pi\circ s_i=\operatorname{id}$ により
+
+$
+v_\ell=d(R_h)_{s_i(x)}(ds_i)_x(w_\ell)+v_\ell^{\mathrm{vert}},
+\qquad v_\ell^{\mathrm{vert}}\in\ker d\pi_u.
+$
+
+水平性で垂直成分の項は零になり、右不変性を使うと
+
+$
+p(\Omega^k)_u(v_1,\ldots,v_{2k})
+=p(\Omega^k)_{s_i(x)}((ds_i)_xw_1,\ldots,(ds_i)_xw_{2k})
+=\beta_x(w_1,\ldots,w_{2k}).
+$
+
+従って $\pi^*\beta=p(\Omega^k)$ が成り立つ。
 
 最後に $\pi^*\beta=\pi^*\widetilde\beta$ なら、各 $s_i^*$ を作用させて $\beta|_{U_i}=\widetilde\beta|_{U_i}$ が従い、一意である。
 <!-- proof-end -->
@@ -304,16 +345,16 @@ $$
 
 ## 5. 小さい例で条件を見分ける
 
-**例1：次数1の第一Chern形式につながる場合**。$G=U(1)$ に対し $p_1(X)=iX/(2\pi)$ と置くと、前節の対称性・Ad不変性は自動的に満たされる。$S^2$ 上の[GBG19のmonopole曲率](../GBG19/index.md#thm-gbg19-curvature-flux) $F=-in\sin\vartheta\,d\vartheta\wedge d\varphi/2$ では
+**例1：次数1の第一Chern形式につながる場合**。$G=U(1)$ に対し、先ほど区別した $p_{\mathrm{Ch},1}(X)=iX/(2\pi)$ を用いる。これは実線形で1引数のため対称、かつ $U(1)$ のAd作用が自明なので不変である。$S^2$ 上の[GBG19のmonopole曲率](../GBG19/index.md#thm-gbg19-curvature-flux) $F=-in\sin\vartheta\,d\vartheta\wedge d\varphi/2$ では
 
-$$
-\beta_{p_1}=\frac{i}{2\pi}F
+$
+\beta_{p_{\mathrm{Ch},1}}=\frac{i}{2\pi}F
 =\frac{n}{4\pi}\sin\vartheta\,d\vartheta\wedge d\varphi.
 $$
 
 これを球面で積分すると $n$ になる。整数になる理由はこの**特定の束・正規化と巻き数**にあり、対称Ad不変性だけから整数性は出ない。
 
-**例2：次数2の行列のtrace**。$G=GL(2,\mathbb C)$ の標準表現に対し $p_2(X,Y)=\operatorname{tr}(XY)$ は対称でAd不変である。$X=\operatorname{diag}(1,-1)$ では $p_2(X,X)=2$、一方 $p_1(X)=\operatorname{tr}X=0$。次数1の不変量で見えないものを次数2が捉えることがある。ただし底の次元が2なら $p_2(F,F)$ は4形式なので必ず零であり、基底の次元も重要である。
+**例2：次数2の行列のtrace**。$G=GL(2,\mathbb C)$ の標準表現 $\rho$ に対し $p_{\rho,2}(X,Y)=\operatorname{tr}(XY)$ は対称でAd不変である。$X=\operatorname{diag}(1,-1)$ では $p_{\rho,2}(X,X)=2$、一方 $p_{\rho,1}(X)=\operatorname{tr}X=0$。次数1の不変量で見えないものを次数2が捉えることがある。ただし底の次元が2なら $p_2(F,F)$ は4形式なので必ず零であり、基底の次元も重要である。
 
 **例3：群全体の不変性を要する場合**。上の $O(2)$ では $p(tJ)=t$ は無限小条件を満たすが反射のAd作用では符号が変わる。反射を遷移関数に含む主束では、局所曲率の成分から作る $p(F_i)$ が重なりで符号反転し、大域形式へ降りない。[大域への降下定理](#thm-gbg20-basic-descent)が壊れる機構は、局所曲率変換に対する $p$ の不変性の欠如である。
 
