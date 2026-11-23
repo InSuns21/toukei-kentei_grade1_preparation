@@ -2,7 +2,7 @@
 
 [GBG7 の接続1形式](../GBG7/index.md#def-gbg7-connection-form)から水平部分空間 $H_p=\ker\omega_p$ が定まり、[GBG6 の水平持ち上げ](../GBG6/index.md#prop-gbg6-horizontal-lift)によって基底の接ベクトルを各点で一意に水平へ持ち上げられる。しかし各点で持ち上げられることと、**曲線全体に沿って一つの点を連続的に運べること**は別の問題である。
 
-本講では、その運び方を常微分方程式として構成する。基底の曲線の始点にある主束の点を、水平なまま終点のファイバーへ運ぶ写像が平行移動である。さらに、[GBG9 の共変微分](../GBG9/index.md#def-gbg9-associated-covariant-derivative)で記述された「場が曲線に沿って変化しない」という条件と結び付ける。
+本講では、その運び方を常微分方程式として構成する。基底の曲線の始点にある主束の点を、水平なまま終点のファイバーへ運ぶ写像が平行移動である。さらに、[GBG9 の共変微分](../GBG9/index.md#def-gbg9-covariant-derivative)で記述された「場が曲線に沿って変化しない」という条件と結び付ける。
 
 **設定**：$M$ は Hausdorff・第二可算・境界のない滑らかな有限次元多様体、$G$ は有限次元 Lie 群、$\pi:P\to M$ は滑らかな右主 $G$ 束とする。$\omega$ は滑らかな主束接続形式で、$H=\ker\omega$ と置く。曲線 $\gamma:[a,b]\to M$ は区分的 $C^1$ とし、各滑らかな区間では導関数が端点まで連続に延長できるものを扱う。水平性は各滑らかな区間で要求する。必要に応じて滑らかな曲線の場合から始め、区分の端点で解をつなぐ。
 
@@ -275,7 +275,7 @@ section変更では、**開いた路の輸送行列は始点と終点で別々�
 
 ### 結合ベクトル束では何を運ぶか
 
-[GBG4 の結合束](../GBG4/index.md#def-gbg4-associated-vector-bundle) $E=P\times_\rho V$ と表現 $\rho:G\to GL(V)$ を固定する。$[p,v]$ は $[pg,v]=[p,\rho(g)v]$ という同値関係に従う。
+[GBG4 の結合束](../GBG4/index.md#def-gbg4-associated-bundle) $E=P\times_\rho V$ と表現 $\rho:G\to GL(V)$ を固定する。$[p,v]$ は $[pg,v]=[p,\rho(g)v]$ という同値関係に従う。
 
 <a id="def-gbg14-associated-transport"></a>
 
@@ -340,7 +340,7 @@ $$
 v(t)=\rho(U(t))v_0.
 $$
 
-表現の微分の定義（[GBG9 の表現の無限小作用](../GBG9/index.md#def-gbg9-infinitesimal-action)）により、$\dot U=-aU$ を微分すると
+表現の微分の定義（[GBG9 の表現の無限小作用](../GBG9/index.md#def-gbg9-infinitesimal-representation)）により、$\dot U=-aU$ を微分すると
 
 $$
 \frac d{dt}\rho(U(t))
@@ -704,7 +704,7 @@ U'v_0=(e^{-2}-e^{-1},1)^{\mathsf T}
 =h(1,1)^{-1}Uv_0.
 $$
 
-結合束の[局所成分変換](../GBG4/index.md#thm-gbg4-associated-section-correspondence)により、新sectionでの成分は旧sectionの成分に終点の $h^{-1}$ を掛けたものなので、両者は同じ結合束の元を表す。開いた路の輸送行列そのものは不変ではないが、その大域写像はsectionに依存しない。
+結合束の[局所成分変換](../GBG4/index.md#thm-gbg4-component-transformation)により、新sectionでの成分は旧sectionの成分に終点の $h^{-1}$ を掛けたものなので、両者は同じ結合束の元を表す。開いた路の輸送行列そのものは不変ではないが、その大域写像はsectionに依存しない。
 <!-- solution-end -->
 
 ---
