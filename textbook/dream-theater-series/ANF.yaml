@@ -83,7 +83,7 @@ chapters:
     title: "アデール・イデールと有限性条件"
   - id: ANF20
     path: textbook/volumes/dream_thater/代数系/ANF/ANF20
-    status: planned
+    status: completed
     title: "大域Artin写像と剰余類体"
   - id: ANF21
     path: textbook/volumes/dream_thater/代数系/ANF/ANF21
