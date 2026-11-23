@@ -399,7 +399,7 @@ $$
 $j=1$ とし、$J_+|1,-1\rangle$、$J_+|1,0\rangle$、$J_-|1,1\rangle$、$J_-|1,-1\rangle$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [昇降公式](#thm-lrep7-spin-spectrum)へそれぞれ $j=1$ と $m=-1,0,1,-1$ を代入します。
+**詳細解答。** [有限次元スピンの量子化と昇降公式](#thm-lrep7-spin-spectrum)へそれぞれ $j=1$ と $m=-1,0,1,-1$ を代入します。
 
 $$
 \begin{aligned}
@@ -457,7 +457,7 @@ $j=5/2$ の $m$ の全値、表現の次元、$2\pi$ 回転と $4\pi$ 回転の�
 基底 $(|1,1\rangle,|1,0\rangle,|1,-1\rangle)$ で $J_+,J_-$ から $J_1,J_2$ を構成し、$[J_1,J_2]=iJ_3$ と $\boldsymbol J^2=2I_3$ を検算せよ。
 
 <!-- solution-start -->
-**詳細解答。** [昇降公式](#thm-lrep7-spin-spectrum)から
+**詳細解答。** [有限次元スピンの量子化と昇降公式](#thm-lrep7-spin-spectrum)から
 
 $$
 J_+=\begin{pmatrix}0&\sqrt2&0\\0&0&\sqrt2\\0&0&0\end{pmatrix},
