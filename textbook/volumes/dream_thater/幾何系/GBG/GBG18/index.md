@@ -151,7 +151,7 @@ $$
 $$
 g'_{NS}=h_N^{-1}g_{NS}h_S.
 $$
-しかし $h_N$ は北半球まで、$h_S$ は南半球まで滑らかに定義されている。各半球は円板なので、その赤道制限の巻き数は $0$ である。従って赤道上で[巻き数の加法則](#eq-gbg18-winding-additivity)から $\operatorname{wind}(g'_{NS})=\operatorname{wind}(g_{NS})$ となる。
+しかし $h_N$ は北半球まで、$h_S$ は南半球まで滑らかに定義されている。各半球は円板なので、その赤道制限の巻き数は $0$ である。従って赤道上で[第2節の位相持ち上げの和から導いた式](#eq-gbg18-winding-additivity)から $\operatorname{wind}(g'_{NS})=\operatorname{wind}(g_{NS})$ となる。
 
 <a id="thm-gbg18-obstruction"></a>
 
@@ -226,7 +226,7 @@ $s_S^{(m)}=s_N^{(m)}g_{NS}^{(m)}$ と右作用の自由性から
 $$
 g_{NS}^{(m)}h_S=h_Ng_{NS}^{(n)}.
 $$
-$U(1)$ は可換であるから、[巻き数の加法則](#eq-gbg18-winding-additivity)を用いると赤道上で
+$U(1)$ は可換であるから、[第2節で示した積の式](#eq-gbg18-winding-additivity)を用いると赤道上で
 $$
 m+\operatorname{wind}(h_S|_E)
 =\operatorname{wind}(h_N|_E)+n.
@@ -415,7 +415,7 @@ $$
 $P_{-2}$ と $P_2$ が基底の恒等写像を覆う主束同型で結べないことを、北・南局所sectionの変換関数を仮定して証明せよ。また赤道の向きを逆にしたとき、両者の表示上の巻き数を説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。同型 $F:P_{-2}\to P_2$ があるとすると、両領域で $F(s_i^{(-2)})=s_i^{(2)}h_i$ と書ける。$g_2h_S=h_Ng_{-2}$ を赤道上で比較する。[円周写像の巻き数](#def-gbg18-winding)は積で加法的になるので、[巻き数の加法則](#eq-gbg18-winding-additivity)を適用する。$h_N,h_S$ は各半球へ延長できるので、それぞれ巻き数は零。従って
+**詳細解答**。同型 $F:P_{-2}\to P_2$ があるとすると、両領域で $F(s_i^{(-2)})=s_i^{(2)}h_i$ と書ける。$g_2h_S=h_Ng_{-2}$ を赤道上で比較する。[円周写像の巻き数](#def-gbg18-winding)について、[第2節で導いた積と逆元の式](#eq-gbg18-winding-additivity)を適用する。$h_N,h_S$ は各半球へ延長できるので、それぞれ巻き数は零。従って
 $$
 2+0=0+(-2)
 $$
