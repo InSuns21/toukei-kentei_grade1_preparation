@@ -98,3 +98,45 @@ test('WGL20 learner instructions and CS1/2/3 distinguish official data from synt
  assert.match(cs3,/アルファ0.33/);
  assert.match(provenance,/実在の位置や属性を表しません/);
 });
+
+test('WGL20 actual learner JS builds the 9-building scene and draws both passes',async()=>{
+ const [source,vertex,fragment,asset]=await Promise.all([
+   load('terrain.js'),load('terrain.vert'),load('terrain.frag'),load('plateau-lod1.json')]);
+ const scene=JSON.parse(asset),calls=[],buffers=[],events={};
+ const gl=new Proxy({},{
+   get(_,key){
+     if(key==='NO_ERROR')return 0;
+     if(key==='FRAMEBUFFER_COMPLETE')return 2;
+     if(['createShader','createProgram','createVertexArray','createBuffer','createTexture',
+         'createFramebuffer','createRenderbuffer'].includes(key))return ()=>({});
+     if(['getShaderParameter','getProgramParameter'].includes(key))return ()=>true;
+     if(key==='checkFramebufferStatus')return ()=>2;
+     if(key==='getError')return ()=>0;
+     if(key==='getUniformLocation')return (_,name)=>({name});
+     if(key==='drawArrays')return (...args)=>calls.push(args);
+     if(key==='bufferData')return (_,a)=>buffers.push(a);
+     if(key==='readPixels')return ()=>{};
+     return ()=>{};
+   }
+ });
+ const canvas={width:640,height:420,style:{},setAttribute(){},
+   addEventListener(name,fn){events[name]=fn;},focus(){},setPointerCapture(){}};
+ const document={body:{append(){}},createElement(){return {style:{},setAttribute(){}};}};
+ const window={addEventListener(){}};
+ const logs=[];
+ const run=new Function('gl','canvas','vertexSource','fragmentSource','report',
+   'settings','document','window','requestAnimationFrame',source);
+ const result=run(gl,canvas,vertex,fragment,
+   (key,value)=>logs.push([key,value]),{snapshot:scene},document,window,fn=>fn());
+ assert.equal(result.checkpoints.vertices,138);
+ assert.equal(result.checkpoints.triangles,88);
+ assert.equal(result.checkpoints.drawCalls,6);
+ assert.ok(Math.abs(result.checkpoints.depthAtOriginM-2.29497413)<1e-8);
+ assert.equal(calls.length,7,'one opaque shadow pass and six colour passes');
+ assert.equal(buffers.length,1);
+ assert.equal(buffers[0].length%10,0,'position,kind,colour,normal interleave');
+ assert.ok([...buffers[0]].every(Number.isFinite));
+ assert.ok(logs.some(([key,value])=>key==='DRAW'&&value.includes('8 buildings')));
+ assert.equal(typeof events.pointermove,'function');
+ assert.equal(typeof events.keydown,'function');
+});
