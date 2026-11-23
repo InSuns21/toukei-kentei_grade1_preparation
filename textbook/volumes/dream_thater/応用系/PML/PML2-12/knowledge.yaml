@@ -1,0 +1,58 @@
+chapter: PML2-12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-11
+  - RNG4
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-12-two-residuals
+    name: 有限点残差と連続残差の比較
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限点残差と連続残差の比較）"]
+    requires:
+      - physics-machine-learning.pml2-06-collocation
+      - physics-machine-learning.pml2-11-continuous-residual
+  - id: physics-machine-learning.pml2-12-invisible
+    name: 任意の有限collocation点をすり抜ける非零誤差
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-12-two-residuals
+  - id: physics-machine-learning.pml2-12-lagrange-basis
+    name: 有限点に対応するLagrange補間基底
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限点に対応するLagrange補間基底）"]
+    requires:
+      - physics-machine-learning.pml2-12-two-residuals
+      - algebra.polynomial-degree
+  - id: physics-machine-learning.pml2-12-polynomial
+    name: 次数制限下の有限点残差による解誤差評価
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-12-lagrange-basis
+      - physics-machine-learning.pml2-11-energy-error
+  - id: physics-machine-learning.pml2-12-fill-distance
+    name: collocation点集合の充填距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（collocation点集合の充填距離）"]
+    requires:
+      - physics-machine-learning.pml2-12-two-residuals
+  - id: physics-machine-learning.pml2-12-lipschitz
+    name: 充填距離と残差変化率からの連続残差上界
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-12-fill-distance
+      - physics-machine-learning.pml2-11-energy-error
+  - id: physics-machine-learning.pml2-12-holdout
+    name: 独立な検証点での条件付き不偏性
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-06-unbiased
+      - physics-machine-learning.pml2-12-two-residuals
