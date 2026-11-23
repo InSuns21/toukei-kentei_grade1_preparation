@@ -48,15 +48,17 @@ $$
 <a id="cor-lrep2-hom"></a>
 <!-- formal-statement-start -->
 > **系（既約表現の絡作用素空間）**  
-> $G$ の非零・有限次元複素既約表現 $(V,D)$ と $(W,E)$ に対し、絡作用素全体を $\operatorname{Hom}_G(V,W)$ と書く。この空間の複素次元は次のとおりである。
+> $G$ の非零・有限次元複素既約表現 $(V,D)$ と $(W,E)$ に対し、絡作用素全体を $\operatorname{Hom}_G(V,W)$ と書く。両表現が非同値なら
 
-$
-\dim_{\mathbb C}\operatorname{Hom}_G(V,W)
-=\begin{cases}
-0 & ((V,D)\not\simeq(W,E)),\\
-1 & ((V,D)\simeq(W,E)).
-\end{cases}
-$
+$$
+\operatorname{Hom}_G(V,W)=\{0\}.
+$$
+
+> 両表現が同値なら
+
+$$
+\dim_{\mathbb C}\operatorname{Hom}_G(V,W)=1.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -310,7 +312,27 @@ $$
 有限群には離散位相を入れればコンパクトで、任意の表現は連続です。別の証明として[有限群の平均化](#prop-lrep2-finite-averaging)を使っても同じ帰納法が成立します。$\square$
 <!-- proof-end -->
 
-例えば $SU(2)$ の $\mathbb C^2$ 上の標準表現が既約であることも直接確かめられます。$A=\operatorname{diag}(i,-i)\in SU(2)$ は相異なる固有値を持つので、$A$-不変な複素直線は $\mathbb Ce_1$ または $\mathbb Ce_2$ に限られます。実際、$v=(x,y)$ と $Av=\lambda v$ を比較すると、$x,y$ が共に非零なら $\lambda=i=-i$ という矛盾が出ます。一方 $B=\begin{pmatrix}0&1\\-1&0\end{pmatrix}\in SU(2)$ は $Be_1=-e_2$、$Be_2=e_1$ と両軸を交換します。従って両方の行列に不変な直線はなく、群全体に不変な真の非零部分空間もありません。Schur の補題により、この標準表現の自己絡作用素はスカラー行列だけです。
+例えば $SU(2)$ の $\mathbb C^2$ 上の標準表現について、既約性を直接確かめられます。二つの行列を取ります。
+
+$$
+A=\begin{pmatrix}i&0\\0&-i\end{pmatrix},
+\qquad
+B=\begin{pmatrix}0&1\\-1&0\end{pmatrix}.
+$$
+
+両者は $U^*U=I_2$ と $\det U=1$ を満たすので $SU(2)$ に属します。$A$ の固有値は $i$ と $-i$ で相異なり、$A$-不変な複素直線は $\mathbb Ce_1$ または $\mathbb Ce_2$ に限られます。実際、$v=(x,y)^{\mathsf T}$ が固有ベクトルなら
+
+$$
+ix=\lambda x,\qquad -iy=\lambda y.
+$$
+
+$x,y$ が共に非零なら $\lambda=i=-i$ という矛盾が生じます。他方、
+
+$$
+Be_1=-e_2,\qquad Be_2=e_1
+$$
+
+なので $B$ は両軸を交換し、いずれも保ちません。従って $A,B$ に共通の不変直線はなく、群全体に不変な真の非零部分空間もありません。[Schur の補題](#thm-lrep2-schur)により、標準表現の自己絡作用素はスカラー行列だけです。
 
 この定理が保証するのは、**既約直和分解の存在**です。重複して現れる同型な既約直和因子の具体的な選び方まで一意になるとは主張していません。
 
