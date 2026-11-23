@@ -188,7 +188,7 @@ test('FCG5 shared three-tab sandbox, lesson/manifest/TOC and detailed exercises'
 test('FCG5 R1 GUI edits actual grid, viscosity and force in the same source',async()=>{
   const source=await readFile(new URL('fluid.js',dir),'utf8');
   assert.deepEqual(parametersFor('FCG5').map(spec=>spec.id),
-    ['grid','nu','force','brush-radius','brush-strength']);
+    ['grid','nu','force','dt','brush-radius','brush-strength']);
   const specs=parametersFor('FCG5').slice(0,3);
   assert.deepEqual(specs.map(spec=>spec.unit),['セル/辺','m²/s','m²/s²']);
   const targets=[24,0.0025,0.02];
@@ -231,6 +231,45 @@ test('FCG5 R1 GUI edits actual grid, viscosity and force in the same source',asy
   assert.ok(compareFCG5Readback(probes,320,240,8).some(row=>!row.pass),
     'the unchanged reference must not be misreported for edited physics');
 });
+test('FCG5 G2 timestep changes the editable solver, CPU R8 oracle and physical clock',async()=>{
+  const original=await readFile(new URL('fluid.js',dir),'utf8');
+  const [grid,nu,force,dt,...brush]=parametersFor('FCG5');
+  assert.equal(dt.id,'dt');
+  assert.deepEqual(readLabParameter(original,dt),{ok:true,value:0.04});
+  for(const N of [12,24,36,48])
+    for(const viscosity of [0,0.0005,0.001,0.0015,0.002,0.0025])
+      for(const timestep of [0.01,0.02,0.03,0.04])
+        assert.ok(timestep*viscosity*N*N<=0.25,'GUI must not admit unstable viscosity');
+  let changed=writeLabParameter(original,dt,0.02);
+  assert.match(changed,/const N=48,h=1\/N,dt=0\.02,rho=1,nu=0\.002,forceAmplitude=0\.08;/);
+  for(const spec of [grid,nu,force,...brush])
+    assert.equal(readLabParameter(changed,spec).ok,true,'dt must not lock '+spec.id);
+  changed=writeLabParameter(changed,nu,0.0025);
+  assert.equal(readLabParameter(changed,dt).value,0.02);
+  assert.equal(writeLabParameter(writeLabParameter(changed,nu,nu.default),dt,dt.default),original);
+  assert.throws(()=>writeLabParameter(original,dt,0.045),RangeError);
+  assert.throws(()=>writeLabParameter(original,dt,0.012),RangeError);
+  const expression=original.replace('dt=0.04','dt=1/25');
+  assert.equal(readLabParameter(expression,dt).ok,false);
+  assert.throws(()=>writeLabParameter(expression,dt,0.02),/JSソース/);
+  const [vertex,fragment]=await Promise.all(['fluid.vert','fluid.frag']
+    .map(f=>readFile(new URL(f,dir),'utf8')));
+  const gpu=mockGL();
+  new Function('gl','canvas','vertexSource','fragmentSource','report','settings',changed)(
+    gpu,{width:320,height:240},vertex,fragment,()=>{},{steps:8});
+  const physics={N:48,dt:0.02,nu:0.0025,force:0.08};
+  const cpu=fcg5State(8,physics);
+  const fields=[Uint8Array.from(cpu.q,png8),
+    Uint8Array.from(cpu.divergence,v=>png8(Math.abs(v)*80)),
+    Uint8Array.from(cpu.speed,v=>png8(v/0.4))];
+  assert.deepEqual(gpu._textures,fields,'edited JS should agree with independently implemented CPU');
+  const samples=expectedFCG5Samples(320,240,8,physics);
+  assert.ok(compareFCG5Readback(samples,320,240,8,2,physics).every(row=>row.pass));
+  assert.ok(compareFCG5Readback(samples,320,240,8).some(row=>!row.pass),
+    'edited time is not the original timestep oracle');
+  assert.equal((8*physics.dt).toFixed(3),'0.160');
+});
+
 test('FCG5 G2 gives edited expressions and noncanonical declarations precedence',async()=>{
   const source=await readFile(new URL('fluid.js',dir),'utf8');
   const [grid,nu,force]=parametersFor('FCG5');
@@ -248,7 +287,7 @@ test('FCG5 G2 gives edited expressions and noncanonical declarations precedence'
 
 test('FCG5 brush GUI rewrites its only actual dye source, not a duplicate renderer',async()=>{
   const source=await readFile(new URL('fluid.js',dir),'utf8');
-  const [radius,strength]=parametersFor('FCG5').slice(3);
+  const [radius,strength]=parametersFor('FCG5').slice(4);
   assert.deepEqual(readLabParameter(source,radius),{ok:true,value:0.085});
   assert.deepEqual(readLabParameter(source,strength),{ok:true,value:0.48});
   const edited=writeLabParameter(writeLabParameter(source,radius,0.05),strength,0.6);
@@ -270,7 +309,7 @@ test('FCG5 live brush edits preserve every pre-injection GPU input field',async(
   const source=await readFile(new URL('fluid.js',dir),'utf8');
   const [vertex,fragment]=await Promise.all(['fluid.vert','fluid.frag']
     .map(f=>readFile(new URL(f,dir),'utf8')));
-  const [radius,strength]=parametersFor('FCG5').slice(3);
+  const [radius,strength]=parametersFor('FCG5').slice(4);
   const customized=writeLabParameter(writeLabParameter(source,radius,0.15),strength,0.95);
   const sampleTextures=code=>{
     const gl=mockGL();
@@ -291,7 +330,7 @@ test('FCG5 dye injection changes the real 48x48 R8 texture under source-linked b
   const source=await readFile(new URL('fluid.js',dir),'utf8');
   const [vertex,fragment]=await Promise.all(['fluid.vert','fluid.frag']
     .map(f=>readFile(new URL(f,dir),'utf8')));
-  const [radius,strength]=parametersFor('FCG5').slice(3);
+  const [radius,strength]=parametersFor('FCG5').slice(4);
   function injectAndRead(r,a){
     const edited=writeLabParameter(writeLabParameter(source,radius,r),strength,a);
     const gl=mockGL(),listeners=new Map();
