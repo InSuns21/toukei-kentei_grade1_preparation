@@ -184,7 +184,7 @@ $$
 =\langle\psi|\varphi\rangle
 \end{aligned}
 $$
-となります。ゆえに両符号について $V^\dagger V=I_L$ です。さらにSWAPの定義から
+となります。ゆえに両符号について $V^\dagger V=I_L$ です。さらに[情報移送符号で指定したSWAP作用](#def-bhi32-transfer-code) $U_{\mathrm{swap}}|r\rangle_R|b\rangle_B=|b\rangle_R|r\rangle_B$ を二つの基底へ適用すると
 $$
 \begin{aligned}
 U_{\mathrm{swap}}V_{\mathrm{early}}|0\rangle&=|00\rangle=V_{\mathrm{late}}|0\rangle,\\
