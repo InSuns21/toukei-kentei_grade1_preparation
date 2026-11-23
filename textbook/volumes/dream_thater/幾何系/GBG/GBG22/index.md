@@ -1,10 +1,14 @@
 # GBG22 接続を変えても特性類が変わらないのはなぜか
 
-[GBG21の閉性定理](../GBG21/index.md#thm-gbg21-chern-weil-closed)により、曲率から作った Chern–Weil形式は de Rham コホモロジー類を与える。しかし、閉形式であることだけでは、**接続の選択を変えても同じ類になる**とは分からない。例えば円周上の閉1形式はすべて完全形式というわけではない。
+[Chern–Weil形式の閉性](../GBG21/index.md#thm-gbg21-chern-weil-closed)により、曲率から作った Chern–Weil形式は de Rham コホモロジー類を与える。しかし、閉形式であることだけでは、**接続の選択を変えても同じ類になる**とは分からない。例えば円周上の閉1形式はすべて完全形式というわけではない。
 
-解決の鍵は、二つの接続の間を連続的に結び、曲率多項式の変化率を外微分として表すことである。[GBG12の接続全体のアフィン空間構造](../GBG12/index.md#thm-gbg12-connections-affine)が補間を可能にし、[GBG20のAd不変性の無限小条件](../GBG20/index.md#prop-gbg20-infinitesimal-condition)と[GBG11のBianchi恒等式](../GBG11/index.md#thm-gbg11-bianchi-local)が、変化率を外微分へ変える。
+解決の鍵は、二つの接続の間を連続的に結び、曲率多項式の変化率を外微分として表すことである。[GBG12の接続全体のアフィン空間構造](../GBG12/index.md#thm-gbg12-connections-affine)が補間を可能にし、[GBG20のAd不変性の無限小条件](../GBG20/index.md#prop-gbg20-infinitesimal-condition)と[主束曲率の Bianchi 恒等式・局所形式](../GBG11/index.md#thm-gbg11-bianchi-local)が、変化率を外微分へ変える。
 
-**本講の共通設定**。$M$ は Hausdorff・第二可算で境界のない滑らかな有限次元多様体、$G$ は有限次元 Lie 群、$\mathfrak g$ はその実 Lie 環、$\pi:P\to M$ は滑らかな右主 $G$ 束とする。$G$ の連結性・行列群性を仮定しない。$\omega_0,\omega_1$ は $P$ 上の二つの接続1形式、$\Omega_0,\Omega_1$ はその曲率とする。$k\ge1$ とし、$p:\mathfrak g^k\to\mathbb C$ は実多重線形、対称、Ad不変な形式である。複素値の微分形式には外微分・外積を複素線形に拡張する。計量、向き、コンパクト性は主定理に不要である。
+**本講の共通設定**。$M$ は Hausdorff・第二可算で境界のない滑らかな有限次元多様体、$G$ は有限次元 Lie 群、$\mathfrak g$ はその実 Lie 環とする。$G$ の連結性・行列群性を仮定しない。
+
+$\pi:P\to M$ を滑らかな右主 $G$ 束とし、$\omega_0,\omega_1$ は $P$ 上の二つの接続1形式、$\Omega_0,\Omega_1$ はその曲率とする。
+
+整数 $k\ge1$ を固定する。$p:\mathfrak g^k\to\mathbb C$ は実多重線形、対称、Ad不変な形式である。複素値の微分形式には外微分・外積を複素線形に拡張する。計量、向き、コンパクト性は主定理に不要である。
 
 <!-- definition-example-audit: strict -->
 
@@ -97,7 +101,7 @@ d\,p(a,F_t^{k-1})
 =p(da,F_t^{k-1})-(k-1)p(a,dF_t,F_t^{k-2})
 $$
 
-（$k=1$ では第二項を置かない）。[局所Bianchi恒等式](../GBG11/index.md#thm-gbg11-bianchi-local)から $dF_t=-[A_t\wedge F_t]$ なので、右辺は
+（$k=1$ では第二項を置かない）。[主束曲率の Bianchi 恒等式・局所形式](../GBG11/index.md#thm-gbg11-bianchi-local)から $dF_t=-[A_t\wedge F_t]$ なので、右辺は
 
 $$
 p(da,F_t^{k-1})+
@@ -156,7 +160,7 @@ $k=1$ では Ad不変性から $p([A\wedge a])=0$ が直接従い、$d\,p(a)=p(d
 
 ## 3. Transgression と接続非依存性
 
-二つの接続の間で現れる次数 $2k-1$ の形式を積分すると、曲率多項式の**差の原始形式**を作れる。これを transgression（推移形式）と呼ぶ。積分するのは基底多様体の点ではなく、有限区間 $0\le t\le1$ のパラメータについてである。
+二つの接続の間で現れる次数 $2k-1$ の形式を積分すると、曲率多項式の**差を外微分として表す形式**を作れる。これを transgression（推移形式）と呼ぶ。積分するのは基底多様体の点ではなく、有限区間 $0\le t\le1$ のパラメータについてである。
 
 <a id="def-gbg22-transgression"></a>
 
@@ -218,7 +222,7 @@ $$
 =k\,p(\dot F_{t,i},F_{t,i}^{k-1}).
 $$
 
-[曲率変化率の補題](#lem-gbg22-curvature-variation)から $\dot F_{t,i}=da_i+[A_{t,i}\wedge a_i]$ であり、[不変性の微分補題](#lem-gbg22-invariant-derivative)の仮定 $dF_{t,i}+[A_{t,i}\wedge F_{t,i}]=0$ は[局所Bianchi恒等式](../GBG11/index.md#thm-gbg11-bianchi-local)で満たされる。従って
+[補間接続の曲率変化率](#lem-gbg22-curvature-variation)から $\dot F_{t,i}=da_i+[A_{t,i}\wedge a_i]$ であり、[Ad不変性と次数1の因子の外微分](#lem-gbg22-invariant-derivative)の仮定 $dF_{t,i}+[A_{t,i}\wedge F_{t,i}]=0$ は[主束曲率の Bianchi 恒等式・局所形式](../GBG11/index.md#thm-gbg11-bianchi-local)で満たされる。従って
 
 $$
 \begin{aligned}
@@ -259,7 +263,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[GBG21の閉性定理](../GBG21/index.md#thm-gbg21-chern-weil-closed)により両形式は閉じている。一方、[transgression 恒等式](#thm-gbg22-transgression)により差は完全形式である。[GEO9の de Rham コホモロジーの定義](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)は閉形式を完全形式で割るので、二つの類は等しい。
+[Chern–Weil形式の閉性](../GBG21/index.md#thm-gbg21-chern-weil-closed)により両形式は閉じている。一方、[Chern–Weil の transgression 恒等式](#thm-gbg22-transgression)により差は完全形式である。[GEO9の de Rham コホモロジーの定義](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)は閉形式を完全形式で割るので、二つの類は等しい。
 <!-- proof-end -->
 
 本系の「不変」は**同じ主束の接続を変更することに対する不変性**であり、任意の別の主束まで同じ類になるという意味ではない。また、複素数値 de Rham 類が得られたことだけから整数係数特性類や積分値の整数性を結論できない。正規化と整数性は GBG23 以降で区別して扱う。
@@ -305,7 +309,7 @@ $$
 
 ### 閉多様体上の積分と境界付き領域
 
-$M$ が向き付けられた**コンパクトな境界なし** $2k$ 次元多様体なら、[transgression 恒等式](#thm-gbg22-transgression)と Stokes の定理により
+$M$ が向き付けられた**コンパクトな境界なし** $2k$ 次元多様体なら、[Chern–Weil の transgression 恒等式](#thm-gbg22-transgression)と Stokes の定理により
 
 $$
 \int_M\beta_p(\omega_1)-\int_M\beta_p(\omega_0)
@@ -349,7 +353,7 @@ $$
 
 前節の transgression は、**同じ束上に二つの実在する接続**を用意したので大域的だった。これに対して一つの局所接続 $A$ だけから、その曲率多項式の局所的な原始形式を作ることもできる。
 
-局所自明化した $U$ の積主束には「接続表示が零」の参照接続 $A_{\mathrm{ref}}=0$ を取れる。$A_t=tA$ と置けば $F_t=t\,dA+\frac12t^2[A\wedge A]$ なので、[transgression 恒等式](#thm-gbg22-transgression)の計算をこの局所積主束に適用できる。
+局所自明化した $U$ の積主束には「接続表示が零」の参照接続 $A_{\mathrm{ref}}=0$ を取れる。$A_t=tA$ と置けば $F_t=t\,dA+\frac12t^2[A\wedge A]$ なので、[Chern–Weil の transgression 恒等式](#thm-gbg22-transgression)の計算をこの局所積主束に適用できる。
 
 <a id="def-gbg22-local-chern-simons"></a>
 
@@ -394,7 +398,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-積主束の二接続 $0,A$ に[transgression 恒等式](#thm-gbg22-transgression)を適用する。$A_t=tA$、$F_0=0$ なので
+[Chern–Weil の transgression 恒等式](#thm-gbg22-transgression)を、積主束の二接続 $0,A$ に適用する。$A_t=tA$、$F_0=0$ なので
 
 $$
 p(F^k)-p(F_0^k)=p(F^k)=
@@ -424,7 +428,7 @@ $$
 
 零表示を両パッチに置いても、一般には $0=\operatorname{Ad}(g^{-1})0+g^{-1}dg$ とならない。よって各パッチの「零接続」は同じ大域接続の制限ではない。したがって $\operatorname{CS}_p(A_i)$ がそのまま一致して貼り合わさるとは限らない。一方、二つの**大域接続**の差 $A_{1,i}-A_{0,i}$ では非斉次項が消えるため、前節の $T_p(\omega_1,\omega_0)$ は大域的だった。
 
-さらに $p(F^k)$ が大域で閉じることは、大域的な原始形式の存在を意味しない。存在すれば de Rham 類は零となるので、非零の Chern–Weil類を持つ束では大域原始形式はあり得ない。局所 Chern–Simons 形式はこの事実と矛盾しない。
+さらに $p(F^k)$ が大域で閉じることは、大域的な $(2k-1)$ 形式 $Q$ で $dQ=p(F^k)$ とできることは意味しない。存在すれば de Rham 類は零となるので、非零の Chern–Weil類を持つ束では大域的に外微分すると当該形式となる微分形式は存在しない。局所 Chern–Simons 形式はこの事実と矛盾しない。
 
 ## 6. 演習と詳細解答
 
@@ -434,7 +438,7 @@ $$
 #### GBG22-A01 補間した接続の曲率
 - Level: A
 
-積主 $U(1)$ 束の局所接続 $A_0=ix\,dy$、$A_1=i(x\,dy+z\,dw)$ を $\mathbb R^4$ 上で補間する。$a$、$A_t$、$F_t$、$\dot F_t$ を求め、[曲率変化率の補題](#lem-gbg22-curvature-variation)と一致することを確認せよ。
+積主 $U(1)$ 束の局所接続 $A_0=ix\,dy$、$A_1=i(x\,dy+z\,dw)$ を $\mathbb R^4$ 上で補間する。$a$、$A_t$、$F_t$、$\dot F_t$ を求め、[補間接続の曲率変化率](#lem-gbg22-curvature-variation)と一致することを確認せよ。
 
 <!-- solution-start -->
 **詳細解答**。$a=A_1-A_0=iz\,dw$ である。従って $A_t=ix\,dy+it z\,dw$。$U(1)$ では Lie 括弧が零で、[曲率の局所式](../GBG10/index.md#thm-gbg10-local-formula)は $F_t=dA_t$ となる。係数を微分して
@@ -466,7 +470,7 @@ $$
 d\,p(a,F)=p(da,F)+p(a,[A\wedge F]).
 $$
 
-ここまでで $dF=0$ は使っていない。次に Ad不変性を仮定すれば、[不変性の微分補題](#lem-gbg22-invariant-derivative)に従い第二項を $p([A\wedge a],F)$ と書ける。
+ここまでで $dF=0$ は使っていない。次に Ad不変性を仮定すれば、[Ad不変性と次数1の因子の外微分](#lem-gbg22-invariant-derivative)に従い第二項を $p([A\wedge a],F)$ と書ける。
 <!-- solution-end -->
 
 <a id="ex-gbg22-a03"></a>
@@ -483,7 +487,7 @@ T_p=\int_0^1p(a_i)\,dt=\lambda,\qquad
 dT_p=d\lambda.
 $$
 
-曲率は $F_{r,i}=dA_{r,i}$ なので $p(F_{1,i})-p(F_{0,i})=p(d a_i)=d\lambda|_{U_i}$。すなわち[transgression 恒等式](#thm-gbg22-transgression)の一次の場合を直接確認できる。
+曲率は $F_{r,i}=dA_{r,i}$ なので $p(F_{1,i})-p(F_{0,i})=p(d a_i)=d\lambda|_{U_i}$。すなわち[Chern–Weil の transgression 恒等式](#thm-gbg22-transgression)の一次の場合を直接確認できる。
 <!-- solution-end -->
 
 <a id="ex-gbg22-a04"></a>
@@ -589,7 +593,7 @@ $$
 =\int_0^{2\pi}\cos^2\theta\,d\theta=\pi.
 $$
 
-[transgression 恒等式](#thm-gbg22-transgression)と Stokes の定理は両積分が等しいことを意味し、両者が零であることは意味しない。全ての接続について積分が一致すると言うには、例えば積分領域が向き付けられたコンパクトな**境界なし** $2k$ 次元多様体であると仮定すれば十分である。境界がある場合は $\int_{\partial M}T_p=0$ となる追加条件が必要である。
+[Chern–Weil の transgression 恒等式](#thm-gbg22-transgression)と Stokes の定理は両積分が等しいことを意味し、両者が零であることは意味しない。全ての接続について積分が一致すると言うには、例えば積分領域が向き付けられたコンパクトな**境界なし** $2k$ 次元多様体であると仮定すれば十分である。境界がある場合は $\int_{\partial M}T_p=0$ となる追加条件が必要である。
 <!-- solution-end -->
 
 <a id="ex-gbg22-b04"></a>
@@ -609,7 +613,7 @@ $$
 
 が必要である。両者を零と置けば $g_{ij}^{-1}dg_{ij}=0$、すなわち $dg_{ij}=0$ が必要になる。重なりの各連結成分上で遷移関数が局所定数となる場合には、零表示が整合する。しかし一般の主束の遷移関数にこの条件はない。
 
-[局所 Chern–Simons 形式の定義](#def-gbg22-local-chern-simons)は各パッチで別々の参照零接続を使うため、定義の $A_i$ と $A_j$ は一つの大域補間の両端になっていない。$d\operatorname{CS}_p(A_i)=p(F_i^k)$ が貼り合わさっても、原始形式自体の一致は導けない。
+[局所 Chern–Simons 形式の定義](#def-gbg22-local-chern-simons)は各パッチで別々の参照零接続を使うため、定義の $A_i$ と $A_j$ は一つの大域補間の両端になっていない。$d\operatorname{CS}_p(A_i)=p(F_i^k)$ が貼り合わさっても、各パッチの $(2k-1)$ 形式の一致は導けない。
 <!-- solution-end -->
 
 ### Level C：主要定理を自力で再構成する
@@ -618,10 +622,15 @@ $$
 #### GBG22-C01 一般次数の transgression とその射程
 - Level: C
 
-滑らかな右主 $G$ 束上の二接続 $\omega_0,\omega_1$、対称Ad不変実 $k$ 重線形形式 $p$（$k\ge1$）について、次を順に証明せよ。(1) 補間接続の局所曲率の変化率を求める。(2) 変化率 $\frac d{dt}p(F_t^k)$ を外微分として表し、符号の理由を示す。(3) 局所的な原始形式を大域に貼り合わせ、de Rham 類の非依存性を結論する。(4) 同じ議論だけでは整数性と境界付き領域の積分非依存性を言えない理由を説明する。
+滑らかな右主 $G$ 束上の二接続 $\omega_0,\omega_1$、対称Ad不変実 $k$ 重線形形式 $p$（$k\ge1$）について、次を順に証明せよ。
+
+- (a) 補間接続の局所曲率の変化率を求める。
+- (b) 変化率 $\frac d{dt}p(F_t^k)$ を外微分として表し、符号の理由を示す。
+- (c) 局所的な $(2k-1)$ 形式を大域に貼り合わせ、de Rham 類の非依存性を結論する。
+- (d) 同じ議論だけでは整数性と境界付き領域の積分非依存性を言えない理由を説明する。
 
 <!-- solution-start -->
-**詳細解答**。(1) [接続差とアフィン空間の定理](../GBG12/index.md#thm-gbg12-connections-affine)より $\alpha=\omega_1-\omega_0$ は水平・随伴同変である。固定した局所 section で $a=s^*\alpha$、$A_t=A_0+ta$ と置く。$F_t=dA_t+\frac12[A_t\wedge A_t]$ を微分する。次数1同士の括弧は $[a\wedge A_t]=[A_t\wedge a]$ だから
+**詳細解答**。(1) [主束接続全体のアフィン空間構造](../GBG12/index.md#thm-gbg12-connections-affine)より $\alpha=\omega_1-\omega_0$ は水平・随伴同変である。固定した局所 section で $a=s^*\alpha$、$A_t=A_0+ta$ と置く。$F_t=dA_t+\frac12[A_t\wedge A_t]$ を微分する。次数1同士の括弧は $[a\wedge A_t]=[A_t\wedge a]$ だから
 
 $$
 \dot F_t=da+\frac12([a\wedge A_t]+[A_t\wedge a])
@@ -642,7 +651,7 @@ d\,p(a,F_t^{k-1})
 +(k-1)p(a,[A_t\wedge F_t],F_t^{k-2}).
 $$
 
-[Ad不変性の無限小条件](../GBG20/index.md#prop-gbg20-infinitesimal-condition)では、$A_t$ を $a$ より左へ出した際に $(-1)^{1\cdot1}=-1$ が付く。このため[不変性の微分補題](#lem-gbg22-invariant-derivative)より
+[Ad不変性の無限小条件](../GBG20/index.md#prop-gbg20-infinitesimal-condition)では、$A_t$ を $a$ より左へ出した際に $(-1)^{1\cdot1}=-1$ が付く。これは[Ad不変性と次数1の因子の外微分](#lem-gbg22-invariant-derivative)で厳密に表され、
 
 $$
 (k-1)p(a,[A_t\wedge F_t],F_t^{k-2})
@@ -670,7 +679,7 @@ p(F_1^k)-p(F_0^k)
 =dT_p
 $$
 
-を得る。[GBG21の閉性定理](../GBG21/index.md#thm-gbg21-chern-weil-closed)と[de Rham 類の定義](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)より、差が完全形式の二つの閉形式は同じ類を表す。
+を得る。[Chern–Weil形式の閉性](../GBG21/index.md#thm-gbg21-chern-weil-closed)と[de Rham 類の定義](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)より、差が完全形式の二つの閉形式は同じ類を表す。
 
 (4) de Rham 類は実数・複素数係数の閉形式の商であり、整数係数コホモロジーへ持ち上がるかどうかは別の条件である。たとえば $p$ に任意の実定数を掛けても本証明は成立するので、整数性はこの証明から従わない。また境界付き領域 $N$ では Stokes の定理によって
 
