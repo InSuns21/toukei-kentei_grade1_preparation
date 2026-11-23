@@ -171,7 +171,7 @@ chapters:
     title: "Neural Operatorの近似定理は何を保証しないか"
   - id: PML2-20
     path: textbook/volumes/dream_thater/応用系/PML/PML2-20
-    status: planned
+    status: completed
     title: "PINNとoperator learningは組み合わせられるか"
   - id: PML2-21
     path: textbook/volumes/dream_thater/応用系/PML/PML2-21

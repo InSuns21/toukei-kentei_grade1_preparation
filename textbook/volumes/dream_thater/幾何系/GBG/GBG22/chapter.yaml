@@ -1,0 +1,44 @@
+id: "GBG22"
+title: "接続を変えても特性類が変わらないのはなぜか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG21
+official_scope: []
+learning_objectives:
+  - 主束接続のアフィン構造から二接続の補間とその局所ゲージ変換則を導ける
+  - 曲率の補間パラメータ微分をLie環値形式の括弧と次数符号から導ける
+  - Ad不変性とBianchi恒等式でd p(a,F_t^{k-1})の共変微分表示を証明できる
+  - Chern–Weilのtransgression形式が大域的に貼り合わさることを証明できる
+  - 曲率多項式の差が完全形式でde Rham類が接続非依存になることを示せる
+  - U(1)の一次・二次例と境界付き円板のStokes項を計算できる
+  - 局所Chern–Simons形式と大域transgressionの違いおよび整数性の未証明部分を説明できる
+definitions:
+  - { id: GBG22-DEF-01, name: Chern–Weilのtransgression形式 }
+  - { id: GBG22-DEF-02, name: 局所Chern–Simons型形式 }
+theorems:
+  - { id: GBG22-LEM-01, name: 補間接続の曲率変化率 }
+  - { id: GBG22-LEM-02, name: Ad不変性と次数1の因子の外微分 }
+  - { id: GBG22-THM-01, name: Chern–Weilのtransgression恒等式 }
+  - { id: GBG22-COR-01, name: Chern–Weilのde Rham類の接続非依存性 }
+  - { id: GBG22-PROP-01, name: 局所Chern–Simons形式の外微分 }
+canonical_examples:
+  - R4上のU(1)接続補間と曲率変化の微分
+  - R4上の二次Chern–Weil4形式と大域transgression3形式
+  - S2上の非自明U(1)束における接続差と完全形式
+  - 円板上の境界付きStokes積分
+  - 行列二次traceの局所Chern–Simons3形式
+problem_patterns:
+  - GBG22-AFFINE-INTERPOLATION
+  - GBG22-LEIBNIZ-SIGN
+  - GBG22-DEGREE-ONE-TRANSGRESSION
+  - GBG22-LOCAL-CS-COEFFICIENT
+  - GBG22-GAUGE-DESCENT
+  - GBG22-DEGREE-TWO-EXPLICIT
+  - GBG22-STOKES-BOUNDARY
+  - GBG22-LOCAL-REFERENCE-MISMATCH
+  - GBG22-GENERAL-TRANSGRESSION-PROOF
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 4 }

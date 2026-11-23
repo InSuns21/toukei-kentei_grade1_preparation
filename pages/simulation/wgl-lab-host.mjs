@@ -1315,6 +1315,11 @@ function run() {
   // Responsive preview without changing the actual drawing-buffer resolution.
   iframe.style.aspectRatio = payload.width + ' / ' + (payload.height + (isWGL18 ? 160 : 12));
   iframe.style.height = 'auto';
+  if (isWGL17) {
+    // The texel inspector belongs below the GPU canvas, never over its pixels.
+    iframe.style.aspectRatio = 'auto';
+    iframe.style.height = '820px';
+  }
   iframe.title = 'WebGL2 実行結果（隔離 origin）';
   iframe.setAttribute('sandbox', 'allow-scripts');
   iframe.setAttribute('referrerpolicy', 'no-referrer');
@@ -1976,17 +1981,19 @@ if (isWGL18) {
   byId('preset').options[1].textContent='fragmentの構文エラー';
 }
 if (isWGL17) {
-  document.title = 'WGL17 データテクスチャの型・量子化と読戻しラボ';
-  document.querySelector('h1').textContent = 'WGL17 物理値4×2格子をGPU textureへ送る';
+  document.title = 'WGL17 GPUデータテクスチャ・保存精度の比較';
+  document.querySelector('h1').textContent = 'WGL17 同じ数値をR8・R8UI・R32Fに保存する';
   document.querySelector('#panel-conditions > p').textContent =
-    'R8正規化値・R8UI整数・R32F単精度を編集して比較。8点の独立CPU画素予測とGPU readPixels、対応環境では別のRGBA32F FLOAT読戻しを確認します。';
+    '水位の例（−2〜2）を4×2格子へ格納します。形式と下段2列目の入力値を変えると、同じ編集JSからGPU画像・格納値・復元誤差を再計算します。結果の8セルをクリックして比較できます。';
   document.querySelector('#panel-conditions ol').innerHTML =
-    '<li>初期R8で実行し4×2の値と8点のCPU/GPU画素を比較する。</li>' +
-    '<li>data-grid.jsのmodeをr8uiへ変え、usampler2Dの戻り値を確認する。</li>' +
-    '<li>modeをr32fに変えてCPU復元誤差とRGBA8表示の量子化を区別する。</li>' +
-    '<li>EXT_color_buffer_float・FBO完成状態とFLOAT読戻しの診断を確認する。</li>' +
-    '<li>GLSLの復元式を変更し、不一致を観察した後に初期化する。</li>';
-  byId('preset').options[0].textContent = '4×2物理格子・R8/R8UI/R32F比較';
+    '<li>「実行」でGPU画像を表示。下段(1,0)を選ぶと元値−1.3と復元値の差が見える。</li>'+
+    '<li>保存形式をR8UIに変更して再実行。R8と誤差は同じでもsampler型は異なる。</li>'+
+    '<li>R32Fへ変更し、同じセルの誤差バーが小さくなるのを確認する。</li>'+
+    '<li>入力値を0に変え、R8ではゼロを正確に表せないことを確かめる。</li>'+
+    '<li>コード編集タブで復元式や色変換を変更しGPU画像・検算結果を比較する。</li>';
+  // Put the actual controls immediately after the experiment objective.
+  document.querySelector('#panel-conditions ol').before(byId('lab-parameters'));
+  byId('preset').options[0].textContent = '8セルの数値・色・保存誤差を比較';
   byId('preset').options[1].textContent = 'fragmentの構文エラー';
 }
 if (isWGL16) {
