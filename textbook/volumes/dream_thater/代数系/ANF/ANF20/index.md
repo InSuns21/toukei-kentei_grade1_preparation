@@ -118,7 +118,16 @@ $$
 
 を課したとき $b/(d_0T)\in W_{\mathfrak p}$ となります。ただし $T$ は指定した素イデアルの下にある有理素数と互いに素な正整数です。各右辺は局所整数であるため、$\mathcal O_K\to\mathcal O_K/\mathfrak p^{e_{\mathfrak p}}$ の全射により剰余が定まり、中国剰余定理で同時に実現できます。
 
-その解全体は、固定した非零整イデアル $\mathfrak a=\prod\mathfrak p^{e_{\mathfrak p}}$ の格子剰余類 $b_0+\mathfrak a$ です。[Minkowski埋め込みの格子性](../ANF5/index.md#thm-anf5-ideal-covolume)を用います。$K\otimes_\mathbb Q\mathbb R$ の各無限素点における目標 $d_0T x_v$ から、$b_0+\mathfrak a$ の元までの距離は、格子 $\mathfrak a$ の基本領域の有界な直径で抑えられます。従って $b/(d_0T)$ の無限成分と $x_v$ の誤差は $T\to\infty$ で $0$ になります。$T$ を大きく選べばすべての無限素点の開近傍にも入ります。無限素点が指定されていなければ中国剰余定理だけで十分です。
+その解全体は、固定した非零整イデアルについての格子剰余類です。
+
+$
+\mathfrak a=\prod_{\mathfrak p}\mathfrak p^{e_{\mathfrak p}},
+\qquad b\in b_0+\mathfrak a.
+$
+
+[Minkowski埋め込みの格子性](../ANF5/index.md#thm-anf5-ideal-covolume)を使います。$K\otimes_\mathbb Q\mathbb R$ において、目標 $d_0T(x_v)_{v\mid\infty}$ から格子剰余類 $b_0+\mathfrak a$ のある点 $b$ までの距離は、格子 $\mathfrak a$ の基本領域の有界な直径 $M$ で抑えられます。
+
+従って $b/(d_0T)$ の無限成分と $x_v$ の誤差は $M/(|d_0|T)$ に応じて $T\to\infty$ で $0$ になります（分母 $d_0$ の無限埋め込みごとの絶対値は固定した正数です）。十分大きな $T$ を選べば指定された開近傍に入ります。無限素点が指定されていない場合は中国剰余定理だけで十分です。
 <!-- proof-end -->
 
 <a id="prop-anf20-ray-finite"></a>
@@ -371,7 +380,15 @@ $$
 
 $\Phi_5(x)=(x^5-1)/(x-1)$ です。$p\ne5$ で $x^5-1$ の導関数は $5x^4$ なので、$x^5-1$ と導関数は共通根を持ちません。従って $\Phi_5(x)$ も $\mathbb F_p$ 上で重根を持ちません。モニック整係数多項式の根が重根なく還元されるときの有限素点の非分岐判定（局所体の整数環の判別式判定）により、$L/\mathbb Q$ は $p$ で非分岐です。
 
-算術的Frobeniusは剰余体で $z\mapsto z^p$ です。$\zeta_5$ の還元に適用すると $\overline{\zeta_5}\mapsto\overline{\zeta_5^p}$ となります。自己同型 $\sigma_p$ もその作用を持ち、$\zeta_5$ が $L$ を生成するので二つの自己同型は一致します。$p\ne5$ の素イデアルの積と逆数へ拡張すれば、イデアル $r\mathbb Z$（$r>0$、$5\nmid$ 分子分母）の像は $\sigma_{\overline r}$ です。[法 $5\infty$ の群の計算](#prop-anf20-ray-q)による定義域とGalois群はいずれも位数 $4$ で、$\overline r$ が全部の非零剰余を走るのでこの写像は同型です。
+算術的Frobeniusは剰余体で $z\mapsto z^p$ です。$\zeta_5$ の還元に適用すると次を得ます。
+
+$
+\overline{\zeta_5}\longmapsto\overline{\zeta_5^p}.
+$
+
+自己同型 $\sigma_p$ もこの作用を持ち、$\zeta_5$ が $L$ を生成するので二つの自己同型は一致します。
+
+$p\ne5$ の素イデアルの積と逆数へ拡張すれば、正の有理数 $r$（分子・分母が $5$ と互いに素）で生成されるイデアルの像は $\sigma_{\overline r}$ です。[法 $5\infty$ の群の計算](#prop-anf20-ray-q)による定義域とGalois群はいずれも位数 $4$。$\overline r$ が全部の非零剰余を走るので、この写像は同型です。
 <!-- proof-end -->
 
 **具体計算**。$p=2$ のFrobeniusは $\zeta_5\mapsto\zeta_5^2$、$p=3$ では $\zeta_5\mapsto\zeta_5^3$、$p=11$ では恒等写像です。$2$ の剰余は位数 $4$、$11\equiv1\pmod5$ です。
@@ -454,7 +471,19 @@ $\operatorname{Art}_{\mathbb Q(\zeta_5)/\mathbb Q}(\Delta(2))$ を有限素点�
 - ID: ANF20-B1
 
 <!-- solution-start -->
-**詳細解答**。$\mathfrak a$ の法を割る素点での付値を $b\in K^\times$ に弱近似で合わせ、$\mathfrak a(b)^{-1}$ を法に互いに素な代表にすれば、通常の類群へ全射となります。核の元は $(a)$ という主分数イデアルで、法に含む有限素点で $v_{\mathfrak p}(a)=0$ です。$a$ の局所剰余を $\mathcal O_K/\mathfrak m_0$ の単数と見なし、指定実素点での符号と組み合わせます。同じデータを持つ $a,b$ の比は合同 $1$ かつ正ですから $[(a)]=[(b)]$。弱近似で任意のデータを実現できるため、この核は有限群 $(\mathcal O_K/\mathfrak m_0)^\times\times\{\pm1\}^{|\mathfrak m_\infty|}$ の商です。[通常の類群の有限性](../ANF6/index.md#thm-anf6-minkowski-class-bound)と合わせ、剰余類群も有限です。
+**詳細解答**。任意のイデアル $\mathfrak a$ に対し、法を割る素点での付値を $b\in K^\times$ に[弱近似](#lem-anf20-weak-approx)で合わせます。すると $\mathfrak a(b)^{-1}$ は法と互いに素で、元のイデアルと同じ通常類を表します。これで通常の類群への全射が得られます。
+
+核の元は主分数イデアル $(a)$ で表せます。法に含む各有限素点で $v_{\mathfrak p}(a)=0$ なので、$a$ は法の有限剰余で単数です。これに指定実素点での符号を組み合わせ、次の有限群に写します。
+
+$
+R_{\mathfrak m}=
+(\mathcal O_K/\mathfrak m_0)^\times
+\times\{\pm1\}^{|\mathfrak m_\infty|}.
+$
+
+同じ剰余と符号を持つ $a,b$ の比は法に関して $1$ に合同で、指定実素点では正です。従って $[(a)]=[(b)]$。また[弱近似](#lem-anf20-weak-approx)で任意のデータを実現できます。よって核はこの有限群の商です。
+
+最後に[通常の類群の有限性](../ANF6/index.md#thm-anf6-minkowski-class-bound)と合わせ、剰余類群も有限です。
 <!-- solution-end -->
 
 ### B2. イデール商への写像の核
