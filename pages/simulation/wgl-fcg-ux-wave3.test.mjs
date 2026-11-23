@@ -42,14 +42,14 @@ test('WGL7 samples the same editable texture with moving UV and independent filt
 test('WGL13 preserves raw 12-face oracle, animates ONLY the environment lookup',async()=>{
   const js=await file('WGL/WGL13/environment.js');
   const frag=await file('WGL/WGL13/environment.frag');
-  assert.match(frag,/if \(u_probe==1\)/);
+  assert.match(frag,/if\(u_probe==1\)/);
   assert.match(frag,/rotateY\(reflection,u_yaw\)/);
   assert.match(frag,/textureLod\(u_env,normalize\(u_probeDirections\[k\]\),0\.0\)/);
   assert.ok(js.indexOf("gl.readPixels(0,0,12,1")<js.indexOf("requestAnimationFrame(frame)"));
-  assert.match(js,/gl\.uniform1f\(yawLocation,angle\)/);
+  assert.match(js,/gl\.uniform1f\(yawLoc,yaw\*Math\.PI\/180\)/);
   assert.match(js,/gl\.uniform1i\(probe,0\)/);
   assert.match(js,/e\.key==='ArrowLeft'\|\|e\.key==='ArrowRight'/);
-  assert.match(js,/e\.shiftKey/);
+  assert.match(js,/canvas\.addEventListener\('pointerdown'/);
   assert.match(js,/prefers-reduced-motion: reduce/);
   assert.doesNotMatch(js,/gl\.deleteProgram\(program\)/);
   assert.doesNotThrow(()=>new Function('gl','canvas','settings','vertexSource','fragmentSource','report',js));

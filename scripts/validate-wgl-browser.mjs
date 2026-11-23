@@ -1043,10 +1043,10 @@ try{
   assert.match(diagnostic13.status,/独立画素検算に合格/,
     'WGL13 GPU shader/probes failed: '+JSON.stringify(diagnostic13));
   const scene13=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
-  assert.match(scene13.grid,/6面.*2×2 texel.*RGBA8/);
-  assert.match(scene13.color,/SchlickのF0/);
-  assert.match(scene13.clock,/12画素GPU検算.*物理stepなし/);
-  assert.match(scene13.mode,/yawDegrees.*12画素検算方向は固定/);
+  assert.match(scene13.grid,/6面×128×128.*2×2×6面RGBA8/);
+  assert.match(scene13.color,/F₀/);
+  assert.match(scene13.clock,/物理stepなし.*12画素GPU検算/);
+  assert.match(scene13.mode,/球をクリック.*面・UV/);
   assert.match(scene13.source,/environment.js.*environment.frag/);
   const wgl13=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
   assert.equal(wgl13.rows.length,12);
@@ -1070,16 +1070,26 @@ try{
   const initial13=await cdp('Page.captureScreenshot',{format:'png',clip:clip13,captureBeyondViewport:true});
   const initial13Canvas=await cdp('Page.captureScreenshot',{format:'png',
     clip:{...clip13,height:Math.min(190,clip13.height)},captureBeyondViewport:true});
-  // A second pair avoids comparing against textual output and keeps the
-  // comparison strictly within the upper canvas pixels.
+  // WGL13 starts paused. Verify a stable first image, then run the *edited*
+  // learner JS with its own rAF playback flag to check real GPU motion.
+  await new Promise(ok=>setTimeout(ok,860));
+  const stable13Canvas=await cdp('Page.captureScreenshot',{format:'png',
+    clip:{...clip13,height:Math.min(190,clip13.height)},captureBeyondViewport:true});
+  assert.equal(initial13Canvas.data,stable13Canvas.data,
+    'WGL13 must start with a stable scene until the learner starts rotation');
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('let selected=[0,0],playing=false','let selected=[0,0],playing=true');})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  const moving13Canvas=await cdp('Page.captureScreenshot',{format:'png',
+    clip:{...clip13,height:Math.min(190,clip13.height)},captureBeyondViewport:true});
   await new Promise(ok=>setTimeout(ok,860));
   const later13Canvas=await cdp('Page.captureScreenshot',{format:'png',
     clip:{...clip13,height:Math.min(190,clip13.height)},captureBeyondViewport:true});
-  assert.notEqual(initial13Canvas.data,later13Canvas.data,
-    'WGL13 original cubemap shader must rotate reflected pixels during animation');
+  assert.notEqual(moving13Canvas.data,later13Canvas.data,
+    'WGL13 same editable cubemap shader should change GPU pixels when playback runs');
   await writeFile('_wgl_browser_review/wgl13-environment-motion.png',
     Buffer.from(later13Canvas.data,'base64'));
-  console.log('WGL13 dynamic 6-face cubemap rotation observed in GPU pixels: PASS');
+  console.log('WGL13 paused default and shader-driven cubemap rotation: PASS');
   await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const yawDegrees = 0;', 'const yawDegrees = 90;');})()");
   await click('run');
   await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
