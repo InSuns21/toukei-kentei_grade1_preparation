@@ -294,7 +294,22 @@ $$
 <!-- proof-start -->
 ### 証明
 
-平均零の仮定より $\operatorname{Var}(X)=\mathbb E[X^2]-(\mathbb E[X])^2=\mathbb E[X^2]=\sigma^2$ です。従って共通変数の積の平均は $\sigma^2$。独立な $X_1,X_2$ については期待値の積への分解が成立し、どちらの平均も零なので結果は零です。$\square$
+平均零の仮定 $\mathbb E[X]=0$ を分散の定義へ代入すると
+
+$$
+\sigma^2=\operatorname{Var}(X)
+=\mathbb E[X^2]-(\mathbb E[X])^2
+=\mathbb E[X^2]
+$$
+
+です。同じ乱数を二度用いれば積平均は $\sigma^2$ です。一方、独立な $X_1,X_2$ には期待値の積への分解が適用でき、
+
+$$
+\mathbb E[X_1X_2]
+=\mathbb E[X_1]\,\mathbb E[X_2]=0
+$$
+
+となります。$\square$
 <!-- proof-end -->
 
 $X=\pm1$ を確率各 $1/2$ で取れば $\sigma^2=1$ です。この反例で失われているのは**ensemble平均した二境界量の因数分解**であり、「一つの固定量子重力理論の全観測量が因数分解しない」という結論ではありません。[BHI31の共通平均と独立平均の区別](../BHI31/index.md#prop-bhi31-shared-vs-independent)と照合し、重力経路積分の連結寄与を固定理論の微視的説明へどう戻すかを独立の問題として残します。
@@ -427,7 +442,20 @@ $$
 - 問題: $S_0=30$ nat、$a=3$ nat／時間、$b=2$ nat／時間とする。許容区間、交点、交点のエントロピーと、$t=8$ で選ばれる枝を計算せよ。
 
 <!-- solution-start -->
-**詳細解答。** 区間は $0\le t\le S_0/b=15$ です。[二枝交点命題](#prop-bhi36-two-branch-crossing)の仮定 $a,b,S_0>0$ を確認し、$t_*=30/(3+2)=6$。交点値は $H(6)=3\cdot6=18$ nat です。$t=8$ では $H(8)=24$、$I(8)=30-2\cdot8=14$ なので、最小は非空island枝を代理する $I(8)=14$ nat。交点は $0<6<15$ を満たします。
+**詳細解答。** $a=3>0$、$b=2>0$、$S_0=30>0$ なので、[二枝交点命題](#prop-bhi36-two-branch-crossing)を適用できます。許容区間は $0\le t\le S_0/b=15$ であり、
+
+$$
+t_*=\frac{30}{3+2}=6,\qquad
+H(t_*)=3\cdot6=18\ {\rm nat},\qquad 0<6<15
+$$
+
+です。$t=8$ では
+
+$$
+H(8)=3\cdot8=24,\qquad I(8)=30-2\cdot8=14.
+$$
+
+従って最小値は非空island枝を代理する $I(8)=14$ nat です。
 <!-- solution-end -->
 
 <a id="ex-bhi36-a04"></a>
@@ -456,7 +484,21 @@ $$
 - 問題: $X$ を確率 $1/2$ で $+2$ または $-2$ とする。$\mathbb E[X^2]$ と $\mathbb E[X]^2$ の差を計算し、独立コピー $X_1,X_2$ に置き換えたときの積平均を答えよ。
 
 <!-- solution-start -->
-**詳細解答。** $\mathbb E[X]=(2-2)/2=0$、$\mathbb E[X^2]=(4+4)/2=4$ なので差は $4-0=4$ です。独立な $X_1,X_2$ の場合は $\mathbb E[X_1X_2]=\mathbb E[X_1]\mathbb E[X_2]=0$ です。共通の乱数を使うか独立に選ぶかが仮定の違いです。[ensemble相関命題](#prop-bhi36-ensemble-covariance)の直接例になっています。
+**詳細解答。** 二点分布の期待値と二次モーメントは
+
+$$
+\mathbb E[X]=\frac12(2)+\frac12(-2)=0,\qquad
+\mathbb E[X^2]=\frac12(4)+\frac12(4)=4.
+$$
+
+よって共通乱数を二度使う場合の差は $\mathbb E[X^2]-\mathbb E[X]^2=4$ です。一方、独立に選んだ $X_1,X_2$ なら独立性によって
+
+$$
+\mathbb E[X_1X_2]
+=\mathbb E[X_1]\mathbb E[X_2]=0.
+$$
+
+共有か独立抽出かが仮定の違いであり、[ensemble相関命題](#prop-bhi36-ensemble-covariance)を直接検算しています。
 <!-- solution-end -->
 
 ### Level B：異なる理論段階を接続する
