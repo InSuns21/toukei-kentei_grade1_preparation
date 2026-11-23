@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - LREP1
+  - F0-00P1
 official_scope: []
 learning_objectives:
   - Schurの補題の核・像・固有値による証明を複素有限次元の仮定とともに再現できる
@@ -16,7 +17,7 @@ definitions:
   - { id: LREP2-DEF-02, name: 不変正定値Hermite内積・ユニタリ表現 }
   - { id: LREP2-DEF-03, name: 正規化左Haar測度 }
 theorems:
-  - { id: LREP2-THM-01, name: Schurの補題 }
+  - { id: LREP2-THM-01, name: Schur の補題 }
   - { id: LREP2-COR-01, name: 既約表現の絡作用素空間 }
   - { id: LREP2-PROP-01, name: 有限群の平均化 }
   - { id: LREP2-THM-02, name: コンパクト群の平均による不変内積 }
