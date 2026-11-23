@@ -200,7 +200,7 @@ $$
 
 ## 3. Euler 形式を曲率から作る
 
-実階数 $2m$ の束に向きを指定すると、**向きと整合する正規直交枠**だけを使える。この枠同士の変換は $SO(2m)$ 値なので、直前の命題によって Pfaffian がパッチをまたいで貼り合わさる。向きを指定しない $O(2m)$ 束では、同じ局所式が重なりで符号を変えることがある。
+実階数 $2m$ の束に向きを指定すると、**向きと整合する正規直交枠**だけを使える。この枠同士の変換は $SO(2m)$ 値なので、[Pfaffian の直交枠変換命題](#prop-gbg24-pfaffian-transform)によって Pfaffian がパッチをまたいで貼り合わさる。向きを指定しない $O(2m)$ 束では、同じ局所式が重なりで符号を変えることがある。
 
 <a id="def-gbg24-euler"></a>
 
@@ -222,7 +222,7 @@ $$
 e(E,\nabla)=\alpha\wedge\alpha=2\,dx\wedge dy\wedge dz\wedge dw.
 $$
 
-次数は階数と等しい4である。向きを保つ枠変更では前命題の $\det g=1$ により同じ形式になる。最初のベクトルだけ符号を反転させて逆向きの枠を採用すれば、同じ順序規約の Pfaffian は負号を得る。これが向きの条件の具体的な働きである。
+次数は階数と等しい4である。向きを保つ枠変更では[Pfaffian の直交枠変換命題](#prop-gbg24-pfaffian-transform)の $\det g=1$ により同じ形式になる。最初のベクトルだけ符号を反転させて逆向きの枠を採用すれば、同じ順序規約の Pfaffian は負号を得る。これが向きの条件の具体的な働きである。
 <!-- definition-example-end -->
 
 低次では次が直ちに計算できる。
@@ -253,7 +253,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-(1) まず Pontryagin 形式。各 $p_k$ は $\det(I+tR/(2\pi))$ の $t^{2k}$ 係数であり、$R'=g^{-1}Rg$ に対して行列式が等しい。従って $O(r)$ の随伴作用で不変な次数 $2k$ の曲率多項式である。係数を偏極すれば、[Chern–Weil の閉性定理](../GBG21/index.md#thm-gbg21-chern-weil-closed)へ入力できるので $dp_k=0$。
+(1) まず Pontryagin 形式。各 $p_k$ は $\det(I+tR/(2\pi))$ の $t^{2k}$ 係数であり、$R'=g^{-1}Rg$ に対して行列式が等しい。従って $O(r)$ の随伴作用で不変な次数 $2k$ の曲率多項式である。係数を偏極すると[対称Ad不変多重線形形式](../GBG20/index.md#def-gbg20-invariant-polynomial)となり、[Chern–Weil の閉性定理](../GBG21/index.md#thm-gbg21-chern-weil-closed)へ入力できるので $dp_k=0$。
 
 (2) Euler 形式では、[Pfaffian の直交枠変換と向き](#prop-gbg24-pfaffian-transform)から $SO(2m)$ 共役不変である。$R$ の成分をちょうど $m$ 個掛けるので、次数 $m$ の曲率多項式である。同じ[閉性定理](../GBG21/index.md#thm-gbg21-chern-weil-closed)を使って $de=0$ となる。
 
