@@ -155,7 +155,7 @@ chapters:
     title: "Neural Operatorの層をどう構成するか"
   - id: PML2-16
     path: textbook/volumes/dream_thater/応用系/PML/PML2-16
-    status: planned
+    status: completed
     title: "Fourier Neural OperatorはなぜFourier係数を用いるか"
   - id: PML2-17
     path: textbook/volumes/dream_thater/応用系/PML/PML2-17
