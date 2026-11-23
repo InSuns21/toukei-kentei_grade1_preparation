@@ -405,7 +405,7 @@ $$
 #### GBG24-A01 実平面束の最初の係数
 - Level: A
 
-$\mathbb R^4$ 上の自明な向き付き実平面束に、実2形式 $\eta=dx\wedge dy+dz\wedge dw$ を使い $R=2\pi\begin{psmallmatrix}0&\eta\\-\eta&0\end{psmallmatrix}$ とする。Euler 形式と第一 Pontryagin 形式を求め、次数を述べよ。
+$\mathbb R^4$ 上の自明な向き付き実平面束に、実2形式 $\eta=dx\wedge dy+dz\wedge dw$ を使い $R=2\pi\begin{pmatrix}0&\eta\\-\eta&0\end{pmatrix}$ とする。Euler 形式と第一 Pontryagin 形式を求め、次数を述べよ。
 
 <!-- solution-start -->
 **詳細解答**。行列の $(1,2)$ 成分が $R_{12}=2\pi\eta$ なので、[Euler 形式の定義](#def-gbg24-euler)で $m=1$ とすると $e=R_{12}/(2\pi)=\eta$（2形式）。[第一 Pontryagin の跡公式](#prop-gbg24-first-pontryagin)では $a<b$ の組は $(1,2)$ だけなので
