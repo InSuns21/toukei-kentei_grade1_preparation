@@ -449,7 +449,15 @@ $$
 有限アーベル群 $C=\mathbb Z/18\mathbb Z\oplus\mathbb Z/10\mathbb Z$ と $p=3$ に対し、$C[p^\infty]$ と $C_{p'}$ の位数を求め、$C/C_{p'}\simeq C[p^\infty]$ を明示せよ。
 
 <!-- solution-start -->
-**詳細解答。** 第一因子 $\mathbb Z/18$ の3部分は位数9、3と互いに素な部分は位数2です。第二因子 $\mathbb Z/10$ は3部分が零、$3'$ 部分が位数10です。よって $C[3^\infty]\simeq\mathbb Z/9$（位数9）、$C_{3'}\simeq\mathbb Z/2\oplus\mathbb Z/10$（位数20）です。写像 $(\bar x,\bar y)\mapsto\bar x\bmod9$ は $C\to\mathbb Z/9$ の全射で、核は $x\equiv0\pmod9$ かつ $y$ は任意という位数20の群です。第一同型定理で所望の商同型を得ます。
+**詳細解答。** 第一因子 $\mathbb Z/18$ の3部分は位数9、3と互いに素な部分は位数2です。第二因子 $\mathbb Z/10$ は3部分が零、$3'$ 部分が位数10です。よって
+
+$$
+C[3^\infty]\simeq\mathbb Z/9\mathbb Z,\quad |C[3^\infty]|=9,
+\qquad
+C_{3'}\simeq\mathbb Z/2\mathbb Z\oplus\mathbb Z/10\mathbb Z,\quad |C_{3'}|=20.
+$$
+
+写像 $C\to\mathbb Z/9\mathbb Z$ を $(\bar x,\bar y)\mapsto\bar x\bmod9$ と定めます。これは全射で、核は $x\equiv0\pmod9$ かつ $y$ は任意という位数20の群です。これはちょうど $C_{3'}$ に一致するので、第一同型定理により $C/C_{3'}\simeq C[3^\infty]$ です。
 <!-- solution-end -->
 
 <a id="ex-iwa9-a2"></a>
@@ -473,7 +481,21 @@ $$
 $G=(\mathbb Z/9\mathbb Z)\oplus(\mathbb Z/3\mathbb Z)$ を加法記法で書き、惰性群の模型 $I=\langle(3,1)\rangle$ を取る。$I$ の位数と $G/I$ の位数、構造を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $3(3,1)=(9,3)=(0,0)$ で $(3,1)\ne0$ なので $|I|=3$、$|G/I|=27/3=9$ です。$G/I$ では $(0,1)=-(3,0)$ となるため、すべての類は $(1,0)$ の整数倍で表せます。$(1,0)$ の位数は9のままです。なぜなら $k(1,0)=(3a,a)$ なら第二座標で $a\equiv0\pmod3$、すると第一座標は0で、$k\equiv0\pmod9$ だからです。従って $G/I\simeq\mathbb Z/9\mathbb Z$。これは実際の数体ではなく、惰性群商の模型です。
+**詳細解答。** $3(3,1)=(9,3)=(0,0)$ で $(3,1)\ne0$ なので $|I|=3$、$|G/I|=27/3=9$ です。商群では $(3,1)=0$ となるため、
+
+$$
+(0,1)=-(3,0)=-3(1,0)
+\qquad\text{in }G/I
+$$
+
+が成り立ち、すべての類は $(1,0)$ の整数倍で表せます。この生成元の位数を確かめます。$k(1,0)\in I$ と仮定すれば、ある整数 $a$ について
+
+$$
+(k,0)=(3a,a)
+\quad\text{in }\mathbb Z/9\mathbb Z\oplus\mathbb Z/3\mathbb Z.
+$$
+
+第二座標から $a\equiv0\pmod3$、第一座標から $k\equiv3a\equiv0\pmod9$ です。従って $(1,0)+I$ の位数は9で、$G/I\simeq\mathbb Z/9\mathbb Z$。これは実際の数体ではなく、惰性群商の模型です。
 <!-- solution-end -->
 
 <a id="ex-iwa9-a4"></a>
@@ -553,7 +575,28 @@ $E_{r+1}/E_r$ は唯一の $p$ 素点で完全分岐しますが、$H_r^{(p)}/E_
 $p=3$、$M=(\mathbb Z/9)\oplus(\mathbb Z/3)$、$c(x,y)=(x,-y)$、$J=0\oplus(\mathbb Z/3)$、$N=M/J$ とする。$(1\pm c)/2$ による $J,M,N$ の偶奇成分を求め、各成分の短完全列を検算せよ。
 
 <!-- solution-start -->
-**詳細解答。** $2$ は $\mathbb Z_3$ の単元なので射影は良定義です。$c$ が第一座標では $+1$、第二座標では $-1$ と作用するため、$M^+=\mathbb Z/9\oplus0$、$M^-=0\oplus\mathbb Z/3$、$J^+=0$、$J^-=J$ です。商 $N\simeq\mathbb Z/9$ には $c$ が自明に作用するので $N^+=N$、$N^-=0$。偶成分の列は $0\to0\to\mathbb Z/9\xrightarrow{\sim}\mathbb Z/9\to0$、奇成分は $0\to\mathbb Z/3\xrightarrow{\sim}\mathbb Z/3\to0\to0$ となり、両方で核と像が一致します。[射影と局所条件の命題](#prop-iwa9-character-inertia-compatibility)を手で確認しました。
+**詳細解答。** $2$ は $\mathbb Z_3$ の単元なので $e_\pm=(1\pm c)/2$ は良定義です。$c$ は第一座標には $+1$、第二座標には $-1$ と作用するため、
+
+$$
+M^+=\mathbb Z/9\mathbb Z\oplus0,\quad
+M^-=0\oplus\mathbb Z/3\mathbb Z,\qquad
+J^+=0,\quad J^-=J.
+$$
+
+商 $N=M/J\simeq\mathbb Z/9\mathbb Z$ には $c$ が自明に作用するので、$N^+=N$、$N^-=0$。よって各成分の列は
+
+$$
+\begin{aligned}
+\text{偶成分: }&
+0\longrightarrow0\longrightarrow\mathbb Z/9\mathbb Z
+\xrightarrow{\sim}\mathbb Z/9\mathbb Z\longrightarrow0,\\
+\text{奇成分: }&
+0\longrightarrow\mathbb Z/3\mathbb Z
+\xrightarrow{\sim}\mathbb Z/3\mathbb Z\longrightarrow0\longrightarrow0
+\end{aligned}
+$$
+
+です。両方で核と像が一致し、[射影と局所条件の命題](#prop-iwa9-character-inertia-compatibility)を直接確認できました。
 <!-- solution-end -->
 
 <a id="ex-iwa9-b4"></a>
@@ -565,7 +608,14 @@ $p=3$、$M=(\mathbb Z/9)\oplus(\mathbb Z/3)$、$c(x,y)=(x,-y)$、$J=0\oplus(\mat
 群 $G$ が有限群 $A=\mathbb Z/p^m\mathbb Z$ に自明に作用するとする。一次余サイクルが群準同型であり、一次余境界が全て零であることを定義式から示せ。そのうえで $G=\mathbb Z/9$、$A=\mathbb Z/3$ の場合の $H^1(G,A)$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** 一次余サイクルの式は $f(gh)=f(g)+g f(h)$。自明作用から $g f(h)=f(h)$ なので $f(gh)=f(g)+f(h)$、すなわち準同型です。一次余境界はある $a\in A$ に対する $g\mapsto ga-a$ ですが、これも自明作用により零です。よって $H^1(G,A)=\operatorname{Hom}(G,A)$。$G=\mathbb Z/9$ の生成元 $\bar1$ の像は $A=\mathbb Z/3$ の任意の元から選べ、$9f(\bar1)=0$ は常に成立します。従って準同型は3個、加法群として $H^1(G,A)\simeq\mathbb Z/3$ です。
+**詳細解答。** [加法的第1余サイクルと余境界](../../ANF/ANF14/index.md#def-anf14-additive-cocycle)の定義式は $f(gh)=f(g)+g f(h)$ です。自明作用では $g f(h)=f(h)$ なので
+
+$$
+f(gh)=f(g)+f(h),\qquad
+(\delta a)(g)=ga-a=a-a=0.
+$$
+
+従って余サイクルは準同型、余境界は零であり、$H^1(G,A)=\operatorname{Hom}(G,A)$ です。$G=\mathbb Z/9\mathbb Z$ の生成元 $\bar1$ の像は $A=\mathbb Z/3\mathbb Z$ の任意の元から選べます。いずれについても $9f(\bar1)=0$ が成立するので、準同型は3個。加法群として $H^1(G,A)\simeq\mathbb Z/3\mathbb Z$ です。
 <!-- solution-end -->
 
 ### Level C
