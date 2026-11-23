@@ -18,7 +18,11 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf22-hilbert-class-field -->
-**定義の確認**。$K=\mathbb Q(i)$ の類数は [Minkowskiの類数1判定](../ANF6/index.md#cor-anf6-class-number-one)で $1$ です。[法 $(1)$ の存在定理](../ANF20/index.md#thm-anf20-ray-class-field)から許される最大Abel拡大のGalois群の位数は $1$。従って $H_K=K$ です。自明拡大は有限Abelで、どの有限素点も $e=1$、実素点もありません。他の同じ条件のAbel拡大は次数が $1$ だから $K$ に含まれ、最大性も確認できます。
+**定義の確認**。$K=\mathbb Q(i)$ の類数は[Minkowskiの類数1判定](../ANF6/index.md#cor-anf6-class-number-one)で $1$ です。[法 $(1)$ の存在定理](../ANF20/index.md#thm-anf20-ray-class-field)では、この体で許される最大Abel拡大のGalois群の位数は $1$ です。従って $H_K=K$ です。
+
+この自明拡大は有限Abelで、どの有限素点でも分岐指数は $e=1$。実素点はありません。
+
+同じ条件の任意のAbel拡大の次数も $1$ なので $K$ に含まれます。これで分岐条件と最大性をともに確認しました。
 <!-- definition-example-end -->
 
 <a id="thm-anf22-hilbert-class-correspondence"></a>
@@ -50,7 +54,13 @@ $$
 
 [剰余類体存在定理](../ANF20/index.md#thm-anf20-ray-class-field)はこの商をGalois群に同型にする有限Abel拡大 $H_K/K$ を与えます。法 $(1)$ の有限成分の局所部分群は各 $\mathcal O_{K_v}^{\times}$、無限成分は各 $K_v^\times$ です。従ってArtin写像は有限局所単数を消し、有限素点の惰性群も自明、実素点の局所Galois群も自明です。
 
-逆にその二条件を満たす有限Abel拡大 $L/K$ の局所Artin写像は、有限素点の単数全体と実素点の全乗法群を消します。[剰余類群への下降判定](../ANF21/index.md#prop-anf21-descent-criterion)を使います。必要な対角元の消滅は[大域Artin相互法則](../ANF20/index.md#thm-anf20-global-reciprocity)によります。従って $L/K$ のArtin写像は $\operatorname{Cl}_{(1)}(K)$ を経由します。類体対応で、その核を定める部分群を $H'\subseteq\operatorname{Cl}(K)$ とすれば、$H'$ を含む自明部分群 $\{1\}$ に対応する最大の法 $(1)$ の類体は $H_K$ です。対応は包含を逆転するから $L\subseteq H_K$ です。
+逆に、二条件を満たす有限Abel拡大 $L/K$ の局所Artin写像は、有限素点の単数群と実素点の全乗法群を消します。
+
+[剰余類群への下降判定](../ANF21/index.md#prop-anf21-descent-criterion)を適用します。対角元の消滅は[大域Artin相互法則](../ANF20/index.md#thm-anf20-global-reciprocity)によるので、$L/K$ のArtin写像は $\operatorname{Cl}_{(1)}(K)$ を経由します。
+
+類体対応で、その核を定める部分群を $H'\subseteq\operatorname{Cl}(K)$ とします。自明部分群 $\{1\}\subseteq H'$ に対応する最大の法 $(1)$ の類体が $H_K$ です。
+
+類体対応では部分群の包含が体の包含を逆転するので、$L\subseteq H_K$ となります。
 
 最後にArtin同型から $[H_K:K]=|\operatorname{Gal}(H_K/K)|=|\operatorname{Cl}(K)|=h_K$ となります。
 <!-- proof-end -->
@@ -162,7 +172,11 @@ $$
 
 は、双方の位数が $\varphi(m)$ である群同型です。正の整数 $a$ が $m$ と互いに素なら、素因数 $\ell$ ごとのArtin積は $\sigma_a$ となります。従ってこれは大域Artin写像と一致します。[類体の一意性](../ANF20/index.md#thm-anf20-ray-class-field)により $E_m$ は法 $(m)\infty$ の類体です。
 
-次に有限Abel拡大 $L/\mathbb Q$ を取ります。[Artin積を消す有限法の存在](../ANF21/index.md#prop-anf21-modulus-exists)によって法を選びます。[大域Artin相互法則](../ANF20/index.md#thm-anf20-global-reciprocity)を使うと、$L$ のArtin写像はある法 $\mathfrak m$ の剰余類群へ下降します。$\mathbb Q$ では有限部分は $(m)$ と書け、必要なら $m\ge2$ とし、実素点を加えて $(m)\infty$ に拡大できます。法を強くすると核となる局所単数群は小さくなるので、下降は保たれます。従ってArtin写像の核に対応する $L$ は、法 $(m)\infty$ の全類体 $E_m$ の部分体です。
+次に有限Abel拡大 $L/\mathbb Q$ を取ります。[Artin積を消す有限法の存在](../ANF21/index.md#prop-anf21-modulus-exists)によって法を選びます。[大域Artin相互法則](../ANF20/index.md#thm-anf20-global-reciprocity)で、$L$ のArtin写像はこの法の剰余類群へ下降します。
+
+有理数体では、法の有限部分は $(m)$ と書けます。必要なら $m\ge2$ に増やし、実素点を加えた法 $(m)\infty$ を選べます。
+
+法を強くすると対応する局所単数部分群は小さくなるため、Artin写像の下降は保たれます。従って $L$ は、法 $(m)\infty$ の全類体 $E_m$ に含まれます。
 
 この証明は一般の大域類体論と[円分多項式の既約性](../../../幾何系/SQC/SQC5/index.md#thm-sqc5-cyclotomic-irreducibility)を入力にしています。前講で明示した大域相互法則・存在定理の深い証明責務を解消したものではありません。
 <!-- proof-end -->
@@ -304,7 +318,15 @@ $$
 
 よって $1+p$ の法 $p^{n+1}$ での位数は $p^n$ で、$U_n$ を生成します。$G_n/\Delta_n$ の同型を、生成元 $1+p$ の剰余類を $1\in\mathbb Z/p^n\mathbb Z$ に対応させて選べます。
 
-$E_n\subset E_{n+1}$ で、$G_{n+1}\to G_n$ は法 $p^{n+1}$ への還元です。単純根の一意持ち上げによって $\Delta_{n+1}$ は $\Delta_n$ に写るため、$\Delta_{n+1}$ の固定体は $F_n$ を含みます。商の制限写像は $1+p$ を $1+p$ へ送り、上の同型では $\mathbb Z/p^{n+1}\mathbb Z\to\mathbb Z/p^n\mathbb Z$ の還元になります。無限Galois群は有限商の逆極限なので、[逆極限による $\mathbb Z_p$ の構成](../ANF9/index.md#thm-anf9-inverse-limit-isomorphism)を適用して同型を得ます。
+$E_n\subset E_{n+1}$ で、Galois群の制限 $G_{n+1}\to G_n$ は法 $p^{n+1}$ への還元です。[Henselの単純根の一意持ち上げ](../ANF10/index.md#thm-anf10-hensel-simple)により、$\Delta_{n+1}$ は $\Delta_n$ に写ります。従って固定体は $F_n\subseteq F_{n+1}$ を満たします。
+
+商の制限写像は生成元 $1+p$ を次の段階の同じ元へ送ります。上の同型を使うと、これは
+
+$$
+\mathbb Z/p^{n+1}\mathbb Z\longrightarrow\mathbb Z/p^n\mathbb Z
+$$
+
+という還元写像です。無限Galois群は有限商の逆極限なので、[逆極限による $\mathbb Z_p$ の構成](../ANF9/index.md#thm-anf9-inverse-limit-isomorphism)から所望の位相群同型を得ます。
 
 $\Delta_n$ は位数 $p-1$ の元 $-1$ を含み、複素共役を消すので $F_n$ は全実です。[素数冪円分体の完全分岐](#prop-anf22-prime-power-degree)では $p$ の上の分解群が $G_n$ 全体です。固定体へ制限しても分解群は $G_n/\Delta_n$ 全体だから、$F_n$ でも $p$ は一つの素点のまま、$e=p^n$、$f=1$ です。
 <!-- proof-end -->
@@ -473,12 +495,23 @@ $\mathbb Q(\zeta_4),\mathbb Q(\zeta_8),\mathbb Q(\zeta_{16})$ の最大実部分
 - ID: ANF22-B4
 
 <!-- solution-start -->
-**詳細解答**。円分体の次数は $\varphi(4)=2,\varphi(8)=4,\varphi(16)=8$ で、複素共役の位数2で割ると最大実部分体の次数は $1,2,4$ です。$5\bmod4=1$ だから位数1、$5^2=25\equiv1\pmod8$ で $5\not\equiv1$ なので法8で位数2、$5^2=25\equiv9\not\equiv1\pmod{16}$ かつ $5^4=625\equiv1\pmod{16}$ なので法16で位数4です。奇素数と違い $(\mathbb Z/2^r\mathbb Z)^\times$ は $r\ge3$ で非巡回で、単に $1+2$ を生成元として使えません。[2進塔の命題](#prop-anf22-two-adic-tower)のように $\{\pm1\}$ を取り除いてから $5$ で生成する必要があります。
+**詳細解答**。[素数冪円分体の次数](#prop-anf22-prime-power-degree)から円分体の次数は順に $2,4,8$ です。複素共役の位数 $2$ で割ると、最大実部分体の次数は $1,2,4$ となります。
+
+法 $4$ では $5\equiv1$ で位数 $1$ です。法 $8$ では $5\not\equiv1$、$5^2=25\equiv1$ なので位数は $2$ です。
+
+法 $16$ では $5^2=25\equiv9\not\equiv1$、$5^4=625\equiv1$。従って位数は $4$ です。
+
+奇素数の場合と異なり、$r\ge3$ では $(\mathbb Z/2^r\mathbb Z)^\times$ は非巡回です。[2進塔の命題](#prop-anf22-two-adic-tower)に従い、$\{\pm1\}$ を除いて $5$ で商群を生成します。
 <!-- solution-end -->
 
 ### C1. 同じ素数7を二種類の類体で追う
 
-$K=\mathbb Q(\sqrt{-5})$、そのHilbert類体を $H_K$ とする。一方 $F_1=\mathbb Q(\zeta_9)^{\{\pm1\}}$ とする。(1) 素数 $7$ が $K/\mathbb Q$ でどう分解するか求めよ。(2) $7$ の上の素イデアルが $K$ で非主であることを示し、$H_K/K$ での分解を求めよ。(3) $7$ が $F_1/\mathbb Q$ でどう分解するか求めよ。(4) 二つの拡大の分岐条件の違いを説明せよ。
+$K=\mathbb Q(\sqrt{-5})$、そのHilbert類体を $H_K$ とする。一方、$F_1=\mathbb Q(\zeta_9)^{\{\pm1\}}$ とする。
+
+1. 素数 $7$ が $K/\mathbb Q$ でどう分解するか求めよ。
+2. $7$ の上の素イデアルが $K$ で非主であることを示し、$H_K/K$ での分解を求めよ。
+3. $7$ が $F_1/\mathbb Q$ でどう分解するか求めよ。
+4. 二つの拡大の分岐条件の違いを説明せよ。
 
 - Level: C
 - ID: ANF22-C1
@@ -496,7 +529,17 @@ $$
 
 二つの異なる素イデアルに分かれるため $7$ は非分岐で分裂します。
 
-(2) $\mathfrak p_\pm$ が主なら生成元 $a+b\sqrt{-5}$ のノルムは $7$ で、$a^2+5b^2=7$。$b=0$ なら $a^2=7$ は不可能、$|b|=1$ なら $a^2=2$ は不可能、$|b|\ge2$ なら左辺は $20$ 以上。よって両方とも非主です。[類数2の計算](../ANF6/index.md#thm-anf6-q-sqrt-minus-five-class-group)と[Hilbert類体のFrobenius](#prop-anf22-principal-splitting)から各類の位数は2、$H_K/K$ で $e=1,f=2,g=1$。つまり二つの素イデアルはどちらも惰性します。
+(2) $\mathfrak p_\pm$ が主なら、生成元 $a+b\sqrt{-5}$ のノルムの絶対値は $7$ です。従って
+
+$$
+a^2+5b^2=7
+$$
+
+を満たす整数が必要です。$b=0$ では $a^2=7$、$|b|=1$ では $a^2=2$ となって不可能です。$|b|\ge2$ では左辺が $20$ 以上で、やはり不可能です。
+
+よって二つの素イデアルはともに非主です。[類数2の計算](../ANF6/index.md#thm-anf6-q-sqrt-minus-five-class-group)と[Hilbert類体のFrobenius](#prop-anf22-principal-splitting)により、両方の類の位数は $2$。
+
+従って $H_K/K$ で $e=1,f=2,g=1$ となり、二つの素イデアルはともに惰性します。
 
 (3) $F_1/\mathbb Q$ のGalois群は $(\mathbb Z/9\mathbb Z)^\times/\{\pm1\}$ で位数3です。$7\bmod9$ は $\pm1$ でなく、$7^2\equiv4$、$7^3\equiv1$ なので、Frobeniusの位数は3です。[分解公式](../ANF21/index.md#prop-anf21-frobenius-order)から $e=1,f=3,g=1$、すなわち $7$ は $F_1$ で惰性します。
 
