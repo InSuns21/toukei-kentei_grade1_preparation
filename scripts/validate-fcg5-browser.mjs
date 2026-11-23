@@ -191,22 +191,32 @@ try {
   await click('tab-conditions');
   const gui=await evaluate('(()=>{const g=document.querySelector("#parameter-grid"),n=document.querySelector("#parameter-nu"),f=document.querySelector("#parameter-force");return {grid:g?.value,nu:n?.value,force:f?.value,gridDisabled:g?.disabled,nuDisabled:n?.disabled,forceDisabled:f?.disabled,labels:[...document.querySelectorAll("#lab-parameters .lab-parameter-row small")].map(x=>x.textContent)}})()');
   assert.equal(gui.grid,'48');assert.equal(gui.nu,'0.002');assert.equal(gui.force,'0.08');
+  assert.equal(await evaluate('document.querySelector("#parameter-brush-radius")?.value'),'0.085');
+  assert.equal(await evaluate('document.querySelector("#parameter-brush-strength")?.value'),'0.48');
+  assert.equal(await evaluate('document.querySelector("#parameter-brush-radius")?.disabled'),false);
+  assert.equal(await evaluate('document.querySelector("#parameter-brush-strength")?.disabled'),false);
   assert.equal(gui.gridDisabled,false);assert.equal(gui.nuDisabled,false);assert.equal(gui.forceDisabled,false);
   assert.ok(gui.labels.some(t=>t.includes('セル/辺')&&t.includes('fluid.js')));
   assert.ok(gui.labels.some(t=>t.includes('m²/s')&&t.includes('fluid.js')));
   assert.ok(gui.labels.some(t=>t.includes('m²/s²')&&t.includes('forceAmplitude')));
   await evaluate('(()=>{const e=document.querySelector("#parameter-grid");e.value="24";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}))})()');
-  await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した格子・粘性・外力の独立画素検算に合格")',25000);
+  await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した条件の独立CPU初期画素検算に合格")',25000);
   assert.match(await evaluate('document.querySelector("#js-source").value'),/const N=24,h=1\/N/);
   await evaluate('(()=>{const e=document.querySelector("#parameter-nu");e.value="0.0025";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}))})()');
-  await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した格子・粘性・外力の独立画素検算に合格") && document.querySelector("#js-source")?.value.includes("nu=0.0025")',25000);
+  await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した条件の独立CPU初期画素検算に合格") && document.querySelector("#js-source")?.value.includes("nu=0.0025")',25000);
   await evaluate('(()=>{const e=document.querySelector("#parameter-force");e.value="0.02";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}))})()');
-  await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した格子・粘性・外力の独立画素検算に合格") && document.querySelector("#js-source")?.value.includes("nu=0.0025,forceAmplitude=0.02")',25000);
+  await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した条件の独立CPU初期画素検算に合格") && document.querySelector("#js-source")?.value.includes("nu=0.0025,forceAmplitude=0.02")',25000);
   const edited=await evaluate('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>r.cells[4]?.textContent),note:document.querySelector("#numeric-note")?.textContent,summary:document.querySelector("#numeric-summary")?.textContent})');
   assert.equal(edited.rows.length,9);
   assert.ok(edited.rows.every(x=>x==='OK'),JSON.stringify(edited));
   assert.match(edited.note,/独立CPUの24×24格子/);
-  assert.match(edited.summary,/変更係数の独立CPU画素 9\/9/);
+  assert.match(edited.summary,/変更条件の独立CPU初期画素 9\/9/);
+  // GUI edits one source; the independent initial CPU/GPU oracle is pre-injection.
+  await evaluate('(()=>{const e=document.querySelector("#parameter-brush-radius");e.value="0.05";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}))})()');
+  await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した条件の独立CPU初期画素検算に合格") && document.querySelector("#js-source")?.value.includes("dyeBrushRadius=0.05,dyeBrushStrength=0.48")',25000);
+  await evaluate('(()=>{const e=document.querySelector("#parameter-brush-strength");e.value="0.6";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}))})()');
+  await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した条件の独立CPU初期画素検算に合格") && document.querySelector("#js-source")?.value.includes("dyeBrushRadius=0.05,dyeBrushStrength=0.6")',25000);
+  assert.match(await evaluate('document.querySelector("#numeric-note")?.textContent'),/染料ブラシ半径=0[.]05 m、入力強度=0[.]6/);
   await click('save');
   await cdp('Page.reload',{ignoreCache:true});
   await waitFor('document.querySelector("#status")?.textContent==="実行できます"',25000);
@@ -216,10 +226,12 @@ try {
   assert.equal(await evaluate('document.querySelector("#parameter-grid").value'),'24');
   assert.equal(await evaluate('document.querySelector("#parameter-nu").value'),'0.0025');
   assert.equal(await evaluate('document.querySelector("#parameter-force").value'),'0.02');
+  assert.equal(await evaluate('document.querySelector("#parameter-brush-radius").value'),'0.05');
+  assert.equal(await evaluate('document.querySelector("#parameter-brush-strength").value'),'0.6');
   assert.equal(await evaluate('document.querySelector("#canvas-slot iframe")===null'),true,
     'saved code must not run automatically after reload');
   await click('run');
-  await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した格子・粘性・外力の独立画素検算に合格")',25000);
+  await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した条件の独立CPU初期画素検算に合格")',25000);
   await click('tab-code');
   await evaluate('(()=>{const e=document.querySelector("#js-source");e.value=e.value.replace("nu=0.0025","nu=0.001+0.0015");e.dispatchEvent(new Event("input",{bubbles:true}))})()');
   assert.equal(await evaluate('document.querySelector("#parameter-nu").disabled'),true);
@@ -228,7 +240,7 @@ try {
   assert.equal(await evaluate('document.querySelector("#results-table tbody tr:first-child td:nth-child(5)")?.textContent'),'変更版: 参考');
   await click('reset');await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
-  console.log('FCG5 R1 grid/viscosity/force GUI, independent CPU pixels, save/reload and expression safety: PASS');
+  console.log('FCG5 R1 grid/viscosity/force/dye brush GUI, independent CPU initial pixels, save/reload and expression safety: PASS');
 
 
   await cdp('Emulation.setDeviceMetricsOverride',
