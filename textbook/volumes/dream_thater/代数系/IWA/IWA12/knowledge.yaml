@@ -1,0 +1,37 @@
+chapter: IWA12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - IWA11
+forward_references: []
+concepts:
+  - id: number-theory.iwa12-control-map
+    name: 有限層への比較写像
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa7-layer-quotient, number-theory.iwa4-inverse-limit]
+  - id: number-theory.iwa12-comparison-exact
+    name: 比較写像の核・余核の完全列
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa12-control-map]
+  - id: number-theory.iwa12-stable-image
+    name: 上層からの安定像
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa4-inverse-limit]
+  - id: number-theory.iwa12-stable-image-identification
+    name: 射影の像と安定像
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa12-stable-image, number-theory.iwa12-control-map]
+  - id: number-theory.iwa12-uniform-control
+    name: 一様有界なcontrol
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa12-comparison-exact]
+  - id: number-theory.iwa12-finite-error-control
+    name: 有限誤差によるcontrol判定
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa12-uniform-control, number-theory.iwa12-comparison-exact, number-theory.iwa12-stable-image-identification]
