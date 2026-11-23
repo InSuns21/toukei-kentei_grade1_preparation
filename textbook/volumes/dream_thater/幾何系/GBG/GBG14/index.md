@@ -32,14 +32,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg14-horizontal-curve -->
-**定義の確認**。積主束 $\mathbb R\times U(1)$ の標準section $s(x)=(x,1)$ で局所ポテンシャル $A=0$ の接続を置く。[積主束の接続形式の具体式](../GBG7/index.md#prop-gbg7-product-form)では、接ベクトル $(v,W)\in T_x\mathbb R\oplus T_gU(1)$ に対し
+**定義の確認**。積主束 $\mathbb R\times U(1)$ の標準section $s(x)=(x,1)$ で、局所ポテンシャル $A=0$ の接続を置く。
+
+[積主束の接続形式の具体式](../GBG7/index.md#prop-gbg7-product-form)を用いる。接ベクトル $(v,W)\in T_x\mathbb R\oplus T_gU(1)$ に対し
 
 $$
 \omega_{(x,g)}(v,W)=\operatorname{Ad}_{g^{-1}}A_x(v)+\theta_g(W)
 =\theta_g(W)=g^{-1}W
 $$
 
-である。最後の等号は $U(1)$ を行列群と見たときの左 Maurer–Cartan 形式の表示なので、水平性を $g^{-1}\dot g=0$ で判定できる。$t\in[0,1]$ で $\gamma(t)=t$、$\widetilde\gamma(t)=(t,g_0)$ とすると
+である。最後の等号は $U(1)$ を行列群と見たときの左 Maurer–Cartan 形式の表示なので、水平性を $g^{-1}\dot g=0$ で判定できる。
+
+$t\in[0,1]$ で $\gamma(t)=t$、$\widetilde\gamma(t)=(t,g_0)$ とすると
 
 $$
 \pi(t,g_0)=t,\qquad g_0^{-1}\dot g_0=0
@@ -464,7 +468,9 @@ $$
 
 ### 非可換行列で順序を検算する
 
-$G=GL(2,\mathbb R)$ とし、$E_{ij}$ を標準基底に関して $(i,j)$ 成分だけが1で残りが0の $2\times2$ 行列と定める。$H=E_{11}$、$X=E_{12}$ を用いて $\mathbb R^2$ の積主束に $A=H\,dx+X\,dy$ を置く。これは座標速度 $(\dot x,\dot y)$ を Lie 環の元 $H\dot x+X\dot y$ に送る1形式であり、水平ODEの係数は
+$G=GL(2,\mathbb R)$ とし、$E_{ij}$ を標準基底に関して $(i,j)$ 成分だけが1で残りが0の $2\times2$ 行列と定める。
+
+$H=E_{11}$、$X=E_{12}$ を用いて $\mathbb R^2$ の積主束に $A=H\,dx+X\,dy$ を置く。この1形式は座標速度 $(\dot x,\dot y)$ を Lie 環の元 $H\dot x+X\dot y$ に送る。したがって、水平ODEの係数は
 
 $$
 a(t)=A_{\gamma(t)}(\dot\gamma(t))
