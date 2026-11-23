@@ -12,7 +12,9 @@ $$
 -u_a''(x)=a\quad(0<x<1),\qquad u_a(0)=u_a(1)=0
 $$
 
-とする。ダッシュは $x$ についての導関数である。PDEに渡す荷重 $f_a(x)=a$ のセンサ値（例えば $f_a(0)$）が $a$ であるから、この模型は有限センサ型の作用素学習でもある。方程式を $x$ で二回積分すると、積分定数 $C_1,C_2$ を用いて
+とする。ダッシュは空間変数 $x$ についての導関数である。PDEに渡す荷重 $f_a(x)=a$ のセンサ値（例えば $f_a(0)$）が $a$ なので、有限センサ型の作用素学習として表せる。
+
+方程式を $x$ で二回積分すると、積分定数 $C_1,C_2$ を用いて
 
 $$
 u_a''(x)=-a,\qquad
@@ -33,7 +35,15 @@ $$
 
 ## 2. 物理を課す作用素損失を組み立てる
 
-解作用素の近似 $\mathcal D_\theta(a,x)$ は、入力 $a$ と問い合わせ座標 $x$ を受けて実数を返す。[固定センサ型DeepONetの定義](../PML2-18/index.md#def-pml2-18-deeponet)をこの定数荷重族に適用しよう。入力関数の引数を $t$、出力の座標を $x$ と書くと、$f_a(t)=a$ だから、どの固定センサ $s_1,\ldots,s_m$ でも $S_mf_a=(a,\ldots,a)$ となる。以下 $B_{\theta,k}(a)$ は $B_{\theta,k}(S_mf_a)$ の略記であり、$p$ 成分のbranchとtrunk、出力の定数項 $c_\theta$ によって
+解作用素の近似 $\mathcal D_\theta(a,x)$ は、入力 $a$ と問い合わせ座標 $x$ を受けて実数を返す。この定数荷重族に[固定センサ型DeepONetの定義](../PML2-18/index.md#def-pml2-18-deeponet)を適用しよう。
+
+入力関数の引数を $t$、出力の座標を $x$ と書く。定数荷重 $f_a(t)=a$ に対する $m$ 個のセンサ値は
+
+$$
+S_mf_a=(f_a(s_1),\ldots,f_a(s_m))=(a,\ldots,a)
+$$
+
+となる。以下 $B_{\theta,k}(a)$ は $B_{\theta,k}(S_mf_a)$ の略記である。$p$ 成分のbranchとtrunkに定数項 $c_\theta$ を加えた式は
 
 $$
 \mathcal D_\theta(a,x)
@@ -278,7 +288,11 @@ $$
 =-\partial_{xx}\mathcal D(a,x)-a=R(a,x).
 $$
 
-端点の補正 $\ell_a(x)=(1-x)e_a(0)+xe_a(1)$ を作る。$\ell_a''=0$ で $|\ell_a(x)|\le(1-x)b+xb=b$。$v_a=e_a-\ell_a$ は $v_a(0)=v_a(1)=0$ かつ $-v_a''=R(a,\cdot)$ である。ここで入力 $a$ を固定すると $R(a,\cdot)$ はLipschitz条件により連続であり、$v_a$ は二階連続微分可能で両端が零になる。よって[Poisson解作用素の積分表示と一様安定性](../PML2-14/index.md#thm-pml2-14-green)を荷重 $f=R(a,\cdot)$ に適用できる。参照先で定義した核は $K(x,t)$ であり、$K\ge0$、$\int_0^1K(x,t)\,dt=\phi(x)$ だから
+端点の補正 $\ell_a(x)=(1-x)e_a(0)+xe_a(1)$ を作る。$\ell_a''=0$ で $|\ell_a(x)|\le(1-x)b+xb=b$。$v_a=e_a-\ell_a$ は $v_a(0)=v_a(1)=0$ かつ $-v_a''=R(a,\cdot)$ である。
+
+入力 $a$ を固定すると、$R(a,\cdot)$ はLipschitz条件から連続であり、$v_a$ は二階連続微分可能で両端が零である。よって[Poisson解作用素の積分表示と一様安定性](../PML2-14/index.md#thm-pml2-14-green)を、荷重 $f=R(a,\cdot)$ に適用できる。
+
+参照先の積分核は $K(x,t)$ であり、$K\ge0$、$\int_0^1K(x,t)\,dt=\phi(x)$ だから
 
 $$
 |v_a(x)|
