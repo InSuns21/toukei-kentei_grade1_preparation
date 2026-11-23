@@ -87,7 +87,7 @@ chapters:
     title: "大域Artin写像と剰余類体"
   - id: ANF21
     path: textbook/volumes/dream_thater/代数系/ANF/ANF21
-    status: planned
+    status: completed
     title: "大域類体論の主要証明ルート"
   - id: ANF22
     path: textbook/volumes/dream_thater/代数系/ANF/ANF22
