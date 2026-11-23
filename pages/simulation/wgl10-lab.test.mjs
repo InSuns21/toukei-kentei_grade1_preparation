@@ -52,6 +52,8 @@ test('WGL10 FBO lifecycle, shared shader, pass labels and actual GUI source', as
   assert.match(parameters, /WGL10: Object\.freeze/);
   assert.match(host, /expectedWGL10Samples/);
   assert.match(host, /compareWGL10Readback/);
+  assert.match(host, /'outColor = vec4\(saved, 1\.0\);'/);
+  assert.match(fs, /outColor = vec4\(saved, 1\.0\);/);
   assert.match(host, /iframe\.setAttribute\('sandbox', 'allow-scripts'\)/);
   assert.match(md, /lesson=WGL10/);
 });
