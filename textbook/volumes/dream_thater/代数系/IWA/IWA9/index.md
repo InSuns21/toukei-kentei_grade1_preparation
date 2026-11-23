@@ -21,7 +21,7 @@ $$
 <a id="def-iwa9-hilbert-p-class-field"></a>
 
 <!-- formal-statement-start -->
-> **定義（無分岐最大アーベル $p$ 拡大）**  
+> **定義（無分岐最大アーベルp拡大）**  
 > 数体 $K$、素数 $p$ とHilbert類体 $H_K$ に対し、Artin同型で $\operatorname{Cl}(K)_{p'}$ に対応する部分群の固定体を $H_K^{(p)}$ とする。これは $K$ のすべての有限素点で非分岐、すべての実素点で複素化せず、Galois群が有限アーベル $p$ 群である拡大のうち最大のものを意味する。
 <!-- formal-statement-end -->
 
@@ -32,7 +32,7 @@ $$
 <a id="thm-iwa9-unramified-artin-p"></a>
 
 <!-- formal-statement-start -->
-> **定理（無分岐アーベル $p$ 拡大と類群の $p$ 部分）**  
+> **定理（無分岐アーベルp拡大と類群のp部分）**  
 > 数体 $K$、素数 $p$ に対して、算術的Frobeniusで規格化したArtin写像は自然な群同型
 >
 $$
@@ -75,7 +75,7 @@ $$
 <a id="def-iwa9-s-ramified-extension"></a>
 
 <!-- formal-statement-start -->
-> **定義（$S$ 分岐アーベル pro-$p$ 拡大）**  
+> **定義（S分岐アーベルpro-p拡大）**  
 > 数体 $K$ と有限素点の有限集合 $S$ を固定する。$M_S(K)$ は、$K$ のすべての有限アーベル $p$ 冪次数拡大のうち、$S$ の外で非分岐であり、すべての実素点の複素化を許さないものの合成体とする。これを最大 $S$ 分岐アーベル pro-$p$ 拡大といい、
 >
 $$
@@ -150,8 +150,14 @@ $S$ の素イデアルを逆元として加えた整数環を $\mathcal O_{K,S}$
 <a id="def-iwa9-s-class-group"></a>
 
 <!-- formal-statement-start -->
-> **定義（$S$ 整数環の類群と $p$ 分解条件）**  
-> 数体 $K$ と有限素点集合 $S$ に対し、$\operatorname{Cl}_S(K)=\operatorname{Cl}(\mathcal O_{K,S})$ とする。全虚数体のHilbert類体の中で、$S$ のすべての素点が完全分解する最大アーベル $p$ 拡大を $H_{K,S}^{(p)}$ と呼ぶ。そのGalois群を $A_{K,S}$ と書く。
+> **定義（S整数環の類群とp分解条件）**  
+> 数体 $K$ と有限素点集合 $S$ に対し、$S$ 整数環の類群は次で定まる。
+>
+$
+\operatorname{Cl}_S(K)=\operatorname{Cl}(\mathcal O_{K,S}).
+$
+
+> 全虚数体 $K$ のHilbert類体の中で、$S$ のすべての素点が完全分解する最大アーベル $p$ 拡大を $H_{K,S}^{(p)}$ と呼ぶ。そのGalois群は $A_{K,S}$ と書く。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa9-s-class-group -->
@@ -161,7 +167,7 @@ $S$ の素イデアルを逆元として加えた整数環を $\mathcal O_{K,S}$
 <a id="prop-iwa9-s-class-quotient"></a>
 
 <!-- formal-statement-start -->
-> **命題（$S$ 整数環への局所化と類群の商）**  
+> **命題（S整数環への局所化と類群の商）**  
 > 数体 $K$、有限素点集合 $S$ と素数 $p$ に対し、$\operatorname{Cl}(K)\to\operatorname{Cl}_S(K)$ は全射で、その核は $[\mathfrak p]$（$\mathfrak p\in S$）が生成する部分群である。従って
 >
 $$
@@ -543,7 +549,7 @@ $$
 \simeq\operatorname{Gal}(H_r^{(3)}/E_r)\simeq A_r.
 $$
 
-これらの合成体は上昇列で合併が $L_\infty$ です。[Galois逆極限定理](../IWA1/index.md#thm-iwa1-galois-inverse-limit)より $\operatorname{Gal}(L_\infty/E_\infty)\simeq\varprojlim_r A_r$。矢印は[Artin関手性](#thm-iwa9-galois-inverse-limit)でノルムになります。
+これらの合成体は上昇列で合併が $L_\infty$ です。[Galois群の逆極限表示](../IWA1/index.md#thm-iwa1-galois-inverse-limit)より $\operatorname{Gal}(L_\infty/E_\infty)\simeq\varprojlim_r A_r$。矢印は[Artin関手性](#thm-iwa9-galois-inverse-limit)でノルムになります。
 
 **第3問。** 3の上の唯一の素イデアルは $\mathfrak p_r=(1-\zeta_{3^r})$ で主です。[局所化の商](#prop-iwa9-s-class-quotient)はその類だけを消すので、$A_{E_r,S_r}\simeq A_r$。この商で3のFrobeniusは自明、従って無分岐拡大では3が完全分解します。一方 $\mathbb Q(\zeta_9)^+$ は $\mathbb Q$ の次数3の全実拡大で3で完全分岐し、3の外では非分岐です。つまり「3の外で非分岐」は3での非分岐も完全分解も要求しません。
 
