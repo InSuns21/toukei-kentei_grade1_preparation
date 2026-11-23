@@ -161,9 +161,9 @@ $S$ の素イデアルを逆元として加えた整数環を $\mathcal O_{K,S}$
 > **定義（S整数環の類群とp分解条件）**  
 > 数体 $K$ と有限素点集合 $S$ に対し、$S$ 整数環の類群は次で定まる。
 >
-$
+$$
 \operatorname{Cl}_S(K)=\operatorname{Cl}(\mathcal O_{K,S}).
-$
+$$
 
 > 数体 $K$ の[Hilbert類体](../../ANF/ANF22/index.md#def-anf22-hilbert-class-field)の中で、$S$ のすべての素点が完全分解する最大アーベル $p$ 拡大を $H_{K,S}^{(p)}$ と呼ぶ。そのGalois群は $A_{K,S}$ と書く。実素点についてはHilbert類体と同じく複素化を許さない。
 <!-- formal-statement-end -->
