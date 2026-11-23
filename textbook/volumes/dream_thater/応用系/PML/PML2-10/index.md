@@ -279,7 +279,33 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-10-preconditioned-update -->
-**定義の確認**。 $k=4,\eta=1/16,(a_0,b_0)=(0,1/16)$ では $\nabla J_4=(-2,32)$、$P_4=\operatorname{diag}(1,1/256)$ である。したがって $P_4\nabla J_4=(-2,1/8)$、更新後は $a_1=1/8$、$b_1=1/16-1/128=7/128$。標準基底に対する対角作用を直接計算したので、前処理なしの $b_1=-31/16$ と異なる。さらに任意の $(p,q)\ne(0,0)$ に対して $p^2+q^2/256>0$ だから、この例の $P_4$ も正定値条件を満たす。
+**定義の確認**。$k=4$、$\eta=1/16$、初期値 $(a_0,b_0)=(0,1/16)$ とする。標準基底での勾配と前処理行列は
+
+$$
+\nabla J_4=(-2,32)^\mathsf T,\qquad
+P_4=\operatorname{diag}(1,1/256).
+$$
+
+第2成分だけに $1/256$ を掛けるため、
+
+$$
+P_4\nabla J_4=(-2,1/8)^\mathsf T.
+$$
+
+よって同時更新後は
+
+$$
+a_1=\frac18,\qquad
+b_1=\frac1{16}-\frac1{128}=\frac7{128}.
+$$
+
+前処理なしの $b_1=-31/16$ と異なる。さらに任意の零でないベクトル $(p,q)^\mathsf T$ について
+
+$$
+(p,q)P_4(p,q)^\mathsf T=p^2+\frac{q^2}{256}>0
+$$
+
+が成立するので、この具体例の $P_4$ も正定値である。
 <!-- definition-example-end -->
 
 <a id="thm-pml2-10-preconditioned-convergence"></a>
