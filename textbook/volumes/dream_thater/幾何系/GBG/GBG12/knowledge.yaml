@@ -5,26 +5,14 @@ prerequisites:
   - GBG11
   - GBG8
   - GBG5
+  - GEO4
 forward_references: []
 concepts:
-  - id: gauge.smooth-partition-of-unity
-    name: 開被覆に従属する滑らかな分割の1
-    kind: definition
-    introduction: formal
-    introduction_aliases: ["定義（開被覆に従属する滑らかな分割の1）"]
-    requires: []
-
-  - id: gauge.smooth-partition-existence
-    name: 滑らかな分割の1の存在
-    kind: lemma
-    introduction: formal
-    requires: [gauge.smooth-partition-of-unity]
-
   - id: gauge.principal-connection-existence
     name: 主束接続の存在
     kind: theorem
     introduction: formal
-    requires: [gauge.smooth-partition-existence, gauge.product-principal-connection-form, gauge.principal-connection-form]
+    requires: [geometry.partition-of-unity-existence, gauge.product-principal-connection-form, gauge.principal-connection-form]
 
   - id: gauge.tensorial-adjoint-one-form
     name: 水平・随伴同変なテンソル的1形式
