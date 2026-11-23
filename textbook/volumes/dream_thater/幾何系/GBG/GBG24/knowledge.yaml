@@ -1,0 +1,58 @@
+chapter: GBG24
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG23
+forward_references: []
+concepts:
+  - id: gauge.pontryagin-form
+    name: Pontryagin形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Pontryagin 形式）"]
+    requires: [gauge.chern-total-form, gauge.associated-vector-bundle, gauge.local-curvature-form]
+
+  - id: gauge.first-pontryagin-trace
+    name: 第一Pontryagin形式の跡公式
+    kind: proposition
+    introduction: formal
+    requires: [gauge.pontryagin-form, gauge.chern-low-degree-traces]
+
+  - id: gauge.pfaffian
+    name: Pfaffian
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Pfaffian）"]
+    requires: []
+
+  - id: gauge.pfaffian-orthogonal-transform
+    name: Pfaffianの直交枠変換と向き
+    kind: proposition
+    introduction: formal
+    requires: [gauge.pfaffian]
+
+  - id: gauge.euler-pfaffian-form
+    name: PfaffianによるEuler形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Pfaffian による Euler 形式）"]
+    requires: [gauge.pfaffian, gauge.pfaffian-orthogonal-transform]
+
+  - id: gauge.real-characteristic-closed-independence
+    name: Pontryagin・Euler形式の閉性と接続非依存性
+    kind: theorem
+    introduction: formal
+    requires: [gauge.pontryagin-form, gauge.euler-pfaffian-form, gauge.chern-weil-closedness, gauge.chern-weil-connection-independence]
+
+  - id: gauge.real-plane-characteristic-relations
+    name: 実平面束のEulerとPontryagin
+    kind: proposition
+    introduction: formal
+    requires: [gauge.euler-pfaffian-form, gauge.first-pontryagin-trace, gauge.chern-low-degree-traces]
+
+  - id: gauge.real-characteristic-direct-sum
+    name: 実束のPontryagin・Euler直和公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（直和公式）"]
+    requires: [gauge.pontryagin-form, gauge.euler-pfaffian-form, gauge.pfaffian]
