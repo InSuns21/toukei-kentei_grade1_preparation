@@ -276,7 +276,7 @@ B=E_{11}=\begin{pmatrix}1&0\\0&0\end{pmatrix},
 \qquad A=B\,dx,\quad K=C\,dy\wedge dz
 $$
 
-とおく。これは座標ベクトルへの値が $A(\partial_x)=B$、$K(\partial_y,\partial_z)=C$ で、それ以外の異なる座標方向の値が零になる形式を表す。定数係数だから $dK=0$。一方、括弧付き外積の3方向の式より
+とおく。座標ベクトルへの値は $A(\partial_x)=B$、$A(\partial_y)=A(\partial_z)=0$ であり、2形式の交代性から $K(\partial_y,\partial_z)=C$、$K(\partial_z,\partial_y)=-C$、その他の座標方向の対では零となる。定数係数だから $dK=0$。一方、括弧付き外積の3方向の式より
 
 $$
 [A\wedge K](\partial_x,\partial_y,\partial_z)
