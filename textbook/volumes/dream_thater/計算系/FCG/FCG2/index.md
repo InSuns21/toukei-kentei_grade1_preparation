@@ -136,15 +136,18 @@ $$
 
 ### 受動染料は広がっても濃度を増やさない
 
-半径方向の速度は $u_r=0$、角方向は $u_\theta=r\Omega(r)$ で、$\theta$ に依存しない。極座標の発散公式を使うと、$r>0$ で
+式(1)の速度を直交座標で書くと $u_x=-\Omega(r)Y$、$u_y=\Omega(r)X$ である。$r>0$ では $\partial_xr=X/r$、$\partial_yr=Y/r$ だから、積の微分と連鎖律より
 
-$$
+$
+\begin{aligned}
+\partial_xu_x&=-Y\,\Omega'(r)\frac{X}{r},\\
+\partial_yu_y&= X\,\Omega'(r)\frac{Y}{r},\\
 \nabla\cdot\boldsymbol u
-=\frac1r\frac{\partial(ru_r)}{\partial r}
-+\frac1r\frac{\partial u_\theta}{\partial\theta}=0.
-$$
+&=\partial_xu_x+\partial_yu_y=0.
+\end{aligned}
+$
 
-中心では $\boldsymbol u=(0,0)$ であり、直交座標での微分の極限でも発散は0になる。よって**水は局所的に圧縮・膨張しない**。
+中心では $X=Y=0$ であり、例えば $u_x(h,0)=0$、$u_y(0,h)=0$ がすべての $h$ について成立するから、$\partial_xu_x=\partial_yu_y=0$ となる。したがって中心を含む全領域で発散は0、**水は局所的に圧縮・膨張しない**。
 
 <a id="prop-fcg2-grid-sum"></a>
 
@@ -431,6 +434,6 @@ $$
 
 ## 8. 次の講義・参考デモ
 
-本講では、**既知の非圧縮速度場で染料が引き伸ばされる物理と、厳密濃度を格子・R8・GLSLへ渡す表示**を結び付けた。次の[FCG3](../FCG3/index.md)では、この厳密値を基準として移流方程式を数値近似し、染料に生じる**数値拡散**を分析する。本講の物理的な伸長と、FCG3の補間に伴うぼやけは異なる現象である。
+本講では、**既知の非圧縮速度場で染料が引き伸ばされる物理と、厳密濃度を格子・R8・GLSLへ渡す表示**を結び付けた。次の[FCG3](../FCG3/index.md)では、この厳密値を基準として移流方程式を数値近似し、格子による移流の近似で染料の輪郭がぼやける理由を分析する。本講の物理的な伸長と、FCG3の補間に伴うぼやけは異なる現象である。
 
 参考となる外部デモは [Pavel Dobryakov の WebGL Fluid Simulation](https://paveldogreat.github.io/WebGL-Fluid-Simulation/)（染料と流れの直接操作）および [NVIDIA GPU Gems, Chapter 38: Fast Fluid Dynamics Simulation on the GPU](https://developer.nvidia.com/gpugems/gpugems/part-vi-beyond-triangles/chapter-38-fast-fluid-dynamics-simulation-gpu)（受動スカラーの移流とGPU実装）。本講はこれらのUI・説明方法を参考に、独自の解析的差動回転モデルを実装している。
