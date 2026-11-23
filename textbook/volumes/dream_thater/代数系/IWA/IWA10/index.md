@@ -79,7 +79,7 @@ $\sigma_a(\eta_{r,b})$ は代数的整数の共役なので代数的整数です
 <!-- proof-end -->
 
 <!-- definition-example-start: def-iwa10-cyclotomic-unit -->
-**定義の直接確認。** $p=3,r=1,a=2$ では $\eta_{1,2}=1+\zeta_1$ です。$\zeta_1^2+\zeta_1+1=0$ を使うと
+**定義の確認**。 $p=3,r=1,a=2$ では $\eta_{1,2}=1+\zeta_1$ です。$\zeta_1^2+\zeta_1+1=0$ を使うと
 
 $$
 (1+\zeta_1)(1+\zeta_1^2)
@@ -183,7 +183,7 @@ $C_r$ の元は $\varepsilon v$（$\varepsilon\in\mu_{2p^r}$、$v\in\langle\xi_{
 <!-- proof-end -->
 
 <!-- definition-example-start: def-iwa10-real-cyclotomic-unit -->
-**定義の直接確認。** $p=5,r=1,a=3$ では
+**定義の確認**。 $p=5,r=1,a=3$ では
 
 $$
 \xi_{1,3}=\zeta_1^{-1}(1+\zeta_1+\zeta_1^2)
@@ -448,7 +448,7 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-iwa10-compatible-cyclotomic-system -->
-**定義の直接確認。** $p=3,a=2$ とすると
+**定義の確認**。 $p=3,a=2$ とすると
 $$
 u_1=1+\zeta_3,\quad u_2=1+\zeta_9,\quad u_3=1+\zeta_{27},\ldots
 $$
@@ -591,15 +591,15 @@ $$
 <!-- solution-start -->
 **詳細解答。** 下層の円分単数群を作る生成元を、一つずつ上層から持ち上げます。まず1の冪根について、[分布関係](#thm-iwa10-norm-distribution)から
 
-$
+$$
 N(-1)=-1,\qquad N(\zeta_{r+1})=\zeta_r
-$
+$$
 
 です。次に、下層の指数 $a$ は法 $p^r$ の単元剰余類です。$p$ と互いに素な整数代表元を選べば、法 $p^{r+1}$ でも単元になります。この上層の指数で円分単数を作ると
 
-$
+$$
 \eta_{r+1,a}\in C_{r+1},\qquad N(\eta_{r+1,a})=\eta_{r,a}
-$
+$$
 
 が成り立ちます。従ってノルム像は全ての下層生成元を含みます。逆に上層生成元の像は下層群に入るので、像はちょうど $C_r$ です。
 
