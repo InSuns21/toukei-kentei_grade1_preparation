@@ -1,0 +1,55 @@
+chapter: ANF21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF20
+forward_references: []
+
+concepts:
+  - id: number-theory.artin-annihilating-modulus
+    name: Artin積を消す法
+    kind: definition
+    introduction: formal
+    requires: [number-theory.global-artin-product, number-theory.ray-idele-units]
+
+  - id: number-theory.artin-finite-modulus-existence
+    name: Artin積を消す有限法の存在
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.artin-annihilating-modulus, number-theory.global-artin-product-finiteness]
+
+  - id: number-theory.global-artin-ray-descent
+    name: 剰余類群への下降判定
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.artin-annihilating-modulus, number-theory.ray-idele-quotient]
+
+  - id: number-theory.global-idele-norm-in-artin-kernel
+    name: 大域イデールノルムはArtin積の核に入る
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.global-artin-product, number-theory.finite-local-artin-map]
+
+  - id: number-theory.global-artin-restriction-compatibility
+    name: 大域Artin積と中間体への制限
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.global-artin-product, number-theory.finite-local-artin-map]
+
+  - id: number-theory.global-class-field-quotient-subfields
+    name: 既知の類体から部分体を取り出す
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.ray-class-field, number-theory.ray-class-group]
+
+  - id: number-theory.global-frobenius-order-splitting
+    name: 非分岐素点の分解とFrobeniusの位数
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.global-artin-product, number-theory.unramified-local-reciprocity]
+
+  - id: number-theory.cyclotomic-real-subfield-ray-modulus
+    name: 五次円分体の実二次部分体と法
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.global-artin-restriction-compatibility, number-theory.cyclotomic-artin-mod-five, number-theory.rational-ray-classes-mod-five]
