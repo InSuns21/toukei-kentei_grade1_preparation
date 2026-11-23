@@ -1,6 +1,16 @@
 # IWA4 ノルム・制限と逆極限
 
-$p$ を素数とします。奇素数では[IWA2の円分塔](../IWA2/index.md#thm-iwa2-compatible-tower)の $K_n$ を、$p=2$ では[2進円分塔](../IWA2/index.md#thm-iwa2-two-adic-splitting)の $K_n^{(2)}$ を、本講では共通して $K_n$ と書きます。いずれも $K_0=\mathbb Q\subset K_1\subset\cdots$、$[K_n:\mathbb Q]=p^n$、$\Gamma_n=\operatorname{Gal}(K_n/\mathbb Q)\simeq\mathbb Z/p^n\mathbb Z$ です。2進の場合は法 $2^{n+2}$ の円分体から符号部分を除くため、奇素数の場合の法 $p^{n+1}$ の表示をそのまま使いません。[IWA3の岩澤代数](../IWA3/index.md#def-iwa3-completed-group-ring)は $\Lambda=\mathbb Z_p[[\Gamma]]\simeq\mathbb Z_p[[T]]$ でした。しかし環ができても、各層の類群や単数をどの向きの写像で結べばよいかはまだ決まっていません。
+$p$ を素数とします。奇素数では[IWA2の円分塔](../IWA2/index.md#thm-iwa2-compatible-tower)の $K_n$、$p=2$ では[2進円分塔](../IWA2/index.md#thm-iwa2-two-adic-splitting)の $K_n^{(2)}$ を、本講では共通して $K_n$ と書きます。いずれも
+
+$
+K_0=\mathbb Q\subset K_1\subset\cdots,\qquad
+[K_n:\mathbb Q]=p^n,\qquad
+\Gamma_n=\operatorname{Gal}(K_n/\mathbb Q)\simeq\mathbb Z/p^n\mathbb Z
+$
+
+です。$p=2$ の場合は法 $2^{n+2}$ の円分体から符号部分を除くため、奇素数の場合の法 $p^{n+1}$ の表示をそのまま使いません。
+
+[IWA3の岩澤代数](../IWA3/index.md#def-iwa3-completed-group-ring)は $\Lambda=\mathbb Z_p[[\Gamma]]\simeq\mathbb Z_p[[T]]$ でした。しかし環ができても、各層の類群や単数をどの向きの写像で結べばよいかはまだ決まっていません。
 
 本講の中心問いは、**有限層にある算術的情報を失わず、整合した無限塔の元として扱うには何が必要か**です。上の層から下の層へ送るノルム、下から上へ送るイデアルの延長、およびGalois群の制限を区別します。最後に、それらと両立する類群の整合列全体に $\Lambda$ が作用することを具体的に証明します。
 
@@ -67,7 +77,18 @@ $$
 [素イデアル分解の一意性](../../ANF/ANF3/index.md#thm-anf3-prime-ideal-factorization)によりこの式は分数イデアル上で一意に定まります。ノルムは指数を足す積に対して乗法的で、延長もイデアルの積を保ちます。
 
 <!-- definition-example-start: def-iwa4-ideal-norm-extension -->
-**定義の確認**。 $E=\mathbb Q(i)$、$F=\mathbb Q$ で $5=(2+i)(2-i)$ と因数分解できます。剰余体を確かめるため、環準同型 $\mathbb Z[i]\to\mathbb F_5$ を $a+bi\mapsto a-2b\bmod5$ と定めます。$i^2=-1$ と $(-2)^2\equiv-1\pmod5$ が両立し、$a+bi=(a-2b)+b(2+i)$ で $5\in(2+i)$ だから核は $(2+i)$ です。同様に $a+bi\mapsto a+2b\bmod5$ の核は $(2-i)$ です。従って両商は $\mathbb F_5$ に同型で、互いに異なる素イデアルの剰余次数はどちらも1です。この剰余次数を定義の指数に使うと、
+**定義の確認**。 $E=\mathbb Q(i)$、$F=\mathbb Q$ で $5=(2+i)(2-i)$ と因数分解できます。剰余体を確かめるため、二つの環準同型を考えます。
+
+$
+\begin{aligned}
+\varphi_+:\mathbb Z[i]&\longrightarrow\mathbb F_5,
+&a+bi&\longmapsto a-2b\bmod5,\\
+\varphi_-:\mathbb Z[i]&\longrightarrow\mathbb F_5,
+&a+bi&\longmapsto a+2b\bmod5.
+\end{aligned}
+$
+
+いずれも $(\pm2)^2\equiv-1\pmod5$ によって $i^2=-1$ を保ち、整数を含むので全射です。$a+bi=(a-2b)+b(2+i)$ と $5=(2+i)(2-i)$ より $\ker\varphi_+=(2+i)$ です。同様に $\ker\varphi_-=(2-i)$ と分かります。従って両商は $\mathbb F_5$ に同型で、互いに異なる素イデアルの剰余次数はどちらも1です。この次数を[定義](#def-iwa4-ideal-norm-extension)の指数に使うと、
 
 $$
 N_{E/F}((2+i))=(5),\qquad
@@ -102,7 +123,21 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$F$ の素イデアル $\mathfrak p$ とその上の素イデアル $\mathfrak P$ を一つ固定し、$e=e(\mathfrak P/\mathfrak p)$、$f=f(\mathfrak P/\mathfrak p)$ とします。$E/F$ はGaloisなので、$\mathfrak p$ の上の $g$ 個の素イデアルは $G$ によって推移的に置換され、分岐指数 $e$ と剰余次数 $f$ は共通です。ここで相対拡大に対する次数公式 $d=efg$ も確かめます。[ANF4の次数公式](../../ANF/ANF4/index.md#thm-anf4-fundamental-identity)の数え方を $\mathfrak p$ 上で行うと、$\mathcal O_E$ を $\mathcal O_F$ 上の階数 $d$ の加群として $\mathfrak p$ で局所化したものは、離散付値環 $\mathcal O_{F,\mathfrak p}$ 上の階数 $d$ の自由加群です。従って剰余体 $k(\mathfrak p)$ 上の $\mathcal O_E/\mathfrak p\mathcal O_E$ の次元は $d$。一方、素イデアル分解と中国剰余定理によって、この商は各 $\mathcal O_E/\mathfrak P_i^e$ に分かれます。それぞれの長さ $e$ の段階商 $\mathfrak P_i^j/\mathfrak P_i^{j+1}$ は $k(\mathfrak P_i)$ 上1次元であり、$k(\mathfrak p)$ 上は次元 $f$ です。ゆえに $d=\sum_{i=1}^g ef=efg$ となります。$G$ の $\mathfrak P$ における安定化群の位数は、軌道の個数 $g$ から $d/g=ef$ です。
+$F$ の素イデアル $\mathfrak p$ とその上の素イデアル $\mathfrak P$ を一つ固定し、$e=e(\mathfrak P/\mathfrak p)$、$f=f(\mathfrak P/\mathfrak p)$ とします。$E/F$ はGaloisなので、$\mathfrak p$ の上の $g$ 個の素イデアルは $G$ によって推移的に置換され、分岐指数 $e$ と剰余次数 $f$ は共通です。相対拡大にも次数公式が成り立つ理由を確認します。
+
+[ANF4の次数公式](../../ANF/ANF4/index.md#thm-anf4-fundamental-identity)と同じ計数法で、$\mathcal O_E$ を $\mathcal O_F$ 上の階数 $d$ の加群として $\mathfrak p$ で局所化します。有限生成でねじれのない加群は離散付値環 $\mathcal O_{F,\mathfrak p}$ 上では自由なので、剰余体 $k(\mathfrak p)=\mathcal O_F/\mathfrak p$ 上で
+
+$
+\dim_{k(\mathfrak p)}(\mathcal O_E/\mathfrak p\mathcal O_E)=d
+$
+
+となります。一方、[素イデアル分解](../../ANF/ANF3/index.md#thm-anf3-prime-ideal-factorization)と中国剰余定理によって、この商は各 $\mathcal O_E/\mathfrak P_i^e$ に分かれます。[局所単項性](../../ANF/ANF3/index.md#lem-anf3-local-principal)より、その各段階商 $\mathfrak P_i^j/\mathfrak P_i^{j+1}$（$0\le j<e$）は $k(\mathfrak P_i)$ 上1次元、従って $k(\mathfrak p)$ 上は次元 $f$ です。このため
+
+$
+d=\sum_{i=1}^{g}\sum_{j=0}^{e-1}f=efg
+$
+
+を得ます。$G$ の $\mathfrak P$ における安定化群の位数は、軌道の個数 $g$ から $d/g=ef$ です。
 
 $x$ の分数イデアル $(x)$ における $\mathfrak P'$ の指数を $v_{\mathfrak P'}(x)$ と書きます。$N(x)=\prod_{\sigma\in G}\sigma(x)$ の $\mathfrak P$ における指数は
 
