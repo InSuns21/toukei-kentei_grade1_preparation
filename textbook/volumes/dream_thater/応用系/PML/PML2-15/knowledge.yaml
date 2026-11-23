@@ -1,0 +1,48 @@
+chapter: PML2-15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-14
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-15-lift
+    name: チャネル表現と持ち上げ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（チャネル表現と持ち上げ）"]
+    requires:
+      - physics-machine-learning.pml2-14-operator
+  - id: physics-machine-learning.pml2-15-kernel-layer
+    name: 積分核型Neural Operator層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（積分核型 Neural Operator 層）"]
+    requires:
+      - physics-machine-learning.pml2-15-lift
+      - physics-machine-learning.pml2-14-green
+  - id: physics-machine-learning.pml2-15-stability
+    name: 積分核型層の連続性と安定性
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-15-kernel-layer
+  - id: physics-machine-learning.pml2-15-nonlinearity
+    name: 活性化による線形性の破れ
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-15-kernel-layer
+  - id: physics-machine-learning.pml2-15-discrete
+    name: 中点求積による離散化層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（中点求積による離散化層）"]
+    requires:
+      - physics-machine-learning.pml2-15-kernel-layer
+  - id: physics-machine-learning.pml2-15-quadrature
+    name: 中点求積の誤差と層への伝播
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-15-discrete
+      - physics-machine-learning.pml2-15-stability
