@@ -36,7 +36,14 @@ $$
 
 ## 2. 対称Ad不変多重線形形式
 
-$k\ge1$ を整数とする。Lie群 $G$ のLie環 $\mathfrak g=T_eG$ は、ここでは**実ベクトル空間**として扱う。写像 $p:\mathfrak g^k\to\mathbb C$ が **$k$ 重線形**とは、ほかの $k-1$ 個の引数を固定すると残る引数について実線形であることをいう。例えば第1引数では、実数 $a,b$ に対し $p(aX+bY,X_2,\ldots,X_k)=ap(X,X_2,\ldots,X_k)+bp(Y,X_2,\ldots,X_k)$ を要求する。$G=GL(n,\mathbb C)$ の場合も、Lie環を実Lie環として扱うので複素線形性までは要求しない。
+$k\ge1$ を整数とする。Lie群 $G$ のLie環 $\mathfrak g=T_eG$ は、ここでは**実ベクトル空間**として扱う。写像 $p:\mathfrak g^k\to\mathbb C$ が **$k$ 重線形**とは、ほかの $k-1$ 個の引数を固定すると残る引数について実線形であることをいう。例えば第1引数では、実数 $a,b$ に対し
+
+$
+p(aX+bY,X_2,\ldots,X_k)
+=a\,p(X,X_2,\ldots,X_k)+b\,p(Y,X_2,\ldots,X_k)
+$
+
+を要求する。$G=GL(n,\mathbb C)$ の場合も、Lie環を実Lie環として扱うので複素線形性までは要求しない。
 
 **対称**とは任意の置換 $\sigma$ に対して $p(X_{\sigma(1)},\ldots,X_{\sigma(k)})=p(X_1,\ldots,X_k)$ となること、**Ad不変**とは全引数を同じ群元で随伴変換しても値が変わらないことをいう。随伴変換そのものは[Lie群の随伴表現](../../../代数系/LIE/LIE2/index.md#def-lie2-adjoint-representation)で導入されている。
 
@@ -65,7 +72,15 @@ $$
 p_k(it_1,\ldots,it_k)=t_1\cdots t_k
 $$
 
-と定めると、各 $t_j$ への実線形性、任意の引数置換に対する積の一致、全引数へのAd作用の自明性を順に確認できる。よってこれはすべての $k\ge1$ で定義を満たす。この族の $p_1(it)=t$ に対し、[GBG19の第一Chern数の正規化](../GBG19/index.md#def-gbg19-chern-number)で用いる別の実線形形式は $p_{\mathrm{Ch},1}(X)=iX/(2\pi)$ であり、$p_{\mathrm{Ch},1}(it)=-t/(2\pi)$、すなわち $p_{\mathrm{Ch},1}=-p_1/(2\pi)$ である。両者ともAd不変だが、同じ形式ではない。
+と定めると、各 $t_j$ への実線形性、任意の引数置換に対する積の一致、全引数へのAd作用の自明性を順に確認できる。よってこれはすべての $k\ge1$ で定義を満たす。この族では $p_1(it)=t$ である。一方、[GBG19の第一Chern数の正規化](../GBG19/index.md#def-gbg19-chern-number)に用いる別の実線形形式は
+
+$
+p_{\mathrm{Ch},1}(X)=\frac{iX}{2\pi},
+\qquad
+p_{\mathrm{Ch},1}(it)=-\frac{t}{2\pi}
+$
+
+なので、$p_{\mathrm{Ch},1}=-p_1/(2\pi)$ である。両者ともAd不変だが、同じ形式ではない。
 <!-- definition-example-end -->
 
 **非例**。$G=GL(2,\mathbb C)$ を実Lie群として見て $p(X)=X_{11}$ と置くと線形かつ1重のため対称だが、前節の $g$ と $X$ では $p(g^{-1}Xg)=-1\ne1=p(X)$。破れているのはAd不変性である。したがって成分 $(F_i)_{11}$ は一般に貼り合わせられない。
@@ -235,7 +250,16 @@ p(e_{a_1},\ldots,e_{a_k})\,
 \alpha_1^{a_1}\wedge\cdots\wedge\alpha_k^{a_k}
 $$
 
-という次数 $r_1+\cdots+r_k$ の複素数値形式を表す。各 $e_a$ は固定した実基底で、複素係数は外積の係数に掛ける。基底を $e'_a=\sum_b C_{ba}e_b$ に替えたとき、同じ形式の係数は $\alpha_j^b=\sum_a C_{ba}\alpha_j^{\prime a}$ を満たす。したがって
+という次数 $r_1+\cdots+r_k$ の複素数値形式を表す。各 $e_a$ は固定した実基底で、複素係数は外積の係数に掛ける。基底を替えたときの係数変換も確認する。$e'_a=\sum_b C_{ba}e_b$ と置くと、同じ形式を二つの基底で表示した等式から
+
+$
+\alpha_j=\sum_a\alpha_j^{\prime a}e'_a
+=\sum_b\left(\sum_a C_{ba}\alpha_j^{\prime a}\right)e_b,
+\qquad
+\alpha_j^b=\sum_a C_{ba}\alpha_j^{\prime a}
+$
+
+を得る。したがって
 
 $
 \sum_{a_1,\ldots,a_k}p(e'_{a_1},\ldots,e'_{a_k})
