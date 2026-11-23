@@ -31,7 +31,7 @@ $$
 \end{aligned}
 $$
 
-よって群元そのものは一般に不変ではない。代わりに、[滑らかな線形表現](../GBG4/index.md#def-gbg4-representation) $\rho:G\to GL(V)$ を選ぶ。ここでは $V$ を有限次元**複素**ベクトル空間とし、$\dim_{\mathbb C}V=N$ とする。表現とは群の積を行列の積に保つ写像であり、$\rho(k^{-1}hk)=\rho(k)^{-1}\rho(h)\rho(k)$ が成り立つ。行列のトレースは対角成分の和 $\operatorname{tr}B=\sum_{j=1}^N B_{jj}$ である。
+よって群元そのものは一般に不変ではない。代わりに、[滑らかな線形表現](../GBG4/index.md#def-gbg4-representation) $\rho:G\to GL(V)$ を選ぶ。ここでは $V$ を有限次元**複素**ベクトル空間とし、$\dim_{\mathbb C}V=N$ とする。表現は群の積を線形同型の合成に保つので、$\rho(k^{-1}hk)=\rho(k)^{-1}\rho(h)\rho(k)$ が成り立つ。$V$ の任意の基底を選ぶと各 $\rho(g)$ は $N\times N$ 複素可逆行列で表示でき、そのトレースは対角成分の和 $\operatorname{tr}B=\sum_{j=1}^N B_{jj}$ である。基底変更でも表示行列は共役になるため、以下で示すトレースの共役不変性により値は基底に依存しない。
 
 <a id="def-gbg17-wilson-loop"></a>
 
@@ -109,7 +109,23 @@ U'_\gamma=k(x)^{-1}U_\gamma k(x),\qquad
 \rho(U'_\gamma)=\rho(k(x))^{-1}\rho(U_\gamma)\rho(k(x)).
 $$
 
-よってトレースは一致する。閉路全体で一つの section が取れなくても、路を有限分割して各部分区間の輸送行列を局所 section で書ける。隣接区間の切れ目で変換行列とその逆行列が相殺され、最後は同じ基点の変換行列だけが両端に残る。このため同じ結論を得る。
+よってトレースは一致する。閉路全体で一つの section が取れない場合も、路を有限個の区間に分け、各切れ目のファイバーに一つずつ枠を選んで輸送を行列表示する。第 $j$ 区間の輸送を $U_j$、切れ目 $j$ の枠の変更を $k_j\in G$ と書けば、[区間輸送の両端変換則](../GBG14/index.md#prop-gbg14-local-transport)により
+
+$$
+U'_j=k_j^{-1}U_jk_{j-1}.
+$$
+
+すべての区間を順に合成すると
+
+$$
+\begin{aligned}
+U'_m\cdots U'_1
+&=(k_m^{-1}U_mk_{m-1})\cdots(k_1^{-1}U_1k_0)\\
+&=k_m^{-1}(U_m\cdots U_1)k_0.
+\end{aligned}
+$$
+
+閉路では最初と最後の**同じファイバーの同じ枠**でホロノミーを表示するので $k_m=k_0$ と選ぶ。したがって全体が $k_0^{-1}(U_m\cdots U_1)k_0$ という共役になり、トレースは一致する。
 
 **3.** ゲージ自己同型 $\Phi$ は射影を保ち、右作用と可換である。
 
@@ -308,7 +324,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg17-open-wilson-line -->
-**定義の確認**。$[0,1]\times U(1)$ の零接続 $A=0$ と標準表現を用い、$\gamma(t)=t$ とする。[局所水平ODE](../GBG14/index.md#prop-gbg14-local-transport)は $\dot U=0$、$U(0)=1$ なので $L_{\rho_1}=1$。section を $s'(t)=s(t)k(t)$、$k(t)=e^{i\pi t}$ に替えれば、$k(0)=1$、$k(1)=-1$ である。端点変換式から新しい行列は $-1$ になる。どちらも可逆な同一の輸送の表示だが、トレースは $1$ と $-1$ で一致しない。
+**定義の確認**。$[0,1]\times U(1)$ の零接続 $A=0$ と標準表現 $\rho_1(z)=z$ を用い、$\gamma(t)=t$ とする。[局所水平ODE](../GBG14/index.md#prop-gbg14-local-transport)は $\dot U=0$、$U(0)=1$ なので $U(1)=1$。これを**標準表現に移した行列**が定義した開 Wilson 線であり、
+
+$$
+L_{\rho_1}(\gamma;s)=\rho_1(U(1))=1
+$$
+
+となる。section を $s'(t)=s(t)k(t)$、$k(t)=e^{i\pi t}$ に替えると $k(0)=1$、$k(1)=-1$。両端の枠変更は一つの共役ではなく、[輸送の端点変換則](../GBG14/index.md#prop-gbg14-local-transport)によって
+
+$$
+L_{\rho_1}(\gamma;s')
+=\rho_1(k(1))^{-1}L_{\rho_1}(\gamma;s)\rho_1(k(0))
+=(-1)^{-1}\cdot1\cdot1=-1
+$$
+
+となる。どちらも可逆な同一の輸送の表示だが、1次元行列のトレースはそれぞれ $1$ と $-1$ で一致しない。
 <!-- definition-example-end -->
 
 <a id="thm-gbg17-open-endpoints"></a>
@@ -349,7 +379,13 @@ $$
 
 ### 後から通る区間の輸送が左に来る
 
-行列表現で曲線に沿う接続を $a(t)=\rho_*(A_{\gamma(t)}(\dot\gamma(t)))$ とすると、[経路順序指数](../GBG14/index.md#prop-gbg14-dyson-series)の微分方程式は
+局所接続形式 $A$ を曲線 $\gamma(t)$ の速度 $\dot\gamma(t)=d\gamma/dt$ に適用し、得られた Lie 環の元を [GBG9 で定義した表現の無限小作用 $\rho_*$](../GBG9/index.md#def-gbg9-infinitesimal-representation) で行列へ移す。すなわち
+
+$$
+a(t):=\rho_*\bigl(A_{\gamma(t)}(\dot\gamma(t))\bigr).
+$$
+
+ここで $t$ は曲線のパラメータで、点は $\gamma(t)$、速度は $d\gamma/dt$、$a(t)$ は $V$ 上の線形作用素の行列表示である。主束輸送 $U_G(t)$ に表現を作用させた $U(t)=\rho(U_G(t))$ を $t$ で微分すると、表現の微分の連鎖律により $\dot U=-a(t)U$ となる（[GBG14 の結合束輸送と共変微分](../GBG14/index.md#thm-gbg14-associated-transport)）。従って[経路順序指数](../GBG14/index.md#prop-gbg14-dyson-series)の微分方程式は
 
 $$
 \dot U(t)=-a(t)U(t),\qquad U(0)=I.
@@ -455,7 +491,7 @@ $$
 U_2U_1=\begin{pmatrix}1&1\\1&2\end{pmatrix}
 $$
 
-なので $U_3U_2U_1=\begin{pmatrix}2&2\\2&4\end{pmatrix}$、トレースは $6$。$3\to1\to2$ なら $U_2U_1U_3=2U_2U_1$ なので行列とトレースはいずれも同じである。これは $U_3=2I$ が可換であるためで、一般の非可換な三因子では巡回置換以外の順序交換はできない。
+なので $U_3U_2U_1=\begin{pmatrix}2&2\\2&4\end{pmatrix}$、トレースは $6$。$3\to1\to2$ なら $U_2U_1U_3=2U_2U_1$ なので行列とトレースはいずれも同じである。二つの通過順序は**巡回置換**であり、一般の可逆な $U_3$ についても $U_2U_1U_3=U_3^{-1}(U_3U_2U_1)U_3$ だからトレースは一致する。この例で行列そのものまで一致するのは、追加条件 $U_3=2I$ により $U_3$ が他の因子と可換だからである。巡回置換以外の交換では、一般にトレースさえ保存されない。
 <!-- solution-end -->
 
 ### Level B：証明、反例、始点・向きの区別
@@ -567,7 +603,13 @@ $$
 
 $b=0$ のときかつそのときに限り平坦である。
 
-**2.** $t=t_0$ では係数 $a+bt_0$ が一定で、[円周上の平坦接続によるホロノミー](../GBG16/index.md#prop-gbg16-circle-holonomy)に代入すると $h=e^{-2\pi i(a+bt_0)}$。よって
+**2.** $t=t_0$ の閉路に制限すると、係数 $a+bt_0$ は一定である。全体の接続は $b\ne0$ なら非平坦だが、この円周に沿った輸送は [GBG14 の局所水平ODE](../GBG14/index.md#prop-gbg14-local-transport) で直接計算できる。角度 $\theta$ を $0$ から $2\pi$ まで動かすと
+
+$$
+\frac{dU}{d\theta}=-i(a+bt_0)U,\qquad U(0)=1,
+$$
+
+なので、$U(\theta)=e^{-i(a+bt_0)\theta}$、一周のホロノミーは $h=U(2\pi)=e^{-2\pi i(a+bt_0)}$ となる。この計算には**基底全体の平坦性を仮定しない**。よって
 
 $$
 W_{\rho_q}(\gamma_{t_0})
