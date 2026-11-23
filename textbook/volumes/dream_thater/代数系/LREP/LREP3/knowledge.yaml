@@ -11,7 +11,7 @@ concepts:
     aliases: []
     introduction: formal
     introduction_aliases: ["定義（Lie 環表現）"]
-    requires: [representation.finite-dimensional-complex, lie.lie-algebra, lie.left-maurer-cartan-form]
+    requires: [representation.finite-dimensional-complex, lie.lie-algebra]
   - id: representation.differentiation-bracket
     name: 群表現の微分は Lie 環表現になる
     kind: theorem
