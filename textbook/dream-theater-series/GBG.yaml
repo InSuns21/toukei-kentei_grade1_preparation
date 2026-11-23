@@ -100,7 +100,7 @@ chapters:
     title: "Chern類・Chern指標はどの式で正規化するか"
   - id: GBG24
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG24
-    status: planned
+    status: completed
     title: "Pontryagin・Euler型不変量をどう見分けるか"
   - id: GBG25
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG25
