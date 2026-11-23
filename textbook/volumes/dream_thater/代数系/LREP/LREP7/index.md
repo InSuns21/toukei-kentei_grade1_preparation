@@ -177,7 +177,15 @@ $\boldsymbol J^2v=\lambda v$ なら $\boldsymbol J^2(J_av)=J_a\boldsymbol J^2v=\
 
 ## 3. 最高ウェイト $n$ がスピン $j$ に変わる
 
-[前講の標準三生成子](../LREP6/index.md#def-lrep6-sl2-triple)は、実 Lie 環元 $A_a$ を複素線形に組み合わせた $H=2iA_3$、$E=iA_1-A_2$、$F=iA_1+A_2$ でした。微分表現 $dD$ は実 Lie 環上では実線形です。ここでは[前講の群表現と微分表現の対応](../LREP6/index.md#prop-lrep6-group-lie-equivalence)と同じく、その複素線形拡張を $\rho$ と書きます。$J_a=i\,dD(A_a)$、すなわち $dD(A_a)=-iJ_a$ を一項ずつ代入すると
+[前講の標準三生成子](../LREP6/index.md#def-lrep6-sl2-triple)は、実 Lie 環の基底を複素線形に組み合わせて作った三つの元でした。
+
+$$
+H=2iA_3,\qquad E=iA_1-A_2,\qquad F=iA_1+A_2.
+$$
+
+[表現の微分](../LREP3/index.md#thm-lrep3-differentiation) $dD$ は実 Lie 環上で実線形です。複素化された三生成子へ作用させるため、[前講の群表現と微分表現の対応](../LREP6/index.md#prop-lrep6-group-lie-equivalence)に従い、$dD$ の複素線形拡張を $\rho$ と書きます。
+
+角運動量の定義 $J_a=i\,dD(A_a)$ を $dD(A_a)=-iJ_a$ に直してから、三生成子へ代入します。
 
 $$
 \begin{aligned}
@@ -187,7 +195,15 @@ $$
 \end{aligned}
 $$
 
-以下では、作用素 $\rho(H),\rho(E),\rho(F)$ をそれぞれ $H,E,F$ と略記します（複素化した Lie 環の元そのものと区別します）。[前講の正規直交基底の公式](../LREP6/index.md#prop-lrep6-unitary-ladder)では、添字 $k=0,\ldots,n$ の $u_k$ に対する $H$ の固有値は $n-2k$ でした。ゆえに $J_3=H/2$ の固有値を $m=(n-2k)/2$、スピンを $j=n/2$ と書けば $m=j-k$ です。
+以下では、作用素 $\rho(H),\rho(E),\rho(F)$ を $H,E,F$ と略記します。複素化された Lie 環の元そのものとは区別します。
+
+[前講の正規直交基底の公式](../LREP6/index.md#prop-lrep6-unitary-ladder)では、$k=0,\ldots,n$ の各基底ベクトルに対し
+
+$$
+Hu_k=(n-2k)u_k,\qquad J_3u_k=\frac{n-2k}{2}u_k
+$$
+
+です。スピンを $j=n/2$、$J_3$ の固有値を $m=(n-2k)/2$ と書くと、$m=j-k$ になります。
 
 量子力学で用いる $|j,m\rangle$ は、この $J_3$ 固有ベクトル $u_{j-m}$ の別記法（ケット）です。$\langle j,m|j,m'\rangle$ は二つのベクトルの内積、$\delta_{m,m'}$ は添字が等しいとき1、異なるとき0となる Kronecker のデルタを表します。
 
