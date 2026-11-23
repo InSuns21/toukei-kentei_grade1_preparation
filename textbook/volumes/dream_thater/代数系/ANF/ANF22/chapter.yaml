@@ -17,6 +17,7 @@ learning_objectives:
   - Hilbert類体の非分岐性と円分的Z_p塔のpでの完全分岐を区別できる
 definitions:
   - { id: ANF22-DEF-01, name: Hilbert類体 }
+  - { id: ANF22-DEF-03, name: Krull位相 }
   - { id: ANF22-DEF-02, name: Z_p拡大 }
 theorems:
   - { id: ANF22-THM-01, name: Hilbert類体とイデアル類群 }
