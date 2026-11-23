@@ -613,7 +613,7 @@ $$
 
 です。二成分の差を $R/(p,T)$ へ送る写像の核が元の剰余写像の像なので、余核は $R/(p,T)\simeq\mathbb F_p$ です。
 
-従って[IWA5の擬同型の定義](../IWA5/index.md#def-iwa5-pseudoisomorphism)を満たし、[擬同型不変性](#prop-iwa6-characteristic-invariance)から双方の特徴イデアルは $(pT)$、$\mu=1,\lambda=1$ です.
+従って[IWA5の擬同型の定義](../IWA5/index.md#def-iwa5-pseudoisomorphism)を満たし、[擬同型不変性](#prop-iwa6-characteristic-invariance)から双方の特徴イデアルは $(pT)$、$\mu=1,\lambda=1$ です。
 <!-- solution-end -->
 
 ### B3. 同じ $\lambda$ でも有限層の商は違う
