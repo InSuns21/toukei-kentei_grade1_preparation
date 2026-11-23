@@ -122,21 +122,21 @@ $$
 
 $L$ は有限集合であるため有限生成です。$L=\mathfrak mL$ とは、各生成元 $l_i$ を他の生成元の $\mathfrak m$ 係数の線形結合で表せることです。そこで
 
-$
+$$
 l_i=\sum_{j=1}^r a_{ij}l_j\quad(1\le i\le r),\qquad a_{ij}\in\mathfrak m
-$
+$$
 
 と書きます。$A=(a_{ij})\in M_r(R)$ を係数の $r\times r$ 行列、$l=(l_1,\ldots,l_r)^{\mathsf T}$ を生成元の列とすると、関係式は $(I_r-A)l=0$ です。$I_r$ は $r$ 次単位行列、上付き $\mathsf T$ は転置を表し、冪級数変数 $T$ とは別の記号です。全ての $a_{ij}$ は $\mathfrak m$ に属するため
 
-$
+$$
 \det(I_r-A)\equiv\det I_r=1\pmod{\mathfrak m}
-$
+$$
 
 です。[単元判定](../IWA3/index.md#prop-iwa3-augmentation)より行列式は $R$ の単元です。余因子行列 $\operatorname{adj}(I_r-A)$ の恒等式
 
-$
+$$
 \operatorname{adj}(I_r-A)(I_r-A)=\det(I_r-A)I_r
-$
+$$
 
 を左から作用させると $\det(I_r-A)l=0$ となり、単元の逆数を掛けて $l=0$ です。従って $L=\mathfrak m^kN=0$ です。
 
@@ -150,9 +150,9 @@ $R$ は次元2の局所整域であり、零・高さ1・高さ2の素イデア�
 
 $R/\mathfrak m^k$ は有限集合です。実際、
 
-$
+$$
 \mathfrak m^k=(p^k,p^{k-1}T,\ldots,pT^{k-1},T^k)
-$
+$$
 
 なので、次数 $j<k$ の $T^j$ の係数は法 $p^{k-j}$ で指定され、$j\ge k$ の項は零です。従って、有限個の有限剰余類で全て表せます。$N$ はこの有限環上の有限生成加群なので有限集合です。
 <!-- proof-end -->
@@ -208,7 +208,7 @@ $\iota([f])=0$ なら $f\in(p)$ かつ $f\in(T)$ です。$f=pa$、$f=Tb$ と書
 
 $R/(T)\simeq\mathbb Z_p$ と識別し、$b\in\mathbb Z_p$ の法 $p$ の像を $\bar b\in\mathbb F_p$ と書きます。次の差写像を取ります。
 
-$
+$$
 \delta:R/(p)\oplus R/(T)\longrightarrow\mathbb F_p,
 \qquad (u(T),b)\longmapsto u(0)-\bar b
 $$
@@ -287,9 +287,9 @@ $M=0$ なら $E=0$ とすれば零写像は同型であり、定理が成り立�
 
 これら有限個の素イデアルの和集合の補集合を
 
-$
+$$
 S=R\setminus\bigcup_{j=1}^t(q_j)
-$
+$$
 
 とします。$S$ は積について閉じており、$S^{-1}R$ は $S$ の元を全て可逆にした環、$S^{-1}M$ はその環上の加群です。有限個の素イデアルに関する素イデアル回避と前述の環論の入力から、$S^{-1}R$ で残る非零素イデアルは $(q_j)$ を局所化したものだけで、いずれも極大です。従って $S^{-1}R$ は1次元Noether一意分解整域です。さらに、この環の非零イデアル $J$ は、各極大イデアル $(q_j)S^{-1}R$ で局所化すれば離散付値環のイデアルとなり、ある $n_j\ge0$ について $(q_j^{n_j})$ です。$a=\prod_{j=1}^tq_j^{n_j}$ と置けば、$J$ と $(a)$ は全ての極大イデアルで局所化すると一致し、従って $J=(a)$ です。ゆえに $S^{-1}R$ は全てのイデアルが主イデアルである主イデアル整域になります。主イデアル整域上の有限生成torsion加群の分類定理を $S^{-1}M$ に適用すると、ある正整数 $e_i$ と上の $q_j$ から選んだ $q_i$ に対し
 
@@ -401,15 +401,15 @@ $F=R/(p,T^2)$ を $\mathbb F_p$ 加群として表示し、位数と $T$ の作�
 <!-- solution-start -->
 **詳細解答。** 係数を法 $p$ へ還元し $T^2=0$ とするので、任意の元は一意に $a+bT$（$a,b\in\mathbb F_p$）と書けます。従って
 
-$
+$$
 F\simeq\mathbb F_p\oplus\mathbb F_pT,\qquad |F|=p^2.
-$
+$$
 
 $T$ の作用を基底 $1,T$ で計算すると
 
-$
+$$
 T(a+bT)=aT,\qquad T^2(a+bT)=0.
-$
+$$
 
 よって $T$ は一般には零作用でない一方、$T^2F=0$ です。$\mathfrak m^2=(p^2,pT,T^2)$ は $F$ を零にするので、[擬零と有限性](#prop-iwa5-pseudonull-finite)から擬零です。
 <!-- solution-end -->
@@ -446,21 +446,21 @@ $R/(pT)\to R/(p)\oplus R/(T)$ の剰余写像が単射であることを示し�
 <!-- solution-start -->
 **詳細解答。** $[f]$ が両成分で零なら $f=pa=Tb$ です。$\mathbb F_p[[T]]$ で $T[b]_p=0$ なので、整域性から $b=pc$ と書けます。従って
 
-$
+$$
 f=Tb=pTc\in(pT),\qquad \ker\iota=0.
-$
+$$
 
 一方、$(0,1)\in R/(p)\oplus R/(T)$ は共通の $f$ から得られません。得られるとすると、法 $p$ と法 $T$ の条件がそれぞれ
 
-$
+$$
 f(0)\equiv0\pmod p,\qquad f(0)=1
-$
+$$
 
 を要求して矛盾します。[余核の計算](#prop-iwa5-residue-pseudoiso)の差写像 $\delta(u,b)=u(0)-\bar b$ は全射で核が $\iota$ の像なので、
 
-$
+$$
 \operatorname{coker}\iota\simeq\mathbb F_p,\qquad |\operatorname{coker}\iota|=p.
-$
+$$
 <!-- solution-end -->
 
 ### B2. 局所化が有限誤差を消す
@@ -484,9 +484,9 @@ $M=R/(p^2+T)$ とする。$M/TM$ の位数を求め、非零消去元を挙げ�
 <!-- solution-start -->
 **詳細解答。** $M/TM$ では $T=0$ を代入するので、
 
-$
+$$
 M/TM\simeq R/(T,p^2+T)\simeq\mathbb Z_p/(p^2),\qquad |M/TM|=p^2.
-$
+$$
 
 $M$ は $1$ の像で生成され、非零元 $p^2+T$ が全元を消すためtorsionです。これは[有限な $T$ 商の命題](#prop-iwa5-finite-coinvariants)の結論と一致します。逆向きには $M'=R/(T)$ を反例とします。$T$ が $M'$ の全元を消すためtorsionですが、$TM'=0$ なので $M'/TM'\simeq\mathbb Z_p$ は無限です。
 <!-- solution-end -->
