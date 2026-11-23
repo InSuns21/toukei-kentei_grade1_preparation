@@ -2,7 +2,7 @@
 
 [前講の局所類体論の計算](../ANF18/index.md#prop-anf18-cyclotomic-norm-test)では、一つの素数 $p$ を固定し、$\mathbb Q_p$ の付値と単数からノルム群を判定しました。数体 $K$ の大域的な元には、一つの素数だけでなく**すべての素点での情報**があります。各素点の局所体をただ無制限に掛け合わせると、数体の元には存在しない分母を無限個の素点へ持ち込めます。そこで「有限個の例外を除き整である」という条件を設けます。
 
-本講では数体 $K/\mathbb Q$ を有限次拡大とします。有限素点とは整数環 $\mathcal O_K$ の非零素イデアル $\mathfrak p$ に対応する場所、無限素点とは実埋め込みまたは共役な複素埋め込みの組に対応する場所です。有限素点での完備化 $K_{\mathfrak p}$ と付値環 $\mathcal O_{\mathfrak p}$ は[数体の素イデアル付値・完備化](../ANF9/index.md#def-anf9-prime-completion)を用い、$\operatorname{ord}_{\mathfrak p}(\pi_{\mathfrak p})=1$ となる元を一様化元と呼びます。無限素点では $K_v=\mathbb R$ または $\mathbb C$ です。素点全体を $V_K$、無限素点全体を $V_\infty$、有限素点全体を $V_f$ と記します。
+本講では数体 $K/\mathbb Q$ を有限次拡大とします。有限素点とは整数環 $\mathcal O_K$ の非零素イデアル $\mathfrak p$ に対応する場所、無限素点とは実埋め込みまたは共役な複素埋め込みの組に対応する場所です。有限素点での完備化 $K_{\mathfrak p}$ と付値環 $\mathcal O_{\mathfrak p}$ は[数体の素イデアル付値・完備化](../ANF9/index.md#def-anf9-prime-valuation)を用い、$\operatorname{ord}_{\mathfrak p}(\pi_{\mathfrak p})=1$ となる元を一様化元と呼びます。無限素点では $K_v=\mathbb R$ または $\mathbb C$ です。素点全体を $V_K$、無限素点全体を $V_\infty$、有限素点全体を $V_f$ と記します。
 
 ## 1. 無限個の局所体を、有限個の例外だけで扱う
 
@@ -336,7 +336,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-イデール $x$ は有限個を除く $\mathfrak p$ で単数なので、$\operatorname{ord}_{\mathfrak p}(x_{\mathfrak p})=0$ はほぼすべての $\mathfrak p$ で成り立ちます。[分数イデアルの一意分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)により $J(x)$ は有限積として定義できます。[付値の積の法則](../ANF9/index.md#prop-anf9-valuation-arithmetic)から各指数が加算されるため
+イデール $x$ は有限個を除く $\mathfrak p$ で単数なので、$\operatorname{ord}_{\mathfrak p}(x_{\mathfrak p})=0$ はほぼすべての $\mathfrak p$ で成り立ちます。[分数イデアルの一意分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)により $J(x)$ は有限積として定義できます。[付値の積の法則](../ANF9/index.md#prop-anf9-valuation-rules)から各指数が加算されるため
 
 $$
 J(xy)=\prod_{\mathfrak p}\mathfrak p^{
