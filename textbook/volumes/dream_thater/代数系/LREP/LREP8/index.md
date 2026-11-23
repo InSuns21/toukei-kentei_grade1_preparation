@@ -203,7 +203,7 @@ $$
 
 ## 3. 積状態を全角運動量の基底に直す
 
-分解の存在だけでは、具体的な状態が分かりません。各既約直和因子の $T^2$ と $T_3$ の共同固有ベクトルを $|\ell,M\rangle$ と書きます。上の定理で重複度は1なので、各状態は位相を除いて決まります。位相の選択は係数の符号を変えますが、物理的な分解・固有値には影響しません。
+分解の存在だけでは、具体的な状態が分かりません。各 $V_\ell$ 上では[スピンのCasimir固有値とウェイト公式](../LREP7/index.md#thm-lrep7-spin-spectrum)を全角運動量に適用でき、$T^2=\ell(\ell+1)I$、$T_3$ の固有値は $M=-\ell,\dots,\ell$ となります。そこで両演算子の共同固有ベクトルを $|\ell,M\rangle$ と書きます。積基底 $|j,m\rangle\otimes|k,n\rangle$ は以下で $|j,m;k,n\rangle$ とも書き、第1節の $|m,n\rangle$ と同じ状態を表します。セミコロンは第一・第二因子の境界です。上の定理で重複度は1なので、各状態は位相を除いて決まります。位相の選択は係数の符号を変えますが、物理的な分解・固有値には影響しません。
 
 <a id="def-lrep8-cg-coefficients"></a>
 
@@ -327,7 +327,7 @@ V_1\otimes V_{1/2}\cong V_{3/2}\oplus V_{1/2},
 \qquad 3\cdot2=4+2.
 $$
 
-$|a,\uparrow\rangle=|1,a\rangle\otimes|\frac12,\frac12\rangle$、$|a,\downarrow\rangle=|1,a\rangle\otimes|\frac12,-\frac12\rangle$ とします。最高状態は $|\frac32,\frac32\rangle=|1,\uparrow\rangle$ です。実際に下降させると
+$|a,\uparrow\rangle=|1,a\rangle\otimes|\frac12,\frac12\rangle$、$|a,\downarrow\rangle=|1,a\rangle\otimes|\frac12,-\frac12\rangle$ とします。最高状態は $|\frac32,\frac32\rangle=|1,\uparrow\rangle$ です。[全角運動量の昇降作用](#lem-lrep8-total-commutators)を使って実際に下降させると
 
 $$
 \begin{aligned}
