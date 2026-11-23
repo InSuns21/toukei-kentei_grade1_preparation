@@ -4,7 +4,21 @@
 
 一つのパッチで $A=g^{-1}dg$ と書ける接続は、そこで曲率が零である。しかしその式が**一つの大域的なゲージ**で成立するかは別問題である。本講では[第二Chern形式の正規化](../GBG23/index.md#prop-gbg23-low-chern)を出発点に、4次元の積分を赤道 $S^3$ の積分へ変え、前講の次数と**符号を含めて**照合する。その結果、非自明な束の曲率をどこかに生じさせなければならないことが分かる。
 
-**規約**。$S^4=\{(y,t)\in\mathbb R^4\times\mathbb R:|y|^2+t^2=1\}$ には $\mathbb R^5$ の標準向きからの境界向きを入れる。北閉半球 $D_N=\{t\ge0\}$ は $y$ 座標の標準向き、南閉半球 $D_S=\{t\le0\}$ はその逆向きである。赤道 $E=S^3$ には $\partial D_N$ の向き、すなわち $\mathbb R^4$ の単位球の外向き境界の向きを入れる。主作用は右作用、$s_S=s_N f$、構造群は $SU(2)$、$\operatorname{tr}$ は**基本2次元複素表現の通常の行列跡**とする。接続行列 $A$ と曲率 $F=dA+A\wedge A$ は反Hermite・跡零であり、積は行列積と微分形式の外積を合わせたものを表す。
+**規約**。基底球面を次で表し、$\mathbb R^5$ の標準向きからの境界向きを採用する。
+
+$
+S^4=\{(y,t)\in\mathbb R^4\times\mathbb R:|y|^2+t^2=1\}.
+$
+
+北閉半球 $D_N=\{t\ge0\}$ は $y$ 座標の標準向きを、南閉半球 $D_S=\{t\le0\}$ はその逆向きを持つ。赤道 $E=S^3$ の向きは $\partial D_N$ の向き、すなわち $\mathbb R^4$ の単位球の外向き境界向きである。
+
+主作用は右作用、局所sectionの関係は $s_S=s_N f$、構造群は $SU(2)$ とする。$\operatorname{tr}$ は**基本2次元複素表現の通常の行列跡**である。接続行列 $A$ は反Hermite・跡零で、曲率は次で与える。
+
+$
+F=dA+A\wedge A.
+$
+
+積は行列積と微分形式の外積の組合せとする。
 
 ## 1. 何を第二Chern数として積分するか
 
@@ -87,7 +101,7 @@ $$
 
 ## 3. 曲率の4形式を境界の3形式へ
 
-4形式の原始形式（外微分を取ると元の形式になる3形式）を使えば、球面を二つの半球に分けて Stokes を適用できる。[GBG22の局所Chern–Simons形式](../GBG22/index.md#def-gbg22-local-chern-simons)の跡多項式の場合を、ここでは正規化係数を外して扱う。
+外微分を取ると元の4形式になる3形式を使えば、球面を二つの半球に分けて Stokes を適用できる。[GBG22の局所Chern–Simons形式](../GBG22/index.md#def-gbg22-local-chern-simons)の跡多項式の場合を、ここでは正規化係数を外して扱う。
 
 二次の多項式 $p(X,Y)=\operatorname{tr}(XY)$ を、[GBG22の局所 Chern–Simons 形式](../GBG22/index.md#def-gbg22-local-chern-simons)に入力する。補間 $A_t=tA$、曲率 $F_t=t\,dA+t^2A^2$ を代入すると
 
@@ -253,7 +267,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-先に構成した接続を $A_*$ とする。北半球で $A_N=0$ だから $F_N=0$。南半球には[CS原始形式の命題](../GBG22/index.md#prop-gbg22-local-cs-primitive)と[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を適用する。
+先に構成した接続を $A_*$ とする。北半球で $A_N=0$ だから $F_N=0$。南半球には[Chern–Simons形式の外微分の命題](../GBG22/index.md#prop-gbg22-local-cs-primitive)と[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を適用する。
 
 $$
 \begin{aligned}
@@ -312,7 +326,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-仮に $F_A=0$ の接続があるとする。[第二Chern数の定義](#def-gbg26-chern-number)より
+仮に $F_A=0$ の接続があるとする。[SU(2)束の第二Chern数](#def-gbg26-chern-number)より
 
 $$
 k(P)=\frac1{8\pi^2}\int_M\operatorname{tr}(0\wedge0)=0.
@@ -336,7 +350,7 @@ $$
 
 $b=1$ となる小領域では $F=T\,dx_1\wedge dx_2\ne0$ だが、第二Chern形式は零である。$k=0$ と局所曲率零は異なる条件だと分かる。
 
-もう一つの境界は**表現と向き**である。ここで $\operatorname{tr}$ を別の表現の跡へ交換すると係数は一般に変わる。また $S^4$ の向きを反転すると4形式の積分は負になる。物理で使う電荷 $-\frac1{8\pi^2}\int\operatorname{tr}(F^2)$ を選べば、本講の $k$ とは符号が逆になる。さらに境界のある4次元領域での積分は、境界条件を固定せずに閉多様体と同じ不変量だとはいえない。
+もう一つの境界は**表現と向き**である。ここで $\operatorname{tr}$ を別の表現の跡へ交換すると係数は一般に変わる。また $S^4$ の向きを反転すると4形式の積分は負になる。物理文献に現れる符号を反転した量 $-\frac1{8\pi^2}\int\operatorname{tr}(F^2)$ を選べば、本講の $k$ とは符号が逆になる。さらに境界のある4次元領域での積分は、境界条件を固定せずに閉多様体と同じ不変量だとはいえない。
 
 **整数性について**。本講で計算した $P_f$ の値は[赤道写像の次数](../GBG25/index.md#def-gbg25-degree)に一致する。一般写像の次数が整数である事実はGBG25で別途必要な位相幾何の定理として範囲を区切った。任意の基底4多様体・任意の束の整数Chern類の一般構成までは、この半球計算だけでは得られない。
 
@@ -376,7 +390,7 @@ dA=-g^{-1}dg\,g^{-1}\wedge dg
 =-(g^{-1}dg)^2=-A^2.
 $$
 
-定義 $F=dA+A^2$ へ戻すと $F=0$。この計算は $U$ 上で $g$ が定義されることを仮定しており、大域的な $g$ は要求しない。
+曲率の式 $F=dA+A^2$ へ代入すると $F=0$。この計算は $U$ 上で $g$ が定義されることを仮定しており、大域的な $g$ は要求しない。
 <!-- solution-end -->
 
 <a id="ex-gbg26-a03"></a>
@@ -528,7 +542,7 @@ $S^4$ を北・南半球に分け、赤道で $s_S=s_NQ$ と貼る $SU(2)$ 主�
 
 **(1)** $Q(1,0)=I_2$ で正の接ベクトル $e_2,e_3,e_4$ を選ぶと、[境界3形式の定義例](#def-gbg26-boundary-form)の三行列が得られ、その積は $I_2$ である。外積の6項は反交換性によりすべて同じ正の跡を与えるため $6\operatorname{tr}I_2=12$。$Q^*\operatorname{tr}(\Theta^3)$ は左移動不変で、標準球面の体積形式も左移動で不変なので、この係数は全点で12。$\nu=d\operatorname{vol}_{S^3}/(2\pi^2)$ から $Q^*\operatorname{tr}(\Theta^3)=24\pi^2\nu$ となる。
 
-**(2)** $A_N=0$ だから北の曲率は零。南では $A_S=\chi\theta$、$\theta=Q^{-1}dQ$ とおき、[Chern–Simonsの原始形式](../GBG22/index.md#prop-gbg22-local-cs-primitive)にStokesを適用すると
+**(2)** $A_N=0$ だから北の曲率は零。南では $A_S=\chi\theta$、$\theta=Q^{-1}dQ$ とおき、[Chern–Simons形式の外微分](../GBG22/index.md#prop-gbg22-local-cs-primitive)にStokesを適用すると
 
 $$
 \int_{S^4}\operatorname{tr}(F^2)
