@@ -80,7 +80,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（S分岐アーベルpro-p拡大）**  
-> 数体 $K$ と有限素点の有限集合 $S$ を固定する。$M_S(K)$ は、$K$ のすべての有限アーベル $p$ 冪次数拡大のうち、$S$ の外で非分岐であり、すべての実素点の複素化を許さないものの合成体とする。これを最大 $S$ 分岐アーベル pro-$p$ 拡大といい、
+> 数体 $K$、素数 $p$ と有限素点の有限集合 $S$ を固定する。$M_S(K)$ は、$K$ のすべての有限アーベル $p$ 冪次数拡大のうち、$S$ の外で非分岐であり、すべての実素点の複素化を許さないものの合成体とする。これを最大 $S$ 分岐アーベル pro-$p$ 拡大といい、
 >
 $$
 \mathfrak X_S(K)=\operatorname{Gal}(M_S(K)/K)
@@ -96,7 +96,19 @@ $$
 u^3-3u+1=0
 $$
 
-を満たします。なぜなら $u^3-3u=\zeta_9^3+\zeta_9^{-3}=-1$ だからです。[円分体の次数と全分岐](../../ANF/ANF22/index.md#prop-anf22-prime-power-degree)より、$\mathbb Q(u)$ は次数3のアーベル拡大で、素数3で完全分岐し、それ以外の有限素数では非分岐です。また $\mathbb Q(u)$ は全実です。従って $\mathbb Q(u)\subseteq M_S(\mathbb Q)$ ですが、第1節の $H_{\mathbb Q}^{(3)}=\mathbb Q$ には入りません。
+を満たします。なぜなら $u^3-3u=\zeta_9^3+\zeta_9^{-3}=-1$ だからです。
+
+この多項式だけから分岐条件を判定するのではなく、まず円分体の中間体として調べます。[円分体の次数と全分岐](../../ANF/ANF22/index.md#prop-anf22-prime-power-degree)から $[\mathbb Q(\zeta_9):\mathbb Q]=6$ です。$u$ は実数で、$\zeta_9$ は非実数、しかも $\zeta_9$ は $T^2-uT+1=0$ を満たすため、
+
+$$
+[\mathbb Q(\zeta_9):\mathbb Q(u)]=2,
+\qquad
+[\mathbb Q(u):\mathbb Q]=6/2=3.
+$$
+
+$\mathbb Q(\zeta_9)/\mathbb Q$ のGalois群 $(\mathbb Z/9\mathbb Z)^\times$ はアーベル群なので、この中間体もGalois拡大であり、そのGalois群は位数3の巡回群です。$\mathbb Q(\zeta_9)$ では3が完全分岐し、3以外は非分岐です。したがって中間体 $\mathbb Q(u)$ でも3の分岐指数は3（中間体の次数と等しい）、他の有限素数の分岐指数は1です。$u$ の共役はすべて実数なので $\mathbb Q(u)$ は全実でもあります。
+
+よって $\mathbb Q(u)\subseteq M_S(\mathbb Q)$ ですが、第1節の $H_{\mathbb Q}^{(3)}=\mathbb Q$ には入りません。
 <!-- definition-example-end -->
 
 **分岐の条件はGalois群の核へ翻訳できます。** $K$ が全虚数体なら、すべての $v\in S$ に対して $M_S(K)/K$ の惰性群を $\mathfrak X_S(K)$ 内の閉部分群 $I_v$ として取れます。アーベル群なので上の素点の選択に依存しません。
@@ -238,6 +250,14 @@ $$
 
 そこで $L_\infty=\bigcup_{r\ge1}H_r^{(p)}$ が定まり、その $E_\infty$ 上のGalois群は逆極限で記述できそうです。
 
+この群への作用も具体的に説明します。$E_r/E_1$ の自己同型は、無分岐アーベル $p$ 拡大という条件を保つので、その最大拡大 $H_r^{(p)}$ を保ちます。従って $L_\infty/E_1$ はGalois拡大であり、$\Gamma=\operatorname{Gal}(E_\infty/E_1)$ の元 $\sigma$ を $L_\infty$ の自己同型 $\widetilde\sigma$ に持ち上げられます。$x\in\operatorname{Gal}(L_\infty/E_\infty)$ への作用は
+
+$$
+\sigma\cdot x=\widetilde\sigma x\widetilde\sigma^{-1}
+$$
+
+です。持ち上げを替えたときの差は $\operatorname{Gal}(L_\infty/E_\infty)$ の元であり、この群は各有限層のアーベル $p$ 群の逆極限なのでアーベルです。したがって共役作用は持ち上げによらず定まります。有限層での作用とノルムの両立から、[逆極限への岩澤代数作用](../IWA4/index.md#thm-iwa4-iwasawa-action)と同じ方法で連続な $\mathbb Z_p[[\Gamma]]$ 加群作用になります。
+
 <a id="def-iwa9-unramified-iwasawa-module"></a>
 
 <!-- formal-statement-start -->
@@ -300,7 +320,7 @@ $$
 =\operatorname{Frob}_{\mathfrak P}.
 $$
 
-剰余次数 $f=f(\mathfrak P/\mathfrak p)$ に対し、[イデアルノルムの定義](../IWA4/index.md#def-iwa4-ideal-norm-extension)は $N(\mathfrak P)=\mathfrak p^f$ であり、[Frobeniusと制限の関手性](../../ANF/ANF21/index.md#prop-anf21-restriction)から
+剰余次数 $f=f(\mathfrak P/\mathfrak p)$ に対し、[イデアルノルムの定義](../IWA4/index.md#def-iwa4-ideal-norm-extension)は $N(\mathfrak P)=\mathfrak p^f$ です。下の体の剰余体を $k_{\mathfrak p}$ とすれば、上の剰余体は $[k_{\mathfrak P}:k_{\mathfrak p}]=f$ であり、$\operatorname{Frob}_{\mathfrak P}$ の作用を下の体へ制限すると、剰余体上の $a\mapsto a^{|k_{\mathfrak P}|}=a^{|k_{\mathfrak p}|^f}$ になります。これは $\operatorname{Frob}_{\mathfrak p}^f$ の作用です。[FrobeniusとArtin写像の制限の関手性](../../ANF/ANF21/index.md#prop-anf21-restriction)にも一致し、
 
 $$
 \operatorname{res}(\operatorname{Frob}_{\mathfrak P})
@@ -352,13 +372,15 @@ $z\in e_iN$ に対し全射性から $q(x)=z$ となる $x\in M$ を取ると、
 
 後のIWA18では、局所完備化への制限写像の核を用いてSelmer群を構成します。いま扱った $X_\infty$ は類群側の **Galois群** ですが、有限の定数係数に対する一次Galoisコホモロジーの側では、同じ無分岐条件を **文字（準同型）** として測れます。
 
-有限アーベル群 $A=\mathbb Z/p^m\mathbb Z$（$m\ge1$）にGalois群を自明に作用させます。連続一次余サイクル $f:G\to A$ はこのとき $f(gh)=f(g)+f(h)$ を満たすので、[第1コホモロジーの定義](../../ANF/ANF14/index.md#def-anf14-coboundary)を連続写像へ拡張すると
+有限アーベル群 $A=\mathbb Z/p^m\mathbb Z$（$m\ge1$）にGalois群を自明に作用させます。連続一次余サイクル $f:G\to A$ はこのとき $f(gh)=f(g)+f(h)$ を満たすので、[加法的な第1余サイクル・余境界の定義](../../ANF/ANF14/index.md#def-anf14-additive-cocycle)を連続写像へ拡張すると
 
 $$
 H^1_{\mathrm{cont}}(G,A)=\operatorname{Hom}_{\mathrm{cont}}(G,A)
 $$
 
-です。自明作用では一次余境界が零であることも直接確認できます。
+です。自明作用では一次余境界が $g\mapsto ga-a=a-a=0$ となります。有限離散群 $A$ への連続準同型は開核を持ち、ある有限商 $G/U$ を通じて因子化します。従って、既習の有限群の余サイクル条件を有限商ごとに確かめることで、上の連続コホモロジーの式が得られます。
+
+ここで $G_{K,S}$ は、$S$ の外の有限素点で非分岐、実素点では複素化しない最大の（必ずしもアーベルでない）Galois拡大のGalois群を表します。この段階では $S$ 内の惰性群に分岐を許しています。以下ではその惰性群上で文字が零になるという条件を加えます。
 
 <a id="def-iwa9-unramified-local-condition"></a>
 
@@ -427,7 +449,15 @@ $$
 有限アーベル群 $C=\mathbb Z/18\mathbb Z\oplus\mathbb Z/10\mathbb Z$ と $p=3$ に対し、$C[p^\infty]$ と $C_{p'}$ の位数を求め、$C/C_{p'}\simeq C[p^\infty]$ を明示せよ。
 
 <!-- solution-start -->
-**詳細解答。** 第一因子 $\mathbb Z/18$ の3部分は位数9、3と互いに素な部分は位数2です。第二因子 $\mathbb Z/10$ は3部分が零、$3'$ 部分が位数10です。よって $C[3^\infty]\simeq\mathbb Z/9$（位数9）、$C_{3'}\simeq\mathbb Z/2\oplus\mathbb Z/10$（位数20）です。写像 $(\bar x,\bar y)\mapsto\bar x\bmod9$ は $C\to\mathbb Z/9$ の全射で、核は $x\equiv0\pmod9$ かつ $y$ は任意という位数20の群です。第一同型定理で所望の商同型を得ます。
+**詳細解答。** 第一因子 $\mathbb Z/18$ の3部分は位数9、3と互いに素な部分は位数2です。第二因子 $\mathbb Z/10$ は3部分が零、$3'$ 部分が位数10です。よって
+
+$$
+C[3^\infty]\simeq\mathbb Z/9\mathbb Z,\quad |C[3^\infty]|=9,
+\qquad
+C_{3'}\simeq\mathbb Z/2\mathbb Z\oplus\mathbb Z/10\mathbb Z,\quad |C_{3'}|=20.
+$$
+
+写像 $C\to\mathbb Z/9\mathbb Z$ を $(\bar x,\bar y)\mapsto\bar x\bmod9$ と定めます。これは全射で、核は $x\equiv0\pmod9$ かつ $y$ は任意という位数20の群です。これはちょうど $C_{3'}$ に一致するので、[第一同型定理](../../../基礎科目/LA/LA2/index.md#thm-la2-first-isomorphism)により $C/C_{3'}\simeq C[3^\infty]$ です。
 <!-- solution-end -->
 
 <a id="ex-iwa9-a2"></a>
@@ -451,7 +481,21 @@ $$
 $G=(\mathbb Z/9\mathbb Z)\oplus(\mathbb Z/3\mathbb Z)$ を加法記法で書き、惰性群の模型 $I=\langle(3,1)\rangle$ を取る。$I$ の位数と $G/I$ の位数、構造を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $3(3,1)=(9,3)=(0,0)$ で $(3,1)\ne0$ なので $|I|=3$、$|G/I|=27/3=9$ です。$G/I$ では $(0,1)=-(3,0)$ となるため、すべての類は $(1,0)$ の整数倍で表せます。$(1,0)$ の位数は9のままです。なぜなら $k(1,0)=(3a,a)$ なら第二座標で $a\equiv0\pmod3$、すると第一座標は0で、$k\equiv0\pmod9$ だからです。従って $G/I\simeq\mathbb Z/9\mathbb Z$。これは実際の数体ではなく、惰性群商の模型です。
+**詳細解答。** $3(3,1)=(9,3)=(0,0)$ で $(3,1)\ne0$ なので $|I|=3$、$|G/I|=27/3=9$ です。商群では $(3,1)=0$ となるため、
+
+$$
+(0,1)=-(3,0)=-3(1,0)
+\qquad\text{in }G/I
+$$
+
+が成り立ち、すべての類は $(1,0)$ の整数倍で表せます。この生成元の位数を確かめます。$k(1,0)\in I$ と仮定すれば、ある整数 $a$ について
+
+$$
+(k,0)=(3a,a)
+\quad\text{in }\mathbb Z/9\mathbb Z\oplus\mathbb Z/3\mathbb Z.
+$$
+
+第二座標から $a\equiv0\pmod3$、第一座標から $k\equiv3a\equiv0\pmod9$ です。従って $(1,0)+I$ の位数は9で、$G/I\simeq\mathbb Z/9\mathbb Z$。これは実際の数体ではなく、惰性群商の模型です。
 <!-- solution-end -->
 
 <a id="ex-iwa9-a4"></a>
@@ -531,7 +575,28 @@ $E_{r+1}/E_r$ は唯一の $p$ 素点で完全分岐しますが、$H_r^{(p)}/E_
 $p=3$、$M=(\mathbb Z/9)\oplus(\mathbb Z/3)$、$c(x,y)=(x,-y)$、$J=0\oplus(\mathbb Z/3)$、$N=M/J$ とする。$(1\pm c)/2$ による $J,M,N$ の偶奇成分を求め、各成分の短完全列を検算せよ。
 
 <!-- solution-start -->
-**詳細解答。** $2$ は $\mathbb Z_3$ の単元なので射影は良定義です。$c$ が第一座標では $+1$、第二座標では $-1$ と作用するため、$M^+=\mathbb Z/9\oplus0$、$M^-=0\oplus\mathbb Z/3$、$J^+=0$、$J^-=J$ です。商 $N\simeq\mathbb Z/9$ には $c$ が自明に作用するので $N^+=N$、$N^-=0$。偶成分の列は $0\to0\to\mathbb Z/9\xrightarrow{\sim}\mathbb Z/9\to0$、奇成分は $0\to\mathbb Z/3\xrightarrow{\sim}\mathbb Z/3\to0\to0$ となり、両方で核と像が一致します。[射影と局所条件の命題](#prop-iwa9-character-inertia-compatibility)を手で確認しました。
+**詳細解答。** $2$ は $\mathbb Z_3$ の単元なので $e_\pm=(1\pm c)/2$ は良定義です。$c$ は第一座標には $+1$、第二座標には $-1$ と作用するため、
+
+$$
+M^+=\mathbb Z/9\mathbb Z\oplus0,\quad
+M^-=0\oplus\mathbb Z/3\mathbb Z,\qquad
+J^+=0,\quad J^-=J.
+$$
+
+商 $N=M/J\simeq\mathbb Z/9\mathbb Z$ には $c$ が自明に作用するので、$N^+=N$、$N^-=0$。よって各成分の列は
+
+$$
+\begin{aligned}
+\text{偶成分: }&
+0\longrightarrow0\longrightarrow\mathbb Z/9\mathbb Z
+\xrightarrow{\sim}\mathbb Z/9\mathbb Z\longrightarrow0,\\
+\text{奇成分: }&
+0\longrightarrow\mathbb Z/3\mathbb Z
+\xrightarrow{\sim}\mathbb Z/3\mathbb Z\longrightarrow0\longrightarrow0
+\end{aligned}
+$$
+
+です。両方で核と像が一致し、[射影と局所条件の命題](#prop-iwa9-character-inertia-compatibility)を直接確認できました。
 <!-- solution-end -->
 
 <a id="ex-iwa9-b4"></a>
@@ -543,7 +608,14 @@ $p=3$、$M=(\mathbb Z/9)\oplus(\mathbb Z/3)$、$c(x,y)=(x,-y)$、$J=0\oplus(\mat
 群 $G$ が有限群 $A=\mathbb Z/p^m\mathbb Z$ に自明に作用するとする。一次余サイクルが群準同型であり、一次余境界が全て零であることを定義式から示せ。そのうえで $G=\mathbb Z/9$、$A=\mathbb Z/3$ の場合の $H^1(G,A)$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** 一次余サイクルの式は $f(gh)=f(g)+g f(h)$。自明作用から $g f(h)=f(h)$ なので $f(gh)=f(g)+f(h)$、すなわち準同型です。一次余境界はある $a\in A$ に対する $g\mapsto ga-a$ ですが、これも自明作用により零です。よって $H^1(G,A)=\operatorname{Hom}(G,A)$。$G=\mathbb Z/9$ の生成元 $\bar1$ の像は $A=\mathbb Z/3$ の任意の元から選べ、$9f(\bar1)=0$ は常に成立します。従って準同型は3個、加法群として $H^1(G,A)\simeq\mathbb Z/3$ です。
+**詳細解答。** [加法的第1余サイクルと余境界](../../ANF/ANF14/index.md#def-anf14-additive-cocycle)の定義式は $f(gh)=f(g)+g f(h)$ です。自明作用では $g f(h)=f(h)$ なので
+
+$$
+f(gh)=f(g)+f(h),\qquad
+(\delta a)(g)=ga-a=a-a=0.
+$$
+
+従って余サイクルは準同型、余境界は零であり、$H^1(G,A)=\operatorname{Hom}(G,A)$ です。$G=\mathbb Z/9\mathbb Z$ の生成元 $\bar1$ の像は $A=\mathbb Z/3\mathbb Z$ の任意の元から選べます。いずれについても $9f(\bar1)=0$ が成立するので、準同型は3個。加法群として $H^1(G,A)\simeq\mathbb Z/3\mathbb Z$ です。
 <!-- solution-end -->
 
 ### Level C

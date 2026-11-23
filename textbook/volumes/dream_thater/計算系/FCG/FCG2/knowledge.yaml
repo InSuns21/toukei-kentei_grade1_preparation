@@ -4,10 +4,10 @@ coverage: complete
 prerequisites: [FCG1, WGL17]
 concepts:
   - id: graphics.fcg2-scalar-snapshot
-    name: 解析スカラー場の時刻別格子標本
+    name: 厳密移流スカラー場の時刻別格子標本
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（解析スカラー場の時刻別格子標本）"]
+    introduction_aliases: ["定義（厳密移流スカラー場の時刻別格子標本）"]
     requires: [graphics.tracer-trajectory-samples, graphics.data-grid-texture]
   - id: graphics.fcg2-r8-snapshot
     name: 表示用R8テクスチャ時刻スナップショット
@@ -22,8 +22,8 @@ concepts:
     introduction_aliases: ["命題（画素中心と格子セルの一意な対応）"]
     requires: [graphics.fcg2-r8-snapshot, graphics.data-screen-cell]
   - id: graphics.fcg2-grid-sum
-    name: 解析格子場の値域と格子総和
+    name: 差動回転における染料の値域と面積積分保存
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（解析格子場の値域と格子総和）"]
+    introduction_aliases: ["命題（差動回転における染料の値域と面積積分保存）"]
     requires: [graphics.fcg2-scalar-snapshot]

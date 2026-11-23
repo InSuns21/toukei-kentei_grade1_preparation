@@ -24,9 +24,9 @@ test('G3 legends derive their initial step and GPU buffer dimensions from the ru
   assert.match(d.grid,/4×4/);
   assert.match(d.mode,/同じGPU ping-pong格子/);
   const e=sceneDescription('FCG2',{width:512,height:512,steps:2});
-  assert.match(e.grid,/8×8/);
-  assert.equal(e.clock,'解析場の基準step 2、t=3.14159 s（dt=π/2 s）');
-  assert.match(e.mode,/物理時刻/);
+  assert.match(e.grid,/128×128.*R8/);
+  assert.equal(e.clock,'染料の観察時刻 t=3.142 s（節目はπ/2 s、連続再生は任意時刻）');
+  assert.match(e.mode,/角速度Ω.*NEAREST/);
   const uv=sceneDescription('WGL7',{width:960,height:720});
   assert.match(uv.grid,/8×8 RGBA8/);
   assert.match(uv.mode,/UVオフセット/);
