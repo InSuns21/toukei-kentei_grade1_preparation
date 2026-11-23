@@ -1,0 +1,45 @@
+id: "PML2-18"
+title: "DeepONetは観測点からどう作用素を近似するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-17
+  - PML2-14
+official_scope: []
+learning_objectives:
+  - 固定入力センサとbranch/trunkの役割・入出力次元・連続性を説明できる
+  - 一次荷重のPoisson解作用素を二点センサのDeepONetとして厳密に構成できる
+  - 有限次元入力族のセンサ行列の階数から正確な復元と表現の可否を証明できる
+  - センサ間隔と観測誤差の関係を傾き復元と出力誤差で評価できる
+  - Lipschitz入力の区分線形補間誤差とPoisson解への誤差伝播を導ける
+  - 二点センサの区別不能性を計算し三点センサで拡張入力族を復元できる
+  - 入力関数の分割と出力問い合わせ点の分割を区別して評価条件を設計できる
+  - 標準Pythonによる二点・三点センサの厳密な計算例を再現できる
+definitions:
+  - { id: PML2-18-DEF-01, name: 固定センサ型DeepONet }
+  - { id: PML2-18-DEF-02, name: センサによる区分線形補間 }
+theorems:
+  - { id: PML2-18-THM-01, name: 有限次元入力族でのセンサ再構成と厳密DeepONet表現 }
+  - { id: PML2-18-PROP-01, name: 近接した二センサの傾き誤差 }
+  - { id: PML2-18-THM-02, name: センサ間隔から得るPoisson解作用素の誤差評価 }
+canonical_examples:
+  - 一次荷重の零Dirichlet Poisson解を二点branch/trunkで正確に再現する
+  - センサ行列の階数不足が二端点での多項式の区別不能性を生む
+  - 近接センサの観測誤差が傾き復元で拡大する
+  - 三点センサの区分線形補間とLipschitz誤差
+  - 端点二センサから中点を加えた三センサへの入力族拡張
+problem_patterns:
+  - PML2-18-A01
+  - PML2-18-A02
+  - PML2-18-A03
+  - PML2-18-A04
+  - PML2-18-A05
+  - PML2-18-B01
+  - PML2-18-B02
+  - PML2-18-B03
+  - PML2-18-B04
+  - PML2-18-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }

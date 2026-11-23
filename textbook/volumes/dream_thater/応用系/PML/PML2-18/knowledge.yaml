@@ -1,0 +1,45 @@
+chapter: PML2-18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-17
+  - PML2-14
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-18-deeponet
+    name: 固定センサ型DeepONet
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定センサ型 DeepONet）"]
+    requires:
+      - physics-machine-learning.pml2-14-sensors
+      - physics-machine-learning.pml2-14-operator
+  - id: physics-machine-learning.pml2-18-sensor-rank
+    name: 有限次元入力族でのセンサ再構成と厳密DeepONet表現
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-18-deeponet
+      - physics-machine-learning.pml2-14-green
+  - id: physics-machine-learning.pml2-18-noise
+    name: 近接した二センサの傾き誤差
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-18-sensor-rank
+      - physics-machine-learning.pml2-14-green
+  - id: physics-machine-learning.pml2-18-interpolant
+    name: センサによる区分線形補間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（センサによる区分線形補間）"]
+    requires:
+      - physics-machine-learning.pml2-14-sensors
+  - id: physics-machine-learning.pml2-18-interpolation-bound
+    name: センサ間隔から得るPoisson解作用素の誤差評価
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-18-interpolant
+      - physics-machine-learning.pml2-18-deeponet
+      - physics-machine-learning.pml2-14-green
