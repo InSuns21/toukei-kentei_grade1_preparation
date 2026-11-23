@@ -532,7 +532,7 @@ assert abs(finite_difference - direct) < 1.0e-10
 
 **問題 PML2-22-C01**
 - Level: C
-- $\kappa>0$ の連続問題 $-\kappa u''=x^2$、$u(0)=u(1)=0$ を考え、中央の真の観測値を $y=0$ とする。$q(\kappa)=u(1/2;\kappa)$、$L(\kappa)=\frac12(q(\kappa)-y)^2$ とする。一方、一節点 $h=1/2$ の差分解 $q_h(\kappa)$ を用いた離散損失 $L_h(\kappa)=\frac12(q_h(\kappa)-y)^2$ を作る。(i) 連続解と離散解をそれぞれ求める。(ii) $L'(\kappa)$ を連続解から、$L_h'(\kappa)$ を離散随伴方程式から求める。(iii) $\kappa=1$ で両勾配の差と、その原因を示す。
+- $\kappa>0$ の連続問題 $-\kappa u''=x^2$、$u(0)=u(1)=0$ を考え、中央での損失の目標値を $y=0$ に設定する。$q(\kappa)=u(1/2;\kappa)$、$L(\kappa)=\frac12(q(\kappa)-y)^2$ とする。一方、一節点 $h=1/2$ の差分解 $q_h(\kappa)$ を用いた離散損失 $L_h(\kappa)=\frac12(q_h(\kappa)-y)^2$ を作る。(i) 連続解と離散解をそれぞれ求める。(ii) $L'(\kappa)$ を連続解から、$L_h'(\kappa)$ を離散随伴方程式から求める。(iii) $\kappa=1$ で両勾配の差と、その原因を示す。
 
 <!-- solution-start -->
 **詳細解答。** (i) 二階微分を二回積分すると $u(x)=(x-x^4)/(12\kappa)$ であり、$q=7/(192\kappa)$。差分では $A=8\kappa,\ b=1/4$、$q_h=b/A=1/(32\kappa)=6/(192\kappa)$。(ii) 連続損失は $L=\frac12(7/192)^2\kappa^{-2}$ だから $L'=-(7/192)^2\kappa^{-3}=-49/(36864\kappa^3)$。離散随伴は $J(q_h)=q_h^2/2$ より $g=J_u=q_h$、$A^T\lambda=8\kappa\lambda=q_h$、従って $\lambda=q_h/(8\kappa)=1/(256\kappa^2)$。$A'=8,\ b'=0$ なので $b'-A'q_h=-8/(32\kappa)=-1/(4\kappa)$。随伴勾配は $L_h'=\lambda(b'-A'q_h)=-1/(1024\kappa^3)=-36/(36864\kappa^3)$。(iii) $\kappa=1$ で $L'-L_h'=(-49+36)/36864=-13/36864$。元の解を差分近似したときの中点値が $7/192$ と $6/192$ で異なるため、二乗損失とその感度の両方に離散化誤差が入る。離散随伴は $L_h$ を正確に微分しており、計算法の不整合ではない。
