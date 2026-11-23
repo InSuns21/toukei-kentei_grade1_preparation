@@ -1,0 +1,49 @@
+id: "PML2-22"
+title: "数値ソルバを通じた勾配はどう求めるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-21
+  - PML2-03
+  - PML2-07
+official_scope: []
+learning_objectives:
+  - 有限次元離散ソルバAu=bと状態を介した損失の全微分を定義し直接例で確認できる
+  - 可逆性と微分可能性の仮定の下で感度方程式を成分表示から導出できる
+  - 転置系による離散随伴変数を構成して全勾配公式を証明できる
+  - 二節点Poisson離散系で直接感度と随伴勾配を別々に計算し一致させられる
+  - 右辺のパラメータ微分と損失の明示的な偏微分を漏らさず計算できる
+  - 連続方程式の感度と離散方程式の感度の差を反例で計算できる
+  - 有限回反復の微分と厳密解の微分を区別し収束条件と残差の意味を示せる
+  - 標準Pythonで直接法・随伴法・中心差分を照合できる
+definitions:
+  - { id: PML2-22-DEF-01, name: 離散ソルバを通じた全微分 }
+  - { id: PML2-22-DEF-02, name: 離散随伴変数 }
+theorems:
+  - { id: PML2-22-THM-01, name: 離散ソルバの感度方程式と直接勾配 }
+  - { id: PML2-22-THM-02, name: 離散随伴による全勾配公式 }
+  - { id: PML2-22-PROP-01, name: 連続解と一節点離散解の感度差 }
+  - { id: PML2-22-PROP-02, name: 有限回の反復微分と厳密解の微分は異なる }
+canonical_examples:
+  - 二節点零Dirichlet Poisson差分の可逆性と状態値
+  - 一変数の全勾配で状態経由と明示的依存を分離する
+  - 直接感度と離散随伴の二節点Poisson検算
+  - 右辺と目的関数の明示的パラメータ依存を持つ一変数例
+  - 二次外力Poissonの中点値による離散化感度の差
+  - 線形反復一回と厳密解の微分が一致しない反例
+  - 標準Pythonによる直接感度と随伴と差分チェック
+problem_patterns:
+  - PML2-22-A01
+  - PML2-22-A02
+  - PML2-22-A03
+  - PML2-22-A04
+  - PML2-22-A05
+  - PML2-22-B01
+  - PML2-22-B02
+  - PML2-22-B03
+  - PML2-22-B04
+  - PML2-22-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }
