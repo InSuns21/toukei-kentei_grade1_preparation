@@ -38,10 +38,10 @@ $$
 
 $k\ge1$ を整数とする。Lie群 $G$ のLie環 $\mathfrak g=T_eG$ は、ここでは**実ベクトル空間**として扱う。写像 $p:\mathfrak g^k\to\mathbb C$ が **$k$ 重線形**とは、ほかの $k-1$ 個の引数を固定すると残る引数について実線形であることをいう。例えば第1引数では、実数 $a,b$ に対し
 
-$
+$$
 p(aX+bY,X_2,\ldots,X_k)
 =a\,p(X,X_2,\ldots,X_k)+b\,p(Y,X_2,\ldots,X_k)
-$
+$$
 
 を要求する。$G=GL(n,\mathbb C)$ の場合も、Lie環を実Lie環として扱うので複素線形性までは要求しない。
 
@@ -74,11 +74,11 @@ $$
 
 と定めると、各 $t_j$ への実線形性、任意の引数置換に対する積の一致、全引数へのAd作用の自明性を順に確認できる。よってこれはすべての $k\ge1$ で定義を満たす。この族では $p_1(it)=t$ である。一方、[GBG19の第一Chern数の正規化](../GBG19/index.md#def-gbg19-chern-number)に用いる別の実線形形式は
 
-$
+$$
 p_{\mathrm{Ch},1}(X)=\frac{iX}{2\pi},
 \qquad
 p_{\mathrm{Ch},1}(it)=-\frac{t}{2\pi}
-$
+$$
 
 なので、$p_{\mathrm{Ch},1}=-p_1/(2\pi)$ である。両者ともAd不変だが、同じ形式ではない。
 <!-- definition-example-end -->
@@ -117,11 +117,11 @@ $$
 
 逆にこの恒等式を仮定する。$Y$ と $X_j$ を固定して $t$ を動かし、$Z_j(t)=\operatorname{Ad}_{\exp(tY)}X_j$ と置く。1パラメータ部分群の積 $\exp((t+h)Y)=\exp(hY)\exp(tY)$ と[無限小随伴作用](../../../代数系/LIE/LIE2/index.md#def-lie2-infinitesimal-adjoint)により
 
-$
+$$
 Z_j'(t)=\left.\frac{d}{dh}\right|_{h=0}
 \operatorname{Ad}_{\exp(hY)}Z_j(t)
 =[Y,Z_j(t)]
-$
+$$
 
 となる。従って
 
@@ -146,10 +146,10 @@ $$
 
 $\rho:G\to GL(V)$ を有限次元複素表現とし、その単位元での微分（微分表現）を
 
-$
+$$
 \rho_*(X)=\left.\frac{d}{dt}\right|_{t=0}\rho(\exp(tX))
 \in\operatorname{End}_{\mathbb C}(V)
-$
+$$
 
 と書く。ここでは $X\in\mathfrak g$ とし、$t$ は実数を動く。$\rho_*$ は実線形で、$\rho_*(\operatorname{Ad}_gX)=\rho(g)\rho_*(X)\rho(g)^{-1}$ を満たす（共役による導出は次の定理の証明で行う）。$V$ の基底を一つ選べば $\rho_*(X)$ は正方行列で表され、その行列のtraceは基底を取り替えても共役不変なので元の線形作用素のtraceに等しい。$\mathfrak S_k$ は $k$ 個の位置を入れ替える置換全体、$k!$ は置換の個数である。
 
@@ -252,21 +252,21 @@ $$
 
 という次数 $r_1+\cdots+r_k$ の複素数値形式を表す。各 $e_a$ は固定した実基底で、複素係数は外積の係数に掛ける。基底を替えたときの係数変換も確認する。$e'_a=\sum_b C_{ba}e_b$ と置くと、同じ形式を二つの基底で表示した等式から
 
-$
+$$
 \alpha_j=\sum_a\alpha_j^{\prime a}e'_a
 =\sum_b\left(\sum_a C_{ba}\alpha_j^{\prime a}\right)e_b,
 \qquad
 \alpha_j^b=\sum_a C_{ba}\alpha_j^{\prime a}
-$
+$$
 
 を得る。したがって
 
-$
+$$
 \sum_{a_1,\ldots,a_k}p(e'_{a_1},\ldots,e'_{a_k})
 \,\alpha_1^{\prime a_1}\wedge\cdots\wedge\alpha_k^{\prime a_k}
 =\sum_{b_1,\ldots,b_k}p(e_{b_1},\ldots,e_{b_k})
 \,\alpha_1^{b_1}\wedge\cdots\wedge\alpha_k^{b_k}.
-$
+$$
 
 これは各 $e'_a$ を展開して多重線形性を適用した等式であり、外積による評価が基底の選び方に依存しない理由である。
 
@@ -293,11 +293,11 @@ $$
 
 とする。可換なので $A\wedge A$ の括弧項は零である。$\mathfrak u(1)=\mathbb R e$ の実基底 $e=i$ と、$\eta=dx^1\wedge dx^2$、$\zeta=dx^3\wedge dx^4$ を取ると $F=e(\eta+\zeta)$ である。$p_2(it_1,it_2)=t_1t_2$ は $p_2(e,e)=1$ を満たすので、定義の係数評価規則から
 
-$
+$$
 p_2(F,F)=p_2(e,e)(\eta+\zeta)\wedge(\eta+\zeta)
 =\eta\wedge\eta+\eta\wedge\zeta+\zeta\wedge\eta+\zeta\wedge\zeta
 =2\,dx^1\wedge dx^2\wedge dx^3\wedge dx^4.
-$
+$$
 
 ここでは $\eta\wedge\eta=\zeta\wedge\zeta=0$ である。例えば $\eta\wedge\eta$ には $dx^1$ が重複して現れるためである。交差項は2形式どうしの交換符号 $(-1)^{2\cdot2}=+1$ により足し合わされる。**一般の2形式の自己外積が零という意味ではなく**、実際に $(\eta+\zeta)\wedge(\eta+\zeta)\ne0$ となる。$p_2$ の実2重線形性、対称性とAd不変性は先の $U(1)$ の確認に従い、外積規則の適用も基底表示から確かめられた。
 <!-- definition-example-end -->
@@ -347,18 +347,18 @@ $$
 
 従って $\beta_i$ は重なりで一致し、唯一の滑らかな形式 $\beta$ に貼り合わさる。$u\in P$ に対し、局所section $s_i$ と $h\in G$ を用いて $u=s_i(x)h$ と一意に書ける。$v_1,\ldots,v_{2k}\in T_uP$ とし $w_\ell=d\pi_u(v_\ell)\in T_xM$ と置く。$d\pi\circ dR_h=d\pi$ と $\pi\circ s_i=\operatorname{id}$ により
 
-$
+$$
 v_\ell=d(R_h)_{s_i(x)}(ds_i)_x(w_\ell)+v_\ell^{\mathrm{vert}},
 \qquad v_\ell^{\mathrm{vert}}\in\ker d\pi_u.
-$
+$$
 
 水平性で垂直成分の項は零になり、右不変性を使うと
 
-$
+$$
 p(\Omega^k)_u(v_1,\ldots,v_{2k})
 =p(\Omega^k)_{s_i(x)}((ds_i)_xw_1,\ldots,(ds_i)_xw_{2k})
 =\beta_x(w_1,\ldots,w_{2k}).
-$
+$$
 
 従って $\pi^*\beta=p(\Omega^k)$ が成り立つ。
 
@@ -371,7 +371,7 @@ $
 
 **例1：次数1の第一Chern形式につながる場合**。$G=U(1)$ に対し、先ほど区別した $p_{\mathrm{Ch},1}(X)=iX/(2\pi)$ を用いる。これは実線形で1引数のため対称、かつ $U(1)$ のAd作用が自明なので不変である。$S^2$ 上の[GBG19のmonopole曲率](../GBG19/index.md#thm-gbg19-curvature-flux) $F=-in\sin\vartheta\,d\vartheta\wedge d\varphi/2$ では
 
-$
+$$
 \beta_{p_{\mathrm{Ch},1}}=\frac{i}{2\pi}F
 =\frac{n}{4\pi}\sin\vartheta\,d\vartheta\wedge d\varphi.
 $$
