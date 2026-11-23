@@ -14,3 +14,4 @@
 11. [LREP7 角運動量とスピン量子数](textbook/volumes/dream_thater/代数系/LREP/LREP7/index.md)
 12. [LREP8 二つのスピンの合成](textbook/volumes/dream_thater/代数系/LREP/LREP8/index.md)
 13. [LREP9 Lorentz Lie環の回転とboost](textbook/volumes/dream_thater/代数系/LREP/LREP9/index.md)
+14. [LREP10 SL(2,C)によるLorentz群の被覆](textbook/volumes/dream_thater/代数系/LREP/LREP10/index.md)
