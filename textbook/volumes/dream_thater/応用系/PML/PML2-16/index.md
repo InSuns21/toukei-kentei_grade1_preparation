@@ -31,12 +31,12 @@ $$
 <!-- definition-example-start: def-pml2-16-fourier -->
 **定義の確認**。 $m=1$、$h(x)=2+\cos(2\pi x)$ とする。$h(0)=h(1)=3$ で周期条件を満たし、連続である。指数表示 $\cos(2\pi x)=(e^{2\pi ix}+e^{-2\pi ix})/2$ を係数の積分へ代入すると、
 
-$
+$$
 \widehat h_k
 =2\int_0^1e^{-2\pi ikx}\,dx
 +\frac12\int_0^1e^{2\pi i(1-k)x}\,dx
 +\frac12\int_0^1e^{-2\pi i(1+k)x}\,dx.
-$
+$$
 
 整数 $n$ について $\int_0^1e^{2\pi inx}\,dx$ は $n=0$ のとき1、$n\ne0$ のとき端点の指数値がともに1なので0である。従って $\widehat h_0=2$、$\widehat h_1=\widehat h_{-1}=1/2$、それ以外は0となる。$h$ が実数値なので、係数の共役対称性も満たす。
 <!-- definition-example-end -->
@@ -164,11 +164,11 @@ $$
 
 ここで $\widehat h_k$ は $m$ 成分の列ベクトル、$R_k$ は周波数 $k$ におけるチャネル間の線形変換を表す行列である。出力の第 $a$ チャネルは、入力の全 $m$ チャネルから
 
-$
+$$
 (R_k\widehat h_k)_a
 =\sum_{c=1}^{m}(R_k)_{ac}(\widehat h_k)_c,
 \qquad 1\le a\le m
-$
+$$
 
 という成分和で作る。このため $R_k$ は $m\times m$ 行列となる。$R_{-k}=\overline{R_k}$ の上線は行列の**各成分の複素共役**を意味し、転置は行わない。正負周波数の寄与が共役の組になることが実数出力の判定根拠である。
 
@@ -250,17 +250,21 @@ $$
 
 一方 $|(Wd(x))_i|\le\|W\|_{\mathrm{row}}E$。$h$ と $g$ の層入力を引くと共通の $b(x)$ は消える。[前講の層安定性](../PML2-15/index.md#thm-pml2-15-stability)で使った $\sigma$ のLipschitz条件を第 $i$ 成分に適用し、二つの項を別々に評価すると
 
-$
-\begin{aligned}
+$$
 |(\mathcal Fh)_i(x)-(\mathcal Fg)_i(x)|
-&\le L_\sigma\left(
+\le L_\sigma\left(
 |(Wd(x))_i|+
 \left|\left(\sum_{k=-M}^{M}e^{2\pi ikx}R_k\widehat d_k\right)_i\right|
-\right)\\
-&\le L_\sigma\left(\|W\|_{\mathrm{row}}
+\right).
+$$
+
+二つの項に直前で得た上界を代入すると
+
+$$
+|(\mathcal Fh)_i(x)-(\mathcal Fg)_i(x)|
+\le L_\sigma\left(\|W\|_{\mathrm{row}}
 +\sum_{k=-M}^{M}\|R_k\|_{\mathrm{row}}\right)E.
-\end{aligned}
-$
+$$
 
 最後に $x\in\mathbb T$ と $1\le i\le m$ で最大を取ると結論を得る。
 <!-- proof-end -->
@@ -352,9 +356,9 @@ $$
 > **定理（格子における周波数の同一視）**  
 > 整数 $N\ge2$、$m\ge1$、$H\ge0$ とし、各 $|k|\le H$ に対して $c_k\in\mathbb C^m$ を取る。$c_{-k}=\overline{c_k}$（特に $c_0\in\mathbb R^m$）と仮定して、実数値の有限Fourier和
 
-$
+$$
 h(x)=\sum_{|k|\le H}c_ke^{2\pi ikx}
-$
+$$
 
 > を $x_j=j/N$ で標本化する。このとき[DFT係数](#def-pml2-16-dft)は、各 $0\le r<N$ に対し
 
@@ -373,10 +377,10 @@ $$
 
 共役対称性から $c_0$ は実ベクトルであり、$k$ と $-k$ の項は
 
-$
+$$
 c_ke^{2\pi ikx}+c_{-k}e^{-2\pi ikx}
 =2\operatorname{Re}(c_ke^{2\pi ikx})
-$
+$$
 
 となる。従って $h(x)\in\mathbb R^m$ で、[実数入力のDFT](#def-pml2-16-dft)を適用できる。
 
