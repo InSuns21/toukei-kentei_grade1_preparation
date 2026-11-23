@@ -13,7 +13,7 @@
 <a id="def-gbg25-su2-s3"></a>
 
 <!-- formal-statement-start -->
-> **定義（$S^3$ と $SU(2)$ の標準同一視）**  
+> **定義（S³とSU(2)の標準同一視）**  
 > 標準的な向きを持つ単位球面 $S^3\subset\mathbb R^4$ の点 $(z,w)\in\mathbb C^2$ に対し、次の行列を対応させる。
 
 $$
@@ -57,7 +57,7 @@ $$
 <a id="def-gbg25-clutching"></a>
 
 <!-- formal-statement-start -->
-> **定義（$S^4$ 上の $SU(2)$ クラッチング束）**  
+> **定義（S⁴上のSU(2)クラッチング束）**  
 > 滑らかな写像 $f:S^3\to SU(2)$ に対して、二つの局所積 $U_N\times SU(2)$、$U_S\times SU(2)$ を用意し、重なりで
 
 $$
@@ -90,7 +90,7 @@ $$
 > を満たす。
 <!-- formal-statement-end -->
 
-**証明の見取り図**。重なりの座標変更は左から $f(r)$ を掛ける写像で、その逆も滑らかである。[GBG1の貼り合わせ定理](../GBG1/index.md#thm-gbg1-gluing)を適用する。
+**証明の見取り図**。重なりの座標変更は左から $f(r)$ を掛ける写像で、その逆も滑らかである。[滑らかなcocycleからの貼り合わせ](../GBG1/index.md#thm-gbg1-gluing)を適用する。
 
 <!-- proof-start -->
 ### 証明
@@ -124,7 +124,7 @@ $S^3\subset\mathbb R^4$ に外向きの境界向きを入れ、$dx_1\wedge\cdots
 <a id="def-gbg25-degree"></a>
 
 <!-- formal-statement-start -->
-> **定義（$S^3$ 写像の積分次数）**  
+> **定義（S³写像の積分次数）**  
 > $S^3$ 上の3形式 $\nu$ を
 
 $$
@@ -221,7 +221,7 @@ $$
 <a id="thm-gbg25-obstruction"></a>
 
 <!-- formal-statement-start -->
-> **定理（$S^4$ 上のクラッチング束の次数障害）**  
+> **定理（S⁴上のクラッチング束の次数障害）**  
 > 滑らかな $f:S^3\to SU(2)$ から構成した右主 $SU(2)$ 束 $P_f\to S^4$ について、$P_f$ が自明束なら $\deg(f)=0$。従って $\deg(f)\ne0$ なら $P_f$ は非自明で、大域sectionを持たない。特に $f=Q$ では $\deg(Q)=1$ だから $P_Q$ は非自明である。
 <!-- formal-statement-end -->
 
