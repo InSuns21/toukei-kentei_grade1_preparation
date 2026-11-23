@@ -23,10 +23,10 @@ $a_i$ のうち最初にその最小付値を達成する添字も一意に定�
 > **定義（係数付値とWeierstrass次数）**  
 > $0\ne f=\sum_{i\ge0}a_iT^i\in R$ に対し、
 >
-> $$
-> \mu(f)=\min_{i\ge0}v_p(a_i),\qquad
-> d(f)=\min\{i\ge0:v_p(a_i)=\mu(f)\}
-> $$
+$$
+\mu(f)=\min_{i\ge0}v_p(a_i),\qquad
+d(f)=\min\{i\ge0:v_p(a_i)=\mu(f)\}
+$$
 >
 > と定める。$f=p^{\mu(f)}f_0$、$f_0=\sum_{i\ge0}b_iT^i$ と書くと、$d=d(f)$ に対して
 
@@ -39,7 +39,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa6-orders -->
-**定義の確認。** $p=3$、$f=9(1+T)(T^2+3T+3)$ とします。積を展開すると
+**定義の確認**。 $p=3$、$f=9(1+T)(T^2+3T+3)$ とします。積を展開すると
 
 $$
 f=9(T^3+4T^2+6T+3).
@@ -56,10 +56,10 @@ $$
 > **命題（積の指数公式）**  
 > $0\ne f,g\in R$ に対して
 >
-> $$
-> \mu(fg)=\mu(f)+\mu(g),\qquad
-> d(fg)=d(f)+d(g).
-> $$
+$$
+\mu(fg)=\mu(f)+\mu(g),\qquad
+d(fg)=d(f)+d(g).
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -84,16 +84,16 @@ $d(f)=r$、$d(g)=s$ とすると、$\overline f_0=T^r u(T)$、$\overline g_0=T^s
 > **定義（distinguished多項式）**  
 > 非負整数 $d$ に対し
 >
-> $$
-> W(T)=T^d+c_{d-1}T^{d-1}+\cdots+c_0
-> \quad(c_i\in p\mathbb Z_p)
-> $$
+$$
+W(T)=T^d+c_{d-1}T^{d-1}+\cdots+c_0
+\quad(c_i\in p\mathbb Z_p)
+$$
 >
 > を次数 $d$ の **distinguished多項式**（Weierstrass多項式）という。$d=0$ では $W=1$ と定める。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa6-distinguished -->
-**定義の確認。** $p=3$ のとき $W=T^2+3T+3$ は最高次係数が $1$、低次係数が $3$ の倍数なので次数 $2$ のdistinguished多項式です。$W\bmod3=T^2$ です。一方 $T^2+T+3$ は $T$ の係数が $3$ の倍数でないため該当しません。$T+3$ は次数 $1$ の例です。
+**定義の確認**。 $p=3$ のとき $W=T^2+3T+3$ は最高次係数が $1$、低次係数が $3$ の倍数なので次数 $2$ のdistinguished多項式です。$W\bmod3=T^2$ です。一方 $T^2+T+3$ は $T$ の係数が $3$ の倍数でないため該当しません。$T+3$ は次数 $1$ の例です。
 <!-- definition-example-end -->
 
 まず割り算を証明します。これは準備定理の核心であり、証明の途中で「収束」をただの形式的な極限として扱わないことが重要です。係数を $p^n$ で一斉に割り切れる差ができることを使います。
@@ -114,9 +114,9 @@ $$
 > **定理（Weierstrass除法）**  
 > $f=\sum_{i\ge0}f_iT^i\in R$ が $d(f)=d$、$\mu(f)=0$ を満たすとする。任意の $g\in R$ に対して、一意な $q\in R$ と $r\in\mathbb Z_p[T]$、$\deg r<d$（$r=0$ も許す）が存在し、
 >
-> $$
-> g=qf+r
-> $$
+$$
+g=qf+r
+$$
 >
 > と表せる。
 <!-- formal-statement-end -->
@@ -189,9 +189,9 @@ $f$ が非零であれば、先に $p^{\mu(f)}$ を取り除くと除法定理�
 > **定理（Weierstrass準備定理）**  
 > 素数 $p$ と $R=\mathbb Z_p[[T]]$ を固定する。非零元 $f\in R$ は一意に
 >
-> $$
-> f(T)=p^{\mu}U(T)W(T)
-> $$
+$$
+f(T)=p^{\mu}U(T)W(T)
+$$
 >
 > と表せる。ただし $\mu\ge0$、$U\in R^\times$、$W\in\mathbb Z_p[T]$ はdistinguished多項式である。しかも $\mu=\mu(f)$、$\deg W=d(f)$ である。
 <!-- formal-statement-end -->
@@ -317,18 +317,18 @@ $$
 > **定義（特徴イデアルと岩澤不変量）**  
 > $M$ を有限生成torsion $R=\mathbb Z_p[[T]]$ 加群とし、上記の[IWA5の構造定理](../IWA5/index.md#thm-iwa5-structure)における既約因子と指数を取る。その **特徴イデアル** と **岩澤不変量** を
 >
-> $$
-> \operatorname{char}_R(M)=
-> \left(p^{\sum_i a_i}\prod_jP_j(T)^{b_j}\right),\qquad
-> \mu(M)=\sum_i a_i,\quad
-> \lambda(M)=\sum_j b_j\deg P_j
-> $$
+$$
+\operatorname{char}_R(M)=
+\left(p^{\sum_i a_i}\prod_jP_j(T)^{b_j}\right),\qquad
+\mu(M)=\sum_i a_i,\quad
+\lambda(M)=\sum_j b_j\deg P_j
+$$
 >
 > と定める。空積は $1$ とするので、$M=0$ または有限な $M$ の特徴イデアルは $(1)=R$、$\mu(M)=\lambda(M)=0$ である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa6-characteristic -->
-**定義の確認。** $M=R/(p^2)\oplus R/(T+3)^2\oplus R/(T^2+3T+3)$（$p=3$）は既約因子の商の直和です。$T+3$ と前節の二次多項式はいずれも既約distinguishedです。従って
+**定義の確認**。 $M=R/(p^2)\oplus R/(T+3)^2\oplus R/(T^2+3T+3)$（$p=3$）は既約因子の商の直和です。$T+3$ と前節の二次多項式はいずれも既約distinguishedです。従って
 
 $$
 \operatorname{char}_R(M)=\bigl(3^2(T+3)^2(T^2+3T+3)\bigr),
@@ -377,18 +377,18 @@ $$
 > **命題（短完全列での特徴イデアルの乗法性）**  
 > 有限生成torsion $R$ 加群の短完全列
 >
-> $$
-> 0\longrightarrow A\longrightarrow B\longrightarrow C\longrightarrow0
-> $$
+$$
+0\longrightarrow A\longrightarrow B\longrightarrow C\longrightarrow0
+$$
 >
 > に対して
 >
-> $$
-> \operatorname{char}_R(B)
-> =\operatorname{char}_R(A)\operatorname{char}_R(C),\quad
-> \mu(B)=\mu(A)+\mu(C),\quad
-> \lambda(B)=\lambda(A)+\lambda(C).
-> $$
+$$
+\operatorname{char}_R(B)
+=\operatorname{char}_R(A)\operatorname{char}_R(C),\quad
+\mu(B)=\mu(A)+\mu(C),\quad
+\lambda(B)=\lambda(A)+\lambda(C).
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
