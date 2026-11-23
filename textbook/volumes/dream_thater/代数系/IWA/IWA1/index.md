@@ -192,7 +192,23 @@ $$
 [F_n:\mathbb Q]=\frac{2\cdot3^n}{2}=3^n
 $$
 
-を満たします。特に $F_0=\mathbb Q$、$[F_1:\mathbb Q]=3$、$[F_2:\mathbb Q]=9$ です。同じ[円分塔の定理](../../ANF/ANF22/index.md#thm-anf22-cyclotomic-zp-tower)で $F_n\subset F_{n+1}$ と $\operatorname{Gal}(F_\infty/\mathbb Q)\simeq\mathbb Z_3$（$F_\infty=\bigcup_nF_n$）が従います。$F_n$ を固定する閉部分群の指数は $[F_n:\mathbb Q]=3^n$ なので、[閉部分群の分類](#thm-iwa1-closed-subgroups)から、同型 $\iota$ の下で $3^n\mathbb Z_3$ に対応します。従って定義した第 $n$ 層と $F_n$ は一致します。さらに $F_1\subset F_2$ と塔の次数公式より $[F_2:F_1]=9/3=3$ です。固定群・次数・包含を別々に確認できました。
+を満たします。最初の三層の次数は
+
+$$
+F_0=\mathbb Q,\qquad [F_1:\mathbb Q]=3,\qquad [F_2:\mathbb Q]=9
+$$
+
+です。[円分塔の定理](../../ANF/ANF22/index.md#thm-anf22-cyclotomic-zp-tower)により、これらは順に包含され、その合併のGalois群は
+
+$$
+F_n\subset F_{n+1},\qquad
+\operatorname{Gal}(F_\infty/\mathbb Q)\simeq\mathbb Z_3,
+\qquad F_\infty=\bigcup_nF_n
+$$
+
+を満たします。$F_n$ を固定する閉部分群は指数 $3^n$ です。[閉部分群の分類](#thm-iwa1-closed-subgroups)により、これは同型 $\iota$ の下で $3^n\mathbb Z_3$ に対応します。従って定義した第 $n$ 層と $F_n$ は一致します。
+
+さらに塔の次数公式より $[F_2:F_1]=9/3=3$ です。固定群・次数・包含を別々に確認できました。
 <!-- definition-example-end -->
 
 この定理は群構造から**何個の有限層があるか**を決めます。しかし、各 $K_n$ の類群がどの大きさかは、まだ何も決めていません。そこから各層の類群を解析することが岩澤理論の課題になります。
@@ -233,7 +249,14 @@ $L/K$ は代数Galois拡大です。$\sigma\in\operatorname{Gal}(L/K)$ は各有
 
 逆に両立する族 $(\sigma_n)_n$ を取ります。任意の $x\in L$ に対して $x\in K_n$ となる $n$ を選び $\sigma(x)=\sigma_n(x)$ と定めます。$x\in K_m$（$m\ge n$）でも $\sigma_m(x)=\rho_{m,n}(\sigma_m)(x)=\sigma_n(x)$ ですから、選び方に依存しません。和・積・$K$ の固定は、二元を共に含む十分高い有限層で検証できます。逆元写像は両立する $(\sigma_n^{-1})$ から同じ方法で構成できるので、$\sigma$ は $K$ 上の自己同型です。従って全射です。
 
-Krull位相の基本開近傍として、有限層を点ごとに固定する群 $\operatorname{Gal}(L/K_n)$ を使えます。実際、任意の有限Galois中間体 $M/K$ は有限個の元で生成され、それぞれがどこかの $K_n$ に属するので、十分大きい $N$ に対し $M\subseteq K_N$ です。従って $\operatorname{Gal}(L/K_N)\subseteq\operatorname{Gal}(L/M)$ となり、これらの群は[Krull位相](../../ANF/ANF22/index.md#def-anf22-krull-topology)の基本開近傍系を成します。構成した同型の下では $\operatorname{Gal}(L/K_n)$ が逆極限の第 $n$ 射影の核へ写り、逆極限位相の基本開近傍と一致します。よって同型と逆写像は連続です。
+[Krull位相](../../ANF/ANF22/index.md#def-anf22-krull-topology)の近傍系には、有限層を点ごとに固定する群を使えます。実際、有限Galois中間体 $M/K$ は有限個の元で生成され、各生成元はどこかの $K_n$ に入ります。十分大きい $N$ を選べば
+
+$$
+M\subseteq K_N,\qquad
+\operatorname{Gal}(L/K_N)\subseteq\operatorname{Gal}(L/M).
+$$
+
+従って $\operatorname{Gal}(L/K_n)$ はKrull位相の基本開近傍系を成します。構成した同型では、この群は逆極限の第 $n$ 射影の核に写ります。これが逆極限位相の基本開近傍系なので、同型と逆写像は連続です。
 <!-- proof-end -->
 
 **計算例（制限写像）。** $K_\infty/K$ が $\mathbb Z_5$ 拡大なら
@@ -276,7 +299,21 @@ $$
 <!-- proof-start -->
 ### 証明
 
-整数の稠密性は[桁展開](../../ANF/ANF9/index.md#thm-anf9-digit-expansion)から前節の証明と同様に従います。任意の $x\in\mathbb Z_p$ に整数列 $m_N\to x$ を選ぶと、$m_Nu\to ux$ なので $u\mathbb Z_p\subseteq\overline{\mathbb Zu}$ です。一方、$u=0$ なら $u\mathbb Z_p=\{0\}$、$u\ne0$ なら[付値による単元判定](../../ANF/ANF9/index.md#prop-anf9-dvr-structure)から $u=p^kv$（$k=v_p(u)\ge0$、$v$ は単元）と書けて、
+[桁展開](../../ANF/ANF9/index.md#thm-anf9-digit-expansion)により、整数は $\mathbb Z_p$ に稠密です。任意の元 $x$ に整数列 $m_N$ を近づけると、乗法の連続性から
+
+$$
+m_N\longrightarrow x,\qquad m_Nu\longrightarrow ux
+$$
+
+となるため、$u\mathbb Z_p\subseteq\overline{\mathbb Zu}$ です。
+
+反対の包含には $u\mathbb Z_p$ の閉性を使います。$u=0$ ならこれは閉集合 $\{0\}$ です。$u\ne0$ なら[付値による単元判定](../../ANF/ANF9/index.md#prop-anf9-dvr-structure)から
+
+$$
+u=p^kv,\qquad k=v_p(u)\ge0,\quad v\in\mathbb Z_p^\times
+$$
+
+と書けて、
 
 $$
 u\mathbb Z_p=p^k\mathbb Z_p
