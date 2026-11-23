@@ -33,3 +33,4 @@
 30. [BHI30 $n\to1$ とisland公式の導出範囲](textbook/volumes/dream_thater/物理系/BHI/BHI30/index.md)
 31. [BHI31 ensemble平均とfactorization問題](textbook/volumes/dream_thater/物理系/BHI/BHI31/index.md)
 32. [BHI32 放射のentanglement wedge](textbook/volumes/dream_thater/物理系/BHI/BHI32/index.md)
+33. [BHI33 回復写像と情報への操作的アクセス](textbook/volumes/dream_thater/物理系/BHI/BHI33/index.md)
