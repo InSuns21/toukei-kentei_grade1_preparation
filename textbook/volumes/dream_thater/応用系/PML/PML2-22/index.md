@@ -540,7 +540,33 @@ assert abs(finite_difference - direct) < 1.0e-10
 - $\theta>0$、$A(\theta)=\theta\begin{pmatrix}2&-1\\-1&2\end{pmatrix}$、$b=(1,1)^T$、$J(u)=\frac12(u_1-1)^2$ とする。$\theta=2$ の全勾配を直接法と随伴法で求めて一致させよ。
 
 <!-- solution-start -->
-**詳細解答。** $M(1,1)^T=(1,1)^T$ なので $u=(1/\theta,1/\theta)^T$。$\theta=2$ では $u=(1/2,1/2)^T$、$u'=(-1/4,-1/4)^T$、$g=\nabla_uJ=(-1/2,0)^T$。[直接勾配公式](#thm-pml2-22-tangent)による値は $g^T u'=(-1/2)(-1/4)=1/8$。随伴方程式は $2M\lambda=g$ で、$M^{-1}=\frac13\begin{pmatrix}2&1\\1&2\end{pmatrix}$ より $\lambda=(1/2)M^{-1}g=(-1/6,-1/12)^T$。$A'=M$、$b'=0$、$-A'u=-(1/2,1/2)^T$ だから[随伴勾配公式](#thm-pml2-22-adjoint-gradient)の値は $\lambda^T(-A'u)=1/12+1/24=1/8$。$\det A=3\theta^2>0$ も成り立つ。
+**詳細解答。** $M=\begin{pmatrix}2&-1\\-1&2\end{pmatrix}$ と置くと $M(1,1)^T=(1,1)^T$。$\det A=3\theta^2>0$ だから状態解は一意で、
+
+$$
+u(\theta)=\frac1\theta\begin{pmatrix}1\\1\end{pmatrix},\qquad
+u'(\theta)=-\frac1{\theta^2}\begin{pmatrix}1\\1\end{pmatrix}.
+$$
+
+$\theta=2$ では $u=(1/2,1/2)^T$、$u'=(-1/4,-1/4)^T$ である。$J(u)=\frac12(u_1-1)^2$ を状態の各成分で微分すると $g=\nabla_uJ=(-1/2,0)^T$ なので、[直接勾配公式](#thm-pml2-22-tangent)は
+
+$$
+L'=g^Tu'=\left(-\frac12\right)\left(-\frac14\right)=\frac18
+$$
+
+を与える。一方、随伴方程式は $2M\lambda=g$ であり、$M^{-1}=\frac13\begin{pmatrix}2&1\\1&2\end{pmatrix}$ を用いると
+
+$$
+\lambda=\frac12M^{-1}g
+=\begin{pmatrix}-1/6\\-1/12\end{pmatrix}.
+$$
+
+$A'=M$、$b'=0$ だから $-A'u=-Mu=(-1/2,-1/2)^T$。[随伴勾配公式](#thm-pml2-22-adjoint-gradient)によって
+
+$$
+L'=\lambda^T(-A'u)=\frac1{12}+\frac1{24}=\frac18.
+$$
+
+状態・随伴のいずれも可逆な線形系で一意に定まり、両方法の勾配は一致した。
 <!-- solution-end -->
 
 <a id="ex-pml2-22-b02"></a>
@@ -550,7 +576,31 @@ assert abs(finite_difference - direct) < 1.0e-10
 - $\theta>0$、$A=2+\theta,\ b=\theta^2,\ J(u,\theta)=\frac12(u-1)^2+\theta^2$ に対し $\theta=1$ の勾配を、直接法と随伴法で別々に求めよ。$J_\theta$ を状態微分と混同しないこと。
 
 <!-- solution-start -->
-**詳細解答。** $u(1)=1/3$、$u'(1)=(b'-A'u)/A=(2-1/3)/3=5/9$。$J_u=u-1=-2/3$、$J_\theta=2\theta=2$ なので[直接勾配公式](#thm-pml2-22-tangent)では $L'=2+(-2/3)(5/9)=2-10/27=44/27$。[随伴法](#thm-pml2-22-adjoint-gradient)では $A^T\lambda=J_u$ は $3\lambda=-2/3$、$\lambda=-2/9$。$b'-A'u=5/3$ より $L'=J_\theta+\lambda(b'-A'u)=2-10/27=44/27$。明示的な $J_\theta$ と状態経由の項をそれぞれ一回だけ足す。
+**詳細解答。** $\theta=1$ で $A=3$、$b=1$、$A'=1$、$b'=2$ だから、状態は $u=1/3$。[感度方程式](#thm-pml2-22-tangent)から
+
+$$
+u'=\frac{b'-A'u}{A}
+=\frac{2-1/3}{3}
+=\frac59.
+$$
+
+$J(u,\theta)=\frac12(u-1)^2+\theta^2$ の状態を固定した偏微分は $J_\theta=2\theta=2$、状態微分は $J_u=u-1=-2/3$。従って[直接勾配公式](#thm-pml2-22-tangent)は
+
+$$
+L'=J_\theta+J_uu'
+=2-\frac23\cdot\frac59
+=2-\frac{10}{27}=\frac{44}{27}
+$$
+
+となる。随伴方程式 $A^T\lambda=J_u$ は $3\lambda=-2/3$ だから $\lambda=-2/9$。これを[随伴勾配公式](#thm-pml2-22-adjoint-gradient)に代入すると
+
+$$
+L'=J_\theta+\lambda(b'-A'u)
+=2-\frac29\cdot\frac53
+=\frac{44}{27}.
+$$
+
+状態経由の $J_uu'$ と明示的依存の $J_\theta$ を混同せず、一回ずつ足す。
 <!-- solution-end -->
 
 <a id="ex-pml2-22-b03"></a>
