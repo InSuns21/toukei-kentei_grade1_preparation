@@ -11,7 +11,7 @@ concepts:
     introduction: formal
     requires: [number-theory.iwasawa-power-series-isomorphism]
   - id: number-theory.iwa6-order-additivity
-    name: 積での指数の加法性
+    name: 積の指数公式
     kind: proposition
     introduction: formal
     requires: [number-theory.iwa6-orders]
