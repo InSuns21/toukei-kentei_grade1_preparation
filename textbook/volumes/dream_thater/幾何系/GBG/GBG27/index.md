@@ -43,7 +43,7 @@ $$
 右辺の各係数は $\alpha=e^{ij}$ を順に代入すれば一意に定まり、この表が定義式を実際に満たすので存在も従う。任意の正の正規直交基底への変更でも外積・内積・体積形式が保存されるから、* は選んだ基底に依存しない。
 
 <!-- definition-example-start: def-gbg27-hodge-star -->
-**定義の直接例**。標準向き・Euclid計量の $\mathbb R^4$ で $\beta=dx^1\wedge dx^2$ とする。上の表から $*\beta=dx^3\wedge dx^4$ である。$\alpha=\sum a_{ij}dx^i\wedge dx^j$ を代入すると、$dx^{ij}\wedge dx^{34}$ は $(i,j)=(1,2)$ のときだけ非零なので
+**定義の確認**。標準向き・Euclid計量の $\mathbb R^4$ で $\beta=dx^1\wedge dx^2$ とする。上の表から $*\beta=dx^3\wedge dx^4$ である。$\alpha=\sum a_{ij}dx^i\wedge dx^j$ を代入すると、$dx^{ij}\wedge dx^{34}$ は $(i,j)=(1,2)$ のときだけ非零なので
 
 $$
 \alpha\wedge *\beta=a_{12}\,dx^{1234}
@@ -109,7 +109,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg27-self-duality -->
-**定義の直接例**。$\mathbb R^4$ の標準計量・向きで $T=\operatorname{diag}(i,-i)\in\mathfrak{su}(2)$ とし、自明束の大域接続を
+**定義の確認**。$\mathbb R^4$ の標準計量・向きで $T=\operatorname{diag}(i,-i)\in\mathfrak{su}(2)$ とし、自明束の大域接続を
 
 $$
 A=\frac T2\left(x^1dx^2-x^2dx^1+x^3dx^4-x^4dx^3\right)
@@ -181,7 +181,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg27-yang-mills-action -->
-**定義の直接例**。一点の正規直交基底で $F=T\,e^{12}$、$T=\operatorname{diag}(i,-i)$ なら $*F=T\,e^{34}$、$T^2=-I_2$ なので
+**定義の確認**。一点の正規直交基底で $F=T\,e^{12}$、$T=\operatorname{diag}(i,-i)$ なら $*F=T\,e^{34}$、$T^2=-I_2$ なので
 
 $$
 -\operatorname{tr}(F\wedge *F)
@@ -211,8 +211,14 @@ $$
 \end{aligned}
 $$
 
-二行目は $\operatorname{tr}(F^\pm\wedge F^\pm)
-=\mp|F^\pm|^2\operatorname{vol}_g$ から得る。例えば $F^+=*F^+$ のとき $F^+\wedge F^+=F^+\wedge *F^+$ だから、跡は**負**になる。
+二行目の根拠は次の式である。
+
+$
+\operatorname{tr}(F^\pm\wedge F^\pm)
+=\mp|F^\pm|^2\operatorname{vol}_g.
+$
+
+例えば $F^+=*F^+$ のとき $F^+\wedge F^+=F^+\wedge *F^+$ だから、跡は**負**になる。
 
 <a id="thm-gbg27-yang-mills-bound"></a>
 
@@ -530,15 +536,15 @@ $$
 
 平方完成から非負量 $u=\|F^+\|_{L^2}^2$、$v=\|F^-\|_{L^2}^2$ を取ると、
 
-$
+$$
 8\pi^2k=-u+v=0,\qquad \operatorname{YM}=u+v=2u=2v.
-$
+$$
 
 曲率がどこかで非零なら、滑らかな非負関数 $|F|^2$ が開集合上で正となる。したがって
 
-$
+$$
 \operatorname{YM}=\int_M|F|^2\operatorname{vol}_g>0.
-$
+$$
 
 $k=0$ が意味するのは $u=v$ だけであって、$u=v=0$ ではない。[GBG26の自明束上の非平坦接続例](../GBG26/index.md#ex-gbg26-b04)がこの区別を具体的に示す。
 <!-- solution-end -->
