@@ -1,0 +1,52 @@
+id: LREP4
+title: "直和・テンソル積・双対表現"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP3
+  - LA3E
+official_scope: []
+learning_objectives:
+  - 群表現の直和を定義して群法則と不変部分空間を計算できる
+  - テンソル積表現の群法則・次元とLie環への微分公式を証明できる
+  - 双対表現で逆元と転置が必要な理由を評価の不変性から証明できる
+  - 複素共役表現と双対表現を区別し、不変Hermite内積の下での同値を示せる
+  - VテンソルV双対と自己準同型の同変同型と固定テンソルを構成できる
+  - 不変双線形形式を双対への絡作用素として説明し、epsilonの不変性を二次元行列で検算できる
+definitions:
+  - { id: LREP4-DEF-01, name: 表現の直和 }
+  - { id: LREP4-DEF-02, name: 表現のテンソル積 }
+  - { id: LREP4-DEF-03, name: 双対表現 }
+  - { id: LREP4-DEF-04, name: 複素共役表現 }
+  - { id: LREP4-DEF-05, name: 不変双線形形式 }
+theorems:
+  - { id: LREP4-PROP-01, name: 直和は表現となる }
+  - { id: LREP4-THM-01, name: テンソル積表現の群法則と次元 }
+  - { id: LREP4-PROP-02, name: テンソル積表現の微分 }
+  - { id: LREP4-THM-02, name: 双対は表現となり評価を保存する }
+  - { id: LREP4-PROP-03, name: 不変Hermite内積と共役・双対の同値 }
+  - { id: LREP4-THM-03, name: VテンソルV双対と自己準同型の自然な対応 }
+  - { id: LREP4-THM-04, name: 不変双線形形式と双対への絡作用素 }
+  - { id: LREP4-PROP-04, name: 二次元交代形式と行列式 }
+canonical_examples:
+  - C2の符号表現と直和のブロック対角行列
+  - C2の符号表現のテンソル積
+  - R加法群の対角表現と双対表現の評価
+  - C3の一次元表現と複素共役
+  - VテンソルV双対の行列単位
+  - SL2Cの標準表現とepsilonの不変性
+problem_patterns:
+  - LREP4-DIRECT-SUM-C2
+  - LREP4-TENSOR-SIGNS
+  - LREP4-DUAL-EVALUATION
+  - LREP4-CONJUGATE-C3
+  - LREP4-TENSOR-DISTRIBUTIVITY
+  - LREP4-LIE-TENSOR-BRACKET
+  - LREP4-ENDOMORPHISM-INVARIANTS
+  - LREP4-DETERMINANT-OBSTRUCTION
+  - LREP4-BILINEAR-DUAL-OBSTRUCTION
+  - LREP4-SU2-TENSOR-SQUARE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 2 }

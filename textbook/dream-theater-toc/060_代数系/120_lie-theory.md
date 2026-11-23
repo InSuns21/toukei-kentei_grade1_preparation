@@ -8,3 +8,4 @@
 5. [LREP1 表現とは何か――作用、表現、部分表現、同値](textbook/volumes/dream_thater/代数系/LREP/LREP1/index.md)
 6. [LREP2 既約分解とSchurの補題](textbook/volumes/dream_thater/代数系/LREP/LREP2/index.md)
 7. [LREP3 Lie環表現と群表現の積分](textbook/volumes/dream_thater/代数系/LREP/LREP3/index.md)
+8. [LREP4 直和・テンソル積・双対表現](textbook/volumes/dream_thater/代数系/LREP/LREP4/index.md)

@@ -1,0 +1,78 @@
+chapter: LREP4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP3
+  - LA3E
+forward_references: []
+concepts:
+  - id: representation.direct-sum
+    name: 表現の直和
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（表現の直和）"]
+    requires: [representation.finite-dimensional-complex, linear.direct-sum]
+  - id: representation.direct-sum-action
+    name: 直和は表現となる
+    kind: proposition
+    introduction: formal
+    requires: [representation.direct-sum]
+  - id: representation.tensor-product
+    name: 表現のテンソル積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（表現のテンソル積）"]
+    requires: [representation.finite-dimensional-complex, linear.tensor-product]
+  - id: representation.tensor-product-action
+    name: テンソル積表現の群法則と次元
+    kind: theorem
+    introduction: formal
+    requires: [representation.tensor-product, linear.tensor-product-basis]
+  - id: representation.tensor-differential
+    name: テンソル積表現の微分
+    kind: proposition
+    introduction: formal
+    requires: [representation.tensor-product, representation.differentiation-bracket]
+  - id: representation.dual
+    name: 双対表現
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（双対表現）"]
+    requires: [representation.finite-dimensional-complex, linear.algebraic-dual-space]
+  - id: representation.dual-evaluation
+    name: 双対は表現となり評価を保存する
+    kind: theorem
+    introduction: formal
+    requires: [representation.dual, linear.dual-basis]
+  - id: representation.conjugate
+    name: 複素共役表現
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素共役表現）"]
+    requires: [representation.finite-dimensional-complex]
+  - id: representation.unitary-conjugate-dual
+    name: 不変Hermite内積と共役・双対の同値
+    kind: proposition
+    introduction: formal
+    requires: [representation.conjugate, representation.dual, representation.intertwiner]
+  - id: representation.tensor-endomorphism
+    name: VテンソルV双対と自己準同型の自然な対応
+    kind: theorem
+    introduction: formal
+    requires: [representation.tensor-product, representation.dual, representation.intertwiner, linear.dual-basis]
+  - id: representation.invariant-bilinear
+    name: 不変双線形形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（不変双線形形式）"]
+    requires: [linear.bilinear-form, representation.finite-dimensional-complex]
+  - id: representation.invariant-bilinear-intertwiner
+    name: 不変双線形形式と双対への絡作用素
+    kind: theorem
+    introduction: formal
+    requires: [representation.invariant-bilinear, representation.dual, representation.intertwiner, linear.nondegenerate-bilinear-form]
+  - id: representation.epsilon-determinant
+    name: 二次元交代形式と行列式
+    kind: proposition
+    introduction: formal
+    requires: [representation.invariant-bilinear, linear.bilinear-form]

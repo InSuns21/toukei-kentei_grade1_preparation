@@ -19,7 +19,7 @@ chapters:
     title: "Lie環表現と群表現の積分"
   - id: LREP4
     path: textbook/volumes/dream_thater/代数系/LREP/LREP4
-    status: planned
+    status: completed
     title: "直和・テンソル積・双対表現"
   - id: LREP5
     path: textbook/volumes/dream_thater/代数系/LREP/LREP5
