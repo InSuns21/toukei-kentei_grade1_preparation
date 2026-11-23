@@ -262,7 +262,16 @@ $$
 
 です。右辺の反復積分でもまず $y$、次に $x$ の有限和を取れば同じ式です。一般の連続 $f$ については $f_n\to f$ が一様で、$|I_\rho(g)|_p\le\|g\|_\infty$ を $\rho=\mu,\nu,\mu*\nu$ に使うと、各積分が一様誤差以下で収束します。ゆえに等式を極限へ移せます。
 
-点質量の積は各層の定義から $\delta_a*\delta_b=\delta_{a+b}$ です。従って $\delta_0*\mu=\mu$ であり、加法の結合・交換法則により畳み込みも結合的・交換的です。
+点質量の積は各層の定義から $\delta_a*\delta_b=\delta_{a+b}$ です。従って $\delta_0*\mu=\mu$ です。また三つの測度 $\mu,\nu,\eta$ について、第 $n$ 層の $a$ での重みを計算すると
+
+$
+((\mu*\nu)*\eta)_n(a)
+=\sum_{b+c+d\equiv a\;(\mathrm{mod}\;p^n)}
+\mu_n(b)\nu_n(c)\eta_n(d)
+=(\mu*(\nu*\eta))_n(a).
+$
+
+これは有限和の分配法則であり、畳み込みの結合性を示します。$b,c$ を交換すると交換性も従います。
 <!-- proof-end -->
 
 ## 4. 完備群環と測度の環は同じもの
@@ -313,7 +322,7 @@ $$
 =(\mu*\nu)_n(a).
 $$
 
-ゆえに $\Phi(\mu*\nu)=\Phi(\mu)\Phi(\nu)$ です。単位元は $\delta_0$ に対応します。$\Gamma$ の同一視を施すと、有限群環の逆極限は [岩澤代数の定義](../IWA3/index.md#def-iwa3-completed-group-ring)です。[冪級数表示の定理](../IWA3/index.md#thm-iwa3-power-series-isomorphism)により $\gamma$ の像を $1+T$ と置けます。
+ゆえに $\Phi(\mu*\nu)=\Phi(\mu)\Phi(\nu)$ です。単位元は $\delta_0$ に対応します。$\Gamma$ の同一視を施すと、有限群環の逆極限は [岩澤代数の定義](../IWA3/index.md#def-iwa3-completed-group-ring)です。[岩澤代数の冪級数表示](../IWA3/index.md#thm-iwa3-power-series-isomorphism)により $\gamma$ の像を $1+T$ と置けます。
 <!-- proof-end -->
 
 例えば点質量では
@@ -377,7 +386,19 @@ $$
 P_n(T)=\sum_{a=0}^{p^n-1}\mu_n(a)(1+T)^a\in\mathbb Z_p[T]
 $$
 
-と置きます。[IWA3の有限層表示](../IWA3/index.md#prop-iwa3-finite-presentation)から、$\omega_n=(1+T)^{p^n}-1$ を法として $P_n(T)$ は第 $n$ 層の $\Phi(\mu)_n$ を表します。分布関係により $P_{n+1}\equiv P_n\pmod{\omega_n}$ なので、[有限層の核と極限位相の一致](../IWA3/index.md#lem-iwa3-cofinal-ideals)から $P_n$ は $\mathbb Z_p[[T]]$ の $(p,T)$ 進位相で $\Phi(\mu)$ の像へ収束します。
+と置きます。第 $n$ 層を表す関係式は
+
+$
+\omega_n=(1+T)^{p^n}-1
+$
+
+です。[有限群環の一変数表示](../IWA3/index.md#prop-iwa3-finite-presentation)により、$P_n(T)$ を $\omega_n$ で割った剰余類は $\Phi(\mu)_n$ に対応します。分布関係は
+
+$
+P_{n+1}(T)\equiv P_n(T)\pmod{\omega_n}
+$
+
+を与えます。[有限層の核と極限位相の一致](../IWA3/index.md#lem-iwa3-cofinal-ideals)を適用すると、$P_n$ は $(p,T)$ 進位相で収束します。その極限は $\Phi(\mu)$ を冪級数として表した元です。
 
 一方、固定した $j$ について $T^j$ の係数は
 
@@ -385,7 +406,7 @@ $$
 [T^j]P_n(T)=\sum_{a=0}^{p^n-1}\mu_n(a)\binom aj.
 $$
 
-$\binom{x}{j}$ は連続な $\mathbb Z_p$ 値関数なので、[積分の延長定理](#thm-iwa13-extension)からこの係数は $\int\binom{x}{j}d\mu$ へ収束します。$(p,T)$ 進収束では固定次数の係数も $p$ 進収束するので、極限の全係数は $\mathcal A_\mu(T)$ の定義式と一致します。最後に [測度環同型](#thm-iwa13-measure-algebra)が積を保つため乗法公式が従います。
+$\binom{x}{j}$ は連続な $\mathbb Z_p$ 値関数なので、[分布の積分への一意的延長](#thm-iwa13-extension)からこの係数は $\int\binom{x}{j}d\mu$ へ収束します。$(p,T)$ 進収束では固定次数の係数も $p$ 進収束するので、極限の全係数は $\mathcal A_\mu(T)$ の定義式と一致します。最後に [測度環同型](#thm-iwa13-measure-algebra)が積を保つため乗法公式が従います。
 
 $\delta_a$ の場合、$a$ を法 $p^n$ で代表する非負整数列 $a_n$ は $a$ へ $p$ 進収束します。各 $j$ で $\binom{a_n}{j}\to\binom aj$ なので $\mathcal A_{\delta_a}(T)=\sum_j\binom ajT^j=(1+T)^a$ です。
 <!-- proof-end -->
@@ -453,7 +474,7 @@ $|u-1|_p<1$ より、係数が $\mathbb Z_p$ にある $\mathcal A_\mu(T)=\sum_j
 
 有限位数の指標が法 $p^n$ を通じて定まるなら、$\kappa$ は各剰余類で一定なので、定義した積分はその層での有限和に等しいです。
 
-最後に [畳み込みの積分公式](#prop-iwa13-convolution)を $f(z)=\kappa(z)$ へ適用すると、内側は $\int\kappa(x)\kappa(y)d\nu(y)=\kappa(x)\mathscr M_\nu(\kappa)$、外側はその定数をくくり出して $\mathscr M_\mu(\kappa)\mathscr M_\nu(\kappa)$ になります。
+最後に [畳み込みの整合性と積分公式](#prop-iwa13-convolution)を $f(z)=\kappa(z)$ へ適用すると、内側は $\int\kappa(x)\kappa(y)d\nu(y)=\kappa(x)\mathscr M_\nu(\kappa)$、外側はその定数をくくり出して $\mathscr M_\mu(\kappa)\mathscr M_\nu(\kappa)$ になります。
 <!-- proof-end -->
 
 **具体的な指標。** $p=3$ なら $u=4^k$（$k\in\mathbb Z_3$、$4^k=\sum_{j\ge0}\binom kj3^j$）を選べます。$\kappa_k(x)=4^{kx}$ は連続指標です。例えば $\mu=\delta_0+2\delta_1$ の変換は $1+2\cdot4^k$、二項式変換は $1+2(1+T)=3+2T$ なので $T=4^k-1$ の代入は同じ値を与えます。
@@ -473,7 +494,7 @@ $$
 <a id="prop-iwa13-no-haar-probability"></a>
 
 <!-- formal-statement-start -->
-> **命題（$\mathbb Z_p$ 上の平行移動不変な有界 $\mathbb Q_p$ 値測度）**  
+> **命題（平行移動不変な有界Q_p値測度）**  
 > $\mathbb Z_p$ の全ての平行移動で不変な有界 $\mathbb Q_p$ 値分布は零分布に限る。特に全質量 $1$ の平行移動不変な $\mathbb Z_p$ 値測度は存在しない。
 <!-- formal-statement-end -->
 
@@ -557,14 +578,14 @@ $$
 $\delta_2*\delta_5$ および $(\delta_0-\delta_1)*\delta_2$ を測度として求め、その二項式変換を計算せよ。
 
 <!-- solution-start -->
-**詳細解答。** [畳み込みの積分公式](#prop-iwa13-convolution)より点質量の積は添字の和になるので
+**詳細解答。** [畳み込みの整合性と積分公式](#prop-iwa13-convolution)より点質量の積は添字の和になるので
 
 $$
 \delta_2*\delta_5=\delta_7,\qquad
 (\delta_0-\delta_1)*\delta_2=\delta_2-\delta_3.
 $$
 
-[二項式変換の積公式](#thm-iwa13-amice-isomorphism)から前者は $(1+T)^7$、後者は
+[二項式変換と岩澤代数の積](#thm-iwa13-amice-isomorphism)から前者は $(1+T)^7$、後者は
 
 $$
 (1-(1+T))(1+T)^2=-T(1+T)^2=-T-2T^2-T^3.
@@ -663,7 +684,7 @@ $\mu_n(a)=p^{-n}\in\mathbb Q_p$ とする。これが分布関係を満たすこ
 $\mu,\nu$ を $\mathbb Z_p$ 値測度とし、$\kappa$ を連続指標とする。局所定数関数の場合から始めて $\int\kappa\,d(\mu*\nu)=\bigl(\int\kappa\,d\mu\bigr)\bigl(\int\kappa\,d\nu\bigr)$ を導き、$\kappa$ が群準同型でなければ同じ計算が成り立たない理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答。** まず $\kappa$ が法 $p^n$ を通る場合は、畳み込みの定義から
+**詳細解答。** まず $\kappa$ が法 $p^n$ を通る場合は、[測度の畳み込み](#def-iwa13-convolution)の定義から
 
 $$
 \sum_{a}\kappa(a)(\mu*\nu)_n(a)
@@ -671,7 +692,7 @@ $$
 =\sum_{b,c}\kappa(b)\kappa(c)\mu_n(b)\nu_n(c).
 $$
 
-最後の二重和は有限和の分配法則で $\bigl(\sum_b\kappa(b)\mu_n(b)\bigr)\bigl(\sum_c\kappa(c)\nu_n(c)\bigr)$ です。一般の連続指標は有限商を通るとは限らないので、ここで「各近似も指標」とは置けません。代わりに [畳み込みの積分公式](#prop-iwa13-convolution)を連続関数 $f(z)=\kappa(z)$ に適用します。これは局所定数近似の有限二重和から一様極限で証明済みです。その右辺で $\kappa(x+y)=\kappa(x)\kappa(y)$ を使うと
+最後の二重和は有限和の分配法則で $\bigl(\sum_b\kappa(b)\mu_n(b)\bigr)\bigl(\sum_c\kappa(c)\nu_n(c)\bigr)$ です。一般の連続指標は有限商を通るとは限らないので、ここで「各近似も指標」とは置けません。代わりに [畳み込みの整合性と積分公式](#prop-iwa13-convolution)を連続関数 $f(z)=\kappa(z)$ に適用します。これは局所定数近似の有限二重和から一様極限で証明済みです。その右辺で $\kappa(x+y)=\kappa(x)\kappa(y)$ を使うと
 
 $$
 \int\!\left(\int \kappa(x+y)\,d\nu(y)\right)d\mu(x)
@@ -690,7 +711,12 @@ $$
 - Level: C
 - ID: IWA13-C1
 
-$p=3$、$\mu=\delta_0-\delta_1$、$\nu=\delta_0+\delta_1$ とする。(1) 第1層の畳み込みを直接求める。(2) $\mu*\nu$ の全質量と $\int x^2\,d(\mu*\nu)$ を求める。(3) 二項式変換を三つ計算し、乗法性を確かめる。(4) $\zeta^3=1$ で $\kappa(x)=\zeta^{x\bmod3}$ としたとき Mellin 変換の乗法性を有限和から確かめる。
+$p=3$、$\mu=\delta_0-\delta_1$、$\nu=\delta_0+\delta_1$ とする。次の四つを確かめよ。
+
+1. 第1層の畳み込みを直接求める。
+2. $\mu*\nu$ の全質量と $\int x^2\,d(\mu*\nu)$ を求める。
+3. 二項式変換を三つ計算し、乗法性を確かめる。
+4. $\zeta^3=1$ のもと $\kappa(x)=\zeta^{x\bmod3}$ としたとき、Mellin 変換の乗法性を有限和から確かめる。
 
 <!-- solution-start -->
 **詳細解答。**
@@ -703,13 +729,13 @@ $$
 =\delta_0-\delta_2.
 $$
 
-(2) 全質量は $1-1=0$ です。点質量の積分公式から
+(2) 全質量は $1-1=0$ です。[p進積分](#def-iwa13-integral)を点質量に適用して
 
 $$
 \int x^2\,d(\mu*\nu)=0^2-2^2=-4.
 $$
 
-(3) [二項式変換の定理](#thm-iwa13-amice-isomorphism)より
+(3) [二項式変換と岩澤代数の積](#thm-iwa13-amice-isomorphism)より
 
 $$
 \mathcal A_\mu(T)=1-(1+T)=-T,\qquad
