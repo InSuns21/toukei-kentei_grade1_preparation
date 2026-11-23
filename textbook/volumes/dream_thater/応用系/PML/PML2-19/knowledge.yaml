@@ -1,0 +1,53 @@
+chapter: PML2-19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-18
+  - PML2-17
+  - PML2-14
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-19-uniform-density
+    name: 入力族上の一様近似可能性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（入力族上の一様近似可能性）"]
+    requires:
+      - physics-machine-learning.pml2-14-errors
+      - physics-machine-learning.pml2-18-deeponet
+  - id: physics-machine-learning.pml2-19-equicontinuity
+    name: 入力族の一様同程度連続性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（入力族の一様同程度連続性）"]
+    requires:
+      - physics-machine-learning.pml2-14-operator
+  - id: physics-machine-learning.pml2-19-compact-sensors
+    name: コンパクト入力族の共通補間誤差
+    kind: lemma
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-19-equicontinuity
+      - physics-machine-learning.pml2-18-interpolant
+  - id: physics-machine-learning.pml2-19-compact-approx
+    name: コンパクト入力族上の連続branch/trunk一様近似
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-19-uniform-density
+      - physics-machine-learning.pml2-19-compact-sensors
+      - physics-machine-learning.pml2-18-deeponet
+  - id: physics-machine-learning.pml2-19-sensor-lower-bound
+    name: 連続関数の単位球での有限センサ下界
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-14-sensor-limit
+      - physics-machine-learning.pml2-19-uniform-density
+  - id: physics-machine-learning.pml2-19-training-gap
+    name: 二つの訓練入力は一様誤差を制御しない
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-14-errors
+      - physics-machine-learning.pml2-18-deeponet
