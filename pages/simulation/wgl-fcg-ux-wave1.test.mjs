@@ -75,8 +75,7 @@ test('WGL wave1 numerical overlays stay collapsed until requested',async()=>{
   for(const [path,container,contents] of [
     ['WGL3/mesh.js','panel',['selected.setAttribute(\'points\'','toggle.textContent','back.addEventListener','next.addEventListener']],
     ['WGL17/data-grid.js','panel',['physicalValues[k]','bytes[k]','floatData[k]','inspect(0)']],
-    ['WGL18/diffusion.js','valuesPanel',['liveReadback()','refreshNumbers()','stepNumber']],
-    ['WGL19/audit.js','panel',['discardedPerFrame[k]','frameDeltasMs[k]','droppedMs']]
+    ['WGL18/diffusion.js','valuesPanel',['liveReadback()','refreshNumbers()','stepNumber']]
   ]){
     const source=await readFile(new URL(path,root),'utf8');
     assert.match(source,new RegExp('const '+container+"=document\\.createElement\\('details'\\)"),path);
@@ -88,4 +87,18 @@ test('WGL wave1 numerical overlays stay collapsed until requested',async()=>{
     assert.ok(source.includes(anchor+".insertAdjacentElement('afterend',"+container+")"),
       path+' must be attached to the real GPU mesh/canvas');
   }
+});
+
+test('WGL19 replaces the hidden timeline with source-backed GPU diffusion replay',async()=>{
+  const root=new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL19/audit.js',import.meta.url);
+  const source=await readFile(root,'utf8');
+  for(const signal of ['function resetPlayback()','function nextFrame()',
+    "canvas.addEventListener('wgl19-control'",'const values=readState();',
+    'labels[k].textContent=values[k].toFixed(3)',"wgl19-initial-oracle-captured"]){
+    assert.ok(source.includes(signal),'WGL19/audit.js: '+signal);
+  }
+  assert.doesNotMatch(source,/document\.createElement\('details'\)/,
+    'GPU scene and step controls must be visible instead of hidden in an inspector');
+  assert.ok(source.includes('shell.append(canvas)'),
+    'numeric labels must overlay the actual WebGL canvas');
 });
