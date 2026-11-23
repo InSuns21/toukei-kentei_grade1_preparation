@@ -140,13 +140,13 @@ $\delta_S$ の像は定義通り $D_S$、核は[定理](#thm-iwa11-s-unit-exact)
 
 ここから $p$ を**奇素数**とします。$v\mid p$ に対して、$K_v$ は $v$ での完備化、$\mathcal O_v$ は局所整数環、$\mathfrak m_v$ はその極大イデアル、$k_v=\mathcal O_v/\mathfrak m_v$ は $q_v=p^{f_v}$ 元の剰余体です。局所単数 $u\in\mathcal O_v^\times$ を剰余体に写すと、有限群 $k_v^\times$（位数 $q_v-1$）の元になります。この有限位数は $p$ と互いに素です。
 
-剰余類 $\bar u\in k_v^\times$ は $q_v-1$ 乗が1です。[単純根に対するHenselの補題](../../ANF/ANF10/index.md#thm-anf10-hensel-simple)を[完備離散付値環へ適用する手順](../../ANF/ANF13/index.md#thm-anf13-inertia-exact)で、導関数 $(q_v-1)X^{q_v-2}$ が $\bar u$ で非零であることを用いると、$\omega_v(\bar u)^{q_v-1}=1$ かつ $\omega_v(\bar u)\bmod\mathfrak m_v=\bar u$ を満たす単数へ**一意に**持ち上がります。このため各 $u$ は
+剰余類 $\bar u\in k_v^\times$ は $q_v-1$ 乗が1です。[単純根に対するHenselの補題](../../ANF/ANF10/index.md#thm-anf10-hensel-simple)を[完備離散付値環へ適用する手順](../../ANF/ANF13/index.md#thm-anf13-inertia-exact)で、多項式変数 $X$ に関する導関数 $(q_v-1)X^{q_v-2}$ が $\bar u$ で非零であることを用いると、$\omega_v(\bar u)^{q_v-1}=1$ かつ $\omega_v(\bar u)\bmod\mathfrak m_v=\bar u$ を満たす単数へ**一意に**持ち上がります。このため各 $u$ は
 
 $$
 u=\omega_v(\bar u)\cdot u_1,\qquad u_1\in 1+\mathfrak m_v
 $$
 
-と一意に分解します。後者が $p$ 進方向の単数です。
+と一意に分解します。後者が $p$ 進方向の単数です。また $\omega_v(\bar u\bar w)$ と $\omega_v(\bar u)\omega_v(\bar w)$ はともに $q_v-1$ 乗が1で剰余が $\bar u\bar w$ なので、一意性から等しくなります。この乗法性により $u\mapsto u_1=u/\omega_v(\bar u)$ は準同型です。
 
 <a id="def-iwa11-local-principal-units"></a>
 
