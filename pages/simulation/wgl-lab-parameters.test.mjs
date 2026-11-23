@@ -142,3 +142,35 @@ test('FCG3 G2 grid and radius changes can be independently rechecked only for kn
   assert.equal(verifiedFCG3Physics(js.replace('steps=settings.steps','steps=0'),vertex,fragment,defaults),null);
   assert.equal(verifiedFCG3Physics(js,vertex,fragment.replace('5.0*abs','10.0*abs'),defaults),null);
 });
+
+
+test('WGL14 six GUI controls edit the sole executed postprocess.js source', async () => {
+  const source=await readFile(new URL('WGL/WGL14/postprocess.js',base),'utf8');
+  const specs=parametersFor('WGL14');
+  assert.deepEqual(specs.map(spec=>spec.id),
+    ['image-mode','filter-mode','blur-radius','exposure','process-order','comparison']);
+  const changedValues=['impulse','edge',4,2,'tone-first',0.8];
+  let edited=source;
+  for (let i=0;i<specs.length;i++) {
+    const spec=specs[i];
+    assert.deepEqual(readLabParameter(source,spec),{ok:true,value:spec.default});
+    edited=writeLabParameter(edited,spec,changedValues[i]);
+    assert.deepEqual(readLabParameter(edited,spec),{ok:true,value:changedValues[i]});
+  }
+  for(const token of ['gl.uniform1i(loc(\'u_blurRadius\'),blurRadius)',
+    'gl.uniform1f(loc(\'u_exposure\'),exposure)',
+    'gl.uniform1f(loc(\'u_compare\'),comparison)',
+    "processOrder==='tone-first'?1:0"])
+    assert.ok(edited.includes(token),token);
+  assert.match(edited,/const imageMode = 'impulse';/);
+  assert.match(edited,/const filterMode = 'edge';/);
+  assert.match(edited,/const blurRadius = 4;/);
+  assert.match(edited,/const processOrder = 'tone-first';/);
+  for(let i=specs.length-1;i>=0;i--)
+    edited=writeLabParameter(edited,specs[i],specs[i].default);
+  assert.equal(edited,source);
+  assert.throws(()=>writeLabParameter(source,specs[2],5),RangeError);
+  assert.throws(()=>writeLabParameter(source,specs[5],1.1),RangeError);
+  const expression=source.replace('const comparison = 0.5;', 'const comparison = 1/2;');
+  assert.equal(readLabParameter(expression,specs[5]).ok,false);
+});
