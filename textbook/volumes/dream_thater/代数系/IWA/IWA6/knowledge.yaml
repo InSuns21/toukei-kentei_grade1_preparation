@@ -1,0 +1,53 @@
+chapter: IWA6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - IWA5
+forward_references: []
+concepts:
+  - id: number-theory.iwa6-orders
+    name: 係数付値とWeierstrass次数
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwasawa-power-series-isomorphism]
+  - id: number-theory.iwa6-order-additivity
+    name: 積での指数の加法性
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa6-orders]
+  - id: number-theory.iwa6-distinguished
+    name: distinguished多項式
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa6-orders]
+  - id: number-theory.iwa6-division
+    name: p進Weierstrass除法
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa6-orders]
+  - id: number-theory.iwa6-preparation
+    name: p進Weierstrass準備定理
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa6-division, number-theory.iwa6-distinguished]
+  - id: number-theory.iwa6-prime-factors
+    name: 岩澤代数の既約因子
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa6-preparation, number-theory.iwa5-structure]
+  - id: number-theory.iwa6-characteristic
+    name: 特徴イデアルと岩澤不変量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [特徴イデアルと岩澤のμ,λ不変量]
+    requires: [number-theory.iwa6-prime-factors, number-theory.iwa5-structure]
+  - id: number-theory.iwa6-characteristic-invariance
+    name: 特徴イデアルの一意性と擬同型不変性
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa6-characteristic, number-theory.iwa5-local-pseudoiso]
+  - id: number-theory.iwa6-exact-additivity
+    name: 短完全列での特徴イデアルの乗法性
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa6-characteristic-invariance]
