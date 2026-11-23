@@ -23,3 +23,4 @@
 19. [ANF19 アデール・イデールと有限性条件](textbook/volumes/dream_thater/代数系/ANF/ANF19/index.md)
 20. [ANF20 大域Artin写像と剰余類体](textbook/volumes/dream_thater/代数系/ANF/ANF20/index.md)
 21. [ANF21 大域類体論の主要証明ルート](textbook/volumes/dream_thater/代数系/ANF/ANF21/index.md)
+22. [ANF22 Hilbert類体・円分体とZ_p塔への橋](textbook/volumes/dream_thater/代数系/ANF/ANF22/index.md)
