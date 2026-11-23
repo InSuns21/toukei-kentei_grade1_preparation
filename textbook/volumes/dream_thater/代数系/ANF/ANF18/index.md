@@ -180,7 +180,7 @@ $$
 
 ## 4. 同じ次数でもノルム群は異なる：円分四次と Kummer 四次
 
-$K=\mathbb Q_5$ にはすでに五乗根の円分四次拡大 $C=K(\zeta_5)$ がありました。一方、$X^2+1$ は法 $5$ で $2^2+1\equiv0$、導関数は $2\cdot2=4\not\equiv0\pmod5$ です。[Hensel の補題](../ANF10/index.md#thm-anf10-hensel-simple)により $i^2=-1$ を満たす $i\in K$ が存在します。従って $K$ は四乗根をすべて含み、[緩分岐 Kummer 拡大のノルム計算](../ANF16/index.md#prop-anf16-tame-kummer-norm)で扱った $D=K(\alpha)$、$\alpha^4=5$ も巡回四次拡大です。二つの拡大をノルム群で比較します。
+$K=\mathbb Q_5$ にはすでに五乗根の円分四次拡大 $C=K(\zeta_5)$ がありました。一方、$X^2+1$ は法 $5$ で $2^2+1\equiv0$、導関数は $2\cdot2=4\not\equiv0\pmod5$ です。[Hensel の補題](../ANF10/index.md#thm-anf10-hensel-simple)により $i^2=-1$ を満たす $i\in K$ が存在します。従って $K$ は $1$ の四乗根をすべて含み、[緩分岐 Kummer 拡大のノルム計算](../ANF16/index.md#prop-anf16-tame-kummer-norm)で扱った $D=K(\alpha)$、$\alpha^4=5$ も巡回四次拡大です。二つの拡大をノルム群で比較します。
 
 <a id="prop-anf18-quartic-contrast"></a>
 
@@ -270,7 +270,14 @@ T=\begin{pmatrix}
 =\begin{pmatrix}2&0\\0&4\end{pmatrix}.
 $$
 
-$2,4\in\mathbb Z_5^\times$ なので $T^{-1}=\operatorname{diag}(1/2,1/4)$ も整数成分をもち、[跡双対による整数環の確認](../ANF11/index.md#def-anf11-codifferent)と同じ基底計算で $A^\vee=A$ です。任意の整元 $x\in\mathcal O_E$ と $a\in A$ に対して $\operatorname{Tr}_{E/K}(xa)\in\mathbb Z_5$ だから $\mathcal O_E\subseteq A^\vee=A$。逆包含は $\theta$ の整性によるため、$\mathcal O_E=A$ です。さらに
+$2,4\in\mathbb Z_5^\times$ なので $T^{-1}=\operatorname{diag}(1/2,1/4)$ も整数成分をもちます。実際、$x=a+b\theta$（$a,b\in K$）に対し
+
+$$
+\operatorname{Tr}_{E/K}(x)=2a,\qquad
+\operatorname{Tr}_{E/K}(x\theta)=4b
+$$
+
+です。従って二つの跡がともに $\mathbb Z_5$ に属することと $a,b\in\mathbb Z_5$ は同値であり、[跡双対の定義](../ANF11/index.md#def-anf11-codifferent)に対応する $A^\vee=A$ が従います。任意の整元 $x\in\mathcal O_E$ と $a\in A$ に対して $\operatorname{Tr}_{E/K}(xa)\in\mathbb Z_5$ だから $\mathcal O_E\subseteq A^\vee=A$。逆包含は $\theta$ の整性によるため、$\mathcal O_E=A$ です。さらに
 
 $$
 \mathcal O_E/5\mathcal O_E
