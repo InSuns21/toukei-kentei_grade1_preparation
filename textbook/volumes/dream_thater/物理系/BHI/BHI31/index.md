@@ -76,7 +76,15 @@ ensembleでは、理論のラベル $a$ が有限集合 $\mathcal A$ を動き�
 
 <!-- formal-statement-start -->
 > **定義（ensembleの二境界連結相関）**  
-> 上の有限ensembleにおいて、同じ理論ラベルを共有する二境界平均を $\langle Z_1Z_2\rangle_{\mathcal E}=\sum_a p_aZ_a(\beta_1)Z_a(\beta_2)$、一境界平均を $\langle Z_i\rangle_{\mathcal E}=\sum_a p_aZ_a(\beta_i)$ とする。これらの差
+> 上の有限ensembleにおいて、同じ理論ラベルを共有する二境界平均と、一境界平均を次のように置く。
+>
+$
+\langle Z_1Z_2\rangle_{\mathcal E}=\sum_a p_aZ_a(\beta_1)Z_a(\beta_2),
+\qquad
+\langle Z_i\rangle_{\mathcal E}=\sum_a p_aZ_a(\beta_i).
+$
+>
+> この二つの平均から作る差
 >
 $$
 C_{\mathcal E}(\beta_1,\beta_2)
@@ -290,7 +298,13 @@ $\rho_0=\rho_1=(1)$ は純粋状態で、正規化した密度演算子の二次
 
 <!-- formal-statement-start -->
 > **命題（ensemble平均とレプリカ規格化の非可換性）**  
-> 有限ensembleで正値の $z_a,z_{n,a}$ を与えても、$M_n^{\rm fixed\text{-}first}=M_n^{\rm average\text{-}first}$ は一般には成り立たない。両者が $n=1$ で1に等しいという条件だけでは、$n>1$ における一致も、密度演算子のモーメントとしての許容性も保証されない。
+> 有限ensembleで正値の $z_a,z_{n,a}$ を与えても、一般には次の等式は成り立たない。
+>
+$
+M_n^{\rm fixed\text{-}first}=M_n^{\rm average\text{-}first}.
+$
+>
+> 両者が $n=1$ で1に等しいという条件だけでは、$n>1$ における一致も、密度演算子のモーメントとしての許容性も保証されない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
