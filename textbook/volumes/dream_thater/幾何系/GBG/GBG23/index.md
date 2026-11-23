@@ -467,7 +467,7 @@ $$
 同じ主 $U(r)$ 束の二接続の局所表示を $A_0,A_1$、$a=A_1-A_0$、$A_t=A_0+ta$、曲率を $F_t$ とする。$\operatorname{ch}_2(A_1)-\operatorname{ch}_2(A_0)$ が完全形式であることを、微分公式から明示的に示せ。
 
 <!-- solution-start -->
-**詳細解答**。ここで点は補間変数 $t$ に関する微分 $\dot F_t=dF_t/dt$ を表し、$d$ は基底 $M$ の外微分を表す。[補間曲率の変化率](../GBG22/index.md#lem-gbg22-curvature-variation)より $\dot F_t=da+[A_t\wedge a]=d_{A_t}a$。$\operatorname{tr}(XY)=\operatorname{tr}(YX)$ は Ad不変二次式なので、[Ad不変性と次数1の因子の外微分](../GBG22/index.md#lem-gbg22-invariant-derivative)に $p(X,Y)=\operatorname{tr}(XY)$ を適用できる。また[局所Bianchi恒等式](../GBG11/index.md#thm-gbg11-bianchi-local)より $d_{A_t}F_t=0$。このとき、微分形式の次数 $\deg a=1$、$\deg F_t=2$ を用いると
+**詳細解答**。ここで $\dot F_t=\frac{dF_t}{dt}$ は補間変数 $t$ に関する通常の微分（基底点は固定）を表し、単独の $d$ は基底 $M$ の外微分を表す。[補間曲率の変化率](../GBG22/index.md#lem-gbg22-curvature-variation)より $\dot F_t=da+[A_t\wedge a]=d_{A_t}a$。$\operatorname{tr}(XY)=\operatorname{tr}(YX)$ は Ad不変二次式なので、[Ad不変性と次数1の因子の外微分](../GBG22/index.md#lem-gbg22-invariant-derivative)に $p(X,Y)=\operatorname{tr}(XY)$ を適用できる。また[局所Bianchi恒等式](../GBG11/index.md#thm-gbg11-bianchi-local)より $d_{A_t}F_t=0$。このとき、微分形式の次数 $\deg a=1$、$\deg F_t=2$ を用いると
 
 $
 \begin{aligned}
