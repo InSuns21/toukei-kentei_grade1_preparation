@@ -259,7 +259,9 @@ $$
 
 (3) 二つの計量接続の差を $a=A_1-A_0$、補間を $A_t=A_0+ta$ とする。どちらの接続行列も実交代行列値なので、$A_t$ も $\mathfrak{so}(r)$ 値である。向き付きなら同じ向き付き枠で補間する。
 
-[補間曲率の変化公式](../GBG22/index.md#lem-gbg22-curvature-variation)と[大域的な transgression 恒等式](../GBG22/index.md#thm-gbg22-transgression)を使う。$p_k$ を与える次数 $2k$ の不変多項式を $P$、Euler 形式を与える次数 $m$ の不変多項式を $Q$ とすると、前者には $P$ を代入して
+まず[補間曲率の変化公式](../GBG22/index.md#lem-gbg22-curvature-variation)から $\dot R_t=d_{A_t}a$ を得る。$p_k$ を与える次数 $2k$ の不変多項式を $P$、Euler 形式を与える次数 $m$ の不変多項式を $Q$ とする。
+
+[大域的な transgression 恒等式](../GBG22/index.md#thm-gbg22-transgression)を前者の多項式 $P$ に適用すると
 
 $$
 p_k(\nabla_1)-p_k(\nabla_0)
