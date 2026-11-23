@@ -31,6 +31,9 @@ try {
   for (const target of [a, b, c]) write(target, '# Test\n');
   writeFacade(`1. [X2](${b})\n2. [X1](${a})`);
   assert.equal(readDreamTheaterContents(root), facade(`1. [X2](${b})\n2. [X1](${a})`));
+  // A stray blank line inside one source list must not expand item spacing.
+  writeFacade(`1. [X2](${b})\n \n2. [X1](${a})`);
+  assert.equal(readDreamTheaterContents(root), facade(`1. [X2](${b})\n2. [X1](${a})`));
   assert.deepEqual(discoverDreamTheaterChapters(root), [a, b, c]);
   assert.deepEqual(loadDreamTheaterIndex(root), {
     sections: [
