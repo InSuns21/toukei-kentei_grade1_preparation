@@ -27,6 +27,7 @@ concepts:
     introduction_aliases: ["定義（有限点に対応するLagrange補間基底）"]
     requires:
       - physics-machine-learning.pml2-12-two-residuals
+      - algebra.polynomial-degree
   - id: physics-machine-learning.pml2-12-polynomial
     name: 次数制限下の有限点残差による解誤差評価
     kind: theorem
