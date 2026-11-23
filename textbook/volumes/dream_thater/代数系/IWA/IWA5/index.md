@@ -204,7 +204,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\iota([f])=0$ なら $f\in(p)$ かつ $f\in(T)$ です。$f=pa$、$f=Tb$ と書けば、$p$ を法とした等式 $T[b]_p=0$ が整域 $\mathbb F_p[[T]]$ で成立するため $b\in(p)$、従って $f\in(pT)$ です。逆の包含も明らかなので核は零です。
+$\iota([f])=0$ なら $f\in(p)$ かつ $f\in(T)$ です。$f=pa$、$f=Tb$ と書けば、$p$ を法とした等式 $T[b]_p=0$ が整域 $\mathbb F_p[[T]]$ で成立するため $b\in(p)$、従って $f\in(pT)$ です。逆に $(pT)$ の元は $p$ と $T$ の両方の倍数なので、$(pT)=(p)\cap(T)$、従って核は零です。
 
 $R/(T)\simeq\mathbb Z_p$ と識別し、$b\in\mathbb Z_p$ の法 $p$ の像を $\bar b\in\mathbb F_p$ と書きます。次の差写像を取ります。
 
@@ -213,7 +213,7 @@ $$
 \qquad (u(T),b)\longmapsto u(0)-\bar b
 $$
 
-を取ります。$\delta$ は全射で、$\delta\iota([f])=0$ です。逆に $\delta(u,b)=0$ なら、$u(0)\equiv b\pmod p$ です。$u(T)$ を $\mathbb Z_p[[T]]$ に係数ごとに持ち上げた $U(T)$ を選び、定数項を $b$ に置き換えた
+を取ります。$\delta$ は任意の $c\in\mathbb F_p$ を $(c,0)$ の像として取れるため全射で、$\delta\iota([f])=0$ です。逆に $\delta(u,b)=0$ なら、$u(0)\equiv b\pmod p$ です。$u(T)$ を $\mathbb Z_p[[T]]$ に係数ごとに持ち上げた $U(T)$ を選び、定数項を $b$ に置き換えた
 
 $$
 f(T)=b+\bigl(U(T)-U(0)\bigr)
@@ -246,7 +246,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$R$ はNoether環なので有限生成加群 $M$ の部分加群 $\ker f$ も有限生成であり、商 $\operatorname{coker}f$ も有限生成です。局所化は完全なので各 $\mathfrak q$ で
+$R$ はNoether環なので有限生成加群 $M$ の部分加群 $\ker f$ も有限生成であり、商 $\operatorname{coker}f$ も有限生成です。局所化で核が保たれる理由を確かめます。$f(m)/s=0$ なら、ある $t\notin\mathfrak q$ が $tf(m)=0$ を満たし、$tm\in\ker f$ です。一方、$m/s=(tm)/(ts)$ なので局所化した核から来ます。逆向きの包含は $f(m)=0$ なら直ちに従います。余核は商 $N/f(M)$ の分母を同様に通すと局所化と交換します。従って各 $\mathfrak q$ で
 
 $$
 \ker f_{\mathfrak q}=(\ker f)_{\mathfrak q},\qquad
