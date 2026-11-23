@@ -27,7 +27,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep6-sl2-triple -->
-**定義の確認。** [SU(2)のLie環の表示](../../LIE/LIE3/index.md#thm-lie3-unitary)に従う $A_1,A_2,A_3$ を代入します。例えば $iA_1=\frac12\begin{pmatrix}0&1\\1&0\end{pmatrix}$、$A_2=\frac12\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ なので、その差は上の $E$ です。和は $F$ になります。三つは複素ベクトル空間として、跡零行列の対角成分・上三角成分・下三角成分をそれぞれ張ります。
+**定義の確認**。 [SU(2)のLie環の表示](../../LIE/LIE3/index.md#thm-lie3-unitary)に従う $A_1,A_2,A_3$ を代入します。例えば $iA_1=\frac12\begin{pmatrix}0&1\\1&0\end{pmatrix}$、$A_2=\frac12\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ なので、その差は上の $E$ です。和は $F$ になります。三つは複素ベクトル空間として、跡零行列の対角成分・上三角成分・下三角成分をそれぞれ張ります。
 <!-- definition-example-end -->
 
 行列の積を確かめると、$HE=E$、$EH=-E$、$HF=-F$、$FH=F$、$EF=\operatorname{diag}(1,0)$、$FE=\operatorname{diag}(0,1)$ です。
@@ -82,7 +82,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep6-highest-weight -->
-**定義の確認。** 標準表現 $V=\mathbb C^2$ に上の行列そのものを作用させ、列ベクトル $e_1=(1,0)^{\mathsf T}$ を取ります。$He_1=e_1$、$Ee_1=0$、$e_1\ne0$ なので $e_1$ は最高ウェイト $1$ のベクトルです。一方 $He_2=-e_2$ かつ $Ee_2=e_1\ne0$ なので $e_2$ はウェイト $-1$ のベクトルですが最高ウェイトベクトルではありません。両条件を別々に検査しました。
+**定義の確認**。 標準表現 $V=\mathbb C^2$ に上の行列そのものを作用させ、列ベクトル $e_1=(1,0)^{\mathsf T}$ を取ります。$He_1=e_1$、$Ee_1=0$、$e_1\ne0$ なので $e_1$ は最高ウェイト $1$ のベクトルです。一方 $He_2=-e_2$ かつ $Ee_2=e_1\ne0$ なので $e_2$ はウェイト $-1$ のベクトルですが最高ウェイトベクトルではありません。両条件を別々に検査しました。
 <!-- definition-example-end -->
 
 最高ウェイトから $F$ を繰り返し作用させると、ウェイト $\lambda,\lambda-2,\lambda-4,\dots$ が生まれます。次の補題が「いつ止まるか」を決めます。
@@ -193,7 +193,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep6-symmetric-power -->
-**定義の確認。** $n=2$ とし、$P=x^2+xy$、$U=\operatorname{diag}(u,u^{-1})$（$|u|=1$）を代入すると
+**定義の確認**。 $n=2$ とし、$P=x^2+xy$、$U=\operatorname{diag}(u,u^{-1})$（$|u|=1$）を代入すると
 $$
 D_2(U)P=(ux)^2+(ux)(u^{-1}y)=u^2x^2+xy
 $$
@@ -313,7 +313,7 @@ $$
 
 ## 5. 直交基底・整数条件・三次元回転
 
-$U\in SU(2)$ は標準内積を保存します。[テンソル積表現の群法則](../LREP4/index.md#thm-lrep4-tensor-representation)から、各因子の内積を掛けて作る内積は $U^{\otimes n}$ で保存されます。従って対称部分空間上の $D_n$ はユニタリです。
+$U\in SU(2)$ は標準内積を保存します。[テンソル積表現の群法則と次元](../LREP4/index.md#thm-lrep4-tensor-representation)から、各因子の内積を掛けて作る内積は $U^{\otimes n}$ で保存されます。従って対称部分空間上の $D_n$ はユニタリです。
 
 先ほどの単項式基底は正規直交基底ではありません。$n$ 個の位置のうち $k$ 個に $e_2$ が現れる配置の数を
 $$
@@ -351,8 +351,15 @@ Eu_k=k\sqrt{\frac{\binom nk}{\binom n{k-1}}}\,u_{k-1}
 =k\sqrt{\frac{n-k+1}{k}}\,u_{k-1}
 =\sqrt{k(n-k+1)}\,u_{k-1}.
 $$
-$Fu_k=(n-k)\sqrt{\binom nk/\binom n{k+1}}\,u_{k+1}
-=\sqrt{(k+1)(n-k)}\,u_{k+1}$ も同様に係数比を代入して得ます。$H$ は実数 $n-2k$ を対角成分に持つので自己共役です。また $E$ の $(k-1,k)$ 成分と $F$ の $(k,k-1)$ 成分は同じ非負実数 $\sqrt{k(n-k+1)}$ であり、互いに随伴です。$\square$
+下降作用にも二つの係数の比を入れます。
+$$
+\begin{aligned}
+Fu_k
+&=(n-k)\sqrt{\frac{\binom nk}{\binom n{k+1}}}\,u_{k+1}\\
+&=(n-k)\sqrt{\frac{k+1}{n-k}}\,u_{k+1}\\
+&=\sqrt{(k+1)(n-k)}\,u_{k+1}.
+\end{aligned}
+$$$H$ は実数 $n-2k$ を対角成分に持つので自己共役です。また $E$ の $(k-1,k)$ 成分と $F$ の $(k,k-1)$ 成分は同じ非負実数 $\sqrt{k(n-k+1)}$ であり、互いに随伴です。$\square$
 <!-- proof-end -->
 
 前講の回転群 $SO(3)$ へ表現が降りる条件も、中心元の作用を調べるだけです。
