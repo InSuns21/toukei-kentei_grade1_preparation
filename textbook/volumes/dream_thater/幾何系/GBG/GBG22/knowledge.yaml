@@ -1,0 +1,50 @@
+chapter: GBG22
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG21
+forward_references: []
+concepts:
+  - id: gauge.chern-weil-interpolated-curvature-variation
+    name: 補間接続の曲率変化率
+    kind: lemma
+    introduction: formal
+    requires: [gauge.curvature-change-under-connection, gauge.principal-connections-affine]
+
+  - id: gauge.chern-weil-invariant-exterior-derivative
+    name: Ad不変性と次数1の因子の外微分
+    kind: lemma
+    introduction: formal
+    requires: [gauge.ad-invariant-infinitesimal-condition, gauge.local-bianchi-identity, geometry.exterior-derivative-graded-leibniz]
+
+  - id: gauge.chern-weil-transgression-form
+    name: Chern–Weilのtransgression形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Chern–Weil の transgression 形式）"]
+    requires: [gauge.chern-weil-form, gauge.principal-connections-affine]
+
+  - id: gauge.chern-weil-transgression-identity
+    name: Chern–Weil の transgression 恒等式
+    kind: theorem
+    introduction: formal
+    requires: [gauge.chern-weil-transgression-form, gauge.chern-weil-interpolated-curvature-variation, gauge.chern-weil-invariant-exterior-derivative, gauge.invariant-curvature-basic-descent]
+
+  - id: gauge.chern-weil-connection-independence
+    name: Chern–Weil の de Rham 類の接続非依存性
+    kind: corollary
+    introduction: formal
+    requires: [gauge.chern-weil-transgression-identity, gauge.chern-weil-closedness]
+
+  - id: gauge.local-chern-simons-form
+    name: 局所Chern–Simons型形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所 Chern–Simons 型形式）"]
+    requires: [gauge.chern-weil-transgression-form]
+
+  - id: gauge.local-chern-simons-primitive
+    name: 局所 Chern–Simons 形式の外微分
+    kind: proposition
+    introduction: formal
+    requires: [gauge.local-chern-simons-form, gauge.chern-weil-transgression-identity]
