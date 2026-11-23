@@ -1396,7 +1396,8 @@ byId('preset').addEventListener('change', event => {
         'outColor = vec4(rgb, 1.0);', 'outColor = vec4(rgb, 1.0)');
     } else if (isWGL14) {
       inputs.fragment.value = defaults.fragment.replace(
-        'outColor=vec4(rgb,1.0);', 'outColor=vec4(rgb,1.0)');
+        'vec3 result = v_uv.x < u_compare ? original : processed;',
+        'vec3 result = v_uv.x < u_compare ? original : ;');
     } else if (isWGL13) {
       inputs.fragment.value = defaults.fragment.replace(
         'outColor=vec4(mix(vec3(0.08,0.10,0.12),reflected,f),1.0);',
