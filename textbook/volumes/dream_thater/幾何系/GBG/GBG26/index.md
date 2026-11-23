@@ -267,7 +267,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-先に構成した接続を $A_*$ とする。北半球で $A_N=0$ だから $F_N=0$。南半球には[Chern–Simons形式の外微分の命題](../GBG22/index.md#prop-gbg22-local-cs-primitive)と[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を適用する。
+先に構成した接続を $A_*$ とする。北半球で $A_N=0$ だから $F_N=0$。南半球には[Chern–Simons形式の外微分の命題](../GBG22/index.md#prop-gbg22-local-cs-primitive)と[向き付き多様体の境界積分公式](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を適用する。
 
 $$
 \begin{aligned}
