@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - ANF21
+  - SQC5
 official_scope: []
 learning_objectives:
   - 法(1)の剰余類群からHilbert類体とイデアル類群のArtin同型を導ける

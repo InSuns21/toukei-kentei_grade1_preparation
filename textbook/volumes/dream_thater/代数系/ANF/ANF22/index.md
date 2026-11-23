@@ -2,7 +2,7 @@
 
 [イデアル類群](../ANF6/index.md#def-anf6-ideal-class-group)は「元の一意分解が壊れた程度」を測りました。[剰余類群とArtin対応](../ANF20/index.md#thm-anf20-ray-class-field)は、その有限商をAbel拡大のGalois群として読めるようにします。では、合同条件を課さないときに得られる拡大は何でしょうか。また、法を $p,p^2,p^3,\ldots$ と深くすると、有限群の列はどんな無限拡大を作るでしょうか。
 
-本講はこの二つを、**Hilbert類体（非分岐）**と**円分的 $\mathbb Z_p$ 塔（$p$ で分岐）**として対比します。有限類群、Kronecker–Weber定理、$p$ 進整数環が一つの道筋につながります。
+本講はこの二つを、**類群に対応する非分岐Abel拡大**と**円分的 $\mathbb Z_p$ 塔（$p$ で分岐）**として対比します。有限類群、Kronecker–Weber定理、$p$ 進整数環が一つの道筋につながります。
 
 以下、$K$ は数体、$\mathcal O_K$ は整数環、$\operatorname{Cl}(K)$ は非零分数イデアルを主分数イデアルで割った通常のイデアル類群、$h_K=|\operatorname{Cl}(K)|$ は類数とします。[有限性](../ANF6/index.md#thm-anf6-minkowski-class-bound)は既習です。Abel拡大のArtin写像は算術的Frobeniusを採用し、[大域相互法則・存在定理](../ANF20/index.md#thm-anf20-global-reciprocity)を既習の**外部の中心定理**として使用します。類体論そのものを以下の有限群計算で再証明したとはみなしません。
 
@@ -50,7 +50,7 @@ $$
 
 [剰余類体存在定理](../ANF20/index.md#thm-anf20-ray-class-field)はこの商をGalois群に同型にする有限Abel拡大 $H_K/K$ を与えます。法 $(1)$ の有限成分の局所部分群は各 $\mathcal O_{K_v}^{\times}$、無限成分は各 $K_v^\times$ です。従ってArtin写像は有限局所単数を消し、有限素点の惰性群も自明、実素点の局所Galois群も自明です。
 
-逆にその二条件を満たす有限Abel拡大 $L/K$ の局所Artin写像は、有限素点の単数全体と実素点の全乗法群を消します。[法への下降判定](../ANF21/index.md#prop-anf21-descent-criterion)と大域相互法則により、$L/K$ のArtin写像は $\operatorname{Cl}_{(1)}(K)$ を経由します。類体対応で、その核を定める部分群を $H'\subseteq\operatorname{Cl}(K)$ とすれば、$H'$ を含む自明部分群 $\{1\}$ に対応する最大の法 $(1)$ の類体は $H_K$ です。対応は包含を逆転するから $L\subseteq H_K$ です。
+逆にその二条件を満たす有限Abel拡大 $L/K$ の局所Artin写像は、有限素点の単数全体と実素点の全乗法群を消します。[剰余類群への下降判定](../ANF21/index.md#prop-anf21-descent-criterion)を使います。必要な対角元の消滅は[大域Artin相互法則](../ANF20/index.md#thm-anf20-global-reciprocity)によります。従って $L/K$ のArtin写像は $\operatorname{Cl}_{(1)}(K)$ を経由します。類体対応で、その核を定める部分群を $H'\subseteq\operatorname{Cl}(K)$ とすれば、$H'$ を含む自明部分群 $\{1\}$ に対応する最大の法 $(1)$ の類体は $H_K$ です。対応は包含を逆転するから $L\subseteq H_K$ です。
 
 最後にArtin同型から $[H_K:K]=|\operatorname{Gal}(H_K/K)|=|\operatorname{Cl}(K)|=h_K$ となります。
 <!-- proof-end -->
@@ -88,7 +88,7 @@ $$
 \Longleftrightarrow \operatorname{Frob}_{\mathfrak p}=1.
 $$
 
-左辺は主イデアルの定義そのものです。[非分岐素点の分解公式](../ANF21/index.md#prop-anf21-frobenius-order)より右辺は完全分解と同値です。さらに同公式で
+左辺は主イデアルの定義そのものです。[非分岐素点の分解とFrobeniusの位数](../ANF21/index.md#prop-anf21-frobenius-order)より右辺は完全分解と同値です。さらに同公式で
 
 $$
 f=\operatorname{ord}(\operatorname{Frob}_{\mathfrak p})
@@ -116,7 +116,7 @@ $$
 
 ## 3. 有理数体のAbel拡大はなぜ円分体に現れるか
 
-$\zeta_m=e^{2\pi i/m}$ を原始 $m$ 乗根、$E_m=\mathbb Q(\zeta_m)$ とします。$m\ge2$ のとき $\sigma_a(\zeta_m)=\zeta_m^a$（$a$ は $m$ と互いに素）はGalois自己同型です。古典的な円分多項式の既約性から
+$\zeta_m=e^{2\pi i/m}$ を原始 $m$ 乗根、$E_m=\mathbb Q(\zeta_m)$ とします。$m\ge2$ のとき $\sigma_a(\zeta_m)=\zeta_m^a$（$a$ は $m$ と互いに素）はGalois自己同型です。[円分多項式の既約性](../../../幾何系/SQC/SQC5/index.md#thm-sqc5-cyclotomic-irreducibility)から
 
 $$
 \operatorname{Gal}(E_m/\mathbb Q)
@@ -152,7 +152,7 @@ $$
 <!-- proof-start -->
 ### 証明（大域類体論を入力とする導出）
 
-まず古典的な円分多項式の既約性、整数環での非分岐条件（$\ell\nmid m$）とFrobenius公式 $\operatorname{Frob}_\ell(\zeta_m)=\zeta_m^\ell$ を使います。この入力により
+まず[円分多項式の既約性](../../../幾何系/SQC/SQC5/index.md#thm-sqc5-cyclotomic-irreducibility)と[円分体のGalois群](../../../幾何系/SQC/SQC5/index.md#prop-sqc5-cyclotomic-galois)を用います。また整数環での非分岐条件（$\ell\nmid m$）と、非分岐素数での等式 $\operatorname{Frob}_\ell(\zeta_m)=\zeta_m^\ell$ を使います。この入力により
 
 $$
 \operatorname{Cl}_{(m)\infty}(\mathbb Q)
@@ -162,16 +162,16 @@ $$
 
 は、双方の位数が $\varphi(m)$ である群同型です。正の整数 $a$ が $m$ と互いに素なら、素因数 $\ell$ ごとのArtin積は $\sigma_a$ となります。従ってこれは大域Artin写像と一致します。[類体の一意性](../ANF20/index.md#thm-anf20-ray-class-field)により $E_m$ は法 $(m)\infty$ の類体です。
 
-次に有限Abel拡大 $L/\mathbb Q$ を取ります。[有限法の存在](../ANF21/index.md#prop-anf21-modulus-exists)と[大域相互法則](../ANF20/index.md#thm-anf20-global-reciprocity)から、$L$ のArtin写像はある法 $\mathfrak m$ の剰余類群へ下降します。$\mathbb Q$ では有限部分は $(m)$ と書け、必要なら $m\ge2$ とし、実素点を加えて $(m)\infty$ に拡大できます。法を強くすると核となる局所単数群は小さくなるので、下降は保たれます。従ってArtin写像の核に対応する $L$ は、法 $(m)\infty$ の全類体 $E_m$ の部分体です。
+次に有限Abel拡大 $L/\mathbb Q$ を取ります。[Artin積を消す有限法の存在](../ANF21/index.md#prop-anf21-modulus-exists)によって法を選びます。[大域Artin相互法則](../ANF20/index.md#thm-anf20-global-reciprocity)を使うと、$L$ のArtin写像はある法 $\mathfrak m$ の剰余類群へ下降します。$\mathbb Q$ では有限部分は $(m)$ と書け、必要なら $m\ge2$ とし、実素点を加えて $(m)\infty$ に拡大できます。法を強くすると核となる局所単数群は小さくなるので、下降は保たれます。従ってArtin写像の核に対応する $L$ は、法 $(m)\infty$ の全類体 $E_m$ の部分体です。
 
-この証明は一般の大域類体論と古典的円分多項式の既約性を入力にしています。前講で明示した大域相互法則・存在定理の深い証明責務を解消したものではありません。
+この証明は一般の大域類体論と[円分多項式の既約性](../../../幾何系/SQC/SQC5/index.md#thm-sqc5-cyclotomic-irreducibility)を入力にしています。前講で明示した大域相互法則・存在定理の深い証明責務を解消したものではありません。
 <!-- proof-end -->
 
 **確認例。** $E_5=\mathbb Q(\zeta_5)$ では群位数 $4$ で、[実二次部分体と法](../ANF21/index.md#prop-anf21-real-subfield)から $\mathbb Q(\sqrt5)$ は法 $(5)$ の類体です。複素共役 $\sigma_{-1}$ を固定すると実部分体になり、法から実の符号条件を外すことに対応します。
 
 ## 4. 円分体の次数が $p$ ごとに増える理由
 
-$p$ を素数、$r\ge1$ とし、$\Phi_{p^r}(T)$ を原始 $p^r$ 乗根の円分多項式とします。ここでは円分塔を組み立てるのに必要な $p$ 冪の場合の次数公式を、Eisenstein判定法で直接確かめます。
+$p$ を素数、$r\ge1$ とし、$\Phi_{p^r}(T)$ を原始 $p^r$ 乗根の[円分多項式](../../../幾何系/SQC/SQC5/index.md#def-sqc5-cyclotomic)とします。ここでは円分塔を組み立てるのに必要な $p$ 冪の場合の次数公式を、Eisenstein判定法で直接確かめます。
 
 <a id="prop-anf22-prime-power-degree"></a>
 
@@ -189,7 +189,7 @@ $p$ を素数、$r\ge1$ とし、$\Phi_{p^r}(T)$ を原始 $p^r$ 乗根の円分
 
 ### 証明の見取り図
 
-$\Phi_{p^r}(1+X)$ は定数項が $p$ で、最高次以外の全係数が $p$ の倍数です。$X=\zeta_{p^r}-1$ を根とするEisenstein多項式となり、次数と局所分岐を同時に与えます。
+$\Phi_{p^r}(1+X)$ は定数項が $p$ で、最高次以外の全係数が $p$ の倍数です。$X=\zeta_{p^r}-1$ を根とするEisenstein多項式となり、次数と $p$ 進局所拡大の分岐指数を同時に与えます。
 
 <!-- proof-start -->
 ### 証明
@@ -201,7 +201,7 @@ $$
 =\sum_{j=0}^{p-1}T^{j p^{r-1}}
 $$
 
-を使います。$D=p^{r-1}(p-1)$ と置くと、$\Phi_{p^r}(1+X)$ は次数 $D$ の首一多項式で、定数項は $\Phi_{p^r}(1)=p$ です。$\mathbb F_p[X]$ で、Frobeniusの恒等式 $(1+X)^{p^{r-1}}=1+X^{p^{r-1}}$ を使うと
+を使います。$D=p^{r-1}(p-1)$ と置くと、$\Phi_{p^r}(1+X)$ は次数 $D$ の首一多項式で、定数項は $\Phi_{p^r}(1)=p$ です。$\mathbb F_p[X]$ で、標数 $p$ の二項定理から従う恒等式 $(1+X)^{p^{r-1}}=1+X^{p^{r-1}}$ を使うと
 
 $$
 \Phi_{p^r}(1+X)
@@ -229,7 +229,7 @@ $$
 <a id="def-anf22-zp-extension"></a>
 
 <!-- formal-statement-start -->
-> **定義（$\mathbb Z_p$ 拡大）**  
+> **定義（Z_p拡大）**  
 > 数体 $K$ の無限Galois拡大 $K_\infty/K$ が $\mathbb Z_p$ 拡大であるとは、そのGalois群がKrull位相を備えた位相群として加法群 $\mathbb Z_p$ に同型であることをいう。このとき、$K_\infty$ 内には $[K_n:K]=p^n$ となる一意の中間体 $K_n$ が各 $n\ge0$ について存在する。
 <!-- formal-statement-end -->
 
@@ -255,7 +255,7 @@ $$
 <a id="thm-anf22-cyclotomic-zp-tower"></a>
 
 <!-- formal-statement-start -->
-> **定理（奇素数の円分的 $\mathbb Z_p$ 塔）**  
+> **定理（奇素数の円分的Z_p塔）**  
 > 奇素数 $p$、$n\ge0$ に対し $F_n=\mathbb Q(\zeta_{p^{n+1}})^{\Delta_n}$ とすると、
 >
 > $$
