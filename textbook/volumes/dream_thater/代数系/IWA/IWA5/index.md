@@ -2,7 +2,7 @@
 
 [IWA4の類群逆極限への岩澤代数作用](../IWA4/index.md#thm-iwa4-iwasawa-action)で、円分塔の有限類群の情報を一つの $\Lambda$ 加群にまとめました。ただし、作用があるだけで、その加群が有限生成であるとも、torsionであるともいえません。例えば $\Lambda$ 自身は自分への作用を持ちますがtorsionではありません。
 
-本講の問いは、**無限塔から得た加群のどこを分類し、有限個のずれをどう扱うか**です。まず有限生成とtorsionを区別し、有限部分を忘れたときに同じ形となる「擬同型」を導入します。続いて、岩澤加群の構造定理の適用条件と、有限部分を無視する意味を例で確認します。$\Lambda=\mathbb Z_p[[T]]$ の環論的な分類に必要な部分は、どこから外部の代数定理を使うかも区別します。
+本講の問いは、**無限塔から得た加群のどこを分類し、有限個のずれをどう扱うか**です。まず有限生成とtorsionを区別し、有限部分を忘れたときに同じ形となる比較方法を導入します。続いて、岩澤加群の構造定理の適用条件と、有限部分を無視する意味を例で確認します。$\Lambda=\mathbb Z_p[[T]]$ の環論的な分類に必要な部分は、どこから外部の可換環論を使うかも区別します。
 
 ## 1. 作用することと有限生成であることは違う
 
@@ -94,7 +94,7 @@ $R$ のイデアル $(p,T)$ は、$p$ と $T$ の倍数の和からなる集合�
 <!-- proof-start -->
 ### 証明
 
-まず有限集合 $N$ を考えます。$R$ が局所環なので、有限生成加群 $N$ の減少列 $N\supset\mathfrak m N\supset\mathfrak m^2N\supset\cdots$ は有限集合の部分集合の列として停止します。したがってある $k$ で $L=\mathfrak m^kN=\mathfrak m L$ です。$L$ は有限生成であり、局所環のNakayama補題を適用して $L=0$ となります。この補題のこの場面での理由は、$L$ の生成元 $l_i$ を $\mathfrak m$ 係数の線形結合で表すと、係数行列 $A$ に対し $(I-A)l=0$ となり、$\det(I-A)\equiv1\pmod{\mathfrak m}$ は単元だからです。よって $\mathfrak m^kN=0$。高さ1素イデアル $\mathfrak q$ は $\mathfrak m$ を含めないため、$\mathfrak m^k$ のある元が $\mathfrak q$ の外にあり、それが $N$ を消すので $N_{\mathfrak q}=0$ です。
+まず有限集合 $N$ を考えます。$R$ が局所環なので、有限生成加群 $N$ の減少列 $N\supset\mathfrak m N\supset\mathfrak m^2N\supset\cdots$ は有限集合の部分集合の列として停止します。したがってある $k$ で $L=\mathfrak m^kN=\mathfrak m L$ です。$L$ は有限生成であり、$L=0$ は行列式から直接確認できます。実際、$L$ の生成元 $l_i$ を $\mathfrak m$ 係数の線形結合で表すと、係数行列 $A$ に対し $(I-A)l=0$ となり、$\det(I-A)\equiv1\pmod{\mathfrak m}$ は単元だからです。よって $\mathfrak m^kN=0$。高さ1素イデアル $\mathfrak q$ は $\mathfrak m$ を含めないため、$\mathfrak m^k$ のある元が $\mathfrak q$ の外にあり、それが $N$ を消すので $N_{\mathfrak q}=0$ です。
 
 逆に $N$ を擬零とします。$N=0$ なら有限なので、以下は $N\ne0$ とします。$N$ は有限生成なので消去イデアル $I=\operatorname{Ann}_R(N)$ を取れます。各 $\mathfrak q$ で $N_{\mathfrak q}=0$ なら、有限個の生成元の分母を掛け合わせれば $I$ は $\mathfrak q$ の外の元を含みます。従って $I$ はどの高さ1素イデアルにも含まれません。さらに $I$ は零イデアルでもありません（各高さ1素イデアルの外に消去元を持つためです）。2次元局所整域の素イデアルの高さは0,1,2で、高さ2は $\mathfrak m$ のみです。よって $I$ の根基は $\mathfrak m$ であり、上記の環論の入力から $\mathfrak m^k\subseteq I$ となる $k$ が存在します。最後に $R/\mathfrak m^k$ は有限です。実際、次数 $j<k$ の $T^j$ の係数は法 $p^{k-j}$ で表され、$j\ge k$ の項は零なので、有限個の有限剰余類しかありません。$N$ はこの有限環上の有限生成加群であるため有限集合です。
 <!-- proof-end -->
@@ -103,7 +103,7 @@ $R$ のイデアル $(p,T)$ は、$p$ と $T$ の倍数の和からなる集合�
 
 ## 3. 擬同型は同型より弱い
 
-加群の分類で、有限個の元が消えたり増えたりする違いを許すため、核と余核が擬零である写像を考えます。核は零へ移る元、余核は写像の像で割った残りです。第2節の命題により、今回の環の有限生成加群ではこれらが有限集合であることと同値になります。
+加群の分類で、有限個の元が消えたり増えたりする違いを許すため、核と余核が擬零である写像を考えます。核は零へ移る元、余核は写像の像で割った残りです。第2節で示した[擬零と有限性](#prop-iwa5-pseudonull-finite)により、今回の環の有限生成加群ではこれらが有限集合であることと同値になります。
 
 <a id="def-iwa5-pseudoisomorphism"></a>
 
@@ -128,7 +128,7 @@ $$
 <a id="prop-iwa5-residue-pseudoiso"></a>
 
 <!-- formal-statement-start -->
-> **命題（$pT$ の商加群の擬同型）**  
+> **命題（pTの商加群の擬同型）**  
 > $R=\mathbb Z_p[[T]]$ に対して、上の自然写像 $\iota$ は単射で、その余核は $R/(p,T)\simeq\mathbb F_p$ である。したがって $\iota$ は擬同型だが同型ではない。
 <!-- formal-statement-end -->
 
@@ -167,7 +167,11 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（擬同型の局所判定）**  
-> $R=\mathbb Z_p[[T]]$ 上の有限生成加群 $M,N$ と $R$ 線形写像 $f:M\to N$ について、$f$ が擬同型であることと、全ての高さ1素イデアル $\mathfrak q$ で $f_{\mathfrak q}:M_{\mathfrak q}\to N_{\mathfrak q}$ が同型となることは同値である。
+> $R=\mathbb Z_p[[T]]$ 上の有限生成加群 $M,N$ と $R$ 線形写像 $f:M\to N$ を取る。擬同型であることと、各高さ1素イデアル $\mathfrak q$ で次の写像が同型となることは同値である。
+
+$$
+f_{\mathfrak q}:M_{\mathfrak q}\longrightarrow N_{\mathfrak q}
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -214,7 +218,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[共通消去元の命題](#prop-iwa5-common-annihilator)より、$0\ne a\in R$ が存在して $aM=0$ です。$R$ は一意分解整域なので $a$ の既約因子は同伴を除き有限個 $q_1,\ldots,q_t$ です。$M_{\mathfrak q}$ が非零となる高さ1素イデアル $\mathfrak q$ は $a\in\mathfrak q$ を満たし、従って $\mathfrak q=(q_j)$ のいずれかです。
+[有限生成torsionの共通消去元](#prop-iwa5-common-annihilator)より、$0\ne a\in R$ が存在して $aM=0$ です。$R$ は一意分解整域なので $a$ の既約因子は同伴を除き有限個 $q_1,\ldots,q_t$ です。$M_{\mathfrak q}$ が非零となる高さ1素イデアル $\mathfrak q$ は $a\in\mathfrak q$ を満たし、従って $\mathfrak q=(q_j)$ のいずれかです。
 
 これら有限個の素イデアルの和集合の補集合を $S$ とします。環論の入力から、$S^{-1}R$ は、これらの高さ1素イデアルだけを極大イデアルとして残した1次元Noether一意分解整域です。したがって主イデアル整域になります。主イデアル整域上の有限生成torsion加群の分類定理を $S^{-1}M$ に適用すると、ある正整数 $e_i$ と上の $q_j$ から選んだ $q_i$ に対し
 
@@ -250,7 +254,7 @@ $$
 <a id="prop-iwa5-finite-coinvariants"></a>
 
 <!-- formal-statement-start -->
-> **命題（有限な $T$ 商からtorsionを導く）**  
+> **命題（有限なT商からtorsionを導く）**  
 > $R=\mathbb Z_p[[T]]$ 上の有限生成加群 $M$ について、$M/TM$ が有限集合なら $M$ はtorsionである。逆は一般に成り立たない。
 <!-- formal-statement-end -->
 
@@ -273,12 +277,12 @@ $$
 d(T)v=0,\qquad d(T)=\det(p^aI_r-TB)
 $$
 
-です。$d(0)=p^{ar}\ne0$ なので、$d(T)$ は零でない冪級数です。したがって全生成元を同じ非零元が消し、[共通消去元の命題](#prop-iwa5-common-annihilator)から $M$ はtorsionです。
+です。$d(0)=p^{ar}\ne0$ なので、$d(T)$ は零でない冪級数です。したがって全生成元を同じ非零元が消し、[有限生成torsionの共通消去元](#prop-iwa5-common-annihilator)から $M$ はtorsionです。
 
 逆が成り立たない例は $M=R/(T)\simeq\mathbb Z_p$ です。$T$ が零として作用するため $M/TM=M$ で、これは有限ではありません。しかし $T$ が全てを消すのでtorsionです。
 <!-- proof-end -->
 
-[IWA4の類群逆極限](../IWA4/index.md#thm-iwa4-iwasawa-action)を $X$ とすると、$X/TX$ の有限性を別に証明できる場面ではこの命題が使えます。逆に $\Lambda$ が $X$ に作用するという事実**だけ**では、$X$ の有限生成性も、上の判定の仮定も出てきません。実際、$R=\varprojlim_{m,n}R/(p^m,\omega_n)$ 自身も[IWA3の完備群環の定義](../IWA3/index.md#def-iwa3-completed-group-ring)により有限環の逆極限ですが、$R$ はtorsionではありません。算術への適用には有限生成性とtorsion性を別途確かめる必要があります。
+[IWA4の類群逆極限](../IWA4/index.md#thm-iwa4-iwasawa-action)を $X$ とすると、$X/TX$ の有限性を別に証明できる場面ではこの命題が使えます。逆に $\Lambda$ が $X$ に作用するという事実**だけ**では、$X$ の有限生成性も、上の判定の仮定も出てきません。実際、$R=\varprojlim_{m,n}R/(p^m,\omega_n)$ 自身も[IWA3の岩澤代数・完備群環](../IWA3/index.md#def-iwa3-completed-group-ring)により有限環の逆極限ですが、$R$ はtorsionではありません。算術への適用には有限生成性とtorsion性を別途確かめる必要があります。
 
 ## 6. 演習：有限部分と非零消去元を区別する
 
@@ -307,7 +311,7 @@ $$
 p^2T^3(u,v)=(T^3p^2u,\ p^2T^3v)=(0,0)
 $$
 
-となるので、[共通消去元の命題](#prop-iwa5-common-annihilator)を直接確かめられました。
+となるので、[有限生成torsionの共通消去元](#prop-iwa5-common-annihilator)を直接確かめられました。
 <!-- solution-end -->
 
 ### A3. 有限な商の位数
@@ -419,7 +423,7 @@ $M=R/(pT)\oplus R/(T^2)\oplus R/(p,T)$ とし、$E=R/(p)\oplus R/(T)\oplus R/(T^
 <!-- solution-start -->
 **詳細解答。** 
 
-1. $M$ は三つの巡回加群の直和なので3元で生成できます。第1成分を $pT$、第2成分を $T^2$、第3成分を $p$ で消せます。共通の非零消去元は例えば $pT^2$ です。$pT^2$ は $pT$、$T^2$、$p$ のいずれの倍数でもあるので全元を消し、[共通消去元の命題](#prop-iwa5-common-annihilator)からtorsionです。
+1. $M$ は三つの巡回加群の直和なので3元で生成できます。第1成分を $pT$、第2成分を $T^2$、第3成分を $p$ で消せます。共通の非零消去元は例えば $pT^2$ です。$pT^2$ は $pT$、$T^2$、$p$ のいずれの倍数でもあるので全元を消し、[有限生成torsionの共通消去元](#prop-iwa5-common-annihilator)からtorsionです。
 
 2. 第1成分に[剰余写像 $\iota$](#prop-iwa5-residue-pseudoiso)、第2成分に恒等写像、第3成分に零写像を用いて
 
