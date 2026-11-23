@@ -35,7 +35,7 @@ chapters:
     title: "角運動量とスピン量子数"
   - id: LREP8
     path: textbook/volumes/dream_thater/代数系/LREP/LREP8
-    status: planned
+    status: completed
     title: "二つのスピンの合成"
   - id: LREP9
     path: textbook/volumes/dream_thater/代数系/LREP/LREP9
