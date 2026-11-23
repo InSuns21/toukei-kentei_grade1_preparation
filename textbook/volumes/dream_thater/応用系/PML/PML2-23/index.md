@@ -52,7 +52,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-23-tangent -->
-**直接例。** $d=1$、$a(\theta)=1$、$f=-\theta u$ なら、$u(t;\theta)=e^{-\theta t}$ は初期値 $u(0)=1$ を満たし、時間微分が $-\theta e^{-\theta t}$ なので元の方程式も満たす。$\theta$ に関する導関数が存在し、$s(t;\theta)=-t e^{-\theta t}$。特に $s(0)=0$ は初期値が $\theta$ に依存しないことと対応する。
+**定義の確認**。 $d=1$、$a(\theta)=1$、$f=-\theta u$ なら、$u(t;\theta)=e^{-\theta t}$ は初期値 $u(0)=1$ を満たし、時間微分が $-\theta e^{-\theta t}$ なので元の方程式も満たす。$\theta$ に関する導関数が存在し、$s(t;\theta)=-t e^{-\theta t}$。特に $s(0)=0$ は初期値が $\theta$ に依存しないことと対応する。
 <!-- definition-example-end -->
 
 <a id="thm-pml2-23-tangent"></a>
@@ -180,7 +180,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-23-discrete-adjoint -->
-**直接例。** 一変数の $z_{n+1}=rz_n$、$\Phi(z_N)=z_N^2/2$、$c_n=0$ では終端値は $\lambda_N=z_N$。更新の状態微分は $r$ だから $\lambda_n=r\lambda_{n+1}$、従って $\lambda_n=r^{N-n}z_N$。終端条件と各段の漸化式を直接満たしている。
+**定義の確認**。 一変数の $z_{n+1}=rz_n$、$\Phi(z_N)=z_N^2/2$、$c_n=0$ では終端値は $\lambda_N=z_N$。更新の状態微分は $r$ だから $\lambda_n=r\lambda_{n+1}$、従って $\lambda_n=r^{N-n}z_N$。終端条件と各段の漸化式を直接満たしている。
 <!-- definition-example-end -->
 
 <a id="thm-pml2-23-discrete-adjoint"></a>
@@ -277,7 +277,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-23-continuous-adjoint -->
-**直接例。** $f=-\theta u$、$\ell=0$、$\Phi(u)=u^2/2$ なら $-p'=-\theta p$、すなわち $p'=\theta p$。終端値 $p(T)=u(T)=e^{-\theta T}$ を使うと
+**定義の確認**。 $f=-\theta u$、$\ell=0$、$\Phi(u)=u^2/2$ なら $-p'=-\theta p$、すなわち $p'=\theta p$。終端値 $p(T)=u(T)=e^{-\theta T}$ を使うと
 
 $$
 p(t)=e^{-\theta T}e^{\theta(t-T)}
