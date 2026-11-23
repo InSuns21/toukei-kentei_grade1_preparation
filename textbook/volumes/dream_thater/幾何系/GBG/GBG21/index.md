@@ -4,7 +4,15 @@
 
 難所は、非可換群では一般に $dF\ne0$ となる点にある。[GBG11のBianchi恒等式](../GBG11/index.md#thm-gbg11-bianchi-local)は $dF=-[A\wedge F]$ と述べる。この残った Lie 括弧を、[GBG20のAd不変性の無限小条件](../GBG20/index.md#prop-gbg20-infinitesimal-condition)がちょうど消す。以下ではこの二つの相殺を次数符号込みで計算する。
 
-**全節の設定**：$M$ は Hausdorff・第二可算、境界のない滑らかな有限次元多様体、$G$ は有限次元 Lie 群（連結性・行列群性は仮定しない）、$\mathfrak g$ はその実 Lie 環とする。$\pi:P\to M$ は右主 $G$ 束、$\omega$ は接続1形式、$\Omega$ は曲率2形式である。局所 section $s_i:U_i\to P$ に対して $A_i=s_i^*\omega$、$F_i=s_i^*\Omega$ とする。$k\ge1$、$p:\mathfrak g^k\to\mathbb C$ は各引数で実線形な**対称Ad不変**形式である。複素値形式には $d$ と外積を複素線形に拡張する。計量・向き・コンパクト性は閉性の証明に不要である。
+**全節の設定**：$M$ は Hausdorff・第二可算で境界のない滑らかな有限次元多様体とする。$G$ は有限次元 Lie 群、$\mathfrak g$ はその実 Lie 環である。群の連結性・行列群性は仮定しない。
+
+$\pi:P\to M$ は滑らかな右主 $G$ 束である。$\omega$ はその接続1形式、$\Omega$ は曲率2形式とする。局所 section $s_i:U_i\to P$ に対する接続と曲率の表示は、順に次の二つである。
+
+$$
+A_i=s_i^*\omega,\qquad F_i=s_i^*\Omega.
+$$
+
+整数 $k\ge1$ を固定し、$p:\mathfrak g^k\to\mathbb C$ は各引数で実線形な対称Ad不変形式とする。複素値形式には外微分と外積を複素線形に拡張する。計量・向き・コンパクト性は閉性の証明に不要である。
 
 <!-- definition-example-audit: strict -->
 
