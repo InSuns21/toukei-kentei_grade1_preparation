@@ -644,8 +644,12 @@ function runnerHtml() {
   return '<!doctype html><html lang="ja"><head><meta charset="utf-8">' +
     '<meta http-equiv="Content-Security-Policy" content="' + policy + '">' +
     '<meta name="referrer" content="no-referrer">' +
-    '<style>body{margin:0;display:grid;place-items:center;background:#e2e8f0}' +
-    'canvas{display:block;width:100%;max-width:100%;height:auto}</style></head><body>' +
+    '<style>' + (isWGL13 ?
+      'body{margin:0;padding:0 6px;background:#0c1829;color:#e5eefb;font:14px/1.5 system-ui}' +
+      'canvas{display:block;width:100%;height:auto;touch-action:none}' :
+      'body{margin:0;display:grid;place-items:center;background:#e2e8f0}' +
+      'canvas{display:block;width:100%;max-width:100%;height:auto}') +
+    '</style></head><body>' +
     '<canvas id="gpu-canvas" aria-label="GPUが描画した画素"></canvas>' +
     '<script>(' + isolatedRunner.toString() + ')()</scr' + 'ipt></body></html>';
 }
@@ -1292,8 +1296,10 @@ function run() {
   const iframe = document.createElement('iframe');
   iframe.className = 'result-frame';
   // Responsive preview without changing the actual drawing-buffer resolution.
-  iframe.style.aspectRatio = payload.width + ' / ' + (payload.height + (isWGL18 ? 160 : 12));
+  iframe.style.aspectRatio = payload.width + ' / ' +
+    (payload.height + (isWGL18 ? 160 : isWGL13 ? 235 : 12));
   iframe.style.height = 'auto';
+  if (isWGL13) iframe.style.minHeight = '540px';
   if (isWGL17) {
     // The texel inspector belongs below the GPU canvas, never over its pixels.
     iframe.style.aspectRatio = 'auto';
@@ -1404,8 +1410,7 @@ byId('preset').addEventListener('change', event => {
         'outColor=vec4(rgb,1.0);', 'outColor=vec4(rgb,1.0)');
     } else if (isWGL13) {
       inputs.fragment.value = defaults.fragment.replace(
-        'outColor=vec4(mix(vec3(0.08,0.10,0.12),reflected,f),1.0);',
-        'outColor=vec4(mix(vec3(0.08,0.10,0.12),reflected,f),1.0)');
+        'uniform samplerCube u_env;', 'uniform samplerCube u_env');
     } else if (isWGL12) {
       inputs.fragment.value = defaults.fragment.replace(
         'outColor = vec4(fresnelSchlick(voh, f0), 1.0);',
@@ -2019,18 +2024,18 @@ if (isWGL14) {
   byId('preset').options[1].textContent = 'fragmentの構文エラー';
 }
 if (isWGL13) {
-  document.title = 'WGL13 cubemap・反射方向・継ぎ目の編集ラボ';
-  document.querySelector('h1').textContent = 'WGL13 6面の色と方向を読み、鏡面反射へ対応させる';
+  document.title = 'WGL13 環境マッピング：反射球と6面展開図';
+  document.querySelector('h1').textContent = 'WGL13 反射球から6面の風景を読み取る';
   document.querySelector('#panel-conditions > p').textContent =
-    '自作2×2の6面RGBA8 cubemapから反射した球面を表示します。' +
-    '最下行の12画素は6軸方向と6斜め方向の生テクセル値です。CPU基準との各成分±1階調を検査します。';
+    '左の球をクリックすると反射方向と面内UVが分かり、右の6面展開図で参照先が強調されます。' +
+    '同じGLSLで風景128×128と2×2の診断色を切り替え、境界と環境回転を観察します。';
   document.querySelector('#panel-conditions ol').innerHTML =
-    '<li>初期ソースを実行し12方向の面・UV・RGBA8の独立検算を確認する。</li>' +
-    '<li>environment.jsのyawDegreesを90や-90に変え、球中心の参照面を予測する。</li>' +
-    '<li>fresnelF0を0、0.75、1へ変え、混合係数と方向の違いを観察する。</li>' +
-    '<li>faceColorsの並び、またはfragment GLSLのrotateY符号を変更し、向きと継ぎ目を調べる。</li>' +
-    '<li>構文エラープリセットのログを読み、修正後に12方向検算へ戻る。</li>';
-  byId('preset').options[0].textContent = '6面自作cubemap・12方向CPU/GPU照合';
+    '<li>実行を押して球と6面展開図を表示し、球面上の3箇所をクリックして参照面を調べる。</li>' +
+    '<li>環境回転（−180°〜180°）を動かし、球の反射と右の強調面が連動するか確かめる。</li>' +
+    '<li>「境界線」を表示してキューブマップの主軸が切り替わる場所を見る。</li>' +
+    '<li>「表示」を2×2面診断へ変更し、12方向の生画素照合を詳細欄で確認する。</li>' +
+    '<li>environment.jsのsceneColor / yawDegrees / faceColorsやenvironment.fragの反射式を編集し再実行する。</li>';
+  byId('preset').options[0].textContent = '反射球＋6面の風景・2×2診断と12方向GPU検算';
   byId('preset').options[1].textContent = 'fragmentの構文エラー';
 }
 if (isWGL12) {
