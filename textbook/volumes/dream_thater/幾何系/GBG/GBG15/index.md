@@ -39,9 +39,9 @@ $$
 <!-- definition-example-start: def-gbg15-holonomy -->
 **定義の確認**。積主束 $P=\mathbb R^2\times U(1)$ に、標準 section $s(x,y)=((x,y),1)$ と局所接続 $A=i b x\,dy$（$b\in\mathbb R$）を取る。積主束でこの $A$ から接続形式を構成できることは[GBG7 の積主束公式](../GBG7/index.md#prop-gbg7-product-form)による。$A$ は基底の速度 $\dot\gamma(t)=(\dot x(t),\dot y(t))$ を Lie 環 $i\mathbb R$ の元へ写し、具体的には
 
-$
+$$
 A_{\gamma(t)}(\dot\gamma(t))=ib\,x(t)\dot y(t).
-$
+$$
 
 原点を起点に単位正方形の辺を $+x,+y,-x,-y$ の順に進む閉路を $\gamma$ とする。[GBG14 の局所水平ODE](../GBG14/index.md#thm-gbg14-horizontal-existence) $\dot g=-A(\dot\gamma)g$ において、$+y$ の辺では $x=1,\dot y=1$ なので $A(\dot\gamma)=ib$、横辺では $\dot y=0$、$-y$ 辺では $x=0$ なので残りは零となる。従って
 
