@@ -23,7 +23,7 @@ E=iA_1-A_2=\begin{pmatrix}0&1\\0&0\end{pmatrix},\quad
 F=iA_1+A_2=\begin{pmatrix}0&0\\1&0\end{pmatrix}
 $$
 >
-> を**標準三生成子**とする。$H$ をウェイト作用素、$E$ を上昇作用素、$F$ を下降作用素として用いる。
+> を**標準三生成子**とする。$H$ を基準となる対角作用素、$E$ を上昇作用素、$F$ を下降作用素として用いる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep6-sl2-triple -->
@@ -128,7 +128,7 @@ $Ev=0$ だから $EF^kv=[E,F^k]v+F^kEv$ の第二項は零となり、主張を�
 
 <a id="thm-lrep6-classification"></a>
 <!-- formal-statement-start -->
-> **定理（有限次元複素既約 $\mathfrak{sl}_2$ 表現の分類）**  
+> **定理（有限次元複素既約表現の分類）**  
 > $V\ne\{0\}$ を有限次元複素ベクトル空間、$\rho:\mathfrak{sl}_2(\mathbb C)\to\operatorname{End}_{\mathbb C}(V)$ を既約な複素Lie環表現とする。このとき一意な整数 $n\ge0$ があり、最高ウェイトは $n$、複素次元は $n+1$ となる。適当な基底 $v_0,\dots,v_n$ について、$v_{-1}=v_{n+1}=0$ と書けば
 >
 $$
@@ -176,7 +176,7 @@ $$
 
 <a id="def-lrep6-symmetric-power"></a>
 <!-- formal-statement-start -->
-> **定義（次数 $n$ の多項式表現 $V_n$）**  
+> **定義（斉次多項式表現）**  
 > 整数 $n\ge0$ に対し、複素係数の二変数斉次多項式
 >
 $$
@@ -205,7 +205,11 @@ $$
 です。逆元では $D_2(U^{-1})D_2(U)=I$ なので可逆性も成立します。一般の $n$ でも代入の次数・結合律は同じです。
 <!-- definition-example-end -->
 
-多項式と対称テンソルの関係は [テンソル積の基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)から具体的に作れます。$e_1,e_2$ の $n$ 重テンソル積で、$e_1$ を $n-k$ 個、$e_2$ を $k$ 個含む単純テンソルを、異なる並べ方すべてにわたって平均した対称テンソルを $x^{n-k}y^k$ に対応させます。$U^{\otimes n}$ は因子の置換と可換なので対称部分空間を保ち、上の多項式への代入作用と一致します。この対応は基底ごとに逆があり、$SU(2)$ 上の作用とも両立します。
+多項式と対称テンソルの関係は [テンソル積の基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)から具体的に作れます。標準基底 $e_1,e_2$ を使った $n$ 重テンソル積を考えます。
+
+$e_1$ を $n-k$ 個、$e_2$ を $k$ 個含む単純テンソルを、異なる並べ方すべてにわたって平均します。この対称テンソルを単項式 $x^{n-k}y^k$ に対応させます。
+
+作用 $U^{\otimes n}$ はテンソル因子の置換と可換なので、対称部分空間を保ちます。基底ベクトルの像を展開すると、多項式への代入作用と一致します。この対応は基底を基底へ写す線形同型で、群の作用にも両立します。
 
 <a id="thm-lrep6-polynomial-model"></a>
 <!-- formal-statement-start -->
@@ -281,7 +285,7 @@ $$
 
 <a id="prop-lrep6-group-lie-equivalence"></a>
 <!-- formal-statement-start -->
-> **命題（$SU(2)$ 表現と微分表現の既約性・同値性）**  
+> **命題（群表現と微分表現の既約性・同値性）**  
 > $D:SU(2)\to GL_{\mathbb C}(V)$ を滑らかな有限次元複素群表現とし、その微分の複素線形拡張を $\rho:\mathfrak{sl}_2(\mathbb C)\to\operatorname{End}_{\mathbb C}(V)$ とする。部分空間 $W\subseteq V$ が $D$ に関して不変であることと $\rho$ に関して不変であることは同値である。また二つのこのような群表現の微分が同値なら、群表現も同値である。従って任意の有限次元複素既約 $SU(2)$ 表現は、ただ一つの $D_n$ と同値になる。
 <!-- formal-statement-end -->
 
@@ -309,7 +313,13 @@ $$
 
 ## 5. 直交基底・整数条件・三次元回転
 
-$U\in SU(2)$ は標準内積を保存します。[テンソル積表現の群法則](../LREP4/index.md#thm-lrep4-tensor-representation)と標準内積の積から $U^{\otimes n}$ も内積を保存するので、対称部分空間上の $D_n$ はユニタリです。ただし先ほどの単項式基底は通常の内積では正規直交基底ではありません。対称化したテンソルのノルムを数えると、$n$ 個のうち $k$ 個の位置に $e_2$ が現れる並べ方は $\binom nk$ 通りです。平均のノルム二乗は $1/\binom nk$ なので
+$U\in SU(2)$ は標準内積を保存します。[テンソル積表現の群法則](../LREP4/index.md#thm-lrep4-tensor-representation)から、各因子の内積を掛けて作る内積は $U^{\otimes n}$ で保存されます。従って対称部分空間上の $D_n$ はユニタリです。
+
+先ほどの単項式基底は正規直交基底ではありません。$n$ 個の位置のうち $k$ 個に $e_2$ が現れる配置の数を
+$$
+\binom nk=\frac{n!}{k!(n-k)!}
+$$
+と書きます。異なる配置の単純テンソルは互いに直交し、各ノルムは1です。従って全配置を平均した対称テンソルのノルム二乗は $1/\binom nk$ です。このノルムを1に直すと
 $$
 u_k=\sqrt{\binom nk}\,x^{n-k}y^k
 \quad(0\le k\le n)
@@ -330,7 +340,7 @@ $$
 > 端では $Eu_0=Fu_n=0$ であり、$H^\dagger=H$、$E^\dagger=F$ が成り立つ。
 <!-- formal-statement-end -->
 
-**証明の見取り図。** [多項式模型](#thm-lrep6-polynomial-model)の係数へ二つの二項係数の比を代入します。随伴関係は隣り合う二つの基底の行列要素で確認します。
+**証明の見取り図。** [多項式模型](#thm-lrep6-polynomial-model)の係数へ二つの組合せ数の比を代入します。随伴関係は隣り合う二つの基底の行列要素で確認します。
 
 <!-- proof-start -->
 ### 証明
@@ -349,7 +359,7 @@ $Fu_k=(n-k)\sqrt{\binom nk/\binom n{k+1}}\,u_{k+1}
 
 <a id="thm-lrep6-descent"></a>
 <!-- formal-statement-start -->
-> **定理（$SO(3)$ への降下と次元の偶奇）**  
+> **定理（回転群への降下と次元の偶奇）**  
 > $D_n$ を $SU(2)$ の有限次元複素既約表現 $V_n$（$n\ge0$）とする。このとき
 >
 $$
@@ -364,7 +374,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-多項式模型の定義から
+[斉次多項式表現](#def-lrep6-symmetric-power)から
 $$
 D_n(-I_2)P(x,y)=P(-x,-y)
 =\sum_{k=0}^n c_k(-x)^{n-k}(-y)^k

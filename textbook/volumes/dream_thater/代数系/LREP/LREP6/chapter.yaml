@@ -15,15 +15,15 @@ learning_objectives:
 definitions:
   - { id: LREP6-DEF-01, name: 標準三生成子 }
   - { id: LREP6-DEF-02, name: ウェイトと最高ウェイトベクトル }
-  - { id: LREP6-DEF-03, name: 次数nの多項式表現 }
+  - { id: LREP6-DEF-03, name: 斉次多項式表現 }
 theorems:
   - { id: LREP6-LEM-01, name: 標準三生成子の交換関係 }
   - { id: LREP6-LEM-02, name: 昇降公式 }
-  - { id: LREP6-THM-01, name: 有限次元複素既約sl2表現の分類 }
+  - { id: LREP6-THM-01, name: 有限次元複素既約表現の分類 }
   - { id: LREP6-THM-02, name: 多項式模型の既約性と群への積分 }
-  - { id: LREP6-PROP-01, name: SU2表現と微分表現の既約性・同値性 }
+  - { id: LREP6-PROP-01, name: 群表現と微分表現の既約性・同値性 }
   - { id: LREP6-PROP-02, name: 正規直交基底の昇降係数 }
-  - { id: LREP6-THM-03, name: SO3への降下と次元の偶奇 }
+  - { id: LREP6-THM-03, name: 回転群への降下と次元の偶奇 }
 canonical_examples:
   - sl2標準三生成子の行列積と交換子
   - 二次元標準表現の最高ウェイト1
