@@ -22,16 +22,16 @@ $$
 > **定義（主束接続のホロノミー群）**  
 > 接続付き右主 $G$ 束 $(P,\omega)$、点 $x\in M$、$p\in P_x$ を固定する。$x$ を基点とするすべての区分的 $C^1$ 閉路 $\gamma$ に対して、[平行移動](../GBG14/index.md#def-gbg14-parallel-transport)を用いて一意に定まる $h_\gamma(p)\in G$ を
 >
-> $$
+$$
 > \operatorname{PT}_\gamma(p)=p\,h_\gamma(p)
-> $$
+$$
 >
 > によって定める。その全体
 >
-> $$
+$$
 > \operatorname{Hol}_p(\omega)
 > =\{h_\gamma(p)\mid\gamma(0)=\gamma(1)=x\}\subset G
-> $$
+$$
 >
 > を $p$ における**主束接続のホロノミー群**という。この集合が実際に部分群になることは次の定理で示す。
 <!-- formal-statement-end -->
@@ -57,12 +57,12 @@ $$
 > **定理（ホロノミーは部分群をなす）**  
 > 上記の接続付き右主 $G$ 束、$x\in M$、$p\in P_x$ に対し、$\operatorname{Hol}_p(\omega)$ は $G$ の部分群である。$x$ を基点とする二閉路 $\gamma_1,\gamma_2$ について
 >
-> $$
+$$
 > h_{\gamma_2*\gamma_1}(p)
 > =h_{\gamma_2}(p)\,h_{\gamma_1}(p),
 > \qquad
 > h_{\bar\gamma_1}(p)=h_{\gamma_1}(p)^{-1}
-> $$
+$$
 >
 > が成立する。ここで $\bar\gamma(t)=\gamma(1-t)$ は逆向きの路である。
 <!-- formal-statement-end -->
@@ -111,19 +111,19 @@ $$
 >
 > **（1）** $p\in P_x$、$k\in G$、$p'=pk$ なら、任意の $x$ における閉路 $\gamma$ について
 >
-> $$
+$$
 > h_\gamma(p')=k^{-1}h_\gamma(p)k,
 > \qquad
 > \operatorname{Hol}_{p'}(\omega)
 > =k^{-1}\operatorname{Hol}_p(\omega)k.
-> $$
+$$
 >
 > **（2）** $x,y\in M$ を区分的 $C^1$ 曲線 $\sigma:x\to y$ で結べるとする。$q=\operatorname{PT}_\sigma(p)\in P_y$ なら
 >
-> $$
+$$
 > \operatorname{Hol}_q(\omega)
 > =\operatorname{Hol}_p(\omega).
-> $$
+$$
 >
 > さらに $q'=qk$ を選べば、$y$ での群は $k^{-1}\operatorname{Hol}_p(\omega)k$ となる。ここで等号は、同じ構造群 $G$ の部分集合としての等号である。
 <!-- formal-statement-end -->
@@ -172,15 +172,15 @@ $$
 > **命題（局所輸送行列とホロノミーの共役）**  
 > 接続付き右主行列群束、$x\in U$、$\gamma\subset U$ を上記のように取る。$p=s(x)g_0$（$g_0\in G$）なら
 >
-> $$
+$$
 > h_\gamma(p)=g_0^{-1}U_\gamma g_0.
-> $$
+$$
 >
 > section を $s'=sk$（$k:U\to G$ は滑らか）へ変更すると
 >
-> $$
+$$
 > U'_\gamma=k(x)^{-1}U_\gamma k(x).
-> $$
+$$
 >
 > 固定した**主束の点 $p$** に対する $h_\gamma(p)$ は section の選択によらない。
 <!-- formal-statement-end -->
@@ -233,28 +233,28 @@ $$
 > **定理（微小矩形の輸送と曲率）**  
 > $G\subset GL(n,\mathbb F)$ を行列 Lie 群とし、$M$ 上の滑らかな主 $G$ 束と接続を考える。局所sectionと座標 $(x,y)$ における接続の表示を
 
-$
+$$
 A=A_x\,dx+A_y\,dy+\cdots
-$
+$$
 
 > とする。原点を $(0,0)$ とし、他の座標を固定する。十分小さい $\varepsilon>0$ に対して、頂点を順に
 
-$
+$$
 (0,0)\to(\varepsilon,0)\to(\varepsilon,\varepsilon)
 \to(0,\varepsilon)\to(0,0)
-$
+$$
 
 > と通る正向きの閉路を $\partial R_\varepsilon$ と書く。その局所輸送行列は
 >
-> $$
+$$
 > U_{\partial R_\varepsilon}
 > =I-\varepsilon^2F_{xy}(0,0)+O(\varepsilon^3),
-> $$
+$$
 >
-> $$
+$$
 > F_{xy}(0,0)
 > =\bigl(\partial_x A_y-\partial_y A_x+[A_x,A_y]\bigr)_{(0,0)}.
-> $$
+$$
 >
 > 剰余 $O(\varepsilon^3)$ は、固定した行列ノルムで $\varepsilon$ が十分小さいとき $C\varepsilon^3$ 以下であることを意味する。各係数を $\varepsilon$ に依存しない近傍で $C^2$ として評価する。
 <!-- formal-statement-end -->
