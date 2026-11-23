@@ -1,0 +1,45 @@
+id: "GBG24"
+title: "Pontryagin・Euler型不変量をどう見分けるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG23
+official_scope: []
+learning_objectives:
+  - 実直交束の計量接続の曲率が実交代行列値になることと複素化の意味を説明できる
+  - 複素化からPontryagin形式を定義し奇数Chern形式の消滅とp1の跡係数を導ける
+  - Pfaffianの定義とSO(2m)での不変性、向き反転での符号を証明できる
+  - 偶数階向き付き実束のEuler形式の次数と正規化を低次行列で確認できる
+  - 不変多項式のChern–Weil理論を使い閉性と接続非依存性を説明できる
+  - 複素線束の実平面束でe=c1とp1=e^2を計算できる
+  - 直和公式とS2×S2上の二種の実階数4束からEuler数と第一Pontryagin数を比較できる
+  - de Rham代表と整数係数特性類の整数性の追加証明責務を区別できる
+definitions:
+  - { id: GBG24-DEF-01, name: Pontryagin形式 }
+  - { id: GBG24-DEF-02, name: Pfaffian }
+  - { id: GBG24-DEF-03, name: PfaffianによるEuler形式 }
+theorems:
+  - { id: GBG24-PROP-01, name: 第一Pontryagin形式の跡公式 }
+  - { id: GBG24-PROP-02, name: Pfaffianの直交枠変換と向き }
+  - { id: GBG24-THM-01, name: Pontryagin・Euler形式の閉性と接続非依存性 }
+  - { id: GBG24-PROP-03, name: 実平面束のEulerとPontryagin }
+  - { id: GBG24-PROP-04, name: 直和公式 }
+canonical_examples:
+  - R4上の二平面直和でPontryagin形式とEuler形式の正規化
+  - R4上の実平面束でp1=e^2が非零となる例
+  - R4上の階数4直交束でp1=0でもEuler形式は非零
+  - S2×S2上のmonopole線束の実化二通りでeとp1を比較
+problem_patterns:
+  - GBG24-REAL-COMPLEXIFICATION
+  - GBG24-TRACE-SIGN
+  - GBG24-PFAFFIAN-LOW-RANK
+  - GBG24-ORIENTATION-SIGN
+  - GBG24-ODD-RANK
+  - GBG24-LOCAL-EXACT-FORMS
+  - GBG24-TOP-PONTRYAGIN-EULER-SQUARE
+  - GBG24-BLOCK-DIRECT-SUM
+  - GBG24-S2XS2-CHARACTERISTIC-NUMBERS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 4 }
