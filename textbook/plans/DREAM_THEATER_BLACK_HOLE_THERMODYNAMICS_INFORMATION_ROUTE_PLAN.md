@@ -16,7 +16,7 @@
 - [曲がった時空の量子場 I（QCURV系列）](../plan_done/DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md)
 - [ブラックホール熱力学 I（BHT1〜24）](../plan_done/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_I_PLAN.md)
 - [ホログラフィー I（HOLO1〜33）](../plan_done/DREAM_THEATER_HOLOGRAPHY_I_PLAN.md)
-- [ブラックホール情報 I・II（BHI1〜36）](../plans_progress/DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md)
+- [ブラックホール情報 I・II（BHI1〜36）](../plan_done/DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md)
 
 ## 直接依存の有向経路
 

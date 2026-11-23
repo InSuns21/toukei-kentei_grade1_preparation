@@ -1,0 +1,70 @@
+name: Validate BHI series closeout
+
+on:
+  pull_request:
+    paths:
+      - 'textbook/volumes/dream_thater/物理系/BHI/**'
+      - 'textbook/dream-theater-series/BHI.yaml'
+      - 'textbook/plans_progress/DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md'
+      - 'textbook/plan_done/DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md'
+      - 'scripts/audit-bhi-series-closeout.mjs'
+      - 'scripts/test-bhi-series-reference.py'
+      - 'scripts/verify-bhi-publication.py'
+      - '.github/workflows/validate-bhi-series-closeout.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'textbook/volumes/dream_thater/物理系/BHI/**'
+      - 'textbook/dream-theater-series/BHI.yaml'
+      - 'textbook/plan_done/DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md'
+      - 'scripts/audit-bhi-series-closeout.mjs'
+      - 'scripts/test-bhi-series-reference.py'
+      - 'scripts/verify-bhi-publication.py'
+      - '.github/workflows/validate-bhi-series-closeout.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cross-series:
+    name: BHI numerical, anchor and publication checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit all BHI chapters and their canonical links
+        run: node scripts/audit-bhi-series-closeout.mjs
+      - name: Verify independent mathematical calculations
+        run: python3 scripts/test-bhi-series-reference.py
+      - name: Install graphing and headless browser dependencies
+        run: |
+          python3 -m pip install matplotlib playwright
+          python3 -m playwright install --with-deps chromium
+      - name: Produce reproducible BHI I and II numeric graphs
+        run: |
+          python3 textbook/volumes/dream_thater/物理系/BHI/BHI16/radiation_entropy_reference.py --check --plot "$RUNNER_TEMP/bhi16_entropy.png"
+          cd "$RUNNER_TEMP"
+          python3 "$GITHUB_WORKSPACE/textbook/volumes/dream_thater/物理系/BHI/BHI26/page_transition_reference.py" --plot
+          test -s "$RUNNER_TEMP/bhi16_entropy.png"
+          test -s "$RUNNER_TEMP/bhi26_page_curve.png"
+      - name: Render published chapters in Chromium
+        run: |
+          python3 scripts/verify-bhi-publication.py --output "$RUNNER_TEMP/bhi-browser-smoke"
+      - name: Retain graphs and browser screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bhi-series-closeout-visuals
+          path: |
+            ${{ runner.temp }}/bhi16_entropy.png
+            ${{ runner.temp }}/bhi26_page_curve.png
+            ${{ runner.temp }}/bhi-browser-smoke/*.png
+          if-no-files-found: warn
+          retention-days: 14
