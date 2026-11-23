@@ -76,7 +76,7 @@ chapters:
     title: "Wilson loopは何に関して不変か"
   - id: GBG18
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG18
-    status: planned
+    status: completed
     title: "U(1)の非自明束はどう見えるか"
   - id: GBG19
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG19
