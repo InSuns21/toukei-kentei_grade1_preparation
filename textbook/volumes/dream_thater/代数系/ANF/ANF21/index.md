@@ -38,7 +38,7 @@ $$
 この定義では、定義域は $\mathbb I_K$ のままです。大域相互法則をまだ使わずに条件を確認できます。
 
 <!-- definition-example-start: def-anf21-artin-modulus -->
-**定義の直接確認**。$L=\mathbb Q(\zeta_5)$、$\mathfrak m=(5)\infty$ とします。
+**定義の確認**。$L=\mathbb Q(\zeta_5)$、$\mathfrak m=(5)\infty$ とします。
 
 $p\ne5$ では非分岐性により局所単数のArtin像は $1$ です。$p=5$ では[素数冪円分拡大の明示局所相互法則](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)を、$u\in1+5\mathbb Z_5$ に適用します。その像は
 
@@ -46,7 +46,7 @@ $$
 \sigma_{u^{-1}\bmod5}=\sigma_1=1
 $$
 
-となります。実素点では正元のArtin像が恒等です。
+となります。実素点では正の実数のArtin像が恒等です。
 
 以上より、$U((5)\infty)$ の各成分が局所Artin核に入るので、大域Artin積も $1$ です。
 <!-- definition-example-end -->
