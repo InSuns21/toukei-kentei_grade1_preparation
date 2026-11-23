@@ -152,12 +152,12 @@ $$
 
 かつ等号は $X=0$ の場合だけである。また、跡の巡回性で $\operatorname{tr}(XY)=\operatorname{tr}(YX)$ だから対称であり、反Hermite性から
 
-$
+$$
 \overline{\operatorname{tr}(XY)}
 =\operatorname{tr}(Y^\dagger X^\dagger)
 =\operatorname{tr}(YX)
 =\operatorname{tr}(XY)
-$
+$$
 
 となるので実数値である。ゆえに $-\operatorname{tr}(XY)$ は対称・正定値な実内積を与える。正の正規直交余接基底で $F=\sum_{i<j}F_{ij}e^{ij}$ と書くと、形式部分の星は係数を変えない。[星の二乗](#prop-gbg27-star-involution)と直交性から各行列成分について $\langle F^+,F^-\rangle=0$。従って
 
@@ -191,11 +191,11 @@ $$
 
 正の正規直交余接基底で $F=\sum_{i<j}F_{ij}e^{ij}$ と展開すれば、星は2形式の基底に作用し、行列係数は保つ。定義式から $e^{ij}\wedge *e^{kl}=\delta_{(ij),(kl)}\operatorname{vol}_g$ なので、異なる基底間の交差項が消え、
 
-$
+$$
 -\operatorname{tr}(F\wedge *F)
 =-\sum_{i<j}\operatorname{tr}(F_{ij}^{2})\operatorname{vol}_g
 =|F|^{2}\operatorname{vol}_g.
-$
+$$
 
 これが積分表示とノルム表示が一致する理由である。
 
@@ -232,18 +232,18 @@ $$
 
 二行目では $F^+\wedge F^-$ の交差項が消える。実際、$\langle F^+,F^-\rangle=0$ かつ $*F^-=-F^-$ なので
 
-$
+$$
 \operatorname{tr}(F^+\wedge F^-)
 =-\langle F^+,*F^-\rangle\operatorname{vol}_g
 =\langle F^+,F^-\rangle\operatorname{vol}_g=0.
-$
+$$
 
 残る対角項は次の式である。
 
-$
+$$
 \operatorname{tr}(F^\pm\wedge F^\pm)
 =\mp|F^\pm|^2\operatorname{vol}_g.
-$
+$$
 
 例えば $F^+=*F^+$ のとき $F^+\wedge F^+=F^+\wedge *F^+$ だから、跡は**負**になる。
 
@@ -315,11 +315,11 @@ $$
 
 ここで $d_Aa=da+A\wedge a+a\wedge A$ は次数1の[共変外微分](../GBG11/index.md#def-gbg11-local-covariant-exterior)である。$t\in\mathbb R$ は変分のパラメータで、$d/dt$ は $A_t$ の $t$ に関する微分を表す。従って
 
-$
+$$
 \left.\frac{dF_{A_t}}{dt}\right|_{t=0}=d_Aa,
 \qquad
 \left.\frac{d(*F_{A_t})}{dt}\right|_{t=0}=*d_Aa.
-$
+$$
 
 二式目では計量・向きが $t$ に依存しないため、星と $t$ 微分を交換した。
 
@@ -369,11 +369,11 @@ $$
 
 十分性は $d_A*F=0$ を代入すれば直ちに分かる。必要性について $B=d_A*F$ と置き、$B\ne0$ となる点があると仮定する。前に定めた**3形式から1形式への星**で $*B$ を作り、$B\ne0$ の近傍に台を持ち、その点で正となる滑らかな非負カットオフ $\chi$ を選んで $a=\chi*B$ とする。3形式と1形式の外積は順序交換で $(-1)^{3\cdot1}=-1$ を生じ、係数の内積は $-\operatorname{tr}$ だから
 
-$
+$$
 \operatorname{tr}((*B)\wedge B)
 =-\operatorname{tr}(B\wedge*B)
 =|B|^2\operatorname{vol}_g.
-$
+$$
 
 したがって第一変分は $-2\int_M\chi|B|^2\operatorname{vol}_g<0$ となり、すべての $a$ に対する停留性に反する。ゆえに全点で $d_A*F=0$。
 <!-- proof-end -->
@@ -554,7 +554,7 @@ $$
 <!-- solution-start -->
 **詳細解答**。曲率の微分は $d_Aa$ なので $\delta\operatorname{YM}_U=-2\int_U\operatorname{tr}(d_Aa\wedge*F)$。[次数付きLeibniz則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)
 
-$
+$$
 d\operatorname{tr}(a\wedge*F)
 =\operatorname{tr}(d_Aa\wedge*F)-\operatorname{tr}(a\wedge d_A*F)
 $$
