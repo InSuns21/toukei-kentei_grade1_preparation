@@ -28,7 +28,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-19-uniform-density -->
-**定義の確認（定数入力とPoisson解）**。$K=\{f_a(t)=a:0\le a\le1\}$、$\mathcal G$ を[零Dirichlet Poisson解作用素](../PML2-14/index.md#thm-pml2-14-green)とする。$-u''=a$ と $u(0)=u(1)=0$ を積分すれば
+**定義の確認**（定数入力とPoisson解）。$K=\{f_a(t)=a:0\le a\le1\}$、$\mathcal G$ を[零Dirichlet Poisson解作用素](../PML2-14/index.md#thm-pml2-14-green)とする。$-u''=a$ と $u(0)=u(1)=0$ を積分すれば
 
 $$
 (\mathcal Gf_a)(y)=\frac{a}{2}y(1-y).
@@ -43,10 +43,10 @@ $$
 
 距離空間の集合 $K$ が**コンパクト**とは、任意の開被覆から有限部分被覆を選べることである。今回の一様ノルム距離では、任意の精度 $\rho>0$ に対して有限個の代表関数を選べる。
 
-$
+$$
 f_1,\ldots,f_N\in K,\qquad
 \forall f\in K\ \exists i:\ \|f-f_i\|_\infty<\rho.
-$
+$$
 
 この代表の集まりを**有限 $\rho$-網**という。なぜなら各 $f\in K$ を中心とする半径 $\rho$ の開球が $K$ を覆い、コンパクト性でその有限部分被覆を選べるからである。
 
@@ -432,19 +432,19 @@ $$
 <!-- solution-start -->
 **詳細解答。** $T(0)=T(1)=0$ だから両教師点での予測も零である。一方、平方完成から
 
-$
+$$
 y(1-y)=\frac14-(y-\tfrac12)^2,\qquad
 \|\mathcal Df-\mathcal Gf\|_\infty=\frac{|A|}{4}.
-$
+$$
 
 任意の $A$ を選べるため、教師点誤差が零でも一様誤差を一律に制御できない。
 
 真値と予測値の双方に共通のLipschitz定数 $L_{\rm out}$ があり、どの出力点も最近傍教師点から距離 $h_y$ 以下なら、三角不等式で
 
-$
+$$
 \|\mathcal Df-\mathcal Gf\|_\infty
 \le E_{\rm grid}+2L_{\rm out}h_y
-$
+$$
 
 と評価できる。本例の予測値の導関数は $T'(y)=A(1-2y)$ なので、そのLipschitz定数は少なくとも $|A|$ を必要とする。$A$ と無関係な共通定数は存在しない。
 <!-- solution-end -->
@@ -481,17 +481,17 @@ $h\to0$ で第二項は零に向かうが、第一項の上界 $\alpha$ は残�
 - Level: C
 - 次の入力族と恒等作用素を考える。
 
-$
+$$
 K=\{f_a(t)=a:0\le a\le1\},\qquad \mathcal Gf=f.
-$
+$$
 
 1. $K$ がコンパクトであることを示し、一様近似定理の適用条件を確かめよ。
 2. 訓練入力 $f_0,f_1$ で厳密一致し、未見入力 $f_{1/2}$ で誤差2となる連続branch/trunkモデルを作れ。
 3. 真値とモデルがともに入力について共通の $L$-Lipschitz条件を満たすとする。訓練集合の被覆半径を $\rho$、訓練最大誤差を $e_{\rm train}$ として、未見入力の一様誤差が次を満たすことを証明し、(2) のモデルの定数 $L$ を検算せよ。
 
-$
+$$
 e_{\rm test}\le e_{\rm train}+2L\rho.
-$
+$$
 
 <!-- solution-start -->
 **詳細解答。**
