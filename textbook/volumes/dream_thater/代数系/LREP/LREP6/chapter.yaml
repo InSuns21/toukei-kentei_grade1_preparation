@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - LREP5
+  - LIE3
 official_scope: []
 learning_objectives:
   - su2の実Lie環からsl2(C)のH,E,Fを作り交換関係を直接検算できる
