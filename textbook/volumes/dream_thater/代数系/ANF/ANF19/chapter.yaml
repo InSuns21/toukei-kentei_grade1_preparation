@@ -21,7 +21,7 @@ definitions:
 theorems:
   - { id: ANF19-PROP-01, name: 数体の対角埋め込みと離散性 }
   - { id: ANF19-THM-01, name: 数体の大域積公式 }
-  - { id: ANF19-PROP-02, name: イデールの特徴付けと位相の相違 }
+  - { id: ANF19-PROP-02, name: アデールの単元とイデール位相 }
   - { id: ANF19-THM-02, name: イデールのイデアル写像と類群完全列 }
 canonical_examples:
   - Qのp進成分がpまたはpの逆数である列の有限性条件
