@@ -1,0 +1,46 @@
+id: LREP6
+title: "SU(2)の有限次元既約表現"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP5
+official_scope: []
+learning_objectives:
+  - su2の実Lie環からsl2(C)のH,E,Fを作り交換関係を直接検算できる
+  - ウェイトと最高ウェイトベクトルの条件を具体表現で判定できる
+  - 昇降公式を導き有限次元性と既約性から最高ウェイトが非負整数であることを証明できる
+  - 斉次多項式模型V_nを構成し群法則・微分作用・既約性を証明できる
+  - SU2表現とその微分の既約性・同値性を指数写像を使って接続できる
+  - 正規直交基底の昇降係数を導き、核元の符号からSO3への降下を判定できる
+definitions:
+  - { id: LREP6-DEF-01, name: 標準三生成子 }
+  - { id: LREP6-DEF-02, name: ウェイトと最高ウェイトベクトル }
+  - { id: LREP6-DEF-03, name: 斉次多項式表現 }
+theorems:
+  - { id: LREP6-LEM-01, name: 標準三生成子の交換関係 }
+  - { id: LREP6-LEM-02, name: 昇降公式 }
+  - { id: LREP6-THM-01, name: 有限次元複素既約表現の分類 }
+  - { id: LREP6-THM-02, name: 多項式模型の既約性と群への積分 }
+  - { id: LREP6-PROP-01, name: 群表現と微分表現の既約性・同値性 }
+  - { id: LREP6-PROP-02, name: 正規直交基底の昇降係数 }
+  - { id: LREP6-THM-03, name: 回転群への降下と次元の偶奇 }
+canonical_examples:
+  - sl2標準三生成子の行列積と交換子
+  - 二次元標準表現の最高ウェイト1
+  - V2の三次元多項式表現と昇降行列
+  - Vnの正規直交基底の二項係数
+  - 中心元の作用によるSO3への降下
+problem_patterns:
+  - LREP6-SL2-COMMUTATORS
+  - LREP6-POLYNOMIAL-WEIGHTS
+  - LREP6-FOUR-DIMENSIONAL-LADDER
+  - LREP6-CENTRAL-PARITY
+  - LREP6-LADDER-INDUCTION
+  - LREP6-ORTHONORMAL-COEFFICIENTS
+  - LREP6-TENSOR-SQUARE-DECOMPOSITION
+  - LREP6-INFINITE-DIMENSION-OBSTRUCTION
+  - LREP6-SU2-INTEGRATED-FOUR-DIMENSIONAL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 3 }

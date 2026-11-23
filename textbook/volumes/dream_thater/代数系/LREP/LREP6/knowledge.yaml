@@ -1,0 +1,67 @@
+chapter: LREP6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP5
+forward_references:
+  - mechanics.angular-momentum
+concepts:
+  - id: representation.sl2-standard-triple
+    name: 標準三生成子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標準三生成子）"]
+    requires: [lie.unitary-lie-algebra, representation.pauli-matrix-model]
+  - id: representation.sl2-standard-brackets
+    name: 標準三生成子の交換関係
+    kind: lemma
+    introduction: formal
+    requires: [representation.sl2-standard-triple]
+  - id: representation.sl2-weight
+    name: ウェイト
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ウェイトと最高ウェイトベクトル）"]
+    requires: [representation.sl2-standard-brackets, representation.lie-algebra-representation]
+  - id: representation.sl2-highest-weight-vector
+    name: 最高ウェイトベクトル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ウェイトと最高ウェイトベクトル）"]
+    requires: [representation.sl2-weight]
+  - id: representation.sl2-ladder
+    name: 昇降公式
+    kind: lemma
+    introduction: formal
+    requires: [representation.sl2-highest-weight-vector, representation.sl2-standard-brackets]
+  - id: representation.sl2-finite-dimensional-classification
+    name: 有限次元複素既約表現の分類
+    kind: theorem
+    introduction: formal
+    requires: [representation.sl2-ladder, representation.irreducible]
+  - id: representation.su2-polynomial-representation
+    name: 斉次多項式表現
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（斉次多項式表現）"]
+    requires: [representation.finite-dimensional-complex, representation.tensor-product]
+  - id: representation.su2-polynomial-irreducible
+    name: 多項式模型の既約性と群への積分
+    kind: theorem
+    introduction: formal
+    requires: [representation.su2-polynomial-representation, representation.sl2-finite-dimensional-classification]
+  - id: representation.su2-group-lie-equivalence
+    name: 群表現と微分表現の既約性・同値性
+    kind: proposition
+    introduction: formal
+    requires: [representation.su2-polynomial-irreducible, representation.differentiation-bracket, representation.su2-axis-angle]
+  - id: representation.su2-unitary-ladder
+    name: 正規直交基底の昇降係数
+    kind: proposition
+    introduction: formal
+    requires: [representation.su2-polynomial-irreducible, representation.tensor-product]
+  - id: representation.su2-so3-descent-parity
+    name: 回転群への降下と次元の偶奇
+    kind: theorem
+    introduction: formal
+    requires: [representation.su2-polynomial-representation, representation.covering-kernel-criterion, representation.su2-so3-double-cover]
