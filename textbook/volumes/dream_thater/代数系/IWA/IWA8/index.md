@@ -544,10 +544,20 @@ $p=3$、$M=\mathbb Z/9\mathbb Z$、$c(x)=-x$ とする。$e_0=(1+c)/2$、$e_1=(1
 - Level: B
 - ID: IWA8-B1
 
-$p=5$、$\Delta=\langle g\rangle$（$g=2\bmod5$）、$M=(\mathbb Z/25\mathbb Z)\oplus(\mathbb Z/5\mathbb Z)$ とする。作用を $g(x,y)=(7x,4y)$ と定める。(1) $g^4=1$ を確かめよ。(2) 指標成分 $M^{(i)}$ をすべて求めよ。(3) $c=g^2$ による偶奇部分と各位数を求めよ。これは数体の類群とは限らない加群の模型である。
+$p=5$、$\Delta=\langle g\rangle$（$g=2\bmod5$）、$M=(\mathbb Z/25\mathbb Z)\oplus(\mathbb Z/5\mathbb Z)$ とする。作用を $g(x,y)=(7x,4y)$ と定める。
+
+1. $g^4=1$ を確かめよ。
+2. 指標成分 $M^{(i)}$ をすべて求めよ。
+3. $c=g^2$ による偶奇部分と各位数を求めよ。これは数体の類群とは限らない加群の模型である。
 
 <!-- solution-start -->
-**詳細解答。** (1) $7^2=49\equiv-1\pmod{25}$ なので $7^4\equiv1$。$4^2=16\equiv1\pmod5$ なので $4^4\equiv1$ です。従って作用は位数4の群の作用として良定義です。(2) [Teichmüller値](#def-iwa8-teich-character)から $\omega(g)\equiv7\pmod{25}$、$\omega(g)^2\equiv4\pmod5$。第一座標の固有指標は $\omega$、第二座標は $\omega^2$ です。[直和分解](#thm-iwa8-idempotent-decomposition)より $M^{(1)}=\mathbb Z/25\oplus0$、$M^{(2)}=0\oplus\mathbb Z/5$、他は0。(3) $g^2(x,y)=(-x,y)$ なので $M^-=\mathbb Z/25\oplus0$（位数25）、$M^+=0\oplus\mathbb Z/5$（位数5）です。$|M|=25\cdot5=125$ とも一致します。
+**詳細解答。**
+
+**第1問。** $7^2=49\equiv-1\pmod{25}$ なので $7^4\equiv1$。$4^2=16\equiv1\pmod5$ なので $4^4\equiv1$ です。従って作用は位数4の群の作用として良定義です。
+
+**第2問。** [Teichmüller値](#def-iwa8-teich-character)から $\omega(g)\equiv7\pmod{25}$、$\omega(g)^2\equiv4\pmod5$。第一座標の固有指標は $\omega$、第二座標は $\omega^2$ です。[直和分解](#thm-iwa8-idempotent-decomposition)より $M^{(1)}=\mathbb Z/25\oplus0$、$M^{(2)}=0\oplus\mathbb Z/5$、他は0。
+
+**第3問。** $g^2(x,y)=(-x,y)$ なので $M^-=\mathbb Z/25\oplus0$（位数25）、$M^+=0\oplus\mathbb Z/5$（位数5）です。$|M|=25\cdot5=125$ とも一致します。
 <!-- solution-end -->
 
 <a id="ex-iwa8-b2"></a>
@@ -568,10 +578,20 @@ $p=5$、$\Delta=\langle g\rangle$（$g=2\bmod5$）、$M=(\mathbb Z/25\mathbb Z)\
 - Level: B
 - ID: IWA8-B3
 
-奇素数 $p$、$K=\mathbb Q(\zeta_{p^r})$、$K^+$ をその最大実部分体とする。$A=\operatorname{Cl}(K)[p^\infty]$、$B=\operatorname{Cl}(K^+)[p^\infty]$ とし、イデアル拡大 $j$ とノルム $N$ が $Nj=2$、$jN=1+c$ を満たすことを用いて、(1) $j:B\to A$ の単射性、(2) $j(B)=A^+$、(3) $\ker N=A^-$ を証明せよ。
+奇素数 $p$、$K=\mathbb Q(\zeta_{p^r})$、$K^+$ をその最大実部分体とする。$A=\operatorname{Cl}(K)[p^\infty]$、$B=\operatorname{Cl}(K^+)[p^\infty]$ とし、イデアル拡大 $j$ とノルム $N$ が $Nj=2$、$jN=1+c$ を満たすことを用いて、
+
+1. $j:B\to A$ の単射性、
+2. $j(B)=A^+$、
+3. $\ker N=A^-$ を証明せよ。
 
 <!-- solution-start -->
-**詳細解答。** (1) $j(b)=0$ なら $2b=Nj(b)=0$。$B$ は有限 $p$ 群、$p$ は奇数なので2倍は可逆、従って $b=0$。(2) $c$ は $j(B)$ の元を固定するので $j(B)\subset A^+$。逆に $x\in A^+$ なら $jN(x)=(1+c)x=2x$ であり、$x=j((1/2)N(x))$。従って等号です。(3) $x\in A^-$ なら $jN(x)=(1+c)x=0$。単射性により $N(x)=0$。逆に $N(x)=0$ なら $(1+c)x=jN(x)=0$ で、$cx=-x$。従って $\ker N=A^-$ です。[実部分体の定理](#thm-iwa8-plus-real-class)の要所を再現しました。
+**詳細解答。**
+
+**第1問。** $j(b)=0$ なら $2b=Nj(b)=0$。$B$ は有限 $p$ 群、$p$ は奇数なので2倍は可逆、従って $b=0$。
+
+**第2問。** $c$ は $j(B)$ の元を固定するので $j(B)\subset A^+$。逆に $x\in A^+$ なら $jN(x)=(1+c)x=2x$ であり、$x=j((1/2)N(x))$。従って等号です。
+
+**第3問。** $x\in A^-$ なら $jN(x)=(1+c)x=0$。単射性により $N(x)=0$。逆に $N(x)=0$ なら $(1+c)x=jN(x)=0$ で、$cx=-x$。従って $\ker N=A^-$ です。[実部分体の定理](#thm-iwa8-plus-real-class)の要所を再現しました。
 <!-- solution-end -->
 
 <a id="ex-iwa8-b4"></a>
@@ -580,10 +600,17 @@ $p=5$、$\Delta=\langle g\rangle$（$g=2\bmod5$）、$M=(\mathbb Z/25\mathbb Z)\
 - Level: B
 - ID: IWA8-B4
 
-奇素数 $p$ の円分塔 $E_r\subset E_{r+1}$ を考える。$x\in A_{r+1}$、$\delta\in\Delta$ について $N_{r+1,r}(\delta x)=\delta N_{r+1,r}(x)$ を仮定して、(1) $N_{r+1,r}(e_ix)=e_iN_{r+1,r}(x)$ を計算せよ。(2) 互換列 $(x_r)_r\in\varprojlim A_r$ が $(e_ix_r)_r$ も互換列となることを確かめよ。
+奇素数 $p$ の円分塔 $E_r\subset E_{r+1}$ を考える。$x\in A_{r+1}$、$\delta\in\Delta$ について $N_{r+1,r}(\delta x)=\delta N_{r+1,r}(x)$ を仮定して、
+
+1. $N_{r+1,r}(e_ix)=e_iN_{r+1,r}(x)$ を計算せよ。
+2. 互換列 $(x_r)_r\in\varprojlim A_r$ が $(e_ix_r)_r$ も互換列となることを確かめよ。
 
 <!-- solution-start -->
-**詳細解答。** (1) [射影子の定義](#def-iwa8-character-idempotent)を左辺に代入すると $N(e_ix)=\frac1{p-1}\sum_\delta\omega(\delta)^{-i}N(\delta x)$。仮定で各項を $\delta N(x)$ に直せるので、和は $e_iN(x)$ です。(2) 互換性 $N_{r+1,r}(x_{r+1})=x_r$ と(1)を続けて使い、$N_{r+1,r}(e_ix_{r+1})=e_iN_{r+1,r}(x_{r+1})=e_ix_r$ を得ます。従って成分別の列もノルムと両立します。
+**詳細解答。**
+
+**第1問。** [射影子の定義](#def-iwa8-character-idempotent)を左辺に代入すると $N(e_ix)=\frac1{p-1}\sum_\delta\omega(\delta)^{-i}N(\delta x)$。仮定で各項を $\delta N(x)$ に直せるので、和は $e_iN(x)$ です。
+
+**第2問。** 互換性 $N_{r+1,r}(x_{r+1})=x_r$ と(1)を続けて使い、$N_{r+1,r}(e_ix_{r+1})=e_iN_{r+1,r}(x_{r+1})=e_ix_r$ を得ます。従って成分別の列もノルムと両立します。
 <!-- solution-end -->
 
 <a id="ex-iwa8-b5"></a>
