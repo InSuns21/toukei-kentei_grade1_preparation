@@ -295,7 +295,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\ell\ne p$ なのでFrobenius元は $G_{n+1}$ で単元 $\ell$ に対応します。[Galois群の制限とFrobeniusの両立性](../../ANF/ANF21/index.md#prop-anf21-restriction)から $K_n$ でのFrobeniusはその $\Delta_n$ による商の像です。[積分解](#thm-iwa2-odd-splitting)より、その像は $\omega_n(\ell\bmod p)^{-1}\ell\in U_n$ となります。[非分岐素数の分解とFrobenius位数](../../ANF/ANF21/index.md#prop-anf21-frobenius-order)から完全分解はこの像が単位元であることと同値です。これは $\ell\bmod p^{n+1}\in\Delta_n$ と同値であり、[持ち上げの一意性](#prop-iwa2-teichmueller-lifting)により $\ell^{p-1}\equiv1\pmod{p^{n+1}}$ と同値です。
+$\ell\ne p$ なので円分体でのFrobenius元は単元 $\ell$ に対応します。[Galois群の制限とFrobeniusの両立性](../../ANF/ANF21/index.md#prop-anf21-restriction)により、$K_n$ でのFrobeniusはその商群への像です。
+
+[積分解](#thm-iwa2-odd-splitting)によって、対応する主単元は
+$$
+u_\ell=\omega_n(\ell\bmod p)^{-1}\ell\in U_n
+$$
+と計算できます。[非分岐素数の分解とFrobenius位数](../../ANF/ANF21/index.md#prop-anf21-frobenius-order)から、完全分解はこの像が単位元であることと同値です。
+
+従って完全分解の条件は $\ell\bmod p^{n+1}\in\Delta_n$ です。[持ち上げの一意性](#prop-iwa2-teichmueller-lifting)から、これは
+$$
+\ell^{p-1}\equiv1\pmod{p^{n+1}}
+$$
+と同値です。
 <!-- proof-end -->
 
 **計算例。** $p=5,n=1$ とすると $K_1/\mathbb Q$ は5次巡回拡大です。$\ell=2$ では前節の計算から $2=7\cdot6^2$（法25）なのでFrobeniusは生成元 $6$ の2乗、位数5です。従って2はこの5次層で惰性（剰余次数5）。$\ell=101$ では $101\equiv1\pmod{25}$ なので完全分解します。異なる素数で分解型が変わることを、一つの指数座標で見られます。
@@ -315,7 +327,11 @@ $$
 $$
 であり、$\Gamma$ の生成元には $5$ を使います。いずれも $\Gamma$ は $\mathbb Z_p$ という加法位相群に対応する、乗法記法のGalois群です。
 
-**何が一意なのか。** 有限位数で $p$ と互いに素な元は $\mathbb Z_p$ へ準同型で送ると必ず単位元になります。$p=2$ の符号元 $-1$ も、加法群 $\mathbb Z_2$ に位数2の非零元がないので消えます。従って全円分群から $\mathbb Z_p$ への連続全射は $\Delta$ を核に含み、その固定体はこの円分的 $\mathbb Z_p$ 塔の中に収まります。[IWA1の閉部分群分類](../IWA1/index.md#thm-iwa1-closed-subgroups)により $\mathbb Z_p$ への全射の核は自明なので、この塔が **$p$ 冪円分拡大全体に含まれる $\mathbb Z_p$ 拡大として一意** です。ここから一般の数体のすべての $\mathbb Z_p$ 拡大が一意だとは結論できません。
+**何が一意なのか。** 有限位数で $p$ と互いに素な元は、加法群 $\mathbb Z_p$ へ準同型で送ると必ず零元になります。$p=2$ の符号元 $-1$ も、$\mathbb Z_2$ に位数2の非零元がないので零元へ写ります。
+
+従って全円分群から $\mathbb Z_p$ への連続全射は、有限部分 $\Delta$ を核に含みます。その全射は $\Gamma$ からの連続全射に誘導され、対応する固定体は円分的 $\mathbb Z_p$ 塔に含まれます。
+
+[IWA1の閉部分群分類](../IWA1/index.md#thm-iwa1-closed-subgroups)によれば、$\mathbb Z_p$ の非零閉部分群による商は有限群です。したがって $\Gamma\simeq\mathbb Z_p$ から $\mathbb Z_p$ への全射の核は自明です。これが **$p$ 冪円分拡大全体に含まれる $\mathbb Z_p$ 拡大として一意** という意味です。一般の数体のすべての $\mathbb Z_p$ 拡大が一意という意味ではありません。
 
 有限層の数論的な性質もはっきりします。[ANF22の完全分岐の証明](../../ANF/ANF22/index.md#prop-anf22-prime-power-degree)から $p$ は $E_r/\mathbb Q$ で完全分岐するので、塔の中間体 $K_n/\mathbb Q$ でも完全分岐し、$p$ 以外の有限素数は非分岐です。これは全有限素点で非分岐なHilbert類体とは別の構成です。次講ではこの $\Gamma$ の有限商を一つの環へまとめ、群の作用を代数的に扱います。
 
@@ -422,7 +438,19 @@ $p=5,n=1$ において、素数 $101$ と $11$ の $K_1/\mathbb Q$ での分解�
 - ID: IWA2-B4
 
 <!-- solution-start -->
-**詳細解答**。$3^2\equiv9$、$3^3\equiv11$、$3^4\equiv1\pmod{16}$ より $\langle3\rangle=\{1,3,9,11\}$。一方 $V_2=\{1,5,9,13\}$ であり、$3\notin V_2$ なので一致しません。さらに $-1\equiv15$ は $\langle3\rangle$ に属さないので、法16だけなら符号との直積を作れます。法8への還元でも $3\bmod8$ は $1\bmod4$ の条件を満たさず、$V_1=\{1,5\}$ に属しません。従って $3$ は **主単元群 $V_n$ の生成元** にはなれません。ただし $\langle3\rangle$ 自体は符号群の別の補群として階層間で両立し得ます。ここで選んだ自然な主単元部分群 $V_n$ を使うには、全段で $1\bmod4$ となる $5$ を選びます。
+**詳細解答**。法16で冪を計算すると
+$$
+3^2\equiv9,\quad 3^3\equiv11,\quad 3^4\equiv1\pmod{16}.
+$$
+従って $\langle3\rangle=\{1,3,9,11\}$。一方、主単元群は
+$$
+V_2=\{1,5,9,13\}
+$$
+です。$3\notin V_2$ なので両者は一致しません。
+
+$-1\equiv15$ は $\langle3\rangle$ に属さないため、法16では符号群との別の直積分解も可能です。しかし法8でも $3\bmod8$ は $1\bmod4$ の条件を満たさず、$V_1=\{1,5\}$ に属しません。従って $3$ は主単元群 $V_n$ の生成元にはなれません。
+
+$\langle3\rangle$ は符号群の別の補群として階層間で両立し得ます。それでも本講の主単元部分群 $V_n$ を選ぶなら、全ての段で $1\bmod4$ になる $5$ を生成元に使います。
 <!-- solution-end -->
 
 ### C1. 第二層までの統合計算
@@ -441,7 +469,16 @@ $p=5$ の奇素数円分塔で、(i) $K_2/\mathbb Q$ の次数とGalois群、(ii
 $$
 v_5(16^{5^k}-1)=k+1,\qquad k\ge0.
 $$
-特に $16^5\not\equiv1\pmod{125}$（付値2）、$16^{25}\equiv1\pmod{125}$（付値3）。$2$ の法125での像の25乗は単位元であり、5乗は単位元でないことを示すには、商の中で $[2]^5=1$ なら $2^5\in\Delta_2$ となり、$(2^5)^4=16^5\equiv1\pmod{125}$ のはずですが、これに反します。一方 $[2]^{25}=1$ は $(2^{25})^4=16^{25}\equiv1\pmod{125}$ から従います。従って $[2]\in G_3/\Delta_2$ の位数は25で、[Frobeniusと剰余次数](../../ANF/ANF21/index.md#prop-anf21-frobenius-order)から2の剰余次数は25です。つまり2は $K_2$ でも惰性です。
+付値の式から
+$$
+16^5\not\equiv1\pmod{125},\qquad
+16^{25}\equiv1\pmod{125}.
+$$
+商群で $[2]^5=1$ ならば $2^5\in\Delta_2$ です。従って $(2^5)^4=16^5\equiv1\pmod{125}$ となるはずですが、これは上の不等式に反します。
+
+一方 $(2^{25})^4=16^{25}\equiv1\pmod{125}$ なので $2^{25}\in\Delta_2$、すなわち $[2]^{25}=1$。よって $[2]\in G_3/\Delta_2$ の位数は25です。
+
+[非分岐素数のFrobenius位数と剰余次数](../../ANF/ANF21/index.md#prop-anf21-frobenius-order)を用いれば、2の剰余次数は25。従って2は $K_2$ でも惰性です。
 
 (iv) [素数冪円分体での完全分岐](../../ANF/ANF22/index.md#prop-anf22-prime-power-degree)により5は $E_3/\mathbb Q$ で完全分岐します。その中間体 $K_2$ においても唯一の上の素点があり、剰余次数は1、分岐指数は $[K_2:\mathbb Q]=25$ です。
 <!-- solution-end -->
