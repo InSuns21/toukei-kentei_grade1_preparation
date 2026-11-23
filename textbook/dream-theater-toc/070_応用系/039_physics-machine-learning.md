@@ -42,3 +42,4 @@
 38. [PML2-16 Fourier Neural OperatorはなぜFourier係数を用いるか](textbook/volumes/dream_thater/応用系/PML/PML2-16/index.md)
 39. [PML2-17 解像度を変えても同じ精度が出るのか](textbook/volumes/dream_thater/応用系/PML/PML2-17/index.md)
 40. [PML2-18 DeepONetは観測点からどう作用素を近似するか](textbook/volumes/dream_thater/応用系/PML/PML2-18/index.md)
+41. [PML2-19 Neural Operatorの近似定理は何を保証しないか](textbook/volumes/dream_thater/応用系/PML/PML2-19/index.md)
