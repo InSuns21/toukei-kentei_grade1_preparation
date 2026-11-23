@@ -214,13 +214,13 @@ $$
 > **定理（モノドロミーの準同型性・共役・像）**  
 > $(P,\omega)$ を上記の平坦な右主 $G$ 束とし、$x\in M$、$p\in P_x$ を固定する。このとき
 >
-> 1. $\rho_{\omega,p}:\pi_1(M,x)\to G$ は well-defined な群準同型である。
-> 2. $k\in G$、$p'=pk$ とすると、すべての $[\gamma]$ について
+> **準同型性**：$\rho_{\omega,p}:\pi_1(M,x)\to G$ は well-defined な群準同型である。
+> **ファイバー基準点の変更**：$k\in G$、$p'=pk$ とすると、すべての $[\gamma]$ について
 $$
 \rho_{\omega,p'}([\gamma])=k^{-1}\rho_{\omega,p}([\gamma])k.
 $$
-> 3. その像は $\operatorname{im}\rho_{\omega,p}=\operatorname{Hol}_p(\omega)$ である。
-> 4. $y$ を結ぶ路 $\sigma:x\to y$ と $q=\operatorname{PT}_\sigma(p)$ を選ぶと、閉路類の対応
+> **像の一致**：その像は $\operatorname{im}\rho_{\omega,p}=\operatorname{Hol}_p(\omega)$ である。
+> **基底の基点変更**：$x$ から $y$ を結ぶ路 $\sigma:x\to y$ と $q=\operatorname{PT}_\sigma(p)$ を選ぶと、閉路類の対応
 $$
 [\delta]\longmapsto[\bar\sigma*\delta*\sigma]
 $$
