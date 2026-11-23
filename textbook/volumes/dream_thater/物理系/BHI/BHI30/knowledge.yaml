@@ -1,0 +1,54 @@
+chapter: BHI30
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI29]
+forward_references: []
+concepts:
+  - id: black-hole-information.replica-spectral-derivative
+    name: 密度演算子のレプリカ微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（密度演算子のレプリカ微分）]
+    requires: [black-hole-information.radiation-cyclic-sewing]
+  - id: black-hole-information.normalized-log-replica
+    name: 正規化された対数レプリカ量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正規化された対数レプリカ量）]
+    requires: [black-hole-information.radiation-cyclic-sewing]
+  - id: black-hole-information.replica-normalization-derivative
+    name: 重力レプリカの正規化微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（重力レプリカの正規化微分）]
+    requires: [black-hole-information.replica-spectral-derivative, black-hole-information.normalized-log-replica]
+  - id: black-hole-information.admissible-replica-continuation
+    name: 本講の許容レプリカ延長の条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（本講の許容レプリカ延長の条件）]
+    requires: [black-hole-information.normalized-log-replica, black-hole-information.replica-saddle-candidates]
+  - id: black-hole-information.replica-first-order-ledger
+    name: 端点付き鞍点族の一次係数台帳
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（端点付き鞍点族の一次係数台帳）]
+    requires: [black-hole-information.admissible-replica-continuation, black-hole-information.replica-fixed-point-variation]
+  - id: black-hole-information.replica-onshell-derivative
+    name: 停留端点を持つ鞍点の一次微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（停留端点を持つ鞍点の一次微分）]
+    requires: [black-hole-information.replica-first-order-ledger]
+  - id: black-hole-information.conditional-island-rule
+    name: JT・浴模型における条件付きisland則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（JT・浴模型における条件付きisland則）]
+    requires: [black-hole-information.replica-onshell-derivative, black-hole-information.replica-normalization-derivative, black-hole-information.jt-island-generalized-entropy-ledger, black-hole-information.jt-extremized-branch-comparison]
+  - id: black-hole-information.replica-mixture-limits
+    name: 二枝混合での微分と半古典極限の非可換性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二枝混合での微分と半古典極限の非可換性）]
+    requires: [black-hole-information.replica-normalization-derivative, black-hole-information.conditional-island-rule]

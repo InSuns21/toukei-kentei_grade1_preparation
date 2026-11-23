@@ -127,7 +127,7 @@ chapters:
     title: "レプリカ・ワームホールの鞍点"
   - id: BHI30
     path: textbook/volumes/dream_thater/物理系/BHI/BHI30
-    status: planned
+    status: completed
     title: "$n\\to1$とisland公式の導出範囲"
   - id: BHI31
     path: textbook/volumes/dream_thater/物理系/BHI/BHI31
