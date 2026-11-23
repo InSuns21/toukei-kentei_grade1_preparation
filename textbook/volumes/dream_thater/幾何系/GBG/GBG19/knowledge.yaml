@@ -1,0 +1,48 @@
+chapter: GBG19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG18
+forward_references: []
+concepts:
+  - id: gauge.dirac-monopole-local-connection
+    name: Dirac monopoleの南北局所接続
+    kind: definition
+    introduction: formal
+    requires: [gauge.u1-clutching-sphere, gauge.local-connection-potential, gauge.local-potential-transformation]
+
+  - id: gauge.dirac-monopole-smooth-gluing
+    name: 南北局所接続の滑らかさと貼り合わせ
+    kind: proposition
+    introduction: formal
+    requires: [gauge.dirac-monopole-local-connection, gauge.local-connection-reconstruction]
+
+  - id: gauge.dirac-monopole-chern-number
+    name: 第一Chern数としての磁束整数
+    kind: definition
+    introduction: formal
+    requires: [gauge.principal-curvature-form, gauge.local-curvature-form]
+
+  - id: gauge.dirac-monopole-curvature-flux
+    name: Dirac monopoleの曲率と第一Chern数
+    kind: theorem
+    introduction: formal
+    requires: [gauge.dirac-monopole-smooth-gluing, gauge.dirac-monopole-chern-number, gauge.local-curvature-structure-equation]
+
+  - id: gauge.u1-flux-winding-integrality
+    name: 任意のU(1)接続の磁束の整数性
+    kind: theorem
+    introduction: formal
+    requires: [gauge.circle-map-winding, gauge.local-potential-transformation, gauge.dirac-monopole-chern-number]
+
+  - id: gauge.monopole-flux-invariance
+    name: 局所sectionと接続変更に対する磁束不変性
+    kind: proposition
+    introduction: formal
+    requires: [gauge.u1-flux-winding-integrality, gauge.local-curvature-gauge-covariance]
+
+  - id: gauge.dirac-physical-charge-quantization
+    name: 基準電荷に対するDirac量子化条件
+    kind: theorem
+    introduction: formal
+    requires: [gauge.u1-flux-winding-integrality, gauge.linear-representation, gauge.associated-component-transformation]
