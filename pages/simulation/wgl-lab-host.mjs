@@ -11,7 +11,7 @@ import {expectedFCG8Samples,compareFCG8Readback,fcg8State} from './fcg8-lab-core
 import { highlightSource } from './wgl-lab-highlight.mjs';
 import {mountReferenceObservation} from './wgl-fcg-reference-visual.mjs';
 import {mountVisualGuide} from './wgl-fcg-visual-guide.mjs';
-import {mountLabParameters,parametersFor,readLabParameter,writeLabParameter,verifiedFCG5Physics,verifiedFCG3Physics,verifiedFCG2Physics} from './wgl-lab-parameters.mjs';
+import {mountLabParameters,parametersFor,readLabParameter,writeLabParameter,verifiedFCG5Physics,verifiedFCG3Physics,verifiedFCG8Physics,verifiedFCG2Physics} from './wgl-lab-parameters.mjs';
 import {mountSceneInfo} from './wgl-lab-scene-info.mjs';
 import { compareWGL2Readback, expectedWGL2Samples } from './wgl2-lab-core.mjs';
 import { compareWGL3Readback, expectedWGL3Samples } from './wgl3-lab-core.mjs';
@@ -250,6 +250,9 @@ function capture() {
 // CPU reference. Arbitrary learner edits remain runnable but cannot pass this oracle.
 function fcg3PhysicsFor(js,vertex,fragment) {
   return isFCG3 ? verifiedFCG3Physics(js,vertex,fragment,defaults) : null;
+}
+function fcg8PhysicsFor(js,vertex,fragment) {
+  return isFCG8 ? verifiedFCG8Physics(js,vertex,fragment,defaults) : null;
 }
 function fcg6PhysicsFor(js,vertex,fragment) {
   if(!isFCG6||vertex!==defaults.vertex||fragment!==defaults.fragment)return null;
@@ -822,13 +825,14 @@ window.addEventListener('message', event => {
       !Array.isArray(rgba)||rgba.length!==4||!rgba.every(v=>Number.isInteger(v)&&v>=0&&v<=255))return;
     const panel=Math.min(2,Math.floor(3*(x+0.5)/width));
     const px=3*(x+0.5)/width-panel,py=(y+0.5)/height;
-    const i=Math.max(0,Math.min(47,Math.floor(px*48)));
-    const j=Math.max(0,Math.min(47,Math.floor(py*48)));
-    const field=fcg8State(steps);
-    const phi=panel===0?field.raw[i+48*j]:panel===1?field.reinit[i+48*j]:
-      Math.hypot(px-0.5-0.6*field.time*(py-0.5),py-0.5)-0.18;
+    const physics=fcg8PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment);
+    const field=fcg8State(steps,physics||{});
+    const n=field.N,i=Math.max(0,Math.min(n-1,Math.floor(px*n)));
+    const j=Math.max(0,Math.min(n-1,Math.floor(py*n)));
+    const phi=panel===0?field.raw[i+n*j]:panel===1?field.reinit[i+n*j]:
+      Math.hypot(px-0.5-field.shear*field.time*(py-0.5),py-0.5)-0.18;
     byId('result-note').textContent='panel '+panel+', cell('+i+','+j+
-      '), CPU phi='+phi.toPrecision(7)+'m / GPU '+rgba.join('/')+
+      '), '+(physics?'独立CPU':'初期条件参考CPU')+' phi='+phi.toPrecision(7)+'m / GPU '+rgba.join('/')+
       '（CPUは開始時step '+active.payload.steps+'の初期基準。再生中の画素を保証しません）';
     return;
   }
@@ -998,7 +1002,8 @@ window.addEventListener('message', event => {
     steps: (isWGL18 || isWGL19) ? data.floatParameters?.steps : active.payload.steps,
     frameAudit: isWGL19 ? data.frameAudit : undefined,
     gridN: isFCG3 ? readLabParameter(active.payload.js,parametersFor('FCG3')[1]).value :
-       isFCG5 ? readLabParameter(active.payload.js,parametersFor('FCG5')[0]).value :
+       isFCG8 ? (fcg8PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment)?.N??null) :
+        isFCG5 ? readLabParameter(active.payload.js,parametersFor('FCG5')[0]).value :
       isFCG6 ? fcg6PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment)?.N : undefined,
     dt: isFCG5 ? readLabParameter(active.payload.js,parametersFor('FCG5')[3]).value : undefined
   } : null);
@@ -1028,21 +1033,29 @@ window.addEventListener('message', event => {
       fcg5PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment) : null;
     const fcg6Physics=isFCG6 ?
       fcg6PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment) : null;
+    const fcg8Physics=isFCG8 ?
+       fcg8PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment) : null;
     const fcg2Physics=isFCG2 ? verifiedFCG2Physics(active.payload.js,active.payload.vertex,active.payload.fragment,defaults) : null;
-     const verifiedComparison=unchanged||!!fcg2Physics||!!fcg3Physics||!!fcg5Physics||!!fcg6Physics;
-    const rows = (isWGL20 ? compareWGL20Readback : isFCG8 ? (got,w,h)=>compareFCG8Readback(got,w,h,active.payload.steps) : isFCG7 ? (got,w,h)=>compareFCG7Readback(got,w,h,active.payload.steps) : isFCG6 ? (got,w,h)=>compareFCG6Readback(got,w,h,active.payload.steps,2,fcg6Physics||{}) : isFCG5 ? (got,w,h)=>compareFCG5Readback(got,w,h,active.payload.steps,2,fcg5Physics||{}) : isFCG4 ? (got,w,h)=>compareFCG4Readback(got,w,h,active.payload.steps) : isFCG3 ? (got,w,h)=>compareFCG3Readback(got,w,h,active.payload.steps,2,fcg3Physics?.N??32,fcg3Physics?.radius??0.14) : isFCG2 ? (got,w,h)=>compareFCG2Readback(got,w,h,active.payload.steps,2,fcg2Physics||{}) : isWGL19 ? (got,w,h)=>wgl19Valid ? compareWGL19Readback(got,w,h,2,wgl19Params.rate,wgl19Params.steps) : compareWGL19Readback(got,w,h) : isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
+     const verifiedComparison=unchanged||!!fcg2Physics||!!fcg3Physics||!!fcg5Physics||!!fcg6Physics||!!fcg8Physics;
+    const rows = (isWGL20 ? compareWGL20Readback : isFCG8 ? (got,w,h)=>compareFCG8Readback(got,w,h,active.payload.steps,2,fcg8Physics||{}) : isFCG7 ? (got,w,h)=>compareFCG7Readback(got,w,h,active.payload.steps) : isFCG6 ? (got,w,h)=>compareFCG6Readback(got,w,h,active.payload.steps,2,fcg6Physics||{}) : isFCG5 ? (got,w,h)=>compareFCG5Readback(got,w,h,active.payload.steps,2,fcg5Physics||{}) : isFCG4 ? (got,w,h)=>compareFCG4Readback(got,w,h,active.payload.steps) : isFCG3 ? (got,w,h)=>compareFCG3Readback(got,w,h,active.payload.steps,2,fcg3Physics?.N??32,fcg3Physics?.radius??0.14) : isFCG2 ? (got,w,h)=>compareFCG2Readback(got,w,h,active.payload.steps) : isWGL19 ? (got,w,h)=>wgl19Valid ? compareWGL19Readback(got,w,h,2,wgl19Params.rate,wgl19Params.steps) : compareWGL19Readback(got,w,h) : isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
       samples, active.payload.width, active.payload.height);
     showTable(rows, verifiedComparison);
     byId('result-note').textContent = 'GPUへ描画しました。コードや条件を変えて再実行できます。';
     byId('numeric-summary').textContent = verifiedComparison ?
-      '（' + (isFCG2&&!unchanged&&fcg2Physics ? '変更した回転速度・染料の独立CPU画素 ' : isFCG3&&!unchanged ? '変更格子の独立CPU初期画素 ' :
+      '（' + (isFCG2&&!unchanged&&fcg2Physics ? '変更した回転速度・染料の独立CPU画素 ' :
+       isFCG8&&!unchanged ? '変更Level Set条件の独立CPU初期画素 ' :
+         isFCG3&&!unchanged ? '変更格子の独立CPU初期画素 ' :
         isFCG5&&!unchanged ? '変更条件の独立CPU初期画素 ' :
        isFCG6&&!unchanged ? '変更条件の独立CPU画素 ' : '基準画素 ') +
       rows.filter(row => row.pass).length + '/' + rows.length + '）' :
       '（編集版・参考比較）';
     const pass = rows.every(row => row.pass);
     setStatus(isFCG2&&!unchanged&&fcg2Physics ?
-        (pass?'FCG2 編集した渦と染料の独立画素検算に合格':'FCG2 編集条件のGPU画素と独立CPUが不一致') : isFCG3&&!unchanged&&fcg3Physics ?
+        (pass?'FCG2 編集した渦と染料の独立画素検算に合格':'FCG2 編集条件のGPU画素と独立CPUが不一致') :
+       isFCG8&&!unchanged&&fcg8Physics ?
+        (pass ? 'FCG8 編集した格子・せん断・再初期化の独立CPU初期画素検算に合格' :
+          'FCG8 編集した条件の独立CPU初期画素検算が不一致') :
+       isFCG3&&!unchanged&&fcg3Physics ?
        (pass ? 'FCG3 編集格子・染料半径の独立CPU初期画素検算に合格' :
          'FCG3 編集格子・染料半径の独立CPU初期画素検算が不一致') :
        isFCG6&&!unchanged&&fcg6Physics ?
@@ -1088,6 +1101,12 @@ window.addEventListener('message', event => {
       'CPUは座標と色の定数から独立に予測し、GPUはreadPixelsで実測。RGBA各成分' +
       ((isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8) ? '±2' : isWGL20 ? '±1' : isWGL19 ? '±2' : isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
+    if(isFCG8&&fcg8Physics&&!unchanged){
+      byId('numeric-note').textContent='FCG8：実計算N='+fcg8Physics.N+
+        '、せん断率='+fcg8Physics.shear+' s⁻¹、擬似時間反復='+
+        fcg8Physics.redistanceIterations+'の独立CPUを再計算し、GPUの13画素を各成分±2で比較。'+
+        'その他のJS/GLSLは初期ソースと同一。';
+    }
     if(isFCG3&&fcg3Physics&&!unchanged){
        byId('numeric-note').textContent=
          'FCG3：実計算'+fcg3Physics.N+'×'+fcg3Physics.N+
@@ -1161,11 +1180,14 @@ function run() {
     }
     if (isFCG8) {
       payload.steps=fcg8Steps;
-      const predicted=expectedFCG8Samples(payload.width,payload.height,fcg8Steps);
+      const physics=fcg8PhysicsFor(payload.js,payload.vertex,payload.fragment);
+      const predicted=expectedFCG8Samples(payload.width,payload.height,fcg8Steps,physics||{});
       payload.probes=predicted.map(p=>[p.x,p.y]);
-      const z=fcg8State(fcg8Steps);
+      const z=fcg8State(fcg8Steps,physics||{});
       byId('fcg8-cpu-prediction').textContent=
-        '独立CPU: step='+fcg8Steps+', t='+z.time.toFixed(2)+'s, 厳密面積='+
+        (physics?'独立CPU':'初期ソース参考CPU（編集条件は未検証）')+
+        ': N='+z.N+'、せん断率 '+z.shear+' s⁻¹、再初期化 '+z.redistanceIterations+
+        '反復/step、step='+fcg8Steps+', t='+z.time.toFixed(2)+'s, 厳密面積='+
         z.analyticArea.toPrecision(8)+' m2, 移流面積='+z.rawMetric.area.toPrecision(8)+
         ' m2, 再初期化面積='+z.reinitMetric.area.toPrecision(8)+
         ' m2, 移流勾配誤差='+z.rawMetric.gradientError.toPrecision(6)+
@@ -1433,12 +1455,12 @@ if (isFCG8) {
   document.title='FCG8 自由表面：Level Set編集・連続再生ラボ';
   document.querySelector('h1').textContent='FCG8 界面を実際に動かす：移流・再初期化・厳密粒子';
   document.querySelector('#panel-conditions > p').textContent=
-    '48×48セル中心のFloat64 Level Setをせん断流で移流。3画面の再生には編集した同一JS/GLSLを使います。'+
+    '実計算48/64/80/96セルのFloat64 Level Setをせん断流で移流。3画面の再生には編集した同一JS/GLSLを使います。'+
     '描画画素の増加と表示補間は数値格子の高精度化とは異なります。';
   document.querySelector('#panel-conditions ol').innerHTML=
     '<li>step0/8/24/96で界面の伸びと格子境界の影響を観察する。</li>'+
     '<li>再生・一時停止・1ステップ・step0を操作し、物理時間と画面フレームを区別する。</li>'+
-    '<li>JSのredistanceIterationsを0、shearを0にし、再実行後のライブ表示の差を観察する。</li>'+
+    '<li>格子N・せん断率・再初期化反復数をGUIで変え、同じ物理時刻で輪郭・離散面積・勾配を比較する。</li>'+
     '<li>GLSLの色帯閾値0.014を変え、計算値と表示の差を確認する。</li>'+
     '<li>初回GPU画素検算とライブ中の画素を混同しない。96stepは安全上限で、長時間では境界に達する。</li>';
   byId('preset').options[0].textContent='移流／再初期化／解析界面の3表示';
