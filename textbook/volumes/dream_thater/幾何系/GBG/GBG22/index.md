@@ -1,6 +1,6 @@
 # GBG22 接続を変えても特性類が変わらないのはなぜか
 
-[Chern–Weil形式の閉性](../GBG21/index.md#thm-gbg21-chern-weil-closed)により、曲率から作った Chern–Weil形式は de Rham コホモロジー類を与える。しかし、閉形式であることだけでは、**接続の選択を変えても同じ類になる**とは分からない。例えば円周上の閉1形式はすべて完全形式というわけではない。
+[Chern–Weil形式の閉性](../GBG21/index.md#thm-gbg21-chern-weil-closed)により、曲率から作った Chern–Weil形式は [de Rham コホモロジー](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)類を与える。しかし、閉形式であることだけでは、**接続の選択を変えても同じ類になる**とは分からない。例えば円周上の閉1形式はすべて完全形式というわけではない。
 
 解決の鍵は、二つの接続の間を連続的に結び、曲率多項式の変化率を外微分として表すことである。[GBG12の接続全体のアフィン空間構造](../GBG12/index.md#thm-gbg12-connections-affine)が補間を可能にし、[GBG20のAd不変性の無限小条件](../GBG20/index.md#prop-gbg20-infinitesimal-condition)と[主束曲率の Bianchi 恒等式・局所形式](../GBG11/index.md#thm-gbg11-bianchi-local)が、変化率を外微分へ変える。
 
@@ -8,7 +8,15 @@
 
 $\pi:P\to M$ を滑らかな右主 $G$ 束とし、$\omega_0,\omega_1$ は $P$ 上の二つの接続1形式、$\Omega_0,\Omega_1$ はその曲率とする。
 
-整数 $k\ge1$ を固定する。$p:\mathfrak g^k\to\mathbb C$ は実多重線形、対称、Ad不変な形式である。複素値の微分形式には外微分・外積を複素線形に拡張する。計量、向き、コンパクト性は主定理に不要である。
+整数 $k\ge1$ を固定する。$p:\mathfrak g^k\to\mathbb C$ は [対称Ad不変多重線形形式](../GBG20/index.md#def-gbg20-invariant-polynomial)であり、各引数について実線形である。複素値の微分形式には外微分・外積を複素線形に拡張する。
+
+複素係数 de Rham コホモロジー $H^q_{\mathrm{dR}}(M;\mathbb C)$（$q\ge0$）も、[実係数の定義](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)と同じく、複素値閉 $q$ 形式を複素値完全 $q$ 形式で割ったものとする。同じ次数の実数値形式 $\eta,\xi$ に対して
+
+$$
+d(\eta+i\xi)=d\eta+i\,d\xi
+$$
+
+なので、閉性と完全性の判定は実部・虚部ごとに行える。計量、向き、コンパクト性は主定理に不要である。
 
 <!-- definition-example-audit: strict -->
 
@@ -29,7 +37,7 @@ A_{t,i}=A_{0,i}+t a_i,\qquad
 F_{t,i}=dA_{t,i}+\frac12[A_{t,i}\wedge A_{t,i}]
 $$
 
-となる。$\dot A_{t,i}=a_i$ は $t$ に依存しない。別の局所 section $s_j=s_i g_{ij}$ を使うと[GBG8の接続変換則](../GBG8/index.md#thm-gbg8-local-transform)により、両端の非斉次項が引き算で消える。
+となる。ここでドットは補間パラメータ $t$ による微分 $\dot A_{t,i}:=\frac{d}{dt}A_{t,i}$ を表し、基底座標での外微分 $dA_{t,i}$ とは区別する。$\dot A_{t,i}=a_i$ は $t$ に依存しない。別の局所 section $s_j=s_i g_{ij}$ を使うと[GBG8の接続変換則](../GBG8/index.md#thm-gbg8-local-transform)により、両端の非斉次項が引き算で消える。
 
 $$
 a_j=\operatorname{Ad}(g_{ij}^{-1})a_i,\qquad
@@ -94,7 +102,7 @@ $$
 
 ## 2. 変化率が外微分になる理由
 
-局所式にある $a$ は次数1、$F_t$ は次数2である。[GBG20の曲率多項式の規則](../GBG20/index.md#def-gbg20-curvature-polynomial-form)を、曲率以外の Lie環値形式にも同じ多重線形・外積規則で拡張して $p(a,F_t^{k-1})$ と書く。次数は $1+2(k-1)=2k-1$ である。
+局所式にある $a$ は次数1、$F_t$ は次数2である。[GBG20の曲率多項式の規則](../GBG20/index.md#def-gbg20-curvature-polynomial-form)を、曲率以外の Lie環値形式にも同じ多重線形・外積規則で拡張して $p(a,F_t^{k-1})$ と書く。次数は $1+2(k-1)=2k-1$ である。ここで $F_t^{k-1}$ は $k-1$ 個の $F_t$ を引数に並べる略記で、$k=1$ なら $p(a,F_t^0):=p(a)$ と読む。
 
 まず外微分の符号を確かめる。[GEO7の次数付きLeibniz則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を各項へ適用すると、最初の次数1の因子を越えて $F_t$ を微分する際に負号が付く。
 
@@ -185,7 +193,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg22-transgression -->
-**定義の確認**。$U(1)$ の積主束上で $A_0=0$、$A_1=ix\,dy$ とし、$k=1$、$p(iu)=u$ を取る。$p$ は実線形かつ Ad不変（可換群なので随伴作用は恒等）である。$a=ix\,dy$ は Lie環値1形式、$F_t=it\,dx\wedge dy$ は曲率である。$k=1$ では $F_t^0$ に因子がなく、
+**定義の確認**。基底を座標 $(x,y)$ を持つ $\mathbb R^2$ とする積主 $U(1)$ 束で、標準 section の局所表示を $A_0=0$、$A_1=ix\,dy$ とし、$k=1$、$p(iu)=u$（$u\in\mathbb R$）を取る。$\mathfrak u(1)=i\mathbb R$ の任意の元は一意に $iu$ と書けるので、この式は $p$ を実線形写像として一意に定める。$U(1)$ の随伴作用は恒等だから $p$ はAd不変でもある。
+
+このとき $a=ix\,dy$ は Lie環値1形式で、補間した接続とその曲率は
+
+$$
+A_t=itx\,dy,\qquad F_t=dA_t=it\,dx\wedge dy
+$$
+
+となる。積主束では標準 section の下で二接続の局所表示が全域の表示なので、この例に限り $T_p(\omega_1,\omega_0)$ を $T_p(A_1,A_0)$ と略記する。$k=1$ では $F_t^0$ は因子を一つも取らない空積を表し、
 
 $$
 T_p(A_1,A_0)
@@ -290,7 +306,7 @@ a=iz\,dw,\quad
 F_t=i(dx\wedge dy+t\,dz\wedge dw).
 $$
 
-$p(iu,iv)=uv$ と置くと、$p$ は対称双線形かつAd不変である。$\eta=dx\wedge dy$、$\zeta=dz\wedge dw$ として、2形式の交換符号は $(-1)^{2\cdot2}=+1$ だから
+$p(iu,iv)=uv$（$u,v\in\mathbb R$）と置くと、$p$ は対称双線形かつAd不変である。$\eta=dx\wedge dy$、$\zeta=dz\wedge dw$ として、2形式の交換符号は $(-1)^{2\cdot2}=+1$ だから
 
 $$
 p(F_t,F_t)=(\eta+t\zeta)^2=2t\,\eta\wedge\zeta.
@@ -345,7 +361,7 @@ $$
 
 ### 非自明な束では差だけが大域的
 
-$S^2$ 上の任意の右主 $U(1)$ 束に二つの接続を取る。大域1形式 $\lambda$ に対して、二接続の差を $i\pi^*\lambda$ とすれば、局所表示では $A_{1,i}=A_{0,i}+i\lambda|_{U_i}$ となる。$k=1$、$p(iu)=u$ なら
+[GBG18の非自明な $U(1)$ 主束の構成](../GBG18/index.md#prop-gbg18-hopf-transition)を含め、$S^2$ 上の右主 $U(1)$ 束に二つの接続を取る。大域1形式 $\lambda$ に対して、二接続の差を $i\pi^*\lambda$ とすれば、局所表示では $A_{1,i}=A_{0,i}+i\lambda|_{U_i}$ となる。$k=1$、$p(iu)=u$ なら
 
 $$
 T_p=\lambda,\qquad \beta_p(\omega_1)-\beta_p(\omega_0)=d\lambda.
@@ -382,7 +398,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg22-local-chern-simons -->
-**定義の確認**。$G=U(1)$、$k=1$、$p(iu)=u$ とすると、$F_t^0$ は空積であり $\operatorname{CS}_p(A)=p(A)$ である。$A=ix\,dy$ なら局所1形式は $x\,dy$、その外微分は $p(F)=dx\wedge dy$。$k=2$ で行列群の $p(X,Y)=\operatorname{tr}(XY)$ を取ると、$p$ は対称（$\operatorname{tr}(XY)=\operatorname{tr}(YX)$）かつAd不変（共役でtrace不変）であり、次の具体式が得られる。
+**定義の確認**。基底を $\mathbb R^2$ とし、$G=U(1)$、$k=1$、$p(iu)=u$（$u\in\mathbb R$）とすると、$F_t^0$ は空積であり $\operatorname{CS}_p(A)=p(A)$ である。$A=ix\,dy$ なら局所1形式は $x\,dy$、その外微分は $p(F)=dx\wedge dy$。
+
+$k=2$ では行列 Lie 群 $G\subset GL(n,\mathbb C)$ の Lie 環の行列表現を用いる。$X,Y$ をこの Lie 環の行列として、
+
+$$
+p(X,Y)=\operatorname{tr}(XY),\qquad
+\frac12\operatorname{tr}(XY+YX)=\operatorname{tr}(XY)
+$$
+
+と定める。すなわち、これは [GBG20の対称化traceのAd不変性](../GBG20/index.md#thm-gbg20-trace-invariant)をそのまま使える場合である。$p$ は対称（$\operatorname{tr}(XY)=\operatorname{tr}(YX)$）かつAd不変（$\operatorname{tr}(g^{-1}XYg)=\operatorname{tr}(XY)$）なので、次の具体式が得られる。
 <!-- definition-example-end -->
 
 <a id="prop-gbg22-local-cs-primitive"></a>
@@ -467,7 +492,7 @@ $$
 #### GBG22-A02 微分の負号の位置
 - Level: A
 
-$\mathfrak g$ 値1形式 $a$ と2形式 $F$、対称双線形形式 $p$ に対して、$d\,p(a,F)$ を展開し、$dF=-[A\wedge F]$ のときの形を示せ。符号の理由を述べよ。
+$\mathfrak g$ 値1形式 $A,a$ と2形式 $F$、対称双線形形式 $p:\mathfrak g^2\to\mathbb C$ に対して、$d\,p(a,F)$ を展開し、$dF=-[A\wedge F]$ のときの形を示せ。符号の理由を述べよ。Ad不変性を追加で仮定すると、どの形までまとめられるか。
 
 <!-- solution-start -->
 **詳細解答**。[次数付きLeibniz則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を係数形式へ適用する。$a$ は次数1なので、$F$ を微分する項には $(-1)^1=-1$ が付く。
@@ -489,7 +514,7 @@ $$
 #### GBG22-A03 一次の transgression
 - Level: A
 
-任意の二つの $U(1)$ 接続に対して、$p(iu)=u$ とする。$a_i=A_{1,i}-A_{0,i}$ が $i\lambda|_{U_i}$ と書けるとき、$k=1$ の $T_p$ と曲率差を求めよ。
+任意の二つの $U(1)$ 接続に対して、$p(iu)=u$ とする。$M$ 上の実1形式 $\lambda$ により $a_i=A_{1,i}-A_{0,i}=i\lambda|_{U_i}$ と書けるとき、$k=1$ の $T_p$ と曲率差を求めよ。
 
 <!-- solution-start -->
 **詳細解答**。$U(1)$ の随伴作用は恒等なので、接続差の局所形式が重なりで一致する。仮定から実1形式 $\lambda$ が大域に定まり、$p(a_i)=\lambda|_{U_i}$。定義では $k=1$ の $F_t^{0}$ は空積である。
@@ -536,7 +561,7 @@ $\operatorname{tr}(A\wedge A\wedge A)$ を零と置かない。次数付き巡�
 #### GBG22-B01 ゲージ変換で差が貼り合わさる
 - Level: B
 
-二つの接続の局所表示が $A_{r,j}=\operatorname{Ad}(g^{-1})A_{r,i}+g^{-1}dg$（$r=0,1$）で変換することを前提に、$p(a_i,F_{t,i}^{k-1})$ が重なりで一致する理由を全ての変換について示せ。
+二つの接続の局所表示が $A_{r,j}=\operatorname{Ad}(g^{-1})A_{r,i}+g^{-1}dg$（$r=0,1$）で変換するとする。$k\ge1$、$p:\mathfrak g^k\to\mathbb C$ を対称Ad不変実多重線形形式として、$p(a_i,F_{t,i}^{k-1})$ が重なりで一致する理由を全ての変換について示せ。
 
 <!-- solution-start -->
 **詳細解答**。$a_i=A_{1,i}-A_{0,i}$ とすると、二つの非斉次項の差は零である。
@@ -642,20 +667,20 @@ $$
 - (d) 同じ議論だけでは整数性と境界付き領域の積分非依存性を言えない理由を説明する。
 
 <!-- solution-start -->
-**詳細解答**。(1) [主束接続全体のアフィン空間構造](../GBG12/index.md#thm-gbg12-connections-affine)より $\alpha=\omega_1-\omega_0$ は水平・随伴同変である。固定した局所 section で $a=s^*\alpha$、$A_t=A_0+ta$ と置く。$F_t=dA_t+\frac12[A_t\wedge A_t]$ を微分する。次数1同士の括弧は $[a\wedge A_t]=[A_t\wedge a]$ だから
+**詳細解答**。(a) [主束接続全体のアフィン空間構造](../GBG12/index.md#thm-gbg12-connections-affine)より $\alpha=\omega_1-\omega_0$ は水平・随伴同変である。固定した局所 section で $a=s^*\alpha$、$A_t=A_0+ta$ と置く。$F_t=dA_t+\frac12[A_t\wedge A_t]$ を微分する。次数1同士の括弧は $[a\wedge A_t]=[A_t\wedge a]$ だから
 
 $$
 \dot F_t=da+\frac12([a\wedge A_t]+[A_t\wedge a])
 =da+[A_t\wedge a].
 $$
 
-(2) $F_t$ の次数は2なので、多重線形性・対称性と偶数次数の交換則から
+(b) $F_t$ の次数は2なので、多重線形性・対称性と偶数次数の交換則から
 
 $$
 \frac d{dt}p(F_t^k)=k\,p(\dot F_t,F_t^{k-1}).
 $$
 
-一方、[Leibniz則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)と $dF_t=-[A_t\wedge F_t]$ から
+一方、[Leibniz則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)と [Bianchi恒等式](../GBG11/index.md#thm-gbg11-bianchi-local)による $dF_t=-[A_t\wedge F_t]$ から（$k=1$ では以下の第2項を省く）
 
 $$
 d\,p(a,F_t^{k-1})
@@ -677,7 +702,7 @@ $$
 =k\,d\,p(a,F_t^{k-1}).
 $$
 
-(3) 重なりで $a_j=\operatorname{Ad}(g_{ij}^{-1})a_i$、$F_{t,j}=\operatorname{Ad}(g_{ij}^{-1})F_{t,i}$ であり、Ad不変性が両方に作用するから $p(a_i,F_{t,i}^{k-1})$ は貼り合わさる。そこで
+(c) 重なりで $a_j=\operatorname{Ad}(g_{ij}^{-1})a_i$、$F_{t,j}=\operatorname{Ad}(g_{ij}^{-1})F_{t,i}$ であり、Ad不変性が両方に作用するから $p(a_i,F_{t,i}^{k-1})$ は貼り合わさる。そこで
 
 $$
 T_p=k\int_0^1p(a,F_t^{k-1})\,dt
@@ -693,7 +718,7 @@ $$
 
 を得る。[Chern–Weil形式の閉性](../GBG21/index.md#thm-gbg21-chern-weil-closed)により、二つの形式は閉じている。[de Rham コホモロジー](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)の定義から、完全形式だけ異なる閉形式は同じ類を表す。
 
-(4) de Rham 類は実数・複素数係数の閉形式の商であり、整数係数コホモロジーへ持ち上がるかどうかは別の条件である。たとえば $p$ に任意の実定数を掛けても本証明は成立するので、整数性はこの証明から従わない。また境界付き領域 $N$ では [一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)によって
+(d) de Rham 類は実数・複素数係数の閉形式の商であり、整数係数コホモロジーへ持ち上がるかどうかは別の条件である。たとえば $p$ に任意の実定数を掛けても本証明は成立するので、整数性はこの証明から従わない。また境界付き領域 $N$ では [一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)によって
 
 $$
 \int_N\bigl(\beta_p(\omega_1)-\beta_p(\omega_0)\bigr)
