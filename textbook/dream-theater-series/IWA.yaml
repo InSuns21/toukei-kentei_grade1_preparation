@@ -15,7 +15,7 @@ chapters:
     title: "円分Z_p拡大とGalois群"
   - id: IWA3
     path: textbook/volumes/dream_thater/代数系/IWA/IWA3
-    status: planned
+    status: completed
     title: "岩澤代数・完備群環"
   - id: IWA4
     path: textbook/volumes/dream_thater/代数系/IWA/IWA4
