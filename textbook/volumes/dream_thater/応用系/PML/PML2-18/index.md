@@ -377,7 +377,7 @@ $n$ は**異なる入力関数**、$j$ は**同じ出力関数への問い合わ
 
 ## 8. 標準Pythonで有限センサを検算する
 
-[計算例のPythonソース](deeponet_demo.py)は標準ライブラリの \`fractions.Fraction\` を使い、丸め誤差なしで二点センサと三点センサを比較する。
+[計算例のPythonソース](deeponet_demo.py)は標準ライブラリの `fractions.Fraction` を使い、丸め誤差なしで二点センサと三点センサを比較する。
 
 ~~~bash
 python deeponet_demo.py
