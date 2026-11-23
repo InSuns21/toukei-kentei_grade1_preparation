@@ -180,7 +180,7 @@ $$
 \mathcal J(1+\varepsilon,x)=\varepsilon F(x)+E(\varepsilon,x)
 $$
 >
-> を満たし、$E(0,x)=0$、$\partial_\varepsilon E(0,x)=0$、$\nabla_xE(\varepsilon,x)=O(\varepsilon^2)$ が端点の近傍で一様に成立する場合、$F$ をその鞍点族の **一次係数** とする。$F$ が上記 $S_{\rm gen}$ に等しいかどうかはJT・物質の実計算によって判定する。
+> を満たし、$E(0,x)=0$、$\partial_\varepsilon E(0,x)=0$、$E(\varepsilon,x)=o(\varepsilon)$ と $\nabla_xE(\varepsilon,x)=O(\varepsilon^2)$ が端点の近傍で一様に成立する場合、$F$ をその鞍点族の **一次係数** とする。$F$ が上記 $S_{\rm gen}$ に等しいかどうかはJT・物質の実計算によって判定する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi30-replica-first-order-ledger -->
@@ -227,7 +227,7 @@ $$
 \frac{\mathcal J(1+\varepsilon,x_\varepsilon)}{\varepsilon}
 =F(x_\varepsilon)+\frac{E(\varepsilon,x_\varepsilon)}{\varepsilon}.
 $$
-$E(0,x)=\partial_\varepsilon E(0,x)=0$ と一様な $C^1$ 制御、必要に応じて一様な二階評価から最後の項は零へ収束し、第一項は $F(x_*)$ へ収束します。右微分の追加仮定の下では $\mathcal J(1,x_*)=0$ なのでこの極限が $\mathcal J$ の右微分です。鞍点の対数寄与が $-\mathcal J$ なら、[重力レプリカの正規化微分](#prop-bhi30-normalization-derivative)によりエントロピーの寄与は $F(x_*)$ です。$\square$
+一次係数台帳で仮定した $E(\varepsilon,x)=o(\varepsilon)$ の一様評価により最後の項は零へ収束し、第一項は $F(x_*)$ へ収束します。右微分の追加仮定の下では $\mathcal J(1,x_*)=0$ なのでこの極限が $\mathcal J$ の右微分です。鞍点の対数寄与が $-\mathcal J$ なら、[重力レプリカの正規化微分](#prop-bhi30-normalization-derivative)によりエントロピーの寄与は $F(x_*)$ です。$\square$
 <!-- proof-end -->
 
 **物理的な適用の橋**：ここで $F=S_{\rm gen}$ を置くためには、レプリカ商の円錐欠損・JT境界条件から重力の一次変分項を計算し、物質場の正規化レプリカ微分が同じ $R\cup I$ の $S_{\rm matter}$ を与えると確認しなければなりません。これを満たすJT＋浴の半古典模型で、[BHI24の一般化エントロピー](../BHI24/index.md#prop-bhi24-assembled-ledger)と一致します。上の数学的命題そのものは、**任意の重力理論でこの等式が成立することの証明ではありません**。
