@@ -98,7 +98,7 @@ $$
 \int_0^1u'\varphi'\,dx=\int_0^1f\varphi\,dx
 $$
 
-が成立する。$v\in H^2\cap H_0^1$ なので、端点で $\varphi=0$ を用いる部分積分から
+が成立する。$v\in H^2\cap H_0^1$ なので $v'$ には一階弱微分 $v''\in L^2\subset L^1$ があり、$v'$ と $\varphi$ は絶対連続代表元を持つ。[一変数 $W^{1,1}$ の基本定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-w11-ac)による積の部分積分で、$\varphi(0)=\varphi(1)=0$ を用いると
 
 $$
 \int_0^1v'\varphi'\,dx
@@ -271,7 +271,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（端点誤差の一次補間と零端点への補正）**  
-> $v\in H^2(0,1)$ とし、その絶対連続代表元の端点値を $a=v(0)$、$b=v(1)$ とする。これは $H^2\subset H^1$ と[区間上のSobolev関数の連続代表元](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-w11-ac)によって定まる。端点誤差の一次補間 $\ell$ と、境界補正した候補 $v_0$ を次で定める。
+> $v\in H^2(0,1)$ とし、その絶対連続代表元の端点値を $a=v(0)$、$b=v(1)$ とする。これは有限区間で $L^2\subset L^1$ だから $H^2\subset H^1\subset W^{1,1}$ となり、[一変数 $W^{1,1}$ の絶対連続代表元](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-w11-ac)を取れることによる。端点誤差の一次補間 $\ell$ と、境界補正した候補 $v_0$ を次で定める。
 
 $$
 \ell(x)=(1-x)a+xb,\qquad v_0(x)=v(x)-\ell(x).
