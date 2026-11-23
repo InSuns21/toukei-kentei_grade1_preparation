@@ -24,7 +24,7 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg16-flat-connection -->
-**定義の確認**。積主束 $P=\mathbb R^2\times U(1)$ と標準 section を取り、$A=i a\,dx+i b\,dy$（$a,b\in\mathbb R$）とする。$U(1)$ は可換だから $A\wedge A=0$、定数係数ゆえ $dA=0$。したがって [局所曲率の構造方程式](../GBG10/index.md#thm-gbg10-local-formula) から $F=dA+A\wedge A=0$。また $F=s^*\Omega$ で、積主束の接続の曲率は水平かつ右同変なので、任意の $p=s(x)g$ における $\Omega$ も零になる。よって **全点** で定義を満たす。一方 $A=ibx\,dy$ は $F=ib\,dx\wedge dy$ であり、$b\ne0$ なら平坦ではない。
+**定義の確認**。積主束 $P=\mathbb R^2\times U(1)$ と標準 section を取り、$A=i a\,dx+i b\,dy$（$a,b\in\mathbb R$）とする。$U(1)$ は可換だから $A\wedge A=0$、定数係数ゆえ $dA=0$。したがって [局所曲率の構造方程式](../GBG10/index.md#thm-gbg10-local-formula) から $F=dA+A\wedge A=0$。また $F=s^*\Omega$ で、積主束の[曲率2形式の水平性・同変性](../GBG10/index.md#thm-gbg10-basic-properties)により、任意の $p=s(x)g$ における $\Omega$ も零になる。よって **全点** で定義を満たす。一方 $A=ibx\,dy$ は $F=ib\,dx\wedge dy$ であり、$b\ne0$ なら平坦ではない。
 <!-- definition-example-end -->
 
 ### 局所平行 section の意味
@@ -57,7 +57,19 @@ $s$ は各点でファイバーに入る滑らかな section であり、接ベ�
 
 <!-- formal-statement-start -->
 > **定理（平坦接続の局所平行 section）**  
-> 上記の滑らかな主 $G$ 束の接続が平坦であるとする。任意の $x_0\in M$、$p_0\in P_{x_0}$ に対し、$x_0$ の座標近傍内の開立方体 $U$ と、$s(x_0)=p_0$ を満たす局所平行 section $s:U\to P$ が存在する。そのような $U$ 内の任意の区分的 $C^1$ 路 $\gamma:x\to y$ に対し、
+> 滑らかな右主 $G$ 束の接続が平坦であるとする。基底の点と、その上の主束の点を固定する。
+>
+> $
+> x_0\in M,\qquad p_0\in P_{x_0}.
+> $
+>
+> このとき $x_0$ の座標近傍にある開立方体 $U$ 上に、次を満たす局所平行 section が存在する。
+>
+> $
+> s:U\to P,\qquad s(x_0)=p_0,\qquad s^*\omega=0.
+> $
+>
+> さらに $U$ 内の任意の区分的 $C^1$ 路 $\gamma:x\to y$ に対し、
 >
 > $$
 > \operatorname{PT}_{\gamma}(s(x)g)=s(y)g\qquad(g\in G)
@@ -79,7 +91,7 @@ $$
 $$
 他方、射影した括弧は $[\partial_i,\partial_j]=0$ である。ゆえに $[H_i,H_j]$ は垂直かつ水平であり、水平・垂直の直和分解から $[H_i,H_j]=0$ となる。
 
-$H_i$ の局所フローを $\Phi_i^t$ と書く。括弧が零なら、$H_i$ に沿って $H_j$ を押し出したベクトル場の $t$ 微分は括弧に比例して零である。その初期値は $H_j$ なので $(\Phi_i^t)_*H_j=H_j$。この等式とフローの初期値問題の一意性により $\Phi_i^t\Phi_j^r=\Phi_j^r\Phi_i^t$ が定義可能な小範囲で成立する。
+$H_i$ の局所フローを $\Phi_i^t$ と書く。括弧が零なら、$H_i$ の流れに沿って移した $H_j$ の $t$ 微分は括弧に比例して零である。その初期値は $H_j$ なので $(\Phi_i^t)_*H_j=H_j$。この等式とフローの初期値問題の一意性により $\Phi_i^t\Phi_j^r=\Phi_j^r\Phi_i^t$ が定義可能な小範囲で成立する。
 
 初期点 $p_0$ に対し、座標差 $\delta_i=u^i-u^i(x_0)$ を使って
 $$
@@ -101,7 +113,9 @@ $$
 H(t,0)=\gamma_0(t),\quad H(t,1)=\gamma_1(t),
 \qquad H(0,r)=x,\quad H(1,r)=y
 $$
-を満たす変形とする。計算では $H$ が小矩形ごとに区分的に滑らかであるものを用いる。滑らかな多様体では、通常の連続ホモトピーも端点を固定した区分的に滑らかなホモトピーへ取り替えられる。連続な写像を座標近傍内で細かく分割して滑らかに近似するという対応があるためである。
+を満たす連続な変形とする。中間の路が微分可能でなくても、平坦接続では局所平行 section を経由して連続路に沿う輸送を定義できる。証明でその構成を与えるので、ホモトピーの滑らかさを暗黙に要求しない。
+
+<a id="def-gbg16-fundamental-group"></a>
 
 同じ基点 $x$ で始まり終わる閉路の固定端点ホモトピー類を $[\gamma]$ と書く。その類の集合を **基本群** $\pi_1(M,x)$ という。積を $[\gamma_2][\gamma_1]=[\gamma_2*\gamma_1]$ とし、定値路の類を単位元、逆向きの路の類を逆元とする。連結の結合律はパラメータの取り直しの差しかなく、固定端点ホモトピーの下で同じ類となるので群をなす。基点の選択が必要なことに注意する。
 
@@ -123,6 +137,8 @@ $$
 <!-- proof-start -->
 ### 証明
 
+まず連続路に沿う輸送を定義する。連続路 $c:[0,1]\to M$ の区間を細分し、各小区間の像が局所平行 section $s_\alpha$ の領域 $U_\alpha$ に入るようにする。小区間の始点 $a$ と終点 $b$ の間では、$s_\alpha(c(a))g$ を $s_\alpha(c(b))g$ に送る写像を輸送と定める。二つの平行 section が重なる領域では $s_\beta=s_\alpha k$ と書け、[接続のsection変換則](../GBG8/index.md#thm-gbg8-local-transform)の両辺で接続が零なので $k^{-1}dk=0$、従って $dk=0$ となる。よって重なりの各道連結成分で $k$ は一定であり、同じ小区間に沿う輸送の定義は section によらない。細分をさらに細かくしても合成結果は同じであるから、共通細分を取れば選び方によらず連続路の輸送が定まる。区分的 $C^1$ 路については [水平リフトの一意性](../GBG14/index.md#thm-gbg14-horizontal-existence)から従来の平行移動と一致する。以下ではこの拡張を中間の連続路にも用いる。
+
 $H:[0,1]^2\to M$ を固定端点ホモトピーとし、[局所平行 section の定理](#thm-gbg16-local-parallel)で得た近傍 $\{U_\alpha\}$ で $H([0,1]^2)$ を覆う。正方形はコンパクトで、$H$ は一様連続なので、十分細かい矩形分割を取れば各小矩形の像がある一つの $U_\alpha$ に入る。
 
 小矩形の左下を $a$、右下を $b$、右上を $c$、左上を $d$ とする。その像を含む $U_\alpha$ の平行 section $s_\alpha$ を使う。任意の $p=s_\alpha(H(a))g$ に対し、下辺・右辺を進む輸送は
@@ -135,22 +151,22 @@ $$
 s_\alpha(H(a))g\mapsto s_\alpha(H(d))g
 \mapsto s_\alpha(H(c))g
 $$
-となる。[平行移動の合成・逆路の法則](../GBG14/index.md#thm-gbg14-transport-laws)を用いれば、この小矩形の二通りの経路の輸送写像が等しい。重要なのは、同じ $U_\alpha$ にある限り **すべての $g\in G$** に対して成り立つ点である。
+となる。[平行移動の同変性・合成・逆路](../GBG14/index.md#thm-gbg14-transport-laws)を用いれば、この小矩形で二通りに進んだときの平行移動が等しい。重要なのは、同じ $U_\alpha$ にある限り **すべての $g\in G$** に対して成り立つ点である。
 
-隣り合う矩形の等式を横・縦へつなぐ。共有する内部辺を一方の経路では順向き、もう一方では逆向きに通る場合、その輸送写像は互いに逆なので消去できる。これは群の元を無条件に可換としているのではなく、ファイバー間の輸送写像の**合成**として消去している。最終的に外周の上辺と下辺だけが残る。左右の辺は $H(0,r)=x$、$H(1,r)=y$ という定値路だから輸送は恒等であり、$\operatorname{PT}_{\gamma_0}=\operatorname{PT}_{\gamma_1}$ が従う。
+隣り合う矩形の等式を横・縦へつなぐ。共有する内部辺を一方の経路では順向き、もう一方では逆向きに通る場合、その平行移動は互いに逆なので消去できる。これは群の元を無条件に可換としているのではなく、ファイバー間の輸送写像の**合成**として消去している。最終的に外周の上辺と下辺だけが残る。左右の辺は $H(0,r)=x$、$H(1,r)=y$ という定値路だから輸送は恒等であり、$\operatorname{PT}_{\gamma_0}=\operatorname{PT}_{\gamma_1}$ が従う。
 <!-- proof-end -->
 
 **仮定を失うと何が壊れるか**。曲率が非零なら小矩形で平行 section を取れず、そこで二通りの辺の輸送が一致しない。[GBG15 の微小矩形計算](../GBG15/index.md#thm-gbg15-small-rectangle)は差の主項が $-F_{xy}\varepsilon^2$ になることを示している。固定端点ホモトピーで同じ閉路類であっても、非平坦なら輸送の値は変わり得る。
 
 ## 3. 基本群からモノドロミー表現を作る
 
-同じ点 $x\in M$ のファイバー内で $p\in P_x$ を固定する。[GBG15 のホロノミー群](../GBG15/index.md#def-gbg15-holonomy)では閉路ごとに $h_\gamma(p)\in G$ が定まり、$\operatorname{PT}_\gamma(p)=p\,h_\gamma(p)$ と書けた。今は平坦なので前節の定理により、この群元は閉路のホモトピー類にしか依存しない。したがって基本群から $G$ への写像になる。
+同じ点 $x\in M$ のファイバー内で $p\in P_x$ を固定する。[GBG15 の主束接続のホロノミー群](../GBG15/index.md#def-gbg15-holonomy)では閉路ごとに $h_\gamma(p)\in G$ が定まり、$\operatorname{PT}_\gamma(p)=p\,h_\gamma(p)$ と書けた。今は平坦なので前節の定理により、この群元は閉路のホモトピー類にしか依存しない。したがって基本群から $G$ への写像になる。
 
 <a id="def-gbg16-monodromy"></a>
 
 <!-- formal-statement-start -->
 > **定義（平坦接続のモノドロミー表現）**  
-> 滑らかな右主 $G$ 束の平坦接続 $\omega$、基点 $x\in M$、ファイバーの点 $p\in P_x$ を固定する。[基本群](#thm-gbg16-homotopy-transport)の元 $[\gamma]\in\pi_1(M,x)$ に
+> 滑らかな右主 $G$ 束の平坦接続 $\omega$、基点 $x\in M$、ファイバーの点 $p\in P_x$ を固定する。[基本群](#def-gbg16-fundamental-group)の元 $[\gamma]\in\pi_1(M,x)$ に
 >
 > $$
 > \rho_{\omega,p}([\gamma])=h_\gamma(p),
@@ -243,8 +259,15 @@ $$
 <a id="prop-gbg16-circle-holonomy"></a>
 
 <!-- formal-statement-start -->
-> **命題（円周の平坦 $U(1)$ 接続のホロノミー）**  
-> $P=S^1\times U(1)$、$A=ia(x\,dy-y\,dx)$（$a\in\mathbb R$）を取る。この接続は平坦であり、閉路 $\gamma$ が角度を正向きに $n\in\mathbb Z$ 周するなら、標準 section の点で測るホロノミーは
+> **命題（円周上の平坦接続によるホロノミー）**  
+> 円周上の積主束と接続を次で与える。
+>
+> $
+> P=S^1\times U(1),\qquad
+> A=ia(x\,dy-y\,dx),\quad a\in\mathbb R.
+> $
+>
+> この接続は平坦である。閉路が円周を正向きに整数回だけ周回するとき、標準 section でのホロノミーは次の値となる。
 >
 > $$
 > h_\gamma=e^{-2\pi ian}.
@@ -283,13 +306,25 @@ $$
 
 ### 単連結ならこの障害は消える
 
-**単連結** とは、空間が道連結であり、任意の基点で基本群が単位元だけからなることである。すなわち任意の閉路を基点を固定したまま定値路へ変形できる。
+[**単連結**](../../GEO/GEO18/index.md#def-geo18-simply-connected)とは、空間が道連結であり、任意の基点で基本群が単位元だけからなることである。すなわち任意の閉路を基点を固定したまま定値路へ変形できる。
 
 <a id="thm-gbg16-simply-connected"></a>
 
 <!-- formal-statement-start -->
 > **定理（単連結な基底上の平坦接続の大域平行 section）**  
-> $M$ を道連結かつ単連結な滑らかな多様体とし、滑らかな右主 $G$ 束 $\pi:P\to M$ に平坦接続 $\omega$ があるとする。このとき任意の $x_0\in M$、$p_0\in P_{x_0}$ に対し、$s(x_0)=p_0$ を満たす大域平行 section $s:M\to P$ が一意に存在する。従って $P$ は積主束と同型で、すべての閉路のホロノミーは単位元である。
+> $M$ は道連結かつ単連結な滑らかな多様体で、平坦接続 $\omega$ をもつ滑らかな右主 $G$ 束を考える。
+>
+> $
+> \pi:P\to M,\qquad x_0\in M,\quad p_0\in P_{x_0}.
+> $
+>
+> このとき初期値を固定した大域平行 section が一意に存在する。
+>
+> $
+> s:M\to P,\qquad s(x_0)=p_0,\qquad s^*\omega=0.
+> $
+>
+> 従って $P$ は積主束と同型で、すべての閉路のホロノミーは単位元である。
 <!-- formal-statement-end -->
 
 **証明の見取り図**。基点から各点への輸送で section を定義する。単連結性で路による曖昧さを消し、局所平行 section で滑らかさを確認する。
@@ -411,7 +446,7 @@ $$
 #### GBG16-B02 2次元トーラス上の二つの位相
 - Level: B
 
-$T^2=S^1\times S^1$ の角度を $\theta,\varphi$ とし、積主 $U(1)$ 束に $A=i(a\,d\theta+b\,d\varphi)$（$a,b\in\mathbb R$）を取る。曲率を求め、閉路の二つの巻き数 $(m,n)\in\mathbb Z^2$ に対するモノドロミーを求めよ。どの条件で全ホロノミーが恒等になるか。
+$T^2=S^1\times S^1$ の角度を $\theta,\varphi$ とし、積主 $U(1)$ 束に $A=i(a\,d\theta+b\,d\varphi)$（$a,b\in\mathbb R$）を取る。曲率を求め、閉路の二つの[巻き数](../../../解析系/CA/CA5/index.md#def-ca5-winding-number) $(m,n)\in\mathbb Z^2$ に対するモノドロミーを求めよ。どの条件で全ホロノミーが恒等になるか。
 
 <!-- solution-start -->
 **詳細解答**。$d\theta,d\varphi$ はそれぞれ円周因子から引き戻された大域1形式である。係数は定数で $U(1)$ は可換なので
@@ -461,7 +496,7 @@ $$
 =\operatorname{PT}_{\bar\gamma'_x*\gamma_x}(p_0)
 =p_0.
 $$
-逆輸送を適用すれば、$s(x)$ は路によらず定まる。局所平行 section $s_U$ を任意の $x$ の近傍に取り、$s(x)=s_U(x)g$ とおくと、$U$ の点 $y$ で $s(y)=s_U(y)g$。従って滑らかで $s^*\omega=0$。[大域 section の自明化定理](../GBG3/index.md#thm-gbg3-global-section-trivial)により束も自明となる。使ったのは **モノドロミーの自明性** であり、単連結性は必要ない。
+逆輸送を適用すれば、$s(x)$ は路によらず定まる。局所平行 section $s_U$ を任意の $x$ の近傍に取り、$s(x)=s_U(x)g$ とおくと、$U$ の点 $y$ で $s(y)=s_U(y)g$。従って滑らかで $s^*\omega=0$。[大域sectionと自明性の同値](../GBG3/index.md#thm-gbg3-global-section-trivial)により束も自明となる。使ったのは **モノドロミーの自明性** であり、単連結性は必要ない。
 <!-- solution-end -->
 
 ### Level C：ゲージ変換まで統合する
