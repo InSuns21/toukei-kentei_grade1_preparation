@@ -169,7 +169,7 @@ $\operatorname{tr}$ の符号を確認しておく。反Hermite行列 $X$ につ
 <a id="def-gbg27-yang-mills-action"></a>
 
 <!-- formal-statement-start -->
-> **定義（Yang–Mills作用）**  
+> **定義（4次元Riemann計量によるYang–Mills作用）**  
 > 向き付きコンパクト閉Riemann 4多様体上の滑らかな右主 $SU(2)$ 束と接続 $A$ に対して、基本表現の跡を使い
 
 $$
@@ -495,7 +495,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gbg27-b03"></a>
-#### GBG27-B03 第一変分の境界項
+#### GBG27-B03 接続の変分における境界項
 - Level: B
 
 境界付きコンパクト4多様体 $U$ 上で $A_t=A+ta$ とする。$a$ が境界で必ずしも零でない場合の $\left.\frac d{dt}\operatorname{YM}_U(A_t)\right|_0$ を、内部と境界の二つの積分で表せ。停留性を得るために必要な境界側の条件を一つ挙げよ。
@@ -551,9 +551,9 @@ $$
 \operatorname{YM}+8\pi^2m=2v\ge0.
 $$
 
-$m=1$ なら $\operatorname{YM}\ge8\pi^2$ で $u=0$、すなわち $F=-*F$ が等号条件。$m=-1$ なら $\operatorname{YM}\ge8\pi^2$ で $v=0$、すなわち $F=*F$。$m=0$ なら $\operatorname{YM}\ge0$ で等号は $u=v=0$、つまり $F=0$。どの場合も**等号条件**を導いたのであって、その条件を実現する接続の存在は別に証明する必要がある。
+$m=1$ なら $\operatorname{YM}\ge8\pi^2$ で $u=0$、すなわち $F=-*F$ が等号成立の条件。$m=-1$ なら $\operatorname{YM}\ge8\pi^2$ で $v=0$、すなわち $F=*F$。$m=0$ なら $\operatorname{YM}\ge0$ で等号は $u=v=0$、つまり $F=0$。どの場合も**等号を達成するための条件**を導いたのであって、その条件を実現する接続の存在は別に証明する必要がある。
 
-**(2)** 例えば $m=1$ の等号接続では $*F=-F$ である。[Bianchi恒等式](../GBG11/index.md#thm-gbg11-bianchi-local)より $d_AF=0$。従って
+**(2)** 例えば $m=1$ の等号接続では $*F=-F$ である。[曲率の共変外微分が零になる恒等式](../GBG11/index.md#thm-gbg11-bianchi-local)より $d_AF=0$。従って
 
 $$
 d_A*F=d_A(-F)=-d_AF=0.
@@ -572,6 +572,6 @@ $$
 \operatorname{YM}(A)\ge8\pi^2|k(P)|
 $$
 
-が得られる。**前講の向きで $k>0$ の等号条件は反自己双対、$k<0$ は自己双対**である。Bianchi恒等式から両方ともYang–Mills方程式を満たす。
+が得られる。**前講の向きで $k>0$ で等号が成立するのは反自己双対、$k<0$ は自己双対**である。[曲率の共変外微分が零になる恒等式](../GBG11/index.md#thm-gbg11-bianchi-local)から両方ともYang–Mills方程式を満たす。
 
 **次講GBG28**では具体的な BPST 接続を構成し、曲率の双対性、有限作用、第二Chern数の絶対値1を実際に検算する。
