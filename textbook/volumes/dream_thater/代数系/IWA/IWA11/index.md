@@ -39,7 +39,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa11-s-units -->
-**定義の確認。** $K=\mathbb Q$、$S=\{(3),(5)\}$ なら $\mathcal O_{K,S}=\mathbb Z[1/15]$ です。分数を既約に直したとき、分子・分母の素因数が3と5だけであることが必要十分です。従って
+**定義の確認**。 $K=\mathbb Q$、$S=\{(3),(5)\}$ なら $\mathcal O_{K,S}=\mathbb Z[1/15]$ です。分数を既約に直したとき、分子・分母の素因数が3と5だけであることが必要十分です。従って
 
 $$
 U_{K,S}=\{\pm3^a5^b:a,b\in\mathbb Z\},\qquad
@@ -164,7 +164,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa11-local-principal-units -->
-**定義の確認。** $K=\mathbb Q$、$p=3$ のとき、唯一の局所体は $\mathbb Q_3$ で、$k_v=\mathbb F_3$、$U_v^1=1+3\mathbb Z_3$ です。$u=4$ は剰余1なので主単数であり、$u=2$ は剰余 $-1$ なので $2=(-1)\cdot(-2)$、$-2=1-3\in U_v^1$ です。大域単数 $\{\pm1\}$ の主単数成分はともに1なので
+**定義の確認**。 $K=\mathbb Q$、$p=3$ のとき、唯一の局所体は $\mathbb Q_3$ で、$k_v=\mathbb F_3$、$U_v^1=1+3\mathbb Z_3$ です。$u=4$ は剰余1なので主単数であり、$u=2$ は剰余 $-1$ なので $2=(-1)\cdot(-2)$、$-2=1-3\in U_v^1$ です。大域単数 $\{\pm1\}$ の主単数成分はともに1なので
 
 $$
 \mathcal U_{\mathbb Q}=1+3\mathbb Z_3,\qquad
@@ -197,7 +197,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa11-ray-class-group -->
-**定義の確認。** $K=\mathbb Q$、$\mathfrak m=(9)$ では、分数イデアル $(4)$ は法9と互いに素ですが $4\not\equiv1\pmod9$ なので $P_{(9),1}$ には入りません。一方 $(10)$ は $10\equiv1\pmod9$ なので入ります。$(-1)$ は単位イデアルでもあり、$\operatorname{Cl}_{(9)}(\mathbb Q)$ は $(\mathbb Z/9\mathbb Z)^\times/\{\pm1\}$ に対応し位数3です。
+**定義の確認**。 $K=\mathbb Q$、$\mathfrak m=(9)$ では、分数イデアル $(4)$ は法9と互いに素ですが $4\not\equiv1\pmod9$ なので $P_{(9),1}$ には入りません。一方 $(10)$ は $10\equiv1\pmod9$ なので入ります。$(-1)$ は単位イデアルでもあり、$\operatorname{Cl}_{(9)}(\mathbb Q)$ は $(\mathbb Z/9\mathbb Z)^\times/\{\pm1\}$ に対応し位数3です。
 <!-- definition-example-end -->
 
 <a id="thm-iwa11-ray-exact"></a>
