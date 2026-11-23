@@ -88,7 +88,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep2-completely-reducible -->
-**定義の確認：** $C_2$ の $V=\mathbb C^2$ に $D(s)=\operatorname{diag}(1,-1)$ を作用させます。$V_+=\mathbb Ce_1$、$V_-=\mathbb Ce_2$ は、どちらも $D(e)$ と $D(s)$ で不変です。各空間は1次元なので既約で、$e_1,e_2$ が基底ですから $V=V_+\oplus V_-$ です。この表現は完全可約です。
+**定義の確認**： $C_2$ の $V=\mathbb C^2$ に $D(s)=\operatorname{diag}(1,-1)$ を作用させます。$V_+=\mathbb Ce_1$、$V_-=\mathbb Ce_2$ は、どちらも $D(e)$ と $D(s)$ で不変です。各空間は1次元なので既約で、$e_1,e_2$ が基底ですから $V=V_+\oplus V_-$ です。この表現は完全可約です。
 
 一方、[上三角ユニポテント表現](../LREP1/index.md#prop-lrep1-nonsplit)は $W=\mathbb Ce_1$ を不変に保ちますが、不変補直線がありません。もし2次元空間が既約直和に分かれるなら、既約性と可約性から両成分は1次元となり、$W$ も（後述の計算のとおり唯一の不変直線なので）その一方です。これは不変補直線がないことに反するため、完全可約ではありません。
 <!-- definition-example-end -->
@@ -117,7 +117,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep2-invariant-inner-product -->
-**定義の確認：** $C_2$ について $D(s)=\operatorname{diag}(1,-1)$、$h(v,w)=\overline{v_1}w_1+2\overline{v_2}w_2$ とします。$h(v,v)=|v_1|^2+2|v_2|^2>0$（$v\ne0$）なので正定値です。$s$ の作用後は
+**定義の確認**： $C_2$ について $D(s)=\operatorname{diag}(1,-1)$、$h(v,w)=\overline{v_1}w_1+2\overline{v_2}w_2$ とします。$h(v,v)=|v_1|^2+2|v_2|^2>0$（$v\ne0$）なので正定値です。$s$ の作用後は
 $$
 h(D(s)v,D(s)w)
 =\overline{v_1}w_1+2\overline{(-v_2)}(-w_2)
