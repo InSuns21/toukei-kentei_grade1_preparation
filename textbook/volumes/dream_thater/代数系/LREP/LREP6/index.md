@@ -293,13 +293,13 @@ $$
 $W$ が $D(U)W\subseteq W$ を全ての $U\in SU(2)$ で満たすなら、$X\in\mathfrak{su}(2)$ と $w\in W$ に対して曲線 $t\mapsto D(\exp(tX))w$ は $W$ に入ります。$W$ は有限次元の線形部分空間だからその $t=0$ における導関数 $dD(X)w$ も $W$ に入ります。複素線形に延長しても同様です。
 
 逆に $\rho(\mathfrak{sl}_2(\mathbb C))W\subseteq W$ なら、特に各実Lie環元 $X\in\mathfrak{su}(2)$ に対し $dD(X)W\subseteq W$ です。作用を反復して $dD(X)^mW\subseteq W$ となり、行列指数の冪級数（有限次元では収束する）により
-$
+$$
 \exp(t\,dD(X))W\subseteq W.
-$
+$$
 [指数と群表現の関係](../LREP3/index.md#thm-lrep3-differentiation)から左辺は $D(\exp(tX))W$ です。[SU(2)の軸角表示](../LREP5/index.md#prop-lrep5-rodrigues)により、任意の $U\in SU(2)$ は、ある実数 $\theta$ と単位 $\boldsymbol n$ を用いて
-$
+$$
 U=\exp(-i\theta\,\boldsymbol n\cdot\boldsymbol\sigma/2)
-$
+$$
 と書けるので、$W$ はすべての群元で不変です。これで既約性の同値を得ます。
 
 二つの微分表現を結ぶ可逆な線形写像 $T$ があれば、各 $X$ に対し $T\,dD(X)=dD'(X)\,T$ です。冪級数で $T\exp(dD(X))=\exp(dD'(X))T$、従って同じ軸角表示から全 $U$ について $TD(U)=D'(U)T$ です。逆向きも微分すれば成立します。
