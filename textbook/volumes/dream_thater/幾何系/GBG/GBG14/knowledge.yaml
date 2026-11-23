@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - GBG13
+  - ODE1
 forward_references: []
 concepts:
   - id: gauge.curve-horizontal-lift
@@ -16,7 +17,7 @@ concepts:
     name: 水平リフトの存在・一意性
     kind: theorem
     introduction: formal
-    requires: [gauge.curve-horizontal-lift, gauge.local-connection-potential, gauge.principal-connection-form]
+    requires: [gauge.curve-horizontal-lift, gauge.local-connection-potential, gauge.principal-connection-form, ode.ode1-picard-lindelof]
 
   - id: gauge.principal-parallel-transport
     name: 主束の平行移動
