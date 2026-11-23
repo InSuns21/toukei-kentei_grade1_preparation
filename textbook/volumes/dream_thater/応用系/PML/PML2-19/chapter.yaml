@@ -1,0 +1,47 @@
+id: "PML2-19"
+title: "Neural Operatorの近似定理は何を保証しないか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-18
+  - PML2-17
+  - PML2-14
+official_scope: []
+learning_objectives:
+  - 作用素の一様近似可能性を量化記号・入力族・ノルムを固定して説明できる
+  - コンパクトな連続関数族の有限網から共通の変動幅とセンサ補間誤差を導ける
+  - コンパクト入力族上の連続作用素を有限センサの連続branch/trunkで一様近似する定理を構成的に証明できる
+  - 定理が有限層NNの明示的パラメータ・学習の成功・近似速度を保証しない理由を述べられる
+  - 連続関数単位球に対する有限センサの一様誤差下界を反例から証明できる
+  - 有限訓練入力だけでの汎化失敗と有限出力格子だけでの評価失敗を別々に再現できる
+  - 追加のLipschitz・被覆・Poisson安定性条件から総合誤差を評価できる
+  - 存在・表現・最適化・統計・離散化を切り分けた検証条件を設計できる
+definitions:
+  - { id: PML2-19-DEF-01, name: 入力族上の一様近似可能性 }
+  - { id: PML2-19-DEF-02, name: 入力族の一様同程度連続性 }
+theorems:
+  - { id: PML2-19-LEM-01, name: コンパクト入力族の共通補間誤差 }
+  - { id: PML2-19-THM-01, name: コンパクト入力族上の連続branch/trunk一様近似 }
+  - { id: PML2-19-PROP-01, name: 連続関数の単位球での有限センサ下界 }
+  - { id: PML2-19-PROP-02, name: 二つの訓練入力は一様誤差を制御しない }
+canonical_examples:
+  - 定数入力のPoisson解を一成分で厳密に表現する
+  - 一次関数族の共通Lipschitz条件と厳密線形補間
+  - 有限網・入力補間・連続重みを使って作用素近似を構成する
+  - センサの間の正負の山型関数で誤差下界1を示す
+  - 端点では一致して中間入力では誤差が任意に大きい連続モデル
+  - 出力観測点で零でも区間内部で大きい多項式モデル
+problem_patterns:
+  - PML2-19-A01
+  - PML2-19-A02
+  - PML2-19-A03
+  - PML2-19-A04
+  - PML2-19-B01
+  - PML2-19-B02
+  - PML2-19-B03
+  - PML2-19-B04
+  - PML2-19-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
