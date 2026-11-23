@@ -22,7 +22,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa4-field-norm -->
-**定義の確認。** $E=\mathbb Q(i)$、$F=\mathbb Q$ とします。$G=\{1,c\}$、$c(a+bi)=a-bi$ だから
+**定義の確認**。 $E=\mathbb Q(i)$、$F=\mathbb Q$ とします。$G=\{1,c\}$、$c(a+bi)=a-bi$ だから
 
 $$
 N_{\mathbb Q(i)/\mathbb Q}(2+i)
@@ -67,7 +67,7 @@ $$
 [素イデアル分解の一意性](../../ANF/ANF3/index.md#thm-anf3-prime-ideal-factorization)によりこの式は分数イデアル上で一意に定まります。ノルムは指数を足す積に対して乗法的で、延長もイデアルの積を保ちます。
 
 <!-- definition-example-start: def-iwa4-ideal-norm-extension -->
-**定義の確認。** $E=\mathbb Q(i)$、$F=\mathbb Q$ で $5=(2+i)(2-i)$ と因数分解できます。$(2+i)$ と $(2-i)$ は互いに異なる素イデアルで、その剰余体はどちらも $\mathbb F_5$ です。ゆえに各剰余次数は1で、
+**定義の確認**。 $E=\mathbb Q(i)$、$F=\mathbb Q$ で $5=(2+i)(2-i)$ と因数分解できます。$(2+i)$ と $(2-i)$ は互いに異なる素イデアルで、その剰余体はどちらも $\mathbb F_5$ です。ゆえに各剰余次数は1で、
 
 $$
 N_{E/F}((2+i))=(5),\qquad
@@ -251,22 +251,22 @@ $$
 > **定義（局所単数のノルム系）**  
 > $p$ を奇素数、$n\ge0$ とし、局所体を次で指定する。
 
-$
+$$
 L_n=\mathbb Q_p(\zeta_{p^{n+1}}).
-$
+$$
 
 > $\mathfrak m_n$ を $\mathcal O_{L_n}$ の極大イデアルとする。主単数群と遷移写像を
 
-$
+$$
 U_n^1=1+\mathfrak m_n,\qquad
 N_{n+1,n}:U_{n+1}^1\longrightarrow U_n^1
-$
+$$
 
 > と定める。ここで $N_{n+1,n}$ は体のノルム $N_{L_{n+1}/L_n}$ を主単数群へ制限した写像である。この群と写像の列を局所主単数のノルム系とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa4-local-unit-system -->
-**定義の確認。** $\zeta_{p^{n+1}}$ は剰余体で1となるので $U_n^1$ に入ります。$L_{n+1}/L_n$ の位数 $p$ の自己同型は $\zeta=\zeta_{p^{n+2}}$ を $\zeta^{1+kp^{n+1}}$（$0\le k<p$）へ送ります。従って奇素数 $p$ では
+**定義の確認**。 $\zeta_{p^{n+1}}$ は剰余体で1となるので $U_n^1$ に入ります。$L_{n+1}/L_n$ の位数 $p$ の自己同型は $\zeta=\zeta_{p^{n+2}}$ を $\zeta^{1+kp^{n+1}}$（$0\le k<p$）へ送ります。従って奇素数 $p$ では
 
 $$
 \begin{aligned}
@@ -304,7 +304,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa4-inverse-limit -->
-**定義の確認。** $B_n=\mathbb Z/p^{n+1}\mathbb Z$、$q_{n+1,n}$ を自然な還元とします。整数 $10$ の剰余類を各段に並べた $(10\bmod p^{n+1})_n$ は還元後に一致するので逆極限の元です。一方 $p=3$ のとき $b_0=1\bmod3$ と $b_1=2\bmod9$ は、$2\bmod3\ne1\bmod3$ なので整合的でありません。[IWA1の $p$ 進整数の有限商](../IWA1/index.md#prop-iwa1-residue-quotients)から、この逆極限は $\mathbb Z_p$ になります。
+**定義の確認**。 $B_n=\mathbb Z/p^{n+1}\mathbb Z$、$q_{n+1,n}$ を自然な還元とします。整数 $10$ の剰余類を各段に並べた $(10\bmod p^{n+1})_n$ は還元後に一致するので逆極限の元です。一方 $p=3$ のとき $b_0=1\bmod3$ と $b_1=2\bmod9$ は、$2\bmod3\ne1\bmod3$ なので整合的でありません。[IWA1の $p$ 進整数の有限商](../IWA1/index.md#prop-iwa1-residue-quotients)から、この逆極限は $\mathbb Z_p$ になります。
 <!-- definition-example-end -->
 
 逆極限の構成は集合としての式だけでなく、写像を一意に作れるという性質を持ちます。
