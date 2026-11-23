@@ -70,15 +70,15 @@ export const LAB_PARAMETERS = Object.freeze({
       meaning: 'MAC面速度・圧力・染料を同じ格子で再計算。表示ピクセル数とは別（12/24/36/48）',
       sourceLocation: 'fluid.js / const N → h、MAC面配列、Poisson、R8テクスチャ',
       sourceFile: 'js', index: null,
-      matcher: /^([ \t]*const N=)([^,\n]+)(,h=1\/N,dt=0\.04,rho=1,nu=[^,\n]+,forceAmplitude=[^;\n]+;)/gm
+      matcher: /^([ \t]*const N=)([^,\n]+)(,h=1\/N,dt=[^,\n]+,rho=1,nu=[^,\n]+,forceAmplitude=[^;\n]+;)/gm
     }),
     Object.freeze({
       id: 'nu', type: 'number', label: '動粘性係数 ν', default: 0.002,
       min: 0, max: 0.0025, step: 0.0005, unit: 'm²/s',
-      meaning: '陽的粘性 r=dt·ν·N²≤1/4 をN=48でも満たす範囲（dt=0.04 s）',
+      meaning: '陽的粘性 r=dt·ν·N²≤1/4 をdt≤0.04 s、N≤48でも満たす範囲',
       sourceLocation: 'fluid.js / const nu → advanceFluidStep() の r',
       sourceFile: 'js', index: null,
-      matcher: /^([ \t]*const N=[^,\n]+,h=1\/N,dt=0\.04,rho=1,nu=)([^,\n]+)(,forceAmplitude=[^;\n]+;)/gm
+      matcher: /^([ \t]*const N=[^,\n]+,h=1\/N,dt=[^,\n]+,rho=1,nu=)([^,\n]+)(,forceAmplitude=[^;\n]+;)/gm
     }),
     Object.freeze({
       id: 'force', type: 'number', label: '外力の流れ関数振幅', default: 0.08,
@@ -86,7 +86,15 @@ export const LAB_PARAMETERS = Object.freeze({
       meaning: '外力加速度の回転差分に用いる流れ関数の振幅（0では外力なし）',
       sourceLocation: 'fluid.js / const forceAmplitude → psi() → starU/starV',
       sourceFile: 'js', index: null,
-      matcher: /^([ \t]*const N=[^,\n]+,h=1\/N,dt=0\.04,rho=1,nu=[^,\n]+,forceAmplitude=)([^;\n]+)(;)/gm
+      matcher: /^([ \t]*const N=[^,\n]+,h=1\/N,dt=[^,\n]+,rho=1,nu=[^,\n]+,forceAmplitude=)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id: 'dt', type: 'number', label: '物理時間刻み Δt', default: 0.04,
+      min: 0.01, max: 0.04, step: 0.005, unit: 's/物理step',
+      meaning: '1stepで進む物理時間。描画FPSとは別。N≤48、ν≤0.0025で陽的粘性 r=dt·ν·N²≤1/4',
+      sourceLocation: 'fluid.js / const dt → advanceFluidStep() の移流・粘性・外力・圧力射影',
+      sourceFile: 'js', index: null,
+      matcher: /^([ \t]*const N=[^,\n]+,h=1\/N,dt=)([^,\n]+)(,rho=1,nu=[^,\n]+,forceAmplitude=[^;\n]+;)/gm
     }),
     Object.freeze({
       id: 'brush-radius', type: 'number', label: '染料ブラシの半径', default: 0.085,

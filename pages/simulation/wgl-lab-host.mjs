@@ -126,6 +126,7 @@ let fcg4Steps = 128;
 let fcg4Timer = null;
 let fcg5Steps = 8;
 let fcg5Timer = null;
+let refreshFcg5StepMarker = () => {};
 let forwardFcg5MotionPreference = () => {};
 let fcg6Steps = 8;
 let fcg6Timer = null;
@@ -270,7 +271,7 @@ function fcg6PhysicsFor(js,vertex,fragment) {
 function fcg5PhysicsFor(js,vertex,fragment) {
   if(!isFCG5||vertex!==defaults.vertex||fragment!==defaults.fragment)return null;
   const specs=parametersFor('FCG5');
-  if(specs.length!==5)return null;
+  if(specs.length!==6)return null;
   const readings=specs.map(spec=>readLabParameter(js,spec));
   if(!readings.every(state=>state.ok))return null;
   try{
@@ -283,7 +284,7 @@ function fcg5PhysicsFor(js,vertex,fragment) {
   }catch{return null;}
   return {
     N:readings[0].value,nu:readings[1].value,force:readings[2].value,
-    brushRadius:readings[3].value,brushStrength:readings[4].value
+    dt:readings[3].value,brushRadius:readings[4].value,brushStrength:readings[5].value
   };
 }
 function setSources(record) {
@@ -292,6 +293,7 @@ function setSources(record) {
   }
   refreshSourceHighlights();
   refreshParameterControls();
+  refreshFcg5StepMarker();
 }
 refreshParameterControls = mountLabParameters(lesson, byId('lab-parameters'), {
   getSource: () => inputs.js.value,
@@ -299,11 +301,13 @@ refreshParameterControls = mountLabParameters(lesson, byId('lab-parameters'), {
     inputs.js.value = value;
     refreshSourceHighlights();
     refreshParameterControls();
+    refreshFcg5StepMarker();
   },
   rerun: () => run(),
   isReady: () => ready
 });
 inputs.js.addEventListener('input', refreshParameterControls);
+inputs.js.addEventListener('input', () => refreshFcg5StepMarker());
 
 async function load() {
   try {
@@ -700,8 +704,12 @@ window.addEventListener('message', event => {
     if(!Number.isInteger(data.step)||data.step<0||data.step>32||
        typeof data.playing!=='boolean')return;
     const view=byId('fcg5-live-state');
-    if(view)view.textContent='実行中の物理step '+data.step+'/32、時刻 '+
-      (data.step*0.04).toFixed(2)+' s（'+(data.playing?'再生中':'一時停止中')+'）';
+    if(view){
+      const timestep=readLabParameter(active.payload.js,parametersFor('FCG5')[3]);
+      view.textContent='実行中の物理step '+data.step+'/32、時刻 '+
+        (timestep.ok ? (data.step*timestep.value).toFixed(3)+' s' : '編集JSを確認')+
+        '（'+(data.playing?'再生中':'一時停止中')+'）';
+    }
     return;
   }
   if(isFCG2 && data.type==='fcg2-progress'){
@@ -983,7 +991,8 @@ window.addEventListener('message', event => {
     width: active.payload.width, height: active.payload.height,
     steps: (isWGL18 || isWGL19) ? data.floatParameters?.steps : active.payload.steps,
     frameAudit: isWGL19 ? data.frameAudit : undefined,
-    gridN: isFCG5 ? readLabParameter(active.payload.js,parametersFor('FCG5')[0]).value : undefined
+    gridN: isFCG5 ? readLabParameter(active.payload.js,parametersFor('FCG5')[0]).value : undefined,
+    dt: isFCG5 ? readLabParameter(active.payload.js,parametersFor('FCG5')[3]).value : undefined
   } : null);
   clearTimeout(active.timer);
   active.timer = null;
@@ -1072,7 +1081,8 @@ window.addEventListener('message', event => {
     }
     if (isFCG5 && fcg5Physics && !unchanged) {
       byId('numeric-note').textContent =
-        'FCG5：実行したN='+fcg5Physics.N+'×'+fcg5Physics.N+'、nu='+fcg5Physics.nu+
+        'FCG5：実行したN='+fcg5Physics.N+'×'+fcg5Physics.N+'、dt='+fcg5Physics.dt+
+        ' s、nu='+fcg5Physics.nu+
         ' m²/s、外力振幅='+fcg5Physics.force+' m²/s²で独立CPUの'+
         fcg5Physics.N+'×'+fcg5Physics.N+'格子を再計算し、'+
         'GPUの初期9画素と各成分±2で比較。染料ブラシ半径='+
@@ -1543,7 +1553,7 @@ if (isFCG5) {
     '<li>1step・再生・一時停止・step0へ復帰を行い、物理時刻と画面更新間隔を区別する。</li>'+
     '<li>染料ブラシの半径・強さを実fluid.jsで調整し、Shift+ドラッグで染料を追加する。Spaceで再生／停止する。</li>'+
     '<li>結果canvasで画素をクリック、または矢印キーとEnterで物理格子値を検査する。</li>'+
-    '<li>fluid.jsのnuまたはforceAmplitudeを変更し、初期CPU予測とライブ画面の差を観察する。</li>'+
+    '<li>fluid.jsのdt・nuまたはforceAmplitudeを変更し、物理時刻と初期CPU予測・ライブ画面の差を観察する。</li>'+
     '<li>fluid.fragの中央色の倍率・構文エラーを試してCPU残差とGPU表示を区別する。</li>';
   byId('preset').options[0].textContent='2D流体・染料／発散／速度の3表示';
   byId('preset').options[1].textContent='fragment構文エラー';
@@ -1585,7 +1595,10 @@ if (isFCG5) {
   };
   motionPreference.addEventListener('change',forwardFcg5MotionPreference);
   function mark(){
-    marker.textContent='物理step '+fcg5Steps+'/32、時刻 '+(fcg5Steps*0.04).toFixed(2)+'s（描画fpsとは独立）';
+    const timestep=readLabParameter(inputs.js.value,parametersFor('FCG5')[3]);
+    marker.textContent='物理step '+fcg5Steps+'/32、時刻 '+
+      (timestep.ok ? (fcg5Steps*timestep.value).toFixed(3)+'s' : '編集JSを確認')+
+      '（描画fpsとは独立）';
     pause.disabled=fcg5Timer===null;play.disabled=fcg5Timer!==null;
   }
   function pausePlay(){if(fcg5Timer!==null){clearInterval(fcg5Timer);fcg5Timer=null;}mark();}
@@ -1604,6 +1617,7 @@ if (isFCG5) {
   back.addEventListener('click',()=>{pausePlay();fcg5Steps=0;mark();run();});
   byId('reset').addEventListener('click',mark);
   byId('stop').addEventListener('click',mark);
+  refreshFcg5StepMarker=mark;
   mark();
 }
 if (isFCG4) {
