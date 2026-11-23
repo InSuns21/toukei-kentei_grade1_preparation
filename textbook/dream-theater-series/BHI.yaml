@@ -147,7 +147,7 @@ chapters:
     title: "代替二次元模型との比較"
   - id: BHI35
     path: textbook/volumes/dream_thater/物理系/BHI/BHI35
-    status: planned
+    status: completed
     title: "四次元・実在ブラックホールへの外挿"
   - id: BHI36
     path: textbook/volumes/dream_thater/物理系/BHI/BHI36

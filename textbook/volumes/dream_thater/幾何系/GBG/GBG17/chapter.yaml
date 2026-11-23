@@ -1,0 +1,44 @@
+id: "GBG17"
+title: "Wilson loopは何に関して不変か"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG16
+official_scope: []
+learning_objectives:
+  - 閉路のホロノミーと有限次元複素表現の跡からWilson loopを定義し直接例で計算できる
+  - ファイバー基準点変更・局所section変更・ゲージ自己同型による接続変更に対するWilson loopの不変性を証明できる
+  - 逆路のWilson loopとユニタリ表現での複素共役関係を証明し向き反転で常に同じとは限らないことを説明できる
+  - 同じ閉路の巡回始点変更と経路を任意に変形する操作を区別できる
+  - 平坦接続の固定端点・自由ホモトピー不変性と非平坦な曲率による反例を計算できる
+  - 開Wilson線の始点終点の別々の変換則と両端の場を含めた不変スカラーを証明できる
+  - 経路順序指数の時間順序と巡回置換・任意の順序交換の違いを具体行列で検算できる
+definitions:
+  - { id: GBG17-DEF-01, name: 表現に関するWilson loop }
+  - { id: GBG17-DEF-02, name: 表現付き開Wilson線の局所行列 }
+theorems:
+  - { id: GBG17-THM-01, name: 閉Wilson loopのゲージ不変性 }
+  - { id: GBG17-PROP-01, name: 向きを反転したWilson loop }
+  - { id: GBG17-PROP-02, name: 閉路上の始点の巡回移動 }
+  - { id: GBG17-PROP-03, name: 平坦性とホモトピーに関する条件付き不変性 }
+  - { id: GBG17-THM-02, name: 開Wilson線の両端変換則 }
+canonical_examples:
+  - U(1)円周接続での電荷表現と逆向き閉路
+  - GL(2,C)での共役による群元変化と跡の一致
+  - 非平坦な平面上の矩形閉路と曲率による跡の変化
+  - 零接続の開路と異なる端点ゲージ値による変換
+  - 非可換三因子の経路順序による跡の差
+problem_patterns:
+  - GBG17-CONJUGATION-TRACE
+  - GBG17-CHARGED-U1-ORIENTATION
+  - GBG17-OPEN-ENDPOINTS
+  - GBG17-ORDERED-TRANSPORT
+  - GBG17-CYCLIC-BASEPOINT
+  - GBG17-NONFLAT-CONTRACTIBLE-LOOP
+  - GBG17-FLAT-FREE-HOMOTOPY
+  - GBG17-UNITARY-REVERSAL
+  - GBG17-CYLINDER-GAUGE-AND-CURVATURE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 9, review: 4 }
