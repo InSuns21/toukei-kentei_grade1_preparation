@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - LREP5
+  - LIE3
 forward_references:
   - mechanics.angular-momentum
 concepts:
