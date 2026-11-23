@@ -1,0 +1,56 @@
+chapter: ANF22
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF21
+  - SQC5
+forward_references: []
+
+concepts:
+  - id: number-theory.hilbert-class-field
+    name: Hilbert類体
+    kind: definition
+    introduction: formal
+    requires: [number-theory.ideal-class-group, number-theory.ray-class-field]
+
+  - id: number-theory.hilbert-class-field-correspondence
+    name: Hilbert類体とイデアル類群
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.hilbert-class-field, number-theory.ideal-class-group, number-theory.ray-class-group]
+
+  - id: number-theory.hilbert-principal-splitting
+    name: 主素イデアルと完全分解
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.hilbert-class-field-correspondence, number-theory.global-frobenius-order-splitting]
+
+  - id: number-theory.kronecker-weber-class-field-route
+    name: Kronecker–Weber定理と類体論からの帰結
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.ray-class-field, number-theory.global-artin-ray-descent]
+
+  - id: number-theory.prime-power-cyclotomic-degree
+    name: 素数冪円分体の次数
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.local-cyclotomic-degree]
+
+  - id: number-theory.zp-extension
+    name: Z_p拡大
+    kind: definition
+    introduction: formal
+    requires: [number-theory.p-adic-integers]
+
+  - id: number-theory.cyclotomic-zp-tower
+    name: 奇素数の円分的Z_p塔
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.zp-extension, number-theory.prime-power-cyclotomic-degree]
+
+  - id: number-theory.two-adic-cyclotomic-tower
+    name: 2進円分塔
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.zp-extension, number-theory.prime-power-cyclotomic-degree]

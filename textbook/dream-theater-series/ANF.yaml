@@ -91,5 +91,5 @@ chapters:
     title: "大域類体論の主要証明ルート"
   - id: ANF22
     path: textbook/volumes/dream_thater/代数系/ANF/ANF22
-    status: planned
+    status: completed
     title: "Hilbert類体・円分体とZ_p塔への橋"

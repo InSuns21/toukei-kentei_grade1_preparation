@@ -1,0 +1,49 @@
+id: "ANF22"
+title: "Hilbert類体・円分体とZ_p塔への橋"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANF21
+  - SQC5
+official_scope: []
+learning_objectives:
+  - 法(1)の剰余類群からHilbert類体とイデアル類群のArtin同型を導ける
+  - 通常類群と狭義類群の実素点での相違を説明できる
+  - 主素イデアルとHilbert類体での完全分解の同値を証明・計算できる
+  - Kronecker–Weber定理を大域類体論と円分体のArtin同型から位置付けられる
+  - p冪円分多項式のEisenstein判定を用いて次数と完全分岐を導ける
+  - 奇素数pについてDelta固定体の有限段とZ_p逆極限を構成できる
+  - p=2の円分塔に必要な複素共役の商を計算できる
+  - Hilbert類体の非分岐性と円分的Z_p塔のpでの完全分岐を区別できる
+definitions:
+  - { id: ANF22-DEF-01, name: Hilbert類体 }
+  - { id: ANF22-DEF-02, name: Z_p拡大 }
+theorems:
+  - { id: ANF22-THM-01, name: Hilbert類体とイデアル類群 }
+  - { id: ANF22-PROP-01, name: 主素イデアルと完全分解 }
+  - { id: ANF22-THM-02, name: Kronecker–Weber定理と類体論からの帰結 }
+  - { id: ANF22-PROP-02, name: 素数冪円分体の次数 }
+  - { id: ANF22-THM-03, name: 奇素数の円分的Z_p塔 }
+  - { id: ANF22-PROP-03, name: 2進円分塔 }
+canonical_examples:
+  - Q(i)でHilbert類体が自明であること
+  - Q(sqrt(-5))のノルム3の非主素イデアルとHilbert類体のFrobenius
+  - Q(zeta5)と実二次部分体の円分的Artin商
+  - p=3のDelta固定体の次数1・3・9
+  - p=5の円分的次数5拡大と素数2・101の分解
+  - p=2の最大実部分体と生成元5
+problem_patterns:
+  - ANF22-HILBERT-CLASS-GROUP
+  - ANF22-PRINCIPAL-SPLITTING
+  - ANF22-RAY-CYCLOTOMIC-CORRESPONDENCE
+  - ANF22-EISENSTEIN-CYCLOTOMIC
+  - ANF22-DELTA-FIXED-FIELDS
+  - ANF22-CYCLOTOMIC-FROBENIUS
+  - ANF22-INVERSE-LIMIT-GALOIS
+  - ANF22-TWO-ADIC-TOWER
+  - ANF22-UNRAMIFIED-VS-RAMIFIED
+  - ANF22-INTEGRATED-COMPARISON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 15.0, exercises: 11.0, review: 4.0 }
