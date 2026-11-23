@@ -25,7 +25,7 @@ concepts:
     requires: [number-theory.finite-teichmueller-lifts, number-theory.hensel-simple-root]
 
   - id: number-theory.cyclotomic-odd-delta-unit-splitting
-    name: 奇素数のDelta_nとU_n分解
+    name: 奇素数の円分単元群の直積分解
     kind: theorem
     introduction: formal
     requires: [number-theory.finite-teichmueller-unique-lifts]
@@ -37,7 +37,7 @@ concepts:
     requires: [number-theory.cyclotomic-odd-delta-unit-splitting, number-theory.cyclotomic-zp-tower]
 
   - id: number-theory.cyclotomic-compatible-delta-gamma-tower
-    name: 分解から得る円分Z_p塔の両立性
+    name: 円分塔の有限層と逆極限の両立性
     kind: theorem
     introduction: formal
     requires: [number-theory.cyclotomic-unit-exponent-coordinates, number-theory.galois-inverse-limit]
