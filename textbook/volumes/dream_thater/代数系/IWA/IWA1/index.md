@@ -358,7 +358,23 @@ $\mathbb Z$ が $\mathbb Z_p$ の稠密な真部分群であることを示し�
 - ID: IWA1-B1
 
 <!-- solution-start -->
-**詳細解答。** [桁展開](../../ANF/ANF9/index.md#thm-anf9-digit-expansion)で与えられる $x\in\mathbb Z_p$ の最初の $n$ 桁を合計した整数 $s_n$ は $x-s_n\in p^n\mathbb Z_p$ を満たします。従って $s_n\to x$ となり $\overline{\mathbb Z}=\mathbb Z_p$ です。$\mathbb Z$ が全体なら $1/(1-p^2)$ のような $p$ 進整数が常に通常の整数になってしまいますが、等比級数 $\sum_{j\ge0}p^{2j}=1/(1-p^2)$ は $\mathbb Z_p$ に収束し、$p\ge2$ なので有理数 $1/(1-p^2)$ は通常の整数ではありません。ゆえに $\mathbb Z$ は真部分群です。[分類定理の証明](#thm-iwa1-closed-subgroups)では整数倍の閉包を部分群に戻すために閉性を使用しており、$\mathbb Z$ ではその手順が成立しません。
+**詳細解答。** [桁展開](../../ANF/ANF9/index.md#thm-anf9-digit-expansion)で与えられる $x\in\mathbb Z_p$ の最初の $n$ 桁を合計した整数を $s_n$ とします。その差は
+
+$$
+x-s_n\in p^n\mathbb Z_p
+$$
+
+を満たすので、$s_n\to x$ です。従って $\overline{\mathbb Z}=\mathbb Z_p$ となり、整数全体は稠密です。
+
+一方、$p$ 進等比級数
+
+$$
+\sum_{j=0}^\infty p^{2j}=\frac{1}{1-p^2}
+$$
+
+は $\mathbb Z_p$ に収束します。ところが $p\ge2$ なので $1/(1-p^2)$ は通常の整数ではありません。従って $\mathbb Z$ は $\mathbb Z_p$ の真部分群です。
+
+[分類定理の証明](#thm-iwa1-closed-subgroups)では整数倍の**閉包**をもとの部分群に含めるために閉性を用いました。$\mathbb Z$ ではこの包含が成立しないので、閉性の仮定を省略できません。
 <!-- solution-end -->
 
 ### B2. 円分第一層の最小多項式
@@ -369,7 +385,27 @@ $\zeta=\zeta_9$, $t=\zeta+\zeta^{-1}$ とするとき、$t^3-3t+1=0$ と $[\math
 - ID: IWA1-B2
 
 <!-- solution-start -->
-**詳細解答。** $\zeta^3$ は原始3乗根であるから、$(\zeta^3)^2+\zeta^3+1=0$。$\zeta^3+\zeta^{-3}=-1$ が得られます。$(a+b)^3-3ab(a+b)=a^3+b^3$ に $a=\zeta,b=\zeta^{-1}$（$ab=1$）を代入すると $t^3-3t=-1$。従って $t$ は $f(X)=X^3-3X+1$ の根です。有理根定理で $f$ の有理根は首係数1と定数項1から $\pm1$ のみですが、$f(1)=-1$、$f(-1)=3$ なのでどちらも根ではありません。三次多項式は可約なら一次因子を持つため $f$ は既約、よって最小多項式で次数3です。[円分塔の定理](../../ANF/ANF22/index.md#thm-anf22-cyclotomic-zp-tower)の第1層と次数が一致します。
+**詳細解答。** $\zeta^3$ は原始3乗根なので、$(\zeta^3)^2+\zeta^3+1=0$ です。両辺を $\zeta^{-3}$ 倍すると
+
+$$
+\zeta^3+\zeta^{-3}=-1
+$$
+
+が得られます。$a=\zeta$、$b=\zeta^{-1}$ とし、$ab=1$ と恒等式 $(a+b)^3-3ab(a+b)=a^3+b^3$ を使うと、
+
+$$
+t^3-3t=\zeta^3+\zeta^{-3}=-1
+$$
+
+です。よって $t$ は $f(X)=X^3-3X+1$ の根です。
+
+有理根定理から、この首一多項式の有理根の候補は $\pm1$ です。しかし $f(1)=-1$、$f(-1)=3$ でいずれも根ではありません。三次多項式が可約なら一次因子を持つため、$f$ は既約です。従って $f$ が $t$ の最小多項式であり、
+
+$$
+[\mathbb Q(t):\mathbb Q]=\deg f=3
+$$
+
+を得ます。[円分塔の定理](../../ANF/ANF22/index.md#thm-anf22-cyclotomic-zp-tower)で得た第一層の次数とも一致します。
 <!-- solution-end -->
 
 ### B3. 二つの層の間の一意性
@@ -391,7 +427,11 @@ $E=\mathbb Q(\sqrt[3]{2})$ が $\mathbb Q$ の $\mathbb Z_3$ 拡大の第1層に
 - ID: IWA1-B4
 
 <!-- solution-start -->
-**詳細解答。** 多項式 $X^3-2$ は素数 $2$ に関するEisenstein判定法から既約なので $[E:\mathbb Q]=3$ です。しかしその根は $\alpha=\sqrt[3]{2}$、$\omega\alpha$、$\omega^2\alpha$（$\omega$ は原始3乗根）であり、$E$ は実数だけからなるので非実根 $\omega\alpha$ を含みません。従って $E/\mathbb Q$ は正規でなくGalois拡大ではありません。一方[有限層定理](#thm-iwa1-layer-tower)で第1層は必ず位数3の巡回Galois拡大です。このGalois性が欠けるので、次数3だけでは第1層になれません。
+**詳細解答。** 多項式 $X^3-2$ は素数 $2$ に関するEisenstein判定法から既約です。従って $[E:\mathbb Q]=3$ です。
+
+しかし $\alpha=\sqrt[3]{2}$ の最小多項式には、$\alpha$ のほかに $\omega\alpha,\omega^2\alpha$（$\omega$ は原始3乗根）という非実根があります。$E=\mathbb Q(\alpha)\subseteq\mathbb R$ なので、$E$ はこれら非実根を含みません。よって $E/\mathbb Q$ は正規でなく、Galois拡大ではありません。
+
+他方、[有限層定理](#thm-iwa1-layer-tower)によれば $\mathbb Z_3$ 拡大の第1層は必ず巡回Galois拡大です。この**Galois性の欠落**が障害となり、次数3という条件だけでは第1層になれません。
 <!-- solution-end -->
 
 ### C1. 有限層・無限層・生成元の統合
@@ -421,7 +461,25 @@ $$
 
 最後の同型は $p^nx\mapsto x\bmod p$ で与えられ、核が $p^{n+1}\mathbb Z_p$ です。
 
-**（3）** $u=\phi(\gamma)$ が単元なら、各有限商 $\mathbb Z/p^n\mathbb Z$ での加法位数は $p^n$ です。これは $ku\equiv0\pmod{p^n}$ が $p^n\mid k$ と同値だからです。よって各制限 $\gamma|_{K_n}$ は巡回Galois群の生成元です。ただし有限商の元を層ごと独立に選ぶと、例えば法 $p$ で $1$、法 $p^2$ で $0$ と選んだ場合は制限が一致しません。[逆極限定理](#thm-iwa1-galois-inverse-limit)の貼り合わせでは、各 $\rho_{n+1,n}(\sigma_{n+1})=\sigma_n$ が必要です。整合する族のみが $L$ の一つの自己同型に対応します。
+**（3）** $u=\phi(\gamma)$ が単元なら、法 $p^n$ の商における $u$ の加法位数は $p^n$ です。実際、単元の逆元を掛けられるので
+
+$$
+ku\equiv0\pmod{p^n}
+\quad\Longleftrightarrow\quad
+k\equiv0\pmod{p^n}.
+$$
+
+従って $\gamma|_{K_n}$ は各巡回Galois群の生成元です。
+
+ただし、層ごとに有限商の元を独立に選んではいけません。例えば法 $p$ では $1$、法 $p^2$ では $0$ を選ぶと、後者を還元しても前者には一致しません。
+
+[逆極限定理](#thm-iwa1-galois-inverse-limit)で自己同型を貼り合わせるには、全ての $n$ で
+
+$$
+\rho_{n+1,n}(\sigma_{n+1})=\sigma_n
+$$
+
+が必要です。整合する族だけが $L$ の一つの自己同型を定めます。
 <!-- solution-end -->
 
 ## 9. 次講への問い
