@@ -133,6 +133,14 @@ test('WGL18 observation renders the same GPU shader with a dense real grid', asy
   assert.match(script,/cancelAnimationFrame\(raf\)/);
   assert.doesNotThrow(()=>new Function(script.replaceAll('import.meta.url',
     "'https://example.invalid/simulation/wgl18-explore.mjs'")));
+  // Prevent regression of a parser error in the 4x4/dense shared shader.
+  let parens=0;
+  for(const ch of fragment.replace(/\/\/[^\n]*/g,'')){
+    if(ch==='(')parens++;
+    else if(ch===')')parens--;
+    assert.ok(parens>=0,'unexpected GLSL closing parenthesis');
+  }
+  assert.equal(parens,0,'unbalanced GLSL expression');
   assert.match(fragment,/uniform ivec2 u_gridSize/);
   assert.match(fragment,/u_stage == 3/);
   assert.match(fragment,/sqrt\(clamp\(center, 0\.0, 1\.0\)\)/);
