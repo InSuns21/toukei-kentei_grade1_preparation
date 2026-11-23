@@ -1970,6 +1970,8 @@ if (isWGL17) {
     '<li>R32Fへ変更し、同じセルの誤差バーが小さくなるのを確認する。</li>'+
     '<li>入力値を0に変え、R8ではゼロを正確に表せないことを確かめる。</li>'+
     '<li>コード編集タブで復元式や色変換を変更しGPU画像・検算結果を比較する。</li>';
+  // Put the actual controls immediately after the experiment objective.
+  document.querySelector('#panel-conditions ol').before(byId('lab-parameters'));
   byId('preset').options[0].textContent = '8セルの数値・色・保存誤差を比較';
   byId('preset').options[1].textContent = 'fragmentの構文エラー';
 }
