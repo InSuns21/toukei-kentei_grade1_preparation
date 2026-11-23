@@ -12,7 +12,17 @@ $$
 -u_a''(x)=a\quad(0<x<1),\qquad u_a(0)=u_a(1)=0
 $$
 
-とする。ダッシュは $x$ についての導関数である。PDEに渡す荷重 $f_a(x)=a$ のセンサ値（例えば $f_a(0)$）が $a$ であるから、この模型は有限センサ型の作用素学習でもある。二回積分して端点を代入すると
+とする。ダッシュは空間変数 $x$ についての導関数である。PDEに渡す荷重 $f_a(x)=a$ のセンサ値（例えば $f_a(0)$）が $a$ なので、有限センサ型の作用素学習として表せる。
+
+方程式を $x$ で二回積分すると、積分定数 $C_1,C_2$ を用いて
+
+$$
+u_a''(x)=-a,\qquad
+u_a'(x)=-ax+C_1,\qquad
+u_a(x)=-\frac{a}{2}x^2+C_1x+C_2.
+$$
+
+端点 $x=0$ から $C_2=0$、端点 $x=1$ から $C_1=a/2$ が決まる。したがって
 
 $$
 u_a(x)=a\phi(x),\qquad
@@ -25,7 +35,29 @@ $$
 
 ## 2. 物理を課す作用素損失を組み立てる
 
-解作用素の近似 $\mathcal D_\theta(a,x)$ は、入力 $a$ と問い合わせ座標 $x$ を受けて実数を返す。例えばbranchが $a$ から係数を出し、trunkが $x$ から基底値を出すDeepONetなら $\mathcal D_\theta(a,x)=\sum_k B_{\theta,k}(a)T_{\theta,k}(x)$ である。一般のNeural Operatorでも、出力関数を $x$ で二回微分できることを確認すれば同じ残差を評価できる。
+解作用素の近似 $\mathcal D_\theta(a,x)$ は、入力 $a$ と問い合わせ座標 $x$ を受けて実数を返す。この定数荷重族に[固定センサ型DeepONetの定義](../PML2-18/index.md#def-pml2-18-deeponet)を適用しよう。
+
+入力関数の引数を $t$、出力の座標を $x$ と書く。定数荷重 $f_a(t)=a$ に対する $m$ 個のセンサ値は
+
+$$
+S_mf_a=(f_a(s_1),\ldots,f_a(s_m))=(a,\ldots,a)
+$$
+
+となる。以下 $B_{\theta,k}(a)$ は $B_{\theta,k}(S_mf_a)$ の略記である。$p$ 成分のbranchとtrunkに定数項 $c_\theta$ を加えた式は
+
+$$
+\mathcal D_\theta(a,x)
+=\sum_{k=1}^{p}B_{\theta,k}(a)T_{\theta,k}(x)+c_\theta
+$$
+
+と書ける。各 $T_{\theta,k}\in C^2([0,1])$ とすれば、$a$ と学習パラメータ $\theta$ を固定して $x$ を二回微分すると
+
+$$
+\partial_{xx}\mathcal D_\theta(a,x)
+=\sum_{k=1}^{p}B_{\theta,k}(a)T_{\theta,k}''(x).
+$$
+
+branch係数と定数項は $x$ に依存しないため微分されない。これで出力の二階微分をPDEへ代入する理由が分かる。一般のNeural Operatorでも、出力関数が $x$ について二階連続微分可能なら同じ残差を評価できる。
 
 ここで、正解を観測した $(a_i,y_i,d_i)$、方程式だけを評価する $(\beta_j,z_j)$、端点を評価する $(\gamma_k,e_k)$ を区別する。$d_i$ は観測値、$e_k\in\{0,1\}$ は端点、$\beta_j$ は**解ラベルを持たない入力でもよい**。各集合が空でないとし、個数をそれぞれ $N_D,N_R,N_B$ と書く。$\mathcal D_\theta(a,\cdot)\in C^2([0,1])$ として、$x$ に関する二階微分から残差を作る。
 
@@ -52,7 +84,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-20-operator-loss -->
-**定義の確認**。 一成分のbranch/trunk $\mathcal D_*(a,x)=B(a)T(x)$ で $B(a)=a$、$T(x)=\phi(x)$ を取る。$B$ は連続、$T$ は二階連続微分可能で、入力・出力の次元も一致する。$\partial_{xx}\mathcal D_*=a\phi''=-a$ だから $R_*(a,x)=0$ が全点で成立し、両端で $\mathcal D_*=0$。正確な観測 $d_i=u_{a_i}(y_i)$ を使えば $L_D=L_R=L_B=0$ となる。解が既知の模型では、物理項とデータ項を同時に満たせることを直接確かめられる。
+**定義の確認**。 センサを一つ $s_1=0$ とし、$S_1f_a=f_a(0)=a$ とする。一成分のbranchを $B(v)=v$、trunkを $T(x)=\phi(x)$、定数項を $c=0$ とすれば、$\mathcal D_*(a,x)=B(S_1f_a)T(x)=a\phi(x)$ となる。$B:\mathbb R\to\mathbb R$ は連続、$T\in C^2([0,1])$ であり、入力センサ値と出力関数の次元も合う。$a$ を固定して微分すると
+
+$$
+\partial_{xx}\mathcal D_*(a,x)=a\phi''(x)=-a,
+\qquad R_*(a,x)=-(-a)-a=0.
+$$
+
+両端では $\mathcal D_*(a,0)=\mathcal D_*(a,1)=0$。さらに正確な教師値 $d_i=u_{a_i}(y_i)$ を使えば、各教師点で $\mathcal D_*(a_i,y_i)-d_i=0$。三種類の損失の**各項**が零なので、$L_D=L_R=L_B=0$ を定義式から確認できる。
 <!-- definition-example-end -->
 
 データを持つ入力だけで $L_R$ を計算する必要はない。例えば解ラベルが $a=0,1$ にしかない場合にも、$a=1/2$ でPDEを課せる。これが**関数から関数への学習へ物理制約を持ち込む**利点である。一方、連続空間で成立する方程式を有限個の評価に置き換えたため、$L_R=0$ と全入力での $R_\theta=0$ は区別しなければならない。
@@ -76,7 +115,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-20-holdout -->
-**定義の確認**。 教師あり入力を $\{0,1\}$、ラベルなしの物理入力を $\{1/2\}$ とすれば $A_{\rm train}=\{0,1/2,1\}$ となる。$A_{\rm test}=\{1/4,3/4\}$ を選ぶと両集合は交わらず、$E_{\rm test}$ は正解解関数との比較で定義できる。$1/2$ は教師ラベルなしだが**完全未見ではない**。
+**定義の確認**。 教師あり入力を $\{0,1\}$、ラベルなしの物理入力を $\{1/2\}$ とすれば $A_{\rm train}=\{0,1/2,1\}$ となる。$A_{\rm test}=\{1/4,3/4\}$ は非空で、学習入力集合と交わらない。例えば評価用候補を零関数 $\mathcal D(a,x)=0$ とし、真値 $u_a=a\phi$ を独立に用意すると
+
+$$
+E_{\rm test}
+=\max\left\{\frac{1/4}{8},\frac{3/4}{8}\right\}
+=\frac{3}{32}.
+$$
+
+これは各入力の**関数全体**の誤差を取ってから入力について最大化した結果である。$1/2$ は教師ラベルなしだが物理損失に使っているので、**完全未見ではない**。
 <!-- definition-example-end -->
 
 ここでは学習入力の分割を先に固定し、出力評価の $x$ 格子は別に固定する。[訓練入力と一様誤差の区別](../PML2-14/index.md#def-pml2-14-errors)や[有限出力点での見落とし](../PML2-19/index.md#prop-pml2-19-training-gap)に注意する。
@@ -241,12 +288,16 @@ $$
 =-\partial_{xx}\mathcal D(a,x)-a=R(a,x).
 $$
 
-端点の補正 $\ell_a(x)=(1-x)e_a(0)+xe_a(1)$ を作る。$\ell_a''=0$ で $|\ell_a(x)|\le(1-x)b+xb=b$。$v_a=e_a-\ell_a$ は $v_a(0)=v_a(1)=0$ かつ $-v_a''=R(a,\cdot)$ である。ここで入力を固定した零Dirichlet Poisson解だから、[既習の積分核と安定性](../PML2-14/index.md#thm-pml2-14-green)を $f=R(a,\cdot)$ に適用できる。積分核は非負で、その積分は $\phi(x)=x(1-x)/2$ だから
+端点の補正 $\ell_a(x)=(1-x)e_a(0)+xe_a(1)$ を作る。$\ell_a''=0$ で $|\ell_a(x)|\le(1-x)b+xb=b$。$v_a=e_a-\ell_a$ は $v_a(0)=v_a(1)=0$ かつ $-v_a''=R(a,\cdot)$ である。
+
+入力 $a$ を固定すると、$R(a,\cdot)$ はLipschitz条件から連続であり、$v_a$ は二階連続微分可能で両端が零である。よって[Poisson解作用素の積分表示と一様安定性](../PML2-14/index.md#thm-pml2-14-green)を、荷重 $f=R(a,\cdot)$ に適用できる。
+
+参照先の積分核は $K(x,t)$ であり、$K\ge0$、$\int_0^1K(x,t)\,dt=\phi(x)$ だから
 
 $$
 |v_a(x)|
-=\left|\int_0^1G(x,t)R(a,t)\,dt\right|
-\le H\int_0^1G(x,t)\,dt
+=\left|\int_0^1K(x,t)R(a,t)\,dt\right|
+\le H\int_0^1K(x,t)\,dt
 =H\frac{x(1-x)}2\le\frac H8.
 $$
 
@@ -257,7 +308,8 @@ $$
 
 $$
 |R(\beta_i,z_j)|^2
-\le\sum_{k=1}^{N_R}|R_k|^2=N_RL_R.
+\le\sum_{r=1}^{m}\sum_{s=1}^{q}|R(\beta_r,z_s)|^2
+=mqL_R=N_RL_R.
 $$
 
 したがって $\eta\le\sqrt{N_RL_R}$ を代入できる。ただし空間の一部しか点を取っていないときの $\delta_x$、モデルの $L_a,L_x$、全入力での端点誤差上界 $b$ を勝手に零とみなしてはならない。有限空間点を連続残差に延ばす条件は[既習の充填距離評価](../PML2-12/index.md#thm-pml2-12-lipschitz)と同型であり、今回は入力方向も含めて証明した。
@@ -277,7 +329,7 @@ $P=X=\{0,1/2,1\}$ なら $\delta_a=\delta_x=1/4$、選点上の最大残差は $
 
 <!-- formal-statement-start -->
 > **命題（任意の有限空間collocation点で残差零の非零解誤差）**  
-> 相異なる有限個の内部点 $z_1,\ldots,z_n\in(0,1)$ を固定し、$a\in[0,1]$ のPoisson族 $-u_a''=a$、零Dirichlet境界を考える。このとき全ての $a$ と全ての指定点で残差零、両端の境界誤差も零であるのに、真の解と一致しない二階連続微分可能な作用素候補が存在する。
+> $n\ge1$ とし、相異なる内部点 $z_1,\ldots,z_n\in(0,1)$ を固定し、$a\in[0,1]$ のPoisson族 $-u_a''=a$、零Dirichlet境界を考える。このとき全ての $a$ と全ての指定点で残差零、両端の境界誤差も零であるのに、真の解と一致しない二階連続微分可能な作用素候補が存在する。
 <!-- formal-statement-end -->
 
 **証明の見取り図。** 各collocation点に三重零点を持つ多項式を正解へ足す。二階微分までその点で消えるが、多項式そのものは区間全体では零でない。
@@ -456,7 +508,17 @@ print("m_data =", m_data, "m_physics =", m_physics)
 - 第6節の定理で $P=X=\{0,1/2,1\}$、$\eta=0.02$、$L_a=2$、$L_x=1$、端点誤差上界 $b=0.01$ とする。被覆半径を求め、一様解誤差上界を計算せよ。$b$ を省けない理由も述べよ。
 
 <!-- solution-start -->
-**詳細解答。** 各隣接点間隔が $1/2$ なので、どの点も最近傍まで $1/4$ 以下、各区間の中点で $1/4$ となる。従って $\delta_a=\delta_x=1/4$。残差の全域上界は $H=\eta+L_a\delta_a+L_x\delta_x=0.02+2/4+1/4=0.77$。定理を用いて $b+H/8=0.01+0.77/8=0.10625$。端点補正 $\ell_a$ は残差を変えずに解をずらせるため、端点誤差の上界を外すと $-\partial_{xx}\mathcal D$ が正確でも非零の一次関数を足した候補を排除できない。
+**詳細解答。** 隣接点の間隔は $1/2$ で、最近傍点までの最大距離は各間隔の中点で $1/4$ となる。端点も含めて $\delta_a=\delta_x=1/4$ である。したがって
+
+$$
+\begin{aligned}
+H&=\eta+L_a\delta_a+L_x\delta_x
+=0.02+2\cdot\frac14+1\cdot\frac14=0.77,\\
+b+\frac H8&=0.01+\frac{0.77}{8}=0.10625.
+\end{aligned}
+$$
+
+端点誤差 $b$ を除けないのは、非零の一次関数 $\ell_a(x)$ を候補へ加えても $\ell_a''=0$ で残差が変わらないからである。
 <!-- solution-end -->
 
 <a id="ex-pml2-20-b02"></a>
@@ -466,7 +528,21 @@ print("m_data =", m_data, "m_physics =", m_physics)
 - 物理collocation点を $z=1/2$ の一つに固定する。$q(x)=x(1-x)(x-1/2)^3$ とし、$\widetilde{\mathcal D}_M(a,x)=a\phi(x)+Mq(x)$ と置く。$q''(1/2)=0$、端点誤差零を証明し、$x=1/4$ の真値との差を計算せよ。
 
 <!-- solution-start -->
-**詳細解答。** $q(x)=(x-1/2)^3h(x)$、$h(x)=x(1-x)$ と置く。積の二階微分は $q''=6(x-1/2)h+6(x-1/2)^2h'+(x-1/2)^3h''$ なので、$x=1/2$ では全項零。$q(0)=q(1)=0$ だから端点誤差も零。$x=1/4$ では $x(1-x)=3/16$、$(x-1/2)^3=(-1/4)^3=-1/64$、したがって $q(1/4)=-3/1024$。真値との差は $Mq(1/4)=-3M/1024$ であり、$M\ne0$ なら零ではない。点上の残差零は空間全域の誤差零を意味しない。
+**詳細解答。** $h(x)=x(1-x)$ と置けば $q(x)=(x-1/2)^3h(x)$。積の微分を二回行うと
+
+$$
+q''(x)=6(x-1/2)h(x)+6(x-1/2)^2h'(x)+(x-1/2)^3h''(x).
+$$
+
+各項は $x=1/2$ で零だから $q''(1/2)=0$。また $q(0)=q(1)=0$ で端点条件も守る。$x=1/4$ での値は
+
+$$
+q(1/4)=\frac3{16}\left(-\frac14\right)^3=-\frac3{1024},
+\qquad
+\widetilde{\mathcal D}_M(a,1/4)-u_a(1/4)=-\frac{3M}{1024}.
+$$
+
+$M\ne0$ なら零でない。点上の残差零は空間全域の誤差零を意味しない。
 <!-- solution-end -->
 
 <a id="ex-pml2-20-b03"></a>
@@ -476,7 +552,24 @@ print("m_data =", m_data, "m_physics =", m_physics)
 - $\mathcal D_c(a,x)=(a+c)\phi(x)$、観測 $d=u_{1/2}(1/2)+\varepsilon$ に対し、$J_\lambda(c)=(c/8-\varepsilon)^2+\lambda c^2$、$\lambda\ge0$ を最小化せよ。$\lambda=0$ と $\lambda=1/64$ での $c$ と一様解誤差を比較せよ。
 
 <!-- solution-start -->
-**詳細解答。** $J_\lambda'(c)=2(c/8-\varepsilon)/8+2\lambda c=c/32-\varepsilon/4+2\lambda c$。従って $(1/32+2\lambda)c=\varepsilon/4$、すなわち $c=8\varepsilon/(1+64\lambda)$。二階微分は $1/32+2\lambda>0$ だから唯一の最小点である。$\lambda=0$ なら $c=8\varepsilon$、誤差 $|c|/8=|\varepsilon|$。$\lambda=1/64$ なら $1+64\lambda=2$ より $c=4\varepsilon$、誤差は $|\varepsilon|/2$ となる。この比較は指定の正しいPDE模型の内部だけで成立する。
+**詳細解答。** $c$ について微分すると
+
+$$
+\begin{aligned}
+J_\lambda'(c)&=\frac{2}{8}\left(\frac c8-\varepsilon\right)+2\lambda c
+=\left(\frac1{32}+2\lambda\right)c-\frac\varepsilon4,\\
+J_\lambda''(c)&=\frac1{32}+2\lambda>0.
+\end{aligned}
+$$
+
+よって最小点は一意であり、$J_\lambda'(c)=0$ より
+
+$$
+c=\frac{\varepsilon/4}{1/32+2\lambda}
+=\frac{8\varepsilon}{1+64\lambda}.
+$$
+
+解誤差は $|c|/8$。$\lambda=0$ なら $c=8\varepsilon$、誤差 $|\varepsilon|$。$\lambda=1/64$ なら $c=4\varepsilon$、誤差 $|\varepsilon|/2$。この比較は指定の正しいPDE模型の内部だけで成立する。
 <!-- solution-end -->
 
 <a id="ex-pml2-20-b04"></a>
@@ -486,7 +579,27 @@ print("m_data =", m_data, "m_physics =", m_physics)
 - $R_M(a,x)=Ma(1-a)$ とし、$P=X=\{0,1/2,1\}$ とする。定理の $L_a,L_x,\eta,\delta_a,\delta_x,b$ を具体化し、定理の上界と真の一様解誤差の最大値を比較せよ。$M=4$ の場合も数値を出せ。
 
 <!-- solution-start -->
-**詳細解答。** $R_M(a,x)-R_M(a',x')=M(a-a')(1-a-a')$ で、$a+a'\in[0,2]$ より $|1-a-a'|\le1$。従って $L_a=|M|$ を取れ、$x$ 依存がないので $L_x=0$。格子の最大距離は $\delta_a=\delta_x=1/4$。格子上の残差の絶対値は $a=1/2$ の $|M|/4$ が最大なので $\eta=|M|/4$。端点では $\phi=0$ より $b=0$。定理の上界は $(|M|/4+|M|/4)/8=|M|/16$。一方、真の一様誤差は $|M|a(1-a)/8$ で $a=1/2$ に最大 $|M|/32$ を取る。$M=4$ ならそれぞれ $1/4$ と $1/8$。定理は最大誤差を過小評価せず、二倍の余裕を含む。
+**詳細解答。** 入力方向の残差差を因数分解すると
+
+$$
+R_M(a,x)-R_M(a',x')=M(a-a')(1-a-a').
+$$
+
+$a,a'\in[0,1]$ なら $|1-a-a'|\le1$ であり、残差は $x$ に依存しない。従って $L_a=|M|,\ L_x=0$ と取れる。格子の最近傍距離は $\delta_a=\delta_x=1/4$、格子上の最大残差は $\eta=|M|/4$、境界値は零なので $b=0$。定理に代入すると
+
+$$
+b+\frac{\eta+L_a\delta_a+L_x\delta_x}{8}
+=\frac18\left(\frac{|M|}{4}+\frac{|M|}{4}\right)
+=\frac{|M|}{16}.
+$$
+
+一方、真の誤差の最大値は
+
+$$
+\max_{a\in[0,1]}\frac{|M|a(1-a)}8=\frac{|M|}{32}
+$$
+
+であり、$M=4$ なら上界 $1/4$、真の最大誤差 $1/8$。上界は真の最大誤差の二倍である。
 <!-- solution-end -->
 
 ### Level C：モデル学習・完全未見入力・誤差保証の統合
