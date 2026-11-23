@@ -1,0 +1,51 @@
+chapter: PML2-14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-13
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-14-operator
+    name: Poisson解作用素と入力関数族
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Poisson解作用素と入力関数族）"]
+    requires:
+      - physics-machine-learning.pml2-01-classical
+      - physics-machine-learning.pml2-01-construction
+  - id: physics-machine-learning.pml2-14-green
+    name: Poisson解作用素の積分表示・線形性・一様安定性
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-14-operator
+      - physics-machine-learning.pml2-01-energy-estimate
+  - id: physics-machine-learning.pml2-14-errors
+    name: 作用素近似の個別・訓練・一様誤差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（作用素近似の個別・訓練・一様誤差）"]
+    requires:
+      - physics-machine-learning.pml2-14-operator
+  - id: physics-machine-learning.pml2-14-sensors
+    name: 有限センサ観測とセンサ依存の作用素近似
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限センサ観測とセンサ依存の作用素近似）"]
+    requires:
+      - physics-machine-learning.pml2-14-operator
+  - id: physics-machine-learning.pml2-14-sensor-limit
+    name: 有限センサでの区別不能性と一様誤差下界
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-14-sensors
+      - physics-machine-learning.pml2-14-errors
+      - physics-machine-learning.pml2-14-green
+  - id: physics-machine-learning.pml2-14-cover
+    name: 入力被覆とLipschitz条件による一様誤差評価
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-14-errors
+      - physics-machine-learning.pml2-14-green
