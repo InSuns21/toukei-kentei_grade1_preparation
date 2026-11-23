@@ -1,0 +1,48 @@
+chapter: GBG18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG17
+forward_references: []
+concepts:
+  - id: gauge.u1-clutching-sphere
+    name: 球面上のU(1)クラッチング束
+    kind: definition
+    introduction: formal
+    requires: [gauge.smooth-gluing-theorem, gauge.principal-bundle, gauge.transition-section-change]
+
+  - id: gauge.u1-clutching-principal
+    name: 貼り合わせで得られる球面主束
+    kind: proposition
+    introduction: formal
+    requires: [gauge.u1-clutching-sphere, gauge.smooth-gluing-theorem]
+
+  - id: gauge.circle-map-winding
+    name: 円周写像の巻き数
+    kind: definition
+    introduction: formal
+    requires: [topology.topological-space]
+
+  - id: gauge.winding-homotopy-invariance
+    name: 巻き数の選択独立性と変形不変性
+    kind: lemma
+    introduction: formal
+    requires: [gauge.circle-map-winding]
+
+  - id: gauge.u1-winding-obstruction
+    name: 巻き数による球面主束の非自明性
+    kind: theorem
+    introduction: formal
+    requires: [gauge.u1-clutching-principal, gauge.winding-homotopy-invariance, gauge.global-section-triviality]
+
+  - id: gauge.u1-clutching-inequivalence
+    name: 巻き数が異なる球面主束の非同型性
+    kind: theorem
+    introduction: formal
+    requires: [gauge.u1-winding-obstruction, gauge.principal-bundle-isomorphism, gauge.transition-section-change]
+
+  - id: gauge.hopf-winding-transition
+    name: Hopf束の遷移関数の巻き数
+    kind: proposition
+    introduction: formal
+    requires: [gauge.hopf-principal-bundle, gauge.circle-map-winding, gauge.u1-winding-obstruction]

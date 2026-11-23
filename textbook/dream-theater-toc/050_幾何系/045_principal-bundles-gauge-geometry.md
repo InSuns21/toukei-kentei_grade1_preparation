@@ -18,3 +18,4 @@
 15. [GBG15 閉路の平行移動から何が分かるか](textbook/volumes/dream_thater/幾何系/GBG/GBG15/index.md)
 16. [GBG16 曲率ゼロでも大域的な効果は残るか](textbook/volumes/dream_thater/幾何系/GBG/GBG16/index.md)
 17. [GBG17 Wilson loopは何に関して不変か](textbook/volumes/dream_thater/幾何系/GBG/GBG17/index.md)
+18. [GBG18 U(1)の非自明束はどう見えるか](textbook/volumes/dream_thater/幾何系/GBG/GBG18/index.md)

@@ -1,0 +1,44 @@
+id: "GBG18"
+title: "U(1)の非自明束はどう見えるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG17
+official_scope: []
+learning_objectives:
+  - S²の南北被覆と右主U(1)束のclutching関数を構成し貼り合わせの群座標と右作用を検証できる
+  - 円周写像の位相持ち上げから巻き数を定義し選択独立性・ホモトピー不変性・円板への延長障害を証明できる
+  - 非零巻き数のU(1)主束に大域sectionが存在しないことを証明し積主束との差を判定できる
+  - 貼り合わせ束P_nとP_mが基底を固定した主束同型となる必要十分条件を示せる
+  - Hopf写像の南北局所sectionを検算し既習の右作用の規約で遷移関数の巻き数が+1となることを導ける
+  - 結合線束の局所成分と枠の遷移関数の逆向きの符号を区別できる
+  - 接続を持たない束の非自明性と自明束上の平坦接続のホロノミーを区別できる
+definitions:
+  - { id: GBG18-DEF-01, name: 球面上のU(1)クラッチング束 }
+  - { id: GBG18-DEF-02, name: 円周写像の巻き数 }
+theorems:
+  - { id: GBG18-PROP-01, name: 貼り合わせで得られる球面主束 }
+  - { id: GBG18-LEM-01, name: 巻き数の選択独立性と変形不変性 }
+  - { id: GBG18-THM-01, name: 巻き数による球面主束の非自明性 }
+  - { id: GBG18-THM-02, name: 巻き数が異なる球面主束の非同型性 }
+  - { id: GBG18-PROP-02, name: Hopf束の遷移関数の巻き数 }
+canonical_examples:
+  - P_0の積主束とP_1の赤道での群座標の具体計算
+  - 周回速度が揺らぐ位相関数と巻き数の直接計算
+  - GBG2のHopf写像から局所sectionを構成して位相e^(iθ)を抽出
+  - 零巻き数を持つ円周写像の円板への滑らかな延長
+  - 結合線束の枠と局所成分に現れる符号の違い
+problem_patterns:
+  - GBG18-CLUTCHING-GROUP-ACTION
+  - GBG18-WINDING-PHASE-LIFT
+  - GBG18-HOPF-LOCAL-SECTIONS
+  - GBG18-SECTION-CHANGE
+  - GBG18-DISK-EXTENSION
+  - GBG18-INEQUIVALENT-BUNDLES
+  - GBG18-ASSOCIATED-LINE-BUNDLE
+  - GBG18-TRANSITION-PRODUCT
+  - GBG18-HOPF-OBSTRUCTION-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 4 }
