@@ -1,0 +1,42 @@
+id: "GBG15"
+title: "閉路の平行移動から何が分かるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG14
+official_scope: []
+learning_objectives:
+  - 閉路の輸送がファイバー上で一意の群元を定めることを説明しホロノミー群を定義できる
+  - 平行移動の右同変性・合成・逆路からホロノミーが部分群になることを積順序を含めて証明できる
+  - 主束ファイバーの基準点変更と基底の基点変更によるホロノミーの共役・一致をそれぞれ証明できる
+  - 局所section変更による閉路輸送行列の共役と固定した主束の点における群元の不変性を計算できる
+  - 行列主束で微小矩形の四辺を二次まで展開し局所曲率との負符号付きの対応を証明できる
+  - U(1)と非可換GL(2,R)の例から微小ループ輸送を厳密に計算し曲率ゼロの一点と大域平坦性を区別できる
+  - 局所矩形の計算と一般Ambrose–Singer定理の証明責務を混同せず適用範囲を説明できる
+definitions:
+  - { id: GBG15-DEF-01, name: 主束接続のホロノミー群 }
+theorems:
+  - { id: GBG15-THM-01, name: ホロノミーは部分群をなす }
+  - { id: GBG15-THM-02, name: ファイバーの基準点と基点の変更 }
+  - { id: GBG15-PROP-01, name: 局所輸送行列とホロノミーの共役 }
+  - { id: GBG15-THM-03, name: 微小矩形の輸送と曲率 }
+canonical_examples:
+  - U(1)積主束の閉路輸送と定義の確認
+  - ファイバーの基準点変更と局所section変更による共役の違い
+  - U(1)の定数曲率と微小矩形の厳密輸送
+  - GL(2,R)の非可換定数接続と矩形輸送の二次係数
+  - 一点で曲率が零でも三次のループ輸送が残る例
+problem_patterns:
+  - GBG15-CONSTANT-AND-RETRACED-LOOP
+  - GBG15-PATH-MULTIPLICATION-ORDER
+  - GBG15-FIBER-CONJUGACY
+  - GBG15-ABELIAN-SMALL-LOOP
+  - GBG15-BASEPOINT-PATH-TRANSFER
+  - GBG15-SECTION-VERSUS-POINT
+  - GBG15-NONABELIAN-EXACT-LOOP
+  - GBG15-CURVATURE-POINT-VERSUS-NEIGHBORHOOD
+  - GBG15-MATRIX-GAUGE-CURVATURE-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 9, review: 4 }
