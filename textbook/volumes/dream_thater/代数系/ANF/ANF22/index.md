@@ -228,7 +228,25 @@ $$
 さらに $\pi=\zeta_{p^r}-1$ は $p$ 進局所体でEisenstein元です。[Eisenstein拡大の整数環・付値](../ANF10/index.md#thm-anf10-eisenstein-extension)により $p$ 上の局所拡大は次数 $D$、分岐指数 $D$、剰余次数 $1$ です。局所次数が大域次数と一致するので $p$ の上の素点は一つで、完全分岐です。
 <!-- proof-end -->
 
-この証明から $r$ を一つ増やすと次数は $p$ 倍です。$p$ 以外の素数は円分体で非分岐であることも、円分体の判別式または円分拡大の局所構成から知られています。この既習の非分岐性と $p$ の完全分岐性を次の塔で利用します。
+この証明から $r$ を一つ増やすと次数は $p$ 倍です。
+
+$p$ 以外の素数 $\ell$ が非分岐である理由も確認します。$\ell\ne p$ なら $p^r$ は $\mathbb F_\ell$ で非零なので、
+
+$$
+\gcd(T^{p^r}-1,\ p^rT^{p^r-1})=1
+\quad\text{in }\mathbb F_\ell[T].
+$$
+
+従って $T^{p^r}-1$ の因子である $\Phi_{p^r}(T)$ も法 $\ell$ で重根を持たず、その多項式判別式は $\ell$ で割り切れません。$E=\mathbb Q(\zeta_{p^r})$ と置くと、先ほどの次数 $D$ と[判別式と指数の平方則](../ANF2/index.md#thm-anf2-discriminant-index)から
+
+$$
+\operatorname{disc}(1,\zeta_{p^r},\ldots,\zeta_{p^r}^{D-1})
+=[\mathcal O_E:\mathbb Z[\zeta_{p^r}]]^2D_E
+$$
+
+です。左辺が $\ell$ で割れないので、$\ell$ は整数環の指数も割りません。従って $\ell$ で局所化すれば、整数環と部分環 $\mathbb Z[\zeta_{p^r}]$ は一致します。[単項生成の場合の素イデアル分解](../ANF4/index.md#thm-anf4-monogenic-factorization)の証明をこの局所環に適用すると、多項式に重根がないので各分岐指数は $e=1$ です。
+
+これで $p$ の完全分岐性と、他の素数の非分岐性の両方を次の塔に利用できます。
 
 ## 5. $p$ 冪円分体から $\mathbb Z_p$ 塔を取り出す
 
@@ -239,6 +257,25 @@ $$
 $$
 
 でした。有限次数が $1,p,p^2,\ldots$ となるGalois拡大を、制限写像でつないでこの群を実現します。$p$ が奇数の場合、円分体には余分な位数 $p-1$ の部分群があるので、まずそこを固定します。
+
+無限Galois拡大では、有限Galois中間体 $L/K$ ごとの制限写像から位相を定めます。群の単位元にどんな近傍を取るかを決めれば、有限段で一致する自己同型どうしが、無限段でもどれだけ近いかを説明できます。
+
+<a id="def-anf22-krull-topology"></a>
+
+<!-- formal-statement-start -->
+> **定義（Krull位相）**  
+> $E/K$ をGalois拡大（無限拡大でもよい）、$G=\operatorname{Gal}(E/K)$ とする。
+>
+> $K\subseteq L\subseteq E$ を満たす有限Galois中間拡大 $L/K$ を動かす。
+>
+> 各部分群 $\operatorname{Gal}(E/L)$ を単位元の開近傍の基本系とする位相を、$G$ の **Krull位相** と呼ぶ。
+<!-- formal-statement-end -->
+
+この位相は有限段への制限写像から得られる逆極限位相と一致します。自己同型の列が単位元に近づくとは、どの有限Galois中間体 $L$ についても、十分先では $L$ の全元を固定することです。
+
+<!-- definition-example-start: def-anf22-krull-topology -->
+**定義の確認**。まず $E/K$ が有限Galois拡大なら $L=E$ を選べるため、$\operatorname{Gal}(E/L)=\{1\}$ が開近傍です。従ってこの場合のKrull位相は離散位相です。無限の場合も、各有限Galois中間体 $L$ への制限の核が $\operatorname{Gal}(E/L)$ なので、有限商を通して近傍を判定できます。
+<!-- definition-example-end -->
 
 <a id="def-anf22-zp-extension"></a>
 
@@ -254,6 +291,22 @@ $$
 <!-- formal-statement-end -->
 
 位相を付けない抽象群の同型ではなく、有限商の制限写像と両立することが重要です。
+
+$\mathbb Z_p$ の指数 $p^n$ の閉部分群が $p^n\mathbb Z_p$ だけであることも確かめます。法 $p^n$ への還元の核と商は
+
+$$
+\ker(\mathbb Z_p\to\mathbb Z/p^n\mathbb Z)=p^n\mathbb Z_p,
+\qquad |\mathbb Z_p/p^n\mathbb Z_p|=p^n
+$$
+
+です。逆に指数 $p^n$ の閉部分群 $H$ に対しては、位数 $p^n$ の商群 $\mathbb Z_p/H$ の全ての元が $p^n$ 倍で消えます。従って
+
+$$
+p^n\mathbb Z_p\subseteq H,\qquad
+[\mathbb Z_p:H]=[\mathbb Z_p:p^n\mathbb Z_p]=p^n.
+$$
+
+二つの部分群は等しく、$H=p^n\mathbb Z_p$ に限ります。Galois対応でこの閉部分群の固定体を取ると、定義に付随する一意の中間体 $K_n$ とその次数 $p^n$ が得られます。
 
 **奇数 $p$ の構成。** $E_n=\mathbb Q(\zeta_{p^{n+1}})$ とします。群
 
@@ -328,7 +381,7 @@ $$
 
 という還元写像です。無限Galois群は有限商の逆極限なので、[逆極限による $\mathbb Z_p$ の構成](../ANF9/index.md#thm-anf9-inverse-limit-isomorphism)から所望の位相群同型を得ます。
 
-$\Delta_n$ は位数 $p-1$ の元 $-1$ を含み、複素共役を消すので $F_n$ は全実です。[素数冪円分体の完全分岐](#prop-anf22-prime-power-degree)では $p$ の上の分解群が $G_n$ 全体です。固定体へ制限しても分解群は $G_n/\Delta_n$ 全体だから、$F_n$ でも $p$ は一つの素点のまま、$e=p^n$、$f=1$ です。
+$p$ は奇数なので、位数 $p-1$ の群 $\Delta_n$ は位数 $2$ の元 $-1$ を含みます。この $-1$ は複素共役に対応し、$\Delta_n$ の固定体では自明に作用するので $F_n$ は全実です。[素数冪円分体の完全分岐](#prop-anf22-prime-power-degree)では $p$ の上の分解群が $G_n$ 全体です。固定体へ制限しても分解群は $G_n/\Delta_n$ 全体だから、$F_n$ でも $p$ は一つの素点のまま、$e=p^n$、$f=1$ です。
 <!-- proof-end -->
 
 <!-- definition-example-start: def-anf22-zp-extension -->
@@ -379,7 +432,7 @@ $$
 円分体の包含で $5$ の剰余類は次の段階でも $5$ に写るので、有限群の制限写像は $\mathbb Z/2^{n+1}\mathbb Z\to\mathbb Z/2^n\mathbb Z$ の還元です。よって合併のGalois群はその逆極限 $\mathbb Z_2$ に一致します。
 <!-- proof-end -->
 
-$f=1$ の **Hilbert類体**と違い、円分的 $\mathbb Z_p$ 塔の有限段 $F_n/\mathbb Q$（$n\ge1$）は $p$ で完全分岐します。したがって $\mathbb Q$ のHilbert類体ではありません。$\mathbb Q$ 自身の類数は $1$ でHilbert類体は $\mathbb Q$ のままです。
+全ての有限素点で **$e=1$（非分岐）** となるHilbert類体と違い、円分的 $\mathbb Z_p$ 塔の有限段 $F_n/\mathbb Q$（$n\ge1$）は $p$ で完全分岐します。したがって $\mathbb Q$ のHilbert類体ではありません。$\mathbb Q$ 自身の類数は $1$ でHilbert類体は $\mathbb Q$ のままです。
 
 この違いが後続の岩澤理論で重要になります。有限塔の各段の類群を並べ、同じ素数 $p$ に関する類群の $p$ 部分が階層とともにどう成長するかを研究するために、まずGalois群を $\mathbb Z_p$ として固定したのです。
 

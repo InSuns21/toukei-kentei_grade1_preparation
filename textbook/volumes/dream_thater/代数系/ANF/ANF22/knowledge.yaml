@@ -37,11 +37,17 @@ concepts:
     introduction: formal
     requires: [number-theory.local-cyclotomic-degree]
 
+  - id: number-theory.krull-topology
+    name: Krull位相
+    kind: definition
+    introduction: formal
+    requires: []
+
   - id: number-theory.zp-extension
     name: Z_p拡大
     kind: definition
     introduction: formal
-    requires: [number-theory.p-adic-integers]
+    requires: [number-theory.p-adic-integers, number-theory.krull-topology]
 
   - id: number-theory.cyclotomic-zp-tower
     name: 奇素数の円分的Z_p塔
