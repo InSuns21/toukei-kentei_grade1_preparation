@@ -135,7 +135,7 @@ chapters:
     title: "ensemble平均とfactorization問題"
   - id: BHI32
     path: textbook/volumes/dream_thater/物理系/BHI/BHI32
-    status: planned
+    status: completed
     title: "放射のentanglement wedge"
   - id: BHI33
     path: textbook/volumes/dream_thater/物理系/BHI/BHI33
