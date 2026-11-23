@@ -80,7 +80,7 @@ chapters:
     title: "U(1)の非自明束はどう見えるか"
   - id: GBG19
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG19
-    status: planned
+    status: completed
     title: "Dirac monopoleの電荷はなぜ量子化されるか"
   - id: GBG20
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG20
