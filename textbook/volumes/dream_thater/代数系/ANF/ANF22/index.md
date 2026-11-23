@@ -258,7 +258,7 @@ $$
 
 でした。有限次数が $1,p,p^2,\ldots$ となるGalois拡大を、制限写像でつないでこの群を実現します。$p$ が奇数の場合、円分体には余分な位数 $p-1$ の部分群があるので、まずそこを固定します。
 
-無限Galois拡大のGalois群には **Krull位相** を入れます。これは、有限Galois中間体 $L/K$ を固定する部分群 $\operatorname{Gal}(K_\infty/L)$ を単位元の開近傍の基本系とする位相です。有限段への制限写像を全て集めた逆極限の位相と一致し、有限段の情報で無限群の元を区別できます。
+**Krull位相とは**、無限Galois拡大 $K_\infty/K$ のGalois群上で、有限Galois中間体 $L/K$ を固定する部分群 $\operatorname{Gal}(K_\infty/L)$ を単位元の開近傍の基本系とする位相です。有限段への制限写像を全て集めた逆極限の位相と一致し、有限段の情報で無限群の元を区別できます。
 
 <a id="def-anf22-zp-extension"></a>
 
@@ -273,7 +273,23 @@ $$
 > このとき、各 $n\ge0$ に対して、$K_\infty$ 内には $[K_n:K]=p^n$ となる一意の中間体 $K_n$ が存在する。
 <!-- formal-statement-end -->
 
-位相を付けない抽象群の同型ではなく、有限商の制限写像と両立することが重要です。また、$\mathbb Z_p$ の指数 $p^n$ の閉部分群は $p^n\mathbb Z_p$ だけです。実際、法 $p^n$ への還元の核が $p^n\mathbb Z_p$ であり、位数 $p^n$ の商は $\mathbb Z/p^n\mathbb Z$ です。逆に指数 $p^n$ の閉部分群 $H$ に対しては、位数 $p^n$ の商群 $\mathbb Z_p/H$ の全ての元が $p^n$ 倍で消えるため $p^n\mathbb Z_p\subseteq H$ です。双方の指数は $p^n$ なので $H=p^n\mathbb Z_p$ に限ります。Galois対応でこの閉部分群の固定体を取ると、定義に付随する一意の中間体 $K_n$ とその次数 $p^n$ が得られます。
+位相を付けない抽象群の同型ではなく、有限商の制限写像と両立することが重要です。
+
+$\mathbb Z_p$ の指数 $p^n$ の閉部分群が $p^n\mathbb Z_p$ だけであることも確かめます。法 $p^n$ への還元の核と商は
+
+$$
+\ker(\mathbb Z_p\to\mathbb Z/p^n\mathbb Z)=p^n\mathbb Z_p,
+\qquad |\mathbb Z_p/p^n\mathbb Z_p|=p^n
+$$
+
+です。逆に指数 $p^n$ の閉部分群 $H$ に対しては、位数 $p^n$ の商群 $\mathbb Z_p/H$ の全ての元が $p^n$ 倍で消えます。従って
+
+$$
+p^n\mathbb Z_p\subseteq H,\qquad
+[\mathbb Z_p:H]=[\mathbb Z_p:p^n\mathbb Z_p]=p^n.
+$$
+
+二つの部分群は等しく、$H=p^n\mathbb Z_p$ に限ります。Galois対応でこの閉部分群の固定体を取ると、定義に付随する一意の中間体 $K_n$ とその次数 $p^n$ が得られます。
 
 **奇数 $p$ の構成。** $E_n=\mathbb Q(\zeta_{p^{n+1}})$ とします。群
 
