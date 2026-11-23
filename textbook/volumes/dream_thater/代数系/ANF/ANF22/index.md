@@ -232,17 +232,17 @@ $$
 
 $p$ 以外の素数 $\ell$ が非分岐である理由も確認します。$\ell\ne p$ なら $p^r$ は $\mathbb F_\ell$ で非零なので、
 
-$
+$$
 \gcd(T^{p^r}-1,\ p^rT^{p^r-1})=1
 \quad\text{in }\mathbb F_\ell[T].
-$
+$$
 
 従って $T^{p^r}-1$ の因子である $\Phi_{p^r}(T)$ も法 $\ell$ で重根を持たず、その多項式判別式は $\ell$ で割り切れません。$E=\mathbb Q(\zeta_{p^r})$ と置くと、先ほどの次数 $D$ と[判別式と指数の平方則](../ANF2/index.md#thm-anf2-discriminant-index)から
 
-$
+$$
 \operatorname{disc}(1,\zeta_{p^r},\ldots,\zeta_{p^r}^{D-1})
 =[\mathcal O_E:\mathbb Z[\zeta_{p^r}]]^2D_E
-$
+$$
 
 です。左辺が $\ell$ で割れないので、$\ell$ は整数環の指数も割りません。従って $\ell$ で局所化すれば、整数環と部分環 $\mathbb Z[\zeta_{p^r}]$ は一致します。[単項生成の場合の素イデアル分解](../ANF4/index.md#thm-anf4-monogenic-factorization)の証明をこの局所環に適用すると、多項式に重根がないので各分岐指数は $e=1$ です。
 
