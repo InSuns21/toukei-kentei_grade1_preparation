@@ -172,6 +172,32 @@ export const LAB_PARAMETERS = Object.freeze({
     sourceFile: 'js', index: 1,
     matcher: /^([ \t]*const roughness[ \t]*=[ \t]*\[)([^\]\n]+)(\][ \t]*;)/gm
   })]),
+  FCG8: Object.freeze([
+    Object.freeze({
+      id: 'grid', type: 'integer', label: '実Level Set格子 N×N', default: 48,
+      min: 48, max: 96, step: 16, unit: 'セル/辺',
+      meaning: '48/64/80/96セルで同じ半Lagrange移流・Godunov再初期化・R8 GPUテクスチャを再計算。描画ピクセルとは独立',
+      sourceLocation: 'levelset.js / const N → h、field0、advect、redistance、texImage2D。levelset.frag は textureSize を参照',
+      sourceFile: 'js', index: null,
+      matcher: /^([ 	]*const N=)([^,\n]+)(,h=1\/N,dt=0\.04,steps=settings\.steps,shear=[^;\n]+;)/gm
+    }),
+    Object.freeze({
+      id: 'shear', type: 'number', label: '水平せん断率', default: 0.6,
+      min: 0, max: 1, step: 0.1, unit: 's⁻¹',
+      meaning: '流速 u_x=shear·(y−0.5) m/s。厳密輪郭・粒子と実Level Set移流の両方が同じ値で変化',
+      sourceLocation: 'levelset.js / const shear → advect、particles、u_shear',
+      sourceFile: 'js', index: null,
+      matcher: /^([ 	]*const N=[^,\n]+,h=1\/N,dt=0\.04,steps=settings\.steps,shear=)([^,\n]+)(,radius=0\.18;)/gm
+    }),
+    Object.freeze({
+      id: 'redistance', type: 'integer', label: '再初期化の擬似時間反復数', default: 6,
+      min: 0, max: 8, step: 2, unit: '反復/物理step',
+      meaning: '0なら再初期化なし。2/4/6/8反復で界面付近の距離勾配と離散面積を比較。物理時間刻みと混同しない',
+      sourceLocation: 'levelset.js / const redistanceIterations → redistance()',
+      sourceFile: 'js', index: null,
+      matcher: /^([ 	]*const redistanceIterations=)([^,\n]+)(,redistanceCFL=0\.30,particlesCount=64;)/gm
+    })
+  ]),
   FCG3: Object.freeze([Object.freeze({
     id: 'radius', type: 'number', label: '初期染料の半径', default: 0.14,
     min: 0.08, max: 0.3, step: 0.01, unit: '領域幅を1とする無次元座標',
@@ -303,6 +329,29 @@ export function verifiedFCG3Physics(js,vertex,fragment,defaults) {
   }catch{return null;}
   return {radius:readings[0].value,N:readings[1].value};
 }
+
+// A modified FCG8 shader or arbitrary learner JS cannot inherit the initial CPU oracle.
+const FCG8_VERIFIED_PARAMETER_IDS=Object.freeze(['grid','shear','redistance']);
+export function verifiedFCG8Physics(js,vertex,fragment,defaults) {
+  if(typeof js!=='string'||vertex!==defaults?.vertex||fragment!==defaults?.fragment)
+    return null;
+  const specs=parametersFor('FCG8');
+  if(specs.length!==FCG8_VERIFIED_PARAMETER_IDS.length||
+     specs.some((spec,i)=>spec.id!==FCG8_VERIFIED_PARAMETER_IDS[i]))return null;
+  const readings=specs.map(spec=>readLabParameter(js,spec));
+  if(!readings.every(state=>state.ok))return null;
+  try{
+    let normalized=js,baseline=defaults.js;
+    for(const spec of specs){
+      normalized=writeLabParameter(normalized,spec,spec.default);
+      baseline=writeLabParameter(baseline,spec,spec.default);
+    }
+    if(normalized!==baseline)return null;
+  }catch{return null;}
+  return {N:readings[0].value,shear:readings[1].value,
+    redistanceIterations:readings[2].value};
+}
+
 
 // Admit only the three source-linked FCG2 physics literals as verified variants.
 // GLSL edits or structural JS changes remain unverified (not automatically wrong).
