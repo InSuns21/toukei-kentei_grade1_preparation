@@ -25,13 +25,13 @@ concepts:
     requires: [gauge.chern-weil-form, gauge.principal-connections-affine]
 
   - id: gauge.chern-weil-transgression-identity
-    name: Chern–Weilのtransgression恒等式
+    name: Chern–Weil の transgression 恒等式
     kind: theorem
     introduction: formal
     requires: [gauge.chern-weil-transgression-form, gauge.chern-weil-interpolated-curvature-variation, gauge.chern-weil-invariant-exterior-derivative, gauge.invariant-curvature-basic-descent]
 
   - id: gauge.chern-weil-connection-independence
-    name: Chern–Weilのde Rham類の接続非依存性
+    name: Chern–Weil の de Rham 類の接続非依存性
     kind: corollary
     introduction: formal
     requires: [gauge.chern-weil-transgression-identity, gauge.chern-weil-closedness]
@@ -44,7 +44,7 @@ concepts:
     requires: [gauge.chern-weil-transgression-form]
 
   - id: gauge.local-chern-simons-primitive
-    name: 局所Chern–Simons形式の外微分
+    name: 局所 Chern–Simons 形式の外微分
     kind: proposition
     introduction: formal
     requires: [gauge.local-chern-simons-form, gauge.chern-weil-transgression-identity]
