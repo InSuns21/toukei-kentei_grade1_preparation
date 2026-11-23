@@ -268,7 +268,7 @@ $$
 
 $W$ はモニックなdistinguished多項式です。$\mathbb Z_p[T]$ で二つの正次数の多項式に分かれるなら、最高次係数の積が $1$ なので各因子を単元定数で割ってモニックにできます。法 $p$ の積が $T^{\deg W}$ であるため、$\mathbb F_p[T]$ で各因子は $T$ の冪であり、各モニック因子もdistinguishedです。次数を厳密に下げていけば、正次数の既約distinguished因子で止まります。
 
-逆に $P$ が既約distinguished多項式で、$P=ab$ が $R$ 内で非単元同士の積だとします。[指数の加法性](#prop-iwa6-order-additivity)から $\mu(a)=\mu(b)=0$ で、$d(a),d(b)\ge1$。準備定理で $a=U_aW_a$、$b=U_bW_b$ として $P=U_aU_bW_aW_b$ です。[準備表示の一意性](#thm-iwa6-preparation)により $P=W_aW_b$ となり、多項式としての既約性と矛盾します。
+逆に $P$ が既約distinguished多項式で、$P=ab$ が $R$ 内で非単元同士の積だとします。[積で指数を足す公式](#prop-iwa6-order-additivity)から $\mu(a)=\mu(b)=0$ で、$d(a),d(b)\ge1$。準備定理で $a=U_aW_a$、$b=U_bW_b$ として $P=U_aU_bW_aW_b$ です。[準備表示の一意性](#thm-iwa6-preparation)により $P=W_aW_b$ となり、多項式としての既約性と矛盾します。
 
 さらに $P$ が素元であることを示します。$\mathbb Z_p$ は $p$ 冪で付値を測れる離散付値環です。係数を一斉に $p$ で割れない多項式を原始多項式と呼ぶと、原始多項式の積も原始的です（法 $p$ の積が非零）。これがGaussの補題のこの場合の理由です。$\mathbb Q_p[T]$ で因数分解できると仮定すると、各因子の係数を $p$ の冪で調整して原始的な $\mathbb Z_p[T]$ 多項式にでき、その積は $P$ の単元定数倍になります。Gaussの補題（原始性が積で保たれること）により、これは $\mathbb Z_p[T]$ における非自明な因数分解を与えます。従ってモニックで既約な $P\in\mathbb Z_p[T]$ は $\mathbb Q_p[T]$ でも既約です。$\mathbb Q_p[T]/(P)$ は体です。
 
@@ -537,7 +537,7 @@ $p$ を任意の素数とし $P=T^2+pT+p$ とする。$P$ が $R$ で既約で�
 - ID: IWA6-B1
 
 <!-- solution-start -->
-**詳細解答。** $P$ は法 $p$ で $T^2$ なので次数 $2$ のdistinguished多項式です。仮に $P=ab$ と $R$ の非単元で分解できたとします。$\mu(P)=0,d(P)=2$ なので[指数の加法性](#prop-iwa6-order-additivity)から $\mu(a)=\mu(b)=0$、$d(a),d(b)\ge1$ かつ和は $2$。[準備定理](#thm-iwa6-preparation)とその一意性により、$P$ は二つの次数 $1$ のdistinguished多項式の積になります。各定数項は $p$ の倍数であるため、積の定数項は $p^2$ の倍数です。しかし $P(0)=p$ は $p^2$ の倍数ではなく矛盾します。よって $P$ は既約です。
+**詳細解答。** $P$ は法 $p$ で $T^2$ なので次数 $2$ のdistinguished多項式です。仮に $P=ab$ と $R$ の非単元で分解できたとします。$\mu(P)=0,d(P)=2$ なので[積で指数を足す公式](#prop-iwa6-order-additivity)から $\mu(a)=\mu(b)=0$、$d(a),d(b)\ge1$ かつ和は $2$。[準備定理](#thm-iwa6-preparation)とその一意性により、$P$ は二つの次数 $1$ のdistinguished多項式の積になります。各定数項は $p$ の倍数であるため、積の定数項は $p^2$ の倍数です。しかし $P(0)=p$ は $p^2$ の倍数ではなく矛盾します。よって $P$ は既約です。
 <!-- solution-end -->
 
 ### B2. 余核が有限でも特徴イデアルは同じ
