@@ -26,7 +26,7 @@ $$
 <a id="def-iwa11-s-units"></a>
 
 <!-- formal-statement-start -->
-> **定義（$S$ 単数）**  
+> **定義（S単数）**  
 > 数体 $K$、有限素イデアルの有限集合 $S$ について、
 >
 $$
@@ -61,7 +61,7 @@ $$
 <a id="thm-iwa11-s-unit-exact"></a>
 
 <!-- formal-statement-start -->
-> **定理（$S$ 単数・付値・類群の完全列）**  
+> **定理（S単数・付値・類群の完全列）**  
 > 数体 $K$ と有限素イデアル集合 $S$ について、$\mathcal O_{K,S}$ のイデアル類群への自然写像 $j_S$ を用いると、次のアーベル群の列は完全である。
 >
 $$
@@ -264,7 +264,7 @@ $$
 <a id="thm-iwa11-local-global-exact"></a>
 
 <!-- formal-statement-start -->
-> **定理（局所／大域単数と $p$ 分岐Galois群）**  
+> **定理（局所／大域単数とp分岐Galois群）**  
 > 数体 $K$、奇素数 $p$ について、局所主単数群 $\mathcal U_K=\prod_{v\mid p}U_v^1$、大域単数の像の閉包 $\mathcal E_K$、最大 $p$ 外非分岐アーベル pro-$p$ 拡大のGalois群 $\mathfrak X_p(K)$、$p$ 部分類群 $A_K$ を上のように定める。このとき局所Artin写像を合わせることで、次の位相アーベル群の完全列が得られる。
 >
 $$
