@@ -152,6 +152,20 @@ $$
 > と定める。相互相関を捨てた独立モードの和を、この節の出射放射の粗視化エントロピーと呼ぶ。
 <!-- formal-statement-end -->
 
+ここでエントロピー公式を確かめておきます。平均占有数 $n>0$ に対して $q=n/(1+n)\in(0,1)$ と置くと、熱的モードの粒子数分布は $p_k=(1-q)q^k$ ($k=0,1,\ldots$) です。幾何級数から $\sum_{k\ge0}p_k=1$、$\sum_{k\ge0}kp_k=q/(1-q)=n$ です。従って
+
+$
+\begin{aligned}
+-\sum_{k=0}^\infty p_k\log p_k
+&=-\log(1-q)\sum_{k\ge0}p_k
+-\log q\sum_{k\ge0}kp_k\\
+&=-\log(1-q)-n\log q\\
+&=(n+1)\log(n+1)-n\log n=g(n).
+\end{aligned}
+$
+
+$q\to0$ では真空分布 $p_0=1$ へ近づき、$g(0)=0$ と連続につながります。この導出に使ったのは熱的な**一モードの粒子数分布**であり、放射全体の相関が消えるという仮定ではありません。
+
 この定義の「熱的」は**各出射モードの縮約状態**についての仮定です。全時刻・全モードをまとめた放射の密度行列 $\rho_R$ が積状態だとは主張していません。[粗視化と精細エントロピーの区別](../BHI5/index.md#prop-bhi5-entropy-hierarchy)が、ここで決定的になります。
 
 <!-- definition-example-start: def-bhi35-outgoing-entropy -->
