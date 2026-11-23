@@ -22,6 +22,30 @@ $$
 
 ## 1. 何を第二Chern数として積分するか
 
+まず右主 $SU(2)$ 束 $P$ とその基本表現 $\rho:SU(2)\hookrightarrow U(2)$ を取る。[結合ベクトル束の定義](../GBG4/index.md#def-gbg4-associated-bundle)から、階数2の Hermite 複素束を作る。
+
+$$
+E=P\times_\rho\mathbb C^2.
+$$
+
+局所sectionと $\mathbb C^2$ の標準正規直交基底を選ぶ。[結合束の共変微分の局所公式](../GBG9/index.md#thm-gbg9-local-formula)で接続と曲率を行列表示すると
+
+$$
+\nabla=d+A,\qquad F_\nabla=dA+A\wedge A
+$$
+
+となる。ここで $A$ は基本表現の $2\times2$ 行列値1形式であり、その曲率 $F_\nabla$ を以下では $F$ と略記する。
+
+$A$ は $\mathfrak{su}(2)$ 値なので $\operatorname{tr}A=0$。さらに $A=\sum_j A_j\,dx_j$ と局所座標表示すれば
+
+$$
+\begin{aligned}
+\operatorname{tr}(A\wedge A)
+&=\sum_{j<k}\operatorname{tr}([A_j,A_k])\,dx_j\wedge dx_k=0,\\
+\operatorname{tr}F&=d(\operatorname{tr}A)+\operatorname{tr}(A\wedge A)=0.
+\end{aligned}
+$$
+
 [GBG23の全Chern形式](../GBG23/index.md#def-gbg23-total-chern)は $C=iF/(2\pi)$ に対する $\det(I+C)$ から構成された。$SU(2)$ の基本表現では $\operatorname{tr}F=0$ なので、[低次の跡公式](../GBG23/index.md#prop-gbg23-low-chern)に代入すると
 
 $$
@@ -103,7 +127,9 @@ $$
 
 外微分を取ると元の4形式になる3形式を使えば、球面を二つの半球に分けて Stokes を適用できる。[GBG22の局所Chern–Simons形式](../GBG22/index.md#def-gbg22-local-chern-simons)の跡多項式の場合を、ここでは正規化係数を外して扱う。
 
-二次の多項式 $p(X,Y)=\operatorname{tr}(XY)$ を、[GBG22の局所 Chern–Simons 形式](../GBG22/index.md#def-gbg22-local-chern-simons)に入力する。補間 $A_t=tA$、曲率 $F_t=t\,dA+t^2A^2$ を代入すると
+二次の多項式 $p(X,Y)=\operatorname{tr}(XY)$ を、[GBG22の局所 Chern–Simons 形式](../GBG22/index.md#def-gbg22-local-chern-simons)に入力する。補間 $A_t=tA$、曲率 $F_t=t\,dA+t^2A^2$ を用いる。
+
+ここで $t\in[0,1]$ は接続を補間するパラメータで、$d$ は **$t$ を固定した基底方向の外微分**を表す。積分の $dt$ は補間パラメータについての積分である。代入すると
 
 $$
 \begin{aligned}
@@ -170,7 +196,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg26-boundary-form -->
-**定義の確認**。$Q(1,0)=I_2$ の接空間で、$S^3\subset\mathbb R^4$ の正の接ベクトルを $e_2,e_3,e_4$ とする。$Q$ の微分から
+**定義の確認**。[GBG25の同一視](../GBG25/index.md#def-gbg25-su2-s3)で $z=x_1+ix_2$、$w=x_3+ix_4$ と書くと
+
+$$
+Q(x)=\begin{pmatrix}
+x_1+ix_2&-x_3+ix_4\\
+x_3+ix_4&x_1-ix_2
+\end{pmatrix}.
+$$
+
+$Q(1,0)=I_2$ に対応する $x=(1,0,0,0)$ では、$S^3\subset\mathbb R^4$ の正の接ベクトルは $e_j=\partial/\partial x_j$（$j=2,3,4$）である。各行列 $X_j=(dQ)_x(e_j)$ は、この局所座標における $Q$ の成分を $x_j$ で偏微分して得られる。したがって
 
 $$
 X_2=\begin{pmatrix}i&0\\0&-i\end{pmatrix},\quad
@@ -178,7 +213,7 @@ X_3=\begin{pmatrix}0&-1\\1&0\end{pmatrix},\quad
 X_4=\begin{pmatrix}0&i\\i&0\end{pmatrix}
 $$
 
-を得る。$X_2X_3X_4=I_2$、$X_iX_j=-X_jX_i$（$i\ne j$）なので
+を得る。$\Theta=U^{-1}dU$ は $SU(2)$ 上の形式であり、単位元では $\Theta_{I_2}(X_j)=X_j$。従って $Q^*\Theta$ を $e_j$ に評価したものが $X_j$ である。$X_2X_3X_4=I_2$、$X_iX_j=-X_jX_i$（$i\ne j$）なので
 
 $$
 (Q^*\operatorname{tr}(\Theta^3))(e_2,e_3,e_4)
@@ -421,7 +456,14 @@ $$
 =6\,\operatorname{tr}(I_2)=12.
 $$
 
-従って $\int_{S^3}\operatorname{tr}(\Theta^3)=12\operatorname{vol}(S^3)=24\pi^2$ となる。
+従って、$SU(2)$ 上の形式を $Q:S^3\to SU(2)$ で引き戻してから積分すると
+
+$$
+\int_{S^3}Q^*\operatorname{tr}(\Theta^3)
+=12\operatorname{vol}(S^3)=24\pi^2
+$$
+
+となる。引戻しを省いて $SU(2)$ 上の形式をそのまま $S^3$ 上の形式とみなさない。
 <!-- solution-end -->
 
 <a id="ex-gbg26-a04"></a>
@@ -438,7 +480,7 @@ $$
 \int_{D_S}d\beta=\int_{\partial D_S}\beta=-\int_E\beta.
 $$
 
-最後の等式は、$\beta$ を南側から $E$ へ制限したものである。
+最後の等式には[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を用い、$\beta$ は南側から $E$ へ制限して積分した。
 <!-- solution-end -->
 
 ### Level B：境界積分と局所・大域の違い

@@ -20,9 +20,9 @@ const descriptions = Object.freeze({
     requiresSteps: false,
     grid: 'gridSteps=nでn×nに分割する幾何メッシュ（頂点(n+1)²、三角形2n²）。数値計算格子ではない',
     color: '初期fragment shaderは正方形の内側をRGBA=(0.2, 0.6, 0.8, 1)、背景を黒に描画',
-    clock: () => '静止描画1回（物理stepなし）',
-    mode: 'drawModeでdrawElements（頂点共有）とdrawArrays（頂点展開）を切替。三角形の面積と画素の色を比較',
-    source: 'mesh.js（gridSteps, drawMode, indices）/ mesh.vert / mesh.frag'
+    clock: () => '初期の静止画素検査→同じGPU頂点データで左右の比較描画（物理stepなし）',
+    mode: '左drawElements（共有）・右drawArrays（展開）を同時表示。共有点の移動を同期し、右側1複製だけ切り離す',
+    source: 'mesh.js（gridSteps, drawMode, indices, shiftX, shiftY, bufferSubData）/ mesh.vert / mesh.frag'
   }),
   WGL4: Object.freeze({
     requiresSteps: false,

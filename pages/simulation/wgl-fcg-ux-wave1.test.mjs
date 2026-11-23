@@ -73,7 +73,6 @@ test('FCG1 has the same visual-first contract in its separate editable Canvas ho
 test('WGL wave1 auxiliary overlays stay collapsed until requested',async()=>{
   const root=new URL('../../textbook/volumes/dream_thater/計算系/WGL/',import.meta.url);
   for(const [path,container,contents] of [
-    ['WGL3/mesh.js','panel',['selected.setAttribute(\'points\'','toggle.textContent','back.addEventListener','next.addEventListener']],
     ['WGL18/diffusion.js','valuesPanel',['liveReadback()','refreshNumbers()','stepNumber']]
   ]){
     const source=await readFile(new URL(path,root),'utf8');
@@ -82,8 +81,7 @@ test('WGL wave1 auxiliary overlays stay collapsed until requested',async()=>{
     assert.ok(source.includes(container+'.append(toggle,'),path+' summary comes before inspector');
     assert.doesNotMatch(source,new RegExp(container+'\\.open\\s*=\\s*true'),path+' starts closed');
     for(const item of contents)assert.ok(source.includes(item),path+': '+item);
-    const anchor=path.startsWith('WGL3/')?'svg':'canvas';
-    assert.ok(source.includes(anchor+".insertAdjacentElement('afterend',"+container+")"),
+    assert.ok(source.includes("canvas.insertAdjacentElement('afterend',"+container+")"),
       path+' must be attached to the real GPU mesh/canvas');
   }
 });
@@ -98,6 +96,19 @@ test('WGL17 keeps the actual data grid and precision comparison visible', async(
   assert.match(source,/bars\.replaceChildren\(\)/);
   assert.match(source,/gl\.readPixels\(p,q,1,1/);
   assert.doesNotMatch(source,/document\.createElement\('details'\)/);
+});
+
+test('WGL3 first-wave visual is now a live shared-vs-expanded GPU experiment',async()=>{
+  const root=new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL3/',import.meta.url);
+  const source=await readFile(new URL('mesh.js',root),'utf8');
+  assert.match(source,/gl\.viewport\(0, 0, leftWidth, canvas\.height\)/);
+  assert.match(source,/gl\.viewport\(leftWidth, 0, canvas\.width - leftWidth, canvas\.height\)/);
+  assert.match(source,/const splitControl = document\.createElement\('input'\)/);
+  assert.match(source,/drawGuide\(\)/);
+  assert.match(source,/gl\.bufferSubData\(gl\.ARRAY_BUFFER, 0, arraysLive\)/);
+  assert.match(source,/gl\.bufferSubData\(gl\.ARRAY_BUFFER, 0, indexedLive\)/);
+  assert.ok(!source.includes("const panel=document.createElement('details')"),
+    'primary WGL3 experiment must be visible without an inspector disclosure');
 });
 
 test('WGL19 replaces the hidden timeline with source-backed GPU diffusion replay',async()=>{
