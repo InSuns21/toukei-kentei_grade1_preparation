@@ -23,14 +23,14 @@ $$
 > 接続付き右主 $G$ 束 $(P,\omega)$、点 $x\in M$、$p\in P_x$ を固定する。$x$ を基点とするすべての区分的 $C^1$ 閉路 $\gamma$ に対して、[平行移動](../GBG14/index.md#def-gbg14-parallel-transport)を用いて一意に定まる $h_\gamma(p)\in G$ を
 >
 $$
-> \operatorname{PT}_\gamma(p)=p\,h_\gamma(p)
+\operatorname{PT}_\gamma(p)=p\,h_\gamma(p)
 $$
 >
 > によって定める。その全体
 >
 $$
-> \operatorname{Hol}_p(\omega)
-> =\{h_\gamma(p)\mid\gamma(0)=\gamma(1)=x\}\subset G
+\operatorname{Hol}_p(\omega)
+=\{h_\gamma(p)\mid\gamma(0)=\gamma(1)=x\}\subset G
 $$
 >
 > を $p$ における**主束接続のホロノミー群**という。この集合が実際に部分群になることは次の定理で示す。
@@ -58,10 +58,10 @@ $$
 > 上記の接続付き右主 $G$ 束、$x\in M$、$p\in P_x$ に対し、$\operatorname{Hol}_p(\omega)$ は $G$ の部分群である。$x$ を基点とする二閉路 $\gamma_1,\gamma_2$ について
 >
 $$
-> h_{\gamma_2*\gamma_1}(p)
-> =h_{\gamma_2}(p)\,h_{\gamma_1}(p),
-> \qquad
-> h_{\bar\gamma_1}(p)=h_{\gamma_1}(p)^{-1}
+h_{\gamma_2*\gamma_1}(p)
+=h_{\gamma_2}(p)\,h_{\gamma_1}(p),
+\qquad
+h_{\bar\gamma_1}(p)=h_{\gamma_1}(p)^{-1}
 $$
 >
 > が成立する。ここで $\bar\gamma(t)=\gamma(1-t)$ は逆向きの路である。
@@ -101,7 +101,7 @@ $$
 
 ## 2. 基準点を替えたときの共役
 
-ホロノミー群には基底上の基点 $x$ とファイバー上の点 $p$ の二つの選択が入る。まず同じファイバーで $p$ を $pk$ へ替えると何が起きるか。さらに $x$ 自体を別の基点へ動かす。
+上で定義した部分群には基底上の基点 $x$ とファイバー上の点 $p$ の二つの選択が入る。まず同じファイバーで $p$ を $pk$ へ替えると何が起きるか。さらに $x$ 自体を別の基点へ動かす。
 
 <a id="thm-gbg15-base-change"></a>
 
@@ -112,17 +112,17 @@ $$
 > **（1）** $p\in P_x$、$k\in G$、$p'=pk$ なら、任意の $x$ における閉路 $\gamma$ について
 >
 $$
-> h_\gamma(p')=k^{-1}h_\gamma(p)k,
-> \qquad
-> \operatorname{Hol}_{p'}(\omega)
-> =k^{-1}\operatorname{Hol}_p(\omega)k.
+h_\gamma(p')=k^{-1}h_\gamma(p)k,
+\qquad
+\operatorname{Hol}_{p'}(\omega)
+=k^{-1}\operatorname{Hol}_p(\omega)k.
 $$
 >
 > **（2）** $x,y\in M$ を区分的 $C^1$ 曲線 $\sigma:x\to y$ で結べるとする。$q=\operatorname{PT}_\sigma(p)\in P_y$ なら
 >
 $$
-> \operatorname{Hol}_q(\omega)
-> =\operatorname{Hol}_p(\omega).
+\operatorname{Hol}_q(\omega)
+=\operatorname{Hol}_p(\omega).
 $$
 >
 > さらに $q'=qk$ を選べば、$y$ での群は $k^{-1}\operatorname{Hol}_p(\omega)k$ となる。ここで等号は、同じ構造群 $G$ の部分集合としての等号である。
@@ -160,7 +160,7 @@ $$
 最終行では[逆路と右同変性](../GBG14/index.md#thm-gbg14-transport-laws)を使った。従って $h_\delta(q)=h_\beta(p)$ で、$\operatorname{Hol}_q(\omega)\subseteq\operatorname{Hol}_p(\omega)$。反対の包含は、任意の $x$ の閉路 $\gamma$ を $y$ の閉路 $\sigma*\gamma*\bar\sigma$ へ移す同じ議論から従う。最後の共役式は（1）を $q$ に適用すればよい。
 <!-- proof-end -->
 
-**何が不変なのか**。ファイバー上の点の選択によりホロノミー群は一般に**共役でしか決まらない**。一方、基点を曲線 $\sigma$ に沿って移動させたとき、ファイバーの点も平行移動で運べば、集合として同じ部分群になる。基点間を結ぶ路が存在しない異なる連結成分については、この定理は何も主張しない。
+**何が不変なのか**。ファイバー上の点の選択によりこの部分群は一般に**共役でしか決まらない**。一方、基点を曲線 $\sigma$ に沿って移動させたとき、ファイバーの点も平行移動で運べば、集合として同じ部分群になる。基点間を結ぶ路が存在しない異なる連結成分については、この定理は何も主張しない。
 
 ### 局所sectionで計算する際の注意
 
@@ -173,13 +173,13 @@ $$
 > 接続付き右主行列群束、$x\in U$、$\gamma\subset U$ を上記のように取る。$p=s(x)g_0$（$g_0\in G$）なら
 >
 $$
-> h_\gamma(p)=g_0^{-1}U_\gamma g_0.
+h_\gamma(p)=g_0^{-1}U_\gamma g_0.
 $$
 >
 > section を $s'=sk$（$k:U\to G$ は滑らか）へ変更すると
 >
 $$
-> U'_\gamma=k(x)^{-1}U_\gamma k(x).
+U'_\gamma=k(x)^{-1}U_\gamma k(x).
 $$
 >
 > 固定した**主束の点 $p$** に対する $h_\gamma(p)$ は section の選択によらない。
@@ -247,13 +247,13 @@ $$
 > と通る正向きの閉路を $\partial R_\varepsilon$ と書く。その局所輸送行列は
 >
 $$
-> U_{\partial R_\varepsilon}
-> =I-\varepsilon^2F_{xy}(0,0)+O(\varepsilon^3),
+U_{\partial R_\varepsilon}
+=I-\varepsilon^2F_{xy}(0,0)+O(\varepsilon^3),
 $$
 >
 $$
-> F_{xy}(0,0)
-> =\bigl(\partial_x A_y-\partial_y A_x+[A_x,A_y]\bigr)_{(0,0)}.
+F_{xy}(0,0)
+=\bigl(\partial_x A_y-\partial_y A_x+[A_x,A_y]\bigr)_{(0,0)}.
 $$
 >
 > 剰余 $O(\varepsilon^3)$ は、固定した行列ノルムで $\varepsilon$ が十分小さいとき $C\varepsilon^3$ 以下であることを意味する。各係数を $\varepsilon$ に依存しない近傍で $C^2$ として評価する。
@@ -472,7 +472,7 @@ $$
 #### GBG15-B01 基点を道に沿って移す
 - Level: B
 
-$x,y\in M$ を結ぶ区分的 $C^1$ 路 $\sigma$、$p\in P_x$、$q=\operatorname{PT}_\sigma(p)$ を取る。$x$ を基点とする任意の閉路 $\gamma$ に対して、$y$ を基点とする閉路を構成し、そのホロノミー群元が $h_\gamma(p)$ と一致することを示せ。
+$x,y\in M$ を結ぶ区分的 $C^1$ 路 $\sigma$、$p\in P_x$、$q=\operatorname{PT}_\sigma(p)$ を取る。$x$ を基点とする任意の閉路 $\gamma$ に対して、$y$ を基点とする閉路を構成し、その閉路輸送の群元が $h_\gamma(p)$ と一致することを示せ。
 
 <!-- solution-start -->
 **詳細解答**。$\delta=\sigma*\gamma*\bar\sigma$ と置く。本講の連結記法では、$y$ から $\bar\sigma$ で $x$ へ戻り、$\gamma$ を一周し、$\sigma$ で $y$ へ向かう閉路である。$h=h_\gamma(p)$ とする。[合成・逆路・同変性](../GBG14/index.md#thm-gbg14-transport-laws)より
