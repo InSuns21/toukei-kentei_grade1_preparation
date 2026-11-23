@@ -64,7 +64,7 @@ $$
 > と定める。$F$ の非零分数イデアル $\mathfrak a$ の延長は $j_{E/F}(\mathfrak a)=\mathfrak a\mathcal O_E$ と定める。
 <!-- formal-statement-end -->
 
-[素イデアル分解の一意性](../../ANF/ANF3/index.md#thm-anf3-dedekind-factorization)によりこの式は分数イデアル上で一意に定まります。ノルムは指数を足す積に対して乗法的で、延長もイデアルの積を保ちます。
+[素イデアル分解の一意性](../../ANF/ANF3/index.md#thm-anf3-prime-ideal-factorization)によりこの式は分数イデアル上で一意に定まります。ノルムは指数を足す積に対して乗法的で、延長もイデアルの積を保ちます。
 
 <!-- definition-example-start: def-iwa4-ideal-norm-extension -->
 **定義の確認。** $E=\mathbb Q(i)$、$F=\mathbb Q$ で $5=(2+i)(2-i)$ と因数分解できます。$(2+i)$ と $(2-i)$ は互いに異なる素イデアルで、その剰余体はどちらも $\mathbb F_5$ です。ゆえに各剰余次数は1で、
