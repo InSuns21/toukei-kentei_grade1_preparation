@@ -14,14 +14,14 @@ learning_objectives:
   - 結合線束の局所成分と枠の遷移関数の逆向きの符号を区別できる
   - 接続を持たない束の非自明性と自明束上の平坦接続のホロノミーを区別できる
 definitions:
-  - { id: GBG18-DEF-01, name: 球面上のU(1) clutching束 }
+  - { id: GBG18-DEF-01, name: 球面上のU(1)クラッチング束 }
   - { id: GBG18-DEF-02, name: 円周写像の巻き数 }
 theorems:
-  - { id: GBG18-PROP-01, name: P_nは滑らかな主束になる }
+  - { id: GBG18-PROP-01, name: 貼り合わせで得られる球面主束 }
   - { id: GBG18-LEM-01, name: 巻き数の選択独立性と変形不変性 }
-  - { id: GBG18-THM-01, name: 巻き数によるP_nの非自明性 }
-  - { id: GBG18-THM-02, name: clutching束P_nの相互非同型性 }
-  - { id: GBG18-PROP-02, name: Hopf束の遷移関数は巻き数+1 }
+  - { id: GBG18-THM-01, name: 巻き数による球面主束の非自明性 }
+  - { id: GBG18-THM-02, name: 巻き数が異なる球面主束の非同型性 }
+  - { id: GBG18-PROP-02, name: Hopf束の遷移関数の巻き数 }
 canonical_examples:
   - P_0の積主束とP_1の赤道での群座標の具体計算
   - 周回速度が揺らぐ位相関数と巻き数の直接計算
