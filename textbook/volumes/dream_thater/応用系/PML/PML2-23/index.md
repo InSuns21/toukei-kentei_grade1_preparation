@@ -361,7 +361,7 @@ $\Phi(u)=u^2/2$、$u(0)=1$、$T>0$ に固定し、$\theta>0$ を動かす。連�
 <a id="prop-pml2-23-euler-gradient"></a>
 
 <!-- formal-statement-start -->
-> **命題（Euler 法の離散勾配と連続勾配）**  
+> **命題（Euler法の離散勾配と連続勾配）**  
 > $\theta>0$、$T>0$、整数 $N\ge1$、$h=T/N$、$r=1-\theta h$ とする。$\dot u=-\theta u$、$u(0)=1$ と、その陽的 Euler 更新 $z_{n+1}=rz_n$、$z_0=1$ を考え、両終端損失を $\frac12$（終端状態）$^2$ とする。このとき
 
 $$
