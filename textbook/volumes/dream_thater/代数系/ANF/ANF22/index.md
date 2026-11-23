@@ -30,11 +30,11 @@
 <!-- formal-statement-start -->
 > **定理（Hilbert類体とイデアル類群）**  
 > 数体 $K$ のHilbert類体 $H_K$ は同型を満たす。
->
-> $$
-> \operatorname{Art}_{H_K/K}:\operatorname{Cl}(K)
-> \xrightarrow{\ \sim\ }\operatorname{Gal}(H_K/K).
-> $$
+
+$$
+\operatorname{Art}_{H_K/K}:\operatorname{Cl}(K)
+\xrightarrow{\ \sim\ }\operatorname{Gal}(H_K/K).
+$$
 >
 > 特に $[H_K:K]=h_K$ であり、$K$ の任意の有限Abel拡大で全有限素点が非分岐、全実素点が実のままのものは $H_K$ に含まれる。
 <!-- formal-statement-end -->
@@ -74,12 +74,12 @@ $$
 <!-- formal-statement-start -->
 > **命題（主素イデアルと完全分解）**  
 > 数体 $K$ のHilbert類体 $H_K$ と $K$ の任意の非零素イデアル $\mathfrak p$ に対し、
->
-> $$
-> \mathfrak p\ \text{が主イデアル}
-> \quad\Longleftrightarrow\quad
-> \mathfrak p\ \text{が }H_K/K\text{ で完全分解する}.
-> $$
+
+$$
+\mathfrak p\ \text{が主イデアル}
+\quad\Longleftrightarrow\quad
+\mathfrak p\ \text{が }H_K/K\text{ で完全分解する}.
+$$
 >
 > 一般に $\mathfrak p$ の類の位数が剰余次数 $f$ であり、その上の素点数は $h_K/f$ である。
 <!-- formal-statement-end -->
@@ -147,10 +147,10 @@ $$
 <!-- formal-statement-start -->
 > **定理（Kronecker–Weber定理と類体論からの帰結）**  
 > $\mathbb Q$ の任意の有限Abel拡大 $L/\mathbb Q$ に対して、ある整数 $m\ge2$ が存在して
->
-> $$
-> L\subseteq\mathbb Q(\zeta_m)
-> $$
+
+$$
+L\subseteq\mathbb Q(\zeta_m)
+$$
 >
 > が成り立つ。さらに $\mathbb Q(\zeta_m)$ は、法 $(m)\infty$ に対応する $\mathbb Q$ の剰余類体である。
 <!-- formal-statement-end -->
@@ -192,11 +192,11 @@ $p$ を素数、$r\ge1$ とし、$\Phi_{p^r}(T)$ を原始 $p^r$ 乗根の[円�
 <!-- formal-statement-start -->
 > **命題（素数冪円分体の次数）**  
 > 素数 $p$ と整数 $r\ge1$ について、
->
-> $$
-> [\mathbb Q(\zeta_{p^r}):\mathbb Q]
-> =\varphi(p^r)=p^{r-1}(p-1).
-> $$
+
+$$
+[\mathbb Q(\zeta_{p^r}):\mathbb Q]
+=\varphi(p^r)=p^{r-1}(p-1).
+$$
 >
 > さらに $p$ は $\mathbb Q(\zeta_{p^r})/\mathbb Q$ で完全分岐する。
 <!-- formal-statement-end -->
@@ -246,9 +246,9 @@ $$
 > **定義（Z_p拡大）**  
 > 数体 $K$ の無限Galois拡大 $K_\infty/K$ がZ_p拡大であるとは、そのGalois群がKrull位相を備えた位相群として次の同型を持つことをいう。
 
-$
+$$
 \operatorname{Gal}(K_\infty/K)\simeq (\mathbb Z_p,+).
-$
+$$
 
 > このとき、各 $n\ge0$ に対して、$K_\infty$ 内には $[K_n:K]=p^n$ となる一意の中間体 $K_n$ が存在する。
 <!-- formal-statement-end -->
@@ -277,19 +277,19 @@ $$
 <!-- formal-statement-start -->
 > **定理（奇素数の円分的Z_p塔）**  
 > 奇素数 $p$、$n\ge0$ に対し $F_n=\mathbb Q(\zeta_{p^{n+1}})^{\Delta_n}$ とすると、
->
-> $$
-> F_0=\mathbb Q\subset F_1\subset F_2\subset\cdots,\qquad
-> \operatorname{Gal}(F_n/\mathbb Q)\simeq\mathbb Z/p^n\mathbb Z.
-> $$
+
+$$
+F_0=\mathbb Q\subset F_1\subset F_2\subset\cdots,\qquad
+\operatorname{Gal}(F_n/\mathbb Q)\simeq\mathbb Z/p^n\mathbb Z.
+$$
 >
 > $F_\infty=\bigcup_{n\ge0}F_n$ に対し、制限写像と両立する位相群同型
->
-> $$
-> \operatorname{Gal}(F_\infty/\mathbb Q)
-> \simeq\varprojlim_n\mathbb Z/p^n\mathbb Z
-> \simeq\mathbb Z_p
-> $$
+
+$$
+\operatorname{Gal}(F_\infty/\mathbb Q)
+\simeq\varprojlim_n\mathbb Z/p^n\mathbb Z
+\simeq\mathbb Z_p
+$$
 >
 > が成り立つ。$F_n/\mathbb Q$ は全実かつ $p$ で完全分岐する。
 <!-- formal-statement-end -->
@@ -344,11 +344,11 @@ $p=2$ では $p-1=1$ として $1+2\mathbb Z/2^{n+1}\mathbb Z$ を上と同じ�
 <!-- formal-statement-start -->
 > **命題（2進円分塔）**  
 > $n\ge0$ に対して $E_n^{(2)}=\mathbb Q(\zeta_{2^{n+2}})$、$F_n^{(2)}=(E_n^{(2)})^{\{\pm1\}}$ とすると、
->
-> $$
-> F_n^{(2)}=\mathbb Q(\zeta_{2^{n+2}}+\zeta_{2^{n+2}}^{-1}),\qquad
-> \operatorname{Gal}(F_n^{(2)}/\mathbb Q)\simeq\mathbb Z/2^n\mathbb Z.
-> $$
+
+$$
+F_n^{(2)}=\mathbb Q(\zeta_{2^{n+2}}+\zeta_{2^{n+2}}^{-1}),\qquad
+\operatorname{Gal}(F_n^{(2)}/\mathbb Q)\simeq\mathbb Z/2^n\mathbb Z.
+$$
 >
 > 合併のGalois群は位相群 $\mathbb Z_2$ に同型である。
 <!-- formal-statement-end -->
