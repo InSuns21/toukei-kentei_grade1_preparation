@@ -103,6 +103,32 @@ const byId = id => document.getElementById(id);
 const inputs = {
   js: byId('js-source'), vertex: byId('vertex-source'), fragment: byId('fragment-source')
 };
+if (isWGL20) {
+  document.querySelector('h1').textContent = 'WGL20 街区3D：建物・太陽光・地形・水位';
+  document.querySelector('#panel-conditions h2').textContent = 'このデモで何が分かる？';
+  const intro = document.querySelector('#panel-conditions > p');
+  intro.textContent = '黄土色の実在PLATEAU建物1棟と、灰白色の合成建物8棟を同じ縮尺の街区に描きます。道路と合成地盤の上へ仮想水位を重ね、太陽の方向で建物の明暗と地面への影が変わる様子を見ます。';
+  const instructions = [
+    'まず「実行（結果へ）」を押す。街区をドラッグ／矢印キーで回転し、建物の側面・屋上と影を確認する。Homeで初期視点に戻す（CS1ではクリックによるID選択を優先）。',
+    '仮想水面32 mを30 mへ下げて水に覆われる場所を比較し、原点の水深が2.29497413 mから0.29497413 mへ変わることを確かめる。',
+    '太陽方向とカメラ仰角を変え、影の方向と見え方の違いを観察する。高さの表示倍率だけを変えても水深の数値は変わらない。',
+    '「コード編集」で terrain.js／terrain.vert／terrain.frag を書き換えて実行し、シェーダの光と実PLATEAU形状・合成周辺地物の区別を確認する。'
+  ];
+  const ordered = document.querySelector('#panel-conditions > ol');
+  ordered.replaceChildren(...instructions.map(t => {
+    const li = document.createElement('li'); li.textContent = t; return li;
+  }));
+  byId('width').value = '640'; byId('height').value = '420';
+  const preset = byId('preset').options[0];
+  if (preset) preset.textContent = '初期街区と影';
+  const help = document.createElement('p');
+  help.textContent = '黄土色＝公式LOD1建物1棟／灰白色＝合成の周辺8棟／暗灰色＝合成道路／青色＝仮想水面。合成水位は洪水予測ではありません。';
+  ordered.after(help);
+}
+
+
+
+
 const tabs = ['conditions', 'code', 'result'];
 const defaults = {};
 let refreshParameterControls = () => {};
@@ -644,8 +670,12 @@ function runnerHtml() {
   return '<!doctype html><html lang="ja"><head><meta charset="utf-8">' +
     '<meta http-equiv="Content-Security-Policy" content="' + policy + '">' +
     '<meta name="referrer" content="no-referrer">' +
-    '<style>body{margin:0;display:grid;place-items:center;background:#e2e8f0}' +
-    'canvas{display:block;width:100%;max-width:100%;height:auto}</style></head><body>' +
+    '<style>' + (isWGL13 ?
+      'body{margin:0;padding:0 6px;background:#0c1829;color:#e5eefb;font:14px/1.5 system-ui}' +
+      'canvas{display:block;width:100%;height:auto;touch-action:none}' :
+      'body{margin:0;display:' + (isWGL10?'block':'grid;place-items:center') +
+      ';background:#e2e8f0}canvas{display:block;width:100%;max-width:100%;height:auto}') +
+    '</style></head><body>' +
     '<canvas id="gpu-canvas" aria-label="GPUが描画した画素"></canvas>' +
     '<script>(' + isolatedRunner.toString() + ')()</scr' + 'ipt></body></html>';
 }
@@ -776,12 +806,12 @@ window.addEventListener('message', event => {
     const {x,y,gpuId,cpuId}=data;
     if(![x,y,gpuId,cpuId].every(Number.isInteger)||x<0||y<0||
        x>=active.payload.width||y>=active.payload.height||
-       gpuId<0||gpuId>255||cpuId<0||cpuId>1)return;
+       gpuId<0||gpuId>255||cpuId<0||cpuId>2)return;
     const equal=gpuId===cpuId;
     byId('result-note').textContent=
       'CS1 下原点画素('+x+','+y+'): GPU ID='+gpuId+
       ' / CPU三角形投影によるID='+cpuId+' / '+(equal?'一致':'不一致')+
-      '。ID0=地盤・背景、ID1=建物。輪郭上はラスタ化規則との差を調べてください。';
+      '。ID0=地盤・道路・背景、ID1=公式PLATEAU建物、ID2=合成の周辺建物。輪郭上はラスタ化規則との差を調べてください。';
     setStatus(equal?'CS1 ID FBO とCPU射影の選択結果が一致':
       'CS1 GPU/CPU選択が不一致（深度・投影・輪郭を確認）',!equal);
     return;
@@ -1041,6 +1071,40 @@ window.addEventListener('message', event => {
       samples, active.payload.width, active.payload.height);
     showTable(rows, verifiedComparison);
     byId('result-note').textContent = 'GPUへ描画しました。コードや条件を変えて再実行できます。';
+    if (isWGL10) {
+      const choices = Object.fromEntries(parametersFor('WGL10').map(spec => {
+        const state = readLabParameter(active.payload.js, spec);
+        return [spec.id, state.ok ? state.value : null];
+      }));
+      const third = Math.floor(active.payload.width / 3);
+      const scale = choices['offscreen-scale'];
+      const textureSize = Number.isFinite(scale) ?
+        Math.max(1, Math.floor(third * scale)) + '×' +
+        Math.max(1, Math.floor(active.payload.height * scale)) : '編集JS参照';
+      const stages = {'all':'3列比較','scene':'直接描画だけ',
+        'texture':'FBOコピーだけ','processed':'後処理だけ'};
+      const stage = stages[choices['inspection-pass']] || '編集JS参照';
+      const guide = byId('wgl10-stage-guide');
+      const allStages = choices['inspection-pass'] === 'all';
+      guide.classList.toggle('wgl10-three-columns',allStages);
+      if (allStages) {
+        const labels = [
+          '① 直接描画（比較用）','② FBO保存画像',
+          '③ 保存画像の後処理：' + (choices['filter-mode'] || '編集JS参照')
+        ];
+        guide.replaceChildren(...labels.map(label => {
+          const span=document.createElement('span');
+          span.textContent=label;
+          return span;
+        }));
+      } else {
+        guide.textContent='全幅表示：' + stage;
+      }
+      byId('result-note').textContent = '実行したFBO：RGBA8 ' + textureSize +
+        ' texel ／ 比較列：' + third + '×' + active.payload.height +
+        ' px ／ NEAREST ／ ' + stage + '。数値検算は下の詳細にあります。';
+    }
+
     byId('numeric-summary').textContent = verifiedComparison ?
       '（' + (isFCG2&&!unchanged&&fcg2Physics ? '変更した回転速度・染料の独立CPU画素 ' :
        isFCG8&&!unchanged ? '変更Level Set条件の独立CPU初期画素 ' :
@@ -1298,8 +1362,10 @@ function run() {
   const iframe = document.createElement('iframe');
   iframe.className = 'result-frame';
   // Responsive preview without changing the actual drawing-buffer resolution.
-  iframe.style.aspectRatio = payload.width + ' / ' + (payload.height + (isWGL18 ? 160 : 12));
+  iframe.style.aspectRatio = payload.width + ' / ' +
+    (payload.height + (isWGL18 ? 160 : isWGL13 ? 235 : 12));
   iframe.style.height = 'auto';
+  if (isWGL13) iframe.style.minHeight = '540px';
   if (isWGL17) {
     // The texel inspector belongs below the GPU canvas, never over its pixels.
     iframe.style.aspectRatio = 'auto';
@@ -1411,8 +1477,7 @@ byId('preset').addEventListener('change', event => {
         'vec3 result = v_uv.x < u_compare ? original : ;');
     } else if (isWGL13) {
       inputs.fragment.value = defaults.fragment.replace(
-        'outColor=vec4(mix(vec3(0.08,0.10,0.12),reflected,f),1.0);',
-        'outColor=vec4(mix(vec3(0.08,0.10,0.12),reflected,f),1.0)');
+        'uniform samplerCube u_env;', 'uniform samplerCube u_env');
     } else if (isWGL12) {
       inputs.fragment.value = defaults.fragment.replace(
         'outColor = vec4(fresnelSchlick(voh, f0), 1.0);',
@@ -1423,8 +1488,8 @@ byId('preset').addEventListener('change', event => {
         'outColor = vec4(vec3(v), 1.0)');
     } else if (isWGL10) {
       inputs.fragment.value = defaults.fragment.replace(
-        'outColor = vec4(sampleColor, 1.0);',
-        'outColor = vec4(sampleColor, 1.0)');
+        'outColor = vec4(saved, 1.0);',
+        'outColor = vec4(saved, 1.0)');
     } else if (isWGL9) {
       inputs.fragment.value = defaults.fragment.replace(
         'outColor = vec4(encodeColor(clamp(linearRgb, 0.0, 1.0)), 1.0);',
@@ -2028,18 +2093,18 @@ if (isWGL14) {
 }
 
 if (isWGL13) {
-  document.title = 'WGL13 cubemap・反射方向・継ぎ目の編集ラボ';
-  document.querySelector('h1').textContent = 'WGL13 6面の色と方向を読み、鏡面反射へ対応させる';
+  document.title = 'WGL13 環境マッピング：反射球と6面展開図';
+  document.querySelector('h1').textContent = 'WGL13 反射球から6面の風景を読み取る';
   document.querySelector('#panel-conditions > p').textContent =
-    '自作2×2の6面RGBA8 cubemapから反射した球面を表示します。' +
-    '最下行の12画素は6軸方向と6斜め方向の生テクセル値です。CPU基準との各成分±1階調を検査します。';
+    '左の球をクリックすると反射方向と面内UVが分かり、右の6面展開図で参照先が強調されます。' +
+    '同じGLSLで風景128×128と2×2の診断色を切り替え、境界と環境回転を観察します。';
   document.querySelector('#panel-conditions ol').innerHTML =
-    '<li>初期ソースを実行し12方向の面・UV・RGBA8の独立検算を確認する。</li>' +
-    '<li>environment.jsのyawDegreesを90や-90に変え、球中心の参照面を予測する。</li>' +
-    '<li>fresnelF0を0、0.75、1へ変え、混合係数と方向の違いを観察する。</li>' +
-    '<li>faceColorsの並び、またはfragment GLSLのrotateY符号を変更し、向きと継ぎ目を調べる。</li>' +
-    '<li>構文エラープリセットのログを読み、修正後に12方向検算へ戻る。</li>';
-  byId('preset').options[0].textContent = '6面自作cubemap・12方向CPU/GPU照合';
+    '<li>実行を押して球と6面展開図を表示し、球面上の3箇所をクリックして参照面を調べる。</li>' +
+    '<li>環境回転（−180°〜180°）を動かし、球の反射と右の強調面が連動するか確かめる。</li>' +
+    '<li>「境界線」を表示してキューブマップの主軸が切り替わる場所を見る。</li>' +
+    '<li>「表示」を2×2面診断へ変更し、12方向の生画素照合を詳細欄で確認する。</li>' +
+    '<li>environment.jsのsceneColor / yawDegrees / faceColorsやenvironment.fragの反射式を編集し再実行する。</li>';
+  byId('preset').options[0].textContent = '反射球＋6面の風景・2×2診断と12方向GPU検算';
   byId('preset').options[1].textContent = 'fragmentの構文エラー';
 }
 if (isWGL12) {
@@ -2073,19 +2138,31 @@ if (isWGL11) {
   byId('preset').options[1].textContent = 'fragmentの構文エラー';
 }
 if (isWGL10) {
-  document.title = 'WGL10 framebuffer と render-to-texture ラボ';
-  document.querySelector('h1').textContent = 'WGL10 第1パスをテクスチャへ、第2パスを画面へ';
+  document.title = 'WGL10 FBOを経由する描画パイプライン';
+  document.querySelector('h1').textContent = 'WGL10 シーン → FBOテクスチャ → 後処理';
   document.querySelector('#panel-conditions > p').textContent =
-    '最初の描画先はRGBA8 textureを付けたFBO。第2パスでdefault framebufferの左半分へ原画、右半分へRGB反転を描きます。各半分の4画素をCPUで検算します。';
+    '1枚のGPUシーンをRGBA8テクスチャへ保存して次の描画へ渡します。左=直接描画、中=保存画像、右=後処理。同じGLSLで違いを比較します。';
   document.querySelector('#panel-conditions ol').innerHTML =
-    '<li>初期ソースを実行しFBO completeness・中間画素・最終8画素を確認する。</li>' +
-    '<li>framebuffer.js の invertRight を false にして右半分が原画と一致するか調べる。</li>' +
-    '<li>offscreenScale を 0.5 に変え、textureとviewportが別寸法でも描けることを確かめる。</li>' +
-    '<li>canvasの横幅・高さを変更してFBO再確保とviewport再指定を調べる。</li>' +
-    '<li>fragment GLSLの色やフィルタ、構文エラープリセットを編集して結果・stage診断を比較する。</li>';
-  byId('preset').options[0].textContent = '初期のFBO→原画／RGB反転';
+    '<li>「実行」で3列を見て、中央と右が保存したFBO画像を読んでいることを確かめる。</li>' +
+    '<li>解像度倍率を1→0.5にし、中央と右の細格子が画素化する部分を探す。</li>' +
+    '<li>後処理をinvert→grayscale→copyに切替え、右列だけの違いを見る。</li>' +
+    '<li>表示段階をscene / texture / processedにし、同じGPU画像を拡大して観察する。</li>' +
+    '<li>コード編集でframebuffer.fragのdrawSceneやu_passを変えて再実行する。</li>';
+  byId('preset').options[0].textContent = 'シーン→FBO RGBA8→フィルタ（3列比較）';
   byId('preset').options[1].textContent = 'fragmentの構文エラー';
+  const stageGuide = document.createElement('div');
+  stageGuide.id = 'wgl10-stage-guide';
+  stageGuide.className = 'wgl10-stage-guide';
+  stageGuide.setAttribute('role', 'note');
+  stageGuide.classList.add('wgl10-three-columns');
+  for (const label of ['① 直接描画（比較用）','② FBO保存画像','③ 後処理：invert']) {
+    const span=document.createElement('span');
+    span.textContent=label;
+    stageGuide.append(span);
+  }
+  byId('canvas-slot').before(stageGuide);
 }
+
 if (isWGL9) {
   document.title = 'WGL9 法線行列・Lambert・Blinn–Phong ラボ';
   document.querySelector('h1').textContent = 'WGL9 立方体の面法線と球の補間法線';
@@ -2191,7 +2268,7 @@ if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-condi
 const sizeHint=(isFCG4||isFCG5||isFCG6||isFCG7||isFCG8)?[1536,512]:
   isFCG3?[1024,512]:isFCG2?[512,512]:isWGL14?[704,704]:
   (lesson==='WGL1'||isWGL2||isWGL3)?[960,960]:
-  legacyViewport?[800,600]:[960,720];
+  isWGL10?[960,480]:legacyViewport?[800,600]:[960,720];
 // Make the actual limits legible when a lesson's independent CPU oracle
 // intentionally supports fewer pixels than the shared WebGL2 host.
 byId('width').max=String(MAX_SIDE);byId('height').max=String(MAX_SIDE);
