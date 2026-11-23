@@ -1,0 +1,32 @@
+chapter: GBG21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG20
+  - GEO9
+forward_references: []
+concepts:
+  - id: gauge.chern-weil-form
+    name: Chern–Weil形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Chern–Weil形式）"]
+    requires: [gauge.invariant-curvature-basic-descent, gauge.invariant-curvature-polynomial-form]
+
+  - id: gauge.chern-weil-product-derivative
+    name: 曲率多項式の外微分
+    kind: lemma
+    introduction: formal
+    requires: [gauge.chern-weil-form, geometry.exterior-derivative-graded-leibniz]
+
+  - id: gauge.chern-weil-invariance-cancellation
+    name: Ad不変性による括弧項の相殺
+    kind: lemma
+    introduction: formal
+    requires: [gauge.ad-invariant-infinitesimal-condition, gauge.chern-weil-product-derivative]
+
+  - id: gauge.chern-weil-closedness
+    name: Chern–Weil形式の閉性
+    kind: theorem
+    introduction: formal
+    requires: [gauge.chern-weil-form, gauge.chern-weil-product-derivative, gauge.chern-weil-invariance-cancellation, gauge.local-bianchi-identity, gauge.invariant-curvature-basic-descent]
