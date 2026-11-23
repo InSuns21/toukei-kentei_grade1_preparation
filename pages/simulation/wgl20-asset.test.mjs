@@ -63,3 +63,38 @@ test('WGL20 3-tab lab source is valid editable JS, and all 3 case presets exist'
    assert.ok(text.includes('詳細解答'));
  }
 });
+
+test('WGL20 urban context has actual 3D walls, a directional shadow FBO and clipped water',async()=>{
+ const [js,vert,frag]=await Promise.all([load('terrain.js'),load('terrain.vert'),load('terrain.frag')]);
+ assert.ok(js.length<30000,'sandbox source limit');
+ assert.doesNotThrow(()=>new Function('gl','canvas','vertexSource','fragmentSource','report','settings',js));
+ for(const token of [
+   'const showContext=true','const showShadows=true','const blocks=[',
+   'counts.context','const shadowProgram','gl.DEPTH_COMPONENT16',
+   'gl.framebufferTexture2D','const clipWet=polygon',
+   "canvas.addEventListener('pointermove'", "canvas.addEventListener('keydown'",
+   'draw(counts.context)','gl.depthMask(false)','gl.depthMask(true)'
+ ])assert.ok(js.includes(token),token);
+ assert.ok(vert.includes('layout(location=3) in vec3 a_normal'));
+ assert.ok(vert.includes('v_lightClip'));
+ assert.ok(frag.includes('sampler2D u_shadowMap'));
+ assert.ok(frag.includes('textureSize(u_shadowMap,0)'));
+ assert.ok(frag.includes('float lambert=max(dot(n,sun),0.0)'));
+ assert.ok(frag.includes('float sunVisibility()'));
+ assert.ok(frag.includes('v_kind>2.5&&v_kind<3.5'),'RGBA oracle remains unlit');
+});
+test('WGL20 learner instructions and CS1/2/3 distinguish official data from synthetic city',async()=>{
+ const [main,cs1,cs2,cs3,provenance]=await Promise.all([
+  load('index.md'),load('cs1.md'),load('cs2.md'),load('cs3.md'),load('data-provenance.md')]);
+ assert.match(main,/建物9棟/);
+ assert.match(main,/合成建物8棟/);
+ assert.match(main,/シャドウマッピング/);
+ assert.match(main,/ドラッグ/);
+ assert.match(main,/240 m×240 m/);
+ assert.match(cs1,/公式PLATEAU建物1/);
+ assert.match(cs1,/合成の周辺建物2/);
+ assert.match(cs2,/合計13回/);
+ assert.match(cs2,/合計6回/);
+ assert.match(cs3,/アルファ0.33/);
+ assert.match(provenance,/実在の位置や属性を表しません/);
+});
