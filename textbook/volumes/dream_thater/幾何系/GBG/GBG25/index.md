@@ -400,7 +400,7 @@ $
 (Q^\dagger Q)_{22}=|w|^2+|z|^2=1.
 $
 
-行列式は $z\overline z-(-\overline w)w=|z|^2+|w|^2=1$。従って逆行列 $Q(z,w)^{-1}=Q(z,w)^\dagger$ であり、$Q(\overline z,-w)$ に代入すると同じ共役転置行列になる。ここで $Q^{-1}$ とだけ書く逆写像とは、第1節で区別した。
+四成分から $Q^\dagger Q=I_2$ と分かる。行列式は $z\overline z-(-\overline w)w=|z|^2+|w|^2=1$。従って逆行列 $Q(z,w)^{-1}=Q(z,w)^\dagger$ であり、$Q(\overline z,-w)$ に代入すると同じ共役転置行列になる。ここで $Q^{-1}$ とだけ書く逆写像とは、第1節で区別した。
 <!-- solution-end -->
 
 <a id="ex-gbg25-a02"></a>
