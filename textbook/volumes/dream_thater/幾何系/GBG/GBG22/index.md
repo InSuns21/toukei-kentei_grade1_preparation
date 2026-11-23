@@ -309,7 +309,7 @@ $$
 
 ### 閉多様体上の積分と境界付き領域
 
-$M$ が向き付けられた**コンパクトな境界なし** $2k$ 次元多様体なら、[Chern–Weil の transgression 恒等式](#thm-gbg22-transgression)と Stokes の定理により
+$M$ が向き付けられた**コンパクトな境界なし** $2k$ 次元多様体なら、[Chern–Weil の transgression 恒等式](#thm-gbg22-transgression)と [一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により
 
 $$
 \int_M\beta_p(\omega_1)-\int_M\beta_p(\omega_0)
@@ -593,7 +593,7 @@ $$
 =\int_0^{2\pi}\cos^2\theta\,d\theta=\pi.
 $$
 
-[Chern–Weil の transgression 恒等式](#thm-gbg22-transgression)と Stokes の定理は両積分が等しいことを意味し、両者が零であることは意味しない。全ての接続について積分が一致すると言うには、例えば積分領域が向き付けられたコンパクトな**境界なし** $2k$ 次元多様体であると仮定すれば十分である。境界がある場合は $\int_{\partial M}T_p=0$ となる追加条件が必要である。
+[Chern–Weil の transgression 恒等式](#thm-gbg22-transgression)と [一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)は両積分が等しいことを意味し、両者が零であることは意味しない。全ての接続について積分が一致すると言うには、例えば積分領域が向き付けられたコンパクトな**境界なし** $2k$ 次元多様体であると仮定すれば十分である。境界がある場合は $\int_{\partial M}T_p=0$ となる追加条件が必要である。
 <!-- solution-end -->
 
 <a id="ex-gbg22-b04"></a>
@@ -681,7 +681,7 @@ $$
 
 を得る。[Chern–Weil形式の閉性](../GBG21/index.md#thm-gbg21-chern-weil-closed)により、二つの形式は閉じている。[de Rham コホモロジー](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)の定義から、完全形式だけ異なる閉形式は同じ類を表す。
 
-(4) de Rham 類は実数・複素数係数の閉形式の商であり、整数係数コホモロジーへ持ち上がるかどうかは別の条件である。たとえば $p$ に任意の実定数を掛けても本証明は成立するので、整数性はこの証明から従わない。また境界付き領域 $N$ では Stokes の定理によって
+(4) de Rham 類は実数・複素数係数の閉形式の商であり、整数係数コホモロジーへ持ち上がるかどうかは別の条件である。たとえば $p$ に任意の実定数を掛けても本証明は成立するので、整数性はこの証明から従わない。また境界付き領域 $N$ では [一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)によって
 
 $$
 \int_N\bigl(\beta_p(\omega_1)-\beta_p(\omega_0)\bigr)
