@@ -5,6 +5,8 @@ status: supplementary
 prerequisites:
   - PML2-23
   - PML2-02
+  - TSA6
+  - INV15
 official_scope: []
 learning_objectives:
   - 線形Gaussian状態空間モデルの状態・観測・雑音と独立性の仮定を説明できる
@@ -18,7 +20,7 @@ learning_objectives:
   - 正規化したイノベーションの二乗平均を導出し検証上の意味を説明できる
   - 標準Pythonで静的・動的な二段の同化を手計算と照合できる
 definitions:
-  - { id: PML2-24-DEF-01, name: 逐次データ同化と予測・解析分布 }
+  - { id: PML2-24-DEF-01, name: 逐次データ同化と予測・フィルタ分布 }
   - { id: PML2-24-DEF-02, name: イノベーションとその共分散 }
   - { id: PML2-24-DEF-03, name: Kalmanゲイン }
 theorems:
