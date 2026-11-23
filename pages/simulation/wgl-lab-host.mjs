@@ -358,6 +358,11 @@ function stop(message = '停止しました。実行 iframe を破棄しまし�
     active = null;
   }
   byId('canvas-slot').replaceChildren();
+  if(isWGL19){
+    const view=byId('wgl19-live-state');
+    if(view)view.textContent='実行停止。再生するには「実行（結果へ）」を押してください。';
+    for(const button of document.querySelectorAll('#wgl19-live button'))button.disabled=true;
+  }
   if(isFCG5){
     const live=byId('fcg5-live-state');
     if(live)live.textContent='ライブ物理step：未実行';
@@ -1363,6 +1368,10 @@ function run() {
   }
   catch (error) { setStatus(error.message, true); return; }
   byId('numeric-summary').textContent = '（計算中）';
+  if(isWGL19){
+    for(const button of document.querySelectorAll('#wgl19-live button'))button.disabled=true;
+    const clock=byId('wgl19-live-state');if(clock)clock.textContent='監査用の最終状態を計算中';
+  }
   byId('result-note').textContent = '実行中です。描画結果をここに表示します。';
   byId('diagnostics-details').open = false;
   const iframe = document.createElement('iframe');
