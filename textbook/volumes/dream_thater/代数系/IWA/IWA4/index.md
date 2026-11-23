@@ -1,6 +1,16 @@
 # IWA4 ノルム・制限と逆極限
 
-[IWA2で作った円分塔](../IWA2/index.md#thm-iwa2-compatible-tower)を $K_0\subset K_1\subset\cdots$ と書き、$[K_n:\mathbb Q]=p^n$、$\Gamma_n=\operatorname{Gal}(K_n/\mathbb Q)\simeq\mathbb Z/p^n\mathbb Z$ とします。$p$ は任意の素数です。[IWA3の岩澤代数](../IWA3/index.md#def-iwa3-completed-group-ring)は $\Lambda=\mathbb Z_p[[\Gamma]]\simeq\mathbb Z_p[[T]]$ でした。しかし環ができても、各層の類群や単数をどの向きの写像で結べばよいかはまだ決まっていません。
+$p$ を素数とします。奇素数では[IWA2の円分塔](../IWA2/index.md#thm-iwa2-compatible-tower)の $K_n$、$p=2$ では[2進円分塔](../IWA2/index.md#thm-iwa2-two-adic-splitting)の $K_n^{(2)}$ を、本講では共通して $K_n$ と書きます。いずれも
+
+$$
+K_0=\mathbb Q\subset K_1\subset\cdots,\qquad
+[K_n:\mathbb Q]=p^n,\qquad
+\Gamma_n=\operatorname{Gal}(K_n/\mathbb Q)\simeq\mathbb Z/p^n\mathbb Z
+$$
+
+です。$p=2$ の場合は法 $2^{n+2}$ の円分体から符号部分を除くため、奇素数の場合の法 $p^{n+1}$ の表示をそのまま使いません。
+
+[IWA3の岩澤代数](../IWA3/index.md#def-iwa3-completed-group-ring)は $\Lambda=\mathbb Z_p[[\Gamma]]\simeq\mathbb Z_p[[T]]$ でした。しかし環ができても、各層の類群や単数をどの向きの写像で結べばよいかはまだ決まっていません。
 
 本講の中心問いは、**有限層にある算術的情報を失わず、整合した無限塔の元として扱うには何が必要か**です。上の層から下の層へ送るノルム、下から上へ送るイデアルの延長、およびGalois群の制限を区別します。最後に、それらと両立する類群の整合列全体に $\Lambda$ が作用することを具体的に証明します。
 
@@ -39,7 +49,7 @@ $$
 \operatorname{res}_{n+1,n}(\tau)=\tau|_{K_n}\in\Gamma_n
 $$
 
-は群準同型です。[円分塔の制限列](../IWA2/index.md#prop-iwa2-cyclotomic-restriction)から全射であり、その核は位数 $p$ です。ここで **res はGalois自己同型の制限**であって、イデアル類のノルムではありません。
+は群準同型です。[奇素数の円分塔の制限](../IWA2/index.md#thm-iwa2-compatible-tower)、または[$2$ 進円分塔の制限](../IWA2/index.md#thm-iwa2-two-adic-splitting)から全射であり、その核は位数 $p$ です。ここで **res はGalois自己同型の制限**であって、イデアル類のノルムではありません。
 
 イデアルの向きも確認しましょう。$F$ の非零分数イデアル $\mathfrak a$ を $E$ に延ばした $\mathfrak a\mathcal O_E$ は上向きの矢印です。一方、$E$ の素イデアル $\mathfrak P$ の下には $\mathfrak p=\mathfrak P\cap\mathcal O_F$ があり、[剰余次数の定義](../../ANF/ANF4/index.md#def-anf4-ramification-residue)から
 
@@ -53,7 +63,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（イデアルのノルムと延長）**  
-> 有限Galois数体拡大 $E/F$ に対し、$E$ の非零分数イデアルの素イデアル分解 $\mathfrak A=\prod_{\mathfrak P}\mathfrak P^{a_{\mathfrak P}}$（指数は整数、零でないものは有限個）について
+> 有限Galois数体拡大 $E/F$ に対し、$E$ の非零分数イデアルの素イデアル分解 $\mathfrak A=\prod_{\mathfrak P}\mathfrak P^{a_{\mathfrak P}}$（指数は整数、零でないものは有限個）を取る。各因子 $\mathfrak P$ に対して $\mathfrak p=\mathfrak P\cap\mathcal O_F$ と置き、剰余次数を $f(\mathfrak P/\mathfrak p)=[\mathcal O_E/\mathfrak P:\mathcal O_F/\mathfrak p]$ として
 
 $$
 N_{E/F}(\mathfrak A)
@@ -67,7 +77,18 @@ $$
 [素イデアル分解の一意性](../../ANF/ANF3/index.md#thm-anf3-prime-ideal-factorization)によりこの式は分数イデアル上で一意に定まります。ノルムは指数を足す積に対して乗法的で、延長もイデアルの積を保ちます。
 
 <!-- definition-example-start: def-iwa4-ideal-norm-extension -->
-**定義の確認**。 $E=\mathbb Q(i)$、$F=\mathbb Q$ で $5=(2+i)(2-i)$ と因数分解できます。$(2+i)$ と $(2-i)$ は互いに異なる素イデアルで、その剰余体はどちらも $\mathbb F_5$ です。ゆえに各剰余次数は1で、
+**定義の確認**。 $E=\mathbb Q(i)$、$F=\mathbb Q$ で $5=(2+i)(2-i)$ と因数分解できます。剰余体を確かめるため、二つの環準同型を考えます。
+
+$$
+\begin{aligned}
+\varphi_+:\mathbb Z[i]&\longrightarrow\mathbb F_5,
+&a+bi&\longmapsto a-2b\bmod5,\\
+\varphi_-:\mathbb Z[i]&\longrightarrow\mathbb F_5,
+&a+bi&\longmapsto a+2b\bmod5.
+\end{aligned}
+$$
+
+いずれも $(\pm2)^2\equiv-1\pmod5$ によって $i^2=-1$ を保ち、整数を含むので全射です。$a+bi=(a-2b)+b(2+i)$ と $5=(2+i)(2-i)$ より $\ker\varphi_+=(2+i)$ です。同様に $\ker\varphi_-=(2-i)$ と分かります。従って両商は $\mathbb F_5$ に同型で、互いに異なる素イデアルの剰余次数はどちらも1です。この次数を[定義](#def-iwa4-ideal-norm-extension)の指数に使うと、
 
 $$
 N_{E/F}((2+i))=(5),\qquad
@@ -102,7 +123,21 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$F$ の素イデアル $\mathfrak p$ とその上の素イデアル $\mathfrak P$ を一つ固定し、$e=e(\mathfrak P/\mathfrak p)$、$f=f(\mathfrak P/\mathfrak p)$ とします。$E/F$ はGaloisなので、$\mathfrak p$ の上の $g$ 個の素イデアルは $G$ によって推移的に置換され、$d=efg$ です（[次数公式](../../ANF/ANF4/index.md#thm-anf4-fundamental-identity)）。各素イデアルを固定する自己同型は $ef$ 個です。
+$F$ の素イデアル $\mathfrak p$ とその上の素イデアル $\mathfrak P$ を一つ固定し、$e=e(\mathfrak P/\mathfrak p)$、$f=f(\mathfrak P/\mathfrak p)$ とします。$E/F$ はGaloisなので、$\mathfrak p$ の上の $g$ 個の素イデアルは $G$ によって推移的に置換され、分岐指数 $e$ と剰余次数 $f$ は共通です。相対拡大にも次数公式が成り立つ理由を確認します。
+
+[ANF4の次数公式](../../ANF/ANF4/index.md#thm-anf4-fundamental-identity)と同じ計数法で、$\mathcal O_E$ を $\mathcal O_F$ 上の階数 $d$ の加群として $\mathfrak p$ で局所化します。有限生成でねじれのない加群は離散付値環 $\mathcal O_{F,\mathfrak p}$ 上では自由なので、剰余体 $k(\mathfrak p)=\mathcal O_F/\mathfrak p$ 上で
+
+$$
+\dim_{k(\mathfrak p)}(\mathcal O_E/\mathfrak p\mathcal O_E)=d
+$$
+
+となります。一方、[素イデアル分解](../../ANF/ANF3/index.md#thm-anf3-prime-ideal-factorization)と中国剰余定理によって、この商は各 $\mathcal O_E/\mathfrak P_i^e$ に分かれます。[局所単項性](../../ANF/ANF3/index.md#lem-anf3-local-principal)より、その各段階商 $\mathfrak P_i^j/\mathfrak P_i^{j+1}$（$0\le j<e$）は $k(\mathfrak P_i)$ 上1次元、従って $k(\mathfrak p)$ 上は次元 $f$ です。このため
+
+$$
+d=\sum_{i=1}^{g}\sum_{j=0}^{e-1}f=efg
+$$
+
+を得ます。$G$ の $\mathfrak P$ における安定化群の位数は、軌道の個数 $g$ から $d/g=ef$ です。
 
 $x$ の分数イデアル $(x)$ における $\mathfrak P'$ の指数を $v_{\mathfrak P'}(x)$ と書きます。$N(x)=\prod_{\sigma\in G}\sigma(x)$ の $\mathfrak P$ における指数は
 
@@ -266,7 +301,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa4-local-unit-system -->
-**定義の確認**。 $\zeta_{p^{n+1}}$ は剰余体で1となるので $U_n^1$ に入ります。$L_{n+1}/L_n$ の位数 $p$ の自己同型は $\zeta=\zeta_{p^{n+2}}$ を $\zeta^{1+kp^{n+1}}$（$0\le k<p$）へ送ります。従って奇素数 $p$ では
+**定義の確認**。 $\zeta_{p^{n+1}}$ は $p$ 冪位数の単元です。有限剰余体の乗法群は位数 $p^f-1$（ある $f\ge1$）なので、その中の $p$ 冪位数元は1だけです。
+
+従って $\zeta_{p^{n+1}}$ は剰余体で1となり、$U_n^1$ に入ります。[円分Galois群の制限列](../IWA2/index.md#prop-iwa2-cyclotomic-restriction)で核を取ると、$L_{n+1}/L_n$ の自己同型は
+
+$$
+\zeta=\zeta_{p^{n+2}}
+\longmapsto\zeta^{1+kp^{n+1}}
+\qquad(0\le k<p)
+$$
+
+の $p$ 個です。従って奇素数 $p$ では
 
 $$
 \begin{aligned}
@@ -371,7 +416,11 @@ $\Gamma_n=\operatorname{Gal}(K_n/\mathbb Q)$ は、イデアルを $\mathfrak A\
 
 <!-- formal-statement-start -->
 > **定理（類群の逆極限への岩澤代数作用）**  
-> $K_n/\mathbb Q$ を[IWA2の円分 $\mathbb Z_p$ 塔](../IWA2/index.md#thm-iwa2-compatible-tower)とし、$A_n=\mathrm{Cl}(K_n)[p^\infty]$、$X=\varprojlim_n(A_n,N_{n+1,n})$ とする。このとき $X$ に連続な $\Lambda=\mathbb Z_p[[\Gamma]]$ 加群構造が一意に定まり、各 $x=(x_n)_n$ と $\lambda\in\Lambda$ の第 $n$ 成分は、十分大きい $m$ について
+> 素数 $p$ に対して、第1節で構成した円分 $\mathbb Z_p$ 塔 $K_n/\mathbb Q$ を取る。奇素数の場合は[IWA2の定理](../IWA2/index.md#thm-iwa2-compatible-tower)、$p=2$ の場合は[2進の定理](../IWA2/index.md#thm-iwa2-two-adic-splitting)に従う。
+>
+> $\Gamma_n=\operatorname{Gal}(K_n/\mathbb Q)$、$\Gamma=\varprojlim_n\Gamma_n$ と置き、$A_n=\mathrm{Cl}(K_n)[p^\infty]$、$X=\varprojlim_n(A_n,N_{n+1,n})$ とする。
+>
+> 各 $\Gamma_n$ の $A_n$ への自然な作用を延長する連続な $\Lambda=\mathbb Z_p[[\Gamma]]$ 加群構造が $X$ に一意に定まる。任意の $x=(x_n)_n\in X$ と $\lambda\in\Lambda$ について、第 $n$ 成分は十分大きい $m$ により
 
 $$
 (\lambda x)_n=\lambda_{m,n}\,x_n
