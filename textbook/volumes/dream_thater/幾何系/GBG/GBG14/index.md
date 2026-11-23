@@ -14,7 +14,7 @@ $$
 d\pi_{p(t)}\dot p(t)=\dot\gamma(t).
 $$
 
-同じ $\dot\gamma(t)$ に対応する接ベクトルは垂直方向の分だけ無数にある。[GBG7 の接続1形式の再生条件](../GBG7/index.md#def-gbg7-connection-form)を使って、垂直方向が零となるよう選ぶのが水平性である。
+同じ $\dot\gamma(t)$ に対応する接ベクトルは垂直方向の分だけ無数にある。[GBG7 の主束接続形式の再生条件](../GBG7/index.md#def-gbg7-connection-form)を使って、垂直方向が零となるよう選ぶのが水平性である。
 
 <a id="def-gbg14-horizontal-curve"></a>
 
@@ -32,7 +32,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg14-horizontal-curve -->
-**定義の直接確認**。積主束 $\mathbb R\times U(1)$ に局所ポテンシャル $A=0$ の接続を置く。[積主束における接続1形式の具体式](../GBG7/index.md#prop-gbg7-product-form)により、点 $(x,g)$ での接続形式は $g^{-1}dg$ である。$\gamma(t)=t$、$\widetilde\gamma(t)=(t,g_0)$ とすると、射影条件は $\pi(t,g_0)=t$、接続条件は $g_0^{-1}\dot g_0=0$ で、それぞれ確かめられる。一方 $(t,e^{it}g_0)$ は射影条件こそ満たすが、接続値が $i$ なので水平ではない。
+**定義の確認**。積主束 $\mathbb R\times U(1)$ に局所ポテンシャル $A=0$ の接続を置く。[積主束における接続1形式の具体式](../GBG7/index.md#prop-gbg7-product-form)により、点 $(x,g)$ での接続形式は $g^{-1}dg$ である。$\gamma(t)=t$、$\widetilde\gamma(t)=(t,g_0)$ とすると、射影条件は $\pi(t,g_0)=t$、接続条件は $g_0^{-1}\dot g_0=0$ で、それぞれ確かめられる。一方 $(t,e^{it}g_0)$ は射影条件こそ満たすが、接続値が $i$ なので水平ではない。
 <!-- definition-example-end -->
 
 ### 局所sectionで微分方程式を導く
@@ -43,7 +43,7 @@ $$
 p(t)=s(\gamma(t))g(t),\qquad g(t)\in G
 $$
 
-と書ける。$A=s^*\omega$ を[GBG8 の局所接続形式](../GBG8/index.md#def-gbg8-local-potential)とする。右主作用に関する[接続1形式の同変性と再生条件](../GBG7/index.md#def-gbg7-connection-form)から、曲線を微分して
+と書ける。$A=s^*\omega$ を[GBG8 の局所接続形式](../GBG8/index.md#def-gbg8-local-potential)とする。右主作用に関する[主束接続形式の同変性と再生条件](../GBG7/index.md#def-gbg7-connection-form)から、曲線を微分して
 
 $$
 \omega_{p(t)}(\dot p(t))
@@ -125,7 +125,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg14-parallel-transport -->
-**定義の直接確認**。$P=\mathbb R\times U(1)$、$A=i c\,dx$、$\gamma(t)=t$（$0\le t\le L$）では
+**定義の確認**。$P=\mathbb R\times U(1)$、$A=i c\,dx$、$\gamma(t)=t$（$0\le t\le L$）では
 
 $$
 \operatorname{PT}_{\gamma}(0,g)
@@ -293,7 +293,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg14-associated-transport -->
-**定義の直接確認**。$P=\mathbb R\times U(1)$ とし、$\rho_q(e^{i\theta})=e^{iq\theta}$（$q\in\mathbb Z$）を1次元複素表現とする。$A=ic\,dx$ に沿う主束輸送は $g\mapsto e^{-icL}g$ なので、標準sectionに関する結合束の成分は
+**定義の確認**。$P=\mathbb R\times U(1)$ とし、$\rho_q(e^{i\theta})=e^{iq\theta}$（$q\in\mathbb Z$）を1次元複素表現とする。$A=ic\,dx$ に沿う主束輸送は $g\mapsto e^{-icL}g$ なので、標準sectionに関する結合束の成分は
 
 $$
 v(L)=e^{-iqcL}v(0).
