@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - GBG18
+  - GEO8
 forward_references: []
 concepts:
   - id: gauge.dirac-monopole-local-connection
