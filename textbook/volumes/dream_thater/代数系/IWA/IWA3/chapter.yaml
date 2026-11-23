@@ -1,0 +1,44 @@
+id: "IWA3"
+title: "岩澤代数・完備群環"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IWA2
+official_scope: []
+learning_objectives:
+  - 有限群環の形式和・積を定義し巡回群の具体例を計算できる
+  - 有限商群環の二重逆極限として完備群環を構成し遷移写像を説明できる
+  - 有限群環をZ_p[[T]]の商として表示し核と冪零性を証明できる
+  - 有限段の核と(p,T)進位相が共終であることを示し岩澤代数と冪級数環の位相環同型を証明できる
+  - 係数和写像の核・単元判定と生成元変更の座標公式を導出できる
+  - 有限段の関係式と無限段の非零元を区別しノルム型の和を計算できる
+definitions:
+  - { id: IWA3-DEF-01, name: 有限群環 }
+  - { id: IWA3-DEF-02, name: 岩澤代数・完備群環 }
+theorems:
+  - { id: IWA3-PROP-01, name: 有限群環の一変数表示 }
+  - { id: IWA3-LEM-01, name: 有限段の核とI進位相の一致 }
+  - { id: IWA3-THM-01, name: 岩澤代数の冪級数表示 }
+  - { id: IWA3-PROP-02, name: 係数和写像と単元判定 }
+  - { id: IWA3-PROP-03, name: 位相的生成元の変更 }
+canonical_examples:
+  - F_3[C_3]での形式和の積とT^3=0
+  - (Z/9)[C_3]でのT^3非零・T^6零
+  - T=gamma-1とaugmentationの定数項
+  - p=3でgamma^2への生成元変更と二項級数
+  - ノルム型の和S=1+g+g^2と零因子
+problem_patterns:
+  - IWA3-FINITE-RING-NILPOTENCY
+  - IWA3-MOD-P-POWER-NILPOTENCY
+  - IWA3-AUGMENTATION-COORDINATES
+  - IWA3-UNIT-GEOMETRIC-SERIES
+  - IWA3-OMEGA-FIRST-LAYER
+  - IWA3-TRANSITION-HOMOMORPHISM
+  - IWA3-GENERATOR-SUBSTITUTION
+  - IWA3-NONUNIT-NONZERODIVISOR
+  - IWA3-INVERSE-COEFFICIENT-RECURSION
+  - IWA3-INTEGRATED-FINITE-QUOTIENT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 3 }
