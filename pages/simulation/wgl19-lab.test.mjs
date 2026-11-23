@@ -79,6 +79,7 @@ test('editable sources include real RAF, loss/rebuild, GPU disposal and host ora
 
 test('WGL19 replays the audited GPU shader in the same sandbox, not a disconnected picture',async()=>{
   const js=await readFile(new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL19/audit.js',import.meta.url),'utf8');
+  assert.doesNotThrow(()=>new Function('gl','canvas','vertexSource','fragmentSource','report','settings',js));
   for(const part of ['const live={frame:0','function resetPlayback()','initialize();',
     'function nextFrame()','tick();live.remainderMs-=fixedMs',
     'drawScreen();','const values=readState();',
