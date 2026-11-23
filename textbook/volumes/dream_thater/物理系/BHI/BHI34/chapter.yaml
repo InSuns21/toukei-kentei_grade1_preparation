@@ -1,0 +1,53 @@
+id: BHI34
+title: "代替二次元模型との比較"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI33
+  - BHI27
+  - BHI30
+official_scope: []
+learning_objectives:
+  - JTとCGHSの重力作用・曲率条件・漸近境界の違いを数式で説明できる
+  - CGHS古典静的解の共形因子から曲率を直接再計算できる
+  - RSTのPolyakov量子補正・局所対項・入射境界条件が計算結果の一部であると説明できる
+  - 二次元CFTの片方向熱流からエネルギー流と粗視化エントロピー流の二倍則を導ける
+  - islandなしと極値化後のisland枝を区別して主項Page時刻と成立域を計算できる
+  - RST研究における寿命の約三分の一という主項結果と一般化できない条件を区別できる
+  - 二変数の局所補助模型で停留点・許容域・極値とHessianを全て検算できる
+  - 実際のRSTのisland端点のために必要な場の解・状態・cutoff・境界条件を列挙できる
+  - 入射熱浴と時間依存温度によるPage時刻の変化を積分し、寿命比が普遍的でないことを示せる
+  - 二次元のPage曲線と放射からの操作的な復号を混同せず四次元への停止線を説明できる
+definitions:
+  - { id: BHI34-DEF-01, name: "CGHSの古典二次元幾何" }
+  - { id: BHI34-DEF-02, name: "RSTとの比較に用いる条件台帳" }
+  - { id: BHI34-DEF-03, name: "蒸発の二枝を比較する先頭近似" }
+  - { id: BHI34-DEF-04, name: "端点の二変数局所補助模型" }
+theorems:
+  - { id: BHI34-PROP-01, name: "CGHS静的解の非一定曲率" }
+  - { id: BHI34-PROP-02, name: "二次元CFTの出射流と二倍則" }
+  - { id: BHI34-PROP-03, name: "一定流束のPage時刻と境界条件" }
+  - { id: BHI34-PROP-04, name: "補助模型の端点と極値" }
+  - { id: BHI34-PROP-05, name: "時間依存温度での交点の条件" }
+canonical_examples:
+  - CGHS真空外部パッチのdilatonと曲率の座標微分
+  - 入射真空と熱平衡入射の正味流束差
+  - 二次元CFTの出射エネルギー・エントロピー流の二倍則
+  - 一定温度二枝のPage時刻と区間条件
+  - 二変数局所補助模型の端点・Hessianと非存在域
+  - 指数冷却時の積分流と非三分の一の時間比
+problem_patterns:
+  - BHI34-CGHS-CURVATURE
+  - BHI34-CFT-THERMAL-FLUX
+  - BHI34-TWO-BRANCH-PAGE
+  - BHI34-TWO-COORDINATE-EXTREMUM
+  - BHI34-INCOMING-BOUNDARY
+  - BHI34-QES-NONEXISTENCE
+  - BHI34-PAGE-CORRECTION
+  - BHI34-VARIABLE-TEMPERATURE
+  - BHI34-JT-RST-SCOPE
+  - BHI34-INTEGRATED-PAGE-TIME
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 13, review: 6 }
