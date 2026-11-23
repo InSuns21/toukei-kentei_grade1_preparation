@@ -17,7 +17,7 @@ $F_n$ のイデアル類群 $\operatorname{Cl}(F_n)$ は有限アーベル群で
 
 [IWA4の類群逆極限への作用](../IWA4/index.md#thm-iwa4-iwasawa-action)に従い、層間のノルム $N_{F_{n+1}/F_n}:A_{n+1}\to A_n$ を使って $X=\varprojlim A_n$ を作ります。位相的生成元 $\gamma$ を一つ固定し、[IWA3の冪級数表示](../IWA3/index.md#thm-iwa3-power-series-isomorphism)で $\Lambda=\mathbb Z_p[[\gamma-1]]\simeq\mathbb Z_p[[T]]$ と同一視します。
 
-ここで $\Gamma=\operatorname{Gal}(F_\infty/F)$、$T=\gamma-1$ です。第 $n$ 層を固定する部分群 $\Gamma_n=\overline{\langle\gamma^{p^n}\rangle}$ の作用を忘れる商を **coinvariants** と呼びます。元 $m\in M$ に対して $(\gamma^{p^n}-1)m$ を零とするので、$T$ の表示では $\gamma^{p^n}-1=(1+T)^{p^n}-1$ を掛けた部分加群で割ります。これが次の定義の由来です。
+ここで $\Gamma=\operatorname{Gal}(F_\infty/F)$、$T=\gamma-1$ です。第 $n$ 層を固定する部分群を $\Gamma_n=\overline{\langle\gamma^{p^n}\rangle}$ と書きます。この部分群の作用による差を零にしたいので、各 $m\in M$ に対する $(\gamma^{p^n}-1)m$ を零とする商を考えます。$T$ の表示では $\gamma^{p^n}-1=(1+T)^{p^n}-1$ です。この手続きを次の coinvariants の定義で表します。
 
 <a id="def-iwa7-layer-quotient"></a>
 
@@ -124,7 +124,7 @@ T\cdot T^j=T^{j+1}\ (j<d-1),\qquad
 T\cdot T^{d-1}=-\sum_{j=0}^{d-1}b_jT^j
 $$
 
-で定まる伴行列 $C$ です。その特性多項式は $\det(xI-C)=W(x)$。代数閉包上で $C$ を上三角化すると対角成分は重複度込みで $\alpha_1,\ldots,\alpha_d$ となり、$g(C)$ の対角成分は $g(\alpha_i)$ です。従って $\det g(C)=\prod_i g(\alpha_i)$。重根があっても対角化は必要ありません。
+で定まる伴行列 $C$ です。変数 $x$ に対する行列式をこの伴行列の最後の列から展開すると、$\det(xI-C)=x^d+b_{d-1}x^{d-1}+\cdots+b_0=W(x)$ となります。代数閉包上で $C$ を上三角化すると対角成分は重複度込みで $\alpha_1,\ldots,\alpha_d$ となり、$g(C)$ の対角成分は $g(\alpha_i)$ です。従って $\det g(C)=\prod_i g(\alpha_i)$。重根があっても対角化は必要ありません。
 
 **二重根の直接例。** $p=3$、$W=(T+3)^2$ とし、$S=T+3$ を使います。基底 $(1,T)$ から $(1,S)$ への変換は $S=T+3$、逆変換は $T=S-3$ であり、変換行列の行列式は $1$ なので、$L=\Lambda/(W)$ の基底は $(1,S)$ でも表せます。商では $S^2=0$ です。$T=S-3$ を代入して二項展開すれば
 
