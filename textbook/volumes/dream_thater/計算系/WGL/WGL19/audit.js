@@ -275,16 +275,16 @@ return (async()=>{
         startPlayback();
       });
     });
-    // The parent runner first takes its final-frame RGBA8 pixel probes.
-    // Start the visible replay only on a later task, after that capture.
-    setTimeout(()=>safely(()=>{
+    // Parent runner captures the final RGBA8 oracle before dispatching this
+    // handshake. A timer alone could race readPixels on a slower GPU.
+    window.addEventListener('wgl19-initial-oracle-captured',()=>safely(()=>{
       if(!document.contains(canvas))return;
       resetPlayback();
       if(window.matchMedia?.('(prefers-reduced-motion: reduce)').matches){
         publish();return;
       }
       startPlayback();
-    }),220);
+    }),{once:true});
     window.matchMedia?.('(prefers-reduced-motion: reduce)').addEventListener?.('change',e=>{
       if(e.matches){halt();publish();}
     });
