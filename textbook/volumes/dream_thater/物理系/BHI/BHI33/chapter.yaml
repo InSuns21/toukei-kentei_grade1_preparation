@@ -1,0 +1,50 @@
+id: BHI33
+title: "回復写像と情報への操作的アクセス"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI32
+  - BHI13
+  - HOLO29
+  - QINF30
+official_scope: []
+learning_objectives:
+  - 放射の幾何学的ウェッジ、回復器の存在、操作的な復号と計算費用を区別できる
+  - 保持チャネルと参照系付きエンタングルメント忠実度の適用対象を明示できる
+  - 早期放射の二鍵量子ビットと後期放射の一量子ビットを使う等長符号を構成し基底像を検算できる
+  - 鍵付き符号で全放射と部分放射、残存系への縮約チャネルを行列要素から導出できる
+  - 残存系と参照系の完全デカップリングを非対角成分を含めて検証できる
+  - 全鍵放射に対する状態独立CPTP復号をKraus演算子で構成しPetz回復との一致を証明できる
+  - 部分鍵アクセスの位相消失とPetz回復の像上の一致を計算し最適忠実度1/2を証明できる
+  - 全鍵と部分鍵で相対エントロピーがどう変わるかを参照状態付きで計算できる
+  - 成功失敗フラグ付きアクセスの回復忠実度と最適性を導出できる
+  - 情報理論的な存在保証が一般の重力復号回路の計算量上界を与えない理由を説明できる
+definitions:
+  - { id: BHI33-DEF-01, name: "放射への操作的アクセス" }
+  - { id: BHI33-DEF-02, name: "鍵付き放射情報移送符号" }
+theorems:
+  - { id: BHI33-PROP-01, name: "鍵付き符号の保持チャネルと残存系" }
+  - { id: BHI33-THM-01, name: "鍵付き放射の完全復号とPetz回復" }
+  - { id: BHI33-PROP-02, name: "片方の鍵だけで起きる位相消失" }
+  - { id: BHI33-PROP-03, name: "鍵アクセス失敗率と回復忠実度" }
+canonical_examples:
+  - 早期後期のSWAP符号のCPTP保持チャネルと復号可能性
+  - 二量子ビットのPauli鍵と一量子ビット日記の等長符号
+  - 全鍵保持時の出力8次元Petz写像とKraus完全性
+  - 一鍵欠落時の非対角成分消失と最適エンタングルメント忠実度
+  - 全鍵と一鍵の相対エントロピー差の入力依存性
+  - 成功失敗フラグのある鍵収集の最適復号忠実度
+problem_patterns:
+  - BHI33-OPERATIONAL-CHANNEL
+  - BHI33-PAULI-KEYED-ISOMETRY
+  - BHI33-COMPLEMENTARY-DECOUPLING
+  - BHI33-PETZ-CHANNEL
+  - BHI33-PARTIAL-KEY-DEPHASING
+  - BHI33-RELATIVE-ENTROPY-DATA-PROCESSING
+  - BHI33-FLAGGED-ACCESS-FIDELITY
+  - BHI33-CLASSICAL-VS-QUANTUM-ACCESS
+  - BHI33-INTEGRATED-DECODER-AUDIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 11, review: 6 }
