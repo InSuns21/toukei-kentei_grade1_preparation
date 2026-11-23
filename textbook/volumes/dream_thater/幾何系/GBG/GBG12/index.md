@@ -119,7 +119,7 @@ $$
 
 ### 二つのパッチで何が起こるか
 
-二つの局所 section $s_1,s_2$ があり、重なりで $s_2=s_1g$ とする。各パッチの基準 section では局所接続を零に選んだとし、重みを $\varphi_1,\varphi_2$ とする。局所接続 $\omega^{(1)}$ の $s_2$ 表示は[GBG8の変換則](../GBG8/index.md#thm-gbg8-local-transform)により $g^{-1}dg$、$\omega^{(2)}$ の $s_1$ 表示は $g\,d(g^{-1})$ である。従って重なりで新しい接続の局所表示は
+二つの局所 section $s_1,s_2$ があり、重なりで $s_2=s_1g$ とする。ここで $g:U_1\cap U_2\to G$ は遷移関数で、$g^{-1}dg$ は基底方向の微分で得る[左 Maurer–Cartan 形式の引き戻し](../../../代数系/LIE/LIE4/index.md#def-lie4-maurer-cartan-form)、$g\,d(g^{-1})$ は逆関数 $g^{-1}$ に同じ形式を適用した略記である。行列 Lie 群ではこれらを行列積で計算でき、一般の Lie 群でも同じ引き戻しとして解釈する。各パッチの基準 section では局所接続を零に選んだとし、重みを $\varphi_1,\varphi_2$ とする。局所接続 $\omega^{(1)}$ の $s_2$ 表示は[GBG8の変換則](../GBG8/index.md#thm-gbg8-local-transform)により $g^{-1}dg$、$\omega^{(2)}$ の $s_1$ 表示は $g\,d(g^{-1})$ である。従って重なりで新しい接続の局所表示は
 
 $$
 A_1=\varphi_2\,g\,d(g^{-1}),\qquad
