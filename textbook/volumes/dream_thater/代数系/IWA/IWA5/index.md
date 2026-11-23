@@ -1,6 +1,6 @@
 # IWA5 岩澤加群のtorsion／擬同型
 
-[IWA4の類群逆極限への岩澤代数作用](../IWA4/index.md#thm-iwa4-iwasawa-action)で、円分塔の有限類群の情報を一つの $\Lambda$ 加群にまとめました。ただし、作用があるだけで、その加群が有限生成であるとも、torsionであるともいえません。例えば $\Lambda$ 自身は自分への作用を持ちますがtorsionではありません。
+[IWA4の類群逆極限への岩澤代数作用](../IWA4/index.md#thm-iwa4-iwasawa-action)で、円分塔の有限類群の情報を一つの $\Lambda$ 加群にまとめました。ただし、作用があるだけで、その加群が有限生成であるとも、torsionであるともいえません。ここでtorsionとは、各元が環の何らかの非零係数で消える性質です。例えば $\Lambda$ 自身は自分への作用を持ちますが、$1$ は非零係数では消せないのでtorsionではありません。
 
 本講の問いは、**無限塔から得た加群のどこを分類し、有限個のずれをどう扱うか**です。まず有限生成とtorsionを区別し、有限部分を忘れたときに同じ形となる比較方法を導入します。続いて、岩澤加群の構造定理の適用条件と、有限部分を無視する意味を例で確認します。$\Lambda=\mathbb Z_p[[T]]$ の環論的な分類に必要な部分は、どこから外部の可換環論を使うかも区別します。
 
@@ -79,7 +79,9 @@ $R$ のイデアル $(p,T)$ は、$p$ と $T$ の倍数の和からなる集合�
 
 最小の有限加群 $F=R/(p,T)$ を考えると、定数項を法 $p$ へ送ることにより $F\simeq\mathbb F_p$ です。$p$ も $T$ も零として作用します。$\mathfrak m^2=(p^2,pT,T^2)$ なので、$R/(p,T^2)$ では $1,T$ が $\mathbb F_p$ 上の基底となり、位数は $p^2$ です。
 
-高さ1の素イデアルとは、零イデアルとその素イデアルの間に別の素イデアルがない非零素イデアルをいいます。環 $R$ は2次元の局所整域であり、$(p)$ と $(T)$ は高さ1の素イデアル、$\mathfrak m$ は高さ2です。素イデアル $\mathfrak q$ に属さない係数を割れるようにした加群を $M_{\mathfrak q}$ と書きます。例えば $R/(p,T)$ では $\mathfrak q=(p)$ とすれば $T$ が可逆になる一方、$T$ は加群を消すので $(R/(p,T))_{(p)}=0$ です。$\mathfrak q=(T)$ でも $p$ を可逆にするため零になります。
+高さ1の素イデアルとは、零イデアルとその素イデアルの間に別の素イデアルがない非零素イデアルをいいます。以下では可換環論の入力として、$R$ が2次元Noether正則局所環かつ一意分解整域であることを使います。このとき $(p)$ と $(T)$ は高さ1の素イデアル、$\mathfrak m$ は高さ2であり、非零の高さ1素イデアルは既約元一つで生成され、その局所化は離散付値環です。また、非零イデアルの根基が $\mathfrak m$ なら、ある $n$ で $\mathfrak m^n$ を含みます。ここでNoetherとは任意のイデアルが有限生成であること、正則局所とは極大イデアルの最小生成元の数が環の次元に等しい局所環であることをいいます。離散付値環とは、非零元が一つの素元（局所的な一様化元）の冪と単元の積で表される局所整域です。これらの環論的性質の証明は本講では入力として扱います。
+
+素イデアル $\mathfrak q$ に属さない係数を分母として許した加群を $M_{\mathfrak q}$ と書き、元を $m/s$（$m\in M$、$s\notin\mathfrak q$）で表します。局所化で $m/1=0$ となるのは、ある $s\notin\mathfrak q$ が $sm=0$ を満たすとき、かつそのときに限ります。例えば $R/(p,T)$ では $\mathfrak q=(p)$ とすれば $T$ が可逆になる一方、$T$ は加群を消すので $(R/(p,T))_{(p)}=0$ です。$\mathfrak q=(T)$ でも $p$ を可逆にするため零になります。
 
 このように、高さ1の場所で全て消える有限部分を**擬零**と捉えます。具体的な判定は次で十分です。
 
@@ -94,9 +96,7 @@ $R$ のイデアル $(p,T)$ は、$p$ と $T$ の倍数の和からなる集合�
 **定義の確認**。 $N=R/(p,T)$ を取ります。任意の高さ1素イデアル $\mathfrak q$ は、極大イデアル $\mathfrak m=(p,T)$ とは異なるので $p,T$ の少なくとも一方を含みません。$\mathfrak q$ に含まれない方を局所化で可逆にすると、その元は元の加群 $N$ を零にするため $N_{\mathfrak q}=0$ です。よって擬零です。
 <!-- definition-example-end -->
 
-環 $R$ に関する次の事実を使います。これはNoether環論の入力であり、その証明にはWeierstrass準備や局所環の次元論が必要です。後続のIWA6では準備定理による具体的な計算方法を学びます。証明の出典は末尾のSharifi講義ノート第2章です。
-
-**環論の入力。** $R$ は2次元Noether正則局所環かつ一意分解整域であり、非零の高さ1素イデアルは既約元一つで生成されます。その局所化は離散付値環です。また、非零イデアルの根基が $\mathfrak m$ なら、ある $n$ で $\mathfrak m^n$ を含みます。
+上で用いた環論の入力の証明には、Weierstrass準備や局所環の次元論が必要です。後続のIWA6では準備定理による具体的な計算方法を学びます。証明の出典は末尾のSharifi講義ノート第2章です。
 
 <a id="prop-iwa5-pseudonull-finite"></a>
 
@@ -120,23 +120,41 @@ $$
 
 は有限集合の部分集合からなるので停止します。従って、ある $k$ で $L=\mathfrak m^kN=\mathfrak m L$ です。
 
-$L$ は有限生成です。生成元 $l_1,\ldots,l_r$ を $\mathfrak m$ 係数で互いの線形結合に表すと、係数行列 $A$ と列 $l$ について $(I-A)l=0$ となります。ところが
+$L$ は有限集合であるため有限生成です。$L=\mathfrak mL$ とは、各生成元 $l_i$ を他の生成元の $\mathfrak m$ 係数の線形結合で表せることです。そこで
 
 $$
-\det(I-A)\equiv1\pmod{\mathfrak m}
+l_i=\sum_{j=1}^r a_{ij}l_j\quad(1\le i\le r),\qquad a_{ij}\in\mathfrak m
 $$
 
-なので行列式は $R$ の単元です。余因子行列を掛けると $l=0$、従って $\mathfrak m^kN=0$ です。
+と書きます。$A=(a_{ij})\in M_r(R)$ を係数の $r\times r$ 行列、$l=(l_1,\ldots,l_r)^{\mathsf T}$ を生成元の列とすると、関係式は $(I_r-A)l=0$ です。$I_r$ は $r$ 次単位行列、上付き $\mathsf T$ は転置を表し、冪級数変数 $T$ とは別の記号です。全ての $a_{ij}$ は $\mathfrak m$ に属するため
+
+$$
+\det(I_r-A)\equiv\det I_r=1\pmod{\mathfrak m}
+$$
+
+です。[単元判定](../IWA3/index.md#prop-iwa3-augmentation)より行列式は $R$ の単元です。余因子行列 $\operatorname{adj}(I_r-A)$ の恒等式
+
+$$
+\operatorname{adj}(I_r-A)(I_r-A)=\det(I_r-A)I_r
+$$
+
+を左から作用させると $\det(I_r-A)l=0$ となり、単元の逆数を掛けて $l=0$ です。従って $L=\mathfrak m^kN=0$ です。
 
 高さ1素イデアル $\mathfrak q$ は $\mathfrak m$ と異なり、$\mathfrak m^k$ のある元が $\mathfrak q$ の外にあります。その元は局所化で可逆ですが $N$ を消すので $N_{\mathfrak q}=0$ です。
 
-逆に $N$ を擬零とします。$N=0$ なら結論は成立しますから、$N\ne0$ とします。$N$ の消去イデアルを $I=\operatorname{Ann}_R(N)$ と置きます。
+逆に $N$ を擬零とします。$N=0$ なら結論は成立しますから、$N\ne0$ とします。$N$ の消去イデアルを $I=\operatorname{Ann}_R(N)=\{a\in R:aN=0\}$ と置きます。$I$ の根基 $\sqrt I$ は、ある正整数 $n$ について $a^n\in I$ となる元 $a\in R$ 全体のイデアルです。
 
 各高さ1素イデアル $\mathfrak q$ で $N_{\mathfrak q}=0$ なので、$N$ の有限個の生成元それぞれを消す分母を選べます。これらの積は $\mathfrak q$ の外にあり、$N$ の全生成元を消します。従って $I$ はどの高さ1素イデアルにも含まれません。特に $(p)$ の外に元を持つため $I\ne0$ です。また $N\ne0$ より $I\ne R$ です。
 
 $R$ は次元2の局所整域であり、零・高さ1・高さ2の素イデアルのうち $I$ を含みうるのは、高さ2の $\mathfrak m$ だけです。従って $\sqrt I=\mathfrak m$ となり、前節で明示したNoether環論の入力から、ある $k$ で $\mathfrak m^k\subseteq I$ です。
 
-$R/\mathfrak m^k$ は有限集合です。実際、次数 $j<k$ の $T^j$ の係数は法 $p^{k-j}$ で指定され、$j\ge k$ の項は零なので、有限個の有限剰余類で全て表せます。$N$ はこの有限環上の有限生成加群なので有限集合です。
+$R/\mathfrak m^k$ は有限集合です。実際、
+
+$$
+\mathfrak m^k=(p^k,p^{k-1}T,\ldots,pT^{k-1},T^k)
+$$
+
+なので、次数 $j<k$ の $T^j$ の係数は法 $p^{k-j}$ で指定され、$j\ge k$ の項は零です。従って、有限個の有限剰余類で全て表せます。$N$ はこの有限環上の有限生成加群なので有限集合です。
 <!-- proof-end -->
 
 上の証明では有限生成性・局所化と、Noether環論から必要になる入力を分けました。「有限な加群」と「有限生成な加群」は同じではありません。
@@ -186,16 +204,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\iota([f])=0$ なら $f\in(p)$ かつ $f\in(T)$ です。$f=pa$、$f=Tb$ と書けば、$p$ を法とした等式 $T[b]_p=0$ が整域 $\mathbb F_p[[T]]$ で成立するため $b\in(p)$、従って $f\in(pT)$ です。逆の包含も明らかなので核は零です。
+$\iota([f])=0$ なら $f\in(p)$ かつ $f\in(T)$ です。$f=pa$、$f=Tb$ と書けば、$p$ を法とした等式 $T[b]_p=0$ が整域 $\mathbb F_p[[T]]$ で成立するため $b\in(p)$、従って $f\in(pT)$ です。逆に $(pT)$ の元は $p$ と $T$ の両方の倍数なので、$(pT)=(p)\cap(T)$、従って核は零です。
 
-$R/(T)\simeq\mathbb Z_p$ と識別し、写像
+$R/(T)\simeq\mathbb Z_p$ と識別し、$b\in\mathbb Z_p$ の法 $p$ の像を $\bar b\in\mathbb F_p$ と書きます。次の差写像を取ります。
 
 $$
 \delta:R/(p)\oplus R/(T)\longrightarrow\mathbb F_p,
 \qquad (u(T),b)\longmapsto u(0)-\bar b
 $$
 
-を取ります。$\delta$ は全射で、$\delta\iota([f])=0$ です。逆に $\delta(u,b)=0$ なら、$u(0)\equiv b\pmod p$ です。$u(T)$ を $\mathbb Z_p[[T]]$ に係数ごとに持ち上げた $U(T)$ を選び、定数項を $b$ に置き換えた
+を取ります。$\delta$ は任意の $c\in\mathbb F_p$ を $(c,0)$ の像として取れるため全射で、$\delta\iota([f])=0$ です。逆に $\delta(u,b)=0$ なら、$u(0)\equiv b\pmod p$ です。$u(T)$ を $\mathbb Z_p[[T]]$ に係数ごとに持ち上げた $U(T)$ を選び、定数項を $b$ に置き換えた
 
 $$
 f(T)=b+\bigl(U(T)-U(0)\bigr)
@@ -228,7 +246,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$R$ はNoether環なので有限生成加群 $M$ の部分加群 $\ker f$ も有限生成であり、商 $\operatorname{coker}f$ も有限生成です。局所化は完全なので各 $\mathfrak q$ で
+$R$ はNoether環なので有限生成加群 $M$ の部分加群 $\ker f$ も有限生成であり、商 $\operatorname{coker}f$ も有限生成です。局所化で核が保たれる理由を確かめます。$f(m)/s=0$ なら、ある $t\notin\mathfrak q$ が $tf(m)=0$ を満たし、$tm\in\ker f$ です。一方、$m/s=(tm)/(ts)$ なので局所化した核から来ます。逆向きの包含は $f(m)=0$ なら直ちに従います。余核は商 $N/f(M)$ の分母を同様に通すと局所化と交換します。従って各 $\mathfrak q$ で
 
 $$
 \ker f_{\mathfrak q}=(\ker f)_{\mathfrak q},\qquad
@@ -265,9 +283,41 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[有限生成torsionの共通消去元](#prop-iwa5-common-annihilator)より、$0\ne a\in R$ が存在して $aM=0$ です。$R$ は一意分解整域なので $a$ の既約因子は同伴を除き有限個 $q_1,\ldots,q_t$ です。$M_{\mathfrak q}$ が非零となる高さ1素イデアル $\mathfrak q$ は $a\in\mathfrak q$ を満たし、従って $\mathfrak q=(q_j)$ のいずれかです。
+$M=0$ なら $E=0$ とすれば零写像は同型であり、定理が成り立ちます。以下は $M\ne0$ とします。
 
-これら有限個の素イデアルの和集合の補集合を $S$ とします。環論の入力から、$S^{-1}R$ は、これらの高さ1素イデアルだけを極大イデアルとして残した1次元Noether一意分解整域です。したがって主イデアル整域になります。主イデアル整域上の有限生成torsion加群の分類定理を $S^{-1}M$ に適用すると、ある正整数 $e_i$ と上の $q_j$ から選んだ $q_i$ に対し
+[有限生成torsionの共通消去元](#prop-iwa5-common-annihilator)より、次を満たす元が存在します。
+
+$$
+0\ne a\in R,\qquad aM=0.
+$$
+
+$a$ が単元なら $M=0$ となって矛盾するため、$a$ は非単元です。$R$ の一意分解性により、単元 $u$、互いに非同伴な既約元 $q_j$、正整数 $r_j$ を用いて
+
+$$
+a=u\prod_{j=1}^t q_j^{r_j},\qquad t\ge1
+$$
+
+と書けます。高さ1素イデアル $\mathfrak q$ で $M_{\mathfrak q}\ne0$ なら $a\in\mathfrak q$ が必要です。素イデアル性から $q_j\in\mathfrak q$ となる $j$ があり、高さ1なので $\mathfrak q=(q_j)$ です。
+
+これら有限個の素イデアルの和集合の補集合を
+
+$$
+S=R\setminus\bigcup_{j=1}^t(q_j)
+$$
+
+とします。$S$ は積について閉じています。$S^{-1}R$ は $S$ の元を全て可逆にした環で、$S^{-1}M$ はその環上の加群です。
+
+有限個の素イデアルに対する素イデアル回避と前述の環論の入力から、$S^{-1}R$ の非零素イデアルは $(q_j)$ を局所化したものだけで、全て極大です。従ってこの環は1次元Noether一意分解整域です。
+
+この環の非零イデアル $J$ を任意に取ります。各極大イデアルで局所化すると離散付値環のイデアルになるため、整数 $n_j\ge0$ が存在し、そこでの $J$ の局所化は $(q_j^{n_j})$ です。そこで
+
+$$
+b=\prod_{j=1}^tq_j^{n_j}
+$$
+
+と置くと、$J$ と $(b)$ は全ての極大イデアルで局所化すると一致します。理想の一致は全ての極大イデアルでの局所化から判定できるため $J=(b)$ です。従って $S^{-1}R$ は主イデアル整域です。
+
+主イデアル整域上の有限生成torsion加群の分類定理を $S^{-1}M$ に適用すると、正整数 $e_i$ と上の $q_j$ から選んだ $q_i$ に対し
 
 $$
 g:S^{-1}M\overset{\sim}{\longrightarrow}
@@ -312,13 +362,13 @@ $M/TM$ が有限なら、生成元の $p$ の十分大きな冪倍を $TM$ に�
 <!-- proof-start -->
 ### 証明
 
-$M$ を $m_1,\ldots,m_r$ で生成し、$M/TM$ は $\mathbb Z_p$ 加群で有限なので、ある $a\ge1$ で $p^a(M/TM)=0$ です。従って各 $i$ について係数 $b_{ij}\in R$ を使って
+$M$ を $m_1,\ldots,m_r$ で生成します。$M/TM$ は有限な $\mathbb Z_p$ 加群です。有限な加法群に現れうる素数 $\ell\ne p$ の位数の元は、$\ell$ が $\mathbb Z_p$ の単元であるため零元しかありません。従って $M/TM$ は有限 $p$ 群であり、ある $a\ge1$ で $p^a(M/TM)=0$ です。従って各 $i$ について係数 $b_{ij}\in R$ を使って
 
 $$
 p^a m_i=T\sum_{j=1}^r b_{ij}m_j
 $$
 
-と書けます。列ベクトル $v=(m_1,\ldots,m_r)^{\mathsf t}$ と行列 $B=(b_{ij})$ を取ると $(p^a I_r-TB)v=0$ です。この行列の余因子行列を左から掛ければ
+と書けます。列ベクトル $v=(m_1,\ldots,m_r)^{\mathsf T}$ と $r\times r$ 係数行列 $B=(b_{ij})$ を取ると、各生成元の関係式を並べた行列方程式は $(p^a I_r-TB)v=0$ です。この行列の余因子行列を左から掛ければ
 
 $$
 d(T)v=0,\qquad d(T)=\det(p^aI_r-TB)
@@ -341,7 +391,13 @@ $R=\mathbb Z_p[[T]]$ とする。$R$、$R/(p)$、$R/(T)$ の各加群が有限�
 - ID: IWA5-A1
 
 <!-- solution-start -->
-**詳細解答。** いずれも $1$ の像で生成できるので有限生成です。$R$ では $a\cdot1=a\ne0$（$a\ne0$）なのでtorsionではありません。$R/(p)$ では $p$ が全元を零にし、$R/(T)$ では $T$ が全元を零にするので、後二者はtorsionです。$R/(p)\simeq\mathbb F_p[[T]]$、$R/(T)\simeq\mathbb Z_p$ はともに無限集合です。ここでは元の個数ではなく $R$ の非零係数による消滅を判定しています。
+**詳細解答。** 三つとも $1$ の像で生成できるので有限生成です。それぞれのtorsion性を調べます。
+
+- $R$：$a\cdot1=a\ne0$（$a\ne0$）なのでtorsionではありません。
+- $R/(p)$：非零係数 $p$ が全元を零にするのでtorsionです。
+- $R/(T)$：非零係数 $T$ が全元を零にするのでtorsionです。
+
+また $R/(p)\simeq\mathbb F_p[[T]]$、$R/(T)\simeq\mathbb Z_p$ はともに無限集合です。元の個数ではなく、$R$ の非零係数による消滅を判定するのが定義です。
 <!-- solution-end -->
 
 ### A2. 共通消去元
@@ -369,7 +425,19 @@ $F=R/(p,T^2)$ を $\mathbb F_p$ 加群として表示し、位数と $T$ の作�
 - ID: IWA5-A3
 
 <!-- solution-start -->
-**詳細解答。** 係数を法 $p$ へ還元し $T^2=0$ とするので、任意の元は一意に $a+bT$（$a,b\in\mathbb F_p$）と書けます。従って $F\simeq\mathbb F_p\oplus\mathbb F_pT$、位数は $p^2$ です。$T(a+bT)=aT$ となり、$T$ の作用は一般には零でない一方 $T^2F=0$ です。$\mathfrak m^2=(p^2,pT,T^2)$ は $F$ を零にするので、[擬零と有限性](#prop-iwa5-pseudonull-finite)から擬零です。
+**詳細解答。** 係数を法 $p$ へ還元し $T^2=0$ とするので、任意の元は一意に $a+bT$（$a,b\in\mathbb F_p$）と書けます。従って
+
+$$
+F\simeq\mathbb F_p\oplus\mathbb F_pT,\qquad |F|=p^2.
+$$
+
+$T$ の作用を基底 $1,T$ で計算すると
+
+$$
+T(a+bT)=aT,\qquad T^2(a+bT)=0.
+$$
+
+よって $T$ は一般には零作用でない一方、$T^2F=0$ です。$\mathfrak m^2=(p^2,pT,T^2)$ は $F$ を零にするので、[擬零と有限性](#prop-iwa5-pseudonull-finite)から擬零です。
 <!-- solution-end -->
 
 ### A4. 有限なずれを見つける
@@ -402,7 +470,23 @@ $R/(pT)\to R/(p)\oplus R/(T)$ の剰余写像が単射であることを示し�
 - ID: IWA5-B1
 
 <!-- solution-start -->
-**詳細解答。** $[f]$ が両成分で零なら $f=pa=Tb$ です。$\mathbb F_p[[T]]$ で $T[b]_p=0$ なので $b=pc$ と書け、$f=pTc$、従って核は零です。一方 $(0,1)\in R/(p)\oplus R/(T)$ は共通の $f$ から得られません。もし得られれば $f\bmod p=0$ から $f(0)\equiv0\pmod p$、$f\bmod T=1$ から $f(0)=1$ となって矛盾します。[余核の計算](#prop-iwa5-residue-pseudoiso)で示した差写像 $\delta(u,b)=u(0)-\bar b$ は全射で核が剰余写像の像なので、余核は $\mathbb F_p$、位数は $p$ です。
+**詳細解答。** $[f]$ が両成分で零なら $f=pa=Tb$ です。$\mathbb F_p[[T]]$ で $T[b]_p=0$ なので、整域性から $b=pc$ と書けます。従って
+
+$$
+f=Tb=pTc\in(pT),\qquad \ker\iota=0.
+$$
+
+一方、$(0,1)\in R/(p)\oplus R/(T)$ は共通の $f$ から得られません。得られるとすると、法 $p$ と法 $T$ の条件がそれぞれ
+
+$$
+f(0)\equiv0\pmod p,\qquad f(0)=1
+$$
+
+を要求して矛盾します。[余核の計算](#prop-iwa5-residue-pseudoiso)の差写像 $\delta(u,b)=u(0)-\bar b$ は全射で核が $\iota$ の像なので、
+
+$$
+\operatorname{coker}\iota\simeq\mathbb F_p,\qquad |\operatorname{coker}\iota|=p.
+$$
 <!-- solution-end -->
 
 ### B2. 局所化が有限誤差を消す
@@ -424,7 +508,13 @@ $M=R/(p^2+T)$ とする。$M/TM$ の位数を求め、非零消去元を挙げ�
 - ID: IWA5-B3
 
 <!-- solution-start -->
-**詳細解答。** $M/TM\simeq R/(T,p^2+T)$ です。$T=0$ を代入すると $p^2+T$ は $p^2$ になるので、この商は $\mathbb Z_p/(p^2)$、位数は $p^2$ です。$M$ は $1$ の像で生成され、$p^2+T\ne0$ が全元を消すのでtorsionです。これは[有限な $T$ 商の命題](#prop-iwa5-finite-coinvariants)の結論と一致します。逆向きの反例は $R/(T)$ で、$T$ が全てを消すのでtorsionですが $M/TM\simeq\mathbb Z_p$ は無限です。
+**詳細解答。** $M/TM$ では $T=0$ を代入するので、
+
+$$
+M/TM\simeq R/(T,p^2+T)\simeq\mathbb Z_p/(p^2),\qquad |M/TM|=p^2.
+$$
+
+$M$ は $1$ の像で生成され、非零元 $p^2+T$ が全元を消すためtorsionです。これは[有限な $T$ 商の命題](#prop-iwa5-finite-coinvariants)の結論と一致します。逆向きには $M'=R/(T)$ を反例とします。$T$ が $M'$ の全元を消すためtorsionですが、$TM'=0$ なので $M'/TM'\simeq\mathbb Z_p$ は無限です。
 <!-- solution-end -->
 
 ### B4. 有限生成性がどこで働くか
@@ -472,7 +562,7 @@ $M=R/(pT)\oplus R/(T^2)\oplus R/(p,T)$ とし、$E=R/(p)\oplus R/(T)\oplus R/(T^
 
 1. $M$ は三つの巡回加群の直和なので3元で生成できます。第1成分を $pT$、第2成分を $T^2$、第3成分を $p$ で消せます。共通の非零消去元は例えば $pT^2$ です。$pT^2$ は $pT$、$T^2$、$p$ のいずれの倍数でもあるので全元を消し、[有限生成torsionの共通消去元](#prop-iwa5-common-annihilator)からtorsionです。
 
-2. 第1成分に[剰余写像 $\iota$](#prop-iwa5-residue-pseudoiso)、第2成分に恒等写像、第3成分に零写像を用いて
+2. 第1成分に[剰余写像 $\iota$](#prop-iwa5-residue-pseudoiso)、第2成分に恒等写像、第3成分に零写像を用います。ここで $\iota(u)$ は $R/(p)\oplus R/(T)$ の2成分をまとめて表すので、$E$ の3成分表示では $\iota(u)$ の2成分に $v$ を続けます。
 
 $$
 f:M\longrightarrow E,\quad
