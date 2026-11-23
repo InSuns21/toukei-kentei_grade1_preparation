@@ -84,9 +84,9 @@ $$
 ### 証明
 
 法 $p$ の非零元 $a$ はFermatの小定理から $f(a)\equiv0\pmod p$ を満たします。また
-$
+$$
 f'(a)=(p-1)a^{p-2}\not\equiv0\pmod p.
-$
+$$
 これは[Henselの単純根の持ち上げ](../../ANF/ANF10/index.md#thm-anf10-hensel-simple)の仮定です。
 
 実際、$1\le k\le n$ とし、$f(d)\equiv0\pmod{p^k}$ を満たす代表整数 $d$ を取ります。次の桁の候補は $d+tp^k$（$0\le t<p$）です。二項展開の二次以上の項は $p^{k+1}$ で割り切れるので
@@ -210,9 +210,9 @@ $\Delta$ の持ち上げの両立性で固定体の包含を出し、商群の�
 [有限段の持ち上げ](#prop-iwa2-teichmueller-lifting)は $\Delta_{n+1}$ を $\Delta_n$ に還元します。具体的に $d\in\Delta_{n+1}$ の $E_{n+1}$ への制限は $\bar d\in\Delta_n$ です。
 
 任意の $x\in K_n=E_{n+1}^{\Delta_n}$ に対して
-$
+$$
 d(x)=\bar d(x)=x
-$
+$$
 となるので、$\Delta_{n+1}$ は $K_n$ を固定します。従って $K_n\subseteq K_{n+1}$ です。なお $K_0=E_1^{G_1}=\mathbb Q$。Galois対応と[積分解](#thm-iwa2-odd-splitting)により
 $$
 \operatorname{Gal}(K_n/\mathbb Q)
@@ -234,9 +234,9 @@ $$
 =-1
 $$
 なので $\alpha$ は $X^3-3X+1$ の根です。この三次多項式は有理根の候補 $\pm1$ のどちらも根に持たず、$\mathbb Q$ 上既約です。従って
-$
+$$
 [\mathbb Q(\alpha):\mathbb Q]=3=[K_1:\mathbb Q].
-$
+$$
 複素共役で固定されることも確認済みなので、$K_1=\mathbb Q(\alpha)$ です。[IWA1の円分第一層の計算](../IWA1/index.md#thm-iwa1-layer-tower)で扱った次数3の層は、ここでは $g=4$ の作用 $\alpha\mapsto\zeta_9^4+\zeta_9^{-4}$ を持つGalois拡大として見えます。
 
 ## 5. 素数2では何が変わるか
@@ -301,14 +301,14 @@ $$
 ## 6. Frobeniusで分解を読む
 
 円分塔の群が計算できると、素数 $\ell\ne p$ の分解も読めます。[素数冪円分体の非分岐性](../../ANF/ANF22/index.md#prop-anf22-prime-power-degree)から、この $\ell$ は非分岐です。算術的Frobeniusは剰余体で $x\mapsto x^\ell$ と作用し、円分体の根には次のように作用します。
-$
+$$
 \zeta_{p^{n+1}}\longmapsto\zeta_{p^{n+1}}^\ell.
-$
+$$
 
 以下、商群の元を剰余類 $[a]=a\Delta_n\in G_{n+1}/\Delta_n$ で表します。[直積分解](#thm-iwa2-odd-splitting)を使うと、対応する $U_n$ 座標は
-$
+$$
 u_a=\omega_n(a\bmod p)^{-1}a\in U_n
-$
+$$
 です。これは有限部分 $\Delta_n$ を取り除いて主単元部分だけを残す操作です。
 
 <a id="prop-iwa2-frobenius-projection"></a>
@@ -491,9 +491,9 @@ $-1\equiv15$ は $\langle3\rangle$ に属さないため、法16では符号群�
 法8以上（$n\ge1$）では、$3$ の冪は法8で $1$ または $3$ となり、$-1\equiv7\pmod8$ を含みません。法16で見た $\langle3\rangle$ は符号群の別の補群ですが、$V_n$ とは異なります。
 
 一方、最下段の法4では $3\equiv-1\pmod4$ なので
-$
+$$
 \langle3\rangle=\Delta_0^{(2)}\ne V_0=\{1\}.
-$
+$$
 この段では符号群の補群になりません。全段で主単元部分 $V_n$ の指数座標をそろえるなら、$1\bmod4$ の $5$ を生成元に使います。
 <!-- solution-end -->
 
