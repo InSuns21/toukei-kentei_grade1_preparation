@@ -28,7 +28,14 @@ $a_i$ のうち最初にその最小付値を達成する添字も一意に定�
 > d(f)=\min\{i\ge0:v_p(a_i)=\mu(f)\}
 > $$
 >
-> と定める。$f=p^{\mu(f)}f_0$ と書くと、$f_0$ の $T^{d(f)}$ の係数は $p$ 進単元で、それより低次数の係数はすべて $p$ の倍数である。零冪級数には $\mu,d$ を定義しない。
+> と定める。$f=p^{\mu(f)}f_0$、$f_0=\sum_{i\ge0}b_iT^i$ と書くと、$d=d(f)$ に対して
+
+$
+b_i\in p\mathbb Z_p\ (0\le i<d),\qquad
+b_d\in\mathbb Z_p^\times
+$
+
+> が成り立つ。零冪級数には $\mu,d$ を定義しない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa6-orders -->
