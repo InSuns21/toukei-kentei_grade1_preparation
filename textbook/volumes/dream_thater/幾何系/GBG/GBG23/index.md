@@ -40,7 +40,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg23-total-chern -->
-**定義の確認**。$\mathbb R^4$ の積 $U(2)$ 束では、標準基底から定まる全域のユニタリ枠を選べる。この枠で[共変微分の局所公式](../GBG9/index.md#thm-gbg9-local-formula)により $\nabla=d+A$ と表し、$A$ は反Hermite行列値1形式となる。
+**定義の確認**。$\mathbb R^4$ の積 $U(2)$ 束では、標準基底から定まる全域のユニタリ枠を選べる。この枠で[結合束の共変微分の局所公式](../GBG9/index.md#thm-gbg9-local-formula)により $\nabla=d+A$ と表し、$A$ は反Hermite行列値1形式となる。
 
 従って $A^\dagger=-A$ がユニタリ接続の条件であり、[曲率の構造方程式](../GBG10/index.md#thm-gbg10-local-formula)を適用できる。
 
@@ -537,7 +537,7 @@ $$
 
 第一項の微分は[前問で導出した式](#ex-gbg23-b02)から $2d\,\operatorname{tr}(a\wedge F_t)$ となる。
 
-第二項では、$\operatorname{tr}\dot F_t=d\operatorname{tr}a$（跡は交換子項を消す）であり、[曲率のBianchi恒等式](../GBG11/index.md#thm-gbg11-bianchi-local)から $d\operatorname{tr}F_t=0$ となる。ここでも $t$ に関する $\frac{d}{dt}$ と基底上の外微分 $d$ を区別し、$\deg(\operatorname{tr}a)=1$ を使うと
+第二項では、$\operatorname{tr}\dot F_t=d\operatorname{tr}a$（跡は交換子項を消す）であり、[主束曲率の Bianchi 恒等式・局所形式](../GBG11/index.md#thm-gbg11-bianchi-local)から $d\operatorname{tr}F_t=0$ となる。ここでも $t$ に関する $\frac{d}{dt}$ と基底上の外微分 $d$ を区別し、$\deg(\operatorname{tr}a)=1$ を使うと
 
 $$
 \begin{aligned}
