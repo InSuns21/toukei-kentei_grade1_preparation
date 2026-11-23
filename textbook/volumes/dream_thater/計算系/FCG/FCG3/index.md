@@ -396,7 +396,407 @@ $$
 
 **改造**：編集欄のJSでは、[厳密逆追跡足点](#def-fcg3-backtrace)を後退Euler足点へ置換できる。頂点GLSLとフラグメントGLSLも独立編集し再コンパイルできる。右側の表示倍率を5から10へ変更すると、物理値でなく**誤差mapの見え方**が変わる。構文エラープリセットでシェーダのコンパイル失敗を観察できる。隔離された不透明originのiframeでのみ学習者JSを実行するが、GPUハングの完全防止は保証しない。初期ソースを変えた場合、初期CPU予測との差をそのまま誤答判定には使わない。
 
-格子幅の影響は独立CPU実装の $N=16,32,64$ の結果を**同じ物理時刻**に揃えて第5節で定義した格子誤差で比較する。編集JSの $N$ だけ変更しても、シェーダの格子サイズやテクスチャ仕様が揃わないため、収束比較とはならない。
+**格子比較をする。** ラボの「実移流格子 N×N」で $N=32,64,96$ を選び、同じ物理step（例えば16、32）と初期染料半径で実行する。選んだ $N$ は編集する `advection.js` のセル幅 $h=1/N$、補間、Float64格子、GPUに渡すR8テクスチャのすべてへ反映される。`advection.frag` は `textureSize` からセル参照を計算する。
+
+結果画面の数値格子面積和 $M_h$、解析標本の面積和、$L_{1,h}$、最大誤差、ピークを同じ物理時刻で比較する。物理刻み # FCG3 染料移流の数値拡散はどこから来るか
+
+[FCG2の時刻別格子標本](../FCG2/index.md#def-fcg2-scalar-snapshot)では解析式を各時刻に評価し、GPUへ渡した。しかし染料を流れで運ぶには、**次の時刻の濃度**を計算しなければならない。[FCG1の軌道追跡](../FCG1/index.md#def-fcg1-tracer-samples)を逆向きに使えば、新しいセルへ来た染料が前の時刻にどこにいたか分かる。問題は、その出発位置が旧格子のセル中心と一致しないことである。
+
+ここでいう「数値拡散」は物理モデルにない補間由来の平滑化を指す。拡散係数を導く詳細は後続の数値PDE講義 [FDM4の数値拡散](../../FDM/FDM4/index.md#def-fdm4-numerical-diffusion) で扱い、この講義では具体的な観測と計算から意味を確かめる。
+
+本講では速度場を指定し、**染料だけを移流**する。圧力・粘性・Navier–Stokes方程式の速度更新は扱わない。厳密な回転運動を使っているのに、格子の染料がぼやける理由を、補間・境界・時間刻み・表示誤差に分けて追う。
+
+直接前提は[FCG2の格子・R8表示](../FCG2/index.md#def-fcg2-r8-snapshot)である。物理的な染料輸送、CPUの離散移流、GPUの量子化を同一視しない。
+
+## 1. 物理式から逆追跡の必要性へ
+
+領域を $D=[0,1]^2$ [m²]、位置の単位を m、時刻の単位を s、染料濃度 $q(x,y,t)\in[0,1]$ を無次元とする。偏微分 $\partial_tq,\partial_xq,\partial_yq$ は、それぞれ残る二変数を固定して一変数で微分することを表す。既知の速度 $\boldsymbol u=(u_x,u_y)$ [m/s] によって移されるだけで、物理拡散・反応・生成がない濃度は
+
+$$
+\frac{\partial q}{\partial t}
++u_x\frac{\partial q}{\partial x}
++u_y\frac{\partial q}{\partial y}=0
+$$
+
+を満たす。物理的な拡散項は**最初から入っていない**。
+
+速度に従う軌道 $\boldsymbol X(s)=(X_x(s),X_y(s))$ は $d\boldsymbol X/ds=\boldsymbol u(\boldsymbol X(s),s)$ で定まる。ここで $\partial_tq$ は位置 $(x,y)$ を固定した時刻 $t$ による偏微分であり、$d/ds$ は軌道と時刻をともに動かす合成関数の全微分である。連鎖律を成分ごとに適用すると、
+
+$$
+\begin{aligned}
+\frac{d}{ds}q(X_x(s),X_y(s),s)
+={}&\partial_tq(\boldsymbol X(s),s)\\
+&+\partial_xq(\boldsymbol X(s),s)\frac{dX_x}{ds}
++\partial_yq(\boldsymbol X(s),s)\frac{dX_y}{ds}\\
+={}&\bigl(\partial_tq+\boldsymbol u\cdot\nabla q\bigr)(\boldsymbol X(s),s)=0.
+\end{aligned}
+$$
+
+だから、同じ軌道に沿う濃度は一定である。新時刻のセル中心に到着した染料を知るには**そこから旧時刻へ遡る**。
+
+### 検算用の回転速度と初期値
+
+中心 $\boldsymbol c=(1/2,1/2)$ [m] の反時計回りの角速度を $\omega=2\pi$ [rad/s] とし、
+
+$$
+\boldsymbol u(x,y)=\bigl(-\omega(y-\tfrac12),\ \omega(x-\tfrac12)\bigr).
+
+$$
+
+偏微分から $\partial_xu_x+\partial_yu_y=0$。初期染料は中心 $(0.7,0.5)$、半径 $R=0.14$ [m] の塊とし、
+
+$$
+r=\sqrt{(x-0.7)^2+(y-0.5)^2},\quad
+q_0(x,y)=
+\begin{cases}
+(1-r^2/R^2)^2,&r<R,\\
+0,&r\ge R.
+\end{cases}
+
+$$
+
+この初期値は塊の縁で値も一階微分も0となるので連続微分可能である。回転中心から塊の全点までの距離は最大 $0.2+0.14=0.34$ m。厳密な回転はこの距離を変えず、全時刻で領域端から少なくとも0.16 m内側にある。したがって真の染料の領域外流出は起こらない。
+
+セルは下原点の $N=32$ 分割、$h=1/32$ [m]。中心を $\boldsymbol x_{ij}=((i+1/2)h,(j+1/2)h)$、$i,j\in\{0,\ldots,31\}$ とする。物理刻みを $\Delta t=1/32$ [s]、$t_n=n\Delta t$、$n=0,\ldots,32$ と固定する。配列の位置は $k=i+32j$ である。
+
+## 2. 新時刻から前時刻へ足点を戻す
+
+**逆追跡足点**とは、新時刻の位置に届く軌道の一つ前の時刻での位置である。到着点から旧時刻の濃度を参照する半Lagrange法では、まずこの足点を求める。一般の速度では軌道の微分方程式を近似的に逆積分するが、この回転なら厳密に分かる。一般速度での単純な近似は、新時刻の到着点 $\boldsymbol x$ から $\Delta t\,\boldsymbol u(\boldsymbol x,t_{n+1})$ だけ引く**後退Euler足点**である。
+
+なぜ回転の足点が次の座標式になるかを先に確認する。旧時刻 $t_n$ に位置 $\boldsymbol c+(a,b)$ にいた点について、$\tau=s-t_n$ と置くと、回転速度の軌道は
+
+$$
+\begin{aligned}
+X_x(s)&=\tfrac12+a\cos(\omega\tau)-b\sin(\omega\tau),\\
+X_y(s)&=\tfrac12+a\sin(\omega\tau)+b\cos(\omega\tau).
+\end{aligned}
+$$
+
+実際、$d\tau/ds=1$ なので
+
+$$
+\frac{dX_x}{ds}=-\omega(X_y-\tfrac12),\qquad
+\frac{dX_y}{ds}=\omega(X_x-\tfrac12)
+$$
+
+となり、第1節の速度場に従う。到着時刻 $t_{n+1}$ では $\theta=\omega\Delta t$、到着点の中心からの変位を $(d_x,d_y)$ として
+
+$$
+d_x=a\cos\theta-b\sin\theta,\qquad
+d_y=a\sin\theta+b\cos\theta.
+$$
+
+第1式を $\cos\theta$ 倍し第2式を $\sin\theta$ 倍して加えると、$\cos^2\theta+\sin^2\theta=1$ より $a=d_x\cos\theta+d_y\sin\theta$。同様に、第2式を $\cos\theta$ 倍し第1式を $\sin\theta$ 倍して引けば $b=-d_x\sin\theta+d_y\cos\theta$。この $(a,b)$ が旧時刻の変位である。
+
+<a id="def-fcg3-backtrace"></a>
+
+<!-- formal-statement-start -->
+### 定義（半Lagrange逆追跡足点）
+
+時刻 $t_{n+1}$ の到着セル中心 $\boldsymbol x_{ij}$ に対し、時刻 $t_n$ に同じ特性曲線上にあった位置を $\boldsymbol x^\star_{ij}$ といい、**逆追跡足点**と呼ぶ。第1節の回転速度の場合、$\theta=\omega\Delta t=\pi/16$、$d_x=x_{ij}-1/2,d_y=y_{ij}-1/2$ として、
+
+$$
+\boldsymbol x^\star_{ij}=
+\left(\frac12+d_x\cos\theta+d_y\sin\theta,\
+\frac12-d_x\sin\theta+d_y\cos\theta\right).
+
+$$
+
+一般速度に対する後退Euler近似は
+
+$$
+\widetilde{\boldsymbol x}^\star_{ij}=\boldsymbol x_{ij}-\Delta t\,\boldsymbol u(\boldsymbol x_{ij},t_{n+1})
+$$
+
+であり、上で定めた厳密足点とは区別する。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-fcg3-backtrace -->
+**定義の確認**： 到着点 $(3/4,1/2)$ の変位は $(1/4,0)$ なので、足点は
+
+$$
+\left(\frac12+\frac14\cos\frac\pi{16},\
+\frac12-\frac14\sin\frac\pi{16}\right).
+$$
+
+右端の点から**逆向き**にたどると右下に戻るので、第2成分の負号と一致する。これは足点の式を示すための点であり、実装の格子中心そのものではない。
+<!-- definition-example-end -->
+
+## 3. 足点の濃度を4つのセルから再構成する
+
+旧時刻の値を $Q^n_{ij}$ とする。足点 $(x^\star,y^\star)$ に旧セル中心がなければ、隣り合う4中心の値を補間する。左下中心の添字を
+
+$$
+i_0=\lfloor x^\star/h-1/2\rfloor,\quad
+j_0=\lfloor y^\star/h-1/2\rfloor
+$$
+
+と置き、その中心からの相対距離を $a=x^\star/h-1/2-i_0$、$b=y^\star/h-1/2-j_0$ とする。床関数の定義から常に $0\le a,b<1$ である。外側で $i_0=-1$ 等になるときは領域外の**仮想セル**を用いる。本講では領域外の旧値を0とする。これは**染料流入ゼロ**の補間境界条件であり、速度が壁を貫かない境界条件を解いたものではない。
+
+4点の重みが現れる理由も確かめる。まず下の2中心を水平に $a$ の割合で補間すると
+
+$$
+B_0=(1-a)Q^n_{i_0,j_0}+aQ^n_{i_0+1,j_0}
+$$
+
+を得る。上の2中心も同じ水平割合で
+
+$$
+B_1=(1-a)Q^n_{i_0,j_0+1}+aQ^n_{i_0+1,j_0+1}
+$$
+
+とする。最後に鉛直方向へ $b$ の割合だけ補間した $(1-b)B_0+bB_1$ を展開すれば、以下の4係数が得られる。これは格子値を表現する**二方向の一次補間**であり、行列や固有値による別の判定を仮定していない。
+
+<a id="def-fcg3-bilinear"></a>
+
+<!-- formal-statement-start -->
+### 定義（セル中心の双線形再構成）
+
+有限格子 $Q^n_{ij}$（$0\le i,j<32$）を領域外では0と延長する。任意の有限な足点 $(x^\star,y^\star)$ に対し、
+
+$$
+\begin{aligned}
+I_hQ^n(x^\star,y^\star)
+={}&(1-a)(1-b)Q^n_{i_0,j_0}
++a(1-b)Q^n_{i_0+1,j_0}\\
+&+(1-a)bQ^n_{i_0,j_0+1}
++abQ^n_{i_0+1,j_0+1}
+\end{aligned}
+
+$$
+
+を**セル中心の双線形再構成**と呼ぶ。各係数は水平・鉛直方向の線形重みの積である。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-fcg3-bilinear -->
+**定義の確認**： 左下・右下・左上・右上の旧値が $(1,0,0,0)$、$a=1/4$、$b=1/2$ の場合、係数は
+
+$$
+\bigl((1-a)(1-b),a(1-b),(1-a)b,ab\bigr)
+=\left(\frac38,\frac18,\frac38,\frac18\right).
+$$
+
+すべて非負で合計1。補間値は $3/8$ となり、元の左下値1より小さい。補間による混合は物理拡散係数を与えた結果ではない。
+<!-- definition-example-end -->
+
+## 4. 半Lagrange更新とCFL数
+
+足点を計算したら、旧濃度を双線形補間して新セルへ書く。同じ配列の旧値を上書きすると後のセルが更新済みの値を読むため、[FCG2で分けたCPU旧・新バッファ](../FCG2/index.md#def-fcg2-r8-snapshot)と同様に旧・新の別配列を使う。
+
+<a id="def-fcg3-advection-step"></a>
+
+<!-- formal-statement-start -->
+### 定義（半Lagrange染料更新）
+
+初期格子値を $Q^0_{ij}=q_0(\boldsymbol x_{ij})$ とし、[厳密逆追跡足点](#def-fcg3-backtrace)、[双線形再構成](#def-fcg3-bilinear)、外側0を用いて
+
+$$
+Q^{n+1}_{ij}=I_hQ^n(\boldsymbol x^\star_{ij}),
+\quad n=0,\ldots,31,\quad i,j=0,\ldots,31
+
+$$
+
+と定める。この到着点から旧時刻を参照する更新を**半Lagrange染料移流法**という。新値の書込みは旧値と異なる配列で行い、全セル更新後に交換する。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-fcg3-advection-step -->
+**定義の確認**： ある到着セルの足点が前節の $a=1/4,b=1/2$ の位置にあり、旧4セルが $(1,0,0,0)$ なら、[半Lagrange更新](#def-fcg3-advection-step)は新セルへ $3/8$ を書く。旧セルから染料質量を押し出す方式ではなく、**到着セルごとに旧濃度を読む方式**である。実験コードではこれを全1024セルで反復する。
+<!-- definition-example-end -->
+
+移動距離を格子幅で割る目安の無次元量を **Courant数（CFL数）** $C=\|\boldsymbol u\|\Delta t/h$ とする。塊中心 $(0.7,0.5)$ では
+
+$$
+C=\frac{(2\pi)(0.2)(1/32)}{1/32}=0.4\pi\approx1.257.
+$$
+
+陽的上流差分などの $C\le1$ といった安定性制約を、そのまま半Lagrange法へ適用しない。逆追跡は一セルを越える足点も参照できる。一方で大きな刻みは足点計算や形状再構成の**精度**を保証しない。
+
+<a id="prop-fcg3-range"></a>
+
+<!-- formal-statement-start -->
+### 命題（双線形更新の値域不増大）
+
+[半Lagrange更新](#def-fcg3-advection-step)の足点がすべて有限座標を持ち、外部仮想セル値は0とする。$M\ge0$ とし、初期値が
+
+$$
+0\le Q^0_{ij}\le M\qquad(0\le i,j<32)
+$$
+
+を満たすとき、任意の $n=0,\ldots,32$ で
+
+$$
+0\le Q^n_{ij}\le M\qquad(0\le i,j<32)
+$$
+
+が成り立つ。CFL数の上限は仮定しない。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+4つの重みが非負で合計1であることから一回の更新を挟んでも値域が保たれる。
+
+<!-- proof-start -->
+### 証明
+
+$n=0$ では仮定より成立する。時刻 $n$ の旧格子値が区間 $[0,M]$ に入ると仮定する。仮想セルも0なので、任意の足点の周囲の4値 $z_1,\ldots,z_4$ は同じ区間内にある。[双線形再構成](#def-fcg3-bilinear)の4係数は $0\le a,b<1$ から非負で、
+
+$$
+(1-a)(1-b)+a(1-b)+(1-a)b+ab
+=((1-a)+a)((1-b)+b)=1
+$$
+
+となる。よって $0\le \sum_{k=1}^4 w_kz_k\le\sum_{k=1}^4w_kM=M$。この和が新しい $Q^{n+1}_{ij}$ であり、全てのセルに当てはまる。帰納法で結論を得る。条件に $C$ は現れない。$\square$
+<!-- proof-end -->
+
+この性質は値が爆発しないことを保証するが、**質量・形状・位相の精度**を保証しない。
+
+## 5. 正しい回転と離散更新の違い
+
+第2節で成分表示と逆変換を検算した、中心 $\boldsymbol c$ の周りの角度 $\phi$ の回転を行列で表す。列ベクトル $(a,b)^{\mathsf T}$ を $(a\cos\phi-b\sin\phi,\ a\sin\phi+b\cos\phi)^{\mathsf T}$ へ送る行列を
+
+$$
+R(\phi)=\begin{pmatrix}\cos\phi&-\sin\phi\\ \sin\phi&\cos\phi\end{pmatrix}
+$$
+
+と定める。行列の積 $R(\phi)R(-\phi)$ の対角成分は $\cos^2\phi+\sin^2\phi=1$、非対角は $\cos\phi\sin\phi-\sin\phi\cos\phi=0$ なので、逆回転は $R(-\phi)$ である。
+
+<a id="prop-fcg3-rotation"></a>
+
+<!-- formal-statement-start -->
+### 命題（回転の厳密な逆追跡と一周後の復元）
+
+中心 $\boldsymbol c=(1/2,1/2)$、角速度 $\omega=2\pi$ [rad/s] とし、速度場 $\boldsymbol u(x,y)=(-\omega(y-1/2),\omega(x-1/2))$ を平面 $\mathbb R^2$ 全体で定める。任意の連続微分可能な初期濃度 $q_0:\mathbb R^2\to\mathbb R$ に対し、$\mathbb R^2\times[0,1]$ 上で
+
+$$
+\partial_tq+\boldsymbol u\cdot\nabla q=0,\qquad
+q(\boldsymbol x,0)=q_0(\boldsymbol x)
+$$
+
+を満たす連続微分可能な解は一意で、
+
+$$
+q(\boldsymbol x,t)
+=q_0\bigl(\boldsymbol c+R(-\omega t)(\boldsymbol x-\boldsymbol c)\bigr)
+$$
+
+となる。特に第1節の染料 $q_0$ は平面全体で同じ式により定義でき、この仮定を満たすため、$q(\boldsymbol x,1)=q_0(\boldsymbol x)$ が全ての $\boldsymbol x\in D$ について成り立つ。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+前向き回転が速度場の軌道であることを微分で確認し、濃度の特性曲線上での一定性を適用する。
+
+<!-- proof-start -->
+### 証明
+
+初期位置を $\boldsymbol z$、$\boldsymbol z-\boldsymbol c=(a,b)$ とし、$\boldsymbol X(t)=\boldsymbol c+R(\omega t)(\boldsymbol z-\boldsymbol c)$ と置く。成分は
+
+$$
+X_x=\tfrac12+a\cos\omega t-b\sin\omega t,\quad
+X_y=\tfrac12+a\sin\omega t+b\cos\omega t.
+$$
+
+ここで $X'_x=dX_x/dt$、$X'_y=dX_y/dt$ は時刻 $t$ による通常の導関数であり、濃度 $q$ の偏微分 $\partial_tq$ と区別する。成分ごとに微分すると、
+
+$$
+X'_x=-\omega(a\sin\omega t+b\cos\omega t)=-\omega(X_y-\tfrac12),
+$$
+
+$$
+X'_y=\omega(a\cos\omega t-b\sin\omega t)=\omega(X_x-\tfrac12).
+$$
+
+第1節の回転速度と一致するので、$\boldsymbol X$ は指定速度の軌道である。回転行列の逆変換 $R(-\omega t)R(\omega t)=I$ より、この軌道が時刻 $t$ に $\boldsymbol x$ を通るなら、初期位置は
+
+$$
+\boldsymbol z=\boldsymbol c+R(-\omega t)(\boldsymbol x-\boldsymbol c)
+$$
+
+と一意に決まる。
+
+第1節で成分ごとに確認した連鎖律と移流方程式から、任意の連続微分可能な解は軌道上で一定である。したがって全点で
+
+$$
+q(\boldsymbol x,t)=q_0(\boldsymbol z)
+$$
+
+でなければならず、これが一意性を与える。逆にこの右辺を候補として定めると、$q_0$ と回転が連続微分可能なので候補も連続微分可能である。任意の軌道上で $\boldsymbol z$ は不変だから候補の軌道沿いの導関数は0であり、第1節の連鎖律から移流方程式を満たす。$t=0$ には $R(0)=I$ なので初期条件も満たす。これで存在と一意性が示せた。
+
+$t=1$ では $\omega t=2\pi$、$R(-2\pi)=I$ より $q(\boldsymbol x,1)=q_0(\boldsymbol x)$。$\square$
+<!-- proof-end -->
+
+この結論は**厳密解**の一回転復元であり、補間を32回繰り返した数値値の復元ではない。
+
+比較用の解析値を $E^n_{ij}=q(\boldsymbol x_{ij},t_n)$ とする。数値的な格子面積積分および誤差を
+
+$$
+M_h^n=h^2\sum_{i,j}Q^n_{ij},\qquad
+M_{\mathrm{exact},h}^n=h^2\sum_{i,j}E^n_{ij},\qquad
+L_{1,h}^n=h^2\sum_{i,j}|Q^n_{ij}-E^n_{ij}|
+
+$$
+
+と定める。濃度は無次元なのでこれらの単位は m²。連続積分は回転で保存されるが、回転した関数を固定した格子中心で標本化した $M_{\mathrm{exact},h}^n$ は多少変わり得る。**数値場・解析標本の面積和を両方表示**する。
+
+## 6. 値域が守られても総和は保存されない
+
+<a id="prop-fcg3-nonconservation"></a>
+
+<!-- formal-statement-start -->
+### 命題（非保存性と数値拡散の区別）
+
+[値域不増大](#prop-fcg3-range)は、一般の線形・双線形補間による逆追跡更新について $\sum Q^{n+1}_{ij}=\sum Q^n_{ij}$ を含意しない。各出力が非負で和1の重み付き平均でも、格子総和の増減は起こり得る。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+補間する先の**行方向**の係数和が1であることは、元の値がいくつのセルから参照されたかという**列方向**の係数和が1であることとは違う。
+
+<!-- proof-start -->
+### 証明
+
+2セルの旧値を $(Q_0,Q_1)=(1,0)$ とする。各新値を $Q'_r=\sum_{k=0}^1w_{rk}Q_k$ と書くと、行番号 $r$ は**到着セル**、列番号 $k$ は**参照する旧セル**である。係数を行ごとに並べた行列は二つの補間式をまとめたものであり、格子総和は
+
+$$
+\sum_{r=0}^1Q'_r
+=\sum_{k=0}^1\left(\sum_{r=0}^1w_{rk}\right)Q_k
+$$
+
+となる。したがって各行の和が1でも、各列の和が1とは限らない。空間的に異なる足点からの線形補間として、次の重みを選ぶ。
+
+$$
+\begin{pmatrix}Q'_0\\Q'_1\end{pmatrix}
+=\begin{pmatrix}3/4&1/4\\1/2&1/2\end{pmatrix}
+\begin{pmatrix}1\\0\end{pmatrix}
+=\begin{pmatrix}3/4\\1/2\end{pmatrix}
+$$
+
+を考える。各行の係数は非負で和1だから、出力も $[0,1]$ 内。しかし旧総和は1、新総和は $3/4+1/2=5/4$。入力側の第1列の係数和が $5/4$ であるためである。この1次元例は縦方向の補間割合を0とした2次元双線形の例にも埋め込める。よって各出力の値域保存だけでは総和保存は導けない。$\square$
+<!-- proof-end -->
+
+この反例は**本講の回転の数値質量が必ず増える**という意味ではない。符号も大きさも第5節の数値診断で測る。
+
+旧格子の隣り合う値を何度も平均することで鋭い輪郭が鈍ることを**数値拡散**という。これは物理式に熱拡散係数を付け加えたこととは異なる。少なくとも次の誤差を分離する。
+
+- **逆追跡誤差**：後退Euler足点では[厳密逆追跡足点](#def-fcg3-backtrace)からずれる。$\theta$ が小さいとき、厳密足点とEuler足点の差の主項は $-\theta^2(\boldsymbol x-\boldsymbol c)/2$。本講の初期コードは厳密足点でこれを取り除く。
+- **補間誤差**：厳密足点でも[双線形再構成](#def-fcg3-bilinear)の4値混合は元の連続濃度の真値に必ずしも一致せず、更新反復で輪郭が鈍り得る。
+- **表示誤差**：[FCG2のR8正規化](../FCG2/index.md#def-fcg2-r8-snapshot)による $\widehat Q=\operatorname{round}(255Q)/255$ の誤差は、[WGL17の量子化誤差](../../WGL/WGL17/index.md#prop-wgl17-unorm-error)から最大 $1/510$。色だけでは実数の格子誤差を測れない。
+
+## 7. JavaScript・GLSLの編集ラボで測る
+
+初期コードは毎回step0から指定stepまで**実際に1024セルの濃度を更新**する。CPUの旧・新配列を交換し、結果をR8の数値テクスチャ、解析値を別のR8テクスチャへ転送する。GPUが行うのは描画だけであり、GPUでNavier–Stokes方程式を解いたわけではない。
+
+左半分は数値濃度 $Q$ を青→赤で表示する。右半分は $|\widehat Q-\widehat E|$ を**5倍**して赤に表示し、差0の基準色はRGBA8の $(0,20,26,255)$ である。右側はR8後の誤差画像、診断ログに出す $L_{1,h}$ はFloat64の誤差と区別する。
+
+**アニメーションで観察する。** 「このコードで描画して観察する」を押すと、編集した半Lagrange移流のJavaScriptとGLSLを実行する。最初に指定stepの静止フレームでCPU/GPU画素を検算した**後**、同じ濃度格子・テクスチャを使って1/32秒ずつ更新し、画面を `requestAnimationFrame` で再描画する。観察速度は約8物理step/秒であり、数値刻み幅は変えない。描画画面をクリックまたはSpace/Enterで一時停止・再生できる。CPU検算表は初期の指定step時点の値なので、動いているフレームの色と逐一一致するとは限らない。動的な格子値を検算するときは一時停止し、明示的に実行し直してCPU/GPU基準を揃える。
+
+<iframe src="simulation/wgl-lab.html?lesson=FCG3" title="FCG3 半Lagrange移流のJS・GLSLを編集し誤差を比較する共通3タブラボ" loading="lazy" style="width:100%;height:1220px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
+
+**操作**：初期step1のCPU独立予測とGPU画素を比較する。1step、再生・一時停止、時刻0へ戻す、停止・破棄を試す。step32の1回転では、解析値が元に戻っても数値染料がどうなったか、格子質量 $M_h$、解析格子質量、$L_{1,h}$、最大誤差、ピークを診断する。クリックまたは矢印キー＋Enterで画素を検査できる。GPUが使えない場合はCPU独立数値だけを表示し、GPU照合は未達とする。
+
+**改造**：編集欄のJSでは、[厳密逆追跡足点](#def-fcg3-backtrace)を後退Euler足点へ置換できる。頂点GLSLとフラグメントGLSLも独立編集し再コンパイルできる。右側の表示倍率を5から10へ変更すると、物理値でなく**誤差mapの見え方**が変わる。構文エラープリセットでシェーダのコンパイル失敗を観察できる。隔離された不透明originのiframeでのみ学習者JSを実行するが、GPUハングの完全防止は保証しない。初期ソースを変えた場合、初期CPU予測との差をそのまま誤答判定には使わない。
+
+\Delta t=1/32`$ s は固定なので、$N$ を変えるとCourant数 $C$ も変わる。表示画素数は変えず、計算セル数による違いと見かけの補間を区別する。単なる画像の滑らかさを数値収束の証明とはしない。
 
 ## 8. 演習と詳細解答
 

@@ -1,17 +1,18 @@
 // Independent FCG3 CPU oracle. This does not execute learner JS/GLSL.
 export const FCG3_N=32, FCG3_DT=1/32, FCG3_OMEGA=2*Math.PI;
 const RADIUS=0.14;
-export function fcg3Initial(x,y) {
-  if(!Number.isFinite(x)||!Number.isFinite(y))throw new RangeError('non-finite point');
-  const s=((x-0.7)**2+(y-0.5)**2)/(RADIUS*RADIUS);
+export function fcg3Initial(x,y,radius=RADIUS) {
+  if(!Number.isFinite(x)||!Number.isFinite(y)||!Number.isFinite(radius)||radius<=0||radius>0.5)
+    throw new RangeError('invalid point/radius');
+  const s=((x-0.7)**2+(y-0.5)**2)/(radius*radius);
   return s<1?(1-s)**2:0;
 }
-export function fcg3Exact(x,y,steps) {
+export function fcg3Exact(x,y,steps,radius=RADIUS) {
   if(!Number.isInteger(steps)||steps<0||steps>32)throw new RangeError('steps 0..32');
   const angle=FCG3_OMEGA*FCG3_DT*steps,c=Math.cos(angle),s=Math.sin(angle);
   // The inverse of the exact rigid rotation maps the target to time zero.
   const dx=x-0.5,dy=y-0.5;
-  return fcg3Initial(0.5+c*dx+s*dy,0.5-s*dx+c*dy);
+  return fcg3Initial(0.5+c*dx+s*dy,0.5-s*dx+c*dy,radius);
 }
 export function fcg3Bilinear(q,x,y,N=FCG3_N) {
   if(!Number.isInteger(N)||N<2||!Number.isFinite(x)||!Number.isFinite(y))
@@ -23,11 +24,11 @@ export function fcg3Bilinear(q,x,y,N=FCG3_N) {
   return (1-u)*(1-v)*get(i,j)+u*(1-v)*get(i+1,j)+
     (1-u)*v*get(i,j+1)+u*v*get(i+1,j+1);
 }
-export function fcg3Grid(steps,N=FCG3_N) {
+export function fcg3Grid(steps,N=FCG3_N,radius=RADIUS) {
   if(!Number.isInteger(steps)||steps<0||steps>32||!Number.isInteger(N)||N<4||N>128)
     throw new RangeError('invalid step/grid');
   const center=(i)=>(i+0.5)/N;
-  let q=Float64Array.from({length:N*N},(_,k)=>fcg3Initial(center(k%N),center(Math.floor(k/N))));
+  let q=Float64Array.from({length:N*N},(_,k)=>fcg3Initial(center(k%N),center(Math.floor(k/N)),radius));
   const a=FCG3_OMEGA*FCG3_DT,c=Math.cos(a),s=Math.sin(a);
   for(let t=0;t<steps;t++) {
     const out=new Float64Array(N*N);
@@ -39,36 +40,39 @@ export function fcg3Grid(steps,N=FCG3_N) {
   }
   return q;
 }
-export function fcg3Metrics(steps,N=FCG3_N) {
-  const grid=fcg3Grid(steps,N),area=1/(N*N);
+export function fcg3Metrics(steps,N=FCG3_N,radius=RADIUS) {
+  const grid=fcg3Grid(steps,N,radius),area=1/(N*N);
   let mass=0,exactMass=0,l1=0,max=0,peak=0;
   for(let j=0;j<N;j++)for(let i=0;i<N;i++){
-    const k=i+N*j,exact=fcg3Exact((i+0.5)/N,(j+0.5)/N,steps);
+    const k=i+N*j,exact=fcg3Exact((i+0.5)/N,(j+0.5)/N,steps,radius);
     mass+=grid[k]*area;exactMass+=exact*area;
     l1+=Math.abs(grid[k]-exact)*area;max=Math.max(max,Math.abs(grid[k]-exact));
     peak=Math.max(peak,grid[k]);
   }
   return {mass,exactMass,l1,max,peak};
 }
-export function fcg3PixelCell(x,y,width,height){
+export function fcg3PixelCell(x,y,width,height,N=FCG3_N){
   if(!Number.isInteger(width)||!Number.isInteger(height)||width<64||height<64||
      width>1024||height>1024||width*height>524288||
+     !Number.isInteger(N)||N<4||N>128||
      !Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||x>=width||y>=height)
     throw new RangeError('invalid viewport/pixel');
   const left=(x+0.5)/width<0.5;
   const u=2*(x+0.5)/width-(left?0:1);
-  return {i:Math.min(31,Math.floor(32*u)),j:Math.min(31,Math.floor(32*(y+0.5)/height)),
+  return {i:Math.min(N-1,Math.floor(N*u)),j:Math.min(N-1,Math.floor(N*(y+0.5)/height)),
     panel:left?'density':'error'};
 }
 const enc=q=>Math.round(255*Math.max(0,Math.min(1,q)));
-export function expectedFCG3Samples(width,height,steps=1) {
-  const grid=fcg3Grid(steps);
-  const points=[[21,15,'density'],[16,16,'density'],[11,16,'density'],[21,15,'error'],[11,16,'error'],[16,16,'error']];
+export function expectedFCG3Samples(width,height,steps=1,N=FCG3_N,radius=RADIUS) {
+  const grid=fcg3Grid(steps,N,radius);
+  // Observe the same relative positions, not unrelated fixed physical cells.
+  const points=[[21,15,'density'],[16,16,'density'],[11,16,'density'],
+    [21,15,'error'],[11,16,'error'],[16,16,'error']];
   return points.map(([i,j,panel])=>{
     const x=Math.floor((i+0.5)*width/64+(panel==='error'?width/2:0));
     const y=Math.floor((j+0.5)*height/32);
-    const cell=fcg3PixelCell(x,y,width,height),k=cell.i+32*cell.j;
-    const numeric=grid[k],exact=fcg3Exact((cell.i+0.5)/32,(cell.j+0.5)/32,steps);
+    const cell=fcg3PixelCell(x,y,width,height,N),k=cell.i+N*cell.j;
+    const numeric=grid[k],exact=fcg3Exact((cell.i+0.5)/N,(cell.j+0.5)/N,steps,radius);
     const byte=enc(numeric),analyticByte=enc(exact);
     const rgba=cell.panel==='density'?[byte,38,255-byte,255]:
       [enc(Math.min(1,5*Math.abs(byte-analyticByte)/255)),20,26,255];
@@ -76,9 +80,9 @@ export function expectedFCG3Samples(width,height,steps=1) {
       rgba};
   });
 }
-export function compareFCG3Readback(actual,width,height,steps=1,tolerance=2){
+export function compareFCG3Readback(actual,width,height,steps=1,tolerance=2,N=FCG3_N,radius=RADIUS){
   if(!Number.isFinite(tolerance)||tolerance<0)throw new RangeError('invalid tolerance');
-  return expectedFCG3Samples(width,height,steps).map((p,k)=>{
+  return expectedFCG3Samples(width,height,steps,N,radius).map((p,k)=>{
     const a=actual[k],valid=!!a&&a.x===p.x&&a.y===p.y&&Array.isArray(a.rgba)&&
       a.rgba.length===4&&a.rgba.every(v=>Number.isInteger(v)&&v>=0&&v<=255);
     const difference=valid?p.rgba.map((v,i)=>Math.abs(v-a.rgba[i])):[Infinity,Infinity,Infinity,Infinity];

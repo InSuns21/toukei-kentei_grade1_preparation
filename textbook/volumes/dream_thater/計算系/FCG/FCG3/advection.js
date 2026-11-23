@@ -86,6 +86,7 @@ gl.disable(gl.SCISSOR_TEST);gl.disable(gl.CULL_FACE);
 gl.viewport(0,0,canvas.width,canvas.height);
 gl.clearColor(0,0,0,1);gl.clear(gl.COLOR_BUFFER_BIT);
 gl.drawArrays(gl.TRIANGLES,0,3);
+report('GRID','real '+N+'x'+N+' CPU cells per field; canvas '+canvas.width+'x'+canvas.height+' pixels; R8 nearest-neighbor texelFetch');
 report('TIME','physical step '+steps+'/32, t='+(steps*dt).toFixed(5)+' s, render != physics');
 report('METHOD','CPU updates old->new; exact inverse rotation foot + bilinear interpolation; zero exterior');
 report('MASS','area*sum q='+mass.toPrecision(9)+', exact sampled='+exactMass.toPrecision(9)+
@@ -93,7 +94,7 @@ report('MASS','area*sum q='+mass.toPrecision(9)+', exact sampled='+exactMass.toP
 report('ERROR','area*sum |q-exact|='+l1.toPrecision(7)+', max cell error='+maximum.toPrecision(7));
 report('PEAK','peak q='+peak.toPrecision(7)+'; convex weights bound q to [0,1]');
 report('DISPLAY','left=numerical q, right=5x abs(R8 numerical - R8 analytic); GPU draws only');
-report('R8','each texture 1024 bytes; R8 rounding separated from Float64 CPU metrics');
+report('R8','each texture '+(N*N)+' bytes; R8 rounding separated from Float64 CPU metrics');
 
 
 // FCG3 animated observation uses this *same edited* semi-Lagrangian solver

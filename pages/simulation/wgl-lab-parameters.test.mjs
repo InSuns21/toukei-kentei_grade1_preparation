@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {parametersFor, readLabParameter, writeLabParameter} from './wgl-lab-parameters.mjs';
+import {parametersFor, readLabParameter, writeLabParameter,verifiedFCG3Physics} from './wgl-lab-parameters.mjs';
 
 const base = new URL('../../textbook/volumes/dream_thater/計算系/', import.meta.url);
 const cases = [
@@ -119,4 +119,26 @@ test('G2 host mounts within the conditions tab, while execution remains opaque s
   assert.match(host, /setSources\(defaults\)/);
   assert.match(host, /localStorage\.setItem\(STORAGE_KEY/);
   assert.deepEqual(parametersFor('WGL1'), []);
+});
+
+
+test('FCG3 G2 grid and radius changes can be independently rechecked only for known source literals',async()=>{
+  const folder=new URL('FCG/FCG3/',base);
+  const [js,vertex,fragment]=await Promise.all(['advection.js','advection.vert','advection.frag']
+    .map(file=>readFile(new URL(file,folder),'utf8')));
+  const specs=parametersFor('FCG3'),defaults={js,vertex,fragment};
+  assert.deepEqual(specs.map(s=>s.id),['radius','grid']);
+  assert.deepEqual(verifiedFCG3Physics(js,vertex,fragment,defaults),{radius:0.14,N:32});
+  for(const N of [32,64,96]){
+    const edited=writeLabParameter(writeLabParameter(js,specs[0],0.24),specs[1],N);
+    assert.deepEqual(verifiedFCG3Physics(edited,vertex,fragment,defaults),{radius:0.24,N});
+    assert.deepEqual(readLabParameter(edited,specs[1]),{ok:true,value:N});
+    assert.equal(writeLabParameter(writeLabParameter(edited,specs[1],32),specs[0],0.14),js);
+  }
+  assert.throws(()=>writeLabParameter(js,specs[1],48),RangeError);
+  const expression=js.replace('const N=32,','const N=16*2,');
+  assert.equal(readLabParameter(expression,specs[1]).ok,false);
+  assert.equal(verifiedFCG3Physics(expression,vertex,fragment,defaults),null);
+  assert.equal(verifiedFCG3Physics(js.replace('steps=settings.steps','steps=0'),vertex,fragment,defaults),null);
+  assert.equal(verifiedFCG3Physics(js,vertex,fragment.replace('5.0*abs','10.0*abs'),defaults),null);
 });
