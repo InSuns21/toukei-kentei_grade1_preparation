@@ -311,13 +311,13 @@ $$
 
 と書く。格子点 $x_j$ と出力成分 $a$ を固定すると、上の配列の等式から、各成分の差について
 
-$
+$$
 \begin{aligned}
 |(\mathcal F_NS_Nh)_{j,a}-(\mathcal Gh)_a(x_j)|
 &\le |(\mathcal F_NS_Nh)_{j,a}-(\mathcal Fh)_a(x_j)|\\
 &\quad+|(\mathcal Fh)_a(x_j)-(\mathcal Gh)_a(x_j)|.
 \end{aligned}
-$
+$$
 
 右辺第1項をすべての $j,a$ で最大化した値は[解像度移植誤差](#def-pml2-17-grid-error) $E_N(h)$ であり、第2項は連続関数の全点での最大ノルム以下である。すなわち
 
