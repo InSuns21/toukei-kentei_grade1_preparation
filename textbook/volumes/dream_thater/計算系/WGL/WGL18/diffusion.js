@@ -32,9 +32,10 @@ function uniform(name){
   return location;
 }
 const uState=uniform('u_state'),uStage=uniform('u_stage'),
-      uRate=uniform('u_rate'),uTarget=uniform('u_targetSize');
+      uRate=uniform('u_rate'),uTarget=uniform('u_targetSize'),uGrid=uniform('u_gridSize');
 gl.uniform1i(uState,0);
 gl.uniform1f(uRate,rate);
+gl.uniform2i(uGrid,4,4);
 const vao=gl.createVertexArray(),buffer=gl.createBuffer();
 if(!vao||!buffer)throw new Error('fullscreen triangle resources unavailable');
 gl.bindVertexArray(vao);gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
