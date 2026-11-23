@@ -10,7 +10,9 @@
 
 ## 1. 三つの無限小作用へ言い換える
 
-$SU(2)$ のLie環は反エルミートかつ跡が零の $2\times2$ 行列からなります。実基底 $A_i=-i\sigma_i/2$（$i=1,2,3$）を取り、$i$ 倍を許した複素線形結合を考えると、三つの扱いやすい行列が得られます。ここでの $i$ は虚数単位であり、$\sigma_i$ は [Pauli行列](../LREP5/index.md#def-lrep5-pauli-model)です。
+$SU(2)$ のLie環は反エルミートかつ跡が零の $2\times2$ 行列からなります。[Pauli行列](../LREP5/index.md#def-lrep5-pauli-model) $\sigma_1,\sigma_2,\sigma_3$ を用い、実基底を $A_j=(-i/2)\sigma_j$（$j=1,2,3$）と取ります。ここで $i^2=-1$ は虚数単位、$j$ は三つの行列を区別する添字です。
+
+実基底の係数を実数から複素数へ広げることを**複素化**といいます。$A_j$ の複素線形結合はすべて跡零であり、以下の三つの組合せが任意の跡零複素 $2\times2$ 行列を張ります。この空間を $\mathfrak{sl}_2(\mathbb C)$ と記します。実Lie環とその複素化を区別したうえで、三つの生成子を導入します。
 
 <a id="def-lrep6-sl2-triple"></a>
 <!-- formal-statement-start -->
@@ -27,7 +29,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep6-sl2-triple -->
-**定義の確認**。 [SU(2)のLie環の表示](../../LIE/LIE3/index.md#thm-lie3-unitary)に従う $A_1,A_2,A_3$ を代入します。例えば $iA_1=\frac12\begin{pmatrix}0&1\\1&0\end{pmatrix}$、$A_2=\frac12\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ なので、その差は上の $E$ です。和は $F$ になります。三つは複素ベクトル空間として、跡零行列の対角成分・上三角成分・下三角成分をそれぞれ張ります。
+**定義の確認**。 [SU(2)のLie環の表示](../../LIE/LIE3/index.md#thm-lie3-unitary)に従う $A_1,A_2,A_3$ を代入します。$A_3=(-i/2)\operatorname{diag}(1,-1)$ なので $2iA_3=H$ です。また
+$$
+iA_1=\frac12\begin{pmatrix}0&1\\1&0\end{pmatrix},
+\qquad
+A_2=\frac12\begin{pmatrix}0&-1\\1&0\end{pmatrix}
+$$
+だから差が $E$、和が $F$ になります。任意の跡零複素行列は
+$$
+\begin{pmatrix}a&b\\c&-a\end{pmatrix}
+=aH+bE+cF\qquad(a,b,c\in\mathbb C)
+$$
+と一意に書けます。したがってこの三つの行列は、実Lie環の複素化を跡零行列で表すための基底になっています。
 <!-- definition-example-end -->
 
 行列の積を確かめると、$HE=E$、$EH=-E$、$HF=-F$、$FH=F$、$EF=\operatorname{diag}(1,0)$、$FE=\operatorname{diag}(0,1)$ です。
@@ -146,7 +159,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-複素数体上で $H$ は少なくとも一つ固有値を持ちます。有限次元ゆえ固有値集合は有限です。その中で実部が最大の $\lambda$ を選び、$0\ne v$、$Hv=\lambda v$ を満たすようにします。[ウェイトの上昇式](#def-lrep6-highest-weight)に至る直前の計算から $H(Ev)=(\lambda+2)Ev$ です。もし $Ev\ne0$ なら $\lambda+2$ が固有値となって実部最大性に反します。従って $Ev=0$ です。
+複素数体上で $H$ は少なくとも一つ固有値を持ちます。有限次元ゆえ固有値集合は有限です。その中で実部が最大の $\lambda$ を選び、$0\ne v$、$Hv=\lambda v$ を満たすようにします。[交換関係](#lem-lrep6-brackets)と $Hv=\lambda v$ から $H(Ev)=E(Hv)+2Ev=(\lambda+2)Ev$ です。もし $Ev\ne0$ なら $\lambda+2$ が固有値となって実部最大性に反します。従って $Ev=0$ です。
 
 $F^kv$ が非零なら [昇降公式](#lem-lrep6-ladder)によりその $H$ 固有値は $\lambda-2k$ です。これらは $k$ ごとに異なるので、非零の $F^kv$ が無限に存在すると有限次元性に反します。そこで $F^nv\ne0$、$F^{n+1}v=0$ となる最大の整数 $n\ge0$ を選びます。後者に $E$ を掛けると
 $$
@@ -174,6 +187,8 @@ $$
 
 抽象的な基底の存在だけでは、元の $SU(2)$ がどう作用するか分かりません。ここで二変数の斉次多項式を使います。斉次とは、各項の $x,y$ の次数の和が同じであることです。例えば $x^2,xy,y^2$ は次数2で、三つを係数付きで足した空間は三次元です。
 
+[テンソル積表現](../LREP4/index.md#def-lrep4-tensor-product)を $n$ 個重ね、テンソル因子をどのように並べ替えても変わらないベクトルの空間を**対称テンソルべき** $\operatorname{Sym}^n(\mathbb C^2)$ と呼びます（$n=0$ では $\mathbb C$）。この空間では $e_1$ と $e_2$ の個数だけが基底の種類を決め、その個数を単項式 $x^{n-k}y^k$ に記録できます。次の定義は、この対応を使って群作用を具体化するものです。
+
 <a id="def-lrep6-symmetric-power"></a>
 <!-- formal-statement-start -->
 > **定義（斉次多項式表現）**  
@@ -193,7 +208,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep6-symmetric-power -->
-**定義の確認**。 $n=2$ とし、$P=x^2+xy$、$U=\operatorname{diag}(u,u^{-1})$（$|u|=1$）を代入すると
+**定義の確認**。 $D_n(U)$ は行ベクトル $z=(x,y)$ を $zU$ へ変換してから多項式 $P$ を評価する線形作用です。$n=2$ とし、$P=x^2+xy$、$U=\operatorname{diag}(u,u^{-1})$（$|u|=1$）を取ります。この $U$ は $U^\dagger U=I_2$ かつ $\det U=1$ なので $SU(2)$ の元です。代入すると
 $$
 D_2(U)P=(ux)^2+(ux)(u^{-1}y)=u^2x^2+xy
 $$
@@ -209,7 +224,12 @@ $$
 
 $e_1$ を $n-k$ 個、$e_2$ を $k$ 個含む単純テンソルを、異なる並べ方すべてにわたって平均します。この対称テンソルを単項式 $x^{n-k}y^k$ に対応させます。
 
-作用 $U^{\otimes n}$ はテンソル因子の置換と可換なので、対称部分空間を保ちます。基底ベクトルの像を展開すると、多項式への代入作用と一致します。この対応は基底を基底へ写す線形同型で、群の作用にも両立します。
+作用 $U^{\otimes n}$ はテンソル因子の置換と可換なので、対称部分空間を保ちます。作用と代入が一致する理由を $n=2$ で確かめましょう。$U=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ とすれば、列ベクトルへの作用は $Ue_1=ae_1+ce_2$、$Ue_2=be_1+de_2$ です。$s=\tfrac12(e_1\otimes e_2+e_2\otimes e_1)$ とおくと
+$$
+(U\otimes U)s
+=ab(e_1\otimes e_1)+(ad+bc)s+cd(e_2\otimes e_2).
+$$
+これは $xy$ の像 $(ax+cy)(bx+dy)=abx^2+(ad+bc)xy+cdy^2$ と係数ごとに一致します。一般の $n$ でも各テンソル因子に $U$ を作用させて展開すると $P(zU)$ の単項式展開になり、この対応は基底を基底へ写す線形同型で群作用にも両立します。
 
 <a id="thm-lrep6-polynomial-model"></a>
 <!-- formal-statement-start -->
@@ -225,7 +245,7 @@ $$
 > となり、$v_k=x^{n-k}y^k$ に対して [分類定理](#thm-lrep6-classification)の三作用を与える。従って有限次元複素既約 $\mathfrak{sl}_2(\mathbb C)$ 表現はすべて $V_n$ と同値である。
 <!-- formal-statement-end -->
 
-**証明の見取り図。** 行ベクトル $z$ に右から $U$ を掛けて多項式へ代入するので、群法則は行列積の結合律そのものです。$\exp(tH),\exp(tE),\exp(tF)$ を代入して $t=0$ で微分し、単項式への作用を計算します。最後は、任意の不変部分空間が必ず $x^n$ を含み、下降作用で全基底を含むことを示します。
+**証明の見取り図。** 行ベクトル $z$ に右から $U$ を掛ける代入作用の群法則を検算します。次に $SU(2)$ の実Lie環方向での微分を連鎖律で求め、その複素線形拡張を $H,E,F$ に適用します。最後は、任意の不変部分空間が必ず $x^n$ を含み、下降作用で全基底を含むことを示します。
 
 <!-- proof-start -->
 ### 証明
@@ -240,16 +260,26 @@ $$
 $$
 $D_n(I)=I$、$D_n(U)^{-1}=D_n(U^{-1})$ です。各係数は $U$ の成分の次数 $n$ の多項式なので滑らかです。単項式 $x^{n-k}y^k$ ($0\le k\le n$) が基底であるため次元は $n+1$ です。
 
-まずLie環の複素化上で微分を計算します（$H,E,F$ は複素Lie環元なので、必要な微分は実方向の微分から複素線形に延長したものです）。$z\exp(tH)=(e^tx,e^{-t}y)$、$z\exp(tE)=(x,y+tx)$、$z\exp(tF)=(x+ty,y)$ です。ゆえに
+微分と複素化をつなぎます。$Y\in\mathfrak{sl}_2(\mathbb C)$ に対し、$zY=(\alpha(x,y),\beta(x,y))$ と書きます。$\partial_xP$ は $y$ を固定した $x$ による偏微分、$\partial_yP$ は $x$ を固定した $y$ による偏微分です。実変数 $t$ による全微分は連鎖律から
 $$
 \begin{aligned}
-\left.\frac{d}{dt}\right|_{0}P(e^tx,e^{-t}y)
-&=x\partial_xP-y\partial_yP,\\
-\left.\frac{d}{dt}\right|_{0}P(x,y+tx)&=x\partial_yP,\\
-\left.\frac{d}{dt}\right|_{0}P(x+ty,y)&=y\partial_xP.
+L_YP(z)
+&:=\left.\frac{d}{dt}\right|_{t=0}P(z+t\,zY)\\
+&=\left.\frac{d}{dt}\right|_{t=0}
+ P(x+t\alpha(x,y),y+t\beta(x,y))\\
+&=\alpha(x,y)\partial_xP+\beta(x,y)\partial_yP
 \end{aligned}
 $$
-これは $\mathfrak{sl}_2(\mathbb C)$ への複素線形拡張を求めるための計算で、$\exp(tH)$ などを $SU(2)$ の実一パラメータ部分群と主張していません。単項式を微分すると
+となります。$X\in\mathfrak{su}(2)$ のとき $\exp(tX)=I_2+tX+O(t^2)$ なので、[群表現の微分](../LREP3/index.md#thm-lrep3-differentiation)における $dD_n(X)$ はこの $L_X$ に一致します。上式は $Y$ の成分について複素線形だから、$L_Y$ が $dD_n$ の複素線形拡張です。特に
+$$
+zH=(x,-y),\qquad zE=(0,x),\qquad zF=(y,0)
+$$
+を代入すると
+$$
+H=x\partial_x-y\partial_y,\qquad
+E=x\partial_y,\qquad F=y\partial_x
+$$
+が得られます。ここで左辺の $H,E,F$ は多項式への作用素、右辺は偏微分作用素です。複素Lie環元 $H,E,F$ に対応する指数曲線を $SU(2)$ 内の実曲線と取り違える必要はありません。単項式へ作用させると
 $$
 \begin{aligned}
 Hv_k&=(n-k-k)x^{n-k}y^k=(n-2k)v_k,\\
@@ -263,7 +293,7 @@ $$
 p_j(T)=\prod_{\substack{0\le k\le n\\k\ne j}}
 \frac{T-(n-2k)}{(n-2j)-(n-2k)}
 $$
-は $p_j(H)w=c_jv_j$ を与えます（$n=0$ の空積は1）。$W$ の不変性から $v_j\in W$ です。$E^jv_j=j!v_0$ なので $v_0\in W$ であり、さらに
+は $p_j(H)w=c_jv_j$ を与えます。ここで $T$ は一変数多項式の形式変数であり、各分母は $2(k-j)\ne0$ です（$n=0$ の空積は1）。$W$ の不変性から $v_j\in W$ です。$E^jv_j=j!v_0$ なので $v_0\in W$ であり、さらに
 $$
 F^kv_0=n(n-1)\cdots(n-k+1)v_k\ne0
 \quad(0\le k\le n)
@@ -388,7 +418,13 @@ D_n(-I_2)P(x,y)=P(-x,-y)
 =\sum_{k=0}^n c_k(-x)^{n-k}(-y)^k
 =(-1)^nP(x,y).
 $$
-[LREP5で求めた被覆の核](../LREP5/index.md#thm-lrep5-kernel-surjectivity)は $\{I_2,-I_2\}$ です。[被覆核による降下判定](../LREP3/index.md#thm-lrep3-descent-criterion)を $D_n$ とこの核に適用すると、$D_n(-I_2)=I_{V_n}$ が必要十分です。これは $(-1)^n=1$、すなわち $n$ が偶数という条件と同値です。$\square$
+[LREP5で求めた被覆の核](../LREP5/index.md#thm-lrep5-kernel-surjectivity)は $\{I_2,-I_2\}$ で、[二重被覆](../LREP5/index.md#thm-lrep5-double-cover)は滑らかな全射です。$D_n=\overline D_n\circ\Phi$ と因数分解できるなら、$\Phi(-I_2)=I_3$ より $D_n(-I_2)=I_{V_n}$ が必要です。
+
+逆に $D_n(-I_2)=I_{V_n}$ とします。任意の $R\in SO(3)$ の持ち上げ $U\in SU(2)$ を選び、$\overline D_n(R):=D_n(U)$ と置きます。別の持ち上げは $-U$ なので
+$$
+D_n(-U)=D_n(-I_2)D_n(U)=D_n(U).
+$$
+従って定義は持ち上げによらず、群準同型性も $D_n$ から従います。二重被覆の局所的な滑らかな逆写像で $U$ を選べるため、$\overline D_n$ も滑らかです。これは [被覆核による降下判定](../LREP3/index.md#thm-lrep3-descent-criterion)と同じ核条件を、この具体的な被覆で直接検証したものです。よって必要十分条件は $(-1)^n=1$、すなわち $n$ が偶数であることです。$\square$
 <!-- proof-end -->
 
 例えば $n=1$ は二次元で降りず、$n=2$ は三次元で降ります。$SU(2)$ 上のすべての有限次元複素既約表現は $n+1$ 次元で存在しますが、$SO(3)$ の通常の表現に降りるのは奇数次元のものだけです。後講では $j=n/2$ と書き換え、整数・半整数の量子数として読みます。
@@ -570,7 +606,7 @@ $$
 #### LREP6-C01 四次元既約表現を最初から復元する
 - Level: C
 
-$V$ を $SU(2)$ の四次元複素既約表現とする。$H,E,F$ は微分を複素線形に拡張した作用素とする。
+$V$ を $SU(2)$ の滑らかな四次元複素既約表現とする。$SU(2)$ はコンパクトなので [平均による不変内積](../LREP2/index.md#thm-lrep2-compact-averaging)を選ぶ。$H,E,F$ は表現の微分を複素線形に拡張した作用素とする。
 
 1. 最高ウェイト $n$ と $H$ の固有値を求めよ。
 2. 正規直交基底における $E,F$ の非零行列要素を求めよ。
@@ -581,7 +617,7 @@ $V$ を $SU(2)$ の四次元複素既約表現とする。$H,E,F$ は微分を�
 
 **設問1。** [有限次元既約表現の分類](#thm-lrep6-classification)より $\dim V=n+1$ です。$n+1=4$ から $n=3$ です。$k=0,1,2,3$ において $H$ の固有値は $n-2k$ なので、順に $3,1,-1,-3$ です。
 
-**設問2。** [正規直交基底の昇降公式](#prop-lrep6-unitary-ladder)を $n=3$ に適用すると
+**設問2。** 分類によって $V\cong V_3$ であり、$V_3$ の不変内積をその同型で $V$ に移せば、対応する $u_0,u_1,u_2,u_3$ は正規直交基底です。[正規直交基底の昇降公式](#prop-lrep6-unitary-ladder)を $n=3$ に適用すると
 $$
 \begin{aligned}
 Eu_1&=\sqrt{1\cdot3}\,u_0=\sqrt3\,u_0,&
