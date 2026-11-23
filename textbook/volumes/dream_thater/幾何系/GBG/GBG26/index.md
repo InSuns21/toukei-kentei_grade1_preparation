@@ -89,22 +89,46 @@ $$
 
 4形式の原始形式（外微分を取ると元の形式になる3形式）を使えば、球面を二つの半球に分けて Stokes を適用できる。[GBG22の局所Chern–Simons形式](../GBG22/index.md#def-gbg22-local-chern-simons)の跡多項式の場合を、ここでは正規化係数を外して扱う。
 
-<a id="def-gbg26-cs3"></a>
-
-<!-- formal-statement-start -->
-> **定義（基本表現のChern–Simons 3形式）**  
-> 自明な $SU(2)$ 束の局所接続行列 $A$ に対して
+二次の多項式 $p(X,Y)=\operatorname{tr}(XY)$ を、[GBG22の局所 Chern–Simons 形式](../GBG22/index.md#def-gbg22-local-chern-simons)に入力する。補間 $A_t=tA$、曲率 $F_t=t\,dA+t^2A^2$ を代入すると
 
 $$
+\begin{aligned}
 \operatorname{CS}_3(A)
-=\operatorname{tr}\left(A\wedge dA+\frac23 A\wedge A\wedge A\right)
+&=2\int_0^1\operatorname{tr}(A\wedge F_t)\,dt\\
+&=2\int_0^1\left(t\operatorname{tr}(A\wedge dA)
++t^2\operatorname{tr}(A^3)\right)dt\\
+&=\operatorname{tr}\left(A\wedge dA+\frac23A^3\right).
+\end{aligned}
 $$
 
-> と置く。これは局所自明化上の3形式であり、一般には基底全体に一致して貼り合わされる大域3形式ではない。
-<!-- formal-statement-end -->
+これは局所自明化上の3形式であり、一般には基底全体に貼り合わされない。[GBG22の原始形式命題](../GBG22/index.md#prop-gbg22-local-cs-primitive)は、いま代入した $p$ と $k=2$ に対して
 
-<!-- definition-example-start: def-gbg26-cs3 -->
-**定義の確認**。$A=0$ なら $\operatorname{CS}_3(0)=0$。一方、純ゲージ $A=\theta=g^{-1}dg$ では $d\theta=-\theta^2$ を代入して
+$$
+d\,\operatorname{CS}_3(A)=\operatorname{tr}(F\wedge F)
+$$
+
+を与える。ここで係数・式の展開を自分で確かめよう。$A$ は次数1、$dA$ は次数2なので、[次数付きLeibniz則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)と跡の次数付き巡回性から
+
+$$
+d\,\operatorname{tr}(A\wedge dA)=\operatorname{tr}((dA)^2),
+\qquad
+d\,\operatorname{tr}(A^3)=3\operatorname{tr}(dA\,A^2)
+$$
+
+となる。途中では $\operatorname{tr}(A\,dA\,A)=-\operatorname{tr}(dA\,A^2)$ を用いる。また $\operatorname{tr}(A^4)=0$ は、最初の次数1の因子を末尾へ巡回させると $(-1)^{1\cdot3}=-1$ を得るためである。従って
+
+$$
+\begin{aligned}
+d\,\operatorname{CS}_3(A)
+&=\operatorname{tr}((dA)^2+2dA\,A^2)\\
+&=\operatorname{tr}((dA)^2+dA\,A^2+A^2dA+A^4)
+=\operatorname{tr}(F^2).
+\end{aligned}
+$$
+
+<a id="calc-gbg26-pure-cs"></a>
+
+**純ゲージでの境界計算**。$A=\theta=g^{-1}dg$ なら $d\theta=-\theta^2$ を代入して
 
 $$
 \operatorname{CS}_3(\theta)
@@ -112,53 +136,7 @@ $$
 =-\frac13\operatorname{tr}(\theta^3).
 $$
 
-ここで $\theta^3=\theta\wedge\theta\wedge\theta$ である。**曲率が零でもChern–Simons 3形式が零とは限らない**ことが、この計算の役割である。
-<!-- definition-example-end -->
-
-<a id="prop-gbg26-cs-primitive"></a>
-
-<!-- formal-statement-start -->
-> **命題（Chern–Simons形式の外微分）**  
-> 任意の滑らかな $SU(2)$ 値局所接続行列 $A$ とその曲率 $F=dA+A^2$ について
-
-$$
-d\,\operatorname{CS}_3(A)=\operatorname{tr}(F\wedge F)
-$$
-
-> が成立する。さらに $A=g^{-1}dg$ なら $\operatorname{CS}_3(A)=-\operatorname{tr}((g^{-1}dg)^3)/3$ である。
-<!-- formal-statement-end -->
-
-**証明の見取り図**。外微分の積の規則を使い、$A$ は次数1、$dA$ は次数2であることに注意する。行列跡の巡回移動には形式次数による符号が付く。
-
-<!-- proof-start -->
-### 証明
-
-$A^2=A\wedge A$ と略記する。[外微分の次数付きLeibniz則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を三つの因子に適用し、跡の次数付き巡回性を使うと
-
-$$
-d\,\operatorname{tr}(A\wedge dA)=\operatorname{tr}(dA\wedge dA),
-$$
-
-$$
-d\,\operatorname{tr}(A^3)
-=\operatorname{tr}(dA\,A^2-A\,dA\,A+A^2dA)
-=3\operatorname{tr}(dA\,A^2).
-$$
-
-真ん中の項には $\operatorname{tr}(A\,dA\,A)=-\operatorname{tr}(dA\,A^2)$ を使った。また $\operatorname{tr}(A^4)=0$ は、先頭の次数1の $A$ を末尾へ巡回移動すると $(-1)^{1\cdot3}=-1$ が付くからである。したがって
-
-$$
-\begin{aligned}
-d\,\operatorname{CS}_3(A)
-&=\operatorname{tr}((dA)^2)+2\operatorname{tr}(dA\,A^2)\\
-&=\operatorname{tr}((dA)^2+dA\,A^2+A^2dA+A^4)\\
-&=\operatorname{tr}((dA+A^2)^2)
-=\operatorname{tr}(F\wedge F).
-\end{aligned}
-$$
-
-最後の純ゲージの式は上の定義例で計算した $d\theta=-\theta^2$ の代入である。
-<!-- proof-end -->
+$A=0$ なら $\operatorname{CS}_3(0)=0$。一方で純ゲージの $\theta$ は曲率が零でも、$\operatorname{CS}_3(\theta)$ は非零になり得る。ここが4次元積分と3次元境界写像をつなぐ鍵である。
 
 ## 4. 赤道の3形式はGBG25の次数と一致するか
 
@@ -275,7 +253,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-先に構成した接続を $A_*$ とする。北半球で $A_N=0$ だから $F_N=0$。南半球には[CS原始形式の命題](#prop-gbg26-cs-primitive)と[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を適用する。
+先に構成した接続を $A_*$ とする。北半球で $A_N=0$ だから $F_N=0$。南半球には[CS原始形式の命題](../GBG22/index.md#prop-gbg22-local-cs-primitive)と[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を適用する。
 
 $$
 \begin{aligned}
@@ -287,7 +265,7 @@ $$
 \end{aligned}
 $$
 
-向きは $\partial D_N=+E$、$\partial D_S=-E$ である。赤道では $\chi=1$ なので $A_S|_E=\theta=f^{-1}df$。よって[純ゲージのCS計算](#def-gbg26-cs3)を代入すると
+向きは $\partial D_N=+E$、$\partial D_S=-E$ である。赤道では $\chi=1$ なので $A_S|_E=\theta=f^{-1}df$。よって[純ゲージのCS計算](#calc-gbg26-pure-cs)を代入すると
 
 $$
 -\int_E\operatorname{CS}_3(\theta)
@@ -550,7 +528,7 @@ $S^4$ を北・南半球に分け、赤道で $s_S=s_NQ$ と貼る $SU(2)$ 主�
 
 **(1)** $Q(1,0)=I_2$ で正の接ベクトル $e_2,e_3,e_4$ を選ぶと、[境界3形式の定義例](#def-gbg26-boundary-form)の三行列が得られ、その積は $I_2$ である。外積の6項は反交換性によりすべて同じ正の跡を与えるため $6\operatorname{tr}I_2=12$。$Q^*\operatorname{tr}(\Theta^3)$ は左移動不変で、標準球面の体積形式も左移動で不変なので、この係数は全点で12。$\nu=d\operatorname{vol}_{S^3}/(2\pi^2)$ から $Q^*\operatorname{tr}(\Theta^3)=24\pi^2\nu$ となる。
 
-**(2)** $A_N=0$ だから北の曲率は零。南では $A_S=\chi\theta$、$\theta=Q^{-1}dQ$ とおき、[Chern–Simonsの原始形式](#prop-gbg26-cs-primitive)にStokesを適用すると
+**(2)** $A_N=0$ だから北の曲率は零。南では $A_S=\chi\theta$、$\theta=Q^{-1}dQ$ とおき、[Chern–Simonsの原始形式](../GBG22/index.md#prop-gbg22-local-cs-primitive)にStokesを適用すると
 
 $$
 \int_{S^4}\operatorname{tr}(F^2)
