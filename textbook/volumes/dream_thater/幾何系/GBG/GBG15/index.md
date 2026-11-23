@@ -231,7 +231,20 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（微小矩形の輸送と曲率）**  
-> $G\subset GL(n,\mathbb F)$ を行列 Lie 群とし、$M$ 上の滑らかな主 $G$ 束の接続を、ある局所sectionと座標 $(x,y)$ で $A=A_x\,dx+A_y\,dy+\cdots$ と書く。座標原点を $(0,0)$ に取り、他の座標を固定する。十分小さい $\varepsilon>0$ について、原点から $+x,+y,-x,-y$ の順に進む正向きの正方形の境界を $\partial R_\varepsilon$ とする。その局所輸送行列は
+> $G\subset GL(n,\mathbb F)$ を行列 Lie 群とし、$M$ 上の滑らかな主 $G$ 束と接続を考える。局所sectionと座標 $(x,y)$ における接続の表示を
+
+$
+A=A_x\,dx+A_y\,dy+\cdots
+$
+
+> とする。原点を $(0,0)$ とし、他の座標を固定する。十分小さい $\varepsilon>0$ に対して、頂点を順に
+
+$
+(0,0)\to(\varepsilon,0)\to(\varepsilon,\varepsilon)
+\to(0,\varepsilon)\to(0,0)
+$
+
+> と通る正向きの閉路を $\partial R_\varepsilon$ と書く。その局所輸送行列は
 >
 > $$
 > U_{\partial R_\varepsilon}
