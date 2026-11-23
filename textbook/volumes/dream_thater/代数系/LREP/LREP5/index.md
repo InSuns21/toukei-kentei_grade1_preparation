@@ -504,14 +504,14 @@ $$
 $U(\boldsymbol n,\theta)=\cos(\theta/2)I_2-i\sin(\theta/2)X(\boldsymbol n)$ とし、$\|\boldsymbol n\|=1$ とする。任意の $\boldsymbol x$ を $\boldsymbol x_\parallel=(\boldsymbol n\cdot\boldsymbol x)\boldsymbol n$、$\boldsymbol x_\perp=\boldsymbol x-\boldsymbol x_\parallel$ に分け、共役で平行成分が固定され垂直成分が角度 $\theta$ 回ることを証明せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\boldsymbol n\times\boldsymbol x_\parallel=0$ であり、$\alpha=\boldsymbol n\cdot\boldsymbol x$ とおけば $X(\boldsymbol x_\parallel)=\alpha N$ です。[Pauli行列の積公式](#lem-lrep5-pauli-product)から $N^2=I_2$ なので、$U=cI_2-isN$ は $N$ と可換です。従って $U(\alpha N)U^\dagger=\alpha N(UU^\dagger)=\alpha N$ となり、共役は $X(\boldsymbol x_\parallel)$ を固定します。
+**詳細解答。** $N=X(\boldsymbol n)$、$c=\cos(\theta/2)$、$s=\sin(\theta/2)$、$\alpha=\boldsymbol n\cdot\boldsymbol x$ とおきます。$\boldsymbol n\times\boldsymbol x_\parallel=0$ であり、$X(\boldsymbol x_\parallel)=\alpha N$ です。[Pauli行列の積公式](#lem-lrep5-pauli-product)から $N^2=I_2$ なので、$U=cI_2-isN$ は $N$ と可換です。従って $U(\alpha N)U^\dagger=\alpha N(UU^\dagger)=\alpha N$ となり、共役は $X(\boldsymbol x_\parallel)$ を固定します。
 
-垂直成分には $\boldsymbol n\cdot\boldsymbol x_\perp=0$ です。$N=X(\boldsymbol n)$、$Y=X(\boldsymbol x_\perp)$ とすると
+垂直成分には $\boldsymbol n\cdot\boldsymbol x_\perp=0$ です。$Y=X(\boldsymbol x_\perp)$ とすると
 $$
 NY+YN=2(\boldsymbol n\cdot\boldsymbol x_\perp)I_2=0,\qquad
 NYN=-Y.
 $$
-また $NY-YN=2iX(\boldsymbol n\times\boldsymbol x_\perp)$ です。$c=\cos(\theta/2)$、$s=\sin(\theta/2)$ に対して
+また $NY-YN=2iX(\boldsymbol n\times\boldsymbol x_\perp)$ です。先に定めた $c,s$ に対して
 $$
 \begin{aligned}
 (cI_2-isN)Y(cI_2+isN)
@@ -535,7 +535,7 @@ $$
 [A_1,A_2]=(-i/2)^2[\sigma_1,\sigma_2]
 =-\frac14(2i\sigma_3)=-\frac i2\sigma_3=A_3.
 $$
-[二重被覆定理の微分計算](#thm-lrep5-double-cover)によれば $d\Phi(A_j)=[\boldsymbol e_j]_\times$ です。具体的に
+[二重被覆定理の微分計算](#thm-lrep5-double-cover)によれば $d\Phi_{I_2}(A_j)=[\boldsymbol e_j]_\times$ です。具体的に
 $$
 J_1=\begin{pmatrix}0&0&0\\0&0&-1\\0&1&0\end{pmatrix},\quad
 J_2=\begin{pmatrix}0&0&1\\0&0&0\\-1&0&0\end{pmatrix},\quad
@@ -546,7 +546,7 @@ $$
 J_1J_2=\begin{pmatrix}0&0&0\\1&0&0\\0&0&0\end{pmatrix},\qquad
 J_2J_1=\begin{pmatrix}0&1&0\\0&0&0\\0&0&0\end{pmatrix}.
 $$
-よって $[J_1,J_2]=J_3=d\Phi([A_1,A_2])$ です。これは[LREP3で証明した微分の括弧保存](../LREP3/index.md#thm-lrep3-differentiation)の具体例です。
+よって $[J_1,J_2]=J_3=d\Phi_{I_2}([A_1,A_2])$ です。これは[LREP3で証明した微分の括弧保存](../LREP3/index.md#thm-lrep3-differentiation)の具体例です。
 <!-- solution-end -->
 
 <a id="ex-lrep5-b03"></a>
