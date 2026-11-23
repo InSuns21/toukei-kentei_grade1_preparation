@@ -285,7 +285,17 @@ try {
   for(const [id,nu,force] of [['no-force','0.002','0'],['stir','0.001','0.16'],['baseline','0.002','0.08']]){
     const started=Date.now();
     await evaluate('(()=>{const row='+presetRow+';row.querySelector("select").value='+JSON.stringify(id)+';row.querySelector("button").click()})()');
-    await waitFor('document.querySelector("#js-source")?.value.includes('+JSON.stringify('nu='+nu+',forceAmplitude='+force)+') && document.querySelector("#status")?.textContent.includes("FCG5 編集した条件の独立CPU初期画素検算に合格")',25000);
+    // The baseline reverts to the original source and therefore uses the
+    // unmodified-source success label. For edited presets the numeric note
+    // proves that a *new* CPU/GPU comparison finished, not just a stale status.
+    const expectedStatus=id==='baseline'?'初期ソースの独立画素検算に合格':
+      'FCG5 編集した条件の独立CPU初期画素検算に合格';
+    const newNumeric=id==='baseline'?'true':
+      'document.querySelector("#numeric-note")?.textContent.includes('+JSON.stringify('nu='+nu+' m²/s、外力振幅='+force+' m²/s²')+')';
+    await waitFor('document.querySelector("#js-source")?.value.includes('+
+      JSON.stringify('nu='+nu+',forceAmplitude='+force)+
+      ') && document.querySelector("#status")?.textContent.includes('+
+      JSON.stringify(expectedStatus)+') && ('+newNumeric+')',25000);
     const snapshot=await evaluate('({source:document.querySelector("#js-source").value,rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>({gpu:r.cells[2]?.textContent,verdict:r.cells[4]?.textContent})),status:document.querySelector(".fcg5-preset-row .lab-parameter-status")?.textContent,grid:document.querySelector("#parameter-grid")?.value,dt:document.querySelector("#parameter-dt")?.value})');
     assert.equal(snapshot.rows.length,9);
     assert.ok(snapshot.rows.every(r=>r.verdict==='OK'),JSON.stringify(snapshot.rows));
