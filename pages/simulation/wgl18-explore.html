@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>WGL18 GPU拡散を描いて観察</title>
+<style>
+:root{color-scheme:light;font:16px/1.55 system-ui,-apple-system,"Noto Sans JP",sans-serif;color:#17324a;background:#f8fafc}
+*{box-sizing:border-box}body{margin:0}main{max-width:1080px;margin:auto;padding:14px clamp(12px,2vw,24px)}
+h1{font-size:1.23rem;margin:0 0 4px}p{margin:.2em 0 .75em}.intro{max-width:70ch}
+.lab{display:grid;grid-template-columns:minmax(260px,1.6fr) minmax(210px,1fr);gap:20px;align-items:start}
+figure{margin:0;min-width:0}canvas{display:block;width:min(100%,640px);height:auto;aspect-ratio:1;touch-action:none;background:#09182c;border:1px solid #64748b;outline-offset:3px}
+figcaption{font-size:.84rem;margin-top:6px}output{font-variant-numeric:tabular-nums}
+.controls{display:grid;gap:12px}label{display:grid;gap:4px;font-size:.9rem;font-weight:600}
+input[type=range],select{width:100%;font:inherit}select{padding:6px;background:#fff;border:1px solid #a7b7c6;border-radius:3px}
+button{font:inherit;background:#fff;border:1px solid #7c98ad;padding:7px 12px;border-radius:3px;cursor:pointer;color:#17324a}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #1476b8;outline-offset:2px}
+button:hover{background:#e4f1fb}.buttons{display:flex;flex-wrap:wrap;gap:8px}
+button.primary{background:#14699b;border-color:#14699b;color:white}
+small{font-size:.79rem;color:#3f586b}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;margin:4px 0;padding:10px 0;border-block:1px solid #b9cbd8}
+.stats div{min-width:0}.stats dt{font-size:.76rem;color:#526b80}.stats dd{margin:0;font-weight:650}
+.legend{display:flex;gap:8px;align-items:center;margin:4px 0}.legend .bar{flex:1;height:13px;background:linear-gradient(90deg,#091a2e,#32c2b8,#ffdc58)}
+.details{margin-top:14px;padding-top:8px;border-top:1px solid #b9cbd8}
+summary{cursor:pointer;font-weight:600}
+#status{font-weight:600;color:#0f617c;min-height:1.5em}
+@media(max-width:720px){.lab{grid-template-columns:1fr}main{padding:10px}canvas{margin:auto}.controls{gap:10px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style></head>
+<body><main>
+<h1>GPUで拡散を観察する</h1>
+<p class="intro">明るい部分は濃度が高い領域です。<strong>画面を押す・なぞると濃度を追加</strong>できます。再生すると、各セルの値が上下左右へ少しずつ移り、広がります。</p>
+<div class="lab">
+<figure><canvas id="field" width="640" height="640" tabindex="0" aria-label="GPU拡散の濃度図。画面上でポインターを動かして濃度を追加。Spaceで再生・停止、右矢印で1ステップ、Rで初期化"></canvas>
+<figcaption>正方形の計算領域。下が行番号0。セルの実数値を描画用に色へ変換しています。</figcaption>
+<div class="legend"><span>濃度 0</span><span class="bar" role="img" aria-label="0は濃紺、約0.25は青緑、1は黄色"></span><span>1</span></div>
+<small>濃度は無次元・色域は固定0〜1（見やすさのため平方根スケール）。数値格子と表示用640×640画素は別です。</small>
+</figure>
+<div class="controls" aria-label="GPU拡散の操作">
+<div class="buttons"><button id="play" type="button" class="primary">一時停止</button><button id="once" type="button">1ステップ</button><button id="reset" type="button">最初に戻す</button></div>
+<label for="pattern">初期の濃度分布
+<select id="pattern"><option value="one">中央に1つの熱源</option><option value="two">離れた2つの熱源</option><option value="stripe">縦の温度帯</option><option value="edge">端に1つの熱源（境界の観察）</option></select></label>
+<label for="rate">1ステップの拡散割合 r：<output id="rate-val">0.20</output>（無次元）
+<input type="range" id="rate" min="0" max="0.25" step="0.01" value="0.20"></label>
+<small>0：広がらない／0.20：通常／0.25：非負性を保つ上限。変更すると同じ初期分布からやり直します。編集元は拡散fragment shaderの <code>u_rate</code>。</small>
+<label for="speed">再生速度（数値更新／描画間隔）
+<select id="speed"><option value="1">1 step / 120 ms</option><option value="4" selected>4 steps / 120 ms</option><option value="12">12 steps / 120 ms</option></select></label>
+<label for="grid">実GPU計算格子（表示画素とは別）
+<select id="grid"><option value="32">32×32</option><option value="64" selected>64×64</option><option value="96">96×96</option></select></label>
+<dl class="stats"><div><dt>計算ステップ</dt><dd><output id="steps">0</output></dd></div><div><dt>GPUテクスチャ</dt><dd><output id="active">A</output></dd></div><div><dt>濃度の合計 ∑u</dt><dd><output id="mass">—</output></dd></div><div><dt>最大濃度</dt><dd><output id="maximum">—</output></dd></div><div><dt>初期化時に対する総量</dt><dd><output id="ratio">—</output></dd></div><div><dt>選択セル (i,j) / 値</dt><dd><output id="picked">—</output></dd></div></dl>
+<p id="status" role="status" aria-live="polite">WebGL2を準備しています。</p>
+<small>各ステップはGPUのfragment shaderで更新。ポインターでの濃度追加はGPUテクスチャへ値を書き込みます。更新だけなら理論上∑uは一定で、追加すると総量が増えます。</small>
+</div>
+</div>
+<details class="details"><summary>内部で何を計算している？</summary>
+<p>各セルの次の値は <code>新しい値 = 現在値 + r ×（右＋左＋上＋下 − 4 × 現在値）</code> です。境界の外側では端のセルを繰り返して読み、外へ流れないようにします。</p>
+<p>2枚のRGBA32FテクスチャA/Bを用意し、Aから読みBへ書いたら、次はBから読みAへ書きます。毎回floatの赤成分をGPUから読み戻し、合計と最大値を表示します。画面の色は同じGPU結果の表示処理です。</p>
+<p>この模型は拡散であり、風や水の速度場を解く流体シミュレーションではありません。64×64を選べば64×64セルを本当に更新し、表示だけ引き伸ばしているのではありません。</p>
+</details>
+</main><script type="module" src="wgl18-explore.mjs"></script></body></html>
