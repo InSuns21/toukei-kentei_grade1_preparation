@@ -131,7 +131,7 @@ N_{L/K}(y)_v
 =\prod_{w\mid v}N_{L_w/K_v}(y_w).
 $$
 
-[有限局所Artin写像の核とノルム群](../ANF17/index.md#prop-anf17-local-kernel)により、各 $N_{L_w/K_v}(y_w)$ の局所Artin像は $1$ です。局所写像は準同型なので、その積である $N_{L/K}(y)_v$ の像も $1$ です。これはすべての $v$ に対して成り立つため、[有限個の局所因子からなる大域積](../ANF20/index.md#prop-anf20-artin-product)も $1$ です。
+[有限局所Artin写像の核とノルム群](../ANF17/index.md#prop-anf17-artin-quotient)により、各 $N_{L_w/K_v}(y_w)$ の局所Artin像は $1$ です。局所写像は準同型なので、その積である $N_{L/K}(y)_v$ の像も $1$ です。これはすべての $v$ に対して成り立つため、[有限個の局所因子からなる大域積](../ANF20/index.md#prop-anf20-artin-product)も $1$ です。
 <!-- proof-end -->
 
 この結果が示すのは包含
@@ -174,7 +174,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$v$ の上の $L$ の素点 $w$ を選び、$M$ への制限を $w_M$ とします。[局所相互法則の中間体への制限](../ANF17/index.md#prop-anf17-intermediate-restriction)から
+$v$ の上の $L$ の素点 $w$ を選び、$M$ への制限を $w_M$ とします。[局所相互法則の中間体への制限](../ANF17/index.md#prop-anf17-restriction-square)から
 
 $$
 \operatorname{res}_{L_w/M_{w_M}}
@@ -242,7 +242,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$A=\operatorname{Cl}_{\mathfrak m}(K)$、$G_E=\operatorname{Gal}(E/K)$ と書きます。$\alpha(H)$ は$G_E$の部分群で、$G_E$ がAbelなので正規です。[Galois対応](../ANF17/index.md#cor-anf17-classfield-correspondence)の中間体に関する通常の群論を適用すると、固定体 $M=E^{\alpha(H)}$ は $K$ 上Galoisで、そのGalois群は
+$A=\operatorname{Cl}_{\mathfrak m}(K)$、$G_E=\operatorname{Gal}(E/K)$ と書きます。$\alpha(H)$ は$G_E$の部分群で、$G_E$ がAbelなので正規です。[Galois対応](../../../FLD/FLD4/index.md#thm-fld4-fundamental-galois)の中間体に関する通常の群論を適用すると、固定体 $M=E^{\alpha(H)}$ は $K$ 上Galoisで、そのGalois群は
 
 $$
 \operatorname{Gal}(M/K)
@@ -289,7 +289,7 @@ $$
 
 $\mathfrak p$ の上の素点 $\mathfrak P$ を一つ選びます。[非分岐拡大のFrobeniusの構成](../ANF15/index.md#thm-anf15-unramified-reciprocity)より、局所Galois群 $\operatorname{Gal}(L_{\mathfrak P}/K_{\mathfrak p})$ は位数 $f=[\kappa(\mathfrak P):\kappa(\mathfrak p)]$ の巡回群で、Frobeniusがその生成元です。非分岐ゆえ $e=1$ であり、この局所Galois群は大域の分解群に同型です。従って $G$ におけるFrobeniusの位数も $f$ です。
 
-[Galois拡大での分解次数公式](../ANF4/index.md#thm-anf4-ef-degree)によって、同じ $\mathfrak p$ の上の全ての素点の剰余次数と分岐指数は等しく、
+[Galois拡大での分解次数公式](../ANF4/index.md#thm-anf4-fundamental-identity)によって、同じ $\mathfrak p$ の上の全ての素点の剰余次数と分岐指数は等しく、
 
 $$
 [L:K]=efg=1\cdot f\cdot g.
@@ -403,7 +403,7 @@ $$
 N_{L/K}(y)_v=\prod_{w\mid v}N_{L_w/K_v}(y_w).
 $$
 
-[局所Artin写像のノルム核](../ANF17/index.md#prop-anf17-local-kernel)を各因子に適用して
+[局所Artin写像のノルム核](../ANF17/index.md#prop-anf17-artin-quotient)を各因子に適用して
 
 $$
 \operatorname{rec}_{L_w/K_v}(N_{L_w/K_v}(y_w))=1.
