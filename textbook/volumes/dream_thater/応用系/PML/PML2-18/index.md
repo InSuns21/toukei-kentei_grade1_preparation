@@ -301,11 +301,11 @@ $$
 
 最後に、同じ $y$ における二つの出力の差を次のように分解する。
 
-$
+$$
 \mathcal D_\theta f-\mathcal Gf
 =(\mathcal D_\theta f-\mathcal G(I_mf))
 +(\mathcal G(I_mf)-\mathcal Gf).
-$
+$$
 
 各 $y$ で $|a+b|\le|a|+|b|$ を適用し、$y\in[0,1]$ の上限を取ると定理の最後の不等式を得る。
 <!-- proof-end -->
