@@ -1,0 +1,47 @@
+id: "PML2-10"
+title: "PINNはなぜ学習失敗することがあるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-09
+official_scope: []
+learning_objectives:
+  - 損失と反復予算を指定した学習未達成を解誤差とは区別して定義できる
+  - 二モードPoisson試行族の残差二乗積分と正弦直交性を導出できる
+  - 周波数kの四乗に依存するHessian条件数と固定学習率安定条件を証明できる
+  - 真解を含まない低周波候補族の関数誤差と残差の下界を計算できる
+  - 平方パラメータ表示における非最適停留点と初期化による停止を検証できる
+  - 正定値対角前処理の座標変換と安定性改善を厳密に示せる
+  - 同一設定の実験で通常更新・前処理・初期化変更の効果を切り分けられる
+  - 学習達成・表現可能性・有限点残差・全域解誤差を混同せず検証手順を設計できる
+definitions:
+  - { id: PML2-10-DEF-01, name: 有限予算での学習達成と未達成 }
+  - { id: PML2-10-DEF-02, name: Poisson問題の二モード試行族と正規化残差損失 }
+  - { id: PML2-10-DEF-03, name: 二モード損失の対角前処理付き更新 }
+theorems:
+  - { id: PML2-10-THM-01, name: 二モード残差損失の条件数と固定学習率 }
+  - { id: PML2-10-PROP-01, name: 低周波一モード族の表現限界 }
+  - { id: PML2-10-PROP-02, name: 平方パラメータによる非最適停留点 }
+  - { id: PML2-10-THM-02, name: 対角前処理による周波数非依存の安定範囲 }
+canonical_examples:
+  - k=4の正弦二モードPoisson残差と正規化損失
+  - 高周波モードの通常勾配降下における一歩発散
+  - 真解を含まない一モード試行族の関数誤差下界
+  - 平方パラメータ初期値ゼロでの零勾配と非最適停留
+  - 対角前処理後の一歩損失低下と座標変換
+  - 標準Pythonによる二モードと初期化の再現可能な比較
+problem_patterns:
+  - PML2-10-A01
+  - PML2-10-A02
+  - PML2-10-A03
+  - PML2-10-A04
+  - PML2-10-A05
+  - PML2-10-B01
+  - PML2-10-B02
+  - PML2-10-B03
+  - PML2-10-B04
+  - PML2-10-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }

@@ -180,7 +180,16 @@ $$
 
 ## 4. 同じ次数でもノルム群は異なる：円分四次と Kummer 四次
 
-$K=\mathbb Q_5$ にはすでに五乗根の円分四次拡大 $C=K(\zeta_5)$ がありました。一方、[緩分岐 Kummer 拡大のノルム計算](../ANF16/index.md#prop-anf16-tame-kummer-norm)で扱った $D=K(\alpha)$、$\alpha^4=5$ も巡回四次拡大です（$K$ は四乗根 $i$ を含みます）。二つの拡大をノルム群で比較します。
+$K=\mathbb Q_5$ には、五乗根を添加した円分四次拡大 $C=K(\zeta_5)$ がありました。もう一つの四次拡大を構成する前に、$K$ が $1$ の四乗根を含むことを確認します。
+
+$g(X)=X^2+1$ とおき、$g'(X)=2X$ を $X$ に関する形式導関数とします。法 $5$ で
+
+$$
+g(2)=5\equiv0\pmod5,\qquad
+g'(2)=4\not\equiv0\pmod5
+$$
+
+なので、[単純根に対する Hensel の補題](../ANF10/index.md#thm-anf10-hensel-simple)により $i^2=-1$ を満たす $i\in\mathbb Z_5$ が存在します。$1,-1,i,-i$ は相異なる $X^4-1$ の根です。従って [緩分岐 Kummer 拡大のノルム計算](../ANF16/index.md#prop-anf16-tame-kummer-norm)を $e=4$ に適用でき、$D=K(\alpha)$、$\alpha^4=5$ も巡回四次拡大です。二つの拡大をノルム群で比較します。
 
 <a id="prop-anf18-quartic-contrast"></a>
 
@@ -225,10 +234,11 @@ $5^m u=(-5)^m((-1)^m u)$ だから、$D$ のノルム群へ入るのは $(-1)^m 
 $C=\mathbb Q_5(\zeta_5)$ で $t=\zeta_5+\zeta_5^{-1}$ とすると、$1+\zeta_5+\cdots+\zeta_5^4=0$ と $\zeta_5^2+\zeta_5^{-2}=t^2-2$ より
 
 $$
+1+t+(t^2-2)=0,\qquad
 t^2+t-1=0,\qquad (2t+1)^2=5.
 $$
 
-従って $M=K(t)=K(\sqrt5)$ は $C$ の二次部分体です。前節の $D$ でも $\alpha^2=\sqrt5$ なので同じ $M$ が現れます。
+ここで $v_5(5)=1$ は奇数ですが、$x\in K^\times$ の平方は $v_5(x^2)=2v_5(x)$ が偶数です。従って $\sqrt5\notin K$ であり、$M=K(t)=K(\sqrt5)$ は確かに $C/K$ の二次中間体です。前節の $D$ でも $\alpha^2=\sqrt5$ なので同じ $M$ が現れます。
 
 <a id="prop-anf18-quadratic-restriction"></a>
 
@@ -259,7 +269,33 @@ $\sigma_b(t)=\zeta_5^b+\zeta_5^{-b}$ です。$\sigma_1$ と $\sigma_4$ では $
 
 ## 6. 非分岐成分を足すと、付値と単数を同時に検査できる
 
-$E=\mathbb Q_5(\sqrt2)$ とします。$X^2-2$ は $\mathbb F_5$ で根を持たない（平方は $0,1,4$）ので、[非分岐拡大の Frobenius 持ち上げ](../ANF15/index.md#prop-anf15-frobenius-lift)により $E/K$ は非分岐二次、$F(\sqrt2)=-\sqrt2$ となります。$C_r/K$ は全分岐なので $E\cap C_r=K$ です。よって $B_r=EC_r$ は次数 $2d_r$ の Abel Galois 拡大です。
+$E=\mathbb Q_5(\theta)$、$\theta^2=2$ とします。$X^2-2$ は $\mathbb F_5$ で根を持たない（平方は $0,1,4$）ため、$[E:K]=2$ です。非分岐性を結論するには整数環も確認します。$A=\mathbb Z_5[\theta]$ とおくと、基底 $(1,\theta)$ に関する跡行列は
+
+$$
+T=\begin{pmatrix}
+\operatorname{Tr}_{E/K}(1)&\operatorname{Tr}_{E/K}(\theta)\\
+\operatorname{Tr}_{E/K}(\theta)&\operatorname{Tr}_{E/K}(\theta^2)
+\end{pmatrix}
+=\begin{pmatrix}2&0\\0&4\end{pmatrix}.
+$$
+
+$2,4\in\mathbb Z_5^\times$ なので $T^{-1}=\operatorname{diag}(1/2,1/4)$ も整数成分をもちます。実際、$x=a+b\theta$（$a,b\in K$）に対し
+
+$$
+\operatorname{Tr}_{E/K}(x)=2a,\qquad
+\operatorname{Tr}_{E/K}(x\theta)=4b
+$$
+
+です。従って二つの跡がともに $\mathbb Z_5$ に属することと $a,b\in\mathbb Z_5$ は同値であり、[跡双対の定義](../ANF11/index.md#def-anf11-codifferent)に対応する $A^\vee=A$ が従います。任意の整元 $x\in\mathcal O_E$ と $a\in A$ に対して $\operatorname{Tr}_{E/K}(xa)\in\mathbb Z_5$ だから $\mathcal O_E\subseteq A^\vee=A$。逆包含は $\theta$ の整性によるため、$\mathcal O_E=A$ です。さらに
+
+$$
+\mathcal O_E/5\mathcal O_E
+\simeq\mathbb F_5[X]/(X^2-2)=\mathbb F_{25}
+$$
+
+は体です。よって $5\mathcal O_E$ は極大イデアルで、分岐指数 $e=1$、剰余次数 $f=2$、すなわち $E/K$ は非分岐二次です。[非分岐拡大の Frobenius 持ち上げ](../ANF15/index.md#prop-anf15-frobenius-lift)では剰余体で $\bar\theta^5=(\bar\theta^2)^2\bar\theta=4\bar\theta=-\bar\theta$ となるため、$F(\theta)=-\theta$ です。
+
+$C_r/K$ は全分岐なので $E\cap C_r=K$ です。よって $B_r=EC_r$ は次数 $2d_r$ の Abel Galois 拡大です。
 
 <a id="prop-anf18-mixed-reciprocity"></a>
 
@@ -365,13 +401,23 @@ $\Phi_5(T)=T^4+T^3+T^2+T+1$ に $T=1+X$ を代入し、$\mathbb Q_5(\zeta_5)/\ma
 **詳細解答。** 二項展開で
 
 $$
-(1+X)^4=1+4X+6X^2+4X^3+X^4,
+\begin{aligned}
+(1+X)^2&=1+2X+X^2,\\
+(1+X)^3&=1+3X+3X^2+X^3,\\
+(1+X)^4&=1+4X+6X^2+4X^3+X^4
+\end{aligned}
 $$
 
-を各項へ代入し同類項を集めると
+を得ます。これらを $\Phi_5(1+X)=\sum_{j=0}^4(1+X)^j$ に代入し、各次数の係数を足すと
 
 $$
-\Phi_5(1+X)=X^4+5X^3+10X^2+10X+5.
+\begin{aligned}
+\Phi_5(1+X)
+&=1+(1+X)+(1+2X+X^2)\\
+&\quad +(1+3X+3X^2+X^3)\\
+&\quad +(1+4X+6X^2+4X^3+X^4)\\
+&=X^4+5X^3+10X^2+10X+5.
+\end{aligned}
 $$
 
 最高次係数は $1$、それ以外は $5$ で割り切れ、定数項は $25$ で割り切れません。[Eisenstein の既約性](../ANF10/index.md#thm-anf10-eisenstein-irreducible)から次数は $4$、[Eisenstein 拡大の一様化元](../ANF10/index.md#thm-anf10-eisenstein-extension)から全分岐なので $e=4,f=1$ です。
@@ -515,7 +561,7 @@ $K=\mathbb Q_5$、$E=K(\sqrt2)$、$C_2=K(\zeta_{25})$、$B=EC_2$ とする。
 <!-- solution-start -->
 **詳細解答。**
 
-1. $X^2-2$ は $\mathbb F_5$ で既約なので $E/K$ は非分岐二次。[円分拡大の次数・全分岐](#prop-anf18-cyclotomic-degree)から $C_2/K$ は全分岐二十次です。共通中間体は $K$ しかないので $[B:K]=2\cdot20=40$、Galois 群は
+1. $X^2-2$ は $\mathbb F_5$ で既約で、さらに第6節の跡双対計算で $\mathcal O_E=\mathbb Z_5[\sqrt2]$ と確認したので、$E/K$ は非分岐二次。[円分拡大の次数・全分岐](#prop-anf18-cyclotomic-degree)から $C_2/K$ は全分岐二十次です。共通中間体は $K$ しかないので $[B:K]=2\cdot20=40$、Galois 群は
 
 $$
 \operatorname{Gal}(B/K)\simeq\operatorname{Gal}(E/K)\times(\mathbb Z/25\mathbb Z)^\times.
