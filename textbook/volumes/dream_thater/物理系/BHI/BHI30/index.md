@@ -477,7 +477,7 @@ $n=1$ に代入すると $h'(1)=c\pi\ne0$。したがって整数値だけでは
 #### BHI30-A05 端点が二つあるislandの面積項
 
 - Level: A
-- 問題: 二端点 $p,q$ のislandについて $\Phi_0,\Phi(p),\Phi(q),G_2>0$（ただしdilaton各値は実数でよい）を与え、重力エントロピー項を記せ。$S_{\rm matter}$ は固定し、$p$ だけを変分するときの停留条件を求めよ。
+- 問題: 二端点 $p,q$ のislandについて $\Phi_0,G_2>0$ および実数 $\Phi(p),\Phi(q)$ を与え、重力エントロピー項を記せ。$S_{\rm matter}$ は固定し、$p$ だけを変分するときの停留条件を求めよ。
 
 <!-- solution-start -->
 **詳細解答**：[BHI24の一般化エントロピー台帳](../BHI24/index.md#def-bhi24-jt-island-ledger)から
