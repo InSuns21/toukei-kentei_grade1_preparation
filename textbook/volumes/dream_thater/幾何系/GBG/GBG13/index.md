@@ -42,7 +42,7 @@ $
 <!-- proof-start -->
 ### 証明
 
-[GBG8 の命題](../GBG8/index.md#prop-gbg8-gauge-pullback)により $F_u^*\omega$ は接続形式で、局所式も主張通りである。単位変換 $F_e=\operatorname{id}_P$ なので $\omega\cdot e=\omega$。
+[ゲージ自己同型による接続の引き戻し](../GBG8/index.md#prop-gbg8-gauge-pullback)により $F_u^*\omega$ は接続形式で、局所式も主張通りである。単位変換 $F_e=\operatorname{id}_P$ なので $\omega\cdot e=\omega$。
 
 [GBG5 の合成則](../GBG5/index.md#thm-gbg5-gauge-sections)から $F_u\circ F_v=F_{uv}$。引き戻しの反変性を順に適用すると
 
@@ -89,7 +89,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg13-orbit -->
-**定義の確認**。$\mathbb R\times U(1)$ 上で $A_0=0$、$A_1=i\,dx$ とする。$a=e^{ix}$ により $A_1=T_a(A_0)$ なので二つは同じ軌道にある。他方、$\mathbb R^2\times U(1)$ 上の $A_0=0$ と $A_2=i x\,dy$ は同じ軌道にない。実際、[GBG10 の局所曲率公式](../GBG10/index.md#thm-gbg10-local-formula)より $F_0=0$、$F_2=i\,dx\wedge dy\neq0$ であり、可換群の[曲率変換則](../GBG10/index.md#thm-gbg10-gauge-transform)では曲率が不変だからである。
+**定義の確認**。$\mathbb R\times U(1)$ 上で $A_0=0$、$A_1=i\,dx$ とする。$a=e^{ix}$ により $A_1=T_a(A_0)$ なので二つは同じ軌道にある。他方、$\mathbb R^2\times U(1)$ 上の $A_0=0$ と $A_2=i x\,dy$ は同じ軌道にない。実際、[曲率の局所構造方程式](../GBG10/index.md#thm-gbg10-local-formula)より $F_0=0$、$F_2=i\,dx\wedge dy\neq0$ であり、可換群の[曲率変換則](../GBG10/index.md#thm-gbg10-gauge-transform)では曲率が不変だからである。
 <!-- definition-example-end -->
 
 <a id="def-gbg13-stabilizer"></a>
@@ -217,7 +217,7 @@ $$
 
 一般の Lie 群では $\left.\frac d{dt}\right|_0\operatorname{Ad}_{a_t^{-1}}A=-[\varepsilon,A]$、$\left.\frac d{dt}\right|_0a_t^{-1}da_t=d\varepsilon$ で同じ結果になる。
 
-次に[GBG10 の局所曲率変換定理](../GBG10/index.md#thm-gbg10-gauge-transform)より $F_t=\operatorname{Ad}_{a_t^{-1}}F$。よって
+次に[局所曲率のゲージ共変性](../GBG10/index.md#thm-gbg10-gauge-transform)より $F_t=\operatorname{Ad}_{a_t^{-1}}F$。よって
 
 $$
 F_t=(I-t\varepsilon)F(I+t\varepsilon)+O(t^2)
@@ -266,14 +266,24 @@ $$
 
 必要性は $\omega\cdot\exp(t\varepsilon)=\omega$ を $t=0$ で微分して[無限小作用の定理](#thm-gbg13-infinitesimal-action)を使えば従う。
 
-十分性は行列群の局所表示で示す。$d_A\varepsilon=d\varepsilon+A\varepsilon-\varepsilon A=0$ とする。行列値0形式について $D_A B=dB+AB-BA$ とおくと、積の微分から $D_A(BC)=(D_A B)C+B(D_A C)$ が成り立つ。このため $D_A(\varepsilon^n)=0$ が帰納的に得られ、局所一様収束する指数級数を項別微分して
+十分性は行列群の局所表示で示す。$d_A\varepsilon=d\varepsilon+A\varepsilon-\varepsilon A=0$ とする。各座標方向 $\partial_i$ について $A_i=A(\partial_i)$ と書き、$a_t=e^{t\varepsilon}$ に対して
 
-$$
-D_A(e^{t\varepsilon})
-=\sum_{n=0}^\infty\frac{t^n}{n!}D_A(\varepsilon^n)=0.
-$$
+$
+K_i(t)=a_t^{-1}A_i a_t+a_t^{-1}\partial_i a_t
+$
 
-すなわち $d a_t+A a_t-a_tA=0$。左から $a_t^{-1}$ を掛けて整理すると
+を考える。$\partial_t a_t=\varepsilon a_t$ と $\partial_t a_t^{-1}=-a_t^{-1}\varepsilon$ により、積を微分して
+
+$
+\begin{aligned}
+K_i'(t)
+&=a_t^{-1}[A_i,\varepsilon]a_t
++a_t^{-1}(\partial_i\varepsilon)a_t\\
+&=a_t^{-1}(\partial_i\varepsilon+[A_i,\varepsilon])a_t=0.
+\end{aligned}
+$
+
+$K_i(0)=A_i$ なので $K_i(t)=A_i$ が全ての $t$ で成り立つ。つまり $d a_t+A a_t-a_tA=0$。左から $a_t^{-1}$ を掛けて整理すると
 
 $$
 a_t^{-1}A a_t+a_t^{-1}da_t=A
@@ -307,10 +317,12 @@ $$
 
 ### 区間では基点を固定して代表を一つにできる
 
+以下では $U(1)=\{z\in\mathbb C:|z|=1\}$ を単位円群と呼ぶ。
+
 <a id="thm-gbg13-interval-fixing"></a>
 
 <!-- formal-statement-start -->
-> **定理（区間上の $U(1)$ 接続の基点付きゲージ固定）**  
+> **定理（区間上の単位円群接続の基点付きゲージ固定）**  
 > $I\subset\mathbb R$ を連結な開区間、$x_0\in I$ とし、積主束 $I\times U(1)$ の滑らかな接続を標準 section で $A=i b(x)\,dx$（$b:I\to\mathbb R$ は滑らか）と書く。このとき $a(x_0)=1$ を満たす滑らかなゲージ関数 $a:I\to U(1)$ のうち、$T_a(A)=0$ を満たすものは唯一存在し、
 
 $$
@@ -357,7 +369,7 @@ $$
 <a id="thm-gbg13-circle-orbits"></a>
 
 <!-- formal-statement-start -->
-> **定理（円周上の $U(1)$ 接続の軌道分類）**  
+> **定理（円周上の単位円群接続の軌道分類）**  
 > 積主束 $S^1\times U(1)$ 上の滑らかな接続を、標準 section で $A=i b(\theta)\,d\theta$ と書く。ここで $b$ は滑らかな実数値 $2\pi$ 周期関数である。このとき各接続は定数形 $A_\lambda=i\lambda\,d\theta$ にゲージ同値であり、
 
 $$
@@ -557,7 +569,7 @@ $$
 \delta A=dH+[H,H]\,dx+[X,H]\,dy=-X\,dy.
 $$
 
-もとの曲率は $F=X\,dx\wedge dy$。$A_t=A+t\delta A$ と置き、[GBG12 の曲率変化公式](../GBG12/index.md#prop-gbg12-curvature-variation)を用いると
+もとの曲率は $F=X\,dx\wedge dy$。$A_t=A+t\delta A$ と置き、[接続を変えたときの曲率の差](../GBG12/index.md#prop-gbg12-curvature-variation)を用いると
 
 $$
 F_t=F+t\,d_A(\delta A)+\frac{t^2}{2}[\delta A\wedge\delta A].
@@ -646,7 +658,7 @@ $$
 
 **(2)** $S^1$ は1次元なので任意の2形式が零である。[局所曲率公式](../GBG10/index.md#thm-gbg10-local-formula)より、両者とも $F=dA=dB=0$。しかし例えば $\alpha=0$、$\beta=1/2$ なら (1) の整数条件を満たさず、曲率が一致してもゲージ同値ではない。
 
-**(3)** [円周の軌道分類](#thm-gbg13-circle-orbits)により、任意の接続は $i\lambda\,d\theta$ に変えられる。しかし整数 $n$ に対する $a_n=e^{in\theta}$ は $i\lambda\,d\theta$ を $i(\lambda+n)\,d\theta$ に移し、どちらも定数条件を満たす。これは**異なる代表間の残余変換**である。これに対し定数 $a=e^{ic}$ は $a^{-1}da=0$ なので接続そのものを変えない**安定化群**の元である。二つの現象を区別する必要がある。
+**(3)** [円周の軌道分類](#thm-gbg13-circle-orbits)により、任意の接続は $i\lambda\,d\theta$ に変えられる。しかし整数 $n$ に対する $a_n=e^{in\theta}$ は $i\lambda\,d\theta$ を $i(\lambda+n)\,d\theta$ に移し、どちらも定数条件を満たす。これは[本講の定義](#def-gbg13-gauge-fixing)にいう残余ゲージ変換であり、異なる代表を結ぶ。これに対し定数 $a=e^{ic}$ は $a^{-1}da=0$ なので接続そのものを変えない**安定化群**の元である。二つの現象を区別する必要がある。
 <!-- solution-end -->
 
 ---
