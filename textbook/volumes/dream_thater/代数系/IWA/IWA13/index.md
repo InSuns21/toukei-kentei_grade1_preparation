@@ -264,12 +264,12 @@ $$
 
 点質量の積は各層の定義から $\delta_a*\delta_b=\delta_{a+b}$ です。従って $\delta_0*\mu=\mu$ です。また三つの測度 $\mu,\nu,\eta$ について、第 $n$ 層の $a$ での重みを計算すると
 
-$
+$$
 ((\mu*\nu)*\eta)_n(a)
 =\sum_{b+c+d\equiv a\;(\mathrm{mod}\;p^n)}
 \mu_n(b)\nu_n(c)\eta_n(d)
 =(\mu*(\nu*\eta))_n(a).
-$
+$$
 
 これは有限和の分配法則であり、畳み込みの結合性を示します。$b,c$ を交換すると交換性も従います。
 <!-- proof-end -->
@@ -388,15 +388,15 @@ $$
 
 と置きます。第 $n$ 層を表す関係式は
 
-$
+$$
 \omega_n=(1+T)^{p^n}-1
-$
+$$
 
 です。[有限群環の一変数表示](../IWA3/index.md#prop-iwa3-finite-presentation)により、$P_n(T)$ を $\omega_n$ で割った剰余類は $\Phi(\mu)_n$ に対応します。分布関係は
 
-$
+$$
 P_{n+1}(T)\equiv P_n(T)\pmod{\omega_n}
-$
+$$
 
 を与えます。[有限層の核と極限位相の一致](../IWA3/index.md#lem-iwa3-cofinal-ideals)を適用すると、$P_n$ は $(p,T)$ 進位相で収束します。その極限は $\Phi(\mu)$ を冪級数として表した元です。
 
