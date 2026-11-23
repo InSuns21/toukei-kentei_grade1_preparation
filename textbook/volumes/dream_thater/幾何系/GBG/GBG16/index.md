@@ -31,7 +31,13 @@ $$
 **定義の確認**。積主束 $P=\mathbb R^2\times U(1)$ と標準 section を取り、定数 $a,b\in\mathbb R$ に対して次の局所接続を考える。
 $$
 A=ia\,dx+ib\,dy.
-$$
+$
+ここで $A$ は基底上の $i\mathbb R$ 値1形式である。[積主束の接続形式の構成](../GBG7/index.md#prop-gbg7-product-form)を $U(1)$ に適用すると、$z\in U(1)$、$v\in T_x\mathbb R^2$、$W\in T_zU(1)$ に対して
+$
+\omega_{(x,z)}(v,W)=A_x(v)+z^{-1}W
+$
+が主束全体の接続形式となる。標準 section $s_0(x)=(x,1)$ では $ds_0(v)=(v,0)$ なので $s_0^*\omega=A$。したがって局所表示 $A$ を計算することで、この主束接続の平坦性を判定できる。
+
 $U(1)$ は可換だから $A\wedge A=0$、定数係数ゆえ $dA=0$。したがって [局所曲率の構造方程式](../GBG10/index.md#thm-gbg10-local-formula) から
 $$
 F=dA+A\wedge A=0.
@@ -95,7 +101,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$x_0$ を中心とする座標立方体で座標を $(u^1,\ldots,u^n)$ とし、$\partial_i=\partial/\partial u^i$ の水平リフトを $H_i$ と書く。これは $\pi_*H_i=\partial_i$ と $\omega(H_i)=0$ を満たす滑らかなベクトル場である。
+$x_0$ を中心とする座標立方体で座標を $(u^1,\ldots,u^n)$ とし、$\partial_i=\partial/\partial u^i$ と置く。[GBG6 の水平リフト](../GBG6/index.md#prop-gbg6-horizontal-lift)によって、$\partial_i$ を $P$ 上へ持ち上げたベクトル場を $H_i$ と書く。これは $\pi_*H_i=\partial_i$ と $\omega(H_i)=0$ を満たす滑らかなベクトル場である。
 
 [GBG10 の水平ベクトル場と曲率の公式](../GBG10/index.md#thm-gbg10-horizontal-bracket)を $H_i,H_j$ に適用すると
 $$
@@ -103,13 +109,25 @@ $$
 $$
 他方、射影した括弧は $[\partial_i,\partial_j]=0$ である。ゆえに $[H_i,H_j]$ は垂直かつ水平であり、水平・垂直の直和分解から $[H_i,H_j]=0$ となる。
 
-$H_i$ の局所フローを $\Phi_i^t$ と書く。括弧が零なら、$H_i$ の流れに沿って移した $H_j$ の $t$ 微分は括弧に比例して零である。その初期値は $H_j$ なので $(\Phi_i^t)_*H_j=H_j$。この等式とフローの初期値問題の一意性により $\Phi_i^t\Phi_j^r=\Phi_j^r\Phi_i^t$ が定義可能な小範囲で成立する。
+$H_i$ の局所フローを $\Phi_i^t$ と書く。ここで $t$ はフローの時間であり、$\Phi_i^0(q)=q$、$\frac{d}{dt}\Phi_i^t(q)=H_i(\Phi_i^t(q))$ で定める。ベクトル場の Lie 括弧とフローの関係を適用すると、定義可能な範囲で
+$
+\frac{d}{dt}(\Phi_i^{-t})_*H_j
+=(\Phi_i^{-t})_*[H_i,H_j]=0.
+$
+$t=0$ の値が $H_j$ だから $(\Phi_i^t)_*H_j=H_j$。したがって $\Phi_i^t$ は $H_j$ の積分曲線を積分曲線へ移す。初期値問題の一意性から $\Phi_i^t\circ\Phi_j^r=\Phi_j^r\circ\Phi_i^t$ が両辺とも定義される十分小さな範囲で成立する。
 
 初期点 $p_0$ に対し、座標差 $\delta_i=u^i-u^i(x_0)$ を使って
 $$
 s(u)=\Phi_n^{\delta_n}\circ\cdots\circ\Phi_1^{\delta_1}(p_0)
 $$
-と定める。フローの局所存在とパラメータへの滑らかな依存性から、小さな共通立方体 $U$ 上でこれは滑らかに定義される。$\pi_*H_i=\partial_i$ だから $\pi(s(u))=u$、また $\delta_i=0$ では恒等フローなので $s(x_0)=p_0$ である。可換性により任意の $i$ のフローを最後に回せるため、$\partial_i s=H_i\circ s$ が成立し、$\omega(ds(\partial_i))=0$。座標ベクトルは接空間を張るので $s^*\omega=0$ が従う。
+と定める。フローの局所存在とパラメータへの滑らかな依存性から、小さな共通立方体 $U$ 上でこれは滑らかに定義される。$\pi_*H_i=\partial_i$ だから $\pi(s(u))=u$、また $\delta_i=0$ では恒等フローなので $s(x_0)=p_0$ である。可換性により任意の $i$ のフローを最後に回せる。$e_i$ を第 $i$ 座標の単位方向とすると、十分小さい $t$ について $s(u+te_i)=\Phi_i^t(s(u))$ である。従って時間微分の定義から
+$
+ds_u(\partial_i)
+=\left.\frac{d}{dt}\right|_{t=0}s(u+te_i)
+=H_i(s(u)),
+\qquad \omega(ds_u(\partial_i))=0.
+$
+座標ベクトルは接空間を張るので $s^*\omega=0$ が従う。
 
 今度は $U$ 内の路 $\gamma$ を取る。$t\mapsto s(\gamma(t))$ は $\omega(ds(\dot\gamma))=0$ により水平である。[GBG14 の水平リフトの存在・一意性](../GBG14/index.md#thm-gbg14-horizontal-existence)から、始点 $s(x)$ を持つ輸送の終点は $s(y)$。[同講の右同変性](../GBG14/index.md#thm-gbg14-transport-laws)により一般の $s(x)g$ でも結論の式を得る。
 
@@ -158,11 +176,22 @@ $$
 $$
 0=k^{-1}(0)k+k^{-1}dk,\qquad dk=0.
 $$
-従って重なりの各道連結成分で $k$ は一定である。つまり、同じ小区間に沿う輸送は section の選択に依存しない。
+従って重なりの各道連結成分で $k$ は一定である。小区間の像が両 section の定義域に入る場合、$c([a,b])$ は連結だから $k(c(a))=k(c(b))$ である。始点の点を
+$
+p=s_\alpha(c(a))g_\alpha=s_\beta(c(a))g_\beta
+=s_\alpha(c(a))k(c(a))g_\beta
+$
+と書けば $g_\alpha=k(c(a))g_\beta$ であり、終点では
+$
+s_\beta(c(b))g_\beta
+=s_\alpha(c(b))k(c(b))g_\beta
+=s_\alpha(c(b))g_\alpha.
+$
+従って同じ小区間の輸送は section の選択に依存しない。
 
 細分をさらに細かくしても合成結果は同じである。異なる二つの細分を共通に細分すれば、選び方によらず連続路の輸送が定まる。区分的 $C^1$ 路については [水平リフトの一意性](../GBG14/index.md#thm-gbg14-horizontal-existence)から従来の平行移動と一致する。以下ではこの拡張を中間の連続路にも用いる。
 
-$H:[0,1]^2\to M$ を固定端点ホモトピーとし、[局所平行 section の定理](#thm-gbg16-local-parallel)で得た近傍 $\{U_\alpha\}$ で $H([0,1]^2)$ を覆う。正方形はコンパクトで、$H$ は一様連続なので、十分細かい矩形分割を取れば各小矩形の像がある一つの $U_\alpha$ に入る。
+$H:[0,1]^2\to M$ を固定端点ホモトピーとし、[局所平行 section の定理](#thm-gbg16-local-parallel)で得た近傍 $\{U_\alpha\}$ で $H([0,1]^2)$ を覆う。逆像 $\{H^{-1}(U_\alpha)\}$ はコンパクトな正方形の開被覆となるので、Lebesgue 数 $\lambda>0$ が取れる。各小矩形の直径が $\lambda$ より小さい格子分割を選べば、その矩形は一つの $H^{-1}(U_\alpha)$ に入り、像全体が同じ $U_\alpha$ に収まる。
 
 小矩形の左下を $a$、右下を $b$、右上を $c$、左上を $d$ とする。その像を含む $U_\alpha$ の平行 section $s_\alpha$ を使う。任意の $p=s_\alpha(H(a))g$ に対し、下辺・右辺を進む輸送は
 $$
@@ -272,6 +301,8 @@ x\,dy-y\,dx
 -\sin\theta(-\sin\theta\,d\theta)
 =d\theta.
 $$
+
+閉路 $\gamma$ の **向き付き周回数** $n$ は、角度を区間上の実数値関数 $\widetilde\theta$ に持ち上げたときの始終値差 $2\pi n=\widetilde\theta(1)-\widetilde\theta(0)$ である。これは [CA5 の巻き数](../../../解析系/CA/CA5/index.md#def-ca5-winding-number)に一致し、積分による確認を以下の証明で行う。
 
 積主束 $P=S^1\times U(1)$ の標準 section で、任意の $a\in\mathbb R$ に対し
 $$
@@ -405,7 +436,7 @@ $$
 $S^1$ 上で $A=\frac i2\eta$ とする。$\theta=0$ から $\pi$ まで進む路の局所輸送、正向き一周・逆向き一周のホロノミーを計算せよ。
 
 <!-- solution-start -->
-**詳細解答**。角度を区間 $[0,\pi]$ で実数値に取ると $A(\dot\gamma)=i/2$。[水平 ODE](../GBG14/index.md#prop-gbg14-local-transport)の解は $g(\theta)=e^{-i\theta/2}g(0)$ だから、半周の局所輸送は $e^{-i\pi/2}=-i$。閉路については [円周のホロノミー公式](#prop-gbg16-circle-holonomy)に $a=\frac12$、$n=\pm1$ を代入し
+**詳細解答**。半周の路を角度 $\theta\in[0,\pi]$ そのものでパラメータ化して $\gamma(\theta)=(\cos\theta,\sin\theta)$ とする。このとき $\eta_{\gamma(\theta)}(d\gamma/d\theta)=1$ だから $A_{\gamma(\theta)}(d\gamma/d\theta)=i/2$ である。[水平 ODE](../GBG14/index.md#prop-gbg14-local-transport)は $dg/d\theta=-(i/2)g$ となり、初期値 $g(0)$ に対する解は $g(\theta)=e^{-i\theta/2}g(0)$ だから、半周の局所輸送は $e^{-i\pi/2}=-i$。閉路については [円周のホロノミー公式](#prop-gbg16-circle-holonomy)に $a=\frac12$、$n=\pm1$ を代入し
 $$
 h_{+1}=e^{-i\pi}=-1,\qquad
 h_{-1}=e^{i\pi}=-1=h_{+1}^{-1}
@@ -469,7 +500,7 @@ $$
 #### GBG16-B02 2次元トーラス上の二つの位相
 - Level: B
 
-$T^2=S^1\times S^1$ の角度を $\theta,\varphi$ とし、積主 $U(1)$ 束に $A=i(a\,d\theta+b\,d\varphi)$（$a,b\in\mathbb R$）を取る。曲率を求め、閉路の二つの[巻き数](../../../解析系/CA/CA5/index.md#def-ca5-winding-number) $(m,n)\in\mathbb Z^2$ に対するモノドロミーを求めよ。どの条件で全ホロノミーが恒等になるか。
+$T^2=S^1\times S^1$ の各円周因子の局所角度を $\theta,\varphi$ とし、$d\theta,d\varphi$ は各因子の大域1形式 $\eta$ の引き戻しを表すものとする。積主 $U(1)$ 束に $A=i(a\,d\theta+b\,d\varphi)$（$a,b\in\mathbb R$）を取る。曲率を求め、閉路の二つの[巻き数](../../../解析系/CA/CA5/index.md#def-ca5-winding-number) $(m,n)\in\mathbb Z^2$ に対するモノドロミーを求めよ。どの条件で全ホロノミーが恒等になるか。
 
 <!-- solution-start -->
 **詳細解答**。$d\theta,d\varphi$ はそれぞれ円周因子から引き戻された大域1形式である。係数は定数で $U(1)$ は可換なので
@@ -489,7 +520,7 @@ $$
 #### GBG16-B03 非可換接続で平坦性を見落とさない
 - Level: B
 
-$G=GL(2,\mathbb R)$、$H=E_{12}$、$K=E_{21}$ とし、$\mathbb R^2$ の積主束で $A=H\,dx+K\,dy$ とする。$dA$ と $F$ を別々に求め、曲率が零か判定せよ。さらに微小正方形の輸送の二次項を示せ。
+$G=GL(2,\mathbb R)$ とし、$E_{ij}$ は第 $(i,j)$ 成分だけが $1$ で他は $0$ の $2\times2$ 行列とする。$H=E_{12}$、$K=E_{21}$ と置き、$\mathbb R^2$ の積主束で $A=H\,dx+K\,dy$ とする。$dA$ と $F$ を別々に求め、曲率が零か判定せよ。さらに微小正方形の輸送の二次項を示せ。
 
 <!-- solution-start -->
 **詳細解答**。$H,K$ は定数行列なので $dA=0$。しかし $A\wedge A=[H,K]\,dx\wedge dy$ である。$HK=E_{11}$、$KH=E_{22}$ だから
