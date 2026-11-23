@@ -108,7 +108,7 @@ chapters:
     title: "S⁴上のSU(2)主束はどう貼り合わされるか"
   - id: GBG26
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG26
-    status: planned
+    status: completed
     title: "第二Chern数は純ゲージ場と非自明な場をどう区別するか"
   - id: GBG27
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG27

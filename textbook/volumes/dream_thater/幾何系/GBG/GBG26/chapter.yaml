@@ -1,0 +1,50 @@
+id: "GBG26"
+title: "第二Chern数は純ゲージ場と非自明な場をどう区別するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG25
+  - GBG23
+  - GBG22
+  - GEO8
+official_scope: []
+learning_objectives:
+  - SU(2)基本表現の第二Chern形式の正規化と向き・跡の規約を説明できる
+  - 局所純ゲージA=g^{-1}dgでF=0をMaurer–Cartan方程式から計算できる
+  - Chern–Simons 3形式の外微分がtr(F∧F)となることを導ける
+  - SU(2)の三次Maurer–Cartan形式の24π²正規化を具体行列で検算できる
+  - S4の半球の境界符号とStokesから第二Chern数を次数に変換できる
+  - カットオフ接続の曲率を直接展開してクラッチング公式を再計算できる
+  - 非零第二Chern数と平坦接続の不可能性を論証できる
+  - 第二Chern数0と与えられた接続の平坦性を区別し具体例を構成できる
+  - 表現・向き・境界条件の変更が式の意味に与える影響を指摘できる
+definitions:
+  - { id: GBG26-DEF-01, name: SU(2)束の第二Chern数 }
+  - { id: GBG26-DEF-02, name: 局所純ゲージ接続 }
+  - { id: GBG26-DEF-03, name: 基本表現のChern–Simons 3形式 }
+  - { id: GBG26-DEF-04, name: 正規化されたSU(2)境界3形式 }
+theorems:
+  - { id: GBG26-PROP-01, name: Chern–Simons形式の外微分 }
+  - { id: GBG26-LEM-01, name: 境界3形式とクラッチング次数 }
+  - { id: GBG26-THM-01, name: S⁴上のクラッチング次数と第二Chern数 }
+  - { id: GBG26-COR-01, name: 非零第二Chern数は平坦接続を排除する }
+canonical_examples:
+  - 対角SU(2)値ゲージ関数のMaurer–Cartan形式と零曲率
+  - SU(2)上の三次Maurer–Cartan形式を単位元の行列で正規化
+  - S4の恒等・定数・逆元クラッチングによる第二Chern数1と0とマイナス1
+  - 南半球のカットオフ接続における非零曲率の帯
+  - 自明SU(2)束で第二Chern数0だが曲率が非零の局所接続
+problem_patterns:
+  - GBG26-CHERN-NORMALIZATION
+  - GBG26-MAURER-CARTAN
+  - GBG26-SU2-TRACE-CUBIC
+  - GBG26-HEMISPHERE-BOUNDARY-SIGN
+  - GBG26-CUTOFF-TRANSGRESSION
+  - GBG26-GAUGE-COVARIANCE
+  - GBG26-CLUTCHING-DEGREE
+  - GBG26-ZERO-NONFLAT
+  - GBG26-COMPREHENSIVE-CHERN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 4 }
