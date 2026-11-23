@@ -14,7 +14,7 @@ float cellAt(ivec2 p) {
 void main() {
   ivec2 p = u_stage == 0 ? ivec2(gl_FragCoord.xy) :
       ivec2(clamp(floor(gl_FragCoord.xy * vec2(u_gridSize) / u_targetSize),
-                  vec2(0.0), vec2(u_gridSize - ivec2(1)))));
+                  vec2(0.0), vec2(u_gridSize - ivec2(1))));
   if(u_stage == 2 || u_stage == 3){
     float side = min(u_targetSize.x,u_targetSize.y);
     vec2 lower = 0.5*(u_targetSize-vec2(side));
