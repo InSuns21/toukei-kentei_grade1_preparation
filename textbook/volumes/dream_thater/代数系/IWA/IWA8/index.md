@@ -79,7 +79,23 @@ $$
 存在・一意性は上の有限段持ち上げと逆極限から従います。積 $\omega(a)\omega(b)$ も $p-1$ 乗が1で、法 $p$ の値が $ab$ なので、一意性により $\omega(ab)=\omega(a)\omega(b)$ です。
 
 <!-- definition-example-start: def-iwa8-teich-character -->
-**定義の確認**。 $p=5$、$a=2\bmod5$ を取ります。[IWA2の具体計算](../IWA2/index.md#def-iwa2-teichmueller-lifts)では法25の持ち上げが7でした。実際 $7\equiv2\pmod5$ かつ $7^2=49\equiv-1\pmod{25}$、したがって $7^4\equiv1\pmod{25}$。さらに $57\equiv7\pmod{25}$ かつ $57^2=3249\equiv-1\pmod{125}$ だから、法125の持ち上げは57です。両方の段で「還元」と「4乗根」の条件を確認できました。
+**定義の確認**。$p=5$、$a=2\bmod5$ を取ります。[IWA2の具体計算](../IWA2/index.md#def-iwa2-teichmueller-lifts)で法25の持ち上げは7です。還元条件と4乗根の条件を順に確かめると、
+
+$
+7\equiv2\pmod5,\qquad
+7^2=49\equiv-1\pmod{25}
+\quad\Longrightarrow\quad 7^4\equiv1\pmod{25}.
+$
+
+次に法125では、前段への還元と根の条件が
+
+$
+57\equiv7\pmod{25},\qquad
+57^2=3249\equiv-1\pmod{125}
+\quad\Longrightarrow\quad57^4\equiv1\pmod{125}
+$
+
+と成立します。[持ち上げの一意性](../IWA2/index.md#prop-iwa2-teichmueller-lifting)から法125の値は57です。これで両段の「還元」と「4乗根」の条件を確認できました。
 <!-- definition-example-end -->
 
 $\Delta$ は位数 $p-1$ の巡回群です。$\omega$ はその生成元を位数 $p-1$ の根へ送るので、$\omega^0,\ldots,\omega^{p-2}$ がすべて異なる指標になります。ここから類群を分けるための係数を作ります。
@@ -357,7 +373,7 @@ N(\mathfrak p\mathcal O_{E_r})
 =\mathfrak p^{[E_r:E_r^+]}=\mathfrak p^2.
 $
 
-逆向きには、上の体の素イデアル $\mathfrak P$ について、共役を重複度込みで数える[ノルムと拡張の公式](../IWA4/index.md#prop-iwa4-norm-extension-composition)により
+逆向きには、上の体の素イデアル $\mathfrak P$ について、共役を重複度込みで数える[ノルムと拡張の公式](../IWA4/index.md#prop-iwa4-conjugate-product)により
 
 $
 (N\mathfrak P)\mathcal O_{E_r}=\mathfrak P(c\mathfrak P)
@@ -537,7 +553,29 @@ $$
 $p=5$ とし、法5の元2を法25へ $2+5t$（$0\le t<5$）として持ち上げる。$(2+5t)^4\equiv1\pmod{25}$ となる $t$ を求め、得られた値がTeichmüller持ち上げの二条件を満たすことを検算せよ。
 
 <!-- solution-start -->
-**詳細解答。** 二項展開で $(2+5t)^4\equiv16+4\cdot2^3\cdot5t=16+160t\equiv16+10t\pmod{25}$。従って $10t\equiv10\pmod{25}$、両辺を5で割って $2t\equiv2\pmod5$、すなわち $t\equiv1\pmod5$。範囲内では $t=1$ だけです。値は7で、$7\equiv2\pmod5$ かつ $7^2=49\equiv-1\pmod{25}$ から $7^4\equiv1\pmod{25}$。還元と根の条件を両方満たします。
+**詳細解答。** 二項展開で二次以上の項は25の倍数なので、
+
+$
+(2+5t)^4\equiv16+4\cdot2^3\cdot5t
+=16+160t\equiv16+10t\pmod{25}.
+$
+
+従って $10t\equiv10\pmod{25}$ です。両辺が5の倍数であるため、5で割って法5に移すと
+
+$
+2t\equiv2\pmod5
+\quad\Longrightarrow\quad t\equiv1\pmod5.
+$
+
+指定範囲では $t=1$ だけで、持ち上げは7です。実際、
+
+$
+7\equiv2\pmod5,\qquad
+7^2=49\equiv-1\pmod{25}
+\quad\Longrightarrow\quad7^4\equiv1\pmod{25}.
+$
+
+還元と根の条件を両方満たします。
 <!-- solution-end -->
 
 <a id="ex-iwa8-a3"></a>
@@ -573,7 +611,14 @@ $p=7$ とし、$M$ を $\mathbb Z_7[\Delta]$ 加群とする。$M^{(i)}$（$0\le
 $p=3$、$M=\mathbb Z/9\mathbb Z$、$c(x)=-x$ とする。$e_0=(1+c)/2$、$e_1=(1-c)/2$ による $M$ の像を計算せよ。ただし $1/2$ は法9での2の逆元を表す。
 
 <!-- solution-start -->
-**詳細解答。** 法9で $2\cdot5=10\equiv1$ より $1/2=5$ です。$e_0(x)=5(x-x)=0$、$e_1(x)=5(x+x)=10x\equiv x\pmod9$。したがって $e_0M=0$、$e_1M=M$。$e_0e_1=0$、$e_0+e_1=1$ も作用上で成立します。$c$ は全元に $-1$ で作用するので、奇部分だけが残ることと一致します。
+**詳細解答。** 法9で $2\cdot5=10\equiv1$ なので、$1/2$ は5を表します。$c(x)=-x$ を射影の式へ代入すると、
+
+$
+e_0(x)=5(x-x)=0,\qquad
+e_1(x)=5(x+x)=10x\equiv x\pmod9.
+$
+
+従って $e_0M=0$、$e_1M=M$ です。この二つの作用は直交し、和は恒等作用なので、$e_0e_1=0$、$e_0+e_1=1$ も確認できます。$c$ は全元に $-1$ で作用するので、奇部分だけが残ることと一致します。
 <!-- solution-end -->
 
 ### Level B
@@ -595,7 +640,21 @@ $p=5$、$\Delta=\langle g\rangle$（$g=2\bmod5$）、$M=(\mathbb Z/25\mathbb Z)\
 
 **第1問。** $7^2=49\equiv-1\pmod{25}$ なので $7^4\equiv1$。$4^2=16\equiv1\pmod5$ なので $4^4\equiv1$ です。従って作用は位数4の群の作用として良定義です。
 
-**第2問。** [Teichmüller値](#def-iwa8-teich-character)から $\omega(g)\equiv7\pmod{25}$、$\omega(g)^2\equiv4\pmod5$。第一座標の固有指標は $\omega$、第二座標は $\omega^2$ です。[直和分解](#thm-iwa8-idempotent-decomposition)より $M^{(1)}=\mathbb Z/25\oplus0$、$M^{(2)}=0\oplus\mathbb Z/5$、他は0。
+**第2問。** [Teichmüller値](#def-iwa8-teich-character)から $\omega(g)\equiv7\pmod{25}$、$\omega(g)^2\equiv4\pmod5$ です。任意の $\delta=g^k\in\Delta$ に対して
+
+$
+\delta(x,0)=(7^kx,0)=\omega(\delta)(x,0),\qquad
+\delta(0,y)=(0,4^ky)=\omega(\delta)^2(0,y)
+$
+
+となるので、[固有条件と直和分解](#thm-iwa8-idempotent-decomposition)から
+
+$
+M^{(1)}=\mathbb Z/25\mathbb Z\oplus0,\qquad
+M^{(2)}=0\oplus\mathbb Z/5\mathbb Z
+$
+
+で、他は0です。ここでも第一座標の等式は法25、第二座標は法5で解釈します。
 
 **第3問。** $g^2(x,y)=(-x,y)$ なので $M^-=\mathbb Z/25\oplus0$（位数25）、$M^+=0\oplus\mathbb Z/5$（位数5）です。$|M|=25\cdot5=125$ とも一致します。
 <!-- solution-end -->
@@ -716,7 +775,13 @@ $$
 N(e_1(u,v))=N(u,0)=(u\bmod25,0)=e_1N(u,v).
 $$
 
-同様に $e_2$ では $(0,v\bmod5)$ が両順序で得られ、$e_0,e_3$ はどちらも0です。従って全射影子で可換です。
+$e_2$ についても、座標の還元を両順序で実行すれば
+
+$
+N(e_2(u,v))=N(0,v)=(0,v\bmod5)=e_2N(u,v)
+$
+
+です。$e_0,e_3$ は双方の層で零作用なので、$N(e_i(u,v))=e_iN(u,v)=0$ が成立します。従って全射影子で可換です。
 
 **第4問。** $|M_1|=25\cdot5=5^3$ なので $v_5(|M_1|)=3=2+1$、$|M_2|=125\cdot25=5^5$ なので $v_5(|M_2|)=5=3+2$ です。右辺はそれぞれ奇成分と偶成分の $5$ 進指数の和です。ただしこの加群は数体の類群でなく、しかも二つの層だけの計算です。[IWA7の類数成長公式](../IWA7/index.md#thm-iwa7-class-number-growth)には数体の無限 $\mathbb Z_p$ 塔と算術的な制御が必要であり、二層の数値差だけから $\mu,\lambda,\nu$ を決めることはできません。
 <!-- solution-end -->
