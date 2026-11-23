@@ -106,7 +106,7 @@ $\Delta_n$ が有限部分、$U_n$ が $p$ 冪部分です。どちらも乗法�
 <a id="thm-iwa2-odd-splitting"></a>
 
 <!-- formal-statement-start -->
-> **定理（奇素数の $\Delta_n\times U_n$ 分解）**  
+> **定理（奇素数の円分単元群の直積分解）**  
 > 奇素数 $p$、整数 $n\ge0$ に対し、$\Delta_n$ と $U_n=1+p\mathbb Z/p^{n+1}\mathbb Z$ を上のように定める（右辺は法 $p^{n+1}$ の単元のうち $1\bmod p$ の元を意味する）。積写像
 $$
 \Delta_n\times U_n\longrightarrow
@@ -140,7 +140,15 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（生成元による指数座標）**  
-> 奇素数 $p$、$n\ge0$ に対し $g=1+p$ とする。各 $u\in U_n$ にはただ一つの $k\bmod p^n$ が存在して $u=g^k\bmod p^{n+1}$ と書ける。また制限 $U_{n+1}\to U_n$ は、この指数座標で $k\bmod p^{n+1}\mapsto k\bmod p^n$ となる。
+> 奇素数 $p$、整数 $n\ge0$ と $g=1+p$ を固定する。各 $u\in U_n$ について、一意な整数 $0\le k<p^n$ があり、
+$
+u\equiv g^k\pmod{p^{n+1}}
+$
+> と書ける。制限 $U_{n+1}\to U_n$ は指数座標の還元
+$
+\mathbb Z/p^{n+1}\mathbb Z\longrightarrow\mathbb Z/p^n\mathbb Z
+$
+> に一致する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -167,7 +175,7 @@ $$
 <a id="thm-iwa2-compatible-tower"></a>
 
 <!-- formal-statement-start -->
-> **定理（分解から得る円分 $\mathbb Z_p$ 塔の両立性）**  
+> **定理（円分塔の有限層と逆極限の両立性）**  
 > 奇素数 $p$ について上記の $K_n$ を取ると
 $$
 K_0=\mathbb Q\subset K_1\subset\cdots,\qquad
