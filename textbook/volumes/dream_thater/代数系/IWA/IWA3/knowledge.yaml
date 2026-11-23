@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - IWA2
+  - COMB9
 forward_references: []
 
 concepts:
@@ -26,7 +27,7 @@ concepts:
     requires: [number-theory.finite-group-ring, number-theory.iwasawa-algebra]
 
   - id: number-theory.iwasawa-cofinal-ideals
-    name: 有限段の核とI進位相の一致
+    name: 有限段の核と極限位相の一致
     kind: lemma
     introduction: formal
     requires: [number-theory.finite-group-ring-one-variable-presentation]
@@ -38,7 +39,7 @@ concepts:
     requires: [number-theory.iwasawa-cofinal-ideals, number-theory.finite-group-ring-one-variable-presentation]
 
   - id: number-theory.iwasawa-augmentation-unit-test
-    name: 係数和写像と単元判定
+    name: 増大写像と単元判定
     kind: proposition
     introduction: formal
     requires: [number-theory.iwasawa-power-series-isomorphism]
