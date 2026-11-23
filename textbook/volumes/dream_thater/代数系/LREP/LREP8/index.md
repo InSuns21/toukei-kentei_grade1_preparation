@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-一つの粒子に対する[角運動量の量子数と昇降公式](../LREP7/index.md#thm-lrep7-spin-spectrum)は、スピン $j$ の状態 $|j,m\rangle$ を記述しました。二つの粒子を同時に回転すると、それぞれの角運動量が加わります。しかし「スピン $j$ と $k$ を足す」といっても、答えは一般に一つの $j+k$ だけではありません。どのスピンが何回現れ、その状態を元の積状態でどう書けるでしょうか。
+一つの粒子に対する[有限次元スピンの量子化と昇降公式](../LREP7/index.md#thm-lrep7-spin-spectrum)は、スピン $j$ の状態 $|j,m\rangle$ を記述しました。二つの粒子を同時に回転すると、それぞれの角運動量が加わります。しかし「スピン $j$ と $k$ を足す」といっても、答えは一般に一つの $j+k$ だけではありません。どのスピンが何回現れ、その状態を元の積状態でどう書けるでしょうか。
 
 本講では、[テンソル積表現](../LREP4/index.md#def-lrep4-tensor-product)の中から全角運動量の既約部分空間を取り出します。有限次元複素ユニタリ $SU(2)$ 表現だけを扱い、$\hbar=1$ とします。
 
@@ -35,7 +35,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep8-total-spin -->
-**定義の確認。** $j=k=\frac12$ なら $\dim(V_{1/2}\otimes V_{1/2})=2\cdot2=4$ です。$|\uparrow\rangle=|\frac12,\frac12\rangle$、$|\downarrow\rangle=|\frac12,-\frac12\rangle$ と書くと、[前講の固有値公式](../LREP7/index.md#thm-lrep7-spin-spectrum)より
+**定義の確認。** $j=k=\frac12$ なら $\dim(V_{1/2}\otimes V_{1/2})=2\cdot2=4$ です。$|\uparrow\rangle=|\frac12,\frac12\rangle$、$|\downarrow\rangle=|\frac12,-\frac12\rangle$ と書くと、[有限次元スピンの量子化と昇降公式](../LREP7/index.md#thm-lrep7-spin-spectrum)より
 
 $$
 T_3|\uparrow\downarrow\rangle
@@ -112,10 +112,10 @@ V_j\otimes V_k\cong
 \qquad(\ell\ \text{は1刻み})
 $$
 
-> と分解する。各 $V_\ell$ の重複度はちょうど1であり、ほかの既約成分は現れない。
+> と分解する。各 $V_\ell$ の重複度はちょうど1であり、ほかの既約表現は現れない。
 <!-- formal-statement-end -->
 
-**証明の見取り図。** [完全可約性](../LREP2/index.md#thm-lrep2-complete-reducibility)で既約成分の存在を先に保証します。次に $T_3$ のウェイト $M$ の次元を積状態から数え、隣り合うウェイトの次元差で最高ウェイトの個数を求めます。[スピン $\ell$ のウェイト構造](../LREP7/index.md#thm-lrep7-spin-spectrum)が鍵です。
+**証明の見取り図。** [完全可約性](../LREP2/index.md#thm-lrep2-complete-reducibility)によって既約表現への分解を先に保証します。次に $T_3$ のウェイト $M$ の次元を積状態から数え、隣り合うウェイトの次元差で最高ウェイトの個数を求めます。[スピン $\ell$ のウェイト構造](../LREP7/index.md#thm-lrep7-spin-spectrum)が鍵です。
 
 <!-- proof-start -->
 ### 証明
@@ -151,7 +151,7 @@ $$
 
 端点 $M=j-k$ では二式がともに $2k+1$ になります。$M=J+1$ は現れず $w(J+1)=0$ と置きます。ここで $J$ と同じ整数・半整数格子上の $M\ge0$ だけを考えています。
 
-[完全可約性](../LREP2/index.md#thm-lrep2-complete-reducibility)と[スピンの量子化](../LREP7/index.md#thm-lrep7-spin-spectrum)から、テンソル積はある重複度 $a_\ell\in\mathbb Z_{\ge0}$ を使い $\bigoplus_\ell V_\ell^{\oplus a_\ell}$ と書けます。$-I_2$ は $V_j\otimes V_k$ 上で[一周の符号公式](../LREP7/index.md#thm-lrep7-rotation-parity)により $(-1)^{2(j+k)}I$ として作用します。したがって出現する $\ell$ は $j+k$ と同じ整数・半整数の格子に限られます。
+[完全可約性](../LREP2/index.md#thm-lrep2-complete-reducibility)と[スピンの量子化](../LREP7/index.md#thm-lrep7-spin-spectrum)から、テンソル積はある重複度 $a_\ell\in\mathbb Z_{\ge0}$ を使い $\bigoplus_\ell V_\ell^{\oplus a_\ell}$ と書けます。$-I_2$ は $V_j\otimes V_k$ 上で[整数スピンの降下と半整数スピンの射影表現](../LREP7/index.md#thm-lrep7-rotation-parity)により $(-1)^{2(j+k)}I$ として作用します。したがって出現する $\ell$ は $j+k$ と同じ整数・半整数の格子に限られます。
 
 各 $V_\ell$ の $T_3$ ウェイトには $-\ell,-\ell+1,\dots,\ell$ が重複なしで現れます。ゆえに同じ格子の $M\ge0$ に対して
 
@@ -160,7 +160,7 @@ w(M)=\sum_{\ell\ge M}a_\ell,\qquad
 a_M=w(M)-w(M+1).
 $$
 
-先ほどの $w$ の式をこの差に代入すると、$M=j-k,j-k+1,\dots,j+k$ で $a_M=1$、それ以外で $a_M=0$ です。したがって $|j-k|$ から $j+k$ までの全既約成分が一度ずつ現れます。$\square$
+先ほどの $w$ の式をこの差に代入すると、$M=j-k,j-k+1,\dots,j+k$ で $a_M=1$、それ以外で $a_M=0$ です。したがって $|j-k|$ から $j+k$ までの既約表現が一度ずつ現れます。$\square$
 <!-- proof-end -->
 
 **次元の独立検算。** $j\ge k$ の場合、右辺には $2k+1$ 個のスピンがあり
@@ -174,11 +174,11 @@ $$
 \end{aligned}
 $$
 
-これは証明とは別の次元検算です。次元だけが一致しても既約成分を同定したことにはならず、上のウェイト差が必要でした。
+これは証明とは別の次元検算です。次元だけが一致しても直和因子を同定したことにはならず、上のウェイト差が必要でした。
 
 ## 3. 積状態を全角運動量の基底に直す
 
-分解の存在だけでは、具体的な状態が分かりません。各既約成分の $T^2$ と $T_3$ の共同固有ベクトルを $|\ell,M\rangle$ と書きます。上の定理で重複度は1なので、各状態は位相を除いて決まります。位相の選択は係数の符号を変えますが、物理的な分解・固有値には影響しません。
+分解の存在だけでは、具体的な状態が分かりません。各既約直和因子の $T^2$ と $T_3$ の共同固有ベクトルを $|\ell,M\rangle$ と書きます。上の定理で重複度は1なので、各状態は位相を除いて決まります。位相の選択は係数の符号を変えますが、物理的な分解・固有値には影響しません。
 
 <a id="def-lrep8-cg-coefficients"></a>
 
@@ -245,7 +245,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$|\uparrow\uparrow\rangle$ は $T_3$ の固有値1を持ち、$T_+$ で消えます。[最高ウェイトの分類](../LREP7/index.md#thm-lrep7-spin-spectrum)から、この状態から生じる既約成分はスピン1です。[全昇降作用](#lem-lrep8-total-commutators)で
+$|\uparrow\uparrow\rangle$ は $T_3$ の固有値1を持ち、$T_+$ で消えます。[最高ウェイトの分類](../LREP7/index.md#thm-lrep7-spin-spectrum)から、この状態から生じる既約表現はスピン1です。[全昇降作用](#lem-lrep8-total-commutators)で
 
 $$
 T_-|\uparrow\uparrow\rangle
@@ -401,14 +401,14 @@ T_+s=\frac{|\uparrow\uparrow\rangle-|\uparrow\uparrow\rangle}{\sqrt2}=0,\qquad
 T_-s=\frac{|\downarrow\downarrow\rangle-|\downarrow\downarrow\rangle}{\sqrt2}=0.
 $$
 
-$T_1=(T_++T_-)/2$、$T_2=(T_+-T_-)/(2i)$ より全 $T_a$ が $s$ を零へ写します。[指数曲線に沿った群表現公式](../LREP3/index.md#thm-lrep3-differentiation)を使うと各 $\exp(tA_a)$ は $s$ に恒等作用します。$SU(2)$ はこれらの回転で生成されるため、すべての $U\in SU(2)$ で $(D(U)\otimes D(U))s=s$ です。
+$T_1=(T_++T_-)/2$、$T_2=(T_+-T_-)/(2i)$ より全 $T_a$ が $s$ を零へ写します。[群表現の微分は Lie 環表現になる](../LREP3/index.md#thm-lrep3-differentiation)を使うと各 $\exp(tA_a)$ は $s$ に恒等作用します。$SU(2)$ はこれらの回転で生成されるため、すべての $U\in SU(2)$ で $(D(U)\otimes D(U))s=s$ です。
 <!-- solution-end -->
 
 <a id="ex-lrep8-a04"></a>
 #### LREP8-A04 合成スピンの候補と次元
 - Level: A
 
-$j=2,k=\frac12$ の既約成分のスピン、次元、総次元を求めよ。
+$j=2,k=\frac12$ に現れる既約表現のスピン、次元、総次元を求めよ。
 
 <!-- solution-start -->
 **詳細解答。** [分解定理](#thm-lrep8-clebsch-gordan)の下端は $|2-\frac12|=\frac32$、上端は $2+\frac12=\frac52$ なので、$\ell=\frac32,\frac52$ です。次元はそれぞれ $2(\frac32)+1=4$、$2(\frac52)+1=6$。和は10で、元の積空間の次元 $(2\cdot2+1)(2\cdot\frac12+1)=5\cdot2=10$ に一致します。
@@ -453,7 +453,7 @@ $T_+|0,\uparrow\rangle=\sqrt2|1,\uparrow\rangle$、$T_+|1,\downarrow\rangle=|1,\
 $j=k=\frac12$ の $M=0$ 部分空間を順序付き基底 $(|\uparrow\downarrow\rangle,|\downarrow\uparrow\rangle)$ で表す。$T^2$ の行列を計算して固有値と固有ベクトルを求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [角運動量のCasimir](../LREP7/index.md#def-lrep7-casimir)と [全角運動量の定義](#def-lrep8-total-spin)を展開すると
+**詳細解答。** [角運動量のCasimir演算子](../LREP7/index.md#def-lrep7-casimir)と [全角運動量の定義](#def-lrep8-total-spin)を展開すると
 
 $$
 T^2=\tfrac32I+
@@ -473,7 +473,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-lrep8-b03"></a>
-#### LREP8-B03 ウェイトの差から既約成分を復元する
+#### LREP8-B03 ウェイトの差から既約表現を復元する
 - Level: B
 
 $j=\frac32,k=1$ の正の全磁気量子数ごとの重複度を積状態で数え、どの $\ell$ が現れるかを求め、次元を検算せよ。
@@ -497,7 +497,7 @@ $$
 二つのスピンのテンソル積上で $SU(2)$ の中心元 $-I_2$ がどう作用するかを求め、$(j,k)=(\frac12,\frac12), (1,\frac12), (1,1)$ の場合に $SO(3)$ の通常表現へ降りるかを判断せよ。スピンの混合直和との違いも述べよ。
 
 <!-- solution-start -->
-**詳細解答。** [一周の符号公式](../LREP7/index.md#thm-lrep7-rotation-parity)から各因子で $D_j(-I_2)=(-1)^{2j}I$ です。[テンソル積表現](../LREP4/index.md#def-lrep4-tensor-product)によって、積ではスカラーが掛かり
+**詳細解答。** [整数スピンの降下と半整数スピンの射影表現](../LREP7/index.md#thm-lrep7-rotation-parity)から各因子で $D_j(-I_2)=(-1)^{2j}I$ です。[テンソル積表現](../LREP4/index.md#def-lrep4-tensor-product)によって、積ではスカラーが掛かり
 
 $$
 (D_j\otimes D_k)(-I_2)=(-1)^{2j+2k}I.
@@ -514,7 +514,7 @@ $(\frac12,\frac12)$ では指数2なので $+I$、$(1,\frac12)$ では指数3な
 
 $j=k=1$ に対して以下を示せ。
 
-1. 既約成分のスピンと次元を求めよ。
+1. 出現する既約表現のスピンと次元を求めよ。
 2. $|2,2\rangle=|1,1;1,1\rangle$、$|1,1\rangle=(|1,1;1,0\rangle-|1,0;1,1\rangle)/\sqrt2$ が、それぞれスピン2・1の最高状態であると確かめよ。
 3. $s=(|1,1;1,-1\rangle-|1,0;1,0\rangle+|1,-1;1,1\rangle)/\sqrt3$ がスピン0の状態であることを示せ。
 4. 三成分の直和が全9次元を張る理由を説明せよ。
@@ -555,11 +555,11 @@ $$
 
 なのでこちらも消えます。$T_a s=0$ が全ての $a$ で成立し $T^2s=0$、スピン0の状態です。
 
-**設問4。** [完全可約性と分解定理](#thm-lrep8-clebsch-gordan)により、ここで見つけた互いに異なる最高ウェイトの成分は直和となり、それぞれ次元5・3・1です。$5+3+1=9=(2\cdot1+1)^2$ で、これらが積空間を尽くします。スピン1成分を一つの最高状態だけで終わらせず、その下降鎖が三次元を張ることは[スピンの昇降定理](../LREP7/index.md#thm-lrep7-spin-spectrum)から従います。
+**設問4。** [SU(2)のClebsch–Gordan分解](#thm-lrep8-clebsch-gordan)により、ここで見つけた互いに異なる最高ウェイトの成分は直和となり、それぞれ次元5・3・1です。$5+3+1=9=(2\cdot1+1)^2$ で、これらが積空間を尽くします。スピン1成分を一つの最高状態だけで終わらせず、その下降鎖が三次元を張ることは[スピンの昇降定理](../LREP7/index.md#thm-lrep7-spin-spectrum)から従います。
 <!-- solution-end -->
 
 ## 6. まとめと次講
 
-二つのスピンの合成は、積空間の対角 $SU(2)$ 表現を既約成分へ分ける操作です。スピン $\ell$ は $|j-k|$ から $j+k$ まで1刻みで各一回現れます。Clebsch–Gordan係数は積基底と全角運動量基底の間の変換係数で、昇降・正規化・直交条件から計算できます。
+二つのスピンの合成は、積空間の対角 $SU(2)$ 表現を既約表現の直和へ分ける操作です。スピン $\ell$ は $|j-k|$ から $j+k$ まで1刻みで各一回現れます。Clebsch–Gordan係数は積基底と全角運動量基底の間の変換係数で、昇降・正規化・直交条件から計算できます。
 
 次の **LREP9「Lorentz Lie環の回転とboost」** では、回転生成子にboost生成子を加えると交換関係がどう変わるかを調べます。
