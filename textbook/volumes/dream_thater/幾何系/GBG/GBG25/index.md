@@ -13,9 +13,9 @@
 第一列が長さ1の $(z,w)^{\mathsf T}$ なら、単位長でこれに直交する第二列 $v$ は、$|\lambda|=1$ なる複素数 $\lambda$ を用いて
 
 $
-v=\lambda\begin{pmatrix}-\overline w\\ \overline z\end{pmatrix},
+v=\lambda\binom{-\overline w}{\overline z},
 \qquad
-\det\begin{pmatrix}z&-\lambda\overline w\\w&\lambda\overline z\end{pmatrix}
+\det U=z(\lambda\overline z)-w(-\lambda\overline w)
 =\lambda(|z|^2+|w|^2)=\lambda
 $
 
@@ -389,12 +389,15 @@ $$
 行列の積を全成分で計算すると
 
 $
-Q^\dagger Q=
-\begin{pmatrix}
-|z|^2+|w|^2&-\overline z\,\overline w+\overline w\,\overline z\\
--wz+zw&|w|^2+|z|^2
-\end{pmatrix}
-=I_2.
+(Q^\dagger Q)_{11}=|z|^2+|w|^2=1,
+\qquad
+(Q^\dagger Q)_{12}=-\overline z\,\overline w+\overline w\,\overline z=0,
+$
+
+$
+(Q^\dagger Q)_{21}=-wz+zw=0,
+\qquad
+(Q^\dagger Q)_{22}=|w|^2+|z|^2=1.
 $
 
 行列式は $z\overline z-(-\overline w)w=|z|^2+|w|^2=1$。従って逆行列 $Q(z,w)^{-1}=Q(z,w)^\dagger$ であり、$Q(\overline z,-w)$ に代入すると同じ共役転置行列になる。ここで $Q^{-1}$ とだけ書く逆写像とは、第1節で区別した。
