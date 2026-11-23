@@ -4,22 +4,23 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - IWA2
+  - COMB9
 official_scope: []
 learning_objectives:
   - 有限群環の形式和・積を定義し巡回群の具体例を計算できる
   - 有限商群環の二重逆極限として完備群環を構成し遷移写像を説明できる
   - 有限群環をZ_p[[T]]の商として表示し核と冪零性を証明できる
   - 有限段の核と(p,T)進位相が共終であることを示し岩澤代数と冪級数環の位相環同型を証明できる
-  - 係数和写像の核・単元判定と生成元変更の座標公式を導出できる
+  - 増大写像の核・単元判定と生成元変更の座標公式を導出できる
   - 有限段の関係式と無限段の非零元を区別しノルム型の和を計算できる
 definitions:
   - { id: IWA3-DEF-01, name: 有限群環 }
   - { id: IWA3-DEF-02, name: 岩澤代数・完備群環 }
 theorems:
   - { id: IWA3-PROP-01, name: 有限群環の一変数表示 }
-  - { id: IWA3-LEM-01, name: 有限段の核とI進位相の一致 }
+  - { id: IWA3-LEM-01, name: 有限段の核と極限位相の一致 }
   - { id: IWA3-THM-01, name: 岩澤代数の冪級数表示 }
-  - { id: IWA3-PROP-02, name: 係数和写像と単元判定 }
+  - { id: IWA3-PROP-02, name: 増大写像と単元判定 }
   - { id: IWA3-PROP-03, name: 位相的生成元の変更 }
 canonical_examples:
   - F_3[C_3]での形式和の積とT^3=0
