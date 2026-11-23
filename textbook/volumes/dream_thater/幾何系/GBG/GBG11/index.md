@@ -268,7 +268,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg11-local-covariant-exterior -->
-**定義の確認**。$U=\mathbb R^3$ とし、行列群 $GL(2,\mathbb R)$ の Lie 環を $\mathfrak{gl}_2(\mathbb R)=M_2(\mathbb R)$ と表示する。[GBG10で導入した行列単位](../GBG10/index.md#def-gbg10-curvature)の記法を使い、
+**定義の確認**。$U=\mathbb R^3$ とし、行列群 $GL(2,\mathbb R)$ の Lie 環を $\mathfrak{gl}_2(\mathbb R)=M_2(\mathbb R)$ と表示する。行列単位 $E_{ij}$ を「第 $(i,j)$ 成分だけが $1$ で他が $0$ の行列」と定め、
 
 $
 B=E_{11}=\begin{pmatrix}1&0\\0&0\end{pmatrix},
