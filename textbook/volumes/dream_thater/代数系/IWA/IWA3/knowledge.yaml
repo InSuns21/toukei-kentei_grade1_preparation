@@ -1,0 +1,50 @@
+chapter: IWA3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - IWA2
+forward_references: []
+
+concepts:
+  - id: number-theory.finite-group-ring
+    name: 有限群環
+    kind: definition
+    introduction: formal
+    requires: []
+
+  - id: number-theory.iwasawa-algebra
+    name: 岩澤代数・完備群環
+    kind: definition
+    introduction: formal
+    introduction_aliases: [岩澤代数, 完備群環]
+    requires: [number-theory.finite-group-ring, number-theory.cyclotomic-compatible-delta-gamma-tower]
+
+  - id: number-theory.finite-group-ring-one-variable-presentation
+    name: 有限群環の一変数表示
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.finite-group-ring, number-theory.iwasawa-algebra]
+
+  - id: number-theory.iwasawa-cofinal-ideals
+    name: 有限段の核とI進位相の一致
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.finite-group-ring-one-variable-presentation]
+
+  - id: number-theory.iwasawa-power-series-isomorphism
+    name: 岩澤代数の冪級数表示
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwasawa-cofinal-ideals, number-theory.finite-group-ring-one-variable-presentation]
+
+  - id: number-theory.iwasawa-augmentation-unit-test
+    name: 係数和写像と単元判定
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwasawa-power-series-isomorphism]
+
+  - id: number-theory.iwasawa-generator-change
+    name: 位相的生成元の変更
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.zp-generator-criterion, number-theory.iwasawa-power-series-isomorphism]
