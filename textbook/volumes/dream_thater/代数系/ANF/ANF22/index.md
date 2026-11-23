@@ -258,7 +258,20 @@ $$
 
 でした。有限次数が $1,p,p^2,\ldots$ となるGalois拡大を、制限写像でつないでこの群を実現します。$p$ が奇数の場合、円分体には余分な位数 $p-1$ の部分群があるので、まずそこを固定します。
 
-**Krull位相とは**、無限Galois拡大 $K_\infty/K$ のGalois群上で、有限Galois中間体 $L/K$ を固定する部分群 $\operatorname{Gal}(K_\infty/L)$ を単位元の開近傍の基本系とする位相です。有限段への制限写像を全て集めた逆極限の位相と一致し、有限段の情報で無限群の元を区別できます。
+無限Galois拡大では、有限Galois中間体 $L/K$ ごとの制限写像から位相を定めます。群の単位元にどんな近傍を取るかを決めれば、有限段で一致する自己同型どうしが、無限段でもどれだけ近いかを説明できます。
+
+<a id="def-anf22-krull-topology"></a>
+
+<!-- formal-statement-start -->
+> **定義（Krull位相）**  
+> $E/K$ を（無限でもよい）Galois拡大、$G=\operatorname{Gal}(E/K)$ とする。$K\subseteq L\subseteq E$ を動く有限Galois中間拡大 $L/K$ に対し、$\operatorname{Gal}(E/L)$ を単位元の開近傍の基本系とする位相を、$G$ の **Krull位相** と呼ぶ。
+<!-- formal-statement-end -->
+
+この位相は有限段への制限写像から得られる逆極限位相と一致します。自己同型の列が単位元に近づくとは、どの有限Galois中間体 $L$ についても、十分先では $L$ の全元を固定することです。
+
+<!-- definition-example-start: def-anf22-krull-topology -->
+**定義の確認**。まず $E/K$ が有限Galois拡大なら $L=E$ を選べるため、$\operatorname{Gal}(E/L)=\{1\}$ が開近傍です。従ってこの場合のKrull位相は離散位相です。無限の場合も、各有限Galois中間体 $L$ への制限の核が $\operatorname{Gal}(E/L)$ なので、有限商を通して近傍を判定できます。
+<!-- definition-example-end -->
 
 <a id="def-anf22-zp-extension"></a>
 
