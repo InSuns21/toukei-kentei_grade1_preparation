@@ -89,21 +89,21 @@ $$
 
 最小性から $H\subseteq p^n\mathbb Z_p$ です。一方 $a\in H$ だから $ma\in H$ は全ての整数 $m$ について成立します。ここで整数の稠密性を確認します。[桁展開定理](../../ANF/ANF9/index.md#thm-anf9-digit-expansion)で任意の $x\in\mathbb Z_p$ を $x=\sum_{j\ge0}b_jp^j$ と書き、$s_N=\sum_{j=0}^{N-1}b_jp^j\in\mathbb Z$ と置くと、
 
-$
+$$
 x-s_N\in p^N\mathbb Z_p,\qquad s_N\longrightarrow x
-$
+$$
 
 です。従って $\mathbb Z$ は $\mathbb Z_p$ に稠密です。さらに任意の $y\in\mathbb Z_p$ について、$u$ は単元なので整数列 $m_N\to u^{-1}y$ を選べます。乗法の連続性より
 
-$
+$$
 m_Na=p^num_N\longrightarrow p^ny.
-$
+$$
 
 したがって $p^n\mathbb Z_p\subseteq\overline{\mathbb Za}$ です。逆に $\mathbb Za\subseteq p^n\mathbb Z_p$ であり、右辺は[還元写像の核](#prop-iwa1-residue-quotients)として閉だから
 
-$
+$$
 \overline{\mathbb Za}=p^n\mathbb Z_p.
-$
+$$
 
 $H$ は閉で $\mathbb Za\subseteq H$ なので、$p^n\mathbb Z_p\subseteq H$ を得ます。両包含から等号です。逆に各 $p^n\mathbb Z_p$ は[還元写像の核](#prop-iwa1-residue-quotients)なので閉、$\{0\}$ も距離空間の閉集合です。指数は同命題の商群の位数 $p^n$ です。
 <!-- proof-end -->
@@ -182,15 +182,15 @@ $$
 <!-- definition-example-start: def-iwa1-canonical-layers -->
 **定義の確認**（$p=3$）。[円分的な構成](../../ANF/ANF22/index.md#thm-anf22-cyclotomic-zp-tower)で $E_n=\mathbb Q(\zeta_{3^{n+1}})$ と置きます。そのGalois群は $(\mathbb Z/3^{n+1}\mathbb Z)^\times$ で、位数は $\varphi(3^{n+1})=2\cdot3^n$ です。$\{\pm1\}$ は $\zeta\mapsto\zeta^{\pm1}$ に対応する位数 $2$ の部分群であり、その固定体
 
-$
+$$
 F_n=E_n^{\{\pm1\}}
-$
+$$
 
 はGalois対応から
 
-$
+$$
 [F_n:\mathbb Q]=\frac{2\cdot3^n}{2}=3^n
-$
+$$
 
 を満たします。特に $F_0=\mathbb Q$、$[F_1:\mathbb Q]=3$、$[F_2:\mathbb Q]=9$ です。同じ[円分塔の定理](../../ANF/ANF22/index.md#thm-anf22-cyclotomic-zp-tower)で $F_n\subset F_{n+1}$ と $\operatorname{Gal}(F_\infty/\mathbb Q)\simeq\mathbb Z_3$（$F_\infty=\bigcup_nF_n$）が従います。$F_n$ を固定する閉部分群の指数は $[F_n:\mathbb Q]=3^n$ なので、[閉部分群の分類](#thm-iwa1-closed-subgroups)から、同型 $\iota$ の下で $3^n\mathbb Z_3$ に対応します。従って定義した第 $n$ 層と $F_n$ は一致します。さらに $F_1\subset F_2$ と塔の次数公式より $[F_2:F_1]=9/3=3$ です。固定群・次数・包含を別々に確認できました。
 <!-- definition-example-end -->
@@ -278,9 +278,9 @@ $$
 
 整数の稠密性は[桁展開](../../ANF/ANF9/index.md#thm-anf9-digit-expansion)から前節の証明と同様に従います。任意の $x\in\mathbb Z_p$ に整数列 $m_N\to x$ を選ぶと、$m_Nu\to ux$ なので $u\mathbb Z_p\subseteq\overline{\mathbb Zu}$ です。一方、$u=0$ なら $u\mathbb Z_p=\{0\}$、$u\ne0$ なら[付値による単元判定](../../ANF/ANF9/index.md#prop-anf9-dvr-structure)から $u=p^kv$（$k=v_p(u)\ge0$、$v$ は単元）と書けて、
 
-$
+$$
 u\mathbb Z_p=p^k\mathbb Z_p
-$
+$$
 
 は[還元写像の核](#prop-iwa1-residue-quotients)として閉です。従って逆向きの包含も成り立ち、$\overline{\mathbb Zu}=u\mathbb Z_p$ を得ます。$u$ が単元ならこれは $\mathbb Z_p$ 全体、非単元なら $p\mathbb Z_p$ 以下の真部分群です。これで同値が示されます。
 
@@ -293,9 +293,9 @@ $
 
 **選択の違い。** $K_n$ は同型 $\iota$ に依存しませんが、$\gamma$ をどの位相的生成元にするかで $a\bmod p^n$ という座標は変わります。ここで $u\in\mathbb Z_p^\times$ に対する $\gamma^u$ は通常の整数冪ではなく、各有限商で
 
-$
+$$
 (\gamma^u)|_{K_n}=(\gamma|_{K_n})^{\,u\bmod p^n}
-$
+$$
 
 を満たす元を意味します。$u\bmod p^n$ は指数 $p^n$ の巡回群での整数の剰余類です。この冪は上下の層への制限と両立するので、[逆極限定理](#thm-iwa1-galois-inverse-limit)から一つの元 $\gamma^u$ が定まり、[生成元判定](#prop-iwa1-generator-criterion)によって $\gamma$ と $\gamma^u$ は共に位相的生成元です。後の岩澤代数では $T=\gamma-1$ と置くため、座標の規格化を毎回明記する必要があります。
 
