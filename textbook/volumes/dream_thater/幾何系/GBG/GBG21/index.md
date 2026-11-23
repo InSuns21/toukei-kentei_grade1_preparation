@@ -47,13 +47,23 @@ $$
 **定義の確認**。積主 $U(1)$ 束を $M=\mathbb R^4$ 上で取り、標準 section における接続を
 
 $$
-A=i(x^1dx^2+x^3dx^4),\qquad
-F=i(\eta+\zeta),\quad
-\eta=dx^1\wedge dx^2,\quad
-\zeta=dx^3\wedge dx^4
-$$
+A=i(x^1dx^2+x^3dx^4)
+$
 
-とする。$U(1)$ は可換で $F=dA$。$p(it_1,it_2)=t_1t_2$ は実双線形、対称であり、随伴作用が自明だからAd不変である。この各条件を確認した上で定義の外積規則へ入れると
+とする。$\mathfrak u(1)=i\mathbb R$ は可換だから、[局所曲率の構造方程式](../GBG10/index.md#thm-gbg10-local-formula)の括弧項は零になる。座標関数を外微分し、$d^2x^j=0$ を使うと
+
+$
+\begin{aligned}
+F=dA
+&=i\bigl(d(x^1dx^2)+d(x^3dx^4)\bigr)\\
+&=i(dx^1\wedge dx^2+dx^3\wedge dx^4)
+=i(\eta+\zeta),\\
+\eta&=dx^1\wedge dx^2,\qquad
+\zeta=dx^3\wedge dx^4.
+\end{aligned}
+$
+
+実基底 $e=i$ によって $F=e(\eta+\zeta)$ と表せる。$p(it_1,it_2)=t_1t_2$（$t_1,t_2\in\mathbb R$）は実双線形、対称であり、随伴作用が自明だからAd不変である。さらに $p(e,e)=1$ なので、[係数形式へ外積を施す規則](../GBG20/index.md#def-gbg20-curvature-polynomial-form)は $p(F,F)=(\eta+\zeta)\wedge(\eta+\zeta)$ となる。この各条件を確認した上で計算すると
 
 $$
 \beta_p(\omega)=p(F,F)
@@ -295,7 +305,7 @@ dF&=X\,dz\wedge dx\wedge dy\ne0.
 \end{aligned}
 $$
 
-それでも $p(Y)=\operatorname{tr}Y$ は随伴不変である。$\operatorname{tr}H=1$、$\operatorname{tr}X=0$ より
+それでも $p(Y)=\operatorname{tr}Y$ は[対称化traceのAd不変性](../GBG20/index.md#thm-gbg20-trace-invariant)を標準表現の $k=1$ に適用したもので、随伴不変である。$\operatorname{tr}H=1$、$\operatorname{tr}X=0$ より
 
 $$
 p(F)=dz\wedge dx,\qquad d\,p(F)=0.
@@ -542,13 +552,13 @@ $G=U(1)$ は可換であるから、不変性の無限小条件は自動的に�
 #### GBG21-C01 $S^2\times S^2$ 上のChern–Weil形式
 - Level: C
 
-外向きに向きを付けた二つの球面の積 $M=S^2\times S^2$ を積の向きで考える。$\sigma_1,\sigma_2$ を各球面の面積形式（$\int_{S^2}\sigma_j=4\pi$）の引き戻しとする。[GBG19のmonopole接続](../GBG19/index.md#thm-gbg19-curvature-flux)を各因子に取り、整数 $m,n$ に対して、積の $U(1)$ 束の曲率が
+外向きに向きを付けた二つの球面の積 $M=S^2\times S^2$ を積の向きで考える。$\sigma_1,\sigma_2$ を各球面の面積形式（$\int_{S^2}\sigma_j=4\pi$）の引き戻しとする。[GBG19のmonopole接続](../GBG19/index.md#thm-gbg19-curvature-flux)を各因子に取り、整数 $m,n$ に対して、二つの主束を $M$ へ引き戻す。さらに**局所遷移関数の積**で貼り合わせた主 $U(1)$ 束を考え、二つの引き戻し接続1形式の和を局所接続とする。単純な主束の直積（構造群 $U(1)\times U(1)$）とは区別する。この接続の曲率は
 
-$$
+$
 F=-\frac{i}{2}(m\sigma_1+n\sigma_2)
-$$
+$
 
-となる接続を考える。$p_1(X)=iX/(2\pi)$、$p_2(X,Y)=p_1(X)p_1(Y)$ とする。
+である。$p_1(X)=iX/(2\pi)$、$p_2(X,Y)=p_1(X)p_1(Y)$ とする。
 
 1. $p_1,p_2$ の不変性と次数を確認し、$\beta_{p_1},\beta_{p_2}$ を求めよ。
 2. 本講の閉性定理を適用する仮定を列挙し、$\beta_{p_2}$ が閉じる理由を述べよ。
@@ -558,7 +568,34 @@ $$
 <!-- solution-start -->
 **詳細解答**。
 
-**1.** $U(1)$ は可換でAd作用が自明であり、$p_1$ は実線形、$p_2$ は実双線形かつ対称である。どちらもAd不変である。$i(-i)=1$ を用いると
+**1.** まず「曲率の和」を持つ主束の作り方を確認する。$\operatorname{pr}_j:M\to S^2$ を第 $j$ 因子への射影とする。各球面上のmonopole主束を引き戻した積パッチ $U_\alpha\times U_\beta$（$\alpha,\beta\in\{N,S\}$）で、遷移関数を
+
+$
+h_{(\alpha,\beta),(\alpha',\beta')}
+=\bigl(g^{(m)}_{\alpha\alpha'}\circ\operatorname{pr}_1\bigr)
+\bigl(g^{(n)}_{\beta\beta'}\circ\operatorname{pr}_2\bigr)
+$
+
+とする。各 $g^{(m)},g^{(n)}$ は[GBG19の接続に使ったmonopole主束](../GBG19/index.md#def-gbg19-monopole-potentials)の遷移関数である。それぞれのcocycle条件と $U(1)$ の可換性から、$h$ もcocycle条件を満たす。局所接続1形式を
+
+$
+A_{\alpha\beta}
+=\operatorname{pr}_1^*A^{(m)}_\alpha
++\operatorname{pr}_2^*A^{(n)}_\beta
+$
+
+と置けば、重なりで
+
+$
+A_{\alpha'\beta'}-A_{\alpha\beta}
+=(g^{(m)}_{\alpha\alpha'})^{-1}d g^{(m)}_{\alpha\alpha'}
++(g^{(n)}_{\beta\beta'})^{-1}d g^{(n)}_{\beta\beta'}
+=h^{-1}dh
+$
+
+となる。ここでは各 $g$ とその微分を対応する射影で引き戻した記号で略記した。積の微分則と $U(1)$ の可換性を使ったので、これは主 $U(1)$ 接続の貼り合わせ条件である。従って $F=dA_{\alpha\beta}=\operatorname{pr}_1^*F_m+\operatorname{pr}_2^*F_n=-i(m\sigma_1+n\sigma_2)/2$ が確かめられる。
+
+$U(1)$ は可換でAd作用が自明であり、$p_1$ は実線形、$p_2$ は実双線形かつ対称である。どちらもAd不変である。$i(-i)=1$ を用いると
 
 $$
 \beta_{p_1}=\frac{iF}{2\pi}
