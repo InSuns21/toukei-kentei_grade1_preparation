@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - GBG13
   - ODE1
+  - GEO13
 forward_references: []
 concepts:
   - id: gauge.curve-horizontal-lift
