@@ -242,7 +242,7 @@ G_n=\operatorname{Gal}(E_n/\mathbb Q)
 \simeq(\mathbb Z/p^{n+1}\mathbb Z)^\times
 $$
 
-には、$p-1$ 乗して $1$ になる元の群 $\Delta_n$ があります。$\Delta_n$ は法 $p$ への還元で $(\mathbb Z/p\mathbb Z)^\times$ に同型です。実際、各 $a\not\equiv0\pmod p$ は多項式 $X^{p-1}-1$ の単純根なので [Henselの補題](../ANF10/index.md#thm-anf10-hensel-simple-root)で法 $p^{n+1}$ へ一意に持ち上がります。
+には、$p-1$ 乗して $1$ になる元の群 $\Delta_n$ があります。$\Delta_n$ は法 $p$ への還元で $(\mathbb Z/p\mathbb Z)^\times$ に同型です。実際、各 $a\not\equiv0\pmod p$ は多項式 $X^{p-1}-1$ の単純根なので [Henselの補題](../ANF10/index.md#thm-anf10-hensel-simple)で法 $p^{n+1}$ へ一意に持ち上がります。
 
 $$
 |\Delta_n|=p-1,\qquad
