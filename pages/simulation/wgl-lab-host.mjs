@@ -65,7 +65,7 @@ const requestedCase = new URL(location.href).searchParams.get('case');
 const labCase = isWGL20 && ['CS1','CS2','CS3'].includes(requestedCase) ? requestedCase : 'BASE';
 // FCG8's old saved JS predates the live playback hooks. Keep the old key
 // intact for recovery, but never silently restore it into the new live runner.
-const STORAGE_KEY = 'toukei-' + (isFCG8?'fcg8-live-v2':VERSION) + '-' + lesson +
+const STORAGE_KEY = 'toukei-' + (isFCG8?'fcg8-live-v2':isWGL14?'wgl14-visual-v2':VERSION) + '-' + lesson +
   (isWGL20 ? '-' + labCase : '');
 
 const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/' + ((isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8) ? 'FCG' : 'WGL') + '/' + lesson + '/', import.meta.url);
@@ -1407,7 +1407,8 @@ byId('preset').addEventListener('change', event => {
         'outColor = vec4(rgb, 1.0);', 'outColor = vec4(rgb, 1.0)');
     } else if (isWGL14) {
       inputs.fragment.value = defaults.fragment.replace(
-        'outColor=vec4(rgb,1.0);', 'outColor=vec4(rgb,1.0)');
+        'vec3 result = v_uv.x < u_compare ? original : processed;',
+        'vec3 result = v_uv.x < u_compare ? original : ;');
     } else if (isWGL13) {
       inputs.fragment.value = defaults.fragment.replace(
         'outColor=vec4(mix(vec3(0.08,0.10,0.12),reflected,f),1.0);',
@@ -2011,19 +2012,21 @@ if (isWGL15) {
   byId('preset').options[1].textContent = 'fragmentの構文エラー';
 }
 if (isWGL14) {
-  document.title = 'WGL14 3x3フィルタ・FBO・トーンマッピング編集ラボ';
-  document.querySelector('h1').textContent = 'WGL14 原画とぼかし・エッジ・トーンマッピングを比べる';
+  document.title = 'WGL14 画像のぼかし・輪郭・露出を比較するWebGL2ラボ';
+  document.querySelector('h1').textContent = 'WGL14 画像のどこが変わる？ ぼかし・輪郭・露出を比較';
   document.querySelector('#panel-conditions > p').textContent =
-    '8×8の原画像をFBO Aへ、3×3フィルタをFBO Bへ書きます。左の原画像と右のぼかし＋トーンマッピングを比較し、7点をCPUとGPUで検算します。';
+    '家・太陽・木を描いた128×128の原画像をFBO Aに描き、別のFBO Bでぼかし・輪郭抽出します。' +
+    '同じ画像座標を、境界線の左は原画、右は加工済みで表示します。最初に「実行（結果へ）」を押してください。';
   document.querySelector('#panel-conditions ol').innerHTML =
-    '<li>初期ソースを実行し、原画と加工済の7点を独立CPU基準と照合する。</li>' +
-    '<li>postprocess.jsのfilterModeをblurからedgeへ変更し、輪郭の違いを観察する。</li>' +
-    '<li>exposureを0、1、2へ変更し右側だけに適用されるか確かめる。</li>' +
-    '<li>端画素複製の効果と2枚のFBOのread/write切替をコードで確認する。</li>' +
-    '<li>構文エラーのshader診断を確認し、修正して再実行する。</li>';
-  byId('preset').options[0].textContent = '3×3ぼかし・2段FBO・CPU/GPU7画素照合';
+    '<li>初期実行：家の屋根・窓・木の輪郭が境界の前後でどう変わるか観察する。</li>' +
+    '<li>フィルタをedgeへ切り替え、家の輪郭が残ることを確かめる。blurへ戻して半径を1→4にする。</li>' +
+    '<li>「原画を表示する割合」を0→0.5→1へ動かし、同じ画像位置を比較する。</li>' +
+    '<li>露出0→1→2、処理順filter-first→tone-firstを比較し、Bの計算と表示の役割を考える。</li>' +
+    '<li>8×8 impulseへ切り替え、灰点の境界条件と3×3の計算を確かめる。JS/GLSLを編集して再実行する。</li>';
+  byId('preset').options[0].textContent = '風景画像の前後比較（8×8手計算モードも切替可）';
   byId('preset').options[1].textContent = 'fragmentの構文エラー';
 }
+
 if (isWGL13) {
   document.title = 'WGL13 cubemap・反射方向・継ぎ目の編集ラボ';
   document.querySelector('h1').textContent = 'WGL13 6面の色と方向を読み、鏡面反射へ対応させる';
@@ -2186,7 +2189,7 @@ if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-condi
 // Three physical panels must have square pixel footprints: avoid stretching a
 // 1x1 metre domain into ~100x240 strips at the original 320x240 default.
 const sizeHint=(isFCG4||isFCG5||isFCG6||isFCG7||isFCG8)?[1536,512]:
-  isFCG3?[1024,512]:isFCG2?[512,512]:
+  isFCG3?[1024,512]:isFCG2?[512,512]:isWGL14?[704,704]:
   (lesson==='WGL1'||isWGL2||isWGL3)?[960,960]:
   legacyViewport?[800,600]:[960,720];
 // Make the actual limits legible when a lesson's independent CPU oracle
