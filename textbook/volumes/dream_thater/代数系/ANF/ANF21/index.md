@@ -38,7 +38,7 @@ $$
 この定義では、定義域は $\mathbb I_K$ のままです。大域相互法則をまだ使わずに条件を確認できます。
 
 <!-- definition-example-start: def-anf21-artin-modulus -->
-**定義の確認**。$L=\mathbb Q(\zeta_5)$、$\mathfrak m=(5)\infty$ とします。
+**定義の確認**。$L=\mathbb Q(\zeta_5)$、$\mathfrak m=(5)\infty$ とします。ここで $a\in(\mathbb Z/5\mathbb Z)^\times$ に対し、$\sigma_a$ は $\zeta_5\mapsto\zeta_5^a$ で定まるGalois自己同型です。また、$u\in\mathbb Z_5^\times$ の法 $5$ での剰余を $\overline u$ と書きます。
 
 $p\ne5$ では非分岐性により局所単数のArtin像は $1$ です。$p=5$ では[素数冪円分拡大の明示局所相互法則](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)を、$u\in1+5\mathbb Z_5$ に適用します。その像は
 
@@ -328,14 +328,26 @@ $$
 \quad \overline a\longmapsto\sigma_a.
 $$
 
-ここで $\overline2$ は位数 $4$、$\overline4=-1$ は位数 $2$ です。複素共役は $\sigma_{-1}$ なので、その固定体は実部分体 $M=\mathbb Q(\zeta_5+\zeta_5^{-1})=\mathbb Q(\sqrt5)$ です。実際 $t=\zeta_5+\zeta_5^{-1}$ は
+ここで $\overline2$ は位数 $4$、$\overline4=-1$ は位数 $2$ です。複素共役は $\sigma_{-1}$ なので、その固定体は実部分体 $M=\mathbb Q(\zeta_5+\zeta_5^{-1})=\mathbb Q(\sqrt5)$ です。これを具体的に確かめます。$t=\zeta_5+\zeta_5^{-1}$ とおき、五次円分多項式の関係 $\zeta_5^4+\zeta_5^3+\zeta_5^2+\zeta_5+1=0$ を $\zeta_5^2$ で割ると
 
-$$
-t^2+t-1=0,
-\qquad t=\frac{\sqrt5-1}{2}
-$$
+$
+(\zeta_5^2+\zeta_5^{-2})+(\zeta_5+\zeta_5^{-1})+1=0.
+$
 
-を満たします（根の選択は $\zeta_5=e^{2\pi i/5}$ とします）。
+$t^2=\zeta_5^2+2+\zeta_5^{-2}$ を代入するので
+
+$
+(t^2-2)+t+1=0,
+\qquad t^2+t-1=0.
+$
+
+判別式が $5$ なので $t\notin\mathbb Q$ です。$\zeta_5=e^{2\pi i/5}$ を選ぶと $t=2\cos(2\pi/5)>0$ だから、二つの根のうち正の根
+
+$
+t=\frac{-1+\sqrt5}{2}
+$
+
+を取ります。これで $\mathbb Q(t)=\mathbb Q(\sqrt5)$ も分かります。
 
 <a id="prop-anf21-real-subfield"></a>
 
@@ -373,7 +385,16 @@ $$
 
 $M/\mathbb Q$ は実拡大なので、実素点での局所Artin写像は自明です。$5$ における $1+5\mathbb Z_5$ も、$E$ での局所Artin核に含まれるため、$M$ への制限後の核に入ります。他の有限素点では非分岐局所Artin写像が単数を消します。
 
-よって $U((5))$ 全体が $M$ の大域Artin核に含まれます。Artin写像は法 $(5)$ の剰余類群へ下降し、先ほどの二元商の計算により同型です。[剰余類体とArtin対応](../ANF20/index.md#thm-anf20-ray-class-field)の一意性を適用すると、$M$ が法 $(5)$ の剰余類体だと分かります。
+よって $U((5))\subseteq\ker\operatorname{Art}_{M/\mathbb Q}$ です。さらに[大域Artin相互法則](../ANF20/index.md#thm-anf20-global-reciprocity)から対角部分群 $\Delta(\mathbb Q^\times)$ も核に含まれます。[剰余類群への下降判定](#prop-anf21-descent-criterion)により、Artin積は法 $(5)$ の剰余類群上に下降します。
+
+この誘導写像が同型であることも確かめます。[有理数体の剰余類群の計算](../ANF20/index.md#prop-anf20-ray-q)によれば、法 $(5)\infty$ から法 $(5)$ への自然な全射の核は $\{\overline1,\overline4\}$ です。一方、上で計算した $E$ から $M$ へのArtin写像の制限の核もちょうどこの二元集合です。したがって誘導写像
+
+$
+\operatorname{Cl}_{(5)}(\mathbb Q)
+\xrightarrow{\ \sim\ }\operatorname{Gal}(M/\mathbb Q)
+$
+
+は核が自明な全射、すなわち同型です。[剰余類体とArtin対応](../ANF20/index.md#thm-anf20-ray-class-field)の一意性を適用すると、$M$ が法 $(5)$ の剰余類体だと分かります。
 <!-- proof-end -->
 
 例えば $p=2$ は $E$ ではFrobeniusの位数が $4$ なので惰性次数 $4$、$g=1$ です。$M$ へ制限するとFrobeniusは位数 $2$ になり、二次体でも惰性です。$p=11$ は $11\equiv1\pmod5$ なので $E$・$M$ の両方で完全分解します。$p=19$ は $19\equiv-1\pmod5$ なので $E$ ではFrobenius位数 $2$ で二つの素点に分かれますが、$M$ ではその制限が恒等となり完全分解します。
