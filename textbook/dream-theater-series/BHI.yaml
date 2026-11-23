@@ -143,7 +143,7 @@ chapters:
     title: "回復写像と情報への操作的アクセス"
   - id: BHI34
     path: textbook/volumes/dream_thater/物理系/BHI/BHI34
-    status: planned
+    status: completed
     title: "代替二次元模型との比較"
   - id: BHI35
     path: textbook/volumes/dream_thater/物理系/BHI/BHI35
