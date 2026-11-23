@@ -460,7 +460,7 @@ $$
 =|4+1|=5.
 $$
 
-商環 $\mathbb Z[i]/(a)$ は元が $5$ 個の単位元を持つ環なので $\mathbb F_5$ と同型であり、$(a)$ は素イデアル $\mathfrak p$ です。この剰余体による判定は[ANF9 の定義例](../ANF9/index.md#def-anf9-prime-valuation)とも一致し、$N\mathfrak p=5$ です。従って $|a|_{\mathfrak p}=5^{-1}$、他の有限素点では $1$ であり、全積は $5\cdot5^{-1}=1$ です。二乗しないと $1/\sqrt5$ になり、[積公式](#thm-anf19-product-formula)と矛盾します。
+商環 $R=\mathbb Z[i]/(a)$ は元が $5$ 個の単位的環です。$1_R\ne0$ の加法位数は素数 $5$ なので $\mathbb F_5\to R$、$\overline n\mapsto n1_R$ は単射で、両辺とも $5$ 元だから同型です。従って $R$ は体であり、$(a)$ は素イデアル $\mathfrak p$ です。この剰余体による判定は[ANF9 の定義例](../ANF9/index.md#def-anf9-prime-valuation)とも一致し、$N\mathfrak p=5$ です。従って $|a|_{\mathfrak p}=5^{-1}$、他の有限素点では $1$ であり、全積は $5\cdot5^{-1}=1$ です。二乗しないと $1/\sqrt5$ になり、[積公式](#thm-anf19-product-formula)と矛盾します。
 <!-- solution-end -->
 
 ### A5. 有理数体のイデアル写像
