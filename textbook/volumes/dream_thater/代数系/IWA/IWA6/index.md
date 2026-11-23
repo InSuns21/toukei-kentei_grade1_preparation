@@ -362,10 +362,12 @@ $$
 $$
 
 の各隣接商は剰余体 $R_{(Q)}/(Q)$ と同型です。従って長さは $e$。一方 $Q'$ が $Q$ と非同伴なら $R/(Q'^e)$ は $(Q)$ で局所化すると零です。よって、$\ell_{R_{(Q)}}$ をこの局所環上の組成列の長さ、$Q_i\sim Q$ を二つの素元が単元倍だけ異なること（同伴）を表す記号とすれば、
+
 $$
 \ell_{R_{(Q)}}(M_{(Q)})
 =\sum_{\text{因子 }Q_i\sim Q}e_i
 $$
+
 です。[IWA5の擬同型の局所判定](../IWA5/index.md#prop-iwa5-local-pseudoiso)により、擬同型は各高さ1で同型になるので左辺は不変です。すべての $Q$ で指数が一致するため、[一意分解](#prop-iwa6-prime-factors)により特徴イデアルも、そこから読む二つの不変量も一致します。
 <!-- proof-end -->
 
@@ -474,10 +476,12 @@ $p=3$、$f=9(1+T)(T^2+3T+3)$ とする。係数を展開し $\mu(f),d(f)$ を求
 
 <!-- solution-start -->
 **詳細解答。** まず積を展開すると
+
 $$
 (1+T)(T^2+3T+3)=T^3+4T^2+6T+3,
 \qquad f=9T^3+36T^2+54T+27.
 $$
+
 定数項から順に係数の $3$ 進付値は $3,3,2,2$ です。最小値 $2$ を最初に達成するのは $T^2$ の係数 $36$ なので、$\mu(f)=2$、$d(f)=2$ です。また、[単元判定](../IWA3/index.md#prop-iwa3-augmentation)で要求される定数項が $1\in\mathbb Z_3^\times$ なので、$1+T$ は $R$ の単元です。
 <!-- solution-end -->
 
@@ -516,9 +520,11 @@ $p=3$、$W=T^2+3T+3$ とする。$R/(W)$ の $\mathbb Z_3$ 基底を示し、こ
 
 <!-- solution-start -->
 **詳細解答。** [除法定理](#thm-iwa6-division)でどの冪級数も一意に $a+bT$（$a,b\in\mathbb Z_3$）へ還元できるので、$R/(W)$ は基底 $(1,T)$ を持つ階数2の自由 $\mathbb Z_3$ 加群です。$W(T)=0$ という商の関係から $T^2=-3-3T$ です。従って「$T$ を掛ける」$\mathbb Z_3$ 線形写像は
+
 $$
 a+bT\longmapsto aT+bT^2=-3b+(a-3b)T
 $$
+
 となります。係数列 $(a,b)^{\mathsf T}$ を $(-3b,a-3b)^{\mathsf T}$ に送る行列を、基底像 $T\cdot1=T$ と $T\cdot T=-3-3T$ の係数を列に並べて表すと、
 
 $$
@@ -527,6 +533,7 @@ $$
 $$
 
 さらに $X$ を不定元、$I$ を $2\times2$ 単位行列とすると、線形写像の特性多項式は $\det(XI-[T]_{(1,T)})$ と定義されます。これを展開して $W(X)$ と比較すると、
+
 $$
 \det(XI-[T]_{(1,T)})=
 \det\begin{pmatrix}X&3\\-1&X+3\end{pmatrix}
@@ -590,7 +597,9 @@ $$
 (a\bmod p,\ b\bmod T)
 $$
 
-が同じ $x$ に由来する必要十分条件は $a-b\in(p)+(T)$ です。実際、$a-b=pu+Tv$ と書けるなら $x=a-pu=b+Tv$ が両方の剰余条件を満たし、逆にそのような $x$ があれば $a-b=(a-x)+(x-b)\in(p)+(T)$ となります。二成分の差を $R/(p,T)$ へ送る写像の核が元の剰余写像の像なので、余核は $R/(p,T)\simeq\mathbb F_p$ です。従って[IWA5の擬同型の定義](../IWA5/index.md#def-iwa5-pseudoisomorphism)を満たし、[擬同型不変性](#prop-iwa6-characteristic-invariance)から双方の特徴イデアルは $(pT)$、$\mu=1,\lambda=1$ です。
+が同じ $x$ に由来する必要十分条件は $a-b\in(p)+(T)$ です。
+
+実際、$a-b=pu+Tv$ と書けるなら $x=a-pu=b+Tv$ が両方の剰余条件を満たし、逆にそのような $x$ があれば $a-b=(a-x)+(x-b)\in(p)+(T)$ となります。二成分の差を $R/(p,T)$ へ送る写像の核が元の剰余写像の像なので、余核は $R/(p,T)\simeq\mathbb F_p$ です。従って[IWA5の擬同型の定義](../IWA5/index.md#def-iwa5-pseudoisomorphism)を満たし、[擬同型不変性](#prop-iwa6-characteristic-invariance)から双方の特徴イデアルは $(pT)$、$\mu=1,\lambda=1$ です。
 <!-- solution-end -->
 
 ### B3. 同じ $\lambda$ でも有限層の商は違う
