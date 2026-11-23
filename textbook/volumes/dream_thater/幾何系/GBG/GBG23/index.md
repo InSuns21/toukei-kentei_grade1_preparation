@@ -6,7 +6,7 @@
 
 **本講の設定**。$M$ は境界のない滑らかな有限次元多様体、$P\to M$ は滑らかな右主 $U(r)$ 束（$r\ge1$）とする。
 
-[結合束の構成](../GBG4/index.md#def-gbg4-associated-bundle)により、標準表現から階数 $r$ の Hermite 複素ベクトル束 $E=P\times_{U(r)}\mathbb C^r$ を作る。[結合束の局所共変微分](../GBG9/index.md#thm-gbg9-local-formula)に従って接続 $\nabla$ を取る。
+[結合束の構成](../GBG4/index.md#def-gbg4-associated-bundle)により、標準表現から階数 $r$ の複素ベクトル束 $E=P\times_{U(r)}\mathbb C^r$ を作る。$U(r)$ の行列は標準Hermite内積を保存するので、局所枠の内積も重なりで一致し、$E$ は Hermite 複素ベクトル束になる。[結合束の局所共変微分](../GBG9/index.md#thm-gbg9-local-formula)に従って接続 $\nabla$ を取る。
 
 その局所曲率を $F\in\Omega^2(U;\mathfrak u(r))$ と書く。$\mathfrak u(r)$ は反Hermite行列のLie環である。従って本講では一貫して
 
@@ -40,7 +40,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg23-total-chern -->
-**定義の確認**。$\mathbb R^4$ の積 $U(2)$ 束では、標準基底から定まる全域のユニタリ枠を選べる。この枠で[共変微分の局所公式](../GBG9/index.md#thm-gbg9-local-formula)は $\nabla=d+A$ と表され、$A$ は反Hermite行列値1形式である。従って、この枠で $A^\dagger=-A$ を確かめれば $U(2)$ 接続の局所表示として適格であり、[曲率の構造方程式](../GBG10/index.md#thm-gbg10-local-formula)で $F=dA+A\wedge A$ を計算できる。ここで $d$ は基底 $\mathbb R^4$ の座標変数に関する外微分である。
+**定義の確認**。$\mathbb R^4$ の積 $U(2)$ 束では、標準基底から定まる全域のユニタリ枠を選べる。この枠で[共変微分の局所公式](../GBG9/index.md#thm-gbg9-local-formula)により $\nabla=d+A$ と表し、$A$ は反Hermite行列値1形式となる。
+
+従って $A^\dagger=-A$ がユニタリ接続の条件であり、[曲率の構造方程式](../GBG10/index.md#thm-gbg10-local-formula)を適用できる。
+
+$$
+F=dA+A\wedge A.
+$$
+
+ここで $d$ は基底 $\mathbb R^4$ の座標変数に関する外微分である。
 
 座標を $(x,y,z,w)$ とし、全域接続表示を
 
