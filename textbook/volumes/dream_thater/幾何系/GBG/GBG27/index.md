@@ -213,10 +213,10 @@ $$
 
 二行目の根拠は次の式である。
 
-$
+$$
 \operatorname{tr}(F^\pm\wedge F^\pm)
 =\mp|F^\pm|^2\operatorname{vol}_g.
-$
+$$
 
 例えば $F^+=*F^+$ のとき $F^+\wedge F^+=F^+\wedge *F^+$ だから、跡は**負**になる。
 
