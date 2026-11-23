@@ -552,7 +552,26 @@ $G=U(1)$ は可換であるから、不変性の無限小条件は自動的に�
 #### GBG21-C01 $S^2\times S^2$ 上のChern–Weil形式
 - Level: C
 
-外向きに向きを付けた二つの球面の積 $M=S^2\times S^2$ を積の向きで考える。球面の面積形式を $\tau$（$\int_{S^2}\tau=4\pi$）とし、射影 $\operatorname{pr}_j:M\to S^2$ を用いて $\sigma_j=\operatorname{pr}_j^*\tau\in\Omega^2(M)$（$j=1,2$）と定める。[GBG19のmonopole接続](../GBG19/index.md#thm-gbg19-curvature-flux)を各因子に取り、整数 $m,n$ に対して、二つの主束を $M$ へ引き戻す。さらに**局所遷移関数の積**で貼り合わせた主 $U(1)$ 束を考え、二つの引き戻し接続1形式の和を局所接続とする。単純な主束の直積（構造群 $U(1)\times U(1)$）とは区別する。この接続の曲率は
+外向きに向きを付けた二つの単位球面の積 $M=S^2\times S^2$ を、積の向きで考える。[GBG19の球面座標と曲率](../GBG19/index.md#thm-gbg19-curvature-flux)で用いた2形式を、各球面上で
+
+$$
+\tau=\sin\vartheta\,d\vartheta\wedge d\varphi,
+\qquad
+\int_{S^2}\tau=4\pi
+$$
+
+と書く。第 $j$ 因子への射影 $\operatorname{pr}_j:M\to S^2$ によって、積多様体上の2形式を
+
+$$
+\sigma_j=\operatorname{pr}_j^*\tau\in\Omega^2(M),
+\qquad j=1,2
+$$
+
+と定める。
+
+整数 $m,n$ に対して、[GBG19のmonopole主束と接続](../GBG19/index.md#thm-gbg19-curvature-flux)を各因子に取る。それぞれを $M$ の積パッチに持ち上げ、**局所遷移関数の積**で貼り合わせた主 $U(1)$ 束を考える。局所接続1形式は、各因子の形式を $\operatorname{pr}_j$ で引き戻して足し合わせる。構造群が $U(1)\times U(1)$ となる単純な直積とは区別する。
+
+この接続の曲率は
 
 $$
 F=-\frac{i}{2}(m\sigma_1+n\sigma_2)
