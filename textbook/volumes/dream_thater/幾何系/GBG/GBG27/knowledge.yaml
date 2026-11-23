@@ -7,8 +7,8 @@ prerequisites:
   - GBG11
   - GEO8
 forward_references:
-  - LORG2
-  - QFT28
+  - lorentz-geometry.lorentz-metric
+  - qft.yang-mills-action
 concepts:
   - id: gauge.hodge-star-two-form-four-dimensional
     name: 4次元の2形式に作用するHodge星
