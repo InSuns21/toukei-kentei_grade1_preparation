@@ -1,0 +1,48 @@
+chapter: BHI32
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI31, HOLO25, HOLO30]
+forward_references: []
+concepts:
+  - id: black-hole-information.bath-radiation-island-wedge
+    name: 浴の放射に対するisland wedge
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（浴の放射に対するisland wedge）]
+    requires: [holography.entanglement-wedge, black-hole-information.conditional-island-rule]
+  - id: black-hole-information.disjoint-interval-diamonds
+    name: 離れた二区間の因果依存域
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（離れた二区間の因果依存域）]
+    requires: [black-hole-information.bath-radiation-island-wedge, holography.boundary-diamond-interval]
+  - id: black-hole-information.radiation-wedge-phase-dictionary
+    name: 二枝模型の放射ウェッジ相図
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二枝模型の放射ウェッジ相図）]
+    requires: [black-hole-information.bath-radiation-island-wedge, black-hole-information.jt-extremized-branch-comparison]
+  - id: black-hole-information.radiation-wedge-branch-crossing
+    name: 二枝交点と放射ウェッジの切替
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二枝交点と放射ウェッジの切替）]
+    requires: [black-hole-information.radiation-wedge-phase-dictionary]
+  - id: black-hole-information.radiation-transfer-code
+    name: 放射と残存系の情報移送符号
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（放射と残存系の情報移送符号）]
+    requires: [holography.subregion-operator-reconstruction]
+  - id: black-hole-information.transfer-operator-reconstruction
+    name: 情報移送符号の早期と後期の演算子再構成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（情報移送符号の早期と後期の演算子再構成）]
+    requires: [black-hole-information.radiation-transfer-code, holography.algebra-reconstruction]
+  - id: black-hole-information.disjoint-noncommuting-reconstruction-obstruction
+    name: 非可換論理演算子の独立二領域への複製障害
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（非可換論理演算子の独立二領域への複製障害）]
+    requires: [black-hole-information.transfer-operator-reconstruction, holography.subregion-operator-reconstruction]
