@@ -32,7 +32,26 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg14-horizontal-curve -->
-**定義の確認**。積主束 $\mathbb R\times U(1)$ の標準section $s(x)=(x,1)$ で局所ポテンシャル $A=0$ の接続を置く。[積主束の接続形式の具体式](../GBG7/index.md#prop-gbg7-product-form)では、接ベクトル $(v,W)\in T_x\mathbb R\oplus T_gU(1)$ に対し $\omega_{(x,g)}(v,W)=\operatorname{Ad}_{g^{-1}}A_x(v)+\theta_g(W)$ である。$\theta_g(W)=g^{-1}W$ は行列群 $U(1)$ の左 Maurer–Cartan 形式だから、ここでは水平性を $g^{-1}\dot g=0$ で判定できる。$\gamma(t)=t$、$\widetilde\gamma(t)=(t,g_0)$ では $\pi(t,g_0)=t$、$g_0^{-1}\dot g_0=0$ で両条件を満たし、初期値も $(0,g_0)$ である。一方 $(t,e^{it}g_0)$ は射影条件を満たすが、$(e^{it}g_0)^{-1}\frac d{dt}(e^{it}g_0)=i$ なので水平ではない。
+**定義の確認**。積主束 $\mathbb R\times U(1)$ の標準section $s(x)=(x,1)$ で局所ポテンシャル $A=0$ の接続を置く。[積主束の接続形式の具体式](../GBG7/index.md#prop-gbg7-product-form)では、接ベクトル $(v,W)\in T_x\mathbb R\oplus T_gU(1)$ に対し
+
+$
+\omega_{(x,g)}(v,W)=\operatorname{Ad}_{g^{-1}}A_x(v)+\theta_g(W)
+=\theta_g(W)=g^{-1}W
+$
+
+である。最後の等号は $U(1)$ を行列群と見たときの左 Maurer–Cartan 形式の表示なので、水平性を $g^{-1}\dot g=0$ で判定できる。$t\in[0,1]$ で $\gamma(t)=t$、$\widetilde\gamma(t)=(t,g_0)$ とすると
+
+$
+\pi(t,g_0)=t,\qquad g_0^{-1}\dot g_0=0
+$
+
+となり両条件を満たす。初期値も $(0,g_0)$ である。一方 $(t,e^{it}g_0)$ は射影条件を満たすが、
+
+$
+(e^{it}g_0)^{-1}\frac d{dt}(e^{it}g_0)=i\ne0
+$
+
+なので水平ではない。
 <!-- definition-example-end -->
 
 ### 局所sectionで微分方程式を導く
@@ -54,7 +73,7 @@ $$
 
 となる。ここで $\theta_g=(d\ell_{g^{-1}})_g$ は左 Maurer–Cartan 形式、$\ell_h(k)=hk$ は左移動である。**一般の Lie 群ではこの微分で読む**。行列群に限れば $\theta_g(\dot g)=g^{-1}\dot g$、$\operatorname{Ad}_{g^{-1}}a=g^{-1}ag$ と通常の行列積に直せる。
 
-$a(t):=A_{\gamma(t)}(\dot\gamma(t))\in\mathfrak g$ と置く。行列群では水平条件を零にして左から $g(t)$ を掛けると
+曲線の速度を接続1形式へ入れた値を $a(t):=A_{\gamma(t)}(\dot\gamma(t))\in\mathfrak g$ と置く。行列群では水平条件を零にして左から $g(t)$ を掛けると
 
 $$
 0=g(t)\left(g(t)^{-1}a(t)g(t)+g(t)^{-1}\dot g(t)\right)
@@ -381,7 +400,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（経路順序指数と局所水平ODE）**  
-> $a:[a,b]\to M_n(\mathbb F)$ が有限個の分点を持つ区分的連続関数なら、$U(a)=I$ を満たす連続な区分的 $C^1$ 解で、各連続区間内で $\dot U=-a(t)U$ を満たすものが一意に存在する。分点では積分方程式 $U(t)=I-\int_a^t a(r)U(r)\,dr$ によってつなぐ。この解は一様収束級数
+> $a:[a,b]\to M_n(\mathbb F)$ が有限個の分点を持つ区分的連続関数なら、$U(a)=I$ を満たす連続な区分的 $C^1$ 解で、各連続区間内で $\dot U=-a(t)U$ を満たすものが一意に存在する。分点では次の積分方程式によってつなぐ。
+
+$
+U(t)=I-\int_a^t a(r)U(r)\,dr.
+$
+
+> この解は一様収束級数
 
 $$
 \begin{aligned}
@@ -668,7 +693,13 @@ U(1)
 \end{aligned}
 $$
 
-両対角成分を微分しても $\dot U=-a(t)U$ を満たす。一般の $a(t)$ ではこの可換性が失われるため、この置換はできない。
+途中時刻でも $F(t)=\int_0^t f(r)\,dr$、$G(t)=\int_0^t g(r)\,dr$ と置けば
+
+$
+U(t)=\operatorname{diag}\bigl(e^{-F(t)-G(t)},e^{-F(t)+G(t)}\bigr).
+$
+
+よって各対角成分の微分はそれぞれ $-(f(t)+g(t))U_{11}(t)$、$-(f(t)-g(t))U_{22}(t)$ となり、$\dot U=-a(t)U$ を直接満たす。一般の $a(t)$ ではこの可換性が失われるため、この置換はできない。
 <!-- solution-end -->
 
 ### Level C：接続・ゲージ表示・場の輸送を統合する
