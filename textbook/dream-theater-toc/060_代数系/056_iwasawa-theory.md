@@ -2,3 +2,4 @@
 ### 岩澤理論
 
 1. [IWA1 p進数から無限拡大へ：なぜ塔を作るか](textbook/volumes/dream_thater/代数系/IWA/IWA1/index.md)
+2. [IWA2 円分Z_p拡大とGalois群](textbook/volumes/dream_thater/代数系/IWA/IWA2/index.md)
