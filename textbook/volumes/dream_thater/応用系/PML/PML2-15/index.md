@@ -158,14 +158,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $h$ を固定する。$K$ はコンパクトな $D\times D$ 上で連続だから一様連続である。$x'\to x$ とすると、各 $i,j$ について
+まず $h$ を固定する。$K$ はコンパクトな $D\times D$ 上で連続だから一様連続である。出力を評価する二つの位置を $x,y\in D$ とし、積分変数 $t$ とは区別する。$y\to x$ のとき、各チャネル $i,j$ について
 
 $$
 \begin{aligned}
-&\left|\int_0^1K_{ij}(x',t)h_j(t)\,dt
+&\left|\int_0^1K_{ij}(y,t)h_j(t)\,dt
 -\int_0^1K_{ij}(x,t)h_j(t)\,dt\right|\\
 &\qquad\le \|h\|_{\infty,m}
-\max_{t\in D}|K_{ij}(x',t)-K_{ij}(x,t)|
+\max_{t\in D}|K_{ij}(y,t)-K_{ij}(x,t)|
 \longrightarrow0.
 \end{aligned}
 $$
