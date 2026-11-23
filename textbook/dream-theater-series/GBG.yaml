@@ -72,7 +72,7 @@ chapters:
     title: "曲率ゼロでも大域的な効果は残るか"
   - id: GBG17
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG17
-    status: planned
+    status: completed
     title: "Wilson loopは何に関して不変か"
   - id: GBG18
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG18
