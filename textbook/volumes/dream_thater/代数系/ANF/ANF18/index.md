@@ -180,7 +180,16 @@ $$
 
 ## 4. 同じ次数でもノルム群は異なる：円分四次と Kummer 四次
 
-$K=\mathbb Q_5$ にはすでに五乗根の円分四次拡大 $C=K(\zeta_5)$ がありました。一方、$X^2+1$ は法 $5$ で $2^2+1\equiv0$、導関数は $2\cdot2=4\not\equiv0\pmod5$ です。[Hensel の補題](../ANF10/index.md#thm-anf10-hensel-simple)により $i^2=-1$ を満たす $i\in K$ が存在します。従って $K$ は $1$ の四乗根をすべて含み、[緩分岐 Kummer 拡大のノルム計算](../ANF16/index.md#prop-anf16-tame-kummer-norm)で扱った $D=K(\alpha)$、$\alpha^4=5$ も巡回四次拡大です。二つの拡大をノルム群で比較します。
+$K=\mathbb Q_5$ には、五乗根を添加した円分四次拡大 $C=K(\zeta_5)$ がありました。もう一つの四次拡大を構成する前に、$K$ が $1$ の四乗根を含むことを確認します。
+
+$g(X)=X^2+1$ とおき、$g'(X)=2X$ を $X$ に関する形式導関数とします。法 $5$ で
+
+$$
+g(2)=5\equiv0\pmod5,\qquad
+g'(2)=4\not\equiv0\pmod5
+$$
+
+なので、[単純根に対する Hensel の補題](../ANF10/index.md#thm-anf10-hensel-simple)により $i^2=-1$ を満たす $i\in\mathbb Z_5$ が存在します。$1,-1,i,-i$ は相異なる $X^4-1$ の根です。従って [緩分岐 Kummer 拡大のノルム計算](../ANF16/index.md#prop-anf16-tame-kummer-norm)を $e=4$ に適用でき、$D=K(\alpha)$、$\alpha^4=5$ も巡回四次拡大です。二つの拡大をノルム群で比較します。
 
 <a id="prop-anf18-quartic-contrast"></a>
 
