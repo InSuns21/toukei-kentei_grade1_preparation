@@ -488,7 +488,7 @@ $
 M/TM\simeq R/(T,p^2+T)\simeq\mathbb Z_p/(p^2),\qquad |M/TM|=p^2.
 $
 
-$M$ は $1$ の像で生成され、非零元 $p^2+T$ が全元を消すためtorsionです。これは[有限な $T$ 商の命題](#prop-iwa5-finite-coinvariants)の結論と一致します。逆向きの反例は $R/(T)$ で、$T$ が全てを消すためtorsionですが、$TM=0$ より $M/TM\simeq\mathbb Z_p$ は無限です。
+$M$ は $1$ の像で生成され、非零元 $p^2+T$ が全元を消すためtorsionです。これは[有限な $T$ 商の命題](#prop-iwa5-finite-coinvariants)の結論と一致します。逆向きには $M'=R/(T)$ を反例とします。$T$ が $M'$ の全元を消すためtorsionですが、$TM'=0$ なので $M'/TM'\simeq\mathbb Z_p$ は無限です。
 <!-- solution-end -->
 
 ### B4. 有限生成性がどこで働くか
