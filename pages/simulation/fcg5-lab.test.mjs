@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {parametersFor,readLabParameter,writeLabParameter} from './wgl-lab-parameters.mjs';
+import {parametersFor,readLabParameter,writeLabParameter,verifiedFCG5Physics} from './wgl-lab-parameters.mjs';
 import {
   FCG5_N,FCG5_DT,FCG5_RHO,FCG5_NU,fcg5State,fcg5PixelCell,
   expectedFCG5Samples,compareFCG5Readback
@@ -516,4 +516,40 @@ test('FCG5 playback pacing edits learner JS only, not the physical timestep or i
   assert.equal(normal.progress.length,0,'140ms has not elapsed');
   assert.deepEqual(fast.progress.at(-1),{step:1,playing:true},
     '70ms advances the same physical solver sooner');
+});
+
+test('FCG5 playback-rate GUI retains the verified CPU/GPU oracle and rejects unrelated source edits',async()=>{
+  const [js,vertex,fragment]=await Promise.all(['fluid.js','fluid.vert','fluid.frag']
+    .map(name=>readFile(new URL(name,dir),'utf8')));
+  const defaults={js,vertex,fragment};
+  const specs=parametersFor('FCG5');
+  assert.deepEqual(specs.map(s=>s.id),
+    ['grid','nu','force','dt','brush-radius','brush-strength','playback-ms']);
+  const playback=specs.at(-1),dt=specs.find(s=>s.id==='dt');
+  const nu=specs.find(s=>s.id==='nu');
+  const expected={N:48,nu:0.002,force:0.08,dt:0.04,
+    brushRadius:0.085,brushStrength:0.48};
+  assert.deepEqual(verifiedFCG5Physics(js,vertex,fragment,defaults),expected);
+  for(const interval of [70,140,210,280]){
+    let edited=writeLabParameter(js,playback,interval);
+    assert.deepEqual(verifiedFCG5Physics(edited,vertex,fragment,defaults),expected,
+      'visual pacing '+interval+' ms is not a new physical model');
+    edited=writeLabParameter(edited,dt,0.02);
+    edited=writeLabParameter(edited,nu,0.0025);
+    const physics={...expected,dt:0.02,nu:0.0025};
+    assert.deepEqual(verifiedFCG5Physics(edited,vertex,fragment,defaults),physics);
+    const gl=mockGL();
+    new Function('gl','canvas','vertexSource','fragmentSource','report','settings',edited)(
+      gl,{width:320,height:240},vertex,fragment,()=>{},{steps:1});
+    const cpu=fcg5State(1,physics);
+    assert.deepEqual(gl._textures[0],Uint8Array.from(cpu.q,png8),
+      'rendered dye and independently calculated CPU dye still agree');
+  }
+  const custom=js.replace('const playbackIntervalMs=140',
+    'const playbackIntervalMs=70*2');
+  assert.equal(verifiedFCG5Physics(custom,vertex,fragment,defaults),null,
+    'unknown editable expression must not claim verified pixels');
+  assert.equal(verifiedFCG5Physics(js+'\n// additional learner code',
+    vertex,fragment,defaults),null);
+  assert.equal(verifiedFCG5Physics(js,vertex,fragment+'\n// shader edit',defaults),null);
 });
