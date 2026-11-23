@@ -114,6 +114,15 @@ if (inspectionPass === 'all') {
   drawView(0, panelWidth, 0);
   drawView(panelWidth, panelWidth, 1);
   drawView(2 * panelWidth, finalWidth, processedPass);
+  // Two slim dividers follow the *actual viewport* boundaries; they do not
+  // fabricate results or cover any of the 12 reference pixels.
+  gl.enable(gl.SCISSOR_TEST);
+  gl.clearColor(0.96, 0.97, 0.99, 1.0);
+  for (const boundary of [panelWidth, 2 * panelWidth]) {
+    gl.scissor(Math.max(0, boundary - 1), 0, 2, canvas.height);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+  }
+  gl.disable(gl.SCISSOR_TEST);
 } else {
   drawView(0, canvas.width, {
     scene: 0, texture: 1, processed: processedPass
