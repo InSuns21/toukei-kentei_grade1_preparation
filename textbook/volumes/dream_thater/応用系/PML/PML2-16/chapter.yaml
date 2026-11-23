@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - PML2-15
+  - FOU5
 official_scope: []
 learning_objectives:
   - 周期関数のFourier係数と実数関数の共役対称性を説明し直接計算できる

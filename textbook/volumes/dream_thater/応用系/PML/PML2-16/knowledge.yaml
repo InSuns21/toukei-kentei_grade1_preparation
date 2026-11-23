@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - PML2-15
+  - FOU5
 forward_references: []
 concepts:
   - id: physics-machine-learning.pml2-16-fourier
@@ -50,6 +51,7 @@ concepts:
     requires:
       - physics-machine-learning.pml2-16-fourier
       - physics-machine-learning.pml2-16-fno
+      - fourier.fou5-dft
   - id: physics-machine-learning.pml2-16-alias
     name: 格子における周波数の同一視
     kind: theorem
