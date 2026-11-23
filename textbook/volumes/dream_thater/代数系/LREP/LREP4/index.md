@@ -384,7 +384,18 @@ $$
 \begin{pmatrix}0&1\\-1&0\end{pmatrix}w
 =v_1w_2-v_2w_1
 $$
-と定めます。各変数について加法性・複素スカラー倍への線形性は式から従います。$A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ と置くと、後で導く恒等式 $A^{\mathsf T}JA=(ad-bc)J$ により、$\det A=1$ なら
+と定めます。第一変数について
+$
+\epsilon(v+u,w)=(v_1+u_1)w_2-(v_2+u_2)w_1
+=\epsilon(v,w)+\epsilon(u,w),\qquad
+\epsilon(\lambda v,w)=\lambda\epsilon(v,w)
+$
+です。第二変数でも
+$
+\epsilon(v,w+u)=\epsilon(v,w)+\epsilon(v,u),\qquad
+\epsilon(v,\lambda w)=\lambda\epsilon(v,w)
+$
+なので、二つの変数のそれぞれについて複素線形です。$A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ と置くと、後で導く恒等式 $A^{\mathsf T}JA=(ad-bc)J$ により、$\det A=1$ なら
 $$
 \epsilon(Av,Aw)=v^{\mathsf T}A^{\mathsf T}JAw
 =v^{\mathsf T}Jw=\epsilon(v,w).
