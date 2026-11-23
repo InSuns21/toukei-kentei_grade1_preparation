@@ -32,3 +32,4 @@
 29. [BHI29 レプリカ・ワームホールの鞍点](textbook/volumes/dream_thater/物理系/BHI/BHI29/index.md)
 30. [BHI30 $n\to1$ とisland公式の導出範囲](textbook/volumes/dream_thater/物理系/BHI/BHI30/index.md)
 31. [BHI31 ensemble平均とfactorization問題](textbook/volumes/dream_thater/物理系/BHI/BHI31/index.md)
+32. [BHI32 放射のentanglement wedge](textbook/volumes/dream_thater/物理系/BHI/BHI32/index.md)
