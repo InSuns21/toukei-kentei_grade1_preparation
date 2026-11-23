@@ -1,0 +1,53 @@
+chapter: IWA4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - IWA3
+  - ANF12
+forward_references: []
+concepts:
+  - id: number-theory.iwa4-field-norm
+    name: 体のノルム
+    kind: definition
+    introduction: formal
+    requires: [number-theory.cyclotomic-compatible-delta-gamma-tower]
+  - id: number-theory.iwa4-ideal-norm-extension
+    name: イデアルのノルムと延長
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa4-field-norm]
+  - id: number-theory.iwa4-principal-compatibility
+    name: 主イデアルと次数の整合性
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa4-ideal-norm-extension]
+  - id: number-theory.iwa4-conjugate-product
+    name: 延長後のノルムは共役の積
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa4-principal-compatibility]
+  - id: number-theory.iwa4-norm-transitivity
+    name: ノルムの塔での合成とGalois作用
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa4-ideal-norm-extension, number-theory.iwa4-principal-compatibility]
+  - id: number-theory.iwa4-local-unit-system
+    name: 局所単数のノルム系
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa4-field-norm]
+  - id: number-theory.iwa4-inverse-limit
+    name: 逆極限
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa4-norm-transitivity]
+  - id: number-theory.iwa4-inverse-limit-universal
+    name: 逆極限の普遍性
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa4-inverse-limit]
+  - id: number-theory.iwa4-iwasawa-action
+    name: 類群の逆極限への岩澤代数作用
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa4-norm-transitivity, number-theory.iwasawa-algebra, number-theory.iwa4-inverse-limit]
