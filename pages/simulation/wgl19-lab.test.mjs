@@ -108,6 +108,8 @@ test('WGL19 result view offers source-linked clock presets and verifies every re
     "const maxStepsPerFrame="]){
     assert.ok(host.includes(part),part);
   }
+  assert.ok(host.includes("isWGL19?'wgl19-replay-v2':VERSION"),
+    'new WGL19 runtime must not silently load stale pre-replay saved code');
   assert.match(host,/isWGL19\?\[640,640\]/,
     'WGL19 must use a square 4x4 visual grid within the 524288-pixel oracle limit');
   assert.doesNotThrow(()=>expectedWGL19Samples(640,640));
