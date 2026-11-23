@@ -229,7 +229,7 @@ $$
 
 $\rho_{\mathfrak m}(u)$（$u\in U_K$）の像は $[(u)]=0$。逆に $\theta_{\mathfrak m}(\bar a)=0$ なら $(a)=(\alpha)$ かつ $\alpha\equiv1\pmod{\mathfrak m}$ となる $\alpha$ があり、$a/\alpha\in U_K$ です。従って $\bar a=\rho_{\mathfrak m}(a/\alpha)$。これで $\ker\theta_{\mathfrak m}=\operatorname{im}\rho_{\mathfrak m}$ が成立します。
 
-レイ類が通常類群へ写って0なら代表イデアルは $(a)$ と書けます。法と互いに素なため $a$ は全ての $\mathfrak p\mid\mathfrak m$ で単数で、その剰余類の $\theta_{\mathfrak m}$ 像になります。最後の全射を確かめます。任意の分数イデアル $\mathfrak a$ に対し、各 $\mathfrak p\mid\mathfrak m$ で $v_{\mathfrak p}(b)=v_{\mathfrak p}(\mathfrak a)$ を満たす $b\in K^\times$ を[数体の弱近似](../../ANF/ANF20/index.md#lem-anf20-weak-approx)で選べます。すると $\mathfrak a(b)^{-1}$ は法を割る全素点で付値0なので $I_{\mathfrak m}$ に属し、$\mathfrak a$ と同じ通常イデアル類を表します。以上で完全です。
+レイ類が通常類群へ写って0なら代表イデアルは $(a)$ と書けます。法と互いに素なため $a$ は全ての $\mathfrak p\mid\mathfrak m$ で単数で、その剰余類の $\theta_{\mathfrak m}$ 像になります。最後の全射を確かめます。任意の分数イデアル $\mathfrak a$ を取り、その素イデアル分解で $\mathfrak p$ の指数を $n_{\mathfrak p}$ と書きます。各 $\mathfrak p\mid\mathfrak m$ で $v_{\mathfrak p}(b)=n_{\mathfrak p}$ を満たす $b\in K^\times$ を[数体の弱近似](../../ANF/ANF20/index.md#lem-anf20-weak-approx)で選べます。すると $\mathfrak a(b)^{-1}$ は法を割る全素点で付値0なので $I_{\mathfrak m}$ に属し、$\mathfrak a$ と同じ通常イデアル類を表します。以上で完全です。
 <!-- proof-end -->
 
 この式の実際の**核・余核**は
