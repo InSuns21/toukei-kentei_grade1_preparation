@@ -22,7 +22,19 @@ $$
 
 ## 1. 何を第二Chern数として積分するか
 
-まず右主 $SU(2)$ 束 $P$ から、[結合ベクトル束の定義](../GBG4/index.md#def-gbg4-associated-bundle)により基本表現 $\rho:SU(2)\hookrightarrow U(2)$ に対応する階数2の Hermite 複素束 $E=P\times_\rho\mathbb C^2$ を作る。局所sectionと $\mathbb C^2$ の標準正規直交基底を選ぶと、[結合束の共変微分の局所公式](../GBG9/index.md#thm-gbg9-local-formula)により $\nabla=d+A$、その曲率は $F_\nabla=dA+A\wedge A$ と表せる。したがって、この $2\times2$ 行列値曲率が以下の跡公式に現れる $F$ である。
+まず右主 $SU(2)$ 束 $P$ とその基本表現 $\rho:SU(2)\hookrightarrow U(2)$ を取る。[結合ベクトル束の定義](../GBG4/index.md#def-gbg4-associated-bundle)から、階数2の Hermite 複素束を作る。
+
+$$
+E=P\times_\rho\mathbb C^2.
+$$
+
+局所sectionと $\mathbb C^2$ の標準正規直交基底を選ぶ。[結合束の共変微分の局所公式](../GBG9/index.md#thm-gbg9-local-formula)で接続と曲率を行列表示すると
+
+$$
+\nabla=d+A,\qquad F_\nabla=dA+A\wedge A
+$$
+
+となる。ここで $A$ は基本表現の $2\times2$ 行列値1形式であり、その曲率 $F_\nabla$ を以下では $F$ と略記する。
 
 $A$ は $\mathfrak{su}(2)$ 値なので $\operatorname{tr}A=0$。さらに $A=\sum_j A_j\,dx_j$ と局所座標表示すれば
 
@@ -114,7 +126,9 @@ $$
 
 外微分を取ると元の4形式になる3形式を使えば、球面を二つの半球に分けて Stokes を適用できる。[GBG22の局所Chern–Simons形式](../GBG22/index.md#def-gbg22-local-chern-simons)の跡多項式の場合を、ここでは正規化係数を外して扱う。
 
-二次の多項式 $p(X,Y)=\operatorname{tr}(XY)$ を、[GBG22の局所 Chern–Simons 形式](../GBG22/index.md#def-gbg22-local-chern-simons)に入力する。補間 $A_t=tA$、曲率 $F_t=t\,dA+t^2A^2$ を代入する。ここで $t\in[0,1]$ は接続を補間するパラメータ、$d$ は **$t$ を固定した基底方向の外微分**である。$dt$ による積分は補間パラメータについてだけ行う。すると
+二次の多項式 $p(X,Y)=\operatorname{tr}(XY)$ を、[GBG22の局所 Chern–Simons 形式](../GBG22/index.md#def-gbg22-local-chern-simons)に入力する。補間 $A_t=tA$、曲率 $F_t=t\,dA+t^2A^2$ を用いる。
+
+ここで $t\in[0,1]$ は接続を補間するパラメータで、$d$ は **$t$ を固定した基底方向の外微分**を表す。積分の $dt$ は補間パラメータについての積分である。代入すると
 
 $$
 \begin{aligned}
