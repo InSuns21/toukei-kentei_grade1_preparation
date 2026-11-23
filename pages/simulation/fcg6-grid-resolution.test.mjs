@@ -45,7 +45,7 @@ test('FCG6 48x48 edited solver and independent masked CG match across full CPU R
 
 test('FCG6 edited rectangle and moving-wall coefficients preserve independent masked-CG fields',async()=>{
   const base=await readFile(sourceURL,'utf8');
-  const specs=parametersFor('FCG6');
+  const specs=parametersFor('FCG6').filter(spec=>spec.id!=='grid');
   const options={shape:'rectangle',centerY:0.55,wallAmplitude:0.12,wallFrequency:2.2};
   let edited=base;
   for(const spec of specs)edited=writeLabParameter(edited,spec,options[spec.id]);
