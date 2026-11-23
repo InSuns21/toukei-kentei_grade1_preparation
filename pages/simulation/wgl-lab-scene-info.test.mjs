@@ -162,6 +162,7 @@ test('G3 legends derive their initial step and GPU buffer dimensions from the ru
   assert.match(levelSet.mode,/R8.*双線形補間.*物理格子/);
   assert.match(sceneDescription('FCG8',{width:960,height:320,steps:8,gridN:96}).grid,/96×96.*R8/);
   assert.match(sceneDescription('FCG8',{width:960,height:320,steps:8,gridN:64}).grid,/64×64.*R8/);
+  assert.match(sceneDescription('FCG8',{width:960,height:320,steps:8,gridN:null}).grid,/未検証/);
   assert.match(levelSet.source,/levelset.js.*levelset.frag/);
   const terrain=sceneDescription('WGL20',{width:1024,height:512});
   assert.match(terrain.grid,/4×4セル.*5×5頂点.*LOD1/);
