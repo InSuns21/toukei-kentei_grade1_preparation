@@ -28,7 +28,13 @@ $$
 (\omega\cdot u)\cdot v=\omega\cdot(uv).
 $$
 
-> 局所表示は $A_i\cdot a_i=\operatorname{Ad}_{a_i^{-1}}A_i+a_i^{-1}da_i$ である。ここで一般の Lie 群では $a_i^{-1}da_i$ を左 Maurer–Cartan 形式の引き戻しと読む。
+> 局所表示は次の式で与えられる。
+
+$
+A_i\cdot a_i=\operatorname{Ad}_{a_i^{-1}}A_i+a_i^{-1}da_i.
+$
+
+> 一般の Lie 群では $a_i^{-1}da_i$ を左 Maurer–Cartan 形式の引き戻しと読む。
 <!-- formal-statement-end -->
 
 **証明の見取り図**。接続を引き戻しても接続の二条件は保たれる。合成の向きでは、関数 $F_u$ の合成と形式の引き戻しの順序が逆転する点が重要である。
