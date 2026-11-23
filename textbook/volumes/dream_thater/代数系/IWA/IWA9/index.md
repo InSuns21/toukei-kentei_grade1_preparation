@@ -457,7 +457,7 @@ C[3^\infty]\simeq\mathbb Z/9\mathbb Z,\quad |C[3^\infty]|=9,
 C_{3'}\simeq\mathbb Z/2\mathbb Z\oplus\mathbb Z/10\mathbb Z,\quad |C_{3'}|=20.
 $$
 
-写像 $C\to\mathbb Z/9\mathbb Z$ を $(\bar x,\bar y)\mapsto\bar x\bmod9$ と定めます。これは全射で、核は $x\equiv0\pmod9$ かつ $y$ は任意という位数20の群です。これはちょうど $C_{3'}$ に一致するので、第一同型定理により $C/C_{3'}\simeq C[3^\infty]$ です。
+写像 $C\to\mathbb Z/9\mathbb Z$ を $(\bar x,\bar y)\mapsto\bar x\bmod9$ と定めます。これは全射で、核は $x\equiv0\pmod9$ かつ $y$ は任意という位数20の群です。これはちょうど $C_{3'}$ に一致するので、[第一同型定理](../../../基礎科目/LA/LA2/index.md#thm-la2-first-isomorphism)により $C/C_{3'}\simeq C[3^\infty]$ です。
 <!-- solution-end -->
 
 <a id="ex-iwa9-a2"></a>
