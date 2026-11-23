@@ -1,0 +1,42 @@
+id: "GBG20"
+title: "曲率から不変な多項式を作る条件は"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG19
+official_scope: []
+learning_objectives:
+  - 対称Ad不変k重線形形式と斉次多項式の条件を各引数について検証できる
+  - Lie括弧による無限小不変条件を導き連結性が必要となる逆向きとO(2)反例を説明できる
+  - 有限次元複素表現から対称化trace形式を構成しAd不変性を証明できる
+  - 巡回不変性と多重線形形式の対称性の差を3つの行列の具体計算で示せる
+  - Lie環値曲率から基底上の大域2k形式を作り水平性と右作用不変性を検証できる
+  - U(1)の第一Chern形式と二次traceの具体例を計算し閉性・整数性を本講の結論と区別できる
+definitions:
+  - { id: GBG20-DEF-01, name: 対称Ad不変多重線形形式 }
+  - { id: GBG20-DEF-02, name: 表現に付随する対称化trace形式 }
+  - { id: GBG20-DEF-03, name: 曲率に適用した不変多項式形式 }
+theorems:
+  - { id: GBG20-PROP-01, name: Ad不変性の無限小必要条件 }
+  - { id: GBG20-THM-01, name: 対称化traceのAd不変性 }
+  - { id: GBG20-THM-02, name: 不変曲率多項式の大域への降下 }
+canonical_examples:
+  - U(1)上の全次数の対称Ad不変形式と正規化した第一Chern形式
+  - GL(2)での成分とtraceの共役変換差
+  - 三つの行列単位による三重traceの非対称性
+  - O(2)の反射で無限小条件だけではAd不変にならない反例
+  - R4上のU(1)とSU(2)の4形式計算
+problem_patterns:
+  - GBG20-ABELIAN-SYMMETRY
+  - GBG20-TRACE-CYCLICITY
+  - GBG20-EVEN-FORM-WEDGE
+  - GBG20-NONINVARIANT-COMPONENT
+  - GBG20-INFINITESIMAL-TRACE
+  - GBG20-SYM-THREE-TRACE
+  - GBG20-LOCAL-DESCENT
+  - GBG20-DISCONNECTED-COUNTEREXAMPLE
+  - GBG20-SU2-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 4 }

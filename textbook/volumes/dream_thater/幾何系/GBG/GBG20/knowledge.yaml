@@ -1,0 +1,45 @@
+chapter: GBG20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG19
+forward_references: []
+concepts:
+  - id: gauge.ad-invariant-symmetric-multilinear
+    name: 対称Ad不変多重線形形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対称Ad不変多重線形形式）"]
+    requires: [lie.adjoint-representation]
+
+  - id: gauge.ad-invariant-infinitesimal-condition
+    name: Ad不変性の無限小必要条件
+    kind: proposition
+    introduction: formal
+    requires: [gauge.ad-invariant-symmetric-multilinear]
+
+  - id: gauge.symmetrized-representation-trace
+    name: 表現に付随する対称化trace形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（表現に付随する対称化trace形式）"]
+    requires: [gauge.ad-invariant-symmetric-multilinear]
+
+  - id: gauge.symmetrized-trace-invariance
+    name: 対称化traceのAd不変性
+    kind: theorem
+    introduction: formal
+    requires: [gauge.symmetrized-representation-trace, gauge.ad-invariant-symmetric-multilinear]
+
+  - id: gauge.invariant-curvature-polynomial-form
+    name: 曲率に適用した不変多項式形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（曲率に適用した不変多項式形式）"]
+    requires: [gauge.ad-invariant-symmetric-multilinear, gauge.local-curvature-form]
+
+  - id: gauge.invariant-curvature-basic-descent
+    name: 不変曲率多項式の大域への降下
+    kind: theorem
+    introduction: formal
+    requires: [gauge.invariant-curvature-polynomial-form, gauge.curvature-horizontal-equivariant, gauge.local-curvature-gauge-covariance]
