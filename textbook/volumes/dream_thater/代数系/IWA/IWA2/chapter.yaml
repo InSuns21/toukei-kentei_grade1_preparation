@@ -16,9 +16,9 @@ definitions:
 theorems:
   - { id: IWA2-PROP-01, name: 円分Galois群の制限列 }
   - { id: IWA2-PROP-02, name: 有限段Teichmüller持ち上げの存在・一意性 }
-  - { id: IWA2-THM-01, name: 奇素数のDelta_nとU_n分解 }
+  - { id: IWA2-THM-01, name: 奇素数の円分単元群の直積分解 }
   - { id: IWA2-PROP-03, name: 生成元による指数座標 }
-  - { id: IWA2-THM-02, name: 分解から得る円分Z_p塔の両立性 }
+  - { id: IWA2-THM-02, name: 円分塔の有限層と逆極限の両立性 }
   - { id: IWA2-THM-03, name: 2進単元の符号部分と主単元部分 }
   - { id: IWA2-PROP-04, name: 奇素数の円分層におけるFrobenius判定 }
 canonical_examples:
