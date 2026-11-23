@@ -10,14 +10,12 @@ concepts:
     name: S³とSU(2)の標準同一視
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（S³ と SU(2) の標準同一視）"]
     requires: [lie.lie-group]
 
   - id: gauge.s4-su2-clutching
     name: S⁴上のSU(2)クラッチング束
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（S⁴ 上の SU(2) クラッチング束）"]
     requires: [gauge.su2-s3-identification, gauge.smooth-gluing-theorem, gauge.principal-bundle]
 
   - id: gauge.s4-clutching-principal
@@ -30,7 +28,6 @@ concepts:
     name: S³写像の積分次数
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（S³ 写像の積分次数）"]
     requires: [gauge.su2-s3-identification]
 
   - id: gauge.s3-degree-homotopy
