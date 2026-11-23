@@ -40,7 +40,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg23-total-chern -->
-**定義の直接確認**。$\mathbb R^4$ の積 $U(2)$ 束で、座標を $(x,y,z,w)$ とし、全域接続表示を
+**定義の確認**。$\mathbb R^4$ の積 $U(2)$ 束で、座標を $(x,y,z,w)$ とし、全域接続表示を
 
 $$
 A=\begin{pmatrix}-2\pi i x\,dy&0\\0&-2\pi i z\,dw\end{pmatrix}
@@ -145,7 +145,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg23-chern-character -->
-**定義の直接確認**。階数2の平坦な積束で $F=0$ とすると $C=0$、$\exp(C)=I_2$ だから $\operatorname{ch}_0=2$、$\operatorname{ch}_{k\ge1}=0$。先ほどの $\mathbb R^4$ の例なら $C=\operatorname{diag}(\eta,\zeta)$、$\eta^2=\zeta^2=0$ であり、
+**定義の確認**。階数2の平坦な積束で $F=0$ とすると $C=0$、$\exp(C)=I_2$ だから $\operatorname{ch}_0=2$、$\operatorname{ch}_{k\ge1}=0$。先ほどの $\mathbb R^4$ の例なら $C=\operatorname{diag}(\eta,\zeta)$、$\eta^2=\zeta^2=0$ であり、
 
 $$
 \operatorname{tr}\exp(C)
