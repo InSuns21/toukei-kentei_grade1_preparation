@@ -365,7 +365,13 @@ $R=\mathbb Z_p[[T]]$ とする。$R$、$R/(p)$、$R/(T)$ の各加群が有限�
 - ID: IWA5-A1
 
 <!-- solution-start -->
-**詳細解答。** いずれも $1$ の像で生成できるので有限生成です。$R$ では $a\cdot1=a\ne0$（$a\ne0$）なのでtorsionではありません。$R/(p)$ では $p$ が全元を零にし、$R/(T)$ では $T$ が全元を零にするので、後二者はtorsionです。$R/(p)\simeq\mathbb F_p[[T]]$、$R/(T)\simeq\mathbb Z_p$ はともに無限集合です。ここでは元の個数ではなく $R$ の非零係数による消滅を判定しています。
+**詳細解答。** 三つとも $1$ の像で生成できるので有限生成です。それぞれのtorsion性を調べます。
+
+- $R$：$a\cdot1=a\ne0$（$a\ne0$）なのでtorsionではありません。
+- $R/(p)$：非零係数 $p$ が全元を零にするのでtorsionです。
+- $R/(T)$：非零係数 $T$ が全元を零にするのでtorsionです。
+
+また $R/(p)\simeq\mathbb F_p[[T]]$、$R/(T)\simeq\mathbb Z_p$ はともに無限集合です。元の個数ではなく、$R$ の非零係数による消滅を判定するのが定義です。
 <!-- solution-end -->
 
 ### A2. 共通消去元
@@ -393,7 +399,19 @@ $F=R/(p,T^2)$ を $\mathbb F_p$ 加群として表示し、位数と $T$ の作�
 - ID: IWA5-A3
 
 <!-- solution-start -->
-**詳細解答。** 係数を法 $p$ へ還元し $T^2=0$ とするので、任意の元は一意に $a+bT$（$a,b\in\mathbb F_p$）と書けます。従って $F\simeq\mathbb F_p\oplus\mathbb F_pT$、位数は $p^2$ です。$T(a+bT)=aT$ となり、$T$ の作用は一般には零でない一方 $T^2F=0$ です。$\mathfrak m^2=(p^2,pT,T^2)$ は $F$ を零にするので、[擬零と有限性](#prop-iwa5-pseudonull-finite)から擬零です。
+**詳細解答。** 係数を法 $p$ へ還元し $T^2=0$ とするので、任意の元は一意に $a+bT$（$a,b\in\mathbb F_p$）と書けます。従って
+
+$
+F\simeq\mathbb F_p\oplus\mathbb F_pT,\qquad |F|=p^2.
+$
+
+$T$ の作用を基底 $1,T$ で計算すると
+
+$
+T(a+bT)=aT,\qquad T^2(a+bT)=0.
+$
+
+よって $T$ は一般には零作用でない一方、$T^2F=0$ です。$\mathfrak m^2=(p^2,pT,T^2)$ は $F$ を零にするので、[擬零と有限性](#prop-iwa5-pseudonull-finite)から擬零です。
 <!-- solution-end -->
 
 ### A4. 有限なずれを見つける
@@ -426,7 +444,23 @@ $R/(pT)\to R/(p)\oplus R/(T)$ の剰余写像が単射であることを示し�
 - ID: IWA5-B1
 
 <!-- solution-start -->
-**詳細解答。** $[f]$ が両成分で零なら $f=pa=Tb$ です。$\mathbb F_p[[T]]$ で $T[b]_p=0$ なので $b=pc$ と書け、$f=pTc$、従って核は零です。一方 $(0,1)\in R/(p)\oplus R/(T)$ は共通の $f$ から得られません。もし得られれば $f\bmod p=0$ から $f(0)\equiv0\pmod p$、$f\bmod T=1$ から $f(0)=1$ となって矛盾します。[余核の計算](#prop-iwa5-residue-pseudoiso)で示した差写像 $\delta(u,b)=u(0)-\bar b$ は全射で核が剰余写像の像なので、余核は $\mathbb F_p$、位数は $p$ です。
+**詳細解答。** $[f]$ が両成分で零なら $f=pa=Tb$ です。$\mathbb F_p[[T]]$ で $T[b]_p=0$ なので、整域性から $b=pc$ と書けます。従って
+
+$
+f=Tb=pTc\in(pT),\qquad \ker\iota=0.
+$
+
+一方、$(0,1)\in R/(p)\oplus R/(T)$ は共通の $f$ から得られません。得られるとすると、法 $p$ と法 $T$ の条件がそれぞれ
+
+$
+f(0)\equiv0\pmod p,\qquad f(0)=1
+$
+
+を要求して矛盾します。[余核の計算](#prop-iwa5-residue-pseudoiso)の差写像 $\delta(u,b)=u(0)-\bar b$ は全射で核が $\iota$ の像なので、
+
+$
+\operatorname{coker}\iota\simeq\mathbb F_p,\qquad |\operatorname{coker}\iota|=p.
+$
 <!-- solution-end -->
 
 ### B2. 局所化が有限誤差を消す
@@ -448,7 +482,13 @@ $M=R/(p^2+T)$ とする。$M/TM$ の位数を求め、非零消去元を挙げ�
 - ID: IWA5-B3
 
 <!-- solution-start -->
-**詳細解答。** $M/TM\simeq R/(T,p^2+T)$ です。$T=0$ を代入すると $p^2+T$ は $p^2$ になるので、この商は $\mathbb Z_p/(p^2)$、位数は $p^2$ です。$M$ は $1$ の像で生成され、$p^2+T\ne0$ が全元を消すのでtorsionです。これは[有限な $T$ 商の命題](#prop-iwa5-finite-coinvariants)の結論と一致します。逆向きの反例は $R/(T)$ で、$T$ が全てを消すのでtorsionですが $M/TM\simeq\mathbb Z_p$ は無限です。
+**詳細解答。** $M/TM$ では $T=0$ を代入するので、
+
+$
+M/TM\simeq R/(T,p^2+T)\simeq\mathbb Z_p/(p^2),\qquad |M/TM|=p^2.
+$
+
+$M$ は $1$ の像で生成され、非零元 $p^2+T$ が全元を消すためtorsionです。これは[有限な $T$ 商の命題](#prop-iwa5-finite-coinvariants)の結論と一致します。逆向きの反例は $R/(T)$ で、$T$ が全てを消すためtorsionですが、$TM=0$ より $M/TM\simeq\mathbb Z_p$ は無限です。
 <!-- solution-end -->
 
 ### B4. 有限生成性がどこで働くか
