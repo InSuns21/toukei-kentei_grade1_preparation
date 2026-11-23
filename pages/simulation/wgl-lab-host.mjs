@@ -1297,7 +1297,7 @@ function run() {
   if (isWGL17) {
     // The texel inspector belongs below the GPU canvas, never over its pixels.
     iframe.style.aspectRatio = 'auto';
-    iframe.style.height = 'min(1000px, max(740px, 100vw))';
+    iframe.style.height = '820px';
   }
   iframe.title = 'WebGL2 実行結果（隔離 origin）';
   iframe.setAttribute('sandbox', 'allow-scripts');
