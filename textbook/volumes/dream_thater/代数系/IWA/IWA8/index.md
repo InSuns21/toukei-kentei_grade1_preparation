@@ -81,19 +81,19 @@ $$
 <!-- definition-example-start: def-iwa8-teich-character -->
 **定義の確認**。$p=5$、$a=2\bmod5$ を取ります。[IWA2の具体計算](../IWA2/index.md#def-iwa2-teichmueller-lifts)で法25の持ち上げは7です。還元条件と4乗根の条件を順に確かめると、
 
-$
+$$
 7\equiv2\pmod5,\qquad
 7^2=49\equiv-1\pmod{25}
 \quad\Longrightarrow\quad 7^4\equiv1\pmod{25}.
-$
+$$
 
 次に法125では、前段への還元と根の条件が
 
-$
+$$
 57\equiv7\pmod{25},\qquad
 57^2=3249\equiv-1\pmod{125}
 \quad\Longrightarrow\quad57^4\equiv1\pmod{125}
-$
+$$
 
 と成立します。[持ち上げの一意性](../IWA2/index.md#prop-iwa2-teichmueller-lifting)から法125の値は57です。これで両段の「還元」と「4乗根」の条件を確認できました。
 <!-- definition-example-end -->
@@ -136,13 +136,13 @@ $$
 
 $c^2=1$ と、$2$ が $\mathbb Z_3$ 上可逆であることを使うと、
 
-$
+$$
 \begin{aligned}
 e_0^2&=\frac{1+2c+c^2}{4}=\frac{1+c}{2}=e_0,\\
 e_1^2&=\frac{1-2c+c^2}{4}=\frac{1-c}{2}=e_1,\\
 e_0e_1&=\frac{1-c^2}{4}=0,\qquad e_0+e_1=1.
 \end{aligned}
-$
+$$
 
 冪等性・直交性・和が1となる条件を別々に確認できました。
 <!-- definition-example-end -->
@@ -260,16 +260,16 @@ $$
 
 に $g(x,y)=(7x,4y)$ と作用させます。$7^2\equiv-1\pmod{25}$ と $4^2\equiv1\pmod5$ なので、$g^4=1$ は両座標で成立します。$\omega(g)\equiv7\pmod{25}$、$\omega(g)^2\equiv4\pmod5$ です。$\Delta$ の任意の元は $g^k$（$0\le k<4$）と書けるので、各座標への作用を次のように判定できます。
 
-$
+$$
 \begin{aligned}
 g^k(x,0)&=(7^kx,0)=\omega(g)^{k}(x,0),\\
 g^k(0,y)&=(0,4^ky)=\omega(g)^{2k}(0,y).
 \end{aligned}
-$
+$$
 
 一行目は法25、二行目は法5の等式です。[指標成分の固有条件](#thm-iwa8-idempotent-decomposition)をすべての $g^k$ について確かめたので、二つの座標はそれぞれ $\omega^1$ と $\omega^2$ の成分です。他の指標の成分は直交射影により消えます。従って
 
-$
+$$
 M^{(1)}=\mathbb Z/25\mathbb Z\oplus0,\qquad
 M^{(2)}=0\oplus\mathbb Z/5\mathbb Z
 $$
@@ -367,24 +367,24 @@ $jN=1+c$ と $Nj=2$ をイデアルに戻って確かめます。$2$ が $p$ 部
 
 $E_r/E_r^+$ のGalois群は $\{1,c\}$ です。下の体の素イデアル $\mathfrak p$ を拡張すると $\mathfrak p\mathcal O_{E_r}=\prod_{\mathfrak P\mid\mathfrak p}\mathfrak P^{e_{\mathfrak P}}$ です。[イデアルノルムの定義](../IWA4/index.md#def-iwa4-ideal-norm-extension)から $N(\mathfrak P)=\mathfrak p^{f_{\mathfrak P}}$ なので、
 
-$
+$$
 N(\mathfrak p\mathcal O_{E_r})
 =\mathfrak p^{\sum_{\mathfrak P\mid\mathfrak p}e_{\mathfrak P}f_{\mathfrak P}}
 =\mathfrak p^{[E_r:E_r^+]}=\mathfrak p^2.
-$
+$$
 
 逆向きには、上の体の素イデアル $\mathfrak P$ について、共役を重複度込みで数える[ノルムと拡張の公式](../IWA4/index.md#prop-iwa4-conjugate-product)により
 
-$
+$$
 (N\mathfrak P)\mathcal O_{E_r}=\mathfrak P(c\mathfrak P)
-$
+$$
 
 です（分岐した素イデアルでは二つの因子が一致します）。積・逆数へ拡張してイデアル類を加法で書けば
 
-$
+$$
 Nj([\mathfrak b])=2[\mathfrak b],\qquad
 jN([\mathfrak a])=[\mathfrak a]+[c\mathfrak a].
-$
+$$
 
 主イデアルとの両立性もノルム・拡張で保たれるので、$p$ 部分の上で $Nj=2$、$jN=1+c$ を得ます。
 
@@ -436,12 +436,12 @@ $$
 
 これは下の体へ戻すノルムイデアルを拡張した等式に対応します。下の体でも、$\mathfrak P\subset\mathcal O_{E_{r+1}}$ の縮約を $\mathfrak p\subset\mathcal O_{E_r}$、剰余次数を $f$ とすると、$\delta$ が剰余体同型を与えることから
 
-$
+$$
 N_{r+1,r}(\delta\mathfrak P)
 =(\delta\mathfrak p)^f
 =\delta\bigl(\mathfrak p^f\bigr)
 =\delta N_{r+1,r}(\mathfrak P).
-$
+$$
 
 これは[IWA4のノルムとGalois作用の命題](../IWA4/index.md#prop-iwa4-norm-transitivity)の仮定を、この円分塔で確認した形です。積・逆数へ拡張し、主イデアルのノルムも主イデアルであることから、イデアル類上でも $N_{r+1,r}(\delta x)=\delta N_{r+1,r}(x)$ となります。
 
@@ -555,25 +555,25 @@ $p=5$ とし、法5の元2を法25へ $2+5t$（$0\le t<5$）として持ち上�
 <!-- solution-start -->
 **詳細解答。** 二項展開で二次以上の項は25の倍数なので、
 
-$
+$$
 (2+5t)^4\equiv16+4\cdot2^3\cdot5t
 =16+160t\equiv16+10t\pmod{25}.
-$
+$$
 
 従って $10t\equiv10\pmod{25}$ です。両辺が5の倍数であるため、5で割って法5に移すと
 
-$
+$$
 2t\equiv2\pmod5
 \quad\Longrightarrow\quad t\equiv1\pmod5.
-$
+$$
 
 指定範囲では $t=1$ だけで、持ち上げは7です。実際、
 
-$
+$$
 7\equiv2\pmod5,\qquad
 7^2=49\equiv-1\pmod{25}
 \quad\Longrightarrow\quad7^4\equiv1\pmod{25}.
-$
+$$
 
 還元と根の条件を両方満たします。
 <!-- solution-end -->
@@ -613,10 +613,10 @@ $p=3$、$M=\mathbb Z/9\mathbb Z$、$c(x)=-x$ とする。$e_0=(1+c)/2$、$e_1=(1
 <!-- solution-start -->
 **詳細解答。** 法9で $2\cdot5=10\equiv1$ なので、$1/2$ は5を表します。$c(x)=-x$ を射影の式へ代入すると、
 
-$
+$$
 e_0(x)=5(x-x)=0,\qquad
 e_1(x)=5(x+x)=10x\equiv x\pmod9.
-$
+$$
 
 従って $e_0M=0$、$e_1M=M$ です。この二つの作用は直交し、和は恒等作用なので、$e_0e_1=0$、$e_0+e_1=1$ も確認できます。$c$ は全元に $-1$ で作用するので、奇部分だけが残ることと一致します。
 <!-- solution-end -->
@@ -642,17 +642,17 @@ $p=5$、$\Delta=\langle g\rangle$（$g=2\bmod5$）、$M=(\mathbb Z/25\mathbb Z)\
 
 **第2問。** [Teichmüller値](#def-iwa8-teich-character)から $\omega(g)\equiv7\pmod{25}$、$\omega(g)^2\equiv4\pmod5$ です。任意の $\delta=g^k\in\Delta$ に対して
 
-$
+$$
 \delta(x,0)=(7^kx,0)=\omega(\delta)(x,0),\qquad
 \delta(0,y)=(0,4^ky)=\omega(\delta)^2(0,y)
-$
+$$
 
 となるので、[固有条件と直和分解](#thm-iwa8-idempotent-decomposition)から
 
-$
+$$
 M^{(1)}=\mathbb Z/25\mathbb Z\oplus0,\qquad
 M^{(2)}=0\oplus\mathbb Z/5\mathbb Z
-$
+$$
 
 で、他は0です。ここでも第一座標の等式は法25、第二座標は法5で解釈します。
 
@@ -777,9 +777,9 @@ $$
 
 $e_2$ についても、座標の還元を両順序で実行すれば
 
-$
+$$
 N(e_2(u,v))=N(0,v)=(0,v\bmod5)=e_2N(u,v)
-$
+$$
 
 です。$e_0,e_3$ は双方の層で零作用なので、$N(e_i(u,v))=e_iN(u,v)=0$ が成立します。従って全射影子で可換です。
 
