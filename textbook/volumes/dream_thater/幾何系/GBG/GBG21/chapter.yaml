@@ -1,0 +1,42 @@
+id: "GBG21"
+title: "Chern–Weil形式はなぜ閉じるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG20
+  - GEO9
+official_scope: []
+learning_objectives:
+  - 曲率多項式からChern–Weil形式を定義し大域への降下と閉性を区別できる
+  - 偶数次数のLeibniz則からd p(F^k)=k p(dF,F^{k-1})を導ける
+  - Ad不変性の無限小条件を形式の係数へ適用し括弧項の相殺を符号込みで証明できる
+  - 局所Bianchi恒等式を使い任意の有限次元Lie群でChern–Weil形式の閉性を証明できる
+  - 主束上の大域的Bianchi恒等式と局所sectionによる閉性の導出を照合できる
+  - 非Ad不変写像や任意のLie環値2形式で閉性が失敗する理由を特定できる
+  - 閉性と接続非依存性と整数性を区別し具体的monopole形式を積分できる
+definitions:
+  - { id: GBG21-DEF-01, name: Chern–Weil形式 }
+theorems:
+  - { id: GBG21-LEM-01, name: 曲率多項式の外微分 }
+  - { id: GBG21-LEM-02, name: Ad不変性による括弧項の相殺 }
+  - { id: GBG21-THM-01, name: Chern–Weil形式の閉性 }
+canonical_examples:
+  - R4上のU(1)接続のChern–Weil4形式
+  - 非可換GL(2,R)接続でdFが非零でもd tr(F)が零
+  - 非Ad不変行列成分の外微分が非零になる例
+  - U(1)の曲率になれない非閉Lie環値2形式
+  - S2×S2上の二重monopoleのChern–Weil形式と積分
+problem_patterns:
+  - GBG21-TRACE-ONE-DEGREE
+  - GBG21-LEIBNIZ-SIGN
+  - GBG21-ABELIAN-FOUR-FORM
+  - GBG21-NONINVARIANT-COUNTEREXAMPLE
+  - GBG21-INFINITESIMAL-CANCELLATION
+  - GBG21-TRACE-FOUR-FORM
+  - GBG21-DESCENT-VS-CLOSEDNESS
+  - GBG21-NONCURVATURE-TWO-FORM
+  - GBG21-MONOPOLE-PRODUCT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 4 }
