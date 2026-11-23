@@ -38,7 +38,7 @@ $$
 $$
 \boldsymbol u(x,y)=\Omega(r)(-Y,X),\qquad
 \Omega(r)=\omega_0(1+\beta r)
-\tag{1}
+\qquad\text{(1)}
 $$
 
 で定める。$\omega_0\ge0$ [s$^{-1}$] は基本角速度、$\beta\ge0$ [m$^{-1}$] は外側ほど回転が速まる度合いである。初期値はそれぞれ $\omega_0=1$、$\beta=3$。JSの omega, shear に対応する。
@@ -53,7 +53,7 @@ $$
 
 $$
 r(t)=r_0,\qquad \theta(t)=\theta_0+\Omega(r_0)t.
-\tag{2}
+\qquad\text{(2)}
 $$
 
 初期角度が等しい二粒子で $r_1=0.12$ m、$r_2=0.38$ m なら、角速度は $\Omega(r_1)=1.36$ s$^{-1}$、$\Omega(r_2)=2.14$ s$^{-1}$。$t=\pi/2$ s 後の角度差は
@@ -78,7 +78,7 @@ $$
 $$
 q_0(r,\theta)=A B(r)\exp\left(\frac{\cos\theta-1}{0.55^2}\right),
 \quad 0\le A\le1
-\tag{3}
+\qquad\text{(3)}
 $$
 
 と定める。初期設定 $A=0.9$ はJSの amplitude。$0.08\le r\le0.44$ mの外では $B(r)=0$ なので染料は存在しない。
@@ -87,7 +87,7 @@ $$
 
 $$
 \frac{\partial q}{\partial t}+\boldsymbol u\cdot\nabla q=0
-\tag{4}
+\qquad\text{(4)}
 $$
 
 と表せる。現在の点 $(r,\theta)$ にある染料の出発点は、式(2)を逆向きにたどった $(r,\theta-\Omega(r)t)$ である。したがって初期濃度(3)をその点で評価すれば
@@ -97,7 +97,7 @@ $$
 q(r,\theta,t)=A B(r)
 \exp\left(\frac{\cos[\theta-\omega_0(1+\beta r)t]-1}{0.55^2}\right).
 }
-\tag{5}
+\qquad\text{(5)}
 $$
 
 粒子を前に追う式(2)では角度を**足し**、現在の画素での濃度を求める式(5)では元の位置へ角度を**引いて戻す**。
@@ -172,7 +172,7 @@ $\omega_0,\beta\ge0$、$0\le A\le1$ とし、(1)、(3)、(5)に従うとする�
 $$
 0\le q(x,y,t)\le A,\qquad
 \int_Dq(x,y,t)\,dx\,dy=\int_Dq(x,y,0)\,dx\,dy.
-\tag{6}
+\qquad\text{(6)}
 $$
 
 濃度は無次元なので、この面積積分の単位はm$^2$である。
@@ -201,17 +201,19 @@ $$
 染料は $r\in[0.08,0.44]$ m にしかなく、これは正方形の内側に完全に含まれる。極座標の面積要素は $r\,dr\,d\theta$ であるから
 
 $$
-\begin{aligned}
 \int_Dq(t)\,dx\,dy
-&=\int_{0.08}^{0.44}r\,dr
-  \int_{-\pi}^{\pi}F(r,\theta-\Omega(r)t)\,d\theta\\
-&=\int_{0.08}^{0.44}r\,dr
-  \int_{-\pi}^{\pi}F(r,\varphi)\,d\varphi
-=\int_Dq(0)\,dx\,dy.
-\end{aligned}
+=\int_{0.08}^{0.44}r\,dr\int_{-\pi}^{\pi}F(r,\theta-\Omega(r)t)\,d\theta.
 $$
 
-第二の等号では各 $r$ を固定して $\varphi=\theta-\Omega(r)t$ と置換した。$F$ は角度について$2\pi$周期なので積分区間の始点を変えても値は等しい。$\square$
+各 $r$ を固定して $\varphi=\theta-\Omega(r)t$ と置換する。$F$ は角度について $2\pi$ 周期なので、積分区間の位置をずらしても同じ値が得られる。
+
+$$
+\int_Dq(t)\,dx\,dy
+=\int_{0.08}^{0.44}r\,dr\int_{-\pi}^{\pi}F(r,\varphi)\,d\varphi
+=\int_Dq(0)\,dx\,dy.
+$$
+
+$F$ は角度について$2\pi$周期なので積分区間の始点を変えても値は等しい。$\square$
 <!-- proof-end -->
 
 128×128の中点積分値は初期条件で約$0.0649331$ m$^2$。これは離散的な近似値であって、**連続領域での積分保存**と128×128の中点和・R8丸め後の総和が厳密に不変であることは区別する。
@@ -222,7 +224,7 @@ $$
 
 $$
 m=\operatorname{round}(255Q),\qquad \widehat Q=\frac m{255}.
-\tag{7}
+\qquad\text{(7)}
 $$
 
 このR8正規化方式の根拠は[WGL17のR8符号化と復元](../../WGL/WGL17/index.md#def-wgl17-unorm)で学んだ。$\widehat Q$ はGLSLの sampler2D から読み出す濃度であり、整数$m$とは尺度が異なる。
@@ -239,7 +241,7 @@ C(\widehat Q)=
 (0.025+0.975\widehat Q,\quad
 0.07+0.69\widehat Q,\quad
 0.13+0.09\widehat Q,\quad1)
-\tag{8}
+\qquad\text{(8)}
 $$
 
 で定義する。濃紺から琥珀色への表示は濃度の可視化であり、染料の発光・反射の物理モデルではない。
@@ -274,7 +276,7 @@ $$
 i=\left\lfloor\frac{128(p+1/2)}W\right\rfloor,\qquad
 j=\left\lfloor\frac{128(s+1/2)}H\right\rfloor,\qquad
 k=i+128j
-\tag{9}
+\qquad\text{(9)}
 $$
 
 で一意に定まり、$0\le i,j\le127$ である。
