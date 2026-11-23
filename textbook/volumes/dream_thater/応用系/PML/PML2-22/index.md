@@ -73,7 +73,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-22-discrete-gradient -->
-**定義の確認。** $p=n=1$、$\Theta=(0,\infty)$、$A(\theta)=2\theta$、$b(\theta)=2$、$J(u,\theta)=u^2+\theta$ とする。$A$ はすべての $\theta>0$ で可逆、解は $u(\theta)=1/\theta$、損失は $L(\theta)=\theta^{-2}+\theta$。直接微分すると $L'(\theta)=-2\theta^{-3}+1$ である。$J$ を $\theta$ で偏微分した値 $1$ だけでは全微分にならない。解を作る方程式、可逆性、状態を経由する微分をすべて確認した。
+**定義の確認**。 $p=n=1$、$\Theta=(0,\infty)$、$A(\theta)=2\theta$、$b(\theta)=2$、$J(u,\theta)=u^2+\theta$ とする。$A$ はすべての $\theta>0$ で可逆、解は $u(\theta)=1/\theta$、損失は $L(\theta)=\theta^{-2}+\theta$。直接微分すると $L'(\theta)=-2\theta^{-3}+1$ である。$J$ を $\theta$ で偏微分した値 $1$ だけでは全微分にならない。解を作る方程式、可逆性、状態を経由する微分をすべて確認した。
 <!-- definition-example-end -->
 
 次の定理で、$\partial_i$ はパラメータ $\theta_i$ に関する偏微分、$\nabla_u J$ は列ベクトルとしての状態勾配を意味する。$\partial_i J$ は状態を固定して微分した値である。
@@ -154,7 +154,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-22-adjoint -->
-**定義の確認。** 第1節の $A=9\kappa M$、$\kappa=2$ とし、$J(u,\kappa)=u_1$ とする。このとき $g=(1,0)^T$、$A^T=18M$ は可逆である。$M^{-1}=\frac13\begin{pmatrix}2&1\\1&2\end{pmatrix}$ なので
+**定義の確認**。 第1節の $A=9\kappa M$、$\kappa=2$ とし、$J(u,\kappa)=u_1$ とする。このとき $g=(1,0)^T$、$A^T=18M$ は可逆である。$M^{-1}=\frac13\begin{pmatrix}2&1\\1&2\end{pmatrix}$ なので
 
 $$
 \lambda=(18M)^{-1}g=\frac1{54}\begin{pmatrix}2\\1\end{pmatrix}.
