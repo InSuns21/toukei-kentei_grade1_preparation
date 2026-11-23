@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {sceneByte,filterByte,reinhardByte,expectedWGL14Samples,
+import {sceneByte,filterByte,reinhardByte,illustratedRGB,illustratedBlurRGB,expectedWGL14Samples,
   compareWGL14Readback} from './wgl14-lab-core.mjs';
 
 test('WGL14 3x3 impulse and replicated edge: CPU oracle',()=>{
@@ -22,10 +22,21 @@ test('WGL14 3x3 impulse and replicated edge: CPU oracle',()=>{
   assert.equal(reinhardByte(40),35);
   assert.throws(()=>filterByte(0,0,'unknown'),RangeError);
 });
-test('WGL14 CPU oracle fixes 7 display probes and tolerances',()=>{
+test('WGL14 real illustration and CPU oracle produce observable color/blur',()=>{
+  assert.deepEqual(illustratedRGB(10,12),[87,110,125]);
+  assert.deepEqual(illustratedRGB(28,70),[30,91,148]);
+  assert.deepEqual(illustratedRGB(50,65),[33,75,107]);
+  assert.notDeepEqual(illustratedBlurRGB(60,103,1),illustratedBlurRGB(60,103,4));
+  assert.throws(()=>illustratedBlurRGB(10,10,0),RangeError);
+});
+test('WGL14 CPU oracle fixes 7 illustrated display probes and tolerances',()=>{
   for(const [width,height] of [[64,64],[320,240],[1024,512]]) {
     const reference=expectedWGL14Samples(width,height);
-    assert.deepEqual(reference.map(r=>r.rgba[0]),[255,0,90,25,25,35,0]);
+    assert.equal(reference.length,7);
+    assert.deepEqual(reference[0].rgba,[87,110,125,255]);
+    assert.deepEqual(reference[1].rgba,[30,91,148,255]);
+    assert.deepEqual(reference[2].rgba,[33,75,107,255]);
+    assert.ok(reference.slice(3).every(p=>p.rgba[0]<256 && p.rgba[3]===255));
     const sample=reference.map(({x,y,rgba})=>({x,y,rgba:[...rgba]}));
     assert.ok(compareWGL14Readback(sample,width,height).every(p=>p.pass));
     sample[3].rgba[1]+=3;
@@ -43,10 +54,14 @@ test('WGL14 lab is wired into routing and uses two FBOs and a real readback',asy
   assert.ok(vs.startsWith('#version 300 es'));
   assert.ok(fs.startsWith('#version 300 es'));
   for(const k of ['gl.RGBA8','gl.FRAMEBUFFER_COMPLETE','gl.NEAREST','gl.CLAMP_TO_EDGE',
-    'gl.bindFramebuffer(gl.FRAMEBUFFER,null)','gl.readPixels(3,3','gl.disable(gl.DITHER)'])
+    'gl.bindFramebuffer(gl.FRAMEBUFFER,null)','gl.readPixels(Math.floor(gridSize/2)','gl.disable(gl.DITHER)'])
     assert.ok(js.includes(k),k);
-  assert.match(fs,/texelFetch\(u_source,q,0\)/);
-  assert.ok(fs.includes('light/(vec3(1.0)+light)'));
+  assert.match(fs,/texelFetch\(u_source, q, 0\)/);
+  assert.ok(fs.includes('x / (vec3(1.0) + x)'));
+  assert.ok(fs.includes('texture(u_processed, v_uv)'));
+  assert.ok(js.includes("const imageMode = 'illustration'"));
+  assert.ok(js.includes("const processOrder = 'filter-first'"));
+  assert.match(md,/lab-wgl14-experiment/);
   assert.match(host,/const isWGL14 = lesson === 'WGL14'/);
   assert.match(host,/compareWGL14Readback/);
   assert.match(host,/expectedWGL14Samples/);
