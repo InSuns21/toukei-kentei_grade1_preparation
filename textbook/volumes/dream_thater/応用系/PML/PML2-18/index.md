@@ -36,7 +36,23 @@ $$
 **何が関数になるのか。** $f$ を固定すると $B_\theta(S_mf)$ は一定の $p$ 次元ベクトルであり、$y\mapsto T_{\theta,k}(y)$ は連続である。したがって有限和は $y$ の連続関数で、定義の値域条件も満たす。通常 branch/trunk をニューラルネットで実装するが、下の直接例ではネットワークが表すべき**関数そのもの**を明示し、勾配学習の成功を仮定しない。
 
 <!-- definition-example-start: def-pml2-18-deeponet -->
-**定義の確認**（零Dirichlet Poisson問題）。 [Poisson解作用素](../PML2-14/index.md#thm-pml2-14-green)を $\mathcal G$ とし、入力を一次関数 $f(t)=a+bt$（$a,b\in\mathbb R$）に制限する。$s_1=0,s_2=1$ とすると $S_2f=(a,a+b)$。$m=p=2$、$c_\theta=0$、branch を恒等写像
+**定義の確認**（零Dirichlet Poisson問題）。モデルの入力族を $\mathcal F=C([0,1])$ と定め、その中の一次関数 $f(t)=a+bt$（$a,b\in\mathbb R$）で厳密一致を確かめる。$s_1=0,s_2=1$ とすると $S_2f=(a,a+b)$。したがって後の節では、同じモデルを一次関数以外の連続入力へも適用できる。ただし厳密一致を証明するのは一次関数族上だけである。
+
+trunk の二成分がどこから来るかを先に導く。$t$ は入力の引数、$y$ は出力を評価する位置とし、$u'(y),u''(y)$ は $y$ に関する導関数を表す。[Poisson解作用素の線形性と一意性](../PML2-14/index.md#thm-pml2-14-green)を使うため、定数荷重 $1$ と一次荷重 $t$ の解をそれぞれ
+
+$
+q_0(y)=\frac{y(1-y)}2,\qquad
+q_1(y)=\frac{y-y^3}{6}
+$
+
+と置く。実際 $-q_0''(y)=1$、$-q_1''(y)=y$ で、両関数は $y=0,1$ で零になる。センサ値を $(v_1,v_2)=(a,a+b)$ と書けば $a=v_1$、$b=v_2-v_1$ だから、
+
+$
+(\mathcal Gf)(y)=a q_0(y)+b q_1(y)
+=v_1\{q_0(y)-q_1(y)\}+v_2q_1(y).
+$
+
+この係数と関数の組をそのまま branch/trunk にすればよい。$m=p=2$、$c_\theta=0$、branch を恒等写像
 
 $$
 B_\theta(v_1,v_2)=(v_1,v_2)
@@ -254,7 +270,7 @@ $$
 \le\frac{Lh}{16}.
 $$
 
-> 同じ等間隔センサ $s_1,\ldots,s_m$ を使う任意の固定センサ型 DeepONet $\mathcal D_\theta$ に対しても
+> $f$ を入力族 $\mathcal F$ に含み、同じ等間隔センサ $s_1,\ldots,s_m$ を使う任意の固定センサ型 DeepONet $\mathcal D_\theta:\mathcal F\to C([0,1])$ に対しても
 
 $$
 \|\mathcal D_\theta f-\mathcal Gf\|_\infty
@@ -343,9 +359,16 @@ A_3=\begin{pmatrix}
 1&0&0\\
 1&1/2&1/4\\
 1&1&0
-\end{pmatrix},
-\qquad \det A_3=-\frac14\ne0.
-$$
+\end{pmatrix}.
+$
+
+第2行・第3行から第1行を引いても行列式は変わらない。その結果の右下 $2\times2$ 行列を展開すると
+
+$
+\det A_3
+=\begin{vmatrix}1/2&1/4\\1&0\end{vmatrix}
+=\frac12\cdot0-\frac14\cdot1=-\frac14\ne0.
+$
 
 従って[センサ階数定理](#thm-pml2-18-sensor-rank)の仮定が成立する。観測ベクトル $(v_0,v_{1/2},v_1)$ から
 
