@@ -644,7 +644,9 @@ function runnerHtml() {
   return '<!doctype html><html lang="ja"><head><meta charset="utf-8">' +
     '<meta http-equiv="Content-Security-Policy" content="' + policy + '">' +
     '<meta name="referrer" content="no-referrer">' +
-    '<style>body{margin:0;display:grid;place-items:center;background:#e2e8f0}' +
+    '<style>' + (isWGL10 ?
+      'body{margin:0;display:block;background:#e2e8f0}' :
+      'body{margin:0;display:grid;place-items:center;background:#e2e8f0}') +
     'canvas{display:block;width:100%;max-width:100%;height:auto}</style></head><body>' +
     '<canvas id="gpu-canvas" aria-label="GPUが描画した画素"></canvas>' +
     '<script>(' + isolatedRunner.toString() + ')()</scr' + 'ipt></body></html>';
@@ -1053,9 +1055,22 @@ window.addEventListener('message', event => {
       const stages = {'all':'3列比較','scene':'直接描画だけ',
         'texture':'FBOコピーだけ','processed':'後処理だけ'};
       const stage = stages[choices['inspection-pass']] || '編集JS参照';
-      byId('wgl10-stage-guide').textContent = choices['inspection-pass'] === 'all' ?
-        '左 ① シーン直描き → 中 ② FBO保存画像 → 右 ③ 保存画像の後処理（' +
-        (choices['filter-mode'] || '編集JS参照') + '）' : '全幅表示：' + stage;
+      const guide = byId('wgl10-stage-guide');
+      const allStages = choices['inspection-pass'] === 'all';
+      guide.classList.toggle('wgl10-three-columns',allStages);
+      if (allStages) {
+        const labels = [
+          '① 直接描画（比較用）','② FBO保存画像',
+          '③ 保存画像の後処理：' + (choices['filter-mode'] || '編集JS参照')
+        ];
+        guide.replaceChildren(...labels.map(label => {
+          const span=document.createElement('span');
+          span.textContent=label;
+          return span;
+        }));
+      } else {
+        guide.textContent='全幅表示：' + stage;
+      }
       byId('result-note').textContent = '実行したFBO：RGBA8 ' + textureSize +
         ' texel ／ 比較列：' + third + '×' + active.payload.height +
         ' px ／ NEAREST ／ ' + stage + '。数値検算は下の詳細にあります。';
@@ -2101,7 +2116,12 @@ if (isWGL10) {
   stageGuide.id = 'wgl10-stage-guide';
   stageGuide.className = 'wgl10-stage-guide';
   stageGuide.setAttribute('role', 'note');
-  stageGuide.textContent = '左 ① シーン直描き → 中 ② FBO保存画像 → 右 ③ 同じFBO画像の反転';
+  stageGuide.classList.add('wgl10-three-columns');
+  for (const label of ['① 直接描画（比較用）','② FBO保存画像','③ 後処理：invert']) {
+    const span=document.createElement('span');
+    span.textContent=label;
+    stageGuide.append(span);
+  }
   byId('canvas-slot').before(stageGuide);
 }
 
