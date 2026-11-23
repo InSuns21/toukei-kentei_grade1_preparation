@@ -210,7 +210,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-行列群では $a_t=I+t\varepsilon+O(t^2)$、$a_t^{-1}=I-t\varepsilon+O(t^2)$。$t$ は空間変数ではないので
+ここで $t$ はゲージ変換を動かす実パラメータであり、$d$ は $M$ の空間変数に関する外微分である。$\frac{d}{dt}$ による変化率と $d\varepsilon$ による空間変化を区別する。
+
+行列群では $a_t=I+t\varepsilon+O(t^2)$、$a_t^{-1}=I-t\varepsilon+O(t^2)$。$t$ は $d$ の微分変数ではないので
 
 $$
 da_t=t\,d\varepsilon+O(t^2).
@@ -247,15 +249,15 @@ $$
 
 **符号の約束**。本講の変換は $A\cdot a=T_a(A)$ だから $\delta_\varepsilon A=+d_A\varepsilon$ となる。代わりに $T_{a^{-1}}(A)$ を作用として用いれば、同じ $\varepsilon$ に対する一次変化は $-d_A\varepsilon$ になる。二つの符号を混ぜない。
 
-**非可換な直接計算**。$G=GL(2,\mathbb R)$、$H=E_{11}$、$X=E_{12}$ とおく。$HX=X$、$XH=0$ だから $[H,X]=X$。$\mathbb R^2$ 上で
+**非可換な直接計算**。$G=GL(2,\mathbb R)$ とし、$E_{ij}$ は標準基底に関して第 $i$ 行・第 $j$ 列だけが1で、他が0の $2\times2$ 行列を表す。$H=E_{11}$、$X=E_{12}$ と置くと $HX=X$、$XH=0$ なので $[H,X]=X$。$\mathbb R^2$ 上で
 
 $$
 A=H\,dx+X\,dy,\qquad \varepsilon=H
 $$
 
-とすると、
+とする。[曲率の局所構造方程式](../GBG10/index.md#thm-gbg10-local-formula)から、$dA=0$ と $A\wedge A=[H,X]dx\wedge dy$ を代入して曲率を求めると、
 
-$$
+$
 d_A\varepsilon=[A,H]=-X\,dy,
 \qquad F=[H,X]\,dx\wedge dy=X\,dx\wedge dy.
 $$
@@ -264,7 +266,7 @@ $$
 
 ### 安定化群を無限小で調べる
 
-$a_t=\exp(t\varepsilon)$ が接続を固定するためには、少なくとも $\delta_\varepsilon A=0$ が必要である。実際にはこの条件から全ての $t$ で固定することも導ける。
+$a_t=\exp(t\varepsilon)$ が接続を固定するためには、少なくとも $\delta_\varepsilon A=0$ が必要である。ここで $d_\omega\varepsilon$ は[GBG11 で定義した大域共変外微分](../GBG11/index.md#def-gbg11-covariant-exterior-derivative)を随伴 Lie 環束の切断へ作用させたものであり、局所 section では先の $d_A\varepsilon=d\varepsilon+[A,\varepsilon]$ に対応する。大域で $d_\omega\varepsilon=0$ という条件は、全パッチで $d_A\varepsilon=0$ という条件と同値である。実際にはこの条件から全ての $t$ で固定することも導ける。
 
 <a id="prop-gbg13-stabilizer-lie-algebra"></a>
 
@@ -284,30 +286,46 @@ $$
 
 必要性は $\omega\cdot\exp(t\varepsilon)=\omega$ を $t=0$ で微分して[無限小作用の定理](#thm-gbg13-infinitesimal-action)を使えば従う。
 
-十分性は行列群の局所表示で示す。$d_A\varepsilon=d\varepsilon+A\varepsilon-\varepsilon A=0$ とする。各座標方向 $\partial_i$ について $A_i=A(\partial_i)$ と書き、$a_t=e^{t\varepsilon}$ に対して
+十分性は行列群の局所表示で示す。$d_A\varepsilon=d\varepsilon+A\varepsilon-\varepsilon A=0$ とする。局所座標を $x^1,\ldots,x^m$ とし、$\partial_k:=\partial/\partial x^k$、$A_k:=A(\partial_k)$ と書く。ここで $k$ は**座標方向**の添字であり、冒頭の $A_i=s_i^*\omega$ の $i$ は**パッチ番号**であって別物である。$a_t=e^{t\varepsilon}$ に対して
 
-$$
-K_i(t)=a_t^{-1}A_i a_t+a_t^{-1}\partial_i a_t
-$$
+$
+K_k(t)=a_t^{-1}A_k a_t+a_t^{-1}\partial_k a_t
+$
 
-を考える。$\partial_t a_t=\varepsilon a_t$ と $\partial_t a_t^{-1}=-a_t^{-1}\varepsilon$ により、積を微分して
+を考える。$\partial_t:=\partial/\partial t$ は $x^k$ を固定して $t$ で微分する演算子であり、滑らかさから $\partial_t\partial_k a_t=\partial_k\partial_t a_t$ である。また $\partial_t a_t=\varepsilon a_t$ と $\partial_t a_t^{-1}=-a_t^{-1}\varepsilon$ だから、積を微分して
 
-$$
+$
 \begin{aligned}
-K_i'(t)
-&=a_t^{-1}[A_i,\varepsilon]a_t
-+a_t^{-1}(\partial_i\varepsilon)a_t\\
-&=a_t^{-1}(\partial_i\varepsilon+[A_i,\varepsilon])a_t=0.
+\partial_t(a_t^{-1}A_k a_t)&=a_t^{-1}[A_k,\varepsilon]a_t,\\
+\partial_t(a_t^{-1}\partial_k a_t)
+&=-a_t^{-1}\varepsilon\,\partial_k a_t
+ +a_t^{-1}\partial_k(\varepsilon a_t)\\
+&=a_t^{-1}(\partial_k\varepsilon)a_t,\\
+\partial_t K_k(t)
+&=a_t^{-1}(\partial_k\varepsilon+[A_k,\varepsilon])a_t=0.
 \end{aligned}
-$$
+$
 
-$K_i(0)=A_i$ なので $K_i(t)=A_i$ が全ての $t$ で成り立つ。つまり $d a_t+A a_t-a_tA=0$。左から $a_t^{-1}$ を掛けて整理すると
+$K_k(0)=A_k$ なので $K_k(t)=A_k$ が全ての $t$ で成り立つ。つまり $d a_t+A a_t-a_tA=0$。左から $a_t^{-1}$ を掛けて整理すると
 
 $$
 a_t^{-1}A a_t+a_t^{-1}da_t=A
 $$
 
-だから全ての $t$ で固定する。一般 Lie 群でも、$d_A\varepsilon=0$ は接続による平行性を意味し、$\exp$ が共役作用と可換であることから同じ結論になる。
+だから全ての $t$ で固定する。一般の（行列群とは限らない）Lie 群でも同じことを確認できる。局所ゲージ関数 $a_t(x)=\exp(t\varepsilon(x))$ に対し、[左 Maurer–Cartan 形式](../GBG7/index.md#prop-gbg7-maurer-cartan-fibre)の引き戻しを $\theta_t=a_t^{-1}da_t$ と書く。これは行列の逆数・積ではなく、左移動によって接ベクトルを Lie 環へ戻す記法である。$t$ に関する左対数微分は $a_t^{-1}\partial_t a_t=\varepsilon$ なので、Maurer–Cartan 形式の積の微分則から任意の接ベクトル $V$ について
+
+$
+\partial_t\theta_t(V)=V(\varepsilon)+[\theta_t(V),\varepsilon]
+$
+
+となる。一方、$\partial_t\operatorname{Ad}_{a_t^{-1}}A(V)=[\operatorname{Ad}_{a_t^{-1}}A(V),\varepsilon]$ である。したがって変換後の接続 $B_t=\operatorname{Ad}_{a_t^{-1}}A+\theta_t$ は
+
+$
+\partial_t B_t(V)=V(\varepsilon)+[B_t(V),\varepsilon],
+\qquad B_0(V)=A(V)
+$
+
+を満たす。仮定 $d_A\varepsilon=0$ は $V(\varepsilon)+[A(V),\varepsilon]=0$ だから、定数関数 $B_t(V)=A(V)$ もこの初期値問題の解である。各点・各 $V$ で有限次元 Lie 環上の線形常微分方程式の一意性を使えば $B_t(V)=A(V)$ が全ての $t$ で従う。これで一般 Lie 群でも十分性が示された。
 <!-- proof-end -->
 
 この「無限小方向が零になる」ことと、有限の安定化群が単位元しかないことは同値ではない。例えば $U(1)$ の定数ゲージ変換は接続を固定する。
