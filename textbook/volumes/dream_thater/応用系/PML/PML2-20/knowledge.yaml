@@ -1,0 +1,67 @@
+chapter: PML2-20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-19
+  - PML2-18
+  - PML2-14
+  - PML2-12
+  - PML2-11
+  - PML2-09
+  - PML2-06
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-20-operator-loss
+    name: physics-informed operator損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（physics-informed operator損失）"]
+    requires:
+      - physics-machine-learning.pml2-06-strong-residual
+      - physics-machine-learning.pml2-14-operator
+      - physics-machine-learning.pml2-18-deeponet
+  - id: physics-machine-learning.pml2-20-holdout
+    name: 入力単位の完全ホールドアウト評価
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（入力単位の完全ホールドアウト評価）"]
+    requires:
+      - physics-machine-learning.pml2-14-errors
+      - physics-machine-learning.pml2-20-operator-loss
+  - id: physics-machine-learning.pml2-20-parameter-gap
+    name: 教師と物理点が同じ二入力だけなら未見入力を制御できない
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-20-operator-loss
+      - physics-machine-learning.pml2-19-training-gap
+  - id: physics-machine-learning.pml2-20-physics-identifies
+    name: ラベルなし物理入力による一係数の識別
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-20-parameter-gap
+      - physics-machine-learning.pml2-20-operator-loss
+  - id: physics-machine-learning.pml2-20-residual-net
+    name: 入力・空間の被覆と物理残差からの一様解誤差
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-14-green
+      - physics-machine-learning.pml2-12-fill-distance
+      - physics-machine-learning.pml2-11-boundary-error
+      - physics-machine-learning.pml2-20-operator-loss
+  - id: physics-machine-learning.pml2-20-spatial-gap
+    name: 任意の有限空間collocation点で残差零の非零解誤差
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-12-invisible
+      - physics-machine-learning.pml2-20-residual-net
+  - id: physics-machine-learning.pml2-20-weighted-noise
+    name: 観測雑音と物理損失の重み
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-20-operator-loss
+      - physics-machine-learning.pml2-09-weight-tradeoff
