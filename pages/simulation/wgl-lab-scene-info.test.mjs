@@ -113,11 +113,11 @@ test('G3 legends derive their initial step and GPU buffer dimensions from the ru
   assert.match(env.source,/environment.js.*environment.frag/);
   assert.equal(env.clock,'6面の方向を固定した12画素GPU検算（物理stepなし）');
   const post=sceneDescription('WGL14',{width:800,height:600});
-  assert.match(post.grid,/2枚の8×8 RGBA8 FBO/);
-  assert.match(post.color,/Reinhard/);
-  assert.match(post.mode,/blur.*edge.*CLAMP_TO_EDGE/);
-  assert.match(post.source,/filterMode.*exposure.*postprocess.frag/);
-  assert.equal(post.clock,'原画A→畳込みB→画面の左右比較という3パス（物理stepなし）');
+  assert.match(post.grid,/128×128 RGBA8.*FBO A\/B.*8×8 impulse/);
+  assert.match(post.color,/境界線左は原画A、右はぼかし\/輪郭フィルタB/);
+  assert.match(post.mode,/比較割合0〜1.*blur半径1〜4.*edge/);
+  assert.match(post.source,/imageMode.*filterMode.*blurRadius.*exposure.*processOrder.*comparison.*postprocess.frag/);
+  assert.equal(post.clock,'静止実験：Aへ描画→Bへ後処理→同じUVのbefore/afterをcanvasに表示する3パス');
   assert.equal(post.pixels,'800×600 px（GPU描画バッファ）');
   const picking=sceneDescription('WGL15',{width:320,height:240});
   assert.match(picking.grid,/RGBA8 ID.*DEPTH_COMPONENT16/);
