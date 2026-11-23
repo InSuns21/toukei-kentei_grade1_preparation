@@ -43,7 +43,21 @@ $$
 
 この関数は $y$ に関して2回連続微分可能で、$-u''(y)=a=f_a(y)$ と両端の零条件を満たす。[Poisson解の一意性](../PML2-14/index.md#thm-pml2-14-green)から、これが目標作用素の出力である。
 
-一つのセンサ $s_1=0$ では $S_1f_a=(a)\in\mathbb R$ である。branch $B(v)=v$ は $\mathbb R\to\mathbb R$ の連続写像、trunk $T(y)=y(1-y)/2$ は $[0,1]\to\mathbb R$ の連続写像であり、$p=1$、定数項 $c=0$ の[固定センサ型DeepONet](../PML2-18/index.md#def-pml2-18-deeponet)を定める。各 $a\in[0,1]$ と $y\in[0,1]$ に対し $B(S_1f_a)T(y)=a y(1-y)/2=(\mathcal Gf_a)(y)$ だから、共通センサと入力・出力の条件を満たし、一様誤差は $0$。したがって任意の正の $\varepsilon$ に対して**同じモデル**が使える。
+一つのセンサを $s_1=0$ に固定すると、観測値は $S_1f_a=(a)$ である。branch と trunk を
+
+$$
+B:\mathbb R\to\mathbb R,\quad B(v)=v,
+\qquad T:[0,1]\to\mathbb R,\quad T(y)=\frac{y(1-y)}2
+$$
+
+と定める。両方とも連続なので、$p=1$、定数項 $c=0$ の[固定センサ型DeepONet](../PML2-18/index.md#def-pml2-18-deeponet)になる。入力ごとの一致は
+
+$$
+B(S_1f_a)T(y)=\frac{a}{2}y(1-y)=(\mathcal Gf_a)(y)
+\quad(0\le a\le1,\ 0\le y\le1)
+$$
+
+で確かめられる。モデルの入出力、共通センサと連続性の各条件が成立し、一様誤差は $0$ である。したがって任意の正の $\varepsilon$ に対して**同じモデル**が使える。
 <!-- definition-example-end -->
 
 この例の入力族は一次元である。一般の連続入力には、センサ間の変化を制御する追加条件が必要になる。
@@ -326,7 +340,18 @@ E_{\rm grid}&=\sup_{f\in K}\max_{1\le j\le Q}
 \end{aligned}
 $$
 
-と定める（$E_{\rm grid}$ が有限な場合の評価を考える）。$h_y$ はどの出力点も最近傍の観測点から距離 $h_y$ 以下にあることを意味する。さらに、すべての $f\in K$ に対し $\mathcal Df$ と $\mathcal Gf$ がともに同じ定数 $L_{\rm out}\ge0$ でLipschitz連続と仮定する。つまり、任意の $y,z\in[0,1]$ で両出力の値の差がそれぞれ $L_{\rm out}|y-z|$ 以下になる。
+と定め、格子点最大誤差が有限と仮定する。被覆半径 $h_y$ の定義により、どの出力点にも距離が $h_y$ 以下の観測点がある。
+
+さらに、すべての入力 $f\in K$ に共通する出力側のLipschitz定数 $L_{\rm out}\ge0$ が存在し、任意の $y,z\in[0,1]$ について
+
+$$
+\begin{aligned}
+|(\mathcal Df)(y)-(\mathcal Df)(z)|&\le L_{\rm out}|y-z|,\\
+|(\mathcal Gf)(y)-(\mathcal Gf)(z)|&\le L_{\rm out}|y-z|
+\end{aligned}
+$$
+
+を満たすと仮定する。両方の作用素の**出力位置に関する変動**を同じ定数で制御する条件である。
 
 任意の $f\in K$ と出力点 $y$ に最近傍の $y_j$ を取ると、三角不等式とこの二つのLipschitz評価から
 
@@ -476,7 +501,21 @@ $$
 \le E_{\rm grid}+2L_{\rm out}h_y
 $$
 
-と評価できる。本例の出力格子 $\{0,1\}$ は被覆半径 $h_y=1/2$ で、格子点最大誤差は $E_{\rm grid}=0$ である。予測値の導関数は $T'(y)=A(1-2y)$ だから、$|T'(y)|\le|A|$ により $T$ は $|A|$-Lipschitzであり、端点 $y=0$ の導関数の大きさからこれより小さい定数は取れない。真値は零関数なので、両方に使える $L_{\rm out}=|A|$ を選べば、上の格子評価は $0+2|A|(1/2)=|A|$ となり、実際の最大誤差 $|A|/4$ を含む。$A$ と無関係な共通定数は存在しない。
+と評価できる。今回の出力格子と予測値の導関数を計算すると
+
+$$
+h_y=\frac12,\qquad E_{\rm grid}=0,\qquad
+T'(y)=A(1-2y),\qquad \max_{0\le y\le1}|T'(y)|=|A|.
+$$
+
+したがって $T$ は $|A|$-Lipschitzである。端点での導関数の大きさも $|A|$ なので、これより小さいLipschitz定数は取れない。真値は零関数だから、両方に共通の $L_{\rm out}=|A|$ を選べる。このとき格子評価から得る上界は
+
+$$
+E_{\rm grid}+2L_{\rm out}h_y
+=0+2|A|\cdot\frac12=|A|.
+$$
+
+これは実際の最大誤差 $|A|/4$ を含む。ただし $A$ と無関係な共通定数は存在しない。
 <!-- solution-end -->
 
 <a id="ex-pml2-19-b04"></a>
