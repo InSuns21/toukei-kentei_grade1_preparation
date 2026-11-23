@@ -63,7 +63,7 @@ $$
 \overline a\,\overline b^{-1}\in(\mathbb Z/5\mathbb Z)^\times
 $$
 
-> は積を保ち、その核が $P_{\mathfrak m,1}$ です。$2\mathbb Z$ と $7\mathbb Z$ は共に剰余 $2$ を持ち、$(2/7)\mathbb Z$ は $2/7\equiv1\pmod5$ なので同じ類です。逆に $-4\equiv1\pmod5$ だけを根拠に法の実素点の正条件を外すことはできません。
+は積を保ち、その核が $P_{\mathfrak m,1}$ です。$2\mathbb Z$ と $7\mathbb Z$ は共に剰余 $2$ を持ち、$(2/7)\mathbb Z$ は $2/7\equiv1\pmod5$ なので同じ類です。逆に $-4\equiv1\pmod5$ だけを根拠に法の実素点の正条件を外すことはできません。
 <!-- definition-example-end -->
 
 <a id="prop-anf20-ray-q"></a>
@@ -116,7 +116,7 @@ b\equiv d_0T x_{\mathfrak p}
 \pmod{\mathfrak p^{e_{\mathfrak p}}}
 $$
 
-> を課したとき $b/(d_0T)\in W_{\mathfrak p}$ となります。ただし $T$ は指定した素イデアルの下にある有理素数と互いに素な正整数です。各右辺は局所整数であるため、$\mathcal O_K\to\mathcal O_K/\mathfrak p^{e_{\mathfrak p}}$ の全射により剰余が定まり、中国剰余定理で同時に実現できます。
+を課したとき $b/(d_0T)\in W_{\mathfrak p}$ となります。ただし $T$ は指定した素イデアルの下にある有理素数と互いに素な正整数です。各右辺は局所整数であるため、$\mathcal O_K\to\mathcal O_K/\mathfrak p^{e_{\mathfrak p}}$ の全射により剰余が定まり、中国剰余定理で同時に実現できます。
 
 その解全体は、固定した非零整イデアル $\mathfrak a=\prod\mathfrak p^{e_{\mathfrak p}}$ の格子剰余類 $b_0+\mathfrak a$ です。[Minkowski埋め込みの格子性](../ANF5/index.md#thm-anf5-ideal-covolume)を用います。$K\otimes_\mathbb Q\mathbb R$ の各無限素点における目標 $d_0T x_v$ から、$b_0+\mathfrak a$ の元までの距離は、格子 $\mathfrak a$ の基本領域の有界な直径で抑えられます。従って $b/(d_0T)$ の無限成分と $x_v$ の誤差は $T\to\infty$ で $0$ になります。$T$ を大きく選べばすべての無限素点の開近傍にも入ります。無限素点が指定されていなければ中国剰余定理だけで十分です。
 <!-- proof-end -->
@@ -151,7 +151,7 @@ R_{\mathfrak m}=
 \times\{\pm1\}^{|\mathfrak m_\infty|}
 $$
 
-> の元です。逆に[弱近似](#lem-anf20-weak-approx)により、任意の有限剰余と指定実符号を同時に持つ $a\in K^\times$ が存在します。従って $R_{\mathfrak m}$ から核へ $a\mapsto[(a)]$ という全射が定まり、選択が違う二元 $a,b$ の比は法に関して $1$ に合同なので、像は同じです。したがって核は有限群の商、通常の類群も有限だから全体も有限です。
+の元です。逆に[弱近似](#lem-anf20-weak-approx)により、任意の有限剰余と指定実符号を同時に持つ $a\in K^\times$ が存在します。従って $R_{\mathfrak m}$ から核へ $a\mapsto[(a)]$ という全射が定まり、選択が違う二元 $a,b$ の比は法に関して $1$ に合同なので、像は同じです。したがって核は有限群の商、通常の類群も有限だから全体も有限です。
 <!-- proof-end -->
 
 ## 3. 剰余類群をイデールで見る
@@ -190,7 +190,7 @@ U(\mathfrak m)=
 \prod_{p\ne5}\mathbb Z_p^\times.
 $$
 
-> たとえば $5$ 成分が $6$、無限成分が $2$、他の有限成分が $1$ のイデールはここに属します。$5$ 成分が $2$ なら $2-1\notin5\mathbb Z_5$ なので属しません。
+たとえば $5$ 成分が $6$、無限成分が $2$、他の有限成分が $1$ のイデールはここに属します。$5$ 成分が $2$ なら $2-1\notin5\mathbb Z_5$ なので属しません。
 <!-- definition-example-end -->
 
 <a id="thm-anf20-ray-idele-isom"></a>
@@ -203,10 +203,10 @@ $$
 \operatorname{Cl}_{\mathfrak m}(K)
 \simeq
 \mathbb I_K/(K^\times U(\mathfrak m))
-\simeq C_K/\overline{U(\mathfrak m)}.
+\simeq C_K/q(U(\mathfrak m)),\qquad q:\mathbb I_K\to C_K.
 $$
 
-> 最後の上線は $C_K=\mathbb I_K/K^\times$ への像を表す。
+> ここで $q$ は $C_K=\mathbb I_K/K^\times$ への商写像であり、$q(U(\mathfrak m))$ はその像を表す。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -225,7 +225,7 @@ $$
 \mathfrak a\longmapsto[y(\mathfrak a)]
 $$
 
-> はよく定義された群準同型です。
+はよく定義された群準同型です。
 
 $a\equiv1\pmod{\mathfrak m}$ なら、$y((a))\Delta(a)^{-1}$ は法の外の有限素点で局所単数、法の有限素点で $a^{-1}\in1+\mathfrak p^{n_{\mathfrak p}}\mathcal O_{\mathfrak p}$、法の実素点では正です。よって $y((a))\in K^\times U(\mathfrak m)$ であり、$P_{\mathfrak m,1}\subseteq\ker\theta$ です。
 
@@ -347,7 +347,7 @@ $$
 a\in(\mathbb Z/5\mathbb Z)^\times
 $$
 
-> により尽くされます。$\sigma_a\sigma_b=\sigma_{ab}$ で、$\sigma_2$ の位数は $4$ です。
+により尽くされます。$\sigma_a\sigma_b=\sigma_{ab}$ で、$\sigma_2$ の位数は $4$ です。
 
 <a id="prop-anf20-cyclotomic-artin"></a>
 
@@ -385,7 +385,7 @@ $$
 =1.
 $$
 
-> これは[素数冪円分拡大の明示局所相互法則の規格化](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)と整合する具体的な検算であり、一般の大域相互法則全体の証明ではありません。
+これは[素数冪円分拡大の明示局所相互法則の規格化](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)と整合する具体的な検算であり、一般の大域相互法則全体の証明ではありません。
 
 法から実素点を外すと剰余類群が位数 $2$ になる一方、このこの拡大のGalois群は位数 $4$ です。したがって $L$ は法 $(5)$ の剰余類体には**なりません**。$\mathbb Q$ の実素点が複素化するという条件を落とすと、符号に対応する複素共役の情報が失われるためです。
 
@@ -504,7 +504,7 @@ $$
 14\cdot3^{-1}\equiv4\cdot2\equiv3\pmod5.
 $$
 
-> よって[有理数体の剰余類計算](#prop-anf20-ray-q)から $\mathfrak a$ の類は $\overline3$ です。$3^2=9\equiv-1$、$3^4\equiv1$ なので位数は $4$。一方[イデアルのArtin写像](#def-anf20-ideal-artin)で
+よって[有理数体の剰余類計算](#prop-anf20-ray-q)から $\mathfrak a$ の類は $\overline3$ です。$3^2=9\equiv-1$、$3^4\equiv1$ なので位数は $4$。一方[イデアルのArtin写像](#def-anf20-ideal-artin)で
 
 $$
 \mathfrak a=(2)(7)(3)^{-1},
@@ -515,7 +515,7 @@ $$
 =\sigma_3.
 $$
 
-> ここでは $7\equiv2$、$3^{-1}\equiv2\pmod5$ を用いました。像 $\sigma_3$ も位数 $4$ です。法 $(5)$ の剰余類群では $\{\pm1\}$ でさらに割るので $3^2\equiv-1$ が単位類となり、位数は $2$ へ減ります。この法では四次拡大 $L/\mathbb Q$ のArtin写像が剰余類群から同型となることはありません。実素点での正条件が四次の複素共役情報を保持するために必要です。
+ここでは $7\equiv2$、$3^{-1}\equiv2\pmod5$ を用いました。像 $\sigma_3$ も位数 $4$ です。法 $(5)$ の剰余類群では $\{\pm1\}$ でさらに割るので $3^2\equiv-1$ が単位類となり、位数は $2$ へ減ります。この法では四次拡大 $L/\mathbb Q$ のArtin写像が剰余類群から同型となることはありません。実素点での正条件が四次の複素共役情報を保持するために必要です。
 <!-- solution-end -->
 
 次講ANF21では、ここで外部定理として使った「対角元で局所積が消える」「ノルムが核になる」「剰余類体が存在する」の三つを、局所から大域への証明依存に分解します。
