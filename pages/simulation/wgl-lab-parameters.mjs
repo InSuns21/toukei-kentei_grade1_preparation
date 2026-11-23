@@ -31,12 +31,20 @@ export const LAB_PARAMETERS = Object.freeze({
   ]),
   FCG6: Object.freeze([
     Object.freeze({
+      id: 'grid', type: 'integer', label: '実計算格子 N×N', default: 48,
+      min: 32, max: 64, step: 16, unit: 'セル/辺',
+      meaning: '32/48/64で固体マスク・MAC速度・圧力・染料・実GPUテクスチャを同じ格子で再計算。描画ピクセル数とは別',
+      sourceLocation: 'solid.js / const N → h、面速度、Poisson、4枚のR8テクスチャ',
+      sourceFile: 'js', index: null,
+      matcher: /^([ \\t]*const N=)([^,\\n]+)(,h=1\\/N,dt=0\\.05,rho=1,shape=[^;\\n]+;)/gm
+    }),
+    Object.freeze({
       id: 'shape', type: 'enum', values: ['circle','rectangle'],
       label: '固体の形状', default: 'circle', unit: '形状',
       meaning: '円か矩形のセル中心マスク。固体・境界面・圧力射影・描画を同じ格子から更新',
       sourceLocation: 'solid.js / const shape → geometry() → 固体マスク',
       sourceFile: 'js', index: null,
-      matcher: /^([ \t]*const N=48,h=1\/N,dt=0\.05,rho=1,shape=)([^,\n]+)(,centerY=[^;\n]+;)/gm
+      matcher: /^([ \t]*const N=(?:32|48|64),h=1\/N,dt=0\.05,rho=1,shape=)([^,\n]+)(,centerY=[^;\n]+;)/gm
     }),
     Object.freeze({
       id: 'centerY', type: 'number', label: '固体中心の高さ', default: 0.5,
@@ -44,7 +52,7 @@ export const LAB_PARAMETERS = Object.freeze({
       meaning: '壁の位置と染料の回り込みを変える。初期値へ戻すと元の障害物位置',
       sourceLocation: 'solid.js / const centerY → geometry()',
       sourceFile: 'js', index: null,
-      matcher: /^([ \t]*const N=48,h=1\/N,dt=0\.05,rho=1,shape=[^,\n]+,centerY=)([^;\n]+)(;)/gm
+      matcher: /^([ \t]*const N=(?:32|48|64),h=1\/N,dt=0\.05,rho=1,shape=[^,\n]+,centerY=)([^;\n]+)(;)/gm
     }),
     Object.freeze({
       id: 'wallAmplitude', type: 'number', label: '壁の水平移動振幅', default: 0.1,
