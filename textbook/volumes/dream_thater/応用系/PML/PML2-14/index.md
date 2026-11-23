@@ -92,22 +92,22 @@ $$
 
 $f\in C([0,1])$ に対し $A(x)=\int_0^xtf(t)\,dt$、$B(x)=\int_x^1(1-t)f(t)\,dt$ と置く。被積分関数 $tf(t)$ と $(1-t)f(t)$ は連続である。$0<x<1$ とし、$h\to0$ のとき差商を取ると、
 
-$
+$$
 \frac{A(x+h)-A(x)}h
 =\frac1h\int_x^{x+h}tf(t)\,dt\longrightarrow xf(x),
-$
+$$
 
-$
+$$
 \frac{B(x+h)-B(x)}h
 =-\frac1h\int_x^{x+h}(1-t)f(t)\,dt
 \longrightarrow -(1-x)f(x).
-$
+$$
 
 ここで連続関数の区間平均が区間の縮小先の値に収束することを用いた。端点では片側差商を取ればよい。従って
 
-$
+$$
 A'(x)=xf(x),\qquad B'(x)=-(1-x)f(x).
-$
+$$
 
 $u(x)=(1-x)A(x)+xB(x)$ を微分すると
 
