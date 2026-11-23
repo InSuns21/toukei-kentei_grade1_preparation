@@ -1,0 +1,45 @@
+id: LREP2
+title: "既約分解とSchurの補題"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP1
+  - F0-00P1
+official_scope: []
+learning_objectives:
+  - Schurの補題の核・像・固有値による証明を複素有限次元の仮定とともに再現できる
+  - 完全可約性と可約性を区別し、具体的な直和分解と非分裂反例を判定できる
+  - 有限群の平均とコンパクト群の正規化Haar測度による平均から不変正定値内積を導ける
+  - 不変部分空間の直交補が不変であることを示し、次元帰納法で完全可約性を証明できる
+  - SU(2)の球面測度模型と標準表現の既約性、非コンパクト群での失敗を説明できる
+definitions:
+  - { id: LREP2-DEF-01, name: 完全可約表現 }
+  - { id: LREP2-DEF-02, name: 不変正定値Hermite内積・ユニタリ表現 }
+  - { id: LREP2-DEF-03, name: 正規化左Haar測度 }
+theorems:
+  - { id: LREP2-THM-01, name: Schur の補題 }
+  - { id: LREP2-COR-01, name: 既約表現の絡作用素空間 }
+  - { id: LREP2-PROP-01, name: 有限群の平均化 }
+  - { id: LREP2-THM-02, name: コンパクト群の平均による不変内積 }
+  - { id: LREP2-PROP-02, name: 不変直交補空間 }
+  - { id: LREP2-THM-03, name: コンパクト群の有限次元連続複素表現の完全可約性 }
+canonical_examples:
+  - C2の互いに異なる一次元指標と絡作用素
+  - C2の直交和と有限群平均
+  - SU(2)とS3上の正規化球面面積測度
+  - SU(2)標準表現の二つの行列による既約性
+  - 実C4回転でのSchurの補題の体依存
+  - 非コンパクト加法群の上三角非分裂表現
+problem_patterns:
+  - LREP2-CHARACTER-HOM
+  - LREP2-SU2-COMMUTANT
+  - LREP2-AVERAGED-GRAM
+  - LREP2-FINITE-HAAR
+  - LREP2-REAL-SCHUR-COUNTEREXAMPLE
+  - LREP2-PROJECTION-INTERTWINER
+  - LREP2-NONCOMPACT-NONSPLIT
+  - LREP2-C3-FOURIER-PROJECTIONS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 2 }
