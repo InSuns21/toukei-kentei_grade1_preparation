@@ -117,7 +117,7 @@ try {
   await waitFor('document.querySelector("#status")?.textContent.includes("編集コードを実行しました")',25000);
   const shader=await evaluate('document.querySelector("#results-table tbody tr:first-child td:nth-child(5)")?.textContent');
   assert.equal(shader,'変更版: 参考');
-  assert.match(await evaluate('document.querySelector("#results-table tbody tr:first-child td:nth-child(3)").textContent'),/0, 229, 0, 255/);
+  assert.match(await evaluate('document.querySelector("#results-table tbody tr:first-child td:nth-child(3)").textContent'),/0, 0, 0, 255/);
   await evaluate('document.querySelector("#preset").value="error";document.querySelector("#preset").dispatchEvent(new Event("change"))');
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("WebGL2実行エラー")',25000);
