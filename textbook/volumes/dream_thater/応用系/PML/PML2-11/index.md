@@ -10,7 +10,7 @@ $$
 -u''=f\quad (0<x<1),\qquad u(0)=u(1)=0.
 $$
 
-ここで $f\in L^2(0,1)$ とする。[PML2-01の存在・一意性・安定性定理](../PML2-01/index.md#thm-pml2-01-energy)により、エネルギー弱解 $u\in H_0^1(0,1)$ がただ一つある。さらに同講の[構成定理](../PML2-01/index.md#thm-pml2-01-construction)から、この一次元問題の $u$ は弱二階微分 $u''=-f$ を持つ。
+ここで $f\in L^2(0,1)$ とする。[Dirichlet Poisson問題の存在・一意性・安定性](../PML2-01/index.md#thm-pml2-01-energy)により、エネルギー弱解 $u\in H_0^1(0,1)$ がただ一つある。さらに[PML2-01の一次元Dirichlet Poisson問題の解の構成](../PML2-01/index.md#thm-pml2-01-construction)から、この一次元問題の $u$ は弱二階微分 $u''=-f$ を持つ。
 
 例えば $f=2$ の真解は $u(x)=x(1-x)$ である。候補を $v(x)=u(x)+1$ とすると $-v''-f=0$ なのに、端点で $v(0)=v(1)=1$、真の解との差は恒等的に $1$ になる。残差が完全に零でも、**境界条件を忘れると解は確定しない**。
 
@@ -90,7 +90,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[PML2-01の弱解の定義](../PML2-01/index.md#def-pml2-01-weak)により、任意の $\varphi\in H_0^1(0,1)$ について
+[零Dirichlet Poisson問題のエネルギー弱解](../PML2-01/index.md#def-pml2-01-weak)により、任意の $\varphi\in H_0^1(0,1)$ について
 
 $$
 \int_0^1u'\varphi'\,dx=\int_0^1f\varphi\,dx
@@ -212,7 +212,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[PML2-01の弱解の定義](../PML2-01/index.md#def-pml2-01-weak)から、任意の $\varphi\in H_0^1$ について
+[零Dirichlet Poisson問題のエネルギー弱解](../PML2-01/index.md#def-pml2-01-weak)から、任意の $\varphi\in H_0^1$ について
 
 $$
 \int_0^1u'\varphi'\,dx=\int_0^1f\varphi\,dx.
@@ -538,7 +538,7 @@ $$
 ### PML2-11-B04：経験残差だけでは足りない
 - Level: B
 
-$f=2$、$u=x(1-x)$、$p(x)=x(1-x)(x-\frac12)^3$、$v=u+\varepsilon p$（$\varepsilon\ne0$）とする。$v$ の端点条件、$x=\frac12$ における強残差、$v-u$ が零関数でないことを示せ。なぜ[強残差誤差定理](#thm-pml2-11-energy-error)から誤差ゼロを結論できないか説明せよ。
+$f=2$、$u=x(1-x)$、$p(x)=x(1-x)(x-\frac12)^3$、$v=u+\varepsilon p$（$\varepsilon\ne0$）とする。$v$ の端点条件、$x=\frac12$ における強残差、$v-u$ が零関数でないことを示せ。なぜ[零Dirichlet Poissonの強残差からの誤差評価](#thm-pml2-11-energy-error)から誤差ゼロを結論できないか説明せよ。
 
 <!-- solution-start -->
 **詳細解答。** $p$ には $x$ と $1-x$ が因子としてあるので $p(0)=p(1)=0$、したがって $v$ は零Dirichlet条件を満たす。$t=x-\frac12$、$q=x(1-x)$ と置くと $p=qt^3$ であり、積の微分により
