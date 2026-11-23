@@ -188,7 +188,7 @@ test('FCG5 shared three-tab sandbox, lesson/manifest/TOC and detailed exercises'
 test('FCG5 R1 GUI edits actual grid, viscosity and force in the same source',async()=>{
   const source=await readFile(new URL('fluid.js',dir),'utf8');
   assert.deepEqual(parametersFor('FCG5').map(spec=>spec.id),
-    ['grid','nu','force','dt','brush-radius','brush-strength']);
+    ['grid','nu','force','dt','brush-radius','brush-strength','playback-ms']);
   const specs=parametersFor('FCG5').slice(0,3);
   assert.deepEqual(specs.map(spec=>spec.unit),['セル/辺','m²/s','m²/s²']);
   const targets=[24,0.0025,0.02];
@@ -403,10 +403,18 @@ test('FCG5 authenticated live-clock handshake reports actual running solver stat
   assert.match(host,/send\(\{\.\.\.scope,type:'fcg5-physics-progress',step:d.step,playing:d.playing\}\)/);
   assert.match(host,/data\.session !== active\.session/);
   assert.match(learner,/canvas\.addEventListener\('fcg5-physics-control',onLiveControl\)/);
-  assert.match(learner,/event\.detail\?\.action==='toggle'/);
+  assert.match(learner,/const action=event\.detail\?\.action/);
+  assert.match(learner,/action==='toggle'/);
+  assert.match(learner,/action!=='step'&&action!=='reset'/);
+  assert.match(learner,/if\(action==='reset'\)resetPhysics\(\)/);
+  assert.match(learner,/advanceFluidStep\(\);stateStep\+\+/);
+  assert.match(learner,/const interval=playbackIntervalMs\/1000/);
   assert.match(learner,/toggleLivePlayback\(\)/);
   assert.match(host,/liveToggle\.id='fcg5-live-toggle'/);
   assert.match(host,/liveToggle\.addEventListener\('click'/);
+  assert.match(host,/liveStep\.addEventListener\('click'/);
+  assert.match(host,/liveReset\.addEventListener\('click'/);
+  assert.match(host,/\['toggle','step','reset'\]\.includes\(m\.action\)/);
   assert.match(host,/m\.session!==scope\.session\|\|m\.requestId!==scope\.requestId/);
   assert.match(host,/canvas\.dispatchEvent\(new CustomEvent\('fcg5-physics-control'/);
 });
