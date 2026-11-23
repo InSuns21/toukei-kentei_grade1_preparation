@@ -151,7 +151,7 @@ chapters:
     title: "単一のPDE解と「解作用素」の学習は何が違うか"
   - id: PML2-15
     path: textbook/volumes/dream_thater/応用系/PML/PML2-15
-    status: planned
+    status: completed
     title: "Neural Operatorの層をどう構成するか"
   - id: PML2-16
     path: textbook/volumes/dream_thater/応用系/PML/PML2-16
