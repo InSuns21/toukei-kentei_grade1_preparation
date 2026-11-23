@@ -13,7 +13,14 @@ $$
 
 です。行列は左から列ベクトルに**能動的**に作用させます。時間・空間の添字は $\mu,\nu,\rho,\sigma=0,1,2,3$、空間添字は $i,j,k=1,2,3$。繰り返された添字の総和は明記しない限り取らず、$\varepsilon_{ijk}$ は $\varepsilon_{123}=1$ の完全反対称記号とします。
 
-変換の大小にかかわらず、保存したい量は $g(x,x)$ です。したがって、まず計量を保存する行列群を定めます。
+変換の大小にかかわらず、保存したい量は $g(x,x)$ です。任意の $u,v\in V$ について
+
+$
+g(\Lambda u,\Lambda v)
+=u^{\mathsf T}(\Lambda^{\mathsf T}\eta\Lambda)v
+$
+
+なので、すべての $u,v$ で計量が保存される条件は $\Lambda^{\mathsf T}\eta\Lambda=\eta$ と同値です。これを満たす行列群を定めます。
 
 <a id="def-lrep9-lorentz-group"></a>
 
@@ -30,7 +37,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep9-lorentz-group -->
-**定義の確認**。 $I_4^{\mathsf T}\eta I_4=\eta$ であるから $I_4\in O(1,3)$ です。空間反転 $P=\operatorname{diag}(1,-1,-1,-1)$ についても $P^{\mathsf T}\eta P=\eta$ ですが、$\det P=-1$。他方 $I_4$ の行列式は $1$ です。$O(1,3)$ の行列式は $\pm1$ であり、連続曲線上で符号は変わらないため、$P$ は $I_4$ の成分に属しません。このように、計量保存と単位元成分への所属を区別します。
+**定義の確認**。単位行列は $I_4^{\mathsf T}\eta I_4=\eta$ を満たすので $O(1,3)$ に属し、単位元成分にも属します。空間反転 $P=\operatorname{diag}(1,-1,-1,-1)$ も、対角成分を直接掛ければ $P^{\mathsf T}\eta P=\eta$ です。
+
+ここで計量保存式の行列式を取ると、$\det\eta=-1\ne0$ より
+
+$
+(\det\Lambda)^2\det\eta=\det\eta
+\quad\Longrightarrow\quad \det\Lambda\in\{+1,-1\}.
+$
+
+$\det I_4=1$ に対して $\det P=-1$ です。行列式は連続写像であり、連結集合の像は連結ですから、離散集合 $\{+1,-1\}$ に値を取る行列式は各連結成分上で一定です。従って $P$ は $I_4$ の連結成分に属しません。計量保存と単位元成分への所属は別の条件です。
 <!-- definition-example-end -->
 
 ## 2. 計量保存を微分して六つの方向を取り出す
@@ -109,7 +125,15 @@ $$
 > を、それぞれ $x^i$ 方向のboost生成子、$x^i$ 軸まわりの右手系回転生成子とする。$R_i,B_i$ は $\mathfrak{so}(1,3)$ の元である。
 <!-- formal-statement-end -->
 
-成分表示と条件の橋渡しを確認します。例えば $B_1$ は第 $0,1$ 成分と第 $1,0$ 成分が $1$ の行列なので、$\eta B_1=-E_{01}+E_{10}$ は反対称です。同様に $R_3$ は空間ブロックの反対称行列で、$\eta R_3=R_3$ も反対称です。他の四つも添字の置換で検証できます。六つはそれぞれ独立した行列成分を持つので、[六次元性](#thm-lrep9-lie-algebra)より基底を成します。
+成分表示がLie環の条件とどう結び付くかを、六つの生成子すべてについて確認します。$\eta$ を左から掛けると第 $0$ 行だけ符号が変わります。したがって
+
+$
+\eta B_i=-E_{0i}+E_{i0},\qquad
+\eta R_i=R_i,\qquad R_i^{\mathsf T}=-R_i
+\quad (i=1,2,3).
+$
+
+いずれも $(\eta X)^{\mathsf T}=-\eta X$ を満たし、[Lie環の行列条件](#thm-lrep9-lie-algebra)と同値です。$B_i$ は独立な時間・空間の成分対、$R_i$ は独立な空間・空間の成分対を担います。六つは線形独立なので、[六次元性](#thm-lrep9-lie-algebra)と合わせて実Lie環の基底を成します。
 
 <!-- definition-example-start: def-lrep9-rotation-boost -->
 **定義の確認**：$x$ 方向のboostと $z$ 軸回転。
@@ -181,7 +205,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$(M_{\mu\nu})^a{}_b=\delta^a_\mu\eta_{\nu b}-\delta^a_\nu\eta_{\mu b}$ と書けます。積の成分は
+行列の第 $a$ 行・第 $b$ 列の成分を $(M_{\mu\nu})^a{}_b$ と書き、$a,b=0,1,2,3$ とします。$\delta^a_\mu$ は $a=\mu$ のとき $1$、それ以外は $0$ であるKronecker記号です。対角計量の成分表示と、行列積の定義から
+
+$
+(M_{\mu\nu})^a{}_b
+=\delta^a_\mu\eta_{\nu b}-\delta^a_\nu\eta_{\mu b},
+\qquad
+(M_{\mu\nu}M_{\rho\sigma})^a{}_b
+=\sum_{c=0}^{3}(M_{\mu\nu})^a{}_c(M_{\rho\sigma})^c{}_b
+$
+
+です。積を代入し、$\sum_c\eta_{\nu c}\delta^c_\rho=\eta_{\nu\rho}$ を使うと
 
 $$
 \begin{aligned}
@@ -193,7 +227,23 @@ $$
 \end{aligned}
 $$
 
-同じ式で $(\mu,\nu)$ と $(\rho,\sigma)$ を入れ替えて引き、$\delta^a_\alpha\eta_{\beta b}-\delta^a_\beta\eta_{\alpha b}=(M_{\alpha\beta})^a{}_b$ ごとに集めます。その結果は提示した四項です。成分ごとの等式なので行列等式が成立します。$\square$
+逆順の積は上式の $(\mu,\nu)$ と $(\rho,\sigma)$ を交換して得られます。両者を引き、同じ計量成分を係数とする項をまとめると
+
+$
+\begin{aligned}
+([M_{\mu\nu},M_{\rho\sigma}])^a{}_b
+={}&\eta_{\nu\rho}
+ (\delta^a_\mu\eta_{\sigma b}-\delta^a_\sigma\eta_{\mu b})\\
+&-\eta_{\mu\rho}
+ (\delta^a_\nu\eta_{\sigma b}-\delta^a_\sigma\eta_{\nu b})\\
+&+\eta_{\mu\sigma}
+ (\delta^a_\nu\eta_{\rho b}-\delta^a_\rho\eta_{\nu b})\\
+&-\eta_{\nu\sigma}
+ (\delta^a_\mu\eta_{\rho b}-\delta^a_\rho\eta_{\mu b}).
+\end{aligned}
+$
+
+各括弧は、例えば第1項が $(M_{\mu\sigma})^a{}_b$ であるように、直前に計算した行列成分に等しいです。これで補題の四項が得られ、全成分で成立するので行列等式となります。$\square$
 <!-- proof-end -->
 
 <a id="thm-lrep9-commutators"></a>
@@ -237,6 +287,8 @@ $$
 
 ### 物理で用いる $i$ 付き生成子
 
+以下で添字の $i=1,2,3$ は空間方向を表し、行列に掛ける係数の $i$ は $i^2=-1$ を満たす**虚数単位**です。$X^\dagger=\overline X^{\mathsf T}$ は複素行列の共役転置を意味します。
+
 <a id="def-lrep9-physics-generators"></a>
 
 <!-- formal-statement-start -->
@@ -251,7 +303,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep9-physics-generators -->
-**定義の確認**。 $J_3=i(E_{21}-E_{12})$ は $J_3^\dagger=J_3$、$K_1=i(E_{01}+E_{10})$ は $K_1^\dagger=-K_1$ です。よってこの四元ベクトル表現でのboost生成子を自己共役演算子と見なすことはできません。
+**定義の確認**。$R_3^{\mathsf T}=-R_3$ は実反対称、$B_1^{\mathsf T}=B_1$ は実対称なので
+
+$
+\begin{aligned}
+J_3^\dagger
+&=\overline{iR_3}^{\mathsf T}
+=-iR_3^{\mathsf T}=iR_3=J_3,\\
+K_1^\dagger
+&=\overline{iB_1}^{\mathsf T}
+=-iB_1^{\mathsf T}=-iB_1=-K_1.
+\end{aligned}
+$
+
+従って四元ベクトル表現のboost生成子は、標準正定値内積について自己共役ではありません。
 <!-- definition-example-end -->
 
 [交換関係](#thm-lrep9-commutators)に $i^2=-1$ を代入すれば
@@ -289,8 +354,24 @@ $$
 > と定める。逆に $R_i=A_i+C_i$、$B_i=-i(A_i-C_i)$ と復元できる。
 <!-- formal-statement-end -->
 
+元の実基底を固定して複素係数のみを共役する写像を $\kappa$ と呼びます。$c_i,d_i\in\mathbb C$ に対し
+
+$
+\kappa\left(\sum_{i=1}^3(c_iR_i+d_iB_i)\right)
+=\sum_{i=1}^3(\overline{c_i}R_i+\overline{d_i}B_i)
+$
+
+です。これで複素化の元が元の実Lie環に戻るかを判定できます。
+
 <!-- definition-example-start: def-lrep9-chiral-split -->
-**定義の確認**。 $A_1+C_1=R_1$、$A_1-C_1=iB_1$ なので二組は独立な情報を持ちます。さらに $A_i,C_i$ を元の実行列の複素線形結合として書いたため、複素共役作用 $\kappa$ は $\kappa(A_i)=C_i$、$\kappa(C_i)=A_i$ です。この対応は後で実構造を回復する条件になります。
+**定義の確認**。$A_1+C_1=R_1$、$A_1-C_1=iB_1$ から、もとの二つの生成子を復元できます。また実行列 $R_i,B_i$ を固定する上の共役は
+
+$
+\kappa(A_i)=\frac{R_i-iB_i}{2}=C_i,\qquad
+\kappa(C_i)=\frac{R_i+iB_i}{2}=A_i
+$
+
+と働きます。よって二組を独立な複素係数で扱うことと、元の実係数に戻すとき二組が共役で結ばれることは区別されます。
 <!-- definition-example-end -->
 
 <a id="thm-lrep9-two-sl2"></a>
@@ -330,30 +411,30 @@ $$
 [R_i+iB_i,R_j+iB_j]
 &=[R_i,R_j]+i[R_i,B_j]
 +i[B_i,R_j]-[B_i,B_j]\\
-&=\varepsilon_{ijk}(2R_k+2iB_k)
-=4\varepsilon_{ijk}A_k.
+&=\sum_{k=1}^3\varepsilon_{ijk}(2R_k+2iB_k)
+=4\sum_{k=1}^3\varepsilon_{ijk}A_k.
 \end{aligned}
 $$
 
-両辺を $4$ で割り $[A_i,A_j]=\varepsilon_{ijk}A_k$ を得ます。$i$ を $-i$ に置き換えると $C$ 側も同じです。混合項は
+両辺を $4$ で割り $[A_i,A_j]=\sum_{k=1}^3\varepsilon_{ijk}A_k$ を得ます。虚数単位の符号を反転すると $C$ 側も同じです。混合項は
 
 $$
 \begin{aligned}
 4[A_i,C_j]
 &=[R_i+iB_i,R_j-iB_j]\\
-&=\varepsilon_{ijk}(R_k-iB_k+iB_k-R_k)=0.
+&=\sum_{k=1}^3\varepsilon_{ijk}(R_k-iB_k+iB_k-R_k)=0.
 \end{aligned}
 $$
 
-$\sigma_i$ を[Pauli行列](../LREP5/index.md#def-lrep5-pauli-model)とし、$T_i=-i\sigma_i/2$ とすると
+$\sigma_i$ を[Pauli行列](../LREP5/index.md#def-lrep5-pauli-model)とし、$T_i=-i\sigma_i/2$ とします。[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)から $[\sigma_i,\sigma_j]=2i\sum_{k=1}^3\varepsilon_{ijk}\sigma_k$ なので
 
-$$
+$
 [T_i,T_j]=-\frac14[\sigma_i,\sigma_j]
-=-\frac i2\varepsilon_{ijk}\sigma_k
-=\varepsilon_{ijk}T_k.
-$$
+=-\frac i2\sum_{k=1}^3\varepsilon_{ijk}\sigma_k
+=\sum_{k=1}^3\varepsilon_{ijk}T_k.
+$
 
-$T_1,T_2,T_3$ はトレース零の複素 $2\times2$ 行列空間 $\mathfrak{sl}_2(\mathbb C)$ の複素基底です。したがって $A_i\mapsto(T_i,0)$、$C_i\mapsto(0,T_i)$ と定めた写像は各組の交換子を保ちます。$R_i=A_i+C_i$、$B_i=-i(A_i-C_i)$ から六つは複素基底なので、写像は全単射です。よって複素Lie環の同型が得られます。$\square$
+$T_1,T_2,T_3$ はいずれもトレース零であり、[Pauli行列の具体形](../LREP5/index.md#def-lrep5-pauli-model)から複素線形独立です。トレース零行列の一般形は $\begin{pmatrix}p&q\\r&-p\end{pmatrix}$（$p,q,r\in\mathbb C$）なので次元は $3$、従って三つは $\mathfrak{sl}_2(\mathbb C)$ の複素基底です。したがって $A_i\mapsto(T_i,0)$、$C_i\mapsto(0,T_i)$ と定めた写像は各組の交換子を保ちます。$R_i=A_i+C_i$、$B_i=-i(A_i-C_i)$ から六つは複素基底なので、写像は全単射です。よって複素Lie環の同型が得られます。$\square$
 <!-- proof-end -->
 
 ### 実Lie環はどう戻るか
