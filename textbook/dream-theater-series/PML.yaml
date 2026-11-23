@@ -175,7 +175,7 @@ chapters:
     title: "PINNとoperator learningは組み合わせられるか"
   - id: PML2-21
     path: textbook/volumes/dream_thater/応用系/PML/PML2-21
-    status: planned
+    status: completed
     title: "PDEパラメータを学習すると識別性は保てるか"
   - id: PML2-22
     path: textbook/volumes/dream_thater/応用系/PML/PML2-22
