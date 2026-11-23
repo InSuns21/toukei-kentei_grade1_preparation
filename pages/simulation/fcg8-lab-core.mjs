@@ -1,5 +1,12 @@
 // FCG8 independent CPU reference. The editable levelset.js is never evaluated here.
-const N=48,H=1/N,DT=0.04,SHEAR=0.6,R=0.18;
+export const FCG8_MAX_STEPS=96;
+const DT=0.04,R=0.18;
+function buildReference({N=48,shear=0.6,redistanceIterations=6}={}){
+  if(![48,64,80,96].includes(N)||!Number.isFinite(shear)||
+     shear<0||shear>1||!Number.isInteger(redistanceIterations)||
+     redistanceIterations<0||redistanceIterations>8||redistanceIterations%2)
+    throw new RangeError('FCG8 grid/shear/redistance out of supported range');
+  const H=1/N,SHEAR=shear;
 const at=(i,j)=>i+N*j;
 const clip=(x,a,b)=>Math.max(a,Math.min(b,x));
 function initial(){
@@ -26,7 +33,7 @@ function advect(a){
 function redistance(a){
   const frozen=a.slice();
   let u=a.slice();
-  for(let iter=0;iter<6;iter++){
+  for(let iter=0;iter<redistanceIterations;iter++){
     const v=u.slice();
     for(let j=1;j<N-1;j++)for(let i=1;i<N-1;i++){
       const k=at(i,j),sign=frozen[k]/Math.sqrt(frozen[k]*frozen[k]+H*H);
@@ -56,9 +63,8 @@ function metric(a){
 }
 // Cache consecutive independent CPU reference states, so seeking and 96-step
 // observation never recompute the entire trajectory from the first frame.
-export const FCG8_MAX_STEPS=96;
 const snapshots=new Map([[0,{raw:initial(),reinit:initial()}]]);
-export function fcg8State(steps=8){
+return function state(steps=8){
   if(!Number.isInteger(steps)||steps<0||steps>FCG8_MAX_STEPS)
     throw RangeError('step 0..96');
   if(!snapshots.has(steps)){
@@ -76,18 +82,32 @@ export function fcg8State(steps=8){
     return [0.5+R*Math.cos(a)+SHEAR*(steps*DT)*(y-0.5),y];
   });
   return {raw,reinit,particles,rawMetric:metric(raw),reinitMetric:metric(reinit),
-    analyticArea:Math.PI*R*R,time:steps*DT,steps,dt:DT};
+    analyticArea:Math.PI*R*R,time:steps*DT,steps,dt:DT,N,
+    shear:SHEAR,redistanceIterations};
+}
+}
+const referenceCache=new Map();
+export function fcg8State(steps=8,options={}){
+  const N=options.N??48,shear=options.shear??0.6,
+    redistanceIterations=options.redistanceIterations??6;
+  const key=N+':'+shear+':'+redistanceIterations;
+  if(!referenceCache.has(key)){
+    if(referenceCache.size>=3)referenceCache.delete(referenceCache.keys().next().value);
+    referenceCache.set(key,buildReference({N,shear,redistanceIterations}));
+  }
+  return referenceCache.get(key)(steps);
 }
 const rgbInside=[20,140,201,255],rgbOutside=[15,26,36,255],rgbMarker=[245,128,36,255];
-export function expectedFCG8Samples(width,height,steps=8){
+export function expectedFCG8Samples(width,height,steps=8,options={}){
   if(!Number.isInteger(width)||!Number.isInteger(height)||width<64||height<64)
     throw RangeError('render size');
-  // All probes are intentionally away from the uncertain pixelized zero contour,
+  const state=fcg8State(steps,options);
+  // All legacy probes remain away from the uncertain pixelized zero contour.
   // except the Lagrangian marker at theta=0 in the analytic/particle panel.
   function point(panel,x,y,label,rgba){
     return {x:Math.floor(width*(panel+x)/3),y:Math.floor(height*y),label,rgba};
   }
-  return [
+  const legacy=[
     point(0,0.5,0.5,'raw interior',rgbInside),
     point(0,0.10,0.10,'raw exterior',rgbOutside),
     point(1,0.5,0.5,'redistanced interior',rgbInside),
@@ -96,9 +116,38 @@ export function expectedFCG8Samples(width,height,steps=8){
     point(2,0.68,0.5,'particle θ=0',rgbMarker),
     point(2,0.10,0.10,'analytic exterior',rgbOutside)
   ];
+  // New pixel probes sample the actual grid after R8 encoding and bilinear
+  // display interpolation, independently of editable JS and fragment GLSL.
+  const {N,shear}=state;
+  function numericPixel(panel,x,y){
+    const uvx=3*(x+0.5)/width-panel, uvy=(y+0.5)/height;
+    if(panel===2){
+      const backward=uvx-shear*state.time*(uvy-0.5);
+      const phi=Math.hypot(backward-0.5,uvy-0.5)-R;
+      return phi< -0.014?rgbInside:phi>0.014?rgbOutside:[250,189,51,255];
+    }
+    const cx=clip(uvx*N-0.5,0,N-1),cy=clip(uvy*N-0.5,0,N-1),
+      i=Math.floor(cx),j=Math.floor(cy),a=cx-i,b=cy-j,
+      i1=Math.min(N-1,i+1),j1=Math.min(N-1,j+1);
+    const values=panel===0?state.raw:state.reinit;
+    const quantized=(ii,jj)=>Math.round(255*clip(0.5+2*values[ii+N*jj],0,1))/255;
+    const q=(1-b)*((1-a)*quantized(i,j)+a*quantized(i1,j))+
+      b*((1-a)*quantized(i,j1)+a*quantized(i1,j1));
+    const phi=(q-0.5)*0.5;
+    return phi< -0.014?rgbInside:phi>0.014?rgbOutside:[250,189,51,255];
+  }
+  const extra=[];
+  for(const panel of [0,1]){
+    for(const [u,v] of [[0.62,0.50],[0.72,0.58],[0.39,0.59]]){
+      const x=Math.floor(width*(panel+u)/3),y=Math.floor(height*v);
+      extra.push({x,y,label:(panel===0?'raw':'redistanced')+
+        ' numeric grid probe '+u+','+v,rgba:numericPixel(panel,x,y)});
+    }
+  }
+  return [...legacy,...extra];
 }
-export function compareFCG8Readback(samples,width,height,steps=8,tolerance=2){
-  return expectedFCG8Samples(width,height,steps).map((p,k)=>{
+export function compareFCG8Readback(samples,width,height,steps=8,tolerance=2,options={}){
+  return expectedFCG8Samples(width,height,steps,options).map((p,k)=>{
     const s=samples?.[k],valid=s&&s.x===p.x&&s.y===p.y&&Array.isArray(s.rgba)&&
       s.rgba.length===4&&s.rgba.every(v=>Number.isInteger(v)&&v>=0&&v<=255);
     const difference=valid?p.rgba.map((v,i)=>Math.abs(v-s.rgba[i])):[Infinity,Infinity,Infinity,Infinity];
