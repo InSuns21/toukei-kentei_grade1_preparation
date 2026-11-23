@@ -26,12 +26,12 @@ $$
 
 $A$ は $\mathfrak{su}(2)$ 値なので $\operatorname{tr}A=0$。さらに $A=\sum_j A_j\,dx_j$ と局所座標表示すれば
 
-$
+$$
 \operatorname{tr}(A\wedge A)
 =\sum_{j<k}\operatorname{tr}([A_j,A_k])\,dx_j\wedge dx_k=0,
 \qquad
 \operatorname{tr}F=d(\operatorname{tr}A)+\operatorname{tr}(A\wedge A)=0.
-$
+$$
 
 [GBG23の全Chern形式](../GBG23/index.md#def-gbg23-total-chern)は $C=iF/(2\pi)$ に対する $\det(I+C)$ から構成された。$SU(2)$ の基本表現では $\operatorname{tr}F=0$ なので、[低次の跡公式](../GBG23/index.md#prop-gbg23-low-chern)に代入すると
 
@@ -183,16 +183,16 @@ $$
 <!-- definition-example-start: def-gbg26-boundary-form -->
 **定義の確認**。[GBG25の同一視](../GBG25/index.md#def-gbg25-su2-s3)で $z=x_1+ix_2$、$w=x_3+ix_4$ と書くと
 
-$
+$$
 Q(x)=\begin{pmatrix}
 x_1+ix_2&-x_3+ix_4\\
 x_3+ix_4&x_1-ix_2
 \end{pmatrix}.
-$
+$$
 
 $Q(1,0)=I_2$ に対応する $x=(1,0,0,0)$ では、$S^3\subset\mathbb R^4$ の正の接ベクトルは $e_j=\partial/\partial x_j$（$j=2,3,4$）である。各行列 $X_j=(dQ)_x(e_j)$ は、この局所座標における $Q$ の成分を $x_j$ で偏微分して得られる。したがって
 
-$
+$$
 X_2=\begin{pmatrix}i&0\\0&-i\end{pmatrix},\quad
 X_3=\begin{pmatrix}0&-1\\1&0\end{pmatrix},\quad
 X_4=\begin{pmatrix}0&i\\i&0\end{pmatrix}
@@ -443,10 +443,10 @@ $$
 
 従って、$SU(2)$ 上の形式を $Q:S^3\to SU(2)$ で引き戻してから積分すると
 
-$
+$$
 \int_{S^3}Q^*\operatorname{tr}(\Theta^3)
 =12\operatorname{vol}(S^3)=24\pi^2
-$
+$$
 
 となる。引戻しを省いて $SU(2)$ 上の形式をそのまま $S^3$ 上の形式とみなさない。
 <!-- solution-end -->
