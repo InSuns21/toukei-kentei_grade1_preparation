@@ -43,7 +43,7 @@ chapters:
     title: "分岐条件と無分岐最大p拡大"
   - id: IWA10
     path: textbook/volumes/dream_thater/代数系/IWA/IWA10
-    status: planned
+    status: completed
     title: "円分単数・ノルム整合性"
   - id: IWA11
     path: textbook/volumes/dream_thater/代数系/IWA/IWA11

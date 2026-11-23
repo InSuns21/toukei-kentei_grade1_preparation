@@ -1,0 +1,57 @@
+chapter: IWA10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - IWA9
+forward_references: []
+concepts:
+  - id: number-theory.iwa10-cyclotomic-unit
+    name: 明示的円分単数と円分単数群
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa4-field-norm]
+  - id: number-theory.iwa10-unit-proof
+    name: 円分単数の整数性と明示的逆元
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa10-cyclotomic-unit]
+  - id: number-theory.iwa10-cocycle
+    name: 円分単数の積公式
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa10-unit-proof]
+  - id: number-theory.iwa10-real-cyclotomic-unit
+    name: 実円分単数
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa10-unit-proof, number-theory.iwa8-parity-parts]
+  - id: number-theory.iwa10-realness
+    name: 実単数と群の生成
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa10-real-cyclotomic-unit, number-theory.iwa10-cocycle]
+  - id: number-theory.iwa10-norm-distribution
+    name: 円分単数のノルム分布関係
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa10-unit-proof, number-theory.iwa4-norm-transitivity]
+  - id: number-theory.iwa10-finite-index
+    name: 円分単数の有限指数と実類数
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa10-realness]
+  - id: number-theory.iwa10-p5-index
+    name: 5次円分体の実単数群の指数を直接計算
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa10-realness]
+  - id: number-theory.iwa10-compatible-cyclotomic-system
+    name: 円分単数のノルム整合系
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa4-inverse-limit, number-theory.iwa10-norm-distribution]
+  - id: number-theory.iwa10-surjective-norm
+    name: 円分単数のノルムの全射性
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa10-compatible-cyclotomic-system, number-theory.iwa10-norm-distribution]

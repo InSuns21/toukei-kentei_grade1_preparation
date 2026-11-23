@@ -1,0 +1,47 @@
+id: "IWA10"
+title: "円分単数・ノルム整合性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IWA9
+official_scope: []
+learning_objectives:
+  - 円分根の比の整数性と逆元を明示して円分単数の定義条件を確認できる
+  - Galois作用下の円分単数の積公式と安定性を証明できる
+  - 実円分単数の正規化と複素共役での不変性を計算できる
+  - p冪円分塔の相対ノルムを共役の積から導き単元指数の必要性を説明できる
+  - 円分単数群と全単数群の指数を区別しp=3とp=5で具体的な指数を検算できる
+  - 円分単数のノルム全射性と逆極限の整合列を構成し全単数群の場合と区別できる
+definitions:
+  - { id: IWA10-DEF-01, name: 明示的円分単数と円分単数群 }
+  - { id: IWA10-DEF-02, name: 実円分単数 }
+  - { id: IWA10-DEF-03, name: 円分単数のノルム整合系 }
+theorems:
+  - { id: IWA10-PROP-01, name: 円分単数の整数性と明示的逆元 }
+  - { id: IWA10-PROP-02, name: 円分単数の積公式 }
+  - { id: IWA10-PROP-03, name: 実単数と群の生成 }
+  - { id: IWA10-THM-01, name: 円分単数のノルム分布関係 }
+  - { id: IWA10-THM-02, name: 円分単数の有限指数と実類数・外部定理 }
+  - { id: IWA10-PROP-04, name: 5次円分体の実単数群の指数 }
+  - { id: IWA10-THM-03, name: 円分単数のノルムの全射性 }
+canonical_examples:
+  - p=3の1+zeta_3の単数性と単数群の指数1
+  - p=5の実円分単数(1+sqrt5)/2と単数群の指数1
+  - p=3のzeta_9からzeta_3への体ノルムの直接計算
+  - pが指数aを割ると分布公式が崩れる反例
+  - p=3で(1+zeta_{3^r})のノルム整合列
+problem_patterns:
+  - IWA10-EXPLICIT-INVERSE
+  - IWA10-REAL-UNIT
+  - IWA10-NORM-PRODUCT
+  - IWA10-NONCOPRIME-FAILURE
+  - IWA10-UNIT-GROUP-INDEX
+  - IWA10-GALOIS-COCYCLE
+  - IWA10-NORM-SURJECTIVITY
+  - IWA10-NONUNIT-ABSOLUTE-NORM
+  - IWA10-REAL-NORM
+  - IWA10-INTEGRATED-CYCLOTOMIC-UNITS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 3 }

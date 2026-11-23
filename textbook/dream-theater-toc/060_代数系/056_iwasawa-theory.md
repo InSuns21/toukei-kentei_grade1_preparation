@@ -10,3 +10,4 @@
 7. [IWA7 類数成長公式とμ不変量の役割](textbook/volumes/dream_thater/代数系/IWA/IWA7/index.md)
 8. [IWA8 円分体の類群と指標成分](textbook/volumes/dream_thater/代数系/IWA/IWA8/index.md)
 9. [IWA9 分岐条件と無分岐最大p拡大](textbook/volumes/dream_thater/代数系/IWA/IWA9/index.md)
+10. [IWA10 円分単数・ノルム整合性](textbook/volumes/dream_thater/代数系/IWA/IWA10/index.md)
