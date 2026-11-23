@@ -1,0 +1,59 @@
+chapter: GBG16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG15
+  - GEO18
+  - CA5
+forward_references: []
+concepts:
+  - id: gauge.flat-principal-connection
+    name: 平坦な主束接続
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平坦な主束接続）"]
+    requires: [gauge.principal-curvature-form, gauge.local-curvature-structure-equation]
+
+  - id: gauge.local-parallel-section
+    name: 局所平行 section
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所平行 section）"]
+    requires: [gauge.principal-connection-form, gauge.horizontal-connection-equivalence]
+
+  - id: gauge.flat-local-parallel-section
+    name: 平坦接続の局所平行 section
+    kind: theorem
+    introduction: formal
+    requires: [gauge.flat-principal-connection, gauge.local-parallel-section, gauge.curvature-horizontal-bracket, gauge.horizontal-lift-existence]
+
+  - id: gauge.flat-homotopy-invariance
+    name: 平坦接続の平行移動は固定端点ホモトピーで不変
+    kind: theorem
+    introduction: formal
+    requires: [gauge.flat-local-parallel-section, gauge.parallel-transport-path-laws]
+
+  - id: gauge.flat-monodromy-representation
+    name: 平坦接続のモノドロミー表現
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平坦接続のモノドロミー表現）"]
+    requires: [gauge.holonomy-group, gauge.flat-homotopy-invariance]
+
+  - id: gauge.flat-monodromy-homomorphism
+    name: モノドロミーの準同型性・共役・像
+    kind: theorem
+    introduction: formal
+    requires: [gauge.flat-monodromy-representation, gauge.holonomy-subgroup, gauge.holonomy-base-change]
+
+  - id: gauge.flat-circle-u1-holonomy
+    name: 円周上の平坦接続によるホロノミー
+    kind: proposition
+    introduction: formal
+    requires: [gauge.flat-principal-connection, gauge.flat-monodromy-representation, gauge.local-transport-gauge-transformation, complex-analysis.winding-number]
+
+  - id: gauge.flat-simply-connected-parallel
+    name: 単連結な基底上の平坦接続の大域平行 section
+    kind: theorem
+    introduction: formal
+    requires: [gauge.flat-homotopy-invariance, gauge.flat-local-parallel-section, gauge.parallel-transport-path-laws, topology.simply-connected, gauge.global-section-triviality]

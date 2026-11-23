@@ -1,0 +1,48 @@
+id: "GBG16"
+title: "曲率ゼロでも大域的な効果は残るか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG15
+  - GEO18
+  - CA5
+official_scope: []
+learning_objectives:
+  - 主束接続の平坦性を全点での曲率ゼロとして定義し局所表示で判定できる
+  - 一般の有限次元Lie群の平坦主束に局所平行sectionが存在することを水平流の可換性から証明できる
+  - 固定端点ホモトピーと基本群を導入し局所平行sectionの貼り合わせから輸送のホモトピー不変性を証明できる
+  - 基点とファイバーの基準点を区別しモノドロミー表現の準同型性と共役変換およびホロノミー群との関係を証明できる
+  - S¹上の平坦U(1)接続で巻き数による非自明ホロノミーを計算し局所・大域ゲージ変換の違いを説明できる
+  - 単連結な基底上の平坦主束で大域平行sectionを構成し自明化を証明できる
+  - T²と非可換な行列接続の例で曲率と大域的輸送の違いを検算できる
+  - S¹の平坦接続A_aのゲージ同値類を整数差で分類できる
+definitions:
+  - { id: GBG16-DEF-01, name: 平坦な主束接続 }
+  - { id: GBG16-DEF-02, name: 局所平行section }
+  - { id: GBG16-DEF-03, name: 平坦接続のモノドロミー表現 }
+theorems:
+  - { id: GBG16-THM-01, name: 平坦接続の局所平行section }
+  - { id: GBG16-THM-02, name: 平坦接続の平行移動は固定端点ホモトピーで不変 }
+  - { id: GBG16-THM-03, name: モノドロミーの準同型性・共役・像 }
+  - { id: GBG16-PROP-01, name: 円周上の平坦接続によるホロノミー }
+  - { id: GBG16-THM-04, name: 単連結な基底上の平坦接続の大域平行 section }
+canonical_examples:
+  - R²上の定数可換接続を大域平行sectionで零にする
+  - S¹上の角度1形式etaと平坦U(1)接続の局所ゲージ零化
+  - S¹の半整数パラメータが非自明位相を持つ例
+  - T²の二つの巻き数と平坦モノドロミー
+  - GL(2,R)の定数非可換接続での曲率の交換子
+problem_patterns:
+  - GBG16-FLAT-EXACT-POTENTIAL
+  - GBG16-CIRCLE-PARALLEL-TRANSPORT
+  - GBG16-MONODROMY-PRODUCT
+  - GBG16-LOCAL-VS-GLOBAL-SECTION
+  - GBG16-PATH-INDEPENDENCE
+  - GBG16-TORUS-WINDING
+  - GBG16-NONCOMMUTATIVE-CURVATURE
+  - GBG16-TRIVIAL-MONODROMY-SECTION
+  - GBG16-CIRCLE-GAUGE-CLASSIFICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 9, review: 4 }
