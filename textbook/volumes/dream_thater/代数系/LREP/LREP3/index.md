@@ -6,7 +6,7 @@
 
 例えば実数の加法群の表現 $t\mapsto e^{tA}$ は行列 $A$ 一つで決まります。しかし円周群の角度を $2\pi$ だけ増やすと同じ群要素へ戻るため、好きな $A$ を指数化してよいわけではありません。局所的な交換関係と、閉曲線を一周して戻るという大域的条件は別物です。
 
-本講では、**有限次元の実 Lie 群** $G$ と **有限次元の複素ベクトル空間** $V$ を基本設定にします。$\mathfrak g=T_eG$ は実 Lie 環、$\operatorname{End}_{\mathbb C}(V)$ は複素線形自己写像の空間ですが、Lie 環としては実数体上で考えます。積分によって局所表現を作り、単連結群で大域表現に延長し、一般の連結群では被覆の核への作用を判定します。
+本講では、**有限次元の実 Lie 群** $G$ と **[複素ベクトル空間](../../../基礎科目/LA/LA1/index.md#def-la1-real-complex-vector-space)** $V$ （複素次元は有限） を基本設定にします。$\mathfrak g=T_eG$ は実 Lie 環、$\operatorname{End}_{\mathbb C}(V)$ は複素線形自己写像の空間ですが、Lie 環としては実数体上で考えます。積分によって局所表現を作り、閉じた道を一点へ縮められる群で大域表現に延長し、一般の連結群では被覆の核への作用を判定します。
 
 ## 1. 群表現を微分すると何が得られるか
 
@@ -65,14 +65,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-微分 $dD_e$ が実線形なことは多様体写像の微分の線形性によります。[Lie 群準同型と指数写像の自然性](../../LIE/LIE2/index.md#thm-lie2-exponential-naturality)を $D$ に適用すると
+微分 $dD_e$ が実線形なことは多様体写像の微分の線形性によります。[Lie 群準同型と Lie 群の指数写像の自然性](../../LIE/LIE2/index.md#thm-lie2-exponential-naturality)を $D$ に適用すると
 $$
 D(\exp_G(tX))
 =\exp_{GL(V)}(t\,dD_e(X)).
 $$
-[一般線形群の指数写像の計算](../../LIE/LIE2/index.md#thm-lie2-general-linear-exponential)は行列指数と一致します（複素行列にも同じ微分方程式の証明が使えます）。したがって主張の指数公式を得ます。
+[一般線形群における Lie 群の指数写像の計算](../../LIE/LIE2/index.md#thm-lie2-general-linear-exponential)は行列指数と一致します（複素行列にも同じ微分方程式の証明が使えます）。したがって主張の指数公式を得ます。
 
-括弧の保存を確認します。$X,Y\in\mathfrak g$ を固定して $g_s=\exp_G(sX)$ とします。共役 $g_s\exp_G(tY)g_s^{-1}$ を $D$ で写し、$t=0$ で微分すると、[共役と指数写像の関係](../../LIE/LIE2/index.md#thm-lie2-conjugation-exponential)を用いて
+括弧の保存を確認します。$X,Y\in\mathfrak g$ を固定して $g_s=\exp_G(sX)$ とします。共役 $g_s\exp_G(tY)g_s^{-1}$ を $D$ で写し、$t=0$ で微分すると、[共役と Lie 群の指数写像の関係](../../LIE/LIE2/index.md#thm-lie2-conjugation-exponential)を用いて
 $$
 dD(\operatorname{Ad}_{g_s}Y)
 =D(g_s)\,dD(Y)\,D(g_s)^{-1}
@@ -96,7 +96,7 @@ $$
 
 ## 2. Lie 環表現は局所的には積分できる
 
-交換関係を満たす $\rho$ が与えられたとします。$G$ の元を任意に指数写像の逆で表して $D(\exp_G X)=e^{\rho(X)}$ と置きたくなります。しかし指数写像が一対一とは限らず、さらに非可換群では一般に $e^{\rho(X+Y)}=e^{\rho(X)}e^{\rho(Y)}$ ではありません。
+交換関係を満たす $\rho$ が与えられたとします。$G$ の元を任意に Lie 群の指数写像の逆で表して $D(\exp_G X)=e^{\rho(X)}$ と置きたくなります。しかし Lie 群の指数写像が一対一とは限らず、さらに非可換群では一般に $e^{\rho(X+Y)}=e^{\rho(X)}e^{\rho(Y)}$ ではありません。
 
 そこでまず単位元近くの小さい領域だけで積を保つ写像を考えます。ここで「局所」とは、任意の二元の積を常に領域内で定義するという意味ではなく、積が領域内にある場合に限り群法則を課すという意味です。
 
@@ -169,14 +169,14 @@ $$
 これは $d\alpha+\alpha\wedge\alpha=0$ を意味します。$\square$
 <!-- proof-end -->
 
-## 3. 単連結なら経路に依存せず積分できる
+## 3. どの閉路も一点に縮められるなら経路に依存しない
 
-行列の微分方程式を曲線に沿って解いても、終点が同じ二本の経路で異なる行列が出るかもしれません。ここで **単連結**とは、空間が弧状連結で、任意の閉曲線が連続変形によって一点に縮められることです。滑らかな多様体上では、端点を固定する経路の変形を区分的に滑らかな経路の変形として扱えます。
+行列の微分方程式を曲線に沿って解いても、終点が同じ二本の経路で異なる行列が出るかもしれません。本節の仮定は、空間が弧状連結であり、任意の閉曲線が連続変形によって一点へ縮められることです。これは二本の道を同じ始点・終点を保ったまま移り合わせられることと同値です。滑らかな多様体上では、その変形を区分的に滑らかな経路の変形として扱えます。
 
 <a id="thm-lrep3-integration"></a>
 <!-- formal-statement-start -->
-> **定理（単連結 Lie 群への一意な積分）**  
-> $G$ を連結かつ単連結な有限次元実 Lie 群、$\mathfrak g=T_eG$、$V$ を有限次元複素ベクトル空間とする。任意の実線形 Lie 環表現
+> **定理（閉路が収縮できる Lie 群への一意な積分）**  
+> $G$ を弧状連結で任意の閉曲線が一点へ収縮できる有限次元実 Lie 群、$\mathfrak g=T_eG$、$V$ を有限次元複素ベクトル空間とする。任意の実線形 Lie 環表現
 >
 $$
 \rho:\mathfrak g\to\operatorname{End}_{\mathbb C}(V)
@@ -192,7 +192,7 @@ $$
 > である。
 <!-- formal-statement-end -->
 
-**証明の見取り図。** [平坦性の補題](#lem-lrep3-flatness)で経路を変形しても ODE の終端値が変わらないことを示します。曲線の左移動で ODE 係数が不変になるため、終端値が群の積を保ちます。最後に指数写像の局所可逆性から滑らかさと一意性を確認します。
+**証明の見取り図。** [平坦性の補題](#lem-lrep3-flatness)で経路を変形しても ODE の終端値が変わらないことを示します。曲線の左移動で ODE 係数が不変になるため、終端値が群の積を保ちます。最後に Lie 群の指数写像の局所可逆性から滑らかさと一意性を確認します。
 
 <!-- proof-start -->
 ### 証明
@@ -243,7 +243,7 @@ D(gh)=D(g)D(h),\qquad D(e)=I.
 $$
 また逆元は $D(g^{-1})=D(g)^{-1}$ です。従って $D$ は群表現です。
 
-**(3) 滑らかさ・微分・一意性。** $e$ に近い元は[指数写像の局所微分同相性](../../LIE/LIE2/index.md#thm-lie2-exponential-local-diffeomorphism)から $g=\exp_G X$ と一意に表せます。経路 $c(t)=\exp_G(tX)$ では $\theta(c'(t))=X$ が一定なので ODE の解は $U(t)=e^{t\rho(X)}$ です。従って
+**(3) 滑らかさ・微分・一意性。** $e$ に近い元は[Lie 群の指数写像の局所微分同相性](../../LIE/LIE2/index.md#thm-lie2-exponential-local-diffeomorphism)から $g=\exp_G X$ と一意に表せます。経路 $c(t)=\exp_G(tX)$ では $\theta(c'(t))=X$ が一定なので ODE の解は $U(t)=e^{t\rho(X)}$ です。従って
 $$
 D(\exp_G X)=e^{\rho(X)}
 $$
@@ -258,7 +258,7 @@ $$
 最後に一意性を確かめます。$D_1,D_2$ を同じ $\rho$ を微分として持つ二つの表現とすると、既に示した指数曲線の等式により単位元 $e$ のある近傍で一致します。その近傍の元を有限回掛け合わせて得る集合は、開いた部分群です。連結 Lie 群の開部分群は全体と一致するため、全ての $g\in G$ に対して $D_1(g)=D_2(g)$ が成り立ちます。$\square$
 <!-- proof-end -->
 
-この証明は、[LIE4の Maurer–Cartan 方程式](../../LIE/LIE4/index.md#thm-lie4-maurer-cartan-equation)が「局所的な交換関係」から「経路に沿った行列作用」へ橋を架けることも示します。単連結性がなくても単位元の十分小さい可縮な近傍では経路変形ができるため、同じ構成で局所群表現を得られます。ただし遠回りした二経路の終端値が等しいとは限りません。
+この証明は、[LIE4の Maurer–Cartan 方程式](../../LIE/LIE4/index.md#thm-lie4-maurer-cartan-equation)が「局所的な交換関係」から「経路に沿った行列作用」へ橋を架けることも示します。閉じた道を全て縮められる大域的な仮定がなくても、単位元の十分小さい可縮な近傍では経路変形ができるため、同じ構成で局所群表現を得られます。ただし遠回りした二経路の終端値が等しいとは限りません。
 
 <a id="cor-lrep3-local-integrability"></a>
 <!-- formal-statement-start -->
@@ -278,12 +278,26 @@ $
 
 $e$ を含む指数座標の開球をさらに小さく取り、座標内で星型となる開近傍を選びます。各終点への径路上の ODE の終端値を使います。上の[積分定理](#thm-lrep3-integration)の証明 (1) は可縮な近傍内部の二経路に適用でき、そこで終端値は経路に依存しません。
 
-具体的には単位元の可縮な開近傍 $W$ を先に取り、さらに小さい近傍 $U$ を $U\cdot U\subset W$ となるように選びます。$g,h,gh\in U$ に対し、$W$ 内の経路 $e\to g$ と $e\to h$ を選びます。後者を $g$ で左移動した経路を含むように、最初の $U$ と径路を指数座標で十分小さく選べます。その連結経路と $W$ 内の $e\to gh$ の経路は $W$ 内で両端を保ったまま変形できるので、上の証明 (2) の ODE の議論から $D_U(gh)=D_U(g)D_U(h)$ が従います。滑らかさと微分は指数曲線で確認します。一意性は近傍で指数公式 $D_U(\exp X)=e^{\rho(X)}$ が成り立つことによります。$\square$
+具体的には単位元の可縮な開近傍 $W$ を先に取り、さらに小さい指数座標近傍 $U$ を次の包含が成り立つように選びます。
+
+$
+U\cdot U\subset W.
+$
+
+$g,h,gh\in U$ とします。$U$ 内の経路 $e\to g$ と $e\to h$ を選び、後者を $g$ で左移動して $g\to gh$ の道を作ります。連結した経路は $W$ 内にあります。一方、$e\to gh$ への道を $U$ 内に取ることもできます。$W$ は可縮なので、この二つの道は $W$ 内で両端を保ったまま変形できます。
+
+上の証明 (2) と同じ ODE の議論により
+
+$
+D_U(gh)=D_U(g)D_U(h).
+$
+
+滑らかさと微分は指数曲線で確認します。局所で $D_U(\exp_G X)=e^{\rho(X)}$ が成立するため、同じ微分を持つ局所表現の値は一意です。$\square$
 <!-- proof-end -->
 
 ## 4. 被覆の核は何を妨げるか
 
-一般の連結 Lie 群 $G$ には、同じ Lie 環を持つ単連結 Lie 群 $\widetilde G$ と、その上への被覆準同型 $\pi:\widetilde G\to G$ が存在します。被覆とは、どの点でも小さな開近傍上は同相に見える全射であり、$\pi$ はさらに群準同型です。$\pi$ の微分は Lie 環の同型を与えます。これを利用すると、Lie 環表現はまず $\widetilde G$ 上で一意に積分されます。
+一般の連結 Lie 群 $G$ には、同じ Lie 環を持ち全ての閉路が収縮できる Lie 群 $\widetilde G$ と、その上への被覆準同型 $\pi:\widetilde G\to G$ が存在します。被覆とは、どの点でも小さな開近傍上は同相に見える全射であり、$\pi$ はさらに群準同型です。$\pi$ の微分は Lie 環の同型を与えます。これを利用すると、Lie 環表現はまず $\widetilde G$ 上で一意に積分されます。
 
 重要なのは、$\pi(\tilde g)=\pi(\tilde h)$ となる異なる被覆群の元が、元の群では同じ元だということです。その二つに割り当てる行列が一致しないなら、元の群上の表現は定義できません。
 
@@ -306,7 +320,7 @@ $$
 <a id="thm-lrep3-descent-criterion"></a>
 <!-- formal-statement-start -->
 > **定理（被覆核による降下判定）**  
-> $G$ を連結な有限次元実 Lie 群、$\pi:\widetilde G\to G$ をその単連結被覆群の被覆準同型、$K=\ker\pi$ とする。$\mathfrak g$ の有限次元複素 Lie 環表現 $\rho$ を被覆側の Lie 環へ微分同型で移し、[単連結群への積分](#thm-lrep3-integration)で $\widetilde D$ を得る。このとき $\rho$ が $G$ の滑らかな群表現の微分となるための必要十分条件は
+> $G$ を連結な有限次元実 Lie 群、$\pi:\widetilde G\to G$ をその弧状連結で全ての閉路が収縮できる被覆群からの被覆準同型、$K=\ker\pi$ とする。$\mathfrak g$ の有限次元複素 Lie 環表現 $\rho$ を被覆側の Lie 環へ微分同型で移し、[閉路収縮条件のもとでの積分](#thm-lrep3-integration)で $\widetilde D$ を得る。このとき $\rho$ が $G$ の滑らかな群表現の微分となるための必要十分条件は
 >
 $$
 \widetilde D(k)=I_V\quad(\forall k\in K)
@@ -346,7 +360,7 @@ $\pi$ は局所微分同相なので、各点の近くで $D=\widetilde D\circ(\
 
 $SO(2)$ の Lie 環は $J=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ の実数倍です。括弧は零なので、任意の $\lambda\in\mathbb R$ に対する $\rho_\lambda(xJ)=i\lambda x$ は1次元複素 Lie 環表現です。この段階では $\lambda$ は整数である必要はありません。
 
-被覆写像 $\pi:\mathbb R\to SO(2)$ は $\pi(\theta)=e^{\theta J}=R_\theta$、$\ker\pi=2\pi\mathbb Z$ です。[単連結群への積分](#thm-lrep3-integration)は
+被覆写像 $\pi:\mathbb R\to SO(2)$ は $\pi(\theta)=e^{\theta J}=R_\theta$、$\ker\pi=2\pi\mathbb Z$ です。[閉路収縮条件のもとでの積分](#thm-lrep3-integration)は
 $$
 \widetilde D_\lambda(\theta)=e^{i\lambda\theta}
 $$
@@ -522,7 +536,7 @@ $$
 $G=SO(2)\times SO(2)$ の Lie 環 $\mathbb R^2$ から1次元複素空間への $\rho(x,y)=i(\lambda x+\mu y)$（$\lambda,\mu\in\mathbb R$）を考える。被覆 $(\mathbb R^2,+)\to G$ への積分を求め、$G$ 上への降下条件を必要十分に示せ。
 
 <!-- solution-start -->
-**詳細解答。** $\mathbb R^2$ は可換なので $\rho$ は実線形で括弧を保ちます。[単連結群への積分](#thm-lrep3-integration)によって
+**詳細解答。** $\mathbb R^2$ は可換なので $\rho$ は実線形で括弧を保ちます。[閉路収縮条件のもとでの積分](#thm-lrep3-integration)によって
 $$
 \widetilde D(s,t)=e^{i(\lambda s+\mu t)}.
 $$
@@ -581,6 +595,6 @@ $$
 
 ## 7. まとめと次講
 
-滑らかな群表現は [微分定理](#thm-lrep3-differentiation)によって Lie 環表現を与えます。逆向きには [Maurer–Cartan 方程式](../../LIE/LIE4/index.md#thm-lie4-maurer-cartan-equation)と行列 ODE を使い、[単連結群では一意に積分](#thm-lrep3-integration)できます。一般の連結群では [被覆の核で恒等的に作用する条件](#thm-lrep3-descent-criterion)が追加されます。
+滑らかな群表現は [微分定理](#thm-lrep3-differentiation)によって Lie 環表現を与えます。逆向きには [Maurer–Cartan 方程式](../../LIE/LIE4/index.md#thm-lie4-maurer-cartan-equation)と行列 ODE を使い、[閉路収縮条件のもとで一意に積分](#thm-lrep3-integration)できます。一般の連結群では [被覆の核で恒等的に作用する条件](#thm-lrep3-descent-criterion)が追加されます。
 
 次の LREP4 では、すでに得た群表現を直和・テンソル積・双対で組み合わせ、それぞれを Lie 環レベルでも扱えるようにします。
