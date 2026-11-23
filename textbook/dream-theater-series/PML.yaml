@@ -183,7 +183,7 @@ chapters:
     title: "数値ソルバを通じた勾配はどう求めるか"
   - id: PML2-23
     path: textbook/volumes/dream_thater/応用系/PML/PML2-23
-    status: planned
+    status: completed
     title: "時間発展を微分すると勾配はどこで狂うか"
   - id: PML2-24
     path: textbook/volumes/dream_thater/応用系/PML/PML2-24

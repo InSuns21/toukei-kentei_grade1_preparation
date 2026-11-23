@@ -1,0 +1,53 @@
+id: "PML2-23"
+title: "時間発展を微分すると勾配はどこで狂うか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-22
+  - PML1-20
+official_scope: []
+learning_objectives:
+  - 時間微分とパラメータ微分を区別して連続感度方程式を導出できる
+  - 固定回数の更新写像を連鎖律で微分して離散感度を伝播できる
+  - 終端損失と途中損失に対する時間離散随伴および全勾配式を証明できる
+  - 連続随伴方程式の終端条件と全勾配式を積の微分から証明できる
+  - スカラー線形減衰例で連続と離散の直接感度・随伴勾配を照合できる
+  - Euler法の安定域を求め安定性が勾配の符号を保証しない反例を計算できる
+  - 固定時間での刻み幅収束と長時間一様性の違いを説明できる
+  - ステップ数を分岐させる計算手順で微分不能が生じる例を示せる
+  - 標準Pythonで直接感度・離散随伴・数値差分と連続勾配を独立に照合できる
+definitions:
+  - { id: PML2-23-DEF-01, name: 時間発展のパラメータ感度 }
+  - { id: PML2-23-DEF-02, name: 時間離散随伴変数 }
+  - { id: PML2-23-DEF-03, name: 連続時間随伴変数 }
+theorems:
+  - { id: PML2-23-THM-01, name: 時間発展の感度方程式 }
+  - { id: PML2-23-THM-02, name: 固定回数の離散感度伝播 }
+  - { id: PML2-23-THM-03, name: 時間離散随伴の全勾配 }
+  - { id: PML2-23-THM-04, name: 連続時間随伴の全勾配 }
+  - { id: PML2-23-PROP-01, name: Euler法の離散勾配と連続勾配 }
+  - { id: PML2-23-PROP-02, name: 状態は減衰しても勾配の符号が反転する }
+  - { id: PML2-23-PROP-03, name: ステップ数を切り替える計算の不連続性 }
+canonical_examples:
+  - 線形減衰方程式の正確な状態と時間感度の直接検算
+  - Euler法二段の直接感度と時間離散随伴
+  - 時間積分損失を含む随伴の証明と途中損失の例
+  - 連続随伴による終端二乗損失の積分検算
+  - 安定な負の増幅率による勾配の符号反転
+  - パラメータ依存のステップ数切替による不連続性
+  - 標準Pythonでの刻み幅変更と直接法・随伴・差分照合
+problem_patterns:
+  - PML2-23-A01
+  - PML2-23-A02
+  - PML2-23-A03
+  - PML2-23-A04
+  - PML2-23-A05
+  - PML2-23-B01
+  - PML2-23-B02
+  - PML2-23-B03
+  - PML2-23-B04
+  - PML2-23-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }

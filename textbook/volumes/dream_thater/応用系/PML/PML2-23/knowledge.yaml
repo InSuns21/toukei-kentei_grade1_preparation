@@ -1,0 +1,75 @@
+chapter: PML2-23
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-22
+  - PML1-20
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-23-time-sensitivity
+    name: 時間発展のパラメータ感度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時間発展のパラメータ感度）"]
+    requires:
+      - physics-machine-learning.pml2-22-tangent
+  - id: physics-machine-learning.pml2-23-tangent-equation
+    name: 時間発展の感度方程式
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-23-time-sensitivity
+  - id: physics-machine-learning.pml2-23-discrete-tangent
+    name: 固定回数の離散感度伝播
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-23-tangent-equation
+      - physics-machine-learning.one-step-update-map
+  - id: physics-machine-learning.pml2-23-discrete-adjoint
+    name: 時間離散随伴変数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時間離散随伴変数）"]
+    requires:
+      - physics-machine-learning.pml2-23-discrete-tangent
+      - physics-machine-learning.pml2-22-adjoint
+  - id: physics-machine-learning.pml2-23-discrete-adjoint-gradient
+    name: 時間離散随伴の全勾配
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-23-discrete-adjoint
+  - id: physics-machine-learning.pml2-23-continuous-adjoint
+    name: 連続時間随伴変数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（連続時間随伴変数）"]
+    requires:
+      - physics-machine-learning.pml2-23-tangent-equation
+  - id: physics-machine-learning.pml2-23-continuous-adjoint-gradient
+    name: 連続時間随伴の全勾配
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-23-continuous-adjoint
+      - physics-machine-learning.pml2-23-tangent-equation
+  - id: physics-machine-learning.pml2-23-euler-gradient
+    name: Euler法の離散勾配と連続勾配
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-23-discrete-adjoint-gradient
+      - physics-machine-learning.pml2-23-continuous-adjoint-gradient
+  - id: physics-machine-learning.pml2-23-sign-reversal
+    name: 状態は減衰しても勾配の符号が反転する
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-23-euler-gradient
+  - id: physics-machine-learning.pml2-23-step-branch
+    name: ステップ数を切り替える計算の不連続性
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-23-discrete-tangent
