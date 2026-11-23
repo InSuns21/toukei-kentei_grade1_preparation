@@ -488,7 +488,7 @@ $$
 \end{aligned}
 $$
 
-従って $\|\mathcal Gh\|_\infty\ge5/192$。同一の予測出力 $q$ と二つの真解に三角不等式を適用すると
+従って $\|\mathcal Gh\|_\infty\ge5/192$。$\mathcal Gh-\mathcal G0=(\mathcal Gh-q)+(q-\mathcal G0)$ と二つの差に分け、ノルムを評価すると
 
 $$
 2E_\mathcal F\ge
