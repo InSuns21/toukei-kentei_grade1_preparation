@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - PML2-11
+  - RNG4
 official_scope: []
 learning_objectives:
   - 連続残差ノルムと有限collocation点の二乗平均を区別し定義域を指定できる

@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - PML2-11
+  - RNG4
 forward_references: []
 concepts:
   - id: physics-machine-learning.pml2-12-two-residuals
