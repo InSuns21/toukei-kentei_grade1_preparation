@@ -338,8 +338,14 @@ d\,\operatorname{tr}(F\wedge F)
 \end{aligned}
 $$
 
-ここでも $\operatorname{tr}(F\wedge A\wedge F)
-=\operatorname{tr}(A\wedge F\wedge F)$ は**次数付き巡回性**に基づく。行列の可換性は一切使っていない。
+ここでも次の等式は**次数付き巡回性**に基づく。
+
+$
+\operatorname{tr}(F\wedge A\wedge F)
+=\operatorname{tr}(A\wedge F\wedge F).
+$
+
+行列の可換性は一切使っていない。
 
 ### 任意の2形式にはBianchi恒等式を適用できない
 
