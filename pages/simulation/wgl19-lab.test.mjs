@@ -77,13 +77,37 @@ test('editable sources include real RAF, loss/rebuild, GPU disposal and host ora
     assert.ok(host.includes(bit),bit);
 });
 
-test('WGL19 timeline uses the same audited GPU tick counts and dropped intervals',async()=>{
+test('WGL19 replays the audited GPU shader in the same sandbox, not a disconnected picture',async()=>{
   const js=await readFile(new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL19/audit.js',import.meta.url),'utf8');
-  for(const marker of ['frames.push(thisFrame)','discardedPerFrame.push(discardedHere)',
-    'droppedMs+=discardedHere','frameDeltasMs[k]','frames[k]',
-    'measuredFps.toFixed(1)','canvas.insertAdjacentElement(\'afterend\',panel)']){
-    assert.ok(js.includes(marker),marker);
+  for(const part of ['const live={frame:0','function resetPlayback()','initialize();',
+    'function nextFrame()','tick();live.remainderMs-=fixedMs',
+    'drawScreen();','const values=readState();',
+    "new CustomEvent('wgl19-progress'",'labels[k].textContent=values[k].toFixed(3)',
+    "new CustomEvent('wgl19-control'",'setInterval(()=>safely(nextFrame),850)',
+    'prefers-reduced-motion','return {floatReadback,floatParameters:']){
+    assert.ok(js.includes(part),part);
   }
-  assert.ok(js.indexOf("canvas.insertAdjacentElement('afterend',panel)")>
-    js.indexOf('dispose();'),'timeline must be derived after actual GPU run');
+  assert.ok(js.indexOf('const floatReadback=readState();')<
+    js.indexOf("setTimeout(()=>safely"),'independent final state is read before replay starts');
+  assert.ok(js.indexOf('dispose();')<js.indexOf('function resetPlayback()'));
+});
+
+test('WGL19 result view offers source-linked clock presets and verifies every replayed prefix',async()=>{
+  const [host,css,lesson]=await Promise.all([
+    readFile(new URL('wgl-lab-host.mjs',import.meta.url),'utf8'),
+    readFile(new URL('wgl-lab.css',import.meta.url),'utf8'),
+    readFile(new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL19/index.md',import.meta.url),'utf8')
+  ]);
+  for(const part of ["request.lesson==='WGL19'","type:'wgl19-control'",
+    "type:'wgl19-progress'",'scheduleWGL19(audit.deltas',
+    "data.steps===expected.totalSteps","id='wgl19-live-play'",
+    "id='wgl19-live-step'","id='wgl19-live-reset'",
+    "id='wgl19-timeline'","const frameDeltasMs=",
+    "const maxStepsPerFrame="]){
+    assert.ok(host.includes(part),part);
+  }
+  assert.match(css,/#wgl19-timeline tr\.current/);
+  assert.match(lesson,/実行（結果へ）/);
+  assert.match(lesson,/同じ編集JS・同じGLSL・同じ更新式/);
+  assert.match(lesson,/同じGPUテクスチャ/);
 });
