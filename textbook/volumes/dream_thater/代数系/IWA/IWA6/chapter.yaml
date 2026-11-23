@@ -1,0 +1,47 @@
+id: "IWA6"
+title: "Weierstrass準備・特徴イデアル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IWA5
+official_scope: []
+learning_objectives:
+  - 非零冪級数のp進係数付値とWeierstrass次数を定義し積についての加法性を証明できる
+  - distinguished多項式を判定しp進Weierstrass除法を収束根拠とともに証明できる
+  - Weierstrass準備表示の存在と一意性を導出し具体例でμと次数を計算できる
+  - 岩澤代数の既約因子がpまたは既約distinguished多項式であることを説明できる
+  - 有限生成torsion岩澤加群の特徴イデアルおよびμとλ不変量を計算できる
+  - 擬同型不変性と短完全列での乗法性を局所化による長さから証明できる
+  - 有限層のcoinvariantが無限となる例を用いて類数成長公式への追加条件を説明できる
+definitions:
+  - { id: IWA6-DEF-01, name: 係数付値とWeierstrass次数 }
+  - { id: IWA6-DEF-02, name: distinguished多項式 }
+  - { id: IWA6-DEF-03, name: 特徴イデアルと岩澤のμ,λ不変量 }
+theorems:
+  - { id: IWA6-PROP-01, name: 積での指数の加法性 }
+  - { id: IWA6-THM-01, name: p進Weierstrass除法 }
+  - { id: IWA6-THM-02, name: p進Weierstrass準備定理 }
+  - { id: IWA6-PROP-02, name: 岩澤代数の既約因子 }
+  - { id: IWA6-PROP-03, name: 特徴イデアルの一意性と擬同型不変性 }
+  - { id: IWA6-PROP-04, name: 短完全列での特徴イデアルの乗法性 }
+canonical_examples:
+  - 3進の係数付値とWeierstrass次数の計算
+  - T+3によるT二乗の除法と余り
+  - Eisenstein型の既約distinguished二次多項式
+  - 有限部分を含む加群とpTの商の特徴イデアル
+  - TとT+pの有限層coinvariantsの違い
+problem_patterns:
+  - IWA6-P-ADIC-ORDERS
+  - IWA6-DISTINGUISHED
+  - IWA6-DIVISION
+  - IWA6-QUOTIENT-MATRIX
+  - IWA6-CHARACTERISTIC-IDEAL
+  - IWA6-EISENSTEIN
+  - IWA6-PSEUDOISOMORPHISM
+  - IWA6-COINVARIANTS
+  - IWA6-EXACT-SEQUENCE
+  - IWA6-INTEGRATED-FACTORIZATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 3 }
