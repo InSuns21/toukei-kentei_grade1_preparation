@@ -99,7 +99,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg11-covariant-exterior-derivative -->
-**定義の確認**。積主束 $P=\mathbb R^3\times U(1)$、標準 section $s$、$A=i x\,dy$ とする。$U(1)$ は可換なので任意の Lie 環値形式について括弧付き外積が零となる。水平・同変な形式 $\eta$ の場合
+**定義の確認**。積主束 $P=\mathbb R^3\times U(1)$ の標準 section を $s(x,y,z)=((x,y,z),1)$ とし、基底上で $A=ix\,dy$ を選ぶ。[GBG7の積主束接続の公式](../GBG7/index.md#prop-gbg7-product-form)にこの $A$ を代入すると、$u\in U(1)$ を群成分として
+
+$
+\omega=\pi^*(ix\,dy)+u^{-1}du,\qquad s^*\omega=A
+$
+
+となり、再生条件・右同変条件を満たす接続が得られる。$U(1)$ は可換なので、その Lie 環の括弧付き外積は零である。従って水平・随伴同変な形式 $\eta$ について
 
 $$
 d_\omega\eta=d\eta.
@@ -108,10 +114,10 @@ $$
 例えば $\eta=\pi^*(ix\,dy\wedge dz)$ とすれば、$\eta$ は垂直入力を消し、随伴作用が自明なので同変である。$\pi^*$ と $d$ の交換性から
 
 $$
-d_\omega\eta=d\eta=i\,dx\wedge dy\wedge dz
-$$
+d_\omega\eta=d\eta=\pi^*(i\,dx\wedge dy\wedge dz).
+$
 
-（右辺は $\pi^*$ を省略）となる。共変外微分は任意の入力形式を零にする演算ではない。
+ここでは等式の各辺が $P$ 上の3形式であり、引き戻す前の基底上の3形式と混同していない。共変外微分は任意の入力形式を零にする演算ではない。
 <!-- definition-example-end -->
 
 ### 補正項が水平性を回復する
@@ -239,10 +245,10 @@ $$
 \end{aligned}
 $$
 
-最後の等号は Lie 環の Jacobi 恒等式そのものである。従って $d_\omega\Omega=0$。
+最後の等号は、[Lie 環の Jacobi 恒等式](../../../代数系/LIE/LIE1/index.md#thm-lie1-tangent-lie-algebra)を $\omega(U),\omega(V),\omega(W)$ に適用したものである。従って $d_\omega\Omega=0$。
 <!-- proof-end -->
 
-注意すべき点は、$d_\omega$ は一般の微分形式に対して $d_\omega^2=0$ となる演算ではないことだ。Bianchi 恒等式は特に**接続から作った曲率**に対する恒等式であり、任意の2形式 $\eta$ に対して $d_\omega\eta=0$ と主張するものではない。
+注意すべき点は、$d_\omega$ の定義域は水平・随伴同変な形式であり、その範囲でも一般に $d_\omega^2=0$ とは限らないことだ。Bianchi 恒等式は特に**接続から作った曲率**に対する恒等式であり、水平・随伴同変な任意の2形式 $\eta$ に対して $d_\omega\eta=0$ と主張するものではない。
 
 ## 4. 局所形 $dF+[A\wedge F]=0$ と行列計算
 
@@ -262,12 +268,27 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg11-local-covariant-exterior -->
-**定義の確認**。$U=\mathbb R^3$、$\mathfrak g=\mathfrak{gl}_2(\mathbb R)$、$B=E_{11}$、$C=E_{12}$ とし、$A=B\,dx$、$K=C\,dy\wedge dz$ とする。$dK=0$ だが $[B,C]=C$ なので
+**定義の確認**。$U=\mathbb R^3$ とし、行列群 $GL(2,\mathbb R)$ の Lie 環を $\mathfrak{gl}_2(\mathbb R)=M_2(\mathbb R)$ と表示する。[GBG10で導入した行列単位](../GBG10/index.md#def-gbg10-curvature)の記法を使い、
 
-$$
-d_AK=[B,C]\,dx\wedge dy\wedge dz
-=C\,dx\wedge dy\wedge dz\ne0.
-$$
+$
+B=E_{11}=\begin{pmatrix}1&0\\0&0\end{pmatrix},
+\qquad C=E_{12}=\begin{pmatrix}0&1\\0&0\end{pmatrix},
+\qquad A=B\,dx,\quad K=C\,dy\wedge dz
+$
+
+とおく。これは座標ベクトルへの値が $A(\partial_x)=B$、$K(\partial_y,\partial_z)=C$ で、それ以外の異なる座標方向の値が零になる形式を表す。定数係数だから $dK=0$。一方、括弧付き外積の3方向の式より
+
+$
+[A\wedge K](\partial_x,\partial_y,\partial_z)
+=[A(\partial_x),K(\partial_y,\partial_z)]
+=[B,C]=BC-CB=C
+$
+
+であり、従って
+
+$
+d_AK=C\,dx\wedge dy\wedge dz\ne0.
+$
 
 局所共変外微分は外微分に非可換な補正を加える演算である。ここでは $K$ は任意の2形式であって、この $A$ から構成した曲率 $F$ ではない。
 <!-- definition-example-end -->
@@ -378,7 +399,24 @@ $$
 
 ## 5. 座標成分とゲージ選択に依らないこと
 
-局所座標 $(x^1,\ldots,x^n)$ を使い、$A=A_i\,dx^i$、$F=\frac12F_{ij}\,dx^i\wedge dx^j$ と書く。ここで $F_{ji}=-F_{ij}$ であり、添字 $i,j$ を重複して書くときは総和する。
+局所座標 $(x^1,\ldots,x^n)$ を取り、$\partial_i=\partial/\partial x^i$（他の座標を固定して $x^i$ で偏微分）と書く。$A$ と $F$ をこの座標基底で評価して得る係数を
+
+$
+A_i=A(\partial_i),\qquad F_{ij}=F(\partial_i,\partial_j)
+$
+
+と定めると、$A=A_i\,dx^i$、$F=\frac12F_{ij}\,dx^i\wedge dx^j$ である。ここで $F_{ji}=-F_{ij}$ であり、同じ添字を重複して書くときは $1$ から $n$ まで総和する。
+
+行列群の場合、[GBG10の局所構造方程式](../GBG10/index.md#thm-gbg10-local-formula) $F=dA+A\wedge A$ を座標ベクトル $\partial_i,\partial_j$ に評価する。座標ベクトルが可換なことと外積の定義から
+
+$
+\begin{aligned}
+(dA)(\partial_i,\partial_j)&=\partial_iA_j-\partial_jA_i,\\
+(A\wedge A)(\partial_i,\partial_j)&=A_iA_j-A_jA_i=[A_i,A_j].
+\end{aligned}
+$
+
+従って、次の定理で使う $F_{ij}$ は抽象的な曲率2形式 $F$ の座標成分そのものである。
 
 <a id="thm-gbg11-component-bianchi"></a>
 
@@ -425,13 +463,20 @@ $$
 -[A_j,\partial_iA_k]+[A_k,\partial_iA_j]=0
 $$
 
-という組を巡回的に作って相殺する。最後に残る三重括弧
+という組を巡回的に作る。ここでは積の微分と反対称性を用いて
+
+$
+\partial_i[A_j,A_k]
+=[\partial_iA_j,A_k]+[A_j,\partial_iA_k]
+$
+
+と展開すると、同じ偏微分に関係する三項が相殺する。最後に残る三重括弧
 
 $$
 [A_i,[A_j,A_k]]+[A_j,[A_k,A_i]]+[A_k,[A_i,A_j]]=0
 $$
 
-は Jacobi 恒等式で消える。
+は [Lie 環の Jacobi 恒等式](../../../代数系/LIE/LIE1/index.md#thm-lie1-tangent-lie-algebra)で消える。
 <!-- proof-end -->
 
 この式は一般の曲線座標や共変基底の Levi–Civita 微分を導入する必要のない、座標接ベクトル $\partial_i$ に関する表示である。
@@ -462,9 +507,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\beta=g^{-1}dg$、$C=g^{-1}Ag$ とおき、$A'=C+\beta$ と書く。$d(g^{-1})=-g^{-1}(dg)g^{-1}$ と次数 $k$ の Leibniz 則より
+$\beta=g^{-1}dg$、$C=g^{-1}Ag$ とおき、$A'=C+\beta$ と書く。$g^{-1}g=I$ を微分して $d(g^{-1})=-g^{-1}(dg)g^{-1}$ を得る。$g^{-1}$ と $g$ は0形式、$K$ は $k$ 形式なので、次数付き Leibniz 則は
 
-$$
+$
+d(g^{-1}Kg)
+=d(g^{-1})\wedge Kg+g^{-1}(dK)g+(-1)^kg^{-1}K\wedge dg
+$
+
+を与える。最初の項は $-\beta\wedge K'$、最後の項は $(-1)^kK'\wedge\beta$ だから
+
+$
 dK'
 =g^{-1}(dK)g-\beta\wedge K'
 +(-1)^kK'\wedge\beta.
@@ -519,7 +571,7 @@ $$
 $A=B\,dx$、$\phi(x,y)=yC$ とする。$d_A\phi$ を求めよ。ただし $B=E_{11}$、$C=E_{12}$ である。
 
 <!-- solution-start -->
-**詳細解答**。$\phi$ は0形式なので $d_A\phi=d\phi+[A,\phi]$。まず $d\phi=C\,dy$。次に $[B,yC]=y[B,C]=yC$ だから
+**詳細解答**。[局所共変外微分の定義](#def-gbg11-local-covariant-exterior)で次数 $k=0$ を使うと、$\phi$ は0形式なので $d_A\phi=d\phi+[A,\phi]$。まず $d\phi=C\,dy$。次に $[B,yC]=y[B,C]=yC$ だから
 
 $$
 d_A\phi=yC\,dx+C\,dy.
@@ -664,7 +716,7 @@ d\phi'=-e^{-x}C\,dx,\qquad
 [A',\phi']=2e^{-x}[B,C]\,dx=2e^{-x}C\,dx.
 $$
 
-ゆえに $d_{A'}\phi'=e^{-x}C\,dx$。元の $d_A\phi=[B,C]\,dx=C\,dx$ を共役変換しても $g^{-1}(d_A\phi)g=e^{-x}C\,dx$ となる。
+ゆえに[局所共変外微分](#def-gbg11-local-covariant-exterior)から $d_{A'}\phi'=e^{-x}C\,dx$。元の $d_A\phi=[B,C]\,dx=C\,dx$ を共役変換しても $g^{-1}(d_A\phi)g=e^{-x}C\,dx$ となる。
 <!-- solution-end -->
 
 <a id="ex-gbg11-b04"></a>
