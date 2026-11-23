@@ -40,11 +40,11 @@ $$
 
 $f=(f_1,\ldots,f_d)^T$ とし、状態の標準座標 $u_j$ を一つずつ動かしたときの変化を並べると、状態Jacobian $f_u$ とパラメータ偏微分の列 $f_\theta$ は
 
-$
+$$
 (f_u)_{ij}=\frac{\partial f_i}{\partial u_j},\qquad
 (f_\theta)_i=\frac{\partial f_i}{\partial\theta}
 \quad(i,j=1,\ldots,d)
-$
+$$
 
 となる。これらの偏微分では、表示した微分変数以外の引数を固定する。従って $f_u$ は $d\times d$ 行列、$f_\theta$ は $d$ 次元列ベクトルであり、$f_us$ の第 $i$ 成分は $\sum_j(\partial f_i/\partial u_j)s_j$ となる。これが[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)で状態を介する微分を計算できる理由である。たとえば $f(u,\theta,t)=-\theta u$ の一変数例なら $f_u=-\theta$、$f_\theta=-u$ となる。
 
@@ -177,14 +177,14 @@ $$
 
 [前講の離散随伴変数](../PML2-22/index.md#def-pml2-22-adjoint)と同じく、後段のスカラー損失の状態勾配を列ベクトルとして逆に運ぶ。なぜ更新のJacobianを転置するかを、$\theta$ を固定した状態の微小変化 $\delta z_n$ から確かめる。$A_n=D_z\Psi_n(z_n,\theta)$ とし、後段損失の変化が $g_{n+1}^T\delta z_{n+1}$ で表せるなら、[連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)から
 
-$
+$$
 \begin{aligned}
 \delta z_{n+1}&=A_n\delta z_n,\\
 g_{n+1}^T\delta z_{n+1}
 &=g_{n+1}^TA_n\delta z_n
 =(A_n^Tg_{n+1})^T\delta z_n.
 \end{aligned}
-$
+$$
 
 したがって前段の状態勾配は $A_n^Tg_{n+1}$ となる。$^T$ は行列・列ベクトルの転置を表す。更新前の損失 $c_n$ があれば、その状態勾配 $\nabla_z c_n$ も加える。この二つの寄与を合わせた列が次の随伴変数である。
 
@@ -263,10 +263,10 @@ $$
 
 この恒等式を $n=N-1$ から $n=0$ まで順に使う。例えば最終段では $\lambda_N^Tv_N+\nabla_zc_{N-1}^Tv_{N-1}$ が $\lambda_{N-1}^Tv_{N-1}+\lambda_N^T\partial_\theta\Psi_{N-1}$ となる。次段の $\nabla_zc_{N-2}^Tv_{N-2}$ を加えて同じ置換を繰り返せば、途中の感度項が順番に消え、
 
-$
+$$
 \lambda_N^Tv_N+\sum_{n=0}^{N-1}\nabla_z c_n^Tv_n
 =\lambda_0^Tv_0+\sum_{n=0}^{N-1}\lambda_{n+1}^T\partial_\theta\Psi_n.
-$
+$$
 
 最後に $v_0=a'(\theta)$ を代入すれば主張の式となる。
 <!-- proof-end -->
@@ -581,21 +581,21 @@ $N=1$ の離散勾配は零で、$N$ が増えると連続勾配 $-e^{-2}$ へ�
 <!-- solution-start -->
 **詳細解答。** $\theta$ を固定し、時間 $t$ に関する積の微分を取る。$u$ で割る変数分離は必要ない。
 
-$
+$$
 \frac{d}{dt}\bigl(e^{2\theta t}u(t)\bigr)
 =e^{2\theta t}\bigl(\dot u+2\theta u\bigr)=0.
-$
+$$
 
 よって $e^{2\theta t}u(t)=u(0)=3$、すなわち $u(t;\theta)=3e^{-2\theta t}$。次に **時刻を固定して** $\theta$ で微分すると $s(t;\theta)=\partial_\theta u(t;\theta)=-6t e^{-2\theta t}$ となる。[時間発展の感度方程式](#thm-pml2-23-tangent)を別に検算するため、$f_u=-2\theta$、$f_\theta=-2u=-6e^{-2\theta t}$ を求める。右辺と左辺はそれぞれ
 
-$
+$$
 \begin{aligned}
 f_us+f_\theta
 &=12\theta t e^{-2\theta t}-6e^{-2\theta t},\\
 \frac{ds}{dt}
 &=-6e^{-2\theta t}+12\theta t e^{-2\theta t}
 \end{aligned}
-$
+$$
 
 で一致する。初期値の微分は $a'(\theta)=0$、実際 $s(0;\theta)=0$ である。
 <!-- solution-end -->
