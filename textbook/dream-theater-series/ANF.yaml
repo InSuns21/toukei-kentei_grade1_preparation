@@ -79,7 +79,7 @@ chapters:
     title: "類体論の計算例"
   - id: ANF19
     path: textbook/volumes/dream_thater/代数系/ANF/ANF19
-    status: planned
+    status: completed
     title: "アデール・イデールと有限性条件"
   - id: ANF20
     path: textbook/volumes/dream_thater/代数系/ANF/ANF20
