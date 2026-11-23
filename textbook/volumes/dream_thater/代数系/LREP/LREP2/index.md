@@ -48,7 +48,15 @@ $$
 <a id="cor-lrep2-hom"></a>
 <!-- formal-statement-start -->
 > **系（既約表現の絡作用素空間）**  
-> $G$ の非零・有限次元複素既約表現 $(V,D)$ と $(W,E)$ に対し、絡作用素全体を $\operatorname{Hom}_G(V,W)$ と書く。このとき両表現が非同値なら $\operatorname{Hom}_G(V,W)=\{0\}$、同値なら $\dim_{\mathbb C}\operatorname{Hom}_G(V,W)=1$ である。
+> $G$ の非零・有限次元複素既約表現 $(V,D)$ と $(W,E)$ に対し、絡作用素全体を $\operatorname{Hom}_G(V,W)$ と書く。この空間の複素次元は次のとおりである。
+
+$
+\dim_{\mathbb C}\operatorname{Hom}_G(V,W)
+=\begin{cases}
+0 & ((V,D)\not\simeq(W,E)),\\
+1 & ((V,D)\simeq(W,E)).
+\end{cases}
+$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
