@@ -1,0 +1,50 @@
+id: "GBG27"
+title: "自己双対性はYang–Mills作用に何を与えるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG26
+  - GBG12
+  - GBG11
+  - GEO8
+official_scope: []
+learning_objectives:
+  - 向き付きRiemann 4多様体の2形式についてHodge星を内積と体積形式から定義し基底で検算できる
+  - 星の二乗が1になる理由とLorentz計量との違いを説明できる
+  - SU(2)曲率を自己双対・反自己双対成分に直交分解し局所接続で検算できる
+  - 反Hermite基本表現の正の跡内積からYang–Mills作用を正規化できる
+  - 前講の第二Chern数の符号で作用を平方完成し8π²|k|下界と等号条件を導ける
+  - S4クラッチングで正のkが反自己双対・負のkが自己双対に対応することを示せる
+  - 接続の一次変分からd_A*F=0を境界項込みで導ける
+  - Bianchi恒等式から自己双対接続がYang–Mills方程式を満たすと証明できる
+  - 向き反転・境界条件・非コンパクト有限作用性・作用係数の条件を区別できる
+definitions:
+  - { id: GBG27-DEF-01, name: 4次元の2形式に作用するHodge星 }
+  - { id: GBG27-DEF-02, name: 自己双対・反自己双対曲率 }
+  - { id: GBG27-DEF-03, name: Yang–Mills作用 }
+theorems:
+  - { id: GBG27-PROP-01, name: 4次元の星の二乗 }
+  - { id: GBG27-PROP-02, name: 曲率の直交分解 }
+  - { id: GBG27-THM-01, name: Yang–Mills作用の位相的下界 }
+  - { id: GBG27-THM-02, name: Yang–Mills作用の第一変分と方程式 }
+  - { id: GBG27-THM-03, name: 自己双対・反自己双対接続はYang–Mills接続 }
+canonical_examples:
+  - Euclid4空間の正規直交2形式に対するHodge星の全基底での符号検査
+  - 可換なSU(2)対角接続での自己双対曲率と反自己双対曲率
+  - 基本表現の跡を用いた正の作用密度の直接検算
+  - S4クラッチング次数プラス1とマイナス1での最小作用と双対符号
+  - 向き反転と境界付き領域での作用・Chern数・境界項
+problem_patterns:
+  - GBG27-HODGE-BASIS
+  - GBG27-PROJECTIONS
+  - GBG27-TRACE-NORM
+  - GBG27-ORIENTATION-SWAP
+  - GBG27-BOGOMOLNY-BOUND
+  - GBG27-CONNECTION-VARIATION
+  - GBG27-BOUNDARY-FIRST-VARIATION
+  - GBG27-CHERN-ZERO-NONFLAT
+  - GBG27-INSTANTON-TO-YM
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 4 }
