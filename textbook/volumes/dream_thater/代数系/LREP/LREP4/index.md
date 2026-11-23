@@ -405,7 +405,7 @@ $$
 J=\begin{pmatrix}0&1\\-1&0\end{pmatrix},\qquad
 \epsilon(v,w)=v^{\mathsf T}Jw=v_1w_2-v_2w_1
 $$
-と定めます。$J$ は基底での値 $J_{ij}=\epsilon(e_i,e_j)$ を並べた行列です。[双線形形式の基底表示](../../../基礎科目/LA/LA3E/index.md#prop-la3e-bilinear-nondegenerate-matrix)によって、任意の $v,w$ に対してこの行列式で値を計算できます。第一変数について
+と定めます。$J$ は基底での値 $J_{ij}=\epsilon(e_i,e_j)$ を並べた行列です。[双線形形式の基底表示](../../../基礎科目/LA/LA3E/index.md#prop-la3e-bilinear-nondegenerate-matrix)によって、任意の $v,w$ に対してこの行列表示で値を計算できます。第一変数について
 $$
 \epsilon(v+u,w)=(v_1+u_1)w_2-(v_2+u_2)w_1
 =\epsilon(v,w)+\epsilon(u,w),\qquad
