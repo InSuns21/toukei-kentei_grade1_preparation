@@ -1,0 +1,37 @@
+chapter: GBG15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG14
+forward_references: []
+concepts:
+  - id: gauge.holonomy-group
+    name: 主束接続のホロノミー群
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（主束接続のホロノミー群）"]
+    requires: [gauge.principal-parallel-transport, gauge.parallel-transport-path-laws]
+
+  - id: gauge.holonomy-subgroup
+    name: ホロノミーは部分群をなす
+    kind: theorem
+    introduction: formal
+    requires: [gauge.holonomy-group, gauge.parallel-transport-path-laws]
+
+  - id: gauge.holonomy-base-change
+    name: ファイバーの基準点と基点の変更
+    kind: theorem
+    introduction: formal
+    requires: [gauge.holonomy-subgroup, gauge.parallel-transport-path-laws]
+
+  - id: gauge.local-holonomy-conjugation
+    name: 局所輸送行列とホロノミーの共役
+    kind: proposition
+    introduction: formal
+    requires: [gauge.holonomy-group, gauge.local-transport-gauge-transformation]
+
+  - id: gauge.small-loop-curvature-expansion
+    name: 微小矩形の輸送と曲率
+    kind: theorem
+    introduction: formal
+    requires: [gauge.local-holonomy-conjugation, gauge.local-curvature-structure-equation, gauge.path-ordered-exponential]
