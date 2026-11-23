@@ -83,15 +83,25 @@ $$
 <!-- proof-start -->
 ### 証明
 
-法 $p$ の非零元 $a$ はFermatの小定理から $f(a)\equiv0\pmod p$ です。導関数は $f'(a)=(p-1)a^{p-2}\not\equiv0\pmod p$。これは[Henselの単純根の持ち上げ](../../ANF/ANF10/index.md#thm-anf10-hensel-simple)の仮定です。実際、$f(d)\equiv0\pmod{p^k}$ を満たす $d$ から $d+tp^k$ へ進むと、
+法 $p$ の非零元 $a$ は[Fermatの小定理](../../NT/NT2/index.md#cor-nt2-fermat)から $f(a)\equiv0\pmod p$ を満たします。また
+$$
+f'(a)=(p-1)a^{p-2}\not\equiv0\pmod p.
+$$
+これは[Henselの単純根の持ち上げ](../../ANF/ANF10/index.md#thm-anf10-hensel-simple)の仮定です。
+
+実際、$1\le k\le n$ とし、$f(d)\equiv0\pmod{p^k}$ を満たす代表整数 $d$ を取ります。次の桁の候補は $d+tp^k$（$0\le t<p$）です。二項展開の二次以上の項は $p^{k+1}$ で割り切れるので
 $$
 f(d+tp^k)\equiv f(d)+tp^kf'(d)\pmod{p^{k+1}}.
 $$
-$p^k$ で割って法 $p$ で考えると $f'(d)t\equiv-f(d)/p^k\pmod p$ です。$f'(d)$ は法 $p$ で可逆なので $t\bmod p$ は一意に決まります。帰納して法 $p^{n+1}$ の根が一意に存在します。根同士の積・逆元も $p-1$ 乗が1なので根の集合は部分群です。還元が一対一かつ全射であることから位数は $p-1$ です。持ち上げの一意性は階層間の両立性も与えます。
+ここで $p^k\mid f(d)$ だから $f(d)/p^k$ は整数です。両辺の差を $p^k$ で割って法 $p$ で考えると
+$$
+f'(d)t\equiv-\frac{f(d)}{p^k}\pmod p
+$$
+です。$f'(d)$ は法 $p$ で可逆なので $t\bmod p$ は一意に決まります。帰納して法 $p^{n+1}$ の根が一意に存在します。根同士の積・逆元も $p-1$ 乗が1なので根の集合は部分群です。還元が一対一かつ全射であることから位数は $p-1$ です。持ち上げの一意性は階層間の両立性も与えます。
 <!-- proof-end -->
 
 <!-- definition-example-start: def-iwa2-teichmueller-lifts -->
-**定義の確認**。 $p=5,n=1$、法5で $a=2$ とします。$d=2+5t$ と置くと
+**定義の確認**。$p=5,n=1$、法5で $a=2$ とします。定義には「法5で2に還元される」と「4乗が法25で1になる」の二条件があります。前者を満たす法25の候補は $d=2+5t$（$0\le t<5$）に限られます。後者をこの座標で確かめるため二項展開すると
 $$
 (2+5t)^4\equiv16+4\cdot8\cdot5t
 \equiv16+10t\pmod{25}.
@@ -161,7 +171,7 @@ $$
 上の付値公式から $g^{p^n}\equiv1\pmod{p^{n+1}}$ で、$n\ge1$ なら $g^{p^{n-1}}\not\equiv1\pmod{p^{n+1}}$ です。従って位数は $p^n$。$U_n$ の位数も $p^n$ なので $g^k$（$0\le k<p^n$）が各元を一度ずつ表します。法 $p^{n+1}$ への還元は $g^k$ を $g^k$ に送るので、指数の合同類を還元する写像です。$n=0$ では $U_0$ が自明群であり、同じ主張が成り立ちます。
 <!-- proof-end -->
 
-**数値例。** $p=5,n=1$ では $\omega_1(2)=7$、$g=6$。$2\equiv7\cdot11\pmod{25}$ であり、$11\equiv6^2\pmod{25}$。すなわち $2=\omega_1(2)g^2$ です。元の単元 $2$ に「有限部分 $7$」と「指数座標 $2$」が対応しました。
+**数値例。** $p=5,n=1$ では $\omega_1(2)=7$、$g=6$。$2\equiv7\cdot11\pmod{25}$ であり、$11\equiv6^2\pmod{25}$。すなわち法25の単元群では $2\equiv\omega_1(2)g^2\pmod{25}$ です。元の単元 $2$ に「有限部分 $7$」と「指数座標 $2$」が対応しました。
 
 ## 4. 固定体の塔と無限群
 
@@ -197,7 +207,13 @@ $\Delta$ の持ち上げの両立性で固定体の包含を出し、商群の�
 <!-- proof-start -->
 ### 証明
 
-[有限段の持ち上げ](#prop-iwa2-teichmueller-lifting)は $\Delta_{n+1}$ を $\Delta_n$ に還元します。従って $\Delta_{n+1}$ の元は $E_{n+1}$ の中の $K_n$ を固定し、$K_n\subseteq K_{n+1}$ です。$K_0=E_1^{G_1}=\mathbb Q$。Galois対応と[積分解](#thm-iwa2-odd-splitting)により
+[有限段の持ち上げ](#prop-iwa2-teichmueller-lifting)は $\Delta_{n+1}$ を $\Delta_n$ に還元します。具体的に $d\in\Delta_{n+1}$ の $E_{n+1}$ への制限は $\bar d\in\Delta_n$ です。
+
+任意の $x\in K_n=E_{n+1}^{\Delta_n}$ に対して
+$$
+d(x)=\bar d(x)=x
+$$
+となるので、$\Delta_{n+1}$ は $K_n$ を固定します。従って $K_n\subseteq K_{n+1}$ です。なお $K_0=E_1^{G_1}=\mathbb Q$。Galois対応と[積分解](#thm-iwa2-odd-splitting)により
 $$
 \operatorname{Gal}(K_n/\mathbb Q)
 \simeq G_{n+1}/\Delta_n\simeq U_n.
@@ -211,11 +227,17 @@ $$
 位相は左辺のKrull位相と右辺の逆極限位相です。各段の生成元 $g$ は還元で一致するため互換な自己同型列 $\gamma$ を定めます。その指数座標は $(1\bmod p^n)_n$、すなわち $\mathbb Z_p$ の元 $1$ です。[IWA1の位相的生成元判定](../IWA1/index.md#prop-iwa1-generator-criterion)から $\gamma$ の冪は群全体に稠密です。
 <!-- proof-end -->
 
-**三次層の具体例。** $p=3$ では $\Delta_1=\{\pm1\}\subset(\mathbb Z/9\mathbb Z)^\times$、$U_1=\{1,4,7\}$。固定体 $K_1$ は $\mathbb Q(\zeta_9+\zeta_9^{-1})$ です。$\alpha=\zeta_9+\zeta_9^{-1}$ は
+**三次層の具体例。** $p=3$ では $\Delta_1=\{\pm1\}\subset(\mathbb Z/9\mathbb Z)^\times$、$U_1=\{1,4,7\}$ です。$\alpha=\zeta_9+\zeta_9^{-1}$ は複素共役（$-1\in\Delta_1$）で固定されます。また
 $$
-\alpha^3-3\alpha+1=0
+\alpha^3-3\alpha
+=\zeta_9^3+\zeta_9^{-3}
+=-1
 $$
-を満たし、この多項式は有理根 $\pm1$ を持たないため $\deg_{\mathbb Q}\alpha=3$。[IWA1の円分第一層の計算](../IWA1/index.md#thm-iwa1-layer-tower)で扱った次数3の層が、ここでは $g=4$ の作用 $\alpha\mapsto\zeta_9^4+\zeta_9^{-4}$ を持つGalois拡大として見えます。
+なので $\alpha$ は $X^3-3X+1$ の根です。この三次多項式は有理根の候補 $\pm1$ のどちらも根に持たず、$\mathbb Q$ 上既約です。従って
+$$
+[\mathbb Q(\alpha):\mathbb Q]=3=[K_1:\mathbb Q].
+$$
+複素共役で固定されることも確認済みなので、$K_1=\mathbb Q(\alpha)$ です。[IWA1の円分第一層の計算](../IWA1/index.md#thm-iwa1-layer-tower)で扱った次数3の層は、ここでは $g=4$ の作用 $\alpha\mapsto\zeta_9^4+\zeta_9^{-4}$ を持つGalois拡大として見えます。
 
 ## 5. 素数2では何が変わるか
 
@@ -260,16 +282,34 @@ $$
 v_2(x_{k+1}-1)=v_2(x_k^2-1)
 =v_2(x_k-1)+v_2(x_k+1)=k+3.
 $$
-従って $v_2(5^{2^k}-1)=k+2$ であり、$5$ の法 $2^{n+2}$ での位数はちょうど $2^n$ です。よって $V_n=\langle5\rangle$。$\Delta_n^{(2)}$ は複素共役に対応し、固定体は $\zeta+\zeta^{-1}$ で生成されます。$5$ は還元しても $5$ なので、指数座標での制限写像は還元です。
+従って $v_2(5^{2^k}-1)=k+2$ であり、$5$ の法 $2^{n+2}$ での位数はちょうど $2^n$ です。よって $V_n=\langle5\rangle$。$\Delta_n^{(2)}$ の非自明元 $-1$ は複素共役に対応します。$\zeta=\zeta_{2^{n+2}}$ と置くと $s=\zeta+\zeta^{-1}$ は複素共役で固定され、一方で $\zeta$ は
+$$
+X^2-sX+1=0
+$$
+を満たします。$s$ は実数で $\zeta$ は非実数なので $[\mathbb Q(\zeta):\mathbb Q(s)]=2$ です。複素共役の固定体も指数2だから両者は一致します。$5$ は還元しても $5$ なので、指数座標での制限写像は還元です。
 <!-- proof-end -->
 
-**直接例（2進の直積分解）。** $n=1$ では法8の単元は $\{1,3,5,7\}$、符号部分 $\{1,7\}$、$V_1=\{1,5\}$ です。積で4元全てを一意に表せます。固定体 $K_1^{(2)}=\mathbb Q(\zeta_8+\zeta_8^{-1})=\mathbb Q(\sqrt2)$。$5$ の作用は $\sqrt2\mapsto-\sqrt2$ であり、確かに2次拡大の非自明なGalois元です。
+**直接例（2進の直積分解）。** $n=1$ では法8の単元は $\{1,3,5,7\}$、符号部分 $\{1,7\}$、$V_1=\{1,5\}$ です。積で4元全てを一意に表せます。固定体の生成元を $s=\zeta_8+\zeta_8^{-1}$ とすると $s^2=\zeta_8^2+2+\zeta_8^{-2}=2$、かつ $s>0$ です。従って $K_1^{(2)}=\mathbb Q(s)=\mathbb Q(\sqrt2)$。さらに $\zeta_8^4=-1$ から
+$$
+\sigma_5(s)=\zeta_8^5+\zeta_8^{-5}
+=-\zeta_8-\zeta_8^{-1}=-s
+$$
+であり、$5$ の作用は $\sqrt2\mapsto-\sqrt2$ です。次数2の非自明なGalois元を、根への作用から直接確認できました。
 
 この定理を各 $n$ に適用して制限を取れば、[ANF22の2進円分塔](../../ANF/ANF22/index.md#prop-anf22-two-adic-tower)が $\mathbb Z_2$ 拡大になることを指数座標から再確認できます。ここで $\Delta_n^{(2)}$ と $V_n$ は奇素数の $\Delta_n,U_n$ に対応しますが、$p=2$ では指数を2段ずらすことを忘れないでください。
 
 ## 6. Frobeniusで分解を読む
 
-円分塔の群が計算できると、素数 $\ell\ne p$ の振る舞いも分かります。この場合の $\ell$ は[素数冪円分体の非分岐性](../../ANF/ANF22/index.md#prop-anf22-prime-power-degree)により非分岐です。非分岐な素数のFrobenius元は剰余体の $x\mapsto x^\ell$ という写像に対応し、円分体では $\zeta_{p^{n+1}}\mapsto\zeta_{p^{n+1}}^\ell$ となります。
+円分塔の群が計算できると、素数 $\ell\ne p$ の分解も読めます。[素数冪円分体の非分岐性](../../ANF/ANF22/index.md#prop-anf22-prime-power-degree)から、この $\ell$ は非分岐です。算術的Frobeniusは剰余体で $x\mapsto x^\ell$ と作用し、円分体の根には次のように作用します。
+$$
+\zeta_{p^{n+1}}\longmapsto\zeta_{p^{n+1}}^\ell.
+$$
+
+以下、商群の元を剰余類 $[a]=a\Delta_n\in G_{n+1}/\Delta_n$ で表します。[直積分解](#thm-iwa2-odd-splitting)を使うと、対応する $U_n$ 座標は
+$$
+u_a=\omega_n(a\bmod p)^{-1}a\in U_n
+$$
+です。これは有限部分 $\Delta_n$ を取り除いて主単元部分だけを残す操作です。
 
 <a id="prop-iwa2-frobenius-projection"></a>
 
@@ -312,7 +352,7 @@ $$
 
 ## 7. 無限円分群と有限ねじれの切り分け
 
-$p$ 奇素数なら各段の積分解は還元と両立し、
+$\mathbb Q(\zeta_{p^\infty})=\bigcup_{r\ge1}\mathbb Q(\zeta_{p^r})$ と書きます。$p$ が奇素数なら各段の積分解は還元と両立し、
 $$
 \operatorname{Gal}\bigl(\mathbb Q(\zeta_{p^\infty})/\mathbb Q\bigr)
 \simeq \varprojlim_n(\mathbb Z/p^{n+1}\mathbb Z)^\times
@@ -325,7 +365,7 @@ $$
 $$
 であり、$\Gamma$ の生成元には $5$ を使います。いずれも $\Gamma$ は $\mathbb Z_p$ という加法位相群に対応する、乗法記法のGalois群です。
 
-**何が一意なのか。** 有限位数で $p$ と互いに素な元は、加法群 $\mathbb Z_p$ へ準同型で送ると必ず零元になります。$p=2$ の符号元 $-1$ も、$\mathbb Z_2$ に位数2の非零元がないので零元へ写ります。
+**何が一意なのか。** 有限位数の元の像は、加法群 $\mathbb Z_p$ の有限位数元です。しかし $\mathbb Z_p$ は整数環の部分環として標数0であり、非零元 $x$ に対し $mx=0$（正整数 $m$）は起きません。従って有限部分 $\Delta$ は全て零元へ写ります。$p=2$ の符号元 $-1$ も、$\mathbb Z_2$ に位数2の非零元がないので零元へ写ります。
 
 従って全円分群から $\mathbb Z_p$ への連続全射は、有限部分 $\Delta$ を核に含みます。その全射は $\Gamma$ からの連続全射に誘導され、対応する固定体は円分的 $\mathbb Z_p$ 塔に含まれます。
 
@@ -448,7 +488,13 @@ $$
 
 $-1\equiv15$ は $\langle3\rangle$ に属さないため、法16では符号群との別の直積分解も可能です。しかし法8でも $3\bmod8$ は $1\bmod4$ の条件を満たさず、$V_1=\{1,5\}$ に属しません。従って $3$ は主単元群 $V_n$ の生成元にはなれません。
 
-$\langle3\rangle$ は符号群の別の補群として階層間で両立し得ます。それでも本講の主単元部分群 $V_n$ を選ぶなら、全ての段で $1\bmod4$ になる $5$ を生成元に使います。
+法8以上（$n\ge1$）では、$3$ の冪は法8で $1$ または $3$ となり、$-1\equiv7\pmod8$ を含みません。法16で見た $\langle3\rangle$ は符号群の別の補群ですが、$V_n$ とは異なります。
+
+一方、最下段の法4では $3\equiv-1\pmod4$ なので
+$$
+\langle3\rangle=\Delta_0^{(2)}\ne V_0=\{1\}.
+$$
+この段では符号群の補群になりません。全段で主単元部分 $V_n$ の指数座標をそろえるなら、$1\bmod4$ の $5$ を生成元に使います。
 <!-- solution-end -->
 
 ### C1. 第二層までの統合計算
