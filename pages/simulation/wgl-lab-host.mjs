@@ -65,7 +65,7 @@ const requestedCase = new URL(location.href).searchParams.get('case');
 const labCase = isWGL20 && ['CS1','CS2','CS3'].includes(requestedCase) ? requestedCase : 'BASE';
 // FCG8's old saved JS predates the live playback hooks. Keep the old key
 // intact for recovery, but never silently restore it into the new live runner.
-const STORAGE_KEY = 'toukei-' + (isFCG8?'fcg8-live-v2':VERSION) + '-' + lesson +
+const STORAGE_KEY = 'toukei-' + (isFCG8?'fcg8-live-v2':isWGL19?'wgl19-replay-v2':VERSION) + '-' + lesson +
   (isWGL20 ? '-' + labCase : '');
 
 const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/' + ((isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8) ? 'FCG' : 'WGL') + '/' + lesson + '/', import.meta.url);
