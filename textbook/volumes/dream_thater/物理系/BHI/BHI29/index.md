@@ -124,20 +124,20 @@ $$
 ds^2=d\rho^2+\left(\frac{b}{2\pi}\cosh\rho\right)^2d\theta^2
 $$
 を使います。$b$ は中央の閉測地線の長さです。$f(\rho)=(b/2\pi)\cosh\rho>0$ と置くと、計量の成分は
-$
+$$
 g_{\rho\rho}=1,\qquad g_{\theta\theta}=f(\rho)^2
-$
+$$
 です。これを使いChristoffel記号の非零成分を計算すると
-$
+$$
 \Gamma^\rho_{\theta\theta}=-ff',\qquad
 \Gamma^\theta_{\rho\theta}=\Gamma^\theta_{\theta\rho}=\frac{f'}{f}.
-$
+$$
 従って曲率成分とGauss曲率は
-$
+$$
 R^\rho{}_{\theta\rho\theta}
 =\partial_\rho(-ff')-(-ff')\frac{f'}f=-ff'',\qquad
 K=\frac{R_{\rho\theta\rho\theta}}{g_{\rho\rho}g_{\theta\theta}}=-\frac{f''}{f}.
-$
+$$
 $f''=f$ より $K=-1$、二次元のスカラー曲率は $R=2K=-2$ です。また $\rho=0$ では、円周長が $\int_0^{2\pi}f(0)\,d\theta=b$ となります。一定 $\rho$ の円の測地線方程式の法線成分は $\ddot\rho+\Gamma^\rho_{\theta\theta}\dot\theta^2=0$ であり、$f'(0)=0$ から中央円は測地線です。両端 $\rho\to\pm\infty$ は二つの境界へ延びます。
 
 この曲面は **double trumpet（二つの漏斗をつないだ円筒）**の幾何です。$R=-2$ は[BHI19のdilaton変分からの曲率拘束](../BHI19/index.md#prop-bhi19-curvature-eom)と整合しますが、**これだけで物質を含む全鞍点方程式を解いたことにはなりません**。
@@ -286,9 +286,9 @@ $$
 \mathcal J(n,x)=(n-1)F(x)+O((n-1)^2),
 $$
 ここで $n$ を固定し、端点座標を成分ごとに微分する勾配を
-$
+$$
 \nabla_x=\left(\frac{\partial}{\partial x^1},\ldots,\frac{\partial}{\partial x^m}\right)
-$
+$$
 と書きます。そのノルムはEuclidノルムです。
 
 余剰項は端点座標に関する一階微分まで一様に $O((n-1)^2)$ と評価できるものとし、$F$ は微分可能とします。また $U_0\Subset U$ は、開集合 $U$ の内部に収まるコンパクト集合を表します。$\mathcal J$ は作用と規格化を含む量で、位相差だけではありません。$F$ が重力固定点の値と物質領域のエントロピーからなることは、適切な重力・物質の場の方程式を解いた場合の物理的な主張です。次の命題では**その主張に必要な極値の数学的構造**だけを分離します。
