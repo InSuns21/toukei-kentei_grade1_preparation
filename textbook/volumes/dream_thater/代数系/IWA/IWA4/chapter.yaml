@@ -1,0 +1,46 @@
+id: "IWA4"
+title: "ノルム・制限と逆極限"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IWA3
+  - ANF12
+official_scope: []
+learning_objectives:
+  - 体ノルム・イデアルノルム・イデアル延長・Galois制限の向きと対象を区別できる
+  - 主イデアルのノルム公式と延長後の次数公式および共役積公式を証明できる
+  - 塔でのノルムの合成則とGalois作用との両立性を証明できる
+  - 円分局所主単数のノルム整合例を計算し全射性と区別できる
+  - 逆極限の整合条件と普遍性を証明し遷移写像の変更による反例を示せる
+  - 有限類群のp部分の逆極限に岩澤代数の連続作用を構成できる
+definitions:
+  - { id: IWA4-DEF-01, name: 体のノルム }
+  - { id: IWA4-DEF-02, name: イデアルのノルムと延長 }
+  - { id: IWA4-DEF-03, name: 局所単数のノルム系 }
+  - { id: IWA4-DEF-04, name: 逆極限 }
+theorems:
+  - { id: IWA4-PROP-01, name: 主イデアルと次数の整合性 }
+  - { id: IWA4-PROP-02, name: 延長後のノルムは共役の積 }
+  - { id: IWA4-PROP-03, name: ノルムの塔での合成とGalois作用 }
+  - { id: IWA4-THM-01, name: 逆極限の普遍性 }
+  - { id: IWA4-THM-02, name: 類群の逆極限への岩澤代数作用 }
+canonical_examples:
+  - Q(i)/Qの体ノルムと5の素イデアル分解
+  - pが奇素数の局所円分塔での根の一意的ノルム整合列
+  - Z/p^nの還元系とp倍遷移系の逆極限
+  - Gammaが自明作用するZ/p^n系のLambda作用
+problem_patterns:
+  - IWA4-QUADRATIC-FIELD-NORM
+  - IWA4-IDEAL-EXTENSION-NORM
+  - IWA4-COMPATIBLE-RESIDUES
+  - IWA4-CYCLOTOMIC-LOCAL-ROOT-NORM
+  - IWA4-P-PRIMARY-FUNCTORIALITY
+  - IWA4-IDEAL-DEGREE-IDENTITY
+  - IWA4-GALOIS-EQUIVARIANCE
+  - IWA4-MULTIPLICATION-P-LIMIT
+  - IWA4-UNIVERSAL-DENSE-IMAGE
+  - IWA4-IWASAWA-AUGMENTATION-ACTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 8, review: 3 }

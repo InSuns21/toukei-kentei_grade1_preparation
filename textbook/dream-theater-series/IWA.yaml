@@ -19,7 +19,7 @@ chapters:
     title: "岩澤代数・完備群環"
   - id: IWA4
     path: textbook/volumes/dream_thater/代数系/IWA/IWA4
-    status: planned
+    status: completed
     title: "ノルム・制限と逆極限"
   - id: IWA5
     path: textbook/volumes/dream_thater/代数系/IWA/IWA5
