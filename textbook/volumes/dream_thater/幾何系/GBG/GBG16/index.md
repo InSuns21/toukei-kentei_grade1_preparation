@@ -31,11 +31,11 @@ $$
 **定義の確認**。積主束 $P=\mathbb R^2\times U(1)$ と標準 section を取り、定数 $a,b\in\mathbb R$ に対して次の局所接続を考える。
 $$
 A=ia\,dx+ib\,dy.
-$
+$$
 ここで $A$ は基底上の $i\mathbb R$ 値1形式である。[積主束の接続形式の構成](../GBG7/index.md#prop-gbg7-product-form)を $U(1)$ に適用すると、$z\in U(1)$、$v\in T_x\mathbb R^2$、$W\in T_zU(1)$ に対して
-$
+$$
 \omega_{(x,z)}(v,W)=A_x(v)+z^{-1}W
-$
+$$
 が主束全体の接続形式となる。標準 section $s_0(x)=(x,1)$ では $ds_0(v)=(v,0)$ なので $s_0^*\omega=A$。したがって局所表示 $A$ を計算することで、この主束接続の平坦性を判定できる。
 
 $U(1)$ は可換だから $A\wedge A=0$、定数係数ゆえ $dA=0$。したがって [局所曲率の構造方程式](../GBG10/index.md#thm-gbg10-local-formula) から
@@ -110,10 +110,10 @@ $$
 他方、射影した括弧は $[\partial_i,\partial_j]=0$ である。ゆえに $[H_i,H_j]$ は垂直かつ水平であり、水平・垂直の直和分解から $[H_i,H_j]=0$ となる。
 
 $H_i$ の局所フローを $\Phi_i^t$ と書く。ここで $t$ はフローの時間であり、$\Phi_i^0(q)=q$、$\frac{d}{dt}\Phi_i^t(q)=H_i(\Phi_i^t(q))$ で定める。ベクトル場の Lie 括弧とフローの関係を適用すると、定義可能な範囲で
-$
+$$
 \frac{d}{dt}(\Phi_i^{-t})_*H_j
 =(\Phi_i^{-t})_*[H_i,H_j]=0.
-$
+$$
 $t=0$ の値が $H_j$ だから $(\Phi_i^t)_*H_j=H_j$。したがって $\Phi_i^t$ は $H_j$ の積分曲線を積分曲線へ移す。初期値問題の一意性から $\Phi_i^t\circ\Phi_j^r=\Phi_j^r\circ\Phi_i^t$ が両辺とも定義される十分小さな範囲で成立する。
 
 初期点 $p_0$ に対し、座標差 $\delta_i=u^i-u^i(x_0)$ を使って
@@ -121,12 +121,12 @@ $$
 s(u)=\Phi_n^{\delta_n}\circ\cdots\circ\Phi_1^{\delta_1}(p_0)
 $$
 と定める。フローの局所存在とパラメータへの滑らかな依存性から、小さな共通立方体 $U$ 上でこれは滑らかに定義される。$\pi_*H_i=\partial_i$ だから $\pi(s(u))=u$、また $\delta_i=0$ では恒等フローなので $s(x_0)=p_0$ である。可換性により任意の $i$ のフローを最後に回せる。$e_i$ を第 $i$ 座標の単位方向とすると、十分小さい $t$ について $s(u+te_i)=\Phi_i^t(s(u))$ である。従って時間微分の定義から
-$
+$$
 ds_u(\partial_i)
 =\left.\frac{d}{dt}\right|_{t=0}s(u+te_i)
 =H_i(s(u)),
 \qquad \omega(ds_u(\partial_i))=0.
-$
+$$
 座標ベクトルは接空間を張るので $s^*\omega=0$ が従う。
 
 今度は $U$ 内の路 $\gamma$ を取る。$t\mapsto s(\gamma(t))$ は $\omega(ds(\dot\gamma))=0$ により水平である。[GBG14 の水平リフトの存在・一意性](../GBG14/index.md#thm-gbg14-horizontal-existence)から、始点 $s(x)$ を持つ輸送の終点は $s(y)$。[同講の右同変性](../GBG14/index.md#thm-gbg14-transport-laws)により一般の $s(x)g$ でも結論の式を得る。
@@ -177,16 +177,16 @@ $$
 0=k^{-1}(0)k+k^{-1}dk,\qquad dk=0.
 $$
 従って重なりの各道連結成分で $k$ は一定である。小区間の像が両 section の定義域に入る場合、$c([a,b])$ は連結だから $k(c(a))=k(c(b))$ である。始点の点を
-$
+$$
 p=s_\alpha(c(a))g_\alpha=s_\beta(c(a))g_\beta
 =s_\alpha(c(a))k(c(a))g_\beta
-$
+$$
 と書けば $g_\alpha=k(c(a))g_\beta$ であり、終点では
-$
+$$
 s_\beta(c(b))g_\beta
 =s_\alpha(c(b))k(c(b))g_\beta
 =s_\alpha(c(b))g_\alpha.
-$
+$$
 従って同じ小区間の輸送は section の選択に依存しない。
 
 細分をさらに細かくしても合成結果は同じである。異なる二つの細分を共通に細分すれば、選び方によらず連続路の輸送が定まる。区分的 $C^1$ 路については [水平リフトの一意性](../GBG14/index.md#thm-gbg14-horizontal-existence)から従来の平行移動と一致する。以下ではこの拡張を中間の連続路にも用いる。
