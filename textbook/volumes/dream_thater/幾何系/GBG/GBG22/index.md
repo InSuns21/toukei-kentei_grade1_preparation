@@ -8,7 +8,15 @@
 
 $\pi:P\to M$ を滑らかな右主 $G$ 束とし、$\omega_0,\omega_1$ は $P$ 上の二つの接続1形式、$\Omega_0,\Omega_1$ はその曲率とする。
 
-整数 $k\ge1$ を固定する。$p:\mathfrak g^k\to\mathbb C$ は [対称Ad不変多重線形形式](../GBG20/index.md#def-gbg20-invariant-polynomial)であり、各引数について実線形である。複素値の微分形式には外微分・外積を複素線形に拡張する。複素係数 de Rham コホモロジー $H^q_{\mathrm{dR}}(M;\mathbb C)$ も、[実係数の定義](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)と同じく、複素値閉 $q$ 形式を複素値完全 $q$ 形式で割ったものとする。$d(\eta+i\xi)=d\eta+i\,d\xi$（$\eta,\xi$ は実数値形式）なので、閉性と完全性の判定は実部・虚部ごとに行える。計量、向き、コンパクト性は主定理に不要である。
+整数 $k\ge1$ を固定する。$p:\mathfrak g^k\to\mathbb C$ は [対称Ad不変多重線形形式](../GBG20/index.md#def-gbg20-invariant-polynomial)であり、各引数について実線形である。複素値の微分形式には外微分・外積を複素線形に拡張する。
+
+複素係数 de Rham コホモロジー $H^q_{\mathrm{dR}}(M;\mathbb C)$（$q\ge0$）も、[実係数の定義](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)と同じく、複素値閉 $q$ 形式を複素値完全 $q$ 形式で割ったものとする。同じ次数の実数値形式 $\eta,\xi$ に対して
+
+$$
+d(\eta+i\xi)=d\eta+i\,d\xi
+$$
+
+なので、閉性と完全性の判定は実部・虚部ごとに行える。計量、向き、コンパクト性は主定理に不要である。
 
 <!-- definition-example-audit: strict -->
 
@@ -185,7 +193,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg22-transgression -->
-**定義の確認**。基底を座標 $(x,y)$ を持つ $\mathbb R^2$ とする積主 $U(1)$ 束で、標準 section の局所表示を $A_0=0$、$A_1=ix\,dy$ とし、$k=1$、$p(iu)=u$（$u\in\mathbb R$）を取る。$\mathfrak u(1)=i\mathbb R$ の任意の元は一意に $iu$ と書けるので、この式は $p$ を実線形写像として一意に定める。$U(1)$ の随伴作用は恒等だから $p$ はAd不変でもある。$a=ix\,dy$ は Lie環値1形式で、$A_t=itx\,dy$ から $F_t=dA_t=it\,dx\wedge dy$ を得る。$k=1$ では $F_t^0$ は因子を一つも取らない空積を表し、
+**定義の確認**。基底を座標 $(x,y)$ を持つ $\mathbb R^2$ とする積主 $U(1)$ 束で、標準 section の局所表示を $A_0=0$、$A_1=ix\,dy$ とし、$k=1$、$p(iu)=u$（$u\in\mathbb R$）を取る。$\mathfrak u(1)=i\mathbb R$ の任意の元は一意に $iu$ と書けるので、この式は $p$ を実線形写像として一意に定める。$U(1)$ の随伴作用は恒等だから $p$ はAd不変でもある。
+
+このとき $a=ix\,dy$ は Lie環値1形式で、補間した接続とその曲率は
+
+$$
+A_t=itx\,dy,\qquad F_t=dA_t=it\,dx\wedge dy
+$$
+
+となる。$k=1$ では $F_t^0$ は因子を一つも取らない空積を表し、
 
 $$
 T_p(A_1,A_0)
@@ -382,7 +398,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg22-local-chern-simons -->
-**定義の確認**。基底を $\mathbb R^2$ とし、$G=U(1)$、$k=1$、$p(iu)=u$（$u\in\mathbb R$）とすると、$F_t^0$ は空積であり $\operatorname{CS}_p(A)=p(A)$ である。$A=ix\,dy$ なら局所1形式は $x\,dy$、その外微分は $p(F)=dx\wedge dy$。$k=2$ では、行列 Lie 群 $G\subset GL(n,\mathbb C)$ の Lie 環の行列表現を用いて $p(X,Y)=\operatorname{tr}(XY)$ とする。$k=2$ では $\frac12\operatorname{tr}(XY+YX)=\operatorname{tr}(XY)$ だから、これは [GBG20の対称化traceのAd不変性](../GBG20/index.md#thm-gbg20-trace-invariant)をそのまま使える場合である。実際、$p$ は対称（$\operatorname{tr}(XY)=\operatorname{tr}(YX)$）かつAd不変（$\operatorname{tr}(g^{-1}XYg)=\operatorname{tr}(XY)$）であり、次の具体式が得られる。
+**定義の確認**。基底を $\mathbb R^2$ とし、$G=U(1)$、$k=1$、$p(iu)=u$（$u\in\mathbb R$）とすると、$F_t^0$ は空積であり $\operatorname{CS}_p(A)=p(A)$ である。$A=ix\,dy$ なら局所1形式は $x\,dy$、その外微分は $p(F)=dx\wedge dy$。
+
+$k=2$ では行列 Lie 群 $G\subset GL(n,\mathbb C)$ の Lie 環の行列表現を用いる。$X,Y$ をこの Lie 環の行列として、
+
+$$
+p(X,Y)=\operatorname{tr}(XY),\qquad
+\frac12\operatorname{tr}(XY+YX)=\operatorname{tr}(XY)
+$$
+
+と定める。すなわち、これは [GBG20の対称化traceのAd不変性](../GBG20/index.md#thm-gbg20-trace-invariant)をそのまま使える場合である。$p$ は対称（$\operatorname{tr}(XY)=\operatorname{tr}(YX)$）かつAd不変（$\operatorname{tr}(g^{-1}XYg)=\operatorname{tr}(XY)$）なので、次の具体式が得られる。
 <!-- definition-example-end -->
 
 <a id="prop-gbg22-local-cs-primitive"></a>
