@@ -26,7 +26,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep4-direct-sum -->
-**定義の確認。** $G=C_2=\{e,s\}$、$s^2=e$ とし、$D(s)=1$ を $\mathbb C$ 上に、$E(s)=-1$ を別の $\mathbb C$ 上に作用させます。いずれも二乗が1です。$V\oplus W\cong\mathbb C^2$ の順序付き基底では
+**定義の確認**。 $G=C_2=\{e,s\}$、$s^2=e$ とし、$D(s)=1$ を $\mathbb C$ 上に、$E(s)=-1$ を別の $\mathbb C$ 上に作用させます。いずれも二乗が1です。$V\oplus W\cong\mathbb C^2$ の順序付き基底では
 $$
 (D\oplus E)(e)=I_2,\qquad
 (D\oplus E)(s)=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
@@ -84,7 +84,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep4-tensor-product -->
-**定義の確認。** $G=C_2$、$V=\mathbb C^2$、$D(s)=\operatorname{diag}(1,-1)$、$W=\mathbb C$、$E(s)=-1$ とします。[有限次元テンソル積の存在と基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)から $e_1\otimes1,e_2\otimes1$ が基底です。各基底ベクトルに作用すると
+**定義の確認**。 $G=C_2$、$V=\mathbb C^2$、$D(s)=\operatorname{diag}(1,-1)$、$W=\mathbb C$、$E(s)=-1$ とします。[有限次元テンソル積の存在と基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)から $e_1\otimes1,e_2\otimes1$ が基底です。各基底ベクトルに作用すると
 $$
 (D\otimes E)(s)(e_1\otimes1)=-e_1\otimes1,\qquad
 (D\otimes E)(s)(e_2\otimes1)=+e_2\otimes1.
@@ -182,7 +182,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep4-dual -->
-**定義の確認。** $(\mathbb R,+)$ の表現 $D(t)=\operatorname{diag}(e^t,e^{2t})$ を $V=\mathbb C^2$ 上に取ります。$D(-t)=\operatorname{diag}(e^{-t},e^{-2t})$ です。双対基底 $e^1,e^2$ で
+**定義の確認**。 $(\mathbb R,+)$ の表現 $D(t)=\operatorname{diag}(e^t,e^{2t})$ を $V=\mathbb C^2$ 上に取ります。$D(-t)=\operatorname{diag}(e^{-t},e^{-2t})$ です。双対基底 $e^1,e^2$ で
 $$
 D^\vee(t)=\operatorname{diag}(e^{-t},e^{-2t}).
 $$
@@ -264,7 +264,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep4-conjugate -->
-**定義の確認。** $C_3=\langle r:r^3=e\rangle$ の1次元表現 $D(r)=\omega=e^{2\pi i/3}$ に対し、共役表現では $\overline D(r)=\overline\omega=\omega^2$ です。$(\omega^2)^3=1$ なので群関係が保たれます。$\overline D(r)(\lambda\overline v)=\lambda\overline D(r)(\overline v)$ が成立するのは、上に指定した $\overline V$ のスカラー倍によります。
+**定義の確認**。 $C_3=\langle r:r^3=e\rangle$ の1次元表現 $D(r)=\omega=e^{2\pi i/3}$ に対し、共役表現では $\overline D(r)=\overline\omega=\omega^2$ です。$(\omega^2)^3=1$ なので群関係が保たれます。$\overline D(r)(\lambda\overline v)=\lambda\overline D(r)(\overline v)$ が成立するのは、上に指定した $\overline V$ のスカラー倍によります。
 <!-- definition-example-end -->
 
 任意の $g,h$ について $\overline D(g)\overline D(h)\overline v=\overline{D(g)D(h)v}=\overline D(gh)\overline v$ なので、これも群表現です。
@@ -378,7 +378,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep4-invariant-bilinear -->
-**定義の確認。** $V=\mathbb C^2$、$G=SL(2,\mathbb C)$、$D(A)v=Av$ とし、交代形式を
+**定義の確認**。 $V=\mathbb C^2$、$G=SL(2,\mathbb C)$、$D(A)v=Av$ とし、交代形式を
 $$
 \epsilon(v,w)=v^{\mathsf T}
 \begin{pmatrix}0&1\\-1&0\end{pmatrix}w
