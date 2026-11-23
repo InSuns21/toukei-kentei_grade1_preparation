@@ -264,7 +264,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Krull位相）**  
-> $E/K$ を（無限でもよい）Galois拡大、$G=\operatorname{Gal}(E/K)$ とする。$K\subseteq L\subseteq E$ を動く有限Galois中間拡大 $L/K$ に対し、$\operatorname{Gal}(E/L)$ を単位元の開近傍の基本系とする位相を、$G$ の **Krull位相** と呼ぶ。
+> $E/K$ をGalois拡大（無限拡大でもよい）、$G=\operatorname{Gal}(E/K)$ とする。
+>
+> $K\subseteq L\subseteq E$ を満たす有限Galois中間拡大 $L/K$ を動かす。
+>
+> 各部分群 $\operatorname{Gal}(E/L)$ を単位元の開近傍の基本系とする位相を、$G$ の **Krull位相** と呼ぶ。
 <!-- formal-statement-end -->
 
 この位相は有限段への制限写像から得られる逆極限位相と一致します。自己同型の列が単位元に近づくとは、どの有限Galois中間体 $L$ についても、十分先では $L$ の全元を固定することです。
