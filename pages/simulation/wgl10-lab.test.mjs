@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {firstPassByte, secondPassByte, expectedWGL10Samples,
   compareWGL10Readback} from './wgl10-lab-core.mjs';
+import {parametersFor, readLabParameter, writeLabParameter} from './wgl-lab-parameters.mjs';
 
 test('WGL10 RGBA8 quantizes before the inverse filter', () => {
   assert.deepEqual(firstPassByte(false, false), [51, 77, 102, 255]);
@@ -53,4 +54,22 @@ test('WGL10 FBO lifecycle, shared shader, pass labels and actual GUI source', as
   assert.match(host, /compareWGL10Readback/);
   assert.match(host, /iframe\.setAttribute\('sandbox', 'allow-scripts'\)/);
   assert.match(md, /lesson=WGL10/);
+});
+
+test('WGL10 controls edit the actual learner JS and can read the edit back', async () => {
+  const path = new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL10/framebuffer.js',import.meta.url);
+  const original = await readFile(path,'utf8');
+  const specs = parametersFor('WGL10');
+  assert.deepEqual(specs.map(spec => spec.id),['offscreen-scale','filter-mode','inspection-pass']);
+  assert.deepEqual(specs.map(spec => readLabParameter(original,spec)),
+    specs.map(spec => ({ok:true,value:spec.default})));
+  const edits = [0.5,'grayscale','texture'];
+  let source = original;
+  for (let i = 0; i < specs.length; i++) source = writeLabParameter(source,specs[i],edits[i]);
+  assert.deepEqual(specs.map(spec => readLabParameter(source,spec)),
+    edits.map(value => ({ok:true,value})));
+  assert.match(source,/const offscreenScale = 0\.5;/);
+  assert.match(source,/const filterMode = 'grayscale';/);
+  assert.match(source,/const inspectionPass = 'texture';/);
+  assert.throws(()=>writeLabParameter(original,specs[0],0.4),RangeError);
 });
