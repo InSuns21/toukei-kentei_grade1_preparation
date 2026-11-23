@@ -10,7 +10,7 @@
 
 ## 2. 周期関数とFourier係数を定義する
 
-円周を一周する座標 $x$ を実数の $x$ と $x+1$ を同一視して表す。周期領域 $\mathbb T=\mathbb R/\mathbb Z$ 上の連続関数は、$h(x+1)=h(x)$ を満たす連続関数として扱える。区間 $[0,1]$ で書けば特に $h(0)=h(1)$ である。
+円周を一周する座標 $x$ を実数の $x$ と $x+1$ を同一視して表す。周期領域 $\mathbb T=\mathbb R/\mathbb Z$ 上の連続関数は、$h(x+1)=h(x)$ を満たす連続関数として扱える。区間 $[0,1]$ で書けば特に $h(0)=h(1)$ である。$C(\mathbb T;\mathbb R^m)$ は、各成分が連続で周期1の実 $m$ チャネル関数全体を表す。これは[前講のチャネル表現](../PML2-15/index.md#def-pml2-15-lift)に周期条件を追加したものである。
 
 周波数 $k\in\mathbb Z$ の基本波 $e^{2\pi ikx}=\cos(2\pi kx)+i\sin(2\pi kx)$ を考える。$i^2=-1$ であり、複素共役は $a+ib$ を $a-ib$ に移す。整数周波数の波同士の積分が直交することを利用して、関数から周波数の成分を取り出す。
 
@@ -29,7 +29,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-16-fourier -->
-**定義の確認**。 $m=1$、$h(x)=2+\cos(2\pi x)$ とする。$h(0)=h(1)=3$ で周期条件を満たし、連続である。指数表示 $\cos(2\pi x)=(e^{2\pi ix}+e^{-2\pi ix})/2$ を代入すると、$\widehat h_0=2$、$\widehat h_1=\widehat h_{-1}=1/2$、それ以外は0となる。$h$ が実数値なので、係数の共役対称性も満たす。
+**定義の確認**。 $m=1$、$h(x)=2+\cos(2\pi x)$ とする。$h(0)=h(1)=3$ で周期条件を満たし、連続である。指数表示 $\cos(2\pi x)=(e^{2\pi ix}+e^{-2\pi ix})/2$ を係数の積分へ代入すると、
+
+$
+\widehat h_k
+=2\int_0^1e^{-2\pi ikx}\,dx
++\frac12\int_0^1e^{2\pi i(1-k)x}\,dx
++\frac12\int_0^1e^{-2\pi i(1+k)x}\,dx.
+$
+
+整数 $n$ について $\int_0^1e^{2\pi inx}\,dx$ は $n=0$ のとき1、$n\ne0$ のとき端点の指数値がともに1なので0である。従って $\widehat h_0=2$、$\widehat h_1=\widehat h_{-1}=1/2$、それ以外は0となる。$h$ が実数値なので、係数の共役対称性も満たす。
 <!-- definition-example-end -->
 
 直交性は有限和の計算だけで確認できる。整数 $k,\ell$ に対して
@@ -153,6 +162,16 @@ $$
 
 前講の[持ち上げ](../PML2-15/index.md#def-pml2-15-lift)で、位置ごとの特徴量を $m$ 個のチャネルへ置ける。[積分核型層](../PML2-15/index.md#def-pml2-15-kernel-layer)の積分核を $K_M(x-t)$ とした場合、[対角化定理](#thm-pml2-16-diagonal)により積分部分を周波数の有限和で計算できる。
 
+ここで $\widehat h_k$ は $m$ 成分の列ベクトル、$R_k$ は周波数 $k$ におけるチャネル間の線形変換を表す行列である。出力の第 $a$ チャネルは、入力の全 $m$ チャネルから
+
+$
+(R_k\widehat h_k)_a
+=\sum_{c=1}^{m}(R_k)_{ac}(\widehat h_k)_c,
+\qquad 1\le a\le m
+$
+
+という成分和で作る。このため $R_k$ は $m\times m$ 行列となる。$R_{-k}=\overline{R_k}$ の上線は行列の**各成分の複素共役**を意味し、転置は行わない。正負周波数の寄与が共役の組になることが実数出力の判定根拠である。
+
 <a id="def-pml2-16-fno-layer"></a>
 
 <!-- formal-statement-start -->
@@ -229,7 +248,21 @@ $$
 \end{aligned}
 $$
 
-一方 $|(Wd(x))_i|\le\|W\|_{\mathrm{row}}E$。[前講の層安定性の議論](../PML2-15/index.md#thm-pml2-15-stability)と同様に、バイアスを差で消し、$\sigma$ のLipschitz条件を適用してから $x,i$ の最大を取ると結論を得る。
+一方 $|(Wd(x))_i|\le\|W\|_{\mathrm{row}}E$。$h$ と $g$ の層入力を引くと共通の $b(x)$ は消える。[前講の層安定性](../PML2-15/index.md#thm-pml2-15-stability)で使った $\sigma$ のLipschitz条件を第 $i$ 成分に適用し、二つの項を別々に評価すると
+
+$
+\begin{aligned}
+|(\mathcal Fh)_i(x)-(\mathcal Fg)_i(x)|
+&\le L_\sigma\left(
+|(Wd(x))_i|+
+\left|\left(\sum_{k=-M}^{M}e^{2\pi ikx}R_k\widehat d_k\right)_i\right|
+\right)\\
+&\le L_\sigma\left(\|W\|_{\mathrm{row}}
++\sum_{k=-M}^{M}\|R_k\|_{\mathrm{row}}\right)E.
+\end{aligned}
+$
+
+最後に $x\in\mathbb T$ と $1\le i\le m$ で最大を取ると結論を得る。
 <!-- proof-end -->
 
 この上界は周波数係数の絶対値をすべて足す保守的な評価である。精度の評価、学習により得た $R_k$ の適切さ、PDE の真の解との一致は主張していない。
@@ -265,7 +298,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-16-dft -->
-**定義の確認**。 $N=4$、$m=1$、$h_j=(1,0,-1,0)$、$M=1$ とする。$M<N/2=2$ が成立し、周期格子の4値を正しく指定した。DFTは
+**定義の確認**。 $N=4$、$m=1$、標本値の列 $h=(h_0,h_1,h_2,h_3)=(1,0,-1,0)$、$M=1$ とする。$M<N/2=2$ が成立し、周期格子の4値を正しく指定した。DFTは
 
 $$
 \widetilde h_0=0,\quad
@@ -286,7 +319,7 @@ $$
 すなわち $(1,0,-1,0)$ である。$R_{-1}$ は配列の周波数添字3へ作用することを確認できる。
 <!-- definition-example-end -->
 
-正規化の対応を踏まえると、[FOU5の1のN乗根の直交性](../../../解析系/FOU/FOU5/index.md#lem-fou5-root-orthogonality)を、$q,r\in\{0,\ldots,N-1\}$ へ適用して
+正規化の対応を踏まえると、[FOU5の1のN乗根の直交性](../../../解析系/FOU/FOU5/index.md#lem-fou5-root-orthogonality)を、格子添字 $j,q\in\{0,\ldots,N-1\}$ へ適用し、周波数添字 $r$ について和を取って
 
 $$
 \frac1N\sum_{r=0}^{N-1}e^{2\pi ir(j-q)/N}
@@ -317,11 +350,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（格子における周波数の同一視）**  
-> $N\ge2$ とし、有限Fourier和
+> 整数 $N\ge2$、$m\ge1$、$H\ge0$ とし、各 $|k|\le H$ に対して $c_k\in\mathbb C^m$ を取る。$c_{-k}=\overline{c_k}$（特に $c_0\in\mathbb R^m$）と仮定して、実数値の有限Fourier和
 
-$$
+$
 h(x)=\sum_{|k|\le H}c_ke^{2\pi ikx}
-$$
+$
 
 > を $x_j=j/N$ で標本化する。このとき[DFT係数](#def-pml2-16-dft)は、各 $0\le r<N$ に対し
 
@@ -330,7 +363,7 @@ $$
 \sum_{\substack{|k|\le H\\k\equiv r\pmod N}}c_k
 $$
 
-> を満たす。特に $N$ が偶数で $H<N/2$ なら、各周波数の係数が重複せず格子DFTから正確に回収できる。
+> を満たす。特に $N$ が偶数で $H<N/2$ なら、$|k|\le H$ の各係数について $\widetilde h_{\,k\bmod N}=c_k$ として格子DFTから正確に回収できる。
 <!-- formal-statement-end -->
 
 **証明の見取り図。** 標本値の有限和をDFTへ代入し、複素指数の有限等比級数で、剰余が一致する周波数だけが残ることを示す。
@@ -374,7 +407,7 @@ $$
 
 DFTの定義通りに各周波数の和を計算すれば、$N$ 個の周波数それぞれで $N$ 項を足すので $O(N^2)$ 回の演算になる。高速Fourier変換（FFT）は、**同じDFTの値を求める手順を共有して重複計算を減らすアルゴリズム**であり、別の変換ではない。厳密な算術ならDFTの定義式と同じ結果を返す。浮動小数点での丸め誤差は残るが、標本化時のエイリアシングとは別の誤差である。
 
-まず $N=2^q$（$q\ge1$）とする。正規化前のDFTを $F_r=\sum_{j=0}^{N-1}h_j\omega_N^{rj}$、$\omega_N=e^{-2\pi i/N}$ と書く。入力を偶数番目 $h_{2t}$ と奇数番目 $h_{2t+1}$ に分け、それぞれ長さ $N/2$ のDFTを計算する。
+まず $N=2^q$（$q\ge1$）とする。第5節で定義した正規化係数 $\widetilde h_r$ に対し、ここでは計算を簡単にするため、正規化前のDFTを $F_r=N\widetilde h_r=\sum_{j=0}^{N-1}h_j\omega_N^{rj}$、$\omega_N=e^{-2\pi i/N}$ と書く。入力を偶数番目 $h_{2t}$ と奇数番目 $h_{2t+1}$ に分け、それぞれ長さ $N/2$ のDFTを計算する。
 
 <a id="thm-pml2-16-fft"></a>
 
@@ -520,7 +553,7 @@ $$
 =\cos(2\pi j/4).
 $$
 
-連続Fourier係数は前者が周波数 $\pm5$、後者が $\pm1$ に $1/2$ ずつある。異なる関数なのに同じ有限個の値しか観測していないため、DFTは同じ配列を返す。[周波数同一視定理](#thm-pml2-16-alias)の $5\equiv1\pmod4$ が原因である。
+連続Fourier係数は前者 $\cos(2\pi x)$ が周波数 $\pm1$、後者 $\cos(10\pi x)$ が周波数 $\pm5$ に $1/2$ ずつある。異なる関数なのに同じ有限個の値しか観測していないため、DFTは同じ配列を返す。[周波数同一視定理](#thm-pml2-16-alias)の $5\equiv1\pmod4$ が原因である。
 <!-- solution-end -->
 
 ### Level B：条件を変えて論証する
