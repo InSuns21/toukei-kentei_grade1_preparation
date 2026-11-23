@@ -1029,45 +1029,71 @@ try{
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   console.log('WGL13 shader diagnostics and sandbox disposal: PASS');
 
-  // WGL14: real GPU acceptance for two RGBA8 FBOs and three-pass postprocess.
+  // WGL14: real GPU acceptance of the illustrated A/B FBO wipe.
   await cdp('Page.navigate',{url:url+'?lesson=WGL14'});
   await waitFor('document.getElementById("status")?.textContent==="実行できます"');
-  assert.ok(await evalJS('document.getElementById("js-source").value.includes("makeTarget")'));
+  const controls14=await evalJS('["image-mode","filter-mode","blur-radius","exposure","process-order","comparison"].map(id=>{const e=document.getElementById("parameter-"+id);return {id,value:e?.value,disabled:e?.disabled};})');
+  assert.deepEqual(controls14,[
+    {id:'image-mode',value:'illustration',disabled:false},
+    {id:'filter-mode',value:'blur',disabled:false},
+    {id:'blur-radius',value:'1',disabled:false},
+    {id:'exposure',value:'1',disabled:false},
+    {id:'process-order',value:'filter-first',disabled:false},
+    {id:'comparison',value:'0.5',disabled:false}
+  ]);
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("const gridSize = imageMode")'));
   await click('run');
   await waitFor('document.getElementById("status")?.textContent.match(/独立画素検算|基準画素と不一致|WebGL2実行エラー|タイムアウト/)',22000);
   const diagnostic14=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent})');
   assert.match(diagnostic14.status,/独立画素検算に合格/,
-    'WGL14 GPU FBO/shader/CPU probes failed: '+JSON.stringify(diagnostic14));
+    'WGL14 initial illustrated GPU FBO/shader/CPU probes failed: '+JSON.stringify(diagnostic14));
   const scene14=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
-  assert.match(scene14.grid,/2枚の8×8 RGBA8 FBO/);
-  assert.match(scene14.color,/Reinhard/);
-  assert.match(scene14.clock,/3パス.*物理stepなし/);
-  assert.match(scene14.mode,/blur.*edge.*CLAMP_TO_EDGE/);
+  assert.match(scene14.grid,/128×128 RGBA8.*FBO A\/B/);
+  assert.match(scene14.color,/境界線左は原画A/);
+  assert.match(scene14.clock,/3パス/);
+  assert.match(scene14.mode,/blur半径1〜4.*edge/);
   assert.match(scene14.source,/postprocess.js.*postprocess.frag/);
   const wgl14=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
   assert.equal(wgl14.rows.length,7);
-  assert.ok(wgl14.rows.every(row=>row[4]==='OK'));
+  assert.ok(wgl14.rows.every(row=>row[4]==='OK'),JSON.stringify(wgl14.rows));
   assert.equal(wgl14.sandbox,'allow-scripts');
-  assert.match(wgl14.log,/2 independent complete 8x8 RGBA8 targets/);
+  assert.match(wgl14.log,/A\/B: independent 128x128 RGBA8/);
   assert.match(wgl14.log,/GL error: 0x0/);
   for(let i=0;i<7;i++) {
     const actual=wgl14.rows[i][2].split(',').map(Number);
     const expected=wgl14.rows[i][1].split(',').map(Number);
     assert.ok(actual.every((v,j)=>Math.abs(v-expected[j])<=2),
-      'WGL14 readPixels '+i+': '+JSON.stringify({actual,expected}));
+      'WGL14 illustrated readPixels '+i+': '+JSON.stringify({actual,expected}));
   }
   const shot14=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
   await writeFile('_wgl_browser_review/wgl14-initial.png',Buffer.from(shot14.data,'base64'));
-  console.log('WGL14 2 complete FBOs, 3 GPU passes and 7 independent CPU/GPU pixel probes: PASS');
+  console.log('WGL14 actual colored illustration, 128x128 FBO A/B, 3 GPU passes and 7 CPU/GPU probes: PASS');
 
-  await evalJS('(()=>{const e=document.getElementById("js-source");e.value=e.value.replace("const exposure = 1.0;","const exposure = 0.0;");})()');
-  await click('run');
+  // Change the REAL JS input via GUI, not a separate reference drawing.
+  await evalJS('(()=>{const e=document.getElementById("parameter-blur-radius");e.value="4";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("const blurRadius = 4;")'));
   await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
-  const edited14=await evalJS('[...document.querySelectorAll("#results-table tbody tr")].map(row=>row.cells[2].textContent)');
-  assert.equal(edited14.length,7);
-  assert.equal(edited14[0],wgl14.rows[0][2]); // left source is untouched
-  for(const item of edited14.slice(3)) assert.match(item,/^0, 0, 0, 255$/);
-  console.log('WGL14 editing exposure=0 blacks out only the processed half: PASS');
+  const radius14=await evalJS('[...document.querySelectorAll("#results-table tbody tr")].map(row=>row.cells[2].textContent)');
+  assert.equal(radius14.length,7);
+  assert.notEqual(radius14[3],wgl14.rows[3][2],'roof boundary must visibly respond to blur radius');
+  console.log('WGL14 actual GLSL output changes when linked blur-radius GUI edits JS: PASS');
+
+  await evalJS('(()=>{const e=document.getElementById("parameter-filter-mode");e.value="edge";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("const filterMode = \'edge\';")'));
+  const edge14=await evalJS('[...document.querySelectorAll("#results-table tbody tr")].map(row=>row.cells[2].textContent)');
+  assert.notEqual(edge14[4],radius14[4],'sun center changes between blur and positive Laplacian');
+  console.log('WGL14 edge filter changes actual GPU pixels: PASS');
+
+  await evalJS('(()=>{const e=document.getElementById("parameter-comparison");e.value="1";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  const beforeOnly14=await evalJS('[...document.querySelectorAll("#results-table tbody tr")].map(row=>row.cells[2].textContent)');
+  assert.notEqual(beforeOnly14[4],edge14[4],'wipe boundary switches right-side sample back to original');
+  console.log('WGL14 wipe GUI changes the same image position in shader: PASS');
+  await cdp('Emulation.setDeviceMetricsOverride',{width:360,height:780,deviceScaleFactor:1,mobile:false});
+  assert.ok(await evalJS('document.documentElement.scrollWidth <= window.innerWidth + 2'),
+    'WGL14 has no horizontal overflow at 360px');
+  await cdp('Emulation.setDeviceMetricsOverride',{width:1000,height:900,deviceScaleFactor:1,mobile:false});
 
   await click('reset');
   await evalJS('(()=>{const p=document.getElementById("preset");p.value="error";p.dispatchEvent(new Event("change",{bubbles:true}));})()');
@@ -1076,7 +1102,7 @@ try{
   assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/FRAGMENT/i);
   await click('stop');
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
-  console.log('WGL14 GLSL syntax error and sandbox disposal: PASS');
+  console.log('WGL14 shader diagnostic, mobile width and sandbox disposal: PASS');
 
   // WGL15: real GPU picking ID/depth FBO, independent CPU oracle, mouse,
   // resize, edited shader diagnostics and sandbox destruction.
@@ -1374,6 +1400,52 @@ try{
   console.log('G4 WGL18 GUI→edited sandbox→save→no-auto-run restore→source priority→reset→keyboard: PASS');
   await click('stop');
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
+
+  // WGL18 dense observation shares the same real GPU fragment source as 4x4.
+  await cdp('Page.navigate',{url:url.replace('wgl-lab.html','wgl18-explore.html')});
+  await waitFor('document.getElementById("status")?.textContent.match(/GPUで更新中|GPU計算を停止|GPUデモを実行できません/)',22000);
+  const observeStatus=await evalJS('document.getElementById("status").textContent');
+  if (observeStatus.includes('GPU計算を停止') || observeStatus.includes('GPUデモを実行できません')) {
+    assert.match(observeStatus,/EXT_color_buffer_float|RGBA32F|WebGL2|GLSL|framebuffer|浮動小数点/);
+    console.log('WGL18 dense observer: unsupported GPU is correctly reported: '+observeStatus);
+  } else {
+    await evalJS('(()=>{const b=document.getElementById("play");if(b.textContent==="一時停止")b.click()})()');
+    const start18=await evalJS('({step:Number(document.getElementById("steps").textContent),mass:Number(document.getElementById("mass").textContent),grid:document.getElementById("grid").value,button:document.getElementById("play").textContent})');
+    assert.equal(start18.grid,'64');
+    assert.equal(start18.button,'再生');
+    assert.ok(start18.mass>0);
+    await click('once');
+    const after18=await evalJS('({step:Number(document.getElementById("steps").textContent),mass:Number(document.getElementById("mass").textContent),texture:document.getElementById("active").textContent})');
+    assert.equal(after18.step,start18.step+1);
+    assert.ok(Math.abs(after18.mass-start18.mass)<0.02,'float mass should be preserved');
+    await evalJS('(()=>{const e=document.getElementById("rate");e.value="0.1";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));})()');
+    assert.equal(await evalJS('document.getElementById("steps").textContent'),'0');
+    assert.equal(await evalJS('document.getElementById("rate-val").textContent'),'0.10');
+    await evalJS('(()=>{const e=document.getElementById("grid");e.value="96";e.dispatchEvent(new Event("change",{bubbles:true}));})()');
+    assert.equal(await evalJS('document.getElementById("grid").value'),'96');
+    assert.equal(await evalJS('document.getElementById("steps").textContent'),'0');
+    const brushBefore=Number(await evalJS('document.getElementById("mass").textContent'));
+    const box18=await evalJS('(()=>{const c=document.getElementById("field");c.scrollIntoView({block:"start"});const r=c.getBoundingClientRect();return {x:r.x+r.width*.18,y:r.y+r.height*.22};})()');
+    await cdp('Input.dispatchMouseEvent',{type:'mouseMoved',x:box18.x,y:box18.y});
+    await cdp('Input.dispatchMouseEvent',{type:'mousePressed',x:box18.x,y:box18.y,button:'left',clickCount:1});
+    await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:box18.x,y:box18.y,button:'left',clickCount:1});
+    assert.ok(Number(await evalJS('document.getElementById("mass").textContent'))>brushBefore+1,
+      'painting onto the GPU float texture must add concentration');
+    await evalJS('document.getElementById("field").focus()');
+    await pressKey('ArrowRight','ArrowRight',39);
+    assert.equal(await evalJS('document.getElementById("steps").textContent'),'1');
+    for(const width of [360,1280]){
+      await cdp('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:false});
+      await new Promise(ok=>setTimeout(ok,150));
+      const dims=await evalJS('({scroll:document.documentElement.scrollWidth,client:innerWidth,canvas:document.getElementById("field").getBoundingClientRect().width})');
+      assert.ok(dims.scroll<=dims.client+2,'observer horizontal overflow at '+width+': '+JSON.stringify(dims));
+      assert.ok(dims.canvas>=250,'GPU map unreadably small at '+width);
+      const shot=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+      await writeFile('_wgl_browser_review/wgl18-observer-'+width+'.png',Buffer.from(shot.data,'base64'));
+    }
+    await cdp('Emulation.setDeviceMetricsOverride',{width:1000,height:900,deviceScaleFactor:1,mobile:false});
+    console.log('WGL18 true 64/96 GPU grid, numeric mass, brush, step, keyboard, 360/1280 pixels: PASS');
+  }
 
   // WGL19: async rendering loop; independent CPU time/float oracle; GPU lifetime.
   await cdp('Page.navigate',{url:url+'?lesson=WGL19'});
