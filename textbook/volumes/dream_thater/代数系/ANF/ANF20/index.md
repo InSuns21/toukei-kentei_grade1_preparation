@@ -2,7 +2,9 @@
 
 [前講のイデール類群](../ANF19/index.md#def-anf19-idele-class)は、すべての素点の乗法情報を大域元で割った群です。そこで、[局所Artin写像](../ANF17/index.md#def-anf17-finite-reciprocity)をすべての素点で掛け合わせ、数体の有限Abel拡大を記述します。さらに、無限個のイデール成分のうち有限個の合同条件だけを記録できる**法によるイデアル類の群**を作ります。
 
-本講では数体 $K/\mathbb Q$ を有限拡大、$\mathcal O_K$ をその整数環、$V_f$ を有限素点、$V_\infty$ を無限素点の集合とします。有限素点 $\mathfrak p$ の剰余体の位数を $N\mathfrak p$ とします。[分数イデアルの一意分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)と[イデールのイデアル写像](../ANF19/index.md#thm-anf19-idele-ideal-exact)を使います。
+本講では数体 $K/\mathbb Q$ を有限拡大、$\mathcal O_K$ をその整数環とします。有限素点の集合を $V_f$、無限素点の集合を $V_\infty$、全素点の集合を $V_K=V_f\sqcup V_\infty$ と書きます。有限素点 $\mathfrak p$ の剰余体の位数を $N\mathfrak p$ とします。
+
+各有限素点の $\operatorname{ord}_{\mathfrak p}$ は、[素イデアル付値](../ANF9/index.md#def-anf9-prime-valuation)の $v_{\mathfrak p}$ と同じ規格化です。[分数イデアルの一意分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)と[イデールのイデアル写像](../ANF19/index.md#thm-anf19-idele-ideal-exact)を使います。
 
 **この講で証明する部分**は、法によるイデアル類の群の合同条件、有限性、イデール商との具体的な対応、局所写像の積が定義できること、および円分体のFrobenius計算です。大域相互法則の主張と一般の剰余類体の存在は、次講ANF21で証明経路を扱う**外部の中心定理**として、ここでは結論・適用条件・計算を明確に分けて使います。
 
@@ -26,10 +28,17 @@ $$
 > $a\in K^\times$ が $a\equiv1\pmod{\mathfrak m}$ を満たすとは、各 $n_{\mathfrak p}>0$ について $a\in\mathcal O_{\mathfrak p}^\times$ かつ $a-1\in\mathfrak p^{n_{\mathfrak p}}\mathcal O_{\mathfrak p}$ であり、各 $v\in\mathfrak m_\infty$ で実埋め込み $v(a)>0$ であることをいう。
 <!-- formal-statement-end -->
 
-分数 $a=b/c$ のとき、素イデアルが分母を割らない条件を先に確認して局所剰余を取ります。合同の上付き $\times$ はこの**単数としての合同**を強調しています。
+分数 $a=b/c$ の合同を判定するときは、まず約分または[素イデアル付値](../ANF9/index.md#def-anf9-prime-valuation)によって $\operatorname{ord}_{\mathfrak p}(a)=0$ を確かめます。局所的に分母 $c$ が単数となる表示を選べば、$a-1\in\mathfrak p^n\mathcal O_{\mathfrak p}$ は $b\equiv c\pmod{\mathfrak p^n}$ と同値です。つまり分母の剰余を逆元で割る計算は、定義の**単数条件と差の合同条件**を同時に判定する方法です。
 
 <!-- definition-example-start: def-anf20-modulus -->
-**定義の確認**。 $K=\mathbb Q$、$\mathfrak m=(5)\infty$ とすると、$a=6/11$ は $v_5(a)=0$、$6\cdot11^{-1}\equiv1\pmod5$、$a>0$ なので条件を満たします。一方 $a=-4$ は $-4\equiv1\pmod5$ でも $a<0$ なので失格です。$a=5$ は単数条件 $v_5(a)=0$ を失います。
+**定義の確認**。 $K=\mathbb Q$、$\mathfrak m=(5)\infty$ とします。$a=6/11$ の分子・分母はともに $5$ と互いに素なので $\operatorname{ord}_{(5)}(a)=0$ です。分母 $11\equiv1$ は法 $5$ で可逆であり、
+
+$
+6\cdot11^{-1}\equiv1\pmod5,
+\qquad 6/11>0.
+$
+
+ゆえに有限・実の両条件を満たします。$a=-4$ は $-4\equiv1\pmod5$ で局所単数ですが、負なので実条件に反します。$a=5$ は $\operatorname{ord}_{(5)}(5)=1$ で局所単数ではなく、有限条件に反します。
 <!-- definition-example-end -->
 
 ## 2. いつ二つのイデアルを同じとみなすか
@@ -104,19 +113,19 @@ $\mathbb Z$ の非零分数イデアルは正の有理数倍で一意に書け�
 
 ### 証明の見取り図
 
-有限素点では十分高い素イデアル冪に関する中国剰余定理で合同条件を同時に解きます。無限素点では整数環のMinkowski埋め込みが格子であることを使い、分母を大きく取って格子の間隔を縮めます。
+有限素点では十分高い素イデアル冪に関する中国剰余定理で合同条件を同時に解きます。無限素点では[整数環のMinkowski埋め込みの格子性](../ANF5/index.md#thm-anf5-ideal-covolume)を使い、分母を大きく取って格子の間隔を縮めます。
 
 <!-- proof-start -->
 ### 証明
 
-有限素点で必要な精度を $\mathfrak p^{e_{\mathfrak p}}$ と定めます。あらかじめ $d_0\in\mathcal O_K\setminus\{0\}$ を選び、各 $d_0x_{\mathfrak p}$ が整数環 $\mathcal O_{\mathfrak p}$ に属するようにします。$e_{\mathfrak p}$ を必要に応じて増やせば、各 $\mathfrak p$ で
+有限素点の各開近傍に対し、ある整数 $N_{\mathfrak p}$ で $x_{\mathfrak p}+\mathfrak p^{N_{\mathfrak p}}\mathcal O_{\mathfrak p}\subseteq W_{\mathfrak p}$ となります。先に $d_0\in\mathcal O_K\setminus\{0\}$ を選び、指定したすべての有限素点で $d_0x_{\mathfrak p}\in\mathcal O_{\mathfrak p}$ とします。指数 $e_{\mathfrak p}$ を $e_{\mathfrak p}-\operatorname{ord}_{\mathfrak p}(d_0)\ge N_{\mathfrak p}$ となるように選べば、各 $\mathfrak p$ で
 
 $$
 b\equiv d_0T x_{\mathfrak p}
 \pmod{\mathfrak p^{e_{\mathfrak p}}}
 $$
 
-を課したとき $b/(d_0T)\in W_{\mathfrak p}$ となります。ただし $T$ は指定した素イデアルの下にある有理素数と互いに素な正整数です。各右辺は局所整数であるため、$\mathcal O_K\to\mathcal O_K/\mathfrak p^{e_{\mathfrak p}}$ の全射により剰余が定まり、中国剰余定理で同時に実現できます。
+を課すと、$\operatorname{ord}_{\mathfrak p}(T)=0$ である限り、$b/(d_0T)-x_{\mathfrak p}$ の付値は $e_{\mathfrak p}-\operatorname{ord}_{\mathfrak p}(d_0)$ 以上となり、$b/(d_0T)\in W_{\mathfrak p}$ です。ここで $T$ は指定した有限素点の下の有理素数と互いに素な正整数から選びます。各右辺は局所整数であり、[局所剰余環の同型](../ANF9/index.md#prop-anf9-number-field-completion)によって $\mathcal O_K/\mathfrak p^{e_{\mathfrak p}}$ の剰余類として指定できます。異なる素イデアルの冪は互いに素なので、中国剰余定理から $b$ が得られます。
 
 その解全体は、固定した非零整イデアルについての格子剰余類です。
 
@@ -127,7 +136,7 @@ $$
 
 [Minkowski埋め込みの格子性](../ANF5/index.md#thm-anf5-ideal-covolume)を使います。$K\otimes_\mathbb Q\mathbb R$ において、目標 $d_0T(x_v)_{v\mid\infty}$ から格子剰余類 $b_0+\mathfrak a$ のある点 $b$ までの距離は、格子 $\mathfrak a$ の基本領域の有界な直径 $M$ で抑えられます。
 
-従って $b/(d_0T)$ の無限成分と $x_v$ の誤差は $M/(|d_0|T)$ に応じて $T\to\infty$ で $0$ になります（分母 $d_0$ の無限埋め込みごとの絶対値は固定した正数です）。十分大きな $T$ を選べば指定された開近傍に入ります。無限素点が指定されていない場合は中国剰余定理だけで十分です。
+無限素点が指定されていない座標には任意の目標値（例えば $0$）を補います。$c=\min_{v\mid\infty}|v(d_0)|>0$ とおけば、埋め込みごとの $b/(d_0T)$ と $x_v$ の誤差は高々 $M/(cT)$ です。指定有限素点を避ける正整数 $T$ は任意に大きく取れるので、この誤差は $0$ に近づき、すべての指定無限近傍にも入ります。無限素点が指定されていない場合は中国剰余定理だけで十分です。
 <!-- proof-end -->
 
 <a id="prop-anf20-ray-finite"></a>
@@ -152,7 +161,7 @@ $$
 
 [類群の有限性](../ANF6/index.md#thm-anf6-minkowski-class-bound)を使います。任意の分数イデアル $\mathfrak a$ に対し、[弱近似](#lem-anf20-weak-approx)で、法を割る素点において $\operatorname{ord}_{\mathfrak p}(b)=\operatorname{ord}_{\mathfrak p}(\mathfrak a)$ となる $b\in K^\times$ を選べます。すると $\mathfrak a(b)^{-1}\in I_{\mathfrak m}$ で元と同じ通常類を表し、全射です。
 
-核の元は $(a)$（$a\in K^\times$、法を割る素点で付値 $0$）という形です。その生成元を、法の有限部分での剰余と指定実素点での符号に送ります。これらは有限群
+核の元は $(a)$（$a\in K^\times$、法を割る素点で付値 $0$）という形です。この $a$ の法の有限部分での単数剰余と、指定実素点での符号を記録します。ただし生成元は単数倍だけ曖昧なので、これだけで核から剰余群への写像が定まるとは主張しません。まず有限群
 
 $$
 R_{\mathfrak m}=
@@ -160,7 +169,9 @@ R_{\mathfrak m}=
 \times\{\pm1\}^{|\mathfrak m_\infty|}
 $$
 
-の元です。逆に[弱近似](#lem-anf20-weak-approx)により、任意の有限剰余と指定実符号を同時に持つ $a\in K^\times$ が存在します。従って $R_{\mathfrak m}$ から核へ $a\mapsto[(a)]$ という全射が定まり、選択が違う二元 $a,b$ の比は法に関して $1$ に合同なので、像は同じです。したがって核は有限群の商、通常の類群も有限だから全体も有限です。
+が現れます。[弱近似](#lem-anf20-weak-approx)により、$R_{\mathfrak m}$ の任意の剰余・符号データを持つ $a\in K^\times$ を選べます。$R_{\mathfrak m}\to\ker(\operatorname{Cl}_{\mathfrak m}(K)\to\operatorname{Cl}(K))$ をこのデータから $[(a)]$ へ送る写像とします。同じデータを持つ $a,b$ は各法の有限素点で単数かつ $a/b\equiv1$、各指定実素点で $a/b>0$ なので $[(a)]=[(b)]$ となり、写像は選択によらず定まります。
+
+また剰余・符号は積の下で乗法的であり、任意の核の類はある $(a)$ から来ます。従ってこの写像は全射準同型であり、その核による商が求める有限群です。[通常の類群の有限性](../ANF6/index.md#thm-anf6-minkowski-class-bound)から剰余類群全体も有限です。
 <!-- proof-end -->
 
 ## 3. 剰余類群をイデールで見る
@@ -240,7 +251,13 @@ $a\equiv1\pmod{\mathfrak m}$ なら、$y((a))\Delta(a)^{-1}$ は法の外の有�
 
 逆に $y(\mathfrak a)=\Delta(a)u$（$u\in U(\mathfrak m)$）なら、法の有限素点の成分が $1$ なので $a^{-1}=u_{\mathfrak p}\in1+\mathfrak p^{n_{\mathfrak p}}\mathcal O_{\mathfrak p}$。逆数を取って $a\equiv1$ です。法の実素点でも $u_v=a_v^{-1}>0$ だから $a_v>0$。法の外の有限素点では $u_{\mathfrak p}$ の付値が $0$ なので、$\operatorname{ord}_{\mathfrak p}(a)=e_{\mathfrak p}$ です。法の素点での付値は $0$ ですから $\mathfrak a=(a)\in P_{\mathfrak m,1}$。従って核はちょうど $P_{\mathfrak m,1}$ です。
 
-任意のイデール $x$ に対し、[弱近似](#lem-anf20-weak-approx)で $a\in K^\times$ を選び、各法の有限素点で $x_{\mathfrak p}a^{-1}\in1+\mathfrak p^{n_{\mathfrak p}}\mathcal O_{\mathfrak p}$、法の実素点で $x_va_v^{-1}>0$ とします。$x\Delta(a)^{-1}$ は法の場所で $U(\mathfrak m)$ に入ります。法の外では、一様化元の冪と局所単数に分けられるので、有限個の非零付値を持つイデアル $\mathfrak a$ の $y(\mathfrak a)$ に、ある $u\in U(\mathfrak m)$ を掛けたものです。よって $\theta$ は全射であり、核による商が主張の同型です。
+任意のイデール $x$ を取ります。法を割る有限素点では、非零の $x_{\mathfrak p}$ に対して
+
+$
+W_{\mathfrak p}=x_{\mathfrak p}(1+\mathfrak p^{n_{\mathfrak p}}\mathcal O_{\mathfrak p})\subset K_{\mathfrak p}^\times
+$
+
+を開近傍に選びます。法に含む実素点では $x_v$ と同符号の開半直線を選びます。これらの有限個の開集合に[弱近似](#lem-anf20-weak-approx)を適用すると、$a$ を各 $W_{\mathfrak p}$ に入れ、指定実素点で同符号にできます。いずれかの条件があるとき、この $a$ は非零です。法が自明で条件が一つもなければ $a=1$ とします。よって各法の有限素点で $x_{\mathfrak p}a^{-1}\in1+\mathfrak p^{n_{\mathfrak p}}\mathcal O_{\mathfrak p}$、法の実素点で $x_va_v^{-1}>0$ が成立し、$x\Delta(a)^{-1}$ は法の場所で $U(\mathfrak m)$ に入ります。法の外では、一様化元の冪と局所単数に分けられるので、有限個の非零付値を持つイデアル $\mathfrak a$ の $y(\mathfrak a)$ に、ある $u\in U(\mathfrak m)$ を掛けたものです。よって $\theta$ は全射であり、核による商が主張の同型です。
 <!-- proof-end -->
 
 ## 4. 局所Artin写像を掛け合わせる
