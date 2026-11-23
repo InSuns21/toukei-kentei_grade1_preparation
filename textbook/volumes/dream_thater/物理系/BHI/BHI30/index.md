@@ -227,7 +227,7 @@ $$
 \frac{\mathcal J(1+\varepsilon,x_\varepsilon)}{\varepsilon}
 =F(x_\varepsilon)+\frac{E(\varepsilon,x_\varepsilon)}{\varepsilon}.
 $$
-$E(0,x)=\partial_\varepsilon E(0,x)=0$ と一様な $C^1$ 制御、必要に応じて一様な二階評価から最後の項は零へ収束し、第一項は $F(x_*)$ へ収束します。右微分の追加仮定の下では $\mathcal J(1,x_*)=0$ なのでこの極限が $\mathcal J$ の右微分です。鞍点の対数寄与が $-\mathcal J$ なら、[正規化微分公式](#prop-bhi30-normalization-derivative)によりエントロピーの寄与は $F(x_*)$ です。$\square$
+$E(0,x)=\partial_\varepsilon E(0,x)=0$ と一様な $C^1$ 制御、必要に応じて一様な二階評価から最後の項は零へ収束し、第一項は $F(x_*)$ へ収束します。右微分の追加仮定の下では $\mathcal J(1,x_*)=0$ なのでこの極限が $\mathcal J$ の右微分です。鞍点の対数寄与が $-\mathcal J$ なら、[重力レプリカの正規化微分](#prop-bhi30-normalization-derivative)によりエントロピーの寄与は $F(x_*)$ です。$\square$
 <!-- proof-end -->
 
 **物理的な適用の橋**：ここで $F=S_{\rm gen}$ を置くためには、レプリカ商の円錐欠損・JT境界条件から重力の一次変分項を計算し、物質場の正規化レプリカ微分が同じ $R\cup I$ の $S_{\rm matter}$ を与えると確認しなければなりません。これを満たすJT＋浴の半古典模型で、[BHI24の一般化エントロピー](../BHI24/index.md#prop-bhi24-assembled-ledger)と一致します。上の数学的命題そのものは、**任意の重力理論でこの等式が成立することの証明ではありません**。
@@ -294,14 +294,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-仮定1と[正規化微分公式](#prop-bhi30-normalization-derivative)により $S(R)=-\mathcal L'(1)$。各許容鞍点族 $j$ の正規化対数寄与を $\mathcal L_j(1+\varepsilon)=-\mathcal J_j(1+\varepsilon,x_{j,\varepsilon})$ と書きます。仮定2・3と[停留端点の一次微分命題](#prop-bhi30-on-shell-derivative)から
+仮定1を使い、[重力レプリカの正規化微分](#prop-bhi30-normalization-derivative)により $S(R)=-\mathcal L'(1)$。各許容鞍点族 $j$ の正規化対数寄与を $\mathcal L_j(1+\varepsilon)=-\mathcal J_j(1+\varepsilon,x_{j,\varepsilon})$ と書きます。仮定2・3を確認し、[停留端点を持つ鞍点の一次微分](#prop-bhi30-on-shell-derivative)から
 $$
 -\mathcal L_j'(1)=F_j(x_{j,*}),\qquad
 \nabla_xF_j(x_{j,*})=0.
 $$
 空枝には端点がなく $F_{\varnothing}=S_{\rm matter}(R)$。非空枝では仮定2により $F_j=S_{\rm gen}(R\cup I_j)$ です。従って候補値の集合は、空枝の物質エントロピーと各許容island端点での一般化エントロピーの停留値です。
 
-最後の最小値は上の微分恒等式から**自動的に**は出ません。仮定4が、定めた半古典展開と積分輪郭の下で物理的な正規化レプリカ量の先頭の微分を最小の候補へ対応させるため、表示した式を得ます。劣次項の評価は同じ仮定で制御される精度に限られます。$\square$
+ここまでの微分操作だけでは最小値の選択は**自動的に**得られません。仮定4が、定めた半古典展開と積分輪郭の下で物理的な正規化レプリカ量の先頭の微分を最小の候補へ対応させるため、表示した式を得ます。劣次項の評価は同じ仮定で制御される精度に限られます。$\square$
 <!-- proof-end -->
 
 **実計算との接続**：[BHI25の端点極値方程式](../BHI25/index.md#prop-bhi25-two-endpoint-equations)は各island枝の停留点を探す操作です。[BHI26のPage転移の交差条件](../BHI26/index.md#prop-bhi26-page-crossing)は、求めた停留値を空枝と比較する操作です。本講は、この二つをレプリカ微分のどの段階に置くかを明確にしました。交差点では枝の差が零になるので、一般に一つの枝だけで劣次補正を一様に無視できるとは限りません。
@@ -442,7 +442,7 @@ $c$ を変えても規格化された物理状態のエントロピーは変わ�
 - 問題: $\mathcal L(1+\varepsilon)=-A\varepsilon+B\varepsilon^2+O(\varepsilon^3)$ とし、$\mathcal L(1)=0$、微分が存在するとする。$-\mathcal L'(1)$ と $\varepsilon>0$ の有限値 $-\mathcal L(1+\varepsilon)/\varepsilon$ の差を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：まず導関数の定義から
+**詳細解答**：まず差商の極限を計算すると
 $$
 -\mathcal L'(1)
 =-\lim_{\varepsilon\downarrow0}\frac{\mathcal L(1+\varepsilon)-0}{\varepsilon}
