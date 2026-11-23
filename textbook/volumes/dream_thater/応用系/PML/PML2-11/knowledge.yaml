@@ -1,0 +1,48 @@
+chapter: PML2-11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-10
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-11-continuous-residual
+    name: Poisson強形式残差の連続ノルム
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Poisson強形式残差の連続ノルム）"]
+    requires:
+      - physics-machine-learning.pml2-06-strong-residual
+  - id: physics-machine-learning.pml2-11-energy-error
+    name: 零Dirichlet Poissonの強残差からの誤差評価
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-11-continuous-residual
+      - physics-machine-learning.pml2-01-energy-estimate
+  - id: physics-machine-learning.pml2-11-weak-defect
+    name: エネルギー弱残差とその双対ノルム
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（エネルギー弱残差とその双対ノルム）"]
+    requires:
+      - physics-machine-learning.pml2-01-energy-estimate
+  - id: physics-machine-learning.pml2-11-dual-error
+    name: 弱残差ノルムとエネルギー誤差の一致
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-11-weak-defect
+  - id: physics-machine-learning.pml2-11-boundary-lift
+    name: 端点誤差の一次補間と零端点への補正
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（端点誤差の一次補間と零端点への補正）"]
+    requires:
+      - physics-machine-learning.pml2-08-hard-trial
+  - id: physics-machine-learning.pml2-11-boundary-error
+    name: 強残差と端点誤差を併用する上界
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-11-energy-error
+      - physics-machine-learning.pml2-11-boundary-lift
