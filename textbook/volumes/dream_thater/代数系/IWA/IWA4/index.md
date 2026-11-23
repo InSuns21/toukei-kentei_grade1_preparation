@@ -2,11 +2,11 @@
 
 [IWA2で作った円分塔](../IWA2/index.md#thm-iwa2-compatible-tower)を $K_0\subset K_1\subset\cdots$ と書き、$[K_n:\mathbb Q]=p^n$、$\Gamma_n=\operatorname{Gal}(K_n/\mathbb Q)\simeq\mathbb Z/p^n\mathbb Z$ とします。$p$ は任意の素数です。[IWA3の岩澤代数](../IWA3/index.md#def-iwa3-completed-group-ring)は $\Lambda=\mathbb Z_p[[\Gamma]]\simeq\mathbb Z_p[[T]]$ でした。しかし環ができても、各層の類群や単数をどの向きの写像で結べばよいかはまだ決まっていません。
 
-本講の中心問いは、**有限層にある算術的情報を失わず、整合した無限塔の元として扱うには何が必要か**です。上の層から下の層へ送るノルム、下から上へ送るイデアルの延長、およびGalois群の制限を区別します。最後に、それらと両立する類群の逆極限に $\Lambda$ が作用することを具体的に証明します。
+本講の中心問いは、**有限層にある算術的情報を失わず、整合した無限塔の元として扱うには何が必要か**です。上の層から下の層へ送るノルム、下から上へ送るイデアルの延長、およびGalois群の制限を区別します。最後に、それらと両立する類群の整合列全体に $\Lambda$ が作用することを具体的に証明します。
 
 ## 1. 三つの矢印を区別する
 
-有限Galois数体拡大 $E/F$ と、そのGalois群 $G=\operatorname{Gal}(E/F)$ を考えます。$x\in E^\times$ の全ての共役を掛けると $F^\times$ の元ができます。これが体のノルムです。
+有限Galois数体拡大 $E/F$ と、そのGalois群 $G=\operatorname{Gal}(E/F)$ を考えます。$x\in E^\times$ の全ての共役を掛けると $F^\times$ の元ができます。この共役の積を次の定義で扱います。
 
 <a id="def-iwa4-field-norm"></a>
 
@@ -231,7 +231,7 @@ $$
 再び積と商へ延長し、類群に降ろせます。
 <!-- proof-end -->
 
-この二式が後の逆極限を成立させるための鍵です。特に、全ての $m\ge n$ について $N_{m,n}$ が定まり、
+この二式が後に整合列を作るための鍵です。特に、全ての $m\ge n$ について $N_{m,n}$ が定まり、
 
 $$
 N_{\ell,n}=N_{m,n}\circ N_{\ell,m}\quad(\ell\ge m\ge n)
@@ -249,7 +249,20 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（局所単数のノルム系）**  
-> $p$ を奇素数とし、$L_n=\mathbb Q_p(\zeta_{p^{n+1}})$（$n\ge0$）とする。$\mathfrak m_n$ を $\mathcal O_{L_n}$ の極大イデアルとし、$U_n^1=1+\mathfrak m_n$ と置く。写像 $N_{n+1,n}:U_{n+1}^1\to U_n^1$ は体のノルムの制限とする。この群と写像の列を局所主単数のノルム系とする。
+> $p$ を奇素数、$n\ge0$ とし、局所体を次で指定する。
+
+$
+L_n=\mathbb Q_p(\zeta_{p^{n+1}}).
+$
+
+> $\mathfrak m_n$ を $\mathcal O_{L_n}$ の極大イデアルとする。主単数群と遷移写像を
+
+$
+U_n^1=1+\mathfrak m_n,\qquad
+N_{n+1,n}:U_{n+1}^1\longrightarrow U_n^1
+$
+
+> と定める。ここで $N_{n+1,n}$ は体のノルム $N_{L_{n+1}/L_n}$ を主単数群へ制限した写像である。この群と写像の列を局所主単数のノルム系とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa4-local-unit-system -->
@@ -271,7 +284,7 @@ $$
 
 [ANF12の非分岐ノルム定理](../../ANF/ANF12/index.md#thm-anf12-unramified-norm)は非分岐拡大の単元ノルムの全射性を述べますが、今の円分局所塔は分岐しているので、その定理を使って全射性を結論してはいけません。**ノルムで結べること**と**ノルムが全射であること**は別の性質です。
 
-## 5. 逆極限の元とは何か
+## 5. 整合列を極限にまとめる
 
 $x_n\in A_n$ を各層で勝手に選んでも、無限塔の元にはなりません。下の層で一致するという条件を加える必要があります。
 
