@@ -168,11 +168,11 @@ $$
 =N((a))^{-1}.
 $$
 
-ここで分数イデアルのノルムは整イデアルのノルムを商で延長した正有理数です。$a\in\mathcal O_K\setminus\{0\}$ なら、$\mathcal O_K$ の整数基底 $\omega_1,\ldots,\omega_n$ を選びます。$a\omega_j\in\mathcal O_K$ だから $a\omega_j=\sum_i m_{ij}\omega_i$ と整数係数で書けます。行列 $M=(m_{ij})$ の列は部分格子 $a\mathcal O_K$ の生成元の座標を表し、その指数は $|\det M|$ です。この $M$ は $\mathbb Q$ 線形な $a$ 倍写像 $m_a$ の行列でもあるので、[体ノルムの定義](../ANF2/index.md#def-anf2-field-norm)より
+ここで分数イデアルのノルムは整イデアルのノルムを商で延長した正有理数です。$a\in\mathcal O_K\setminus\{0\}$ なら、$n=[K:\mathbb Q]$ とし、$\mathcal O_K$ の整数基底 $\omega_1,\ldots,\omega_n$ を選びます。$a\omega_j\in\mathcal O_K$ だから $a\omega_j=\sum_i m_{ij}\omega_i$ と整数係数で書けます。行列 $M=(m_{ij})$ の列は部分格子 $a\mathcal O_K$ の生成元の座標を表し、その指数は $|\det M|$ です。この $M$ は $\mathbb Q$ 線形な $a$ 倍写像 $\mu_a:z\mapsto az$ の行列でもあるので、[体ノルムの定義](../ANF2/index.md#def-anf2-field-norm)より
 
 $$
 N((a))=[\mathcal O_K:a\mathcal O_K]
-=|\det(m_a)|=|N_{K/\mathbb Q}(a)|.
+=|\det(\mu_a)|=|N_{K/\mathbb Q}(a)|.
 $$
 
 一般の $a=b/c$（$b,c\in\mathcal O_K\setminus\{0\}$）では、上記を $(a)=(b)(c)^{-1}$ と $N_{K/\mathbb Q}(a)=N(b)/N(c)$ に適用して同じ等式を得ます。
@@ -446,17 +446,17 @@ $$
 |a|_\infty=|2+i|^2=(2+i)(2-i)=5.
 $$
 
-整数環 $\mathbb Z[i]$ の整数基底 $(1,i)$ で、$a=2+i$ による乗法を計算します。
+整数環 $\mathbb Z[i]$ の整数基底 $(1,i)$ で、$a=2+i$ による乗法 $\mu_a:z\mapsto az$ を計算します。
 
 $$
 a\cdot1=2+i,\qquad a\cdot i=-1+2i,\qquad
-[m_a]_{(1,i)}=\begin{pmatrix}2&-1\\1&2\end{pmatrix}.
+[\mu_a]_{(1,i)}=\begin{pmatrix}2&-1\\1&2\end{pmatrix}.
 $$
 
 この行列の二つの列は、部分格子 $(a)=a\mathbb Z[i]$ の生成元の基底座標です。従って指数は行列式の絶対値であり、
 
 $$
-[\mathbb Z[i]:(a)]=|\det[m_a]_{(1,i)}|
+[\mathbb Z[i]:(a)]=|\det[\mu_a]_{(1,i)}|
 =|4+1|=5.
 $$
 
