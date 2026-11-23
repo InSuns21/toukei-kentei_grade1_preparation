@@ -1,0 +1,48 @@
+id: LREP1
+title: "表現とは何か――作用、表現、部分表現、同値"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GRP3
+  - LIE4
+  - LA1
+official_scope: []
+learning_objectives:
+  - 群作用と有限次元複素線形表現を対応付け、単位元・積・逆元の条件を具体行列で検算できる
+  - 自明表現・標準表現・1次元指標を構成し、標準表現の既約性を説明できる
+  - 不変部分空間・部分表現・既約／可約を定義に戻って判定できる
+  - 可約性と不変補空間への分解を区別し、非分裂な二次元模型を検証できる
+  - 絡作用素と表現の同値を定義し、核と像の不変性、基底変更に伴う同値を証明できる
+definitions:
+  - { id: LREP1-DEF-01, name: 有限次元複素線形表現 }
+  - { id: LREP1-DEF-02, name: 1次元指標 }
+  - { id: LREP1-DEF-03, name: 不変部分空間・部分表現 }
+  - { id: LREP1-DEF-04, name: 既約表現・可約表現 }
+  - { id: LREP1-DEF-05, name: 絡作用素 }
+  - { id: LREP1-DEF-06, name: 表現の同値 }
+theorems:
+  - { id: LREP1-THM-01, name: 線形表現と線形群作用の対応 }
+  - { id: LREP1-PROP-01, name: 不変部分空間への制限は部分表現 }
+  - { id: LREP1-PROP-02, name: 標準表現の既約性 }
+  - { id: LREP1-PROP-03, name: 絡作用素の核と像の不変性 }
+  - { id: LREP1-PROP-04, name: 同値は既約性を保存する }
+  - { id: LREP1-PROP-05, name: 可約だが不変補空間を持たない表現 }
+canonical_examples:
+  - 自明表現と巡回群の1次元指標
+  - GL_2(C)の標準表現
+  - C_2の対角行列表現と不変直線
+  - 複素数加法群の上三角ユニポテント表現
+  - 同じC_2作用の異なる基底表示
+problem_patterns:
+  - LREP1-CYCLIC-CHARACTER
+  - LREP1-STANDARD-IRREDUCIBLE
+  - LREP1-DIAGONAL-INVARIANT
+  - LREP1-CHARACTER-INTERTWINER
+  - LREP1-UNIPOTENT-NONSPLIT
+  - LREP1-BASIS-EQUIVALENCE
+  - LREP1-KERNEL-IMAGE
+  - LREP1-INVOLUTION-CLASSIFICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 5, review: 2 }
