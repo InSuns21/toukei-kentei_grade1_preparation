@@ -385,7 +385,7 @@ $$
 a(t):=\rho_*\bigl(A_{\gamma(t)}(\dot\gamma(t))\bigr).
 $$
 
-ここで $t$ は曲線のパラメータで、点は $\gamma(t)$、速度は $d\gamma/dt$、$a(t)$ は $V$ 上の線形作用素の行列表示である。主束輸送 $U_G(t)$ に表現を作用させた $U(t)=\rho(U_G(t))$ を $t$ で微分すると、表現の微分の連鎖律により $\dot U=-a(t)U$ となる（[GBG14 の結合束輸送と共変微分](../GBG14/index.md#thm-gbg14-associated-transport)）。従って[経路順序指数](../GBG14/index.md#prop-gbg14-dyson-series)の微分方程式は
+ここで $t$ は曲線のパラメータで、点は $\gamma(t)$、速度は $d\gamma/dt$、$a(t)$ は $V$ 上の線形作用素の行列表示である。主束輸送 $U_G(t)$ に表現を作用させた $U(t)=\rho(U_G(t))$ を $t$ で微分すると、表現の微分の連鎖律により $\dot U=-a(t)U$ となる（[GBG14 の結合束輸送と共変微分](../GBG14/index.md#thm-gbg14-associated-covariant)）。従って[経路順序指数](../GBG14/index.md#prop-gbg14-dyson-series)の微分方程式は
 
 $$
 \dot U(t)=-a(t)U(t),\qquad U(0)=I.
