@@ -39,10 +39,11 @@ $$
 $A$ は $\mathfrak{su}(2)$ 値なので $\operatorname{tr}A=0$。さらに $A=\sum_j A_j\,dx_j$ と局所座標表示すれば
 
 $$
+\begin{aligned}
 \operatorname{tr}(A\wedge A)
-=\sum_{j<k}\operatorname{tr}([A_j,A_k])\,dx_j\wedge dx_k=0,
-\qquad
-\operatorname{tr}F=d(\operatorname{tr}A)+\operatorname{tr}(A\wedge A)=0.
+&=\sum_{j<k}\operatorname{tr}([A_j,A_k])\,dx_j\wedge dx_k=0,\\
+\operatorname{tr}F&=d(\operatorname{tr}A)+\operatorname{tr}(A\wedge A)=0.
+\end{aligned}
 $$
 
 [GBG23の全Chern形式](../GBG23/index.md#def-gbg23-total-chern)は $C=iF/(2\pi)$ に対する $\det(I+C)$ から構成された。$SU(2)$ の基本表現では $\operatorname{tr}F=0$ なので、[低次の跡公式](../GBG23/index.md#prop-gbg23-low-chern)に代入すると
