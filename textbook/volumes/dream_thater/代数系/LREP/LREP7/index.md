@@ -225,7 +225,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[既約表現の分類と群への対応](../LREP6/index.md#prop-lrep6-group-lie-equivalence)から、$V$ はただ一つの $V_n$ と同値で、$n\ge0$ は整数です。[前講の不変内積](../LREP6/index.md#prop-lrep6-unitary-ladder)を使い正規直交基底 $u_k$ を選びます。$j=n/2$ とすれば $k=0,\dots,n$ に対応する $m=j-k$ は $j,j-1,\dots,-j$ です。従って $\dim V=n+1=2j+1$ です。
+[既約表現の分類と群への対応](../LREP6/index.md#prop-lrep6-group-lie-equivalence)から、$V$ はただ一つの $V_n$ と表現として同値で、$n\ge0$ は整数です。ただし、通常の同値写像が正規直交性も保つとは限らないので、その点を確認します。
+
+$T:V_n\to V$ を可逆な絡作用素とし、$V_n$ には [前講で作った不変内積](../LREP6/index.md#prop-lrep6-unitary-ladder)、$V$ には仮定の内積を入れます。任意の $g\in SU(2)$ について $TD_n(g)=D(g)T$ です。両表現がユニタリだから
+
+$
+D_n(g)^\dagger T^\dagger T D_n(g)
+=(TD_n(g))^\dagger(TD_n(g))
+=T^\dagger D(g)^\dagger D(g)T=T^\dagger T.
+$
+
+よって $T^\dagger T$ は $D_n(g)$ と可換です。[Schurの補題](../LREP2/index.md#thm-lrep2-schur)を複素有限次元既約表現 $V_n$ に適用すると $T^\dagger T=cI$ となり、$T$ が可逆なので $c>0$ です。従って $Q=c^{-1/2}T$ は内積を保つ可逆な絡作用素です。$V_n$ の[正規直交基底](../LREP6/index.md#prop-lrep6-unitary-ladder)を $Q$ で $V$ に移しても正規直交であり、以下その像を再び $u_k$ と書きます。
+
+$j=n/2$ とすれば $k=0,\dots,n$ に対応する $m=j-k$ は $j,j-1,\dots,-j$ です。従って $\dim V=n+1=2j+1$ です。
 
 $H=2J_3$ に[正規直交基底の公式](../LREP6/index.md#prop-lrep6-unitary-ladder)を代入すると
 
