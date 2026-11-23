@@ -348,7 +348,7 @@ $$
 [\boldsymbol a]_\times=
 \begin{pmatrix}0&-a_3&a_2\\a_3&0&-a_1\\-a_2&a_1&0\end{pmatrix}.
 $$
-標準基底の像 $\boldsymbol a\times\boldsymbol e_j$ を第 $j$ 列へ並べたものが、この行列です。[特殊直交群のLie環](../../LIE/LIE3/index.md#thm-lie3-orthogonal)によれば $T_{I_3}SO(3)$ は反対称行列全体であり、$d\Phi_{I_2}$ の値域と一致します。実際、上の行列が零なら第二列と第三列から $a_1=a_2=a_3=0$、すなわち核は零です。定義域の $\mathfrak{su}(2)$ と値域の $\mathfrak{so}(3)$ はともに実次元3なので、この単射は全射でもあり、微分は同型です。
+標準基底の像 $\boldsymbol a\times\boldsymbol e_j$ を第 $j$ 列へ並べたものが、この行列です。[特殊直交群のLie環](../../LIE/LIE3/index.md#thm-lie3-orthogonal)によれば $T_{I_3}SO(3)$ は反対称行列全体であり、これが $d\Phi_{I_2}$ の余域です。実際、上の行列が零なら第二列と第三列から $a_1=a_2=a_3=0$、すなわち核は零です。定義域の $\mathfrak{su}(2)$ と値域の $\mathfrak{so}(3)$ はともに実次元3なので、この単射は全射でもあり、微分は同型です。
 
 逆関数定理を $I_2$ で使うと、その近傍 $W_+$ が単位回転の近傍へ微分同相に写ります。$W_+$ を小さくして $W_+\cap(-W_+)=\varnothing$ とできます。$W_-=-W_+$ とすると、[核の結果](#thm-lrep5-kernel-surjectivity)から両者の像は同じで、各制限は同じ近傍に対して微分同相です。
 
