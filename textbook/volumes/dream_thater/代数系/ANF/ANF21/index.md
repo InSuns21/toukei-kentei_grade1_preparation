@@ -242,7 +242,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$A=\operatorname{Cl}_{\mathfrak m}(K)$、$G_E=\operatorname{Gal}(E/K)$ と書きます。$\alpha(H)$ は$G_E$の部分群で、$G_E$ がAbelなので正規です。[Galois対応](../../../FLD/FLD4/index.md#thm-fld4-fundamental-galois)の中間体に関する通常の群論を適用すると、固定体 $M=E^{\alpha(H)}$ は $K$ 上Galoisで、そのGalois群は
+$A=\operatorname{Cl}_{\mathfrak m}(K)$、$G_E=\operatorname{Gal}(E/K)$ と書きます。$\alpha(H)$ は$G_E$の部分群で、$G_E$ がAbelなので正規です。[Galois対応](../../FLD/FLD4/index.md#thm-fld4-fundamental-galois)の中間体に関する通常の群論を適用すると、固定体 $M=E^{\alpha(H)}$ は $K$ 上Galoisで、そのGalois群は
 
 $$
 \operatorname{Gal}(M/K)
