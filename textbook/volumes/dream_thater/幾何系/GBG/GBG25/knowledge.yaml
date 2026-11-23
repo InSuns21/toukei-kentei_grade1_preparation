@@ -4,8 +4,7 @@ coverage: complete
 prerequisites:
   - GBG24
   - GEO8
-forward_references:
-  - gauge.chern-total-form
+forward_references: []
 concepts:
   - id: gauge.su2-s3-identification
     name: S³とSU(2)の標準同一視
