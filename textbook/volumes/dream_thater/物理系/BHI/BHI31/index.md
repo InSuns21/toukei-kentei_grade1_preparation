@@ -10,7 +10,7 @@
 
 ## 2. 固定理論で因数分解が成り立つ条件
 
-「因数分解」は二つの異なる問いに現れます。[BHI15のゲージ制約とHilbert空間の非自明な分割](../BHI15/index.md#prop-bhi15-factorization-obstruction)は、*一つの系を内部と外部へ分割する*問題でした。今回は、**二つの相互作用しない境界系の分配関数**に注目します。両者は同じ定理ではありません。
+「因数分解」は二つの異なる問いに現れます。[BHI15のゲージ制約とHilbert空間の非自明な分割](../BHI15/index.md#prop-bhi15-factorization-obstruction)は、*一つの系を内部と外部へ分割する*問題でした。今回は、二つの相互作用しない境界系の分配関数に注目します。両者は同じ定理ではありません。
 
 <a id="def-bhi31-fixed-factorization"></a>
 
@@ -22,7 +22,7 @@ $$
 Z_{H,12}(\beta_1,\beta_2)=Z_H(\beta_1)Z_H(\beta_2)
 $$
 >
-> を満たす性質を、この設定での**固定理論の二境界因数分解**と呼ぶ。二コピー間の結合や、共有変数への平均はこの定義に含めない。
+> を満たす性質を、この設定での**固定理論の二境界因数分解**と呼ぶ。二コピー間の直接相互作用や、共有変数への平均はこの定義に含めない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi31-fixed-factorization -->
@@ -552,6 +552,6 @@ $$
 - 純粋JTのdouble-trumpetは非零の連結寄与を与え、行列積分のensemble相関との対応を考える重要な手掛かりです。
 - 連結項を見つけたことと、特定の一理論での因数分解の問題を解決したことは別です。またレプリカの規格化とensemble平均は一般に交換しません。
 
-次のBHI32では、放射領域のentanglement wedgeとislandの対応を考え、エントロピーの計算を「どの領域の演算子を放射から表現できるか」という問いへ進めます。
+次のBHI32では、放射領域に対応して重力内部のどこまでを表現できるかとislandの関係を考え、エントロピーの計算を「どの領域の演算子を放射から表現できるか」という問いへ進めます。
 
 **参考文献**：Saad, Shenker & Stanford, [*JT gravity as a matrix integral*](https://arxiv.org/abs/1903.11115) (2019)；Harlow & Jafferis, [*The Factorization Problem in Jackiw-Teitelboim Gravity*](https://arxiv.org/abs/1804.01081) (2018/2019)；Almheiri et al., [*The Entropy of Hawking Radiation*](https://doi.org/10.1103/RevModPhys.93.035002) (2021)。
