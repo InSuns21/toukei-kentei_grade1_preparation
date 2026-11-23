@@ -34,22 +34,22 @@ $$
 <!-- definition-example-start: def-gbg14-horizontal-curve -->
 **定義の確認**。積主束 $\mathbb R\times U(1)$ の標準section $s(x)=(x,1)$ で局所ポテンシャル $A=0$ の接続を置く。[積主束の接続形式の具体式](../GBG7/index.md#prop-gbg7-product-form)では、接ベクトル $(v,W)\in T_x\mathbb R\oplus T_gU(1)$ に対し
 
-$
+$$
 \omega_{(x,g)}(v,W)=\operatorname{Ad}_{g^{-1}}A_x(v)+\theta_g(W)
 =\theta_g(W)=g^{-1}W
-$
+$$
 
 である。最後の等号は $U(1)$ を行列群と見たときの左 Maurer–Cartan 形式の表示なので、水平性を $g^{-1}\dot g=0$ で判定できる。$t\in[0,1]$ で $\gamma(t)=t$、$\widetilde\gamma(t)=(t,g_0)$ とすると
 
-$
+$$
 \pi(t,g_0)=t,\qquad g_0^{-1}\dot g_0=0
-$
+$$
 
 となり両条件を満たす。初期値も $(0,g_0)$ である。一方 $(t,e^{it}g_0)$ は射影条件を満たすが、
 
-$
+$$
 (e^{it}g_0)^{-1}\frac d{dt}(e^{it}g_0)=i\ne0
-$
+$$
 
 なので水平ではない。
 <!-- definition-example-end -->
@@ -402,9 +402,9 @@ $$
 > **命題（経路順序指数と局所水平ODE）**  
 > $a:[a,b]\to M_n(\mathbb F)$ が有限個の分点を持つ区分的連続関数なら、$U(a)=I$ を満たす連続な区分的 $C^1$ 解で、各連続区間内で $\dot U=-a(t)U$ を満たすものが一意に存在する。分点では次の積分方程式によってつなぐ。
 
-$
+$$
 U(t)=I-\int_a^t a(r)U(r)\,dr.
-$
+$$
 
 > この解は一様収束級数
 
@@ -695,9 +695,9 @@ $$
 
 途中時刻でも $F(t)=\int_0^t f(r)\,dr$、$G(t)=\int_0^t g(r)\,dr$ と置けば
 
-$
+$$
 U(t)=\operatorname{diag}\bigl(e^{-F(t)-G(t)},e^{-F(t)+G(t)}\bigr).
-$
+$$
 
 よって各対角成分の微分はそれぞれ $-(f(t)+g(t))U_{11}(t)$、$-(f(t)-g(t))U_{22}(t)$ となり、$\dot U=-a(t)U$ を直接満たす。一般の $a(t)$ ではこの可換性が失われるため、この置換はできない。
 <!-- solution-end -->
