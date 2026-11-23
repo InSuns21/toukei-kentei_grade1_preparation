@@ -209,6 +209,59 @@ export function writeLabParameter(source, spec, proposed) {
     source.slice(match.index + match[0].length);
 }
 
+
+// An editable presentation interval must not disable the independent physics
+// oracle. Admit *only* the current known source-linked FCG5 literal controls:
+// all other JS/GLSL edits remain unverified rather than claiming a false pass.
+const FCG5_VERIFIED_PARAMETER_IDS = Object.freeze([
+  'grid','nu','force','dt','brush-radius','brush-strength','playback-ms'
+]);
+
+export function verifiedFCG5Physics(js,vertex,fragment,defaults) {
+  if(typeof js!=='string'||vertex!==defaults?.vertex||fragment!==defaults?.fragment)
+    return null;
+  const specs=parametersFor('FCG5');
+  if(specs.length!==FCG5_VERIFIED_PARAMETER_IDS.length||
+     specs.some((spec,i)=>spec.id!==FCG5_VERIFIED_PARAMETER_IDS[i]))return null;
+  const readings=specs.map(spec=>readLabParameter(js,spec));
+  if(!readings.every(state=>state.ok))return null;
+  try {
+    let normalized=js,baseline=defaults.js;
+    for(const spec of specs){
+      normalized=writeLabParameter(normalized,spec,spec.default);
+      baseline=writeLabParameter(baseline,spec,spec.default);
+    }
+    if(normalized!==baseline)return null;
+  }catch{return null;}
+  const value=Object.fromEntries(specs.map((spec,i)=>[spec.id,readings[i].value]));
+  return {
+    N:value.grid,nu:value.nu,force:value.force,dt:value.dt,
+    brushRadius:value['brush-radius'],brushStrength:value['brush-strength']
+  };
+}
+
+
+export const FCG5_OBSERVATION_PRESETS = Object.freeze([
+  Object.freeze({id:'baseline',label:'基準：渦と染料',nu:0.002,force:0.08}),
+  Object.freeze({id:'no-force',label:'外力なし：初期渦の移動',nu:0.002,force:0}),
+  Object.freeze({id:'stir',label:'強めの外力・低粘性',nu:0.001,force:0.16})
+]);
+
+// Edit the *actual learner source* as one transaction. A non-literal control
+// prevents every write, so preset selection cannot partially rewrite the code.
+export function applyFCG5ObservationPreset(source,id) {
+  const preset=FCG5_OBSERVATION_PRESETS.find(item=>item.id===id);
+  if(!preset)throw new RangeError('unknown FCG5 preset');
+  const specs=parametersFor('FCG5');
+  const target=['nu','force'].map(key=>specs.find(spec=>spec.id===key));
+  if(target.some(spec=>!spec||!readLabParameter(source,spec).ok))
+    throw new Error('編集済みのJS式はプリセットで上書きできません');
+  let changed=source;
+  for(const [spec,value] of [[target[0],preset.nu],[target[1],preset.force]])
+    changed=writeLabParameter(changed,spec,value);
+  return changed;
+}
+
 export function mountLabParameters(lesson, container,
                                    {getSource, setSource, rerun, isReady}) {
   const specs = parametersFor(lesson);
@@ -275,6 +328,54 @@ export function mountLabParameters(lesson, container,
     });
     return {spec, slider, display, status};
   });
+  // FCG5: comparison presets alter nu and force only in the editable fluid.js.
+  // Applying is explicit, so selecting an option never executes stored code.
+  let refreshPreset=()=>{};
+  if(lesson==='FCG5'){
+    const row=document.createElement('div');
+    row.className='lab-parameter-row fcg5-preset-row';
+    const label=document.createElement('label');
+    label.htmlFor='fcg5-observation-preset';
+    label.textContent='流れの比較条件';
+    const selector=document.createElement('select');
+    selector.id='fcg5-observation-preset';
+    for(const item of FCG5_OBSERVATION_PRESETS){
+      const option=document.createElement('option');
+      option.value=item.id;option.textContent=item.label;
+      selector.append(option);
+    }
+    const apply=document.createElement('button');
+    apply.type='button';apply.className='action';
+    apply.textContent='この条件で実行';
+    const description=document.createElement('small');
+    description.textContent='選択後に押すと fluid.js の nu・forceAmplitude だけを書き換えて再実行します。N・dt・染料ブラシと手動コード編集は保持します。';
+    const status=document.createElement('p');
+    status.className='lab-parameter-status';
+    status.setAttribute('role','status');
+    apply.addEventListener('click',()=>{
+      try{
+        if(!isReady())return;
+        const updated=applyFCG5ObservationPreset(getSource(),selector.value);
+        setSource(updated);
+        status.textContent='実編集ソースに反映して実行します';
+        rerun();
+      }catch(error){
+        status.textContent=String(error.message);
+      }
+    });
+    row.append(label,selector,apply,description,status);
+    container.append(row);
+    refreshPreset=()=>{
+      const source=getSource();
+      const targets=parametersFor('FCG5').filter(s=>['nu','force'].includes(s.id));
+      apply.disabled=!isReady()||targets.length!==2||
+        targets.some(s=>!readLabParameter(source,s).ok);
+      if(apply.disabled&&isReady())
+        status.textContent='nu・forceAmplitude は JS を直接編集してください';
+      else if(!apply.disabled&&status.textContent.includes('直接編集'))
+        status.textContent='';
+    };
+  }
   const refresh = () => {
     for (const {spec, slider, display, status} of controls) {
       const state = readLabParameter(getSource(), spec);
@@ -288,6 +389,7 @@ export function mountLabParameters(lesson, container,
         status.textContent = state.reason;
       }
     }
+    refreshPreset();
   };
   refresh();
   return refresh;
