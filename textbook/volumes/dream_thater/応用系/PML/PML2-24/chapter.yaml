@@ -20,15 +20,10 @@ learning_objectives:
   - 正規化したイノベーションの二乗平均を導出し検証上の意味を説明できる
   - 標準Pythonで静的・動的な二段の同化を手計算と照合できる
 definitions:
-  - { id: PML2-24-DEF-01, name: 逐次データ同化と予測・フィルタ分布 }
-  - { id: PML2-24-DEF-02, name: イノベーションとその共分散 }
-  - { id: PML2-24-DEF-03, name: Kalmanゲイン }
+  - { id: PML2-24-DEF-01, name: 逐次データ同化 }
 theorems:
-  - { id: PML2-24-THM-01, name: 線形状態予測 }
-  - { id: PML2-24-THM-02, name: 線形Gaussianの観測更新 }
-  - { id: PML2-24-PROP-01, name: Joseph形式と共分散の半正定値性 }
-  - { id: PML2-24-THM-03, name: 静的線形Gaussianモデルの一括推定と逐次更新の同値性 }
-  - { id: PML2-24-PROP-02, name: 正規化したイノベーションの二乗平均 }
+  - { id: PML2-24-THM-01, name: 静的線形Gaussianモデルの一括推定と逐次更新の同値性 }
+  - { id: PML2-24-PROP-01, name: 正規化したイノベーションの二乗平均 }
 canonical_examples:
   - 状態雑音を含む予測平均と共分散の直接計算
   - 観測行列が2の一変数例で残差とKalmanゲインの寸法を確認する
