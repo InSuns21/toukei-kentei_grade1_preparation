@@ -4,7 +4,8 @@ coverage: complete
 prerequisites:
   - LREP8
   - SREL2
-forward_references: []
+forward_references:
+  - qft.wigner-rotation
 concepts:
   - id: representation.lorentz-group
     name: Lorentz群と単位元成分
