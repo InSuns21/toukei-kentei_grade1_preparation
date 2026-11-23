@@ -1,0 +1,46 @@
+id: "PML2-11"
+title: "残差から解誤差を評価できるのはいつか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-10
+official_scope: []
+learning_objectives:
+  - 強形式残差の連続L2ノルムと有限collocation点の経験残差を区別できる
+  - 零Dirichlet Poissonの残差方程式とPoincare評価からH1半ノルムおよびL2誤差の上界を証明できる
+  - 二次多項式の真解と近似の厳密誤差を積分で求め保証上界と比較できる
+  - 弱残差汎関数の双対ノルムとエネルギー誤差が一致する理由を証明できる
+  - 非零端点の誤差を一次補間で分離して残差と境界誤差の上界を導ける
+  - 境界条件を欠くと残差零でも解誤差を保証できない反例を説明できる
+  - 区間長を変えた場合の安定定数と誤差上界を自力で再構成できる
+  - 連続残差の上界を評価しない有限点損失を誤差保証に代入できない理由を説明できる
+definitions:
+  - { id: PML2-11-DEF-01, name: Poisson強形式残差の連続ノルム }
+  - { id: PML2-11-DEF-02, name: エネルギー弱残差とその双対ノルム }
+  - { id: PML2-11-DEF-03, name: 端点誤差の一次補間と零端点への補正 }
+theorems:
+  - { id: PML2-11-THM-01, name: 零Dirichlet Poissonの強残差からの誤差評価 }
+  - { id: PML2-11-THM-02, name: 弱残差ノルムとエネルギー誤差の一致 }
+  - { id: PML2-11-THM-03, name: 強残差と端点誤差を併用する上界 }
+canonical_examples:
+  - f=2の二次候補による残差と真のL2および勾配誤差
+  - 弱残差を試験関数で評価した例と双対ノルムの確定
+  - 端点一次補間による残差不変性と誤差分解
+  - 定数平行移動の内部残差ゼロと境界違反
+  - 一点collocationをすり抜ける三重零点の摂動
+  - 区間長を変えたエネルギー評価と複合候補の厳密検算
+problem_patterns:
+  - PML2-11-A01
+  - PML2-11-A02
+  - PML2-11-A03
+  - PML2-11-A04
+  - PML2-11-A05
+  - PML2-11-B01
+  - PML2-11-B02
+  - PML2-11-B03
+  - PML2-11-B04
+  - PML2-11-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }

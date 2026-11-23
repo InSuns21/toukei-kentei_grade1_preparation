@@ -2,6 +2,7 @@
 // Selectable 12/24/36/48 MAC grid; no-normal-flux walls, free-slip tangential approximation.
 // This is a visualization model, not a validated CFD prediction.
 const N=48,h=1/N,dt=0.04,rho=1,nu=0.002,forceAmplitude=0.08;
+const dyeBrushRadius=0.085,dyeBrushStrength=0.48;
 const steps=settings.steps;
 if(!Number.isInteger(steps)||steps<0||steps>32)throw new RangeError('physical steps 0..32');
 if(![12,24,36,48].includes(N))throw new RangeError('grid N must be 12,24,36,48');
@@ -269,7 +270,7 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
       if(x<0||x>1||y<0||y>1)return;
       for(let j=0;j<N;j++)for(let i=0;i<N;i++){
         const dx=(i+.5)*h-x,dy=(j+.5)*h-y;
-        dye[ci(i,j)]=clip(dye[ci(i,j)]+.48*Math.exp(-(dx*dx+dy*dy)/(.085*.085)),0,1);
+        dye[ci(i,j)]=clip(dye[ci(i,j)]+dyeBrushStrength*Math.exp(-(dx*dx+dy*dy)/(dyeBrushRadius*dyeBrushRadius)),0,1);
       }
       refreshGpuFields();drawPhysicalDye();
     }
@@ -323,6 +324,6 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
       canvas.removeEventListener('fcg5-request-progress',emitProgress);
       canvas.removeEventListener('fcg5-physics-control',onLiveControl);
     },{once:true});
-    report('ANIMATION','N='+N+' EDITABLE solver draws the same dye state after the static R8 pixel oracle; Shift+drag adds external dye, Space pauses');
+    report('ANIMATION','N='+N+' EDITABLE solver draws the same dye state after the static R8 pixel oracle; Shift+drag adds external dye (radius='+dyeBrushRadius+' m, strength='+dyeBrushStrength+'), Space pauses');
   }
 }
