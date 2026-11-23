@@ -37,7 +37,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep5-pauli-model -->
-**定義の確認。** $\boldsymbol x=(1,2,-1)$ を代入すると
+**定義の確認**。 $\boldsymbol x=(1,2,-1)$ を代入すると
 $$
 X(\boldsymbol x)=\begin{pmatrix}-1&1-2i\\1+2i&1\end{pmatrix}.
 $$
@@ -108,7 +108,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep5-conjugation-map -->
-**定義の確認。** $U=I_2$ なら $R_U\boldsymbol x=\boldsymbol x$ です。もう一つ、$\theta\in\mathbb R$ に対し
+**定義の確認**。 $U=I_2$ なら $R_U\boldsymbol x=\boldsymbol x$ です。もう一つ、$\theta\in\mathbb R$ に対し
 $$
 U_z(\theta)=\begin{pmatrix}e^{-i\theta/2}&0\\0&e^{i\theta/2}\end{pmatrix}
 $$
@@ -455,7 +455,7 @@ $$
 単位 $\boldsymbol n$ に対し $U(\boldsymbol n,\pi)$、$U(\boldsymbol n,2\pi)$、$U(\boldsymbol n,4\pi)$ を求め、$\pi$ 回転に対応する $SU(2)$ 元の二乗が何かを調べよ。
 
 <!-- solution-start -->
-**詳細解答。** $N=X(\boldsymbol n)$ で $N^2=I_2$ です。[軸角表示と三次元回転](#prop-lrep5-rodrigues)で導いた指数公式から
+**詳細解答。** $N=X(\boldsymbol n)$ で $N^2=I_2$ です。[軸角表示と三次元回転](#prop-lrep5-rodrigues)を使います。そこで示した指数表示に角度を代入すると
 $$
 \begin{aligned}
 U(\boldsymbol n,\pi)&=\cos(\pi/2)I_2-i\sin(\pi/2)N=-iN,\\
