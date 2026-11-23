@@ -1,0 +1,34 @@
+chapter: PML2-24
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-23
+  - PML2-02
+  - TSA6
+  - INV15
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-24-filtering
+    name: 逐次データ同化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（逐次データ同化）"]
+    requires:
+      - physics-machine-learning.pml2-02-pipeline
+      - timeseries.state-prediction-filtering
+      - inverse.linear-gaussian-model
+  - id: physics-machine-learning.pml2-24-batch
+    name: 静的線形Gaussianモデルの一括推定と逐次更新の同値性
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-24-filtering
+      - timeseries.kalman-recursion
+      - inverse.gaussian-posterior-formula
+  - id: physics-machine-learning.pml2-24-innovation-check
+    name: 正規化したイノベーションの二乗平均
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-24-filtering
+      - timeseries.observation-innovation
