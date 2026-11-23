@@ -89,7 +89,8 @@ test('WGL19 replays the audited GPU shader in the same sandbox, not a disconnect
     assert.ok(js.includes(part),part);
   }
   assert.ok(js.indexOf('const floatReadback=readState();')<
-    js.indexOf("setTimeout(()=>safely"),'independent final state is read before replay starts');
+    js.indexOf("window.addEventListener('wgl19-initial-oracle-captured'"),
+    'initial float snapshot is read before replay callback is registered');
   assert.ok(js.indexOf('dispose();')<js.indexOf('function resetPlayback()'));
 });
 
@@ -100,7 +101,7 @@ test('WGL19 result view offers source-linked clock presets and verifies every re
     readFile(new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL19/index.md',import.meta.url),'utf8')
   ]);
   for(const part of ["request.lesson==='WGL19'","type:'wgl19-control'",
-    "type:'wgl19-progress'",'scheduleWGL19(audit.deltas',
+    "type:'wgl19-progress'",'wgl19-initial-oracle-captured','scheduleWGL19(audit.deltas',
     "data.steps===expected.totalSteps","id='wgl19-live-play'",
     "id='wgl19-live-step'","id='wgl19-live-reset'",
     "id='wgl19-timeline'","const frameDeltasMs=",
