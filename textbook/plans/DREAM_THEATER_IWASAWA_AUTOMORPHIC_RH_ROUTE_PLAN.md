@@ -1,8 +1,8 @@
 # DREAM THEATER 岩澤理論・保型形式／保型表現・リーマン予想（履修ルート）
 
 設計初版: 2026-11-21 JST／改訂: 2026-11-23 JST  
-状態: 4系列を横断する設計。**現行案86講（ANF22・IWA20・AFR24・RHP20）**。基礎のANFは実装進行中、残り3系列は設計段階。横断ルート自身は講義を所有しない。  
-正本: [ANF 22講](../plans_progress/DREAM_THEATER_ALGEBRAIC_NUMBER_THEORY_CLASS_FIELD_THEORY_PLAN.md)、[IWA 20講](DREAM_THEATER_IWASAWA_THEORY_PLAN.md)、[AFR 24講](DREAM_THEATER_AUTOMORPHIC_FORMS_REPRESENTATIONS_PLAN.md)、[RHP 20講](DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md)。
+状態: 4系列を横断する設計。**現行案86講（ANF22・IWA20・AFR24・RHP20）**。ANF22講は完了、IWAは第1講を実装し、AFR・RHPは設計段階。横断ルート自身は講義を所有しない。  
+正本: [ANF 22講](../plans_progress/DREAM_THEATER_ALGEBRAIC_NUMBER_THEORY_CLASS_FIELD_THEORY_PLAN.md)、[IWA 20講](../plans_progress/DREAM_THEATER_IWASAWA_THEORY_PLAN.md)、[AFR 24講](DREAM_THEATER_AUTOMORPHIC_FORMS_REPRESENTATIONS_PLAN.md)、[RHP 20講](DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md)。
 
 ## 0. なぜ基礎3系列とRHの独立研究講読を分けるか
 
@@ -133,7 +133,7 @@ SutherlandはRHからRobin／Lagarias型の**整数の約数和に関する不�
 
 - **ANF系列の次講:** ANFは進行中であり、現在の完了境界・次講は`textbook/dream-theater-series/ANF.yaml`の先頭からの連続`completed`直後の最初の`planned`から導く。並行実装で日々変化するため、横断PLANへ固定の次章IDを複製しない。
 - **AFR1:** 完成済み`MF`系列を直接再利用でき、ANF/IWA完了を待たず開始可能。
-- **IWA1:** ANFの局所体・円分塔の必要部分が実装済みになってから着手。既存`NT`だけで`IWA1`を完了可能とは見なさない。
+- **IWA1:** ANF22までの局所体・円分塔が完成した状態で着手し、有限層・閉部分群・位相的生成元を実装済み。次講はIWA2。
 - **RHP1:** 既存`ANT3/7/8`と`CA12`の実在する完成本文を参照して、Leanの到達命題とRH/Dirichlet GRHの条件・例外を講義化できる。RHP中盤の高階保型・Galoisコホモロジーは未実装のANF/IWA/AFRを暗黙前提にしない。
 
 講義IDと現行86講の内容を変更するときはこのルートと個別PLANの**双方**を同じPRで同期する。完了済み`NT/ANT/MF/EC` PLANは改稿しない。

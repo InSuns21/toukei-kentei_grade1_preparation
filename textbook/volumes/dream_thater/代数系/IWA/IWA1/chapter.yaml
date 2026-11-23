@@ -1,0 +1,43 @@
+id: "IWA1"
+title: "p進数から無限拡大へ：なぜ塔を作るか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANF22
+official_scope: []
+learning_objectives:
+  - Z_pの有限商と閉部分群を、p進位相・付値から証明して分類できる
+  - Z_p拡大の有限層を固定体で構成し、一意性と次数を証明できる
+  - 有限Galois群の制限写像から無限Galois群の逆極限を構成・証明できる
+  - 位相的生成元と普通の生成元の違いを説明し単元判定で計算できる
+  - p=3の円分第一層と分岐・類群の問いを区別できる
+definitions:
+  - { id: IWA1-DEF-01, name: Z_p拡大の第n層 }
+  - { id: IWA1-DEF-02, name: 位相的生成元 }
+theorems:
+  - { id: IWA1-PROP-01, name: p進整数の有限商 }
+  - { id: IWA1-THM-01, name: Z_pの閉部分群の分類 }
+  - { id: IWA1-THM-02, name: 有限層の次数・一意性・合併 }
+  - { id: IWA1-THM-03, name: Galois群の逆極限表示 }
+  - { id: IWA1-PROP-02, name: Z_pの位相的生成元判定 }
+canonical_examples:
+  - Z_3/9Z_3の剰余類と閉部分群の包含
+  - p=3の円分Z_p拡大の次数3・9の有限層
+  - 3進第一層の生成元zeta9+zeta9^-1と三次最小多項式
+  - Z_5の生成元2と非生成元5
+  - Z_pに稠密な非閉部分群Z
+problem_patterns:
+  - IWA1-RESIDUE-INDEX
+  - IWA1-COMPATIBLE-RESIDUES
+  - IWA1-FINITE-LAYER-DEGREES
+  - IWA1-TOPOLOGICAL-GENERATORS
+  - IWA1-RESTRICTION-MAPS
+  - IWA1-CLOSEDNESS-COUNTEREXAMPLE
+  - IWA1-CYCLOTOMIC-CUBIC
+  - IWA1-UNIQUE-INTERMEDIATE
+  - IWA1-NONGALOIS-COUNTEREXAMPLE
+  - IWA1-INTEGRATED-TOWER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 2 }

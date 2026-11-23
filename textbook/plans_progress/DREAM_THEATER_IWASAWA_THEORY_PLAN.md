@@ -1,8 +1,8 @@
 # DREAM THEATER 岩澤理論（IWA1〜IWA20）
 
 設計確定: 2026-11-21 JST  
-状態: designed / **全20講確定**。章本文・系列manifest・公開索引は未着手。  
-系列ID: `IWA`。分野: 代数系。上流の新規計画: [ANF1〜ANF22](../plans_progress/DREAM_THEATER_ALGEBRAIC_NUMBER_THEORY_CLASS_FIELD_THEORY_PLAN.md)。横断: [RH研究講読ルート](DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)。
+状態: in_progress / **全20講確定**。IWA1の本文・系列manifest・公開索引を実装、IWA2〜IWA20は計画中。  
+系列ID: `IWA`。分野: 代数系。上流の新規計画: [ANF1〜ANF22](../plans_progress/DREAM_THEATER_ALGEBRAIC_NUMBER_THEORY_CLASS_FIELD_THEORY_PLAN.md)。横断: [RH研究講読ルート](../plans/DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)。
 
 ## 中心問い・到達目標
 
@@ -70,7 +70,7 @@
 
 ## 2026年11月21〜22日のRH／GRH形式検証を受けた関連論点
 
-本系列の主題は**p進的な無限塔の算術**であって、RH／Dirichlet GRHそのものの証明を所有しない。一方、Levent Alpöge・ClaudeによるLean証明は11月21日にLean/Mathlibコミュニティに認証され、WaterlooとMITの第三者によるkernel検証記録も公開された。これを「未検証の主張」と書き続けず、**証明として形式検証済みで、人間可読な完全な証明の再構成がなお進行中**と区別する。出典と数学的読解は[横断ルート](DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)第2節、保型表現との入口は[AFR23〜24](DREAM_THEATER_AUTOMORPHIC_FORMS_REPRESENTATIONS_PLAN.md)、核心証明の独立した学習サイクルは[RHP1〜RHP20](DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md)を参照。
+本系列の主題は**p進的な無限塔の算術**であって、RH／Dirichlet GRHそのものの証明を所有しない。一方、Levent Alpöge・ClaudeによるLean証明は11月21日にLean/Mathlibコミュニティに認証され、WaterlooとMITの第三者によるkernel検証記録も公開された。これを「未検証の主張」と書き続けず、**証明として形式検証済みで、人間可読な完全な証明の再構成がなお進行中**と区別する。出典と数学的読解は[横断ルート](../plans/DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)第2節、保型表現との入口は[AFR23〜24](../plans/DREAM_THEATER_AUTOMORPHIC_FORMS_REPRESENTATIONS_PLAN.md)、核心証明の独立した学習サイクルは[RHP1〜RHP20](../plans/DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md)を参照。
 
 - **IWA7／IWA9:** Ferrero–Washingtonのμ消失定理は「すべてのZ_p拡大でμ=0」ではない。対象体・拡大・p部分類群と適用条件を原典で確かめ、`μ`の定義と類数の成長公式を補題から説明する。Robin Zhangの予備ノート第5節では円分塔に沿うコホモロジー群の位数制御へこの理論が現れる。一般の`H^2`有界性を単純な類数公式から直ちに導かない。
 - **IWA18／IWA20:** `H^1(G_E,A)`と各完備化への制限、その核としてのSelmer型条件、`H^2`と局所・大域双対の対応を、**どのGalois群／係数／分岐集合について定義するか**明示する。Tate–Poitouを引用する場合も真の仮定と用途、楕円曲線の普通Selmer群との違いを説明する。
@@ -89,4 +89,4 @@
 
 ## 着手・完了運用
 
-新規設計なので `textbook/plans/` に保管し、`IWA1`着手時に `plans_progress/` へ移動、`textbook/dream-theater-series/IWA.yaml`に **20件のplanned** を作る。`IWA1`の独習者向け本文・`chapter.yaml`・`knowledge.yaml`が完成したら初めて該当1件を`completed`へ変更し、科目別目次を更新する。共有ルーターは改変しない。終端の`IWA20`完了後も系列横断査読・参照整合が済むまで`plan_done/`へ移動しない。
+IWA1着手時に本PLANを `textbook/plans_progress/` へ移動し、`textbook/dream-theater-series/IWA.yaml`に20講を登録した。IWA1は本文・`chapter.yaml`・`knowledge.yaml`・公開目次を整合させて `completed` とし、IWA2〜IWA20は `planned` とする。共有ルーターは改変しない。終端の`IWA20`完了後も系列横断査読・参照整合が済むまで`plan_done/`へ移動しない。

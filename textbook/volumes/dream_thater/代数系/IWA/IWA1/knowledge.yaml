@@ -1,0 +1,49 @@
+chapter: IWA1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF22
+forward_references: []
+
+concepts:
+  - id: number-theory.zp-residue-quotients
+    name: p進整数の有限商
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.p-adic-inverse-limit-isomorphism]
+
+  - id: number-theory.zp-closed-subgroups
+    name: Z_pの閉部分群の分類
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.zp-residue-quotients, number-theory.p-adic-dvr]
+
+  - id: number-theory.zp-extension-layer
+    name: Z_p拡大の第n層
+    kind: definition
+    introduction: formal
+    requires: [number-theory.zp-extension, number-theory.zp-closed-subgroups]
+
+  - id: number-theory.zp-layer-tower
+    name: 有限層の次数・一意性・合併
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.zp-extension-layer, number-theory.zp-closed-subgroups]
+
+  - id: number-theory.galois-inverse-limit
+    name: Galois群の逆極限表示
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.zp-layer-tower]
+
+  - id: number-theory.zp-topological-generator
+    name: 位相的生成元
+    kind: definition
+    introduction: formal
+    requires: [number-theory.zp-extension]
+
+  - id: number-theory.zp-generator-criterion
+    name: Z_pの位相的生成元判定
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.zp-topological-generator, number-theory.p-adic-dvr]

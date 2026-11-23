@@ -1,0 +1,87 @@
+version: 1
+id: IWA
+title: "岩澤理論"
+plan: textbook/plans_progress/DREAM_THEATER_IWASAWA_THEORY_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+chapters:
+  - id: IWA1
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA1
+    status: completed
+    title: "p進数から無限拡大へ：なぜ塔を作るか"
+  - id: IWA2
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA2
+    status: planned
+    title: "円分Z_p拡大とGalois群"
+  - id: IWA3
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA3
+    status: planned
+    title: "岩澤代数・完備群環"
+  - id: IWA4
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA4
+    status: planned
+    title: "ノルム・制限と逆極限"
+  - id: IWA5
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA5
+    status: planned
+    title: "岩澤加群のtorsion／擬同型"
+  - id: IWA6
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA6
+    status: planned
+    title: "Weierstrass準備・特徴イデアル"
+  - id: IWA7
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA7
+    status: planned
+    title: "類数成長公式とμ不変量の役割"
+  - id: IWA8
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA8
+    status: planned
+    title: "円分体の類群と指標成分"
+  - id: IWA9
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA9
+    status: planned
+    title: "分岐条件と無分岐最大p拡大"
+  - id: IWA10
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA10
+    status: planned
+    title: "円分単数・ノルム整合性"
+  - id: IWA11
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA11
+    status: planned
+    title: "局所／大域単数の完全列"
+  - id: IWA12
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA12
+    status: planned
+    title: "控制定理（control）の原型"
+  - id: IWA13
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA13
+    status: planned
+    title: "p進測度・積分とIwasawa代数"
+  - id: IWA14
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA14
+    status: planned
+    title: "Kummer合同とBernoulli数"
+  - id: IWA15
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA15
+    status: planned
+    title: "Kubota–Leopoldt p進L関数"
+  - id: IWA16
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA16
+    status: planned
+    title: "円分岩澤主予想：正確な定式化"
+  - id: IWA17
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA17
+    status: planned
+    title: "主予想の証明戦略とEuler systems"
+  - id: IWA18
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA18
+    status: planned
+    title: "Selmer群とPontryagin双対"
+  - id: IWA19
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA19
+    status: planned
+    title: "CM楕円曲線・Hecke指標のp進算術"
+  - id: IWA20
+    path: textbook/volumes/dream_thater/代数系/IWA/IWA20
+    status: planned
+    title: "保型形式・円分塔・形式的RH/Dirichlet GRH証明への接続"

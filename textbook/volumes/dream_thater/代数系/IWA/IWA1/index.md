@@ -44,7 +44,7 @@ $$
 r_n:\mathbb Z_p\longrightarrow\mathbb Z/p^n\mathbb Z
 $$
 
-は加法を保ち、整数 $0,\ldots,p^n-1$ を定数の $p$ 進整数として含むので全射です。$x=p^ny$ なら $r_n(x)=0$。逆に $r_n(x)=0$ なら、$x$ の最初の $n$ 桁は $0$ です。[桁展開定理](../../ANF/ANF9/index.md#thm-anf9-p-adic-expansion)によって
+は加法を保ち、整数 $0,\ldots,p^n-1$ を定数の $p$ 進整数として含むので全射です。$x=p^ny$ なら $r_n(x)=0$。逆に $r_n(x)=0$ なら、$x$ の最初の $n$ 桁は $0$ です。[桁展開定理](../../ANF/ANF9/index.md#thm-anf9-digit-expansion)によって
 
 $$
 x=\sum_{j=n}^{\infty}a_jp^j
@@ -81,7 +81,7 @@ $H\ne\{0\}$ の元の中で最小の $p$ 進付値を選びます。その元の
 <!-- proof-start -->
 ### 証明
 
-$H\subseteq\mathbb Z_p$ を閉部分群とします。$H=\{0\}$ の場合を除き、集合 $\{v_p(h):h\in H,\ h\ne0\}$ は非負整数の空でない部分集合なので最小値 $n$ を持ちます。$v_p(a)=n$ を満たす $a\in H$ を取ります。[付値による単元判定](../../ANF/ANF9/index.md#prop-anf9-zp-units-ideals)により
+$H\subseteq\mathbb Z_p$ を閉部分群とします。$H=\{0\}$ の場合を除き、集合 $\{v_p(h):h\in H,\ h\ne0\}$ は非負整数の空でない部分集合なので最小値 $n$ を持ちます。$v_p(a)=n$ を満たす $a\in H$ を取ります。[付値による単元判定](../../ANF/ANF9/index.md#prop-anf9-dvr-structure)により
 
 $$
 a=p^nu,\qquad u\in\mathbb Z_p^\times.
@@ -259,7 +259,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-整数の稠密性と乗法の連続性から $\overline{\mathbb Zu}=u\mathbb Z_p$ です。$u$ が単元なら $u\mathbb Z_p=\mathbb Z_p$。非単元なら[単元判定](../../ANF/ANF9/index.md#prop-anf9-zp-units-ideals)により $u\in p\mathbb Z_p$ だから閉包は真部分群に留まります。従って同値です。
+整数の稠密性と乗法の連続性から $\overline{\mathbb Zu}=u\mathbb Z_p$ です。$u$ が単元なら $u\mathbb Z_p=\mathbb Z_p$。非単元なら[単元判定](../../ANF/ANF9/index.md#prop-anf9-dvr-structure)により $u\in p\mathbb Z_p$ だから閉包は真部分群に留まります。従って同値です。
 
 位相群同型 $\iota:\Gamma\to\mathbb Z_p$ で $\gamma$ の像は単元です。法 $p^n$ の商で単元 $u$ の加法位数を調べると、$ku\equiv0\pmod{p^n}$ は $k\equiv0\pmod{p^n}$ と同値です。よって位数 $p^n$ です。[第 $n$ 層のGalois商](#thm-iwa1-layer-tower)へ戻すと $\gamma|_{K_n}$ が生成元になります。
 <!-- proof-end -->
@@ -358,7 +358,7 @@ $\mathbb Z$ が $\mathbb Z_p$ の稠密な真部分群であることを示し�
 - ID: IWA1-B1
 
 <!-- solution-start -->
-**詳細解答。** [桁展開](../../ANF/ANF9/index.md#thm-anf9-p-adic-expansion)で与えられる $x\in\mathbb Z_p$ の最初の $n$ 桁を合計した整数 $s_n$ は $x-s_n\in p^n\mathbb Z_p$ を満たします。従って $s_n\to x$ となり $\overline{\mathbb Z}=\mathbb Z_p$ です。$\mathbb Z$ が全体なら $1/(1-p^2)$ のような $p$ 進整数が常に通常の整数になってしまいますが、等比級数 $\sum_{j\ge0}p^{2j}=1/(1-p^2)$ は $\mathbb Z_p$ に収束し、$p\ge2$ なので有理数 $1/(1-p^2)$ は通常の整数ではありません。ゆえに $\mathbb Z$ は真部分群です。[分類定理の証明](#thm-iwa1-closed-subgroups)では整数倍の閉包を部分群に戻すために閉性を使用しており、$\mathbb Z$ ではその手順が成立しません。
+**詳細解答。** [桁展開](../../ANF/ANF9/index.md#thm-anf9-digit-expansion)で与えられる $x\in\mathbb Z_p$ の最初の $n$ 桁を合計した整数 $s_n$ は $x-s_n\in p^n\mathbb Z_p$ を満たします。従って $s_n\to x$ となり $\overline{\mathbb Z}=\mathbb Z_p$ です。$\mathbb Z$ が全体なら $1/(1-p^2)$ のような $p$ 進整数が常に通常の整数になってしまいますが、等比級数 $\sum_{j\ge0}p^{2j}=1/(1-p^2)$ は $\mathbb Z_p$ に収束し、$p\ge2$ なので有理数 $1/(1-p^2)$ は通常の整数ではありません。ゆえに $\mathbb Z$ は真部分群です。[分類定理の証明](#thm-iwa1-closed-subgroups)では整数倍の閉包を部分群に戻すために閉性を使用しており、$\mathbb Z$ ではその手順が成立しません。
 <!-- solution-end -->
 
 ### B2. 円分第一層の最小多項式
