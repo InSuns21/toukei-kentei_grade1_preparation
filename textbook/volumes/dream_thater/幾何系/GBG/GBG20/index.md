@@ -57,7 +57,7 @@ $$
 ここで $q$ が次数 $k$ というのは $q(tX)=t^kq(X)$（実数 $t$）という意味である。$p$ の各引数の対称性と $q$ のAd不変性を混同しない。**対称化**を行っていない任意の積のtraceは $k\ge3$ で対称とは限らない。
 
 <!-- definition-example-start: def-gbg20-invariant-polynomial -->
-**定義の確認（可換群の例）**。$G=U(1)$ なら $\mathfrak g=i\mathbb R$ で、任意の $g$ に対して $\operatorname{Ad}_gX=X$ である。$X_j=it_j$（$t_j\in\mathbb R$）として
+**定義の確認**（可換群の例）。$G=U(1)$ なら $\mathfrak g=i\mathbb R$ で、任意の $g$ に対して $\operatorname{Ad}_gX=X$ である。$X_j=it_j$（$t_j\in\mathbb R$）として
 
 $$
 p_k(it_1,\ldots,it_k)=t_1\cdots t_k
@@ -139,7 +139,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg20-symmetrized-trace -->
-**定義の確認（低次数）**。$k=1$ では $\operatorname{tr}\rho_*(X)$、$k=2$ では
+**定義の確認**（低次数）。$k=1$ では $\operatorname{tr}\rho_*(X)$、$k=2$ では
 
 $$
 p_{\rho,2}(X,Y)
@@ -234,7 +234,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg20-curvature-polynomial-form -->
-**定義の確認（4形式の構成）**。$G=U(1)$、$M=\mathbb R^4$ の積主束上で
+**定義の確認**（4形式の構成）。$G=U(1)$、$M=\mathbb R^4$ の積主束上で
 
 $$
 A=i(x^1dx^2+x^3dx^4),\qquad
