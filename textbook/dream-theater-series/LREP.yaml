@@ -7,7 +7,7 @@ chapter_root: textbook/volumes/dream_thater
 chapters:
   - id: LREP1
     path: textbook/volumes/dream_thater/代数系/LREP/LREP1
-    status: planned
+    status: completed
     title: "表現とは何か――作用、表現、部分表現、同値"
   - id: LREP2
     path: textbook/volumes/dream_thater/代数系/LREP/LREP2
