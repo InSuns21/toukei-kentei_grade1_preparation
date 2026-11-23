@@ -20,14 +20,14 @@ $\langle v\otimes w,v'\otimes w'\rangle=\langle v,v'\rangle\langle w,w'\rangle$
 
 全角運動量とは、両方の因子に**同時に同じ回転**を作用させたときの無限小生成子です。$D_j(U)$ と $D_k(U)$ は群元 $U\in SU(2)$ がそれぞれ $V_j,V_k$ に作用する線形変換です。[角運動量演算子の定義](../LREP7/index.md#def-lrep7-angular-momentum)で用いた $A_a=-i\sigma_a/2$ と $J_a^{(j)}=i\,dD_j(A_a)$（第二因子も同様）を使い、実変数 $t$ に沿った同じ回転 $U(t)=\exp(tA_a)$ を考えます。[テンソル積表現の微分公式](../LREP4/index.md#prop-lrep4-tensor-differential)を適用すると
 
-$
+$$
 \begin{aligned}
 \left.\frac{d}{dt}\right|_{t=0}
   \bigl(D_j(U(t))\otimes D_k(U(t))\bigr)
 &=dD_j(A_a)\otimes I+I\otimes dD_k(A_a)\\
 &=-i\bigl(J_a^{(j)}\otimes I+I\otimes J_a^{(k)}\bigr).
 \end{aligned}
-$
+$$
 
 したがって、微分の二項の和に $i$ を掛けた自己共役演算子が以下の $T_a$ です。微分変数は回転のパラメータ $t$ であり、$a=1,2,3$ は固定した生成子を指定する添字です。
 
@@ -56,16 +56,16 @@ $$
 
 二つの項はそれぞれ第一因子、第二因子の演算子であり、定義上の $T_3$ が実際に量子数を加算することを確認できます。同じ積基底で $T_\pm$ は二因子の昇降作用の和だから
 
-$
+$$
 T_+|\uparrow\downarrow\rangle=|\uparrow\uparrow\rangle,\qquad
 T_-|\uparrow\downarrow\rangle=|\downarrow\downarrow\rangle.
-$
+$$
 
 ここでは $J_+|\uparrow\rangle=J_-|\downarrow\rangle=0$ と、スピン $\frac12$ の非零昇降係数が1であることを使いました。また $T_1,T_2$ の定義から
 
-$
+$$
 T^2=T_3^2+\frac12(T_+T_-+T_-T_+)
-$
+$$
 
 と展開できます。例えば $T_-|\uparrow\uparrow\rangle
 =|\downarrow\uparrow\rangle+|\uparrow\downarrow\rangle$、$T_+T_-|\uparrow\uparrow\rangle=2|\uparrow\uparrow\rangle$、$T_-T_+|\uparrow\uparrow\rangle=0$ なので $T^2|\uparrow\uparrow\rangle=2|\uparrow\uparrow\rangle$ です。積状態から全角運動量の固有値へ進む計算も、定義した演算子の作用として確認できました。
@@ -211,16 +211,16 @@ $$
 > **定義（Clebsch–Gordan係数）**  
 > スピン $j,k$ の正規直交積基底 $|j,m\rangle\otimes|k,n\rangle$ と、[Clebsch–Gordan分解](#thm-lrep8-clebsch-gordan)の各スピン $\ell$ の正規直交全角運動量基底 $|\ell,M\rangle$ に対し、
 
-$
+$$
 C^{\ell,M}_{(j,m),(k,n)}
 =\langle j,m;k,n\mid\ell,M\rangle
-$
+$$
 
 > を**Clebsch–Gordan係数**と呼ぶ。下付きの $(j,m)$ と $(k,n)$ は、それぞれの因子の（スピン、磁気量子数）の組を表す。合成基底は次の式で復元できる。
 
-$
+$$
 |\ell,M\rangle=\sum_{m,n} C^{\ell,M}_{(j,m),(k,n)}|j,m;k,n\rangle.
-$
+$$
 
 > また $m+n\ne M$ なら係数は零となる。各 $\ell$ の最高状態の位相を選ぶと係数が定まる。
 <!-- formal-statement-end -->
@@ -364,18 +364,18 @@ $$
 
 であり、確かにスピン $\frac12$ 成分の最高状態です。残る負の磁気量子数の状態も、係数を確かめながら下降させます。[スピン $\frac32$ の昇降公式](../LREP7/index.md#thm-lrep7-spin-spectrum)で $M=\frac12$ から $-\frac12$ へ下げる係数は2です。一方、積基底では
 
-$
+$$
 \begin{aligned}
 T_-|0,\uparrow\rangle
 &=\sqrt2|-1,\uparrow\rangle+|0,\downarrow\rangle,\\
 T_-|1,\downarrow\rangle
 &=\sqrt2|0,\downarrow\rangle.
 \end{aligned}
-$
+$$
 
 ゆえに
 
-$
+$$
 \begin{aligned}
 2|\tfrac32,-\tfrac12\rangle
 &=T_-|\tfrac32,\tfrac12\rangle\\
@@ -385,14 +385,14 @@ $
 &=\sqrt{\tfrac13}|-1,\uparrow\rangle
  +\sqrt{\tfrac23}|0,\downarrow\rangle.
 \end{aligned}
-$
+$$
 
 さらに $T_-|\tfrac32,-\tfrac12\rangle
 =\sqrt3|-1,\downarrow\rangle$ なので、$|\tfrac32,-\tfrac32\rangle=|-1,\downarrow\rangle$ です。
 
 スピン $\frac12$ の下降係数は1です。前に選んだ最高状態の位相を保つと
 
-$
+$$
 \begin{aligned}
 |\tfrac12,-\tfrac12\rangle
 &=T_-|\tfrac12,\tfrac12\rangle\\
@@ -402,7 +402,7 @@ $
 &=\sqrt{\tfrac23}|-1,\uparrow\rangle
  -\sqrt{\tfrac13}|0,\downarrow\rangle.
 \end{aligned}
-$
+$$
 
 この二状態の内積は $\sqrt{2/9}-\sqrt{2/9}=0$、ノルム二乗はそれぞれ1です。こうして全6状態が求まり、$M=\pm\frac12$ の両方で直交する2本の合成基底を得ました。
 
@@ -529,22 +529,22 @@ $$
 
 ここで $J_\pm=J_1\pm iJ_2$ を使って二項を展開すると
 
-$
+$$
 \sum_{a=1}^3 J_a\otimes J_a
 =J_3\otimes J_3+
 \frac12(J_+\otimes J_-+J_-\otimes J_+)
-$
+$$
 
 です。各因子のスピンは $\frac12$ なので、$M=0$ の順序付き基底のどちらにも $J_3\otimes J_3$ は $-\frac14$ を掛けます。交換項は[昇降公式](../LREP7/index.md#thm-lrep7-spin-spectrum)で
 
-$
+$$
 \begin{aligned}
 (J_-\otimes J_+)|\uparrow\downarrow\rangle
 &=|\downarrow\uparrow\rangle,\\
 (J_+\otimes J_-)|\downarrow\uparrow\rangle
 &=|\uparrow\downarrow\rangle
 \end{aligned}
-$
+$$
 
 となり、反対の組合せでは零です。これを $2\sum_a J_a\otimes J_a$ に代入すると、二つの交換項の係数はそれぞれ1になります。よって
 
