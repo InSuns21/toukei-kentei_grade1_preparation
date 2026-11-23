@@ -129,7 +129,7 @@ $$
 
 ### Lie 環に微分すると「積」ではなく「和」になる
 
-[群表現の微分は Lie 環表現になる定理](../LREP3/index.md#thm-lrep3-differentiation)により、$dD(X)$、$dE(X)$ は Lie 環表現です。テンソル積を微分するときは、二つの因子の積の微分と同様に、片方ずつ微分した項が現れます。
+[群表現の微分は Lie 環表現になる](../LREP3/index.md#thm-lrep3-differentiation)という定理により、$dD(X)$、$dE(X)$ は Lie 環表現です。テンソル積を微分するときは、二つの因子の積の微分と同様に、片方ずつ微分した項が現れます。
 
 <a id="prop-lrep4-tensor-differential"></a>
 
@@ -526,7 +526,7 @@ $$
 $(\mathbb R,+)$ の $\mathbb C^2$ 上の表現 $D(t)=\operatorname{diag}(e^t,e^{-3t})$ を考える。$D^\vee(t)$ を双対基底で求め、$v=(x,y)^{\mathsf T}$、$\varphi=\alpha e^1+\beta e^2$ について評価の不変性を示せ。
 
 <!-- solution-start -->
-**詳細解答。** まず $D(t)^{-1}=\operatorname{diag}(e^{-t},e^{3t})$ です。これは対角行列なので転置しても変わらず、[双対は表現となり評価を保存する定理](#thm-lrep4-dual-action)から
+**詳細解答。** まず $D(t)^{-1}=\operatorname{diag}(e^{-t},e^{3t})$ です。これは対角行列なので転置しても変わらず、[双対は表現となり評価を保存する](#thm-lrep4-dual-action)という定理から
 $$
 D^\vee(t)=\operatorname{diag}(e^{-t},e^{3t}).
 $$
