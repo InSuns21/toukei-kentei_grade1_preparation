@@ -34,7 +34,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep3-lie-algebra-representation -->
-**定義の確認：** $\mathfrak g=\mathbb R$ を加法群 $(\mathbb R,+)$ の Lie 環とすると、括弧は常に零です。$N=\begin{pmatrix}0&1\\0&0\end{pmatrix}$ を固定し、$\rho(x)=xN$ と置きます。実線形性は $\rho(ax+by)=(ax+by)N=a\rho(x)+b\rho(y)$ から従います。また任意の $x,y$ について
+**定義の確認**： $\mathfrak g=\mathbb R$ を加法群 $(\mathbb R,+)$ の Lie 環とすると、括弧は常に零です。$N=\begin{pmatrix}0&1\\0&0\end{pmatrix}$ を固定し、$\rho(x)=xN$ と置きます。実線形性は $\rho(ax+by)=(ax+by)N=a\rho(x)+b\rho(y)$ から従います。また任意の $x,y$ について
 $$
 \rho([x,y])=0,\qquad
 [\rho(x),\rho(y)]=xy(NN-NN)=0.
@@ -113,7 +113,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep3-local-representation -->
-**定義の確認：** $G=SO(2)$ とし、$|\theta|<\pi/4$ で $R_\theta=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}$ と書く近傍 $U$ を選びます。実数 $\lambda$ を固定し、$D_U(R_\theta)=e^{i\lambda\theta}$ と定めます。この区間では角度表示は一意で写像は滑らかです。$D_U(I)=1$ であり、$R_\theta,R_\phi,R_{\theta+\phi}\in U$ のとき、$|\theta|,|\phi|<\pi/4$ だから $|\theta+\phi|<\pi/2$ で、同じ近傍の角度表示が $\theta+\phi$ なら
+**定義の確認**： $G=SO(2)$ とし、$|\theta|<\pi/4$ で $R_\theta=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}$ と書く近傍 $U$ を選びます。実数 $\lambda$ を固定し、$D_U(R_\theta)=e^{i\lambda\theta}$ と定めます。この区間では角度表示は一意で写像は滑らかです。$D_U(I)=1$ であり、$R_\theta,R_\phi,R_{\theta+\phi}\in U$ のとき、$|\theta|,|\phi|<\pi/4$ だから $|\theta+\phi|<\pi/2$ で、同じ近傍の角度表示が $\theta+\phi$ なら
 $$
 D_U(R_\theta R_\phi)=e^{i\lambda(\theta+\phi)}
 =e^{i\lambda\theta}e^{i\lambda\phi}.
@@ -266,9 +266,9 @@ $$
 > $G$ を有限次元実 Lie 群、$V$ を有限次元複素ベクトル空間、$\rho$ を $\mathfrak g$ の $V$ 上の Lie 環表現とする。
 > このとき単位元のある開近傍 $U$ と滑らかな局所群表現 $D_U$ が存在し、次の微分条件を満たす。
 
-$
+$$
 d(D_U)_e=\rho.
-$
+$$
 
 > 十分小さい連結な近傍上では、この局所群表現は一意である。
 <!-- formal-statement-end -->
@@ -280,17 +280,17 @@ $e$ を含む指数座標の開球をさらに小さく取り、座標内で星�
 
 具体的には単位元の可縮な開近傍 $W$ を先に取り、さらに小さい指数座標近傍 $U$ を次の包含が成り立つように選びます。
 
-$
+$$
 U\cdot U\subset W.
-$
+$$
 
 $g,h,gh\in U$ とします。$U$ 内の経路 $e\to g$ と $e\to h$ を選び、後者を $g$ で左移動して $g\to gh$ の道を作ります。連結した経路は $W$ 内にあります。一方、$e\to gh$ への道を $U$ 内に取ることもできます。$W$ は可縮なので、この二つの道は $W$ 内で両端を保ったまま変形できます。
 
 上の証明 (2) と同じ ODE の議論により
 
-$
+$$
 D_U(gh)=D_U(g)D_U(h).
-$
+$$
 
 滑らかさと微分は指数曲線で確認します。局所で $D_U(\exp_G X)=e^{\rho(X)}$ が成立するため、同じ微分を持つ局所表現の値は一意です。$\square$
 <!-- proof-end -->
@@ -314,7 +314,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep3-descent -->
-**定義の確認：** $\pi:\mathbb R\to SO(2)$ を $\pi(\theta)=R_\theta$ とします。$\widetilde D(\theta)=e^{2i\theta}$ なら $D(R_\theta)=e^{2i\theta}$ は代表角を $\theta+2\pi k$ に変えても同じ値で、$D(R_\theta R_\phi)=D(R_\theta)D(R_\phi)$、$D(I)=1$ を満たします。従って降下します。一方 $\widetilde D(\theta)=e^{i\theta/2}$ は $\widetilde D(0)=1$ ですが $\widetilde D(2\pi)=-1$ です。同じ回転 $I$ に異なる値を割り当てるため降下しません。
+**定義の確認**： $\pi:\mathbb R\to SO(2)$ を $\pi(\theta)=R_\theta$ とします。$\widetilde D(\theta)=e^{2i\theta}$ なら $D(R_\theta)=e^{2i\theta}$ は代表角を $\theta+2\pi k$ に変えても同じ値で、$D(R_\theta R_\phi)=D(R_\theta)D(R_\phi)$、$D(I)=1$ を満たします。従って降下します。一方 $\widetilde D(\theta)=e^{i\theta/2}$ は $\widetilde D(0)=1$ ですが $\widetilde D(2\pi)=-1$ です。同じ回転 $I$ に異なる値を割り当てるため降下しません。
 <!-- definition-example-end -->
 
 <a id="thm-lrep3-descent-criterion"></a>
