@@ -26,7 +26,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa9-hilbert-p-class-field -->
-**定義の確認。** $\operatorname{Cl}(K)\simeq\mathbb Z/12\mathbb Z$、$p=3$ という有限群の模型では、$p'$ 部分は位数4、商は位数3です。対応する固定体の次数は $[H_K^{(3)}:K]=3$ であり、$H_K^{(3)}/K$ はHilbert類体の中間体だからすべての指定素点で非分岐です。任意の非分岐アーベル3拡大 $L/K$ は $H_K$ に含まれ、そのGalois群への射影は位数4の部分群を消すので $L\subseteq H_K^{(3)}$ です。ここで類群が $\mathbb Z/12$ である数体の実在は仮定していません。
+**定義の確認**。 $\operatorname{Cl}(K)\simeq\mathbb Z/12\mathbb Z$、$p=3$ という有限群の模型では、$p'$ 部分は位数4、商は位数3です。対応する固定体の次数は $[H_K^{(3)}:K]=3$ であり、$H_K^{(3)}/K$ はHilbert類体の中間体だからすべての指定素点で非分岐です。任意の非分岐アーベル3拡大 $L/K$ は $H_K$ に含まれ、そのGalois群への射影は位数4の部分群を消すので $L\subseteq H_K^{(3)}$ です。ここで類群が $\mathbb Z/12$ である数体の実在は仮定していません。
 <!-- definition-example-end -->
 
 <a id="thm-iwa9-unramified-artin-p"></a>
@@ -90,7 +90,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa9-s-ramified-extension -->
-**定義の確認。** $K=\mathbb Q$、$p=3$、$S=\{(3)\}$ とします。$u=\zeta_9+\zeta_9^{-1}$ は
+**定義の確認**。 $K=\mathbb Q$、$p=3$、$S=\{(3)\}$ とします。$u=\zeta_9+\zeta_9^{-1}$ は
 
 $$
 u^3-3u+1=0
@@ -169,7 +169,7 @@ $
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa9-s-class-group -->
-**定義の確認。** $K=\mathbb Q$、$S=\{(3)\}$ なら $\mathcal O_{K,S}=\mathbb Z[1/3]$ です。任意の非零イデアルは、3を除く素数の積で生成される主イデアルなので $\operatorname{Cl}_S(\mathbb Q)=0$。対応する無分岐・3完全分解アーベル拡大は自明です。これに対して、第2節で見た $\mathbb Q(\zeta_9)^+/\mathbb Q$ は3で**分岐**しており、$H_{\mathbb Q,S}^{(3)}$ の候補にはなりません。
+**定義の確認**。 $K=\mathbb Q$、$S=\{(3)\}$ なら $\mathcal O_{K,S}=\mathbb Z[1/3]$ です。任意の非零イデアルは、3を除く素数の積で生成される主イデアルなので $\operatorname{Cl}_S(\mathbb Q)=0$。対応する無分岐・3完全分解アーベル拡大は自明です。これに対して、第2節で見た $\mathbb Q(\zeta_9)^+/\mathbb Q$ は3で**分岐**しており、$H_{\mathbb Q,S}^{(3)}$ の候補にはなりません。
 <!-- definition-example-end -->
 
 <a id="prop-iwa9-s-class-quotient"></a>
@@ -253,7 +253,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa9-unramified-iwasawa-module -->
-**定義の確認。** $p=3$、$E_1=\mathbb Q(\zeta_3)=\mathbb Q(\sqrt{-3})$ は類数1です（[Minkowski上界](../../ANF/ANF6/index.md#thm-anf6-minkowski-class-bound)で各類にノルム1のイデアル代表がある）。よって $A_1=0$、$H_1^{(3)}=E_1$。上の層 $r\ge2$ の類群を計算せずに $X_\infty=0$ と結論することはできません。定義が要求するのは全層でノルム整合的な自己同型の列であり、第一層だけの情報では足りないからです。
+**定義の確認**。 $p=3$、$E_1=\mathbb Q(\zeta_3)=\mathbb Q(\sqrt{-3})$ は類数1です（[Minkowski上界](../../ANF/ANF6/index.md#thm-anf6-minkowski-class-bound)で各類にノルム1のイデアル代表がある）。よって $A_1=0$、$H_1^{(3)}=E_1$。上の層 $r\ge2$ の類群を計算せずに $X_\infty=0$ と結論することはできません。定義が要求するのは全層でノルム整合的な自己同型の列であり、第一層だけの情報では足りないからです。
 <!-- definition-example-end -->
 
 <a id="thm-iwa9-galois-inverse-limit"></a>
@@ -380,7 +380,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa9-unramified-local-condition -->
-**定義の確認。** $K=\mathbb Q$、$p=3$、$S=\{3\}$、$A=\mathbb Z/3\mathbb Z$ とします。第2節の三次拡大 $\mathbb Q(\zeta_9)^+/\mathbb Q$ に対応する全射文字は、3で完全分岐しているので惰性群上で非零です。この文字は $H^1_{\mathrm{ur}}$ には入りません。他方 $\operatorname{Cl}(\mathbb Q)=0$ なので、以下の定理により $H^1_{\mathrm{ur}}(\mathbb Q,A)=0$ です。分岐を許す文字と、無分岐条件を課した文字が区別できました。
+**定義の確認**。 $K=\mathbb Q$、$p=3$、$S=\{3\}$、$A=\mathbb Z/3\mathbb Z$ とします。第2節の三次拡大 $\mathbb Q(\zeta_9)^+/\mathbb Q$ に対応する全射文字は、3で完全分岐しているので惰性群上で非零です。この文字は $H^1_{\mathrm{ur}}$ には入りません。他方 $\operatorname{Cl}(\mathbb Q)=0$ なので、以下の定理により $H^1_{\mathrm{ur}}(\mathbb Q,A)=0$ です。分岐を許す文字と、無分岐条件を課した文字が区別できました。
 <!-- definition-example-end -->
 
 <a id="prop-iwa9-unramified-characters"></a>
