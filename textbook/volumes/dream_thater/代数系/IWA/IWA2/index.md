@@ -91,7 +91,7 @@ $p^k$ で割って法 $p$ で考えると $f'(d)t\equiv-f(d)/p^k\pmod p$ です�
 <!-- proof-end -->
 
 <!-- definition-example-start: def-iwa2-teichmueller-lifts -->
-**定義を実際に判定する例。** $p=5,n=1$、法5で $a=2$ とします。$d=2+5t$ と置くと
+**定義の確認。** $p=5,n=1$、法5で $a=2$ とします。$d=2+5t$ と置くと
 $$
 (2+5t)^4\equiv16+4\cdot8\cdot5t
 \equiv16+10t\pmod{25}.
@@ -141,13 +141,13 @@ $$
 <!-- formal-statement-start -->
 > **命題（生成元による指数座標）**  
 > 奇素数 $p$、整数 $n\ge0$ と $g=1+p$ を固定する。各 $u\in U_n$ について、一意な整数 $0\le k<p^n$ があり、
-$
+$$
 u\equiv g^k\pmod{p^{n+1}}
-$
+$$
 > と書ける。制限 $U_{n+1}\to U_n$ は指数座標の還元
-$
+$$
 \mathbb Z/p^{n+1}\mathbb Z\longrightarrow\mathbb Z/p^n\mathbb Z
-$
+$$
 > に一致する。
 <!-- formal-statement-end -->
 
@@ -264,7 +264,7 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: thm-iwa2-two-adic-splitting -->
-**2進の直接例。** $n=1$ では法8の単元は $\{1,3,5,7\}$、符号部分 $\{1,7\}$、$V_1=\{1,5\}$ です。積で4元全てを一意に表せます。固定体 $K_1^{(2)}=\mathbb Q(\zeta_8+\zeta_8^{-1})=\mathbb Q(\sqrt2)$。$5$ の作用は $\sqrt2\mapsto-\sqrt2$ であり、確かに2次拡大の非自明なGalois元です。
+**定義の確認（2進の直接例）。** $n=1$ では法8の単元は $\{1,3,5,7\}$、符号部分 $\{1,7\}$、$V_1=\{1,5\}$ です。積で4元全てを一意に表せます。固定体 $K_1^{(2)}=\mathbb Q(\zeta_8+\zeta_8^{-1})=\mathbb Q(\sqrt2)$。$5$ の作用は $\sqrt2\mapsto-\sqrt2$ であり、確かに2次拡大の非自明なGalois元です。
 <!-- definition-example-end -->
 
 この定理を各 $n$ に適用して制限を取れば、[ANF22の2進円分塔](../../ANF/ANF22/index.md#prop-anf22-two-adic-tower)が $\mathbb Z_2$ 拡大になることを指数座標から再確認できます。ここで $\Delta_n^{(2)}$ と $V_n$ は奇素数の $\Delta_n,U_n$ に対応しますが、$p=2$ では指数を2段ずらすことを忘れないでください。
