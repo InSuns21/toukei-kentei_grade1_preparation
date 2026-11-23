@@ -73,7 +73,7 @@ const descriptions = Object.freeze({
     source: 'framebuffer.js（offscreenScale, invertRight, gl.framebufferTexture2D, viewport）/ framebuffer.frag（u_pass, u_scene）'
   }),
   FCG2: Object.freeze({
-    grid:'128×128 m領域のセル中心で解析移流濃度を計算（R8 2枚へ交互に転送）。GPUは表示',
+    grid:'1×1 m領域の128×128セル中心で解析移流濃度を計算（R8 2枚へ交互に転送）。GPUは表示',
     color:'qは水中の受動染料濃度（無次元0〜1）。暗い紺は低濃度、琥珀色は高濃度。各値をR8整数へ丸めて描画',
     clock: step => '染料の観察時刻 t='+(step*Math.PI/2).toFixed(3)+' s（節目はπ/2 s、連続再生は任意時刻）',
     mode:'半径rが大きいほど角速度Ω(r)=omega(1+shear·r)が大きい。再生は2π秒で停止。格子と画素は別でNEAREST表示',
