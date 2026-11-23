@@ -5,9 +5,9 @@
 答えは **一般には否** である。本講では、曲率が零の接続を局所的には消去できることを示したうえで、平行移動が閉路の変形類だけに依存することを証明する。その変形類から群への写像が **モノドロミー表現** となる。円周の例で、曲率が零でも閉路の位相が輸送に残ることを具体的に確かめる。
 
 **共通設定**：$M$ は Hausdorff・第二可算・境界のない滑らかな有限次元多様体、$G$ は有限次元 Lie 群とする。主束・接続・曲率を次で表す。
-$
+$$
 \pi:P\to M,\qquad \omega,\qquad \Omega.
-$
+$$
 以下、連結を仮定する箇所は明示する。曲線は区分的 $C^1$ とし、曲線の連結は [GBG14 の規約](../GBG14/index.md#thm-gbg14-transport-laws) に従う。つまり $\gamma_2*\gamma_1$ は、まず $\gamma_1$、次に $\gamma_2$ を進む。
 
 ## 1. 平坦とは何か――局所で接続を消せるか
@@ -29,13 +29,13 @@ $
 
 <!-- definition-example-start: def-gbg16-flat-connection -->
 **定義の確認**。積主束 $P=\mathbb R^2\times U(1)$ と標準 section を取り、定数 $a,b\in\mathbb R$ に対して次の局所接続を考える。
-$
+$$
 A=ia\,dx+ib\,dy.
-$
+$$
 $U(1)$ は可換だから $A\wedge A=0$、定数係数ゆえ $dA=0$。したがって [局所曲率の構造方程式](../GBG10/index.md#thm-gbg10-local-formula) から
-$
+$$
 F=dA+A\wedge A=0.
-$
+$$
 $F=s^*\Omega$ と、積主束の[曲率2形式の水平性・同変性](../GBG10/index.md#thm-gbg10-basic-properties)により、ファイバー内のすべての点 $p=s(x)g$ でも $\Omega=0$ となる。これで **全点** での平坦性を確認した。一方 $A=ibx\,dy$ は $F=ib\,dx\wedge dy$ となり、$b\ne0$ なら平坦ではない。
 <!-- definition-example-end -->
 
@@ -150,14 +150,14 @@ $$
 ### 証明
 
 まず連続路に沿う輸送を定義する。連続路 $c:[0,1]\to M$ の区間を細分し、各小区間の像が局所平行 section $s_\alpha$ の領域 $U_\alpha$ に入るようにする。小区間では、始点の点を終点へ次の式で運ぶ。
-$
+$$
 s_\alpha(c(a))g\longmapsto s_\alpha(c(b))g.
-$
+$$
 
 二つの平行 section が重なる領域では $s_\beta=s_\alpha k$ と書ける。[接続のsection変換則](../GBG8/index.md#thm-gbg8-local-transform)の両辺で接続が零なので
-$
+$$
 0=k^{-1}(0)k+k^{-1}dk,\qquad dk=0.
-$
+$$
 従って重なりの各道連結成分で $k$ は一定である。つまり、同じ小区間に沿う輸送は section の選択に依存しない。
 
 細分をさらに細かくしても合成結果は同じである。異なる二つの細分を共通に細分すれば、選び方によらず連続路の輸送が定まる。区分的 $C^1$ 路については [水平リフトの一意性](../GBG14/index.md#thm-gbg14-horizontal-existence)から従来の平行移動と一致する。以下ではこの拡張を中間の連続路にも用いる。
@@ -410,7 +410,7 @@ $$
 h_{+1}=e^{-i\pi}=-1,\qquad
 h_{-1}=e^{i\pi}=-1=h_{+1}^{-1}
 $$
-となる。半周は閉路でないので、$-i$ は固定した始点・終点の section に関する輸送行列であってホロノミー群の元と区別する。
+となる。半周は閉路でないので、$-i$ は固定した始点・終点の section に関する輸送行列であり、[主束接続のホロノミー群](../GBG15/index.md#def-gbg15-holonomy)の元とは区別する。
 <!-- solution-end -->
 
 <a id="ex-gbg16-a03"></a>
@@ -522,9 +522,9 @@ $$
 逆輸送を適用すれば、$s(x)$ は路によらず定まる。
 
 局所平行 section $s_U$ を任意の点 $x$ の近傍に取り、$s(x)=s_U(x)g$ と書く。$U$ の点 $y$ まで局所的に運ぶと
-$
+$$
 s(y)=s_U(y)g,\qquad (s|_U)^*\omega=0.
-$
+$$
 よって $s$ は滑らかな大域平行 section である。[大域sectionと自明性の同値](../GBG3/index.md#thm-gbg3-global-section-trivial)により束も自明となる。使ったのは **モノドロミーの自明性** であり、単連結性は必要ない。
 <!-- solution-end -->
 
