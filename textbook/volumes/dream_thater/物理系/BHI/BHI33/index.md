@@ -89,7 +89,8 @@ $$
 V|0\rangle=\tfrac12\bigl(
 |00\rangle_{AC}|0\rangle_D|00\rangle_B+
 |01\rangle_{AC}|0\rangle_D|01\rangle_B+
-|10\rangle_{AC}|1\rangle_D|10\rangle_B+\n|11\rangle_{AC}|1\rangle_D|11\rangle_B
+|10\rangle_{AC}|1\rangle_D|10\rangle_B+
+|11\rangle_{AC}|1\rangle_D|11\rangle_B
 \bigr).
 $$
 
