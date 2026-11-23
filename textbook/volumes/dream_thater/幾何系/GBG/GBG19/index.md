@@ -8,8 +8,11 @@
 $$
 (X,Y,Z)=(\sin\vartheta\cos\varphi,\sin\vartheta\sin\varphi,\cos\vartheta)
 $$
-と置く。向きに対応する面積形式は $\sin\vartheta\,d\vartheta\wedge d\varphi$ である。$\varphi$ は $2\pi$ を法とする角度であり、$d\varphi$ は極を除く領域で定義される1形式であって、球面全体の滑らかな1形式ではない。以下の $d$ は球面上の外微分であり、局所座標では $\vartheta,\varphi$ の両方を変数として微分する。構造群のLie環は $\mathfrak u(1)=i\mathbb R$、右作用の規約は $s_S=s_Ng_{NS}$、局所接続は $A_i=s_i^*\omega$ とする。前講の
-[巻き数の定義](../GBG18/index.md#def-gbg18-winding)に合わせ、$g_{NS}=e^{in\varphi}$ と固定する。
+と置く。外向きの向きに対応する面積形式は $\sin\vartheta\,d\vartheta\wedge d\varphi$ である。$\varphi$ は $2\pi$ を法とする角度である。$d\varphi$ は極を除く領域の1形式であり、球面全体へ滑らかに延長できない。
+
+以下、$d$ は球面上の外微分とする。局所座標では $\vartheta,\varphi$ の両方を変数として微分する。
+
+構造群のLie環は $\mathfrak u(1)=i\mathbb R$ とする。右作用は $s_S=s_Ng_{NS}$、局所接続は $A_i=s_i^*\omega$ の規約を用いる。前講の[巻き数の定義](../GBG18/index.md#def-gbg18-winding)に合わせ、$g_{NS}=e^{in\varphi}$ と固定する。
 
 ## 1. 極で滑らかな二つのポテンシャルを作る
 
@@ -116,7 +119,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg19-chern-number -->
-**定義の確認**（$n=1$）。前節で確かめた滑らかな局所形式について、可換群の曲率公式 $F=dA_i$ を用いると
+**定義の確認**（$n=1$）。[曲率の局所構造方程式](../GBG10/index.md#thm-gbg10-local-formula)の括弧項は $U(1)$ で零となる。前節で確かめた滑らかな局所形式を $F=dA_N$ に代入すると
 $$
 F=dA_N=-\frac{i}{2}d(1-\cos\vartheta)\wedge d\varphi
 =-\frac{i}{2}\sin\vartheta\,d\vartheta\wedge d\varphi.
@@ -125,7 +128,7 @@ $F$ は両パッチの滑らかな外微分として極まで延び、$iF=\frac1
 $$
 c_1[P_1,F]=\frac{i}{2\pi}\left(-\frac{i}{2}\right)4\pi=1.
 $$
-これで正規化積分の実数性だけでなく、この具体例での値も定義から確認できた。
+正規化積分が実数になることと、$n=1$ で値が $1$ となることの双方が確かめられた。
 <!-- definition-example-end -->
 
 <a id="thm-gbg19-curvature-flux"></a>
@@ -480,7 +483,13 @@ n=\frac{i}{2\pi}\int_{S^2}F.
 $$
 $F=0$ なら右辺は零なので $n=0$ が必要である。逆に $n=0$ の積束には $A=0$ の平坦接続がある。前講の[巻き数による球面主束の非自明性](../GBG18/index.md#thm-gbg18-obstruction)から、$n\ne0$ で非自明な束に平坦接続は持てない。
 
-一方 $S^1$ は2次元微分形式が零である。$t$ を $2\pi$ を法とする円周の角度とすると、各角度座標の $dt$ は重なりで一致して大域1形式になる。そこで積束の接続 $A=i\alpha\,dt$（$\alpha\in\mathbb R$）は $F=dA=0$ である。しかし[平坦接続とholonomyの具体例](../GBG16/index.md#prop-gbg16-circle-holonomy)のとおり、一周の水平移動は $e^{-2\pi i\alpha}$ となり、$\alpha\notin\mathbb Z$ なら非自明である。曲率の消失だけからholonomyが自明と結論するのは、単連結性に関する条件を落としている。
+一方、$S^1$ 上には非零の2形式がない。$t$ は $2\pi$ を法とする円周の角度である。各角度座標の $dt$ は重なりで一致するため、大域1形式を与える。
+
+$\alpha\in\mathbb R$ として積束の接続を $A=i\alpha\,dt$ と置くと、$F=dA=0$ である。しかし[円周上の平坦接続のホロノミー](../GBG16/index.md#prop-gbg16-circle-holonomy)を適用すると、一周の水平移動は
+$$
+\operatorname{Hol}=e^{-2\pi i\alpha}
+$$
+となる。$\alpha\notin\mathbb Z$ ならホロノミーは自明でない。曲率の消失だけでホロノミーを自明と結論するには、単連結性に関する仮定が欠けている。
 <!-- solution-end -->
 
 <a id="ex-gbg19-b04"></a>
