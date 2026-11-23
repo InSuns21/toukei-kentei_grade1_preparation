@@ -1,0 +1,67 @@
+chapter: GBG13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG12
+  - GBG10
+  - GBG5
+forward_references: []
+concepts:
+  - id: gauge.connection-gauge-right-action
+    name: ゲージ群による接続への右作用
+    kind: theorem
+    introduction: formal
+    requires: [gauge.gauge-connection-pullback, gauge.gauge-group-composition]
+
+  - id: gauge.connection-gauge-orbit
+    name: ゲージ軌道・ゲージ同値・軌道集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ゲージ軌道・ゲージ同値・軌道集合）"]
+    requires: [gauge.connection-gauge-right-action, gauge.principal-connections-affine]
+
+  - id: gauge.connection-stabilizer
+    name: 接続の安定化群
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接続の安定化群）"]
+    requires: [gauge.connection-gauge-right-action]
+
+  - id: gauge.stabilizer-orbit-cosets
+    name: 安定化群は部分群、軌道は剰余類に対応する
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（安定化群は部分群、軌道は剰余類に対応する）"]
+    requires: [gauge.connection-stabilizer, gauge.connection-gauge-orbit]
+
+  - id: gauge.connection-infinitesimal-gauge-action
+    name: 接続と曲率の無限小ゲージ変換
+    kind: theorem
+    introduction: formal
+    requires: [gauge.connection-gauge-right-action, gauge.local-covariant-exterior-derivative, gauge.local-curvature-gauge-covariance]
+
+  - id: gauge.connection-stabilizer-infinitesimal
+    name: 安定化群の無限小条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（安定化群の無限小条件）"]
+    requires: [gauge.connection-stabilizer, gauge.connection-infinitesimal-gauge-action]
+
+  - id: gauge.gauge-fixing-condition-residual
+    name: ゲージ固定条件と残余ゲージ変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ゲージ固定条件と残余ゲージ変換）"]
+    requires: [gauge.connection-gauge-orbit, gauge.connection-stabilizer]
+
+  - id: gauge.interval-u1-gauge-fixing
+    name: 区間上の単位円群接続の基点付きゲージ固定
+    kind: theorem
+    introduction: formal
+    requires: [gauge.gauge-fixing-condition-residual, gauge.local-potential-transformation]
+
+  - id: gauge.circle-u1-orbit-classification
+    name: 円周上の単位円群接続の軌道分類
+    kind: theorem
+    introduction: formal
+    requires: [gauge.connection-gauge-orbit, gauge.gauge-fixing-condition-residual, gauge.local-potential-transformation]

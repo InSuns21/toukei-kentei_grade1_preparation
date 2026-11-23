@@ -13,3 +13,4 @@
 10. [GBG10 曲率とはどの失敗を測るか](textbook/volumes/dream_thater/幾何系/GBG/GBG10/index.md)
 11. [GBG11 Bianchi恒等式はどこから生じるか](textbook/volumes/dream_thater/幾何系/GBG/GBG11/index.md)
 12. [GBG12 接続は存在するか、二つの接続の差は何か](textbook/volumes/dream_thater/幾何系/GBG/GBG12/index.md)
+13. [GBG13 ゲージ軌道とゲージ固定はどこが異なるか](textbook/volumes/dream_thater/幾何系/GBG/GBG13/index.md)
