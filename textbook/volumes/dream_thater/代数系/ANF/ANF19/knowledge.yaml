@@ -1,0 +1,61 @@
+chapter: ANF19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF18
+forward_references: []
+
+concepts:
+  - id: number-theory.restricted-product-places
+    name: 制限付き直積
+    kind: definition
+    introduction: formal
+    requires: [number-theory.prime-ideal-valuation-completion]
+
+  - id: number-theory.adele-ring
+    name: アデール環
+    kind: definition
+    introduction: formal
+    requires: [number-theory.restricted-product-places]
+
+  - id: number-theory.adele-diagonal-discreteness
+    name: 数体の対角埋め込みと離散性
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.adele-ring, number-theory.trace-norm-embedding-formulas]
+
+  - id: number-theory.global-product-formula
+    name: 数体の大域積公式
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.adele-diagonal-discreteness, number-theory.prime-ideal-factorization, number-theory.absolute-ideal-norm, number-theory.trace-norm-embedding-formulas]
+
+  - id: number-theory.idele-group
+    name: イデール群
+    kind: definition
+    introduction: formal
+    requires: [number-theory.adele-ring, number-theory.prime-ideal-valuation-completion]
+
+  - id: number-theory.idele-topology
+    name: アデールの単元とイデール位相
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.idele-group, number-theory.restricted-product-places]
+
+  - id: number-theory.idele-modulus
+    name: イデールの絶対値
+    kind: definition
+    introduction: formal
+    requires: [number-theory.idele-group, number-theory.global-product-formula]
+
+  - id: number-theory.idele-class-group
+    name: イデール類群
+    kind: definition
+    introduction: formal
+    requires: [number-theory.idele-modulus, number-theory.adele-diagonal-discreteness]
+
+  - id: number-theory.idele-ideal-class-exact-sequence
+    name: イデールのイデアル写像と類群完全列
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.idele-class-group, number-theory.ideal-class-group, number-theory.prime-ideal-factorization]
