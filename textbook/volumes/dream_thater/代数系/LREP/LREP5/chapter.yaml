@@ -1,0 +1,45 @@
+id: LREP5
+title: "SU(2)からSO(3)への二重被覆"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP4
+official_scope: []
+learning_objectives:
+  - Pauli行列でR3を跡零Hermite行列と同一視し、内積・行列積の公式を検算できる
+  - SU(2)の共役作用からSO(3)の滑らかな群準同型を構成し、長さと向きの保存を証明できる
+  - 軸角表示とRodrigues公式から像がSO(3)全体であることを示せる
+  - 共役作用の核が{I,-I}であることを行列計算で示し、各回転の持ち上げを二つと証明できる
+  - 微分の同型とコンパクト性から局所二枚の被覆条件を確認できる
+  - 2pi回転による符号変化と標準表現・テンソル二乗の降下の違いを判定できる
+definitions:
+  - { id: LREP5-DEF-01, name: Pauli行列と三次元の行列模型 }
+  - { id: LREP5-DEF-02, name: 共役による三次元作用 }
+theorems:
+  - { id: LREP5-LEM-01, name: Pauli行列の積公式 }
+  - { id: LREP5-THM-01, name: 共役作用は特殊直交表現 }
+  - { id: LREP5-PROP-01, name: 軸角表示と三次元回転 }
+  - { id: LREP5-THM-02, name: 像と核 }
+  - { id: LREP5-THM-03, name: SU(2)からSO(3)への二重被覆 }
+  - { id: LREP5-COR-01, name: 回転群の商表示 }
+  - { id: LREP5-PROP-02, name: 2π回転と表現の降下 }
+canonical_examples:
+  - Pauli行列と跡零Hermite行列の実三次元対応
+  - z軸回転の対角SU2行列による共役
+  - 軸角表示とRodrigues公式
+  - SU2のS3パラメータと局所二重被覆
+  - 2pi回転で符号反転する二成分標準表現
+problem_patterns:
+  - LREP5-PAULI-LENGTH
+  - LREP5-Z-ROTATION
+  - LREP5-CENTRAL-KERNEL
+  - LREP5-HALF-ANGLE
+  - LREP5-RODRIGUES-DECOMPOSITION
+  - LREP5-DIFFERENTIAL-BRACKET
+  - LREP5-TENSOR-DESCENT
+  - LREP5-ORIENTATION-OBSTRUCTION
+  - LREP5-CYCLIC-ROTATION-INVARIANT-WEDGE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 2 }
