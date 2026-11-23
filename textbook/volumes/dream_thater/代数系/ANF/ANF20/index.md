@@ -30,7 +30,9 @@ $$
 > $a\in K^\times$ が $a\equiv1\pmod{\mathfrak m}$ を満たすとは、各 $n_{\mathfrak p}>0$ について $a\in\mathcal O_{\mathfrak p}^\times$ かつ $a-1\in\mathfrak p^{n_{\mathfrak p}}\mathcal O_{\mathfrak p}$ であり、各 $v\in\mathfrak m_\infty$ で実埋め込み $v(a)>0$ であることをいう。
 <!-- formal-statement-end -->
 
-分数 $a=b/c$ の合同を判定するときは、まず約分または[素イデアル付値](../ANF9/index.md#def-anf9-prime-valuation)によって $\operatorname{ord}_{\mathfrak p}(a)=0$ を確かめます。局所的に分母 $c$ が単数となる表示を選べば、$a-1\in\mathfrak p^n\mathcal O_{\mathfrak p}$ は $b\equiv c\pmod{\mathfrak p^n}$ と同値です。つまり分母の剰余を逆元で割る計算は、定義の**単数条件と差の合同条件**を同時に判定する方法です。
+分数 $a=b/c$ の合同を判定するときは、まず約分または[素イデアル付値](../ANF9/index.md#def-anf9-prime-valuation)によって $\operatorname{ord}_{\mathfrak p}(a)=0$ を確かめます。
+
+局所的に分母 $c$ が単数となる表示を選べば、$a-1\in\mathfrak p^n\mathcal O_{\mathfrak p}$ は $b\equiv c\pmod{\mathfrak p^n}$ と同値です。つまり分母の剰余を逆元で割る計算は、定義の**単数条件と差の合同条件**を同時に判定する方法です。
 
 <!-- definition-example-start: def-anf20-modulus -->
 **定義の確認**。 $K=\mathbb Q$、$\mathfrak m=(5)\infty$ とします。$a=6/11$ の分子・分母はともに $5$ と互いに素なので $\operatorname{ord}_{(5)}(a)=0$ です。分母 $11\equiv1$ は法 $5$ で可逆であり、
@@ -99,9 +101,17 @@ $\mathbb Z$ の非零分数イデアルは正の有理数倍で一意に書け�
 <!-- proof-start -->
 ### 証明
 
-写像 $r\mathbb Z\mapsto\overline r$ は、正の生成元 $r>0$ が一意なので定義が曖昧でなく、乗法と両立します。任意の単数剰余 $\overline a$ は $1\le a\le4$ の正整数のイデアル $a\mathbb Z$ から得られるので全射です。核の条件 $\overline r=1$ は、$r>0$ かつ $r\equiv1\pmod5$ と同値で、これは法 $(5)\infty$ の主イデアル部分群そのものです。
+写像 $r\mathbb Z\mapsto\overline r$ は、正の生成元 $r>0$ が一意なので定義が曖昧でなく、乗法と両立します。
 
-法 $(5)$ では、同じイデアル $r\mathbb Z$ の生成元は $r$ と $-r$ だけです（$\mathbb Z^\times=\{\pm1\}$）。いずれかが $1$ に合同となる条件は $\overline r=\pm1$ です。したがって核を $\{\pm1\}$ まで広げた商となります。$2^2\equiv-1$、$2^4\equiv1\pmod5$ より第一群は位数 $4$ の巡回群、第二群は位数 $2$ です。
+任意の単数剰余 $\overline a$ は $1\le a\le4$ の正整数のイデアル $a\mathbb Z$ から得られるので全射です。
+
+核の条件 $\overline r=1$ は、$r>0$ かつ $r\equiv1\pmod5$ と同値で、これは法 $(5)\infty$ の主イデアル部分群そのものです。
+
+法 $(5)$ では、同じイデアル $r\mathbb Z$ の生成元は $r$ と $-r$ だけです（$\mathbb Z^\times=\{\pm1\}$）。
+
+いずれかが $1$ に合同となる条件は $\overline r=\pm1$ です。したがって核を $\{\pm1\}$ まで広げた商となります。
+
+$2^2\equiv-1$、$2^4\equiv1\pmod5$ より第一群は位数 $4$ の巡回群、第二群は位数 $2$ です。
 <!-- proof-end -->
 
 一般の剰余類群でも有限性が成り立ちます。証明には有限個の局所合同を同時に満たす元を用意する補助定理が要ります。
@@ -120,14 +130,22 @@ $\mathbb Z$ の非零分数イデアルは正の有理数倍で一意に書け�
 <!-- proof-start -->
 ### 証明
 
-有限素点の各開近傍に対し、ある整数 $N_{\mathfrak p}$ で $x_{\mathfrak p}+\mathfrak p^{N_{\mathfrak p}}\mathcal O_{\mathfrak p}\subseteq W_{\mathfrak p}$ となります。先に $d_0\in\mathcal O_K\setminus\{0\}$ を選び、指定したすべての有限素点で $d_0x_{\mathfrak p}\in\mathcal O_{\mathfrak p}$ とします。指数 $e_{\mathfrak p}$ を $e_{\mathfrak p}-\operatorname{ord}_{\mathfrak p}(d_0)\ge N_{\mathfrak p}$ となるように選べば、各 $\mathfrak p$ で
+有限素点の各開近傍に対し、ある整数 $N_{\mathfrak p}$ で $x_{\mathfrak p}+\mathfrak p^{N_{\mathfrak p}}\mathcal O_{\mathfrak p}\subseteq W_{\mathfrak p}$ となります。
+
+先に $d_0\in\mathcal O_K\setminus\{0\}$ を選び、指定したすべての有限素点で $d_0x_{\mathfrak p}\in\mathcal O_{\mathfrak p}$ とします。
+
+指数 $e_{\mathfrak p}$ を $e_{\mathfrak p}-\operatorname{ord}_{\mathfrak p}(d_0)\ge N_{\mathfrak p}$ となるように選べば、各 $\mathfrak p$ で
 
 $$
 b\equiv d_0T x_{\mathfrak p}
 \pmod{\mathfrak p^{e_{\mathfrak p}}}
 $$
 
-を課すと、$\operatorname{ord}_{\mathfrak p}(T)=0$ である限り、$b/(d_0T)-x_{\mathfrak p}$ の付値は $e_{\mathfrak p}-\operatorname{ord}_{\mathfrak p}(d_0)$ 以上となり、$b/(d_0T)\in W_{\mathfrak p}$ です。ここで $T$ は指定した有限素点の下の有理素数と互いに素な正整数から選びます。各右辺は局所整数であり、[局所剰余環の同型](../ANF9/index.md#prop-anf9-number-field-completion)によって $\mathcal O_K/\mathfrak p^{e_{\mathfrak p}}$ の剰余類として指定できます。異なる素イデアルの冪は互いに素なので、中国剰余定理から $b$ が得られます。
+を課すと、$\operatorname{ord}_{\mathfrak p}(T)=0$ である限り、$b/(d_0T)-x_{\mathfrak p}$ の付値は $e_{\mathfrak p}-\operatorname{ord}_{\mathfrak p}(d_0)$ 以上となり、$b/(d_0T)\in W_{\mathfrak p}$ です。
+
+ここで $T$ は指定した有限素点の下の有理素数と互いに素な正整数から選びます。各右辺は局所整数であり、[局所剰余環の同型](../ANF9/index.md#prop-anf9-number-field-completion)によって $\mathcal O_K/\mathfrak p^{e_{\mathfrak p}}$ の剰余類として指定できます。
+
+異なる素イデアルの冪は互いに素なので、中国剰余定理から $b$ が得られます。
 
 その解全体は、固定した非零整イデアルについての格子剰余類です。
 
@@ -136,9 +154,15 @@ $$
 \qquad b\in b_0+\mathfrak a.
 $$
 
-[Minkowski埋め込みの格子性](../ANF5/index.md#thm-anf5-ideal-covolume)を使います。$K\otimes_\mathbb Q\mathbb R$ において、目標 $d_0T(x_v)_{v\mid\infty}$ から格子剰余類 $b_0+\mathfrak a$ のある点 $b$ までの距離は、格子 $\mathfrak a$ の基本領域の有界な直径 $M$ で抑えられます。
+[Minkowski埋め込みの格子性](../ANF5/index.md#thm-anf5-ideal-covolume)を使います。
 
-無限素点が指定されていない座標には任意の目標値（例えば $0$）を補います。$c=\min_{v\mid\infty}|v(d_0)|>0$ とおけば、埋め込みごとの $b/(d_0T)$ と $x_v$ の誤差は高々 $M/(cT)$ です。指定有限素点を避ける正整数 $T$ は任意に大きく取れるので、この誤差は $0$ に近づき、すべての指定無限近傍にも入ります。無限素点が指定されていない場合は中国剰余定理だけで十分です。
+$K\otimes_\mathbb Q\mathbb R$ において、目標 $d_0T(x_v)_{v\mid\infty}$ から格子剰余類 $b_0+\mathfrak a$ のある点 $b$ までの距離は、格子 $\mathfrak a$ の基本領域の有界な直径 $M$ で抑えられます。
+
+無限素点が指定されていない座標には任意の目標値（例えば $0$）を補います。
+
+$c=\min_{v\mid\infty}|v(d_0)|>0$ とおけば、埋め込みごとの $b/(d_0T)$ と $x_v$ の誤差は高々 $M/(cT)$ です。
+
+指定有限素点を避ける正整数 $T$ は任意に大きく取れるので、この誤差は $0$ に近づき、すべての指定無限近傍にも入ります。無限素点が指定されていない場合は中国剰余定理だけで十分です。
 <!-- proof-end -->
 
 <a id="prop-anf20-ray-finite"></a>
@@ -161,7 +185,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[類群の有限性](../ANF6/index.md#thm-anf6-minkowski-class-bound)を使います。任意の分数イデアル $\mathfrak a$ に対し、[弱近似](#lem-anf20-weak-approx)で、法を割る素点において $\operatorname{ord}_{\mathfrak p}(b)=\operatorname{ord}_{\mathfrak p}(\mathfrak a)$ となる $b\in K^\times$ を選べます。すると $\mathfrak a(b)^{-1}\in I_{\mathfrak m}$ で元と同じ通常類を表し、全射です。
+[類群の有限性](../ANF6/index.md#thm-anf6-minkowski-class-bound)を使います。
+
+任意の分数イデアル $\mathfrak a$ に対し、[弱近似](#lem-anf20-weak-approx)で、法を割る素点において $\operatorname{ord}_{\mathfrak p}(b)=\operatorname{ord}_{\mathfrak p}(\mathfrak a)$ となる $b\in K^\times$ を選べます。
+
+すると $\mathfrak a(b)^{-1}\in I_{\mathfrak m}$ で元と同じ通常類を表し、全射です。
 
 核の元は $(a)$（$a\in K^\times$、法を割る素点で付値 $0$）という形です。この $a$ の法の有限部分での単数剰余と、指定実素点での符号を記録します。ただし生成元は単数倍だけ曖昧なので、これだけで核から剰余群への写像が定まるとは主張しません。まず有限群
 
@@ -171,7 +199,9 @@ R_{\mathfrak m}=
 \times\{\pm1\}^{|\mathfrak m_\infty|}
 $$
 
-が現れます。[弱近似](#lem-anf20-weak-approx)により、$R_{\mathfrak m}$ の任意の剰余・符号データを持つ $a\in K^\times$ を選べます。$R_{\mathfrak m}\to\ker(\operatorname{Cl}_{\mathfrak m}(K)\to\operatorname{Cl}(K))$ をこのデータから $[(a)]$ へ送る写像とします。同じデータを持つ $a,b$ は各法の有限素点で単数かつ $a/b\equiv1$、各指定実素点で $a/b>0$ なので $[(a)]=[(b)]$ となり、写像は選択によらず定まります。
+が現れます。[弱近似](#lem-anf20-weak-approx)により、$R_{\mathfrak m}$ の任意の剰余・符号データを持つ $a\in K^\times$ を選べます。$R_{\mathfrak m}\to\ker(\operatorname{Cl}_{\mathfrak m}(K)\to\operatorname{Cl}(K))$ をこのデータから $[(a)]$ へ送る写像とします。
+
+同じデータを持つ $a,b$ は各法の有限素点で単数かつ $a/b\equiv1$、各指定実素点で $a/b>0$ なので $[(a)]=[(b)]$ となり、写像は選択によらず定まります。
 
 また剰余・符号は積の下で乗法的であり、任意の核の類はある $(a)$ から来ます。従ってこの写像は全射準同型であり、その核による商が求める有限群です。[通常の類群の有限性](../ANF6/index.md#thm-anf6-minkowski-class-bound)から剰余類群全体も有限です。
 <!-- proof-end -->
@@ -238,7 +268,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\mathfrak a=\prod_{\mathfrak p\nmid\mathfrak m_0}\mathfrak p^{e_{\mathfrak p}}\in I_{\mathfrak m}$ を取ります。各該当素点で一様化元 $\pi_{\mathfrak p}$ を選び、$y(\mathfrak a)_{\mathfrak p}=\pi_{\mathfrak p}^{e_{\mathfrak p}}$、法を割る有限素点とすべての無限素点では $1$、他の有限素点でも $1$ とします。非零指数は有限個なのでこれはイデールです。一様化元の選択を変えると比は法の外の局所単数となり、商で同じ類です。従って
+$\mathfrak a=\prod_{\mathfrak p\nmid\mathfrak m_0}\mathfrak p^{e_{\mathfrak p}}\in I_{\mathfrak m}$ を取ります。
+
+各該当素点で一様化元 $\pi_{\mathfrak p}$ を選び、$y(\mathfrak a)_{\mathfrak p}=\pi_{\mathfrak p}^{e_{\mathfrak p}}$、法を割る有限素点とすべての無限素点では $1$、他の有限素点でも $1$ とします。非零指数は有限個なのでこれはイデールです。一様化元の選択を変えると比は法の外の局所単数となり、商で同じ類です。従って
 
 $$
 \theta:I_{\mathfrak m}\longrightarrow
@@ -249,9 +281,17 @@ $$
 
 はよく定義された群準同型です。
 
-$a\equiv1\pmod{\mathfrak m}$ なら、$y((a))\Delta(a)^{-1}$ は法の外の有限素点で局所単数、法の有限素点で $a^{-1}\in1+\mathfrak p^{n_{\mathfrak p}}\mathcal O_{\mathfrak p}$、法の実素点では正です。よって $y((a))\in K^\times U(\mathfrak m)$ であり、$P_{\mathfrak m,1}\subseteq\ker\theta$ です。
+$a\equiv1\pmod{\mathfrak m}$ なら、$y((a))\Delta(a)^{-1}$ は法の外の有限素点で局所単数、法の有限素点で $a^{-1}\in1+\mathfrak p^{n_{\mathfrak p}}\mathcal O_{\mathfrak p}$、法の実素点では正です。
 
-逆に $y(\mathfrak a)=\Delta(a)u$（$u\in U(\mathfrak m)$）なら、法の有限素点の成分が $1$ なので $a^{-1}=u_{\mathfrak p}\in1+\mathfrak p^{n_{\mathfrak p}}\mathcal O_{\mathfrak p}$。逆数を取って $a\equiv1$ です。法の実素点でも $u_v=a_v^{-1}>0$ だから $a_v>0$。法の外の有限素点では $u_{\mathfrak p}$ の付値が $0$ なので、$\operatorname{ord}_{\mathfrak p}(a)=e_{\mathfrak p}$ です。法の素点での付値は $0$ ですから $\mathfrak a=(a)\in P_{\mathfrak m,1}$。従って核はちょうど $P_{\mathfrak m,1}$ です。
+よって $y((a))\in K^\times U(\mathfrak m)$ であり、$P_{\mathfrak m,1}\subseteq\ker\theta$ です。
+
+逆に $y(\mathfrak a)=\Delta(a)u$（$u\in U(\mathfrak m)$）なら、法の有限素点の成分が $1$ なので $a^{-1}=u_{\mathfrak p}\in1+\mathfrak p^{n_{\mathfrak p}}\mathcal O_{\mathfrak p}$。
+
+逆数を取って $a\equiv1$ です。法の実素点でも $u_v=a_v^{-1}>0$ だから $a_v>0$。
+
+法の外の有限素点では $u_{\mathfrak p}$ の付値が $0$ なので、$\operatorname{ord}_{\mathfrak p}(a)=e_{\mathfrak p}$ です。
+
+法の素点での付値は $0$ ですから $\mathfrak a=(a)\in P_{\mathfrak m,1}$。従って核はちょうど $P_{\mathfrak m,1}$ です。
 
 任意のイデール $x$ を取ります。法を割る有限素点では、非零の $x_{\mathfrak p}$ に対して
 
@@ -259,14 +299,22 @@ $$
 W_{\mathfrak p}=x_{\mathfrak p}(1+\mathfrak p^{n_{\mathfrak p}}\mathcal O_{\mathfrak p})\subset K_{\mathfrak p}^\times
 $$
 
-を開近傍に選びます。法に含む実素点では $x_v$ と同符号の開半直線を選びます。これらの有限個の開集合に[弱近似](#lem-anf20-weak-approx)を適用すると、$a$ を各 $W_{\mathfrak p}$ に入れ、指定実素点で同符号にできます。いずれかの条件があるとき、この $a$ は非零です。法が自明で条件が一つもなければ $a=1$ とします。よって各法の有限素点で $x_{\mathfrak p}a^{-1}\in1+\mathfrak p^{n_{\mathfrak p}}\mathcal O_{\mathfrak p}$、法の実素点で $x_va_v^{-1}>0$ が成立し、$x\Delta(a)^{-1}$ は法の場所で $U(\mathfrak m)$ に入ります。法の外では、一様化元の冪と局所単数に分けられるので、有限個の非零付値を持つイデアル $\mathfrak a$ の $y(\mathfrak a)$ に、ある $u\in U(\mathfrak m)$ を掛けたものです。よって $\theta$ は全射であり、核による商が主張の同型です。
+を開近傍に選びます。法に含む実素点では $x_v$ と同符号の開半直線を選びます。これらの有限個の開集合に[弱近似](#lem-anf20-weak-approx)を適用すると、$a$ を各 $W_{\mathfrak p}$ に入れ、指定実素点で同符号にできます。いずれかの条件があるとき、この $a$ は非零です。
+
+法が自明で条件が一つもなければ $a=1$ とします。
+
+よって各法の有限素点で $x_{\mathfrak p}a^{-1}\in1+\mathfrak p^{n_{\mathfrak p}}\mathcal O_{\mathfrak p}$、法の実素点で $x_va_v^{-1}>0$ が成立し、$x\Delta(a)^{-1}$ は法の場所で $U(\mathfrak m)$ に入ります。
+
+法の外では、一様化元の冪と局所単数に分けられるので、有限個の非零付値を持つイデアル $\mathfrak a$ の $y(\mathfrak a)$ に、ある $u\in U(\mathfrak m)$ を掛けたものです。よって $\theta$ は全射であり、核による商が主張の同型です。
 <!-- proof-end -->
 
 ## 4. 局所Artin写像を掛け合わせる
 
 $L/K$ を有限Abel Galois拡大とします。各素点 $v$ について、一つの素点 $w\mid v$ を $L$ 上で選び、局所拡大 $L_w/K_v$ の [局所Artin写像](../ANF17/index.md#thm-anf17-local-reciprocity)を使います。Abel拡大では分解群が可換な大域Galois群の部分群なので、$w$ の取り方で得られる大域自己同型は変わりません。
 
-実素点で $L_w/K_v=\mathbb C/\mathbb R$ となるときは、ノルムが $N_{\mathbb C/\mathbb R}(z)=z\overline z=|z|^2$ であり、像は $\mathbb R_{>0}$ です。したがって $\mathbb R^\times/\mathbb R_{>0}\simeq\{\pm1\}$ を $\operatorname{Gal}(\mathbb C/\mathbb R)=\{1,c\}$ と対応させ、負元を複素共役 $c(z)=\overline z$ へ送ります。実素点で分裂する場合と複素素点では局所Galois群は自明です。
+実素点で $L_w/K_v=\mathbb C/\mathbb R$ となるときは、ノルムが $N_{\mathbb C/\mathbb R}(z)=z\overline z=|z|^2$ であり、像は $\mathbb R_{>0}$ です。
+
+したがって $\mathbb R^\times/\mathbb R_{>0}\simeq\{\pm1\}$ を $\operatorname{Gal}(\mathbb C/\mathbb R)=\{1,c\}$ と対応させ、負元を複素共役 $c(z)=\overline z$ へ送ります。実素点で分裂する場合と複素素点では局所Galois群は自明です。
 
 <a id="def-anf20-global-artin"></a>
 
@@ -292,7 +340,11 @@ $$
 と書きます。これは $L/\mathbb Q$ の**大域**自己同型です。[ANF18の円分Galois指数](../ANF18/index.md#def-anf18-cyclotomic-exponent)と指数の読み方は同じですが、そこでの局所拡大 $\mathbb Q_5(\zeta_5)/\mathbb Q_5$ の自己同型とは作用先を区別します。
 
 <!-- definition-example-start: def-anf20-global-artin -->
-**定義の確認**。 $L=\mathbb Q(\zeta_5)$ とし、$x_2=2$、他の全素点の成分を $1$ とします。これは有限個を除き単数であり、各成分も非零なのでイデールです。$p=2$ の局所拡大は非分岐で、一様化元 $2$ は算術的Frobenius $\sigma_2$ に写ります。その他の成分 $1$ の像はすべて恒等です。従って $\operatorname{Art}_{L/\mathbb Q}(x)=\sigma_2$ と定義を直接計算できます。
+**定義の確認**。 $L=\mathbb Q(\zeta_5)$ とし、$x_2=2$、他の全素点の成分を $1$ とします。これは有限個を除き単数であり、各成分も非零なのでイデールです。
+
+$p=2$ の局所拡大は非分岐で、一様化元 $2$ は算術的Frobenius $\sigma_2$ に写ります。その他の成分 $1$ の像はすべて恒等です。
+
+従って $\operatorname{Art}_{L/\mathbb Q}(x)=\sigma_2$ と定義を直接計算できます。
 <!-- definition-example-end -->
 
 <a id="prop-anf20-artin-product"></a>
@@ -354,7 +406,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf20-ideal-artin -->
-**定義の確認**。 $L=\mathbb Q(\zeta_5)$ とし、$S=\{5\}$ を選びます。素イデアル $(11)$ は非分岐で、$11\equiv1\pmod5$ より $\operatorname{Frob}_{11}=1$ です。一方 $(2)(3)^{-1}$ の指数は $2$ で $1$、$3$ で $-1$、その他で $0$ なので、像は $\sigma_2\sigma_3^{-1}=\sigma_{2\cdot2}=\sigma_4$ です。これにより正負両方の素イデアル指数に対して準同型の定義を直接確認できます。
+**定義の確認**。 $L=\mathbb Q(\zeta_5)$ とし、$S=\{5\}$ を選びます。
+
+素イデアル $(11)$ は非分岐で、$11\equiv1\pmod5$ より $\operatorname{Frob}_{11}=1$ です。
+
+一方 $(2)(3)^{-1}$ の指数は $2$ で $1$、$3$ で $-1$、その他で $0$ なので、像は $\sigma_2\sigma_3^{-1}=\sigma_{2\cdot2}=\sigma_4$ です。
+
+これにより正負両方の素イデアル指数に対して準同型の定義を直接確認できます。
 <!-- definition-example-end -->
 
 一意な素イデアル分解があるので、各指数が一意に決まり、負の指数はFrobeniusの逆元として扱えます。ただし、**すべての主イデアルが核に入るわけではありません**。外部の大域相互法則と、有限個の合同条件に応じた法 $\mathfrak m$ を選ぶことにより、$P_{\mathfrak m,1}$ が核に入るようにできます。
@@ -384,7 +442,11 @@ $$
 \Phi_5(1+T)=T^4+5T^3+10T^2+10T+5
 $$
 
-は $5$ についてEisenstein多項式です。[Eisensteinの既約性判定](../ANF10/index.md#thm-anf10-eisenstein-irreducible)から $[L:\mathbb Q]=4$ です。四つの根 $\zeta_5^a$ はすべて $L$ に属するので $L/\mathbb Q$ はGalois拡大です。四つの $\sigma_a$ が全自己同型を尽くし、合成則により可換です。特に $2^2\equiv-1$、$2^4\equiv1\pmod5$ から $\sigma_2$ の位数は $4$ です。
+は $5$ についてEisenstein多項式です。[Eisensteinの既約性判定](../ANF10/index.md#thm-anf10-eisenstein-irreducible)から $[L:\mathbb Q]=4$ です。
+
+四つの根 $\zeta_5^a$ はすべて $L$ に属するので $L/\mathbb Q$ はGalois拡大です。四つの $\sigma_a$ が全自己同型を尽くし、合成則により可換です。
+
+特に $2^2\equiv-1$、$2^4\equiv1\pmod5$ から $\sigma_2$ の位数は $4$ です。
 
 <a id="prop-anf20-cyclotomic-artin"></a>
 
@@ -408,7 +470,9 @@ $$
 
 $p\ne5$ では $X^5-1$ の導関数が $5X^4$ なので、両多項式は共通根を持ちません。従って $\overline\Phi_5$ は $\mathbb F_p$ 上で重根を持ちません。ただしこの条件から素イデアルの分岐指数を読むには、**整数環の表示が法 $p$ で正しい**ことも確かめます。
 
-$\alpha$ が $\zeta_5$ の四つの共役根を動くとき、$\Phi_5'(\alpha)=5\alpha^4/(\alpha-1)$ です。また $\prod_{a=1}^4(1-\zeta_5^a)=\Phi_5(1)=5$、$\prod_{a=1}^4\zeta_5^a=1$ です。[基底の判別式](../ANF2/index.md#def-anf2-basis-discriminant)をVandermonde積で表して
+$\alpha$ が $\zeta_5$ の四つの共役根を動くとき、$\Phi_5'(\alpha)=5\alpha^4/(\alpha-1)$ です。
+
+また $\prod_{a=1}^4(1-\zeta_5^a)=\Phi_5(1)=5$、$\prod_{a=1}^4\zeta_5^a=1$ です。[基底の判別式](../ANF2/index.md#def-anf2-basis-discriminant)をVandermonde積で表して
 
 $$
 \left|\operatorname{disc}(1,\zeta_5,\zeta_5^2,\zeta_5^3)\right|
@@ -445,7 +509,9 @@ $p\ne5$ の素イデアルの積と逆数へ拡張すれば、正の有理数 $r
 
 **具体計算**。$p=2$ のFrobeniusは $\zeta_5\mapsto\zeta_5^2$、$p=3$ では $\zeta_5\mapsto\zeta_5^3$、$p=11$ では恒等写像です。$2$ の剰余は位数 $4$、$11\equiv1\pmod5$ です。
 
-**局所積の打消し**。対角有理数 $2$ を考えます。[ANF18の全分岐四次拡大](../ANF18/index.md#prop-anf18-cyclotomic-degree)によれば $\mathbb Q_5(\zeta_5)/\mathbb Q_5$ の次数は $4$ です。これは上で示した $[L:\mathbb Q]=4$ と等しいので、$5$ の上の素点は一つだけで、そこでの完備化は $L_w=\mathbb Q_5(\zeta_5)$ です。従って局所の明示公式をこの大域拡大の $5$ 成分へ適用できます。
+**局所積の打消し**。対角有理数 $2$ を考えます。[ANF18の全分岐四次拡大](../ANF18/index.md#prop-anf18-cyclotomic-degree)によれば $\mathbb Q_5(\zeta_5)/\mathbb Q_5$ の次数は $4$ です。
+
+これは上で示した $[L:\mathbb Q]=4$ と等しいので、$5$ の上の素点は一つだけで、そこでの完備化は $L_w=\mathbb Q_5(\zeta_5)$ です。従って局所の明示公式をこの大域拡大の $5$ 成分へ適用できます。
 
 $2$ 以外の非分岐素点の局所単数成分は自明です。$2$ 成分は $\sigma_2$、$5$ 成分の[素数冪円分拡大の明示局所相互法則](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)は単数 $2$ を $\sigma_{2^{-1}}=\sigma_3$ へ、正の実成分は恒等へ送ります。よって
 
@@ -503,7 +569,11 @@ $\mathbb Q(\zeta_5)$ の $p=2,3,11$ のFrobeniusが $\zeta_5$ をどこへ送る
 - ID: ANF20-A4
 
 <!-- solution-start -->
-**詳細解答**。[円分Artin計算](#prop-anf20-cyclotomic-artin)から $\operatorname{Frob}_p(\zeta_5)=\zeta_5^{p\bmod5}$。$2$ は指数 $2$、$3$ は指数 $3$、$11\equiv1$ は指数 $1$ なので順に $\zeta_5^2,\zeta_5^3,\zeta_5$ です。$2,3,11$ はいずれも $5$ と異なり非分岐条件を満たします。
+**詳細解答**。[円分Artin計算](#prop-anf20-cyclotomic-artin)から $\operatorname{Frob}_p(\zeta_5)=\zeta_5^{p\bmod5}$。
+
+$2$ は指数 $2$、$3$ は指数 $3$、$11\equiv1$ は指数 $1$ なので順に $\zeta_5^2,\zeta_5^3,\zeta_5$ です。
+
+$2,3,11$ はいずれも $5$ と異なり非分岐条件を満たします。
 <!-- solution-end -->
 
 ### A5. 対角元 $2$ の打消し
@@ -514,7 +584,13 @@ $\operatorname{Art}_{\mathbb Q(\zeta_5)/\mathbb Q}(\Delta(2))$ を有限素点�
 - ID: ANF20-A5
 
 <!-- solution-start -->
-**詳細解答**。$p=2$ は付値 $v_2(2)=1$ なのでFrobenius $\sigma_2$。$p=5$ では $2$ が単数で、[素数冪円分拡大の明示局所相互法則](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)から $\sigma_{2^{-1}}=\sigma_3$ です。$p\ne2,5$ は非分岐局所拡大の単数なので $1$、実素点では $2>0$ なので $1$ です。積の指数は $2\cdot3\equiv1\pmod5$。従って全積は恒等自己同型です。
+**詳細解答**。$p=2$ は付値 $v_2(2)=1$ なのでFrobenius $\sigma_2$。
+
+$p=5$ では $2$ が単数で、[素数冪円分拡大の明示局所相互法則](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)から $\sigma_{2^{-1}}=\sigma_3$ です。
+
+$p\ne2,5$ は非分岐局所拡大の単数なので $1$、実素点では $2>0$ なので $1$ です。
+
+積の指数は $2\cdot3\equiv1\pmod5$。従って全積は恒等自己同型です。
 <!-- solution-end -->
 
 ### B1. 剰余類群の有限性を組み立てる
@@ -548,7 +624,13 @@ $$
 - ID: ANF20-B2
 
 <!-- solution-start -->
-**詳細解答**。$y(\mathfrak a)=\Delta(a)u$ と書きます。法の有限素点では $y_{\mathfrak p}=1$ だから $a^{-1}=u_{\mathfrak p}\in1+\mathfrak p^{n_{\mathfrak p}}\mathcal O_{\mathfrak p}$。この群は逆元に関して閉じているので $a\equiv1$ です。法の実素点では $1=a_v u_v$、$u_v>0$ なので $a_v>0$。その他の有限素点では $u_{\mathfrak p}$ が単数で、$v_{\mathfrak p}(a)=v_{\mathfrak p}(y)=e_{\mathfrak p}$。法の素点の付値は $0$ だから $J(\Delta(a))=\mathfrak a$ です。よって $\mathfrak a=(a)$ であり、指定の合同条件も成立します。
+**詳細解答**。$y(\mathfrak a)=\Delta(a)u$ と書きます。法の有限素点では $y_{\mathfrak p}=1$ だから $a^{-1}=u_{\mathfrak p}\in1+\mathfrak p^{n_{\mathfrak p}}\mathcal O_{\mathfrak p}$。この群は逆元に関して閉じているので $a\equiv1$ です。
+
+法の実素点では $1=a_v u_v$、$u_v>0$ なので $a_v>0$。
+
+その他の有限素点では $u_{\mathfrak p}$ が単数で、$v_{\mathfrak p}(a)=v_{\mathfrak p}(y)=e_{\mathfrak p}$。法の素点の付値は $0$ だから $J(\Delta(a))=\mathfrak a$ です。
+
+よって $\mathfrak a=(a)$ であり、指定の合同条件も成立します。
 <!-- solution-end -->
 
 ### B3. $5$ 成分に単数 $2$ を置く
@@ -559,7 +641,13 @@ $\mathbb Q$ のイデール $x$ を $x_5=2$、それ以外の全素点で $x_v=1
 - ID: ANF20-B3
 
 <!-- solution-start -->
-**詳細解答**。$\Delta(2)$ で割った $x'=x\Delta(2)^{-1}$ は、$5$ 成分が $1$、実成分が $1/2>0$、$p\ne5$ 成分は $1/2$ です。$p=2$ の付値は $-1$、$p\ne2,5$ の付値は $0$ なので、[剰余類群とイデール商の対応](#thm-anf20-ray-idele-isom)で対応する分数イデアルは $(2)^{-1}$ です。その法 $5\infty$ の剰余は $2^{-1}\equiv3\pmod5$、よって[五次円分体のArtin計算](#prop-anf20-cyclotomic-artin)からArtin像は $\sigma_3$ です。局所的にも[円分体の明示局所相互法則](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)により、$5$ 成分の単数 $2$ は $\sigma_{2^{-1}}=\sigma_3$、他の成分は $1$ なので一致します。
+**詳細解答**。$\Delta(2)$ で割った $x'=x\Delta(2)^{-1}$ は、$5$ 成分が $1$、実成分が $1/2>0$、$p\ne5$ 成分は $1/2$ です。
+
+$p=2$ の付値は $-1$、$p\ne2,5$ の付値は $0$ なので、[剰余類群とイデール商の対応](#thm-anf20-ray-idele-isom)で対応する分数イデアルは $(2)^{-1}$ です。
+
+その法 $5\infty$ の剰余は $2^{-1}\equiv3\pmod5$、よって[五次円分体のArtin計算](#prop-anf20-cyclotomic-artin)からArtin像は $\sigma_3$ です。
+
+局所的にも[円分体の明示局所相互法則](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)により、$5$ 成分の単数 $2$ は $\sigma_{2^{-1}}=\sigma_3$、他の成分は $1$ なので一致します。
 <!-- solution-end -->
 
 ### B4. 符号が見える局所因子
@@ -602,7 +690,11 @@ $$
 =\sigma_3.
 $$
 
-ここでは $7\equiv2$、$3^{-1}\equiv2\pmod5$ を用いました。像 $\sigma_3$ も位数 $4$ です。法 $(5)$ の剰余類群では $\{\pm1\}$ でさらに割るので $3^2\equiv-1$ が単位類となり、位数は $2$ へ減ります。この法では四次拡大 $L/\mathbb Q$ のArtin写像が剰余類群から同型となることはありません。実素点での正条件が四次の複素共役情報を保持するために必要です。
+ここでは $7\equiv2$、$3^{-1}\equiv2\pmod5$ を用いました。像 $\sigma_3$ も位数 $4$ です。
+
+法 $(5)$ の剰余類群では $\{\pm1\}$ でさらに割るので $3^2\equiv-1$ が単位類となり、位数は $2$ へ減ります。
+
+この法では四次拡大 $L/\mathbb Q$ のArtin写像が剰余類群から同型となることはありません。実素点での正条件が四次の複素共役情報を保持するために必要です。
 <!-- solution-end -->
 
 次講ANF21では、ここで外部定理として使った「対角元で局所積が消える」「ノルムが核になる」「剰余類体が存在する」の三つを、局所から大域への証明依存に分解します。
