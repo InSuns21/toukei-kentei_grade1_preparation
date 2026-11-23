@@ -8,7 +8,7 @@
 $$
 (X,Y,Z)=(\sin\vartheta\cos\varphi,\sin\vartheta\sin\varphi,\cos\vartheta)
 $$
-と置く。向きに対応する面積形式は $\sin\vartheta\,d\vartheta\wedge d\varphi$ である。$d\varphi$ は極を除く領域で定義される1形式であって、球面全体の滑らかな1形式ではない。構造群のLie環は $\mathfrak u(1)=i\mathbb R$、右作用の規約は $s_S=s_Ng_{NS}$、局所接続は $A_i=s_i^*\omega$ とする。前講の
+と置く。向きに対応する面積形式は $\sin\vartheta\,d\vartheta\wedge d\varphi$ である。$\varphi$ は $2\pi$ を法とする角度であり、$d\varphi$ は極を除く領域で定義される1形式であって、球面全体の滑らかな1形式ではない。以下の $d$ は球面上の外微分であり、局所座標では $\vartheta,\varphi$ の両方を変数として微分する。構造群のLie環は $\mathfrak u(1)=i\mathbb R$、右作用の規約は $s_S=s_Ng_{NS}$、局所接続は $A_i=s_i^*\omega$ とする。前講の
 [巻き数の定義](../GBG18/index.md#def-gbg18-winding)に合わせ、$g_{NS}=e^{in\varphi}$ と固定する。
 
 ## 1. 極で滑らかな二つのポテンシャルを作る
@@ -30,16 +30,24 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg19-monopole-potentials -->
-**定義の確認**（$n=1$）。。重なりでは
+**定義の確認**（$n=1$）。まず重なりで、[局所接続の変換則](../GBG8/index.md#thm-gbg8-local-transform)が要求する差を調べる。
 $$
 A_S-A_N=\frac{i}{2}\bigl((1+\cos\vartheta)+(1-\cos\vartheta)\bigr)d\varphi
-=i\,d\varphi.
-$$
-一方、$g_{NS}=e^{i\varphi}$ に対し
-$$
+=i\,d\varphi,
+\qquad
 g_{NS}^{-1}dg_{NS}=e^{-i\varphi}(ie^{i\varphi}d\varphi)=i\,d\varphi.
 $$
-よって差は[局所接続の変換則](../GBG8/index.md#thm-gbg8-local-transform)と一致する。極における滑らかさは直後にCartesian座標で直接確認する。
+さらに極での滑らかさを、冒頭で定めた球面のCartesian座標 $(X,Y,Z)$ で確かめる。角度 $\varphi$ は極で使えないので、その微分を極を含む領域でも定義できる座標関数の微分で表す。$X=\sin\vartheta\cos\varphi$、$Y=\sin\vartheta\sin\varphi$ を微分すると、$d\vartheta$ の項が打ち消し合って
+$$
+X\,dY-Y\,dX=\sin^2\vartheta\,d\varphi
+=(1-Z^2)\,d\varphi
+$$
+となる。よって極以外では
+$$
+A_N=-\frac{i}{2}\frac{X\,dY-Y\,dX}{1+Z},\qquad
+A_S=\frac{i}{2}\frac{X\,dY-Y\,dX}{1-Z}.
+$$
+右辺はそれぞれ $U_N$ で $1+Z>0$、$U_S$ で $1-Z>0$ だから滑らかである。これにより、重なりでの変換則と、各パッチの極までの滑らかな延長という定義の二条件を直接確認した。
 <!-- definition-example-end -->
 
 <a id="prop-gbg19-smooth-gluing"></a>
@@ -106,7 +114,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg19-chern-number -->
-**定義の確認**。例えば $n=1$ の局所形式を微分すると $F=-\frac{i}{2}\sin\vartheta\,d\vartheta\wedge d\varphi$ である。$iF=\frac12\sin\vartheta\,d\vartheta\wedge d\varphi$ は実数値2形式なので、定義した積分は実数となる。極での $F$ の滑らかさは、前節で滑らかに延長された $A_i$ の外微分だから保証される。
+**定義の確認**（$n=1$）。前節で確かめた滑らかな局所形式について、可換群の曲率公式 $F=dA_i$ を用いると
+$$
+F=dA_N=-\frac{i}{2}d(1-\cos\vartheta)\wedge d\varphi
+=-\frac{i}{2}\sin\vartheta\,d\vartheta\wedge d\varphi.
+$$
+$F$ は両パッチの滑らかな外微分として極まで延び、$iF=\frac12\sin\vartheta\,d\vartheta\wedge d\varphi$ は実数値2形式である。外向きの球面では $\int_{S^2}\sin\vartheta\,d\vartheta\wedge d\varphi=4\pi$ なので
+$$
+c_1[P_1,F]=\frac{i}{2\pi}\left(-\frac{i}{2}\right)4\pi=1.
+$$
+これで正規化積分の実数性だけでなく、この具体例での値も定義から確認できた。
 <!-- definition-example-end -->
 
 <a id="thm-gbg19-curvature-flux"></a>
@@ -133,7 +150,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$U_N$ の極以外では $d(d\varphi)=0$、$d(1-\cos\vartheta)=\sin\vartheta\,d\vartheta$ より
+[曲率の局所構造方程式](../GBG10/index.md#thm-gbg10-local-formula)で $U(1)$ の括弧項が零となることを使う。$U_N$ の極以外では $d(d\varphi)=0$、$d(1-\cos\vartheta)=\sin\vartheta\,d\vartheta$ より
 $$
 F_N=dA_N=-\frac{in}{2}\sin\vartheta\,d\vartheta\wedge d\varphi.
 $$
@@ -195,7 +212,7 @@ $$
 $$
 A_S-A_N=g_{NS}^{-1}dg_{NS}.
 $$
-$E$ を $\varphi\in[0,2\pi]$ で一周し、[位相持ち上げ](../GBG18/index.md#def-gbg18-winding)を $g_{NS}(e^{i\varphi})=e^{i\psi(\varphi)}$ と取る。$\psi$ は区間上の実数値関数で滑らかに選べ、$\psi(2\pi)-\psi(0)=2\pi m$（$m\in\mathbb Z$）である。微分すると
+$E$ を $\varphi\in[0,2\pi]$ で一周し、[位相持ち上げ](../GBG18/index.md#def-gbg18-winding)を $g_{NS}(e^{i\varphi})=e^{i\psi(\varphi)}$ と取る。$\psi$ は区間上の実数値関数で滑らかに選べる。実際、前講で構成した連続な持ち上げは、滑らかな $g_{NS}$ の局所的な滑らかな偏角と $2\pi$ の整数倍しか違わないため、局所的にも滑らかである。端点差は $\psi(2\pi)-\psi(0)=2\pi m$（$m\in\mathbb Z$）である。$\varphi$ に関する微分を取り、$d(e^{i\psi})=ie^{i\psi}d\psi$ を用いると
 $$
 g_{NS}^{-1}dg_{NS}=i\,d\psi,\qquad
 \int_Eg_{NS}^{-1}dg_{NS}=i(\psi(2\pi)-\psi(0))=2\pi i m.
@@ -261,6 +278,8 @@ a_S=-\frac{\hbar n}{2q_0}(1+\cos\vartheta)d\varphi
 $$
 である。これらは各極で滑らかで、$a_S-a_N=-\hbar n\,d\varphi/q_0$。$b=(\hbar n/(2q_0))\sin\vartheta\,d\vartheta\wedge d\varphi$ だから $\Phi=2\pi\hbar n/q_0$ となる。
 
+荷電場を扱う際には、[滑らかな左線形表現](../GBG4/index.md#def-gbg4-representation) $\rho_k:U(1)\to GL_{\mathbb C}(\mathbb C)$ を使う。$t$ は $2\pi$ を法とする群の角度、$k$ はその**整数重み**であり、$\rho_k(e^{it})v=e^{ikt}v$ とする。場の局所成分 $v_i$ は、[結合束の局所成分変換則](../GBG4/index.md#thm-gbg4-component-transformation)に従う。さらに[共変微分の局所公式](../GBG9/index.md#thm-gbg9-local-formula)は $D_i v_i=dv_i+(\rho_k)_*(A_i)v_i$ であり、$(\rho_k)_*$ は群の角度に沿った微分から得る無限小表現を表す。
+
 <a id="thm-gbg19-dirac-quantization"></a>
 
 <!-- formal-statement-start -->
@@ -293,10 +312,17 @@ e^{ikt}=e^{ik(t+2\pi)}
 \quad\Longleftrightarrow\quad e^{2\pi i k}=1
 \quad\Longleftrightarrow\quad k\in\mathbb Z
 $$
-が必要十分である。重み $k$ の微分表現は $kA_i=-i(kq_0/\hbar)a_i$ なので、共変微分の局所式は $D_i=d-iqa_i/\hbar$（$q=kq_0$）となる。[結合束の局所成分変換則](../GBG4/index.md#thm-gbg4-component-transformation)により $v_S=g_{NS}^{-k}v_N$ であり、遷移関数と共変微分は整合する。
+が必要十分である。微分する変数を $t\in\mathbb R$ として群の単位元 $t=0$ で微分すれば、任意の実数 $\lambda$ について
+$$
+(\rho_k)_*(i\lambda)
+=\left.\frac{d}{dt}\right|_{t=0}\rho_k(e^{it\lambda})
+=\left.\frac{d}{dt}\right|_{t=0}e^{ikt\lambda}
+=ik\lambda.
+$$
+したがって $(\rho_k)_*(A_i)=kA_i=-i(kq_0/\hbar)a_i$ であり、[共変微分の局所公式](../GBG9/index.md#thm-gbg9-local-formula)は $D_i=d-iqa_i/\hbar$（$q=kq_0$）となる。ここで $d$ は基底多様体上の変数に関する外微分であって、無限小表現を求めた補助変数 $t$ の微分とは異なる。[結合束の局所成分変換則](../GBG4/index.md#thm-gbg4-component-transformation)により $v_S=g_{NS}^{-k}v_N$ であり、遷移関数と共変微分は整合する。
 <!-- proof-end -->
 
-球面が空間の原点を囲むと見て磁場を $B=g_m\,\mathbf r/|\mathbf r|^3$（計量・単位系をこの表示に固定）と書けば、球面磁束は $\Phi=4\pi g_m$。したがって $q_0g_m=n\hbar/2$ となる。SI単位などで磁場の係数を別の規約にする場合は $g_m$ の数値的定義も変わる。普遍的なのは無次元量 $q_0\Phi/(2\pi\hbar)\in\mathbb Z$ という条件である。
+球面が空間の原点を囲むと見て磁場を $B=g_m\,\mathbf r/|\mathbf r|^3$（計量・単位系をこの表示に固定）と書けば、球面上で磁場2形式は $b=(B\cdot\mathbf n)\,dS$（$\mathbf n$ は外向き単位法線、$dS$ は面積形式）と対応する。半径 $r$ の球面で $B\cdot\mathbf n=g_m/r^2$、面積が $4\pi r^2$ だから磁束は $\Phi=4\pi g_m$。したがって $q_0g_m=n\hbar/2$ となる。SI単位などで磁場の係数を別の規約にする場合は $g_m$ の数値的定義も変わる。普遍的なのは無次元量 $q_0\Phi/(2\pi\hbar)\in\mathbb Z$ という条件である。
 
 **仮定が働く場所**。ここでの量子化は、球面を覆う滑らかな $U(1)$ 主束と、そこから作る一価な荷電場の接続が存在するという条件から出ている。単に原点を除いた空間で任意の閉2形式 $b$ を書いただけでは、その実数磁束が整数になるとは限らない。例えば $b=c\sin\vartheta\,d\vartheta\wedge d\varphi$ は任意の実数 $c$ について滑らかな2形式だが、$q_0(4\pi c)/(2\pi\hbar)\notin\mathbb Z$ なら、この固定した基準電荷 $q_0$ に対する滑らかな $U(1)$ 接続から得られる曲率としては実現できない。破綻するのは磁場2形式の滑らかさではなく、**局所ポテンシャルの差を一価な遷移関数として積分できる**という条件である。
 
@@ -443,7 +469,7 @@ n=\frac{i}{2\pi}\int_{S^2}F.
 $$
 $F=0$ なら右辺は零なので $n=0$ が必要である。逆に $n=0$ の積束には $A=0$ の平坦接続がある。前講の[巻き数による球面主束の非自明性](../GBG18/index.md#thm-gbg18-obstruction)から、$n\ne0$ で非自明な束に平坦接続は持てない。
 
-一方 $S^1$ は2次元微分形式が零で、積束の接続 $A=i\alpha\,dt$ は $F=dA=0$ である。しかし[平坦接続とholonomyの具体例](../GBG16/index.md#prop-gbg16-circle-holonomy)のとおり、一周の水平移動は $e^{-2\pi i\alpha}$ となり、$\alpha\notin\mathbb Z$ なら非自明である。曲率の消失だけからholonomyを零と結論するのは、単連結性に関する条件を落としている。
+一方 $S^1$ は2次元微分形式が零である。$t$ を $2\pi$ を法とする円周の角度とすると、各角度座標の $dt$ は重なりで一致して大域1形式になる。そこで積束の接続 $A=i\alpha\,dt$（$\alpha\in\mathbb R$）は $F=dA=0$ である。しかし[平坦接続とholonomyの具体例](../GBG16/index.md#prop-gbg16-circle-holonomy)のとおり、一周の水平移動は $e^{-2\pi i\alpha}$ となり、$\alpha\notin\mathbb Z$ なら非自明である。曲率の消失だけからholonomyが自明と結論するのは、単連結性に関する条件を落としている。
 <!-- solution-end -->
 
 <a id="ex-gbg19-b04"></a>
@@ -507,7 +533,7 @@ $$
 $$
 A_S-A_N=2ic\,d\varphi.
 $$
-局所遷移関数は $g^{-1}dg=2ic\,d\varphi$ を満たす必要がある。円周を一周する区間上で積分すると $g(\varphi)=e^{i(2c\varphi+\beta)}$（$\beta$ は定数）である。$g(0)=g(2\pi)$ の必要十分条件は
+局所遷移関数は $g^{-1}dg=2ic\,d\varphi$ を満たす必要がある。角度 $\varphi$ に沿ってこの等式を評価すると $g'(\varphi)=2ic\,g(\varphi)$ である。区間 $[0,2\pi]$ で $\frac{d}{d\varphi}(e^{-2ic\varphi}g(\varphi))=0$ だから、$g(\varphi)=e^{i(2c\varphi+\beta)}$（$\beta$ は定数）となる。$g(0)=g(2\pi)$ の必要十分条件は
 $$
 e^{4\pi ic}=1
 \quad\Longleftrightarrow\quad 2c\in\mathbb Z.
