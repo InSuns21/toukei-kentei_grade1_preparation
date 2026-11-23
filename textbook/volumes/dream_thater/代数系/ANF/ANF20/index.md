@@ -2,7 +2,9 @@
 
 [前講のイデール類群](../ANF19/index.md#def-anf19-idele-class)は、すべての素点の乗法情報を大域元で割った群です。そこで、[局所Artin写像](../ANF17/index.md#def-anf17-finite-reciprocity)をすべての素点で掛け合わせ、数体の有限Abel拡大を記述します。さらに、無限個のイデール成分のうち有限個の合同条件だけを記録できる**法によるイデアル類の群**を作ります。
 
-本講では数体 $K/\mathbb Q$ を有限拡大、$\mathcal O_K$ をその整数環とします。有限素点の集合を $V_f$、無限素点の集合を $V_\infty$、全素点の集合を $V_K=V_f\sqcup V_\infty$ と書きます。有限素点 $\mathfrak p$ の剰余体の位数を $N\mathfrak p$ とします。
+本講では数体 $K/\mathbb Q$ を有限拡大、$\mathcal O_K$ をその整数環とします。有限素点・無限素点の集合をそれぞれ $V_f$、$V_\infty$ と書きます。全素点の集合は両者の直和 $V_K=V_f\sqcup V_\infty$ です。
+
+有限素点 $\mathfrak p$ の剰余体の位数を $N\mathfrak p$ とします。
 
 各有限素点の $\operatorname{ord}_{\mathfrak p}$ は、[素イデアル付値](../ANF9/index.md#def-anf9-prime-valuation)の $v_{\mathfrak p}$ と同じ規格化です。[分数イデアルの一意分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)と[イデールのイデアル写像](../ANF19/index.md#thm-anf19-idele-ideal-exact)を使います。
 
@@ -262,7 +264,9 @@ $
 
 ## 4. 局所Artin写像を掛け合わせる
 
-$L/K$ を有限Abel Galois拡大とします。各素点 $v$ について、一つの素点 $w\mid v$ を $L$ 上で選び、局所拡大 $L_w/K_v$ の [局所Artin写像](../ANF17/index.md#thm-anf17-local-reciprocity)を使います。Abel拡大では分解群が可換な大域Galois群の部分群なので、$w$ の取り方で得られる大域自己同型は変わりません。実素点では $\mathbb R\to\mathbb C$ の場合、負元が複素共役に対応します。
+$L/K$ を有限Abel Galois拡大とします。各素点 $v$ について、一つの素点 $w\mid v$ を $L$ 上で選び、局所拡大 $L_w/K_v$ の [局所Artin写像](../ANF17/index.md#thm-anf17-local-reciprocity)を使います。Abel拡大では分解群が可換な大域Galois群の部分群なので、$w$ の取り方で得られる大域自己同型は変わりません。
+
+実素点で $L_w/K_v=\mathbb C/\mathbb R$ となるときは、ノルムが $N_{\mathbb C/\mathbb R}(z)=z\overline z=|z|^2$ であり、像は $\mathbb R_{>0}$ です。したがって $\mathbb R^\times/\mathbb R_{>0}\simeq\{\pm1\}$ を $\operatorname{Gal}(\mathbb C/\mathbb R)=\{1,c\}$ と対応させ、負元を複素共役 $c(z)=\overline z$ へ送ります。実素点で分裂する場合と複素素点では局所Galois群は自明です。
 
 <a id="def-anf20-global-artin"></a>
 
@@ -277,6 +281,15 @@ $$
 \quad\in\operatorname{Gal}(L/K).
 $$
 <!-- formal-statement-end -->
+
+この節以降の円分体の例では、$\zeta_5$ を原始五乗根、$L=\mathbb Q(\zeta_5)$ とします。$a\in(\mathbb Z/5\mathbb Z)^\times$ に対して
+
+$
+\sigma_a(\zeta_5)=\zeta_5^a,
+\qquad \sigma_a\sigma_b=\sigma_{ab}
+$
+
+と書きます。これは $L/\mathbb Q$ の**大域**自己同型です。[ANF18の円分Galois指数](../ANF18/index.md#def-anf18-cyclotomic-exponent)と指数の読み方は同じですが、そこでの局所拡大 $\mathbb Q_5(\zeta_5)/\mathbb Q_5$ の自己同型とは作用先を区別します。
 
 <!-- definition-example-start: def-anf20-global-artin -->
 **定義の確認**。 $L=\mathbb Q(\zeta_5)$ とし、$x_2=2$、他の全素点の成分を $1$ とします。これは有限個を除き単数であり、各成分も非零なのでイデールです。$p=2$ の局所拡大は非分岐で、一様化元 $2$ は算術的Frobenius $\sigma_2$ に写ります。その他の成分 $1$ の像はすべて恒等です。従って $\operatorname{Art}_{L/\mathbb Q}(x)=\sigma_2$ と定義を直接計算できます。
@@ -365,15 +378,13 @@ $$
 
 ## 5. 円分体を使ってArtin記号を計算する
 
-$\zeta_5=e^{2\pi i/5}$ とし、$L=\mathbb Q(\zeta_5)$ とします。$L/\mathbb Q$ は四次Abel Galois拡大で、自己同型は
+$\zeta_5=e^{2\pi i/5}$ とし、前節で導入した大域自己同型 $\sigma_a$ を使います。五次円分多項式は $\Phi_5(X)=X^4+X^3+X^2+X+1$ であり、
 
 $$
-\sigma_a(\zeta_5)=\zeta_5^a,
-\qquad
-a\in(\mathbb Z/5\mathbb Z)^\times
+\Phi_5(1+T)=T^4+5T^3+10T^2+10T+5
 $$
 
-により尽くされます。$\sigma_a\sigma_b=\sigma_{ab}$ で、$\sigma_2$ の位数は $4$ です。
+は $5$ についてEisenstein多項式です。[Eisensteinの既約性判定](../ANF10/index.md#thm-anf10-eisenstein-irreducible)から $[L:\mathbb Q]=4$ です。四つの根 $\zeta_5^a$ はすべて $L$ に属するので $L/\mathbb Q$ はGalois拡大です。四つの $\sigma_a$ が全自己同型を尽くし、合成則により可換です。特に $2^2\equiv-1$、$2^4\equiv1\pmod5$ から $\sigma_2$ の位数は $4$ です。
 
 <a id="prop-anf20-cyclotomic-artin"></a>
 
@@ -395,7 +406,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\Phi_5(x)=(x^5-1)/(x-1)$ です。$p\ne5$ で $x^5-1$ の導関数は $5x^4$ なので、$x^5-1$ と導関数は共通根を持ちません。従って $\Phi_5(x)$ も $\mathbb F_p$ 上で重根を持ちません。モニック整係数多項式の根が重根なく還元されるときの有限素点の非分岐判定（局所体の整数環の判別式判定）により、$L/\mathbb Q$ は $p$ で非分岐です。
+$p\ne5$ では $X^5-1$ の導関数が $5X^4$ なので、両多項式は共通根を持ちません。従って $\overline\Phi_5$ は $\mathbb F_p$ 上で重根を持ちません。ただしこの条件から素イデアルの分岐指数を読むには、**整数環の表示が法 $p$ で正しい**ことも確かめます。
+
+$\alpha$ が $\zeta_5$ の四つの共役根を動くとき、$\Phi_5'(\alpha)=5\alpha^4/(\alpha-1)$ です。また $\prod_{a=1}^4(1-\zeta_5^a)=\Phi_5(1)=5$、$\prod_{a=1}^4\zeta_5^a=1$ です。[基底の判別式](../ANF2/index.md#def-anf2-basis-discriminant)をVandermonde積で表して
+
+$
+\left|\operatorname{disc}(1,\zeta_5,\zeta_5^2,\zeta_5^3)\right|
+=\left|\prod_{a=1}^4\Phi_5'(\zeta_5^a)\right|
+=\frac{5^4}{5}=5^3.
+$
+
+[判別式と指数の平方](../ANF2/index.md#thm-anf2-discriminant-index)から、$[\mathcal O_L:\mathbb Z[\zeta_5]]$ の素因子は $5$ に限られます。よって $p\ne5$ では $p$ で局所化した整数環が $\mathbb Z_p[\zeta_5]$ に一致し、[単項生成の素イデアル分解の判定](../ANF4/index.md#thm-anf4-monogenic-factorization)をこの局所表示に適用できます。$\overline\Phi_5$ の各既約因子の重複度は $1$ なので、分岐指数もすべて $1$ です。
 
 算術的Frobeniusは剰余体で $z\mapsto z^p$ です。$\zeta_5$ の還元に適用すると次を得ます。
 
@@ -421,7 +442,7 @@ $$
 
 これは[素数冪円分拡大の明示局所相互法則の規格化](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)と整合する具体的な検算であり、一般の大域相互法則全体の証明ではありません。
 
-法から実素点を外すと剰余類群が位数 $2$ になる一方、このこの拡大のGalois群は位数 $4$ です。したがって $L$ は法 $(5)$ の剰余類体には**なりません**。$\mathbb Q$ の実素点が複素化するという条件を落とすと、符号に対応する複素共役の情報が失われるためです。
+法から実素点を外すと剰余類群が位数 $2$ になる一方、この拡大のGalois群は位数 $4$ です。したがって $L$ は法 $(5)$ の剰余類体には**なりません**。$\mathbb Q$ の実素点が複素化するという条件を落とすと、符号に対応する複素共役の情報が失われるためです。
 
 ## 6. 演習：合同条件からFrobeniusへ
 
@@ -522,7 +543,7 @@ $\mathbb Q$ のイデール $x$ を $x_5=2$、それ以外の全素点で $x_v=1
 - ID: ANF20-B3
 
 <!-- solution-start -->
-**詳細解答**。$\Delta(2)$ で割った $x'=x\Delta(2)^{-1}$ は、$5$ 成分が $1$、実成分が $1/2>0$、$p\ne5$ 成分は $1/2$ です。$p=2$ の付値は $-1$、$p\ne2,5$ の付値は $0$ なので、[剰余類群とイデール商の対応](#thm-anf20-ray-idele-isom)で対応する分数イデアルは $(2)^{-1}$ です。その法 $5\infty$ の剰余は $2^{-1}\equiv3\pmod5$、よってArtin像は $\sigma_3$。局所的にも $5$ 成分の単数 $2$ は $\sigma_{2^{-1}}=\sigma_3$、他の成分は $1$ なので一致します。
+**詳細解答**。$\Delta(2)$ で割った $x'=x\Delta(2)^{-1}$ は、$5$ 成分が $1$、実成分が $1/2>0$、$p\ne5$ 成分は $1/2$ です。$p=2$ の付値は $-1$、$p\ne2,5$ の付値は $0$ なので、[剰余類群とイデール商の対応](#thm-anf20-ray-idele-isom)で対応する分数イデアルは $(2)^{-1}$ です。その法 $5\infty$ の剰余は $2^{-1}\equiv3\pmod5$、よって[五次円分体のArtin計算](#prop-anf20-cyclotomic-artin)からArtin像は $\sigma_3$ です。局所的にも[円分体の明示局所相互法則](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)により、$5$ 成分の単数 $2$ は $\sigma_{2^{-1}}=\sigma_3$、他の成分は $1$ なので一致します。
 <!-- solution-end -->
 
 ### B4. 符号が見える局所因子
@@ -535,7 +556,7 @@ $\mathbb Q$ のイデール $x$ を $x_5=2$、それ以外の全素点で $x_v=1
 <!-- solution-start -->
 **詳細解答**。$5$ 成分の $-1$ は局所単数です。[素数冪円分拡大の明示局所相互法則](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)から、その像は $\sigma_{(-1)^{-1}}=\sigma_{-1}$ です。
 
-実成分も負なので、局所拡大 $\mathbb C/\mathbb R$ の相互法則によって複素共役 $\sigma_{-1}$ を与えます。他の有限素点では非分岐局所拡大の単数だから、像はすべて $1$ です。
+実成分も負なので、[本章で導入した実素点のノルム商](#def-anf20-global-artin)により複素共役 $\sigma_{-1}$ を与えます。他の有限素点では非分岐局所拡大の単数だから、像はすべて $1$ です。
 
 従って大域Artin積は $\sigma_{-1}^2=1$ になります。実素点を法から外すと、複素共役を区別する正負の情報が失われることも分かります。
 <!-- solution-end -->
