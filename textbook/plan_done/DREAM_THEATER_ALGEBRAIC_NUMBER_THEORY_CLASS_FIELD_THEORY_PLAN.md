@@ -1,7 +1,7 @@
 # DREAM THEATER 代数的整数論・局所体・類体論（ANF1〜ANF22）
 
 設計確定: 2026-11-21 JST  
-状態: in_progress / ANF1〜ANF22 completed。全22講の本文・メタデータ・系列manifest・公開目次を実装済み。PLAN全体の横断査読・公開検証は別途確認する。
+状態: done / ANF1〜ANF22 completed。全22講の実装・横断構造と代表数理監査・公開CI検証を2026-11-23 JSTに完了した。
 系列ID: \`ANF\`（Algebraic Number Fields）。分野: 代数系。対応ルート: [岩澤理論・保型表現・RH講読](../plans/DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)。
 
 ## 目的・既存教材との差分
@@ -77,7 +77,7 @@
 - ANF22のKronecker–Weberは主要結果の立証範囲を分ける。類体論からの帰結を掲げる際は既習の類体論定理の仮定を全て照合する。
 - 学習者本文では編集記号を説明しない。各講の\`index.md\`・\`chapter.yaml\`・\`knowledge.yaml\`・該当科目目次を成果物と同時に確定する。
 - ANF1着手時にANF.yamlを全22講で初期化した。ANF10完了時点でANF1〜ANF10 completed、ANF11〜ANF22 planned。今後も完成した講の本文・メタデータ・公開目次とmanifestのstatusを同期する。
-- 全講と横断監査・必要CIが完了するまで\`plan_done/\`へ移さない。
+- ANF全22講・横断監査・必要CIを確認して`textbook/plan_done/`へ移した。必要な再開手順は`textbook/AGENTS.md`を参照する。
 
 ## 前後のルート
 
@@ -105,7 +105,35 @@ ANF9〜13とANF19の結果は \`AFR\` 側のアデール・局所表現へ提供
 - ANF16「局所類体論：ノルム群と存在」: 付値・単数完全列、深い主単数のn乗根、有限拡大ノルム群の開性・有限指数を証明。緩分岐巡回Kummer拡大の単数ノルムと指数を計算し、Q3・Q5の例と塔を検算。一般存在定理・一般指数等式は外部定理として証明依存を明示。全10題の詳細解答を追加。
 - ANF17「局所類体論：相互法則・関手性」: 算術的Frobenius規格化の有限Artin写像、有限ノルム商同型、中間体への制限と逆包含対応、非分岐でのノルム・制限の関手性の直接証明を追加。一般の相互法則と基礎体変更を外部定理として区別し、全10題と詳細解答を追加。
 - ANF18「類体論の計算例」: Qpのp冪円分拡大の次数・全分岐、算術的Frobenius規格化の明示相互法則（外部定理）、合同式ノルム判定、Kummer四次との比較、二次中間体と円分塔の制限、非分岐成分との合成を証明・計算。全10題と詳細解答を追加。
-- - ANF19「アデール・イデールと有限性条件」: 制限付き直積とアデール・イデールの導入、数体対角像の離散性、大域積公式、イデール位相とアデール位相の相違、イデール類群とイデアル類群の完全列を証明し、10題と詳細解答を追加。
+- ANF19「アデール・イデールと有限性条件」: 制限付き直積とアデール・イデールの導入、数体対角像の離散性、大域積公式、イデール位相とアデール位相の相違、イデール類群とイデアル類群の完全列を証明し、10題と詳細解答を追加。
 - ANF20「大域Artin写像と剰余類体」: 法と剰余類群・イデール商、弱近似による有限性、有限Artin積、五次円分体の計算と10題の解答を追加。
 - ANF21「大域類体論の主要証明ルート」: 有限法・下降判定・ノルム包含・中間体制限・Frobenius分解を証明。外部相互法則・一般存在定理の証明責務を明示し、10題と詳細解答を追加。
-- ANF22「Hilbert類体・円分体とZ_p塔への橋」: 法(1)の類群とHilbert類体・主素イデアルの完全分解、Kronecker–Weberの類体論からの導出、素数冪円分体のEisenstein次数証明、奇素数と2の円分的Z_p塔、10題と全詳細解答を追加。全予定講義の実装は終了。横断監査・公開検証は完了を確認してからPLANの状態を判断する。
+- ANF22「Hilbert類体・円分体とZ_p塔への橋」: 法(1)の類群とHilbert類体・主素イデアルの完全分解、Kronecker–Weberの類体論からの導出、素数冪円分体のEisenstein次数証明、奇素数と2の円分的Z_p塔、10題と全詳細解答を追加。全予定講義を実装し、末尾の横断監査記録と公開CIを確認してPLANをdoneへ移行した。
+
+
+## 完了時の系列横断監査・公開検証（2026-11-23 JST）
+
+### 範囲と結果
+
+- `textbook/dream-theater-series/ANF.yaml` は ANF1〜ANF22 の22件全て `completed`。各章の `index.md`・`chapter.yaml`・`knowledge.yaml` の計66ファイルを最新GitHub上で確認。章本文タイトル・metadataの章ID・knowledgeのchapter IDを照合した。
+- [代数的整数論の科目別目次](../dream-theater-toc/060_代数系/055_algebraic-number-theory.md) はANF1〜ANF22への22リンクを掲載。manifestに記録された実在本文パスと対応する。
+- 全22章の演習IDは合計216件（ANF1:8題、ANF2:9題、ANF3:9題、ANF4〜ANF22:各10題）で、詳細解答の開始マーカーも216件。全章でLevel A4/B3/C1以上を確認。重複演習ID・重複章内stable anchor・単独のドル記号行を検出せず。formal statement・proof block・定義例の構造を章ごとに確認した。
+- 横断した理論の主要経路：ANF1〜6（整数環→判別式・分岐→Minkowski→類群）、ANF7〜13（単数・解析類数公式→p進完備化→分岐）、ANF14〜22（Hilbert 90→局所Artin→大域Artin→Hilbert類体とZ_p塔）。ANF6→ANF22、ANF9/10→ANF22、ANF17→ANF20→ANF22の使用箇所・主要定理の適用条件と外部入力の境界を重点確認。
+
+### 代表的な独立再計算と外部入力の位置
+
+- 類群とHilbert類体：K=Q(√−5) について判別式は −20、Minkowski上界は (2/π)√20 ≒ 2.847。ノルム2の非主素イデアル (2,1+√−5) が類群の非自明元で二乗は (2) に等しい。ANF22のノルム3素イデアルは a²+5b²=3 に整数解がないため非主。Cl(K)≅C₂ と Artin同型を使うと Hilbert類体上の指数は e=1、剰余次数 f=2、上の素イデアル数 g=1。ANF6→ANF22の数理接続を再計算した。
+- 逆極限と円分塔：奇素数pに対し v_p((1+p)^(p^n)−1)=n+1。p=3,n=1 なら 4³−1=63=3²·7。素数冪円分体のGalois群の位数 (p−1)p^n からHensel持上げで得る Δ_n（位数p−1）を除けば次数p^nとなり、制限写像は自然なmod p^n還元。ANF9・10・18→ANF22の仮定と記法を確認。
+- 局所から大域：ANF14のHilbert 90、ANF16のノルム群、ANF17の有限局所相互法則、ANF20の大域Artin写像・類体存在、ANF21の下降判定を実本文で接続確認。**一般の局所相互法則・大域相互法則と剰余類体存在は外部の中心定理**であり、ANF17/ANF20/ANF21はその証明責務を明示。ANF22で法(1)のCl_(1)(K)=I_K/P_Kを使う際、外部定理を独自に完全証明したとは称しない。
+
+### 実行されたCI・公開証拠
+
+- 2026-11-23のmainコミット [44b11f0](https://github.com/InSuns21/toukei-kentei_grade1_preparation/commit/44b11f0ad8014526014cff741321fb8af68ac7dc) は ANF22追跡監査のマージコミット #4104 を含む。
+- [Validate textbook](https://github.com/InSuns21/toukei-kentei_grade1_preparation/actions/runs/45164205331) success：公開索引の実在照合、formal statement、stable anchor、数学的表示、教材本体の検証を含む。
+- [Validate DREAM THEATER concepts](https://github.com/InSuns21/toukei-kentei_grade1_preparation/actions/runs/45164205208) success、[Validate DREAM THEATER exercises](https://github.com/InSuns21/toukei-kentei_grade1_preparation/actions/runs/45164205221) success。
+- [Deploy learning site to GitHub Pages](https://github.com/InSuns21/toukei-kentei_grade1_preparation/actions/runs/45164205233) success：Pages組み立て・デプロイ・公開差分のsmoke-testが全て成功した。
+- 今回のレビュー担当者自身による**系列横断の構造・依存・代表数理監査**であり、全22章の全主要証明・全216詳細解答を今回新たに独立再計算したわけではない。第三者独立査読と公開サイトの実ブラウザ手動目視は未実施。公開ページの実在・機械的組み立ては上述のCIとデプロイ成功で確認し、目視確認済みとは称しない。
+
+### 完了判断
+
+ANF PLAN固有の22章、最低演習・詳細解答、manifestと公開目次、直接依存と重要な数学的橋渡し、横断チェック、公開CIの確認が揃った。一般類体論の外部定理の全面証明、別系列IWA・AFR・RHPの今後の講義、および第三者による追加査読は本PLANの未実装タスクに含めない。PLANを完了履歴としてplan_doneへ移動し、series manifestおよび直接参照先を同時更新する。
