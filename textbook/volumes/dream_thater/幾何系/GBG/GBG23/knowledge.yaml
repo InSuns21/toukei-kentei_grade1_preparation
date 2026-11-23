@@ -1,0 +1,44 @@
+chapter: GBG23
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG22
+forward_references: []
+concepts:
+  - id: gauge.chern-total-form
+    name: 全Chern形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（全Chern形式と第 $k$ Chern形式）"]
+    requires: [gauge.associated-vector-bundle, gauge.chern-weil-form, gauge.local-curvature-form]
+
+  - id: gauge.chern-low-degree-traces
+    name: 低次Chern形式の跡表示
+    kind: proposition
+    introduction: formal
+    requires: [gauge.chern-total-form]
+
+  - id: gauge.chern-character-form
+    name: Chern指標形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Chern指標形式）"]
+    requires: [gauge.chern-weil-form, gauge.associated-vector-bundle]
+
+  - id: gauge.chern-character-low-degree-relations
+    name: Chern指標と低次Chern形式の関係
+    kind: proposition
+    introduction: formal
+    requires: [gauge.chern-total-form, gauge.chern-character-form, gauge.chern-low-degree-traces]
+
+  - id: gauge.chern-character-connection-independence
+    name: Chern形式・Chern指標形式の閉性と接続非依存性
+    kind: theorem
+    introduction: formal
+    requires: [gauge.chern-total-form, gauge.chern-character-form, gauge.chern-weil-closedness, gauge.chern-weil-connection-independence, gauge.invariant-curvature-basic-descent]
+
+  - id: gauge.chern-direct-sum
+    name: 直和に対するChern形式とChern指標
+    kind: proposition
+    introduction: formal
+    requires: [gauge.chern-total-form, gauge.chern-character-form, gauge.associated-vector-bundle]
