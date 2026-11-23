@@ -12,7 +12,13 @@
 
 ## 2. 何を回収したと言えるか
 
-観測者が利用できる放射部分系を $R_{\rm acc}$、触れられない残存自由度を $E$、論理状態を $\rho_L$ とします。等長符号化 $V:L\to R_{\rm acc}\otimes E$ により保持側の量子チャネルを作ります。量子チャネルとは、密度行列を密度行列へ写し、参照系を付けても正性を保つ完全正値・トレース保存（CPTP）写像です。
+観測者が利用できる放射部分系を $R_{\rm acc}$、触れられない残存自由度を $E$、論理状態を $\rho_L$ とします。この三つのHilbert空間は有限次元とします。
+
+入力を符号化する写像 $V:L\to R_{\rm acc}\otimes E$ は等長、すなわち $V^\dagger V=I_L$ を満たします。これはすべての入力ベクトルの内積を保つ条件です。
+
+$\mathcal B(H)$ はHilbert空間 $H$ 上の線形作用素全体を表します。$\operatorname{Tr}_E$ は残存系 $E$ の部分トレースで、放射側に残る状態を取り出します。これらは[HOLO29の消失回復](../../HOLO/HOLO29/index.md#def-holo29-region-recovery)と同じ設定です。
+
+量子チャネルは、密度行列を密度行列へ写し、参照系を付けても正性を保つ完全正値・トレース保存（CPTP）写像です。
 
 <a id="def-bhi33-operational-access"></a>
 
@@ -35,7 +41,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi33-operational-access -->
-**定義の確認**（最小例）：$L=R_{\rm acc}=E=\mathbb C^2$ とし、$V|j\rangle=|j\rangle_R|0\rangle_E$（$j=0,1$）と置きます。像の内積は $\langle j|k\rangle$ なので $V^\dagger V=I_L$。部分トレースは任意の行列要素 $|j\rangle\langle k|$ をそのまま $R$ へ移すため、$\mathcal N_{\rm acc}(\rho)=\rho_R$。基底を同一視した恒等チャネルがすべての入力を復号します。
+**定義の確認**（最小例）：$L=R_{\rm acc}=E=\mathbb C^2$ とし、$V|j\rangle=|j\rangle_R|0\rangle_E$（$j=0,1$）と置きます。像の内積は $\langle Vj|Vk\rangle=\langle j|k\rangle$ なので $V^\dagger V=I_L$ です。定義中の保持チャネルを確認するには、論理行列単位 $|j\rangle\langle k|$ の像を展開します。
+
+$$
+V|j\rangle\langle k|V^\dagger
+=|j\rangle\langle k|_R\otimes|0\rangle\langle0|_E
+$$
+
+このテンソル積では $E$ 側の作用素のトレースが1なので、
+
+$$
+\operatorname{Tr}_E(V|j\rangle\langle k|V^\dagger)
+=|j\rangle\langle k|_R
+$$
+
+従って $\rho=\sum_{j,k}\rho_{jk}|j\rangle\langle k|$ の任意の係数について同じ式を線形に適用でき、$\mathcal N_{\rm acc}(\rho)=\rho_R$ です。基底を同一視した恒等チャネルはCPTPで、入力を知らずに全状態を復号するので、定義の各条件を満たします。
 
 対して $V|j\rangle=|0\rangle_R|j\rangle_E$ なら保持状態は常に $|0\rangle\langle0|_R$ です。$|0\rangle_L$ と $|1\rangle_L$ の二つを同じ出力から一つの復号写像で区別できず、完全な操作的アクセスはありません。これは[BHI32の情報移送符号](../BHI32/index.md#def-bhi32-transfer-code)の早期・後期を復号チャネルとして読んだ例です。
 <!-- definition-example-end -->
@@ -105,7 +125,7 @@ $$
 したがって $V^\dagger V=I_L$ で、定義中の「等長符号」が成立します。
 <!-- definition-example-end -->
 
-この符号は、量子状態を単に複製したものではありません。$D$ 上には4種類のPauli操作が混ざり、$A,C$ を持つ観測者だけがその操作を取り消せます。残存系 $B$ は鍵と相関していますが、**論理入力そのものを回収するために $B$ へ触れる必要はありません**。
+この符号は、量子状態を単に複製したものではありません。$D$ 上には4種類のPauli操作が混ざり、$A,C$ を持つ観測者だけがその操作を取り消せます。残存系 $B$ にも鍵ラベルの記録はありますが、**放射だけを利用する観測者は $A,C$ で鍵を読み取れ、論理入力を回収するために $B$ へ触れる必要はありません**。
 
 ### 3.1 どの部分系に入力の情報が残るか
 
@@ -234,7 +254,15 @@ $$
 \end{aligned}
 $$
 
-次に、$\mathcal N_{ACD}(\sigma)=I_{ACD}/8$ です。Hilbert–Schmidt内積 $\operatorname{Tr}(T^\dagger S)$ に関する随伴 $\mathcal N_{ACD}^\dagger$ は、任意の $T$ について
+次に、$\sigma=I_L/2$ はどの $U_{ab}$ でも変わらないため、[保持チャネルの式](#prop-bhi33-output-channels)から
+
+$$
+\mathcal N_{ACD}(\sigma)
+=\frac14\sum_{a,b}|ab\rangle\langle ab|_{AC}\otimes\frac{I_D}{2}
+=\frac{I_{ACD}}8
+$$
+
+です。Hilbert–Schmidt内積 $\operatorname{Tr}(T^\dagger S)$ に関する随伴 $\mathcal N_{ACD}^\dagger$ は、任意の $T$ について
 
 $$
 \mathcal N_{ACD}^\dagger(T)
@@ -352,7 +380,34 @@ $$
 =\tfrac12(|00\rangle\langle00|+|11\rangle\langle11|)
 $$
 
-です。$A,D$ から得られる参照系付き状態も、$Q$ と $AD$ の間で分離可能です。局所的な復号CPTPを施しても分離可能性は保たれます。任意の純積状態 $|u\rangle_L|v\rangle_Q$ について[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により
+です。最適性を示すには、**復号前**の $AD$ と参照系 $Q$ の状態を確かめる必要があります。[保持チャネルの式](#prop-bhi33-output-channels)は行列単位に対しても線形に適用でき、$\Delta_Z(|j\rangle\langle k|)=\delta_{jk}|j\rangle\langle j|$ より
+
+$$
+\mathcal N_{AD}(|j\rangle\langle k|)
+=\frac{\delta_{jk}}2\sum_{a=0}^1
+|a\rangle\langle a|_A\otimes
+(X^a|j\rangle\langle j|X^a)_D.
+$$
+
+最大エンタングル入力を
+
+$$
+|\Phi_2\rangle\langle\Phi_2|
+=\frac12\sum_{j,k}|j\rangle\langle k|_L
+\otimes|j\rangle\langle k|_Q
+$$
+
+と展開して代入すると
+
+$$
+\omega_{ADQ}
+=\frac14\sum_{a,j=0}^1
+|a\rangle\langle a|_A\otimes
+(X^a|j\rangle\langle j|X^a)_D
+\otimes|j\rangle\langle j|_Q.
+$$
+
+各項は $AD$ と $Q$ の純積状態の正の重み付き和なので、復号前から $Q:AD$ は分離可能です。局所的な復号CPTPを施しても分離可能性は保たれます。任意の純積状態 $|u\rangle_L|v\rangle_Q$ について[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により
 
 $$
 |\langle\Phi_2|u\otimes v\rangle|^2
@@ -414,7 +469,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-成功枝は第4節の定理で恒等チャネル、失敗枝は第5節の命題で $\Delta_Z$ です。フラグが直交するため、条件付き復号後にフラグを捨てると
+成功枝は[鍵付き放射の完全復号とPetz回復](#thm-bhi33-keyed-petz)で恒等チャネル、失敗枝は[片方の鍵だけで起きる位相消失](#prop-bhi33-partial-key)で $\Delta_Z$ です。フラグが直交するため、条件付き復号後にフラグを捨てると
 
 $$
 \mathcal T_p(\rho)
@@ -436,13 +491,13 @@ $$
 
 この符号では必要な操作が明示されています。全放射 $ACD$ なら、鍵二ビットを読んで $X^a$、$Z^b$ を作用させるだけです。位相ゲートとビット反転の条件付き実行は定数個の基本操作で済みます。一方、**存在だけを知る回復写像を手元の装置で効率よく実行できるか**は別の問いです。
 
-例えば可視放射全体に既知の大きなユニタリ $W$ が作用してから測定装置へ届くなら、チャネルは
+例えば可視放射全体に既知の大きなユニタリ $W_{\rm out}$ が作用してから測定装置へ届くなら、チャネルは次のようになります。ここで $W_{\rm out}$ は受信前の放射に作用し、第4節の鍵補正ユニタリ $W$ とは別の作用素です。
 
 $$
-\mathcal N'(\rho)=W\mathcal N_{ACD}(\rho)W^\dagger
+\mathcal N'(\rho)=W_{\rm out}\mathcal N_{ACD}(\rho)W_{\rm out}^\dagger
 $$
 
-となります。$W$ が受信領域内のユニタリである限り、エントロピーと相対エントロピーの値は変わりません。回復器 $\mathcal D'(T)=\mathcal D_{ACD}(W^\dagger TW)$ は存在しますが、その回路費用を抑えるには $W^\dagger$ などを効率的に実行する具体的なアルゴリズムが必要です。**エントロピーの数値だけはゲート数の上界を与えません。**
+となります。$W_{\rm out}$ が受信領域内のユニタリである限り、エントロピーと相対エントロピーの値は変わりません。回復器 $\mathcal D'(T)=\mathcal D_{ACD}(W_{\rm out}^\dagger TW_{\rm out})$ は存在しますが、その回路費用を抑えるには $W_{\rm out}^\dagger$ などを効率的に実行する具体的なアルゴリズムが必要です。**エントロピーの数値だけはゲート数の上界を与えません。**
 
 | 論点 | 指定した入力・追加条件 | 言えること |
 | --- | --- | --- |
@@ -649,7 +704,7 @@ $$
 
 任意の参照系付き入力 $\rho_{LQ}=\sum_{jk}|j\rangle\langle k|\otimes M_{jk}$ に線形に適用すると $\rho_{BQ}=I_B/4\otimes\sum_jM_{jj}=I_B/4\otimes\rho_Q$ で、完全デカップリングです。
 
-**(2)** 第4節で $\mathcal N_{ACD}(I/2)=I_8/8$ と求めたので、[Petz写像](../../../応用系/QINF/QINF30/index.md#def-qinf30-petz)に代入すると
+**(2)** [鍵付き放射の完全復号とPetz回復](#thm-bhi33-keyed-petz)で $\mathcal N_{ACD}(I/2)=I_8/8$ と求めたので、[Petz写像](../../../応用系/QINF/QINF30/index.md#def-qinf30-petz)に代入すると
 
 $$
 \mathcal R(T)=4\mathcal N_{ACD}^\dagger(T)
@@ -658,9 +713,19 @@ $$
 
 四つのKraus演算子 $K_{ab}=U_{ab}^\dagger\langle ab|$ が $\sum K_{ab}^\dagger K_{ab}=I_8$ を満たし、$\mathcal R\mathcal N_{ACD}(\rho)=\tfrac14\sum_{ab}\rho=\rho$ です。$AC$ 制御付きの逆Pauliを施せば、符号化後の任意の $|\psi\rangle$ は $|\psi\rangle_D\otimes\frac12\sum_{ab}|ab\rangle_{AC}|ab\rangle_B$ に戻るため、参照系とのもつれも保存されます。
 
-**(3)** $C$ を失うと $\mathcal N_{AD}(\rho)=\frac12\sum_a|a\rangle\langle a|\otimes X^a\Delta_Z(\rho)X^a$ です。$\Delta_Z$ は計算基底での対角成分を保ち、$|0\rangle\langle1|$ のような非対角成分を零へ写します。$|+\rangle$ と $|-\rangle$ が同じ出力になるので、未知状態の完全回復は不可能です。最大エンタングル入力は分離可能状態へ写るため、局所復号での $F_{\rm e}$ の上界は $1/2$。$A$ に応じて $X^a$ を戻す回復器がその値を達成します。
+**(3)** $C$ を失うと、観測者の保持チャネルは
 
-**(4)** 試行の成功・失敗を通知する直交フラグがあるので、成功枝の最適値1と失敗枝の最適値1/2を重み付けします。
+$$
+\mathcal N_{AD}(\rho)
+=\frac12\sum_a|a\rangle\langle a|_A
+\otimes X^a\Delta_Z(\rho)X^a
+$$
+
+です。$\Delta_Z$ は計算基底での対角成分を保ち、非対角成分 $|0\rangle\langle1|$ を零へ写します。したがって $|+\rangle$ と $|-\rangle$ は同じ出力になり、未知状態の完全回復は不可能です。
+
+[片方の鍵だけで起きる位相消失](#prop-bhi33-partial-key)で示したように、最大エンタングル入力も復号前に分離可能となります。そのため局所復号の忠実度の上界は $F_{\rm e}\le1/2$ です。$A$ に応じて $X^a$ を戻す回復器がその値を達成します。
+
+**(4)** [鍵アクセス失敗率と回復忠実度](#prop-bhi33-flagged-access)の条件で、試行の成功・失敗を通知する直交フラグがあるので、成功枝の最適値1と失敗枝の最適値1/2を重み付けします。
 
 $$
 F_{\rm e}^{\rm opt}=(1-p)\cdot1+p\cdot\tfrac12=1-\tfrac p2.
