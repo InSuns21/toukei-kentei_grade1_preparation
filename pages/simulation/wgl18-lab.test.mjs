@@ -102,3 +102,42 @@ test('WGL18 numeric overlay reads the same live GPU FLOAT buffer as the solver',
   assert.match(js,/grid\.style\.cssText=.*repeat\(4/);
   assert.ok(js.indexOf('refreshNumbers();')>js.indexOf('gl.readPixels(0,0,N,N,gl.RGBA,gl.FLOAT,liveRaw)'));
 });
+
+
+test('WGL18 observation renders the same GPU shader with a dense real grid', async()=>{
+  const lesson=new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL18/',import.meta.url);
+  const [html,script,fragment,editable,article]=await Promise.all([
+    readFile(new URL('wgl18-explore.html',import.meta.url),'utf8'),
+    readFile(new URL('wgl18-explore.mjs',import.meta.url),'utf8'),
+    readFile(new URL('diffusion.frag',lesson),'utf8'),
+    readFile(new URL('diffusion.js',lesson),'utf8'),
+    readFile(new URL('index.md',lesson),'utf8')
+  ]);
+  for(const name of ['field','play','once','reset','rate','pattern','grid','speed',
+      'mass','maximum','ratio','steps','active','picked','status']){
+    assert.match(html,new RegExp('id="'+name+'"'),name);
+  }
+  assert.match(article,/simulation\/wgl18-explore\.html/);
+  assert.match(article,/simulation\/wgl-lab\.html\?lesson=WGL18/);
+  assert.match(script,/diffusion\.frag/);
+  assert.match(script,/diffusion\.vert/);
+  assert.match(script,/gl\.texImage2D\(gl\.TEXTURE_2D,0,gl\.RGBA32F,N,N/);
+  assert.match(script,/gl\.bindFramebuffer\(gl\.FRAMEBUFFER,fbos\[destination\]\)/);
+  assert.match(script,/gl\.bindTexture\(gl\.TEXTURE_2D,textures\[active\]\)/);
+  assert.match(script,/gl\.readPixels\(0,0,N,N,gl\.RGBA,gl\.FLOAT,readRaw\)/);
+  assert.match(script,/gl\.texSubImage2D\(gl\.TEXTURE_2D,0,0,0,N,N,gl\.RGBA,gl\.FLOAT,gpuValues\)/);
+  assert.match(script,/uniform1i\(uniforms\.u_stage,3\)/);
+  assert.match(script,/const x=\(i\+\.5\)\/N,y=\(j\+\.5\)\/N/);
+  assert.match(script,/const destination=1-active/);
+  assert.match(script,/gl\.uniform1f\(uniforms\.u_rate,rate\)/);
+  assert.match(script,/cancelAnimationFrame\(raf\)/);
+  assert.doesNotThrow(()=>new Function(script.replaceAll('import.meta.url',
+    "'https://example.invalid/simulation/wgl18-explore.mjs'")));
+  assert.match(fragment,/uniform ivec2 u_gridSize/);
+  assert.match(fragment,/u_stage == 3/);
+  assert.match(fragment,/sqrt\(clamp\(center, 0\.0, 1\.0\)\)/);
+  assert.match(fragment,/texelFetch\(u_state, q, 0\)/);
+  assert.match(editable,/gl\.uniform2i\(uGrid,4,4\)/);
+  assert.equal((article.match(/<!-- solution-start -->/g)||[]).length,10);
+  assert.equal((article.match(/<!-- solution-end -->/g)||[]).length,10);
+});
