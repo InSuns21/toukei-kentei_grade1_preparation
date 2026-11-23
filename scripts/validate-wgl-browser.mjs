@@ -883,6 +883,37 @@ try{
   assert.match(terrain.source,/terrain.js.*terrain.frag/);
   await click('stop');
   console.log('WGL20 actual terrain GPU scene and EPSG/height/source-linked G3 legend: PASS');
+  // Compare the real iframe GPU canvas, not changing host text. A moved
+  // directional light must alter the facade/shadow pixels. A lowered
+  // synthetic water level must alter the visible flooded area. Save both.
+  const wgl20Rect=await evalJS('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height};})()');
+  assert.ok(wgl20Rect.width>300&&wgl20Rect.height>150,JSON.stringify(wgl20Rect));
+  const wgl20Clip={...wgl20Rect,scale:1};
+  const wgl20Start=await cdp('Page.captureScreenshot',
+    {format:'png',clip:wgl20Clip,captureBeyondViewport:true});
+  await writeFile('_wgl_browser_review/wgl20-urban-initial.png',
+    Buffer.from(wgl20Start.data,'base64'));
+  assert.equal(await evalJS('document.getElementById("parameter-sun-azimuth")?.value'),'235');
+  await evalJS('(()=>{const e=document.getElementById("parameter-sun-azimuth");e.value="275";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',25000);
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("const sunAzimuthDeg=275;")'));
+  const wgl20Sun=await cdp('Page.captureScreenshot',
+    {format:'png',clip:wgl20Clip,captureBeyondViewport:true});
+  assert.notEqual(wgl20Sun.data,wgl20Start.data,
+    'changing sun angle in learner JS should alter actual facade/shadow pixels');
+  await writeFile('_wgl_browser_review/wgl20-urban-sun-shifted.png',
+    Buffer.from(wgl20Sun.data,'base64'));
+  await evalJS('(()=>{const e=document.getElementById("parameter-water-level");e.value="30";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',25000);
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("const waterLevelM=30;")'));
+  const wgl20Water=await cdp('Page.captureScreenshot',
+    {format:'png',clip:wgl20Clip,captureBeyondViewport:true});
+  assert.notEqual(wgl20Water.data,wgl20Sun.data,
+    'changing water level in learner JS should alter flooded-area pixels');
+  await writeFile('_wgl_browser_review/wgl20-urban-lower-water.png',
+    Buffer.from(wgl20Water.data,'base64'));
+  console.log('WGL20 real Chromium 9-building street, shadow-light change and water-level change: PASS');
+
 
   // WGL12: compiled GGX shader, real linear Fresnel diagnostic RGBA8 pixels,
   // material-change screenshot and GLSL syntax error handling in an opaque iframe.
