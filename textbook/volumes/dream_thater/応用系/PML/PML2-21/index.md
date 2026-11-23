@@ -298,7 +298,7 @@ $$
 \sum_jp_jy_j=Q s_*+\sum_jp_j\varepsilon_j,
 $$
 
-よって誤差式が従う。Cauchy–Schwarzの不等式により
+よって誤差式が従う。[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により
 
 $$
 \left|\sum_jp_j\varepsilon_j\right|
