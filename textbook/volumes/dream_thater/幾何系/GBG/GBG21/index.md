@@ -552,7 +552,7 @@ $G=U(1)$ は可換であるから、不変性の無限小条件は自動的に�
 #### GBG21-C01 $S^2\times S^2$ 上のChern–Weil形式
 - Level: C
 
-外向きに向きを付けた二つの球面の積 $M=S^2\times S^2$ を積の向きで考える。$\sigma_1,\sigma_2$ を各球面の面積形式（$\int_{S^2}\sigma_j=4\pi$）の引き戻しとする。[GBG19のmonopole接続](../GBG19/index.md#thm-gbg19-curvature-flux)を各因子に取り、整数 $m,n$ に対して、二つの主束を $M$ へ引き戻す。さらに**局所遷移関数の積**で貼り合わせた主 $U(1)$ 束を考え、二つの引き戻し接続1形式の和を局所接続とする。単純な主束の直積（構造群 $U(1)\times U(1)$）とは区別する。この接続の曲率は
+外向きに向きを付けた二つの球面の積 $M=S^2\times S^2$ を積の向きで考える。球面の面積形式を $\tau$（$\int_{S^2}\tau=4\pi$）とし、射影 $\operatorname{pr}_j:M\to S^2$ を用いて $\sigma_j=\operatorname{pr}_j^*\tau\in\Omega^2(M)$（$j=1,2$）と定める。[GBG19のmonopole接続](../GBG19/index.md#thm-gbg19-curvature-flux)を各因子に取り、整数 $m,n$ に対して、二つの主束を $M$ へ引き戻す。さらに**局所遷移関数の積**で貼り合わせた主 $U(1)$ 束を考え、二つの引き戻し接続1形式の和を局所接続とする。単純な主束の直積（構造群 $U(1)\times U(1)$）とは区別する。この接続の曲率は
 
 $$
 F=-\frac{i}{2}(m\sigma_1+n\sigma_2)
@@ -568,7 +568,7 @@ $$
 <!-- solution-start -->
 **詳細解答**。
 
-**1.** まず「曲率の和」を持つ主束の作り方を確認する。$\operatorname{pr}_j:M\to S^2$ を第 $j$ 因子への射影とする。各球面上のmonopole主束を引き戻した積パッチ $U_\alpha\times U_\beta$（$\alpha,\beta\in\{N,S\}$）で、遷移関数を
+**1.** まず「曲率の和」を持つ主束の作り方を確認する。各球面上のmonopole主束を引き戻した積パッチ $U_\alpha\times U_\beta$（$\alpha,\beta\in\{N,S\}$）で、遷移関数を
 
 $$
 h_{(\alpha,\beta),(\alpha',\beta')}
