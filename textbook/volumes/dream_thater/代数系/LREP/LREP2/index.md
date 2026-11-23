@@ -220,11 +220,11 @@ $$
 
 **存在を使う範囲。** 測度論における Haar 測度の存在・一意性という結果によれば、任意の局所コンパクト Hausdorff 位相群に左移動不変な非零の正則 Borel 測度が存在し、定数倍を除き一意です。特にコンパクト群では全体の測度が正で有限なので、$\mu(G)=1$ となるよう正規化できます。この一般存在定理の測度論的構成は本講の既習事項には含まれず、ここでは明示的な入力とします。以下で証明するのは、その測度からの内積と分解の構成です。有限群と $SU(2)$ には測度の具体模型を与えます。
 
-測度の左不変性は連続関数 $f:G\to\mathbb C$ に対する積分等式
+上の定義は**左**移動 $g\mapsto kg$ だけを指定していますが、コンパクト群の正規化Haar測度は右移動でも不変です。実際、固定した $k$ に対し $\nu_k(A)=\mu(Ak)$ と置きます。右移動は同相写像なので $\nu_k$ は正則性を保ち、$\nu_k(G)=1$ です。また $\nu_k(aA)=\mu((aA)k)=\mu(a(Ak))=\mu(Ak)=\nu_k(A)$ です。従って $\nu_k$ も正規化左Haar測度であり、一意性から $\nu_k=\mu$、すなわち $\mu(Ak)=\mu(A)$ です。従って連続関数 $f:G\to\mathbb C$ について右移動の変数変換は
 $$
 \int_G f(gk)\,d\mu(g)=\int_G f(g)\,d\mu(g)
 $$
-にもつながります。上の定義は**左**移動 $g\mapsto kg$ だけを指定していますが、コンパクト群の正規化Haar測度は右移動でも不変です。実際、固定した $k$ に対し $\nu_k(A)=\mu(Ak)$ と置きます。右移動は同相写像なので $\nu_k$ は正則性を保ち、$\nu_k(G)=1$ です。また $\nu_k(aA)=\mu((aA)k)=\mu(a(Ak))=\mu(Ak)=\nu_k(A)$ です。従って $\nu_k$ も正規化左Haar測度であり、一意性から $\nu_k=\mu$、すなわち $\mu(Ak)=\mu(A)$ です。ここで右移動不変性を確認したうえで $g\mapsto gk$ の置換を用います。
+となります。これを平均化の証明に使います。
 
 <a id="thm-lrep2-compact-averaging"></a>
 <!-- formal-statement-start -->
@@ -276,7 +276,13 @@ U(a,b)=
 \begin{pmatrix}a&b\\-\overline b&\overline a\end{pmatrix},
 \qquad |a|^2+|b|^2=1
 $$
-について $U^*U=I_2$、$\det U=|a|^2+|b|^2=1$ を満たします。逆に $SU(2)$ の行列の第1列を $(a,c)^{\mathsf T}$ と置くと、列の直交性と行列式1から第2列は $(-\overline c,\overline a)^{\mathsf T}$ と決まります。$b=-\overline c$ と置けば上の形になります。従って $(\operatorname{Re}a,\operatorname{Im}a,\operatorname{Re}b,\operatorname{Im}b)$ を座標にすると $SU(2)$ は $\mathbb R^4$ の単位球面 $S^3$ と対応します。$U_0\in SU(2)$ を左から掛けると、$U(a,b)$ の第1列 $(a,-\overline b)^{\mathsf T}$ は $U_0(a,-\overline b)^{\mathsf T}$ に移ります。$(a,b)\mapsto(a,-\overline b)$ は $\mathbb R^4$ 上の実線形な等長変換であり、$U_0$ は複素内積を保つので実の長さも保ちます。従って左乗法は $S^3$ の等長変換になり、球面の面積測度を全面積で割った確率測度は左移動で変わらず、上の正規化Haar測度の具体例です。連続な関数 $f$ の平均は
+について $U^*U=I_2$、$\det U=|a|^2+|b|^2=1$ を満たします。
+
+逆に $SU(2)$ の行列の第1列を $(a,c)^{\mathsf T}$ と置くと、列の直交性と行列式1から第2列は $(-\overline c,\overline a)^{\mathsf T}$ と決まります。$b=-\overline c$ と置けば上の形になります。
+
+従って $(\operatorname{Re}a,\operatorname{Im}a,\operatorname{Re}b,\operatorname{Im}b)$ を座標にすると $SU(2)$ は $\mathbb R^4$ の単位球面 $S^3$ と対応します。
+
+$U_0\in SU(2)$ を左から掛けると、$U(a,b)$ の第1列 $(a,-\overline b)^{\mathsf T}$ は $U_0(a,-\overline b)^{\mathsf T}$ に移ります。$(a,b)\mapsto(a,-\overline b)$ は $\mathbb R^4$ 上の実線形な等長変換であり、$U_0$ は複素内積を保つので実の長さも保ちます。従って左乗法は $S^3$ の等長変換になります。球面面積測度は等長変換で不変な正則 Borel 測度であり、全面積で割って正規化した確率測度は左移動でも変わりません。これが正規化Haar測度の具体例です。連続な関数 $f$ の平均は
 $$
 \int_{SU(2)}f(U)\,d\mu(U)
 =\frac1{\operatorname{area}(S^3)}
