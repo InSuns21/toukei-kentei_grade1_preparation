@@ -1,0 +1,119 @@
+version: 1
+id: LREP
+title: "Lie群の表現・スピノルと相対論的粒子"
+plan: textbook/plans_progress/DREAM_THEATER_LIE_REPRESENTATIONS_SPINORS_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+chapters:
+  - id: LREP1
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP1
+    status: planned
+    title: "表現とは何か――作用、表現、部分表現、同値"
+  - id: LREP2
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP2
+    status: planned
+    title: "既約分解とSchurの補題"
+  - id: LREP3
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP3
+    status: planned
+    title: "Lie環表現と群表現の積分"
+  - id: LREP4
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP4
+    status: planned
+    title: "直和・テンソル積・双対表現"
+  - id: LREP5
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP5
+    status: planned
+    title: "SU(2)からSO(3)への二重被覆"
+  - id: LREP6
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP6
+    status: planned
+    title: "SU(2)の有限次元既約表現"
+  - id: LREP7
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP7
+    status: planned
+    title: "角運動量とスピン量子数"
+  - id: LREP8
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP8
+    status: planned
+    title: "二つのスピンの合成"
+  - id: LREP9
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP9
+    status: planned
+    title: "Lorentz Lie環の回転とboost"
+  - id: LREP10
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP10
+    status: planned
+    title: "SL(2,C)によるLorentz群の被覆"
+  - id: LREP11
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP11
+    status: planned
+    title: "有限次元Lorentz既約表現"
+  - id: LREP12
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP12
+    status: planned
+    title: "左右Weylスピノル"
+  - id: LREP13
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP13
+    status: planned
+    title: "Lorentz不変収縮"
+  - id: LREP14
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP14
+    status: planned
+    title: "Clifford代数の構成"
+  - id: LREP15
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP15
+    status: planned
+    title: "Spin群とガンマ行列"
+  - id: LREP16
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP16
+    status: planned
+    title: "Diracスピノルとchirality"
+  - id: LREP17
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP17
+    status: planned
+    title: "Dirac双線形量"
+  - id: LREP18
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP18
+    status: planned
+    title: "電荷共役とMajorana条件"
+  - id: LREP19
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP19
+    status: planned
+    title: "Dirac方程式の共変性"
+  - id: LREP20
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP20
+    status: planned
+    title: "平面波解・スピン和・helicity"
+  - id: LREP21
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP21
+    status: planned
+    title: "Poincare群と正エネルギー表現"
+  - id: LREP22
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP22
+    status: planned
+    title: "質量・スピンと不変量"
+  - id: LREP23
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP23
+    status: planned
+    title: "正質量little group"
+  - id: LREP24
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP24
+    status: planned
+    title: "質量零little group"
+  - id: LREP25
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP25
+    status: planned
+    title: "1粒子Hilbert空間の誘導表現"
+  - id: LREP26
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP26
+    status: planned
+    title: "有限次元場表現と1粒子表現"
+  - id: LREP27
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP27
+    status: planned
+    title: "光子の偏極とゲージ"
+  - id: LREP28
+    path: textbook/volumes/dream_thater/代数系/LREP/LREP28
+    status: planned
+    title: "離散対称性と総合演習"
