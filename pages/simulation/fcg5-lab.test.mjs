@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {parametersFor,readLabParameter,writeLabParameter,verifiedFCG5Physics} from './wgl-lab-parameters.mjs';
+import {parametersFor,readLabParameter,writeLabParameter,verifiedFCG5Physics,FCG5_OBSERVATION_PRESETS,applyFCG5ObservationPreset} from './wgl-lab-parameters.mjs';
 import {
   FCG5_N,FCG5_DT,FCG5_RHO,FCG5_NU,fcg5State,fcg5PixelCell,
   expectedFCG5Samples,compareFCG5Readback
@@ -552,4 +552,49 @@ test('FCG5 playback-rate GUI retains the verified CPU/GPU oracle and rejects unr
   assert.equal(verifiedFCG5Physics(js+'\n// additional learner code',
     vertex,fragment,defaults),null);
   assert.equal(verifiedFCG5Physics(js,vertex,fragment+'\n// shader edit',defaults),null);
+});
+
+test('FCG5 source-linked observation presets change real solver flow without touching time or grid',async()=>{
+  const [js,vertex,fragment]=await Promise.all(['fluid.js','fluid.vert','fluid.frag']
+    .map(name=>readFile(new URL(name,dir),'utf8')));
+  const defaults={js,vertex,fragment};
+  assert.deepEqual(FCG5_OBSERVATION_PRESETS.map(p=>p.id),
+    ['baseline','no-force','stir']);
+  const fields=[];
+  for(const preset of FCG5_OBSERVATION_PRESETS){
+    const code=applyFCG5ObservationPreset(js,preset.id);
+    const physics=verifiedFCG5Physics(code,vertex,fragment,defaults);
+    assert.equal(physics.N,48);
+    assert.equal(physics.dt,0.04);
+    assert.equal(physics.nu,preset.nu);
+    assert.equal(physics.force,preset.force);
+    assert.equal(physics.brushRadius,0.085);
+    assert.equal(readLabParameter(code,parametersFor('FCG5').at(-1)).value,140);
+    const gl=mockGL();
+    new Function('gl','canvas','vertexSource','fragmentSource','report','settings',code)(
+      gl,{width:320,height:240},vertex,fragment,()=>{},{steps:8});
+    const cpu=fcg5State(8,physics);
+    const expected=[Uint8Array.from(cpu.q,png8),
+      Uint8Array.from(cpu.divergence,v=>png8(Math.abs(v)*80)),
+      Uint8Array.from(cpu.speed,v=>png8(v/0.4))];
+    assert.deepEqual(gl._textures,expected,
+      'each preset uses the edited MAC solver and the same independent CPU oracle');
+    fields.push(gl._textures[0]);
+  }
+  assert.equal(applyFCG5ObservationPreset(js,'baseline'),js,
+    'the default preset leaves the original code unchanged');
+  assert.notDeepEqual(fields[1],fields[2],
+    'no-force and stronger flow must produce different dye patterns');
+  const dt=parametersFor('FCG5').find(p=>p.id==='dt');
+  const customized=writeLabParameter(js,dt,0.02);
+  assert.equal(readLabParameter(
+    applyFCG5ObservationPreset(customized,'stir'),dt).value,0.02);
+  const expression=js.replace('nu=0.002','nu=1/500');
+  assert.throws(()=>applyFCG5ObservationPreset(expression,'stir'),/JS式/);
+  assert.throws(()=>applyFCG5ObservationPreset(js,'unknown'),RangeError);
+  const module=await readFile(new URL('./wgl-lab-parameters.mjs',import.meta.url),'utf8');
+  assert.match(module,/fcg5-observation-preset/);
+  assert.match(module,/applyFCG5ObservationPreset\(getSource\(\),selector\.value\)/);
+  assert.match(module,/setSource\(updated\)/);
+  assert.match(module,/rerun\(\)/);
 });
