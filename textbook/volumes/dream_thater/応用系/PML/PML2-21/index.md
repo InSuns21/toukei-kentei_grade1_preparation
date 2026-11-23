@@ -45,7 +45,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（係数同定の観測写像と構造的識別可能性）**  
-> $\kappa\in(0,\infty)$、$a\in\mathbb R$ に対し、$u_{\kappa,a}\in C^2([0,1])$ を $-\kappa u''=a$、$u(0)=u(1)=0$ の唯一の解とする。固定した $a$ と観測点 $X=(x_1,\ldots,x_m)\in[0,1]^m$ について
+> $\kappa>0$ と $a\in\mathbb R$ について、唯一の解 $u_{\kappa,a}\in C^2([0,1])$ は次を満たす。
+
+$$
+-\kappa u_{\kappa,a}''=a,\qquad u_{\kappa,a}(0)=u_{\kappa,a}(1)=0.
+$$
+
+> $m\ge1$ 個の観測点の列 $X=(x_1,\ldots,x_m)\in[0,1]^m$ と既知外力 $a$ を固定する。
 >
 > $\mathcal G_{a,X}:(0,\infty)\to\mathbb R^m$ を $\mathcal G_{a,X}(\kappa)=(u_{\kappa,a}(x_j))_{j=1}^m$ と定義する。この写像が単射なら、係数 $\kappa$ は指定した外力と観測設計の下で**構造的に識別可能**という。
 >
@@ -64,7 +70,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（既知外力と内部一点からの係数の一意な復元）**  
-> $\kappa>0$、既知の $a\ne0$ に対し、$-\kappa u''=a$、$u(0)=u(1)=0$ を考える。観測点 $x_0\in(0,1)$ を固定し、正確な観測 $y=u(x_0)$ を得たとき、係数 $\kappa$ は一意に決まり、
+> 正の係数 $\kappa$ と既知の非零外力 $a$ に対して次の問題を考える。
+
+$$
+-\kappa u''(x)=a,\qquad u(0)=u(1)=0.
+$$
+
+> 内部点 $x_0\in(0,1)$ で正確な値 $y=u(x_0)$ を測定すると、係数 $\kappa$ は一意に決まり、
 >
 > $$
 > \kappa=\frac{a\phi(x_0)}{y},\qquad
@@ -94,7 +106,13 @@ $a\ne0$、$\kappa>0$、$\phi(x_0)>0$ より $y\ne0$。両辺に $\kappa$ を掛�
 
 <!-- formal-statement-start -->
 > **命題（零外力または端点だけの観測では識別できない）**  
-> $\kappa\in(0,\infty)$、$-\kappa u''=a$、$u(0)=u(1)=0$ とする。$(i)$ 既知の外力が $a=0$、または $(ii)$ $a$ は任意だが全観測点が $\{0,1\}$ に属する場合、任意の二つの係数 $\kappa_1,\kappa_2>0$ が同じ観測を与える。
+> $\kappa>0$、$a\in\mathbb R$ について次の零境界問題を考える。
+
+$$
+-\kappa u''(x)=a,\qquad u(0)=u(1)=0.
+$$
+
+> (i) 外力が既知の $a=0$、または (ii) 外力は任意で観測点が端点 $0,1$ のみの場合、異なる任意の正の係数は同じ観測を与える。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -141,7 +159,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（既知外力の同時学習で零損失解は一意）**  
-> $a\ne0$ は既知、$\lambda>0$、観測点のうち少なくとも一つ $x_j$ は $(0,1)$ に属するとする。観測は真の $\kappa_*>0$ の解 $u_*=(a/\kappa_*)\phi$ から雑音なしで与えられる。上で定義した $J_\lambda(c,\kappa)$ を $c\in\mathbb R,\kappa>0$ で最小化すると、零損失を達成する組は唯一であり、
+> 既知の非零外力 $a$ と正の損失重み $\lambda>0$ を固定する。少なくとも一つの観測点は $(0,1)$ に属する。
+>
+> 真の係数 $\kappa_*>0$ から生成した解 $u_*=(a/\kappa_*)\phi$ を正確に観測する。
+>
+> $c\in\mathbb R$、$\kappa>0$ に対し、前節の $J_\lambda(c,\kappa)$ を最小化すると零損失組は唯一であり、
 >
 > $$
 > (c,\kappa)=\left(\frac a{\kappa_*},\kappa_*\right)
@@ -225,7 +247,21 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（逆係数の最小二乗推定と雑音増幅）**  
-> $\kappa_*>0$、既知外力 $a=1$、$m\ge1$、$x_j\in[0,1]$ とし、$p_j=x_j(1-x_j)/2$、$Q=\sum_jp_j^2>0$ とする。観測は $y_j=p_js_*+\varepsilon_j$、$s_*=1/\kappa_*>0$ に従う。$s\in\mathbb R$ 上で $F(s)=\sum_j(p_js-y_j)^2$ を最小化する唯一の解は
+> 外力を既知の $a=1$ とし、真の係数を $\kappa_*>0$ とする。
+>
+> $m\ge1$ 個の観測点 $x_j\in[0,1]$ を固定し、次の量を定める。
+
+$$
+p_j=\frac{x_j(1-x_j)}2,\qquad Q=\sum_{j=1}^mp_j^2,\qquad s_*=\frac1{\kappa_*}.
+$$
+
+> $Q>0$ とし、観測を $y_j=p_js_*+\varepsilon_j$ とする。$s\in\mathbb R$ 上の最小二乗目的関数は
+
+$$
+F(s)=\sum_{j=1}^m(p_js-y_j)^2.
+$$
+
+> この関数の唯一の最小点と誤差は次を満たす。
 >
 > $$
 > \widehat s=\frac{\sum_jp_jy_j}{Q},
@@ -373,7 +409,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（既知の外力差を持つ二実験からの同時復元）**  
-> $\kappa>0$、$a_1\in\mathbb R$、$a_2=a_1+1$ とする。各 $i=1,2$ に対し、$-\kappa u_i''=a_i$、$u_i(0)=u_i(1)=0$ の解を、共通の $x_0\in(0,1)$ で正確に観測し $y_i=u_i(x_0)$ とする。このとき $(\kappa,a_1)$ は一意に復元でき、
+> 共通係数は $\kappa>0$、未知外力は $a_1\in\mathbb R$、二回目の外力は $a_2=a_1+1$ とする。
+>
+> 各 $i=1,2$ について、次の零境界問題を解く。
+
+$$
+-\kappa u_i''(x)=a_i,\qquad u_i(0)=u_i(1)=0.
+$$
+
+> 共通の内部点 $x_0\in(0,1)$ で正確な値 $y_i=u_i(x_0)$ を測ると、$(\kappa,a_1)$ は一意に復元でき、
 >
 > $$
 > d=y_2-y_1>0,\qquad
