@@ -354,7 +354,7 @@ $$
 
 曲率項の**負符号**と面積 $\varepsilon^2$ を別々に確認できる。
 
-**非可換例**。$G=GL(2,\mathbb R)$ とし、$E_{ij}$ は標準基底に関して $(i,j)$ 成分だけが $1$ の行列とする。$H=E_{11}$、$N=E_{12}$ と置き、$\mathbb R^2$ の積主束に $A=H\,dx+N\,dy$ を取る。[GBG7 の積主束公式](../GBG7/index.md#prop-gbg7-product-form)により、この局所表示から接続が定まる。
+**非可換例**。$G=GL(2,\mathbb R)$ とし、$E_{ij}$ は標準基底に関して $(i,j)$ 成分だけが $1$ の行列とする。$H=E_{11}$、$N=E_{12}$ と置き、$\mathbb R^2$ の積主束に $A=H\,dx+N\,dy$ を取る。[GBG7 の「積主束における接続1形式の具体式」](../GBG7/index.md#prop-gbg7-product-form)により、この局所表示から接続が定まる。
 
 この1形式は速度 $v=v_x\partial_x+v_y\partial_y$ に行列を対応させる。辺に沿う曲線 $\gamma(t)=(x(t),y(t))$ について、水平ODEの係数は
 
