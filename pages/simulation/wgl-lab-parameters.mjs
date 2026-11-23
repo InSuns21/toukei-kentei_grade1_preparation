@@ -3,6 +3,35 @@
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
 
 export const LAB_PARAMETERS = Object.freeze({
+  WGL10: Object.freeze([
+    Object.freeze({
+      id: 'offscreen-scale', type: 'number', label: 'FBOの解像度倍率',
+      default: 1, min: 0.5, max: 1, step: 0.25, unit: '画面列に対する倍率',
+      meaning: 'RGBA8テクスチャの縦横の画素数。0.5にすると細部が最近傍で画素化する',
+      sourceLocation: 'framebuffer.js / offscreenScale → textureWidth, textureHeight',
+      sourceFile: 'js', index: null,
+      matcher: /^([ \t]*const offscreenScale[ \t]*=[ \t]*)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id: 'filter-mode', type: 'enum', values: ['invert','grayscale','copy'],
+      label: '保存画像の後処理', default: 'invert', unit: '処理',
+      meaning: '同じFBOを反転・数値グレースケール・無加工で表示',
+      sourceLocation: 'framebuffer.js / filterMode → processedPass → framebuffer.frag u_pass',
+      sourceFile: 'js', index: null,
+      matcher: /^([ \t]*const filterMode[ \t]*=[ \t]*)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id: 'inspection-pass', type: 'enum',
+      values: ['all','scene','texture','processed'],
+      label: '表示する段階', default: 'all', unit: '描画列',
+      meaning: '3列または1段階の実GPU画像を全幅で表示する',
+      sourceLocation: 'framebuffer.js / inspectionPass → drawView → framebuffer.frag u_pass',
+      sourceFile: 'js', index: null,
+      matcher: /^([ \t]*const inspectionPass[ \t]*=[ \t]*)([^;\n]+)(;)/gm
+    })
+  ]),
+
+
   WGL17: Object.freeze([
     Object.freeze({
       id: 'format', type: 'enum', values: ['r8', 'r8ui', 'r32f'],
