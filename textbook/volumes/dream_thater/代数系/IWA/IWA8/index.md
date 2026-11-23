@@ -365,7 +365,7 @@ $jN=1+c$ と $Nj=2$ をイデアルに戻って確かめます。$2$ が $p$ 部
 <!-- proof-start -->
 ### 証明
 
-$E_r/E_r^+$ のGalois群は $\{1,c\}$ です。下の体の素イデアル $\mathfrak p$ を拡張すると $\mathfrak p\mathcal O_{E_r}=\prod_{\mathfrak P\mid\mathfrak p}\mathfrak P^{e_{\mathfrak P}}$ です。[イデアルノルムの定義](../IWA4/index.md#def-iwa4-ideal-norm-extension)から $N(\mathfrak P)=\mathfrak p^{f_{\mathfrak P}}$ なので、
+$E_r/E_r^+$ のGalois群は $\{1,c\}$ です。下の体の素イデアル $\mathfrak p$ を拡張すると $\mathfrak p\mathcal O_{E_r}=\prod_{\mathfrak P\mid\mathfrak p}\mathfrak P^{e_{\mathfrak P}}$ です。[イデアルのノルムと延長](../IWA4/index.md#def-iwa4-ideal-norm-extension)から $N(\mathfrak P)=\mathfrak p^{f_{\mathfrak P}}$ なので、
 
 $$
 N(\mathfrak p\mathcal O_{E_r})
@@ -373,7 +373,7 @@ N(\mathfrak p\mathcal O_{E_r})
 =\mathfrak p^{[E_r:E_r^+]}=\mathfrak p^2.
 $$
 
-逆向きには、上の体の素イデアル $\mathfrak P$ について、共役を重複度込みで数える[ノルムと拡張の公式](../IWA4/index.md#prop-iwa4-conjugate-product)により
+逆向きには、上の体の素イデアル $\mathfrak P$ に対して[延長後のノルムは共役の積](../IWA4/index.md#prop-iwa4-conjugate-product)を用います。この拡大のGalois群は $\{1,c\}$ なので、
 
 $$
 (N\mathfrak P)\mathcal O_{E_r}=\mathfrak P(c\mathfrak P)
@@ -399,7 +399,9 @@ $x\in A_r^+$ なら $jN(x)=(1+c)x=2x$。$N(x)\in B_r$ なので、$x=j(\frac12N(
 
 ## 6. 塔のノルムと射影は両立する
 
-[IWA4のノルムによる逆極限の構成](../IWA4/index.md#thm-iwa4-iwasawa-action)を、今の指標成分ごとに組み立てます。前節の $N$ は $E_r/E_r^+$ のノルムでしたが、ここでの $N_{r+1,r}$ は **$E_{r+1}/E_r$ のノルム**です。$E_r\subset E_{r+1}$ のイデアルノルムから $N_{r+1,r}:A_{r+1}\to A_r$ が定まり、両層の $\Delta$ は同じ Teichmüller 持ち上げを使って作用します。上層の $\delta$ とその下層への制限を同じ記号で書きます。
+[IWA4のノルムによる逆極限の構成](../IWA4/index.md#thm-iwa4-iwasawa-action)を、指標成分ごとに組み立てます。前節の $N$ は $E_r/E_r^+$ のノルムですが、ここでは $E_{r+1}/E_r$ のノルムを使います。
+
+そのノルムを $N_{r+1,r}:A_{r+1}\to A_r$ と書きます。両層の $\Delta$ は同じ Teichmüller 持ち上げを使って作用します。上層の $\delta$ とその下層への制限を同じ記号で書きます。
 
 <a id="prop-iwa8-norm-equivariance"></a>
 
@@ -502,7 +504,17 @@ $$
 
 有限和なので成分別に互換列を作り直せます。逆に各 $i$ の互換列を足せば $X$ の互換列となり、射影の直交性により分解は一意です。
 
-[IWA2の直積分解](../IWA2/index.md#thm-iwa2-odd-splitting)から、各 $G_r$ には $\Delta$ と可換な $p$ 冪部分 $U_{r-1}$ があり、制限写像はこれらを保ちます。その逆極限を $\Gamma\simeq\mathbb Z_p$ と置きます。$U_{r-1}$ の $A_r$ への作用は[IWA4のノルムとGalois作用の命題](../IWA4/index.md#prop-iwa4-norm-transitivity)によって階層間で両立します。IWA4の[逆極限への作用の構成](../IWA4/index.md#thm-iwa4-iwasawa-action)では $\Delta$ の固定体の塔を扱いましたが、同じ有限群環の整合列の議論をここでは全円分塔 $E_r$ に適用できます。従って $\Gamma$ の作用は各 $e_i$ と可換で、[IWA3の冪級数表示](../IWA3/index.md#thm-iwa3-power-series-isomorphism)に基づく $\Lambda$ 作用も各 $e_iX$ を保ちます。
+[IWA2の直積分解](../IWA2/index.md#thm-iwa2-odd-splitting)から、各 $G_r$ の $p$ 冪部分 $U_{r-1}$ は $\Delta$ と可換で、制限写像はこれらを保ちます。従って
+
+$$
+\Gamma=\varprojlim_{r\ge1}U_{r-1}\simeq\mathbb Z_p
+$$
+
+が作用する候補になります。
+
+各 $U_{r-1}$ の $A_r$ への作用は、[ノルムの塔での合成とGalois作用](../IWA4/index.md#prop-iwa4-norm-transitivity)によって、定義したノルムと可換です。IWA4の[類群の逆極限への岩澤代数作用](../IWA4/index.md#thm-iwa4-iwasawa-action)は $\Delta$ の固定体の塔を扱いますが、同じ有限群環の整合列の議論は全円分塔 $E_r$ にも適用できます。
+
+$\Gamma$ の作用は各 $e_i$ と可換です。従って[IWA3の岩澤代数の冪級数表示](../IWA3/index.md#thm-iwa3-power-series-isomorphism)に基づく $\Lambda$ 作用も各 $e_iX$ を保ちます。
 <!-- proof-end -->
 
 **位数と成長の接続。** 有限層では、直和と位数の積から
