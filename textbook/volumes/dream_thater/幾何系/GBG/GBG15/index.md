@@ -276,7 +276,9 @@ $$
 X=A_x(0,0),\qquad Y=A_y(0,0)
 $$
 
-と置く。また $X_x=\partial_x A_x(0,0)$、$X_y=\partial_y A_x(0,0)$、$Y_x=\partial_x A_y(0,0)$、$Y_y=\partial_y A_y(0,0)$ と略記する。これらは各行列の偏微分であり、添字は微分方向を表す。四辺の局所輸送行列を順に $U_1,U_2,U_3,U_4$ と書く。各辺のパラメータを $t$ とし、$\dot U=dU/dt$ は辺に沿う常微分、$\partial_x A_y,\partial_y A_x$ は座標の一方を固定した偏微分である。辺を $t$ で動かすときは $a(t)=A_{\gamma(t)}(\dot\gamma(t))$ へ速度を代入してから ODE を解く。
+と置く。また $X_x=\partial_x A_x(0,0)$、$X_y=\partial_y A_x(0,0)$、$Y_x=\partial_x A_y(0,0)$、$Y_y=\partial_y A_y(0,0)$ と略記する。これらは各行列の偏微分であり、添字は微分方向を表す。四辺の局所輸送行列を順に $U_1,U_2,U_3,U_4$ と書く。
+
+各辺のパラメータは $t$ とする。$\dot U=dU/dt$ は辺に沿う常微分であり、$\partial_x A_y$ と $\partial_y A_x$ は他方の座標を固定して取る偏微分である。各辺の速度を局所接続に代入して $a(t)=A_{\gamma(t)}(\dot\gamma(t))$ と置き、これを係数とする ODE を解く。
 
 まず長さ $\varepsilon$ の一辺で、ODE $\dot U=-a(t)U$ の[経路順序積分級数](../GBG14/index.md#prop-gbg14-dyson-series)の最初の二項を取り出す。係数が $a(t)=a_0+t a_1+O(t^2)$ のとき、一次積分は $-\varepsilon a_0-\varepsilon^2a_1/2+O(\varepsilon^3)$、二次積分は $+\varepsilon^2 a_0^2/2+O(\varepsilon^3)$ である。三次以降は係数の一様有界性と体積 $\varepsilon^k/k!$ から $O(\varepsilon^3)$ に入る。この計算を各辺の向きと始点に適用する。
 
@@ -352,9 +354,24 @@ $$
 
 曲率項の**負符号**と面積 $\varepsilon^2$ を別々に確認できる。
 
-**非可換例**。$G=GL(2,\mathbb R)$ とし、$E_{ij}$ は標準基底に関して $(i,j)$ 成分だけが $1$ の行列とする。$H=E_{11}$、$N=E_{12}$ を用い、$\mathbb R^2$ の積主束に $A=H\,dx+N\,dy$ を取る。この1形式は速度 $v=(v_x,v_y)$ に $A(v)=Hv_x+Nv_y$ を対応させ、辺に沿う水平ODEの係数を $a(t)=H\dot x(t)+N\dot y(t)$ と定める。積主束上でこの局所表示が接続を定める根拠は[GBG7 の積主束公式](../GBG7/index.md#prop-gbg7-product-form)である。
+**非可換例**。$G=GL(2,\mathbb R)$ とし、$E_{ij}$ は標準基底に関して $(i,j)$ 成分だけが $1$ の行列とする。$H=E_{11}$、$N=E_{12}$ と置き、$\mathbb R^2$ の積主束に $A=H\,dx+N\,dy$ を取る。[GBG7 の積主束公式](../GBG7/index.md#prop-gbg7-product-form)により、この局所表示から接続が定まる。
 
-行列積を計算すると $HN=N$、$NH=0$、$N^2=0$ で、$[H,N]=HN-NH=N$ となる。係数行列は定数なので $dA=0$、従って[局所曲率公式](../GBG10/index.md#thm-gbg10-local-formula)から $F=N\,dx\wedge dy$ となる。各辺の速度 $\pm\partial_x,\pm\partial_y$ を $a(t)$ に代入し、輸送の順に右から左へ掛けると
+この1形式は速度 $v=v_x\partial_x+v_y\partial_y$ に行列を対応させる。辺に沿う曲線 $\gamma(t)=(x(t),y(t))$ について、水平ODEの係数は
+
+$$
+\begin{aligned}
+A(v)&=Hv_x+Nv_y,\\
+a(t)=A_{\gamma(t)}(\dot\gamma(t))&=H\dot x(t)+N\dot y(t).
+\end{aligned}
+$$
+
+行列積を直接取ると
+
+$$
+HN=N,\qquad NH=0,\qquad N^2=0,\qquad [H,N]=N.
+$$
+
+係数行列は定数なので $dA=0$、従って[局所曲率公式](../GBG10/index.md#thm-gbg10-local-formula)から $F=N\,dx\wedge dy$ となる。各辺の速度 $\pm\partial_x,\pm\partial_y$ を $a(t)$ に代入し、輸送の順に右から左へ掛けると
 
 $$
 \begin{aligned}
