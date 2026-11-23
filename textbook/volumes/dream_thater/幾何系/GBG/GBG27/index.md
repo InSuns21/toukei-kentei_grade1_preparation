@@ -514,7 +514,7 @@ d\operatorname{tr}(a\wedge*F)
 =\operatorname{tr}(d_Aa\wedge*F)-\operatorname{tr}(a\wedge d_A*F)
 $$
 
-と[Stokes定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から
+と[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から
 
 $$
 \delta\operatorname{YM}_U
