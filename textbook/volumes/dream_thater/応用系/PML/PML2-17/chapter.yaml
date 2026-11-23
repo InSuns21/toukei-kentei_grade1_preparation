@@ -1,0 +1,43 @@
+id: "PML2-17"
+title: "解像度を変えても同じ精度が出るのか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-16
+  - PML2-14
+official_scope: []
+learning_objectives:
+  - 標本化と格子FNOの解像度移植誤差を定義し計算できる
+  - 帯域制限入力に対する一層の厳密一致定理を証明できる
+  - Fourier係数の尾部を用いて格子FNOの離散化誤差を評価できる
+  - 非線形層の生成する高周波と格子エイリアシングを計算できる
+  - 非周期境界の延長方法がFourier係数と適用条件を変えることを示せる
+  - 離散化誤差とPDEモデル近似誤差を分離して評価できる
+  - 同じ重みを用いる解像度横断の数値計算を再現できる
+definitions:
+  - { id: PML2-17-DEF-01, name: 標本化と解像度移植誤差 }
+  - { id: PML2-17-DEF-02, name: Fourier係数の尾部 }
+theorems:
+  - { id: PML2-17-THM-01, name: 帯域制限入力の一層厳密一致 }
+  - { id: PML2-17-THM-02, name: 格子FNOの尾部誤差評価 }
+  - { id: PML2-17-PROP-01, name: 離散化誤差とモデル誤差の分解 }
+canonical_examples:
+  - 4点と8点で厳密一致する低周波入力
+  - 8点と16点でエイリアシングの有無が変わる周波数7
+  - 三乗活性化による非線形2層FNOの折り返し
+  - 区間の周期延長と鏡映延長のFourier係数
+problem_patterns:
+  - PML2-17-A01
+  - PML2-17-A02
+  - PML2-17-A03
+  - PML2-17-A04
+  - PML2-17-A05
+  - PML2-17-B01
+  - PML2-17-B02
+  - PML2-17-B03
+  - PML2-17-B04
+  - PML2-17-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }

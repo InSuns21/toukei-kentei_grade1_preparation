@@ -1,0 +1,46 @@
+chapter: PML2-17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-16
+  - PML2-14
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-17-grid-error
+    name: 標本化と解像度移植誤差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標本化と解像度移植誤差）"]
+    requires:
+      - physics-machine-learning.pml2-16-fno
+      - physics-machine-learning.pml2-16-dft
+  - id: physics-machine-learning.pml2-17-bandlimit
+    name: 帯域制限入力の一層厳密一致
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-17-grid-error
+      - physics-machine-learning.pml2-16-alias
+  - id: physics-machine-learning.pml2-17-tail
+    name: Fourier係数の尾部
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Fourier係数の尾部）"]
+    requires:
+      - physics-machine-learning.pml2-16-fourier
+      - physics-machine-learning.pml2-16-alias
+  - id: physics-machine-learning.pml2-17-tail-bound
+    name: 格子FNOの尾部誤差評価
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-17-grid-error
+      - physics-machine-learning.pml2-17-tail
+      - physics-machine-learning.pml2-16-stability
+  - id: physics-machine-learning.pml2-17-error-split
+    name: 離散化誤差とモデル誤差の分解
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-17-grid-error
+      - physics-machine-learning.pml2-15-stability
