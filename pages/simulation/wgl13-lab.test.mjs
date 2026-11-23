@@ -59,7 +59,9 @@ test('WGL13 lab source, GLSL and lesson router are registered',async()=>{
   for(const key of ['TEXTURE_CUBE_MAP_POSITIVE_X + face','gl.RGBA8','gl.NEAREST',
     'gl.uniform3fv','gl.readPixels(0,0,12,1','gl.disable(gl.DITHER)']) assert.ok(js.includes(key),key);
   assert.match(frag,/textureLod\(u_env,normalize\(u_probeDirections\[k\]\),0\.0\)/);
-  assert.match(frag,/incoming-2\.0\*dot\(n,incoming\)\*n/);
+  assert.match(frag,/vec3 reflection=reflect\(-v,n\)/);
+  assert.match(frag,/faceDirection\(face,st\)/);
+  assert.match(frag,/textureLod\(u_scene,normalize\(d\),0\.0\)/);
   assert.match(host,/const isWGL13 = lesson === 'WGL13'/);
   assert.match(host,/compareWGL13Readback/);
   assert.match(host,/expectedWGL13Samples/);
