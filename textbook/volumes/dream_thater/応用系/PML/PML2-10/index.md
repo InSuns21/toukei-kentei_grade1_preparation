@@ -262,7 +262,16 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（対角前処理による周波数非依存の安定範囲）**  
-> $k\ge2$ は整数、$J_k$ と $P_k$ は前節の定義の通りとする。任意の初期値から前処理付き更新が $(1,0)$ に収束するための必要十分条件は $0<\eta<1$ である。さらにその条件下で
+> 整数 $k\ge2$、$J_k(a,b)=(a-1)^2+k^4b^2$、$P_k=\operatorname{diag}(1,k^{-4})$、学習率 $\eta>0$ とする。任意の初期値 $(a_0,b_0)\in\mathbb R^2$ から
+
+$
+\begin{pmatrix}a_{n+1}\\b_{n+1}\end{pmatrix}
+=
+\begin{pmatrix}a_n\\b_n\end{pmatrix}
+-\eta P_k\nabla J_k(a_n,b_n)
+$
+
+> と更新するとき、すべての初期値から $(1,0)$ に収束するための必要十分条件は $0<\eta<1$ である。さらにその条件下で
 
 $$
 J_k(a_n,b_n)=(1-2\eta)^{2n}J_k(a_0,b_0).
