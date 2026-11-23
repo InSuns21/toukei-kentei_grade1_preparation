@@ -32,7 +32,7 @@ $$
 
 ## 2. どの情報を固定するかで識別性は変わる
 
-観測点の集合 $X=(x_1,\ldots,x_m)$ は $m\ge1$ 個の点（重複可）からなり、$0\le x_j\le1$ とする。各パラメータで解を作った後に値を測るので、係数から観測への写像は
+観測点の集合 $X=(x_1,\ldots,x_m)$ は $m\ge1$ 個の点（重複可）からなり、$0\le x_j\le1$ とする。各パラメータで解を作った後に値を測るので、観測値を並べる規則は
 
 $$
 \mathcal G_{a,X}(\kappa)
@@ -59,7 +59,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-21-identification -->
-**定義の確認。** $a=1$、$X=(1/2)$ なら $\phi(1/2)=1/8$ なので $\mathcal G_{1,X}(\kappa)=1/(8\kappa)$。定義域の任意の $\kappa_1,\kappa_2>0$ について $1/(8\kappa_1)=1/(8\kappa_2)$ なら両辺の分母を払って $\kappa_1=\kappa_2$。したがって単射である。一方、外力も未知なら $\mathcal H_X(2,1)=\mathcal H_X(4,2)=1/16$ となり、この二組は区別できない。解の存在・一意性、観測点、許容パラメータ、写像の単射性をそれぞれ確認した。
+**定義の確認**。 $a=1$、$X=(1/2)$ なら $\phi(1/2)=1/8$ なので $\mathcal G_{1,X}(\kappa)=1/(8\kappa)$。定義域の任意の $\kappa_1,\kappa_2>0$ について $1/(8\kappa_1)=1/(8\kappa_2)$ なら両辺の分母を払って $\kappa_1=\kappa_2$。したがって単射である。一方、外力も未知なら $\mathcal H_X(2,1)=\mathcal H_X(4,2)=1/16$ となり、この二組は区別できない。解の存在・一意性、観測点、許容パラメータ、写像の単射性をそれぞれ確認した。
 <!-- definition-example-end -->
 
 **構造的識別可能性と推定精度は違う。** 単射でも、近接する観測値が大きく異なる係数へ戻るなら、少量の雑音で推定は不安定になる。さらに正則化や事前情報で一つの値を選べても、観測写像そのものが単射に変わったわけではない。この区別は[逆問題の三条件](../../../解析系/INV/INV1/index.md#def-inv1-hadamard)のうち、とくに一意性と安定性を分けて考えることに対応する。
@@ -78,10 +78,10 @@ $$
 
 > 内部点 $x_0\in(0,1)$ で正確な値 $y=u(x_0)$ を測定すると、係数 $\kappa$ は一意に決まり、
 >
-> $$
-> \kappa=\frac{a\phi(x_0)}{y},\qquad
-> \phi(x)=\frac{x(1-x)}2
-> $$
+$$
+\kappa=\frac{a\phi(x_0)}{y},\qquad
+\phi(x)=\frac{x(1-x)}2
+$$
 >
 > で復元される。ここで $y\ne0$ であり、$y$ と $a$ の符号は一致する。
 <!-- formal-statement-end -->
@@ -142,17 +142,17 @@ $$
 > **定義（状態とPDE係数の同時推定損失）**  
 > 既知の $a\in\mathbb R$、$m\ge1$、位置 $x_j\in[0,1]$、観測値 $y_j\in\mathbb R$、物理重み $\lambda>0$ を固定する。状態候補 $u_c=c\phi$、係数候補 $\kappa>0$ に対し、
 >
-> $$
-> J_\lambda(c,\kappa)=
-> \frac1m\sum_{j=1}^m\left(c\phi(x_j)-y_j\right)^2
-> +\lambda(\kappa c-a)^2
-> $$
+$$
+J_\lambda(c,\kappa)=
+\frac1m\sum_{j=1}^m\left(c\phi(x_j)-y_j\right)^2
++\lambda(\kappa c-a)^2
+$$
 >
 > を状態・係数の同時推定損失と呼ぶ。第一項は観測への適合、第二項はPDE残差の二乗である。境界値は候補の構成により厳密に零である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-21-joint-loss -->
-**定義の確認。** $a=1$、$m=1$、$x_1=1/2$、$y_1=1/16$、$c=1/2$、$\kappa=2$ とする。$u_c\in C^2([0,1])$、$\kappa>0$、$\lambda>0$ という条件を満たす。データ項は $(c/8-1/16)^2=(1/16-1/16)^2=0$、物理項は $\lambda(2\cdot1/2-1)^2=0$、境界も零なので $J_\lambda=0$。$c$ の値をただ観測に合わせるだけでなく、$\kappa c=a$ も別に確認した。
+**定義の確認**。 $a=1$、$m=1$、$x_1=1/2$、$y_1=1/16$、$c=1/2$、$\kappa=2$ とする。$u_c\in C^2([0,1])$、$\kappa>0$、$\lambda>0$ という条件を満たす。データ項は $(c/8-1/16)^2=(1/16-1/16)^2=0$、物理項は $\lambda(2\cdot1/2-1)^2=0$、境界も零なので $J_\lambda=0$。$c$ の値をただ観測に合わせるだけでなく、$\kappa c=a$ も別に確認した。
 <!-- definition-example-end -->
 
 <a id="thm-pml2-21-joint-unique"></a>
@@ -165,9 +165,9 @@ $$
 >
 > $c\in\mathbb R$、$\kappa>0$ に対し、前節の $J_\lambda(c,\kappa)$ を最小化すると零損失組は唯一であり、
 >
-> $$
-> (c,\kappa)=\left(\frac a{\kappa_*},\kappa_*\right)
-> $$
+$$
+(c,\kappa)=\left(\frac a{\kappa_*},\kappa_*\right)
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -201,9 +201,9 @@ $\lambda$ が大きければ識別可能になる、という主張ではない�
 > **命題（外力と伝導係数の同時スケーリングによる非識別）**  
 > $\kappa>0$、$a\in\mathbb R$ をともに未知とする $-\kappa u''=a$、$u(0)=u(1)=0$ について、任意の $t>0$ に対し
 >
-> $$
-> u_{t\kappa,ta}(x)=u_{\kappa,a}(x)\quad(0\le x\le1)
-> $$
+$$
+u_{t\kappa,ta}(x)=u_{\kappa,a}(x)\quad(0\le x\le1)
+$$
 >
 > が成り立つ。従って解を全区間で正確に観測しても $(\kappa,a)$ は一般に一意に定まらない。状態候補 $u_c=c\phi$ と同時学習で $(c,\kappa,a)$ を未知とすると、真の組から生成された雑音なしデータについて、$t$ を変えた異なる組はいずれもデータ残差・物理残差が零である。
 <!-- formal-statement-end -->
@@ -263,20 +263,20 @@ $$
 
 > この関数の唯一の最小点と誤差は次を満たす。
 >
-> $$
-> \widehat s=\frac{\sum_jp_jy_j}{Q},
-> \qquad
-> \widehat s-s_*=\frac{\sum_jp_j\varepsilon_j}{Q},
-> \qquad
-> |\widehat s-s_*|\le\frac{\|\varepsilon\|_2}{\sqrt Q}.
-> $$
+$$
+\widehat s=\frac{\sum_jp_jy_j}{Q},
+\qquad
+\widehat s-s_*=\frac{\sum_jp_j\varepsilon_j}{Q},
+\qquad
+|\widehat s-s_*|\le\frac{\|\varepsilon\|_2}{\sqrt Q}.
+$$
 >
 > もし $\widehat s>0$ ならこれは正の係数を仮定した $s>0$ 上でも最小解で、$\widehat\kappa=1/\widehat s$ と復元できる。さらに $|\widehat s-s_*|\le s_*/2$ なら
 >
-> $$
-> |\widehat\kappa-\kappa_*|
-> \le \frac{2|\widehat s-s_*|}{s_*^2}.
-> $$
+$$
+|\widehat\kappa-\kappa_*|
+\le \frac{2|\widehat s-s_*|}{s_*^2}.
+$$
 >
 > 雑音が独立で平均零、共通分散 $\sigma^2$ なら $\operatorname{Var}(\widehat s)=\sigma^2/Q$ である。
 <!-- formal-statement-end -->
@@ -342,23 +342,23 @@ $$
 > **命題（二乗正則化の解とバイアス）**  
 > $m\ge1$、$p_j\in\mathbb R$、$Q=\sum_jp_j^2\ge0$、$\alpha>0$、$s_0\in\mathbb R$ とし、
 >
-> $$
-> F_\alpha(s)=\sum_{j=1}^m(p_js-y_j)^2+\alpha(s-s_0)^2
-> $$
+$$
+F_\alpha(s)=\sum_{j=1}^m(p_js-y_j)^2+\alpha(s-s_0)^2
+$$
 >
 > を $s\in\mathbb R$ 上で最小化する。唯一の最小点は
 >
-> $$
-> \widehat s_\alpha
-> =\frac{\sum_jp_jy_j+\alpha s_0}{Q+\alpha}.
-> $$
+$$
+\widehat s_\alpha
+=\frac{\sum_jp_jy_j+\alpha s_0}{Q+\alpha}.
+$$
 >
 > $y_j=p_js_*+\varepsilon_j$ のとき
 >
-> $$
-> \widehat s_\alpha-s_*
-> =\frac{\sum_jp_j\varepsilon_j+\alpha(s_0-s_*)}{Q+\alpha}.
-> $$
+$$
+\widehat s_\alpha-s_*
+=\frac{\sum_jp_j\varepsilon_j+\alpha(s_0-s_*)}{Q+\alpha}.
+$$
 >
 > もし $Q=0$ なら $\widehat s_\alpha=s_0$ で、データから $s_*$ を識別したことにはならない。
 <!-- formal-statement-end -->
@@ -419,11 +419,11 @@ $$
 
 > 共通の内部点 $x_0\in(0,1)$ で正確な値 $y_i=u_i(x_0)$ を測ると、$(\kappa,a_1)$ は一意に復元でき、
 >
-> $$
-> d=y_2-y_1>0,\qquad
-> \kappa=\frac{\phi(x_0)}d,\qquad
-> a_1=\frac{y_1}{d}
-> $$
+$$
+d=y_2-y_1>0,\qquad
+\kappa=\frac{\phi(x_0)}d,\qquad
+a_1=\frac{y_1}{d}
+$$
 >
 > となる。ただし $\phi(x_0)=x_0(1-x_0)/2$ である。
 <!-- formal-statement-end -->
