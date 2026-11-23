@@ -340,10 +340,10 @@ $$
 
 ここでも次の等式は**次数付き巡回性**に基づく。
 
-$
+$$
 \operatorname{tr}(F\wedge A\wedge F)
 =\operatorname{tr}(A\wedge F\wedge F).
-$
+$$
 
 行列の可換性は一切使っていない。
 
