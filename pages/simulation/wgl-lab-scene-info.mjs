@@ -158,7 +158,7 @@ const descriptions = Object.freeze({
   }),
   WGL13: Object.freeze({
     requiresSteps: false,
-    grid: '風景は立方体6面×128×128 RGBA8 texel（sceneResolutionで編集可）。別の2×2×6面RGBA8は12方向の基準検算。どちらも描画バッファ解像度とは別',
+    grid: '初期風景は立方体6面×128×128 RGBA8 texel（sceneResolutionで編集可）。別の2×2×6面RGBA8は12方向の基準検算。どちらも描画バッファ解像度とは別',
     color: '左の球は1本の鏡面反射方向からキューブマップを参照、右は同じ6面の展開図。橙枠は選択中の反射先の面、任意の水色線は面境界。F₀は無次元0〜1',
     clock: () => '風景・球・展開図は同一GPU shader。再生は環境方位のみ（°）、物理stepなし。12画素GPU検算は無回転2×2面の静止値',
     mode: '球をクリックすると反射先の面・UVを特定。2×2面診断と風景128×128を同じGLSLとキューブマップ規則で切り替える',
