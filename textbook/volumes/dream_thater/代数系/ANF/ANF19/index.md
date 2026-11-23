@@ -6,9 +6,9 @@
 
 有限素点 $\mathfrak p$ における完備化 $K_{\mathfrak p}$ と付値環 $\mathcal O_{\mathfrak p}$ は[数体の素イデアル付値・完備化](../ANF9/index.md#def-anf9-prime-valuation)で導入しました。一様化元 $\pi_{\mathfrak p}$ の付値は次のように正規化します。
 
-$
+$$
 \operatorname{ord}_{\mathfrak p}(\pi_{\mathfrak p})=1.
-$
+$$
 
 無限素点での完備化は実数体または複素数体です。
 
@@ -39,7 +39,7 @@ $$
 有限集合 $S$ の外側で $\mathcal O_v$ を指定する点が、通常の無制限な直積位相との違いです。上記集合は点が含まれる場合にその点の開近傍を与えます。$S$ は必要に応じて大きくでき、各有限素点で $\mathcal O_v$ は開集合です。
 
 <!-- definition-example-start: def-anf19-restricted-product -->
-**定義の確認（有理数体）。** $K=\mathbb Q$ なら、$V_K=\{\infty,2,3,5,\ldots\}$、$K_\infty=\mathbb R$、$\mathcal O_p=\mathbb Z_p$ です。
+**定義の確認**（有理数体）。 $K=\mathbb Q$ なら、$V_K=\{\infty,2,3,5,\ldots\}$、$K_\infty=\mathbb R$、$\mathcal O_p=\mathbb Z_p$ です。
 
 1. $x_\infty=0$、$x_p=p$（すべての素数 $p$）は条件を満たします。なぜなら $p\in\mathbb Z_p$ が全素数で成り立つからです。
 2. $y_\infty=0$、$y_p=p^{-1}$（すべての素数 $p$）は条件を満たしません。$v_p(p^{-1})=-1$ で、$\mathbb Z_p$ に入らない成分が無限個あるからです。
@@ -66,7 +66,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf19-adele -->
-**定義の確認。** $\mathbb A_{\mathbb Q}$ の $x=(0;(p)_p)$ と $z=(0;1/2,0,0,\ldots)$ は先ほどの例でアデールです。$x+z$ と $xz$ も、各々の例外集合の合併 $S=\{\infty,2\}$ の外では $\mathbb Z_p$ の和・積なので再びアデールです。同じ論理が任意の二つのアデールで成立し、環演算が定義できます。
+**定義の確認**。 $\mathbb A_{\mathbb Q}$ の $x=(0;(p)_p)$ と $z=(0;1/2,0,0,\ldots)$ は先ほどの例でアデールです。$x+z$ と $xz$ も、各々の例外集合の合併 $S=\{\infty,2\}$ の外では $\mathbb Z_p$ の和・積なので再びアデールです。同じ論理が任意の二つのアデールで成立し、環演算が定義できます。
 <!-- definition-example-end -->
 
 とくに「有限例外」は加法・乗法の下で保たれます。$K$ が無限個の素数を持つことと、**一つのアデールに許される非整成分が有限個**であることを区別してください。
@@ -226,7 +226,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf19-idele -->
-**定義の確認。** $K=\mathbb Q$ で $x_\infty=2$、$x_2=2$、他の有限成分は $1$ とします。全成分が非零で、$2$ を除く有限素点では $\mathbb Z_p^\times$ の元です。逆元も $x_\infty^{-1}=1/2$、$x_2^{-1}=1/2$、他は $1$ なので制限付き直積に属します。従って $x\in\mathbb I_{\mathbb Q}$ です。一方 $x_p=p$ を全素数で選んだ前節のアデールは、無限個の素点で単数でなく、イデールではありません。
+**定義の確認**。 $K=\mathbb Q$ で $x_\infty=2$、$x_2=2$、他の有限成分は $1$ とします。全成分が非零で、$2$ を除く有限素点では $\mathbb Z_p^\times$ の元です。逆元も $x_\infty^{-1}=1/2$、$x_2^{-1}=1/2$、他は $1$ なので制限付き直積に属します。従って $x\in\mathbb I_{\mathbb Q}$ です。一方 $x_p=p$ を全素数で選んだ前節のアデールは、無限個の素点で単数でなく、イデールではありません。
 <!-- definition-example-end -->
 
 <a id="prop-anf19-idele-topology"></a>
@@ -270,7 +270,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf19-idele-modulus -->
-**定義の確認。** $\mathbb I_{\mathbb Q}$ で $x_\infty=2$、$x_2=2$、他の有限成分が $1$ の例では、$|x_\infty|_\infty=2$ と $|x_2|_2=1/2$ なので
+**定義の確認**。 $\mathbb I_{\mathbb Q}$ で $x_\infty=2$、$x_2=2$、他の有限成分が $1$ の例では、$|x_\infty|_\infty=2$ と $|x_2|_2=1/2$ なので
 
 $$
 |x|_{\mathbb A}=2\cdot\frac12=1.
@@ -305,7 +305,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf19-idele-class -->
-**定義の確認（商で同一視するもの）。** $x\in\mathbb I_{\mathbb Q}$ と有理数 $a=3/2$ に対し、$x$ と $x\Delta(3/2)$ は同じ類です。一方、任意の $x$ に対して $\Delta(a)$ の全成分は同じ有理数 $a$ から来るので、ある一つの素点だけを勝手に変更しても一般に同じ類にはなりません。分母・分子の有限例外と商群の同一視を混同しないことが大切です。
+**定義の確認**（商で同一視するもの）。 $x\in\mathbb I_{\mathbb Q}$ と有理数 $a=3/2$ に対し、$x$ と $x\Delta(3/2)$ は同じ類です。一方、任意の $x$ に対して $\Delta(a)$ の全成分は同じ有理数 $a$ から来るので、ある一つの素点だけを勝手に変更しても一般に同じ類にはなりません。分母・分子の有限例外と商群の同一視を混同しないことが大切です。
 <!-- definition-example-end -->
 
 ## 6. イデールからイデアル類群を取り出す
@@ -506,11 +506,11 @@ $$
 
 次に $y=x\Delta(6)^{-1}$ と置きます。各有限成分は次のように計算されます。
 
-$
+$$
 y_2=\frac{2}{6}=\frac13,\qquad
 y_3=\frac{3}{6}=\frac12,\qquad
 y_p=\frac16\quad(p\ne2,3).
-$
+$$
 
 最初の二成分はそれぞれ $2$ 進および $3$ 進単数です。その他の $p$ でも $p\nmid6$ なので単数になります。従ってすべての有限付値が $0$ で、$J(y)=\mathbb Z$ です。
 
