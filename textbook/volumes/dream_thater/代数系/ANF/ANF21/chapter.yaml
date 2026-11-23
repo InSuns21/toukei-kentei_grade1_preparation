@@ -1,0 +1,47 @@
+id: "ANF21"
+title: "大域類体論の主要証明ルート"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANF20
+official_scope: []
+learning_objectives:
+  - 局所Artin写像の開核と非分岐性から大域Artin積を消す有限法を構成できる
+  - 対角元の消滅が剰余類群への下降の必要十分条件となることを証明できる
+  - 局所ノルムから大域ノルムのArtin核への包含を証明し逆包含との違いを説明できる
+  - 中間体へのGalois制限と大域Artin積の可換性を証明できる
+  - 大域相互法則と存在定理で外部入力となる部分を5段階に分解して説明できる
+  - 既知の類体の剰余類群の商から中間体を構成できる
+  - 非分岐素点でFrobenius位数と剰余次数・分解数を結び付けられる
+  - 五次円分体とその実二次部分体のArtin商・法・素数分解を計算できる
+definitions:
+  - { id: ANF21-DEF-01, name: Artin積を消す法 }
+theorems:
+  - { id: ANF21-PROP-01, name: Artin積を消す有限法の存在 }
+  - { id: ANF21-PROP-02, name: 剰余類群への下降判定 }
+  - { id: ANF21-PROP-03, name: 大域イデールノルムはArtin積の核に入る }
+  - { id: ANF21-PROP-04, name: 大域Artin積と中間体への制限 }
+  - { id: ANF21-PROP-05, name: 既知の類体から部分体を取り出す }
+  - { id: ANF21-PROP-06, name: 非分岐素点の分解とFrobeniusの位数 }
+  - { id: ANF21-PROP-07, name: 五次円分体の実二次部分体と法 }
+canonical_examples:
+  - Q(zeta5)のArtin積を消す法5∞と局所単数の確認
+  - 対角2の2成分と5成分の相殺
+  - 既知の類体から固定体を作る商同型
+  - Q(zeta5)の2と11と19のFrobenius位数と分解
+  - Q(sqrt5)への制限・法5と法5∞の違い
+problem_patterns:
+  - ANF21-LOCAL-MODULUS-KERNEL
+  - ANF21-DIAGONAL-RECIPROCITY
+  - ANF21-IDELE-NORM-INCLUSION
+  - ANF21-FROBENIUS-RESIDUE-DEGREE
+  - ANF21-REAL-SUBFIELD-RESTRICTION
+  - ANF21-PROOF-OBLIGATIONS
+  - ANF21-RESTRICTION-MODULUS
+  - ANF21-SUBFIELD-QUOTIENT
+  - ANF21-INFINITY-OBSTRUCTION
+  - ANF21-GLOBAL-LOCAL-CYCLOTOMIC-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 15.0, exercises: 10.0, review: 4.0 }
