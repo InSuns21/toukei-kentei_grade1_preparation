@@ -14,14 +14,14 @@ $$
 
 と一意に書けます。整数 $v_{\mathfrak q}(x)$ は $\mathfrak q$ での付値で、ほとんど全てが0です。[イデアル類群](../../ANF/ANF6/index.md#def-anf6-ideal-class-group)は、このような主分数イデアルを忘れた分数イデアル群の商でした。
 
-$S$ の外に極や零点を作らない元だけを許す環
+$S$ の外で極（負の付値）を作らない元を許す環
 
 $$
 \mathcal O_{K,S}
 =\{0\}\cup\{x\in K^\times:v_{\mathfrak q}(x)\ge0\ \text{for all }\mathfrak q\notin S\}
 $$
 
-を考えます。この環で逆元を持つには $x$ と $x^{-1}$ がともに上の条件を満たせばよく、したがって $S$ の外の付値が**すべて0**になる必要があります。
+を考えます。この環では $S$ の外に零点（正の付値）があってもかまいません。しかし逆元を持つには $x$ と $x^{-1}$ がともに上の条件を満たす必要があります。$v_{\mathfrak q}(x^{-1})=-v_{\mathfrak q}(x)$ なので、単数では $S$ の外の付値が**すべて0**になります。
 
 <a id="def-iwa11-s-units"></a>
 
@@ -140,13 +140,26 @@ $\delta_S$ の像は定義通り $D_S$、核は[定理](#thm-iwa11-s-unit-exact)
 
 ここから $p$ を**奇素数**とします。$v\mid p$ に対して、$K_v$ は $v$ での完備化、$\mathcal O_v$ は局所整数環、$\mathfrak m_v$ はその極大イデアル、$k_v=\mathcal O_v/\mathfrak m_v$ は $q_v=p^{f_v}$ 元の剰余体です。局所単数 $u\in\mathcal O_v^\times$ を剰余体に写すと、有限群 $k_v^\times$（位数 $q_v-1$）の元になります。この有限位数は $p$ と互いに素です。
 
-剰余類 $\bar u\in k_v^\times$ は $q_v-1$ 乗が1で、Henselの持上げ（導関数 $(q_v-1)X^{q_v-2}$ が剰余体で非零）により、$\omega_v(\bar u)^{q_v-1}=1$ かつ $\omega_v(\bar u)\bmod\mathfrak m_v=\bar u$ を満たす単数へ**一意に**持ち上がります。このため各 $u$ は
+剰余類 $\bar u\in k_v^\times$ は、その群の位数から $\bar u^{q_v-1}=1$ を満たします。多項式 $f(X)=X^{q_v-1}-1$ の変数は $X$ であり、剰余体での導関数は
+
+$$
+f'(\bar u)=(q_v-1)\bar u^{q_v-2}\ne0
+$$
+
+です。そこで[単純根に対するHenselの補題](../../ANF/ANF10/index.md#thm-anf10-hensel-simple)を、[完備離散付値環に適用する手順](../../ANF/ANF13/index.md#thm-anf13-inertia-exact)に従って使います。次を満たす局所単数への持上げが一意に存在します。
+
+$$
+\omega_v(\bar u)^{q_v-1}=1,\qquad
+\omega_v(\bar u)\bmod\mathfrak m_v=\bar u.
+$$
+
+したがって各局所単数 $u$ は
 
 $$
 u=\omega_v(\bar u)\cdot u_1,\qquad u_1\in 1+\mathfrak m_v
 $$
 
-と一意に分解します。後者が $p$ 進方向の単数です。
+と一意に分解します。後者が $p$ 進方向の単数です。また $\omega_v(\bar u\bar w)$ と $\omega_v(\bar u)\omega_v(\bar w)$ はともに $q_v-1$ 乗が1で剰余が $\bar u\bar w$ なので、一意性から等しくなります。この乗法性により $u\mapsto u_1=u/\omega_v(\bar u)$ は準同型です。
 
 <a id="def-iwa11-local-principal-units"></a>
 
@@ -176,7 +189,7 @@ $\mathcal E_K$ は一般には $U_K$ 自身とは異なる**閉部分群**です
 
 ## 4. レイ類群を挟んで完全列を証明する
 
-[Hilbert類体のArtin同型](../../ANF/ANF22/index.md#thm-anf22-hilbert-class-correspondence)は、分岐を許さない場合の類群とGalois群の対応でした。$p$ での分岐を許すには、整数の合同条件を法に付けた**レイ類群**を使います。
+[Hilbert類体のArtin同型](../../ANF/ANF22/index.md#thm-anf22-hilbert-class-correspondence)は、分岐を許さない場合の類群とGalois群の対応でした。$p$ での分岐を許すには、整数の合同条件を法に付けた**レイ類群**を使います。ここで扱うのは、既習の[数体の法](../../ANF/ANF20/index.md#def-anf20-modulus)と[剰余類群](../../ANF/ANF20/index.md#def-anf20-ray-class)のうち、実素点に符号条件を課さない場合です。
 
 正整数 $n\ge1$ について $\mathfrak m_n=\prod_{v\mid p}\mathfrak p_v^n$ と置きます。$\mathfrak m_n$ と互いに素な分数イデアル全体 $I_{\mathfrak m_n}$ を、$\alpha\equiv1\pmod{\mathfrak m_n}$ という局所的な合同条件を満たす $\alpha\in K^\times$ の主イデアル群 $P_{\mathfrak m_n,1}$ で割ったものが $\operatorname{Cl}_{\mathfrak m_n}(K)$ です。$\alpha$ は各 $v\mid p$ で局所単数であることも要求します（実素点に符号条件を課さない狭義でない有限法）。
 
@@ -197,7 +210,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa11-ray-class-group -->
-**定義の確認**。 $K=\mathbb Q$、$\mathfrak m=(9)$ では、分数イデアル $(4)$ は法9と互いに素ですが $4\not\equiv1\pmod9$ なので $P_{(9),1}$ には入りません。一方 $(10)$ は $10\equiv1\pmod9$ なので入ります。$(-1)$ は単位イデアルでもあり、$\operatorname{Cl}_{(9)}(\mathbb Q)$ は $(\mathbb Z/9\mathbb Z)^\times/\{\pm1\}$ に対応し位数3です。
+**定義の確認**。 $K=\mathbb Q$、$\mathfrak m=(9)$ では、分数イデアル $(4)$ は法9と互いに素です。しかし、主イデアルが $P_{(9),1}$ に属するかは、**いずれかの生成元**が法9で1に合同になるかで判定します。$\mathbb Z^\times=\{\pm1\}$ なので、$(4)$ の生成元は $\pm4$ であり、
+
+$$
+4\equiv4,\qquad -4\equiv5\pmod9.
+$$
+
+どちらも1でないため $(4)\notin P_{(9),1}$ です。一方、$(10)$ には $10\equiv1\pmod9$ となる生成元があります。$(-1)$ は単位イデアルでもあり、$\operatorname{Cl}_{(9)}(\mathbb Q)$ は $(\mathbb Z/9\mathbb Z)^\times/\{\pm1\}$ に対応し、位数3です。
 <!-- definition-example-end -->
 
 <a id="thm-iwa11-ray-exact"></a>
@@ -229,7 +248,15 @@ $$
 
 $\rho_{\mathfrak m}(u)$（$u\in U_K$）の像は $[(u)]=0$。逆に $\theta_{\mathfrak m}(\bar a)=0$ なら $(a)=(\alpha)$ かつ $\alpha\equiv1\pmod{\mathfrak m}$ となる $\alpha$ があり、$a/\alpha\in U_K$ です。従って $\bar a=\rho_{\mathfrak m}(a/\alpha)$。これで $\ker\theta_{\mathfrak m}=\operatorname{im}\rho_{\mathfrak m}$ が成立します。
 
-レイ類が通常類群へ写って0なら代表イデアルは $(a)$ と書けます。法と互いに素なため $a$ は全ての $\mathfrak p\mid\mathfrak m$ で単数で、その剰余類の $\theta_{\mathfrak m}$ 像になります。最後の全射は、任意のイデアル類に $\mathfrak m$ と互いに素な分数イデアル代表が存在することから従います（各 $\mathfrak p\mid\mathfrak m$ で付値を0に調整する弱近似）。以上で完全です。
+レイ類が通常類群へ写って0なら代表イデアルは $(a)$ と書けます。法と互いに素なため $a$ は全ての $\mathfrak p\mid\mathfrak m$ で単数で、その剰余類の $\theta_{\mathfrak m}$ 像になります。
+
+最後の全射を確かめます。任意の分数イデアル $\mathfrak a$ を取り、その素イデアル分解で $\mathfrak p$ の指数を $n_{\mathfrak p}$ と書きます。[数体の弱近似](../../ANF/ANF20/index.md#lem-anf20-weak-approx)により $b\in K^\times$ を選び、法を割る全素点で
+
+$$
+v_{\mathfrak p}(b)=n_{\mathfrak p}\qquad(\mathfrak p\mid\mathfrak m)
+$$
+
+とできます。すると $\mathfrak a(b)^{-1}$ はそれらの素点で付値0なので $I_{\mathfrak m}$ に属し、$\mathfrak a$ と同じ通常イデアル類を表します。以上で完全です。
 <!-- proof-end -->
 
 この式の実際の**核・余核**は
@@ -250,16 +277,20 @@ $$
 A_K=\operatorname{Cl}(K)[p^\infty]
 $$
 
-と書きます。$p$ は奇数なので、有限 $p$ 冪次数の拡大で実素点が複素化することはありません（実素点での次数2は奇数の $p$ 冪を割らない）。レイ類体のArtin相互法則という外部入力によれば、$\operatorname{Cl}_{\mathfrak m_n}(K)$ の $p$ 部分が法 $\mathfrak m_n$ で許す有限アーベル $p$ 拡大を記述し、$n$ を増やした逆極限が $\mathfrak X_p(K)$ を与えます。
+と書きます。
 
-剰余群の中国剰余分解と局所単数の完備性から
+$p$ は奇数なので、有限 $p$ 冪次数の拡大で実素点が複素化することはありません。実素点での複素化に対応する局所拡大次数は2であり、奇数の $p$ の冪を割らないからです。
+
+既習の[剰余類体のArtin対応](../../ANF/ANF20/index.md#thm-anf20-ray-class-field)を外部入力として使用します。法 $\mathfrak m_n$ に対応するレイ類群の $p$ 部分から有限アーベル $p$ 拡大を読み取り、$n$ を増やした逆極限を $\mathfrak X_p(K)$ と同一視します。
+
+有限アーベル群 $G$ に対し、$G(p)$ はその $p$ 冪位数部分群を表すことにします。剰余群の中国剰余分解と局所単数の完備性から
 
 $$
 \varprojlim_n(\mathcal O_K/\mathfrak m_n)^\times(p)
 \simeq\prod_{v\mid p}U_v^1=\mathcal U_K
 $$
 
-です。ここで $G(p)$ は有限アーベル群 $G$ の $p$ 冪位数部分を表します。各 $v$ の剰余群 $k_v^\times$ の位数は $p$ と互いに素なので、極限の $p$ 方向には先ほどの主単数だけが残ります。
+です。各 $v$ の剰余群 $k_v^\times$ の位数は $p$ と互いに素なので、極限の $p$ 方向には先ほどの主単数だけが残ります。
 
 <a id="thm-iwa11-local-global-exact"></a>
 
@@ -295,9 +326,19 @@ $$
 
 は完全です（有限アーベル群の素数ごとの直和分解は完全列を保ちます）。最初の写像の核は、大域単数の剰余像の $p$ 成分です。法 $\mathfrak m_{n+1}$ から $\mathfrak m_n$ への還元は剰余単数で全射であり、レイ類群の遷移も全射です。実際、レイ類群の代表イデアルはどの法でも $p$ と互いに素に選べ、法を忘れる写像の下で同じイデアル類になります。
 
-逆極限で一つの局所単数 $u=(u_n)$ がレイ類群の核に入ることは、**各 $n$ ごとに**その剰余 $u_n$ が大域単数の像に入ることです。これは、$\mathcal U_K$ のどの合同近傍にも大域単数の像があるという閉包の定義そのものなので、核は $\mathcal E_K$ です。各段の右端は一定の有限群 $A_K$ で、レイ類群からそこへの全射の両立した逆像は有限非空集合の逆極限によって存在します。従って極限の右端も全射です。
+逆極限で一つの局所単数 $u=(u_n)$ がレイ類群の核に入ることは、**各 $n$ ごとに**その剰余 $u_n$ が大域単数の像に入ることです。これは、$\mathcal U_K$ のどの合同近傍にも大域単数の像があるという閉包の定義そのものなので、核は $\mathcal E_K$ です。
 
-局所Artin相互法則では局所単数の像が惰性群を与え、レイ類体のArtin対応によって $\varprojlim_n\operatorname{Cl}_{\mathfrak m_n}(K)(p)\simeq\mathfrak X_p(K)$ です。この**類体論の同型**を適用して、示した列を得ます。
+次にレイ類群の極限での完全性も示します。$y=(y_n)$ が各段で $A_K$ に0と写る整合列なら、有限段の完全性より
+
+$$
+F_n=\{u_n\in(\mathcal O_K/\mathfrak m_n)^\times(p):\theta_{\mathfrak m_n}(u_n)=y_n\}
+$$
+
+は非空な**有限集合**です。法の還元は $F_{n+1}$ から $F_n$ への写像を定めます。任意の有限段までなら、最も高い段の $F_N$ から一つ選んで下へ還元すれば全段の条件を同時に満たせます。従って有限集合の積のコンパクト性（[逆極限の構成](../IWA4/index.md#def-iwa4-inverse-limit)）により全段で整合する $(u_n)$ が存在し、$\theta(u)=y$ です。これでレイ類群の極限における中央の項の完全性が示されました。
+
+同様に各段の右端は一定の有限群 $A_K$ で、レイ類群から指定した類への非空な有限前像が上の有限段整合性を満たします。よって逆極限から $A_K$ への写像も全射です。
+
+局所Artin相互法則では局所単数の像が惰性群を与え、[剰余類体のArtin対応](../../ANF/ANF20/index.md#thm-anf20-ray-class-field)によって $\varprojlim_n\operatorname{Cl}_{\mathfrak m_n}(K)(p)\simeq\mathfrak X_p(K)$ です。この**類体論の同型**を適用して、示した列を得ます。
 <!-- proof-end -->
 
 $IWA9$ の[惰性群を除く完全列](../IWA9/index.md#prop-iwa9-inertia-quotient)と比べると、$\operatorname{rec}_p(\mathcal U_K)$ は $p$ の上の惰性群が生成する閉部分群です。その商が $A_K$ になります。したがって「局所単数＝Galois群」ではなく、**局所単数から大域単数の閉包を割った群が惰性部分に対応する**のが正確な形です。
