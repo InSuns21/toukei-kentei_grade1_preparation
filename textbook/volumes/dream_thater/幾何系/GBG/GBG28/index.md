@@ -140,7 +140,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg28-bpst -->
-**定義の確認**。$r=0$ でも分母は $\rho^2>0$ なので全成分は滑らかな実関数である。$A_\mu=A_\mu^aT_a$ は常に反Hermite・跡零の行列で、[局所接続の行列表示](../GBG8/index.md#def-gbg8-local-gauge-potential)に適合する。例えば $x=(t,0,0,0)$ では $A_4^1=-2t/(t^2+\rho^2)$、$A_1^1=0$、$A_3^2=2t/(t^2+\rho^2)$ のように、係数は実である。$\rho>0$ を外すと原点で分母が零になり、この「全空間で滑らか」という確認が壊れる。
+**定義の確認**。$r=0$ でも分母は $\rho^2>0$ なので全成分は滑らかな実関数である。$A_\mu=A_\mu^aT_a$ は常に反Hermite・跡零の行列で、[局所接続の行列表示](../GBG8/index.md#def-gbg8-local-potential)に適合する。例えば $x=(t,0,0,0)$ では $A_4^1=-2t/(t^2+\rho^2)$、$A_1^1=0$、$A_3^2=2t/(t^2+\rho^2)$ のように、係数は実である。$\rho>0$ を外すと原点で分母が零になり、この「全空間で滑らか」という確認が壊れる。
 <!-- definition-example-end -->
 
 <a id="thm-gbg28-curvature"></a>
@@ -163,7 +163,7 @@ $$
 > を満たす。$F$ はどの点でも零でない。
 <!-- formal-statement-end -->
 
-**証明の見取り図**。[曲率の局所式](../GBG10/index.md#def-gbg10-principal-curvature-local)に接続成分を代入する。偏微分とLie括弧から $x^\mu x^\nu$ の項が現れるが、['t Hooft記号の積恒等式](#lem-gbg28-eta-identity)によって相殺され、$\eta$ の定数倍だけが残る。
+**証明の見取り図**。[曲率の局所式](../GBG10/index.md#def-gbg10-local-curvature)に接続成分を代入する。偏微分とLie括弧から $x^\mu x^\nu$ の項が現れるが、['t Hooft記号の積恒等式](#lem-gbg28-eta-identity)によって相殺され、$\eta$ の定数倍だけが残る。
 
 <!-- proof-start -->
 ### 証明
@@ -176,7 +176,7 @@ $$
 -\frac{4x^\mu\eta^a_{\nu\lambda}x^\lambda}{D^2}.
 $$
 
-[曲率の局所式](../GBG10/index.md#def-gbg10-principal-curvature-local)と $[T_b,T_c]=\varepsilon_{bca}T_a$ より、
+[曲率の局所式](../GBG10/index.md#def-gbg10-local-curvature)と $[T_b,T_c]=\varepsilon_{bca}T_a$ より、
 
 $$
 \begin{aligned}
@@ -335,12 +335,12 @@ $$
 > $y^\mu=x^\mu/r^2$ を $\infty$ 近傍の座標とすると、$A_\infty$ は $y=0$ に滑らかに延長できる。これによりBPST接続は滑らかな $S^4$ 上の右主 $SU(2)$ 束の接続になる。
 <!-- formal-statement-end -->
 
-**証明の見取り図**。[ゲージ変換公式](../GBG8/index.md#thm-gbg8-local-gauge-transformation)へ $h=g^{-1}$ を代入する。$g$ は零次同次なので、$y$ 表示では $dg\,g^{-1}$ の分母を $|y|^2$ にまとめられ、前の係数と相殺して滑らかになる。
+**証明の見取り図**。[ゲージ変換公式](../GBG8/index.md#thm-gbg8-local-transform)へ $h=g^{-1}$ を代入する。$g$ は零次同次なので、$y$ 表示では $dg\,g^{-1}$ の分母を $|y|^2$ にまとめられ、前の係数と相殺して滑らかになる。
 
 <!-- proof-start -->
 ### 証明
 
-局所section変更 $s_\infty=s_0h$、$h=g^{-1}$ に対し、[GBG8の公式](../GBG8/index.md#thm-gbg8-local-gauge-transformation)は $A_\infty=h^{-1}Ah+h^{-1}dh$ を与える。上の $A=f(r)g^{-1}dg$、$f(r)=r^2/(r^2+\rho^2)$ を代入すると
+局所section変更 $s_\infty=s_0h$、$h=g^{-1}$ に対し、[GBG8の公式](../GBG8/index.md#thm-gbg8-local-transform)は $A_\infty=h^{-1}Ah+h^{-1}dh$ を与える。上の $A=f(r)g^{-1}dg$、$f(r)=r^2/(r^2+\rho^2)$ を代入すると
 
 $$
 \begin{aligned}
@@ -547,7 +547,7 @@ $$
 $h=g^{-1}$ によるゲージ変換を行い、$y=x/r^2$ の座標で $A_\infty(0)=0$ に延長できることを確認せよ。なぜ $g$ 自身を $x=0$ に延長する必要はないか。
 
 <!-- solution-start -->
-**詳細解答**。[右主束のゲージ変換公式](../GBG8/index.md#thm-gbg8-local-gauge-transformation)で
+**詳細解答**。[右主束のゲージ変換公式](../GBG8/index.md#thm-gbg8-local-transform)で
 
 $$
 A_\infty=gAg^{-1}+g\,dg^{-1}
@@ -619,7 +619,7 @@ $$
 
 $F=*F$ なので $\operatorname{tr}(F\wedge F)=-|F|^2dx^{1234}$。ゆえに $k=-\operatorname{YM}/(8\pi^2)=-1$。
 
-**3.** $g^{-1}dg=(-i\sigma_a/r^2)(x^4dx^a-x^adx^4-\varepsilon_{abc}x^bdx^c)$ であり、$A=r^2g^{-1}dg/D$ と一致する。$h=g^{-1}$ として [局所ゲージ変換則](../GBG8/index.md#thm-gbg8-local-gauge-transformation)を使うと
+**3.** $g^{-1}dg=(-i\sigma_a/r^2)(x^4dx^a-x^adx^4-\varepsilon_{abc}x^bdx^c)$ であり、$A=r^2g^{-1}dg/D$ と一致する。$h=g^{-1}$ として [局所ゲージ変換則](../GBG8/index.md#thm-gbg8-local-transform)を使うと
 
 $$
 A_\infty=gAg^{-1}+g\,dg^{-1}
