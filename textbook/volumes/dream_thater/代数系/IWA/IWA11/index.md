@@ -133,7 +133,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\delta_S$ の像は定義通り $D_S$、核は[定理](#thm-iwa11-s-unit-exact)により $\partial_S(U_{K,S})$ です。第一同型定理から上の同型を得ます。$\partial_S$ が全射なら各 $e_{\mathfrak p}$ が像に入るので $\delta_S(e_{\mathfrak p})=[\mathfrak p]=0$。逆に各 $[\mathfrak p]=0$ なら $\delta_S$ は零写像で、その核は $\mathbb Z^S$ 全体です。
+$\delta_S$ の像は定義通り $D_S$、核は[定理](#thm-iwa11-s-unit-exact)により $\partial_S(U_{K,S})$ です。[第一同型定理](../../../基礎科目/LA/LA2/index.md#thm-la2-first-isomorphism)から上の同型を得ます。$\partial_S$ が全射なら各 $e_{\mathfrak p}$ が像に入るので $\delta_S(e_{\mathfrak p})=[\mathfrak p]=0$。逆に各 $[\mathfrak p]=0$ なら $\delta_S$ は零写像で、その核は $\mathbb Z^S$ 全体です。
 <!-- proof-end -->
 
 ## 3. $p$ の上の局所単数を取り出す
