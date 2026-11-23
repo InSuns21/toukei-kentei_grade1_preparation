@@ -394,7 +394,7 @@ L_3|j,m\rangle&=\hbar m|j,m\rangle.
 \end{aligned}
 $$
 
-古典力学では質点の位置ベクトル $\boldsymbol r$ と運動量 $\boldsymbol p=M\boldsymbol v$（質量 $M>0$、速度 $\boldsymbol v$）のベクトル積 $\boldsymbol r\times\boldsymbol p$を角運動量として扱います。これは量子角運動量の証明で使う前提ではなく、二つの模型を比較するための例です。
+古典力学では質点の位置ベクトル $\boldsymbol r$ と、質量 $M>0$ と速度 $\boldsymbol v$ の積 $M\boldsymbol v$ とのベクトル積 $\boldsymbol r\times(M\boldsymbol v)$ を角運動量として扱います。これは量子角運動量の証明で使う前提ではなく、二つの模型を比較するための例です。
 
 軌道角運動量は空間上の波動関数を**通常の空間回転**で動かす表現から生まれ、整数 $j$ の部分だけが現れます。一方、内部自由度のスピンでは被覆群 $SU(2)$ の表現を使えるため、半整数 $j$ も現れます。この区別を「三次元空間で半回転できないから」と説明するのではなく、**どの群のどの表現空間を用いるか**で説明するのが正確です。軌道部分と内部スピンの合成は次講で扱います。
 
@@ -579,7 +579,7 @@ $$
 #### LREP7-B04 横方向の二乗平均
 - Level: B
 
-任意のスピン $j$ の規格化された $|j,m\rangle$ について、$\langle A\rangle:=\langle j,m|A|j,m\rangle$ を期待値と書く。$\langle J_1\rangle=\langle J_2\rangle=0$ および $\langle J_1^2+J_2^2\rangle=j(j+1)-m^2$ を示せ。$j=1,m=0$ の場合を検算せよ。
+任意のスピン $j$ の規格化された $|j,m\rangle$ について、$\langle A\rangle:=\langle j,m|A|j,m\rangle$ をこの状態に関する行列要素の略記とする。$\langle J_1\rangle=\langle J_2\rangle=0$ および $\langle J_1^2+J_2^2\rangle=j(j+1)-m^2$ を示せ。$j=1,m=0$ の場合を検算せよ。
 
 <!-- solution-start -->
 **詳細解答。** $J_\pm|j,m\rangle$ は $|j,m\pm1\rangle$ に比例し、元の状態と直交します（端では零）。従って $\langle j,m|J_\pm|j,m\rangle=0$ です。$J_1=(J_++J_-)/2$、$J_2=(J_+-J_-)/(2i)$ へ代入すれば、それぞれの対角行列要素が零となります。[Casimir の定義](#def-lrep7-casimir)は $J_1^2+J_2^2=\boldsymbol J^2-J_3^2$ です。[固有値公式](#thm-lrep7-spin-spectrum)から
