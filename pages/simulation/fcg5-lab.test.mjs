@@ -187,8 +187,9 @@ test('FCG5 shared three-tab sandbox, lesson/manifest/TOC and detailed exercises'
 
 test('FCG5 R1 GUI edits actual grid, viscosity and force in the same source',async()=>{
   const source=await readFile(new URL('fluid.js',dir),'utf8');
-  const specs=parametersFor('FCG5');
-  assert.deepEqual(specs.map(spec=>spec.id),['grid','nu','force']);
+  assert.deepEqual(parametersFor('FCG5').map(spec=>spec.id),
+    ['grid','nu','force','brush-radius','brush-strength']);
+  const specs=parametersFor('FCG5').slice(0,3);
   assert.deepEqual(specs.map(spec=>spec.unit),['セル/辺','m²/s','m²/s²']);
   const targets=[24,0.0025,0.02];
   let changed=source;
@@ -243,6 +244,102 @@ test('FCG5 G2 gives edited expressions and noncanonical declarations precedence'
   assert.equal(readLabParameter(customGrid,grid).ok,false);
   assert.equal(readLabParameter(customGrid,nu).ok,true);
   assert.equal(readLabParameter(customGrid,force).ok,true);
+});
+
+test('FCG5 brush GUI rewrites its only actual dye source, not a duplicate renderer',async()=>{
+  const source=await readFile(new URL('fluid.js',dir),'utf8');
+  const [radius,strength]=parametersFor('FCG5').slice(3);
+  assert.deepEqual(readLabParameter(source,radius),{ok:true,value:0.085});
+  assert.deepEqual(readLabParameter(source,strength),{ok:true,value:0.48});
+  const edited=writeLabParameter(writeLabParameter(source,radius,0.05),strength,0.6);
+  assert.deepEqual(readLabParameter(edited,radius),{ok:true,value:0.05});
+  assert.deepEqual(readLabParameter(edited,strength),{ok:true,value:0.6});
+  assert.match(edited,/dyeBrushStrength\*Math\.exp/);
+  assert.match(edited,/dyeBrushRadius\*dyeBrushRadius/);
+  assert.equal(writeLabParameter(writeLabParameter(edited,radius,0.085),strength,0.48),source);
+  assert.throws(()=>writeLabParameter(source,radius,0.081),RangeError);
+  assert.throws(()=>writeLabParameter(source,strength,1.05),RangeError);
+  const expression=source.replace('dyeBrushRadius=0.085','dyeBrushRadius=0.17/2');
+  assert.equal(readLabParameter(expression,radius).ok,false);
+  assert.throws(()=>writeLabParameter(expression,radius,0.05),/JSソース/);
+  const duplicate=source+'\nconst dyeBrushRadius=0.085,dyeBrushStrength=0.48;';
+  assert.equal(readLabParameter(duplicate,strength).ok,false);
+});
+
+test('FCG5 live brush edits preserve every pre-injection GPU input field',async()=>{
+  const source=await readFile(new URL('fluid.js',dir),'utf8');
+  const [vertex,fragment]=await Promise.all(['fluid.vert','fluid.frag']
+    .map(f=>readFile(new URL(f,dir),'utf8')));
+  const [radius,strength]=parametersFor('FCG5').slice(3);
+  const customized=writeLabParameter(writeLabParameter(source,radius,0.15),strength,0.95);
+  const sampleTextures=code=>{
+    const gl=mockGL();
+    new Function('gl','canvas','vertexSource','fragmentSource','report','settings',code)(
+      gl,{width:320,height:240},vertex,fragment,()=>{},{steps:8});
+    return gl._textures;
+  };
+  const before=sampleTextures(source),after=sampleTextures(customized);
+  assert.equal(before.length,3);
+  for(let panel=0;panel<3;panel++){
+    assert.equal(before[panel].length,48*48,'real MAC grid texture');
+    assert.deepEqual(after[panel],before[panel],
+      'brush has no effect until the learner injects dye into actual state');
+  }
+});
+
+test('FCG5 dye injection changes the real 48x48 R8 texture under source-linked brush controls',async()=>{
+  const source=await readFile(new URL('fluid.js',dir),'utf8');
+  const [vertex,fragment]=await Promise.all(['fluid.vert','fluid.frag']
+    .map(f=>readFile(new URL(f,dir),'utf8')));
+  const [radius,strength]=parametersFor('FCG5').slice(3);
+  function injectAndRead(r,a){
+    const edited=writeLabParameter(writeLabParameter(source,radius,r),strength,a);
+    const gl=mockGL(),listeners=new Map();
+    let unit=0;
+    const originalActive=gl.activeTexture.bind(gl);
+    gl.activeTexture=n=>{unit=n-gl.TEXTURE0;originalActive(n);};
+    gl.texSubImage2D=(...args)=>{gl._textures[unit]=Uint8Array.from(args.at(-1));};
+    gl.uniform1f=()=>{};
+    const canvas={
+      width:320,height:240,
+      addEventListener:(name,fn)=>listeners.set(name,fn),
+      removeEventListener:()=>{},
+      dispatchEvent:event=>listeners.get(event.type)?.(event),
+      setAttribute:()=>{},setPointerCapture:()=>{},
+      getBoundingClientRect:()=>({left:0,top:0,width:320,height:240})
+    };
+    const browser={
+      matchMedia:()=>({matches:true,addEventListener(){},removeEventListener(){}}),
+      addEventListener(){},removeEventListener(){},parent:null
+    };
+    new Function('gl','canvas','vertexSource','fragmentSource','report','settings',
+      'window','document','requestAnimationFrame','cancelAnimationFrame','CustomEvent',edited)(
+      gl,canvas,vertex,fragment,()=>{},{steps:0},browser,{hidden:false},
+      ()=>1,()=>{},class {constructor(type,options){this.type=type;this.detail=options?.detail;}});
+    const before=gl._textures[0].slice();
+    listeners.get('pointerdown')({
+      pointerType:'mouse',shiftKey:true,clientX:160,clientY:120,pointerId:1,
+      preventDefault(){}
+    });
+    return {before,after:gl._textures[0]};
+  }
+  const disabled=injectAndRead(0.085,0);
+  assert.deepEqual(disabled.after,disabled.before,'zero strength adds no dye');
+  const narrow=injectAndRead(0.05,0.6);
+  const broad=injectAndRead(0.15,0.6);
+  const changed=({before,after})=>before.reduce((n,v,i)=>n+(after[i]>v+2?1:0),0);
+  assert.ok(changed(narrow)>0,'same edited JS injects visible dye');
+  assert.ok(changed(broad)>changed(narrow),'wider source reaches more real MAC dye cells');
+});
+
+test('FCG5 host uses edited conditions in CPU preview, verified pixel oracle and click probe',async()=>{
+  const host=await readFile(new URL('./wgl-lab-host.mjs',import.meta.url),'utf8');
+  assert.match(host,/function fcg5PhysicsFor\(/);
+  assert.match(host,/fcg5State\(fcg5Steps,fcg5Physics\|\|\{\}\)/);
+  assert.match(host,/expectedFCG5Samples\(payload\.width,payload\.height,fcg5Steps,fcg5Physics\|\|\{\}\)/);
+  assert.match(host,/fcg5State\(steps,fcg5Physics\)/);
+  assert.match(host,/独立CPU初期画素検算/);
+  assert.match(host,/任意編集JS\/GLSLのため、独立CPUセル値は未検証/);
 });
 
 test('FCG5 authenticated live-clock handshake reports actual running solver state',async()=>{
