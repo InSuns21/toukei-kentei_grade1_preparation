@@ -34,3 +34,4 @@
 31. [BHI31 ensemble平均とfactorization問題](textbook/volumes/dream_thater/物理系/BHI/BHI31/index.md)
 32. [BHI32 放射のentanglement wedge](textbook/volumes/dream_thater/物理系/BHI/BHI32/index.md)
 33. [BHI33 回復写像と情報への操作的アクセス](textbook/volumes/dream_thater/物理系/BHI/BHI33/index.md)
+34. [BHI34 代替二次元模型との比較](textbook/volumes/dream_thater/物理系/BHI/BHI34/index.md)
