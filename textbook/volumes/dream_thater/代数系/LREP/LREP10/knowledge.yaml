@@ -1,0 +1,55 @@
+chapter: LREP10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP9
+forward_references:
+  - representation.lorentz-finite-dimensional
+concepts:
+  - id: representation.lorentz-hermitian-model
+    name: 四元ベクトルのエルミート行列模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（四元ベクトルのエルミート行列模型）"]
+    requires: [representation.pauli-matrix-model, representation.lorentz-group]
+  - id: representation.lorentz-determinant-cone
+    name: 行列式とMinkowski計量・未来円錐
+    kind: theorem
+    introduction: formal
+    requires: [representation.lorentz-hermitian-model, representation.pauli-product]
+  - id: representation.sl2c-lorentz-action
+    name: "SL(2,C)の四元ベクトル作用"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（SL(2,C)の四元ベクトル作用）"]
+    requires: [representation.lorentz-hermitian-model, representation.lorentz-determinant-cone]
+  - id: representation.sl2c-polar-connectivity
+    name: "SL(2,C)の極分解と道連結性"
+    kind: lemma
+    introduction: formal
+    requires: [representation.sl2c-lorentz-action, representation.su2-axis-angle]
+  - id: representation.sl2c-lorentz-homomorphism
+    name: 合同作用によるLorentz群準同型
+    kind: theorem
+    introduction: formal
+    requires: [representation.sl2c-lorentz-action, representation.sl2c-polar-connectivity, representation.lorentz-determinant-cone]
+  - id: representation.sl2c-kernel
+    name: 被覆写像の核
+    kind: proposition
+    introduction: formal
+    requires: [representation.sl2c-lorentz-homomorphism, representation.pauli-matrix-model]
+  - id: representation.sl2c-surjectivity
+    name: "SL(2,C)のLorentz作用の全射性"
+    kind: theorem
+    introduction: formal
+    requires: [representation.sl2c-lorentz-homomorphism, representation.su2-kernel-surjectivity]
+  - id: representation.sl2c-double-cover
+    name: "SL(2,C)からSO^+(1,3)への二重被覆"
+    kind: theorem
+    introduction: formal
+    requires: [representation.sl2c-surjectivity, representation.sl2c-kernel, representation.lorentz-lie-algebra]
+  - id: representation.sl2c-null-factorization
+    name: 未来光的ベクトルの階数1分解
+    kind: proposition
+    introduction: formal
+    requires: [representation.lorentz-determinant-cone, representation.sl2c-lorentz-action]
