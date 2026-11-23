@@ -34,12 +34,25 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-15-lift -->
-**定義の確認**。 $m=2$、$P(z)=(z,1)$、$f(x)=x$ とすると $h_0(x)=(x,1)$。$P$ は連続、$f$ も連続で、二つの成分 $x$ と1はともに $D$ 上連続である。従って持ち上げの定義域・値域の条件が成立する。さらに $\|h_0\|_{\infty,2}=\max\{\max_x x,1\}=1$。チャネル数2は「入力を二点で観測する」という意味ではない。**各位置に二つの値がある**という意味である。
+**定義の確認**。 $m=2$、$P(z)=(z,1)$、$f(x)=x$ とする。$P$ と $f$ はそれぞれの定義域で連続であり、合成は
+
+$
+h_0(x)=P(f(x))=(x,1)\qquad(0\le x\le1)
+$
+
+となる。二つの成分 $x$ と $1$ はともに $D$ 上で連続だから、$h_0\in C(D;\mathbb R^2)$ である。一様ノルムも定義どおり成分ごとの最大値から計算でき、
+
+$
+\|h_0\|_{\infty,2}
+=\max\left\{\max_{0\le x\le1}|x|,\max_{0\le x\le1}|1|\right\}=1.
+$
+
+チャネル数2は「入力を二点で観測する」という意味ではない。**各位置に二つの値がある**という意味である。
 <!-- definition-example-end -->
 
 ## 3. 一点の変換と、全区間から集める積分
 
-各位置で $h(x)$ に行列 $W\in\mathbb R^{m\times m}$ を掛ければ、その位置のチャネルを混ぜられる。しかし、この操作だけでは他の位置 $t$ にある値を利用できない。
+各位置で $h(x)$ に行列 $W\in\mathbb R^{m\times m}$ を掛ければ、その位置のチャネルを混ぜられる。ここでは $h(x)$ を $m$ 成分の**列ベクトル**として行列を左から掛ける。しかし、この操作だけでは他の位置 $t$ にある値を利用できない。
 
 そこで $K(x,t)\in\mathbb R^{m\times m}$ という**積分核**を置く。行列成分 $K_{ij}(x,t)$ は、入力位置 $t$ の第 $j$ チャネルが、出力位置 $x$ の第 $i$ チャネルへどれだけ寄与するかを表す。具体的には
 
@@ -74,13 +87,26 @@ K(x,t)=\begin{pmatrix}xt&0\\0&0\end{pmatrix},
 \qquad \sigma(s)=\max\{s,0\}
 $$
 
-とする。両行列の次元は $2\times2$、核の成分 $xt$ は $D\times D$ 上連続、$b$ は連続、ReLUも連続である。積分の第1成分は $x\int_0^1t^2dt=x/3$、第2成分は0なので、
+とする。$W$ と $K(x,t)$ の次元はともに $2\times2$ である。核の成分 $xt$ は $D\times D$ 上連続、$b$ は零関数で連続、ReLUも連続である。列ベクトルとして掛け算を展開すると、
 
-$$
-Wh(x)+\int_0^1K(x,t)h(t)dt=(4x/3,0).
-$$
+$
+Wh(x)=\begin{pmatrix}x\\0\end{pmatrix},
+\qquad
+K(x,t)h(t)=\begin{pmatrix}xt^2\\0\end{pmatrix}.
+$
 
-$0\le x\le1$ より ReLU はこのベクトルを変えない。従って $(\mathcal Lh)(x)=(4x/3,0)$ となり、出力の二成分は連続である。これは**行列表示が実際に定義の各条件を満たす**例である。
+評価位置 $x$ を固定して $t$ で成分ごとに積分するので、
+
+$
+\int_0^1K(x,t)h(t)\,dt
+=\begin{pmatrix}x\int_0^1t^2\,dt\\0\end{pmatrix}
+=\begin{pmatrix}x/3\\0\end{pmatrix},
+\qquad
+Wh(x)+\int_0^1K(x,t)h(t)\,dt
+=\begin{pmatrix}4x/3\\0\end{pmatrix}.
+$
+
+$0\le x\le1$ より ReLU はこのベクトルを変えない。従って $(\mathcal Lh)(x)=(4x/3,0)$ となり、出力の二成分は連続である。行列の各成分が定義式のチャネル間の寄与を表すことと、定義の連続性・次元条件を直接確認できた。
 <!-- definition-example-end -->
 
 入力を持ち上げた $h_0$ に $\mathcal L_0,\ldots,\mathcal L_{L-1}$ を順に適用し、連続な点ごとの写像 $Q:\mathbb R^m\to\mathbb R$ で一つの値へ戻せば、
@@ -261,13 +287,29 @@ $$
 連続層では $(\mathcal Lh)(x)=x\int_0^1t^2dt=x/3$。従って差は $x/48$ であり、一様誤差は $1/48$ になる。核も入力も滑らかでも、節点が有限なら求積誤差が生じる。
 <!-- definition-example-end -->
 
-**配列としての計算。** $H_{ji}=h_i(t_j)$ とすれば $H$ は $N\times m$ の行列である。各出力節点 $t_i$ における積分項は
+**配列としての計算。** 入力節点を $j=1,\ldots,N$、チャネルを $k=1,\ldots,m$ で区別し、
 
-$$
-I_i=\frac1N\sum_{j=1}^N K(t_i,t_j)H_{j,:}\in\mathbb R^m.
-$$
+$
+H_{jk}=h_k(t_j),\qquad H=(H_{jk})\in\mathbb R^{N\times m}
+$
 
-これは $m\times m$ の核行列を各入力ベクトルに掛けてから足したもので、節点数 $N$ とチャネル数 $m$ を混同していない。直接計算には各層で概ね $N^2m^2$ 回のスカラー積和が必要である（核の計算・保存・パラメータの費用は別）。後続のFourier型構成はこの費用の構造を変える。
+とする。$H$ の第 $j$ 行 $H_{j,:}$ は行ベクトルなので、核行列を左から掛ける際には、対応する**列ベクトル**
+
+$
+v_j=(H_{j1},\ldots,H_{jm})^{\mathsf T}=h(t_j)\in\mathbb R^m
+$
+
+を使う。出力節点の添字を $p=1,\ldots,N$ とすると、積分項と第 $i$ チャネルは
+
+$
+\begin{aligned}
+I_p&=\frac1N\sum_{j=1}^NK(t_p,t_j)v_j\in\mathbb R^m,\\
+(I_p)_i&=\frac1N\sum_{j=1}^N\sum_{k=1}^m K_{ik}(t_p,t_j)H_{jk}
+\qquad(1\le i\le m).
+\end{aligned}
+$
+
+したがって出力は $(\mathcal L_Nh)(t_p)=\sigma(Wv_p+b(t_p)+I_p)$ となる。核は $m\times m$、各 $v_j$ と $I_p$ は $m$ 成分で、$N$ は節点数だけを表す。直接計算には各層で概ね $N^2m^2$ 回のスカラー積和が必要である（核の計算・保存・パラメータの費用は別）。後続のFourier型構成はこの費用の構造を変える。
 
 ## 8. 求積誤差を条件から導く
 
