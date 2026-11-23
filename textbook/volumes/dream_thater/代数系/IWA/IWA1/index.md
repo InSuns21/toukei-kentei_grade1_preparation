@@ -22,7 +22,7 @@ $$
 <a id="prop-iwa1-residue-quotients"></a>
 
 <!-- formal-statement-start -->
-> **命題（$p$ 進整数の有限商）**  
+> **命題（p進整数の有限商）**  
 > 素数 $p$、整数 $n\ge0$ に対し、法 $p^n$ の還元写像は連続で全射な群準同型であり、核は $p^n\mathbb Z_p$ である。したがって（$n=0$ では自明群と解釈し）
 
 $$
@@ -63,7 +63,7 @@ $$
 <a id="thm-iwa1-closed-subgroups"></a>
 
 <!-- formal-statement-start -->
-> **定理（$\mathbb Z_p$ の閉部分群の分類）**  
+> **定理（Z_pの閉部分群の分類）**  
 > 素数 $p$ に対し、加法位相群 $\mathbb Z_p$ の閉部分群は
 
 $$
@@ -101,14 +101,14 @@ $H$ は閉なので左辺を含み、$p^n\mathbb Z_p\subseteq H$ を得ます。
 
 ## 3. 無限Galois拡大を有限層へ分ける
 
-[ANF22の $\mathbb Z_p$ 拡大の定義](../../ANF/ANF22/index.md#def-anf22-zp-extension)を使い、$\Gamma=\operatorname{Gal}(K_\infty/K)$ が位相群として $\mathbb Z_p$ に同型である無限Galois拡大を固定します。同型 $\iota:\Gamma\xrightarrow{\sim}\mathbb Z_p$ は選択しておきます。
+[前講のZ_p拡大](../../ANF/ANF22/index.md#def-anf22-zp-extension)を使い、$\Gamma=\operatorname{Gal}(K_\infty/K)$ が位相群として $\mathbb Z_p$ に同型である無限Galois拡大を固定します。同型 $\iota:\Gamma\xrightarrow{\sim}\mathbb Z_p$ は選択しておきます。
 
 無限体 $K_\infty$ を最初から一度に扱う代わりに、$\iota^{-1}(p^n\mathbb Z_p)$ が動かさない元全体を有限層にします。群の側で一段下がると、体の側で一段上がります。
 
 <a id="def-iwa1-canonical-layers"></a>
 
 <!-- formal-statement-start -->
-> **定義（$\mathbb Z_p$ 拡大の第 $n$ 層）**  
+> **定義（Z_p拡大の第n層）**  
 > 数体 $K$ の $\mathbb Z_p$ 拡大 $K_\infty/K$ と、位相群同型 $\iota:\operatorname{Gal}(K_\infty/K)\to\mathbb Z_p$ を固定する。整数 $n\ge0$ について、その第 $n$ 層 $K_n$ を
 
 $$
@@ -178,7 +178,7 @@ $$
 とします。$F_0=\mathbb Q$、$[F_1:\mathbb Q]=3$、$[F_2:\mathbb Q]=9$ です。$F_\infty=\bigcup_nF_n$ のGalois群は $\mathbb Z_3$ で、$F_n$ を固定する部分群は指数 $3^n$。閉部分群の分類でこの部分群は $3^n\mathbb Z_3$ にしか対応できません。したがって上の定義の $K_n$ と、この具体的な $F_n$ が一致します。$F_1$ は$F_2$に含まれ、相対次数は $9/3=3$ です。固定群・次数・包含の三条件を個別に確認できました。
 <!-- definition-example-end -->
 
-この定理は群構造から**何個の有限層があるか**を決めます。しかし、各 $K_n$ の類群がどの大きさかは、まだ何も決めていません。そこに岩澤理論の数論的な仕事があります。
+この定理は群構造から**何個の有限層があるか**を決めます。しかし、各 $K_n$ の類群がどの大きさかは、まだ何も決めていません。そこから各層の類群を解析することが岩澤理論の課題になります。
 
 ## 4. 有限層の自己同型をつなぎ直す
 
@@ -248,7 +248,7 @@ $$
 <a id="prop-iwa1-generator-criterion"></a>
 
 <!-- formal-statement-start -->
-> **命題（$\mathbb Z_p$ の位相的生成元判定）**  
+> **命題（Z_pの位相的生成元判定）**  
 > $u\in\mathbb Z_p$ が加法群 $\mathbb Z_p$ の位相的生成元であることと、$u\in\mathbb Z_p^\times$（$v_p(u)=0$）であることは同値である。$\mathbb Z_p$ 拡大のGalois群の位相的生成元 $\gamma$ は、各第 $n$ 層で位数 $p^n$ の生成元へ写る。
 <!-- formal-statement-end -->
 
