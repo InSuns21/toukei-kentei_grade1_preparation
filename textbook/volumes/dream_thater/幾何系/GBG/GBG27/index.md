@@ -57,7 +57,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（4次元の星の二乗）**  
-> 上の向きと正定値計量の下で、任意の実2形式 $\alpha$ に対して
+> 向き付き4次元実内積空間 $(V,g)$ のHodge星 $*:\Lambda^2V^*\to\Lambda^2V^*$ に対し、任意の実2形式 $\alpha,\beta\in\Lambda^2V^*$ について
 
 $$
 *^2\alpha=\alpha,\qquad
@@ -129,7 +129,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（曲率の直交分解）**  
-> 上の仮定の下で $\mathfrak{su}(2)$ 値曲率は $F_A=F_A^++F_A^-$ と一意に分解され、点ごとに
+> $M$ を向き付きRiemann 4多様体、$P\to M$ を滑らかな右主 $SU(2)$ 束、$A$ をその接続とする。$\mathfrak{su}(2)$ 値曲率は $F_A=F_A^++F_A^-$ と一意に分解され、点ごとに
 
 $$
 \lvert F_A\rvert^2=\lvert F_A^+\rvert^2+\lvert F_A^-\rvert^2
@@ -329,7 +329,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Yang–Mills作用の第一変分と方程式）**  
-> $M$ を向き付きコンパクト境界なしRiemann 4多様体、$A$ を滑らかな $SU(2)$ 接続とする。任意の滑らかな $\operatorname{ad}(P)$ 値1形式 $a$ について
+> $M$ を向き付きコンパクト境界なしRiemann 4多様体、$P\to M$ を滑らかな右主 $SU(2)$ 束、$A$ を $P$ 上の滑らかな接続とする。任意の滑らかな $\operatorname{ad}(P)$ 値1形式 $a$ について
 
 $$
 \left.\frac{d}{dt}\operatorname{YM}(A+ta)\right|_{t=0}
@@ -382,7 +382,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（自己双対・反自己双対接続はYang–Mills接続）**  
-> 向き付きRiemann 4多様体上の任意の滑らかな $SU(2)$ 接続 $A$ が $F_A=*F_A$ または $F_A=-*F_A$ を満たすなら、
+> $M$ を向き付きRiemann 4多様体、$P\to M$ を滑らかな右主 $SU(2)$ 束とする。$P$ 上の滑らかな接続 $A$ が $F_A=*F_A$ または $F_A=-*F_A$ を満たすなら、
 
 $$
 d_A*F_A=0.
