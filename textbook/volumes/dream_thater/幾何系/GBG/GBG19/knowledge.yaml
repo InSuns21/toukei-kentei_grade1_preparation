@@ -4,7 +4,9 @@ coverage: complete
 prerequisites:
   - GBG18
   - GEO8
-forward_references: []
+forward_references:
+  - electromagnetism.electric-charge
+  - electromagnetism.magnetic-flux
 concepts:
   - id: gauge.dirac-monopole-local-connection
     name: Dirac monopoleの南北局所接続
