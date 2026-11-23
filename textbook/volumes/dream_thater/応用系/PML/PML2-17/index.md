@@ -37,7 +37,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-17-grid-error -->
-**定義の確認。** $m=1$、$M=1$、$R_1=R_{-1}=1$、$R_0=W=b=0$、$\sigma(s)=s$ とする。$h(x)=\cos(2\pi x)$ は連続、実数値、周期1であり、$N=4$ と8の両方で $M<N/2$ を満たす。[Fourier係数](../PML2-16/index.md#def-pml2-16-fourier)は $\widehat h_{\pm1}=1/2$、[DFT](../PML2-16/index.md#def-pml2-16-dft)も両格子で $\widetilde h_1=\widetilde h_{N-1}=1/2$ である。したがって
+**定義の確認**。 $m=1$、$M=1$、$R_1=R_{-1}=1$、$R_0=W=b=0$、$\sigma(s)=s$ とする。$h(x)=\cos(2\pi x)$ は連続、実数値、周期1であり、$N=4$ と8の両方で $M<N/2$ を満たす。[Fourier係数](../PML2-16/index.md#def-pml2-16-fourier)は $\widehat h_{\pm1}=1/2$、[DFT](../PML2-16/index.md#def-pml2-16-dft)も両格子で $\widetilde h_1=\widetilde h_{N-1}=1/2$ である。したがって
 
 $$
 (\mathcal Fh)(x)=\cos(2\pi x),
@@ -134,7 +134,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-17-tail -->
-**定義の確認。** $h(x)=\cos(14\pi x)$ の非零係数は $c_7=c_{-7}=1/2$ だけである。$M=1$、$N=8$ なら $N-M=7$ より $T_{8,1}=1/2+1/2=1$。$N=16$ なら $N-M=15$ より $T_{16,1}=0$。実数値、周期連続性、絶対総和可能性も満たすので、いずれの値も定義に適合する。
+**定義の確認**。 $h(x)=\cos(14\pi x)$ の非零係数は $c_7=c_{-7}=1/2$ だけである。$M=1$、$N=8$ なら $N-M=7$ より $T_{8,1}=1/2+1/2=1$。$N=16$ なら $N-M=15$ より $T_{16,1}=0$。実数値、周期連続性、絶対総和可能性も満たすので、いずれの値も定義に適合する。
 <!-- definition-example-end -->
 
 <a id="thm-pml2-17-tail-bound"></a>
