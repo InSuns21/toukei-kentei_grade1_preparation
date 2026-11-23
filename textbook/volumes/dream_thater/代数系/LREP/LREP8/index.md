@@ -71,8 +71,18 @@ $$
 T^2=T_3^2+\frac12(T_+T_-+T_-T_+)
 $$
 
-と展開できます。例えば $T_-|\uparrow\uparrow\rangle
-=|\downarrow\uparrow\rangle+|\uparrow\downarrow\rangle$、$T_+T_-|\uparrow\uparrow\rangle=2|\uparrow\uparrow\rangle$、$T_-T_+|\uparrow\uparrow\rangle=0$ なので $T^2|\uparrow\uparrow\rangle=2|\uparrow\uparrow\rangle$ です。積状態から全角運動量の固有値へ進む計算も、定義した演算子の作用として確認できました。
+と展開できます。例えば
+
+$$
+\begin{aligned}
+T_-|\uparrow\uparrow\rangle
+&=|\downarrow\uparrow\rangle+|\uparrow\downarrow\rangle,\\
+T_+T_-|\uparrow\uparrow\rangle&=2|\uparrow\uparrow\rangle,\\
+T_-T_+|\uparrow\uparrow\rangle&=0.
+\end{aligned}
+$$
+
+したがって $T^2|\uparrow\uparrow\rangle=2|\uparrow\uparrow\rangle$ です。積状態から全角運動量の固有値へ進む計算も、定義した演算子の作用として確認できました。
 <!-- definition-example-end -->
 
 この節の $J_a^{(j)}$ は $V_j$ 上の自己共役演算子であり、テンソル積上で別の粒子に作用する二項は可換です。ここを区別すると合成角運動量の交換関係が計算できます。
@@ -400,8 +410,7 @@ $$
 \end{aligned}
 $$
 
-さらに $T_-|\tfrac32,-\tfrac12\rangle
-=\sqrt3|-1,\downarrow\rangle$ なので、$|\tfrac32,-\tfrac32\rangle=|-1,\downarrow\rangle$ です。
+さらに $T_-|\tfrac32,-\tfrac12\rangle=\sqrt3|-1,\downarrow\rangle$ なので、$|\tfrac32,-\tfrac32\rangle=|-1,\downarrow\rangle$ です。
 
 スピン $\frac12$ の下降係数は1です。前に選んだ最高状態の位相を保つと
 
