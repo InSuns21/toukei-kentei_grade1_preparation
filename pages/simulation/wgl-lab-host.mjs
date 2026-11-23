@@ -961,7 +961,7 @@ window.addEventListener('message', event => {
     const unchanged=Object.keys(defaults).every(key=>active.payload[key]===defaults[key]);
     byId('result-note').textContent=c.panel+' 格子('+c.i+','+c.j+')、数値q='+
       q.toFixed(6)+'、解析='+e.toFixed(6)+'、GPU='+rgba.join('/')+
-      '、初期CPU画素との差='+d+'階調：'+((unchanged||physics)?(d<=2?'一致':'不一致'):'編集後は参考比較');
+      '、起動時CPU画素との差='+d+'階調（再生後は物理stepが異なるため参考値。初期の一致判定は上の6画素表で確認）';
     return;
   }
   if (isFCG2 && data.type === 'fcg2-cursor') {
