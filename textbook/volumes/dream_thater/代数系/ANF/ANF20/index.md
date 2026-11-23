@@ -134,7 +134,7 @@ $2^2\equiv-1$、$2^4\equiv1\pmod5$ より第一群は位数 $4$ の巡回群、�
 
 先に $d_0\in\mathcal O_K\setminus\{0\}$ を選び、指定したすべての有限素点で $d_0x_{\mathfrak p}\in\mathcal O_{\mathfrak p}$ とします。
 
-指数 $e_{\mathfrak p}$ を $e_{\mathfrak p}-\operatorname{ord}_{\mathfrak p}(d_0)\ge N_{\mathfrak p}$ となるように選べば、各 $\mathfrak p$ で
+指数 $e_{\mathfrak p}\ge1$ を $e_{\mathfrak p}-\operatorname{ord}_{\mathfrak p}(d_0)\ge N_{\mathfrak p}$ となるように選べば、各 $\mathfrak p$ で
 
 $$
 b\equiv d_0T x_{\mathfrak p}
@@ -162,7 +162,7 @@ $K\otimes_\mathbb Q\mathbb R$ において、目標 $d_0T(x_v)_{v\mid\infty}$ �
 
 $c=\min_{v\mid\infty}|v(d_0)|>0$ とおけば、埋め込みごとの $b/(d_0T)$ と $x_v$ の誤差は高々 $M/(cT)$ です。
 
-指定有限素点を避ける正整数 $T$ は任意に大きく取れるので、この誤差は $0$ に近づき、すべての指定無限近傍にも入ります。無限素点が指定されていない場合は中国剰余定理だけで十分です。
+指定有限素点の下にある有理素数の積を $P$ とすれば、$T=1+kP$（$k\ge1$）はそれらと互いに素で任意に大きく取れます。従って誤差は $0$ に近づき、すべての指定無限近傍にも入ります。無限素点が指定されていない場合は中国剰余定理だけで十分です。
 <!-- proof-end -->
 
 <a id="prop-anf20-ray-finite"></a>
@@ -472,7 +472,15 @@ $p\ne5$ では $X^5-1$ の導関数が $5X^4$ なので、両多項式は共通�
 
 $\alpha$ が $\zeta_5$ の四つの共役根を動くとき、$\Phi_5'(\alpha)=5\alpha^4/(\alpha-1)$ です。
 
-また $\prod_{a=1}^4(1-\zeta_5^a)=\Phi_5(1)=5$、$\prod_{a=1}^4\zeta_5^a=1$ です。[基底の判別式](../ANF2/index.md#def-anf2-basis-discriminant)をVandermonde積で表して
+また $\prod_{a=1}^4(1-\zeta_5^a)=\Phi_5(1)=5$、$\prod_{a=1}^4\zeta_5^a=1$ です。
+
+次数 $4$ の基底 $(1,\zeta_5,\zeta_5^2,\zeta_5^3)$ の四つの複素埋め込みによる表示行列を、$\alpha_i=\zeta_5^i$ として
+
+$$
+M=(\alpha_i^{j-1})_{1\le i,j\le4}
+$$
+
+と置きます。[基底の判別式の埋め込み表示](../ANF2/index.md#thm-anf2-embedding-formulas)から $\operatorname{disc}(1,\zeta_5,\zeta_5^2,\zeta_5^3)=(\det M)^2$ です。Vandermondeの積 $\det M=\prod_{i<j}(\alpha_j-\alpha_i)$ を二乗し、$\Phi_5'(\alpha_i)=\prod_{j\ne i}(\alpha_i-\alpha_j)$ を全 $i$ で掛ければ、四次では $(-1)^{4\cdot3/2}=1$ なので $(\det M)^2=\prod_i\Phi_5'(\alpha_i)$ と分かります。従って
 
 $$
 \left|\operatorname{disc}(1,\zeta_5,\zeta_5^2,\zeta_5^3)\right|
