@@ -120,10 +120,10 @@ $$
 
 その解全体は、固定した非零整イデアルについての格子剰余類です。
 
-$
+$$
 \mathfrak a=\prod_{\mathfrak p}\mathfrak p^{e_{\mathfrak p}},
 \qquad b\in b_0+\mathfrak a.
-$
+$$
 
 [Minkowski埋め込みの格子性](../ANF5/index.md#thm-anf5-ideal-covolume)を使います。$K\otimes_\mathbb Q\mathbb R$ において、目標 $d_0T(x_v)_{v\mid\infty}$ から格子剰余類 $b_0+\mathfrak a$ のある点 $b$ までの距離は、格子 $\mathfrak a$ の基本領域の有界な直径 $M$ で抑えられます。
 
@@ -382,9 +382,9 @@ $\Phi_5(x)=(x^5-1)/(x-1)$ です。$p\ne5$ で $x^5-1$ の導関数は $5x^4$ �
 
 算術的Frobeniusは剰余体で $z\mapsto z^p$ です。$\zeta_5$ の還元に適用すると次を得ます。
 
-$
+$$
 \overline{\zeta_5}\longmapsto\overline{\zeta_5^p}.
-$
+$$
 
 自己同型 $\sigma_p$ もこの作用を持ち、$\zeta_5$ が $L$ を生成するので二つの自己同型は一致します。
 
@@ -475,11 +475,11 @@ $\operatorname{Art}_{\mathbb Q(\zeta_5)/\mathbb Q}(\Delta(2))$ を有限素点�
 
 核の元は主分数イデアル $(a)$ で表せます。法に含む各有限素点で $v_{\mathfrak p}(a)=0$ なので、$a$ は法の有限剰余で単数です。これに指定実素点での符号を組み合わせ、次の有限群に写します。
 
-$
+$$
 R_{\mathfrak m}=
 (\mathcal O_K/\mathfrak m_0)^\times
 \times\{\pm1\}^{|\mathfrak m_\infty|}.
-$
+$$
 
 同じ剰余と符号を持つ $a,b$ の比は法に関して $1$ に合同で、指定実素点では正です。従って $[(a)]=[(b)]$。また[弱近似](#lem-anf20-weak-approx)で任意のデータを実現できます。よって核はこの有限群の商です。
 
