@@ -371,6 +371,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
+共役対称性から $c_0$ は実ベクトルであり、$k$ と $-k$ の項は
+
+$
+c_ke^{2\pi ikx}+c_{-k}e^{-2\pi ikx}
+=2\operatorname{Re}(c_ke^{2\pi ikx})
+$
+
+となる。従って $h(x)\in\mathbb R^m$ で、[実数入力のDFT](#def-pml2-16-dft)を適用できる。
+
 定義へ代入し、二つの有限和の順序を入れ替えると
 
 $$
