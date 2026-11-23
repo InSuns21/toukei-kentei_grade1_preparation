@@ -102,9 +102,9 @@ test('WGL19 result view offers source-linked clock presets and verifies every re
   ]);
   for(const part of ["request.lesson==='WGL19'","type:'wgl19-control'",
     "type:'wgl19-progress'",'wgl19-initial-oracle-captured','scheduleWGL19(audit.deltas',
-    "data.steps===expected.totalSteps","id='wgl19-live-play'",
-    "id='wgl19-live-step'","id='wgl19-live-reset'",
-    "id='wgl19-timeline'","const frameDeltasMs=",
+    "data.steps===expected.totalSteps",'id="wgl19-live-play"',
+    'id="wgl19-live-step"','id="wgl19-live-reset"',
+    'id="wgl19-timeline"',"const frameDeltasMs=",
     "const maxStepsPerFrame="]){
     assert.ok(host.includes(part),part);
   }
