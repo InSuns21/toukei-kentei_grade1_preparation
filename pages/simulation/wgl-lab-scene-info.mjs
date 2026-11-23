@@ -73,11 +73,11 @@ const descriptions = Object.freeze({
     source: 'framebuffer.js（offscreenScale, invertRight, gl.framebufferTexture2D, viewport）/ framebuffer.frag（u_pass, u_scene）'
   }),
   FCG2: Object.freeze({
-    grid: '8×8（実際のスカラー場、R8テクスチャ2枚を交互に更新）',
-    color: '解析値 q=0.5+0.25 sin(2πx) cos(2πy) sin(t)。R8への丸め後、(q, 0.15, 1−q) の赤青で表示',
-    clock: step => '解析場の基準step '+step+'、t='+(step*Math.PI/2).toFixed(5)+' s（dt=π/2 s）',
-    mode: '連続再生は現在の物理時刻で解析式を評価。R8は最近傍表示、更新時刻と描画フレームは別',
-    source: 'density.js / density.frag'
+    grid:'128×128 m領域のセル中心で解析移流濃度を計算（R8 2枚へ交互に転送）。GPUは表示',
+    color:'qは水中の受動染料濃度（無次元0〜1）。暗い紺は低濃度、琥珀色は高濃度。各値をR8整数へ丸めて描画',
+    clock: step => '染料の観察時刻 t='+(step*Math.PI/2).toFixed(3)+' s（節目はπ/2 s、連続再生は任意時刻）',
+    mode:'半径rが大きいほど角速度Ω(r)=omega(1+shear·r)が大きい。再生は2π秒で停止。格子と画素は別でNEAREST表示',
+    source:'density.js（omega, shear, amplitude, concentration） / density.vert（UV） / density.frag（濃度色）'
   }),
   FCG3: Object.freeze({
     grid: snapshot => (snapshot.gridN || 32)+'×'+(snapshot.gridN || 32)+'（実Float64移流格子・数値/解析2枚のR8テクスチャ）',
