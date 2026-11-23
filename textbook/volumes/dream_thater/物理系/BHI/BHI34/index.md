@@ -87,7 +87,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi34-rst-setting -->
-**定義の確認**：一定の入射流束 $F_{\rm in}=0$、出射流束 $F_{\rm out}>0$ の時間区間なら外部への正味流出は $F_{\rm net}=F_{\rm out}>0$ です。入射を出射と同じ $F_{\rm in}=F_{\rm out}$ に替えると $F_{\rm net}=0$ となり、上の**蒸発期の条件**を満たしません。同じRST作用でも境界条件が異なる具体例です。
+**定義の確認**：一定の入射流束 $F_{\rm in}=0$、出射流束 $F_{\rm out}>0$ の時間区間なら外部への正味流出は $F_{\rm net}=F_{\rm out}>0$ です。入射を出射と同じ $F_{\rm in}=F_{\rm out}$ に替えると $F_{\rm net}=0$ となり、[入射流を零とした蒸発期の設定](#def-bhi34-rst-setting)を満たしません。同じRST作用でも境界条件が異なる具体例です。
 <!-- definition-example-end -->
 
 RSTの実際のislandを論じるには、修正されたdilatonの関数、崩壊波の位置、非重力領域での放射端点、共形写像、レプリカの解析接続と終期境界をすべて指定します。この計算を行った研究として、[Gautason–Schneiderbauer–Sybesma–Thorlacius（2020）](https://doi.org/10.1007/JHEP05(2020)091) と [Hartman–Shaghoulian–Strominger（2020）](https://doi.org/10.1007/JHEP07(2020)022) があります。この節のCGHS曲率計算自体は、RSTの量子補正込みの場の方程式を解いたことを意味しません。
@@ -143,7 +143,14 @@ $$
 <!-- formal-statement-start -->
 > **定義（蒸発の二枝を比較する先頭近似）**
 >
-> $S_0>0$、$a>0$、$u\in[0,u_{\rm end}]$、$u_{\rm end}:=S_0/a$ とする。温度と $c$ がほぼ一定で、$a:=\pi cT/12$ とできる蒸発期に、空island枝の主項を $S_\varnothing(u)=2au$、端点を極値化したisland枝の主項を $S_I(u)=S_0-au+K$ と表す。$K$ は同じcutoffで決まる有限の差・端点のずれをまとめた定数とする。二枝が共に存在し比較可能ときに限り、
+> $S_0,a>0$、$0\le u\le u_{\rm end}$ とし、温度と中心電荷 $c$ がほぼ一定の蒸発期を考える。$K$ は同じcutoffで決まる有限の差と端点のずれをまとめた定数とする。次の時間尺度と二枝を仮定する。
+>
+> $
+> a:=\frac{\pi cT}{12},\quad u_{\rm end}:=\frac{S_0}{a},\quad
+> S_\varnothing(u):=2au,\quad S_I(u):=S_0-au+K.
+> $
+>
+> $S_I$ は端点を極値化したisland枝の主項である。二枝が共に存在し比較可能なときに限り、
 > $$
 > S_{\rm lead}(u):=\min\{S_\varnothing(u),S_I(u)\}
 > $$
@@ -197,7 +204,12 @@ Page型の二つの直線を比較するには、island枝の値が**先に極�
 > -\eta\log\left(1+\frac{x}{\epsilon}\right)
 > +\frac{\zeta}{2}(v-u+\tau)^2
 > $$
-> と定める。補助模型の候補端点とは、内部領域で $\partial_x S_{\rm gen}^{\rm toy}=\partial_v S_{\rm gen}^{\rm toy}=0$ を満たす組 $(x_*,v_*)$ を指す。
+> と定める。補助模型の候補端点とは、内部領域で次の停留条件を満たす組 $(x_*,v_*)$ を指す。
+>
+> $
+> \partial_x S_{\rm gen}^{\rm toy}(x_*,v_*;u)
+> =\partial_v S_{\rm gen}^{\rm toy}(x_*,v_*;u)=0.
+> $
 <!-- formal-statement-end -->
 
 この模型では $\alpha x$ が端点の重力寄与の局所展開、対数が正則化された物質寄与、時間の二次式が停留点の時間位置を表す設定です。$\zeta>0$ による局所極小は計算上の選択であり、Lorentz幾何の全QESが二方向の極小となるという仮定はしていません。
