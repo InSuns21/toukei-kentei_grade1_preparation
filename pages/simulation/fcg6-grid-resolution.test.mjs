@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {performance} from 'node:perf_hooks';
 import {FCG6_N,fcg6State} from './fcg6-lab-core.mjs';
-import {parametersFor,writeLabParameter} from './wgl-lab-parameters.mjs';
+import {parametersFor,readLabParameter,writeLabParameter} from './wgl-lab-parameters.mjs';
 
 const sourceURL=new URL('../../textbook/volumes/dream_thater/計算系/FCG/FCG6/solid.js',import.meta.url);
 const encode=value=>Math.round(255*Math.max(0,Math.min(1,value)));
@@ -45,7 +45,7 @@ test('FCG6 48x48 edited solver and independent masked CG match across full CPU R
 
 test('FCG6 edited rectangle and moving-wall coefficients preserve independent masked-CG fields',async()=>{
   const base=await readFile(sourceURL,'utf8');
-  const specs=parametersFor('FCG6');
+  const specs=parametersFor('FCG6').filter(spec=>spec.id!=='grid');
   const options={shape:'rectangle',centerY:0.55,wallAmplitude:0.12,wallFrequency:2.2};
   let edited=base;
   for(const spec of specs)edited=writeLabParameter(edited,spec,options[spec.id]);
@@ -71,25 +71,50 @@ test('FCG6 edited rectangle and moving-wall coefficients preserve independent ma
 });
 
 
+
+test('FCG6 grid G2: source-linked 32/48/64 GUI values and invalid edits',async()=>{
+  const source=await readFile(sourceURL,'utf8');
+  const spec=parametersFor('FCG6').find(p=>p.id==='grid');
+  assert.ok(spec);
+  const cutoff=source.indexOf('const enc=(x)=>');
+  for(const n of [32,48,64]){
+    const changed=writeLabParameter(source,spec,n);
+    assert.equal(readLabParameter(changed,spec).value,n);
+    const execute=new Function('settings',changed.slice(0,cutoff)+
+      ';return {N,mask:geom.s,q:dye,residual,wallError};');
+    const actual=execute({steps:2});
+    const oracle=fcg6State(2,{N:n});
+    assert.equal(actual.N,n);
+    assert.equal(actual.mask.length,n*n);
+    assert.ok(actual.residual<1e-6+1e-11);
+    for(let k=0;k<n*n;k++){
+      assert.equal(actual.mask[k],oracle.solid[k]);
+      assert.equal(encode(actual.q[k]),encode(oracle.q[k]));
+    }
+    // Changing the grid must not disable the other four source-linked controls.
+    for(const control of parametersFor('FCG6').filter(p=>p.id!=='grid'))
+      assert.equal(readLabParameter(changed,control).ok,true,control.id+' at N='+n);
+    assert.equal(writeLabParameter(changed,spec,48),source);
+  }
+  for(const n of [16,24,63,65,NaN])
+    assert.throws(()=>writeLabParameter(source,spec,n));
+  const expression=source.replace('const N=48,h=1/N','const N=32+0,h=1/N');
+  assert.equal(readLabParameter(expression,spec).ok,false,'custom JS expression has priority');
+  assert.throws(()=>writeLabParameter(expression,spec,32));
+});
+
 test('FCG6 R2 32/48/64 candidate grids: executed MAC solver versus independent CG',async t=>{
   const learner=await readFile(sourceURL,'utf8');
-  const reference=await readFile(new URL('./fcg6-lab-core.mjs',import.meta.url),'utf8');
   const learnerCut=learner.indexOf('const enc=(x)=>');
-  const referenceCut=reference.indexOf('export function fcg6PixelCell');
-  assert.ok(learnerCut>0&&referenceCut>0,'test-only CPU portions of the two real source files');
+  assert.ok(learnerCut>0,'test-only learner CPU portion; reference is the exported graph-CG solver');
 
-  // Rebind only the grid constant in test. The learner-facing 48x48 default,
-  // GPU shader, GUI contract, and separately implemented CG algorithm stay intact.
+  // The GUI now edits this real grid literal; compare every supported N against
+  // the independently implemented graph-CG reference with the same N.
   for(const n of [32,48,64])await t.test('grid '+n+'x'+n,()=>{
     const gridLearner=learner.slice(0,learnerCut).replace(
       'const N=48,h=1/N', 'const N='+n+',h=1/N');
     assert.match(gridLearner,new RegExp('const N='+n+',h=1/N'));
-    const refSource=reference.slice(0,referenceCut)
-      .replace('export const FCG6_N=48;','const FCG6_N='+n+';')
-      .replace('export function fcg6State','function fcg6State');
-    assert.ok(refSource.includes('const FCG6_N='+n+';'));
-    const independent=new Function('steps','options',
-      refSource+';return fcg6State(steps,options);');
+    const independent=(steps,options)=>fcg6State(steps,{...options,N:n});
 
     const cases=[
       {label:'moving circle',options:{},edit:source=>source},

@@ -3,6 +3,7 @@
 // Real Chromium/WebGL2 acceptance for FCG6 physics-grid rendering and sandbox.
 // Tests actual shader compilation, texture upload, GPU readPixels and editable sources.
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 import {spawn} from 'node:child_process';
 import {createServer} from 'node:http';
 import {readFile,mkdtemp,rm} from 'node:fs/promises';
@@ -83,7 +84,30 @@ try {
   };
   const click=id=>evaluate('document.getElementById('+JSON.stringify(id)+').click()');
   await cdp('Runtime.enable');await cdp('Page.enable');
+  // Fix the 8-step observation so screenshot differences are caused by the
+  // edited real computation grid, not elapsed animation frames.
+  await cdp('Emulation.setEmulatedMedia',{
+    features:[{name:'prefers-reduced-motion',value:'reduce'}]
+  });
+  const captureGPU=async()=>{
+    const clip=await evaluate(`(() => {
+      const frame=document.querySelector('#canvas-slot iframe');
+      if(!frame)throw Error('missing opaque WebGL2 iframe');
+      const r=frame.getBoundingClientRect();
+      return {x:Math.floor(r.left+window.scrollX+2),
+        y:Math.floor(r.top+window.scrollY+2),
+        width:Math.floor(r.width-4),height:Math.floor(Math.min(r.height-15,(r.width-4)/3))};
+    })()`);
+    assert.ok(clip.width>=80&&clip.height>=20,'WebGL2 clip dimensions');
+    const shot=await cdp('Page.captureScreenshot',{
+      format:'png',captureBeyondViewport:true,clip:{...clip,scale:1}
+    });
+    const bytes=Buffer.from(shot.data,'base64');
+    assert.ok(bytes.length>1000,'non-empty real GPU screenshot');
+    return createHash('sha256').update(bytes).digest('hex');
+  };
 
+  let initialGPU;
   for(const width of [1280,360]){
     await cdp('Emulation.setDeviceMetricsOverride',
       {width,height:900,deviceScaleFactor:1,mobile:width===360});
@@ -104,6 +128,10 @@ try {
     assert.match(result.log,/POISSON/);
     assert.match(result.log,/FLUX/);
     assert.ok(result.pageWidth<=width+8,'mobile main content overflow: '+result.pageWidth);
+    const box=await evaluate('(() => {const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {left:r.left,right:r.right,width:r.width,height:r.height};})()');
+    assert.ok(box.width>80&&box.height>20,'real result iframe is visible');
+    assert.ok(box.left>=-2&&box.right<=width+8,'GPU canvas horizontal overflow: '+JSON.stringify(box));
+    if(width===1280)initialGPU=await captureGPU();
     // Never mistake GPU pixel prediction for actual animation acceptance.
     console.log('FCG6 '+width+'px: 48x48 edited solver, real GPU nine pixels, Neumann logs and opaque sandbox: PASS');
     if(width===1280){
@@ -140,6 +168,40 @@ try {
       await click('reset');
       await waitFor('document.getElementById("parameter-shape")?.value==="circle"');
       assert.equal(await evaluate('document.getElementById("parameter-shape").disabled'),false);
+      // The three grids are now learner-facing controls, not a test-only source
+      // substitution. Each one must rerun the same solid.js/WebGL2 pipeline.
+      for(const n of [32,64,48]){
+        await evaluate(`(() => {
+          const slider=document.getElementById('parameter-grid');
+          if(!slider||slider.disabled)throw Error('grid control unavailable');
+          slider.value=${n};
+          slider.dispatchEvent(new Event('input',{bubbles:true}));
+          slider.dispatchEvent(new Event('change',{bubbles:true}));
+        })()`);
+        await waitFor('document.querySelector("#status")?.textContent.includes("FCG6 編集した形状・壁運動の独立CPU画素検算に合格") || (document.querySelector("#status")?.textContent.includes("初期ソースの独立画素検算に合格") && document.getElementById("parameter-grid")?.value==="48")',90000);
+        const state=await evaluate('({js:document.querySelector("#js-source").value,rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(x=>x.textContent)),scene:document.querySelector("#scene-info").textContent,log:document.querySelector("#diagnostics").textContent,grid:document.getElementById("parameter-grid").value})');
+        assert.match(state.js,new RegExp('const N='+n+',h=1/N'));
+        assert.equal(state.grid,String(n));
+        assert.equal(state.rows.length,9,'independent GPU samples for N='+n);
+        assert.ok(state.rows.every(r=>r[4]==='OK'),'actual N='+n+' GPU versus graph CG');
+        assert.match(state.log,new RegExp('MODEL.*N='+n));
+        assert.ok(state.scene.includes(n+'×'+n),'actual grid legend N='+n);
+        const hash=await captureGPU();
+        if(n!==48)assert.notEqual(hash,initialGPU,'grid must change real GPU image N='+n);
+        console.log('FCG6 R2 real GPU N='+n+' grid, independent graph-CG pixels and deterministic screenshot SHA256='+hash);
+      }
+      // Unknown learner expressions remain runnable but must not be accepted
+      // as a verified source-linked grid nor be overwritten by the GUI.
+      await evaluate(`(() => {
+        const src=document.getElementById('js-source');
+        src.value=src.value.replace('const N=48,h=1/N','const N=32+0,h=1/N');
+        src.dispatchEvent(new Event('input',{bubbles:true}));
+      })()`);
+      assert.equal(await evaluate('document.getElementById("parameter-grid").disabled'),true);
+      await click('reset');
+      await waitFor('document.getElementById("parameter-grid")?.value==="48"');
+      assert.equal(await evaluate('document.getElementById("parameter-grid").disabled'),false);
+
       console.log('FCG6 1280px: edited shape/wall controls, GPU/independent CPU, invalid-source guard and reset: PASS');
     }
   }
