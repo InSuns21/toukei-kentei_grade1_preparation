@@ -3,7 +3,8 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - LREP6
-forward_references: []
+forward_references:
+  - mechanics.angular-momentum
 concepts:
   - id: representation.angular-momentum-operators
     name: 角運動量演算子と昇降演算子
