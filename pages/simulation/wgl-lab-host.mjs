@@ -799,12 +799,12 @@ window.addEventListener('message', event => {
     const {x,y,gpuId,cpuId}=data;
     if(![x,y,gpuId,cpuId].every(Number.isInteger)||x<0||y<0||
        x>=active.payload.width||y>=active.payload.height||
-       gpuId<0||gpuId>255||cpuId<0||cpuId>1)return;
+       gpuId<0||gpuId>255||cpuId<0||cpuId>2)return;
     const equal=gpuId===cpuId;
     byId('result-note').textContent=
       'CS1 下原点画素('+x+','+y+'): GPU ID='+gpuId+
       ' / CPU三角形投影によるID='+cpuId+' / '+(equal?'一致':'不一致')+
-      '。ID0=地盤・背景、ID1=建物。輪郭上はラスタ化規則との差を調べてください。';
+      '。ID0=地盤・道路・背景、ID1=公式PLATEAU建物、ID2=合成の周辺建物。輪郭上はラスタ化規則との差を調べてください。';
     setStatus(equal?'CS1 ID FBO とCPU射影の選択結果が一致':
       'CS1 GPU/CPU選択が不一致（深度・投影・輪郭を確認）',!equal);
     return;
