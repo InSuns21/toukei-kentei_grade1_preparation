@@ -296,7 +296,7 @@ $$
 <a id="thm-lrep9-two-sl2"></a>
 
 <!-- formal-statement-start -->
-> **定理（複素化の二つの $\mathfrak{sl}_2$ への分解）**  
+> **定理（複素化の二つのsl2への分解）**  
 > $\mathfrak g_{\mathbb C}=\mathfrak{so}(1,3)\otimes_{\mathbb R}\mathbb C$ とし、$A_i,C_i$ を[上の定義](#def-lrep9-chiral-split)で取る。このとき
 >
 $$
@@ -653,7 +653,7 @@ $$
 
 です。ここで $\varepsilon_{321}=-1$ なので $[R_3,B_2]=-B_1$、$\varepsilon_{123}=1$ なので $[B_1,B_2]=-R_3$ です。
 
-**設問3。** [逆変換](#def-lrep9-chiral-split)で $R_3=A_3+C_3$、$B_1=-i(A_1-C_1)$。したがって
+**設問3。** [生成子の復元式](#def-lrep9-chiral-split)で $R_3=A_3+C_3$、$B_1=-i(A_1-C_1)$。したがって
 
 $$
 X=(-ib)A_1+aA_3+(ib)C_1+aC_3.
