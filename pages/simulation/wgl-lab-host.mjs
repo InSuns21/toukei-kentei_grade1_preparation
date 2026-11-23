@@ -2006,11 +2006,11 @@ if (isWGL19) {
   document.title='WGL19 固定時間刻み・GPU診断・context lossラボ';
   document.querySelector('h1').textContent='WGL19 描画FPSとGPU拡散の計算時計を分けて監査する';
   document.querySelector('#panel-conditions > p').textContent=
-    '初期値は(1,1)だけ1の4×4拡散。16/16/72/16msの合成遅延を4描画・6段へ変換し、FLOAT16値とGPU画素を別々のCPU基準で比較します。';
+    '色はGPUが計算した4×4の拡散濃度、セル内の数字は実GPUのfloat値です。実行後に再生・停止・コマ送りで4回の描画と6段の計算を比べ、下の時計表で捨てた時間も確認します。';
   document.querySelector('#panel-conditions ol').innerHTML=
-    '<li>初期値で4描画・6段・破棄0msとFLOAT16値を確かめる。</li>'+
-    '<li>audit.jsのframeDeltasMsを[20,20]へ変え、計算段数2を確認する。</li>'+
-    '<li>[200]と上限4へ変え、120msの破棄を確認する。</li>'+
+    '<li>まず「実行（結果へ）」でGPUの拡散を再生し、各セルが薄まる様子と計算stepを追う。</li>'+
+    '<li>「次の描画を1回」で1描画当たり0・1・4・1stepになることを確かめる。</li>'+
+    '<li>条件タブの時計プリセットを切り替え、同じGPU shaderで描画間隔や120msの破棄を比較する。</li>'+
     '<li>simulateLoss=trueにしてcontext lossと全資源の再構築を試す。非対応・未復旧を合格としない。</li>'+
     '<li>fragment GLSLの更新項や構文エラーを編集し、CPU差とstageログを調べる。</li>';
   byId('preset').options[0].textContent='4描画・6段拡散、GPU floatと時計の独立検算';
