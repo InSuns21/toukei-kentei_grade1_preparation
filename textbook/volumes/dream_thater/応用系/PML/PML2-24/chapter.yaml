@@ -1,0 +1,54 @@
+id: "PML2-24"
+title: "データ同化を単発の逆問題とどう区別するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-23
+  - PML2-02
+official_scope: []
+learning_objectives:
+  - 線形Gaussian状態空間モデルの状態・観測・雑音と独立性の仮定を説明できる
+  - 逐次データ同化の予測分布と解析分布を区別できる
+  - 線形状態方程式から予測平均と予測共分散を証明できる
+  - イノベーション・共分散・Kalmanゲインを定義し寸法と直接例を確認できる
+  - 同時正規分布の条件付けから観測更新と事後共分散を導出できる
+  - Joseph形式を導出し共分散の半正定値性を説明できる
+  - 静的状態と独立雑音の下で逐次更新と一括逆問題の同値性を証明できる
+  - 時間発展と観測雑音の相関によるモデル誤指定を具体的に計算できる
+  - 正規化したイノベーションの二乗平均を導出し検証上の意味を説明できる
+  - 標準Pythonで静的・動的な二段の同化を手計算と照合できる
+definitions:
+  - { id: PML2-24-DEF-01, name: 逐次データ同化と予測・解析分布 }
+  - { id: PML2-24-DEF-02, name: イノベーションとその共分散 }
+  - { id: PML2-24-DEF-03, name: Kalmanゲイン }
+theorems:
+  - { id: PML2-24-THM-01, name: 線形状態予測 }
+  - { id: PML2-24-THM-02, name: 線形Gaussianの観測更新 }
+  - { id: PML2-24-PROP-01, name: Joseph形式と共分散の半正定値性 }
+  - { id: PML2-24-THM-03, name: 静的線形Gaussianモデルの一括推定と逐次更新の同値性 }
+  - { id: PML2-24-PROP-02, name: 正規化したイノベーションの二乗平均 }
+canonical_examples:
+  - 状態雑音を含む予測平均と共分散の直接計算
+  - 観測行列が2の一変数例で残差とKalmanゲインの寸法を確認する
+  - 正規分布の無相関残差から観測更新と事後共分散を導出する
+  - Joseph形式の半正定値性と差の形式の一致
+  - 静的状態への二回の観測と一括逆問題の一致
+  - 時間変化する状態で静的模型への誤適用が破れる例
+  - 完全相関した観測の重複計上による共分散過小評価
+  - 正規化イノベーションの期待値と一回の実測値の区別
+  - 標準Pythonによる静的・動的モデルの再現
+problem_patterns:
+  - PML2-24-A01
+  - PML2-24-A02
+  - PML2-24-A03
+  - PML2-24-A04
+  - PML2-24-A05
+  - PML2-24-B01
+  - PML2-24-B02
+  - PML2-24-B03
+  - PML2-24-B04
+  - PML2-24-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
