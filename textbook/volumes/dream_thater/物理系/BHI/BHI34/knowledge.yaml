@@ -28,6 +28,12 @@ concepts:
     introduction: formal
     introduction_aliases: [命題（二次元CFTの出射流と二倍則）]
     requires: [black-hole-information.rst-comparison-boundaries, black-hole-information.evaporating-jt-entropy-budget]
+  - id: black-hole-information.rst-large-m-qes
+    name: RST蒸発QESの大質量端点
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（RST蒸発QESの大質量端点）]
+    requires: [black-hole-information.rst-comparison-boundaries, black-hole-information.island-two-endpoint-stationarity]
   - id: black-hole-information.leading-2d-page-branches
     name: 蒸発の二枝を比較する先頭近似
     kind: definition
