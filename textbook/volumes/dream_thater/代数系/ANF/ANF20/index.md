@@ -35,10 +35,10 @@ $$
 <!-- definition-example-start: def-anf20-modulus -->
 **定義の確認**。 $K=\mathbb Q$、$\mathfrak m=(5)\infty$ とします。$a=6/11$ の分子・分母はともに $5$ と互いに素なので $\operatorname{ord}_{(5)}(a)=0$ です。分母 $11\equiv1$ は法 $5$ で可逆であり、
 
-$
+$$
 6\cdot11^{-1}\equiv1\pmod5,
 \qquad 6/11>0.
-$
+$$
 
 ゆえに有限・実の両条件を満たします。$a=-4$ は $-4\equiv1\pmod5$ で局所単数ですが、負なので実条件に反します。$a=5$ は $\operatorname{ord}_{(5)}(5)=1$ で局所単数ではなく、有限条件に反します。
 <!-- definition-example-end -->
@@ -255,9 +255,9 @@ $a\equiv1\pmod{\mathfrak m}$ なら、$y((a))\Delta(a)^{-1}$ は法の外の有�
 
 任意のイデール $x$ を取ります。法を割る有限素点では、非零の $x_{\mathfrak p}$ に対して
 
-$
+$$
 W_{\mathfrak p}=x_{\mathfrak p}(1+\mathfrak p^{n_{\mathfrak p}}\mathcal O_{\mathfrak p})\subset K_{\mathfrak p}^\times
-$
+$$
 
 を開近傍に選びます。法に含む実素点では $x_v$ と同符号の開半直線を選びます。これらの有限個の開集合に[弱近似](#lem-anf20-weak-approx)を適用すると、$a$ を各 $W_{\mathfrak p}$ に入れ、指定実素点で同符号にできます。いずれかの条件があるとき、この $a$ は非零です。法が自明で条件が一つもなければ $a=1$ とします。よって各法の有限素点で $x_{\mathfrak p}a^{-1}\in1+\mathfrak p^{n_{\mathfrak p}}\mathcal O_{\mathfrak p}$、法の実素点で $x_va_v^{-1}>0$ が成立し、$x\Delta(a)^{-1}$ は法の場所で $U(\mathfrak m)$ に入ります。法の外では、一様化元の冪と局所単数に分けられるので、有限個の非零付値を持つイデアル $\mathfrak a$ の $y(\mathfrak a)$ に、ある $u\in U(\mathfrak m)$ を掛けたものです。よって $\theta$ は全射であり、核による商が主張の同型です。
 <!-- proof-end -->
@@ -284,10 +284,10 @@ $$
 
 この節以降の円分体の例では、$\zeta_5$ を原始五乗根、$L=\mathbb Q(\zeta_5)$ とします。$a\in(\mathbb Z/5\mathbb Z)^\times$ に対して
 
-$
+$$
 \sigma_a(\zeta_5)=\zeta_5^a,
 \qquad \sigma_a\sigma_b=\sigma_{ab}
-$
+$$
 
 と書きます。これは $L/\mathbb Q$ の**大域**自己同型です。[ANF18の円分Galois指数](../ANF18/index.md#def-anf18-cyclotomic-exponent)と指数の読み方は同じですが、そこでの局所拡大 $\mathbb Q_5(\zeta_5)/\mathbb Q_5$ の自己同型とは作用先を区別します。
 
@@ -410,17 +410,17 @@ $p\ne5$ では $X^5-1$ の導関数が $5X^4$ なので、両多項式は共通�
 
 $\alpha$ が $\zeta_5$ の四つの共役根を動くとき、$\Phi_5'(\alpha)=5\alpha^4/(\alpha-1)$ です。また $\prod_{a=1}^4(1-\zeta_5^a)=\Phi_5(1)=5$、$\prod_{a=1}^4\zeta_5^a=1$ です。[基底の判別式](../ANF2/index.md#def-anf2-basis-discriminant)をVandermonde積で表して
 
-$
+$$
 \left|\operatorname{disc}(1,\zeta_5,\zeta_5^2,\zeta_5^3)\right|
 =\left|\prod_{a=1}^4\Phi_5'(\zeta_5^a)\right|
 =\frac{5^4}{5}=5^3.
-$
+$$
 
 [判別式と指数の平方](../ANF2/index.md#thm-anf2-discriminant-index)から、$[\mathcal O_L:\mathbb Z[\zeta_5]]$ の素因子は $5$ に限られます。よって $p\ne5$ では $p$ 進完備化した整数環が $\mathcal O_L\otimes_{\mathbb Z}\mathbb Z_p\simeq\mathbb Z_p[\zeta_5]$ となり、特に
 
-$
+$$
 \mathcal O_L/(p)\simeq\mathbb F_p[T]/(\overline\Phi_5(T)).
-$
+$$
 
 この環に[単項生成の場合の素イデアル分解の議論](../ANF4/index.md#thm-anf4-monogenic-factorization)を適用すると、各分岐指数は $\overline\Phi_5$ の既約因子の重複度と等しくなります。重複度はすべて $1$ なので非分岐です。
 
