@@ -263,7 +263,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[Chern–Weil形式の閉性](../GBG21/index.md#thm-gbg21-chern-weil-closed)により両形式は閉じている。一方、[Chern–Weil の transgression 恒等式](#thm-gbg22-transgression)により差は完全形式である。[GEO9の de Rham コホモロジーの定義](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)は閉形式を完全形式で割るので、二つの類は等しい。
+[Chern–Weil形式の閉性](../GBG21/index.md#thm-gbg21-chern-weil-closed)により両形式は閉じている。一方、[Chern–Weil の transgression 恒等式](#thm-gbg22-transgression)により差は完全形式である。[de Rham コホモロジー](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)は閉形式を完全形式で割るので、二つの類は等しい。
 <!-- proof-end -->
 
 本系の「不変」は**同じ主束の接続を変更することに対する不変性**であり、任意の別の主束まで同じ類になるという意味ではない。また、複素数値 de Rham 類が得られたことだけから整数係数特性類や積分値の整数性を結論できない。正規化と整数性は GBG23 以降で区別して扱う。
@@ -351,7 +351,7 @@ $$
 
 ## 5. 局所 Chern–Simons 形式との区別
 
-前節の transgression は、**同じ束上に二つの実在する接続**を用意したので大域的だった。これに対して一つの局所接続 $A$ だけから、その曲率多項式の局所的な原始形式を作ることもできる。
+前節の transgression は、**同じ束上に二つの実在する接続**を用意したので大域的だった。これに対して一つの局所接続 $A$ だけから、その外微分が曲率多項式になる局所形式を作ることもできる。
 
 局所自明化した $U$ の積主束には「接続表示が零」の参照接続 $A_{\mathrm{ref}}=0$ を取れる。$A_t=tA$ と置けば $F_t=t\,dA+\frac12t^2[A\wedge A]$ なので、[Chern–Weil の transgression 恒等式](#thm-gbg22-transgression)の計算をこの局所積主束に適用できる。
 
@@ -550,7 +550,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gbg22-b02"></a>
-#### GBG22-B02 4形式とその原始形式
+#### GBG22-B02 4形式とtransgression3形式
 - Level: B
 
 $\mathbb R^4$ の $U(1)$ 接続 $A_0=ix\,dy$、$A_1=i(x\,dy+z\,dw)$、$p(iu,iv)=uv$ について、曲率多項式の差と transgression 形式を別々に計算して、外微分が一致することを示せ。
@@ -679,7 +679,7 @@ p(F_1^k)-p(F_0^k)
 =dT_p
 $$
 
-を得る。[Chern–Weil形式の閉性](../GBG21/index.md#thm-gbg21-chern-weil-closed)と[de Rham 類の定義](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)より、差が完全形式の二つの閉形式は同じ類を表す。
+を得る。[Chern–Weil形式の閉性](../GBG21/index.md#thm-gbg21-chern-weil-closed)により、二つの形式は閉じている。[de Rham コホモロジー](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)の定義から、完全形式だけ異なる閉形式は同じ類を表す。
 
 (4) de Rham 類は実数・複素数係数の閉形式の商であり、整数係数コホモロジーへ持ち上がるかどうかは別の条件である。たとえば $p$ に任意の実定数を掛けても本証明は成立するので、整数性はこの証明から従わない。また境界付き領域 $N$ では Stokes の定理によって
 
