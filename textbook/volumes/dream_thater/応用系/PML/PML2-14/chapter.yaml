@@ -1,0 +1,46 @@
+id: "PML2-14"
+title: "単一のPDE解と「解作用素」の学習は何が違うか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-13
+official_scope: []
+learning_objectives:
+  - 入力関数族と出力関数空間を一様ノルムで指定し単一解と解作用素を区別できる
+  - 定数入力と一次入力に対する解関数を境界値問題から直接構成できる
+  - 既習のPoisson積分構成から解作用素の積分核表示と線形性を導ける
+  - 非負核の積分を使い一様ノルムの最良安定性定数1/8を証明できる
+  - 個別入力の出力誤差と訓練入力上の最大誤差と入力族全体の一様誤差を区別できる
+  - 有限センサで区別不能な二つの入力関数を構成し一様誤差下界を証明できる
+  - 入力の有限被覆とモデルのLipschitz性から未見入力の誤差上界を導ける
+  - 有限次元入力族のセンサ再構成と入力族拡張時の破綻を比較できる
+  - 未見入力の評価と出力格子の変更を分けた比較条件を設計できる
+definitions:
+  - { id: PML2-14-DEF-01, name: Poisson解作用素と入力関数族 }
+  - { id: PML2-14-DEF-02, name: 作用素近似の個別・訓練・一様誤差 }
+  - { id: PML2-14-DEF-03, name: 有限センサ観測とセンサ依存の作用素近似 }
+theorems:
+  - { id: PML2-14-THM-01, name: Poisson解作用素の積分表示・線形性・一様安定性 }
+  - { id: PML2-14-THM-02, name: 有限センサでの区別不能性と一様誤差下界 }
+  - { id: PML2-14-THM-03, name: 入力被覆とLipschitz条件による一様誤差評価 }
+canonical_examples:
+  - 定数荷重の入力族と出力関数の具体式
+  - 一次荷重から三次多項式の解を求める計算
+  - 端点センサをすり抜ける多項式と非零の解
+  - 三つの訓練入力と被覆半径の計算
+  - 二次元入力族の端点センサによる完全復元と入力族拡張時の限界
+problem_patterns:
+  - PML2-14-A01
+  - PML2-14-A02
+  - PML2-14-A03
+  - PML2-14-A04
+  - PML2-14-A05
+  - PML2-14-B01
+  - PML2-14-B02
+  - PML2-14-B03
+  - PML2-14-B04
+  - PML2-14-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
