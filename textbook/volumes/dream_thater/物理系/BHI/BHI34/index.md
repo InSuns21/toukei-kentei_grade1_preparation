@@ -21,12 +21,12 @@ JTではdilatonの変分が負の一定曲率を指定します。[JT作用の�
 >
 > 二次元Lorentz計量 $g$、実スカラー場 $\phi$、$N\ge1$ 個の実質量零スカラー場 $f_i$、逆長さ $\lambda>0$ をとる。境界項を別途指定することとして、次のbulk作用で定めた古典理論をCGHS模型と呼ぶ。
 >
-> $$
-> I_{\rm CGHS}=\frac{1}{2\pi}\int_{\mathcal M}d^2x\sqrt{-g}\left[
-> e^{-2\phi}\bigl(R+4g^{\mu\nu}\partial_\mu\phi\partial_\nu\phi+4\lambda^2\bigr)
-> -\frac12\sum_{i=1}^N g^{\mu\nu}\partial_\mu f_i\partial_\nu f_i
-> \right].
-> $$
+$$
+I_{\rm CGHS}=\frac{1}{2\pi}\int_{\mathcal M}d^2x\sqrt{-g}\left[
+e^{-2\phi}\bigl(R+4g^{\mu\nu}\partial_\mu\phi\partial_\nu\phi+4\lambda^2\bigr)
+-\frac12\sum_{i=1}^N g^{\mu\nu}\partial_\mu f_i\partial_\nu f_i
+\right].
+$$
 >
 > $R$ は二次元スカラー曲率である。以下の真空古典解では $f_i=0$ とし、光円錐座標 $(x^+,x^-)$ により $ds^2=-e^{2\rho}dx^+dx^-$ と書く。
 <!-- formal-statement-end -->
@@ -34,7 +34,7 @@ JTではdilatonの変分が負の一定曲率を指定します。[JT作用の�
 この作用は、曲率だけを固定するJT作用と異なり、$4(\nabla\phi)^2$ と $4\lambda^2e^{-2\phi}$ を含みます。$x^\pm$ は長さの次元を持ち、$\lambda^2x^+x^-$ は無次元、以下の $A>0$ も無次元とします。
 
 <!-- definition-example-start: def-bhi34-cghs-geometry -->
-**定義の確認：古典静的解**。古典真空解の一つを
+**定義の確認**：古典静的解。古典真空解の一つを
 $$
 F(x^+,x^-):=A-\lambda^2x^+x^-,\qquad
 e^{-2\phi}=e^{-2\rho}=F,\qquad F>0
@@ -48,9 +48,9 @@ $$
 > **命題（CGHS静的解の非一定曲率）**
 >
 > 上の $F=A-\lambda^2x^+x^->0$ において、計量の符号を $ds^2=-e^{2\rho}dx^+dx^-$、曲率の規約を $R=8e^{-2\rho}\partial_+\partial_-\rho$ とすると、
-> $$
-> R=\frac{4\lambda^2A}{F}.
-> $$
+$$
+R=\frac{4\lambda^2A}{F}.
+$$
 > 特に $A>0$ のとき $R$ は一般には定数でなく、$F\to\infty$ の領域では $R\to0$ となる。
 <!-- formal-statement-end -->
 
@@ -104,15 +104,15 @@ JTの時間依存境界でも、[BHI27の準静的なエントロピー収支](.
 > **命題（二次元CFTの出射流と二倍則）**
 >
 > $c,T>0$、完全透過・反射なし・入射真空を仮定し、出射側が各瞬間に熱的な二次元CFTとみなせるとする。その出射エネルギー流束 $F_E$ と粗視化エントロピー流束 $J_S$ は
-> $$
-> F_E=\frac{\pi c}{12}T^2,\qquad
-> J_S=\frac{\pi c}{6}T=\frac{2F_E}{T}.
-> $$
+$$
+F_E=\frac{\pi c}{12}T^2,\qquad
+J_S=\frac{\pi c}{6}T=\frac{2F_E}{T}.
+$$
 > ブラックホール側の物理的エネルギー $E_{\rm BH}$ と熱力学エントロピー $S_{\rm BH}$ が同じ温度で第一法則 $dE_{\rm BH}=T\,dS_{\rm BH}$ を満たし、$\dot E_{\rm BH}=-F_E$ なら
-> $$
-> \dot S_{\rm BH}=-\frac{\pi c}{12}T,\qquad
-> J_S=-2\dot S_{\rm BH}.
-> $$
+$$
+\dot S_{\rm BH}=-\frac{\pi c}{12}T,\qquad
+J_S=-2\dot S_{\rm BH}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -145,15 +145,15 @@ $$
 >
 > $S_0,a>0$、$0\le u\le u_{\rm end}$ とし、温度と中心電荷 $c$ がほぼ一定の蒸発期を考える。$K$ は同じcutoffで決まる有限の差と端点のずれをまとめた定数とする。次の時間尺度と二枝を仮定する。
 >
-> $$
-> a:=\frac{\pi cT}{12},\quad u_{\rm end}:=\frac{S_0}{a},\quad
-> S_\varnothing(u):=2au,\quad S_I(u):=S_0-au+K.
-> $$
+$$
+a:=\frac{\pi cT}{12},\quad u_{\rm end}:=\frac{S_0}{a},\quad
+S_\varnothing(u):=2au,\quad S_I(u):=S_0-au+K.
+$$
 >
 > $S_I$ は端点を極値化したisland枝の主項である。二枝が共に存在し比較可能なときに限り、
-> $$
-> S_{\rm lead}(u):=\min\{S_\varnothing(u),S_I(u)\}
-> $$
+$$
+S_{\rm lead}(u):=\min\{S_\varnothing(u),S_I(u)\}
+$$
 > をPage型の**主項近似**と呼ぶ。
 <!-- formal-statement-end -->
 
@@ -167,10 +167,10 @@ $$
 > **命題（一定流束のPage時刻と境界条件）**
 >
 > 上の二枝が共に存在し、$0<S_0+K<3S_0$ とする。この近似の交点は
-> $$
-> u_{\rm Page}=\frac{S_0+K}{3a},\qquad
-> \frac{u_{\rm Page}}{u_{\rm end}}=\frac{1+K/S_0}{3}.
-> $$
+$$
+u_{\rm Page}=\frac{S_0+K}{3a},\qquad
+\frac{u_{\rm Page}}{u_{\rm end}}=\frac{1+K/S_0}{3}.
+$$
 > 特に $|K|/S_0\to0$ の主項極限で寿命比は $1/3$ となる。$K$ が大きすぎると交点は蒸発区間内にない。
 <!-- formal-statement-end -->
 
@@ -201,17 +201,17 @@ $$
 >
 > 上のRST状態、境界、座標と近似条件の下で、[文献の二変数QES停留方程式](https://doi.org/10.1007/JHEP07(2020)022) を
 >
-> $$
-> x_Q^+(x_Q^-+M)=\frac14,\qquad
-> x_O^-=x_Q^-\exp\left(\frac{4(x_Q^-+M)}{M}\right)
-> $$
+$$
+x_Q^+(x_Q^-+M)=\frac14,\qquad
+x_O^-=x_Q^-\exp\left(\frac{4(x_Q^-+M)}{M}\right)
+$$
 >
 > とする。採取点の漸近座標を $x_O^-=-M-e^{-u}$ と固定する。$0<x_Q^-+M\ll M$ の解は
 >
-> $$
-> x_Q^-+M=\frac{e^{-u}}3+O\left(\frac{e^{-2u}}M\right),\qquad
-> x_Q^+=\frac34e^u\left[1+O\left(\frac{e^{-u}}M\right)\right]
-> $$
+$$
+x_Q^-+M=\frac{e^{-u}}3+O\left(\frac{e^{-2u}}M\right),\qquad
+x_Q^+=\frac34e^u\left[1+O\left(\frac{e^{-u}}M\right)\right]
+$$
 >
 > を満たす。
 <!-- formal-statement-end -->
@@ -283,18 +283,18 @@ Page型の二つの直線を比較するには、island枝の値が**先に極�
 > **定義（端点の二変数局所補助模型）**
 >
 > 固定した採取時刻 $u$ に対し、空間座標 $x\in(0,L)$、端点時間 $v\in\mathbb R$ とし、$\alpha,\eta,\epsilon,\zeta,L>0$、$\tau\in\mathbb R$、$C\in\mathbb R$ を固定する。$\alpha$ は長さの逆数、$\eta$ は無次元、$\epsilon,L$ は長さ、$\zeta$ は時間の逆二乗を持つ。$S_{\rm BH}(u)$ を所与として
-> $$
-> S_{\rm gen}^{\rm toy}(x,v;u)
-> :=S_{\rm BH}(u)+C+\alpha x
-> -\eta\log\left(1+\frac{x}{\epsilon}\right)
-> +\frac{\zeta}{2}(v-u+\tau)^2
-> $$
+$$
+S_{\rm gen}^{\rm toy}(x,v;u)
+:=S_{\rm BH}(u)+C+\alpha x
+-\eta\log\left(1+\frac{x}{\epsilon}\right)
++\frac{\zeta}{2}(v-u+\tau)^2
+$$
 > と定める。補助模型の候補端点とは、内部領域で次の停留条件を満たす組 $(x_*,v_*)$ を指す。
 >
-> $$
-> \partial_x S_{\rm gen}^{\rm toy}(x_*,v_*;u)
-> =\partial_v S_{\rm gen}^{\rm toy}(x_*,v_*;u)=0.
-> $$
+$$
+\partial_x S_{\rm gen}^{\rm toy}(x_*,v_*;u)
+=\partial_v S_{\rm gen}^{\rm toy}(x_*,v_*;u)=0.
+$$
 <!-- formal-statement-end -->
 
 この模型では $\alpha x$ が端点の重力寄与の局所展開、対数が正則化された物質寄与、時間の二次式が停留点の時間位置を表す設定です。$\zeta>0$ による局所極小は計算上の選択であり、Lorentz幾何の全QESが二方向の極小となるという仮定はしていません。
@@ -314,19 +314,19 @@ $$
 > **命題（補助模型の端点と極値）**
 >
 > 上の補助模型において内部の停留点が存在する必要十分条件は
-> $$
-> \alpha\epsilon<\eta<\alpha(L+\epsilon)
-> $$
+$$
+\alpha\epsilon<\eta<\alpha(L+\epsilon)
+$$
 > である。この場合、停留点は一意で
-> $$
-> x_*=\frac{\eta}{\alpha}-\epsilon,\qquad v_*=u-\tau,
-> $$
+$$
+x_*=\frac{\eta}{\alpha}-\epsilon,\qquad v_*=u-\tau,
+$$
 > その極値は
-> $$
-> S_I^{\rm toy}(u)=S_{\rm BH}(u)+K_{\rm toy},\quad
-> K_{\rm toy}=C+\eta-\alpha\epsilon
-> -\eta\log\frac{\eta}{\alpha\epsilon}
-> $$
+$$
+S_I^{\rm toy}(u)=S_{\rm BH}(u)+K_{\rm toy},\quad
+K_{\rm toy}=C+\eta-\alpha\epsilon
+-\eta\log\frac{\eta}{\alpha\epsilon}
+$$
 > となる。
 <!-- formal-statement-end -->
 
@@ -384,13 +384,13 @@ $T_{\rm in}=T_{\rm out}$ ならエネルギーの正味流出は零で、定常�
 >
 > $u\in[0,U]$、$T(u)>0$ が連続とし、上の二倍則が準静的に各時刻で成立する。$a(u):=\pi cT(u)/12>0$、
 > $A(u):=\int_0^u a(s)\,ds$ と置く。$K$ が時刻に依存せず、極値化済みの二枝が
-> $$
-> S_\varnothing(u)=2A(u),\qquad S_I(u)=S_0-A(u)+K
-> $$
+$$
+S_\varnothing(u)=2A(u),\qquad S_I(u)=S_0-A(u)+K
+$$
 > で近似できるなら、交点は
-> $$
-> A(u_{\rm Page})=\frac{S_0+K}{3}
-> $$
+$$
+A(u_{\rm Page})=\frac{S_0+K}{3}
+$$
 > を満たす。$A$ は狭義単調なので、その値が $A([0,U])$ の内部にあれば交点は一意である。時間比 $u_{\rm Page}/u_{\rm end}$ が $1/3$ とは一般には限らない。
 <!-- formal-statement-end -->
 
