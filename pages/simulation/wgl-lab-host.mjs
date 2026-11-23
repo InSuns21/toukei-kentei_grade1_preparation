@@ -1437,8 +1437,8 @@ byId('preset').addEventListener('change', event => {
         'outColor = vec4(vec3(v), 1.0)');
     } else if (isWGL10) {
       inputs.fragment.value = defaults.fragment.replace(
-        'outColor = vec4(sampleColor, 1.0);',
-        'outColor = vec4(sampleColor, 1.0)');
+        'outColor = vec4(saved, 1.0);',
+        'outColor = vec4(saved, 1.0)');
     } else if (isWGL9) {
       inputs.fragment.value = defaults.fragment.replace(
         'outColor = vec4(encodeColor(clamp(linearRgb, 0.0, 1.0)), 1.0);',
