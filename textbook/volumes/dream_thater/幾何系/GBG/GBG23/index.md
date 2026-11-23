@@ -469,13 +469,13 @@ $$
 <!-- solution-start -->
 **詳細解答**。ここで $\dot F_t=\frac{dF_t}{dt}$ は補間変数 $t$ に関する通常の微分（基底点は固定）を表し、単独の $d$ は基底 $M$ の外微分を表す。[補間曲率の変化率](../GBG22/index.md#lem-gbg22-curvature-variation)より $\dot F_t=da+[A_t\wedge a]=d_{A_t}a$。$\operatorname{tr}(XY)=\operatorname{tr}(YX)$ は Ad不変二次式なので、[Ad不変性と次数1の因子の外微分](../GBG22/index.md#lem-gbg22-invariant-derivative)に $p(X,Y)=\operatorname{tr}(XY)$ を適用できる。また[局所Bianchi恒等式](../GBG11/index.md#thm-gbg11-bianchi-local)より $d_{A_t}F_t=0$。このとき、微分形式の次数 $\deg a=1$、$\deg F_t=2$ を用いると
 
-$
+$$
 \begin{aligned}
 d\,\operatorname{tr}(a\wedge F_t)
 &=\operatorname{tr}\bigl((d_{A_t}a)\wedge F_t-a\wedge d_{A_t}F_t\bigr)\\
 &=\operatorname{tr}(\dot F_t\wedge F_t).
 \end{aligned}
-$
+$$
 
 従って
 
