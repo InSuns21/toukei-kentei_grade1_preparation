@@ -108,6 +108,9 @@ test('WGL19 result view offers source-linked clock presets and verifies every re
     "const maxStepsPerFrame="]){
     assert.ok(host.includes(part),part);
   }
+  assert.match(host,/isWGL19\?\[640,640\]/,
+    'WGL19 must use a square 4x4 visual grid within the 524288-pixel oracle limit');
+  assert.doesNotThrow(()=>expectedWGL19Samples(640,640));
   assert.match(css,/#wgl19-timeline tr\.current/);
   assert.match(lesson,/実行（結果へ）/);
   assert.match(lesson,/同じ編集JS・同じGLSL・同じ更新式/);
