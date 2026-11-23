@@ -96,8 +96,11 @@ try {
   assert.equal(await evaluate('document.querySelector("#canvas-slot iframe")===null'),true);
   // Diagnose session-scoped progress delivery independently of GPU rendering.
   await evaluate('window.__fcg5Events=[];window.addEventListener("message",e=>{if(e.data?.type?.startsWith("fcg5"))window.__fcg5Events.push({type:e.data.type,step:e.data.step,playing:e.data.playing,requestId:e.data.requestId});})');
+  const initialRunStart=Date.now();
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
+  const initialRunMs=Date.now()-initialRunStart;
+  assert.ok(initialRunMs>0,'GPU and independent CPU run must complete');
   const initial=await evaluate('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(x=>x.textContent)),log:document.querySelector("#diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox"),opaque:(()=>{try{return !!document.querySelector("#canvas-slot iframe").contentWindow.document.body}catch{return true}})()})');
   assert.equal(initial.rows.length,9);
   assert.ok(initial.rows.every(r=>r[4]==='OK'),JSON.stringify(initial.rows));
@@ -210,8 +213,11 @@ try {
   assert.ok(gui.labels.some(t=>t.includes('セル/辺')&&t.includes('fluid.js')));
   assert.ok(gui.labels.some(t=>t.includes('m²/s')&&t.includes('fluid.js')));
   assert.ok(gui.labels.some(t=>t.includes('m²/s²')&&t.includes('forceAmplitude')));
+  const grid24Start=Date.now();
   await evaluate('(()=>{const e=document.querySelector("#parameter-grid");e.value="24";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}))})()');
   await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した条件の独立CPU初期画素検算に合格")',25000);
+  const grid24RunMs=Date.now()-grid24Start;
+  console.log('FCG5 end-to-end GPU/CPU initial run on this CI browser: N=48 '+initialRunMs+'ms; N=24 '+grid24RunMs+'ms (observations, not cross-machine performance thresholds)');
   assert.match(await evaluate('document.querySelector("#js-source").value'),/const N=24,h=1\/N/);
   await evaluate('(()=>{const e=document.querySelector("#parameter-nu");e.value="0.0025";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}))})()');
   await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した条件の独立CPU初期画素検算に合格") && document.querySelector("#js-source")?.value.includes("nu=0.0025")',25000);
@@ -266,6 +272,34 @@ try {
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
   console.log('FCG5 R1 grid/viscosity/force/dt/dye brush GUI, independent CPU initial pixels, save/reload and expression safety: PASS');
 
+  // G4/R1: the learner's comparison presets must exercise the same 48x48
+  // editable MAC source and independent CPU/GPU samples, not a side demo.
+  await click('tab-conditions');
+  const options=await evaluate('([...document.querySelectorAll("#fcg5-observation-preset option")].map(x=>x.value))');
+  assert.deepEqual(options,['baseline','no-force','stir']);
+  const presetRow='document.querySelector(".fcg5-preset-row")';
+  assert.equal(await evaluate(presetRow+'?.querySelector("button")?.disabled'),false);
+  const defaultPixels=await evaluate('([...document.querySelectorAll("#results-table tbody tr")].map(r=>r.cells[2]?.textContent))');
+  assert.equal(defaultPixels.length,9);
+  const presetRuns=[];
+  for(const [id,nu,force] of [['no-force','0.002','0'],['stir','0.001','0.16'],['baseline','0.002','0.08']]){
+    const started=Date.now();
+    await evaluate('(()=>{const row='+presetRow+';row.querySelector("select").value='+JSON.stringify(id)+';row.querySelector("button").click()})()');
+    await waitFor('document.querySelector("#js-source")?.value.includes('+JSON.stringify('nu='+nu+',forceAmplitude='+force)+') && document.querySelector("#status")?.textContent.includes("FCG5 編集した条件の独立CPU初期画素検算に合格")',25000);
+    const snapshot=await evaluate('({source:document.querySelector("#js-source").value,rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>({gpu:r.cells[2]?.textContent,verdict:r.cells[4]?.textContent})),status:document.querySelector(".fcg5-preset-row .lab-parameter-status")?.textContent,grid:document.querySelector("#parameter-grid")?.value,dt:document.querySelector("#parameter-dt")?.value})');
+    assert.equal(snapshot.rows.length,9);
+    assert.ok(snapshot.rows.every(r=>r.verdict==='OK'),JSON.stringify(snapshot.rows));
+    assert.equal(snapshot.grid,'48');
+    assert.equal(snapshot.dt,'0.04');
+    assert.match(snapshot.status,/実編集ソースに反映/);
+    presetRuns.push({id,ms:Date.now()-started,pixels:snapshot.rows.map(r=>r.gpu)});
+  }
+  assert.notDeepEqual(presetRuns[0].pixels,presetRuns[1].pixels,
+    'changing force/viscosity must change actual independent-verified GPU samples');
+  assert.deepEqual(presetRuns[2].pixels,defaultPixels,
+    'restoring the baseline preset must restore the same verified initial GPU samples');
+  console.log('FCG5 preset real GPU/CPU comparison: '+JSON.stringify(presetRuns.map(({id,ms})=>({id,runMs:ms}))));
+  console.log('FCG5 presets change source and GPU pixels, preserve N/dt, and restore baseline: PASS');
 
   await cdp('Emulation.setDeviceMetricsOverride',
     {width:360,height:760,deviceScaleFactor:2,mobile:true});
@@ -274,6 +308,19 @@ try {
   assert.ok(narrow.client>0&&narrow.scroll<=narrow.client+2,JSON.stringify(narrow));
   assert.ok(narrow.editor<=narrow.page+2,JSON.stringify(narrow));
   console.log('FCG5 360px editable editor: PASS');
+  // Compare the real result canvas against its actual viewport, including
+  // canvas-adjacent physical clock/legend and live controls, at both widths.
+  for(const [width,height,mobile] of [[360,760,true],[1280,900,false]]){
+    await cdp('Emulation.setDeviceMetricsOverride',
+      {width,height,deviceScaleFactor:1,mobile});
+    await click('tab-result');
+    const layout=await evaluate('(()=>{const frame=document.querySelector("#canvas-slot iframe");const r=frame?.getBoundingClientRect();const main=document.querySelector("main").getBoundingClientRect();const info=document.querySelector("#scene-info");const controls=document.querySelector("#fcg5-live-step");return {vw:document.documentElement.clientWidth,overflow:document.documentElement.scrollWidth,mainWidth:main.width,canvas:r&&{left:r.left,right:r.right,width:r.width,height:r.height},info:!!info&&!info.hidden&&!!info.textContent.trim(),live:!!controls&&!controls.disabled,summaryAboveCanvas:info&&frame?info.compareDocumentPosition(frame)&Node.DOCUMENT_POSITION_FOLLOWING:0};})()');
+    assert.ok(layout.canvas&&layout.canvas.width>190&&layout.canvas.height>100,JSON.stringify(layout));
+    assert.ok(layout.canvas.left>=-2&&layout.canvas.right<=layout.vw+2,JSON.stringify(layout));
+    assert.ok(layout.overflow<=layout.vw+2,JSON.stringify(layout));
+    assert.ok(layout.info&&layout.live&&layout.summaryAboveCanvas,JSON.stringify(layout));
+    console.log('FCG5 '+width+'px GPU canvas, inline legend and live control fit: PASS');
+  }
 
   // FCG8: square field views must move through rAF while retaining the exact
   // CPU-vs-GPU baseline in the original source-editing laboratory.
