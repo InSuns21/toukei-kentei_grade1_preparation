@@ -55,13 +55,13 @@ concepts:
     requires: [gauge.connection-gauge-orbit, gauge.connection-stabilizer]
 
   - id: gauge.interval-u1-gauge-fixing
-    name: 区間上の U(1) 接続の基点付きゲージ固定
+    name: 区間上の単位円群接続の基点付きゲージ固定
     kind: theorem
     introduction: formal
     requires: [gauge.gauge-fixing-condition-residual, gauge.local-potential-transformation]
 
   - id: gauge.circle-u1-orbit-classification
-    name: 円周上の U(1) 接続の軌道分類
+    name: 円周上の単位円群接続の軌道分類
     kind: theorem
     introduction: formal
     requires: [gauge.connection-gauge-orbit, gauge.gauge-fixing-condition-residual, gauge.local-potential-transformation]
