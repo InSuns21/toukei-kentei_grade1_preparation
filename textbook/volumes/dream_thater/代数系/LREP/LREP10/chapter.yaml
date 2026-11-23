@@ -1,0 +1,45 @@
+id: LREP10
+title: "SL(2,C)によるLorentz群の被覆"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP9
+official_scope: []
+learning_objectives:
+  - 四元ベクトルを2次エルミート行列へ同定し行列式とMinkowski計量・未来円錐の対応を証明できる
+  - SL(2,C)の合同作用からLorentz変換・能動boost・空間回転を成分計算で導ける
+  - 極分解を用いてSL(2,C)の道連結性を証明できる
+  - 被覆準同型の核が正確に{±I}であることを証明できる
+  - 正定値行列の平方根とSU(2)被覆によってSO^+(1,3)への全射性を構成的に示せる
+  - 微分同型から局所二枚構造を証明し未来光的ベクトルの階数1分解を検算できる
+definitions:
+  - { id: LREP10-DEF-01, name: 四元ベクトルのエルミート行列模型 }
+  - { id: LREP10-DEF-02, name: "SL(2,C)の四元ベクトル作用" }
+theorems:
+  - { id: LREP10-THM-01, name: 行列式とMinkowski計量・未来円錐 }
+  - { id: LREP10-LEM-01, name: "SL(2,C)の極分解と道連結性" }
+  - { id: LREP10-THM-02, name: 合同作用によるLorentz群準同型 }
+  - { id: LREP10-PROP-01, name: 被覆写像の核 }
+  - { id: LREP10-THM-03, name: "SL(2,C)のLorentz作用の全射性" }
+  - { id: LREP10-THM-04, name: "SL(2,C)からSO^+(1,3)への二重被覆" }
+  - { id: LREP10-PROP-02, name: 未来光的ベクトルの階数1分解 }
+canonical_examples:
+  - エルミート行列と実四元座標の全単射の直接確認
+  - 対角SL(2,C)行列によるz軸boostと符号の検算
+  - 核の二元性と2π回転による二成分ベクトルの符号
+  - 正の平方根を用いる任意の未来向き単位時間的ベクトルへの持ち上げ
+  - 光円錐の階数1分解と位相の自由度
+problem_patterns:
+  - LREP10-HERMITIAN-DETERMINANT-CAUSAL-CONE
+  - LREP10-DIAGONAL-BOOST
+  - LREP10-SU2-SPATIAL-ROTATION
+  - LREP10-NULL-RANK-ONE
+  - LREP10-KERNEL-COMMUTANT
+  - LREP10-POSITIVE-SQUARE-ROOT-LIFT
+  - LREP10-TRIANGULAR-NULL-CONE
+  - LREP10-DIFFERENTIAL-ROTATION-BOOST
+  - LREP10-COMPOSED-LIFT-AND-SIGN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 3 }
