@@ -2,11 +2,11 @@
 
 $p$ を素数とします。奇素数では[IWA2の円分塔](../IWA2/index.md#thm-iwa2-compatible-tower)の $K_n$、$p=2$ では[2進円分塔](../IWA2/index.md#thm-iwa2-two-adic-splitting)の $K_n^{(2)}$ を、本講では共通して $K_n$ と書きます。いずれも
 
-$
+$$
 K_0=\mathbb Q\subset K_1\subset\cdots,\qquad
 [K_n:\mathbb Q]=p^n,\qquad
 \Gamma_n=\operatorname{Gal}(K_n/\mathbb Q)\simeq\mathbb Z/p^n\mathbb Z
-$
+$$
 
 です。$p=2$ の場合は法 $2^{n+2}$ の円分体から符号部分を除くため、奇素数の場合の法 $p^{n+1}$ の表示をそのまま使いません。
 
@@ -79,14 +79,14 @@ $$
 <!-- definition-example-start: def-iwa4-ideal-norm-extension -->
 **定義の確認**。 $E=\mathbb Q(i)$、$F=\mathbb Q$ で $5=(2+i)(2-i)$ と因数分解できます。剰余体を確かめるため、二つの環準同型を考えます。
 
-$
+$$
 \begin{aligned}
 \varphi_+:\mathbb Z[i]&\longrightarrow\mathbb F_5,
 &a+bi&\longmapsto a-2b\bmod5,\\
 \varphi_-:\mathbb Z[i]&\longrightarrow\mathbb F_5,
 &a+bi&\longmapsto a+2b\bmod5.
 \end{aligned}
-$
+$$
 
 いずれも $(\pm2)^2\equiv-1\pmod5$ によって $i^2=-1$ を保ち、整数を含むので全射です。$a+bi=(a-2b)+b(2+i)$ と $5=(2+i)(2-i)$ より $\ker\varphi_+=(2+i)$ です。同様に $\ker\varphi_-=(2-i)$ と分かります。従って両商は $\mathbb F_5$ に同型で、互いに異なる素イデアルの剰余次数はどちらも1です。この次数を[定義](#def-iwa4-ideal-norm-extension)の指数に使うと、
 
@@ -127,15 +127,15 @@ $F$ の素イデアル $\mathfrak p$ とその上の素イデアル $\mathfrak P
 
 [ANF4の次数公式](../../ANF/ANF4/index.md#thm-anf4-fundamental-identity)と同じ計数法で、$\mathcal O_E$ を $\mathcal O_F$ 上の階数 $d$ の加群として $\mathfrak p$ で局所化します。有限生成でねじれのない加群は離散付値環 $\mathcal O_{F,\mathfrak p}$ 上では自由なので、剰余体 $k(\mathfrak p)=\mathcal O_F/\mathfrak p$ 上で
 
-$
+$$
 \dim_{k(\mathfrak p)}(\mathcal O_E/\mathfrak p\mathcal O_E)=d
-$
+$$
 
 となります。一方、[素イデアル分解](../../ANF/ANF3/index.md#thm-anf3-prime-ideal-factorization)と中国剰余定理によって、この商は各 $\mathcal O_E/\mathfrak P_i^e$ に分かれます。[局所単項性](../../ANF/ANF3/index.md#lem-anf3-local-principal)より、その各段階商 $\mathfrak P_i^j/\mathfrak P_i^{j+1}$（$0\le j<e$）は $k(\mathfrak P_i)$ 上1次元、従って $k(\mathfrak p)$ 上は次元 $f$ です。このため
 
-$
+$$
 d=\sum_{i=1}^{g}\sum_{j=0}^{e-1}f=efg
-$
+$$
 
 を得ます。$G$ の $\mathfrak P$ における安定化群の位数は、軌道の個数 $g$ から $d/g=ef$ です。
 
