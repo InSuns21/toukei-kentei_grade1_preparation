@@ -298,7 +298,7 @@ $p=3$ なら $i=0,1$ の2成分しかなく、$A_r^{(0)}=A_r^+$、$A_r^{(1)}=A_r
 
 ## 5. 実部分体の類群と偶部分
 
-$E_r^+=\mathbb Q(\zeta_{p^r}+\zeta_{p^r}^{-1})$ を最大実部分体とします。[IWA2の複素共役による固定体の考え方](../IWA2/index.md#thm-iwa2-two-adic-splitting)と同様、$E_r/E_r^+$ は次数2の拡大です。イデアル類の拡大写像を $j:\operatorname{Cl}(E_r^+)\to\operatorname{Cl}(E_r)$、ノルムを $N:\operatorname{Cl}(E_r)\to\operatorname{Cl}(E_r^+)$ とします。ここでも $p$ 部分への制限を同じ記号で書きます。
+$E_r^+=\mathbb Q(\zeta_{p^r}+\zeta_{p^r}^{-1})$ を最大実部分体とします。実際、$s=\zeta_{p^r}+\zeta_{p^r}^{-1}$ は複素共役で固定され、$\zeta_{p^r}$ は $X^2-sX+1=0$ を満たします。一方 $\zeta_{p^r}$ は非実数なので、$[E_r:\mathbb Q(s)]=2$。よって $E_r^+=\mathbb Q(s)$ は複素共役の固定体であり、$E_r/E_r^+$ は次数2の拡大です。イデアル類の拡大写像を $j:\operatorname{Cl}(E_r^+)\to\operatorname{Cl}(E_r)$、ノルムを $N:\operatorname{Cl}(E_r)\to\operatorname{Cl}(E_r^+)$ とします。ここでも $p$ 部分への制限を同じ記号で書きます。
 
 イデアルを下の体へノルムで戻してから拡張すると、元のイデアルと共役イデアルの積になるため、加法記法では $jN=1+c$ となります。一方、下の体のイデアルを拡張してからノルムを取ると二乗になるので $Nj=2$ です。
 
