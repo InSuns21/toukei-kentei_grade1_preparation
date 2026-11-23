@@ -436,7 +436,17 @@ $$
 $S^1$ 上で $A=\frac i2\eta$ とする。$\theta=0$ から $\pi$ まで進む路の局所輸送、正向き一周・逆向き一周のホロノミーを計算せよ。
 
 <!-- solution-start -->
-**詳細解答**。半周の路を角度 $\theta\in[0,\pi]$ そのものでパラメータ化して $\gamma(\theta)=(\cos\theta,\sin\theta)$ とする。このとき $\eta_{\gamma(\theta)}(d\gamma/d\theta)=1$ だから $A_{\gamma(\theta)}(d\gamma/d\theta)=i/2$ である。[水平 ODE](../GBG14/index.md#prop-gbg14-local-transport)は $dg/d\theta=-(i/2)g$ となり、初期値 $g(0)$ に対する解は $g(\theta)=e^{-i\theta/2}g(0)$ だから、半周の局所輸送は $e^{-i\pi/2}=-i$。閉路については [円周のホロノミー公式](#prop-gbg16-circle-holonomy)に $a=\frac12$、$n=\pm1$ を代入し
+**詳細解答**。半周の路は角度 $\theta\in[0,\pi]$ をパラメータにして $\gamma(\theta)=(\cos\theta,\sin\theta)$ と置く。局所角度で $\eta=d\theta$ なので、
+$$
+\eta_{\gamma(\theta)}\left(\frac{d\gamma}{d\theta}\right)=1,
+\qquad
+A_{\gamma(\theta)}\left(\frac{d\gamma}{d\theta}\right)=\frac i2
+$$
+である。[水平 ODE](../GBG14/index.md#prop-gbg14-local-transport)は、この角度を微分変数とする初期値問題
+$$
+\frac{dg}{d\theta}=-\frac i2\,g,\qquad g(0)=g_0
+$$
+となる。解は $g(\theta)=e^{-i\theta/2}g_0$、したがって半周の局所輸送は $e^{-i\pi/2}=-i$。閉路については [円周のホロノミー公式](#prop-gbg16-circle-holonomy)に $a=\frac12$、$n=\pm1$ を代入し
 $$
 h_{+1}=e^{-i\pi}=-1,\qquad
 h_{-1}=e^{i\pi}=-1=h_{+1}^{-1}
