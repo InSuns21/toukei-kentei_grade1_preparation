@@ -118,7 +118,7 @@ $$
 
 > を課したとき $b/(d_0T)\in W_{\mathfrak p}$ となります。ただし $T$ は指定した素イデアルの下にある有理素数と互いに素な正整数です。各右辺は局所整数であるため、$\mathcal O_K\to\mathcal O_K/\mathfrak p^{e_{\mathfrak p}}$ の全射により剰余が定まり、中国剰余定理で同時に実現できます。
 
-その解全体は、固定した非零整イデアル $\mathfrak a=\prod\mathfrak p^{e_{\mathfrak p}}$ の格子剰余類 $b_0+\mathfrak a$ です。[Minkowski埋め込みの格子性](../ANF5/index.md#prop-anf5-minkowski-lattice)を用います。$K\otimes_\mathbb Q\mathbb R$ の各無限素点における目標 $d_0T x_v$ から、$b_0+\mathfrak a$ の元までの距離は、格子 $\mathfrak a$ の基本領域の有界な直径で抑えられます。従って $b/(d_0T)$ の無限成分と $x_v$ の誤差は $T\to\infty$ で $0$ になります。$T$ を大きく選べばすべての無限素点の開近傍にも入ります。無限素点が指定されていなければ中国剰余定理だけで十分です。
+その解全体は、固定した非零整イデアル $\mathfrak a=\prod\mathfrak p^{e_{\mathfrak p}}$ の格子剰余類 $b_0+\mathfrak a$ です。[Minkowski埋め込みの格子性](../ANF5/index.md#thm-anf5-ideal-covolume)を用います。$K\otimes_\mathbb Q\mathbb R$ の各無限素点における目標 $d_0T x_v$ から、$b_0+\mathfrak a$ の元までの距離は、格子 $\mathfrak a$ の基本領域の有界な直径で抑えられます。従って $b/(d_0T)$ の無限成分と $x_v$ の誤差は $T\to\infty$ で $0$ になります。$T$ を大きく選べばすべての無限素点の開近傍にも入ります。無限素点が指定されていなければ中国剰余定理だけで十分です。
 <!-- proof-end -->
 
 <a id="prop-anf20-ray-finite"></a>
@@ -252,6 +252,10 @@ $$
 $$
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-anf20-global-artin -->
+**定義の確認**。 $L=\mathbb Q(\zeta_5)$ とし、$x_2=2$、他の全素点の成分を $1$ とします。これは有限個を除き単数であり、各成分も非零なのでイデールです。$p=2$ の局所拡大は非分岐で、一様化元 $2$ は算術的Frobenius $\sigma_2$ に写ります。その他の成分 $1$ の像はすべて恒等です。従って $\operatorname{Art}_{L/\mathbb Q}(x)=\sigma_2$ と定義を直接計算できます。
+<!-- definition-example-end -->
+
 <a id="prop-anf20-artin-product"></a>
 
 <!-- formal-statement-start -->
@@ -309,6 +313,10 @@ $$
 \operatorname{Frob}_{\mathfrak p}^{e_{\mathfrak p}}.
 $$
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-anf20-ideal-artin -->
+**定義の確認**。 $L=\mathbb Q(\zeta_5)$ とし、$S=\{5\}$ を選びます。素イデアル $(11)$ は非分岐で、$11\equiv1\pmod5$ より $\operatorname{Frob}_{11}=1$ です。一方 $(2)(3)^{-1}$ の指数は $2$ で $1$、$3$ で $-1$、その他で $0$ なので、像は $\sigma_2\sigma_3^{-1}=\sigma_{2\cdot2}=\sigma_4$ です。これにより正負両方の素イデアル指数に対して準同型の定義を直接確認できます。
+<!-- definition-example-end -->
 
 一意な素イデアル分解があるので、各指数が一意に決まり、負の指数はFrobeniusの逆元として扱えます。ただし、**すべての主イデアルが核に入るわけではありません**。外部の大域相互法則と、有限個の合同条件に応じた法 $\mathfrak m$ を選ぶことにより、$P_{\mathfrak m,1}$ が核に入るようにできます。
 
@@ -377,7 +385,7 @@ $$
 =1.
 $$
 
-> これは[局所円分相互法則の規格化](../ANF18/index.md#thm-anf18-cyclotomic-reciprocity)と整合する具体的な検算であり、一般の大域相互法則全体の証明ではありません。
+> これは[局所円分相互法則の規格化](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)と整合する具体的な検算であり、一般の大域相互法則全体の証明ではありません。
 
 法から実素点を外すと剰余類群が位数 $2$ になる一方、この円分体のGalois群は位数 $4$ です。したがって $L$ は法 $(5)$ の剰余類体には**なりません**。$\mathbb Q$ の実素点が複素化するという条件を落とすと、符号に対応する複素共役の情報が失われるためです。
 
@@ -420,7 +428,7 @@ $\mathbb Q(\zeta_5)$ の $p=2,3,11$ のFrobeniusが $\zeta_5$ をどこへ送る
 $\operatorname{Art}_{\mathbb Q(\zeta_5)/\mathbb Q}(\Delta(2))$ を有限素点と実素点の因子に分けて計算せよ。
 
 <!-- solution-start -->
-**詳細解答**。$p=2$ は付値 $v_2(2)=1$ なのでFrobenius $\sigma_2$。$p=5$ では $2$ が単数で、[円分局所相互法則](../ANF18/index.md#thm-anf18-cyclotomic-reciprocity)から $\sigma_{2^{-1}}=\sigma_3$ です。$p\ne2,5$ は非分岐局所拡大の単数なので $1$、実素点では $2>0$ なので $1$ です。積の指数は $2\cdot3\equiv1\pmod5$。従って全積は恒等自己同型です。
+**詳細解答**。$p=2$ は付値 $v_2(2)=1$ なのでFrobenius $\sigma_2$。$p=5$ では $2$ が単数で、[円分局所相互法則](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)から $\sigma_{2^{-1}}=\sigma_3$ です。$p\ne2,5$ は非分岐局所拡大の単数なので $1$、実素点では $2>0$ なので $1$ です。積の指数は $2\cdot3\equiv1\pmod5$。従って全積は恒等自己同型です。
 <!-- solution-end -->
 
 ### B1. 剰余類群の有限性を組み立てる
