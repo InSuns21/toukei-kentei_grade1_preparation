@@ -40,3 +40,4 @@
 36. [PML2-14 単一のPDE解と「解作用素」の学習は何が違うか](textbook/volumes/dream_thater/応用系/PML/PML2-14/index.md)
 37. [PML2-15 Neural Operatorの層をどう構成するか](textbook/volumes/dream_thater/応用系/PML/PML2-15/index.md)
 38. [PML2-16 Fourier Neural OperatorはなぜFourier係数を用いるか](textbook/volumes/dream_thater/応用系/PML/PML2-16/index.md)
+39. [PML2-17 解像度を変えても同じ精度が出るのか](textbook/volumes/dream_thater/応用系/PML/PML2-17/index.md)

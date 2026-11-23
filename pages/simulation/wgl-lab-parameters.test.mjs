@@ -58,8 +58,8 @@ test('FCG6 shape and moving wall controls rewrite only the executed solid.js lit
   const source=await readFile(new URL('FCG/FCG6/solid.js',base),'utf8');
   const specs=parametersFor('FCG6');
   assert.deepEqual(specs.map(spec=>spec.id),
-    ['shape','centerY','wallAmplitude','wallFrequency']);
-  const changes=['rectangle',0.55,0.12,2.2];
+    ['grid','shape','centerY','wallAmplitude','wallFrequency']);
+  const changes=[64,'rectangle',0.55,0.12,2.2];
   let edited=source;
   for(let i=0;i<specs.length;i++){
     const spec=specs[i];
@@ -67,17 +67,19 @@ test('FCG6 shape and moving wall controls rewrite only the executed solid.js lit
     edited=writeLabParameter(edited,spec,changes[i]);
     assert.deepEqual(readLabParameter(edited,spec),{ok:true,value:changes[i]});
   }
+  assert.match(edited,/const N=64,h=1\/N/);
   assert.match(edited,/shape='rectangle',centerY=0.55/);
   assert.match(edited,/wallAmplitude=0.12,wallFrequency=2.2/);
   assert.match(edited,/shape==='rectangle'/);
   assert.match(edited,/wallAmplitude\*wallFrequency\*Math.cos/);
-  assert.throws(()=>writeLabParameter(source,specs[0],'triangle'),RangeError);
-  assert.throws(()=>writeLabParameter(source,specs[1],0.95),RangeError);
-  assert.throws(()=>writeLabParameter(source,specs[2],0.123),RangeError);
+  assert.throws(()=>writeLabParameter(source,specs[0],16),RangeError);
+  assert.throws(()=>writeLabParameter(source,specs[1],'triangle'),RangeError);
+  assert.throws(()=>writeLabParameter(source,specs[2],0.95),RangeError);
+  assert.throws(()=>writeLabParameter(source,specs[3],0.123),RangeError);
   const expression=source.replace("shape='circle'","shape=['circle'][0]");
-  assert.equal(readLabParameter(expression,specs[0]).ok,false);
+  assert.equal(readLabParameter(expression,specs[1]).ok,false);
   const duplicate=source+"\nconst wallAmplitude=0.10,wallFrequency=1.8,acceleration=0.07;";
-  assert.equal(readLabParameter(duplicate,specs[2]).ok,false);
+  assert.equal(readLabParameter(duplicate,specs[3]).ok,false);
   for(let i=specs.length-1;i>=0;i--)
     edited=writeLabParameter(edited,specs[i],specs[i].default);
   let normalizedSource=source;

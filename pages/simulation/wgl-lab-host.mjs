@@ -251,7 +251,7 @@ function capture() {
 function fcg6PhysicsFor(js,vertex,fragment) {
   if(!isFCG6||vertex!==defaults.vertex||fragment!==defaults.fragment)return null;
   const specs=parametersFor('FCG6');
-  if(specs.length!==4)return null;
+  if(specs.length!==5)return null;
   const readings=specs.map(spec=>readLabParameter(js,spec));
   if(!readings.every(state=>state.ok))return null;
   try {
@@ -264,7 +264,8 @@ function fcg6PhysicsFor(js,vertex,fragment) {
     }
     if(canonical!==baseline)return null;
   }catch{return null;}
-  return Object.fromEntries(specs.map((spec,i)=>[spec.id,readings[i].value]));
+  const values=Object.fromEntries(specs.map((spec,i)=>[spec.id,readings[i].value]));
+  return {...values,N:values.grid};
 }
 // Accept only known FCG5 literal edits as an independently checkable initial state.
 // After pointer-driven dye injection the live texture is no longer this snapshot.
@@ -859,7 +860,8 @@ window.addEventListener('message', event => {
   if (isFCG6 && data.type === 'fcg6-cursor') {
     if(Number.isInteger(data.x)&&Number.isInteger(data.y)&&data.x>=0&&
        data.y>=0&&data.x<active.payload.width&&data.y<active.payload.height){
-      const c=fcg6PixelCell(data.x,data.y,active.payload.width,active.payload.height);
+      const options=fcg6PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment);
+      const c=fcg6PixelCell(data.x,data.y,active.payload.width,active.payload.height,options?.N??48);
       byId('result-note').textContent='panel '+c.panel+' cell('+c.i+','+c.j+') Enter/Space to inspect';
     }
     return;
@@ -869,14 +871,14 @@ window.addEventListener('message', event => {
     if(!Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||
        x>=width||y>=height||!Array.isArray(rgba)||rgba.length!==4||
        !rgba.every(v=>Number.isInteger(v)&&v>=0&&v<=255))return;
-    const c=fcg6PixelCell(x,y,width,height);
     const options=fcg6PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment);
+    const c=fcg6PixelCell(x,y,width,height,options?.N??48);
     const s=fcg6State(steps,options||{}),k=c.i+s.N*c.j;
     const value=s.solid[k]?'solid':c.panel===0?s.q[k]:c.panel===1?
       s.divergence[k]:s.speed[k];
     const edited=Object.keys(defaults).some(key=>active.payload[key]!==defaults[key]);
     byId('result-note').textContent='cell('+c.i+','+c.j+') CPU='+value+
-      ' / GPU RGBA='+rgba.join('/')+(edited?' (edited source: baseline for comparison only)':'');
+      ' / GPU RGBA='+rgba.join('/')+(edited&&!options?' (edited source: baseline for comparison only)':'');
     return;
   }
   if (isFCG5 && data.type === 'fcg5-cursor') {
@@ -989,7 +991,8 @@ window.addEventListener('message', event => {
     width: active.payload.width, height: active.payload.height,
     steps: (isWGL18 || isWGL19) ? data.floatParameters?.steps : active.payload.steps,
     frameAudit: isWGL19 ? data.frameAudit : undefined,
-    gridN: isFCG5 ? readLabParameter(active.payload.js,parametersFor('FCG5')[0]).value : undefined,
+    gridN: isFCG5 ? readLabParameter(active.payload.js,parametersFor('FCG5')[0]).value :
+      isFCG6 ? fcg6PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment)?.N : undefined,
     dt: isFCG5 ? readLabParameter(active.payload.js,parametersFor('FCG5')[3]).value : undefined
   } : null);
   clearTimeout(active.timer);
@@ -1072,7 +1075,7 @@ window.addEventListener('message', event => {
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
     if (isFCG6 && fcg6Physics && !unchanged) {
       byId('numeric-note').textContent =
-        'FCG6：実行した形状='+fcg6Physics.shape+'、中心y='+fcg6Physics.centerY+
+        'FCG6：実計算N='+fcg6Physics.N+'×'+fcg6Physics.N+'、形状='+fcg6Physics.shape+'、中心y='+fcg6Physics.centerY+
         ' m、移動振幅='+fcg6Physics.wallAmplitude+' m、角周波数='+
         fcg6Physics.wallFrequency+' rad/sの独立CPU格子を再計算し、'+
         'GPUの9画素と各成分±2で比較（その他のJS/GLSLは初期ソースと同一）。';
@@ -1164,7 +1167,9 @@ function run() {
       const predicted=expectedFCG6Samples(payload.width,payload.height,fcg6Steps,options||{});
       payload.probes=predicted.map(p=>[p.x,p.y]);
       const s=fcg6State(fcg6Steps,options||{});
-      byId('fcg6-cpu-prediction').textContent='independent CPU: t='+(fcg6Steps*s.dt).toFixed(3)+
+      byId('fcg6-cpu-prediction').textContent=
+        (options?'独立CPU':'初期ソース参考CPU（編集条件は未検証）')+
+        ' N='+s.N+'×'+s.N+', t='+(fcg6Steps*s.dt).toFixed(3)+
         's, steps='+fcg6Steps+', pre-div='+s.divBefore.toExponential(3)+
         ', post-div='+s.divAfter.toExponential(3)+
         ', residual='+s.residual.toExponential(3)+

@@ -1,7 +1,10 @@
 // FCG6 deterministic CPU reference for unchanged editable source.
 // Recomputes masked pressure and transport without running learner JS/GLSL.
 export const FCG6_N=48;
-const N=FCG6_N,H=1/N,DT=0.05,RHO=1;
+
+// One independent graph-CG implementation per real grid, not a second display model.
+function makeGrid(N){
+const H=1/N,DT=0.05,RHO=1;
 const id=(x,y)=>x+N*y,ix=(x,y)=>x+(N+1)*y,iy=(x,y)=>x+N*y;
 const inside=(x,y)=>x>=0&&x<N&&y>=0&&y<N;
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
@@ -52,7 +55,7 @@ function adjacency(m,x,y){
   if(isFluid(m,x,y+1))items.push(id(x,y+1));
   return items;
 }
-export function fcg6State(steps=8,options={}){
+function fcg6State(steps=8,options={}){
   if(!Number.isInteger(steps)||steps<0||steps>24)throw new RangeError('FCG6 step');
   let u=new Float64Array((N+1)*N),v=new Float64Array(N*(N+1)),q=new Float64Array(N*N);
   for(let y=0;y<N;y++)for(let x=0;x<N;x++){
@@ -166,7 +169,7 @@ export function fcg6State(steps=8,options={}){
   return {N,dt:DT,steps,solid:g.solid,q,divergence:divField,speed,
     wall,divBefore,divAfter,identity,residual,mean};
 }
-export function fcg6PixelCell(x,y,width,height){
+function fcg6PixelCell(x,y,width,height){
   if(![x,y,width,height].every(Number.isInteger)||width<64||height<64||
     x<0||y<0||x>=width||y>=height)throw new RangeError('FCG6 pixel');
   const X=3*(x+0.5)/width,panel=Math.min(2,Math.floor(X)),u=X-panel;
@@ -196,7 +199,7 @@ function predicted(pixel,s){
   }
   return rgba;
 }
-export function expectedFCG6Samples(width,height,steps=8,options={}){
+function expectedFCG6Samples(width,height,steps=8,options={}){
   const s=fcg6State(steps,options),cells=[[8,8],[3,7],[11,11]];
   return [0,1,2].flatMap(panel=>cells.map(([i,j])=>{
     const x=Math.floor(width*(panel+(i+0.5)/N)/3),
@@ -205,7 +208,7 @@ export function expectedFCG6Samples(width,height,steps=8,options={}){
     return {x,y,label:'panel '+panel+' ('+i+','+j+')',rgba};
   }));
 }
-export function compareFCG6Readback(got,width,height,steps=8,tolerance=2,options={}){
+function compareFCG6Readback(got,width,height,steps=8,tolerance=2,options={}){
   return expectedFCG6Samples(width,height,steps,options).map((ref,k)=>{
     const actual=got?.[k],valid=actual&&actual.x===ref.x&&actual.y===ref.y&&
       Array.isArray(actual.rgba)&&actual.rgba.length===4&&
@@ -215,4 +218,24 @@ export function compareFCG6Readback(got,width,height,steps=8,tolerance=2,options
     return {...ref,actual:valid?actual.rgba:null,difference,
       pass:!!valid&&difference.every(z=>z<=tolerance)};
   });
+}
+  return {fcg6State,fcg6PixelCell,expectedFCG6Samples,compareFCG6Readback};
+}
+const cachedGrids=new Map();
+function gridFor(n=FCG6_N){
+  if(![32,48,64].includes(n))throw new RangeError('FCG6 grid N must be 32, 48 or 64');
+  if(!cachedGrids.has(n))cachedGrids.set(n,makeGrid(n));
+  return cachedGrids.get(n);
+}
+export function fcg6State(steps=8,options={}){
+  return gridFor(options.N??FCG6_N).fcg6State(steps,options);
+}
+export function fcg6PixelCell(x,y,width,height,n=FCG6_N){
+  return gridFor(n).fcg6PixelCell(x,y,width,height);
+}
+export function expectedFCG6Samples(width,height,steps=8,options={}){
+  return gridFor(options.N??FCG6_N).expectedFCG6Samples(width,height,steps,options);
+}
+export function compareFCG6Readback(got,width,height,steps=8,tolerance=2,options={}){
+  return gridFor(options.N??FCG6_N).compareFCG6Readback(got,width,height,steps,tolerance,options);
 }
