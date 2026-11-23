@@ -51,12 +51,12 @@ concepts:
     introduction_aliases: ["定義（複素共役表現）"]
     requires: [representation.finite-dimensional-complex]
   - id: representation.unitary-conjugate-dual
-    name: 不変Hermite内積と共役・双対の同値
+    name: 不変 Hermite 内積と共役・双対の同値
     kind: proposition
     introduction: formal
     requires: [representation.conjugate, representation.dual, representation.intertwiner]
   - id: representation.tensor-endomorphism
-    name: VテンソルV双対と自己準同型の自然な対応
+    name: テンソル積と自己準同型の自然な対応
     kind: theorem
     introduction: formal
     requires: [representation.tensor-product, representation.dual, representation.intertwiner, linear.dual-basis]

@@ -24,8 +24,8 @@ theorems:
   - { id: LREP4-THM-01, name: テンソル積表現の群法則と次元 }
   - { id: LREP4-PROP-02, name: テンソル積表現の微分 }
   - { id: LREP4-THM-02, name: 双対は表現となり評価を保存する }
-  - { id: LREP4-PROP-03, name: 不変Hermite内積と共役・双対の同値 }
-  - { id: LREP4-THM-03, name: VテンソルV双対と自己準同型の自然な対応 }
+  - { id: LREP4-PROP-03, name: 不変 Hermite 内積と共役・双対の同値 }
+  - { id: LREP4-THM-03, name: テンソル積と自己準同型の自然な対応 }
   - { id: LREP4-THM-04, name: 不変双線形形式と双対への絡作用素 }
   - { id: LREP4-PROP-04, name: 二次元交代形式と行列式 }
 canonical_examples:

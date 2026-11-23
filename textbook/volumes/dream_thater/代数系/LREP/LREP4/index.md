@@ -84,7 +84,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep4-tensor-product -->
-**定義の確認。** $G=C_2$、$V=\mathbb C^2$、$D(s)=\operatorname{diag}(1,-1)$、$W=\mathbb C$、$E(s)=-1$ とします。[テンソル積の基底定理](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)から $e_1\otimes1,e_2\otimes1$ が基底です。各基底ベクトルに作用すると
+**定義の確認。** $G=C_2$、$V=\mathbb C^2$、$D(s)=\operatorname{diag}(1,-1)$、$W=\mathbb C$、$E(s)=-1$ とします。[有限次元テンソル積の存在と基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)から $e_1\otimes1,e_2\otimes1$ が基底です。各基底ベクトルに作用すると
 $$
 (D\otimes E)(s)(e_1\otimes1)=-e_1\otimes1,\qquad
 (D\otimes E)(s)(e_2\otimes1)=+e_2\otimes1.
@@ -129,7 +129,7 @@ $$
 
 ### Lie 環に微分すると「積」ではなく「和」になる
 
-[LREP3の群表現の微分定理](../LREP3/index.md#thm-lrep3-differentiation)により、$dD(X)$、$dE(X)$ は Lie 環表現です。テンソル積を微分するときは、二つの因子の積の微分と同様に、片方ずつ微分した項が現れます。
+[群表現の微分は Lie 環表現になる定理](../LREP3/index.md#thm-lrep3-differentiation)により、$dD(X)$、$dE(X)$ は Lie 環表現です。テンソル積を微分するときは、二つの因子の積の微分と同様に、片方ずつ微分した項が現れます。
 
 <a id="prop-lrep4-tensor-differential"></a>
 
@@ -164,7 +164,7 @@ $$
 
 ## 3. 線形形式を変換する――双対表現
 
-ベクトル $v$ に線形形式 $\varphi\in V^*$ を作用させると $\varphi(v)$ という数を得ます。群で $v$ を $D(g)v$ に動かしたとき、**この数を変えずに**線形形式側も動かしたいとします。そのためには線形形式に $D(g)$ の**逆変換**を事前合成する必要があります。単純な転置を使うと、非可換な群で積の順序が逆転するので表現になりません。
+ベクトル $v$ に線形形式 $\varphi\in V^*$ を作用させると $\varphi(v)$ という数を得ます。群で $v$ を $D(g)v$ に動かしたとき、**この数を変えずに**線形形式側も動かしたいとします。そのためには線形形式に $D(g^{-1})$ を事前合成する必要があります。単純な転置を使うと、非可換な群で積の順序が逆転するので表現になりません。
 
 <a id="def-lrep4-dual"></a>
 
@@ -245,9 +245,9 @@ $$
 
 $\varphi(v)$ は二つの因子を同時変換した際の不変量です。ただし双対表現と元の表現が常に同値になるわけではありません。例えば1次元の $D(t)=e^t$ は $D^\vee(t)=e^{-t}$ と異なり、もし非零の絡作用素 $c$ が存在すれば $ce^t=e^{-t}c$ が全ての $t$ で必要になるため、$t=1$ で矛盾します。
 
-## 4. 複素共役表現との違い
+## 4. 複素共役と双対の違い
 
-複素数の係数だけを共役にする操作もあります。しかし複素共役表現は元の $V$ を**同じ複素スカラー倍の空間**として扱うわけではありません。$\overline V$ は元 $\overline v$ を使って表し、スカラー倍を $\lambda\overline v:=\overline{\overline\lambda v}$ とする複素ベクトル空間です。これで $v\mapsto\overline v$ は共役線形、$\overline V$ 上の作用は複素線形になります。
+複素数の係数だけを共役にする操作もあります。ただし元の $V$ を**同じ複素スカラー倍の空間**として扱うわけではありません。$\overline V$ は元 $\overline v$ を使って表し、スカラー倍を $\lambda\overline v:=\overline{\overline\lambda v}$ とする複素ベクトル空間です。これで $v\mapsto\overline v$ は共役線形、$\overline V$ 上の作用は複素線形になります。
 
 <a id="def-lrep4-conjugate"></a>
 
@@ -296,7 +296,7 @@ H(\lambda\overline v)(w)
 =h(\overline\lambda v,w)=\lambda h(v,w)
 =\lambda H(\overline v)(w).
 $$
-加法性も同様です。$H(\overline v)=0$ なら特に $h(v,v)=0$ ですから、正定値性により $v=0$ となります。有限次元で $\dim\overline V=\dim V^*$ なので $H$ は同型です。任意の $g\in G$、$w\in V$ について
+和についても $H(\overline v+\overline u)(w)=h(v+u,w)=h(v,w)+h(u,w)$ です。$H(\overline v)=0$ なら特に $h(v,v)=0$ ですから、正定値性により $v=0$ となります。有限次元で $\dim\overline V=\dim V^*$ なので $H$ は同型です。任意の $g\in G$、$w\in V$ について
 $$
 \begin{aligned}
 H(\overline D(g)\overline v)(w)
@@ -319,7 +319,7 @@ $$
 <a id="thm-lrep4-endomorphism"></a>
 
 <!-- formal-statement-start -->
-> **定理（$V\otimes V^*$ と自己準同型の自然な対応）**  
+> **定理（テンソル積と自己準同型の自然な対応）**  
 > $G$ の有限次元複素表現 $(V,D)$ に対し
 >
 $$
@@ -526,7 +526,7 @@ $$
 $(\mathbb R,+)$ の $\mathbb C^2$ 上の表現 $D(t)=\operatorname{diag}(e^t,e^{-3t})$ を考える。$D^\vee(t)$ を双対基底で求め、$v=(x,y)^{\mathsf T}$、$\varphi=\alpha e^1+\beta e^2$ について評価の不変性を示せ。
 
 <!-- solution-start -->
-**詳細解答。** まず $D(t)^{-1}=\operatorname{diag}(e^{-t},e^{3t})$ です。これは対角行列なので転置しても変わらず、[双対の行列公式](#thm-lrep4-dual-action)から
+**詳細解答。** まず $D(t)^{-1}=\operatorname{diag}(e^{-t},e^{3t})$ です。これは対角行列なので転置しても変わらず、[双対は表現となり評価を保存する定理](#thm-lrep4-dual-action)から
 $$
 D^\vee(t)=\operatorname{diag}(e^{-t},e^{3t}).
 $$
