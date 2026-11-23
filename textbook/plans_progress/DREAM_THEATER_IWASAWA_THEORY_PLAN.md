@@ -2,7 +2,7 @@
 
 設計確定: 2026-11-21 JST  
 状態: in_progress / **全20講確定**。IWA1の本文・系列manifest・公開索引を実装、IWA2〜IWA20は計画中。  
-系列ID: `IWA`。分野: 代数系。上流の新規計画: [ANF1〜ANF22](../plans_progress/DREAM_THEATER_ALGEBRAIC_NUMBER_THEORY_CLASS_FIELD_THEORY_PLAN.md)。横断: [RH研究講読ルート](../plans/DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)。
+系列ID: `IWA`。分野: 代数系。上流の新規計画: [ANF1〜ANF22](../plan_done/DREAM_THEATER_ALGEBRAIC_NUMBER_THEORY_CLASS_FIELD_THEORY_PLAN.md)。横断: [RH研究講読ルート](../plans/DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)。
 
 ## 中心問い・到達目標
 
