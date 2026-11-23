@@ -143,7 +143,7 @@ d(D\otimes E)(X)
 $$
 <!-- formal-statement-end -->
 
-**証明の見取り図。** $X\in\mathfrak g$ を固定し、実変数 $t$ で動く曲線 $g(t)=\exp_G(tX)$ に沿って微分します。[LREP3の微分の定義と指数曲線の公式](../LREP3/index.md#thm-lrep3-differentiation)から
+**証明の見取り図。** $X\in\mathfrak g$ を固定し、実変数 $t$ で動く曲線 $g(t)=\exp_G(tX)$ に沿って微分します。[群表現の微分は Lie 環表現になる](../LREP3/index.md#thm-lrep3-differentiation)という定理の指数曲線の等式から
 $$
 dD(X)v=\left.\frac{d}{dt}\right|_{t=0}D(g(t))v,\qquad
 dE(X)w=\left.\frac{d}{dt}\right|_{t=0}E(g(t))w
@@ -279,7 +279,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep4-conjugate -->
-**定義の確認**。 $C_3=\langle r:r^3=e\rangle$ の1次元表現 $D(r)=\omega=e^{2\pi i/3}$ に対し、共役表現では $\overline D(r)=\overline\omega=\omega^2$ です。$(\omega^2)^3=1$ なので群関係が保たれます。$\overline V$ のスカラー倍の定義を使うと
+**定義の確認**。 $C_3=\langle r:r^3=e\rangle$ の1次元表現 $D(r)=\omega=e^{2\pi i/3}$ に対し、共役表現では $\overline D(r)=\overline\omega=\omega^2$ です。$(\omega^2)^3=1$ なので群関係が保たれます。先に定めたスカラー倍 $\lambda\overline v=\overline{\overline\lambda v}$ を使うと
 $$
 \overline D(r)(\lambda\overline v)
 =\overline{D(r)(\overline\lambda v)}
