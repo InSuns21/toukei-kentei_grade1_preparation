@@ -3,10 +3,11 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - LREP1
+  - F0-00P1
 forward_references: []
 concepts:
   - id: representation.schur-lemma
-    name: Schurの補題
+    name: Schur の補題
     kind: theorem
     introduction: formal
     requires: [representation.intertwiner-invariants, representation.irreducible]
