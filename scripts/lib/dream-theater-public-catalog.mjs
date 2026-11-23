@@ -43,7 +43,12 @@ export function assembleDreamTheaterContents(sourceFiles) {
         if (anchors.has(anchor)) throw new Error('duplicate DREAM THEATER anchor: ' + anchor);
         anchors.add(anchor);
       }
-      pieces.push(fragment);
+      // Keep each subject's numbered lecture links a tight Markdown list.
+      // Blank lines between items otherwise produce <p> wrappers and uneven spacing.
+      pieces.push(fragment.replace(
+        /(^\d+\. \[[^\n]+\]\(textbook\/volumes\/[^)\n]+\/index\.md\)\n)\n+(?=\d+\. \[)/gmu,
+        '$1',
+      ));
     }
   }
   return pieces.join('');
