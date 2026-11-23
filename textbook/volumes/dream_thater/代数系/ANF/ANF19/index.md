@@ -6,7 +6,7 @@
 
 ## 1. 無限個の局所体を、有限個の例外だけで扱う
 
-まず積を取る対象を一般的に定めます。$v\in V_f$ では局所体 $K_v$ とその開かつコンパクトな加法部分環 $\mathcal O_v$ を用います。無限素点は有限個なので、例外集合に初めから含めます。制限付き直積の「制限」とは、**すべての成分が同じ整数である**という意味ではなく、有限個以外の成分が指定された部分集合に属するという意味です。
+まず積を取る対象を一般的に定めます。$v\in V_f$ では局所体 $K_v$ とその開かつコンパクトな加法部分環 $\mathcal O_v$ を用います。無限素点は有限個なので、例外集合に初めから含めます。ここでいう「制限」とは、**すべての成分が同じ整数である**という意味ではなく、有限個以外の成分が指定された部分集合に属するという意味です。
 
 <a id="def-anf19-restricted-product"></a>
 
@@ -97,7 +97,7 @@ $$
 
 と置きます。これは[制限付き直積の位相](#def-anf19-restricted-product)で $0$ の開近傍です。$a\in K$ が $\Delta(a)\in U$ を満たせば、全有限素点で $\operatorname{ord}_{\mathfrak p}(a)\ge0$ です。[素イデアル分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)によって $(a)$ は整イデアル、従って $a\in\mathcal O_K$ です。
 
-もし $a\ne0$ なら、[埋め込みによるノルム公式](../ANF2/index.md#thm-anf2-embedding-formulas)から
+もし $a\ne0$ なら、[埋め込みによる跡・ノルムの公式](../ANF2/index.md#thm-anf2-embedding-formulas)から
 
 $$
 1\le |N_{K/\mathbb Q}(a)|
@@ -169,7 +169,7 @@ $$
 
 一般の $a=b/c$（$b,c\in\mathcal O_K\setminus\{0\}$）では、上記を $(a)=(b)(c)^{-1}$ と $N_{K/\mathbb Q}(a)=N(b)/N(c)$ に適用して同じ等式を得ます。
 
-一方、[埋め込みによるノルム公式](../ANF2/index.md#thm-anf2-embedding-formulas)で複素共役を対にすると
+一方、[埋め込みによる跡・ノルムの公式](../ANF2/index.md#thm-anf2-embedding-formulas)で複素共役を対にすると
 
 $$
 \prod_{v\in V_\infty}|a|_v
@@ -214,7 +214,7 @@ x_v\in K_v^\times\ \text{for all }v,\quad
 x_v\in\mathcal O_v^\times\ \text{for almost all }v\in V_f\right\}.
 $$
 
-> 積と逆元は成分ごとに計算し、有限素点の標準部分群を $\mathcal O_v^\times$ とする**乗法群の制限付き直積位相**を用いる。
+> 積と逆元は成分ごとに計算する。位相の開集合の基底は、有限集合 $S\supset V_\infty$ 内で各 $K_v^\times$ の開集合を、外側で $\mathcal O_v^\times$ を選んだ直積とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf19-idele -->
@@ -336,7 +336,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-イデール $x$ は有限個を除く $\mathfrak p$ で単数なので、$\operatorname{ord}_{\mathfrak p}(x_{\mathfrak p})=0$ はほぼすべての $\mathfrak p$ で成り立ちます。[分数イデアルの一意分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)により $J(x)$ は有限積として定義できます。[付値の積の法則](../ANF9/index.md#prop-anf9-valuation-rules)から各指数が加算されるため
+イデール $x$ は有限個を除く $\mathfrak p$ で単数なので、$\operatorname{ord}_{\mathfrak p}(x_{\mathfrak p})=0$ はほぼすべての $\mathfrak p$ で成り立ちます。[分数イデアルの一意分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)により $J(x)$ の積は非零指数が有限個だけなので定義できます。[付値の積の法則](../ANF9/index.md#prop-anf9-valuation-rules)から各指数が加算されるため
 
 $$
 J(xy)=\prod_{\mathfrak p}\mathfrak p^{
@@ -354,7 +354,7 @@ $J(x)=\mathcal O_K$ であることと、すべての有限素点で付値が $0
 $\overline J([x])=1$ と仮定します。このとき $J(x)=(a)$ となる $a\in K^\times$ が存在し、$J(x\Delta(a)^{-1})=\mathcal O_K$ です。ゆえに $x\Delta(a)^{-1}\in D_K$、すなわち $[x]$ は $D_K$ から来ます。逆に $D_K$ から来る類の像は自明です。さらに $D_K\cap\Delta(K^\times)=\Delta(\mathcal O_K^\times)$ です。なぜなら $a$ と $a^{-1}$ が全有限素点で整であることは $a\in\mathcal O_K^\times$ と同値だからです。これで核の同定と完全性が示されました。
 <!-- proof-end -->
 
-[イデアル類群の有限性](../ANF6/index.md#thm-anf6-minkowski-class-bound)により $\operatorname{Cl}(K)$ は有限群です。ただし $C_K$ 自体が有限という意味ではありません。**有限性条件**には二種類あり、ここまで扱った「非整成分・非単数成分が有限個」という制限付き直積の条件と、「イデアル類群が有限である」という定理は別の主張です。
+[イデアル類群の有限性](../ANF6/index.md#thm-anf6-minkowski-class-bound)により $\operatorname{Cl}(K)$ は有限群です。ただし $C_K$ 自体が有限という意味ではありません。ここで区別すべき「有限」は二種類あり、ここまで扱った「非整成分・非単数成分が有限個」という制限付き直積の条件と、「イデアル類群が有限である」という定理は別の主張です。
 
 **$\mathbb Q$ の具体例。** 無限成分 $5$、$2$ 成分 $1/2$、$3$ 成分 $3$、それ以外の有限成分 $1$ というイデール $x$ を取ると、
 
@@ -470,7 +470,7 @@ $$
 - ID: ANF19-B1
 
 <!-- solution-start -->
-**詳細解答。** 全有限素点で $\operatorname{ord}_{\mathfrak p}(a)\ge0$ なら、[分数イデアルの素イデアル分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)で $(a)$ の全指数が非負です。従って $(a)\subset\mathcal O_K$、すなわち $a\in\mathcal O_K$ です。もし $a\ne0$ なら[数体ノルムの埋め込み公式](../ANF2/index.md#thm-anf2-embedding-formulas)から
+**詳細解答。** 全有限素点で $\operatorname{ord}_{\mathfrak p}(a)\ge0$ なら、[分数イデアルの素イデアル分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)で $(a)$ の全指数が非負です。従って $(a)\subset\mathcal O_K$、すなわち $a\in\mathcal O_K$ です。もし $a\ne0$ なら[埋め込みによる跡・ノルムの公式](../ANF2/index.md#thm-anf2-embedding-formulas)から
 
 $$
 |N_{K/\mathbb Q}(a)|
