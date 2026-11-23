@@ -21,6 +21,58 @@ export const LAB_PARAMETERS = Object.freeze({
       matcher: /^(const probeValue[ ]*=[ ]*)([^;]+)(;)/gm
     })
   ]),
+  WGL14: Object.freeze([
+    Object.freeze({
+      id: 'image-mode', type: 'enum', values: ['illustration', 'impulse'],
+      label: '入力画像', default: 'illustration', unit: '画像種別',
+      meaning: 'illustration＝家・太陽・木の128×128色画像、impulse＝8×8の手計算用白点と灰点',
+      sourceLocation: 'postprocess.js / imageMode → gridSize → postprocess.frag / sceneAt',
+      sourceFile: 'js', index: null,
+      matcher: /^([ 	]*const imageMode[ 	]*=[ 	]*)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id: 'filter-mode', type: 'enum', values: ['blur', 'edge'],
+      label: '画像フィルタ', default: 'blur', unit: '方式',
+      meaning: 'blur＝周辺平均、edge＝正の4近傍Laplacianによる輪郭抽出',
+      sourceLocation: 'postprocess.js / filterMode → u_filterMode → postprocess.frag / pass 1',
+      sourceFile: 'js', index: null,
+      matcher: /^([ 	]*const filterMode[ 	]*=[ 	]*)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id: 'blur-radius', type: 'integer',
+      label: 'ぼかし半径', default: 1, min: 1, max: 4, step: 1, unit: 'texel',
+      meaning: 'blurのみ：1＝3×3、2＝5×5、3＝7×7、4＝9×9。フィルタBの実サンプル数が変わる',
+      sourceLocation: 'postprocess.js / blurRadius → u_blurRadius → postprocess.frag / 2重for',
+      sourceFile: 'js', index: null,
+      matcher: /^([ 	]*const blurRadius[ 	]*=[ 	]*)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id: 'exposure', type: 'number',
+      label: '露出係数', default: 1, min: 0, max: 4, step: 0.5, unit: '無次元',
+      meaning: 'T_e(x)=ex/(1+ex)。加工側の明るさを変える（0は黒）',
+      sourceLocation: 'postprocess.js / exposure → u_exposure → postprocess.frag / toneMap',
+      sourceFile: 'js', index: null,
+      matcher: /^([ 	]*const exposure[ 	]*=[ 	]*)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id: 'process-order', type: 'enum', values: ['filter-first', 'tone-first'],
+      label: '処理順', default: 'filter-first', unit: '処理順',
+      meaning: 'filter-first＝Bを作ってから表示時にtoneMap、tone-first＝Aの各参照値をtoneMapしてBへ書く',
+      sourceLocation: 'postprocess.js / processOrder → u_toneFirst → postprocess.frag / sourceAt',
+      sourceFile: 'js', index: null,
+      matcher: /^([ 	]*const processOrder[ 	]*=[ 	]*)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id: 'comparison', type: 'number',
+      label: '原画を表示する割合', default: 0.5, min: 0, max: 1, step: 0.1, unit: '画面幅に対する割合',
+      meaning: '0＝加工のみ、0.5＝左半分が原画、1＝原画のみ。同じUV座標の2枚を比較',
+      sourceLocation: 'postprocess.js / comparison → u_compare → postprocess.frag / pass 2',
+      sourceFile: 'js', index: null,
+      matcher: /^([ 	]*const comparison[ 	]*=[ 	]*)([^;\n]+)(;)/gm
+    })
+  ]),
+
+
 
   FCG2: Object.freeze([
     Object.freeze({
