@@ -213,7 +213,29 @@ $$
 
 ## 5. 定数項・単元・群の作用
 
-群環では群元を全て $1$ に写すと、形式和から係数の和が取り出されます。無限段でも各有限層の係数和は両立するため、連続環準同型 $\varepsilon:\Lambda\to\mathbb Z_p$ が得られます。これを **増大写像（augmentation）** と呼びます。
+群環では群元を全て $1$ に写すと、形式和から係数の和が取り出されます。各有限層の係数和は射影と両立します。この構成を無限層にまとめれば、群作用を忘れて係数だけを見る操作が得られます。
+
+<a id="def-iwa3-augmentation"></a>
+
+<!-- formal-statement-start -->
+> **定義（岩澤代数の増大写像）**  
+> 素数 $p$、$\Gamma\simeq\mathbb Z_p$、$\Gamma_n=\Gamma/\Gamma^{p^n}$ とし、
+> $\Lambda=\varprojlim_{m,n}(\mathbb Z/p^m\mathbb Z)[\Gamma_n]$ とする。各有限段で形式和の係数を足す環準同型
+$$
+\varepsilon_{m,n}:\ (\mathbb Z/p^m\mathbb Z)[\Gamma_n]
+\longrightarrow\mathbb Z/p^m\mathbb Z,\qquad
+\sum_{h\in\Gamma_n}a_h[h]\longmapsto\sum_{h\in\Gamma_n}a_h
+$$
+> を考える。これらの逆極限で得られる連続環準同型 $\varepsilon:\Lambda\to\mathbb Z_p$ を **増大写像（augmentation）** と呼ぶ。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-iwa3-augmentation -->
+**定義の確認**。$p=3$、$\Gamma_1=\langle g:g^3=1\rangle$、係数を法3とすると
+$$
+\varepsilon_{1,1}(2+g+g^2)=2+1+1\equiv1\pmod3.
+$$
+第0層への群準同型で $g,g^2$ はともに $1$ へ移るため、像の係数和も同じ剰余 $1$ です。従って層間の整合性を具体的に確認できます。
+<!-- definition-example-end -->
 
 <a id="prop-iwa3-augmentation"></a>
 
