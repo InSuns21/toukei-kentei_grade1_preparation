@@ -120,7 +120,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi34-rst-setting -->
-**定義の確認（条件(iv)を判定する例）**：一定の入射流束 $F_{\rm in}=0$、出射流束 $F_{\rm out}>0$ の時間区間なら外部への正味流出は $F_{\rm net}=F_{\rm out}>0$ です。入射を出射と同じ $F_{\rm in}=F_{\rm out}$ に替えると $F_{\rm net}=0$ となり、[入射流を零とした蒸発期の設定](#def-bhi34-rst-setting)を満たしません。同じRST作用でも境界条件が異なる具体例です。この流束だけでは条件(i)〜(iii)、(v)を確認できません。条件(i)は補正作用の規格化、(ii)は崩壊する場の解、(iii)は外部座標の漸近性、(v)は状態・放射端点とcutoffを個別に指定して判定します。
+**定義の確認**（条件(iv)を判定する例）：一定の入射流束 $F_{\rm in}=0$、出射流束 $F_{\rm out}>0$ の時間区間なら外部への正味流出は $F_{\rm net}=F_{\rm out}>0$ です。入射を出射と同じ $F_{\rm in}=F_{\rm out}$ に替えると $F_{\rm net}=0$ となり、[入射流を零とした蒸発期の設定](#def-bhi34-rst-setting)を満たしません。同じRST作用でも境界条件が異なる具体例です。この流束だけでは条件(i)〜(iii)、(v)を確認できません。条件(i)は補正作用の規格化、(ii)は崩壊する場の解、(iii)は外部座標の漸近性、(v)は状態・放射端点とcutoffを個別に指定して判定します。
 <!-- definition-example-end -->
 
 RSTの実際のislandを論じるには、修正されたdilatonの関数、崩壊波の位置、非重力領域での放射端点、共形写像、レプリカの解析接続と終期境界をすべて指定します。この計算を行った研究として、[Gautason–Schneiderbauer–Sybesma–Thorlacius（2020）](https://doi.org/10.1007/JHEP05(2020)091) と [Hartman–Shaghoulian–Strominger（2020）](https://doi.org/10.1007/JHEP07(2020)022) があります。この節のCGHS曲率計算自体は、RSTの量子補正込みの場の方程式を解いたことを意味しません。
