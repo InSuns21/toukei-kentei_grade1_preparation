@@ -1,7 +1,7 @@
 import { compareReadback, expectedSamples } from './wgl-lab-core.mjs';
 import {expectedWGL20Samples,compareWGL20Readback,verifyWGL20Report} from './wgl20-lab-core.mjs';
 import {compareWGL19Readback, expectedWGL19Samples, compareWGL19FloatReadback, auditWGL19Clock, scheduleWGL19} from './wgl19-lab-core.mjs';
-import { compareFCG2Readback, expectedFCG2Samples, fcg2PixelCell, fcg2Field, fcg2FieldAtTime, fcg2Encode, FCG2_PERIOD } from './fcg2-lab-core.mjs';
+import { compareFCG2Readback, expectedFCG2Samples, fcg2PixelCell, fcg2Field, fcg2FieldAtTime, fcg2Encode, fcg2Color, FCG2_PERIOD } from './fcg2-lab-core.mjs';
 import {compareFCG3Readback,expectedFCG3Samples,fcg3Metrics,fcg3PixelCell,fcg3Grid,fcg3Exact} from './fcg3-lab-core.mjs';
 import {expectedFCG4Samples,compareFCG4Readback,fcg4State,fcg4PixelCell} from './fcg4-lab-core.mjs';
 import {expectedFCG5Samples,compareFCG5Readback,fcg5State,fcg5PixelCell} from './fcg5-lab-core.mjs';
@@ -11,7 +11,7 @@ import {expectedFCG8Samples,compareFCG8Readback,fcg8State} from './fcg8-lab-core
 import { highlightSource } from './wgl-lab-highlight.mjs';
 import {mountReferenceObservation} from './wgl-fcg-reference-visual.mjs';
 import {mountVisualGuide} from './wgl-fcg-visual-guide.mjs';
-import {mountLabParameters,parametersFor,readLabParameter,writeLabParameter,verifiedFCG5Physics,verifiedFCG3Physics,verifiedFCG8Physics} from './wgl-lab-parameters.mjs';
+import {mountLabParameters,parametersFor,readLabParameter,writeLabParameter,verifiedFCG5Physics,verifiedFCG3Physics,verifiedFCG8Physics,verifiedFCG2Physics} from './wgl-lab-parameters.mjs';
 import {mountSceneInfo} from './wgl-lab-scene-info.mjs';
 import { compareWGL2Readback, expectedWGL2Samples } from './wgl2-lab-core.mjs';
 import { compareWGL3Readback, expectedWGL3Samples } from './wgl3-lab-core.mjs';
@@ -103,6 +103,32 @@ const byId = id => document.getElementById(id);
 const inputs = {
   js: byId('js-source'), vertex: byId('vertex-source'), fragment: byId('fragment-source')
 };
+if (isWGL20) {
+  document.querySelector('h1').textContent = 'WGL20 街区3D：建物・太陽光・地形・水位';
+  document.querySelector('#panel-conditions h2').textContent = 'このデモで何が分かる？';
+  const intro = document.querySelector('#panel-conditions > p');
+  intro.textContent = '黄土色の実在PLATEAU建物1棟と、灰白色の合成建物8棟を同じ縮尺の街区に描きます。道路と合成地盤の上へ仮想水位を重ね、太陽の方向で建物の明暗と地面への影が変わる様子を見ます。';
+  const instructions = [
+    'まず「実行（結果へ）」を押す。街区をドラッグ／矢印キーで回転し、建物の側面・屋上と影を確認する。Homeで初期視点に戻す（CS1ではクリックによるID選択を優先）。',
+    '仮想水面32 mを30 mへ下げて水に覆われる場所を比較し、原点の水深が2.29497413 mから0.29497413 mへ変わることを確かめる。',
+    '太陽方向とカメラ仰角を変え、影の方向と見え方の違いを観察する。高さの表示倍率だけを変えても水深の数値は変わらない。',
+    '「コード編集」で terrain.js／terrain.vert／terrain.frag を書き換えて実行し、シェーダの光と実PLATEAU形状・合成周辺地物の区別を確認する。'
+  ];
+  const ordered = document.querySelector('#panel-conditions > ol');
+  ordered.replaceChildren(...instructions.map(t => {
+    const li = document.createElement('li'); li.textContent = t; return li;
+  }));
+  byId('width').value = '640'; byId('height').value = '420';
+  const preset = byId('preset').options[0];
+  if (preset) preset.textContent = '初期街区と影';
+  const help = document.createElement('p');
+  help.textContent = '黄土色＝公式LOD1建物1棟／灰白色＝合成の周辺8棟／暗灰色＝合成道路／青色＝仮想水面。合成水位は洪水予測ではありません。';
+  ordered.after(help);
+}
+
+
+
+
 const tabs = ['conditions', 'code', 'result'];
 const defaults = {};
 let refreshParameterControls = () => {};
@@ -673,10 +699,12 @@ function runnerHtml() {
   return '<!doctype html><html lang="ja"><head><meta charset="utf-8">' +
     '<meta http-equiv="Content-Security-Policy" content="' + policy + '">' +
     '<meta name="referrer" content="no-referrer">' +
-    '<style>' + (isWGL10 ?
-      'body{margin:0;display:block;background:#e2e8f0}' :
-      'body{margin:0;display:grid;place-items:center;background:#e2e8f0}') +
-    'canvas{display:block;width:100%;max-width:100%;height:auto}</style></head><body>' +
+    '<style>' + (isWGL13 ?
+      'body{margin:0;padding:0 6px;background:#0c1829;color:#e5eefb;font:14px/1.5 system-ui}' +
+      'canvas{display:block;width:100%;height:auto;touch-action:none}' :
+      'body{margin:0;display:' + (isWGL10?'block':'grid;place-items:center') +
+      ';background:#e2e8f0}canvas{display:block;width:100%;max-width:100%;height:auto}') +
+    '</style></head><body>' +
     '<canvas id="gpu-canvas" aria-label="GPUが描画した画素"></canvas>' +
     '<script>(' + isolatedRunner.toString() + ')()</scr' + 'ipt></body></html>';
 }
@@ -841,12 +869,12 @@ window.addEventListener('message', event => {
     const {x,y,gpuId,cpuId}=data;
     if(![x,y,gpuId,cpuId].every(Number.isInteger)||x<0||y<0||
        x>=active.payload.width||y>=active.payload.height||
-       gpuId<0||gpuId>255||cpuId<0||cpuId>1)return;
+       gpuId<0||gpuId>255||cpuId<0||cpuId>2)return;
     const equal=gpuId===cpuId;
     byId('result-note').textContent=
       'CS1 下原点画素('+x+','+y+'): GPU ID='+gpuId+
       ' / CPU三角形投影によるID='+cpuId+' / '+(equal?'一致':'不一致')+
-      '。ID0=地盤・背景、ID1=建物。輪郭上はラスタ化規則との差を調べてください。';
+      '。ID0=地盤・道路・背景、ID1=公式PLATEAU建物、ID2=合成の周辺建物。輪郭上はラスタ化規則との差を調べてください。';
     setStatus(equal?'CS1 ID FBO とCPU射影の選択結果が一致':
       'CS1 GPU/CPU選択が不一致（深度・投影・輪郭を確認）',!equal);
     return;
@@ -1043,22 +1071,22 @@ window.addEventListener('message', event => {
     return;
   }
   if (isFCG2 && data.type === 'fcg2-pick') {
-    const {x,y,rgba}=data, {width,height,steps}=active.payload;
+    const {x,y,rgba}=data,{width,height,steps}=active.payload;
     if(!Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||
       x>=width||y>=height||!Array.isArray(rgba)||rgba.length!==4||
       !rgba.every(v=>Number.isInteger(v)&&v>=0&&v<=255))return;
     const [i,j]=fcg2PixelCell(x,y,width,height);
-    const time=Number.isFinite(data.time)&&data.time>=0&&data.time<=FCG2_PERIOD?data.time:steps*Math.PI/2;
-    const q=fcg2FieldAtTime(i,j,time),byte=fcg2Encode(q);
-    const expected=[byte,38,255-byte,255];
+    const time=Number.isFinite(data.time)&&data.time>=0&&data.time<=FCG2_PERIOD?
+      data.time:steps*Math.PI/2;
+    const options=verifiedFCG2Physics(active.payload.js,active.payload.vertex,
+      active.payload.fragment,defaults);
+    const value=fcg2FieldAtTime(i,j,time,options||{}),byte=fcg2Encode(value);
+    const expected=fcg2Color(byte);
     const difference=Math.max(...expected.map((v,k)=>Math.abs(v-rgba[k])));
     fcg2Inspector?.(time,x,y,rgba);
-    byId('result-note').textContent='t='+time.toFixed(3)+'s 画素('+x+','+y+') → 格子('+i+','+j+')、解析q='+
-      q.toFixed(6)+'、R8復元='+ (byte/255).toFixed(6)+
-      '、GPU RGBA='+rgba.join('/')+'、初期shader基準との差='+difference+'階調。'+
-      (active.payload.js===defaults.js&&active.payload.vertex===defaults.vertex&&
-       active.payload.fragment===defaults.fragment?(difference<=2?'一致':'不一致'):
-       '編集後は参考比較');
+    byId('result-note').textContent='t='+time.toFixed(2)+' s, 染料格子('+i+','+j+
+      ') 濃度='+value.toFixed(5)+' → R8='+byte+' → GPU RGBA='+rgba.join('/')+
+      (options?'、独立計算との差='+difference+'階調':'（自由編集コードのため比較値は初期モデル）');
     return;
   }
   if (data.type !== 'result' || active.contextLost) return;
@@ -1100,7 +1128,8 @@ window.addEventListener('message', event => {
       fcg6PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment) : null;
     const fcg8Physics=isFCG8 ?
        fcg8PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment) : null;
-     const verifiedComparison=unchanged||!!fcg3Physics||!!fcg5Physics||!!fcg6Physics||!!fcg8Physics;
+    const fcg2Physics=isFCG2 ? verifiedFCG2Physics(active.payload.js,active.payload.vertex,active.payload.fragment,defaults) : null;
+     const verifiedComparison=unchanged||!!fcg2Physics||!!fcg3Physics||!!fcg5Physics||!!fcg6Physics||!!fcg8Physics;
     const rows = (isWGL20 ? compareWGL20Readback : isFCG8 ? (got,w,h)=>compareFCG8Readback(got,w,h,active.payload.steps,2,fcg8Physics||{}) : isFCG7 ? (got,w,h)=>compareFCG7Readback(got,w,h,active.payload.steps) : isFCG6 ? (got,w,h)=>compareFCG6Readback(got,w,h,active.payload.steps,2,fcg6Physics||{}) : isFCG5 ? (got,w,h)=>compareFCG5Readback(got,w,h,active.payload.steps,2,fcg5Physics||{}) : isFCG4 ? (got,w,h)=>compareFCG4Readback(got,w,h,active.payload.steps) : isFCG3 ? (got,w,h)=>compareFCG3Readback(got,w,h,active.payload.steps,2,fcg3Physics?.N??32,fcg3Physics?.radius??0.14) : isFCG2 ? (got,w,h)=>compareFCG2Readback(got,w,h,active.payload.steps) : isWGL19 ? (got,w,h)=>wgl19Valid ? compareWGL19Readback(got,w,h,2,wgl19Params.rate,wgl19Params.steps) : compareWGL19Readback(got,w,h) : isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
       samples, active.payload.width, active.payload.height);
     showTable(rows, verifiedComparison);
@@ -1140,14 +1169,17 @@ window.addEventListener('message', event => {
     }
 
     byId('numeric-summary').textContent = verifiedComparison ?
-      '（' + (isFCG8&&!unchanged ? '変更Level Set条件の独立CPU初期画素 ' :
+      '（' + (isFCG2&&!unchanged&&fcg2Physics ? '変更した回転速度・染料の独立CPU画素 ' :
+       isFCG8&&!unchanged ? '変更Level Set条件の独立CPU初期画素 ' :
          isFCG3&&!unchanged ? '変更格子の独立CPU初期画素 ' :
         isFCG5&&!unchanged ? '変更条件の独立CPU初期画素 ' :
        isFCG6&&!unchanged ? '変更条件の独立CPU画素 ' : '基準画素 ') +
       rows.filter(row => row.pass).length + '/' + rows.length + '）' :
       '（編集版・参考比較）';
     const pass = rows.every(row => row.pass);
-    setStatus(isFCG8&&!unchanged&&fcg8Physics ?
+    setStatus(isFCG2&&!unchanged&&fcg2Physics ?
+        (pass?'FCG2 編集した渦と染料の独立画素検算に合格':'FCG2 編集条件のGPU画素と独立CPUが不一致') :
+       isFCG8&&!unchanged&&fcg8Physics ?
         (pass ? 'FCG8 編集した格子・せん断・再初期化の独立CPU初期画素検算に合格' :
           'FCG8 編集した条件の独立CPU初期画素検算が不一致') :
        isFCG3&&!unchanged&&fcg3Physics ?
@@ -1259,7 +1291,8 @@ window.addEventListener('message', event => {
       setStatus('FCG2 の再生フックがありません。初期ソースに戻して実行してください',true);
       fcg2Pending=null;
     }else if(active.completed){
-      const p=expectedFCG2Samples(active.payload.width,active.payload.height,active.payload.steps)[0];
+      const options=verifiedFCG2Physics(active.payload.js,active.payload.vertex,active.payload.fragment,defaults);
+       const p=expectedFCG2Samples(active.payload.width,active.payload.height,active.payload.steps,options||{})[0];
       const actual=data.samples?.[0]?.rgba;
       fcg2Inspector?.(fcg2Time,p.x,p.y,Array.isArray(actual)?actual:null);
       if(fcg2Pending){
@@ -1381,9 +1414,10 @@ function run() {
     }
     if (isFCG2) {
       payload.steps=fcg2Steps;
-      const predicted=expectedFCG2Samples(payload.width,payload.height,fcg2Steps);
+      const options=verifiedFCG2Physics(payload.js,payload.vertex,payload.fragment,defaults);
+       const predicted=expectedFCG2Samples(payload.width,payload.height,fcg2Steps,options||{});
       payload.probes=predicted.map(p=>[p.x,p.y]);
-      byId('fcg2-cpu-prediction').textContent='独立CPU予測（GPU非対応でも利用可） step '+
+      byId('fcg2-cpu-prediction').textContent=(options?'独立CPU予測':'初期モデル参考予測')+'（GPU非対応でも利用可） step '+
         fcg2Steps+': '+predicted.map(p=>p.label+' q='+p.value.toFixed(6)+
         ', R8='+p.byte+', 予測RGBA='+p.rgba.join('/')).join(' ／ ');
     }
@@ -1415,8 +1449,10 @@ function run() {
   const iframe = document.createElement('iframe');
   iframe.className = 'result-frame';
   // Responsive preview without changing the actual drawing-buffer resolution.
-  iframe.style.aspectRatio = payload.width + ' / ' + (payload.height + (isWGL18 ? 160 : 12));
+  iframe.style.aspectRatio = payload.width + ' / ' +
+    (payload.height + (isWGL18 ? 160 : isWGL13 ? 235 : 12));
   iframe.style.height = 'auto';
+  if (isWGL13) iframe.style.minHeight = '540px';
   if (isWGL17) {
     // The texel inspector belongs below the GPU canvas, never over its pixels.
     iframe.style.aspectRatio = 'auto';
@@ -1503,8 +1539,8 @@ byId('preset').addEventListener('change', event => {
          'else outColor=vec4(min(1.0,5.0*abs(q-exact)),0.08,0.1,1.0)');
      } else if (isFCG2) {
        inputs.fragment.value=defaults.fragment.replace(
-        'outColor=vec4(q,0.15,1.0-q,1.0);',
-        'outColor=vec4(q,0.15,1.0-q,1.0)');
+        'outColor=vec4(mix(water,dye,q),1.0);',
+        'outColor=vec4(mix(water,dye,q),1.0)');
     } else if (isWGL19) {
       inputs.fragment.value=defaults.fragment.replace(
         'outColor=vec4(v,0.2,1.0-v,1.0);',
@@ -1528,8 +1564,7 @@ byId('preset').addEventListener('change', event => {
         'vec3 result = v_uv.x < u_compare ? original : ;');
     } else if (isWGL13) {
       inputs.fragment.value = defaults.fragment.replace(
-        'outColor=vec4(mix(vec3(0.08,0.10,0.12),reflected,f),1.0);',
-        'outColor=vec4(mix(vec3(0.08,0.10,0.12),reflected,f),1.0)');
+        'uniform samplerCube u_env;', 'uniform samplerCube u_env');
     } else if (isWGL12) {
       inputs.fragment.value = defaults.fragment.replace(
         'outColor = vec4(fresnelSchlick(voh, f0), 1.0);',
@@ -1907,30 +1942,29 @@ if (isFCG3) {
   mark();
 }
 if (isFCG2) {
-  document.title='FCG2 連続時間のスカラー場とGPU検算';
-  document.querySelector('h1').textContent='FCG2 数値が色になるまで：連続時間とGPU検算';
+  document.title='FCG2 水中の染料が渦に巻き込まれる：WebGL2';
+  document.querySelector('h1').textContent='FCG2 渦で染料はどう変形する？';
   document.querySelector('#panel-conditions > p').textContent=
-    'この色は温度や実測流速ではなく、解析式で作った架空のスカラー場qです。'+
-    'JSで64値を計算し、R8に量子化してGPUで偽色表示します。流体PDEは解きません。';
+    '水中の黄色い染料の帯が、反時計回りの流れに運ばれます。外側ほど速く回るので帯が伸び、渦巻きになります。'+
+    '流れは解析式で与え、128×128の実データをWebGL2に送って描きます。';
   document.querySelector('#panel-conditions ol').innerHTML=
-    '<li>実行して凡例の青紫（小さいq）と赤紫（大きいq）を確認する。</li>'+
-    '<li>再生で滑らかな連続時間、スライダーで任意の時刻、1stepで演習用のπ/2秒の節目を確かめる。</li>'+
-    '<li>キャンバスをクリック、または矢印キー＋Enterで選択セルを検算する。</li>'+
-    '<li>density.jsの振幅やdensity.fragの色変換を編集し、初期CPU基準と比較する。</li>'+
-    '<li>構文エラー・GPU非対応時の診断を確認する。</li>';
-  byId('preset').options[0].textContent='解析場8×8の連続表示とR8検算';
-  byId('preset').options[1].textContent='fragmentの構文エラー';
+    '<li>「描画して観察」または「実行」で開始。再生を押して染料の帯が巻かれる様子を見る。</li>'+
+    '<li>「外側ほど速く回る割合 shear」を0にして再実行し、帯が伸びずに一体回転することを見る。</li>'+
+    '<li>omegaを0にすると動きが止まり、amplitudeを下げると染料の色だけ薄くなる。</li>'+
+    '<li>セルをクリックして濃度・R8整数・GPU色を確認。density.jsとdensity.fragも編集できる。</li>';
+  byId('preset').options[0].textContent='差動回転に運ばれる受動染料（128×128）';
+  byId('preset').options[1].textContent='fragment構文エラー';
   const controls=document.createElement('div');controls.className='controls fcg2-time-controls';
   const step=document.createElement('button'),play=document.createElement('button'),
     pause=document.createElement('button'),back=document.createElement('button'),
     marker=document.createElement('output');
-  for(const [button,label] of [[step,'1step'],[play,'再生'],[pause,'一時停止'],[back,'時刻0へ戻す']]){
+  for(const [button,label] of [[step,'次の節目へ'],[play,'再生'],[pause,'一時停止'],[back,'時刻0へ戻す']]){
     button.type='button';button.className='action';button.textContent=label;controls.append(button);
   }
-  const seekLabel=document.createElement('label');seekLabel.textContent='物理時刻';
+  const seekLabel=document.createElement('label');seekLabel.textContent='観察時刻';
   const seek=document.createElement('input');seek.type='range';seek.id='fcg2-time-slider';
   seek.min='0';seek.max=String(FCG2_PERIOD);seek.step='0.01';
-  seek.setAttribute('aria-label','解析場の物理時刻（0から2π秒）');
+  seek.setAttribute('aria-label','染料を観察する物理時刻 0～2π秒');
   seekLabel.append(seek);controls.append(seekLabel);
   marker.id='fcg2-time-display';controls.append(marker);
   byId('run').parentElement.before(controls);
@@ -1938,48 +1972,48 @@ if (isFCG2) {
   panel.classList.add('fcg2-result');
   const stage=document.createElement('div');stage.className='fcg2-stage';
   const inspector=document.createElement('aside');inspector.id='fcg2-inspector';
-  inspector.setAttribute('aria-label','選択セルの数値とGPU画素');
+  inspector.setAttribute('aria-label','染料濃度と画素の凡例');
   inspector.innerHTML=
-    '<h2>セルをクリックして検算</h2>'+
-    '<p class="fcg2-explain">64セルは解析的な合成データであり、実測物理量ではありません。</p>'+
-    '<div class="fcg2-legend-label"><span>小 q=0.25</span><span>中 0.50</span><span>大 q=0.75</span></div>'+
-    '<div class="fcg2-gradient" role="img" aria-label="小さい値は青紫、大きい値は赤紫"></div>'+
-    '<p class="fcg2-selected" id="fcg2-selected">セル(1,1)／左下原点</p>'+
+    '<h2>染料が渦巻きになる</h2>'+
+    '<p class="fcg2-explain">反時計回り。外側の水ほど角速度が大きい。紺＝水（染料0）、琥珀＝染料（濃度1）。領域は1×1 m。</p>'+
+    '<div class="fcg2-legend-label"><span>0：染料なし</span><span>0.5</span><span>1：高濃度</span></div>'+
+    '<div class="fcg2-gradient" role="img" aria-label="紺色は濃度0、琥珀色は濃度1"></div>'+
+    '<p class="fcg2-selected" id="fcg2-selected">画面をクリックして濃度を調べる</p>'+
+    '<details class="fcg2-microscope"><summary>選択セルの値・GPU画素</summary>'+
     '<div class="fcg2-metrics">'+
-    '<div><small>解析値 q（独立CPU）</small><strong id="fcg2-q">—</strong></div>'+
-    '<div><small>R8 byte → 復元値</small><strong id="fcg2-byte">—</strong></div>'+
-    '<div><small>GPU実測 RGBA</small><strong id="fcg2-gpu">—</strong></div>'+
-    '<div><small>予測との差（最大階調）</small><strong id="fcg2-difference">—</strong></div>'+
+    '<div><small>独立CPU濃度 q</small><strong id="fcg2-q">—</strong></div>'+
+    '<div><small>R8整数 → 復元濃度</small><strong id="fcg2-byte">—</strong></div>'+
+    '<div><small>GPU実測RGBA</small><strong id="fcg2-gpu">—</strong></div>'+
+    '<div><small>予測色との差（階調）</small><strong id="fcg2-difference">—</strong></div>'+
     '</div>'+
-    '<p id="fcg2-inspection-note" class="fcg2-explain">実行するとGPU画素を読み戻します。</p>'+
-    '<p class="fcg2-explain">初期shaderの予測は (R8,38,255-R8,255)。'+
-    '初期コードのみ±2階調で照合。ソース編集後は参考比較です。</p>';
+    '<p id="fcg2-inspection-note" class="fcg2-explain">初期コードの画素を照合します。</p></details>'+
+    '<p class="fcg2-explain">濃度の計算格子：128×128セル。表示画素数とは別。'+
+    'shear=0で帯は伸びず、omega=0で静止。</p>';
   canvasSlot.before(stage);stage.append(canvasSlot,inspector);
   const cpuPreview=document.createElement('p');cpuPreview.id='fcg2-cpu-prediction';
   cpuPreview.setAttribute('aria-live','polite');panel.append(cpuPreview);
   fcg2Inspector=(time,x,y,actual)=>{
     const [i,j]=fcg2PixelCell(x,y,active?.payload.width||512,active?.payload.height||512);
-    const q=fcg2FieldAtTime(i,j,time),byte=fcg2Encode(q);
-    const expected=[byte,38,255-byte,255];
+    const options=active?.payload ? verifiedFCG2Physics(
+      active.payload.js,active.payload.vertex,active.payload.fragment,defaults) : null;
+    const q=fcg2FieldAtTime(i,j,time,options||{}),byte=fcg2Encode(q);
+    const expected=fcg2Color(byte);
     const valid=Array.isArray(actual)&&actual.length===4&&
       actual.every(v=>Number.isInteger(v)&&v>=0&&v<=255);
     const difference=valid?Math.max(...expected.map((v,k)=>Math.abs(v-actual[k]))):null;
-    const unchanged=active?.payload&&Object.keys(defaults).every(key=>
-      active.payload[key]===defaults[key]);
-    byId('fcg2-selected').textContent='セル('+i+','+j+')／画素('+x+','+y+')／t='+time.toFixed(2)+' s';
+    byId('fcg2-selected').textContent='セル('+i+','+j+')／時刻 '+time.toFixed(2)+' s';
     byId('fcg2-q').textContent=q.toFixed(6);
     byId('fcg2-byte').textContent=byte+' → '+(byte/255).toFixed(6);
     byId('fcg2-gpu').textContent=valid?actual.join(', '):'未取得';
     byId('fcg2-difference').textContent=difference===null?'—':difference+' / 255';
-    byId('fcg2-inspection-note').textContent=!valid?
-      'GPU未取得。独立CPU予測を表示しています。':
-      unchanged?(difference<=2?'初期コードのCPU/GPUは±2階調以内で一致。':
-        '初期CPU/GPUが不一致。UV・shader・テクスチャを確認してください。'):
-      '編集コードです。初期基準との差は参考値で、誤答判定ではありません。';
+    byId('fcg2-inspection-note').textContent=!valid?'GPU未取得。CPU予測を表示。':
+      options?(difference<=2?'変更済みパラメータを含めCPU/GPUは一致。':
+      'CPU/GPUが異なります。座標・shader・GPU転送を確認。'):
+      '自由編集コードです。基準濃度の比較は参考値です。';
   };
   fcg2Mark=()=>{
-    marker.textContent='t='+fcg2Time.toFixed(2)+' s / '+FCG2_PERIOD.toFixed(2)+
-      ' s（各描画時刻で実際に再計算・単なる画像補間ではありません）';
+    marker.textContent='t='+fcg2Time.toFixed(2)+' / 6.28 s　'+
+      (fcg2Playing?'再生中':'静止中')+'　計算格子128×128';
     seek.value=String(Math.max(0,Math.min(FCG2_PERIOD,fcg2Time)));
     seek.disabled=!active?.completed;
     play.disabled=fcg2Playing;pause.disabled=!fcg2Playing;
@@ -1988,7 +2022,8 @@ if (isFCG2) {
     fcg2Control('pause');fcg2Playing=false;fcg2Pending=null;
     const n=Math.floor((fcg2Time+1e-8)/(Math.PI/2))+1;
     fcg2Steps=n>4?0:n;fcg2Time=fcg2Steps*Math.PI/2;
-    fcg2Mark();run();
+    if(active?.completed)fcg2Control('seek',fcg2Time);else run();
+    fcg2Mark();
   });
   play.addEventListener('click',()=>{
     if(fcg2Playing)return;
@@ -2202,18 +2237,18 @@ if (isWGL14) {
 }
 
 if (isWGL13) {
-  document.title = 'WGL13 cubemap・反射方向・継ぎ目の編集ラボ';
-  document.querySelector('h1').textContent = 'WGL13 6面の色と方向を読み、鏡面反射へ対応させる';
+  document.title = 'WGL13 環境マッピング：反射球と6面展開図';
+  document.querySelector('h1').textContent = 'WGL13 反射球から6面の風景を読み取る';
   document.querySelector('#panel-conditions > p').textContent =
-    '自作2×2の6面RGBA8 cubemapから反射した球面を表示します。' +
-    '最下行の12画素は6軸方向と6斜め方向の生テクセル値です。CPU基準との各成分±1階調を検査します。';
+    '左の球をクリックすると反射方向と面内UVが分かり、右の6面展開図で参照先が強調されます。' +
+    '同じGLSLで風景128×128と2×2の診断色を切り替え、境界と環境回転を観察します。';
   document.querySelector('#panel-conditions ol').innerHTML =
-    '<li>初期ソースを実行し12方向の面・UV・RGBA8の独立検算を確認する。</li>' +
-    '<li>environment.jsのyawDegreesを90や-90に変え、球中心の参照面を予測する。</li>' +
-    '<li>fresnelF0を0、0.75、1へ変え、混合係数と方向の違いを観察する。</li>' +
-    '<li>faceColorsの並び、またはfragment GLSLのrotateY符号を変更し、向きと継ぎ目を調べる。</li>' +
-    '<li>構文エラープリセットのログを読み、修正後に12方向検算へ戻る。</li>';
-  byId('preset').options[0].textContent = '6面自作cubemap・12方向CPU/GPU照合';
+    '<li>実行を押して球と6面展開図を表示し、球面上の3箇所をクリックして参照面を調べる。</li>' +
+    '<li>環境回転（−180°〜180°）を動かし、球の反射と右の強調面が連動するか確かめる。</li>' +
+    '<li>「境界線」を表示してキューブマップの主軸が切り替わる場所を見る。</li>' +
+    '<li>「表示」を2×2面診断へ変更し、12方向の生画素照合を詳細欄で確認する。</li>' +
+    '<li>environment.jsのsceneColor / yawDegrees / faceColorsやenvironment.fragの反射式を編集し再実行する。</li>';
+  byId('preset').options[0].textContent = '反射球＋6面の風景・2×2診断と12方向GPU検算';
   byId('preset').options[1].textContent = 'fragmentの構文エラー';
 }
 if (isWGL12) {

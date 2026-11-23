@@ -44,3 +44,6 @@
 40. [PML2-18 DeepONetは観測点からどう作用素を近似するか](textbook/volumes/dream_thater/応用系/PML/PML2-18/index.md)
 41. [PML2-19 Neural Operatorの近似定理は何を保証しないか](textbook/volumes/dream_thater/応用系/PML/PML2-19/index.md)
 42. [PML2-20 PINNとoperator learningは組み合わせられるか](textbook/volumes/dream_thater/応用系/PML/PML2-20/index.md)
+43. [PML2-21 PDEパラメータを学習すると識別性は保てるか](textbook/volumes/dream_thater/応用系/PML/PML2-21/index.md)
+44. [PML2-22 数値ソルバを通じた勾配はどう求めるか](textbook/volumes/dream_thater/応用系/PML/PML2-22/index.md)
+45. [PML2-23 時間発展を微分すると勾配はどこで狂うか](textbook/volumes/dream_thater/応用系/PML/PML2-23/index.md)

@@ -3,6 +3,44 @@
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
 
 export const LAB_PARAMETERS = Object.freeze({
+  WGL20: Object.freeze([
+    Object.freeze({
+      id:'water-level',type:'number',label:'仮想水面の標高',default:32,
+      min:27,max:36,step:0.5,unit:'m（共通鉛直基準と仮定）',
+      meaning:'低地が青く浸水し、高地が乾く。実災害予測ではない。G(E,N)との差が水深',
+      sourceLocation:'terrain.js / const waterLevelM → clipWet → GPU水面メッシュ',
+      sourceFile:'js',index:null,matcher:/^([ \t]*const waterLevelM=)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id:'z-exaggeration',type:'number',label:'高さの表示倍率',default:1.5,
+      min:0.5,max:3,step:0.5,unit:'倍（無次元）',
+      meaning:'3Dでの立体感だけを強調し、物理水深[m]と元DEM値は変えない',
+      sourceLocation:'terrain.js / const zExaggeration → u_zScale（mainとshadow pass）',
+      sourceFile:'js',index:null,matcher:/^([ \t]*const zExaggeration=)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id:'view-azimuth',type:'number',label:'カメラ方位の初期角',default:40,
+      min:0,max:360,step:10,unit:'度（東0°→北90°）',
+      meaning:'街区の見える面を変える。結果画面ではドラッグ・左右キーで追加回転',
+      sourceLocation:'terrain.js / const cameraAzimuthDeg → camera() → u_eye',
+      sourceFile:'js',index:null,matcher:/^([ \t]*const cameraAzimuthDeg=)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id:'view-elevation',type:'number',label:'カメラ仰角の初期値',default:47,
+      min:22,max:82,step:5,unit:'度（水平0°、真上90°）',
+      meaning:'低い視点で建物の側面、高い視点で浸水範囲を確認',
+      sourceLocation:'terrain.js / const cameraElevationDeg → camera() → u_up',
+      sourceFile:'js',index:null,matcher:/^([ \t]*const cameraElevationDeg=)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id:'sun-azimuth',type:'number',label:'太陽方向の方位',default:235,
+      min:5,max:355,step:10,unit:'度（東0°→北90°）',
+      meaning:'法線に対するLambert明暗と実3Dメッシュの投影影を同時に変える',
+      sourceLocation:'terrain.js / const sunAzimuthDeg → shadow FBO / terrain.frag',
+      sourceFile:'js',index:null,matcher:/^([ \t]*const sunAzimuthDeg=)([^;\n]+)(;)/gm
+    })
+  ]),
+
   WGL10: Object.freeze([
     Object.freeze({
       id: 'offscreen-scale', type: 'number', label: 'FBOの解像度倍率',
@@ -98,6 +136,35 @@ export const LAB_PARAMETERS = Object.freeze({
       sourceLocation: 'postprocess.js / comparison → u_compare → postprocess.frag / pass 2',
       sourceFile: 'js', index: null,
       matcher: /^([ 	]*const comparison[ 	]*=[ 	]*)([^;\n]+)(;)/gm
+    })
+  ]),
+
+
+
+  FCG2: Object.freeze([
+    Object.freeze({
+      id:'omega',type:'number',label:'中心の基本角速度',default:1,
+      min:0,max:2.5,step:0.25,unit:'rad/s',
+      meaning:'全半径での回転速度の基準。0なら染料はその場に停止',
+      sourceLocation:'density.js / const omega → concentration() の回転角',
+      sourceFile:'js',index:null,
+      matcher:/^([ \t]*const omega=)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id:'shear',type:'number',label:'外側ほど速く回る割合',default:3,
+      min:0,max:6,step:0.5,unit:'1/m',
+      meaning:'角速度Ω(r)=omega×(1+shear×r)。0なら剛体回転で染料は巻かれない',
+      sourceLocation:'density.js / const shear → Ω(r) と逆回転角',
+      sourceFile:'js',index:null,
+      matcher:/^([ \t]*const shear=)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id:'amplitude',type:'number',label:'染料の最大濃度',default:0.9,
+      min:0,max:1,step:0.1,unit:'無次元 (0–1)',
+      meaning:'濃度を一様倍率で変える。回転速度や染料の形は変えない',
+      sourceLocation:'density.js / const amplitude → concentration()',
+      sourceFile:'js',index:null,
+      matcher:/^([ \t]*const amplitude=)([^;\n]+)(;)/gm
     })
   ]),
 
@@ -421,6 +488,29 @@ export function verifiedFCG8Physics(js,vertex,fragment,defaults) {
   }catch{return null;}
   return {N:readings[0].value,shear:readings[1].value,
     redistanceIterations:readings[2].value};
+}
+
+
+// Admit only the three source-linked FCG2 physics literals as verified variants.
+// GLSL edits or structural JS changes remain unverified (not automatically wrong).
+const FCG2_PARAMETER_IDS=Object.freeze(['omega','shear','amplitude']);
+export function verifiedFCG2Physics(js,vertex,fragment,defaults){
+  if(typeof js!=='string'||vertex!==defaults?.vertex||fragment!==defaults?.fragment)
+    return null;
+  const specs=parametersFor('FCG2');
+  if(specs.length!==FCG2_PARAMETER_IDS.length||
+     specs.some((spec,i)=>spec.id!==FCG2_PARAMETER_IDS[i]))return null;
+  const values=specs.map(spec=>readLabParameter(js,spec));
+  if(!values.every(value=>value.ok))return null;
+  try{
+    let normalized=js,baseline=defaults.js;
+    for(const spec of specs){
+      normalized=writeLabParameter(normalized,spec,spec.default);
+      baseline=writeLabParameter(baseline,spec,spec.default);
+    }
+    if(normalized!==baseline)return null;
+  }catch{return null;}
+  return Object.fromEntries(specs.map((spec,i)=>[spec.id,values[i].value]));
 }
 
 export const FCG5_OBSERVATION_PRESETS = Object.freeze([

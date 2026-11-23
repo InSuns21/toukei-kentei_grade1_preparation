@@ -1,0 +1,46 @@
+chapter: LREP7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP6
+forward_references:
+  - mechanics.angular-momentum
+concepts:
+  - id: representation.angular-momentum-operators
+    name: 角運動量演算子と昇降演算子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（角運動量演算子と昇降演算子）"]
+    requires: [representation.sl2-standard-triple, representation.differentiation-bracket, representation.pauli-matrix-model]
+  - id: representation.angular-momentum-commutators
+    name: 角運動量の交換関係
+    kind: lemma
+    introduction: formal
+    requires: [representation.angular-momentum-operators, representation.pauli-product, representation.differentiation-bracket]
+  - id: representation.angular-momentum-casimir
+    name: 角運動量のCasimir演算子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（角運動量の Casimir 演算子）"]
+    requires: [representation.angular-momentum-operators]
+  - id: representation.angular-momentum-casimir-central
+    name: Casimir演算子は角運動量と可換
+    kind: theorem
+    introduction: formal
+    requires: [representation.angular-momentum-casimir, representation.angular-momentum-commutators]
+  - id: representation.spin-quantum-numbers
+    name: スピン量子数と磁気量子数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（スピン量子数と磁気量子数）"]
+    requires: [representation.sl2-finite-dimensional-classification, representation.su2-unitary-ladder, representation.angular-momentum-operators]
+  - id: representation.spin-spectrum
+    name: 有限次元スピンの量子化と昇降公式
+    kind: theorem
+    introduction: formal
+    requires: [representation.spin-quantum-numbers, representation.angular-momentum-casimir-central, representation.su2-group-lie-equivalence]
+  - id: representation.spin-rotation-parity
+    name: 整数スピンの降下と半整数スピンの射影表現
+    kind: theorem
+    introduction: formal
+    requires: [representation.spin-spectrum, representation.su2-so3-descent-parity, representation.covering-kernel-criterion]

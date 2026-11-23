@@ -26,7 +26,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep4-direct-sum -->
-**定義の確認**。 $G=C_2=\{e,s\}$、$s^2=e$ とし、$D(s)=1$ を $\mathbb C$ 上に、$E(s)=-1$ を別の $\mathbb C$ 上に作用させます。いずれも二乗が1です。$V\oplus W\cong\mathbb C^2$ の順序付き基底では
+**定義の確認**。 $G=C_2=\{e,s\}$、$s^2=e$ とし、$D(s)=1$ を $\mathbb C$ 上に、$E(s)=-1$ を別の $\mathbb C$ 上に作用させます。いずれも二乗が1です。$V\oplus W\cong\mathbb C^2$ で、第一成分の $1\in V$ に対応する $(1,0)$ と第二成分の $1\in W$ に対応する $(0,1)$ を順に基底とします。$s$ は前者を $(1,0)$、後者を $(0,-1)$ に送るので、この基底での行列は
 $$
 (D\oplus E)(e)=I_2,\qquad
 (D\oplus E)(s)=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
@@ -63,7 +63,7 @@ $$
 だから両部分空間は不変です。$\square$
 <!-- proof-end -->
 
-逆向きも理解しておきましょう。表現 $(U,F)$ が $U=U_1\oplus U_2$ と**二つの不変部分空間の直和**に分かれるなら、$(u_1,u_2)\mapsto u_1+u_2$ は $(F|_{U_1})\oplus(F|_{U_2})$ と $F$ の [絡作用素](../LREP1/index.md#def-lrep1-intertwiner)です。逆写像もあり、両表現は同値になります。ただし一つの不変部分空間があるだけでは、不変な補空間の存在は保証されません。[LREP2の非分裂模型](../LREP2/index.md#def-lrep2-completely-reducible)との違いです。
+逆向きも理解しておきましょう。表現 $(U,F)$ が $U=U_1\oplus U_2$ と**二つの不変部分空間の直和**に分かれるなら、$(u_1,u_2)\mapsto u_1+u_2$ は $(F|_{U_1})\oplus(F|_{U_2})$ と $F$ の [絡作用素](../LREP1/index.md#def-lrep1-intertwiner)です。逆写像もあり、両表現は同値になります。ただし一つの不変部分空間があるだけでは、不変な補空間の存在は保証されません。[LREP1の非分裂模型](../LREP1/index.md#prop-lrep1-nonsplit)との違いです。
 
 ## 2. 二つの作用を同時に受ける――テンソル積
 
@@ -84,7 +84,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep4-tensor-product -->
-**定義の確認**。 $G=C_2$、$V=\mathbb C^2$、$D(s)=\operatorname{diag}(1,-1)$、$W=\mathbb C$、$E(s)=-1$ とします。[有限次元テンソル積の存在と基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)から $e_1\otimes1,e_2\otimes1$ が基底です。各基底ベクトルに作用すると
+**定義の確認**。 $G=C_2$、$V=\mathbb C^2$ の標準基底を $e_1,e_2$ として $D(s)e_1=e_1$、$D(s)e_2=-e_2$、$W=\mathbb C$、$E(s)=-1$ とします。[有限次元テンソル積の存在と基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)から $e_1\otimes1,e_2\otimes1$ が基底です。各基底ベクトルに作用すると
 $$
 (D\otimes E)(s)(e_1\otimes1)=-e_1\otimes1,\qquad
 (D\otimes E)(s)(e_2\otimes1)=+e_2\otimes1.
@@ -143,12 +143,22 @@ d(D\otimes E)(X)
 $$
 <!-- formal-statement-end -->
 
-**証明の見取り図。** $g(t)=\exp_G(tX)$ に沿って $D(g(t))v\otimes E(g(t))w$ を $t=0$ で微分します。
+**証明の見取り図。** $X\in\mathfrak g$ を固定し、実変数 $t$ で動く曲線 $g(t)=\exp_G(tX)$ に沿って微分します。[群表現の微分は Lie 環表現になる](../LREP3/index.md#thm-lrep3-differentiation)という定理の指数曲線の等式から
+$$
+dD(X)v=\left.\frac{d}{dt}\right|_{t=0}D(g(t))v,\qquad
+dE(X)w=\left.\frac{d}{dt}\right|_{t=0}E(g(t))w
+$$
+です。ここで $dD(X)$ は $V$ 上の作用素であり、$\frac{d}{dt}$ は $t$ を変える通常の導関数です。
 
 <!-- proof-start -->
 ### 証明
 
-$D(g(0))=I_V$、$E(g(0))=I_W$ です。双線形写像 $(a,b)\mapsto a\otimes b$ の差商をとると
+$D(g(0))=I_V$、$E(g(0))=I_W$ です。$a(t)=D(g(t))v$、$b(t)=E(g(t))w$ と置きます。双線形性によって差分を厳密に
+$$
+a(t)\otimes b(t)-a(0)\otimes b(0)
+=(a(t)-a(0))\otimes b(t)+a(0)\otimes(b(t)-b(0))
+$$
+と分解できます。$t$ で割り $t\to0$ とすると、滑らかさから $a(t)\to v$、$b(t)\to w$ であり、
 $$
 \begin{aligned}
 \left.\frac{d}{dt}\right|_{0}
@@ -157,7 +167,7 @@ $$
 &=(dD(X)\otimes I_W+I_V\otimes dE(X))(v\otimes w).
 \end{aligned}
 $$
-ここで一次の交差項は $t^2$ の次数なので微分後は残りません。単純テンソルが全空間を張るため、作用素全体について等式が成立します。$\square$
+この差商の極限では第一項が $dD(X)v\otimes w$、第二項が $v\otimes dE(X)w$ になります。単純テンソルが全空間を張るため、作用素全体について等式が成立します。$\square$
 <!-- proof-end -->
 
 例として $G=(\mathbb R,+)$、$D(t)=e^{at}$、$E(t)=e^{bt}$（$a,b\in\mathbb C$）なら $D\otimes E(t)=e^{(a+b)t}$ で、微分は $a+b$ となります。
@@ -182,7 +192,12 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep4-dual -->
-**定義の確認**。 $(\mathbb R,+)$ の表現 $D(t)=\operatorname{diag}(e^t,e^{2t})$ を $V=\mathbb C^2$ 上に取ります。$D(-t)=\operatorname{diag}(e^{-t},e^{-2t})$ です。双対基底 $e^1,e^2$ で
+**定義の確認**。 $(\mathbb R,+)$ の表現 $D(t)=\operatorname{diag}(e^t,e^{2t})$ を $V=\mathbb C^2$ 上に取ります。$D(-t)=\operatorname{diag}(e^{-t},e^{-2t})$ です。標準基底 $e_1,e_2$ に対する [双対基底](../../../基礎科目/LA/LA3A/index.md#def-la3a-dual-basis) $e^1,e^2$ は $e^i(e_j)=\delta_{ij}$ を満たします。定義から
+$$
+(D^\vee(t)e^1)(e_1)=e^1(D(-t)e_1)=e^{-t},\qquad
+(D^\vee(t)e^2)(e_2)=e^2(D(-t)e_2)=e^{-2t}
+$$
+で、他方の基底ベクトルでの評価は零です。よって、この双対基底で
 $$
 D^\vee(t)=\operatorname{diag}(e^{-t},e^{-2t}).
 $$
@@ -264,12 +279,19 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep4-conjugate -->
-**定義の確認**。 $C_3=\langle r:r^3=e\rangle$ の1次元表現 $D(r)=\omega=e^{2\pi i/3}$ に対し、共役表現では $\overline D(r)=\overline\omega=\omega^2$ です。$(\omega^2)^3=1$ なので群関係が保たれます。$\overline D(r)(\lambda\overline v)=\lambda\overline D(r)(\overline v)$ が成立するのは、上に指定した $\overline V$ のスカラー倍によります。
+**定義の確認**。 $C_3=\langle r:r^3=e\rangle$ の1次元表現 $D(r)=\omega=e^{2\pi i/3}$ に対し、共役表現では $\overline D(r)=\overline\omega=\omega^2$ です。$(\omega^2)^3=1$ なので群関係が保たれます。先に定めたスカラー倍 $\lambda\overline v=\overline{\overline\lambda v}$ を使うと
+$$
+\overline D(r)(\lambda\overline v)
+=\overline{D(r)(\overline\lambda v)}
+=\overline{\overline\lambda\,D(r)v}
+=\lambda\,\overline D(r)(\overline v)
+$$
+となり、$\overline V$ 上の複素線形性も確認できます。
 <!-- definition-example-end -->
 
 任意の $g,h$ について $\overline D(g)\overline D(h)\overline v=\overline{D(g)D(h)v}=\overline D(gh)\overline v$ なので、これも群表現です。
 
-**双対との相違。** それぞれの行列は $\overline A$ と $A^{-\mathsf T}$ です。例えば $(\mathbb R,+)$ の1次元表現 $D(t)=e^t$ では $\overline D(t)=e^t$、$D^\vee(t)=e^{-t}$ で、同値ですらありません。一方、$D$ が不変正定値 Hermite 内積を持つときは、共役表現と双対表現に自然な同値ができます。ここで内積は第一変数に共役線形、第二変数に線形とします。
+**双対との相違。** それぞれの行列は $\overline A$ と $A^{-\mathsf T}$ です。例えば $(\mathbb R,+)$ の1次元表現 $D(t)=e^t$ では $\overline D(t)=e^t$、$D^\vee(t)=e^{-t}$ で、同値ですらありません。一方、$D$ が [LREP2で定義した不変正定値 Hermite 内積](../LREP2/index.md#def-lrep2-invariant-inner-product)を持つときは、共役表現と双対表現に自然な同値ができます。ここで内積は第一変数に共役線形、第二変数に線形とします。
 
 <a id="prop-lrep4-unitary-dual-conjugate"></a>
 
@@ -378,13 +400,12 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep4-invariant-bilinear -->
-**定義の確認**。 $V=\mathbb C^2$、$G=SL(2,\mathbb C)$、$D(A)v=Av$ とし、交代形式を
+**定義の確認**。 $V=\mathbb C^2$ の標準基底を $e_1,e_2$ とし、$G=SL(2,\mathbb C)=\{A\in M_2(\mathbb C):\det A=1\}$ に標準表現 $D(A)v=Av$ を考えます。まず
 $$
-\epsilon(v,w)=v^{\mathsf T}
-\begin{pmatrix}0&1\\-1&0\end{pmatrix}w
-=v_1w_2-v_2w_1
+J=\begin{pmatrix}0&1\\-1&0\end{pmatrix},\qquad
+\epsilon(v,w)=v^{\mathsf T}Jw=v_1w_2-v_2w_1
 $$
-と定めます。第一変数について
+と定めます。$J$ は基底での値 $J_{ij}=\epsilon(e_i,e_j)$ を並べた行列です。[双線形形式の基底表示](../../../基礎科目/LA/LA3E/index.md#prop-la3e-bilinear-nondegenerate-matrix)によって、任意の $v,w$ に対してこの行列表示で値を計算できます。第一変数について
 $$
 \epsilon(v+u,w)=(v_1+u_1)w_2-(v_2+u_2)w_1
 =\epsilon(v,w)+\epsilon(u,w),\qquad
@@ -395,12 +416,19 @@ $$
 \epsilon(v,w+u)=\epsilon(v,w)+\epsilon(v,u),\qquad
 \epsilon(v,\lambda w)=\lambda\epsilon(v,w)
 $$
-なので、二つの変数のそれぞれについて複素線形です。$A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ と置くと、後で導く恒等式 $A^{\mathsf T}JA=(ad-bc)J$ により、$\det A=1$ なら
+なので、二つの変数のそれぞれについて複素線形です。さらに $\epsilon(w,v)=-\epsilon(v,w)$ で、交代的です。
+
+不変性は行列の条件へ翻訳できます。$A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ とすると
 $$
-\epsilon(Av,Aw)=v^{\mathsf T}A^{\mathsf T}JAw
-=v^{\mathsf T}Jw=\epsilon(v,w).
+\begin{aligned}
+\epsilon(Av,Aw)
+&=(av_1+bv_2)(cw_1+dw_2)
+ -(cv_1+dv_2)(aw_1+bw_2)\\
+&=(ad-bc)(v_1w_2-v_2w_1)
+=(\det A)\epsilon(v,w).
+\end{aligned}
 $$
-従って定義の全ての群元について不変です。ここで $J=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ です。
+これは行列で書けば $A^{\mathsf T}JA=(\det A)J$ に対応します。群のどの元も $\det A=1$ なので、全ての $v,w$ について $\epsilon(Av,Aw)=\epsilon(v,w)$ です。この恒等式は後の命題で行列積からも証明します。
 <!-- definition-example-end -->
 
 同じ条件は「$V$ から双対への絡作用素」と読み替えられます。$B(v,-)$ は線形形式なので
@@ -474,7 +502,7 @@ A^{\mathsf T}JA
 =\begin{pmatrix}0&ad-bc\\bc-ad&0\end{pmatrix}
 =(ad-bc)J.
 $$
-$\det A=1$ なら不変性が成立します。また $J^{\mathsf T}=-J$ から $\epsilon(w,v)=-\epsilon(v,w)$ で、$\det J=1\ne0$ だから非退化です。$\square$
+$\det A=1$ なら不変性が成立します。また $J^{\mathsf T}=-J$ から $\epsilon(w,v)=-\epsilon(v,w)$ です。また [双線形形式の非退化性と行列の可逆性](../../../基礎科目/LA/LA3E/index.md#prop-la3e-bilinear-nondegenerate-matrix)は有限次元で同値なので、$\det J=1\ne0$ から非退化です。$\square$
 <!-- proof-end -->
 
 具体的に $\epsilon(e_1,e_2)=1$、$\epsilon(e_2,e_1)=-1$、$\epsilon(e_i,e_i)=0$ です。$b_\epsilon(e_1)=e^2$、$b_\epsilon(e_2)=-e^1$ なので、二つの基底間の写像も目で追えます。同じ係数から

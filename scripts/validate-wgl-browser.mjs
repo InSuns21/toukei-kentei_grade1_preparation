@@ -548,8 +548,8 @@ try{
   assert.match(await evalJS('document.getElementById("status").textContent'),
     /独立画素検算に合格/,'FCG2 actual R8 scalar GPU snapshot failed');
   const scene2=await evalJS('({clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent})');
-  assert.match(scene2.clock,/t=1.57080 s/);
-  assert.match(scene2.grid,/8×8/);
+  assert.match(scene2.clock,/t=1.571 s/);
+  assert.match(scene2.grid,/128×128/);
   console.log('FCG2 actual R8 GPU draw and physical-time legend: PASS');
   await click('stop');
 
@@ -915,8 +915,43 @@ try{
   assert.match(terrain.clock,/静止GPU描画.*物理stepなし/);
   assert.match(terrain.mode,/EPSG:6697.*32 m.*1.5倍/);
   assert.match(terrain.source,/terrain.js.*terrain.frag/);
-  await click('stop');
   console.log('WGL20 actual terrain GPU scene and EPSG/height/source-linked G3 legend: PASS');
+  // Compare the real iframe GPU canvas, not changing host text. A moved
+  // directional light must alter the facade/shadow pixels. A lowered
+  // synthetic water level must alter the visible flooded area. Save both.
+  const wgl20Rect=await evalJS('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height};})()');
+  assert.ok(wgl20Rect.width>300&&wgl20Rect.height>150,JSON.stringify(wgl20Rect));
+  const wgl20Clip={...wgl20Rect,scale:1};
+  const wgl20Start=await cdp('Page.captureScreenshot',
+    {format:'png',clip:wgl20Clip,captureBeyondViewport:true});
+  await writeFile('_wgl_browser_review/wgl20-urban-initial.png',
+    Buffer.from(wgl20Start.data,'base64'));
+  assert.equal(await evalJS('document.getElementById("parameter-sun-azimuth")?.value'),'235');
+  await evalJS('(()=>{const e=document.getElementById("parameter-sun-azimuth");e.value="275";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',25000);
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("const sunAzimuthDeg=275;")'));
+  const wgl20Sun=await cdp('Page.captureScreenshot',
+    {format:'png',clip:wgl20Clip,captureBeyondViewport:true});
+  assert.notEqual(wgl20Sun.data,wgl20Start.data,
+    'changing sun angle in learner JS should alter actual facade/shadow pixels');
+  await writeFile('_wgl_browser_review/wgl20-urban-sun-shifted.png',
+    Buffer.from(wgl20Sun.data,'base64'));
+  await evalJS('(()=>{const e=document.getElementById("parameter-water-level");e.value="30";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',25000);
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("const waterLevelM=30;")'));
+  const wgl20Water=await cdp('Page.captureScreenshot',
+    {format:'png',clip:wgl20Clip,captureBeyondViewport:true});
+  assert.notEqual(wgl20Water.data,wgl20Sun.data,
+    'changing water level in learner JS should alter flooded-area pixels');
+  await writeFile('_wgl_browser_review/wgl20-urban-lower-water.png',
+    Buffer.from(wgl20Water.data,'base64'));
+  console.log('WGL20 real Chromium 9-building street, shadow-light change and water-level change: PASS');
+  await click('stop');
+
+
+
+
+
 
   // WGL12: compiled GGX shader, real linear Fresnel diagnostic RGBA8 pixels,
   // material-change screenshot and GLSL syntax error handling in an opaque iframe.
@@ -1008,10 +1043,10 @@ try{
   assert.match(diagnostic13.status,/独立画素検算に合格/,
     'WGL13 GPU shader/probes failed: '+JSON.stringify(diagnostic13));
   const scene13=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
-  assert.match(scene13.grid,/6面.*2×2 texel.*RGBA8/);
-  assert.match(scene13.color,/SchlickのF0/);
-  assert.match(scene13.clock,/12画素GPU検算.*物理stepなし/);
-  assert.match(scene13.mode,/yawDegrees.*12画素検算方向は固定/);
+  assert.match(scene13.grid,/6面×128×128.*2×2×6面RGBA8/);
+  assert.match(scene13.color,/F₀/);
+  assert.match(scene13.clock,/物理stepなし.*12画素GPU検算/);
+  assert.match(scene13.mode,/球をクリック.*面・UV/);
   assert.match(scene13.source,/environment.js.*environment.frag/);
   const wgl13=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
   assert.equal(wgl13.rows.length,12);
@@ -1035,16 +1070,26 @@ try{
   const initial13=await cdp('Page.captureScreenshot',{format:'png',clip:clip13,captureBeyondViewport:true});
   const initial13Canvas=await cdp('Page.captureScreenshot',{format:'png',
     clip:{...clip13,height:Math.min(190,clip13.height)},captureBeyondViewport:true});
-  // A second pair avoids comparing against textual output and keeps the
-  // comparison strictly within the upper canvas pixels.
+  // WGL13 starts paused. Verify a stable first image, then run the *edited*
+  // learner JS with its own rAF playback flag to check real GPU motion.
+  await new Promise(ok=>setTimeout(ok,860));
+  const stable13Canvas=await cdp('Page.captureScreenshot',{format:'png',
+    clip:{...clip13,height:Math.min(190,clip13.height)},captureBeyondViewport:true});
+  assert.equal(initial13Canvas.data,stable13Canvas.data,
+    'WGL13 must start with a stable scene until the learner starts rotation');
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('let selected=[0,0],playing=false','let selected=[0,0],playing=true');})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  const moving13Canvas=await cdp('Page.captureScreenshot',{format:'png',
+    clip:{...clip13,height:Math.min(190,clip13.height)},captureBeyondViewport:true});
   await new Promise(ok=>setTimeout(ok,860));
   const later13Canvas=await cdp('Page.captureScreenshot',{format:'png',
     clip:{...clip13,height:Math.min(190,clip13.height)},captureBeyondViewport:true});
-  assert.notEqual(initial13Canvas.data,later13Canvas.data,
-    'WGL13 original cubemap shader must rotate reflected pixels during animation');
+  assert.notEqual(moving13Canvas.data,later13Canvas.data,
+    'WGL13 same editable cubemap shader should change GPU pixels when playback runs');
   await writeFile('_wgl_browser_review/wgl13-environment-motion.png',
     Buffer.from(later13Canvas.data,'base64'));
-  console.log('WGL13 dynamic 6-face cubemap rotation observed in GPU pixels: PASS');
+  console.log('WGL13 paused default and shader-driven cubemap rotation: PASS');
   await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const yawDegrees = 0;', 'const yawDegrees = 90;');})()");
   await click('run');
   await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);

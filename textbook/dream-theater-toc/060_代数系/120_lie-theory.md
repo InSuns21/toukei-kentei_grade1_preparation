@@ -9,3 +9,7 @@
 6. [LREP2 既約分解とSchurの補題](textbook/volumes/dream_thater/代数系/LREP/LREP2/index.md)
 7. [LREP3 Lie環表現と群表現の積分](textbook/volumes/dream_thater/代数系/LREP/LREP3/index.md)
 8. [LREP4 直和・テンソル積・双対表現](textbook/volumes/dream_thater/代数系/LREP/LREP4/index.md)
+9. [LREP5 SU(2)からSO(3)への二重被覆](textbook/volumes/dream_thater/代数系/LREP/LREP5/index.md)
+10. [LREP6 SU(2)の有限次元既約表現](textbook/volumes/dream_thater/代数系/LREP/LREP6/index.md)
+11. [LREP7 角運動量とスピン量子数](textbook/volumes/dream_thater/代数系/LREP/LREP7/index.md)
+12. [LREP8 二つのスピンの合成](textbook/volumes/dream_thater/代数系/LREP/LREP8/index.md)

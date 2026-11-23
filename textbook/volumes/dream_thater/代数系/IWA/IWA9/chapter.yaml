@@ -1,0 +1,51 @@
+id: "IWA9"
+title: "分岐条件と無分岐最大p拡大"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IWA8
+official_scope: []
+learning_objectives:
+  - Hilbert類体のp部分から最大無分岐アーベルp拡大を構成しArtin同型と最大性を証明できる
+  - S外で非分岐な最大アーベルpro-p拡大と全素点で無分岐な拡大を惰性群商で区別できる
+  - S整数環の類群を素イデアル類で割った商として証明し完全分解と分岐許容を区別できる
+  - 円分塔の完全分岐と非分岐基礎体変更からHilbert p類体の塔を構成できる
+  - X_inftyを無分岐アーベルpro-p拡大のGalois群として定義し類群逆極限のノルムと制限の対応を導ける
+  - Delta指標射影と局所惰性群の商が可換である条件を証明できる
+  - 自明な有限係数のH^1に対する無分岐局所条件を定義し類群の文字との同型を証明できる
+  - coinvariants比較・非可換p拡大・一般のSelmer群をこの講の結論と混同しない
+definitions:
+  - { id: IWA9-DEF-01, name: 無分岐最大アーベルp拡大 }
+  - { id: IWA9-DEF-02, name: S分岐アーベルpro-p拡大 }
+  - { id: IWA9-DEF-03, name: S整数環の類群とp分解条件 }
+  - { id: IWA9-DEF-04, name: 無分岐岩澤加群 }
+  - { id: IWA9-DEF-05, name: 無分岐な一次コホモロジー局所条件 }
+theorems:
+  - { id: IWA9-THM-01, name: 無分岐アーベルp拡大と類群のp部分 }
+  - { id: IWA9-PROP-01, name: 局所惰性群で割ると類群が現れる }
+  - { id: IWA9-PROP-02, name: S整数環への局所化と類群の商 }
+  - { id: IWA9-THM-02, name: 類群逆極限のGalois表示 }
+  - { id: IWA9-PROP-03, name: 指標射影と局所条件の両立 }
+  - { id: IWA9-PROP-04, name: 無分岐文字は類群の文字に一致する }
+canonical_examples:
+  - 位数12の群の3成分を固定体へ移す形式模型
+  - Q(zeta_9)の最大実三次部分体と3の完全分岐
+  - pの上の円分素イデアル(1-zeta)の主性とS類群
+  - Q(sqrt(-3))で第一層の類数1と逆極限の違い
+  - Z/9とZ/3の偶奇射影による惰性群商の模型
+  - 自明係数H1の無分岐文字と局所惰性条件
+problem_patterns:
+  - IWA9-P-PRIMARY-QUOTIENT
+  - IWA9-INERTIA-ORDER
+  - IWA9-INERTIA-QUOTIENT
+  - IWA9-S-CLASS-QUOTIENT
+  - IWA9-CYCLOTOMIC-PRINCIPAL
+  - IWA9-INERTIA-VS-FROBENIUS
+  - IWA9-NORM-RESTRICTION
+  - IWA9-EIGEN-EXACTNESS
+  - IWA9-COCYCLE-CHARACTER
+  - IWA9-INTEGRATED-TOWER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 3 }

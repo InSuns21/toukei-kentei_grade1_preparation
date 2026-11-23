@@ -1,0 +1,44 @@
+id: "IWA11"
+title: "局所／大域単数の完全列"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IWA10
+official_scope: []
+learning_objectives:
+  - S単数を付値で特徴付け有限生成群の完全列の各核と余核を証明できる
+  - Q(sqrt(-5))で非主イデアルが付値の余核を作る機構を計算できる
+  - 局所主単数の剰余成分と大域単数の閉包を具体例で区別できる
+  - レイ類群の単数完全列を構成しp部分の逆極限とArtin対応の適用範囲を説明できる
+  - p分岐Galois群と局所単数の閉包商・類群の完全列を導出できる
+  - 大域ノルムと局所ノルムの可換性および塔での全射性の非自明性を説明できる
+definitions:
+  - { id: IWA11-DEF-01, name: S単数 }
+  - { id: IWA11-DEF-02, name: 局所主単数群と大域単数の閉包 }
+  - { id: IWA11-DEF-03, name: 有限法のレイ類群 }
+theorems:
+  - { id: IWA11-THM-01, name: S単数・付値・類群の完全列 }
+  - { id: IWA11-PROP-01, name: 付値写像の余核の読み方 }
+  - { id: IWA11-THM-02, name: レイ類群の単数完全列 }
+  - { id: IWA11-THM-03, name: 局所／大域単数とp分岐Galois群 }
+  - { id: IWA11-PROP-02, name: 局所化とノルムの可換性 }
+canonical_examples:
+  - QのS単数を3と5の付値で計算する
+  - Q(sqrt(-5))の非主素イデアルの付値像が2Zとなる
+  - Q_3のTeichmuller成分と主単数成分を分ける
+  - Qの法9と27のレイ類群を生成元4で計算する
+  - Q(zeta_3)の3乗根が局所主単数と大域単数閉包の双方に属する
+  - Q(zeta_9)からQ(zeta_3)への円分単数ノルム
+problem_patterns:
+  - IWA11-S-UNIT-VALUATIONS
+  - IWA11-NONPRINCIPAL-OBSTRUCTION
+  - IWA11-LOCAL-PRINCIPAL-PART
+  - IWA11-RAY-CLASS-UNIT-IMAGE
+  - IWA11-RAY-CLASS-POWER-LEVEL
+  - IWA11-GLOBAL-LOCAL-TORSION
+  - IWA11-NORM-COMPATIBILITY
+  - IWA11-INTEGRATED-LIMIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 3 }

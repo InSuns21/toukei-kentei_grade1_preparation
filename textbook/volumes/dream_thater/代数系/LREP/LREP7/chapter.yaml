@@ -1,0 +1,44 @@
+id: LREP7
+title: "角運動量とスピン量子数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP6
+official_scope: []
+learning_objectives:
+  - SU2の有限次元ユニタリ表現から自己共役な角運動量生成子を導出できる
+  - 角運動量の交換関係と昇降演算子の交換関係を直接検算できる
+  - Casimir演算子の中心性と固有値j(j+1)を証明できる
+  - 最高ウェイトnをスピンjと磁気量子数mへ書き換え昇降係数を導ける
+  - スピン0、1/2、1の行列表現と固有値を具体計算できる
+  - 整数スピンのSO3への降下と半整数スピンの射影表現を区別できる
+  - 整数と半整数の混合直和がSO3上の射影表現に降りない例を説明できる
+definitions:
+  - { id: LREP7-DEF-01, name: 角運動量演算子と昇降演算子 }
+  - { id: LREP7-DEF-02, name: 角運動量のCasimir演算子 }
+  - { id: LREP7-DEF-03, name: スピン量子数と磁気量子数 }
+theorems:
+  - { id: LREP7-LEM-01, name: 角運動量の交換関係 }
+  - { id: LREP7-THM-01, name: Casimir演算子は角運動量と可換 }
+  - { id: LREP7-THM-02, name: 有限次元スピンの量子化と昇降公式 }
+  - { id: LREP7-THM-03, name: 整数スピンの降下と半整数スピンの射影表現 }
+canonical_examples:
+  - 標準二次元表現のPauli行列と自己共役生成子
+  - Casimirと昇降演算子の行列表現における一致
+  - スピン1の磁気量子数と三次元行列
+  - SO3への降下と持ち上げの射影類
+  - 整数・半整数混合直和の射影降下障害
+problem_patterns:
+  - LREP7-PAULI-COMMUTATOR
+  - LREP7-SPIN-ONE-LADDERS
+  - LREP7-CASIMIR-HIGHEST
+  - LREP7-ROTATION-PARITY
+  - LREP7-SPIN-ONE-MATRICES
+  - LREP7-LADDER-NORM-POSITIVITY
+  - LREP7-PROJECTIVE-LIFTS
+  - LREP7-TRANSVERSE-SECOND-MOMENT
+  - LREP7-MIXED-SPIN-DIRECT-SUM
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 3 }

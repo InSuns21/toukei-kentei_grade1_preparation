@@ -23,19 +23,19 @@ chapters:
     title: "直和・テンソル積・双対表現"
   - id: LREP5
     path: textbook/volumes/dream_thater/代数系/LREP/LREP5
-    status: planned
+    status: completed
     title: "SU(2)からSO(3)への二重被覆"
   - id: LREP6
     path: textbook/volumes/dream_thater/代数系/LREP/LREP6
-    status: planned
+    status: completed
     title: "SU(2)の有限次元既約表現"
   - id: LREP7
     path: textbook/volumes/dream_thater/代数系/LREP/LREP7
-    status: planned
+    status: completed
     title: "角運動量とスピン量子数"
   - id: LREP8
     path: textbook/volumes/dream_thater/代数系/LREP/LREP8
-    status: planned
+    status: completed
     title: "二つのスピンの合成"
   - id: LREP9
     path: textbook/volumes/dream_thater/代数系/LREP/LREP9

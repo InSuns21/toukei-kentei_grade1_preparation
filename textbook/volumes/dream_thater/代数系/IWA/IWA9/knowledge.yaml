@@ -1,0 +1,62 @@
+chapter: IWA9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - IWA8
+forward_references: []
+concepts:
+  - id: number-theory.iwa9-hilbert-p-class-field
+    name: 無分岐最大アーベルp拡大
+    kind: definition
+    introduction: formal
+    requires: [number-theory.hilbert-class-field-correspondence]
+  - id: number-theory.iwa9-unramified-artin-p
+    name: 無分岐アーベルp拡大と類群のp部分
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa9-hilbert-p-class-field, number-theory.hilbert-class-field-correspondence]
+  - id: number-theory.iwa9-s-ramified-extension
+    name: S分岐アーベルpro-p拡大
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa9-hilbert-p-class-field]
+  - id: number-theory.iwa9-inertia-quotient
+    name: 局所惰性群で割ると類群が現れる
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa9-s-ramified-extension, number-theory.iwa9-unramified-artin-p]
+  - id: number-theory.iwa9-s-class-group
+    name: S整数環の類群とp分解条件
+    kind: definition
+    introduction: formal
+    requires: [number-theory.ideal-class-group, number-theory.iwa9-hilbert-p-class-field]
+  - id: number-theory.iwa9-s-class-quotient
+    name: S整数環への局所化と類群の商
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa9-s-class-group, number-theory.iwa9-unramified-artin-p]
+  - id: number-theory.iwa9-unramified-iwasawa-module
+    name: 無分岐岩澤加群
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa9-unramified-artin-p, number-theory.iwa4-iwasawa-action]
+  - id: number-theory.iwa9-galois-inverse-limit
+    name: 類群逆極限のGalois表示
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa9-unramified-iwasawa-module, number-theory.iwa8-limit-eigenspaces]
+  - id: number-theory.iwa9-character-inertia-compatibility
+    name: 指標射影と局所条件の両立
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa9-inertia-quotient, number-theory.iwa8-character-decomposition]
+  - id: number-theory.iwa9-unramified-local-condition
+    name: 無分岐な一次コホモロジー局所条件
+    kind: definition
+    introduction: formal
+    requires: [number-theory.group-first-cohomology, number-theory.iwa9-s-ramified-extension]
+  - id: number-theory.iwa9-unramified-characters
+    name: 無分岐文字は類群の文字に一致する
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa9-unramified-local-condition, number-theory.iwa9-unramified-artin-p]

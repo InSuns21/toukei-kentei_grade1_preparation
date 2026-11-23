@@ -73,11 +73,11 @@ const descriptions = Object.freeze({
     source: 'framebuffer.js（offscreenScale, filterMode, inspectionPass, bindFramebuffer, viewport）/ framebuffer.frag（drawScene, u_pass, u_scene）'
   }),
   FCG2: Object.freeze({
-    grid: '8×8（実際のスカラー場、R8テクスチャ2枚を交互に更新）',
-    color: '解析値 q=0.5+0.25 sin(2πx) cos(2πy) sin(t)。R8への丸め後、(q, 0.15, 1−q) の赤青で表示',
-    clock: step => '解析場の基準step '+step+'、t='+(step*Math.PI/2).toFixed(5)+' s（dt=π/2 s）',
-    mode: '連続再生は現在の物理時刻で解析式を評価。R8は最近傍表示、更新時刻と描画フレームは別',
-    source: 'density.js / density.frag'
+    grid:'1×1 m領域の128×128セル中心で解析移流濃度を計算（R8 2枚へ交互に転送）。GPUは表示',
+    color:'qは水中の受動染料濃度（無次元0〜1）。暗い紺は低濃度、琥珀色は高濃度。各値をR8整数へ丸めて描画',
+    clock: step => '染料の観察時刻 t='+(step*Math.PI/2).toFixed(3)+' s（節目はπ/2 s、連続再生は任意時刻）',
+    mode:'半径rが大きいほど角速度Ω(r)=omega(1+shear·r)が大きい。再生は2π秒で停止。格子と画素は別でNEAREST表示',
+    source:'density.js（omega, shear, amplitude, concentration） / density.vert（UV） / density.frag（濃度色）'
   }),
   FCG3: Object.freeze({
     grid: snapshot => (snapshot.gridN || 32)+'×'+(snapshot.gridN || 32)+'（実Float64移流格子・数値/解析2枚のR8テクスチャ）',
@@ -158,11 +158,11 @@ const descriptions = Object.freeze({
   }),
   WGL13: Object.freeze({
     requiresSteps: false,
-    grid: '数値計算格子なし（キューブマップ6面はそれぞれ2×2 texelのRGBA8入力。表示GPU画素とは別）',
-    color: '±X・±Y・±Zの6面それぞれにRGB色、各面4 texelに明度0.55／0.70／0.85／1。反射色にSchlickのF0を混合',
-    clock: () => '6面の方向を固定した12画素GPU検算（物理stepなし）',
-    mode: '球面は反射ベクトル、外側は背景用の方向でキューブマップを標本化。yawDegreesと手動回転は描画方向を変え、12画素検算方向は固定',
-    source: 'environment.js（faceColors, brightness, yawDegrees, fresnelF0）/ environment.frag（u_env, u_yaw, schlick）'
+    grid: '初期風景は立方体6面×128×128 RGBA8 texel（sceneResolutionで編集可）。別の2×2×6面RGBA8は12方向の基準検算。どちらも描画バッファ解像度とは別',
+    color: '左の球は1本の鏡面反射方向からキューブマップを参照、右は同じ6面の展開図。橙枠は選択中の反射先の面、任意の水色線は面境界。F₀は無次元0〜1',
+    clock: () => '風景・球・展開図は同一GPU shader。再生は環境方位のみ（°）、物理stepなし。12画素GPU検算は無回転2×2面の静止値',
+    mode: '球をクリックすると反射先の面・UVを特定。2×2面診断と風景128×128を同じGLSLとキューブマップ規則で切り替える',
+    source: 'environment.js（sceneColor, sceneResolution, faceColors, yawDegrees, fresnelF0）/ environment.frag（reflect, u_scene, u_env, faceDirection, u_showSeams）'
   }),
   WGL14: Object.freeze({
     requiresSteps: false,
@@ -206,12 +206,12 @@ const descriptions = Object.freeze({
     source: 'audit.js / audit.frag（fixedMs, frameDeltasMs, maxStepsPerFrame）'
   }),
   WGL20: Object.freeze({
-    requiresSteps: false,
-    grid: '合成DEMは初期4×4セル・5×5頂点（gridStepsで変更）。PLATEAU実LOD1建物は別メッシュ。いずれも物理流体の計算格子ではない',
-    color: '合成地形は緑、LOD1建物は茶色、仮想水面は半透明の青（α=0.48）。画面下12pxの4色帯はGPU画素照合用で地理データではない',
-    clock: () => '地形・建物・水面の静止GPU描画（物理stepなし）',
-    mode: '原点近傍の東・北・上をmで表す。PLATEAU標本の座標系はEPSG:6697。初期水面標高32 mと標高強調1.5倍は描画条件で、水深はmax(0, 水面標高−合成地盤標高) m',
-    source: 'terrain.js（scenario, zExaggeration, waterLevelM, usePlateau, showWater, gridSteps, dem, depth）/ terrain.frag（v_kind, u_attributeMode）'
+    requiresSteps:false,
+    grid:'240×240 mの合成地形を4×4セル（各60 m）で三角形化。PLATEAU実LOD1メッシュは1棟（EPSG:6697由来）、周囲8棟は合成立体',
+    color:'合成地形（緑）、仮想水面（青、α=0.33）。黄土色＝実在PLATEAU建物1棟、灰白色＝合成建物8棟、暗灰色＝合成道路。面法線Lambert明暗と1024²深度影。下部12px色帯は検算専用',
+    clock:()=>'静止GPU描画。ドラッグ／矢印で街区カメラを回転（物理stepなし）',
+    mode:'EPSG:6697由来の建物1棟、仮想水面の初期標高32 m、描画Z誇張の初期値1.5倍。仮想水深max(0,W-G)はm。視点と太陽方位を実JSで操作',
+    source:'terrain.js（waterLevelM, zExaggeration, cameraAzimuthDeg, cameraElevationDeg, sunAzimuthDeg, showContext, clipWet, drawScene）／terrain.vert・terrain.frag（法線Lambert陰影、shadow map、半透明水）'
   }),
   WGL18: Object.freeze({
     grid: '4×4（GPUの浮動小数点濃度格子）',

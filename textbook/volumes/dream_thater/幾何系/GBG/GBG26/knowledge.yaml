@@ -1,0 +1,45 @@
+chapter: GBG26
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG25
+  - GBG23
+  - GBG22
+  - GEO8
+forward_references: []
+concepts:
+  - id: gauge.su2-second-chern-number
+    name: SU(2)束の第二Chern数
+    kind: definition
+    introduction: formal
+    requires: [gauge.chern-low-degree-traces, gauge.chern-weil-connection-independence]
+
+  - id: gauge.local-pure-gauge-connection
+    name: 局所純ゲージ接続
+    kind: definition
+    introduction: formal
+    requires: [gauge.local-curvature-form]
+
+  - id: gauge.su2-normalized-boundary-three-form
+    name: 正規化されたSU(2)境界3形式
+    kind: definition
+    introduction: formal
+    requires: [gauge.su2-s3-identification, gauge.s3-integral-degree]
+
+  - id: gauge.su2-boundary-degree
+    name: 境界3形式とクラッチング次数
+    kind: lemma
+    introduction: formal
+    requires: [gauge.su2-normalized-boundary-three-form, gauge.s3-integral-degree]
+
+  - id: gauge.s4-chern-clutching
+    name: S⁴上のクラッチング次数と第二Chern数
+    kind: theorem
+    introduction: formal
+    requires: [gauge.su2-second-chern-number, gauge.local-chern-simons-primitive, gauge.su2-boundary-degree, gauge.s4-su2-clutching, gauge.chern-weil-connection-independence]
+
+  - id: gauge.nonzero-chern-no-flat
+    name: 非零第二Chern数は平坦接続を排除する
+    kind: corollary
+    introduction: formal
+    requires: [gauge.su2-second-chern-number, gauge.s4-chern-clutching]

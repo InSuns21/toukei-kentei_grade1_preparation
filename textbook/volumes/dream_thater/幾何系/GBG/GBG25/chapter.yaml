@@ -1,0 +1,46 @@
+id: "GBG25"
+title: "S⁴上のSU(2)主束はどう貼り合わされるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG24
+  - GEO8
+official_scope: []
+learning_objectives:
+  - S3とSU(2)の滑らかな同一視を2×2行列で構成し定義条件を直接確認できる
+  - S4を南北二つの4球に分け赤道S3上の遷移関数を指定できる
+  - 非可換な右主作用とs_S=s_N g_NSの貼り合わせ規約を証明できる
+  - S3上の体積3形式による積分次数を向きと正規化込みで定め例を計算できる
+  - Stokesとホモトピーを使い次数の変形不変性と円板延長障害を説明できる
+  - 大域sectionが存在するとclutching写像が零ホモトピックになる過程を導ける
+  - 次数1の遷移関数が非自明なSU(2)主束を与えることを証明できる
+  - section変更と束同型のもとで次数が不変であることを示せる
+  - 必要条件による非自明性証明と一般のpi3分類定理を区別できる
+definitions:
+  - { id: GBG25-DEF-01, name: S³とSU(2)の標準同一視 }
+  - { id: GBG25-DEF-02, name: S⁴上のSU(2)クラッチング束 }
+  - { id: GBG25-DEF-03, name: S³写像の積分次数 }
+theorems:
+  - { id: GBG25-PROP-01, name: クラッチング商は滑らかな主束 }
+  - { id: GBG25-LEM-01, name: 積分次数のホモトピー不変性と延長障害 }
+  - { id: GBG25-THM-01, name: S⁴上のクラッチング束の次数障害 }
+  - { id: GBG25-PROP-02, name: クラッチング次数の束同型不変性 }
+canonical_examples:
+  - S3をSU(2)と同一視する単位行列・対角行列・交代行列
+  - S4上の恒等遷移関数とSU(2)値恒等写像で貼る二つの束
+  - 正規化体積形式で次数0とプラスマイナス1を検算する例
+  - 非可換な局所section変更による境界遷移関数の変換
+problem_patterns:
+  - GBG25-SU2-MATRIX
+  - GBG25-EQUATOR-OVERLAP
+  - GBG25-RIGHT-ACTION-COCYCLE
+  - GBG25-DEGREE-ORIENTATION
+  - GBG25-HOMOTOPY-STOKES
+  - GBG25-SECTION-OBSTRUCTION
+  - GBG25-NONABELIAN-GAUGE-CHANGE
+  - GBG25-DIMENSIONAL-COMPARISON
+  - GBG25-THREE-CLUTCHING-BUNDLES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 4 }

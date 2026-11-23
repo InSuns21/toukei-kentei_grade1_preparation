@@ -24,3 +24,6 @@
 21. [GBG21 Chern–Weil形式はなぜ閉じるか](textbook/volumes/dream_thater/幾何系/GBG/GBG21/index.md)
 22. [GBG22 接続を変えても特性類が変わらないのはなぜか](textbook/volumes/dream_thater/幾何系/GBG/GBG22/index.md)
 23. [GBG23 Chern類・Chern指標はどの式で正規化するか](textbook/volumes/dream_thater/幾何系/GBG/GBG23/index.md)
+24. [GBG24 Pontryagin・Euler型不変量をどう見分けるか](textbook/volumes/dream_thater/幾何系/GBG/GBG24/index.md)
+25. [GBG25 S⁴上のSU(2)主束はどう貼り合わされるか](textbook/volumes/dream_thater/幾何系/GBG/GBG25/index.md)
+26. [GBG26 第二Chern数は純ゲージ場と非自明な場をどう区別するか](textbook/volumes/dream_thater/幾何系/GBG/GBG26/index.md)
