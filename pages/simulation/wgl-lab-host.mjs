@@ -11,7 +11,7 @@ import {expectedFCG8Samples,compareFCG8Readback,fcg8State} from './fcg8-lab-core
 import { highlightSource } from './wgl-lab-highlight.mjs';
 import {mountReferenceObservation} from './wgl-fcg-reference-visual.mjs';
 import {mountVisualGuide} from './wgl-fcg-visual-guide.mjs';
-import {mountLabParameters,parametersFor,readLabParameter,writeLabParameter} from './wgl-lab-parameters.mjs';
+import {mountLabParameters,parametersFor,readLabParameter,verifiedFCG5Physics} from './wgl-lab-parameters.mjs';
 import {mountSceneInfo} from './wgl-lab-scene-info.mjs';
 import { compareWGL2Readback, expectedWGL2Samples } from './wgl2-lab-core.mjs';
 import { compareWGL3Readback, expectedWGL3Samples } from './wgl3-lab-core.mjs';
@@ -269,23 +269,7 @@ function fcg6PhysicsFor(js,vertex,fragment) {
 // Accept only known FCG5 literal edits as an independently checkable initial state.
 // After pointer-driven dye injection the live texture is no longer this snapshot.
 function fcg5PhysicsFor(js,vertex,fragment) {
-  if(!isFCG5||vertex!==defaults.vertex||fragment!==defaults.fragment)return null;
-  const specs=parametersFor('FCG5');
-  if(specs.length!==7)return null;
-  const readings=specs.map(spec=>readLabParameter(js,spec));
-  if(!readings.every(state=>state.ok))return null;
-  try{
-    let normalized=js,baseline=defaults.js;
-    for(const spec of specs){
-      normalized=writeLabParameter(normalized,spec,spec.default);
-      baseline=writeLabParameter(baseline,spec,spec.default);
-    }
-    if(normalized!==baseline)return null;
-  }catch{return null;}
-  return {
-    N:readings[0].value,nu:readings[1].value,force:readings[2].value,
-    dt:readings[3].value,brushRadius:readings[4].value,brushStrength:readings[5].value
-  };
+  return isFCG5 ? verifiedFCG5Physics(js,vertex,fragment,defaults) : null;
 }
 function setSources(record) {
   for (const name of Object.keys(inputs)) {
