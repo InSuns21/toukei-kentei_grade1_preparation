@@ -301,7 +301,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa4-local-unit-system -->
-**定義の確認**。 $\zeta_{p^{n+1}}$ は $p$ 冪位数の単元です。有限剰余体の乗法群は位数 $p^f-1$（ある $f\ge1$）なので、その中の $p$ 冪位数元は1だけです。従って $\zeta_{p^{n+1}}$ は剰余体で1となり、$U_n^1$ に入ります。[円分Galois群の制限列](../IWA2/index.md#prop-iwa2-cyclotomic-restriction)で核を取ると、$L_{n+1}/L_n$ の位数 $p$ の自己同型は $\zeta=\zeta_{p^{n+2}}$ を $\zeta^{1+kp^{n+1}}$（$0\le k<p$）へ送ります。従って奇素数 $p$ では
+**定義の確認**。 $\zeta_{p^{n+1}}$ は $p$ 冪位数の単元です。有限剰余体の乗法群は位数 $p^f-1$（ある $f\ge1$）なので、その中の $p$ 冪位数元は1だけです。
+
+従って $\zeta_{p^{n+1}}$ は剰余体で1となり、$U_n^1$ に入ります。[円分Galois群の制限列](../IWA2/index.md#prop-iwa2-cyclotomic-restriction)で核を取ると、$L_{n+1}/L_n$ の自己同型は
+
+$$
+\zeta=\zeta_{p^{n+2}}
+\longmapsto\zeta^{1+kp^{n+1}}
+\qquad(0\le k<p)
+$$
+
+の $p$ 個です。従って奇素数 $p$ では
 
 $$
 \begin{aligned}
@@ -406,7 +416,11 @@ $\Gamma_n=\operatorname{Gal}(K_n/\mathbb Q)$ は、イデアルを $\mathfrak A\
 
 <!-- formal-statement-start -->
 > **定理（類群の逆極限への岩澤代数作用）**  
-> 素数 $p$ に対し、$K_n/\mathbb Q$ を第1節の円分 $\mathbb Z_p$ 塔（奇素数の場合は[IWA2の定理](../IWA2/index.md#thm-iwa2-compatible-tower)、$p=2$ の場合は[2進の定理](../IWA2/index.md#thm-iwa2-two-adic-splitting)で構成）とし、$\Gamma_n=\operatorname{Gal}(K_n/\mathbb Q)$、$\Gamma=\varprojlim_n\Gamma_n$ と置く。$A_n=\mathrm{Cl}(K_n)[p^\infty]$、$X=\varprojlim_n(A_n,N_{n+1,n})$ とする。このとき各 $\Gamma_n$ の $A_n$ への自然な作用を延長する連続な $\Lambda=\mathbb Z_p[[\Gamma]]$ 加群構造が $X$ に一意に定まり、各 $x=(x_n)_n$ と $\lambda\in\Lambda$ の第 $n$ 成分は、十分大きい $m$ について
+> 素数 $p$ に対して、第1節で構成した円分 $\mathbb Z_p$ 塔 $K_n/\mathbb Q$ を取る。奇素数の場合は[IWA2の定理](../IWA2/index.md#thm-iwa2-compatible-tower)、$p=2$ の場合は[2進の定理](../IWA2/index.md#thm-iwa2-two-adic-splitting)に従う。
+>
+> $\Gamma_n=\operatorname{Gal}(K_n/\mathbb Q)$、$\Gamma=\varprojlim_n\Gamma_n$ と置き、$A_n=\mathrm{Cl}(K_n)[p^\infty]$、$X=\varprojlim_n(A_n,N_{n+1,n})$ とする。
+>
+> 各 $\Gamma_n$ の $A_n$ への自然な作用を延長する連続な $\Lambda=\mathbb Z_p[[\Gamma]]$ 加群構造が $X$ に一意に定まる。任意の $x=(x_n)_n\in X$ と $\lambda\in\Lambda$ について、第 $n$ 成分は十分大きい $m$ により
 
 $$
 (\lambda x)_n=\lambda_{m,n}\,x_n
