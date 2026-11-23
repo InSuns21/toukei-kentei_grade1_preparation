@@ -438,7 +438,20 @@ T_a(A)=i(b+f')\,d\theta
 =i\bigl(b+\lambda-b\bigr)\,d\theta=A_\lambda.
 $$
 
-次に $A_\mu=T_a(A_\lambda)$ とする。円周の角座標の普遍被覆 $\mathbb R\to S^1$ 上では、任意の滑らかな $a$ を $a(e^{i\theta})=e^{if(\theta)}$ と実数値滑らかな $f$ で表せる。これは区間上で位相を連続に選べることにより得られ、円周の一価性は
+次に $A_\mu=T_a(A_\lambda)$ とする。滑らかなゲージ関数 $a:S^1\to U(1)$ を実数の角度で引き戻して $\widetilde a(\theta):=a(e^{i\theta})$ と書くと、$\widetilde a$ は $2\pi$ 周期である。$|\widetilde a|^2=1$ を微分すると $\widetilde a^{-1}\widetilde a'$ は純虚数だから、
+
+$$
+h(\theta):=-i\,\widetilde a(\theta)^{-1}\widetilde a'(\theta)\in\mathbb R
+$$
+
+は滑らかな実数値関数になる。$e^{ic}=\widetilde a(0)$ となる実数 $c$ を選び、$f(\theta):=c+\int_0^\theta h(t)\,dt$ と置く。微積分の基本定理による $f'=h$ と $\widetilde a'=ih\widetilde a$ から
+
+$$
+\frac{d}{d\theta}\bigl(\widetilde a(\theta)e^{-if(\theta)}\bigr)
+=(\widetilde a'-if'\widetilde a)e^{-if}=0.
+$$
+
+$\theta=0$ で括弧内は1だから、全ての実数 $\theta$ で $\widetilde a(\theta)=e^{if(\theta)}$ が成立する。これで実数値の滑らかな位相関数を構成できた。$\widetilde a$ の周期性より $e^{i(f(\theta+2\pi)-f(\theta))}=1$ となる。括弧内は連続な関数で $2\pi\mathbb Z$ に値を取るから、連結な実数直線上では一定であり、円周の一価性は
 
 $$
 f(\theta+2\pi)-f(\theta)=2\pi n\qquad(n\in\mathbb Z)
