@@ -183,7 +183,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（時間離散随伴の全勾配）**  
-> [時間離散随伴変数](#def-pml2-23-discrete-adjoint)の仮定の下で $L_N(\theta)=\Phi(z_N,\theta)+\sum_{n=0}^{N-1}c_n(z_n,\theta)$ とする。初期値の $\theta$ 依存も含めた全微分は
+> [時間離散随伴変数](#def-pml2-23-discrete-adjoint)の仮定の下で、離散損失を次のように置く。
+
+$
+L_N(\theta)=\Phi(z_N,\theta)+\sum_{n=0}^{N-1}c_n(z_n,\theta).
+$
+
+> 初期値の $\theta$ 依存も含めた全微分は
 
 $$
 \frac{dL_N}{d\theta}
