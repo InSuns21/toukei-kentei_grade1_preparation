@@ -275,9 +275,9 @@ $$
 
 二変数 $\xi=(a,b)$ のHessianとは、$(a,b)$ の標準座標で二階偏導関数を並べた行列である。その $(i,j)$ 成分は
 
-$
+$$
 H_{ij}=\frac{\partial^2G_\lambda}{\partial\xi_i\partial\xi_j},\qquad (\xi_1,\xi_2)=(a,b).
-$
+$$
 
 ここでは $a$ が内部残差 $2(a-1)$ を、$b$ が両端値 $b$ を変えるため、二つの損失項は異なる座標方向を測る。固有値の比としての条件数は、この**選んだ座標**に関する曲率の比である。
 
@@ -338,16 +338,16 @@ $$
 
 二条件を合わせて主張の範囲を得る。$\partial_a^2G_\lambda=8$、$\partial_b^2G_\lambda=4\lambda$、混合偏微分 $\partial_a\partial_bG_\lambda=\partial_b\partial_aG_\lambda=0$ をHessianの各成分に置くと
 
-$
+$$
 \nabla^2G_\lambda=
 \begin{pmatrix}8&0\\0&4\lambda\end{pmatrix}.
 $$
 
 $\lambda>0$ なので、任意の非零ベクトル $h=(h_1,h_2)$ に対して
 
-$
+$$
 h^{\mathsf T}(\nabla^2G_\lambda)h=8h_1^2+4\lambda h_2^2>0
-$
+$$
 
 となり、Hessianは正定値対称行列である。標準基底 $e_1=(1,0)$、$e_2=(0,1)$ に作用させると、それぞれ $8e_1$、$4\lambda e_2$ が得られる。よって固有値は $8,4\lambda$ であり、その最大値と最小値の比が表示した条件数になる。
 <!-- proof-end -->
@@ -611,19 +611,19 @@ $$
 
 Hessianが正定値であることを、二次形式で直接確認する。任意の $(h,k)\ne(0,0)$ に対して
 
-$
+$$
 \begin{aligned}
 (h,k)\nabla^2J\begin{pmatrix}h\\k\end{pmatrix}
 &=10h^2+16hk+40k^2\\
 &=10\left(h+\frac45k\right)^2+\frac{168}{5}k^2>0.
 \end{aligned}
-$
+$$
 
 停留点 $(a_*,b_*)$ を原点とする変位 $\delta=(a-a_*,b-b_*)$ を取ると、二次式の展開で一次項は停留条件により消え、
 
-$
+$$
 J(a,b)-J(a_*,b_*)=\frac12\,\delta^{\mathsf T}(\nabla^2J)\delta
-$
+$$
 
 となる。従って停留点以外では右辺が正であり、一意の大域最小点である。内部残差は $2(a_*-1)=1/21$、両端違反は $b_*=2/21$、観測違反は $d_*=-1/42$。各重み付き損失項を順に求めると
 
