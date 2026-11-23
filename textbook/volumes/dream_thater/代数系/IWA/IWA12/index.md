@@ -444,7 +444,25 @@ $A_n=\mathbb Z/3^{n+1}\mathbb Z$、遷移は還元、$\Gamma$ 作用は自明と
 一般の有限群逆系で $N_{m,n}$ が必ずしも全射でないとする。固定した $n$ に対し $\operatorname{im}N_{m,n}$ が十分大きな $m$ で一定になることを説明し、$|\operatorname{coker}c_n|$ が安定した像の指数に一致することを証明せよ。
 
 <!-- solution-start -->
-**詳細解答。** $m'\ge m\ge n$ なら $N_{m',n}=N_{m,n}N_{m',m}$ なので $\operatorname{im}N_{m',n}\subseteq\operatorname{im}N_{m,n}$ です。$A_n$ は有限群なので狭義の減少は高々 $|A_n|-1$ 回で止まり、十分大きな $m$ に対して像は同じ群 $J_n$ になります。さらに [安定像命題](#prop-iwa12-stable-image)の有限交叉性の議論で $I_n=J_n$。よって [比較完全列](#thm-iwa12-comparison-exact)から $\operatorname{coker}c_n=A_n/I_n=A_n/J_n$。その位数は $[A_n:J_n]$ です。像の減少停止と、整合列が存在することは別の段階なので両方が必要です。
+**詳細解答。** $m'\ge m\ge n$ に対し、ノルムの合成則から
+
+$
+N_{m',n}=N_{m,n}N_{m',m},
+\qquad
+\operatorname{im}N_{m',n}\subseteq\operatorname{im}N_{m,n}
+$
+
+です。$A_n$ は有限群なので像の狭義減少は高々 $|A_n|-1$ 回で止まり、十分高い層では像が一定の群 $J_n$ になります。
+
+さらに [安定像命題](#prop-iwa12-stable-image)の有限交叉性による構成で $I_n=J_n$ です。[比較完全列](#thm-iwa12-comparison-exact)を適用すると
+
+$
+\operatorname{coker}c_n=A_n/I_n=A_n/J_n,
+\qquad
+|\operatorname{coker}c_n|=[A_n:J_n].
+$
+
+像の減少が止まることと、全層に整合する元が存在することは別の段階なので、両方を証明する必要があります。
 <!-- solution-end -->
 
 ### Level C
