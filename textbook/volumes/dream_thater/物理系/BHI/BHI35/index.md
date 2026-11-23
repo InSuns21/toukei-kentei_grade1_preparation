@@ -26,7 +26,9 @@ ds^2=-f(r)\,dt^2+\frac{dr^2}{f(r)}+r^2d\Omega_2^2,
 \qquad f(r)=1-\frac{2M}{r}
 $$
 
-と書きます。$d\Omega_2^2=d\theta^2+\sin^2\theta\,d\varphi^2$ は単位二球面の計量です。地平線の表面積は $A_h=4\pi(2M)^2=16\pi M^2$、[Schwarzschild面積エントロピー](../../BHT/BHT9/index.md#prop-bht9-schwarzschild-entropy)は $S_{\rm BH}=A_h/4=4\pi M^2$ です。[Hawking温度と遠方光度の既習結果](../../QCURV/QCURV21/index.md#thm-qcurv21-flux-chain)から $T_H=(8\pi M)^{-1}$ を使います。
+と書きます。$d\Omega_2^2=d\theta^2+\sin^2\theta\,d\varphi^2$ は単位二球面の計量です。ここで $t$ は静的なSchwarzschild時刻、$r_*$ は $dr_*/dr=1/f(r)$ で定まる亀座標です。静的背景では遠方へ進む光線に沿った遅延時間を $u=t-r_*$ と取り、遠方の固定半径では $du=dt$ です。蒸発する背景への適用は瞬間静的な近似に限定します。以後、$\dot M=dM/du$、$\dot S=dS/du$ とし、静的な分離に用いる $t$ や後のQES候補端点の時刻を、蒸発に沿った微分変数 $u$ と混同しません。
+
+地平線の表面積は $A_h=4\pi(2M)^2=16\pi M^2$、[Schwarzschild面積エントロピー](../../BHT/BHT9/index.md#prop-bht9-schwarzschild-entropy)は $S_{\rm BH}=A_h/4=4\pi M^2$ です。[Hawking温度と遠方光度の既習結果](../../QCURV/QCURV21/index.md#thm-qcurv21-flux-chain)から $T_H=(8\pi M)^{-1}$ を使います。
 
 四次元の場は、時間と半径だけでなく球面上にも振動します。球面調和関数 $Y_{\ell m}$ は
 
@@ -53,10 +55,32 @@ $$
 > と定める。遠方から入射した単位流束の波について、地平線へ透過した流束の比を $\Gamma_\ell(\omega;M)$ と呼ぶ。外部ポテンシャルが実数で、吸収・増幅源を外部に置かない散乱問題では $0\le\Gamma_\ell\le1$ である。
 <!-- formal-statement-end -->
 
-$\Gamma_\ell$ は「地平線の熱因子そのもの」ではありません。外部で散乱された波の**透過確率**を、同じ遠方時計で測った流束から定めます。実係数の一次元散乱方程式へ落とせることを次に示します。
+$\Gamma_\ell$ は「地平線の熱因子そのもの」ではありません。外部で散乱された波の**透過確率**を、同じ遠方時計で測った流束から定めます。分離した半径波 $\psi$ に対する流束は、星印を複素共役として
+
+$$
+J=\frac{1}{2i}\left(\psi^*\frac{d\psi}{dr_*}-\psi\frac{d\psi^*}{dr_*}\right)
+$$
+
+で測ります。$A e^{-i\omega r_*}$ の流束は $-\omega|A|^2$、$A e^{+i\omega r_*}$ は $+\omega|A|^2$ なので、前者を地平線向き、後者を遠方向きと数えます。単位入射流束に規格化するには入射振幅を $1/\sqrt\omega$ とします。実係数の一次元散乱方程式へ落とせることと流束保存は次の命題から確かめます。
 
 <!-- definition-example-start: def-bhi35-scalar-channel -->
-**定義の確認**：$\ell=0$ なら $m=0$ は一通り、$\ell=1$ なら $m=-1,0,1$ の三通りで、縮退度はそれぞれ $1,3$ です。単位入射流束が反射 $0.7$、透過 $0.3$ に分かれる損失のない外部散乱の例では、流束保存から $\Gamma_\ell=0.3$ となり $0\le\Gamma_\ell\le1$ を直接満たします。これは説明用の散乱値であり、特定のSchwarzschildモードを解いた数値ではありません。
+**定義の確認**：$\ell=0$ なら $m=0$ は一通り、$\ell=1$ なら $m=-1,0,1$ の三通りで、縮退度はそれぞれ $1,3$ です。周波数 $\omega>0$ を固定し、外部に損失のない散乱の境界波を、遠方と地平線側でそれぞれ
+
+$$
+\psi_{\infty}\sim\frac{e^{-i\omega r_*}+\mathcal R e^{+i\omega r_*}}{\sqrt\omega},
+\qquad
+\psi_{\rm h}\sim\frac{\mathcal T e^{-i\omega r_*}}{\sqrt\omega}
+$$
+
+と書きます。たとえば $\mathcal R=\sqrt{0.7}$、$\mathcal T=\sqrt{0.3}$ なら、上の流束式に代入して
+
+$$
+J_{\infty}=-1+0.7=-0.3,
+\quad J_{\rm h}=-0.3,
+\quad \Gamma_\ell=|\mathcal T|^2=0.3\in[0,1]
+$$
+
+と一致します。振幅と流束比の違いまで確認しました。これは境界流束の検算例であり、特定のSchwarzschildポテンシャルを解いて $\mathcal R,\mathcal T$ を求めた数値ではありません。
 <!-- definition-example-end -->
 
 <a id="prop-bhi35-scalar-potential"></a>
@@ -76,7 +100,7 @@ $$
 > を満たす。各 $\ell\ge0$ で $V_\ell(r)>0$ は $r>2M$、$V_\ell\to0$ は $r\to2M+$ および $r\to\infty$ で成立する。
 <!-- formal-statement-end -->
 
-**証明の見取り図**：波動演算子を時間・半径・球面に分け、球面固有値を代入し、最後に $r_*$ へ座標変換して一階微分を消します。
+**証明の見取り図**：波動演算子を時間・半径・球面に分け、球面固有値を代入し、最後に $r_*$ へ座標変換して一階微分を消します。証明中のプライムは $r$ による微分、すなわち $\psi'=d\psi/dr$、$\psi''=d^2\psi/dr^2$、$f'=df/dr$ を表します。$d/dr_*=f(r)\,d/dr$ とは区別します。
 
 <!-- proof-start -->
 ### 証明
@@ -118,18 +142,48 @@ $$
 
 $\ell=0$ でも $2M/r^3$ が残る点が重要です。「$s$ 波だから散乱がない」と結論してはいけません。各チャネルの正確な透過率は、この微分方程式へ地平線では純粋な入射波、遠方では入射波と反射波という境界条件を課して求めます。
 
-実ポテンシャルについて保存されるWronskian流束は
+ここで先に使った流束保存を導きます。上の半径方程式とその複素共役を用いると、ポテンシャル $V_\ell$ と $\omega^2$ がともに実数なので
 
 $$
-J=\frac1{2i}\left(\psi^*\frac{d\psi}{dr_*}
--\psi\frac{d\psi^*}{dr_*}\right).
+\frac{dJ}{dr_*}
+=\frac{1}{2i}\left(\psi^*\frac{d^2\psi}{dr_*^2}
+-\psi\frac{d^2\psi^*}{dr_*^2}\right)=0
 $$
 
-遠方の単位振幅入射波と反射波、地平線側の透過波を同じ周波数で比較すると $1=|\mathcal R_\ell|^2+|\mathcal T_\ell|^2$ であり、$\Gamma_\ell=|\mathcal T_\ell|^2$ です。これは正周波数のSchwarzschild**非回転**散乱での関係です。回転系の超放射にはそのまま使いません。
+となります。共通の入射振幅を $A$ とすると、両端の境界波は
+
+$$
+\psi_\infty\sim A(e^{-i\omega r_*}+\mathcal R_\ell e^{+i\omega r_*}),
+\qquad
+\psi_{\rm h}\sim A\mathcal T_\ell e^{-i\omega r_*}
+$$
+
+です。交差項は流束の差で打ち消し合うので
+
+$$
+J_\infty=-\omega|A|^2(1-|\mathcal R_\ell|^2),\qquad
+J_{\rm h}=-\omega|A|^2|\mathcal T_\ell|^2.
+$$
+
+$J_\infty=J_{\rm h}$ と $\omega|A|^2>0$ から $1=|\mathcal R_\ell|^2+|\mathcal T_\ell|^2$、$\Gamma_\ell=|\mathcal T_\ell|^2$ が得られます。振幅を $A=1/\sqrt\omega$ とすれば、定義で用いた単位入射流束となります。これは正周波数のSchwarzschild**非回転**散乱での関係です。回転系の超放射にはそのまま使いません。
+
+**入射から出射への橋渡し**：上では遠方から入る波で $\Gamma_\ell$ を定義しましたが、Hawking放射では地平線側から外へ進む波の透過率を使います。両者が一致することも実ポテンシャルの二階方程式から確かめられます。振幅を同じ規格化で、遠方入射の解を $\psi_R$、地平線側からの入射解を $\psi_L$ とし、$x=r_*$ と略記すると、両端で
+
+$$
+\psi_R\sim e^{-i\omega x}+R_R e^{+i\omega x}\quad(x\to+\infty),
+\qquad \psi_R\sim T_R e^{-i\omega x}\quad(x\to-\infty)
+$$
+
+$$
+\psi_L\sim T_L e^{+i\omega x}\quad(x\to+\infty),
+\qquad \psi_L\sim e^{+i\omega x}+R_L e^{-i\omega x}\quad(x\to-\infty)
+$$
+
+と置きます。Wronskian $W=\psi_R(d\psi_L/dx)-(d\psi_R/dx)\psi_L$ は $W'=0$ を満たします。遠方で $W=2i\omega T_L$、地平線側で $W=2i\omega T_R$ なので $T_L=T_R$ です。従って**出射にも同じ $\Gamma_\ell=|T_L|^2=|T_R|^2$** を使えます。この等式には実係数・時間反転対称な散乱方程式と適切な境界条件が必要です。
 
 ## 3. 灰色体因子を通した光度と放射の粗視化
 
-[BHI4のエネルギー収支模型](../BHI4/index.md#def-bhi4-energy-ledger)では光度から質量軌道を求めました。ここでは、透過率が変わると放射の熱的占有数がどう変わるかまで計算します。
+[BHI4のエネルギー収支模型](../BHI4/index.md#def-bhi4-energy-ledger)では光度から質量軌道を求めました。ここでは、[BHI5の粗視化と精細エントロピーの区別](../BHI5/index.md#prop-bhi5-entropy-hierarchy)を前提に、透過率が変わると独立な出射モードの熱的占有数とエントロピーがどう変わるかまで計算します。
 
 <a id="def-bhi35-outgoing-entropy"></a>
 
@@ -312,7 +366,7 @@ $$
 
 ## 5. 四次元island候補に必要な停留条件
 
-二次元ではdilatonの値が重力のエントロピー項でした。四次元では二次元の点に対応する境界は、通常**面積を持つ二次元の曲面**です。まず[BHI30の条件付きisland則](../BHI30/index.md#prop-bhi30-conditional-island)を、四次元で検討すべき候補の形に書き直します。
+二次元ではdilatonの値が重力のエントロピー項でした。四次元では二次元の点に対応する境界は、通常**面積を持つ二次元の曲面**です。[BHI30の条件付きisland則](../BHI30/index.md#prop-bhi30-conditional-island)で使った「重力エントロピー項＋物質エントロピー項」を四次元の曲面に対応させます。この和が曲面の許された全方向の微小変形に対して停留するものを**量子極値曲面（QES）**と呼び、半径だけの停留とは区別します。
 
 <a id="def-bhi35-four-d-qes-ledger"></a>
 
@@ -333,8 +387,26 @@ $$
 $S_{\rm bulk}^{\rm ren}$ と面積項は**同じcutoffの変更に対して整合する組**として扱います。個別の裸の発散を、そのまま別々の物理量として比較することはできません。$R$ が遠方の放射を指すことも、二次元の非重力浴を設置したことと同義ではありません。
 
 <!-- definition-example-start: def-bhi35-four-d-qes-ledger -->
-**定義の確認**：球対称な試験曲面 $r=a>0$ では、角座標 $(\theta,\varphi)$ に誘導される計量は $a^2(d\theta^2+\sin^2\theta\,d\varphi^2)$ です。面積要素は $a^2\sin\theta\,d\theta\,d\varphi$ なので、$\int_0^{2\pi}d\varphi\int_0^\pi a^2\sin\theta d\theta=4\pi a^2$ です。$G_{\rm ren}=1$、高次項零の先頭近似なら、一般化エントロピーの第一項は $\pi a^2$ と確認できます。**球面形を選んだだけでは時間方向や非球対称の変形は検査していません。**
+**定義の確認**：球対称な試験曲面 $r=a>0$ では、角座標 $(\theta,\varphi)$ に誘導される計量は $a^2(d\theta^2+\sin^2\theta\,d\varphi^2)$ です。面積要素は $a^2\sin\theta\,d\theta\,d\varphi$ なので
+
+$$
+A(a)=\int_0^{2\pi}d\varphi\int_0^\pi a^2\sin\theta\,d\theta
+=4\pi a^2
+$$
+
+です。$G_{\rm ren}=1$、高次項零の先頭近似なら、一般化エントロピーの第一項は $\pi a^2$ となります。**球面形を選んだだけでは時間方向や非球対称の変形は検査していません。**
+
+さらに物質項も含む判定の練習として、同一規約の補助関数を $S_{\rm bulk}^{\rm toy}(a,t)=S_{\rm ref}$（定数）と仮定すると
+
+$$
+S_{\rm gen}^{\rm toy}(a,t)=\pi a^2+S_{\rm ref},
+\qquad \partial_aS_{\rm gen}^{\rm toy}=2\pi a>0
+$$
+
+です。$a>0$ に球対称な停留点はなく、この一方向で停留しないだけでQES候補から外れると分かります。面積の計算とQES条件の確認は異なります。これは量子場の物質エントロピーを導出した模型ではありません。
 <!-- definition-example-end -->
+
+球面の端点時刻を以下では $t$ と記し、蒸発の遠方遅延時間 $u$ とは別の変分座標として扱います。$\partial_a$ では $t$ を固定し、$\partial_t$ では $a$ を固定します。どちらも $d/du$ による沿時間変化とは異なります。
 
 <a id="prop-bhi35-spherical-extremality"></a>
 
