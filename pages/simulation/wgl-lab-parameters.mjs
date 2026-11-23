@@ -36,7 +36,7 @@ export const LAB_PARAMETERS = Object.freeze({
       meaning: '32/48/64で固体マスク・MAC速度・圧力・染料・実GPUテクスチャを同じ格子で再計算。描画ピクセル数とは別',
       sourceLocation: 'solid.js / const N → h、面速度、Poisson、4枚のR8テクスチャ',
       sourceFile: 'js', index: null,
-      matcher: /^([ \\t]*const N=)([^,\\n]+)(,h=1\\/N,dt=0\\.05,rho=1,shape=[^;\\n]+;)/gm
+      matcher: /^([ \t]*const N=)([^,\n]+)(,h=1\/N,dt=0\.05,rho=1,shape=[^;\n]+;)/gm
     }),
     Object.freeze({
       id: 'shape', type: 'enum', values: ['circle','rectangle'],
