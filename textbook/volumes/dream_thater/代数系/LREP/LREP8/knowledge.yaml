@@ -1,0 +1,34 @@
+chapter: LREP8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP7
+forward_references: []
+concepts:
+  - id: representation.total-angular-momentum
+    name: 全角運動量と積状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（全角運動量と積状態）"]
+    requires: [representation.angular-momentum-operators, representation.tensor-differential, representation.spin-quantum-numbers]
+  - id: representation.total-spin-ladder
+    name: 全角運動量の昇降作用
+    kind: lemma
+    introduction: formal
+    requires: [representation.total-angular-momentum, representation.angular-momentum-commutators, representation.spin-spectrum]
+  - id: representation.clebsch-gordan-decomposition
+    name: SU(2)のClebsch–Gordan分解
+    kind: theorem
+    introduction: formal
+    requires: [representation.total-spin-ladder, representation.sl2-finite-dimensional-classification, representation.spin-spectrum, representation.completely-reducible]
+  - id: representation.clebsch-gordan-coefficients
+    name: Clebsch–Gordan係数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Clebsch–Gordan係数）"]
+    requires: [representation.clebsch-gordan-decomposition, representation.spin-quantum-numbers]
+  - id: representation.spin-half-singlet-triplet
+    name: 二つのスピン1/2の一重項と三重項
+    kind: theorem
+    introduction: formal
+    requires: [representation.clebsch-gordan-decomposition, representation.clebsch-gordan-coefficients, representation.total-spin-ladder]
