@@ -88,7 +88,7 @@ chapters:
     title: "曲率から不変な多項式を作る条件は"
   - id: GBG21
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG21
-    status: planned
+    status: completed
     title: "Chern–Weil形式はなぜ閉じるか"
   - id: GBG22
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG22
