@@ -1,0 +1,52 @@
+chapter: PML2-22
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-21
+  - PML2-03
+  - PML2-07
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-22-discrete-gradient
+    name: 離散ソルバを通じた全微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（離散ソルバを通じた全微分）"]
+    requires:
+      - physics-machine-learning.pml2-03-fd
+      - physics-machine-learning.pml2-21-identification
+  - id: physics-machine-learning.pml2-22-tangent
+    name: 離散ソルバの感度方程式と直接勾配
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-22-discrete-gradient
+  - id: physics-machine-learning.pml2-22-adjoint
+    name: 離散随伴変数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（離散随伴変数）"]
+    requires:
+      - physics-machine-learning.pml2-22-discrete-gradient
+      - physics-machine-learning.pml2-22-tangent
+  - id: physics-machine-learning.pml2-22-adjoint-gradient
+    name: 離散随伴による全勾配公式
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-22-adjoint
+      - physics-machine-learning.pml2-22-tangent
+  - id: physics-machine-learning.pml2-22-discretization-gap
+    name: 連続解と一節点離散解の感度差
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-03-fd
+      - physics-machine-learning.pml2-22-tangent
+  - id: physics-machine-learning.pml2-22-unrolled-gradient
+    name: 有限回の反復微分と厳密解の微分は異なる
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-22-discrete-gradient
+      - physics-machine-learning.pml2-22-discretization-gap

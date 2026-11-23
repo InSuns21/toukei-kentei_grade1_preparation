@@ -179,7 +179,7 @@ chapters:
     title: "PDEパラメータを学習すると識別性は保てるか"
   - id: PML2-22
     path: textbook/volumes/dream_thater/応用系/PML/PML2-22
-    status: planned
+    status: completed
     title: "数値ソルバを通じた勾配はどう求めるか"
   - id: PML2-23
     path: textbook/volumes/dream_thater/応用系/PML/PML2-23
