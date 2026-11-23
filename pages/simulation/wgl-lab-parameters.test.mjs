@@ -168,7 +168,10 @@ test('WGL14 six GUI controls edit the sole executed postprocess.js source', asyn
   assert.match(edited,/const processOrder = 'tone-first';/);
   for(let i=specs.length-1;i>=0;i--)
     edited=writeLabParameter(edited,specs[i],specs[i].default);
-  assert.equal(edited,source);
+  let normalized=source;
+  for(const spec of specs)
+    normalized=writeLabParameter(normalized,spec,spec.default);
+  assert.equal(edited,normalized,'numeric source literals may normalize 1.0 to 1');
   assert.throws(()=>writeLabParameter(source,specs[2],5),RangeError);
   assert.throws(()=>writeLabParameter(source,specs[5],1.1),RangeError);
   const expression=source.replace('const comparison = 0.5;', 'const comparison = 1/2;');
