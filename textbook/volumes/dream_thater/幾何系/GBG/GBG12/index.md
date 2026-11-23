@@ -4,7 +4,7 @@
 
 この講義では、局所的にはどの主束も積主束になることを利用し、局所接続を重み付きで貼り合わせて接続の存在を証明する。さらに、二つの接続の差は接続そのものと違って**通常のベクトル束値1形式**になることを示す。これによって接続全体をアフィン空間として扱える。
 
-**全節の設定**：$M$ は Hausdorff・第二可算・境界のない有限次元滑らかな多様体、$G$ は有限次元 Lie 群、$\mathfrak g=T_eG$ はその Lie 環、$\pi:P\to M$ は滑らかな右主 $G$ 束とする。第二可算の滑らかな多様体はパラコンパクトであり、滑らかな局所有限な分割の1を使える。一般のパラコンパクト滑らかな基底で同じ議論が成り立つ。右作用を $R_g(p)=pg$ とし、局所 section は $s_j=s_i g_{ij}$ とする。
+**全節の設定**：$M$ は Hausdorff・第二可算・境界のない有限次元滑らかな多様体、$G$ は有限次元 Lie 群、$\mathfrak g=T_eG$ はその Lie 環、$\pi:P\to M$ は滑らかな右主 $G$ 束とする。[GEO4のパラコンパクト性の定理](../../GEO/GEO4/index.md#thm-geo4-manifold-paracompact)と分割の1の存在定理により、滑らかな局所有限の重みを使える。一般のパラコンパクト滑らかな基底で同じ議論が成り立つ。右作用を $R_g(p)=pg$ とし、局所 section は $s_j=s_i g_{ij}$ とする。
 
 接続形式は[GBG7の二条件](../GBG7/index.md#def-gbg7-connection-form)を満たす $\mathfrak g$ 値1形式、すなわち $\omega(\xi_P)=\xi$ と $R_g^*\omega=\operatorname{Ad}_{g^{-1}}\omega$ を満たすものとする。局所形式 $A_i=s_i^*\omega$ は[GBG8の変換則](../GBG8/index.md#thm-gbg8-local-transform)に従う。
 
@@ -16,21 +16,18 @@
 
 接続形式を任意に足すと再生条件の右辺も足され、接続にならない。そこで基底 $M$ 上の非負の重みを使い、**重みの和を1にしてから**局所接続を足したい。各点の近くで有限個の項しか現れなければ滑らかさも保てる。
 
-### 分割の1の条件
+[開被覆に従属する滑らかな1の分割](../../GEO/GEO4/index.md#def-geo4-subordinate-partition)は、このための道具である。開被覆 $(U_i)$ に対し、滑らかな関数 $\varphi_i:M\to[0,1]$ が
 
-<a id="def-gbg12-partition-of-unity"></a>
+$$
+\operatorname{supp}\varphi_i\subset U_i,\qquad
+\sum_i\varphi_i(x)=1
+$$
 
-<!-- formal-statement-start -->
-> **定義（開被覆に従属する滑らかな分割の1）**  
-> 滑らかな多様体 $M$ の開被覆 $(U_i)_{i\in I}$ に対し、滑らかな関数 $\varphi_i:M\to[0,1]$ の族が、次の三条件を満たすとき、$(U_i)$ に従属する**滑らかな分割の1**という。
->
-> 1. $\operatorname{supp}\varphi_i\subset U_i$。ここで台は $\{x:\varphi_i(x)\ne0\}$ の閉包である。
-> 2. 各 $x\in M$ に、$x$ の近傍と交わる台が有限個しかない（**局所有限性**）。
-> 3. すべての $x\in M$ で $\sum_{i\in I}\varphi_i(x)=1$。
-<!-- formal-statement-end -->
+を満たし、各点の近傍で台と交わる添字が有限個であるようにする。[GEO4の存在定理](../../GEO/GEO4/index.md#thm-geo4-partition-of-unity)は、Hausdorff・第二可算な有限次元滑らかな多様体上で、このような族を任意の開被覆に対して構成できることを保証する。同章では[パラコンパクト性](../../GEO/GEO4/index.md#thm-geo4-manifold-paracompact)と[滑らかな局所化関数](../../GEO/GEO4/index.md#thm-geo4-smooth-localization)からその証明まで扱っている。
 
-<!-- definition-example-start: def-gbg12-partition-of-unity -->
-**定義の確認**。$M=\mathbb R$、$U_1=(-\infty,2)$、$U_2=(-2,\infty)$ とする。関数
+### 二つの開集合で実際に確かめる
+
+$M=\mathbb R$、$U_1=(-\infty,2)$、$U_2=(-2,\infty)$ とする。関数
 
 $$
 h(t)=
@@ -49,48 +46,9 @@ $$
 \varphi_2(x)=q((x+1)/2)
 $$
 
-と置く。$\varphi_1$ の台は $(-\infty,1]$、$\varphi_2$ の台は $[-1,\infty)$ であり、それぞれ $U_1,U_2$ に含まれる。台は二つしかないので局所有限で、$\varphi_1+\varphi_2=1$。定義の三条件を個別に満たした。
-<!-- definition-example-end -->
+と置く。$\varphi_1$ の台は $(-\infty,1]$、$\varphi_2$ の台は $[-1,\infty)$ であり、それぞれ $U_1,U_2$ に含まれる。台は二つしかないので局所有限で、$\varphi_1+\varphi_2=1$。これで既習の定義にある三条件を個別に満たした。
 
-### 滑らかな分割の1が存在する理由
-
-<a id="lem-gbg12-partition-existence"></a>
-
-<!-- formal-statement-start -->
-> **補題（滑らかな分割の1の存在）**  
-> $M$ が Hausdorff・第二可算の有限次元滑らかな多様体なら、任意の開被覆 $(U_i)$ に従属する滑らかな分割の1が存在する。
-<!-- formal-statement-end -->
-
-**証明の見取り図**。パラコンパクト性から局所有限な座標近傍を選び、各近傍の中に台を持つ滑らかな非負の山型関数を作る。和で正規化すると各点で総和が1になる。
-
-<!-- proof-start -->
-### 証明
-
-第二可算かつ Hausdorff な有限次元多様体には可算で局所有限な、元の被覆を細分する座標球の族 $(V_a)$ を取れる。さらに、縮小した開集合 $W_a$ が $M$ を覆い、
-
-$$
-\overline{W_a}\subset V_a,\qquad
-\overline{V_a}\subset U_{i(a)}
-$$
-
-となるように選べる（ここで用いる位相的事実は、パラコンパクトな多様体の局所有限細分と縮小の性質である）。各座標球の内部で、$W_a$ 上は正、$V_a$ の外では零の滑らかな非負関数 $b_a$ を作る。これは座標で $e^{-1/(1-|y|^2)}$ 型の山型関数を縮尺・平行移動し、必要なら内部の有限個を足して作れる。
-
-台の族が局所有限なので
-
-$$
-b(x)=\sum_a b_a(x)
-$$
-
-は各点の近くで有限和となり滑らかである。$(W_a)$ が覆うので各 $x$ で少なくとも一つの $b_a(x)>0$、したがって $b(x)>0$。$\psi_a=b_a/b$ と置けば $\sum_a\psi_a=1$ である。元の被覆の同じ $U_i$ に属するものをまとめて
-
-$$
-\varphi_i=\sum_{a:i(a)=i}\psi_a
-$$
-
-と置く。各和は局所的に有限で滑らか、台は $U_i$ 内にあり、全体でも局所有限、総和は1である。
-<!-- proof-end -->
-
-この補題で最も重要なのは、無限和を各点で形式的に書くだけでなく、**局所有限性が微分可能性を保証する**ことである。分割の1を用いる存在証明では、ここだけ基底のパラコンパクト性が決定的に働く。
+この章の存在証明で必要なのは、滑らかな分割の1が存在するという結果と、**局所有限性が各点の周りで和を有限和にする**という性質である。
 
 ## 2. 任意の主束に接続を作る
 
@@ -116,7 +74,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-局所自明化を持つ被覆 $(U_i)$ を取り、[分割の1の存在補題](#lem-gbg12-partition-existence)で $\operatorname{supp}\varphi_i\subset U_i$、$\sum_i\varphi_i=1$ なる滑らかな局所有限の族を選ぶ。
+局所自明化を持つ被覆 $(U_i)$ を取り、[GEO4の分割の1の存在定理](../../GEO/GEO4/index.md#thm-geo4-partition-of-unity)で $\operatorname{supp}\varphi_i\subset U_i$、$\sum_i\varphi_i=1$ なる滑らかな局所有限の族を選ぶ。
 
 各 $P|_{U_i}$ に、上の積主束の式から局所接続 $\omega^{(i)}$ を作る。$\psi_i=\varphi_i\circ\pi$ とおく。$\operatorname{supp}\psi_i=\pi^{-1}(\operatorname{supp}\varphi_i)$ は $\pi^{-1}(U_i)$ に含まれるので
 
@@ -181,7 +139,7 @@ $$
 
 を満たす。第1等号で $g^{-1}(g\,d(g^{-1}))g=d(g^{-1})g$、第2等号で $d(g^{-1})g=-g^{-1}dg$ を使った。ここで局所ポテンシャルがどちらも零になるとは限らないが、**重なりの非斉次項が正しく残る**。
 
-この一致により[GBG8の再構成定理](../GBG8/index.md#thm-gbg8-local-reconstruction)からも同じ大域接続を復元できる。非自明な主束でも接続が作れる理由は、大域 section を要求していないからである。
+ここで得た重なり条件は、[局所ポテンシャルからの大域接続の再構成](../GBG8/index.md#thm-gbg8-local-reconstruction)に必要な条件と一致する。非自明な主束でも接続が作れる理由は、大域 section を要求していないからである。
 
 ## 3. 二つの接続を引き算すると何が残るか
 
@@ -314,7 +272,7 @@ $$
 
 **差にだけ非斉次項がない**ため、$B_i$ が随伴束値1形式として貼り合わさる。
 
-## 4. 接続全体はアフィン空間になる
+## 4. 接続全体の差を整理する
 
 接続の和は一般には接続ではないが、一つの接続にテンソル的1形式を加える操作はいつでもできる。ここでいう「アフィン」は、差はベクトルだが、特別な原点は選ばれていない、という性質を表す。
 
@@ -341,7 +299,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[接続の存在定理](#thm-gbg12-connection-exists)から $\mathcal A(P)\ne\varnothing$。[テンソル的形式と随伴束値形式の対応](#thm-gbg12-tensorial-adjoint)を用いて $a\in\Omega^1(M;\operatorname{ad}(P))$ を対応する $\alpha$ とみなし、接続 $\omega$ に $\omega+a=\omega+\alpha$ と作用させる。[接続の差の定理](#thm-gbg12-connection-difference)からこれは再び接続になる。
+[主束接続の存在](#thm-gbg12-connection-exists)から $\mathcal A(P)\ne\varnothing$。[テンソル的形式と随伴束値形式の対応](#thm-gbg12-tensorial-adjoint)を用いて $a\in\Omega^1(M;\operatorname{ad}(P))$ を対応する $\alpha$ とみなし、接続 $\omega$ に $\omega+a=\omega+\alpha$ と作用させる。[接続の差の定理](#thm-gbg12-connection-difference)からこれは再び接続になる。
 
 零形式は接続を変えず、$(\omega+a)+b=\omega+(a+b)$ だから加法作用である。二接続 $\omega_0,\omega_1$ に対し $a=\omega_1-\omega_0$ は唯一の差であり $\omega_0+a=\omega_1$。一意性は $\omega_0+a=\omega_0+b$ なら $a=b$ となることから従う。よって作用は自由かつ推移的である。
 <!-- proof-end -->
@@ -461,7 +419,7 @@ $$
 \operatorname{supp}\varphi_2=[-1,\infty)\subset U_2.
 $$
 
-二つの台しかなく局所有限である。さらに $\varphi_1+\varphi_2=1-q+q=1$。よって[分割の1の三条件](#def-gbg12-partition-of-unity)が全て成立する。
+二つの台しかなく局所有限である。さらに $\varphi_1+\varphi_2=1-q+q=1$。よって[開被覆に従属する1の分割の定義](../../GEO/GEO4/index.md#def-geo4-subordinate-partition)が全て成立する。
 <!-- solution-end -->
 
 <a id="ex-gbg12-a02"></a>
