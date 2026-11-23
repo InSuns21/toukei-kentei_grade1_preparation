@@ -276,7 +276,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-整数の稠密性と乗法の連続性から $\overline{\mathbb Zu}=u\mathbb Z_p$ です。$u$ が単元なら $u\mathbb Z_p=\mathbb Z_p$。非単元なら[単元判定](../../ANF/ANF9/index.md#prop-anf9-dvr-structure)により $u\in p\mathbb Z_p$ だから閉包は真部分群に留まります。従って同値です。
+整数の稠密性は[桁展開](../../ANF/ANF9/index.md#thm-anf9-digit-expansion)から前節の証明と同様に従います。任意の $x\in\mathbb Z_p$ に整数列 $m_N\to x$ を選ぶと、$m_Nu\to ux$ なので $u\mathbb Z_p\subseteq\overline{\mathbb Zu}$ です。一方、$u=0$ なら $u\mathbb Z_p=\{0\}$、$u\ne0$ なら[付値による単元判定](../../ANF/ANF9/index.md#prop-anf9-dvr-structure)から $u=p^kv$（$k=v_p(u)\ge0$、$v$ は単元）と書けて、
+
+$
+u\mathbb Z_p=p^k\mathbb Z_p
+$
+
+は[還元写像の核](#prop-iwa1-residue-quotients)として閉です。従って逆向きの包含も成り立ち、$\overline{\mathbb Zu}=u\mathbb Z_p$ を得ます。$u$ が単元ならこれは $\mathbb Z_p$ 全体、非単元なら $p\mathbb Z_p$ 以下の真部分群です。これで同値が示されます。
 
 位相群同型 $\iota:\Gamma\to\mathbb Z_p$ で $\gamma$ の像は単元です。法 $p^n$ の商で単元 $u$ の加法位数を調べると、$ku\equiv0\pmod{p^n}$ は $k\equiv0\pmod{p^n}$ と同値です。よって位数 $p^n$ です。[第 $n$ 層のGalois商](#thm-iwa1-layer-tower)へ戻すと $\gamma|_{K_n}$ が生成元になります。
 <!-- proof-end -->
