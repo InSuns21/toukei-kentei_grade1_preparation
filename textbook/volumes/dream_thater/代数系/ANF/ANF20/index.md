@@ -416,7 +416,13 @@ $
 =\frac{5^4}{5}=5^3.
 $
 
-[判別式と指数の平方](../ANF2/index.md#thm-anf2-discriminant-index)から、$[\mathcal O_L:\mathbb Z[\zeta_5]]$ の素因子は $5$ に限られます。よって $p\ne5$ では $p$ で局所化した整数環が $\mathbb Z_p[\zeta_5]$ に一致し、[単項生成の素イデアル分解の判定](../ANF4/index.md#thm-anf4-monogenic-factorization)をこの局所表示に適用できます。$\overline\Phi_5$ の各既約因子の重複度は $1$ なので、分岐指数もすべて $1$ です。
+[判別式と指数の平方](../ANF2/index.md#thm-anf2-discriminant-index)から、$[\mathcal O_L:\mathbb Z[\zeta_5]]$ の素因子は $5$ に限られます。よって $p\ne5$ では $p$ 進完備化した整数環が $\mathcal O_L\otimes_{\mathbb Z}\mathbb Z_p\simeq\mathbb Z_p[\zeta_5]$ となり、特に
+
+$
+\mathcal O_L/(p)\simeq\mathbb F_p[T]/(\overline\Phi_5(T)).
+$
+
+この環に[単項生成の場合の素イデアル分解の議論](../ANF4/index.md#thm-anf4-monogenic-factorization)を適用すると、各分岐指数は $\overline\Phi_5$ の既約因子の重複度と等しくなります。重複度はすべて $1$ なので非分岐です。
 
 算術的Frobeniusは剰余体で $z\mapsto z^p$ です。$\zeta_5$ の還元に適用すると次を得ます。
 
@@ -431,7 +437,9 @@ $p\ne5$ の素イデアルの積と逆数へ拡張すれば、正の有理数 $r
 
 **具体計算**。$p=2$ のFrobeniusは $\zeta_5\mapsto\zeta_5^2$、$p=3$ では $\zeta_5\mapsto\zeta_5^3$、$p=11$ では恒等写像です。$2$ の剰余は位数 $4$、$11\equiv1\pmod5$ です。
 
-**局所積の打消し**。対角有理数 $2$ を考えます。$2$ 以外の非分岐素点の局所単数成分は自明です。$2$ 成分は $\sigma_2$、$5$ 成分の[素数冪円分拡大の明示局所相互法則](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)は単数 $2$ を $\sigma_{2^{-1}}=\sigma_3$ へ、正の実成分は恒等へ送ります。よって
+**局所積の打消し**。対角有理数 $2$ を考えます。[ANF18の全分岐四次拡大](../ANF18/index.md#prop-anf18-cyclotomic-degree)によれば $\mathbb Q_5(\zeta_5)/\mathbb Q_5$ の次数は $4$ です。これは上で示した $[L:\mathbb Q]=4$ と等しいので、$5$ の上の素点は一つだけで、そこでの完備化は $L_w=\mathbb Q_5(\zeta_5)$ です。従って局所の明示公式をこの大域拡大の $5$ 成分へ適用できます。
+
+$2$ 以外の非分岐素点の局所単数成分は自明です。$2$ 成分は $\sigma_2$、$5$ 成分の[素数冪円分拡大の明示局所相互法則](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)は単数 $2$ を $\sigma_{2^{-1}}=\sigma_3$ へ、正の実成分は恒等へ送ります。よって
 
 $$
 \operatorname{Art}_{L/\mathbb Q}(\Delta(2))
