@@ -1,0 +1,66 @@
+chapter: LREP2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP1
+  - F0-00P1
+forward_references: []
+concepts:
+  - id: representation.schur-lemma
+    name: Schur の補題
+    kind: theorem
+    introduction: formal
+    requires: [representation.intertwiner-invariants, representation.irreducible]
+  - id: representation.irreducible-hom-space
+    name: 既約表現の絡作用素空間
+    kind: corollary
+    introduction: formal
+    requires: [representation.schur-lemma, representation.equivalent]
+  - id: representation.completely-reducible
+    name: 完全可約表現
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（完全可約表現）"]
+    requires: [representation.irreducible, representation.invariant-subspace]
+  - id: representation.invariant-hermitian-inner-product
+    name: 不変正定値Hermite内積
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（不変正定値Hermite内積・ユニタリ表現）"]
+    requires: [representation.finite-dimensional-complex]
+  - id: representation.unitary
+    name: ユニタリ表現
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（不変正定値Hermite内積・ユニタリ表現）"]
+    requires: [representation.invariant-hermitian-inner-product]
+  - id: representation.finite-group-averaging
+    name: 有限群の平均化
+    kind: proposition
+    introduction: formal
+    requires: [representation.invariant-hermitian-inner-product]
+  - id: representation.normalized-haar-probability
+    name: 正規化左Haar測度
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（正規化左Haar測度）"]
+    requires: [representation.finite-group-averaging]
+  - id: representation.compact-group-averaging
+    name: コンパクト群の平均による不変内積
+    kind: theorem
+    introduction: formal
+    requires: [representation.normalized-haar-probability, representation.invariant-hermitian-inner-product]
+  - id: representation.invariant-orthogonal-complement
+    name: 不変直交補空間
+    kind: proposition
+    introduction: formal
+    requires: [representation.invariant-hermitian-inner-product, representation.invariant-subspace]
+  - id: representation.compact-complete-reducibility
+    name: コンパクト群の有限次元連続複素表現の完全可約性
+    kind: theorem
+    introduction: formal
+    requires: [representation.compact-group-averaging, representation.invariant-orthogonal-complement, representation.completely-reducible]

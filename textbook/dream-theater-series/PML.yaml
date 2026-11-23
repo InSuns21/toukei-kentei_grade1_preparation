@@ -163,7 +163,7 @@ chapters:
     title: "解像度を変えても同じ精度が出るのか"
   - id: PML2-18
     path: textbook/volumes/dream_thater/応用系/PML/PML2-18
-    status: planned
+    status: completed
     title: "DeepONetは観測点からどう作用素を近似するか"
   - id: PML2-19
     path: textbook/volumes/dream_thater/応用系/PML/PML2-19
