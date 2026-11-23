@@ -475,7 +475,14 @@ $p=3$、$f=9(1+T)(T^2+3T+3)$ とする。係数を展開し $\mu(f),d(f)$ を求
 - ID: IWA6-A1
 
 <!-- solution-start -->
-**詳細解答。** 積は $(1+T)(T^2+3T+3)=T^3+4T^2+6T+3$ です。よって $f=9T^3+36T^2+54T+27$ で、係数の $3$ 進付値は順に $2,2,3,3$（高次数から）です。最小値は $2$、それを初めて達成する次数は $2$ なので $\mu(f)=2,d(f)=2$。[単元判定](../IWA3/index.md#prop-iwa3-augmentation)から $1+T$ の定数項 $1$ が単元なので、$1+T$ は $R$ の単元です。
+**詳細解答。** まず積を展開すると
+
+$
+(1+T)(T^2+3T+3)=T^3+4T^2+6T+3,
+\qquad f=9T^3+36T^2+54T+27.
+$
+
+定数項から順に係数の $3$ 進付値は $3,3,2,2$ です。最小値 $2$ を最初に達成するのは $T^2$ の係数 $36$ なので、$\mu(f)=2$、$d(f)=2$ です。また、[単元判定](../IWA3/index.md#prop-iwa3-augmentation)で要求される定数項が $1\in\mathbb Z_3^\times$ なので、$1+T$ は $R$ の単元です。
 <!-- solution-end -->
 
 ### A2. distinguishedの条件を一つずつ判定する
@@ -590,7 +597,7 @@ $$
 (a\bmod p,\ b\bmod T)
 $$
 
-が同じ $x$ に由来する必要十分条件は $a-b\in(p)+(T)$ です。よって余核は $R/(p,T)\simeq\mathbb F_p$ です。従って[IWA5の擬同型の定義](../IWA5/index.md#def-iwa5-pseudoisomorphism)を満たし、[擬同型不変性](#prop-iwa6-characteristic-invariance)から双方の特徴イデアルは $(pT)$、$\mu=1,\lambda=1$ です。
+が同じ $x$ に由来する必要十分条件は $a-b\in(p)+(T)$ です。実際、$a-b=pu+Tv$ と書けるなら $x=a-pu=b+Tv$ が両方の剰余条件を満たし、逆にそのような $x$ があれば $a-b=(a-x)+(x-b)\in(p)+(T)$ となります。二成分の差を $R/(p,T)$ へ送る写像の核が元の剰余写像の像なので、余核は $R/(p,T)\simeq\mathbb F_p$ です。従って[IWA5の擬同型の定義](../IWA5/index.md#def-iwa5-pseudoisomorphism)を満たし、[擬同型不変性](#prop-iwa6-characteristic-invariance)から双方の特徴イデアルは $(pT)$、$\mu=1,\lambda=1$ です。
 <!-- solution-end -->
 
 ### B3. 同じ $\lambda$ でも有限層の商は違う
