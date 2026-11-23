@@ -1,0 +1,57 @@
+chapter: IWA8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - IWA7
+forward_references: []
+concepts:
+  - id: number-theory.iwa8-class-galois-action
+    name: 類群へのGalois作用
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa4-iwasawa-action]
+  - id: number-theory.iwa8-teich-character
+    name: Teichmüller指標
+    kind: definition
+    introduction: formal
+    requires: [number-theory.finite-teichmueller-unique-lifts]
+  - id: number-theory.iwa8-idempotent
+    name: 指標射影子と指標成分
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa8-teich-character, number-theory.iwa8-class-galois-action]
+  - id: number-theory.iwa8-orthogonality
+    name: Teichmüller指標の直交和
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.iwa8-teich-character]
+  - id: number-theory.iwa8-character-decomposition
+    name: 指標射影子による直和分解
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa8-orthogonality, number-theory.iwa8-idempotent]
+  - id: number-theory.iwa8-parity-parts
+    name: 複素共役の偶部分・奇部分
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa8-character-decomposition]
+  - id: number-theory.iwa8-parity-eigenspaces
+    name: 偶奇成分と指標の次数
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa8-parity-parts, number-theory.iwa8-character-decomposition]
+  - id: number-theory.iwa8-plus-real-class
+    name: 実部分体のp部分類群と偶部分
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa8-parity-parts, number-theory.iwa8-class-galois-action]
+  - id: number-theory.iwa8-norm-equivariance
+    name: ノルム写像のΔ同変性
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa8-idempotent, number-theory.iwa4-iwasawa-action]
+  - id: number-theory.iwa8-limit-eigenspaces
+    name: 類群逆極限の指標成分分解
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa8-norm-equivariance, number-theory.iwa8-character-decomposition, number-theory.iwasawa-power-series-isomorphism]
