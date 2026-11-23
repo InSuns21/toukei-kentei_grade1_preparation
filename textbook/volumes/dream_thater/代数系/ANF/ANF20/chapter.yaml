@@ -1,0 +1,52 @@
+id: "ANF20"
+title: "大域Artin写像と剰余類体"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANF19
+official_scope: []
+learning_objectives:
+  - 法の有限合同条件と実素点の符号条件を定義し具体的に判定できる
+  - 剰余類群と通常類群との違いを説明し有理数体の法5と法5∞を計算できる
+  - 弱近似を用いて剰余類群の有限性を証明できる
+  - 局所単数群を使って剰余類群とイデール商の同型を証明できる
+  - 局所Artin写像の積の有限性と算術的Frobenius規約を確認できる
+  - 大域相互法則と剰余類体の存在定理の未証明部分を区別できる
+  - 五次円分体のFrobeniusと分数イデアルのArtin像を計算できる
+definitions:
+  - { id: ANF20-DEF-01, name: 数体の法 }
+  - { id: ANF20-DEF-02, name: 剰余類群 }
+  - { id: ANF20-DEF-03, name: 法に対応する局所単数部分群 }
+  - { id: ANF20-DEF-04, name: 有限Abel拡大の大域Artin積 }
+  - { id: ANF20-DEF-05, name: イデアルのArtin写像 }
+theorems:
+  - { id: ANF20-PROP-01, name: 有理数体の法5∞と法5 }
+  - { id: ANF20-LEM-01, name: 数体の弱近似 }
+  - { id: ANF20-PROP-02, name: 剰余類群の有限性 }
+  - { id: ANF20-THM-01, name: 剰余類群とイデール商 }
+  - { id: ANF20-PROP-03, name: 大域Artin積の有限性と準同型性 }
+  - { id: ANF20-THM-02, name: 大域Artin相互法則（外部定理） }
+  - { id: ANF20-THM-03, name: 剰余類体とArtin対応（外部存在定理） }
+  - { id: ANF20-PROP-04, name: 五次円分体のArtin計算 }
+canonical_examples:
+  - 有理数体の法5と法5∞における正の合同条件
+  - 剰余類群の有理数体の二つの群位数
+  - 法5∞の局所単数積とイデール商
+  - 五次円分体の2と3と11の算術的Frobenius
+  - 対角2の2成分と5成分のArtin像の相殺
+  - 分数イデアル14/3のArtin記号
+problem_patterns:
+  - ANF20-MODULUS-SIGN
+  - ANF20-RAY-CLASS-ORDER
+  - ANF20-NARROW-VS-WIDE
+  - ANF20-FROBENIUS-CYCLOTOMIC
+  - ANF20-PRINCIPAL-IDELE-ARTIN
+  - ANF20-RAY-FINITENESS
+  - ANF20-IDELE-QUOTIENT-KERNEL
+  - ANF20-LOCAL-UNIT-IDELE
+  - ANF20-REAL-SIGN-ARTIN
+  - ANF20-FRACTIONAL-IDEAL-ARTIN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 14.0, exercises: 10.0, review: 4.0 }

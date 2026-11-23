@@ -1,0 +1,85 @@
+chapter: ANF20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF19
+forward_references: []
+
+concepts:
+  - id: number-theory.global-modulus
+    name: 数体の法
+    kind: definition
+    introduction: formal
+    requires: [number-theory.prime-ideal-factorization, number-theory.prime-ideal-valuation-completion]
+
+  - id: number-theory.ray-class-group
+    name: 剰余類群
+    kind: definition
+    introduction: formal
+    requires: [number-theory.global-modulus, number-theory.ideal-class-group]
+
+  - id: number-theory.rational-ray-classes-mod-five
+    name: 有理数体の法5∞と法5
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.ray-class-group]
+
+  - id: number-theory.weak-approximation-number-field
+    name: 数体の弱近似
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.prime-ideal-factorization]
+
+  - id: number-theory.ray-class-finiteness
+    name: 剰余類群の有限性
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.weak-approximation-number-field, number-theory.ray-class-group, number-theory.ideal-class-group]
+
+  - id: number-theory.ray-idele-units
+    name: 法に対応する局所単数部分群
+    kind: definition
+    introduction: formal
+    requires: [number-theory.global-modulus, number-theory.idele-group]
+
+  - id: number-theory.ray-idele-quotient
+    name: 剰余類群とイデール商
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.ray-idele-units, number-theory.ray-class-group, number-theory.weak-approximation-number-field]
+
+  - id: number-theory.global-artin-product
+    name: 有限Abel拡大の大域Artin積
+    kind: definition
+    introduction: formal
+    requires: [number-theory.idele-group, number-theory.finite-local-artin-map]
+
+  - id: number-theory.global-artin-product-finiteness
+    name: 大域Artin積の有限性と準同型性
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.global-artin-product, number-theory.unramified-local-reciprocity]
+
+  - id: number-theory.global-artin-reciprocity
+    name: 大域Artin相互法則
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.global-artin-product-finiteness, number-theory.idele-class-group]
+
+  - id: number-theory.ideal-artin-map
+    name: イデアルのArtin写像
+    kind: definition
+    introduction: formal
+    requires: [number-theory.global-artin-product-finiteness, number-theory.prime-ideal-factorization]
+
+  - id: number-theory.ray-class-field
+    name: 剰余類体とArtin対応
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.global-artin-reciprocity, number-theory.ray-idele-quotient]
+
+  - id: number-theory.cyclotomic-artin-mod-five
+    name: 五次円分体のArtin計算
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.rational-ray-classes-mod-five, number-theory.ideal-artin-map]

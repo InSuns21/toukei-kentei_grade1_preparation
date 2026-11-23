@@ -21,3 +21,4 @@
 18. [ANF18 類体論の計算例](textbook/volumes/dream_thater/代数系/ANF/ANF18/index.md)
 
 19. [ANF19 アデール・イデールと有限性条件](textbook/volumes/dream_thater/代数系/ANF/ANF19/index.md)
+20. [ANF20 大域Artin写像と剰余類体](textbook/volumes/dream_thater/代数系/ANF/ANF20/index.md)
