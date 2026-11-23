@@ -37,7 +37,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg15-holonomy -->
-**定義の確認**。積主束 $P=\mathbb R^2\times U(1)$ に、標準 section $s(x,y)=((x,y),1)$ と局所接続 $A=i b x\,dy$（$b\in\mathbb R$）を取る。積主束でこの $A$ から接続形式を構成できることは[GBG7 の積主束公式](../GBG7/index.md#prop-gbg7-product-form)による。原点を起点に単位正方形の辺を $+x,+y,-x,-y$ の順に進む閉路を $\gamma$ とする。水平方程式 $\dot g=-A(\dot\gamma)g$ では $+y$ の辺だけ $A(\dot\gamma)=ib$ で、残りは零だから
+**定義の確認**。積主束 $P=\mathbb R^2\times U(1)$ に、標準 section $s(x,y)=((x,y),1)$ と局所接続 $A=i b x\,dy$（$b\in\mathbb R$）を取る。積主束でこの $A$ から接続形式を構成できることは[GBG7 の積主束公式](../GBG7/index.md#prop-gbg7-product-form)による。$A$ は基底の速度 $\dot\gamma(t)=(\dot x(t),\dot y(t))$ を Lie 環 $i\mathbb R$ の元へ写し、具体的には
+
+$
+A_{\gamma(t)}(\dot\gamma(t))=ib\,x(t)\dot y(t).
+$
+
+原点を起点に単位正方形の辺を $+x,+y,-x,-y$ の順に進む閉路を $\gamma$ とする。[GBG14 の局所水平ODE](../GBG14/index.md#thm-gbg14-horizontal-existence) $\dot g=-A(\dot\gamma)g$ において、$+y$ の辺では $x=1,\dot y=1$ なので $A(\dot\gamma)=ib$、横辺では $\dot y=0$、$-y$ 辺では $x=0$ なので残りは零となる。従って
 
 $$
 \operatorname{PT}_\gamma((0,0,g_0))
@@ -164,7 +170,7 @@ $$
 
 ### 局所sectionで計算する際の注意
 
-局所section $s:U\to P$ の領域 $U$ に閉路 $\gamma$ が収まり、$G\subset GL(n,\mathbb F)$ が行列 Lie 群であるとする。$U_\gamma$ を[GBG14 の局所輸送行列](../GBG14/index.md#prop-gbg14-local-transport)（初期値 $I$）とする。これまでの $h_\gamma(p)$ は、単なる $U_\gamma$ とは限らない。
+局所section $s:U\to P$ の領域 $U$ に閉路 $\gamma$ が収まり、$G\subset GL(n,\mathbb F)$（$\mathbb F=\mathbb R$ または $\mathbb C$）が行列 Lie 群であるとする。$U_\gamma$ を[GBG14 の局所輸送行列](../GBG14/index.md#prop-gbg14-local-transport)（初期値 $I$）とする。これまでの $h_\gamma(p)$ は、単なる $U_\gamma$ とは限らない。
 
 <a id="prop-gbg15-local-holonomy"></a>
 
@@ -270,7 +276,7 @@ $$
 X=A_x(0,0),\qquad Y=A_y(0,0)
 $$
 
-と置く。また $X_x=\partial_x A_x(0,0)$、$X_y=\partial_y A_x(0,0)$、$Y_x=\partial_x A_y(0,0)$、$Y_y=\partial_y A_y(0,0)$ と略記する。これらは各行列の偏微分であり、添字は微分方向を表す。四辺の局所輸送行列を順に $U_1,U_2,U_3,U_4$ と書く。
+と置く。また $X_x=\partial_x A_x(0,0)$、$X_y=\partial_y A_x(0,0)$、$Y_x=\partial_x A_y(0,0)$、$Y_y=\partial_y A_y(0,0)$ と略記する。これらは各行列の偏微分であり、添字は微分方向を表す。四辺の局所輸送行列を順に $U_1,U_2,U_3,U_4$ と書く。各辺のパラメータを $t$ とし、$\dot U=dU/dt$ は辺に沿う常微分、$\partial_x A_y,\partial_y A_x$ は座標の一方を固定した偏微分である。辺を $t$ で動かすときは $a(t)=A_{\gamma(t)}(\dot\gamma(t))$ へ速度を代入してから ODE を解く。
 
 まず長さ $\varepsilon$ の一辺で、ODE $\dot U=-a(t)U$ の[経路順序積分級数](../GBG14/index.md#prop-gbg14-dyson-series)の最初の二項を取り出す。係数が $a(t)=a_0+t a_1+O(t^2)$ のとき、一次積分は $-\varepsilon a_0-\varepsilon^2a_1/2+O(\varepsilon^3)$、二次積分は $+\varepsilon^2 a_0^2/2+O(\varepsilon^3)$ である。三次以降は係数の一様有界性と体積 $\varepsilon^k/k!$ から $O(\varepsilon^3)$ に入る。この計算を各辺の向きと始点に適用する。
 
@@ -346,7 +352,9 @@ $$
 
 曲率項の**負符号**と面積 $\varepsilon^2$ を別々に確認できる。
 
-**非可換例**。$G=GL(2,\mathbb R)$、$H=E_{11}$、$N=E_{12}$ を用い、$\mathbb R^2$ の積主束に $A=H\,dx+N\,dy$ を取る。$N^2=0$、$[H,N]=N$ だから[局所曲率公式](../GBG10/index.md#thm-gbg10-local-formula)で $F=N\,dx\wedge dy$ となる。四辺に沿う輸送を順に掛けると
+**非可換例**。$G=GL(2,\mathbb R)$ とし、$E_{ij}$ は標準基底に関して $(i,j)$ 成分だけが $1$ の行列とする。$H=E_{11}$、$N=E_{12}$ を用い、$\mathbb R^2$ の積主束に $A=H\,dx+N\,dy$ を取る。この1形式は速度 $v=(v_x,v_y)$ に $A(v)=Hv_x+Nv_y$ を対応させ、辺に沿う水平ODEの係数を $a(t)=H\dot x(t)+N\dot y(t)$ と定める。積主束上でこの局所表示が接続を定める根拠は[GBG7 の積主束公式](../GBG7/index.md#prop-gbg7-product-form)である。
+
+行列積を計算すると $HN=N$、$NH=0$、$N^2=0$ で、$[H,N]=HN-NH=N$ となる。係数行列は定数なので $dA=0$、従って[局所曲率公式](../GBG10/index.md#thm-gbg10-local-formula)から $F=N\,dx\wedge dy$ となる。各辺の速度 $\pm\partial_x,\pm\partial_y$ を $a(t)$ に代入し、輸送の順に右から左へ掛けると
 
 $$
 \begin{aligned}
