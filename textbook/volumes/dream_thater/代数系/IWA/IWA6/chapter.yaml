@@ -18,7 +18,7 @@ definitions:
   - { id: IWA6-DEF-02, name: distinguished多項式 }
   - { id: IWA6-DEF-03, name: 特徴イデアルと岩澤不変量 }
 theorems:
-  - { id: IWA6-PROP-01, name: 積での指数の加法性 }
+  - { id: IWA6-PROP-01, name: 積の指数公式 }
   - { id: IWA6-THM-01, name: Weierstrass除法 }
   - { id: IWA6-THM-02, name: Weierstrass準備定理 }
   - { id: IWA6-PROP-02, name: 岩澤代数の既約因子 }
