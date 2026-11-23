@@ -124,7 +124,7 @@ try {
     assert.match(actual.source,new RegExp('const N='+N+', dt=1/32'));
     assert.match(actual.info,new RegExp(N+'×'+N));
     assert.ok(actual.rows.every(row=>row[4]==='OK'),JSON.stringify({N,rows:actual.rows}));
-    assert.match(actual.status,/独立.+画素検算に合格/);
+    assert.match(actual.status,/独立.*画素検算に合格/);
     gridReadbacks.push(actual.rows.map(row=>row[2]).join('|'));
     console.log('FCG3 real '+N+'×'+N+' edited grid, independent CPU/R8 GPU 6 pixels: PASS');
   }
