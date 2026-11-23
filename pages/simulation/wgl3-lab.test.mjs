@@ -67,7 +67,7 @@ test('WGL3 live comparison uses the original GPU VAOs and the same editable buff
     'const p = panelPoint(panel, position)',
     'gl.viewport(leftWidth, 0, canvas.width - leftWidth, canvas.height)'
   ]) assert.ok(js.includes(signal),signal);
-  assert.doesNotMatch(js,/canvas\.getContext\('2d'/,'overlay must follow the true GPU mesh rather than a second model');
+  assert.ok(!js.includes("canvas.getContext('2d')"),'overlay must follow the true GPU mesh rather than a second model');
   assert.ok(js.length<30000,'editable learner JS must respect sandbox source limit');
   assert.doesNotThrow(()=>new Function('gl','canvas','vertexSource','fragmentSource','report','settings',js));
 });
