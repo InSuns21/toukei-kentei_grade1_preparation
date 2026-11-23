@@ -14,14 +14,14 @@ $$
 
 と一意に書けます。整数 $v_{\mathfrak q}(x)$ は $\mathfrak q$ での付値で、ほとんど全てが0です。[イデアル類群](../../ANF/ANF6/index.md#def-anf6-ideal-class-group)は、このような主分数イデアルを忘れた分数イデアル群の商でした。
 
-$S$ の外に極や零点を作らない元だけを許す環
+$S$ の外で極（負の付値）を作らない元を許す環
 
 $$
 \mathcal O_{K,S}
 =\{0\}\cup\{x\in K^\times:v_{\mathfrak q}(x)\ge0\ \text{for all }\mathfrak q\notin S\}
 $$
 
-を考えます。この環で逆元を持つには $x$ と $x^{-1}$ がともに上の条件を満たせばよく、したがって $S$ の外の付値が**すべて0**になる必要があります。
+を考えます。この環では $S$ の外に零点（正の付値）があってもかまいません。しかし逆元を持つには $x$ と $x^{-1}$ がともに上の条件を満たす必要があります。$v_{\mathfrak q}(x^{-1})=-v_{\mathfrak q}(x)$ なので、単数では $S$ の外の付値が**すべて0**になります。
 
 <a id="def-iwa11-s-units"></a>
 
@@ -176,7 +176,7 @@ $\mathcal E_K$ は一般には $U_K$ 自身とは異なる**閉部分群**です
 
 ## 4. レイ類群を挟んで完全列を証明する
 
-[Hilbert類体のArtin同型](../../ANF/ANF22/index.md#thm-anf22-hilbert-class-correspondence)は、分岐を許さない場合の類群とGalois群の対応でした。$p$ での分岐を許すには、整数の合同条件を法に付けた**レイ類群**を使います。
+[Hilbert類体のArtin同型](../../ANF/ANF22/index.md#thm-anf22-hilbert-class-correspondence)は、分岐を許さない場合の類群とGalois群の対応でした。$p$ での分岐を許すには、整数の合同条件を法に付けた**レイ類群**を使います。ここでの有限法のレイ類群は、既習の[数体の法](../../ANF/ANF20/index.md#def-anf20-modulus)と[剰余類群](../../ANF/ANF20/index.md#def-anf20-ray-class)で、実素点に符号条件を課さない場合に限ったものです。
 
 正整数 $n\ge1$ について $\mathfrak m_n=\prod_{v\mid p}\mathfrak p_v^n$ と置きます。$\mathfrak m_n$ と互いに素な分数イデアル全体 $I_{\mathfrak m_n}$ を、$\alpha\equiv1\pmod{\mathfrak m_n}$ という局所的な合同条件を満たす $\alpha\in K^\times$ の主イデアル群 $P_{\mathfrak m_n,1}$ で割ったものが $\operatorname{Cl}_{\mathfrak m_n}(K)$ です。$\alpha$ は各 $v\mid p$ で局所単数であることも要求します（実素点に符号条件を課さない狭義でない有限法）。
 
@@ -197,7 +197,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa11-ray-class-group -->
-**定義の確認**。 $K=\mathbb Q$、$\mathfrak m=(9)$ では、分数イデアル $(4)$ は法9と互いに素ですが $4\not\equiv1\pmod9$ なので $P_{(9),1}$ には入りません。一方 $(10)$ は $10\equiv1\pmod9$ なので入ります。$(-1)$ は単位イデアルでもあり、$\operatorname{Cl}_{(9)}(\mathbb Q)$ は $(\mathbb Z/9\mathbb Z)^\times/\{\pm1\}$ に対応し位数3です。
+**定義の確認**。 $K=\mathbb Q$、$\mathfrak m=(9)$ では、分数イデアル $(4)$ は法9と互いに素です。ただし主イデアルが $P_{(9),1}$ に入るかは、**どれか一つの生成元**が法9で1に合同になるかで判定します。$(4)$ の生成元は $\mathbb Z^\times=\{\pm1\}$ を掛けた $\pm4$ で、$4\equiv4$、$-4\equiv5\pmod9$ はいずれも1ではありません。従って $(4)\notin P_{(9),1}$ です。一方 $(10)$ は $10\equiv1\pmod9$ という生成元があるので入ります。$(-1)$ は単位イデアルでもあり、$\operatorname{Cl}_{(9)}(\mathbb Q)$ は $(\mathbb Z/9\mathbb Z)^\times/\{\pm1\}$ に対応し位数3です。
 <!-- definition-example-end -->
 
 <a id="thm-iwa11-ray-exact"></a>
@@ -229,7 +229,7 @@ $$
 
 $\rho_{\mathfrak m}(u)$（$u\in U_K$）の像は $[(u)]=0$。逆に $\theta_{\mathfrak m}(\bar a)=0$ なら $(a)=(\alpha)$ かつ $\alpha\equiv1\pmod{\mathfrak m}$ となる $\alpha$ があり、$a/\alpha\in U_K$ です。従って $\bar a=\rho_{\mathfrak m}(a/\alpha)$。これで $\ker\theta_{\mathfrak m}=\operatorname{im}\rho_{\mathfrak m}$ が成立します。
 
-レイ類が通常類群へ写って0なら代表イデアルは $(a)$ と書けます。法と互いに素なため $a$ は全ての $\mathfrak p\mid\mathfrak m$ で単数で、その剰余類の $\theta_{\mathfrak m}$ 像になります。最後の全射は、任意のイデアル類に $\mathfrak m$ と互いに素な分数イデアル代表が存在することから従います（各 $\mathfrak p\mid\mathfrak m$ で付値を0に調整する弱近似）。以上で完全です。
+レイ類が通常類群へ写って0なら代表イデアルは $(a)$ と書けます。法と互いに素なため $a$ は全ての $\mathfrak p\mid\mathfrak m$ で単数で、その剰余類の $\theta_{\mathfrak m}$ 像になります。最後の全射を確かめます。任意の分数イデアル $\mathfrak a$ に対し、各 $\mathfrak p\mid\mathfrak m$ で $v_{\mathfrak p}(b)=v_{\mathfrak p}(\mathfrak a)$ を満たす $b\in K^\times$ を[数体の弱近似](../../ANF/ANF20/index.md#lem-anf20-weak-approx)で選べます。すると $\mathfrak a(b)^{-1}$ は法を割る全素点で付値0なので $I_{\mathfrak m}$ に属し、$\mathfrak a$ と同じ通常イデアル類を表します。以上で完全です。
 <!-- proof-end -->
 
 この式の実際の**核・余核**は
@@ -252,14 +252,14 @@ $$
 
 と書きます。$p$ は奇数なので、有限 $p$ 冪次数の拡大で実素点が複素化することはありません（実素点での次数2は奇数の $p$ 冪を割らない）。レイ類体のArtin相互法則という外部入力によれば、$\operatorname{Cl}_{\mathfrak m_n}(K)$ の $p$ 部分が法 $\mathfrak m_n$ で許す有限アーベル $p$ 拡大を記述し、$n$ を増やした逆極限が $\mathfrak X_p(K)$ を与えます。
 
-剰余群の中国剰余分解と局所単数の完備性から
+有限アーベル群 $G$ に対し、$G(p)$ はその $p$ 冪位数部分群を表すことにします。剰余群の中国剰余分解と局所単数の完備性から
 
-$$
+$
 \varprojlim_n(\mathcal O_K/\mathfrak m_n)^\times(p)
 \simeq\prod_{v\mid p}U_v^1=\mathcal U_K
 $$
 
-です。ここで $G(p)$ は有限アーベル群 $G$ の $p$ 冪位数部分を表します。各 $v$ の剰余群 $k_v^\times$ の位数は $p$ と互いに素なので、極限の $p$ 方向には先ほどの主単数だけが残ります。
+です。各 $v$ の剰余群 $k_v^\times$ の位数は $p$ と互いに素なので、極限の $p$ 方向には先ほどの主単数だけが残ります。
 
 <a id="thm-iwa11-local-global-exact"></a>
 
