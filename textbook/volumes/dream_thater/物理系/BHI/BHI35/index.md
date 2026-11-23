@@ -260,7 +260,7 @@ $$
 
 とします。この $\beta$ は、指定した散乱・放射モードの集合・状態で変わります。**理想黒体の $4/3$ と二次元一方向放射の $2$ は同じ係数ではありません**。四次元の粒子種・灰色体散乱を解かないまま、二次元の二倍則を流用できません。
 
-[BHI8の放射エントロピー収支とPage交点](../BHI8/index.md#prop-bhi8-constant-page-time)を使い、$\beta$ が一定のときは
+[BHI8の放射エントロピー収支とPage交点](../BHI8/index.md#thm-bhi8-constant-page-time)を使い、$\beta$ が一定のときは
 
 $$
 S_{\rm rad}^{\rm coarse}(M)
