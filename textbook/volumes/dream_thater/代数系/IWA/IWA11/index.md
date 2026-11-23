@@ -140,7 +140,7 @@ $\delta_S$ の像は定義通り $D_S$、核は[定理](#thm-iwa11-s-unit-exact)
 
 ここから $p$ を**奇素数**とします。$v\mid p$ に対して、$K_v$ は $v$ での完備化、$\mathcal O_v$ は局所整数環、$\mathfrak m_v$ はその極大イデアル、$k_v=\mathcal O_v/\mathfrak m_v$ は $q_v=p^{f_v}$ 元の剰余体です。局所単数 $u\in\mathcal O_v^\times$ を剰余体に写すと、有限群 $k_v^\times$（位数 $q_v-1$）の元になります。この有限位数は $p$ と互いに素です。
 
-剰余類 $\bar u\in k_v^\times$ は $q_v-1$ 乗が1で、Henselの持上げ（導関数 $(q_v-1)X^{q_v-2}$ が剰余体で非零）により、$\omega_v(\bar u)^{q_v-1}=1$ かつ $\omega_v(\bar u)\bmod\mathfrak m_v=\bar u$ を満たす単数へ**一意に**持ち上がります。このため各 $u$ は
+剰余類 $\bar u\in k_v^\times$ は $q_v-1$ 乗が1です。[単純根に対するHenselの補題](../../ANF/ANF10/index.md#thm-anf10-hensel-simple)を[完備離散付値環へ適用する手順](../../ANF/ANF13/index.md#thm-anf13-inertia-exact)で、導関数 $(q_v-1)X^{q_v-2}$ が $\bar u$ で非零であることを用いると、$\omega_v(\bar u)^{q_v-1}=1$ かつ $\omega_v(\bar u)\bmod\mathfrak m_v=\bar u$ を満たす単数へ**一意に**持ち上がります。このため各 $u$ は
 
 $$
 u=\omega_v(\bar u)\cdot u_1,\qquad u_1\in 1+\mathfrak m_v
@@ -250,7 +250,7 @@ $$
 A_K=\operatorname{Cl}(K)[p^\infty]
 $$
 
-と書きます。$p$ は奇数なので、有限 $p$ 冪次数の拡大で実素点が複素化することはありません（実素点での次数2は奇数の $p$ 冪を割らない）。レイ類体のArtin相互法則という外部入力によれば、$\operatorname{Cl}_{\mathfrak m_n}(K)$ の $p$ 部分が法 $\mathfrak m_n$ で許す有限アーベル $p$ 拡大を記述し、$n$ を増やした逆極限が $\mathfrak X_p(K)$ を与えます。
+と書きます。$p$ は奇数なので、有限 $p$ 冪次数の拡大で実素点が複素化することはありません（実素点での次数2は奇数の $p$ 冪を割らない）。既習の[剰余類体のArtin対応](../../ANF/ANF20/index.md#thm-anf20-ray-class-field)という外部入力によれば、$\operatorname{Cl}_{\mathfrak m_n}(K)$ の $p$ 部分が法 $\mathfrak m_n$ で許す有限アーベル $p$ 拡大を記述し、$n$ を増やした逆極限が $\mathfrak X_p(K)$ を与えます。
 
 有限アーベル群 $G$ に対し、$G(p)$ はその $p$ 冪位数部分群を表すことにします。剰余群の中国剰余分解と局所単数の完備性から
 
@@ -297,7 +297,7 @@ $$
 
 逆極限で一つの局所単数 $u=(u_n)$ がレイ類群の核に入ることは、**各 $n$ ごとに**その剰余 $u_n$ が大域単数の像に入ることです。これは、$\mathcal U_K$ のどの合同近傍にも大域単数の像があるという閉包の定義そのものなので、核は $\mathcal E_K$ です。各段の右端は一定の有限群 $A_K$ で、レイ類群からそこへの全射の両立した逆像は有限非空集合の逆極限によって存在します。従って極限の右端も全射です。
 
-局所Artin相互法則では局所単数の像が惰性群を与え、レイ類体のArtin対応によって $\varprojlim_n\operatorname{Cl}_{\mathfrak m_n}(K)(p)\simeq\mathfrak X_p(K)$ です。この**類体論の同型**を適用して、示した列を得ます。
+局所Artin相互法則では局所単数の像が惰性群を与え、[剰余類体のArtin対応](../../ANF/ANF20/index.md#thm-anf20-ray-class-field)によって $\varprojlim_n\operatorname{Cl}_{\mathfrak m_n}(K)(p)\simeq\mathfrak X_p(K)$ です。この**類体論の同型**を適用して、示した列を得ます。
 <!-- proof-end -->
 
 $IWA9$ の[惰性群を除く完全列](../IWA9/index.md#prop-iwa9-inertia-quotient)と比べると、$\operatorname{rec}_p(\mathcal U_K)$ は $p$ の上の惰性群が生成する閉部分群です。その商が $A_K$ になります。したがって「局所単数＝Galois群」ではなく、**局所単数から大域単数の閉包を割った群が惰性部分に対応する**のが正確な形です。
