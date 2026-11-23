@@ -65,7 +65,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（入力単位の完全ホールドアウト評価）**  
-> $A_{\rm train}$ を $L_D,L_R,L_B$ のいずれかで使用した全入力パラメータの集合とし、$A_{\rm test}\subset A\setminus A_{\rm train}$ を評価専用の入力集合とする。独立に計算した基準解 $u_a$ に対し、評価指標の一例を
+> $A_{\rm train}$ を $L_D,L_R,L_B$ のいずれかで使用した全入力パラメータの集合とし、$A_{\rm test}\subset A\setminus A_{\rm train}$ を空でない有限の評価専用入力集合とする。独立に計算した基準解 $u_a$ に対し、評価指標の一例を
 
 $$
 E_{\rm test}=\max_{a\in A_{\rm test}}
