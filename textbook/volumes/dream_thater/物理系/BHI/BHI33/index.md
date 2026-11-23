@@ -35,7 +35,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi33-operational-access -->
-**定義の確認（最小例）**：$L=R_{\rm acc}=E=\mathbb C^2$ とし、$V|j\rangle=|j\rangle_R|0\rangle_E$（$j=0,1$）と置きます。像の内積は $\langle j|k\rangle$ なので $V^\dagger V=I_L$。部分トレースは任意の行列要素 $|j\rangle\langle k|$ をそのまま $R$ へ移すため、$\mathcal N_{\rm acc}(\rho)=\rho_R$。基底を同一視した恒等チャネルがすべての入力を復号します。
+**定義の確認**（最小例）：$L=R_{\rm acc}=E=\mathbb C^2$ とし、$V|j\rangle=|j\rangle_R|0\rangle_E$（$j=0,1$）と置きます。像の内積は $\langle j|k\rangle$ なので $V^\dagger V=I_L$。部分トレースは任意の行列要素 $|j\rangle\langle k|$ をそのまま $R$ へ移すため、$\mathcal N_{\rm acc}(\rho)=\rho_R$。基底を同一視した恒等チャネルがすべての入力を復号します。
 
 対して $V|j\rangle=|0\rangle_R|j\rangle_E$ なら保持状態は常に $|0\rangle\langle0|_R$ です。$|0\rangle_L$ と $|1\rangle_L$ の二つを同じ出力から一つの復号写像で区別できず、完全な操作的アクセスはありません。これは[BHI32の情報移送符号](../BHI32/index.md#def-bhi32-transfer-code)の早期・後期を復号チャネルとして読んだ例です。
 <!-- definition-example-end -->
@@ -83,7 +83,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi33-keyed-radiation-code -->
-**定義の確認（基底と次元）**：入力は2次元、出力の $A,C,D,B$ はそれぞれ2,2,2,4次元です。例えば $|0\rangle$ の像は
+**定義の確認**（基底と次元）：入力は2次元、出力の $A,C,D,B$ はそれぞれ2,2,2,4次元です。例えば $|0\rangle$ の像は
 
 $$
 V|0\rangle=\tfrac12\bigl(
@@ -359,7 +359,7 @@ $$
 =\tfrac12|u_0v_0+u_1v_1|^2\le\tfrac12.
 $$
 
-混合した分離可能状態でも凸結合により上限 $1/2$ が保たれます。一方、上で構成した $\mathcal D_{AD}$ の回復状態の重なりは
+分離可能状態を純積状態の確率重み付きの和で表せば、各項での上界を足しても $1/2$ を超えません。一方、上で構成した $\mathcal D_{AD}$ の回復状態の重なりは
 
 $$
 F_{\rm e}=\tfrac12(\langle\Phi_2|00\rangle\langle00|\Phi_2\rangle+
