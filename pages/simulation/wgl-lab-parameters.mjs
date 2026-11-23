@@ -3,6 +3,44 @@
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
 
 export const LAB_PARAMETERS = Object.freeze({
+  WGL20: Object.freeze([
+    Object.freeze({
+      id:'water-level',type:'number',label:'仮想水面の標高',default:32,
+      min:27,max:36,step:0.5,unit:'m（共通鉛直基準と仮定）',
+      meaning:'低地が青く浸水し、高地が乾く。実災害予測ではない。G(E,N)との差が水深',
+      sourceLocation:'terrain.js / const waterLevelM → clipWet → GPU水面メッシュ',
+      sourceFile:'js',index:null,matcher:/^([ \t]*const waterLevelM=)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id:'z-exaggeration',type:'number',label:'高さの表示倍率',default:1.5,
+      min:0.5,max:3,step:0.5,unit:'倍（無次元）',
+      meaning:'3Dでの立体感だけを強調し、物理水深[m]と元DEM値は変えない',
+      sourceLocation:'terrain.js / const zExaggeration → u_zScale（mainとshadow pass）',
+      sourceFile:'js',index:null,matcher:/^([ \t]*const zExaggeration=)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id:'view-azimuth',type:'number',label:'カメラ方位の初期角',default:40,
+      min:0,max:360,step:10,unit:'度（東0°→北90°）',
+      meaning:'街区の見える面を変える。結果画面ではドラッグ・左右キーで追加回転',
+      sourceLocation:'terrain.js / const cameraAzimuthDeg → camera() → u_eye',
+      sourceFile:'js',index:null,matcher:/^([ \t]*const cameraAzimuthDeg=)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id:'view-elevation',type:'number',label:'カメラ仰角の初期値',default:47,
+      min:22,max:82,step:5,unit:'度（水平0°、真上90°）',
+      meaning:'低い視点で建物の側面、高い視点で浸水範囲を確認',
+      sourceLocation:'terrain.js / const cameraElevationDeg → camera() → u_up',
+      sourceFile:'js',index:null,matcher:/^([ \t]*const cameraElevationDeg=)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id:'sun-azimuth',type:'number',label:'太陽方向の方位',default:235,
+      min:5,max:355,step:10,unit:'度（東0°→北90°）',
+      meaning:'法線に対するLambert明暗と実3Dメッシュの投影影を同時に変える',
+      sourceLocation:'terrain.js / const sunAzimuthDeg → shadow FBO / terrain.frag',
+      sourceFile:'js',index:null,matcher:/^([ \t]*const sunAzimuthDeg=)([^;\n]+)(;)/gm
+    })
+  ]),
+
   WGL10: Object.freeze([
     Object.freeze({
       id: 'offscreen-scale', type: 'number', label: 'FBOの解像度倍率',
