@@ -27,3 +27,4 @@
 24. [GBG24 Pontryagin・Euler型不変量をどう見分けるか](textbook/volumes/dream_thater/幾何系/GBG/GBG24/index.md)
 25. [GBG25 S⁴上のSU(2)主束はどう貼り合わされるか](textbook/volumes/dream_thater/幾何系/GBG/GBG25/index.md)
 26. [GBG26 第二Chern数は純ゲージ場と非自明な場をどう区別するか](textbook/volumes/dream_thater/幾何系/GBG/GBG26/index.md)
+27. [GBG27 自己双対性はYang–Mills作用に何を与えるか](textbook/volumes/dream_thater/幾何系/GBG/GBG27/index.md)

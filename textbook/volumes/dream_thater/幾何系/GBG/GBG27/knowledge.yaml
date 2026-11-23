@@ -1,0 +1,59 @@
+chapter: GBG27
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG26
+  - GBG12
+  - GBG11
+  - GEO8
+forward_references:
+  - lorentz-geometry.lorentz-metric
+  - qft.yang-mills-action
+concepts:
+  - id: gauge.hodge-star-two-form-four-dimensional
+    name: 4次元の2形式に作用するHodge星
+    kind: definition
+    introduction: formal
+    requires: [geometry.manifold-orientation, geometry.differential-form]
+
+  - id: gauge.hodge-star-involution-four-dimensional
+    name: 4次元の星の二乗
+    kind: proposition
+    introduction: formal
+    requires: [gauge.hodge-star-two-form-four-dimensional]
+
+  - id: gauge.curvature-self-duality
+    name: 自己双対・反自己双対曲率
+    kind: definition
+    introduction: formal
+    requires: [gauge.hodge-star-involution-four-dimensional, gauge.principal-curvature-form]
+
+  - id: gauge.curvature-orthogonal-splitting
+    name: 曲率の直交分解
+    kind: proposition
+    introduction: formal
+    requires: [gauge.curvature-self-duality, gauge.hodge-star-involution-four-dimensional]
+
+  - id: gauge.riemann-four-dimensional-yang-mills-action
+    name: 4次元Riemann計量によるYang–Mills作用
+    kind: definition
+    introduction: formal
+    requires: [gauge.hodge-star-two-form-four-dimensional, gauge.principal-curvature-form]
+
+  - id: gauge.yang-mills-topological-bound
+    name: Yang–Mills作用の位相的下界
+    kind: theorem
+    introduction: formal
+    requires: [gauge.riemann-four-dimensional-yang-mills-action, gauge.curvature-orthogonal-splitting, gauge.su2-second-chern-number, gauge.chern-weil-connection-independence]
+
+  - id: gauge.yang-mills-first-variation
+    name: Yang–Mills作用の第一変分と方程式
+    kind: theorem
+    introduction: formal
+    requires: [gauge.riemann-four-dimensional-yang-mills-action, gauge.principal-connections-affine, gauge.local-covariant-exterior-derivative, geometry.general-stokes-theorem]
+
+  - id: gauge.self-dual-yang-mills-solution
+    name: 自己双対・反自己双対接続はYang–Mills接続
+    kind: theorem
+    introduction: formal
+    requires: [gauge.curvature-self-duality, gauge.yang-mills-first-variation, gauge.local-bianchi-identity, gauge.yang-mills-topological-bound]
