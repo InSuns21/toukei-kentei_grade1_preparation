@@ -48,11 +48,11 @@ $$
 
 $$
 A=i(x^1dx^2+x^3dx^4)
-$
+$$
 
 とする。$\mathfrak u(1)=i\mathbb R$ は可換だから、[局所曲率の構造方程式](../GBG10/index.md#thm-gbg10-local-formula)の括弧項は零になる。座標関数を外微分し、$d^2x^j=0$ を使うと
 
-$
+$$
 \begin{aligned}
 F=dA
 &=i\bigl(d(x^1dx^2)+d(x^3dx^4)\bigr)\\
@@ -61,7 +61,7 @@ F=dA
 \eta&=dx^1\wedge dx^2,\qquad
 \zeta=dx^3\wedge dx^4.
 \end{aligned}
-$
+$$
 
 実基底 $e=i$ によって $F=e(\eta+\zeta)$ と表せる。$p(it_1,it_2)=t_1t_2$（$t_1,t_2\in\mathbb R$）は実双線形、対称であり、随伴作用が自明だからAd不変である。さらに $p(e,e)=1$ なので、[係数形式へ外積を施す規則](../GBG20/index.md#def-gbg20-curvature-polynomial-form)は $p(F,F)=(\eta+\zeta)\wedge(\eta+\zeta)$ となる。この各条件を確認した上で計算すると
 
@@ -554,9 +554,9 @@ $G=U(1)$ は可換であるから、不変性の無限小条件は自動的に�
 
 外向きに向きを付けた二つの球面の積 $M=S^2\times S^2$ を積の向きで考える。$\sigma_1,\sigma_2$ を各球面の面積形式（$\int_{S^2}\sigma_j=4\pi$）の引き戻しとする。[GBG19のmonopole接続](../GBG19/index.md#thm-gbg19-curvature-flux)を各因子に取り、整数 $m,n$ に対して、二つの主束を $M$ へ引き戻す。さらに**局所遷移関数の積**で貼り合わせた主 $U(1)$ 束を考え、二つの引き戻し接続1形式の和を局所接続とする。単純な主束の直積（構造群 $U(1)\times U(1)$）とは区別する。この接続の曲率は
 
-$
+$$
 F=-\frac{i}{2}(m\sigma_1+n\sigma_2)
-$
+$$
 
 である。$p_1(X)=iX/(2\pi)$、$p_2(X,Y)=p_1(X)p_1(Y)$ とする。
 
@@ -570,30 +570,39 @@ $
 
 **1.** まず「曲率の和」を持つ主束の作り方を確認する。$\operatorname{pr}_j:M\to S^2$ を第 $j$ 因子への射影とする。各球面上のmonopole主束を引き戻した積パッチ $U_\alpha\times U_\beta$（$\alpha,\beta\in\{N,S\}$）で、遷移関数を
 
-$
+$$
 h_{(\alpha,\beta),(\alpha',\beta')}
 =\bigl(g^{(m)}_{\alpha\alpha'}\circ\operatorname{pr}_1\bigr)
 \bigl(g^{(n)}_{\beta\beta'}\circ\operatorname{pr}_2\bigr)
-$
+$$
 
-とする。各 $g^{(m)},g^{(n)}$ は[GBG19の接続に使ったmonopole主束](../GBG19/index.md#def-gbg19-monopole-potentials)の遷移関数である。それぞれのcocycle条件と $U(1)$ の可換性から、$h$ もcocycle条件を満たす。局所接続1形式を
+とする。各 $g^{(m)},g^{(n)}$ は[GBG19の接続に使ったmonopole主束](../GBG19/index.md#def-gbg19-monopole-potentials)の遷移関数である。それぞれのcocycle条件と $U(1)$ の可換性から、$h$ もcocycle条件を満たす。重なりでの二つの因子を
 
-$
+$$
+h_1=g^{(m)}_{\alpha\alpha'}\circ\operatorname{pr}_1,\qquad
+h_2=g^{(n)}_{\beta\beta'}\circ\operatorname{pr}_2
+$$
+
+と略記すると $h=h_1h_2$ である。局所接続1形式を
+
+$$
 A_{\alpha\beta}
 =\operatorname{pr}_1^*A^{(m)}_\alpha
 +\operatorname{pr}_2^*A^{(n)}_\beta
-$
+$$
 
 と置けば、重なりで
 
-$
+$$
+\begin{aligned}
 A_{\alpha'\beta'}-A_{\alpha\beta}
-=(g^{(m)}_{\alpha\alpha'})^{-1}d g^{(m)}_{\alpha\alpha'}
-+(g^{(n)}_{\beta\beta'})^{-1}d g^{(n)}_{\beta\beta'}
-=h^{-1}dh
-$
+&=h_1^{-1}dh_1+h_2^{-1}dh_2\\
+&=(h_1h_2)^{-1}d(h_1h_2)
+=h^{-1}dh.
+\end{aligned}
+$$
 
-となる。ここでは各 $g$ とその微分を対応する射影で引き戻した記号で略記した。積の微分則と $U(1)$ の可換性を使ったので、これは主 $U(1)$ 接続の貼り合わせ条件である。従って $F=dA_{\alpha\beta}=\operatorname{pr}_1^*F_m+\operatorname{pr}_2^*F_n=-i(m\sigma_1+n\sigma_2)/2$ が確かめられる。
+積の微分則と $U(1)$ の可換性を使ったので、これは主 $U(1)$ 接続の貼り合わせ条件である。従って $F=dA_{\alpha\beta}=\operatorname{pr}_1^*F_m+\operatorname{pr}_2^*F_n=-i(m\sigma_1+n\sigma_2)/2$ が確かめられる。
 
 $U(1)$ は可換でAd作用が自明であり、$p_1$ は実線形、$p_2$ は実双線形かつ対称である。どちらもAd不変である。$i(-i)=1$ を用いると
 
