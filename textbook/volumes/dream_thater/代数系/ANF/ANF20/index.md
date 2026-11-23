@@ -416,7 +416,15 @@ $$
 =\frac{5^4}{5}=5^3.
 $$
 
-[判別式と指数の平方](../ANF2/index.md#thm-anf2-discriminant-index)から、$[\mathcal O_L:\mathbb Z[\zeta_5]]$ の素因子は $5$ に限られます。よって $p\ne5$ では $p$ 進完備化した整数環が $\mathcal O_L\otimes_{\mathbb Z}\mathbb Z_p\simeq\mathbb Z_p[\zeta_5]$ となり、特に
+[判別式と指数の平方](../ANF2/index.md#thm-anf2-discriminant-index)から、$[\mathcal O_L:\mathbb Z[\zeta_5]]$ の素因子は $5$ に限られます。よって $p\ne5$ では $p$ 進完備化した整数環全体（各 $p$ 上の素点での完備化の積）が
+
+$$
+\mathcal O_L\otimes_{\mathbb Z}\mathbb Z_p
+\simeq\mathbb Z[\zeta_5]\otimes_{\mathbb Z}\mathbb Z_p
+\simeq\mathbb Z_p[T]/(\Phi_5(T))
+$$
+
+となり、特に
 
 $$
 \mathcal O_L/(p)\simeq\mathbb F_p[T]/(\overline\Phi_5(T)).
