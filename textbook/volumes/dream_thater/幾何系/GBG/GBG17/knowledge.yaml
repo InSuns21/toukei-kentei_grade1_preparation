@@ -1,0 +1,50 @@
+chapter: GBG17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG16
+forward_references: []
+concepts:
+  - id: gauge.wilson-loop
+    name: 表現に関するWilson loop
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（表現に関する Wilson loop）"]
+    requires: [gauge.holonomy-group, gauge.linear-representation]
+
+  - id: gauge.wilson-loop-gauge-invariance
+    name: 閉Wilson loopのゲージ不変性
+    kind: theorem
+    introduction: formal
+    requires: [gauge.wilson-loop, gauge.holonomy-base-change, gauge.local-transport-gauge-transformation, gauge.gauge-automorphism]
+
+  - id: gauge.wilson-loop-reversal
+    name: 向きを反転したWilson loop
+    kind: proposition
+    introduction: formal
+    requires: [gauge.wilson-loop, gauge.parallel-transport-path-laws]
+
+  - id: gauge.wilson-loop-cyclic-basepoint
+    name: 閉路上の始点の巡回移動
+    kind: proposition
+    introduction: formal
+    requires: [gauge.wilson-loop, gauge.parallel-transport-path-laws, gauge.wilson-loop-gauge-invariance]
+
+  - id: gauge.wilson-loop-flat-homotopy
+    name: 平坦性とホモトピーに関する条件付き不変性
+    kind: proposition
+    introduction: formal
+    requires: [gauge.wilson-loop, gauge.flat-homotopy-invariance, gauge.holonomy-base-change]
+
+  - id: gauge.open-wilson-line
+    name: 表現付き開Wilson線の局所行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（表現付き開 Wilson 線の局所行列）"]
+    requires: [gauge.local-transport-gauge-transformation, gauge.linear-representation]
+
+  - id: gauge.open-wilson-line-endpoint-transform
+    name: 開Wilson線の両端変換則
+    kind: theorem
+    introduction: formal
+    requires: [gauge.open-wilson-line, gauge.local-transport-gauge-transformation, gauge.associated-component-transformation]
