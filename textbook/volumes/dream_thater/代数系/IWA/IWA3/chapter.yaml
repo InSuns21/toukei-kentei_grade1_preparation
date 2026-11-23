@@ -16,6 +16,7 @@ learning_objectives:
 definitions:
   - { id: IWA3-DEF-01, name: 有限群環 }
   - { id: IWA3-DEF-02, name: 岩澤代数・完備群環 }
+  - { id: IWA3-DEF-03, name: 岩澤代数の増大写像 }
 theorems:
   - { id: IWA3-PROP-01, name: 有限群環の一変数表示 }
   - { id: IWA3-LEM-01, name: 有限段の核と極限位相の一致 }
