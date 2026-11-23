@@ -36,16 +36,16 @@ $$
 <!-- definition-example-start: def-pml2-15-lift -->
 **定義の確認**。 $m=2$、$P(z)=(z,1)$、$f(x)=x$ とする。$P$ と $f$ はそれぞれの定義域で連続であり、合成は
 
-$
+$$
 h_0(x)=P(f(x))=(x,1)\qquad(0\le x\le1)
-$
+$$
 
 となる。二つの成分 $x$ と $1$ はともに $D$ 上で連続だから、$h_0\in C(D;\mathbb R^2)$ である。一様ノルムも定義どおり成分ごとの最大値から計算でき、
 
-$
+$$
 \|h_0\|_{\infty,2}
 =\max\left\{\max_{0\le x\le1}|x|,\max_{0\le x\le1}|1|\right\}=1.
-$
+$$
 
 チャネル数2は「入力を二点で観測する」という意味ではない。**各位置に二つの値がある**という意味である。
 <!-- definition-example-end -->
@@ -89,22 +89,22 @@ $$
 
 とする。$W$ と $K(x,t)$ の次元はともに $2\times2$ である。核の成分 $xt$ は $D\times D$ 上連続、$b$ は零関数で連続、ReLUも連続である。列ベクトルとして掛け算を展開すると、
 
-$
+$$
 Wh(x)=\begin{pmatrix}x\\0\end{pmatrix},
 \qquad
 K(x,t)h(t)=\begin{pmatrix}xt^2\\0\end{pmatrix}.
-$
+$$
 
 評価位置 $x$ を固定して $t$ で成分ごとに積分するので、
 
-$
+$$
 \int_0^1K(x,t)h(t)\,dt
 =\begin{pmatrix}x\int_0^1t^2\,dt\\0\end{pmatrix}
 =\begin{pmatrix}x/3\\0\end{pmatrix},
 \qquad
 Wh(x)+\int_0^1K(x,t)h(t)\,dt
 =\begin{pmatrix}4x/3\\0\end{pmatrix}.
-$
+$$
 
 $0\le x\le1$ より ReLU はこのベクトルを変えない。従って $(\mathcal Lh)(x)=(4x/3,0)$ となり、出力の二成分は連続である。行列の各成分が定義式のチャネル間の寄与を表すことと、定義の連続性・次元条件を直接確認できた。
 <!-- definition-example-end -->
@@ -289,25 +289,25 @@ $$
 
 **配列としての計算。** 入力節点を $j=1,\ldots,N$、チャネルを $k=1,\ldots,m$ で区別し、
 
-$
+$$
 H_{jk}=h_k(t_j),\qquad H=(H_{jk})\in\mathbb R^{N\times m}
-$
+$$
 
 とする。$H$ の第 $j$ 行 $H_{j,:}$ は行ベクトルなので、核行列を左から掛ける際には、対応する**列ベクトル**
 
-$
+$$
 v_j=(H_{j1},\ldots,H_{jm})^{\mathsf T}=h(t_j)\in\mathbb R^m
-$
+$$
 
 を使う。出力節点の添字を $p=1,\ldots,N$ とすると、積分項と第 $i$ チャネルは
 
-$
+$$
 \begin{aligned}
 I_p&=\frac1N\sum_{j=1}^NK(t_p,t_j)v_j\in\mathbb R^m,\\
 (I_p)_i&=\frac1N\sum_{j=1}^N\sum_{k=1}^m K_{ik}(t_p,t_j)H_{jk}
 \qquad(1\le i\le m).
 \end{aligned}
-$
+$$
 
 したがって出力は $(\mathcal L_Nh)(t_p)=\sigma(Wv_p+b(t_p)+I_p)$ となる。核は $m\times m$、各 $v_j$ と $I_p$ は $m$ 成分で、$N$ は節点数だけを表す。直接計算には各層で概ね $N^2m^2$ 回のスカラー積和が必要である（核の計算・保存・パラメータの費用は別）。後続のFourier型構成はこの費用の構造を変える。
 
