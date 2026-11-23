@@ -27,10 +27,10 @@ $$
 <!-- definition-example-start: def-lrep7-angular-momentum -->
 **定義の確認**。$V=\mathbb C^2$ の標準基底を $e_1=(1,0)^{\mathsf T}$、$e_2=(0,1)^{\mathsf T}$ とします。標準表現は、$U\in SU(2)$ が列ベクトル $v\in V$ に $D(U)v=Uv$ と作用するものです。$U^\dagger U=I_2$ と $D(U_1U_2)=D(U_1)D(U_2)$ により、これは定義で要求したユニタリ群表現です。実数 $t$ に関する曲線を微分すれば
 
-$
+$$
 dD(A_a)v=\left.\frac{d}{dt}\right|_{t=0}D(\exp(tA_a))v
 =\left.\frac{d}{dt}\right|_{t=0}\exp(tA_a)v=A_av.
-$
+$$
 
 従ってこの基底で $J_a=\sigma_a/2$ です。各 $\sigma_a^\dagger=\sigma_a$ は[Pauli行列](../LREP5/index.md#def-lrep5-pauli-model)の成分から確かめられ、$J_a^\dagger=J_a$ です。さらに
 
@@ -179,13 +179,13 @@ $\boldsymbol J^2v=\lambda v$ なら $\boldsymbol J^2(J_av)=J_a\boldsymbol J^2v=\
 
 [前講の標準三生成子](../LREP6/index.md#def-lrep6-sl2-triple)は、実 Lie 環元 $A_a$ を複素線形に組み合わせた $H=2iA_3$、$E=iA_1-A_2$、$F=iA_1+A_2$ でした。微分表現 $dD$ は実 Lie 環上では実線形です。ここでは[前講の群表現と微分表現の対応](../LREP6/index.md#prop-lrep6-group-lie-equivalence)と同じく、その複素線形拡張を $\rho$ と書きます。$J_a=i\,dD(A_a)$、すなわち $dD(A_a)=-iJ_a$ を一項ずつ代入すると
 
-$
+$$
 \begin{aligned}
 \rho(H)&=2i\,dD(A_3)=2J_3,\\
 \rho(E)&=i\,dD(A_1)-dD(A_2)=J_1+iJ_2=J_+,\\
 \rho(F)&=i\,dD(A_1)+dD(A_2)=J_1-iJ_2=J_-.
 \end{aligned}
-$
+$$
 
 以下では、作用素 $\rho(H),\rho(E),\rho(F)$ をそれぞれ $H,E,F$ と略記します（複素化した Lie 環の元そのものと区別します）。[前講の正規直交基底の公式](../LREP6/index.md#prop-lrep6-unitary-ladder)では、添字 $k=0,\ldots,n$ の $u_k$ に対する $H$ の固有値は $n-2k$ でした。ゆえに $J_3=H/2$ の固有値を $m=(n-2k)/2$、スピンを $j=n/2$ と書けば $m=j-k$ です。
 
