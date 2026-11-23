@@ -57,8 +57,9 @@ test('G3 legends derive their initial step and GPU buffer dimensions from the ru
   const mesh=sceneDescription('WGL3',{width:960,height:720});
   assert.match(mesh.grid,/頂点\(n\+1\)²、三角形2n²/);
   assert.match(mesh.mode,/drawElements.*drawArrays/);
+  assert.match(mesh.mode,/切り離す/);
   assert.match(mesh.source,/gridSteps, drawMode/);
-  assert.equal(mesh.clock,triangle.clock);
+  assert.match(mesh.clock,/初期の静止画素検査.*左右の比較描画/);
   assert.equal(sceneDescription('WGL2',{width:0,height:384}),null);
   assert.equal(sceneDescription('WGL3',{width:384,height:-1}),null);
   const transform=sceneDescription('WGL4',{width:960,height:720});

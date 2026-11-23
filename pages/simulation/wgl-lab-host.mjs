@@ -1363,8 +1363,9 @@ function run() {
   iframe.className = 'result-frame';
   // Responsive preview without changing the actual drawing-buffer resolution.
   iframe.style.aspectRatio = payload.width + ' / ' +
-    (payload.height + (isWGL18 ? 160 : isWGL13 ? 235 : 12));
+    (payload.height + (isWGL3 ? 200 : isWGL18 ? 160 : isWGL13 ? 235 : 12));
   iframe.style.height = 'auto';
+  if (isWGL3) iframe.style.minHeight = '500px'; // two GPU mesh views and controls
   if (isWGL13) iframe.style.minHeight = '540px';
   if (isWGL17) {
     // The texel inspector belongs below the GPU canvas, never over its pixels.
@@ -2248,15 +2249,16 @@ if (isWGL4) {
 }
 if (isWGL3) {
   document.title = 'WGL3 共有頂点と添字描画ラボ';
-  document.querySelector('h1').textContent = 'WGL3 四角形と格子：drawArrays / drawElements';
+  document.querySelector('h1').textContent = 'WGL3 共有点を動かし、複製点を切り離す';
   document.querySelector('#panel-conditions > p').textContent =
-    '正方形を2つ以上の三角形へ分割。頂点表・添字数・転送byte数とCPUの内外画素を照合します。';
+    '初期のCPU/GPU画素検算後、左の共有メッシュと右の展開メッシュを同じWebGL2コードで比較します。中央の頂点を動かし、右の1頂点だけ切り離してみましょう。';
   document.querySelector('#panel-conditions ol').innerHTML =
-    '<li>初期の gridSteps=2 と elements で実行し個数と3画素のRGBAを確認する。</li>' +
-    '<li>mesh.js の drawMode を arrays に変え、同じ3画素になるか確認する。</li>' +
-    '<li>gridSteps=4 にして頂点数・参照数・転送byte数を予測して比較する。</li>' +
-    '<li>GLSLを変更するか構文エラープリセットでshader診断を確認する。</li>';
-  byId('preset').options[0].textContent = '初期の格子（添字描画）';
+    '<li>初期ソースを実行し、左右の実GPUメッシュで頂点番号を確認する。</li>' +
+    '<li>共有点のΔx/h・Δy/hを動かし、両方の全隣接三角形が変形することを確かめる。</li>' +
+    '<li>「右の1参照だけ切り離す」をオンにし、複製配列だけに継ぎ目ができる理由を説明する。</li>' +
+    '<li>位置を戻し、三角形の前/次で参照番号と120/192 byteを確認する。</li>' +
+    '<li>mesh.js の gridSteps・drawMode とGLSLを編集し、再実行して反映を確かめる。</li>';
+  byId('preset').options[0].textContent = '頂点共有 vs 複製の左右GPU比較';
   byId('preset').options[1].textContent = 'fragment の構文エラー';
 }
 // FCG5 observes only its editable sandboxed N×N MAC solver; do not mount
@@ -2267,7 +2269,7 @@ if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-condi
 // 1x1 metre domain into ~100x240 strips at the original 320x240 default.
 const sizeHint=(isFCG4||isFCG5||isFCG6||isFCG7||isFCG8)?[1536,512]:
   isFCG3?[1024,512]:isFCG2?[512,512]:isWGL14?[704,704]:
-  (lesson==='WGL1'||isWGL2||isWGL3)?[960,960]:
+  (lesson==='WGL1'||isWGL2)?[960,960]:isWGL3?[960,480]:
   isWGL10?[960,480]:legacyViewport?[800,600]:[960,720];
 // Make the actual limits legible when a lesson's independent CPU oracle
 // intentionally supports fewer pixels than the shared WebGL2 host.
