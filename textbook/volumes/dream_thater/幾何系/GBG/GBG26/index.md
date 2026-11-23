@@ -32,7 +32,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg26-chern-number -->
-**定義の確認**。積束 $M\times SU(2)$ で大域的に $A=0$ を選べば $F_A=0$ だから $k=0$。$A$ を任意の局所ゲージで書き直しても、[曲率のゲージ変換則](../GBG10/index.md#thm-gbg10-local-curvature-transformation) $F^g=g^{-1}Fg$ から
+**定義の確認**。積束 $M\times SU(2)$ で大域的に $A=0$ を選べば $F_A=0$ だから $k=0$。$A$ を任意の局所ゲージで書き直しても、[曲率のゲージ変換則](../GBG10/index.md#thm-gbg10-gauge-transform) $F^g=g^{-1}Fg$ から
 
 $$
 \operatorname{tr}(F^g\wedge F^g)
@@ -47,7 +47,7 @@ $$
 
 ## 2. 局所的な純ゲージとその曲率
 
-局所sectionを $s$ から $sg$ に替えると、[GBG8の変換則](../GBG8/index.md#thm-gbg8-gauge-transformation)から $A^g=g^{-1}Ag+g^{-1}dg$ となる。とくに $A=0$ をゲージ変更したものは $g^{-1}dg$ である。この局所的な形だけを見ても、基底全体に同じ $g$ があるとは限らない。
+局所sectionを $s$ から $sg$ に替えると、[GBG8の変換則](../GBG8/index.md#thm-gbg8-local-transform)から $A^g=g^{-1}Ag+g^{-1}dg$ となる。とくに $A=0$ をゲージ変更したものは $g^{-1}dg$ である。この局所的な形だけを見ても、基底全体に同じ $g$ があるとは限らない。
 
 <a id="def-gbg26-pure-gauge"></a>
 
@@ -83,7 +83,7 @@ d\theta=d(g^{-1})\wedge dg
 =-\theta\wedge\theta.
 $$
 
-これは[Lie群上のMaurer–Cartan方程式](../GBG7/index.md#prop-gbg7-maurer-cartan)を行列で確認したものである。したがって $F_\theta=d\theta+\theta\wedge\theta=0$。この含意は「純ゲージなら平坦」であって、「どの平坦接続も任意の領域で単一の大域ゲージを持つ」という主張ではない。
+これは[Lie群上のMaurer–Cartan方程式](../GBG7/index.md#prop-gbg7-maurer-cartan-fibre)を行列で確認したものである。したがって $F_\theta=d\theta+\theta\wedge\theta=0$。この含意は「純ゲージなら平坦」であって、「どの平坦接続も任意の領域で単一の大域ゲージを持つ」という主張ではない。
 
 ## 3. 曲率の4形式を境界の3形式へ
 
@@ -133,7 +133,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$A^2=A\wedge A$ と略記する。[外微分の次数付きLeibniz則](../../GEO/GEO8/index.md#prop-geo8-graded-leibniz)を三つの因子に適用し、跡の次数付き巡回性を使うと
+$A^2=A\wedge A$ と略記する。[外微分の次数付きLeibniz則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を三つの因子に適用し、跡の次数付き巡回性を使うと
 
 $$
 d\,\operatorname{tr}(A\wedge dA)=\operatorname{tr}(dA\wedge dA),
@@ -243,7 +243,7 @@ $$
 \int_{S^3}\operatorname{tr}((f^{-1}df)^3)=24\pi^2\deg f.
 $$
 
-各閉半球上では接続の局所表示を選べる。ここで使う接続を具体的に作っておく。北側で $A_N=0$ とし、赤道近傍の南側では、遷移関数 $s_S=s_Nf$ に対する[局所ゲージ変換](../GBG8/index.md#thm-gbg8-gauge-transformation)に合わせて $A_S=f^{-1}df=\theta$ とする。南半球内部の極に向かう方向では、$f(y/|y|)$ が極まで延びる必要はない。その代わり、赤道から少し離れたところで滑らかに零へ変形する。
+各閉半球上では接続の局所表示を選べる。ここで使う接続を具体的に作っておく。北側で $A_N=0$ とし、赤道近傍の南側では、遷移関数 $s_S=s_Nf$ に対する[局所ゲージ変換](../GBG8/index.md#thm-gbg8-local-transform)に合わせて $A_S=f^{-1}df=\theta$ とする。南半球内部の極に向かう方向では、$f(y/|y|)$ が極まで延びる必要はない。その代わり、赤道から少し離れたところで滑らかに零へ変形する。
 
 正確には南半球の $y$ 座標の半径を $r=|y|$ とし、$r$ が1に近いところで $\chi(r)=1$、$r$ が0に近いところで $\chi(r)=0$ とする滑らかな関数を取り、
 
