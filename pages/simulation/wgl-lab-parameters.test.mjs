@@ -142,3 +142,25 @@ test('FCG3 G2 grid and radius changes can be independently rechecked only for kn
   assert.equal(verifiedFCG3Physics(js.replace('steps=settings.steps','steps=0'),vertex,fragment,defaults),null);
   assert.equal(verifiedFCG3Physics(js,vertex,fragment.replace('5.0*abs','10.0*abs'),defaults),null);
 });
+
+test('WGL17 GUI rewrites the same mode and probe value uploaded to the GPU', async()=>{
+  const source=await readFile(new URL('WGL/WGL17/data-grid.js',base),'utf8');
+  const specs=parametersFor('WGL17');
+  assert.deepEqual(specs.map(s=>s.id),['format','probe']);
+  for(const spec of specs)
+    assert.deepEqual(readLabParameter(source,spec),{ok:true,value:spec.default});
+  assert.match(source,/new Float32Array\(physicalValues\)/);
+  assert.match(source,/Uint8Array\.from\(physicalValues/);
+  assert.match(source,/mode==='r32f'/);
+  const integer=writeLabParameter(source,specs[0],'r8ui');
+  assert.match(integer,/const mode = 'r8ui';/);
+  assert.deepEqual(readLabParameter(integer,specs[0]),{ok:true,value:'r8ui'});
+  const changed=writeLabParameter(integer,specs[1],0);
+  assert.match(changed,/const probeValue = 0;/);
+  assert.deepEqual(readLabParameter(changed,specs[1]),{ok:true,value:0});
+  assert.equal(writeLabParameter(writeLabParameter(changed,specs[1],-1.3),specs[0],'r8'),source);
+  assert.throws(()=>writeLabParameter(source,specs[0],'rgba8'),RangeError);
+  assert.throws(()=>writeLabParameter(source,specs[1],2.1),RangeError);
+  assert.equal(readLabParameter(source.replace('const probeValue = -1.3;',
+    'const probeValue = -1-0.3;'),specs[1]).ok,false);
+});
