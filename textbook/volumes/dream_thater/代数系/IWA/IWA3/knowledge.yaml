@@ -38,11 +38,17 @@ concepts:
     introduction: formal
     requires: [number-theory.iwasawa-cofinal-ideals, number-theory.finite-group-ring-one-variable-presentation]
 
+  - id: number-theory.iwasawa-augmentation
+    name: 岩澤代数の増大写像
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwasawa-algebra]
+
   - id: number-theory.iwasawa-augmentation-unit-test
     name: 増大写像と単元判定
     kind: proposition
     introduction: formal
-    requires: [number-theory.iwasawa-power-series-isomorphism]
+    requires: [number-theory.iwasawa-power-series-isomorphism, number-theory.iwasawa-augmentation]
 
   - id: number-theory.iwasawa-generator-change
     name: 位相的生成元の変更
