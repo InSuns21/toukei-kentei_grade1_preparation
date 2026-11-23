@@ -54,7 +54,7 @@ $$
 
 $$
 \begin{aligned}
-F=dA
+F&=dA\\
 &=i\bigl(d(x^1dx^2)+d(x^3dx^4)\bigr)\\
 &=i(dx^1\wedge dx^2+dx^3\wedge dx^4)
 =i(\eta+\zeta),\\
