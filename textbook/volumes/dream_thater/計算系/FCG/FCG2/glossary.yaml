@@ -1,17 +1,20 @@
 chapter: FCG2
 terms:
-  - term: スカラー場
-    english: scalar field
-    meaning: 空間と物理時刻へ一つの実数を対応させる場。本講は解析式で指定する。
-  - term: 物理格子
-    english: physical grid
-    meaning: 場を標本化する8×8セルと下原点の添字。
+  - term: 受動スカラー
+    english: passive scalar
+    meaning: 水の流れに運ばれるが速度場そのものに影響しない濃度のような量
+  - term: 差動回転
+    english: differential rotation
+    meaning: 半径によって角速度が異なり、染料の帯が引き伸ばされる回転運動
+  - term: 移流
+    english: advection
+    meaning: 流れに沿って量が運ばれる現象。本講では拡散なしの特性曲線で厳密解を得る
   - term: R8正規化テクスチャ
     english: normalized R8 texture
-    meaning: 一成分を8bit整数で格納しshaderで0から1へ正規化して読む形式。
-  - term: ping-pong
-    english: ping-pong buffers
-    meaning: 旧状態と新状態に別の記憶領域を割り当て更新後に役割を交換する手法。
+    meaning: 1セルの濃度を8bit整数へ丸め、シェーダから0～1へ正規化した値を読むGPU形式
+  - term: 物理格子
+    english: physical grid
+    meaning: 1m×1mの領域の128×128セル中心に置いた濃度標本
   - term: 描画フレーム
     english: rendering frame
-    meaning: 物理状態を再表示する機会であり、物理時刻の進行とは独立。
+    meaning: ある物理時刻の濃度を再表示する機会。物理時刻や移流計算の段数と別
