@@ -15,7 +15,7 @@ learning_objectives:
   - de Rham代表形式と整数係数Chern類の整数性の証明責務を区別できる
   - S2×S2上のmonopole線束直和でc2とch2の相違を積分で検算できる
 definitions:
-  - { id: GBG23-DEF-01, name: 全Chern形式と第k Chern形式 }
+  - { id: GBG23-DEF-01, name: 全Chern形式 }
   - { id: GBG23-DEF-02, name: Chern指標形式 }
 theorems:
   - { id: GBG23-PROP-01, name: 低次Chern形式の跡表示 }
