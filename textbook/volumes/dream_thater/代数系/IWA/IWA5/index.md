@@ -283,7 +283,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[有限生成torsionの共通消去元](#prop-iwa5-common-annihilator)より、$0\ne a\in R$ が存在して $aM=0$ です。$R$ は一意分解整域なので $a$ の既約因子は同伴を除き有限個 $q_1,\ldots,q_t$ です。$M_{\mathfrak q}$ が非零となる高さ1素イデアル $\mathfrak q$ は $a\in\mathfrak q$ を満たし、従って $\mathfrak q=(q_j)$ のいずれかです。
+$M=0$ なら $E=0$ とすれば零写像は同型であり、定理が成り立ちます。以下 $M\ne0$ とします。[有限生成torsionの共通消去元](#prop-iwa5-common-annihilator)より、$0\ne a\in R$ が存在して $aM=0$ です。この $a$ が単元なら $M=0$ となって矛盾するため、$a$ は非単元です。$R$ は一意分解整域なので $a$ の既約因子は同伴を除き有限個 $q_1,\ldots,q_t$（$t\ge1$）です。$M_{\mathfrak q}$ が非零となる高さ1素イデアル $\mathfrak q$ は $a\in\mathfrak q$ を満たし、従って $\mathfrak q=(q_j)$ のいずれかです。
 
 これら有限個の素イデアルの和集合の補集合を
 
