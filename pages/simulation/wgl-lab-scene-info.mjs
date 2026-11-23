@@ -66,11 +66,11 @@ const descriptions = Object.freeze({
   }),
   WGL10: Object.freeze({
     requiresSteps: false,
-    grid: '第1パスはRGBA8のオフスクリーンFBO（既定は左viewport幅×高さ、offscreenScaleで縮小、最小1×1）。実寸法はFBO実行ログに表示',
-    color: '第1パスの4象限はRGB=(0.2/0.8, 0.3/0.7, 0.4)をRGBA8へ丸める。第2パスの左はコピー、右は初期設定でRGBを1−値に反転（α=1）',
-    clock: () => 'FBOへ描く第1パス→画面へ描く第2パス（物理stepなし）',
-    mode: '左・右の画面viewportは同じRGBA8テクスチャをNEARESTで標本化。FBOのtexel数と画面のpixel数は別。縮小・反転は編集JSが優先',
-    source: 'framebuffer.js（offscreenScale, invertRight, gl.framebufferTexture2D, viewport）/ framebuffer.frag（u_pass, u_scene）'
+    grid: '初期canvas 960×480 px。左・中・右それぞれ320×480 pxの表示列、FBOはRGBA8 320×480 texel。倍率を変えるとFBOのみ縮小',
+    color: '夕景・山と細格子をGPU生成。4象限の小さな色見本は数値検算用。FBO保存時にRGBA8量子化、右列は保存したRGBの補数',
+    clock: () => '第1パス FBO生成 → 第2パス 画面表示（物理stepなし）',
+    mode: '左は同じGLSLの直接描画、中央はRGBA8 FBOからNEARESTコピー、右はそのFBOの反転。段階選択で実GPU画像を拡大',
+    source: 'framebuffer.js（offscreenScale, filterMode, inspectionPass, bindFramebuffer, viewport）/ framebuffer.frag（drawScene, u_pass, u_scene）'
   }),
   FCG2: Object.freeze({
     grid: '8×8（実際のスカラー場、R8テクスチャ2枚を交互に更新）',
