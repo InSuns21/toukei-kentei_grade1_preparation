@@ -350,7 +350,7 @@ $$
 $j=1,k=\frac12$ の積状態 $|m,n\rangle$ を六つ列挙し、$T_3$ の固有値とその重複度を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [積状態の定義](#def-lrep8-total-spin)から $T_3|m,n\rangle=(m+n)|m,n\rangle$ です。$m=1,0,-1$、$n=\frac12,-\frac12$ を一つずつ足すと
+**詳細解答。** [本章で導いた $T_3$ の作用](#lem-lrep8-total-commutators)は $T_3|m,n\rangle=(m+n)|m,n\rangle$ です。$m=1,0,-1$、$n=\frac12,-\frac12$ を一つずつ足すと
 
 $$
 \begin{array}{c|rrrrrr}
