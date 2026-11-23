@@ -19,8 +19,8 @@ definitions:
   - { id: IWA6-DEF-03, name: 特徴イデアルと岩澤不変量 }
 theorems:
   - { id: IWA6-PROP-01, name: 積での指数の加法性 }
-  - { id: IWA6-THM-01, name: p進Weierstrass除法 }
-  - { id: IWA6-THM-02, name: p進Weierstrass準備定理 }
+  - { id: IWA6-THM-01, name: Weierstrass除法 }
+  - { id: IWA6-THM-02, name: Weierstrass準備定理 }
   - { id: IWA6-PROP-02, name: 岩澤代数の既約因子 }
   - { id: IWA6-PROP-03, name: 特徴イデアルの一意性と擬同型不変性 }
   - { id: IWA6-PROP-04, name: 短完全列での特徴イデアルの乗法性 }
