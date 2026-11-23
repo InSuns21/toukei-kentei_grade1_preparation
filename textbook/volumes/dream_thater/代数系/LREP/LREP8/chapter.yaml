@@ -1,0 +1,40 @@
+id: LREP8
+title: "二つのスピンの合成"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP7
+official_scope: []
+learning_objectives:
+  - 二つのSU2表現への対角作用から全角運動量を構成し交換関係と昇降作用を検算できる
+  - SU2テンソル積の完全可約性とウェイト重複度の差から合成スピンの範囲と重複度1を証明できる
+  - スピン1/2同士の合成で一重項と三重項を構成しCasimirと交換対称性を検証できる
+  - Clebsch–Gordan係数の意味と選択則を説明し昇降・規格化・直交条件で具体計算できる
+  - スピン1と1/2の合成およびスピン1同士の合成を手で求められる
+  - 被覆核の符号から合成表現のSO3への降下を判定できる
+definitions:
+  - { id: LREP8-DEF-01, name: 全角運動量と積状態 }
+  - { id: LREP8-DEF-02, name: Clebsch–Gordan係数 }
+theorems:
+  - { id: LREP8-LEM-01, name: 全角運動量の昇降作用 }
+  - { id: LREP8-THM-01, name: SU(2)のClebsch–Gordan分解 }
+  - { id: LREP8-THM-02, name: 二つのスピン1/2の一重項と三重項 }
+canonical_examples:
+  - 二つのスピン1/2の積基底と全角運動量の作用
+  - 重複ウェイト数の差による既約成分の同定と次元検算
+  - 対称三重項と反対称一重項の具体基底
+  - スピン1と1/2の合成係数の直交規格化
+problem_patterns:
+  - LREP8-TOTAL-MAGNETIC-QUANTUM-NUMBER
+  - LREP8-TRIPLET-LOWERING
+  - LREP8-SINGLET-INVARIANCE
+  - LREP8-DIMENSION-CHECK
+  - LREP8-SPIN-ONE-HALF-CG-COEFFICIENTS
+  - LREP8-TOTAL-CASIMIR-MATRIX
+  - LREP8-WEIGHT-MULTIPLICITY-DIFFERENCE
+  - LREP8-COVERING-KERNEL-PARITY
+  - LREP8-SPIN-ONE-TENSOR-SQUARE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 3 }
