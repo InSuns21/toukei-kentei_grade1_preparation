@@ -39,7 +39,7 @@ chapters:
     title: "二つのスピンの合成"
   - id: LREP9
     path: textbook/volumes/dream_thater/代数系/LREP/LREP9
-    status: planned
+    status: completed
     title: "Lorentz Lie環の回転とboost"
   - id: LREP10
     path: textbook/volumes/dream_thater/代数系/LREP/LREP10

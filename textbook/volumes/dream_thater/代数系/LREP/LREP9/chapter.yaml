@@ -1,0 +1,45 @@
+id: LREP9
+title: "Lorentz Lie環の回転とboost"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP8
+  - SREL2
+official_scope: []
+learning_objectives:
+  - Minkowski計量の保存条件を微分してLorentz Lie環の六次元性と行列条件を導出できる
+  - 実4次元表現の回転生成子とboost生成子を構成し指数写像で有限変換を計算できる
+  - 計量の符号を含め回転・boostの三種類の交換関係を行列から証明できる
+  - 物理記法JとKのiの位置を確認し正定値内積を保つ変換との違いを説明できる
+  - 複素化による二組のsl2の分解と実構造による共役条件を導出できる
+  - 二つの非平行boostの群交換子の二次項が回転になることを計算できる
+definitions:
+  - { id: LREP9-DEF-01, name: Lorentz群と単位元成分 }
+  - { id: LREP9-DEF-02, name: 回転生成子とboost生成子 }
+  - { id: LREP9-DEF-03, name: 物理記法の生成子 }
+  - { id: LREP9-DEF-04, name: 複素化した二組の生成子 }
+theorems:
+  - { id: LREP9-THM-01, name: Lorentz Lie環の行列条件 }
+  - { id: LREP9-LEM-01, name: 計量付き生成子の交換式 }
+  - { id: LREP9-THM-02, name: Lorentz Lie環の回転・boost交換関係 }
+  - { id: LREP9-THM-03, name: 複素化の二つのsl2への分解 }
+  - { id: LREP9-PROP-01, name: 微小boostループの回転 }
+canonical_examples:
+  - 時間反転または空間反転が計量保存でも単位元成分に含まれない実例
+  - x方向boostとz軸回転の生成行列・指数関数・計量保存
+  - boost二つの交換子に現れる回転の符号検算
+  - 複素化の二つのsl2と元の実Lie環の共役固定点
+problem_patterns:
+  - LREP9-METRIC-LIE-ALGEBRA-CONDITION
+  - LREP9-BOOST-EXPONENTIAL
+  - LREP9-ROTATION-ORIENTATION
+  - LREP9-BOOST-COMMUTATOR
+  - LREP9-SIX-DIMENSIONAL-BASIS
+  - LREP9-BOOST-LOOP
+  - LREP9-CHIRAL-SPLIT-AND-REALITY
+  - LREP9-HERMITICITY-CHECK
+  - LREP9-MIXED-GENERATOR-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 3 }

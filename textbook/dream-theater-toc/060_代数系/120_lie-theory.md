@@ -13,3 +13,4 @@
 10. [LREP6 SU(2)の有限次元既約表現](textbook/volumes/dream_thater/代数系/LREP/LREP6/index.md)
 11. [LREP7 角運動量とスピン量子数](textbook/volumes/dream_thater/代数系/LREP/LREP7/index.md)
 12. [LREP8 二つのスピンの合成](textbook/volumes/dream_thater/代数系/LREP/LREP8/index.md)
+13. [LREP9 Lorentz Lie環の回転とboost](textbook/volumes/dream_thater/代数系/LREP/LREP9/index.md)
