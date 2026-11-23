@@ -35,6 +35,7 @@ concepts:
 
   - id: gauge.affine-space-definition
     name: ベクトル空間をモデルとするアフィン空間
+    aliases: [アフィン空間]
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（ベクトル空間をモデルとするアフィン空間）"]
