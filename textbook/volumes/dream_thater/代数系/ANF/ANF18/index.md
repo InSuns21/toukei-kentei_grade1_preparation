@@ -224,10 +224,10 @@ $5^m u=(-5)^m((-1)^m u)$ だから、$D$ のノルム群へ入るのは $(-1)^m 
 
 $C=\mathbb Q_5(\zeta_5)$ で $t=\zeta_5+\zeta_5^{-1}$ とすると、$1+\zeta_5+\cdots+\zeta_5^4=0$ と $\zeta_5^2+\zeta_5^{-2}=t^2-2$ より
 
-$
+$$
 1+t+(t^2-2)=0,\qquad
 t^2+t-1=0,\qquad (2t+1)^2=5.
-$
+$$
 
 ここで $v_5(5)=1$ は奇数ですが、$x\in K^\times$ の平方は $v_5(x^2)=2v_5(x)$ が偶数です。従って $\sqrt5\notin K$ であり、$M=K(t)=K(\sqrt5)$ は確かに $C/K$ の二次中間体です。前節の $D$ でも $\alpha^2=\sqrt5$ なので同じ $M$ が現れます。
 
@@ -262,20 +262,20 @@ $\sigma_b(t)=\zeta_5^b+\zeta_5^{-b}$ です。$\sigma_1$ と $\sigma_4$ では $
 
 $E=\mathbb Q_5(\theta)$、$\theta^2=2$ とします。$X^2-2$ は $\mathbb F_5$ で根を持たない（平方は $0,1,4$）ため、$[E:K]=2$ です。非分岐性を結論するには整数環も確認します。$A=\mathbb Z_5[\theta]$ とおくと、基底 $(1,\theta)$ に関する跡行列は
 
-$
+$$
 T=\begin{pmatrix}
 \operatorname{Tr}_{E/K}(1)&\operatorname{Tr}_{E/K}(\theta)\\
 \operatorname{Tr}_{E/K}(\theta)&\operatorname{Tr}_{E/K}(\theta^2)
 \end{pmatrix}
 =\begin{pmatrix}2&0\\0&4\end{pmatrix}.
-$
+$$
 
 $2,4\in\mathbb Z_5^\times$ なので $T^{-1}=\operatorname{diag}(1/2,1/4)$ も整数成分をもち、[跡双対による整数環の確認](../ANF11/index.md#def-anf11-codifferent)と同じ基底計算で $A^\vee=A$ です。任意の整元 $x\in\mathcal O_E$ と $a\in A$ に対して $\operatorname{Tr}_{E/K}(xa)\in\mathbb Z_5$ だから $\mathcal O_E\subseteq A^\vee=A$。逆包含は $\theta$ の整性によるため、$\mathcal O_E=A$ です。さらに
 
-$
+$$
 \mathcal O_E/5\mathcal O_E
 \simeq\mathbb F_5[X]/(X^2-2)=\mathbb F_{25}
-$
+$$
 
 は体です。よって $5\mathcal O_E$ は極大イデアルで、分岐指数 $e=1$、剰余次数 $f=2$、すなわち $E/K$ は非分岐二次です。[非分岐拡大の Frobenius 持ち上げ](../ANF15/index.md#prop-anf15-frobenius-lift)では剰余体で $\bar\theta^5=(\bar\theta^2)^2\bar\theta=4\bar\theta=-\bar\theta$ となるため、$F(\theta)=-\theta$ です。
 
@@ -384,17 +384,17 @@ $\Phi_5(T)=T^4+T^3+T^2+T+1$ に $T=1+X$ を代入し、$\mathbb Q_5(\zeta_5)/\ma
 <!-- solution-start -->
 **詳細解答。** 二項展開で
 
-$
+$$
 \begin{aligned}
 (1+X)^2&=1+2X+X^2,\\
 (1+X)^3&=1+3X+3X^2+X^3,\\
 (1+X)^4&=1+4X+6X^2+4X^3+X^4
 \end{aligned}
-$
+$$
 
 を得ます。これらを $\Phi_5(1+X)=\sum_{j=0}^4(1+X)^j$ に代入し、各次数の係数を足すと
 
-$
+$$
 \begin{aligned}
 \Phi_5(1+X)
 &=1+(1+X)+(1+2X+X^2)\\
@@ -402,7 +402,7 @@ $
 &\quad +(1+4X+6X^2+4X^3+X^4)\\
 &=X^4+5X^3+10X^2+10X+5.
 \end{aligned}
-$
+$$
 
 最高次係数は $1$、それ以外は $5$ で割り切れ、定数項は $25$ で割り切れません。[Eisenstein の既約性](../ANF10/index.md#thm-anf10-eisenstein-irreducible)から次数は $4$、[Eisenstein 拡大の一様化元](../ANF10/index.md#thm-anf10-eisenstein-extension)から全分岐なので $e=4,f=1$ です。
 <!-- solution-end -->
