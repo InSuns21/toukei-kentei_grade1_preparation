@@ -1,0 +1,49 @@
+id: "IWA8"
+title: "円分体の類群と指標成分"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IWA7
+official_scope: []
+learning_objectives:
+  - 円分体のGalois群が類群のp部分に良定義な作用を与えることを証明できる
+  - IWA2の有限段持ち上げからTeichmüller指標を定義し具体的な剰余値を計算できる
+  - 群環内の指標射影子を定義し直交性と加群の直和分解を自力で証明できる
+  - 複素共役の作用で指標の偶奇成分を判定しpが奇数という仮定の役割を説明できる
+  - 最大実部分体のp部分類群と偶部分の同型をイデアルノルムと拡大の合成から証明できる
+  - ノルム写像のΔ同変性を示し指標分解と逆極限の両立性を証明できる
+  - 位数の成分別分解と類数成長の算術的制御を混同しない
+definitions:
+  - { id: IWA8-DEF-01, name: Teichmüller指標 }
+  - { id: IWA8-DEF-02, name: 指標射影子と指標成分 }
+  - { id: IWA8-DEF-03, name: 複素共役の偶部分・奇部分 }
+theorems:
+  - { id: IWA8-PROP-01, name: 類群へのGalois作用 }
+  - { id: IWA8-LEM-01, name: Teichmüller指標の直交和 }
+  - { id: IWA8-THM-01, name: 指標射影子による直和分解 }
+  - { id: IWA8-PROP-02, name: 偶奇成分と指標の次数 }
+  - { id: IWA8-THM-02, name: 実部分体のp部分類群と偶部分 }
+  - { id: IWA8-PROP-03, name: ノルム写像のΔ同変性 }
+  - { id: IWA8-THM-03, name: 類群逆極限の指標成分分解 }
+canonical_examples:
+  - p=5でのTeichmüller持ち上げの法25・法125の計算
+  - p=3での二つの指標射影子の直交性
+  - p=5の有限Δ加群における固有成分と複素共役
+  - p=2のZ/4Z模型での偶奇直和の失敗
+  - p=5の二層模型での指標別ノルム整合性
+problem_patterns:
+  - IWA8-CLASS-ACTION
+  - IWA8-TEICH-LIFT
+  - IWA8-ORTHOGONAL-SUM
+  - IWA8-PARITY-SIGNS
+  - IWA8-PROJECTOR-CHECK
+  - IWA8-EXPLICIT-MODULE
+  - IWA8-EIGENSPACE-EXACT
+  - IWA8-REAL-NORM
+  - IWA8-NORM-COMPATIBILITY
+  - IWA8-P2-FAILURE
+  - IWA8-INTEGRATED-TOWER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 3 }
