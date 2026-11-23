@@ -1494,7 +1494,6 @@ if (isFCG7) {
   back.addEventListener('click',()=>{pausePlay();fcg7Steps=0;mark();run();});
   byId('reset').addEventListener('click',mark);
   byId('stop').addEventListener('click',mark);
-  refreshFcg5StepMarker=mark;
   mark();
 }
 if (isFCG6) {
@@ -1618,6 +1617,7 @@ if (isFCG5) {
   back.addEventListener('click',()=>{pausePlay();fcg5Steps=0;mark();run();});
   byId('reset').addEventListener('click',mark);
   byId('stop').addEventListener('click',mark);
+  refreshFcg5StepMarker=mark;
   mark();
 }
 if (isFCG4) {
