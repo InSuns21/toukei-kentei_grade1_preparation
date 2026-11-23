@@ -1,0 +1,66 @@
+chapter: PML2-16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-15
+  - FOU5
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-16-fourier
+    name: 周期関数のFourier係数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期関数のFourier係数）"]
+    requires:
+      - physics-machine-learning.pml2-15-lift
+  - id: physics-machine-learning.pml2-16-convolution
+    name: 周期畳み込み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期畳み込み）"]
+    requires:
+      - physics-machine-learning.pml2-16-fourier
+      - physics-machine-learning.pml2-15-kernel-layer
+  - id: physics-machine-learning.pml2-16-diagonal
+    name: 有限Fourier核による畳み込みの対角化
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-16-convolution
+      - physics-machine-learning.pml2-16-fourier
+  - id: physics-machine-learning.pml2-16-fno
+    name: 有限モードのFourier Neural Operator層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限モードのFourier Neural Operator層）"]
+    requires:
+      - physics-machine-learning.pml2-16-diagonal
+      - physics-machine-learning.pml2-15-kernel-layer
+  - id: physics-machine-learning.pml2-16-stability
+    name: FNO層の実数性と一様ノルム安定性
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-16-fno
+      - physics-machine-learning.pml2-15-stability
+  - id: physics-machine-learning.pml2-16-dft
+    name: 離散Fourier変換と格子FNO
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（離散Fourier変換と格子FNO）"]
+    requires:
+      - physics-machine-learning.pml2-16-fourier
+      - physics-machine-learning.pml2-16-fno
+      - fourier.fou5-dft
+  - id: physics-machine-learning.pml2-16-alias
+    name: 格子における周波数の同一視
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-16-dft
+  - id: physics-machine-learning.pml2-16-fft
+    name: 偶奇分割によるFFTの再帰式
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-16-dft

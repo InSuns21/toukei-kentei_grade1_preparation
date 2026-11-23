@@ -1,0 +1,47 @@
+id: "PML2-16"
+title: "Fourier Neural OperatorはなぜFourier係数を用いるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-15
+  - FOU5
+official_scope: []
+learning_objectives:
+  - 周期関数のFourier係数と実数関数の共役対称性を説明し直接計算できる
+  - 周期畳み込みの有限Fourier核による対角化を積分から証明できる
+  - モード切断したFNO層を定義しチャネル数と重み行列の次元を確認できる
+  - FNO層の実数性と一様ノルム安定性を条件から証明できる
+  - DFTと逆DFTを有限等比数列から導き格子FNOを計算できる
+  - エイリアシングの剰余類公式を証明し反例で標本化条件の必要性を説明できる
+  - 偶奇分割のFFT再帰式を導きO(N log N)の演算量を説明できる
+  - モード共有と異なる解像度での精度保証を区別できる
+definitions:
+  - { id: PML2-16-DEF-01, name: 周期関数のFourier係数 }
+  - { id: PML2-16-DEF-02, name: 周期畳み込み }
+  - { id: PML2-16-DEF-03, name: 有限モードのFourier Neural Operator層 }
+  - { id: PML2-16-DEF-04, name: 離散Fourier変換と格子FNO }
+theorems:
+  - { id: PML2-16-THM-01, name: 有限Fourier核による畳み込みの対角化 }
+  - { id: PML2-16-THM-02, name: FNO層の実数性と一様ノルム安定性 }
+  - { id: PML2-16-THM-03, name: 格子における周波数の同一視 }
+  - { id: PML2-16-THM-04, name: 偶奇分割によるFFTの再帰式 }
+canonical_examples:
+  - 定数波と余弦波のFourier係数
+  - 余弦核が選ぶ周波数と実数出力
+  - 四点DFTとFourier格子FNOの一致
+  - 同一の重みと二つの格子で生じるエイリアシング差
+problem_patterns:
+  - PML2-16-A01
+  - PML2-16-A02
+  - PML2-16-A03
+  - PML2-16-A04
+  - PML2-16-A05
+  - PML2-16-B01
+  - PML2-16-B02
+  - PML2-16-B03
+  - PML2-16-B04
+  - PML2-16-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
