@@ -41,15 +41,24 @@ $$
 $$
 X(\boldsymbol x)=\begin{pmatrix}-1&1-2i\\1+2i&1\end{pmatrix}.
 $$
-対角成分は実数で、非対角成分は互いに複素共役だから $X^\dagger=X$ です。対角和は零です。逆に、エルミートで跡が零の行列は $\begin{pmatrix}r&z\\\bar z&-r\end{pmatrix}$ ($r\in\mathbb R,z\in\mathbb C$) と書け、$\boldsymbol x=(\operatorname{Re}z,-\operatorname{Im}z,r)$ を用いて一意に $X(\boldsymbol x)$ に戻せます。したがってこの模型は実線形同型です。行列式はこの表示から直接計算でき、
-$
+対角成分は実数、非対角成分は互いに複素共役なので $X^\dagger=X$ です。また対角和は零です。
+
+逆に、エルミートかつ跡零の行列は次の形です。
+$$
+\begin{pmatrix}r&z\\\bar z&-r\end{pmatrix},
+\qquad r\in\mathbb R,\ z\in\mathbb C.
+$$
+実座標を $\boldsymbol x=(\operatorname{Re}z,-\operatorname{Im}z,r)$ と読めば一意に $X(\boldsymbol x)$ に戻せます。これで実線形同型が確かめられました。
+
+さらに行列式を直接計算すると、
+$$
 \begin{aligned}
 \det X(\boldsymbol x)
 &=x_3(-x_3)-(x_1-ix_2)(x_1+ix_2)\\
 &=-x_3^2-(x_1^2+x_2^2)
 =-\|\boldsymbol x\|^2
 \end{aligned}
-$
+$$
 となります。これは「エルミートかつ跡零」の定義条件とは別に、この模型が三次元ベクトルの長さをどう記録するかを示す恒等式です。今の例でも $\det X=-1-|1-2i|^2=-6=-\|\boldsymbol x\|^2$ と確かめられます。
 <!-- definition-example-end -->
 
@@ -117,10 +126,10 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep5-conjugation-map -->
-**定義の確認**。まず、標準基底を $\boldsymbol e_1,\boldsymbol e_2,\boldsymbol e_3$ とすると、[Pauli行列模型](#def-lrep5-pauli-model)から $X(\boldsymbol e_j)=\sigma_j$ です。各共役行列を
-$
+**定義の確認**。$\boldsymbol e_1,\boldsymbol e_2,\boldsymbol e_3$ を三次元の標準基底とします。[Pauli行列模型](#def-lrep5-pauli-model)では $X(\boldsymbol e_j)=\sigma_j$ です。そこで各基底行列の共役を
+$$
 U\sigma_jU^\dagger=\sum_{k=1}^3 r_{kj}\sigma_k
-$
+$$
 と一意に展開すれば、定義式の右辺は $\sum_j x_jU\sigma_jU^\dagger=X(\sum_jx_jR_U\boldsymbol e_j)$ となります。つまり係数 $r_{kj}$ が $R_U$ の第 $j$ 列の第 $k$ 成分であり、三つの基底像だけで全ての $\boldsymbol x$ に対する作用を判定できます。
 
 $U=I_2$ なら $R_U\boldsymbol x=\boldsymbol x$ です。もう一つ、$\theta\in\mathbb R$ に対し
@@ -192,10 +201,20 @@ $$
 U=\begin{pmatrix}\alpha&\beta\\-\overline\beta&\overline\alpha\end{pmatrix},
 \qquad |\alpha|^2+|\beta|^2=1
 $$
-の形を持ちます。従って $SU(2)$ は実4次元単位球面 $S^3$ と連続的に一対一対応し、逆も連続です。$S^3$ の二点 $p,q$ が対蹠点でなければ $(1-t)p+tq$ を長さで割った道が両者を結び、対蹠点なら第三の点を経由します。よって $SU(2)$ は道連結です。連続関数 $U\mapsto\det R_U$ は $\{+1,-1\}$ に値を持ち、$I_2$ で $+1$ だから全体で $+1$ です。実際、$X(\boldsymbol e_j)=\sigma_j$ と[跡公式](#lem-lrep5-pauli-product)から、行列 $R_U=(r_{kj})_{k,j=1}^3$ の各成分は
-$
+の形を持ちます。$\alpha,\beta$ の実部・虚部は実4座標をなし、その平方和が1です。逆に、これを満たす4座標から同じ形の行列を作れるので、$SU(2)$ と単位球面 $S^3$ は互いに連続な対応を持ちます。
+
+$S^3$ の二点 $p,q$ が対蹠点でなければ、分母が零にならない道
+$$
+c(t)=\frac{(1-t)p+tq}{\|(1-t)p+tq\|},\qquad 0\le t\le1
+$$
+で結べます。対蹠点なら第三の点を経由するので、$SU(2)$ は道連結です。
+
+連続関数 $U\mapsto\det R_U$ は $\{+1,-1\}$ に値を持ち、単位元では $+1$ です。したがって連結性から全体で $\det R_U=1$ となります。
+
+滑らかさを成分ごとに確かめます。$X(\boldsymbol e_j)=\sigma_j$ と[跡公式](#lem-lrep5-pauli-product)により、行列 $R_U=(r_{kj})_{k,j=1}^3$ の各成分は
+$$
 r_{kj}=\frac12\operatorname{tr}(\sigma_k U\sigma_jU^\dagger)
-$
+$$
 です。右辺は $U$ と $\overline U$ の成分の多項式なので $\Phi$ は滑らかです。$\square$
 <!-- proof-end -->
 
@@ -211,11 +230,13 @@ U(\boldsymbol n,\theta)
 &=\cos(\theta/2)I_2-i\sin(\theta/2)N.
 \end{aligned}
 $$
-ここで $N^2=I_2$ より固有値は $\pm1$ のいずれかであり、$\operatorname{tr}N=0$ と二次元性から実際には $+1,-1$ が一つずつです。$c=\cos(\theta/2)$、$s=\sin(\theta/2)$ とおくと、$N^\dagger=N$ なので
-$
+$N^2=I_2$ より、その固有値は $\pm1$ に限られます。跡が零で二次元なので、両方が一つずつ現れます。
+
+$c=\cos(\theta/2)$、$s=\sin(\theta/2)$ と書くと、$N^\dagger=N$ だから
+$$
 U^\dagger U=(cI_2+isN)(cI_2-isN)
 =(c^2+s^2)I_2=I_2.
-$
+$$
 さらに $N$ の二つの固有値に $c-isN$ を作用させると $U$ の固有値は $e^{-i\theta/2},e^{i\theta/2}$ です。その積は $1$ なので $\det U=1$ となり、$U\in SU(2)$ が定義の両条件から確認できました。
 
 <a id="prop-lrep5-rodrigues"></a>
@@ -299,11 +320,19 @@ $$
 =\boldsymbol x\cdot R^{\mathsf T}\boldsymbol n
 =\boldsymbol x\cdot\boldsymbol n=0
 $$
-なので垂直平面は不変です。この平面への制限は、$\det R=1$ と固定軸の固有値1より行列式1の二次元直交変換です。垂直平面の単位ベクトル $\boldsymbol u$ を取り、$\boldsymbol v=\boldsymbol n\times\boldsymbol u$ とおけば、$(\boldsymbol u,\boldsymbol v,\boldsymbol n)$ は右手系の正規直交基底です。この基底で制限行列の第一列を $(a,b)^{\mathsf T}$ とすると、直交性と行列式1から第二列は $(-b,a)^{\mathsf T}$、$a^2+b^2=1$ です。従って $a=\cos\theta$、$b=\sin\theta$ となる実角 $\theta$ があり、
-$
+なので垂直平面は不変です。固定軸上の固有値は1なので、$\det R=1$ よりこの平面への制限も行列式1の直交変換です。
+
+平面内の単位ベクトル $\boldsymbol u$ を取り、$\boldsymbol v=\boldsymbol n\times\boldsymbol u$ と置きます。このとき $(\boldsymbol u,\boldsymbol v,\boldsymbol n)$ は右手系の正規直交基底です。制限行列の第一列を $(a,b)^{\mathsf T}$ とすると、直交性と行列式1から第二列は $(-b,a)^{\mathsf T}$ です。したがって
+$$
+R|_{\boldsymbol n^\perp}=
+\begin{pmatrix}a&-b\\b&a\end{pmatrix},\qquad
+a^2+b^2=1.
+$$
+よって $a=\cos\theta$、$b=\sin\theta$ となる実角 $\theta$ が存在し、
+$$
 R\boldsymbol u=\cos\theta\,\boldsymbol u+\sin\theta\,\boldsymbol v,\qquad
 R\boldsymbol v=-\sin\theta\,\boldsymbol u+\cos\theta\,\boldsymbol v.
-$
+$$
 [軸角表示](#prop-lrep5-rodrigues)で作った $R_{U(\boldsymbol n,\theta)}$ は、$\boldsymbol n,\boldsymbol u,\boldsymbol v$ の全てに同じ値を与えるため、$R=R_{U(\boldsymbol n,\theta)}$ です。
 
 最後に $\Phi(V)=\Phi(U)$ なら $\Phi(U^{-1}V)=I_3$ です。核の結果より $V=U$ または $V=-U$ となり、両者は異なります。$\square$
@@ -332,7 +361,18 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[SU(2)のLie環の具体形](../../LIE/LIE3/index.md#thm-lie3-unitary)により、その接空間は反エルミートかつ跡が零の行列で、任意の元を $A=-iX(\boldsymbol a)/2$ ($\boldsymbol a\in\mathbb R^3$) と一意に書けます。$\boldsymbol x$ を固定し、$U(t)=e^{tA}$ とします。ここで $d\Phi_{I_2}(A)$ は $t=0$ における曲線 $\Phi(U(t))=R_{U(t)}$ の導関数で、$d/dt$ は実変数 $t$ についての微分です。$e^{tA}=I_2+tA+O(t^2)$、$e^{-tA}=I_2-tA+O(t^2)$ を積に代入すると一次の項は $AX-XA$ になります。これを模型 $X$ で表すと
+[SU(2)のLie環の具体形](../../LIE/LIE3/index.md#thm-lie3-unitary)より、単位元での接空間は反エルミートかつ跡零の行列です。その任意の元を、$\boldsymbol a\in\mathbb R^3$ によって
+$$
+A=-\frac i2X(\boldsymbol a)
+$$
+と一意に表せます。
+
+$\boldsymbol x$ を固定して $U(t)=e^{tA}$ と動かします。接写像 $d\Phi_{I_2}(A)$ は、曲線 $\Phi(U(t))=R_{U(t)}$ を実変数 $t$ で微分し、$t=0$ で評価したものです。このとき
+$$
+e^{tA}=I_2+tA+O(t^2),\qquad
+e^{-tA}=I_2-tA+O(t^2)
+$$
+なので、積の一次項は $AX-XA$ です。これを模型 $X$ で表すと
 $$
 \begin{aligned}
 X\left(\left.\frac{d}{dt}\right|_{t=0}R_{U(t)}\boldsymbol x\right)
@@ -348,7 +388,9 @@ $$
 [\boldsymbol a]_\times=
 \begin{pmatrix}0&-a_3&a_2\\a_3&0&-a_1\\-a_2&a_1&0\end{pmatrix}.
 $$
-標準基底の像 $\boldsymbol a\times\boldsymbol e_j$ を第 $j$ 列へ並べたものが、この行列です。[特殊直交群のLie環](../../LIE/LIE3/index.md#thm-lie3-orthogonal)によれば $T_{I_3}SO(3)$ は反対称行列全体であり、これが $d\Phi_{I_2}$ の余域です。実際、上の行列が零なら第二列と第三列から $a_1=a_2=a_3=0$、すなわち核は零です。定義域の $\mathfrak{su}(2)$ と値域の $\mathfrak{so}(3)$ はともに実次元3なので、この単射は全射でもあり、微分は同型です。
+標準基底の像 $\boldsymbol a\times\boldsymbol e_j$ を第 $j$ 列へ並べたものが、この行列です。[特殊直交群のLie環](../../LIE/LIE3/index.md#thm-lie3-orthogonal)より、余域 $T_{I_3}SO(3)=\mathfrak{so}(3)$ は反対称行列全体です。
+
+上の行列が零なら、第二列と第三列から $a_1=a_2=a_3=0$ となります。したがって微分の核は零です。定義域 $\mathfrak{su}(2)$ と余域 $\mathfrak{so}(3)$ はともに実次元3なので、この単射は全射でもあり、微分は同型です。
 
 逆関数定理を $I_2$ で使うと、その近傍 $W_+$ が単位回転の近傍へ微分同相に写ります。$W_+$ を小さくして $W_+\cap(-W_+)=\varnothing$ とできます。$W_-=-W_+$ とすると、[核の結果](#thm-lrep5-kernel-surjectivity)から両者の像は同じで、各制限は同じ近傍に対して微分同相です。
 
@@ -504,7 +546,15 @@ $$
 $U(\boldsymbol n,\theta)=\cos(\theta/2)I_2-i\sin(\theta/2)X(\boldsymbol n)$ とし、$\|\boldsymbol n\|=1$ とする。任意の $\boldsymbol x$ を $\boldsymbol x_\parallel=(\boldsymbol n\cdot\boldsymbol x)\boldsymbol n$、$\boldsymbol x_\perp=\boldsymbol x-\boldsymbol x_\parallel$ に分け、共役で平行成分が固定され垂直成分が角度 $\theta$ 回ることを証明せよ。
 
 <!-- solution-start -->
-**詳細解答。** $N=X(\boldsymbol n)$、$c=\cos(\theta/2)$、$s=\sin(\theta/2)$、$\alpha=\boldsymbol n\cdot\boldsymbol x$ とおきます。$\boldsymbol n\times\boldsymbol x_\parallel=0$ であり、$X(\boldsymbol x_\parallel)=\alpha N$ です。[Pauli行列の積公式](#lem-lrep5-pauli-product)から $N^2=I_2$ なので、$U=cI_2-isN$ は $N$ と可換です。従って $U(\alpha N)U^\dagger=\alpha N(UU^\dagger)=\alpha N$ となり、共役は $X(\boldsymbol x_\parallel)$ を固定します。
+**詳細解答。** まず $N=X(\boldsymbol n)$、$\alpha=\boldsymbol n\cdot\boldsymbol x$、$c=\cos(\theta/2)$、$s=\sin(\theta/2)$ と置きます。平行成分は $X(\boldsymbol x_\parallel)=\alpha N$ です。
+
+[Pauli行列の積公式](#lem-lrep5-pauli-product)から $N^2=I_2$ です。したがって $U=cI_2-isN$ は $N$ と可換で、ユニタリ性から
+$$
+U(\alpha N)U^\dagger
+=\alpha N(UU^\dagger)
+=\alpha N
+$$
+となります。共役は平行成分を固定します。
 
 垂直成分には $\boldsymbol n\cdot\boldsymbol x_\perp=0$ です。$Y=X(\boldsymbol x_\perp)$ とすると
 $$
