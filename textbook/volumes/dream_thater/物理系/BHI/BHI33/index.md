@@ -48,7 +48,7 @@ V|j\rangle\langle k|V^\dagger
 =|j\rangle\langle k|_R\otimes|0\rangle\langle0|_E
 $$
 
-この積状態の $E$ 側はトレースが1なので、
+このテンソル積では $E$ 側の作用素のトレースが1なので、
 
 $$
 \operatorname{Tr}_E(V|j\rangle\langle k|V^\dagger)
