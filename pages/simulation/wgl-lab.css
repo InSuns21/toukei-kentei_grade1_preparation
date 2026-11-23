@@ -235,3 +235,17 @@ main{max-width:1120px}
 .fcg2-microscope summary{cursor:pointer;font-size:.88rem;font-weight:650;color:#214661}
 .fcg2-microscope .fcg2-metrics{margin-top:10px}
 .fcg2-result .fcg2-stage #canvas-slot .result-frame{max-width:680px}
+
+/* WGL19: keep the real GPU field large; put playback and its clock below it. */
+.wgl19-demo{margin:.7rem 0 1rem;border-top:1px solid #94a3b8;padding-top:.6rem}
+.wgl19-demo h3,.wgl19-examples h3{font-size:1rem;margin:.25rem 0}
+.wgl19-demo p,.wgl19-examples p{max-width:65ch;margin:.25rem 0 .5rem}
+#wgl19-live-state{display:block;font-weight:700;font-variant-numeric:tabular-nums;color:#123e64;margin:.3rem 0}
+#wgl19-audit-fps,.wgl19-small{font-size:.88rem;color:#43576c}
+#wgl19-timeline{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;white-space:nowrap}
+#wgl19-timeline th,#wgl19-timeline td{padding:.3rem .5rem;border-bottom:1px solid #cbd5e1;text-align:right}
+#wgl19-timeline th:first-child,#wgl19-timeline td:first-child{text-align:left}
+#wgl19-timeline tr.current{outline:2px solid #246595;outline-offset:-2px;font-weight:700;background:#eef6ff}
+#wgl19-timeline tr.completed:not(.current){background:#f0f5f8}
+.wgl19-examples{margin-top:.6rem;padding:.5rem 0;border-top:1px solid #cbd5e1}
+.wgl19-examples button{margin:0 .4rem .4rem 0}

@@ -73,8 +73,7 @@ test('FCG1 has the same visual-first contract in its separate editable Canvas ho
 test('WGL wave1 auxiliary overlays stay collapsed until requested',async()=>{
   const root=new URL('../../textbook/volumes/dream_thater/計算系/WGL/',import.meta.url);
   for(const [path,container,contents] of [
-    ['WGL18/diffusion.js','valuesPanel',['liveReadback()','refreshNumbers()','stepNumber']],
-    ['WGL19/audit.js','panel',['discardedPerFrame[k]','frameDeltasMs[k]','droppedMs']]
+    ['WGL18/diffusion.js','valuesPanel',['liveReadback()','refreshNumbers()','stepNumber']]
   ]){
     const source=await readFile(new URL(path,root),'utf8');
     assert.match(source,new RegExp('const '+container+"=document\\.createElement\\('details'\\)"),path);
@@ -110,4 +109,18 @@ test('WGL3 first-wave visual is now a live shared-vs-expanded GPU experiment',as
   assert.match(source,/gl\.bufferSubData\(gl\.ARRAY_BUFFER, 0, indexedLive\)/);
   assert.ok(!source.includes("const panel=document.createElement('details')"),
     'primary WGL3 experiment must be visible without an inspector disclosure');
+});
+
+test('WGL19 replaces the hidden timeline with source-backed GPU diffusion replay',async()=>{
+  const root=new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL19/audit.js',import.meta.url);
+  const source=await readFile(root,'utf8');
+  for(const signal of ['function resetPlayback()','function nextFrame()',
+    "canvas.addEventListener('wgl19-control'",'const values=readState();',
+    'labels[k].textContent=values[k].toFixed(3)',"wgl19-initial-oracle-captured"]){
+    assert.ok(source.includes(signal),'WGL19/audit.js: '+signal);
+  }
+  assert.doesNotMatch(source,/document\.createElement\('details'\)/,
+    'GPU scene and step controls must be visible instead of hidden in an inspector');
+  assert.ok(source.includes('shell.append(canvas)'),
+    'numeric labels must overlay the actual WebGL canvas');
 });

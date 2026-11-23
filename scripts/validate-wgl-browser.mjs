@@ -1531,6 +1531,8 @@ try{
   await waitFor('document.getElementById("status")?.textContent==="実行できます"');
   assert.equal(await evalJS('document.querySelectorAll("[role=tabpanel]").length'),3);
   assert.ok(await evalJS('document.getElementById("js-source").value.includes("requestAnimationFrame")'));
+  assert.deepEqual(await evalJS('[Number(document.getElementById("width").value),Number(document.getElementById("height").value)]'),
+    [640,640],'WGL19 squares must have equal pixel width and height');
   await click('run');
   await waitFor('document.getElementById("status")?.textContent.match(/独立画素検算に合格|WebGL2実行エラー|タイムアウト|未達|不一致/)',22000);
   const w19=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent,rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(c=>c.textContent)),sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
@@ -1554,6 +1556,37 @@ try{
     const shot19=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
     await writeFile('_wgl_browser_review/wgl19-audit.png',Buffer.from(shot19.data,'base64'));
     console.log('WGL19 real GPU 4 render frames / 6 ticks / FLOAT16 and GPU object disposal: PASS');
+
+    // The visible demonstration must replay the *same* GPU numeric field,
+    // not merely show the final audit logs.
+    await waitFor('document.querySelector("#wgl19-live-state")?.textContent.includes("描画 4/4")',20000);
+    assert.equal(await evalJS('document.querySelectorAll("#wgl19-timeline tbody tr").length'),4);
+    assert.ok(await evalJS('document.querySelector("#wgl19-live-state")?.textContent.includes("GPU計算 6 step")'));
+    await click('wgl19-live-reset');
+    await waitFor('document.querySelector("#wgl19-live-state")?.textContent.includes("描画 0/4")');
+    await click('wgl19-live-step');
+    await waitFor('document.querySelector("#wgl19-live-state")?.textContent.includes("描画 1/4")');
+    assert.ok(await evalJS('document.querySelector("#wgl19-live-state").textContent.includes("GPU計算 0 step")'));
+    await click('wgl19-live-step');
+    await waitFor('document.querySelector("#wgl19-live-state")?.textContent.includes("描画 2/4")');
+    assert.ok(await evalJS('document.querySelector("#wgl19-live-state").textContent.includes("GPU計算 1 step")'));
+    const box19=await evalJS('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.left+scrollX,y:r.top+scrollY,width:r.width,height:r.height,scale:1};})()');
+    const early19=(await cdp('Page.captureScreenshot',{format:'png',clip:box19,captureBeyondViewport:true})).data;
+    await click('wgl19-live-step');
+    await waitFor('document.querySelector("#wgl19-live-state")?.textContent.includes("描画 3/4")');
+    assert.ok(await evalJS('document.querySelector("#wgl19-live-state").textContent.includes("GPU計算 5 step")'));
+    await click('wgl19-live-step');
+    await waitFor('document.querySelector("#wgl19-live-state")?.textContent.includes("描画 4/4")');
+    assert.ok(await evalJS('document.querySelector("#wgl19-live-state").textContent.includes("GPU計算 6 step")'));
+    const final19=(await cdp('Page.captureScreenshot',{format:'png',clip:box19,captureBeyondViewport:true})).data;
+    assert.notEqual(early19,final19,'editable WGL19 GPU scene must change between 1 and 6 steps');
+    await writeFile('_wgl_browser_review/wgl19-live-final.png',Buffer.from(final19,'base64'));
+    await cdp('Emulation.setDeviceMetricsOverride',{width:360,height:760,deviceScaleFactor:1,mobile:true});
+    const narrow19=await evalJS('({page:document.documentElement.scrollWidth,viewport:innerWidth,canvas:document.querySelector("#canvas-slot iframe")?.getBoundingClientRect().width})');
+    assert.ok(narrow19.page<=narrow19.viewport+2 && narrow19.canvas>50 && narrow19.canvas<=360,
+      'WGL19 mobile viewport must not overflow: '+JSON.stringify(narrow19));
+    await cdp('Emulation.setDeviceMetricsOverride',{width:1000,height:900,deviceScaleFactor:1,mobile:false});
+    console.log('WGL19 actual editable GPU replay, 0/1/4/1 per-frame clock, screenshots and 360px layout: PASS');
     await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const frameDeltasMs=[16,16,72,16]','const frameDeltasMs=[20,20]');})()");
     await click('run');
     await waitFor('document.getElementById("status")?.textContent.match(/編集コードを実行しました|WebGL2実行エラー|タイムアウト|未達/)',22000);

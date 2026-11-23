@@ -1,6 +1,6 @@
 import { compareReadback, expectedSamples } from './wgl-lab-core.mjs';
 import {expectedWGL20Samples,compareWGL20Readback,verifyWGL20Report} from './wgl20-lab-core.mjs';
-import {compareWGL19Readback, expectedWGL19Samples, compareWGL19FloatReadback, auditWGL19Clock} from './wgl19-lab-core.mjs';
+import {compareWGL19Readback, expectedWGL19Samples, compareWGL19FloatReadback, auditWGL19Clock, scheduleWGL19} from './wgl19-lab-core.mjs';
 import { compareFCG2Readback, expectedFCG2Samples, fcg2PixelCell, fcg2Field, fcg2FieldAtTime, fcg2Encode, fcg2Color, FCG2_PERIOD } from './fcg2-lab-core.mjs';
 import {compareFCG3Readback,expectedFCG3Samples,fcg3Metrics,fcg3PixelCell,fcg3Grid,fcg3Exact} from './fcg3-lab-core.mjs';
 import {expectedFCG4Samples,compareFCG4Readback,fcg4State,fcg4PixelCell} from './fcg4-lab-core.mjs';
@@ -65,7 +65,7 @@ const requestedCase = new URL(location.href).searchParams.get('case');
 const labCase = isWGL20 && ['CS1','CS2','CS3'].includes(requestedCase) ? requestedCase : 'BASE';
 // FCG8's old saved JS predates the live playback hooks. Keep the old key
 // intact for recovery, but never silently restore it into the new live runner.
-const STORAGE_KEY = 'toukei-' + (isFCG8?'fcg8-live-v2':isWGL14?'wgl14-visual-v2':VERSION) + '-' + lesson +
+const STORAGE_KEY = 'toukei-' + (isFCG8?'fcg8-live-v2':isWGL14?'wgl14-visual-v2':isWGL19?'wgl19-replay-v2':VERSION) + '-' + lesson +
   (isWGL20 ? '-' + labCase : '');
 
 const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/' + ((isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8) ? 'FCG' : 'WGL') + '/' + lesson + '/', import.meta.url);
@@ -384,6 +384,11 @@ function stop(message = '停止しました。実行 iframe を破棄しまし�
     active = null;
   }
   byId('canvas-slot').replaceChildren();
+  if(isWGL19){
+    const view=byId('wgl19-live-state');
+    if(view)view.textContent='実行停止。再生するには「実行（結果へ）」を押してください。';
+    for(const button of document.querySelectorAll('#wgl19-live button'))button.disabled=true;
+  }
   if(isFCG5){
     const live=byId('fcg5-live-state');
     if(live)live.textContent='ライブ物理step：未実行';
@@ -439,6 +444,28 @@ function isolatedRunner() {
       const hooks = await run(gl, canvas, request.vertex, request.fragment, report,
         {steps: ['FCG2','FCG3','FCG4','FCG5','FCG6','FCG7','FCG8'].includes(request.lesson) ? request.steps : undefined,
          snapshot: request.lesson === 'WGL20' ? request.snapshot : undefined});
+      if(request.lesson==='WGL19'){
+        canvas.addEventListener('wgl19-progress',event=>{
+          const d=event.detail;
+          if(!d||!Number.isInteger(d.frame)||d.frame<0||d.frame>12||
+             !Number.isInteger(d.steps)||d.steps<0||d.steps>144||
+             !Number.isFinite(d.droppedMs)||d.droppedMs<0||
+             !Number.isFinite(d.remainderMs)||d.remainderMs<0||
+             typeof d.playing!=='boolean')return;
+          send({...scope,type:'wgl19-progress',...d});
+        });
+        canvas.addEventListener('wgl19-playback-error',event=>
+          send({...scope,type:'wgl19-playback-error',
+            message:String(event.detail?.message||'GPU replay error').slice(0,300)}));
+        window.addEventListener('message',event=>{
+          const m=event.data;
+          if(event.source!==parent||!m||m.type!=='wgl19-control'||
+             m.session!==scope.session||m.requestId!==scope.requestId||
+             m.generation!==scope.generation||
+             !['play','pause','step','reset'].includes(m.action))return;
+          canvas.dispatchEvent(new CustomEvent('wgl19-control',{detail:{action:m.action}}));
+        });
+      }
       if(request.lesson==='FCG5'){
         canvas.addEventListener('fcg5-physics-progress',event=>{
           const d=event.detail;
@@ -649,9 +676,11 @@ function isolatedRunner() {
         checkpoints: request.lesson === 'WGL20' && hooks ? hooks.checkpoints : null,
         width: canvas.width, height: canvas.height,
         logs, glError: '0x' + glError.toString(16)});
-      // WGL18 rAF may now use the very same GPU state; do not race the 16 probes.
+      // Both animated labs start only after readPixels sampled the audited state.
       if(request.lesson==='WGL18')
         window.dispatchEvent(new Event('wgl18-initial-oracle-captured'));
+      if(request.lesson==='WGL19')
+        window.dispatchEvent(new Event('wgl19-initial-oracle-captured'));
     } catch (error) {
       send({...scope, type: 'result', ok: false, logs,
         error: String(error?.stack || error).slice(0, 5000)});
@@ -726,6 +755,40 @@ window.addEventListener('message', event => {
   }
   if (data.session !== active.session ||
       data.requestId !== active.id || data.generation !== active.generation) return;
+  if(isWGL19 && data.type==='wgl19-progress'){
+    const audit=active.wgl19Audit;
+    if(!audit)return;
+    let schedule;
+    try{schedule=scheduleWGL19(audit.deltas,audit.fixedMs,audit.maxStepsPerFrame);}
+    catch{return;}
+    if(data.frame>schedule.frames.length)return;
+    const expected=data.frame===0?{totalSteps:0,droppedMs:0,remainderMs:0}:
+      schedule.frames[data.frame-1];
+    const consistent=data.steps===expected.totalSteps&&
+      Math.abs(data.droppedMs-expected.droppedMs)<1e-6&&
+      Math.abs(data.remainderMs-expected.remainderMs)<1e-6;
+    if(!consistent){
+      setStatus('WGL19 再生中のGPU時計と監査時計が不一致',true);
+      return;
+    }
+    const state=byId('wgl19-live-state');
+    if(state)state.textContent='描画 '+data.frame+'/'+schedule.frames.length+
+      ' 回 ｜ GPU計算 '+data.steps+' step ｜ 計算時刻 '+
+      (data.steps*audit.fixedMs).toFixed(0)+' ms ｜ 破棄 '+data.droppedMs+
+      ' ms ｜ 余り '+data.remainderMs.toFixed(2)+' ms';
+    const toggle=byId('wgl19-live-play');
+    if(toggle){toggle.textContent=data.playing?'一時停止':'再生';toggle.dataset.playing=String(data.playing);}
+    for(const button of document.querySelectorAll('#wgl19-live button'))button.disabled=false;
+    for(const row of document.querySelectorAll('#wgl19-timeline tbody tr')){
+      row.classList.toggle('current',Number(row.dataset.frame)===data.frame);
+      row.classList.toggle('completed',Number(row.dataset.frame)<data.frame);
+    }
+    return;
+  }
+  if(isWGL19 && data.type==='wgl19-playback-error'){
+    setStatus('WGL19 GPUライブ再生エラー: '+String(data.message).slice(0,300),true);
+    return;
+  }
   if(isFCG5 && data.type==='fcg5-physics-progress'){
     if(active.contextLost||!Number.isInteger(data.step)||data.step<0||data.step>32||
        typeof data.playing!=='boolean')return;
@@ -1152,6 +1215,26 @@ window.addEventListener('message', event => {
         setStatus('GPU float読戻しと独立CPU計算が不一致（未達）',true);
     }
     if (isWGL19) {
+      active.wgl19Audit=wgl19Valid ? data.frameAudit : null;
+      const timeline=byId('wgl19-timeline');
+      if(timeline && active.wgl19Audit){
+        const s=scheduleWGL19(data.frameAudit.deltas,
+          data.frameAudit.fixedMs,data.frameAudit.maxStepsPerFrame);
+        const body=document.createElement('tbody');
+        s.frames.forEach((f,i)=>{
+          const tr=document.createElement('tr');tr.dataset.frame=String(i+1);
+          for(const value of [String(i+1),f.deltaMs+' ms',
+              f.performed+' step',f.droppedMs+' ms',f.totalSteps+' step']){
+            const td=document.createElement('td');td.textContent=value;tr.append(td);
+          }
+          body.append(tr);
+        });
+        timeline.querySelector('tbody').replaceWith(body);
+        const fpsLine=(data.logs||[]).find(s=>s.startsWith('FRAME:'))||'';
+        const observed=fpsLine.match(/actual RAF cadence ([^;]+)/);
+        byId('wgl19-audit-fps').textContent='監査時の実測 rAF: '+
+          (observed?observed[1]:'取得不可')+'（GPU処理時間ではない）';
+      }
       const floats=wgl19Valid ? compareWGL19FloatReadback(data.floatReadback,wgl19Params.rate,wgl19Params.steps) :
         {valid:false,pass:false,maxError:Infinity,mass:NaN};
       byId('diagnostics').textContent += '\nWGL19 clock: '+(wgl19Clock.pass?'一致':'不一致')+
@@ -1357,6 +1440,10 @@ function run() {
   }
   catch (error) { setStatus(error.message, true); return; }
   byId('numeric-summary').textContent = '（計算中）';
+  if(isWGL19){
+    for(const button of document.querySelectorAll('#wgl19-live button'))button.disabled=true;
+    const clock=byId('wgl19-live-state');if(clock)clock.textContent='監査用の最終状態を計算中';
+  }
   byId('result-note').textContent = '実行中です。描画結果をここに表示します。';
   byId('diagnostics-details').open = false;
   const iframe = document.createElement('iframe');
@@ -2008,15 +2095,72 @@ if (isWGL19) {
   document.title='WGL19 固定時間刻み・GPU診断・context lossラボ';
   document.querySelector('h1').textContent='WGL19 描画FPSとGPU拡散の計算時計を分けて監査する';
   document.querySelector('#panel-conditions > p').textContent=
-    '初期値は(1,1)だけ1の4×4拡散。16/16/72/16msの合成遅延を4描画・6段へ変換し、FLOAT16値とGPU画素を別々のCPU基準で比較します。';
+    '色はGPUが計算した4×4の拡散濃度、セル内の数字は実GPUのfloat値です。実行後に再生・停止・コマ送りで4回の描画と6段の計算を比べ、下の時計表で捨てた時間も確認します。';
   document.querySelector('#panel-conditions ol').innerHTML=
-    '<li>初期値で4描画・6段・破棄0msとFLOAT16値を確かめる。</li>'+
-    '<li>audit.jsのframeDeltasMsを[20,20]へ変え、計算段数2を確認する。</li>'+
-    '<li>[200]と上限4へ変え、120msの破棄を確認する。</li>'+
+    '<li>まず「実行（結果へ）」でGPUの拡散を再生し、各セルが薄まる様子と計算stepを追う。</li>'+
+    '<li>「次の描画を1回」で1描画当たり0・1・4・1stepになることを確かめる。</li>'+
+    '<li>条件タブの時計プリセットを切り替え、同じGPU shaderで描画間隔や120msの破棄を比較する。</li>'+
     '<li>simulateLoss=trueにしてcontext lossと全資源の再構築を試す。非対応・未復旧を合格としない。</li>'+
     '<li>fragment GLSLの更新項や構文エラーを編集し、CPU差とstageログを調べる。</li>';
   byId('preset').options[0].textContent='4描画・6段拡散、GPU floatと時計の独立検算';
   byId('preset').options[1].textContent='fragmentの構文エラー';
+}
+if (isWGL19) {
+  const section=document.createElement('section');
+  section.id='wgl19-live';section.className='wgl19-demo';
+  section.innerHTML='<h3>同じGPU計算をコマ送りで観察</h3>'+
+    '<p>色と数値はGPUの4×4濃度。青に近いほど0、赤に近いほど1。'+
+    '各マスの数字はその時点のGPU float値です。下の表で「描画1回」と「計算step」を追います。</p>'+
+    '<div class="controls" role="group" aria-label="GPU拡散のコマ送り操作">'+
+    '<button type="button" class="action" id="wgl19-live-play" disabled>再生</button>'+
+    '<button type="button" class="action" id="wgl19-live-step" disabled>次の描画を1回</button>'+
+    '<button type="button" class="action" id="wgl19-live-reset" disabled>最初から</button></div>'+
+    '<output id="wgl19-live-state" aria-live="polite">GPU実行後に時計を表示します</output>'+
+    '<p id="wgl19-audit-fps">実測 rAF: 監査中</p>'+
+    '<div class="lab-table-scroll" role="region" aria-label="描画ごとの計算step" tabindex="0">'+
+    '<table id="wgl19-timeline"><thead><tr><th>描画</th><th>仮想Δt</th>'+
+    '<th>その回のGPU更新</th><th>累計破棄</th><th>累計更新</th></tr></thead><tbody></tbody></table></div>'+
+    '<p class="wgl19-small">上の描画のアニメーションは説明用のスロー再生。'+
+    '仮想Δtは監査する入力で、再生の待ち時間や実測 rAF とは異なります。'+
+    '独立CPU/GPU検算は初回の最終状態について下の折りたたみ表で行います。</p>';
+  byId('canvas-slot').after(section);
+  function dispatchWgl19(action){
+    if(!active||!active.started||!active.wgl19Audit||active.contextLost)return;
+    active.frame.contentWindow?.postMessage({
+      type:'wgl19-control',requestId:active.id,generation:active.generation,
+      session:active.session,action
+    },'*');
+  }
+  byId('wgl19-live-play').addEventListener('click',()=>{
+    dispatchWgl19(byId('wgl19-live-play').dataset.playing==='true'?'pause':'play');
+  });
+  byId('wgl19-live-step').addEventListener('click',()=>dispatchWgl19('step'));
+  byId('wgl19-live-reset').addEventListener('click',()=>dispatchWgl19('reset'));
+  const examples=document.createElement('div');examples.className='wgl19-examples';
+  const heading=document.createElement('h3');heading.textContent='まず比べる3つの時計';
+  examples.append(heading);
+  const note=document.createElement('p');
+  note.textContent='例を選ぶとaudit.jsの合成間隔・追付き上限を変更して実行します。保存した編集内容は残したまま、該当2定数だけを置換します。';
+  examples.append(note);
+  for(const entry of [
+    {label:'不規則：4描画→6step',deltas:'[16,16,72,16]',cap:4},
+    {label:'等間隔：4描画→2step',deltas:'[10,10,10,10]',cap:4},
+    {label:'遅延：1描画→4step＋120ms破棄',deltas:'[200]',cap:4}
+  ]){
+    const btn=document.createElement('button');
+    btn.type='button';btn.className='action';btn.textContent=entry.label;
+    btn.addEventListener('click',()=>{
+      const current=capture(),js=current.js
+        .replace(/const frameDeltasMs=\[[^\]]+\];/, 'const frameDeltasMs='+entry.deltas+';')
+        .replace(/const maxStepsPerFrame=\d+;/, 'const maxStepsPerFrame='+entry.cap+';');
+      if(js===current.js&&entry.deltas!=='[16,16,72,16]'){
+        setStatus('audit.jsの時計定数が見つかりません。コードを確認してください',true);return;
+      }
+      setSources({...current,js});run();
+    });
+    examples.append(btn);
+  }
+  byId('panel-conditions').append(examples);
 }
 if (isWGL18) {
   document.title='WGL18 GPU拡散とping-pongテクスチャ更新';
@@ -2270,7 +2414,7 @@ if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-condi
 const sizeHint=(isFCG4||isFCG5||isFCG6||isFCG7||isFCG8)?[1536,512]:
   isFCG3?[1024,512]:isFCG2?[512,512]:isWGL14?[704,704]:
   (lesson==='WGL1'||isWGL2)?[960,960]:isWGL3?[960,480]:
-  isWGL10?[960,480]:legacyViewport?[800,600]:[960,720];
+  isWGL19?[640,640]:isWGL10?[960,480]:legacyViewport?[800,600]:[960,720];
 // Make the actual limits legible when a lesson's independent CPU oracle
 // intentionally supports fewer pixels than the shared WebGL2 host.
 byId('width').max=String(MAX_SIDE);byId('height').max=String(MAX_SIDE);

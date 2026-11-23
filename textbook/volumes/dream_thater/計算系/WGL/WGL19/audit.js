@@ -186,53 +186,108 @@ return (async()=>{
   const renderError=gl.getError();
   if(renderError!==gl.NO_ERROR)throw new Error('final GL error 0x'+renderError.toString(16));
   dispose();
-  // Timeline from the *actual executed audit loop*: source-defined virtual
-  // deltas, number of GPU diffusion updates, and dropped simulated time.
-  // This is intentionally distinct from wall-clock measuredFps.
+  // Reuse the exact same GPU shader and ping-pong textures for a slow-motion
+  // replay. The returned numerical oracle stays the audited *final* snapshot;
+  // this live display is explicitly a second run, not another physical model.
   if(typeof document!=='undefined'){
-    const panel=document.createElement('details');
-    panel.setAttribute('aria-label','描画フレームとGPU数値stepの実行履歴');
-    const toggle=document.createElement('summary');
-    toggle.style.cssText='cursor:pointer;font-weight:600';
-    toggle.textContent='実行'+steps+' step／破棄'+droppedMs+' ms：各フレーム';
-    panel.style.cssText='position:absolute;right:8px;top:8px;z-index:2;'+
-      'width:min(330px,calc(100% - 32px));max-height:calc(100% - 24px);'+
-      'overflow:auto;background:rgba(3,16,30,.94);color:#fff;'+
-      'padding:7px 9px;font:12px/1.45 system-ui';
-    const title=document.createElement('strong');
-    title.textContent='何が違う？　描画1回と計算step数';
-    const subtitle=document.createElement('p');subtitle.style.cssText='margin:3px 0 6px';
-    subtitle.textContent='仮想フレーム間隔（入力配列）→実際に進めたGPU step。'+
-      '1 step='+fixedMs+' ms、1フレーム最大'+maxStepsPerFrame+' step。';
-    panel.append(toggle,title,subtitle);
-    const maxDelta=Math.max(1,...frameDeltasMs);
-    for(let k=0;k<frames.length;k++){
-      const row=document.createElement('div');
-      row.style.cssText='display:grid;grid-template-columns:65px 1fr;'+
-        'align-items:center;gap:6px;margin:3px 0';
+    const shell=document.createElement('div');
+    shell.style.cssText='width:100%;position:relative;display:block';
+    canvas.parentNode.insertBefore(shell,canvas);
+    shell.append(canvas);
+    const grid=document.createElement('div');
+    grid.setAttribute('aria-hidden','true');
+    grid.style.cssText='position:absolute;inset:0;pointer-events:none;display:grid;'+
+      'grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(4,minmax(0,1fr))';
+    const labels=[];
+    for(let j=3;j>=0;j--)for(let i=0;i<4;i++){
       const label=document.createElement('span');
-      label.textContent='描画 '+(k+1);
-      const track=document.createElement('div');
-      track.style.cssText='height:15px;position:relative;'+
-        'background:#18364b;border:1px solid #799aaf';
-      const bar=document.createElement('div');
-      bar.style.cssText='height:100%;background:#65bddf;width:'+
-        (100*frameDeltasMs[k]/maxDelta).toFixed(2)+'%';
-      const caption=document.createElement('span');
-      caption.textContent=frameDeltasMs[k]+'ms → '+frames[k]+' step'+
-        (discardedPerFrame[k]?'、破棄'+discardedPerFrame[k]+'ms':'');
-      caption.style.cssText='font-size:11px;display:block';
-      track.append(bar);const summary=document.createElement('div');
-      summary.append(track,caption);row.append(label,summary);panel.append(row);
+      label.style.cssText='display:grid;place-items:center;font:600 clamp(10px,1.5vw,20px)/1.2 ui-monospace,monospace;'+
+        'color:#fff;text-shadow:0 1px 3px #001d35,0 0 8px #001d35;pointer-events:none';
+      grid.append(label);labels[i+4*j]=label;
     }
-    const outcome=document.createElement('p');
-    outcome.style.cssText='margin:6px 0 0;border-top:1px solid #527184;padding-top:5px';
-    outcome.textContent='実行 '+steps+' step / 破棄 '+droppedMs+' ms'+
-      ' / 実測rAF '+(measuredFps===null?'測定不可':measuredFps.toFixed(1)+' FPS')+
-      '（実測FPSは上の仮想間隔とは別）';
-    panel.append(outcome);
-    document.body.style.position='relative';
-    canvas.insertAdjacentElement('afterend',panel);
+    shell.append(grid);
+    const live={frame:0,steps:0,droppedMs:0,remainderMs:0,playing:false,timer:null};
+    function publish(){
+      canvas.dispatchEvent(new CustomEvent('wgl19-progress',{detail:{
+        frame:live.frame,steps:live.steps,droppedMs:live.droppedMs,
+        remainderMs:live.remainderMs,playing:live.playing
+      }}));
+    }
+    function paint(){
+      drawScreen();
+      const values=readState();
+      for(let k=0;k<N*N;k++)labels[k].textContent=values[k].toFixed(3);
+      // readState binds a float FBO; present the actual GPU result again.
+      drawScreen();
+    }
+    function halt(){
+      if(live.timer!==null)clearInterval(live.timer);
+      live.timer=null;live.playing=false;
+    }
+    function resetPlayback(){
+      halt();
+      if(gpu)dispose();
+      initialize();
+      live.frame=0;live.steps=0;live.droppedMs=0;live.remainderMs=0;
+      paint();publish();
+    }
+    function nextFrame(){
+      if(live.frame>=frameDeltasMs.length){halt();publish();return;}
+      const delta=frameDeltasMs[live.frame];
+      live.remainderMs+=delta;
+      let performed=0;
+      while(live.remainderMs+1e-9>=fixedMs && performed<maxStepsPerFrame){
+        tick();live.remainderMs-=fixedMs;live.steps++;performed++;
+      }
+      if(live.remainderMs+1e-9>=fixedMs){
+        const skipped=Math.floor((live.remainderMs+1e-9)/fixedMs);
+        live.droppedMs+=skipped*fixedMs;
+        live.remainderMs-=skipped*fixedMs;
+      }
+      live.frame++;
+      paint();
+      if(live.frame===frameDeltasMs.length)halt();
+      publish();
+    }
+    function safely(action){
+      try{action();}
+      catch(error){
+        halt();
+        canvas.dispatchEvent(new CustomEvent('wgl19-playback-error',{
+          detail:{message:String(error?.message||error).slice(0,300)}
+        }));
+      }
+    }
+    function startPlayback(){
+      halt();live.playing=true;publish();
+      live.timer=setInterval(()=>safely(nextFrame),850);
+    }
+    canvas.addEventListener('wgl19-control',event=>{
+      const action=event.detail?.action;
+      if(action==='pause'){halt();publish();}
+      else if(action==='reset')safely(resetPlayback);
+      else if(action==='step')safely(()=>{
+        halt();if(live.frame===frameDeltasMs.length)resetPlayback();
+        nextFrame();
+      });
+      else if(action==='play')safely(()=>{
+        if(live.frame===frameDeltasMs.length)resetPlayback();
+        startPlayback();
+      });
+    });
+    // Parent runner captures the final RGBA8 oracle before dispatching this
+    // handshake. A timer alone could race readPixels on a slower GPU.
+    window.addEventListener('wgl19-initial-oracle-captured',()=>safely(()=>{
+      if(!document.contains(canvas))return;
+      resetPlayback();
+      if(window.matchMedia?.('(prefers-reduced-motion: reduce)').matches){
+        publish();return;
+      }
+      startPlayback();
+    }),{once:true});
+    window.matchMedia?.('(prefers-reduced-motion: reduce)').addEventListener?.('change',e=>{
+      if(e.matches){halt();publish();}
+    });
   }
   return {floatReadback,floatParameters:{rate,steps},
     frameAudit:{deltas:frameDeltasMs,fixedMs,maxStepsPerFrame,
