@@ -1,0 +1,46 @@
+id: "ANF19"
+title: "アデール・イデールと有限性条件"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANF18
+official_scope: []
+learning_objectives:
+  - 数体の全ての素点を区別して制限付き直積とその有限性条件・位相を定義できる
+  - 対角埋め込みが整合的でアデール内で離散であることを証明できる
+  - 有限素点と実・複素素点で正規化した絶対値による大域積公式を導出できる
+  - アデール環の可逆元としてイデールを特徴付け、イデール位相がアデール部分空間位相と異なる理由を説明できる
+  - イデールの絶対値とイデール類群を構成し積公式との関係を説明できる
+  - イデールから分数イデアルへの全射と類群への完全列を証明して例に適用できる
+definitions:
+  - { id: ANF19-DEF-01, name: 制限付き直積 }
+  - { id: ANF19-DEF-02, name: アデール環 }
+  - { id: ANF19-DEF-03, name: イデール群 }
+  - { id: ANF19-DEF-04, name: イデールの絶対値 }
+  - { id: ANF19-DEF-05, name: イデール類群 }
+theorems:
+  - { id: ANF19-PROP-01, name: 数体の対角埋め込みと離散性 }
+  - { id: ANF19-THM-01, name: 数体の大域積公式 }
+  - { id: ANF19-PROP-02, name: イデールの特徴付けと位相の相違 }
+  - { id: ANF19-THM-02, name: イデールのイデアル写像と類群完全列 }
+canonical_examples:
+  - Qのp進成分がpまたはpの逆数である列の有限性条件
+  - Qにおける18の積公式と非対角イデールの絶対値
+  - Q(i)における2+iの複素絶対値と素イデアルの対応
+  - アデールへの収束とイデール位相での非収束
+  - Qのイデールの分数イデアルと類群への像
+problem_patterns:
+  - ANF19-RESTRICTED-PRODUCT-MEMBERSHIP
+  - ANF19-RATIONAL-PRODUCT-FORMULA
+  - ANF19-IDELE-INVERSE
+  - ANF19-GAUSSIAN-NORM-PRODUCT
+  - ANF19-IDEAL-MAP-CALCULATION
+  - ANF19-DIAGONAL-DISCRETENESS
+  - ANF19-IDELE-NORM-DIAGONAL
+  - ANF19-TOPOLOGY-SEQUENCE
+  - ANF19-CLASS-GROUP-EXACTNESS
+  - ANF19-INTEGRATED-IDELE-CLASS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13.0, exercises: 9.0, review: 4.0 }
