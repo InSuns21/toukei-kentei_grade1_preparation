@@ -1,0 +1,54 @@
+chapter: GBG12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG11
+  - GBG8
+  - GBG5
+  - GEO4
+forward_references: []
+concepts:
+  - id: gauge.principal-connection-existence
+    name: 主束接続の存在
+    kind: theorem
+    introduction: formal
+    requires: [geometry.partition-of-unity-existence, gauge.product-principal-connection-form, gauge.principal-connection-form]
+
+  - id: gauge.tensorial-adjoint-one-form
+    name: 水平・随伴同変なテンソル的1形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（水平・随伴同変なテンソル的1形式）"]
+    requires: [gauge.right-principal-fundamental-vector-field, lie.adjoint-representation]
+
+  - id: gauge.connection-difference-tensorial
+    name: 接続の差とテンソル的1形式
+    kind: theorem
+    introduction: formal
+    requires: [gauge.tensorial-adjoint-one-form, gauge.principal-connection-form]
+
+  - id: gauge.tensorial-adjoint-correspondence
+    name: テンソル的1形式と随伴束値1形式の対応
+    kind: theorem
+    introduction: formal
+    requires: [gauge.tensorial-adjoint-one-form, gauge.adjoint-lie-algebra-bundle, gauge.adjoint-fiber-operations]
+
+  - id: gauge.affine-space-definition
+    name: ベクトル空間をモデルとするアフィン空間
+    aliases: [アフィン空間]
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ベクトル空間をモデルとするアフィン空間）"]
+    requires: []
+
+  - id: gauge.principal-connections-affine
+    name: 主束接続全体のアフィン空間構造
+    kind: theorem
+    introduction: formal
+    requires: [gauge.principal-connection-existence, gauge.connection-difference-tensorial, gauge.tensorial-adjoint-correspondence, gauge.affine-space-definition]
+
+  - id: gauge.curvature-change-under-connection
+    name: 接続を変えたときの曲率の差
+    kind: proposition
+    introduction: formal
+    requires: [gauge.principal-curvature-form, gauge.covariant-exterior-derivative, gauge.connection-difference-tensorial]

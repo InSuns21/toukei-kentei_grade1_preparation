@@ -1,0 +1,45 @@
+id: "GBG12"
+title: "接続は存在するか、二つの接続の差は何か"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG11
+  - GBG8
+  - GBG5
+  - GEO4
+official_scope: []
+learning_objectives:
+  - 分割の1の台と局所有限性を説明し、二つのパッチで具体的に構成できる
+  - 局所接続の重み付き和から任意の滑らかな右主束の大域接続の存在を再生条件と同変性で証明できる
+  - 接続の差が水平・随伴同変であること、逆にテンソル的1形式を足せることを証明できる
+  - テンソル的1形式と随伴Lie環束値1形式の対応をwell-defined性と逆構成を含めて導ける
+  - 接続空間のアフィン構造と接続補間を説明できる
+  - 接続の差による曲率変化公式を非可換項と符号まで展開し具体例で検算できる
+definitions:
+  - { id: GBG12-DEF-02, name: 水平・随伴同変なテンソル的1形式 }
+  - { id: GBG12-DEF-03, name: ベクトル空間をモデルとするアフィン空間 }
+theorems:
+  - { id: GBG12-THM-01, name: 主束接続の存在 }
+  - { id: GBG12-THM-02, name: 接続の差とテンソル的1形式 }
+  - { id: GBG12-THM-03, name: テンソル的1形式と随伴束値1形式の対応 }
+  - { id: GBG12-THM-04, name: 主束接続全体のアフィン空間構造 }
+  - { id: GBG12-PROP-01, name: 接続を変えたときの曲率の差 }
+canonical_examples:
+  - 二つの開区間被覆に従属する滑らかな分割の1
+  - 二つの局所接続の重み付き和と遷移関数における非斉次変換
+  - U(1)積主束における接続差と曲率の消滅
+  - GL(2,R)の非可換な曲率差
+problem_patterns:
+  - GBG12-PARTITION-OF-UNITY
+  - GBG12-WEIGHTED-CONNECTION
+  - GBG12-ABELIAN-DIFFERENCE
+  - GBG12-LOCAL-TRANSFORMATION-CANCELLATION
+  - GBG12-TWO-PATCH-RECONSTRUCTION
+  - GBG12-TENSORIAL-ADJOINT-WELLDEFINED
+  - GBG12-AFFINE-INTERPOLATION
+  - GBG12-NONABELIAN-CURVATURE-VARIATION
+  - GBG12-GLOBAL-EXISTENCE-AFFINE-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 4 }

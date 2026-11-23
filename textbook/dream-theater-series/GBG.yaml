@@ -52,7 +52,7 @@ chapters:
     title: "Bianchi恒等式はどこから生じるか"
   - id: GBG12
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG12
-    status: planned
+    status: completed
     title: "接続は存在するか、二つの接続の差は何か"
   - id: GBG13
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG13
