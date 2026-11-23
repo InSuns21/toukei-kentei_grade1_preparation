@@ -11,3 +11,4 @@
 8. [LREP4 直和・テンソル積・双対表現](textbook/volumes/dream_thater/代数系/LREP/LREP4/index.md)
 9. [LREP5 SU(2)からSO(3)への二重被覆](textbook/volumes/dream_thater/代数系/LREP/LREP5/index.md)
 10. [LREP6 SU(2)の有限次元既約表現](textbook/volumes/dream_thater/代数系/LREP/LREP6/index.md)
+11. [LREP7 角運動量とスピン量子数](textbook/volumes/dream_thater/代数系/LREP/LREP7/index.md)

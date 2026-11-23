@@ -31,7 +31,7 @@ chapters:
     title: "SU(2)の有限次元既約表現"
   - id: LREP7
     path: textbook/volumes/dream_thater/代数系/LREP/LREP7
-    status: planned
+    status: completed
     title: "角運動量とスピン量子数"
   - id: LREP8
     path: textbook/volumes/dream_thater/代数系/LREP/LREP8
