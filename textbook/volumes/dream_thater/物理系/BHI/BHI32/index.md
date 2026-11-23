@@ -184,7 +184,14 @@ $$
 =\langle\psi|\varphi\rangle
 \end{aligned}
 $$
-となります。ゆえに両符号について $V^\dagger V=I_L$ です。さらに $U_{\mathrm{swap}}V_{\mathrm{early}}|0\rangle=|00\rangle=V_{\mathrm{late}}|0\rangle$、$U_{\mathrm{swap}}V_{\mathrm{early}}|1\rangle=|10\rangle=V_{\mathrm{late}}|1\rangle$ です。両基底で一致するので $U_{\mathrm{swap}}V_{\mathrm{early}}=V_{\mathrm{late}}$ が線形写像として成立します。
+となります。ゆえに両符号について $V^\dagger V=I_L$ です。さらにSWAPの定義から
+$$
+\begin{aligned}
+U_{\mathrm{swap}}V_{\mathrm{early}}|0\rangle&=|00\rangle=V_{\mathrm{late}}|0\rangle,\\
+U_{\mathrm{swap}}V_{\mathrm{early}}|1\rangle&=|10\rangle=V_{\mathrm{late}}|1\rangle
+\end{aligned}
+$$
+です。両基底で一致するので $U_{\mathrm{swap}}V_{\mathrm{early}}=V_{\mathrm{late}}$ が線形写像として成立します。
 <!-- definition-example-end -->
 
 <a id="prop-bhi32-transfer-reconstruction"></a>
@@ -201,7 +208,12 @@ $$
 <!-- proof-start -->
 ### 証明
 
-各基底で $O_{kj}:=\langle k|O|j\rangle_L$ と置きます。$O_B$ と $O_R$ は、論理行列 $O$ と同じ成分 $O_{kj}$ をそれぞれ $B$ と $R$ の正規直交基底で作用させる物理行列です。したがって $O_B|j\rangle_B=\sum_k O_{kj}|k\rangle_B$、$O_R|j\rangle_R=\sum_k O_{kj}|k\rangle_R$ です。任意の $|\psi\rangle_L=\alpha|0\rangle+\beta|1\rangle$ に対し、
+各基底で $O_{kj}:=\langle k|O|j\rangle_L$ と置きます。$O_B$ と $O_R$ は、論理行列 $O$ と同じ成分 $O_{kj}$ をそれぞれ $B$ と $R$ の正規直交基底で作用させる物理行列です。すなわち
+$$
+O_B|j\rangle_B=\sum_k O_{kj}|k\rangle_B,\qquad
+O_R|j\rangle_R=\sum_k O_{kj}|k\rangle_R
+$$
+です。任意の $|\psi\rangle_L=\alpha|0\rangle+\beta|1\rangle$ に対し、
 $$
 V_{\mathrm{early}}|\psi\rangle=|0\rangle_R|\psi\rangle_B,\qquad
 V_{\mathrm{late}}|\psi\rangle=|\psi\rangle_R|0\rangle_B.
