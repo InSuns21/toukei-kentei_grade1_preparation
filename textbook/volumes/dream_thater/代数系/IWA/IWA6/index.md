@@ -30,10 +30,10 @@ $a_i$ のうち最初にその最小付値を達成する添字も一意に定�
 >
 > と定める。$f=p^{\mu(f)}f_0$、$f_0=\sum_{i\ge0}b_iT^i$ と書くと、$d=d(f)$ に対して
 
-$
+$$
 b_i\in p\mathbb Z_p\ (0\le i<d),\qquad
 b_d\in\mathbb Z_p^\times
-$
+$$
 
 > が成り立つ。零冪級数には $\mu,d$ を定義しない。
 <!-- formal-statement-end -->
@@ -509,11 +509,11 @@ $$
 
 実際に行列から直接計算すると
 
-$
+$$
 \det(XI-[T]_{(1,T)})=
 \det\begin{pmatrix}X&3\\-1&X+3\end{pmatrix}
 =X(X+3)+3=X^2+3X+3=W(X)
-$
+$$
 
 となり、作用の関係式と一致します。
 <!-- solution-end -->
