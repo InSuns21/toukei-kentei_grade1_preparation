@@ -112,7 +112,7 @@ chapters:
     title: "第二Chern数は純ゲージ場と非自明な場をどう区別するか"
   - id: GBG27
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG27
-    status: planned
+    status: completed
     title: "自己双対性はYang–Mills作用に何を与えるか"
   - id: GBG28
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG28
