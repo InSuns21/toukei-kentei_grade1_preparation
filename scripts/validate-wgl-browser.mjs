@@ -881,7 +881,6 @@ try{
   assert.match(terrain.clock,/静止GPU描画.*物理stepなし/);
   assert.match(terrain.mode,/EPSG:6697.*32 m.*1.5倍/);
   assert.match(terrain.source,/terrain.js.*terrain.frag/);
-  await click('stop');
   console.log('WGL20 actual terrain GPU scene and EPSG/height/source-linked G3 legend: PASS');
   // Compare the real iframe GPU canvas, not changing host text. A moved
   // directional light must alter the facade/shadow pixels. A lowered
@@ -913,6 +912,7 @@ try{
   await writeFile('_wgl_browser_review/wgl20-urban-lower-water.png',
     Buffer.from(wgl20Water.data,'base64'));
   console.log('WGL20 real Chromium 9-building street, shadow-light change and water-level change: PASS');
+  await click('stop');
 
 
 
