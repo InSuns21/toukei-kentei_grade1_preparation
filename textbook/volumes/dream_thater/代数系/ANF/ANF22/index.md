@@ -1,4 +1,4 @@
-# ANF22 Hilbert類体・円分体と $\mathbb Z_p$ 塔への橋
+# ANF22 Hilbert類体・円分体とZ_p塔への橋
 
 [イデアル類群](../ANF6/index.md#def-anf6-ideal-class-group)は「元の一意分解が壊れた程度」を測りました。[剰余類群とArtin対応](../ANF20/index.md#thm-anf20-ray-class-field)は、その有限商をAbel拡大のGalois群として読めるようにします。では、合同条件を課さないときに得られる拡大は何でしょうか。また、法を $p,p^2,p^3,\ldots$ と深くすると、有限群の列はどんな無限拡大を作るでしょうか。
 
