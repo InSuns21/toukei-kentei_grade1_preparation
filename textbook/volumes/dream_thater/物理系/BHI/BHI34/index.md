@@ -222,11 +222,11 @@ $$
 ### 証明
 
 $\delta:=x_Q^-+M$ とすると、二つ目の停留条件と $x_O^-=-M-e^{-u}$ は
-$
+$$
 -M-e^{-u}=(-M+\delta)e^{4\delta/M}.
-$
+$$
 $0<\delta\ll M$ で指数関数のTaylor展開を適用し、
-$
+$$
 \begin{aligned}
 (-M+\delta)e^{4\delta/M}
 &=(-M+\delta)\left(1+\frac{4\delta}{M}
@@ -235,35 +235,35 @@ $
 +O\left(\frac{\delta^2}{M}\right)\\
 &=-M-3\delta+O\left(\frac{\delta^2}{M}\right).
 \end{aligned}
-$
+$$
 両辺から $-M$ を消すと
-$
+$$
 e^{-u}=3\delta+O\left(\frac{\delta^2}{M}\right).
-$
+$$
 $e^{-u}/M\ll1$ により小さい枝で $\delta=O(e^{-u})$ と自己無撞着に評価できるので、代入し直して
-$
+$$
 \delta=\frac{e^{-u}}3+O\left(\frac{e^{-2u}}M\right)
-$
+$$
 を得ます。第一の停留条件から $x_Q^+=1/(4\delta)$。$\delta=(e^{-u}/3)[1+O(e^{-u}/M)]$ と括れば、逆数の展開で
-$
+$$
 x_Q^+=\frac{3e^u}{4}
 \left[1+O\left(\frac{e^{-u}}M\right)\right].
-$
+$$
 最後に $\delta>0$ なので第一式の $x_Q^+>0$ も満たします。$\square$
 <!-- proof-end -->
 
 **数値検算**：$M=100$、$u=\log10$ なら $e^{-u}=1/10$、先頭解 $\delta\approx1/30$、$x_Q^+\approx15/2$ です。第一の停留方程式の左辺は $(15/2)(1/30)=1/4$。第二の右辺は
-$
+$$
 \left(-100+\frac1{30}\right)e^{4/(3000)}
 =-100-\frac1{10}+O(10^{-5})
-$
+$$
 で、観測点 $x_O^-=-100.1$ と先頭精度で一致します。端点の積の符号が正になる点は、見かけの地平線の方程式とは区別してください。
 
 この計算は、文献で導出された**RST固有の端点方程式を解く手順**を示したものです。元の重力・Polyakov作用から場の解と二変数一般化エントロピーをすべて再導出したものではありません。文献では、このQESを一般化エントロピーに戻してから、$M\gg1$、蒸発終期 $u_{\rm end}\simeq4M$、$u$ が $M$ のオーダーの区間において、$u$ に依存しないcutoff項を除く主項として
 
-$
+$$
 S_{\rm island\ rule}(u)=\frac{N}{24}\min\{2u,\,4M-u\}+O(N\log M)
-$
+$$
 
 を得ます（同論文 §3.3）。$2u=4M-u$ から $u_{\rm Page}\simeq4M/3$ です。無次元量の比例係数は第3節の $2a$ と $a$ に相当します。ここでの $O(N\log M)$ は時間に依存する精密な誤差上界を本講で証明したものではなく、原論文が大質量の主項計算で省く項の次数を表します。端点が特異境界にぶつかる蒸発終期の近傍では、同じ近似を一様に延長できません。
 
@@ -562,21 +562,21 @@ $a_0/k=S_0/3$ の等号では交点は有限時刻に達しません。
 
 <!-- solution-start -->
 **詳細解答**：(1) 積と指数関数の微分から
-$
+$$
 f'(\delta)=e^{4\delta/M}\left(1+\frac4M(-M+\delta)\right)
 =e^{4\delta/M}\left(-3+\frac{4\delta}{M}\right).
-$
+$$
 $0<\delta<M/4$ では括弧は $-3+1=-2$ より小さいので $f'<0$ です。従ってこの区間に根があれば一意です。
 
 (2) $z=\delta/M$ と置くと $e^{4z}=1+4z+8z^2+O(z^3)$ なので
-$
+$$
 \begin{aligned}
 f(\delta)&=(-M+\delta)\left(1+\frac{4\delta}{M}+\frac{8\delta^2}{M^2}
 +O\left(\frac{\delta^3}{M^3}\right)\right)\\
 &=-M-3\delta-\frac{4\delta^2}{M}
 +O\left(\frac{\delta^3}{M^2}\right).
 \end{aligned}
-$
+$$
 従って $f(\delta)=-M-e^{-u}$ の先頭方程式は $3\delta=e^{-u}$ です。$e^{-u}/M\ll1$ なら $\delta/M\simeq e^{-u}/(3M)\ll1$ であり $0<\delta<M/4$ にも入ります。誤差は $O(e^{-2u}/M)$ と小さく、停留方程式を満たす局所的な根を近似しています。
 <!-- solution-end -->
 
