@@ -71,7 +71,7 @@ F'(t)=(e^{tX})^{\mathsf T}
 (X^{\mathsf T}\eta+\eta X)e^{tX}=0,\qquad F(0)=\eta.
 $$
 
-ゆえに $e^{tX}\in O(1,3)$ です。$t\mapsto e^{tX}$ は $I_4$ からの連続な道なので、その像は $SO^+(1,3)$ にあります。[行列指数による1パラメータ部分群](../../LIE/LIE2/index.md#thm-lie2-one-parameter-subgroup)の定義とも一致します。
+ゆえに $e^{tX}\in O(1,3)$ です。$t\mapsto e^{tX}$ は $I_4$ からの連続な道なので、その像は $SO^+(1,3)$ にあります。[行列指数による1パラメータ部分群](../../LIE/LIE2/index.md#thm-lie2-one-parameter-classification)の定義とも一致します。
 
 $\eta^{\mathsf T}=\eta$ だから条件は $(\eta X)^{\mathsf T}=-\eta X$ と同値です。$\eta$ は可逆であり、$X\mapsto \eta X$ は実線形同型です。$4$ 次反対称行列では対角成分が零、上三角の $\binom42=6$ 成分が自由に決まり、下三角はその負で決まります。したがって次元は $6$ です。
 
