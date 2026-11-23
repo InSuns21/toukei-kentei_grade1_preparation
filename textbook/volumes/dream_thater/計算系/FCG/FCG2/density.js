@@ -1,10 +1,19 @@
-// FCG2: prescribed analytic scalar field, NOT a fluid PDE solver.
-// Physical time is continuous in [0, 2pi] seconds; n*pi/2 remains the
-// exact, reproducible exercise checkpoint. GPU draws; CPU computes the field.
-// The code executes only inside the opaque-origin editable WebGL sandbox.
-const N=8, dt=Math.PI/2, period=4*dt;
+// FCG2: a passive dye patch carried by a prescribed, incompressible vortex.
+// Physical model: u = Omega(r) * (-dy, dx), Omega(r)=omega*(1+shear*r).
+// The exact characteristic map is theta(t)=theta(0)+Omega(r)*t, r(t)=r(0).
+// The same analytic q(x,y,t) drives the editable GPU display and source-linked GUI.
+// The next lesson (FCG3) replaces this exact evaluation by numerical advection.
+const N=128;
+const omega=1;           // rad/s: base angular speed; GUI edits this literal
+const shear=3;           // 1/m: radial increase of angular speed; GUI edits this
+const amplitude=0.9;     // 0..1: initial peak dye concentration; GUI edits this
+const dt=Math.PI/2, period=4*dt;
 const steps=settings.steps;
 if(!Number.isInteger(steps)||steps<0||steps>4)throw new RangeError('steps must be 0..4');
+if(!Number.isFinite(omega)||omega<0||omega>4||
+   !Number.isFinite(shear)||shear<0||shear>8||
+   !Number.isFinite(amplitude)||amplitude<0||amplitude>1)
+  throw new RangeError('omega, shear or amplitude outside demo limits');
 let time=steps*dt, playing=false, frameId=0, previous=0, lastReport=-Infinity;
 let current=new Float64Array(N*N),next=new Float64Array(N*N);
 let active=-1, largestError=0;
@@ -45,10 +54,19 @@ gl.bindVertexArray(vao);
 gl.disable(gl.DITHER);gl.disable(gl.BLEND);gl.disable(gl.DEPTH_TEST);
 gl.disable(gl.SCISSOR_TEST);gl.disable(gl.CULL_FACE);
 gl.viewport(0,0,canvas.width,canvas.height);
-let selection=[Math.floor(1.5*canvas.width/N),Math.floor(1.5*canvas.height/N)];
+let selection=[Math.floor(0.25*canvas.width),Math.floor(0.59*canvas.height)];
+function concentration(x,y,t){
+  const dx=x-0.5,dy=y-0.5,r=Math.hypot(dx,dy);
+  const radial=Math.max(0,1-((r-0.26)/0.18)**2);
+  if(radial===0)return 0;
+  const theta=Math.atan2(dy,dx);
+  const departure=theta-omega*(1+shear*r)*t;
+  return amplitude*radial*radial*
+    Math.exp((Math.cos(departure)-1)/(0.55*0.55));
+}
 function emitProgress(force=false){
   const now=performance.now();
-  if(!force&&now-lastReport<110)return; // avoid a readPixels stall every display frame
+  if(!force&&now-lastReport<150)return;
   lastReport=now;
   const rgba=new Uint8Array(4),[x,y]=selection;
   gl.readPixels(x,y,1,1,gl.RGBA,gl.UNSIGNED_BYTE,rgba);
@@ -57,12 +75,11 @@ function emitProgress(force=false){
   }}));
 }
 function drawField(t){
-  // Re-evaluate the analytic expression at the ACTUAL time, not interpolation
-  // between the five exercise snapshots. A frame is not a PDE time step.
+  // Exact back-rotation: every texel evaluates the same physical dye field.
+  // There is no image interpolation and no separately simulated GUI scene.
   for(let j=0;j<N;j++)for(let i=0;i<N;i++){
     const x=(i+0.5)/N,y=(j+0.5)/N;
-    next[i+N*j]=0.5+0.25*Math.sin(2*Math.PI*x)*
-      Math.cos(2*Math.PI*y)*Math.sin(t);
+    next[i+N*j]=concentration(x,y,t);
   }
   [current,next]=[next,current];
   active=(active+1)%2;
@@ -93,14 +110,16 @@ function frame(now){
   if(!playing)return;
   if(!document.hidden){
     if(previous){
+      // Limit time jump after a stalled browser tab; keep physical seconds explicit.
       const elapsed=Math.min(0.05,Math.max(0,(now-previous)/1000));
-      time=(time+elapsed)%period;
+      time=Math.min(period,time+elapsed);
       try{drawField(time);emitProgress();}
       catch(error){
         playing=false;
         canvas.dispatchEvent(new CustomEvent('fcg2-failure',{detail:{message:String(error)}}));
         return;
       }
+      if(time>=period){playing=false;previous=0;emitProgress(true);return;}
     }
     previous=now;
   }else previous=0;
@@ -108,7 +127,9 @@ function frame(now){
 }
 function play(){
   if(playing)return;
-  playing=true;previous=0;emitProgress(true);frameId=requestAnimationFrame(frame);
+  if(time>=period)seek(0);
+  playing=true;previous=0;emitProgress(true);
+  frameId=requestAnimationFrame(frame);
 }
 function step(){
   pause();
@@ -122,10 +143,10 @@ function select(x,y){
   selection=[x,y];emitProgress(true);
 }
 drawField(time);
-report('TIME','initial snapshot step='+steps+', dt=pi/2 s, physical t='+time.toFixed(5)+' s');
-report('FIELD','analytic prescribed scalar; continuous CPU sampling; NOT Navier-Stokes or advection');
-report('GRID','8x8 bottom row first; two alternating R8 upload textures; GPU draws only');
-report('ERROR','max |q - R8/255| = '+largestError.toPrecision(6)+' (bound 1/510)');
-report('FORMAT','R8/RED/UNSIGNED_BYTE; no float render-target extension');
+report('PHYSICS','2D passive dye: u=omega(1+shear*r)(-dy,dx), div u=0');
+report('PARAMETERS','omega='+omega+' rad/s, shear='+shear+' 1/m, peak='+amplitude);
+report('GRID','128x128 physical samples, 2 alternating R8 GPU upload textures');
+report('CLOCK','exact characteristic at t='+time.toFixed(5)+' s, playback stops at 2pi s');
+report('ERROR','max |q-R8/255|='+largestError.toPrecision(6)+' <=1/510');
 window.addEventListener('pagehide',()=>{playing=false;if(frameId)cancelAnimationFrame(frameId);},{once:true});
 return {play,pause,reset:()=>{pause();seek(0);},step,seek,select,getTime:()=>time};
