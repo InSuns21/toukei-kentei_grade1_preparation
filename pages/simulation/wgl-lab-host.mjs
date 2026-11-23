@@ -271,7 +271,7 @@ function fcg6PhysicsFor(js,vertex,fragment) {
 function fcg5PhysicsFor(js,vertex,fragment) {
   if(!isFCG5||vertex!==defaults.vertex||fragment!==defaults.fragment)return null;
   const specs=parametersFor('FCG5');
-  if(specs.length!==6)return null;
+  if(specs.length!==7)return null;
   const readings=specs.map(spec=>readLabParameter(js,spec));
   if(!readings.every(state=>state.ok))return null;
   try{
