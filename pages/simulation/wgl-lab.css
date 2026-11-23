@@ -218,3 +218,11 @@ main{max-width:1120px}
 .scene-info-list dd{margin:0;overflow-wrap:anywhere;font-size:.86rem}
 .scene-info-note{font-size:.8rem;color:#475569;margin:.35rem 0 0}
 @media(max-width:650px){.scene-info-list{grid-template-columns:minmax(0,1fr)}}
+
+/* WGL10: pass labels correspond to the real GPU views, not a mock preview. */
+.wgl10-stage-guide{margin:.7rem 0 .35rem;padding:.55rem 0;font-size:.92rem;
+  font-weight:650;color:#173c59;border-block:1px solid #b9cfdd;line-height:1.5}
+@media(max-width:720px){
+  #panel-result:has(.wgl10-stage-guide) #canvas-slot{overflow-x:auto}
+  #panel-result:has(.wgl10-stage-guide) .result-frame{min-width:720px}
+}
