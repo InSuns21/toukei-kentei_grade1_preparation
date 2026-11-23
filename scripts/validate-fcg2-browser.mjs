@@ -91,33 +91,33 @@ try {
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
   const initial=await evaluate('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(x=>x.textContent)),log:document.querySelector("#diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox"),opaque:(()=>{try{return !!document.querySelector("#canvas-slot iframe").contentWindow.document.body}catch{return true}})()})');
-  assert.equal(initial.rows.length,5);
+  assert.equal(initial.rows.length,6);
   assert.ok(initial.rows.every(r=>r[4]==='OK'),JSON.stringify(initial.rows));
-  assert.match(initial.rows[0][2],/150, 38, 105, 255/);
+  assert.match(initial.rows[0][2],/230, 176, 54, 255/);
   assert.match(initial.log,/R8/);
-  assert.match(await evaluate('document.querySelector("#fcg2-cpu-prediction").textContent'),/R8=150/);
+  assert.match(await evaluate('document.querySelector("#fcg2-cpu-prediction").textContent'),/R8=229/);
   assert.equal(initial.sandbox,'allow-scripts');
   assert.equal(initial.opaque,true);
-  console.log('FCG2 initial physical field, GPU readPixels, CPU oracle, opaque sandbox: PASS');
+  console.log('FCG2 128x128 passive dye advection, GPU readPixels, CPU oracle, opaque sandbox: PASS');
 
-  // One physical step changes n=1 to n=2; all cell values become 0.5.
-  await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="1step")).click()');
-  await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格") && document.querySelector("#numeric-summary")?.textContent.includes("5/5")',25000);
-  assert.match(await evaluate('document.querySelector("#fcg2-cpu-prediction").textContent'),/R8=128/);
-  const second=await evaluate('document.querySelector("#results-table tbody tr:first-child td:nth-child(3)")?.textContent');
-  assert.match(second,/128, 38, 127, 255/);
-  console.log('FCG2 physical step 2 and R8 value 128: PASS');
+  // One time checkpoint updates the live same-source canvas, rather than
+  // reloading a new 5-image snapshot or rerunning the stale CPU table.
+  await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="次の節目へ")).click()');
+  await waitFor('document.querySelector("#fcg2-time-display")?.textContent.includes("t=3.14")',10000);
+  const second=await evaluate('({q:document.querySelector("#fcg2-q").textContent,mark:document.querySelector("#fcg2-time-display").textContent})');
+  assert.ok(Number(second.q)<0.1,JSON.stringify(second));
+  console.log('FCG2 time checkpoint advances physically, on the same GPU scene: PASS');
 
   // Editing fragment color changes GPU pixels; keep q live to prevent the
   // compiler from optimizing u_density away (which this lesson requires).
   await click('tab-code');
-  const modified=await evaluate('(()=>{const e=document.querySelector("#fragment-source");e.value=e.value.replace("outColor=vec4(q,0.15,1.0-q,1.0);","outColor=vec4(0.0,q,0.0,1.0);");e.dispatchEvent(new Event("input",{bubbles:true}));return e.value.includes("vec4(0.0,q,0.0,1.0)")})()');
+  const modified=await evaluate('(()=>{const e=document.querySelector("#fragment-source");e.value=e.value.replace("outColor=vec4(mix(water,dye,q),1.0);","outColor=vec4(0.0,q,0.0,1.0);");e.dispatchEvent(new Event("input",{bubbles:true}));return e.value.includes("vec4(0.0,q,0.0,1.0)")})()');
   assert.ok(modified,'shader source edit did not apply');
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("編集コードを実行しました")',25000);
   const shader=await evaluate('document.querySelector("#results-table tbody tr:first-child td:nth-child(5)")?.textContent');
   assert.equal(shader,'変更版: 参考');
-  assert.match(await evaluate('document.querySelector("#results-table tbody tr:first-child td:nth-child(3)").textContent'),/0, 128, 0, 255/);
+  assert.match(await evaluate('document.querySelector("#results-table tbody tr:first-child td:nth-child(3)").textContent'),/0, 229, 0, 255/);
   await evaluate('document.querySelector("#preset").value="error";document.querySelector("#preset").dispatchEvent(new Event("change"))');
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("WebGL2実行エラー")',25000);
@@ -128,7 +128,7 @@ try {
 
   // Continuous playback must update the SAME editable GPU canvas, not cycle five images.
   assert.ok(await evaluate('!!document.getElementById("fcg2-time-slider")'));
-  assert.match(await evaluate('document.querySelector("#fcg2-inspector")?.textContent'),/解析値 q/);
+  assert.match(await evaluate('document.querySelector("#fcg2-inspector")?.textContent'),/独立CPU濃度 q/);
   await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="再生")).click()');
   await waitFor('Number(document.querySelector("#fcg2-time-slider")?.value)>0.25',8000);
   const live=await evaluate('({time:Number(document.querySelector("#fcg2-time-slider").value),q:document.querySelector("#fcg2-q").textContent,gpu:document.querySelector("#fcg2-gpu").textContent})');
@@ -138,7 +138,7 @@ try {
   await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="一時停止")).click()');
   await waitFor('document.querySelector("#fcg2-time-slider").disabled===false');
   await evaluate('(()=>{const e=document.querySelector("#fcg2-time-slider");e.value="2.2";e.dispatchEvent(new Event("input",{bubbles:true}));})()');
-  await waitFor('document.querySelector("#fcg2-selected")?.textContent.includes("t=2.20")',8000);
+  await waitFor('document.querySelector("#fcg2-selected")?.textContent.includes("時刻 2.20 s")',8000);
   const seek=await evaluate('({time:Number(document.querySelector("#fcg2-time-slider").value),note:document.querySelector("#fcg2-inspection-note").textContent,byte:document.querySelector("#fcg2-byte").textContent})');
   assert.ok(Math.abs(seek.time-2.2)<0.02,JSON.stringify(seek));
   assert.match(seek.byte,/→/);
