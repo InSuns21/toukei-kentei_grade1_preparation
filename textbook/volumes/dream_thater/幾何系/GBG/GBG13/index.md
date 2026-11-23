@@ -4,7 +4,17 @@
 
 ここでは、接続への作用を定義して軌道・安定化群を区別し、無限小変換の符号を導く。そのうえで、条件を課して軌道から代表を選ぶ操作を「ゲージ固定」として調べる。区間と円周の例を通じ、**局所的には代表を一つ選べても、同じ条件が大域的な一意性を保証しない**ことを計算する。
 
-**全節の設定**：$M$ は Hausdorff・第二可算・境界のない滑らかな有限次元多様体、$G$ は有限次元 Lie 群、$\pi:P\to M$ は滑らかな右主 $G$ 束とする。接続全体を $\mathcal A(P)$、基底を固定するゲージ自己同型全体を $\mathcal G(P)$ と書く。[GBG7 の接続形式](../GBG7/index.md#def-gbg7-connection-form)を $\omega$、局所 section $s_i$ での表示を $A_i=s_i^*\omega$ とする。局所ゲージ関数は $F_u(s_i)=s_i a_i$ であり、重なりで $a_j=g_{ij}^{-1}a_i g_{ij}$ を満たす（[GBG5 の局所整合条件](../GBG5/index.md#thm-gbg5-local-gauge)）。
+**全節の設定**：$M$ は Hausdorff・第二可算・境界のない滑らかな有限次元多様体、$G$ は有限次元 Lie 群とする。$\pi:P\to M$ は滑らかな右主 $G$ 束である。
+
+接続全体を $\mathcal A(P)$、基底を固定するゲージ自己同型全体を $\mathcal G(P)$ と書く。[GBG7 の接続形式](../GBG7/index.md#def-gbg7-connection-form)を $\omega$ とする。
+
+局所 section $s_i$ での表示は $A_i=s_i^*\omega$。局所ゲージ関数は $F_u(s_i)=s_i a_i$ で定める。重なりでの整合条件は
+
+$
+a_j=g_{ij}^{-1}a_i g_{ij}
+$
+
+である（[局所ゲージ関数の整合条件](../GBG5/index.md#thm-gbg5-local-gauge)）。
 
 ## 1. ゲージ群は接続全体のどこへ動かすか
 
@@ -89,7 +99,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg13-orbit -->
-**定義の確認**。$\mathbb R\times U(1)$ 上で $A_0=0$、$A_1=i\,dx$ とする。$a=e^{ix}$ により $A_1=T_a(A_0)$ なので二つは同じ軌道にある。他方、$\mathbb R^2\times U(1)$ 上の $A_0=0$ と $A_2=i x\,dy$ は同じ軌道にない。実際、[曲率の局所構造方程式](../GBG10/index.md#thm-gbg10-local-formula)より $F_0=0$、$F_2=i\,dx\wedge dy\neq0$ であり、可換群の[曲率変換則](../GBG10/index.md#thm-gbg10-gauge-transform)では曲率が不変だからである。
+**定義の確認**。$\mathbb R\times U(1)$ 上で $A_0=0$、$A_1=i\,dx$ とする。$a=e^{ix}$ により $A_1=T_a(A_0)$ なので二つは同じ軌道にある。
+
+一方、$\mathbb R^2\times U(1)$ 上で $A_0=0$、$A_2=i x\,dy$ とすると、二つは同じ軌道にない。[曲率の局所構造方程式](../GBG10/index.md#thm-gbg10-local-formula)から
+
+$
+F_0=0,\qquad F_2=i\,dx\wedge dy\ne0
+$
+
+が分かり、可換群の[局所曲率のゲージ共変性](../GBG10/index.md#thm-gbg10-gauge-transform)では曲率が不変だからである。
 <!-- definition-example-end -->
 
 <a id="def-gbg13-stabilizer"></a>
