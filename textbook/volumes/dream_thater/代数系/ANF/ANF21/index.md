@@ -330,22 +330,22 @@ $$
 
 ここで $\overline2$ は位数 $4$、$\overline4=-1$ は位数 $2$ です。複素共役は $\sigma_{-1}$ なので、その固定体は実部分体 $M=\mathbb Q(\zeta_5+\zeta_5^{-1})=\mathbb Q(\sqrt5)$ です。これを具体的に確かめます。$t=\zeta_5+\zeta_5^{-1}$ とおき、五次円分多項式の関係 $\zeta_5^4+\zeta_5^3+\zeta_5^2+\zeta_5+1=0$ を $\zeta_5^2$ で割ると
 
-$
+$$
 (\zeta_5^2+\zeta_5^{-2})+(\zeta_5+\zeta_5^{-1})+1=0.
-$
+$$
 
 $t^2=\zeta_5^2+2+\zeta_5^{-2}$ を代入するので
 
-$
+$$
 (t^2-2)+t+1=0,
 \qquad t^2+t-1=0.
-$
+$$
 
 判別式が $5$ なので $t\notin\mathbb Q$ です。$\zeta_5=e^{2\pi i/5}$ を選ぶと $t=2\cos(2\pi/5)>0$ だから、二つの根のうち正の根
 
-$
+$$
 t=\frac{-1+\sqrt5}{2}
-$
+$$
 
 を取ります。これで $\mathbb Q(t)=\mathbb Q(\sqrt5)$ も分かります。
 
@@ -389,10 +389,10 @@ $M/\mathbb Q$ は実拡大なので、実素点での局所Artin写像は自明�
 
 この誘導写像が同型であることも確かめます。[有理数体の剰余類群の計算](../ANF20/index.md#prop-anf20-ray-q)によれば、法 $(5)\infty$ から法 $(5)$ への自然な全射の核は $\{\overline1,\overline4\}$ です。一方、上で計算した $E$ から $M$ へのArtin写像の制限の核もちょうどこの二元集合です。したがって誘導写像
 
-$
+$$
 \operatorname{Cl}_{(5)}(\mathbb Q)
 \xrightarrow{\ \sim\ }\operatorname{Gal}(M/\mathbb Q)
-$
+$$
 
 は核が自明な全射、すなわち同型です。[剰余類体とArtin対応](../ANF20/index.md#thm-anf20-ray-class-field)の一意性を適用すると、$M$ が法 $(5)$ の剰余類体だと分かります。
 <!-- proof-end -->
