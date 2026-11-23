@@ -19,3 +19,4 @@
 16. [GBG16 曲率ゼロでも大域的な効果は残るか](textbook/volumes/dream_thater/幾何系/GBG/GBG16/index.md)
 17. [GBG17 Wilson loopは何に関して不変か](textbook/volumes/dream_thater/幾何系/GBG/GBG17/index.md)
 18. [GBG18 U(1)の非自明束はどう見えるか](textbook/volumes/dream_thater/幾何系/GBG/GBG18/index.md)
+19. [GBG19 Dirac monopoleの電荷はなぜ量子化されるか](textbook/volumes/dream_thater/幾何系/GBG/GBG19/index.md)

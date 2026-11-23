@@ -1,0 +1,43 @@
+id: "GBG19"
+title: "Dirac monopoleの電荷はなぜ量子化されるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG18
+  - GEO8
+official_scope: []
+learning_objectives:
+  - 南北パッチのU(1)接続を極点まで滑らかに構成し遷移関数との整合を検証できる
+  - 局所曲率の一致を計算し球面の向きとiの符号を固定して第一Chern数を求められる
+  - Stokesの定理と赤道遷移関数の巻き数から任意の接続の磁束量子化を証明できる
+  - 曲率の積分と束の非自明性の関係を示し局所ポテンシャルの見かけの特異性を判別できる
+  - 基準電荷とU(1)の整数重み表現を区別して物理的な磁束・電荷条件を導出できる
+  - 局所section変更や接続変更に対して磁束が変わらないことを説明できる
+definitions:
+  - { id: GBG19-DEF-01, name: Dirac monopoleの南北局所接続 }
+  - { id: GBG19-DEF-02, name: 第一Chern数としての磁束整数 }
+theorems:
+  - { id: GBG19-PROP-01, name: 南北局所接続の滑らかさと貼り合わせ }
+  - { id: GBG19-THM-01, name: Dirac monopoleの曲率と第一Chern数 }
+  - { id: GBG19-THM-02, name: 任意のU(1)接続の磁束の整数性 }
+  - { id: GBG19-PROP-02, name: 局所sectionと接続変更に対する磁束不変性 }
+  - { id: GBG19-THM-03, name: 基準電荷に対するDirac量子化条件 }
+canonical_examples:
+  - n=1の南北局所形式を極点のCartesian座標で検算
+  - n=-2の局所曲率・磁束とChern数の符号
+  - n=0の大域ポテンシャルと非零nの非自明束
+  - 基準電荷q0と整数重みkの荷電場のゲージ貼り合わせ
+problem_patterns:
+  - GBG19-POLE-REGULARITY
+  - GBG19-TRANSITION-ONE-FORM
+  - GBG19-CURVATURE-SIGN
+  - GBG19-EQUATOR-STOKES
+  - GBG19-CONNECTION-CHANGE
+  - GBG19-CHARGE-REPRESENTATION
+  - GBG19-TOPOLOGICAL-OBSTRUCTION
+  - GBG19-LOCAL-GAUGE-CHANGE
+  - GBG19-MONOPOLE-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 4 }
