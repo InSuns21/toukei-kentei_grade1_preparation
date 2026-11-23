@@ -1293,7 +1293,7 @@ function run() {
   iframe.className = 'result-frame';
   // Responsive preview without changing the actual drawing-buffer resolution.
   iframe.style.aspectRatio = payload.width + ' / ' + (payload.height + (isWGL3 ? 200 : isWGL18 ? 160 : 12));
-  if (isWGL3) iframe.style.minHeight = '420px'; // two GPU panels + responsive live mesh controls
+  if (isWGL3) iframe.style.minHeight = '500px'; // two GPU panels + wrapped controls at 360px
   iframe.style.height = 'auto';
   iframe.title = 'WebGL2 実行結果（隔離 origin）';
   iframe.setAttribute('sandbox', 'allow-scripts');
