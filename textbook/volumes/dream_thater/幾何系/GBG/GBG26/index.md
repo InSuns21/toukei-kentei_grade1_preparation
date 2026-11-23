@@ -115,7 +115,7 @@ $$
 \end{aligned}
 $$
 
-これは局所自明化上の3形式であり、一般には基底全体に貼り合わされない。[GBG22の原始形式命題](../GBG22/index.md#prop-gbg22-local-cs-primitive)は、いま代入した $p$ と $k=2$ に対して
+これは局所自明化上の3形式であり、一般には基底全体に貼り合わされない。[GBG22の局所Chern–Simons形式の外微分命題](../GBG22/index.md#prop-gbg22-local-cs-primitive)は、いま代入した $p$ と $k=2$ に対して
 
 $$
 d\,\operatorname{CS}_3(A)=\operatorname{tr}(F\wedge F)
