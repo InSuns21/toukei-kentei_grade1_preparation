@@ -11,7 +11,7 @@ import {expectedFCG8Samples,compareFCG8Readback,fcg8State} from './fcg8-lab-core
 import { highlightSource } from './wgl-lab-highlight.mjs';
 import {mountReferenceObservation} from './wgl-fcg-reference-visual.mjs';
 import {mountVisualGuide} from './wgl-fcg-visual-guide.mjs';
-import {mountLabParameters,parametersFor,readLabParameter,verifiedFCG5Physics} from './wgl-lab-parameters.mjs';
+import {mountLabParameters,parametersFor,readLabParameter,writeLabParameter,verifiedFCG5Physics} from './wgl-lab-parameters.mjs';
 import {mountSceneInfo} from './wgl-lab-scene-info.mjs';
 import { compareWGL2Readback, expectedWGL2Samples } from './wgl2-lab-core.mjs';
 import { compareWGL3Readback, expectedWGL3Samples } from './wgl3-lab-core.mjs';
