@@ -131,7 +131,7 @@ chapters:
     title: "物理残差の重みは何を変えるか"
   - id: PML2-10
     path: textbook/volumes/dream_thater/応用系/PML/PML2-10
-    status: planned
+    status: completed
     title: "PINNはなぜ学習失敗することがあるか"
   - id: PML2-11
     path: textbook/volumes/dream_thater/応用系/PML/PML2-11
