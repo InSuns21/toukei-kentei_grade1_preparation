@@ -352,7 +352,7 @@ $$
 =\tfrac12(|00\rangle\langle00|+|11\rangle\langle11|)
 $$
 
-です。$A,D$ から得られる参照系付き状態も、$Q$ と $AD$ の間で分離可能です。局所的な復号CPTPを施しても分離可能性は保たれます。任意の純積状態 $|u\rangle_L|v\rangle_Q$ についてCauchy–Schwarz不等式により
+です。$A,D$ から得られる参照系付き状態も、$Q$ と $AD$ の間で分離可能です。局所的な復号CPTPを施しても分離可能性は保たれます。任意の純積状態 $|u\rangle_L|v\rangle_Q$ について[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により
 
 $$
 |\langle\Phi_2|u\otimes v\rangle|^2
@@ -586,7 +586,7 @@ $$
 \omega_{LQ}=\tfrac12|00\rangle\langle00|+\tfrac12|11\rangle\langle11|.
 $$
 
-$|\langle\Phi_2|00\rangle|^2=|\langle\Phi_2|11\rangle|^2=1/2$ なので $F_{\rm e}=\langle\Phi_2|\omega|\Phi_2\rangle=1/2$。復号前の $Q:AD$ 状態は分離可能であり、$AD$ の局所CPTPではもつれを作れません。任意の純積状態と $|\Phi_2\rangle$ との重なりの二乗はCauchy–Schwarzにより高々1/2、凸混合でも同じです。従って上界1/2を超えられません。
+$|\langle\Phi_2|00\rangle|^2=|\langle\Phi_2|11\rangle|^2=1/2$ なので $F_{\rm e}=\langle\Phi_2|\omega|\Phi_2\rangle=1/2$。復号前の $Q:AD$ 状態は分離可能であり、$AD$ の局所CPTPではもつれを作れません。任意の純積状態と $|\Phi_2\rangle$ との重なりの二乗は[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により高々1/2、凸混合でも同じです。従って上界1/2を超えられません。
 <!-- solution-end -->
 
 <a id="ex-bhi33-b03"></a>
