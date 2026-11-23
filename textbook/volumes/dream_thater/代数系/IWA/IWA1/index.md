@@ -169,7 +169,7 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-iwa1-canonical-layers -->
-**定義の直接確認（$p=3$）。** [円分的な構成](../../ANF/ANF22/index.md#thm-anf22-cyclotomic-zp-tower)で
+**定義の確認**（$p=3$）。 [円分的な構成](../../ANF/ANF22/index.md#thm-anf22-cyclotomic-zp-tower)で
 
 $$
 F_n=\mathbb Q(\zeta_{3^{n+1}})^{\{\pm1\}}
@@ -265,7 +265,7 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-iwa1-topological-generator -->
-**定義の直接確認。** $p=5$ で $u=2$ を取ります。$2$ は $\mathbb Z_5$ の単元だから、$2a\bmod5^n$（$a\in\mathbb Z$）は全ての剰余類を動きます。従って整数倍は各有限商へ全射となり、その閉包は $\mathbb Z_5$ 全体です。一方 $u=5$ の整数倍はすべて $5\mathbb Z_5$ に留まり、第1商 $\mathbb Z/5\mathbb Z$ で $0$ しか動きません。位相的生成元ではありません。
+**定義の確認**。 $p=5$ で $u=2$ を取ります。$2$ は $\mathbb Z_5$ の単元だから、$2a\bmod5^n$（$a\in\mathbb Z$）は全ての剰余類を動きます。従って整数倍は各有限商へ全射となり、その閉包は $\mathbb Z_5$ 全体です。一方 $u=5$ の整数倍はすべて $5\mathbb Z_5$ に留まり、第1商 $\mathbb Z/5\mathbb Z$ で $0$ しか動きません。位相的生成元ではありません。
 <!-- definition-example-end -->
 
 **選択の違い。** $K_n$ は同型 $\iota$ に依存しませんが、$\gamma$ をどの位相的生成元にするかで $a\bmod p^n$ という座標は変わります。$\gamma$ と $\gamma^u$（$u\in\mathbb Z_p^\times$、有限商で整合する冪として定義）のどちらも位相的生成元です。後の岩澤代数では $T=\gamma-1$ と置くため、座標の規格化を毎回明記する必要があります。
