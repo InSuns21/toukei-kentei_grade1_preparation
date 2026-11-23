@@ -438,13 +438,13 @@ T_a(A)=i(b+f')\,d\theta
 =i\bigl(b+\lambda-b\bigr)\,d\theta=A_\lambda.
 $$
 
-次に $A_\mu=T_a(A_\lambda)$ とする。滑らかなゲージ関数 $a:S^1\to U(1)$ を実数の角度で引き戻して $\widetilde a(\theta):=a(e^{i\theta})$ と書くと、$\widetilde a$ は $2\pi$ 周期である。$|\widetilde a|^2=1$ を微分すると $\widetilde a^{-1}\widetilde a'$ は純虚数だから、
+次に $A_\mu=T_a(A_\lambda)$ とする。滑らかなゲージ関数 $a:S^1\to U(1)$ を実数の角度で引き戻して $\widetilde a(\theta):=a(e^{i\theta})$ と書くと、$\widetilde a$ は $2\pi$ 周期である。以下、この段落のプライム $'$ は角度変数 $\theta$ に関する導関数 $d/d\theta$ を表す。$|\widetilde a|^2=1$ を微分すると $\widetilde a^{-1}\widetilde a'$ は純虚数だから、
 
 $$
 h(\theta):=-i\,\widetilde a(\theta)^{-1}\widetilde a'(\theta)\in\mathbb R
 $$
 
-は滑らかな実数値関数になる。$e^{ic}=\widetilde a(0)$ となる実数 $c$ を選び、$f(\theta):=c+\int_0^\theta h(t)\,dt$ と置く。微積分の基本定理による $f'=h$ と $\widetilde a'=ih\widetilde a$ から
+は滑らかな実数値関数になる。$e^{ic}=\widetilde a(0)$ となる実数 $c$ を選び、$f(\theta):=c+\int_0^\theta h(u)\,du$ と置く。微積分の基本定理による $f'=h$ と $\widetilde a'=ih\widetilde a$ から
 
 $$
 \frac{d}{d\theta}\bigl(\widetilde a(\theta)e^{-if(\theta)}\bigr)
