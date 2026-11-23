@@ -8,3 +8,4 @@
 5. [IWA5 岩澤加群のtorsion／擬同型](textbook/volumes/dream_thater/代数系/IWA/IWA5/index.md)
 6. [IWA6 Weierstrass準備・特徴イデアル](textbook/volumes/dream_thater/代数系/IWA/IWA6/index.md)
 7. [IWA7 類数成長公式とμ不変量の役割](textbook/volumes/dream_thater/代数系/IWA/IWA7/index.md)
+8. [IWA8 円分体の類群と指標成分](textbook/volumes/dream_thater/代数系/IWA/IWA8/index.md)

@@ -5,6 +5,7 @@ status: supplementary
 prerequisites: [WGL17]
 official_scope: []
 learning_objectives:
+  - 32x32/64x64/96x96の実GPU格子で濃度分布・拡散係数・総量変化を操作して説明できる
   - 4x4格子の零流束境界と五点差分の一段更新を添字付きで導ける
   - rが0以上1/4以下なら非負性と離散総量を保存することを証明できる
   - 同一textureの読み書きを避けるping-pong更新とFBO検査を説明できる

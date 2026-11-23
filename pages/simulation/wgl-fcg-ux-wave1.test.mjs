@@ -70,11 +70,10 @@ test('FCG1 has the same visual-first contract in its separate editable Canvas ho
   assert.ok(host.includes("frame.setAttribute('sandbox', 'allow-scripts')"));
 });
 
-test('WGL wave1 numerical overlays stay collapsed until requested',async()=>{
+test('WGL wave1 auxiliary overlays stay collapsed until requested',async()=>{
   const root=new URL('../../textbook/volumes/dream_thater/計算系/WGL/',import.meta.url);
   for(const [path,container,contents] of [
     ['WGL3/mesh.js','panel',['selected.setAttribute(\'points\'','toggle.textContent','back.addEventListener','next.addEventListener']],
-    ['WGL17/data-grid.js','panel',['physicalValues[k]','bytes[k]','floatData[k]','inspect(0)']],
     ['WGL18/diffusion.js','valuesPanel',['liveReadback()','refreshNumbers()','stepNumber']]
   ]){
     const source=await readFile(new URL(path,root),'utf8');
@@ -87,6 +86,18 @@ test('WGL wave1 numerical overlays stay collapsed until requested',async()=>{
     assert.ok(source.includes(anchor+".insertAdjacentElement('afterend',"+container+")"),
       path+' must be attached to the real GPU mesh/canvas');
   }
+});
+
+test('WGL17 keeps the actual data grid and precision comparison visible', async()=>{
+  const path=new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL17/data-grid.js',import.meta.url);
+  const source=await readFile(path,'utf8');
+  assert.match(source,/const root=document\.createElement\('section'\)/);
+  assert.match(source,/canvas\.after\(root\)/);
+  assert.match(source,/buttons\[k\]=button/);
+  assert.match(source,/grid\.append\(button\)/);
+  assert.match(source,/bars\.replaceChildren\(\)/);
+  assert.match(source,/gl\.readPixels\(p,q,1,1/);
+  assert.doesNotMatch(source,/document\.createElement\('details'\)/);
 });
 
 test('WGL19 replaces the hidden timeline with source-backed GPU diffusion replay',async()=>{

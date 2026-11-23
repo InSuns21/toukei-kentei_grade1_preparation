@@ -30,13 +30,16 @@ test('GPU source keeps integer sampler, float readback separate from display',as
   assert.ok(Math.abs(wgl17DecodeR8(wgl17EncodeR8(-1.3))+1.3)>0.005);
 });
 
-test('WGL17 physical-value inspector reads the actual uploaded eight texels',async()=>{
+test('WGL17 always-visible numeric microscope follows the actual uploaded GPU texture',async()=>{
   const js=await readFile(new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL17/data-grid.js',import.meta.url),'utf8');
-  for(const marker of ['physicalValues[k]','bytes[k]','floatData[k]',
-    "col+row*gridWidth",'lower+(upper-lower)*bytes[k]/255',
-    'maxInputError','texel','inspect(0)']){
+  for(const marker of ['const probeValue = -1.3;', 'physicalValues[k]', 'bytes[k]', 'floatData[k]',
+    'lower+(upper-lower)*bytes[k]/255', 'maxInputError', 'gl.readPixels(p,q,1,1',
+    'canvas.after(root)', 'choose(1)', 'gpuFloatValues=actual']) {
     assert.ok(js.includes(marker),marker);
   }
-  assert.ok(js.indexOf("canvas.insertAdjacentElement('afterend',panel)")>
-    js.indexOf("report('DISPLAY'"),'inspector must not replace actual GPU display');
+  assert.ok(js.indexOf('canvas.after(root)')>js.indexOf("report('DISPLAY'"),
+    'visible microscope must follow the real GPU canvas');
+  assert.doesNotMatch(js,/document\.createElement\('details'\)/,
+    'the important precision comparison must be visible without expansion');
+  assert.ok(js.includes("mode===kind?'#165a96'"),'active texture format highlights its actual error bar');
 });

@@ -1375,6 +1375,52 @@ try{
   await click('stop');
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
 
+  // WGL18 dense observation shares the same real GPU fragment source as 4x4.
+  await cdp('Page.navigate',{url:url.replace('wgl-lab.html','wgl18-explore.html')});
+  await waitFor('document.getElementById("status")?.textContent.match(/GPUで更新中|GPU計算を停止|GPUデモを実行できません/)',22000);
+  const observeStatus=await evalJS('document.getElementById("status").textContent');
+  if (observeStatus.includes('GPU計算を停止') || observeStatus.includes('GPUデモを実行できません')) {
+    assert.match(observeStatus,/EXT_color_buffer_float|RGBA32F|WebGL2|GLSL|framebuffer|浮動小数点/);
+    console.log('WGL18 dense observer: unsupported GPU is correctly reported: '+observeStatus);
+  } else {
+    await evalJS('(()=>{const b=document.getElementById("play");if(b.textContent==="一時停止")b.click()})()');
+    const start18=await evalJS('({step:Number(document.getElementById("steps").textContent),mass:Number(document.getElementById("mass").textContent),grid:document.getElementById("grid").value,button:document.getElementById("play").textContent})');
+    assert.equal(start18.grid,'64');
+    assert.equal(start18.button,'再生');
+    assert.ok(start18.mass>0);
+    await click('once');
+    const after18=await evalJS('({step:Number(document.getElementById("steps").textContent),mass:Number(document.getElementById("mass").textContent),texture:document.getElementById("active").textContent})');
+    assert.equal(after18.step,start18.step+1);
+    assert.ok(Math.abs(after18.mass-start18.mass)<0.02,'float mass should be preserved');
+    await evalJS('(()=>{const e=document.getElementById("rate");e.value="0.1";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));})()');
+    assert.equal(await evalJS('document.getElementById("steps").textContent'),'0');
+    assert.equal(await evalJS('document.getElementById("rate-val").textContent'),'0.10');
+    await evalJS('(()=>{const e=document.getElementById("grid");e.value="96";e.dispatchEvent(new Event("change",{bubbles:true}));})()');
+    assert.equal(await evalJS('document.getElementById("grid").value'),'96');
+    assert.equal(await evalJS('document.getElementById("steps").textContent'),'0');
+    const brushBefore=Number(await evalJS('document.getElementById("mass").textContent'));
+    const box18=await evalJS('(()=>{const c=document.getElementById("field");c.scrollIntoView({block:"start"});const r=c.getBoundingClientRect();return {x:r.x+r.width*.18,y:r.y+r.height*.22};})()');
+    await cdp('Input.dispatchMouseEvent',{type:'mouseMoved',x:box18.x,y:box18.y});
+    await cdp('Input.dispatchMouseEvent',{type:'mousePressed',x:box18.x,y:box18.y,button:'left',clickCount:1});
+    await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:box18.x,y:box18.y,button:'left',clickCount:1});
+    assert.ok(Number(await evalJS('document.getElementById("mass").textContent'))>brushBefore+1,
+      'painting onto the GPU float texture must add concentration');
+    await evalJS('document.getElementById("field").focus()');
+    await pressKey('ArrowRight','ArrowRight',39);
+    assert.equal(await evalJS('document.getElementById("steps").textContent'),'1');
+    for(const width of [360,1280]){
+      await cdp('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:false});
+      await new Promise(ok=>setTimeout(ok,150));
+      const dims=await evalJS('({scroll:document.documentElement.scrollWidth,client:innerWidth,canvas:document.getElementById("field").getBoundingClientRect().width})');
+      assert.ok(dims.scroll<=dims.client+2,'observer horizontal overflow at '+width+': '+JSON.stringify(dims));
+      assert.ok(dims.canvas>=250,'GPU map unreadably small at '+width);
+      const shot=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+      await writeFile('_wgl_browser_review/wgl18-observer-'+width+'.png',Buffer.from(shot.data,'base64'));
+    }
+    await cdp('Emulation.setDeviceMetricsOverride',{width:1000,height:900,deviceScaleFactor:1,mobile:false});
+    console.log('WGL18 true 64/96 GPU grid, numeric mass, brush, step, keyboard, 360/1280 pixels: PASS');
+  }
+
   // WGL19: async rendering loop; independent CPU time/float oracle; GPU lifetime.
   await cdp('Page.navigate',{url:url+'?lesson=WGL19'});
   await waitFor('document.getElementById("status")?.textContent==="実行できます"');
