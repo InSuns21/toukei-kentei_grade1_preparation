@@ -54,7 +54,7 @@ $$
 
 ## 3. 早期放射の鍵と後期放射の日記：有限符号を作る
 
-[BHI12の投入・放出模型](../BHI12/index.md#def-bhi12-diary-unitary)では、すでに外へ出た放射と新しく放出された放射を区別しました。ここでは早期放射の二つの量子ビット $A,C$ を「鍵の記録」、新たな放射の量子ビット $D$ を「日記の入った箱」、触れられない残存系 $B$ を4準位系とします。名前は物理的な所在の目印であり、JT時空の具体的なハミルトニアンを指定するものではありません。
+[BHI12の投入・放出模型](../BHI12/index.md#def-bhi12-evaporation-map)では、すでに外へ出た放射と新しく放出された放射を区別しました。ここでは早期放射の二つの量子ビット $A,C$ を「鍵の記録」、新たな放射の量子ビット $D$ を「日記の入った箱」、触れられない残存系 $B$ を4準位系とします。名前は物理的な所在の目印であり、JT時空の具体的なハミルトニアンを指定するものではありません。
 
 論理基底 $|0\rangle,|1\rangle$ 上でPauli作用素を
 
@@ -89,8 +89,7 @@ $$
 V|0\rangle=\tfrac12\bigl(
 |00\rangle_{AC}|0\rangle_D|00\rangle_B+
 |01\rangle_{AC}|0\rangle_D|01\rangle_B+
-|10\rangle_{AC}|1\rangle_D|10\rangle_B-
-|11\rangle_{AC}|1\rangle_D|11\rangle_B
+|10\rangle_{AC}|1\rangle_D|10\rangle_B+\n|11\rangle_{AC}|1\rangle_D|11\rangle_B
 \bigr).
 $$
 
@@ -181,7 +180,7 @@ $$
 すべての計算は任意の $\rho$ で成立します。$\square$
 <!-- proof-end -->
 
-残存系 $B$ が入力と独立であることは、[QINF29の完全デカップリング](../../../応用系/QINF/QINF29/index.md#def-qinf29-exact-decoupling)と整合します。ただし、上の式の $B$ の周辺状態だけを示して「参照系 $Q$ と $B$ が無相関」と結論するのは一般には不十分です。この模型では上式を入力の行列単位 $|j\rangle\langle k|$ にまで線形拡張すると
+残存系 $B$ が入力と独立であることは、[QINF29の完全デカップリング](../../../応用系/QINF/QINF29/index.md#def-qinf29-decoupling)と整合します。ただし、上の式の $B$ の周辺状態だけを示して「参照系 $Q$ と $B$ が無相関」と結論するのは一般には不十分です。この模型では上式を入力の行列単位 $|j\rangle\langle k|$ にまで線形拡張すると
 
 $$
 \operatorname{Tr}_{ACD}\bigl(V|j\rangle\langle k|V^\dagger\bigr)
@@ -294,7 +293,7 @@ $$
 =\Delta_Z(\rho)
 $$
 >
-> が成立する。この $\mathcal D_{AD}$ は $\sigma=I_L/2$ に関するPetz回復と一致する。しかし $L$ の未知の量子状態を完全回復するCPTP写像は存在しない。最大エンタングル入力に対する達成可能な最大回復忠実度は $1/2$ である。
+> が成立する。この $\mathcal D_{AD}$ と $\sigma=I_L/2$ に関するPetz回復は、保持チャネル $\mathcal N_{AD}$ の出力上で同じ回復状態を与える。しかし $L$ の未知の量子状態を完全回復するCPTP写像は存在しない。最大エンタングル入力に対する達成可能な最大回復忠実度は $1/2$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -388,7 +387,7 @@ D(\mathcal N_{AD}(\rho)\Vert\mathcal N_{AD}(\sigma))
 =D(\Delta_Z(\rho)\Vert I/2).
 $$
 
-例えば $\rho=|+\rangle\langle+|$ では、入力は純粋状態なので $D(\rho\Vert I/2)=\log2$ ですが、$\Delta_Z(\rho)=I/2$ より後者は零です。$\rho=|0\rangle\langle0|$ なら $\Delta_Z(\rho)=\rho$ なので両方 $\log2$ です。[相対エントロピーのデータ処理不等式](../../../応用系/QINF/QINF20/index.md#thm-qinf20-data-processing)に反することはなく、**保存されるのが論理情報全体か、選んだ古典的な区別だけか**を示しています。
+例えば $\rho=|+\rangle\langle+|$ では、入力は純粋状態なので $D(\rho\Vert I/2)=\log2$ ですが、$\Delta_Z(\rho)=I/2$ より後者は零です。$\rho=|0\rangle\langle0|$ なら $\Delta_Z(\rho)=\rho$ なので両方 $\log2$ です。[相対エントロピーのデータ処理不等式](../../../応用系/QINF/QINF20/index.md#thm-qinf20-dpi)に反することはなく、**保存されるのが論理情報全体か、選んだ古典的な区別だけか**を示しています。
 
 ## 6. 観測できる放射の範囲を確率的に制限する
 
