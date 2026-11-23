@@ -2,21 +2,40 @@
 
 [IWA9の無分岐岩澤加群](../IWA9/index.md#def-iwa9-unramified-iwasawa-module)は類群をノルムで結びました。次に考えたいのは、**類群ではなく単数を円分塔の各層から集めたとき、何を明示的に作れ、どの元が層を越えて整合するか**です。[IWA4の体ノルム](../IWA4/index.md#def-iwa4-field-norm)は共役の積で定義されましたが、任意の単数を見ただけではノルムの逆像は分かりません。そこで円分根から特別な単数を作ります。
 
-以下では **$p$ を奇素数**、$r\ge1$ とし、互いに両立する原始根 $\zeta_r=\exp(2\pi i/p^r)$ を固定します。$E_r=\mathbb Q(\zeta_r)$、$F_r=\mathbb Q(\zeta_r+\zeta_r^{-1})$、$U_r=\mathcal O_{E_r}^{\times}$、$U_r^+=\mathcal O_{F_r}^{\times}$ と書きます。$\zeta_{r+1}^p=\zeta_r$ で、[円分体の次数と分岐](../../ANF/ANF22/index.md#prop-anf22-prime-power-degree)により $[E_{r+1}:E_r]=p$、$[E_r:\mathbb Q]=p^{r-1}(p-1)$ です。$F_r$ は複素共役の固定体で次数はその半分です。
+以下では **$p$ を奇素数**、$r\ge1$ とします。[IWA2の円分根とGalois作用](../IWA2/index.md#prop-iwa2-cyclotomic-restriction)と同じく、**根の位数**を添字とする $\zeta_m=\exp(2\pi i/m)$ を使い、第 $r$ 層の根を $\theta_r:=\zeta_{p^r}$ と略記します。例えば $p=3$ の場合、$\theta_1=\zeta_3$、$\theta_2=\zeta_9$ です。$\theta_{r+1}^p=\theta_r$ が成り立ちます。
+
+以下の体と単数群を使います。
+
+$$
+\begin{aligned}
+E_r&=\mathbb Q(\theta_r),&
+F_r&=\mathbb Q(\theta_r+\theta_r^{-1}),\\
+U_r&=\mathcal O_{E_r}^{\times},&
+U_r^+&=\mathcal O_{F_r}^{\times}.
+\end{aligned}
+$$
+
+[円分体の次数と分岐](../../ANF/ANF22/index.md#prop-anf22-prime-power-degree)より $[E_{r+1}:E_r]=p$、$[E_r:\mathbb Q]=p^{r-1}(p-1)$ です。$F_r$ は複素共役の固定体で次数はその半分です。
 
 この講で行うことは次の三つです。商が整数環の単数となることを**逆元まで計算**し、円分単数群と全単数群の指数を区別し、最後に共役の積を一段ずつ計算して整合列を作ります。
 
-## 1. $1-\zeta_r$ は単数でない――しかしその比は単数になる
+## 1. $1-\theta_r$ は単数でない――しかしその比は単数になる
 
-まず $\alpha_r=1-\zeta_r$ と置きます。$\alpha_r$ の全共役の積は円分多項式の $1$ での値なので
+まず $\alpha_r=1-\theta_r$ と置きます。素数冪の円分多項式は
+
+$$
+\Phi_{p^r}(X)=\sum_{j=0}^{p-1}X^{jp^{r-1}},\qquad \Phi_{p^r}(1)=p.
+$$
+
+$\alpha_r$ の全共役の積は円分多項式の $1$ での値なので
 
 $$
 N_{E_r/\mathbb Q}(\alpha_r)
-=\prod_{\substack{1\le a<p^r\\(a,p)=1}}(1-\zeta_r^a)
+=\prod_{\substack{1\le a<p^r\\(a,p)=1}}(1-\theta_r^a)
 =\Phi_{p^r}(1)=p.
 $$
 
-従って $\alpha_r$ 自身は単数ではありません。一方、$a$ が $p$ と互いに素なら $1-\zeta_r^a$ も $\alpha_r$ のGalois共役です。二つの非単数の比が単数になるかを、割り算の前に整数性・逆元の両側から確認します。
+従って $\alpha_r$ 自身は単数ではありません。一方、$a$ が $p$ と互いに素なら $1-\theta_r^a$ も $\alpha_r$ のGalois共役です。二つの非単数の比が単数になるかを、割り算の前に整数性・逆元の両側から確認します。
 
 <a id="def-iwa10-cyclotomic-unit"></a>
 
@@ -25,13 +44,13 @@ $$
 > 奇素数 $p$、整数 $r\ge1$ と $a\in(\mathbb Z/p^r\mathbb Z)^\times$ に対し、
 >
 $$
-\eta_{r,a}=\frac{1-\zeta_r^a}{1-\zeta_r}\in E_r^\times
+\eta_{r,a}=\frac{1-\theta_r^a}{1-\theta_r}\in E_r^\times
 $$
 >
-> と置く（指数 $a$ は法 $p^r$ で読む）。$\mu_{2p^r}=\langle-\zeta_r\rangle$ を $E_r$ に含まれる1の冪根の群とし、$\mu_{2p^r}$ と全ての $\eta_{r,a}$ が生成する乗法部分群を
+> と置く（指数 $a$ は法 $p^r$ で読む）。$\mu_{2p^r}=\langle-\theta_r\rangle$ を $E_r$ に含まれる1の冪根の群とし、$\mu_{2p^r}$ と全ての $\eta_{r,a}$ が生成する乗法部分群を
 >
 $$
-C_r=\langle -1,\zeta_r,\eta_{r,a}:(a,p)=1\rangle\subseteq E_r^\times
+C_r=\langle -1,\theta_r,\eta_{r,a}:(a,p)=1\rangle\subseteq E_r^\times
 $$
 >
 > とする。$C_r$ の元を円分単数という。
@@ -40,10 +59,10 @@ $$
 整数性の判定は「ノルムが $1$ なら単数」という推論だけでは不十分です。まず $a$ の代表元を正整数で取ると
 
 $$
-\eta_{r,a}=1+\zeta_r+\cdots+\zeta_r^{a-1}\in\mathcal O_{E_r}.
+\eta_{r,a}=1+\theta_r+\cdots+\theta_r^{a-1}\in\mathcal O_{E_r}.
 $$
 
-さらに $a$ の法 $p^r$ における逆元 $b$ を取り、$\sigma_a(\zeta_r)=\zeta_r^a$ とすると、二つの商を掛けた分母が打ち消し合います。
+さらに $a$ の法 $p^r$ における逆元 $b$ を取り、$\sigma_a(\theta_r)=\theta_r^a$ とすると、二つの商を掛けた分母が打ち消し合います。
 
 <a id="prop-iwa10-unit-proof"></a>
 
@@ -63,15 +82,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\zeta_r$ はモニック多項式 $X^{p^r}-1$ の根で代数的整数です。等比和の式から $\eta_{r,a}$ も代数的整数です。$ab\equiv1\pmod{p^r}$ だから $\zeta_r^{ab}=\zeta_r$。そこで
+$\theta_r$ はモニック多項式 $X^{p^r}-1$ の根で代数的整数です。等比和の式から $\eta_{r,a}$ も代数的整数です。$ab\equiv1\pmod{p^r}$ だから $\theta_r^{ab}=\theta_r$。そこで
 
 $$
 \begin{aligned}
 \eta_{r,a}\,\sigma_a(\eta_{r,b})
-&=\frac{1-\zeta_r^a}{1-\zeta_r}
-  \frac{1-\zeta_r^{ab}}{1-\zeta_r^a}\\
-&=\frac{1-\zeta_r^{ab}}{1-\zeta_r}
-=\frac{1-\zeta_r}{1-\zeta_r}=1.
+&=\frac{1-\theta_r^a}{1-\theta_r}
+  \frac{1-\theta_r^{ab}}{1-\theta_r^a}\\
+&=\frac{1-\theta_r^{ab}}{1-\theta_r}
+=\frac{1-\theta_r}{1-\theta_r}=1.
 \end{aligned}
 $$
 
@@ -79,14 +98,14 @@ $\sigma_a(\eta_{r,b})$ は代数的整数の共役なので代数的整数です
 <!-- proof-end -->
 
 <!-- definition-example-start: def-iwa10-cyclotomic-unit -->
-**定義の確認**。 $p=3,r=1,a=2$ では $\eta_{1,2}=1+\zeta_1$ です。$\zeta_1^2+\zeta_1+1=0$ を使うと
+**定義の確認**。 $p=3,r=1,a=2$ では $\eta_{1,2}=1+\theta_1$ です。$\theta_1^2+\theta_1+1=0$ を使うと
 
 $$
-(1+\zeta_1)(1+\zeta_1^2)
-=2+\zeta_1+\zeta_1^2=1.
+(1+\theta_1)(1+\theta_1^2)
+=2+\theta_1+\theta_1^2=1.
 $$
 
-従って逆元 $1+\zeta_1^2$ も $\mathbb Z[\zeta_1]$ に入ります。また $1+\zeta_1=-\zeta_1^2$ は1の冪根そのものなので $\eta_{1,2}\in C_1$。この例では $C_1=\mu_6$ であり、$\mathbb Z[\zeta_1]$ の全単数群も $\mu_6$ です（後で指数を検算します）。
+従って逆元 $1+\theta_1^2$ も $\mathbb Z[\theta_1]$ に入ります。また $1+\theta_1=-\theta_1^2$ は1の冪根そのものなので $\eta_{1,2}\in C_1$。この例では $C_1=\mu_6$ であり、$\mathbb Z[\theta_1]$ の全単数群も $\mu_6$ です（後で指数を検算します）。
 <!-- definition-example-end -->
 
 単数を掛け合わせたときに指数 $a$ は単純には加算されません。分子と分母の対応を追うと、Galois作用を伴う積公式が得られます。
@@ -107,7 +126,7 @@ $$
 
 ### 証明の見取り図
 
-同じ分子 $1-\zeta_r^{ab}$ を二通りの順序で割り算します。これによって単数群のGalois安定性も従います。
+同じ分子 $1-\theta_r^{ab}$ を二通りの順序で割り算します。これによって単数群のGalois安定性も従います。
 
 <!-- proof-start -->
 ### 証明
@@ -115,13 +134,13 @@ $$
 定義から
 
 $$
-\frac{1-\zeta_r^{ab}}{1-\zeta_r}
-=\frac{1-\zeta_r^a}{1-\zeta_r}
- \frac{1-\zeta_r^{ab}}{1-\zeta_r^a}
+\frac{1-\theta_r^{ab}}{1-\theta_r}
+=\frac{1-\theta_r^a}{1-\theta_r}
+ \frac{1-\theta_r^{ab}}{1-\theta_r^a}
 =\eta_{r,a}\sigma_a(\eta_{r,b}).
 $$
 
-$a,b$ を交換すると $\eta_{r,ab}=\eta_{r,b}\sigma_b(\eta_{r,a})$ なので、先に証明した[逆元の存在](#prop-iwa10-unit-proof)によって第二式を得ます。$\sigma_b$ は $-1$ を固定し、$\zeta_r$ をその冪へ写し、各 $\eta_{r,a}$ を $C_r$ 内の比へ写します。$\sigma_b(C_r)\subseteq C_r$。同じ議論を $\sigma_b^{-1}$ に適用して逆包含も得ます。
+$a,b$ を交換すると $\eta_{r,ab}=\eta_{r,b}\sigma_b(\eta_{r,a})$ なので、先に証明した[逆元の存在](#prop-iwa10-unit-proof)によって第二式を得ます。$\sigma_b$ は $-1$ を固定し、$\theta_r$ をその冪へ写し、各 $\eta_{r,a}$ を $C_r$ 内の比へ写します。$\sigma_b(C_r)\subseteq C_r$。同じ議論を $\sigma_b^{-1}$ に適用して逆包含も得ます。
 <!-- proof-end -->
 
 ## 2. 実部分体の円分単数をどう作るか
@@ -130,8 +149,8 @@ $a,b$ を交換すると $\eta_{r,ab}=\eta_{r,b}\sigma_b(\eta_{r,a})$ なので�
 
 $$
 \overline{\eta_{r,a}}
-=\frac{1-\zeta_r^{-a}}{1-\zeta_r^{-1}}
-=\zeta_r^{1-a}\eta_{r,a}.
+=\frac{1-\theta_r^{-a}}{1-\theta_r^{-1}}
+=\theta_r^{1-a}\eta_{r,a}.
 $$
 
 $p^r$ は奇数なので、任意の単元剰余類 $a$ には奇数の代表元を選べます。そこで1の冪根を一つ掛け、余分な位相を消します。
@@ -143,12 +162,14 @@ $p^r$ は奇数なので、任意の単元剰余類 $a$ には奇数の代表元
 > 奇素数 $p$、$r\ge1$、$p\nmid a$ を満たす**奇数** $a$ について
 >
 $$
-\xi_{r,a}=\zeta_r^{(1-a)/2}\eta_{r,a},\qquad
+\xi_{r,a}=\theta_r^{(1-a)/2}\eta_{r,a},\qquad
 C_r^+=C_r\cap U_r^+
 $$
 >
-> と置く。$C_r^+$ は実部分体 $F_r$ の円分単数群である。同じ単元剰余類を表す奇数 $a$ は $2p^r$ を法として一致するため、$\xi_{r,a}$ は代表元の選び方によらない。
+> と置く。$C_r^+$ は実部分体 $F_r$ の円分単数群である。$\xi_{r,a}$ は奇数代表元の選び方によらない。
 <!-- formal-statement-end -->
+
+実際、同じ単元剰余類を表す奇数 $a,a'$ では $a'-a=kp^r$ は偶数です。$p^r$ は奇数なので $k$ も偶数であり、$a'-a$ は $2p^r$ の倍数です。従って $\theta_r^{(1-a)/2}$ は代表元で変わらず、$\eta_{r,a}$ も法 $p^r$ の指数で決まります。
 
 <a id="prop-iwa10-realness"></a>
 
@@ -173,11 +194,11 @@ $\xi_{r,a}$ は[単数の命題](#prop-iwa10-unit-proof)によって単数です
 
 $$
 \overline{\xi_{r,a}}
-=\zeta_r^{-(1-a)/2}\zeta_r^{1-a}\eta_{r,a}
-=\zeta_r^{(1-a)/2}\eta_{r,a}=\xi_{r,a}.
+=\theta_r^{-(1-a)/2}\theta_r^{1-a}\eta_{r,a}
+=\theta_r^{(1-a)/2}\eta_{r,a}=\xi_{r,a}.
 $$
 
-よって $\xi_{r,a}\in F_r$ で、その逆元も $F_r$ に入るため $U_r^+$ に属します。任意の単元剰余類は奇数の代表元を持ち、その代表元について $\eta_{r,a}=\zeta_r^{(a-1)/2}\xi_{r,a}$ だから、$C_r$ は表示された群です。
+よって $\xi_{r,a}\in F_r$ で、その逆元も $F_r$ に入るため $U_r^+$ に属します。任意の単元剰余類は奇数の代表元を持ち、その代表元について $\eta_{r,a}=\theta_r^{(a-1)/2}\xi_{r,a}$ だから、$C_r$ は表示された群です。
 
 $C_r$ の元は $\varepsilon v$（$\varepsilon\in\mu_{2p^r}$、$v\in\langle\xi_{r,a}\rangle\subset F_r$）と書けます。これが実なら $\varepsilon=(\varepsilon v)/v$ も実であり、実数の1の冪根は $\pm1$ のみです。従って $C_r\cap F_r^\times=\langle-1,\xi_{r,a}\rangle$。全て単数なので $C_r^+$ と一致します。
 <!-- proof-end -->
@@ -186,22 +207,29 @@ $C_r$ の元は $\varepsilon v$（$\varepsilon\in\mu_{2p^r}$、$v\in\langle\xi_{
 **定義の確認**。 $p=5,r=1,a=3$ では
 
 $$
-\xi_{1,3}=\zeta_1^{-1}(1+\zeta_1+\zeta_1^2)
-=1+\zeta_1+\zeta_1^{-1}.
+\xi_{1,3}=\theta_1^{-1}(1+\theta_1+\theta_1^2)
+=1+\theta_1+\theta_1^{-1}.
 $$
 
-$x=\zeta_1+\zeta_1^{-1}$ とすると、$1+\zeta_1+\cdots+\zeta_1^4=0$ から $x^2+x-1=0$ です。$x=2\cos(2\pi/5)>0$ を用いて $x=(\sqrt5-1)/2$、従って $\xi_{1,3}=(1+\sqrt5)/2$。これは $F_1=\mathbb Q(\sqrt5)$ の元であり、共役との積は
+$x=\theta_1+\theta_1^{-1}$ と置きます。$1+\theta_1+\theta_1^2+\theta_1^3+\theta_1^4=0$ に $\theta_1^3=\theta_1^{-2}$、$\theta_1^4=\theta_1^{-1}$ を代入すると
+
+$$
+0=1+x+(\theta_1^2+\theta_1^{-2})
+=1+x+(x^2-2).
+$$
+
+従って $x^2+x-1=0$。$x=2\cos(2\pi/5)>0$ より $x=(\sqrt5-1)/2$、$\xi_{1,3}=(1+\sqrt5)/2$ です。定義から $\xi_{1,3}=\theta_1^{-1}\eta_{1,3}\in C_1$ であり、実数なので $C_1^+$ に属します。$F_1=\mathbb Q(\sqrt5)$ における共役との積は
 
 $$
 \frac{1+\sqrt5}{2}\frac{1-\sqrt5}{2}=-1.
 $$
 
-よって逆元は $-(1-\sqrt5)/2$ で代数的整数です。実数性、整数性、逆元の三条件を確認できました。
+よって逆元は $-(1-\sqrt5)/2$ で、$\xi_{1,3}$ の共役の符号を変えた代数的整数です。元も逆元も $F_1$ に属するので、$\xi_{1,3}\in U_1^+$ です。実数性、整数性、逆元、$C_1$ への所属を確認できました。
 <!-- definition-example-end -->
 
 ## 3. ノルムを共役の積から計算する
 
-ここが本講の中心計算です。$E_{r+1}/E_r$ は次数 $p$ のGalois拡大です。[制限写像の核](../IWA2/index.md#prop-iwa2-cyclotomic-restriction)は $1+jp^r$（$0\le j<p$）で表されます。$\zeta_{r+1}^{p^r}$ は原始 $p$ 乗根 $\zeta_p$ ですから、$\alpha_{r+1}$ の共役は $1-\zeta_{r+1}\zeta_p^j$ です。
+ここが本講の中心計算です。$E_{r+1}/E_r$ は次数 $p$ のGalois拡大です。[制限写像の核](../IWA2/index.md#prop-iwa2-cyclotomic-restriction)は $1+jp^r$（$0\le j<p$）で表されます。$\theta_{r+1}^{p^r}$ は原始 $p$ 乗根 $\zeta_p$ ですから、$\alpha_{r+1}$ の共役は $1-\theta_{r+1}\zeta_p^j$ です。
 
 多項式の因数分解
 
@@ -209,14 +237,14 @@ $$
 \prod_{j=0}^{p-1}(1-X\zeta_p^j)=1-X^p
 $$
 
-を $X=\zeta_{r+1}$ に代入すると
+を $X=\theta_{r+1}$ に代入すると
 
 $$
-\prod_{j=0}^{p-1}(1-\zeta_{r+1}\zeta_p^j)
-=1-\zeta_{r+1}^p=1-\zeta_r.
+\prod_{j=0}^{p-1}(1-\theta_{r+1}\zeta_p^j)
+=1-\theta_{r+1}^p=1-\theta_r.
 $$
 
-$a$ が $p$ と互いに素なら、分子の共役では $j\mapsto aj\bmod p$ が置換になるので、同じ計算を $X=\zeta_{r+1}^a$ に適用できます。
+$a$ が $p$ と互いに素なら、分子の共役では $j\mapsto aj\bmod p$ が置換になるので、同じ計算を $X=\theta_{r+1}^a$ に適用できます。
 
 <a id="thm-iwa10-norm-distribution"></a>
 
@@ -226,9 +254,9 @@ $a$ が $p$ と互いに素なら、分子の共役では $j\mapsto aj\bmod p$ �
 >
 $$
 \begin{aligned}
-N_{E_{r+1}/E_r}(1-\zeta_{r+1}^a)&=1-\zeta_r^a,\\
+N_{E_{r+1}/E_r}(1-\theta_{r+1}^a)&=1-\theta_r^a,\\
 N_{E_{r+1}/E_r}(\eta_{r+1,a})&=\eta_{r,a},\\
-N_{E_{r+1}/E_r}(\zeta_{r+1})&=\zeta_r,\qquad
+N_{E_{r+1}/E_r}(\theta_{r+1})&=\theta_r,\qquad
 N_{E_{r+1}/E_r}(-1)=-1.
 \end{aligned}
 $$
@@ -243,66 +271,66 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\operatorname{Gal}(E_{r+1}/E_r)$ の元を $\tau_j(\zeta_{r+1})=\zeta_{r+1}^{1+jp^r}=\zeta_{r+1}\zeta_p^j$（$0\le j<p$）とします。[体ノルムの定義](../IWA4/index.md#def-iwa4-field-norm)へ $x=1-\zeta_{r+1}^a$ を入力すると
+$\operatorname{Gal}(E_{r+1}/E_r)$ の元を $\tau_j(\theta_{r+1})=\theta_{r+1}^{1+jp^r}=\theta_{r+1}\zeta_p^j$（$0\le j<p$）とします。[体ノルムの定義](../IWA4/index.md#def-iwa4-field-norm)へ $x=1-\theta_{r+1}^a$ を入力すると
 
 $$
 \begin{aligned}
-N_{E_{r+1}/E_r}(1-\zeta_{r+1}^a)
-&=\prod_{j=0}^{p-1}(1-\zeta_{r+1}^a\zeta_p^{aj})\\
-&=\prod_{k=0}^{p-1}(1-\zeta_{r+1}^a\zeta_p^k)
-=1-(\zeta_{r+1}^a)^p=1-\zeta_r^a.
+N_{E_{r+1}/E_r}(1-\theta_{r+1}^a)
+&=\prod_{j=0}^{p-1}(1-\theta_{r+1}^a\zeta_p^{aj})\\
+&=\prod_{k=0}^{p-1}(1-\theta_{r+1}^a\zeta_p^k)
+=1-(\theta_{r+1}^a)^p=1-\theta_r^a.
 \end{aligned}
 $$
 
-第二等号で $k=aj\bmod p$ が全剰余を一巡するのは **$p\nmid a$ のため**です。$a=1$ と一般 $a$ の式を割れば、分母 $1-\zeta_r\ne0$ なので
+第二等号で $k=aj\bmod p$ が全剰余を一巡するのは **$p\nmid a$ のため**です。$a=1$ と一般 $a$ の式を割れば、分母 $1-\theta_r\ne0$ なので
 
 $$
 N_{E_{r+1}/E_r}(\eta_{r+1,a})
-=\frac{1-\zeta_r^a}{1-\zeta_r}=\eta_{r,a}.
+=\frac{1-\theta_r^a}{1-\theta_r}=\eta_{r,a}.
 $$
 
 1の冪根については
 
 $$
-N_{E_{r+1}/E_r}(\zeta_{r+1})
-=\prod_{j=0}^{p-1}\zeta_{r+1}\zeta_p^j
-=\zeta_r\zeta_p^{p(p-1)/2}=\zeta_r.
+N_{E_{r+1}/E_r}(\theta_{r+1})
+=\prod_{j=0}^{p-1}\theta_{r+1}\zeta_p^j
+=\theta_r\zeta_p^{p(p-1)/2}=\theta_r.
 $$
 
 $p$ は奇数なので $\zeta_p^{p(p-1)/2}=1$、また $(-1)^p=-1$ です。$a$ が奇数なら
 
 $$
 N_{E_{r+1}/E_r}(\xi_{r+1,a})
-=\zeta_r^{(1-a)/2}\eta_{r,a}=\xi_{r,a}.
+=\theta_r^{(1-a)/2}\eta_{r,a}=\xi_{r,a}.
 $$
 
 最後に、複素共役は $E_{r+1}/E_r$ の位数 $p$ の相対Galois群と可換です。その制限を取ると $\operatorname{Gal}(E_{r+1}/E_r)\to\operatorname{Gal}(F_{r+1}/F_r)$ は同型です（どちらも位数 $p$ で、核は複素共役の位数2の群との共通部分なので自明）。$\xi_{r+1,a}\in F_{r+1}$ の共役の積は両拡大で同じになり、実部分体のノルム公式を得ます。
 <!-- proof-end -->
 
-**手計算：$p=3$ の第一段。** $\omega=\zeta_1=\zeta_2^3$ と置くと
+**手計算：$p=3$ の第一段。** $\omega=\theta_1=\theta_2^3$ と置くと
 
 $$
 \begin{aligned}
-N_{E_2/E_1}(1-\zeta_2)
-&=(1-\zeta_2)(1-\zeta_2\omega)(1-\zeta_2\omega^2)
-=1-\zeta_2^3=1-\omega,\\
-N_{E_2/E_1}(1+\zeta_2)
-&=(1+\zeta_2)(1+\zeta_2\omega)(1+\zeta_2\omega^2)
-=1+\zeta_2^3=1+\omega.
+N_{E_2/E_1}(1-\theta_2)
+&=(1-\theta_2)(1-\theta_2\omega)(1-\theta_2\omega^2)
+=1-\theta_2^3=1-\omega,\\
+N_{E_2/E_1}(1+\theta_2)
+&=(1+\theta_2)(1+\theta_2\omega)(1+\theta_2\omega^2)
+=1+\theta_2^3=1+\omega.
 \end{aligned}
 $$
 
-二つ目は $\eta_{2,2}=1+\zeta_2$ のノルムが $\eta_{1,2}=1+\omega$ になる確認です。ノルムが**存在すること**と、全単数群上で**全射であること**は別の主張です。
+二つ目は $\eta_{2,2}=1+\theta_2$ のノルムが $\eta_{1,2}=1+\omega$ になる確認です。ノルムが**存在すること**と、全単数群上で**全射であること**は別の主張です。
 
 ### $p\nmid a$ を落とすと何が壊れるか
 
-$r\ge1$ で $a=p$ とすると $1-\zeta_{r+1}^p=1-\zeta_r$ は既に下の体の元です。したがって[体ノルムの定義](../IWA4/index.md#def-iwa4-field-norm)では $p$ 個の共役が全て同じになり、
+$r\ge1$ で $a=p$ とすると $1-\theta_{r+1}^p=1-\theta_r$ は既に下の体の元です。したがって[体ノルムの定義](../IWA4/index.md#def-iwa4-field-norm)では $p$ 個の共役が全て同じになり、
 
 $$
-N_{E_{r+1}/E_r}(1-\zeta_{r+1}^{p})=(1-\zeta_r)^p,
+N_{E_{r+1}/E_r}(1-\theta_{r+1}^{p})=(1-\theta_r)^p,
 $$
 
-となります。これを $1-\zeta_r^p$ と書くのは誤りです。$r=1,p=3$ なら後者は $1-\zeta_1^3=0$ なのに前者は非零です。破綻したのは $j\mapsto pj$ が法 $p$ の置換になるという証明の段階です。
+となります。これを $1-\theta_r^p$ と書くのは誤りです。$r=1,p=3$ なら後者は $1-\theta_1^3=0$ なのに前者は非零です。破綻したのは $j\mapsto pj$ が法 $p$ の置換になるという証明の段階です。
 
 ## 4. 円分単数群と全単数群の指数
 
@@ -346,6 +374,8 @@ $$
 $$
 
 が従います。
+
+なお、上の $\operatorname{Cl}(F_r)$ は[イデアル類群の定義](../../ANF/ANF6/index.md#def-anf6-ideal-class-group)を数体 $K=F_r$ に適用したもので、$E_r$ の類群とは区別しています。
 
 外部定理から独立に、低次の指数なら整数の計算だけで求められます。
 
@@ -393,7 +423,7 @@ $$
 $t$ が整数なので $t=0$、これより $v^2=1$、$v=1$ となります。しかし $N(1)=1$ で矛盾します。従って第二の場合は不可能です。結局 $u=\pm\varphi^n$。逆包含は $\varphi\in C_1^+$ と $-1\in C_1^+$ から成立します。
 <!-- proof-end -->
 
-$p=3,r=1$ も比較しましょう。$E_1=\mathbb Q(\sqrt{-3})$ の単数は、複素平面で絶対値1の $\mathbb Z[\zeta_1]$ の元に限られます。$a+b\zeta_1$（$a,b\in\mathbb Z$）の絶対値の二乗は $a^2-ab+b^2$ なので、この値が1になる整数対は $(\pm1,0),(0,\pm1),(1,1),(-1,-1)$ の六つだけです。従って $U_1=\mu_6=C_1$、$[U_1:C_1]=1$ です。
+$p=3,r=1$ も比較しましょう。$E_1=\mathbb Q(\sqrt{-3})$ の単数は、複素平面で絶対値1の $\mathbb Z[\theta_1]$ の元に限られます。$a+b\theta_1$（$a,b\in\mathbb Z$）の絶対値の二乗は $a^2-ab+b^2$ なので、この値が1になる整数対は $(\pm1,0),(0,\pm1),(1,1),(-1,-1)$ の六つだけです。従って $U_1=\mu_6=C_1$、$[U_1:C_1]=1$ です。
 
 ## 5. 無限塔で整合する単数列
 
@@ -425,7 +455,7 @@ $$
 N_{E_{r+1}/E_r}:C_{r+1}\longrightarrow C_r
 $$
 >
-> は全射である。固定した整数 $a$ が $p\nmid a$ を満たせば $(\eta_{r,a})_{r\ge1}\in C_\infty$ であり、$(\zeta_r)_{r\ge1}$ も $C_\infty$ の元である。$a$ が奇数なら $(\xi_{r,a})_{r\ge1}\in\varprojlim C_r^+$ も成立する。
+> は全射である。固定した整数 $a$ が $p\nmid a$ を満たせば $(\eta_{r,a})_{r\ge1}\in C_\infty$ であり、$(\theta_r)_{r\ge1}$ も $C_\infty$ の元である。$a$ が奇数なら $(\xi_{r,a})_{r\ge1}\in\varprojlim C_r^+$ も成立する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -438,7 +468,7 @@ $$
 まず[積公式](#prop-iwa10-cocycle)で $C_{r+1}$ がGalois安定な単数群であることを確認済みです。[ノルム分布関係](#thm-iwa10-norm-distribution)から
 
 $$
-N(-1)=-1,\qquad N(\zeta_{r+1})=\zeta_r,\qquad
+N(-1)=-1,\qquad N(\theta_{r+1})=\theta_r,\qquad
 N(\eta_{r+1,a})=\eta_{r,a}
 $$
 
@@ -568,16 +598,16 @@ $$
 $p\nmid ab$ とする。$\eta_{r,ab}=\eta_{r,b}\sigma_b(\eta_{r,a})$ を直接示し、$\sigma_b(C_r)=C_r$ を両包含で証明せよ。
 
 <!-- solution-start -->
-**詳細解答。** 分子 $1-\zeta_r^{ab}$ に中間分母 $1-\zeta_r^b$ を挟むと
+**詳細解答。** 分子 $1-\theta_r^{ab}$ に中間分母 $1-\theta_r^b$ を挟むと
 
 $$
-\frac{1-\zeta_r^{ab}}{1-\zeta_r}
-=\frac{1-\zeta_r^b}{1-\zeta_r}
-\frac{1-\zeta_r^{ab}}{1-\zeta_r^b}
+\frac{1-\theta_r^{ab}}{1-\theta_r}
+=\frac{1-\theta_r^b}{1-\theta_r}
+\frac{1-\theta_r^{ab}}{1-\theta_r^b}
 =\eta_{r,b}\sigma_b(\eta_{r,a}).
 $$
 
-よって $\sigma_b(\eta_{r,a})=\eta_{r,ab}\eta_{r,b}^{-1}\in C_r$。また $\sigma_b(-1)=-1$、$\sigma_b(\zeta_r)=\zeta_r^b\in C_r$ なので生成元の像は $C_r$ 内、従って $\sigma_b(C_r)\subseteq C_r$ です。$b'$ を $bb'\equiv1\pmod{p^r}$ と取れば同じ議論で $\sigma_{b'}(C_r)\subseteq C_r$。$\sigma_b$ を作用させると $C_r=\sigma_b\sigma_{b'}(C_r)\subseteq\sigma_b(C_r)$ なので等号です。
+よって $\sigma_b(\eta_{r,a})=\eta_{r,ab}\eta_{r,b}^{-1}\in C_r$。また $\sigma_b(-1)=-1$、$\sigma_b(\theta_r)=\theta_r^b\in C_r$ なので生成元の像は $C_r$ 内、従って $\sigma_b(C_r)\subseteq C_r$ です。$b'$ を $bb'\equiv1\pmod{p^r}$ と取れば同じ議論で $\sigma_{b'}(C_r)\subseteq C_r$。$\sigma_b$ を作用させると $C_r=\sigma_b\sigma_{b'}(C_r)\subseteq\sigma_b(C_r)$ なので等号です。
 <!-- solution-end -->
 
 <a id="ex-iwa10-b2"></a>
@@ -592,7 +622,7 @@ $$
 **詳細解答。** 下層の円分単数群を作る生成元を、一つずつ上層から持ち上げます。まず1の冪根について、[分布関係](#thm-iwa10-norm-distribution)から
 
 $$
-N(-1)=-1,\qquad N(\zeta_{r+1})=\zeta_r
+N(-1)=-1,\qquad N(\theta_{r+1})=\theta_r
 $$
 
 です。次に、下層の指数 $a$ は法 $p^r$ の単元剰余類です。$p$ と互いに素な整数代表元を選べば、法 $p^{r+1}$ でも単元になります。この上層の指数で円分単数を作ると
@@ -669,7 +699,7 @@ $p=5$ の[実単数の計算](#def-iwa10-real-cyclotomic-unit)から $\xi_{1,3}=
 - Level: C
 - ID: IWA10-C1
 
-$p=5$、$E_r=\mathbb Q(\zeta_{5^r})$、$F_r=E_r^+$ とする。
+$p=5$、$E_r=\mathbb Q(\zeta_{5^r})$、$F_r=\mathbb Q(\zeta_{5^r}+\zeta_{5^r}^{-1})$ とする。
 
 1. $a=3$ の円分単数 $\eta_{r,3}$ の逆元を、法 $5^r$ の逆数 $b$ とGalois作用を使って記述せよ。
 2. $\xi_{1,3}$ を $\sqrt5$ で表し、$[U_1^+:C_1^+]$ を**外部の指数公式を使わず**に求めよ。
@@ -720,7 +750,7 @@ $$
 
 ## 7. 到達点と次講
 
-- $\alpha_r=1-\zeta_r$ の絶対ノルムは $p$ ですが、$p\nmid a$ なら比 $\eta_{r,a}$ は**整数環内に明示的逆元を持つ単数**です。
+- $\alpha_r=1-\theta_r$ の絶対ノルムは $p$ ですが、$p\nmid a$ なら比 $\eta_{r,a}$ は**整数環内に明示的逆元を持つ単数**です。
 - 実部分体では $\xi_{r,a}$ を用います。$p=5$ の実単数群は $\{\pm\varphi^n\}$ と直接求まり、円分単数群との指数は1でした。一般の実単数群との指数公式は深い外部定理として区別しました。
 - $N(\eta_{r+1,a})=\eta_{r,a}$ を共役の積から証明した結果、$C_r$ 間のノルムは全射で、明示的な逆極限の元が作れます。これは全単数群のノルムの全射性を保証しません。
 
