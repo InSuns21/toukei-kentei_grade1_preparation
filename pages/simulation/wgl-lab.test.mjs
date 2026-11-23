@@ -78,7 +78,7 @@ test('G1 result UI prioritizes sandbox canvas and keeps diagnostics available on
   assert.match(host, /if \(bad\) byId\('diagnostics-details'\)\.open = true/);
   assert.match(host, /byId\('action-feedback'\)\.textContent = bad \? message : ''/);
   assert.match(host, /byId\('numeric-summary'\)\.textContent = verifiedComparison/);
-  assert.match(host, /const verifiedComparison=unchanged\|\|!!fcg3Physics\|\|!!fcg5Physics\|\|!!fcg6Physics/);
+  assert.match(host, /const verifiedComparison=unchanged\|\|!!fcg2Physics\|\|!!fcg3Physics\|\|!!fcg5Physics\|\|!!fcg6Physics\|\|!!fcg8Physics/);
   assert.match(host, /showTable\(rows, verifiedComparison\)/);
   assert.match(host, /byId\('numeric-note'\)\.textContent = unchanged/);
   assert.match(host, /byId\('edit-after-run'\)\.addEventListener/);
