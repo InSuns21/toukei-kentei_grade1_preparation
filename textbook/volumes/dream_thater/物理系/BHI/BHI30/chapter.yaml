@@ -1,0 +1,50 @@
+id: BHI30
+title: "$n\\to1$とisland公式の導出範囲"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI29
+official_scope: []
+learning_objectives:
+  - 正規化された密度演算子のn次モーメントを微分しvon Neumannエントロピーを導出できる
+  - JT・浴レプリカの正規化log分配関数から一枚のZ1項を漏らさず微分できる
+  - 整数レプリカからn=1への解析接続と正則性条件を明示し非一意な補間例の限界を説明できる
+  - レプリカ対称端点の一次係数台帳から端点の停留条件とオンシェル微分を主要中間式つきで導ける
+  - JTのdilaton項と物質エントロピーからなる一般化エントロピーの適用条件を識別できる
+  - islandなしとislandありの各極値を先に求めてから半古典主項を比較できる
+  - nから1への極限と大パラメータ極限が非可換な模型を計算し単純二枝和によるminの誤導出を否定できる
+  - 重力レプリカに残る鞍点存在・レプリカ対称性・輪郭・規格化・ensembleの検査項目を説明できる
+definitions:
+  - { id: BHI30-DEF-01, name: "正規化された対数レプリカ量" }
+  - { id: BHI30-DEF-02, name: "本講の許容レプリカ延長の条件" }
+  - { id: BHI30-DEF-03, name: "端点付き鞍点族の一次係数台帳" }
+theorems:
+  - { id: BHI30-PROP-01, name: "密度演算子のレプリカ微分" }
+  - { id: BHI30-PROP-02, name: "重力レプリカの正規化微分" }
+  - { id: BHI30-PROP-03, name: "停留端点を持つ鞍点の一次微分" }
+  - { id: BHI30-PROP-04, name: "JT・浴模型における条件付きisland則" }
+  - { id: BHI30-PROP-05, name: "二枝混合での微分と半古典極限の非可換性" }
+canonical_examples:
+  - 二準位密度行列の正規化モーメントとレプリカ微分
+  - 正規化前のZ1因子がエントロピーに混入する反例
+  - 正整数で零になる解析補正と微分非一意性
+  - JT二端点のdilaton一般化エントロピー台帳
+  - 端点の一次係数展開と停留根の極限
+  - 有限混合と大N極限の非可換性
+  - 極値化済みの二枝のPage交差の代数模型
+  - 微分制御が失われる振動誤差の反例
+problem_patterns:
+  - BHI30-SPECTRAL-DERIVATIVE
+  - BHI30-REPLICA-NORMALIZATION
+  - BHI30-ANALYTIC-CONTINUATION
+  - BHI30-FIRST-ORDER-ACTION
+  - BHI30-ENDPOINT-EXTREMIZATION
+  - BHI30-CONDITIONAL-ISLAND
+  - BHI30-SADDLE-SELECTION
+  - BHI30-ORDER-OF-LIMITS
+  - BHI30-ERROR-DERIVATIVE-COUNTEREXAMPLE
+  - BHI30-MODEL-SCOPE-AUDIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 14, review: 6 }
