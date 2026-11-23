@@ -1,0 +1,48 @@
+chapter: BHI36
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI35]
+forward_references: []
+concepts:
+  - id: black-hole-information.final-comparison-ledger
+    name: 放射情報の比較台帳
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（放射情報の比較台帳）]
+    requires: [black-hole-information.consistent-emission-assumption-ledger, black-hole-information.four-d-island-ledger]
+  - id: black-hole-information.final-increment-obstruction
+    name: 近地平線対の条件と後期減少の不両立
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（近地平線対の条件と後期減少の不両立）]
+    requires: [black-hole-information.final-comparison-ledger, black-hole-information.cumulative-correction-budget]
+  - id: black-hole-information.final-two-branch-model
+    name: 定数収支の二枝総合模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（定数収支の二枝総合模型）]
+    requires: [black-hole-information.conditional-island-rule, black-hole-information.jt-extremized-branch-comparison]
+  - id: black-hole-information.final-two-branch-crossing
+    name: 定数収支模型の唯一のPage交点
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（定数収支模型の唯一のPage交点）]
+    requires: [black-hole-information.final-two-branch-model]
+  - id: black-hole-information.final-replica-derivative
+    name: 有限次元密度行列の規格化レプリカ微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（有限次元密度行列の規格化レプリカ微分）]
+    requires: [black-hole-information.normalized-log-replica]
+  - id: black-hole-information.final-ensemble-covariance
+    name: 共通乱数と独立乱数の二境界相関
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（共通乱数と独立乱数の二境界相関）]
+    requires: [black-hole-information.ensemble-shared-draw]
+  - id: black-hole-information.final-keyed-access
+    name: 鍵を失った放射の完全混合化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（鍵を失った放射の完全混合化）]
+    requires: [black-hole-information.keyed-radiation-code, black-hole-information.operational-radiation-access]

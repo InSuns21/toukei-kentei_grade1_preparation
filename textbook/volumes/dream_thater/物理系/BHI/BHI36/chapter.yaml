@@ -1,0 +1,46 @@
+id: BHI36
+title: "全系列総合と未解決問題"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI35
+official_scope: []
+learning_objectives:
+  - 同一放射領域について状態・代数・cutoff・量・近似を固定した比較台帳を構成できる
+  - 純粋二部系のPage条件と近地平線対のAMPS増分不等式を直接比較できる
+  - 定数収支の二枝模型のPage交点を導出し適用域を検査できる
+  - 規格化レプリカのn=1微分を有限次元から証明し重力解析接続の追加仮定を区別できる
+  - 同一ensemble平均と独立平均の因数分解差を有限模型から検算できる
+  - 鍵付きPauli符号の回復と鍵なしの情報消失を計算できる
+  - 二次元JT・四次元Schwarzschild・微視的復号の到達点と未解決問題を混同せず評価できる
+definitions:
+  - { id: BHI36-DEF-01, name: "放射情報の比較台帳" }
+  - { id: BHI36-DEF-02, name: "定数収支の二枝総合模型" }
+theorems:
+  - { id: BHI36-PROP-01, name: "近地平線対の条件と後期減少の不両立" }
+  - { id: BHI36-PROP-02, name: "定数収支模型の唯一のPage交点" }
+  - { id: BHI36-PROP-03, name: "有限次元密度行列の規格化レプリカ微分" }
+  - { id: BHI36-PROP-04, name: "共通乱数と独立乱数の二境界相関" }
+  - { id: BHI36-PROP-05, name: "鍵を失った放射の完全混合化" }
+canonical_examples:
+  - Bell対の縮約と混合な局所状態に対する純粋な全体状態
+  - AMPSの負の増分と近地平線Bell対の両立不能性
+  - 定数収支の二枝Page交点と停止領域
+  - 有限次元密度行列の規格化レプリカ微分
+  - 共有ensembleと独立ensembleの共分散
+  - Pauli暗号化の鍵付き回復と鍵なし混合化
+problem_patterns:
+  - BHI36-BELL-PURITY
+  - BHI36-AMPS-ONE-STEP
+  - BHI36-BRANCH-CROSSING
+  - BHI36-REPLICA-NORMALIZATION
+  - BHI36-ENSEMBLE-COVARIANCE
+  - BHI36-FOUR-D-STOP
+  - BHI36-REPLICA-LIMITS
+  - BHI36-KEYED-RECOVERY
+  - BHI36-CUMULATIVE-OBSTRUCTION
+  - BHI36-FINAL-INTEGRATED-AUDIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 13, review: 7 }
