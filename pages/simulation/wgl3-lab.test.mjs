@@ -46,12 +46,54 @@ test('WGL3 actual source implements both VAOs and indexed / expanded drawing', a
   assert.match(frag,/vec4\(0\.2, 0\.6, 0\.8, 1\.0\)/);
 });
 
-test('WGL3 visual mesh overlay derives faces and counts from uploaded buffers',async()=>{
+test('WGL3 live comparison uses the original GPU VAOs and the same editable buffers', async()=>{
   const js=await readFile(new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL3/mesh.js',import.meta.url),'utf8');
-  for(const marker of ["indices.slice(face*3,face*3+3)","vertices.byteLength+elements.byteLength",
-    "expanded.byteLength","point(id)","canvas.insertAdjacentElement('afterend',svg)"]){
-    assert.ok(js.includes(marker),marker);
+  const base=js.indexOf('gl.flush()');
+  const live=js.indexOf('setTimeout(() => {');
+  assert.ok(base>=0&&live>base,'initial CPU/GPU sample must be rendered before live comparison');
+  for(const signal of [
+    'const indexedLive = new Float32Array(vertices)',
+    'const arraysLive = new Float32Array(expanded)',
+    'const focus = n > 1',
+    'const firstCopy = indices.indexOf(focus)',
+    'const connectedFaces = indices.reduce',
+    'arraysLive[2 * firstCopy] -= 0.12 * h',
+    'arraysLive[2 * firstCopy + 1] -= 0.50 * h',
+    'gl.bufferSubData(gl.ARRAY_BUFFER, 0, indexedLive)',
+    'gl.bufferSubData(gl.ARRAY_BUFFER, 0, arraysLive)',
+    'gl.drawElements(gl.TRIANGLES, elements.length, gl.UNSIGNED_SHORT, 0)',
+    'gl.drawArrays(gl.TRIANGLES, 0, elements.length)',
+    'stage.insertAdjacentElement(\'afterend\', controls)',
+    'const p = panelPoint(panel, position)',
+    'gl.viewport(leftWidth, 0, canvas.width - leftWidth, canvas.height)'
+  ]) assert.ok(js.includes(signal),signal);
+  assert.doesNotMatch(js,/canvas\.getContext\('2d'/,'overlay must follow the true GPU mesh rather than a second model');
+  assert.ok(js.length<30000,'editable learner JS must respect sandbox source limit');
+  assert.doesNotThrow(()=>new Function('gl','canvas','vertexSource','fragmentSource','report','settings',js));
+});
+
+test('WGL3 shared index topology really differs from individual triangle copies',()=>{
+  const n=2,indices=[];
+  for(let j=0;j<n;j++)for(let i=0;i<n;i++){
+    const a=j*(n+1)+i;
+    indices.push(a,a+1,a+n+2,a,a+n+2,a+n+1);
   }
-  assert.match(js,/const selected=add\('polygon'/);
-  assert.ok(js.includes("n<=12"),'dense mesh grids must not flood the overlay');
+  const shared=4;
+  const refs=indices.reduce((out,id,k)=>id===shared?out.concat(k):out,[]);
+  assert.equal(refs.length,6,'center vertex must belong to six triangles');
+  const positions=Array.from({length:(n+1)*(n+1)*2},(_,k)=>k/2);
+  const expanded=indices.flatMap(id=>[positions[2*id],positions[2*id+1]]);
+  const before=expanded.slice();
+  const dx=.3,dy=.2;
+  positions[2*shared]+=dx;
+  positions[2*shared+1]+=dy;
+  for(const k of refs){
+    expanded[2*k]=positions[2*shared];
+    expanded[2*k+1]=positions[2*shared+1];
+  }
+  assert.equal(expanded.length,48);
+  assert.equal(refs.every(k=>expanded[2*k]===before[2*k]+dx),true);
+  expanded[2*refs[0]+1]-=.5;
+  assert.equal(expanded[2*refs[0]+1],expanded[2*refs[1]+1]-.5,
+    'only one expanded copy moves after detachment; all shared references agree');
 });
