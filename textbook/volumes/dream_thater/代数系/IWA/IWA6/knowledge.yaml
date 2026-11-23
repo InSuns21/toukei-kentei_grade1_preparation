@@ -39,7 +39,6 @@ concepts:
     name: 特徴イデアルと岩澤不変量
     kind: definition
     introduction: formal
-    introduction_aliases: [特徴イデアルと岩澤のμ,λ不変量]
     requires: [number-theory.iwa6-prime-factors, number-theory.iwa5-structure]
   - id: number-theory.iwa6-characteristic-invariance
     name: 特徴イデアルの一意性と擬同型不変性
