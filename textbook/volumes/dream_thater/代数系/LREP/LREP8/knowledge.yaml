@@ -20,7 +20,7 @@ concepts:
     name: SU(2)のClebsch–Gordan分解
     kind: theorem
     introduction: formal
-    requires: [representation.total-spin-ladder, representation.sl2-finite-dimensional-classification, representation.spin-spectrum, representation.completely-reducible]
+    requires: [representation.total-spin-ladder, representation.sl2-finite-dimensional-classification, representation.spin-spectrum, representation.compact-complete-reducibility]
   - id: representation.clebsch-gordan-coefficients
     name: Clebsch–Gordan係数
     kind: definition
