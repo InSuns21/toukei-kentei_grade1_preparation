@@ -1,0 +1,57 @@
+chapter: LREP9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP8
+  - SREL2
+forward_references: []
+concepts:
+  - id: representation.lorentz-group
+    name: Lorentz群と単位元成分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lorentz群と単位元成分）"]
+    requires: [relativity.minkowski-metric, lie.lie-group]
+  - id: representation.lorentz-lie-algebra
+    name: Lorentz Lie環の行列条件
+    kind: theorem
+    introduction: formal
+    requires: [representation.lorentz-group, lie.lie-group-lie-algebra]
+  - id: representation.lorentz-rotation-boost
+    name: 回転生成子とboost生成子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（回転生成子とboost生成子）"]
+    requires: [representation.lorentz-lie-algebra]
+  - id: representation.lorentz-matrix-bracket
+    name: 計量付き生成子の交換式
+    kind: lemma
+    introduction: formal
+    requires: [representation.lorentz-rotation-boost]
+  - id: representation.lorentz-commutators
+    name: Lorentz Lie環の回転・boost交換関係
+    kind: theorem
+    introduction: formal
+    requires: [representation.lorentz-matrix-bracket]
+  - id: representation.lorentz-physics-generators
+    name: 物理記法の生成子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（物理記法の生成子）"]
+    requires: [representation.lorentz-commutators, representation.angular-momentum-operators]
+  - id: representation.lorentz-two-factors
+    name: 複素化した二組の生成子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素化した二組の生成子）"]
+    requires: [representation.lorentz-commutators, lie.lie-algebra]
+  - id: representation.lorentz-sl2-decomposition
+    name: 複素化の二つのsl2への分解
+    kind: theorem
+    introduction: formal
+    requires: [representation.lorentz-two-factors, representation.pauli-product]
+  - id: representation.lorentz-boost-loop
+    name: 微小boostループの回転
+    kind: proposition
+    introduction: formal
+    requires: [representation.lorentz-commutators, lie.general-linear-exponential]
