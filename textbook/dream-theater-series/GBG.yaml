@@ -104,7 +104,7 @@ chapters:
     title: "Pontryagin・Euler型不変量をどう見分けるか"
   - id: GBG25
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG25
-    status: planned
+    status: completed
     title: "S⁴上のSU(2)主束はどう貼り合わされるか"
   - id: GBG26
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG26

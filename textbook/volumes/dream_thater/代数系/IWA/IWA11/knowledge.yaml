@@ -1,0 +1,47 @@
+chapter: IWA11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - IWA10
+forward_references: []
+concepts:
+  - id: number-theory.iwa11-s-units
+    name: S単数
+    kind: definition
+    introduction: formal
+    requires: [number-theory.ideal-class-group]
+  - id: number-theory.iwa11-s-unit-exact
+    name: S単数・付値・類群の完全列
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa11-s-units, number-theory.iwa9-s-class-quotient]
+  - id: number-theory.iwa11-valuation-index
+    name: 付値写像の余核の読み方
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa11-s-unit-exact]
+  - id: number-theory.iwa11-local-principal-units
+    name: 局所主単数群と大域単数の閉包
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa11-s-units]
+  - id: number-theory.iwa11-ray-class-group
+    name: 有限法のレイ類群
+    kind: definition
+    introduction: formal
+    requires: [number-theory.ideal-class-group]
+  - id: number-theory.iwa11-ray-exact
+    name: レイ類群の単数完全列
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa11-ray-class-group, number-theory.iwa11-s-units]
+  - id: number-theory.iwa11-local-global-exact
+    name: 局所／大域単数とp分岐Galois群
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa11-local-principal-units, number-theory.iwa11-ray-exact, number-theory.iwa9-s-ramified-extension]
+  - id: number-theory.iwa11-norm-localization
+    name: 局所化とノルムの可換性
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa11-local-principal-units, number-theory.iwa4-field-norm]

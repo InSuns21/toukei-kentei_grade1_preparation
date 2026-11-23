@@ -11,3 +11,4 @@
 8. [IWA8 円分体の類群と指標成分](textbook/volumes/dream_thater/代数系/IWA/IWA8/index.md)
 9. [IWA9 分岐条件と無分岐最大p拡大](textbook/volumes/dream_thater/代数系/IWA/IWA9/index.md)
 10. [IWA10 円分単数・ノルム整合性](textbook/volumes/dream_thater/代数系/IWA/IWA10/index.md)
+11. [IWA11 局所／大域単数の完全列](textbook/volumes/dream_thater/代数系/IWA/IWA11/index.md)
