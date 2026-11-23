@@ -170,18 +170,18 @@ $$
 
 <!-- definition-example-start: def-bhi32-transfer-code -->
 **定義の確認**：早期の基底像は $|00\rangle,|01\rangle$、後期の基底像は $|00\rangle,|10\rangle$ です。いずれも各像のノルムが1で、異なる基底像の内積は0です。したがって、$V$ を早期・後期のどちらとしても
-$
+$$
 \langle Vj|Vk\rangle=\delta_{jk}\qquad (j,k\in\{0,1\})
-$
+$$
 が成立します。これは単に二つの数値を計算しただけでなく、等長性の判定です。任意の $|\psi\rangle=\sum_j c_j|j\rangle$ と $|\varphi\rangle=\sum_k d_k|k\rangle$ に対し、線形性から
-$
+$$
 \begin{aligned}
 \langle V\psi|V\varphi\rangle
 &=\sum_{j,k}\overline{c_j}d_k\langle Vj|Vk\rangle\\
 &=\sum_j\overline{c_j}d_j
 =\langle\psi|\varphi\rangle
 \end{aligned}
-$
+$$
 となります。ゆえに両符号について $V^\dagger V=I_L$ です。さらに $U_{\mathrm{swap}}V_{\mathrm{early}}|0\rangle=|00\rangle=V_{\mathrm{late}}|0\rangle$、$U_{\mathrm{swap}}V_{\mathrm{early}}|1\rangle=|10\rangle=V_{\mathrm{late}}|1\rangle$ です。両基底で一致するので $U_{\mathrm{swap}}V_{\mathrm{early}}=V_{\mathrm{late}}$ が線形写像として成立します。
 <!-- definition-example-end -->
 
@@ -373,14 +373,14 @@ $B$ の因子のトレースは $|\alpha|^2+|\beta|^2=1$ なので、部分ト�
 
 <!-- solution-start -->
 **詳細解答**：$X_R,Z_R$ が放射側だけに作用することを明示し、残存系には単位演算子 $I_B$ を作用させます。二つの基底で
-$
+$$
 \begin{aligned}
 (X_R\otimes I_B)V_{\mathrm{late}}|0\rangle&=|10\rangle=V_{\mathrm{late}}X_L|0\rangle,\\
 (X_R\otimes I_B)V_{\mathrm{late}}|1\rangle&=|00\rangle=V_{\mathrm{late}}X_L|1\rangle,\\
 (Z_R\otimes I_B)V_{\mathrm{late}}|0\rangle&=|00\rangle=V_{\mathrm{late}}Z_L|0\rangle,\\
 (Z_R\otimes I_B)V_{\mathrm{late}}|1\rangle&=-|10\rangle=V_{\mathrm{late}}Z_L|1\rangle
 \end{aligned}
-$
+$$
 となります。基底で一致するため、線形性で任意の入力に対して[再構成の定義](../../HOLO/HOLO27/index.md#def-holo27-subregion-reconstruction)を満たします。
 <!-- solution-end -->
 
