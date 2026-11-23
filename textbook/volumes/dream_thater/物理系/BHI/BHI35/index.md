@@ -145,8 +145,9 @@ $\ell=0$ でも $2M/r^3$ が残る点が重要です。「$s$ 波だから散乱
 ここで先に使った流束保存を導きます。上の半径方程式とその複素共役を用いると、ポテンシャル $V_\ell$ と $\omega^2$ がともに実数なので
 
 $$
-\frac{dJ}{dr_*}=\frac{\psi^*\psi''_*-\psi(\psi''_*)^*}{2i}=0,
-\qquad \psi''_*:=\frac{d^2\psi}{dr_*^2}
+\frac{dJ}{dr_*}
+=\frac{1}{2i}\left(\psi^*\frac{d^2\psi}{dr_*^2}
+-\psi\frac{d^2\psi^*}{dr_*^2}\right)=0
 $$
 
 となります。共通の入射振幅を $A$ とすると、両端の境界波は
@@ -166,9 +167,22 @@ $$
 
 $J_\infty=J_{\rm h}$ と $\omega|A|^2>0$ から $1=|\mathcal R_\ell|^2+|\mathcal T_\ell|^2$、$\Gamma_\ell=|\mathcal T_\ell|^2$ が得られます。振幅を $A=1/\sqrt\omega$ とすれば、定義で用いた単位入射流束となります。これは正周波数のSchwarzschild**非回転**散乱での関係です。回転系の超放射にはそのまま使いません。
 
+**入射から出射への橋渡し**：上では遠方から入る波で $\Gamma_\ell$ を定義しましたが、Hawking放射では地平線側から外へ進む波の透過率を使います。両者が一致することも実ポテンシャルの二階方程式から確かめられます。振幅を同じ規格化で、遠方入射の解を $\psi_R$、地平線側からの入射解を $\psi_L$ とし、$x=r_*$ と略記すると、両端で
+
+$$
+\begin{aligned}
+\psi_R&\sim e^{-i\omega x}+R_R e^{+i\omega x} &&(x\to+\infty),
+&\psi_R&\sim T_R e^{-i\omega x} &&(x\to-\infty),\\
+\psi_L&\sim T_L e^{+i\omega x} &&(x\to+\infty),
+&\psi_L&\sim e^{+i\omega x}+R_L e^{-i\omega x} &&(x\to-\infty)
+\end{aligned}
+$$
+
+と置きます。Wronskian $W=\psi_R(d\psi_L/dx)-(d\psi_R/dx)\psi_L$ は $W'=0$ を満たします。遠方で $W=2i\omega T_L$、地平線側で $W=2i\omega T_R$ なので $T_L=T_R$ です。従って**出射にも同じ $\Gamma_\ell=|T_L|^2=|T_R|^2$** を使えます。この等式には実係数・時間反転対称な散乱方程式と適切な境界条件が必要です。
+
 ## 3. 灰色体因子を通した光度と放射の粗視化
 
-[BHI4のエネルギー収支模型](../BHI4/index.md#def-bhi4-energy-ledger)では光度から質量軌道を求めました。ここでは、透過率が変わると放射の熱的占有数がどう変わるかまで計算します。
+[BHI4のエネルギー収支模型](../BHI4/index.md#def-bhi4-energy-ledger)では光度から質量軌道を求めました。ここでは、[BHI5の粗視化と精細エントロピーの区別](../BHI5/index.md#prop-bhi5-entropy-hierarchy)を前提に、透過率が変わると独立な出射モードの熱的占有数とエントロピーがどう変わるかまで計算します。
 
 <a id="def-bhi35-outgoing-entropy"></a>
 
@@ -351,7 +365,7 @@ $$
 
 ## 5. 四次元island候補に必要な停留条件
 
-二次元ではdilatonの値が重力のエントロピー項でした。四次元では二次元の点に対応する境界は、通常**面積を持つ二次元の曲面**です。まず[BHI30の条件付きisland則](../BHI30/index.md#prop-bhi30-conditional-island)を、四次元で検討すべき候補の形に書き直します。
+二次元ではdilatonの値が重力のエントロピー項でした。四次元では二次元の点に対応する境界は、通常**面積を持つ二次元の曲面**です。[BHI30の条件付きisland則](../BHI30/index.md#prop-bhi30-conditional-island)で使った「重力エントロピー項＋物質エントロピー項」を四次元の曲面に対応させます。この和が曲面の許された全方向の微小変形に対して停留するものを**量子極値曲面（QES）**と呼び、半径だけの停留とは区別します。
 
 <a id="def-bhi35-four-d-qes-ledger"></a>
 
