@@ -1,0 +1,43 @@
+id: "IWA2"
+title: "円分Z_p拡大とGalois群"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IWA1
+official_scope: []
+learning_objectives:
+  - 円分体のGalois群と制限写像の核・全射性を計算できる
+  - 奇素数の有限段Teichmüller持ち上げを構成しDeltaと主単元の積分解を証明できる
+  - 1+pの指数座標で円分Z_p塔の有限層と逆極限を構成できる
+  - p=2で符号群と1+4Z_2を分け5による生成・制限を証明できる
+  - FrobeniusのDelta商への射影から素数の分解を判定できる
+definitions:
+  - { id: IWA2-DEF-01, name: 有限段のTeichmüller持ち上げ }
+theorems:
+  - { id: IWA2-PROP-01, name: 円分Galois群の制限列 }
+  - { id: IWA2-PROP-02, name: 有限段Teichmüller持ち上げの存在・一意性 }
+  - { id: IWA2-THM-01, name: 奇素数の円分単元群の直積分解 }
+  - { id: IWA2-PROP-03, name: 生成元による指数座標 }
+  - { id: IWA2-THM-02, name: 円分塔の有限層と逆極限の両立性 }
+  - { id: IWA2-THM-03, name: 2進単元の符号部分と主単元部分 }
+  - { id: IWA2-PROP-04, name: 奇素数の円分層におけるFrobenius判定 }
+canonical_examples:
+  - p=3の法9の核と三次円分固定体
+  - p=5の2のTeichmüller持ち上げと6の指数座標
+  - p=2の法8・16における5の位数とQ(sqrt2)
+  - p=5で素数2と101のFrobenius像と分解
+problem_patterns:
+  - IWA2-RESTRICTION-KERNEL
+  - IWA2-DELTA-UNIT-ENUMERATION
+  - IWA2-GENERATOR-ORDER
+  - IWA2-TWO-ADIC-DIRECT-PRODUCT
+  - IWA2-FROBENIUS-EXPONENT
+  - IWA2-HENSEL-LIFT
+  - IWA2-LAYER-RESTRICTION-KERNEL
+  - IWA2-SPLITTING-PRIMES
+  - IWA2-TWO-ADIC-SPLITTING-COUNTEREXAMPLE
+  - IWA2-INTEGRATED-SECOND-LAYER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 2 }
