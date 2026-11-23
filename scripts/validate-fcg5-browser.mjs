@@ -162,8 +162,17 @@ try {
   const resumed=await cdp('Page.captureScreenshot',{format:'png',clip:linkedCrop,captureBeyondViewport:true});
   assert.notEqual(resumed.data,frozenFirst.data,'Space must resume the same GPU fluid solver');
   console.log('FCG5 single solver reduced-motion change, no auto-resume and authenticated live button: PASS');
-
-
+  // Live step/reset must act inside the same running sandbox, not re-run a static snapshot.
+  const liveFrame=await evaluate('document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")');
+  await click('fcg5-live-reset');
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("step 0/32") && document.querySelector("#fcg5-live-state")?.textContent.includes("一時停止中")');
+  assert.equal(await evaluate('document.querySelector("#fcg5-live-step").disabled'),false);
+  await click('fcg5-live-step');
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("step 1/32") && document.querySelector("#fcg5-live-state")?.textContent.includes("一時停止中")');
+  await click('fcg5-live-reset');
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("step 0/32")');
+  assert.equal(await evaluate('document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")'),liveFrame);
+  console.log('FCG5 authenticated in-place GPU step/reset: PASS');
 
   await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="1ステップ")).click()');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格") && document.querySelector("#fcg5-cpu-prediction")?.textContent.includes("steps=9")',25000);
@@ -226,6 +235,10 @@ try {
   await evaluate('(()=>{const e=document.querySelector("#parameter-brush-strength");e.value="0.6";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}))})()');
   await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した条件の独立CPU初期画素検算に合格") && document.querySelector("#js-source")?.value.includes("dyeBrushRadius=0.05,dyeBrushStrength=0.6")',25000);
   assert.match(await evaluate('document.querySelector("#numeric-note")?.textContent'),/染料ブラシ半径=0[.]05 m、入力強度=0[.]6/);
+  assert.equal(await evaluate('document.querySelector("#parameter-playback-ms")?.value'),'140');
+  await evaluate('(()=>{const e=document.querySelector("#parameter-playback-ms");e.value="70";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}))})()');
+  await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した条件の独立CPU初期画素検算に合格") && document.querySelector("#js-source")?.value.includes("const playbackIntervalMs=70")',25000);
+  assert.match(await evaluate('document.querySelector("#diagnostics").textContent'),/playback interval=70 ms\/step/);
   await click('save');
   await cdp('Page.reload',{ignoreCache:true});
   await waitFor('document.querySelector("#status")?.textContent==="実行できます"',25000);
@@ -238,6 +251,7 @@ try {
   assert.equal(await evaluate('document.querySelector("#parameter-dt").value'),'0.02');
   assert.equal(await evaluate('document.querySelector("#parameter-brush-radius").value'),'0.05');
   assert.equal(await evaluate('document.querySelector("#parameter-brush-strength").value'),'0.6');
+  assert.equal(await evaluate('document.querySelector("#parameter-playback-ms").value'),'70');
   assert.equal(await evaluate('document.querySelector("#canvas-slot iframe")===null'),true,
     'saved code must not run automatically after reload');
   await click('run');
