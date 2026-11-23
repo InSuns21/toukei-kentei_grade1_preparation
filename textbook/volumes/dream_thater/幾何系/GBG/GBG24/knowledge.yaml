@@ -13,7 +13,7 @@ concepts:
     requires: [gauge.chern-total-form, gauge.associated-vector-bundle, gauge.local-curvature-form]
 
   - id: gauge.first-pontryagin-trace
-    name: 第一Pontryagin形式の跡公式
+    name: 第一 Pontryagin 形式の跡公式
     kind: proposition
     introduction: formal
     requires: [gauge.pontryagin-form, gauge.chern-low-degree-traces]
@@ -26,7 +26,7 @@ concepts:
     requires: []
 
   - id: gauge.pfaffian-orthogonal-transform
-    name: Pfaffianの直交枠変換と向き
+    name: Pfaffian の直交枠変換と向き
     kind: proposition
     introduction: formal
     requires: [gauge.pfaffian]
@@ -39,20 +39,20 @@ concepts:
     requires: [gauge.pfaffian, gauge.pfaffian-orthogonal-transform]
 
   - id: gauge.real-characteristic-closed-independence
-    name: Pontryagin・Euler形式の閉性と接続非依存性
+    name: Pontryagin・Euler 形式の閉性と接続非依存性
     kind: theorem
     introduction: formal
     requires: [gauge.pontryagin-form, gauge.euler-pfaffian-form, gauge.chern-weil-closedness, gauge.chern-weil-connection-independence]
 
   - id: gauge.real-plane-characteristic-relations
-    name: 実平面束のEulerとPontryagin
+    name: 実平面束の Euler と Pontryagin
     kind: proposition
     introduction: formal
     requires: [gauge.euler-pfaffian-form, gauge.first-pontryagin-trace, gauge.chern-low-degree-traces]
 
   - id: gauge.real-characteristic-direct-sum
-    name: 実束のPontryagin・Euler直和公式
+    name: 実束の Pontryagin・Euler 直和公式
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（直和公式）"]
+    introduction_aliases: ["命題（実束の Pontryagin・Euler 直和公式）"]
     requires: [gauge.pontryagin-form, gauge.euler-pfaffian-form, gauge.pfaffian]
