@@ -118,7 +118,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $HF=FH-2F$ なので、$HF^kv=(FH-2F)F^{k-1}v$ を帰納的に繰り返すと、$HF^kv=(\lambda-2k)F^kv$ です。次に積に対する交換子公式を $k$ 個の $F$ へ適用すると
+まず $HF=FH-2F$ です。$k=0$ は仮定 $Hv=\lambda v$ そのものです。$HF^{k-1}v=(\lambda-2(k-1))F^{k-1}v$ を仮定すると
+$
+\begin{aligned}
+HF^kv&=(FH-2F)F^{k-1}v\\
+&=F(\lambda-2(k-1))F^{k-1}v-2F^kv\\
+&=(\lambda-2k)F^kv.
+\end{aligned}
+$
+従って第一式が帰納的に成立します。次に積に対する交換子公式を $k$ 個の $F$ へ適用すると
 $$
 [E,F^k]=\sum_{j=0}^{k-1}F^j[E,F]F^{k-1-j}
 =\sum_{j=0}^{k-1}F^jHF^{k-1-j}.
@@ -440,12 +448,18 @@ $$
 $H=\operatorname{diag}(1,-1)$、$E=\begin{pmatrix}0&1\\0&0\end{pmatrix}$、$F=\begin{pmatrix}0&0\\1&0\end{pmatrix}$ について、$[H,E]$、$[H,F]$、$[E,F]$ を成分ごとに求めよ。
 
 <!-- solution-start -->
-**詳細解答。** 定義より $[A,B]=AB-BA$ です。$HE=\begin{pmatrix}0&1\\0&0\end{pmatrix}$、$EH=\begin{pmatrix}0&-1\\0&0\end{pmatrix}$ なので $[H,E]=2E$ です。$HF=\begin{pmatrix}0&0\\-1&0\end{pmatrix}$、$FH=\begin{pmatrix}0&0\\1&0\end{pmatrix}$ より $[H,F]=-2F$。最後に
-$$
-EF=\begin{pmatrix}1&0\\0&0\end{pmatrix},\qquad
-FE=\begin{pmatrix}0&0\\0&1\end{pmatrix}
-$$
-なので $[E,F]=\operatorname{diag}(1,-1)=H$ です。三つとも [交換関係](#lem-lrep6-brackets)に一致します。
+**詳細解答。** 定義より $[A,B]=AB-BA$ です。まず行列積を成分で求めると
+$
+\begin{aligned}
+HE&=\begin{pmatrix}0&1\\0&0\end{pmatrix},&
+EH&=\begin{pmatrix}0&-1\\0&0\end{pmatrix},\\
+HF&=\begin{pmatrix}0&0\\-1&0\end{pmatrix},&
+FH&=\begin{pmatrix}0&0\\1&0\end{pmatrix},\\
+EF&=\begin{pmatrix}1&0\\0&0\end{pmatrix},&
+FE&=\begin{pmatrix}0&0\\0&1\end{pmatrix}.
+\end{aligned}
+$
+それぞれの差を取れば $[H,E]=2E$、$[H,F]=-2F$、$[E,F]=\operatorname{diag}(1,-1)=H$ となり、[交換関係](#lem-lrep6-brackets)に一致します。
 <!-- solution-end -->
 
 <a id="ex-lrep6-a02"></a>
