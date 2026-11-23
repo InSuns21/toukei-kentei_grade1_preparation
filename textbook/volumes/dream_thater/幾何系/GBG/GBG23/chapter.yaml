@@ -1,0 +1,44 @@
+id: "GBG23"
+title: "Chern類・Chern指標はどの式で正規化するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG22
+official_scope: []
+learning_objectives:
+  - 反Hermite値曲率にC=iF/(2π)を採用する符号と意味を説明できる
+  - det(I+tC)から全Chern形式と一次・二次の係数を対角化なしに導ける
+  - tr exp(C)からChern指標の0次・一次・二次成分を計算できる
+  - ch2=(c1^2-2c2)/2を証明しSU(r)のときch2=-c2を説明できる
+  - 共役不変多項式の偏極と既習Chern–Weil理論から閉性・接続非依存性を証明できる
+  - 直和に対する全Chern形式の積性とChern指標の加法性を導ける
+  - de Rham代表形式と整数係数Chern類の整数性の証明責務を区別できる
+  - S2×S2上のmonopole線束直和でc2とch2の相違を積分で検算できる
+definitions:
+  - { id: GBG23-DEF-01, name: 全Chern形式 }
+  - { id: GBG23-DEF-02, name: Chern指標形式 }
+theorems:
+  - { id: GBG23-PROP-01, name: 低次Chern形式の跡表示 }
+  - { id: GBG23-PROP-02, name: Chern指標と低次Chern形式の関係 }
+  - { id: GBG23-THM-01, name: Chern形式・Chern指標形式の閉性と接続非依存性 }
+  - { id: GBG23-PROP-03, name: 直和に対するChern形式とChern指標 }
+canonical_examples:
+  - R4上の対角U(2)接続のdetとtr exp
+  - R4上のU(1)曲率でc2が零でもch2が非零となる例
+  - SU(2)のtr F=0によるc2とch2の符号
+  - S2×S2上のmonopole線束直和でc2=1とch2=0
+  - S2×S2上の符号付き線束直和でc2=-2とch2=0
+problem_patterns:
+  - GBG23-U1-FOUR-DIMENSIONAL
+  - GBG23-MATRIX-DETERMINANT-TRACE
+  - GBG23-FLAT-RANK
+  - GBG23-SU2-SIGN
+  - GBG23-DIRECT-SUM-R4
+  - GBG23-CHARACTER-TRANSGRESSION
+  - GBG23-CHERN-TRANSGRESSION
+  - GBG23-U1-SPHERE-SUM
+  - GBG23-MONOPOL-S2XS2-INTEGRALS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 4 }
