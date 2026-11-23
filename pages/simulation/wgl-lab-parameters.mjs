@@ -3,6 +3,24 @@
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
 
 export const LAB_PARAMETERS = Object.freeze({
+  WGL17: Object.freeze([
+    Object.freeze({
+      id: 'format', type: 'enum', values: ['r8', 'r8ui', 'r32f'],
+      label: 'GPUに保存する形式', default: 'r8', unit: 'R8／R8UI／R32F',
+      meaning: 'R8とR8UIは同じ8ビット符号を異なる型で読み、R32Fは物理値をfloat32で読む',
+      sourceLocation: 'data-grid.js / const mode → texImage2D と fragment shader の u_mode',
+      sourceFile: 'js', index: null,
+      matcher: /^([ \\t]*const mode[ \\t]*=[ \\t]*)([^;\\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id: 'probe', type: 'number', label: '下段2列目の入力値 x', default: -1.3,
+      min: -2, max: 2, step: 0.1, unit: '物理値（例：m）',
+      meaning: '1セルだけ変更し、8ビットの段差・ゼロ付近のずれ・float32の誤差を観察する',
+      sourceLocation: 'data-grid.js / const probeValue → physicalValues[1] → Uint8Array / Float32Array → GPU',
+      sourceFile: 'js', index: null,
+      matcher: /^([ \\t]*const probeValue[ \\t]*=[ \\t]*)([^;\\n]+)(;)/gm
+    })
+  ]),
   WGL19: Object.freeze([
     Object.freeze({
       id: 'rate', type: 'number', label: '拡散係数 r', default: 0.2,
