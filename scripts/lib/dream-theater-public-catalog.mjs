@@ -46,7 +46,7 @@ export function assembleDreamTheaterContents(sourceFiles) {
       // Keep each subject's numbered lecture links a tight Markdown list.
       // Blank lines between items otherwise produce <p> wrappers and uneven spacing.
       pieces.push(fragment.replace(
-        /(^\d+\. \[[^\n]+\]\(textbook\/volumes\/[^)\n]+\/index\.md\)\n)\n+(?=\d+\. \[)/gmu,
+        /(^\d+\. \[[^\n]+\]\(textbook\/volumes\/[^)\n]+\/index\.md\)\n)(?:[ \t]*\n)+(?=\d+\. \[)/gmu,
         '$1',
       ));
     }
