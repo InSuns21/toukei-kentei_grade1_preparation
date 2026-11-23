@@ -509,7 +509,11 @@ $$
 
 差は一定ではなく $n$ とともに増えます。対して $\mu=0$ なら [成長差の命題](#prop-iwa7-growth-difference)により差は十分大きな層で一定の $\lambda$ です。
 
-**第3問。** 計算したのは抽象的な $\Lambda$ 加群のcoinvariantsです。数体の類群 $A_n$ との比較を証明していない以上、この模型の指数を $v_p(h(F_n))$ と同一視できません。[算術的な類数成長定理](#thm-iwa7-class-number-growth)は任意の数体の $\mathbb Z_p$ 拡大に対して十分大きい $n$ の式を保証しますが、この模型の数値を保証しません。[Ferrero–Washingtonのμ=0定理](#thm-iwa7-ferrero-washington)を適用するには、$F/\mathbb Q$ が有限Abel拡大で、$F_\infty/F$ がその円分 $\mathbb Z_p$ 拡大であることが必要です。模型では $\mu=2$ なので、同定可能な円分Abel数体の類群模型だと断定することは定理と両立しません。
+**第3問。** 計算したのは抽象的な $\Lambda$ 加群のcoinvariantsです。数体の類群 $A_n$ との比較を証明していない以上、この模型の指数を類数の $p$ 進付値と同一視できません。
+
+[算術的な類数成長定理](#thm-iwa7-class-number-growth)は、任意の数体の $\mathbb Z_p$ 拡大に対して十分大きい $n$ の成長公式を保証します。しかし、任意に選んだ模型の数値を特定の数体の類群へ転用できるわけではありません。
+
+[Ferrero–Washingtonのμ=0定理](#thm-iwa7-ferrero-washington)を適用するには、基礎体 $F/\mathbb Q$ が有限Abel拡大であり、塔 $F_\infty/F$ がその円分 $\mathbb Z_p$ 拡大である必要があります。ここでの模型は $\mu=2$ です。従って、この模型をAbel数体の円分類群模型だと同定することは、定理と両立しません。
 <!-- solution-end -->
 
 ## 参考資料と次講への道筋
