@@ -158,11 +158,11 @@ const descriptions = Object.freeze({
   }),
   WGL13: Object.freeze({
     requiresSteps: false,
-    grid: '数値計算格子なし（キューブマップ6面はそれぞれ2×2 texelのRGBA8入力。表示GPU画素とは別）',
-    color: '±X・±Y・±Zの6面それぞれにRGB色、各面4 texelに明度0.55／0.70／0.85／1。反射色にSchlickのF0を混合',
-    clock: () => '6面の方向を固定した12画素GPU検算（物理stepなし）',
-    mode: '球面は反射ベクトル、外側は背景用の方向でキューブマップを標本化。yawDegreesと手動回転は描画方向を変え、12画素検算方向は固定',
-    source: 'environment.js（faceColors, brightness, yawDegrees, fresnelF0）/ environment.frag（u_env, u_yaw, schlick）'
+    grid: '初期風景は立方体6面×128×128 RGBA8 texel（sceneResolutionで編集可）。別の2×2×6面RGBA8は12方向の基準検算。どちらも描画バッファ解像度とは別',
+    color: '左の球は1本の鏡面反射方向からキューブマップを参照、右は同じ6面の展開図。橙枠は選択中の反射先の面、任意の水色線は面境界。F₀は無次元0〜1',
+    clock: () => '風景・球・展開図は同一GPU shader。再生は環境方位のみ（°）、物理stepなし。12画素GPU検算は無回転2×2面の静止値',
+    mode: '球をクリックすると反射先の面・UVを特定。2×2面診断と風景128×128を同じGLSLとキューブマップ規則で切り替える',
+    source: 'environment.js（sceneColor, sceneResolution, faceColors, yawDegrees, fresnelF0）/ environment.frag（reflect, u_scene, u_env, faceDirection, u_showSeams）'
   }),
   WGL14: Object.freeze({
     requiresSteps: false,
