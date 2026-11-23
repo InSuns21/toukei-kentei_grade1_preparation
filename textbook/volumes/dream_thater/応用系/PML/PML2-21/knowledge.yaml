@@ -1,0 +1,70 @@
+chapter: PML2-21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-20
+  - PML2-02
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-21-identification
+    name: 係数同定の観測写像と構造的識別可能性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（係数同定の観測写像と構造的識別可能性）"]
+    requires:
+      - inverse.identifiability
+      - physics-machine-learning.pml2-02-pipeline
+  - id: physics-machine-learning.pml2-21-known-source
+    name: 既知外力と内部一点からの係数の一意な復元
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-21-identification
+  - id: physics-machine-learning.pml2-21-vanishing-data
+    name: 零外力または端点だけの観測では識別できない
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-21-identification
+  - id: physics-machine-learning.pml2-21-joint-loss
+    name: 状態とPDE係数の同時推定損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（状態とPDE係数の同時推定損失）"]
+    requires:
+      - physics-machine-learning.pml2-06-strong-residual
+      - physics-machine-learning.pml2-21-identification
+  - id: physics-machine-learning.pml2-21-joint-unique
+    name: 既知外力の同時学習で零損失解は一意
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-21-joint-loss
+      - physics-machine-learning.pml2-21-known-source
+  - id: physics-machine-learning.pml2-21-scaling
+    name: 外力と伝導係数の同時スケーリングによる非識別
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-21-identification
+      - physics-machine-learning.pml2-21-joint-loss
+  - id: physics-machine-learning.pml2-21-noise
+    name: 逆係数の最小二乗推定と雑音増幅
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-21-known-source
+      - inverse.finite-linear-wellposedness
+  - id: physics-machine-learning.pml2-21-regularization
+    name: 二乗正則化の解とバイアス
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-21-noise
+  - id: physics-machine-learning.pml2-21-two-loads
+    name: 既知の外力差を持つ二実験からの同時復元
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-21-scaling
+      - physics-machine-learning.pml2-21-known-source

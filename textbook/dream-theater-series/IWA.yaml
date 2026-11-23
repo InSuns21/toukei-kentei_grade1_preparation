@@ -39,7 +39,7 @@ chapters:
     title: "円分体の類群と指標成分"
   - id: IWA9
     path: textbook/volumes/dream_thater/代数系/IWA/IWA9
-    status: planned
+    status: completed
     title: "分岐条件と無分岐最大p拡大"
   - id: IWA10
     path: textbook/volumes/dream_thater/代数系/IWA/IWA10

@@ -1,0 +1,53 @@
+id: "PML2-21"
+title: "PDEパラメータを学習すると識別性は保てるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-20
+  - PML2-02
+official_scope: []
+learning_objectives:
+  - 係数が既知の外力とともに決めるPoisson問題の唯一解を導き状態と係数の未知量を区別できる
+  - 観測写像の定義域を固定して構造的識別可能性を判定できる
+  - 既知非零外力と内部一点観測による係数復元を証明し零外力・端点観測の反例を説明できる
+  - 状態とPDE係数を同時学習するdata+physics損失を構成し零損失組の一意性の条件を証明できる
+  - 外力も未知の場合の同時スケーリングにより全空間観測と残差零でも識別不能なことを証明できる
+  - 雑音付き点観測から逆係数の最小二乗推定量と誤差・分散を導き観測位置の条件を分析できる
+  - 二乗正則化の最小点とバイアスを導き非識別の解消と区別できる
+  - 雑音に適合した零PINN損失でも係数誤差が残る計算を検算できる
+  - 既知外力差を与える二実験で係数と未知外力を同時復元し雑音増幅を評価できる
+definitions:
+  - { id: PML2-21-DEF-01, name: 係数同定の観測写像と構造的識別可能性 }
+  - { id: PML2-21-DEF-02, name: 状態とPDE係数の同時推定損失 }
+theorems:
+  - { id: PML2-21-THM-01, name: 既知外力と内部一点からの係数の一意な復元 }
+  - { id: PML2-21-PROP-01, name: 零外力または端点だけの観測では識別できない }
+  - { id: PML2-21-THM-02, name: 既知外力の同時学習で零損失解は一意 }
+  - { id: PML2-21-PROP-02, name: 外力と伝導係数の同時スケーリングによる非識別 }
+  - { id: PML2-21-THM-03, name: 逆係数の最小二乗推定と雑音増幅 }
+  - { id: PML2-21-PROP-03, name: 二乗正則化の解とバイアス }
+  - { id: PML2-21-THM-04, name: 既知の外力差を持つ二実験からの同時復元 }
+canonical_examples:
+  - 定数伝導係数Poisson問題の二階微分・端点・唯一解の確認
+  - 既知外力の中央一点観測での係数復元と端点・零外力の非識別
+  - 状態と係数のdata+physics残差を別々に零と確認する
+  - 未知外力と係数の同時スケーリングが全区間の解を変えない
+  - 観測配置と雑音に対する逆係数の誤差・分散
+  - 二乗正則化のバイアスと観測欠如での事前値への固定
+  - 雑音付き観測で物理残差零でも係数がずれる反例
+  - 既知外力差の二実験による同時復元と差の雑音増幅
+problem_patterns:
+  - PML2-21-A01
+  - PML2-21-A02
+  - PML2-21-A03
+  - PML2-21-A04
+  - PML2-21-A05
+  - PML2-21-B01
+  - PML2-21-B02
+  - PML2-21-B03
+  - PML2-21-B04
+  - PML2-21-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }

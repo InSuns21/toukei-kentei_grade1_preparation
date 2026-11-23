@@ -24,3 +24,4 @@
 21. [GBG21 Chern–Weil形式はなぜ閉じるか](textbook/volumes/dream_thater/幾何系/GBG/GBG21/index.md)
 22. [GBG22 接続を変えても特性類が変わらないのはなぜか](textbook/volumes/dream_thater/幾何系/GBG/GBG22/index.md)
 23. [GBG23 Chern類・Chern指標はどの式で正規化するか](textbook/volumes/dream_thater/幾何系/GBG/GBG23/index.md)
+24. [GBG24 Pontryagin・Euler型不変量をどう見分けるか](textbook/volumes/dream_thater/幾何系/GBG/GBG24/index.md)
