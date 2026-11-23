@@ -53,7 +53,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa12-control-map -->
-**定義の確認。** 全層で $A_n=\mathbb Z/3\mathbb Z$、遷移写像は恒等写像、$\Gamma$ は自明に作用するとします。整合列は $(a,a,\ldots)$ の形なので $X=\mathbb Z/3\mathbb Z$ です。$\omega_nX=0$、$\pi_n(a)=a$ ですから $c_n$ はすべての $n$ で恒等写像です。定義が単に記号を並べたものではなく、各層に戻す具体的な写像になっていると確かめられます。
+**定義の確認**。 全層で $A_n=\mathbb Z/3\mathbb Z$、遷移写像は恒等写像、$\Gamma$ は自明に作用するとします。整合列は $(a,a,\ldots)$ の形なので $X=\mathbb Z/3\mathbb Z$ です。$\omega_nX=0$、$\pi_n(a)=a$ ですから $c_n$ はすべての $n$ で恒等写像です。定義が単に記号を並べたものではなく、各層に戻す具体的な写像になっていると確かめられます。
 <!-- definition-example-end -->
 
 比較写像が定義できる理由も計算で確かめます。$a_n\in A_n$ には $\gamma^{p^n}$ が自明に作用するため、
@@ -125,7 +125,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa12-stable-image -->
-**定義の確認。** $A_0=(\mathbb Z/3\mathbb Z)^2$、$A_m=\mathbb Z/3^m\mathbb Z$（$m\ge1$）とし、$N_{1,0}(a)=(a\bmod3,0)$、その上の写像を還元とします。$m\ge1$ からの像はすべて $\{(a,0):a\in\mathbb Z/3\mathbb Z\}$ です。従って $J_0$ はこの位数3の部分群で、$A_0$ 全体（位数9）ではありません。
+**定義の確認**。 $A_0=(\mathbb Z/3\mathbb Z)^2$、$A_m=\mathbb Z/3^m\mathbb Z$（$m\ge1$）とし、$N_{1,0}(a)=(a\bmod3,0)$、その上の写像を還元とします。$m\ge1$ からの像はすべて $\{(a,0):a\in\mathbb Z/3\mathbb Z\}$ です。従って $J_0$ はこの位数3の部分群で、$A_0$ 全体（位数9）ではありません。
 <!-- definition-example-end -->
 
 <a id="prop-iwa12-stable-image"></a>
@@ -178,7 +178,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa12-uniform-control -->
-**定義の確認。** 第1節の $A_n=\mathbb Z/3\mathbb Z$、遷移・$\Gamma$ 作用が恒等の例では $c_n$ は恒等写像で、全層で核・余核は零です。従って $B=1$ で一様有界であり、さらに完全 control です。「群の位数が一定」という事実だけでなく、写像の核・余核を計算したことが判定の根拠です。
+**定義の確認**。 第1節の $A_n=\mathbb Z/3\mathbb Z$、遷移・$\Gamma$ 作用が恒等の例では $c_n$ は恒等写像で、全層で核・余核は零です。従って $B=1$ で一様有界であり、さらに完全 control です。「群の位数が一定」という事実だけでなく、写像の核・余核を計算したことが判定の根拠です。
 <!-- definition-example-end -->
 
 核を直接計算する代わりに、**すべての層で同じ有限部分群が誤差を覆う**と示せる場合があります。以下では、この条件から**有限誤差によるcontrol判定**を導きます。
@@ -446,21 +446,21 @@ $A_n=\mathbb Z/3^{n+1}\mathbb Z$、遷移は還元、$\Gamma$ 作用は自明と
 <!-- solution-start -->
 **詳細解答。** $m'\ge m\ge n$ に対し、ノルムの合成則から
 
-$
+$$
 N_{m',n}=N_{m,n}N_{m',m},
 \qquad
 \operatorname{im}N_{m',n}\subseteq\operatorname{im}N_{m,n}
-$
+$$
 
 です。$A_n$ は有限群なので像の狭義減少は高々 $|A_n|-1$ 回で止まり、十分高い層では像が一定の群 $J_n$ になります。
 
 さらに [安定像命題](#prop-iwa12-stable-image)の有限交叉性による構成で $I_n=J_n$ です。[比較完全列](#thm-iwa12-comparison-exact)を適用すると
 
-$
+$$
 \operatorname{coker}c_n=A_n/I_n=A_n/J_n,
 \qquad
 |\operatorname{coker}c_n|=[A_n:J_n].
-$
+$$
 
 像の減少が止まることと、全層に整合する元が存在することは別の段階なので、両方を証明する必要があります。
 <!-- solution-end -->
