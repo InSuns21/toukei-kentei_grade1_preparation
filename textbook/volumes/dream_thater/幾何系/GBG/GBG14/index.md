@@ -32,7 +32,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg14-horizontal-curve -->
-**定義の確認**。積主束 $\mathbb R\times U(1)$ に局所ポテンシャル $A=0$ の接続を置く。[積主束における接続1形式の具体式](../GBG7/index.md#prop-gbg7-product-form)により、点 $(x,g)$ での接続形式は $g^{-1}dg$ である。$\gamma(t)=t$、$\widetilde\gamma(t)=(t,g_0)$ とすると、射影条件は $\pi(t,g_0)=t$、接続条件は $g_0^{-1}\dot g_0=0$ で、それぞれ確かめられる。一方 $(t,e^{it}g_0)$ は射影条件こそ満たすが、接続値が $i$ なので水平ではない。
+**定義の確認**。積主束 $\mathbb R\times U(1)$ の標準section $s(x)=(x,1)$ で局所ポテンシャル $A=0$ の接続を置く。[積主束の接続形式の具体式](../GBG7/index.md#prop-gbg7-product-form)では、接ベクトル $(v,W)\in T_x\mathbb R\oplus T_gU(1)$ に対し $\omega_{(x,g)}(v,W)=\operatorname{Ad}_{g^{-1}}A_x(v)+\theta_g(W)$ である。$\theta_g(W)=g^{-1}W$ は行列群 $U(1)$ の左 Maurer–Cartan 形式だから、ここでは水平性を $g^{-1}\dot g=0$ で判定できる。$\gamma(t)=t$、$\widetilde\gamma(t)=(t,g_0)$ では $\pi(t,g_0)=t$、$g_0^{-1}\dot g_0=0$ で両条件を満たし、初期値も $(0,g_0)$ である。一方 $(t,e^{it}g_0)$ は射影条件を満たすが、$(e^{it}g_0)^{-1}\frac d{dt}(e^{it}g_0)=i$ なので水平ではない。
 <!-- definition-example-end -->
 
 ### 局所sectionで微分方程式を導く
@@ -43,18 +43,18 @@ $$
 p(t)=s(\gamma(t))g(t),\qquad g(t)\in G
 $$
 
-と書ける。$A=s^*\omega$ を[GBG8 の局所接続形式](../GBG8/index.md#def-gbg8-local-potential)とする。右主作用に関する[主束接続形式の同変性と再生条件](../GBG7/index.md#def-gbg7-connection-form)から、曲線を微分して
+と書ける。$A=s^*\omega$ を[GBG8 の局所接続形式](../GBG8/index.md#def-gbg8-local-potential)とする。局所自明化 $(x,g)\mapsto s(x)g$ のもとで、持ち上げの速度は $(\dot\gamma(t),\dot g(t))$ と表示される。[GBG7 の積主束の接続形式](../GBG7/index.md#prop-gbg7-product-form)をこの速度に適用すると
 
 $$
 \omega_{p(t)}(\dot p(t))
 =
 \operatorname{Ad}_{g(t)^{-1}}\!\left(A_{\gamma(t)}(\dot\gamma(t))\right)
-+g(t)^{-1}\dot g(t)
++\theta_{g(t)}(\dot g(t))
 $$
 
-となる。最後の項は左 Maurer–Cartan 形式による速度の表示である。特に行列群では通常の行列積として読める。
+となる。ここで $\theta_g=(d\ell_{g^{-1}})_g$ は左 Maurer–Cartan 形式、$\ell_h(k)=hk$ は左移動である。**一般の Lie 群ではこの微分で読む**。行列群に限れば $\theta_g(\dot g)=g^{-1}\dot g$、$\operatorname{Ad}_{g^{-1}}a=g^{-1}ag$ と通常の行列積に直せる。
 
-$a(t):=A_{\gamma(t)}(\dot\gamma(t))\in\mathfrak g$ と置く。水平条件を零にして左から $g(t)$ を掛けると
+$a(t):=A_{\gamma(t)}(\dot\gamma(t))\in\mathfrak g$ と置く。行列群では水平条件を零にして左から $g(t)$ を掛けると
 
 $$
 0=g(t)\left(g(t)^{-1}a(t)g(t)+g(t)^{-1}\dot g(t)\right)
@@ -67,7 +67,14 @@ $$
 \boxed{\ \dot g(t)=-a(t)g(t),\qquad g(c)=g_c.\ }
 $$
 
-である。一般の Lie 群では右移動 $R_g(h)=hg$ の微分を使って $\dot g(t)=(dR_{g(t)})_e(-a(t))$ と書く。**$-g(t)a(t)$ ではない**。積の左右を入れ替えると後の合成公式が壊れる。
+一般の Lie 群でも $\theta_g(\dot g)=-\operatorname{Ad}_{g^{-1}}a$ と $(d\ell_g)_e$ を合成すれば
+
+$$
+\dot g(t)=(d\ell_{g(t)})_e\bigl(-\operatorname{Ad}_{g(t)^{-1}}a(t)\bigr)
+=(dR_{g(t)})_e(-a(t))
+$$
+
+を得る。ここで $R_g(h)=hg$ で、最後の等号は $\ell_g\circ\operatorname{Ad}_{g^{-1}}=R_g$ を単位元で微分したものである。行列群なら **$-g(t)a(t)$ ではなく $-a(t)g(t)$** になる。以下、時間 $t$ の関数では $g'(t)$ と $\dot g(t)$ はどちらも $dg/dt$ を表す。
 
 <a id="thm-gbg14-horizontal-existence"></a>
 
@@ -95,7 +102,7 @@ $$
 一般の $\gamma([a,b])$ はコンパクトで、局所sectionの定義域の逆像 $\gamma^{-1}(U_i)$ で覆われる。Lebesgue数を使ってパラメータ区間を有限分割し、それぞれが一つの局所自明化に入るようにできる。各区間で上のODEを解き、実際の点 $p(t)$ の終値を次の初期値とする。局所自明化を替えても水平条件は大域形式 $\omega$ の条件なので一致し、重なりでの一意性から解がつながる。得られた区分的 $C^1$ 曲線が求める水平リフトである。標準的なODEの解の初期値・係数への依存性から最後の主張も従う。
 <!-- proof-end -->
 
-**具体例（単位円群）**。$\mathbb R\times U(1)$ で $A=i b(x)\,dx$、$\gamma(t)=t$、$t\in[0,1]$ とする。初期値 $(0,g_0)$ の水平リフトは
+**具体例（単位円群）**。$\mathbb R\times U(1)$ で $A=i b(x)\,dx$（$b:\mathbb R\to\mathbb R$ は滑らか）、$\gamma(t)=t$、$t\in[0,1]$ とする。初期値 $(0,g_0)$ の水平リフトは
 
 $$
 \widetilde\gamma(t)
@@ -125,7 +132,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg14-parallel-transport -->
-**定義の確認**。$P=\mathbb R\times U(1)$、$A=i c\,dx$、$\gamma(t)=t$（$0\le t\le L$）では
+**定義の確認**。$P=\mathbb R\times U(1)$、$A=i c\,dx$（$c\in\mathbb R$）、$\gamma(t)=t$（$0\le t\le L$、$L>0$）では
 
 $$
 \operatorname{PT}_{\gamma}(0,g)
@@ -299,7 +306,15 @@ $$
 v(L)=e^{-iqcL}v(0).
 $$
 
-実際 $g=e^{i\theta}$ として代表点を変えると $[s g,v]=[s,e^{iq\theta}v]$ である。出発点のどちらの代表を選んでも、右同変性により終点の同値類は変わらない。
+代表点の選択にも依存しないことを直接確かめる。$g=e^{i\theta}$ とすると、同じ始点の元 $[s(0),v_0]$ は $[s(0)g,g^{-q}v_0]$ とも書ける。[主束輸送の右同変性](#thm-gbg14-transport-laws)を使えば後者の輸送は
+
+$$
+[s(L)e^{-icL}g,g^{-q}v_0]
+=[s(L),\rho_q(e^{-icL}g)g^{-q}v_0]
+=[s(L),e^{-iqcL}v_0]
+$$
+
+となる。最初の代表 $[s(0),v_0]$ を運んだ値と一致し、結合束の平行移動の定義がこの例で確認できた。
 <!-- definition-example-end -->
 
 <a id="thm-gbg14-associated-covariant"></a>
@@ -366,7 +381,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（経路順序指数と局所水平ODE）**  
-> $a:[a,b]\to M_n(\mathbb F)$ が区分的連続なら、$\dot U=-a(t)U$、$U(a)=I$ の一意解は一様収束級数
+> $a:[a,b]\to M_n(\mathbb F)$ が有限個の分点を持つ区分的連続関数なら、$U(a)=I$ を満たす連続な区分的 $C^1$ 解で、各連続区間内で $\dot U=-a(t)U$ を満たすものが一意に存在する。分点では積分方程式 $U(t)=I-\int_a^t a(r)U(r)\,dr$ によってつなぐ。この解は一様収束級数
 
 $$
 \begin{aligned}
@@ -401,7 +416,7 @@ $$
 
 これを繰り返すと $k$ 次までの和と残項が得られる。任意の劣乗法的行列ノルムで $\|a(t)\|\le C$ とすると、時間順序領域は $k$ 次元立方体の体積の $1/k!$ だから、$k$ 次項のノルムは高々 $C^k(b-a)^k/k!$。指数級数との比較で一様絶対収束する。
 
-級数の各 $k$ 次項を上端 $t$ で微分すると、最も遅い時刻 $t_1=t$ の因子が先頭に現れるので
+さらに各連続区間内で、$k$ 次項の導関数のノルムは $C^k(b-a)^{k-1}/(k-1)!$ 以下である。この上界も指数級数により総和可能なので、各連続区間内で項別微分できる。各 $k$ 次項を上端 $t$ で微分すると、最も遅い時刻 $t_1=t$ の因子が先頭に現れるので
 
 $$
 \frac d{dt}U(t)
@@ -411,7 +426,7 @@ a(t_1)\cdots a(t_j)\,dt_j\cdots dt_1\right]
 =-a(t)U(t)
 $$
 
-が各連続区間内で成り立ち、$U(a)=I$ も満たす。ODEの一意性より級数が解である。
+が各連続区間内で成り立ち、$U(a)=I$ も満たす。分点での連続性は一様収束と各積分項の連続性による。ODEの区間ごとの一意性と分点での値の一致から、級数が唯一の解である。
 
 互いに可換なら積 $a(t_1)\cdots a(t_k)$ は変数の置換に関して対称である。立方体は $k!$ 個の順序領域へ測度零の境界を除いて分割されるため、$k$ 次項は
 
@@ -424,7 +439,14 @@ $$
 
 ### 非可換行列で順序を検算する
 
-$G=GL(2,\mathbb R)$、$H=E_{11}$、$X=E_{12}$ とし、$\mathbb R^2$ の積主束で $A=H\,dx+X\,dy$ を取る。$HX=X$、$XH=0$、$X^2=0$ である。$(0,0)$ から $(1,1)$ へ、まず横に進み次に縦に進む路 $\gamma_{xy}$ を選ぶ。水平ODEの係数は前半が $H$、後半が $X$ だから
+$G=GL(2,\mathbb R)$ とし、$E_{ij}$ を標準基底に関して $(i,j)$ 成分だけが1で残りが0の $2\times2$ 行列と定める。$H=E_{11}$、$X=E_{12}$ を用いて $\mathbb R^2$ の積主束に $A=H\,dx+X\,dy$ を置く。これは座標速度 $(\dot x,\dot y)$ を Lie 環の元 $H\dot x+X\dot y$ に送る1形式であり、水平ODEの係数は
+
+$$
+a(t)=A_{\gamma(t)}(\dot\gamma(t))
+=H\dot x(t)+X\dot y(t)
+$$
+
+である。実際の行列を掛けると $HX=X$、$XH=0$、$X^2=0$ である。$(0,0)$ から $(1,1)$ へ、横方向を単位速度で進んだ後に縦方向を単位速度で進む路 $\gamma_{xy}$ を選ぶ。すると係数は横区間で $H$、縦区間で $X$ だから
 
 $$
 \begin{aligned}
@@ -479,7 +501,7 @@ $$
 #### GBG14-A02 区間の平行移動と逆路
 - Level: A
 
-$A=ic\,dx$、$\gamma:[0,L]\to\mathbb R$、$\gamma(t)=t$（$L>0$）に対する $U(1)$ 主束平行移動と逆路の平行移動を求め、互いに逆であることを示せ。
+$A=ic\,dx$（$c\in\mathbb R$）、$\gamma:[0,L]\to\mathbb R$、$\gamma(t)=t$（$L>0$）に対する $U(1)$ 主束平行移動と逆路の平行移動を求め、互いに逆であることを示せ。
 
 <!-- solution-start -->
 **詳細解答**。$a(t)=ic$ なので $g'=-icg$、$g(0)=g_0$ の解は $g(t)=e^{-ict}g_0$。よって
@@ -495,7 +517,7 @@ $$
 #### GBG14-A03 合成での積の順序
 - Level: A
 
-$GL(2,\mathbb R)$ で一番目の区間の係数を $H=E_{11}$、二番目を $X=E_{12}$ とする（各区間の長さ1）。二つの輸送行列の積を求め、時間的に後の行列がどちらへ来るか説明せよ。
+$GL(2,\mathbb R)$ で $E_{ij}$ を $(i,j)$ 成分だけが1の $2\times2$ 行列とし、一番目の区間の係数を $H=E_{11}$、二番目を $X=E_{12}$ とする（各区間の長さ1）。二つの輸送行列の積を求め、時間的に後の行列がどちらへ来るか説明せよ。
 
 <!-- solution-start -->
 **詳細解答**。前半では $U_1'= -HU_1$ なので $U_1(1)=e^{-H}=\operatorname{diag}(e^{-1},1)$。後半の初期値はこの行列であり、$U'=-XU$ をもう1単位進めるため
@@ -530,7 +552,7 @@ $$
 #### GBG14-B01 局所section変更の両端
 - Level: B
 
-$\mathbb R\times U(1)$ で $A=ic\,dx$、$\gamma(t)=t$（$0\le t\le L$）、section変更 $h(x)=e^{ix^2}$ とする。新しい局所接続 $A'$、局所輸送行列 $U'$ を直接ODEから求め、$h(L)^{-1}Uh(0)$ と照合せよ。
+$\mathbb R\times U(1)$ で $A=ic\,dx$（$c\in\mathbb R$）、$\gamma(t)=t$（$0\le t\le L$、$L>0$）、section変更 $h(x)=e^{ix^2}$ とする。新しい局所接続 $A'$、局所輸送行列 $U'$ を直接ODEから求め、$h(L)^{-1}Uh(0)$ と照合せよ。
 
 <!-- solution-start -->
 **詳細解答**。[GBG8 の局所変換則](../GBG8/index.md#thm-gbg8-local-transform)で $U(1)$ は可換なので
@@ -561,7 +583,7 @@ $$
 #### GBG14-B02 非可換な二つの経路
 - Level: B
 
-$\mathbb R^2\times GL(2,\mathbb R)$ の $A=E_{11}\,dx+E_{12}\,dy$ について、$(0,0)$ から $(1,1)$ へ「横→縦」と「縦→横」で運ぶ行列をそれぞれ計算し、両者の相違を示せ。曲率も求めよ。
+$\mathbb R^2\times GL(2,\mathbb R)$ で $E_{ij}$ を $(i,j)$ 成分だけが1の $2\times2$ 行列とする。$A=E_{11}\,dx+E_{12}\,dy$ について、$(0,0)$ から $(1,1)$ へ「横→縦」と「縦→横」で運ぶ行列をそれぞれ計算し、両者の相違を示せ。曲率も求めよ。
 
 <!-- solution-start -->
 **詳細解答**。$H=E_{11}$、$X=E_{12}$ と置く。$X^2=0$ より $e^{-X}=I-X$、$H^2=H$ より $e^{-H}=I+(e^{-1}-1)H$ である。
@@ -655,7 +677,7 @@ $$
 #### GBG14-C01 非可換な開いた路のゲージ共変性
 - Level: C
 
-$G=GL(2,\mathbb R)$ の積主束上で $A=H\,dx+X\,dy$、$H=E_{11}$、$X=E_{12}$ とし、$(0,0)$ から $(1,1)$ へ横の後に縦へ進む路 $\gamma$ を考える。$h(x,y)=\operatorname{diag}(e^x,1)$ で section を変更する。
+$G=GL(2,\mathbb R)$ の積主束上で、$E_{ij}$ を $(i,j)$ 成分だけが1の $2\times2$ 行列として、$A=H\,dx+X\,dy$、$H=E_{11}$、$X=E_{12}$ とし、$(0,0)$ から $(1,1)$ へ横の後に縦へ進む路 $\gamma$ を考える。$h(x,y)=\operatorname{diag}(e^x,1)$ で section を変更する。
 
 1. 旧sectionでの輸送行列 $U$ を求めよ。
 2. 新しい局所ポテンシャル $A'=h^{-1}Ah+h^{-1}dh$ を計算し、新しいsectionでの輸送行列 $U'$ を二つの区間ごとのODEから求めよ。
