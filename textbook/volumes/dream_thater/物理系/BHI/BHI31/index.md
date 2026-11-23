@@ -253,7 +253,7 @@ G_1(\beta)\ \longleftrightarrow\ \langle Z_H(\beta)\rangle_{\mathcal E},
 G_2(\beta_1,\beta_2)\ \longleftrightarrow\
 \langle Z_H(\beta_1)Z_H(\beta_2)\rangle_{\mathcal E}.
 $$
-ここで連結差は[ensembleの共分散](#def-bhi31-ensemble-connected)であり、各**固定** $H$ の積の恒等式とは矛盾しません。同じ $H$ を両方に入れてから平均することと、別々に平均してから掛けることが異なるからです。
+ここで連結差は[ensembleの共分散](#def-bhi31-ensemble-connected)であり、各**固定** $H$ の積の恒等式とは矛盾しません。同じ $H$ を両方に入れてから平均することと、別々に平均してから掛けることが異なるからです。二境界を相互作用なしで用意する操作と、理論ラベルを独立に抽選する操作は別物であり、両者を「独立」の一語で混同しないことが重要です。
 
 Harlow–Jafferisは、二境界系のHilbert空間因数分解と重力側の制約の緊張をJT模型で分析しました。Saad–Shenker–Stanfordは、純粋JTの多境界・位相展開と行列積分の対応を具体的に示しました。両論点を合わせても「すべての重力理論の境界理論はランダムに選ばれる」という結論にはなりません。固定した理論を得るための追加データ、非摂動的な寄与、状態・超選択セクターの指定などは、考えている構成ごとに検証する必要があります。
 
