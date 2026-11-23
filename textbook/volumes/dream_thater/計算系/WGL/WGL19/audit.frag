@@ -21,5 +21,9 @@ void main(){
   }else{
     float v=clamp(center,0.0,1.0);
     outColor=vec4(v,0.2,1.0-v,1.0);
+    // Display grid lines only; all numerical texels and cell-center probes stay unchanged.
+    vec2 within=fract(gl_FragCoord.xy*4.0/u_targetSize);
+    float edge=min(min(within.x,1.0-within.x),min(within.y,1.0-within.y));
+    if(edge<0.009)outColor=vec4(0.04,0.09,0.16,1.0);
   }
 }
