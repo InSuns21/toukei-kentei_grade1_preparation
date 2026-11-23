@@ -165,9 +165,9 @@ test('G3 legends derive their initial step and GPU buffer dimensions from the ru
   assert.match(sceneDescription('FCG8',{width:960,height:320,steps:8,gridN:null}).grid,/未検証/);
   assert.match(levelSet.source,/levelset.js.*levelset.frag/);
   const terrain=sceneDescription('WGL20',{width:1024,height:512});
-  assert.match(terrain.grid,/4×4セル.*5×5頂点.*LOD1/);
-  assert.match(terrain.color,/地形は緑.*建物は茶色.*α=0.48/);
-  assert.match(terrain.mode,/EPSG:6697.*水深.*m/);
+  assert.match(terrain.grid,/4×4セル.*PLATEAU実LOD1.*周囲8棟/);
+  assert.match(terrain.color,/合成地形.*仮想水面.*PLATEAU建物1棟.*合成建物8棟.*深度影/);
+  assert.match(terrain.mode,/EPSG:6697.*32 m.*1.5倍.*水深.*m/);
   assert.match(terrain.source,/terrain.js.*terrain.frag/);
   assert.match(terrain.clock,/物理stepなし/);
   assert.equal(terrain.pixels,'1024×512 px（GPU描画バッファ）');
