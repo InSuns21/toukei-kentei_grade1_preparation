@@ -6,7 +6,22 @@
 
 [LREP5のPauli行列模型](../LREP5/index.md#def-lrep5-pauli-model)は空間の三座標を跡零のエルミート行列に収め、[SU(2)による回転の二重被覆](../LREP5/index.md#thm-lrep5-double-cover)を構成しました。本講ではその行列に時間成分を加えます。行列式がMinkowski計量を表すため、行列への共役作用からLorentz変換を構成できます。
 
-全章で実四元ベクトル $x=(x^0,x^1,x^2,x^3)^{\mathsf T}=(ct,x,y,z)^{\mathsf T}$ を列ベクトルとし、$\eta=\operatorname{diag}(-1,1,1,1)$ を使います。$\dagger$ は複素共役転置、$I_n$ は単位行列です。変換は列ベクトルへの**能動作用**です。Pauli行列 $\sigma_i$ は[既出の定義](../LREP5/index.md#def-lrep5-pauli-model)を使います。特に $\sigma_i^\dagger=\sigma_i$、$\operatorname{tr}\sigma_i=0$、$\sigma_i\sigma_j=\delta_{ij}I_2+i\sum_k\varepsilon_{ijk}\sigma_k$ です（[Pauli積公式](../LREP5/index.md#lem-lrep5-pauli-product)）。
+全章で実四元ベクトルを列ベクトルとして扱い、次の座標と計量を用います。
+
+$
+x=(x^0,x^1,x^2,x^3)^{\mathsf T}=(ct,x,y,z)^{\mathsf T},
+\qquad \eta=\operatorname{diag}(-1,1,1,1).
+$
+
+$\dagger$ は複素共役転置、$I_n$ は単位行列を表します。変換は列ベクトルへの**能動作用**です。
+
+Pauli行列は[既出の定義](../LREP5/index.md#def-lrep5-pauli-model)に従い、[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)を用います。具体的には
+
+$
+\sigma_i^\dagger=\sigma_i,\quad
+\operatorname{tr}\sigma_i=0,\quad
+\sigma_i\sigma_j=\delta_{ij}I_2+i\sum_k\varepsilon_{ijk}\sigma_k.
+$
 
 ## 1. 四元ベクトルをエルミート行列へ移す
 
@@ -48,7 +63,13 @@ $$
 これでエルミート性だけでなく、$H$ が実線形の全単射であることも確かめました。
 <!-- definition-example-end -->
 
-空間成分 $\boldsymbol x=(x^1,x^2,x^3)$ に対する行列 $S=\sum_i x^i\sigma_i$ は[Pauli積公式](../LREP5/index.md#lem-lrep5-pauli-product)から $S^2=|\boldsymbol x|^2 I_2$ です。したがって $S$ の固有値は $\pm|\boldsymbol x|$、$H(x)$ の固有値は $x^0\pm|\boldsymbol x|$ です。これが行列の符号と因果円錐の橋になります。
+空間成分 $\boldsymbol x=(x^1,x^2,x^3)$ に対する行列 $S=\sum_i x^i\sigma_i$ には、[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)を適用できます。その交差項は反対称性によって相殺され、
+
+$
+S^2=|\boldsymbol x|^2 I_2
+$
+
+となります。したがって $S$ の固有値は $\pm|\boldsymbol x|$、$H(x)$ の固有値は $x^0\pm|\boldsymbol x|$ です。これが行列の符号と因果円錐の橋になります。
 
 <a id="thm-lrep10-determinant-cone"></a>
 
@@ -196,7 +217,7 @@ $$
 > である。各 $A$ の作用は $\eta$ を保存し、未来向きの非零因果的ベクトルを未来向きの非零因果的ベクトルへ移す。
 <!-- formal-statement-end -->
 
-**証明の見取り図。** 行列積は作用の合成に対応し、行列式は計量を保存します。正半定値行列が合同変換で正半定値のままであることが時間向きの保存を保証し、[極分解の道連結性](#lem-lrep10-polar-connectivity)が単位元成分への所属を保証します。
+**証明の見取り図。** 行列積は作用の合成に対応し、行列式は計量を保存します。正半定値行列が合同変換で正半定値のままであることが未来円錐の保存を保証し、[極分解の道連結性](#lem-lrep10-polar-connectivity)が単位元成分への所属を保証します。
 
 <!-- proof-start -->
 ### 証明
@@ -231,7 +252,15 @@ v^\dagger(AH(x)A^\dagger)v
 =(A^\dagger v)^\dagger H(x)(A^\dagger v)\ge0.
 $$
 
-$A$ は可逆なので非零の $x$ が零になることもありません。[未来円錐の判定](#thm-lrep10-determinant-cone)から時間向きを保存します。最後に[道連結性](#lem-lrep10-polar-connectivity)より $I_2$ から $A$ へ道があり、その $\Phi$ 像は $I_4$ から $\Phi(A)$ への $O(1,3)$ 内の道です。ゆえに[LREP9の単位元成分の定義](../LREP9/index.md#def-lrep9-lorentz-group)によって $\Phi(A)\in SO^+(1,3)$ です。作用の各係数は $A$ の実部・虚部の多項式なので滑らかです。$\square$
+$A$ は可逆なので非零の $x$ が零になることもありません。[未来円錐の判定](#thm-lrep10-determinant-cone)から未来向き因果的ベクトルを未来向き因果的ベクトルへ移します。
+
+最後に[道連結性](#lem-lrep10-polar-connectivity)より単位元から $A$ への道があります。その $\Phi$ 像は $I_4$ と $\Phi(A)$ を結ぶ $O(1,3)$ 内の道です。[LREP9の単位元成分の定義](../LREP9/index.md#def-lrep9-lorentz-group)により、
+
+$
+\Phi(A)\in SO^+(1,3).
+$
+
+作用の係数は $A$ の実部・虚部の多項式なので滑らかです。$\square$
 <!-- proof-end -->
 
 ## 3. なぜ二つの複素行列が同じ変換になるか
@@ -269,7 +298,7 @@ $$
 
 $A$ と $-A$ が同じLorentz変換になるのは $\Phi(-A)=\Phi(-I_2)\Phi(A)=\Phi(A)$ から分かります。逆に同じ変換を作る $A,B$ は $A^{-1}B\in\ker\Phi$ なので $B=\pm A$。各変換の持ち上げは**高々2個**です。
 
-## 4. すべての向きと時間向きを保つLorentz変換に届くか
+## 4. 単位元成分のすべてに届くか
 
 計量を保つ写像を作っただけでは、群全体への全射性は分かりません。任意の $\Lambda\in SO^+(1,3)$ に対し、まず時間軸 $e_0$ の像を合わせるboostを作り、残る空間回転を[LREP5の被覆定理](../LREP5/index.md#thm-lrep5-double-cover)で持ち上げます。
 
@@ -390,7 +419,7 @@ $$
 かつ双方から $W$ への制限は微分同相です。任意の標的 $\Lambda$ には[全射性](#thm-lrep10-surjectivity)で持ち上げ $A$ があり、左右の群平行移動によって $W$ の局所二枚構造を $\Lambda$ 付近へ運べます。よって二重被覆です。最後の商群同型は、全射かつ核が $\{\pm I_2\}$ であることによる群の準同型定理から従います。$\square$
 <!-- proof-end -->
 
-**どこまで被覆するか。** $SO^+(1,3)$ は空間向きも時間向きも保つ成分です。空間反転 $\operatorname{diag}(1,-1,-1,-1)$ は行列式が $-1$ なのでその外にあり、上の $SL(2,\mathbb C)$ 作用では得られません。空間反転や時間反転を加えた全 $O(1,3)$ の被覆だと読み替えてはいけません。
+**どこまで被覆するか。** $SO^+(1,3)$ は空間の向きを保ち、未来円錐も保つ成分です。空間反転 $\operatorname{diag}(1,-1,-1,-1)$ は行列式が $-1$ なのでその外にあり、上の $SL(2,\mathbb C)$ 作用では得られません。空間反転や時間反転を加えた全 $O(1,3)$ の被覆だと読み替えてはいけません。
 
 ## 6. 光円錐上では二成分ベクトルが現れる
 
@@ -421,7 +450,7 @@ H(x)=(2x^0)vv^\dagger,\qquad
 \xi=\sqrt{2x^0}\,v
 $$
 
-で所望の表示になります。逆に $\xi\ne0$ なら $\xi\xi^\dagger$ は正半定値で階数1、跡 $\xi^\dagger\xi>0$、行列式0です。[行列式と円錐の定理](#thm-lrep10-determinant-cone)より対応する $x$ は未来向き非零光的です。
+で所望の表示になります。逆に $\xi\ne0$ なら $\xi\xi^\dagger$ は正半定値で階数1、跡 $\xi^\dagger\xi>0$、行列式0です。[行列式とMinkowski計量・未来円錐](#thm-lrep10-determinant-cone)より対応する $x$ は未来向き非零光的です。
 
 $\xi\xi^\dagger=\zeta\zeta^\dagger$ なら、両辺の像は同じ一次元複素部分空間なので $\zeta=c\xi$。積の等式から $|c|^2=1$。最後に
 
