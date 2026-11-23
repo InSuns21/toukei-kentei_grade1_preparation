@@ -177,7 +177,13 @@ F_I(x)=S_{\rm gen}(R\cup I_x)
 =\sum_{p\in\partial I_x}\frac{\Phi_0+\Phi(p)}{4G_2}
 +S_{\rm matter}(R\cup I_x).
 $$
-$R$ は固定し、$I_x$ の端点のみを変分します。面積の代わりにdilatonを使う規約は[BHI20のJTエントロピー](../BHI20/index.md#prop-bhi20-entropy)に由来します。$x=(x_1,\ldots,x_m)\in U\subset\mathbb R^m$ は端点座標で、$U$ は開集合、$\nabla_x=(\partial_{x_1},\ldots,\partial_{x_m})$ は端点を動かす偏微分の組です。以降 $\varepsilon=n-1$ と置くと、$x$ 固定の $\partial_\varepsilon$ は $\partial_n$ に一致し、$\nabla_x$ は $n$ を固定して計算します。
+$R$ は固定し、$I_x$ の端点のみを変分します。面積の代わりにdilatonを使う規約は[BHI20のJTエントロピー](../BHI20/index.md#prop-bhi20-entropy)に由来します。
+
+端点を $x=(x_1,\ldots,x_m)\in U\subset\mathbb R^m$ とまとめ、$U$ を開集合とします。端点を動かす勾配は
+$$
+\nabla_x=\left(\frac{\partial}{\partial x_1},\ldots,\frac{\partial}{\partial x_m}\right)
+$$
+です。以降 $\varepsilon=n-1$ と置くと、$x$ を固定した $\partial_\varepsilon$ は $\partial_n$ に一致します。一方、$\nabla_x$ は $n$ を固定して計算します。
 
 重力固定点の近傍に現れる円錐欠損が、正規化された被覆作用の $n-1$ に比例する項へ寄与します。重力側の端点項と物質場のレプリカ微分を同じcutoffで合わせたとき、その係数が $F_I$ になる、というのがこの推論の非自明な入力です。単にEuler標数の値を微分するだけでは、dilatonの位置依存と物質の相関を求められません。
 
@@ -191,11 +197,25 @@ $$
 \mathcal J(1+\varepsilon,x)=\varepsilon F(x)+E(\varepsilon,x)
 $$
 >
-> を満たし、$E(0,x)=0$、$\partial_\varepsilon E(0,x)=0$、$E(\varepsilon,x)=o(\varepsilon)$ と $\nabla_xE(\varepsilon,x)=O(\varepsilon^2)$ が端点の近傍で一様に成立する場合、$F$ をその鞍点族の **一次係数** とする。$F$ が上記 $S_{\rm gen}$ に等しいかどうかはJT・物質の実計算によって判定する。
+> を満たし、端点の近傍で次の評価が一様に成立するとする。
+>
+$$
+E(0,x)=0,\qquad \partial_\varepsilon E(0,x)=0,
+\qquad E(\varepsilon,x)=o(\varepsilon),
+\qquad \nabla_xE(\varepsilon,x)=O(\varepsilon^2).
+$$
+>
+> このとき $F$ をその鞍点族の **一次係数** とする。$F$ が上記 $S_{\rm gen}$ に等しいかどうかはJT・物質の実計算によって判定する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi30-replica-first-order-ledger -->
-**定義の確認**：$x>0$、$\alpha,\gamma>0$、$F(x)=2S_0+\alpha x^2-\gamma\log x+C$ とし、$\mathcal J(1+\varepsilon,x)=\varepsilon F(x)+\varepsilon^2x$ とします。$E=\varepsilon^2x$ は $E(0,x)=\partial_\varepsilon E(0,x)=0$、$\partial_xE=\varepsilon^2$ なので、任意の有界区間で条件を満たします。これは[BHI29の端点変分模型](../BHI29/index.md#prop-bhi29-fixed-point)と同じ機構を確認する有限次元例であり、$F=S_{\rm gen}$ という物理的等式まで例から証明したわけではありません。
+**定義の確認**：$x>0$、$\alpha,\gamma>0$、$F(x)=2S_0+\alpha x^2-\gamma\log x+C$ とし、$\mathcal J(1+\varepsilon,x)=\varepsilon F(x)+\varepsilon^2x$ とします。$x>0$ 上で $F'(x)=2\alpha x-\gamma/x$ は連続なので $F\in C^1$ です。また $E=\varepsilon^2x$ について
+$$
+E(0,x)=\partial_\varepsilon E(0,x)=0,\qquad
+\frac{E(\varepsilon,x)}{\varepsilon}=\varepsilon x,\qquad
+\partial_xE=\varepsilon^2.
+$$
+任意の有界な端点近傍で後二者の評価は一様です。従って定義の非自明な条件をすべて満たします。これは[BHI29の端点変分模型](../BHI29/index.md#prop-bhi29-fixed-point)と同じ機構を確認する有限次元例であり、$F=S_{\rm gen}$ という物理的等式まで例から証明したわけではありません。
 <!-- definition-example-end -->
 
 <a id="prop-bhi30-on-shell-derivative"></a>
