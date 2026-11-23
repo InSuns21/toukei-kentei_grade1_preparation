@@ -488,7 +488,11 @@ G_{jk}=\operatorname{Tr}_{L/\mathbb Q}(\zeta_5^{j+k-2})
 =(M^{\mathsf T}M)_{jk}.
 $$
 
-従って $\operatorname{disc}(1,\zeta_5,\zeta_5^2,\zeta_5^3)=\det G=(\det M)^2$ です。Vandermondeの公式から $\det M=\prod_{i<j}(\alpha_j-\alpha_i)$ を得ます。
+従って $\operatorname{disc}(1,\zeta_5,\zeta_5^2,\zeta_5^3)=\det G=(\det M)^2$ です。この行列式は二つの $\alpha_i$ が等しいと二行が一致して零になるため、差の積 $\prod_{i<j}(\alpha_j-\alpha_i)$ で割り切れます。両者の総次数は $6$ で、$\alpha_2\alpha_3^2\alpha_4^3$ の係数はともに $1$ です。ゆえに
+
+$$
+\det M=\prod_{1\le i<j\le4}(\alpha_j-\alpha_i).
+$$
 
 さらに $\Phi_5'(\alpha_i)=\prod_{j\ne i}(\alpha_i-\alpha_j)$ をすべての $i$ で掛けると、各二点の差が二回現れます。四次では符号が $(-1)^{4\cdot3/2}=1$ なので、$(\det M)^2=\prod_i\Phi_5'(\alpha_i)$ です。従って
 
@@ -665,7 +669,7 @@ $p=2$ の付値は $-1$、$p\ne2,5$ の付値は $0$ なので、[剰余類群�
 
 その法 $5\infty$ の剰余は $2^{-1}\equiv3\pmod5$、よって[五次円分体のArtin計算](#prop-anf20-cyclotomic-artin)からArtin像は $\sigma_3$ です。
 
-局所的にも[円分体の明示局所相互法則](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)により、$5$ 成分の単数 $2$ は $\sigma_{2^{-1}}=\sigma_3$、他の成分は $1$ なので一致します。
+局所側では、[素数冪円分拡大の明示局所相互法則](../ANF18/index.md#thm-anf18-explicit-cyclotomic-reciprocity)を $5$ 成分の単数 $2$ に適用すると $\sigma_{2^{-1}}=\sigma_3$、他の成分の像は $1$ となり、大域側と一致します。
 <!-- solution-end -->
 
 ### B4. 符号が見える局所因子
