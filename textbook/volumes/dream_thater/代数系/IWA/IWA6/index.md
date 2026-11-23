@@ -532,7 +532,7 @@ $$
 \qquad \det[T]_{(1,T)}=0\cdot(-3)-(-3)\cdot1=3.
 $$
 
-さらに $X$ を不定元、$I$ を $2\times2$ 単位行列とすると、線形写像の特性多項式は $\det(XI-[T]_{(1,T)})$ と定義されます。これを展開して $W(X)$ と比較すると、
+さらに $X$ を不定元、$I$ を $2\times2$ 単位行列とし、この作用行列から得られる $X$ の多項式 $\det(XI-[T]_{(1,T)})$ を計算して、商の関係を表す $W(X)$ と比較すると、
 
 $$
 \det(XI-[T]_{(1,T)})=
@@ -599,7 +599,21 @@ $$
 
 が同じ $x$ に由来する必要十分条件は $a-b\in(p)+(T)$ です。
 
-実際、$a-b=pu+Tv$ と書けるなら $x=a-pu=b+Tv$ が両方の剰余条件を満たし、逆にそのような $x$ があれば $a-b=(a-x)+(x-b)\in(p)+(T)$ となります。二成分の差を $R/(p,T)$ へ送る写像の核が元の剰余写像の像なので、余核は $R/(p,T)\simeq\mathbb F_p$ です。従って[IWA5の擬同型の定義](../IWA5/index.md#def-iwa5-pseudoisomorphism)を満たし、[擬同型不変性](#prop-iwa6-characteristic-invariance)から双方の特徴イデアルは $(pT)$、$\mu=1,\lambda=1$ です。
+実際、$a-b=pu+Tv$ と書けるなら
+
+$$
+x=a-pu=b+Tv
+$$
+
+が両方の剰余条件を満たします。逆にそのような $x$ があれば
+
+$$
+a-b=(a-x)+(x-b)\in(p)+(T)
+$$
+
+です。二成分の差を $R/(p,T)$ へ送る写像の核が元の剰余写像の像なので、余核は $R/(p,T)\simeq\mathbb F_p$ です。
+
+従って[IWA5の擬同型の定義](../IWA5/index.md#def-iwa5-pseudoisomorphism)を満たし、[擬同型不変性](#prop-iwa6-characteristic-invariance)から双方の特徴イデアルは $(pT)$、$\mu=1,\lambda=1$ です.
 <!-- solution-end -->
 
 ### B3. 同じ $\lambda$ でも有限層の商は違う
