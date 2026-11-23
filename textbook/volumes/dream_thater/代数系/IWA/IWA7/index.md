@@ -126,20 +126,20 @@ $$
 
 で定まる伴行列 $C$ です。その特性多項式は $\det(xI-C)=W(x)$。代数閉包上で $C$ を上三角化すると対角成分は重複度込みで $\alpha_1,\ldots,\alpha_d$ となり、$g(C)$ の対角成分は $g(\alpha_i)$ です。従って $\det g(C)=\prod_i g(\alpha_i)$。重根があっても対角化は必要ありません。
 
-**二重根の直接例。** $p=3$、$W=(T+3)^2$ とし、$S=T+3$ を使うと $L=\Lambda/(W)$ は基底 $(1,S)$ を持ち、$S^2=0$ です。$T=S-3$ を代入して二項展開すれば
+**二重根の直接例。** $p=3$、$W=(T+3)^2$ とし、$S=T+3$ を使います。基底 $(1,T)$ から $(1,S)$ への変換は $S=T+3$、逆変換は $T=S-3$ であり、変換行列の行列式は $1$ なので、$L=\Lambda/(W)$ の基底は $(1,S)$ でも表せます。商では $S^2=0$ です。$T=S-3$ を代入して二項展開すれば
 
 $$
 \omega_n(T)=(-2+S)^{3^n}-1
-\equiv a_n+b_nS\pmod{S^2},
+\equiv a_n+q_nS\pmod{S^2},
 \quad
 a_n=(-2)^{3^n}-1,\quad
-b_n=3^n(-2)^{3^n-1}.
+q_n=3^n(-2)^{3^n-1}.
 $$
 
-この基底で $\omega_n$ 倍写像は $1\mapsto a_n+b_nS$、$S\mapsto a_nS$ なので、その行列と行列式は
+この基底で $\omega_n$ 倍写像は $1\mapsto a_n+q_nS$、$S\mapsto a_nS$ なので、その行列と行列式は
 
 $$
-B_n=\begin{pmatrix}a_n&0\\ b_n&a_n\end{pmatrix},
+B_n=\begin{pmatrix}a_n&0\\ q_n&a_n\end{pmatrix},
 \qquad \det B_n=a_n^2.
 $$
 
@@ -213,7 +213,7 @@ $\omega_n$ 倍写像の行列式を終結式に読み替えます。$W$ の各�
 
 $W=T^d+b_{d-1}T^{d-1}+\cdots+b_0$、$b_i\in p\mathbb Z_p$ とします。根 $\alpha$ で $v_p(\alpha)\le0$ なら、$\alpha^d$ の付値 $d v_p(\alpha)$ は、各低次項 $b_i\alpha^i$ の付値が少なくとも $1+i v_p(\alpha)$ であることから、いずれの低次項よりも小さく、打ち消せません。したがって全根で $v_p(\alpha)>0$ です。
 
-各 $u_i=1+\alpha_i$ は $v_p(u_i-1)>0$ を満たします。$u_i^{p^m}=1$ となることは $\omega_m(\alpha_i)=0$ と同値なので、共通因子を持たないという仮定により補題が適用できます。ゆえに各 $i$ について、十分大きな $n$ で
+各 $u_i=1+\alpha_i$ は $v_p(u_i-1)>0$ を満たします。$u_i^{p^m}=1$ となることは $\omega_m(\alpha_i)=0$ と同値なので、共通因子を持たないという仮定により補題が適用できます。ゆえに各 $i$ について、ある整数 $N_i$ と有理定数 $\kappa_i$ が存在し、$n\ge N_i$ で
 
 $$
 v_p(\omega_n(\alpha_i))
