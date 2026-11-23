@@ -46,7 +46,9 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（補間接続の曲率変化率）**  
-> 上の滑らかな右主 $G$ 束上で、$\omega_t=\omega_0+t\alpha$、$\alpha=\omega_1-\omega_0$ とする。曲率 $\Omega_t=d\omega_t+\frac12[\omega_t\wedge\omega_t]$ は
+> $M$ を滑らかな有限次元多様体、$G$ を有限次元 Lie 群、$P\to M$ を滑らかな右主 $G$ 束とする。$\omega_0,\omega_1$ を同じ束の接続1形式とし、$\alpha=\omega_1-\omega_0$、$\omega_t=\omega_0+t\alpha$ と置く。
+>
+> 曲率 $\Omega_t=d\omega_t+\frac12[\omega_t\wedge\omega_t]$ の変化率は
 
 $$
 \frac{d}{dt}\Omega_t=d\alpha+[\omega_t\wedge\alpha].
@@ -114,7 +116,9 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（Ad不変性と次数1の因子の外微分）**  
-> $U$ 上の $\mathfrak g$ 値1形式 $A,a$ と $\mathfrak g$ 値2形式 $F$ が $dF+[A\wedge F]=0$ を満たすとする。$p:\mathfrak g^k\to\mathbb C$ を対称Ad不変な実 $k$ 重線形形式とすると、$k\ge1$ について
+> $U$ を滑らかな多様体の開集合、$\mathfrak g$ を有限次元 Lie 群 $G$ の Lie 環とする。$A,a\in\Omega^1(U;\mathfrak g)$ と $F\in\Omega^2(U;\mathfrak g)$ が $dF+[A\wedge F]=0$ を満たすとする。
+>
+> $k\ge1$ とし、$p:\mathfrak g^k\to\mathbb C$ を対称Ad不変な実 $k$ 重線形形式とすると、
 
 $$
 d\,p(a,F^{k-1})
@@ -166,7 +170,11 @@ $k=1$ では Ad不変性から $p([A\wedge a])=0$ が直接従い、$d\,p(a)=p(d
 
 <!-- formal-statement-start -->
 > **定義（Chern–Weil の transgression 形式）**  
-> 共通設定の滑らかな右主 $G$ 束、二接続 $\omega_0,\omega_1$、対称Ad不変 $k$ 重線形形式 $p$ に対し、$\alpha=\omega_1-\omega_0$、$\omega_t=\omega_0+t\alpha$ とする。各局所 section $s_i$ について $a_i=s_i^*\alpha$、$F_{t,i}=s_i^*\Omega_t$ と置く。次の局所式が貼り合わさって定まる大域的な $(2k-1)$ 形式を transgression 形式とする。
+> $M$ を滑らかな有限次元多様体、$G$ を有限次元 Lie 群、$P\to M$ を滑らかな右主 $G$ 束とする。二つの接続1形式 $\omega_0,\omega_1$ と、$k\ge1$ 次の対称Ad不変な実多重線形形式 $p:\mathfrak g^k\to\mathbb C$ を取る。
+>
+> $\alpha=\omega_1-\omega_0$、$\omega_t=\omega_0+t\alpha$、$\Omega_t=d\omega_t+\frac12[\omega_t\wedge\omega_t]$ とする。各局所 section $s_i$ について $a_i=s_i^*\alpha$、$F_{t,i}=s_i^*\Omega_t$ と置く。
+>
+> 次の局所式が貼り合わさって定まる大域的な $(2k-1)$ 形式を transgression 形式とする。
 
 $$
 T_p(\omega_1,\omega_0)|_{U_i}
@@ -251,7 +259,9 @@ $$
 
 <!-- formal-statement-start -->
 > **系（Chern–Weil の de Rham 類の接続非依存性）**  
-> 上の定理の仮定の下で、二接続に対する Chern–Weil形式は $H_{\mathrm{dR}}^{2k}(M;\mathbb C)$ の同じ類を表す。
+> $M$ を滑らかな有限次元多様体、$G$ を有限次元 Lie 群、$P\to M$ を滑らかな右主 $G$ 束とする。$\omega_0,\omega_1$ を $P$ 上の任意の二接続とし、$k\ge1$、$p:\mathfrak g^k\to\mathbb C$ を対称Ad不変実 $k$ 重線形形式とする。
+>
+> このとき二接続に対する [Chern–Weil形式](../GBG21/index.md#def-gbg21-chern-weil-form) は $H_{\mathrm{dR}}^{2k}(M;\mathbb C)$ の同じ類を表す。
 
 $$
 [\beta_p(\omega_1)]=[\beta_p(\omega_0)].
@@ -359,7 +369,9 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（局所 Chern–Simons 型形式）**  
-> 開集合 $U$ 上の積主 $G$ 束の接続表示 $A\in\Omega^1(U;\mathfrak g)$ と対称Ad不変実 $k$ 重線形形式 $p$ に対し、$A_t=tA$、$F_t=t\,dA+\frac12t^2[A\wedge A]$ を用いて局所 $(2k-1)$ 形式を次で定める。
+> $U$ を滑らかな多様体の開集合、$G$ を有限次元 Lie 群、$\mathfrak g$ をその Lie 環とする。積主 $G$ 束上の接続表示 $A\in\Omega^1(U;\mathfrak g)$ と、$k\ge1$ 次の対称Ad不変実多重線形形式 $p:\mathfrak g^k\to\mathbb C$ を取る。
+>
+> $A_t=tA$、$F_t=t\,dA+\frac12t^2[A\wedge A]$ を用いて局所 $(2k-1)$ 形式を次で定める。
 
 $$
 \operatorname{CS}_p(A)
@@ -377,7 +389,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（局所 Chern–Simons 形式の外微分）**  
-> 上の定義の仮定の下で
+> $U$ を滑らかな多様体の開集合、$G$ を有限次元 Lie 群、$\mathfrak g$ をその Lie 環とする。$A\in\Omega^1(U;\mathfrak g)$ を局所接続表示、$k\ge1$、$p:\mathfrak g^k\to\mathbb C$ を対称Ad不変実 $k$ 重線形形式とする。[局所 Chern–Simons 型形式](#def-gbg22-local-chern-simons)について
 
 $$
 d\,\operatorname{CS}_p(A)=p(F^k),\qquad
