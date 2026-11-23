@@ -338,7 +338,7 @@ $z\in e_iN$ に対し全射性から $q(x)=z$ となる $x\in M$ を取ると、
 
 後のIWA18では、局所完備化への制限写像の核を用いてSelmer群を構成します。いま扱った $X_\infty$ は類群側の **Galois群** ですが、有限の定数係数に対する一次Galoisコホモロジーの側では、同じ無分岐条件を **文字（準同型）** として測れます。
 
-有限アーベル群 $A=\mathbb Z/p^m\mathbb Z$（$m\ge1$）にGalois群を自明に作用させます。連続一次余サイクル $f:G\to A$ はこのとき $f(gh)=f(g)+f(h)$ を満たすので、[第1コホモロジーの定義](../../ANF/ANF14/index.md#def-anf14-first-cohomology)を連続写像へ拡張すると
+有限アーベル群 $A=\mathbb Z/p^m\mathbb Z$（$m\ge1$）にGalois群を自明に作用させます。連続一次余サイクル $f:G\to A$ はこのとき $f(gh)=f(g)+f(h)$ を満たすので、[第1コホモロジーの定義](../../ANF/ANF14/index.md#def-anf14-coboundary)を連続写像へ拡張すると
 
 $$
 H^1_{\mathrm{cont}}(G,A)=\operatorname{Hom}_{\mathrm{cont}}(G,A)
@@ -350,7 +350,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（無分岐な一次コホモロジー局所条件）**  
-> 全虚数体 $K$、有限素点集合 $S$、整数 $m\ge1$ に対し、$G_{K,S}=\operatorname{Gal}(K_S/K)$ を $S$ の外で非分岐な最大Galois拡大のGalois群とする（ここではアーベル性を仮定しない）。$A=\mathbb Z/p^m\mathbb Z$ は自明作用とする。各 $v\in S$ の惰性群 $I_v$ に制限した準同型が零となる条件を課し、
+> 数体 $K$、奇素数 $p$、有限素点集合 $S$、整数 $m\ge1$ に対し、$G_{K,S}=\operatorname{Gal}(K_S/K)$ を $S$ の外で非分岐、実素点で複素化を許さない最大Galois拡大のGalois群とする（ここではアーベル性を仮定しない）。$A=\mathbb Z/p^m\mathbb Z$ は自明作用とする。各 $v\in S$ の惰性群 $I_v$ に制限した準同型が零となる条件を課し、
 >
 $$
 H^1_{\mathrm{ur}}(K,A)
@@ -373,7 +373,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（無分岐文字は類群の文字に一致する）**  
-> 全虚数体 $K$、素数 $p$、$m\ge1$、有限集合 $S$ は $p$ の上のすべての素点を含むとし、$A=\mathbb Z/p^m\mathbb Z$ に自明なGalois作用を与える。第6節の無分岐局所条件に対して
+> 数体 $K$、奇素数 $p$、$m\ge1$、有限集合 $S$ は $p$ の上のすべての素点を含むとし、$A=\mathbb Z/p^m\mathbb Z$ に自明なGalois作用を与える。第6節の無分岐局所条件に対して
 >
 $$
 H^1_{\mathrm{ur}}(K,A)
@@ -547,7 +547,7 @@ $$
 
 **第3問。** 3の上の唯一の素イデアルは $\mathfrak p_r=(1-\zeta_{3^r})$ で主です。[局所化の商](#prop-iwa9-s-class-quotient)はその類だけを消すので、$A_{E_r,S_r}\simeq A_r$。この商で3のFrobeniusは自明、従って無分岐拡大では3が完全分解します。一方 $\mathbb Q(\zeta_9)^+$ は $\mathbb Q$ の次数3の全実拡大で3で完全分岐し、3の外では非分岐です。つまり「3の外で非分岐」は3での非分岐も完全分解も要求しません。
 
-**第4問。** [無分岐文字の命題](#prop-iwa9-unramified-characters)の仮定は $K=E_r$（全虚数体）、$S=S_r$、自明係数 $\mathbb Z/3$ で満たされます。よって
+**第4問。** [無分岐文字の命題](#prop-iwa9-unramified-characters)の仮定は $K=E_r$、$S=S_r$、自明係数 $\mathbb Z/3$ で満たされます。よって
 
 $$
 H^1_{\mathrm{ur}}(E_r,\mathbb Z/3)
