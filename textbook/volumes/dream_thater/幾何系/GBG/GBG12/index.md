@@ -164,10 +164,10 @@ $$
 <!-- definition-example-start: def-gbg12-tensorial-one-form -->
 **定義の確認**。積主束 $P=\mathbb R^2\times U(1)$ で、基底座標を $(x,y)$、群座標を $u$、射影を $\pi$ とし、$\alpha=\pi^*(i y\,dx)$ とする。引き戻しの定義から、任意の接ベクトル $((v_x,v_y),W)$ に対して
 
-$
+$$
 \alpha_{(x,y,u)}((v_x,v_y),W)
 =(i y\,dx)_{(x,y)}(v_x,v_y)=i yv_x
-$
+$$
 
 である。垂直ベクトルは $((0,0),W)$ なので $d\pi((0,0),W)=0$、従って $\alpha((0,0),W)=0$。右作用は基底座標 $(x,y)$ とその速度 $(v_x,v_y)$ を変えず、$U(1)$ は可換で $\operatorname{Ad}_{g^{-1}}$ は恒等写像だから $R_g^*\alpha=\alpha$。二条件を直接満たす。この形式は基底上の $i\mathbb R$ 値1形式を引き戻したものだ。
 <!-- definition-example-end -->
@@ -221,9 +221,9 @@ $\omega$ は接続の二条件を満たす。
 
 ここで $\Omega^1(M;\operatorname{ad}(P))$ は、各 $x\in M$ で接ベクトルをその点の随伴束のファイバーへ送る線形写像
 
-$
+$$
 a_x:T_xM\longrightarrow \operatorname{ad}(P)_x
-$
+$$
 
 が滑らかに変わる族の全体である。[随伴Lie環束の定義](../GBG5/index.md#def-gbg5-adjoint-lie-bundle)により、$a_x(v)$ は $p\in P_x$ を選んで $[p,\xi]$ と表せる。$p$ を $pg$ に替えたとき同じ値を表すには、Lie 環成分を $\operatorname{Ad}_{g^{-1}}\xi$ に替えればよい。そこで $\alpha_p(X)$ を $a_x(d\pi_pX)$ の Lie 環成分として使う。水平性は $d\pi_pX$ が同じ持ち上げを区別しないこと、随伴同変性は $p$ の選択を変えても $[p,\alpha_p(X)]$ が同じ値になることを保証する。
 
@@ -406,11 +406,11 @@ $$
 
 非可換な $G=GL(2,\mathbb R)$ では、[行列 Lie 群の曲率の局所公式](../GBG10/index.md#thm-gbg10-local-formula)を使える。$E_{ij}$ を $(i,j)$ 成分だけが $1$ で他が $0$ の $2\times2$ 行列とし、Lie 環 $M_2(\mathbb R)$ の元として
 
-$
+$$
 H=E_{11}=\begin{pmatrix}1&0\\0&0\end{pmatrix},
 \qquad
 X=E_{12}=\begin{pmatrix}0&1\\0&0\end{pmatrix}
-$
+$$
 
 を取る。行列 Lie 環の括弧は交換子 $[H,X]=HX-XH$ なので、$HX=X$、$XH=0$ から $[H,X]=X$ を得る。局所形式を $A_0=H\,dx$、$B=X\,dy$ とすれば
 
@@ -560,10 +560,10 @@ $$
 
 を満たす唯一の $\alpha_p(X)$ を取ればよい。$d\pi_pX=0$ なら $\alpha_p(X)=0$、$p$ を $pg$ に替えれば同じ同値関係から随伴同変性が従う。滑らかさも確認する。局所 section $s_i$ で $a_x(v)=[s_i(x),B_{i,x}(v)]$ と表すと、$a$ が滑らかなので $B_i$ は滑らかな Lie 環値1形式である。$p=s_i(x)k$ では、随伴束の同値関係から
 
-$
+$$
 \alpha_p(X)=\operatorname{Ad}_{k^{-1}}
 \bigl(B_{i,x}(d\pi_pX)\bigr)
-$
+$$
 
 となる。右辺は $p,X$ に滑らかに依存するので、逆構成した $\alpha$ も滑らかである。
 <!-- solution-end -->
