@@ -280,7 +280,16 @@ a_S=-\frac{\hbar n}{2q_0}(1+\cos\vartheta)d\varphi
 $$
 である。これらは各極で滑らかで、$a_S-a_N=-\hbar n\,d\varphi/q_0$。$b=(\hbar n/(2q_0))\sin\vartheta\,d\vartheta\wedge d\varphi$ だから $\Phi=2\pi\hbar n/q_0$ となる。
 
-荷電場を扱う際には、[滑らかな左線形表現](../GBG4/index.md#def-gbg4-representation) $\rho_k:U(1)\to GL_{\mathbb C}(\mathbb C)$ を使う。$t$ は $2\pi$ を法とする群の角度、$k$ はその**整数重み**であり、$\rho_k(e^{it})v=e^{ikt}v$ とする。場の局所成分 $v_i$ は、[結合束の局所成分変換則](../GBG4/index.md#thm-gbg4-component-transformation)に従う。さらに[共変微分の局所公式](../GBG9/index.md#thm-gbg9-local-formula)は $D_i v_i=dv_i+(\rho_k)_*(A_i)v_i$ であり、$(\rho_k)_*$ は群の角度に沿った微分から得る無限小表現を表す。
+荷電場を扱う際には、[滑らかな左線形表現](../GBG4/index.md#def-gbg4-representation)を用いる。$t$ は $2\pi$ を法とする群の角度、$k\in\mathbb Z$ はその**整数重み**とし、複素数値の場への作用を
+$$
+\rho_k:U(1)\to GL_{\mathbb C}(\mathbb C),\qquad
+\rho_k(e^{it})v=e^{ikt}v
+$$
+と定める。場の局所成分 $v_i$ は[結合束の局所成分変換則](../GBG4/index.md#thm-gbg4-component-transformation)に従う。また[共変微分の局所公式](../GBG9/index.md#thm-gbg9-local-formula)は
+$$
+D_i v_i=dv_i+(\rho_k)_*(A_i)v_i
+$$
+であり、$(\rho_k)_*$ は群の角度に沿った微分から得る無限小表現を表す。
 
 <a id="thm-gbg19-dirac-quantization"></a>
 
@@ -535,7 +544,15 @@ $$
 $$
 A_S-A_N=2ic\,d\varphi.
 $$
-局所遷移関数は $g^{-1}dg=2ic\,d\varphi$ を満たす必要がある。角度 $\varphi$ に沿ってこの等式を評価すると $\frac{dg}{d\varphi}=2ic\,g(\varphi)$ である。区間 $[0,2\pi]$ で $\frac{d}{d\varphi}(e^{-2ic\varphi}g(\varphi))=0$ だから、$g(\varphi)=e^{i(2c\varphi+\beta)}$（$\beta$ は定数）となる。$g(0)=g(2\pi)$ の必要十分条件は
+局所遷移関数は $g^{-1}dg=2ic\,d\varphi$ を満たす必要がある。角度 $\varphi$ に沿って評価すると
+$$
+\frac{dg}{d\varphi}=2ic\,g(\varphi)
+$$
+であり、区間 $[0,2\pi]$ で積の微分を用いれば
+$$
+\frac{d}{d\varphi}\bigl(e^{-2ic\varphi}g(\varphi)\bigr)=0.
+$$
+よって $g(\varphi)=e^{i(2c\varphi+\beta)}$（$\beta$ は定数）となる。$g(0)=g(2\pi)$ の必要十分条件は
 $$
 e^{4\pi ic}=1
 \quad\Longleftrightarrow\quad 2c\in\mathbb Z.
