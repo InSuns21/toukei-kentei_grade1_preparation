@@ -17,6 +17,8 @@ $F_n$ のイデアル類群 $\operatorname{Cl}(F_n)$ は有限アーベル群で
 
 [IWA4の類群逆極限への作用](../IWA4/index.md#thm-iwa4-iwasawa-action)に従い、層間のノルム $N_{F_{n+1}/F_n}:A_{n+1}\to A_n$ を使って $X=\varprojlim A_n$ を作ります。位相的生成元 $\gamma$ を一つ固定し、[IWA3の冪級数表示](../IWA3/index.md#thm-iwa3-power-series-isomorphism)で $\Lambda=\mathbb Z_p[[\gamma-1]]\simeq\mathbb Z_p[[T]]$ と同一視します。
 
+ここで $\Gamma=\operatorname{Gal}(F_\infty/F)$、$T=\gamma-1$ です。第 $n$ 層を固定する部分群を $\Gamma_n=\overline{\langle\gamma^{p^n}\rangle}$ と書きます。この部分群の作用による差を零にしたいので、各 $m\in M$ に対する $(\gamma^{p^n}-1)m$ を零とする商を考えます。$T$ の表示では $\gamma^{p^n}-1=(1+T)^{p^n}-1$ です。この手続きを次の coinvariants の定義で表します。
+
 <a id="def-iwa7-layer-quotient"></a>
 
 <!-- formal-statement-start -->
@@ -31,7 +33,22 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa7-layer-quotient -->
-**定義の確認**。 $p=3$、$n=1$ では $\omega_1=(1+T)^3-1=T^3+3T^2+3T$ です。$M=\Lambda/(T+3)$ の場合、$T$ は $-3$ として作用するので、$M/\omega_1M\simeq\mathbb Z_3/((-2)^3-1)\simeq\mathbb Z_3/(9)$、位数は $9$ です。群作用による定義と多項式の代入が一致しています。
+**定義の確認**。 $p=3$、$n=1$ とすると
+
+$$
+\omega_1=(1+T)^3-1=T^3+3T^2+3T.
+$$
+
+$M=\Lambda/(T+3)$ は、[Weierstrass除法](../IWA6/index.md#thm-iwa6-division)で各元を一意な定数に還元できるため、$\mathbb Z_3$ 加群として $\mathbb Z_3$ と同型です。この同型の下で $T=-3$、従って $\gamma=1+T=-2$ が作用します。$\Gamma_1$ の生成元 $\gamma^3$ による差 $\gamma^3m-m$ は、$\mathbb Z_3$ 上で $((-2)^3-1)m=-9m$ です。よって
+
+$$
+M_{\Gamma_1}=M/\omega_1M
+\simeq\mathbb Z_3/(-9)\mathbb Z_3
+=\mathbb Z_3/9\mathbb Z_3,
+\qquad |M_{\Gamma_1}|=9.
+$$
+
+これで、閉部分群の作用から作る商と $\omega_1$ の多項式代入が同じ条件を表すことを確かめました。
 <!-- definition-example-end -->
 
 $A_n$ と $X/\omega_nX$ は**定義だけでは同型になりません**。ノルムの逆極限を作ることと、有限層の類群をそのままcoinvariantsで取り戻すことは別の主張です。分岐素点やノルム写像を制御する算術的議論が後に必要になります。
@@ -83,7 +100,16 @@ $$
 
 次は $\Lambda/(W)$ を調べます。$W$ を次数 $d\ge1$ のdistinguished多項式とします。[IWA6の有限階数表示](../IWA6/index.md#thm-iwa6-division)によって $\Lambda/(W)$ は $\mathbb Z_p$ 上、基底 $1,T,\ldots,T^{d-1}$ を持つ自由加群です。
 
-有限自由加群の自己準同型が正則な行列 $B$ で表されれば、像の指数は $p^{v_p(\det B)}$ です。これは $\mathbb Z_p$ 上の行列を基本変形で対角化し、対角元 $p^{a_i}$ の指数を掛け合わせれば分かります。したがって $\omega_n$ 倍写像の行列式を求めれば位数を測れます。
+階数 $d$ の自由 $\mathbb Z_p$ 加群 $L$ 上で $\omega_n$ を掛ける写像を考えます。[Weierstrass除法](../IWA6/index.md#thm-iwa6-division)で得た基底 $(1,T,\ldots,T^{d-1})$ に関する行列を $B_n$ とすれば、その像は $\omega_n L$、余核は $L/\omega_nL$ です。$\det B_n\ne0$（$\mathbb Q_p$ 上では可逆）なら、$\mathbb Z_p$ 上の基本行列変形で $B_n$ を対角元 $p^{a_1},\ldots,p^{a_d}$ と単元倍の形にできるため、
+
+$$
+|L/\omega_nL|
+=\prod_{i=1}^{d}|\mathbb Z_p/p^{a_i}\mathbb Z_p|
+=p^{\sum_i a_i}
+=p^{v_p(\det B_n)}.
+$$
+
+ここで $\mathbb Z_p$ 上で可逆（行列式が単元）である必要はありません。求めるべき量は、$\omega_n$ 倍写像の行列式の $p$ 進付値です。
 
 $W$ の根を、重複度を含めて代数閉包 $\overline{\mathbb Q}_p$ 内の $\alpha_1,\ldots,\alpha_d$ とします。**終結式**とは二つの多項式が共通根を持つか判定する量で、モニックな $W$ については
 
@@ -91,7 +117,33 @@ $$
 \operatorname{Res}(W,g)=\prod_{i=1}^{d}g(\alpha_i)
 $$
 
-と計算できます。これは $\mathbb Q_p[T]/(W)$ 上の $g$ 倍写像の行列式です。なぜなら代数閉包へ係数拡大すると、$T$ 倍写像の固有値が重複度を含めて $\alpha_1,\ldots,\alpha_d$ であり、行列式 $\det g(T)$ は各固有値 $g(\alpha_i)$ の積になるからです。重根の場合も重複度を込めます。
+と計算できます。この積は $\mathbb Q_p[T]/(W)$ 上の $g$ 倍写像の行列式に等しくなります。実際、$W=T^d+b_{d-1}T^{d-1}+\cdots+b_0$ に対し、基底 $(1,T,\ldots,T^{d-1})$ 上の $T$ 倍写像は
+
+$$
+T\cdot T^j=T^{j+1}\ (j<d-1),\qquad
+T\cdot T^{d-1}=-\sum_{j=0}^{d-1}b_jT^j
+$$
+
+で定まる伴行列 $C$ です。変数 $x$ に対する行列式をこの伴行列の最後の列から展開すると、$\det(xI-C)=x^d+b_{d-1}x^{d-1}+\cdots+b_0=W(x)$ となります。代数閉包上で $C$ を上三角化すると対角成分は重複度込みで $\alpha_1,\ldots,\alpha_d$ となり、$g(C)$ の対角成分は $g(\alpha_i)$ です。従って $\det g(C)=\prod_i g(\alpha_i)$。重根があっても対角化は必要ありません。
+
+**二重根の直接例。** $p=3$、$W=(T+3)^2$ とし、$S=T+3$ を使います。基底 $(1,T)$ から $(1,S)$ への変換は $S=T+3$、逆変換は $T=S-3$ であり、変換行列の行列式は $1$ なので、$L=\Lambda/(W)$ の基底は $(1,S)$ でも表せます。商では $S^2=0$ です。$T=S-3$ を代入して二項展開すれば
+
+$$
+\omega_n(T)=(-2+S)^{3^n}-1
+\equiv a_n+q_nS\pmod{S^2},
+\quad
+a_n=(-2)^{3^n}-1,\quad
+q_n=3^n(-2)^{3^n-1}.
+$$
+
+この基底で $\omega_n$ 倍写像は $1\mapsto a_n+q_nS$、$S\mapsto a_nS$ なので、その行列と行列式は
+
+$$
+B_n=\begin{pmatrix}a_n&0\\ q_n&a_n\end{pmatrix},
+\qquad \det B_n=a_n^2.
+$$
+
+これは二重根 $-3$ を二回数える終結式の規則と一致します。
 
 <a id="lem-iwa7-valuation-growth"></a>
 
@@ -159,13 +211,13 @@ $\omega_n$ 倍写像の行列式を終結式に読み替えます。$W$ の各�
 <!-- proof-start -->
 ### 証明
 
-$W=T^d+c_{d-1}T^{d-1}+\cdots+c_0$、$c_i\in p\mathbb Z_p$ とします。根 $\alpha$ で $v_p(\alpha)\le0$ なら、$\alpha^d$ の付値 $d v_p(\alpha)$ は、各低次項 $c_i\alpha^i$ の付値 $1+i v_p(\alpha)$ より小さく、これらが打ち消せません。したがって全根で $v_p(\alpha)>0$ です。
+$W=T^d+b_{d-1}T^{d-1}+\cdots+b_0$、$b_i\in p\mathbb Z_p$ とします。根 $\alpha$ で $v_p(\alpha)\le0$ なら、$\alpha^d$ の付値 $d v_p(\alpha)$ は、各低次項 $b_i\alpha^i$ の付値が少なくとも $1+i v_p(\alpha)$ であることから、いずれの低次項よりも小さく、打ち消せません。したがって全根で $v_p(\alpha)>0$ です。
 
-各 $u_i=1+\alpha_i$ は $v_p(u_i-1)>0$ を満たします。$u_i^{p^m}=1$ となることは $\omega_m(\alpha_i)=0$ と同値なので、共通因子を持たないという仮定により補題が適用できます。ゆえに各 $i$ について、十分大きな $n$ で
+各 $u_i=1+\alpha_i$ は $v_p(u_i-1)>0$ を満たします。$u_i^{p^m}=1$ となることは $\omega_m(\alpha_i)=0$ と同値なので、共通因子を持たないという仮定により補題が適用できます。ゆえに各 $i$ について、ある整数 $N_i$ と有理定数 $\kappa_i$ が存在し、$n\ge N_i$ で
 
 $$
 v_p(\omega_n(\alpha_i))
-=v_p(u_i^{p^n}-1)=n+c_i.
+=v_p(u_i^{p^n}-1)=n+\kappa_i.
 $$
 
 一方、$\Lambda/(W)$ は自由 $\mathbb Z_p$ 加群なので、$\omega_n$ 倍写像は $d$ 次正方行列で表せます。行列式は
@@ -181,11 +233,11 @@ $$
 
 $$
 v_p\left(\left|\Lambda/(W,\omega_n)\right|\right)
-=\sum_{i=1}^d(n+c_i)
-=dn+\sum_{i=1}^dc_i.
+=\sum_{i=1}^d(n+\kappa_i)
+=dn+\sum_{i=1}^d\kappa_i.
 $$
 
-左辺は整数です。従って十分大きな一つの $n$ を取れば $\sum_i c_i$ も整数で、これを $\nu_W$ と置けます。
+左辺は整数です。従って十分大きな一つの $n$ を取れば $\sum_i\kappa_i$ も整数で、これを $\nu_W$ と置けます。
 <!-- proof-end -->
 
 **直接計算。** $p=3$、$W=T+3$ なら商 $\Lambda/(W)\simeq\mathbb Z_3$ では $T=-3$ です。$u=1-3=-2$ と置くと $v_3(u-1)=1>1/(3-1)$。上の証明の安定領域に初めから入るため
@@ -385,7 +437,7 @@ $$
 - Level: A
 - ID: IWA7-A4
 
-$M=\mathbb Z/9\mathbb Z$ を $\gamma=1$ で作用させる有限 $\Lambda$ 加群とする。すべての $n$ について $M/\omega_nM$ の位数を求め、$\mu(M),\lambda(M)$ と比較せよ。
+$p=3$、$\Lambda=\mathbb Z_3[[T]]$ とし、$M=\mathbb Z/9\mathbb Z$ に $\gamma=1$（すなわち $T=0$）を作用させる有限 $\Lambda$ 加群とする。すべての $n$ について $M/\omega_nM$ の位数を求め、$\mu(M),\lambda(M)$ と比較せよ。
 
 <!-- solution-start -->
 **詳細解答。** $T=\gamma-1$ は零作用します。従って $\omega_n=(1+T)^{p^n}-1$ も零作用し、$M/\omega_nM=M$、位数は $9=3^2$ です。[有限加群の擬零性](../IWA5/index.md#prop-iwa5-pseudonull-finite)と[特徴イデアル](../IWA6/index.md#def-iwa6-characteristic)により $\mu(M)=\lambda(M)=0$。指数 $2$ は定数 $\nu$ に対応します。
