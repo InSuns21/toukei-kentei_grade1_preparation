@@ -1,6 +1,7 @@
 // FCG8 independent CPU reference. The editable levelset.js is never evaluated here.
 export const FCG8_MAX_STEPS=96;
 const DT=0.04,R=0.18;
+const clip=(x,a,b)=>Math.max(a,Math.min(b,x));
 function buildReference({N=48,shear=0.6,redistanceIterations=6}={}){
   if(![48,64,80,96].includes(N)||!Number.isFinite(shear)||
      shear<0||shear>1||!Number.isInteger(redistanceIterations)||
@@ -8,7 +9,6 @@ function buildReference({N=48,shear=0.6,redistanceIterations=6}={}){
     throw new RangeError('FCG8 grid/shear/redistance out of supported range');
   const H=1/N,SHEAR=shear;
 const at=(i,j)=>i+N*j;
-const clip=(x,a,b)=>Math.max(a,Math.min(b,x));
 function initial(){
   const a=new Float64Array(N*N);
   for(let j=0;j<N;j++)for(let i=0;i<N;i++)
