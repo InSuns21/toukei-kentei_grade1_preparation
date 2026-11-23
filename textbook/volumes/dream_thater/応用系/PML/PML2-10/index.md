@@ -22,7 +22,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-10-training-outcome -->
-**定義の確認。** $J(a)=(a-1)^2$、$a_0=0$、更新 $a_{n+1}=a_n-\frac14J'(a_n)$ とする。$J'(a)=2(a-1)$ なので $a_1=\frac12$、$J(a_1)=\frac14$。$T=1,\varepsilon=\frac14$ なら達成、$\varepsilon=\frac1{10}$ なら未達成である。同じ軌道でも目標値を先に決める必要がある。
+**定義の確認**。 $J(a)=(a-1)^2$、$a_0=0$、更新 $a_{n+1}=a_n-\frac14J'(a_n)$ とする。$J'(a)=2(a-1)$ なので $a_1=\frac12$、$J(a_1)=\frac14$。$T=1,\varepsilon=\frac14$ なら達成、$\varepsilon=\frac1{10}$ なら未達成である。同じ軌道でも目標値を先に決める必要がある。
 <!-- definition-example-end -->
 
 ## 2. 周波数の異なる試行関数を直接微分する
@@ -45,7 +45,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-10-two-mode-trial -->
-**定義の確認。** $k=4$、$a=0$、$b=\frac1{16}$ を代入する。端点で $\sin(j\pi x)=0$（整数 $j$、$x=0,1$）なので $v_{0,1/16}(0)=v_{0,1/16}(1)=0$。また
+**定義の確認**。 $k=4$、$a=0$、$b=\frac1{16}$ を代入する。端点で $\sin(j\pi x)=0$（整数 $j$、$x=0,1$）なので $v_{0,1/16}(0)=v_{0,1/16}(1)=0$。また
 
 $$
 v_{0,1/16}''(x)=-\pi^2\sin(4\pi x)
@@ -255,7 +255,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-10-preconditioned-update -->
-**定義の確認。** $k=4,\eta=1/16,(a_0,b_0)=(0,1/16)$ では $\nabla J_4=(-2,32)$、$P_4=\operatorname{diag}(1,1/256)$ である。したがって $P_4\nabla J_4=(-2,1/8)$、更新後は $a_1=1/8$、$b_1=1/16-1/128=7/128$。二成分をそれぞれ定義通り更新しており、前処理なしの $b_1=-31/16$ と異なる。
+**定義の確認**。 $k=4,\eta=1/16,(a_0,b_0)=(0,1/16)$ では $\nabla J_4=(-2,32)$、$P_4=\operatorname{diag}(1,1/256)$ である。したがって $P_4\nabla J_4=(-2,1/8)$、更新後は $a_1=1/8$、$b_1=1/16-1/128=7/128$。二成分をそれぞれ定義通り更新しており、前処理なしの $b_1=-31/16$ と異なる。
 <!-- definition-example-end -->
 
 <a id="thm-pml2-10-preconditioned-convergence"></a>
