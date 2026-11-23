@@ -35,7 +35,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep8-total-spin -->
-**定義の確認。** $j=k=\frac12$ なら $\dim(V_{1/2}\otimes V_{1/2})=2\cdot2=4$ です。$|\uparrow\rangle=|\frac12,\frac12\rangle$、$|\downarrow\rangle=|\frac12,-\frac12\rangle$ と書くと、[有限次元スピンの量子化と昇降公式](../LREP7/index.md#thm-lrep7-spin-spectrum)より
+**定義の確認**。 $j=k=\frac12$ なら $\dim(V_{1/2}\otimes V_{1/2})=2\cdot2=4$ です。$|\uparrow\rangle=|\frac12,\frac12\rangle$、$|\downarrow\rangle=|\frac12,-\frac12\rangle$ と書くと、[有限次元スピンの量子化と昇降公式](../LREP7/index.md#thm-lrep7-spin-spectrum)より
 
 $$
 T_3|\uparrow\downarrow\rangle
@@ -201,7 +201,7 @@ $
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep8-cg-coefficients -->
-**定義の確認。** $j=k=\frac12$ のとき、$|1,1\rangle=|\uparrow\uparrow\rangle$ を最高状態として位相を選びます。[全昇降作用](#lem-lrep8-total-commutators)から
+**定義の確認**。 $j=k=\frac12$ のとき、$|1,1\rangle=|\uparrow\uparrow\rangle$ を最高状態として位相を選びます。[全昇降作用](#lem-lrep8-total-commutators)から
 
 $$
 T_-|\uparrow\uparrow\rangle
