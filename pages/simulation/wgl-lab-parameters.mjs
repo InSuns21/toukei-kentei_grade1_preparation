@@ -209,6 +209,37 @@ export function writeLabParameter(source, spec, proposed) {
     source.slice(match.index + match[0].length);
 }
 
+
+// An editable presentation interval must not disable the independent physics
+// oracle. Admit *only* the current known source-linked FCG5 literal controls:
+// all other JS/GLSL edits remain unverified rather than claiming a false pass.
+const FCG5_VERIFIED_PARAMETER_IDS = Object.freeze([
+  'grid','nu','force','dt','brush-radius','brush-strength','playback-ms'
+]);
+
+export function verifiedFCG5Physics(js,vertex,fragment,defaults) {
+  if(typeof js!=='string'||vertex!==defaults?.vertex||fragment!==defaults?.fragment)
+    return null;
+  const specs=parametersFor('FCG5');
+  if(specs.length!==FCG5_VERIFIED_PARAMETER_IDS.length||
+     specs.some((spec,i)=>spec.id!==FCG5_VERIFIED_PARAMETER_IDS[i]))return null;
+  const readings=specs.map(spec=>readLabParameter(js,spec));
+  if(!readings.every(state=>state.ok))return null;
+  try {
+    let normalized=js,baseline=defaults.js;
+    for(const spec of specs){
+      normalized=writeLabParameter(normalized,spec,spec.default);
+      baseline=writeLabParameter(baseline,spec,spec.default);
+    }
+    if(normalized!==baseline)return null;
+  }catch{return null;}
+  const value=Object.fromEntries(specs.map((spec,i)=>[spec.id,readings[i].value]));
+  return {
+    N:value.grid,nu:value.nu,force:value.force,dt:value.dt,
+    brushRadius:value['brush-radius'],brushStrength:value['brush-strength']
+  };
+}
+
 export function mountLabParameters(lesson, container,
                                    {getSource, setSource, rerun, isReady}) {
   const specs = parametersFor(lesson);
