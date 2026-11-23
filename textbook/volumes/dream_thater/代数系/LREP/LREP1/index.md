@@ -12,6 +12,23 @@
 
 群の元 $g$ がベクトル $v$ を動かす規則を $D(g)v$ と表せれば、群の単位元と積に対する作用条件を「行列の積の条件」に翻訳できます。
 
+この翻訳の仕組みを基底から確かめます。基底 $b_1,\ldots,b_n$ を固定し、$D(g)$ が複素線形な変換だとして
+$$
+D(g)b_j=\sum_{i=1}^n a_{ij}(g)b_i
+\qquad(j=1,\ldots,n)
+$$
+と展開します。この係数を第 $j$ 列とする行列が $A(g)=(a_{ij}(g))$ です。$v=\sum_j x_jb_j$ なら、線形性によって
+$$
+D(g)v=\sum_i\left(\sum_j a_{ij}(g)x_j\right)b_i.
+$$
+したがって基底での座標に対する作用は $x\mapsto A(g)x$ となります。さらに二つの変換の合成を基底ベクトルへ施すと
+$$
+D(g)D(h)b_j
+=\sum_k a_{kj}(h)D(g)b_k
+=\sum_i\left(\sum_k a_{ik}(g)a_{kj}(h)\right)b_i.
+$$
+ゆえに、後述の表現条件 $D(gh)=D(g)D(h)$ は、同じ基底に関する行列条件 $A(gh)=A(g)A(h)$ と同値です。**行列積を検算するのは、もとの線形作用の合成を検算するため**です。
+
 <a id="def-lrep1-linear-representation"></a>
 <!-- formal-statement-start -->
 > **定義（有限次元複素線形表現）**
@@ -289,7 +306,12 @@ $$
 $$
 T(x,y)=y
 $$
-を取ります。任意の $t,x,y$ について
+を取ります。これは第二座標への射影です。$u=(x,y)$、$v=(x',y')$、$\alpha,\beta\in\mathbb C$ とすると
+$$
+T(\alpha u+\beta v)=\alpha y+\beta y'
+=\alpha T(u)+\beta T(v)
+$$
+であり、定義で必要な複素線形性を満たします。任意の $t,x,y$ について
 $$
 TD(t)(x,y)=T(x+ty,y)=y=D'(t)T(x,y)
 $$
@@ -339,13 +361,19 @@ $$
 となります。次元が同じで、どちらかの基底に合わせてこの式を書いたものが行列の相似変換です。
 
 <!-- definition-example-start: def-lrep1-equivalence -->
-**定義の確認**：基底変更。 第3節の $C_2$ 表現 $D(s)=\operatorname{diag}(1,-1)$ を考えます。
+**定義の確認**：基底変更。 第3節の $C_2$ 表現 $D(s)=\operatorname{diag}(1,-1)$ を考えます。旧基底 $e_1,e_2$ に対し、新基底を $f_1=e_1+e_2$、$f_2=e_1-e_2$ とします。新基底の座標列を $u$ とすると、同じベクトルの旧基底での座標列は $Pu$ です。ここで
 $$
 P=\begin{pmatrix}1&1\\1&-1\end{pmatrix},
 \qquad P^{-1}=\tfrac12P,
 \qquad \det P=-2\ne0.
 $$
-$P$ の列を新しい基底として同じ線形作用を書き直すと
+$P$ の列が $f_1,f_2$ の旧座標であり、行列式が非零なので確かに基底になっています。同じ作用を旧座標から新座標へ戻すには
+$$
+D(g)Pu=P\widetilde D(g)u
+\quad\Longrightarrow\quad
+\widetilde D(g)=P^{-1}D(g)P
+$$
+とします。具体的に $D(s)f_1=f_2$、$D(s)f_2=f_1$ なので、新基底上での行列は
 $$
 \widetilde D(s)=P^{-1}D(s)P
 =\begin{pmatrix}0&1\\1&0\end{pmatrix}.
@@ -396,7 +424,18 @@ $$
 $C_3=\langle r:r^3=e\rangle$、$\omega=e^{2\pi i/3}$ とする。$\chi_k(r^j)=\omega^{kj}$（$k=0,1,2$）がそれぞれ1次元指標であること、互いに異なる指標であることを示せ。
 
 <!-- solution-start -->
-**詳細解答。** $\omega^3=1$ なので $j$ の法3の代表元を変えても $\omega^{kj}$ は変わりません。$\chi_k(e)=\omega^0=1$、$\chi_k(r^{a+b})=\omega^{k(a+b)}=\omega^{ka}\omega^{kb}=\chi_k(r^a)\chi_k(r^b)$ です。値は零でないので [1次元指標の定義](#def-lrep1-character)を満たします。また $\chi_k(r)=\omega^k$ は $k=0,1,2$ で異なるので、写像として相異なります。
+**詳細解答。** $r^{j+3}=r^j$ であり、$\omega^3=1$ なので
+$$
+\omega^{k(j+3)}=\omega^{kj}(\omega^3)^k=\omega^{kj}
+$$
+です。よって $\chi_k$ は代表元の選び方によらず定義できます。単位元と積について
+$$
+\chi_k(e)=1,\qquad
+\chi_k(r^{a+b})=\omega^{k(a+b)}
+=\omega^{ka}\omega^{kb}
+=\chi_k(r^a)\chi_k(r^b)
+$$
+が成り立ち、値はすべて非零です。[1次元指標の定義](#def-lrep1-character)を満たします。また生成元での値 $1,\omega,\omega^2$ は異なるので、三つの写像は相異なります。
 <!-- solution-end -->
 
 <a id="ex-lrep1-a02"></a>
@@ -407,7 +446,13 @@ $C_3=\langle r:r^3=e\rangle$、$\omega=e^{2\pi i/3}$ とする。$\chi_k(r^j)=\o
 $GL_2(\mathbb C)$ の $\mathbb C^2$ 上の標準表現が既約であることを、非零ベクトル $v$ から任意の非零ベクトル $w$ へ送る可逆行列を構成する方針で示せ。
 
 <!-- solution-start -->
-**詳細解答。** $W\ne0$ が不変なら $0\ne v\in W$ を選べます。$v$ と独立な $v_2$、$w$ と独立な $w_2$ を選び、$Av=w$、$Av_2=w_2$ と定めます。$A$ は基底を基底へ送るので可逆であり $A\in GL_2(\mathbb C)$ です。不変性より $w=Av\in W$ です。$w\ne0$ は任意、零も $W$ に入るため $W=\mathbb C^2$ です。[既約性の定義](#def-lrep1-irreducible)より既約です。ここでは一つの行列ではなく群の全要素による不変性を使いました。
+**詳細解答。** $W\ne\{0\}$ が不変なら $0\ne v\in W$ を選べます。任意の $0\ne w\in\mathbb C^2$ を固定し、$v$ と独立な $v_2$、$w$ と独立な $w_2$ を選びます。二組はいずれも基底なので
+$$
+Av=w,\qquad Av_2=w_2
+$$
+と指定した複素線形写像 $A$ は可逆であり、$A\in GL_2(\mathbb C)$ です。したがって不変性から $w=Av\in W$ です。
+
+ここで $w$ は任意の非零ベクトルだったので、零ベクトルも加えて $W=\mathbb C^2$ となります。[既約性の定義](#def-lrep1-irreducible)より既約です。一つの固定行列だけでなく、群の全要素についての不変性を使った点が重要です。
 <!-- solution-end -->
 
 <a id="ex-lrep1-a03"></a>
@@ -501,7 +546,12 @@ $$
 $$
 \ker T=\{(x,0):x\in\mathbb C\}=\mathbb Ce_1.
 $$
-$T(0,y)=y$ なので $\operatorname{im}T=\mathbb C$ です。核に属する $(x,0)$ は $D(t)(x,0)=(x,0)$ に写り、像の各 $y$ は $D'(t)y=y$ に写るため両者はそれぞれ不変です。$T$ は可逆ではなく、しかも $\dim V=2\ne1=\dim V'$ なので、二つの表現を結ぶ線形同型は存在せず同値ではありません。
+一方、任意の $y\in\mathbb C$ に対して $T(0,y)=y$ なので、$\operatorname{im}T=\mathbb C$ です。それぞれの不変性を式で確かめると
+$$
+D(t)(x,0)=(x,0)\in\ker T,\qquad
+D'(t)y=y\in\operatorname{im}T
+$$
+となります。最後に $\dim V=2$、$\dim V'=1$ なので二空間の線形同型は存在せず、[表現の同値の定義](#def-lrep1-equivalence)から二つは同値ではありません。
 <!-- solution-end -->
 
 ### Level C
@@ -532,7 +582,15 @@ $$
 
 (2) $AP_+=\tfrac12(A+A^2)=P_+$ なので $\operatorname{im}P_+\subseteq\ker(A-I_2)$ です。逆に $Av=v$ なら $P_+v=(v+Av)/2=v$ なので両者は一致します。同様に $\operatorname{im}P_-=\ker(A+I_2)$ です。任意の $v$ は $v=P_+v+P_-v$ と分けられます。また $w$ が両像に入るなら $Aw=w$ と $Aw=-w$ の両方を満たすので $2w=0$、複素数体上では $w=0$ です。ゆえに直和です。
 
-(3) $d_+=\dim\ker(A-I_2)$、$d_-=\dim\ker(A+I_2)$ と置くと、(2) から $d_++d_-=2$ です。可能性は $(2,0),(1,1),(0,2)$ の3通りです。各固有空間の基底を合わせて $V$ の基底を作れば、その基底で $A$ はそれぞれ $I_2$、$\operatorname{diag}(1,-1)$、$-I_2$ となります。逆に同値な表現では $A$ が相似なので、それぞれの固有空間の次元は変わりません。3種類は相互に非同値です。
+(3) $d_+=\dim\ker(A-I_2)$、$d_-=\dim\ker(A+I_2)$ と置くと、(2) から $d_++d_-=2$ です。可能性は $(2,0),(1,1),(0,2)$ の3通りです。それぞれの固有空間の基底を合わせれば $V$ の基底となり、その基底での $A$ は順に
+$$
+I_2,\qquad\operatorname{diag}(1,-1),\qquad-I_2
+$$
+です。逆に同値な二つの表現で $A'=TAT^{-1}$ なら
+$$
+(A'\mp I_2)Tv=T(A\mp I_2)v
+$$
+なので、可逆な $T$ は $\ker(A\mp I_2)$ を $\ker(A'\mp I_2)$ に一対一に写します。従って $d_+,d_-$ は同値で変わらず、三つの型は相互に非同値です。
 
 (4) $N=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ とすると
 $$
