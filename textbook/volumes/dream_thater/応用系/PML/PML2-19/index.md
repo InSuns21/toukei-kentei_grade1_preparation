@@ -28,13 +28,36 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-19-uniform-density -->
-**定義の確認**（定数入力とPoisson解）。$K=\{f_a(t)=a:0\le a\le1\}$、$\mathcal G$ を[零Dirichlet Poisson解作用素](../PML2-14/index.md#thm-pml2-14-green)とする。$-u''=a$ と $u(0)=u(1)=0$ を積分すれば
+**定義の確認**（定数入力とPoisson解）。$K=\{f_a(t)=a:0\le a\le1\}$、$\mathcal G$ を[零Dirichlet Poisson解作用素](../PML2-14/index.md#thm-pml2-14-green)とする。$-u''(y)=a$ のプライムは出力位置 $y$ に関する微分を表す。2回積分すると
+
+$$
+u'(y)=-ay+C_1,\qquad
+u(y)=-\frac{a}{2}y^2+C_1y+C_0.
+$$
+
+境界条件 $u(0)=0$ から $C_0=0$、$u(1)=0$ から $C_1=a/2$ だから
 
 $$
 (\mathcal Gf_a)(y)=\frac{a}{2}y(1-y).
 $$
 
-一つのセンサ $s_1=0$、branch $B(v)=v$、trunk $T(y)=y(1-y)/2$ を取ると、$p=1$ の[固定センサ型DeepONet](../PML2-18/index.md#def-pml2-18-deeponet)で全 $a$ に対し厳密一致する。連続性、入力・出力次元、共通センサを満たし、一様誤差は $0$。したがって任意の正の $\varepsilon$ に対して**同じモデル**が使える。
+この関数は $y$ に関して2回連続微分可能で、$-u''(y)=a=f_a(y)$ と両端の零条件を満たす。[Poisson解の一意性](../PML2-14/index.md#thm-pml2-14-green)から、これが目標作用素の出力である。
+
+一つのセンサを $s_1=0$ に固定すると、観測値は $S_1f_a=(a)$ である。branch と trunk を
+
+$$
+B:\mathbb R\to\mathbb R,\quad B(v)=v,
+\qquad T:[0,1]\to\mathbb R,\quad T(y)=\frac{y(1-y)}2
+$$
+
+と定める。両方とも連続なので、$p=1$、定数項 $c=0$ の[固定センサ型DeepONet](../PML2-18/index.md#def-pml2-18-deeponet)になる。入力ごとの一致は
+
+$$
+B(S_1f_a)T(y)=\frac{a}{2}y(1-y)=(\mathcal Gf_a)(y)
+\quad(0\le a\le1,\ 0\le y\le1)
+$$
+
+で確かめられる。モデルの入出力、共通センサと連続性の各条件が成立し、一様誤差は $0$ である。したがって任意の正の $\varepsilon$ に対して**同じモデル**が使える。
 <!-- definition-example-end -->
 
 この例の入力族は一次元である。一般の連続入力には、センサ間の変化を制御する追加条件が必要になる。
@@ -307,17 +330,49 @@ $$
 
 を考える。trunkを右辺の多項式、branchを定数 $1$ とすれば連続branch/trunk型である。すべての観測点 $y_j$ で出力は零だが、多項式は恒等的な零関数ではない。$A$ の絶対値を増やせば観測点以外の誤差はいくらでも大きくなる。**出力側に未観測領域がある**という失敗機構は、前節の未見入力の問題と別である。
 
-一方、連続な出力関数の族に共通のLipschitz定数 $L_{\rm out}$ があるなら、任意の出力点 $y$ を最近傍の観測点 $y_j$（距離 $\le h_y$）へ結んで
+一般の空でない入力族 $K\subset C([0,1])$ に戻り、目標 $\mathcal G$ とモデル $\mathcal D$ の出力を、固定した $Q\ge1$ 個の位置 $y_1,\ldots,y_Q\in[0,1]$ で比べる。格子の**被覆半径** $h_y$ と**格子点最大誤差** $E_{\rm grid}$ を
 
 $$
+\begin{aligned}
+h_y&=\max_{y\in[0,1]}\min_{1\le j\le Q}|y-y_j|,\\
+E_{\rm grid}&=\sup_{f\in K}\max_{1\le j\le Q}
+|(\mathcal Df)(y_j)-(\mathcal Gf)(y_j)|
+\end{aligned}
+$$
+
+と定め、格子点最大誤差が有限と仮定する。被覆半径 $h_y$ の定義により、どの出力点にも距離が $h_y$ 以下の観測点がある。
+
+さらに、すべての入力 $f\in K$ に共通する出力側のLipschitz定数 $L_{\rm out}\ge0$ が存在し、任意の $y,z\in[0,1]$ について
+
+$$
+\begin{aligned}
+|(\mathcal Df)(y)-(\mathcal Df)(z)|&\le L_{\rm out}|y-z|,\\
+|(\mathcal Gf)(y)-(\mathcal Gf)(z)|&\le L_{\rm out}|y-z|
+\end{aligned}
+$$
+
+を満たすと仮定する。両方の作用素の**出力位置に関する変動**を同じ定数で制御する条件である。
+
+任意の $f\in K$ と出力点 $y$ に最近傍の $y_j$ を取ると、三角不等式とこの二つのLipschitz評価から
+
+$$
+\begin{aligned}
 |(\mathcal Df)(y)-(\mathcal Gf)(y)|
-\le |(\mathcal Df)(y)-(\mathcal Df)(y_j)|
-+|(\mathcal Df)(y_j)-(\mathcal Gf)(y_j)|
-+|(\mathcal Gf)(y_j)-(\mathcal Gf)(y)|
-\le E_{\rm grid}+2L_{\rm out}h_y
+&\le |(\mathcal Df)(y)-(\mathcal Df)(y_j)|\\
+&\quad+|(\mathcal Df)(y_j)-(\mathcal Gf)(y_j)|\\
+&\quad+|(\mathcal Gf)(y_j)-(\mathcal Gf)(y)|\\
+&\le L_{\rm out}h_y+E_{\rm grid}+L_{\rm out}h_y.
+\end{aligned}
 $$
 
-と抑えられる。ここで両方の出力が**同じ** $L_{\rm out}$-Lipschitz条件を満たすことが必要で、モデルの出力側の正則性を仮定せずに $Q$ だけ増やしてもこの評価は出ない。
+したがって $f,y$ に関して上限を取っても
+
+$$
+\sup_{f\in K}\|\mathcal Df-\mathcal Gf\|_\infty
+\le E_{\rm grid}+2L_{\rm out}h_y.
+$$
+
+両方の出力に**同じ一様な**Lipschitz上界を仮定したことが本質であり、モデルの出力側の正則性を仮定せずに $Q$ だけ増やしてもこの評価は出ない。
 
 [FNOの格子変更とモデル誤差の分解](../PML2-17/index.md#prop-pml2-17-error-split)では、同じ重みを別の格子へ移す設計と精度を分離した。Neural Operator全般でも入力のセンサ間誤差、出力の問い合わせ点間誤差、演算子近似誤差、学習・統計誤差を別々に評価する。
 
@@ -394,7 +449,7 @@ $$
 <!-- solution-start -->
 **詳細解答。** パラメータ集合 $[-1,1]\times[-2,2]$ はコンパクトで、写像 $(a,b)\mapsto(t\mapsto a+bt)$ は $\|f_{a,b}-f_{a',b'}\|_\infty\le|a-a'|+|b-b'|$ により連続である。その像 $K$ もコンパクトである。また $|f_{a,b}(x)-f_{a,b}(z)|=|b||x-z|\le2|x-z|$ だから $h=\eta/2$ が共通の変動幅を与える。端点値は $(a,a+b)$ で区分線形補間は $(1-t)a+t(a+b)=a+bt$ と元に一致する。
 
-[既習のPoisson解の構成](../PML2-18/index.md#thm-pml2-18-sensor-rank)で、$-u''=a+bt$ の解は $a\,y(1-y)/2+b(y-y^3)/6$。センサ値 $v_1=a,v_2=a+b$ を使えば $B(v_1,v_2)=(v_1,v_2-v_1)$、$T(y)=(y(1-y)/2,(y-y^3)/6)$ とすればよい。両写像は連続で全 $f\in K$ に厳密一致する。
+[零Dirichlet Poisson解作用素の線形性](../PML2-14/index.md#thm-pml2-14-green)と[一次入力でのtrunk関数の導出](../PML2-18/index.md#def-pml2-18-deeponet)から、$-u''(y)=a+by$ の解は $a\,y(1-y)/2+b(y-y^3)/6$。センサ値 $v_1=a,v_2=a+b$ を使えば $B(v_1,v_2)=(v_1,v_2-v_1)$、$T(y)=(y(1-y)/2,(y-y^3)/6)$ とすればよい。両写像は連続で全 $f\in K$ に厳密一致する。
 <!-- solution-end -->
 
 <a id="ex-pml2-19-b02"></a>
@@ -446,7 +501,21 @@ $$
 \le E_{\rm grid}+2L_{\rm out}h_y
 $$
 
-と評価できる。本例の予測値の導関数は $T'(y)=A(1-2y)$ なので、そのLipschitz定数は少なくとも $|A|$ を必要とする。$A$ と無関係な共通定数は存在しない。
+と評価できる。今回の出力格子と予測値の導関数を計算すると
+
+$$
+h_y=\frac12,\qquad E_{\rm grid}=0,\qquad
+T'(y)=A(1-2y),\qquad \max_{0\le y\le1}|T'(y)|=|A|.
+$$
+
+したがって $T$ は $|A|$-Lipschitzである。端点での導関数の大きさも $|A|$ なので、これより小さいLipschitz定数は取れない。真値は零関数だから、両方に共通の $L_{\rm out}=|A|$ を選べる。このとき格子評価から得る上界は
+
+$$
+E_{\rm grid}+2L_{\rm out}h_y
+=0+2|A|\cdot\frac12=|A|.
+$$
+
+これは実際の最大誤差 $|A|/4$ を含む。ただし $A$ と無関係な共通定数は存在しない。
 <!-- solution-end -->
 
 <a id="ex-pml2-19-b04"></a>
