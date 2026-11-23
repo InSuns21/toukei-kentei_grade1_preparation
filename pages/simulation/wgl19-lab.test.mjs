@@ -83,7 +83,7 @@ test('WGL19 replays the audited GPU shader in the same sandbox, not a disconnect
     'function nextFrame()','tick();live.remainderMs-=fixedMs',
     'drawScreen();','const values=readState();',
     "new CustomEvent('wgl19-progress'",'labels[k].textContent=values[k].toFixed(3)',
-    "new CustomEvent('wgl19-control'",'setInterval(()=>safely(nextFrame),850)',
+    "canvas.addEventListener('wgl19-control'",'setInterval(()=>safely(nextFrame),850)',
     'prefers-reduced-motion','return {floatReadback,floatParameters:']){
     assert.ok(js.includes(part),part);
   }
