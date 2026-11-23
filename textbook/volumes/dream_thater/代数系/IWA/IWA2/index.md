@@ -189,7 +189,7 @@ $\Delta$ の持ち上げの両立性で固定体の包含を出し、商群の�
 <!-- proof-start -->
 ### 証明
 
-[有限段の持ち上げ](#prop-iwa2-teichmueller-lifting)は $\Delta_{n+1}$ を $\Delta_n$ に還元します。従って $\Delta_{n+1}$ の元は $E_{n+1}$ の部分体 $E_{n+1}$ の中の $K_n$ を固定し、$K_n\subseteq K_{n+1}$ です。$K_0=E_1^{G_1}=\mathbb Q$。Galois対応と[積分解](#thm-iwa2-odd-splitting)により
+[有限段の持ち上げ](#prop-iwa2-teichmueller-lifting)は $\Delta_{n+1}$ を $\Delta_n$ に還元します。従って $\Delta_{n+1}$ の元は $E_{n+1}$ の中の $K_n$ を固定し、$K_n\subseteq K_{n+1}$ です。$K_0=E_1^{G_1}=\mathbb Q$。Galois対応と[積分解](#thm-iwa2-odd-splitting)により
 $$
 \operatorname{Gal}(K_n/\mathbb Q)
 \simeq G_{n+1}/\Delta_n\simeq U_n.
@@ -414,7 +414,7 @@ $p=5,n=1$ において、素数 $101$ と $11$ の $K_1/\mathbb Q$ での分解�
 - ID: IWA2-B4
 
 <!-- solution-start -->
-**詳細解答**。$3^2\equiv9$、$3^3\equiv11$、$3^4\equiv1\pmod{16}$ より $\langle3\rangle=\{1,3,9,11\}$。一方 $V_2=\{1,5,9,13\}$ であり、$3\notin V_2$ なので一致しません。さらに $-1\equiv15$ は $\langle3\rangle$ に属さないので、法16だけなら符号との直積を作れます。しかし法8へ還元すると $3$ の位数は2で、$V_1=\{1,5\}$ に還元される像は $3\bmod8$ となり $1\bmod4$ の条件を破ります。従って階層を通じて主単元を統一する座標としては使えません。反対に $5$ はすべての段で $1\bmod4$ です。
+**詳細解答**。$3^2\equiv9$、$3^3\equiv11$、$3^4\equiv1\pmod{16}$ より $\langle3\rangle=\{1,3,9,11\}$。一方 $V_2=\{1,5,9,13\}$ であり、$3\notin V_2$ なので一致しません。さらに $-1\equiv15$ は $\langle3\rangle$ に属さないので、法16だけなら符号との直積を作れます。法8への還元でも $3\bmod8$ は $1\bmod4$ の条件を満たさず、$V_1=\{1,5\}$ に属しません。従って $3$ は **主単元群 $V_n$ の生成元** にはなれません。ただし $\langle3\rangle$ 自体は符号群の別の補群として階層間で両立し得ます。ここで選んだ自然な主単元部分群 $V_n$ を使うには、全段で $1\bmod4$ となる $5$ を選びます。
 <!-- solution-end -->
 
 ### C1. 第二層までの統合計算
