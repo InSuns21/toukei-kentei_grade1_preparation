@@ -241,14 +241,31 @@ $$
 -\frac12\sum_{i=1}^n(y_i-H_ix)^TR_i^{-1}(y_i-H_ix)\right\}.
 $$
 
-指数中の二次式において $x^Tx$ 型の項と $x$ の一次項を集め、
+[INV15のGaussian事後分布の平方完成](../../../解析系/INV/INV15/index.md#thm-inv15-gaussian-posterior)と同じ操作を、$n$ 個の独立な観測に適用する。$P_0^{-1}$ と各 $R_i^{-1}$ は対称なので、二次形式を $x$ について展開すると
+
+$$
+\begin{aligned}
+(x-m_0)^TP_0^{-1}(x-m_0)
+&=x^TP_0^{-1}x-2x^TP_0^{-1}m_0+m_0^TP_0^{-1}m_0,\\
+(y_i-H_ix)^TR_i^{-1}(y_i-H_ix)
+&=x^TH_i^TR_i^{-1}H_ix-2x^TH_i^TR_i^{-1}y_i+y_i^TR_i^{-1}y_i.
+\end{aligned}
+$$
+
+従って、指数の括弧内は $x^TAx-2b^Tx+c$ と書ける。ここで $c$ は $x$ に依存しない項であり、
 
 $$
 A=P_0^{-1}+\sum_{i=1}^nH_i^TR_i^{-1}H_i,\qquad
 b=P_0^{-1}m_0+\sum_{i=1}^nH_i^TR_i^{-1}y_i
 $$
 
-と置く。任意の $u\ne0$ に対し $u^TAu\ge u^TP_0^{-1}u>0$ だから $A$ は可逆である。平方完成すると
+である。$A$ は $d\times d$、$b$ は $d$ 次元列となる。任意の $u\in\mathbb R^d\setminus\{0\}$ に対し
+
+$$
+u^TAu=u^TP_0^{-1}u+\sum_{i=1}^n(H_iu)^TR_i^{-1}(H_iu)>0
+$$
+
+である。第一項は正定値性により正、和の各項は非負なので、$A$ は対称正定値で可逆である。平方完成すると
 
 $$
 x^TAx-2b^Tx=(x-A^{-1}b)^TA(x-A^{-1}b)-b^TA^{-1}b.
@@ -307,13 +324,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$z_k=H_k(x_k-m_k^-)+v_k$ なので、条件付き平均は零、共分散は独立性により $S_k$。二次形式を成分で展開して
+$z_k=H_k(x_k-m_k^-)+v_k$ なので、条件付き平均は零、共分散は独立性により $S_k$。二次形式を $i,j=1,\ldots,p_k$ について展開する。条件付き平均が零なので $\mathbb E[(z_k)_i(z_k)_j\mid Y_{k-1}]=(S_k)_{ij}$ である。$S_k$ は対称であるから $(S_k)_{ij}=(S_k)_{ji}$ となり、
 
 $$
 \begin{aligned}
 \mathbb E[z_k^TS_k^{-1}z_k\mid Y_{k-1}]
-&=\sum_{i,j}(S_k^{-1})_{ij}\mathbb E[(z_k)_i(z_k)_j\mid Y_{k-1}]\\
-&=\sum_{i,j}(S_k^{-1})_{ij}(S_k)_{ji}\\
+&=\sum_{i,j=1}^{p_k}(S_k^{-1})_{ij}\mathbb E[(z_k)_i(z_k)_j\mid Y_{k-1}]\\
+&=\sum_{i,j=1}^{p_k}(S_k^{-1})_{ij}(S_k)_{ji}\\
 &=\operatorname{tr}(S_k^{-1}S_k)=\operatorname{tr}(I_{p_k})=p_k.
 \end{aligned}
 $$
