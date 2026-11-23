@@ -375,6 +375,8 @@ $$
 
 が従います。
 
+なお、上の $\operatorname{Cl}(F_r)$ は[イデアル類群の定義](../../ANF/ANF6/index.md#def-anf6-ideal-class-group)を数体 $K=F_r$ に適用したもので、$E_r$ の類群とは区別しています。
+
 外部定理から独立に、低次の指数なら整数の計算だけで求められます。
 
 <a id="prop-iwa10-p5-index"></a>
