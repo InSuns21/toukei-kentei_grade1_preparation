@@ -75,7 +75,7 @@ $g_{SN}=(g_{NS}^{(n)})^{-1}$、$g_{NN}=g_{SS}=1$ とすれば、重なりの全�
 
 ## 2. 一周した位相の増分を整数にする
 
-円周上の連続関数 $c:S^1\to U(1)$ を、$\theta\in[0,2\pi]$ に沿う関数 $c(e^{i\theta})$ として読む。各短い区間で連続な偏角を選び、区間の境目で $2\pi$ の整数倍を足してつなぐと、実数値の連続関数 $\varphi:[0,2\pi]\to\mathbb R$ を
+円周 $S^1=\{e^{i\theta}:0\le\theta<2\pi\}$ 上の連続関数 $c:S^1\to U(1)$ を、$\theta\in[0,2\pi]$ に沿う関数 $c(e^{i\theta})$ として読む。各短い区間で連続な偏角を選び、区間の境目で $2\pi$ の整数倍を足してつなぐと、実数値の連続関数 $\varphi:[0,2\pi]\to\mathbb R$ を
 $$
 c(e^{i\theta})=e^{i\varphi(\theta)}
 $$
@@ -90,7 +90,7 @@ $$
 \operatorname{wind}(c)=
 \frac{\varphi(2\pi)-\varphi(0)}{2\pi}\in\mathbb Z
 $$
-> を $c$ の **巻き数**と呼ぶ。始点の角度 $\theta=0$ は $(1,0)\in S^1$ に対応し、赤道を $\theta$ 増加方向に一周する。持ち上げの選択によらないことは次の命題で示す。
+> を $c$ の **巻き数**と呼ぶ。始点の角度 $\theta=0$ は $(1,0)\in S^1$ に対応し、赤道を $\theta$ 増加方向に一周する。持ち上げの選択によらないことは次の補題で示す。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg18-winding -->
@@ -99,14 +99,14 @@ $$
 \operatorname{wind}(c_n)
 =\frac{2\pi n-0}{2\pi}=n.
 $$
-例えば $n=-2$ は逆向きに二回転する。$c(\theta)=e^{i(n\theta+\frac12\sin\theta)}$ のように途中で回転速度が変わっても、終点で $\sin2\pi=\sin0=0$ だから巻き数は $n$ のままである。
+例えば $n=-2$ は逆向きに二回転する。$c(e^{i\theta})=e^{i(n\theta+\frac12\sin\theta)}$ のように途中で回転速度が変わっても、終点で $\sin2\pi=\sin0=0$ だから巻き数は $n$ のままである。
 <!-- definition-example-end -->
 
 <a id="lem-gbg18-winding-homotopy"></a>
 
 <!-- formal-statement-start -->
 > **補題（巻き数の選択独立性と変形不変性）**  
-> 任意の連続写像 $c:S^1\to U(1)$ には連続な位相持ち上げが存在する。二つの持ち上げから得る巻き数は同じである。また、連続写像 $C:[0,1]\times S^1\to U(1)$ によって $c_0$ を $c_1$ に変形できるとき、
+> 任意の連続写像 $c:S^1\to U(1)$ には連続な位相持ち上げが存在する。二つの持ち上げから得る巻き数は同じである。また、連続写像 $C:[0,1]\times S^1\to U(1)$ に対し、$t\in[0,1]$ ごとに $c_t(z):=C(t,z)$ と定めると、
 $$
 \operatorname{wind}(c_0)=\operatorname{wind}(c_1)
 $$
@@ -122,7 +122,15 @@ $$
 
 $\varphi,\psi$ が二つの持ち上げなら $e^{i(\varphi-\psi)}=1$ なので、連続関数 $(\varphi-\psi)/(2\pi)$ は連結区間 $[0,2\pi]$ 上で整数値を取り、定数である。従って両者の始終点差は等しい。
 
-変形 $C$ に対しても、長方形 $[0,1]\times[0,2\pi]$ を十分小さい長方形に分割して上の局所的な偏角の枝を合わせられる。二方向の重なりでの差は $2\pi$ の整数倍なので、小長方形を順に進めても閉じた小周回の差は $0$ となり、一つの連続な持ち上げ $\Phi(t,\theta)$ が得られる。ここで $\Phi(t,2\pi)-\Phi(t,0)$ は各 $t$ で $2\pi$ の整数倍であり、$t$ に連続に依存する。従ってその整数は一定である。
+変形 $C$ について、$(t,\theta)\mapsto C(t,e^{i\theta})$ を長方形 $[0,1]\times[0,2\pi]$ 上で考える。各点の近くで連続な偏角の枝を取り、コンパクト性を用いて各小長方形の上で一つの枝が使えるよう格子を細分する。
+
+隣り合う小長方形の枝は共通辺で $2\pi$ の整数倍だけ異なる。左下の枝を固定して共通辺ごとにその整数倍を補正すると、格子の小周回では枝の差の総和が $0$（出発点に戻るため）なので、補正は通った格子路によらない。
+
+これにより連続関数 $\Phi(t,\theta)$ を長方形全体に作り、
+$$
+e^{i\Phi(t,\theta)}=C(t,e^{i\theta})
+$$
+とできる。$t$ は変形のパラメータ、$\theta$ は円周の角度である。端点 $\theta=0,2\pi$ は同じ円周点なので、$\Phi(t,2\pi)-\Phi(t,0)$ は各 $t$ で $2\pi$ の整数倍であり、しかも $t$ に連続に依存する。従ってその整数は一定である。
 
 最後に $c$ が $F:D^2\to U(1)$ に延長できるなら、
 $$
@@ -131,7 +139,9 @@ $$
 は $t=1$ の $c$ と $t=0$ の定数 $F(0)$ を結ぶ連続変形である。定数写像の位相増分は $0$ だから $\operatorname{wind}(c)=0$。
 <!-- proof-end -->
 
-巻き数は積とも相性がよい。$c=e^{i\varphi}$、$d=e^{i\psi}$ なら $cd=e^{i(\varphi+\psi)}$、$c^{-1}=e^{-i\varphi}$ なので
+<a id="eq-gbg18-winding-additivity"></a>
+
+巻き数は積とも相性がよい。$c(e^{i\theta})=e^{i\varphi(\theta)}$、$d(e^{i\theta})=e^{i\psi(\theta)}$ なら積は位相 $\varphi+\psi$ を持つ。また、$c^{-1}(z):=c(z)^{-1}$ は **各値の群逆を取る写像**（元の円周写像の逆関数ではない）であり、位相は $-\varphi$ となる。従って
 $$
 \operatorname{wind}(cd)=\operatorname{wind}(c)+\operatorname{wind}(d),
 \qquad
@@ -145,7 +155,7 @@ $$
 $$
 g'_{NS}=h_N^{-1}g_{NS}h_S.
 $$
-しかし $h_N$ は北半球まで、$h_S$ は南半球まで滑らかに定義されている。各半球は円板なので、その赤道制限の巻き数は $0$ である。従って赤道上で $\operatorname{wind}(g'_{NS})=\operatorname{wind}(g_{NS})$ となる。
+しかし $h_N$ は北半球まで、$h_S$ は南半球まで滑らかに定義されている。各半球は円板なので、その赤道制限の巻き数は $0$ である。従って赤道上で[第2節の位相持ち上げの和から導いた式](#eq-gbg18-winding-additivity)から $\operatorname{wind}(g'_{NS})=\operatorname{wind}(g_{NS})$ となる。
 
 <a id="thm-gbg18-obstruction"></a>
 
@@ -220,7 +230,7 @@ $s_S^{(m)}=s_N^{(m)}g_{NS}^{(m)}$ と右作用の自由性から
 $$
 g_{NS}^{(m)}h_S=h_Ng_{NS}^{(n)}.
 $$
-$U(1)$ は可換であるから、赤道上での巻き数は
+$U(1)$ は可換であるから、[第2節で示した積の式](#eq-gbg18-winding-additivity)を用いると赤道上で
 $$
 m+\operatorname{wind}(h_S|_E)
 =\operatorname{wind}(h_N|_E)+n.
@@ -239,7 +249,23 @@ H(z,w)=\bigl(2\operatorname{Re}(z\overline w),
 $$
 であり、$S^3=\{(z,w)\in\mathbb C^2:|z|^2+|w|^2=1\}$ に右作用 $(z,w)\cdot\lambda=(z\lambda,w\lambda)$ を入れていた。これと**同じ符号規約**で局所sectionを具体的に書こう。
 
-北極側 $U_N$ では $z$ を非負実数に、南極側 $U_S$ では $w$ を非負実数に選ぶ。各点 $x=(X,Y,Z)$ で
+北極側 $U_N$ では $z$ を正の実数に、南極側 $U_S$ では $w$ を正の実数に選ぶ。なぜこれでsectionの座標が決まるかを確認しよう。$S^3$ の条件と $H$ の第三成分から
+$$
+|z|^2=\frac{1+Z}{2},\qquad |w|^2=\frac{1-Z}{2}
+$$
+であり、第一・第二成分をまとめると
+$$
+2z\overline w=X+iY
+$$
+となる。$U_N$ で $z>0$ と選べば
+$$
+z=\sqrt{\frac{1+Z}{2}},\qquad w=\frac{X-iY}{2z}
+$$
+と決まる。一方、$U_S$ で $w>0$ と選べば
+$$
+w=\sqrt{\frac{1-Z}{2}},\qquad z=\frac{X+iY}{2w}
+$$
+と決まる。この構成によって各点 $x=(X,Y,Z)$ で
 $$
 s_N(x)=
 \left(\sqrt{\frac{1+Z}{2}},
@@ -293,7 +319,17 @@ s_N=\left(\sqrt{\frac{1+Z}{2}},
 s_S=\left(\sqrt{\frac{1+Z}{2}}e^{i\theta},
 \sqrt{\frac{1-Z}{2}}\right).
 $$
-従って二成分とも $s_S=s_Ne^{i\theta}$。これは重なり全域で $s_S=s_Nu$ を意味する。赤道では $u=e^{i\theta}$ なので[巻き数の定義](#def-gbg18-winding)から $+1$ である。[貼り合わせ構成](#prop-gbg18-principal)の局所自明化とこの二つのsectionを対応させると $P_1$ から Hopf束への同型が得られる。最後に[非自明性定理](#thm-gbg18-obstruction)を $n=1$ へ適用する。
+従って二成分とも $s_S=s_Ne^{i\theta}$。これは重なり全域で $s_S=s_Nu$ を意味する。赤道では $u=e^{i\theta}$ なので[巻き数の定義](#def-gbg18-winding)から $+1$ である。
+
+[貼り合わせ構成](#prop-gbg18-principal)の $P_1$ から Hopf束への写像を、南北のどちらの代表元でも
+$$
+F([x,\lambda]_i)=s_i(x)\lambda\qquad(i=N,S)
+$$
+と定める。貼り合わせ関係 $[x,\lambda]_S=[x,u(x)\lambda]_N$ に対して
+$$
+F([x,\lambda]_S)=s_S(x)\lambda=s_N(x)u(x)\lambda=F([x,u(x)\lambda]_N)
+$$
+だから $F$ は代表元に依存しない。各領域では [Hopf主束の局所自明化](../GBG2/index.md#thm-gbg2-hopf-principal)により、$F$ は $(x,\lambda)\mapsto s_i(x)\lambda$ と表され、その逆も滑らかである。したがって $F$ は大域的な滑らかな全単射で滑らかな逆を持ち、右作用とも可換なので主束同型となる。最後に[非自明性定理](#thm-gbg18-obstruction)を $n=1$ へ適用する。
 <!-- proof-end -->
 
 したがって Hopf 束は「非自明な束が存在する」という抽象的な主張だけでなく、**同じ球面を二つの自明な部分で覆っているのに、一周の位相のずれが打ち消せない**という計算可能な例になった。赤道の向きまたは $s_N,s_S$ の順序を逆にすれば巻き数は $-1$ になるので、符号は図の見かけだけでは決まらない。
@@ -328,14 +364,14 @@ $$
 #### GBG18-A02 回転速度が一定でない写像の巻き数
 - Level: A
 
-$c(e^{i\theta})=\exp(i(3\theta+2\sin\theta))$ が円周から $U(1)$ への写像であることを確認し、その巻き数と逆写像 $c^{-1}$ の巻き数を求めよ。
+$c(e^{i\theta})=\exp(i(3\theta+2\sin\theta))$ が円周から $U(1)$ への写像であることを確認し、その巻き数と点ごとの群逆 $c^{-1}(z):=c(z)^{-1}$ の巻き数を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$\theta$ を $2\pi$ 増すと指数の実数部分は $6\pi$ 増えるので、$c(\theta+2\pi)=c(\theta)$。よって円周上で一価な連続写像である。位相持ち上げ $\varphi(\theta)=3\theta+2\sin\theta$ の端点差は
+**詳細解答**。$\theta$ を $2\pi$ 増すと指数関数の実数値の位相 $3\theta+2\sin\theta$ は $6\pi$ 増えるので、$c(e^{i(\theta+2\pi)})=c(e^{i\theta})$。よって円周上で一価な連続写像である。位相持ち上げ $\varphi(\theta)=3\theta+2\sin\theta$ の端点差は
 $$
 \varphi(2\pi)-\varphi(0)=6\pi+0=6\pi
 $$
-だから[巻き数](#def-gbg18-winding)は $3$。逆写像には持ち上げ $-\varphi$ を使えるので $\operatorname{wind}(c^{-1})=-3$ である。
+だから[巻き数](#def-gbg18-winding)は $3$。点ごとの群逆には持ち上げ $-\varphi$ を使えるので $\operatorname{wind}(c^{-1})=-3$ である。
 <!-- solution-end -->
 
 <a id="ex-gbg18-a03"></a>
@@ -395,7 +431,7 @@ $$
 $P_{-2}$ と $P_2$ が基底の恒等写像を覆う主束同型で結べないことを、北・南局所sectionの変換関数を仮定して証明せよ。また赤道の向きを逆にしたとき、両者の表示上の巻き数を説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。同型 $F:P_{-2}\to P_2$ があるとすると、両領域で $F(s_i^{(-2)})=s_i^{(2)}h_i$ と書ける。$g_2h_S=h_Ng_{-2}$ を赤道上で比較する。[円周写像の巻き数](#def-gbg18-winding)は積で加法的になるので、その公式を適用する。$h_N,h_S$ は各半球へ延長できるので、それぞれ巻き数は零。従って
+**詳細解答**。同型 $F:P_{-2}\to P_2$ があるとすると、両領域で $F(s_i^{(-2)})=s_i^{(2)}h_i$ と書ける。$g_2h_S=h_Ng_{-2}$ を赤道上で比較する。[円周写像の巻き数](#def-gbg18-winding)について、[第2節で導いた積と逆元の式](#eq-gbg18-winding-additivity)を適用する。$h_N,h_S$ は各半球へ延長できるので、それぞれ巻き数は零。従って
 $$
 2+0=0+(-2)
 $$

@@ -281,7 +281,7 @@ $$
 
 ## 8. PDE解作用素への予測誤差は別の項になる
 
-[PML2-14で導入した解作用素](../PML2-14/index.md)を $\mathcal G$ とする。入力 $h$ に対する参照解 $\mathcal Gh$ が周期連続関数であり、連続FNOの出力 $\mathcal Fh$ も同じ値域を持つと仮定する。連続モデルそのものが真の解と異なる可能性を区別する。
+[PML2-14で導入した解作用素の定義](../PML2-14/index.md#def-pml2-14-operator)にならい、周期関数を別の周期関数へ写す参照写像を $\mathcal G$ と書く。入力 $h$ に対する参照解 $\mathcal Gh$ が周期連続関数であり、連続FNOの出力 $\mathcal Fh$ も同じ値域を持つと仮定する。連続モデルそのものが真の解と異なる可能性を区別する。
 
 <a id="prop-pml2-17-error-split"></a>
 
@@ -309,7 +309,17 @@ $$
 +S_N(\mathcal Fh-\mathcal Gh)
 $$
 
-と書く。最大成分ノルムを取り三角不等式を使うと、第1項は[解像度移植誤差](#def-pml2-17-grid-error) $E_N(h)$、第2項は連続関数の全点での最大ノルム以下である。すなわち
+と書く。格子点 $x_j$ と出力成分 $a$ を固定すると、上の配列の等式から、各成分の差について
+
+$
+\begin{aligned}
+|(\mathcal F_NS_Nh)_{j,a}-(\mathcal Gh)_a(x_j)|
+&\le |(\mathcal F_NS_Nh)_{j,a}-(\mathcal Fh)_a(x_j)|\\
+&\quad+|(\mathcal Fh)_a(x_j)-(\mathcal Gh)_a(x_j)|.
+\end{aligned}
+$
+
+右辺第1項をすべての $j,a$ で最大化した値は[解像度移植誤差](#def-pml2-17-grid-error) $E_N(h)$ であり、第2項は連続関数の全点での最大ノルム以下である。すなわち
 
 $$
 \|S_N(\mathcal Fh-\mathcal Gh)\|_{\max}
