@@ -24,8 +24,8 @@ theorems:
   - { id: GBG13-PROP-01, name: 安定化群は部分群、軌道は剰余類に対応する }
   - { id: GBG13-THM-02, name: 接続と曲率の無限小ゲージ変換 }
   - { id: GBG13-PROP-02, name: 安定化群の無限小条件 }
-  - { id: GBG13-THM-03, name: 区間上の U(1) 接続の基点付きゲージ固定 }
-  - { id: GBG13-THM-04, name: 円周上の U(1) 接続の軌道分類 }
+  - { id: GBG13-THM-03, name: 区間上の単位円群接続の基点付きゲージ固定 }
+  - { id: GBG13-THM-04, name: 円周上の単位円群接続の軌道分類 }
 canonical_examples:
   - U(1) のゲージ同値な二接続と曲率が異なる二接続
   - U(1) の定数ゲージ変換が作る安定化群
