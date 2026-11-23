@@ -1,0 +1,44 @@
+id: "IWA12"
+title: "控制定理（control）の原型"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IWA11
+official_scope: []
+learning_objectives:
+  - 有限層のGamma作用と逆極限から比較写像を構成しwell-defined性を証明できる
+  - 比較写像の核と余核の完全列を導出し単射性と全射性を区別できる
+  - 有限群逆系の安定像が逆極限射影の像に等しいことを証明できる
+  - 固定有限誤差群と安定像の指数から一様有界controlを証明できる
+  - 3進作用による完全controlと有限核・有限余核の例を再計算できる
+  - ノルム全射・torsion性のみからはcontrolが従わない反例を説明できる
+  - 類群の塔へ適用する際に必要な追加の算術的仮定を挙げられる
+definitions:
+  - { id: IWA12-DEF-01, name: 有限層への比較写像 }
+  - { id: IWA12-DEF-02, name: 上層からの安定像 }
+  - { id: IWA12-DEF-03, name: 一様有界なcontrol }
+theorems:
+  - { id: IWA12-THM-01, name: 比較写像の核・余核の完全列 }
+  - { id: IWA12-PROP-01, name: 射影の像と安定像 }
+  - { id: IWA12-THM-02, name: 有限誤差によるcontrol判定 }
+canonical_examples:
+  - 恒等逆系の完全controlで定義を確認する
+  - 4の3進作用で各coinvariantsを計算する
+  - 第0層のみ3元の比較核が残る有限誤差系
+  - 第0層のみ3元の比較余核が残る非全射系
+  - 自明なGamma作用と全射還元の下で比較核が無限になる反例
+problem_patterns:
+  - IWA12-COMPARISON-WELLDEFINED
+  - IWA12-KERNEL-COINVARIANTS
+  - IWA12-STABLE-IMAGE
+  - IWA12-PADIC-VALUATION
+  - IWA12-TORSION-FAILURE
+  - IWA12-FINITE-ERROR
+  - IWA12-SURJECTIVITY-NOT-CONTROL
+  - IWA12-KERNEL-COKERNEL-CONTRAST
+  - IWA12-STABLE-IMAGE-PROOF
+  - IWA12-INTEGRATED-CONTROL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 3 }
