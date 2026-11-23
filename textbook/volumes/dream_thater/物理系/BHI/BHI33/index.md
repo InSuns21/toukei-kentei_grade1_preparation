@@ -390,8 +390,13 @@ $$
 $$
 
 最大エンタングル入力を
-$|\Phi_2\rangle\langle\Phi_2|
-=\frac12\sum_{j,k}|j\rangle\langle k|_L\otimes|j\rangle\langle k|_Q$
+
+$$
+|\Phi_2\rangle\langle\Phi_2|
+=\frac12\sum_{j,k}|j\rangle\langle k|_L
+\otimes|j\rangle\langle k|_Q
+$$
+
 と展開して代入すると
 
 $$
