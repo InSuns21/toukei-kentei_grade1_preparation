@@ -4,7 +4,7 @@
 
 [BHI29の二境界JTの連結積分](../BHI29/index.md#prop-bhi29-double-trumpet)では、二つの熱的境界を結ぶ幾何が零でない振幅を与えました。[BHI30の正規化レプリカ微分](../BHI30/index.md#prop-bhi30-normalization-derivative)を放射エントロピーへ使う際にも、どの理論・どの状態の分配関数を計算しているかが必要です。
 
-ここでは一つの量子系に固定したHamiltonian $H$ と、その分配関数 $Z_H(\beta)=\operatorname{Tr}_{\mathcal H}e^{-\beta H}$ を出発点にします。$\beta>0$ は逆温度で、トレースが有限であるとします。二つの境界に同じ固定理論の**相互作用しない別コピー**を置くなら、それぞれの逆温度が $\beta_1,\beta_2$ でも全分配関数は積になります。一方、$H$ 自体を確率的に選び、両方の境界が**同じ抽選結果**を共有すると、平均した積と平均の積は異なり得ます。これがensemble（理論の集合上の確率平均）を導入する理由です。
+ここではHilbert空間 $\mathcal H$ 上で一つの量子系に固定した自己共役Hamiltonian $H$ と、その分配関数 $Z_H(\beta)=\operatorname{Tr}_{\mathcal H}e^{-\beta H}$ を出発点にします。$\beta>0$ は逆温度で、トレースが有限であるとします。二つの境界に同じ固定理論の**相互作用しない別コピー**を置くなら、それぞれの逆温度が $\beta_1,\beta_2$ でも全分配関数は積になります。一方、$H$ 自体を確率的に選び、両方の境界が**同じ抽選結果**を共有すると、平均した積と平均の積は異なり得ます。これがensemble（理論の集合上の確率平均）を導入する理由です。
 
 最小例として、Hamiltonianが数 $0$ の一次元理論と、数 $\log 2$ の一次元理論を、それぞれ確率 $1/2$ で選ぶことを考えます。逆温度 $\beta=1$ の分配関数は $1$ または $1/2$ です。同じ理論を二境界に使う場合の積の平均は $5/8$、別々に平均した積は $9/16$ になります。差の $1/16$ は、境界間の直接相互作用ではなく、**共有された理論の選択**から生まれます。
 
@@ -16,7 +16,15 @@
 
 <!-- formal-statement-start -->
 > **定義（固定理論の二境界因数分解）**  
-> 固定した自己共役Hamiltonian $H$ がHilbert空間 $\mathcal H$ に作用し、$\beta_1,\beta_2>0$ で $Z_H(\beta_i)<\infty$ とする。同じ理論の相互作用しない二コピーのHilbert空間を $\mathcal H\otimes\mathcal H$、全Hamiltonianを $H_{12}=H\otimes I+I\otimes H$ と定める。この二境界分配関数が
+> 固定した自己共役Hamiltonian $H$ がHilbert空間 $\mathcal H$ に作用し、$\beta_1,\beta_2>0$ で $Z_H(\beta_i)<\infty$ とする。同じ理論の相互作用しない二コピーのHilbert空間を $\mathcal H\otimes\mathcal H$、全Hamiltonianを $H_{12}=H\otimes I+I\otimes H$（$I$ は $\mathcal H$ 上の恒等演算子）と定める。異なる逆温度での二境界分配関数を
+>
+$$
+Z_{H,12}(\beta_1,\beta_2)
+=\operatorname{Tr}_{\mathcal H\otimes\mathcal H}
+\exp\!\left[-\beta_1(H\otimes I)-\beta_2(I\otimes H)\right]
+$$
+>
+> と置く。これが
 >
 $$
 Z_{H,12}(\beta_1,\beta_2)=Z_H(\beta_1)Z_H(\beta_2)
@@ -25,8 +33,12 @@ $$
 > を満たす性質を、この設定での**固定理論の二境界因数分解**と呼ぶ。二コピー間の直接相互作用や、共有変数への平均はこの定義に含めない。
 <!-- formal-statement-end -->
 
+二温度では $\exp(-\beta H_{12})$ のように同じ $\beta$ を両コピーへ掛けるのではありません。$\beta_1=\beta_2=\beta$ の場合に限り、上の演算子は $e^{-\beta H_{12}}$ と一致します。
+
 <!-- definition-example-start: def-bhi31-fixed-factorization -->
-**定義の確認**：$\mathcal H=\mathbb C^2$、$H=\operatorname{diag}(0,\Delta)$、$\Delta>0$ とします。$Z_H(\beta)=1+e^{-\beta\Delta}$ は有限です。二コピーのエネルギーは $0,\Delta,\Delta,2\Delta$ なので
+**定義の確認**：$\mathcal H=\mathbb C^2$ の正規直交基底を $|0\rangle,|1\rangle$ とし、その基底表示で $H=\operatorname{diag}(0,\Delta)$、$\Delta>0$ とします。これは $H|0\rangle=0$、$H|1\rangle=\Delta|1\rangle$ を意味するので、$H$ は自己共役で $Z_H(\beta)=1+e^{-\beta\Delta}$ は有限です。
+
+テンソル積基底 $|i\rangle\otimes|j\rangle$（$i,j\in\{0,1\}$）では、$H_{12}$ のエネルギーは $0,\Delta,\Delta,2\Delta$ ですが、二温度の指数は $-\beta_1E_i-\beta_2E_j$ です。したがって $|0,0\rangle,|0,1\rangle,|1,0\rangle,|1,1\rangle$ の重みをそれぞれ足すと
 $$
 Z_{H,12}=1+e^{-\beta_1\Delta}+e^{-\beta_2\Delta}
 +e^{-(\beta_1+\beta_2)\Delta}
@@ -70,7 +82,7 @@ $$
 
 ## 3. ensemble平均と連結相関を、有限模型で定義する
 
-ensembleでは、理論のラベル $a$ が有限集合 $\mathcal A$ を動き、選択確率は $p_a>0$、$\sum_a p_a=1$ とします。各理論で分配関数 $Z_a(\beta)>0$ が有限であると仮定します。同じ $a$ を二つの境界で共有する平均と、各境界で独立に $a,b$ を選ぶ平均を区別します。
+ensembleでは、理論のラベル $a$ が有限集合 $\mathcal A$ を動き、選択確率は $p_a>0$、$\sum_a p_a=1$ とします。各理論で分配関数 $Z_a(\beta)>0$ が有限であると仮定します。同じ $a$ を二つの境界で共有する平均と、各境界で独立に $a,b$ を選ぶ平均を区別します。以下、添字 $i\in\{1,2\}$ は境界番号を表し、$Z_i$ は境界 $i$ の逆温度 $\beta_i$ で評価した分配関数です。
 
 <a id="def-bhi31-ensemble-connected"></a>
 
@@ -189,6 +201,8 @@ $$
 積分は原点・無限遠ともに収束します。
 <!-- definition-example-end -->
 
+ここでGram核とは、各逆温度 $\beta$ に対応する実関数 $b\mapsto T(\beta,b)$ 同士の、測度 $b\,db$ に関する内積を並べた核をいいます。上の等温例では $\int_0^\infty b\,db\,T(1,b)^2=1/(4\pi)$ であり、一般の $\beta>0$ でも置換 $u=b^2/\beta$ により同じ有限値となるため、この内積は定義できます。
+
 <a id="prop-bhi31-trumpet-gram"></a>
 
 <!-- formal-statement-start -->
@@ -267,11 +281,13 @@ Harlow–Jafferisは、二境界系のHilbert空間因数分解と重力側の�
 
 放射のレプリカでは、[BHI28の規格化されたモーメント](../BHI28/index.md#prop-bhi28-sewing-trace)が出発点です。ここで分配関数の平均を入れると、**平均する前に正規化するか、平均した後に正規化するか**の違いが生じます。二つの量は同じではありません。
 
+未規格化の正演算子 $A_a$ の固有値を $\lambda_{a,j}\ge0$ とすると、トレースは $\operatorname{Tr}A_a=\sum_j\lambda_{a,j}$、整数 $n\ge1$ に対するべきのトレースは $\operatorname{Tr}A_a^n=\sum_j\lambda_{a,j}^n$ です。まず各理論で $A_a$ をそのトレースで割る方法と、各理論のトレースを平均してから比を作る方法を、この固有値表示で比較します。
+
 <a id="def-bhi31-normalization-orders"></a>
 
 <!-- formal-statement-start -->
 > **定義（ensembleにおけるレプリカ規格化の順序）**  
-> 有限ensembleの各ラベル $a$ で未規格化の正値演算子 $A_a$ があり、$z_a=\operatorname{Tr}A_a>0$、$z_{n,a}=\operatorname{Tr}A_a^n$ とする。各理論内で先に正規化した平均モーメントと、分配関数を先に平均してから規格化した比を、それぞれ
+> 有限ensembleの各ラベル $a$ で未規格化の正のトレース級演算子 $A_a$ があり、整数 $n\ge1$ に対して $z_a=\operatorname{Tr}A_a>0$、$z_{n,a}=\operatorname{Tr}A_a^n$ とする。各理論内で先に正規化した平均モーメントと、分配関数を先に平均してから規格化した比を、それぞれ
 >
 $$
 M_n^{\rm fixed\text{-}first}
@@ -363,7 +379,7 @@ $$
 - 問題: 理論ラベル $a=0,1$ を等確率で選び、逆温度1での分配関数がそれぞれ $Z_0=1,Z_1=1/2$ とする。同じラベルを使う二境界の平均、各境界を平均した積、連結差を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：共有平均は $(1^2+(1/2)^2)/2=(1+1/4)/2=5/8$。一境界平均は $(1+1/2)/2=3/4$ なので、平均の積は $(3/4)^2=9/16$。共通分母16に直すと連結差は $10/16-9/16=1/16$。共有ラベルの揺らぎが原因です。
+**詳細解答**：共有平均は $(1^2+(1/2)^2)/2=(1+1/4)/2=5/8$。一境界平均は $(1+1/2)/2=3/4$ なので、平均の積は $(3/4)^2=9/16$。[ensembleの連結相関の定義](#def-bhi31-ensemble-connected)に従って共通分母16に直すと、連結差は $10/16-9/16=1/16$。共有ラベルの揺らぎが原因です。
 <!-- solution-end -->
 
 <a id="ex-bhi31-a03"></a>
@@ -458,7 +474,12 @@ $n=1$ で $4/4=1$、$n=2$ で $10/8=5/4$、$n=3$ で $28/16=7/4$。正規化密�
 - 問題: 上の $K(\beta_i,\beta_j)$ について $\beta_1=1,\beta_2=3$ とする。行列の4成分、行列式、任意の実数 $u,v$ に対する二次形式の非負性を計算せよ。
 
 <!-- solution-start -->
-**詳細解答**：[JT核の計算](#prop-bhi31-trumpet-gram)へ入れると対角成分は $K(1,1)=K(3,3)=1/(4\pi)$、非対角成分は
+**詳細解答**：$K_{ij}=K(\beta_i,\beta_j)$（$i,j\in\{1,2\}$）と置けば、求める行列はGram核を二つの関数 $T(1,\cdot),T(3,\cdot)$ に制限したものです。その二次形式は
+$$
+\sum_{i,j=1}^2c_iK_{ij}c_j
+=\int_0^\infty b\,db\,\bigl(c_1T(1,b)+c_2T(3,b)\bigr)^2\ge0
+$$
+と表せます。[JT核の計算](#prop-bhi31-trumpet-gram)へ入れると、対角成分は $K(1,1)=K(3,3)=1/(4\pi)$、非対角成分は
 $$
 K(1,3)=K(3,1)=\frac{\sqrt3}{2\pi(1+3)}=\frac{\sqrt3}{8\pi}.
 $$
@@ -491,6 +512,12 @@ $$
 \mathbb E(X-1)^4=\frac14(4c^4)+\frac14(4c^4)=2c^4.
 $$
 平均と連結二点値である分散が一致しても四次モーメントが異なるため、二点相関だけでは分布を特定できません。
+
+さらに、各正値 $x$ は一次元Hamiltonian $H_x=(-\log x)$ の逆温度 $\beta=1$ における分配関数として実現できます。実際、
+$$
+Z_{H_x}(1)=e^{-H_x}=e^{\log x}=x.
+$$
+従ってこの反例は、一つの固定逆温度での正値分配関数ensembleの非一意性も表します。ただし全逆温度での相関関数が同じだとは主張していません。
 <!-- solution-end -->
 
 ### Level C：独立境界・重力連結項・レプリカを分ける
