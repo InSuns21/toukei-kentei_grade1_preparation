@@ -18,7 +18,11 @@ $$
 $\langle v\otimes w,v'\otimes w'\rangle=\langle v,v'\rangle\langle w,w'\rangle$
 を入れます。
 
-全角運動量とは、両方の因子に**同時に同じ回転**を作用させたときの無限小生成子です。$D_j(U)$ と $D_k(U)$ は群元 $U\in SU(2)$ がそれぞれ $V_j,V_k$ に作用する線形変換です。[角運動量演算子の定義](../LREP7/index.md#def-lrep7-angular-momentum)で用いた $A_a=-i\sigma_a/2$ と $J_a^{(j)}=i\,dD_j(A_a)$（第二因子も同様）を使い、実変数 $t$ に沿った同じ回転 $U(t)=\exp(tA_a)$ を考えます。[テンソル積表現の微分公式](../LREP4/index.md#prop-lrep4-tensor-differential)を適用すると
+全角運動量とは、両方の因子に**同時に同じ回転**を作用させたときの無限小生成子です。群元 $U\in SU(2)$ がそれぞれの表現空間に作用する線形変換を $D_j(U)$、$D_k(U)$ と書きます。
+
+[角運動量演算子の定義](../LREP7/index.md#def-lrep7-angular-momentum)の生成子 $A_a=-i\sigma_a/2$ に対し、第一因子の角運動量は $J_a^{(j)}=i\,dD_j(A_a)$ です。第二因子でも同じ定義を使います。
+
+実数 $t$ を動かし、$U(t)=\exp(tA_a)$ という両因子に共通の回転を考えます。この曲線に[テンソル積表現の微分公式](../LREP4/index.md#prop-lrep4-tensor-differential)を適用すると
 
 $$
 \begin{aligned}
