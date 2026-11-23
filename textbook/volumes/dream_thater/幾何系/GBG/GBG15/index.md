@@ -33,7 +33,7 @@ $$
 > =\{h_\gamma(p)\mid\gamma(0)=\gamma(1)=x\}\subset G
 > $$
 >
-> を $p$ における**ホロノミー群**という。この集合が実際に部分群になることは次の定理で示す。
+> を $p$ における**主束接続のホロノミー群**という。この集合が実際に部分群になることは次の定理で示す。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg15-holonomy -->
