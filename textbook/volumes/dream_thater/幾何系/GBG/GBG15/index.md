@@ -610,7 +610,7 @@ U'_{\gamma_\varepsilon}
 =I+\frac{c_\varepsilon}{2}N.
 $$
 
-[曲率のゲージ共変性](../GBG10/index.md#thm-gbg10-gauge-covariance)（同じ式は $dA'+A'\wedge A'$ からも得られる）により
+[曲率のゲージ共変性](../GBG10/index.md#thm-gbg10-gauge-transform)（同じ式は $dA'+A'\wedge A'$ からも得られる）により
 
 $$
 F'_{xy}=K^{-1}[H,N]K=\frac12N.
