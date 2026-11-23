@@ -56,7 +56,7 @@
 
 ## 2. 情報損失の矛盾はどの段階で現れるか
 
-[放射の粗視化と精細の階層](../BHI5/index.md#prop-bhi5-entropy-hierarchy)により、一つ一つの出射モードが熱的であっても、全放射 $R$ が積状態とは限りません。[BHI6の純粋二部系の制約](../BHI6/index.md)に従い、全系が純粋な $RB$ に分解されるなら
+[放射の粗視化と精細の階層](../BHI5/index.md#prop-bhi5-entropy-hierarchy)により、一つ一つの出射モードが熱的であっても、全放射 $R$ が積状態とは限りません。[BHI6の純粋二部系のエントロピー制約](../BHI6/index.md#thm-bhi6-entropy-budget)に従い、全系が純粋な $RB$ に分解されるなら
 
 $$
 S(R)=S(B)\le\ln\dim H_B
