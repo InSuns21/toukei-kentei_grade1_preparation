@@ -83,7 +83,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-法 $p$ の非零元 $a$ はFermatの小定理から $f(a)\equiv0\pmod p$ を満たします。また
+法 $p$ の非零元 $a$ は[Fermatの小定理](../../NT/NT2/index.md#cor-nt2-fermat)から $f(a)\equiv0\pmod p$ を満たします。また
 $$
 f'(a)=(p-1)a^{p-2}\not\equiv0\pmod p.
 $$
