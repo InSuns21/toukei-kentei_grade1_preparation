@@ -70,7 +70,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-各成分 $i$ について $\dot u_i=f_i(u_1,\ldots,u_d,\theta,t)$ を $\theta$ で微分する。仮定した混合微分の交換と多変数の連鎖律により
+各成分 $i$ について $\dot u_i=f_i(u_1,\ldots,u_d,\theta,t)$ を $\theta$ で微分する。仮定した混合微分の交換と[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)により
 
 $$
 \frac{d}{dt}\partial_\theta u_i
