@@ -4,13 +4,13 @@
 
 [PML2-12の有限点すり抜け反例](../PML2-12/index.md#thm-pml2-12-invisible)では、学習点の残差をすべて零にしても、解誤差は大きくなり得た。一方、同じ講の[充填距離と残差の変化率による評価](../PML2-12/index.md#thm-pml2-12-lipschitz)では、残差が急変しないなら点の隙間を小さくすることに意味があった。そこで本講では、**同じ連続残差をよりよく測る点配置**と、**異なる部分領域を別々に近似する方法**を定量的に比較する。
 
-引き続き、区間 $(0,1)$ の零Dirichlet Poisson問題
+引き続き、区間 $(0,1)$ の零Dirichlet Poisson問題を扱う。本講のプライム記号 $u',u'',v',v''$ はすべて空間変数 $x$ による導関数で、例えば $v'=dv/dx$、$v''=d^2v/dx^2$ である。
 
 $$
 -u''=f,\qquad u(0)=u(1)=0
 $$
 
-を扱う。本講の $u',u'',v',v''$ はすべて空間変数 $x$ による導関数で、例えば $v'=dv/dx$、$v''=d^2v/dx^2$ である。$f\in C([0,1])$、真解 $u\in C^2([0,1])$ とし、まず $v\in C^2([0,1])$、$v(0)=v(1)=0$ を仮定する。点評価できる残差を $r_v=-v''-f$ と書き、[連続残差ノルム](../PML2-11/index.md#def-pml2-11-continuous-residual)を $\rho(v)=\|r_v\|_{L^2(0,1)}$ と書く。$v$ が端点条件を満たす場合には、[Poissonの強残差からの誤差評価](../PML2-11/index.md#thm-pml2-11-energy-error)により
+$f\in C([0,1])$、真解 $u\in C^2([0,1])$ とし、まず $v\in C^2([0,1])$、$v(0)=v(1)=0$ を仮定する。点評価できる残差を $r_v=-v''-f$ と書き、[連続残差ノルム](../PML2-11/index.md#def-pml2-11-continuous-residual)を $\rho(v)=\|r_v\|_{L^2(0,1)}$ と書く。$v$ が端点条件を満たす場合には、[Poissonの強残差からの誤差評価](../PML2-11/index.md#thm-pml2-11-energy-error)により
 
 $$
 \|v-u\|_2\le\frac12\rho(v)
@@ -49,7 +49,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（中点残差から連続残差への評価）**  
-> $f\in C([0,1])$、$v\in C^2([0,1])$ とし、$r_v=-v''-f$ が区間全体で $M$-Lipschitz（$M\ge0$）であるとする。上の中点配置に対して
+> $f\in C([0,1])$、$v\in C^2([0,1])$ とし、$r_v=-v''-f$ が区間全体で $M$-Lipschitz（$M\ge0$）であるとする。整数 $N\ge1$ に対する[中点配置と経験残差](#def-pml2-13-midpoint) $R_N(v)$ に対して
 
 $$
 \rho(v)\le R_N(v)+\frac{M}{\sqrt{12}\,N}.
@@ -160,7 +160,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（局所残差と接合ジャンプによる全域誤差評価）**  
-> $f\in C([0,1])$ の零Dirichlet Poisson真解を $u$ とする。上の分割近似 $v$ と局所残差 $r_k$、ジャンプ $J_j$ に対し、$e=v-u$ は次を満たす。
+> $f\in C([0,1])$ の零Dirichlet Poisson真解を $u$ とする。$0=t_0<\cdots<t_K=1$ で分割し、$v\in C([0,1])$ は両端零、各 $[t_{k-1},t_k]$ への制限は $C^2$ とする。[分割近似の定義](#def-pml2-13-interface)による局所残差 $r_k$ と導関数ジャンプ $J_j$ に対し、$e=v-u$ は次を満たす。
 
 $$
 \|e'\|_2\le\frac1{\sqrt2}\rho_D(v)+\frac12\sum_{j=1}^{K-1}|J_j|,
@@ -244,7 +244,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（局所中点配置による残差上界）**  
-> $f\in C([0,1])$ に対する零Dirichlet Poisson真解を $u$ とする。[分割近似](#def-pml2-13-interface)の各残差 $r_k$ が $[t_{k-1},t_k]$ で $M_k$-Lipschitz（$M_k\ge0$）とする。各領域の $n_k$ 個の中点から計算した $R_k$ を用いると
+> $f\in C([0,1])$ に対する零Dirichlet Poisson真解を $u$ とする。$0=t_0<\cdots<t_K=1$、$v\in C([0,1])$ は両端零、各 $[t_{k-1},t_k]$ への制限は $C^2$ とする。[分割近似](#def-pml2-13-interface)の各残差 $r_k$ がその閉小区間で $M_k$-Lipschitz（$M_k\ge0$）とする。各領域の $n_k$ 個の中点から計算した $R_k$ を用いると
 
 $$
 \rho_D(v)\le
