@@ -73,16 +73,16 @@ $$
 >
 > 有限次元三部状態 $\rho_{Rbc}$ を考え、$R$ は以前に採取した放射、$b$ は新しい外部モード、$c$ はそれに対応する内部モードとし、三者の通常のテンソル積分解とvon Neumannエントロピーを仮定する。$\dim H_c=2$ で、
 >
-> $$
-> S(c)\ge\ln2-\varepsilon_{\rm in},\qquad S(bc)\le\varepsilon_{\rm pair}
-> $$
+$$
+S(c)\ge\ln2-\varepsilon_{\rm in},\qquad S(bc)\le\varepsilon_{\rm pair}
+$$
 >
 > が成り立つなら、
 >
-> $$
-> S(Rb)-S(R)\ge
-> \ln2-\varepsilon_{\rm in}-\varepsilon_{\rm pair}.
-> $$
+$$
+S(Rb)-S(R)\ge
+\ln2-\varepsilon_{\rm in}-\varepsilon_{\rm pair}.
+$$
 >
 > 特に $\varepsilon_{\rm in}+\varepsilon_{\rm pair}<\ln2$ なら、一段の放出で $S(R)$ は減少しない。
 <!-- formal-statement-end -->
@@ -139,15 +139,15 @@ $$
 >
 > $a,b,S_0>0$ とし、時間範囲を $0\le t\le S_0/b$ とする。同じ放射 $R(t)$ について、空island候補と、すでに端点で極値化を終えた非空island候補の値をそれぞれ
 >
-> $$
-> H(t)=at,\qquad I(t)=S_0-bt
-> $$
+$$
+H(t)=at,\qquad I(t)=S_0-bt
+$$
 >
 > と置く。$S_0$ は初期面積相当エントロピー、$a$ は採取放射の粗視化生成率を代入した近似係数、$b$ は重力側のエントロピー減少率を代入した近似係数である。**模型のPage候補曲線**を
 >
-> $$
-> S_{\rm toy}(t)=\min\{H(t),I(t)\}
-> $$
+$$
+S_{\rm toy}(t)=\min\{H(t),I(t)\}
+$$
 >
 > と定める。この定義は、各枝が指定された重力問題で許容されることまで保証しない。
 <!-- formal-statement-end -->
@@ -163,12 +163,18 @@ $$
 >
 > 上の $a,b,S_0>0$ の二枝総合模型では、枝の交点は
 >
-> $$
-> t_*=\frac{S_0}{a+b},\qquad
-> S_{\rm toy}(t_*)=\frac{aS_0}{a+b}
-> $$
+$$
+t_*=\frac{S_0}{a+b},\qquad
+S_{\rm toy}(t_*)=\frac{aS_0}{a+b}
+$$
 >
-> で一意に定まる。$0<t_*<S_0/b$ であり、$S_{\rm toy}$ は $0\le t<t_*$ で傾き $a$、$t_*<t\le S_0/b$ で傾き $-b$ を持つ。交点では両枝の傾きが異なるため、最小値関数は微分可能でない。
+> で一意に定まる。交点は次の許容区間の内部にある。
+>
+> $
+> 0<t_*<S_0/b.
+> $
+>
+> 交点の前後で選ぶ枝はそれぞれ $H$、$I$ で、左右微分係数は $a$、$-b$ となる。従って最小値関数は交点で微分可能でない。
 <!-- formal-statement-end -->
 
 **証明の見取り図**：二つの直線を引き算すると $(a+b)t-S_0$ となり、符号が一度だけ変わります。
@@ -206,11 +212,17 @@ $$
 <!-- formal-statement-start -->
 > **命題（有限次元密度行列の規格化レプリカ微分）**
 >
-> 有限次元Hilbert空間上の密度行列 $\rho\ge0$、$\operatorname{Tr}\rho=1$ について、$n>0$ で $F(n)=\log\operatorname{Tr}\rho^n$ と置く。零固有値の項を $0^n=0$ とし、$n$ は実数として正の側から変化させる。このとき
+> 有限次元Hilbert空間上の密度行列 $\rho$ を考え、$\rho\ge0$ と $\operatorname{Tr}\rho=1$ を仮定する。実数 $n>0$ に対して次を定める。
 >
-> $$
-> F(1)=0,\qquad -F'(1)=S(\rho).
-> $$
+> $
+> F(n)=\log\operatorname{Tr}\rho^n.
+> $
+>
+> 零固有値の項は $0^n=0$ として扱い、$n=1$ への微分は実数 $n>0$ の範囲で行う。このとき
+>
+$$
+F(1)=0,\qquad -F'(1)=S(\rho).
+$$
 >
 > 有限次元ではこの等式は厳密であり、重力レプリカに必要な解析接続や鞍点支配は仮定していない。
 <!-- formal-statement-end -->
@@ -261,10 +273,10 @@ $0\log0=0$ と定めれば全固有値の和としても表せます。$\square$
 >
 > $X$ が平均零、分散 $\sigma^2>0$ の実確率変数であるとする。同じ $X$ を二つの境界の重みに使えば
 >
-> $$
-> \mathbb E[X\cdot X]=\sigma^2,\qquad
-> \mathbb E[X]\,\mathbb E[X]=0.
-> $$
+$$
+\mathbb E[X\cdot X]=\sigma^2,\qquad
+\mathbb E[X]\,\mathbb E[X]=0.
+$$
 >
 > 一方、同分布で独立な $X_1,X_2$ を使えば $\mathbb E[X_1X_2]=\mathbb E[X_1]\mathbb E[X_2]=0$ である。
 <!-- formal-statement-end -->
@@ -292,10 +304,10 @@ $X=\pm1$ を確率各 $1/2$ で取れば $\sigma^2=1$ です。この反例で�
 >
 > 任意の一量子ビット密度行列 $\rho$ について、四つの鍵を等確率で選び、鍵を見ない受信者へ暗号化した量子ビットだけを渡すと
 >
-> $$
-> \mathcal E(\rho)=\frac14\sum_{a,b=0}^1
-> X^aZ^b\rho Z^bX^a=\frac{I_2}{2}.
-> $$
+$$
+\mathcal E(\rho)=\frac14\sum_{a,b=0}^1
+X^aZ^b\rho Z^bX^a=\frac{I_2}{2}.
+$$
 >
 > 鍵 $k$ と暗号化状態 $U_k\rho U_k^\dagger$ の両方を受け取る受信者は、$U_k^\dagger$ を作用させて $\rho$ を厳密に回復できる。
 <!-- formal-statement-end -->
