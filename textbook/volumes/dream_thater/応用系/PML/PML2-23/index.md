@@ -36,7 +36,17 @@ $$
 \frac{du}{dt}=f(u,\theta,t),\qquad u(0;\theta)=a(\theta)
 $$
 
-と書く。$f$ の状態変数 $u$ に関する偏微分 $f_u$ は $d\times d$ 行列、パラメータ偏微分 $f_\theta$ は $d$ 次元列ベクトルである。たとえば $f(u,\theta,t)=-\theta u$ の一変数例なら $f_u=-\theta$、$f_\theta=-u$ となる。
+と書く。以後、点は時刻 $t$ に関する微分を表し、$\dot u=du/dt$ とする。$u(t;\theta)$ の $\partial_tu$ は $\theta$ を固定した微分であり、この軌道上では $du/dt=\partial_tu$ である。一方、$a'(\theta)$ のプライムは $\theta$ に関する微分を表す。
+
+$f=(f_1,\ldots,f_d)^T$ とし、状態の標準座標 $u_j$ を一つずつ動かしたときの変化を並べると、状態Jacobian $f_u$ とパラメータ偏微分の列 $f_\theta$ は
+
+$
+(f_u)_{ij}=\frac{\partial f_i}{\partial u_j},\qquad
+(f_\theta)_i=\frac{\partial f_i}{\partial\theta}
+\quad(i,j=1,\ldots,d)
+$
+
+となる。これらの偏微分では、表示した微分変数以外の引数を固定する。従って $f_u$ は $d\times d$ 行列、$f_\theta$ は $d$ 次元列ベクトルであり、$f_us$ の第 $i$ 成分は $\sum_j(\partial f_i/\partial u_j)s_j$ となる。これが[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)で状態を介する微分を計算できる理由である。たとえば $f(u,\theta,t)=-\theta u$ の一変数例なら $f_u=-\theta$、$f_\theta=-u$ となる。
 
 <a id="def-pml2-23-tangent"></a>
 
@@ -165,6 +175,19 @@ $$
 
 を計算する。添字 $n$ は $0,\ldots,N-1$、$c_n$ は更新前の $z_n$ に依存すると決める。
 
+[前講の離散随伴変数](../PML2-22/index.md#def-pml2-22-adjoint)と同じく、後段のスカラー損失の状態勾配を列ベクトルとして逆に運ぶ。なぜ更新のJacobianを転置するかを、$\theta$ を固定した状態の微小変化 $\delta z_n$ から確かめる。$A_n=D_z\Psi_n(z_n,\theta)$ とし、後段損失の変化が $g_{n+1}^T\delta z_{n+1}$ で表せるなら、[連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)から
+
+$
+\begin{aligned}
+\delta z_{n+1}&=A_n\delta z_n,\\
+g_{n+1}^T\delta z_{n+1}
+&=g_{n+1}^TA_n\delta z_n
+=(A_n^Tg_{n+1})^T\delta z_n.
+\end{aligned}
+$
+
+したがって前段の状態勾配は $A_n^Tg_{n+1}$ となる。$^T$ は行列・列ベクトルの転置を表す。更新前の損失 $c_n$ があれば、その状態勾配 $\nabla_z c_n$ も加える。この二つの寄与を合わせた列が次の随伴変数である。
+
 <a id="def-pml2-23-discrete-adjoint"></a>
 
 <!-- formal-statement-start -->
@@ -238,7 +261,14 @@ $$
 =\lambda_n^Tv_n+\lambda_{n+1}^T\partial_\theta\Psi_n.
 $$
 
-この恒等式を $n=N-1$ から $n=0$ まで順に使うと、状態感度を含む項が終端から $\lambda_0^T v_0$ だけに整理される。最後に $v_0=a'(\theta)$ を代入すれば主張の式となる。
+この恒等式を $n=N-1$ から $n=0$ まで順に使う。例えば最終段では $\lambda_N^Tv_N+\nabla_zc_{N-1}^Tv_{N-1}$ が $\lambda_{N-1}^Tv_{N-1}+\lambda_N^T\partial_\theta\Psi_{N-1}$ となる。次段の $\nabla_zc_{N-2}^Tv_{N-2}$ を加えて同じ置換を繰り返せば、途中の感度項が順番に消え、
+
+$
+\lambda_N^Tv_N+\sum_{n=0}^{N-1}\nabla_z c_n^Tv_n
+=\lambda_0^Tv_0+\sum_{n=0}^{N-1}\lambda_{n+1}^T\partial_\theta\Psi_n.
+$
+
+最後に $v_0=a'(\theta)$ を代入すれば主張の式となる。
 <!-- proof-end -->
 
 **二段の具体例。** $N=2$、$z_0=1$、$c_n=0$、$\Phi(z)=z^2/2$、$r=1-h\theta$ では
@@ -259,7 +289,7 @@ $$
 
 ## 5. 連続随伴は何を微分しているか
 
-数値積分する前の常微分方程式からも随伴方程式を導ける。時間を進める状態 $u$ と、その状態の変化を目的関数へ伝える随伴 $p$ を同時に考える。
+数値積分する前の常微分方程式からも随伴方程式を導ける。時間を進める状態 $u$ と、その状態の変化を目的関数へ伝える随伴 $p$ を同時に考える。$\theta$ を固定した軌道に沿う随伴の時間微分は $p'(t)=dp/dt$ と書く（$\theta$ による微分ではない）。状態偏微分 $f_u$ は各時刻の $(u(t;\theta),\theta,t)$ で評価し、$f_u^Tp$ は先に説明したJacobianの転置を列ベクトル $p$ に作用させたものである。
 
 時刻全体の損失を、終端損失 $\Phi(u(T),\theta)$ と時間積分損失 $\int_0^T\ell(u(t),\theta,t)\,dt$ の和とする。$\Phi_u$、$\ell_u$ は状態に関する勾配列ベクトルである。
 
@@ -549,7 +579,25 @@ $N=1$ の離散勾配は零で、$N$ が増えると連続勾配 $-e^{-2}$ へ�
 - $\dot u=-2\theta u$、$u(0)=3$、$\theta>0$ について、$u(t;\theta)$、$s(t;\theta)$ を求め、感度方程式の初期条件と右辺を確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** 変数分離により $u(t)=3e^{-2\theta t}$。時刻を固定して $\theta$ で微分すると $s(t)=-6t e^{-2\theta t}$。$f_u=-2\theta$、$f_\theta=-2u=-6e^{-2\theta t}$ だから、感度方程式の右辺は $-2\theta s-6e^{-2\theta t}=12\theta t e^{-2\theta t}-6e^{-2\theta t}$。一方 $s'=-6e^{-2\theta t}+12\theta t e^{-2\theta t}$ で一致する。初期値の微分は $a'=0$、実際 $s(0)=0$ である。
+**詳細解答。** $\theta$ を固定し、時間 $t$ に関する積の微分を取る。$u$ で割る変数分離は必要ない。
+
+$
+\frac{d}{dt}\bigl(e^{2\theta t}u(t)\bigr)
+=e^{2\theta t}\bigl(\dot u+2\theta u\bigr)=0.
+$
+
+よって $e^{2\theta t}u(t)=u(0)=3$、すなわち $u(t;\theta)=3e^{-2\theta t}$。次に **時刻を固定して** $\theta$ で微分すると $s(t;\theta)=\partial_\theta u(t;\theta)=-6t e^{-2\theta t}$ となる。[時間発展の感度方程式](#thm-pml2-23-tangent)を別に検算するため、$f_u=-2\theta$、$f_\theta=-2u=-6e^{-2\theta t}$ を求める。右辺と左辺はそれぞれ
+
+$
+\begin{aligned}
+f_us+f_\theta
+&=12\theta t e^{-2\theta t}-6e^{-2\theta t},\\
+\frac{ds}{dt}
+&=-6e^{-2\theta t}+12\theta t e^{-2\theta t}
+\end{aligned}
+$
+
+で一致する。初期値の微分は $a'(\theta)=0$、実際 $s(0;\theta)=0$ である。
 <!-- solution-end -->
 
 <a id="ex-pml2-23-a02"></a>
@@ -559,7 +607,7 @@ $N=1$ の離散勾配は零で、$N$ が増えると連続勾配 $-e^{-2}$ へ�
 - $z_{n+1}=(1-h\theta)z_n$、$z_0=\theta$、$N=2$、$h>0$ は固定とする。$z_2$ と $\partial_\theta z_2$ を計算し、初期値の微分を含めた感度伝播で照合せよ。
 
 <!-- solution-start -->
-**詳細解答。** $r=1-h\theta$ と置くと $z_1=r\theta$、$z_2=r^2\theta$ である。積の微分より $z_2'=r^2-2h\theta r$。感度伝播は $v_0=1$、$v_1=rv_0-hz_0=r-h\theta$、$v_2=rv_1-hz_1=r(r-h\theta)-hr\theta=r^2-2h\theta r$ と一致する。$v_0=0$ と置くのは初期値の $\theta$ 依存を落とした誤り。
+**詳細解答。** $r=1-h\theta$ と置くと $z_1=r\theta$、$z_2=r^2\theta$ である。積の微分より $z_2'=r^2-2h\theta r$。[離散感度伝播](#thm-pml2-23-discrete-tangent)は $v_0=1$、$v_1=rv_0-hz_0=r-h\theta$、$v_2=rv_1-hz_1=r(r-h\theta)-hr\theta=r^2-2h\theta r$ と一致する。$v_0=0$ と置くのは初期値の $\theta$ 依存を落とした誤り。
 <!-- solution-end -->
 
 <a id="ex-pml2-23-a03"></a>
@@ -589,7 +637,7 @@ $N=1$ の離散勾配は零で、$N$ が増えると連続勾配 $-e^{-2}$ へ�
 - $z_1=(1-h\theta)z_0$、$z_0=1$、$h>0$、$\Phi(z_1,\theta)=z_1+\theta^2$ とする。離散随伴公式を使い、全微分のうち終端損失の明示的依存による項を分離せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\lambda_1=\partial_{z_1}\Phi=1$、$a'=0$、$c_0=0$。$\Phi_\theta=2\theta$、$\Psi_\theta=-hz_0=-h$ なので随伴公式は $L'=2\theta+\lambda_1(-h)=2\theta-h$。直接 $L=1-h\theta+\theta^2$ と置いて微分しても同じ。$\Phi_\theta$ を省くと $-h$ だけになり誤る。
+**詳細解答。** $\lambda_1=\partial_{z_1}\Phi=1$、$a'=0$、$c_0=0$。$\Phi_\theta=2\theta$、$\Psi_\theta=-hz_0=-h$ なので[時間離散随伴の全勾配公式](#thm-pml2-23-discrete-adjoint)は $L'=2\theta+\lambda_1(-h)=2\theta-h$。直接 $L=1-h\theta+\theta^2$ と置いて微分しても同じ。$\Phi_\theta$ を省くと $-h$ だけになり誤る。
 <!-- solution-end -->
 
 ### Level B：随伴・符号反転・アルゴリズム分岐
@@ -610,7 +658,7 @@ L'=\int_0^T p(t)f_\theta(t)\,dt
 =-T e^{-\theta T}.
 $$
 
-感度方程式は $s'=-\theta s-u$、$s(0)=0$。積分因子を掛けると $(e^{\theta t}s)'=-1$、従って $s(T)=-T e^{-\theta T}=L'$。終端損失が $u(T)$ そのものなので、二乗損失のときの $-Te^{-2\theta T}$ と混同しない。
+[感度方程式](#thm-pml2-23-tangent)は $s'=-\theta s-u$、$s(0)=0$。積分因子を掛けると $(e^{\theta t}s)'=-1$、従って $s(T)=-T e^{-\theta T}=L'$。終端損失が $u(T)$ そのものなので、二乗損失のときの $-Te^{-2\theta T}$ と混同しない。
 <!-- solution-end -->
 
 <a id="ex-pml2-23-b02"></a>
@@ -620,7 +668,7 @@ $$
 - $z_{n+1}=rz_n$、$r=1-h\theta$、$z_0=1$、$N=3$、$h>0$ は固定とする。損失 $L_3=z_3^2/2+\gamma z_1^2/2$（$\gamma>0$）の随伴列と全勾配を求め、直接微分に一致させよ。
 
 <!-- solution-start -->
-**詳細解答。** $z_1=r$、$z_2=r^2$、$z_3=r^3$。段ごとの損失は $c_1(z_1)=\gamma z_1^2/2$、$c_0=c_2=0$ とする。$\lambda_3=z_3=r^3$、$\lambda_2=r\lambda_3=r^4$、$\lambda_1=r\lambda_2+\gamma z_1=r^5+\gamma r$、$\lambda_0=r\lambda_1=r^6+\gamma r^2$。
+**詳細解答。** $z_1=r$、$z_2=r^2$、$z_3=r^3$。[時間離散随伴の定義](#def-pml2-23-discrete-adjoint)に合わせ、段ごとの損失は $c_1(z_1)=\gamma z_1^2/2$、$c_0=c_2=0$ とする。$\lambda_3=z_3=r^3$、$\lambda_2=r\lambda_3=r^4$、$\lambda_1=r\lambda_2+\gamma z_1=r^5+\gamma r$、$\lambda_0=r\lambda_1=r^6+\gamma r^2$。
 
 初期値と終端損失には明示的な $\theta$ 依存がない。$\Psi_\theta=-hz_n$ だから
 
