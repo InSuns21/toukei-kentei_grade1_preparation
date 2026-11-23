@@ -44,9 +44,27 @@ $A(\theta)$ と $b(\theta)$ が $\theta$ に関して連続微分可能で、$A(
 
 <!-- formal-statement-start -->
 > **定義（離散ソルバを通じた全微分）**  
-> $\Theta\subset\mathbb R^p$ は開集合、$A:\Theta\to\mathbb R^{n\times n}$、$b:\Theta\to\mathbb R^n$、$J:\mathbb R^n\times\Theta\to\mathbb R$ は連続微分可能とする。各 $\theta\in\Theta$ で $A(\theta)$ は可逆、$u(\theta)$ は $A(\theta)u(\theta)=b(\theta)$ の唯一解とする。
+> $\Theta\subset\mathbb R^p$ は開集合とし、次の三つの写像は連続微分可能とする。
+
+$
+A:\Theta\to\mathbb R^{n\times n},\qquad
+b:\Theta\to\mathbb R^n,\qquad
+J:\mathbb R^n\times\Theta\to\mathbb R.
+$
+
+> 各 $\theta\in\Theta$ で $A(\theta)$ は可逆とし、$u(\theta)$ を次の方程式の唯一解とする。
+
+$
+A(\theta)u(\theta)=b(\theta).
+$
 >
-> $L(\theta)=J(u(\theta),\theta)$ の勾配 $\nabla_\theta L$ を**離散ソルバを通じた全勾配**と呼ぶ。これは $J$ の状態 $u$ への依存と、$\theta$ への明示的な依存の両方を微分したものである。
+> 次の合成関数の勾配を**離散ソルバを通じた全勾配**と呼ぶ。
+
+$
+L(\theta)=J(u(\theta),\theta),\qquad \nabla_\theta L(\theta).
+$
+
+> これは $J$ の状態 $u$ への依存と、$\theta$ への明示的な依存の両方を微分したものである。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml2-22-discrete-gradient -->
@@ -325,7 +343,20 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（有限回の反復微分と厳密解の微分は異なる）**  
-> $\kappa>0$、$0<\alpha\kappa<1/4$ とし、初期値 $u^{(0)}=0$ から上記の反復を行う。反復は $u_*(\kappa)=1/(32\kappa)$ に収束するが、一回後の出力は $u^{(1)}=\alpha/4$ であり、その $\kappa$ 微分は零である。一方、厳密解の微分は $-1/(32\kappa^2)$ である。
+> $\kappa>0$、$0<\alpha\kappa<1/4$、$u^{(0)}=0$ とする。$\alpha$ は $\kappa$ に依存しない固定定数として、次の反復を行う。
+
+$
+u^{(k+1)}=u^{(k)}-\alpha(8\kappa u^{(k)}-1/4).
+$
+
+> 反復は厳密解 $u_*(\kappa)$ に収束するが、一回後の値と勾配は厳密解と異なる。具体的には次を満たす。
+
+$
+u_*=\frac1{32\kappa},\qquad
+\frac{\mathrm d u_*}{\mathrm d\kappa}=-\frac1{32\kappa^2},\qquad
+u^{(1)}=\frac\alpha4,\qquad
+\frac{\mathrm d u^{(1)}}{\mathrm d\kappa}=0.
+$
 <!-- formal-statement-end -->
 
 **証明の見取り図。** 真の解からの誤差を引き算して一段の倍率 $1-8\alpha\kappa$ を求める。この絶対値が1より小さいときだけ反復は収束する。
