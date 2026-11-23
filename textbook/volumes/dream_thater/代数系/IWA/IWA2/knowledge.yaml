@@ -1,0 +1,55 @@
+chapter: IWA2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - IWA1
+forward_references: []
+
+concepts:
+  - id: number-theory.cyclotomic-galois-restriction-kernel
+    name: 円分Galois群の制限列
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.prime-power-cyclotomic-degree, number-theory.galois-inverse-limit]
+
+  - id: number-theory.finite-teichmueller-lifts
+    name: 有限段のTeichmüller持ち上げ
+    kind: definition
+    introduction: formal
+    requires: [number-theory.hensel-simple-root]
+
+  - id: number-theory.finite-teichmueller-unique-lifts
+    name: 有限段Teichmüller持ち上げの存在・一意性
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.finite-teichmueller-lifts, number-theory.hensel-simple-root]
+
+  - id: number-theory.cyclotomic-odd-delta-unit-splitting
+    name: 奇素数のDelta_nとU_n分解
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.finite-teichmueller-unique-lifts]
+
+  - id: number-theory.cyclotomic-unit-exponent-coordinates
+    name: 生成元による指数座標
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.cyclotomic-odd-delta-unit-splitting, number-theory.cyclotomic-zp-tower]
+
+  - id: number-theory.cyclotomic-compatible-delta-gamma-tower
+    name: 分解から得る円分Z_p塔の両立性
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.cyclotomic-unit-exponent-coordinates, number-theory.galois-inverse-limit]
+
+  - id: number-theory.two-adic-unit-sign-splitting
+    name: 2進単元の符号部分と主単元部分
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.two-adic-cyclotomic-tower, number-theory.cyclotomic-galois-restriction-kernel]
+
+  - id: number-theory.cyclotomic-frobenius-projection
+    name: 奇素数の円分層におけるFrobenius判定
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.cyclotomic-odd-delta-unit-splitting, number-theory.global-frobenius-order-splitting, number-theory.global-artin-restriction-compatibility]
