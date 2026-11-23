@@ -524,7 +524,9 @@ $$
 \overline{\zeta_5}\longmapsto\overline{\zeta_5^p}.
 $$
 
-自己同型 $\sigma_p$ もこの作用を持ち、$\zeta_5$ が $L$ を生成するので二つの自己同型は一致します。
+ここで $\overline\zeta_5^{\,5}=1$ ですが、もし $\overline\zeta_5=1$ なら $\overline\Phi_5(1)=5\equiv0\pmod p$ となって $p\ne5$ に矛盾します。従って還元した $\zeta_5$ の位数は $5$ で、四つの冪は互いに異なります。
+
+自己同型 $\sigma_p$ は剰余体上で上の $p$ 乗作用と一致します。[非分岐素点のFrobeniusの一意な持ち上げ](../ANF15/index.md#prop-anf15-frobenius-lift)により、剰余体作用を指定する大域自己同型は一意なので、$\operatorname{Frob}_p=\sigma_p$ です。
 
 $p\ne5$ の素イデアルの積と逆数へ拡張すれば、正の有理数 $r$（分子・分母が $5$ と互いに素）で生成されるイデアルの像は $\sigma_{\overline r}$ です。[法 $5\infty$ の群の計算](#prop-anf20-ray-q)による定義域とGalois群はいずれも位数 $4$。$\overline r$ が全部の非零剰余を走るので、この写像は同型です。
 <!-- proof-end -->
