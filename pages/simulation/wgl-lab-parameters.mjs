@@ -87,6 +87,22 @@ export const LAB_PARAMETERS = Object.freeze({
       sourceLocation: 'fluid.js / const forceAmplitude → psi() → starU/starV',
       sourceFile: 'js', index: null,
       matcher: /^([ \t]*const N=[^,\n]+,h=1\/N,dt=0\.04,rho=1,nu=[^,\n]+,forceAmplitude=)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id: 'brush-radius', type: 'number', label: '染料ブラシの半径', default: 0.085,
+      min: 0.03, max: 0.15, step: 0.005, unit: 'm',
+      meaning: 'Shift+ドラッグ時のガウス型外部染料源の広がり。実染料配列へ直接加算',
+      sourceLocation: 'fluid.js / const dyeBrushRadius → inject() → dye[]',
+      sourceFile: 'js', index: null,
+      matcher: /^([ \t]*const dyeBrushRadius=)([^,\n]+)(,dyeBrushStrength=[^;\n]+;)/gm
+    }),
+    Object.freeze({
+      id: 'brush-strength', type: 'number', label: '染料ブラシの強さ', default: 0.48,
+      min: 0, max: 1, step: 0.01, unit: '染料値/入力イベント（無次元）',
+      meaning: 'Shift+ドラッグ1回の入力強度。0なら追加せず、値域[0,1]に飽和',
+      sourceLocation: 'fluid.js / const dyeBrushStrength → inject() → dye[]',
+      sourceFile: 'js', index: null,
+      matcher: /^([ \t]*const dyeBrushRadius=[^,\n]+,dyeBrushStrength=)([^;\n]+)(;)/gm
     })
   ]),
   WGL18: Object.freeze([Object.freeze({
