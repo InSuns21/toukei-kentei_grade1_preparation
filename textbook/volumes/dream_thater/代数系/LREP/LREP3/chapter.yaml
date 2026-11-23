@@ -1,0 +1,44 @@
+id: LREP3
+title: "Lie環表現と群表現の積分"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP2
+official_scope: []
+learning_objectives:
+  - 実Lie環の有限次元複素表現を実線形な括弧保存写像として定義し行列で検査できる
+  - 滑らかなLie群表現の微分が括弧を保存することと指数写像の対応を証明できる
+  - 行列値Maurer–Cartan形式の平坦性と経路沿いの行列ODEから局所積分を構成できる
+  - 単連結性が経路独立性を保証することを変形の微分方程式と群法則で再現できる
+  - 被覆群から元の連結群へ降下する必要十分条件を核の作用で証明できる
+  - SO(2)の整数条件とSU(2)／SO(3)の標準・随伴表現の降下の違いを説明できる
+definitions:
+  - { id: LREP3-DEF-01, name: Lie 環表現 }
+  - { id: LREP3-DEF-02, name: 局所群表現 }
+  - { id: LREP3-DEF-03, name: 被覆表現の降下 }
+theorems:
+  - { id: LREP3-THM-01, name: 群表現の微分は Lie 環表現になる }
+  - { id: LREP3-LEM-01, name: Lie 環表現から作る行列値1形式の平坦性 }
+  - { id: LREP3-THM-02, name: 単連結 Lie 群への一意な積分 }
+  - { id: LREP3-COR-01, name: Lie 環表現の局所積分 }
+  - { id: LREP3-THM-03, name: 被覆核による降下判定 }
+canonical_examples:
+  - R加法群の上三角表現と微分
+  - SO(2)近傍の実数ウェイトによる局所表現
+  - SO(2)の整数ウェイトと被覆の核
+  - SU(2)の標準表現と随伴表現の降下
+  - 二次元アフィン群の行列模型
+problem_patterns:
+  - LREP3-NILPOTENT-INTEGRATION
+  - LREP3-COMMUTATOR-OBSTRUCTION
+  - LREP3-SO2-INTEGRAL-WEIGHT
+  - LREP3-CONJUGATE-DIFFERENTIAL
+  - LREP3-AFFINE-LIE-INTEGRATION
+  - LREP3-SU2-DESCENT
+  - LREP3-FLAT-HOMOTOPY-ODE
+  - LREP3-TORUS-PERIODS
+  - LREP3-MIXED-DESCENT-AND-REDUCIBILITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 2 }
