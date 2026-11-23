@@ -14,3 +14,4 @@
 11. [GBG11 Bianchi恒等式はどこから生じるか](textbook/volumes/dream_thater/幾何系/GBG/GBG11/index.md)
 12. [GBG12 接続は存在するか、二つの接続の差は何か](textbook/volumes/dream_thater/幾何系/GBG/GBG12/index.md)
 13. [GBG13 ゲージ軌道とゲージ固定はどこが異なるか](textbook/volumes/dream_thater/幾何系/GBG/GBG13/index.md)
+14. [GBG14 接続は曲線に沿って何を運ぶか](textbook/volumes/dream_thater/幾何系/GBG/GBG14/index.md)

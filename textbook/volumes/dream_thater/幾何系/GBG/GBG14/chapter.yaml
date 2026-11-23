@@ -1,0 +1,47 @@
+id: "GBG14"
+title: "接続は曲線に沿って何を運ぶか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GBG13
+  - ODE1
+  - GEO13
+official_scope: []
+learning_objectives:
+  - 主束の水平リフトを定義し射影条件と接続形式の零条件を直接例で検査できる
+  - 局所sectionでの水平リフトをLie群上の時間依存ODEへ変換し存在一意性と大域延長の根拠を述べられる
+  - 平行移動が主束の右作用と同変で連結路・逆路・再パラメータ化に整合することを証明できる
+  - 局所輸送行列のODEとsection変更時の始点終点における変換公式を導出できる
+  - 結合束の平行移動のwell-defined性と局所共変微分のODEとの同値を証明できる
+  - 経路順序指数の積分級数と収束を導き互いに可換な場合のみ通常の行列指数へ戻せる
+  - 非可換な2行2列行列の二つの経路で輸送の積順序を計算し一致しないことを確かめられる
+definitions:
+  - { id: GBG14-DEF-01, name: 曲線の水平リフト }
+  - { id: GBG14-DEF-02, name: 主束の平行移動 }
+  - { id: GBG14-DEF-03, name: 結合束の平行移動 }
+theorems:
+  - { id: GBG14-THM-01, name: 水平リフトの存在・一意性 }
+  - { id: GBG14-THM-02, name: 平行移動の同変性・合成・逆路 }
+  - { id: GBG14-PROP-01, name: 局所輸送行列とsection変更 }
+  - { id: GBG14-THM-03, name: 結合束の平行移動と共変微分 }
+  - { id: GBG14-PROP-02, name: 経路順序指数と局所水平ODE }
+canonical_examples:
+  - U(1)積主束での水平ODEと負符号の検算
+  - U(1)主束の定数接続による区間輸送と逆路
+  - 局所sectionの変更で開いた路の両端に作用するゲージ関数
+  - 電荷付き結合線束の平行移動と共変微分
+  - GL(2,R)接続で二つの折れ線に沿う非可換な輸送
+problem_patterns:
+  - GBG14-HORIZONTAL-ODE-SIGN
+  - GBG14-U1-REVERSE-PATH
+  - GBG14-TRANSPORT-MULTIPLICATION-ORDER
+  - GBG14-ASSOCIATED-CHARGE
+  - GBG14-ENDPOINT-GAUGE-COVARIANCE
+  - GBG14-NONCOMMUTING-ROUTES
+  - GBG14-ASSOCIATED-WELLDEFINEDNESS
+  - GBG14-COMMUTING-DYSON
+  - GBG14-OPEN-WILSON-TRANSPORT-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 4 }

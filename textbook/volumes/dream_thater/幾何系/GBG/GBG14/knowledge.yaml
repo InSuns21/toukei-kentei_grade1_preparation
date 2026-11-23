@@ -1,0 +1,61 @@
+chapter: GBG14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GBG13
+  - ODE1
+  - GEO13
+forward_references: []
+concepts:
+  - id: gauge.curve-horizontal-lift
+    name: 曲線の水平リフト
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（曲線の水平リフト）"]
+    requires: [gauge.principal-connection-form, gauge.horizontal-lift-splitting]
+
+  - id: gauge.horizontal-lift-existence
+    name: 水平リフトの存在・一意性
+    kind: theorem
+    introduction: formal
+    requires: [gauge.curve-horizontal-lift, gauge.local-connection-potential, gauge.principal-connection-form, ode.ode1-picard-lindelof]
+
+  - id: gauge.principal-parallel-transport
+    name: 主束の平行移動
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（主束の平行移動）"]
+    requires: [gauge.horizontal-lift-existence]
+
+  - id: gauge.parallel-transport-path-laws
+    name: 平行移動の同変性・合成・逆路
+    kind: theorem
+    introduction: formal
+    requires: [gauge.principal-parallel-transport, gauge.principal-connection-form]
+
+  - id: gauge.local-transport-gauge-transformation
+    name: 局所輸送行列とsection変更
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所輸送行列とsection変更）"]
+    requires: [gauge.horizontal-lift-existence, gauge.local-potential-transformation, gauge.parallel-transport-path-laws]
+
+  - id: gauge.associated-parallel-transport
+    name: 結合束の平行移動
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（結合束の平行移動）"]
+    requires: [gauge.principal-parallel-transport, gauge.associated-vector-bundle]
+
+  - id: gauge.associated-transport-covariant-ode
+    name: 結合束の平行移動と共変微分
+    kind: theorem
+    introduction: formal
+    requires: [gauge.associated-parallel-transport, gauge.associated-local-formula, gauge.infinitesimal-representation-action]
+
+  - id: gauge.path-ordered-exponential
+    name: 経路順序指数と局所水平ODE
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（経路順序指数と局所水平ODE）"]
+    requires: [gauge.local-transport-gauge-transformation]

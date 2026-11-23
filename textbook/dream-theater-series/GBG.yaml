@@ -60,7 +60,7 @@ chapters:
     title: "ゲージ軌道とゲージ固定はどこが異なるか"
   - id: GBG14
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG14
-    status: planned
+    status: completed
     title: "接続は曲線に沿って何を運ぶか"
   - id: GBG15
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG15
