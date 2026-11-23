@@ -375,7 +375,7 @@ $$
 S(R)=-2\left(\frac12\ln\frac12\right)=\ln2.
 $$
 
-一方 $Rb$ は純粋状態の射影 $|\Phi^+\rangle\langle\Phi^+|$ だから固有値は $1,0,0,0$ で $S(Rb)=0$。局所的混合性から全体系の混合性は帰結しません。[粗視化と精細の区別](../BHI5/index.md#prop-bhi5-entropy-hierarchy)と整合します。
+一方 $Rb$ は純粋状態の射影 $|\Phi^+\rangle\langle\Phi^+|$ だから固有値は $1,0,0,0$ で $S(Rb)=0$。局所状態が混合状態であることから、全体系も混合状態であるとは帰結しません。[粗視化と精細の区別](../BHI5/index.md#prop-bhi5-entropy-hierarchy)と整合します。
 <!-- solution-end -->
 
 <a id="ex-bhi36-a02"></a>
