@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - GBG18
+  - GEO8
 official_scope: []
 learning_objectives:
   - 南北パッチのU(1)接続を極点まで滑らかに構成し遷移関数との整合を検証できる
