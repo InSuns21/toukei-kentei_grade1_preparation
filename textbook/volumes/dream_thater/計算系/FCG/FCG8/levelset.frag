@@ -13,10 +13,12 @@ void main(){
   vec2 xy=vec2(fract(v_uv.x*3.0),v_uv.y);
   float phi;
   if(panel<2){
-    // Bilinear DISPLAY reconstruction of the 48x48 cell-centred R8 field.
-    // The numerical step remains 48x48 Float64; smoothing is not refinement.
-    vec2 grid=clamp(xy*48.0-0.5,vec2(0.0),vec2(47.0));
-    ivec2 ij=ivec2(floor(grid)),ij1=min(ij+ivec2(1),ivec2(47));
+    // Bilinear DISPLAY reconstruction of the actual uploaded R8 cell field.
+    // textureSize follows the editable Float64 simulation grid; interpolation is display-only.
+    ivec2 size=textureSize(u_raw,0);
+    vec2 maxCell=vec2(size-ivec2(1));
+    vec2 grid=clamp(xy*vec2(size)-0.5,vec2(0.0),maxCell);
+    ivec2 ij=ivec2(floor(grid)),ij1=min(ij+ivec2(1),size-ivec2(1));
     vec2 f=fract(grid);
     float v00=panel==0?texelFetch(u_raw,ij,0).r:texelFetch(u_reinit,ij,0).r;
     float v10=panel==0?texelFetch(u_raw,ivec2(ij1.x,ij.y),0).r:texelFetch(u_reinit,ivec2(ij1.x,ij.y),0).r;
