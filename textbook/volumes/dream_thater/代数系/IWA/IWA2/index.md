@@ -284,7 +284,7 @@ $$
 
 ## 6. Frobeniusで分解を読む
 
-円分塔の群が計算できると、素数 $\ell\ne p$ の振る舞いも分かります。この場合の $\ell$ は[素数冪円分体の非分岐性](../../ANF/ANF22/index.md#prop-anf22-prime-power-degree)により非分岐です。非分岐な素数のFrobenius元は剰余体の $x\mapsto x^\ell$ という写像に対応し、円分体では $\zeta_{p^{n+1}}\mapsto\zeta_{p^{n+1}}^\ell$ となります。
+円分塔の群が計算できると、素数 $\ell\ne p$ の振る舞いも分かります。この場合の $\ell$ は[素数冪円分体の非分岐性](../../ANF/ANF22/index.md#prop-anf22-prime-power-degree)により非分岐です。非分岐な素数のFrobenius元は剰余体の $x\mapsto x^\ell$ という写像に対応し、円分体では $\zeta_{p^{n+1}}\mapsto\zeta_{p^{n+1}}^\ell$ となります。以下、商群 $G_{n+1}/\Delta_n$ の元を $[a]=a\Delta_n$ と書きます。[直積分解](#thm-iwa2-odd-splitting)を使うと、この剰余類の $U_n$ 座標は $\omega_n(a\bmod p)^{-1}a$ です。
 
 <a id="prop-iwa2-frobenius-projection"></a>
 
@@ -327,7 +327,7 @@ $$
 
 ## 7. 無限円分群と有限ねじれの切り分け
 
-$p$ 奇素数なら各段の積分解は還元と両立し、
+$\mathbb Q(\zeta_{p^\infty})=\bigcup_{r\ge1}\mathbb Q(\zeta_{p^r})$ と書きます。$p$ が奇素数なら各段の積分解は還元と両立し、
 $$
 \operatorname{Gal}\bigl(\mathbb Q(\zeta_{p^\infty})/\mathbb Q\bigr)
 \simeq \varprojlim_n(\mathbb Z/p^{n+1}\mathbb Z)^\times
