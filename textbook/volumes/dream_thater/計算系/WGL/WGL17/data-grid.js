@@ -1,8 +1,10 @@
 // WGL17: compare 8-bit normalized, integer, and float 4x2 textures.
-const mode = 'r8'; // edit: 'r8', 'r8ui', 'r32f'
-const physicalValues = [-2.0, -1.3, -0.2, 0.6, 1.2, 1.75, 0.0, 2.0];
+const mode = 'r8'; // source-backed GPU format selector
+const probeValue = -1.3; // source-backed slider for cell (1,0)
+const physicalValues = [-2.0, probeValue, -0.2, 0.6, 1.2, 1.75, 0.0, 2.0];
 const lower=-2, upper=2, gridWidth=4, gridHeight=2;
 if (!['r8','r8ui','r32f'].includes(mode)) throw new RangeError('bad mode');
+if(!physicalValues.every(x=>Number.isFinite(x)&&x>=lower&&x<=upper)) throw new RangeError('数値は -2〜2 の有限値にしてください');
 const bytes = Uint8Array.from(physicalValues, value => Math.round(255*(value-lower)/(upper-lower)));
 const floatData = new Float32Array(physicalValues);
 function compile(type,src,stage) {
@@ -76,6 +78,7 @@ report('BYTES',Array.from(bytes).join(',')+'; max input-to-reconstruction error 
   maxInputError.toPrecision(6));
 report('SAMPLER',mode==='r8ui'?'usampler2D yields uint (not normalized)':
   'sampler2D yields float; texelFetch with integer coordinate and level 0');
+let gpuFloatValues=null;
 const ext=gl.getExtension('EXT_color_buffer_float');
 if(ext&&mode==='r32f') {
   const color=gl.createTexture(),fbo=gl.createFramebuffer();
@@ -93,6 +96,7 @@ if(ext&&mode==='r32f') {
     gl.readPixels(0,0,4,2,gl.RGBA,gl.FLOAT,actual);
     const error=gl.getError();
     if(error===gl.NO_ERROR) {
+      gpuFloatValues=actual;
       const delta=physicalValues.map((v,i)=>Math.abs(actual[4*i]-v));
       report('FLOAT_READBACK','RGBA32F/FLOAT: max |GPU-original|='+Math.max(...delta).toPrecision(6));
     } else report('FLOAT_READBACK','readPixels FLOAT failed: 0x'+error.toString(16));
@@ -108,59 +112,99 @@ gl.clearColor(0,0,0,1);gl.clear(gl.COLOR_BUFFER_BIT);
 draw(canvas.width,canvas.height,false);
 report('DISPLAY','RGBA8 readPixels is 8-bit even after R32F sampling; do not infer float storage accuracy');
 
-// Inspect the actual uploaded eight texels beside the GPU's four-by-two image.
-// Values come exclusively from this editable script's typed buffers, not from
-// a fabricated visualization or an independent simulation model.
+// Visible numerical microscope. All displayed values come from the same
+// typed arrays that this editable JavaScript uploaded to the GPU.
 if(typeof document!=='undefined'){
-  const panel=document.createElement('details');
-  panel.className='wgl17-texel-inspector';
-  const toggle=document.createElement('summary');
-  toggle.textContent='8セルの格納値・誤差を見る';
-  toggle.style.cssText='cursor:pointer;font-weight:600';
-  panel.setAttribute('aria-label','実データのテクセル選択と量子化');
-  panel.style.cssText='position:absolute;right:8px;bottom:8px;z-index:2;'+
-    'background:rgba(4,20,35,.95);color:#fff;padding:8px 10px;'+
-    'font:12px/1.55 system-ui;max-width:calc(100% - 32px)';
+  document.body.style.cssText='display:block;margin:0;background:#f8fafc;color:#13263c;'+
+    'font:14px/1.5 system-ui,sans-serif';
+  canvas.style.cssText='display:block;width:100%;max-width:620px;height:auto';
+  canvas.setAttribute('aria-label','4×2テクスチャのGPU画面。上段j=1、下段j=0');
+  const caption=document.createElement('p');
+  caption.style.cssText='margin:0;padding:8px 12px;background:#deecf4;font-weight:650';
+  caption.textContent='① GPUが復元した値を色で表示　青＝−2　赤＝+2 ／ 下段はj=0';
+  canvas.before(caption);
+  const root=document.createElement('section');
+  root.style.cssText='box-sizing:border-box;padding:10px 12px 14px';
+  root.setAttribute('aria-label','GPUデータテクスチャの数値比較');
   const heading=document.createElement('strong');
-  heading.textContent='何を確かめる？　8個の値をGPUへ保存';
-  const intro=document.createElement('p');
-  intro.style.cssText='margin:3px 0 5px';
-  intro.textContent='上段 j=1／下段 j=0。セルを選ぶと元の値と格納値を比較できます。';
-  const matrix=document.createElement('div');
-  matrix.style.cssText='display:grid;grid-template-columns:repeat(4,minmax(44px,1fr));gap:3px';
-  const cells=[];
-  for(let row=gridHeight-1;row>=0;row--)for(let col=0;col<gridWidth;col++){
-    const k=col+row*gridWidth;
-    const button=document.createElement('button');
-    button.type='button';
-    button.textContent='('+col+','+row+') '+physicalValues[k];
-    button.setAttribute('aria-label','セル ('+col+','+row+') 元の値 '+physicalValues[k]);
-    button.style.cssText='font:11px/1.4 system-ui;padding:4px 2px;'+
-      'background:#17344b;border:1px solid #7b9db8;color:#fff;cursor:pointer';
-    button.addEventListener('click',()=>inspect(k));
-    matrix.append(button);cells[k]=button;
-  }
+  heading.textContent='② セルを選ぶと、格納された数値と失われた精度が分かる';
+  const note=document.createElement('p');
+  note.style.cssText='margin:3px 0 8px;font-size:12px;color:#425c73';
+  note.textContent='同じ4×2格子の各セル。上段 j=1・下段 j=0。数値は色と別に確認します。';
+  const grid=document.createElement('div');
+  grid.style.cssText='display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px';
+  const buttons=[];
+  const print=v=>v===0?'0':Number(v).toPrecision(9);
+  const decoded=(k,kind)=>kind==='r32f'?floatData[k]:lower+(upper-lower)*bytes[k]/255;
   const detail=document.createElement('output');
+  detail.style.cssText='display:block;margin-top:10px;padding-top:8px;'+
+    'border-top:1px solid #b8cad8;font-variant-numeric:tabular-nums';
   detail.setAttribute('aria-live','polite');
-  detail.style.cssText='display:block;margin-top:5px;white-space:pre-wrap;'+
-    'font-variant-numeric:tabular-nums';
-  function inspect(k){
-    const j=Math.floor(k/gridWidth),i=k%gridWidth;
-    const original=physicalValues[k];
-    const stored=mode==='r32f'?floatData[k]:bytes[k];
-    const decoded=mode==='r32f'?floatData[k]:
-      lower+(upper-lower)*bytes[k]/255;
-    for(const [id,button]of cells.entries())
-      button.style.outline=id===k?'2px solid #ffcf66':'none';
-    detail.textContent='選択セル ('+i+','+j+') / k='+k+
-      '　格納形式：'+mode.toUpperCase()+'\n'+
-      '入力 x='+original+' → '+(mode==='r32f'?'float32':'8-bit byte')+
-      ' '+stored+' → 復元 x≈'+decoded.toFixed(6)+'\n'+
-      '丸め誤差 '+Math.abs(decoded-original).toPrecision(4)+
-      ' ／画面色は物理値の正規化表示';
+  const bars=document.createElement('div');
+  bars.style.cssText='display:grid;gap:5px;margin-top:6px';
+  const gpuInfo=document.createElement('p');
+  gpuInfo.style.cssText='font-size:12px;margin:8px 0 0';
+  function choose(k){
+    buttons.forEach((b,index)=>{
+      b.style.border=index===k?'3px solid #15639e':'1px solid #8398a9';
+      b.style.background=index===k?'#e0f0fb':'white';
+      b.setAttribute('aria-pressed',String(index===k));
+    });
+    const i=k%4,j=Math.floor(k/4),original=physicalValues[k];
+    const restored=decoded(k,mode),error=restored-original;
+    detail.textContent='セル ('+i+','+j+')　格納位置 k='+k+
+      ' ／ 元の値 x='+original+' → '+mode.toUpperCase()+
+      ' → 復元値 '+print(restored)+
+      ' ／ 符号付き誤差 '+(error===0?'0':error.toExponential(5));
+    bars.replaceChildren();
+    for(const kind of ['r8','r8ui','r32f']){
+      const value=decoded(k,kind),distance=Math.abs(value-original);
+      const item=document.createElement('div');
+      item.style.cssText='display:grid;grid-template-columns:53px minmax(0,1fr) 120px;'+
+        'gap:7px;align-items:center;font:12px ui-monospace,monospace';
+      const name=document.createElement('span');
+      name.textContent=kind.toUpperCase()+(mode===kind?' *':'');
+      const line=document.createElement('div');
+      line.style.cssText='height:12px;background:#dce5eb;border:1px solid #b5c5d3';
+      const fill=document.createElement('div');
+      fill.style.cssText='height:100%;width:'+
+        (100*Math.min(1,distance/(2/255))).toFixed(4)+
+        '%;background:'+(mode===kind?'#165a96':'#7092ac');
+      line.append(fill);
+      const count=document.createElement('span');
+      count.textContent='|誤差| '+(distance===0?'0':distance.toExponential(3));
+      item.append(name,line,count);
+      bars.append(item);
+    }
+    const p=Math.floor((i+.5)*canvas.width/4),q=Math.floor((j+.5)*canvas.height/2);
+    const rgba=new Uint8Array(4);
+    gl.bindFramebuffer(gl.FRAMEBUFFER,null);
+    gl.readPixels(p,q,1,1,gl.RGBA,gl.UNSIGNED_BYTE,rgba);
+    gpuInfo.textContent='③ 実GPU画素（RGBA8）('+p+','+q+') = '+Array.from(rgba).join(', ')+
+      ' ／ R8/R8UIの保存byte='+bytes[k]+
+      ' ／ R32Fの保存float='+print(floatData[k])+'. '+
+      (mode==='r32f'?
+        (gpuFloatValues?'別FBOのGPU float読戻し='+print(gpuFloatValues[4*k]):
+          'この端末ではGPU float読戻しを確認できません'):
+        'R32Fへ切り替えるとfloatのGPU読戻しも確認できます');
   }
-  document.body.style.position='relative';
-  panel.append(toggle,heading,intro,matrix,detail);
-  canvas.insertAdjacentElement('afterend',panel);
-  inspect(0);
+  for(let j=1;j>=0;j--)for(let i=0;i<4;i++){
+    const k=i+4*j,button=document.createElement('button');
+    button.type='button';
+    button.style.cssText='min-width:0;padding:7px 2px;background:white;color:#11263c;'+
+      'cursor:pointer;border-radius:2px;white-space:pre-line;overflow-wrap:anywhere;'+
+      'font:12px/1.4 ui-monospace,monospace';
+    button.textContent='('+i+','+j+')\n元 x='+physicalValues[k]+
+      '\n'+(mode==='r32f'?'float32=':'byte=')+
+      (mode==='r32f'?print(floatData[k]):bytes[k]);
+    button.setAttribute('aria-label','セル'+i+','+j+' 入力'+physicalValues[k]+'の復元値と誤差を選ぶ');
+    button.addEventListener('click',()=>choose(k));
+    grid.append(button);buttons[k]=button;
+  }
+  const scale=document.createElement('p');
+  scale.style.cssText='margin:8px 0 2px;font-weight:600;font-size:12px';
+  scale.textContent='保存誤差（横棒100% = R8の最大絶対誤差 2/255）　* はGPU実行形式';
+  root.append(heading,note,grid,detail,scale,bars,gpuInfo);
+  canvas.after(root);
+  choose(1);
 }
