@@ -74,6 +74,29 @@ for (let n = 1; n <= 36; n++) {
   rows.push({ id, definitions: def.length, results: result.length, proofs: proof, exercises: ex.length, A: a, B: b, C: c, anchors: ids.length });
   totalDefs += def.length; totalProofs += proof; totalExercises += ex.length;
 }
+
+const finishedPath = path.join(root, "textbook/plan_done/DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md");
+const progressPath = path.join(root, "textbook/plans_progress/DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md");
+if (!fs.existsSync(finishedPath) || fs.existsSync(progressPath)) {
+  issues.push("BHI PLAN must exist only in plan_done, not plans_progress");
+}
+if (!manifest.includes("plan: textbook/plan_done/DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md")) {
+  issues.push("BHI series manifest must route to done PLAN");
+}
+// Search every existing text/yaml source for the old *exact* path, not only
+// known top-level manifests, so renamed direct links cannot be overlooked.
+const stale = "plans_progress/DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md";
+function walk(dir) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (entry.name === "node_modules" || entry.name === "dist") continue;
+    const filename = path.join(dir, entry.name);
+    if (entry.isDirectory()) walk(filename);
+    else if (/\.(?:md|yaml|yml|json|mjs|js|py)$/.test(entry.name) &&
+             read(filename).includes(stale)) issues.push("stale PLAN reference: " + relative(filename));
+  }
+}
+walk(path.join(root, "textbook"));
+
 console.log("BHI1–36: chapters=" + rows.length + ", definitions=" + totalDefs +
   ", proofs=" + totalProofs + ", exercises=" + totalExercises +
   ", canonical link checks=" + linkChecks + ", findings=" + issues.length);
