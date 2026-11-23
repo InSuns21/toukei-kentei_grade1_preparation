@@ -192,7 +192,7 @@ if(typeof document!=='undefined'){
     const k=i+4*j,button=document.createElement('button');
     button.type='button';
     button.style.cssText='min-width:0;padding:7px 2px;background:white;color:#11263c;'+
-      'cursor:pointer;border-radius:2px;white-space:pre-line;'+
+      'cursor:pointer;border-radius:2px;white-space:pre-line;overflow-wrap:anywhere;'+
       'font:12px/1.4 ui-monospace,monospace';
     button.textContent='('+i+','+j+')\n元 x='+physicalValues[k]+
       '\n'+(mode==='r32f'?'float32=':'byte=')+
