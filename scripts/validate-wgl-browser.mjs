@@ -699,7 +699,8 @@ try{
   assert.match(wgl10.log,/PASS A: scene shader/);
   assert.match(wgl10.log,/PASS B: canvas=960x480/);
   assert.match(wgl10.log,/GL error: 0x0/);
-  assert.match(wgl10.label,/① シーン直描き.*② FBO保存画像.*③/);
+  assert.match(wgl10.label,/① 直接描画.*② FBO保存画像.*③ 保存画像の後処理/);
+  assert.equal(await evalJS('document.querySelectorAll(".wgl10-stage-guide.wgl10-three-columns span").length'),3);
   assert.match(wgl10.note,/RGBA8 320×480 texel/);
   const scene10=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent})');
   assert.match(scene10.grid,/RGBA8 320×480 texel/);
@@ -725,6 +726,8 @@ try{
   await waitFor('document.getElementById("result-note")?.textContent.includes("RGBA8 160×240 texel")',22000);
   assert.match(await evalJS('document.getElementById("js-source").value'),/const offscreenScale = 0\.5;/);
   assert.match((await read10()).log,/RGBA8 160x240/);
+  // Let the new sandbox canvas complete CSS layout before capturing its pixels.
+  await evalJS('new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))');
   const scaledShot10=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
   await writeFile('_wgl_browser_review/wgl10-scaled.png',Buffer.from(scaledShot10.data,'base64'));
   console.log('WGL10 GUI changes same JS, FBO real allocation and on-screen resolution: PASS');
@@ -747,6 +750,7 @@ try{
   await evalJS('(()=>{const e=document.getElementById("parameter-inspection-pass");e.value="texture";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));})()');
   await waitFor('document.getElementById("wgl10-stage-guide")?.textContent.includes("全幅表示")',22000);
   assert.match(await evalJS('document.getElementById("js-source").value'),/const inspectionPass = 'texture';/);
+  assert.equal(await evalJS('document.getElementById("wgl10-stage-guide").classList.contains("wgl10-three-columns")'),false);
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")'),'allow-scripts');
   console.log('WGL10 GPU-only stage enlargement preserves sandbox and code edits: PASS');
 
