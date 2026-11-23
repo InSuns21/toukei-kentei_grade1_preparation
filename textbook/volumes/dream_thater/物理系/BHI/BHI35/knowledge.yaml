@@ -1,0 +1,48 @@
+chapter: BHI35
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI34, BHI8, BHI4, BHI30, BHI33]
+forward_references: []
+concepts:
+  - id: black-hole-information.four-d-scalar-radiation-channel
+    name: Schwarzschildスカラー放射チャネル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Schwarzschildスカラー放射チャネル）]
+    requires: [black-hole-information.quasistatic-energy-ledger, qcurv.greybody-luminosity-synthesis]
+  - id: black-hole-information.four-d-scalar-scattering-potential
+    name: 質量零スカラー場の角運動量散乱ポテンシャル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（質量零スカラー場の角運動量散乱ポテンシャル）]
+    requires: [black-hole-information.four-d-scalar-radiation-channel]
+  - id: black-hole-information.independent-outgoing-mode-entropy
+    name: 独立スカラー出射モードの粗視化エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（独立スカラー出射モードの粗視化エントロピー）]
+    requires: [black-hole-information.four-d-scalar-scattering-potential, black-hole-information.entropy-hierarchy]
+  - id: black-hole-information.boson-mode-entropy-concavity
+    name: 熱的モードエントロピーの単調性と凹性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（熱的モードエントロピーの単調性と凹性）]
+    requires: [black-hole-information.independent-outgoing-mode-entropy]
+  - id: black-hole-information.four-d-greybody-entropy-flux
+    name: 四次元スカラーの光度と粗視化エントロピー流
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（四次元スカラーの光度と粗視化エントロピー流）]
+    requires: [black-hole-information.boson-mode-entropy-concavity, black-hole-information.horizon-entropy-decrease-rate]
+  - id: black-hole-information.four-d-island-ledger
+    name: 四次元island候補の一般化エントロピー台帳
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（四次元island候補の一般化エントロピー台帳）]
+    requires: [black-hole-information.conditional-island-rule, black-hole-information.four-d-greybody-entropy-flux]
+  - id: black-hole-information.four-d-spherical-extremality
+    name: 球対称制限におけるQES停留方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（球対称制限におけるQES停留方程式）]
+    requires: [black-hole-information.four-d-island-ledger, black-hole-information.island-two-endpoint-stationarity]

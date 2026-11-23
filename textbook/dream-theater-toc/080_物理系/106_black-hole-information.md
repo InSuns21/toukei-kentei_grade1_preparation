@@ -35,3 +35,4 @@
 32. [BHI32 放射のentanglement wedge](textbook/volumes/dream_thater/物理系/BHI/BHI32/index.md)
 33. [BHI33 回復写像と情報への操作的アクセス](textbook/volumes/dream_thater/物理系/BHI/BHI33/index.md)
 34. [BHI34 代替二次元模型との比較](textbook/volumes/dream_thater/物理系/BHI/BHI34/index.md)
+35. [BHI35 四次元・実在ブラックホールへの外挿](textbook/volumes/dream_thater/物理系/BHI/BHI35/index.md)
