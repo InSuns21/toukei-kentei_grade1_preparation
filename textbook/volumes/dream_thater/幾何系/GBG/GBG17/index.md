@@ -25,7 +25,7 @@ $$
 \end{aligned}
 $$
 
-よって群元そのものは一般に不変ではない。代わりに、[滑らかな線形表現](../GBG4/index.md#def-gbg4-linear-representation) $\rho:G\to GL(V)$ を選ぶ。ここでは $V$ を有限次元**複素**ベクトル空間とし、$\dim_{\mathbb C}V=N$ とする。表現とは群の積を行列の積に保つ写像であり、$\rho(k^{-1}hk)=\rho(k)^{-1}\rho(h)\rho(k)$ が成り立つ。行列の跡は対角成分の和 $\operatorname{tr}B=\sum_{j=1}^N B_{jj}$ である。
+よって群元そのものは一般に不変ではない。代わりに、[滑らかな線形表現](../GBG4/index.md#def-gbg4-representation) $\rho:G\to GL(V)$ を選ぶ。ここでは $V$ を有限次元**複素**ベクトル空間とし、$\dim_{\mathbb C}V=N$ とする。表現とは群の積を行列の積に保つ写像であり、$\rho(k^{-1}hk)=\rho(k)^{-1}\rho(h)\rho(k)$ が成り立つ。行列の跡は対角成分の和 $\operatorname{tr}B=\sum_{j=1}^N B_{jj}$ である。
 
 <a id="def-gbg17-wilson-loop"></a>
 
@@ -105,7 +105,7 @@ $$
 
 よって跡は一致する。閉路全体で一つの section が取れなくても、路を有限分割して各部分区間の輸送行列を局所 section で書ける。隣接区間の切れ目で変換行列とその逆行列が相殺され、最後は同じ基点の変換行列だけが両端に残る。このため同じ結論を得る。
 
-**3.** ゲージ自己同型 $\Phi$ は射影を保ち、右作用と可換である。[ゲージ変換の定義](../GBG5/index.md#def-gbg5-gauge-transformation)に沿って $\Phi(p)=p\,u$（ある $u\in G$）と書く。$\omega'=\Phi^*\omega$ について、曲線の $\omega'$-水平リフトを $\Phi$ で写すと $\omega$-水平リフトになる。これは $(\Phi^*\omega)(v)=\omega(d\Phi(v))$ の定義と[水平リフトの一意性](../GBG14/index.md#thm-gbg14-horizontal-existence)による。従って
+**3.** ゲージ自己同型 $\Phi$ は射影を保ち、右作用と可換である。[ゲージ変換の定義](../GBG5/index.md#def-gbg5-gauge-automorphism)に沿って $\Phi(p)=p\,u$（ある $u\in G$）と書く。$\omega'=\Phi^*\omega$ について、曲線の $\omega'$-水平リフトを $\Phi$ で写すと $\omega$-水平リフトになる。これは $(\Phi^*\omega)(v)=\omega(d\Phi(v))$ の定義と[水平リフトの一意性](../GBG14/index.md#thm-gbg14-horizontal-existence)による。従って
 
 $$
 \operatorname{PT}^{\omega'}_\gamma
@@ -316,7 +316,7 @@ $$
 
 [GBG14 の端点変換則](../GBG14/index.md#prop-gbg14-local-transport)より $U'_\gamma=k(y)^{-1}U_\gamma k(x)$。表現の準同型性から第1式が出る。$x=y$ なら $\rho(k(y))=\rho(k(x))$ で共役となる。一方、$x\ne y$ なら二つは一般に異なり、跡の循環性だけでは打ち消せない。
 
-結合束のベクトル成分は[GBG4 の局所成分変換](../GBG4/index.md#thm-gbg4-component-transform)により $v'_x=\rho(k(x))^{-1}v_x$。双対成分は評価 $\lambda_y(v_y)$ を保つよう $\lambda'_y=\lambda_y\rho(k(y))$ と変換する。この三式を掛けると
+結合束のベクトル成分は[GBG4 の局所成分変換](../GBG4/index.md#thm-gbg4-component-transformation)により $v'_x=\rho(k(x))^{-1}v_x$。双対成分は評価 $\lambda_y(v_y)$ を保つよう $\lambda'_y=\lambda_y\rho(k(y))$ と変換する。この三式を掛けると
 
 $$
 \begin{aligned}
