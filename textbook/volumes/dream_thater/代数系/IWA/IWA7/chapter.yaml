@@ -4,7 +4,6 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - IWA6
-  - ANF7
 official_scope: []
 learning_objectives:
   - 有限層のp部分類群と逆極限加群を定義しcoinvariantsと区別できる

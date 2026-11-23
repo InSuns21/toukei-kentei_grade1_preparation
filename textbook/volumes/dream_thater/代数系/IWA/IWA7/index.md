@@ -11,7 +11,7 @@
 
 ## 1. 数体の層と加群の層
 
-素数 $p$ と、数体 $F$ の $\mathbb Z_p$ 拡大 $F_\infty/F$ を固定します。これは $F_n\subset F_{n+1}$、$[F_n:F]=p^n$、$F_\infty=\bigcup_{n\ge0}F_n$、$\operatorname{Gal}(F_\infty/F)\simeq\mathbb Z_p$ という塔です。[IWA2の円分塔](../IWA2/index.md#def-iwa2-cyclotomic-zp-extension)は代表例ですが、今回の類数成長定理そのものは円分塔に限りません。
+素数 $p$ と、数体 $F$ の $\mathbb Z_p$ 拡大 $F_\infty/F$ を固定します。これは $F_n\subset F_{n+1}$、$[F_n:F]=p^n$、$F_\infty=\bigcup_{n\ge0}F_n$、$\operatorname{Gal}(F_\infty/F)\simeq\mathbb Z_p$ という塔です。[IWA2の円分塔](../IWA2/index.md#thm-iwa2-compatible-tower)は代表例ですが、今回の類数成長定理そのものは円分塔に限りません。
 
 $F_n$ のイデアル類群 $\operatorname{Cl}(F_n)$ は有限アーベル群です。$p$ の冪の位数を持つ元全体を $A_n=\operatorname{Cl}(F_n)[p^\infty]$ と書きます。その位数を $|A_n|=p^{e_n}$ と書くと、$e_n=v_p(h(F_n))$ です。ここで $h(F_n)$ は類数、$v_p$ は素因数 $p$ の指数を数える関数です。
 
@@ -43,7 +43,7 @@ $\omega_n$ は次数 $p^n$ のモニック多項式で、最高次以外の係�
 <a id="prop-iwa7-p-power-growth"></a>
 
 <!-- formal-statement-start -->
-> **命題（$p$ 冪因子の位数成長）**  
+> **命題（p冪因子の位数成長）**  
 > 素数 $p$、整数 $a\ge1,n\ge0$ と $\Lambda=\mathbb Z_p[[T]]$ に対し、
 >
 $$
@@ -91,13 +91,13 @@ $$
 \operatorname{Res}(W,g)=\prod_{i=1}^{d}g(\alpha_i)
 $$
 
-と計算できます。これは $\mathbb Q_p[T]/(W)$ 上の $g$ 倍写像の行列式です。なぜなら代数閉包へ係数拡大すると、$T$ 倍写像の特性多項式が $W$ であり、行列式 $\det g(T)$ は各固有値 $g(\alpha_i)$ の積になるからです。重根の場合も重複度を込めます。
+と計算できます。これは $\mathbb Q_p[T]/(W)$ 上の $g$ 倍写像の行列式です。なぜなら代数閉包へ係数拡大すると、$T$ 倍写像の固有値が重複度を含めて $\alpha_1,\ldots,\alpha_d$ であり、行列式 $\det g(T)$ は各固有値 $g(\alpha_i)$ の積になるからです。重根の場合も重複度を込めます。
 
 <a id="lem-iwa7-valuation-growth"></a>
 
 <!-- formal-statement-start -->
-> **補題（$p$ 冪乗の付値安定化）**  
-> $K/\mathbb Q_p$ を有限拡大とし、付値を $v_p(p)=1$ に正規化する。$u\in K$ が $v_p(u-1)>0$ を満たし、$p$ 冪位数の根 of unity ではないとする。このとき、ある整数 $N\ge0$ と有理数 $c$ が存在し、すべての $n\ge N$ で
+> **補題（p冪乗の付値安定化）**  
+> $K/\mathbb Q_p$ を有限拡大とし、付値を $v_p(p)=1$ に正規化する。$u\in K$ が $v_p(u-1)>0$ を満たし、$p$ 冪位数の1の根ではないとする。このとき、ある整数 $N\ge0$ と有理数 $c$ が存在し、すべての $n\ge N$ で
 >
 $$
 v_p(u^{p^n}-1)=n+c
@@ -235,7 +235,7 @@ $$
 +\sum_j\bigl((\deg W_j)n+\nu_{W_j}\bigr)
 $$
 
-です。[特徴イデアルの定義](../IWA6/index.md#def-iwa6-characteristic)によって $\sum_i a_i=\mu(M)$、$\sum_j\deg W_j=\lambda(M)$。残りの $\sum_j\nu_{W_j}$ を $\nu_M$ とすれば証明されます。
+です。[IWA6の特徴イデアルと岩澤不変量](../IWA6/index.md#def-iwa6-characteristic)によって $\sum_i a_i=\mu(M)$、$\sum_j\deg W_j=\lambda(M)$。残りの $\sum_j\nu_{W_j}$ を $\nu_M$ とすれば証明されます。
 <!-- proof-end -->
 
 **総合例。** $p=3$、$M=\Lambda/(9)\oplus\Lambda/(T+3)^2\oplus \mathbb Z/27\mathbb Z$ とします。最後の有限群には $\gamma$ が恒等作用するとします。$(T+3)^2$ は単一のdistinguished多項式なので上の命題を適用できます。$\Lambda/(9)$ の指数は $2\cdot3^n$、$(T+3)^2$ の指数は $2(n+1)$、有限群のcoinvariantsの指数は $3$ です（$\omega_n$ が零作用するため）。従って
@@ -244,7 +244,7 @@ $$
 v_3(|M/\omega_nM|)=2\cdot3^n+2n+5.
 $$
 
-有限群は [IWA5の擬零性](../IWA5/index.md#prop-iwa5-pseudozero-finite)により特徴イデアルに影響しませんが、定数項には影響します。この例で $\mu(M)=2,\lambda(M)=2,\nu_M=5$ です。
+有限群は [IWA5の擬零性](../IWA5/index.md#prop-iwa5-pseudonull-finite)により特徴イデアルに影響しませんが、定数項には影響します。この例で $\mu(M)=2,\lambda(M)=2,\nu_M=5$ です。
 
 **なぜ「擬同型」だけで議論を終えられないか。** [IWA5の構造定理](../IWA5/index.md#thm-iwa5-structure)は一般の有限生成torsion加群を初等加群に**擬同型**で結びます。有限な核・余核は $\mu,\lambda$ を変えませんが、そのことだけで各 $n$ のcoinvariantsの位数が等しいとは言えません。また初等因子に $\omega_m$ の因子が含まれればcoinvariants自体が無限です。一般の代数的成長定理へ進むには、有限誤差の安定化と有限性の条件を追加して扱います。
 
@@ -272,7 +272,7 @@ $$
 <a id="prop-iwa7-growth-difference"></a>
 
 <!-- formal-statement-start -->
-> **命題（成長差から $\mu,\lambda$ を読む）**  
+> **命題（成長差からμとλを読む）**  
 > 整数列 $(e_n)$ がある $N$ 以降 $e_n=\mu p^n+\lambda n+\nu$ に従うとする。このとき $n\ge N$ に対して
 >
 $$
@@ -305,7 +305,7 @@ $\mu>0$ なら指数が $p^n$ に比例する部分が残ります。$\mu=0$ な
 <a id="thm-iwa7-ferrero-washington"></a>
 
 <!-- formal-statement-start -->
-> **定理（Ferrero–Washingtonの $\mu=0$ 定理：外部入力）**  
+> **定理（Ferrero–Washingtonのμ=0定理）**  
 > $F/\mathbb Q$ を有限次**Abel拡大**、$p$ を任意の素数とする。$F_\infty=F\mathbb Q_\infty$ を $F$ の**円分 $\mathbb Z_p$ 拡大**とし、その有限層の類群の $p$ 部分から作る岩澤加群 $X$ を考える。このとき
 >
 $$
@@ -315,9 +315,9 @@ $$
 > 従ってこの塔の類数成長は十分大きな $n$ で $v_p(h(F_n))=\lambda n+\nu$ となる。
 <!-- formal-statement-end -->
 
-この深い定理は本講では**証明を引用**します。[Sharifi, *Iwasawa Theory*, Chapter 6, Theorem 6.2.1](https://math.ucla.edu/~sharifi/notes/iwasawa-ch06.html#theorem-621-ferrero-washington) に対象と結論が示されています。「Abel拡大」という**基礎体**の条件と、「円分」という**塔の種類**の条件の両方が重要です。一般の数体の任意の $\mathbb Z_p$ 拡大すべてで $\mu=0$ と断言することはできません。実際、非円分 $\mathbb Z_p$ 拡大では正の $\mu$ を持つ例が知られています。
+この深い定理は本講では**証明を引用**します。[Sharifi, *Iwasawa Theory*, Chapter 6, Theorem 6.2.1](https://math.ucla.edu/~sharifi/notes/iwasawa-ch06.html) に対象と結論が示されています。「Abel拡大」という**基礎体**の条件と、「円分」という**塔の種類**の条件の両方が重要です。一般の数体の任意の $\mathbb Z_p$ 拡大すべてで $\mu=0$ と断言することはできません。実際、非円分 $\mathbb Z_p$ 拡大では正の $\mu$ を持つ例が知られています。
 
-**定理の帰結と限界。** $F=\mathbb Q$ は Abel 数体なので、その円分塔で $\mu=0$ です。ここから $\lambda=0$ まで自動的には出ません。また、Ferrero–Washington定理は円分岩澤主予想そのものではありません。主予想が主張する**特定の特徴イデアルと $p$ 進L関数の関係**は、IWA15〜17で別に定式化します。
+**定理の帰結と限界。** $F=\mathbb Q$ は Abel 数体なので、その円分塔で $\mu=0$ です。ここから $\lambda=0$ まで自動的には出ません。また、[Ferrero–Washingtonのμ=0定理](#thm-iwa7-ferrero-washington)は円分岩澤主予想そのものではありません。主予想が主張する**特定の特徴イデアルと $p$ 進L関数の関係**は、IWA15〜17で別に定式化します。
 
 ## 7. 演習：有限層を紙上で数える
 
@@ -327,6 +327,7 @@ $$
 
 **A1. 有限層の多項式**
 - Level: A
+- ID: IWA7-A1
 
 $p=3$ として $\omega_0,\omega_1,\omega_2\bmod3$ を求め、$\deg\omega_2$ を述べよ。
 
@@ -345,6 +346,7 @@ $$
 
 **A2. $p$ 冪因子**
 - Level: A
+- ID: IWA7-A2
 
 $p=5$、$M=\Lambda/(25)$、$n=2$ とする。$M/\omega_2M$ の位数を求めよ。
 
@@ -362,6 +364,7 @@ $$
 
 **A3. 一次因子の直接計算**
 - Level: A
+- ID: IWA7-A3
 
 $p=3$、$M=\Lambda/(T+3)$ について、第0層と第1層のcoinvariantsの位数を個別に計算せよ。
 
@@ -380,17 +383,19 @@ $$
 
 **A4. 有限部分の寄与**
 - Level: A
+- ID: IWA7-A4
 
 $M=\mathbb Z/9\mathbb Z$ を $\gamma=1$ で作用させる有限 $\Lambda$ 加群とする。すべての $n$ について $M/\omega_nM$ の位数を求め、$\mu(M),\lambda(M)$ と比較せよ。
 
 <!-- solution-start -->
-**詳細解答。** $T=\gamma-1$ は零作用します。従って $\omega_n=(1+T)^{p^n}-1$ も零作用し、$M/\omega_nM=M$、位数は $9=3^2$ です。[有限加群の擬零性](../IWA5/index.md#prop-iwa5-pseudozero-finite)と[特徴イデアル](../IWA6/index.md#def-iwa6-characteristic)により $\mu(M)=\lambda(M)=0$。指数 $2$ は定数 $\nu$ に対応します。
+**詳細解答。** $T=\gamma-1$ は零作用します。従って $\omega_n=(1+T)^{p^n}-1$ も零作用し、$M/\omega_nM=M$、位数は $9=3^2$ です。[有限加群の擬零性](../IWA5/index.md#prop-iwa5-pseudonull-finite)と[特徴イデアル](../IWA6/index.md#def-iwa6-characteristic)により $\mu(M)=\lambda(M)=0$。指数 $2$ は定数 $\nu$ に対応します。
 <!-- solution-end -->
 
 <a id="ex-iwa7-a5"></a>
 
 **A5. 成長差の計算**
 - Level: A
+- ID: IWA7-A5
 
 $p=3$、$e_n=2\cdot3^n+4n+7$ とする。$e_{n+1}-e_n$ を求め、$\mu,\lambda$ を読め。
 
@@ -412,6 +417,7 @@ $$
 
 **B1. 平方因子と有限群**
 - Level: B
+- ID: IWA7-B1
 
 $p=3$、$M=\Lambda/(T+3)^2\oplus\mathbb Z/9\mathbb Z$ とし、有限群には自明な $\Gamma$ 作用を入れる。$|M/\omega_nM|$ と三つの不変量を求めよ。
 
@@ -430,11 +436,12 @@ $$
 
 **B2. 有限性の反例**
 - Level: B
+- ID: IWA7-B2
 
 $p=3$、$M=\Lambda/(T)$ と $M'=\Lambda/(T+3)$ を比較する。どちらも $\mu=0,\lambda=1$ であることを示したうえで、なぜ $M/\omega_nM$ は有限にならないのか説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** $T$ と $T+3$ は次数1のdistinguished多項式なので、[特徴イデアルの定義](../IWA6/index.md#def-iwa6-characteristic)により両者の $\mu=0,\lambda=1$ です。$M$ では $T=0$、従って $\omega_n(0)=0$ なので
+**詳細解答。** $T$ と $T+3$ は次数1のdistinguished多項式なので、[IWA6の特徴イデアルと岩澤不変量](../IWA6/index.md#def-iwa6-characteristic)により両者の $\mu=0,\lambda=1$ です。$M$ では $T=0$、従って $\omega_n(0)=0$ なので
 
 $$
 M/\omega_nM=M\simeq\mathbb Z_3
@@ -447,6 +454,7 @@ $$
 
 **B3. $p=2$ の安全な一次例**
 - Level: B
+- ID: IWA7-B3
 
 $p=2$、$M=\Lambda/(T+4)$ とする。各 $n$ で $v_2(|M/\omega_nM|)=n+2$ を証明せよ。また $T+2$ では同じ主張ができない理由を述べよ。
 
@@ -458,6 +466,7 @@ $p=2$、$M=\Lambda/(T+4)$ とする。各 $n$ で $v_2(|M/\omega_nM|)=n+2$ を�
 
 **B4. 算術への適用条件**
 - Level: B
+- ID: IWA7-B4
 
 有限数体 $F$ のある $\mathbb Z_p$ 拡大について $X=\varprojlim A_n$ を作った。$X$ の $\mu,\lambda$ を求めたことだけを理由に、すべての $n$ で $|A_n|=|X/\omega_nX|$ と書く解答の問題点を二つ挙げよ。
 
@@ -471,12 +480,13 @@ $p=2$、$M=\Lambda/(T+4)$ とする。各 $n$ で $v_2(|M/\omega_nM|)=n+2$ を�
 
 **C1. 成長する塔の模型と定理の射程**
 - Level: C
+- ID: IWA7-C1
 
 $p=3$、$M=\Lambda/(9)\oplus\Lambda/(T+3)^2\oplus\mathbb Z/27\mathbb Z$（最後の群には自明な作用）を考える。
 
 1. 各 $n\ge0$ で $|M/\omega_nM|$ を求め、その結果を $\mu p^n+\lambda n+\nu$ の形にせよ。
 2. $e_{n+1}-e_n$ を求め、$\mu=0$ の模型との違いを説明せよ。
-3. この $M$ の計算から任意の数体の類群について直接結論してはいけない理由と、Ferrero–Washington定理を適用するための基礎体と塔の条件を述べよ。
+3. この $M$ の計算から任意の数体の類群について直接結論してはいけない理由と、[Ferrero–Washingtonのμ=0定理](#thm-iwa7-ferrero-washington)を適用するための基礎体と塔の条件を述べよ。
 
 <!-- solution-start -->
 **詳細解答。**
@@ -499,13 +509,13 @@ $$
 
 差は一定ではなく $n$ とともに増えます。対して $\mu=0$ なら [成長差の命題](#prop-iwa7-growth-difference)により差は十分大きな層で一定の $\lambda$ です。
 
-**第3問。** 計算したのは抽象的な $\Lambda$ 加群のcoinvariantsです。数体の類群 $A_n$ との比較を証明していない以上、この模型の指数を $v_p(h(F_n))$ と同一視できません。[算術的な類数成長定理](#thm-iwa7-class-number-growth)は任意の数体の $\mathbb Z_p$ 拡大に対して十分大きい $n$ の式を保証しますが、この模型の数値を保証しません。[Ferrero–Washingtonの定理](#thm-iwa7-ferrero-washington)を適用するには、$F/\mathbb Q$ が有限Abel拡大で、$F_\infty/F$ がその円分 $\mathbb Z_p$ 拡大であることが必要です。模型では $\mu=2$ なので、同定可能な円分Abel数体の類群模型だと断定することは定理と両立しません。
+**第3問。** 計算したのは抽象的な $\Lambda$ 加群のcoinvariantsです。数体の類群 $A_n$ との比較を証明していない以上、この模型の指数を $v_p(h(F_n))$ と同一視できません。[算術的な類数成長定理](#thm-iwa7-class-number-growth)は任意の数体の $\mathbb Z_p$ 拡大に対して十分大きい $n$ の式を保証しますが、この模型の数値を保証しません。[Ferrero–Washingtonのμ=0定理](#thm-iwa7-ferrero-washington)を適用するには、$F/\mathbb Q$ が有限Abel拡大で、$F_\infty/F$ がその円分 $\mathbb Z_p$ 拡大であることが必要です。模型では $\mu=2$ なので、同定可能な円分Abel数体の類群模型だと断定することは定理と両立しません。
 <!-- solution-end -->
 
 ## 参考資料と次講への道筋
 
 - Ralph Greenberg, [*Iwasawa Theory—Past and Present*（講義ノート）](https://sites.math.washington.edu/~greenber/book.pdf), 第2章：類数成長の算術的定理と有限層比較。
-- Romyar Sharifi, [*Iwasawa Theory*, Chapter 6](https://math.ucla.edu/~sharifi/notes/iwasawa-ch06.html), §6.2：Ferrero–Washington定理の範囲。
+- Romyar Sharifi, [*Iwasawa Theory*, Chapter 6](https://math.ucla.edu/~sharifi/notes/iwasawa-ch06.html), §6.2：μ消失の範囲。
 - Lawrence C. Washington, *Introduction to Cyclotomic Fields*, 2nd ed.：円分塔と類群の標準的整理。
 
 次講 IWA8 では、同じ類群を円分体の指標成分へ分けて調べます。ここでの $\mu=0$ は**全体の成長の形**を制限しますが、各指標成分の $\lambda$ を決定するものではありません。

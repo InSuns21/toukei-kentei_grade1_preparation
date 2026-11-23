@@ -3,12 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - IWA6
-  - ANF7
-forward_references:
-  - IWA8
-  - IWA9
-  - IWA11
-  - IWA12
+forward_references: []
 concepts:
   - id: number-theory.iwa7-layer-quotient
     name: 有限層作用素とcoinvariants
