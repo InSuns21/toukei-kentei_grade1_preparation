@@ -25,7 +25,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep7-angular-momentum -->
-**定義の確認。** 標準表現 $D(U)=U$ を $V=\mathbb C^2$ 上で考えると、$dD(A_a)=A_a$ なので $J_a=\sigma_a/2$ です。各 $\sigma_a^\dagger=\sigma_a$ を行列成分から確認できるため $J_a^\dagger=J_a$ です。さらに
+**定義の確認**。 標準表現 $D(U)=U$ を $V=\mathbb C^2$ 上で考えると、$dD(A_a)=A_a$ なので $J_a=\sigma_a/2$ です。各 $\sigma_a^\dagger=\sigma_a$ を行列成分から確認できるため $J_a^\dagger=J_a$ です。さらに
 
 $$
 J_+=\frac12(\sigma_1+i\sigma_2)
@@ -111,7 +111,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep7-casimir -->
-**定義の確認。** 二次元標準表現では $J_a=\sigma_a/2$ で、[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)に $a=b$ を代入すれば $\sigma_a^2=I_2$ です。従って $\boldsymbol J^2=\frac14(3I_2)=\frac34I_2$ です。また $J_+J_-=\operatorname{diag}(1,0)$、$J_-J_+=\operatorname{diag}(0,1)$、$J_3^2=I_2/4$ なので右辺も $3I_2/4$ になります。二つの表示の一致を直接検算できました。
+**定義の確認**。 二次元標準表現では $J_a=\sigma_a/2$ で、[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)に $a=b$ を代入すれば $\sigma_a^2=I_2$ です。従って $\boldsymbol J^2=\frac14(3I_2)=\frac34I_2$ です。また $J_+J_-=\operatorname{diag}(1,0)$、$J_-J_+=\operatorname{diag}(0,1)$、$J_3^2=I_2/4$ なので右辺も $3I_2/4$ になります。二つの表示の一致を直接検算できました。
 <!-- definition-example-end -->
 
 二つ目の等式は $J_1=(J_++J_-)/2$ と $J_2=(J_+-J_-)/(2i)$ を代入したものです。非可換なので交差項を勝手に消さず、
@@ -193,7 +193,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep7-spin-basis -->
-**定義の確認。** $n=2$ なら $j=1$、$u_0=x^2$、$u_1=\sqrt2xy$、$u_2=y^2$ です。$m=1-k$ なので $|1,1\rangle=u_0$、$|1,0\rangle=u_1$、$|1,-1\rangle=u_2$ となります。[前講の作用式](../LREP6/index.md#prop-lrep6-unitary-ladder)から $J_3u_k=(1-k)u_k$ を直接確認でき、$u_k$ は前講の不変内積について正規直交です。非零性、量子数の範囲、固有値、規格化がそれぞれ確認できました。
+**定義の確認**。 $n=2$ なら $j=1$、$u_0=x^2$、$u_1=\sqrt2xy$、$u_2=y^2$ です。$m=1-k$ なので $|1,1\rangle=u_0$、$|1,0\rangle=u_1$、$|1,-1\rangle=u_2$ となります。[前講の作用式](../LREP6/index.md#prop-lrep6-unitary-ladder)から $J_3u_k=(1-k)u_k$ を直接確認でき、$u_k$ は前講の不変内積について正規直交です。非零性、量子数の範囲、固有値、規格化がそれぞれ確認できました。
 <!-- definition-example-end -->
 
 <a id="thm-lrep7-spin-spectrum"></a>
