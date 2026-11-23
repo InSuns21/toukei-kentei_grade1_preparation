@@ -56,13 +56,15 @@ $$
 
 ここで $q$ が次数 $k$ というのは $q(tX)=t^kq(X)$（実数 $t$）という意味である。$p$ の各引数の対称性と $q$ のAd不変性を混同しない。**対称化**を行っていない任意の積のtraceは $k\ge3$ で対称とは限らない。
 
-**最初の直接例**。$G=U(1)$ なら $\mathfrak g=i\mathbb R$ で、任意の $g$ に対して $\operatorname{Ad}_gX=X$ である。$X_j=it_j$（$t_j\in\mathbb R$）として
+<!-- definition-example-start: def-gbg20-invariant-polynomial -->
+**定義の確認（可換群の例）**。$G=U(1)$ なら $\mathfrak g=i\mathbb R$ で、任意の $g$ に対して $\operatorname{Ad}_gX=X$ である。$X_j=it_j$（$t_j\in\mathbb R$）として
 
 $$
 p_k(it_1,\ldots,it_k)=t_1\cdots t_k
 $$
 
 と定めると、各 $t_j$ への実線形性、任意の引数置換に対する積の一致、全引数へのAd作用の自明性を順に確認できる。よってこれはすべての $k\ge1$ で定義を満たす。特に $p_1(X)=iX/(2\pi)$ は実数値になり、前講の正規化と一致する。
+<!-- definition-example-end -->
 
 **非例**。$G=GL(2,\mathbb C)$ を実Lie群として見て $p(X)=X_{11}$ と置くと線形かつ1重のため対称だが、前節の $g$ と $X$ では $p(g^{-1}Xg)=-1\ne1=p(X)$。破れているのはAd不変性である。したがって成分 $(F_i)_{11}$ は一般に貼り合わせられない。
 
@@ -136,7 +138,8 @@ $$
 > と定める。$\operatorname{tr}$ は複素ベクトル空間 $V$ 上の線形作用素のtraceである。
 <!-- formal-statement-end -->
 
-$k=1$ では $\operatorname{tr}\rho_*(X)$、$k=2$ では
+<!-- definition-example-start: def-gbg20-symmetrized-trace -->
+**定義の確認（低次数）**。$k=1$ では $\operatorname{tr}\rho_*(X)$、$k=2$ では
 
 $$
 p_{\rho,2}(X,Y)
@@ -145,7 +148,10 @@ p_{\rho,2}(X,Y)
 =\operatorname{tr}(\rho_*(X)\rho_*(Y)).
 $$
 
-最後の等号は $\operatorname{tr}(AB)=\operatorname{tr}(BA)$ による。$k=3$ では、巡回置換のみでは六つの順序をすべて同一視できない。
+最後の等号は $\operatorname{tr}(AB)=\operatorname{tr}(BA)$ による。さらに $G=U(1)$ と標準の1次元表現 $\rho(e^{it})=e^{it}$ では $\rho_*(it)=it$ なので、上式は $p_{\rho,2}(it_1,it_2)=-t_1t_2$ となる。各引数への実線形性、$t_1,t_2$ を入れ替えた対称性、可換群ゆえのAd不変性をそれぞれ確認できる。
+<!-- definition-example-end -->
+
+$k=3$ では、巡回置換のみでは六つの順序をすべて同一視できない。
 
 <a id="thm-gbg20-trace-invariant"></a>
 
@@ -227,7 +233,8 @@ $$
 > と書く。局所section $s_i:U_i\to P$ の下では $p(F_i^k):=p(F_i,\ldots,F_i)$ と書く。$2k>\dim M$ の場合は、基底上に得られる $2k$ 形式は零とする。
 <!-- formal-statement-end -->
 
-定義を直ちに確認する例として、$G=U(1)$、$M=\mathbb R^4$ の積主束上で
+<!-- definition-example-start: def-gbg20-curvature-polynomial-form -->
+**定義の確認（4形式の構成）**。$G=U(1)$、$M=\mathbb R^4$ の積主束上で
 
 $$
 A=i(x^1dx^2+x^3dx^4),\qquad
@@ -242,7 +249,8 @@ p_2(F,F)
 =2\,dx^1\wedge dx^2\wedge dx^3\wedge dx^4.
 $$
 
-外積の二つの交差項は2形式どうしの交換符号 $(-1)^{2\cdot2}=+1$ により足し合わされる。同じ2形式の自己外積は零である。これは定義から4形式を実際に作る確認である。
+外積の二つの交差項は2形式どうしの交換符号 $(-1)^{2\cdot2}=+1$ により足し合わされる。同じ2形式の自己外積は零である。$p_2$ の2重線形性、対称性とAd不変性は先の $U(1)$ の確認と同じであり、ここでは定義の外積規則によってLie環値2形式が複素数値4形式へ写ることまで確かめた。
+<!-- definition-example-end -->
 
 ### 何が「大域の形式」なのか
 
