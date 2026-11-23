@@ -4,7 +4,7 @@
 
 一つの答えが行列式から得る **Chern類の代表形式**、もう一つが行列の指数関数と跡から得る **Chern指標**である。どちらも同じ曲率を入力するが、前者は直和で積になり、後者は直和で和になる。次数4では両者の符号まで違い得る。
 
-**本講の設定**。$M$ は境界のない滑らかな有限次元多様体、$P\to M$ は滑らかな右主 $U(r)$ 束（$r\ge1$）、$E=P\times_{U(r)}\mathbb C^r$ は標準表現で作った階数 $r$ の Hermite 複素ベクトル束とする。[結合束の構成](../GBG4/index.md#def-gbg4-associated-bundle)と[結合束の共変微分](../GBG9/index.md#thm-gbg9-induced-connection)に従って接続 $\nabla$ を取り、その局所曲率を $F\in\Omega^2(U;\mathfrak u(r))$ と書く。$\mathfrak u(r)$ の行列は反Hermiteである。従って本講では一貫して
+**本講の設定**。$M$ は境界のない滑らかな有限次元多様体、$P\to M$ は滑らかな右主 $U(r)$ 束（$r\ge1$）、$E=P\times_{U(r)}\mathbb C^r$ は標準表現で作った階数 $r$ の Hermite 複素ベクトル束とする。[結合束の構成](../GBG4/index.md#def-gbg4-associated-bundle)と[結合束の共変微分](../GBG9/index.md#thm-gbg9-local-formula)に従って接続 $\nabla$ を取り、その局所曲率を $F\in\Omega^2(U;\mathfrak u(r))$ と書く。$\mathfrak u(r)$ の行列は反Hermiteである。従って本講では一貫して
 
 $$
 C=\frac{i}{2\pi}F
