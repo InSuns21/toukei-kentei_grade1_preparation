@@ -1,0 +1,54 @@
+chapter: LREP5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP4
+forward_references: []
+concepts:
+  - id: representation.pauli-matrix-model
+    name: Pauli行列と三次元の行列模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Pauli行列と三次元の行列模型）"]
+    requires: [lie.special-unitary-group, linear.matrix-determinant]
+  - id: representation.pauli-product
+    name: Pauli行列の積公式
+    kind: lemma
+    introduction: formal
+    requires: [representation.pauli-matrix-model]
+  - id: representation.su2-conjugation
+    name: 共役による三次元作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共役による三次元作用）"]
+    requires: [representation.pauli-matrix-model, lie.special-unitary-group]
+  - id: representation.su2-orthogonal
+    name: 共役作用は特殊直交表現
+    kind: theorem
+    introduction: formal
+    requires: [representation.su2-conjugation, representation.pauli-product, lie.special-orthogonal-group]
+  - id: representation.su2-axis-angle
+    name: 軸角表示と三次元回転
+    kind: proposition
+    introduction: formal
+    requires: [representation.su2-orthogonal, representation.pauli-product, lie.exponential-map]
+  - id: representation.su2-kernel-surjectivity
+    name: 像と核
+    kind: theorem
+    introduction: formal
+    requires: [representation.su2-axis-angle, representation.su2-orthogonal]
+  - id: representation.su2-so3-double-cover
+    name: SU(2)からSO(3)への二重被覆
+    kind: theorem
+    introduction: formal
+    requires: [representation.su2-kernel-surjectivity, representation.differentiation-bracket, lie.unitary-lie-algebra]
+  - id: representation.so3-su2-quotient
+    name: 回転群の商表示
+    kind: corollary
+    introduction: formal
+    requires: [representation.su2-so3-double-cover]
+  - id: representation.su2-two-pi
+    name: 2π回転と表現の降下
+    kind: proposition
+    introduction: formal
+    requires: [representation.su2-axis-angle, representation.su2-kernel-surjectivity, representation.covering-kernel-criterion]
