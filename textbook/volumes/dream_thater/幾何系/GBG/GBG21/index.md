@@ -218,7 +218,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず[GBG20の大域降下定理](../GBG20/index.md#thm-gbg20-basic-descent)から、大域形式 $\beta_p(\omega)$ が存在し、任意の局所 section $s_i$ による表示は $p(F_i^k)$ である。重なりでの一致は曲率変換 $F_j=\operatorname{Ad}_{g_{ij}^{-1}}F_i$ とAd不変性から
+まず[不変曲率多項式の大域への降下](../GBG20/index.md#thm-gbg20-basic-descent)から、大域形式 $\beta_p(\omega)$ が存在し、任意の局所 section $s_i$ による表示は $p(F_i^k)$ である。重なりでの一致は曲率変換 $F_j=\operatorname{Ad}_{g_{ij}^{-1}}F_i$ とAd不変性から
 
 $$
 p(F_j^k)=p((\operatorname{Ad}_{g_{ij}^{-1}}F_i)^k)=p(F_i^k)
@@ -349,7 +349,7 @@ $$
 d\,p(K)=dx\wedge dy\wedge dz\ne0.
 $$
 
-$U(1)$ の曲率なら $F=dA$ で $dF=d^2A=0$ になるため、この $K$ は**接続の曲率にはなれない**。不変性は括弧項を消すが、Bianchi恒等式が無ければ $dK$ は消えない。二つの仮定が別々の仕事をしていることが分かる。
+$U(1)$ の曲率なら $F=dA$ で $dF=d^2A=0$ になるため、この $K$ は**接続の曲率にはなれない**。不変性は括弧項を消すが、Bianchi恒等式が無ければ $dK$ は消えない。二つの仮定がそれぞれ別の役割を担うことが分かる。
 
 ## 6. 演習と詳細解答
 
@@ -359,10 +359,10 @@ $U(1)$ の曲率なら $F=dA$ で $dF=d^2A=0$ になるため、この $K$ は**
 #### GBG21-A01 traceで一回の相殺
 - Level: A
 
-行列群の局所曲率 $F=dA+A\wedge A$ に対し、$d\,\operatorname{tr}F=0$ をBianchi恒等式から導け。$dF=0$ と仮定してはならない。
+行列群の局所曲率 $F=dA+A\wedge A$ に対し、$d\,\operatorname{tr}F=0$ を、$dF=-[A\wedge F]$ という曲率の恒等式から導け。$dF=0$ と仮定してはならない。
 
 <!-- solution-start -->
-**詳細解答**。[局所Bianchi恒等式](../GBG11/index.md#thm-gbg11-bianchi-local)から
+**詳細解答**。[主束曲率の Bianchi 恒等式・局所形式](../GBG11/index.md#thm-gbg11-bianchi-local)から
 
 $$
 dF=-[A\wedge F]=-A\wedge F+F\wedge A.
@@ -511,7 +511,7 @@ $$
 
 を得る。これで重なりにおける値が一致し、滑らかな大域形式 $\beta$ が一意に定まる。
 
-第二段階では各パッチで $d\,p(F_i^k)=k p(dF_i,F_i^{k-1})$ と微分し、[Bianchi恒等式](../GBG11/index.md#thm-gbg11-bianchi-local)から $dF_i=-[A_i\wedge F_i]$ を代入する。[括弧項の相殺](#lem-gbg21-invariance-cancellation)によって零となるので、大域に $d\beta=0$。最初の貼り合わせ計算だけから閉性を結論したわけではない。
+第二段階では各パッチで $d\,p(F_i^k)=k p(dF_i,F_i^{k-1})$ と微分し、[主束曲率の Bianchi 恒等式・局所形式](../GBG11/index.md#thm-gbg11-bianchi-local)から $dF_i=-[A_i\wedge F_i]$ を代入する。[括弧項の相殺](#lem-gbg21-invariance-cancellation)によって零となるので、大域に $d\beta=0$。最初の貼り合わせ計算だけから閉性を結論したわけではない。
 <!-- solution-end -->
 
 <a id="ex-gbg21-b04"></a>
