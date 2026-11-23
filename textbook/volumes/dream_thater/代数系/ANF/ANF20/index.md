@@ -406,7 +406,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf20-ideal-artin -->
-**定義の確認**。 $L=\mathbb Q(\zeta_5)$ とし、$S=\{5\}$ を選びます。
+**定義の確認**。 $L=\mathbb Q(\zeta_5)$ とし、$S=\{5\}$ を選びます。この例のFrobenius計算では、[次節で証明する円分体のArtin計算](#prop-anf20-cyclotomic-artin)を先に使い、根拠はその証明で確認します。
 
 素イデアル $(11)$ は非分岐で、$11\equiv1\pmod5$ より $\operatorname{Frob}_{11}=1$ です。
 
@@ -480,7 +480,17 @@ $$
 M=(\alpha_i^{j-1})_{1\le i,j\le4}
 $$
 
-と置きます。[基底の判別式の埋め込み表示](../ANF2/index.md#thm-anf2-embedding-formulas)から $\operatorname{disc}(1,\zeta_5,\zeta_5^2,\zeta_5^3)=(\det M)^2$ です。Vandermondeの積 $\det M=\prod_{i<j}(\alpha_j-\alpha_i)$ を二乗し、$\Phi_5'(\alpha_i)=\prod_{j\ne i}(\alpha_i-\alpha_j)$ を全 $i$ で掛ければ、四次では $(-1)^{4\cdot3/2}=1$ なので $(\det M)^2=\prod_i\Phi_5'(\alpha_i)$ と分かります。従って
+と置きます。[埋め込みによる跡の公式](../ANF2/index.md#thm-anf2-embedding-formulas)を[基底の判別式の定義](../ANF2/index.md#def-anf2-basis-discriminant)の跡行列 $G$ に適用すると、行列 $M$ の第 $i$ 行は第 $i$ の埋め込みによる基底の像なので
+
+$$
+G_{jk}=\operatorname{Tr}_{L/\mathbb Q}(\zeta_5^{j+k-2})
+=\sum_{i=1}^4\alpha_i^{j+k-2}
+=(M^{\mathsf T}M)_{jk}.
+$$
+
+従って $\operatorname{disc}(1,\zeta_5,\zeta_5^2,\zeta_5^3)=\det G=(\det M)^2$ です。Vandermondeの公式から $\det M=\prod_{i<j}(\alpha_j-\alpha_i)$ を得ます。
+
+さらに $\Phi_5'(\alpha_i)=\prod_{j\ne i}(\alpha_i-\alpha_j)$ をすべての $i$ で掛けると、各二点の差が二回現れます。四次では符号が $(-1)^{4\cdot3/2}=1$ なので、$(\det M)^2=\prod_i\Phi_5'(\alpha_i)$ です。従って
 
 $$
 \left|\operatorname{disc}(1,\zeta_5,\zeta_5^2,\zeta_5^3)\right|
