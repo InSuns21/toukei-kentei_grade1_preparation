@@ -101,9 +101,9 @@ $$
 <!-- definition-example-start: def-gbg11-covariant-exterior-derivative -->
 **定義の確認**。積主束 $P=\mathbb R^3\times U(1)$ の標準 section を $s(x,y,z)=((x,y,z),1)$ とし、基底上で $A=ix\,dy$ を選ぶ。[GBG7の積主束接続の公式](../GBG7/index.md#prop-gbg7-product-form)にこの $A$ を代入すると、$u\in U(1)$ を群成分として
 
-$
+$$
 \omega=\pi^*(ix\,dy)+u^{-1}du,\qquad s^*\omega=A
-$
+$$
 
 となり、再生条件・右同変条件を満たす接続が得られる。$U(1)$ は可換なので、その Lie 環の括弧付き外積は零である。従って水平・随伴同変な形式 $\eta$ について
 
@@ -115,7 +115,7 @@ $$
 
 $$
 d_\omega\eta=d\eta=\pi^*(i\,dx\wedge dy\wedge dz).
-$
+$$
 
 ここでは等式の各辺が $P$ 上の3形式であり、引き戻す前の基底上の3形式と混同していない。共変外微分は任意の入力形式を零にする演算ではない。
 <!-- definition-example-end -->
@@ -270,25 +270,25 @@ $$
 <!-- definition-example-start: def-gbg11-local-covariant-exterior -->
 **定義の確認**。$U=\mathbb R^3$ とし、行列群 $GL(2,\mathbb R)$ の Lie 環を $\mathfrak{gl}_2(\mathbb R)=M_2(\mathbb R)$ と表示する。行列単位 $E_{ij}$ を「第 $(i,j)$ 成分だけが $1$ で他が $0$ の行列」と定め、
 
-$
+$$
 B=E_{11}=\begin{pmatrix}1&0\\0&0\end{pmatrix},
 \qquad C=E_{12}=\begin{pmatrix}0&1\\0&0\end{pmatrix},
 \qquad A=B\,dx,\quad K=C\,dy\wedge dz
-$
+$$
 
 とおく。これは座標ベクトルへの値が $A(\partial_x)=B$、$K(\partial_y,\partial_z)=C$ で、それ以外の異なる座標方向の値が零になる形式を表す。定数係数だから $dK=0$。一方、括弧付き外積の3方向の式より
 
-$
+$$
 [A\wedge K](\partial_x,\partial_y,\partial_z)
 =[A(\partial_x),K(\partial_y,\partial_z)]
 =[B,C]=BC-CB=C
-$
+$$
 
 であり、従って
 
-$
+$$
 d_AK=C\,dx\wedge dy\wedge dz\ne0.
-$
+$$
 
 局所共変外微分は外微分に非可換な補正を加える演算である。ここでは $K$ は任意の2形式であって、この $A$ から構成した曲率 $F$ ではない。
 <!-- definition-example-end -->
@@ -401,20 +401,20 @@ $$
 
 局所座標 $(x^1,\ldots,x^n)$ を取り、$\partial_i=\partial/\partial x^i$（他の座標を固定して $x^i$ で偏微分）と書く。$A$ と $F$ をこの座標基底で評価して得る係数を
 
-$
+$$
 A_i=A(\partial_i),\qquad F_{ij}=F(\partial_i,\partial_j)
-$
+$$
 
 と定めると、$A=A_i\,dx^i$、$F=\frac12F_{ij}\,dx^i\wedge dx^j$ である。ここで $F_{ji}=-F_{ij}$ であり、同じ添字を重複して書くときは $1$ から $n$ まで総和する。
 
 行列群の場合、[GBG10の局所構造方程式](../GBG10/index.md#thm-gbg10-local-formula) $F=dA+A\wedge A$ を座標ベクトル $\partial_i,\partial_j$ に評価する。座標ベクトルが可換なことと外積の定義から
 
-$
+$$
 \begin{aligned}
 (dA)(\partial_i,\partial_j)&=\partial_iA_j-\partial_jA_i,\\
 (A\wedge A)(\partial_i,\partial_j)&=A_iA_j-A_jA_i=[A_i,A_j].
 \end{aligned}
-$
+$$
 
 従って、次の定理で使う $F_{ij}$ は抽象的な曲率2形式 $F$ の座標成分そのものである。
 
@@ -465,10 +465,10 @@ $$
 
 という組を巡回的に作る。ここでは積の微分と反対称性を用いて
 
-$
+$$
 \partial_i[A_j,A_k]
 =[\partial_iA_j,A_k]+[A_j,\partial_iA_k]
-$
+$$
 
 と展開すると、同じ偏微分に関係する三項が相殺する。最後に残る三重括弧
 
@@ -509,14 +509,14 @@ $$
 
 $\beta=g^{-1}dg$、$C=g^{-1}Ag$ とおき、$A'=C+\beta$ と書く。$g^{-1}g=I$ を微分して $d(g^{-1})=-g^{-1}(dg)g^{-1}$ を得る。$g^{-1}$ と $g$ は0形式、$K$ は $k$ 形式なので、次数付き Leibniz 則は
 
-$
+$$
 d(g^{-1}Kg)
 =d(g^{-1})\wedge Kg+g^{-1}(dK)g+(-1)^kg^{-1}K\wedge dg
-$
+$$
 
 を与える。最初の項は $-\beta\wedge K'$、最後の項は $(-1)^kK'\wedge\beta$ だから
 
-$
+$$
 dK'
 =g^{-1}(dK)g-\beta\wedge K'
 +(-1)^kK'\wedge\beta.
