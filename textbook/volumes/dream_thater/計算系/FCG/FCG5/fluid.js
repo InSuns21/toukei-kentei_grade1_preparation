@@ -3,6 +3,10 @@
 // This is a visualization model, not a validated CFD prediction.
 const N=48,h=1/N,dt=0.04,rho=1,nu=0.002,forceAmplitude=0.08;
 const dyeBrushRadius=0.085,dyeBrushStrength=0.48;
+// Wall-clock presentation interval; it does not alter physical dt or the solver.
+const playbackIntervalMs=140;
+if(!Number.isInteger(playbackIntervalMs)||playbackIntervalMs<70||playbackIntervalMs>280)
+  throw new RangeError('playback interval must be 70..280 ms');
 const steps=settings.steps;
 if(!Number.isInteger(steps)||steps<0||steps>32)throw new RangeError('physical steps 0..32');
 if(![12,24,36,48].includes(N))throw new RangeError('grid N must be 12,24,36,48');
@@ -290,7 +294,16 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
       emitProgress();
     }
     const onLiveControl=event=>{
-      if(event.detail?.action==='toggle')toggleLivePlayback();
+      const action=event.detail?.action;
+      if(action==='toggle'){toggleLivePlayback();return;}
+      if(action!=='step'&&action!=='reset')return;
+      // Manual controls use the same MAC arrays as continuous playback.
+      playing=false;last=0;acc=0;
+      if(action==='reset')resetPhysics();
+      else if(stateStep<32){advanceFluidStep();stateStep++;}
+      refreshGpuFields();drawPhysicalDye();
+      canvas.title='FCG5 一時停止中：Spaceで再生、Shift+ドラッグで染料追加';
+      emitProgress();
     };
     canvas.addEventListener('fcg5-physics-control',onLiveControl);
     canvas.addEventListener('keydown',e=>{
@@ -304,8 +317,9 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
         if(!last)last=now;
         const delta=Math.min(.10,Math.max(0,(now-last)/1000));
         last=now;acc+=delta;
-        if(acc>=.14){
-          acc-=.14;
+        const interval=playbackIntervalMs/1000;
+        if(acc>=interval){
+          acc-=interval;
           if(stateStep>=32)resetPhysics();
           else{advanceFluidStep();stateStep++;}
           refreshGpuFields();
@@ -324,6 +338,6 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
       canvas.removeEventListener('fcg5-request-progress',emitProgress);
       canvas.removeEventListener('fcg5-physics-control',onLiveControl);
     },{once:true});
-    report('ANIMATION','N='+N+' EDITABLE solver draws the same dye state after the static R8 pixel oracle; Shift+drag adds external dye (radius='+dyeBrushRadius+' m, strength='+dyeBrushStrength+'), Space pauses');
+    report('ANIMATION','N='+N+' EDITABLE solver draws the same dye state after the static R8 pixel oracle; playback interval='+playbackIntervalMs+' ms/step (wall time), physical dt='+dt+' s/step; Shift+drag adds dye, Space pauses');
   }
 }

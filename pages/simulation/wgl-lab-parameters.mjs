@@ -111,6 +111,14 @@ export const LAB_PARAMETERS = Object.freeze({
       sourceLocation: 'fluid.js / const dyeBrushStrength → inject() → dye[]',
       sourceFile: 'js', index: null,
       matcher: /^([ \t]*const dyeBrushRadius=[^,\n]+,dyeBrushStrength=)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id: 'playback-ms', type: 'integer', label: 'ライブ再生の間隔', default: 140,
+      min: 70, max: 280, step: 70, unit: 'ms/物理step（表示時計）',
+      meaning: '小さいほど速い目標表示間隔。実行負荷で遅くなる場合がある。物理時間刻みdtや数値解は変えない',
+      sourceLocation: 'fluid.js / const playbackIntervalMs → frame() の実時間accumulator',
+      sourceFile: 'js', index: null,
+      matcher: /^([ \t]*const playbackIntervalMs=)([^;\n]+)(;)/gm
     })
   ]),
   WGL18: Object.freeze([Object.freeze({
