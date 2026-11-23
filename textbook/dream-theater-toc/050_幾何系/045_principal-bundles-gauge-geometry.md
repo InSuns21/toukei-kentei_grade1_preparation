@@ -23,3 +23,4 @@
 20. [GBG20 曲率から不変な多項式を作る条件は](textbook/volumes/dream_thater/幾何系/GBG/GBG20/index.md)
 21. [GBG21 Chern–Weil形式はなぜ閉じるか](textbook/volumes/dream_thater/幾何系/GBG/GBG21/index.md)
 22. [GBG22 接続を変えても特性類が変わらないのはなぜか](textbook/volumes/dream_thater/幾何系/GBG/GBG22/index.md)
+23. [GBG23 Chern類・Chern指標はどの式で正規化するか](textbook/volumes/dream_thater/幾何系/GBG/GBG23/index.md)
