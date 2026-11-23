@@ -257,9 +257,11 @@ $$
 
 とする。[曲率の局所構造方程式](../GBG10/index.md#thm-gbg10-local-formula)から、$dA=0$ と $A\wedge A=[H,X]dx\wedge dy$ を代入して曲率を求めると、
 
-$
-d_A\varepsilon=[A,H]=-X\,dy,
-\qquad F=[H,X]\,dx\wedge dy=X\,dx\wedge dy.
+$$
+\begin{aligned}
+d_A\varepsilon&=[A,H]=-X\,dy,\\
+F&=[H,X]\,dx\wedge dy=X\,dx\wedge dy.
+\end{aligned}
 $$
 
 また $[F,\varepsilon]=[X,H]\,dx\wedge dy=-X\,dx\wedge dy$。有限変換の曲率が一次でどう動くかを、この二つの式から照合できる。
@@ -288,13 +290,13 @@ $$
 
 十分性は行列群の局所表示で示す。$d_A\varepsilon=d\varepsilon+A\varepsilon-\varepsilon A=0$ とする。局所座標を $x^1,\ldots,x^m$ とし、$\partial_k:=\partial/\partial x^k$、$A_k:=A(\partial_k)$ と書く。ここで $k$ は**座標方向**の添字であり、冒頭の $A_i=s_i^*\omega$ の $i$ は**パッチ番号**であって別物である。$a_t=e^{t\varepsilon}$ に対して
 
-$
+$$
 K_k(t)=a_t^{-1}A_k a_t+a_t^{-1}\partial_k a_t
-$
+$$
 
 を考える。$\partial_t:=\partial/\partial t$ は $x^k$ を固定して $t$ で微分する演算子であり、滑らかさから $\partial_t\partial_k a_t=\partial_k\partial_t a_t$ である。また $\partial_t a_t=\varepsilon a_t$ と $\partial_t a_t^{-1}=-a_t^{-1}\varepsilon$ だから、積を微分して
 
-$
+$$
 \begin{aligned}
 \partial_t(a_t^{-1}A_k a_t)&=a_t^{-1}[A_k,\varepsilon]a_t,\\
 \partial_t(a_t^{-1}\partial_k a_t)
@@ -304,7 +306,7 @@ $
 \partial_t K_k(t)
 &=a_t^{-1}(\partial_k\varepsilon+[A_k,\varepsilon])a_t=0.
 \end{aligned}
-$
+$$
 
 $K_k(0)=A_k$ なので $K_k(t)=A_k$ が全ての $t$ で成り立つ。つまり $d a_t+A a_t-a_tA=0$。左から $a_t^{-1}$ を掛けて整理すると
 
@@ -314,16 +316,16 @@ $$
 
 だから全ての $t$ で固定する。一般の（行列群とは限らない）Lie 群でも同じことを確認できる。局所ゲージ関数 $a_t(x)=\exp(t\varepsilon(x))$ に対し、[左 Maurer–Cartan 形式](../GBG7/index.md#prop-gbg7-maurer-cartan-fibre)の引き戻しを $\theta_t=a_t^{-1}da_t$ と書く。これは行列の逆数・積ではなく、左移動によって接ベクトルを Lie 環へ戻す記法である。$t$ に関する左対数微分は $a_t^{-1}\partial_t a_t=\varepsilon$ なので、Maurer–Cartan 形式の積の微分則から任意の接ベクトル $V$ について
 
-$
+$$
 \partial_t\theta_t(V)=V(\varepsilon)+[\theta_t(V),\varepsilon]
-$
+$$
 
 となる。一方、$\partial_t\operatorname{Ad}_{a_t^{-1}}A(V)=[\operatorname{Ad}_{a_t^{-1}}A(V),\varepsilon]$ である。したがって変換後の接続 $B_t=\operatorname{Ad}_{a_t^{-1}}A+\theta_t$ は
 
-$
+$$
 \partial_t B_t(V)=V(\varepsilon)+[B_t(V),\varepsilon],
 \qquad B_0(V)=A(V)
-$
+$$
 
 を満たす。仮定 $d_A\varepsilon=0$ は $V(\varepsilon)+[A(V),\varepsilon]=0$ だから、定数関数 $B_t(V)=A(V)$ もこの初期値問題の解である。各点・各 $V$ で有限次元 Lie 環上の線形常微分方程式の一意性を使えば $B_t(V)=A(V)$ が全ての $t$ で従う。これで一般 Lie 群でも十分性が示された。
 <!-- proof-end -->
@@ -577,7 +579,7 @@ $$
 $\mathbb R$ 上の $GL(2,\mathbb R)$ 接続 $A=H\,dx$（$H=E_{11}$）について、定数ゲージ関数 $a=\operatorname{diag}(2,1)$ が安定化群に入ることを示せ。一方 $b(x)=I+xE_{12}$ が入らないことを示せ。
 
 <!-- solution-start -->
-**詳細解答**。定数 $a$ は $da=0$ かつ $a^{-1}Ha=H$ なので $T_a(A)=H\,dx=A$ である。$X=E_{12}$ とおくと $b^{-1}=I-xX$、$db=X\,dx$、$HX=X$、$XH=0$ から
+**詳細解答**。$a=\operatorname{diag}(2,1)$ は行列式が2なので可逆であり、定数ゆえ $da=0$、かつ $a^{-1}Ha=H$ だから $T_a(A)=H\,dx=A$ である。$X=E_{12}$ とおくと $X^2=0$ で、$(I+xX)(I-xX)=I-x^2X^2=I$ となる。したがって $b(x)$ は全ての実数 $x$ で可逆、$b^{-1}=I-xX$ である。さらに $db=X\,dx$、$HX=X$、$XH=0$ から
 
 $$
 b^{-1}Hb=H+xX,\qquad b^{-1}db=X\,dx.
@@ -605,7 +607,7 @@ $$
 \delta A=dH+[H,H]\,dx+[X,H]\,dy=-X\,dy.
 $$
 
-もとの曲率は $F=X\,dx\wedge dy$。$A_t=A+t\delta A$ と置き、[接続を変えたときの曲率の差](../GBG12/index.md#prop-gbg12-curvature-variation)を用いると
+もとの曲率は $F=X\,dx\wedge dy$。ここでは一次の変化を検算するため、補助的な接続族 $A_t=A+t\delta A$ を置く。これは有限変換 $T_{\exp(t\varepsilon)}(A)$ と一般には一致しないが、$t=0$ での導関数はともに $\delta A$ なので、曲率の一次変化の比較に使える。[接続を変えたときの曲率の差](../GBG12/index.md#prop-gbg12-curvature-variation)を用いると
 
 $$
 F_t=F+t\,d_A(\delta A)+\frac{t^2}{2}[\delta A\wedge\delta A].
