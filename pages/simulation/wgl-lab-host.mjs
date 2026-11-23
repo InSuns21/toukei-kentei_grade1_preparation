@@ -1002,7 +1002,7 @@ window.addEventListener('message', event => {
     steps: (isWGL18 || isWGL19) ? data.floatParameters?.steps : active.payload.steps,
     frameAudit: isWGL19 ? data.frameAudit : undefined,
     gridN: isFCG3 ? readLabParameter(active.payload.js,parametersFor('FCG3')[1]).value :
-       isFCG8 ? fcg8PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment)?.N :
+       isFCG8 ? (fcg8PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment)?.N??null) :
         isFCG5 ? readLabParameter(active.payload.js,parametersFor('FCG5')[0]).value :
       isFCG6 ? fcg6PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment)?.N : undefined,
     dt: isFCG5 ? readLabParameter(active.payload.js,parametersFor('FCG5')[3]).value : undefined
