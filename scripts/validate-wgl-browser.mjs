@@ -548,8 +548,8 @@ try{
   assert.match(await evalJS('document.getElementById("status").textContent'),
     /独立画素検算に合格/,'FCG2 actual R8 scalar GPU snapshot failed');
   const scene2=await evalJS('({clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent})');
-  assert.match(scene2.clock,/t=1.57080 s/);
-  assert.match(scene2.grid,/8×8/);
+  assert.match(scene2.clock,/t=1.571 s/);
+  assert.match(scene2.grid,/128×128/);
   console.log('FCG2 actual R8 GPU draw and physical-time legend: PASS');
   await click('stop');
 
