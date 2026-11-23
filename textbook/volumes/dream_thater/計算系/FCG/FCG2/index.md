@@ -136,16 +136,29 @@ $$
 
 ### 受動染料は広がっても濃度を増やさない
 
-式(1)の速度を直交座標で書くと $u_x=-\Omega(r)Y$、$u_y=\Omega(r)X$ である。$r>0$ では $\partial_xr=X/r$、$\partial_yr=Y/r$ だから、積の微分と連鎖律より
+式(1)の速度を直交座標で書くと $u_x=-\Omega(r)Y$、$u_y=\Omega(r)X$ である。$r>0$ では $r=\sqrt{X^2+Y^2}$ なので、連鎖律から
 
-$
-\begin{aligned}
-\partial_xu_x&=-Y\,\Omega'(r)\frac{X}{r},\\
-\partial_yu_y&= X\,\Omega'(r)\frac{Y}{r},\\
+$$
+\partial_xr=\frac{X}{r},\qquad \partial_yr=\frac{Y}{r}
+$$
+
+が得られる。したがって、積の微分を適用すると
+
+$$
+\partial_xu_x=-Y\,\Omega'(r)\frac{X}{r},
+\qquad
+\partial_yu_y=X\,\Omega'(r)\frac{Y}{r}.
+$$
+
+両者は符号が逆だから
+
+$$
 \nabla\cdot\boldsymbol u
-&=\partial_xu_x+\partial_yu_y=0.
-\end{aligned}
-$
+=\partial_xu_x+\partial_yu_y
+=-Y\,\Omega'(r)\frac{X}{r}
++X\,\Omega'(r)\frac{Y}{r}
+=0.
+$$
 
 中心では $X=Y=0$ であり、例えば $u_x(h,0)=0$、$u_y(0,h)=0$ がすべての $h$ について成立するから、$\partial_xu_x=\partial_yu_y=0$ となる。したがって中心を含む全領域で発散は0、**水は局所的に圧縮・膨張しない**。
 
