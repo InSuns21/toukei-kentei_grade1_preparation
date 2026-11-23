@@ -8,11 +8,11 @@
 
 本講の計算は三段階です。まずCGHSの時空とRSTの役割を識別します。次に放射の熱力学から**Page転移の主項**を導きます。最後に局所的な二変数の一般化エントロピーを自力で極値化し、実際のRST端点計算に追加して必要な情報を明確にします。
 
-自然単位 $\hbar=k_B=1$、物質の中心電荷 $c>0$、温度 $T>0$ を使います。エントロピーの対数は自然対数です。放射を採取する遅延時刻 $u$ は漸近領域の時計で測り、$u=0$ からの有限な蒸発区間に限定します。
+光速も1とする自然単位 $\hbar=k_B=1$、物質の中心電荷 $c>0$、温度 $T>0$ を使います。$c$ は光速ではなく中心電荷を表し、$N$ 個の自由な実質量零スカラー場では $c=N$ です。エントロピーの対数は自然対数です。放射を採取する遅延時刻 $u$ は漸近領域の時計で測り、$u=0$ からの有限な蒸発区間に限定します。
 
 ## 2. 曲率とdilatonの役割が違う二つの重力
 
-JTではdilatonの変分が負の一定曲率を指定します。[JT作用の変分](../BHI19/index.md#prop-bhi19-curvature-eom)と[JTの重力エントロピー](../BHI20/index.md#prop-bhi20-entropy)を前提とします。一方CGHSでは、曲率、dilatonの勾配、ポテンシャルが連動します。ここでdilaton $\phi$ とは二次元の計量 $g_{\mu\nu}$ に加わる実スカラー場で、$e^{-2\phi}$ が幾何学的な大きさと重力エントロピーの寄与を担います。
+JTではdilatonの変分が負の一定曲率を指定します。[JT作用の変分](../BHI19/index.md#prop-bhi19-curvature-eom)と[JTの重力エントロピー](../BHI20/index.md#prop-bhi20-entropy)を前提とします。一方CGHSでは、曲率、dilatonの勾配、ポテンシャルが連動します。ここでdilaton $\phi$ とは二次元の計量 $g_{\mu\nu}$ に加わる実スカラー場で、$e^{-2\phi}$ が幾何学的な大きさと重力エントロピーの寄与を担います。座標添字 $\mu,\nu\in\{0,1\}$ は反復時に総和をとり、$\partial_\mu:=\partial/\partial x^\mu$ とします。
 
 <a id="def-bhi34-cghs-geometry"></a>
 
@@ -31,7 +31,21 @@ $$
 > $R$ は二次元スカラー曲率である。以下の真空古典解では $f_i=0$ とし、光円錐座標 $(x^+,x^-)$ により $ds^2=-e^{2\rho}dx^+dx^-$ と書く。
 <!-- formal-statement-end -->
 
-この作用は、曲率だけを固定するJT作用と異なり、$4(\nabla\phi)^2$ と $4\lambda^2e^{-2\phi}$ を含みます。$x^\pm$ は長さの次元を持ち、$\lambda^2x^+x^-$ は無次元、以下の $A>0$ も無次元とします。
+この作用は、曲率だけを固定するJT作用と異なり、$4(\nabla\phi)^2$ と $4\lambda^2e^{-2\phi}$ を含みます。光円錐座標 $x^\pm$ はそれぞれ二つのヌル方向の座標で、$\partial_\pm:=\partial/\partial x^\pm$、$F_\pm:=\partial_\pm F$ と書きます。$ds^2=-e^{2\rho}dx^+dx^-$ は $g_{+-}=g_{-+}=-e^{2\rho}/2$ を表します。$x^\pm$ は長さの次元を持ち、$\lambda^2x^+x^-$ は無次元、以下の $A>0$ も無次元とします。
+
+**なぜこの座標表示で解を確認できるか**：$X:=e^{-2\phi}>0$ と置けば、重力部分の作用の被積分関数は $XR+(\nabla X)^2/X+4\lambda^2X$ です。$f_i=0$ として計量を変分した方程式は
+$
+E_{\mu\nu}:=g_{\mu\nu}\Box X-\nabla_\mu\nabla_\nu X
++\frac{\partial_\mu X\partial_\nu X-\frac12g_{\mu\nu}(\nabla X)^2}{X}
+-2\lambda^2g_{\mu\nu}X=0.
+$
+ここで $\Box X:=g^{\mu\nu}\nabla_\mu\nabla_\nu X$ です。真空の共形ゲージ $\rho=\phi$ を使うと $g_{+-}=-1/(2X)$、$g^{+-}=-2X$、$\Box X=-4X\partial_+\partial_-X$、$\Gamma^\pm_{\pm\pm}=2\partial_\pm\rho=-\partial_\pm X/X$ なので、
+$
+E_{++}=-\partial_+^2X,\qquad
+E_{--}=-\partial_-^2X,\qquad
+E_{+-}=\partial_+\partial_-X+\lambda^2.
+$
+従って、このゲージの真空解の計量方程式は $\partial_\pm^2X=0$ および $\partial_+\partial_-X=-\lambda^2$ で直接判定できます。dilaton変分の方程式も別に照合します。
 
 <!-- definition-example-start: def-bhi34-cghs-geometry -->
 **定義の確認**：古典静的解。古典真空解の一つを
@@ -39,7 +53,12 @@ $$
 F(x^+,x^-):=A-\lambda^2x^+x^-,\qquad
 e^{-2\phi}=e^{-2\rho}=F,\qquad F>0
 $$
-と置きます。$F>0$ の領域では $\rho=-\tfrac12\log F$ と $\phi=-\tfrac12\log F$ が実数で、計量は非退化です。例えば $x^-=0$ で $F=A>0$ となり、この適切な外部パッチのヌル地平線上では $e^{-2\phi}=A$ が一定です。特異な $F=0$ と混同しません。下の命題で曲率が一定ではないことも確認します。
+と置きます。$F>0$ の領域では $\rho=-\tfrac12\log F$ と $\phi=-\tfrac12\log F$ が実数で、計量は非退化です。さらに $X=F$ について
+$
+\partial_+^2F=\partial_-^2F=0,\qquad
+\partial_+\partial_-F=-\lambda^2
+$
+なので、上に導いた計量方程式の三成分を満たします。$f_i=0$ は物質場の波動方程式も満たします。例えば $x^-=0$ で $F=A>0$ となり、この適切な外部パッチのヌル地平線上では $e^{-2\phi}=A$ が一定です。特異な $F=0$ と混同しません。続く命題では曲率とdilaton変分の方程式も照合します。
 <!-- definition-example-end -->
 
 <a id="prop-bhi34-cghs-curvature"></a>
@@ -73,10 +92,24 @@ $$
 &=\frac{\lambda^2A}{2F^2}.
 \end{aligned}
 $$
-これを規約式へ代入して $R=8F\cdot\lambda^2A/(2F^2)=4\lambda^2A/F$。$F$ が座標で変わるため一定曲率とは限りません。$\square$
+これを規約式へ代入して $R=8F\cdot\lambda^2A/(2F^2)=4\lambda^2A/F$。$F$ が座標で変わるため一定曲率とは限りません。
+
+さらにCGHS作用を $\phi$ で変分した方程式
+$
+R-4(\nabla\phi)^2+4\Box\phi+4\lambda^2=0
+$
+を検算します。$g^{+-}=-2F$、$\phi_\pm=\lambda^2x^\mp/(2F)$ と上の混合微分から
+$
+(\nabla\phi)^2=-4F\phi_+\phi_-=
+-\frac{\lambda^4x^+x^-}{F}
+=\lambda^2\left(1-\frac AF\right),\qquad
+\Box\phi=-4F\partial_+\partial_-\phi
+=-\frac{2\lambda^2A}{F}.
+$
+ゆえに左辺は $4\lambda^2A/F-4\lambda^2(1-A/F)-8\lambda^2A/F+4\lambda^2=0$。これで真空物質場・計量・dilatonの各方程式への代入を確認しました。$\square$
 <!-- proof-end -->
 
-**RSTへ進む理由**：古典CGHSに $N$ 個の共形物質場の量子効果を加えると、共形異常による有効作用（Polyakov項）が現れます。RSTはそれに特定の**局所的なdilatonと曲率の対項**を加えて方程式を可解にした半古典模型です。対項の係数・$\phi$ の再定義・量子状態を固定せずに「CGHSとRSTは同じ解」とは言えません。
+**RSTへ進む理由**：古典CGHSに $N$ 個の共形物質場の量子効果を加えると、共形異常による有効作用（Polyakov項）が現れます。RSTはそれに特定の**局所的なdilatonと曲率の対項**を加えて方程式を可解にした半古典模型です。Polyakov有効作用は物質場の共形異常に由来する非局所な量子補正で、RSTの局所対項は同じ点で評価する $\phi R$ 型の補正です。いずれも古典CGHS作用には含まれません。対項の係数・$\phi$ の再定義・量子状態を固定せずに「CGHSとRSTは同じ解」とは言えません。
 
 <a id="def-bhi34-rst-setting"></a>
 
@@ -87,7 +120,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi34-rst-setting -->
-**定義の確認**：一定の入射流束 $F_{\rm in}=0$、出射流束 $F_{\rm out}>0$ の時間区間なら外部への正味流出は $F_{\rm net}=F_{\rm out}>0$ です。入射を出射と同じ $F_{\rm in}=F_{\rm out}$ に替えると $F_{\rm net}=0$ となり、[入射流を零とした蒸発期の設定](#def-bhi34-rst-setting)を満たしません。同じRST作用でも境界条件が異なる具体例です。
+**定義の確認（条件(iv)を判定する例）**：一定の入射流束 $F_{\rm in}=0$、出射流束 $F_{\rm out}>0$ の時間区間なら外部への正味流出は $F_{\rm net}=F_{\rm out}>0$ です。入射を出射と同じ $F_{\rm in}=F_{\rm out}$ に替えると $F_{\rm net}=0$ となり、[入射流を零とした蒸発期の設定](#def-bhi34-rst-setting)を満たしません。同じRST作用でも境界条件が異なる具体例です。この流束だけでは条件(i)〜(iii)、(v)を確認できません。条件(i)は補正作用の規格化、(ii)は崩壊する場の解、(iii)は外部座標の漸近性、(v)は状態・放射端点とcutoffを個別に指定して判定します。
 <!-- definition-example-end -->
 
 RSTの実際のislandを論じるには、修正されたdilatonの関数、崩壊波の位置、非重力領域での放射端点、共形写像、レプリカの解析接続と終期境界をすべて指定します。この計算を行った研究として、[Gautason–Schneiderbauer–Sybesma–Thorlacius（2020）](https://doi.org/10.1007/JHEP05(2020)091) と [Hartman–Shaghoulian–Strominger（2020）](https://doi.org/10.1007/JHEP07(2020)022) があります。この節のCGHS曲率計算自体は、RSTの量子補正込みの場の方程式を解いたことを意味しません。
@@ -96,7 +129,7 @@ RSTの実際のislandを論じるには、修正されたdilatonの関数、崩�
 
 JTの時間依存境界でも、[BHI27の準静的なエントロピー収支](../BHI27/index.md#prop-bhi27-entropy-budget)では粗視化放射の増加率とブラックホール熱力学エントロピーの減少率に係数差がありました。CGHS/RST側では漸近的な外部へ**片方向**に伝播する二次元CFTの出射流を調べます。
 
-中心電荷 $c>0$ の左右対称な非相互作用の熱的CFTで、温度 $T$ における長い一次元空間のエネルギー密度と圧力は $e=p=\pi cT^2/6$、エントロピー密度は $s=(e+p)/T=\pi cT/3$ です。左右方向が等しく寄与する熱平衡状態から出射側だけを取り出すと、流束はそれぞれ半分です。ここでの $J_S$ は**熱的放射の粗視化エントロピー流**で、放射全体の精細エントロピーそのものではありません。
+中心電荷 $c>0$ の左右対称な非相互作用の熱的CFTで、温度 $T$ における長い一次元空間のエネルギー密度と圧力は $e=p=\pi cT^2/6$、エントロピー密度は $s=(e+p)/T=\pi cT/3$ です。左右方向が等しく寄与する熱平衡状態から出射側だけを取り出すと、流束はそれぞれ半分です。ここでの $J_S$ は**熱的放射の粗視化エントロピー流**で、放射全体の精細エントロピーそのものではありません。光速を1としたため片方向の流束は片方向の密度に等しくなります。また $\dot E_{\rm BH}:=dE_{\rm BH}/du$、$\dot S_{\rm BH}:=dS_{\rm BH}/du$ は遅延時刻 $u$ に関する全微分です（固定した空間座標での偏微分ではありません）。
 
 <a id="prop-bhi34-flux-ratio"></a>
 
@@ -138,12 +171,14 @@ $$
 
 この二倍則は、量子状態の精細エントロピーが二倍になると証明したものではありません。実際の精細エントロピーを得るには[レプリカとislandの許容条件](../BHI30/index.md#def-bhi30-admissible-continuation)が必要です。
 
+二倍則を積分するため、以下で $S_0>0$ を蒸発区間の開始時のブラックホール熱力学エントロピーとします。$S_\varnothing$ はislandなしの放射エントロピー枝、$S_I$ は端点を極値化したislandありの枝です。これらは異なる候補であって、どちらも許容されたときだけ値を比較します。
+
 <a id="def-bhi34-leading-branches"></a>
 
 <!-- formal-statement-start -->
 > **定義（蒸発の二枝を比較する先頭近似）**
 >
-> $S_0,a>0$、$0\le u\le u_{\rm end}$ とし、温度と中心電荷 $c$ がほぼ一定の蒸発期を考える。$K$ は同じcutoffで決まる有限の差と端点のずれをまとめた定数とする。次の時間尺度と二枝を仮定する。
+> $S_0>0$、$0\le u\le u_{\rm end}$ とし、温度と中心電荷 $c$ がほぼ一定の蒸発期を考える。$a>0$ は下式で定める減少率、$K\in\mathbb R$ は同じcutoffで決まる有限の差と端点のずれをまとめた定数とする。次の時間尺度と二枝を仮定する。
 >
 $$
 a:=\frac{\pi cT}{12},\quad u_{\rm end}:=\frac{S_0}{a},\quad
@@ -275,7 +310,7 @@ $$
 
 Page型の二つの直線を比較するには、island枝の値が**先に極値化されている**必要があります。[BHI25の端点停留条件](../BHI25/index.md#prop-bhi25-two-endpoint-equations)では空間・時間の両成分を検査しました。RSTにおいても、一般化エントロピーは重力側端点の幾何学的寄与と、採取した放射 $R(u)$ とislandの和集合の物質エントロピーとから作ります。
 
-以下は、実際のRSTの非局所な相関関数を使う前に、**存在域・端点の移動・定数補正を手で検算するための局所補助模型**です。関数形をRST作用から導いたと主張するものではありません。
+以下は、実際のRSTの非局所な相関関数を使う前に、**存在域・端点の移動・定数補正を手で検算するための局所補助模型**です。関数形をRST作用から導いたと主張するものではありません。ここで新しく導入する $(x,v)$ は第4節のKruskal座標 $(x_Q^+,x_Q^-)$ の変換先ではなく、独立な空間・時間方向を表す模型上の変数です。採取時刻 $u$ を固定し、$\partial_x$ は $v,u$ を固定して $x$ を、$\partial_v$ は $x,u$ を固定して $v$ を変える偏微分です。[既習の二変数端点停留条件](../BHI25/index.md#prop-bhi25-two-endpoint-equations)と同じく、独立な二方向の一次変化を両方零にすることで候補を判定します。
 
 <a id="def-bhi34-qes-proxy"></a>
 
@@ -383,7 +418,7 @@ $T_{\rm in}=T_{\rm out}$ ならエネルギーの正味流出は零で、定常�
 > **命題（時間依存温度での交点の条件）**
 >
 > $u\in[0,U]$、$T(u)>0$ が連続とし、上の二倍則が準静的に各時刻で成立する。$a(u):=\pi cT(u)/12>0$、
-> $A(u):=\int_0^u a(s)\,ds$ と置く。$K$ が時刻に依存せず、極値化済みの二枝が
+> $A(u):=\int_0^u a(s)\,ds$ と置く。$s$ は積分変数で、$A'(u):=dA/du=a(u)$ は $u$ に関する全微分を表す。$K$ が時刻に依存せず、極値化済みの二枝が
 $$
 S_\varnothing(u)=2A(u),\qquad S_I(u)=S_0-A(u)+K
 $$
@@ -404,7 +439,7 @@ $$
 3A(u)=S_0+K
 $$
 です。単調性より存在する場合は一意です。蒸発終期を $A(u_{\rm end})=S_0$ と置けても、非線形の $A$ について
-$A^{-1}(S_0/3)=A^{-1}(S_0)/3$ は一般に成立しません。$\square$
+$A^{-1}((S_0+K)/3)=A^{-1}(S_0)/3$ は一般に成立しません（$K=0$ としても非線形な $A$ では一般に不成立です）。$\square$
 <!-- proof-end -->
 
 **比較表**：模型名だけでなく、何を計算できたかで比較します。
@@ -440,7 +475,7 @@ $$
 =\frac{\lambda^2}{2F}+\frac{\lambda^4x^+x^-}{2F^2}
 =\frac{\lambda^2A}{2F^2}.
 $$
-規約 $R=8F\partial_+\partial_-\rho$ を使って $R=4\lambda^2A/F$。$A,\lambda$ を固定すれば $F\to\infty$ で $R\to0$ です。
+[上の曲率規約](#prop-bhi34-cghs-curvature) $R=8F\partial_+\partial_-\rho$ を使って $R=4\lambda^2A/F$。$A,\lambda$ を固定すれば $F\to\infty$ で $R\to0$ です。
 <!-- solution-end -->
 
 <a id="ex-bhi34-a02"></a>
@@ -456,7 +491,7 @@ $$
 F_E=\frac{\pi(12)}{12}\frac1{4\pi^2}=\frac1{4\pi},\qquad
 J_S=\frac{\pi(12)}6\frac1{2\pi}=1.
 $$
-第一法則と流出保存から $\dot S_{\rm BH}=-F_E/T=-(1/(4\pi))/(1/(2\pi))=-1/2$。したがって $J_S=-2\dot S_{\rm BH}$ です。
+[出射流の二倍則](#prop-bhi34-flux-ratio)と第一法則・流出保存から $\dot S_{\rm BH}=-F_E/T=-(1/(4\pi))/(1/(2\pi))=-1/2$。したがって $J_S=-2\dot S_{\rm BH}$ です。
 <!-- solution-end -->
 
 <a id="ex-bhi34-a03"></a>
@@ -478,7 +513,7 @@ $$
 - 問題: $\alpha=2,\eta=6,\epsilon=1,L=5,\zeta=2,\tau=1$ とする。停留点、領域の確認、$K_{\rm toy}-C$ を計算せよ。
 
 <!-- solution-start -->
-**詳細解答**：$\partial_xS=2-6/(x+1)=0$ から $x_*=2$、$\partial_vS=2(v-u+1)=0$ から $v_*=u-1$。$0<2<5$ です。$K_{\rm toy}-C=\alpha x_*-\eta\log(1+x_*/\epsilon)=4-6\log3$。一般式に代入しても $6-2-6\log(6/2)=4-6\log3$ と一致します。
+**詳細解答**：[二変数補助模型](#def-bhi34-qes-proxy)を $x,v$ でそれぞれ偏微分すると、$\partial_xS=2-6/(x+1)=0$ から $x_*=2$、$\partial_vS=2(v-u+1)=0$ から $v_*=u-1$。$0<2<5$ です。$K_{\rm toy}-C=\alpha x_*-\eta\log(1+x_*/\epsilon)=4-6\log3$。一般式に代入しても $6-2-6\log(6/2)=4-6\log3$ と一致します。
 <!-- solution-end -->
 
 <a id="ex-bhi34-a05"></a>
@@ -570,7 +605,7 @@ $a_0/k=S_0/3$ の等号では交点は有限時刻に達しません。
   2. $\delta/M\ll1$ で二次項まで展開し、$e^{-u}/M\ll1$ での先頭解 $\delta\simeq e^{-u}/3$ が許容域にあること。
 
 <!-- solution-start -->
-**詳細解答**：(1) 積と指数関数の微分から
+**詳細解答**：(1) ここで $f'(\delta):=df/d\delta$ は $\delta$ に関する通常の微分です。積と指数関数の微分から
 $$
 f'(\delta)=e^{4\delta/M}\left(1+\frac4M(-M+\delta)\right)
 =e^{4\delta/M}\left(-3+\frac{4\delta}{M}\right).
