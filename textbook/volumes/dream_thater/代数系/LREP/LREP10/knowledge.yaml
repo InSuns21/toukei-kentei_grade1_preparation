@@ -3,8 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - LREP9
-forward_references:
-  - representation.lorentz-finite-dimensional
+forward_references: []
 concepts:
   - id: representation.lorentz-hermitian-model
     name: 四元ベクトルのエルミート行列模型
