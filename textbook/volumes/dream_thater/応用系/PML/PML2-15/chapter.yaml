@@ -1,0 +1,46 @@
+id: "PML2-15"
+title: "Neural Operatorの層をどう構成するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-14
+official_scope: []
+learning_objectives:
+  - 連続関数の持ち上げとチャネル数を区別し定義の条件を直接検証できる
+  - 点ごとの線形変換と積分核による情報収集を成分表示から導ける
+  - 積分核型Neural Operator層と有限層の合成を定義し具体的に計算できる
+  - 核の連続性から層の出力の連続性を証明できる
+  - 行列の最大行絶対和と積分核を用いて一様ノルムの安定性定数を導ける
+  - 活性化が線形性を失わせる反例と線形Poisson核の厳密表現を説明できる
+  - 中点求積から離散化層を構成し節点数とチャネル数を区別できる
+  - 被積分関数のLipschitz条件から中点求積誤差と二層誤差の伝播を証明できる
+  - パラメータ共有・離散化誤差・有限センサの情報損失を区別できる
+definitions:
+  - { id: PML2-15-DEF-01, name: チャネル表現と持ち上げ }
+  - { id: PML2-15-DEF-02, name: 積分核型Neural Operator層 }
+  - { id: PML2-15-DEF-03, name: 中点求積による離散化層 }
+theorems:
+  - { id: PML2-15-THM-01, name: 積分核型層の連続性と安定性 }
+  - { id: PML2-15-PROP-01, name: 活性化による線形性の破れ }
+  - { id: PML2-15-THM-02, name: 中点求積の誤差と層への伝播 }
+canonical_examples:
+  - 二チャネル持ち上げと積分核の行列積
+  - ReLUで線形性が破れる定数関数の反例
+  - Poisson解作用素の単一積分核型層による厳密表現
+  - 二点中点求積と連続積分の差
+  - 二層の離散化誤差の増幅と節点観測の区別
+problem_patterns:
+  - PML2-15-A01
+  - PML2-15-A02
+  - PML2-15-A03
+  - PML2-15-A04
+  - PML2-15-A05
+  - PML2-15-B01
+  - PML2-15-B02
+  - PML2-15-B03
+  - PML2-15-B04
+  - PML2-15-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
