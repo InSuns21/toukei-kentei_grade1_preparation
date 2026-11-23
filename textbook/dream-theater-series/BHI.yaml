@@ -131,7 +131,7 @@ chapters:
     title: "$n\\to1$とisland公式の導出範囲"
   - id: BHI31
     path: textbook/volumes/dream_thater/物理系/BHI/BHI31
-    status: planned
+    status: completed
     title: "ensemble平均とfactorization問題"
   - id: BHI32
     path: textbook/volumes/dream_thater/物理系/BHI/BHI32
