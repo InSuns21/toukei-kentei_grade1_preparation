@@ -21,7 +21,20 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（有限生成torsion岩澤加群）**  
-> $R=\mathbb Z_p[[T]]$ とする。$R$ 加群 $M$ が有限生成とは、有限個の $m_1,\ldots,m_r\in M$ が存在して $M=\sum_{i=1}^r Rm_i$ となることである。$M$ が **torsion** とは、任意の $m\in M$ に対して $0\ne a\in R$ が存在し $am=0$ となることである。両条件を満たすものを有限生成torsion岩澤加群と呼ぶ。
+> $R=\mathbb Z_p[[T]]$ を固定し、$M$ を $R$ 加群とする。
+> **有限生成**とは、有限個の $m_1,\ldots,m_r\in M$ が存在し、次を満たすことである。
+
+$$
+M=\sum_{i=1}^r Rm_i.
+$$
+
+> **torsion** とは、任意の $m\in M$ を非零の係数 $a\in R$ で消せることである。
+
+$$
+am=0.
+$$
+
+> 両条件を満たす $M$ を有限生成torsion岩澤加群と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa5-fg-torsion -->
@@ -36,7 +49,12 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（有限生成torsionの共通消去元）**  
-> $R=\mathbb Z_p[[T]]$ とし、有限生成 $R$ 加群 $M$ を取る。$M$ がtorsionである必要十分条件は、$0\ne a\in R$ で $aM=0$ を満たすものが存在することである。
+> $R=\mathbb Z_p[[T]]$ とし、$M$ を有限生成 $R$ 加群とする。
+> $M$ がtorsionであるための必要十分条件は、非零元 $a\in R$ が存在して次を満たすことである。
+
+$$
+aM=0.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -109,7 +127,14 @@ $R$ のイデアル $(p,T)$ は、$p$ と $T$ の倍数の和からなる集合�
 
 <!-- formal-statement-start -->
 > **定義（擬同型）**  
-> $R=\mathbb Z_p[[T]]$ 上の有限生成加群 $M,N$ の $R$ 線形写像 $f:M\to N$ が**擬同型**であるとは、$\ker f$ と $\operatorname{coker}f=N/f(M)$ がともに擬零加群であることである。$M$ と $N$ の間に擬同型があるとき、両者を擬同型の意味で同じ構造を持つという。
+> $R=\mathbb Z_p[[T]]$ 上の有限生成加群 $M,N$ と $R$ 線形写像 $f:M\to N$ を取る。
+> $f$ の核と余核がともに擬零加群であるとき、$f$ を**擬同型**という。ここで余核は次の商加群である。
+
+$$
+\operatorname{coker}f=N/f(M).
+$$
+
+> 擬同型は同型とは限らない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa5-pseudoisomorphism -->
