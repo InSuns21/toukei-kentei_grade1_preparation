@@ -121,7 +121,8 @@ const descriptions = Object.freeze({
   }),
   FCG8: Object.freeze({
     grid: snapshot => {
-      const n=[48,64,80,96].includes(snapshot.gridN)?snapshot.gridN:null;
+      const n=snapshot.gridN===undefined ? 48 :
+        [48,64,80,96].includes(snapshot.gridN)?snapshot.gridN:null;
       return n ? n+'×'+n+'セル中心のLevel SetをFloat64で実計算。'+
         n+'×'+n+'のR8 GPUテクスチャ2枚を3列へ表示' :
         '編集ソースの格子数は未検証。初期モデルは48×48セル中心・R8テクスチャ2枚';
