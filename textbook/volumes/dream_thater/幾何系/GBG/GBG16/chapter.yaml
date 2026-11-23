@@ -4,6 +4,8 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - GBG15
+  - GEO18
+  - CA5
 official_scope: []
 learning_objectives:
   - 主束接続の平坦性を全点での曲率ゼロとして定義し局所表示で判定できる
@@ -22,8 +24,8 @@ theorems:
   - { id: GBG16-THM-01, name: 平坦接続の局所平行section }
   - { id: GBG16-THM-02, name: 平坦接続の平行移動は固定端点ホモトピーで不変 }
   - { id: GBG16-THM-03, name: モノドロミーの準同型性・共役・像 }
-  - { id: GBG16-PROP-01, name: 円周の平坦U(1)接続のホロノミー }
-  - { id: GBG16-THM-04, name: 単連結な基底上の平坦接続の大域平行section }
+  - { id: GBG16-PROP-01, name: 円周上の平坦接続によるホロノミー }
+  - { id: GBG16-THM-04, name: 単連結な基底上の平坦接続の大域平行 section }
 canonical_examples:
   - R²上の定数可換接続を大域平行sectionで零にする
   - S¹上の角度1形式etaと平坦U(1)接続の局所ゲージ零化
