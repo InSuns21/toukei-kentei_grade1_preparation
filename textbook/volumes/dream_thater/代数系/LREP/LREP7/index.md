@@ -25,7 +25,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep7-angular-momentum -->
-**定義の確認**。 標準表現 $D(U)=U$ を $V=\mathbb C^2$ 上で考えると、$dD(A_a)=A_a$ なので $J_a=\sigma_a/2$ です。各 $\sigma_a^\dagger=\sigma_a$ を行列成分から確認できるため $J_a^\dagger=J_a$ です。さらに
+**定義の確認**。$V=\mathbb C^2$ の標準基底を $e_1=(1,0)^{\mathsf T}$、$e_2=(0,1)^{\mathsf T}$ とします。標準表現は、$U\in SU(2)$ が列ベクトル $v\in V$ に $D(U)v=Uv$ と作用するものです。$U^\dagger U=I_2$ と $D(U_1U_2)=D(U_1)D(U_2)$ により、これは定義で要求したユニタリ群表現です。実数 $t$ に関する曲線を微分すれば
+
+$$
+dD(A_a)v=\left.\frac{d}{dt}\right|_{t=0}D(\exp(tA_a))v
+=\left.\frac{d}{dt}\right|_{t=0}\exp(tA_a)v=A_av.
+$$
+
+従ってこの基底で $J_a=\sigma_a/2$ です。各 $\sigma_a^\dagger=\sigma_a$ は[Pauli行列](../LREP5/index.md#def-lrep5-pauli-model)の成分から確かめられ、$J_a^\dagger=J_a$ です。さらに
 
 $$
 J_+=\frac12(\sigma_1+i\sigma_2)
@@ -33,7 +40,7 @@ J_+=\frac12(\sigma_1+i\sigma_2)
 J_-=\begin{pmatrix}0&0\\1&0\end{pmatrix}.
 $$
 
-これで三つの生成子と二つの昇降演算子が、実際のユニタリ群表現から得られることを確認しました。
+これらの行列の第 $k$ 列は $J_\pm e_k$ の標準基底成分を表します。実際、$J_+e_1=0$、$J_+e_2=e_1$、$J_-e_1=e_2$、$J_-e_2=0$ です。したがって行列積は、元の定義で定めた昇降作用そのものを確認しています。
 <!-- definition-example-end -->
 
 一般の $D$ でも自己共役性は定義の仮定から従います。$D(\exp(tA_a))^\dagger D(\exp(tA_a))=I$ の両辺を $t=0$ で微分すると
@@ -170,13 +177,35 @@ $\boldsymbol J^2v=\lambda v$ なら $\boldsymbol J^2(J_av)=J_a\boldsymbol J^2v=\
 
 ## 3. 最高ウェイト $n$ がスピン $j$ に変わる
 
-[前講の標準三生成子](../LREP6/index.md#def-lrep6-sl2-triple)は $H=2iA_3$、$E=iA_1-A_2$、$F=iA_1+A_2$ でした。これらを表現で微分すると、上の定義から
+[前講の標準三生成子](../LREP6/index.md#def-lrep6-sl2-triple)は、実 Lie 環の基底を複素線形に組み合わせて作った三つの元でした。
 
 $$
-H=2J_3,\qquad E=J_+,\qquad F=J_-.
+H=2iA_3,\qquad E=iA_1-A_2,\qquad F=iA_1+A_2.
 $$
 
-左辺は微分した作用素の略記です。従って $H$ のウェイト $n-2k$ を半分にした $m=(n-2k)/2$ が $J_3$ の固有値です。ここで $j=n/2$ と書くと、$m=j-k$ になります。
+[表現の微分](../LREP3/index.md#thm-lrep3-differentiation) $dD$ は実 Lie 環上で実線形です。複素化された三生成子へ作用させるため、[前講の群表現と微分表現の対応](../LREP6/index.md#prop-lrep6-group-lie-equivalence)に従い、$dD$ の複素線形拡張を $\rho$ と書きます。
+
+角運動量の定義 $J_a=i\,dD(A_a)$ を $dD(A_a)=-iJ_a$ に直してから、三生成子へ代入します。
+
+$$
+\begin{aligned}
+\rho(H)&=2i\,dD(A_3)=2J_3,\\
+\rho(E)&=i\,dD(A_1)-dD(A_2)=J_1+iJ_2=J_+,\\
+\rho(F)&=i\,dD(A_1)+dD(A_2)=J_1-iJ_2=J_-.
+\end{aligned}
+$$
+
+以下では、作用素 $\rho(H),\rho(E),\rho(F)$ を $H,E,F$ と略記します。複素化された Lie 環の元そのものとは区別します。
+
+[前講の正規直交基底の公式](../LREP6/index.md#prop-lrep6-unitary-ladder)では、$k=0,\ldots,n$ の各基底ベクトルに対し
+
+$$
+Hu_k=(n-2k)u_k,\qquad J_3u_k=\frac{n-2k}{2}u_k
+$$
+
+です。スピンを $j=n/2$、$J_3$ の固有値を $m=(n-2k)/2$ と書くと、$m=j-k$ になります。
+
+量子力学で用いる $|j,m\rangle$ は、この $J_3$ 固有ベクトル $u_{j-m}$ の別記法（ケット）です。$\langle j,m|j,m'\rangle$ は二つのベクトルの内積、$\delta_{m,m'}$ は添字が等しいとき1、異なるとき0となる Kronecker のデルタを表します。
 
 <a id="def-lrep7-spin-basis"></a>
 
@@ -302,13 +331,15 @@ J_3=\begin{pmatrix}1&0&0\\0&0&0\\0&0&-1\end{pmatrix},\qquad
 J_+=\begin{pmatrix}0&\sqrt2&0\\0&0&\sqrt2\\0&0&0\end{pmatrix},\qquad J_-=J_+^\dagger.
 $$
 
-$J_+J_-=\operatorname{diag}(2,2,0)$、$J_-J_+=\operatorname{diag}(0,2,2)$ だから、$\boldsymbol J^2=J_3^2+(J_+J_-+J_-J_+)/2=2I_3$ です。$j(j+1)=2$ と一致します。
+この行列表示は、例えば $J_+|1,-1\rangle=\sqrt2|1,0\rangle$、$J_+|1,0\rangle=\sqrt2|1,1\rangle$ の各像を指定した順序付き基底の列に並べたものです。従って $J_+J_-=\operatorname{diag}(2,2,0)$、$J_-J_+=\operatorname{diag}(0,2,2)$ だから、$\boldsymbol J^2=J_3^2+(J_+J_-+J_-J_+)/2=2I_3$ です。$j(j+1)=2$ と一致します。
 
 $\boldsymbol J^2$ と $J_3$ は可換なので、$|j,m\rangle$ はこの二つの共同固有ベクトルです。一方、$J_1,J_2$ は互いに非可換で、同じ意味で三つの成分をすべて固定することは一般にはできません。
 
 ## 4. 一周すると、なぜ符号が変わるのか
 
 [SU(2) と SO(3) の二重被覆](../LREP5/index.md#thm-lrep5-double-cover)により、一つの回転 $R\in SO(3)$ には $U,-U\in SU(2)$ の二つの持ち上げがあります。$2\pi$ 回転は $SO(3)$ では恒等元ですが、$SU(2)$ の標準行列模型では $-I_2$ へ到達します。$SU(2)$ の既約表現でその中心元がどう作用するかが、整数スピンと半整数スピンの違いです。
+
+ここで射影表現とは、可逆行列を非零複素スカラー倍で同一視した群 $PGL(V)=GL(V)/\mathbb C^\times I$ への群準同型のことです。ユニタリ表現の場合、位相 $e^{i\alpha}$ 倍を同一視することに対応します。作用する対象は単なるベクトルではなく、その非零スカラー倍を同一視した直線（量子状態の射線）です。
 
 <a id="thm-lrep7-rotation-parity"></a>
 
@@ -322,8 +353,6 @@ $$
 
 > 従って $D_j$ が $SO(3)$ 上の通常の線形表現 $D_j=\widetilde D_j\circ p$ に降りる必要十分条件は $j$ が整数であること。$j$ が半整数で整数でない場合、通常の線形表現には降りないが、$SO(3)$ 上の射影表現を定める。
 <!-- formal-statement-end -->
-
-ここで射影表現とは、可逆行列を非零複素スカラー倍で同一視した群 $PGL(V)=GL(V)/\mathbb C^\times I$ への群準同型のことです。ユニタリ表現の場合、位相 $e^{i\alpha}$ 倍を同一視することに対応します。作用する対象は単なるベクトルではなく、その非零スカラー倍を同一視した直線（量子状態の射線）です。
 
 **証明の見取り図。** [LREP6の降下定理](../LREP6/index.md#thm-lrep6-descent)で $n=2j$ を代入します。射影表現では $U$ と $-U$ の行列がスカラー倍なら同じ作用になることを確かめます。
 
@@ -365,7 +394,7 @@ L_3|j,m\rangle&=\hbar m|j,m\rangle.
 \end{aligned}
 $$
 
-古典力学では質点の位置ベクトルと $m\boldsymbol v$（質量 $m$、速度 $\boldsymbol v$）のベクトル積を角運動量として扱います。これは量子角運動量の証明で使う前提ではなく、二つの模型を比較するための例です。
+古典力学では質点の位置ベクトル $\boldsymbol r$ と、質量 $M>0$ と速度 $\boldsymbol v$ の積 $M\boldsymbol v$ とのベクトル積 $\boldsymbol r\times(M\boldsymbol v)$ を角運動量として扱います。これは量子角運動量の証明で使う前提ではなく、二つの模型を比較するための例です。
 
 軌道角運動量は空間上の波動関数を**通常の空間回転**で動かす表現から生まれ、整数 $j$ の部分だけが現れます。一方、内部自由度のスピンでは被覆群 $SU(2)$ の表現を使えるため、半整数 $j$ も現れます。この区別を「三次元空間で半回転できないから」と説明するのではなく、**どの群のどの表現空間を用いるか**で説明するのが正確です。軌道部分と内部スピンの合成は次講で扱います。
 
@@ -410,7 +439,7 @@ J_+|1,0\rangle
 J_-|1,1\rangle
 &=\sqrt{(1+1)(1-1+1)}|1,0\rangle=\sqrt2|1,0\rangle,\\
 J_-|1,-1\rangle
-&=\sqrt{(1-1)(1+1+1)}|1,-2\rangle=0.
+&=0\qquad(m=-j\text{ は下端}).
 \end{aligned}
 $$
 
@@ -530,7 +559,7 @@ $$
 $j=1/2$ とする。$R=p(U)=p(-U)$ に対して $[D_{1/2}(U)]$ が持ち上げによらないことを示し、$R_1R_2$ に対する群法則を射影類で確かめよ。なぜ同じ構成で $SO(3)$ の通常の二次元表現は得られないか。
 
 <!-- solution-start -->
-**詳細解答。** [被覆の核](../LREP5/index.md#thm-lrep5-kernel-surjectivity)は $\{\pm I_2\}$ です。$j=1/2$ では [中心元の作用](#thm-lrep7-rotation-parity)が $D_{1/2}(-I_2)=-I_2$ なので
+**詳細解答。** この解答では $D=D_{1/2}$ と略記します。[被覆の核](../LREP5/index.md#thm-lrep5-kernel-surjectivity)は $\{\pm I_2\}$ です。$j=1/2$ では [中心元の作用](#thm-lrep7-rotation-parity)が $D_{1/2}(-I_2)=-I_2$ なので
 
 $$
 D_{1/2}(-U)=D_{1/2}(-I_2)D_{1/2}(U)=-D_{1/2}(U).
@@ -550,7 +579,7 @@ $$
 #### LREP7-B04 横方向の二乗平均
 - Level: B
 
-任意のスピン $j$ の規格化された $|j,m\rangle$ について、$\langle J_1\rangle=\langle J_2\rangle=0$ および $\langle J_1^2+J_2^2\rangle=j(j+1)-m^2$ を示せ。$j=1,m=0$ の場合を検算せよ。
+任意のスピン $j$ の規格化された $|j,m\rangle$ について、$\langle A\rangle:=\langle j,m|A|j,m\rangle$ をこの状態に関する行列要素の略記とする。$\langle J_1\rangle=\langle J_2\rangle=0$ および $\langle J_1^2+J_2^2\rangle=j(j+1)-m^2$ を示せ。$j=1,m=0$ の場合を検算せよ。
 
 <!-- solution-start -->
 **詳細解答。** $J_\pm|j,m\rangle$ は $|j,m\pm1\rangle$ に比例し、元の状態と直交します（端では零）。従って $\langle j,m|J_\pm|j,m\rangle=0$ です。$J_1=(J_++J_-)/2$、$J_2=(J_+-J_-)/(2i)$ へ代入すれば、それぞれの対角行列要素が零となります。[Casimir の定義](#def-lrep7-casimir)は $J_1^2+J_2^2=\boldsymbol J^2-J_3^2$ です。[固有値公式](#thm-lrep7-spin-spectrum)から
