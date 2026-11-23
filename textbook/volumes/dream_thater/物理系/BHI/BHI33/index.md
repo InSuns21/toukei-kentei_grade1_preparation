@@ -12,7 +12,13 @@
 
 ## 2. 何を回収したと言えるか
 
-観測者が利用できる放射部分系を $R_{\rm acc}$、触れられない残存自由度を $E$、論理状態を $\rho_L$ とします。等長符号化 $V:L\to R_{\rm acc}\otimes E$ により保持側の量子チャネルを作ります。等長とは $V^\dagger V=I_L$、すなわちすべての入力ベクトルの内積を保つことです。$\mathcal B(H)$ はHilbert空間 $H$ 上の線形作用素全体、$\operatorname{Tr}_E$ は残存系 $E$ を部分トレースして受信側の状態を取り出す操作です。これらは[HOLO29の消失回復](../../HOLO/HOLO29/index.md#def-holo29-region-recovery)と同じ有限次元の設定です。量子チャネルとは、密度行列を密度行列へ写し、参照系を付けても正性を保つ完全正値・トレース保存（CPTP）写像です。
+観測者が利用できる放射部分系を $R_{\rm acc}$、触れられない残存自由度を $E$、論理状態を $\rho_L$ とします。この三つのHilbert空間は有限次元とします。
+
+入力を符号化する写像 $V:L\to R_{\rm acc}\otimes E$ は等長、すなわち $V^\dagger V=I_L$ を満たします。これはすべての入力ベクトルの内積を保つ条件です。
+
+$\mathcal B(H)$ はHilbert空間 $H$ 上の線形作用素全体を表します。$\operatorname{Tr}_E$ は残存系 $E$ の部分トレースで、放射側に残る状態を取り出します。これらは[HOLO29の消失回復](../../HOLO/HOLO29/index.md#def-holo29-region-recovery)と同じ設定です。
+
+量子チャネルは、密度行列を密度行列へ写し、参照系を付けても正性を保つ完全正値・トレース保存（CPTP）写像です。
 
 <a id="def-bhi33-operational-access"></a>
 
@@ -37,14 +43,17 @@ $$
 <!-- definition-example-start: def-bhi33-operational-access -->
 **定義の確認**（最小例）：$L=R_{\rm acc}=E=\mathbb C^2$ とし、$V|j\rangle=|j\rangle_R|0\rangle_E$（$j=0,1$）と置きます。像の内積は $\langle Vj|Vk\rangle=\langle j|k\rangle$ なので $V^\dagger V=I_L$ です。定義中の保持チャネルを確認するには、論理行列単位 $|j\rangle\langle k|$ の像を展開します。
 
-$
-\begin{aligned}
+$$
+V|j\rangle\langle k|V^\dagger
+=|j\rangle\langle k|_R\otimes|0\rangle\langle0|_E
+$$
+
+この積状態の $E$ 側はトレースが1なので、
+
+$$
 \operatorname{Tr}_E(V|j\rangle\langle k|V^\dagger)
-&=\operatorname{Tr}_E\bigl(
-|j\rangle\langle k|_R\otimes|0\rangle\langle0|_E\bigr)\\
-&=|j\rangle\langle k|_R.
-\end{aligned}
-$
+=|j\rangle\langle k|_R
+$$
 
 従って $\rho=\sum_{j,k}\rho_{jk}|j\rangle\langle k|$ の任意の係数について同じ式を線形に適用でき、$\mathcal N_{\rm acc}(\rho)=\rho_R$ です。基底を同一視した恒等チャネルはCPTPで、入力を知らずに全状態を復号するので、定義の各条件を満たします。
 
@@ -247,11 +256,11 @@ $$
 
 次に、$\sigma=I_L/2$ はどの $U_{ab}$ でも変わらないため、[保持チャネルの式](#prop-bhi33-output-channels)から
 
-$
+$$
 \mathcal N_{ACD}(\sigma)
 =\frac14\sum_{a,b}|ab\rangle\langle ab|_{AC}\otimes\frac{I_D}{2}
 =\frac{I_{ACD}}8
-$
+$$
 
 です。Hilbert–Schmidt内積 $\operatorname{Tr}(T^\dagger S)$ に関する随伴 $\mathcal N_{ACD}^\dagger$ は、任意の $T$ について
 
@@ -373,25 +382,25 @@ $$
 
 です。最適性を示すには、**復号前**の $AD$ と参照系 $Q$ の状態を確かめる必要があります。[保持チャネルの式](#prop-bhi33-output-channels)は行列単位に対しても線形に適用でき、$\Delta_Z(|j\rangle\langle k|)=\delta_{jk}|j\rangle\langle j|$ より
 
-$
+$$
 \mathcal N_{AD}(|j\rangle\langle k|)
 =\frac{\delta_{jk}}2\sum_{a=0}^1
 |a\rangle\langle a|_A\otimes
 (X^a|j\rangle\langle j|X^a)_D.
-$
+$$
 
 最大エンタングル入力を
 $|\Phi_2\rangle\langle\Phi_2|
 =\frac12\sum_{j,k}|j\rangle\langle k|_L\otimes|j\rangle\langle k|_Q$
 と展開して代入すると
 
-$
+$$
 \omega_{ADQ}
 =\frac14\sum_{a,j=0}^1
 |a\rangle\langle a|_A\otimes
 (X^a|j\rangle\langle j|X^a)_D
 \otimes|j\rangle\langle j|_Q.
-$
+$$
 
 各項は $AD$ と $Q$ の純積状態の正の重み付き和なので、復号前から $Q:AD$ は分離可能です。局所的な復号CPTPを施しても分離可能性は保たれます。任意の純積状態 $|u\rangle_L|v\rangle_Q$ について[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により
 
@@ -699,7 +708,17 @@ $$
 
 四つのKraus演算子 $K_{ab}=U_{ab}^\dagger\langle ab|$ が $\sum K_{ab}^\dagger K_{ab}=I_8$ を満たし、$\mathcal R\mathcal N_{ACD}(\rho)=\tfrac14\sum_{ab}\rho=\rho$ です。$AC$ 制御付きの逆Pauliを施せば、符号化後の任意の $|\psi\rangle$ は $|\psi\rangle_D\otimes\frac12\sum_{ab}|ab\rangle_{AC}|ab\rangle_B$ に戻るため、参照系とのもつれも保存されます。
 
-**(3)** $C$ を失うと $\mathcal N_{AD}(\rho)=\frac12\sum_a|a\rangle\langle a|\otimes X^a\Delta_Z(\rho)X^a$ です。$\Delta_Z$ は計算基底での対角成分を保ち、$|0\rangle\langle1|$ のような非対角成分を零へ写します。$|+\rangle$ と $|-\rangle$ が同じ出力になるので、未知状態の完全回復は不可能です。[片方の鍵だけで起きる位相消失](#prop-bhi33-partial-key)で示した通り、最大エンタングル入力は分離可能状態へ写るため、局所復号での $F_{\rm e}$ の上界は $1/2$。$A$ に応じて $X^a$ を戻す回復器がその値を達成します。
+**(3)** $C$ を失うと、観測者の保持チャネルは
+
+$$
+\mathcal N_{AD}(\rho)
+=\frac12\sum_a|a\rangle\langle a|_A
+\otimes X^a\Delta_Z(\rho)X^a
+$$
+
+です。$\Delta_Z$ は計算基底での対角成分を保ち、非対角成分 $|0\rangle\langle1|$ を零へ写します。したがって $|+\rangle$ と $|-\rangle$ は同じ出力になり、未知状態の完全回復は不可能です。
+
+[片方の鍵だけで起きる位相消失](#prop-bhi33-partial-key)で示したように、最大エンタングル入力も復号前に分離可能となります。そのため局所復号の忠実度の上界は $F_{\rm e}\le1/2$ です。$A$ に応じて $X^a$ を戻す回復器がその値を達成します。
 
 **(4)** [鍵アクセス失敗率と回復忠実度](#prop-bhi33-flagged-access)の条件で、試行の成功・失敗を通知する直交フラグがあるので、成功枝の最適値1と失敗枝の最適値1/2を重み付けします。
 
