@@ -88,7 +88,7 @@ $$
 
 ## 2. 同じ曲率から一つの磁束を計算する
 
-[曲率の局所構造方程式](../GBG10/index.md#thm-gbg10-local-structure-equation)では $F_i=dA_i+\frac12[A_i\wedge A_i]$ である。$U(1)$ のLie環は可換だから括弧項は零で、$F_i=dA_i$ となる。[曲率の局所変換則](../GBG10/index.md#thm-gbg10-local-covariance)でも $U(1)$ の場合は $F_S=F_N$ であり、球面全体の $i\mathbb R$ 値2形式 $F$ が得られる。
+[曲率の局所構造方程式](../GBG10/index.md#thm-gbg10-local-formula)では $F_i=dA_i+\frac12[A_i\wedge A_i]$ である。$U(1)$ のLie環は可換だから括弧項は零で、$F_i=dA_i$ となる。[曲率の局所変換則](../GBG10/index.md#thm-gbg10-gauge-transform)でも $U(1)$ の場合は $F_S=F_N$ であり、球面全体の $i\mathbb R$ 値2形式 $F$ が得られる。
 
 この形式の積分を整数に正規化するには、$i$ の符号を決める必要がある。本講では反Hermite値曲率に対して $i/(2\pi)$ を掛ける。
 
@@ -182,7 +182,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$U(1)$ が可換なため $F|_{U_i}=dA_i$。閉北半球と閉南半球に[Stokesの定理](../../GEO/GEO7/index.md#thm-geo7-stokes)を適用する。境界の向きに注意すると
+$U(1)$ が可換なため $F|_{U_i}=dA_i$。閉北半球と閉南半球に[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を適用する。境界の向きに注意すると
 $$
 \begin{aligned}
 \int_{S^2}F
@@ -443,7 +443,7 @@ n=\frac{i}{2\pi}\int_{S^2}F.
 $$
 $F=0$ なら右辺は零なので $n=0$ が必要である。逆に $n=0$ の積束には $A=0$ の平坦接続がある。前講の[非自明性定理](../GBG18/index.md#thm-gbg18-obstruction)から、$n\ne0$ で非自明な束に平坦接続は持てない。
 
-一方 $S^1$ は2次元微分形式が零で、積束の接続 $A=i\alpha\,dt$ は $F=dA=0$ である。しかし[平坦接続とholonomyの具体例](../GBG16/index.md#thm-gbg16-circle-holonomy)のとおり、一周の水平移動は $e^{-2\pi i\alpha}$ となり、$\alpha\notin\mathbb Z$ なら非自明である。曲率の消失だけからholonomyを零と結論するのは、単連結性に関する条件を落としている。
+一方 $S^1$ は2次元微分形式が零で、積束の接続 $A=i\alpha\,dt$ は $F=dA=0$ である。しかし[平坦接続とholonomyの具体例](../GBG16/index.md#prop-gbg16-circle-holonomy)のとおり、一周の水平移動は $e^{-2\pi i\alpha}$ となり、$\alpha\notin\mathbb Z$ なら非自明である。曲率の消失だけからholonomyを零と結論するのは、単連結性に関する条件を落としている。
 <!-- solution-end -->
 
 <a id="ex-gbg19-b04"></a>
