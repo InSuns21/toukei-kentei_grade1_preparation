@@ -117,7 +117,7 @@ report('DISPLAY','RGBA8 readPixels is 8-bit even after R32F sampling; do not inf
 if(typeof document!=='undefined'){
   document.body.style.cssText='display:block;margin:0;background:#f8fafc;color:#13263c;'+
     'font:14px/1.5 system-ui,sans-serif';
-  canvas.style.cssText='display:block;width:100%;height:auto';
+  canvas.style.cssText='display:block;width:100%;max-width:620px;height:auto';
   canvas.setAttribute('aria-label','4×2テクスチャのGPU画面。上段j=1、下段j=0');
   const caption=document.createElement('p');
   caption.style.cssText='margin:0;padding:8px 12px;background:#deecf4;font-weight:650';
