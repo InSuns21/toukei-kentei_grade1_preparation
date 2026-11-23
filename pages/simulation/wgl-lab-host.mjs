@@ -370,6 +370,10 @@ function stop(message = '停止しました。実行 iframe を破棄しまし�
   if(isFCG5){
     const live=byId('fcg5-live-state');
     if(live)live.textContent='ライブ物理step：未実行';
+    for(const id of ['fcg5-live-toggle','fcg5-live-step','fcg5-live-reset']){
+      const button=byId(id);
+      if(button)button.disabled=true;
+    }
   }
   updateSceneInfo(null);
   setStatus(message);
@@ -432,9 +436,10 @@ function isolatedRunner() {
           const m=event.data;
           if(event.source!==parent||!m||m.type!=='fcg5-physics-control'||
             m.session!==scope.session||m.requestId!==scope.requestId||
-            m.generation!==scope.generation||m.action!=='toggle')return;
+            m.generation!==scope.generation||
+            !['toggle','step','reset'].includes(m.action))return;
           canvas.dispatchEvent(new CustomEvent('fcg5-physics-control',{
-            detail:{action:'toggle'}
+            detail:{action:m.action}
           }));
         });
       }
@@ -701,8 +706,17 @@ window.addEventListener('message', event => {
   if (data.session !== active.session ||
       data.requestId !== active.id || data.generation !== active.generation) return;
   if(isFCG5 && data.type==='fcg5-physics-progress'){
-    if(!Number.isInteger(data.step)||data.step<0||data.step>32||
+    if(active.contextLost||!Number.isInteger(data.step)||data.step<0||data.step>32||
        typeof data.playing!=='boolean')return;
+    for(const id of ['fcg5-live-toggle','fcg5-live-step','fcg5-live-reset']){
+      const button=byId(id);
+      if(button)button.disabled=false;
+    }
+    const toggle=byId('fcg5-live-toggle');
+    if(toggle){
+      toggle.textContent=data.playing?'GPU一時停止':'GPU再生';
+      toggle.setAttribute('aria-pressed',String(data.playing));
+    }
     const view=byId('fcg5-live-state');
     if(view){
       const timestep=readLabParameter(active.payload.js,parametersFor('FCG5')[3]);
@@ -1550,7 +1564,7 @@ if (isFCG5) {
     '48×48（12/24/36/48へ変更可）のMAC格子で半Lagrange速度移流、陽的粘性、外力、残差収束付きPoisson射影、染料移流を実行。左=染料、中央=絶対発散、右=速度。';
   document.querySelector('#panel-conditions ol').innerHTML=
     '<li>静止初期場の性質、step0/1/8/24の染料積分・最大発散・Poisson残差を比較する。</li>'+
-    '<li>1step・再生・一時停止・step0へ復帰を行い、物理時刻と画面更新間隔を区別する。</li>'+
+    '<li>結果画面で実GPUソルバーを停止・1物理step・時刻0へ戻し、物理時刻と再生間隔を比べる。</li>'+
     '<li>染料ブラシの半径・強さを実fluid.jsで調整し、Shift+ドラッグで染料を追加する。Spaceで再生／停止する。</li>'+
     '<li>結果canvasで画素をクリック、または矢印キーとEnterで物理格子値を検査する。</li>'+
     '<li>fluid.jsのdt・nuまたはforceAmplitudeを変更し、物理時刻と初期CPU予測・ライブ画面の差を観察する。</li>'+
@@ -1574,18 +1588,33 @@ if (isFCG5) {
   live.setAttribute('aria-live','off');
   live.textContent='ライブ物理step：未実行';
   byId('canvas-slot').after(live);
+  const liveControls=document.createElement('div');
+  liveControls.className='controls';
+  liveControls.setAttribute('role','group');
+  liveControls.setAttribute('aria-label','FCG5 実GPUソルバーのライブ操作');
+  live.after(liveControls);
   const liveToggle=document.createElement('button');
   liveToggle.id='fcg5-live-toggle';liveToggle.type='button';liveToggle.className='action';
-  liveToggle.textContent='GPUの再生・停止';
+  liveToggle.textContent='GPU再生';liveToggle.disabled=true;
   liveToggle.setAttribute('aria-label','FCG5 実GPUソルバーの再生・停止を切り替える');
-  live.after(liveToggle);
-  liveToggle.addEventListener('click',()=>{
+  liveToggle.setAttribute('aria-pressed','false');
+  const liveStep=document.createElement('button');
+  liveStep.id='fcg5-live-step';liveStep.type='button';liveStep.className='action';
+  liveStep.textContent='GPUを1物理step';liveStep.disabled=true;
+  const liveReset=document.createElement('button');
+  liveReset.id='fcg5-live-reset';liveReset.type='button';liveReset.className='action';
+  liveReset.textContent='GPUの時刻0へ戻す';liveReset.disabled=true;
+  liveControls.append(liveToggle,liveStep,liveReset);
+  function sendFcg5Live(action){
     if(!active?.started||active.contextLost)return;
     active.frame.contentWindow.postMessage({
-      type:'fcg5-physics-control',action:'toggle',
+      type:'fcg5-physics-control',action,
       requestId:active.id,generation:active.generation,session:active.session
     },'*');
-  });
+  }
+  liveToggle.addEventListener('click',()=>sendFcg5Live('toggle'));
+  liveStep.addEventListener('click',()=>sendFcg5Live('step'));
+  liveReset.addEventListener('click',()=>sendFcg5Live('reset'));
   const motionPreference=window.matchMedia('(prefers-reduced-motion: reduce)');
   forwardFcg5MotionPreference=()=>{
     if(active?.started&&!active.contextLost)
