@@ -50,7 +50,7 @@ $m$ を増やすのは係数を $p$ 進的に精密にする操作、$n$ を増�
 > 素数 $p$、位相群 $\Gamma\simeq\mathbb Z_p$、その有限商 $\Gamma_n=\Gamma/\Gamma^{p^n}$ を固定する。上記の遷移写像と両立する族の環
 $$
 \Lambda=\mathbb Z_p[[\Gamma]]
-:=\varprojlim_{m,n\ge1,\ n\ge0}(\mathbb Z/p^m\mathbb Z)[\Gamma_n]
+:=\varprojlim_{m\ge1,\ n\ge0}(\mathbb Z/p^m\mathbb Z)[\Gamma_n]
 $$
 > を $\Gamma$ の **岩澤代数**（完備群環）と呼ぶ。各有限環への射影の核を零元の近傍とする逆極限位相を入れる。
 <!-- formal-statement-end -->
