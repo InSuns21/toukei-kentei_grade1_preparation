@@ -30,7 +30,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg19-monopole-potentials -->
-**定義の直接確認（$n=1$）**。重なりでは
+**定義の確認**（$n=1$）。。重なりでは
 $$
 A_S-A_N=\frac{i}{2}\bigl((1+\cos\vartheta)+(1-\cos\vartheta)\bigr)d\varphi
 =i\,d\varphi.
@@ -106,7 +106,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg19-chern-number -->
-**定義の直接確認**。例えば $n=1$ の局所形式を微分すると $F=-\frac{i}{2}\sin\vartheta\,d\vartheta\wedge d\varphi$ である。$iF=\frac12\sin\vartheta\,d\vartheta\wedge d\varphi$ は実数値2形式なので、定義した積分は実数となる。極での $F$ の滑らかさは、前節で滑らかに延長された $A_i$ の外微分だから保証される。
+**定義の確認**。例えば $n=1$ の局所形式を微分すると $F=-\frac{i}{2}\sin\vartheta\,d\vartheta\wedge d\varphi$ である。$iF=\frac12\sin\vartheta\,d\vartheta\wedge d\varphi$ は実数値2形式なので、定義した積分は実数となる。極での $F$ の滑らかさは、前節で滑らかに延長された $A_i$ の外微分だから保証される。
 <!-- definition-example-end -->
 
 <a id="thm-gbg19-curvature-flux"></a>
