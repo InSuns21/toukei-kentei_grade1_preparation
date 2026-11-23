@@ -271,7 +271,7 @@ $$
 
 ## 4. 一階条件が二階のYang–Mills方程式を解く理由
 
-最小化したい作用の停留条件も確認する。接続を動かすとき、異なる主束同士を差し引くのではなく、固定した $P$ の接続空間の中で動かす。[GBG12の接続の差](../GBG12/index.md#thm-gbg12-affine-space)により、滑らかな $\operatorname{ad}(P)$ 値1形式 $a$ から $A_t=A+ta$ を作れる。
+最小化したい作用の停留条件も確認する。接続を動かすとき、異なる主束同士を差し引くのではなく、固定した $P$ の接続空間の中で動かす。[GBG12の接続の差](../GBG12/index.md#thm-gbg12-connections-affine)により、滑らかな $\operatorname{ad}(P)$ 値1形式 $a$ から $A_t=A+ta$ を作れる。
 
 局所表示で $F_{A_t}=d(A+ta)+(A+ta)\wedge(A+ta)$ を展開すると
 
@@ -526,13 +526,7 @@ $$
 閉4多様体上の自明 $SU(2)$ 束について $k=0$ を用い、$F\ne0$ の接続の作用が零になれないことを示せ。一方、$k=0$ から $F=0$ とは言えない理由を論証せよ。
 
 <!-- solution-start -->
-**詳細解答**。自明束には大域接続 $A=0$ があり、[第二Chern数の接続非依存性](../GBG22/index.md#cor-gbg22-class-independence)から任意の接続で $k=0$。平方完成は
-
-$$
-\operatorname{YM}=2\|F^+\|_{L^2}^2=2\|F^-\|_{L^2}^2
-$$
-
-ではなく、$k=0$ から **二つのノルムが等しい** $u=v$、従って $\operatorname{YM}=2u=2v$ となる。$F\ne0$ が滑らかならどこかで $|F|^2>0$ だから $\operatorname{YM}=\int|F|^2\operatorname{vol}>0$。$k=0$ は二つの非負量の差が零というだけで、個々の量が零とは限らない。[GBG26の自明束上の非平坦接続例](../GBG26/index.md#cor-gbg26-no-flat)も、この区別を示している。
+**詳細解答**。自明束には大域接続 $A=0$ があり、[第二Chern数の接続非依存性](../GBG22/index.md#cor-gbg22-class-independence)から任意の接続で $k=0$。平方完成と $k=0$ から **二つのノルムが等しい** $u=v$、従って $\operatorname{YM}=2u=2v$ となる。$F\ne0$ が滑らかならどこかで $|F|^2>0$ だから $\operatorname{YM}=\int|F|^2\operatorname{vol}>0$。$k=0$ は二つの非負量の差が零というだけで、個々の量が零とは限らない。[GBG26の自明束上の非平坦接続例](../GBG26/index.md#ex-gbg26-b04)も、この区別を示している。
 <!-- solution-end -->
 
 ### Level C：曲率・位相・作用・方程式を統合する
