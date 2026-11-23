@@ -93,11 +93,11 @@ test('G3 legends derive their initial step and GPU buffer dimensions from the ru
   assert.match(lighting.mode,/u_lightDirection.*CPU画素基準/);
   assert.match(lighting.source,/lighting.js.*lighting.vert.*lighting.frag/);
   const framebuffer=sceneDescription('WGL10',{width:800,height:600});
-  assert.match(framebuffer.grid,/RGBA8.*offscreenScale/);
-  assert.match(framebuffer.color,/第1パス.*第2パス/);
-  assert.match(framebuffer.mode,/texel数.*pixel数/);
+  assert.match(framebuffer.grid,/RGBA8 320×480 texel.*倍率/);
+  assert.match(framebuffer.color,/量子化.*RGB/);
+  assert.match(framebuffer.mode,/RGBA8 FBO.*NEAREST/);
   assert.match(framebuffer.source,/framebuffer.js.*framebuffer.frag/);
-  assert.equal(framebuffer.clock,'FBOへ描く第1パス→画面へ描く第2パス（物理stepなし）');
+  assert.equal(framebuffer.clock,'第1パス FBO生成 → 第2パス 画面表示（物理stepなし）');
   assert.equal(framebuffer.pixels,'800×600 px（GPU描画バッファ）');
   const shadow=sceneDescription('WGL11',{width:640,height:480});
   assert.match(shadow.grid,/256×256 px.*DEPTH_COMPONENT24/);
