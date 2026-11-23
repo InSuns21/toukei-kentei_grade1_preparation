@@ -6,7 +6,7 @@
 
 **本講の設定**。$M$ は境界のない滑らかな有限次元多様体、$P\to M$ は滑らかな右主 $U(r)$ 束（$r\ge1$）とする。
 
-[結合束の構成](../GBG4/index.md#def-gbg4-associated-bundle)により、標準表現から階数 $r$ の Hermite 複素ベクトル束 $E=P\times_{U(r)}\mathbb C^r$ を作る。[結合束の局所共変微分](../GBG9/index.md#thm-gbg9-local-formula)に従って接続 $\nabla$ を取る。
+[結合束の構成](../GBG4/index.md#def-gbg4-associated-bundle)により、標準表現から階数 $r$ の複素ベクトル束 $E=P\times_{U(r)}\mathbb C^r$ を作る。$U(r)$ の行列は標準Hermite内積を保存するので、局所枠の内積も重なりで一致し、$E$ は Hermite 複素ベクトル束になる。[結合束の局所共変微分](../GBG9/index.md#thm-gbg9-local-formula)に従って接続 $\nabla$ を取る。
 
 その局所曲率を $F\in\Omega^2(U;\mathfrak u(r))$ と書く。$\mathfrak u(r)$ は反Hermite行列のLie環である。従って本講では一貫して
 
@@ -40,7 +40,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg23-total-chern -->
-**定義の確認**。$\mathbb R^4$ の積 $U(2)$ 束で、座標を $(x,y,z,w)$ とし、全域接続表示を
+**定義の確認**。$\mathbb R^4$ の積 $U(2)$ 束では、標準基底から定まる全域のユニタリ枠を選べる。この枠で[結合束の共変微分の局所公式](../GBG9/index.md#thm-gbg9-local-formula)により $\nabla=d+A$ と表し、$A$ は反Hermite行列値1形式となる。
+
+従って $A^\dagger=-A$ がユニタリ接続の条件であり、[曲率の構造方程式](../GBG10/index.md#thm-gbg10-local-formula)を適用できる。
+
+$$
+F=dA+A\wedge A.
+$$
+
+ここで $d$ は基底 $\mathbb R^4$ の座標変数に関する外微分である。
+
+座標を $(x,y,z,w)$ とし、全域接続表示を
 
 $$
 A=\begin{pmatrix}-2\pi i x\,dy&0\\0&-2\pi i z\,dw\end{pmatrix}
@@ -141,7 +151,7 @@ $$
 \operatorname{ch}_k(E,\nabla)=\frac1{k!}\operatorname{tr}(C^k)
 $$
 
-> と定める。次数 $2k>\dim M$ の項は零なので和は有限である。各項は大域的な閉じた $2k$ 形式で、$k=0$ の項は定数関数 $r$ である。
+> と定める。次数 $2k>\dim M$ の項は零なので和は有限である。各項は大域的な $2k$ 形式で、$k=0$ の項は定数関数 $r$ である。各項の閉性は第3節で証明する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg23-chern-character -->
@@ -214,7 +224,9 @@ $$
 
 となる。$g$ は0形式の行列なので、通常の共役と行列式の計算に符号の問題は生じない。同じく $\operatorname{tr}(C_j^k)=\operatorname{tr}(C_i^k)$。従って、前節までの各局所表示は大域的に貼り合わさる。
 
-外微分が零になることと接続非依存性を示すには、行列式・跡の各次数成分が曲率のAd不変多項式であることを使う。共役不変な次数 $k$ の斉次多項式 $q(X)$ を $k$ 重線形形式へ戻す操作を *偏極* と呼ぶ。具体的には
+外微分が零になることと接続非依存性を示すには、行列式・跡の各次数成分が曲率のAd不変多項式であることを使う。その多項式を[GBG20の対称Ad不変多重線形形式](../GBG20/index.md#def-gbg20-invariant-polynomial)へ移す操作を *偏極* と呼ぶ。
+
+次数 $k$ の斉次多項式を $q(X)$ と書く。$X_1,\ldots,X_k$ は固定したLie環の元、$t_1,\ldots,t_k$ は互いに独立な実パラメータである。他の $t_j$ とすべての $X_j$ を固定して $t_i$ で偏微分すると
 
 $$
 p(X_1,\ldots,X_k)=\frac{1}{k!}
@@ -465,7 +477,25 @@ $$
 同じ主 $U(r)$ 束の二接続の局所表示を $A_0,A_1$、$a=A_1-A_0$、$A_t=A_0+ta$、曲率を $F_t$ とする。$\operatorname{ch}_2(A_1)-\operatorname{ch}_2(A_0)$ が完全形式であることを、微分公式から明示的に示せ。
 
 <!-- solution-start -->
-**詳細解答**。[補間曲率の変化率](../GBG22/index.md#lem-gbg22-curvature-variation)より $\dot F_t=da+[A_t\wedge a]$。$\operatorname{tr}(XY)=\operatorname{tr}(YX)$ は Ad不変二次式なので、[Ad不変性と次数1の因子の外微分](../GBG22/index.md#lem-gbg22-invariant-derivative)に $p(X,Y)=\operatorname{tr}(XY)$ を適用できる。従って
+**詳細解答**。補間変数 $t$ での通常の微分（基底点は固定）を $\dot F_t=\frac{dF_t}{dt}$ と書き、基底 $M$ 上の外微分 $d$ と区別する。
+
+[補間曲率の変化率](../GBG22/index.md#lem-gbg22-curvature-variation)より
+
+$$
+\dot F_t=da+[A_t\wedge a]=d_{A_t}a.
+$$
+
+ここで $d_{A_t}$ は接続 $A_t$ の共変外微分である。$\operatorname{tr}(XY)=\operatorname{tr}(YX)$ から、[Ad不変性と次数1の因子の外微分](../GBG22/index.md#lem-gbg22-invariant-derivative)を $p(X,Y)=\operatorname{tr}(XY)$ に適用できる。[局所Bianchi恒等式](../GBG11/index.md#thm-gbg11-bianchi-local)は $d_{A_t}F_t=0$ を与える。次数が $\deg a=1$、$\deg F_t=2$ であることを使うと
+
+$$
+\begin{aligned}
+d\,\operatorname{tr}(a\wedge F_t)
+&=\operatorname{tr}\bigl((d_{A_t}a)\wedge F_t-a\wedge d_{A_t}F_t\bigr)\\
+&=\operatorname{tr}(\dot F_t\wedge F_t).
+\end{aligned}
+$$
+
+従って
 
 $$
 \begin{aligned}
@@ -505,7 +535,9 @@ c_2(F_t)=\frac{1}{8\pi^2}
 -\operatorname{tr}F_t\wedge\operatorname{tr}F_t\bigr).
 $$
 
-第一項の微分は[前問で導出した式](#ex-gbg23-b02)から $2d\,\operatorname{tr}(a\wedge F_t)$。第二項は $\operatorname{tr}\dot F_t=d\operatorname{tr}a$（跡は括弧項を消す）であり、[主束曲率の Bianchi 恒等式・局所形式](../GBG11/index.md#thm-gbg11-bianchi-local)から $d\operatorname{tr}F_t=0$。従って
+第一項の微分は[前問で導出した式](#ex-gbg23-b02)から $2d\,\operatorname{tr}(a\wedge F_t)$ となる。
+
+第二項では、$\operatorname{tr}\dot F_t=d\operatorname{tr}a$（跡は交換子項を消す）であり、[主束曲率の Bianchi 恒等式・局所形式](../GBG11/index.md#thm-gbg11-bianchi-local)から $d\operatorname{tr}F_t=0$ となる。ここでも $t$ に関する $\frac{d}{dt}$ と基底上の外微分 $d$ を区別し、$\deg(\operatorname{tr}a)=1$ を使うと
 
 $$
 \begin{aligned}
