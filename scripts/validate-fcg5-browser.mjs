@@ -210,13 +210,13 @@ try {
   await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した条件の独立CPU初期画素検算に合格") && document.querySelector("#js-source")?.value.includes("nu=0.0025,forceAmplitude=0.02")',25000);
   await evaluate('(()=>{const e=document.querySelector("#parameter-dt");e.value="0.02";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}))})()');
   await waitFor('document.querySelector("#status")?.textContent.includes("FCG5 編集した条件の独立CPU初期画素検算に合格") && document.querySelector("#js-source")?.value.includes("dt=0.02")',25000);
-  assert.match(await evaluate('document.querySelector(".scene-info-list")?.textContent'),/dt=0\\.02 s/);
-  assert.match(await evaluate('document.querySelector("#fcg5-cpu-prediction")?.textContent'),/time=0\\.160s/);
+  assert.match(await evaluate('document.querySelector(".scene-info-list")?.textContent'),/dt=0\.02 s/);
+  assert.match(await evaluate('document.querySelector("#fcg5-cpu-prediction")?.textContent'),/time=0\.160s/);
   const edited=await evaluate('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>r.cells[4]?.textContent),note:document.querySelector("#numeric-note")?.textContent,summary:document.querySelector("#numeric-summary")?.textContent})');
   assert.equal(edited.rows.length,9);
   assert.ok(edited.rows.every(x=>x==='OK'),JSON.stringify(edited));
   assert.match(edited.note,/独立CPUの24×24格子/);
-  assert.match(edited.note,/dt=0\\.02 s/);
+  assert.match(edited.note,/dt=0\.02 s/);
   assert.match(edited.summary,/変更条件の独立CPU初期画素 9\/9/);
   // GUI edits one source; the independent initial CPU/GPU oracle is pre-injection.
   await evaluate('(()=>{const e=document.querySelector("#parameter-brush-radius");e.value="0.05";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}))})()');
