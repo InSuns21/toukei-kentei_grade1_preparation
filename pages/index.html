@@ -25,6 +25,10 @@
     .markdown-section { max-width: 980px; }
     .markdown-section table { display: table; width: 100%; }
     .markdown-section pre { overflow-x: auto; }
+    /* Compact lecture rows only on the DREAM THEATER subject index.
+       Handle both tight and loose Markdown list markup from Docsify. */
+    body.dream-theater-contents-route .markdown-section ol > li { margin-top: 0; margin-bottom: 0; }
+    body.dream-theater-contents-route .markdown-section ol > li > p { margin: 0; }
     .markdown-section .svg-enlarge-action { display: block; width: fit-content; margin: 0.05rem 0 1.2rem; font-size: 0.83rem; line-height: 1.4; }
     .markdown-section .svg-enlarge-action:focus-visible { outline: 2px solid var(--theme-color); outline-offset: 3px; }
     .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }
@@ -432,6 +436,7 @@
       var config = window.DreamTheaterNavigation;
       var isDreamTheater = isDreamTheaterRoute(currentRoute);
       document.body.classList.toggle('dream-theater-route', isDreamTheater);
+      document.body.classList.toggle('dream-theater-contents-route', currentRoute === 'textbook/dream-theater');
 
       var existing = document.querySelector('.dream-theater-sidebar-nav');
       if (!isDreamTheater) {
