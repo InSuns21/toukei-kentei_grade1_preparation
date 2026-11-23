@@ -6,13 +6,13 @@ prerequisites:
 forward_references: []
 concepts:
   - id: gauge.u1-clutching-sphere
-    name: 球面上のU(1) clutching束
+    name: 球面上のU(1)クラッチング束
     kind: definition
     introduction: formal
     requires: [gauge.smooth-gluing-theorem, gauge.principal-bundle, gauge.transition-section-change]
 
   - id: gauge.u1-clutching-principal
-    name: P_nは滑らかな主束になる
+    name: 貼り合わせで得られる球面主束
     kind: proposition
     introduction: formal
     requires: [gauge.u1-clutching-sphere, gauge.smooth-gluing-theorem]
@@ -30,19 +30,19 @@ concepts:
     requires: [gauge.circle-map-winding]
 
   - id: gauge.u1-winding-obstruction
-    name: 巻き数によるP_nの非自明性
+    name: 巻き数による球面主束の非自明性
     kind: theorem
     introduction: formal
     requires: [gauge.u1-clutching-principal, gauge.winding-homotopy-invariance, gauge.global-section-triviality]
 
   - id: gauge.u1-clutching-inequivalence
-    name: clutching束P_nの相互非同型性
+    name: 巻き数が異なる球面主束の非同型性
     kind: theorem
     introduction: formal
     requires: [gauge.u1-winding-obstruction, gauge.principal-bundle-isomorphism, gauge.transition-section-change]
 
   - id: gauge.hopf-winding-transition
-    name: Hopf束の遷移関数は巻き数+1
+    name: Hopf束の遷移関数の巻き数
     kind: proposition
     introduction: formal
     requires: [gauge.hopf-principal-bundle, gauge.circle-map-winding, gauge.u1-winding-obstruction]
