@@ -145,10 +145,10 @@ $$
 >
 > $S_0,a>0$、$0\le u\le u_{\rm end}$ とし、温度と中心電荷 $c$ がほぼ一定の蒸発期を考える。$K$ は同じcutoffで決まる有限の差と端点のずれをまとめた定数とする。次の時間尺度と二枝を仮定する。
 >
-> $
+> $$
 > a:=\frac{\pi cT}{12},\quad u_{\rm end}:=\frac{S_0}{a},\quad
 > S_\varnothing(u):=2au,\quad S_I(u):=S_0-au+K.
-> $
+> $$
 >
 > $S_I$ は端点を極値化したisland枝の主項である。二枝が共に存在し比較可能なときに限り、
 > $$
@@ -199,17 +199,17 @@ $$
 >
 > 上のRST状態、境界、座標と近似条件の下で、[文献の二変数QES停留方程式](https://doi.org/10.1007/JHEP07(2020)022) を
 >
-> $
+> $$
 > x_Q^+(x_Q^-+M)=\frac14,\qquad
 > x_O^-=x_Q^-\exp\left(\frac{4(x_Q^-+M)}{M}\right)
-> $
+> $$
 >
 > とする。採取点の漸近座標を $x_O^-=-M-e^{-u}$ と固定する。$0<x_Q^-+M\ll M$ の解は
 >
-> $
+> $$
 > x_Q^-+M=\frac{e^{-u}}3+O\left(\frac{e^{-2u}}M\right),\qquad
 > x_Q^+=\frac34e^u\left[1+O\left(\frac{e^{-u}}M\right)\right]
-> $
+> $$
 >
 > を満たす。
 <!-- formal-statement-end -->
@@ -289,10 +289,10 @@ Page型の二つの直線を比較するには、island枝の値が**先に極�
 > $$
 > と定める。補助模型の候補端点とは、内部領域で次の停留条件を満たす組 $(x_*,v_*)$ を指す。
 >
-> $
+> $$
 > \partial_x S_{\rm gen}^{\rm toy}(x_*,v_*;u)
 > =\partial_v S_{\rm gen}^{\rm toy}(x_*,v_*;u)=0.
-> $
+> $$
 <!-- formal-statement-end -->
 
 この模型では $\alpha x$ が端点の重力寄与の局所展開、対数が正則化された物質寄与、時間の二次式が停留点の時間位置を表す設定です。$\zeta>0$ による局所極小は計算上の選択であり、Lorentz幾何の全QESが二方向の極小となるという仮定はしていません。
