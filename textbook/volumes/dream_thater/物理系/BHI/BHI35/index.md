@@ -170,12 +170,13 @@ $J_\infty=J_{\rm h}$ と $\omega|A|^2>0$ から $1=|\mathcal R_\ell|^2+|\mathcal
 **入射から出射への橋渡し**：上では遠方から入る波で $\Gamma_\ell$ を定義しましたが、Hawking放射では地平線側から外へ進む波の透過率を使います。両者が一致することも実ポテンシャルの二階方程式から確かめられます。振幅を同じ規格化で、遠方入射の解を $\psi_R$、地平線側からの入射解を $\psi_L$ とし、$x=r_*$ と略記すると、両端で
 
 $$
-\begin{aligned}
-\psi_R&\sim e^{-i\omega x}+R_R e^{+i\omega x} &&(x\to+\infty),
-&\psi_R&\sim T_R e^{-i\omega x} &&(x\to-\infty),\\
-\psi_L&\sim T_L e^{+i\omega x} &&(x\to+\infty),
-&\psi_L&\sim e^{+i\omega x}+R_L e^{-i\omega x} &&(x\to-\infty)
-\end{aligned}
+\psi_R\sim e^{-i\omega x}+R_R e^{+i\omega x}\quad(x\to+\infty),
+\qquad \psi_R\sim T_R e^{-i\omega x}\quad(x\to-\infty)
+$$
+
+$$
+\psi_L\sim T_L e^{+i\omega x}\quad(x\to+\infty),
+\qquad \psi_L\sim e^{+i\omega x}+R_L e^{-i\omega x}\quad(x\to-\infty)
 $$
 
 と置きます。Wronskian $W=\psi_R(d\psi_L/dx)-(d\psi_R/dx)\psi_L$ は $W'=0$ を満たします。遠方で $W=2i\omega T_L$、地平線側で $W=2i\omega T_R$ なので $T_L=T_R$ です。従って**出射にも同じ $\Gamma_\ell=|T_L|^2=|T_R|^2$** を使えます。この等式には実係数・時間反転対称な散乱方程式と適切な境界条件が必要です。
