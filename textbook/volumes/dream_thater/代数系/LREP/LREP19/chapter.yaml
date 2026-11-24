@@ -31,8 +31,9 @@ problem_patterns:
   - LREP19-MASSLESS
   - LREP19-CONSTRUCT
   - LREP19-CONJUGATE
+  - LREP19-MASS-COUPLING
   - LREP19-MIXED-CURRENT
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 5, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 4, exercises: 4, review: 2 }
