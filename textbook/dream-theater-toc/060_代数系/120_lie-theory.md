@@ -26,3 +26,4 @@
 23. [LREP19 Dirac方程式の共変性](textbook/volumes/dream_thater/代数系/LREP/LREP19/index.md)
 24. [LREP20 平面波解・スピン和・helicity](textbook/volumes/dream_thater/代数系/LREP/LREP20/index.md)
 25. [LREP21 Poincare群と正エネルギー表現](textbook/volumes/dream_thater/代数系/LREP/LREP21/index.md)
+26. [LREP22 質量・スピンと不変量](textbook/volumes/dream_thater/代数系/LREP/LREP22/index.md)
