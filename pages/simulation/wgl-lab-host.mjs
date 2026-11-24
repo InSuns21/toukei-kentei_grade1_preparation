@@ -668,7 +668,7 @@ function isolatedRunner() {
         hooks.showObservation();
       }
       
-      if(request.lesson === 'FCG2' || request.lesson === 'FCG3' || request.lesson === 'FCG5' || request.lesson === 'FCG6' || request.lesson === 'FCG7' || request.lesson === 'FCG8'){
+      if(request.lesson === 'FCG2' || request.lesson === 'FCG3' || request.lesson === 'FCG5' || request.lesson === 'FCG7' || request.lesson === 'FCG8' || (request.lesson === 'FCG6' && typeof hooks?.liveCell !== 'function')){
         let cursorX=Math.floor(canvas.width/2),cursorY=Math.floor(canvas.height/2);
         canvas.tabIndex=0;
         canvas.setAttribute('aria-label','物理格子の画素検査。クリックか矢印キー＋Enter');
@@ -700,6 +700,15 @@ function isolatedRunner() {
           }else if(event.key==='Enter'||event.key===' '){
             event.preventDefault();pick(cursorX,cursorY,'keyboard');
           }
+        });
+      }
+      if(request.lesson==='FCG6'&&typeof hooks?.liveCell==='function'){
+        canvas.addEventListener('click',event=>{
+          const box=canvas.getBoundingClientRect();
+          const x=Math.floor((event.clientX-box.left)/box.width*canvas.width);
+          const y=canvas.height-1-Math.floor((event.clientY-box.top)/box.height*canvas.height);
+          const cell=hooks.liveCell(x,y);
+          send({...scope,type:'fcg6-live-cell',cell});
         });
       }
       const glError = gl.getError();
@@ -738,7 +747,7 @@ function runnerHtml() {
   return '<!doctype html><html lang="ja"><head><meta charset="utf-8">' +
     '<meta http-equiv="Content-Security-Policy" content="' + policy + '">' +
     '<meta name="referrer" content="no-referrer">' +
-    '<style>' + (isFCG4 ? 'body{margin:0;background:#0c1829}canvas{display:block;width:100%;height:auto}body{overflow:hidden}@media(max-width:560px){canvas{height:300vw}}' : isWGL13 ?
+    '<style>' + (isFCG6 ? 'body{margin:0;background:#101e2c;color:#e5eefb}canvas{display:block;width:100%;height:auto;touch-action:pan-y}select{max-width:100%;font:inherit}button:focus-visible,select:focus-visible,input:focus-visible,canvas:focus-visible{outline:2px solid #f8c453;outline-offset:-2px}' : isFCG4 ? 'body{margin:0;background:#0c1829}canvas{display:block;width:100%;height:auto}body{overflow:hidden}@media(max-width:560px){canvas{height:300vw}}' : isWGL13 ?
       'body{margin:0;padding:0 6px;background:#0c1829;color:#e5eefb;font:14px/1.5 system-ui}' +
       'canvas{display:block;width:100%;height:auto;touch-action:none}' :
       'body{margin:0;display:' + ((isWGL10||isWGL7)?'block':'grid;place-items:center') +
@@ -1016,6 +1025,16 @@ window.addEventListener('message', event => {
       ' distance='+nearest.distance.toFixed(4)+' velocity=('+
       nearest.p[2].toFixed(4)+','+nearest.p[3].toFixed(4)+')'))+
       ' / GPU '+rgba.join('/')+(changed?' / 編集コードではCPU値は初期基準':'');
+    return;
+  }
+  if(isFCG6&&data.type==='fcg6-live-cell'){
+    const c=data.cell;
+    if(c===null){byId('result-note').textContent='固体または表示領域の外';return;}
+    if(c&&['i','j','step','dye','pressure','vx','vy'].every(k=>Number.isFinite(c[k]))){
+      byId('result-note').textContent='実描画：cell('+c.i+','+c.j+') step '+c.step+
+        '、染料 '+c.dye.toFixed(3)+'、圧力 '+c.pressure.toPrecision(3)+' Pa、速度 ('+
+        c.vx.toFixed(3)+', '+c.vy.toFixed(3)+') m/s';
+    }
     return;
   }
   if (isFCG6 && data.type === 'fcg6-cursor') {
@@ -1525,6 +1544,12 @@ function run() {
   iframe.style.aspectRatio = payload.width + ' / ' +
     (payload.height + (isWGL3 ? 200 : isWGL7 ? 235 : isWGL18 ? 160 : isWGL13 ? 235 : 12));
   iframe.style.height = 'auto';
+  if(isFCG6){
+    iframe.style.aspectRatio='auto';
+    // Canvas occupies its responsive intrinsic aspect plus wrapping controls.
+    const fit=()=>{iframe.style.height=Math.ceil(iframe.clientWidth*payload.height/payload.width+ (iframe.clientWidth<480?330:220))+'px';};
+    const observer=new ResizeObserver(fit);observer.observe(iframe);iframe.fcg4Observer=observer;fit();
+  }
   if (isWGL3) iframe.style.minHeight = '500px'; // two GPU mesh views and controls
   if (isWGL13) iframe.style.minHeight = '540px';
   if (isWGL7) iframe.style.minHeight = '450px';
@@ -1793,14 +1818,13 @@ if (isFCG6) {
   document.title='FCG6 固体マスク付き流体：編集・検算ラボ';
   document.querySelector('h1').textContent='FCG6 動く固体と離散流体境界';
   document.querySelector('#panel-conditions > p').textContent=
-    '48×48実計算MAC格子。円・矩形の移動固体を毎step再標本化し、壁面速度を課したmasked Poisson射影と染料輸送を計算します。左=染料、中央=絶対発散、右=速さ＋黄色の境界法線。灰色は固体セル。表示バッファとは別の計算解像度です。';
+    '水槽の中を固体が動くと、その周囲の流体はどう動くでしょうか。白い粒子と速度矢印で流れを追い、圧力や発散に表示を切り替えられます。橙の線は流体と固体の境界です。';
   document.querySelector('#panel-conditions ol').innerHTML=
-    '<li>初期のstep0/1/8/24で固体セル遷移・壁面速度差・Poisson残差・補正された発散を区別する。</li>'+
-    '<li>1step、再生、停止、step0復帰を試し、t=step×0.05秒と描画時計を区別する。</li>'+
-    '<li>形状をrectangleに切り替え、同じ実格子のマスク・圧力反力を比較する。</li>'+
-    '<li>壁の移動振幅・角周波数と高さをGUIで変更し、実ソルバーの染料と壁法線条件を比較する。</li>'+
-    '<li>solid.frag の矢印色を改めるかshaderを壊し、物理値とGPU画素の独立性を確認する。</li>';
-  byId('preset').options[0].textContent='流体・移動固体・境界法線の3表示';
+    '<li>「実行（結果へ）」を押し、固体の周囲の白い粒子と速度矢印を追う。水槽をクリックして染料を足せる。</li>'+
+    '<li>実験パラメータで壁の移動振幅を0にし、再実行して動く壁と比較する。</li>'+
+    '<li>円と矩形を切り替え、橙の階段境界と速度方向を比較する。</li>'+
+    '<li>描画下の表示を圧力または絶対発散に切り替え、数値診断との関係を見る。</li>';
+  byId('preset').options[0].textContent='固体と流れの観察';
   byId('preset').options[1].textContent='fragment構文エラー';
   const controls=document.createElement('div');controls.className='controls';
   const step=document.createElement('button'),play=document.createElement('button'),
@@ -2483,7 +2507,7 @@ if (isWGL3) {
 if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-conditions')});
 // Three physical panels must have square pixel footprints: avoid stretching a
 // 1x1 metre domain into ~100x240 strips at the original 320x240 default.
-const sizeHint=(isFCG4||isFCG5||isFCG6||isFCG7||isFCG8)?[1536,512]:
+const sizeHint=isFCG6?[640,640]:(isFCG4||isFCG5||isFCG7||isFCG8)?[1536,512]:
   isFCG3?[1024,512]:isFCG2?[512,512]:isWGL14?[704,704]:
   (lesson==='WGL1'||isWGL2)?[960,960]:isWGL3?[960,480]:
   isWGL19?[640,640]:isWGL7?[800,400]:isWGL10?[960,480]:legacyViewport?[800,600]:[960,720];
@@ -2505,6 +2529,7 @@ if (['FCG3','FCG5','WGL5','WGL9','WGL12'].includes(lesson) || ['FCG6','WGL11','W
   note.textContent='最初の静止フレームをCPU/GPUで照合した後、同じ編集コードが連続描画します。' +
     '以下の数値表は実行開始時の固定条件（FCG4はPoisson反復数、FCG6は物理step数、WGL7はUV、WGL11は光源方向、WGL13は6面）での基準値です。再生中の全フレームの検算ではありません。' +
     'GPU画面にフォーカスしてSpace/Enterで再生・停止できます。FCG4・FCG6・WGL11・WGL13は矢印とRなどでも操作できます。';
+  if(isFCG6)note.textContent='最初に指定stepの独立数値検算を行い、その後、同じ編集コードで時刻0から観察します。描画下のボタン・表示切替・クリック染料で実験できます。';
   byId('canvas-slot').before(note);
 }
 mountVisualGuide(lesson,byId('panel-conditions'),{run,focusResult:selectTab});
