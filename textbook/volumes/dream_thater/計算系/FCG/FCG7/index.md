@@ -364,7 +364,7 @@ $$
 | 右側のFLIP混合係数 | 1 | 0〜1、0.1（無次元） | [particle.js](particle.js) の flipMix |
 | 初期交互速度の各成分の振幅 | 0.18 m/s | 0〜0.30 m/s、0.03 m/s | [particle.js](particle.js) の noise |
 
-混合係数は0〜1の凸結合とし、摂動の範囲はこの観察用の速度尺度に合わせている。再生間隔160 msは物理時間刻みとは別である。粒子の色は256×256の表示用テクスチャへ書き込むが、転送を計算する格子は24×24のままである。色を変えるには [particle.frag](particle.frag)、頂点処理を変えるには [particle.vert](particle.vert) を編集する。GLSLの配色だけを変えても粒子エネルギーは変化しない。
+混合係数を0〜1にすると、[混合速度の定義](#def-fcg7-mixing)の二つの重みは非負で和が1になる。摂動の範囲はこの観察用の速度尺度に合わせている。再生間隔160 msは物理時間刻みとは別である。粒子の色は256×256の表示用テクスチャへ書き込むが、転送を計算する格子は24×24のままである。色を変えるには [particle.frag](particle.frag)、頂点処理を変えるには [particle.vert](particle.vert) を編集する。GLSLの配色だけを変えても粒子エネルギーは変化しない。
 
 この実験は圧力射影や固体壁を持たない周期領域の転送実験である。本格的な水槽でのFLIPの挙動は、Matthias Müllerの [Ten Minute Physics: FLIP Water Simulator](https://matthias-research.github.io/pages/tenMinutePhysics/18-flip.html) や [WebGL PIC/FLIP Fluid](https://github.com/austinEng/WebGL-PIC-FLIP-Fluid) で比較できる。水槽では格子で圧力を解き、粒子へその変化を戻す。ここではその一部分を取り出し、速度の平均化と保持の差を直接観察する。
 
