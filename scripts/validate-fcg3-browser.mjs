@@ -106,6 +106,31 @@ try {
   assert.notEqual(dyeFrame0.data,dyeFrameNext.data,'FCG3 actual semi-Lagrangian dye should animate');
   console.log('FCG3 source-linked physical steps alter real Chromium display frames: PASS');
   console.log('FCG3 actual GPU texture, six readPixels, independent CPU and opaque sandbox: PASS');
+  // Freeze the real edited field through the normal inspector, then toggle
+  // reconstruction without changing the step. Crop to the sandbox canvas.
+  const frameRect=await evaluate(`(()=>{
+    const f=document.querySelector('#canvas-slot iframe');
+    f.scrollIntoView({block:'center'});
+    const b=f.getBoundingClientRect();
+    return {x:b.x,y:b.y,width:b.width,height:b.height,sx:scrollX,sy:scrollY};
+  })()`);
+  const px=frameRect.x+frameRect.width*.36,py=frameRect.y+frameRect.height*.45;
+  await cdp('Input.dispatchMouseEvent',{type:'mousePressed',x:px,y:py,button:'left',clickCount:1});
+  await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:px,y:py,button:'left',clickCount:1});
+  await waitFor('document.querySelector("#result-note")?.textContent.includes("CPUセル色との差=")');
+  assert.match(await evaluate('document.querySelector("#result-note").textContent'),/CPUセル色との差=[012]階調/);
+  const clip={x:frameRect.x+frameRect.sx,y:frameRect.y+frameRect.sy,width:frameRect.width,height:frameRect.height,scale:1};
+  const shot=()=>cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip});
+  const toggleGrid=async()=>{
+    await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:'g',code:'KeyG',text:'g'});
+    await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:'g',code:'KeyG'});
+  };
+  const smooth=await shot();await toggleGrid();const cells=await shot();
+  assert.notEqual(smooth.data,cells.data,'smooth reconstruction must visibly differ from raw cells');
+  await toggleGrid();const restored=await shot();
+  assert.equal(restored.data,smooth.data,'G toggle returns to same frozen actual data');
+  console.log('FCG3 GPU smooth/cell toggle and live raw-cell oracle: PASS');
+
 
   await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="1step")).click()');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格") && document.querySelector("#fcg3-cpu-prediction")?.textContent.includes("step 2")',25000);
@@ -132,7 +157,7 @@ try {
     'N64 and N96 readbacks must represent different physical grid samples');
 
   await click('tab-code');
-  const modified=await evaluate('(()=>{const e=document.querySelector("#fragment-source");e.value=e.value.replace("if(left)outColor=vec4(q,0.15,1.0-q,1.0);","if(left)outColor=vec4(0.0,q,0.0,1.0);");e.dispatchEvent(new Event("input",{bubbles:true}));return e.value.includes("vec4(0.0,q,0.0,1.0)")})()');
+  const modified=await evaluate('(()=>{const e=document.querySelector("#fragment-source");e.value=e.value.replace("if(left)outColor=vec4(raw.x,0.15,1.0-raw.x,1.0);","if(left)outColor=vec4(0.0,raw.x,0.0,1.0);");e.dispatchEvent(new Event("input",{bubbles:true}));return e.value.includes("vec4(0.0,raw.x,0.0,1.0)")})()');
   assert.ok(modified,'shader edit not applied');
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("編集コードを実行しました")',25000);
