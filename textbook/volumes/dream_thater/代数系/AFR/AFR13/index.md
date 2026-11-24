@@ -118,7 +118,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$g=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in G$ の第二行は非零です。$v_p(0)=+\infty$ とし、$m=\min(v_p(c),v_p(d))$、$(c',d')=p^{-m}(c,d)$ とします。両成分は整数環に属し、[Z_pの単元とイデアル](../../ANF/ANF9/index.md#prop-anf9-dvr-structure) より少なくとも一方は単元です。
+$g=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in G$ の第二行は非零です。第1節の付値を $v_p(0)=+\infty$ と拡張し、$m=\min(v_p(c),v_p(d))$、$(c',d')=p^{-m}(c,d)$ とします。両成分は整数環に属し、[Z_pの単元とイデアル](../../ANF/ANF9/index.md#prop-anf9-dvr-structure) より少なくとも一方は単元です。
 
 $d'$ が単元なら第一行を $(1,0)$、そうでなければ $(0,1)$ とします。第二行を $(c',d')$ とした行列 $k$ の行列式はそれぞれ $d'$ または $-c'$ で単元なので $k\in K$ です。
 
@@ -230,7 +230,7 @@ $K_n$ は $K$ の正規部分群なので $d\in D\cap K_n$ について
 $$
 \phi(dk)=\phi(k(k^{-1}dk))=\phi(k).
 $$
-同時に左変換則により $\phi(dk)=\lambda(d)\phi(k)$ です。$\lambda(d)\ne1$ となる $d$ があれば $\phi$ は零です。$D\cap K_n$ の対角成分は独立に $1+p^nO$ を動き、絶対値因子は1なので、非零の可能性がある条件は両指標のこの部分群上の自明性です。
+同時に左変換則により $\phi(dk)=\lambda(d)\phi(k)$ です。$\lambda(d)\ne1$ となる $d$ があれば $\phi$ は零です。$D\cap K_n$ の対角成分 $a,d$ は独立に $1+p^nO$ を動きます（対角行列を選べば任意の組を実現できます）。絶対値因子は1なので、$\lambda(\operatorname{diag}(a,d))=\chi_1(a)\chi_2(d)$ です。片方の対角成分を1に固定すれば、それぞれの指標が $1+p^nO$ 上で自明であることが必要と分かります。逆に両方が自明なら $\lambda$ は $D\cap K_n$ 上で1です。
 
 以下その自明性を仮定します。$R=O/p^nO$ と置きます。$K\to GL_2(R)$ は全射です。剰余行列を整数環へ持ち上げると行列式は法 $p$ で非零なので可逆です。
 
@@ -283,7 +283,7 @@ $$
 
 $\pi(g)=\eta(\det g)$ では $K_1$ の作用は1ですが、$\operatorname{diag}(2,1)\in K$ の作用は $-1$ です。
 
-$-v=v$ は $v=0$ のみなので分岐です。
+$K_1$ で全ベクトルが固定されるので [滑らかさ](#def-afr13-smooth) を満たします。一方、$K$ の全元で固定されるには特に $-v=v$ が必要で、複素数体上では $v=0$ のみです。従って分岐です。
 <!-- definition-example-end -->
 
 <a id="thm-afr13-spherical"></a>
@@ -309,7 +309,7 @@ $f\in I^K$ なら $f(k)=f(I_2)$ です。$d\in D=B\cap K$ に対して $f(d)=\la
 $$
 (\lambda(d)-1)f(I_2)=0.
 $$
-$D$ の対角成分は独立に $O^\times$ を動き、絶対値因子は1です。片方の指標が単数上非自明なら $\lambda(d)\ne1$ の $d$ を選べ、$f(I_2)=0$ となります。[局所三角分解](#thm-afr13-bk) より $f(bk)=\lambda(b)f(I_2)=0$ です。
+$D$ の対角成分は独立に $O^\times$ を動き、絶対値因子は1です。例えば $\operatorname{diag}(u,1)$ と $\operatorname{diag}(1,u)$（$u\in O^\times$）の係数はそれぞれ $\chi_1(u)$ と $\chi_2(u)$ です。片方の指標が単数上非自明なら $\lambda(d)\ne1$ の $d$ を選べ、$f(I_2)=0$ となります。[局所三角分解](#thm-afr13-bk) より $f(bk)=\lambda(b)f(I_2)=0$ です。
 
 両指標が単数上自明なら $\lambda|_D=1$ です。$g=bk$ と書いて $f_0(g)=\lambda(b)$ と定めます。
 
@@ -359,7 +359,7 @@ $p=3$ とし、$x=3^mu$ に対し $u\bmod3$ が1なら1、2なら $-1$ を返す
 <!-- solution-start -->
 **詳細解答**
 
-$\operatorname{diag}(2,1)\in K$ は $-1$ 倍を作用させるので $K$ 固定空間は零です。$k=I_2+3A\in K_1$ なら $\det k=1+3\operatorname{tr}A+9\det A$ は法3で1です。従って $\eta(\det k)=1$ となり、$K_1$ 固定空間は $\mathbb C$ 全体です。
+$\operatorname{diag}(2,1)\in K$ は $-1$ 倍を作用させるので $K$ 固定空間は零です。[主合同部分群](#def-afr13-congruence) の表示 $k=I_2+3A\in K_1$（$A\in M_2(O)$）を用いると、 $\det k=1+3\operatorname{tr}A+9\det A$ は法3で1です。従って $\eta(\det k)=1$ となり、$K_1$ 固定空間は $\mathbb C$ 全体です。
 <!-- solution-end -->
 
 <a id="ex-afr13-a3"></a>
@@ -378,7 +378,7 @@ $p=5$ として $g=\begin{pmatrix}2&1\\5&10\end{pmatrix}$ を $bk$（$b\in B,k\i
 $$
 b=gk^{-1}=\begin{pmatrix}-3&2\\0&5\end{pmatrix}.
 $$
-掛け直すと第一行は $(2,-3+4)=(2,1)$、第二行は $(5,10)$ です。
+掛け直すと第一行は $(2,-3+4)=(2,1)$、第二行は $(5,10)$ です。$b$ の対角成分 $-3,5$ は非零なので $b\in B$、行列式が単元の $k$ は $K$ に属します。
 <!-- solution-end -->
 
 <a id="ex-afr13-a4"></a>
