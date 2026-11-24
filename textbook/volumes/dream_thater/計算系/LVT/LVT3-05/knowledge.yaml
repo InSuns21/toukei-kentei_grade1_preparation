@@ -1,0 +1,37 @@
+chapter: LVT3-05
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT3-04, LVT2-06]
+concepts:
+  - id: lean-verification.transitions-system
+    name: 単一初期状態の遷移モデル
+    kind: definition
+    introduction: formal
+  - id: lean-verification.transitions-advance
+    name: 二単位カウンタの実行規則
+    kind: definition
+    introduction: formal
+  - id: lean-verification.transitions-step
+    name: 二単位カウンタの遷移関係
+    kind: definition
+    introduction: formal
+  - id: lean-verification.transitions-inductive
+    name: 帰納的不変量
+    kind: definition
+    introduction: formal
+  - id: lean-verification.transitions-preserve
+    name: 二単位カウンタの保存条件
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.transitions-exact
+    name: 二単位カウンタの到達範囲
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.transitions-bound
+    name: 二単位カウンタの上限保証
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.transitions-weak
+    name: 到達状態の性質と保存条件の相違
+    kind: proposition
+    introduction: formal

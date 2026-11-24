@@ -79,7 +79,7 @@ chapters:
     title: "ソート仕様：順序と置換の両立"
   - id: LVT3-05
     path: textbook/volumes/dream_thater/計算系/LVT/LVT3-05
-    status: planned
+    status: completed
     title: "状態遷移系・到達可能性・不変量"
   - id: LVT3-06
     path: textbook/volumes/dream_thater/計算系/LVT/LVT3-06

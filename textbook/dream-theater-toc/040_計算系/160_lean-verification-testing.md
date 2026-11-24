@@ -19,3 +19,4 @@
 16. [LVT3-02 全域性・部分正当性・停止性](textbook/volumes/dream_thater/計算系/LVT/LVT3-02/index.md)
 17. [LVT3-03 リスト処理の関数正当性](textbook/volumes/dream_thater/計算系/LVT/LVT3-03/index.md)
 18. [LVT3-04 ソート仕様：順序と置換の両立](textbook/volumes/dream_thater/計算系/LVT/LVT3-04/index.md)
+19. [LVT3-05 状態遷移系・到達可能性・不変量](textbook/volumes/dream_thater/計算系/LVT/LVT3-05/index.md)
