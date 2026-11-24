@@ -165,7 +165,7 @@ $$
 $$
 D_{7\cdot13}=\sum_{j=1}^5\sum_{h=1}^{11}jh\,\sigma_7^j\sigma_{13}^h.
 $$
-従って各成分への作用を順に適用すればよく、空積の $D_1=1$ は恒等作用です。
+従って各成分への作用を順に適用すればよく、空積の $D_1=1$ は恒等作用です。群環の計算だけを切り出して位数4の巡回群を考えれば、$D=\sigma+2\sigma^2+3\sigma^3$、$N=1+\sigma+\sigma^2+\sigma^3$ となります（補助素数として許されるかどうかとは別の計算です）。
 <!-- definition-example-end -->
 
 <a id="lem-iwa17-derivative-identity"></a>
@@ -317,7 +317,7 @@ $$
 $x/u^M\in K^\times$ であり、その類は $[x]$ に写ります。全射性が示されました。
 <!-- proof-end -->
 
-この講の $F_r$ には非自明な $p$ 冪乗根の単位根がありません。実際 $\mathbb Q(\zeta_{mr})$ の自己同型で $\zeta_m\mapsto\zeta_m^{-1}$、全 $\zeta_\ell\mapsto\zeta_\ell$ とするものは中国剰余定理で存在し、$F_r$ を点ごとに固定しますが $\zeta_p$ を固定しません。$p$ が奇素数なので $\zeta_p^{-1}\ne\zeta_p$。非自明な $p$ 冪位数の根を含めばその冪として原始 $p$ 乗根を含むため、矛盾します。
+この講の $F_r$ には非自明な $p$ 冪位数の単位根がありません。実際 $\mathbb Q(\zeta_{mr})$ の自己同型で $\zeta_m\mapsto\zeta_m^{-1}$、全 $\zeta_\ell\mapsto\zeta_\ell$ とするものは中国剰余定理で存在し、$F_r$ を点ごとに固定しますが $\zeta_p$ を固定しません。$p$ が奇素数なので $\zeta_p^{-1}\ne\zeta_p$。非自明な $p$ 冪位数の根を含めばその冪として原始 $p$ 乗根を含むため、矛盾します。
 
 従って [微分後の冪剰余類の不変性](#thm-iwa17-invariant-derivative) と [降下命題](#prop-iwa17-descent) を順に適用し、$F^\times/F^{\times M}$ の一意な類 $\kappa_r$ を得ます。これを Kolyvagin 微分と呼びます。
 
@@ -419,7 +419,7 @@ $$
 
 (I) は [局所／大域単数とp分岐Galois群](../IWA11/index.md#thm-iwa11-local-global-exact) の有限層版を無限塔で扱う算術的比較です。(II) はColeman写像（局所単数系を冪級数に変換する写像）による計算です。(III) がEuler系による深い上界です。[Sharifi 第6章](https://www.math.ucla.edu/~sharifi/notes/iwasawa-ch06.html) の 6.1.3、6.1.4、6.3.3、6.5.6 を参照してください。6.5.6 の仮定 $\chi(p)\ne1$、$(\chi\omega^{-1})(p)\ne1$ は、今回どちらも導手 $p$ の非自明指標であり、Dirichlet指標として $p$ では0となるため満たします。
 
-特徴イデアルの生成元で書くと (III) は $a_i\mid b_i$ です。$A_i$ の特徴イデアルが小さい、という言い方をすると包含の向きが逆になるので、生成元の整除とイデアル包含を区別します。
+特徴イデアルの非零生成元を $\operatorname{char}_\Lambda A_i=(a_i)$、$\operatorname{char}_\Lambda B_i=(b_i)$ と書きます。(III) により $b_i\in(a_i)$ だから $b_i=a_iq_i$ となる $q_i\in\Lambda$ が存在し、$a_i\mid b_i$ です。$A_i$ の特徴イデアルが小さい、という言い方をすると包含の向きが逆になるので、生成元の整除とイデアル包含を区別します。
 
 <a id="prop-iwa17-exact-comparison"></a>
 
@@ -533,7 +533,7 @@ $p$ 部分では $p-1$ の掛け算が可逆で、右の和は自明成分上で
 
 類群については [実部分体のp部分類群と偶部分](../IWA8/index.md#thm-iwa8-plus-real-class) により、実部分体の $p$ 部分を $K_n$ の偶部分と同一視できます。単数の完備化でも、実部分体への次数2のノルム・延長の合成は2倍、逆の合成は $1+c$（$c$ は複素共役）です。2は奇素数 $p$ に対して可逆なので、固定された元 $x$ は $(1/2)N(x)$ の延長となり、実部分体の完備化と偶部分が同型です。円分単数についても [実単数と群の生成](../IWA10/index.md#prop-iwa10-realness) によって実円分単数と単位根の積であり、単位根の $p$ 部分は奇成分にあるため偶成分の商に影響しません。
 
-そこで各非自明偶成分の有限層の指数を足すと、単数商の合計は全単数商の指数以下、全単数商の指数は類群の非自明偶成分の合計に等しくなります。
+そこで $I=\{i:2\le i\le p-3,\ i\text{ は偶数}\}$ と置きます。[偶奇成分と指標の次数](../IWA8/index.md#prop-iwa8-parity-eigenspaces) による直和分解で、単数商の非自明偶成分の位数の積は偶部分全体の位数以下です。円分単数の指数公式により、その偶部分の位数は実部分体の類群の $p$ 部分の位数と一致し、類群の自明指標成分は零なので、右辺は非自明偶成分の位数の積になります。位数の $p$ 進付値を取ると次の不等式を得ます。
 
 $$
 \sum_i v_p(|B_{i,n}|)\le \sum_i v_p(|A_{i,n}|).
@@ -552,7 +552,7 @@ $$
 
 有限層とのcontrolにより $(A_i)_{\Gamma_n}$ と $(B_i)_{\Gamma_n}$ は有限です。したがって擬同型な初等加群のcoinvariantsも有限です。もし初等因子の多項式 $W$ と $\omega_n$ が非定数の既約因子 $P$ を共有すれば、$\Lambda/(W,\omega_n)$ から $\Lambda/(P)$ への全射が存在します。$P$ は [distinguished多項式](../IWA6/index.md#def-iwa6-distinguished) として取れ、[Weierstrass除法](../IWA6/index.md#thm-iwa6-division) により $\Lambda/(P)$ は正階数の自由 $\mathbb Z_p$ 加群で無限です。有限性に矛盾します。これで成長公式に必要な共通因子がないことも確かめられました。
 
-[円分単数比較とEuler系による整除](#thm-iwa17-arithmetic-inputs) で $a_i\mid b_i$（$a_i,b_i$ は $A_i,B_i$ の特徴イデアルの生成元）を得ています。従って全成分について
+[円分単数比較とEuler系による整除](#thm-iwa17-arithmetic-inputs) で $a_i\mid b_i$（$a_i,b_i$ は第4節で定めた生成元）を得ています。従って全成分について
 
 $$
 0\le\sum_i(\mu(b_i)-\mu(a_i)),\qquad
@@ -606,7 +606,12 @@ c_{13}=1+\zeta_{13}+\zeta_{13}^2
 =\frac{1-\zeta_{13}^3}{1-\zeta_{13}}.
 $$
 
-$a=1,\ldots,12$ に対し $3a$ は法13の非零剰余類を全て一度ずつ走るので、ノルムの分子と分母は同じ積です。従ってノルムは1。13の上で $\zeta_{13}\equiv1$ なので $c_{13}\equiv3$ です。[ノルムと合同](#thm-iwa17-euler-norm) の両条件と一致します。
+$a=1,\ldots,12$ に対し $3a$ は法13の非零剰余類を全て一度ずつ走ります（3と13は互いに素）。[体のノルム](../IWA4/index.md#def-iwa4-field-norm) では全共役を掛けるので
+$$
+N_{F_{13}/\mathbb Q}(c_{13})
+=\frac{\prod_{a=1}^{12}(1-\zeta_{13}^{3a})}{\prod_{a=1}^{12}(1-\zeta_{13}^{a})}=1.
+$$
+各因子は非零です。13の上で $\zeta_{13}\equiv1$ なので $c_{13}\equiv3$ です。[ノルムと合同](#thm-iwa17-euler-norm) の両条件と一致します。
 <!-- solution-end -->
 
 <a id="ex-iwa17-a2"></a>
