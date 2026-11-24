@@ -1673,6 +1673,42 @@ $$
 
 ---
 
+### 複素共役を伴う等長作用素
+
+ユニタリ作用素は複素線形な全射で内積を保ちます。複素共役を伴う変換でも、長さと内積の絶対値を保つことができます。係数を共役して加法を保つ写像を反線形といいます。以下では内積は第二引数について線形とします。
+
+<a id="def-qm6-antiunitary"></a>
+
+<!-- formal-statement-start -->
+> **定義（反ユニタリ作用素）**
+> 複素Hilbert空間 $\mathcal H$ 上の写像 $F:\mathcal H\to\mathcal H$ が全射であり、任意の $z,w\in\mathcal H$、$\alpha,\beta\in\mathbb C$ に対して
+
+$$
+F(\alpha z+\beta w)=\alpha^*Fz+\beta^*Fw,
+$$
+
+$$
+\langle Fz,Fw\rangle=\langle z,w\rangle^*
+$$
+
+> を満たすとき、反ユニタリ作用素という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-qm6-antiunitary -->
+**定義の確認**
+
+ $\mathbb C^2$ の通常の内積では $Kz=z^*$ がその条件を満たします。実際 $K^2=I_2$、$K(\alpha z+\beta w)=\alpha^*Kz+\beta^*Kw$ であり、
+
+$$
+\langle Kz,Kw\rangle=z^{\mathsf T}w^*
+=\langle z,w\rangle^*.
+$$
+
+従ってノルムが保たれます。全射性は二回作用させると任意の列が元に戻ることから従います。
+<!-- definition-example-end -->
+
+内積条件に同じベクトルを二回代入すればノルムが保存されます。したがって核は零であり、全射性と合わせて逆写像が存在します。
+
 ## 13. 自由粒子 Hamiltonian
 
 質量 $m>0$ の一次元自由粒子では、古典力学の運動エネルギー
