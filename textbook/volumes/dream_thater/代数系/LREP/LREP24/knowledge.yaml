@@ -1,0 +1,42 @@
+chapter: LREP24
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP23
+forward_references: []
+concepts:
+  - id: representation.null-standard-stabilizer
+    name: 光的標準運動量の被覆固定群
+    kind: theorem
+    introduction: formal
+    requires: [representation.momentum-little-group, representation.sl2c-lorentz-action, representation.future-cone-orbits]
+  - id: representation.oriented-plane-motion-group
+    name: 平面の向きを保つ等長変換群
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: representation.massless-little-group-iso2
+    name: 質量零固定群と平面運動群
+    kind: theorem
+    introduction: formal
+    requires: [representation.null-standard-stabilizer, representation.oriented-plane-motion-group, representation.sl2c-double-cover]
+  - id: representation.massless-helicity-representation
+    name: ヘリシティの内部表現
+    kind: definition
+    introduction: formal
+    requires: [representation.massless-little-group-iso2, representation.strongly-continuous-unitary-representation]
+  - id: representation.massless-finite-helicity-classification
+    name: 並進自明な有限次元既約内部表現
+    kind: theorem
+    introduction: formal
+    requires: [representation.massless-helicity-representation, representation.massless-little-group-iso2]
+  - id: representation.massless-finite-unitary-translation
+    name: 有限次元ユニタリ内部表現の並進自明性
+    kind: theorem
+    introduction: formal
+    requires: [representation.massless-little-group-iso2, representation.strongly-continuous-unitary-representation]
+  - id: representation.massless-circle-internal-representation
+    name: 非自明な並進を持つ円周上の内部表現
+    kind: proposition
+    introduction: formal
+    requires: [representation.massless-little-group-iso2, representation.strongly-continuous-unitary-representation]
