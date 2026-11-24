@@ -15,7 +15,7 @@ chapters:
     title: "Lean環境・Lake・再現可能なプロジェクト"
   - id: LVT1-03
     path: textbook/volumes/dream_thater/計算系/LVT/LVT1-03
-    status: planned
+    status: completed
     title: "型・関数・帰納型・Option/Except"
   - id: LVT1-04
     path: textbook/volumes/dream_thater/計算系/LVT/LVT1-04
