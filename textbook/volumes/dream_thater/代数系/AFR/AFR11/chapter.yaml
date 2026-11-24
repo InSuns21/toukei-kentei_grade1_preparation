@@ -2,7 +2,7 @@ id: "AFR11"
 title: "GL_2(A)上の保型形式"
 volume: "foundations"
 status: supplementary
-prerequisites: [AFR10, CA4]
+prerequisites: [AFR10, CA4, LIE1]
 official_scope: []
 learning_objectives:
   - アデール上の一般線形群と保型商を定義し有限素点の可逆性条件を判定できる
