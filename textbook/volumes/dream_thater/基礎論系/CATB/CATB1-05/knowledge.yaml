@@ -1,0 +1,44 @@
+chapter: CATB1-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CATB1-01
+  - CATB1-04
+
+concepts:
+  - id: category.coimage
+    name: 余像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（余像）"]
+    requires: [category.kernel, category.cokernel, category.abelian-category]
+  - id: category.image-coimage
+    name: 像と余像の比較同型
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（像と余像の比較同型）"]
+    requires: [category.coimage, category.categorical-image, category.normal-morphism-recovery]
+  - id: category.exact-sequence
+    name: 完全列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（完全列）"]
+    requires: [category.categorical-image, category.kernel, category.image-coimage]
+  - id: category.exactness-test
+    name: 完全性の判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（完全性の判定）"]
+    requires: [category.exact-sequence, category.image-coimage, category.regular-epi-mono-image]
+  - id: category.short-exact-sequence
+    name: 短完全列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（短完全列）"]
+    requires: [category.exact-sequence, category.abelian-category]
+  - id: category.short-exact-test
+    name: 短完全列の特徴づけ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（短完全列の特徴づけ）"]
+    requires: [category.short-exact-sequence, category.zero-morphism-test, category.normal-morphism-recovery]
