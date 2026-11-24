@@ -65,7 +65,7 @@ const requestedCase = new URL(location.href).searchParams.get('case');
 const labCase = isWGL20 && ['CS1','CS2','CS3'].includes(requestedCase) ? requestedCase : 'BASE';
 // FCG8's old saved JS predates the live playback hooks. Keep the old key
 // intact for recovery, but never silently restore it into the new live runner.
-const STORAGE_KEY = 'toukei-' + (isFCG8?'fcg8-live-v2':isWGL14?'wgl14-visual-v2':isWGL19?'wgl19-replay-v2':VERSION) + '-' + lesson +
+const STORAGE_KEY = 'toukei-' + (isFCG4?'fcg4-projection-v2':isFCG8?'fcg8-live-v2':isWGL14?'wgl14-visual-v2':isWGL19?'wgl19-replay-v2':VERSION) + '-' + lesson +
   (isWGL20 ? '-' + labCase : '');
 
 const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/' + ((isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8) ? 'FCG' : 'WGL') + '/' + lesson + '/', import.meta.url);
@@ -380,6 +380,7 @@ async function load() {
 function stop(message = '停止しました。実行 iframe を破棄しました') {
   if (active) {
     clearTimeout(active.timer);
+    active.frame.fcg4Observer?.disconnect();
     active.frame.remove();
     active = null;
   }
@@ -396,6 +397,10 @@ function stop(message = '停止しました。実行 iframe を破棄しまし�
       const button=byId(id);
       if(button)button.disabled=true;
     }
+  }
+  if(isFCG4){
+    for(const control of document.querySelectorAll('#fcg4-live button,#fcg4-live input'))control.disabled=true;
+    const live=byId('fcg4-live-state');if(live){live.textContent='未実行';delete live.dataset.iter;}
   }
   updateSceneInfo(null);
   setStatus(message);
@@ -485,6 +490,26 @@ function isolatedRunner() {
           canvas.dispatchEvent(new CustomEvent('fcg5-physics-control',{
             detail:{action:m.action}
           }));
+        });
+      }
+      const fcg4Hooks=request.lesson==='FCG4'&&!!hooks&&
+        ['showObservation','play','pause','step','reset','seek'].every(key=>typeof hooks[key]==='function');
+      if(fcg4Hooks){
+        canvas.addEventListener('fcg4-progress',event=>{
+          const d=event.detail;
+          if(!d||!Number.isInteger(d.iter)||d.iter<0||d.iter>160||
+             ![d.before,d.after,d.residual,d.identity].every(v=>Number.isFinite(v)&&v>=0))return;
+          send({...scope,type:'fcg4-progress',iter:d.iter,playing:!!d.playing,
+            before:d.before,after:d.after,residual:d.residual,identity:d.identity});
+        });
+        window.addEventListener('message',event=>{
+          const m=event.data;
+          if(event.source!==parent||!m||m.type!=='fcg4-control'||
+             m.session!==scope.session||m.requestId!==scope.requestId||
+             m.generation!==scope.generation||
+             !['play','pause','step','reset','seek'].includes(m.action))return;
+          try{if(m.action==='seek')hooks.seek(m.iter);else hooks[m.action]();}
+          catch(error){send({...scope,type:'fcg4-control-error',message:String(error?.message||error).slice(0,300)});}
         });
       }
       const fcg8Hooks=request.lesson==='FCG8'&&!!hooks&&
@@ -629,11 +654,11 @@ function isolatedRunner() {
         gl.readPixels(x, y, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, value);
         return {x, y, rgba: Array.from(value)};
       });
-      if (request.lesson === 'WGL7' && typeof hooks?.showObservation === 'function') {
+      if ((request.lesson === 'WGL7' || fcg4Hooks) && typeof hooks?.showObservation === 'function') {
         hooks.showObservation();
       }
       
-      if(request.lesson === 'FCG2' || request.lesson === 'FCG3' || request.lesson === 'FCG4' || request.lesson === 'FCG5' || request.lesson === 'FCG6' || request.lesson === 'FCG7' || request.lesson === 'FCG8'){
+      if(request.lesson === 'FCG2' || request.lesson === 'FCG3' || request.lesson === 'FCG5' || request.lesson === 'FCG6' || request.lesson === 'FCG7' || request.lesson === 'FCG8'){
         let cursorX=Math.floor(canvas.width/2),cursorY=Math.floor(canvas.height/2);
         canvas.tabIndex=0;
         canvas.setAttribute('aria-label','物理格子の画素検査。クリックか矢印キー＋Enter');
@@ -702,7 +727,7 @@ function runnerHtml() {
   return '<!doctype html><html lang="ja"><head><meta charset="utf-8">' +
     '<meta http-equiv="Content-Security-Policy" content="' + policy + '">' +
     '<meta name="referrer" content="no-referrer">' +
-    '<style>' + (isWGL13 ?
+    '<style>' + (isFCG4 ? 'body{margin:0;background:#0c1829}canvas{display:block;width:100%;height:auto}@media(max-width:560px){canvas{height:300vw}}' : isWGL13 ?
       'body{margin:0;padding:0 6px;background:#0c1829;color:#e5eefb;font:14px/1.5 system-ui}' +
       'canvas{display:block;width:100%;height:auto;touch-action:none}' :
       'body{margin:0;display:' + ((isWGL10||isWGL7)?'block':'grid;place-items:center') +
@@ -828,6 +853,26 @@ window.addEventListener('message', event => {
     fcg2Playing=false;fcg2Mark?.();
     setStatus('FCG2 ライブ操作エラー: '+String(data.message).slice(0,300),true);
     return;
+  }
+  if(isFCG4 && data.type==='fcg4-progress'){
+    if(active.contextLost||!Number.isInteger(data.iter)||data.iter<0||data.iter>160||
+       ![data.before,data.after,data.residual,data.identity].every(v=>Number.isFinite(v)&&v>=0))return;
+    const range=byId('fcg4-iterations');
+    range.value=String(data.iter);
+    const output=byId('fcg4-live-state');
+    output.dataset.iter=String(data.iter);output.dataset.playing=String(!!data.playing);
+    output.dataset.divergence=String(data.after);
+    output.textContent='反復 '+data.iter+'/160 ｜ 最大発散 '+data.before.toFixed(4)+' → '+data.after.toFixed(4)+' s⁻¹ ｜ Poisson残差 '+data.residual.toExponential(2)+' Pa/m²';
+    byId('fcg4-divergence-bar').value=data.before>0?Math.min(1,data.after/data.before):0;
+    byId('fcg4-divergence-bar').setAttribute('aria-valuetext',(data.before>0?100*data.after/data.before:0).toFixed(1)+'% 残存');
+    for(const button of document.querySelectorAll('#fcg4-live button'))button.disabled=false;
+    range.disabled=false;
+    byId('fcg4-play').disabled=!!data.playing;
+    byId('fcg4-pause').disabled=!data.playing;
+    return;
+  }
+  if(isFCG4 && data.type==='fcg4-control-error'){
+    setStatus('FCG4 ライブ操作エラー: '+String(data.message).slice(0,300),true);return;
   }
   if(isFCG8 && data.type==='fcg8-progress'){
     if(!Number.isInteger(data.steps)||data.steps<0||data.steps>96)return;
@@ -1458,6 +1503,14 @@ function run() {
   if (isWGL3) iframe.style.minHeight = '500px'; // two GPU mesh views and controls
   if (isWGL13) iframe.style.minHeight = '540px';
   if (isWGL7) iframe.style.minHeight = '450px';
+  if (isFCG4) {
+    iframe.classList.add('fcg4-projection-frame');
+    iframe.style.aspectRatio='3 / 1';
+    const fit=()=>{iframe.style.aspectRatio=iframe.clientWidth<=560?'1 / 3':'3 / 1';};
+    const observer=new ResizeObserver(fit);observer.observe(iframe);
+    // The observer is disconnected on disposal below.
+    iframe.fcg4Observer=observer;
+  }
   if (isWGL17) {
     // The texel inspector belongs below the GPU canvas, never over its pixels.
     iframe.style.aspectRatio = 'auto';
@@ -1851,51 +1904,42 @@ if (isFCG5) {
   mark();
 }
 if (isFCG4) {
-  document.title='FCG4 MAC圧力射影：編集・検算ラボ';
-  document.querySelector('h1').textContent='FCG4 Poisson反復と射影後の発散';
+  document.title='FCG4 圧力射影：流れを比較する';
+  document.querySelector('h1').textContent='FCG4 流れの膨張・圧縮を取り除く';
   document.querySelector('#panel-conditions > p').textContent=
-    '8×8 MAC格子で製造した予測速度から圧力Poisson問題を緩和Jacobi反復で解き、左=圧力、中央=絶対発散、右=速度の大きさをR8/WebGL2で描画。圧力・発散・壁流束・残差を独立CPUと比較します。';
+    '同じ流れの射影前・圧力・射影後を並べます。矢印は速度の向きと大きさ、赤は膨張、青は圧縮、暗色は発散0付近です。';
   document.querySelector('#panel-conditions ol').innerHTML=
-    '<li>反復0・128・160でPoisson残差と射影後発散の関係を検算する。</li>'+
-    '<li>1反復・再生・停止・反復0への復帰を行う。</li>'+
-    '<li>canvasの画素をクリックまたは矢印キー＋Enterで検査する。</li>'+
-    '<li>projection.jsの緩和係数2/3、projection.fragの中央パネルの描画倍率を編集する。</li>'+
-    '<li>構文エラーとGPU非対応時の独立CPU値を確認する。</li>';
-  byId('preset').options[0].textContent='MAC圧力・発散・速度';
+    '<li>反復0で射影前後の矢印と色が同じことを確認する。</li>'+
+    '<li>反復を進め、射影後の赤・青が薄くなって循環が残ることを観察する。</li>'+
+    '<li>反復数を変えて、残る最大発散を比較する。圧力は中央に表示される。</li>'+
+    '<li>コード編集で projection.js の relax や projection.frag の signedColor を変更し、再実行する。</li>';
+  byId('preset').options[0].textContent='圧力射影の前後比較';
   byId('preset').options[1].textContent='fragment構文エラー';
-  const controls=document.createElement('div');controls.className='controls';
-  const step=document.createElement('button'),play=document.createElement('button'),
-    pause=document.createElement('button'),back=document.createElement('button'),
-    marker=document.createElement('output');
-  for(const [button,label] of [[step,'1反復'],[play,'再生'],[pause,'一時停止'],[back,'反復0へ戻す']]){
-    button.type='button';button.className='action';button.textContent=label;controls.append(button);
+  const live=document.createElement('div');live.id='fcg4-live';
+  live.innerHTML='<div class="controls"><button type="button" class="action" id="fcg4-play" disabled>再生</button>'+
+    '<button type="button" class="action" id="fcg4-pause" disabled>一時停止</button>'+
+    '<button type="button" class="action" id="fcg4-step" disabled>1反復</button>'+
+    '<button type="button" class="action" id="fcg4-reset" disabled>反復0へ</button></div>'+
+    '<label for="fcg4-iterations">Poisson反復数（物理時刻は固定）</label>'+
+    '<input type="range" id="fcg4-iterations" min="0" max="160" step="1" value="0" disabled style="width:100%">'+
+    '<output id="fcg4-live-state">未実行</output>'+
+    '<div><label for="fcg4-divergence-bar">射影後に残る最大発散の割合</label> <progress id="fcg4-divergence-bar" value="1" max="1" style="width:100%"></progress></div>';
+  byId('canvas-slot').before(live);
+  const legend=document.createElement('p');
+  legend.textContent='左／上：①予測速度と発散　中央：②圧力（赤＋・青−）　右／下：③射影後の速度と発散。白い矢印＝速度、赤＝正の発散（膨張）、青＝負の発散（圧縮）。両端の色は共通スケール。';
+  byId('canvas-slot').before(legend);
+  function control(action,iter){
+    if(!active?.started||active.contextLost)return;
+    active.frame.contentWindow.postMessage({type:'fcg4-control',action,iter,
+      requestId:active.id,generation:active.generation,session:active.session},'*');
   }
-  controls.append(marker);byId('run').parentElement.before(controls);
-  const preview=document.createElement('p');preview.id='fcg4-cpu-prediction';
-  preview.setAttribute('aria-live','polite');
-  preview.textContent='WebGL2非対応でも独立CPU残差を利用できます。';
+  for(const action of ['play','pause','step','reset']){
+    byId('fcg4-'+action).addEventListener('click',()=>control(action));
+  }
+  byId('fcg4-iterations').addEventListener('input',event=>control('seek',Number(event.target.value)));
+  const preview=document.createElement('details');preview.innerHTML='<summary>初期反復128回の独立数値検算</summary>';
+  const prediction=document.createElement('p');prediction.id='fcg4-cpu-prediction';preview.append(prediction);
   byId('panel-result').append(preview);
-  function mark(){
-    marker.textContent='Poisson反復 '+fcg4Steps+'/160（物理時刻は固定、描画fpsとは独立）';
-    pause.disabled=fcg4Timer===null;play.disabled=fcg4Timer!==null;
-  }
-  function pausePlay(){if(fcg4Timer!==null){clearInterval(fcg4Timer);fcg4Timer=null;}mark();}
-  step.addEventListener('click',()=>{
-    pausePlay();if(fcg4Steps>=160){setStatus('反復160で上限。反復0へ戻してください');return;}
-    fcg4Steps++;mark();run();
-  });
-  play.addEventListener('click',()=>{
-    if(fcg4Timer!==null)return;
-    fcg4Timer=setInterval(()=>{
-      if(fcg4Steps>=160){pausePlay();return;}
-      fcg4Steps++;mark();run();if(fcg4Steps>=160)pausePlay();
-    },900);mark();
-  });
-  pause.addEventListener('click',pausePlay);
-  back.addEventListener('click',()=>{pausePlay();fcg4Steps=0;mark();run();});
-  byId('reset').addEventListener('click',mark);
-  byId('stop').addEventListener('click',mark);
-  mark();
 }
 if (isFCG3) {
   document.title='FCG3 染料移流：編集・検算ラボ';
@@ -2429,7 +2473,7 @@ byId('width').value=String(sizeHint[0]);
 byId('height').value=String(sizeHint[1]);
 // An animated scene is only validated at its first static snapshot.
 // Keep that boundary visible next to the real GPU canvas, not just in theory.
-if (['FCG3','FCG5','WGL5','WGL9','WGL12'].includes(lesson) || ['FCG4','FCG6','WGL11','WGL13'].includes(lesson)) {
+if (['FCG3','FCG5','WGL5','WGL9','WGL12'].includes(lesson) || ['FCG6','WGL11','WGL13'].includes(lesson)) {
   const note=document.createElement('p');
   note.className='visual-snapshot-note';
   note.setAttribute('role','note');
