@@ -12,7 +12,7 @@ $$
 e_{U,W}:[U,W]\otimes U\to W
 $$
 
-が存在し、小さい積と等化子も存在する。豊穣圏 $\mathcal A$ の対象は集合をなすとする。基底自身は対象の集まりが真の類でもよい。豊穣圏の合成・単位の公理は対象の集まりの大きさに依存せず、以下の積を取る箇所では添字の小ささを確認する。
+が存在し、[小さい積](../../CAT/CAT2-04/index.md#def-cat2-04-small-product)と[等化子](../../CAT/CAT2-03/index.md#def-cat2-03-equalizer)も存在する。豊穣圏 $\mathcal A$ の対象は集合をなすとする。基底自身は対象の集まりが真の類でもよい。豊穣圏の合成・単位の公理は対象の集まりの大きさに依存せず、以下の積を取る箇所では添字の小ささを確認する。
 
 記号を軽くするため、[Mac Laneの整合性定理](../../CAT/CAT4-02/index.md#thm-cat4-02-coherence)で許される括弧の付け替えと単位子は省略して書く。例えば $P\otimes I=P$ と書く操作は実際には右単位子による同一視である。因子の順序を変えるときは対称性を使い、単なる括弧変更とは区別する。射の合成は右から左に読む。[豊穣圏の定義](../CATB2-01/index.md#def-catb2-01-enriched-category)の合成 $m^\mathcal A_{xyz}$ と単位 $j^\mathcal A_x$ は、所属する圏が明らかなとき上添字を省く。
 
@@ -106,14 +106,14 @@ $$
 
 ## 3. 固定した対象から出るHomを関手にする
 
-対象 $a$ を固定する。各 $x$ にHom対象 $\mathcal A(a,x)$ を割り当てるとき、$x$ から $y$ へのHom対象の作用は、$\mathcal A(a,x)$ の右から来る入力と合成することで作れる。
+対象 $a$ を固定する。通常の表現可能関手と同じく、固定した対象から出るHomを値にする豊穣関手を豊穣表現可能関手と呼ぶ。各 $x$ にHom対象 $\mathcal A(a,x)$ を割り当てるとき、$x$ から $y$ へのHom対象の作用は、$\mathcal A(a,x)$ の右から来る入力と合成することで作れる。
 
 <a id="def-catb2-04-representable"></a>
 
 <!-- formal-statement-start -->
 > **定義（豊穣表現可能関手）**
 >
-> 局所小な右閉モノイダル圏 $\mathcal V$ 上の豊穣圏 $\mathcal A$ と対象 $a$ に対し、共変な豊穣表現可能関手 $H_a:\mathcal A\to\underline{\mathcal V}$ は
+> 局所小な右閉モノイダル圏 $\mathcal V$ 上の豊穣圏 $\mathcal A$ と対象 $a$ に対し、[自己豊穣化](#thm-catb2-04-self-enrichment)への共変な豊穣表現可能関手 $H_a:\mathcal A\to\underline{\mathcal V}$ は
 
 $$
 H_a(x)=\mathcal A(a,x),\qquad
@@ -131,7 +131,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb2-04-representable -->
-**定義の確認**（有限集合）。 通常の順序 $0<1$ を持つ二対象の圏を集合で豊穣化する。唯一の非恒等射を $s:0\to1$ と書く。
+**定義の確認**（有限集合）。 通常の順序 $0<1$ を持つ二対象の圏を[集合値の豊穣圏](../CATB2-01/index.md#prop-catb2-01-set-enrichment)として読む。唯一の非恒等射を $s:0\to1$ と書く。
 
 $a=0$ とすれば
 
@@ -147,7 +147,7 @@ $$
 H_1(0)=\varnothing,\qquad H_1(1)=\{1_1\}
 $$
 
-となり、固定点を変えると関手も変わる。
+となる。$s$ の作用は空集合から $\{1_1\}$ への唯一の写像で、$1_0$ の作用は空集合の恒等写像、$1_1$ の作用は一元集合の恒等写像である。可能な合成 $s1_0,1_1s$ の作用はともに同じ空集合からの写像である。逆向きのHomは空集合なので、その構造射も一意であり、新たな合成条件は生じない。固定点を変えても関手律が成立する。
 <!-- definition-example-end -->
 
 <a id="prop-catb2-04-representable-functor"></a>
@@ -191,7 +191,7 @@ $$
 d^F_{xy}:\mathcal A(x,y)\otimes Fx\to Fy.
 $$
 
-豊穣関手の公理を評価へ戻すと次の作用の法則になる。
+[豊穣関手の公理](../CATB2-03/index.md#def-catb2-03-enriched-functor)を[自己豊穣化の合成と単位](#thm-catb2-04-self-enrichment)で評価へ戻すと次の作用の法則になる。
 
 $$
 \begin{aligned}
@@ -200,9 +200,9 @@ d^F_{xx}(j_x\otimes1)&=1_{Fx}.
 \end{aligned}
 $$
 
-ここで第一式の始域は $\mathcal A(y,z)\otimes\mathcal A(x,y)\otimes Fx$。第二式では左単位子を同一視した。逆に二式が成立すれば、転置の一意性から関手の公理が成立する。
+具体的には合成保存の二経路を $Fx$ で評価すると、$F_{xz}m_{xyz}$ の逆転置は左辺、$c(F_{yz}\otimes F_{xy})$ の逆転置は右辺になる。ここで第一式の始域は $\mathcal A(y,z)\otimes\mathcal A(x,y)\otimes Fx$。第二式では左単位子を同一視した。逆に二式が成立すれば、転置の一意性から関手の公理が成立する。
 
-普通の豊穣自然変換は $I\to[Fx,Gx]$ の族であった。もっと一般に任意の対象 $P$ からの射 $P\to[Fx,Gx]$ の族を考え、自然性を課す。$P$ を変換のパラメータと見なせば、全てのパラメータで自然性を満たす族を一つの対象で表したい。
+普通の豊穣自然変換は $I\to[Fx,Gx]$ の族であった。もっと一般に任意の対象 $P$ からの射 $P\to[Fx,Gx]$ の族を考え、自然性を課す。$P$ を変換のパラメータと見なせば、全てのパラメータで自然性を満たす族を一つの対象で表したい。[評価とカリー化](../../CAT/CAT4-05/index.md#thm-cat4-05-evaluation-curry)により、$P\to[Fx,Gx]$ と $P\otimes Fx\to Gx$ は同じデータの二つの表示である。後者を用いて自然性を記述する。
 
 <a id="def-catb2-04-natural-family"></a>
 
@@ -231,10 +231,12 @@ t_1(p,s)&=0,&t_1(q,s)&=1.
 \end{aligned}
 $$
 
-非恒等射 $s$ に対する自然性の左辺は順に $0,1$ となる。右辺も $G(s)$ が恒等写像なのでそれぞれ同じ値になる。恒等射の条件は各成分自身に一致する。従って全ての自然性が成立する。
+非恒等射 $s$ に対する自然性の左辺は順に $0,1$ となる。右辺も $G(s)$ が恒等写像なのでそれぞれ同じ値になる。恒等射の条件は各成分自身に一致する。逆向きの対象対 $(1,0)$ ではHomが空集合なので両経路とも空集合からの唯一の写像である。従って全ての自然性が成立する。
 <!-- definition-example-end -->
 
 特に $P=I$ なら転置により前講の[豊穣自然性](../CATB2-03/index.md#def-catb2-03-enriched-natural)と一致する。実際、前講の二経路を $Fx$ で逆転置すると、一方は $t_y(1\otimes d^F_{xy})$、他方は $d^G_{xy}(1\otimes t_x)$ となり、単位子と対称性の整合性で上の式に一致する。
+
+次に、成分の候補を全て集めた積から、自然性を満たすものだけを取り出す。[等化子](../../CAT/CAT2-03/index.md#def-cat2-03-equalizer)は二つの自然性の経路を一致させる射を普遍的に表すので、この選別を基底の圏の中で行える。これを自然変換のHom対象と呼ぶ。
 
 <a id="def-catb2-04-natural-hom"></a>
 
@@ -259,7 +261,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb2-04-natural-hom -->
-**定義の確認**。 直前の有限集合の例では $Q$ は二つの一元集合から $\{0,1\}$ への写像の対、すなわち $\{0,1\}^2$ に同一視できる。恒等射の成分では $L,R'$ は一致し、$s$ の成分だけが二つの値の一致を要求する。従って等化子は $\{(0,0),(1,1)\}$ である。実際、この部分集合への包含は二射を等しくし、二射を等しくする任意の写像は像がこの部分集合に入り、一意に包含を経由する。
+**定義の確認**。 直前の有限集合の例では $Q$ は二つの一元集合から $\{0,1\}$ への写像の対、すなわち $\{0,1\}^2$ に同一視できる。候補を $(v,w)\in\{0,1\}^2$ と書くと、$s$ の成分を $(s,1_0)$ で評価した左経路は $w$、右経路は $G(s)(v)=v$ となる。恒等射の二成分では両経路が一致し、逆向きの対象対は空集合からの写像なので条件を加えない。従って $L(v,w)=R'(v,w)$ と $w=v$ は同値である。従って等化子は $\{(0,0),(1,1)\}$ である。実際、この部分集合への包含は二射を等しくし、二射を等しくする任意の写像は像がこの部分集合に入り、一意に包含を経由する。
 <!-- definition-example-end -->
 
 <a id="prop-catb2-04-natural-hom-universal"></a>
@@ -412,6 +414,15 @@ $$
 
 表現可能関手と $F$ のどちらを変えても、恒等射での評価がその変化と両立するかを確かめる。
 
+[台となる関手](../CATB2-03/index.md#thm-catb2-03-underlying-functor)の $F_0$ は、台の射 $u:I\to\mathcal A(a,b)$ を $F_{ab}u:I\to[Fa,Fb]$ に送る。[評価とカリー化](../../CAT/CAT4-05/index.md#thm-cat4-05-evaluation-curry)と左単位子により、後者は基底の射
+
+$$
+e_{Fa,Fb}(F_{ab}u\otimes1_{Fa})
+=d^F_{ab}(u\otimes1_{Fa}):Fa\to Fb
+$$
+
+に対応する。以下、この射も $F_0(u)$ と書く。同じ対応で、豊穣自然変換の成分 $I\to[Fx,Gx]$ を基底の射 $\beta_x:Fx\to Gx$ として書く。一般の $P$ に対する族では $P$ は固定せず、単位対象からの射だけに限定しない。
+
 <a id="prop-catb2-04-yoneda-natural"></a>
 
 <!-- formal-statement-start -->
@@ -424,7 +435,7 @@ E_{b,F}u^*=F_0(u)E_{a,F},\qquad
 E_{a,G}\beta_*=\beta_a E_{a,F}
 $$
 
-> が成立する。ここで $\beta_a$ は評価で得る基底の通常の射 $Fa\to Ga$ である。
+> が成立する。ここで $F_0(u):Fa\to Fb$ と $\beta_a:Fa\to Ga$ は、単位対象からの射を評価して得る基底の通常の射である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -459,9 +470,9 @@ s_b(1_P\otimes j_b)=t_b(1_P\otimes u)
 =d^F_{ab}(u\otimes E_{a,F}p)
 $$
 
-となる。ただし最後の式の $p:P\to N(H_a,F)$ は $t$ を表す射であり、[豊穣Yonedaの復元公式](#thm-catb2-04-enriched-yoneda)を使った。右辺は $F_0(u)E_{a,F}p$ である。$p=1$ とすれば第一の自然性を得る。
+となる。ただし最後の式の $p:P\to N(H_a,F)$ は $t$ を表す射であり、[豊穣Yonedaの復元公式](#thm-catb2-04-enriched-yoneda)を使った。右辺は $d^F_{ab}(u\otimes1_{Fa})E_{a,F}p=F_0(u)E_{a,F}p$ である。左辺は前合成した族の評価なので $E_{b,F}u^*p$。$P=N(H_a,F)$、$p=1_P$ とすれば第一の自然性を得る。
 
-$\beta$ の成分を基底の射 $\beta_x:Fx\to Gx$ と読む。自然性は $\beta_y d^F_{xy}=d^G_{xy}(1\otimes\beta_x)$ である。後合成した族 $s_x=\beta_xt_x$ に対し
+$\beta$ の成分を基底の射 $\beta_x:Fx\to Gx$ と読む。[パラメータ付き自然性](#def-catb2-04-natural-family)を $P=I$ に適用した自然性は $\beta_y d^F_{xy}=d^G_{xy}(1\otimes\beta_x)$ である。後合成した族 $s_x=\beta_xt_x$ に対し
 
 $$
 \begin{aligned}
@@ -471,7 +482,7 @@ s_y(1_P\otimes m_{axy})
 \end{aligned}
 $$
 
-なので再び自然である。$P=N(H_a,F)$ の普遍族から $\beta_*$ を得る。恒等射での評価は $s_a(1\otimes j_a)=\beta_at_a(1\otimes j_a)$。これで第二の自然性が成立する。
+なので再び自然である。$P=N(H_a,F)$ の普遍族から $\beta_*$ を得る。恒等射での評価は $s_a(1\otimes j_a)=\beta_at_a(1\otimes j_a)$。$t$ を $p:P\to N(H_a,F)$ に対応する族とすれば、この等式は $E_{a,G}\beta_*p=\beta_aE_{a,F}p$ である。$P=N(H_a,F)$、$p=1_P$ として第二の自然性を得る。
 <!-- proof-end -->
 
 特に $F=H_b$ を代入すれば
@@ -480,7 +491,7 @@ $$
 N(H_a,H_b)\cong\mathcal A(b,a).
 $$
 
-共変表現可能関手では添字の向きが逆になる。この同型は豊穣版のYoneda埋め込みのHom上の計算である。
+共変表現可能関手では添字の向きが逆になる。これは通常の[Yoneda埋め込みの充満忠実性](../../CAT/CAT1-12/index.md#thm-cat1-12-full-faithful)に対応するHom対象の計算である。ここでは共変表現可能関手を使うので、対象 $a$ から $H_a$ への割当ては反変になる。
 
 ### 6.1 Hom対象全体についての両立性
 
@@ -510,14 +521,29 @@ $$
 
 特に $P=N(H_a,F)$ と $p=1_P$ を選ぶと、前合成のHom対象上の作用と $F$ のHom対象上の作用が評価同型で結ばれる。
 
-後合成についても、$q:S\to N(F,G)$ に対応する族を $v_x:S\otimes Fx\to Gx$ とすれば、$v_x(1_S\otimes t_x)$ は $S\otimes P$ をパラメータとする自然な族になる。自然性の左辺にまず $t$ の自然性を代入すると $d^F_{xy}$ が $v_y$ の直前に現れる。次に $v$ の自然性
+後合成についても、$S$ を基底の対象とし、$q:S\to N(F,G)$ に対応する族を $v_x:S\otimes Fx\to Gx$ とすれば、$v_x(1_S\otimes t_x)$ は $S\otimes P$ をパラメータとする自然な族になる。自然性の左辺にまず $t$ の自然性を代入すると $d^F_{xy}$ が $v_y$ の直前に現れる。次に $v$ の自然性
 
 $$
 v_y(1_S\otimes d^F_{xy})
 =d^G_{xy}(1\otimes v_x)(\sigma_{S,\mathcal A(x,y)}\otimes1)
 $$
 
-を代入すると、$d^G_{xy}$ が最後に作用する右辺になる。二回の交換は六角形条件で $S\otimes P$ と $\mathcal A(x,y)$ の交換に等しい。$j_a$ で評価すれば
+を代入すると、$d^G_{xy}$ が最後に作用する右辺になる。具体的に $K=\mathcal A(x,y)$、$w_x=v_x(1_S\otimes t_x)$ と書くと、始域 $S\otimes P\otimes K\otimes H_ax$ からの二経路は
+
+$$
+\begin{aligned}
+w_y(1_{S\otimes P}\otimes m_{axy})
+&=v_y(1_S\otimes d^F_{xy})(1_S\otimes1_K\otimes t_x)
+(1_S\otimes\sigma_{P,K}\otimes1)\\
+&=d^G_{xy}(1_K\otimes w_x)
+(\sigma_{S,K}\otimes1_P\otimes1)
+(1_S\otimes\sigma_{P,K}\otimes1)\\
+&=d^G_{xy}(1_K\otimes w_x)
+(\sigma_{S\otimes P,K}\otimes1).
+\end{aligned}
+$$
+
+第二行はテンソル双関手の合成保存、第三行は[六角形条件](../../CAT/CAT4-03/index.md#def-cat4-03-braiding)による。これで $w$ の自然性が確認できる。$j_a$ で評価すれば
 
 $$
 v_a(1_S\otimes t_a)(1_{S\otimes P}\otimes j_a)
@@ -528,7 +554,16 @@ $S=N(F,G)$、$P=N(H_a,F)$、$q=1_S,p=1_P$ とすれば、後合成のHom対象�
 
 ### 6.2 反変形
 
-反変形も得られる。対称基底の上で $\mathcal A^{\mathrm{op}}(x,y)=\mathcal A(y,x)$ と置き、合成は二つのHom因子を対称性で交換してから $\mathcal A$ で合成する。三入力では二通りの括弧付けとも因子を逆順にする同じ置換になる（六角形条件と対称性）。その後の合成は $\mathcal A$ の結合律で一致する。単位は同じ $j_x$ を使い、左右単位律が入れ替わる。従って豊穣圏である。
+反変形も得られる。対称基底の上で、対象は $\mathcal A$ と同じ、Hom対象は $\mathcal A^{\mathrm{op}}(x,y)=\mathcal A(y,x)$ と置いた反対の豊穣圏を作る。合成の型は
+
+$$
+\mathcal A(z,y)\otimes\mathcal A(y,x)
+\xrightarrow{\sigma}
+\mathcal A(y,x)\otimes\mathcal A(z,y)
+\xrightarrow{m_{zyx}}\mathcal A(z,x).
+$$
+
+つまり二つのHom因子を対称性で交換してから $\mathcal A$ で合成する。三入力では二通りの括弧付けとも因子を逆順にする同じ置換になる（六角形条件と対称性）。その後の合成は $\mathcal A$ の結合律で一致する。単位は同じ $j_x$ を使い、左右単位律が入れ替わる。従って豊穣圏である。
 
 [豊穣Yonedaの補題](#thm-catb2-04-enriched-yoneda)で、対象圏を $\mathcal A^{\mathrm{op}}$、豊穣関手を $F:\mathcal A^{\mathrm{op}}\to\underline{\mathcal V}$ とする。このとき表現可能関手の値は $\mathcal A^{\mathrm{op}}(a,x)=\mathcal A(x,a)$ なので
 
@@ -563,7 +598,7 @@ $$
 p+u\ge v\quad\Longleftrightarrow\quad p\ge[u,v]
 $$
 
-が成立し、閉性が確認できる。
+が成立し、[右閉性](../../CAT/CAT4-05/index.md#def-cat4-05-right-closed)の随伴条件が確認できる。両Hom集合は一元集合か空集合であり、この同値は両者の全単射を与える。射が存在すれば一意なのでその対応は自然でもある。
 
 $H_a(x)=d(a,x)$、$H_b(x)=d(b,x)$ とする。豊穣Yonedaによる $N(H_a,H_b)$ は $d(b,a)=5$。構成から直接計算しても、積 $Q$ は
 
@@ -623,10 +658,10 @@ $$
 
 - Level: A
 
-集合の二対象の圏 $a\to x$ で、$H_a$ と、$F(a)=\{0,1\}$、$F(x)=\{2,3\}$、$F(s)(0)=F(s)(1)=2$ を取る。$N(H_a,F)$ を積と等化子で直接計算せよ。
+集合の二対象の圏 $a\xrightarrow{s}x$ で、$H_a$ と、$F(a)=\{0,1\}$、$F(x)=\{2,3\}$、$F(s)(0)=F(s)(1)=2$ を取る。$N(H_a,F)$ を積と等化子で直接計算せよ。
 
 <!-- solution-start -->
-**詳細解答。** [Hom対象の定義](#def-catb2-04-natural-hom)で積 $Q$ は $\{0,1\}\times\{2,3\}$。四つの対のうち、自然性は非恒等射について第二成分が第一成分の $F(s)$ による像であることを要求する。恒等射については全て成立する。従って $(0,2),(1,2)$ だけが等化子に残る。第一射影が $\{0,1\}$ への全単射で、逆は $v\mapsto(v,2)$ となる。
+**詳細解答。** [Hom対象の定義](#def-catb2-04-natural-hom)で積 $Q$ は $\{0,1\}\times\{2,3\}$。候補 $(v,w)$ について、$s$ の成分で左経路は $w$、右経路は $F(s)(v)=2$。従って自然性は $w=2$ と同値である。恒等射については全て成立し、逆向きのHomは空集合なので追加条件はない。従って $(0,2),(1,2)$ だけが等化子に残る。第一射影が $\{0,1\}$ への全単射で、逆は $v\mapsto(v,2)$ となる。
 <!-- solution-end -->
 
 ### CATB2-04-B01 パラメータを持つ自然な族
@@ -697,7 +732,7 @@ $$
 
 - Level: C
 
-体 $k$ 上のベクトル空間を基底とする一対象の豊穣圏 $\mathcal A$ を考える。Hom対象 $D$ は基底 $1,\varepsilon$ を持つ二次元ベクトル空間で、合成は双線形な積 $(a+b\varepsilon)(c+d\varepsilon)=ac+(ad+bc)\varepsilon$、単位は $1$ とする（この代数は双対数の代数と呼ばれる）。$F$ は唯一の対象を $k^2$ に送り、作用を
+体 $k$ 上のベクトル空間を基底とする、唯一の対象を $*$ と書く一対象の豊穣圏 $\mathcal A$ を考える。Hom対象 $D$ は基底 $1,\varepsilon$ を持つ二次元ベクトル空間で、合成は双線形な積 $(a+b\varepsilon)(c+d\varepsilon)=ac+(ad+bc)\varepsilon$、単位は $1$ とする（この代数は双対数の代数と呼ばれる）。$F$ は唯一の対象を $k^2$ に送り、作用を
 
 $$
 (a+b\varepsilon)\cdot(x,y)=(ax+by,ay)
@@ -745,7 +780,14 @@ $$
 
 また $1\cdot(x,y)=(x,y)$。従って第4節の作用の法則を満たし、転置すれば[豊穣関手](../CATB2-03/index.md#def-catb2-03-enriched-functor)になる。$H_*$ の作用は $D$ 自身への左乗法である。
 
-[Hom対象の定義](#def-catb2-04-natural-hom)では $Q=[D,k^2]$、自然性は線形写像 $T:D\to k^2$ に対して $T(AB)=A\cdot T(B)$ が全ての $A,B\in D$ で成立することである。これは二つの線形写像の等化子、すなわち条件を満たす部分空間を与える。$B=1$ と置くと $T(A)=A\cdot T(1)$。$T(1)=(s,t)$ と書けば
+[Hom対象の定義](#def-catb2-04-natural-hom)では $Q=[D,k^2]$、自然性は線形写像 $T:D\to k^2$ に対して $T(AB)=A\cdot T(B)$ が全ての $A,B\in D$ で成立することである。ここで $\mathcal A(*,*)=D$、$H_*(*)=D$、$F(*)=k^2$ なので、二射の値は
+
+$$
+L(T)(A\otimes B)=T(AB),\qquad
+R'(T)(A\otimes B)=A\cdot T(B).
+$$
+
+$A\otimes B$ は $D\otimes D$ を張るため、この全称条件は二射の一致と同値である。[等化子](../../CAT/CAT2-03/index.md#def-cat2-03-equalizer)は線形写像 $L-R'$ の核、すなわち条件を満たす部分空間を与える。$B=1$ と置くと $T(A)=A\cdot T(1)$。$T(1)=(s,t)$ と書けば
 
 $$
 T(a+b\varepsilon)=(as+bt,at).
@@ -757,7 +799,7 @@ $$
 T(AB)=(AB)\cdot(s,t)=A\cdot(B\cdot(s,t))=A\cdot T(B)
 $$
 
-なので条件を満たす。基底 $1,\varepsilon$ と $k^2$ の標準基底による行列表示は
+なので条件を満たす。この条件を満たす線形写像 $T$ を座標で表す。入力は基底 $1,\varepsilon$ に関する係数の列 $(a,b)^{\mathsf T}$、出力は $k^2$ の標準基底に関する列 $(as+bt,at)^{\mathsf T}$ である。この二列の関係から、行列表示は
 
 $$
 \begin{pmatrix}s&t\\t&0\end{pmatrix}
