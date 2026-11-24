@@ -1,0 +1,21 @@
+chapter: LREP28
+scope: dream-theater
+coverage: complete
+prerequisites: [LREP27, LREP8]
+forward_references: []
+concepts:
+  - id: representation.dirac-parity
+    name: Dirac空間での空間反転
+    kind: proposition
+    introduction: formal
+    requires: [representation.dirac-spinor, representation.weyl-parity-exchange, representation.chirality-operator]
+  - id: representation.positive-energy-time-reversal
+    name: 正エネルギーの時間反転条件
+    kind: proposition
+    introduction: formal
+    requires: [representation.positive-energy, quantum.stone-theorem]
+  - id: representation.discrete-helicity-reflection
+    name: 離散操作によるヘリシティの変化
+    kind: proposition
+    introduction: formal
+    requires: [representation.dirac-helicity, representation.massless-helicity-representation, representation.positive-energy-time-reversal]
