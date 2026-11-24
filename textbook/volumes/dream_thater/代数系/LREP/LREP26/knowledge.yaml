@@ -1,0 +1,38 @@
+chapter: LREP26
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP20
+  - LREP25
+forward_references: []
+concepts:
+  - id: representation.covariant-field-action
+    name: 有限成分場の共変作用
+    kind: definition
+    introduction: formal
+    requires: [representation.finite-dimensional-complex, representation.covered-poincare-group]
+  - id: representation.covariant-mode-coefficient
+    name: 共変モード係数
+    kind: definition
+    introduction: formal
+    requires: [representation.covariant-field-action, representation.section-little-correction, representation.intertwiner]
+  - id: representation.rest-mode-extension
+    name: 静止系からの共変モード係数の構成
+    kind: theorem
+    introduction: formal
+    requires: [representation.covariant-mode-coefficient, representation.momentum-section, representation.intertwiner]
+  - id: representation.positive-frequency-packet-field-map
+    name: 正周波数波束の場への写像
+    kind: definition
+    introduction: formal
+    requires: [representation.covariant-mode-coefficient, representation.mass-shell-packet-space]
+  - id: representation.packet-field-covariance
+    name: 波束写像の共変性
+    kind: theorem
+    introduction: formal
+    requires: [representation.positive-frequency-packet-field-map, representation.mass-shell-induced-action, representation.mass-shell-measure-invariance]
+  - id: representation.dirac-mode-embedding
+    name: 正質量Diracモードによる内部空間の埋め込み
+    kind: theorem
+    introduction: formal
+    requires: [representation.rest-mode-extension, representation.massive-dirac-modes, representation.dirac-spin-sums]
