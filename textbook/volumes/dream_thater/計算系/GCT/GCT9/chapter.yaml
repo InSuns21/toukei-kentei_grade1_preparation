@@ -1,0 +1,43 @@
+id: "GCT9"
+title: "計数複雑性クラス：#P・FP・GapP"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GCT8
+  - CPLX4
+official_scope: []
+learning_objectives:
+  - 固定長の証明書と受理経路数の全単射を構成できる
+  - 非負整数値 FP と計数クラスの包含および NP の存在判定との関係を証明できる
+  - 和と積の計数を重複なしの証明書で構成できる
+  - GapP を二つの計数の差と機械の経路差で表し閉性を導ける
+  - 充足割当と0–1パーマネントの所属を符号化から説明できる
+definitions:
+  - { id: GCT9-DEF-01, name: "クラス #P" }
+  - { id: GCT9-DEF-02, name: "関数クラス FP" }
+  - { id: GCT9-DEF-03, name: "クラス GapP" }
+theorems:
+  - { id: GCT9-THM-01, name: "受理経路数による特徴付け" }
+  - { id: GCT9-THM-02, name: "非負整数値 FP の包含" }
+  - { id: GCT9-THM-03, name: "正の計数と NP の対応" }
+  - { id: GCT9-THM-04, name: "#P の和と積の閉性" }
+  - { id: GCT9-THM-05, name: "GapP の経路差による特徴付け" }
+  - { id: GCT9-THM-06, name: "GapP の和・差・積の閉性" }
+canonical_examples:
+  - 位置証明書と停止後の零埋め
+  - 充足割当と0–1パーマネントの検証
+  - 不採用経路の相殺
+problem_patterns:
+  - GCT9-CERTIFICATE
+  - GCT9-OUTPUT
+  - GCT9-PADDING
+  - GCT9-GAP
+  - GCT9-SAT
+  - GCT9-CLOSURE
+  - GCT9-CANCELLATION
+  - GCT9-PERMANENT
+  - GCT9-GRID
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }
