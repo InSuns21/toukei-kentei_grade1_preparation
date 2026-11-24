@@ -8,7 +8,7 @@
 
 今回は三目並べの準備として、3 行 3 列の盤面に印があるかどうかだけを扱います。手番、勝敗、終了判定はまだ導入しません。各マスの値は Bool で、false は空、true は印があることを表します。前講の[Fin型](../LVT1-05/index.md#def-lvt1-05-fin-index)により有効な番号は 0 から 8 です。
 
-外部のファイルや時刻を参照する関数では、見かけ上同じ引数を与えても結果が変わるかもしれません。必要な情報をすべて引数として渡し、結果を値として返す関数なら、盤面を変えずに何度でも同じ計算を試せます。このような関数を純粋関数と呼びます。
+外部のファイルや時刻を参照する関数では、見かけ上同じ引数を与えても結果が変わるかもしれません。必要な情報をすべて引数として渡し、結果を値として返す関数なら、盤面を変えずに何度でも同じ計算を試せます。結果が引数だけから決まることと、計算が外部に影響しないことを一つの性質として捉えます。
 
 <a id="def-lvt1-06-pure-function"></a>
 
@@ -22,23 +22,23 @@
 **定義の確認**　自然数 n を受け取って n + 1 を返す関数を考える。n = 2 なら 3、同じ n = 2 を再度渡しても 3 となる。計算は自然数の加算だけであり、時刻、ファイル、画面を読み書きしない。結果の決定と外部状態を操作しないという両条件を満たす。一方、ファイルに 3 を書き込んでから 3 を返す処理は、結果が同じでも後者の条件を満たさない。
 <!-- definition-example-end -->
 
-~~~lean
+```lean
 abbrev Board := Fin 9 → Bool
 
 def emptyBoard : Board := fun _ => false
 
 def writeMark (b : Board) (i : Fin 9) : Board :=
   fun j => if j.val = i.val then true else b j
-~~~
+```
 
 abbrev は型の別名を導入する記法です。writeMark は b を変更する操作ではなく、新しい盤面を表す関数を返します。新しい盤面の番号 j の値を決めるため、j の自然数としての値と着手位置 i の値を比べます。例えば空盤面に番号 2 の印を置くと、j = 2 では true、j = 0 では元の b 0 = false です。元の emptyBoard 2 は依然 false です。
 
 しかし既に印のあるマスへの着手は拒否したいので、前々講までに学んだ[Option型](../LVT1-03/index.md#def-lvt1-03-option)を使います。
 
-~~~lean
+```lean
 def place (b : Board) (i : Fin 9) : Option Board :=
   if b i then none else some (writeMark b i)
-~~~
+```
 
 ここで if b i は Bool が true のとき第一枝、false のとき第二枝を選びます。仕様は「占有マスを拒否し、空きマスならその位置だけに印を付ける」です。place は盤面と位置を引数として受け取り、成功時の新しい盤面または失敗を返すので、仕様を実行して結果を調べられます。このような実行可能な仕様を、別の実装との比較の基準にするとき、参照モデルと呼びます。
 
@@ -81,7 +81,7 @@ b i = false と仮定する。第二枝を選ぶので some (writeMark b i) を�
 
 任意の j で j.val ≠ i.val と仮定する。writeMark の条件 j.val = i.val は偽であり、else の値 b j が選ばれる。従って b' j = b j である。二つの位置の場合分けは全有効番号を覆う。b は関数の引数であり、どの枝も b 自体を書き換えていない。
 
-~~~lean
+```lean
 theorem place_occupied (b : Board) (i : Fin 9) (h : b i = true) :
     place b i = none := by
   simp [place, h]
@@ -97,9 +97,9 @@ theorem write_here (b : Board) (i : Fin 9) :
 theorem write_elsewhere (b : Board) (i j : Fin 9) (h : j.val ≠ i.val) :
     writeMark b i j = b j := by
   simp [writeMark, h]
-~~~
+```
 
-simp は定義を展開し、与えた等式・不等式により条件分岐を簡約する。最初の二式では h によって if の枝が一つに決まり、第三式では自己の番号との比較が真になり、第四式では h により比較が偽になる。
+simp はここでは定義を展開し、仮定 h を使って if の条件を真または偽に置き換える。最初の二式では h によって if の枝が一つに決まり、第三式では自己の番号との比較が真になり、第四式では h により比較が偽になる。
 <!-- proof-end -->
 
 ## 3. 外から届く文字列を扱う
@@ -108,7 +108,7 @@ simp は定義を展開し、与えた等式・不等式により条件分岐を
 
 エラーには「数字に読めない」「番号が範囲外」「占有済み」の三種類があります。[Except型](../LVT1-03/index.md#def-lvt1-03-except)なら失敗の原因も値にできます。前講の[有効な添字](../LVT1-05/index.md#def-lvt1-05-index-range)の条件 n < 9 を確認してから Fin 9 を作ります。
 
-~~~lean
+```lean
 inductive RequestError where
   | malformed
   | outOfRange
@@ -120,7 +120,7 @@ def decode (raw : String) : Except RequestError (Fin 9) :=
   | none => .error .malformed
   | some n =>
     if h : n < 9 then .ok ⟨n, h⟩ else .error .outOfRange
-~~~
+```
 
 Repr は値の確認用表示、BEq は値を真偽値で比較するための仕組みを自動で作る指定です。復号の具体例を表にします。
 
@@ -132,7 +132,7 @@ Repr は値の確認用表示、BEq は値を真偽値で比較するための�
 
 次に復号の結果を内部の着手につなぎます。
 
-~~~lean
+```lean
 def runRequest (b : Board) (raw : String) : Except RequestError Board :=
   match decode raw with
   | .error e => .error e
@@ -140,7 +140,7 @@ def runRequest (b : Board) (raw : String) : Except RequestError Board :=
     match place b i with
     | none => .error .occupied
     | some next => .ok next
-~~~
+```
 
 <a id="prop-lvt1-06-decode-rejection"></a>
 
@@ -157,12 +157,12 @@ b : Fin 9 → Bool、raw : String、e : RequestError を任意に取る。runReq
 
 仮定 decode raw = error e を runRequest の定義中の match の対象に代入する。すると対象は error e という構成子を持つ値である。従って第一枝だけが選ばれ、結果は error e となる。place b i が現れるのは第二枝だけであり、第一枝の結果には含まれない。b の各マスの値に関する仮定は不要である。
 
-~~~lean
+```lean
 theorem rejected_before_place (b : Board) (raw : String) (e : RequestError)
     (h : decode raw = .error e) :
     runRequest b raw = .error e := by
   simp [runRequest, h]
-~~~
+```
 <!-- proof-end -->
 
 例えば raw = "9" のとき、decode は error outOfRange を返すので、[復号失敗の伝播](#prop-lvt1-06-decode-rejection)により盤面が空でも満杯でも同じエラーとなります。
@@ -183,7 +183,7 @@ theorem rejected_before_place (b : Board) (raw : String) (e : RequestError)
 **定義の確認**　端末から文字列 "2" を受け取り、decode で Fin 9 の番号 2 に変換し、place で盤面を計算する。その盤面を "001000000" に符号化して端末へ表示する。文字列の受取り・復号・符号化・表示が境界であり、Fin 9 を受け取って盤面を計算する place は内部モデルに当たる。decode や符号化は純粋関数として実装でき、実際の読み書きだけを IO にできる。
 <!-- definition-example-end -->
 
-~~~lean
+```lean
 def boardText (b : Board) : String :=
   String.intercalate "" (([0, 1, 2, 3, 4, 5, 6, 7, 8] : List (Fin 9)).map
     (fun i => if b i then "1" else "0"))
@@ -194,18 +194,18 @@ def reply (res : Except RequestError Board) : String :=
   | .error .outOfRange => "error outOfRange"
   | .error .occupied => "error occupied"
   | .ok next => "ok " ++ boardText next
-~~~
+```
 
-List.map は各要素に関数を適用して同じ順序のリストを作ります。String.intercalate "" は空文字列を区切りとして連結します。0 から 8 の順に各マスを 0 または 1 に変換するので、番号 2 だけが true なら 001000000 です。++ は文字列の連結です。
+List.map は各要素に関数を適用して同じ順序のリストを作ります。String.intercalate "" は空文字列を区切りとして連結します。0 から 8 の順に各マスを 0 または 1 に変換するので、番号 2 だけが true なら 001000000 です。++ は左の文字列の後ろに右の文字列を順に付ける Lean の演算です。例えば "ab" ++ "c" は "abc" になります。
 
 端末コマンドの引数を文字列として受け取るプログラムでは、純粋部分の結果を最後に表示します。
 
-~~~lean
+```lean
 def main (args : List String) : IO Unit :=
   match args with
   | [raw] => IO.println (reply (runRequest emptyBoard raw))
   | _ => IO.println "error expected one argument"
-~~~
+```
 
 この例では起動ごとに emptyBoard を渡すため、プロセス間で着手を保存しません。続けて着手するには直前の成功結果の盤面を次の入力へ渡します。盤面の計算、符号化、表示は別々に検査できます。
 
@@ -213,14 +213,14 @@ def main (args : List String) : IO Unit :=
 
 仕様が 0 始まりであるにもかかわらず、正の入力を 1 始まりの番号だと解釈する復号関数を考えます。自然数が 0 なら拒否し、Nat.succ n なら一つ小さい n を使う実装です。
 
-~~~lean
+```lean
 def wrongDecode (raw : String) : Except RequestError (Fin 9) :=
   match raw.toNat? with
   | none => .error .malformed
   | some 0 => .error .outOfRange
   | some (Nat.succ n) =>
     if h : n < 9 then .ok ⟨n, h⟩ else .error .outOfRange
-~~~
+```
 
 raw = "2" では正しい decode は番号 2、wrongDecode は 2 = Nat.succ 1 なので番号 1 です。どちらも Fin 9 の条件を満たします。[着手の分岐と更新位置](#prop-lvt1-06-place-branches)を emptyBoard に適用すると、前者は 001000000、後者は 010000000 になります。着手の命題に矛盾はありません。命題が保証するのは渡された i の更新であって、raw が意図した i に変換されたことではないからです。さらに "0" は誤って拒否され、"9" は番号 8 として誤って受理されます。
 
@@ -230,7 +230,7 @@ JSON は文字列で構造化データを伝える形式です。例えば {"ind
 
 [固定されたLeanプロジェクト](../LVT1-02/index.md#def-lvt1-02-fixed-environment)に沿い、Lean v4.35.0 の lab を用います。リポジトリのルートから実行します。
 
-~~~bash
+```bash
 cd "textbook/volumes/dream_thater/計算系/LVT/LVT1-06/lab"
 lake build
 lake test
@@ -239,23 +239,23 @@ lake env lean ExerciseSolutions.lean
 lake env lean --run Boundary.lean 2
 lake env lean --run Boundary.lean 9
 lake env lean --run Boundary.lean abc
-~~~
+```
 
 lake test の期待出力は LVT1-06 OK です。Inspect.lean は次の 5 行を表示します（Lean の文字列表示には引用符が付く場合があります）。
 
-~~~text
+```text
 ok 001000000
 error outOfRange
 error malformed
 error occupied
 ok 010000000
-~~~
+```
 
 最後の行は wrongDecode で番号 1 を得て着手した結果です。端末の Boundary.lean は最初の 3 行をそれぞれのコマンドで表示します。独立した Python の参照用スクリプトは同じ三種類の入力と全 9 番号を検査します。
 
-~~~bash
+```bash
 python3 check_boundary.py
-~~~
+```
 
 同じ規約で正しい結果と照合し、誤変換の差を確認します。有限個の入力で一致したことと、上の命題の全入力での成立は区別してください。
 
@@ -366,11 +366,11 @@ wrongDecode "0" は 0 の枝で error outOfRange。wrongDecode "2" は 2 = Nat.s
 
 着手命題の入力 i は復号後の Fin 9 であり、外部文字列を自然数としてどう読むかは仮定に含まれない。したがって内部で i の位置が正しく更新されても、通信の規約に違反しうる。次は正しい実装に対する検査であり、wrongDecode に置換した実装なら三つとも失敗する。
 
-~~~lean
+```lean
 #guard reply (runRequest emptyBoard "0") == "ok 100000000"
 #guard reply (runRequest emptyBoard "2") == "ok 001000000"
 #guard reply (runRequest emptyBoard "9") == "error outOfRange"
-~~~
+```
 
 内部の命題とは別に、外部入力と観測される返答を組にして確かめることが重要である。
 <!-- solution-end -->
