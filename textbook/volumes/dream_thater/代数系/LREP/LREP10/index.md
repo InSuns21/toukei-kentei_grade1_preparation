@@ -323,7 +323,7 @@ $$
 
 を満たします（ここで $u_\mu$ の下付きは座標ラベルであり、計量による添字下げではありません）。ゆえに $u_0=\sqrt{1+|\boldsymbol u|^2}\ge1$。$Q=H(u)$ の固有値は $u_0\pm|\boldsymbol u|>0$ で、$\det Q=1$ です。
 
-正の平方根 $B=Q^{1/2}$ を取り、$\det B=1$、$B^\dagger=B$ を得ます。具体的にも $Q$ の跡は $2u_0$、行列式は1なので、二次行列のCayley–Hamilton恒等式から
+正の平方根 $B=Q^{1/2}$ を取り、$\det B=1$、$B^\dagger=B$ を得ます。具体的にも $Q$ の跡は $2u_0$、行列式は1なので、二次行列の[Cayley--Hamilton の定理](../../../基礎科目/LA/LA4/index.md#thm-la4-cayley-hamilton)から
 
 $$
 Q^2-2u_0Q+I_2=0,\qquad
@@ -382,7 +382,7 @@ $$
 > 微分 $d\Phi_{I_2}$ は実Lie環同型 $\mathfrak{sl}_2(\mathbb C)_{\mathbb R}\cong\mathfrak{so}(1,3)$ を与える。この実Lie環同型は、[LREP9の複素化二因子](../LREP9/index.md#thm-lrep9-two-sl2)とは異なる。
 <!-- formal-statement-end -->
 
-**証明の見取り図。** [全射性](#thm-lrep10-surjectivity)と[二元核](#prop-lrep10-kernel)は既に得ました。微分の核が零で両側が実6次元なら微分は同型です。逆関数定理で単位元付近の局所逆を作り、二元核の平行移動で二枚のシートを得ます。
+**証明の見取り図。** [全射性](#thm-lrep10-surjectivity)と[二元核](#prop-lrep10-kernel)は既に得ました。微分の核が零で両側が実6次元なら微分は同型です。[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)で単位元付近の局所逆を作り、二元核の平行移動で二枚のシートを得ます。
 
 <!-- proof-start -->
 ### 証明
@@ -411,7 +411,11 @@ $$
 
 $\mathfrak{sl}_2(\mathbb C)_{\mathbb R}$ の実次元は $2(4-1)=6$、[Lorentz Lie環の六次元性](../LREP9/index.md#thm-lrep9-lie-algebra)から標的も実6次元です。従って微分は実線形同型となり、Lie群準同型の微分なのでLie括弧も保ちます。
 
-有限次元多様体の逆関数定理により、単位元付近に $\Phi$ が微分同相である開近傍 $V$ が取れます。$I_2$ と $-I_2$ は異なるので $V$ を小さくして $V\cap(-V)=\varnothing$ とできます。さらに像を小さく取り直し、$W=\Phi(V)$ の逆像について、任意の $g\in\Phi^{-1}(W)$ は一意な $v\in V$ と同じ像を持つため、[二元核](#prop-lrep10-kernel)により $g=v$ または $g=-v$。従って
+両群の単位元付近の実6次元座標を取ります。この座標で表した $\Phi$ は滑らかで、単位元でのJacobi行列は上で求めた可逆な微分の基底表示です。よって[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)を適用できます。局所逆の微分は微分行列の逆で与えられ、元の写像が滑らかなので微分公式を繰り返して局所逆も滑らかになります。
+
+したがって単位元付近に $\Phi$ が微分同相である開近傍 $V$ が取れます。$I_2$ と $-I_2$ は異なるので、$V$ を小さくして $V\cap(-V)=\varnothing$ とできます。像を $W=\Phi(V)$ とします。
+
+任意の $g\in\Phi^{-1}(W)$ は一意な $v\in V$ と同じ像を持ちます。[二元核](#prop-lrep10-kernel)により $g=v$ または $g=-v$ です。従って
 
 $$
 \Phi^{-1}(W)=V\sqcup(-V),
