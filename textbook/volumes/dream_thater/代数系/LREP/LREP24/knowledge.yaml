@@ -24,7 +24,7 @@ concepts:
     name: ヘリシティの内部表現
     kind: definition
     introduction: formal
-    requires: [representation.massless-little-group-iso2, representation.strongly-continuous-unitary-representation]
+    requires: [representation.massless-little-group-iso2, representation.strongly-continuous-unitary-representation, representation.helicity-operator]
   - id: representation.massless-finite-helicity-classification
     name: 並進自明な有限次元既約内部表現
     kind: theorem
