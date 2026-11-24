@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - CAT2-02
   - CAT1-09
+  - GRP2
 
 concepts:
   - id: category.lawvere-theory

@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - CAT2-02
   - CAT1-09
+  - GRP2
 official_scope: []
 learning_objectives:
   - 有限積と射影によってLawvere理論の射を演算の組として理解できる
