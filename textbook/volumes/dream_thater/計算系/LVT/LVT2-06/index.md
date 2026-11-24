@@ -95,7 +95,7 @@ r : Nat → Nat → Prop と a,b,c : Nat に対し、ReachL r a b と ReachL r b
 <!-- proof-start -->
 ### 証明
 
-[到達証明の不変量原理](#prop-lvt2-06-invariant) に開始点 b、終点 c、P x = ReachL r a x を代入する。`hab : ReachL r a b`、`hbc : ReachL r b c` と名付ける。初期条件 P b は hab。任意の x,y と hx : P x、e : r x y について、step hx e : ReachL r a y は P y の証明である。したがって保存条件は fun x y hx e => ReachL.step hx e で与えられる。最後に hbc を原理に渡すと P c、つまり ReachL r a c を得る。
+[到達証明の不変量原理](#prop-lvt2-06-invariant) に開始点 b、終点 c、P x を ReachL r a x として代入する。`hab : ReachL r a b`、`hbc : ReachL r b c` と名付ける。初期条件 P b は hab。任意の x,y と hx : P x、e : r x y について、step hx e : ReachL r a y は P y の証明である。したがって保存条件は fun x y hx e => ReachL.step hx e で与えられる。最後に hbc を原理に渡すと P c、つまり ReachL r a c を得る。
 
 ```lean
 theorem reach_trans {r : Nat → Nat → Prop} {a b c : Nat}
@@ -133,7 +133,11 @@ EdgeL を e01 : EdgeL 0 1、e12 : EdgeL 1 2 のみから生成する関係とす
 <!-- proof-start -->
 ### 証明
 
-P を SmallL とする。P 0 は左の等式 0 = 0 から `Or.inl rfl` で得る。`rfl` は [等式と反射律](../LVT2-03/index.md#def-lvt2-03-eq) の証明項である。任意の x,y と e : EdgeL x y に対し e を場合分けする。e01 なら y = 1 なので Or.inr (Or.inl rfl) : P 1、e12 なら y = 2 なので Or.inr (Or.inr rfl) : P 2。この二本以外の構成子はない。従って P x を仮定した保存条件が成立する（この例では前の状態の性質を使わなくてもよい）。[到達証明の不変量原理](#prop-lvt2-06-invariant) に開始点 0、終点 t、P、上の基底と保存条件、到達証明 h を渡すと P t を得る。仮に t = 3 へ到達するなら P 3 = (3 = 0 ∨ 3 = 1 ∨ 3 = 2)。三つの比較はいずれも偽で、具体的な決定可能命題の否定を decide で証明できる。`h3 : P 3` と `hn : P 3 → False` を得たので、`hn h3 : False` となる。これは仮の到達証明 h から矛盾を導く関数、すなわち到達不能性の証明である。逆に 0 は base、1 は step base e01、2 は演習 A02 の二回の step で到達できる。
+P を SmallL とする。P 0 は左の等式 0 = 0 から `Or.inl rfl` で得る。`rfl` は [等式と反射律](../LVT2-03/index.md#def-lvt2-03-eq) の証明項である。
+
+任意の x,y と e : EdgeL x y に対し e を場合分けする。e01 なら y = 1 なので Or.inr (Or.inl rfl) : P 1、e12 なら y = 2 なので Or.inr (Or.inr rfl) : P 2。この二本以外の構成子はない。従って P x を仮定した保存条件が成立する（この例では前の状態の性質を使わなくてもよい）。
+
+[到達証明の不変量原理](#prop-lvt2-06-invariant) に開始点 0、終点 t、P、上の基底と保存条件、到達証明 h を渡すと P t を得る。仮に t = 3 へ到達するなら P 3 を定義に従って展開すると `3 = 0 ∨ 3 = 1 ∨ 3 = 2` となる。三つの比較はいずれも偽で、具体的な決定可能命題の否定を decide で証明できる。`h3 : P 3` と `hn : P 3 → False` を得たので、`hn h3 : False` となる。これは仮の到達証明 h から矛盾を導く関数、すなわち到達不能性の証明である。逆に 0 は base、1 は step base e01、2 は演習 A02 の二回の step で到達できる。
 
 ```lean
 theorem small_step (x y : Nat) (_ : SmallL x) (e : EdgeL x y) :
@@ -210,7 +214,7 @@ example : SortedL [1,2,3] :=
 <!-- proof-start -->
 ### 証明
 
-`h : SortedL (a :: b :: xs)` を [整列リストの生成規則](#def-lvt2-06-sorted) に沿って cases で分解する。[リストの再帰的構成](../LVT1-04/index.md#def-lvt1-04-list-constructors) では nil と cons は異なる構成子であり、同じ cons の値が等しければ先頭と残りがそれぞれ等しい。
+`h : SortedL (a :: b :: xs)` を [整列リストの生成規則](#def-lvt2-06-sorted) に沿って cases で分解する。[リストの再帰的構成](../LVT1-04/index.md#def-lvt1-04-list-constructors) では nil と cons は異なる構成子であり、同じ cons の値が等しければ先頭と残りがそれぞれ等しい。これを計算で確かめるには、空かどうかを返す関数を両辺に適用する。空なら true、cons なら false となるため、両者は等しくない。二つの cons が等しい場合には、先頭を返す関数（空なら 0 を返す）と残りを返す関数（空なら [] を返す）をそれぞれ適用する。[関数適用に関する等式の合同性](../LVT2-03/index.md#prop-lvt2-03-congr) により先頭同士・残り同士の等式が得られる。
 
 - nil の添字 `[]` は `a :: (b :: xs)` と異なる構成子なので一致しない。
 - single の添字 `u :: []` が一致するなら残りについて `[] = b :: xs` が必要になるが、これも異なる構成子なので成立しない。
@@ -417,7 +421,9 @@ EdgeL で 1 から 0 へ到達できないことを、P n = (n = 1 ∨ n = 2) �
 <!-- solution-start -->
 #### 詳細解答
 
-開始点 1 では左側の等式 1 = 1 が rfl で成り立つ。コードの `let P : Nat → Prop := fun n => ...` は局所的に述語を定める記法で、n が変わる入力である。辺 e01 の終点は 1 なので P 1 の左側、e12 の終点は 2 なので P 2 の右側を証明できる。これで任意の辺で P が保存される。[到達証明の不変量原理](#prop-lvt2-06-invariant) を開始点 1、終点 0、仮の到達証明 h に適用すると P 0、すなわち 0 = 1 ∨ 0 = 2 が得られる。この選言は具体的な等式の判定により否定される。`h0 : P 0` と `hn : ¬ (0 = 1 ∨ 0 = 2)` の型は P の定義を展開すると対応するので、`hn h0 : False` で矛盾が得られる。開始点を 0 に変えると基底が壊れることにも注意する。
+開始点 1 では左側の等式 1 = 1 が rfl で成り立つ。コードの `let P : Nat → Prop := fun n => ...` は局所的に述語を定める記法で、n が変わる入力である。辺 e01 の終点は 1 なので P 1 の左側、e12 の終点は 2 なので P 2 の右側を証明できる。これで任意の辺で P が保存される。
+
+[到達証明の不変量原理](#prop-lvt2-06-invariant) を開始点 1、終点 0、仮の到達証明 h に適用すると P 0、すなわち 0 = 1 ∨ 0 = 2 が得られる。この選言は具体的な等式の判定により否定される。`h0 : P 0` と `hn : ¬ (0 = 1 ∨ 0 = 2)` の型は P の定義を展開すると対応するので、`hn h0 : False` で矛盾が得られる。開始点を 0 に変えると基底が壊れることにも注意する。
 
 ```lean
 example : ¬ ReachL EdgeL 1 0 := by
