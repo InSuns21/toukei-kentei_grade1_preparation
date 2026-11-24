@@ -15,7 +15,7 @@ f(z)=\sum_{n\ge1}a_nq^n,\qquad
 g(z)=\sum_{n\ge1}b_nq^n
 $$
 
-と書きます。定数項が0なので、添字は1から始まります。二つの変換則を掛けると $f\overline g$ には $|cz+d|^{2k}$ が掛かります。ところが [虚部公式](../../MF/MF1/index.md#thm-mf1-imaginary-action) から $y^k$ には逆の因子が掛かるので、
+と書きます。定数項が0なので、添字は1から始まります。二つの変換則を掛けると $f\overline g$ には $|cz+d|^{2k}$ が掛かります。[虚部公式](../../MF/MF1/index.md#thm-mf1-imaginary-action) から $y^k$ には逆の因子が掛かるので、
 
 $$
 H(z)=y^kf(z)\overline{g(z)}
@@ -359,7 +359,7 @@ $$
 $U_{-1}=0,U_0=1$ より $U_1=A+B$、以降は $h_m(A,B)$ と同じ漸化式です。帰納法で結論を得ます。
 <!-- proof-end -->
 
-例えば $p=2,A=B=1$ という局所パラメータの模型では $W_0=1,W_1=\sqrt2,W_2=3/2$ です。重根でも $h_m(1,1)=m+1$ となり、式は破綻しません。
+例えば $p=2,A=B=1$ というSatakeパラメータの模型では $W_0=1,W_1=\sqrt2,W_2=3/2$ です。重根でも $h_m(1,1)=m+1$ となり、式は破綻しません。
 
 今度は二つの関数に試験関数 $\Phi$ を掛けて積分します。$\Phi=1_{O^2}$ は行ベクトルが整数環に入るとき1となる関数です。$e_2=(0,1)$ とすると $e_2n(u)=e_2$ なので、$W\overline{W'}\Phi(e_2h)|\det h|_p^s$ は左 $N$ 不変となります。右 $K$ に対しても不変です。$dh$ は $K$ の体積1の Haar 測度、$du$ は $O$ の体積1の加法 Haar 測度とし、商測度 $d\dot h$ は $\int_G F(h)dh=\int_{N\backslash G}\int_N F(nh)dn\,d\dot h$ で規格化します。ここではこの商積分の公式（両群がユニモジュラーの場合の Weil の積分公式）を測度論の外部入力として使います。必要な各軌道の測度は以下で計算します。
 
@@ -420,7 +420,7 @@ $\sigma=\Re s>0$ かつ $p^{-\sigma}\max_{u,v}|u\bar v|<1$ とすれば、後ろ
 
 ## 4. 完成形・関数等式・極
 
-有限積L関数だけでは $s$ を $1-s$ に移す対称性が見えません。[完成Eisenstein級数](../AFR5/index.md#def-afr5-completed) を積分に使うと、その対称性が積L関数へ移ります。$\Lambda(w)=\pi^{-w/2}\Gamma(w/2)\zeta(w)$ とします。Petersson内積はここでは
+有限素点のEuler積だけでは $s$ を $1-s$ に移す対称性が見えません。[完成Eisenstein級数](../AFR5/index.md#def-afr5-completed) を積分に使うと、その対称性が積L関数へ移ります。$\Lambda(w)=\pi^{-w/2}\Gamma(w/2)\zeta(w)$ とします。Petersson内積はここでは
 
 $$
 \langle f,g\rangle_k=\int_{\mathcal F}y^kf(z)\overline{g(z)}d\mu
@@ -534,7 +534,7 @@ $g=f\ne0$ なら $s=1$ に実際に単純極があり、留数は正です。反
 <!-- solution-start -->
 **詳細解答**
 
-反転では [虚部公式](../../MF/MF1/index.md#thm-mf1-imaginary-action) より $y'=y/|z|^2$ です。重さ $k$ の変換則から $f(-1/z)=z^kf(z)$、$g(-1/z)=z^kg(z)$ なので
+[虚部公式](../../MF/MF1/index.md#thm-mf1-imaginary-action) より、反転の場合は $y'=y/|z|^2$ です。重さ $k$ の変換則から $f(-1/z)=z^kf(z)$、$g(-1/z)=z^kg(z)$ なので
 
 $$
 H(-1/z)=y^k|z|^{-2k}z^k\bar z^k f(z)\overline{g(z)}
