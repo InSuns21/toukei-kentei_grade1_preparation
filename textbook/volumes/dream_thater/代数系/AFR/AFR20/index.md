@@ -49,13 +49,28 @@ $$
 <!-- definition-example-start: def-afr20-dual-pair -->
 **定義の確認**
 
-$W=\mathbb R^2$、$\Omega$ は上の行列式形式とします。$H=\{I,-I\}$、$G=SL_2(\mathbb R)$ なら $C_G(H)=G$ です。逆に $T$ が $G$ の全元と交換するなら、まず $\mathrm{diag}(2,1/2)$ との交換から $T$ の非対角成分が0になります。次に $\begin{pmatrix}1&1\\0&1\end{pmatrix}$ との交換から二つの対角成分は等しくなります。従って $T=aI$ であり、$\det T=a^2=1$ から $T=\pm I$ です。逆に両者はすべての行列と交換するため、二つの中心化群の条件をともに満たします。
+$W=\mathbb R^2$、$\Omega$ は上の行列式形式とします。$H=\{I,-I\}$、$G=K=SL_2(\mathbb R)$ とします。$I$ は2次単位行列です。両方の符号の行列は行列式1で、積と逆について閉じているので $H$ は $K$ の部分群です。また全ての行列と交換するので $C_K(H)=G$ です。
+
+逆に $T\in K$ が $G$ の全元と交換するとします。標準基底で $T=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ と書きます。$\mathrm{diag}(2,1/2)$ との交換は
+
+$$
+\begin{pmatrix}2a&b/2\\2c&d/2\end{pmatrix}
+=\begin{pmatrix}2a&2b\\c/2&d/2\end{pmatrix}
+$$
+
+を与えるので $b=c=0$ です。次に $\begin{pmatrix}1&1\\0&1\end{pmatrix}$ との交換で右上成分を比較すると $a=d$ です。従って $T=aI$ であり、$\det T=a^2=1$ から $T=\pm I$ です。逆に両者はすべての行列と交換するため $C_K(G)=H$ も成立し、二つの中心化群の条件をともに満たします。
 <!-- definition-example-end -->
 
 
 ## 2. 直交群とシンプレクティック群
 
-実ベクトル空間 $V$ の対称双線形形式 $B$（$B(x,y)=B(y,x)$）で、[双線形形式の非退化性](../../../基礎科目/LA/LA3E/index.md#def-la3e-nondegenerate-bilinear-form) を満たすものを保つ可逆写像の群を $O(V,B)$ と書きます。二次形式 $Q(v)=B(v,v)/2$ を保存することと同値です。実際、$Q(x+y)-Q(x)-Q(y)=B(x,y)$ を使えば二次形式の保存から双線形形式の保存が従います。例えば $V=\mathbb R^r$、$B(x,y)=x^Ty$ なら、標準基底に関する行列を同じ記号 $h$ で表し、$T$ は転置を表します。$B(hx,hy)=x^Th^Thy$ なので、すべての $x,y$ に対する保存条件は $x^T(h^Th-I)y=0$ です。$x=e_i,y=e_j$ を順に代入すると全成分が0となるため、$h^Th=I$ と同値です。
+実ベクトル空間 $V$ の対称双線形形式 $B$（$B(x,y)=B(y,x)$）で、[双線形形式の非退化性](../../../基礎科目/LA/LA3E/index.md#def-la3e-nondegenerate-bilinear-form) を満たすものを保つ可逆写像の群を $O(V,B)$ と書きます。二次形式 $Q(v)=B(v,v)/2$ を保存することと同値です。実際、$Q(x+y)-Q(x)-Q(y)=B(x,y)$ を使えば二次形式の保存から双線形形式の保存が従います。例えば $V=\mathbb R^r$、$B(x,y)=x^Ty$ なら、標準基底に関する行列を同じ記号 $h$ で表し、上付きの $T$ は転置を表します。
+
+$$
+B(hx,hy)=x^Th^Thy
+$$
+
+なので、すべての $x,y$ に対する保存条件は $x^T(h^Th-I)y=0$ です。$x=e_i,y=e_j$ を順に代入すると全成分が0となるため、$h^Th=I$ と同値です。
 
 一方、二次元の位置・周波数の組を $r$ 個並べたいとします。[テンソル積](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product) $V\otimes_{\mathbb R}U$ は、$v\otimes u$ が各変数で線形となるように作った空間です。$V,U$ の基底をそれぞれ $e_i,f_j$ とすれば [テンソル積の基底定理](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis) により $e_i\otimes f_j$ が基底となり、形式を基底の組で指定して双線形に延長できます。
 
@@ -340,7 +355,7 @@ R_hN_bf(x)=e^{\pi ib|h^{-1}x|^2}f(h^{-1}x)
 =N_bR_hf(x).
 $$
 
-また $R_hD_af(x)=|a|^{r/2}f(ah^{-1}x)=D_aR_hf(x)$ です。Fourier 積分は絶対収束し、$x=ht$ による絶対 Jacobian は1なので
+また $R_hD_af(x)=|a|^{r/2}f(ah^{-1}x)=D_aR_hf(x)$ です。Fourier 積分は絶対収束し、$x=ht$ と置くと $h^{-1}x=t$、$dx=|\det h|\,dt=dt$ です。ここで $y$ は固定し、積分変数 $x$ のみを $t$ に変えます。従って
 
 $$
 FR_hf(y)=\int_V f(t)e^{-2\pi it^Th^Ty}\,dt
@@ -822,7 +837,7 @@ $$
 =e^{-\pi t^2}(1-2\pi t^2)<0
 $$
 
-が成り立ちます。従って $a_0>a_1>\cdots>0$。絶対収束する級数を
+が成り立ちます。従って $a_0>a_1>\cdots>0$。絶対収束する級数 $\sum_{j\ge0}(-1)^ja_j$ を
 
 $$
 (a_0-a_1)+(a_2-a_3)+\cdots
