@@ -6,7 +6,7 @@
 
 ## 1. Hecke係数を複素関数にする
 
-以下、$\mathbb H$ は[上半平面](../../MF/MF1/index.md#def-mf1-upper-half-plane)、$\Gamma=SL_2(\mathbb Z)$ は[整数モジュラー群](../../MF/MF1/index.md#def-mf1-modular-group)です。$u$ は非零の[重さ0のMaassカスプ形式](../AFR3/index.md#def-afr3-maass-cusp)で、全ての素数Hecke作用素の共通固有関数とします。Laplace固有値を $\lambda\ge0$、$\nu^2=1/4-\lambda$ とします。
+以下、$\mathbb H$ は[上半平面](../../MF/MF1/index.md#def-mf1-upper-half-plane)、$\Gamma=SL_2(\mathbb Z)$ は[整数モジュラー群](../../MF/MF1/index.md#def-mf1-modular-group)です。$u$ は非零の[重さ0のMaassカスプ形式](../AFR3/index.md#def-afr3-maass-cusp)で、全ての[重さ0の素数Hecke作用素](../AFR6/index.md#def-afr6-hecke)の共通固有関数とします。Laplace固有値 $\lambda$ は[エネルギー実現の自己共役性と非負性](../AFR3/index.md#thm-afr3-self-adjoint)から $\lambda\ge0$ です。$\nu^2=1/4-\lambda$ とします。
 
 [Maass形式の非零周波数展開](../AFR4/index.md#thm-afr4-maass-expansion)では
 
@@ -25,9 +25,9 @@ $$
 c(mn)=c(m)c(n)\qquad(\gcd(m,n)=1).
 $$
 
-ここで $\eta_p$ は $T_pu=\eta_pu$ の固有値です。漸化式は $r\ge1$ で使います。
+ここで $\eta_p$ は $T_pu=\eta_pu$ の固有値、$p$ は素数です。漸化式は $r\ge1$ で使います。
 
-係数を $n^{-s}$ で重み付けして足す形は、[Riemann ζ 関数](../../../解析系/CA/CA12/index.md#def-ca12-riemann-zeta)の係数1を $c(n)$ に取り替えたものです。実部 $\sigma=\Re s$ を大きくするほど大きな添字が抑えられます。
+係数を $n^{-s}$ で重み付けして足す形は、[Riemann ζ 関数](../../../解析系/CA/CA12/index.md#def-ca12-riemann-zeta)の係数1を $c(n)$ に取り替えたものです。このような $\sum a_n n^{-s}$ の形の級数をDirichlet級数と呼びます。実部 $\sigma=\Re s$ を大きくするほど大きな添字が抑えられます。
 
 ただし、係数の漸化式だけでは無限級数の収束は分かりません。ここでは保型性から係数を評価します。
 
@@ -103,7 +103,7 @@ $$
 <a id="thm-afr7-euler"></a>
 <!-- formal-statement-start -->
 > **定理（Maass保型L関数のEuler積）**  
-> 上の条件を満たす $u$ と $\Re s>3/2$ に対して、$L(s,u)$ は正則であり
+> 全モジュラー群の非零の重さ0のMaassカスプ形式 $u$ を全素数Hecke作用素の共通固有関数とし、その固有値を $\eta_p$ とする。[Maass形式の保型L関数](#def-afr7-l-function) $L(s,u)$ は $\Re s>3/2$ で正則であり
 
 $$
 L(s,u)=\prod_p
@@ -159,7 +159,13 @@ $$
 <a id="thm-afr7-mellin"></a>
 <!-- formal-statement-start -->
 > **定理（Maass保型L関数のMellin表示）**  
-> 上記の非零共通固有カスプ形式 $u$ に対し $\nu^2=1/4-\lambda$、$\lambda\ge0$ とする。$\Re s>3/2$ なら
+> 全モジュラー群の非零の重さ0のMaassカスプ形式 $u$ を全素数Hecke作用素の共通固有関数とし、Laplace固有値を $\lambda\ge0$、$\nu^2=1/4-\lambda$ とする。[Maass形式の保型L関数](#def-afr7-l-function)の正規化係数 $c(n)$ により
+
+$$
+h(y)=\sum_{n\ge1}c(n)K_\nu(2\pi ny)\quad(y>0)
+$$
+
+> と置く。$\Re s>3/2$ なら
 
 $$
 \int_0^\infty h(y)y^{s-1}dy
@@ -204,7 +210,14 @@ $$
 \int_0^\infty\int_0^\infty e^{-r-q}r^{A-1}q^{B-1}dr\,dq.
 $$
 
-絶対可積分性は $\Gamma(\Re A)\Gamma(\Re B)<\infty$ で確認できます。$r=(t/2)e^v,\ q=(t/2)e^{-v}$（$t>0,v\in\mathbb R$）と変換します。逆写像は $t=2\sqrt{rq},v=\frac12\log(r/q)$ です。Jacobianの絶対値は $2rq/t=t/2$ なので
+絶対可積分性は $\Gamma(\Re A)\Gamma(\Re B)<\infty$ で確認できます。$r=(t/2)e^v,\ q=(t/2)e^{-v}$（$t>0,v\in\mathbb R$）と変換します。逆写像は $t=2\sqrt{rq},v=\frac12\log(r/q)$ です。偏微分行列とその行列式は
+
+$$
+\begin{pmatrix}r/t&r\\ q/t&-q\end{pmatrix},
+\qquad -2rq/t=-t/2
+$$
+
+です。Jacobianの絶対値は $t/2$ なので
 
 $$
 r+q=t\cosh v,\qquad
@@ -214,7 +227,14 @@ $$
 $v$ の正負を合わせれば内側の積分は $2K_\nu(t)$ です。従って $\Gamma(A)\Gamma(B)=2^{2-s}J(s)$。これを $(2\pi)^{-s}L(s,u)J(s)$ に代入すると $2^{s-2}(2\pi)^{-s}=1/(4\pi^s)$ となり結論を得ます。
 <!-- proof-end -->
 
-積分の核だけを $\nu=1/2,s=2$ で検算しましょう。[変形Bessel関数 K の定義例](../AFR4/index.md#def-afr4-k-bessel)の $K_{1/2}(t)=\sqrt{\pi/(2t)}e^{-t}$ から $J(2)=\sqrt{\pi/2}\Gamma(3/2)$ です。上の公式も $\Gamma(5/4)\Gamma(3/4)$ を与えます。これは核の計算であって、$\lambda=0$ の非零カスプ形式の存在を意味しません。
+積分の核だけを $\nu=1/2,s=5/2$ で検算しましょう。[変形Bessel関数 K の定義例](../AFR4/index.md#def-afr4-k-bessel)の $K_{1/2}(t)=\sqrt{\pi/(2t)}e^{-t}$ から
+
+$$
+J(5/2)=\sqrt{\pi/2}\int_0^\infty te^{-t}dt
+=\sqrt{\pi/2}.
+$$
+
+積分は部分積分で1になります。一方、先ほどのGamma積分の公式は $2^{1/2}\Gamma(3/2)\Gamma(1)=\sqrt{\pi/2}$ であり一致します。これは核の計算であって、$\lambda=0$ の非零カスプ形式の存在を意味しません。
 
 ## 4. Rankin型積分：二乗した係数を取り出す
 
@@ -225,7 +245,7 @@ $\mathcal F$ は標準基本領域、$d\mu=dx\,dy/y^2$ は[双曲面積要素](.
 <a id="thm-afr7-rankin"></a>
 <!-- formal-statement-start -->
 > **定理（Maass形式のRankin型積分）**  
-> 上記の $u$ に対し $\Re s>1$ とする。次の積分と級数は絶対収束し、
+> 全モジュラー群の非零の重さ0のMaassカスプ形式 $u$ を全素数Hecke作用素の共通固有関数とし、Laplace固有値を $\lambda\ge0$、$\nu^2=1/4-\lambda$ とする。$c(n)$ は[Maass形式の保型L関数](#def-afr7-l-function)の正規化係数、$\mathcal F$ は標準基本領域、$d\mu=dx\,dy/y^2$ とする。$\Re s>1$ で次の積分と級数は絶対収束し、
 
 $$
 \int_{\mathcal F}|u(z)|^2E(z,s)d\mu(z)
@@ -247,7 +267,7 @@ Eisenstein級数は平行移動で同一視した群要素ごとの高さの和�
 <!-- proof-start -->
 ### 証明
 
-$\Gamma_\infty$ を $\pm\begin{pmatrix}1&k\\0&1\end{pmatrix}$（$k\in\mathbb Z$）全体とします。整数の原始的な組 $(c,d)$ はBezoutの等式 $ad-bc=1$ で行列の下段にできます。同じ下段を持つ二行列の上段の差は $(c,d)$ の整数倍なので左から平行移動を掛けて移り合います。符号も $\Gamma_\infty$ に吸収されます。逆に左からこの部分群を掛ければ下段は符号以外変わりません。[虚部公式](../../MF/MF1/index.md#thm-mf1-imaginary-action)と[Eisenstein級数の定義](../AFR5/index.md#def-afr5-eisenstein)から
+$\Gamma_\infty$ を $\pm\begin{pmatrix}1&k\\0&1\end{pmatrix}$（$k\in\mathbb Z$）全体とします。整数の原始的な組 $(c,d)$ はBezoutの等式 $ad-bc=1$ で行列の下段にできます。同じ下段を持つ二行列の上段の差を $(a'-a,b'-b)$ とすると $(a'-a)d-(b'-b)c=0$ です。$c,d$ は互いに素なので差は $(c,d)$ の整数倍です（片方が0なら他方が $\pm1$ なので同様）。従って左から平行移動を掛けて移り合います。符号も $\Gamma_\infty$ に吸収されます。逆に左からこの部分群を掛ければ下段は符号以外変わりません。[虚部公式](../../MF/MF1/index.md#thm-mf1-imaginary-action)と[Eisenstein級数の定義](../AFR5/index.md#def-afr5-eisenstein)から
 
 $$
 E(z,s)=\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}
@@ -277,7 +297,7 @@ $$
 =y\sum_{n\ne0}|\rho(n)|^2|K_\nu(2\pi|n|y)|^2.
 $$
 
-実数 $\sigma>1$ について再びTonelliを適用し、$t=2\pi|n|y$ と置きます。
+実数 $\sigma>1$ について再び[Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli)を適用し、$t=2\pi|n|y$ と置きます。
 
 $$
 \int_0^\infty\int_0^1 |u|^2 y^{\sigma-2}dx\,dy
@@ -292,7 +312,16 @@ $$
 
 $R_\nu$ は無限素点の情報を運ぶ核積分、係数の二乗の級数は整数の算術的情報です。定理は両者が一つの曲面積分から得られることを示しました。一般の二つの保型表現の積L関数や、その解析接続は後の講義で扱います。
 
-ここでは単独のL関数の絶対収束域と、二乗係数の級数の絶対収束域が異なることにも注意しましょう。単独では点ごとの係数評価を使い $\sigma>3/2$ を得ました。二乗係数では積分によって平均的な大きさを評価し $\sigma>1$ が得られました。収束域外への解析接続を、元の級数の収束と混同してはいけません。
+この二乗係数の結果は、単独のL関数についても最初の評価を改善します。$\sigma>1$ なら有限和の[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を、$|c(n)|n^{-\sigma/2}$ と $n^{-\sigma/2}$ に適用して
+
+$$
+\sum_{n\le N}|c(n)|n^{-\sigma}
+\le
+\left(\sum_{n\le N}|c(n)|^2n^{-\sigma}\right)^{1/2}
+\left(\sum_{n\le N}n^{-\sigma}\right)^{1/2}.
+$$
+
+[Maass形式のRankin型積分](#thm-afr7-rankin)と $\sigma>1$ により右辺は $N$ に依存せず有界です。左辺は非負項の部分和なので極限が存在します。これで単独のL関数も $\Re s>1$ で絶対収束すると分かりました。第2節の有限素数積の議論もこの絶対収束を使って同じ半平面に広がります。ただし収束域外への解析接続を元の級数の収束と混同してはいけません。
 
 ## 5. 演習と詳細解答
 
