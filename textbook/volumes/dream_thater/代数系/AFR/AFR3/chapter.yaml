@@ -1,0 +1,33 @@
+id: "AFR3"
+title: "保型スペクトルとカスプ形式"
+volume: "foundations"
+status: supplementary
+prerequisites: [AFR2, FA7, F0-02C2, PDE6, QM5, GPDE5]
+official_scope: []
+learning_objectives:
+  - 基本領域の有限面積と重さ0の内積を計算できる
+  - 辺の対応による境界項の消去とエネルギー恒等式を証明できる
+  - 稠密な定義域と随伴を区別しエネルギー実現の自己共役性を証明できる
+  - カスプ条件から尾部評価を導きカスプ固有値の有限性を説明できる
+  - 対数座標の近似固有関数から区間スペクトルの存在を証明し離散部分と連続部分を区別できる
+definitions:
+  - { id: AFR3-DEF-01, name: "重さ0のPetersson内積" }
+  - { id: AFR3-DEF-02, name: "双曲Laplace作用素のエネルギー実現" }
+  - { id: AFR3-DEF-03, name: "重さ0のMaassカスプ形式" }
+theorems:
+  - { id: AFR3-THM-01, name: "保型関数のエネルギー恒等式" }
+  - { id: AFR3-THM-02, name: "エネルギー実現の自己共役性と非負性" }
+  - { id: AFR3-THM-03, name: "カスプ条件による尾部評価" }
+  - { id: AFR3-PROP-04, name: "カスプ固有値の有限重複度と非集積性" }
+  - { id: AFR3-THM-05, name: "カスプから得られる近似固有関数" }
+canonical_examples:
+  - 基本領域の面積と規格化定数
+  - 滑らかなコンパクト台の関数のエネルギー実現
+  - 定数関数と平均0の周期模型
+  - 対称作用素と随伴の定義域の相違
+  - 対数座標で無限遠へ逃げる近似固有関数
+problem_patterns: [AFR3-A1, AFR3-A2, AFR3-A3, AFR3-A4, AFR3-B1, AFR3-B2, AFR3-B3, AFR3-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 5, review: 2 }
