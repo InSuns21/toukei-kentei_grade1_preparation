@@ -30,6 +30,17 @@ theorem c01 (f : Order → Option Nat)
     (hf : Satisfies orderPre orderPost f)
     (o : Order) (hp : orderPre o) : f o = takeStock o :=
   uniqueOnValid f takeStock hf takeCorrect o hp
+def keepZero (o : Order) : Option Nat :=
+  if 0 < o.qty then takeStock o else some o.stock
+
+theorem c01Outside : Satisfies orderPre orderPost keepZero ∧
+    keepZero ⟨5, 0⟩ ≠ takeStock ⟨5, 0⟩ := by
+  constructor
+  · intro o hp
+    have h : 0 < o.qty := hp
+    simp only [keepZero, if_pos h]
+    exact takeCorrect o hp
+  · decide
 end LvtContractExercises
 #print axioms LvtContractExercises.a01
 #print axioms LvtContractExercises.a02
@@ -40,3 +51,4 @@ end LvtContractExercises
 #print axioms LvtContractExercises.b03
 #print axioms LvtContractExercises.b04
 #print axioms LvtContractExercises.c01
+#print axioms LvtContractExercises.c01Outside
