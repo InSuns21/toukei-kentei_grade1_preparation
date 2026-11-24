@@ -1,0 +1,41 @@
+chapter: CATB2-08
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB2-07, CAT1-08, CAT2-03, CAT4-01]
+concepts:
+  - id: category.bicategory
+    name: 双圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（双圏）"]
+    requires: [category.natural-isomorphism, category.product-category, category.covariant-functor, category.pentagon-coherence, category.triangle-coherence]
+  - id: category.strict-two-category
+    name: 厳密2-圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（厳密2-圏）"]
+    requires: [category.bicategory]
+  - id: category.cat-two-category
+    name: 小圏の厳密2-圏 Cat
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（小圏の厳密2-圏 Cat）"]
+    requires: [category.strict-two-category, category.functor-category, category.horizontal-composition, category.interchange-law]
+  - id: category.span
+    name: スパンとその射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（スパンとその射）"]
+    requires: [category.covariant-functor]
+  - id: category.span-bicategory
+    name: 集合のスパンの双圏 Span
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（集合のスパンの双圏 Span）"]
+    requires: [category.bicategory, category.span, category.pullback]
+  - id: category.one-object-bicategory
+    name: 一対象双圏とモノイダル圏
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一対象双圏とモノイダル圏）"]
+    requires: [category.bicategory, category.monoidal-category]
