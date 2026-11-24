@@ -1,0 +1,44 @@
+chapter: IWA15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - IWA14
+  - IWA8
+  - ANT3
+forward_references: []
+concepts:
+  - id: number-theory.iwa15-generalized-bernoulli
+    name: 一般化Bernoulli数
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa14-bernoulli-polynomial, analytic-number-theory.primitive-character]
+  - id: number-theory.iwa15-complex-values
+    name: Dirichlet L関数のBernoulli特殊値
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa15-generalized-bernoulli, analytic-number-theory.dirichlet-l-function, complex-analysis.gamma-function]
+  - id: number-theory.iwa15-twisted-moments
+    name: 指標付き正則化測度の積分公式
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa15-generalized-bernoulli, number-theory.iwa14-moments, number-theory.iwa8-teich-character]
+  - id: number-theory.iwa15-kl-function
+    name: Kubota–Leopoldt p進L関数
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa14-measure, number-theory.iwa13-extension, number-theory.iwa8-teich-character, number-theory.cyclotomic-unit-exponent-coordinates]
+  - id: number-theory.iwa15-interpolation
+    name: Kubota–Leopoldt補間公式
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa15-kl-function, number-theory.iwa15-twisted-moments, number-theory.iwa15-complex-values]
+  - id: number-theory.iwa15-iwasawa-series
+    name: p進L関数の岩澤冪級数表示
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa15-interpolation, number-theory.iwa13-amice-transform, number-theory.iwasawa-power-series-isomorphism]
+  - id: number-theory.iwa15-parity
+    name: p進L関数の偶奇消失
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa15-interpolation, number-theory.iwa15-iwasawa-series, number-theory.iwa8-parity-eigenspaces]

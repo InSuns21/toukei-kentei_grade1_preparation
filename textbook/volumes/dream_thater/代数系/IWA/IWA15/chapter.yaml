@@ -1,0 +1,44 @@
+id: "IWA15"
+title: "Kubota–Leopoldt p進L関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IWA14
+  - IWA8
+  - ANT3
+official_scope: []
+learning_objectives:
+  - Teichmüller指標と主単元の指数座標を分離できる
+  - 一般化Bernoulli数とDirichlet L関数の特殊値を計算できる
+  - 指標付き正則化測度の積分公式を導出できる
+  - Kubota–Leopoldt補間公式と補助整数の独立性を証明できる
+  - 岩澤冪級数の整数性と自明成分の単純極を説明できる
+  - 指標の偶奇による消失とEuler因子による自明零点を区別できる
+definitions:
+  - { id: IWA15-DEF-01, name: "一般化Bernoulli数" }
+  - { id: IWA15-DEF-02, name: "Kubota–Leopoldt p進L関数" }
+theorems:
+  - { id: IWA15-THM-01, name: "Dirichlet L関数のBernoulli特殊値" }
+  - { id: IWA15-THM-02, name: "指標付き正則化測度の積分公式" }
+  - { id: IWA15-THM-03, name: "Kubota–Leopoldt補間公式" }
+  - { id: IWA15-THM-04, name: "p進L関数の岩澤冪級数表示" }
+  - { id: IWA15-PROP-01, name: "p進L関数の偶奇消失" }
+canonical_examples:
+  - p=5のTeichmüller指数座標と補間値
+  - p=3の文字付き測度と一般化Bernoulli数
+  - p=5の自明成分の単純極
+  - p=7と導手21のEuler因子による零
+problem_patterns:
+  - IWA15-EXPONENT-COORDINATE
+  - IWA15-BERNOULLI-SPECIAL
+  - IWA15-INTERPOLATION-SIGN
+  - IWA15-CHARACTER-TWIST
+  - IWA15-TWISTED-MOMENT
+  - IWA15-UNIT-INVERSE
+  - IWA15-POLE
+  - IWA15-EULER-ZERO
+  - IWA15-AUXILIARY-INDEPENDENCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 3 }
