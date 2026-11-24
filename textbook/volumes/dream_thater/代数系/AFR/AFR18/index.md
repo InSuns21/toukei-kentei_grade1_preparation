@@ -136,7 +136,15 @@ $$
 
 ## 2. 素数ごとに四つの積を作る
 
-ここから $f,g$ は第1係数が1の同時Hecke固有形式とします。[レベル1固有形式の局所データ](../AFR17/index.md#thm-afr17-local-data) による $f$ の素点 $p$ のSatakeパラメータを $\alpha,\beta$、$g$ のものを $\gamma,\delta$ とします。和はそれぞれ $\lambda_f(p),\lambda_g(p)$、積はいずれも1です。二つの表現の局所データを組み合わせるには、二つの対角行列のテンソル積を取ります。例えば $\operatorname{diag}(2,1/2)$ と $\operatorname{diag}(3,1/3)$ の積は4次元の空間で固有値 $6,2/3,3/2,1/6$ を持ちます。
+ここから $f,g$ は第1係数が1の同時Hecke固有形式とします。
+
+[レベル1固有形式の局所データ](../AFR17/index.md#thm-afr17-local-data) による $f$ の素点 $p$ のSatakeパラメータを $\alpha,\beta$、$g$ のものを $\gamma,\delta$ とします。
+
+和はそれぞれ $\lambda_f(p),\lambda_g(p)$、積はいずれも1です。
+
+二つの表現の局所データを組み合わせるには、二つの対角行列のテンソル積を取ります。
+
+例えば $\operatorname{diag}(2,1/2)$ と $\operatorname{diag}(3,1/3)$ の積は4次元の空間で固有値 $6,2/3,3/2,1/6$ を持ちます。
 
 積分では $g$ に複素共役を取ったので、局所データにも共役を取ります。以下の $\pi_f,\pi_g$ は AFR17 で得た [カスプ保型表現](../AFR17/index.md#def-afr17-cuspidal-representation) です。
 
@@ -302,7 +310,17 @@ $L(s,\pi_f)L(s,\overline{\pi_g})$ の素数因子は単独の4つの根 $\alpha,
 
 ## 3. 局所Whittaker関数を積分する
 
-前節の補正因子は局所積分のどこから生じるのでしょうか。ここでは $F=\mathbb Q_p$、$O=\mathbb Z_p$、$K=GL_2(O)$、$G=GL_2(F)$ とします。$N$ は $n(u)=\begin{pmatrix}1&u\\0&1\end{pmatrix}$（$u\in F$）全体です。加法指標 $\psi$ は $O$ 上自明、$p^{-1}O$ 上非自明とします。既習の [Whittaker汎関数](../AFR15/index.md#def-afr15-whittaker) を持つ二つの既約許容不分岐表現を考え、中心指標は両方とも自明とします。ここではこの汎関数が存在することを仮定し、不分岐主系列に対する構成は [主系列の安定Whittaker積分](../AFR15/index.md#thm-afr15-jacquet) を参照してください。
+前節の補正因子は局所積分のどこから生じるのでしょうか。
+
+ここでは $F=\mathbb Q_p$、$O=\mathbb Z_p$、$K=GL_2(O)$、$G=GL_2(F)$ とします。
+
+$N$ は $n(u)=\begin{pmatrix}1&u\\0&1\end{pmatrix}$（$u\in F$）全体です。
+
+加法指標 $\psi$ は $O$ 上自明、$p^{-1}O$ 上非自明とします。
+
+既習の [Whittaker汎関数](../AFR15/index.md#def-afr15-whittaker) を持つ二つの既約許容不分岐表現を考え、中心指標は両方とも自明とします。
+
+ここではこの汎関数が存在することを仮定し、不分岐主系列に対する構成は [主系列の安定Whittaker積分](../AFR15/index.md#thm-afr15-jacquet) を参照してください。
 
 非零の球固定ベクトルから作った Whittaker 関数 $W$ は、[Whittaker関数の変換則](../AFR15/index.md#prop-afr15-model) により $W(n(u)hk)=\psi(u)W(h)$ を満たします。$W'$ は第二の表現の同じ指標による関数です。積 $W\overline{W'}$ は左 $N$ 不変です。$a_m=\operatorname{diag}(p^m,1)$ とします。
 
@@ -361,7 +379,19 @@ $U_{-1}=0,U_0=1$ より $U_1=A+B$、以降は $h_m(A,B)$ と同じ漸化式で�
 
 例えば $p=2,A=B=1$ というSatakeパラメータの模型では $W_0=1,W_1=\sqrt2,W_2=3/2$ です。重根でも $h_m(1,1)=m+1$ となり、式は破綻しません。
 
-今度は二つの関数に試験関数 $\Phi$ を掛けて積分します。$\Phi=1_{O^2}$ は行ベクトルが整数環に入るとき1となる関数です。$e_2=(0,1)$ とすると $e_2n(u)=e_2$ なので、$W\overline{W'}\Phi(e_2h)|\det h|_p^s$ は左 $N$ 不変となります。右 $K$ に対しても不変です。$dh$ は $K$ の体積1の Haar 測度、$du$ は $O$ の体積1の加法 Haar 測度とし、商測度 $d\dot h$ は $\int_G F(h)dh=\int_{N\backslash G}\int_N F(nh)dn\,d\dot h$ で規格化します。ここではこの商積分の公式（両群がユニモジュラーの場合の Weil の積分公式）を測度論の外部入力として使います。必要な各軌道の測度は以下で計算します。
+今度は二つの関数に試験関数 $\Phi$ を掛けて積分します。
+
+$\Phi=1_{O^2}$ は行ベクトルが整数環に入るとき1となる関数です。
+
+$e_2=(0,1)$ とすると $e_2n(u)=e_2$ なので、$W\overline{W'}\Phi(e_2h)|\det h|_p^s$ は左 $N$ 不変となります。
+
+右 $K$ に対しても不変です。
+
+$dh$ は $K$ の体積1の Haar 測度、$du$ は $O$ の体積1の加法 Haar 測度とし、商測度 $d\dot h$ は $\int_G F(h)dh=\int_{N\backslash G}\int_N F(nh)dn\,d\dot h$ で規格化します。
+
+ここではこの商積分の公式（両群がユニモジュラーの場合の Weil の積分公式）を測度論の外部入力として使います。
+
+必要な各軌道の測度は以下で計算します。
 
 <a id="thm-afr18-local-zeta"></a>
 
