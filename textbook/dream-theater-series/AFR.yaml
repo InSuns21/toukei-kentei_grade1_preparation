@@ -84,7 +84,7 @@ chapters:
     title: "Weil表現・theta級数"
   - id: AFR20
     path: textbook/volumes/dream_thater/代数系/AFR/AFR20
-    status: planned
+    status: completed
     title: "theta対応とunitary／orthogonal群"
   - id: AFR21
     path: textbook/volumes/dream_thater/代数系/AFR/AFR21
