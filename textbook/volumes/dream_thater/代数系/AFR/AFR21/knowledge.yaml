@@ -1,0 +1,26 @@
+chapter: AFR21
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR20, AFR10, AFR18]
+forward_references: []
+concepts:
+  - id: automorphic-forms.period
+    name: "周期積分"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.global-theta-lift]
+  - id: automorphic-forms.seesaw
+    name: "seesaw配置"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.dual-pair]
+  - id: automorphic-forms.seesaw-identity
+    name: "seesaw identity"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.seesaw, automorphic-forms.period, automorphic-forms.global-theta-lift]
+  - id: automorphic-forms.period-selection
+    name: "周期積分の指標選択則"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.period]
