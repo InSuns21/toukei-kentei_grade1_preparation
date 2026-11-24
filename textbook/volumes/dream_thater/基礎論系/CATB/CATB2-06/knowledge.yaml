@@ -1,0 +1,45 @@
+chapter: CATB2-06
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CATB2-05
+  - CAT2-08
+  - CAT3-06
+
+concepts:
+  - id: category.enriched-adjunction
+    name: 豊穣随伴
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（豊穣随伴）"]
+    requires: [category.adjunction-hom, category.enriched-functor, category.enriched-natural-transformation]
+  - id: category.enriched-left-kan-extension
+    name: 豊穣左Kan拡張
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（豊穣左Kan拡張）"]
+    requires: [category.left-kan-extension, category.enriched-natural-hom]
+  - id: category.enriched-right-kan-extension
+    name: 豊穣右Kan拡張
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（豊穣右Kan拡張）"]
+    requires: [category.right-kan-extension, category.enriched-natural-hom]
+  - id: category.enriched-adjoint-weighted-preservation
+    name: 豊穣随伴による重み付き余極限・極限の保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（豊穣随伴による重み付き余極限・極限の保存）"]
+    requires: [category.enriched-adjunction, category.weighted-limit, category.weighted-colimit]
+  - id: category.enriched-pointwise-left-kan
+    name: 重み付き余極限による豊穣左Kan公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（重み付き余極限による豊穣左Kan公式）"]
+    requires: [category.enriched-left-kan-extension, category.weighted-colimit, category.enriched-representable-functor, category.enriched-natural-hom-universal]
+  - id: category.enriched-pointwise-right-kan
+    name: 重み付き極限による豊穣右Kan公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（重み付き極限による豊穣右Kan公式）"]
+    requires: [category.enriched-right-kan-extension, category.weighted-limit, category.enriched-representable-functor, category.enriched-natural-hom-universal]
