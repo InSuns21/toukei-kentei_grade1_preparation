@@ -21,7 +21,7 @@ chapters:
   - { id: FCG14, path: textbook/volumes/dream_thater/計算系/FCG/FCG14, status: completed, title: "煙の密度と浮力はどう連成するか" }
   - { id: FCG15, path: textbook/volumes/dream_thater/計算系/FCG/FCG15, status: completed, title: "煙の厚みはどう光として描くか" }
   - { id: FCG16, path: textbook/volumes/dream_thater/計算系/FCG/FCG16, status: completed, title: "炎と煙の表現をどう分けるか" }
-  - { id: FCG17, path: textbook/volumes/dream_thater/計算系/FCG/FCG17, status: planned, title: "渦の細部を増やすと何が壊れるか" }
+  - { id: FCG17, path: textbook/volumes/dream_thater/計算系/FCG/FCG17, status: completed, title: "渦の細部を増やすと何が壊れるか" }
   - { id: FCG18, path: textbook/volumes/dream_thater/計算系/FCG/FCG18, status: planned, title: "流体と動く物体の作用をどう表示するか" }
   - { id: FCG19, path: textbook/volumes/dream_thater/計算系/FCG/FCG19, status: planned, title: "計算性能と物理的精度を両立できるか" }
   - { id: FCG20, path: textbook/volumes/dream_thater/計算系/FCG/FCG20, status: planned, title: "地形上の浸水を誤解なく可視化できるか" }
