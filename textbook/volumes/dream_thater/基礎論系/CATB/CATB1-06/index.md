@@ -4,7 +4,7 @@
 
 前講の[短完全列の特徴づけ](../CATB1-05/index.md#thm-catb1-05-short-exact-test)では、中央の対象を部分と商に分けた。今度は同じ形の二つの列を縦の射で結ぶ。縦の射の核と余核は、互いにどのような関係を持つだろうか。
 
-以下、局所小な[アーベル圏](../CATB1-04/index.md#def-catb1-04-abelian-category)で考える。零対象を $0$ と書き、合成は $vu=v\circ u$ とする。二つの横の列は短完全列である。
+以下、局所小な[アーベル圏](../CATB1-04/index.md#def-catb1-04-abelian-category)で考える。[零対象](../CATB1-03/index.md#def-catb1-03-zero-object)と型が明らかな零射をともに $0$ と書き、合成は $vu=v\circ u$、対象 $X$ の恒等射は $1_X$ と書く。二つの横の列は[短完全列](../CATB1-05/index.md#def-catb1-05-short-exact)である。
 
 $$
 0\xrightarrow{} A\xrightarrow{i} B\xrightarrow{p} C\xrightarrow{}0
@@ -32,7 +32,13 @@ $$
 
 と仮定する。横の射 $i,i'$ は核、$p,p'$ は余核である。これは[短完全列の特徴づけ](../CATB1-05/index.md#thm-catb1-05-short-exact-test)の適用であり、特に $i,i'$ はモノ射、$p,p'$ はエピ射になる。
 
-縦の射 $v=a,b,c$ の核の対象を $K_v$、核射を $k_v$、余核の対象を $Q_v$、余核射を $q_v$ と書く。
+縦の射 $v:X\to Y$（$v=a,b,c$ のいずれか）について、[核](../CATB1-04/index.md#def-catb1-04-kernel)と[余核](../CATB1-04/index.md#def-catb1-04-cokernel)を次の型で選ぶ。
+
+$$
+k_v:K_v\to X,\qquad q_v:Y\to Q_v.
+$$
+
+添字 $v$ はどの縦射を対象にしているかを表す。[核・余核の消去性](../CATB1-04/index.md#prop-catb1-04-kernel-cokernel-uniqueness)により $k_v$ はモノ射、$q_v$ はエピ射である。加群の具体例では $K_v=\ker v$ を零に写る元の部分加群、$Q_v=Y/\operatorname{Im}v$ を商加群と選び、$k_v$ は包含、$q_v$ は商射とする。ここで $\operatorname{Im}v$ は $v$ の値全体である。$[w]$ は余核における $w$ の類、$[n]_r$ は整数 $n$ の $r$ を法とする剰余類（$r$ は正整数）を表す。可換群は $\mathbb Z$ 加群であるから、[加群の圏の定理](../CATB1-04/index.md#thm-catb1-04-module-category)によりこれらの選択が可能で、モノ射・エピ射はそれぞれ単射・全射に一致する。
 
 ### 1.1 整数で起こる小さな謎
 
@@ -64,7 +70,7 @@ $$
 
 核側の二射は $k_c\beta\alpha=pi k_a=0$ から $\beta\alpha=0$。余核側は $\eta\gamma q_a=q_c p'i'=0$ から $\eta\gamma=0$ である。ここで核射のモノ射性、余核射のエピ射性をそれぞれ使った。
 
-しかし $K_c$ と $Q_a$ の間にはまだ射がない。加群なら元を持ち上げられるが、一般の圏で対象の内部の元を直接扱うことはできない。そこで任意の対象 $T$ からの射 $x:T\to X$ を、$T$ を変域とする元のように扱う。等式 $x=y$ は射の等式であり、$T$ を固定すると加法も使える。
+しかし $K_c$ と $Q_a$ の間にはまだ射がない。加群なら元を持ち上げられるが、一般の圏で対象の内部の元を直接扱うことはできない。そこで任意の対象 $T$ からの射 $x:T\to X$ を、$T$ を変域とする元のように扱う。等式 $x=y$ は射の等式であり、$T$ と終域 $X$ を固定すると[前加法圏の構造](../CATB1-03/index.md#def-catb1-03-preadditive)により射の和・差が使え、合成は和・差を保つ。
 
 ## 3. エピ射に沿って持ち上げる方法
 
@@ -72,12 +78,14 @@ $$
 
 そこで $T$ 自体をエピ射 $s:S\to T$ で置き換え、$ex=ys$ を満たす $x:S\to X$ を求める。$s$ はエピ射なので、後から $s$ を合成した等式から元の等式を回復できる。
 
+この両立する二射をまとめて扱うのが[引き戻し](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)である。$e$ と $y$ の引き戻しは $eu=ys$ を満たす二射 $u:P\to X$, $s:P\to T$ を持ち、両立する任意の二射を一意に経由させる。以下でその存在と $s$ のエピ射性を示す。
+
 <a id="lem-catb1-06-epi-lift"></a>
 
 <!-- formal-statement-start -->
 > **補題（エピ射に沿う持ち上げ）**
 >
-> アーベル圏で $e:X\to Y$ がエピ射、$y:T\to Y$ が任意の射なら、引き戻し $P$ の射 $u:P\to X$, $s:P\to T$ は $eu=ys$ を満たし、$s$ はエピ射である。
+> アーベル圏で $e:X\to Y$ がエピ射、$y:T\to Y$ が任意の射なら、$e,y$ の引き戻し $(P,u,s)$ が存在する。二射 $u:P\to X$, $s:P\to T$ は $eu=ys$ を満たし、$s$ はエピ射である。
 <!-- formal-statement-end -->
 
 見取り図：引き戻しを双積からの差の核として作り、$s$ を零にする射が必ず零になると示す。
@@ -85,9 +93,21 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[双積](../CATB1-03/index.md#def-catb1-03-biproduct) $X\oplus T$ からの射 $d=(e,-y):X\oplus T\to Y$ を取る。$d$ はエピ射である。実際 $w d=0$ なら第1成分への包含を合成して $we=0$、よって $w=0$ となり、[零射によるエピ射の判定](../CATB1-04/index.md#prop-catb1-04-zero-test)を適用できる。
+[双積](../CATB1-03/index.md#def-catb1-03-biproduct) $X\oplus T$ の挿入射を $j_X,j_T$、射影を $\pi_X,\pi_T$ とする。[双積の射の行列表示](../CATB1-03/index.md#thm-catb1-03-matrix)に従い、二成分が $e,-y$ となる射を取る。
 
-$d$ の核 $j:P\to X\oplus T$ の二成分を $u,s$ とする。任意の $u_0:V\to X,s_0:V\to T$ が $eu_0=ys_0$ を満たせば、双積への射 $(u_0,s_0)$ は $d$ との合成が零なので $j$ を通じて一意に分解する。これは[引き戻し](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)の普遍性そのものである。
+$$
+d=(e,-y)=e\pi_X-y\pi_T:X\oplus T\to Y.
+$$
+
+双積の条件から $dj_X=e$, $dj_T=-y$ である。$d$ はエピ射である。実際 $w d=0$ なら第1成分への包含を合成して $we=0$、よって $w=0$ となり、[零射によるエピ射の判定](../CATB1-04/index.md#prop-catb1-04-zero-test)を適用できる。
+
+$d$ の[核](../CATB1-04/index.md#def-catb1-04-kernel)を $j:P\to X\oplus T$ とし、$u=\pi_Xj$, $s=\pi_Tj$ と置く。$dj=eu-ys=0$ より $eu=ys$ となる。任意の $u_0:V\to X,s_0:V\to T$ が $eu_0=ys_0$ を満たせば、[双積の普遍性](../CATB1-03/index.md#thm-catb1-03-biproduct-universality)で得る射 $j_Xu_0+j_Ts_0$ は
+
+$$
+d(j_Xu_0+j_Ts_0)=eu_0-ys_0=0
+$$
+
+を満たすので $j$ を通じて一意に分解する。その分解射 $h:V\to P$ に対して $uh=u_0$, $sh=s_0$ となる。逆にこの二条件が成立すれば、双積の普遍性により $jh=j_Xu_0+j_Ts_0$ となるため $h$ は一意である。これは[引き戻し](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)の普遍性そのものである。
 
 $w:T\to W$ が $ws=0$ を満たすとする。すると $(0,w)j=ws=0$。エピ射 $d$ は[正規射の核・余核による復元](../CATB1-04/index.md#prop-catb1-04-normal-recovery)から $j$ の余核である。したがって $(0,w)=hd$ となる $h:Y\to W$ が存在する。二つの包含と合成すると
 
@@ -129,7 +149,13 @@ $$
 
 $s$ がエピ射だから $qk=0$。従って $k$ は $q$ の核を経由する。[像と余像の比較同型](../CATB1-05/index.md#thm-catb1-05-image-coimage)で $q$ の核は $g$ の像である。
 
-一方 $hg=0$ なので $h$ は $q$ を経由し、$q$ の核は $h$ の核を経由する。二つのモノ射が相互に分解するので、その分解射の合成は各モノ射の消去性から恒等射になる。よって[完全列の定義](../CATB1-05/index.md#def-catb1-05-exact)を満たす。
+一方 $hg=0$ なので $h$ は $q$ を経由し、$q$ の核は $h$ の核を経由する。$m:I\to Y$ を $q$ の核とすると、以上から $k=m\lambda$, $m=k\mu$ となる射 $\lambda:K\to I$, $\mu:I\to K$ がある。
+
+$$
+k=k\mu\lambda,\qquad m=m\lambda\mu.
+$$
+
+各核射のモノ射性で消去すると $\mu\lambda=1_K$, $\lambda\mu=1_I$ となる。よって[完全列の定義](../CATB1-05/index.md#def-catb1-05-exact)を満たす。
 <!-- proof-end -->
 
 ## 4. 接続射を構成する
@@ -147,7 +173,13 @@ $i'$ は $p'$ の核なので $i'v=bu$ を満たす唯一の $v:P\to A'$ があ�
 <!-- formal-statement-start -->
 > **定義（接続射）**
 >
-> アーベル圏の二つの短完全列の間に射 $a,b,c$ があり、横の射をそれぞれ $i,p$ と $i',p'$ として $bi=i'a$, $p'b=cp$ が成立するとする。$k_c$ を $c$ の核、$q_a$ を $a$ の余核とする。
+> アーベル圏の二つの短完全列
+>
+$$
+0\to A\xrightarrow{i}B\xrightarrow{p}C\to0,\qquad
+0\to A'\xrightarrow{i'}B'\xrightarrow{p'}C'\to0
+$$
+> の間に射 $a:A\to A'$, $b:B\to B'$, $c:C\to C'$ があり、$bi=i'a$, $p'b=cp$ が成立するとする。$k_c:K_c\to C$ を $c$ の核、$q_a:A'\to Q_a$ を $a$ の余核とする。
 >
 > $p$ と $k_c$ の引き戻しの射を $u:P\to B$, $s:P\to K_c$ とし、$i'v=bu$ となる $v:P\to A'$ を取る。このとき次の等式を満たす射 $\delta:K_c\to Q_a$ を接続射という。
 
@@ -159,11 +191,15 @@ $$
 <!-- definition-example-start: def-catb1-06-connecting -->
 **定義の確認**
 
-第1節の整数の例では $K_c=C=\mathbb Z/2\mathbb Z$、$k_c=1$ なので $P=B=\mathbb Z$, $u=1$, $s=p$ と取れる。
+第1節の整数の例では横列が短完全で図式は可換である。$K_c=C=\mathbb Z/2\mathbb Z$、$k_c=1_C$ なので $P=B=\mathbb Z$, $u=1_B$, $s=p$ と取る。$pu=p=k_cs$ が成り立つ。任意の両立する二射 $f:T\to B$, $g:T\to K_c$ は $pf=k_cg=g$ を満たすので、$P$ への分解射は $f$ のみである。よって[引き戻しの定義](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)を満たす。
 
-$i'v(n)=2v(n)=2n$ より $v(n)=n$。$q_a(n)=[n]_2$ だから $\delta([n]_2)=[n]_2$ とすれば $\delta s=q_av$ を満たす。
+$i'v(n)=2v(n)=2n$ より $v(n)=n$。$q_a(n)=[n]_2$ だから $\delta:\mathbb Z/2\mathbb Z\to\mathbb Z/2\mathbb Z$ を $\delta([n]_2)=[n]_2$ と定める。代表元を $n+2t$ に替えても値は変わらず、恒等射なので加法も保つ。任意の整数 $n$ に対して
 
-$s$ が全射なのでこの $\delta$ は一意であり、代表元を $n+2t$ に替えても値は変わらない。
+$$
+(\delta s)(n)=\delta([n]_2)=[n]_2=(q_av)(n).
+$$
+
+従って接続射の条件が成立する。$s$ が全射なのでこの $\delta$ は一意である。
 <!-- definition-example-end -->
 
 一般の場合にもこの射が存在する。引き戻しの核に沿って差が消えることを示せば、余核の普遍性によって接続射を作れる。
@@ -223,7 +259,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**端点。** $k_b\alpha=i k_a$ はモノ射の合成だからモノ射であり、$\alpha x=\alpha y$ なら $i k_ax=i k_ay$、よって $x=y$。$\eta q_b=q_c p'$ はエピ射の合成なので、$x\eta=y\eta$ なら $xq_cp'=yq_cp'$、よって $x=y$。従って $\alpha$ はモノ射、$\eta$ はエピ射である。
+**端点。** $k_b\alpha=i k_a$ はモノ射の合成だからモノ射であり、$\alpha x=\alpha y$ なら $i k_ax=i k_ay$、よって $x=y$。$\eta q_b=q_c p'$ はエピ射の合成なので、$x\eta=y\eta$ なら $xq_cp'=yq_cp'$、よって $x=y$。従って $\alpha$ はモノ射、$\eta$ はエピ射である。[零射による判定](../CATB1-04/index.md#prop-catb1-04-zero-test)から $\alpha$ の核の対象と $\eta$ の余核の対象は零対象である。よって $K_a$ では零射の像と $\alpha$ の核、$Q_c$ では $\eta$ の像と零射の核が一致し、両端で完全である。
 
 **$K_b$ での完全性。** 第2節で $\beta\alpha=0$ を示した。$x:T\to K_b$ が $\beta x=0$ を満たすなら $pk_bx=k_c\beta x=0$。$i$ は $p$ の核なので $iz=k_bx$ となる $z:T\to A$ がある。$i'az=biz=bk_bx=0$ より $az=0$。従って $z=k_ay$ となる $y:T\to K_a$ があり、
 
@@ -231,7 +267,7 @@ $$
 k_b\alpha y=i k_a y=iz=k_bx.
 $$
 
-$k_b$ を消去して $\alpha y=x$。持ち上げによる判定では恒等射をエピ射に選べる。
+$k_b$ を消去して $\alpha y=x$。[持ち上げによる完全性の判定](#prop-catb1-06-local-exactness)では恒等射 $1_T$ をエピ射に選べる。
 
 **$K_c$ での完全性。** $u_0=k_b:K_b\to B$ と $s_0=\beta$ は $pu_0=k_cs_0$ を満たすので、引き戻し $P$ への射 $t:K_b\to P$ が存在して $ut=k_b$, $st=\beta$。$i'vt=but=bk_b=0$ から $vt=0$。従って $\delta\beta=\delta st=q_avt=0$。
 
@@ -249,7 +285,7 @@ $$
 aw=m_a d_a w=m_a ze_1=vte_1.
 $$
 
-ここで $y=ute_1-iw:S_1\to B$ と置くと、
+$ute_1$ と $iw$ はともに $S_1\to B$ である。前者の縦射での値を後者で打ち消すため、$y=ute_1-iw:S_1\to B$ と置くと、
 
 $$
 by=i'vte_1-i'aw=0,
@@ -391,7 +427,7 @@ $$
 K_c=\{[0]_6,[3]_6\},\qquad Q_a=\mathbb Z/4\mathbb Z.
 $$
 
-$[3]_6$ の持ち上げ $z=3$ に対して $bz=12=i'(2)$。従って
+[接続射の定義](#def-catb1-06-connecting)を元で計算するため、$[3]_6$ の持ち上げ $z=3$ を選ぶ。$bz=12=i'(2)$ なので $w=2$ である。従って
 
 $$
 \delta([3]_6)=[2]_4.
@@ -413,7 +449,7 @@ $$
 3x([1]_3)=x([3]_3)=x([0]_3)=0.
 $$
 
-整数の加法群には非零の3倍して零になる元がないので $x([1]_3)=0$。しかし $ex([1]_3)=[1]_3$ に反する。第3節の持ち上げに変域の取り替えが必要な理由である。
+整数の加法群には非零の3倍して零になる元がないので $x([1]_3)=0$。しかし $ex([1]_3)=[1]_3$ に反する。[エピ射に沿う持ち上げ](#lem-catb1-06-epi-lift)に変域の取り替えが必要な理由である。
 <!-- solution-end -->
 
 ### CATB1-06-B01 引き戻しによる持ち上げの具体化
@@ -476,7 +512,7 @@ $$
 
 - Level: B
 
-同じアーベル圏内で、第4節の可換図式から別の同じ形の可換図式への射があるとする。上段の三射を $F_A,F_B,F_C$、下段の三射を $G_A,G_B,G_C$ とし、すべての横・縦の四角形が可換とする。
+同じアーベル圏内で、第4節の可換図式から別の同じ形の可換図式への射があるとする。移り先の対象と射をチルダで区別する（例えば $\tilde A,\tilde p$）。上段の三射を $F_X:X\to\tilde X$、下段の三射を $G_X:X'\to\tilde X'$（$X=A,B,C$）とし、すべての横・縦の四角形が可換とする。
 
 移り先の縦射を $\tilde a,\tilde b,\tilde c$ と書く。核に誘導される $F_K:K_c\to K_{\tilde c}$ と余核に誘導される $G_Q:Q_a\to Q_{\tilde a}$ について、$\tilde\delta F_K=G_Q\delta$ を示せ。
 
@@ -497,7 +533,7 @@ $$
 =G_Bi'v=\tilde i'G_Av.
 $$
 
-$\tilde i'$ を消去して $\tilde v r=G_Av$。両接続射の定義を適用すると
+$\tilde i'$ を消去して $\tilde v r=G_Av$。両[接続射の定義](#def-catb1-06-connecting)を適用すると
 
 $$
 \tilde\delta F_Ks=\tilde\delta\tilde s r
@@ -534,13 +570,13 @@ $t$ と $t'$ が同じ類を与える条件は $n\mid n_0(t-t')$、すなわち 
 
 $c$ の像は $[mx]_n$ の全体。どれも $d$ の倍数の類であり、Bézout の等式 $d=um+vn$ から $[d]_n=[um]_n$ が像に属す。従って像は $d$ の倍数の類全体、$Q_c=\mathbb Z/d\mathbb Z$ と選べる（$[x]_n\mapsto[x]_d$ は全射で、核がちょうどこの像）。
 
-接続射では $[n_0t]_n$ の持ち上げ $n_0t$ を選ぶと $b(n_0t)=nm_0t=i'(m_0t)$ である。従って
+[接続射の定義](#def-catb1-06-connecting)に従い $[n_0t]_n$ の持ち上げ $n_0t$ を選ぶと $b(n_0t)=nm_0t=i'(m_0t)$ である。従って
 
 $$
 \delta([n_0t]_n)=[m_0t]_m.
 $$
 
-$t$ を $d$ だけ変えると値は $m_0d=m$ だけ変わるので定義できる。値が零なら $m\mid m_0t$、すなわち $d\mid t$ だから $\delta$ は単射。$K_c$ での完全性が成立する。
+$t$ を $d$ の倍数だけ変えると整数の代表元 $m_0t$ は $m_0d=m$ の倍数だけ変わるので、商群での値は変わらない。また $t$ の和は値の和に移るので群準同型である。値が零なら $m\mid m_0t$、すなわち $d\mid t$ だから $\delta$ は単射。$K_c$ での完全性が成立する。
 
 余核から誘導される二射は
 
@@ -555,5 +591,5 @@ $\ker\gamma$ は $m\mid nx$ を満たす類である。これは $m_0\mid n_0x$�
 
 $\operatorname{Im}\gamma$ は $n$ の倍数の類であり、$d=um+vn$ から $[d]_m=[vn]_m$。従って $\operatorname{Im}\gamma$ は $d$ の倍数の類全体で、$\ker\eta$ と一致する。
 
-$\eta$ は全射であり、左端の二つの核は零。こうして [Snakeの補題](#lem-catb1-06-snake) の完全性をすべて具体的に確認できた。$d=1$ のとき $K_c,Q_c$ は零となり、$\gamma$ は同型である。
+任意の $[r]_d$ は $\eta([r]_m)$ で得られるので $\eta$ は全射であり、左端の二つの核は零である。こうして [Snakeの補題](#lem-catb1-06-snake) の完全性をすべて具体的に確認できた。$d=1$ のとき $K_c,Q_c$ は零となり、$\gamma$ は同型である。
 <!-- solution-end -->
