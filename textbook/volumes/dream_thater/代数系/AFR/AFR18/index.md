@@ -150,7 +150,7 @@ $$
 
 和はそれぞれ $\lambda_f(p),\lambda_g(p)$、積はいずれも1です。
 
-ここで使う [GL_2のSatakeパラメータ](../AFR14/index.md#def-afr14-satake-parameter) は、既約許容的な滑らかな不分岐表現の球Hecke作用から得た、重複を許す非零の二根です。不分岐とは $K=GL_2(\mathbb Z_p)$ の固定ベクトルが非零に存在することです。その二根は対角行列の共役類として表せます。
+ここで使う [GL_2のSatakeパラメータ](../AFR14/index.md#def-afr14-satake-parameter) は、既約許容的な滑らかな不分岐表現の[球Hecke作用](../AFR14/index.md#prop-afr14-action)から得た、重複を許す非零の二根です。不分岐とは $K=GL_2(\mathbb Z_p)$ の固定ベクトルが非零に存在することです。その二根は対角行列の共役類として表せます。
 
 積分では $g$ に複素共役を取ったので、第二の局所データにも共役を取ります。$S=\operatorname{diag}(\alpha,\beta)$、$T=\operatorname{diag}(\bar\gamma,\bar\delta)$ とします。これは局所表現自体が二次元だという意味ではなく、二根を記録するための行列です。
 
@@ -420,7 +420,7 @@ $$
 
 ### 証明の見取り図
 
-右 $K$ 不変性と加法指標の非自明性から負の添字を消します。球Hecke作用を $p+1$ 個の剰余類に分解すると、非負添字の漸化式が出ます。
+右 $K$ 不変性と加法指標の非自明性から負の添字を消します。[球Hecke作用](../AFR14/index.md#prop-afr14-action)を $p+1$ 個の剰余類に分解すると、非負添字の漸化式が出ます。
 
 <!-- proof-start -->
 ### 証明
@@ -435,7 +435,7 @@ $$
 
 $W_m=W(a_m)$ と書きます（添字 $m$ は素数 $p$ の冪指数です）。
 
-[既約許容表現の球固定直線](../AFR14/index.md#prop-afr14-spherical-line) により非零の $K$ 固定空間は一次元で、球Hecke作用の固有値を取れます。
+[既約許容表現の球固定直線](../AFR14/index.md#prop-afr14-spherical-line) により非零の $K$ 固定空間は一次元で、[球Hecke作用](../AFR14/index.md#prop-afr14-action)の固有値を取れます。
 
 [指数pの二重剰余類分解](../AFR14/index.md#thm-afr14-p-cosets) の代表元を
 
