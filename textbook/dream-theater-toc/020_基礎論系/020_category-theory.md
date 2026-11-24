@@ -49,3 +49,4 @@
 46. [CATB1-06 Snakeの補題と図式追跡](textbook/volumes/dream_thater/基礎論系/CATB/CATB1-06/index.md)
 47. [CATB1-07 Lawvere理論とモデル](textbook/volumes/dream_thater/基礎論系/CATB/CATB1-07/index.md)
 48. [CATB1-08 有限項モナドとLawvere理論](textbook/volumes/dream_thater/基礎論系/CATB/CATB1-08/index.md)
+49. [CATB2-01 モノイダル圏でHomを値付けする](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-01/index.md)

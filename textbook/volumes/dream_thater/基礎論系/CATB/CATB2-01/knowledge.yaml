@@ -1,0 +1,33 @@
+chapter: CATB2-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-01
+  - CAT4-02
+  - CAT4-04
+
+concepts:
+  - id: category.enriched-category
+    name: 豊穣圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（豊穣圏）"]
+    requires: [category.monoidal-category]
+  - id: category.set-enrichment
+    name: 集合値の豊穣圏と通常の圏
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（集合値の豊穣圏と通常の圏）"]
+    requires: [category.enriched-category, category.category, category.cartesian-monoidal]
+  - id: category.enriched-underlying-category
+    name: 豊穣圏の台となる圏
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（豊穣圏の台となる圏）"]
+    requires: [category.enriched-category, category.category, category.mac-lane-coherence]
+  - id: category.one-object-enrichment
+    name: 一対象の豊穣圏とモノイド対象
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一対象の豊穣圏とモノイド対象）"]
+    requires: [category.enriched-category, category.monoid-object]
