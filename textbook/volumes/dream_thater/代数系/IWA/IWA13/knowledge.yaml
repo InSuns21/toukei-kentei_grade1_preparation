@@ -15,7 +15,7 @@ concepts:
   - id: number-theory.iwa13-locally-constant-function
     name: 局所定数関数
     kind: definition
-    introduction: inline
+    introduction: formal
     requires: [number-theory.zp-residue-quotients]
   - id: number-theory.iwa13-integral
     name: p進積分
