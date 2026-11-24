@@ -79,7 +79,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[二次元交代形式と行列式](../LREP4/index.md#prop-lrep4-epsilon)から $AJA^{\mathsf T}=J$ です。右から $(A^{\mathsf T})^{-1}$ を掛けると
+[二次元交代形式と行列式](../LREP4/index.md#prop-lrep4-epsilon)を $A^{\mathsf T}$ に適用します。$\det A^{\mathsf T}=1$ なので $AJA^{\mathsf T}=J$ です。右から $(A^{\mathsf T})^{-1}$ を掛けると
 
 $$
 AJ=J(A^{\mathsf T})^{-1}=JQ^*.
@@ -525,7 +525,7 @@ C'=TCT^{\mathsf T}
 =\begin{pmatrix}iJ&0\\0&-iJ\end{pmatrix}.
 $$
 
-従って $B'(B')^*=(iB)(-iB)=B^2=I_4$。通常の二乗 $(B')^2=-I_4$ ではありません。反線形写像の二乗には複素共役が必要です。
+従って $B'(B')^*=(iB)(-iB)=B^2=I_4$。通常の行列の二乗では $(B')^2=-I_4$ となりますが、これは反線形写像の二乗とは異なります。反線形写像の二乗には複素共役が必要です。
 <!-- solution-end -->
 
 <a id="ex-lrep18-b03"></a>
