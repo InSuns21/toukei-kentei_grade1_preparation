@@ -90,6 +90,7 @@ try {
   assert.match(await evaluate('document.querySelector("#fragment-source").value'),/texelFetch/);
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
+  assert.ok(await evaluate('document.querySelector("#panel-result #fcg-output-parameters #lab-parameters") && document.querySelectorAll("#lab-parameters").length===1 && document.querySelector("#lab-parameters input[type=range]").getBoundingClientRect().width>40'), 'FCG2 controls visible on output');
   const initial=await evaluate('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(x=>x.textContent)),log:document.querySelector("#diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox"),opaque:(()=>{try{return !!document.querySelector("#canvas-slot iframe").contentWindow.document.body}catch{return true}})()})');
   assert.equal(initial.rows.length,6);
   assert.ok(initial.rows.every(r=>r[4]==='OK'),JSON.stringify(initial.rows));
@@ -108,6 +109,12 @@ try {
   const second=await evaluate('({q:document.querySelector("#fcg2-q").textContent,mark:document.querySelector("#fcg2-time-display").textContent})');
   assert.ok(Number(second.q)<0.1,JSON.stringify(second));
   console.log('FCG2 time checkpoint advances physically, on the same GPU scene: PASS');
+  await evaluate('(()=>{const e=document.getElementById("parameter-shear");e.value="0";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await waitFor('document.querySelector("#status")?.textContent.includes("検算に合格") && document.getElementById("js-source").value.includes("const shear=0;")');
+  await click('reset');await click('run');
+  await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
+  await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="次の節目へ")).click()');
+  await waitFor('document.querySelector("#fcg2-time-display")?.textContent.includes("t=3.14")',10000);
 
   // Editing fragment color changes GPU pixels; keep q live to prevent the
   // compiler from optimizing u_density away (which this lesson requires).
