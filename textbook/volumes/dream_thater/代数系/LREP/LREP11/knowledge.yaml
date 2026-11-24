@@ -1,0 +1,38 @@
+chapter: LREP11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP10
+forward_references: []
+concepts:
+  - id: representation.lorentz-pair-representation
+    name: 左右次数による表現
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（左右次数による表現）"]
+    requires: [representation.lorentz-sl2-decomposition, representation.su2-polynomial-representation, representation.tensor-differential]
+  - id: representation.lorentz-pair-classification
+    name: 二因子の有限次元複素既約表現の分類
+    kind: theorem
+    introduction: formal
+    requires: [representation.lorentz-pair-representation, representation.sl2-ladder, representation.sl2-finite-dimensional-classification]
+  - id: representation.sl2c-finite-dimensional-classification
+    name: 被覆群の有限次元既約表現
+    kind: theorem
+    introduction: formal
+    requires: [representation.lorentz-pair-classification, representation.sl2c-double-cover, representation.sl2c-polar-connectivity, representation.differentiation-bracket]
+  - id: representation.lorentz-pair-descent
+    name: Lorentz群への降下条件
+    kind: theorem
+    introduction: formal
+    requires: [representation.sl2c-finite-dimensional-classification, representation.covering-kernel-criterion, representation.sl2c-kernel]
+  - id: representation.lorentz-vector-complexification
+    name: 四元ベクトルの複素化
+    kind: proposition
+    introduction: formal
+    requires: [representation.sl2c-finite-dimensional-classification, representation.sl2c-lorentz-action, representation.epsilon-determinant]
+  - id: representation.lorentz-finite-unitary-triviality
+    name: 有限次元正定値ユニタリ表現の自明性
+    kind: theorem
+    introduction: formal
+    requires: [representation.sl2c-finite-dimensional-classification, representation.sl2c-double-cover]
