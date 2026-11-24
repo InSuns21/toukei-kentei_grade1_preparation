@@ -1,6 +1,6 @@
 # IWA13 p進測度・積分とIwasawa代数
 
-[IWA12の比較写像](../IWA12/index.md#def-iwa12-control-map)では、無限塔の情報を有限層へ戻す際の誤差を調べました。一方、[IWA3の岩澤代数](../IWA3/index.md#def-iwa3-completed-group-ring)は、有限群環の整合する列を一つの環にまとめます。次は、この「整合性」が **関数の積分** という別の姿を持つことを示します。
+[IWA12の比較写像](../IWA12/index.md#def-iwa12-control-map)では、無限塔の情報を有限層へ戻す際の誤差を調べました。一方、[IWA3の岩澤代数](../IWA3/index.md#def-iwa3-completed-group-ring)は、有限群環の整合する列を一つの環にまとめます。次は、この「有限層の両立条件」が **関数の積分** という別の姿を持つことを示します。
 
 通常の実数値積分では区間の長さから始めます。しかし $p$ 進世界では、各剰余類 $a+p^n\mathbb Z_p$ に係数を割り当て、その係数が細分化と整合することから積分を作れます。さらに、剰余類の和を取る畳み込みが岩澤代数の積そのものになります。最後に、連続指標を積分する $p$ 進 Mellin 変換を冪級数の代入として計算します。
 
@@ -20,7 +20,7 @@ $$
 <a id="def-iwa13-distribution"></a>
 
 <!-- formal-statement-start -->
-> **定義（$p$ 進分布）**  
+> **定義（p進分布）**  
 > $n\ge0$、$a\in\mathbb Z/p^n\mathbb Z$ に対する $\mathbb Q_p$ 値の族 $\mu_n(a)$ が **$p$ 進分布** であるとは、全ての $n,a$ で
 >
 $$
@@ -71,7 +71,7 @@ $$
 <a id="def-iwa13-integral"></a>
 
 <!-- formal-statement-start -->
-> **定義（$p$ 進積分）**  
+> **定義（p進積分）**  
 > $\mathbb Z_p$ 値測度 $\mu$ と連続関数 $f\in C(\mathbb Z_p,\mathbb Z_p)$ に対し、
 >
 $$
@@ -140,7 +140,7 @@ $$
 \le\max(\|f_n-f\|_\infty,\|f_m-f\|_\infty).
 $$
 
-右辺は $n,m\to\infty$ で零へ行きます。$\mathbb Z_p$ は完備なので有限和の値は収束します。線形性は有限和から極限へ移り、評価式は $f_n\to f$ と $|I_\mu(f_n)|_p\le\|f_n\|_\infty\le\|f\|_\infty$ から従います。指示関数 $\mathbf1_{a+p^n\mathbb Z_p}$ は局所定数であり、その積分は定義上 $\mu_n(a)$ です。
+右辺は $n,m\to\infty$ で零へ行きます。$\mathbb Z_p$ は完備なので有限和の値は収束します。線形性は有限和から極限へ移り、評価式は $f_n\to f$ と $|I_\mu(f_n)|_p\le\|f_n\|_\infty\le\|f\|_\infty$ から従います。[指示関数](../../../../解析系/F0/F0-00P1/index.md#def-f0-00p1-random-variable) $\mathbf1_{a+p^n\mathbb Z_p}$ は局所定数であり、その積分は定義上 $\mu_n(a)$ です。
 
 最後に、局所定数関数上で同じ積分を持つ連続線形写像 $J$ について $J(f_n)=I_\mu(f_n)$ です。$f_n\to f$ と両者の連続性から $J(f)=I_\mu(f)$ となり、一意です。
 <!-- proof-end -->
@@ -205,7 +205,7 @@ $$
 =\sum_{\substack{b,c\bmod p^n\\b+c\equiv a\;(\mathrm{mod}\;p^n)}}\mu_n(b)\nu_n(c)
 $$
 >
-> で定まる族を **畳み込み** という。
+> で定まる族を **測度の畳み込み** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa13-convolution -->
@@ -418,7 +418,7 @@ $\delta_a$ の場合、$a$ を法 $p^n$ で代表する非負整数列 $a_n$ は
 <a id="def-iwa13-mellin"></a>
 
 <!-- formal-statement-start -->
-> **定義（$p$ 進 Mellin 変換）**  
+> **定義（p進Mellin変換）**  
 > $\mathbb Z_p$ 値測度 $\mu$ と上記の連続指標 $\kappa$ に対し
 >
 $$
@@ -438,7 +438,7 @@ $$
 <a id="thm-iwa13-mellin-evaluation"></a>
 
 <!-- formal-statement-start -->
-> **定理（Mellin 変換の評価公式）**  
+> **定理（Mellin変換の評価公式）**  
 > $\mu$ を $\mathbb Z_p$ 値測度、$\kappa:\mathbb Z_p\to\mathcal O_K^\times$ を連続指標、$u=\kappa(1)$ とする。このとき
 >
 $$
@@ -620,7 +620,7 @@ $$
 - Level: B
 - ID: IWA13-B1
 
-二つの連続 $\mathbb Z_p$ 線形汎関数 $L_1,L_2:C(\mathbb Z_p,\mathbb Z_p)\to\mathbb Z_p$ が、全ての剰余類の指示関数で一致するとき、全ての連続関数で一致することを証明せよ。
+二つの [連続線形汎関数](../../../../解析系/F0/F0-02C2/index.md#def-f0-02c2-continuous-linear-functional) $L_1,L_2:C(\mathbb Z_p,\mathbb Z_p)\to\mathbb Z_p$ が、全ての剰余類の指示関数で一致するとき、全ての連続関数で一致することを証明せよ。
 
 <!-- solution-start -->
 **詳細解答。** 任意の局所定数関数 $g$ はある $n$ について
@@ -672,7 +672,7 @@ $$
 $\mu_n(a)=p^{-n}\in\mathbb Q_p$ とする。これが分布関係を満たすことを確かめ、対応する有限和が $C(\mathbb Z_p,\mathbb Q_p)$ 上の連続線形汎関数にならないことを証明せよ。
 
 <!-- solution-start -->
-**詳細解答。** 各親剰余類の $p$ 個の子の値の和は $p\cdot p^{-(n+1)}=p^{-n}=\mu_n(a)$ なので分布です。$g_n=\mathbf1_{p^n\mathbb Z_p}$ とすると $\|g_n\|_\infty=1$ ですが、その有限和の値は $I(g_n)=\mu_n(0)=p^{-n}$ で、$|I(g_n)|_p=p^n$ は有界ではありません。連続線形汎関数なら作用素の値は $\|g\|_\infty$ の定数倍で抑えられなければならず、この列はその条件に反します。したがって本講の積分へは延長できません。
+**詳細解答。** 各親剰余類の $p$ 個の子の値の和は $p\cdot p^{-(n+1)}=p^{-n}=\mu_n(a)$ なので分布です。$g_n=\mathbf1_{p^n\mathbb Z_p}$ とすると $\|g_n\|_\infty=1$ ですが、その有限和の値は $I(g_n)=\mu_n(0)=p^{-n}$ で、$|I(g_n)|_p=p^n$ は有界ではありません。[連続線形汎関数の有界性](../../../../解析系/F0/F0-02C2/index.md#thm-f0-02c2-continuity-boundedness)と同様に、連続線形汎関数なら作用素の値は $\|g\|_\infty$ の定数倍で抑えられなければならず、この列はその条件に反します。したがって本講の積分へは延長できません。
 <!-- solution-end -->
 
 <a id="ex-iwa13-b4"></a>
