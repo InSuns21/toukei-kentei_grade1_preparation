@@ -46,7 +46,7 @@ $i\ne0$ は導手 $p$ の原始文字で、$p$ の倍数上では零です。こ
 
 これらの値は代数的な根です。複素側の特殊値を比較する際は、$p-1$ 乗根の生成元を複素側の一つの原始根に対応させ、同じ代数的数を複素数と $p$ 進数として読み分けます。
 
-[IWA14のBernoulli多項式](../IWA14/index.md#def-iwa14-bernoulli-polynomial) は剰余類を細分する公式を持っていました。その評価点を導手 $f$ の剰余類に合わせ、指標で重みを付けた有限和を一般化Bernoulli数と呼びます。これは [Dirichlet L関数](../../ANT/ANT3/index.md#def-ant3-l-function) の特殊値を表すための量です。
+[IWA14のBernoulli多項式](../IWA14/index.md#def-iwa14-bernoulli-polynomial) は剰余類を細分する公式を持っていました。その評価点を導手 $f$ の剰余類に合わせ、指標で重みを付けた有限和を新たに定義します。これは [Dirichlet L関数](../../ANT/ANT3/index.md#def-ant3-l-function) の特殊値を表すための量です。
 
 <a id="def-iwa15-generalized-bernoulli"></a>
 
@@ -308,7 +308,19 @@ $$
 また $\omega(2)^2\langle2\rangle^2=2^2=4$。分母は $-3\ne0$ なので $L_5(-1,\omega^2)=1/3$ が得られます。被積分関数は全ての単元で $\mathbb Z_5$ 値であり、5の倍数上で零に延長しても連続です。[積分への一意的延長](../IWA13/index.md#thm-iwa13-extension) の仮定を満たすので積分が存在します。
 <!-- definition-example-end -->
 
-定義中の積分が $s$ の連続関数であることも確かめます。二項級数では $z=\langle x\rangle-1$、$u=-s$ で、$x$ によらず第 $j$ 項の絶対値は $p^{-j}$ 以下です。有限個の係数 $\binom{-s}{j}$ は $s$ に連続なので、$s'\to s$ のとき被積分関数の差は $x$ について一様に零へ収束します。[p進積分の連続性](../IWA13/index.md#thm-iwa13-extension) の評価 $|I_\mu(f)|_p\le\|f\|_\infty$ により $H_{i,c}(s')\to H_{i,c}(s)$ となります。分母は $i\ne0$ なら法 $p$ で $1-\omega(c)^i\ne0$ なので単元です。$i=0$ なら分母が零になるのは $\ell(c)(1-s)=0$ のときだけです。指数座標は単射で $e$ は単元なので、これは $s=1$ に限ります。
+定義中の積分が $s$ の連続関数であることも確かめます。二項級数では $z=\langle x\rangle-1$、$u=-s$ で、$x$ によらず第 $j$ 項の絶対値は $p^{-j}$ 以下です。
+
+有限個の係数 $\binom{-s}{j}$ は $s$ に連続なので、$s'\to s$ のとき被積分関数の差は $x$ について一様に零へ収束します。[p進積分の連続性](../IWA13/index.md#thm-iwa13-extension) の評価
+
+$$
+|I_\mu(f)|_p\le\|f\|_\infty
+$$
+
+により $H_{i,c}(s')\to H_{i,c}(s)$ となります。
+
+次に分母を確認します。$i\ne0$ なら法 $p$ で $1-\omega(c)^i\ne0$ なので単元です。
+
+$i=0$ なら分母が零になるのは $\ell(c)(1-s)=0$ のときだけです。指数座標は単射で $e$ は単元なので、これは $s=1$ に限ります。
 
 <a id="thm-iwa15-interpolation"></a>
 
@@ -525,9 +537,13 @@ L_p(1-k,\chi)
 =(1-(\chi\omega^{-k})(p)p^{k-1})L(1-k,\chi\omega^{-k})
 $$
 
-が成立します。ここでは一般形を外部定理として用います（[Sharifi, Iwasawa Theory, Proposition 5.3.15](https://math.ucla.edu/~sharifi/notes/iwasawa-ch05.html)）。一般形では各積文字をその原始文字として取り、代数的値は固定した $p$ 進埋め込みで評価します。奇素数、有限位数の原始Dirichlet文字（導手が $mp^n$、$p\nmid m$、$n\ge0$）、整数 $k\ge1$ が仮定です。非自明な偶指標では全域で正則、自明指標だけは $s=1$ の極を除きます。上で証明したのは導手1または $p$ の場合で、一般形には $p$ と互いに素な法を含む剰余類空間上で測度を構成する追加の議論が必要です。
+が成立します。ここでは一般形を外部定理として用います（[Sharifi, Iwasawa Theory, Proposition 5.3.15](https://math.ucla.edu/~sharifi/notes/iwasawa-ch05.html)）。
 
-例えば $p=7$ とし、導手3の奇指標 $\eta$ を $\eta(1)=1,\eta(2)=-1$ と取ります。$\chi=\eta\omega$ は $\chi(-1)=(-1)(-1)=1$ の偶指標です。法21の文字ですが、$8\equiv1\bmod7$ で $\chi(8)=-1\ne\chi(1)$、$4\equiv1\bmod3$ で $\chi(4)=\omega(4)\ne1$ です。従って法7にも法3にも下りず、[原始文字の定義](../../ANT/ANT3/index.md#def-ant3-primitive) から導手は21です。$k=1$ で $\chi\omega^{-1}=\eta$ となり、$\eta(7)=1$ です。従って
+一般形では各積文字をその原始文字として取り、代数的値は固定した $p$ 進埋め込みで評価します。仮定は奇素数、有限位数の原始Dirichlet文字（導手が $mp^n$、$p\nmid m$、$n\ge0$）、整数 $k\ge1$ です。
+
+非自明な偶指標では全域で正則、自明指標だけは $s=1$ の極を除きます。上で証明したのは導手1または $p$ の場合で、一般形には $p$ と互いに素な法を含む剰余類空間上で測度を構成する追加の議論が必要です。
+
+例えば $p=7$ とし、導手3の奇指標 $\eta$ を $\eta(1)=1,\eta(2)=-1$ と取ります。$\chi=\eta\omega$ は $\chi(-1)=(-1)(-1)=1$ の偶指標です。法21の文字ですが、$8\equiv1\bmod7$ で $\chi(8)=-1\ne\chi(1)$、$4\equiv1\bmod3$ で $\chi(4)=\omega(4)\ne1$ です。従って法7にも法3にも下りません。[原始Dirichlet文字](../../ANT/ANT3/index.md#def-ant3-primitive) の条件を満たし、導手は21です。$k=1$ で $\chi\omega^{-1}=\eta$ となり、$\eta(7)=1$ です。従って
 
 $$
 L_p(0,\chi)=(1-\eta(7))L(0,\eta)=0.
@@ -678,7 +694,7 @@ $$
 $p=13$、導手3の奇指標 $\eta$ を $\eta(1)=1,\eta(2)=-1$ とし、$\chi=\eta\omega$ とする。[第6節の一般形の補間式](#ref-iwa15-general-interpolation) を用いて $L_p(0,\chi)$ を求めよ。$\chi$ の偶奇と、複素特殊値が零でないことも確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\eta(-1)=-1$、$\omega(-1)=-1$ なので $\chi(-1)=1$。法39の文字です。$14\equiv1\bmod13$ でも $\chi(14)=-1$、$4\equiv1\bmod3$ でも $\chi(4)=\omega(4)\ne1$ です。法13にも法3にも下りないので [原始文字の定義](../../ANT/ANT3/index.md#def-ant3-primitive) から導手は39です。
+**詳細解答。** $\eta(-1)=-1$、$\omega(-1)=-1$ なので $\chi(-1)=1$。法39の文字です。$14\equiv1\bmod13$ でも $\chi(14)=-1$、$4\equiv1\bmod3$ でも $\chi(4)=\omega(4)\ne1$ です。法13にも法3にも下りません。[原始Dirichlet文字](../../ANT/ANT3/index.md#def-ant3-primitive) の条件を満たし、導手は39です。
 
 $k=1$ で $\chi\omega^{-1}=\eta$。$13\equiv1\bmod3$ から $\eta(13)=1$。[第6節の一般形の補間式](#ref-iwa15-general-interpolation) の因子は $1-\eta(13)13^0=0$ です。
 
