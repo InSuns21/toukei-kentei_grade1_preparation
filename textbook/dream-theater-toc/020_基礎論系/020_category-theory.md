@@ -52,3 +52,4 @@
 49. [CATB2-01 モノイダル圏でHomを値付けする](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-01/index.md)
 50. [CATB2-02 前順序・距離空間と豊穣](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-02/index.md)
 51. [CATB2-03 豊穣関手と豊穣自然変換](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-03/index.md)
+52. [CATB2-04 豊穣Yonedaの補題](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-04/index.md)
