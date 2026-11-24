@@ -28,7 +28,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb1-03-preadditive -->
-**定義の確認。** 整数の加法を保つ写像 $\mathbb Z\to\mathbb Z$ は $x\mapsto ax$ ($a\in\mathbb Z$) と表せる。実際、$f(0)=f(0)+f(0)$ から $f(0)=0$、正整数について $f(n+1)=f(n)+f(1)$、負整数について $f(-n)=-f(n)$ なので $a=f(1)$ が全てを決める。
+**定義の確認**
+
+整数の加法を保つ写像 $\mathbb Z\to\mathbb Z$ は $x\mapsto ax$ ($a\in\mathbb Z$) と表せる。実際、$f(0)=f(0)+f(0)$ から $f(0)=0$、正整数について $f(n+1)=f(n)+f(1)$、負整数について $f(-n)=-f(n)$ なので $a=f(1)$ が全てを決める。
 
 一つの対象 $\mathbb Z$ とこれらの写像からなる圏を取る。合成は整数係数の積、恒等射の係数は $1$ である。写像として合成は結合的で恒等射が単位となる。射の和は整数係数の和、零元は係数 $0$、逆元は係数 $-a$ なので整数加法の結合律・交換律・単位元・逆元の条件を満たす。整数の分配律により $c(a+b)=ca+cb$ と $(c+d)a=ca+da$ が成立し、合成の双加法性も満たす。
 <!-- definition-example-end -->
@@ -93,7 +95,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb1-03-zero-object -->
-**定義の確認。** 上で構成した整数座標の圏を考える。$\mathbb Z^0$ は空の組一つからなる対象である。任意の $n$ について $\mathbb Z^n\to\mathbb Z^0$ は値の選択肢が一つしかないのでただ一つ存在し、加法を保つ。逆向きの写像も加法を保つなら空の組を $\mathbb Z^n$ の零ベクトルへ送る必要がある。実際、入力が加法の零元であるため、その像 $y$ は $y=y+y$ を満たし、$y=0$ となる。この写像は加法を保つのでただ一つ存在する。
+**定義の確認**
+
+上で構成した整数座標の圏を考える。$\mathbb Z^0$ は空の組一つからなる対象である。任意の $n$ について $\mathbb Z^n\to\mathbb Z^0$ は値の選択肢が一つしかないのでただ一つ存在し、加法を保つ。逆向きの写像も加法を保つなら空の組を $\mathbb Z^n$ の零ベクトルへ送る必要がある。実際、入力が加法の零元であるため、その像 $y$ は $y=y+y$ を満たし、$y=0$ となる。この写像は加法を保つのでただ一つ存在する。
 <!-- definition-example-end -->
 
 <a id="prop-catb1-03-zero-object-criterion"></a>
@@ -151,7 +155,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb1-03-biproduct -->
-**定義の確認。** $\mathbb Z^2$ を二つの $\mathbb Z$ の双積として検査する。射は
+**定義の確認**
+
+$\mathbb Z^2$ を二つの $\mathbb Z$ の双積として検査する。射は
 
 $$
 i_1(x)=(x,0),\quad i_2(x)=(0,x),
@@ -257,7 +263,9 @@ $n=0$ のとき、空の積は終対象、空の余積は始対象である。�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb1-03-additive-category -->
-**定義の確認。** 第3節で前加法性を確認した整数座標の圏を用いる。
+**定義の確認**
+
+第3節で前加法性を確認した整数座標の圏を用いる。
 
 有限個の $\mathbb Z^{n_j}$ に対して $\mathbb Z^{N}$ を取る。ただし $N=\sum_j n_j$ である。座標を長さ $n_j$ のブロックに分け、射影は対応するブロックを抜き出し、挿入射は他のブロックを零にする。
 
