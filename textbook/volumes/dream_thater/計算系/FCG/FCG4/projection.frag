@@ -43,14 +43,23 @@ void main(){
     vec2 q=fract(grid)-0.5;
     float edge=max(abs(q.x),abs(q.y));
     rgb=mix(rgb,vec3(0.55,0.62,0.69),0.16*smoothstep(0.47,0.50,edge));
-    if(part!=1)rgb=flowArrow(rgb,q,field.rg);
+    // Show eight-by-eight representative velocity arrows even on fine grids.
+    // Colors still use every cell of the actual MAC calculation.
+    if(part!=1){
+      vec2 arrowGrid=uv*8.0;
+      vec2 arrowCenter=(floor(arrowGrid)+0.5)/8.0;
+      ivec2 arrowCell=clamp(ivec2(floor(arrowCenter*vec2(size))),ivec2(0),size-1);
+      vec2 vel=part==0?texelFetch(u_before,arrowCell,0).rg:texelFetch(u_after,arrowCell,0).rg;
+      rgb=flowArrow(rgb,fract(arrowGrid)-0.5,vel);
+    }
     if(min(min(uv.x,1.0-uv.x),min(uv.y,1.0-uv.y))<0.008)rgb=vec3(0.67,0.72,0.77);
     outColor=vec4(rgb,1.0);
     return;
   }
   int panel=min(2,int(floor(v_uv.x*3.0)));
   vec2 localUv=vec2(fract(v_uv.x*3.0),v_uv.y);
-  ivec2 cell=ivec2(clamp(floor(localUv*8.0),vec2(0.0),vec2(7.0)));
+  ivec2 size=textureSize(u_pressure,0);
+  ivec2 cell=clamp(ivec2(floor(localUv*vec2(size))),ivec2(0),size-1);
   if(panel==0){
     float q=texelFetch(u_pressure,cell,0).r;
     outColor=vec4(q,0.15,1.0-q,1.0);
