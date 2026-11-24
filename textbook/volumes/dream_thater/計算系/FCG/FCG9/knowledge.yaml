@@ -1,7 +1,7 @@
 chapter: FCG9
 scope: dream-theater
 coverage: complete
-prerequisites: [FCG8]
+prerequisites: [FCG8, WGL9]
 concepts:
   - id: graphics.fcg9-edge
     name: 辺上の零点補間
@@ -44,4 +44,4 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（押出し面の外向き法線）"]
-    requires: [graphics.fcg9-extrude, graphics.fcg8-signed-distance]
+    requires: [graphics.fcg9-extrude, graphics.fcg8-signed-distance, graphics.vector-cross-product]

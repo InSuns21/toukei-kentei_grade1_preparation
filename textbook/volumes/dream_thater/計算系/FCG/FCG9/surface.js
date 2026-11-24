@@ -58,7 +58,7 @@ function extract(field){
     }
   }
   const degree=new Array(vertices.length).fill(0);
-  let perimeter=0,maxResidual=0;
+  let perimeter=0;
   for(const [a,b] of segments){
     degree[a]++;degree[b]++;
     const p=vertices[a].p,q=vertices[b].p;

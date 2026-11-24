@@ -2,7 +2,7 @@ id: FCG9
 title: "数値的な液面をどうメッシュにするか"
 volume: foundations
 status: supplementary
-prerequisites: [FCG8]
+prerequisites: [FCG8, WGL9]
 official_scope: []
 learning_objectives:
   - "格子上のLevel Setから辺の零点を線形補間し、共有頂点を再利用できる"
@@ -22,7 +22,7 @@ canonical_examples:
   - "符号−2と1をもつ辺の交差位置"
   - "交互符号−2, 1, −2, 1の双線形接続判定"
   - "共有辺の同じ交差頂点と次数2"
-  - "水平線分を押し出した側面の外積・面積"
+  - "水平線分を押し出した側面のベクトル積・面積"
 problem_patterns: [FCG9-EDGE, FCG9-CASES, FCG9-SADDLE, FCG9-SEAM, FCG9-NORMAL, FCG9-ERROR, FCG9-INTEGRATED]
 past_exam_alignment: []
 integrated_exam_problems: []
