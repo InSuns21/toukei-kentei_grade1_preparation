@@ -2,6 +2,9 @@ import Lean
 
 namespace LvtDependent
 
+def firstL (n : Nat) : Fin (n + 1) :=
+  ⟨0, Nat.zero_lt_succ n⟩
+
 def readL (xs : List Nat) (i : Fin xs.length) : Nat := xs.get i
 
 def PositiveL := {n : Nat // 0 < n}
