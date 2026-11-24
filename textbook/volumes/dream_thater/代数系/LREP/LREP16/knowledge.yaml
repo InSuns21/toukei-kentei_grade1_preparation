@@ -40,4 +40,12 @@ concepts:
     name: helicity演算子
     kind: definition
     introduction: formal
+    introduction_aliases: [helicity演算子とDiracスピノルのヘリシティ]
     requires: [representation.dirac-spinor, representation.spin-rotation-boost, representation.pauli-product]
+  - id: representation.dirac-helicity
+    name: Diracスピノルのヘリシティ
+    kind: definition
+    introduction: formal
+    aliases: [ヘリシティ, helicity]
+    introduction_aliases: [helicity演算子とDiracスピノルのヘリシティ]
+    requires: [representation.helicity-operator]
