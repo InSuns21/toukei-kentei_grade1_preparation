@@ -33,7 +33,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep13-contraction -->
-**定義の確認。** $u=(1,2)^{\mathsf T}$、$v=(3,i)^{\mathsf T}$ なら $Jv=(i,-3)^{\mathsf T}$ なので $B_L(u,v)=i-6$。逆順では $B_L(v,u)=6-i$、同じ列なら $B_L(u,u)=2-2=0$ です。行列積は各引数について線形なので双線形です。
+**定義の確認**。 $u=(1,2)^{\mathsf T}$、$v=(3,i)^{\mathsf T}$ なら $Jv=(i,-3)^{\mathsf T}$ なので $B_L(u,v)=i-6$。逆順では $B_L(v,u)=6-i$、同じ列なら $B_L(u,u)=2-2=0$ です。行列積は各引数について線形なので双線形です。
 
 boost $D=\operatorname{diag}(2,1/2)$ では $Du=(2,1)^{\mathsf T}$、$Dv=(6,i/2)^{\mathsf T}$ となり、収縮は $2(i/2)-6=i-6$ です。同じ入力を右列とすると $Q(D)u=(1/2,4)^{\mathsf T}$、$Q(D)v=(3/2,2i)^{\mathsf T}$ なので $(1/2)(2i)-4(3/2)=i-6$。左右とも値を保存します。一般の群元については次の命題で確認します。
 <!-- definition-example-end -->
@@ -216,9 +216,9 @@ $u=(\sqrt2,0)^{\mathsf T}$、$v=(0,\sqrt2)^{\mathsf T}$ なら $x=(1,0,0,1)$、$
 > **定義（空間反転）**  
 > 実Minkowski空間上の線形写像 $P$ を次のブロック行列で定め、空間反転と呼ぶ。ここで $I_3$ は三次単位行列である。
 
-$
+$$
 P=\begin{pmatrix}1&0\\0&-I_3\end{pmatrix}.
-$
+$$
 
 > すなわち
 
@@ -228,7 +228,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep13-parity -->
-**定義の確認。** $x=(2,1,-3,4)$ は $(2,-1,3,-4)$ に移ります。$P^2=I$ で元へ戻ります。$P^{\mathsf T}\eta P=\operatorname{diag}(-1,1,1,1)=\eta$ なので計量を保ちますが $\det P=-1$ なので固有Lorentz群には属しません。時間座標は変わりません。
+**定義の確認**。 $x=(2,1,-3,4)$ は $(2,-1,3,-4)$ に移ります。$P^2=I$ で元へ戻ります。$P^{\mathsf T}\eta P=\operatorname{diag}(-1,1,1,1)=\eta$ なので計量を保ちますが $\det P=-1$ なので固有Lorentz群には属しません。時間座標は変わりません。
 <!-- definition-example-end -->
 
 [エルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model)で $P$ の行列作用は $\mathcal P(X)=\operatorname{adj}X$ です。実際、$X$ の対角を交換し非対角の符号を反転すると $x^0I-\sum_i x^i\sigma_i$ が得られます。
