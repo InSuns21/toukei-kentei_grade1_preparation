@@ -8,7 +8,9 @@ test('G3 legends derive their initial step and GPU buffer dimensions from the ru
   assert.match(a.grid,/32×32/);
   assert.equal(a.clock,'物理step 8、t=0.25000 s（dt=1/32 s）');
   assert.equal(a.pixels,'640×320 px（GPU描画バッファ）');
-  assert.match(a.color,/5\|q−q_exact\|/);
+  assert.match(a.color,/5倍のR8絶対誤差/);
+  assert.match(a.color,/白破線=解析濃度0\.5/);
+  assert.match(a.mode,/双線形再構成.*最近傍セル表示/);
   const b=sceneDescription('FCG4',{width:900,height:300,steps:128});
   assert.match(b.clock,/Poisson反復 128 回（物理時刻は固定）/);
   assert.match(b.mode,/物理stepではなく/);
