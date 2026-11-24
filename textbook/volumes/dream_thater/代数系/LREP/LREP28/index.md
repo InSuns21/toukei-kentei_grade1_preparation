@@ -22,7 +22,7 @@ $$
 
 [LREP13の空間反転による左右交換](../LREP13/index.md#prop-lrep13-parity-exchange)では、被覆側の変換 $A\in SL(2,\mathbb C)$ が空間反転による共役で $Q(A)=(A^\dagger)^{-1}$ に移ります。左Weyl列 $u$ と右Weyl列 $r$ の作用はそれぞれ $A,Q(A)$ でした。従って片方だけの二次元空間で鏡映を実現するのではなく、四成分の[Diracスピノル](../LREP16/index.md#def-lrep16-dirac)を使います。
 
-[LREP17のDirac随伴](../LREP17/index.md#def-lrep17-dirac-adjoint)で使った行列を $H$ とします。次の選択では鏡映を二回行うと元に戻ります。
+[LREP17のDirac随伴](../LREP17/index.md#def-lrep17-dirac-adjoint)で使った行列を $H$ とします。左右の列を $\psi=\binom{u}{r}$ と書き、左・右の標準基底をこの順に並べます。次の $H$ はLREP13の単純な交換に左右別々の位相を付けた実装です。連結群の作用との整合性を以下の共役式で確認します。場の規約はLREP17と同じです。
 
 $$
 H=\begin{pmatrix}0&-iI_2\\iI_2&0\end{pmatrix},
@@ -47,7 +47,7 @@ $$
 HS(A)H^{-1}=S(Q(A)).
 $$
 
-> また $\Gamma=\operatorname{diag}(-I_2,I_2)$ とすると $H\Gamma H^{-1}=-\Gamma$ である。
+> また [chirality演算子](../LREP16/index.md#def-lrep16-chirality) のWeyl基底表示 $\Gamma=\operatorname{diag}(-I_2,I_2)$ に対して $H\Gamma H^{-1}=-\Gamma$ である。
 <!-- formal-statement-end -->
 
 **計算の核心。** $H$ の非対角ブロックが上下を交換し、位相の積が1になるため、左右の変換行列が入れ替わります。
@@ -61,7 +61,13 @@ $$
 H^2=\begin{pmatrix}(-i)iI_2&0\\0&i(-i)I_2\end{pmatrix}=I_4.
 $$
 
-同じ計算で
+さらに、$H^{-1}=H$ を使い、最初に左の二因子を掛けると
+
+$$
+HS(A)=\begin{pmatrix}0&-iQ(A)\\iA&0\end{pmatrix}.
+$$
+
+これに右から $H$ を掛けて
 
 $$
 HS(A)H
@@ -93,9 +99,22 @@ $$
 
 <a id="def-lrep28-antiunitary"></a>
 
-[QM6の反ユニタリ作用素](../../../解析系/QM/QM6/index.md#def-qm6-antiunitary)は、全域定義の反線形全射であり、内積を複素共役に移す写像です。成分ごとの共役 $Kz=z^*$ はその具体例です。従ってノルムと遷移確率が保たれます。
+[QM6の反ユニタリ作用素](../../../解析系/QM/QM6/index.md#def-qm6-antiunitary)は、全域定義の反線形全射であり、内積を複素共役に移す写像です。有限次元の標準正規直交基底では、成分ごとの共役 $Kz=z^*$ はその具体例です。任意の複素数 $\alpha,\beta$ と列 $z,w$ について
 
-この確率を保存する全単射な状態の対称変換は、[Wignerの定理（Weinberg 第2章）](https://www.cambridge.org/core/books/quantum-theory-of-fields/relativistic-quantum-mechanics/3F963D187A0ABBB757DA00B3A98E3439)によりユニタリまたは反ユニタリな作用素で実現できます。ここではこの量子力学上の定理を証明せず、その二種類の作用素のどちらかが存在すると仮定して時間反転の必要条件を求めます。
+$$
+K(\alpha z+\beta w)=\alpha^*Kz+\beta^*Kw,
+$$
+
+$$
+\langle Kz,Kw\rangle=\sum_j z_jw_j^*
+=\langle z,w\rangle^*.
+$$
+
+また $K^2=I$ なので全射です。これで反線形性・内積条件・全射性がそろい、ノルムと遷移確率が保たれます。
+
+この確率を保存する物理状態（単位ベクトルの位相同値類）の全単射な対称変換は、[Wignerの定理（Weinberg 第2章）](https://www.cambridge.org/core/books/quantum-theory-of-fields/relativistic-quantum-mechanics/3F963D187A0ABBB757DA00B3A98E3439)によりユニタリまたは反ユニタリな作用素で実現できます。ここではこの量子力学上の定理を証明せず、その二種類の作用素のどちらかが存在すると仮定して時間反転の必要条件を求めます。
+
+[並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum)で時間並進を自己共役作用素で生成しました。ここではエネルギー作用素を $E_0$ と書き、$D(E_0)$ をその定義域とします。非負とは全ての $v\in D(E_0)$ に対して $\langle v,E_0v\rangle\ge0$ が成立することです。$e^{-itE_0}$ は一般には行列のべき級数ではなく、[Borel関数計算](../../../解析系/QM/QM6/index.md#def-qm6-borel-functional-calculus)による全域定義のユニタリ作用素です。$t$ は実数の時間パラメータです。
 
 <a id="prop-lrep28-time-reversal-energy"></a>
 
@@ -117,7 +136,16 @@ $$
 
 [並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum)と[Stoneの定理](../../../解析系/QM/QM7/index.md#thm-qm7-stone)で、時間並進を自己共役生成作用素で表しました。ここでもその一意性を使います。
 
-$F=\Theta E_0\Theta^{-1}$ の定義域は $\Theta D(E_0)$ です。$\Theta$ が線形でも反線形でも、元の自己共役作用素の射影値測度 $M$ を $B\mapsto\Theta M(B)\Theta^{-1}$ と移せば、再び射影値測度になります。実関数 $\lambda$ の積分で表す $F$ は自己共役かつ非負です。
+$F=\Theta E_0\Theta^{-1}$ の定義域は $\Theta D(E_0)$ です。$\Theta$ が線形でも反線形でも、元の自己共役作用素の射影値測度 $M$ を $B\mapsto\Theta M(B)\Theta^{-1}$ と移せば、再び射影値測度になります。ここで $B$ は実数直線のBorel集合です。移した射影値測度を $N(B)=\Theta M(B)\Theta^{-1}$ と書きます。直交射影・互いに素な集合に対する直交性・強収束での可算加法性は、$\Theta$ が全射等長写像であることから保存されます。
+
+$v=\Theta w$ と置くと、$\|N(B)v\|^2=\|M(B)w\|^2$ です。両辺をそれぞれのスカラー測度 $\mu_v(B),\nu_w(B)$ と書けば
+
+$$
+\int_{\mathbb R}\lambda^2\,d\mu_v(\lambda)
+=\int_{\mathbb R}\lambda^2\,d\nu_w(\lambda)
+$$
+
+の有限性は同値です。[非有界自己共役作用素のスペクトル定理](../../../解析系/QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral)により、実関数 $\lambda$ の積分で表す $F$ の定義域は $\Theta D(E_0)$ であり、$F$ は自己共役です。$M$ が非負実軸に集中しているので $N$ もそうであり、$F\ge0$ です。
 
 指数関数の積分では、線形なら係数 $e^{-it\lambda}$ がそのまま、反線形なら共役 $e^{it\lambda}$ になります。従って線形の場合
 
@@ -139,7 +167,15 @@ $$
 
 一成分の状態で $E_0=2$ とすると $K e^{-2it}K^{-1}=e^{2it}$ です。単に過去向きの四元運動量を粒子の運動量として採用したのではなく、複素位相も反転しています。非負条件を外せば、$E_0=\operatorname{diag}(1,-1)$ を二成分の交換行列で共役して $-E_0$ にする線形な反転も可能です。正エネルギー条件が排除したのはこの機構です。
 
-空間並進についても確認しましょう。空間方向 $i$ の距離 $s$ の並進は $e^{isP^i}$ です。時間反転の時空行列 $T_x$ は空間並進を変えないため、時空の並進を実装する対称作用素には
+空間並進についても確認しましょう。[並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum)の自己共役生成作用素を $P^i$ とします。空間方向 $i=1,2,3$ の距離 $s\in\mathbb R$ の並進は
+
+$$
+e^{isP^i}
+$$
+
+です。指数中の $i$ は虚数単位で、上付きの $i$ は空間方向の添字です。
+
+時間反転の時空行列 $T_x$ は空間並進を変えないため、時空の並進を実装する対称作用素には
 
 $$
 \Theta e^{isP^i}\Theta^{-1}=e^{isP^i}
@@ -163,7 +199,7 @@ $$
 
 ## 3. ヘリシティを追跡する
 
-空間運動量 $\boldsymbol p\ne0$ に対するヘリシティは、[角運動量の進行方向への射影](../LREP16/index.md#def-lrep16-helicity)という考え方で得られます。スピン $j$ の内部空間で角運動量行列を $J_i$ と書き、
+空間運動量 $\boldsymbol p\ne0$ に対するヘリシティは、[角運動量の進行方向への射影](../LREP16/index.md#def-lrep16-helicity)という考え方で得られます。スピン $j$ の有限次元内部空間で[角運動量の生成作用素](../LREP7/index.md#def-lrep7-angular-momentum)を表す自己共役行列を $J_i$ と書き、$p_i$ は空間運動量の第 $i$ 成分として、
 
 $$
 h(\boldsymbol p)=\frac{\sum_{i=1}^3p_iJ_i}{|\boldsymbol p|}
@@ -181,7 +217,15 @@ $$
 e^{i\theta\Theta J_i\Theta^{-1}}=e^{-i\theta J_i}.
 $$
 
-有限次元なので $\theta=0$ で微分でき、前者から $\Pi J_i\Pi^{-1}=J_i$、後者から $\Theta J_i\Theta^{-1}=-J_i$ が得られます。
+有限次元では行列指数を実変数 $\theta$ について微分できます。$J_i$ と反転作用素を固定し、任意の固定行列 $M$ に対して $\left.\frac{d}{d\theta}e^{\theta M}\right|_{\theta=0}=M$ です。従って二つの等式から順に
+
+$$
+-i\Pi J_i\Pi^{-1}=-iJ_i,
+\qquad
+i\Theta J_i\Theta^{-1}=-iJ_i
+$$
+
+を得ます。虚数単位を除けば $\Pi J_i\Pi^{-1}=J_i$、$\Theta J_i\Theta^{-1}=-J_i$ です。
 
 <a id="prop-lrep28-helicity-reflections"></a>
 
@@ -218,7 +262,27 @@ $$
 最後の等号は $h$ が実数であることを使っています。$\square$
 <!-- proof-end -->
 
-例えば $j=1/2$ の内部空間では $J_i=\sigma_i/2$ と取れます。[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)の行列を使い、$J=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ とすると $J\sigma_i^*=-\sigma_i J$ が三行列の積で確かめられます。従って $\Theta=JK$ は反ユニタリで、$\Theta J_i\Theta^{-1}=-J_i$。$\Theta^2=JJ^*=-I_2$ なので時間反転を二回行うと状態ベクトルの符号が変わりますが、物理状態の位相は同値です。
+例えば $j=1/2$ の内部空間では $J_i=\sigma_i/2$ と取れます。[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)の行列を使い、
+
+$$
+J=\begin{pmatrix}0&1\\-1&0\end{pmatrix}
+$$
+
+とすると、$J\sigma_i^*=-\sigma_i J$ が三行列の積で確かめられます（演習B01）。$J$ は実行列で $J^{\mathsf T}J=I_2$ なのでユニタリです。
+
+$K$ は第2節の反ユニタリ作用素であるため、その合成 $\Theta=JK$ は反線形全射で、
+
+$$
+\langle JKz,JKw\rangle=\langle Kz,Kw\rangle=\langle z,w\rangle^*
+$$
+
+を満たします。従って $\Theta$ は反ユニタリであり、
+
+$$
+\Theta J_i\Theta^{-1}=\frac12 J\sigma_i^*J^{-1}=-J_i.
+$$
+
+また $\Theta^2=JJ^*=-I_2$ なので時間反転を二回行うと状態ベクトルの符号が変わりますが、物理状態の位相は同値です。
 
 質量零の一粒子表現では、[ヘリシティの内部表現](../LREP24/index.md#def-lrep24-helicity-rep)で回転の位相を $e^{-ih\theta}$ と選びました。進行方向を反転したときは回転軸も反転するため、空間反転は角度を $-\theta$ に読み替えます。回転を $R_{\boldsymbol n}(\theta)$ とし、$\boldsymbol n=\boldsymbol p/|\boldsymbol p|$ とします。$R_{-\boldsymbol n}(\theta)=R_{\boldsymbol n}(-\theta)$ であり、反転作用素 $F$ は時空回転と可換です。従って
 
@@ -385,7 +449,13 @@ $k=(1,0,0,1)$、$e=(0,1,i,0)/\sqrt2$ とする。$e'=e+2k$ が同じ物理偏極
 <!-- solution-start -->
 **詳細解答**
 
-$k\cdot e=0$、$k\cdot k=0$ なので $e'$ も直交条件を満たします。[光的偏極商空間](../LREP27/index.md#def-lrep27-polarization-quotient)で差は $2k$ なので同じ類です。
+点はMinkowski計量による複素双線形な収縮です。$k$ は $k^0=1>0$、$k\cdot k=-1+1=0$ の非零未来光的運動量であり、$k\cdot e=-1\cdot0+1\cdot0=0$ です。従って
+
+$$
+k\cdot e'=k\cdot e+2k\cdot k=0
+$$
+
+となり、$e'$ も直交条件を満たします。[光的偏極商空間](../LREP27/index.md#def-lrep27-polarization-quotient)で差は $2k$ なので同じ類です。
 
 $P_xk=(1,0,0,-1)=k'$、$P_xe=-e$ です。$P_xe'= -e+2k'$ なので像も同じ類 $[-e]$ になります。$z$ 軸まわり角 $\theta$ の回転で $e$ は $e^{-i\theta}e$ に移りますが、$-z$ 軸を正とする回転は角 $-\theta$ の $z$ 回転です。従って $[-e]$ の位相は $e^{i\theta}$、ヘリシティは $-1$。全体の符号は位相であり、ヘリシティの反転の理由は回転軸の反転です。
 <!-- solution-end -->
@@ -401,13 +471,15 @@ $m=4$、$p=(5,0,0,3)$、$R=\begin{pmatrix}0&-1\\1&0\end{pmatrix}\in SU(2)$ と�
 <!-- solution-start -->
 **詳細解答**
 
-[LREP23の標準boost](../LREP23/index.md#def-lrep23-standard-boost)に代入すると
+[LREP23の標準boost](../LREP23/index.md#def-lrep23-standard-boost)に、まず $5^2-3^2=16=m^2$、$E=5>0$ を確認して代入します。
 
 $$
-b(p)=\operatorname{diag}(\sqrt2,1/\sqrt2)=B.
+b(p)=\frac{9I_2+3\sigma_3}{\sqrt{2\cdot4\cdot9}}
+=\frac{\operatorname{diag}(12,6)}{6\sqrt2}
+=\operatorname{diag}(\sqrt2,1/\sqrt2)=B.
 $$
 
-$5^2-3^2=16=m^2$ なので質量殻上です。[SU(2)からSO(3)への二重被覆](../LREP5/index.md#thm-lrep5-double-cover)と[四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action)によれば
+$B$ は正定値Hermite行列で行列式は1です。[SU(2)からSO(3)への二重被覆](../LREP5/index.md#thm-lrep5-double-cover)と[四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action)によれば
 
 $$
 R\operatorname{diag}(8,2)R^\dagger
@@ -434,7 +506,7 @@ $$
 
 $S(R)=\operatorname{diag}(R,R)$ なので $S(R)u_1=(0,2\sqrt2,0,i\sqrt2)^{\mathsf T}$、$S(R)u_2=(-\sqrt2,0,-2i\sqrt2,0)^{\mathsf T}$。一方 $B^{-1}$ で作った $u_1(p'),u_2(p')$ はそれぞれ $(\sqrt2,0,2i\sqrt2,0)^{\mathsf T}$、$(0,2\sqrt2,0,i\sqrt2)^{\mathsf T}$。$R\chi_1=\chi_2$、$R\chi_2=-\chi_1$ と一致します。これは[共変モード係数](../LREP26/index.md#def-lrep26-mode-intertwiner)の条件を四次元場と二次元内部空間の間で確認したものです。
 
-次に $M=(u_1,u_2)$ を四行二列の行列とします。$M=2\begin{pmatrix}B\\iB^{-1}\end{pmatrix}$ とブロック列で書けるため
+次に [Dirac随伴](../LREP17/index.md#def-lrep17-dirac-adjoint) $\bar u_s=u_s^\dagger H$ を用い、スピン和 $\sum_{s=1}^2u_s\bar u_s$ を計算します。$M=(u_1,u_2)$ を四行二列の行列とすると、この和は列と行の外積の和 $MM^\dagger H$ です。$M=2\begin{pmatrix}B\\iB^{-1}\end{pmatrix}$ とブロック列で書けるため
 
 $$
 M^\dagger H=2(B^{-1},-iB).
@@ -456,7 +528,13 @@ i(5I_2-3\sigma_3)&0
 \end{pmatrix}.
 $$
 
-これは[LREP20のDiracモードの規格化とスピン和](../LREP20/index.md#thm-lrep20-spin-sums)の $K+mI_4$ に一致します。$K_p^2=16I_4$ は非対角ブロックの積 $(5I_2+3\sigma_3)(5I_2-3\sigma_3)=16I_2$ で確かめられます。$M^\dagger HM=8I_2$ なので二列は独立です。二次元の内部自由度を四成分の係数に埋め込む写像であり、四成分全てを独立な粒子自由度として数えません。
+これは[LREP20のDiracモードの規格化とスピン和](../LREP20/index.md#thm-lrep20-spin-sums)の $K+mI_4$ に一致します。$K_p^2=16I_4$ は非対角ブロックの積 $(5I_2+3\sigma_3)(5I_2-3\sigma_3)=16I_2$ で確かめられます。また
+
+$$
+M^\dagger HM=4(B^{-1}B+(-iB)(iB^{-1}))=8I_2.
+$$
+
+従って $Ma=0$ なら $8a=M^\dagger HMa=0$ となり、二列は独立です。二次元の内部自由度を四成分の係数に埋め込む写像であり、四成分全てを独立な粒子自由度として数えません。
 <!-- solution-end -->
 
 ## 7. 全系列を振り返る
