@@ -1,11 +1,11 @@
 id: "LVT4-01"
-title: "例示・単体テスト・`#guard`・Lake test"
+title: "例示・単体テスト・#guard・Lake test"
 volume: "foundations"
 status: supplementary
 prerequisites: [LVT3-08, LVT3-06, LVT1-02]
 official_scope: []
 learning_objectives:
-  - 具体的な勝利・引き分け・エラーケースの期待値を仕様から決定する
+  - 具体的な勝利・引き分け・エラーケースの期待出力を仕様から決定する
   - "#guard のソース検査と Lake test の実行時比較を区別する"
   - 境界入力の検査と全称命題の保証範囲を比較する
   - 正常系と意図的な失敗を再現する

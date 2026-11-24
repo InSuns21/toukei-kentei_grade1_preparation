@@ -96,7 +96,7 @@ chapters:
   - id: LVT4-01
     path: textbook/volumes/dream_thater/計算系/LVT/LVT4-01
     status: completed
-    title: "例示・単体テスト・`#guard`・Lake test"
+    title: "例示・単体テスト・#guard・Lake test"
   - id: LVT4-02
     path: textbook/volumes/dream_thater/計算系/LVT/LVT4-02
     status: planned
