@@ -15,7 +15,7 @@
 | 1 | 9 | 一個移す |
 | 0 | 10 | 10 を返す |
 
-実行予算 k はあと何回判定できるかを表す自然数です。`run k n a` は[関数適用の記法](../LVT1-06/index.md#def-lvt1-06-pure-function)で run(k, n, a) に対応し、`Nat → Nat → Nat → Option Nat` は k、n、a を順に渡して `Option Nat` の値を得る型です。[Option型](../LVT1-03/index.md#def-lvt1-03-option)を使い、some r は値 r を返して終了したこと、none は与えられた予算内に値を返さなかったことを表します。同じ Option 型でも、前講の在庫引当では none が正常な拒否を表していました。本講の run では none は予算内に終了結果を得られなかったことだけを表します。`some u = some v` なら中身 u = v が従い、none と some r は異なる構成子なので等しくなりません。none だけから無限に続くとは判断できません。
+実行予算 k はあと何回判定できるかを表す自然数です。`run k n a` は[関数適用の記法](../LVT1-06/index.md#def-lvt1-06-pure-function)で run(k, n, a) に対応し、`Nat → Nat → Nat → Option Nat` は k、n、a を順に渡して `Option Nat` の値を得る型です。[Option型](../LVT1-03/index.md#def-lvt1-03-option)を使い、some r は値 r を返して終了したこと、none は与えられた予算内に値を返さなかったことを表します。同じ Option 型でも、前講の在庫引当では none が正常な拒否を表していました。本講の run では none は予算内に終了結果を得られなかったことだけを表します。u, v を自然数とすると、`some u = some v` なら中身 u = v が従い、none と some r は異なる構成子なので等しくなりません。none だけから無限に続くとは判断できません。
 
 次の run は予算を一回ずつ減らして計算する関数です。[構造再帰](../LVT1-04/index.md#def-lvt1-04-structural-recursion)により k が小さくなるので run 自身は必ず値（some または none）を返します。以下の Lean コードは [LvtTermination.lean](lab/LvtTermination.lean) の抜粋で、同ファイルには import Lean と名前空間の宣言も含まれます。
 
@@ -26,7 +26,7 @@ def run : Nat → Nat → Nat → Option Nat
   | k + 1, n + 1, a => run k n (a + 1)
 ```
 
-パターンの `_` は使わない引数、`k + 1` と `n + 1` はそれぞれ正の自然数の後者パターンです。例えば予算 3 は再帰枝では k = 2 と照合されます。[構造再帰](../LVT1-04/index.md#def-lvt1-04-structural-recursion)の減少引数は第1引数 k であり、a が増えても支障はありません。
+パターンの `_` は使わない引数、`k + 1` と `n + 1` はそれぞれ正の自然数を一つ小さい自然数と 1 の和に分けるパターンです。例えば予算 3 は再帰枝では k = 2 と照合されます。[構造再帰](../LVT1-04/index.md#def-lvt1-04-structural-recursion)の減少引数は第1引数 k であり、a が増えても支障はありません。
 
 ```text
 run 3 3 7 = run 2 2 8 = run 1 1 9 = run 0 0 10 = none
@@ -54,7 +54,7 @@ exec : Nat → Nat → Nat → Option Nat とする。k は実行予算、n は�
 
 
 <!-- definition-example-start: def-lvt3-02-partial -->
-**定義の確認**　例えば、どんな k, n, a に対しても some (a + n) を返す関数を考える。任意の k, n, a, r で前件 exec k n a = some r を仮定すると、some (a + n) = some r となる。[Option型](../LVT1-03/index.md#def-lvt1-03-option)の同じ構成子の中身を比較して a + n = r、等式の対称性から r = a + n を得る。一方、常に none を返す関数も、none = some r は異なる構成子の等式で成立しないため、[含意](../LVT2-02/index.md#def-lvt2-02-imp)の前件が偽で条件を満たす。部分正当性だけでは値の存在を要求していない。
+**定義の確認**　例えば、どんな k, n, a に対しても some (a + n) を返す関数を考える。任意の k, n, a, r で前件 exec k n a = some r を仮定すると、some (a + n) = some r となる。[Option型](../LVT1-03/index.md#def-lvt1-03-option)の同じ構成子の中身を比較して a + n = r、[等式の対称性](../LVT2-03/index.md#prop-lvt2-03-chain)から r = a + n を得る。一方、常に none を返す関数も、none = some r は異なる構成子の等式で成立しないため、[含意](../LVT2-02/index.md#def-lvt2-02-imp)の前件が偽で条件を満たす。部分正当性だけでは値の存在を要求していない。
 <!-- definition-example-end -->
 
 
@@ -96,6 +96,7 @@ exec : Nat → Nat → Nat → Option Nat が、この章の結果仕様 r = a +
 <!-- definition-example-end -->
 
 
+以下の `PartialCorrect`、`Terminates`、`TotalCorrect` は、それぞれ上の三条件を [命題型 Prop](../LVT2-01/index.md#def-lvt2-01-prop) の値として定義したものです。
 
 ```lean
 def PartialCorrect (exec : Nat → Nat → Nat → Option Nat) : Prop :=
