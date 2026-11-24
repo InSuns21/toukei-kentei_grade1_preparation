@@ -1675,7 +1675,7 @@ $$
 
 ### 複素共役を伴う等長作用素
 
-ユニタリ作用素は複素線形な全射で内積を保ちます。複素共役を伴う変換でも、長さと内積の絶対値を保つことができます。係数を共役して加法を保つ写像を反線形といいます。以下では内積は第二引数について線形とします。
+ユニタリ作用素は複素線形な全射で内積を保ちます。複素共役を伴う変換でも、長さと内積の絶対値を保つことができます。係数を共役して加法を保つ写像を反線形といいます。以下では内積は第二引数について線形とします。スカラーの上線は複素共役を、列ベクトルの上線は成分ごとの複素共役を表します。
 
 <a id="def-qm6-antiunitary"></a>
 
@@ -1684,11 +1684,11 @@ $$
 > 複素Hilbert空間 $\mathcal H$ 上の写像 $F:\mathcal H\to\mathcal H$ が全射であり、任意の $z,w\in\mathcal H$、$\alpha,\beta\in\mathbb C$ に対して
 
 $$
-F(\alpha z+\beta w)=\alpha^*Fz+\beta^*Fw,
+F(\alpha z+\beta w)=\overline\alpha Fz+\overline\beta Fw,
 $$
 
 $$
-\langle Fz,Fw\rangle=\langle z,w\rangle^*
+\langle Fz,Fw\rangle=\overline{\langle z,w\rangle}
 $$
 
 > を満たすとき、反ユニタリ作用素という。
@@ -1697,11 +1697,17 @@ $$
 <!-- definition-example-start: def-qm6-antiunitary -->
 **定義の確認**
 
- $\mathbb C^2$ の通常の内積では $Kz=z^*$ がその条件を満たします。実際 $K^2=I_2$、$K(\alpha z+\beta w)=\alpha^*Kz+\beta^*Kw$ であり、
+$\mathbb C^2$ の通常の内積では $Kz=\overline z$ がその条件を満たします。実際、$K^2=I_2$ であり、
+
+$
+K(\alpha z+\beta w)=\overline\alpha Kz+\overline\beta Kw
+$
+
+となります。内積については
 
 $$
-\langle Kz,Kw\rangle=z^{\mathsf T}w^*
-=\langle z,w\rangle^*.
+\langle Kz,Kw\rangle=z^{\mathsf T}\overline w
+=\overline{\langle z,w\rangle}.
 $$
 
 従ってノルムが保たれます。全射性は二回作用させると任意の列が元に戻ることから従います。
