@@ -49,7 +49,7 @@ $$
 各出力も二乗可積分です。共役を一回忘れると第一成分が変わるので、二方向とも入力の共役を取ることに注意します。
 <!-- definition-example-end -->
 
-一般の空間で写像が定まることも確認します。[Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli) により $\int_X |K(x,y)|^2dx$ はほとんど全ての $y$ で有限です。そこで Cauchy–Schwarz の不等式を適用すると
+一般の空間で写像が定まることも確認します。[Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli) により $\int_X |K(x,y)|^2dx$ はほとんど全ての $y$ で有限です。そこで被積分関数の絶対値を取り、実数値の二乗可積分関数に [Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) を適用すると
 
 $$
 |T_Kf(y)|^2\le
@@ -94,14 +94,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$A_1(y)=\int_X |K_1(x,y)f(x)|dx$、$A_2(y)=\int_X|K_2(z,y)g(z)|dz$ と置きます。第1節の Cauchy–Schwarz 評価は絶対値を取った関数にも成立するので
+$A_1(y)=\int_X |K_1(x,y)f(x)|dx$、$A_2(y)=\int_X|K_2(z,y)g(z)|dz$ と置きます。第1節の [Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)による評価は絶対値を取った関数にも成立するので
 
 $$
 \int_Y A_1^2\le \|K_1\|_2^2\|f\|^2,\qquad
 \int_Y A_2^2\le \|K_2\|_2^2\|g\|^2.
 $$
 
-非負の三重積分に [Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli) を適用すると、それは $\int_Y A_1A_2$ に等しいです。再度 Cauchy–Schwarz の不等式を用いて、この値は $\|K_1\|_2\|K_2\|_2\|f\|\|g\|$ 以下と分かります。
+非負の三重積分に [Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli) を適用すると、それは $\int_Y A_1A_2$ に等しいです。再度 [Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を用いて、この値は $\|K_1\|_2\|K_2\|_2\|f\|\|g\|$ 以下と分かります。
 
 またほとんど全ての $x,z$ について $K_1(x,\cdot),K_2(z,\cdot)$ は二乗可積分なので $B(x,z)$ は絶対収束します。以上の評価により [Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) を適用できます。内積を展開して
 
@@ -126,7 +126,7 @@ S_K T_K f(x)
 \end{aligned}
 $$
 
-最後の交換は、ほとんど全ての $x$ で $\int_Y |K(x,y)|A_2(y)dy$ が Cauchy–Schwarz により有限であることから正当化されます（ここでは $K_2=K,g=f$）。これを $f$ との内積に代入すれば前半の式と一致します。
+最後の交換は、ほとんど全ての $x$ で $\int_Y |K(x,y)|A_2(y)dy$ が [Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により有限であることから正当化されます（ここでは $K_2=K,g=f$）。これを $f$ との内積に代入すれば前半の式と一致します。
 <!-- proof-end -->
 
 第1節の例では
