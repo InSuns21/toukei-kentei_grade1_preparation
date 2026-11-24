@@ -5,6 +5,7 @@ prerequisites:
   - CATB2-06
   - CAT3-09
   - CAT4-05
+  - CAT2-11
 
 concepts:
   - id: category.distributor
@@ -25,7 +26,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（分配子のcoend合成）"]
-    requires: [category.distributor-balanced-coend, category.coequalizer, category.small-coproduct, category.right-closed-monoidal]
+    requires: [category.distributor-balanced-coend, category.coequalizer, category.small-coproduct, category.right-closed-monoidal, category.left-adjoint-preserves-colimits]
   - id: category.functor-distributor-composition
     name: 関手から生じる分配子の合成
     kind: proposition
