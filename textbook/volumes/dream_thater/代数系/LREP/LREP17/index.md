@@ -6,7 +6,7 @@
 
 ## 1. 普通の内積が保存されない理由
 
-[Diracスピノル](../LREP16/index.md#def-lrep16-dirac)の Weyl 基底を用います。$I=I_2$、$I_4$ は単位行列、$\dagger$ は複素共役転置、$\mathsf T$ は転置、$i$ は虚数単位です。プライムは変換後を表し、微分ではありません。スピノルの標準基底を $e_k$（$k=1,2,3,4$）とし、時空の成分番号 $0,1,2,3$ とは区別します。$A\in SL(2,\mathbb C)$（行列式1の複素二次正方行列）に対し
+[Diracスピノル](../LREP16/index.md#def-lrep16-dirac)の Weyl 基底を用います。$I=I_2$、$I_4$ は単位行列、$\dagger$ は複素共役転置、$\mathsf T$ は転置、$i$ は虚数単位、複素数の星 $*$ は複素共役です。プライムは変換後を表し、微分ではありません。スピノルの標準基底を $e_k$（$k=1,2,3,4$）とし、時空の成分番号 $0,1,2,3$ とは区別します。$A\in SL(2,\mathbb C)$（行列式1の複素二次正方行列）に対し
 
 $$
 \psi=\binom{u}{r},\qquad Q=(A^\dagger)^{-1},
@@ -209,7 +209,7 @@ $$
 
 ## 3. 五種類の量を作る
 
-行と列の間に行列を挟むと、行列の共役変換がそのまま量の変換に反映されます。スカラーは変換で値を保つ量、ベクトルは四成分が $\Lambda$ で混ざる量です。[Weyl列からの二階テンソル](../LREP13/index.md#prop-lrep13-tensor)と同じく、二階反対称テンソルは二つの添字がそれぞれ $\Lambda$ で変わり、添字を交換すると符号が逆になる量です。
+行と列の間に行列を挟むと、行列の共役変換がそのまま量の変換に反映されます。このように二つのスピノルを組み合わせる量をDirac双線形量と呼びます。名称は双線形量ですが、複素数上では第一引数が共役線形です。スカラーは変換で値を保つ量、ベクトルは四成分が $\Lambda$ で混ざる量です。[Weyl列からの二階テンソル](../LREP13/index.md#prop-lrep13-tensor)と同じく、二階反対称テンソルは二つの添字がそれぞれ $\Lambda$ で変わり、添字を交換すると符号が逆になる量です。
 
 空間反転では時間を保ち、空間三方向を反転します。[空間反転](../LREP13/index.md#def-lrep13-parity)を $P=\operatorname{diag}(1,-1,-1,-1)$ と書きます。擬スカラーは適正Lorentz変換ではスカラーと同じですが空間反転で符号が変わる量、軸性ベクトルは適正Lorentz変換ではベクトルと同じですが空間反転で通常のベクトルと逆の符号規則を持つ量です。
 
@@ -247,7 +247,36 @@ $$
 
 従って $v=(1,0,0,1)^{\mathsf T}$、$a=-v$ です。$G^\mu$ は上下を交換するので二つの積は上の成分を上の成分へ移し、下側だけを読む $\bar e_1$ との積は零です。従って全ての $t^{\mu\nu}=0$ です。一般にも $G^\nu G^\mu-G^\mu G^\nu=-(G^\mu G^\nu-G^\nu G^\mu)$ なので $t^{\nu\mu}=-t^{\mu\nu}$ となります。
 
-前節のboostでは $\psi'=2e_1$、随伴も2倍なので $v'=4v$ です。他方、$z$ 方向のboostは時間・第三成分 $(1,1)$ を $(17/8+15/8,15/8+17/8)=(4,4)$ に移します。実際にベクトルの変換と一致します。
+左右を混ぜた例として $\psi=(1,0,1+i,0)^{\mathsf T}$ も考えます。随伴は $(1+i,0,-i,0)$ で、$\gamma^5\psi=(-1,0,1+i,0)^{\mathsf T}$ です。定義に従って行と列の積を取ると
+
+$$
+s=(1+i)-i(1+i)=2,
+\qquad p=i[-(1+i)-i(1+i)]=2.
+$$
+
+第2節の反交換関係で $i[G^0,G^3]/2=iG^0G^3$ です。ここで
+
+$$
+G^3\psi=(i(1+i),0,i,0)^{\mathsf T},\qquad
+G^0G^3\psi=(1,0,-(1+i),0)^{\mathsf T}.
+$$
+
+従って $t^{03}=i[(1+i)+i(1+i)]=-2$ となり、左右が混ざるとこれらの量は零とは限らないことが分かります。
+
+一般の二入力 $\phi,\psi$ では、どの挿入行列 $M$ も入力によらず固定されています。$\alpha,\beta\in\mathbb C$、$\xi\in\mathbb C^4$ とすると
+
+$$
+\begin{aligned}
+\overline{\alpha\phi+\beta\xi}M\psi
+&=\alpha^*\bar\phi M\psi+\beta^*\bar\xi M\psi,\\
+\bar\phi M(\alpha\psi+\beta\xi)
+&=\alpha\bar\phi M\psi+\beta\bar\phi M\xi.
+\end{aligned}
+$$
+
+ここで列の上線はDirac随伴（単なる成分ごとの複素共役ではない）を表します。これで二入力に関する条件も確認できました。
+
+最初の例に戻ります。前節のboostでは $\psi'=2e_1$、随伴も2倍なので $v'=4v$ です。他方、$z$ 方向のboostは時間・第三成分 $(1,1)$ を $(17/8+15/8,15/8+17/8)=(4,4)$ に移します。実際にベクトルの変換と一致します。
 <!-- definition-example-end -->
 
 一つの列についてこれらは二次式です。「双線形」という名称にかかわらず、複素数上で二引数とも線形なのではありません。ここでは普通の可換な複素成分を扱い、量子化した場の積の順序問題は扱いません。
@@ -444,7 +473,13 @@ $$
 $\psi=(1,i,2,0)^{\mathsf T}$ のDirac随伴と $s$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [Dirac随伴](#def-lrep17-dirac-adjoint)より $\bar\psi=(ir^\dagger,-iu^\dagger)$ です。$r^\dagger=(2,0)$、$u^\dagger=(1,-i)$ なので $\bar\psi=(2i,0,-i,-1)$。従って $s=2i-2i=0$ です。非零の列でも不定形式の自己収縮は零になります。
+**詳細解答。** [Dirac随伴](#def-lrep17-dirac-adjoint)より $\bar\psi=(ir^\dagger,-iu^\dagger)$ です。$r^\dagger=(2,0)$、$u^\dagger=(1,-i)$ なので $\bar\psi=(2i,0,-i,-1)$。[Dirac双線形量](#def-lrep17-bilinears)の定義に代入すると
+
+$$
+s=(2i)\cdot1+0\cdot i+(-i)\cdot2+(-1)\cdot0=0
+$$
+
+です。非零の列でも不定形式の自己収縮は零になります。
 <!-- solution-end -->
 
 <a id="ex-lrep17-a02"></a>
@@ -456,7 +491,7 @@ $\psi=(1,i,2,0)^{\mathsf T}$ のDirac随伴と $s$ を求めよ。
 $\psi=(1,0,1+i,0)^{\mathsf T}$ について $s,p$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [Dirac随伴](#def-lrep17-dirac-adjoint)は $\bar\psi=(1+i,0,-i,0)$ です。[chirality演算子](../LREP16/index.md#def-lrep16-chirality)で $\gamma^5\psi=(-1,0,1+i,0)^{\mathsf T}$。従って
+**詳細解答。** [Dirac随伴](#def-lrep17-dirac-adjoint)は $\bar\psi=(1+i,0,-i,0)$ です。[chirality演算子](../LREP16/index.md#def-lrep16-chirality)で $\gamma^5\psi=(-1,0,1+i,0)^{\mathsf T}$。[Dirac双線形量](#def-lrep17-bilinears)の定義に代入すると
 
 $$
 s=1+i-i(1+i)=2,
@@ -475,7 +510,7 @@ $$
 $\psi=e_3=(0,0,1,0)^{\mathsf T}$ の $v,a$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [Dirac随伴](#def-lrep17-dirac-adjoint)は $(i,0,0,0)$ です。$G^0e_3=-ie_1$、$G^1e_3=ie_2$、$G^2e_3=-e_2$、$G^3e_3=ie_1$ なので
+**詳細解答。** [Dirac随伴](#def-lrep17-dirac-adjoint)は $(i,0,0,0)$ です。[Dirac双線形量](#def-lrep17-bilinears)の定義で挟む行列の作用は $G^0e_3=-ie_1$、$G^1e_3=ie_2$、$G^2e_3=-e_2$、$G^3e_3=ie_1$ なので
 
 $$
 v^0=i(-i)=1,\quad v^1=v^2=0,\quad v^3=i^2=-1.
@@ -513,7 +548,7 @@ $$
 \bar\psi'\psi'=(1/3)3+(-3i)(i/3)=2.
 $$
 
-元の自己収縮も2です。一方普通の長さの二乗は $9+1/9=82/9$ で、元の2から変わります。
+元の自己収縮も2です。[Dirac随伴の変換則](#prop-lrep17-adjoint-covariance)からも $\bar\psi'\psi'=\bar\psi S^{-1}S\psi=\bar\psi\psi$ と確かめられます。一方普通の長さの二乗は $9+1/9=82/9$ で、元の2から変わります。
 <!-- solution-end -->
 
 <a id="ex-lrep17-b02"></a>
@@ -544,7 +579,7 @@ $$
 $\psi=(1,0,1+i,0)^{\mathsf T}$ に $B=H$ を作用させ、$s,p,v^3,a^0$ の変化を直接求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [Dirac双線形量](#def-lrep17-bilinears)で $s=2,p=2$（A02）。$HG^3=\gamma^0\gamma^3=\operatorname{diag}(\sigma_3,-\sigma_3)$ なので $v^3=1-|1+i|^2=-1$。$HG^0=I_4$ なので $a^0=-1+|1+i|^2=1$ です。
+**詳細解答。** [Dirac双線形量](#def-lrep17-bilinears)で $s=2,p=2$（A02）。$HG^3=(-i\gamma^0)(i\gamma^3)=\gamma^0\gamma^3=\operatorname{diag}(\sigma_3,-\sigma_3)$ なので $v^3=1-|1+i|^2=-1$。$HG^0=I_4$ なので $a^0=-1+|1+i|^2=1$ です。
 
 変換後は $\psi'=(1-i,0,i,0)^{\mathsf T}$、$\bar\psi'=(1,0,1-i,0)$ です。直接掛けると
 
@@ -568,7 +603,7 @@ $v'^3=|1-i|^2-|i|^2=1$、$a'^0=-|1-i|^2+|i|^2=-1$。よって四つとも[Dirac�
 $\psi=P_L\psi$ の場合に $s,p,t^{\mu\nu}$ が零、$a=-v$ となることを一般に示せ。$P_L=(I_4-\gamma^5)/2$ とする。
 
 <!-- solution-start -->
-**詳細解答。** [chirality射影子](../LREP16/index.md#def-lrep16-chiral-projectors)により $\psi=(u,0)^{\mathsf T}$。$H$ は上下を交換するので $\bar\psi=(0,-iu^\dagger)$ です。$I_4,\gamma^5$ は上側を保ち、$G^\mu G^\nu$ は上下を二回交換するので上側を保ちます。よって随伴との積は全て零です。これで $s=p=t^{\mu\nu}=0$ が従います。さらに $\gamma^5\psi=-\psi$ だから
+**詳細解答。** [chirality射影子](../LREP16/index.md#def-lrep16-chiral-projectors)により $\psi=(u,0)^{\mathsf T}$。[Dirac随伴](#def-lrep17-dirac-adjoint)は $\bar\psi=(0,-iu^\dagger)$ です。[Dirac双線形量](#def-lrep17-bilinears)で挟む行列を調べます。$I_4,\gamma^5$ は上側を保ち、$G^\mu G^\nu$ は上下を二回交換するので上側を保ちます。よって随伴との積は全て零です。これで $s=p=t^{\mu\nu}=0$ が従います。さらに $\gamma^5\psi=-\psi$ だから
 
 $$
 a^\mu=\bar\psi G^\mu(-\psi)=-v^\mu.
