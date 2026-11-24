@@ -66,7 +66,7 @@ $$
 <!-- formal-statement-start -->
 > **命題（分配子の水平合成）**
 >
-> 小圏 $A,B,C$ の間の集合値分配子のcoend合成は、分配子の射 $\alpha:P\Rightarrow P'$ と $\beta:Q\Rightarrow Q'$ に
+> 小圏 $A,B,C$ を取る。集合値分配子 $P,P':A\rightsquigarrow B$ と $Q,Q':B\rightsquigarrow C$ のcoend合成は、分配子の射 $\alpha:P\Rightarrow P'$ と $\beta:Q\Rightarrow Q'$ に
 >
 $$
 (\beta*\alpha)_{c,a}([q,p]_b)
@@ -133,7 +133,7 @@ $$
 <!-- formal-statement-start -->
 > **定理（Profの単位子）**
 >
-> 小圏 $A,B$ 間の集合値分配子 $P:A\rightsquigarrow B$ に対し、恒等分配子をHom関手とすると自然同型
+> 小圏 $A,B$ 間の集合値分配子 $P:A\rightsquigarrow B$ に対し、恒等分配子 $I_A,I_B$ を各圏のHom関手とすると自然同型
 >
 $$
 l_P:I_B\odot P\to P,\qquad r_P:P\odot I_A\to P
@@ -206,7 +206,7 @@ $$
 <!-- formal-statement-start -->
 > **定理（二重coendのFubini型交換）**
 >
-> 小圏 $A,B,C,D$ と集合値分配子 $P:A\rightsquigarrow B$、$Q:B\rightsquigarrow C$、$R:C\rightsquigarrow D$ に対し、二つのcoend合成の括弧には自然同型
+> 小圏 $A,B,C,D$ を取る。集合値分配子 $P:A\rightsquigarrow B$、$Q:B\rightsquigarrow C$、$R:C\rightsquigarrow D$ に対し、二つのcoend合成の括弧には自然同型
 >
 $$
 a_{R,Q,P}:(R\odot Q)\odot P
@@ -292,7 +292,7 @@ $$
 <!-- formal-statement-start -->
 > **定理（集合値分配子の双圏 Prof）**
 >
-> 小圏を対象、集合値分配子を1-射、分配子の射を2-射とし、coend合成を合成、Hom関手を恒等1-射とする。上で構成した結合子と左右単位子を用いると双圏 $\mathbf{Prof}$ が得られる。
+> 小圏を対象、集合値分配子を1-射、分配子の射を2-射とし、coend合成を合成、Hom関手を恒等1-射とする。[二重coendのFubini型交換](#thm-catb2-09-fubini)の結合子と[Profの単位子](#thm-catb2-09-unitors)を用いると双圏 $\mathbf{Prof}$ が得られる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
