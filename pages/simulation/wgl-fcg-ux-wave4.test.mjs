@@ -22,6 +22,10 @@ test('FCG6 live obstacle uses the same editable 48x48 MAC step and mask',async()
   assert.match(js,/firstCycle=false;resetState\(\);uploadState\(\)/);
   assert.match(js,/requestAnimationFrame\(frame\)/);
   assert.match(js,/prefers-reduced-motion: reduce/);
+  assert.match(js,/advanceObstacleStep\(stepNumber\);stepNumber\+\+;markTraces\(true\)/);
+  assert.match(js,/if\(!fluidPoint\(xx,yy\)\)break/);
+  assert.match(frag,/texelFetch\(u_live,c,0\)/);
+  assert.match(frag,/texture\(u_trace,uv\)/);
   assert.match(frag,/uniform int u_viewMode;/);
   assert.match(frag,/uniform float u_aspect;/);
   assert.match(frag,/if\(u_viewMode==1\)/);
