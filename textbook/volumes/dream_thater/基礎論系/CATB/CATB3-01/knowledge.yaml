@@ -1,0 +1,29 @@
+chapter: CATB3-01
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB1-08, CAT2-07]
+concepts:
+  - id: category.filtered-category
+    name: フィルター圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（フィルター圏）"]
+    requires: [category.small-category]
+  - id: category.filtered-finite-cocones
+    name: フィルター性の有限図式による特徴付け
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（フィルター性の有限図式による特徴付け）"]
+    requires: [category.filtered-category, category.cocone]
+  - id: category.filtered-colimit
+    name: フィルター余極限
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（フィルター余極限）"]
+    requires: [category.filtered-category, category.colimit]
+  - id: category.filtered-colimit-finite-limit-commutation
+    name: 集合におけるフィルター余極限と有限極限の交換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（集合におけるフィルター余極限と有限極限の交換）"]
+    requires: [category.filtered-colimit, category.finite-stage-witness, category.limit-from-products-equalizers, category.functor-pointwise-colimits]
