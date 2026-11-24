@@ -115,7 +115,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb3-06-presentation -->
-**定義の確認。** 第1節の前層を作る。$F=h^1_r\amalg h^1_s\amalg h^0_q$ とする。下付きの $r,s,q$ はコピーを区別するタグで、上付きは表現対象である。
+**定義の確認**。 第1節の前層を作る。$F=h^1_r\amalg h^1_s\amalg h^0_q$ とする。下付きの $r,s,q$ はコピーを区別するタグで、上付きは表現対象である。
 
 $$
 F(1)=\{r,s\},\qquad F(0)=\{r_u,s_u,q\}.
