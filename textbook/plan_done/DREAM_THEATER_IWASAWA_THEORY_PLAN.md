@@ -1,7 +1,7 @@
 # DREAM THEATER 岩澤理論（IWA1〜IWA20）
 
 設計確定: 2026-11-21 JST  
-状態: in_progress / **全20講確定**。IWA1〜IWA20の本文・系列manifest・公開索引を実装。系列横断査読・参照整合の完了判定は残る。  
+状態: done / **全20講完了**。IWA1〜IWA20の実装・全講追跡監査・系列横断確認を完了。  
 系列ID: `IWA`。分野: 代数系。上流の新規計画: [ANF1〜ANF22](../plan_done/DREAM_THEATER_ALGEBRAIC_NUMBER_THEORY_CLASS_FIELD_THEORY_PLAN.md)。横断: [RH研究講読ルート](../plans/DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)。
 
 ## 中心問い・到達目標
@@ -70,7 +70,7 @@
 
 ## 2026年11月21〜22日のRH／GRH形式検証を受けた関連論点
 
-本系列の主題は**p進的な無限塔の算術**であって、RH／Dirichlet GRHそのものの証明を所有しない。一方、Levent Alpöge・ClaudeによるLean証明は11月21日にLean/Mathlibコミュニティに認証され、WaterlooとMITの第三者によるkernel検証記録も公開された。これを「未検証の主張」と書き続けず、**証明として形式検証済みで、人間可読な完全な証明の再構成がなお進行中**と区別する。出典と数学的読解は[横断ルート](../plans/DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)第2節、保型表現との入口は[AFR23〜24](../plans/DREAM_THEATER_AUTOMORPHIC_FORMS_REPRESENTATIONS_PLAN.md)、核心証明の独立した学習サイクルは[RHP1〜RHP20](../plans/DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md)を参照。
+本系列の主題は**p進的な無限塔の算術**であって、RH／Dirichlet GRHそのものの証明を所有しない。一方、Levent Alpöge・ClaudeによるLean証明は11月21日にLean/Mathlibコミュニティに認証され、WaterlooとMITの第三者によるkernel検証記録も公開された。これを「未検証の主張」と書き続けず、**証明として形式検証済みで、人間可読な完全な証明の再構成がなお進行中**と区別する。出典と数学的読解は[横断ルート](../plans/DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)第2節、保型表現との入口は[AFR23〜24](../plans/DREAM_THEATER_AUTOMORPHIC_FORMS_REPRESENTATIONS_PLAN.md)、核心証明の独立した学習サイクルは[RHP1〜RHP23](../plans/DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md)を参照。
 
 - **IWA7／IWA9:** Ferrero–Washingtonのμ消失定理は「すべてのZ_p拡大でμ=0」ではない。対象体・拡大・p部分類群と適用条件を原典で確かめ、`μ`の定義と類数の成長公式を補題から説明する。Robin Zhangの予備ノート第5節では円分塔に沿うコホモロジー群の位数制御へこの理論が現れる。一般の`H^2`有界性を単純な類数公式から直ちに導かない。
 - **IWA18／IWA20:** `H^1(G_E,A)`と各完備化への制限、その核としてのSelmer型条件、`H^2`と局所・大域双対の対応を、**どのGalois群／係数／分岐集合について定義するか**明示する。Tate–Poitouを引用する場合も真の仮定と用途、楕円曲線の普通Selmer群との違いを説明する。
@@ -89,4 +89,17 @@
 
 ## 着手・完了運用
 
-IWA1着手時に本PLANを `textbook/plans_progress/` へ移動し、`textbook/dream-theater-series/IWA.yaml`に20講を登録した。IWA1〜IWA20は本文・`chapter.yaml`・`knowledge.yaml`・公開目次を整合させて `completed` とする。共有ルーターは改変しない。終端の`IWA20`完了後も系列横断査読・参照整合が済むまで`plan_done/`へ移動しない。
+IWA1着手時に本PLANを `textbook/plans_progress/` へ移動し、`textbook/dream-theater-series/IWA.yaml`に20講を登録した。IWA1〜IWA20は本文・`chapter.yaml`・`knowledge.yaml`・公開目次を整合させて `completed` とする。共有ルーターは改変しない。終端の`IWA20`の追跡監査と系列横断確認を経て、2026-11-24 JSTに`plan_done/`へ移動する。
+
+
+## 系列横断完了記録（2026-11-24 JST）
+
+- 全20講の本文・chapter.yaml・knowledge.yaml（60ファイル）とmanifestの章ID・順序・題名・completed・直接prerequisites、公開科目別目次を照合。knowledgeは全20件 coverage: complete。全195演習（A93/B82/C20）と195詳細解答のID対応、各講A4/B3/C1以上を確認。IWA内の章間stable anchorの実在を照合。
+- 全講の追跡監査記録（IWA1から20の順、すべてmerge済み）: [IWA1 #4111](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4111)、[IWA2 #4126](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4126)、[IWA3 #4129](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4129)、[IWA4 #4138](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4138)、[IWA5 #4143](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4143)、[IWA6 #4152](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4152)、[IWA7 #4165](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4165)、[IWA8 #4184](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4184)、[IWA9 #4191](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4191)、[IWA10 #4201](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4201)、[IWA11 #4214](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4214)、[IWA12 #4220](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4220)、[IWA13 #4225](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4225)、[IWA14 #4233](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4233)、[IWA15 #4244](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4244)、[IWA16 #4245](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4245)、[IWA17 #4254](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4254)、[IWA18 #4262](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4262)、[IWA19 #4271](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4271)、[IWA20 #4276](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4276)。先行19講は既存の全件監査記録を利用し、この完了判定で全証明を再査読したとは称しない。IWA20は全主要命題3件・演習9題を再計算し区分B修正、最終5 workflow成功、merge fd2b987ab037ad2284135694226a88077b0c7f28。
+- IWA2/3/7/12: 奇素数の場合の円分群分解と位相生成元を固定し、T=γ−1 から γ^(p^n)−1=(1+T)^(p^n)−1 を再導出。coinvariants と有限層類群は比較写像の核・余核の条件なしに同一視しない。
+- IWA5/6/7: torsion・有限生成を前提とした擬同型の有限誤差と特徴イデアルを区別。p因子の指数和がμ、distinguished因子の次数×指数の和がλ。十分大きなnでμ=0なら隣接層のp部分の位数比はp^λであり、λ>0なら無界。Ferrero–Washingtonの適用はAbel数体の円分Z_p拡大に限定する。
+- IWA13/14/15/16: 補間でs=1−k、指標ω^(i−k)、Euler因子を固定。反転置換φ(T)=g/(1+T)−1は g^(1−s)−1 を g^s−1 に写し、二度で恒等。φは環自己同型なのでpの最大共通冪を保存する。そのp冪を除いた級数をmod pで見ればφ(T)=−T/(1+T)なので先頭次数を保存し、μ・λの比較に接続。外部主予想の仮定を一般形へ拡大しない。
+- IWA17: 逐次生成部分群A_j/A_(j−1)の位数がp^(b_j)を割れば、位数の積から|A|はp^(Σb_j)を割る。Euler系による整除と主予想の等式、μ消失の役割を分離。
+- IWA18/19/20: 奇素数・有限係数のPoitou–Tateで局所制限核の双対を同定し、有限H²の位数を核×像に分ける。CMのr²=−1からr^(-1)=−r、p奇数で2rは単数。一方固有値差がpの倍数なら合同のみから整数格子分裂を結論できない。RH・Dirichlet GRHの形式認証は確認済みの範囲に限定し、一般保型GRHおよび自然言語での完全証明を本系列の完成と混同しない。
+- 担当ChatGPTの系列横断確認と既存査読記録による判定（第三者独立査読ではない）。新規の数学的未解決指摘なし。実ブラウザ目視は今回未実施、IWA20のPages assembly・数式layout検証は成功。別系列AFR/RHPの実装と外部定理の完全証明は本PLANの残件ではない。
+- 本移動PRでmanifestのplan、横断ルート、依存マップ、plans READMEの直接参照を同時更新する。IWAの公開目次・講義status・共通ルーターは変更不要。移動PRのCIはPR上で確認し、成功後にmergeして完了履歴を確定する。
