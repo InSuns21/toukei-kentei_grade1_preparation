@@ -1,0 +1,23 @@
+chapter: LVT1-03
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT1-02]
+concepts:
+  - id: lean-verification.inductive-type
+    name: 帰納型
+    kind: definition
+    introduction: formal
+  - id: lean-verification.option-type
+    name: Option型
+    kind: definition
+    introduction: formal
+  - id: lean-verification.except-type
+    name: Except型
+    kind: definition
+    introduction: formal
+  - id: lean-verification.other-twice
+    name: 手番交換の二回適用
+    kind: proposition
+  - id: lean-verification.play-branches
+    name: 空きマスと占有マスの着手結果
+    kind: proposition

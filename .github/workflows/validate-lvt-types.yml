@@ -1,0 +1,50 @@
+name: Validate LVT types
+on:
+  pull_request:
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT1-03/**'
+      - '.github/workflows/validate-lvt-types.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT1-03/**'
+      - '.github/workflows/validate-lvt-types.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lean-types:
+    name: Lean types and result branches
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee # v1
+        with:
+          lake-package-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT1-03/lab'
+          auto-config: 'false'
+          build: 'true'
+          test: 'true'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - name: Verify version, evaluation and intended type error
+        working-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT1-03/lab'
+        shell: bash
+        run: |
+          lean --version | grep -F 'version 4.35.0'
+          lake env lean Inspect.lean | tee inspect.log
+          grep -F 'none' inspect.log
+          grep -F 'some' inspect.log
+          grep -F 'error' inspect.log
+          lake exe lvtTypesDemo | grep -Fx 'LVT1-03 OK'
+          lake env lean ExerciseSolutions.lean
+          if lake env lean Failure.lean > failure.log 2>&1; then
+            cat failure.log
+            echo 'Expected type mismatch to fail'
+            exit 1
+          fi
+          cat failure.log
+          grep -iF 'type mismatch' failure.log
+          grep -F 'Bool' failure.log
+          grep -F 'Player' failure.log
