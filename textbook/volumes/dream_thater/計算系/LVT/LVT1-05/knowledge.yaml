@@ -1,0 +1,25 @@
+chapter: LVT1-05
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT1-04]
+concepts:
+  - id: lean-verification.index-range
+    name: 有効な添字
+    kind: definition
+    introduction: formal
+  - id: lean-verification.fin-index
+    name: Fin型
+    kind: definition
+    introduction: formal
+  - id: lean-verification.fixed-board
+    name: 固定長盤面の関数表現
+    kind: definition
+    introduction: formal
+  - id: lean-verification.checked-array
+    name: 検査付き配列読み出しの二分岐
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.grid-index
+    name: 3行3列の添字の有効性
+    kind: proposition
+    introduction: formal
