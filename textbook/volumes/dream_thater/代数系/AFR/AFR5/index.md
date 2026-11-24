@@ -100,7 +100,15 @@ $$
 
 右から $\gamma$ を掛ける写像は整数逆行列を持つので原始的な組を全単射で移します。絶対収束により並べ替えても値が同じです。
 
-各原始的な組に対し、それを下段とする行列 $h$ を選びます。[双曲Laplace作用素](../AFR2/index.md#def-afr2-laplacian) は $-y^2(\partial_x^2+\partial_y^2)$ です。$f(x,y)=y^s$ なら $\partial_x^2 f=0$、$\partial_y f=sy^{s-1}$、$\partial_y^2 f=s(s-1)y^{s-2}$ ですから、
+各原始的な組に対し、それを下段とする行列 $h$ を選びます。[双曲Laplace作用素](../AFR2/index.md#def-afr2-laplacian) は $-y^2(\partial_x^2+\partial_y^2)$ です。$f(x,y)=y^s$ なら
+
+$$
+\partial_x^2 f=0,\qquad
+\partial_y f=sy^{s-1},\qquad
+\partial_y^2 f=s(s-1)y^{s-2}.
+$$
+
+従って
 
 $$
 \Delta_{\mathbb H}y^s=-s(s-1)y^s.
@@ -130,7 +138,13 @@ $\Re s<1$ でも、十分大きい殻では $y/|cz+d|^2<1$ なので各項の絶
 
 ## 2. Mellin積分と完成形
 
-[Gamma 関数](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function) の積分で、$A>0$、$\Re s>0$ として変数を $u=At$ と置きます。$du/dt=A>0$ で積分区間 $(0,\infty)$ が自身に一対一に移り、$dt=du/A$、$t^{s-1}=A^{1-s}u^{s-1}$ なので、
+[Gamma 関数](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function) の積分で、$A>0$、$\Re s>0$ として変数を $u=At$ と置きます。$du/dt=A>0$ で積分区間 $(0,\infty)$ が自身に一対一に移ります。
+
+$$
+dt=du/A,\qquad t^{s-1}=A^{1-s}u^{s-1}.
+$$
+
+この二式を代入すると、
 
 $$
 \int_0^\infty e^{-At}t^{s-1}dt=A^{-s}\Gamma(s).
@@ -254,7 +268,17 @@ $$
 
 従って $x$ に関する周波数 $n$ は $kc=n$ のときだけ寄与します。
 
-Mellin表示の $c\ge1$ 部分は $\sum_{c\ge1}\int_0^\infty t^{s-1}e^{-\pi c^2yt}P_t(cx)dt$ です。$x\in[0,1]$ 上で格子和の絶対値積分の上界が一様に有限なので、[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) により $x$ の積分と $c,t,d$ の和・積分を交換できます。各 $t,c$ で上のFourier係数を使います。以下の $\mathbf1_{n=0}$ は $n=0$ のとき1、それ以外では0です。
+Mellin表示の $c\ge1$ 部分は
+
+$$
+\sum_{c\ge1}\int_0^\infty t^{s-1}e^{-\pi c^2yt}P_t(cx)dt
+$$
+
+です。
+
+$x\in[0,1]$ 上で格子和の絶対値積分の上界が一様に有限なので、[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) により $x$ の積分と $c,t,d$ の和・積分を交換できます。
+
+各 $t,c$ で上のFourier係数を使います。以下の $\mathbf1_{n=0}$ は $n=0$ のとき1、それ以外では0です。
 
 $$
 b_n(y,s)-\mathbf1_{n=0}\Lambda(2s)y^s
@@ -304,7 +328,19 @@ $$
 \int_0^\infty e^{-(T_0/2)\cosh v+Mv}dv.
 $$
 
-積分は $\cosh v\ge e^v/2$ により有限です。約数は高々 $|n|$ 個で各べきも $|n|$ の固定べきで抑えられるので、$y$ がコンパクト区間内なら $b_n$ は $C|n|^{1+3M}e^{-\pi|n|y_0}$ 以下です。絶対一様収束します。滑らかな周期関数 $x\mapsto E^*(x+iy,s)$ の係数を上で直接計算しました。周期を $\theta=2\pi x$ で $2\pi$ に直し、複素数値関数の実部と虚部それぞれに [Dirichletの点ごとの極限定理](../../../解析系/FOU/FOU2/index.md#thm-fou2-dirichlet-convergence) を適用します。Fourier有限和は線形なので、実部の有限和に虚部の有限和の $i$ 倍を加えると元の複素数値関数の有限和になります。この級数は元の関数に一致します。
+積分は $\cosh v\ge e^v/2$ により有限です。$m=|n|\ge1$ とすると正の約数の個数は高々 $m$ 個で、それぞれ $|d^{-2\nu}|\le m^{2M}$、また $|m^\nu|\le m^M$ です。
+
+高さがコンパクト区間内なら、以上の評価を係数の式に代入して
+
+$$
+|b_n(y,s)|\le C m^{1+3M}e^{-\pi m y_0}
+$$
+
+を得ます。右辺は正整数 $m$ に関して可和なので、非零周波数の級数は絶対一様収束します。
+
+滑らかな周期関数 $x\mapsto E^*(x+iy,s)$ の係数を上で直接計算しました。周期を $\theta=2\pi x$ で $2\pi$ に直し、複素数値関数の実部と虚部それぞれに [Dirichletの点ごとの極限定理](../../../解析系/FOU/FOU2/index.md#thm-fou2-dirichlet-convergence) を適用します。
+
+Fourier有限和は線形なので、実部の有限和に虚部の有限和の $i$ 倍を加えると元の複素数値関数の有限和になります。この級数は元の関数に一致します。
 <!-- proof-end -->
 
 $\Re s>1$ では [ζ関数の零点不存在](../../../解析系/CA/CA12/index.md#thm-ca12-euler-product) と [Gamma関数の零点不存在](../../../解析系/CA/CA11/index.md#cor-ca11-gamma-zero-free) により $\Lambda(2s)\ne0$ です。完成形をこの係数で割って元の正規化に戻すと、平均は
