@@ -119,6 +119,14 @@ const descriptions = Object.freeze({
     mode: '初期設定はpicMix=0、flipMix=1。格子と粒子の位置を物理stepごとに更新し、右列は24×24節点値の最近傍表示。時刻は開始時の検算時刻',
     source: 'particle.js（N, count, dt, damp, force, picMix, flipMix, transfer）/ particle.frag（u_pic, u_flip, u_speed）'
   }),
+  FCG9: Object.freeze({
+    requiresSteps:false,
+    grid:s => s.fcg9Options ? '実Float64セル中心 '+s.fcg9Options.N+'×'+s.fcg9Options.N+' から交差点・側面三角形を生成' : '自由編集：実行コードの格子を参照',
+    color:'横長は左が格子と黄の輪郭、右が側面。縦長は上が格子、下が側面。粗い格子（N≤24）では青い標本は内部、灰色は外部',
+    clock:(_,s)=> s.fcg9Options ? '物理step '+s.fcg9Options.steps+'、t='+ (s.fcg9Options.steps*0.04).toFixed(2)+' s（0.04 s/step）' : '自由編集：surface.jsのstepsを参照',
+    mode:s => (s.fcg9Options ? '表示 '+s.fcg9Options.mode+'、H='+s.fcg9Options.heightM+' m。' : '自由編集。')+'同じ交差頂点からwire（辺）／face（面法線）／gradient（勾配法線）を切り替える',
+    source:'surface.js（N, steps, heightM, mode, extract）/ surface.vert・surface.frag（投影・光源）'
+  }),
   FCG8: Object.freeze({
     grid: snapshot => {
       const n=snapshot.gridN===undefined ? 48 :

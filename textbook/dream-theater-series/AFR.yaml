@@ -28,7 +28,7 @@ chapters:
     title: "Eisenstein級数と関数等式"
   - id: AFR6
     path: textbook/volumes/dream_thater/代数系/AFR/AFR6
-    status: planned
+    status: completed
     title: "Hecke作用とスペクトルの接続"
   - id: AFR7
     path: textbook/volumes/dream_thater/代数系/AFR/AFR7
