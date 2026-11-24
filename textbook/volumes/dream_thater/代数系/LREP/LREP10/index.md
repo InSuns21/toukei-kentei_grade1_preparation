@@ -7,22 +7,18 @@
 [LREP5のPauli行列模型](../LREP5/index.md#def-lrep5-pauli-model)は空間の三座標を跡零のエルミート行列に収め、[SU(2)による回転の二重被覆](../LREP5/index.md#thm-lrep5-double-cover)を構成しました。本講ではその行列に時間成分を加えます。行列式がMinkowski計量を表すため、行列への共役作用からLorentz変換を構成できます。
 
 全章で実四元ベクトルを列ベクトルとして扱い、次の座標と計量を用います。
-
-$
+$$
 x=(x^0,x^1,x^2,x^3)^{\mathsf T}=(ct,x,y,z)^{\mathsf T},
 \qquad \eta=\operatorname{diag}(-1,1,1,1).
-$
-
+$$
 $\dagger$ は複素共役転置、$I_n$ は単位行列を表します。変換は列ベクトルへの**能動作用**です。
 
 Pauli行列は[既出の定義](../LREP5/index.md#def-lrep5-pauli-model)に従い、[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)を用います。具体的には
-
-$
+$$
 \sigma_i^\dagger=\sigma_i,\quad
 \operatorname{tr}\sigma_i=0,\quad
 \sigma_i\sigma_j=\delta_{ij}I_2+i\sum_k\varepsilon_{ijk}\sigma_k.
-$
-
+$$
 ## 1. 四元ベクトルをエルミート行列へ移す
 
 実数4個を複素 $2\times2$ 行列で扱うには、対角成分が実数、非対角成分が互いに複素共役である **エルミート行列** を使います。これは $X^\dagger=X$ を満たす行列で、実次元は4です。空間三座標に係数 $x^0$ の単位行列を足すと、4座標を余さず表せます。
@@ -45,7 +41,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep10-hermitian-model -->
-**定義の確認。** $x=(2,1,0,0)$ を代入すると
+**定義の確認**。 $x=(2,1,0,0)$ を代入すると
 
 $$
 H(x)=\begin{pmatrix}2&1\\1&2\end{pmatrix},
@@ -64,11 +60,9 @@ $$
 <!-- definition-example-end -->
 
 空間成分 $\boldsymbol x=(x^1,x^2,x^3)$ に対する行列 $S=\sum_i x^i\sigma_i$ には、[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)を適用できます。その交差項は反対称性によって相殺され、
-
-$
+$$
 S^2=|\boldsymbol x|^2 I_2
-$
-
+$$
 となります。したがって $S$ の固有値は $\pm|\boldsymbol x|$、$H(x)$ の固有値は $x^0\pm|\boldsymbol x|$ です。これが行列の符号と因果円錐の橋になります。
 
 <a id="thm-lrep10-determinant-cone"></a>
@@ -125,7 +119,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep10-sl2c-action -->
-**定義の確認：正の $z$ 方向のboost。** 実数 $\chi$ に対し
+**定義の確認**：正の $z$ 方向のboost。 実数 $\chi$ に対し
 
 $$
 A_\chi=\begin{pmatrix}e^{\chi/2}&0\\0&e^{-\chi/2}\end{pmatrix}
@@ -254,12 +248,10 @@ $$
 
 $A$ は可逆なので非零の $x$ が零になることもありません。[未来円錐の判定](#thm-lrep10-determinant-cone)から未来向き因果的ベクトルを未来向き因果的ベクトルへ移します。
 
-最後に[道連結性](#lem-lrep10-polar-connectivity)より単位元から $A$ への道があります。その $\Phi$ 像は $I_4$ と $\Phi(A)$ を結ぶ $O(1,3)$ 内の道です。[LREP9の単位元成分の定義](../LREP9/index.md#def-lrep9-lorentz-group)により、
-
-$
+最後に[道連結性](#lem-lrep10-polar-connectivity)より単位元から $A$ への道があります。その $\Phi$ 像は $I_4$ と $\Phi(A)$ を結ぶ $O(1,3)$ 内の道です。[Lorentz群と単位元成分](../LREP9/index.md#def-lrep9-lorentz-group)により、
+$$
 \Phi(A)\in SO^+(1,3).
-$
-
+$$
 作用の係数は $A$ の実部・虚部の多項式なので滑らかです。$\square$
 <!-- proof-end -->
 
