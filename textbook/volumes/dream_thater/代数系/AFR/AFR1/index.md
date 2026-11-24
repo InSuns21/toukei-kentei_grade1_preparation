@@ -10,6 +10,16 @@ MFでは、上半平面の関数が整数行列による変換で決まった係
 
 [整数モジュラー群](../../MF/MF1/index.md#def-mf1-modular-group) $\Gamma=SL_2(\mathbb Z)$ の整数成分という条件を実数成分へ広げます。行列式1を保てば、[一次分数変換](../../MF/MF1/index.md#def-mf1-fractional-action)と同じ式を使えます。群全体で上半平面を動かし、整数行列だけを後で同一視するための準備です。
 
+[上半平面](../../MF/MF1/index.md#def-mf1-upper-half-plane) の点は
+
+$$
+z=x+iy\in\mathbb H,\qquad x,y\in\mathbb R,\quad y>0
+$$
+
+と書きます。MF1の $\tau$ と本章の $z$ は同じ種類の点を表します。$i$ は虚数単位、$I$ は2次単位行列です。
+
+実2次正方行列 $\begin{pmatrix}a&b\\c&d\end{pmatrix}$（$a,b,c,d\in\mathbb R$）の行列式は $ad-bc$ です。行列式1の行列は逆行列 $\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$ を持ち、その行列式も1です。積の行列式は行列式の積なので1であり、$I$ も含まれます。従って実行列に広げても行列の積について群になります。
+
 <a id="def-afr1-real-group"></a>
 <!-- formal-statement-start -->
 > **定義（実特殊線形群の上半平面への作用）**  
@@ -26,7 +36,14 @@ $$
 **定義の確認**。$g=\begin{pmatrix}2&1\\0&1/2\end{pmatrix}$ は実成分を持ち、行列式は $2/2=1$ です。逆行列は $\begin{pmatrix}1/2&-1\\0&2\end{pmatrix}$ で、これも行列式1です。$g\cdot i=(2i+1)/(1/2)=2+4i$ は上半平面内にあり、$j(g,i)=1/2$ は非零です。
 <!-- definition-example-end -->
 
-分母が非零なのは、$c\ne0$ なら $cz+d=0$ が $z=-d/c\in\mathbb R$ を強制し、$c=0$ なら $ad=1$ より $d\ne0$ だからです。虚部についても整数性は使わず、分母の共役を掛けると
+MF1の[虚部公式](../../MF/MF1/index.md#thm-mf1-imaginary-action)の導出で整数性は不要です。分母が非零なのは、$c\ne0$ なら $cz+d=0$ が $z=-d/c\in\mathbb R$ を強制し、$c=0$ なら $ad=1$ より $d\ne0$ だからです。$\overline z=x-iy$ を複素共役と書きます。分子と分母に $c\overline z+d$ を掛けると
+
+$$
+(az+b)(c\overline z+d)
+=ac|z|^2+ad z+bc\overline z+bd.
+$$
+
+右辺の虚部は $ad y-bc y$、分母は実数 $|cz+d|^2>0$ なので
 
 $$
 \operatorname{Im}(g\cdot z)=\frac{(ad-bc)y}{|cz+d|^2}
@@ -49,7 +66,7 @@ $$
 
 ### 証明の見取り図
 
-列ベクトル $(z,1)^{\mathsf T}$ に行列を掛け、下成分を取り出します。射影座標を元に戻すための係数がちょうど変換因子になります。
+列ベクトル $(z,1)^{\mathsf T}$ に行列を掛け、下成分を取り出します。下成分を1に戻すために非零の下成分で割ると、上成分が変換後の点になります。その際に取り出す係数が変換因子です。
 
 <!-- proof-start -->
 ### 証明
@@ -74,7 +91,9 @@ $$
 下成分が非零なので上成分を下成分で割れば $(gh)\cdot z=g\cdot(h\cdot z)$ も従います。単位行列 $I$ は $I\cdot z=z$ を満たすため、群作用です。
 <!-- proof-end -->
 
-次に、点 $i$ を固定する行列を調べます。点が同じでも行列が違えば、そこに残った情報を回転角で表せます。
+次に、点 $i$ を固定する行列を調べます。点が同じでも行列が違えば、そこに残った情報を回転角で表せます。ここで必要なのは実平面の長さと向きを保つ2次行列だけです。その全体を $SO(2)$ と書き、二次元の場合に限って成分から求めます。直交条件は列ベクトルが互いに直交し、長さがともに1であること、向きを保つ条件は行列式が1であることです。
+
+第一列が $(a,c)^{\mathsf T}$ なら $a^2+c^2=1$ で、直交する単位第二列の候補は $(-c,a)^{\mathsf T}$ とその負です。前者の行列式は $a^2+c^2=1$、後者は $-1$ なので前者を選びます。$a=\cos\theta,\ c=-\sin\theta$ と置くと次の表示になります。
 
 <a id="def-afr1-rotation"></a>
 <!-- formal-statement-start -->
@@ -91,10 +110,31 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr1-rotation -->
-**定義の確認**。$\theta=\pi/2$ なら $k_{\pi/2}=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$、行列式は1です。一般に $\cos^2\theta+\sin^2\theta=1$ なので全行列が $G$ に属します。三角関数の加法公式で $k_\theta k_\varphi=k_{\theta+\varphi}$、$k_0=I$、$k_\theta^{-1}=k_{-\theta}$ となり、積と逆元について閉じています。特に $k_{\pi/2}^2=-I$ です。
+**定義の確認**。$\theta=\pi/2$ なら
+
+$$
+k_{\pi/2}=\begin{pmatrix}0&1\\-1&0\end{pmatrix}.
+$$
+
+二つの列は長さ1で内積0、行列式は1です。一般にも列の長さの二乗は $\cos^2\theta+\sin^2\theta=1$、内積は $\cos\theta\sin\theta-\sin\theta\cos\theta=0$、行列式は1です。従って全行列が $SO(2)$ と $G$ に属します。三角関数の加法公式で
+
+$$
+k_\theta k_\varphi
+=\begin{pmatrix}
+\cos\theta\cos\varphi-\sin\theta\sin\varphi&
+\cos\theta\sin\varphi+\sin\theta\cos\varphi\\
+-\sin\theta\cos\varphi-\cos\theta\sin\varphi&
+\cos\theta\cos\varphi-\sin\theta\sin\varphi
+\end{pmatrix}
+=k_{\theta+\varphi}.
+$$
+
+$k_0=I$、$k_\theta^{-1}=k_{-\theta}$ なので積と逆元について閉じています。特に $k_{\pi/2}^2=k_\pi=-I$ です。
 <!-- definition-example-end -->
 
-この符号の回転行列を一貫して使います。逆向きの回転行列を使う文献では、後の指数の符号も逆になります。
+この符号の回転行列を一貫して使います（通常の反時計回りの回転角は $-\theta$ です）。$\operatorname{diag}(a,d)$ は対角成分が $a,d$、非対角成分が0の行列を表します。
+
+[左剰余類](../../GRP/GRP2/index.md#def-grp2-cosets) $gK=\{gk:k\in K\}$ は右に回転を掛けて得られる行列の集合です。その集合全体を $G/K$ と書きます。次の定理では点 $i$ の[安定化群](../../GRP/GRP3/index.md#def-grp3-orbit-stabilizer)（$i$ を固定する元全体）がちょうど $K$ であることを示します。逆向きの回転行列を使う文献では、後の指数の符号も逆になります。
 
 <a id="thm-afr1-coordinates"></a>
 <!-- formal-statement-start -->
@@ -240,7 +280,7 @@ $$
 
 ## 3. 中心の作用と重さの偶奇
 
-群の中心とは全ての群の元と可換な元の集合です。この群では $-I$ が左から掛けても右から掛けても同じ行列を与えます。従って左不変性と右回転の条件が同時に成立するかを調べられます。
+[群の中心](../../GRP/GRP3/index.md#def-grp3-center-centralizer)とは全ての群の元と可換な元の集合です。この群では $-I$ が左から掛けても右から掛けても同じ行列を与えます。従って左不変性と右回転の条件が同時に成立するかを調べられます。
 
 <a id="prop-afr1-center"></a>
 <!-- formal-statement-start -->
@@ -279,6 +319,16 @@ $$
 
 変換則だけの関数空間は大きすぎます。群上の関数から復元した $y^{-k/2}\Phi(s(x+iy))$ が正則かどうかを別途調べなければ、古典的なモジュラー形式にはなりません。また無限遠での条件も必要です。
 
+[モジュラー形式の定義](../../MF/MF2/index.md#def-mf2-modular-form)で $M_k(SL_2(\mathbb Z))$ は上半平面で正則、重さ $k$ の変換則を満たし、$q=e^{2\pi iz}$ による表示が $q=0$ まで正則に延長できる関数全体でした。
+
+[q展開とカスプ形式](../../MF/MF2/index.md#def-mf2-q-expansion)ではこの延長を
+
+$$
+F(q)=\sum_{n=0}^\infty a_n q^n
+$$
+
+と書き、定数項 $a_0=0$ をカスプ形式の条件としました。
+
 <a id="prop-afr1-cusp-growth"></a>
 <!-- formal-statement-start -->
 > **命題（正則形式とカスプ条件の群上での読み替え）**  
@@ -304,13 +354,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[周期正則関数のq表示](../../MF/MF2/index.md#thm-mf2-q-coordinate)により円板 $|q|<1$ の正則関数 $F$ があり、$f(x+iy)=F(q)$、$F(0)=a_0$ です。
+$T=\begin{pmatrix}1&1\\0&1\end{pmatrix}\in\Gamma$ では $j(T,z)=1$ なので $f(z+1)=f(z)$ です。[周期正則関数のq表示](../../MF/MF2/index.md#thm-mf2-q-coordinate)により、まず穿孔円板 $0<|q|<1$ の正則関数 $F$ が存在して $f(x+iy)=F(q)$ となります。さらに $f\in M_k$ という[定義の仮定](../../MF/MF2/index.md#def-mf2-modular-form)により $F$ は原点まで正則に延長し、$F(0)=a_0$ です。
 
-$|q|=e^{-2\pi y}$ は $x$ に依存しません。原点での連続性から $F(q)\to F(0)$ は全 $x$ について一様です。[持ち上げの対応](#thm-afr1-lift)で左辺が $f(x+iy)$ に等しいため、回転角についても一様です。
+$q=e^{2\pi ix}e^{-2\pi y}$ なので $|q|=e^{-2\pi y}$ は $x$ に依存しません。任意の $\varepsilon>0$ に対して原点での連続性から $|q|<\delta$ なら $|F(q)-F(0)|<\varepsilon$ となる $\delta\in(0,1)$ が存在します。$y>(-\log\delta)/(2\pi)$ なら全 $x$ でこの条件が成立し、一様収束が従います。[持ち上げの対応](#thm-afr1-lift)で左辺が $f(x+iy)$ に等しいため、回転角についても一様です。
 
 [カスプ形式の定義](../../MF/MF2/index.md#def-mf2-q-expansion)によって、ここでは $a_0=0$ が必要十分条件です。
 
-この場合 $F(q)=qH(q)$ と書け、$H$ は原点を含む円板上正則です。例えば閉円板 $|q|\le1/2$ 上で連続なので有界であり、上界を $C$ とします。$Y=(\log2)/(2\pi)$ と取れば $y\ge Y$ に対して
+この場合 $F(q)=qH(q)$ と書け、$H$ は原点を含む円板上正則です。例えば閉円板 $|q|\le1/2$ 上で連続なので有界であり、正の上界を $C$ とします（例えば $C=1+\max_{|q|\le1/2}|H(q)|$）。$Y=(\log2)/(2\pi)$ と取れば $y\ge Y$ に対して
 
 $$
 |f(x+iy)|=|qH(q)|\le Ce^{-2\pi y}.
@@ -319,9 +369,9 @@ $$
 $|e^{ik\theta}|=1$ と持ち上げの座標式により求める不等式が従います。
 <!-- proof-end -->
 
-重さ4の $E_4$ では $a_0=1$ なので、群上では高さを大きくすると $|\Phi_{E_4}(s(iy))|/y^2\to1$ です。
+重さ4の $E_4$ では [Eisenstein級数のモジュラー性](../../MF/MF2/index.md#thm-mf2-eisenstein-modularity)により $a_0=1$ なので、[カスプ条件の読み替え](#prop-afr1-cusp-growth)から、群上では高さを大きくすると $|\Phi_{E_4}(s(iy))|/y^2\to1$ です。
 
-重さ12の [モジュラー判別式](../../MF/MF2/index.md#def-mf2-discriminant) $\Delta$ では定数項0なので $|\Phi_\Delta(s(iy))|\le Cy^6 e^{-2\pi y}$ です。同じ左不変性を持つ二つの関数でも無限遠での振る舞いは異なります。
+重さ12の [モジュラー判別式](../../MF/MF2/index.md#def-mf2-discriminant) $\Delta$ では定数項0なので [カスプ形式の評価](#prop-afr1-cusp-growth)から $|\Phi_\Delta(s(iy))|\le Cy^6 e^{-2\pi y}$ です。同じ左不変性を持つ二つの関数でも無限遠での振る舞いは異なります。
 
 重さ0の不変関数が正則とは限らないことも直接確認できます。MF2の [$j$ 不変量の群不変性](../../MF/MF2/index.md#thm-mf2-j-properties)を使い、ここだけ $J(z)$ と書くと
 
@@ -329,9 +379,16 @@ $$
 u(z)=\frac{|J(z)|^2}{1+|J(z)|^2}
 $$
 
-は $\Gamma$ 不変で、実数値かつ有界です。$J$ は無限遠に極を持つ一方、上半平面では有限なので $u$ は非定数です。
+は $\Gamma$ 不変で、実数値かつ有界です。$J$ は無限遠に極を持つため $y\to\infty$ で $|J(iy)|\to\infty$、従って $u(iy)\to1$ です。一方、上半平面内では $J$ は有限で $u(z)<1$ です。従って $u$ は非定数です。
 
-実数値の正則関数は [Cauchy–Riemann 必要条件](../../../解析系/CA/CA1/index.md#thm-ca1-cr-necessary)により両方向の偏微分が0となり、連結な上半平面上で定数になります。従って $u$ は正則ではありません。
+実数値の関数 $u(x+iy)$ を複素関数の実部と見れば虚部は恒等的に0です。もし正則なら [Cauchy–Riemann 必要条件](../../../解析系/CA/CA1/index.md#thm-ca1-cr-necessary)で
+
+$$
+\frac{\partial u}{\partial x}=0,\qquad
+\frac{\partial u}{\partial y}=0
+$$
+
+となります。ここで $\partial/\partial x$ は $y$ を固定、$\partial/\partial y$ は $x$ を固定した微分です。任意の二点は上半平面内で水平・垂直な線分で結べるので、それぞれの線分に沿って値が一定、従って全体で定数になります。これは非定数性に反するので $u$ は正則ではありません。
 
 非正則の関数を扱う余地があることが、次講で学ぶ Maass 形式の入口になります。ただし $u$ が Maass 形式であるとはまだ言えません。次講で固有方程式を導入します。
 
@@ -393,7 +450,7 @@ $$
 - ID: AFR1-A4
 
 <!-- solution-start -->
-**詳細解答**　$-I\in\Gamma$ より $\Phi((-I)g)=\Phi(g)$。$k_\pi=-I$ は全行列と可換なので $(-I)g=gk_\pi$。右回転条件では $\Phi(gk_\pi)=e^{3i\pi}\Phi(g)=-\Phi(g)$ です。よって $\Phi(g)=-\Phi(g)$、複素数上では2で割れるため $\Phi(g)=0$。$g$ は任意なので恒等的に零です。
+**詳細解答**　[重さ付き不変関数の定義](#def-afr1-weight-space)の左条件を $\gamma=-I\in\Gamma$ に適用すると $\Phi((-I)g)=\Phi(g)$。$k_\pi=-I$ は全行列と可換なので $(-I)g=gk_\pi$。右回転条件では $\Phi(gk_\pi)=e^{3i\pi}\Phi(g)=-\Phi(g)$ です。よって $\Phi(g)=-\Phi(g)$、複素数上では2で割れるため $\Phi(g)=0$。$g$ は任意なので恒等的に零です。
 <!-- solution-end -->
 
 #### B1. 固定点と群上の零点
@@ -406,7 +463,7 @@ $f$ が重さ6の変換則を満たすとする。$S=\begin{pmatrix}0&-1\\1&0\en
 <!-- solution-start -->
 **詳細解答**　$S\cdot i=i$、$j(S,i)=i$ です。仮定した変換則に代入すると $f(i)=i^6f(i)=-f(i)$ なので $f(i)=0$ です。
 
-群上では $S=k_{-\pi/2}\in\Gamma\cap K$。左不変性で $\Phi_f(S)=\Phi_f(I)$、右回転で $\Phi_f(S)=e^{-3\pi i}\Phi_f(I)=-\Phi_f(I)$ です。従って $\Phi_f(I)=0$。
+群上では $S=k_{-\pi/2}\in\Gamma\cap K$。[重さ付き不変関数の定義](#def-afr1-weight-space)の左不変性で $\Phi_f(S)=\Phi_f(I)$、右回転で $\Phi_f(S)=e^{-3\pi i}\Phi_f(I)=-\Phi_f(I)$ です。従って $\Phi_f(I)=0$。
 
 また $j(I,i)=1$ なので [持ち上げの対応](#thm-afr1-lift)で両者は同じ値です。中心だけでは偶数重さ6は排除されませんが、固定点 $i$ ではさらに $S$ が制約を課します。
 <!-- solution-end -->
@@ -419,13 +476,13 @@ $z=x+iy$、$\gamma=S$ とする。$w=\gamma\cdot z$ の実部・虚部を計算�
 - ID: AFR1-B2
 
 <!-- solution-start -->
-**詳細解答**　$r=\sqrt{x^2+y^2}>0$ とすると
+**詳細解答**　$z\in\mathbb H$ なので $y>0$、従って $r=\sqrt{x^2+y^2}>0$ です。分子と分母に $\overline z$ を掛けると
 
 $$
 w=-1/z=-x/r^2+i y/r^2.
 $$
 
-従って
+[実行列の表示定理](#thm-afr1-coordinates)の $s$ に $w$ の実部 $-x/r^2$ と虚部 $y/r^2$ を代入します。$r>0$ なので $\sqrt{y/r^2}=\sqrt y/r$ です。従って
 
 $$
 s(w)=\begin{pmatrix}\sqrt y/r&-x/(r\sqrt y)\\0&r/\sqrt y\end{pmatrix},
@@ -457,7 +514,7 @@ $f$ が重さ12のカスプ形式で、$q$ 展開が $f=q+O(q^2)$ とする。$y
 - ID: AFR1-B3
 
 <!-- solution-start -->
-**詳細解答**　$z=iy$ で $q=e^{-2\pi y}$ です。[持ち上げの対応](#thm-afr1-lift)より $\Phi_f(s(iy))=y^6 f(iy)$。したがって
+**詳細解答**　$z=iy$ で $q=e^{-2\pi y}>0$ です。$O(q^m)$ は $q\to0$ で絶対値が定数倍の $|q|^m$ 以下となる項を表します。[持ち上げの対応](#thm-afr1-lift)より $\Phi_f(s(iy))=y^6 f(iy)$。したがって
 
 $$
 e^{2\pi y}y^{-6}\Phi_f(s(iy))
@@ -493,7 +550,7 @@ $z+1$ の虚部は $y$ であり、左不変性により $f(z+1)=y^{-2}\Phi(Ts(z
 
 **（2）反転の変換則**
 
-B2で $S s(z)=s(w)k_\theta$、$w=-1/z$、$e^{i\theta}=(x-iy)/r=\overline z/r$、$\operatorname{Im}w=y/r^2$ を得ました。左不変性と右回転条件から
+演習B2で求めた回転行列より $S s(z)=s(w)k_\theta$、$w=-1/z$、$e^{i\theta}=(x-iy)/r=\overline z/r$、$\operatorname{Im}w=y/r^2$ を得ました。左不変性と右回転条件から
 
 $$
 \Phi(s(z))=\Phi(Ss(z))=e^{4i\theta}\Phi(s(w)).
@@ -513,7 +570,11 @@ $$
 
 **（3）正則性の判定**
 
-正則性は結論できません。本文の非定数実数値不変関数 $u=|J|^2/(1+|J|^2)$ と [Eisenstein級数](../../MF/MF2/index.md#thm-mf2-eisenstein-modularity) $E_4$ の積 $f_*=uE_4$ は重さ4の変換則を満たします。
+正則性は結論できません。本文の非定数実数値不変関数 $u=|J|^2/(1+|J|^2)$ と [Eisenstein級数](../../MF/MF2/index.md#thm-mf2-eisenstein-modularity) $E_4$ の積 $f_*=uE_4$ は重さ4の変換則を満たします。実際に $u(\gamma\cdot z)=u(z)$ と $E_4(\gamma\cdot z)=j(\gamma,z)^4E_4(z)$ を掛ければ
+
+$$
+f_*(\gamma\cdot z)=j(\gamma,z)^4 f_*(z).
+$$
 
 もし $f_*$ が正則なら、$E_4\ne0$ の開集合で商 $f_*/E_4=u$ は正則です。$E_4$ は定数項1なので恒等的に零ではなく、[零点の孤立性](../../../解析系/CA/CA3/index.md#thm-ca3-isolated-zeros-identity)によりその零点は孤立します。よってその補集合は稠密です。
 
