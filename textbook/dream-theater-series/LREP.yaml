@@ -75,7 +75,7 @@ chapters:
     title: "Dirac双線形量"
   - id: LREP18
     path: textbook/volumes/dream_thater/代数系/LREP/LREP18
-    status: planned
+    status: completed
     title: "電荷共役とMajorana条件"
   - id: LREP19
     path: textbook/volumes/dream_thater/代数系/LREP/LREP19

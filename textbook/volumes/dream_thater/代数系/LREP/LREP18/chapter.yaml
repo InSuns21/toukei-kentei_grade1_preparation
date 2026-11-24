@@ -1,0 +1,39 @@
+id: LREP18
+title: "電荷共役とMajorana条件"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP17
+official_scope: []
+learning_objectives:
+  - 電荷共役の反線形性・Lorentz共変性・対合性を導ける
+  - 電荷共役行列の転置恒等式と基底・位相依存性を計算できる
+  - Weyl成分からMajorana条件と実自由度を導ける
+  - U(1)位相の反転とMajorana条件の制約を説明し粒子状態の作用と区別できる
+definitions:
+  - { id: LREP18-DEF-01, name: 電荷共役 }
+  - { id: LREP18-DEF-02, name: 電荷共役行列 }
+  - { id: LREP18-DEF-03, name: Majorana条件 }
+theorems:
+  - { id: LREP18-PROP-01, name: 電荷共役の共変性と対合性 }
+  - { id: LREP18-PROP-02, name: 電荷共役行列の恒等式 }
+  - { id: LREP18-PROP-03, name: 電荷共役の基底・位相変換 }
+  - { id: LREP18-PROP-04, name: Majorana条件の自由度とchirality }
+  - { id: LREP18-PROP-05, name: 電荷反転とMajorana条件の制約 }
+canonical_examples:
+  - Weyl基底での電荷共役と固定点
+  - 位相作用と実線形分解
+problem_patterns:
+  - LREP18-CONJUGATE
+  - LREP18-MATRIX
+  - LREP18-MAJORANA
+  - LREP18-PHASE
+  - LREP18-COVARIANCE
+  - LREP18-BASIS
+  - LREP18-CHIRALITY
+  - LREP18-TRANSPOSE
+  - LREP18-REAL-SPLIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }
