@@ -1,0 +1,21 @@
+id: FCG13
+title: "広い海の波を高速に合成するには"
+volume: foundations
+status: supplementary
+prerequisites: [FCG12, FCG10, FLUID27, FLUID28, WGL13]
+official_scope: []
+learning_objectives:
+  - "深水重力波の波長・位相速度・群速度を比較できる"
+  - "周期海面の波を離散スペクトルへ配置して逆FFTで合成できる"
+  - "格子標本の折り返しと周期化の限界を説明できる"
+  - "同じ高さと傾きから水面の変位・法線・反射を描画できる"
+definitions:
+  - { id: FCG13-DEF-01, name: "周期海面の波の合成" }
+theorems:
+  - { id: FCG13-PROP-01, name: "周期海面の離散スペクトル合成" }
+canonical_examples: ["二方向の周期重力波", "逆変換と直接和の比較", "折り返しと空の反射"]
+problem_patterns: [FCG13-WAVE, FCG13-FFT, FCG13-ALIAS, FCG13-NORMAL]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }

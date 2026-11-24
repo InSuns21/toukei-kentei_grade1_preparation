@@ -119,6 +119,14 @@ const descriptions = Object.freeze({
     mode: '初期設定はpicMix=0、flipMix=1。格子と粒子の位置を物理stepごとに更新し、右列は24×24節点値の最近傍表示。時刻は開始時の検算時刻',
     source: 'particle.js（N, count, dt, damp, force, picMix, flipMix, transfer）/ particle.frag（u_pic, u_flip, u_speed）'
   }),
+  FCG13: Object.freeze({
+    requiresSteps:false,
+    grid:'64 m四方、64×64実計算標本（1 m間隔）。右端と上端は周期境界の複製',
+    color:'左：高さ−1 mの濃青〜+1 mの明青。右：反射と格子線（高さの色ではない）',
+    clock:()=> 'ocean.js の time [s] が開始時刻。再生・1ステップでは物理時刻を0.1 sずつ進める',
+    mode:'左は一定色の標本、右は三角形補間で水面を表示。高さは表示上拡大',
+    source:'ocean.js（逆FFT・波数・時刻） / ocean.vert（投影） / ocean.frag（空の反射）'
+  }),
   FCG12: Object.freeze({
     requiresSteps:false,
     grid:'20 m四方、N×N実計算セル（20/40/60）。表示はセル中心の三角形補間',

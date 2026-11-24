@@ -1,0 +1,17 @@
+chapter: FCG13
+scope: dream-theater
+coverage: complete
+prerequisites: [FCG12, FCG10, FLUID27, FLUID28, WGL13]
+concepts:
+  - id: graphics.fcg13-periodic-synthesis
+    name: 周期海面の波の合成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期海面の波の合成）"]
+    requires: [fluid.gravity-capillary-dispersion, fluid.surface-wave-depth-limits]
+  - id: graphics.fcg13-spectrum
+    name: 周期海面の離散スペクトル合成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（周期海面の離散スペクトル合成）"]
+    requires: [graphics.fcg13-periodic-synthesis]

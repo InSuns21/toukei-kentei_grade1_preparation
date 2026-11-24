@@ -3,6 +3,13 @@
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
 
 export const LAB_PARAMETERS = Object.freeze({
+  FCG13: Object.freeze([
+    Object.freeze({id:'time',type:'number',label:'物理時刻',default:2,min:0,max:20,step:0.5,unit:'s',meaning:'各成分の位相を進める',sourceLocation:'ocean.js / const time',sourceFile:'js',index:null,matcher:/^([ \t]*const time=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'amplitude',type:'number',label:'第一波の振幅',default:0.35,min:0,max:0.5,step:0.05,unit:'m',meaning:'残りの波の振幅は1/(j+1)倍',sourceLocation:'ocean.js / const amplitude',sourceFile:'js',index:null,matcher:/^([ \t]*const amplitude=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'modeCount',type:'integer',label:'合成波の本数',default:6,min:1,max:8,step:1,unit:'波',meaning:'長い波から細かな波を追加',sourceLocation:'ocean.js / const modeCount',sourceFile:'js',index:null,matcher:/^([ \t]*const modeCount=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'wavelengthScale',type:'integer',label:'波数倍率',default:1,min:1,max:3,step:1,unit:'倍',meaning:'波長は倍率の逆数',sourceLocation:'ocean.js / const wavelengthScale',sourceFile:'js',index:null,matcher:/^([ \t]*const wavelengthScale=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'direction',type:'integer',label:'方向の回転',default:0,min:0,max:3,step:1,unit:'90°',meaning:'全波を反時計回りに回転',sourceLocation:'ocean.js / const direction',sourceFile:'js',index:null,matcher:/^([ \t]*const direction=)([^;\n]+)(;)/gm}),
+  ]),
   FCG12: Object.freeze([
     Object.freeze({id:'N',type:'integer',label:'一辺の格子数',default:40,min:20,max:60,step:20,unit:'セル',meaning:'実計算格子',sourceLocation:'shallow.js / const N',sourceFile:'js',index:null,matcher:/^([ \t]*const N=)([^;\n]+)(;)/gm}),
     Object.freeze({id:'time',type:'number',label:'観察時刻',default:1,min:0,max:3,step:0.1,unit:'s',meaning:'同じ初期条件から再計算',sourceLocation:'shallow.js / const time',sourceFile:'js',index:null,matcher:/^([ \t]*const time=)([^;\n]+)(;)/gm}),

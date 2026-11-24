@@ -104,6 +104,12 @@ jobs:
           node --check pages/simulation/fcg1-model.mjs
           node --test pages/simulation/fcg1-model.test.mjs
 
+      - name: Test FCG13 independent spectral ocean and actual editable GPU rendering
+        if: steps.scope.outputs.full == 'true'
+        run: |
+          node --test pages/simulation/fcg13-lab.test.mjs
+          node scripts/validate-fcg13-browser.mjs
+
       - name: Test FCG12 independent shallow water and actual editable GPU rendering
         if: steps.scope.outputs.full == 'true'
         run: |
