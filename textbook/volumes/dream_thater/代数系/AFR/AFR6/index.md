@@ -48,6 +48,8 @@ $$
 
 ## 2. 微分方程式とカスプ条件を保存する
 
+[双曲Laplace作用素](../AFR2/index.md#def-afr2-laplacian) を用います。Maass形式の定義にある不変性、固有方程式、増大条件と、カスプでの平均0を一つずつ確かめます。
+
 
 <a id="thm-afr6-preserve"></a>
 <!-- formal-statement-start -->
@@ -198,7 +200,7 @@ $K_\nu$ は [変形Bessel関数 K](../AFR4/index.md#def-afr4-k-bessel) です。
 <a id="thm-afr6-coefficient"></a>
 <!-- formal-statement-start -->
 > **定理（Maass形式のHecke係数公式）**  
-> $p$ を素数、$u$ を重さ0のMaassカスプ形式とする。$T_pu$ の非零周波数展開の係数を $\rho_p(n)$ とすれば
+> $p$ を素数、$u$ を [重さ0のMaassカスプ形式](../AFR3/index.md#def-afr3-maass-cusp) とする。$T_pu$ の非零周波数展開の係数を $\rho_p(n)$ とすれば
 
 $$
 \rho_p(n)=\rho(pn)+\rho(n/p)
@@ -247,7 +249,7 @@ $$
 <a id="thm-afr6-joint"></a>
 <!-- formal-statement-start -->
 > **定理（カスプ固有空間の同時対角化と係数の漸化式）**  
-> 固定したLaplace固有値 $\lambda$ に属する重さ0のMaassカスプ形式と零関数の空間を $W_\lambda$ とする。この空間は全ての素数Hecke作用素に共通の直交固有基底を持つ。
+> 固定したLaplace固有値 $\lambda$ に属する [重さ0のMaassカスプ形式](../AFR3/index.md#def-afr3-maass-cusp) と零関数の空間を $W_\lambda$ とする。この空間は全ての素数Hecke作用素に共通の直交固有基底を持つ。
 >
 > その非零共通固有関数 $u$ の固有値を $\eta_p$ とする。符号 $\epsilon\in\{1,-1\}$ を $\rho(\epsilon)\ne0$ となるように選べる。正整数 $m$ に対して $c(m)=\rho(\epsilon m)/\rho(\epsilon)$ と置くと
 
@@ -363,7 +365,7 @@ T_pG(z,s)
 \end{aligned}
 $$
 
-第二行では $(h,k)=p(c,d)$ と置き、分母の二乗から $p^{-2s}$ を取り出しました。$\Re s>1$ では $\zeta(2s)$ は零でないので割ることができます（または実数 $s>1$ で割って正則関数の一致を使ってもよいです）。これで表示式を得ます。[Eisenstein級数の解析接続と関数等式](../AFR5/index.md#thm-afr5-functional) により両辺は $s$ の有理型関数であり、一致の定理により接続後も等しいです。
+第二行では $(h,k)=p(c,d)$ と置き、分母の二乗から $p^{-2s}$ を取り出しました。[Riemann ζ 関数のEuler積](../../../解析系/CA/CA12/index.md#thm-ca12-euler-product) により $\Re s>1$ では $\zeta(2s)$ は零でないので割ることができます。これで表示式を得ます。[Eisenstein級数の解析接続と関数等式](../AFR5/index.md#thm-afr5-functional) により両辺は $s$ の有理型関数であり、一致の定理により接続後も等しいです。
 <!-- proof-end -->
 
 
