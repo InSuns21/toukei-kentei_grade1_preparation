@@ -598,3 +598,31 @@ test('FCG5 source-linked observation presets change real solver flow without tou
   assert.match(module,/setSource\(updated\)/);
   assert.match(module,/rerun\(\)/);
 });
+
+test('FCG5 drag stirs the actual flow; Shift only paints and reset restores the state',async()=>{
+  const source=await readFile(new URL('fluid.js',dir),'utf8');
+  const ink=harness(source),stirred=harness(source);
+  const start=stirred.textures.map(t=>t.slice());
+  for(const [h,shiftKey] of [[ink,true],[stirred,false]]){
+    h.canvas.dispatchEvent({type:'pointerdown',clientX:140,clientY:110,shiftKey,pointerId:1,button:0,preventDefault(){}});
+    h.canvas.dispatchEvent({type:'pointermove',clientX:160,clientY:110,shiftKey,pointerId:1});
+    h.canvas.dispatchEvent({type:'pointerup'});
+  }
+  assert.deepEqual(ink.textures[2],start[2],'dye-only drag does not add velocity');
+  assert.deepEqual(ink.textures[0],stirred.textures[0],'both gestures paint the same dye');
+  assert.notDeepEqual(stirred.textures[2],start[2],'stirring changes the computed velocity');
+  assert.deepEqual(stirred.textures[1],start[1],'discrete curl adds no visible divergence');
+  ink.control('step');stirred.control('step');
+  assert.notDeepEqual(stirred.textures[0],ink.textures[0],'velocity change transports the same dye differently');
+  stirred.control('reset');
+  assert.deepEqual(stirred.textures,start,'reset restores dye and velocity');
+});
+
+test('FCG5 live playback does not silently reset at the initial diagnostic limit',async()=>{
+  const source=await readFile(new URL('fluid.js',dir),'utf8');
+  const h=harness(writeLabParameter(source,parametersFor('FCG5')[0],12));
+  for(let i=0;i<34;i++)h.control('step');
+  assert.deepEqual(h.progress.at(-1),{step:34,playing:false});
+  h.control('reset');
+  assert.deepEqual(h.progress.at(-1),{step:0,playing:false});
+});
