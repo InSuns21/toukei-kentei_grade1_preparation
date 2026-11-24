@@ -67,11 +67,11 @@ chapters:
     title: "要求を事前条件・事後条件へ"
   - id: LVT3-02
     path: textbook/volumes/dream_thater/計算系/LVT/LVT3-02
-    status: planned
+    status: completed
     title: "全域性・部分正当性・停止性"
   - id: LVT3-03
     path: textbook/volumes/dream_thater/計算系/LVT/LVT3-03
-    status: planned
+    status: completed
     title: "リスト処理の関数正当性"
   - id: LVT3-04
     path: textbook/volumes/dream_thater/計算系/LVT/LVT3-04

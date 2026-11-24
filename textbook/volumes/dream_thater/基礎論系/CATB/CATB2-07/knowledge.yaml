@@ -1,0 +1,35 @@
+chapter: CATB2-07
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CATB2-06
+  - CAT3-09
+  - CAT4-05
+  - CAT2-11
+
+concepts:
+  - id: category.distributor
+    name: 分配子
+    aliases: [プロ関手]
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（分配子）"]
+    requires: [category.enriched-functor, category.evaluation-currying]
+  - id: category.distributor-balanced-coend
+    name: 豊穣分配子の釣り合いcoend
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（豊穣分配子の釣り合いcoend）"]
+    requires: [category.distributor, category.coend]
+  - id: category.distributor-composition
+    name: 分配子のcoend合成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（分配子のcoend合成）"]
+    requires: [category.distributor-balanced-coend, category.coequalizer, category.small-coproduct, category.right-closed-monoidal, category.left-adjoint-preserves-colimits]
+  - id: category.functor-distributor-composition
+    name: 関手から生じる分配子の合成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（関手から生じる分配子の合成）"]
+    requires: [category.distributor-composition, category.covariant-co-yoneda]

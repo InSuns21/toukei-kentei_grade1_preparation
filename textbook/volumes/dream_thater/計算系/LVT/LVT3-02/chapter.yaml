@@ -1,0 +1,32 @@
+id: "LVT3-02"
+title: "全域性・部分正当性・停止性"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT3-01]
+official_scope: []
+learning_objectives:
+  - 実行予算を持つ計算モデルで部分正当性と停止性を区別する
+  - 再帰する移送モデルの結果と停止までの予算を帰納法で証明する
+  - 全正当性を二つの証明責務に分解し反例で必要性を確認する
+  - 全域的なLean関数と有限予算モデルの結果が一致することを証明する
+definitions:
+  - { id: LVT3-02-DEF-01, name: "Leanの部分正当性" }
+  - { id: LVT3-02-DEF-02, name: "Leanの停止性仕様" }
+  - { id: LVT3-02-DEF-03, name: "Leanの全正当性" }
+  - { id: LVT3-02-DEF-04, name: "Leanの全域的な移送関数" }
+propositions:
+  - { id: LVT3-02-PROP-01, name: "移送モデルの部分正当性" }
+  - { id: LVT3-02-PROP-02, name: "移送モデルの実行予算" }
+  - { id: LVT3-02-PROP-03, name: "移送モデルの全正当性" }
+  - { id: LVT3-02-PROP-04, name: "停止性を欠く部分正当なモデル" }
+  - { id: LVT3-02-PROP-05, name: "全域的移送関数の正しさ" }
+theorems: []
+canonical_examples:
+  - "残り3個を累積値7へ移す計算"
+  - "実行予算が不足する場合とちょうど足りる場合"
+  - "結果を返さないモデルと誤った値を即座に返すモデル"
+problem_patterns: [LVT3-02-A01, LVT3-02-A02, LVT3-02-A03, LVT3-02-A04, LVT3-02-B01, LVT3-02-B02, LVT3-02-B03, LVT3-02-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 3, review: 0.5 }

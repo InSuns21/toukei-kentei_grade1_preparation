@@ -8,6 +8,20 @@
 
 [アデール環](../../ANF/ANF19/index.md#def-anf19-adele)を $\mathbb A=\mathbb R\times\mathbb A_f$、[イデール群](../../ANF/ANF19/index.md#def-anf19-idele)を $\mathbb I=\mathbb A^\times$ とします。行列式が零でないという各成分の条件だけでは、逆行列の成分がアデールになるとは限りません。有限素点の大半では、行列も逆行列も整数成分を持つ必要があります。
 
+素点を $v$ とし、実素点を $v=\infty$、有限素点を $v=p$ と書きます。
+
+$\mathbb Q_p$ は $p$ 進数体、その整数環は
+
+$$
+\mathbb Z_p=\{a\in\mathbb Q_p:|a|_p\le1\}
+$$
+
+です。単元とは環内で乗法逆元を持つ元です。整数環では、元と逆元がともに絶対値1以下となること、すなわち $|a|_p=1$ と同値です。
+
+一般に $GL_2(R)$ は環 $R$ 上で逆行列を持つ2次正方行列の群です。$I$ は単位行列、$\operatorname{diag}(a,d)$ は対角成分が $a,d$ の対角行列です。
+
+[制限付き直積](../../ANF/ANF19/index.md#def-anf19-restricted-product)の考え方を行列へ適用します。積・逆行列は局所成分ごとに計算するので、局所で逆行列を持ち、元の行列と逆行列の全成分がそれぞれ有限個を除いて整であることが、アデール上の可逆性の判定になります。
+
 <a id="def-afr11-adelic-gl2"></a>
 
 <!-- formal-statement-start -->
@@ -23,19 +37,7 @@ $$
 > 有限側の制限付き直積は、有限個を除く素数で $g_p\in K_p$ となる族全体である。位相もこの制限付き直積の位相とする。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-afr11-adelic-gl2 -->
-**定義の確認**
-
-実成分と $p\ne2$ の成分を単位行列とし、2成分を $\operatorname{diag}(2,1)$ とします。
-
-逆行列は2成分だけが $\operatorname{diag}(1/2,1)$ となります。
-
-どちらも有限個を除いて整数成分なのでアデール上可逆です。
-
-一方、全素数で $\operatorname{diag}(p,1)$ とした族は行列の各成分こそアデールですが、逆行列に全素数で $1/p$ が現れ、逆行列はアデール上に存在しません。
-<!-- definition-example-end -->
-
-局所行列を $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ とします。行列式が単元なら
+成分が整数環に入る局所行列を $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ とします。行列式が単元なら
 
 $$
 A^{-1}=(ad-bc)^{-1}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}
@@ -43,11 +45,23 @@ $$
 
 の各成分が整数環に入ります。逆に整数環内で逆行列があれば $\det A\det A^{-1}=1$ なので行列式は単元です。従って各 $g_v$ が局所的に可逆であることと、大半の有限成分で行列式が単元かつ成分が整数であることを合わせれば、上の表示が得られます。
 
+<!-- definition-example-start: def-afr11-adelic-gl2 -->
+**定義の確認**
+
+実成分と $p\ne2$ の成分を単位行列とし、2成分を $\operatorname{diag}(2,1)$ とします。
+
+対角成分を掛けると両方とも1になるので、逆行列は2成分だけが $\operatorname{diag}(1/2,1)$ となります。2成分は局所体上で可逆ですが、行列式の絶対値が $1/2$ なので $K_2$ には入りません。
+
+どちらも有限個を除いて整数成分なのでアデール上可逆です。
+
+一方、全素数で $\operatorname{diag}(p,1)$ とした族は行列の各成分こそアデールですが、逆行列に全素数で $1/p$ が現れ、逆行列はアデール上に存在しません。
+<!-- definition-example-end -->
+
 有理可逆行列を全素点に対角的に埋め込み、$\Gamma_{\mathbb Q}=GL_2(\mathbb Q)$ と書きます。行列と逆行列の分母の素因数は有限個なので、この埋め込みは $G$ に入ります。
 
 ## 2. 左商と有限側の整数行列
 
-AFR1の[群上の重さ付き不変関数](../AFR1/index.md#def-afr1-weight-space)では左からの整数行列を同一視しました。今回は有理行列で同一視します。左から掛ける側を固定すれば、右からの行列の掛け算は代表元の選択に依存しません。
+AFR1の[群上の重さ付き不変関数](../AFR1/index.md#def-afr1-weight-space)では左からの整数行列を同一視しました。今回は有理行列で同一視します。群論の[右剰余類](../../GRP/GRP2/index.md#def-grp2-cosets) $Hg=\{hg:h\in H\}$ において $H=GL_2(\mathbb Q)$ としたものです。左から掛ける側を固定すれば、右からの行列の掛け算は代表元の選択に依存しません。
 
 <a id="def-afr11-adelic-quotient"></a>
 
@@ -65,7 +79,13 @@ $$
 <!-- definition-example-start: def-afr11-adelic-quotient -->
 **定義の確認**
 
-$|\det g|_{\mathbb A}$ は行列式を取ってから全素点の絶対値を掛けた正の実数です。[数体の大域積公式](../../ANF/ANF19/index.md#thm-anf19-product-formula)によって $|\det\gamma|_{\mathbb A}=1$ です。従って
+各局所行列式は非零で、有限素点の大半では単元です。従って $\det g$ はイデールであり、[イデールの絶対値](../../ANF/ANF19/index.md#def-anf19-idele-modulus)として
+
+$$
+|\det g|_{\mathbb A}=|\det g_\infty|\prod_p|\det g_p|_p
+$$
+
+は有限個の1でない正の因子の積です。[数体の大域積公式](../../ANF/ANF19/index.md#thm-anf19-product-formula)によって $|\det\gamma|_{\mathbb A}=1$ です。従って
 
 $$
 |\det(\gamma g)|_{\mathbb A}
@@ -138,7 +158,9 @@ $$
 
 他の $\ell\mid m$ では剰余を0とします。
 
-互いに素な法 $\ell^{2e_\ell}$ に対する[整数の中国剰余定理の構成公式](../../NT/NT1/index.md#thm-nt1-crt-constructive)を各座標に適用して整数ベクトル $u$ を選ぶと、$u$ は全ての $M_\ell$ に属し、従って $u\in M$ です。
+互いに素な法 $\ell^{2e_\ell}$ に対する[整数の中国剰余定理の構成公式](../../NT/NT1/index.md#thm-nt1-crt-constructive)を各座標に適用して整数ベクトル $u$ を選びます。
+
+このベクトルはすべての $M_\ell$ に属するので、$u\in M$ です。
 
 また $w-u\in m^2\mathbb Z_p^2$ です。
 
@@ -205,9 +227,21 @@ $$
 
 逆に対角行列 $\operatorname{diag}(2,1)$ と可換なら非対角成分が0、上三角行列 $\begin{pmatrix}1&1\\0&1\end{pmatrix}$ と可換なら二つの対角成分が等しくなります。
 
-従って中心は $Z(\mathbb A)=\{zI:z\in\mathbb I\}$ です。
+例えば $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ とすると、二つの積の差は順に
 
-中心方向の変化を自由に許す代わりに、前講の指標と同様に固定した複素数倍で表します。
+$$
+\begin{aligned}
+A\operatorname{diag}(2,1)-\operatorname{diag}(2,1)A
+&=\begin{pmatrix}0&-b\\c&0\end{pmatrix},\\
+\operatorname{diag}(a,d)\begin{pmatrix}1&1\\0&1\end{pmatrix}
+-\begin{pmatrix}1&1\\0&1\end{pmatrix}\operatorname{diag}(a,d)
+&=\begin{pmatrix}0&a-d\\0&0\end{pmatrix}.
+\end{aligned}
+$$
+
+従って中心（すべての群の元と可換な元全体）は $Z(\mathbb A)=\{zI:z\in\mathbb I\}$ です。スカラー行列の逆は $z^{-1}I$ なので、可逆性は $z$ がイデールであることに一致します。
+
+中心方向の変化を自由に許す代わりに、連続な乗法指標（積を複素数の積に移す写像）で固定します。ここでは値が絶対値1であることまでは要求しません。$\mathbb C^\times=\mathbb C\setminus\{0\}$ です。
 
 <a id="def-afr11-central-character"></a>
 
@@ -225,7 +259,7 @@ $$
 <!-- definition-example-start: def-afr11-central-character -->
 **定義の確認**
 
-$\phi(g)=|\det g|_{\mathbb A}^{it}$（$t\in\mathbb R$）は[積公式による左不変性](#def-afr11-adelic-quotient)を満たします。$\det(zIg)=z^2\det g$ なので
+$\phi(g)=|\det g|_{\mathbb A}^{it}$（$t\in\mathbb R$）とします。正の実数 $r$ に対して $r^{it}=\exp(it\log r)$ と定めます。この関数は[積公式による左不変性](#def-afr11-adelic-quotient)を満たします。$\det(zIg)=z^2\det g$ なので
 
 $$
 \phi(zIg)=|z|_{\mathbb A}^{2it}\phi(g).
@@ -240,15 +274,35 @@ $\omega(z)=|z|_{\mathbb A}^{2it}$ は連続かつ乗法的で、有理数上で�
 
 商上の関数は非常に多いので、局所の滑らかさと無限遠での振る舞いを制御します。実成分に関する滑らかさは各有限成分を固定したときの通常の無限回微分可能性です。有限側では、あるコンパクト開部分群 $K_0\subset K_f$ による右掛け算で不変とします。
 
-実側の直交行列群 $O(2)$ で右移動した関数たちが張る複素ベクトル空間が有限次元となる条件を $O(2)$ 有限性といいます。実行列の[右移動](../../LIE/LIE1/index.md#def-lie1-translations)を関数の引き戻しとして用い、$R(h)\phi(g)=\phi(gh)$ と書きます。
+実側の直交行列群は
 
-実行列 $X$ に対して右微分を
+$$
+O(2)=\{h\in GL_2(\mathbb R):h^{\mathsf T}h=I\}
+$$
+
+です。行列式は $\pm1$ です。この群で右移動した関数たちが張る複素ベクトル空間が有限次元となる条件を $O(2)$ 有限性といいます。
+
+実行列の[右移動](../../LIE/LIE1/index.md#def-lie1-translations)を関数の引き戻しとして用い、$R(h)\phi(g)=\phi(gh)$ と書きます。
+
+以下、実行列を $G$ の実成分に、有限成分は単位行列として埋め込みます。実行列 $X$ に対して、行列指数 $\exp(tX)=\sum_{n\ge0}t^nX^n/n!$ を用いた右微分を
 
 $$
 D_X\phi(g)=\left.\frac{d}{dt}\phi(g\exp(tX))\right|_{t=0}
 $$
 
-と定め、複素線形に拡張します。これらの有限個の和と、有限回の微分作用素の合成で作る代数を考えます。このうち全ての $D_X$ と可換な作用素全体を $\mathcal Z$ と書きます。$\mathcal Z$ による像が張る空間が有限次元である条件は、微分方程式によって関数を制御するためのものです。これは実Lie代数の普遍包絡代数の中心による有限性の微分作用素としての表現です。
+と定め、複素線形に拡張します。$t$ は実数で、$g,X$ は固定します。
+
+$$
+\exp(tX)=I+tX+O(t^2)
+$$
+
+なので、点 $g$ における方向 $gX$ の微分を取っていることになります。誤差項 $O(t^2)$ は、$t\to0$ で各成分の絶対値が定数倍の $t^2$ 以下に収まることを表します。
+
+これは[左不変ベクトル場](../../LIE/LIE1/index.md#def-lie1-invariant-vector-fields)の行列表示に対応し、有限成分は微分しません。
+
+作用素の積は右端から作用させます。恒等作用素とこれらの微分作用素の有限回の合成の複素線形結合で作る代数を考えます。
+
+このうち全ての $D_X$ と可換な作用素全体を $\mathcal Z$ と書きます。その作用による像が張る空間が有限次元である条件は、微分方程式によって関数を制御するためのものです。これは実Lie代数の普遍包絡代数の中心による有限性の微分作用素としての表現です。
 
 増大を測るため、局所行列 $g_v$ の成分と逆行列の成分の絶対値、および1の最大値を $H_v(g_v)$ とし、$H(g)=\prod_v H_v(g_v)$ と置きます。
 
@@ -298,7 +352,30 @@ $$
 n(u)=\begin{pmatrix}1&u\\0&1\end{pmatrix}
 $$
 
-で表されます。$n(u)n(v)=n(u+v)$ なので、アデールの加法を行列の乗法へ移せます。[加法商の標準代表元](../AFR8/index.md#thm-afr8-additive-normal-form)より $\mathbb Q\backslash\mathbb A$ は $[0,1)\times\widehat{\mathbb Z}$ で代表できます。ここで実 Lebesgue 測度と [p進加法Haar測度の規格化](../AFR9/index.md#prop-afr9-local-measure) による有限側の積測度を取り、商の全体積を1とします。この測度は平行移動で不変です。実際、有限側の分母を有理数で取り除いた後、実側を整数の平行移動で区間に戻せば、いずれも積測度を保存します。
+で表されます。$n(u)n(v)=n(u+v)$ なので、アデールの加法を行列の乗法へ移せます。
+
+[加法商の標準代表元](../AFR8/index.md#thm-afr8-additive-normal-form)より $\mathbb Q\backslash\mathbb A$ は次の集合で代表できます。
+
+$$
+[0,1)\times\widehat{\mathbb Z},\qquad
+\widehat{\mathbb Z}=\prod_p\mathbb Z_p
+$$
+
+ここで実 Lebesgue 測度と [p進加法Haar測度の規格化](../AFR9/index.md#prop-afr9-local-measure) による有限側の積測度を取り、商の全体積を1とします。
+
+この測度は平行移動で不変です。実際、任意の平行移動量も標準代表元 $(a,b)$ で表せます。ここで $0\le a<1$ かつ $b\in\widehat{\mathbb Z}$ です。
+
+代表元 $(x,u_f)$ を移した後、標準代表元へ戻す操作は
+
+$$
+(x,u_f)\longmapsto
+\begin{cases}
+(x+a,u_f+b)& (x+a<1),\\
+(x+a-1,u_f+b-1)& (x+a\ge1)
+\end{cases}
+$$
+
+です。二つの実区間はそれぞれ $[a,1)$ と $[0,a)$ に移り、有限側は各区間上で固定された整数成分による平行移動です。従って両部分とも積測度を保存します。
 
 有理数 $r\ne0$ の掛け算もこの商の測度を保存します。
 
@@ -317,7 +394,7 @@ C_\phi(g)=\int_{\mathbb Q\backslash\mathbb A}
 \phi(n(u)g)\,du
 $$
 
-> とする。この関数が保型形式であり、全ての $g\in G$ で $C_\phi(g)=0$ となるとき、カスプ形式であるという。
+> とする。元の関数 $\phi$ が [保型形式](#def-afr11-automorphic-form) であり、全ての $g\in G$ で $C_\phi(g)=0$ となるとき、$\phi$ をカスプ形式という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr11-cuspidal -->
@@ -363,7 +440,7 @@ $$
 
 商の変数 $v=(d/a)u$ は有理非零数による自己同型であり、先ほど確認した確率測度を保存するので $C_\phi(g)=C_\phi((h,k_f))$ です。
 
-右 $K_f$ 不変性で $k_f$ を単位行列に替えます。
+右 $K_f$ 不変性で $k_f$ を単位行列に替えます。具体的には $n(v)(h,k_f)(1,k_f^{-1})=n(v)(h,1)$ です。
 
 $v$ の代表元を $(x,(v_p)_p)$、$0\le x<1$、$v_p\in\mathbb Z_p$ と選びます。
 
@@ -384,7 +461,13 @@ $$
 
 偶数 $k\ge0$ とし、$f$ をレベル1の[正則モジュラー形式](../../MF/MF2/index.md#def-mf2-modular-form)とします。
 
-実行列 $h=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ の行列式が正の場合、$h\cdot z=(az+b)/(cz+d)$、$j(h,z)=cz+d$ とします。
+実行列 $h=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ の行列式が正の場合、$h\cdot z=(az+b)/(cz+d)$、$j(h,z)=cz+d$ とします。$z=x+iy$ は上半平面の点（$x,y$ は実数、$y>0$）、$i$ は虚数単位です。[右回転の定義](../AFR1/index.md#def-afr1-rotation)に従い
+
+$$
+k_\theta=\begin{pmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{pmatrix}.
+$$
+
+これは $SO(2)$（行列式1の直交行列）の元で、$k_\theta\cdot i=i$、$j(k_\theta,i)=e^{-i\theta}$ です。
 
 行列式の平方根を用いて $s=h/\sqrt{\det h}\in SL_2(\mathbb R)$ に移すと、$s\cdot i=h\cdot i$、$j(s,i)=j(h,i)/\sqrt{\det h}$ です。
 
@@ -416,7 +499,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず [変換因子の積法則](../AFR1/index.md#prop-afr1-factor) と $f$ の変換則から $\delta\in SL_2(\mathbb Z)$ に対して
+まず [変換因子の積法則](../AFR1/index.md#prop-afr1-factor) を使います。この法則は正の行列式の行列でも、列ベクトル $(z,1)^{\mathsf T}$ に行列を続けて掛けて第2成分を比較すれば成立します。[モジュラー形式の変換則](../../MF/MF2/index.md#def-mf2-modular-form) と合わせると $\delta\in SL_2(\mathbb Z)$ に対して
 
 $$
 \begin{aligned}
@@ -453,7 +536,7 @@ $$
 
 $O(2)$ の残りの連結成分は $SO(2)$ と固定反射 $\operatorname{diag}(-1,1)$ の積です。
 
-従って $O(2)$ 移動全体の張る空間は高々2次元です。
+固定反射を $r=\operatorname{diag}(-1,1)$ とすると、その成分の元は $rk_\theta$ と書けます。任意の $g$ について右回転は分解の実成分だけを変えるので $R(k_\theta)\phi_f=e^{ik\theta}\phi_f$ です。$R(rk_\theta)\phi_f=R(r)R(k_\theta)\phi_f=e^{ik\theta}R(r)\phi_f$ なので、全移動は $\phi_f,R(r)\phi_f$ の張る空間に入り、高々2次元です。
 
 次に右微分を調べます。実行列の方向を
 
@@ -465,7 +548,15 @@ S=\begin{pmatrix}0&1\\1&0\end{pmatrix},
 T=\begin{pmatrix}0&1\\-1&0\end{pmatrix}
 $$
 
-とします。$h=s(z)$ で評価すると、$\exp(tH)\cdot i=e^{2t}i$、$j(\exp(tH),i)=e^{-t}$ なので
+とします。$f'(z)$ は正則関数 $f$ の複素変数 $z$ に関する導関数です。実パラメータ $t$ による曲線 $w(t)$ に沿っては、$d f(w(t))/dt=f'(w(t))w'(t)$ という連鎖律を使います。$z=x+iy$ は以下の右微分の間は固定します。
+
+$h=s(z)$ で評価すると、$\exp(tH)\cdot i=e^{2t}i$、$j(\exp(tH),i)=e^{-t}$ です。$s(z)$ は $w\mapsto x+yw$ と作用し、$j(s(z),w)=1/\sqrt y$ は $w$ に依存しません。従って
+
+$$
+F_f(s(z)\exp(tH))=y^{k/2}e^{kt}f(x+iye^{2t}).
+$$
+
+$t=0$ で積の微分と連鎖律を適用すると
 
 $$
 D_HF_f(s(z))=y^{k/2}(kf(z)+2iyf'(z)).
@@ -473,13 +564,25 @@ $$
 
 $\exp(tS)=I+tS+O(t^2)$ から $\exp(tS)\cdot i=i+2t+O(t^2)$、$j(\exp(tS),i)=1+it+O(t^2)$ です。
 
-$s(z)$ は $w\mapsto x+yw$ なので
+同じ積法則と $\det\exp(tS)=1$（$S$ の固有値は $1,-1$）を使うと
+
+$$
+F_f(s(z)\exp(tS))
+=y^{k/2}(1+it+O(t^2))^{-k}f(z+2yt+O(t^2)).
+$$
+
+$t=0$ で微分する二つの因子はそれぞれ $-ik$ と $2yf'(z)$ を与えるので
 
 $$
 D_SF_f(s(z))=y^{k/2}(-ikf(z)+2yf'(z)).
 $$
 
-従って $P_-=D_H-iD_S$ は $F_f$ を消します。
+従って $P_-=D_H-iD_S$ と置くと、この点で
+
+$$
+P_-F_f(s(z))
+=y^{k/2}\{kf(z)+2iyf'(z)-kf(z)-2iyf'(z)\}=0.
+$$
 
 $D_TF_f=ikF_f$ です。
 
@@ -493,7 +596,14 @@ $$
 
 これは左辺を $\theta$ で微分すると交換子により $-2i$ 倍となり、$\theta=0$ で $H-iS$ になることから従います。
 
-右回転の変換則を微分すると
+右回転の変換則を微分します。実行列方向 $X$ について $k_\theta\exp(tX)=\exp(tk_\theta Xk_\theta^{-1})k_\theta$ を使うと
+
+$$
+D_XF_f(s(z)k_\theta)
+=e^{ik\theta}D_{k_\theta Xk_\theta^{-1}}F_f(s(z)).
+$$
+
+複素線形拡張で $X=H-iS$ とすると
 
 $$
 P_-F_f(s(z)k_\theta)
@@ -542,7 +652,9 @@ $d>0$ なら右端の $D_I$ が $\phi_f$ を消し、$c>0$ なら $P_-$ が消�
 
 従って $y'\ge\sqrt3/2$ です。
 
-$q$ 展開の正則な延長から $f$ は $|q|\le\exp(-\pi\sqrt3)$ 上で有界です。
+[周期正則関数のq表示](../../MF/MF2/index.md#thm-mf2-q-coordinate)とモジュラー形式の無限遠の正則性から、$q=e^{2\pi iz}$ で表した関数は $q=0$ にも正則に延長します。
+
+従って閉円板 $|q|\le\exp(-\pi\sqrt3)$ 上で有界です。
 
 よって $|F_f(h)|=y'^{k/2}|f(z')|\le C(y')^{k/2}$ です。
 
@@ -581,7 +693,14 @@ $$
 H_\infty(h)\le2m H_\infty(g_\infty)=2H(g).
 $$
 
-上の評価に代入すれば $\phi_f$ の緩増大条件が成立します。
+上の評価に代入すれば
+
+$$
+|\phi_f(g)|\le C\,2^k(2H(g))^{2k}
+=C\,2^{3k}H(g)^{2k}.
+$$
+
+従って緩増大条件は指数 $M=2k$ で成立します。
 
 最後に $h=t s(z) k_\theta$（$t>0$）と書きます。$n(x)s(z)=s(z+x)$ なので [定数項の実積分への還元](#prop-afr11-constant-term-reduction) により
 
@@ -602,7 +721,7 @@ $$
 
 例えば [モジュラー判別式](../../MF/MF2/index.md#def-mf2-discriminant) $\Delta$ は重さ12で定数項0なので、その持ち上げは非零の大域カスプ形式です。
 
-[正規化された Eisenstein 級数](../../MF/MF2/index.md#thm-mf2-eisenstein-modularity) $E_4$ は定数項1なので $h=s(2i)$ での定数項は $2^2=4$ です。
+[正規化された Eisenstein 級数のq展開](../../MF/MF2/index.md#thm-mf2-eisenstein-q) $E_4$ は定数項1なので $h=s(2i)$ での定数項は $2^2=4$ です。
 
 持ち上げから古典関数を戻すには、有限成分を全て単位行列にし、
 
@@ -656,7 +775,13 @@ $$
 
 従って [中心指標](#def-afr11-central-character)は $\omega(z)=|z|_{\mathbb A}^{6i}$ です。
 
-$|2|_\infty=2$、$|2|_2=1/2$、他の絶対値は1なので $|2|_{\mathbb A}=1$、$\omega(2)=1$ です。
+また [数体の大域積公式](../../ANF/ANF19/index.md#thm-anf19-product-formula)で全有理非零数上の自明性が従います。具体的に
+
+$$
+|2|_\infty=2,\qquad |2|_2=1/2
+$$
+
+であり、他の絶対値は1なので $|2|_{\mathbb A}=1$、$\omega(2)=1$ です。
 <!-- solution-end -->
 
 <a id="ex-afr11-a3"></a>
@@ -867,7 +992,15 @@ a_{-j}=\frac1{2\pi i}\int_{|q|=r} F(q)q^{j-1}\,dq,
 |a_{-j}|\le C'r^j(1+|\log r|)^N.
 $$
 
-$r=e^{-t}$ とすると右辺は $C'e^{-jt}(1+t)^N\to0$ です。係数は半径に依存しないので全ての負の次数の係数が0となり、正則に延長できます。従って $f$ は正則モジュラー形式です。
+$r=e^{-t}$ とすると右辺は
+
+$$
+C'e^{-jt}(1+t)^N\longrightarrow0\qquad(t\to\infty)
+$$
+
+です。係数は半径に依存しないので全ての負の次数の係数が0となります。
+
+[Laurent展開の定理](../../../解析系/CA/CA4/index.md#thm-ca4-laurent)で残った非負次数の冪級数は $|q|<1$ で正則であり、$q=0$ にも延長できます。従って $f$ は正則モジュラー形式です。
 
 (3) 任意の $g=\gamma(h,k_f)$ を [レベル1のアデール分解](#thm-afr11-level-one-decomposition) で取ります。
 

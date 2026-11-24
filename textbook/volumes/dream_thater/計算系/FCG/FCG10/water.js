@@ -29,3 +29,21 @@ gl.viewport(0,0,canvas.width,canvas.height);gl.disable(gl.DITHER);gl.disable(gl.
 gl.drawArrays(gl.TRIANGLES,0,3);
 report('OPTICS','angle='+angle+' deg; index='+indexWater+'; side='+side+'; mode='+mode);
 report('SURFACE','analytic wave: amplitude='+amplitude+' m; phase='+phase+' rad; depth=0.5 m; absorption='+absorption+' /m');
+
+ // Advance the same editable computation; the first frame remains the audit snapshot.
+let liveValue=phase,playing=false,timer=null;
+function emit(){canvas.dispatchEvent(new CustomEvent('fcg-time-progress',{detail:{value:liveValue,playing}}));}
+function cancel(){if(timer!==null)clearTimeout(timer);timer=null;playing=false;}
+function advanceLive(value){uniform('u_phase',value);gl.drawArrays(gl.TRIANGLES,0,3);liveValue=value;}
+function pause(){cancel();emit();}
+function next(){return Math.min(6,Math.round((liveValue+0.1)*1e8)/1e8);}
+function tick(){
+ timer=null;if(!playing)return;
+ try{advanceLive(next());if(liveValue>=6)cancel();emit();if(playing)timer=setTimeout(tick,50);}
+ catch(error){cancel();canvas.dispatchEvent(new CustomEvent('fcg-time-failure',{detail:String(error?.message||error)}));}
+}
+function play(){if(playing)return;if(liveValue>=6)advanceLive(0);playing=true;emit();timer=setTimeout(tick,50);}
+function step(){cancel();advanceLive(next());emit();}
+function reset(){cancel();advanceLive(0);emit();}
+canvas.addEventListener?.('webglcontextlost',cancel);
+return {play,pause,step,reset};

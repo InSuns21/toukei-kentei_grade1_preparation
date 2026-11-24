@@ -36,16 +36,17 @@ $$
 
 <a id="def-aqft19-antiunitary"></a>
 
-<!-- formal-statement-start -->
-> **定義（反ユニタリ作用素）**  
-> 複素Hilbert空間 $\mathcal H$ の写像 $J:\mathcal H\to\mathcal H$ が反ユニタリであるとは、$J$ が全域定義の反線形全射で、任意の $x,y\in\mathcal H$ に対して
-$$
-\langle Jx,Jy\rangle=\overline{\langle x,y\rangle}
-$$
-> を満たすことをいう。特に $\|Jx\|=\|x\|$、$J^{-1}=J^\sharp$ である。
-<!-- formal-statement-end -->
+[QM6の反ユニタリ作用素](../../QM/QM6/index.md#def-qm6-antiunitary)を用います。特に $\|Jx\|=\|x\|$ です。[反線形随伴の定義](../AQFT18/index.md#def-aqft18-antilinear-adjoint)に照らして逆写像も確認できます。任意の $x,y$ について
 
-<!-- definition-example-start: def-aqft19-antiunitary -->
+$$
+\langle Jx,y\rangle
+=\langle Jx,J(J^{-1}y)\rangle
+=\overline{\langle x,J^{-1}y\rangle}
+=\langle J^{-1}y,x\rangle.
+$$
+
+したがって随伴の定義域は全空間で、$J^\sharp=J^{-1}$ です。
+
 ### 直接例：成分を交換する共役
 
 $\mathcal H=\mathbb C^2$ とし $J(z_1,z_2)=(\overline z_2,\overline z_1)$ とします。$\alpha,\beta\in\mathbb C$ に対して $J(\alpha x+\beta y)=\overline\alpha Jx+\overline\beta Jy$ なので反線形です。また
@@ -60,7 +61,6 @@ $$
 $J^2x=x$ だから全射で逆写像を持ち、反ユニタリの**反線形性・内積条件・全射性**をそれぞれ確認できました。一般の反ユニタリでは必ずしも $J^2=I$ とは限りません。この追加性質を Tomita 作用素の対合性から導くのが本講の山場です。
 
 **定義の確認**：全域定義・反線形性・内積の複素共役保存・全射性をそれぞれ式で確認したため、この例は反ユニタリです。対合性はこの具体例固有の追加性質です。
-<!-- definition-example-end -->
 
 ## 3. 閉反線形作用素を正作用素へ結び付ける
 
@@ -657,7 +657,7 @@ $$
 =\overline{\langle x,y\rangle}.
 $$
 
-さらに $U(U(x_1,x_2))=(x_1,x_2)$ なので $U^2=I$ です。任意の $y$ は $y=U(Uy)$ と書けて全射です。以上で[反ユニタリの定義](#def-aqft19-antiunitary)の三条件を確認しました。
+さらに $U(U(x_1,x_2))=(x_1,x_2)$ なので $U^2=I$ です。任意の $y$ は $y=U(Uy)$ と書けて全射です。以上で[反ユニタリの定義](../../QM/QM6/index.md#def-qm6-antiunitary)の三条件を確認しました。
 <!-- solution-end -->
 
 <a id="ex-aqft19-a02"></a>

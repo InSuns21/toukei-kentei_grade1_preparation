@@ -1,0 +1,41 @@
+chapter: AFR12
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR11, AFR2, LREP2]
+forward_references: []
+concepts:
+  - id: automorphic-forms.real-k-type
+    name: "実回転の重さと K 有限ベクトル"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.rotation, automorphic-forms.adelic-form]
+  - id: automorphic-forms.real-ladder
+    name: "昇降作用と交換関係"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.real-k-type, automorphic-forms.classical-adelization]
+  - id: automorphic-forms.real-principal-circle
+    name: "主系列の円周模型"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.real-k-type]
+  - id: automorphic-forms.real-principal-coefficients
+    name: "円周模型の昇降係数"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.real-principal-circle, automorphic-forms.real-ladder]
+  - id: automorphic-forms.real-discrete-disk
+    name: "正則離散系列の円板模型"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.real-principal-coefficients]
+  - id: automorphic-forms.group-left-regular-representation
+    name: "群の左正則表現"
+    kind: definition
+    introduction: formal
+    requires: [representation.unitary]
+  - id: automorphic-forms.real-discrete-unitary
+    name: "円板模型のユニタリ性と離散系列"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.real-discrete-disk, automorphic-forms.real-principal-coefficients, automorphic-forms.group-left-regular-representation, representation.unitary]

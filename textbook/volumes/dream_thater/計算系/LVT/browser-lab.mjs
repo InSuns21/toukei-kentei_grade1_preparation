@@ -89,6 +89,18 @@ export const lessons = {
     ['Main.lean','成功・不足・数量ゼロ','LVT3-01 OK を表示。','\n#eval main\n'],
     ['ExerciseSolutions.lean','演習解答の検査','全9題の証明を検査。'],
     ['Failure.lean','弱い仕様の証明は流用できない','型不一致で拒否される。']
+  ] },
+  'LVT3-02': { module:'LvtTermination', modes:[
+    ['Inspect.lean','予算と結果','none、some 10、some 7、10 と公理依存を確認。'],
+    ['Main.lean','境界のテスト','LVT3-02 OK を表示。','\n#eval main\n'],
+    ['ExerciseSolutions.lean','演習解答の検査','全8題の命題を検査。'],
+    ['Failure.lean','部分正当性は停止性ではない','型不一致で拒否される。']
+  ] },
+  'LVT3-03': { module:'LvtListCorrectness', modes:[
+    ['Inspect.lean','写像・反転・累積引数','[]、[3,3,1]、[3,2]、[3,2,9] と公理依存を確認。'],
+    ['Main.lean','境界のテスト','LVT3-03 OK を表示。','\n#eval main\n'],
+    ['ExerciseSolutions.lean','演習解答の検査','全8題の命題を検査。'],
+    ['Failure.lean','長さの等式では足りない','型不一致で拒否される。']
   ] }
 };
 export function combine(module, definitions, experiment, suffix='') {

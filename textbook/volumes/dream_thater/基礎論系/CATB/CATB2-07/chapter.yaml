@@ -1,0 +1,39 @@
+id: "CATB2-07"
+title: "分配子とcoendによる合成"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CATB2-06
+  - CAT3-09
+  - CAT4-05
+  - CAT2-11
+official_scope: []
+learning_objectives:
+  - 分配子の二変数の型と作用の可換性を説明できる
+  - 釣り合いcoendの普遍性と商表示を具体例で確認できる
+  - 余積と余等化子から豊穣分配子の合成を構成できる
+  - 外側の作用の構成に閉性を使う理由を説明できる
+  - 関手から生じる分配子の合成を計算できる
+definitions:
+  - { id: CATB2-07-DEF-01, name: "分配子" }
+  - { id: CATB2-07-DEF-02, name: "豊穣分配子の釣り合いcoend" }
+theorems:
+  - { id: CATB2-07-THM-01, name: "分配子のcoend合成" }
+  - { id: CATB2-07-PROP-01, name: "関手から生じる分配子の合成" }
+canonical_examples:
+  - 矢印圏における対応の商
+  - 離散中間圏での直積の余積
+  - 関手から生じる分配子の合成
+problem_patterns:
+  - CATB2-07-A01
+  - CATB2-07-A02
+  - CATB2-07-A03
+  - CATB2-07-A04
+  - CATB2-07-B01
+  - CATB2-07-B02
+  - CATB2-07-B03
+  - CATB2-07-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
