@@ -10,7 +10,7 @@
 
 [基数・初期順序数](../../SET/SET6/index.md#def-set6-cardinal)は集合の大きさの代表である。[選択公理から従う整列可能定理](../../../基礎科目/F0/F0-00A2/index.md#thm-well-ordering)により任意の集合は整列可能なので、[整列可能な集合の基数](../../SET/SET6/index.md#def-set6-cardinality-wellorderable)を $|S|$ と書ける。$|S|<\lambda$ は基数としての厳密な不等号であり、$\lambda=\aleph_0$ なら有限、$\lambda=\aleph_1$ なら高々可算という意味になる。ここで $\aleph_0$ は[最小の無限基数](../../SET/SET6/index.md#def-set6-aleph-zero)、$\aleph_1$ はその[次の基数](../../SET/SET7/index.md#cor-set7-successor-cardinal)である。
 
-小さい部分集合を合併しても引き続き小さい、という性質を以下の意味で正則性と呼ぶ。
+小さい集合を小さい個数だけ合併しても引き続き小さい、という条件を満たす無限基数を考える。
 
 <a id="def-catb3-04-regular"></a>
 
@@ -46,7 +46,15 @@ $$
 は $\mathbb N\times\mathbb N$ への単射である。二成分が等しければ最初の成分から同じ添字、次の成分から同じ元と分かる。自然数の対は対角線順に列挙できる（[基数の乗法の例](../../SET/SET6/index.md#def-set6-cardinal-multiplication)）ので高々可算であり、合併も高々可算である。従って $\aleph_1$ も正則である。
 <!-- definition-example-end -->
 
-対照的に、$\kappa_0<\kappa_1<\cdots$ を無限基数の狭義増加列とし、$\kappa=\sup_n\kappa_n$ とする。順序数としての和集合 $\bigcup_n\kappa_n$ が $\kappa$ であり、これは基数でもある。実際、$\alpha<\kappa$ ならある $n$ で $\alpha<\kappa_n$。もし $\alpha$ と $\kappa$ が全単射なら $\kappa_n\subseteq\kappa$ から $\kappa_n$ が $\alpha$ に単射できる。ところが $|\alpha|\leq\alpha<\kappa_n$ なので、$\alpha$ と $|\alpha|$ の全単射を後合成すれば $\kappa_n$ からより小さい基数 $|\alpha|$ への単射となり、[基数の順序と単射](../../SET/SET6/index.md#thm-set6-cardinal-injection-order)に反する。
+対照的に、$\kappa_0<\kappa_1<\cdots$ を無限基数の狭義増加列とし、$\kappa=\sup_n\kappa_n$ とする。
+
+順序数としての和集合 $\bigcup_n\kappa_n$ が $\kappa$ であり、これは基数でもある。
+
+実際、$\alpha<\kappa$ ならある $n$ で $\alpha<\kappa_n$。
+
+もし $\alpha$ と $\kappa$ が全単射なら $\kappa_n\subseteq\kappa$ から $\kappa_n$ が $\alpha$ に単射できる。
+
+ところが $|\alpha|\leq\alpha<\kappa_n$ なので、$\alpha$ と $|\alpha|$ の全単射を後合成すれば $\kappa_n$ からより小さい基数 $|\alpha|$ への単射となり、[基数の順序と単射](../../SET/SET6/index.md#thm-set6-cardinal-injection-order)に反する。
 
 ここでは $|\mathbb N|<\kappa$ かつ各 $|\kappa_n|<\kappa$ だが
 
@@ -69,7 +77,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb3-04-filtered -->
-**定義の確認。** 集合 $X$ の高々可算な部分集合を対象とする包含順序圏を考える。これは冪集合の部分集合を対象とし、各二対象間の射は高々一本だから小さい。$\lambda=\aleph_1$ とし、射が高々可算な任意の図式 $E:J\to I$ を取る。対象も高々可算なので、$U=\bigcup_{a\in\operatorname{Ob}J}E(a)$ は[正則性](#def-catb3-04-regular)により高々可算で、空図式なら $U=\varnothing$ である。各 $E(a)\subseteq U$ が脚を与える。射 $u:a\to b$ に対し $E(a)\subseteq E(b)\subseteq U$ であり、二つの合成経路は同じ包含だから余錐の整合性を満たす。全ての図式に対し条件が成立する。
+**定義の確認。
+
+** 集合 $X$ の高々可算な部分集合を対象とする包含順序圏を考える。
+
+これは冪集合の部分集合を対象とし、各二対象間の射は高々一本だから小さい。
+
+$\lambda=\aleph_1$ とし、射が高々可算な任意の図式 $E:J\to I$ を取る。
+
+対象も高々可算なので、$U=\bigcup_{a\in\operatorname{Ob}J}E(a)$ は[正則性](#def-catb3-04-regular)により高々可算で、空図式なら $U=\varnothing$ である。
+
+各 $E(a)\subseteq U$ が脚を与える。
+
+射 $u:a\to b$ に対し $E(a)\subseteq E(b)\subseteq U$ であり、二つの合成経路は同じ包含だから余錐の整合性を満たす。
+
+全ての図式に対し条件が成立する。
 <!-- definition-example-end -->
 
 図式の添字圏が λ-フィルター圏である余極限を λ-フィルター余極限と呼ぶ。特に $\lambda=\aleph_0$ の場合は前講までの[フィルター余極限](../CATB3-01/index.md#def-catb3-01-filtered-colimit)と一致する。一般の $\lambda$ でも有限圏の射の個数は $\lambda$ 未満なので、λ-フィルター圏はフィルター圏である。
@@ -133,7 +155,13 @@ $$
 
 ## 4. Hom が λ-フィルター余極限を保存する
 
-[局所小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size) $\mathcal C$ で対象 $P$ を固定する。$\mathcal C(P,-)$ は $P$ から出る射の集合を取り、移行射 $u$ に後合成する関手である。図式 $D:I\to\mathcal C$ の余極限を $(X,c_i)$ とすると、余錐条件 $c_jD(u)=c_i$ により、段階の射 $f:P\to D_i$ を $c_if$ に送る写像族は整合する。[余極限の普遍性](../../CAT/CAT2-05/index.md#def-cat2-05-colimit)によって次の比較写像が定まる。
+[局所小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size) $\mathcal C$ で対象 $P$ を固定する。
+
+$\mathcal C(P,-)$ は $P$ から出る射の集合を取り、移行射 $u$ に後合成する関手である。
+
+図式 $D:I\to\mathcal C$ の余極限を $(X,c_i)$ とすると、余錐条件 $c_jD(u)=c_i$ により、段階の射 $f:P\to D_i$ を $c_if$ に送る写像族は整合する。
+
+[余極限の普遍性](../../CAT/CAT2-05/index.md#def-cat2-05-colimit)によって次の比較写像が定まる。
 
 $$
 \theta:\operatorname{colim}_i\mathcal C(P,D_i)
@@ -159,7 +187,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb3-04-presentable -->
-**定義の確認。** $\lambda=\aleph_1$ として $P=\mathbb N$ を集合の圏の対象とする。集合間の写像全体は集合であり、集合の圏は[小さい余極限を持つ](../../CAT/CAT2-05/index.md#thm-cat2-05-cocompleteness)。任意の小さい $\aleph_1$-フィルター図式の余極限への写像 $g:\mathbb N\to X$ を取る。各 $g(n)$ の代表 $x_n\in D_{i_n}$ を選ぶ。可算個の対象 $i_n$ を離散図式にすると[λ-フィルター性](#def-catb3-04-filtered)により共通段階 $k$ と脚 $p_n:i_n\to k$ が得られる。
+**定義の確認。
+
+** $\lambda=\aleph_1$ として $P=\mathbb N$ を集合の圏の対象とする。
+
+集合間の写像全体は集合であり、集合の圏は[小さい余極限を持つ](../../CAT/CAT2-05/index.md#thm-cat2-05-cocompleteness)。
+
+任意の小さい $\aleph_1$-フィルター図式の余極限への写像 $g:\mathbb N\to X$ を取る。
+
+各 $g(n)$ の代表 $x_n\in D_{i_n}$ を選ぶ。
+
+可算個の対象 $i_n$ を離散図式にすると[λ-フィルター性](#def-catb3-04-filtered)により共通段階 $k$ と脚 $p_n:i_n\to k$ が得られる。
 
 $$
 f(n)=D(p_n)(x_n)
@@ -192,7 +230,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[λ-表示対象の定義](#def-catb3-04-presentable)の比較写像の始域は集合のフィルター余極限なので、[有限データの段階表示](../CATB1-08/index.md#lem-catb1-08-finite-witness)により全ての元は $[i,f]$ と表される。従って比較写像の全射性は第1条件そのものである。同じ補題を Hom の集合値図式に適用すると、代表の等号は共通段階での等号と同値である。
+[λ-表示対象の定義](#def-catb3-04-presentable)の比較写像の始域は集合のフィルター余極限なので、[有限データの段階表示](../CATB1-08/index.md#lem-catb1-08-finite-witness)により全ての元は $[i,f]$ と表される。従って任意の $g$ が比較写像の像に入ることは、第1条件そのものである。同じ補題を Hom の集合値図式に適用すると、代表の等号は共通段階での等号と同値である。
 
 $$
 [i,f]=[j,f']
@@ -218,7 +256,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$|P|<\lambda$ とする。任意の小さい λ-フィルター図式 $D:I\to\mathbf{Set}$ と余極限 $(X,c_i)$ を取る。射 $g:P\to X$ に対して、各 $s\in P$ の像の代表 $x_s\in D_{i_s}$ を[有限データの段階表示](../CATB1-08/index.md#lem-catb1-08-finite-witness)で選ぶ。対象集合 $P$ の離散圏は恒等射だけを持つため射集合の基数が $\lambda$ 未満である。これを $s\mapsto i_s$ と写す図式に余錐を取れば、共通段階 $k$ と脚 $p_s:i_s\to k$ が存在する。
+$|P|<\lambda$ とする。
+
+任意の小さい λ-フィルター図式 $D:I\to\mathbf{Set}$ と余極限 $(X,c_i)$ を取る。
+
+射 $g:P\to X$ に対して、各 $s\in P$ の像の代表 $x_s\in D_{i_s}$ を[有限データの段階表示](../CATB1-08/index.md#lem-catb1-08-finite-witness)で選ぶ。
+
+対象集合 $P$ の離散圏は恒等射だけを持つため射集合の基数が $\lambda$ 未満である。
+
+これを $s\mapsto i_s$ と写す図式に余錐を取れば、共通段階 $k$ と脚 $p_s:i_s\to k$ が存在する。
 
 $$
 f:P\to D_k,\qquad f(s)=D(p_s)(x_s)
@@ -337,7 +383,19 @@ $$
 正則無限基数 $\lambda\leq\mu$ と、全ての小さい λ-フィルター余極限を持つ局所小圏 $\mathcal C$ を取る。λ-表示対象 $P$ が $\mu$-表示対象であることを段階判定から示せ。
 
 <!-- solution-start -->
-**詳細解答。** 任意の小さい $\mu$-フィルター圏 $I$ を取る。射集合の大きさが $\lambda$ 未満の圏 $J$ は $\mu$ 未満でもあるので、任意の図式 $J\to I$ が余錐を持つ。従って $I$ は λ-フィルター圏でもある。任意の図式 $D:I\to\mathcal C$ の余極限は仮定により存在する。$P$ の[λ-表示性の段階判定](#prop-catb3-04-stage)をこの図式に適用できるため、任意の射は一段階を経由し、像が等しい二射は共通段階で等しくなる。全ての $\mu$-フィルター図式について二条件が成立するので、同じ判定を $\mu$ に適用して結論を得る。
+**詳細解答。
+
+** 任意の小さい $\mu$-フィルター圏 $I$ を取る。
+
+射集合の大きさが $\lambda$ 未満の圏 $J$ は $\mu$ 未満でもあるので、任意の図式 $J\to I$ が余錐を持つ。
+
+従って $I$ は λ-フィルター圏でもある。
+
+任意の図式 $D:I\to\mathcal C$ の余極限は仮定により存在する。
+
+$P$ の[λ-表示性の段階判定](#prop-catb3-04-stage)をこの図式に適用できるため、任意の射は一段階を経由し、像が等しい二射は共通段階で等しくなる。
+
+全ての $\mu$-フィルター図式について二条件が成立するので、同じ判定を $\mu$ に適用して結論を得る。
 <!-- solution-end -->
 
 ### CATB3-04-C01 積と余極限の交換
@@ -377,7 +435,21 @@ $$
 
 が全成分で成り立つ。積の二代表は共通段階 $m$ への射 $hp,hq$ で一致する。[有限データの段階表示](../CATB1-08/index.md#lem-catb1-08-finite-witness)を積の図式に適用すれば元の代表は等しい。空積でも共通段階で空の組は一致する。よって比較写像は全単射である。
 
-反例として全ての $a\in\mathbb N$ について $D^a_i=\{0,\ldots,i\}$、移行写像を包含とする。各成分の余極限は非負整数全体である。右辺は全ての自然数列を含み、特に列 $(a)_{a\in\mathbb N}$ を含む。一方、左辺の代表はある固定された $i$ で全成分が $i$ 以下の組である。その像の第 $i+1$ 成分も $i$ 以下だから、列 $(a)_a$ にはならない。従って比較写像は全射でない。$\aleph_1$ に対してこの添字圏は λ-フィルター性を満たさず、$\aleph_0$ に対しては積の添字の大きさが $\lambda$ 未満でない。いずれの選択でも定理の仮定から外れている。
+反例として全ての $a\in\mathbb N$ について $D^a_i=\{0,\ldots,i\}$、移行写像を包含とする。
+
+各成分の余極限は非負整数全体である。
+
+右辺は全ての自然数列を含み、特に列 $(a)_{a\in\mathbb N}$ を含む。
+
+一方、左辺の代表はある固定された $i$ で全成分が $i$ 以下の組である。
+
+その像の第 $i+1$ 成分も $i$ 以下だから、列 $(a)_a$ にはならない。
+
+従って比較写像は全射でない。
+
+$\aleph_1$ に対してこの添字圏は λ-フィルター性を満たさず、$\aleph_0$ に対しては積の添字の大きさが $\lambda$ 未満でない。
+
+いずれの選択でも定理の仮定から外れている。
 <!-- solution-end -->
 
 ## 7. 次に向けて
