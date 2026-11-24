@@ -122,7 +122,14 @@ $$
 <!-- formal-statement-start -->
 > **定理（Karoubi包絡による冪等完備化）**
 >
-> 小圏 $\mathcal C$ に対し $\operatorname{Kar}(\mathcal C)$ は小さいCauchy完備圏となる。関手 $J:\mathcal C\to\operatorname{Kar}(\mathcal C)$ は $JX=(X,1_X)$、$Jf=f$ で与えられ、充満忠実である。各対象 $(X,e)$ は $JX$ の冪等射 $e$ の分裂対象となる。
+> 小圏 $\mathcal C$ に対し、$\operatorname{Kar}(\mathcal C)$ は小さいCauchy完備圏となる。次で定める関手 $J$ は充満忠実である。
+
+$$
+J:\mathcal C\to\operatorname{Kar}(\mathcal C),
+\qquad JX=(X,1_X),\quad Jf=f.
+$$
+
+> 各対象 $(X,e)$ は $JX$ の冪等射 $e$ の分裂対象となる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
