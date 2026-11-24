@@ -123,7 +123,7 @@ const descriptions = Object.freeze({
     requiresSteps:false,
     grid:'64 m四方、64×64実計算標本（1 m間隔）。右端と上端は周期境界の複製',
     color:'左：高さ−1 mの濃青〜+1 mの明青。右：反射と格子線（高さの色ではない）',
-    clock:()=> 'ocean.js の time [s] で各波の位相を更新。時刻を指定する静止比較',
+    clock:()=> 'ocean.js の time [s] が開始時刻。再生・1ステップでは物理時刻を0.1 sずつ進める',
     mode:'左は一定色の標本、右は三角形補間で水面を表示。高さは表示上拡大',
     source:'ocean.js（逆FFT・波数・時刻） / ocean.vert（投影） / ocean.frag（空の反射）'
   }),
