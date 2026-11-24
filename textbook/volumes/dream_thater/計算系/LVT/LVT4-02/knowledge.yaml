@@ -19,3 +19,8 @@ concepts:
     kind: proposition
     introduction: formal
     requires: [lean-verification.property-based-testing]
+  - id: lean-verification.range-check-correct
+    name: 範囲判定の全入力正当性
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.property-based-testing]
