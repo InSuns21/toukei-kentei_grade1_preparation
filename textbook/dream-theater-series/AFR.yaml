@@ -76,7 +76,7 @@ chapters:
     title: "`GL_2`の保型表現と古典形式"
   - id: AFR18
     path: textbook/volumes/dream_thater/代数系/AFR/AFR18
-    status: planned
+    status: completed
     title: "Rankin–Selberg積分と積L関数"
   - id: AFR19
     path: textbook/volumes/dream_thater/代数系/AFR/AFR19

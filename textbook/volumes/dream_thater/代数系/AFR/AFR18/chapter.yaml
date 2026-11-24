@@ -1,0 +1,26 @@
+id: "AFR18"
+title: "Rankin–Selberg積分と積L関数"
+volume: "foundations"
+status: supplementary
+prerequisites: [AFR17, AFR7]
+official_scope: []
+learning_objectives:
+  - 同じ重さのカスプ形式の積分を帯へ展開し絶対収束を証明できる
+  - 二つのSatakeパラメータから4次の積L因子と補正因子を導出できる
+  - 球Whittaker関数の漸化式と局所積分の中心方向の和を計算できる
+  - 完成Eisenstein級数から完成積L関数の解析接続と極を導出できる
+definitions:
+  - { id: AFR18-DEF-01, name: "不分岐積L因子" }
+theorems:
+  - { id: AFR18-THM-01, name: "正則カスプ形式のRankin–Selberg展開" }
+  - { id: AFR18-THM-02, name: "積係数の母関数" }
+  - { id: AFR18-THM-03, name: "Rankin–Selbergの有限積L関数" }
+  - { id: AFR18-THM-04, name: "球Whittaker関数の素数冪表示" }
+  - { id: AFR18-THM-05, name: "球Whittaker関数による局所積分" }
+  - { id: AFR18-THM-06, name: "同重さレベル1の完成積L関数" }
+canonical_examples: [モジュラー判別式の二乗係数, 重根の母関数, 局所中心方向の和, Petersson内積と極]
+problem_patterns: [AFR18-A1, AFR18-A2, AFR18-A3, AFR18-A4, AFR18-B1, AFR18-B2, AFR18-B3, AFR18-C1, AFR18-C2]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 2 }
