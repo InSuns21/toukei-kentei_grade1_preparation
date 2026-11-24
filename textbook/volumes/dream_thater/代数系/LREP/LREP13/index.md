@@ -50,7 +50,7 @@ boost $D=\operatorname{diag}(2,1/2)$ では $Du=(2,1)^{\mathsf T}$、$Dv=(6,i/2)
 <!-- proof-start -->
 ### 証明
 
-[LREP4の交代形式の恒等式](../LREP4/index.md#prop-lrep4-epsilon)より任意の二次正方行列 $A$ に対して $A^{\mathsf T}JA=(\det A)J$。$\det S=1$、$\det Q(S)=1/\overline{\det S}=1$ なので
+[二次元交代形式と行列式](../LREP4/index.md#prop-lrep4-epsilon)より任意の二次正方行列 $A$ に対して $A^{\mathsf T}JA=(\det A)J$。$\det S=1$、$\det Q(S)=1/\overline{\det S}=1$ なので
 
 $$
 \begin{aligned}
@@ -206,15 +206,21 @@ $uu^\dagger$ と $vv^\dagger$ は階数が高々1なので行列式が0です。
 
 $u=(\sqrt2,0)^{\mathsf T}$、$v=(0,\sqrt2)^{\mathsf T}$ なら $x=(1,0,0,1)$、$y=(1,0,0,-1)$ です。$F^{03}=-2,F^{30}=2$ が唯一の非零成分であり、添字を下げると $F_{03}=2,F_{30}=-2$ です。完全収縮は $-4-4=-8$。$\eta(x,y)=-2$ を代入した式と一致します。
 
-## 4. 空間反転が左右を交換する
+## 4. 空間座標の符号と左右の交換
 
-これまでは時間の向きと時空の向きを保つLorentz変換を扱ってきました。空間反転（parity）は時間をそのままにし、三つの空間座標の符号を同時に反転します。これをスピノルにも作用させたいと考えます。
+これまでは時間の向きと時空の向きを保つLorentz変換を扱ってきました。時間をそのままにして三つの空間座標の符号を同時に反転する操作（parity）を考えます。これをスピノルにも作用させたいと考えます。
 
 <a id="def-lrep13-parity"></a>
 
 <!-- formal-statement-start -->
 > **定義（空間反転）**  
-> 実Minkowski空間上の線形写像 $P=\begin{pmatrix}1&0\\0&-I_3\end{pmatrix}$ を空間反転と呼ぶ。すなわち
+> 実Minkowski空間上の線形写像 $P$ を次のブロック行列で定め、空間反転と呼ぶ。ここで $I_3$ は三次単位行列である。
+
+$
+P=\begin{pmatrix}1&0\\0&-I_3\end{pmatrix}.
+$
+
+> すなわち
 
 $$
 P(x^0,\mathbf x)=(x^0,-\mathbf x).
@@ -252,7 +258,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-二次正方行列では $\operatorname{adj}(AB)=\operatorname{adj}(B)\operatorname{adj}(A)$。実際、前節の成分公式から
+二次正方行列では $\operatorname{adj}(AB)=\operatorname{adj}(B)\operatorname{adj}(A)$。実際、前節で成分ごとに確かめた表示を代入すると
 
 $$
 \begin{aligned}
@@ -334,7 +340,7 @@ $$
 $X=\operatorname{diag}(3,1)$、$Y=\begin{pmatrix}2&1\\1&4\end{pmatrix}$ の実四元ベクトル間のMinkowski内積を行列式の差と成分の両方から求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $\det X=3,\det Y=7,\det(X+Y)=25-1=24$。 [四元ベクトルの行列収縮](#prop-lrep13-vector-pairing)の証明の差を使えば $-(24-3-7)/2=-7$ です。[二添字Weyl表示](../LREP12/index.md#prop-lrep12-bispinor-vector)の逆公式から $x=(2,0,0,1),y=(3,1,0,-1)$ なので $-6-1=-7$ です。
+**詳細解答。** $\det X=3,\det Y=7,\det(X+Y)=25-1=24$。 [四元ベクトルの行列収縮](#prop-lrep13-vector-pairing)の証明の差を使えば $-(24-3-7)/2=-7$ です。[二添字Weyl表示と四元ベクトル](../LREP12/index.md#prop-lrep12-bispinor-vector)で与えられた逆算を使うと $x=(2,0,0,1),y=(3,1,0,-1)$ なので $-6-1=-7$ です。
 <!-- solution-end -->
 
 <a id="ex-lrep13-a04"></a>
