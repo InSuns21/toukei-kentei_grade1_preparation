@@ -113,6 +113,12 @@ export const lessons = {
     ['Main.lean','境界と成功した遷移','LVT3-05 OK を表示。','\n#eval main\n'],
     ['ExerciseSolutions.lean','演習解答の検査','全8題の証明を検査。'],
     ['Failure.lean','拒否された遷移の証明','容量4で up を選ぶと none なので Step 4 6 の証明が拒否される。']
+  ] },
+  'LVT3-06': { module:'LvtGame', modes:[
+    ['Inspect.lean','反対角線と終局後の拒否','盤面、勝利 true、拒否 true、引き分け盤面と公理依存を確認。'],
+    ['Main.lean','範囲外・重複・勝利・満盤','LVT3-06 OK を表示。','\n#eval main\n'],
+    ['ExerciseSolutions.lean','演習解答の検査','全8題の命題を検査。'],
+    ['Failure.lean','範囲外の着手は成功しない','none の等式を some の等式として使おうとすると型不一致。']
   ] }
 };
 export function combine(module, definitions, experiment, suffix='') {
