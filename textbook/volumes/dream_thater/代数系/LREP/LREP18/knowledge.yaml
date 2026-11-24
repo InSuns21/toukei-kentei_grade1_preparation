@@ -1,0 +1,47 @@
+chapter: LREP18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP17
+forward_references: []
+concepts:
+  - id: representation.charge-conjugation
+    name: 電荷共役
+    kind: definition
+    introduction: formal
+    requires: [representation.dirac-spinor, representation.epsilon-determinant]
+  - id: representation.charge-conjugation-covariance
+    name: 電荷共役の共変性と対合性
+    kind: proposition
+    introduction: formal
+    requires: [representation.charge-conjugation, representation.epsilon-determinant]
+  - id: representation.charge-conjugation-matrix
+    name: 電荷共役行列
+    kind: definition
+    introduction: formal
+    requires: [representation.charge-conjugation, representation.dirac-adjoint]
+  - id: representation.charge-conjugation-gamma
+    name: 電荷共役行列の恒等式
+    kind: proposition
+    introduction: formal
+    requires: [representation.charge-conjugation-matrix, representation.gamma-matrices, representation.dirac-vector-matrices]
+  - id: representation.charge-conjugation-basis
+    name: 電荷共役の基底・位相変換
+    kind: proposition
+    introduction: formal
+    requires: [representation.charge-conjugation-matrix, representation.charge-conjugation-covariance]
+  - id: representation.majorana-condition
+    name: Majorana条件
+    kind: definition
+    introduction: formal
+    requires: [representation.charge-conjugation]
+  - id: representation.majorana-real-structure
+    name: Majorana条件の自由度とchirality
+    kind: proposition
+    introduction: formal
+    requires: [representation.majorana-condition, representation.charge-conjugation-covariance, representation.chiral-projectors]
+  - id: representation.majorana-charge-constraint
+    name: 電荷反転とMajorana条件の制約
+    kind: proposition
+    introduction: formal
+    requires: [representation.majorana-condition, representation.charge-conjugation]
