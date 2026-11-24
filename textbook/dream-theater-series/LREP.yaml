@@ -59,7 +59,7 @@ chapters:
     title: "Lorentz不変収縮"
   - id: LREP14
     path: textbook/volumes/dream_thater/代数系/LREP/LREP14
-    status: planned
+    status: completed
     title: "Clifford代数の構成"
   - id: LREP15
     path: textbook/volumes/dream_thater/代数系/LREP/LREP15
