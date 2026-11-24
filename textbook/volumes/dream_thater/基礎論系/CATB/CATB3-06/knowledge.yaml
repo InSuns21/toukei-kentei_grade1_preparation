@@ -1,0 +1,41 @@
+chapter: CATB3-06
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB3-05, CAT3-10]
+concepts:
+  - id: category.representable-presheaf-finitely-presentable
+    name: 表現可能前層の有限表示性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（表現可能前層の有限表示性）"]
+    requires: [category.yoneda-embedding, category.contravariant-yoneda-lemma, category.functor-pointwise-colimits, category.finitely-presentable-object]
+  - id: category.presheaf-finite-presentation
+    name: 前層の有限生成元・関係式表示
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（前層の有限生成元・関係式表示）"]
+    requires: [category.set-valued-presheaf, category.yoneda-embedding, category.presheaf-bicompleteness]
+  - id: category.presheaf-finite-presentation-sufficiency
+    name: 有限生成元・関係式表示から有限表示性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限生成元・関係式表示から有限表示性）"]
+    requires: [category.presheaf-finite-presentation, category.representable-presheaf-finitely-presentable, category.small-colimit-presentability]
+  - id: category.presheaf-filtered-finite-presentation
+    name: 前層の有限表示によるフィルター生成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（前層の有限表示によるフィルター生成）"]
+    requires: [category.presheaf-finite-presentation, category.yoneda-density, category.presheaf-elements-category, category.filtered-category]
+  - id: category.presheaf-locally-finitely-presentable
+    name: 前層圏の局所有限表示性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（前層圏の局所有限表示性）"]
+    requires: [category.presheaf-filtered-finite-presentation, category.presheaf-finite-presentation-sufficiency, category.locally-finitely-presentable-category, category.presheaf-bicompleteness]
+  - id: category.presheaf-finitely-presentable-characterization
+    name: 前層の有限表示性の特徴付け
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（前層の有限表示性の特徴付け）"]
+    requires: [category.presheaf-filtered-finite-presentation, category.presheaf-finite-presentation-sufficiency, category.finitely-presentable-stage-test, category.contravariant-yoneda-lemma]

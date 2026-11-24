@@ -1,0 +1,25 @@
+id: "CATB3-06"
+title: "前層圏の表示対象"
+volume: "foundations"
+status: supplementary
+prerequisites: [CATB3-05, CAT3-10]
+official_scope: []
+learning_objectives:
+  - 点ごとの余極限とYoneda対応から表現可能前層の有限表示性を証明できる
+  - 有限生成元・関係式表示を余積と余等化子で計算できる
+  - 有限な選択によるフィルター図式を構成して前層を復元できる
+  - 前層圏の局所有限表示性と有限表示性の特徴付けを証明できる
+definitions:
+  - { id: CATB3-06-DEF-01, name: "前層の有限生成元・関係式表示" }
+theorems:
+  - { id: CATB3-06-THM-01, name: "表現可能前層の有限表示性" }
+  - { id: CATB3-06-PROP-01, name: "有限生成元・関係式表示から有限表示性" }
+  - { id: CATB3-06-THM-02, name: "前層の有限表示によるフィルター生成" }
+  - { id: CATB3-06-THM-03, name: "前層圏の局所有限表示性" }
+  - { id: CATB3-06-THM-04, name: "前層の有限表示性の特徴付け" }
+canonical_examples: [矢印圏上の前層, 非負整数の加法による一対象圏]
+problem_patterns: [CATB3-06-A01, CATB3-06-A02, CATB3-06-A03, CATB3-06-A04, CATB3-06-B01, CATB3-06-B02, CATB3-06-B03, CATB3-06-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 5, review: 2 }
