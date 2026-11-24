@@ -3,6 +3,8 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - IWA12
+  - F0-00P1
+  - F0-02C2
 forward_references: []
 concepts:
   - id: number-theory.iwa13-distribution
