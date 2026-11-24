@@ -6,18 +6,18 @@
 
 ## 1. 二階の波動方程式から一階の作用素へ
 
-時空を $\mathbb R^4$、点を $x=(t,x^1,x^2,x^3)^{\mathsf T}$ とします。[Lorentz計量の共通規約](../../../../../dream-theater-lorentz-conventions.md)に従い $\eta=\operatorname{diag}(-1,1,1,1)$ とし、光速と換算Planck定数を $c=\hbar=1$ に取ります。質量 $m\ge0$ は実定数です。$\partial_\mu$ は $x^\mu$ での偏微分、$\partial_0=\partial_t$ です。ギリシャ文字の添字は $0,1,2,3$、空間添字 $j$ は $1,2,3$ を走り、和を明記します。
+時空を $\mathbb R^4$、点を $x=(t,x^1,x^2,x^3)^{\mathsf T}$ とします。[Minkowski計量](../../../物理系/SREL/SREL2/index.md#def-srel2-minkowski-metric)を使い、[符号の共通規約](../../../../../dream-theater-lorentz-conventions.md)に従って $\eta=\operatorname{diag}(-1,1,1,1)$ とし、光速と換算Planck定数を $c=\hbar=1$ に取ります。質量 $m\ge0$ は実定数です。$\partial_\mu$ は $x^\mu$ での偏微分、$\partial_0=\partial_t$ です。ギリシャ文字の添字は $0,1,2,3$、空間添字 $j$ は $1,2,3$ を走り、和を明記します。
 
 場とは各点に値を割り当てる関数です。ここでは [Diracスピノル](../LREP16/index.md#def-lrep16-dirac) を値とする、少なくとも二階連続微分可能な関数 $\psi:\mathbb R^4\to\mathbb C^4$ を考えます。列の成分は普通の複素数です。
 
-スカラー成分に対する波動演算子を
+[自由Klein–Gordon方程式の波動演算子](../../../物理系/QFT/QFT1/index.md#def-qft1-klein-gordon)をスカラー成分に対して
 
 $$
 \Box_\eta=\sum_{\mu,\nu}\eta^{\mu\nu}\partial_\mu\partial_\nu
 =-\partial_t^2+\sum_{j=1}^3\partial_j^2
 $$
 
-と置きます。$(-\Box_\eta+m^2)f=0$ が自由なKlein–Gordon方程式です。空間一定の場合にも $\partial_t^2 f=-m^2 f$ となり、一般には初期値と初期時間微分の二つが必要です。四成分を組み合わせることで、これを一階の式に因数分解できないでしょうか。
+と置きます。QFT1の[自由Klein–Gordon方程式](../../../物理系/QFT/QFT1/index.md#def-qft1-klein-gordon)は $(-\Box_\eta+m^2)f=0$ です。QFT1では実数値の場を考えましたが、ここでは複素成分 $f=a+ib$ に対しても同じ演算子を使います。係数が実数なので、$(-\Box_\eta+m^2)f=0$ は実部 $a$ と虚部 $b$ がそれぞれ同じ実数値の方程式を満たすことと同値です。空間一定の場合にも $\partial_t^2 f=-m^2 f$ となり、一般には初期値と初期時間微分の二つが必要です。四成分を組み合わせることで、これを一階の式に因数分解できないでしょうか。
 
 [LREP15のガンマ行列](../LREP15/index.md#def-lrep15-gamma)は基底の番号を添字に持ちます。[ベクトル成分用行列の変換則](../LREP17/index.md#prop-lrep17-vector-matrices)で導入した成分用の行列をそのまま用います。$I=I_2$、$I_4$ は四次単位行列、$\sigma_j$ は [Pauli行列](../LREP5/index.md#def-lrep5-pauli-model) です。
 
@@ -32,7 +32,7 @@ $$
 
 特に $(G^0)^2=I_4$、$(G^j)^2=-I_4$ です。元の $\gamma^\mu$ の反交換関係とは符号が異なります。微分と行列を組み合わせるとき、時空の添字を下に持つ微分と上に持つ $G^\mu$ を組み合わせます。
 
-一階の微分作用素とは、関数そのものと一階偏微分から新しい関数を作る写像です。今回は各偏微分に固定行列を掛け、質量の定数倍を引きます。
+ここで構成する微分作用素は、関数そのものと一階偏微分から新しい関数を作る写像です。各偏微分に固定行列を掛け、質量の定数倍を引くので、微分の最高次数は一階になります。
 
 <a id="def-lrep19-dirac-operator"></a>
 
