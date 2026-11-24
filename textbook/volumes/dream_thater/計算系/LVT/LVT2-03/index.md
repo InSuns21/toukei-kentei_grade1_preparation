@@ -8,7 +8,7 @@
 
 前講では [Leanの全称量化の導入・除去規則](../LVT2-02/index.md#def-lvt2-02-forall) により、任意の入力についての保証を扱いました。今回は、入力の別表現が同じ値だという証明を得たとき、既に証明した仕様をどう再利用するかを考えます。例えば入力番号に 0 を加える処理は番号を変えません。しかし、変数を含む式の等しさは、具体的な数の計算だけでは確認できないことがあります。
 
-同じ型の二つの値を比較する命題を作ります。前提となる [Leanの命題型](../LVT2-01/index.md#def-lvt2-01-prop) の通り、等式が成立するという主張も証明を要求する型です。
+同じ型の二つの値を比較する命題を作ります。前提となる [Leanの命題型](../LVT2-01/index.md#def-lvt2-01-prop) の通り、等式が成立するという主張も証明を要求する型です。`α : Type` は Nat や Bool のような型を表す変数、`a, b : α` はその型の項です。`a = b` は `Eq a b` の記法で、真偽値を返す `==` とは異なります。ここでは Type の場合に範囲を限ります。[帰納型](../LVT1-03/index.md#def-lvt1-03-inductive-type) の構成子という考え方を証明にも用います。等式を直接作る構成子は、同じ項を両辺に持つ `Eq.refl` です。`rfl` は期待される等式の両辺が定義による計算で一致するときに、この反射律で証明できます。
 
 <a id="def-lvt2-03-eq"></a>
 
@@ -19,7 +19,7 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt2-03-eq -->
-**定義の確認**　a を自然数 3 とすると、両辺は同じ Nat 型で、Eq.refl (3 : Nat) の型は (3 : Nat) = 3 です。Bool の true と Nat の 3 をこの等式の両辺にそのまま置くことはできません。
+**定義の確認**　a を自然数 3 とすると、両辺は同じ Nat 型で、`Eq.refl (3 : Nat)` の型は `(3 : Nat) = 3` です。等式そのものの型は Prop、その証明の型はこの等式であり、証明と命題を区別します。Bool の true と Nat の 3 をこの等式の両辺にそのまま置くことはできません。
 <!-- definition-example-end -->
 
 Lean では式を評価するための定義の展開や関数の適用が型の比較にも使われます。例えば (fun n : Nat => n + 1) 2 は関数の引数に 2 を代入すると 2 + 1 になり、計算すると 3 です。このような計算規則のもとで一致する式は、別途等式の仮定を受け取る必要がありません。
@@ -41,7 +41,12 @@ example : (2 : Nat) + 1 = 3 := rfl
 example : (fun n : Nat => n + 1) 2 = 3 := rfl
 ```
 
-自然数の加算は第2引数を再帰的に減らすので、n + 0 は定義から n になります。一方、0 + n は n が未知の変数であると定義の計算だけでは n に達しません。この場合は Nat.zero_add n という等式の定理を使います。Nat.zero_add の帰納法による証明の組み立て方は後の構造帰納法の講義で扱います。ここでは標準ライブラリの型を #check で確認して用います。
+[構造再帰](../LVT1-04/index.md#def-lvt1-04-structural-recursion) で用いた自然数の構成子は `Nat.zero`（0）と `Nat.succ k`（k の次の自然数）です。`Nat.add n k` は自然数に対する `n + k` の実装であり、第2引数 k に関する次の計算規則を持ちます。
+
+- `Nat.add n 0` は n に簡約される。
+- `Nat.add n (Nat.succ k)` は `Nat.succ (Nat.add n k)` に簡約される。
+
+例えば `2 + 1` は `Nat.succ (2 + 0)` を経て `Nat.succ 2`、すなわち 3 になります。`n + 0` は第1の規則で n になります。一方、`0 + n` は n が未知の変数ならどちらの再帰の枝を選ぶか決められず、定義の計算だけでは n に達しません。この場合は標準ライブラリの定理 `Nat.zero_add n : 0 + n = n` を使います。Nat.zero_add の帰納法による証明の組み立て方は後の構造帰納法の講義で扱います。ここでは標準ライブラリの型を #check で確認して用います。
 
 ```lean
 example (n : Nat) : n + 0 = n := rfl
@@ -52,7 +57,7 @@ example (n : Nat) : 0 + n = n := Nat.zero_add n
 
 ## 2. 等式を仕様の中で使う
 
-二つの入力 a と b が等しいという証拠があるとします。a に対して条件 P が成立しているなら、b にも同じ条件を適用したいところです。P は入力を取って命題を返す関数（述語）です。この置換は等式の証明を取り除く規則として正当化されます。
+二つの入力 a と b が等しいという証拠があるとします。a に対して条件 P が成立しているなら、b にも同じ条件を適用したいところです。P は [Leanの全称量化の導入・除去規則](../LVT2-02/index.md#def-lvt2-02-forall) で用いた述語、すなわち入力を取って命題を返す関数です。`P a` は述語を a に適用した命題であり、`ha : P a` はその証明です。等式の証明を反射律の場合に分解して条件を移す操作を、等式による置換と呼びます。
 
 <a id="def-lvt2-03-subst"></a>
 
@@ -63,7 +68,12 @@ example (n : Nat) : 0 + n = n := Nat.zero_add n
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt2-03-subst -->
-**定義の確認**　P n を n = 3 とし、a = 1 + 2、b = 3 とします。h : (1 : Nat) + 2 = 3 と ha : (1 : Nat) + 2 = 3 はともに rfl で作れます。Eq.subst に h と ha を渡すと P 3、つまり 3 = 3 の証明になります。h は入力の同一性を、ha は元の条件の成立を与えており、役割が異なります。
+**定義の確認**　`P := fun n : Nat => n + 1 = 4`、`a := 1 + 2`、`b := 3` と選びます。必要な証明は二つです。
+
+- 入力の等式 `h : (1 : Nat) + 2 = 3` は、左辺を計算すると 3 になるので `rfl` で作れます。
+- 元の条件 `ha : P a` は `(1 + 2) + 1 = 4` に展開され、左辺が `3 + 1`、さらに 4 になるので `rfl` で作れます。
+
+`Eq.subst` にこの二つを渡して得る命題は `P b` です。述語の本体の n に b を代入すると `3 + 1 = 4` になります。h は入力の等しさ、ha はその入力で条件が成立することの証明で、型も役割も異なります。
 <!-- definition-example-end -->
 
 ```lean
@@ -71,7 +81,7 @@ example (P : Nat → Prop) (a b : Nat) (h : a = b) (ha : P a) :
     P b := Eq.subst h ha
 ```
 
-この規則を使って、等式を逆向きに使う場合や二本の等式をつなぐ場合を構成します。
+この規則を使って、等式を逆向きに使う場合（対称律）や二本の等式をつなぐ場合（推移律）を構成します。以下のコードで `{α : Type}` や `{a b : α}` の波括弧は暗黙引数を表し、呼出し時にはほかの引数の型や期待される型から推論されます。`(h : a = b)` の丸括弧は明示的に渡す引数です。
 
 <a id="prop-lvt2-03-chain"></a>
 
@@ -86,9 +96,9 @@ example (P : Nat → Prop) (a b : Nat) (h : a = b) (ha : P a) :
 <!-- proof-start -->
 ### 証明
 
-対称律：h : a = b とする。述語 P x を x = a と定めると P a は a = a であり、反射律が証明を与える。h によって P a を P b へ置換すると b = a となる。
+対称律：`h : a = b` とする。述語 `P := fun x : α => x = a` では a を固定し、x を動かす。`P a` は `a = a` なので [Leanの等式と反射律](#def-lvt2-03-eq) による証明 `Eq.refl a` を持つ。[Leanの等式による置換](#def-lvt2-03-subst) で h を用いると `P b` の証明、すなわち `b = a` が得られる。
 
-推移律：h : a = b と k : b = c を取る。述語 Q x を a = x とすると Q b は h によって成立する。k で Q b を Q c へ置換すると a = c となる。
+推移律：`h : a = b` と `k : b = c` を取る。述語 `Q := fun x : α => a = x` では左辺 a を固定する。`Q b` は `a = b` なので h が証明である。k を用いて `Eq.subst k h` を `Q c` の証明として構成でき、すなわち `a = c` となる。
 
 Lean の cases h は等式の証明 h を唯一の構成子 Eq.refl の場合に分解する。その枝では b と a が同一となり、対称律の目標は a = a、推移律では k : a = c が残る。これらを rfl と k で閉じる。
 
@@ -108,7 +118,7 @@ theorem chainEq {α : Type} {a b c : α}
 
 ## 3. 関数の中に等式を持ち込む
 
-入力が等しければ、同じ関数を適用した出力も等しいはずです。例えば正規化された番号が同じなら、その番号に同じ処理を適用した結果も同じです。
+入力が等しければ、同じ関数を適用した出力も等しいはずです。例えば正規化された番号が同じなら、その番号に同じ処理を適用した結果も同じです。等式が同じ関数の適用によって保たれることを、ここでは合同性と呼びます。
 
 <a id="prop-lvt2-03-congr"></a>
 
@@ -148,11 +158,13 @@ theorem liftEq {α β : Type} (f : α → β) {a b : α}
 <!-- formal-statement-start -->
 ### 定義（Leanの書換え操作）
 
-h : a = b に対し、rw [h] は目標中の照合できる a を b に置換する指示である。rw [← h] は逆向きの置換を指定する。rw [h] at hp は局所仮定 hp の型を対象とする。置換後の証明義務は元の等式によって正当化される。
+型 α : Type の値 a, b : α と等式の証明 h : a = b に対し、rw [h] は目標中の照合できる a を b に置換する指示である。rw [← h] は逆向きの置換を指定する。rw [h] at hp は局所仮定 hp の型を対象とする。置換後の証明義務は元の等式によって正当化される。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt2-03-rw -->
-**定義の確認**　目標 f a = f b と h : a = b に対し rw [h] を実行すると f b = f b となり、反射律で閉じます。逆に目標 f b = f a で rw [← h] を実行すると f a = f a になります。仮定 hp : P a に rw [h] at hp を適用すれば hp : P b に変わります。
+**定義の確認**　`a, b : Nat`、`f : Nat → Nat`、`h : a = b` とします。目標 `f a = f b` に `rw [h]` を適用すると `f b = f b` となり、反射律で閉じます。逆に目標 `f b = f a` なら `rw [← h]` で `f a = f a` となります。矢印 `←` は等式の対称律で向きを変える指定です。
+
+`P : Nat → Prop` と `hp : P a` がある場合は `rw [h] at hp` で `hp : P b` に変わります。これは [Leanの等式による置換](#def-lvt2-03-subst) の `Eq.subst h hp` と同じ方向に条件を移す操作です。角括弧には書換えに使う等式を並べ、`at` の後には目標の代わりに書き換える仮定を指定します。
 <!-- definition-example-end -->
 
 ```lean
@@ -165,7 +177,7 @@ example (P : Nat → Prop) (a b : Nat) (h : a = b) (hp : P a) :
   exact hp
 ```
 
-同じ種類の書換えが何度も必要な式では、一つずつ箇所を探すより、使う規則を指定して式を簡約したいことがあります。例えば (0 + n) + 0 から左右の余分な 0 を除きます。
+同じ種類の書換えが何度も必要な式では、一つずつ箇所を探すより、使う規則を指定して式を簡約したいことがあります。例えば `(0 + n) + 0` から左右の余分な 0 を除きます。`simp` は simplification（簡約）の略で、`simp only` は簡約定理の集合を指定して使う形です。
 
 <a id="def-lvt2-03-simp"></a>
 
@@ -267,7 +279,7 @@ example : (fun n : Nat => n + 2) 3 = 5 := rfl
 <!-- solution-start -->
 #### 詳細解答
 
-前者は第2引数が 0 なので加算の定義から n となる。後者は第2引数が変数なので rfl に頼らず、Nat.zero_add を n に適用する。
+[Leanの定義的等しさ](#def-lvt2-03-defeq) と第1節の加算の計算規則を使う。前者は `Nat.add n 0` が n に簡約されるので `rfl` でよい。後者は `Nat.add 0 n` の第2引数が変数なので計算の枝を選べない。`Nat.zero_add` を n に適用すると型 `0 + n = n` の証明が得られる。
 
 ```lean
 example (n : Nat) : n + 0 = n := rfl
@@ -300,7 +312,7 @@ P : Nat → Prop、a, b : Nat、h : a = b、hb : P b から P a を得よ。
 <!-- solution-start -->
 #### 詳細解答
 
-Eq.symm h : b = a とする。[Leanの等式による置換](#def-lvt2-03-subst) で入力 b の条件 hb を入力 a の条件へ移す。
+[Leanの等式の対称律と推移律](#prop-lvt2-03-chain) から `Eq.symm h : b = a` を得る。[Leanの等式による置換](#def-lvt2-03-subst) で入力 b の条件 hb を入力 a の条件へ移す。
 
 ```lean
 example (P : Nat → Prop) (a b : Nat) (h : a = b) (hb : P b) :
@@ -363,6 +375,8 @@ example (n : Nat) : 0 + ((0 + n) + 0) = n := by
 ```
 <!-- solution-end -->
 
+<a id="lvt2-03-b03"></a>
+
 ### LVT2-03-B03 合同性の逆は成立するか
 
 関数 f : Nat → Nat を f n = 0 とする。f 1 = f 2 を示し、1 = 2 は成立しないことを示せ。
@@ -372,7 +386,13 @@ example (n : Nat) : 0 + ((0 + n) + 0) = n := by
 <!-- solution-start -->
 #### 詳細解答
 
-f の定義を両辺で展開すると 0 = 0 になり、rfl で成立する。一方 1 = 2 の証明 h が存在すれば、1 は Nat.succ 0、2 は Nat.succ 1 なので、後者を作る Nat.succ の引数が等しくなければならない。Lean が帰納型の構成子に対して生成する Nat.succ.inj に h を渡すと h0 : 0 = 1 を得る。0 は Nat.zero、1 は Nat.succ 0 で構成子が異なるため、この等式の cases h0 に成立する枝はなく False が導かれる。したがって [Leanの関数適用に関する等式の合同性](#prop-lvt2-03-congr) の逆はこの例で偽である。
+f の定義を両辺で展開すると `0 = 0` になり、[Leanの定義的等しさ](#def-lvt2-03-defeq) により `rfl` で成立する。
+
+一方、`¬ ((1 : Nat) = 2)` は `(1 = 2) → False` の略記である（[Curry–Howard対応](../LVT2-01/index.md#def-lvt2-01-curry-howard)）。`intro h` で等式の証明 h を仮定し、False を目標にする。1 と 2 を自然数の構成子で展開すると h の型は `Nat.succ 0 = Nat.succ 1` になる。
+
+入力 0 なら 0、入力 `Nat.succ k` なら k を返す関数（`Nat.pred`）を両辺に適用すれば、[Leanの関数適用に関する等式の合同性](#prop-lvt2-03-congr) から `0 = 1` が従う。Lean が提供する `Nat.succ.inj` はこの構成子の引数の等しさを取り出す定理なので、`Nat.succ.inj h` で `h0 : 0 = 1` を得られる。
+
+しかし 0 と 1 は `Nat.zero` と `Nat.succ 0` という異なる構成子から作られる。[Boolの異なる構成子から生じる矛盾](../LVT2-01/index.md#lvt2-01-bool-distinct) と同じ考え方で、0 なら true、後続数なら false を返す関数を考える。h0 に合同性を適用すると `true = false` が従い、矛盾する。`cases h0` は異なる構成子の等式に成立する枝がないことを利用して False の目標を閉じる。したがって合同性の逆はこの例で偽である。
 
 ```lean
 example : (fun _ : Nat => 0) 1 = (fun _ : Nat => 0) 2 := rfl
@@ -394,7 +414,7 @@ normalize を本文の関数とする。任意の f : Nat → Nat と n : Nat �
 <!-- solution-start -->
 #### 詳細解答
 
-[Leanの自然数入力の正規化保存](#prop-lvt2-03-normalize) の等式をまず入力 normalize n に適用し、h₁ : normalize (normalize n) = normalize n を得る。次に n に適用し、h₂ : normalize n = n を得る。[Leanの等式の対称律と推移律](#prop-lvt2-03-chain) で Eq.trans h₁ h₂ は normalize (normalize n) = n となる。[Leanの関数適用に関する等式の合同性](#prop-lvt2-03-congr) で関数 f の両辺も等しくなる。後半は同じ等式を [Leanの等式による置換](#def-lvt2-03-subst) に渡し、元の述語を P n に移す。誤った関数 bad n = 0 では n = 1、P m = (m = 1) を選ぶと P 1 は rfl で成立するが、P (bad 1) は 0 = 1 なので成立しない。cases により異なる自然数の構成子の等式には枝がない。
+[Leanの自然数入力の正規化保存](#prop-lvt2-03-normalize) の等式をまず入力 normalize n に適用し、h₁ : normalize (normalize n) = normalize n を得る。次に n に適用し、h₂ : normalize n = n を得る。[Leanの等式の対称律と推移律](#prop-lvt2-03-chain) で Eq.trans h₁ h₂ は normalize (normalize n) = n となる。[Leanの関数適用に関する等式の合同性](#prop-lvt2-03-congr) で関数 f の両辺も等しくなる。後半は同じ等式を [Leanの等式による置換](#def-lvt2-03-subst) に渡し、元の述語を P n に移す。誤った関数 `bad := fun _ : Nat => 0` では `n := 1`、`P := fun m : Nat => m = 1` を選ぶ。`P 1` は `1 = 1` なので `rfl` で成立するが、`P (bad 1)` は `0 = 1` に簡約される。[演習 B03 の異なる構成子の矛盾](#lvt2-03-b03) により `cases h` で False を導ける。失われた仮定は `bad n = n` であり、述語を移すための等式を一般には用意できない。
 
 ```lean
 example (f : Nat → Nat) (n : Nat) :
