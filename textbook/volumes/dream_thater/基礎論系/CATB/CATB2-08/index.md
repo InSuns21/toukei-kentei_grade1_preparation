@@ -72,12 +72,12 @@ $$
 
 である。左辺は先に2-射を合成してから括弧を変え、右辺は先に括弧を変えてから2-射を合成する。単位子の自然性も、任意の $\alpha:f\Rightarrow f'$ について
 
-$
+$$
 \begin{aligned}
 l_{f'}\cdot(1_{1_B}*\alpha)&=\alpha\cdot l_f,\\
 r_{f'}\cdot(\alpha*1_{1_A})&=\alpha\cdot r_f
 \end{aligned}
-$
+$$
 
 である。ここで $1_{1_B}$ は恒等1-射 $1_B$ 自身の恒等2-射である。
 
@@ -134,7 +134,7 @@ $$
 
 小圏 $A,B,C,D$ を取る。小圏 $A,B$ に対し[関手圏](../../CAT/CAT1-08/index.md#def-cat1-08-functor-category) $[A,B]$ は圏をなす。関手 $F,F':A\to B$ と $G,G':B\to C$ を取り、$\alpha:F\Rightarrow F'$ と $\beta:G\Rightarrow G'$ の水平合成を考える。各対象 $x$ での成分は
 
-$
+$$
 (\beta*\alpha)_x=\beta_{F'x}\circ G(\alpha_x)
 =G'(\alpha_x)\circ\beta_{Fx}
 $$
