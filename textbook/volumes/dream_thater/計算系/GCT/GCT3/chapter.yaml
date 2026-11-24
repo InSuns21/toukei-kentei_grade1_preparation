@@ -1,0 +1,38 @@
+id: "GCT3"
+title: "完全マッチングの重み付き母関数とパーマネント"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GCT2
+  - COMB2
+official_scope: []
+learning_objectives:
+  - 完全マッチングの重みの積を足し合わせ、指定辺の本数別の係数を解釈できる
+  - 置換の列表示を用いてパーマネントを計算し、行列式との違いを説明できる
+  - 完全マッチングと許容置換の全単射から重み付き母関数の一致を証明できる
+  - 正重み・零重み・負重みで存在判定と重み付き総和の関係を区別できる
+  - 行展開を導出し、一辺を固定した割当ての個数を計算できる
+definitions:
+  - { id: GCT3-DEF-01, name: "完全マッチングの重み付き母関数" }
+  - { id: GCT3-DEF-02, name: "パーマネント" }
+theorems:
+  - { id: GCT3-THM-01, name: "完全マッチングの重み付き母関数とパーマネントの一致" }
+  - { id: GCT3-THM-02, name: "パーマネントの行展開" }
+canonical_examples:
+  - 二人二仕事の重み付き割当て
+  - 三人三仕事の候補行列
+  - 零重みと負重みの相殺
+problem_patterns:
+  - GCT3-PERMANENT
+  - GCT3-COUNT
+  - GCT3-COEFFICIENT
+  - GCT3-ZERO-WEIGHT
+  - GCT3-EXPANSION
+  - GCT3-RELABEL
+  - GCT3-CANCELLATION
+  - GCT3-FIX-EDGE
+  - GCT3-MARKED-EDGES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }
