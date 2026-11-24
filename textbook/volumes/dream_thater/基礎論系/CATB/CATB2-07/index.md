@@ -14,7 +14,7 @@
 
 基底 $\mathcal V$ は局所小な[対称モノイダル圏](../../CAT/CAT4-03/index.md#def-cat4-03-symmetric)で、[右閉](../../CAT/CAT4-05/index.md#def-cat4-05-right-closed)であるとする。単位対象を $I$ と書く。対称性と[Mac Laneの整合性定理](../../CAT/CAT4-02/index.md#thm-cat4-02-coherence)を使い、テンソル因子の明示した並べ替えと括弧・単位子の省略を許す。圏は[豊穣圏](../CATB2-01/index.md#def-catb2-01-enriched-category)とし、各対象集合は小さい。基底の[自己豊穣化](../CATB2-04/index.md#thm-catb2-04-self-enrichment)により、基底値の豊穣関手を考えられる。二つの豊穣圏のテンソル積は対象対を持ち、Homは各Hom対象のテンソル積、合成は対称性で因子を並べ替えてから各圏で合成する。反対圏 $\mathcal B^{\mathrm{op}}$ では Hom を $\mathcal B^{\mathrm{op}}(b,b')=\mathcal B(b',b)$ とし、合成順を対称性で反転する。従って積の $(b,a)$ から $(b',a')$ への Hom 対象は $\mathcal B(b',b)\otimes\mathcal A(a,a')$ である。
 
-この積から基底の自己豊穣化への[豊穣関手](../CATB2-03/index.md#def-catb2-03-enriched-functor)として対応を定めるのが分配子である。記号 $\rightsquigarrow$ はこの対応を表し、通常の関手の矢印と区別する。
+この積から基底の自己豊穣化への[豊穣関手](../CATB2-03/index.md#def-catb2-03-enriched-functor)として二方向の作用を持つ対応を定める。記号 $\rightsquigarrow$ はこの対応を表し、通常の関手の矢印と区別する。
 
 <a id="def-catb2-07-distributor"></a>
 
@@ -487,7 +487,7 @@ q\otimes Np-Nq\otimes p
 (e_i\otimes Ne_j-Ne_i\otimes e_j).
 $$
 
-従って基底の四組だけを確認すればよい。[テンソル積の基底定理](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)から $E_{ij}=e_i\otimes e_j$（第一因子は $Q$、第二因子は $P$）は $Q\otimes P$ の四元の基底である。各入力に対する差は
+従って基底の四組だけを確認すればよい。[有限次元テンソル積の存在と基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)から $E_{ij}=e_i\otimes e_j$（第一因子は $Q$、第二因子は $P$）は $Q\otimes P$ の四元の基底である。各入力に対する差は
 
 $$
 \begin{array}{c|c}
