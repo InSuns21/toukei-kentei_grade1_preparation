@@ -83,7 +83,7 @@ chapters:
     title: "状態遷移系・到達可能性・不変量"
   - id: LVT3-06
     path: textbook/volumes/dream_thater/計算系/LVT/LVT3-06
-    status: planned
+    status: completed
     title: "ゲーム規則の安全性"
   - id: LVT3-07
     path: textbook/volumes/dream_thater/計算系/LVT/LVT3-07

@@ -1,0 +1,41 @@
+chapter: LVT3-06
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT3-05, LVT1-05]
+concepts:
+  - id: lean-verification.game-board
+    name: 三目並べの状態
+    kind: definition
+    introduction: formal
+  - id: lean-verification.game-win
+    name: 三目並べの勝利条件
+    kind: definition
+    introduction: formal
+  - id: lean-verification.game-play
+    name: 三目並べの着手規則
+    kind: definition
+    introduction: formal
+  - id: lean-verification.game-reachable
+    name: 合法着手による到達盤面
+    kind: definition
+    introduction: formal
+  - id: lean-verification.game-write
+    name: 一マス更新の保存性
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.game-reject
+    name: 不正着手の拒否
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.game-success
+    name: 合法着手の必要十分条件
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.game-opponent
+    name: 相手の勝利線の逆保存
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.game-dual
+    name: 到達盤面の二重勝利の排除
+    kind: proposition
+    introduction: formal
