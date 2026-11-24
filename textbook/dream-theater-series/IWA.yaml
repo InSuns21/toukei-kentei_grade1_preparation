@@ -67,7 +67,7 @@ chapters:
     title: "Kubota–Leopoldt p進L関数"
   - id: IWA16
     path: textbook/volumes/dream_thater/代数系/IWA/IWA16
-    status: planned
+    status: completed
     title: "円分岩澤主予想：正確な定式化"
   - id: IWA17
     path: textbook/volumes/dream_thater/代数系/IWA/IWA17

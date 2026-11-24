@@ -1,0 +1,31 @@
+chapter: LVT1-01
+scope: dream-theater
+coverage: complete
+prerequisites: [F0-00A]
+concepts:
+  - id: lean-verification.executable-specification
+    name: 実行可能仕様
+    kind: definition
+    aliases: ["executable specification"]
+    introduction: formal
+    requires: [set.function]
+  - id: lean-verification.example-based-testing
+    name: 例示テスト
+    kind: definition
+    aliases: ["example-based testing"]
+    introduction: formal
+    requires: [lean-verification.executable-specification, set.subset]
+  - id: lean-verification.finite-testing-boundary
+    name: 有限な例示テストと全入力一致
+    kind: proposition
+    requires: [lean-verification.example-based-testing]
+  - id: lean-verification.zero-reference-correctness
+    name: 零判定仕様の正しさ
+    kind: theorem
+    requires: [lean-verification.executable-specification]
+  - id: lean-verification.differential-testing
+    name: 差分テスト
+    kind: definition
+    aliases: ["differential testing"]
+    introduction: formal
+    requires: [set.function, set.subset]
