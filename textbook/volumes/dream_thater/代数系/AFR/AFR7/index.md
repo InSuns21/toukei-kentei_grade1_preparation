@@ -253,10 +253,10 @@ $$
 \int_0^\infty\int_0^\infty e^{-r-q}r^{A-1}q^{B-1}dr\,dq.
 $$
 
-絶対可積分性は $\Gamma(\Re A)\Gamma(\Re B)<\infty$ で確認できます。$r=(t/2)e^v,\ q=(t/2)e^{-v}$（$t>0,v\in\mathbb R$）と変換します。逆写像は $t=2\sqrt{rq},v=\frac12\log(r/q)$ です。この写像は両方向とも滑らかです。二変数の積分の面積因子を求めるため、[AFR2で用いた実Jacobian行列](../AFR2/index.md#prop-afr2-metric-invariance)と同様に、入力 $(t,v)$ の順、出力 $(r,q)$ の順に微分を並べます。$t$ で微分するときは $v$ を固定し、$v$ で微分するときは $t$ を固定します。
+絶対可積分性は $\Gamma(\Re A)\Gamma(\Re B)<\infty$ で確認できます。$r=(t/2)e^v,\ q=(t/2)e^{-v}$（$t>0,v\in\mathbb R$）と変換します。逆写像は $t=2\sqrt{rq},v=\frac12\log(r/q)$ です。この写像は両方向とも滑らかです。二変数の積分の面積因子を求めるため、[AFR2で用いた実Jacobian行列](../AFR2/index.md#prop-afr2-metric-invariance)と同様に、座標写像を $\Psi(t,v)=(r,q)$ と書き、入力 $(t,v)$ の順、出力 $(r,q)$ の順に微分を並べます。$t$ で微分するときは $v$ を固定し、$v$ で微分するときは $t$ を固定します。
 
 $$
-\frac{\partial(r,q)}{\partial(t,v)}
+D\Psi(t,v)
 =\begin{pmatrix}
 \partial r/\partial t & \partial r/\partial v\\
 \partial q/\partial t & \partial q/\partial v
@@ -270,7 +270,7 @@ $$
 -\frac{2rq}{t}=-\frac t2\ne0.
 $$
 
-従って変数変換における面積要素は $dr\,dq=(t/2)dt\,dv$ です。さらに $A+B=s,\ A-B=\nu$ だから
+従って変数変換におけるJacobian（行列式）の絶対値は $|\det D\Psi(t,v)|=t/2$ であり、面積要素は $dr\,dq=(t/2)dt\,dv$ です。さらに $A+B=s,\ A-B=\nu$ だから
 
 $$
 r+q=t\cosh v,\qquad
@@ -300,7 +300,7 @@ J(5/2)=\sqrt{\pi/2}\int_0^\infty te^{-t}dt
 =\sqrt{\pi/2}.
 $$
 
-積分は部分積分で1になります。一方、先ほどのGamma積分の公式は $2^{1/2}\Gamma(3/2)\Gamma(1)=\sqrt{\pi/2}$ であり一致します。これは核の計算であって、$\lambda=0$ の非零カスプ形式の存在を意味しません。
+積分は部分積分で1になります。一方、[Gamma関数の漸化式](../../../解析系/CA/CA11/index.md#thm-ca11-functional-equation)と[反射公式](../../../解析系/CA/CA11/index.md#thm-ca11-reflection)の半整数での値から $\Gamma(3/2)=\Gamma(1/2)/2=\sqrt\pi/2$、$\Gamma(1)=1$ です。先ほどのGamma積分の公式も $2^{1/2}\Gamma(3/2)\Gamma(1)=\sqrt{\pi/2}$ となり一致します。これは核の計算であって、$\lambda=0$ の非零カスプ形式の存在を意味しません。
 
 ## 4. Rankin型積分：二乗した係数を取り出す
 
@@ -390,9 +390,9 @@ $0<y\le1$ では[係数の多項式評価の証明](#thm-afr7-coefficient-bound)
 
 十分大きな高さでは[定数項を除いたカスプでの指数減衰](../AFR4/index.md#thm-afr4-cusp-decay)から $|u|\le D e^{-2\pi(y-Y)}$ であり、残りの有限な高さの区間も有界です。
 
-よって複素 $s$ の場合にも $|(\Im\gamma z)^s|=(\Im\gamma z)^\sigma$ を用いて絶対可積分性を確認でき、[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02)で同じ展開が成立します。
+よって複素 $s$ の場合にも $|(\Im\gamma z)^s|=(\Im\gamma z)^\sigma$ を用いて絶対可積分性を確認でき、実部と虚部にそれぞれ[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02)を適用して同じ展開が成立します。
 
-固定した $y$ では[Maass形式の非零周波数展開](../AFR4/index.md#thm-afr4-maass-expansion)が絶対かつ一様に収束します。$b_n(y)=\rho(n)\sqrt y K_\nu(2\pi|n|y)$ と置きます。有限部分和を $u_N$ と書けば、複素共役を取って
+固定した $y$ では[Maass形式の非零周波数展開](../AFR4/index.md#thm-afr4-maass-expansion)が絶対かつ一様に収束します。$b_n(y)=\rho(n)\sqrt y K_\nu(2\pi|n|y)$ と置きます。$0<|n|\le N$ の項を取った有限部分和を $u_N$ と書けば、複素共役を取って
 
 $$
 |u_N(x+iy)|^2
@@ -497,7 +497,7 @@ $$
 \int_0^\infty e^{-ay}y^{s-1}dy=a^{-s}\Gamma(s).
 $$
 
-絶対値を積分しても $a^{-\Re s}\Gamma(\Re s)<\infty$ です。$a=3,s=2$ では $3^{-2}\Gamma(2)=1/9$。
+絶対値を積分しても $a^{-\Re s}\Gamma(\Re s)<\infty$ です。$a=3,s=2$ では[Gamma関数の漸化式](../../../解析系/CA/CA11/index.md#thm-ca11-functional-equation)から $\Gamma(2)=\Gamma(1)=1$ なので $3^{-2}\Gamma(2)=1/9$。
 <!-- solution-end -->
 
 <a id="ex-afr7-a4"></a>
