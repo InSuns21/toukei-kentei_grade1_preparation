@@ -1,0 +1,61 @@
+chapter: AFR20
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR19, SYM1]
+forward_references: []
+concepts:
+  - id: automorphic-forms.dual-pair
+    name: "双対対"
+    kind: definition
+    introduction: formal
+    requires: [symplectic.non-degenerate-form, symplectic.linear-symplectic-map]
+  - id: automorphic-forms.orthogonal-tensor
+    name: "直交型テンソル交代形式"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.dual-pair]
+  - id: automorphic-forms.unitary-tensor
+    name: "ユニタリ型テンソル交代形式"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.dual-pair]
+  - id: automorphic-forms.local-theta-quotient
+    name: "局所theta持ち上げ"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.dual-pair]
+  - id: automorphic-forms.global-theta-kernel
+    name: "大域theta核"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.theta-sum-functional]
+  - id: automorphic-forms.global-theta-lift
+    name: "大域theta持ち上げ"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.global-theta-kernel]
+  - id: automorphic-forms.orthogonal-centralizers
+    name: "直交型の相互中心化"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.orthogonal-tensor]
+  - id: automorphic-forms.unitary-centralizers
+    name: "ユニタリ型の相互中心化"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.unitary-tensor]
+  - id: automorphic-forms.orthogonal-commutation
+    name: "直交型基本変換の交換性"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.orthogonal-tensor, automorphic-forms.oscillator-generators]
+  - id: automorphic-forms.compact-projection
+    name: "コンパクト指標射影"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.local-theta-quotient]
+  - id: automorphic-forms.theta-lift-invariance
+    name: "持ち上げの左不変性と右作用"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.global-theta-lift]

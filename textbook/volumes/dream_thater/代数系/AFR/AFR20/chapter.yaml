@@ -1,0 +1,30 @@
+id: "AFR20"
+title: "theta対応とunitary／orthogonal群"
+volume: "foundations"
+status: supplementary
+prerequisites: [AFR19, SYM1]
+official_scope: []
+learning_objectives:
+  - 直交型・ユニタリ型の交代形式を構成して非退化性を確認し低ランク双対対の相互中心化を証明できる
+  - 直交型の振動子基本変換の交換性を計算できる
+  - 局所theta持ち上げの商とコンパクト指標射影の関係を具体的に計算できる
+  - 大域theta核の有理点不変性と持ち上げの右作用を導出し絶対収束・非消滅を低ランクで判定できる
+definitions:
+  - { id: AFR20-DEF-01, name: "双対対" }
+  - { id: AFR20-DEF-02, name: "直交型テンソル交代形式" }
+  - { id: AFR20-DEF-03, name: "ユニタリ型テンソル交代形式" }
+  - { id: AFR20-DEF-04, name: "局所theta持ち上げ" }
+  - { id: AFR20-DEF-05, name: "大域theta核" }
+  - { id: AFR20-DEF-06, name: "大域theta持ち上げ" }
+theorems:
+  - { id: AFR20-THM-01, name: "直交型の相互中心化" }
+  - { id: AFR20-THM-02, name: "ユニタリ型の相互中心化" }
+  - { id: AFR20-THM-03, name: "直交型基本変換の交換性" }
+  - { id: AFR20-THM-04, name: "コンパクト指標射影" }
+  - { id: AFR20-THM-05, name: "持ち上げの左不変性と右作用" }
+canonical_examples: ["O(1)とSL2の相互中心化", "U(1)とU(1,1)の双対対", "偶奇指標射影", "符号指標のtheta持ち上げ"]
+problem_patterns: [AFR20-A1, AFR20-A2, AFR20-A3, AFR20-A4, AFR20-B1, AFR20-B2, AFR20-B3, AFR20-B4, AFR20-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 5, review: 2 }
