@@ -1,0 +1,30 @@
+id: "GBG30"
+title: "Spinor・ゲージ場・指数・異常はどうつながるか"
+volume: "foundations"
+status: supplementary
+prerequisites: [GBG29, GBG9, GBG19, GBG24, GBG28]
+official_scope: []
+learning_objectives:
+  - スピン構造とゲージ表現から場の束を構成し局所成分変換を検算する
+  - ゲージ結合Dirac作用素の枠独立性とゲージ共変性を導く
+  - カイラリティ分解と楕円性をClifford関係から説明する
+  - 指数定理の適用条件を述べ二次元および四次元の指数を計算する
+  - 零モード測度の模型と量子異常の証明範囲を区別する
+definitions:
+  - { id: GBG30-DEF-01, name: スピノル束とゲージ結合スピノル束 }
+  - { id: GBG30-DEF-02, name: ゲージ結合 Dirac 作用素 }
+  - { id: GBG30-DEF-03, name: カイラリティ分解 }
+  - { id: GBG30-DEF-04, name: ゲージ結合 Dirac 作用素の指数 }
+theorems:
+  - { id: GBG30-THM-01, name: Dirac 作用素の枠独立性とゲージ共変性 }
+  - { id: GBG30-PROP-01, name: Dirac 作用素のカイラリティ交換と楕円性 }
+  - { id: GBG30-THM-02, name: Atiyah–Singer 指数定理のスピン Dirac 型 }
+canonical_examples:
+  - 平面のClifford作用と純ゲージ変換
+  - 平坦トーラスの周期・反周期スピン構造
+  - monopoleとBPSTの指数
+problem_patterns: [GBG30-SPINOR, GBG30-DIRAC, GBG30-INDEX, GBG30-ANOMALY]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 3 }
