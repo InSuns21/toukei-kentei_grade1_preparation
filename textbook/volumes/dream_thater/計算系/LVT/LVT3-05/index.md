@@ -6,7 +6,7 @@
 
 ## 1. 一回の移動と何回もの移動
 
-状態とは、次の操作の可否や結果を決めるために保持する情報です。ここでは状態を自然数 Nat（0を含む）で表します。初期状態とは操作を始める前の状態、一回の遷移とは許された操作による前後の状態の組です。二つの状態に命題を対応させる関係 r : Nat → Nat → Prop で、一回の遷移が存在するかを表します。
+状態とは、次の操作の可否や結果を決めるために保持する情報です。ここでは状態を自然数 Nat（0を含む）で表します。初期状態とは操作を始める前の状態、一回の遷移とは許された操作による前後の状態の組です。二つの状態に命題を対応させる関係 `r : Nat → Nat → Prop` で、一回の遷移が存在するかを表します。`r x y` は出発点 x と行き先 y を受け取る命題です。[到達可能性の生成規則](../LVT2-06/index.md#def-lvt2-06-reach) の `ReachL r i t` では、関係 r と初期状態 i を固定し、終点 t を動かします。`base` は零回の移動、`step` はそれまでの終点から次の辺を一本追加する証明の構成子です。
 
 <a id="def-lvt3-05-system"></a>
 
@@ -25,7 +25,7 @@ ReachL の証明は有限回の構成子適用です。状態の自然数が減�
 
 ## 2. 実行可能なモデルを設計する
 
-初期値を 0、容量を 4 とします。増加 up と減少 down の二操作を用意します。成功なら some で移動後の状態を返し、拒否なら none を返します。[Option を含む帰納型](../LVT1-03/index.md#def-lvt1-03-inductive-type) の構成子を利用します。自然数の引き算は負にならず 0 で切り詰められるため、減少は事前に 2 以上であることを検査します。
+初期値を 0、容量を 4 とします。増加 up と減少 down の二操作を用意します。成功なら some で移動後の状態を返し、拒否なら none を返します。[Option型](../LVT1-03/index.md#def-lvt1-03-option) の構成子を利用します。`Action` は操作の種類を表す型、`advance s a` は現在状態 s と操作 a を受け取る関数です。自然数の引き算は負にならず 0 で切り詰められるため、減少は事前に 2 以上であることを検査します。
 
 <a id="def-lvt3-05-advance"></a>
 
@@ -47,7 +47,7 @@ advance s down = if 2 ≤ s   then some (s-2) else none
 <!-- definition-example-end -->
 
 
-実行可能な関数から命題への橋渡しをします。操作 a が存在して、実行結果が some t であることを、一回で s から t へ移れる条件にします。
+実行可能な関数から命題への橋渡しをします。操作 a が存在して、実行結果が `some t` であることを、一回で s から t へ移れる条件にします。[存在量化の導入・除去規則](../LVT2-02/index.md#def-lvt2-02-exists) により、成立を示すには操作 a と結果の等式を一組用意し、不成立を示すには候補の二操作をともに排除します。ここで t は移動後の状態です。
 
 <a id="def-lvt3-05-step"></a>
 
@@ -72,7 +72,7 @@ advance s down = if 2 ≤ s   then some (s-2) else none
 
 ## 3. 保存を証明すれば回数を制限しなくてよい
 
-状態に対する命題 P : Nat → Prop を選びます。初期状態で真で、P が真の任意の状態から許された一回の遷移を行っても P が真のままであるなら、[到達証明の不変量原理](../LVT2-06/index.md#prop-lvt2-06-invariant) によって全到達状態で P が成り立ちます。以下でこの二条件を一つの命題にまとめます。
+状態に対する命題 P : Nat → Prop を選びます。初期状態で真で、P が真の任意の状態から許された一回の遷移を行っても P が真のままであるなら、[到達証明の不変量原理](../LVT2-06/index.md#prop-lvt2-06-invariant) によって全到達状態で P が成り立ちます。以下でこの二条件を一つの命題にまとめます。関係 r、初期状態 i、述語 P を固定して、保存条件では移動前後の s,t を任意に動かします。
 
 <a id="def-lvt3-05-inductive"></a>
 
@@ -107,7 +107,9 @@ i : Nat、r : Nat → Nat → Prop、P : Nat → Prop に対し、IsInductive r 
 <!-- proof-start -->
 ### 証明
 
-初期条件は Good 0 の第一の選言 0 = 0 で成立する。任意の s,t : Nat で Good s と Step s t を仮定する。[二単位カウンタの遷移関係](#def-lvt3-05-step) から a : Action と advance s a = some t を得る。[選言の導入・除去規則](../LVT2-02/index.md#def-lvt2-02-or) により Good s を三場合に分け、さらに a を二場合に分ける。
+初期条件は Good 0 の第一の選言 0 = 0 で成立する。任意の s,t : Nat で Good s と Step s t を仮定する。[二単位カウンタの遷移関係](#def-lvt3-05-step) と[存在量化の導入・除去規則](../LVT2-02/index.md#def-lvt2-02-exists) から a : Action と advance s a = some t を得る。[選言の導入・除去規則](../LVT2-02/index.md#def-lvt2-02-or) により Good s を三場合に分け、さらに a を二場合に分ける。
+
+各枝では [二単位カウンタの実行規則](#def-lvt3-05-advance) を計算する。結果の等式を判定する根拠を先に確認しよう。[Option型](../LVT1-03/index.md#def-lvt1-03-option) の値を場合分けし、`some n` を n に、`none` を 0 に写す関数 `f : Option Nat → Nat` を取る。[関数適用に関する等式の合同性](../LVT2-03/index.md#prop-lvt2-03-congr) より `some n = some t` なら `f (some n) = f (some t)`、すなわち n = t となる。拒否の枝には、`none` を 0 に、すべての `some n` を 1 に写す別の関数を使えば、`none = some t` から 0 = 1 という矛盾が得られる。これにより成功値の中身を取り出し、拒否枝を排除できる。
 
 - s = 0、a = up：advance 0 up = some 2。some 2 = some t の構成子の引数が等しいので t = 2、Good t の第二の選言が成立。
 - s = 0、a = down：advance 0 down = none。none = some t は異なる構成子の等式で矛盾。
@@ -116,7 +118,7 @@ i : Nat、r : Nat → Nat → Prop、P : Nat → Prop に対し、IsInductive r 
 - s = 4、a = up：4+2 ≤ 4 が偽で none = some t となり矛盾。
 - s = 4、a = down：some (4-2) = some t から t = 2、第二の選言が成立。
 
-全六枝を尽くしたので保存条件が成立する。これを初期条件と組にすると [帰納的不変量](#def-lvt3-05-inductive) の二条件がそろう。Lean の good_step は選言と Action を場合分けして simp で実行規則を計算する。subst は等式から t を置換し、simp [Good] は具体的な自然数の選言を計算する。
+全六枝を尽くしたので保存条件が成立する。これを初期条件と組にすると [帰納的不変量](#def-lvt3-05-inductive) の二条件がそろう。Lean の `good_step` は選言と Action を場合分けして [簡約操作](../LVT2-03/index.md#def-lvt2-03-simp) `simp` で実行規則を計算する。`subst t` は [等式による置換](../LVT2-03/index.md#def-lvt2-03-subst) により t を確定値に置換し、`simp [Good]` は具体的な自然数の選言を計算する。
 <!-- proof-end -->
 
 ## 4. 到達状態を確定する
@@ -143,9 +145,17 @@ base の目標 : Good 0
 step の目標 : Good y（ih : Good x, e : Step x y）
 ```
 
+base は初期条件で閉じる。step では帰納仮定 `ih : Good x` と辺の証明 `e : Step x y` を保存条件に順に渡す。保存条件の証明を preserve と名付けると、適用は次の通りである。
+
+```text
+preserve x y      : Good x → Step x y → Good y
+preserve x y ih   : Step x y → Good y
+preserve x y ih e : Good y
+```
+
 よって h の構成に沿って Good s が成立する。移動回数を任意に固定する必要はない。
 
-逆方向では Good s の三つの選言を場合分けする。
+逆方向では Good s の三つの選言を場合分けする。辺の証明名 e02, e24 の二つの数字は、その辺の始点と終点を表す。
 
 - s = 0：ReachL.base が ReachL Step 0 0 の証明。
 - s = 2：advance 0 up = some 2 なので e02 : Step 0 2。ReachL.step ReachL.base e02 : ReachL Step 0 2。
@@ -166,7 +176,7 @@ step の目標 : Good y（ih : Good x, e : Step x y）
 
 [二単位カウンタの到達範囲](#prop-lvt3-05-exact) の順方向から s = 0、s = 2、s = 4 のいずれか。各場合の比較 0 ≤ 4、2 ≤ 4、4 ≤ 4 は真なので、すべての到達状態で s ≤ 4 が成立する。
 
-一方、値 3 は上限以下の自然数であり、型としては許されます。しかし 3 = 0、3 = 2、3 = 4 はすべて偽です。到達可能と仮定すると同値の順方向に矛盾します。上限を満たすことと到達可能であることは別の条件です。
+一方、値 3 は上限以下の自然数であり、型としては許されます。しかし 3 = 0、3 = 2、3 = 4 はすべて偽です。到達可能と仮定すると [二単位カウンタの到達範囲](#prop-lvt3-05-exact) の順方向に矛盾します。上限を満たすことと到達可能であることは別の条件です。
 
 ## 5. 真である性質と帰納的に保存できる性質
 
@@ -187,7 +197,7 @@ step の目標 : Good y（ih : Good x, e : Step x y）
 
 [二単位カウンタの到達範囲](#prop-lvt3-05-exact) により、到達状態 s は 0、2、4 のいずれか。0 ≠ 1、2 ≠ 1、4 ≠ 1 だから AvoidOne s が成立する。
 
-初期条件 AvoidOne 0 も成立する。しかし s = 3、t = 1 を選ぶと 3 ≠ 1 なので AvoidOne 3 が真で、2 ≤ 3 なので advance 3 down = some (3-2) = some 1。従って Step 3 1 は down を証人として成立する。保存条件が真なら AvoidOne 1、すなわち 1 ≠ 1 が従うが、1 = 1 の反射律と矛盾する。
+初期条件 AvoidOne 0 も成立する。しかし s = 3、t = 1 を選ぶと 3 ≠ 1 なので AvoidOne 3 が真で、2 ≤ 3 なので advance 3 down = some (3-2) = some 1。従って Step 3 1 は down を証人として成立する。保存条件が真なら AvoidOne 1、すなわち 1 ≠ 1 が従うが、[等式と反射律](../LVT2-03/index.md#def-lvt2-03-eq) による 1 = 1 と矛盾する。
 
 従って保存条件は偽で、IsInductive Step 0 AvoidOne は成立しない。ここで s = 3 が到達不能であることは、保存条件の全称量化から 3 を除外する理由にはならない。
 <!-- proof-end -->
@@ -226,7 +236,7 @@ Reachable 0 の証明を構成せよ。
 <!-- solution-start -->
 #### 詳細解答
 
-[到達可能性の生成規則](../LVT2-06/index.md#def-lvt2-06-reach) に r = Step、s = 0 を代入すると base : ReachL Step 0 0 が得られる。Reachable 0 はこの命題なので、操作の証人を一つも用意する必要はない。
+[到達可能性の生成規則](../LVT2-06/index.md#def-lvt2-06-reach) に r = Step、開始点 s = 0 を代入すると base : ReachL Step 0 0 が得られる。[二単位カウンタの遷移関係](#def-lvt3-05-step) による Reachable 0 はこの命題なので、操作の証人を一つも用意する必要はない。
 
 対応する Lean の証明は [ExerciseSolutions.lean](lab/ExerciseSolutions.lean) の a01 で始まる宣言を参照してください。
 <!-- solution-end -->
@@ -254,7 +264,7 @@ advance 4 up と advance 0 down を計算し、どちらも状態を返さない
 <!-- solution-start -->
 #### 詳細解答
 
-[二単位カウンタの遷移関係](#def-lvt3-05-step) で e02 は up（0+2=2）、e24 は up（2+2=4）、e42 は down（4−2=2）を証人に取る。[到達可能性の生成規則](../LVT2-06/index.md#def-lvt2-06-reach) に沿って h0 = base、h2 = step h0 e02、h4 = step h2 e24、h2′ = step h4 e42 とする。各 step で前の証明の終点が次の辺の始点に一致する。最終の型は ReachL Step 0 2。
+[二単位カウンタの遷移関係](#def-lvt3-05-step) で e02 : Step 0 2 は up（0+2=2 ≤ 4）、e24 : Step 2 4 は up（2+2=4 ≤ 4）、e42 : Step 4 2 は down（2 ≤ 4 かつ 4−2=2）を証人に取る。e の二つの数字は辺の始点と終点を表す。[到達可能性の生成規則](../LVT2-06/index.md#def-lvt2-06-reach) に沿って h0 = base、h2 = step h0 e02、h4 = step h2 e24、h2′ = step h4 e42 とする。各 step で前の証明の終点が次の辺の始点に一致する。最終の型は ReachL Step 0 2。
 
 対応する Lean の証明は [ExerciseSolutions.lean](lab/ExerciseSolutions.lean) の a03 で始まる宣言を参照してください。
 <!-- solution-end -->
@@ -285,7 +295,7 @@ advance 4 up と advance 0 down を計算し、どちらも状態を返さない
 <!-- solution-start -->
 #### 詳細解答
 
-初期値を 1 として [到達可能性の生成規則](../LVT2-06/index.md#def-lvt2-06-reach) の base を使えば ReachL Step 1 1。[二単位カウンタの実行規則](#def-lvt3-05-advance) で 1+2=3 ≤ 4 なので advance 1 up = some 3。従って Step 1 3、step により ReachL Step 1 3 を得る。Reachable は開始点 0 を固定した命題であり、この証明の開始点 1 と異なる。Good 1 は偽なので Good による不変量原理の初期条件も満たさない。
+初期値を 1 として [到達可能性の生成規則](../LVT2-06/index.md#def-lvt2-06-reach) の base を使えば ReachL Step 1 1。[二単位カウンタの実行規則](#def-lvt3-05-advance) で 1+2=3 ≤ 4 なので advance 1 up = some 3。従って [二単位カウンタの遷移関係](#def-lvt3-05-step) により Step 1 3、step により ReachL Step 1 3 を得る。Reachable は開始点 0 を固定した命題であり、この証明の開始点 1 と異なる。Good 1 は偽なので [到達証明の不変量原理](../LVT2-06/index.md#prop-lvt2-06-invariant) の初期条件も満たさない。
 
 対応する Lean の証明は [ExerciseSolutions.lean](lab/ExerciseSolutions.lean) の b01 で始まる宣言を参照してください。
 <!-- solution-end -->
@@ -313,7 +323,16 @@ P s を s ≠ 3 とする。P はすべての Reachable s で真だが帰納的�
 <!-- solution-start -->
 #### 詳細解答
 
-Step 0 2 と Step 2 4 は up の成功枝なので、選言の左側から Mutant 0 2 と Mutant 2 4 を得る。さらに 4 = 4 と 6 = 6 を組にして選言の右側に入れると Mutant 4 6。[到達可能性の生成規則](../LVT2-06/index.md#def-lvt2-06-reach) を r = Mutant として使い、base から step を三回行うと ReachL Mutant 0 6。6 > 4 で上限保証に反する。Good 4 は真だが Good 6 は偽なので追加された辺が [二単位カウンタの保存条件](#prop-lvt3-05-preserve) を壊す。元の Step に対する証明は新しい関係の保存を保証しない。
+[二単位カウンタの遷移関係](#def-lvt3-05-step) で `advance 0 up = some 2`、`advance 2 up = some 4` から Step 0 2 と Step 2 4 を得る。[選言の導入・除去規則](../LVT2-02/index.md#def-lvt2-02-or) の左側から Mutant 0 2 と Mutant 2 4 を得る。さらに [連言の導入・除去規則](../LVT2-02/index.md#def-lvt2-02-and) で 4 = 4 と 6 = 6 を組にして選言の右側に入れると Mutant 4 6。これら三辺の証明を順に m02, m24, m46 と名付ける。[到達可能性の生成規則](../LVT2-06/index.md#def-lvt2-06-reach) を r = Mutant、開始点 0 として使う。
+
+```text
+h0 = base        : ReachL Mutant 0 0
+h2 = step h0 m02 : ReachL Mutant 0 2
+h4 = step h2 m24 : ReachL Mutant 0 4
+h6 = step h4 m46 : ReachL Mutant 0 6
+```
+
+6 > 4 なので変異した関係では上限保証が成立しない。Good 4 は真だが Good 6 は偽なので追加された辺が [二単位カウンタの保存条件](#prop-lvt3-05-preserve) を壊す。元の Step に対する証明は新しい関係の保存を保証しない。
 
 対応する Lean の証明は [ExerciseSolutions.lean](lab/ExerciseSolutions.lean) の b03 で始まる宣言を参照してください。
 <!-- solution-end -->
@@ -330,7 +349,13 @@ Step 0 2 と Step 2 4 は up の成功枝なので、選言の左側から Mutan
 <!-- solution-start -->
 #### 詳細解答
 
-[二単位カウンタの到達範囲](#prop-lvt3-05-exact) の順方向を適用し、s=0,2,4 の三場合に分ける。s=0 では base : ReachL Step 0 0。s=2 では 2 ≤ 2 より advance 2 down = some 0、従って Step 2 0。開始点2の base にその辺を追加すれば ReachL Step 2 0。s=4 では 4−2=2 より Step 4 2、2−2=0 より Step 2 0。開始点4の base に前者を追加して ReachL Step 4 2、後者を追加して ReachL Step 4 0。各枝の結論を代入すると ReachL Step s 0 となる。これは戻れる経路が少なくとも一つ存在するという主張であり、全経路についての主張ではない。2 → 4 → 2 → 4 → … と交互に動けば、任意の長さの有限経路を作れて、その途中では0を訪れない。従って0へ必ず戻ることは示していない。
+[二単位カウンタの到達範囲](#prop-lvt3-05-exact) の順方向を適用し、s=0,2,4 の三場合に分ける。[到達可能性の生成規則](../LVT2-06/index.md#def-lvt2-06-reach) と [二単位カウンタの遷移関係](#def-lvt3-05-step) を各場合で使う。
+
+- s=0 では base : ReachL Step 0 0。
+- s=2 では 2 ≤ 2 より advance 2 down = some 0、従って Step 2 0。開始点2の base にその辺を追加すれば ReachL Step 2 0。
+- s=4 では 2 ≤ 4 かつ 4−2=2 より advance 4 down = some 2 なので Step 4 2。次に 2 ≤ 2 かつ 2−2=0 より Step 2 0。開始点4の base に前者を追加して ReachL Step 4 2、後者を追加して ReachL Step 4 0。
+
+各枝の結論を代入すると ReachL Step s 0 となる。これは戻れる経路が少なくとも一つ存在するという主張であり、全経路についての主張ではない。2 → 4 → 2 → 4 → … と交互に動けば、任意の長さの有限経路を作れて、その途中では0を訪れない。従って0へ必ず戻ることは示していない。
 
 対応する Lean の証明は [ExerciseSolutions.lean](lab/ExerciseSolutions.lean) の c01 で始まる宣言を参照してください。
 <!-- solution-end -->

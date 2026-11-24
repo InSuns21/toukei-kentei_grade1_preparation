@@ -15,3 +15,4 @@
 12. [FCG12 浅水を三次元の水面として描けるか](textbook/volumes/dream_thater/計算系/FCG/FCG12/index.md)
 13. [FCG13 広い海の波を高速に合成するには](textbook/volumes/dream_thater/計算系/FCG/FCG13/index.md)
 14. [FCG14 煙の密度と浮力はどう連成するか](textbook/volumes/dream_thater/計算系/FCG/FCG14/index.md)
+15. [FCG15 煙の厚みはどう光として描くか](textbook/volumes/dream_thater/計算系/FCG/FCG15/index.md)

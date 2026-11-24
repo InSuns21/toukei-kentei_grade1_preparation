@@ -1,0 +1,35 @@
+chapter: FCG15
+scope: dream-theater
+coverage: complete
+prerequisites: [FCG14, FCG10, FCG3]
+concepts:
+  - id: graphics.fcg15-optical-depth
+    name: 光学的厚さ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（光学的厚さ）"]
+    requires: [graphics.fcg10-absorption]
+  - id: graphics.fcg15-variable-transmittance
+    name: 不均質媒質の透過率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（不均質媒質の透過率）"]
+    requires: [graphics.fcg15-optical-depth]
+  - id: graphics.fcg15-segment-composite
+    name: 光線区間の前後合成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（光線区間の前後合成）"]
+    requires: [graphics.fcg15-variable-transmittance]
+  - id: graphics.fcg15-front-to-back
+    name: 前から後ろへの合成と透過率の積
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（前から後ろへの合成と透過率の積）"]
+    requires: [graphics.fcg15-segment-composite]
+  - id: graphics.fcg15-midpoint-convergence
+    name: 中点標本による透過率の収束
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（中点標本による透過率の収束）"]
+    requires: [graphics.fcg15-variable-transmittance]
