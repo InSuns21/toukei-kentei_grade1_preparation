@@ -1,4 +1,4 @@
-// One editable secondary-particle snapshot; positions are in metres.
+// Editable secondary-particle trajectories; positions are in metres.
 const time=0.35;
 const curvatureThreshold=0.8;
 const speedThreshold=1.5;
@@ -12,6 +12,7 @@ if(![time,curvatureThreshold,speedThreshold,lifetime,radius,amount].every(Number
  throw RangeError('FCG11 parameter outside the documented range');
 const h=x=>0.25*Math.cos(Math.PI*(x-1));
 const sprites=new Float32Array(120*4);
+function computeAt(time){
 let count=0,emitted=0,sprayCount=0,foamCount=0,bubbleCount=0;
 function add(x,z,kind){sprites.set([x,z,radius,kind],4*count++);}
 for(let i=0;i<amount;i++){
@@ -30,6 +31,8 @@ for(let i=0;i<amount;i++){
  const zb=z0-0.22+0.12*age;
  if(zb<z0){add(x0,zb,3);bubbleCount++;}
 }
+return {count,emitted,sprayCount,foamCount,bubbleCount};
+}
 function compile(type,source){
  const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);
  if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));
@@ -40,8 +43,31 @@ gl.attachShader(p,v);gl.attachShader(p,f);gl.linkProgram(p);
 if(!gl.getProgramParameter(p,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(p));
 gl.deleteShader(v);gl.deleteShader(f);gl.useProgram(p);
 gl.bindVertexArray(gl.createVertexArray());
+function renderAt(time){
+const stats=computeAt(time);
 gl.uniform4fv(gl.getUniformLocation(p,'u_particles[0]'),sprites);
-gl.uniform1i(gl.getUniformLocation(p,'u_count'),count);
+gl.uniform1i(gl.getUniformLocation(p,'u_count'),stats.count);
 gl.viewport(0,0,canvas.width,canvas.height);gl.disable(gl.DITHER);gl.disable(gl.BLEND);gl.disable(gl.DEPTH_TEST);
 gl.drawArrays(gl.TRIANGLES,0,3);
+return stats;
+}
+const {emitted,sprayCount,foamCount,bubbleCount}=renderAt(time);
 report('PARTICLES','t='+time+' s; emitted sites='+emitted+'; spray='+sprayCount+'; foam='+foamCount+'; bubbles='+bubbleCount);
+
+ // Advance the same editable computation; the first frame remains the audit snapshot.
+let liveValue=time,playing=false,timer=null;
+function emit(){canvas.dispatchEvent(new CustomEvent('fcg-time-progress',{detail:{value:liveValue,playing}}));}
+function cancel(){if(timer!==null)clearTimeout(timer);timer=null;playing=false;}
+function advanceLive(value){renderAt(value);liveValue=value;}
+function pause(){cancel();emit();}
+function next(){return Math.min(1.8,Math.round((liveValue+0.05)*1e8)/1e8);}
+function tick(){
+ timer=null;if(!playing)return;
+ try{advanceLive(next());if(liveValue>=1.8)cancel();emit();if(playing)timer=setTimeout(tick,50);}
+ catch(error){cancel();canvas.dispatchEvent(new CustomEvent('fcg-time-failure',{detail:String(error?.message||error)}));}
+}
+function play(){if(playing)return;if(liveValue>=1.8)advanceLive(0);playing=true;emit();timer=setTimeout(tick,50);}
+function step(){cancel();advanceLive(next());emit();}
+function reset(){cancel();advanceLive(0);emit();}
+canvas.addEventListener?.('webglcontextlost',cancel);
+return {play,pause,step,reset};
