@@ -13,3 +13,4 @@
 10. [FCG10 透明な水の反射・屈折を表せるか](textbook/volumes/dream_thater/計算系/FCG/FCG10/index.md)
 11. [FCG11 泡と飛沫はどこまで物理モデルか](textbook/volumes/dream_thater/計算系/FCG/FCG11/index.md)
 12. [FCG12 浅水を三次元の水面として描けるか](textbook/volumes/dream_thater/計算系/FCG/FCG12/index.md)
+13. [FCG13 広い海の波を高速に合成するには](textbook/volumes/dream_thater/計算系/FCG/FCG13/index.md)

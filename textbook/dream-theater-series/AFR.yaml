@@ -48,8 +48,8 @@ chapters:
     title: "Tateの学位論文：GL_1のゼータ積分"
   - id: AFR11
     path: textbook/volumes/dream_thater/代数系/AFR/AFR11
-    status: planned
-    title: "`GL_2(A)`上の保型形式"
+    status: completed
+    title: "GL_2(A)上の保型形式"
   - id: AFR12
     path: textbook/volumes/dream_thater/代数系/AFR/AFR12
     status: planned
