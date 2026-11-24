@@ -412,16 +412,23 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[Clifford反交換関係](../LREP14/index.md#prop-lrep14-anticommutator)と[逆順写像の定義](#def-lrep15-reversion)から、
+二つの積 $p=e_1e_2$、$q=e_0e_3$ を考えます。[Clifford反交換関係](../LREP14/index.md#prop-lrep14-anticommutator)から、
 
 $$
-\begin{aligned}
-p=e_1e_2,&\qquad p^2=-1,\qquad \widetilde p=-p,\\
-q=e_0e_3,&\qquad q^2=1,\qquad \widetilde q=-q
-\end{aligned}
+p^2=-e_1^2e_2^2=-1,
+\qquad
+q^2=-e_0^2e_3^2=1
 $$
 
-となります。回転の係数とboostの係数をそれぞれ
+となります。[逆順写像の定義](#def-lrep15-reversion)を使うと、
+
+$$
+\widetilde p=e_2e_1=-p,
+\qquad
+\widetilde q=e_3e_0=-q
+$$
+
+です。回転の係数とboostの係数をそれぞれ
 
 $$
 \begin{aligned}
