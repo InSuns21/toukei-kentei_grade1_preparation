@@ -13,7 +13,7 @@ learning_objectives:
 definitions:
   - { id: AFR15-DEF-01, name: "レベル部分群" }
   - { id: AFR15-DEF-02, name: "導手指数と新ベクトル" }
-  - { id: AFR15-DEF-03, name: "Whittaker汎関数と模型" }
+  - { id: AFR15-DEF-03, name: "Whittaker汎関数" }
 theorems:
   - { id: AFR15-THM-01, name: "レベルと中心指標" }
   - { id: AFR15-THM-02, name: "レベル二重剰余類" }
