@@ -1,0 +1,53 @@
+chapter: CATB3-05
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB3-04]
+concepts:
+  - id: category.lambda-accessible-category
+    name: λ-可到達圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（λ-可到達圏と可到達圏）"]
+    requires: [category.locally-small-category, category.lambda-filtered-category, category.lambda-presentable-object]
+  - id: category.accessible-category
+    name: 可到達圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（λ-可到達圏と可到達圏）"]
+    requires: [category.lambda-accessible-category]
+  - id: category.locally-lambda-presentable-category
+    name: 局所λ-可呈示圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所λ-可呈示圏と局所可呈示圏）"]
+    requires: [category.lambda-accessible-category, category.cocomplete-category]
+  - id: category.locally-presentable-category
+    name: 局所可呈示圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所λ-可呈示圏と局所可呈示圏）"]
+    requires: [category.locally-lambda-presentable-category]
+  - id: category.lambda-accessible-functor
+    name: λ-可到達関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（λ-可到達関手と可到達関手）"]
+    requires: [category.accessible-category, category.lambda-filtered-category]
+  - id: category.accessible-functor
+    name: 可到達関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（λ-可到達関手と可到達関手）"]
+    requires: [category.lambda-accessible-functor]
+  - id: category.small-colimit-presentability
+    name: 小さい余極限のμ-表示性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（小さい余極限のμ-表示性）"]
+    requires: [category.lambda-presentable-stage-test, category.lambda-filtered-category, set.regular-cardinal]
+  - id: category.accessibility-rank-change
+    name: 可到達性の基数変更の十分条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（可到達性の基数変更の十分条件）"]
+    requires: [category.lambda-accessible-category, category.small-colimit-presentability, set.regular-cardinal]
