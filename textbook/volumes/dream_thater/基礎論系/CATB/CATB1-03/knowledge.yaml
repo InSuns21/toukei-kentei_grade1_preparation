@@ -1,0 +1,67 @@
+chapter: CATB1-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT2-05
+
+concepts:
+  - id: category.preadditive-category
+    name: 前加法圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（前加法圏）"]
+    requires: [category.locally-small-category]
+  - id: category.zero-composition
+    name: 零射との合成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（零射との合成）"]
+    requires: [category.preadditive-category]
+  - id: category.zero-object
+    name: 零対象
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（零対象）"]
+    requires: [category.initial-object, category.terminal-object]
+  - id: category.zero-object-criterion
+    name: 零対象の判定と零射
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（零対象の判定と零射）"]
+    requires: [category.zero-object, category.zero-composition]
+  - id: category.finite-biproduct
+    name: 有限双積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限双積）"]
+    requires: [category.preadditive-category, category.zero-composition]
+  - id: category.biproduct-universality
+    name: 双積の普遍性と有限積・有限余積
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（双積の普遍性と有限積・有限余積）"]
+    requires: [category.finite-biproduct, category.finite-product, category.small-coproduct, category.zero-object-criterion]
+  - id: category.additive-category
+    name: 加法圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（加法圏）"]
+    requires: [category.preadditive-category, category.finite-biproduct]
+  - id: category.additive-category-criterion
+    name: 加法圏の存在条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（加法圏の存在条件）"]
+    requires: [category.additive-category, category.biproduct-universality, category.finite-product-existence]
+  - id: category.biproduct-matrix
+    name: 双積の射の行列表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（双積の射の行列表示）"]
+    requires: [category.finite-biproduct, category.zero-composition]
+  - id: category.biproduct-sum-reconstruction
+    name: 双積による射の和の復元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（双積による射の和の復元）"]
+    requires: [category.biproduct-matrix, category.biproduct-universality, category.additive-category, category.diagonal-morphism]
