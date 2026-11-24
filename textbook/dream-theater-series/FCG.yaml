@@ -16,7 +16,7 @@ chapters:
   - { id: FCG9, path: textbook/volumes/dream_thater/計算系/FCG/FCG9, status: completed, title: "数値的な液面をどうメッシュにするか" }
   - { id: FCG10, path: textbook/volumes/dream_thater/計算系/FCG/FCG10, status: completed, title: "透明な水の反射・屈折を表せるか" }
   - { id: FCG11, path: textbook/volumes/dream_thater/計算系/FCG/FCG11, status: completed, title: "泡と飛沫はどこまで物理モデルか" }
-  - { id: FCG12, path: textbook/volumes/dream_thater/計算系/FCG/FCG12, status: planned, title: "浅水を三次元の水面として描けるか" }
+  - { id: FCG12, path: textbook/volumes/dream_thater/計算系/FCG/FCG12, status: completed, title: "浅水を三次元の水面として描けるか" }
   - { id: FCG13, path: textbook/volumes/dream_thater/計算系/FCG/FCG13, status: planned, title: "広い海の波を高速に合成するには" }
   - { id: FCG14, path: textbook/volumes/dream_thater/計算系/FCG/FCG14, status: planned, title: "煙の密度と浮力はどう連成するか" }
   - { id: FCG15, path: textbook/volumes/dream_thater/計算系/FCG/FCG15, status: planned, title: "煙の厚みはどう光として描くか" }
