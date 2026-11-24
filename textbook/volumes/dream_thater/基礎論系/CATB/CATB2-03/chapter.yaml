@@ -1,0 +1,39 @@
+id: "CATB2-03"
+title: "豊穣関手と豊穣自然変換"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CATB2-02
+  - CAT1-08
+official_scope: []
+learning_objectives:
+  - 豊穣関手のHom上の構造射と合成・単位保存を型から確認できる
+  - 台となる関手を構成し豊穣関手と通常の関手の違いを説明できる
+  - 前順序とLawvere型拡張距離で豊穣関手を判定できる
+  - 豊穣自然性の型と台の自然性への移行を証明できる
+  - 豊穣自然変換の存在と成分ごとの合成を確認できる
+definitions:
+  - { id: CATB2-03-DEF-01, name: "豊穣関手" }
+  - { id: CATB2-03-DEF-02, name: "豊穣自然変換" }
+theorems:
+  - { id: CATB2-03-THM-01, name: "豊穣関手から台の関手へ" }
+  - { id: CATB2-03-PROP-01, name: "順序・費用による豊穣関手の判定" }
+  - { id: CATB2-03-THM-02, name: "豊穣自然変換から台の自然変換へ" }
+  - { id: CATB2-03-PROP-02, name: "豊穣自然変換の成分ごとの合成" }
+canonical_examples:
+  - 二点集合の自己写像の共役による関手と自然変換
+  - 二点距離の異なる空間の間の通常の関手
+  - 非対称な費用での自然変換
+problem_patterns:
+  - CATB2-03-A01
+  - CATB2-03-A02
+  - CATB2-03-A03
+  - CATB2-03-A04
+  - CATB2-03-B01
+  - CATB2-03-B02
+  - CATB2-03-B03
+  - CATB2-03-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 4, review: 2 }

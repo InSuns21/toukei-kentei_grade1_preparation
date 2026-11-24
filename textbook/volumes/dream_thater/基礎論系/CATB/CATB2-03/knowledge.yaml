@@ -1,0 +1,44 @@
+chapter: CATB2-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CATB2-02
+  - CAT1-08
+
+concepts:
+  - id: category.enriched-functor
+    name: 豊穣関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（豊穣関手）"]
+    requires: [category.enriched-category, category.covariant-functor]
+  - id: category.enriched-underlying-functor
+    name: 豊穣関手から台の関手へ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（豊穣関手から台の関手へ）"]
+    requires: [category.enriched-functor, category.enriched-underlying-category]
+  - id: category.enriched-thin-functor
+    name: 順序・費用による豊穣関手の判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（順序・費用による豊穣関手の判定）"]
+    requires: [category.enriched-functor, category.two-valued-enrichment, category.lawvere-metric-enrichment]
+  - id: category.enriched-natural-transformation
+    name: 豊穣自然変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（豊穣自然変換）"]
+    requires: [category.enriched-functor, category.natural-transformation]
+  - id: category.enriched-underlying-natural
+    name: 豊穣自然変換から台の自然変換へ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（豊穣自然変換から台の自然変換へ）"]
+    requires: [category.enriched-natural-transformation, category.enriched-underlying-functor, category.mac-lane-coherence]
+  - id: category.enriched-vertical-composition
+    name: 豊穣自然変換の成分ごとの合成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（豊穣自然変換の成分ごとの合成）"]
+    requires: [category.enriched-natural-transformation, category.vertical-composition, category.mac-lane-coherence]
