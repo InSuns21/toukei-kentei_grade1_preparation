@@ -40,10 +40,14 @@ function jacobiIteration(){
 }
 for(let k=0;k<iterations;k++)jacobiIteration();
 const u=new Float64Array(uStar),v=new Float64Array(vStar);
-for(let j=0;j<N;j++)for(let i=1;i<N;i++)
-  u[ui(i,j)]-=dt/rho*(p[cell(i,j)]-p[cell(i-1,j)])/h;
-for(let j=1;j<N;j++)for(let i=0;i<N;i++)
-  v[vi(i,j)]-=dt/rho*(p[cell(i,j)]-p[cell(i,j-1)])/h;
+function projectVelocity(){
+  u.set(uStar);v.set(vStar);
+  for(let j=0;j<N;j++)for(let i=1;i<N;i++)
+    u[ui(i,j)]-=dt/rho*(p[cell(i,j)]-p[cell(i-1,j)])/h;
+  for(let j=1;j<N;j++)for(let i=0;i<N;i++)
+    v[vi(i,j)]-=dt/rho*(p[cell(i,j)]-p[cell(i,j-1)])/h;
+}
+projectVelocity();
 const pressureTex=new Float64Array(N*N),divTex=new Float64Array(N*N),
   speedTex=new Float64Array(N*N);
 let poissMax=0,divBefore=0,divAfter=0,manufacturedError=0,
@@ -157,11 +161,7 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
   const compact=window.matchMedia('(max-width: 560px)');
   function redraw(){
     if(!visible)return;
-    u.set(uStar);v.set(vStar);
-    for(let j=0;j<N;j++)for(let i=1;i<N;i++)
-      u[ui(i,j)]-=dt/rho*(p[cell(i,j)]-p[cell(i-1,j)])/h;
-    for(let j=1;j<N;j++)for(let i=0;i<N;i++)
-      v[vi(i,j)]-=dt/rho*(p[cell(i,j)]-p[cell(i,j-1)])/h;
+    projectVelocity();
     let maxResidual=0,maxDivergence=0,identity=0;
     for(let j=0;j<N;j++)for(let i=0;i<N;i++){
       const k=cell(i,j),[sum,n]=neighbours(p,i,j);
