@@ -65,7 +65,7 @@ const requestedCase = new URL(location.href).searchParams.get('case');
 const labCase = isWGL20 && ['CS1','CS2','CS3'].includes(requestedCase) ? requestedCase : 'BASE';
 // FCG8's old saved JS predates the live playback hooks. Keep the old key
 // intact for recovery, but never silently restore it into the new live runner.
-const STORAGE_KEY = 'toukei-' + (isFCG4?'fcg4-projection-v2':isFCG7?'fcg7-vortex-v2':isFCG8?'fcg8-live-v2':isWGL14?'wgl14-visual-v2':isWGL19?'wgl19-replay-v2':VERSION) + '-' + lesson +
+const STORAGE_KEY = 'toukei-' + (isFCG4?'fcg4-projection-v2':isFCG7?'fcg7-vortex-v2':isFCG8?'fcg8-interface-v3':isWGL14?'wgl14-visual-v2':isWGL19?'wgl19-replay-v2':VERSION) + '-' + lesson +
   (isWGL20 ? '-' + labCase : '');
 
 const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/' + ((isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8) ? 'FCG' : 'WGL') + '/' + lesson + '/', import.meta.url);
@@ -565,7 +565,8 @@ function isolatedRunner() {
         canvas.addEventListener('fcg8-progress',event=>{
           const d=event.detail;
           if(!d||!Number.isInteger(d.steps)||d.steps<0||d.steps>96)return;
-          send({...scope,type:'fcg8-progress',steps:d.steps,playing:!!d.playing,time:d.time});
+          send({...scope,type:'fcg8-progress',steps:d.steps,playing:!!d.playing,time:d.time,
+            raw:d.raw,reinit:d.reinit,exactArea:d.exactArea});
         });
         window.addEventListener('message',event=>{
           const m=event.data;
@@ -936,6 +937,12 @@ window.addEventListener('message', event => {
   if(isFCG8 && data.type==='fcg8-progress'){
     if(!Number.isInteger(data.steps)||data.steps<0||data.steps>96)return;
     fcg8Steps=data.steps;fcg8Playing=!!data.playing;
+    const a=data.raw,b=data.reinit,e=data.exactArea;
+    const live=byId('fcg8-live-metrics');
+    if(live&&[a?.area,b?.area,a?.meanGradientError,b?.meanGradientError,e].every(Number.isFinite)&&e>0){
+      const fmt=m=>((m.area/e-1)*100).toFixed(2)+'% / '+m.meanGradientError.toFixed(4);
+      live.textContent='面積誤差 / 距離勾配誤差：移流 '+fmt(a)+'　再初期化 '+fmt(b);
+    }
     fcg8Mark?.();
     return;
   }
@@ -1779,8 +1786,7 @@ if (isFCG8) {
   document.title='FCG8 自由表面：Level Set編集・連続再生ラボ';
   document.querySelector('h1').textContent='FCG8 界面を実際に動かす：移流・再初期化・厳密粒子';
   document.querySelector('#panel-conditions > p').textContent=
-    '実計算48/64/80/96セルのFloat64 Level Setをせん断流で移流。3画面の再生には編集した同一JS/GLSLを使います。'+
-    '描画画素の増加と表示補間は数値格子の高精度化とは異なります。';
+    '上側が右へ、下側が左へ流れる水槽で円形の液滴を引き伸ばします。左と中央で輪郭・等値線・面積誤差を比べ、右の厳密解を基準にします。';
   document.querySelector('#panel-conditions ol').innerHTML=
     '<li>step0/8/24/96で界面の伸びと格子境界の影響を観察する。</li>'+
     '<li>再生・一時停止・1ステップ・step0を操作し、物理時間と画面フレームを区別する。</li>'+
@@ -1797,14 +1803,22 @@ if (isFCG8) {
     button.type='button';button.className='action';button.textContent=label;controls.append(button);
   }
   controls.append(marker);byId('run').parentElement.before(controls);
+  const labels=document.createElement('div');
+  labels.style.cssText='display:grid;grid-template-columns:repeat(3,minmax(0,1fr));text-align:center;gap:4px;font-weight:600;margin:8px 0';
+  labels.innerHTML='<span>① 移流のみ</span><span>② 距離を回復</span><span>③ 厳密解・粒子</span>';
+  byId('canvas-slot').before(labels);
+  const legend=document.createElement('p');
+  legend.textContent='青＝液体、黄実線＝界面、白破線＝厳密輪郭、橙点＝粒子。桃色＝内外の不一致。細線は0.04 m刻みの等値線。';
+  byId('canvas-slot').after(legend);
+  const live=document.createElement('p');live.id='fcg8-live-metrics';
+  live.textContent='再生・1ステップで面積誤差と距離勾配誤差を更新します。';
+  legend.after(live);
   const preview=document.createElement('p');preview.id='fcg8-cpu-prediction';
   preview.setAttribute('aria-live','polite');
   preview.textContent='GPU非対応でも独立CPUの初期面積・勾配誤差を確認できます。';
   byId('panel-result').append(preview);
   const note=document.createElement('p');note.className='visual-snapshot-note';
-  note.textContent='初期画素を独立CPUで検算した後、同じ編集コードが96stepまで連続更新します。'+
-    '表とCPU数値は開始時刻の静止基準であり、再生中の毎フレームを検算したものではありません。'+
-    '48×48格子の表示補間は数値解像度の向上ではありません。';
+  note.textContent='上が +x 方向、下が −x 方向に流れるせん断流。3画面は同一時刻・同一縮尺です。';
   byId('canvas-slot').before(note);
   fcg8Mark=function(){
     marker.textContent='物理step '+fcg8Steps+'/96、時刻 '+(fcg8Steps*.04).toFixed(2)+
@@ -2558,8 +2572,8 @@ if (isWGL3) {
 }
 // FCG5 observes only its editable sandboxed N×N MAC solver; do not mount
 // a second independent fluid simulation in the conditions tab.
-// FCG8/WGL4 retain their separate reference observations.
-if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-conditions')});
+// FCG8 now observes its editable sandbox only; keep WGL4 reference.
+if (isWGL4) mountReferenceObservation({lesson,parent:byId('panel-conditions')});
 // Three physical panels must have square pixel footprints: avoid stretching a
 // 1x1 metre domain into ~100x240 strips at the original 320x240 default.
 const sizeHint=isFCG5?[768,768]:isFCG6?[640,640]:(isFCG4||isFCG7||isFCG8)?[1536,512]:
