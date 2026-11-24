@@ -7,15 +7,16 @@ theorem a03 : Reachable 2 := ReachL.step reachFour ⟨.down, rfl⟩
 theorem a04 : ¬ Reachable 3 := by
   intro h
   have hg : Good 3 := reachableGood h
-  exact (by decide : ¬ Good 3) hg
+  have hn : ¬ (3 = 0 ∨ 3 = 2 ∨ 3 = 4) := by decide
+  exact hn hg
 theorem b01 : ReachL Step 1 3 := ReachL.step ReachL.base ⟨.up, rfl⟩
 def AvoidThree (s : Nat) : Prop := s ≠ 3
 theorem b02Reach {s : Nat} (h : Reachable s) : AvoidThree s := by
-  have hg := reachableGood h
-  rcases hg with rfl | rfl | rfl <;> decide
+  have hg : s = 0 ∨ s = 2 ∨ s = 4 := reachableGood h
+  rcases hg with rfl | rfl | rfl <;> simp [AvoidThree]
 theorem b02NotInductive : ¬ IsInductive Step 0 AvoidThree := by
   intro h
-  have bad : AvoidThree 3 := h.2 5 3 (by decide) ⟨.down, rfl⟩
+  have bad : AvoidThree 3 := h.2 5 3 (by simp [AvoidThree]) ⟨.down, rfl⟩
   exact bad rfl
 def Mutant (s t : Nat) : Prop := Step s t ∨ (s = 4 ∧ t = 6)
 theorem b03 : ReachL Mutant 0 6 := by
@@ -23,7 +24,7 @@ theorem b03 : ReachL Mutant 0 6 := by
   have h4 : ReachL Mutant 0 4 := ReachL.step h2 (Or.inl ⟨.up, rfl⟩)
   exact ReachL.step h4 (Or.inr ⟨rfl, rfl⟩)
 theorem c01 (s : Nat) (h : Reachable s) : ReachL Step s 0 := by
-  have hg := reachableGood h
+  have hg : s = 0 ∨ s = 2 ∨ s = 4 := reachableGood h
   rcases hg with rfl | rfl | rfl
   · exact ReachL.base
   · exact ReachL.step ReachL.base ⟨.down, rfl⟩

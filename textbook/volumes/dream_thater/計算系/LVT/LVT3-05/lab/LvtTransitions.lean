@@ -36,9 +36,11 @@ def IsInductive (r : Nat → Nat → Prop) (initial : Nat)
 def Good (s : Nat) : Prop := s = 0 ∨ s = 2 ∨ s = 4
 
 theorem good_step (s t : Nat) (hs : Good s) (e : Step s t) : Good t := by
+  change ∃ a : Action, advance s a = some t at e
+  change s = 0 ∨ s = 2 ∨ s = 4 at hs
   rcases e with ⟨a, ha⟩
   rcases hs with rfl | rfl | rfl <;> cases a <;>
-    simp [advance] at ha <;> subst t <;> decide
+    simp [advance] at ha <;> subst t <;> simp [Good]
 
 theorem goodInductive : IsInductive Step 0 Good :=
   ⟨Or.inl rfl, good_step⟩
@@ -56,24 +58,25 @@ theorem reachExact (s : Nat) : Reachable s ↔ Good s := by
   constructor
   · exact reachableGood
   · intro h
+    change s = 0 ∨ s = 2 ∨ s = 4 at h
     rcases h with rfl | rfl | rfl
     · exact ReachL.base
     · exact reachTwo
     · exact reachFour
 
 theorem reachBound {s : Nat} (h : Reachable s) : s ≤ 4 := by
-  have hg := reachableGood h
+  have hg : s = 0 ∨ s = 2 ∨ s = 4 := reachableGood h
   rcases hg with rfl | rfl | rfl <;> decide
 
 def AvoidOne (s : Nat) : Prop := s ≠ 1
 
 theorem avoidOneReach {s : Nat} (h : Reachable s) : AvoidOne s := by
-  have hg := reachableGood h
-  rcases hg with rfl | rfl | rfl <;> decide
+  have hg : s = 0 ∨ s = 2 ∨ s = 4 := reachableGood h
+  rcases hg with rfl | rfl | rfl <;> simp [AvoidOne]
 
 theorem avoidOneNotInductive : ¬ IsInductive Step 0 AvoidOne := by
   intro h
-  have bad : AvoidOne 1 := h.2 3 1 (by decide) ⟨.down, rfl⟩
+  have bad : AvoidOne 1 := h.2 3 1 (by simp [AvoidOne]) ⟨.down, rfl⟩
   exact bad rfl
 
 end LvtTransitions

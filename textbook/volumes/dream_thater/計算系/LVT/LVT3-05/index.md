@@ -99,7 +99,7 @@ i : Nat、r : Nat → Nat → Prop、P : Nat → Prop に対し、IsInductive r 
 <!-- formal-statement-start -->
 ### 命題（二単位カウンタの保存条件）
 
-[二単位カウンタの遷移関係](#def-lvt3-05-step) を Step、Good s を s = 0 または s = 2 または s = 4 とする。このとき IsInductive Step 0 Good が成立する。
+[二単位カウンタの遷移関係](#def-lvt3-05-step) を Step、Good s を s = 0 または s = 2 または s = 4 とする。このとき [帰納的不変量](#def-lvt3-05-inductive) の条件 IsInductive Step 0 Good が成立する。
 <!-- formal-statement-end -->
 
 **証明の見取り図**　Good s の三つの可能性と Action の二種類を組み合わせ、成功した四つの遷移の終点を検査する。拒否の二枝では Step の証人になれないことを確かめる。
@@ -116,7 +116,7 @@ i : Nat、r : Nat → Nat → Prop、P : Nat → Prop に対し、IsInductive r 
 - s = 4、a = up：4+2 ≤ 4 が偽で none = some t となり矛盾。
 - s = 4、a = down：some (4-2) = some t から t = 2、第二の選言が成立。
 
-全六枝を尽くしたので保存条件が成立する。これを初期条件と組にすると [帰納的不変量](#def-lvt3-05-inductive) の二条件がそろう。Lean の good_step は選言と Action を場合分けして simp で実行規則を計算する。subst は等式から t を置換し、decide は具体的な自然数の選言だけを判定する。
+全六枝を尽くしたので保存条件が成立する。これを初期条件と組にすると [帰納的不変量](#def-lvt3-05-inductive) の二条件がそろう。Lean の good_step は選言と Action を場合分けして simp で実行規則を計算する。subst は等式から t を置換し、simp [Good] は具体的な自然数の選言を計算する。
 <!-- proof-end -->
 
 ## 4. 到達状態を確定する
@@ -139,8 +139,8 @@ i : Nat、r : Nat → Nat → Prop、P : Nat → Prop に対し、IsInductive r 
 Reachable s の証明 h を仮定する。[二単位カウンタの保存条件](#prop-lvt3-05-preserve) から Good 0 と、任意の x,y に対する Good x → Step x y → Good y を得る。[到達証明の不変量原理](../LVT2-06/index.md#prop-lvt2-06-invariant) に r = Step、開始点 = 0、終点 = s、P = Good を代入する。
 
 ```text
-base : Good 0
-step : ih : Good x と e : Step x y から Good y
+base の目標 : Good 0
+step の目標 : Good y（ih : Good x, e : Step x y）
 ```
 
 よって h の構成に沿って Good s が成立する。移動回数を任意に固定する必要はない。
@@ -177,7 +177,7 @@ step : ih : Good x と e : Step x y から Good y
 <!-- formal-statement-start -->
 ### 命題（到達状態の性質と保存条件の相違）
 
-[二単位カウンタの遷移関係](#def-lvt3-05-step) に対して AvoidOne s を s ≠ 1 とする。任意の s : Nat で Reachable s なら AvoidOne s が成立するが、IsInductive Step 0 AvoidOne は成立しない。
+[二単位カウンタの遷移関係](#def-lvt3-05-step) に対して AvoidOne s を s ≠ 1 とする。任意の s : Nat で Reachable s なら AvoidOne s が成立するが、[帰納的不変量](#def-lvt3-05-inductive) の条件 IsInductive Step 0 AvoidOne は成立しない。
 <!-- formal-statement-end -->
 
 **証明の見取り図**　到達状態は 0、2、4 だけなので 1 は除外される。ところが到達不能な 3 からは 1 に減少できる。
@@ -196,9 +196,9 @@ step : ih : Good x と e : Step x y から Good y
 
 ## 6. Lean で確認する
 
-[モデルと証明のソース](lab/LvtTransitions.lean) は [到達可能性の生成規則](../LVT2-06/index.md#def-lvt2-06-reach) と不変量原理の先行コードを同形で含め、単一ファイルで試せます。good_step、goodInductive、reachableGood、reachExact の順に証明を接続しています。
+[モデルと証明のソース](lab/LvtTransitions.lean) は [到達可能性の生成規則](../LVT2-06/index.md#def-lvt2-06-reach) と[到達証明の不変量原理](../LVT2-06/index.md#prop-lvt2-06-invariant) の先行コードを同形で含め、単一ファイルで試せます。good_step、goodInductive、reachableGood、reachExact の順に証明を接続しています。
 
-[実行ラボ](../browser-lab.html?chapter=LVT3-05) の Inspect では some 2、none、none、some 1 の順で計算結果が出ます。続いて構成子と定理の型、公理依存を確認してください。Main は正常四遷移、拒否二分岐、到達不能な入力 3 の実行を検査します。Failure は up を Step 4 6 の証人として渡してみる実験です。advance 4 up は none なので等式の証明 rfl が型検査を通りません。ExerciseSolutions は演習の証明を検査します。
+[実行ラボ](../browser-lab.html?chapter=LVT3-05) の Inspect では some 2、none、none、some 1 の順で計算結果が出ます。続いて構成子と定理の型、公理依存を確認してください。Main は正常四遷移、拒否二分岐、到達不能な入力 3 の実行を検査します。Failure は up を Step 4 6 の証人として渡してみる実験です。advance 4 up は none なので、拒否を示す等式の証明 rejected は some 6 を要求する型と一致しません。ExerciseSolutions は演習の証明を検査します。
 
 固定版は [lean-toolchain](lab/lean-toolchain) の Lean 4.35.0 です。Lean Web の版は固定版と異なることがあります。ラボの Codespaces 導線から端末を開く場合は利用枠を確認し、リポジトリルートから次を実行します。
 
