@@ -2,7 +2,7 @@
 
 設計: 2026-10-13  
 講義構成確定: 2026-11-21（標準教科書・公開講義ノートによる校正、全30講）  
-状態: in_progress（GBG1〜GBG30の講義は実装済み、系列横断監査は未完了）
+状態: done（2026-11-24、全30講実装・系列横断検算・完了判定）
 
 ## 1. 中心問いと到達点
 
@@ -153,8 +153,28 @@ GEOはベクトル束・Levi–Civita接続・微分形式・de Rhamを、LIEは
 
 ## 7. 実装・査読・完了条件
 
-1. **実装進捗（2026-11-24）**：GBG1〜GBG30の本文・全演習の詳細解答・章metadata・系列manifest・公開導線は実装済み。曲率・特性類・monopole・instantonなどの系列横断検算は残る。全30講・必要な横断査読の完了までplan_doneへ移さない。
+1. **実装進捗（2026-11-24）**：GBG1〜GBG30の本文・全演習の詳細解答・章metadata・系列manifest・公開導線は実装済み。系列横断検算は第8節に記録した。GBG30追跡監査の修正はPR #4249でmainへ統合済み。全30講の実装と第4節の横断ゲートを確認し、manifestのplan参照とともにplan_doneへ移動する。
 2. 各章で初出専門語をformal statementより前に導入するか、既習定義への実在stable anchorリンクで接続する。主要定義には条件を実際に確認する例を置き、結果を使う**箇所**からcanonical anchorへリンクする。
 3. 新章（実質改稿含む）は全主要定理・全演習と詳細解答を出発点から再計算する自己査読と、完成本文の別観点再読を分ける。第三者査読が未実施なら同一担当の二度読みを独立査読と称しない。
 4. 実装時はchapter.yaml／knowledge.yaml／当該series manifest／科目目次ソースを同じ変更単位で更新し、変更範囲に見合う検証を行う。別完了章の追跡監査はユーザーが章IDを明示したときのみ。
 5. 全30講の章statusだけでplan_doneにはしない。必要な横断検算・依存関係・表記・公開導線・査読が完了して初めてdoneへ移す。重大な分割統合が必要なら根拠を記録して全直接参照と同期する。
+
+## 8. 系列完了時の横断検算（2026-11-24）
+
+基準：main の GBG30 修正マージコミット [62ee5cf5](https://github.com/InSuns21/toukei-kentei_grade1_preparation/commit/62ee5cf5b0cfff8c20e3133aa58ff4f8062689ec) を含む ce6d685f。GBG30の全文追跡監査・全主要結果と全演習の再計算・区分Bの修正とCIは [PR #4249](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4249) に記録。以下は別章の全件追跡監査ではなく、本PLAN第4節の章間接続と規約の横断検算である。
+
+### 第4節の必須ゲート
+
+1. **貼り合わせと右作用（GBG1–5）**。GBG1 #thm-gbg1-gluing、GBG2の右作用・GBG3のsection変更、GBG4の結合束の局所成分、GBG5の随伴群束の整合を確認。s_k=(s_i g_ij)g_jk=s_i g_ik、自由性よりg_ij g_jk=g_ik。s'_j=s_i g_ij h_j=s'_i h_i^{-1}g_ij h_j。結合束では [s_j,v_j]=[s_i,ρ(g_ij)v_j] より v_j=ρ(g_ij^{-1})v_i。随伴作用も逆元側で整合する。
+2. **接続・曲率（GBG6–13）**。基本ベクトル場は右移動で Ad(g^{-1})、z_H=z−ω(z)_P から水平分解、再生条件で直和となる。GBG7 #thm-gbg7-equivalence、GBG8 #thm-gbg8-local-transform、GBG9 #thm-gbg9-local-formula、GBG10 #thm-gbg10-local-formula と GBG11 #thm-gbg11-bianchi-local を照合。C=g^{-1}Ag、β=g^{-1}dg とすると A'=C+β、dC=g^{-1}(dA)g−β∧C−C∧β、dβ=−β∧β。F'=dA'+A'∧A'=g^{-1}Fg。dF=dA∧A−A∧dA、A∧F−F∧A=A∧dA−dA∧A で相殺。GBG12は局所有限な重みの和1で再生条件を保ち、接続差はテンソル的。GBG13の a_t=I+tε+O(t²) から A'=A+t(dε+[A,ε])+O(t²)、F'=F+t[F,ε]+O(t²)。非自明束の基底上に単一のAを仮定しない。
+3. **輸送・holonomy・Wilson loop（GBG14–17）**。GBG14 #thm-gbg14-horizontal-existence、#thm-gbg14-transport-laws と局所ODE、GBG15の基準点変更・微小矩形、GBG16平坦接続・円周、GBG17閉路と開路の変換を照合。ω(ṗ)=g^{-1}a g+g^{-1}ġ=0 から ġ=−ag。右不変ODEの局所Lipschitz性とコンパクトな時間区間の継続、局所section間の貼り合わせで存在一意性。逆路の微分に負号、連結で後の輸送が左に来る。U'=h(end)^{-1}Uh(start)、閉路だけ共役で跡が不変。S¹でA=ia dθなら F=0、U=e^{-2πian}、n=1でa∉Zなら非自明。正向き微小矩形の二次項は −ε²(∂_x A_y−∂_y A_x+[A_x,A_y])。
+4. **U(1) と SU(2) の非自明束（GBG18–19、25–28）**。GBG18 #prop-gbg18-hopf-transition の二成分の比は e^{iφ} で巻き数+1。GBG19 #prop-gbg19-smooth-gluing、#thm-gbg19-curvature-flux を再計算：A_S−A_N=in dφ=g^{-1}dg、A_N=−in(XdY−YdX)/(2(1+Z))、A_S=in(XdY−YdX)/(2(1−Z)) なので各極で滑らか。F=−in sinθ dθ∧dφ/2、(i/2π)∫F=n。Stokesでは ∫F=−∫_E g^{-1}dg、向きと i²=−1 が整合する。非零巻き数の束は大域sectionを持たない。SU(2) はGBG25のS³同一視・次数、GBG26 #thm-gbg26-clutching-number、GBG28 #prop-gbg28-patching と #thm-gbg28-nontrivial を照合。純ゲージθ=g^{-1}dg、dθ=−θ²、CS₃(θ)=−tr(θ³)/3。南半球境界は−Eなので (8π²)^{-1}∫tr(F²)=(24π²)^{-1}∫_E tr(θ³)=deg g。基本表現の跡で単位S³の体積2π²とtr(Θ³)の係数12が正規化を与える。BPSTのgは実4座標で符号付き逆順置換（行列式+1）、貼り合わせはg^{-1}ゆえ次数−1。A=f g^{-1}dg、f=r²/(r²+ρ²) から A_∞=(f−1)dg g^{-1}、y=x/r² では分母|y|²がf−1=−ρ²|y|²/(1+ρ²|y|²)で相殺、y=0に滑らかに延長する。よって局所A→F→Chern数→非自明性が閉じる。
+5. **Chern–Weilの三層（GBG20–24、26）**。Ad不変性の微分は Σ_j p(X_1,…,[Y,X_j],…,X_k)=0。Fが次数2なのでAの次数1を各Fの前へ移しても正符号、d p(F^k)=k p(dF,F^{k−1})=−k p([A∧F],F^{k−1})=0。補間A_t=A_0+t a、Ḟ=d a+[A_t∧a]。aを次数1としてLeibniz則の負号とBianchiの負号を相殺すれば ∂_t p(F_t^k)=k d p(a,F_t^{k−1})、積分で完全形式差。GBG23 #prop-gbg23-low-chern で C=iF/(2π)、c₁=tr C、c₂=((tr C)²−tr C²)/2、ch₂=tr C²/2=(c₁²−2c₂)/2。SU(2)でtr F=0なら c₂=tr F²/(8π²)、ch₂=−c₂。GBG24 #prop-gbg24-first-pontryagin で実交代曲率Rから tr R²=−2Σ_{a<b}R_ab²、p₁=−tr R²/(8π²)。Pfaffianは向き付き枠で扱い、直交変換一般の符号を区別。閉性・完全形式差はde Rhamの主張で、整数類の一般定理は引用範囲、球面の特性数はGBG19/26の独立した巻き数・次数計算を使う。
+6. **4次元・Spin（GBG27–30）**。GBG27の作用で u=∫|F⁺|²、v=∫|F⁻|²、YM=u+v、8π²k=−u+v、従ってYM≥8π²|k|。自己双対ならk≤0、d_A*F=±d_AF=0。GBG28 #thm-gbg28-curvature、#thm-gbg28-action を再計算：D=r²+ρ²、A_μ^a=2η^a_{μν}x^ν/D、∂_μA_ν−∂_νA_μ の −4η/D と二次項の +4r²η/D² が残り、F_μν^a=−4ρ²η^a_{μν}/D²。ηの各aに2成分、−tr(T_aT_b)=δ_ab/2 なので |F|²=48ρ⁴/D⁴。u=r²/ρ² と置けば作用は 48π²∫_0^∞u/(1+u)^4 du=48π²(1/2−1/3)=8π²、自己双対からk=−1。S⁴の丸い計量は共形なので2形式の星は不変。GBG29ではZ/2 Čech cochainとδ²=0をw₂より先に導入、liftの積の結合律から c_ijk+c_ikl=c_jkl+c_ijl、別liftでは c'=c+δb。w₂=0なら細分上で符号補正してcocycleを作り、逆向きはspin束の遷移でc=0。GBG30は正定値Riemann計量のSpin(n)、境界なし、指数段階でコンパクトを要求しLorentz計量とは分離。
+7. **指数・異常（GBG30）**。PR #4249の全件査読で Clifford 関係、局所共変性、χの随伴・枠独立性、楕円性・定義域・Fredholm条件を再計算。σ_D(ξ)^2=|ξ|²I（非零ξ）、χ²=I、Dχ=−χD。Atiyah–Singer指数定理は入力として適用し、S²の指数n、丸いS⁴でp₁=0・SU(2)のch₂=−c₂なのでBPSTの指数+1。有限個のGrassmann零モードの逆行列式だけでは正則化された局所異常・大域異常・ゲージ異常の完全証明にはならないことを本文で明記している。
+8. **演習・metadata・公開導線**。全30の実index.mdからLevel A/B/Cの問題と詳細解答開始マーカーを集計し、各章A4/B3/C1以上、問題総数270と詳細解答数270の対応を確認。全30のchapter.yamlとknowledge.yamlの章ID・prerequisitesは一致し、coverage: complete。系列内の前提は先行IDのみ。manifest全30章completed、科目目次 `textbook/dream-theater-toc/050_幾何系/045_principal-bundles-gauge-geometry.md` の30リンクも同じ順で一致。共通routingは系列manifestからPLANを引く構造で変更不要。§5は図を実装する場合の設計指針であり、今回新規図・SVGの追加は行わない。
+
+### 判定・検証範囲
+
+査読主体：ChatGPTによるGBG30全件追跡監査および上記系列横断検算。第三者独立査読とは称さない。一般Spin群構成、一般Atiyah–Singer定理、量子異常の無限次元正則化、整数特性類の一般理論はPLANが定めた引用・後続理論の範囲。GBG30の修正PRで教材・用語・Pages assembly・演習・概念の全5 CIが成功しmainへ統合済み。公開導線はソースとPages assemblyで確認した（ブラウザでの個別ページの実表示確認とは区別）。本移動はPLAN状態と対応するmanifestのplan参照だけを変更し、講義本文・知識定義・公開目次・共通ルーティングは変更しない。第4節の横断ゲートを満たし、予定講義の残数は0。
+

@@ -1,7 +1,7 @@
 version: 1
 id: GBG
 title: "主束・接続・ゲージ理論の幾何"
-plan: textbook/plans_progress/DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 公開索引には完成した講義のみ追加する。
