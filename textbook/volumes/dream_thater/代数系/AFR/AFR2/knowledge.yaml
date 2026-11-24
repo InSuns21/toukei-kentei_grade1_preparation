@@ -1,7 +1,7 @@
 chapter: AFR2
 scope: dream-theater
 coverage: complete
-prerequisites: [AFR1, GEO12, FOU2, CA1]
+prerequisites: [AFR1, GEO12, FOU2, CA1, ODE7]
 forward_references: []
 concepts:
   - id: automorphic-forms.hyperbolic-metric
