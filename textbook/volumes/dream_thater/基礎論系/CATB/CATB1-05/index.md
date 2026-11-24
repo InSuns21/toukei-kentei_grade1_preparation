@@ -8,7 +8,13 @@
 
 元を使えない圏でもこの対応は成立するだろうか。それを確かめると、複数の射をつないだとき、前の射から届く情報と次の射で消える情報が一致するかを調べられる。
 
-以下、$\mathcal C$ は局所小な[アーベル圏](../CATB1-04/index.md#def-catb1-04-abelian-category)とし、合成を $gf=g\circ f$ と書く。零対象を $O$、型が明らかな零射を $0$ と書く。核・余核の記号は対象だけでなく射を含む。加群の具体例では包含射を核、剰余類への射を余核として選ぶ。
+以下、$\mathcal C$ は局所小な[アーベル圏](../CATB1-04/index.md#def-catb1-04-abelian-category)とし、合成を $gf=g\circ f$ と書く。零対象を $O$、型が明らかな零射を $0$ と書く。$\ker f$ と $\operatorname{coker}f$ はそれぞれ核射・余核射を表し、その始域・終域を別の文字で指定する。
+
+$1_X$ は対象 $X$ の恒等射である。
+
+[モノ射](../../CAT/CAT1-03/index.md#def-cat1-03-monomorphism)と[エピ射](../../CAT/CAT1-03/index.md#def-cat1-03-epimorphism)はそれぞれ左消去と右消去ができる射であり、[同型射](../../CAT/CAT1-03/index.md#def-cat1-03-isomorphism)は両側逆射を持つ射である。
+
+可換群は整数倍を作用とする左 $\mathbb Z$ 加群なので、[加群の圏の定理](../CATB1-04/index.md#thm-catb1-04-module-category)を適用できる。この圏ではモノ射は単射、エピ射は全射に一致する。正整数 $r$ に対し $r\mathbb Z=\{rn:n\in\mathbb Z\}$ とし、$[n]_r$ は商群 $\mathbb Z/r\mathbb Z$ における $n$ の剰余類を表す。特に $[n]_r=[0]_r$ と $n\in r\mathbb Z$ は同値である。
 
 ## 2. 余像と像の比較射
 
@@ -25,7 +31,9 @@
 <!-- definition-example-start: def-catb1-05-coimage -->
 **定義の確認**
 
-冒頭の射について $k(t)=(t,t)$ とし、$q(x,y)=x-y$ と置く。$qk(t)=0$ である。任意の加法を保つ射 $w:\mathbb Z^2\to T$ が $wk=0$ を満たすとき、
+冒頭の射について $k:\mathbb Z\to\mathbb Z^2$ を $k(t)=(t,t)$ とする。$f(x,y)=0$ と $x=y$ は整数上で同値であり、$k$ は対角部分群への同型とその包含の合成なので、[加群の核の構成](../CATB1-04/index.md#thm-catb1-04-module-category)から核射である。$q:\mathbb Z^2\to\mathbb Z$ を $q(x,y)=x-y$ と置く。$qk(t)=t-t=0$ である。
+
+任意の可換群 $T$ と加法を保つ射 $w:\mathbb Z^2\to T$ が $wk=0$ を満たすとき、
 
 $$
 (x,y)=(x-y,0)+(y,y)
@@ -43,7 +51,7 @@ k:K\to A,\quad q:A\to Q=\operatorname{Coim}f,
 $$
 
 $$
-c:B\to C=\operatorname{coker}f,\quad m:I\to B,\quad m=\ker c.
+c:B\to C,\quad c=\operatorname{coker}f,\quad m:I\to B,\quad m=\ker c.
 $$
 
 $fk=0$ なので $q=\operatorname{coker}k$ の普遍性から $f=u q$ となる $u:Q\to B$ が一意に存在する。また $cf=0$ である。よって $cuq=0$、余核射 $q$ の[エピ射性](../CATB1-04/index.md#prop-catb1-04-kernel-cokernel-uniqueness)から $cu=0$ となる。核 $m$ の普遍性を $u$ に適用すると、$u=ma$ となる $a:Q\to I$ が一意に存在する。
@@ -64,14 +72,14 @@ $$
 > さらに $(aq,m)$ は $f$ の圏論的な像である。特に $f$ はエピ射とモノ射の合成に分解される。
 <!-- formal-statement-end -->
 
-見取り図：まず $f$ が $m$ を経由するときの射 $h:A\to I$ がエピ射であることを示す。もし $h$ がもっと小さいモノ射を経由できるなら、$m$ の最小性に反する。次に $h$ と $f$ の核が同じであることから $h$ と $q$ が同じ普遍性を持つと分かる。
+見取り図：まず $f$ が $m$ を経由するときの射 $h:A\to I$ がエピ射であることを示す。もし $h$ がもっと小さいモノ射を経由できるなら、$m$ の最小性に反する。次に $h$ と $f$ の核が同じであることを確認し、[正規射の復元](../CATB1-04/index.md#prop-catb1-04-normal-recovery)から $h$ と $q$ が同じ余核の普遍性を持つと分かる。
 
 <!-- proof-start -->
 ### 証明
 
 **最小性。** $f=mh$ と分解する。$h=aq$ と取れる。別の分解 $f=ng$（$n:J\to B$ はモノ射、$g:A\to J$）を取る。$d:B\to D$ を $n$ の余核とすれば $df=dng=0$ だから、$c$ の[余核の普遍性](../CATB1-04/index.md#def-catb1-04-cokernel)により $d=vc$ となる $v:C\to D$ が存在する。従って $dm=vcm=0$ である。
 
-アーベル圏では $n$ は正規モノ射なので、[正規射の核・余核による復元](../CATB1-04/index.md#prop-catb1-04-normal-recovery)により $n=\ker d$ と見なせる。よって $m=nb$ を満たす $b:I\to J$ が一意に存在する。さらに
+[アーベル圏の公理](../CATB1-04/index.md#def-catb1-04-abelian-category)により $n$ は[正規モノ射](../CATB1-04/index.md#def-catb1-04-normal-mono-epi)（ある射の核）なので、[正規射の核・余核による復元](../CATB1-04/index.md#prop-catb1-04-normal-recovery)により $n=\ker d$ と見なせる。よって $m=nb$ を満たす $b:I\to J$ が一意に存在する。さらに
 
 $$
 nbh=mh=f=ng.
@@ -100,7 +108,7 @@ $$
 $q,h$ のエピ射性で右消去して $ba=1_Q,\ ab=1_I$。従って $a$ は同型射である。先に $(h,m)$ が像であることを示したので $I$ を $\operatorname{Im}f$ と書ける。
 <!-- proof-end -->
 
-冒頭の例では $c(n)=[n]_2$、$m:2\mathbb Z\hookrightarrow\mathbb Z$ である。$cm=0$ であり、任意の $v:T\to\mathbb Z$ で $cv=0$ なら値が偶数に限られるので、同じ値を $2\mathbb Z$ に取る射が一意に定まる。よって $m=\ker c$。比較射は $a(s)=2s$、逆射は $2s\mapsto s$ で、どちらも加法を保つ。
+冒頭の例では[加群の余核の構成](../CATB1-04/index.md#thm-catb1-04-module-category)により $c(n)=[n]_2$ である。$m:2\mathbb Z\hookrightarrow\mathbb Z$ を包含射とする。$cm=0$ であり、任意の $v:T\to\mathbb Z$ で $cv=0$ なら値が偶数に限られるので、同じ値を $2\mathbb Z$ に取る射が一意に定まる。よって $m=\ker c$。比較射は $a(s)=2s$、逆射は $2s\mapsto s$ で、どちらも加法を保つ。
 
 この結果により、像の対象を値全体として定義できない圏でも、核と余核だけで像を作れる。以後、像は $m_f=\ker(\operatorname{coker}f)$ と選ぶ。
 
@@ -112,7 +120,11 @@ $$
 A\xrightarrow{f}B\xrightarrow{g}C.
 $$
 
-$gf=0$ なら $f$ の値は $g$ の核に入る。しかし整数の倍写像 $f(n)=4n$ と剰余類への射 $g(n)=[n]_2$ では、$4\mathbb Z$ は $2\mathbb Z$ の一部分にすぎない。例えば $2$ は $g$ で零になるが $f$ では到達できない。完全性はこの不足がないことを表す。この条件を列の各中間対象で要求する。
+$gf=0$ なら $f$ は[核の普遍性](../CATB1-04/index.md#def-catb1-04-kernel)により $g$ の核を経由する。可換群ではこれは $f$ の値全体が $g$ の核の部分群に含まれることを意味する。
+
+しかし整数の倍写像 $f(n)=4n$ と剰余類への射 $g(n)=[n]_2$ では、$4\mathbb Z$ は $2\mathbb Z$ の一部分にすぎない。
+
+例えば $2$ は $g$ で零になるが $f$ では到達できない。完全性はこの不足がないことを表す。この条件を列の各中間対象で要求する。
 
 抽象的な圏では部分集合の等号の代わりに、二つのモノ射の始域を同型で結び、終域への射が一致することを要求する。
 
@@ -121,7 +133,7 @@ $gf=0$ なら $f$ の値は $g$ の核に入る。しかし整数の倍写像 $f
 <!-- formal-statement-start -->
 > **定義（完全列）**
 >
-> アーベル圏の二射 $f:A\to B$ と $g:B\to C$ が $B$ で完全であるとは、$f$ の像 $m:I\to B$ と $g$ の核 $k:K\to B$ に対して、$k\theta=m$ を満たす同型射 $\theta:I\to K$ が存在することをいう。
+> アーベル圏の二射 $f:A\to B$ と $g:B\to C$ が $B$ で完全であるとは、$f$ の[圏論的な像](../CATB1-01/index.md#def-catb1-01-image) $m:I\to B$（像分解のモノ射）と $g$ の核 $k:K\to B$ に対して、$k\theta=m$ を満たす同型射 $\theta:I\to K$ が存在することをいう。
 >
 > 射の列が各中間対象でこの条件を満たすとき、完全列という。
 <!-- formal-statement-end -->
@@ -129,10 +141,20 @@ $gf=0$ なら $f$ の値は $g$ の核に入る。しかし整数の倍写像 $f
 <!-- definition-example-start: def-catb1-05-exact -->
 **定義の確認**
 
-可換群の圏で $f(n)=2n$、$g(n)=[n]_2$ とする。[像と余像の比較同型](#thm-catb1-05-image-coimage)と加群の核・余核の構成から、像は $2\mathbb Z\hookrightarrow\mathbb Z$、核も同じ包含射として選べる。$\theta=1_{2\mathbb Z}$ は同型で $k\theta=m$ を満たす。従って $\mathbb Z\xrightarrow{f}\mathbb Z\xrightarrow{g}\mathbb Z/2\mathbb Z$ は中央で完全である。$f(n)=4n$ に変えると $\theta$ は包含 $4\mathbb Z\hookrightarrow2\mathbb Z$ に強制され、$2$ が値にならないので同型ではない。
+可換群の圏で $f(n)=2n$、$g(n)=[n]_2$ とする。[像と余像の比較同型](#thm-catb1-05-image-coimage)と[加群の核・余核の構成](../CATB1-04/index.md#thm-catb1-04-module-category)から、像は $2\mathbb Z\hookrightarrow\mathbb Z$、核も同じ包含射として選べる。
+
+$\theta=1_{2\mathbb Z}$ は同型で $k\theta=m$ を満たす。従って $\mathbb Z\xrightarrow{f}\mathbb Z\xrightarrow{g}\mathbb Z/2\mathbb Z$ は中央で完全である。
+
+$f(n)=4n$ に変えると $\theta$ は包含 $4\mathbb Z\hookrightarrow2\mathbb Z$ に強制され、$2$ が値にならないので同型ではない。
 <!-- definition-example-end -->
 
-完全性が成立すれば $gf=gk\theta h=0$ となる（$f=mh$）。逆は上の反例で成立しない。次の判定は $gf=0$ から何を追加すればよいかを示す。
+[像と余像の比較同型](#thm-catb1-05-image-coimage)による像分解を $f=mh$ と書く。完全なら $m=k\theta$ なので、核の条件 $gk=0$ から
+
+$$
+gf=gk\theta h=0.
+$$
+
+逆は上の反例で成立しない。次の判定は $gf=0$ から何を追加すればよいかを示す。
 
 <a id="prop-catb1-05-exactness-test"></a>
 
@@ -153,18 +175,18 @@ $gf=0$ に[核の普遍性](../CATB1-04/index.md#def-catb1-04-kernel)を適用�
 
 完全なら $m=k\theta$ となる同型射がある。従って $f=k\theta h=kv$、モノ射 $k$ を消去して $v=\theta h$。任意の $a,b:K\to T$ で $av=bv$ なら $a\theta h=b\theta h$、$h$ を消去し、$\theta^{-1}$ を右から合成して $a=b$。従って $v$ はエピ射である。
 
-逆に $v$ がエピ射なら、アーベル圏では正規エピ射なのである射 $s:D\to A$ の余核である。
+逆に $v$ がエピ射なら、[アーベル圏の公理](../CATB1-04/index.md#def-catb1-04-abelian-category)により正規エピ射なので、ある射 $s:D\to A$ の余核である。
 
-余核は $s$ と零射の余等化子であるから $v$ は[正則エピ射](../CATB1-01/index.md#def-catb1-01-regular-epi)である。
+ここで $vs=0=v0$ である。任意の $w:A\to T$ について $ws=w0$ は $ws=0$ と同値であり、余核の普遍性により $w=zv$ となる $z:K\to T$ が一意に存在する。従って $v$ は平行二射 $s,0:D\to A$ の余等化子であり、[正則エピ射](../CATB1-01/index.md#def-catb1-01-regular-epi)である。
 
 $k$ は核なのでモノ射。
 
 よって[正則エピ・モノ分解は像を与える定理](../CATB1-01/index.md#thm-catb1-01-regular-epi-mono-image)を $f=kv$ に適用すると $(v,k)$ も像となる。
 
-像の一意性により $k\theta=m$ となる同型射が存在し、完全である。
+同定理の像の同型一意性により $k\theta=m$ かつ $\theta h=v$ となる同型射 $\theta:I\to K$ が存在し、[完全列の定義](#def-catb1-05-exact)を満たす。
 <!-- proof-end -->
 
-加群ではエピ射は全射であるから、この命題は $g(b)=0$ となる任意の $b\in B$ に対し $f(a)=b$ となる $a\in A$ が存在するという判定になる。抽象的なアーベル圏で元を使う必要はない。
+[加群の圏の定理](../CATB1-04/index.md#thm-catb1-04-module-category)によりエピ射は全射であるから、この命題は $g(b)=0$ となる任意の $b\in B$ に対し $f(a)=b$ となる $a\in A$ が存在するという判定になる。抽象的なアーベル圏で元を使う必要はない。
 
 ## 4. 短完全列：部分と商を一緒に記録する
 
@@ -211,7 +233,7 @@ $$
 
 $C$ での完全性は $g$ の像 $m_g:I_g\to C$ が同型であることと同値である。
 
-$g$ がエピ射ならその余核は $C\to O$ なので $m_g$ は恒等射と同型。
+$g$ がエピ射なら[零射によるエピ射の判定](../CATB1-04/index.md#prop-catb1-04-zero-test)より余核を $C\to O$ と選べる。その核は $1_C$ なので、像の構成と核の同型一意性により $m_g$ は恒等射と同型。
 
 逆に $m_g$ が同型なら[像分解](#thm-catb1-05-image-coimage)で $g=m_gh_g$（$h_g$ はエピ射）となり $g$ はエピ射である。
 
@@ -221,9 +243,9 @@ $g$ がエピ射ならその余核は $C\to O$ なので $m_g$ は恒等射と�
 
 $f$ がモノ射なので正規性と[正規射の復元](../CATB1-04/index.md#prop-catb1-04-normal-recovery)から $f=\ker(\operatorname{coker}f)$、つまり $f$ 自身を像として選べる。
 
-中央の完全性により $g$ の核 $k:K\to B$ と同型射 $\theta:A\to K$ があり $f=k\theta$。
+[完全列の定義](#def-catb1-05-exact)により $g$ の核 $k:K\to B$ と同型射 $\theta:A\to K$ があり $f=k\theta$。従って $gf=gk\theta=0$。
 
-任意の $v:T\to B$ で $gv=0$ なら $v=ku$ となる $u:T\to K$ が一意に存在する。
+任意の $v:T\to B$ で $gv=0$ なら[核の普遍性](../CATB1-04/index.md#def-catb1-04-kernel)により $v=ku$ となる $u:T\to K$ が一意に存在する。
 
 $v=f\theta^{-1}u$ となり、$f$ のモノ射性で分解は一意である。
 
@@ -236,7 +258,7 @@ $g$ は正規エピ射であるから正規射の復元により $g$ は自身�
 (3) を仮定すれば[核と余核の消去性](../CATB1-04/index.md#prop-catb1-04-kernel-cokernel-uniqueness)から $f$ はモノ射、$g$ はエピ射。$m_f=\ker(\operatorname{coker}f)=\ker g$ と選べるので中央で完全である。よって (2) が従う。
 <!-- proof-end -->
 
-短完全列は、真ん中の対象を部分と商に分けて記録する。必ずしも真ん中が二つの対象の双積になるわけではない。例えば定義の確認に使った列では、$g$ の右逆射 $s:\mathbb Z/3\mathbb Z\to\mathbb Z$ があれば $3s([1])=s([0])=0$ から $s([1])=0$。しかし $gs([1])=[1]$ が必要なので矛盾する。完全性と片側逆射の存在を混同してはいけない。
+短完全列は、真ん中の対象を部分と商に分けて記録する。必ずしも真ん中が二つの対象の双積になるわけではない。例えば定義の確認に使った列では、$g$ の[右逆射](../../CAT/CAT1-03/index.md#def-cat1-03-split) $s:\mathbb Z/3\mathbb Z\to\mathbb Z$ があれば、加法を保つので $3s([1]_3)=s(3[1]_3)=s([0]_3)=0$。整数には $3t=0$ を満たす非零の元がないので $s([1]_3)=0$。しかし $gs([1]_3)=[0]_3\ne[1]_3$ となり、右逆射の条件に反する。完全性と片側逆射の存在を混同してはいけない。
 
 ## 5. 演習
 
@@ -247,7 +269,13 @@ $g$ は正規エピ射であるから正規射の復元により $g$ は自身�
 可換群の圏で $f:\mathbb Z^2\to\mathbb Z$ を $f(x,y)=3(x+2y)$ とする。核、余像、余核、像の対象と比較同型を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $f(x,y)=0$ は整数で $x=-2y$ と同値なので核は $K=\{(-2t,t):t\in\mathbb Z\}$ の包含。$q(x,y)=x+2y$ は全射で、その核は $K$。任意の $w$ が $K$ を零にすれば $(x,y)=(x+2y,0)+(-2y,y)$ より $w(x,y)=w(x+2y,0)$。$z(s)=w(s,0)$ が唯一の分解なので余像は $\mathbb Z$、射は $q$。
+**詳細解答。** $f(x,y)=0$ は整数で $x=-2y$ と同値なので核は $K=\{(-2t,t):t\in\mathbb Z\}$ の包含。$q(x,y)=x+2y$ は全射で、その核は $K$。任意の加法を保つ射 $w:\mathbb Z^2\to T$（$T$ は可換群）が $K$ を零にするとする。
+
+$$
+(x,y)=(x+2y,0)+(-2y,y)
+$$
+
+であり、第2項は $K$ に属する。従って $w(x,y)=w(x+2y,0)$。$z:\mathbb Z\to T$ を $z(s)=w(s,0)$ と定めると加法を保ち、$zq=w$。$q(s,0)=s$ からこの分解は一意である。従って[余像の定義](#def-catb1-05-coimage)により余像の対象は $\mathbb Z$、射は $q$。
 
 値は $3\mathbb Z$ 全体（$f(s,0)=3s$）だから[加群の余核構成](../CATB1-04/index.md#thm-catb1-04-module-category)で余核は $\mathbb Z/3\mathbb Z$ への商射。その核は $3\mathbb Z$ の包含で像になる。[比較同型の定理](#thm-catb1-05-image-coimage)の $a$ は $a(s)=3s$ であり、$maq(x,y)=3(x+2y)$。逆射 $3s\mapsto s$ は整数 $s$ の一意性から定義でき、互いの合成が恒等射である。
 <!-- solution-end -->
@@ -299,7 +327,13 @@ $f$ の像と $g$ の核は同じ $5\mathbb Z$ の包含で、中央で完全。
 可換群の圏で $f:\mathbb Z^2\to\mathbb Z^2$ を $f(x,y)=(x+y,2x+2y)$、$g:\mathbb Z^2\to\mathbb Z$ を $g(a,b)=b-2a$ とする。$gf=0$ を確かめ、核の対象を $\mathbb Z$ と選んで完全性を判定せよ。
 
 <!-- solution-start -->
-**詳細解答。** $gf(x,y)=2x+2y-2(x+y)=0$。$g(a,b)=0$ は $b=2a$ なので $k(t)=(t,2t)$ と置く。$gk=0$ かつ任意の $u:T\to\mathbb Z^2$ で $gu=0$ なら $u=(u_1,2u_1)=ku_1$、第一成分から分解は一意。ゆえに $k$ は核である。
+**詳細解答。** $gf(x,y)=2x+2y-2(x+y)=0$。$g(a,b)=0$ は $b=2a$ なので $k(t)=(t,2t)$ と置く。$gk=0$ かつ任意の $u:T\to\mathbb Z^2$ で $gu=0$ なら、$u_1,u_2:T\to\mathbb Z$ を $u$ の第一・第二成分と書くと $u_2-2u_1=0$。従って任意の $t\in T$ について
+
+$$
+u(t)=(u_1(t),2u_1(t))=k(u_1(t)).
+$$
+
+成分射 $u_1$ は加法を保ち、第一成分から分解は一意。ゆえに $k$ は核である。
 
 $f=kv$ の解は $v(x,y)=x+y$。任意の $t$ について $v(t,0)=t$ なので $v$ は全射、[加群の圏の定理](../CATB1-04/index.md#thm-catb1-04-module-category)よりエピ射。[完全性の判定](#prop-catb1-05-exactness-test)で中央は完全となる。ただし $f(1,-1)=(0,0)$ なので $f$ はモノ射でない。この列に零対象を付けても左端の完全性は成立しない。
 <!-- solution-end -->
@@ -349,9 +383,9 @@ $w$ がモノ射なら任意の $v:T\to B$ で $gv=wcv=0$ のとき $cv=0$ と�
 
 従って $m$ の核としての普遍性は $g$ に対しても成立し、中央で完全。
 
-逆に完全なら $k=\ker g$ と $m$ は同型で、$m$ 自身も $g$ の核となる。
+逆に中央で完全と仮定する。[完全列の定義](#def-catb1-05-exact)より $k=\ker g$ に対して $m=k\theta$ となる同型射 $\theta$ が存在する。従って $gm=gk\theta=0$。$gv=0$ を満たす射 $v:T\to B$ は核の普遍性から $v=ku$ と一意に書けるので、$v=m\theta^{-1}u$ とも一意に書ける。よって $m$ 自身も $g$ の核となる。
 
-$g$ の像分解を $g=nh$ とすれば $n$ のモノ射性から $m$ は $h$ の核でもある（$hv=0$ と $gv=0$ が同値）。
+[像と余像の比較同型](#thm-catb1-05-image-coimage)による $g$ の像分解を $g=nh$ とすれば $n$ のモノ射性から $m$ は $h$ の核でもある（$hv=0$ と $gv=0$ が同値）。
 
 $h$ はエピ射なので[正規射の復元](../CATB1-04/index.md#prop-catb1-04-normal-recovery)より $h$ は $m$ の余核である。
 
@@ -373,11 +407,19 @@ $n$ はモノ射、$j$ は同型なので $w$ はモノ射である。
 対象を $\mathbb Z^n$（$n\geq0$）に限定し、射を加法を保つ写像とする加法圏を考える。$d:\mathbb Z\to\mathbb Z$、$d(n)=2n$ について、核・余核と余像射・余核の核を構成し、比較射が同型か判定せよ。全可換群の圏と比較し、定理のどの仮定が必要だったか述べよ。
 
 <!-- solution-start -->
-**詳細解答。** この圏では任意の $u:\mathbb Z^n\to\mathbb Z$ で $du=0$ なら各 $u(t)$ が $2u(t)=0$ を満たすので $u=0$。従って核は $O\to\mathbb Z$。任意の $w:\mathbb Z\to\mathbb Z^n$ で $wd=0$ なら $2w(1)=0$ だから整数の各成分が零。$w(t)=tw(1)=0$ より余核は $\mathbb Z\to O$。どちらも零対象を経由する分解は一意である。
+**詳細解答。** この圏では射の和・零射・合成は可換群の圏と同じであり、有限双積 $\mathbb Z^n\oplus\mathbb Z^m=\mathbb Z^{n+m}$ と零対象 $O=\mathbb Z^0$ が残るので、[加法圏の定義](../CATB1-03/index.md#def-catb1-03-additive-category)を満たす。
+
+任意の $u:\mathbb Z^n\to\mathbb Z$ で $du=0$ なら各 $t\in\mathbb Z^n$ について $2u(t)=0$ なので $u(t)=0$、従って $u=0$。核は $O\to\mathbb Z$。任意の $w:\mathbb Z\to\mathbb Z^m$ で $wd=0$ なら $w(d(1))=w(2)=2w(1)=0$ だから整数の各成分が零。任意の $t\in\mathbb Z$ について $w(t)=tw(1)=0$ より余核は $\mathbb Z\to O$。どちらも零対象を経由する分解は一意である。
 
 核の余核は $1_{\mathbb Z}$、余核の核も $1_{\mathbb Z}$。実際、零射と合成すると常に零になり、恒等射を経由する分解は元の射そのもので一意だからである。よって $d=1_{\mathbb Z}a1_{\mathbb Z}$ の比較射は $a=d$。逆射 $b$ があれば $2b(1)=1$ が必要だが整数解はない。
 
-$d$ は単射なのでモノ射である。上で $wd=0$ なら $w=0$ を示したので、[零射によるエピ射の判定](../CATB1-04/index.md#prop-catb1-04-zero-test)によりエピ射でもある。ところが正規エピ射なら自身の核の余核でなければならない（[正規射の復元](../CATB1-04/index.md#prop-catb1-04-normal-recovery)）。その余核は恒等射と同型なので $d$ は同型となるはずであり矛盾する。従ってアーベル圏の正規性公理が失われている。
+$d$ は単射なので、任意の二射 $u,v:T\to\mathbb Z$ に対して $du=dv$ なら各 $t\in T$ で $2u(t)=2v(t)$、従って $u=v$ となりモノ射である。
+
+上で $wd=0$ なら $w=0$ を示したので、[零射によるエピ射の判定](../CATB1-04/index.md#prop-catb1-04-zero-test)によりエピ射でもある。
+
+ところが正規エピ射なら自身の核の余核でなければならない（[正規射の復元](../CATB1-04/index.md#prop-catb1-04-normal-recovery)）。その余核は恒等射と同型なので $d$ は同型となるはずであり矛盾する。従ってアーベル圏の正規エピ射の公理が失われている。
+
+正規モノ射の公理も失われている。実際、正規モノ射なら自身の余核 $\mathbb Z\to O$ の核であるはずだが、その核は恒等射であるため $d$ が同型になり、同じ矛盾を生じる。
 
 全可換群の圏では $d$ の核は同じだが余核は $\mathbb Z\to\mathbb Z/2\mathbb Z$。その核は $2\mathbb Z$ の包含であり、比較射 $\mathbb Z\to2\mathbb Z$、$t\mapsto2t$ は逆射 $2t\mapsto t$ を持つ。制限した圏では偶奇を区別する商が対象にならず、比較射の証明で必要だった正規性を使えない。このため[像と余像の比較同型](#thm-catb1-05-image-coimage)は加法圏という仮定だけでは成立しない。
 <!-- solution-end -->

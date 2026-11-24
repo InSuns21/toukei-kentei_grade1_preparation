@@ -157,7 +157,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb1-06-connecting -->
-**定義の確認。** 第1節の整数の例では $K_c=C=\mathbb Z/2\mathbb Z$、$k_c=1$ なので $P=B=\mathbb Z$, $u=1$, $s=p$ と取れる。$i'v(n)=2v(n)=2n$ より $v(n)=n$。$q_a(n)=[n]_2$ だから $\delta([n]_2)=[n]_2$ とすれば $\delta s=q_av$ を満たす。$s$ が全射なのでこの $\delta$ は一意であり、代表元を $n+2t$ に替えても値は変わらない。
+**定義の確認**
+
+第1節の整数の例では $K_c=C=\mathbb Z/2\mathbb Z$、$k_c=1$ なので $P=B=\mathbb Z$, $u=1$, $s=p$ と取れる。
+
+$i'v(n)=2v(n)=2n$ より $v(n)=n$。$q_a(n)=[n]_2$ だから $\delta([n]_2)=[n]_2$ とすれば $\delta s=q_av$ を満たす。
+
+$s$ が全射なのでこの $\delta$ は一意であり、代表元を $n+2t$ に替えても値は変わらない。
 <!-- definition-example-end -->
 
 一般の場合にもこの射が存在する。引き戻しの核に沿って差が消えることを示せば、余核の普遍性によって接続射を作れる。
@@ -230,6 +236,7 @@ $k_b$ を消去して $\alpha y=x$。持ち上げによる判定では恒等射�
 **$K_c$ での完全性。** $u_0=k_b:K_b\to B$ と $s_0=\beta$ は $pu_0=k_cs_0$ を満たすので、引き戻し $P$ への射 $t:K_b\to P$ が存在して $ut=k_b$, $st=\beta$。$i'vt=but=bk_b=0$ から $vt=0$。従って $\delta\beta=\delta st=q_avt=0$。
 
 $x:T\to K_c$ が $\delta x=0$ を満たすとする。[持ち上げの補題](#lem-catb1-06-epi-lift)を $s:P\to K_c$ と $x$ に適用し、エピ射 $e:S\to T$ と $t:S\to P$ を取り $st=xe$ とする。
+
 $$
 q_avt=\delta st=\delta xe=0.
 $$
@@ -283,6 +290,7 @@ $$
 合成 $ee_1$ はエピ射なので[完全性の判定](#prop-catb1-06-local-exactness)により完全である。
 
 **$Q_b$ での完全性。** 第2節で $\eta\gamma=0$ を示した。$x:T\to Q_b$ が $\eta x=0$ を満たすとする。[持ち上げの補題](#lem-catb1-06-epi-lift)をエピ射 $q_b$ に適用し、$e:S\to T$, $y:S\to B'$ で $q_by=xe$ とする。
+
 $$
 q_cp'y=\eta q_by=0.
 $$
@@ -362,11 +370,12 @@ $$
 
 <!-- solution-start -->
 **詳細解答。** 両横列は短完全で、縦射と横射は乗法および剰余類の計算で可換。右の縦射は零なので $[2]_3\in K_c$。第4節の[接続射](#def-catb1-06-connecting)を使う。
+
 $$
 b(2)=6=i'(2),\qquad b(5)=15=i'(5).
 $$
 
-なので、$w=2,5$ を得る。$Q_a=\mathbb Z/3\mathbb Z$ で $[2]_3=[5]_3$。差 $5-2=3=a(1)$ だから余核では消える。
+従って $w=2,5$ を得る。$Q_a=\mathbb Z/3\mathbb Z$ で $[2]_3=[5]_3$。差 $5-2=3=a(1)$ だから余核では消える。
 <!-- solution-end -->
 
 ### CATB1-06-A03 核から余核への非自明な射
@@ -377,6 +386,7 @@ $$
 
 <!-- solution-start -->
 **詳細解答。** 横は短完全で、$4(6n)=6(4n)$、$[4n]_6=4[n]_6$ から可換。$4x$ が6の倍数であることは $2x$ が3の倍数、従って $x$ が3の倍数であることと同値。
+
 $$
 K_c=\{[0]_6,[3]_6\},\qquad Q_a=\mathbb Z/4\mathbb Z.
 $$
@@ -442,6 +452,7 @@ $$
 
 <!-- solution-start -->
 **詳細解答。** $p$ が全射なので $pz=x$ となる $z\in B$ を選ぶ。
+
 $$
 p'bz=cpz=cx=0.
 $$
