@@ -8,7 +8,7 @@
 
 ## 1. 計算と論理の二つの役割
 
-自然数 2 と 3 を比較したとき、プログラムの結果として false を受け取れます。一方、数学の主張「2 = 3」は偽の命題です。false というデータは存在しますが、矛盾のない論理のもとでは偽の命題の正しい証明は作れません。この違いを Lean の型で捉えます。
+自然数 2 と 3 を比較したとき、プログラムの結果として false を受け取れます。一方、数学の主張「2 = 3」は偽の命題です。false というデータは存在しますが、矛盾のない論理のもとでは偽の命題の正しい証明は作れません。この違いを Lean の型で捉えます。以下で自然数というときは Lean の `Nat`、すなわち 0 を含む非負整数を指します。`Bool` は前講で盤面の値に使った型です。ここでは [帰納型](../LVT1-03/index.md#def-lvt1-03-inductive-type) の構成子（値を作る方法）に立ち返り、その二つの値を確認します。
 
 <a id="def-lvt2-01-bool"></a>
 
@@ -19,10 +19,10 @@ Lean の Bool は二つの構成子 true と false を持つデータ型であ�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt2-01-bool -->
-**定義の確認**　if true then 10 else 20 は 10、if false then 10 else 20 は 20 を返す。どちらも Bool の構成子であり、分岐を一つ選ぶ。false も正当なデータである。
+**定義の確認**　if true then 10 else 20 は 10、if false then 10 else 20 は 20 を返す。`true : Bool` と `false : Bool` はいずれも引数を必要としない構成子であり、条件に使うと分岐を一つ選ぶ。false も正当なデータである。
 <!-- definition-example-end -->
 
-Lean の等式は、左右の項が等しいという主張を表します。Bool の二つの値とは異なり、Prop は個々の命題を分類する型であり、等式ごとに異なる命題が得られます。このような主張の種類を表すのが Prop です。式 h : p は、h が型 p の項であることを表し、p が命題なら h をその証明として読みます。
+Lean の等式は、左右の項が等しいという主張を表します。Bool の二つの値とは異なり、Prop は個々の命題を分類する型であり、等式ごとに異なる命題が得られます。命題そのものが Prop の項です。式 `h : p` は、h が型 p の項（その型に属する式）であることを表し、p が命題なら h をその証明として読みます。`True` は成立する命題で、証明の構成子 `True.intro` を持ちます。`False` は矛盾を表す命題で、証明を作る構成子を持ちません。自然数の等式 `=` は命題を作り、比較演算 `==` は真偽値を返します（[第2講の零入力での加算関数の値](../LVT1-02/index.md#prop-lvt1-02-bump-zero)とその後の比較例）。同じ講で使った `rfl` は、等式の両辺が定義による計算で同じ式に簡約されるときに使える証明項です。
 
 <a id="def-lvt2-01-prop"></a>
 
@@ -33,7 +33,7 @@ Lean で p : Prop は p が命題であることを表す。h : p である項 h
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt2-01-prop -->
-**定義の確認**　p を 2 = 2 とする。左右が同じ自然数なので、等式の反射性を表す証明項 rfl を与えられる。p は Prop の項であり、rfl は p の項である。True.intro : True も証明項であるが、false : Bool は False の証明項ではない。
+**定義の確認**　p を 2 = 2 とする。左右が同じ自然数なので、等式の反射性を表す証明項 rfl を与えられる。`p : Prop` であり、期待する型を p と指定すると `rfl : p` が得られる。`True.intro : True` も証明項であるが、`false : Bool` は False の証明項ではない。False には証明を直接作る構成子がない。
 <!-- definition-example-end -->
 
 ```lean
@@ -44,7 +44,7 @@ Lean で p : Prop は p が命題であることを表す。h : p である項 h
 #check True.intro
 ```
 
-#check は項の型を調べます。show ... from ... は、from の後の項が指定した型を持つことを確認します。rfl は左右が定義による計算で同じになる等式の証明にも使えます。例えば 1 + 1 = 2 では左辺が 2 に計算されます。
+ここで `#check` は項の型を調べ、`show T from e` は e を型 T の項として検査します。例えば `show 2 = 2 from rfl` では、左右が同じ自然数であることから `rfl` が型 `2 = 2` を持ちます。`1 + 1 = 2` でも左辺が 2 に計算されるので同じ根拠で証明できます。
 
 | 式 | 型 | 役割 |
 | --- | --- | --- |
@@ -56,7 +56,7 @@ Lean で p : Prop は p が命題であることを表す。h : p である項 h
 
 ## 2. 証明を関数として組み立てる
 
-「p ならば q」を証明したい場合、p の証明を受け取り、そこから q の証明を作ればよいと考えます。これは既習の関数と同じ形です。p → q はこの含意を表し、p → False は p の否定を表します。Lean では後者を ¬ p と書きます。
+「p ならば q」を証明したい場合、p の証明を受け取り、そこから q の証明を作ればよいと考えます。これは既習の関数と同じ形です。`p → q` はこの含意を表し、`p → False` は p の否定を表します。Lean では後者を `¬ p` と書きます。`fun h : p => h` のコロンは引数の型、矢印の右側（`=>` の後）は返す項です。関数を型として見ると、入力型 p、出力型 p の `p → p` になります。`fun h => h` は期待する関数型から引数の型が分かる場合の省略形です。
 
 <a id="def-lvt2-01-curry-howard"></a>
 
@@ -79,11 +79,11 @@ theorem fixedEquality : 1 + 1 = 2 := rfl
 
 selfImp は任意の命題について成立します。p が偽の場合にも含意の証明は作れます。関数を作るだけなら p の証明を実際に供給する必要はないためです。fixedEquality は具体的な等式の証明です。証明の型を指定し、項がその型に合うか Lean のカーネル（証明項を検査する中核）が検査します。
 
-False の証明があると仮定した場合は False.elim により任意の命題を導けます。これは False が構成子を持たないため、その証明が存在する場合の分岐が一つもないことに対応します。
+[Leanの命題型](#def-lvt2-01-prop)の False は構成子を持ちません。`f : False` を仮定した場合、どの構成子で f が作られたかを場合分けしても枝が一つもありません。したがって任意の目標命題 q に対し、`False.elim f : q` でその目標を閉じられます。これは False の証明を新たに作る操作ではなく、すでに仮定した矛盾を使う操作です。
 
 ## 3. 証明を伴う判定
 
-自然数の等式は左右の値を計算して比較できます。任意の命題について、このような計算できる判定が最初から与えられるわけではありません。判定するには、成立時には証明、不成立時には否定の証明を返す仕組みが必要です。
+自然数の等式は左右の値を計算して比較できます。任意の命題について、このような計算できる判定が最初から与えられるわけではありません。証明付きの判定では、成立時には命題の証明、不成立時には否定の証明を返す仕組みが必要です。[帰納型](../LVT1-03/index.md#def-lvt1-03-inductive-type) の構成子に証明を持たせます。`p : Prop` を固定して、`hp : p` は成立の証明、`hn : ¬ p`（すなわち `hn : p → False`）は不成立の証明を表す名前とします。
 
 <a id="def-lvt2-01-decidable"></a>
 
@@ -99,7 +99,7 @@ p : Prop に対し、Decidable p は次の二つの構成子を持つ型であ�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt2-01-decidable -->
-**定義の確認**　p = (2 = 2) なら Decidable.isTrue rfl は Decidable p の項である。p = False なら Decidable.isFalse (fun h : False => h) が Decidable p の項である。後者の関数は False の証明を仮定してそのまま False を返すので、否定の証明の型 False → False を持つ。
+**定義の確認**　p として命題 `2 = 2` を選ぶ。`rfl : 2 = 2` を構成できるので、成立の構成子にこれを渡した `Decidable.isTrue rfl` は `Decidable (2 = 2)` の項である。次に p として命題 False を選ぶ。不成立の構成子に渡すには `¬ False` の型の項が必要であり、`Decidable.isFalse (fun h : False => h)` が `Decidable False` の項となる。後者の関数は False の証明を仮定してそのまま False を返すので、否定の証明の型 False → False を持つ。
 <!-- definition-example-end -->
 
 ```lean
@@ -115,7 +115,7 @@ def decisionBool (p : Prop) (d : Decidable p) : Bool :=
   | .isFalse _ => false
 ```
 
-decisionBool は証明付き判定 d から真偽値だけを取り出します。_ は枝の結果でその証明項を直接参照しないことを示します。
+`decisionBool p d` は、命題 p とその[証明付き判定](#def-lvt2-01-decidable) d を受け取り、真偽値だけを取り出します。`match` は構成子で場合分けし、`.isTrue` と `.isFalse` の先頭のドットは期待する型から `Decidable` を補う記法です。`_` は枝の結果でその証明項を直接参照しないことを示します。例えば `yesExample` は `.isTrue rfl` に展開されるため true の枝を選び、`noExample` は `.isFalse (fun h => h)` に展開されるため false の枝を選びます。
 
 通常は Lean の decide を使います。decide p は型クラス（必要な型の項を自動探索する仕組み）によって Decidable p を探し、成立なら true、不成立なら false を返します。例えば自然数の等式については標準の計算可能な判定が用意されています。
 
@@ -130,6 +130,8 @@ decisionBool は証明付き判定 d から真偽値だけを取り出します�
 
 ## 4. 判定結果と仕様を結ぶ
 
+証明で使う Bool の二つの構成子が異なることを確認します。Bool の値 b に対して、b が true なら True、false なら False という命題を対応させます（この対応を Q と呼びます）。仮に `false = true` が成立すれば、等しい値を置き換えて `Q true` の証明 `True.intro` を `Q false` の証明としても使えることになります。しかし `Q false` は False なので矛盾です。`true = false` も等式の左右を逆にすれば同じ矛盾を得ます。Lean の `cases bad` は、bad がこのような異なる構成子の等式の証明であるとき、成立する場合がないことを利用します。
+
 テストで true になったときに証明を得られるでしょうか。証明を持つ判定から値を取り出した場合は、任意の入力について対応を示せます。true のとき必ず命題が成立する性質を健全性、命題が成立すると必ず true になる性質を完全性と呼びます。
 
 <a id="prop-lvt2-01-decision-bridge"></a>
@@ -143,14 +145,14 @@ decisionBool は証明付き判定 d から真偽値だけを取り出します�
 - p が成立するなら decisionBool p d = true である。
 <!-- formal-statement-end -->
 
-**証明の見取り図**　d の二つの構成子について場合分けする。成立の枝には p の証明があり、不成立の枝には p を仮定した場合の矛盾を導く関数がある。
+**証明の見取り図**　[Leanの決定可能性](#def-lvt2-01-decidable)の d の二つの構成子について場合分けする。成立の枝には p の証明があり、不成立の枝には p を仮定した場合の矛盾を導く関数がある。
 
 <!-- proof-start -->
 ### 証明
 
-健全性について、h : decisionBool p d = true とする。d が isTrue hp なら hp : p をそのまま返せる。d が isFalse hn なら decisionBool の値は false である。h は false = true となる。Bool の異なる構成子は等しくないので、この枝では h から False を得て False.elim で p を導く。
+健全性について、h : decisionBool p d = true とする。d が isTrue hp なら hp : p をそのまま返せる。d が isFalse hn なら、decisionBool の定義を展開して `decisionBool p (.isFalse hn) = false` を得る。したがって仮定 h の型は `false = true` に簡約される。節の冒頭で確認した構成子の相違から False を得て、`False.elim` で p を導く。
 
-完全性について、hp : p とする。d が isTrue の場合は定義により true = true なので反射性で成立する。d が isFalse hn なら hn : p → False である。hp を hn に渡すと False を得る。この矛盾から False.elim により decisionBool p d = true を導ける。二つの構成子を尽くしたので、任意の d について両方向が成立する。
+完全性について、hp : p とする。d が isTrue の場合は定義により true = true なので反射性で成立する。d が isFalse hn なら hn : p → False である。hp を hn に渡すと `hn hp : False` を得る。ここで目標は定義により `false = true` に簡約されている。この矛盾を `False.elim` に渡せばその目標を満たす証明が得られる。二つの構成子を尽くしたので、任意の d について両方向が成立する。
 
 ```lean
 theorem sound (p : Prop) (d : Decidable p)
@@ -173,7 +175,7 @@ by は証明項を組み立てる操作を記す入口です。cases d は d の
 
 例えば yesExample を渡すと decisionBool の結果が true になるので、[証明付き判定の健全性と完全性](#prop-lvt2-01-decision-bridge)から 2 = 2 の証明を取り出せます。
 
-Lean 標準の decide にも同じ二つの方向が用意されています。of_decide_eq_true は true という等式の証明から命題の証明を作り、decide_eq_true は逆方向を作ります。
+[証明付き判定の健全性と完全性](#prop-lvt2-01-decision-bridge)と同じ二つの方向が Lean 標準の decide にも用意されています。of_decide_eq_true は true という等式の証明から命題の証明を作り、decide_eq_true は逆方向を作ります。
 
 ```lean
 theorem standardSound (p : Prop) [Decidable p]
@@ -202,7 +204,7 @@ theorem matchesComplete (n k : Nat) (h : n = k) :
   decide_eq_true h
 ```
 
-matchesSound の仮定を sameNumber の定義で展開すると decide (n = k) = true です。standardSound の p を n = k として適用すれば n = k を得ます。matchesComplete では逆方向を適用します。
+matchesSound の仮定を sameNumber の定義で展開すると decide (n = k) = true です。[証明付き判定の健全性と完全性](#prop-lvt2-01-decision-bridge)の標準版 standardSound で p を命題 `n = k` として適用すれば n = k を得ます。matchesComplete では同じ命題に standardComplete を適用して `decide (n = k) = true` を得て、sameNumber の定義に戻します。`_n` と `_k` は使用しない引数に付けた名前で、任意の自然数を受け取ります。
 
 | n | k | 仕様 n = k | sameNumber | wrongMatches |
 | --- | --- | --- | --- | --- |
@@ -224,7 +226,7 @@ lake env lean ExerciseSolutions.lean
 python3 check_matches.py
 ```
 
-Lean v4.35.0 で型・証明を検査し、テスト実行の期待出力は LVT2-01 OK です。Inspect.lean の #check で型を確認し、続く #eval では true、false、true、false の順に表示されます。Python の独立計算は 0 から 8 までの全 81 組の比較用の結果と Lean の実行結果を比較し、常に true の判定の反例を確認します。
+Lean v4.35.0 で型・証明を検査し、テスト実行の期待出力は LVT2-01 OK です。Inspect.lean の #check で型を確認し、続く #eval では true、false、true、false の順に表示されます。Python の独立計算は 0 から 8 までの全 81 組の比較用の結果と Lean の実行結果を比較し、常に true の判定の反例を確認します。等しい組は 9 組、全体は 9 × 9 = 81 組なので、不一致の反例は 81 − 9 = 72 組です。[有限な例示テストと全入力一致](../LVT1-01/index.md#prop-lvt1-01-test-boundary)により、この比較だけで範囲外を含む全自然数に対する一致が証明されるわけではありません。
 
 次のコードは別ファイルで試すと型エラーになります。false の型は Bool であり False ではありません。
 
@@ -257,7 +259,7 @@ true は [Leanの真偽値型](#def-lvt2-01-bool)の構成子なので Bool。Fa
 <!-- solution-start -->
 #### 詳細解答
 
-左辺を自然数の加算で評価すると 3 となり、右辺の 3 と定義による計算で一致する。したがって等式の反射性を表す rfl を型 1 + 2 = 3 に対して使える。
+自然数の加算は右の引数を一つ減らすごとに結果に 1 を加える。したがって 1 + 2 は 1 + 1 に 1 を加えた値、1 + 1 は 1 + 0 に 1 を加えた値である。1 + 0 = 1 から順に 2、3 となり、右辺の 3 と定義による計算で一致する。したがって等式の反射性を表す rfl を型 1 + 2 = 3 に対して使える。
 
 ```lean
 example : 1 + 2 = 3 := rfl
@@ -303,7 +305,7 @@ p : Prop、d : Decidable p とし、decisionBool p d = false と仮定する。�
 <!-- solution-start -->
 #### 詳細解答
 
-p の証明 hp があると仮定し、False を導く。d が isFalse hn なら hn hp が False の証明である。isTrue h の場合、decisionBool の値は true であり、仮定は true = false となる。異なる構成子の等式は成立しないため、矛盾を得る。どちらの枝でも hp から False を導けるので ¬ p が成立する。
+p の証明 hp があると仮定し、False を導く。[Leanの決定可能性](#def-lvt2-01-decidable)で d が isFalse hn なら `hn : p → False` なので `hn hp : False` が得られる。isTrue h の場合、decisionBool の値は true であり、仮定は true = false となる。異なる構成子の等式は成立しないため、矛盾を得る。どちらの枝でも hp から False を導けるので ¬ p が成立する。
 
 ```lean
 example (p : Prop) (d : Decidable p)
@@ -328,7 +330,7 @@ p : Prop、d : Decidable p、hn : ¬ p とする。decisionBool p d = false を�
 <!-- solution-start -->
 #### 詳細解答
 
-d が isFalse の場合、定義から false = false である。d が isTrue hp なら hp : p なので hn hp : False を得る。False.elim により目標の等式を導く。
+[Leanの決定可能性](#def-lvt2-01-decidable)の d が isFalse の場合、decisionBool の定義から目標は `false = false` であり、rfl で証明できる。d が isTrue hp なら `hp : p` なので `hn hp : False` を得る。目標は `true = false` に簡約されており、False.elim によりこの目標の等式を導く。
 
 ```lean
 example (p : Prop) (d : Decidable p)
@@ -348,7 +350,7 @@ example (p : Prop) (d : Decidable p)
 <!-- solution-start -->
 #### 詳細解答
 
-健全性の仮定 reject n k = true を展開すると false = true になり、矛盾から n = k を導ける。よって健全性は成立する。完全性について n = k = 0 を選ぶと、仕様は 0 = 0 なので成立するが、reject 0 0 = false である。必要な true が得られないので完全性は成立しない。
+健全性の仮定 reject n k = true を展開すると false = true になり、矛盾から n = k を導ける。よって健全性は成立する。完全性について n = k = 0 を選ぶと、仕様は 0 = 0 なので成立するが、reject 0 0 = false である。必要な true が得られないので完全性は成立しない。[証明付き判定の健全性と完全性](#prop-lvt2-01-decision-bridge)のように証明付き判定を取り出すという前提が reject にはない。`!` は Bool の否定（true と false を交換する演算）であり、命題の否定 `¬` とは作用対象が異なる。`#guard` は具体的な真偽値が true か検査するので、`#guard !(reject 0 0)` は拒否されたことの検査となる。
 
 ```lean
 def reject (n k : Nat) : Bool := false
@@ -365,7 +367,7 @@ example (n k : Nat) (h : reject n k = true) : n = k := by
 
 ### LVT2-01-C01 盤面番号の検査
 
-0 始まりの 9 マスの盤面に対し、自然数 n が有効な番号である仕様を n < 9 とする。判定器 valid n = decide (n < 9) と、誤って n < 8 を用いる shortValid を考える。
+[有効な添字](../LVT1-05/index.md#def-lvt1-05-index-range)の定義に従い、0 始まりの 9 マスの盤面に対し、自然数 n が有効な番号である仕様を n < 9 とする。判定器 valid n = decide (n < 9) と、誤って n < 8 を用いる shortValid を考える。
 
 1. valid の健全性と完全性を証明せよ。
 2. n = 0, 7, 8, 9 について両者を評価せよ。
@@ -376,11 +378,11 @@ example (n k : Nat) (h : reject n k = true) : n = k := by
 <!-- solution-start -->
 #### 詳細解答
 
-(1) valid n = true の仮定は decide (n < 9) = true である。標準の of_decide_eq_true により n < 9 を得る。逆に n < 9 の証明を decide_eq_true に渡すと decide (n < 9) = true、すなわち valid n = true を得る。
+(1) valid n = true の仮定は decide (n < 9) = true である。[証明付き判定の健全性と完全性](#prop-lvt2-01-decision-bridge)の標準版 of_decide_eq_true に p として命題 `n < 9` を渡すと、n < 9 の証明を得る。逆に n < 9 の証明を decide_eq_true に渡すと decide (n < 9) = true、すなわち valid n = true を得る。
 
 (2) 0 と 7 は 8 より小さく、9 よりも小さいので両者 true。8 は 9 より小さいが 8 より小さくないので valid は true、shortValid は false。9 はどちらの上限よりも小さくないので両者 false。
 
-(3) shortValid n = true から n < 8 を得る。自然数の順序において 8 < 9 であり、不等号の推移性により n < 9 である。よって健全性は成立する。完全性は n = 8 が反例であり、仕様は真なのに判定は false となる。
+(3) shortValid n = true を定義で展開して `decide (n < 8) = true` とする。上と同じ健全性の標準版で p を命題 `n < 8` として、その証明を得る。自然数の順序において 8 < 9 である。不等号の推移性 `Nat.lt_trans` は a < b と b < c の証明を順に受け取り a < c の証明を返すので、a = n、b = 8、c = 9 として n < 9 を得る。よって健全性は成立する。完全性は n = 8 が反例であり、仕様は真なのに判定は false となる。コード中の `by decide` は、目標 `8 < 9` に対して計算可能な判定を行い、その成立の証明を作る操作である。`&&` は二つの Bool がともに true のときだけ true を返す演算である。
 
 ```lean
 def valid (n : Nat) : Bool := decide (n < 9)
@@ -401,7 +403,7 @@ example (n : Nat) (h : shortValid n = true) : n < 9 :=
 #guard !(valid 9) && !(shortValid 9)
 ```
 
-具体例だけでは全自然数に対する健全性を保証できない。(3) の証明では任意の n を取ったうえで不等式の推移性を使っている点が重要である。
+[有限な例示テストと全入力一致](../LVT1-01/index.md#prop-lvt1-01-test-boundary)により、具体例だけでは全自然数に対する健全性を保証できない。(3) の証明では任意の n を取ったうえで不等式の推移性を使っている点が重要である。
 <!-- solution-end -->
 
 ## 8. 次講への接続
