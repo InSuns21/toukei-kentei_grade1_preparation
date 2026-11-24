@@ -243,7 +243,11 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** $\eta=1$ なので $k=1-(1-c^2)=c^2$。$c>0$ なら $\sqrt{k}=c$ だから [屈折方向の構成](#def-fcg10-snell)で $T=I+cN-cN=I$。[誘電体境界のFresnel反射率](#def-fcg10-fresnel)は0だが、[Schlick近似](../../WGL/WGL12/index.md#def-wgl12-fresnel)は $F_0=0$ で $(1-c)^5$。例えば $c=1/2$ で $1/32>0$ となるので等屈折率の枝が必要である。
+**詳細解答。** $\eta=1$ なので $k=1-(1-c^2)=c^2$。
+
+$c>0$ なら $\sqrt{k}=c$ だから [屈折方向の構成](#def-fcg10-snell)で $T=I+cN-cN=I$。
+
+[誘電体境界のFresnel反射率](#def-fcg10-fresnel)は0だが、[Schlick近似](../../WGL/WGL12/index.md#def-wgl12-fresnel)は $F_0=0$ で $(1-c)^5$。例えば $c=1/2$ で $1/32>0$ となるので等屈折率の枝が必要である。
 <!-- solution-end -->
 
 <a id="ex-fcg10-b2"></a>
@@ -272,7 +276,13 @@ $$
 - Level: C
 
 <!-- solution-start -->
-**詳細解答。** [屈折方向の構成](#def-fcg10-snell)で $\eta=1/\sqrt3,c=1/2,k=3/4$ より $T=(1/2,0,-\sqrt3/2)$。 [光路長](#prop-fcg10-path)は $\ell=\sqrt3/(\sqrt3/2)=2$ m、交点は $(1,0,-\sqrt3)$ m。 [誘電体境界のFresnel反射率](#def-fcg10-fresnel)で $d=\sqrt3/2$、$n_1c=1/2,n_2d=3/2$ なので $r_s=(-1)/2=-1/2$。$n_2c=n_1d=\sqrt3/2$ だから $r_p=0$。したがって $F=(1/4+0)/2=1/8$。 [Beer–Lambert減衰](#def-fcg10-absorption)は $e^{-2\log2}=1/4$。簡易混合強度は $(1/8)\cdot1+(7/8)(1/4)=11/32$。透過側を単に $1-F$ とする計算では水中の吸収を表せない。
+**詳細解答。** [屈折方向の構成](#def-fcg10-snell)で $\eta=1/\sqrt3,c=1/2,k=3/4$ より $T=(1/2,0,-\sqrt3/2)$。
+
+[光路長](#prop-fcg10-path)は $\ell=\sqrt3/(\sqrt3/2)=2$ m、交点は $(1,0,-\sqrt3)$ m。
+
+[誘電体境界のFresnel反射率](#def-fcg10-fresnel)で $d=\sqrt3/2$、$n_1c=1/2,n_2d=3/2$ なので $r_s=(-1)/2=-1/2$。$n_2c=n_1d=\sqrt3/2$ だから $r_p=0$。したがって $F=(1/4+0)/2=1/8$。
+
+[Beer–Lambert減衰](#def-fcg10-absorption)は $e^{-2\log2}=1/4$。簡易混合強度は $(1/8)\cdot1+(7/8)(1/4)=11/32$。透過側を単に $1-F$ とする計算では水中の吸収を表せない。
 <!-- solution-end -->
 
 ## 7. 次の講義
