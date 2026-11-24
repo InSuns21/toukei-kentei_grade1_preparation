@@ -4,11 +4,11 @@
 
 [前講の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum)では、四元運動量を四つの独立したラベルではなく、一つの共同射影値測度で扱いました。観測者が変わるとエネルギーと運動量は変わります。しかし同じ粒子を別の種類の粒子として数える必要はありません。今回は変換で変わらない質量を取り出し、回転・boostの生成作用素を組み合わせてスピンの不変量を作ります。
 
-[共通の符号規約](../../../../../dream-theater-lorentz-conventions.md)に従い、$c=\hbar=1$、$\eta=\operatorname{diag}(-1,1,1,1)$ とします。四元運動量は $p=(p^0,\boldsymbol p)$、下付き成分は $p_0=-p^0$、$p_i=p^i$ とします。繰り返す上下添字は0から3まで総和し、空間添字は1から3までです。
+[共通の符号規約](../../../../../dream-theater-lorentz-conventions.md)に従い、$c=\hbar=1$、$\eta=\operatorname{diag}(-1,1,1,1)$ とします。四元運動量は $p=(p^0,\boldsymbol p)$、下付き成分は $p_0=-p^0$、$p_i=p^i$ とします。繰り返す上下添字は0から3まで総和し、空間添字は1から3までです。内積は $\eta(p,a)=p\cdot a=p^{\mathsf T}\eta a=-p^0a^0+\sum_{i=1}^3p^ia^i$ と書き、太字の空間ベクトル同士の内積・ノルムにはEuclid計量を用います。空間添字は上付きでも下付きでも成分は同じです。$e_\mu$ は四元座標の標準基底です。
 
 ## 1. 運動量の軌道と標準運動量
 
-例えば $p=(5,3,0,0)$ はエネルギー5、運動量の大きさ3を表します。その二次形式は $-25+9=-16$。観測者を適切に選ぶと空間運動量を0にできますが、そのときの時間成分は5ではなく4です。Lorentz変換全体で到達できる点の集合を軌道として捉えます。
+例えば $p=(5,3,0,0)$ はエネルギー5、運動量の大きさ3を表します。その二次形式は $-25+9=-16$。観測者を適切に選ぶと空間運動量を0にできますが、そのときの時間成分は5ではなく4です。[Lorentz群の単位元成分](../LREP9/index.md#def-lrep9-lorentz-group) $SO^+(1,3)$ の変換で到達できる点の集合を軌道として捉えます。[正エネルギー表現](../LREP21/index.md#def-lrep21-positive-energy) に現れた未来閉光円錐は $p^0\ge|\boldsymbol p|$ で定まります。そのうち原点以外で $-\eta(p,p)$ の値を固定した集合を考えます。
 
 <a id="def-lrep22-mass-shell"></a>
 
@@ -31,7 +31,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep22-mass-shell -->
-**定義の確認**。 $p=(5,3,0,0)$ では $p^0=5>0$、$\eta(p,p)=-16$ なので $\mathcal O_4$ に属します。
+**定義の確認**。 まず座標表示を導きます。$\boldsymbol q=\boldsymbol p$ と固定すると
+
+$$
+-(p^0)^2+|\boldsymbol q|^2=-m^2
+\quad\Longrightarrow\quad
+(p^0)^2=m^2+|\boldsymbol q|^2.
+$$
+
+$p^0>0$ によって正の平方根だけを選びます。逆にこの平方根が正なら二次形式の条件も満たします。$m=0$ のときだけ $\boldsymbol q=0$ を除く理由もここにあります。
+
+$p=(5,3,0,0)$ では $p^0=5>0$、$\eta(p,p)=-16$ なので $\mathcal O_4$ に属します。
 
 また $p=(3,0,0,3)$ では $\eta(p,p)=-9+9=0$、$p^0>0$ なので $\mathcal O_0$ に属します。負エネルギーの $(-5,3,0,0)$ は二次形式が同じでも未来質量殻には入りません。原点は未来閉光円錐に含まれますが、この定義の $p^0>0$ は満たしません。
 <!-- definition-example-end -->
@@ -59,7 +69,7 @@ $$
 
 $m>0$ の点 $p$ では $r=|\boldsymbol p|$ と置くと $E^2-r^2=m^2$。$r>0$ なら空間回転で $\boldsymbol p$ を $(0,0,r)$ へ移します。$r=0$ ならすでに標準運動量です。
 
-[回転生成子とboost生成子](../LREP9/index.md#def-lrep9-rotation-boost)の $z$ 方向boostで、ラピディティ $\chi$ を
+[回転生成子とboost生成子](../LREP9/index.md#def-lrep9-rotation-boost)の $z$ 方向boost $e^{\chi B_3}$（$\chi$ は実数のラピディティ、能動変換）では、時間成分と第三空間成分に $\cosh\chi,\sinh\chi$ の対称な二行二列のブロックが作用します。$\chi$ を
 
 $$
 \cosh\chi=E/m,\qquad \sinh\chi=r/m
@@ -74,7 +84,7 @@ $m=0$ では $r=E>0$ であり、回転後の点は $(r,0,0,r)$。$e^{\chi B_3}k
 
 ## 2. 質量殻の不変測度
 
-前講では $d^3q$ を用いた波束にJacobianの平方根を掛けてノルムを保存しました。ここでは、そもそも運動量の座標変換で変わらない積分測度を探します。boostにより空間体積要素とエネルギーが同じ比率で伸びることが鍵です。
+前講では $d^3q$ を用いた波束にJacobianの平方根を掛けてノルムを保存しました。ここでは、そもそも運動量の座標変換で変わらない積分測度を探します。boostにより空間体積要素とエネルギーが同じ比率で伸びることが鍵です。$\mathcal O_m$ には $\mathbb R^4$ からの相対位相を入れ、Borel集合はその開集合から生成される $\sigma$-加法族の元とします。$d^3q$ は空間座標のLebesgue測度です。
 
 <a id="def-lrep22-shell-measure"></a>
 
@@ -92,7 +102,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep22-shell-measure -->
-**定義の確認**。 空間座標への逆写像は単なる射影なのでBorel集合の逆像はBorel集合です。密度 $1/(2E_{\boldsymbol q})$ は座標領域で正、可測であり、Lebesgue積分の可算加法性から $\mu_m$ は正測度です。$m=0$ の球殻 $1<|\boldsymbol q|<2$ では球座標により
+**定義の確認**。 座標写像 $\boldsymbol q\mapsto p(\boldsymbol q)$ は連続であり、その逆写像は空間座標への射影です。したがって殻のBorel集合の座標写像による逆像はBorel集合です。密度 $1/(2E_{\boldsymbol q})$ は座標領域で正、可測であり、Lebesgue積分の可算加法性から $\mu_m$ は正測度です。$m=0$ の球殻 $1<|\boldsymbol q|<2$ では球座標により
 
 $$
 \mu_0(B)=4\pi\int_1^2\frac{r^2}{2r}\,dr
@@ -127,7 +137,15 @@ E'=CE+Sq_3,\qquad
 q'_3=SE+Cq_3,\qquad q'_1=q_1,\quad q'_2=q_2.
 $$
 
-$m>0$ または $m=0,\boldsymbol q\ne0$ で $\partial E/\partial q_j=q_j/E$。従って微分行列は
+ここで $E=E_{\boldsymbol q}$、$E'=E_{\boldsymbol q'}$ と略記し、$m$ と $\chi$ を固定して空間座標だけを変数にします。$m>0$ または $m=0,\boldsymbol q\ne0$ では $E>0$ であり、平方根の連鎖律から
+
+$$
+\frac{\partial E}{\partial q_j}
+=\frac{2q_j}{2\sqrt{m^2+|\boldsymbol q|^2}}
+=\frac{q_j}{E}.
+$$
+
+前講と同じく、微分行列の第 $i$ 行第 $j$ 列は $\partial q'_i/\partial q_j$ です。従って微分行列は
 
 $$
 \frac{\partial\boldsymbol q'}{\partial\boldsymbol q}=
@@ -138,7 +156,7 @@ Sq_1/E&Sq_2/E&C+Sq_3/E
 \end{pmatrix}.
 $$
 
-その行列式は $C+Sq_3/E=E'/E$。未来方向が保存され $E'>0$、$E>0$ なので絶対値を外せます。逆変換はラピディティ $-\chi$ のboostであり、座標領域の微分同相です。変数変換により
+その行列式は $C+Sq_3/E=E'/E$。未来方向が保存され $E'>0$、$E>0$ なので絶対値を外せます。逆変換はラピディティ $-\chi$ のboostであり、座標領域の微分同相です。三次元の積分の変数変換により
 
 $$
 \frac{d^3q'}{2E'}=\frac{E'}{E}\frac{d^3q}{2E'}
@@ -154,7 +172,7 @@ $\eta(Qv,e_0)=\eta(v,Q^{-1}e_0)=0$ が時間成分0の全ての $v$ に成り立
 
 ## 3. 第一の不変量：質量の二乗
 
-群表現の運動量が一つの質量を持つとは、すべての状態が同じ運動量を持つという意味ではありません。共同測度を質量の二乗へ移して考えます。
+群表現の運動量が一つの質量を持つとは、すべての状態が同じ運動量を持つという意味ではありません。[被覆Poincare群](../LREP21/index.md#def-lrep21-covered-poincare) の [強連続ユニタリ表現](../LREP21/index.md#def-lrep21-unitary-representation) を $U$ とし、$T(a)=U(a,I)$、$V(A)=U(0,A)$、$\Lambda=\rho(A)$ と書きます。$\rho$ は [Lorentz群の二重被覆](../LREP10/index.md#thm-lrep10-double-cover) の写像です。[並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum) の共同PVM $F$ を質量の二乗へ移して考えます。$D(C_m)$ は作用素の定義域、$d\langle\psi,F(p)\psi\rangle$ は集合 $B$ に $\langle\psi,F(B)\psi\rangle$ を割り当てる有限正測度による積分です。
 
 <a id="thm-lrep22-mass-casimir"></a>
 
@@ -182,7 +200,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[正エネルギー表現](../LREP21/index.md#def-lrep21-positive-energy)では $p^0\ge|\boldsymbol p|$ がPVMの意味で成立するので $h(p)=-\eta(p,p)\ge0$ です。[並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum)から $h$ のスペクトル積分で自己共役作用素と上記の定義域が得られます（実関数の像測度 $F_h(D)=F(h^{-1}(D))$ を用います）。
+[正エネルギー表現](../LREP21/index.md#def-lrep21-positive-energy)では $p^0\ge|\boldsymbol p|$ がPVMの意味で成立するので $h(p)=-\eta(p,p)\ge0$ です。[並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum)の $F$ に対して、実関数 $h(p)$ による像測度を $F_h(D)=F(h^{-1}(D))$ と定めます。逆像は交わり・可算和を保ち、$F_h(\mathbb R)=I$ なので $F_h$ もPVMです。[実座標のスペクトル積分の自己共役性](../../../解析系/QM/QM6/index.md#thm-qm6-spectral-integral-self-adjoint) と [非有界スペクトル積分の定義域](../../../解析系/QM/QM6/index.md#prop-qm6-unbounded-integral-domain) をこの一次元のPVMに適用すると、
+
+$$
+C_m=\int_{\mathbb R}\lambda\,dF_h(\lambda),
+\qquad
+\|C_m\psi\|^2=\int |h(p)|^2\,d\langle\psi,F(p)\psi\rangle
+$$
+
+となり、自己共役性と上記の定義域を得ます。$F_h([0,\infty))=I$ なので $C_m$ は非負です。
 
 任意のBorel集合 $D\subset\mathbb R$ について $F_h(D)$ は並進の位相積分と可換です。また [共同スペクトルのLorentz共変性](../LREP21/index.md#thm-lrep21-covariance) により
 
@@ -234,7 +260,15 @@ $$
 =\eta^{\alpha\nu}p^\mu-\eta^{\alpha\mu}p^\nu
 $$
 
-と定めます。これは $X^{\nu\mu}=-X^{\mu\nu}$ を満たし、$\eta(v,X^{\mu\nu}w)=v^\nu w^\mu-v^\mu w^\nu$ からLorentz Lie環の元です。例えば $X^{01}=B_1$、$X^{12}=R_3$ であり、全てのboostと回転を表せます。被覆群ではこのLie環元を被覆の微分の逆で持ち上げます。以下の $M^{\mu\nu}$ は $i$ を掛けた微分作用素です。
+と定めます。これは $X^{\nu\mu}=-X^{\mu\nu}$ を満たし、$\eta(v,X^{\mu\nu}w)=v^\nu w^\mu-v^\mu w^\nu$ からLorentz Lie環の元です。例えば $X^{01}=B_1$、$X^{12}=R_3$ であり、全てのboostと回転を表せます。被覆群ではこのLie環元を被覆の微分の逆で持ち上げます。具体的に $\eta(v,X^{\mu\nu}w)=-\eta(X^{\mu\nu}v,w)$ であり、標準基底での行列条件 $X^{\mathsf T}\eta+\eta X=0$ と一致するため、[Lorentz Lie環の行列条件](../LREP9/index.md#thm-lrep9-lie-algebra) を満たします。
+
+被覆上での指数曲線を $A_X(t)$ と書き、$\rho(A_X(t))=e^{tX}$、$A_X(0)=I$ とします。$\psi\in\mathcal D$ に対する微分を
+
+$$
+dU(0,X)\psi=\left.\frac{d}{dt}V(A_X(t))\psi\right|_{t=0}
+$$
+
+と略記します。以下の $M^{\mu\nu}$ はこの微分に虚数単位 $i$ を掛けた作用素です。$P^\mu$ は [並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum) の座標生成作用素です。$\varepsilon^{\mu\nu\rho\sigma}$ は $0,1,2,3$ の偶置換で $1$、奇置換で $-1$、添字の重複があれば $0$ を取る完全反対称記号です。
 
 <a id="def-lrep22-pauli-lubanski"></a>
 
@@ -257,15 +291,22 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep22-pauli-lubanski -->
-**定義の確認**。 前講と同じスカラー波束の考え方で、質量 $m>0$ の $L^2(\mathcal O_m,\mu_m)$ を使います。並進は $T(a)f(p)=e^{ip\cdot a}f(p)$、Lorentz変換は $V(A)f(p)=f(\rho(A)^{-1}p)$。不変測度によりユニタリで、逆は逆変換、積は合成則に従います。群積と位相は $p\cdot\Lambda b=(\Lambda^{-1}p)\cdot b$ から整合します。コンパクト台の滑らかな関数上では、台と各微分が局所的に共通コンパクト集合に収まるため強連続かつ滑らかです。稠密性とノルム保存で強連続性は全空間へ延長されます。
+**定義の確認**。 前講と同じスカラー波束の考え方で、質量 $m>0$ の $L^2(\mathcal O_m,\mu_m)$ を使います。並進は $T(a)f(p)=e^{ip\cdot a}f(p)$、Lorentz変換は $V(A)f(p)=f(\rho(A)^{-1}p)$。[質量殻測度のLorentz不変性](#thm-lrep22-measure-invariance) によりユニタリで、逆は逆変換、積は合成則に従います。群積と位相は $p\cdot\Lambda b=(\Lambda^{-1}p)\cdot b$ から整合します。コンパクト台の滑らかな関数上では、台と各微分が局所的に共通コンパクト集合に収まるため強連続かつ滑らかです。稠密性とノルム保存で強連続性は全空間へ延長されます。
 
-$P^\mu$ は $p^\mu$ の乗算であり、$M^{\rho\sigma}$ は $-i(X^{\rho\sigma}p)$ 方向の微分です。従って添字を下げれば
+[並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum) から $P^\mu$ は $p^\mu$ の乗算です。Lorentz作用は逆行列で引数を動かすので、$p$ を固定して実数 $t$ で微分すると
+
+$$
+i\left.\frac{d}{dt}f(e^{-tX^{\rho\sigma}}p)\right|_{t=0}
+=-i\sum_{\alpha=0}^3(X^{\rho\sigma}p)^\alpha\partial_\alpha f(p).
+$$
+
+$X^{\rho\sigma}$ の定義を代入し、$\eta_{\mu\nu}$ で二つの添字を下げれば
 
 $$
 M_{\rho\sigma}=-i(p_\rho\partial_\sigma-p_\sigma\partial_\rho)
 $$
 
-と書けます。$\partial_\sigma$ は四元座標への局所的な滑らかな延長を微分したもので、括弧内の方向は殻に接するので延長によらない値です。定義に代入すると
+と書けます。$\partial_\sigma$ は四元座標への局所的な滑らかな延長を微分したもので、括弧内の方向は殻に接するので延長によらない値です。実際、$\eta(e^{-tX}p,e^{-tX}p)=\eta(p,p)$ であり、曲線は未来質量殻の内部にとどまります。二つの延長が殻上で一致すればこの曲線上での微分も一致します。定義に代入すると
 
 $$
 W^\mu f=-\frac i2\varepsilon^{\mu\nu\rho\sigma}
@@ -291,17 +332,17 @@ W^0=\boldsymbol P\cdot\boldsymbol J,\qquad
 \boldsymbol W=P^0\boldsymbol J-\boldsymbol P\times\boldsymbol K.
 $$
 
-積の順序は定義と同じく運動量が左です。$P_\mu W^\mu=0$ も確認できます。共同PVMによって $P_\mu,P_\nu$ は $\mathcal D$ 上で可換なので、$\varepsilon^{\mu\nu\rho\sigma}P_\mu P_\nu M_{\rho\sigma}$ の $\mu,\nu$ の対称・反対称性により零になります。
+ここで $\varepsilon_{ijk}$ は $\varepsilon_{123}=1$ の三次元の反対称記号であり、外積の記号は $(\boldsymbol P\times\boldsymbol K)_i=\sum_{j,k=1}^3\varepsilon_{ijk}P^jK_k$ の略記です。積の順序は定義と同じく運動量が左です。$P_\mu W^\mu=0$ も確認できます。共同PVMによって $P_\mu,P_\nu$ は $\mathcal D$ 上で可換なので、$\varepsilon^{\mu\nu\rho\sigma}P_\mu P_\nu M_{\rho\sigma}$ の $\mu,\nu$ の対称・反対称性により零になります。
 
 ## 5. 第二の不変量：Pauli–Lubanskiの二乗
 
-回転・boostの生成作用素には、座標原点を動かしたときに生じる軌道角運動量の変化も含まれます。$W^\mu$ では、その変化が反対称縮約で打ち消されます。
+回転・boostの生成作用素には、座標原点を動かしたときに生じる軌道角運動量の変化も含まれます。$W^\mu$ では、その変化が反対称縮約で打ち消されます。[角運動量のCasimir](../LREP7/index.md#def-lrep7-casimir) と同様に、生成作用素の多項式で全生成作用素と可換になるものをCasimir演算子と呼びます。ここでは $\mathcal D$ 上でその性質を確かめます。
 
 <a id="thm-lrep22-pl-covariance"></a>
 
 <!-- formal-statement-start -->
 > **定理（Pauli–Lubanskiの共変性とCasimir）**
-> 上の強連続ユニタリ表現の共通不変領域 $\mathcal D$ 上で、$\Lambda=\rho(A)$ とすると
+> 被覆Poincare群の強連続ユニタリ表現 $U$ の滑らかなベクトル空間 $\mathcal D$ 上で、$W^\mu$ をPauli–Lubanskiベクトルとする。$T(a)=U(a,I)$、$V(A)=U(0,A)$、$\Lambda=\rho(A)$ とすると
 
 $$
 T(a)W^\mu T(a)^{-1}=W^\mu,\qquad
@@ -329,7 +370,7 @@ $$
 =(a-e^{tX}a,\exp(tX))
 $$
 
-です（右の行列を被覆群へ持ち上げている）。$\mathcal D$ 上で $t=0$ の微分を取り、並進位相 $e^{ip\cdot b}$ と $M=i\,dU$ を代入すると
+です（Lorentz成分は被覆上の指数曲線を表す）。並進部分を $b(t)=a-e^{tX}a$ と置くと $b(0)=0$、$b'(0)=-Xa$ です。[並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum) から並進の微分は $iP_\alpha b'(0)^\alpha=-iP_\alpha(Xa)^\alpha$。これとLorentz成分の微分を足し、$M=i\,dU$ の $i$ を掛けると、$\mathcal D$ 上で
 
 $$
 T(a)M^{\mu\nu}T(a)^{-1}
@@ -344,7 +385,7 @@ $$
 P_\nu(a_\rho P_\sigma-a_\sigma P_\rho)=0.
 $$
 
-各項は二つの可換な運動量を反対称記号で縮約しているからです。従って $T(a)$ との可換性が成り立ち、その式を $a=te_\nu$ で微分すれば $[P^\nu,W^\mu]=0$ となります。
+各項は二つの可換な運動量を反対称記号で縮約しているからです。従って $T(a)$ との可換性が成り立ち、その式を $a=te_\nu$ で微分すれば $[P_\nu,W^\mu]=0$、添字を上げて $[P^\nu,W^\mu]=0$ となります。ここで $W$ は群の微分作用素の積なので、滑らかなベクトルについて混合微分として計算でき、非有界作用素を無条件に微分の外へ出す必要はありません。
 
 次にLorentz変換について、[共同スペクトルのLorentz共変性](../LREP21/index.md#thm-lrep21-covariance) から $V(A)P^\mu V(A)^{-1}=(\Lambda^{-1})^\mu{}_\nu P^\nu$。$M$ は群共役 $A\exp(tX)A^{-1}$ の微分で変換します。$L^\mu{}_\alpha=(\Lambda^{-1})^\mu{}_\alpha$ と書けば
 
@@ -382,7 +423,7 @@ $$
 並進との可換性も各 $W^\mu$ から従い、群との可換式を微分すれば生成作用素との交換子が0になります。直前に求めた $P_\mu W^\mu=0$ と合わせて証明が完了しました。$\square$
 <!-- proof-end -->
 
-このように生成作用素の積で作られ、全ての生成作用素と可換になる式をCasimir演算子と呼びます。第一の不変量は $P_\mu P^\mu=-C_m$、第二は $C_W$ です。$C_m$ は共同スペクトル積分で自己共役性まで確立しましたが、$C_W$ の一般の自己共役閉包やスペクトル分解については共通領域での代数的可換性だけでは結論できません。
+こうして二つのCasimir演算子を得ました。第一の不変量は $P_\mu P^\mu=-C_m$、第二は $C_W$ です。$C_m$ は共同スペクトル積分で自己共役性まで確立しましたが、$C_W$ の一般の自己共役閉包やスペクトル分解については共通領域での代数的可換性だけでは結論できません。
 
 ## 6. 静止運動量でスピンを測る
 
@@ -400,7 +441,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（正質量の静止系スピン不変量）**
-> $m>0$ の質量殻上で、並進が位相乗算、Lorentz作用が上記の滑らかな内部空間の写像 $D(A,p)$ を持つ強連続ユニタリ表現を考える。滑らかなコンパクト台の切断を共通領域に含むとする。静止運動量における回転がスピン $s$ の有限次元既約ユニタリ $SU(2)$ 表現であるとする。この内部空間上のPauli–Lubanski成分は
+> $m>0$ の質量殻上で、滑らかな有限次元内部空間を持ち、並進が位相乗算、Lorentz作用が $(V(A)f)(p)=D(A,p)f(\rho(A)^{-1}p)$ で与えられる強連続ユニタリ表現を考える。$D(A,p)$ は $\rho(A)^{-1}p$ から $p$ の内部空間への滑らかな可逆線形写像とする。滑らかなコンパクト台の切断を共通領域 $\mathcal D$ に含むとする。静止運動量における回転がスピン $s$ の有限次元既約ユニタリ $SU(2)$ 表現であるとする。この内部空間上のPauli–Lubanski成分は
 
 $$
 W^0(k_m)=0,\qquad W^i(k_m)=mJ_i .
@@ -429,10 +470,16 @@ $$
 
 [有限次元スピンの量子化と昇降公式](../LREP7/index.md#thm-lrep7-spin-spectrum) はスピン $s$ の既約ユニタリ表現で $\sum J_i^2=s(s+1)I$ を与えます。これを代入すれば主張の値が得られます。
 
-任意の $p$ は [未来円錐のLorentz軌道](#thm-lrep22-orbits) から $p=\Lambda k_m$ と書けます。内部空間の間の可逆な変換で [Pauli–Lubanskiの二乗の共変性](#thm-lrep22-pl-covariance) を適用すると、$C_W(p)$ は $C_W(k_m)$ の共役になります。スカラー行列は共役で変わらないので同じ値です。$\square$
+任意の $p$ は [未来円錐のLorentz軌道](#thm-lrep22-orbits) から $p=\Lambda k_m$ と書けます。[Pauli–Lubanskiの二乗の共変性](#thm-lrep22-pl-covariance) を $V(A)C_W=C_WV(A)$ の形で切断に適用します。$q=\rho(A)^{-1}p$ とすると
+
+$$
+D(A,p)C_W(q)f(q)=C_W(p)D(A,p)f(q).
+$$
+
+滑らかな切断は各点で任意の内部ベクトルを取れます。両辺は滑らかであり、殻測度は任意の非空開集合に正の値を取るので、波束としての等式は点ごとの等式を与えます。$q=k_m$ のとき $C_W(p)=D(A,p)C_W(k_m)D(A,p)^{-1}$ です。スカラー行列は共役で変わらないので同じ値です。$\square$
 <!-- proof-end -->
 
-例えば $s=1/2$ なら $J_i=\sigma_i/2$ で各 $J_i^2=I/4$、従って $C_W=3m^2I/4$。$s=0$ では $C_W=0$ です。質量殻上の一点は通常の波束空間で正規化された運動量固有ベクトルを与えません。ここでの静止系の計算は運動量ごとの内部空間に関するものです。
+例えば $s=1/2$ なら $J_i=\sigma_i/2$ で[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product) から各 $J_i^2=I/4$、従って $C_W=3m^2I/4$。$s=0$ では $C_W=0$ です。質量殻上の一点は通常の波束空間で正規化された運動量固有ベクトルを与えません。ここでの静止系の計算は運動量ごとの内部空間に関するものです。
 
 質量零で $m^2s(s+1)$ に $m=0$ を代入してスピンの全分類を得ることはできません。静止運動量へのboostが存在しないためです。非零光的標準運動量を固定する群を別に調べる必要があります。
 
@@ -492,7 +539,7 @@ $$
 $m=2$、$s=1/2$ の内部空間について $W^0,W^i,C_W$ をPauli行列で求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [角運動量演算子](../LREP7/index.md#def-lrep7-angular-momentum) では $J_i=\sigma_i/2$ である。[静止系スピン不変量](#prop-lrep22-rest-spin) より $W^0=0,W^i=2(\sigma_i/2)=\sigma_i$。各Pauli行列は二乗が $I_2$ なので $C_W=\sum_i\sigma_i^2=3I_2$。公式からも $m^2s(s+1)=4(1/2)(3/2)=3$ となる。
+**詳細解答。** [角運動量演算子](../LREP7/index.md#def-lrep7-angular-momentum) では $J_i=\sigma_i/2$ である。[静止系スピン不変量](#prop-lrep22-rest-spin) より $W^0=0,W^i=2(\sigma_i/2)=\sigma_i$。[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product) から各Pauli行列は二乗が $I_2$ なので $C_W=\sum_i\sigma_i^2=3I_2$。公式からも $m^2s(s+1)=4(1/2)(3/2)=3$ となる。
 <!-- solution-end -->
 
 ### Level B
@@ -537,7 +584,7 @@ W^0=P_1M_{23}+P_2M_{31}+P_3M_{12}
 =\sum_iP^iJ_i .
 $$
 
-空間成分は $P^0\boldsymbol J-\boldsymbol P\times\boldsymbol K$ だから
+第4節で [Pauli–Lubanskiベクトル](#def-lrep22-pauli-lubanski) の定義から求めた空間成分は $P^0\boldsymbol J-\boldsymbol P\times\boldsymbol K$ だから
 
 $$
 P_\mu W^\mu=-P^0\sum_iP^iJ_i
@@ -583,7 +630,7 @@ $$
 
 強連続性を単位元で確かめる。滑らかなコンパクト台の $f$ では $e^{ip\cdot a}f(\Lambda^{-1}p)\to f(p)$ が各点で成立する。$\Lambda$ をコンパクトな単位元近傍に制限すれば変換された台は共通コンパクト集合 $K$ に含まれ、差の二乗は $4\sup|f|^2\mathbf1_K$ 以下である。
 
-$\mu_m(K)<\infty$ なので優収束によってノルム差は0へ収束する。一般の $f$ には稠密な滑らかなコンパクト台の関数 $g$ を選び、
+$\mu_m(K)<\infty$ なので優収束によってノルム差は0へ収束する。一般の $f$ には稠密な滑らかなコンパクト台の関数 $g$ を選ぶ。稠密性は、まず空間座標の閉球外の $L^2(\mu_m)$ ノルムを小さくし、次に閉球を少し広げた領域で密度 $1/(2E)$ が正の上下界を持つため通常のLebesgue $L^2$ の滑らかなコンパクト台による近似を使えば従う。そこで
 
 $$
 \|U(a,A)f-f\|\le2\|f-g\|+\|U(a,A)g-g\|
@@ -593,7 +640,7 @@ $$
 
 共同PVMは $(F(B)f)(p)=\mathbf1_B(p)f(p)$ である。射影の積と可算加法性は指示関数と優収束から従い、並進の位相積分が $T(a)$ を再現するので [共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum) の一意性を適用できる。従って $C_m$ は $-\eta(p,p)=m^2$ の乗算、すなわち全空間で $m^2I$。
 
-最後に滑らかなコンパクト台の関数では群の作用を微分でき、$M_{\rho\sigma}$ は $-i(p_\rho\partial_\sigma-p_\sigma\partial_\rho)$ となる。これを [Pauli–Lubanskiベクトル](#def-lrep22-pauli-lubanski) へ代入すると
+最後に滑らかなコンパクト台の関数では、第4節の [Pauli–Lubanskiベクトルの定義の確認](#def-lrep22-pauli-lubanski) と同じ逆行列の微分を使う。$p$ を固定して $t$ で微分した $i f(e^{-tX}p)$ の導関数は $-i(Xp)^\alpha\partial_\alpha f$ である。添字を下げると $M_{\rho\sigma}=-i(p_\rho\partial_\sigma-p_\sigma\partial_\rho)$ となる。$\partial_\sigma$ は四元座標への延長に関する偏微分で、縮約される方向は殻に接している。これを [Pauli–Lubanskiベクトル](#def-lrep22-pauli-lubanski) へ代入すると
 
 $$
 W^\mu f=-\frac i2\varepsilon^{\mu\nu\rho\sigma}
