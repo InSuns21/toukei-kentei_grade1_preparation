@@ -10,6 +10,9 @@ import path, {join} from 'node:path';
 import {lessons,combine,leanWebURL} from './browser-lab.mjs';
 const lvtRoot = 'textbook/volumes/dream_thater/計算系/LVT';
 const root = path.resolve(process.cwd());
+const manifest = await readFile(join(root,'textbook/dream-theater-series/LVT.yaml'),'utf8');
+const completed = [...manifest.matchAll(/^  - id: ([A-Z0-9-]+)\r?\n    path: [^\r\n]+\r?\n    status: completed\r?$/gm)].map(m=>m[1]);
+assert.deepEqual(Object.keys(lessons),completed,'Register every completed LVT chapter in the browser lab');
 const chrome = [process.env.CHROME_BIN, '/usr/bin/google-chrome',
   '/usr/bin/chromium', '/usr/bin/chromium-browser',
   '/opt/google/chrome/chrome'].find(p => p && existsSync(p));
