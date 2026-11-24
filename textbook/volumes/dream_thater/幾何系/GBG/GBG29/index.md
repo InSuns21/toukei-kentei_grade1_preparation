@@ -47,7 +47,16 @@ $$
 
 が滑らかな二重被覆であるという標準的事実である。二重被覆とは、値域の各点にその近傍があり、逆像が二枚の互いに交わらない開集合に分かれ、各枚からその近傍へ微分同相になることをいう。核は中心に入る。実際、任意の $h$ に対して $h(-1)h^{-1}$ は核の非単位元であるから $-1$ に等しい。
 
-$n=2$ では円周群を用い、$\rho(e^{it})=R(2t)$ と書ける。$n=3$ では [SU(2)からSO(3)への二重被覆](../../../代数系/LREP/LREP5/index.md#thm-lrep5-double-cover)がその模型である。一般次元での群の構成は Clifford 代数の理論に属する。本講はその構成を前提として、束の持ち上げを証明する。もう一つ、後の具体例で用いる標準的な群の性質は、座標二平面内の角 $\theta$ の回転が $1$ から始まる持ち上げでは $\theta=2\pi$ で $-1$ に達すること。Clifford 代数の規約 $e_a^2=-1$、$e_ae_b=-e_be_a$（$a\ne b$）では、この持ち上げは
+平面回転の記号を
+
+$$
+R(\theta)=\begin{pmatrix}
+\cos\theta&-\sin\theta\\
+\sin\theta&\cos\theta
+\end{pmatrix}
+$$
+
+とする。$n=2$ では円周群を用い、$\rho(e^{it})=R(2t)$ と書ける。$n=3$ では [SU(2)からSO(3)への二重被覆](../../../代数系/LREP/LREP5/index.md#thm-lrep5-double-cover)がその模型である。一般次元での群の構成は Clifford 代数の理論に属する。本講はその構成を前提として、束の持ち上げを証明する。もう一つ、後の具体例で用いる標準的な群の性質は、座標二平面内の角 $\theta$ の回転が $1$ から始まる持ち上げでは $\theta=2\pi$ で $-1$ に達すること。Clifford 代数の規約 $e_a^2=-1$、$e_ae_b=-e_be_a$（$a\ne b$）では、この持ち上げは
 
 $$
 q_{ab}(\theta)=\cos(\theta/2)+e_ae_b\sin(\theta/2)
@@ -76,14 +85,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（スピン構造）**  
-> 向き付き Riemann 多様体 $(M,g)$ 上のスピン構造は、主 $\operatorname{Spin}(n)$ 束 $\pi:Q\to M$ と滑らかな写像 $\lambda:Q\to F_{SO}(M,g)$ の組であり、枠束の射影を $\pi_F$ として
+> 向き付き $n$ 次元 Riemann 多様体 $(M,g)$、$n\ge2$ と二重被覆 $\rho:\operatorname{Spin}(n)\to SO(n)$ を取る。スピン構造は、主 $\operatorname{Spin}(n)$ 束 $\pi:Q\to M$ と滑らかな写像 $\lambda:Q\to F_{SO}(M,g)$ の組である。枠束の射影を $\pi_F$ として
 
 $$
 \pi_F\circ\lambda=\pi,\qquad
 \lambda(qh)=\lambda(q)\rho(h)
 $$
 
-> を満たす。二つの組は、基底上の主束同型 $\Phi:Q\to Q'$ が存在し $\lambda'\circ\Phi=\lambda$ となるとき同値とする。
+> を満たすことを要求する。二つの組は、基底上の主束同型 $\Phi:Q\to Q'$ が存在し $\lambda'\circ\Phi=\lambda$ となるとき同値とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg29-spin-structure -->
@@ -110,7 +119,7 @@ $+1,-1$ の積を扱うとき、$(-1)^a$ と書けば指数 $a$ は $0,1$ の足
 
 <!-- formal-statement-start -->
 > **定義（Čechコホモロジー：2元係数）**  
-> 位相空間 $M$ の開被覆 $\mathcal U$ と係数群 $A=\mathbb Z/2$ に対し、$C^p(\mathcal U;A)$ を各 $(p+1)$ 重共通部分上の局所定数写像 $c_{i_0\cdots i_p}$ の族の加法群とする。各族を $p$-cochain と呼ぶ。添字は順序付け、別順序へは対称に延長し、同じ添字がある成分は零とする。写像 $\delta:C^p\to C^{p+1}$ を
+> 位相空間 $M$ の開被覆 $\mathcal U$ と係数群 $A=\mathbb Z/2$ に対し、非負整数 $p$ に対して $C^p(\mathcal U;A)$ を各 $(p+1)$ 重共通部分上の局所定数写像 $c_{i_0\cdots i_p}$ の族の加法群とする。各族を $p$-cochain と呼ぶ。添字は順序付け、別順序へは対称に延長し、同じ添字がある成分は零とする。写像 $\delta:C^p\to C^{p+1}$ を
 
 $$
 (\delta c)_{i_0\cdots i_{p+1}}
@@ -209,7 +218,21 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\rho(\widetilde g_{ij}\widetilde g_{jk}\widetilde g_{ik}^{-1})=g_{ij}g_{jk}g_{ik}^{-1}=1$ だから、この積は $\{1,-1\}$ に入る。滑らかな写像の値が離散集合にあるので符号は局所定数。逆順は逆元により決まり、核の逆元は自分自身なので添字を交換しても指数は同じである。繰り返し添字では積は単位元となる。
+$\rho(\widetilde g_{ij}\widetilde g_{jk}\widetilde g_{ik}^{-1})=g_{ij}g_{jk}g_{ik}^{-1}=1$ だから、この積は $\{1,-1\}$ に入る。滑らかな写像の値が離散集合にあるので符号は局所定数。添字を交換した場合も確認する。$\widetilde g_{ij}\widetilde g_{jk}=(-1)^{c_{ijk}}\widetilde g_{ik}$ の左から $\widetilde g_{ji}$ を掛けると
+
+$$
+\widetilde g_{ji}\widetilde g_{ik}
+=(-1)^{c_{ijk}}\widetilde g_{jk}.
+$$
+
+また元の式の右から $\widetilde g_{kj}$ を掛けると
+
+$$
+\widetilde g_{ik}\widetilde g_{kj}
+=(-1)^{c_{ijk}}\widetilde g_{ij}.
+$$
+
+隣り合う二添字の交換で符号が保たれるため任意の並べ替えでも保たれる。繰り返し添字では正規化条件から符号は零である。
 
 四重共通部分で結合法則を二通りに使うと
 
