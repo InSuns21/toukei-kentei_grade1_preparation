@@ -1,0 +1,37 @@
+chapter: LREP13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP12
+forward_references: []
+concepts:
+  - id: representation.weyl-invariant-contraction
+    name: Weyl不変収縮
+    kind: definition
+    introduction: formal
+    requires: [representation.weyl-spinors, representation.epsilon-determinant]
+  - id: representation.weyl-contraction-uniqueness
+    name: Weyl収縮の保存と一意性
+    kind: proposition
+    introduction: formal
+    requires: [representation.weyl-invariant-contraction]
+  - id: representation.weyl-vector-pairing
+    name: 四元ベクトルの行列収縮
+    kind: proposition
+    introduction: formal
+    requires: [representation.weyl-bispinor-vector, representation.sl2c-lorentz-action]
+  - id: representation.weyl-rank-two-tensor
+    name: Weyl列からの二階テンソル
+    kind: proposition
+    introduction: formal
+    requires: [representation.weyl-bispinor-vector, representation.weyl-vector-pairing]
+  - id: representation.weyl-space-reflection
+    name: 空間反転
+    kind: definition
+    introduction: formal
+    requires: [representation.sl2c-lorentz-action]
+  - id: representation.weyl-parity-exchange
+    name: 空間反転による左右交換
+    kind: proposition
+    introduction: formal
+    requires: [representation.weyl-space-reflection, representation.weyl-inequivalence, representation.weyl-bispinor-vector]
