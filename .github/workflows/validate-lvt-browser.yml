@@ -1,0 +1,37 @@
+name: Validate LVT browser labs
+on:
+  pull_request:
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/**'
+      - '.devcontainer/**'
+      - '.github/workflows/validate-lvt-browser.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/**'
+      - '.devcontainer/**'
+      - '.github/workflows/validate-lvt-browser.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser:
+    name: Chromium launcher and pinned Lean source
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          lake-package-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT1-02/lab'
+          auto-config: 'false'
+          build: 'true'
+          test: 'true'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - name: Verify browser launcher and exact generated snippets
+        run: node 'textbook/volumes/dream_thater/計算系/LVT/browser-lab.test.mjs'
+      - name: Check Codespaces setup syntax
+        run: bash -n .devcontainer/setup-lvt.sh
