@@ -291,7 +291,7 @@ $$
 **定義の確認。** $\boldsymbol p=(0,0,k)$、$k>0$ なら $h_{\boldsymbol p}=\operatorname{diag}(1,-1,1,-1)/2$ です。標準基底の第一、第三列は固有値 $+1/2$、第二、第四列は $-1/2$ を持ちます。一般方向でも[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)により $(\sum_jp^j\sigma_j)^2=|\boldsymbol p|^2I$ なので $h_{\boldsymbol p}^2=I_4/4$ です。エルミート行列であり、固有値は $\pm1/2$ に限られます。
 <!-- definition-example-end -->
 
-方向を逆にすると $h_{-\boldsymbol p}=-h_{\boldsymbol p}$ ですが、$\gamma^5$ は変わりません。静止系では $\boldsymbol p=0$ のためhelicityの定義に分母がなくなり、運動方向を指定できません。chiralityは静止系でも演算子として定義されています。
+方向を逆にすると $h_{-\boldsymbol p}=-h_{\boldsymbol p}$ ですが、$\gamma^5$ は変わりません。静止系では $\boldsymbol p=0$ のためhelicityの定義に分母が零になり、運動方向を指定できません。chiralityは静止系でも演算子として定義されています。
 
 質量零の場合に二つの概念が結び付く理由を、正周波数の平面波一つで確認します。$k>0$、$E>0$ として
 
