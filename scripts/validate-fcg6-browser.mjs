@@ -84,8 +84,7 @@ try {
   };
   const click=id=>evaluate('document.getElementById('+JSON.stringify(id)+').click()');
   await cdp('Runtime.enable');await cdp('Page.enable');
-  // Fix the 8-step observation so screenshot differences are caused by the
-  // edited real computation grid, not elapsed animation frames.
+  // Pause animation so screenshots compare deterministic live scenes.
   await cdp('Emulation.setEmulatedMedia',{
     features:[{name:'prefers-reduced-motion',value:'reduce'}]
   });
@@ -96,7 +95,7 @@ try {
       const r=frame.getBoundingClientRect();
       return {x:Math.floor(r.left+window.scrollX+2),
         y:Math.floor(r.top+window.scrollY+2),
-        width:Math.floor(r.width-4),height:Math.floor(Math.min(r.height-15,(r.width-4)/3))};
+        width:Math.floor(r.width-4),height:Math.floor(Math.min(r.height-15,r.width-4))};
     })()`);
     assert.ok(clip.width>=80&&clip.height>=20,'WebGL2 clip dimensions');
     const shot=await cdp('Page.captureScreenshot',{
@@ -131,7 +130,45 @@ try {
     const box=await evaluate('(() => {const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {left:r.left,right:r.right,width:r.width,height:r.height};})()');
     assert.ok(box.width>80&&box.height>20,'real result iframe is visible');
     assert.ok(box.left>=-2&&box.right<=width+8,'GPU canvas horizontal overflow: '+JSON.stringify(box));
-    if(width===1280)initialGPU=await captureGPU();
+    // Wait for the post-readback live scene, then exercise actual sandbox input.
+    await evaluate('new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))');
+    if(width===1280){
+      initialGPU=await captureGPU();
+      const paint=async()=>{
+        // Recompute viewport-relative coordinates after scrolling and screenshots.
+        // The tall square canvas is inside an opaque iframe; wait for Chromium's
+        // compositor to update the frame hit-test region before trusted input.
+        await evaluate('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"start",behavior:"instant"})');
+        await new Promise(ok=>setTimeout(ok,200));
+        const pos=await evaluate(`(() => {
+          const frame=document.querySelector('#canvas-slot iframe');
+          const r=frame.getBoundingClientRect();
+          const x=Math.floor(r.left+r.width*.15),y=Math.floor(r.top+r.width*.2);
+          return {x,y,hit:document.elementFromPoint(x,y)===frame,
+            viewport:innerHeight,top:r.top};
+        })()`);
+        assert.ok(pos.hit&&pos.y>0&&pos.y<pos.viewport,'FCG6 pointer target must hit visible sandbox: '+JSON.stringify(pos));
+        const point={x:pos.x,y:pos.y};
+        await cdp('Input.dispatchMouseEvent',{type:'mouseMoved',...point,buttons:0});
+        await cdp('Input.dispatchMouseEvent',{type:'mousePressed',...point,button:'left',buttons:1,clickCount:1});
+        await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',...point,button:'left',buttons:0,clickCount:1});
+        await new Promise(ok=>setTimeout(ok,200));
+      };
+      for(let attempt=0;attempt<3;attempt++){
+        await paint();
+        if(await evaluate('document.querySelector("#result-note")?.textContent.includes("実描画：cell(")'))break;
+      }
+      await waitFor('document.querySelector("#result-note")?.textContent.includes("実描画：cell(")');
+      assert.notEqual(await captureGPU(),initialGPU,'pointer dye modifies actual live GPU pixels');
+      // Refocus after the screenshot and verify the key on the live canvas.
+      await paint();
+      await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowRight',code:'ArrowRight',windowsVirtualKeyCode:39});
+      await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:'ArrowRight',code:'ArrowRight',windowsVirtualKeyCode:39});
+      await paint();
+      await waitFor('document.querySelector("#result-note")?.textContent.includes("step 1")');
+      assert.equal(await evaluate('document.querySelector("#results-table tbody tr")?.cells[4]?.textContent'),'OK','initial oracle remains separate from live interaction');
+      console.log('FCG6: actual live pointer injection, changed GPU screenshot and keyboard physical step: PASS');
+    }
     // Never mistake GPU pixel prediction for actual animation acceptance.
     console.log('FCG6 '+width+'px: 48x48 edited solver, real GPU nine pixels, Neumann logs and opaque sandbox: PASS');
     if(width===1280){

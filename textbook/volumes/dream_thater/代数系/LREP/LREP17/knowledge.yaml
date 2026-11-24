@@ -1,0 +1,42 @@
+chapter: LREP17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP16
+forward_references: []
+concepts:
+  - id: representation.dirac-adjoint
+    name: Dirac随伴
+    kind: definition
+    introduction: formal
+    requires: [representation.dirac-spinor, representation.gamma-matrices]
+  - id: representation.dirac-adjoint-covariance
+    name: Dirac随伴の変換則
+    kind: proposition
+    introduction: formal
+    requires: [representation.dirac-adjoint]
+  - id: representation.dirac-vector-matrices
+    name: ベクトル成分用行列の変換則
+    kind: proposition
+    introduction: formal
+    requires: [representation.gamma-covariance]
+  - id: representation.dirac-bilinears
+    name: Dirac双線形量
+    kind: definition
+    introduction: formal
+    requires: [representation.dirac-adjoint, representation.chirality-operator, representation.gamma-matrices]
+  - id: representation.dirac-bilinear-covariance
+    name: Dirac双線形量の共変性
+    kind: proposition
+    introduction: formal
+    requires: [representation.dirac-bilinears, representation.dirac-adjoint-covariance, representation.dirac-vector-matrices, representation.chirality-algebra]
+  - id: representation.dirac-bilinear-parity
+    name: Dirac双線形量の空間反転
+    kind: proposition
+    introduction: formal
+    requires: [representation.dirac-bilinears, representation.chirality-algebra]
+  - id: representation.dirac-bilinear-reality
+    name: Dirac双線形量の実数値性
+    kind: proposition
+    introduction: formal
+    requires: [representation.dirac-bilinears, representation.chirality-algebra]

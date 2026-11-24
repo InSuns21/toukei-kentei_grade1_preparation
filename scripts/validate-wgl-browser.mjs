@@ -919,7 +919,7 @@ try{
   await evalJS('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"center"})');
   await new Promise(ok=>setTimeout(ok,200));
   const rect6=await evalJS('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height};})()');
-  const clip6={...rect6,height:Math.min(180,rect6.height),scale:1};
+  const clip6={...rect6,height:Math.min(rect6.width,rect6.height),scale:1};
   assert.ok(clip6.width>200&&clip6.height>100,JSON.stringify(clip6));
   const first6=await cdp('Page.captureScreenshot',{format:'png',clip:clip6,captureBeyondViewport:true});
   await new Promise(ok=>setTimeout(ok,1100));
@@ -930,7 +930,7 @@ try{
     Buffer.from(second6.data,'base64'));
   const scene6obstacle=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
   assert.match(scene6obstacle.grid,/48×48.*49×48.*R8/);
-  assert.match(scene6obstacle.color,/固体セル.*黄/);
+  assert.match(scene6obstacle.color,/白い速度矢印.*粒子.*斜線の固体.*橙の境界面/);
   assert.match(scene6obstacle.clock,/物理step 8、t=0.40 s/);
   assert.match(scene6obstacle.mode,/u_viewMode=0.*u_viewMode=1/);
   assert.match(scene6obstacle.source,/solid.js.*solid.frag/);

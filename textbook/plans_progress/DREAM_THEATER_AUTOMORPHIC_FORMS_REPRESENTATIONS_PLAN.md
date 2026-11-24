@@ -1,8 +1,8 @@
 # DREAM THEATER 保型形式・保型表現（AFR1〜AFR24）
 
 設計確定: 2026-11-21 JST  
-状態: designed / 未着手。**24講（AFR1〜AFR24）で講数を確定**。本文・chapter/knowledge・系列manifest・公開目次は未着手。  
-系列ID: `AFR`（Automorphic Forms and Representations）。分野: 代数系と解析系の接続。共通ルート: [岩澤理論・保型表現・RH講読](DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)。
+状態: in progress。**24講（AFR1〜AFR24）で講数を確定**。AFR1を実装。進捗の正本は[系列manifest](../dream-theater-series/AFR.yaml)。  
+系列ID: `AFR`（Automorphic Forms and Representations）。分野: 代数系と解析系の接続。共通ルート: [岩澤理論・保型表現・RH講読](../plans/DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)。
 
 ## 中心問いと到達点
 
@@ -108,7 +108,7 @@
 
 - **形式的に証明された定理**、**外部標準定理**、**Leanコードから引用したが人間向け証明が未記載の補題**、**検討中の自然言語説明**を別ラベルにして追跡する。古い「独立検証なし」の説明は更新後の主要説明として残さない。
 - 一般化の限界（Dirichlet GRHか、より一般のL関数か）を全箇所で確認する。p進`L`関数の主予想をRH証明そのものと同一視しない。
-- AFR1〜AFR24の**24講は保型表現科目として維持**し、AFR23/24は解析的還元と依存地図・形式認証への橋渡しを担当する。数学の核心である主不等式(M)とそのCM・theta・算術格子・Galoisコホモロジーの証明を二講に圧縮せず、[RHP1〜RHP20の独立研究講読PLAN](DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md)が所有する。全系列の設計値は計86講（22+20+24+20）で、今後の人間可読な証明の進展に応じRHPの講数を明示的に見直す。
+- AFR1〜AFR24の**24講は保型表現科目として維持**し、AFR23/24は解析的還元と依存地図・形式認証への橋渡しを担当する。数学の核心である主不等式(M)とそのCM・theta・算術格子・Galoisコホモロジーの証明を二講に圧縮せず、[RHP1〜RHP23の独立研究講読PLAN](../plans/DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md)が所有する。全系列の設計値は計89講（22+20+24+23）で、今後の人間可読な証明の進展に応じRHPの講数を明示的に見直す。
 
 ## 各章の完成条件
 

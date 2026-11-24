@@ -1,0 +1,104 @@
+version: 1
+id: AFR
+title: "保型形式・保型表現"
+plan: textbook/plans_progress/DREAM_THEATER_AUTOMORPHIC_FORMS_REPRESENTATIONS_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 公開索引へは完了済みの章だけを登録する。
+chapters:
+  - id: AFR1
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR1
+    status: completed
+    title: "古典的モジュラー形式から保型形式へ"
+  - id: AFR2
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR2
+    status: completed
+    title: "Maass形式・双曲Laplace作用素"
+  - id: AFR3
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR3
+    status: planned
+    title: "保型スペクトルとカスプ形式"
+  - id: AFR4
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR4
+    status: planned
+    title: "Whittaker係数・Bessel関数"
+  - id: AFR5
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR5
+    status: planned
+    title: "Eisenstein級数と関数等式"
+  - id: AFR6
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR6
+    status: planned
+    title: "Hecke作用とスペクトルの接続"
+  - id: AFR7
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR7
+    status: planned
+    title: "保型L関数・Rankin型積分の初例"
+  - id: AFR8
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR8
+    status: planned
+    title: "アデール・イデールの保型的利用"
+  - id: AFR9
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR9
+    status: planned
+    title: "アデール上のFourier解析"
+  - id: AFR10
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR10
+    status: planned
+    title: "Tateの学位論文：`GL_1`のゼータ積分"
+  - id: AFR11
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR11
+    status: planned
+    title: "`GL_2(A)`上の保型形式"
+  - id: AFR12
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR12
+    status: planned
+    title: "無限素点の`GL_2(R)`表現"
+  - id: AFR13
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR13
+    status: planned
+    title: "p進`GL_2`表現の入門"
+  - id: AFR14
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR14
+    status: planned
+    title: "球Hecke代数とSatakeパラメータ"
+  - id: AFR15
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR15
+    status: planned
+    title: "分岐局所表現・newvector"
+  - id: AFR16
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR16
+    status: planned
+    title: "制限テンソル積・局所大域L因子"
+  - id: AFR17
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR17
+    status: planned
+    title: "`GL_2`の保型表現と古典形式"
+  - id: AFR18
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR18
+    status: planned
+    title: "Rankin–Selberg積分と積L関数"
+  - id: AFR19
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR19
+    status: planned
+    title: "Weil表現・theta級数"
+  - id: AFR20
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR20
+    status: planned
+    title: "theta対応とunitary／orthogonal群"
+  - id: AFR21
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR21
+    status: planned
+    title: "周期積分・seesaw identity"
+  - id: AFR22
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR22
+    status: planned
+    title: "Rallis内積公式・相対跡公式への入口"
+  - id: AFR23
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR23
+    status: planned
+    title: "RH・Dirichlet GRH：零点から平滑化素数冪和、主不等式(M)への解析的還元"
+  - id: AFR24
+    path: textbook/volumes/dream_thater/代数系/AFR/AFR24
+    status: planned
+    title: "Alpöge–Claudeの形式的RH/Dirichlet GRH証明の依存地図・再現可能な検証"

@@ -105,11 +105,11 @@ const descriptions = Object.freeze({
   FCG6: Object.freeze({
     grid: snapshot => {
       const n=[32,48,64].includes(snapshot.gridN)?snapshot.gridN:48;
-      return n+'×'+n+'（実MAC格子：染料・発散・速さ・固体mask、面速度u='+(n+1)+'×'+n+'／v='+n+'×'+(n+1)+'）。GPUは4枚のR8テクスチャ';
+      return n+'×'+n+'（実MAC格子：染料・発散・速さ・固体mask、面速度u='+(n+1)+'×'+n+'／v='+n+'×'+(n+1)+'）。初期検算は4枚のR8、連続表示は速度・圧力のRGBA8と192×192の粒子軌跡R8を追加';
     },
-    color: '連続表示: 染料は青〜橙、固体セルは灰、流体側の階段境界とmask差分による法線矢印は黄。初期3列: 染料(q, 0.15, 1−q)、70|発散|の赤、速さ/0.6の緑（R8は0〜1に制限）',
+    color: '連続表示: 白い速度矢印と粒子の短い尾、斜線の固体、橙の境界面。表示量ごとの値域は描画の直下。初期3列は染料・絶対発散・速さの検算用',
     clock: step => '物理step '+step+'、t='+(step*0.05).toFixed(2)+' s（dt=0.05 s）',
-    mode: '初期CPU/GPU照合は3列のu_viewMode=0。連続表示は選択した同じ実MAC格子をu_viewMode=1で拡大し染料のみ描画補間。法線は階段maskの差分で円の解析法線ではない',
+    mode: '初期CPU/GPU照合は3列のu_viewMode=0。連続表示は同じMAC状態をu_viewMode=1で描画。粒子軌跡は格子速度で更新する表示用トレーサー',
     source: 'solid.js（N, dt, shape, centerY, wallAmplitude, wallFrequency, acceleration, advanceObstacleStep）/ solid.frag（u_viewMode, u_dye, u_div, u_speed, u_solid）'
   }),
   FCG7: Object.freeze({

@@ -21,3 +21,5 @@
 18. [LREP14 Clifford代数の構成](textbook/volumes/dream_thater/代数系/LREP/LREP14/index.md)
 19. [LREP15 Spin群とガンマ行列](textbook/volumes/dream_thater/代数系/LREP/LREP15/index.md)
 20. [LREP16 Diracスピノルとchirality](textbook/volumes/dream_thater/代数系/LREP/LREP16/index.md)
+21. [LREP17 Dirac双線形量](textbook/volumes/dream_thater/代数系/LREP/LREP17/index.md)
+22. [LREP18 電荷共役とMajorana条件](textbook/volumes/dream_thater/代数系/LREP/LREP18/index.md)
