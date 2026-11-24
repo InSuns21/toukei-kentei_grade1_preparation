@@ -104,6 +104,19 @@ try {
   assert.ok(initial.rows.length>=4);
   assert.match(initial.scene,/64 m四方/);
   const first=await capture('six-waves');
+  await evaluate('document.getElementById("fcg13-step").click()');
+  await waitFor('Number(document.getElementById("fcg13-live-state").dataset.time)===2.1');
+  assert.notEqual(first,await capture('step'));
+  await evaluate('document.getElementById("fcg13-play").click()');
+  await waitFor('Number(document.getElementById("fcg13-live-state").dataset.time)>=2.3');
+  await evaluate('document.getElementById("fcg13-pause").click()');
+  await waitFor('document.getElementById("fcg13-live-state").textContent.includes("停止中")');
+  const paused=await evaluate('document.getElementById("fcg13-live-state").dataset.time');
+  await new Promise(ok=>setTimeout(ok,350));
+  assert.equal(await evaluate('document.getElementById("fcg13-live-state").dataset.time'),paused);
+  await evaluate('document.getElementById("fcg13-reset").click()');
+  await waitFor('Number(document.getElementById("fcg13-live-state").dataset.time)===2');
+  assert.equal(first,await capture('reset'));
   const control=async(id,value,pattern)=>{
     await evaluate('document.getElementById("tab-conditions").click()');
     await evaluate('(()=>{const input=document.getElementById("parameter-'+id+'");input.value='+JSON.stringify(value)+';input.dispatchEvent(new Event("input",{bubbles:true}));input.dispatchEvent(new Event("change",{bubbles:true}));})()');

@@ -457,6 +457,10 @@ function stop(message = '停止しました。実行 iframe を破棄しまし�
     active = null;
   }
   byId('canvas-slot').replaceChildren();
+  if(isFCG13){
+    const view=byId('fcg13-live-state');if(view){view.textContent='未実行';delete view.dataset.time;}
+    for(const button of document.querySelectorAll('#fcg13-live button'))button.disabled=true;
+  }
   if(isFCG7){fcg7Playing=false;fcg7Mark();const e=byId('fcg7-energy');if(e)e.textContent='初期運動エネルギーに対する割合（実行後に表示）';for(const id of ['fcg7-pic-energy','fcg7-flip-energy'])if(byId(id))byId(id).value=0;}
   if(isWGL19){
     const view=byId('wgl19-live-state');
@@ -608,6 +612,27 @@ function isolatedRunner() {
           if(event.key===' '){event.preventDefault();hooks.snapshot().playing?hooks.pause():hooks.play();}
         });
         emit(hooks.snapshot());
+      }
+      const fcg13Hooks=request.lesson==='FCG13'&&!!hooks&&
+        ['play','pause','step','reset'].every(key=>typeof hooks[key]==='function');
+      if(fcg13Hooks){
+        canvas.addEventListener('fcg13-progress',event=>{
+          const d=event.detail;
+          if(!d||![d.time,d.mean,d.maxSlope,d.maxError].every(Number.isFinite)||
+             d.time<0||d.time>20||d.maxSlope<0||d.maxError<0||typeof d.playing!=='boolean')return;
+          send({...scope,type:'fcg13-progress',time:d.time,playing:d.playing,
+            mean:d.mean,maxSlope:d.maxSlope,maxError:d.maxError});
+        });
+        canvas.addEventListener('fcg13-failure',event=>
+          send({...scope,type:'fcg13-control-error',message:String(event.detail).slice(0,300)}));
+        window.addEventListener('message',event=>{
+          const m=event.data;
+          if(event.source!==parent||!m||m.type!=='fcg13-control'||
+             m.session!==scope.session||m.requestId!==scope.requestId||m.generation!==scope.generation||
+             !['play','pause','step','reset'].includes(m.action))return;
+          try{hooks[m.action]();}
+          catch(error){send({...scope,type:'fcg13-control-error',message:String(error?.message||error).slice(0,300)});}
+        });
       }
       const fcg8Hooks=request.lesson==='FCG8'&&!!hooks&&
         ['play','pause','step','reset'].every(key=>typeof hooks[key]==='function');
@@ -807,7 +832,7 @@ function isolatedRunner() {
         {rate:Number(hooks.floatParameters.rate),steps:Number(hooks.floatParameters.steps)} : null;
       const frameAudit = request.lesson === 'WGL19' && hooks ? hooks.frameAudit : null;
       send({...scope, type: 'result', ok: glError === gl.NO_ERROR, samples, floatReadback, floatParameters, frameAudit,
-        liveHooks:request.lesson==='FCG7'?!!fcg7Hooks:request.lesson==='FCG8'?!!fcg8Hooks:request.lesson==='FCG2'?!!fcg2Hooks:undefined,
+        liveHooks:request.lesson==='FCG13'?!!fcg13Hooks:request.lesson==='FCG7'?!!fcg7Hooks:request.lesson==='FCG8'?!!fcg8Hooks:request.lesson==='FCG2'?!!fcg2Hooks:undefined,
         checkpoints: request.lesson === 'WGL20' && hooks ? hooks.checkpoints : null,
         width: canvas.width, height: canvas.height,
         logs, glError: '0x' + glError.toString(16)});
@@ -982,6 +1007,24 @@ window.addEventListener('message', event => {
   }
   if(isFCG4 && data.type==='fcg4-control-error'){
     setStatus('FCG4 ライブ操作エラー: '+String(data.message).slice(0,300),true);return;
+  }
+  if(isFCG13&&data.type==='fcg13-progress'){
+    if(![data.time,data.mean,data.maxSlope,data.maxError].every(Number.isFinite)||
+      data.time<0||data.time>20||data.maxSlope<0||data.maxError<0||typeof data.playing!=='boolean')return;
+    byId('fcg13-live-state').textContent='t='+data.time.toFixed(2)+' s / '+(data.playing?'再生中':'停止中')+
+      ' / 平均高さ '+data.mean.toExponential(2)+' m / 最大傾斜 '+data.maxSlope.toFixed(3)+
+      ' / 直接和との差 '+data.maxError.toExponential(2);
+    byId('fcg13-live-state').dataset.time=String(data.time);
+    byId('fcg13-play').disabled=data.playing||data.time>=20;
+    byId('fcg13-pause').disabled=!data.playing;
+    byId('fcg13-step').disabled=data.playing||data.time>=20;
+    byId('numeric-note').textContent='下のGPU画素表は設定時刻の初期検算。現在時刻の数値差は描画上の欄に表示。';
+    return;
+  }
+  if(isFCG13&&data.type==='fcg13-control-error'){
+    setStatus('FCG13 再生エラー: '+String(data.message).slice(0,300),true);
+    for(const button of document.querySelectorAll('#fcg13-live button'))button.disabled=true;
+    return;
   }
   if(isFCG8 && data.type==='fcg8-progress'){
     if(!Number.isInteger(data.steps)||data.steps<0||data.steps>96)return;
@@ -1497,6 +1540,14 @@ window.addEventListener('message', event => {
         'WGL19：実行時の数値step・拡散係数を独立CPUで再計算し、RGBA各成分±2で比較。GLSL自体を変更した場合は不一致になり得ます。';
     }
   }
+  if(isFCG13){
+    active.completed=!!data.ok&&!!data.liveHooks;
+    if(active.completed){
+      for(const button of document.querySelectorAll('#fcg13-live button'))button.disabled=false;
+      byId('fcg13-pause').disabled=true;
+      byId('fcg13-live-state').textContent='設定時刻・停止中（再生または1ステップで観察）';
+    }else if(data.ok)setStatus('FCG13 再生フックがありません。初期ソースを確認してください',true);
+  }
   if(isFCG2){
     active.completed=!!data.ok&&!!data.liveHooks;
     fcg2Time=active.payload.steps*Math.PI/2;
@@ -1886,6 +1937,26 @@ if(isFCG13){
   document.querySelector('#panel-conditions > p').textContent='左は64 m四方の高さの平面図、右は同じ格子を持ち上げた海面。波の傾きで空の反射が変わります。';
   document.querySelector('#panel-conditions ol').innerHTML='<li>波の本数を1から8へ増やして細かなうねりを観察。</li><li>波数倍率と方向を変え、山の間隔・方向を比較。</li><li>時刻を0、2、4 sと変更。振幅0で平面になることを確認。</li>';
   byId('preset').options[0].textContent='周期海面の6成分';
+  const live=document.createElement('div');live.id='fcg13-live';
+  live.innerHTML='<div class="controls" role="group" aria-label="海面の物理時刻操作">'+
+    '<button type="button" class="action" id="fcg13-play" disabled>再生</button>'+
+    '<button type="button" class="action" id="fcg13-pause" disabled>一時停止</button>'+
+    '<button type="button" class="action" id="fcg13-step" disabled>1ステップ（0.1 s）</button>'+
+    '<button type="button" class="action" id="fcg13-reset" disabled>設定時刻へ戻す</button></div>'+
+    '<output id="fcg13-live-state" aria-live="off">未実行</output>';
+  byId('canvas-slot').before(live);
+  const control=action=>{
+    if(!active?.completed||active.contextLost)return;
+    active.frame.contentWindow.postMessage({type:'fcg13-control',action,
+      requestId:active.id,generation:active.generation,session:active.session},'*');
+  };
+  for(const action of ['play','pause','step','reset'])byId('fcg13-'+action).addEventListener('click',()=>control(action));
+  // Explicit play only; pause an ongoing session if reduced-motion becomes active.
+  const motion=window.matchMedia('(prefers-reduced-motion: reduce)');
+  motion.addEventListener('change',event=>{if(event.matches)control('pause');});
+  const fallback=document.createElement('p');
+  fallback.textContent='WebGL2非対応時の手計算例：単一波・振幅0.35 m・波長64 m・時刻0では x=0,16,32,48,64 m の高さは 0.35,0,−0.35,0,0.35 m。';
+  byId('canvas-slot').after(fallback);
 }
 if(isFCG12){
   document.title='FCG12 浅水の立体表示';

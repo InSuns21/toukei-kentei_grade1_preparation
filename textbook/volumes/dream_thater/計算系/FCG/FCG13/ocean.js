@@ -53,7 +53,9 @@ function field(axis){
  if(!re.every(Number.isFinite)||!im.every(x=>Number.isFinite(x)&&Math.abs(x)<1e-9))throw Error('invalid inverse spectrum');
  return re;
 }
-const eta=field(0),sx=field(1),sy=field(2);
+function computeAt(t){
+ for(const [j,m] of modes.entries())m.phase=0.83*j-Math.sqrt(g*Math.hypot(m.qx,m.qy))*t;
+ const eta=field(0),sx=field(1),sy=field(2);
 let maxError=0,mean=0,maxSlope=0;
 for(let y=0;y<N;y++)for(let x=0;x<N;x++){
  let h=0,a=0,b=0;
@@ -65,6 +67,10 @@ for(let y=0;y<N;y++)for(let x=0;x<N;x++){
  mean+=eta[k]/(N*N);maxSlope=Math.max(maxSlope,Math.hypot(sx[k],sy[k]));
 }
 if(maxError>1e-9)throw Error('inverse FFT differs from direct sum');
+ return {eta,sx,sy,mean,maxError,maxSlope};
+}
+const initial=computeAt(time);
+const {eta,sx,sy,mean,maxError,maxSlope}=initial;
 report('OCEAN','time='+time+' s; '+modeCount+' waves; '+N+'×'+N+' grid; mean='+mean.toExponential(3)+' m; max slope='+maxSlope.toFixed(3)+'; FFT/direct max difference='+maxError.toExponential(3));
 report('WAVES',modes.map(m=>'('+m.x+','+m.y+'): λ='+(2*Math.PI/Math.hypot(m.qx,m.qy)).toFixed(2)+' m, ω='+Math.sqrt(g*Math.hypot(m.qx,m.qy)).toFixed(3)+' rad/s').join('; '));
 function compile(type,source){const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));return s;}
@@ -80,7 +86,8 @@ let vertices=[];
 function point(x,y,h,a,b){vertices.push(x,y,h,a,b);}
 function draw(kind,mode){gl.uniform1i(view,mode);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(vertices),gl.STREAM_DRAW);gl.drawArrays(kind,0,vertices.length/5);vertices=[];}
 const corners=[[0,0],[1,0],[1,1],[0,0],[1,1],[0,1]];
-gl.viewport(0,0,canvas.width,canvas.height);gl.clearColor(0.04,0.07,0.11,1);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+function render({eta,sx,sy}){
+ gl.viewport(0,0,canvas.width,canvas.height);gl.clearColor(0.04,0.07,0.11,1);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
 gl.disable(gl.DITHER);gl.disable(gl.BLEND);gl.disable(gl.DEPTH_TEST);
 // Left: one constant-height colour per physical sample. Right: same data,
 // including periodic closure, with heights and interpolated analytic normals.
@@ -97,4 +104,34 @@ draw(gl.TRIANGLES,1);
 for(let y=0;y<=N;y+=8)for(let x=0;x<N;x++){node(x,y);node(x+1,y);}
 for(let x=0;x<=N;x+=8)for(let y=0;y<N;y++){node(x,y);node(x,y+1);}
 draw(gl.LINES,2);
-gl.disable(gl.DEPTH_TEST);gl.finish();
+ gl.disable(gl.DEPTH_TEST);gl.finish();
+ if(gl.getError()!==gl.NO_ERROR)throw Error('ocean drawing failed');
+}
+render(initial);
+// Fixed physical time increment, not wall-clock time or GPU frame rate.
+let current=time,playing=false,timer=null,metrics=initial;
+function emit(){
+ canvas.dispatchEvent(new CustomEvent('fcg13-progress',{detail:{
+  time:current,playing,mean:metrics.mean,maxSlope:metrics.maxSlope,maxError:metrics.maxError
+ }}));
+}
+function cancel(){if(timer!==null)clearTimeout(timer);timer=null;playing=false;}
+function advance(t){current=t;metrics=computeAt(t);render(metrics);}
+function pause(){cancel();emit();}
+function tick(){
+ timer=null;if(!playing)return;
+ try{
+  advance(Math.min(20,Math.round((current+0.1)*1e8)/1e8));
+  if(current>=20)cancel();
+  emit();
+  if(playing)timer=setTimeout(tick,100);
+ }catch(error){
+  cancel();
+  canvas.dispatchEvent(new CustomEvent('fcg13-failure',{detail:String(error?.message||error)}));
+ }
+}
+function play(){if(playing||current>=20)return;playing=true;emit();timer=setTimeout(tick,100);}
+function step(){cancel();advance(Math.min(20,Math.round((current+0.1)*1e8)/1e8));emit();}
+function reset(){cancel();advance(time);emit();}
+canvas.addEventListener('webglcontextlost',cancel);
+return {play,pause,step,reset};
