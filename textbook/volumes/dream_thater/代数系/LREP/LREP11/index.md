@@ -115,9 +115,9 @@ $$
 
 もし $E_Lw\ne0$ なら実部の和が2大きくなり、選び方に矛盾します。右側では交換子 $[H_R,E_R]=2E_R$ と $[H_L,E_R]=0$ から
 
-$
+$$
 H_RE_Rw=(\mu+2)E_Rw,\qquad H_LE_Rw=\lambda E_Rw.
-$
+$$
 
 非零ならやはり実部の和が2大きくなるため $E_Rw=0$ です。
 
@@ -163,23 +163,23 @@ $$
 
 したがって既約性により線形包は $W$ 全体です。多項式模型と係数をそろえるため、基底を
 
-$
+$$
 g_{a,b}=\frac{(m-a)!(n-b)!}{m!n!}f_{a,b}
 $$
 
 に取り替えます。$c_{a,b}=(m-a)!(n-b)!/(m!n!)$ と置くと、下降端を除いて
 
-$
+$$
 \frac{c_{a,b}}{c_{a+1,b}}=m-a,\qquad
 \frac{c_{a,b}}{c_{a,b+1}}=n-b.
-$
+$$
 
 従って下降係数はそれぞれ $m-a,n-b$ です。上昇端を除けば
 
-$
+$$
 \frac{c_{a,b}}{c_{a-1,b}}=\frac1{m-a+1},\qquad
 \frac{c_{a,b}}{c_{a,b-1}}=\frac1{n-b+1}.
-$
+$$
 
 これらを昇降公式の係数に掛けると、上昇係数はそれぞれ $a,b$ になります。端では元の作用が零なので、上で示した多項式の全基底作用に一致します。よって $g_{a,b}\mapsto w_{a,b}$ は六作用を保つ線形同型です。
 
@@ -294,7 +294,7 @@ $$
 
 $\epsilon=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ とします。[二次元交代形式と行列式](../LREP4/index.md#prop-lrep4-epsilon)を転置行列へ適用するため、任意の行列式1の二次行列 $M=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ に対し、次の積で確かめます。
 
-$
+$$
 M\epsilon M^{\mathsf T}
 =\begin{pmatrix}-b&a\\-d&c\end{pmatrix}
  \begin{pmatrix}a&c\\b&d\end{pmatrix}
