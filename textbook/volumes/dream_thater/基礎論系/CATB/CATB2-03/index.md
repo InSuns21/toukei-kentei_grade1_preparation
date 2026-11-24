@@ -36,7 +36,7 @@ $$
 第一式の二経路の始域は $\mathcal A(y,z)\otimes\mathcal A(x,y)$、終域は $\mathcal B(Fx,Fz)$ である。先に合成してから移す経路と、各Hom対象を移してから合成する経路を比較している。第二式は $I$ から $\mathcal B(Fx,Fx)$ への二経路を比較する。
 
 <!-- definition-example-start: def-catb2-03-enriched-functor -->
-**定義の確認。** 基底を集合と直積のモノイダル圏とし、通常の圏を[集合値の豊穣圏](../CATB2-01/index.md#prop-catb2-01-set-enrichment)として読む。対象は $S=\{0,1\}$ 一つだけとし、Hom集合を $S$ から $S$ への全写像の集合とする。合成は写像の合成である。$s:S\to S$ を $s(0)=1,s(1)=0$ と置く。対象を変えず、Homの写像を
+**定義の確認。** 基底を[集合の直積によるモノイダル圏](../../CAT/CAT4-01/index.md#thm-cat4-01-cartesian-monoidal)とし、通常の圏を[集合値の豊穣圏](../CATB2-01/index.md#prop-catb2-01-set-enrichment)として読む。対象は $S=\{0,1\}$ 一つだけとし、Hom集合を $S$ から $S$ への全写像の集合とする。合成は写像の合成である。$s:S\to S$ を $s(0)=1,s(1)=0$ と置く。対象を変えず、Homの写像を
 
 $$
 F(f)=s\circ f\circ s
@@ -170,7 +170,7 @@ $F,G:\mathcal A\to\mathcal B$ に対し、成分は台の圏での射 $Fx\to Gx$
 <!-- formal-statement-start -->
 > **定義（豊穣自然変換）**
 >
-> 局所小なモノイダル圏 $\mathcal V$ 上の二つの豊穣関手 $F,G:\mathcal A\to\mathcal B$ の間の豊穣自然変換 $a:F\Rightarrow G$ は各対象 $x$ に対して射
+> 局所小なモノイダル圏 $\mathcal V$ 上の二つの[豊穣関手](#def-catb2-03-enriched-functor) $F,G:\mathcal A\to\mathcal B$ の間の豊穣自然変換 $a:F\Rightarrow G$ は各対象 $x$ に対して射
 
 $$
 a_x:I\longrightarrow\mathcal B(Fx,Gx)
@@ -207,7 +207,7 @@ $$
 <!-- formal-statement-start -->
 > **定理（豊穣自然変換から台の自然変換へ）**
 >
-> 局所小なモノイダル圏 $\mathcal V$ 上の豊穣自然変換 $a:F\Rightarrow G$ は、台となる関手の間の通常の自然変換 $a_0:F_0\Rightarrow G_0$ を定める。その成分は台となる圏の射として読んだ $a_x$ である。
+> 局所小なモノイダル圏 $\mathcal V$ 上の[豊穣自然変換](#def-catb2-03-enriched-natural) $a:F\Rightarrow G$ は、台となる関手の間の通常の自然変換 $a_0:F_0\Rightarrow G_0$ を定める。その成分は台となる圏の射として読んだ $a_x$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -283,7 +283,7 @@ $$
 <!-- formal-statement-start -->
 > **命題（豊穣自然変換の成分ごとの合成）**
 >
-> 局所小なモノイダル圏 $\mathcal V$ 上の豊穣関手 $F,G,H:\mathcal A\to\mathcal B$ と豊穣自然変換 $a:F\Rightarrow G$、$b:G\Rightarrow H$ に対し、
+> 局所小なモノイダル圏 $\mathcal V$ 上の[豊穣関手](#def-catb2-03-enriched-functor) $F,G,H:\mathcal A\to\mathcal B$ と[豊穣自然変換](#def-catb2-03-enriched-natural) $a:F\Rightarrow G$、$b:G\Rightarrow H$ に対し、
 
 $$
 c_x=m^\mathcal B_{Fx,Gx,Hx}(b_x\otimes a_x)\lambda_I^{-1}
@@ -325,7 +325,27 @@ $$
 s_R=(1_I\otimes\lambda_P^{-1})\lambda_P^{-1}.
 $$
 
-他の二つの位置でも、外側の合成の単位子の逆を先に作用させ、内側の合成の単位子の逆を該当因子へ作用させる。[整合性定理](../../CAT/CAT4-02/index.md#thm-cat4-02-coherence)を単位記号を除けば同じ語 $P$ となる二経路に適用すると、全ての位置について
+中央が $P$ の場合は、左の括弧付けでは右に $I$ を加えてから左因子の左に $I$ を加え、右の括弧付けでは左に $I$ を加えてから右因子の右に $I$ を加える。
+
+$$
+s_L=(\lambda_P^{-1}\otimes1_I)\rho_P^{-1},
+$$
+
+$$
+s_R=(1_I\otimes\rho_P^{-1})\lambda_P^{-1}.
+$$
+
+左端が $P$ の場合は
+
+$$
+s_L=(\rho_P^{-1}\otimes1_I)\rho_P^{-1},
+$$
+
+$$
+s_R=(1_P\otimes\lambda_I^{-1})\rho_P^{-1}.
+$$
+
+三場合とも、外側の合成に対応する単位子の逆を先に作用させ、次に内側の合成に対応する単位子の逆を該当因子へ作用させた。[整合性定理](../../CAT/CAT4-02/index.md#thm-cat4-02-coherence)を単位記号を除けば同じ語 $P$ となる二経路に適用すると、全ての位置について
 
 $$
 \alpha_{Q_3,Q_2,Q_1}s_L=s_R.
@@ -545,7 +565,7 @@ $$
 
 $u=y-x,v=z-y$ と置けば三角不等式となる。
 
-1. [費用の関手判定](#prop-catb2-03-thin-functors)により
+**（1）関手の条件。** [費用の関手判定](#prop-catb2-03-thin-functors)により
 
 $$
 \max(a(y-x),0)\le\max(y-x,0)
@@ -553,7 +573,7 @@ $$
 
 が全点対で成立することが必要十分である。$y-x=-1$ なら $\max(-a,0)\le0$ なので $a\ge0$。$y-x=1$ なら $\max(a,0)\le1$ なので $a\le1$。逆に $0\le a\le1$ とすると、$y-x\le0$ の場合は両辺ゼロ、$y-x>0$ の場合は左辺 $a(y-x)$ が右辺 $y-x$ 以下である。従って $0\le a\le1$ が必要十分で、$b$ は任意。
 
-2. 同じ判定により $0\le c\le1$ も成立している。各成分の存在は
+**（2）変換の条件。** 同じ判定により $0\le c\le1$ も成立している。各成分の存在は
 
 $$
 d(Fx,Gx)=\max((c-a)x+e-b,0)=0
@@ -561,7 +581,7 @@ $$
 
 と同値である。自然性の二経路は存在すれば一意性から一致するので、必要十分条件は全ての実数 $x$ について $(c-a)x+e-b\le0$ である。$c-a>0$ なら $x=(b-e+1)/(c-a)$ で左辺 $1$ となり矛盾する。$c-a<0$ でも同じ代入は実数として可能であり、左辺 $1$ となる。従って $c=a$。このとき不等式は $e-b\le0$ に還元される。逆に $c=a,e\le b$ なら全成分が存在し自然性も成立する。
 
-3. [台の圏の構成](../CATB2-01/index.md#thm-catb2-01-underlying-category)と[ゼロ費用の前順序](../CATB2-02/index.md#prop-catb2-02-zero-order)により、$x\to y$ が存在するのは $y\le x$ のときだけである。$y\le x$ なら $2y\le2x$ なので $F$ はこの順序を保存する。射の像は一意に決まり、合成と恒等射は同じ始域・終域の射の一意性により保存される。一方 $d(0,1)=1$ に対して $d(F0,F1)=2$ となり、費用保存の不等式を満たさない。通常の関手から豊穣関手を復元できない具体例である。
+**（3）台の関手との違い。** [台の圏の構成](../CATB2-01/index.md#thm-catb2-01-underlying-category)と[ゼロ費用の前順序](../CATB2-02/index.md#prop-catb2-02-zero-order)により、$x\to y$ が存在するのは $y\le x$ のときだけである。$y\le x$ なら $2y\le2x$ なので $F$ はこの順序を保存する。射の像は一意に決まり、合成と恒等射は同じ始域・終域の射の一意性により保存される。一方 $d(0,1)=1$ に対して $d(F0,F1)=2$ となり、費用保存の不等式を満たさない。通常の関手から豊穣関手を復元できない具体例である。
 <!-- solution-end -->
 
 ## 8. 次に向けて
