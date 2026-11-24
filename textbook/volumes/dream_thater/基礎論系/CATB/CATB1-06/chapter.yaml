@@ -1,0 +1,36 @@
+id: "CATB1-06"
+title: "Snakeの補題と図式追跡"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CATB1-05
+official_scope: []
+learning_objectives:
+  - 短完全列の可換図式から核と余核の間の射を構成できる
+  - エピ射の引き戻しによる持ち上げと完全性の判定を証明できる
+  - 接続射の存在・一意性と持ち上げに依存しないことを示せる
+  - Snakeの補題の各位置での完全性を図式追跡により証明できる
+  - 整数の倍写像の図式で接続射と完全列を計算できる
+definitions:
+  - { id: CATB1-06-DEF-01, name: "接続射" }
+theorems:
+  - { id: CATB1-06-LEM-01, name: "エピ射に沿う持ち上げ" }
+  - { id: CATB1-06-PROP-01, name: "持ち上げによる完全性の判定" }
+  - { id: CATB1-06-LEM-02, name: "Snakeの補題" }
+canonical_examples:
+  - 整数の倍写像と剰余類の接続射
+  - エピ射に沿う持ち上げと右逆射の違い
+  - 横のエピ射性が失われる反例
+problem_patterns:
+  - CATB1-06-KERNEL-COKERNEL
+  - CATB1-06-LIFT-CHOICE
+  - CATB1-06-CONNECTING
+  - CATB1-06-NONSPLIT
+  - CATB1-06-PULLBACK
+  - CATB1-06-KERNEL
+  - CATB1-06-NATURALITY
+  - CATB1-06-GCD
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }

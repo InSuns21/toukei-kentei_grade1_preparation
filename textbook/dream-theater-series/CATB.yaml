@@ -10,7 +10,7 @@ chapters:
   - { id: CATB1-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-03, status: completed, title: "加法圏と双積" }
   - { id: CATB1-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-04, status: completed, title: "核・余核とアーベル圏" }
   - { id: CATB1-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-05, status: completed, title: "像・余像・完全列" }
-  - { id: CATB1-06, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-06, status: planned, title: "Snakeの補題と図式追跡" }
+  - { id: CATB1-06, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-06, status: completed, title: "Snakeの補題と図式追跡" }
   - { id: CATB1-07, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-07, status: planned, title: "Lawvere理論とモデル" }
   - { id: CATB1-08, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-08, status: planned, title: "有限項モナドとLawvere理論" }
   - { id: CATB2-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-01, status: planned, title: "モノイダル圏でHomを値付けする" }
