@@ -121,7 +121,7 @@ const descriptions = Object.freeze({
   }),
   FCG11: Object.freeze({
     requiresSteps:false,
-    grid:'解析水面の横断面4 m×3 m。最大12候補・36粒子、流体格子なし',
+    grid:'解析水面の横断面4 m×1.5 m。最大40候補・120粒子、流体格子なし',
     color:'白い円：飛沫／横長楕円：表面泡／水中の輪：気泡',
     clock:()=> 'foam.js の time が物理年齢を決める観察時刻（s）',
     mode:'解析軌道の静止比較。生成時刻と寿命は秒、描画半径はm',

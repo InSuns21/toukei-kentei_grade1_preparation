@@ -2,14 +2,14 @@
 precision highp float;
 in vec2 uv;
 out vec4 outColor;
-uniform vec4 u_particles[36];
+uniform vec4 u_particles[120];
 uniform int u_count;
 void main(){
- vec2 q=vec2(4.0*uv.x,3.0*uv.y-1.0);
- float h=0.25*cos(3.141592653589793*(q.x-2.0));
+ vec2 q=vec2(4.0*uv.x,1.5*uv.y-0.65);
+ float h=0.25*cos(3.141592653589793*(q.x-1.0));
  vec3 color=q.y<h?vec3(13,90,127):vec3(24,39,60);
  if(abs(q.y-h)<0.012)color=vec3(90,200,205);
- for(int i=0;i<36;i++){
+ for(int i=0;i<120;i++){
   if(i>=u_count)break;
   vec4 s=u_particles[i];
   vec2 d=(q-s.xy)/s.z;

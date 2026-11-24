@@ -81,7 +81,7 @@ try {
   await cdp('Emulation.setDeviceMetricsOverride',{width:1280,height:900,deviceScaleFactor:1,mobile:false});
   await cdp('Page.navigate',{url});
   await waitFor('document.getElementById("status")?.textContent==="実行できます"');
-  assert.deepEqual(await evaluate('([Number(document.querySelector("#width").value),Number(document.querySelector("#height").value)])'),[960,720]);
+  assert.deepEqual(await evaluate('([Number(document.querySelector("#width").value),Number(document.querySelector("#height").value)])'),[960,360]);
   const result=()=>evaluate('({source:document.getElementById("js-source").value,rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(c=>c.textContent)),logs:document.querySelector("#diagnostics").textContent,scene:document.querySelector("#scene-info").textContent,iframe:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
   const check=async()=>{
     const s=await result();

@@ -4,18 +4,18 @@ const curvatureThreshold=0.8;
 const speedThreshold=1.5;
 const lifetime=0.8;
 const radius=0.055;
-const amount=12;
+const amount=24;
 if(![time,curvatureThreshold,speedThreshold,lifetime,radius,amount].every(Number.isFinite)||
  time<0||time>1.8||curvatureThreshold<0||curvatureThreshold>3||
  speedThreshold<0||speedThreshold>2.5||lifetime<0.1||lifetime>1.5||
- radius<0.025||radius>0.1||!Number.isInteger(amount)||amount<1||amount>12)
+ radius<0.025||radius>0.1||!Number.isInteger(amount)||amount<1||amount>40)
  throw RangeError('FCG11 parameter outside the documented range');
-const h=x=>0.25*Math.cos(Math.PI*(x-2));
-const sprites=new Float32Array(36*4);
+const h=x=>0.25*Math.cos(Math.PI*(x-1));
+const sprites=new Float32Array(120*4);
 let count=0,emitted=0,sprayCount=0,foamCount=0,bubbleCount=0;
 function add(x,z,kind){sprites.set([x,z,radius,kind],4*count++);}
 for(let i=0;i<amount;i++){
- const x0=4*(i+0.5)/amount,phase=Math.PI*(x0-2),z0=h(x0);
+ const x0=4*(i+0.5)/amount,phase=Math.PI*(x0-1),z0=h(x0);
  const slope=-Math.PI/4*Math.sin(phase);
  const curvature=Math.abs(Math.PI*Math.PI/4*Math.cos(phase))/Math.pow(1+slope*slope,1.5);
  const speed=1.2+0.8*Math.cos(phase);
