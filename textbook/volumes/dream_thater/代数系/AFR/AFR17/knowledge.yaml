@@ -8,7 +8,7 @@ concepts:
     name: "最低重さ条件による古典カスプ形式の復元"
     kind: theorem
     introduction: formal
-    requires: [automorphic-forms.classical-adelization, automorphic-forms.real-ladder, automorphic-forms.constant-term-reduction]
+    requires: [automorphic-forms.classical-adelization, automorphic-forms.real-ladder, automorphic-forms.constant-term-reduction, complex-analysis.laurent-expansion]
   - id: automorphic-forms.prime-hecke-eigenline
     name: "素数Hecke固有値による直線の決定"
     kind: proposition
@@ -24,8 +24,13 @@ concepts:
     kind: definition
     introduction: formal
     requires: [automorphic-forms.adelic-cuspidal, automorphic-forms.cyclic-cusp-irreducibility]
+  - id: automorphic-forms.flath-tensor-product
+    name: "Flath のテンソル積定理"
+    kind: theorem
+    introduction: inline
+    requires: [automorphic-forms.restricted-tensor-product, automorphic-forms.padic-admissibility]
   - id: automorphic-forms.classical-local-data
     name: "レベル1固有形式の局所データ"
     kind: theorem
     introduction: formal
-    requires: [automorphic-forms.cuspidal-representation, automorphic-forms.restricted-tensor-product, automorphic-forms.irreducible-spherical-line, automorphic-forms.classical-euler-match, automorphic-forms.real-ladder]
+    requires: [automorphic-forms.flath-tensor-product, automorphic-forms.cuspidal-representation, automorphic-forms.restricted-tensor-product, automorphic-forms.irreducible-spherical-line, automorphic-forms.classical-euler-match, automorphic-forms.real-ladder]
