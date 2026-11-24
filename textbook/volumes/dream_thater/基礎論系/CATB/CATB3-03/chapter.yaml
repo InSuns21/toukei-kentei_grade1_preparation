@@ -1,0 +1,23 @@
+id: "CATB3-03"
+title: "局所有限表示圏"
+volume: "foundations"
+status: supplementary
+prerequisites: [CATB3-02, CAT2-05]
+official_scope: []
+learning_objectives:
+  - 局所有限表示圏の余完備性と小さい材料による生成条件を区別できる
+  - 集合の圏の局所有限表示性を有限部分集合による余極限表示から証明できる
+  - 任意の左加群を有限個の生成元と関係式を持つ段階のフィルター余極限として構成できる
+  - 材料の同型代表への置換と小ささを確認できる
+  - 有限表示対象の余極限が有限表示対象とは限らない理由を説明できる
+definitions:
+  - { id: CATB3-03-DEF-01, name: "局所有限表示圏" }
+theorems:
+  - { id: CATB3-03-THM-01, name: "集合の圏の局所有限表示性" }
+  - { id: CATB3-03-THM-02, name: "加群の圏の局所有限表示性" }
+canonical_examples: [二点順序圏, 集合の有限部分集合, 加群の有限生成元と有限関係式の段階]
+problem_patterns: [CATB3-03-A01, CATB3-03-A02, CATB3-03-A03, CATB3-03-A04, CATB3-03-B01, CATB3-03-B02, CATB3-03-B03, CATB3-03-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
