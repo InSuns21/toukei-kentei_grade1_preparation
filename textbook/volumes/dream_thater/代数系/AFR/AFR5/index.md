@@ -138,7 +138,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr5-completed -->
-**定義の確認。** $s=2$ では $\Gamma(2)=1$ なので $\Lambda(4)=\pi^{-2}\zeta(4)>0$ です。前節の有限な正の値 $E(i,2)$ にこの有限係数を掛けると、完成形は $\pi^{-2}\zeta(4)E(i,2)>5\zeta(4)/(2\pi^2)$ です。$s$ の実部の条件も満たしています。
+**定義の確認**。 $s=2$ では $\Gamma(2)=1$ なので $\Lambda(4)=\pi^{-2}\zeta(4)>0$ です。前節の有限な正の値 $E(i,2)$ にこの有限係数を掛けると、完成形は $\pi^{-2}\zeta(4)E(i,2)>5\zeta(4)/(2\pi^2)$ です。$s$ の実部の条件も満たしています。
 <!-- definition-example-end -->
 
 <a id="thm-afr5-mellin"></a>
