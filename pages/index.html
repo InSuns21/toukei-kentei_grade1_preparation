@@ -25,6 +25,43 @@
     .markdown-section { max-width: 980px; }
     .markdown-section table { display: table; width: 100%; }
     .markdown-section pre { overflow-x: auto; }
+    /* Static fenced code: use the same dark palette as the numerical labs.
+       Keep prose, inline code, text diagrams and interactive editors unchanged. */
+    .markdown-section pre.toukei-code-block {
+      background: #0d1117;
+      color: #e6edf3;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      padding: 1.65rem 1rem 0.9rem;
+      overflow-x: auto;
+    }
+    .markdown-section pre.toukei-code-block > code {
+      display: block;
+      width: max-content;
+      min-width: 100%;
+      max-width: none;
+      padding: 0;
+      background: transparent;
+      color: inherit;
+      font: 13px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      white-space: pre;
+      overflow: visible;
+      tab-size: 4;
+    }
+    .markdown-section pre.toukei-code-block::after { color: #a8b3c0; }
+    .toukei-code-block .token.comment, .toukei-code-block .token.prolog,
+    .toukei-code-block .token.doctype { color: #8b949e; font-style: italic; }
+    .toukei-code-block .token.keyword, .toukei-code-block .token.tag,
+    .toukei-code-block .token.atrule { color: #ff7b72; font-weight: 600; }
+    .toukei-code-block .token.string, .toukei-code-block .token.char,
+    .toukei-code-block .token.attr-value, .toukei-code-block .token.regex { color: #a5d6ff; }
+    .toukei-code-block .token.number, .toukei-code-block .token.boolean,
+    .toukei-code-block .token.constant, .toukei-code-block .token.symbol { color: #79c0ff; }
+    .toukei-code-block .token.function, .toukei-code-block .token.class-name { color: #d2a8ff; }
+    .toukei-code-block .token.builtin, .toukei-code-block .token.property,
+    .toukei-code-block .token.attr-name, .toukei-code-block .token.variable { color: #ffa657; }
+    .toukei-code-block .token.operator, .toukei-code-block .token.punctuation { color: #e6edf3; }
+
     /* Compact lecture rows only on the DREAM THEATER subject index.
        Handle both tight and loose Markdown list markup from Docsify. */
     body.dream-theater-contents-route .markdown-section ol > li { margin-top: 0; margin-bottom: 0; }
@@ -761,6 +798,49 @@
       });
     }
 
+
+    // Prism 1.x has no bundled Lean grammar. This is lexical highlighting,
+    // not Lean parsing or proof checking. Only decorate static fenced code.
+    function staticCodeHighlightPlugin(hook) {
+      hook.doneEach(function () {
+        const prism = window.Prism;
+        if (prism && !prism.languages.lean) {
+          prism.languages.lean = {
+            comment: { pattern: /\/-(?:[^/-]|\/(?!-)|-(?!\/)|\/-[\s\S]*?-\/)*?-\/|--[^\r\n]*/, greedy: true },
+            string: { pattern: /"(?:\\[\s\S]|[^"\\])*"/, greedy: true },
+            'quoted-name': { pattern: /«[^»]*»/, alias: 'symbol' },
+            function: {
+              pattern: /(\b(?:def|theorem|lemma|example|abbrev|axiom|opaque|structure|inductive|class|instance)\s+)[\p{L}_][\p{L}\p{N}_'.]*/u,
+              lookbehind: true
+            },
+            keyword: /\b(?:namespace|section|end|def|theorem|lemma|example|abbrev|axiom|opaque|structure|inductive|class|instance|where|import|open|variable|universe|set_option|private|protected|noncomputable|mutual|deriving|by|fun|forall|let|in|if|then|else|match|with|do|return|have|show|from|calc|at|as|of|cases|induction|simp|simpa|dsimp|rfl|exact|apply|intro|intros|rw|rewrite|constructor|left|right|assumption|contradiction|omega|linarith|ring|norm_num|decide|native_decide|unfold|change|congr|ext|rcases|obtain|refine|repeat|first|all_goals|any_goals|try|sorry|admit)\b/,
+            builtin: /\b(?:Nat|Int|Bool|Prop|Type|Sort|String|List|Array|Option|Fin|Unit|Float|Rat|Real)\b/,
+            boolean: /\b(?:true|false)\b/,
+            number: /\b(?:0x[\da-fA-F]+|0b[01]+|\d+(?:\.\d+)?)\b/,
+            operator: /<;>|:=|=>|->|<-|[→←↔∀∃λ∧∨¬≠≤≥∈∉⊢⊣]|[+\-*/=<>|:&^!?~]+/,
+            punctuation: /[{}[\](),.;]/
+          };
+          prism.languages.lean4 = prism.languages.lean;
+        }
+        const aliases = { lean4: 'lean', py: 'python', ts: 'typescript', sh: 'bash',
+          shell: 'bash', zsh: 'bash', js: 'javascript', html: 'markup',
+          yml: 'yaml', ps1: 'powershell' };
+        document.querySelectorAll('.markdown-section pre[data-lang] > code').forEach(function (code) {
+          const block = code.parentElement;
+          const raw = (block.dataset.lang || '').toLowerCase();
+          const language = aliases[raw] || raw;
+          if (!raw || /^(?:text|txt|plain|plaintext|none|nohighlight|output|console|python-(?:lab|test|solution|file-lab))$/.test(raw)) return;
+          if (code.closest('.numerical-lab, .numerical-lab-code-editor, .numerical-lab-solution, .numerical-python-source-dialog')) return;
+          block.classList.add('toukei-code-block');
+          if (!prism || !prism.languages[language] || typeof prism.highlight !== 'function') return;
+          const source = code.textContent;
+          code.innerHTML = prism.highlight(source, prism.languages[language], language);
+          // Never trade the original source text for a highlighting artifact.
+          if (code.textContent !== source) code.textContent = source;
+        });
+      });
+    }
+
     window.$docsify = {
       name: '統計検定1級 対策教材',
       repo: 'InSuns21/toukei-kentei_grade1_preparation',
@@ -777,7 +857,7 @@
         noData: '該当する教材が見つかりません',
         depth: 6
       },
-      plugins: [window.ToukeiMathRenderer.docsifyPlugin, window.ToukeiNumericalLab.docsifyPlugin, solutionDetailsPlugin, offlineCacheStatusPlugin, navigationStatePlugin, svgEnlargePlugin]
+      plugins: [window.ToukeiMathRenderer.docsifyPlugin, window.ToukeiNumericalLab.docsifyPlugin, solutionDetailsPlugin, offlineCacheStatusPlugin, navigationStatePlugin, svgEnlargePlugin, staticCodeHighlightPlugin]
     };
   </script>
   <!--
@@ -788,6 +868,13 @@
   -->
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/docsify.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-python.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-typescript.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-bash.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-json.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-yaml.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-sql.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-powershell.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/plugins/search.min.js"></script>
 </body>
 </html>

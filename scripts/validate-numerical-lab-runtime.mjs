@@ -95,6 +95,63 @@ assert.match(indexHtml, /numerical-lab\.css/);
 assert.match(indexHtml, /numerical-lab-runtime\.js/);
 assert.match(indexHtml, /ToukeiNumericalLab\.docsifyPlugin/);
 
+// Static code highlighting must not mutate source or take over lab editors.
+const staticPluginSource = indexHtml.match(/function staticCodeHighlightPlugin\(hook\) \{[\s\S]*?\n    \}(?=\n\n    window\.\$docsify)/)?.[0];
+assert.ok(staticPluginSource, 'static code highlighting plugin must exist');
+assert.match(indexHtml, /plugins: \[[^\n]*staticCodeHighlightPlugin\]/);
+assert.match(indexHtml, /\.markdown-section pre\.toukei-code-block > code\s*\{/);
+for (const language of ['python', 'typescript', 'bash', 'json', 'yaml', 'sql', 'powershell']) {
+  const url = 'https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-' + language + '.min.js';
+  assert.ok(indexHtml.indexOf(url) > indexHtml.indexOf('/lib/docsify.min.js'), language + ' must load after Docsify');
+  assert.ok(swConfig.includes(url), language + ' must be cached for offline use');
+}
+function staticCodeFixture(lang, source, insideLab = false) {
+  const classes = new Set();
+  const block = { dataset: { lang }, classList: { add: name => classes.add(name) } };
+  const code = { parentElement: block, textContent: source, innerHTML: '',
+    closest: () => insideLab ? {} : null };
+  return { code, classes, source };
+}
+const codeFixtures = [
+  staticCodeFixture('lean', 'theorem t : True := by trivial'),
+  staticCodeFixture('lean4', '-- comment\n#check Nat'),
+  staticCodeFixture('python', 'print("<&>")'),
+  staticCodeFixture('ts', 'const x: number = 1;'),
+  staticCodeFixture('sh', 'echo "$HOME"'),
+  staticCodeFixture('text', '↓'),
+  staticCodeFixture('python-lab', 'x = ___'),
+  staticCodeFixture('python', 'x = 1', true),
+  staticCodeFixture('unrecognized', 'source'),
+];
+const grammarCalls = [];
+const prismStub = {
+  languages: { python: {}, typescript: {}, bash: {} },
+  highlight(source, grammar, language) {
+    grammarCalls.push({ source, grammar, language });
+    return 'highlighted';
+  },
+};
+let onStaticRender;
+const staticPlugin = new Function('window', 'document', staticPluginSource + '\nreturn staticCodeHighlightPlugin;')(
+  { Prism: prismStub },
+  { querySelectorAll: () => codeFixtures.map(fixture => fixture.code) },
+);
+staticPlugin({ doneEach: callback => { onStaticRender = callback; } });
+onStaticRender();
+onStaticRender(); // Docsify route updates must remain safe.
+assert.deepEqual(grammarCalls.slice(0, 5).map(call => call.language), ['lean', 'lean', 'python', 'typescript', 'bash']);
+assert.equal(grammarCalls.length, 10);
+for (const fixture of codeFixtures) assert.equal(fixture.code.textContent, fixture.source);
+for (const fixture of codeFixtures.slice(0, 5)) assert.ok(fixture.classes.has('toukei-code-block'));
+for (const fixture of codeFixtures.slice(5, 8)) assert.equal(fixture.classes.size, 0);
+assert.ok(codeFixtures[8].classes.has('toukei-code-block'));
+assert.equal(codeFixtures[8].code.innerHTML, '');
+assert.ok(prismStub.languages.lean.keyword.test('theorem'));
+assert.ok(prismStub.languages.lean.builtin.test('Nat'));
+assert.ok(prismStub.languages.lean.comment.pattern.test('/- comment -/'));
+assert.equal(prismStub.languages.lean4, prismStub.languages.lean);
+
+
 for (const asset of [
   'numerical-lab-runtime.js',
   'numerical-lab-worker.mjs',
