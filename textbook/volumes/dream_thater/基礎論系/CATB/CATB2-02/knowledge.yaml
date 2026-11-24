@@ -1,0 +1,38 @@
+chapter: CATB2-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CATB2-01
+  - F0-00B
+
+concepts:
+  - id: category.two-valued-enrichment
+    name: 二値豊穣圏と前順序
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二値豊穣圏と前順序）"]
+    requires: [category.enriched-category, order.preorder]
+  - id: category.lawvere-metric-base
+    name: Lawvere距離の基底
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lawvere距離の基底）"]
+    requires: [category.monoidal-category, order.preorder]
+  - id: category.lawvere-extended-metric
+    name: Lawvere型拡張距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lawvere型拡張距離）"]
+    requires: [topology.metric-space]
+  - id: category.lawvere-metric-enrichment
+    name: Lawvere距離による豊穣化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Lawvere距離による豊穣化）"]
+    requires: [category.enriched-category, category.lawvere-metric-base, category.lawvere-extended-metric]
+  - id: category.zero-cost-preorder
+    name: ゼロ費用の前順序
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ゼロ費用の前順序）"]
+    requires: [order.preorder, category.lawvere-extended-metric]

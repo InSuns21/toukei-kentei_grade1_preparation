@@ -4,7 +4,7 @@
 
 [圏の定義](../../CAT/CAT1-01/index.md#def-cat1-01-category)では、対象 $x,y$ の間の射を集めた集合を $\mathcal C(x,y)$ と書き、二つの射を合成する。例えば線形写像の合成では、写像を足したり定数倍したりできる。合成を単なる集合の写像として扱うだけでは、その線形性が圏の公理に現れない。
 
-そこで、射の集合を別の圏 $\mathcal V$ の対象に置き換える。例えば線形写像全体をベクトル空間とし、合成を線形写像として表したい。ただし二入力の合成は各入力について線形であっても、二入力を一緒に足したときの線形写像とは限らない。このため入力の組を直積ではなくテンソル積でまとめる。
+そこで、射の集合を別の圏 $\mathcal V$ の対象に置き換える。例えば線形写像全体をベクトル空間とし、合成を線形写像として表したい。ただし二入力の合成は片方を固定すれば他方について線形（双線形）であっても、二入力の組を変数とする直積上の線形写像とは限らない。このため、線形の場合は[テンソル積の普遍性](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)によって双線形な合成を一入力の線形写像に変換する。
 
 このように、Homそのものに構造を持たせ、その構造を尊重する合成と単位を指定したものを $\mathcal V$-豊穣圏という。$\mathcal V$ はHomの値を取る先であり、**豊穣化の基底**と呼ぶ。ここでいう基底はベクトル空間の基底とは異なる。
 
@@ -12,7 +12,7 @@
 
 基底には[モノイダル圏](../../CAT/CAT4-01/index.md#def-cat4-01-monoidal) $(\mathcal V,\otimes,I,\alpha,\lambda,\rho)$ を用いる。$\otimes$ はテンソル双関手、$I$ は単位対象、$\alpha$ は括弧を右へ移す結合子、$\lambda,\rho$ は左・右単位子である。本講では $\mathcal V$ は局所小、すなわち二対象間の射が集合をなすと仮定する。豊穣圏の対象の集まりは集合とする（大きな対象の集まりを許す版もある）。
 
-$\mathcal A(x,y)$ は $\mathcal V$ の対象であって、一般には集合ではない。合成の入力は後から作用するHomを左に置く。恒等射に相当するデータは、単位対象からHom対象への $\mathcal V$ の射として表す。
+$\mathcal A(x,y)$ は $\mathcal V$ の対象であって、一般には集合ではない。合成の入力は後から作用するHomを左に置く。添字 $xyz$ は出発点 $x$、中間点 $y$、到着点 $z$ の順を表す。恒等射に相当するデータ $j_x$ は、単位対象からHom対象への $\mathcal V$ の射として表す。一方、$1_{\mathcal A(x,y)}$ はHom対象そのものの $\mathcal V$ における恒等射であり、$j_x$ とは役割が異なる。
 
 <a id="def-catb2-01-enriched-category"></a>
 
@@ -55,7 +55,7 @@ $$
 > が成立する。射の並置は右側から先に作用する合成を表す。
 <!-- formal-statement-end -->
 
-三本の射を順に $P=\mathcal A(y,z)$、$Q=\mathcal A(x,y)$、$R=\mathcal A(w,x)$ と置く。結合律の共通の始域は $(P\otimes Q)\otimes R$、終域は $\mathcal A(w,z)$ である。左辺は
+三つのHom対象を順に $P=\mathcal A(y,z)$、$Q=\mathcal A(x,y)$、$R=\mathcal A(w,x)$ と置く。結合律の共通の始域は $(P\otimes Q)\otimes R$、終域は $\mathcal A(w,z)$ である。左辺は
 
 $$
 (P\otimes Q)\otimes R
@@ -80,7 +80,7 @@ $$
 ### 2.1 集合を値とする例
 
 <!-- definition-example-start: def-catb2-01-enriched-category -->
-**定義の確認**。 基底を $\mathbf{Set}$ とし、[集合の直積によるモノイダル構造](../../CAT/CAT4-01/index.md#def-cat4-01-monoidal)を使う。単位対象は一元集合 $I=\{*\}$ である。対象を $S=\{0\}$ と $T=\{0,1\}$ の二つに取り、各Hom対象を全ての写像の集合とする。
+**定義の確認**。 基底を $\mathbf{Set}$ とし、[集合の直積によるモノイダル構造](../../CAT/CAT4-01/index.md#thm-cat4-01-cartesian-monoidal)を使う。単位対象は一元集合 $I=\{*\}$ である。対象を $S=\{0\}$ と $T=\{0,1\}$ の二つに取り、各Hom対象を全ての写像の集合とする。
 
 合成射は $m_{xyz}(g,f)=g\circ f$、単位射は $j_x(*)=1_x$ と定める。いずれも集合の写像であり、合成の結果の始域と終域は $x,z$ となる。
 
@@ -158,11 +158,23 @@ $$
 
 ### 3.1 線形写像を値とする例
 
-体 $k$ 上の有限次元ベクトル空間と線形写像の圏を $\mathbf{Vect}^{\rm fd}_k$ とする。[ベクトル空間のテンソル積モノイダル構造](../../CAT/CAT4-04/index.md#prop-cat4-04-algebra)は有限次元の場合にも制限できる。テンソル積の次元は有限で、単位対象 $k$ も有限次元だからである。
+体 $k$ 上の有限次元ベクトル空間と線形写像の圏を $\mathbf{Vect}^{\rm fd}_k$ とする。ベクトル空間のテンソル積モノイダル構造（[ベクトル空間のモノイド対象](../../CAT/CAT4-04/index.md#prop-cat4-04-algebra)で用いたもの）は有限次元の場合にも制限できる。[有限次元テンソル積の存在と基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)から、テンソル積の次元は有限で、単位対象 $k$ も有限次元だからである。
 
-対象を $k^n$（$n=1,2,\ldots$）とし、$\mathcal A(k^n,k^p)$ を線形写像全体のベクトル空間とする。写像の加法と定数倍は各入力で行う。標準基底の像を列に並べると、これは $p\times n$ 行列の空間と同一視できる。行列 $F$ に対し入力の座標列 $v$ の像は $Fv$ なので、合成は行列積で表される。
+対象を $k^n$（$n=1,2,\ldots$）とし、$\mathcal A(k^n,k^p)$ を線形写像全体のベクトル空間とする。写像の加法と定数倍は各入力で行う。線形写像とその行列表現を同じ記号 $F$ で書く。$k^n$ の標準基底を $e_1,\ldots,e_n$ とし、第 $j$ 列を $F(e_j)$ の標準座標列とする $p\times n$ 行列を作る。任意の入力 $v=\sum_{j=1}^n v_j e_j$ について線形性から
 
-行列積は各変数について線形である。例えば、サイズが合う任意の $G_1,G_2,F$ とスカラー $a,b$ について
+$$
+F(v)=\sum_{j=1}^n v_j F(e_j)=Fv
+$$
+
+となる。逆に任意の $p\times n$ 行列は $v\mapsto Fv$ という線形写像を定める。写像の加法・定数倍は列ごとの加法・定数倍に対応するので、Hom対象をこの行列空間と同一視できる。さらに $G:k^p\to k^q$ に対し
+
+$$
+(G\circ F)(v)=G(Fv)=(GF)v
+$$
+
+となるため、合成は $q\times p$ 行列と $p\times n$ 行列の積で表される。
+
+行列積は各変数について線形である。例えば、上記のサイズを持つ行列 $G,G_1,G_2$、$F,F_1,F_2$ とスカラー $a,b$ について
 
 $$
 (aG_1+bG_2)F=aG_1F+bG_2F,
@@ -179,15 +191,21 @@ m_{xyz}: \mathcal A(y,z)\otimes_k\mathcal A(x,y)
 \longrightarrow \mathcal A(x,z)
 $$
 
-が定まり、純テンソル $G\otimes F$ の像は $GF$ となる。単位射は $j_x(t)=t1_x$（$1_x$ は恒等写像）である。
+が定まり、純テンソル（[単純テンソル](../../../基礎科目/LA/LA3E/index.md#def-la3e-simple-tensor)）$G\otimes F$ の像は $GF$ となる。ここで $x,y,z$ はそれぞれ $k^n,k^p,k^q$ である。単位射は $j_x(t)=t1_x$（$t\in k$、$1_x$ は恒等写像）であり、任意の $a,b,s,t\in k$ について $j_x(at+bs)=a j_x(t)+b j_x(s)$ なので線形である。
 
-結合律を $((H\otimes G)\otimes F)$ に作用させると、左経路は $(HG)F$、右経路は $H(GF)$ になる。行列積の結合律は、各成分を有限和に展開すれば両者とも
+結合律では $w=k^n,x=k^p,y=k^q,z=k^r$ とし、$F:w\to x$、$G:x\to y$、$H:y\to z$ を取る。入力 $((H\otimes G)\otimes F)$ に結合律の二経路を作用させると、左経路は $(HG)F$、右経路は $H(GF)$ になる。結果はともに $r\times n$ 行列で、行番号 $a$、列番号 $b$ の成分を比較すると
 
 $$
-\sum_{i,j} H_{ai}G_{ij}F_{jb}
+\begin{aligned}
+((HG)F)_{ab}
+&=\sum_{j=1}^{p}\left(\sum_{i=1}^{q}H_{ai}G_{ij}\right)F_{jb}\\
+&=\sum_{j=1}^{p}\sum_{i=1}^{q}H_{ai}G_{ij}F_{jb}\\
+&=\sum_{i=1}^{q}H_{ai}\left(\sum_{j=1}^{p}G_{ij}F_{jb}\right)\\
+&=(H(GF))_{ab}.
+\end{aligned}
 $$
 
-になることから従う。ここで $a,b$ は結果の行・列番号、$i,j$ は合成経路の二つの中間空間の座標番号である。純テンソルは始域を線形結合で生成するから、二つの線形写像は等しい。
+有限和の交換と体の分配律を使った。[有限次元テンソル積の存在と基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)を二回適用すると、これらの形の純テンソルは始域を線形結合で生成する。したがって二経路は全域で等しい線形写像である。
 
 左右単位律については
 
@@ -197,7 +215,7 @@ $$
 
 であり、左右単位子の作用とそれぞれ一致する。こちらも純テンソルから全域で成立する。これで線形写像の全ての豊穣公理を確認した。
 
-具体的に $k=\mathbb R$ とする。$x=k$、$y=k^2$、$z=k$ とし、$F=(1,2)^{\mathsf T}$、$G=(3,4)$ とすると、$m(G\otimes F)=11$ である。二つの行列の役割を交換すると $FG$ は $2\times2$ 行列になり、同じHom対象に戻るとは限らない。
+具体的に $k=\mathbb R$ とする。$x=k$、$y=k^2$、$z=k$ とし、$F=(1,2)^{\mathsf T}$、$G=(3,4)$ とすると、$m(G\otimes F)$ は $1\times1$ 行列 $(11)$（$3\cdot1+4\cdot2=11$）で、スカラー $11$ による乗法を表す。二つの行列の役割を交換すると $FG$ は $2\times2$ 行列になり、同じHom対象に戻るとは限らない。
 
 ## 4. 単位対象から通常の射を取り出す
 
@@ -235,14 +253,14 @@ $$
 
 ### 証明の見取り図
 
-結合律では $I$ を三つに展開する二経路を比較する。これらは構造射だけからできるため整合性定理で一致する。単位律では単位子の自然性を用いて、単位射との合成を元の射へ戻す。
+結合律では $I$ を三つに展開する二経路を比較する。これらは構造射だけからできるため[Mac Laneの整合性定理](../../CAT/CAT4-02/index.md#thm-cat4-02-coherence)で一致する。単位律では[単位子の自然性](../../CAT/CAT4-01/index.md#def-cat4-01-monoidal)を用いて、単位射との合成を元の射へ戻す。
 
 <!-- proof-start -->
 ### 証明
 
 局所小性から各 $\mathcal V(I,\mathcal A(x,y))$ は集合である。合成の型は上で確認した。
 
-**結合律。** $f:I\to\mathcal A(w,x)$、$g:I\to\mathcal A(x,y)$、$h:I\to\mathcal A(y,z)$ とし、$P,Q,R$ を第2節と同じ三つのHom対象とする。テンソル双関手の合成保存で
+**結合律。** $f:I\to\mathcal A(w,x)$、$g:I\to\mathcal A(x,y)$、$h:I\to\mathcal A(y,z)$ とし、$P,Q,R$ を第2節と同じ三つのHom対象とする。[テンソル双関手の合成保存](../../CAT/CAT4-01/index.md#def-cat4-01-tensor-bifunctor)で
 
 $$
 \begin{aligned}
@@ -288,7 +306,7 @@ $$
 
 最後から二行目はテンソル双関手の合成保存であり、結合律が従う。
 
-**単位律。** $A=\mathcal A(x,y)$、$f:I\to A$ とする。左単位律は豊穣公理と左単位子の自然性から
+**単位律。** $A=\mathcal A(x,y)$、$f:I\to A$ とする。左単位律は[豊穣公理](#def-catb2-01-enriched-category)と[左単位子の自然性](../../CAT/CAT4-01/index.md#def-cat4-01-monoidal)から
 
 $$
 \begin{aligned}
@@ -405,7 +423,14 @@ $S=\{0\}$、$T=\{0,1\}$ とする。$f:S\to T$ は $f(0)=1$、$g:T\to T$ は $g(
 実数体上で $F:\mathbb R\to\mathbb R^2$ の行列を $(2,-1)^{\mathsf T}$、$G:\mathbb R^2\to\mathbb R$ の行列を $(3,5)$ とする。合成射に $G\otimes F$、$F\otimes G$ をそれぞれ入力した像を求め、結果の型を述べよ。
 
 <!-- solution-start -->
-**詳細解答。** 第3節の合成射は純テンソルを行列積へ送る。$GF=3\cdot2+5\cdot(-1)=1$ で $\mathbb R\to\mathbb R$ の恒等写像である。一方、
+**詳細解答。** 第3節の合成射は純テンソルを行列積へ送る。まず $1\times2$ 行列と $2\times1$ 行列の積は
+
+$$
+GF=(3,5)\begin{pmatrix}2\\-1\end{pmatrix}
+=(3\cdot2+5\cdot(-1))=(1)
+$$
+
+となり、$\mathbb R\to\mathbb R$ の恒等写像を表す。一方、
 
 $$
 FG=\begin{pmatrix}2\\-1\end{pmatrix}(3,5)
@@ -531,9 +556,17 @@ $$
 \sum_{k=1}^2 C_{ik}\left(\sum_{j=1}^2 B_{kj}A_{jl}\right)
 $$
 
-であり、有限和の交換と実数の分配律で一致する。左単位律は $m(tE\otimes A)=tA$、右単位律は $m(A\otimes tE)=tA$ で、左右単位子に等しい。各始域は純テンソルの線形結合で生成され、全て線形写像だから三式は全域で成立する。
+であり、有限和の交換と実数の分配律で一致する。左単位律は $m(tE\otimes A)=tA$、右単位律は $m(A\otimes tE)=tA$ で、左右単位子に等しい。[有限次元テンソル積の存在と基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)により、各始域は純テンソルの線形結合で生成され、全て線形写像だから三式は全域で成立する。
 
-[台となる圏](#thm-catb2-01-underlying-category)の射 $f:\mathbb R\to M$ は線形性から $f(t)=tf(1)$ であり、任意の $A\in M$ に対して $f_A(t)=tA$ が逆対応を与える。$f_B\circ_0 f_A$ の $1$ での値は $m(B\otimes A)=BA$ だから、行列で表すと通常の積である。具体的に
+[台となる圏](#thm-catb2-01-underlying-category)の射 $f:\mathbb R\to M$ は線形性から $f(t)=tf(1)$ であり、任意の $A\in M$ に対して $f_A(t)=tA$ が逆対応を与える。ここで $\delta(1)=1\otimes1$、$f_B(1)=B$、$f_A(1)=A$ なので、
+
+$$
+(f_B\circ_0 f_A)(1)
+=m((f_B\otimes f_A)\delta(1))
+=m(B\otimes A)=BA.
+$$
+
+したがって行列で表すと通常の積である。具体的に
 
 $$
 BA=\begin{pmatrix}0&0\\0&1\end{pmatrix},\qquad
