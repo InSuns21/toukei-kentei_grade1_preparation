@@ -6,7 +6,8 @@ prerequisites:
   - IWA18
   - IWA19
   - MF5
-forward_references: []
+forward_references:
+  - analytic-number-theory.smoothed-explicit-formula
 concepts:
   - id: number-theory.iwa20-integral-projectors
     name: "二固有値の整数格子射影"
