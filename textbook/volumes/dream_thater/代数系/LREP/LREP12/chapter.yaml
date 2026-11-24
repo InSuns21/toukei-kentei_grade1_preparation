@@ -1,0 +1,36 @@
+id: LREP12
+title: "左右Weylスピノル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP11
+official_scope: []
+learning_objectives:
+  - 左右Weyl表現の作用と回転制限を計算し複素線形非同値性を示せる
+  - 複素共役と双対を区別し交代形式で添字を上げ下げできる
+  - 共役空間と右Weyl空間の絡同型と反線形対応を示せる
+  - 二添字行列から四元ベクトルを復元してLorentz共変性と実条件を検算できる
+definitions:
+  - { id: LREP12-DEF-01, name: 左右Weylスピノル }
+  - { id: LREP12-DEF-02, name: Weyl添字の上げ下げ }
+theorems:
+  - { id: LREP12-PROP-01, name: 左右Weyl表現の非同値性 }
+  - { id: LREP12-PROP-02, name: 共役空間と右Weyl空間の同型 }
+  - { id: LREP12-PROP-03, name: 二添字Weyl表示と四元ベクトル }
+canonical_examples:
+  - 対角boostに対する左右の伸縮
+  - 三角行列による双対添字の変換
+  - 階数1行列と未来光的ベクトル
+problem_patterns:
+  - LREP12-WEYL-ACTION
+  - LREP12-INDEX-SIGN
+  - LREP12-CONJUGATE-DUAL
+  - LREP12-VECTOR-COMPONENTS
+  - LREP12-LOWERING-EQUIVARIANCE
+  - LREP12-REALITY
+  - LREP12-DOUBLE-LOWERING
+  - LREP12-NULL-BOOST
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
