@@ -1,8 +1,11 @@
 // FCG4: MAC pressure projection, fixed no-flux walls; learner-editable JS.
 // Float64 MAC solver; R8 diagnostic snapshot and live signed fields use the same arrays.
-const N=8,h=1/N,rho=1,dt=0.1,relax=2/3,iterations=settings.steps;
-if(!Number.isInteger(iterations)||iterations<0||iterations>160)
-  throw new RangeError('Poisson iterations must be 0..160');
+const N=32;
+const h=1/N,rho=1,dt=0.1,relax=2/3,iterations=settings.steps;
+if(![8,16,24,32,40,48].includes(N))throw new RangeError('N must be 8,16,24,32,40,48');
+const maxIterations=160*(N/8)**2;
+if(!Number.isInteger(iterations)||iterations<0||iterations>maxIterations)
+  throw new RangeError('Poisson iterations must be 0..'+maxIterations);
 const cell=(i,j)=>i+N*j,ui=(i,j)=>i+(N+1)*j,vi=(i,j)=>i+N*j;
 const phi=(i,j)=>Math.cos(Math.PI*(i+0.5)/N)*Math.cos(Math.PI*(j+0.5)/N);
 const psi=(i,j)=>0.05*Math.sin(Math.PI*i/N)*Math.sin(Math.PI*j/N);
@@ -114,7 +117,7 @@ gl.bindVertexArray(vao);gl.disable(gl.DITHER);gl.disable(gl.BLEND);
 gl.disable(gl.DEPTH_TEST);gl.disable(gl.CULL_FACE);gl.disable(gl.SCISSOR_TEST);
 gl.viewport(0,0,canvas.width,canvas.height);gl.clearColor(0,0,0,1);
 gl.clear(gl.COLOR_BUFFER_BIT);gl.drawArrays(gl.TRIANGLES,0,3);
-report('ITER','relaxed Jacobi '+iterations+'/160, omega='+relax+', physical dt='+dt+' s (not animation fps)');
+report('ITER','relaxed Jacobi '+iterations+'/'+maxIterations+', omega='+relax+', physical dt='+dt+' s (not animation fps)');
 report('POISSON','max |L p-b|='+poissMax.toPrecision(8)+' Pa/m^2'+
  (poissMax>0.02?' / 未収束の可能性あり':' / chosen threshold 0.02以下'));
 report('DIV','max |div initial|='+divBefore.toPrecision(8)+
@@ -180,31 +183,31 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
     gl.viewport(0,0,canvas.width,canvas.height);
     gl.drawArrays(gl.TRIANGLES,0,3);
     canvas.dispatchEvent(new CustomEvent('fcg4-progress',{detail:{
-      iter,playing,before:divBefore,after:maxDivergence,residual:maxResidual,identity
+      iter,maxIterations,N,playing,before:divBefore,after:maxDivergence,residual:maxResidual,identity
     }}));
   }
   function resetPressure(){p.fill(0);next.fill(0);iter=0;}
   function seek(target){
-    if(!Number.isInteger(target)||target<0||target>160)return;
+    if(!Number.isInteger(target)||target<0||target>maxIterations)return;
     playing=false;last=0;
     if(target<iter)resetPressure();
     while(iter<target){jacobiIteration();iter++;}
     redraw();
   }
   function play(){
-    if(iter===160)resetPressure();
+    if(iter===maxIterations)resetPressure();
     playing=true;last=0;redraw();
   }
   function pause(){playing=false;last=0;redraw();}
-  function step(){seek(Math.min(160,iter+1));}
+  function step(){seek(Math.min(maxIterations,iter+1));}
   function reset(){seek(0);}
   function frame(now){
     if(playing&&!document.hidden){
       if(!last)last=now;
       if(now-last>=100){
         last=now;
-        for(let k=0;k<3&&iter<160;k++){jacobiIteration();iter++;}
-        if(iter===160)playing=false;
+        for(let k=0;k<Math.max(1,Math.round(maxIterations/54))&&iter<maxIterations;k++){jacobiIteration();iter++;}
+        if(iter===maxIterations)playing=false;
         redraw();
       }
     }else last=0;
