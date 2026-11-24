@@ -22,3 +22,4 @@
 19. [AFR19 Weil表現・theta級数](textbook/volumes/dream_thater/代数系/AFR/AFR19/index.md)
 20. [AFR20 theta対応とunitary／orthogonal群](textbook/volumes/dream_thater/代数系/AFR/AFR20/index.md)
 21. [AFR21 周期積分・seesaw identity](textbook/volumes/dream_thater/代数系/AFR/AFR21/index.md)
+22. [AFR22 Rallis内積公式・相対跡公式への入口](textbook/volumes/dream_thater/代数系/AFR/AFR22/index.md)

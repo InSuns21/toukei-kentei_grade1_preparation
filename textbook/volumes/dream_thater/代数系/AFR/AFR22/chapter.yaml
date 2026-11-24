@@ -1,0 +1,23 @@
+id: "AFR22"
+title: "Rallis内積公式・相対跡公式への入口"
+volume: "foundations"
+status: supplementary
+prerequisites: [AFR21]
+official_scope: []
+learning_objectives:
+  - 核による反復持ち上げを定義し共役と収束を確認できる
+  - 持ち上げの内積展開を絶対可積分性から導出できる
+  - Rallis内積公式で必要となる倍化法と局所大域の条件を説明できる
+  - 有限群の相対跡展開を証明しノルム・周期・跡を区別できる
+definitions:
+  - { id: AFR22-DEF-01, name: "核による反復持ち上げ" }
+  - { id: AFR22-DEF-02, name: "有限群の相対核平均" }
+theorems:
+  - { id: AFR22-THM-01, name: "持ち上げの内積展開" }
+  - { id: AFR22-THM-02, name: "有限群の相対跡展開" }
+canonical_examples: ["複素二点核の反復持ち上げ", "巡回群の相対跡展開", "有限群の部分群射影"]
+problem_patterns: [AFR22-A1, AFR22-A2, AFR22-A3, AFR22-A4, AFR22-B1, AFR22-B2, AFR22-B3, AFR22-B4, AFR22-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }

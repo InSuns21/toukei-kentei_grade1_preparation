@@ -92,7 +92,7 @@ chapters:
     title: "周期積分・seesaw identity"
   - id: AFR22
     path: textbook/volumes/dream_thater/代数系/AFR/AFR22
-    status: planned
+    status: completed
     title: "Rallis内積公式・相対跡公式への入口"
   - id: AFR23
     path: textbook/volumes/dream_thater/代数系/AFR/AFR23

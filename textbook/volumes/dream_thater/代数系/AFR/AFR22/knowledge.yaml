@@ -1,0 +1,26 @@
+chapter: AFR22
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR21]
+forward_references: []
+concepts:
+  - id: automorphic-forms.composed-kernel-lift
+    name: "核による反復持ち上げ"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.global-theta-lift]
+  - id: automorphic-forms.kernel-pairing
+    name: "持ち上げの内積展開"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.composed-kernel-lift]
+  - id: automorphic-forms.finite-relative-average
+    name: "有限群の相対核平均"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.period]
+  - id: automorphic-forms.finite-relative-expansion
+    name: "有限群の相対跡展開"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.finite-relative-average, automorphic-forms.period]
