@@ -163,7 +163,9 @@ x^a\varepsilon_{ij\ell}x^\ell
 =|\mathbf x|^2\varepsilon_{aij}
 +x^i\varepsilon_{ajk}x^k
 -x^j\varepsilon_{aik}x^k.
-$$三つを足すと
+$$
+
+三つを足すと
 
 $$
 r^2\varepsilon_{aij}
