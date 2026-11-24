@@ -119,7 +119,11 @@ try {
     'step and reset must retain a single live sandbox');
   // R3: edit the same learner Level Set JS via the shared G2 controls.
   // The actual GPU textures, independent CPU fields and 13 pixel probes must agree.
+  assert.ok(await evaluate('document.querySelector("#panel-result #fcg-output-parameters #lab-parameters") && !document.getElementById("panel-result").hidden && document.querySelector("#fcg-output-parameters input[type=range]").getBoundingClientRect().width>40 && document.querySelectorAll("#lab-parameters").length===1'), 'source controls must be visible beside the output');
   await evaluate('document.getElementById("tab-conditions").click()');
+  assert.ok(await evaluate('document.querySelector("#panel-conditions #lab-parameters") && document.querySelectorAll("#lab-parameters").length===1'));
+  await evaluate('document.getElementById("tab-result").click()');
+  assert.ok(await evaluate('document.querySelector("#fcg-output-parameters #lab-parameters")'));
   for(const [id,value,pattern] of [
     ['grid','96','const N=96,h=1/N'],
     ['shear','1','shear=1,radius=0.18'],
@@ -140,6 +144,8 @@ try {
   const narrow=await evaluate('({contentWidth:document.documentElement.scrollWidth,windowWidth:window.innerWidth,canvasWidth:document.querySelector("#canvas-slot iframe")?.getBoundingClientRect().width,controls:[...document.querySelectorAll(".lab-parameter-row input")].map(e=>e.getBoundingClientRect().width)})');
   assert.ok(narrow.canvasWidth>50 && narrow.canvasWidth<=360,JSON.stringify(narrow));
   assert.ok(narrow.contentWidth<=narrow.windowWidth+2,JSON.stringify(narrow));
+  assert.ok(await evaluate('(()=>{const dock=document.getElementById("fcg-output-parameters").getBoundingClientRect(),canvas=document.getElementById("canvas-slot").getBoundingClientRect();return dock.top>=canvas.bottom-2&&dock.width<=innerWidth&&document.querySelector("#fcg-output-parameters input[type=range]").getBoundingClientRect().width>40})()'), 'mobile dock must stack under GPU output');
+
   const narrowImage=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
   assert.notEqual(highGrid.data,narrowImage.data);
   console.log('FCG8 actual edited grids, CPU/GPU, playback and Chromium 360px screenshot/layout: PASS');
