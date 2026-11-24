@@ -1,0 +1,22 @@
+chapter: GCT2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GCT1
+  - DOPT3
+forward_references: []
+
+concepts:
+  - id: graph-counting.alternating-search-reachability
+    name: マッチングに関する交互探索の到達集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（マッチングに関する交互探索の到達集合）"]
+    requires: [graph-counting.weighted-walk, optimization.matching, optimization.bipartite-graph]
+
+  - id: graph-counting.matching-deficiency-formula
+    name: 交互探索による最大マッチングの不足数公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（交互探索による最大マッチングの不足数公式）"]
+    requires: [graph-counting.alternating-search-reachability, optimization.bipartite-neighborhood, optimization.maximum-matching, optimization.augmenting-path-matching-update]
