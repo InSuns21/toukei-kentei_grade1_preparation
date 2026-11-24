@@ -6,16 +6,34 @@ ANF19 で構成したアデール環とイデール群を、今回は有理数�
 
 ## 1. 一つの変数に全素点を集める
 
-有理数体の素点は、実絶対値に対応する無限素点 $\infty$ と、各素数 $p$ に対応する有限素点です。素点全体を動かす添字を $v$ とし、$v=\infty$ または $v=p$ とします。[p進完備化](../../ANF/ANF9/index.md#thm-anf9-completion-field)を $\mathbb Q_p$、[p進整数環](../../ANF/ANF9/index.md#def-anf9-p-adic-integers)を $\mathbb Z_p$ とします。
+有理数体の素点は、実絶対値に対応する無限素点 $\infty$ と、各素数 $p$ に対応する有限素点です。素点全体を動かす添字を $v$ とします。
 
-非零有理数 $a$ の [p進付値](../../ANF/ANF9/index.md#def-anf9-p-adic-valuation) $v_p(a)$ は $p$ の指数です。添字 $v$ と付値関数 $v_p$ は別の記号です。完備化の非零元でも $|z|_p=p^{-v_p(z)}$ と書き、$|0|_p=0$ とします。[単元の特徴付け](../../ANF/ANF9/index.md#prop-anf9-dvr-structure)から、非零元 $z\in\mathbb Q_p$ について
+各有限素点での [p進完備化](../../ANF/ANF9/index.md#thm-anf9-completion-field)を $\mathbb Q_p$、[p進整数環](../../ANF/ANF9/index.md#def-anf9-p-adic-integers)を $\mathbb Z_p$ とします。
+
+非零有理数 $a$ の [p進付値](../../ANF/ANF9/index.md#def-anf9-p-adic-valuation) $v_p(a)$ は $p$ の指数です。
+
+完備化の非零元でも、絶対値を次の形で書いたときの整数指数を付値と呼びます。
+
+$$
+|z|_p=p^{-v_p(z)}\quad(z\ne0),\qquad |0|_p=0.
+$$
+
+添字 $v$ と付値関数 $v_p$ は別の記号です。[単元の特徴付け](../../ANF/ANF9/index.md#prop-anf9-dvr-structure)から、非零元 $z\in\mathbb Q_p$ について
 
 $$
 z\in\mathbb Z_p\ \Longleftrightarrow\ v_p(z)\ge0,\qquad
 z\in\mathbb Z_p^\times\ \Longleftrightarrow\ v_p(z)=0.
 $$
 
-零も整数環に入りますが単数ではありません。単数とは整数環内で乗法逆元を持つ元です。実際、$|z|_p=1$ なら $|z^{-1}|_p=1$ なので両方が整数環に入ります。逆に両方が整なら $|z|_p|z^{-1}|_p=1$ かつ双方が $1$ 以下なので、両方とも $1$ です。
+零も整数環に入りますが単数ではありません。単数とは整数環内で乗法逆元を持つ元です。実際、$|z|_p=1$ なら $|z^{-1}|_p=1$ なので両方が整数環に入ります。
+
+逆に両方が整なら、双方の絶対値は $1$ 以下です。その積は
+
+$$
+|z|_p|z^{-1}|_p=1
+$$
+
+なので、両方とも $1$ です。
 
 [制限付き直積](../../ANF/ANF19/index.md#def-anf19-restricted-product)による[アデール環](../../ANF/ANF19/index.md#def-anf19-adele)を、有理数体について次の記号で書きます。有限アデール環 $\mathbb A_f$ は実成分を除いた制限付き直積です。
 
@@ -92,7 +110,14 @@ $$
 p^{n_p}x_p\in\mathbb Z_p.
 $$
 
-[p進整数の桁展開](../../ANF/ANF9/index.md#thm-anf9-digit-expansion)により、$p$ 進整数を $p^{n_p}$ で割った剰余は $0$ 以上 $p^{n_p}-1$ 以下の整数で表せます。これは $p$ 進整数の最初の $n_p$ 桁を残す操作です。具体的には $p^{n_p}x_p=\sum_{j\ge0}d_jp^j$ と展開し、$m_p=\sum_{j=0}^{n_p-1}d_jp^j$ と取ります。残りの桁の和は $p^{n_p}$ 倍の整数環の元なので
+[p進整数の桁展開](../../ANF/ANF9/index.md#thm-anf9-digit-expansion)により、$p$ 進整数を $p^{n_p}$ で割った剰余は $0$ 以上 $p^{n_p}-1$ 以下の整数で表せます。これは $p$ 進整数の最初の $n_p$ 桁を残す操作です。具体的には、展開と切り出す整数を次のように書きます。
+
+$$
+p^{n_p}x_p=\sum_{j\ge0}d_jp^j,\qquad
+m_p=\sum_{j=0}^{n_p-1}d_jp^j.
+$$
+
+残りの桁の和は $p^{n_p}$ 倍の整数環の元なので
 
 $$
 p^{n_p}x_p-m_p\in p^{n_p}\mathbb Z_p,
@@ -409,7 +434,22 @@ $$
 \eta(1)=\eta(4)=1,\qquad \eta(2)=\eta(3)=-1.
 $$
 
-$2$ の冪は指数 $j=0,1,2,3$ で $1,2,4,3$ と巡回し、$2^4=1$ が法 $5$ で成り立ちます。従って $\eta(2^j)=(-1)^j$ は指数を $4$ ずらしても不変です。二つの冪の積では指数が加わるので積を保存します。還元写像の各非零剰余類の逆像は $a+5\mathbb Z_5$ であり、$|z-a|_5<1$ を満たす開球です。従って有限離散群への還元は連続です。
+法 $5$ では次のように冪が巡回します。
+
+$$
+2^0\equiv1,\quad 2^1\equiv2,\quad
+2^2\equiv4,\quad 2^3\equiv3,\quad 2^4\equiv1.
+$$
+
+従って $\eta(2^j)=(-1)^j$ は指数を $4$ ずらしても不変です。二つの冪の積では指数が加わるので積を保存します。
+
+還元写像で非零剰余類 $a$（整数代表は1から4）の逆像は、次の開球です。
+
+$$
+a+5\mathbb Z_5=\{z\in\mathbb Z_5:|z-a|_5<1\}.
+$$
+
+従って有限離散群への還元は連続です。
 
 従って代表元 $(r,u)$ に対して
 
