@@ -221,7 +221,19 @@ $$
 $$
 (1-z)^{-1}=\exp\left(\sum_{m\ge1}z^m/m\right).
 $$
-この等式は複素対数の枝を選ばずに示せます。$H(z)=\sum_{m\ge1}z^m/m$ と置くと、$|z|<1$ で冪級数の項別微分により $H'(z)=1/(1-z)$ です（微分変数は $z$）。積の微分則で
+この等式は複素対数の枝を選ばずに示せます。$H(z)=\sum_{m\ge1}z^m/m$ と置きます。各項は正則で、任意の $0<r<1$ について閉円板 $|z|\le r$ 上で絶対値の上限の和は
+
+$$
+\sum_{m\ge1}\frac{r^m}{m}\le\sum_{m\ge1}r^m<\infty
+$$
+
+です。従って単位円板上で正規収束します。[正規収束する正則関数級数と微分の交換](../../../解析系/CA/CA7/index.md#cor-ca7-normal-series-termwise-differentiation) を適用し、複素変数 $z$ で微分すると
+
+$$
+H'(z)=\frac{dH}{dz}=\sum_{m\ge1}z^{m-1}=\frac1{1-z}.
+$$
+
+積の微分則で
 $$
 \frac{d}{dz}\bigl((1-z)e^{H(z)}\bigr)
 =e^{H(z)}\bigl(-1+(1-z)H'(z)\bigr)=0.
