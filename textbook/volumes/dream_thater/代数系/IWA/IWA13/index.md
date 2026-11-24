@@ -4,11 +4,11 @@
 
 通常の実数値積分では区間の長さから始めます。しかし $p$ 進世界では、各剰余類 $a+p^n\mathbb Z_p$ に係数を割り当て、その係数が細分化と整合することから積分を作れます。さらに、剰余類の和を取る畳み込みが岩澤代数の積そのものになります。最後に、連続指標を積分する $p$ 進 Mellin 変換を冪級数の代入として計算します。
 
-本講では **奇素数 $p$** を固定します。第1〜5節は $p=2$ でも同じ証明が通りますが、第6節の典型的な指標 $x\mapsto(1+p)^{kx}$ の表記を円分塔での標準的な規約と揃えるため奇素数とします。測度の台は加法群 $\mathbb Z_p$ とし、後で位相的生成元 $\gamma$ を選び $\mathbb Z_p\simeq\Gamma$ と同一視します。
+本講では **奇素数 $p$** を固定します。第1〜5節は $p=2$ でも同じ証明が通りますが、第6節の典型的な指標 $x\mapsto(1+p)^{kx}$ の表記を円分塔での標準的な規約と揃えるため奇素数とします。測度の台は加法群 $\mathbb Z_p$ とし、後で[位相的生成元](../IWA1/index.md#def-iwa1-topological-generator) $\gamma$ を選び、加法の $a$ に乗法の $\gamma^a$ を対応させて $\mathbb Z_p\simeq\Gamma$ と同一視します。
 
 ## 1. 有限分割の重みを整合させる
 
-$p$ 進整数の各元 $x$ は、法 $p^n$ の剰余類 $a+p^n\mathbb Z_p$ の中に一意に入ります（$0\le a<p^n$）。この集合は開かつ閉であり、$n$ を増すと次の $p$ 個の集合へ分かれます。
+$p$ 進整数の各元 $x$ は、法 $p^n$ の剰余類 $a+p^n\mathbb Z_p$ の中に一意に入ります（整数代表元は $0\le a<p^n$）。以下、$\sum_{a\bmod p^n}$ はこの代表元を全て動かす有限和です。$\bigsqcup$ は互いに素な集合の合併を表します。この集合は開かつ閉であり、$n$ を増すと次の $p$ 個の集合へ分かれます。
 
 $$
 a+p^n\mathbb Z_p
@@ -56,7 +56,7 @@ $$
 \mu(\mathbb Z_p)=\sum_{a\bmod p^n}\mu_n(a)=\mu_0(0)
 $$
 
-は $n$ に依存しません。測度は確率とは違い、係数が負でも、全質量が $1$ でなくても構いません。
+は $n$ に依存しません。測度は確率とは違い、係数が例えば $-1$ でもよく、全質量が $1$ でなくても構いません。$\mathbb Q_p$ に実数のような順序を仮定していません。
 
 ## 2. 重みから連続関数の積分を作る
 
@@ -66,7 +66,7 @@ $$
 I_\mu(f)=\sum_{a=0}^{p^n-1}f(a)\mu_n(a)
 $$
 
-を考えられます。より細かい層 $m\ge n$ で計算しても前節の分布関係から同じ値です。連続関数は局所定数関数で一様近似できるため、この有限和を極限まで延ばせます。
+を考えられます。このようにある有限層の剰余類ごとに一定な関数を局所定数関数と呼びます。剰余類 $U$ の [指示関数](../../../解析系/F0/F0-00D2/index.md#prop-f0-00d2-03) $\mathbf1_U(x)$ は $x\in U$ なら $1$、それ以外なら $0$ です。$U$ とその補集合が開なので、これは連続な $\mathbb Z_p$ 値関数です。有限和の極限を $\int f(x)\,d\mu(x)$ と書き、$x$ は積分する変数、$d\mu(x)$ は重み $\mu$ による積分を表します。微分の記号ではありません。より細かい層 $m\ge n$ で計算しても前節の分布関係から同じ値です。連続関数は局所定数関数で一様近似できるため、この有限和を極限まで延ばせます。
 
 <a id="def-iwa13-integral"></a>
 
@@ -89,7 +89,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa13-integral -->
-**定義の確認**（関数を代入する）。 $\mu=\delta_0+2\delta_1-\delta_3$、$f(x)=x^2$ とします。$n\ge2$ なら三点 $0,1,3$ は異なる剰余類に入るので、有限和は $0^2+2\cdot1^2-3^2=-7$ に一致します。したがって積分は $-7\in\mathbb Z_p$ です。有限和で実際に極限値が安定することまで確認できました。
+**定義の確認**（関数を代入する）。まず任意の $c\in\mathbb Z_p$ について、その第 $n$ 層の整数代表元を $c_n$ と書くと、[点質量の定義](#def-iwa13-distribution)から有限和は $f(c_n)$ です。$|c_n-c|_p\le p^{-n}$ と連続性により $f(c_n)\to f(c)$。従って $\int f(x)\,d\delta_c(x)=f(c)$ です。測度の有限和は各係数について線形なので、点質量の有限線形結合でも極限が存在します。 $\mu=\delta_0+2\delta_1-\delta_3$、$f(x)=x^2$ とします。$n\ge2$ なら三点 $0,1,3$ は異なる剰余類に入るので、有限和は $0^2+2\cdot1^2-3^2=-7$ に一致します。したがって積分は $-7\in\mathbb Z_p$ です。有限和で実際に極限値が安定することまで確認できました。
 <!-- definition-example-end -->
 
 <a id="thm-iwa13-extension"></a>
@@ -140,12 +140,12 @@ $$
 \le\max(\|f_n-f\|_\infty,\|f_m-f\|_\infty).
 $$
 
-右辺は $n,m\to\infty$ で零へ行きます。$\mathbb Z_p$ は完備なので有限和の値は収束します。線形性は有限和から極限へ移り、評価式は $f_n\to f$ と $|I_\mu(f_n)|_p\le\|f_n\|_\infty\le\|f\|_\infty$ から従います。[指示関数](../../../解析系/F0/F0-00P1/index.md#def-f0-00p1-random-variable) $\mathbf1_{a+p^n\mathbb Z_p}$ は局所定数であり、その積分は定義上 $\mu_n(a)$ です。
+右辺は $n,m\to\infty$ で零へ行きます。$\mathbb Z_p$ は完備なので有限和の値は収束します。線形性は有限和から極限へ移り、評価式は $f_n\to f$ と $|I_\mu(f_n)|_p\le\|f_n\|_\infty\le\|f\|_\infty$ から従います。剰余類の指示関数 $\mathbf1_{a+p^n\mathbb Z_p}$ は局所定数であり、その積分は定義上 $\mu_n(a)$ です。
 
 最後に、局所定数関数上で同じ積分を持つ連続線形写像 $J$ について $J(f_n)=I_\mu(f_n)$ です。$f_n\to f$ と両者の連続性から $J(f)=I_\mu(f)$ となり、一意です。
 <!-- proof-end -->
 
-定理が与えるものは「重みの整合性 $\Rightarrow$ 積分」です。逆に積分が先に与えられれば、剰余類の指示関数を積分して重みを復元できます。
+定理が与えるものは「重みの整合性 $\Rightarrow$ 積分」です。逆に積分が先に与えられれば、剰余類の指示関数を積分して重みを復元できます。[連続線形汎関数](../../../解析系/F0/F0-02C2/index.md#def-f0-02c2-continuous-linear-functional)の実数値の場合と同じ発想ですが、ここでは実ベクトル空間ではなく $\mathbb Z_p$ 加群を扱います。すなわち $L(af+bg)=aL(f)+bL(g)$（$a,b\in\mathbb Z_p$）であり、連続性は一様ノルムによる収束を値の $p$ 進収束へ移すことです。
 
 <a id="thm-iwa13-functional-correspondence"></a>
 
@@ -187,7 +187,7 @@ L(g)=\sum_{a\bmod p^n}g(a)L(\mathbf1_{a+p^n\mathbb Z_p})
 =\sum_{a\bmod p^n}g(a)\mu_n(a)=I_\mu(g).
 $$
 
-一様近似 $f_n\to f$ と $L,I_\mu$ の連続性により $L(f)=I_\mu(f)$。逆に積分から復元した値は前定理の指示関数の等式により元の $\mu_n(a)$ です。両写像は互いに逆です。
+一様近似 $f_n\to f$ と $L,I_\mu$ の連続性により $L(f)=I_\mu(f)$。逆に積分から復元した値は[分布の積分への一意的延長](#thm-iwa13-extension)の指示関数の等式により元の $\mu_n(a)$ です。両写像は互いに逆です。
 <!-- proof-end -->
 
 ## 3. 測度を掛ける：畳み込み
@@ -223,7 +223,7 @@ $$
 =\int\!\left(\int f(x+y)\,d\nu(y)\right)d\mu(x).
 $$
 >
-> また $\delta_0$ は畳み込みの単位元、$\delta_a*\delta_b=\delta_{a+b}$ である。
+> また $\delta_0$ は畳み込みの単位元、全ての $a,b\in\mathbb Z_p$ について $\delta_a*\delta_b=\delta_{a+b}$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -260,9 +260,34 @@ $$
 =\sum_{b,c\bmod p^n}f(b+c)\mu_n(b)\nu_n(c)
 $$
 
-です。右辺の反復積分でもまず $y$、次に $x$ の有限和を取れば同じ式です。一般の連続 $f$ については $f_n\to f$ が一様で、$|I_\rho(g)|_p\le\|g\|_\infty$ を $\rho=\mu,\nu,\mu*\nu$ に使うと、各積分が一様誤差以下で収束します。ゆえに等式を極限へ移せます。
+です。右辺の反復積分でもまず $y$、次に $x$ の有限和を取れば同じ式です。一般の連続 $f$ については、第2節の局所定数近似 $f_n$ を取ります。内側の積分が外側の積分の入力になることを先に確かめます。
 
-点質量の積は各層の定義から $\delta_a*\delta_b=\delta_{a+b}$ です。従って $\delta_0*\mu=\mu$ です。また三つの測度 $\mu,\nu,\eta$ について、第 $n$ 層の $a$ での重みを計算すると
+$$
+h_n(x)=I_\nu(y\mapsto f_n(x+y)),\qquad
+h(x)=I_\nu(y\mapsto f(x+y)).
+$$
+
+各 $h_n$ は法 $p^n$ で一定です。[積分の評価式](#thm-iwa13-extension)を $y$ の関数に使うと
+
+$$
+|h_n(x)-h(x)|_p
+\le \sup_y|f_n(x+y)-f(x+y)|_p
+\le \|f_n-f\|_\infty.
+$$
+
+従って $h$ は連続関数 $h_n$ の一様極限であり、外側の積分も定義できます。同じ評価式で
+
+$$
+|I_\mu(h_n)-I_\mu(h)|_p\le\|h_n-h\|_\infty,
+$$
+
+$$
+|I_{\mu*\nu}(f_n)-I_{\mu*\nu}(f)|_p\le\|f_n-f\|_\infty.
+$$
+
+双方が零に収束するので、局所定数関数での等式を極限へ移せます。
+
+点質量の積は各層の定義から $\delta_a*\delta_b=\delta_{a+b}$ です。一般の $\mu$ についても、畳み込みの和で $\delta_{0,n}(b)$ が非零になるのは $b=0$ だけであり、そのとき $c=a$ なので $(\delta_0*\mu)_n(a)=\mu_n(a)$ です。また三つの測度 $\mu,\nu,\eta$ について、第 $n$ 層の $a$ での重みを計算すると
 
 $$
 ((\mu*\nu)*\eta)_n(a)
@@ -276,7 +301,7 @@ $$
 
 ## 4. 完備群環と測度の環は同じもの
 
-[IWA3の有限群環](../IWA3/index.md#def-iwa3-finite-group-ring)には、各 $n$ で $G_n=\mathbb Z/p^n\mathbb Z$ の元 $[a]$ を基底とする $\mathbb Z_p[G_n]$ があり、$[b][c]=[b+c]$ です。測度の第 $n$ 層の値を、この基底の係数へ配置します。
+[IWA3の有限群環](../IWA3/index.md#def-iwa3-finite-group-ring)には、各 $n$ で $G_n=\mathbb Z/p^n\mathbb Z$ の元 $[a]$ を基底とする $\mathbb Z_p[G_n]$ を考えます。IWA3の有限係数環を係数精度について極限にしたもので、$[b][c]=[b+c]$ です。各 $[a]$ は群環の形式的基底元で、係数は一意に決まります。測度の第 $n$ 層の値を、この基底の係数へ配置します。
 
 <a id="thm-iwa13-measure-algebra"></a>
 
@@ -322,7 +347,14 @@ $$
 =(\mu*\nu)_n(a).
 $$
 
-ゆえに $\Phi(\mu*\nu)=\Phi(\mu)\Phi(\nu)$ です。単位元は $\delta_0$ に対応します。$\Gamma$ の同一視を施すと、有限群環の逆極限は [岩澤代数の定義](../IWA3/index.md#def-iwa3-completed-group-ring)です。[岩澤代数の冪級数表示](../IWA3/index.md#thm-iwa3-power-series-isomorphism)により $\gamma$ の像を $1+T$ と置けます。
+ゆえに $\Phi(\mu*\nu)=\Phi(\mu)\Phi(\nu)$ です。単位元は $\delta_0$ に対応します。$\Gamma$ の同一視を施すと、有限群環の逆極限は [岩澤代数の定義](../IWA3/index.md#def-iwa3-completed-group-ring)と一致します。具体的に各 $n$ を固定すると、有限個の係数を法 $p^m$ に還元して
+
+$$
+\mathbb Z_p[G_n]\simeq
+\varprojlim_m(\mathbb Z/p^m\mathbb Z)[G_n]
+$$
+
+となります。群環の遷移写像は係数の和なので係数還元と可換です。従って $n$ と $m$ の両方で整合する族は、IWA3の二重逆極限の元そのものです。[岩澤代数の冪級数表示](../IWA3/index.md#thm-iwa3-power-series-isomorphism)により $\gamma$ の像を $1+T$ と置けます。
 <!-- proof-end -->
 
 例えば点質量では
@@ -337,7 +369,7 @@ $$
 
 ## 5. 冪級数の係数は「二項式の積分」である
 
-$a\in\mathbb Z_p$ と自然数 $j$ に対し、二項係数 $\binom aj=a(a-1)\cdots(a-j+1)/j!$ を使います。$j$ を固定すればこの式は $a$ の有理係数多項式なので $p$ 進連続です。非負整数 $a$ における値は整数であり、非負整数は $\mathbb Z_p$ で稠密なので $\binom aj\in\mathbb Z_p$ が全ての $a\in\mathbb Z_p$ で成り立ちます。
+$a\in\mathbb Z_p$ と非負整数 $j$ に対し、二項係数 $\binom aj=a(a-1)\cdots(a-j+1)/j!$ を使います。$j=0$ の空積は $1$ とし、$\binom a0=1$ です。$j$ を固定すればこの式は $a$ の有理係数多項式なので $p$ 進連続です。非負整数 $a$ における値は整数であり、非負整数は $\mathbb Z_p$ で稠密なので $\binom aj\in\mathbb Z_p$ が全ての $a\in\mathbb Z_p$ で成り立ちます。
 
 <a id="def-iwa13-amice-transform"></a>
 
@@ -351,7 +383,7 @@ $$
 \in\mathbb Z_p[[T]]
 $$
 >
-> を **二項式変換（Amice変換）** という。形式的には $\int_{\mathbb Z_p}(1+T)^x\,d\mu(x)$ と書く。
+> を **二項式変換（Amice変換）** という。形式的には $\int_{\mathbb Z_p}(1+T)^x\,d\mu(x)$ と書く。これは $(1+T)^x=\sum_{j\ge0}\binom{x}{j}T^j$ の各係数を別々に積分する記法である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa13-amice-transform -->
@@ -392,15 +424,15 @@ $$
 \omega_n=(1+T)^{p^n}-1
 $$
 
-です。[有限群環の一変数表示](../IWA3/index.md#prop-iwa3-finite-presentation)により、$P_n(T)$ を $\omega_n$ で割った剰余類は $\Phi(\mu)_n$ に対応します。分布関係は
+です。[有限群環の一変数表示](../IWA3/index.md#prop-iwa3-finite-presentation)により、係数を法 $p^m$ に還元した $P_n(T)$ は $J_{m,n}=(p^m,\omega_n)$ を法として $\Phi(\mu)_n$ の還元に対応します。整数代表元を一段細かく取ると、$(1+T)^{a+bp^n}\equiv(1+T)^a\pmod{\omega_n}$ なので分布関係は
 
 $$
 P_{n+1}(T)\equiv P_n(T)\pmod{\omega_n}
 $$
 
-を与えます。[有限層の核と極限位相の一致](../IWA3/index.md#lem-iwa3-cofinal-ideals)を適用すると、$P_n$ は $(p,T)$ 進位相で収束します。その極限は $\Phi(\mu)$ を冪級数として表した元です。
+を与えます。[有限層の核と極限位相の一致](../IWA3/index.md#lem-iwa3-cofinal-ideals)によれば $\omega_n\in(p,T)^{n+1}$ です。従って $m>n$ のとき、各隣接差を足して $P_m-P_n\in(p,T)^{n+1}$ となり、冪級数環の完備性から極限 $P$ が存在します。固定した有限段 $(s,k)$ では、$n\ge k$ の全ての $P_n$ が同じ剰余類を表します。$J_{s,k}$ は開かつ閉なので $P$ もその剰余類を表し、[岩澤代数の冪級数表示](../IWA3/index.md#thm-iwa3-power-series-isomorphism)から $P$ は $\Phi(\mu)$ の冪級数表示です。
 
-一方、固定した $j$ について $T^j$ の係数は
+一方、$[T^j]P_n$ は変数 $T$ の $j$ 次係数を取り出す記号です。$j$ を固定すると、二項展開から
 
 $$
 [T^j]P_n(T)=\sum_{a=0}^{p^n-1}\mu_n(a)\binom aj.
@@ -413,7 +445,17 @@ $\delta_a$ の場合、$a$ を法 $p^n$ で代表する非負整数列 $a_n$ は
 
 ## 6. 連続指標を積分する $p$ 進 Mellin 変換
 
-冪級数の $T$ に具体的な $p$ 進数を代入して値を読みます。$K$ を $\mathbb Q_p$ の完備な拡大体（例えば $\mathbb C_p$）とし、$\mathcal O_K$ をその絶対値 $1$ 以下の元全体とします。連続な群準同型 $\kappa:(\mathbb Z_p,+)\to\mathcal O_K^\times$ は、加法を乗法へ写すので **連続指標** です。$u=\kappa(1)$ とすれば $\kappa(x)=u^x$（整数列の極限による指数）で、$|u-1|_p<1$ です。有限位数の $p$ 冪根もこの条件を満たします。
+冪級数の $T$ に具体的な $p$ 進数を代入して値を読みます。$K$ を $\mathbb Q_p$ の $p$ 進絶対値を延長した完備な拡大体とし、$\mathcal O_K=\{z\in K:|z|_p\le1\}$ をその整数環とします。これは閉集合なので完備です。$\mathcal O_K^\times$ はその単元群、すなわち $|z|_p=1$ の元全体です。例えば $\mathbb C_p$ は $\mathbb Q_p$ の代数閉包を完備化した体です。連続な群準同型 $\kappa:(\mathbb Z_p,+)\to\mathcal O_K^\times$ は、加法を乗法へ写すので **連続指標** です。$u=\kappa(1)$ とすれば、非負整数 $a$ では $\kappa(a)=u^a$ です。$x$ の整数代表元 $x_n\to x$ を使うと、連続性から $\kappa(x)=\lim_n u^{x_n}$ となります。この極限を $u^x$ と書きます。
+
+さらに $p^n\to0$ より $u^{p^n}=\kappa(p^n)\to1$ です。$\mathfrak m_K=\{z\in\mathcal O_K:|z|_p<1\}$ と置くと、剰余体 $\mathcal O_K/\mathfrak m_K$ は標数 $p$ です。十分大きな $n$ で $u^{p^n}-1\in\mathfrak m_K$ なので、剰余体で
+
+$$
+(\bar u-1)^{p^n}=\bar u^{p^n}-1=0.
+$$
+
+体には零でない冪零元がないため $\bar u=1$、すなわち $|u-1|_p<1$ です。同じ計算は $p$ 冪根にも適用できます。
+
+第2節の積分を $\mathcal O_K$ 値連続関数にも拡張します。局所定数関数の有限和は同じ分布関係を満たし、$|\mu_n(a)|_p\le1$ なので、[積分への一意的延長](#thm-iwa13-extension)の Cauchy 評価がそのまま成立します。$\mathcal O_K$ の完備性により極限が存在し、有限和から $\mathcal O_K$ 線形性も従います。さらに第3節の [畳み込みの積分公式](#prop-iwa13-convolution)の証明は同じ評価と完備性だけを使うため、$\mathcal O_K$ 値連続関数にも成立します。
 
 <a id="def-iwa13-mellin"></a>
 
@@ -433,7 +475,7 @@ $$
 **定義の確認**。 $\mu=\delta_0-\delta_1$ なら $\mathscr M_\mu(\kappa)=\kappa(0)-\kappa(1)=1-u$。一方 $\mathcal A_\mu(T)=-T$ なので $\mathcal A_\mu(u-1)=-(u-1)=1-u$ です。指標の値を積分することと冪級数を評価することが一致します。
 <!-- definition-example-end -->
 
-ここで $K$ 値関数の積分を使える理由を明示します。$\kappa(x)$ は $\mathcal O_K$ 値連続関数なので、局所定数近似の有限和は $|\mu_n(a)|_p\le1$ により最大値で抑えられ、$\mathcal O_K$ が完備なため第2節と同じ Cauchy 議論で収束します。
+ここで積分の入力は $\kappa(x)$ であり、測度の係数は引き続き $\mathbb Z_p$ にあります。
 
 <a id="thm-iwa13-mellin-evaluation"></a>
 
@@ -452,7 +494,7 @@ $$
 =\sum_{a=0}^{p^n-1}\kappa(a)\mu_n(a).
 $$
 >
-> また $\mathscr M_{\mu*\nu}(\kappa)=\mathscr M_\mu(\kappa)\mathscr M_\nu(\kappa)$ である。
+> また任意の $\mathbb Z_p$ 値測度 $\nu$ について $\mathscr M_{\mu*\nu}(\kappa)=\mathscr M_\mu(\kappa)\mathscr M_\nu(\kappa)$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -470,7 +512,7 @@ $$
 =\lim_{n\to\infty}P_n(u-1).
 $$
 
-$|u-1|_p<1$ より、係数が $\mathbb Z_p$ にある $\mathcal A_\mu(T)=\sum_jb_jT^j$ の評価 $\sum_jb_j(u-1)^j$ は収束します。また $P_n\to\mathcal A_\mu$ の $(p,T)$ 進収束は、$T=u-1$ での評価により $K$ 内の収束へ移ります。実際、差が $(p,T)^r$ に入れば、評価後の絶対値は $\max(p^{-1},|u-1|_p)^r$ 以下です。従って極限は $\mathcal A_\mu(u-1)$ です。
+$|u-1|_p<1$ より、係数が $\mathbb Z_p$ にある $\mathcal A_\mu(T)=\sum_jb_jT^j$ の評価 $\sum_jb_j(u-1)^j$ は収束します。また [二項式変換と岩澤代数の積](#thm-iwa13-amice-isomorphism)で得た $P_n\to\mathcal A_\mu$ の $(p,T)$ 進収束は、$T=u-1$ での評価により $K$ 内の収束へ移ります。実際、差が $(p,T)^r$ に入れば、評価後の絶対値は $\max(p^{-1},|u-1|_p)^r$ 以下です。従って極限は $\mathcal A_\mu(u-1)$ です。
 
 有限位数の指標が法 $p^n$ を通じて定まるなら、$\kappa$ は各剰余類で一定なので、定義した積分はその層での有限和に等しいです。
 
@@ -490,6 +532,8 @@ $$
 $$
 
 で成り立ちます。しかし $|p^{-n}|_p=p^n$ は発散し、値も $n>0$ では $\mathbb Z_p$ に入りません。従ってこれは $\mathbb Q_p$ 値分布ですが、本講の測度ではありません。指示関数のノルムは常に $1$ なのに、積分した値の絶対値が $p^n$ まで大きくなるので、連続な有界線形汎関数には延長できません。
+
+一般に有界な $\mathbb Q_p$ 値分布とは $\sup_{n,a}|\mu_n(a)|_p<\infty$ を満たす分布です。平行移動不変とは、任意の $t\in\mathbb Z_p$ と各 $n,a$ で $\mu_n(a+t)=\mu_n(a)$（添字は法 $p^n$）となることです。
 
 <a id="prop-iwa13-no-haar-probability"></a>
 
@@ -566,7 +610,7 @@ $$
 \int x^2\,d\mu=0+2\cdot1-9=-7.
 $$
 
-全て $\mathbb Z_3$ に属します。第1層では $0$ と $3$ が同じ剰余類にあるため、有限和は最後の値にまだ一致しないことがありますが、第2層からは三点が分離し、各多項式の積分値に一致します。
+全て $\mathbb Z_3$ に属します。第1層では $0$ と $3$ が同じ剰余類にあるため、有限和は最後の値にまだ一致しないことがありますが、第2層からは三点が分離し、整数代表元も $0,1,3$ そのものになるため、各多項式の積分値に一致します。
 <!-- solution-end -->
 
 <a id="ex-iwa13-a4"></a>
@@ -672,7 +716,14 @@ $$
 $\mu_n(a)=p^{-n}\in\mathbb Q_p$ とする。これが分布関係を満たすことを確かめ、対応する有限和が $C(\mathbb Z_p,\mathbb Q_p)$ 上の連続線形汎関数にならないことを証明せよ。
 
 <!-- solution-start -->
-**詳細解答。** 各親剰余類の $p$ 個の子の値の和は $p\cdot p^{-(n+1)}=p^{-n}=\mu_n(a)$ なので分布です。$g_n=\mathbf1_{p^n\mathbb Z_p}$ とすると $\|g_n\|_\infty=1$ ですが、その有限和の値は $I(g_n)=\mu_n(0)=p^{-n}$ で、$|I(g_n)|_p=p^n$ は有界ではありません。[連続線形汎関数の有界性](../../../解析系/F0/F0-02C2/index.md#thm-f0-02c2-continuity-boundedness)と同様に、連続線形汎関数なら作用素の値は $\|g\|_\infty$ の定数倍で抑えられなければならず、この列はその条件に反します。したがって本講の積分へは延長できません。
+**詳細解答。** 各親剰余類の $p$ 個の子の値の和は $p\cdot p^{-(n+1)}=p^{-n}=\mu_n(a)$ なので分布です。$g_n=\mathbf1_{p^n\mathbb Z_p}$ とすると $\|g_n\|_\infty=1$ ですが、その有限和の値は $I(g_n)=\mu_n(0)=p^{-n}$ で、$|I(g_n)|_p=p^n$ は有界ではありません。実数値の場合の [連続性と有界性の同値](../../../解析系/F0/F0-02C2/index.md#thm-f0-02c2-continuity-boundedness)を思い出します。ただしここでは $\mathbb Q_p$ 上なので、直接連続性に矛盾する列を作ります。$h_n=p^ng_n$ とすれば
+
+$$
+\|h_n\|_\infty=p^{-n}\to0,\qquad
+I(h_n)=p^n I(g_n)=1.
+$$
+
+従って零での連続性と $\mathbb Q_p$ 線形性を同時に満たす延長は存在しません。
 <!-- solution-end -->
 
 <a id="ex-iwa13-b4"></a>
