@@ -58,3 +58,4 @@
 55. [CATB2-07 分配子とcoendによる合成](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-07/index.md)
 56. [CATB2-08 双圏と弱い結合律](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-08/index.md)
 57. [CATB2-09 Profの双圏](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-09/index.md)
+58. [CATB2-10 冪等分裂とCauchy完備化](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-10/index.md)
