@@ -4,6 +4,8 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - IWA12
+  - F0-00P1
+  - F0-02C2
 official_scope: []
 learning_objectives:
   - p進分布の有限層整合関係とZ_p値測度を具体例で確認できる
