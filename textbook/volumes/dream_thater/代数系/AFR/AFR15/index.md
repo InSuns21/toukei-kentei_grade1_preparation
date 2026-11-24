@@ -37,7 +37,7 @@ $$
 
 法 $p^n$ で還元すると $K_0(p^n)$ は上三角可逆行列群の逆像です。従って部分群です。その元の右下成分は単元であり、積の右下成分は法 $p^n$ で右下成分同士の積です。写像 $k\mapsto d\bmod p^n$ は全射準同型で、核が $K_1(p^n)$ です。両者は主合同部分群を含むコンパクト開部分群であり、$K_1(p^{n+1})\subset K_1(p^n)$ です。
 
-[p進群の滑らかな表現](../AFR13/index.md#def-afr13-smooth) では $V^H=\{v\in V:\pi(h)v=v\ (h\in H)\}$ が部分群 $H$ による固定空間です。大域の [中心指標](../AFR11/index.md#def-afr11-central-character) に対応して、局所の表現 $(\pi,V)$ の中心指標 $\omega:F^\times\to\mathbb C^\times$ は $\pi(zI_2)=\omega(z)\operatorname{id}_V$ を満たす指標です。中心指標がある場合、$K_1$ による固定条件を $K_0$ による変換条件に言い換えられます。
+[p進群の滑らかな表現](../AFR13/index.md#def-afr13-smooth) では $V^H=\{v\in V:\pi(h)v=v\ (h\in H)\}$ が部分群 $H$ による固定空間です。大域の [中心指標](../AFR11/index.md#def-afr11-central-character) に対応して、局所の表現 $(\pi,V)$ の中心指標 $\omega:F^\times\to\mathbb C^\times$ は $\pi(zI_2)=\omega(z)\operatorname{id}_V$ を満たす指標です。中心指標がある場合、$K_1(p^n)$ による固定条件を $K_0(p^n)$ による変換条件に言い換えられます。
 
 <a id="prop-afr15-central-level"></a>
 
@@ -53,7 +53,7 @@ $$
 
 ### 証明の見取り図
 
-右下成分をスカラー行列で割れば $K_1$ に入ります。逆向きでは右下成分が1に近い単数による中心作用を確認します。
+右下成分をスカラー行列で割れば $K_1(p^n)$ に入ります。逆向きでは右下成分が1に近い単数による中心作用を確認します。
 
 <!-- proof-start -->
 ### 証明
@@ -197,7 +197,7 @@ $$
 
 ## 4. Whittaker模型：加法方向の係数
 
-[Whittaker係数を扱う前講](../AFR4/index.md) では実変数の Fourier 係数を調べました。局所表現でも加法方向の変換則を持つ係数を抽出します。
+[Whittaker模型の変換則](../AFR4/index.md#thm-afr4-whittaker-equivariance) では実変数の Fourier 係数を調べました。局所表現でも加法方向の変換則を持つ係数を抽出します。
 
 $n(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix}$ とし、$\psi:F\to\mathbb C^\times$ を [加法指標](../AFR9/index.md#def-afr9-additive-character)、すなわち $\psi(x+y)=\psi(x)\psi(y)$ を満たす局所定数な絶対値1の関数で、$O$ 上自明、$p^{-1}O$ 上非自明なものとします。
 
@@ -219,15 +219,22 @@ $$
 <!-- definition-example-start: def-afr15-whittaker -->
 **定義の確認**
 
-加法群の例として、局所定数な関数 $\phi:F\to\mathbb C$ で台がコンパクトなものを取り、$(T(y)\phi)(x)=\phi(x+y)$ とします。$\ell_0(\phi)=\int_F\phi(x)\psi(-x)\,dx$ とすると、変数 $z=x+y$ により
+積分には [p進加法Haar測度](../AFR9/index.md#prop-afr9-local-measure) $dx$（$\operatorname{vol}(O)=1$）を使います。加法群の例として、局所定数な関数 $\phi:F\to\mathbb C$ で台がコンパクトなものを取り、$(T(y)\phi)(x)=\phi(x+y)$ とします。$\ell_0(\phi)=\int_F\phi(x)\psi(-x)\,dx$ とすると、変数 $z=x+y$ により
 $$
 \ell_0(T(y)\phi)=\int_F\phi(z)\psi(y-z)\,dz=\psi(y)\ell_0(\phi).
 $$
-$\phi=1_O$ の場合は $\psi|_O=1$ で、$\operatorname{vol}(O)=1$ と規格化すると $\ell_0(1_O)=1$ です。これは加法群での変換則の直接例です。ここで $dx$ は [p進加法Haar測度](../AFR9/index.md#prop-afr9-local-measure) で、変数置換は平行移動不変性によります。
+$\phi=1_O$ の場合は $\psi|_O=1$ で、$\operatorname{vol}(O)=1$ と規格化すると $\ell_0(1_O)=1$ です。これは加法群での変換則の直接例です。変数置換は測度の平行移動不変性によります。
 
-$G$ 全体の例も確認できます。$1_K$ を $K$ の指示関数とし、その右移動 $g\mapsto 1_K(gh)$（$h\in G$）の有限線形結合の空間を $V$ とします。右移動を作用とすれば $V$ は表現です。各右移動は開部分群 $hKh^{-1}$ で右不変であり、有限個のその共通部分は単位元の開近傍なのである主合同部分群を含みます。従って [滑らかな表現](../AFR13/index.md#def-afr13-smooth) です。
+$G$ 全体の例も確認できます。$1_K$ を $K$ の指示関数とし、その右移動 $g\mapsto 1_K(gh)$（$h\in G$）の有限線形結合の空間を $V$ とします。右移動を作用とすれば $V$ は表現です。各右移動は開部分群 $hKh^{-1}$ で右不変です。実際 $t=hkh^{-1}$（$k\in K$）なら $1_K(gth)=1_K(ghk)=1_K(gh)$ です。有限個のその共通部分は単位元の開近傍なのである主合同部分群を含みます。従って [滑らかな表現](../AFR13/index.md#def-afr13-smooth) です。
 
-この空間で $\ell(f)=\int_F f(n(x))\psi(-x)\,dx$ と定めます。各右移動の台は $Kh^{-1}$ でコンパクトです。$n(x)$ がその中に入ると右上成分 $x$ は有界なので、積分は有限の球上の局所定数関数の積分になります。線形性と上の平行移動の計算により $\ell(\pi(n(y))f)=\psi(y)\ell(f)$ です。また $n(x)\in K$ と $x\in O$ は同値なので
+この空間で $\ell(f)=\int_F f(n(x))\psi(-x)\,dx$ と定めます。各右移動の台は $Kh^{-1}$ でコンパクトです。$n(x)$ がその中に入ると右上成分 $x$ は有界なので、積分は有限の球上の局所定数関数の積分になります。線形性は積分から従います。$n(x)n(y)=n(x+y)$ なので、$z=x+y$ と置換すると
+
+$$
+\ell(\pi(n(y))f)=\int_F f(n(z))\psi(y-z)\,dz
+=\psi(y)\ell(f).
+$$
+
+また $n(x)\in K$ と $x\in O$ は同値なので
 
 $$
 \ell(1_K)=\int_O\psi(-x)\,dx=1.
@@ -359,7 +366,7 @@ $p=3$ とし、$k=\begin{pmatrix}2&1\\9&4\end{pmatrix}$ が $K_0(9),K_1(9),K_1(3
 <!-- solution-start -->
 **詳細解答**
 
-行列式は $8-9=-1$ なので $k\in K$ です。[レベル部分群](#def-afr15-level) の条件から左下は9なので $K_0(9)$ に属します。右下は4で $4-1=3$ は9の倍数でないので $K_1(9)$ には属しません。一方 $9,4-1$ はともに3の倍数なので $K_1(3)$ に属します。
+全成分が $O$ に属し、行列式は $8-9=-1$ で単元なので $k\in K$ です（第1節の可逆性判定）。[レベル部分群](#def-afr15-level) の条件から左下は9なので $K_0(9)$ に属します。右下は4で $4-1=3$ は9の倍数でないので $K_1(9)$ には属しません。一方 $9,4-1$ はともに3の倍数なので $K_1(3)$ に属します。
 <!-- solution-end -->
 
 <a id="ex-afr15-a2"></a>
@@ -425,7 +432,7 @@ $k_i=\begin{pmatrix}1&0\\3&1\end{pmatrix}$ なので積は
 $$
 k_i^{-1}b_0k_i=\begin{pmatrix}a+3b&b\\3(d-a-3b)&d-3b\end{pmatrix}.
 $$
-[レベル部分群](#def-afr15-level) の条件は $d-3b\equiv1\bmod27$ と $d-a-3b\equiv0\bmod9$ です。従って $d\equiv1\bmod3$、$a\equiv1\bmod9$ です。逆にこの二条件を満たす $a,d$ を任意に選び $b=(d-1)/3$ とすると右下は1、左下は $3(1-a)\in27O$ です。$a,d$ は単元なので共役前も後も可逆で、任意の対角成分が実現しました。
+[レベル部分群](#def-afr15-level) の条件は $d-3b\equiv1\bmod27$ と $d-a-3b\equiv0\bmod9$ です。第1の合同式を法3に落とすと $d\equiv1\bmod3$ です。また第1式から $d-3b\equiv1\bmod9$、第2式から $d-3b\equiv a\bmod9$ なので $a\equiv1\bmod9$ です。逆にこの二条件を満たす $a,d$ を任意に選び $b=(d-1)/3$ とすると右下は1、左下は $3(1-a)\in27O$ です。$a,d$ は単元なので共役前も後も可逆で、任意の対角成分が実現しました。
 <!-- solution-end -->
 
 <a id="ex-afr15-b2"></a>
