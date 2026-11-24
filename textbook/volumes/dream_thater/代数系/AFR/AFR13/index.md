@@ -13,7 +13,7 @@ $G=GL_2(F)$ は可逆二次行列群で、各成分に p進位相を入れます
 <!-- formal-statement-start -->
 > **定義（主合同部分群）**
 > $G=GL_2(\mathbb Q_p)$、$K=GL_2(\mathbb Z_p)$ とし、$O=\mathbb Z_p$ と書く。整数 $n\ge1$ に対し
-$
+$$
 K_n=\ker(K\longrightarrow GL_2(O/p^nO))
 =\{k\in K:k\equiv I_2\pmod{p^nO}\}.
 $$
