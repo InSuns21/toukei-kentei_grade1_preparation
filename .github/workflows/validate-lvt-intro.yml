@@ -1,0 +1,42 @@
+name: Validate LVT intro
+on:
+  pull_request:
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT1-01/**'
+      - '.github/workflows/validate-lvt-intro.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT1-01/**'
+      - '.github/workflows/validate-lvt-intro.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lean-intro:
+    name: Lean intro proofs and differential tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee # v1
+        with:
+          lake-package-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT1-01/lab'
+          auto-config: 'false'
+          build: 'true'
+          test: 'true'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - name: Compare Lean and Python and check deliberate failure
+        working-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT1-01/lab'
+        shell: bash
+        run: |
+          python3 compare.py
+          if lake env lean Failure.lean > failure.log 2>&1; then
+            cat failure.log
+            echo "Expected false guard to fail"
+            exit 1
+          fi
+          cat failure.log
+          grep -E 'guard.*failed|guard expression' failure.log
