@@ -1,0 +1,13 @@
+chapter: LVT4-01
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT3-08, LVT3-06, LVT1-02]
+concepts:
+  - id: lean-verification.unit-test-success
+    name: 単体テストの成功条件
+    kind: definition
+    introduction: formal
+  - id: lean-verification.range-rejection-observation
+    name: 範囲外拒否の観測値
+    kind: proposition
+    introduction: formal

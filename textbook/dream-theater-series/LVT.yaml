@@ -95,8 +95,8 @@ chapters:
     title: "Hoare論理・最弱事前条件・vcgen"
   - id: LVT4-01
     path: textbook/volumes/dream_thater/計算系/LVT/LVT4-01
-    status: planned
-    title: "例示・単体テスト・`#guard`・Lake test"
+    status: completed
+    title: "例示・単体テスト・#guard・Lake test"
   - id: LVT4-02
     path: textbook/volumes/dream_thater/計算系/LVT/LVT4-02
     status: planned

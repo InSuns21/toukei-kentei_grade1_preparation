@@ -1,0 +1,22 @@
+id: "LVT4-01"
+title: "例示・単体テスト・#guard・Lake test"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT3-08, LVT3-06, LVT1-02]
+official_scope: []
+learning_objectives:
+  - 具体的な勝利・引き分け・エラーケースの期待出力を仕様から決定する
+  - "#guard のソース検査と Lake test の実行時比較を区別する"
+  - 境界入力の検査と全称命題の保証範囲を比較する
+  - 正常系と意図的な失敗を再現する
+definitions:
+  - { id: LVT4-01-DEF-01, name: "単体テストの成功条件" }
+propositions:
+  - { id: LVT4-01-PROP-01, name: "範囲外拒否の観測値" }
+theorems: []
+canonical_examples: ["反対角線の勝利", "Oの勝利", "引き分け", "境界と意図的失敗"]
+problem_patterns: [LVT4-01-A01, LVT4-01-A02, LVT4-01-A03, LVT4-01-A04, LVT4-01-B01, LVT4-01-B02, LVT4-01-B03, LVT4-01-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2, review: 0.5 }
