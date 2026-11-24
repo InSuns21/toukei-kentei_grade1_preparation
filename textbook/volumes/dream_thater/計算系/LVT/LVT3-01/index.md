@@ -8,7 +8,7 @@
 
 在庫数 stock と要求数量 qty は自然数（0 を含む）とします。要求の数量は正とし、在庫不足は異常な入力ではなく、正常な拒否として扱います。計算結果には [Option型](../LVT1-03/index.md#def-lvt1-03-option) を用い、成功なら `some rest`（残数 rest）、拒否なら `none` とします。ここでは純粋関数の返り値だけを扱い、データベースの更新はまだ行いません。
 
-入力型に属する値がすべて有効とは限りません。qty = 0 は自然数型に属しますが、正の注文数量という要求に反します。入力が有効かどうかを命題で表したものが事前条件、入力と結果の組に対する要求が事後条件です。たとえば 5 個ある品物を 2 個注文した場合、成功の残数が 3 でなければなりません。事後条件は実装を見て決めるのではなく、要求から独立に決めます。
+入力型に属する値がすべて有効とは限りません。qty = 0 は自然数型に属しますが、正の注文数量という要求に反します。入力が有効かどうかを [命題型 Prop](../LVT2-01/index.md#def-lvt2-01-prop) の値で表したものが事前条件、入力と結果の組に対する要求が事後条件です。たとえば 5 個ある品物を 2 個注文した場合、成功の残数が 3 でなければなりません。事後条件は実装を見て決めるのではなく、要求から独立に決めます。
 
 <a id="def-lvt3-01-contract"></a>
 
@@ -25,15 +25,12 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt3-01-contract -->
-**定義の確認**　α = β = Nat、p n を 0 < n、q n r を r = n + 1 とする。f n = n + 1 なら任意の n に対し f n = n + 1 は等式の反射律で成立するため、p n を仮定しても成立する。n = 2 では p 2 が真で f 2 = 3、q 2 3 は 3 = 3 で真である。一方 n = 0 では p 0 が偽なので、契約はその入力での出力値を要求しない。関数そのものは 0 に対しても値を持つ。
+**定義の確認**　α = β = Nat、p n を 0 < n、q n r を r = n + 1 とする。f n = n + 1 なら任意の n に対し f n = n + 1 は[定義的等しさ](../LVT2-03/index.md#def-lvt2-03-defeq) により成立するため、p n を仮定しても成立する。n = 2 では p 2 が真で f 2 = 3、q 2 3 は 3 = 3 で真である。一方 n = 0 では p 0 が偽なので、契約はその入力での出力値を要求しない。関数そのものは 0 に対しても値を持つ。
 <!-- definition-example-end -->
 
-[全称量化](../LVT2-02/index.md#def-lvt2-02-forall) の導入で任意の入力 x を取り、[含意の導入](../LVT2-02/index.md#def-lvt2-02-imp) で p x の証明を仮定して q x (f x) を示します。Lean での定義は次です（以降のコードは同一の [LvtContracts.lean](lab/LvtContracts.lean) にあります）。
+[全称量化](../LVT2-02/index.md#def-lvt2-02-forall) の導入で任意の入力 x を取り、[含意の導入](../LVT2-02/index.md#def-lvt2-02-imp) で p x の証明を仮定して q x (f x) を示します。Lean での定義は次です（以下は [LvtContracts.lean](lab/LvtContracts.lean) の抜粋です。同ファイルは `import Lean` と名前空間 `LvtContracts` を含み、実験では全文を読み込みます）。
 
 ```lean
-import Lean
-
-namespace LvtContracts
 def Satisfies {α β : Type} (p : α → Prop)
     (q : α → β → Prop) (f : α → β) : Prop :=
   ∀ x, p x → q x (f x)
@@ -43,7 +40,7 @@ def Satisfies {α β : Type} (p : α → Prop)
 
 ## 2. 在庫引当の要求を命題へ翻訳する
 
-入力は stock と qty を一組にした Order とします。事前条件は数量が正であることです。在庫不足を事前条件から除くと、不足時の拒否が証明の対象外になってしまいます。本講では不足時の動作も仕様化します。
+入力は stock と qty を一組にした Order とします。Lean の `structure` で二つの成分を持つ型を作り、`⟨s, k⟩` で stock = s、qty = k の入力を表し、`o.stock` と `o.qty` で各成分を取り出します。事前条件は数量が正であることです。在庫不足を事前条件から除くと、不足時の拒否が証明の対象外になってしまいます。本講では不足時の動作も仕様化します。
 
 成功結果には二つの条件が必要です。引当数量が在庫以下であることと、残数に引当数量を足すと元の在庫に戻ることです。後者は在庫を余分に減らしたり増やしたりしない要求を表します。拒否結果については元の在庫が数量より少ないことを要求します。
 
@@ -288,7 +285,7 @@ a + k = b + k
 a = b
 ```
 
-最後は自然数の加算の右消去である。整数として比較すれば両辺から同じ k を引ける。[等式の書換え](../LVT2-03/index.md#def-lvt2-03-defeq) により残数が等しいので some a = some b となる。四つの場合を尽くしたので結論を得る。
+最後は自然数の加算の右消去である。整数として比較すれば両辺から同じ k を引ける。残数が等しいので some a = some b となる。四つの場合を尽くしたので結論を得る。
 
 実装では `cases h1 : f o` が出力の二種類の形と等式 h1 を与える。事後条件をその等式で簡約して、必要な比較と保存式を得る。矛盾と右消去は omega で検査する。congrArg some e は等式 e : a = b から some a = some b を作る。
 
@@ -350,10 +347,10 @@ lake env lean Failure.lean
 | --- | --- |
 | Inspect | some 3、some 0、none、none、none と定理の型・公理依存 |
 | Main | LVT3-01 OK |
-| ExerciseSolutions | 9題の命題を検査 |
+| ExerciseSolutions | 9題に対応する10個の命題を検査 |
 | Failure | 型不一致による非ゼロ終了 |
 
-Failure で渡した weakAllowsReject の型を確認し、求める命題との差を比較してください。正常系の `#print axioms` では、[公理依存](../LVT2-08/index.md#def-lvt2-08-axioms) を確認できます。数量を 0 にして結果を観察し、事前条件の外でも個別の保証があることを確認します。次に境界入力 ⟨2, 2⟩ を変えずに takeStock の内側の比較を厳密な不等式へ変更すると、正しさの証明と境界の具体例をどちらも修正しなければ通らなくなることを観察します。
+Failure で渡した weakAllowsReject の型を確認し、求める命題との差を比較してください。正常系の `#print axioms` では、[公理依存](../LVT2-08/index.md#def-lvt2-08-axioms) を確認できます。数量を 0 にして結果を観察し、事前条件の外でも個別の保証があることを確認します。次に境界入力 ⟨2, 2⟩ を変えずに takeStock の内側の比較を厳密な不等式へ変更すると、正しさの証明と境界の具体例がともに失敗することを観察します。元の要求を維持するなら比較を元に戻してください。
 
 ## 8. 演習と詳細解答
 
@@ -536,6 +533,18 @@ theorem c01 (f : Order → Option Nat)
     (hf : Satisfies orderPre orderPost f)
     (o : Order) (hp : orderPre o) : f o = takeStock o :=
   uniqueOnValid f takeStock hf takeCorrect o hp
+
+def keepZero (o : Order) : Option Nat :=
+  if 0 < o.qty then takeStock o else some o.stock
+
+theorem c01Outside : Satisfies orderPre orderPost keepZero ∧
+    keepZero ⟨5, 0⟩ ≠ takeStock ⟨5, 0⟩ := by
+  constructor
+  · intro o hp
+    have h : 0 < o.qty := hp
+    simp only [keepZero, if_pos h]
+    exact takeCorrect o hp
+  · decide
 ```
 <!-- solution-end -->
 
