@@ -72,7 +72,7 @@ def last3 : Fin 3 := ⟨2, by decide⟩
 #eval last3.val
 ```
 
-last3.val は 2 です。範囲の証明を取り出せば、配列の安全なアクセスにそのまま渡せます。
+last3.val は 2 です。注意したいのは、数値リテラルを直接 Fin にすると、例えば (3 : Fin 3) は剰余 0 を表すことです。外部入力が範囲内かどうかを検査する方法としては使えません。番号を変えずに受け取るため、ここでは値と範囲の証明を明示して構成します。範囲の証明を取り出せば、配列の安全なアクセスにそのまま渡せます。
 
 ```lean
 def readArray (a : Array α) (i : Fin a.size) : α :=
@@ -195,7 +195,7 @@ def gridIndex (r c : Fin 3) : Fin 9 :=
 
 ## 6. Leanで実験する
 
-前々講の[固定されたLeanプロジェクト](../LVT1-02/index.md#def-lvt1-02-fixed-environment)に従い Lean v4.35.0 の lab を用意しました。リポジトリのルートから実行します。
+第2講の[固定されたLeanプロジェクト](../LVT1-02/index.md#def-lvt1-02-fixed-environment)に従い Lean v4.35.0 の lab を用意しました。リポジトリのルートから実行します。
 
 ```bash
 cd "textbook/volumes/dream_thater/計算系/LVT/LVT1-05/lab"

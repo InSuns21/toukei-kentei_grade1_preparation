@@ -11,6 +11,7 @@ open LvtIndexing
 #guard checkedArray #[4, 7, 0] 3 == none
 #guard checkedArray #[4, 7, 0] 99 == none
 #guard last3.val == 2
+#guard (3 : Fin 3).val == 0
 #guard row3 ⟨0, by decide⟩ == 4
 #guard row3 ⟨1, by decide⟩ == 7
 #guard row3 ⟨2, by decide⟩ == 0
