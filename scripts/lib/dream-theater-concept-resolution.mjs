@@ -40,6 +40,10 @@ export function aliasAppears(source, alias) {
   if (normalizedNeedle === '連接層') {
     return normalizedSource.replaceAll('準連接層', '').includes(normalizedNeedle);
   }
+  // 前加法圏と加法圏は別概念。長い語の内部だけに現れる短い語を使用と数えない。
+  if (normalizedNeedle === '加法圏') {
+    return normalizedSource.replaceAll('前加法圏', '').includes(normalizedNeedle);
+  }
   return normalizedSource.includes(normalizedNeedle);
 }
 

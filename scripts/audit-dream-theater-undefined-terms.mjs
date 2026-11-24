@@ -499,6 +499,9 @@ function runSelfTest() {
   if (aliasAppears('定義（準連接層）', '連接層')) failures.push('quasi-coherent must not count as coherent first-use');
   if (!aliasAppears('準連接層と連接層の違い', '連接層')) failures.push('coherent must remain detectable when separately mentioned');
   if (!aliasAppears('連接層', '連接層')) failures.push('standalone coherent-sheaf match');
+  if (aliasAppears('定義（前加法圏）', '加法圏')) failures.push('preadditive category must not count as additive first-use');
+  if (!aliasAppears('前加法圏と加法圏の違い', '加法圏')) failures.push('additive category must remain detectable when separately mentioned');
+  if (!aliasAppears('加法圏', '加法圏')) failures.push('standalone additive category match');
   if (normalizeAlias('弱*位相') === normalizeAlias('弱位相')) failures.push('semantic star preservation');
   if (normalizeAlias('**弱*位相**') !== normalizeAlias('弱*位相')) failures.push('markdown emphasis star normalization');
   if (!isPotentiallyBroadShortAlias('階数', { name: '常微分方程式・階数' })) failures.push('broad short alias detection');

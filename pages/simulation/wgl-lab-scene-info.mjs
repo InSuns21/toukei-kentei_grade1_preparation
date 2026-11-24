@@ -87,10 +87,10 @@ const descriptions = Object.freeze({
     source: 'advection.js / advection.frag'
   }),
   FCG4: Object.freeze({
-    grid: '8×8（圧力・発散・速度のR8格子）',
-    color: '左: 正規化圧力（青→赤）。中央: |発散| のR8表示（赤）。右: 速度の大きさのR8表示（緑）',
+    grid: snapshot => (snapshot.gridN||32)+'×'+(snapshot.gridN||32)+' MAC計算格子（Float64）。観察は全セルのFloat32、矢印は8×8の代表位置、初期検算はR8',
+    color: '予測速度 → 圧力 → 射影後速度。矢印＝速度、赤＝正の発散、青＝負の発散、暗色＝0付近。中央のみ圧力の符号',
     clock: step => 'Poisson反復 '+step+' 回（物理時刻は固定）',
-    mode: '3分割表示。反復は物理stepではなく、圧力Poisson方程式の数値反復',
+    mode: '射影前後は同じ発散スケール。反復は物理stepではなく圧力Poisson方程式を解く回数',
     source: 'projection.js / projection.frag'
   }),
   FCG5: Object.freeze({

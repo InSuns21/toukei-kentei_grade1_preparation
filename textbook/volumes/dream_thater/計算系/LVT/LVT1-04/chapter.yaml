@@ -1,0 +1,27 @@
+id: "LVT1-04"
+title: "パターン照合・再帰・停止性"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT1-03]
+official_scope: []
+learning_objectives:
+  - リストの構成子でパターン照合を行い構造再帰を定義する
+  - 再帰の計算規則を展開し等式を証明する
+  - 自然数値の減少尺度を指定して停止性を説明する
+  - 停止性エラーを修正し停止性と結果の仕様を区別する
+definitions:
+  - { id: LVT1-04-DEF-01, name: "リストの再帰的構成" }
+  - { id: LVT1-04-DEF-02, name: "構造再帰" }
+  - { id: LVT1-04-DEF-03, name: "自然数値の減少尺度" }
+propositions:
+  - { id: LVT1-04-PROP-01, name: "リスト合計の計算規則" }
+  - { id: LVT1-04-PROP-02, name: "自然数の真の減少による停止" }
+theorems: []
+canonical_examples:
+  - "リストの合計と残りの長さ"
+  - "自然数を二ずつ減らす関数と停止性エラー"
+problem_patterns: [LVT1-04-A01, LVT1-04-A02, LVT1-04-A03, LVT1-04-A04, LVT1-04-B01, LVT1-04-B02, LVT1-04-B03, LVT1-04-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2, review: 0.5 }

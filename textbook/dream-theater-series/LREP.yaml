@@ -59,11 +59,11 @@ chapters:
     title: "Lorentz不変収縮"
   - id: LREP14
     path: textbook/volumes/dream_thater/代数系/LREP/LREP14
-    status: planned
+    status: completed
     title: "Clifford代数の構成"
   - id: LREP15
     path: textbook/volumes/dream_thater/代数系/LREP/LREP15
-    status: planned
+    status: completed
     title: "Spin群とガンマ行列"
   - id: LREP16
     path: textbook/volumes/dream_thater/代数系/LREP/LREP16
