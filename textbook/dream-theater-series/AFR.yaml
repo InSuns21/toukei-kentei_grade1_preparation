@@ -36,7 +36,7 @@ chapters:
     title: "保型L関数・Rankin型積分の初例"
   - id: AFR8
     path: textbook/volumes/dream_thater/代数系/AFR/AFR8
-    status: planned
+    status: completed
     title: "アデール・イデールの保型的利用"
   - id: AFR9
     path: textbook/volumes/dream_thater/代数系/AFR/AFR9

@@ -1,0 +1,26 @@
+chapter: AFR8
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR7, ANF19]
+forward_references: []
+concepts:
+  - id: automorphic-forms.rational-adele-additive-normal-form
+    name: "有理数体のアデール加法商の標準代表元"
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.adele-ring, number-theory.adele-diagonal-discreteness]
+  - id: automorphic-forms.rational-adele-additive-compactness
+    name: "有理数体のアデール加法商のコンパクト性"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.rational-adele-additive-normal-form, number-theory.restricted-product-places]
+  - id: automorphic-forms.rational-idele-class-normal-form
+    name: "有理数体のイデール類群の標準代表元"
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.idele-class-group, number-theory.idele-topology, number-theory.global-product-formula, number-theory.idele-modulus]
+  - id: automorphic-forms.idele-modulus-power-character
+    name: "イデール絶対値の冪による指標"
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.idele-modulus, number-theory.global-product-formula, number-theory.idele-class-group]

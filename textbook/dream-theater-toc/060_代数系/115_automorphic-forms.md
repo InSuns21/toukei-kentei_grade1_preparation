@@ -8,3 +8,4 @@
 5. [AFR5 Eisenstein級数と関数等式](textbook/volumes/dream_thater/代数系/AFR/AFR5/index.md)
 6. [AFR6 Hecke作用とスペクトルの接続](textbook/volumes/dream_thater/代数系/AFR/AFR6/index.md)
 7. [AFR7 保型L関数・Rankin型積分の初例](textbook/volumes/dream_thater/代数系/AFR/AFR7/index.md)
+8. [AFR8 アデール・イデールの保型的利用](textbook/volumes/dream_thater/代数系/AFR/AFR8/index.md)
