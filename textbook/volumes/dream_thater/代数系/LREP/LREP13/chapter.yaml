@@ -1,0 +1,38 @@
+id: LREP13
+title: "Lorentz不変収縮"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP12
+official_scope: []
+learning_objectives:
+  - 左右の交代収縮の保存と一意性を示し混合収縮との違いを説明できる
+  - 四元ベクトルのMinkowski内積を行列収縮で計算できる
+  - Weyl列から二階テンソルを構成し完全収縮を検算できる
+  - 空間反転による左右交換を導出し単独のWeyl表現が閉じないことを示せる
+definitions:
+  - { id: LREP13-DEF-01, name: Weyl不変収縮 }
+  - { id: LREP13-DEF-02, name: 空間反転 }
+theorems:
+  - { id: LREP13-PROP-01, name: Weyl収縮の保存と一意性 }
+  - { id: LREP13-PROP-02, name: 四元ベクトルの行列収縮 }
+  - { id: LREP13-PROP-03, name: Weyl列からの二階テンソル }
+  - { id: LREP13-PROP-04, name: 空間反転による左右交換 }
+canonical_examples:
+  - boostによる左右の交代収縮
+  - 二つの光的ベクトルによる反対称テンソル
+  - 空間反転によるboostの方向交換
+problem_patterns:
+  - LREP13-ALTERNATING
+  - LREP13-MIXED
+  - LREP13-VECTOR-PAIRING
+  - LREP13-PARITY
+  - LREP13-DETERMINANT
+  - LREP13-MIXED-BILINEAR
+  - LREP13-PARITY-SHEAR
+  - LREP13-PARITY-SCALARS
+  - LREP13-TENSOR-BOOST
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }

@@ -51,11 +51,11 @@ chapters:
     title: "有限次元Lorentz既約表現"
   - id: LREP12
     path: textbook/volumes/dream_thater/代数系/LREP/LREP12
-    status: planned
+    status: completed
     title: "左右Weylスピノル"
   - id: LREP13
     path: textbook/volumes/dream_thater/代数系/LREP/LREP13
-    status: planned
+    status: completed
     title: "Lorentz不変収縮"
   - id: LREP14
     path: textbook/volumes/dream_thater/代数系/LREP/LREP14

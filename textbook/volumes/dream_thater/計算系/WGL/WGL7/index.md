@@ -2,7 +2,7 @@
 
 [WGL6の透視補正補間](../WGL6/index.md#def-wgl6-perspective-interpolation)で、三角形の各画素が模様上のどの位置（UV）に対応するかを計算できるようになりました。しかし、UVは連続した実数で、画像は有限個の色の集まりです。画像の2点の間を読んだら何色になるのでしょうか。逆に、細かい模様を遠くへ置くと、偽の縞が現れたり、動かすだけで色がちらついたりします。
 
-ここでは、**どのテクセルを読むか**と、**何個のテクセルを混ぜるか**を区別し、UV・ラップ・線形フィルタ・段階的な縮小画像を手計算します。最後にJavaScriptとGLSLを編集し、同じ画像を左右で描いてCPU予測とGPU画素を照合します。
+ここでは、**どのテクセルを読むか**と、**何個のテクセルを混ぜるか**を区別し、UV・ラップ・線形フィルタ・段階的な縮小画像を手計算します。最後にJavaScriptとGLSLを編集し、同じ模様を貼った床を左右で描いてフィルタによる見え方の違いを観察します。
 
 ## 1. 画像の添字とUVは異なる
 
@@ -249,28 +249,35 @@ $$
 $\rho=\max(\rho_x,\rho_y)\ge\rho_x\ge2$。$\log_2$ は正数上で単調増加なので $\ell=\log_2\rho\ge1$。$\square$
 <!-- proof-end -->
 
-実際のWebGL2はフラグメント内のUVの変化率などからレベルを選び、内部精度にも制約があります。右画面の128という予測は、上の簡易縮小式と[交互チェッカーのミップ平均値](#prop-wgl7-checker-average)に基づく独立CPU基準です。実測では小さな丸め差を許します。
+実際のWebGL2はフラグメント内のUVの変化率などからレベルを選び、内部精度にも制約があります。平面検算での右画面の128という予測は、上の簡易縮小式と[交互チェッカーのミップ平均値](#prop-wgl7-checker-average)に基づく独立CPU基準です。実測では小さな丸め差を許します。
 
 ## 6. JS・GLSLを編集してGPUとCPUを比較する
 
-画像は外部から取得せず、JavaScriptで Uint8Array の8×8チェッカーを生成してRGBA8形式でGPUへ送ります。2つの三角形で各viewport全面へUVを貼り、同じ模様を128回繰り返します。左はミップマップなしの NEAREST、右は LINEAR_MIPMAP_LINEAR。左の画素は32か224になり、右は平均した128になるはずです。**同じUVでも、読む規則が違えば画素が違う**ことが核心です。
+同じタイル模様を貼った2枚の床を、手前から奥へ見通します。左右で変えるのはフィルタだけです。手前では一つ一つのテクセルが見え、奥へ進むほど1画素が多くのテクセルを覆います。最初は左がNEAREST、右がLINEAR_MIPMAP_LINEARです。
 
-**静止画では見えないちらつきを比較する。** ラボを実行すると、最初に左右の同じ8×8画像と元のUVでCPU予測・GPU画素を照合する。その後、**自分で編集した同一のJS・GLSL**で左右のUVを同じ量だけ連続平行移動する。左は最近傍読出し、右はミップマップ読出しを保つ。縮小倍率が大きいと、左の標本色が大きく変わっても右の平均色は変わりにくいことを観察する。キャンバスにフォーカスしSpace/Enterで停止・再生でき、動きを減らす設定では自動開始しない。画面に表示するUV値は**見た目を動かす座標**で、最初のCPU/GPU検算表の固定UVとは異なる。移動させているのは画像の座標であり、カメラや物体を物理的に移動させた結果ではない。
+<iframe src="simulation/wgl-lab.html?lesson=WGL7" title="WGL7 奥行きのある床でテクスチャフィルタを比較するWebGL2ラボ" loading="lazy" style="width:100%;height:980px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
 
-<iframe src="simulation/wgl-lab.html?lesson=WGL7" title="WGL7 テクスチャの最近傍・線形・ミップマップを編集するWebGL2ラボ" loading="lazy" style="width:100%;height:980px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
+**観察1：遠くの床。** 左右の手前のタイルが同じ模様であることを確かめます。次に奥に注目し、「模様を移動」を押します。NEARESTでは偽の縞が動き、LINEARでは近傍4点を混ぜても遠方の細かな模様が残りやすくなります。ミップマップを使うと、遠方の平均色へ徐々に近づきます。左右のフィルタを同じ設定にすれば同じ描画になります。キャンバスにフォーカスした状態ではSpace/Enterでも移動を開始・停止できます。
 
-実験は次の順に進めます。
+**観察2：拡大と境界。** 場面を「拡大・UV境界」へ切り替え、左をNEAREST、右をLINEARにします。テクセルの四角い境界と、その間の中間色を比較します。REPEAT、CLAMP_TO_EDGE、MIRRORED_REPEATを切り替えると、画像の端を越えた場所の色が変わります。
 
-1. 初期コードで実行し、左右4か所ずつのCPU予測とGPU readPixelsのRGBAを照合します。色に加えて数表の数値を読みます。
-2. sampling.js の repeats を128から1へ変え、縮小から拡大へ移ります。MIN_FILTERとMAG_FILTERが使われる条件を区別してください。
-3. leftMinFilter と rightMinFilter を変更し、最近傍・線形・ミップマップを比較します。線形にしただけで縮小エイリアシングが全部消えるとは限りません。
-4. wrapMode を repeat・clamp・mirror と切り替え、UV境界を観察します。
-5. textureKind を data へ変えると、4×4格子の各テクセルへ $R=255i/3,\ G=255j/3$ を量子化したRGBA8データを格納します。模様として滑らかに見る用途と、格子のID・数値を正確に読む用途を区別します。
-6. sampling.vert のUV出力、sampling.frag の texture 関数や演算を変更し、構文エラープリセットから復帰します。エラー時はstageとdriver logを読んで修正します。
+**観察3：編集する。** 画面の操作は、編集したJSが実行時に同じWebGLテクスチャ・uniform・フィルタ設定へ渡します。初期値を変えたい場合はソースを編集して再実行します。
 
-初期値は320×240画素、黒背景、ブレンド・ディザー・深度テストなしです。画像の行は下から上、読出し画素の原点も左下とします。CPU基準はGPUからコピーせず、**画素中心→viewport内UV→反復とラップ→テクセルまたはミップ平均→RGBA8**を独立計算します。GPUの陰的レベル選択・内部丸め・補間精度の違いを考慮してRGB・A各成分に±3の許容差を設けます。編集後は初期ソース専用の基準表は正誤判定ではありません。
+| 操作 | 初期値・範囲 | ソース |
+| --- | --- | --- |
+| 模様密度（無次元） | 128、画面操作1〜256（刻み1） | sampling.js の repeats → sampling.frag の u_repeats |
+| 左右の縮小フィルタ | NEAREST / LINEAR_MIPMAP_LINEAR、6方式 | sampling.js の leftMinFilter / rightMinFilter |
+| ラップ | REPEAT、ほか2方式 | sampling.js の wrapMode |
+| 場面 | 床 / 拡大・UV境界 | sampling.js の geometry |
+| UV移動 | 停止、再生時0.22 UV/秒 | sampling.js の frame / u_offset |
 
-WebGL2コンテキスト、shaderコンパイル、リンク、GLエラーとreadPixelsを検査します。ユーザー編集JSは教材ページと異なる不透明originのsandbox iframeで動作し、停止時に破棄しますが、GPUハングまでは完全に防げません。WebGL2非対応時のCPU予測だけでGPUを検証済みとは扱いません。
+拡大フィルタは最近傍系ならNEAREST、線形系ならLINEARです。床の初期設定では横2回、奥行32回画像を反復します。頂点のクリップ座標の $w$ を手前1、奥6とし、[WGL6の透視補正補間](../WGL6/index.md#def-wgl6-perspective-interpolation)によって奥に向かうUV変化を大きくします。拡大場面は $w=1$ で、初期密度ではUVが -0.25 から1.25 まで変化します。描画バッファの初期値は800×400画素で、入力画像の8×8テクセルとは別です。
+
+sampling.js の textureKind を data に変えると4×4のRGBA8データ格子を同じ床と拡大場面で観察できます。sampling.frag の texture 関数を編集して、値が画面にどう現れるかも試してください。
+
+数値詳細のCPU/GPU検算では、観察画面を表示する前に同じテクスチャとシェーダで平面を描き、初期条件の8画素を比較します。平面検算は次の手計算に対応し、床の透視投影とは区別します。
+
+参考デモ：[WebGL2 Fundamentals — Textures](https://webgl2fundamentals.org/webgl/lessons/webgl-3d-textures.html)、[three.js — Texture Filtering](https://threejs.org/examples/webgl_materials_texture_filters.html)。
 
 ### 画素を1点だけ手計算する
 
