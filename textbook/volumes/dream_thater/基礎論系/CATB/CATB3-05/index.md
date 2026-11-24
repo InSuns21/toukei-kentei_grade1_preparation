@@ -70,7 +70,7 @@ $$
 
 ### 余極限の存在との違い
 
-小さい余極限を全て持つことを余完備という。これは生成条件とは別の条件である。
+小さい余極限を全て持つことを余完備という。これは第2条件（集合個の表示対象からの生成）とは別の条件である。
 
 <a id="def-catb3-05-locally-presentable"></a>
 
@@ -100,7 +100,7 @@ $$
 \operatorname{colim}_i F(D_i)\longrightarrow F(X)
 $$
 
-が定まる。この射が同型になることが余極限の保存である。
+が定まる。[余極限の保存](../../CAT/CAT2-11/index.md#def-cat2-11-preserve-colimit)は、[比較射による保存判定](../../CAT/CAT2-11/index.md#prop-cat2-11-comparison)により、この射が同型になることと同値である。
 
 <a id="def-catb3-05-accessible-functor"></a>
 
