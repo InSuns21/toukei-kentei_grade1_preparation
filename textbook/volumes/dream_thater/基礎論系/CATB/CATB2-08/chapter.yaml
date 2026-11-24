@@ -1,0 +1,26 @@
+id: "CATB2-08"
+title: "双圏と弱い結合律"
+volume: "foundations"
+status: supplementary
+prerequisites: [CATB2-07, CAT1-08, CAT2-03, CAT2-06, CAT4-01]
+official_scope: []
+learning_objectives:
+  - 1-射と2-射の型および二種類の合成を区別できる
+  - 結合子と単位子の自然性および五角形と三角形を説明できる
+  - Catの厳密2-圏の公理を確認できる
+  - Spanの合成と整合条件を具体的に検証できる
+  - 一対象双圏とモノイダル圏の対応を説明できる
+definitions:
+  - { id: CATB2-08-DEF-01, name: "双圏" }
+  - { id: CATB2-08-DEF-02, name: "厳密2-圏" }
+  - { id: CATB2-08-DEF-03, name: "スパンの射" }
+theorems:
+  - { id: CATB2-08-THM-01, name: "小圏の厳密2-圏 Cat" }
+  - { id: CATB2-08-THM-02, name: "集合のスパンの双圏 Span" }
+  - { id: CATB2-08-PROP-01, name: "一対象双圏とモノイダル圏" }
+canonical_examples: [非負整数の離散圏, Cat, 集合のスパン, 可逆だが整合しない比較]
+problem_patterns: [CATB2-08-A01, CATB2-08-A02, CATB2-08-A03, CATB2-08-A04, CATB2-08-B01, CATB2-08-B02, CATB2-08-B03, CATB2-08-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }

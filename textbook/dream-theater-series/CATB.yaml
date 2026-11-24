@@ -20,7 +20,7 @@ chapters:
   - { id: CATB2-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-05, status: completed, title: "重み付き極限と余極限" }
   - { id: CATB2-06, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-06, status: completed, title: "豊穣随伴と豊穣Kan拡張" }
   - { id: CATB2-07, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-07, status: completed, title: "分配子とcoendによる合成" }
-  - { id: CATB2-08, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-08, status: planned, title: "双圏と弱い結合律" }
+  - { id: CATB2-08, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-08, status: completed, title: "双圏と弱い結合律" }
   - { id: CATB2-09, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-09, status: planned, title: "Profの双圏" }
   - { id: CATB2-10, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-10, status: planned, title: "冪等分裂とCauchy完備化" }
   - { id: CATB3-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-01, status: planned, title: "フィルター圏とフィルター余極限" }
