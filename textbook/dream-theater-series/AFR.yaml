@@ -40,7 +40,7 @@ chapters:
     title: "アデール・イデールの保型的利用"
   - id: AFR9
     path: textbook/volumes/dream_thater/代数系/AFR/AFR9
-    status: planned
+    status: completed
     title: "アデール上のFourier解析"
   - id: AFR10
     path: textbook/volumes/dream_thater/代数系/AFR/AFR10

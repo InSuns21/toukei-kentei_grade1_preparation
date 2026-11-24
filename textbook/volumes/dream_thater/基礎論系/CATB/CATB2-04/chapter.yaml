@@ -1,0 +1,44 @@
+id: "CATB2-04"
+title: "豊穣Yonedaの補題"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CATB2-03
+  - CAT4-05
+  - CAT2-04
+  - CAT1-11
+  - CAT1-12
+official_scope: []
+learning_objectives:
+  - 内部Homの評価から基底の自己豊穣化と表現可能関手を構成できる
+  - パラメータ付き自然性の型を確認し積と等化子によるHom対象を構成できる
+  - 豊穣Yoneda同型と逆射を作用の法則から証明できる
+  - 二変数の自然性と共変・反変の向きを区別できる
+  - 集合・線形空間・距離におけるHom対象を具体的に計算できる
+definitions:
+  - { id: CATB2-04-DEF-01, name: "豊穣表現可能関手" }
+  - { id: CATB2-04-DEF-02, name: "豊穣自然変換のパラメータ付き族" }
+  - { id: CATB2-04-DEF-03, name: "豊穣自然変換のHom対象" }
+theorems:
+  - { id: CATB2-04-THM-01, name: "閉モノイダル圏の自己豊穣化" }
+  - { id: CATB2-04-PROP-01, name: "表現可能関手の関手律" }
+  - { id: CATB2-04-PROP-02, name: "自然変換のHom対象の普遍性" }
+  - { id: CATB2-04-THM-02, name: "豊穣Yonedaの補題" }
+  - { id: CATB2-04-PROP-03, name: "豊穣Yoneda同型の自然性" }
+canonical_examples:
+  - 二対象の集合値表現可能関手
+  - 自然な族の等化子
+  - 非対称な距離でのYoneda同型
+problem_patterns:
+  - CATB2-04-A01
+  - CATB2-04-A02
+  - CATB2-04-A03
+  - CATB2-04-A04
+  - CATB2-04-B01
+  - CATB2-04-B02
+  - CATB2-04-B03
+  - CATB2-04-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }
