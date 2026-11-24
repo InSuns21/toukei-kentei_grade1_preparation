@@ -349,7 +349,7 @@ $$
 (1-c^k)C_k-(1-c^l)C_l\in p^r\mathbb Z_p.
 $$
 
-$c$ 自身にもEulerの定理を適用して $c^k\equiv c^l\pmod{p^r}$。したがって
+$c$ 自身にも [Eulerの定理](../../NT/NT2/index.md#thm-nt2-euler) を適用して $c^k\equiv c^l\pmod{p^r}$。したがって
 
 $$
 (1-c^k)(C_k-C_l)
