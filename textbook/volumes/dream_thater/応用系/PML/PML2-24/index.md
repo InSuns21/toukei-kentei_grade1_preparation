@@ -22,7 +22,27 @@ $$
 
 観測履歴を $Y_k=(y_1,\ldots,y_k)$ と書く。$Y_0$ は観測なしを表す。予測した分布 $x_k\mid Y_{k-1}$ と、更新後の分布 $x_k\mid Y_k$ を明確に区別する。
 
-**TSA6の記法との対応。** [TSA6の予測分布とフィルタ分布](../../../解析系/TSA/TSA6/index.md#def-tsa6-prediction-filtering)は、時刻 $t$ の単時刻観測を $Y_t$、時刻 $t$ までの観測が生成する情報を $\mathcal Y_t$ と表す。本講では単時刻観測を小文字 $y_k$、履歴全体を大文字 $Y_k$ と書くため、$k=t$ と対応させれば、本講の $x_k\mid Y_{k-1}$、$x_k\mid Y_k$ はそれぞれ TSA6 の $X_t\mid\mathcal Y_{t-1}$、$X_t\mid\mathcal Y_t$ に相当する。また、TSA6 の予測平均・共分散 $(a_t,P_t)$ とフィルタ平均・共分散 $(m_t,C_t)$ を、本講では順に $(m_k^-,P_k^-)$ と $(m_k^+,P_k^+)$ と書く。上付きの $-$ と $+$ はそれぞれ**その時刻の観測前・観測後**を示し、負号・正号や微分を意味しない。
+**TSA6の記法との対応。** [TSA6の予測分布とフィルタ分布](../../../解析系/TSA/TSA6/index.md#def-tsa6-prediction-filtering)では、時刻 $t$ の単時刻観測を $Y_t$、その時刻までの観測が生成する情報を $\mathcal Y_t$ と表す。
+
+本講では単時刻観測を小文字 $y_k$、履歴全体を大文字 $Y_k$ と書く。時刻を $k=t$ と対応させると、条件付き分布の記法は次のように対応する（矢印は記法の対応を表す）。
+
+$$
+\begin{aligned}
+X_t\mid\mathcal Y_{t-1}&\longleftrightarrow x_k\mid Y_{k-1},\\
+X_t\mid\mathcal Y_t&\longleftrightarrow x_k\mid Y_k.
+\end{aligned}
+$$
+
+TSA6 の予測平均・共分散とフィルタ平均・共分散についても、それぞれ次のように対応する。
+
+$$
+\begin{aligned}
+(a_t,P_t)&\longleftrightarrow(m_k^-,P_k^-),\\
+(m_t,C_t)&\longleftrightarrow(m_k^+,P_k^+).
+\end{aligned}
+$$
+
+上付きの $-$ と $+$ はそれぞれ**その時刻の観測前・観測後**を示し、負号・正号や微分を意味しない。
 
 <a id="def-pml2-24-filtering"></a>
 
