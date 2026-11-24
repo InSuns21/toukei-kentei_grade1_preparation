@@ -1,0 +1,22 @@
+id: FCG20
+title: "地形上の浸水を誤解なく可視化できるか"
+volume: foundations
+status: supplementary
+prerequisites: [FCG12, FCG19, WGL20]
+official_scope: []
+learning_objectives:
+  - "地盤標高、水面標高、水深、局所メートル座標を区別できる"
+  - "静水圧再構成を用いた浅水流束の水量保存、非負水深、静水保持を説明できる"
+  - "合成DEM上の流れを実数値更新し、平面図と断面で水深・流速を比較できる"
+  - "計算格子、色の飽和、縦誇張、浸水判定閾値を区別し、格子間の診断を比較できる"
+definitions:
+  - { id: FCG20-DEF-01, name: "静水圧再構成" }
+theorems:
+  - { id: FCG20-PROP-01, name: "静水圧再構成による水量保存と非負水深" }
+  - { id: FCG20-PROP-02, name: "静水圧再構成による湖面静止の保持" }
+canonical_examples: ["段差の両側の静水", "乾いた尾根", "48 m四方の合成DEM"]
+problem_patterns: [FCG20-DATUM, FCG20-HYDROSTATIC, FCG20-MASS, FCG20-MAP]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }

@@ -119,6 +119,14 @@ const descriptions = Object.freeze({
     mode: '初期設定はpicMix=0、flipMix=1。格子と粒子の位置を物理stepごとに更新し、右列は24×24節点値の最近傍表示。時刻は開始時の検算時刻',
     source: 'particle.js（N, count, dt, damp, force, picMix, flipMix, transfer）/ particle.frag（u_pic, u_flip, u_speed）'
   }),
+  FCG20: Object.freeze({
+    requiresSteps:false,
+    grid:'48×48 m、24/48/72セル/辺。表示画素と独立',
+    color:'左上 地形＋水、右上 水深0–2 m、左下 流速0–3 m/s、右下 中央断面（縦12倍）',
+    clock:()=> '物理時刻0–4 s、0.05 sの更新区間をCFLで分割',
+    mode:'初期追加水深0で静水、正値で浸水。水量収支と浸水面積を表示',
+    source:'inundation.js（N,pulse,ridge） / inundation.frag（地形・水深・流速・断面）'
+  }),
   FCG19: Object.freeze({
     requiresSteps:false,
     grid:'FCG5/14：48×48、FCG12：40×40。表示用FBOは描画倍率で変更',
