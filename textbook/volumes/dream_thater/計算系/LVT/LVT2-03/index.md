@@ -372,13 +372,14 @@ example (n : Nat) : 0 + ((0 + n) + 0) = n := by
 <!-- solution-start -->
 #### 詳細解答
 
-f の定義を両辺で展開すると 0 = 0 になり、rfl で成立する。一方 1 = 2 の証明 h が存在すれば、自然数の異なる構成子を同一視することになる。cases h は成立する枝がないため False を導く。したがって [Leanの関数適用に関する等式の合同性](#prop-lvt2-03-congr) の逆はこの例で偽である。
+f の定義を両辺で展開すると 0 = 0 になり、rfl で成立する。一方 1 = 2 の証明 h が存在すれば、1 は Nat.succ 0、2 は Nat.succ 1 なので、後者を作る Nat.succ の引数が等しくなければならない。Lean が帰納型の構成子に対して生成する Nat.succ.inj に h を渡すと h0 : 0 = 1 を得る。0 は Nat.zero、1 は Nat.succ 0 で構成子が異なるため、この等式の cases h0 に成立する枝はなく False が導かれる。したがって [Leanの関数適用に関する等式の合同性](#prop-lvt2-03-congr) の逆はこの例で偽である。
 
 ```lean
 example : (fun _ : Nat => 0) 1 = (fun _ : Nat => 0) 2 := rfl
 example : ¬ ((1 : Nat) = 2) := by
   intro h
-  cases h
+  have h0 : (0 : Nat) = 1 := Nat.succ.inj h
+  cases h0
 ```
 <!-- solution-end -->
 

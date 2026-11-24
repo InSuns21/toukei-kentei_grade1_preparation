@@ -33,7 +33,8 @@ example (n : Nat) : 0 + ((0 + n) + 0) = n := by
 example : (fun _ : Nat => 0) 1 = (fun _ : Nat => 0) 2 := rfl
 example : ¬ ((1 : Nat) = 2) := by
   intro h
-  cases h
+  have h0 : (0 : Nat) = 1 := Nat.succ.inj h
+  cases h0
 
 -- LVT2-03-C01
 example (f : Nat → Nat) (n : Nat) :
