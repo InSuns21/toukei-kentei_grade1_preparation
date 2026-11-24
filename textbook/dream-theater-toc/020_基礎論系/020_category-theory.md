@@ -46,3 +46,4 @@
 43. [CATB1-03 加法圏と双積](textbook/volumes/dream_thater/基礎論系/CATB/CATB1-03/index.md)
 44. [CATB1-04 核・余核とアーベル圏](textbook/volumes/dream_thater/基礎論系/CATB/CATB1-04/index.md)
 45. [CATB1-05 像・余像・完全列](textbook/volumes/dream_thater/基礎論系/CATB/CATB1-05/index.md)
+46. [CATB1-06 Snakeの補題と図式追跡](textbook/volumes/dream_thater/基礎論系/CATB/CATB1-06/index.md)
