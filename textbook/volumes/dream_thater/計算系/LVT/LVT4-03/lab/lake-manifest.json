@@ -1,0 +1,21 @@
+{
+  "version": "1.3.0",
+  "fixedToolchain": false,
+  "name": "lvtPlausible",
+  "lakeDir": ".lake",
+  "packagesDir": ".lake/packages",
+  "packages": [
+    {
+      "url": "https://github.com/leanprover-community/plausible.git",
+      "type": "git",
+      "subDir": null,
+      "scope": "",
+      "rev": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "name": "plausible",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "inherited": false,
+      "configFile": "lakefile.toml"
+    }
+  ]
+}

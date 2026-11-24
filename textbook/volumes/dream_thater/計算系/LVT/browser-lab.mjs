@@ -144,7 +144,13 @@ export const lessons = {
     ['Main.lean','乱数で入力を生成','20件の入力と反例一覧を表示。反例が空でも正常。','\n#eval main ["--random"]\n'],
     ['ExerciseSolutions.lean','演習解答の検査','全8題の命題を検査。'],
     ['Failure.lean','意図した反例検出','開始値0の6件に9が含まれるためguardが失敗する。']
-  ], commands:'lake build\nlake test\nlake env lean Inspect.lean\nlake env lean ExerciseSolutions.lean\nlake exe lvtPbtDemo --random\nlake env lean Failure.lean\nlake exe lvtPbtDemo --fail' }
+  ], commands:'lake build\nlake test\nlake env lean Inspect.lean\nlake env lean ExerciseSolutions.lean\nlake exe lvtPbtDemo --random\nlake env lean Failure.lean\nlake exe lvtPbtDemo --fail' },
+  'LVT4-03': { module:'LvtCounterexample', modes:[
+    ['Inspect.lean','反例を再現して証明を検査','true, true, true, false と命題の型・公理依存を確認。'],
+    ['Main.lean','境界の再現テスト','LVT4-03 OK を表示。','\n#eval main\n'],
+    ['ExerciseSolutions.lean','演習解答の検査','全8題の命題を検査。'],
+    ['Failure.lean','意図したguardの失敗','8は反例ではないためguardが失敗する。']
+  ], commands:'lake build\nlake build Plausible\nlake test\nlake env lean Inspect.lean\nlake env lean ExerciseSolutions.lean\nlake env lean SearchPass.lean\n# 以下は意図した失敗を個別に実行\nlake env lean Failure.lean\nlake env lean SearchFail.lean\nlake env lean SearchShrink.lean' }
 };
 export function combine(module, definitions, experiment, suffix='') {
   // Only the exact local module import is replaced by its source.

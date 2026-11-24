@@ -1,0 +1,15 @@
+chapter: LVT4-03
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT4-02]
+concepts:
+  - id: lean-verification.counterexample-shrink-chain
+    name: 反例縮小列
+    kind: definition
+    introduction: formal
+    requires: [lean-verification.property-based-testing]
+  - id: lean-verification.counterexample-shrink-bound
+    name: 反例縮小列の長さの上界
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.counterexample-shrink-chain]
