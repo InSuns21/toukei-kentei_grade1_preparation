@@ -1,0 +1,45 @@
+id: "IWA17"
+title: "主予想の証明戦略とEuler systems"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IWA16
+  - IWA12
+official_scope: []
+learning_objectives:
+  - 補助素数方向の円分Euler系のノルムと合同を証明する
+  - Kolyvagin微分作用素の恒等式と冪剰余類の不変性を導く
+  - 冪剰余類の降下と類群の逐次関係による位数上界を説明する
+  - Euler系の整除と完全列による特徴イデアルの比較を区別する
+  - 全成分の指数比較から等式を回収しμ消失の役割を区別する
+definitions:
+  - { id: IWA17-DEF-01, name: "円分単数のEuler系" }
+  - { id: IWA17-DEF-02, name: "Kolyvagin微分作用素" }
+theorems:
+  - { id: IWA17-THM-01, name: "円分Euler系のノルムと合同" }
+  - { id: IWA17-LEM-01, name: "微分作用素とノルム元の恒等式" }
+  - { id: IWA17-THM-02, name: "微分後の冪剰余類の不変性" }
+  - { id: IWA17-PROP-01, name: "冪剰余類の降下" }
+  - { id: IWA17-PROP-02, name: "逐次関係による位数上界" }
+  - { id: IWA17-THM-03, name: "円分単数比較とEuler系による整除：外部定理" }
+  - { id: IWA17-PROP-03, name: "完全列による特徴イデアルの比較" }
+  - { id: IWA17-LEM-02, name: "整除と全成分の指数比較" }
+canonical_examples:
+  - m=3での補助素数7のノルムと合同
+  - 位数4の巡回群の微分作用素
+  - 類群の逐次関係と位数上界
+  - 全成分の特徴イデアルの比較
+problem_patterns:
+  - IWA17-NORM
+  - IWA17-DERIVATIVE
+  - IWA17-AUXILIARY
+  - IWA17-DIVISIBILITY
+  - IWA17-INVARIANCE
+  - IWA17-CLASS-BOUND
+  - IWA17-EXACT
+  - IWA17-MU
+  - IWA17-BALANCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 2 }
