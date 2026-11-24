@@ -4,14 +4,16 @@
 const textureKind = 'checker'; // 'checker' or 'data'
 const repeats = 128;           // observation density: 128 = 2 repeats across the floor
 const wrapMode = 'repeat';      // 'repeat', 'clamp', or 'mirror'
-const leftMinFilter = 'nearest'; // 'nearest' or 'linear'
-const rightMinFilter = 'mipmap'; // 'mipmap', 'nearest', or 'linear'
+// Choose nearest, linear, nearest-mip-nearest, linear-mip-nearest,
+// nearest-mip-linear or mipmap (LINEAR_MIPMAP_LINEAR) for either side.
+const leftMinFilter = 'nearest';
+const rightMinFilter = 'mipmap';
 const offset = [0.017125, 0.0365]; // non-boundary probe coordinates
 if (!['checker','data'].includes(textureKind) ||
     !['repeat','clamp','mirror'].includes(wrapMode) ||
     !['nearest','linear','mipmap','nearest-mip-nearest','linear-mip-nearest','nearest-mip-linear'].includes(leftMinFilter) ||
     !['nearest','linear','mipmap','nearest-mip-nearest','linear-mip-nearest','nearest-mip-linear'].includes(rightMinFilter) ||
-    !(Number.isFinite(repeats) && repeats > 0 && repeats <= 256)) {
+    !(Number.isInteger(repeats) && repeats >= 1 && repeats <= 256)) {
   throw new RangeError('invalid texture experiment settings');
 }
 const size = textureKind === 'checker' ? 8 : 4;
@@ -114,6 +116,12 @@ report('UPLOAD', 'RGBA8/UNSIGNED_BYTE, UNPACK_ALIGNMENT=1; mipmap generated loca
 // The host calls this only AFTER collecting the flat numerical probes.
 // Both views continue to use this exact program, texture and UV uniforms.
 function showObservation() {
+  const filterEnums = {
+    nearest:'NEAREST', linear:'LINEAR',
+    'nearest-mip-nearest':'NEAREST_MIPMAP_NEAREST',
+    'linear-mip-nearest':'LINEAR_MIPMAP_NEAREST',
+    'nearest-mip-linear':'NEAREST_MIPMAP_LINEAR', mipmap:'LINEAR_MIPMAP_LINEAR'
+  };
   const names = {
     nearest:'最近傍', linear:'線形',
     'nearest-mip-nearest':'最近傍・ミップ1段',
@@ -138,7 +146,9 @@ function showObservation() {
     const el=document.createElement('select');
     el.style.cssText='max-width:100%;min-width:0;font:inherit';
     for(const [key,title] of Object.entries(options)){
-      const o=document.createElement('option');o.value=key;o.textContent=title;el.append(o);
+      const o=document.createElement('option');o.value=key;o.textContent=title;
+      if(options===names)o.title=filterEnums[key];
+      el.append(o);
     }
     el.value=value;el.setAttribute('aria-label',label);el.addEventListener('change',()=>{change(el.value);render();});
     l.append(el);parent.append(l);
@@ -180,7 +190,7 @@ function showObservation() {
     const near=mode==='floor' ? .94 : .82;
     const far=mode==='floor' ? near/6 : near;
     const bottom=mode==='floor' ? -.94 : -.82;
-    const topY=mode==='floor' ? .82 : .82;
+    const topY=.82;
     const w=mode==='floor' ? 6 : 1;
     const u0=mode==='floor' ? 0 : -.25/128;
     const u1=mode==='floor' ? 2/128 : 1.25/128;
@@ -213,6 +223,8 @@ function showObservation() {
     }
     densityText.textContent='模様密度 '+density+'（無次元）';
     status.textContent='UV移動 '+shift.toFixed(2);
+    labels.querySelectorAll('select')[0].title=filterEnums[left];
+    labels.querySelectorAll('select')[1].title=filterEnums[right];
     legend.textContent=mode==='floor'
       ? '手前のタイルと奥の偽の縞を比較。横 '+(density/64).toFixed(2)+' 回、奥行 '+(density/4).toFixed(2)+' 回の反復。'
       : '同じ画像を拡大し、テクセルの角・中間色・UV境界のつながりを比較。';
@@ -221,7 +233,10 @@ function showObservation() {
   }
   function frame(time){
     if(!playing||lost)return;
-    if(last!==null)shift=(shift+Math.min(.05,(time-last)/1000)*.22)%2;
+    if(last!==null){
+      const next=shift+Math.min(.05,(time-last)/1000)*.22;
+      shift=wrap==='clamp'?Math.min(2,next):next%2;
+    }
     last=time;render();raf=requestAnimationFrame(frame);
   }
   function stopMotion(){playing=false;last=null;cancelAnimationFrame(raf);render();}
