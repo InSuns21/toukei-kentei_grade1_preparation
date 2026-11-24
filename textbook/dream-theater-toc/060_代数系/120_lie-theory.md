@@ -23,3 +23,4 @@
 20. [LREP16 Diracスピノルとchirality](textbook/volumes/dream_thater/代数系/LREP/LREP16/index.md)
 21. [LREP17 Dirac双線形量](textbook/volumes/dream_thater/代数系/LREP/LREP17/index.md)
 22. [LREP18 電荷共役とMajorana条件](textbook/volumes/dream_thater/代数系/LREP/LREP18/index.md)
+23. [LREP19 Dirac方程式の共変性](textbook/volumes/dream_thater/代数系/LREP/LREP19/index.md)
