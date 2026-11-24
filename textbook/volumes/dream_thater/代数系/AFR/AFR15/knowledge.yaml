@@ -31,6 +31,7 @@ concepts:
     requires: [automorphic-forms.level-double-cosets, automorphic-forms.local-conductor-newvector, automorphic-forms.padic-principal-series, automorphic-forms.principal-spherical-invariants]
   - id: automorphic-forms.local-whittaker-model
     name: "Whittaker汎関数と模型"
+    introduction_aliases: ["Whittaker汎関数", "Whittaker模型"]
     kind: definition
     introduction: formal
     requires: [automorphic-forms.padic-smooth]
