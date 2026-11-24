@@ -273,7 +273,9 @@ $$
 =d^{-1}\psi_f(by_f)1_{d^{-1}\widehat{\mathbb Z}}(y_f).
 $$
 
-実際、$b$ は有理数で $d=\prod_p p^{k_p}$、ほとんどすべての素数で $b$ は整かつ $k_p=0$ です。固定した $y_f$ の非整成分も有限個であり、それらをすべて例外集合へ入れると残りの局所積分は $1$ です。有限個の局所積分の積に [球指示関数の変換](#thm-afr9-ball-transform)を代入すると係数は $d^{-1}$、条件は各 $p$ で $y_p\in p^{-k_p}\mathbb Z_p$ となります。
+実際、$b$ は有理数で $d=\prod_p p^{k_p}$、ほとんどすべての素数で $b$ は整かつ $k_p=0$ です。固定した $y_f$ の非整成分も有限個であり、それらをすべて例外集合へ入れると残りの局所積分は $1$ です。
+
+有限個の局所積分の積に [球指示関数の変換](#thm-afr9-ball-transform)を代入すると係数は $d^{-1}$、条件は各 $p$ で $y_p\in p^{-k_p}\mathbb Z_p$ となります。
 
 <a id="thm-afr9-inversion"></a>
 
@@ -350,9 +352,40 @@ $t=-x$ を代入すると二重変換は $g(-x)$ です。
 
 ## 5. 有限アデールの和と大域の Poisson 和
 
-有限側だけでも、コンパクトな部分群をより小さい開部分群で割ると有限個の周波数を使う和公式が得られます。正整数 $N$ に対し $N^{-1}\widehat{\mathbb Z}/N\widehat{\mathbb Z}$ を考えます。これは $j/N$（$0\le j<N^2$）で代表されます。実際、$x_f\in N^{-1}\widehat{\mathbb Z}$ なら $Nx_f$ は整であり、各素数で $N^2$ を法とする剰余を同時に満たす整数 $j$ を選べます。これは互いに素な素数冪ごとの合同条件を合わせる操作です。具体的に $M=N^2$、$m_p=p^{2v_p(N)}$、$M_p=M/m_p$ とすると $M_p$ は $m_p$ と互いに素なので、$M_p u_p\equiv1\pmod{m_p}$ となる整数 $u_p$ を選べます。剰余を $r_p$ とすれば $j=\sum_{p\mid N}r_p M_p u_p$ を $M$ で還元したものが必要な整数です。$N=1$ では $j=0$ です。二つの代表元の差が $N\widehat{\mathbb Z}$ に属することは、$(j-j')/N^2$ が全有限素点で整、すなわち整数であることと同値です。
+有限側だけでも、コンパクトな部分群をより小さい開部分群で割ると有限個の周波数を使う和公式が得られます。正整数 $N$ に対し、有限商
 
-$h$ が $N^{-1}\widehat{\mathbb Z}$ に台を持ち、$N\widehat{\mathbb Z}$ の各剰余類で一定であるとします。変換も同じ台を持ち同じ剰余類で一定です。これは [剰余類分解](#lem-afr9-finite-cosets)と球の変換の式で幅 $d=N$ を選ぶことで分かります。代表元 $k/N$ で変換を評価すると各剰余類の体積は $1/N$ であり、[大域加法指標の自明性](#prop-afr9-global-character)から
+$$
+N^{-1}\widehat{\mathbb Z}/N\widehat{\mathbb Z}
+$$
+
+を考えます。これは $j/N$（$0\le j<N^2$）で代表されます。
+
+実際、$x_f\in N^{-1}\widehat{\mathbb Z}$ なら $Nx_f$ は整であり、各素数で $N^2$ を法とする剰余を同時に満たす整数 $j$ を選べます。互いに素な素数冪ごとの合同条件を合わせるため、
+
+$$
+M=N^2,\qquad m_p=p^{2v_p(N)},\qquad M_p=M/m_p
+$$
+
+と置きます。$p\mid N$ では $M_p$ と $m_p$ が互いに素なので、整数 $u_p$ を
+
+$$
+M_p u_p\equiv1\pmod{m_p}
+$$
+
+となるように選べます。剰余を $r_p$ とすれば、
+
+$$
+j\equiv\sum_{p\mid N}r_p M_p u_p\pmod M,\qquad
+0\le j<M
+$$
+
+と選ぶことで全合同条件を満たします。$N=1$ では $j=0$ です。
+
+二つの代表元の差が $N\widehat{\mathbb Z}$ に属することは、$(j-j')/N^2$ が全有限素点で整であること、すなわち整数であることと同値です。
+
+$h$ が $N^{-1}\widehat{\mathbb Z}$ に台を持ち、$N\widehat{\mathbb Z}$ の各剰余類で一定であるとします。$h$ は中心 $b=j/N$、幅 $d=N$ の剰余類の指示関数の線形結合です。[球指示関数の変換](#thm-afr9-ball-transform)の有限素点での積から、変換は $N^{-1}\widehat{\mathbb Z}$ に台を持ちます。
+
+周波数を $y_f$ から $y_f+Nz$（$z\in\widehat{\mathbb Z}$）に変えても、位相の追加因子は $\psi_f(jz)=1$ です。従って変換も同じ剰余類で一定になります。代表元 $k/N$ で変換を評価すると各剰余類の体積は $1/N$ であり、[大域加法指標の自明性](#prop-afr9-global-character)から
 
 $$
 \widehat h(k/N)=\frac1N\sum_{j=0}^{N^2-1}
@@ -435,7 +468,11 @@ g(u)e^{-2\pi ik(u-dn)/d}du\\
 \end{aligned}
 $$
 
-第3行では $e^{2\pi ikn}=1$ を使いました。[アデールFourier反転の証明](#thm-afr9-inversion)で得た $G$ の急減少性から $\sum_k|c_k|<\infty$ です。したがって Fourier 級数は一様絶対収束します。その和は $P$ に等しいことを確認します。[Fejér平均の一様近似定理](../../../解析系/FOU/FOU2/index.md#thm-fou2-fejer-uniform)を、$s=2\pi t/d$ と変数を変えた連続 $2\pi$ 周期関数の実部・虚部へ適用します。Fejér 平均は $P$ へ一様収束します。一方、一様収束する Fourier 部分和の平均は同じ Fourier 級数の和に収束します。よって
+第3行では $e^{2\pi ikn}=1$ を使いました。
+
+[アデールFourier反転の証明](#thm-afr9-inversion)で得た $G$ の急減少性から $\sum_k|c_k|<\infty$ です。したがって Fourier 級数は一様絶対収束します。その和は $P$ に等しいことを確認します。
+
+[Fejér平均の一様近似定理](../../../解析系/FOU/FOU2/index.md#thm-fou2-fejer-uniform)を、$s=2\pi t/d$ と変数を変えた連続 $2\pi$ 周期関数の実部・虚部へ適用します。Fejér 平均は $P$ へ一様収束します。一方、一様収束する Fourier 部分和の平均は同じ Fourier 級数の和に収束します。よって
 
 $$
 P(b)=\frac1d\sum_{k\in\mathbb Z}
