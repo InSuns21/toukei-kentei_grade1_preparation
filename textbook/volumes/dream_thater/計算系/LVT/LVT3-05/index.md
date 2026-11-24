@@ -72,7 +72,7 @@ advance s down = if 2 ≤ s   then some (s-2) else none
 
 ## 3. 保存を証明すれば回数を制限しなくてよい
 
-状態に対する命題 P : Nat → Prop を選びます。初期状態で真で、P が真の任意の状態から許された一回の遷移を行っても P が真のままであるなら、[到達証明の不変量原理](../LVT2-06/index.md#prop-lvt2-06-invariant) によって全到達状態で P が成り立ちます。以下でこの二条件を一つの命題にまとめます。この性質を帰納的不変量と呼び、`IsInductive r i P` と書きます。関係 r、初期状態 i、述語 P を固定して、保存条件では移動前後の s,t を任意に動かします。
+状態に対する命題 P : Nat → Prop を選びます。初期状態で真で、P が真の任意の状態から許された一回の遷移を行っても P が真のままであるなら、[到達証明の不変量原理](../LVT2-06/index.md#prop-lvt2-06-invariant) によって全到達状態で P が成り立ちます。以下でこの二条件を一つの命題にまとめます。関係 r、初期状態 i、述語 P を固定して、保存条件では移動前後の s,t を任意に動かします。
 
 <a id="def-lvt3-05-inductive"></a>
 
@@ -109,7 +109,7 @@ i : Nat、r : Nat → Nat → Prop、P : Nat → Prop に対し、IsInductive r 
 
 初期条件は Good 0 の第一の選言 0 = 0 で成立する。任意の s,t : Nat で Good s と Step s t を仮定する。[二単位カウンタの遷移関係](#def-lvt3-05-step) と[存在量化の導入・除去規則](../LVT2-02/index.md#def-lvt2-02-exists) から a : Action と advance s a = some t を得る。[選言の導入・除去規則](../LVT2-02/index.md#def-lvt2-02-or) により Good s を三場合に分け、さらに a を二場合に分ける。
 
-各枝では [二単位カウンタの実行規則](#def-lvt3-05-advance) を計算する。結果の等式を判定する根拠を先に確認しよう。[Option型](../LVT1-03/index.md#def-lvt1-03-option) の値を場合分けし、`some n` を n に、`none` を 0 に写す関数を f とする。[関数適用に関する等式の合同性](../LVT2-03/index.md#prop-lvt2-03-congr) より `some n = some t` なら `f (some n) = f (some t)`、すなわち n = t となる。拒否の枝には、`none` を 0 に、すべての `some n` を 1 に写す別の関数を使えば、`none = some t` から 0 = 1 という矛盾が得られる。これにより成功値の中身を取り出し、拒否枝を排除できる。
+各枝では [二単位カウンタの実行規則](#def-lvt3-05-advance) を計算する。結果の等式を判定する根拠を先に確認しよう。[Option型](../LVT1-03/index.md#def-lvt1-03-option) の値を場合分けし、`some n` を n に、`none` を 0 に写す関数 `f : Option Nat → Nat` を取る。[関数適用に関する等式の合同性](../LVT2-03/index.md#prop-lvt2-03-congr) より `some n = some t` なら `f (some n) = f (some t)`、すなわち n = t となる。拒否の枝には、`none` を 0 に、すべての `some n` を 1 に写す別の関数を使えば、`none = some t` から 0 = 1 という矛盾が得られる。これにより成功値の中身を取り出し、拒否枝を排除できる。
 
 - s = 0、a = up：advance 0 up = some 2。some 2 = some t の構成子の引数が等しいので t = 2、Good t の第二の選言が成立。
 - s = 0、a = down：advance 0 down = none。none = some t は異なる構成子の等式で矛盾。
@@ -155,7 +155,7 @@ preserve x y ih e : Good y
 
 よって h の構成に沿って Good s が成立する。移動回数を任意に固定する必要はない。
 
-逆方向では Good s の三つの選言を場合分けする。
+逆方向では Good s の三つの選言を場合分けする。辺の証明名 e02, e24 の二つの数字は、その辺の始点と終点を表す。
 
 - s = 0：ReachL.base が ReachL Step 0 0 の証明。
 - s = 2：advance 0 up = some 2 なので e02 : Step 0 2。ReachL.step ReachL.base e02 : ReachL Step 0 2。
