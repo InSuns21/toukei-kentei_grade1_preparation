@@ -244,7 +244,7 @@ $$
 $$
 <!-- formal-statement-end -->
 
-**証明の見取り図。** 時間指数から固有値を読み取り、Hermitian性と二乗の恒等式を使います。
+**証明の見取り図。** 時間指数から固有値を読み取ります。内積を左右から計算して直交性を示し、射影の積を展開します。
 
 <!-- proof-start -->
 ### 証明
@@ -479,7 +479,18 @@ $$
 $m=0$、$\boldsymbol p=(0,0,k)$、$k>0$ で $\psi=e_1 e^{-ikt+ikz}$ とする。電荷共役された解の係数・chirality・二通りの運動方向に対するhelicityを求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [電荷共役](../LREP18/index.md#def-lrep18-charge-conjugation) の行列 $B$ を掛けると、$-J(1,0)^{\mathsf T}=(0,1)^{\mathsf T}$ なので $Be_1=e_4$ です。指数は共役で $e^{ikt-ikz}$ となります。$P=k\sigma_3$ なので右成分は $P b=-kb$ を満たし、第5節の係数方程式を満たします。[chirality演算子](../LREP16/index.md#def-lrep16-chirality) は $e_4$ に固有値 $+1$ を与えます。[helicity演算子](../LREP16/index.md#def-lrep16-helicity) は $h_{\boldsymbol p}e_4=-e_4/2$、$h_{-\boldsymbol p}e_4=e_4/2$ です。後者が負周波数の空間Fourier波数に沿う演算子です。
+**詳細解答。** [電荷共役](../LREP18/index.md#def-lrep18-charge-conjugation) の行列 $B$ を掛けると、$-J(1,0)^{\mathsf T}=(0,1)^{\mathsf T}$ なので $Be_1=e_4$ です。
+
+指数は共役で $e^{ikt-ikz}$ となります。$P=k\sigma_3$ なので右成分は $Pb=-kb$ を満たし、第5節の係数方程式を満たします。
+
+[chirality演算子](../LREP16/index.md#def-lrep16-chirality) は $e_4$ に固有値 $+1$ を与えます。[helicity演算子](../LREP16/index.md#def-lrep16-helicity) を掛けると
+
+$$
+h_{\boldsymbol p}e_4=-e_4/2,\qquad
+h_{-\boldsymbol p}e_4=e_4/2.
+$$
+
+後者が負周波数の空間Fourier波数に沿う演算子です。
 <!-- solution-end -->
 
 ### Level C
@@ -490,10 +501,21 @@ $m=0$、$\boldsymbol p=(0,0,k)$、$k>0$ で $\psi=e_1 e^{-ikt+ikz}$ とする。
 - Level: C
 - ID: LREP20-C01
 
-$k>0$ を固定し、$\boldsymbol p=(0,0,k)$、$\chi_+=(1,0)^{\mathsf T}$、$\chi_-=(0,1)^{\mathsf T}$ とする。$m>0$ の第4節の $u_\tau,v_\tau$ から、(1) 各係数のchirality演算子の期待値 $w^\dagger\gamma^5w/(w^\dagger w)$、(2) $m\to0+$ の四列の極限、(3) スピン和の極限と核の次元を求め、正質量の完全性をそのまま使えない理由を述べよ。
+$k>0$ を固定し、次の運動量と二成分基底を取る。
+
+$$
+\boldsymbol p=(0,0,k),\qquad
+\chi_+=(1,0)^{\mathsf T},\quad\chi_-=(0,1)^{\mathsf T}.
+$$
+
+$m>0$ の第4節の $u_\tau,v_\tau$ に対して次を求めよ。
+
+1. 各係数 $w$ の規格化したchiralityの二次形式 $w^\dagger\gamma^5w/(w^\dagger w)$。
+2. $m\to0+$ の四列の極限。
+3. スピン和の極限と核の次元。正質量の完全性をそのまま使えない理由も述べよ。
 
 <!-- solution-start -->
-**詳細解答。** (1) 上下の長さの二乗は $E+\tau k,E-\tau k$ です。[chirality演算子](../LREP16/index.md#def-lrep16-chirality) は上を負、下を正とするので、両周波数の期待値は
+**詳細解答。** (1) 上下の長さの二乗は $E+\tau k,E-\tau k$ です。[chirality演算子](../LREP16/index.md#def-lrep16-chirality) は上を負、下を正とするので、両周波数の規格化した二次形式は
 
 $$
 \frac{-(E+\tau k)+(E-\tau k)}{2E}=-\frac{\tau k}{E}.
@@ -527,7 +549,17 @@ K_0=\begin{pmatrix}
 \end{pmatrix}.
 $$
 
-非零の列は第2、第3列で互いに独立なので階数は2、核は $e_1,e_4$ の張る空間です。これは [質量零モードのchiralityとhelicity](#thm-lrep20-massless-helicity) と一致します。$K_0^2=0$ であり、正質量では異なっていた $+m,-m$ の固有値が合流します。完全性の分子 $\sum_s(u_s\bar u_s-v_s\bar v_s)$ は $2mI_4$ なので零に収束し、$m=0$ を代入して割ることはできません。一方、固定Fourier波数での $T$ の固有値は $+k,-k$ のまま分離しているので、第4節のエネルギー射影は $m=0,k>0$ でも有効です。
+非零の列は第2、第3列で互いに独立なので階数は2、核は $e_1,e_4$ の張る空間です。これは [質量零モードのchiralityとhelicity](#thm-lrep20-massless-helicity) と一致します。
+
+$K_0^2=0$ であり、正質量では異なっていた $+m,-m$ の固有値が合流します。完全性の分子は
+
+$$
+\sum_s(u_s\bar u_s-v_s\bar v_s)=2mI_4
+$$
+
+なので零に収束し、$m=0$ を代入して割ることはできません。
+
+一方、固定Fourier波数での $T$ の固有値は $+k,-k$ のまま分離しているので、[エネルギー射影の式](#prop-lrep20-energy-projectors) は $m=0,k>0$ でも有効です。
 <!-- solution-end -->
 
 ## 7. まとめ
