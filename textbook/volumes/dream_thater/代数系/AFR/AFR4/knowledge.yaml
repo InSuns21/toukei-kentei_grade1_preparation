@@ -1,0 +1,60 @@
+chapter: AFR4
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR3, ODE2, ODE6, F0-00D2B, RA5]
+forward_references: []
+concepts:
+  - id: automorphic-forms.bessel-reduction
+    name: "非零周波数の係数方程式の変換"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（非零周波数の係数方程式の変換）"]
+    requires: [automorphic-forms.maass-fourier-equation]
+  - id: automorphic-forms.modified-bessel-k
+    name: "変形Bessel関数 K"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（変形Bessel関数 K）"]
+    requires: [automorphic-forms.bessel-reduction]
+  - id: automorphic-forms.bessel-k-equation
+    name: "Kの微分方程式"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kの微分方程式）"]
+    requires: [automorphic-forms.modified-bessel-k, automorphic-forms.bessel-reduction, measure.dominated-convergence-theorem]
+  - id: automorphic-forms.bessel-k-asymptotic
+    name: "Kの無限遠での漸近形"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kの無限遠での漸近形）"]
+    requires: [automorphic-forms.modified-bessel-k, automorphic-forms.bessel-k-equation, measure.dominated-convergence-theorem]
+  - id: automorphic-forms.bessel-decaying-branch
+    name: "多項式増大条件による解の選択"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（多項式増大条件による解の選択）"]
+    requires: [automorphic-forms.bessel-k-equation, automorphic-forms.bessel-k-asymptotic, ode.ode2-linear-ivp-wellposedness]
+  - id: automorphic-forms.maass-bessel-expansion
+    name: "Maass形式の非零周波数展開"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Maass形式の非零周波数展開）"]
+    requires: [automorphic-forms.weight-zero-maass, automorphic-forms.maass-fourier-equation, automorphic-forms.bessel-decaying-branch]
+  - id: automorphic-forms.cusp-exponential-decay
+    name: "定数項を除いたカスプでの指数減衰"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（定数項を除いたカスプでの指数減衰）"]
+    requires: [automorphic-forms.maass-bessel-expansion, automorphic-forms.bessel-k-asymptotic, automorphic-forms.energy-realization, automorphic-forms.energy-identity]
+  - id: automorphic-forms.real-whittaker-coefficient
+    name: "実群上のWhittaker係数"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（実群上のWhittaker係数）"]
+    requires: [automorphic-forms.real-group]
+  - id: automorphic-forms.whittaker-translation
+    name: "Whittaker係数の平行移動則と高さ表示"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Whittaker係数の平行移動則と高さ表示）"]
+    requires: [automorphic-forms.real-whittaker-coefficient, automorphic-forms.maass-bessel-expansion, automorphic-forms.lift, automorphic-forms.coordinates]
