@@ -1,0 +1,59 @@
+chapter: IWA17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - IWA16
+  - IWA12
+forward_references: []
+concepts:
+  - id: number-theory.iwa17-cyclotomic-euler-system
+    name: 円分単数のEuler系
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa10-norm-distribution, number-theory.iwa4-field-norm]
+  - id: number-theory.iwa17-euler-norm
+    name: 円分Euler系のノルムと合同
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa17-cyclotomic-euler-system, number-theory.iwa4-norm-transitivity]
+  - id: number-theory.iwa17-derivative
+    name: Kolyvagin微分作用素
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa17-cyclotomic-euler-system]
+  - id: number-theory.iwa17-derivative-identity
+    name: 微分作用素とノルム元の恒等式
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.iwa17-derivative]
+  - id: number-theory.iwa17-invariant-derivative
+    name: 微分後の冪剰余類の不変性
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa17-euler-norm, number-theory.iwa17-derivative-identity]
+  - id: number-theory.iwa17-descent
+    name: 冪剰余類の降下
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa17-invariant-derivative]
+  - id: number-theory.iwa17-class-bound
+    name: 逐次関係による位数上界
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa11-s-unit-exact]
+  - id: number-theory.iwa17-arithmetic-inputs
+    name: 円分単数比較とEuler系による整除
+    introduction_aliases: ["円分単数比較とEuler系による整除：外部定理"]
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa17-class-bound, number-theory.iwa17-descent, number-theory.iwa11-local-global-exact, number-theory.iwa6-characteristic, number-theory.iwa16-reflection-substitution]
+  - id: number-theory.iwa17-exact-comparison
+    name: 完全列による特徴イデアルの比較
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa6-exact-additivity]
+  - id: number-theory.iwa17-total-balance
+    name: 整除と全成分の指数比較
+    kind: lemma
+    introduction: formal
+    requires: [number-theory.iwa6-order-additivity]

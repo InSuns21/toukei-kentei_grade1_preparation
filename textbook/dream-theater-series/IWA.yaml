@@ -71,7 +71,7 @@ chapters:
     title: "円分岩澤主予想：正確な定式化"
   - id: IWA17
     path: textbook/volumes/dream_thater/代数系/IWA/IWA17
-    status: planned
+    status: completed
     title: "主予想の証明戦略とEuler systems"
   - id: IWA18
     path: textbook/volumes/dream_thater/代数系/IWA/IWA18
