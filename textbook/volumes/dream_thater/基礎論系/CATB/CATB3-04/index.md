@@ -28,7 +28,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb3-04-regular -->
-**定義の確認。** $\aleph_0$ について、$A$ は有限集合であり、各 $S_a$ も有限集合である。合併の元の個数は
+**定義の確認**。 $\aleph_0$ について、$A$ は有限集合であり、各 $S_a$ も有限集合である。合併の元の個数は
 
 $$
 \left|\bigcup_{a\in A} S_a\right|
@@ -77,7 +77,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb3-04-filtered -->
-**定義の確認。
+**定義の確認**。
 
 ** 集合 $X$ の高々可算な部分集合を対象とする包含順序圏を考える。
 
@@ -187,7 +187,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb3-04-presentable -->
-**定義の確認。
+**定義の確認**。
 
 ** $\lambda=\aleph_1$ として $P=\mathbb N$ を集合の圏の対象とする。
 
