@@ -43,7 +43,27 @@ R=
 \end{pmatrix}.
 $$
 
-列は各基底ベクトルの像なので $Rb=e_2=(0,0,1,0)$ です。$R^{\mathsf T}\eta R=\eta$、$\det R=1$、$Re_0=e_0$ であり、回転角を0から90度まで連続に動かせるので $R\in L$ です。従って両方の組は [Poincare群](#def-lrep21-poincare) の元です。$(0,R)(b,I)=(Rb,R)$ は、先に $x$ 方向へ1だけ移動し、それから回す変換です。逆順は $(b,R)$ です。例えば原点の像はそれぞれ $Rb$ と $b$ なので異なります。$(Rb,R)(-b,R^{-1})=(0,I)$ となり、逆順の積も $(-b+R^{-1}Rb,I)=(0,I)$。確かに定義の逆元が作用を取り消します。
+列は各基底ベクトルの像なので $Rb=e_2=(0,0,1,0)$ です。
+
+この行列は
+
+$$
+R^{\mathsf T}\eta R=\eta,\qquad \det R=1,\qquad Re_0=e_0
+$$
+
+を満たし、回転角を0から90度まで連続に動かせるので $R\in L$ です。従って両方の組は [Poincare群](#def-lrep21-poincare) の元です。
+
+$(0,R)(b,I)=(Rb,R)$ は、先に $x$ 方向へ1だけ移動し、それから回す変換です。逆順は $(b,R)$ です。例えば原点の像はそれぞれ $Rb$ と $b$ なので異なります。逆元の左右の積も別々に確かめます。
+
+$$
+(Rb,R)(-b,R^{-1})=(Rb-Rb,I)=(0,I),
+$$
+
+$$
+(-b,R^{-1})(Rb,R)=(-b+R^{-1}Rb,I)=(0,I).
+$$
+
+確かに定義の逆元が作用を取り消します。
 <!-- definition-example-end -->
 
 結合法則は任意の3元で確かめられます。左から二元を合成してから第三元 $(d,\Delta)$ を掛けると
@@ -65,7 +85,15 @@ $$
 
 ## 2. スピンを扱うための被覆群
 
-[LREP10の二重被覆](../LREP10/index.md#thm-lrep10-double-cover)では $\rho:SL(2,\mathbb C)\to L$ が全射のLie群準同型で、核は $\{I,-I\}$ でした。回転で符号が変わるスピノルを扱うには、Lorentz行列だけでなくその持ち上げを覚えておく必要があります。並進の成分を残したまま Lorentz 成分を持ち上げましょう。$\rho$ は群準同型なので $\rho(AB)=\rho(A)\rho(B)$、また各 $\rho(A)$ は $V$ の可逆線形写像です。従って $A$ の積を並進の自己同型の合成へ移せます。これが半直積の下付き記号 $\rtimes_\rho$ の意味です。
+[LREP10の二重被覆](../LREP10/index.md#thm-lrep10-double-cover)では $\rho:SL(2,\mathbb C)\to L$ が全射のLie群準同型で、核は $\{I,-I\}$ でした。回転で符号が変わるスピノルを扱うには、Lorentz行列だけでなくその持ち上げを覚えておく必要があります。並進の成分を残したまま Lorentz 成分を持ち上げましょう。
+
+$\rho$ は群準同型なので
+
+$$
+\rho(AB)=\rho(A)\rho(B)
+$$
+
+であり、各 $\rho(A)$ は $V$ の可逆線形写像です。従って $A$ の積を並進の自己同型の合成へ移せます。これが半直積の下付き記号 $\rtimes_\rho$ の意味です。
 
 <a id="def-lrep21-covered-poincare"></a>
 
@@ -241,7 +269,18 @@ $$
 =\|\Pi(\sqrt h)\psi\|^2\ge0.
 $$
 
-$K$ はコンパクト Hausdorff 空間で $C_c(K)=C(K)$（実数値部分を先に取る）です。[Riesz--Markov の定理](../../../解析系/MT/MT5/index.md#thm-mt5-riesz-markov-positive) により正測度 $\mu_\psi$ を得ます。複素数値関数については実部と虚部に分ければ積分表示が成立します。$\Pi(1)=I$ より $\mu_\psi(K)=\|\psi\|^2$。OA6 と同じ偏極および [Hilbert 空間の Riesz 表現定理](../../../解析系/F0/F0-02C2/index.md#ref-riesz-representation) から、Borel 集合 $B$ ごとに $0\le E(B)\le I$ を満たす作用素を得て、$\langle\psi,E(B)\psi\rangle=\mu_\psi(B)$ となります。
+$K$ はコンパクト Hausdorff 空間で $C_c(K)=C(K)$（実数値部分を先に取る）です。[Riesz--Markov の定理](../../../解析系/MT/MT5/index.md#thm-mt5-riesz-markov-positive) により正測度 $\mu_\psi$ を得ます。複素数値関数については実部と虚部に分ければ積分表示が成立します。全質量は
+
+$$
+\mu_\psi(K)=\langle\psi,\Pi(1)\psi\rangle=\|\psi\|^2
+$$
+
+です。OA6 と同じ偏極および [Hilbert 空間の Riesz 表現定理](../../../解析系/F0/F0-02C2/index.md#ref-riesz-representation) から、Borel 集合 $B$ ごとに 次の性質を満たす作用素を得ます。
+
+$$
+0\le E(B)\le I,\qquad
+\langle\psi,E(B)\psi\rangle=\mu_\psi(B).
+$$
 
 積の規則も座標に依存しません。OA6 の測度構成を有界 Borel 関数の積分 $M(f)=\int f\,dE$ に拡張します。連続関数 $f,g$ について $M(fg)=M(f)M(g)$ は $\Pi$ の準同型性です。一方の関数を固定して有界各点収束を取ると、偏極した有限測度による積分は弱作用素の意味で収束し、固定した有界作用素との積も弱収束を保ちます。閉集合 $D$ の指示関数は距離関数を使う連続関数 $\max(0,1-n\,d(z,D))$ の各点極限です（空集合は零関数）。閉集合は Borel 集合を生成するので、OA6 の単調族の議論を二つの変数に順に適用して全有界 Borel 関数へ積の規則を拡張できます。特に
 
@@ -444,7 +483,14 @@ $$
 =\int|f(r)|^2d^3r.
 $$
 
-$\Gamma=\rho(B)$ とします。逆写像の合成順は $\ell_{(\Lambda\Gamma)^{-1}}=\ell_{\Gamma^{-1}}\circ\ell_{\Lambda^{-1}}$ です。連鎖律と行列式の積の法則から
+$\Gamma=\rho(B)$ とします。逆写像の合成順は $\ell_{(\Lambda\Gamma)^{-1}}=\ell_{\Gamma^{-1}}\circ\ell_{\Lambda^{-1}}$ です。[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule) をこの合成に適用すると
+
+$$
+D\ell_{(\Lambda\Gamma)^{-1}}(q)
+=D\ell_{\Gamma^{-1}}(\ell_{\Lambda^{-1}}(q))D\ell_{\Lambda^{-1}}(q)
+$$
+
+となります。両辺の行列式の絶対値を取り、$|\det(XY)|=|\det X|\,|\det Y|$ を使うと
 
 $$
 J_{(\Lambda\Gamma)^{-1}}(q)
