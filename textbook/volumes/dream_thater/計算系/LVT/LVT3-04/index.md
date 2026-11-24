@@ -175,7 +175,7 @@ xs, ys : List Nat に対し SortSpec xs ys は、ys が [整列リストの生�
 <!-- proof-start -->
 ### 証明
 
-[挿入操作](#def-lvt3-04-insert) の規則を展開する。空の場合は insertL x [] = [x] で、single x がその整列証明になる。一要素 [a] では x ≤ a が真なら insertL x [a] = [x,a] なので、single a に x ≤ a を添えて cons を使う。偽なら insertL x [a] = a :: insertL x [] = [a,x] となる。自然数の全順序より x ≤ a の否定から a < x、従って a ≤ x が成り立つので、single x に a ≤ x を添えて cons を使う。
+[挿入操作](#def-lvt3-04-insert) の規則を展開する。空の場合は insertL x [] = [x] で、single x がその整列証明になる。一要素 [a] では x ≤ a が真なら insertL x [a] = [x,a] なので、single a に x ≤ a を添えて cons を使う。偽なら insertL x [a] = a :: insertL x [] = [a,x] となる。自然数 x,a の大小比較では x < a、x = a、a < x のいずれか一つが成立する。x ≤ a が偽なら最初の二つは成立しないため a < x、従って a ≤ x が成り立つので、single x に a ≤ x を添えて cons を使う。
 
 二要素以上 a :: b :: xs の整列証明は cons hab hs の形であり、[整列証明の逆向き推論](../LVT2-06/index.md#prop-lvt2-06-pair) と同じく hab は a ≤ b の証明、hs は SortedL (b :: xs) の証明である。帰納仮定は SortedL (insertL x (b :: xs))。次の三場合を尽くす。
 
