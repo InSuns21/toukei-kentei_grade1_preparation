@@ -29,13 +29,13 @@ theorem standardSound (p : Prop) [Decidable p]
 theorem standardComplete (p : Prop) [Decidable p]
     (h : p) : decide p = true := decide_eq_true h
 
-def matches (n k : Nat) : Bool := decide (n = k)
+def sameNumber (n k : Nat) : Bool := decide (n = k)
 def wrongMatches (_n _k : Nat) : Bool := true
 
-theorem matchesSound (n k : Nat) (h : matches n k = true) :
+theorem matchesSound (n k : Nat) (h : sameNumber n k = true) :
     n = k := of_decide_eq_true h
 
 theorem matchesComplete (n k : Nat) (h : n = k) :
-    matches n k = true := decide_eq_true h
+    sameNumber n k = true := decide_eq_true h
 
 end LvtDecision

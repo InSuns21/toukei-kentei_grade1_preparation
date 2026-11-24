@@ -4,7 +4,7 @@
 
 前提：[LVT1-06](../LVT1-06/index.md)。到達点は、命題と証明の型を読み、決定手続きの二つの分岐から判定の正しさを示し、誤った判定器の反例を作ることです。
 
-## 1. 判定する値と証明する命題
+## 1. 計算と論理の二つの役割
 
 自然数 2 と 3 を比較したとき、プログラムの結果として false を受け取れます。一方、数学の主張「2 = 3」は偽の命題です。false というデータは存在しますが、矛盾のない論理のもとでは偽の命題の正しい証明は作れません。この違いを Lean の型で捉えます。
 
@@ -188,21 +188,21 @@ theorem standardComplete (p : Prop) [Decidable p]
 自然数 n が指定番号 k と一致するという仕様を n = k とします。正しい判定器と、常に true を返す誤った判定器を比較します。
 
 ```lean
-def matches (n k : Nat) : Bool := decide (n = k)
+def sameNumber (n k : Nat) : Bool := decide (n = k)
 def wrongMatches (_n _k : Nat) : Bool := true
 
-theorem matchesSound (n k : Nat) (h : matches n k = true) :
+theorem matchesSound (n k : Nat) (h : sameNumber n k = true) :
     n = k :=
   of_decide_eq_true h
 
 theorem matchesComplete (n k : Nat) (h : n = k) :
-    matches n k = true :=
+    sameNumber n k = true :=
   decide_eq_true h
 ```
 
-matchesSound の仮定を matches の定義で展開すると decide (n = k) = true です。standardSound の p を n = k として適用すれば n = k を得ます。matchesComplete では逆方向を適用します。
+matchesSound の仮定を sameNumber の定義で展開すると decide (n = k) = true です。standardSound の p を n = k として適用すれば n = k を得ます。matchesComplete では逆方向を適用します。
 
-| n | k | 仕様 n = k | matches | wrongMatches |
+| n | k | 仕様 n = k | sameNumber | wrongMatches |
 | --- | --- | --- | --- | --- |
 | 2 | 2 | 成立 | true | true |
 | 2 | 3 | 不成立 | false | true |
@@ -222,7 +222,7 @@ lake env lean ExerciseSolutions.lean
 python3 check_matches.py
 ```
 
-Lean v4.35.0 で型・証明を検査し、テスト実行の期待出力は LVT2-01 OK です。Inspect.lean の #check で型を確認し、続く #eval では true、false、true、false の順に表示されます。Python の独立計算は 0 から 8 までの全 81 組の期待値と Lean の実行結果を比較し、常に true の判定の反例を確認します。
+Lean v4.35.0 で型・証明を検査し、テスト実行の期待出力は LVT2-01 OK です。Inspect.lean の #check で型を確認し、続く #eval では true、false、true、false の順に表示されます。Python の独立計算は 0 から 8 までの全 81 組の比較用の結果と Lean の実行結果を比較し、常に true の判定の反例を確認します。
 
 次のコードは別ファイルで試すと型エラーになります。false の型は Bool であり False ではありません。
 
@@ -363,7 +363,11 @@ example (n k : Nat) (h : reject n k = true) : n = k := by
 
 ### LVT2-01-C01 盤面番号の検査
 
-0 始まりの 9 マスの盤面に対し、自然数 n が有効な番号である仕様を n < 9 とする。判定器 valid n = decide (n < 9) と、誤って n < 8 を用いる shortValid を考える。(1) valid の健全性と完全性を証明せよ。(2) n = 0, 7, 8, 9 について両者を評価せよ。(3) shortValid の健全性と完全性を調べよ。
+0 始まりの 9 マスの盤面に対し、自然数 n が有効な番号である仕様を n < 9 とする。判定器 valid n = decide (n < 9) と、誤って n < 8 を用いる shortValid を考える。
+
+1. valid の健全性と完全性を証明せよ。
+2. n = 0, 7, 8, 9 について両者を評価せよ。
+3. shortValid の健全性と完全性を調べよ。
 
 - Level: C
 
