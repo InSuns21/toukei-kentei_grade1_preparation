@@ -186,7 +186,7 @@ $$
 
 [Whittaker係数を扱う前講](../AFR4/index.md) では実変数の Fourier 係数を調べました。局所表現でも加法方向の変換則を持つ係数を抽出します。
 
-$n(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix}$ とし、$\psi:F\to\mathbb C^\times$ を加法指標、すなわち $\psi(x+y)=\psi(x)\psi(y)$ を満たす局所定数な絶対値1の関数で、$O$ 上自明、$p^{-1}O$ 上非自明なものとします。例えば $p$ 進数の負の桁の有限和を $\{x\}_p$ とすると $\psi(x)=\exp(2\pi i\{x\}_p)$ が使えます。足し算の繰り上がりによる差 $\{x+y\}_p-\{x\}_p-\{y\}_p$ は整数なので、指数関数の積の公式から $\psi(x+y)=\psi(x)\psi(y)$ です。
+$n(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix}$ とし、$\psi:F\to\mathbb C^\times$ を加法指標、すなわち $\psi(x+y)=\psi(x)\psi(y)$ を満たす局所定数な絶対値1の関数で、$O$ 上自明、$p^{-1}O$ 上非自明なものとします。例えば $p$ 進数の負の桁の有限和を $\{x\}_p$ とすると $\psi(x)=\exp(2\pi i\{x\}_p)$ が使えます。足し算の繰り上がりによる差 $\{x+y\}_p-\{x\}_p-\{y\}_p$ は整数なので、$\exp(2\pi i(\{x+y\}_p-\{x\}_p-\{y\}_p))=1$ となり、 $\psi(x+y)=\psi(x)\psi(y)$ です。
 
 <a id="def-afr15-whittaker"></a>
 
@@ -196,7 +196,7 @@ $n(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix}$ とし、$\psi:F\to\mathbb C^\times$
 $$
 \ell(\pi(n(x))v)=\psi(x)\ell(v)
 $$
-> を全ての $x\in F,v\in V$ で満たすものとする。この条件を満たす非零の線形汎関数を **Whittaker汎関数** と呼ぶ。そのような汎関数を持つ表現を generic（ジェネリック）と呼ぶ。$W_v(g)=\ell(\pi(g)v)$ として得られる関数の空間を Whittaker 模型と呼ぶ。既約表現の場合には次の命題により元の表現と同型になる。
+> を全ての $x\in F,v\in V$ で満たすものとする。この条件を満たす非零の線形汎関数の名称が Whittaker汎関数 である。そのような汎関数を持つ表現を generic（ジェネリック）と呼ぶ。$W_v(g)=\ell(\pi(g)v)$ として得られる関数の空間を Whittaker 模型と呼ぶ。既約表現の場合には次の命題により元の表現と同型になる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr15-whittaker -->
@@ -347,7 +347,7 @@ $p=5$ で $\chi(5^mu)=2^m\epsilon(u\bmod5)$ とする。ただし $\epsilon(1)=\
 <!-- solution-start -->
 **詳細解答**
 
-法5の単数は2の冪 $1,2,4,3$ であり、$\epsilon(2^j)=(-1)^j$ です。2の位数は4、$(-1)^4=1$ なので剰余群上の乗法指標です。$5^mu$ の分解の一意性と指数の加法性から $\chi$ も乗法指標になります。$1+5O$ 上で1なので局所定数です。$\chi(2)=-1$ なので単数群上は非自明です。[導手指数と新ベクトル](#def-afr15-conductor) により $a(\chi)=1$ です。
+法5の単数は2の冪 $1,2,4,3$ であり、$\epsilon(2^j)=(-1)^j$ です。2の位数は4、$(-1)^4=1$ なので剰余群上の乗法指標です。$5^mu$ の分解の一意性と$5^mu\cdot5^{m'}u'=5^{m+m'}uu'$ という積の表示から $\chi$ も乗法指標になります。$1+5O$ 上で1なので局所定数です。$\chi(2)=-1$ なので単数群上は非自明です。[導手指数と新ベクトル](#def-afr15-conductor) により $a(\chi)=1$ です。
 <!-- solution-end -->
 
 <a id="ex-afr15-a3"></a>
