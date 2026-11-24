@@ -1,0 +1,40 @@
+id: LREP16
+title: "Diracスピノルとchirality"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP15
+  - LREP13
+official_scope: []
+learning_objectives:
+  - 左右Weyl表現の直和としてDirac空間を構成できる
+  - ガンマ行列からchirality演算子の符号と射影の恒等式を導ける
+  - 質量項による左右成分の結合を微分方程式から説明できる
+  - 非零運動量に対するhelicityとchiralityの違いを計算できる
+definitions:
+  - { id: LREP16-DEF-01, name: Diracスピノル }
+  - { id: LREP16-DEF-02, name: chirality演算子 }
+  - { id: LREP16-DEF-03, name: chirality射影子 }
+  - { id: LREP16-DEF-04, name: helicity演算子 }
+theorems:
+  - { id: LREP16-PROP-01, name: chirality演算子の恒等式 }
+  - { id: LREP16-PROP-02, name: chirality射影の分解と交換則 }
+  - { id: LREP16-PROP-03, name: 質量項と左右成分の結合 }
+canonical_examples:
+  - Dirac空間のboost
+  - chirality演算子と射影のブロック計算
+  - 静止系と質量零の平面波
+problem_patterns:
+  - LREP16-DIRECT-SUM
+  - LREP16-VOLUME-SIGN
+  - LREP16-PROJECTIONS
+  - LREP16-MOMENTUM-REVERSAL
+  - LREP16-GAMMA-EXCHANGE
+  - LREP16-PARITY
+  - LREP16-REST-MODE
+  - LREP16-HELICITY
+  - LREP16-MASSLESS-LIMIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }
