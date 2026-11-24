@@ -8,7 +8,7 @@ concepts:
     name: "周期積分"
     kind: definition
     introduction: formal
-    requires: [automorphic-forms.global-theta-lift]
+    requires: []
   - id: automorphic-forms.seesaw
     name: "seesaw配置"
     kind: definition
