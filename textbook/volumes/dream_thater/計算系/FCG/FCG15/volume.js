@@ -9,7 +9,7 @@ const homogeneous=0;
 const dt=0.05;
 if(![32,48,64].includes(N)||![extinction,scattering,rise,spin].every(Number.isFinite)||
  extinction<0||extinction>12||scattering<0||scattering>1||rise<0||rise>.18||
- spin<0||spin>2||![16,32,64,96].includes(samples)||![0,1].includes(homogeneous))throw RangeError('FCG15 parameter range');
+ spin<0||spin>2||!Number.isInteger(samples)||samples<16||samples>96||samples%16!==0||![0,1].includes(homogeneous))throw RangeError('FCG15 parameter range');
 if(gl.getParameter(gl.MAX_3D_TEXTURE_SIZE)<N)throw Error('3D texture size unsupported');
 function bump(x,y,z,cx,cy,cz,rx,ry,rz){
  const q=((x-cx)/rx)**2+((y-cy)/ry)**2+((z-cz)/rz)**2;

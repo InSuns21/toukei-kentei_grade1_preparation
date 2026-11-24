@@ -5,7 +5,7 @@ import {VISUAL_GUIDES,visualGuideIds} from './wgl-fcg-visual-guide.mjs';
 
 test('every implemented shared WGL/FCG lesson has nonempty visual first guide',()=>{
   const ids=[...Array.from({length:20},(_,i)=>'WGL'+(i+1)),
-    ...Array.from({length:13},(_,i)=>'FCG'+(i+2))];
+    ...Array.from({length:14},(_,i)=>'FCG'+(i+2))];
   assert.equal(visualGuideIds.length,ids.length);
   assert.deepEqual(visualGuideIds.slice().sort(),ids.sort());
   for(const [id,parts] of Object.entries(VISUAL_GUIDES)){
