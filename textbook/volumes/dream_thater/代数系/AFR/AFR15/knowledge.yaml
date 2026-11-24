@@ -1,0 +1,46 @@
+chapter: AFR15
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR14]
+forward_references: []
+concepts:
+  - id: automorphic-forms.level-subgroups
+    name: "レベル部分群"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.congruence-subgroups]
+  - id: automorphic-forms.central-level
+    name: "レベルと中心指標"
+    kind: proposition
+    introduction: formal
+    requires: [automorphic-forms.level-subgroups, automorphic-forms.padic-smooth]
+  - id: automorphic-forms.local-conductor-newvector
+    name: "導手指数と新ベクトル"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.level-subgroups, automorphic-forms.padic-smooth, automorphic-forms.spherical-vector]
+  - id: automorphic-forms.level-double-cosets
+    name: "レベル二重剰余類"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.level-subgroups, automorphic-forms.local-double-coset]
+  - id: automorphic-forms.principal-series-conductor
+    name: "主系列の導手と固定空間"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.level-double-cosets, automorphic-forms.local-conductor-newvector, automorphic-forms.padic-principal-series, automorphic-forms.principal-spherical-invariants]
+  - id: automorphic-forms.local-whittaker-model
+    name: "Whittaker汎関数"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.padic-smooth]
+  - id: automorphic-forms.local-whittaker-transformation
+    name: "Whittaker関数の変換則"
+    kind: proposition
+    introduction: formal
+    requires: [automorphic-forms.local-whittaker-model, automorphic-forms.level-subgroups]
+  - id: automorphic-forms.stable-whittaker-integral
+    name: "主系列の安定Whittaker積分"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.local-whittaker-model, automorphic-forms.padic-principal-series, automorphic-forms.local-conductor-newvector, automorphic-forms.local-additive-measure]
