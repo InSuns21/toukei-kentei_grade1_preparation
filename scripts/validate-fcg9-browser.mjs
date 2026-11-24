@@ -122,7 +122,7 @@ try {
   await waitFor('document.getElementById("fcg-time-state").dataset.value==="0"');
   assert.equal(zero,await capture('playback-reset'));
   const control=async(id,value,pattern)=>{
-    await evaluate('document.getElementById("tab-conditions").click()');
+      assert.ok(await evaluate('document.querySelector("#panel-result #fcg-output-parameters #lab-parameters") && !document.getElementById("panel-result").hidden && document.querySelector("#fcg-output-parameters input[type=range]").getBoundingClientRect().width>40 && document.querySelectorAll("#lab-parameters").length===1'), 'source controls must be visible beside the output');
     await evaluate('(()=>{const input=document.getElementById("parameter-'+id+'");input.value='+JSON.stringify(value)+';input.dispatchEvent(new Event("input",{bubbles:true}));input.dispatchEvent(new Event("change",{bubbles:true}));})()');
     await waitFor('document.querySelector("#status")?.textContent.includes("FCG9 変更メッシュ条件の独立画素検算に合格")');
     const s=await check();assert.match(s.source,pattern);return s;
@@ -143,6 +143,8 @@ try {
   const narrow=await evaluate('({contentWidth:document.documentElement.scrollWidth,windowWidth:window.innerWidth,canvasWidth:document.querySelector("#canvas-slot iframe")?.getBoundingClientRect().width})');
   assert.ok(narrow.canvasWidth>50&&narrow.canvasWidth<=360,JSON.stringify(narrow));
   assert.ok(narrow.contentWidth<=narrow.windowWidth+2,JSON.stringify(narrow));
+  assert.ok(await evaluate('(()=>{const dock=document.getElementById("fcg-output-parameters").getBoundingClientRect(),canvas=document.getElementById("canvas-slot").getBoundingClientRect();return dock.top>=canvas.bottom-2&&dock.width<=innerWidth&&document.querySelector("#fcg-output-parameters input[type=range]").getBoundingClientRect().width>40})()'), 'mobile dock must stack under GPU output');
+
   await capture('mobile');
   console.log('FCG9 actual Chromium editable grid, physical time, wire/face/gradient, GPU readback and narrow layout: PASS');
 } finally {
