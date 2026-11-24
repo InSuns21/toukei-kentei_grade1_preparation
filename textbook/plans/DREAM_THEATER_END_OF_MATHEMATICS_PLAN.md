@@ -166,6 +166,8 @@ result family は成果群識別子であって講数ではない。268 は Open
 
 ### 3.8 YM/QCD 4次元構成的量子場理論
 
+標準理論の体系的な発展ルートは[MQFC全48講（I 30講・II 18講）](DREAM_THEATER_MATHEMATICAL_QFT_CONSTRUCTION_I_II_PLAN.md)を正本とする。EOMYMA↔MQFC19–23、EOMYMB↔MQFC3–12/22–23、EOMYMC↔MQFC13/25–29、EOMYM↔MQFC12/26/29–30、EOMQCDA/QCD↔MQFC44–48を対応づける。EOM268の有限サイズギャップ・一様下界とはMQFC12/25–26で論証の型を比較するが、スピン鎖の定理を4D YMへ移植しない。EOMは39講を維持し、MQFC全講を必修化しない。未完成のMQFCに依存せず既存前提とEOM橋渡しで着手可能とし、MQFC完成後は実在する定理・anchorへ参照して標準理論の重複証明を避ける。存在・極限一意性・物理スペクトルの正のギャップは引き続き別の証明責務とする。
+
 - **問題を四段階に分ける**：(1) 有限格子上の確率測度とゲージ不変観測量、(2) 格子間隔 $a\downarrow0$・無限体積の極限の存在、(3) Schwinger / Osterwalder–Schrader 公理から Wightman 場の再構成、(4) Hamiltonian の正の質量ギャップ。**(1)–(3) を主張しても (4) は従わない**。
 - EOMYMA ではコンパクト単純 Lie 群 $G$、リンク変数 $U_e\in G$、plaquette $U_\square$、Wilson作用、Haar積分、局所ゲージ変換下の不変性を有限格子で直接計算する。正負符号・正規化・格子間隔・境界条件を示す。
 - EOMYMB では Euclid相関関数、反射陽性の不等式、OS再構成とWightman公理の対応を自由スカラー場の有限例から導く。形式的Wick回転だけを公理証明と呼ばない。
