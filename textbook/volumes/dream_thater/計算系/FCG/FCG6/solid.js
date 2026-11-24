@@ -244,112 +244,214 @@ report('DYE','area integral='+integral.toPrecision(8)+' m^2, max center speed='+
 report('DISPLAY','3 panels dye | 70*abs(div) | speed/0.6; solid gray, normal arrows yellow; R8 only');
 
 
-// Initial independent CPU/R8 pixel probes have already been obtained by the
-// outer runner before the next animation frame. The *same editable* MAC step
-// and NxN solid mask now update the animated scene; no separate solver.
+// The initial three-panel readback above remains the independent oracle.
+// Live observation uses the SAME MAC state and update, not an analytic flow.
 if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
   const mode=gl.getUniformLocation(prog,'u_viewMode');
   const aspect=gl.getUniformLocation(prog,'u_aspect');
-  if(mode===null||aspect===null)throw Error('missing FCG6 view uniforms');
-  const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches??false;
-  let playing=!reduced,stepNumber=steps,last=0,raf=0,firstCycle=true;
-  // Only the visualized textures use bilinear filtering; the MAC solver
-  // always works with un-interpolated Float64 cell/face values.
+  const field=gl.getUniformLocation(prog,'u_field');
+  const arrows=gl.getUniformLocation(prog,'u_arrows');
+  if([mode,aspect,field,arrows].some(x=>x===null))throw Error('missing FCG6 view uniforms');
+  const motion=window.matchMedia?.('(prefers-reduced-motion: reduce)');
+  let playing=!motion?.matches,stepNumber=steps,last=0,raf=0,firstCycle=true;
+  let view=0,showArrows=true,interval=140;
+  const initialMask=geometry(0).s;
+  const initialDye=Float64Array.from({length:N*N},(_,k)=>{
+    const x=(k%N+.5)*h,y=(Math.floor(k/N)+.5)*h;
+    return initialMask[k]?0:Math.exp(-((x-.26)**2+(y-.46)**2)/(.105**2));
+  });
+  // Packed signed velocity and signed pressure for the display only.
+  const M=192,trail=new Uint8Array(M*M),particles=[];
+  const packed=new Uint8Array(4*N*N);
+  function extraTexture(unit,format,w,channels){
+    const t=gl.createTexture();if(!t)throw Error('live texture allocation');
+    gl.activeTexture(gl.TEXTURE0+unit);gl.bindTexture(gl.TEXTURE_2D,t);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+    gl.texImage2D(gl.TEXTURE_2D,0,format,w,w,0,channels,gl.UNSIGNED_BYTE,null);
+    return t;
+  }
+  const liveTex=extraTexture(4,gl.RGBA8,N,gl.RGBA),traceTex=extraTexture(5,gl.R8,M,gl.RED);
+  gl.uniform1i(gl.getUniformLocation(prog,'u_live'),4);
+  gl.uniform1i(gl.getUniformLocation(prog,'u_trace'),5);
   for(const unit of [0,2]){
-    gl.activeTexture(gl.TEXTURE0+unit);
-    gl.bindTexture(gl.TEXTURE_2D,textures[unit]);
+    gl.activeTexture(gl.TEXTURE0+unit);gl.bindTexture(gl.TEXTURE_2D,textures[unit]);
     gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
     gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
   }
-  const initialDye=Float64Array.from({length:N*N},(_,k)=>{
-    const i=k%N,j=Math.floor(k/N),x=(i+.5)*h,y=(j+.5)*h;
-    const dyeAt=Math.exp(-((x-.26)**2+(y-.46)**2)/(.105**2));
-    return geometry(0).s[k]?0:dyeAt;
+  const panel=document.createElement('div');
+  panel.style.cssText='width:100%;box-sizing:border-box;padding:8px 10px;color:#e5eefb;background:#101e2c;font:14px/1.5 system-ui';
+  const controls=document.createElement('div');
+  controls.style.cssText='display:flex;flex-wrap:wrap;align-items:center;gap:6px';
+  const makeButton=(label,handler)=>{
+    const button=document.createElement('button');button.type='button';button.textContent=label;
+    button.style.cssText='padding:7px 10px;font:inherit;cursor:pointer';
+    button.addEventListener('click',handler);controls.append(button);return button;
+  };
+  const toggle=makeButton('停止',()=>{ensureLive();playing=!playing;last=0;refresh();});
+  makeButton('1ステップ',()=>{ensureLive();playing=false;advance();uploadState();});
+  makeButton('初期化',()=>{firstCycle=false;playing=false;resetState();uploadState();});
+  const select=document.createElement('select');select.setAttribute('aria-label','表示する物理量');
+  ['染料と粒子の軌跡','速さ [m/s]','圧力 [Pa]','絶対発散 [1/s]'].forEach((label,k)=>{
+    const o=document.createElement('option');o.value=String(k);o.textContent=label;select.append(o);
   });
-  const note=document.createElement('output');
-  note.style.cssText='display:block;margin:5px 0;color:#c8eaff;font:13px system-ui';
+  select.addEventListener('change',()=>{ensureLive();view=Number(select.value);uploadState();});
+  controls.append(select);
+  const label=document.createElement('label'),check=document.createElement('input');
+  check.type='checkbox';check.checked=true;
+  check.addEventListener('change',()=>{ensureLive();showArrows=check.checked;uploadState();});
+  label.append(check,'速度矢印');controls.append(label);
+  const tempo=document.createElement('select');tempo.setAttribute('aria-label','再生間隔');
+  for(const [ms,name] of [[280,'ゆっくり'],[140,'標準'],[70,'速く']]){
+    const o=document.createElement('option');o.value=String(ms);o.textContent=name;tempo.append(o);
+  }
+  tempo.value='140';tempo.addEventListener('change',()=>{interval=Number(tempo.value);last=0;});
+  controls.append(tempo);
+  const note=document.createElement('output'),legend=document.createElement('p'),metrics=document.createElement('p');
+  note.style.cssText='display:block;margin:5px 0;font-variant-numeric:tabular-nums';
   note.setAttribute('aria-live','off');
-  canvas.insertAdjacentElement('afterend',note);
+  legend.style.margin='5px 0';metrics.style.margin='5px 0';
+  panel.append(controls,note,legend,metrics);canvas.insertAdjacentElement('afterend',panel);
   canvas.tabIndex=0;
   canvas.title='FCG6 '+N+'×'+N+'障害物流れ。Space/Enter再生停止、→1物理step、R初期化';
-  canvas.setAttribute('aria-label','FCG6 動く階段境界マスクと染料。Spaceで再生停止、矢印右で一歩進める');
+  canvas.setAttribute('aria-label','FCG6 固体境界と流体。白い速度矢印と粒子軌跡、橙の境界、斜線の固体');
+  let pressureScale=1,speedScale=.6;
+  function fluidPoint(x,y){
+    return x>=0&&x<1&&y>=0&&y<1&&fluidAt(geom.s,Math.floor(x/h),Math.floor(y/h));
+  }
+  function seed(k){
+    // Deterministic jitter gives a visible distribution without randomness.
+    const i=k%24,j=Math.floor(k/24);
+    return [((i+.25+.5*((k*37)%11)/10)/24),((j+.25+.5*((k*13)%7)/6)/24)];
+  }
+  function resetTraces(){
+    particles.length=0;trail.fill(0);
+    for(let k=0;k<576;k++){const [x,y]=seed(k);particles.push({x,y,k});}
+    markTraces(false);
+  }
+  function markTraces(move){
+    if(move)for(let k=0;k<trail.length;k++)trail[k]=Math.floor(trail[k]*.83);
+    function mark(x,y){
+      if(!fluidPoint(x,y))return;
+      const i=Math.min(M-1,Math.floor(x*M)),j=Math.min(M-1,Math.floor(y*M));
+      trail[i+M*j]=255;
+    }
+    for(const a of particles){
+      if(!fluidPoint(a.x,a.y)){[a.x,a.y]=seed(a.k);continue;}
+      const i=Math.floor(a.x/h),j=Math.floor(a.y/h);
+      const vx=.5*(u[ui(i,j)]+u[ui(i+1,j)]),vy=.5*(v[vi(i,j)]+v[vi(i,j+1)]);
+      const dx=move?dt*vx:0,dy=move?dt*vy:0;
+      // Sample along the path, stop before a solid or the outer wall.
+      const n=Math.max(1,Math.ceil(Math.hypot(dx,dy)*Math.max(2*N,M)));
+      const x=a.x,y=a.y;
+      for(let m=1;m<=n;m++){
+        const xx=x+dx*m/n,yy=y+dy*m/n;
+        if(!fluidPoint(xx,yy))break;
+        a.x=xx;a.y=yy;mark(xx,yy);
+      }
+    }
+  }
   function resetState(){
-    u=new Float64Array((N+1)*N);
-    v=new Float64Array(N*(N+1));
-    dye=initialDye.slice();geom=geometry(0);
-    p=new Float64Array(N*N);
+    u=new Float64Array((N+1)*N);v=new Float64Array(N*(N+1));
+    dye=initialDye.slice();geom=geometry(0);p=new Float64Array(N*N);
     before=after=residual=identity=meanRemoved=sweeps=0;
     forceX=forceY=cutCount=changedMask=0;
-    boundary(u,v,geom.s,geom.wallU);
-    stepNumber=0;
+    boundary(u,v,geom.s,geom.wallU);stepNumber=0;resetTraces();
+  }
+  function refresh(){
+    toggle.textContent=playing?'停止':'再生';
+    note.textContent='実'+N+'×'+N+' MAC：t='+(stepNumber*dt).toFixed(2)+' s（'+stepNumber+'/24 step）／固体 x='+geom.cx.toFixed(3)+' m、壁速度 '+geom.wallU.toFixed(3)+' m/s';
+    legend.textContent=['青→黄：染料濃度0〜1、白い点と短い尾：流体に運ばれる観察粒子。',
+      '暗青→黄：速さ0〜0.6 m/s（上限で飽和）。白い点と尾は観察粒子。',
+      '青：負、白：0、赤：正（±'+pressureScale.toPrecision(3)+' Pa）。',
+      '暗色→赤：絶対発散0〜'+(1/70).toPrecision(3)+' s⁻¹（上限で飽和）。'][view]+
+      ' 斜線：固体、橙：境界面、白い矢印：流体速度の向きと相対的な大きさ。';
+    metrics.textContent=stepNumber===0?'初期状態：まだ圧力射影を行っていません。':
+      '壁面誤差 '+wallError.toExponential(1)+' m/s ／ 発散 '+after.toExponential(2)+' s⁻¹ ／ 圧力反力 ('+forceX.toPrecision(3)+', '+forceY.toPrecision(3)+') N/m';
   }
   function uploadState(){
     const solidMask=geom.s;
-    const displayDye=new Float64Array(N*N),div=new Float64Array(N*N),
-      speed=new Float64Array(N*N);
-    let peak=0,wallFlux=0;
+    const div=new Float64Array(N*N),speed=new Float64Array(N*N);
+    pressureScale=1e-9;
+    for(let k=0;k<p.length;k++)if(!solidMask[k])pressureScale=Math.max(pressureScale,Math.abs(p[k]));
+    wallError=0;
     for(let j=0;j<N;j++)for(let i=0;i<N;i++){
-      const k=ci(i,j);
-      if(solidMask[k])continue;
-      displayDye[k]=dye[k];
-      const vx=.5*(u[ui(i,j)]+u[ui(i+1,j)]),
-            vy=.5*(v[vi(i,j)]+v[vi(i,j+1)]);
-      div[k]=divergence(u,v,i,j);
-      speed[k]=Math.hypot(vx,vy);
-      peak=Math.max(peak,Math.abs(div[k]));
+      const k=ci(i,j);if(solidMask[k]){packed.fill(128,4*k,4*k+4);continue;}
+      const vx=.5*(u[ui(i,j)]+u[ui(i+1,j)]),vy=.5*(v[vi(i,j)]+v[vi(i,j+1)]);
+      div[k]=divergence(u,v,i,j);speed[k]=Math.hypot(vx,vy);
+      packed[4*k]=Math.round(128+127*clip(vx/speedScale,-1,1));
+      packed[4*k+1]=Math.round(128+127*clip(vy/speedScale,-1,1));
+      packed[4*k+2]=Math.round(255*(.5+.5*p[k]/pressureScale));
+      packed[4*k+3]=255;
     }
-    for(let j=0;j<N;j++)for(let i=0;i<=N;i++)
-      if(blockedU(solidMask,i,j))
-        wallFlux=Math.max(wallFlux,Math.abs(u[ui(i,j)]-geom.wallU));
-    for(let j=0;j<=N;j++)for(let i=0;i<N;i++)
-      if(blockedV(solidMask,i,j))
-        wallFlux=Math.max(wallFlux,Math.abs(v[vi(i,j)]));
-    for(const [unit,arr,convert] of [
-      [0,displayDye,x=>x],[1,div,x=>70*Math.abs(x)],
+    for(let j=0;j<N;j++)for(let i=0;i<=N;i++)if(blockedU(solidMask,i,j))
+      wallError=Math.max(wallError,Math.abs(u[ui(i,j)]-geom.wallU));
+    for(let j=0;j<=N;j++)for(let i=0;i<N;i++)if(blockedV(solidMask,i,j))
+      wallError=Math.max(wallError,Math.abs(v[vi(i,j)]));
+    for(const [unit,arr,convert] of [[0,dye,x=>x],[1,div,x=>70*Math.abs(x)],
       [2,speed,x=>x/.6],[3,solidMask,x=>x]]){
-      gl.activeTexture(gl.TEXTURE0+unit);
-      gl.bindTexture(gl.TEXTURE_2D,textures[unit]);
-      gl.texSubImage2D(gl.TEXTURE_2D,0,0,0,N,N,gl.RED,gl.UNSIGNED_BYTE,
-        Uint8Array.from(arr,x=>enc(convert(x))));
+      gl.activeTexture(gl.TEXTURE0+unit);gl.bindTexture(gl.TEXTURE_2D,textures[unit]);
+      gl.texSubImage2D(gl.TEXTURE_2D,0,0,0,N,N,gl.RED,gl.UNSIGNED_BYTE,Uint8Array.from(arr,x=>enc(convert(x))));
+    }
+    for(const [unit,t,w,format,data] of [[4,liveTex,N,gl.RGBA,packed],[5,traceTex,M,gl.RED,trail]]){
+      gl.activeTexture(gl.TEXTURE0+unit);gl.bindTexture(gl.TEXTURE_2D,t);
+      gl.texSubImage2D(gl.TEXTURE_2D,0,0,0,w,w,format,gl.UNSIGNED_BYTE,data);
     }
     gl.useProgram(prog);gl.bindVertexArray(vao);
-    gl.uniform1i(mode,1);
-    gl.uniform1f(aspect,canvas.width/canvas.height);
-    gl.viewport(0,0,canvas.width,canvas.height);
-    gl.drawArrays(gl.TRIANGLES,0,3);
-    note.textContent='実'+N+'×'+N+' MAC：t='+(stepNumber*dt).toFixed(2)+' s'+
-      '、固体中心x='+geom.cx.toFixed(3)+' m、壁速度x='+geom.wallU.toFixed(3)+' m/s'+
-      '、最大|発散|='+peak.toExponential(2)+' s⁻¹'+
-      '、壁法線誤差='+wallFlux.toExponential(1)+' m/s'+
-      ' ／ Space停止/再生・→1step・R初期化';
+    gl.uniform1i(mode,1);gl.uniform1f(aspect,canvas.width/canvas.height);
+    gl.uniform1i(field,view);gl.uniform1i(arrows,Number(showArrows));
+    gl.viewport(0,0,canvas.width,canvas.height);gl.drawArrays(gl.TRIANGLES,0,3);
+    refresh();
+  }
+  function ensureLive(){
+    if(firstCycle){firstCycle=false;resetState();uploadState();}
   }
   function advance(){
-    if(stepNumber>=24)resetState();
-    else{advanceObstacleStep(stepNumber);stepNumber++;}
+    if(stepNumber>=24){resetState();return;}
+    advanceObstacleStep(stepNumber);stepNumber++;markTraces(true);
   }
   canvas.addEventListener('keydown',e=>{
-    if(e.key===' '||e.key==='Enter'){
-      e.preventDefault();playing=!playing;last=0;
-    }else if(e.key==='ArrowRight'){
-      e.preventDefault();playing=false;last=0;
-      if(firstCycle){firstCycle=false;resetState();}
-      advance();uploadState();
-    }else if(e.key==='r'||e.key==='R'){
-      e.preventDefault();playing=false;last=0;firstCycle=false;
-      resetState();uploadState();
+    if(e.key===' '||e.key==='Enter'){e.preventDefault();ensureLive();playing=!playing;last=0;refresh();}
+    else if(e.key==='ArrowRight'){e.preventDefault();ensureLive();playing=false;advance();uploadState();}
+    else if(e.key==='r'||e.key==='R'){e.preventDefault();firstCycle=false;playing=false;resetState();uploadState();}
+  });
+  // Clicking adds dye to fluid cells only; the next physical step transports it.
+  canvas.addEventListener('pointerdown',e=>{
+    if(e.button!==0)return;
+    ensureLive();const box=canvas.getBoundingClientRect(),a=canvas.width/canvas.height;
+    const x=((e.clientX-box.left)/box.width-.5)*Math.max(1,a)+.5;
+    const y=(.5-(e.clientY-box.top)/box.height)*Math.max(1,1/a)+.5;
+    if(!fluidPoint(x,y))return;
+    for(let j=0;j<N;j++)for(let i=0;i<N;i++)if(fluidAt(geom.s,i,j)){
+      const d2=((i+.5)*h-x)**2+((j+.5)*h-y)**2;
+      if(d2<.045**2)dye[ci(i,j)]=Math.max(dye[ci(i,j)],Math.exp(-d2/.025**2));
     }
+    uploadState();
   });
   function frame(now){
-    if(playing&&!document.hidden){
-      if(firstCycle){firstCycle=false;resetState();uploadState();}
-      if(!last)last=now;
-      if(now-last>=140){
-        last=now;advance();uploadState();
-      }
-    }else last=0;
-    raf=requestAnimationFrame(frame);
+    try{
+      // Also show the live scene when reduced motion is requested; no step is taken.
+      ensureLive();
+      if(playing&&!document.hidden){
+        if(!last)last=now;
+        if(now-last>=interval){last=now;advance();uploadState();}
+      }else last=0;
+      raf=requestAnimationFrame(frame);
+    }catch(error){playing=false;toggle.disabled=true;note.textContent='実行エラー：'+String(error.message||error);}
   }
-  note.textContent='初期'+steps+'stepの画素検算後、同じ編集ソルバーをt=0から再生します。Space停止/再生、→1step、R初期化';
+  motion?.addEventListener?.('change',e=>{if(e.matches){playing=false;last=0;refresh();}});
+  refresh();
   raf=requestAnimationFrame(frame);
   window.addEventListener('pagehide',()=>cancelAnimationFrame(raf),{once:true});
+  // Live inspection is handled here, not compared to a stale CPU snapshot.
+  return {liveCell(x,y){
+    const a=canvas.width/canvas.height,xx=((x+.5)/canvas.width-.5)*Math.max(1,a)+.5,
+      yy=((y+.5)/canvas.height-.5)*Math.max(1,1/a)+.5;
+    if(!fluidPoint(xx,yy))return null;
+    const i=Math.floor(xx/h),j=Math.floor(yy/h),k=ci(i,j);
+    return {i,j,step:stepNumber,dye:dye[k],pressure:p[k],
+      vx:.5*(u[ui(i,j)]+u[ui(i+1,j)]),vy:.5*(v[vi(i,j)]+v[vi(i,j+1)])};
+  }};
 }
