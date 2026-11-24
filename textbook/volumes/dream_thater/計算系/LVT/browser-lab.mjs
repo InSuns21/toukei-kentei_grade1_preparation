@@ -137,7 +137,14 @@ export const lessons = {
     ['Main.lean','実行時の単体テスト','LVT4-01 OK を表示。','\n#eval main []\n'],
     ['ExerciseSolutions.lean','演習解答の検査','全8題の命題を検査。'],
     ['Failure.lean','誤った期待値のguard','番号9は拒否され、guardが失敗する。']
-  ], commands:'lake build\nlake test\nlake env lean Inspect.lean\nlake env lean ExerciseSolutions.lean\nlake env lean Failure.lean\nlake exe lvtUnitDemo --fail' }
+  ], commands:'lake build\nlake test\nlake env lean Inspect.lean\nlake env lean ExerciseSolutions.lean\nlake env lean Failure.lean\nlake exe lvtUnitDemo --fail' },
+  'LVT4-02': { module:'LvtPbt', modes:[
+    ['Inspect.lean','生成列と反例の比較','シード0では [9]、シード1では []。全件成功の意味と命題の型を確認。'],
+    ['Main.lean','固定列による性質検査','LVT4-02 OK を表示。','\n#eval main []\n'],
+    ['Main.lean','乱数で入力を生成','20件の入力と反例一覧を表示。反例が空でも正常。','\n#eval main ["--random"]\n'],
+    ['ExerciseSolutions.lean','演習解答の検査','全8題の命題を検査。'],
+    ['Failure.lean','意図した反例検出','シード0の6件に9が含まれるためguardが失敗する。']
+  ], commands:'lake build\nlake test\nlake env lean Inspect.lean\nlake env lean ExerciseSolutions.lean\nlake exe lvtPbtDemo --random\nlake env lean Failure.lean\nlake exe lvtPbtDemo --fail' }
 };
 export function combine(module, definitions, experiment, suffix='') {
   // Only the exact local module import is replaced by its source.

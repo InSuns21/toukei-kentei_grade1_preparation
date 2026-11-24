@@ -99,7 +99,7 @@ chapters:
     title: "例示・単体テスト・#guard・Lake test"
   - id: LVT4-02
     path: textbook/volumes/dream_thater/計算系/LVT/LVT4-02
-    status: planned
+    status: completed
     title: "Property-Based Testingの原理"
   - id: LVT4-03
     path: textbook/volumes/dream_thater/計算系/LVT/LVT4-03

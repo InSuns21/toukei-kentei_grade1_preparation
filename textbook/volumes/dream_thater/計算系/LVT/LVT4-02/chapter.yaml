@@ -1,0 +1,23 @@
+id: "LVT4-02"
+title: "Property-Based Testingの原理"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT4-01]
+official_scope: []
+learning_objectives:
+  - 性質・入力生成・判定器を分離して設計する
+  - 同一の性質を複数の入力で検査し反例を記録する
+  - 有限検査の成功と全称命題を区別する
+  - 生成範囲と独立一様抽出の仮定から反例の見逃しを数える
+definitions:
+  - { id: LVT4-02-DEF-01, name: "性質ベーステスト" }
+propositions:
+  - { id: LVT4-02-PROP-01, name: "生成入力列の全件成功条件" }
+  - { id: LVT4-02-PROP-02, name: "独立一様抽出での反例の見逃し" }
+theorems: []
+canonical_examples: ["着手番号の境界", "シードによる反例検出の差", "独立一様抽出と偏った生成"]
+problem_patterns: [LVT4-02-A01, LVT4-02-A02, LVT4-02-A03, LVT4-02-A04, LVT4-02-B01, LVT4-02-B02, LVT4-02-B03, LVT4-02-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2, review: 0.5 }
