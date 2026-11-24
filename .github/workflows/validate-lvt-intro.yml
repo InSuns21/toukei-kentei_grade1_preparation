@@ -39,4 +39,5 @@ jobs:
             exit 1
           fi
           cat failure.log
-          grep -E 'guard.*failed|guard expression' failure.log
+          grep -F 'LvtIntro.reference 2 == true' failure.log
+          grep -F 'did not evaluate to `true`' failure.log
