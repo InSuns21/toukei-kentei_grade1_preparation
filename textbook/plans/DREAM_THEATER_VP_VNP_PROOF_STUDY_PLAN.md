@@ -7,7 +7,7 @@
 
 ## 1. 目的・前提・停止線
 
-GCT1–16、ACOMP1–24、TSP1–16、NPCG1–12、FML1–10の対応箇所（下表の順で選択履修） を再利用する。既存の全科目の完成を一律必修としない。着手時に直接参照する章の本文・knowledge.yaml・定理anchorを照合する。
+GCT1–16、ACOMP1–24、TSP1–16、NPCG1–12、LVT第I・II部を前提とするFML1–7の対応箇所（下表の順で選択履修） を再利用する。既存の全科目の完成を一律必修としない。着手時に直接参照する章の本文・knowledge.yaml・定理anchorを照合する。
 
 原論文A–G/O/Lは紙面の証明を再構成し、H.2(d,e)、I.1、J.3、N.4は著者が完全な正しさの根拠をLeanに委ねると明記しているため、Leanの補題・プログラム・サイズ証明を実際に追う。省略された箇所を完全証明済みとしない。flat/contractingは排他的とは示していない。cは全標数共通、m₀は標数依存・非有効。原論文の検証状態は公開時点の著者報告と第三者実行・専門家審査を別記。計画では再ビルド未実施。
 
@@ -38,7 +38,7 @@ GCT1–16、ACOMP1–24、TSP1–16、NPCG1–12、FML1–10の対応箇所（�
 | VNP21 | K：small circuitからaccelerator、定数名・低次数化・scale transferと対角線論法（K.7） | VNP20および必要な既存前提 |
 | VNP22 | L/M：両caseの結合、全標数へのtransfer、HC grid gadget、VP≠VNP（M.3–4） | VNP21および必要な既存前提 |
 | VNP23 | N：Laurent切断、近似few-term lemma・近似accelerator、VNP not⊆ closure(VP)（N.5） | VNP22および必要な既存前提 |
-| VNP24 | P/Q：用語・全主要定理とLean対応、I.1/H.2(d,e)/J.3/N.4の監査、P vs NPへの限界（FML8–10） | VNP23および必要な既存前提 |
+| VNP24 | P/Q：用語・全主要定理とLean対応、I.1/H.2(d,e)/J.3/N.4の監査、P vs NPへの限界（FML5–7） | VNP23および必要な既存前提 |
 
 ## 3. 標準書・一次資料
 

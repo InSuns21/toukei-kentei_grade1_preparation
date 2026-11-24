@@ -26,7 +26,7 @@
 - **NS-BU**: 3次元非圧縮 Navier–Stokes の無外力有限時間特異点（Alpöge–Buckmaster、数値証明書未公開）
 - **RH/GRH**: Alpöge–Claude のRH・Dirichlet GRH形式証明と独立認証。詳細は [RHP研究講読](DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md) が担う。
 
-- **VP/VNP**: Claude (Anthropic) の任意の体上の算術回路下界・VP/VNP分離・border complexity分離の主張。詳細は [VP/VNP横断ルート（102講）](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md) と [VNP研究講読（24講）](DREAM_THEATER_VP_VNP_PROOF_STUDY_PLAN.md) が所有。
+- **VP/VNP**: Claude (Anthropic) の任意の体上の算術回路下界・VP/VNP分離・border complexity分離の主張。詳細は [VP/VNP横断ルート（99講）](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md) と [VNP研究講読（24講）](DREAM_THEATER_VP_VNP_PROOF_STUDY_PLAN.md) が所有。
 
 Euler-BU、NS-BU、RH/GRH、VP/VNPは本PLAN内の便宜的な群名で、OpenAI/mathの数値IDではない。376の計算普遍性、9月の外力付き特異点、11月の無外力特異点を別の命題として扱う。
 
@@ -40,7 +40,7 @@ result family は成果群識別子であって講数ではない。268 は Open
 
 ## 1. 講義数の再確定：全42講
 
-**全42講とする（従来39講 + VP/VNP横断3講）。** 従来38講のIDと順序は維持し、VP/VNPの3講を総括の前に置く。RH/GRHの詳細研究講読23講とVP/VNP横断ルート102講は別PLANであり42講には含めない。 旧25講の8講の橋渡し（079A/B、378A/B、YMA/B/C、QCDA）を維持し、新たに268A/B/Eの3講へ有限スピン・転送作用素・作用素代数/SPTの基礎橋渡しを埋め込む。268C/Dと268の3講は研究論文の異なる証明責務に対応する。講数は証明のまとまりと未習概念の量から決め、1講1論文・15週の時間割には従わない。EOM0 と EOM6、従来の章ID・中心問いを保つ。
+**全42講とする（従来39講 + VP/VNP横断3講）。** 従来38講のIDと順序は維持し、VP/VNPの3講を総括の前に置く。RH/GRHの詳細研究講読23講とVP/VNP横断ルート99講は別PLANであり42講には含めない。 旧25講の8講の橋渡し（079A/B、378A/B、YMA/B/C、QCDA）を維持し、新たに268A/B/Eの3講へ有限スピン・転送作用素・作用素代数/SPTの基礎橋渡しを埋め込む。268C/Dと268の3講は研究論文の異なる証明責務に対応する。講数は証明のまとまりと未習概念の量から決め、1講1論文・15週の時間割には従わない。EOM0 と EOM6、従来の章ID・中心問いを保つ。
 
 | 講 | 予定章ID | 中心問い・到達目標 | prerequisite / 接続 |
 | --- | --- | --- | --- |
@@ -84,7 +84,7 @@ result family は成果群識別子であって講数ではない。268 は Open
 | 38 | **EOMRH** | RH/Dirichlet GRHの命題・独立kernel認証・自然言語再構成の差、標準公理・statement matchingを小規模Lean例で比較。 | EOM0、ANT7/8の対応正本。RHPへの導入でありRHP全講を前提にしない |
 | 39 | **EOMVPA** | 算術回路とBoolean回路、VP/VNPと#P、permanent/HCの標数差、exact/border下界の量化を比較。 | EOM0、ACOMP6–12・21–24、VNP1・22–23 |
 | 40 | **EOMVPB** | price・CAT(0)・flat/contractingの二経路が証明する内容を比較し、代表的中間式と証明台帳を読解。 | EOMVPA、VNP2–21（詳細証明は正本参照） |
-| 41 | **EOMVP** | 5主要Lean定理のstatementと検証範囲、紙面のみで完結しない箇所、ETH・P vs NPへの非含意を監査。 | EOMVPB、VNP22–24、FML8–10、EOM378 |
+| 41 | **EOMVP** | 5主要Lean定理のstatementと検証範囲、紙面のみで完結しない箇所、ETH・P vs NPへの非含意を監査。 | EOMVPB、VNP22–24、FML5–7、EOM378 |
 | 42 | **EOM6** | 定理生成・形式化・独立検証・理論構築・教育の役割分担を13 family で総括。 | EOM0 と全13 family |
 
 内訳：**導入1 + Kakeya(074)3 + local smoothing(079)4 + $\pi$1 + H10(Q)2 + NS計算普遍性2 + スピングラス2 + Haldane–Tasaki(268)6 + ETH3 + YM/QCD6 + Euler-BU4 + NS-BU3 + RH/GRH横断1 + VP/VNP横断3 + 総括1 = 42講**。
@@ -109,7 +109,7 @@ result family は成果群識別子であって講数ではない。268 は Open
 | Euler-BU | 現行NS1–8A・NPDE1–7はcompleted。NS/FOU/GPDEの既出結果 → EOMEULERA–C → EOMEULER | 新規の波の増幅・endpoint inverse・多重尺度展開は橋渡しが必要。原論文とLeanの対応は著者報告、独立再検証は別途 |
 | NS-BU | NS5–8A、NPDE4/6 → EOMNSBUA/B → EOMNSBU | 基礎は着手可能。原論文の数値証明書と区間演算が未公開で無条件の主張の確定は不可 |
 | RH/GRH | ANT7/8 → EOMRH → RHPへの参照（詳細は独立PLANのANF/IWA/AFR等） | 横断導入はRHP全講の完成待ちにしない。実装時にANT正本を確認 |
-| VP/VNP | GCT・ACOMP・TSP・NPCG・FML → VNP研究講読 → EOMVPA/B/VP | 既存CPLX・COMB・AGは再利用。新規正本102講はplanned。対応章完成・anchor確認後にEOMを執筆する。 |
+| VP/VNP | GCT・ACOMP・TSP・NPCG、LVT第I・II部 → FML（7講） → VNP研究講読 → EOMVPA/B/VP | 既存CPLX・COMB・AGは再利用。新規正本99講はplanned（既存LVT共通14講は別計上）。対応章完成・anchor確認後にEOMを執筆する。 |
 
 **実装推奨順**：EOM0 → 074系 → 079A–079 → 017/004/376/221（各独立）→ 268A–268 → 378A–378 → YMA–YM・QCDA–QCD → EOMEULERA–EOMEULER → EOMNSBUA–EOMNSBU → EOMRH → EOMVPA–EOMVP → EOM6。上の表の順序は学修の依存を表示するもので、別々のfamilyは独立に着手してよい。YM/QCD の論文が非公開・検証中の場合でも**基礎橋渡しは執筆可能**。未公開の主定理を教材として既証明扱いにしない。
 
@@ -216,7 +216,7 @@ result family は成果群識別子であって講数ではない。268 は Open
 ### 3.13 VP/VNP：代数的計算複雑性理論とAIによる証明発見
 
 - [Claude 2026-11-23 v1](https://hexagonmath.org/2611.00954v1) と [Lean artifact](https://github.com/anthropics/formal-math/tree/main/vp-vnp) を一次資料とする。全標数共通の正定数 c、標数ごとの閾値 m₀、任意の体のゲート数下界を正確に量化する。標数2ではpermanent=determinantでありHCを用いる。下界は超多項式・準多項式型で、指数下界やP≠NPではない。
-- EOMVPAでは定義と下界の意味、EOMVPBではpriceからCAT(0)、flat/contracting分岐と両下界の結合、EOMVPではexact/border・全標数・5 theoremのstatement matchingとP vs NPの非含意を扱う。flatとcontractingは排他的と証明されていない。詳しい補題・演習は[VNP24講](DREAM_THEATER_VP_VNP_PROOF_STUDY_PLAN.md) と [102講ルート](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md) を正本にし重複しない。
+- EOMVPAでは定義と下界の意味、EOMVPBではpriceからCAT(0)、flat/contracting分岐と両下界の結合、EOMVPではexact/border・全標数・5 theoremのstatement matchingとP vs NPの非含意を扱う。flatとcontractingは排他的と証明されていない。詳しい補題・演習は[VNP24講](DREAM_THEATER_VP_VNP_PROOF_STUDY_PLAN.md) と [99講ルート](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md) を正本にし重複しない。
 - 原論文はH.2(d,e)、I.1、J.3、N.4の完全な正しさについてLeanに依存する旨を明記。READMEは公開時点で数学者の確認がないと記載。著者報告の形式化・比較器の設定、独立再ビルド、数学者の検証、出版は別欄にする。本PLAN設計では再ビルド未実施。EOM378のETH反証の主張とVP/VNPおよびP/NPは別命題。
 
 ## 4. EOM各章の統一フォーマットと検証状態
