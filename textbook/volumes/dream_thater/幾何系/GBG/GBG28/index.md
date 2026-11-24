@@ -4,7 +4,21 @@
 
 目標は、局所接続から曲率を計算し、自己双対方程式・Yang–Mills方程式・作用の有限性・第二Chern数を順に確かめ、最後に無限遠を一点加えた $S^4$ 上の非自明な主束を作ることである。
 
-**規約**。座標 $x=(x^1,x^2,x^3,x^4)$ を持つ $\mathbb R^4$ に標準Euclid計量と向き $dx^{1234}>0$ を与える。$r^2=\sum_{\mu=1}^4(x^\mu)^2$、大きさの母数 $\rho>0$ とし、重複添字は和を取る。$SU(2)$ の基本表現で反Hermite行列を用い、$F=dA+A\wedge A$、$\operatorname{YM}(A)=-\int\operatorname{tr}(F\wedge*F)$、$k=(8\pi^2)^{-1}\int\operatorname{tr}(F\wedge F)$ とする。作用と $k$ の非コンパクト積分は収束を確かめてから用いる。[前講の自己双対性](../GBG27/index.md#def-gbg27-self-duality)では、この規約の自己双対場は $k<0$ に対応する。
+**規約**。座標 $x=(x^1,x^2,x^3,x^4)$ を持つ $\mathbb R^4$ に標準Euclid計量と向き $dx^{1234}>0$ を与える。大きさの母数は $\rho>0$ とし、重複添字は和を取る。
+
+$$
+r^2=\sum_{\mu=1}^4(x^\mu)^2,\qquad F=dA+A\wedge A.
+$$
+
+$SU(2)$ の基本表現で反Hermite行列を用いる。作用と第二Chern数は次の規約に従う。
+
+$$
+\operatorname{YM}(A)=-\int\operatorname{tr}(F\wedge*F),
+\qquad
+k=\frac1{8\pi^2}\int\operatorname{tr}(F\wedge F).
+$$
+
+非コンパクト積分は収束を確かめてから用いる。[前講の自己双対性](../GBG27/index.md#def-gbg27-self-duality)では、この規約の非零・有限作用の自己双対場は $k<0$ に対応する。
 
 ## 1. 曲率の行列計算に使う記号
 
@@ -390,7 +404,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[貼り合わせ命題](#prop-gbg28-patching)により $A_\infty$ は滑らかなので、その曲率も滑らかである。[曲率のゲージ共変性](../GBG10/index.md#thm-gbg10-gauge-transform)で両パッチの曲率は共役に移り、$\operatorname{tr}(F\wedge F)$ は一致して大域4形式を作る。$S^4$ の向きは $x$ パッチの標準向きから延長したものとする。点 $\infty$ は4次元体積を持たず、[先の絶対収束した積分](#thm-gbg28-action)から
+[正則ゲージから無限遠ゲージへの貼り合わせ](#prop-gbg28-patching)により $A_\infty$ は滑らかなので、その曲率も滑らかである。[曲率のゲージ共変性](../GBG10/index.md#thm-gbg10-gauge-transform)で両パッチの曲率は共役に移り、$\operatorname{tr}(F\wedge F)$ は一致して大域4形式を作る。$S^4$ の向きは $x$ パッチの標準向きから延長したものとする。点 $\infty$ は4次元体積を持たず、[先の絶対収束した積分](#thm-gbg28-action)から
 
 $$
 \int_{S^4}\operatorname{tr}(F\wedge F)
@@ -564,7 +578,7 @@ A_\infty=gAg^{-1}+g\,dg^{-1}
 =-\frac{\rho^2}{r^2+\rho^2}dg\,g^{-1}.
 $$
 
-$g(x)=g(y)$ および $r^2=|y|^{-2}$ を使えば、[貼り合わせ命題の計算](#prop-gbg28-patching)により
+$g(x)=g(y)$ および $r^2=|y|^{-2}$ を使えば、[正則ゲージから無限遠ゲージへの貼り合わせ](#prop-gbg28-patching)の計算により
 
 $$
 A_\infty
