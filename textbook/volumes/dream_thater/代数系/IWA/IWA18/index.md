@@ -342,7 +342,7 @@ $$
 
 $B\to C$ が全射なので合成による $C^\vee\to B^\vee$ は単射です。$A$ に零な準同型は剰余類で同じ値を取るので $C=B/A$ 上の準同型へ一意に降ります。
 
-全射性を示します。$A$ 上の準同型 $f$ を延長した部分群の族を包含で順序付けると、鎖の合併上で整合した準同型が定まります。Zornの補題により極大延長 $f_M:M\to\mathbb Q_p/\mathbb Z_p$ が存在します。$M\ne B$ と仮定し $b\in B\setminus M$ を取ります。$b+M$ の位数はある $p^k$ です。$p^k y=f_M(p^k b)$ となる $y$ が存在します。実際、右辺の代表を $\mathbb Q_p$ で $u$ と取れば $y=u/p^k+\mathbb Z_p$ です。
+全射性を示します。$A$ 上の準同型 $f$ を延長した部分群の族を包含で順序付けると、鎖の合併上で整合した準同型が定まります。[Zorn の補題](../../../基礎科目/F0/F0-00A3/index.md#thm-zorn) により極大延長 $f_M:M\to\mathbb Q_p/\mathbb Z_p$ が存在します。$M\ne B$ と仮定し $b\in B\setminus M$ を取ります。$b+M$ の位数はある $p^k$ です。$p^k y=f_M(p^k b)$ となる $y$ が存在します。実際、右辺の代表を $\mathbb Q_p$ で $u$ と取れば $y=u/p^k+\mathbb Z_p$ です。
 
 $$
 f'(x+jb)=f_M(x)+jy\qquad(x\in M,\ j\in\mathbb Z)
@@ -460,11 +460,17 @@ $$
 
 [有限係数Selmer完全列](#thm-iwa18-selmer-exact) より $\operatorname{Sha}(E/\mathbb Q)[p]$ は有限です。
 
-[Mordell–Weil定理](../../EC/EC6/index.md#thm-ec6-general-mw) により $E(\mathbb Q)\simeq\mathbb Z^r\oplus B$（$B$ は有限）なので、$E(\mathbb Q)\otimes\mathbb Q_p/\mathbb Z_p\simeq(\mathbb Q_p/\mathbb Z_p)^r$ です。
+ここでは有理点群の有限生成性全体を使う必要はなく、[一般の弱Mordell–Weil定理](../../EC/EC6/index.md#thm-ec6-general-weak-mw) による有限性 $M/pM$（$M=E(\mathbb Q)$）で十分です。第4節の直極限表示を $A=\varinjlim_m M/p^mM$ と書きます。
 
-有限群の寄与が消えるのは、任意の分数を群の指数で割れるからです。
+$A[p]$ の元を第 $k$ 層の $[x]$ で表すと、$p$ 倍が極限で零なので、ある $j\ge k$ と $z\in M$ が存在して
 
-この左端の $p$ で消える部分は $(\mathbb Z/p)^r$ です。
+$$
+p^{j-k+1}x=p^j z
+$$
+
+となります。第 $j+1$ 層で元を表すと $[p^{j-k+1}x]=[p^j z]$ です。これは第1層の $[z]\in M/pM$ を $j$ 回移した像です。
+
+逆に第1層の像は $p$ 倍で零です。従って $A[p]$ は有限群 $M/pM$ の像であり有限です。
 
 第4節の極限完全列で底層のSelmer群の $p$ で消える部分を右端へ写すと像は有限、核もこの左端の部分群なので有限です。
 
