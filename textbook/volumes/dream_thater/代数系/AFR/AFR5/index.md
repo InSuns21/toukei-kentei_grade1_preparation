@@ -8,6 +8,8 @@
 
 $z=x+iy$、$y>0$ とします。整数 $c,d$ の最大公約数が1である組を原始的な組とします。Bézoutの等式で $ad-bc=1$ となる整数 $a,b$ が取れます。[実特殊線形群の上半平面への作用](../AFR1/index.md#def-afr1-real-group)により、この行列で移した点の高さは $y/|cz+d|^2$ です。同じ下段を持つ行列は同じ高さを与えます。下段を符号反転しても高さは変わらないので、全ての原始的な組を数えるときは2で割ります。
 
+ここで全モジュラー群は整数成分を持つ行列式1の行列全体 $SL_2(\mathbb Z)$ です。重さ0とは、[前講までの変換則](../AFR1/index.md#thm-afr1-lift) で群の作用による係数が1、すなわち上半平面の関数 $f$ が $f(\gamma z)=f(z)$ を満たすことを指します。以下の級数がこの性質を持つことは次の定理で確かめます。非正則という名称は、$z$ の正則性を要求せず高さ $y$ にも依存するという意味です。正の実数 $a$ に対する複素べきは $a^s=\exp(s\log a)$ とします。
+
 <a id="def-afr5-eisenstein"></a>
 <!-- formal-statement-start -->
 > **定義（非正則Eisenstein級数）**  
@@ -22,7 +24,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr5-eisenstein -->
-**定義の確認**。 $z=i,s=2$ では各項は $(c^2+d^2)^{-2}$ です。
+**定義の確認**。 $z=i,s=2$ では $x=0,y=1,\Re s=2>1$ です。$ci+d=d+ic$ なので $|ci+d|^2=c^2+d^2$ となり、和の中の項は $(c^2+d^2)^{-2}$ です。外側の係数 $1/2$ も含めて寄与を数えます。
 
 $(0,\pm1),(\pm1,0)$ の4組の寄与は合計2、$(\pm1,\pm1)$ の4組の寄与は $4/(2\cdot4)=1/2$ です。
 
@@ -34,6 +36,8 @@ $\max(|c|,|d|)=k$ の整数組は高々 $8k$ 個、各項は $k^{-4}$ 以下な�
 <!-- definition-example-end -->
 
 原始的という条件を外した格子和を考えると、正の整数倍に当たる寄与が [Riemann ζ 関数](../../../解析系/CA/CA12/index.md#def-ca12-riemann-zeta) にまとまります。これが正規化の第一段階です。
+
+以下で $\Delta_{\mathbb H}$ は [双曲Laplace作用素](../AFR2/index.md#def-afr2-laplacian) を表し、$s$ を固定して $z=x+iy$ の実座標 $x,y$ に作用します。固有方程式とは作用素を関数に適用すると定数倍になる等式です。
 
 <a id="thm-afr5-convergence"></a>
 <!-- formal-statement-start -->
@@ -68,15 +72,26 @@ $s$ のコンパクト集合で $\Re s\ge1+\epsilon$ とすれば、定数 $C$ �
 
 殻の個数 $8k$ を掛けた和は収束します。
 
-各項は $s$ の整関数なので局所一様収束から正則です。
+各項は $s$ の整関数なので、[正則関数列の局所一様極限定理](../../../解析系/CA/CA7/index.md#thm-ca7-holomorphic-locally-uniform-limit) により部分和の極限も正則です。
 
 $z$ 微分について、二次形式 $Q=|cz+d|^2$ の一階・二階偏微分は $O(k^2)$、それ以上は0です。
 
-$Q\ge C_0k^2$ なので、任意の固定階の $Q^{-s}$ の微分は、$Q^{-s}$ に $s$ の多項式と $Q$ の微分を $Q$ で割った有界因子を掛けた和です。
+$Q\ge C_0k^2$ です。ここで $\partial_x$ は $y$ を固定した $x$ の偏微分、$\partial_y$ は $x$ を固定した $y$ の偏微分です。例えば $s$ を固定し $x$ で偏微分すると、
+
+$$
+\begin{aligned}
+\partial_x Q^{-s}&=-sQ^{-s}\frac{\partial_x Q}{Q},\\
+\partial_x^2 Q^{-s}
+&=Q^{-s}\left(s(s+1)\frac{(\partial_x Q)^2}{Q^2}
+-s\frac{\partial_x^2 Q}{Q}\right).
+\end{aligned}
+$$
+
+$\partial_x Q=2c(cx+d)$、$\partial_x^2 Q=2c^2$、$\partial_y Q=2c^2y$、$\partial_y^2 Q=2c^2$ です。さらに微分しても積の微分則により同じ種類の比の積が現れ、任意の固定階で一様に有界です。
 
 $y^s$ の微分もコンパクト集合上で有界なので、各固定階の微分級数にも同じ収束評価が使えます。
 
-$\gamma=\begin{pmatrix}a&b\\p&q\end{pmatrix}$ に対し、虚部の式を代入すると
+$\gamma=\begin{pmatrix}a&b\\p&q\end{pmatrix}$ に対し、[虚部公式](../../MF/MF1/index.md#thm-mf1-imaginary-action) を用いると、$\Im(\gamma z)=y/|pz+q|^2$ かつ $c\gamma z+d=((ca+dp)z+cb+dq)/(pz+q)$ なので
 
 $$
 \frac{\Im(\gamma z)}{|c\gamma z+d|^2}
@@ -85,7 +100,15 @@ $$
 
 右から $\gamma$ を掛ける写像は整数逆行列を持つので原始的な組を全単射で移します。絶対収束により並べ替えても値が同じです。
 
-各原始的な組に対し、それを下段とする行列 $h$ を選びます。[双曲Laplace作用素](../AFR2/index.md#def-afr2-laplacian) は $-y^2(\partial_x^2+\partial_y^2)$ ですから、
+各原始的な組に対し、それを下段とする行列 $h$ を選びます。[双曲Laplace作用素](../AFR2/index.md#def-afr2-laplacian) は $-y^2(\partial_x^2+\partial_y^2)$ です。$f(x,y)=y^s$ なら
+
+$$
+\partial_x^2 f=0,\qquad
+\partial_y f=sy^{s-1},\qquad
+\partial_y^2 f=s(s-1)y^{s-2}.
+$$
+
+従って
 
 $$
 \Delta_{\mathbb H}y^s=-s(s-1)y^s.
@@ -111,11 +134,17 @@ $\Re s<1$ でも、十分大きい殻では $y/|cz+d|^2<1$ なので各項の絶
 
 従って元の級数が絶対収束するのは $\Re s>1$ に限られます。
 
-例えば $s=2$ では固有値は $-2$ です。これは二乗可積分な自己共役作用素の非負性と矛盾しません。後で見るように、この関数の定数項には $y^2$ が残り、二乗可積分ではないからです。
+例えば $s=2$ では固有値は $-2$ です。これは [エネルギー実現の自己共役性と非負性](../AFR3/index.md#thm-afr3-self-adjoint) と矛盾しません。後で見るように、この関数の定数項には $y^2$ が残り、二乗可積分ではないからです。
 
 ## 2. Mellin積分と完成形
 
-[Gamma 関数](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function) の積分で、$A>0$、$\Re s>0$ として変数を $u=At$ と置くと、
+[Gamma 関数](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function) の積分で、$A>0$、$\Re s>0$ として変数を $u=At$ と置きます。$du/dt=A>0$ で積分区間 $(0,\infty)$ が自身に一対一に移ります。
+
+$$
+dt=du/A,\qquad t^{s-1}=A^{1-s}u^{s-1}.
+$$
+
+この二式を代入すると、
 
 $$
 \int_0^\infty e^{-At}t^{s-1}dt=A^{-s}\Gamma(s).
@@ -164,7 +193,7 @@ $$
 \sum_{(c,d)\ne(0,0)}(y/|cz+d|^2)^\sigma.
 $$
 
-[収束と格子和表示](#thm-afr5-convergence) によって有限です。よって絶対可積分性を根拠に交換ができます。格子和表示に $\pi^{-s}\Gamma(s)$ を掛けると左辺が得られます。
+[収束と格子和表示](#thm-afr5-convergence) によって有限です。よって絶対可積分性を根拠に [Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) を適用し、数え上げ測度での和と積分を交換できます。格子和表示に $\pi^{-s}\Gamma(s)$ を掛けると左辺が得られます。
 <!-- proof-end -->
 
 ## 3. 横方向の平均と振動
@@ -230,9 +259,26 @@ $$
 =\sqrt{y/t}\,e^{-\pi y k^2/t}.
 $$
 
-この係数は絶対可和で、[周期関数のFourier展開](../../../解析系/FOU/FOU2/index.md#thm-fou2-dirichlet-convergence) により $P_t$ に戻ります。$u=cx$ と置くと $e^{2\pi ikcx}$ が現れますから、$x$ に関する周波数 $n$ は $kc=n$ のときだけ寄与します。
+この係数は絶対可和です。周期1の関数を $\theta=2\pi u$ によって周期 $2\pi$ の関数 $P_t(\theta/(2\pi))$ に移せば、滑らかなので [Dirichletの点ごとの極限定理](../../../解析系/FOU/FOU2/index.md#thm-fou2-dirichlet-convergence) を適用でき、Fourier級数は $P_t$ に戻ります。$u=cx$ と置くと $e^{2\pi ikcx}$ が現れ、係数を取る際の積分は
 
-Mellin表示の $c\ge1$ 部分は $\sum_{c\ge1}\int_0^\infty t^{s-1}e^{-\pi c^2yt}P_t(cx)dt$ です。$x\in[0,1]$ 上で格子和の絶対値積分の上界が一様に有限なので、$x$ の積分と $c,t,d$ の和・積分を交換できます。各 $t,c$ で上のFourier係数を使い、
+$$
+\int_0^1 e^{2\pi i(kc-n)x}\,dx
+=\begin{cases}1&kc=n,\\0&kc\ne n.\end{cases}
+$$
+
+従って $x$ に関する周波数 $n$ は $kc=n$ のときだけ寄与します。
+
+Mellin表示の $c\ge1$ 部分は
+
+$$
+\sum_{c\ge1}\int_0^\infty t^{s-1}e^{-\pi c^2yt}P_t(cx)dt
+$$
+
+です。
+
+$x\in[0,1]$ 上で格子和の絶対値積分の上界が一様に有限なので、[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) により $x$ の積分と $c,t,d$ の和・積分を交換できます。
+
+各 $t,c$ で上のFourier係数を使います。以下の $\mathbf1_{n=0}$ は $n=0$ のとき1、それ以外では0です。
 
 $$
 b_n(y,s)-\mathbf1_{n=0}\Lambda(2s)y^s
@@ -256,7 +302,7 @@ $$
 
 $n\ne0$ のときは $A=\pi c^2 y$、$B=\pi y(n/c)^2$、$\nu=s-1/2$ と置きます。
 
-$t=\sqrt{B/A}e^v$ により $At+B/t=2\sqrt{AB}\cosh v$、$dt=t\,dv$ です。
+$A,B>0$ なので $t=\sqrt{B/A}e^v$ は実数 $v$ から正の $t$ への一対一の変換です。$dt/dv=t>0$ より $dt=t\,dv$ となり、$At=\sqrt{AB}e^v$、$B/t=\sqrt{AB}e^{-v}$ を足すと $At+B/t=2\sqrt{AB}\cosh v$ です。
 
 [Kの積分表示](../AFR4/index.md#def-afr4-k-bessel) と正負の $v$ の対称化により、
 
@@ -282,10 +328,22 @@ $$
 \int_0^\infty e^{-(T_0/2)\cosh v+Mv}dv.
 $$
 
-積分は $\cosh v\ge e^v/2$ により有限です。約数は高々 $|n|$ 個で各べきも $|n|$ の固定べきで抑えられるので、$y$ がコンパクト区間内なら $b_n$ は $C|n|^{1+3M}e^{-\pi|n|y_0}$ 以下です。絶対一様収束します。滑らかな周期関数 $x\mapsto E^*(x+iy,s)$ の係数を上で直接計算したので、[Dirichletの点ごとの極限定理](../../../解析系/FOU/FOU2/index.md#thm-fou2-dirichlet-convergence) により、この級数は元の関数に一致します。
+積分は $\cosh v\ge e^v/2$ により有限です。$m=|n|\ge1$ とすると正の約数の個数は高々 $m$ 個で、それぞれ $|d^{-2\nu}|\le m^{2M}$、また $|m^\nu|\le m^M$ です。
+
+高さがコンパクト区間内なら、以上の評価を係数の式に代入して
+
+$$
+|b_n(y,s)|\le C m^{1+3M}e^{-\pi m y_0}
+$$
+
+を得ます。右辺は正整数 $m$ に関して可和なので、非零周波数の級数は絶対一様収束します。
+
+滑らかな周期関数 $x\mapsto E^*(x+iy,s)$ の係数を上で直接計算しました。周期を $\theta=2\pi x$ で $2\pi$ に直し、複素数値関数の実部と虚部それぞれに [Dirichletの点ごとの極限定理](../../../解析系/FOU/FOU2/index.md#thm-fou2-dirichlet-convergence) を適用します。
+
+Fourier有限和は線形なので、実部の有限和に虚部の有限和の $i$ 倍を加えると元の複素数値関数の有限和になります。この級数は元の関数に一致します。
 <!-- proof-end -->
 
-完成形を元の正規化に戻すと、平均は
+$\Re s>1$ では [ζ関数の零点不存在](../../../解析系/CA/CA12/index.md#thm-ca12-euler-product) と [Gamma関数の零点不存在](../../../解析系/CA/CA11/index.md#cor-ca11-gamma-zero-free) により $\Lambda(2s)\ne0$ です。完成形をこの係数で割って元の正規化に戻すと、平均は
 
 $$
 \int_0^1E(x+iy,s)dx=y^s+\phi(s)y^{1-s},
@@ -302,7 +360,7 @@ Cauchy–Schwarzの不等式で $\int_0^1|E|^2dx\ge|\int_0^1 E dx|^2\ge y^4$ な
 
 ## 4. 元の収束域を越える
 
-級数の元の定義は $\Re s>1$ でしたが、Fourier展開の非零係数はさらに広い領域で意味を持ちます。定数項に現れる $\Lambda$ の極だけを追えば解析接続が可能です。
+級数の元の定義は $\Re s>1$ でしたが、Fourier展開の非零係数はさらに広い領域で意味を持ちます。定数項に現れる $\Lambda$ の極だけを追えば解析接続が可能です。有理型延長とは、元の領域での値を保ち、孤立した極を許して正則関数を広い領域に延ばすことです。
 
 <a id="thm-afr5-functional"></a>
 <!-- formal-statement-start -->
@@ -340,13 +398,13 @@ $y^{1/2+h}-y^{1/2-h}=2h\sqrt y\log y+O(h^3)$ なのでこの極は消えます�
 
 $z$ についても任意のコンパクト集合で非零係数の微分級数が収束します。
 
-$x$ 微分は $2\pi in$ を、$y$ 微分は $\sqrt y$ の微分または $-2\pi|n|\cosh v$ を積分内に生じさせます。
+$x$ 微分は $e^{2\pi inx}$ に係数 $2\pi in$ を、$y$ 微分は $\sqrt y$ の微分または $-2\pi|n|\cosh v$ を積分内に生じさせます。
 
 任意の固定階では $|n|$ の固定べきと $\cosh^j v$ が加わるだけで、前節の支配積分に $\cosh^j v$ を掛けても有限です。
 
 従って $z$ 微分後も $s$ の有理型関数を得ます。
 
-[収束域での保型性と固有方程式](#thm-afr5-convergence) は、両辺を $s$ の有理型関数とみて一致の定理で延長できます。
+[収束域での保型性と固有方程式](#thm-afr5-convergence) は、両辺を $s$ の有理型関数とみて[一致の定理](../../../解析系/CA/CA3/index.md#thm-ca3-isolated-zeros-identity) で延長できます。極のない開集合で一致する差を考えれば、孤立した極を除いた領域で差は0となり、極でのLaurent展開も一致します。
 
 正則なパラメータでは、解析接続後の関数も同じ保型性と固有方程式を満たします。
 
@@ -363,7 +421,7 @@ $$
 \sigma_{2s-1}(m)=m^{2s-1}\sigma_{1-2s}(m).
 $$
 
-従って $m^{1/2-s}\sigma_{2s-1}(m)=m^{s-1/2}\sigma_{1-2s}(m)$ です。[Kの積分表示](../AFR4/index.md#def-afr4-k-bessel) で $\cosh$ が偶関数であることから $K_{1/2-s}=K_{s-1/2}$ です。全係数が一致します。
+従って $m^{1/2-s}\sigma_{2s-1}(m)=m^{s-1/2}\sigma_{1-2s}(m)$ です。[Kの積分表示](../AFR4/index.md#def-afr4-k-bessel) で $\cosh$ が偶関数であることから $K_{1/2-s}(T)=K_{s-1/2}(T)$ です（$T=2\pi my>0$ を固定し、積分中の $\cosh((1/2-s)v)=\cosh((s-1/2)v)$ を使います）。全係数が一致します。
 
 $\Lambda(2s)$ は恒等的に0ではないので $E^*/\Lambda(2s)$ は有理型関数で、元の領域では定義した $E$ と一致します。完成形の等式を割り戻すと
 
@@ -478,7 +536,7 @@ $$
 =y^2\int_{\mathbb R}(v^2+c^2y^2)^{-2}dv.
 $$
 
-非負性で交換できます。$v=cy\tan\theta$ と置くと右辺は
+被積分関数は非負なので [Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli) により和と積分を交換できます。$v=cy\tan\theta$ と置くと右辺は
 
 $$
 y^2(cy)^{-3}\int_{-\pi/2}^{\pi/2}\cos^2\theta d\theta
@@ -512,13 +570,24 @@ b_0&=(1/(2h)+A+O(h))\sqrt y\,e^{h\log y}\\
 \end{aligned}
 $$
 
-$e^{\pm h\log y}=1\pm h\log y+O(h^2)$ なので、二項の $1/h$ は相殺し、各々から $\sqrt y(\log y)/2$ が出ます。極限は $\sqrt y(2A+\log y)$ です。
+固定した $y>0$ で $e^{\pm h\log y}=1\pm h\log y+O(h^2)$ です。各積を定数項まで展開すると、
+
+$$
+\begin{aligned}
+b_0/\sqrt y
+&=\left(\frac1{2h}+\frac{\log y}{2}+A+O(h)\right)\\
+&\quad+\left(-\frac1{2h}+\frac{\log y}{2}+A+O(h)\right)\\
+&=2A+\log y+O(h).
+\end{aligned}
+$$
+
+極限は $\sqrt y(2A+\log y)$ です。
 <!-- solution-end -->
 
 <a id="ex-afr5-c1"></a>
 ### AFR5-C1 非零周波数の対称性と中心線
 
-$m$ を正整数とする。$d\mapsto m/d$ を用いて $\sigma_{-w}(m)=m^{-w}\sigma_w(m)$ を示せ。次に $b_n(y,1-s)=b_n(y,s)$ を導け。最後に $s=1/2+ir$ で $\phi(s)$ が有限かつ非零なら絶対値が1であることを示せ。
+$m$ を正整数とする。$d\mapsto m/d$ を用いて $\sigma_{-w}(m)=m^{-w}\sigma_w(m)$ を示せ。次に $n\ne0$ の非零Fourier係数について $b_n(y,1-s)=b_n(y,s)$ を導け。最後に $s=1/2+ir$ で $\phi(s)$ が有限かつ非零なら絶対値が1であることを示せ。
 
 - Level: C
 - ID: AFR5-C1
@@ -531,7 +600,7 @@ $$
 =m^{-w}\sum_{e\mid m}e^w.
 $$
 
-$w=1-2s$ を代入すると $\sigma_{2s-1}(m)=m^{2s-1}\sigma_{1-2s}(m)$。$m=|n|$ として [Fourier係数の式](#thm-afr5-fourier) の右辺で $s$ を $1-s$ にすると、
+$w=1-2s$ を代入すると $\sigma_{2s-1}(m)=m^{2s-1}\sigma_{1-2s}(m)$。$m=|n|$ として [Fourier係数の式](#thm-afr5-fourier) の右辺は [解析接続](#thm-afr5-functional) で全ての $s$ に延長されます。その式で $s$ を $1-s$ にすると、
 
 $$
 2\sqrt y\,m^{1/2-s}m^{2s-1}\sigma_{1-2s}(m)
