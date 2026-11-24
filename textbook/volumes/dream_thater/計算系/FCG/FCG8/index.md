@@ -70,7 +70,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fcg8-signed-distance -->
-**直接例。** **定義の確認**： 中心 $\boldsymbol c$、半径 $r>0$ の円周は非空・閉集合で内外を分ける。$\rho=\|\boldsymbol x-\boldsymbol c\|$ とする。任意の円周上の点 $\boldsymbol z$ について、$\boldsymbol a=\boldsymbol x-\boldsymbol c,\ \boldsymbol b=\boldsymbol z-\boldsymbol c$ と置く。$\boldsymbol a\cdot\boldsymbol b\le\rho r$ なので
+**直接例。** **定義の確認**： 中心 $\boldsymbol c$、半径 $r>0$ の円周は非空・閉集合で内外を分ける。$\rho=\|\boldsymbol x-\boldsymbol c\|$ とする。任意の円周上の点 $\boldsymbol z$ について、$\boldsymbol a=\boldsymbol x-\boldsymbol c,\ \boldsymbol b=\boldsymbol z-\boldsymbol c$ と置く。実Euclid内積に対する[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)より
+
+$$
+\boldsymbol a\cdot\boldsymbol b\le
+|\boldsymbol a\cdot\boldsymbol b|\le \rho r.
+$$
+
+したがって
 
 $$
 \|\boldsymbol a-\boldsymbol b\|^2
@@ -91,14 +98,14 @@ $$
 \quad |\nabla d_\Gamma|^2=\frac{(x-0.5)^2+(y-0.5)^2}{\rho^2}=1.
 $$
 
-点 $(0.68,0.5)$ なら $d_\Gamma=0$、勾配 $(1,0)$。一般に界面外で距離が微分可能なら、距離関数は1-Lipschitz（点を動かした距離以上には値が変わらない）である。実際、点 $\boldsymbol x,\boldsymbol y$ と任意の界面上の点 $\boldsymbol z$ について
+点 $(0.68,0.5)$ なら $d_\Gamma=0$、勾配 $(1,0)$。一般に界面外で距離が微分可能なら、距離関数は1-Lipschitz（点を動かした距離以上には値が変わらない）である。実際、点 $\boldsymbol x,\boldsymbol y$ と任意の界面上の点 $\boldsymbol z$ について、Euclidノルムの[三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-triangle-inequality)を $\boldsymbol x-\boldsymbol y,\boldsymbol y-\boldsymbol z$ に適用すると
 
 $$
 \|\boldsymbol x-\boldsymbol z\|\le
 \|\boldsymbol x-\boldsymbol y\|+\|\boldsymbol y-\boldsymbol z\|.
 $$
 
-$\boldsymbol z$ について下限を取り、$\boldsymbol x,\boldsymbol y$ を交換した式も合わせれば、距離の差の絶対値は $\|\boldsymbol x-\boldsymbol y\|$ 以下となる。従って微分可能なら勾配ノルムは1以下である。最近接点への単位方向に微小距離だけ動くと、三角不等式の下界とその最近接点までの距離の上界が一致し、距離は動いた分だけ減る。従ってその方向の方向微分は $-1$ となり、勾配ノルムは1以上でもある。符号を反転してもノルムは同じである。滑らかな界面で勾配が連続に延長できれば界面上でも1になる。**距離・符号・勾配**を検証した。中心では方向ごとの最近接点が無数にあり、$\rho$ は微分不能なので勾配1を要求しない。
+$\boldsymbol z$ について下限を取り、$\boldsymbol x,\boldsymbol y$ を交換した式も合わせれば、距離の差の絶対値は $\|\boldsymbol x-\boldsymbol y\|$ 以下となる。従って微分可能なら勾配ノルムは1以下である。最近接点への単位方向に微小距離だけ動くと、先ほどの1-Lipschitz性による下界とその最近接点までの距離の上界が一致し、距離は動いた分だけ減る。従ってその方向の方向微分は $-1$ となり、勾配ノルムは1以上でもある。符号を反転してもノルムは同じである。滑らかな界面で勾配が連続に延長できれば界面上でも1になる。**距離・符号・勾配**を検証した。中心では方向ごとの最近接点が無数にあり、$\rho$ は微分不能なので勾配1を要求しない。
 <!-- definition-example-end -->
 
 ## 2. 速度場に沿って界面を運ぶ
@@ -203,7 +210,7 @@ $$
 |L(t)|=\iint_{L(0)}1\,dx_0\,dy_0=\pi r^2.
 $$
 
-この結論は**すべての初期位置に対して求めた座標変換**についてであり、格子の負値セル数の不変性ではない。初期偏差を $a=x_0-0.5,b=y_0-0.5$ とすると $a^2+b^2\le r^2$ であり、Cauchy–Schwarzの不等式から
+この結論は**すべての初期位置に対して求めた座標変換**についてであり、格子の負値セル数の不変性ではない。初期偏差を $a=x_0-0.5,b=y_0-0.5$ とすると $a^2+b^2\le r^2$ であり、[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を $(a,b)$ と $(1,\sigma t)$ に適用すると
 
 $$
 |X-0.5|=|a+\sigma tb|\le r\sqrt{1+(\sigma t)^2},
