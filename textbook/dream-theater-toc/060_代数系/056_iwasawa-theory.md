@@ -19,3 +19,4 @@
 16. [IWA16 円分岩澤主予想：正確な定式化](textbook/volumes/dream_thater/代数系/IWA/IWA16/index.md)
 17. [IWA17 主予想の証明戦略とEuler systems](textbook/volumes/dream_thater/代数系/IWA/IWA17/index.md)
 18. [IWA18 Selmer群とPontryagin双対](textbook/volumes/dream_thater/代数系/IWA/IWA18/index.md)
+19. [IWA19 CM楕円曲線・Hecke指標のp進算術](textbook/volumes/dream_thater/代数系/IWA/IWA19/index.md)

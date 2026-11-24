@@ -1,0 +1,41 @@
+chapter: IWA19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EC3
+  - EC4
+  - EC10
+  - IWA15
+  - IWA18
+forward_references: []
+concepts:
+  - id: number-theory.iwa19-hecke
+    name: "代数的Hecke指標"
+    kind: definition
+    introduction: formal
+    requires: [elliptic-curve.complex-multiplication]
+  - id: number-theory.iwa19-gaussian
+    name: "Gauss整数の主生成元指標"
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa19-hecke]
+  - id: number-theory.iwa19-deuring
+    name: "Hecke–DeuringのCM対応"
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa19-hecke, elliptic-curve.hasse-weil-l]
+  - id: number-theory.iwa19-split
+    name: "分裂素数でのCM係数分解"
+    kind: theorem
+    introduction: formal
+    requires: [elliptic-curve.complex-multiplication, elliptic-curve.torsion-structure]
+  - id: number-theory.iwa19-ordinary
+    name: "通常還元の単数根"
+    kind: definition
+    introduction: formal
+    requires: [elliptic-curve.good-euler-polynomial]
+  - id: number-theory.iwa19-main
+    name: "CM楕円曲線の円分主予想"
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa18-tower-selmer, number-theory.iwa18-pontryagin, number-theory.iwa6-characteristic, number-theory.iwa19-ordinary]

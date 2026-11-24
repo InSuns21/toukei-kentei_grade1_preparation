@@ -1,0 +1,42 @@
+id: IWA19
+title: "CM楕円曲線・Hecke指標のp進算術"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EC3
+  - EC4
+  - EC10
+  - IWA15
+  - IWA18
+official_scope: []
+learning_objectives:
+  - 格子と座標からCMと非CMの違いを検証する
+  - Hecke指標の合同条件を用いて主生成元を計算する
+  - 分裂と惰性で複素Euler因子が変わることを導く
+  - p進係数環の射影を持ち上げて分解する
+  - 通常還元の補間条件とCM主予想の適用範囲を識別する
+definitions:
+  - { id: IWA19-DEF-01, name: "代数的Hecke指標" }
+  - { id: IWA19-DEF-02, name: "通常還元の単数根" }
+theorems:
+  - { id: IWA19-THM-01, name: "Gauss整数の主生成元指標" }
+  - { id: IWA19-THM-02, name: "Hecke–DeuringのCM対応" }
+  - { id: IWA19-THM-03, name: "分裂素数でのCM係数分解" }
+  - { id: IWA19-THM-04, name: "CM楕円曲線の円分主予想" }
+canonical_examples:
+  - Gauss整数の主生成元と5のEuler多項式
+  - 法25でのCM射影と単数根
+problem_patterns:
+  - IWA19-A1
+  - IWA19-A2
+  - IWA19-A3
+  - IWA19-A4
+  - IWA19-B1
+  - IWA19-B2
+  - IWA19-B3
+  - IWA19-B4
+  - IWA19-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 5, review: 2 }
