@@ -10,7 +10,7 @@
 
 ## 2. 像を安定して作る公理
 
-前講では、[有限完備圏](../../CAT/CAT2-04/index.md#def-cat2-04-complete)で核対の余等化子が存在し、正則エピ射が引き戻しで保たれれば像が作れると示した。この三条件を一組の公理として使う。
+前講では、[有限完備圏](../../CAT/CAT2-04/index.md#def-cat2-04-complete)で[核対](../CATB1-01/index.md#def-catb1-01-kernel-pair)の[余等化子](../../CAT/CAT2-05/index.md#def-cat2-05-coequalizer)が存在し、[正則エピ射](../CATB1-01/index.md#def-catb1-01-regular-epi)が[引き戻し](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)で保たれれば[像が作れる](../CATB1-01/index.md#thm-catb1-01-factorization)と示した。この三条件を一組の公理として使う。
 
 <a id="def-catb1-02-regular-category"></a>
 
@@ -287,7 +287,7 @@ $fr_1=fr_2$ から $f(a)=f(b)$。従って核対の基礎集合は $X\times X$ �
 
 ## 7. 演習
 
-### CATB1-02-A01 正則圏の三公理
+### CATB1-02-A01 核対の商を計算する
 
 - Level: A
 
