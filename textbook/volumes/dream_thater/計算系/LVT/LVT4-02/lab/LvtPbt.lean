@@ -6,8 +6,8 @@ def badRange (n : Nat) : Bool := decide (n ≤ 9)
 def rangeCheck (f : Nat → Bool) (n : Nat) : Bool :=
   f n == decide (n ≤ 8)
 
-def samples (seed count : Nat) : List Nat :=
-  (List.range count).map (fun i => (seed + 5 * i) % 16)
+def samples (start count : Nat) : List Nat :=
+  (List.range count).map (fun i => (start + 5 * i) % 16)
 
 def failures (check : Nat → Bool) (xs : List Nat) : List Nat :=
   xs.filter (fun n => !(check n))

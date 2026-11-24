@@ -82,11 +82,11 @@ $$
 x_i=(s+5i)\bmod16,\qquad 0\le i<N.
 $$
 
-これは開始値で巡回列の位置をずらす方式です。コードの seed はこの開始値を表し、乱数生成器の内部状態を指定するものではありません。独立な乱数ではありません。まずこの方式で入力の生成と判定を切り離し、次に乱数で入力を選ぶ実験を行います。
+これは開始値で巡回列の位置をずらす方式です。コードの start はこの開始値を表し、乱数生成器の内部状態を指定するものではありません。独立な乱数ではありません。まずこの方式で入力の生成と判定を切り離し、次に乱数で入力を選ぶ実験を行います。
 
 ~~~lean
-def samples (seed count : Nat) : List Nat :=
-  (List.range count).map (fun i => (seed + 5 * i) % 16)
+def samples (start count : Nat) : List Nat :=
+  (List.range count).map (fun i => (start + 5 * i) % 16)
 
 def rangeCheck (f : Nat → Bool) (n : Nat) : Bool :=
   f n == decide (n ≤ 8)
