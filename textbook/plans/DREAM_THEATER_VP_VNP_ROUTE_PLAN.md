@@ -1,12 +1,12 @@
 # DREAM THEATER VP ≠ VNP 横断履修ルート
 
-構成確定日: 2026-11-24 JST／状態: planned（設計のみ）
+構成確定日: 2026-11-24 JST／状態: 系列別実装進行中（GCT着手済み）
 
 ## 全99講（6独立系列）+ EOM追加3講
 
 | 系列 | 正本 | 講数 |
 | --- | --- | ---: |
-| GCT | [組合せグラフ理論・計数計算量](DREAM_THEATER_GRAPH_COUNTING_COMPLEXITY_PLAN.md) | 16 |
+| GCT | [組合せグラフ理論・計数計算量](../plans_progress/DREAM_THEATER_GRAPH_COUNTING_COMPLEXITY_PLAN.md) | 16 |
 | ACOMP | [代数的計算複雑性理論 I・II](DREAM_THEATER_ALGEBRAIC_COMPLEXITY_I_II_PLAN.md) | 24 |
 | TSP | [テンソル理論・漸近スペクトル](DREAM_THEATER_TENSOR_ASYMPTOTIC_SPECTRUM_PLAN.md) | 16 |
 | NPCG | [距離幾何学・非正曲率空間](DREAM_THEATER_NONPOSITIVE_CURVATURE_METRIC_GEOMETRY_PLAN.md) | 12 |
@@ -22,4 +22,4 @@ EOMの[横断3講](DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md)は VNP の詳説を
 
 ## 証拠と停止線
 
-[Claude v1](https://hexagonmath.org/2611.00954v1)／[Anthropic artifact](https://github.com/anthropics/formal-math/tree/main/vp-vnp)。著者はLean形式化と比較器を公開しているが、READMEは数学者が証明を確認していないと記載。本設計では独立ビルド・完全な証明監査をしていない。紙面A–G/O/LとH.2(d,e)、I.1、J.3、N.4のLean依存を区別する。全5主要theoremのstatementと公理、固定版、nanoda再検証、自然言語再構成、外部評価を台帳化する。P≠NPは導かない。flat/contractingは排他的と断定しない。変更はPLANのみで未実装manifest/目次を追加しない。
+[Claude v1](https://hexagonmath.org/2611.00954v1)／[Anthropic artifact](https://github.com/anthropics/formal-math/tree/main/vp-vnp)。著者はLean形式化と比較器を公開しているが、READMEは数学者が証明を確認していないと記載。本設計では独立ビルド・完全な証明監査をしていない。紙面A–G/O/LとH.2(d,e)、I.1、J.3、N.4のLean依存を区別する。全5主要theoremのstatementと公理、固定版、nanoda再検証、自然言語再構成、外部評価を台帳化する。P≠NPは導かない。flat/contractingは排他的と断定しない。設計時には未実装manifest/目次を追加せず、初回実装から系列manifestで進捗を管理する。

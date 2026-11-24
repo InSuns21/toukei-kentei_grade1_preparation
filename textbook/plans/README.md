@@ -86,9 +86,9 @@
 
 ### VP/VNP（2026-11-24追加）
 
-[横断履修ルート](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md)（新規99講、未着手）。個別の正本は以下の6系列。EOMへの横断3講は別計上。FMLはLVT第I・II部（既存14講）を共通基盤とする数学研究向け発展7講。LVT第III〜VI部は必修ではない。
+[横断履修ルート](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md)（新規99講、GCT着手済み）。個別の正本は以下の6系列。EOMへの横断3講は別計上。FMLはLVT第I・II部（既存14講）を共通基盤とする数学研究向け発展7講。LVT第III〜VI部は必修ではない。
 
-- [GCT 組合せグラフ理論・計数計算量・16講](DREAM_THEATER_GRAPH_COUNTING_COMPLEXITY_PLAN.md)
+- [GCT 組合せグラフ理論・計数計算量・16講](../plans_progress/DREAM_THEATER_GRAPH_COUNTING_COMPLEXITY_PLAN.md)
 - [ACOMP 代数的計算複雑性理論 I・II・24講](DREAM_THEATER_ALGEBRAIC_COMPLEXITY_I_II_PLAN.md)
 - [TSP テンソル理論・漸近スペクトル・16講](DREAM_THEATER_TENSOR_ASYMPTOTIC_SPECTRUM_PLAN.md)
 - [NPCG 距離幾何学・非正曲率空間・12講](DREAM_THEATER_NONPOSITIVE_CURVATURE_METRIC_GEOMETRY_PLAN.md)

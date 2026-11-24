@@ -1,7 +1,7 @@
 # DREAM THEATER 組合せグラフ理論・計数計算量 計画
 
 構成確定日: 2026-11-24 JST
-状態: planned（設計確定・本文未着手）
+状態: in progress（GCT1実装、GCT2–16予定）
 系列予約ID: GCT（実装時にmanifest/章ID衝突を再点検）
 講数: **全16講**
 
@@ -36,13 +36,15 @@ COMB1–18、CPLX1–11・18–21、CMP1–8、SGT1–3（必要箇所のみ） 
 
 Diestel, [Graph Theory, 6th ed.](https://link.springer.com/book/10.1007/978-3-662-70107-2)（基礎・マッチング・Hamilton閉路・木分解）；Arora–Barak, [Computational Complexity](https://users.cs.duke.edu/~reif/courses/complectures/books/AB/)（第17章）；Valiant, [The Complexity of Enumeration and Reliability Problems](https://doi.org/10.1137/0208032)；[The Complexity of Computing the Permanent](https://www.math.cmu.edu/users/af1p/Teaching/MCC17/Papers/permanent.pdf)。
 
-関連: [VP/VNP横断履修ルート](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md)。各書の目次と公開された研究資料を設計基準にし、本文を転載しない。
+関連: [VP/VNP横断履修ルート](../plans/DREAM_THEATER_VP_VNP_ROUTE_PLAN.md)。各書の目次と公開された研究資料を設計基準にし、本文を転載しない。
 
 ## 4. 完成条件
 
-- [ ] 初回実装時に本PLANを plans_progress に移し、系列manifestを全16講の予定IDで整備する。未実装章の公開目次先行登録はしない。
+- [x] 初回実装時に本PLANを plans_progress に移し、系列manifestを全16講の予定IDで整備する。未実装章の公開目次先行登録はしない。
 - [ ] 各講で主要定義を使用前に導入し、定理の仮定・定義域・量化・中間計算を明示。直接例と反例を含め、主要証明を再構成可能にする。
 - [ ] 原則 Level A 4題・B 3題・C 1題以上と詳細解答。単なる題数合わせはしない。
 - [ ] chapter.yaml・knowledge.yaml・prerequisite・stable anchor・KaTeX・concept/knowledge/exercise/Pages検証を完了する。
 - [ ] 研究claimは証明artifact・statement matching・kernel・独立人間検証・出版を分離し、未確認のものを無条件の正本定理にしない。
 - [ ] 横断監査・公開導線完了後に plan_done に移す。
+
+進捗の正本: [GCT系列manifest](../dream-theater-series/GCT.yaml)。
