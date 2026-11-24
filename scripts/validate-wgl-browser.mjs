@@ -938,7 +938,7 @@ try{
   await click('stop');
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
 
-  // FCG7: all three panels, the same 8x8 PIC/FLIP transfer and its physical-step legend.
+  // FCG7: dense dyed vortex, live PIC/FLIP transfer and physical-step legend.
   await cdp('Page.navigate',{url:url+'?lesson=FCG7'});
   await waitFor('document.getElementById("status")?.textContent==="実行できます"');
   await click('run');
@@ -947,10 +947,19 @@ try{
   assert.match(picflip.status,/独立画素検算に合格/,JSON.stringify(picflip));
   assert.ok(picflip.rows.length>0&&picflip.rows.every(x=>x==='OK'));
   assert.equal(picflip.sandbox,'allow-scripts');
-  assert.match(picflip.grid,/8×8.*各16個/);
+  assert.match(picflip.grid,/24×24.*各2304個/);
   assert.match(picflip.color,/PIC粒子.*FLIP粒子.*赤青/);
   assert.match(picflip.clock,/物理step 8、t=0.64 s/);
   assert.match(picflip.source,/particle.js.*particle.frag/);
+  await waitFor('document.getElementById("fcg7-energy")?.textContent.includes("α=1")');
+  await click('fcg7-reset');
+  await waitFor('document.getElementById("fcg7-energy")?.textContent.includes("PIC 100.0%")');
+  await click('fcg7-step');
+  await waitFor('document.getElementById("fcg7-pic-energy")?.value<60 && document.getElementById("fcg7-flip-energy")?.value>99.9');
+  await click('fcg7-play');
+  await waitFor('document.getElementById("fcg7-pause")?.disabled===false');
+  await click('fcg7-pause');
+  await waitFor('document.getElementById("fcg7-pause")?.disabled===true');
   await click('stop');
   console.log('FCG7 actual PIC/FLIP GPU pixels and source-linked G3 legend: PASS');
 

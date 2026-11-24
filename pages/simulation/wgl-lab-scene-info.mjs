@@ -113,10 +113,10 @@ const descriptions = Object.freeze({
     source: 'solid.js（N, dt, shape, centerY, wallAmplitude, wallFrequency, acceleration, advanceObstacleStep）/ solid.frag（u_viewMode, u_dye, u_div, u_speed, u_solid）'
   }),
   FCG7: Object.freeze({
-    grid: '8×8周期節点速度格子（粒子はPIC/FLIP各16個、描画は3列）。格子の速さをR8テクスチャに格納',
-    color: '左PIC粒子は水色、中央FLIP粒子は橙。右はPIC格子の速さ/0.7を0〜1に制限してR8化し、RGB=(q, 0.2, 1−q)の赤青で表示',
+    grid: '24×24周期節点速度格子（粒子はPIC/FLIP各2304個、描画は3列）。粒子の表示用256×256 R8と格子の速さR8を区別',
+    color: '左PIC粒子と中央FLIP粒子は同じ4色の初期位置目印。右はPIC格子の速さ/0.7をR8化して赤青で表示（青0、赤0.7 m/s以上）',
     clock: step => '物理step '+step+'、t='+(step*0.08).toFixed(2)+' s（dt=0.08 s）',
-    mode: 'PICはpicMix=0、FLIPはflipMix=1。粒子の位置と速度を物理stepごとに更新し、右列の8×8節点値は画面画素へ最近傍表示。描画フレームとの同一視をしない',
+    mode: '初期設定はpicMix=0、flipMix=1。格子と粒子の位置を物理stepごとに更新し、右列は24×24節点値の最近傍表示。時刻は開始時の検算時刻',
     source: 'particle.js（N, count, dt, damp, force, picMix, flipMix, transfer）/ particle.frag（u_pic, u_flip, u_speed）'
   }),
   FCG8: Object.freeze({
