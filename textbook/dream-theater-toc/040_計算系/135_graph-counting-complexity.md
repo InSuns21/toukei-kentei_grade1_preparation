@@ -6,3 +6,4 @@
 3. [GCT3 完全マッチングの重み付き母関数とパーマネント](textbook/volumes/dream_thater/計算系/GCT/GCT3/index.md)
 4. [GCT4 サイクル被覆・Hamilton閉路と順列の巡回分解](textbook/volumes/dream_thater/計算系/GCT/GCT4/index.md)
 5. [GCT5 木・森・カット・separator：木上の動的計画](textbook/volumes/dream_thater/計算系/GCT/GCT5/index.md)
+6. [GCT6 木分解とtreewidth：境界状態による計数](textbook/volumes/dream_thater/計算系/GCT/GCT6/index.md)
