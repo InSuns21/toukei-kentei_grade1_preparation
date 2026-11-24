@@ -26,12 +26,12 @@ concepts:
     introduction: formal
     requires: [representation.massive-standard-boost, representation.pauli-product, representation.sl2c-lorentz-action]
   - id: representation.wigner-rotation
-    name: Wigner回転
+    name: 正質量のWigner回転
     kind: definition
     introduction: formal
     requires: [representation.massive-boost-section]
   - id: representation.wigner-rotation-cocycle
-    name: Wigner回転の合成則
+    name: 正質量のWigner回転の合成則
     kind: theorem
     introduction: formal
     requires: [representation.wigner-rotation, representation.massive-rest-little-group]
