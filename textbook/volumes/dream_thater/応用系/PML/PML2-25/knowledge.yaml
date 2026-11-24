@@ -7,6 +7,7 @@ prerequisites:
   - PML2-05
   - PML2-11
   - PML2-17
+  - FLUID45
 forward_references: []
 concepts:
   - id: physics-machine-learning.pml2-25-protocol
@@ -31,6 +32,7 @@ concepts:
     introduction: formal
     requires:
       - physics-machine-learning.pml2-25-protocol
+      - fluid.finite-volume-global-conservation
   - id: physics-machine-learning.pml2-25-calibration
     name: 正規化二乗誤差が測るもの
     kind: proposition
