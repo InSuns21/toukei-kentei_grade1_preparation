@@ -70,6 +70,12 @@ export const lessons = {
     ['Main.lean','到達不能性と整列性','LVT2-06 OK を表示。','\n#eval main\n'],
     ['ExerciseSolutions.lean','演習解答の検査','全8題の証明を検査。'],
     ['Failure.lean','終点の型不一致','base を異なる終点への証明として渡すと拒否される。']
+  ] },
+  'LVT2-07': { module:'LvtDependent', modes:[
+    ['Inspect.lean','依存型と容量制約','8、5、[7, 8, 9]、some 3、none と型を確認。'],
+    ['Main.lean','長さと予約の検査','LVT2-07 OK を表示。','\n#eval main\n'],
+    ['ExerciseSolutions.lean','演習解答の検査','全8題の証明を検査。'],
+    ['Failure.lean','長さの型不一致','SizedL 2 を SizedL 3 として返すと拒否される。']
   ] }
 };
 export function combine(module, definitions, experiment, suffix='') {

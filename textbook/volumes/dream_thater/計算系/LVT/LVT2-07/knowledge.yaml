@@ -1,0 +1,29 @@
+chapter: LVT2-07
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT2-06]
+concepts:
+  - id: lean-verification.dependent-dependent
+    name: 依存関数型
+    kind: definition
+    introduction: formal
+  - id: lean-verification.dependent-subtype
+    name: 部分型
+    kind: definition
+    introduction: formal
+  - id: lean-verification.dependent-sized
+    name: 長さ付きリスト
+    kind: definition
+    introduction: formal
+  - id: lean-verification.dependent-used
+    name: 容量制約付き状態
+    kind: definition
+    introduction: formal
+  - id: lean-verification.dependent-prepend
+    name: 長さ付きリストの先頭追加
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.dependent-reserve
+    name: 予約操作の二分岐
+    kind: proposition
+    introduction: formal

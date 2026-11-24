@@ -1,0 +1,29 @@
+id: "LVT2-07"
+title: "依存型・部分型・不変条件を型へ"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT2-06]
+official_scope: []
+learning_objectives:
+  - 入力値に依存する関数型を安全な添字で説明する
+  - 部分型の値と証明を構成し射影する
+  - 長さ付きリストの先頭追加を長さの等式から構成する
+  - 容量制約の不変条件と予約の事後条件および外部実装の検証を区別する
+definitions:
+  - { id: LVT2-07-DEF-01, name: "依存関数型" }
+  - { id: LVT2-07-DEF-02, name: "部分型" }
+  - { id: LVT2-07-DEF-03, name: "長さ付きリスト" }
+  - { id: LVT2-07-DEF-04, name: "容量制約付き状態" }
+propositions:
+  - { id: LVT2-07-PROP-01, name: "長さ付きリストの先頭追加" }
+  - { id: LVT2-07-PROP-02, name: "予約操作の二分岐" }
+theorems: []
+canonical_examples:
+  - "長さに依存する添字"
+  - "長さ付きリストの先頭追加"
+  - "容量制約付き予約"
+problem_patterns: [LVT2-07-A01, LVT2-07-A02, LVT2-07-A03, LVT2-07-A04, LVT2-07-B01, LVT2-07-B02, LVT2-07-B03, LVT2-07-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 3, review: 0.5 }

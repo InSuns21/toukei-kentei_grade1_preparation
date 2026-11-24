@@ -55,7 +55,7 @@ chapters:
     title: "帰納的述語と証明の帰納法"
   - id: LVT2-07
     path: textbook/volumes/dream_thater/計算系/LVT/LVT2-07
-    status: planned
+    status: completed
     title: "依存型・部分型・不変条件を型へ"
   - id: LVT2-08
     path: textbook/volumes/dream_thater/計算系/LVT/LVT2-08
