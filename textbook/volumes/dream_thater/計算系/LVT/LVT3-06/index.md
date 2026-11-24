@@ -91,7 +91,7 @@ attempt s n は play が some t なら t、none なら s とする。
 <!-- formal-statement-end -->
 
 
-**証明の見取り図**　更新関数の if の真偽を場合分けする。
+**証明の見取り図**　write の条件 j=i の真偽を場合分けする。
 
 <!-- proof-start -->
 ### 証明
