@@ -26,10 +26,7 @@ $$
 > があり、二変数に関して豊穣自然であることをいう。すなわち、次の二つの等式が成り立つ（右辺の $m$ は各圏の合成）。
 
 $$
-\begin{aligned}
-\theta_{a',b}m(1\otimes F_{a',a})
- &=m(\theta_{a,b}\otimes1).
-\end{aligned}
+\theta_{a',b}m(1\otimes F_{a',a})=m(\theta_{a,b}\otimes1).
 $$
 
 > この式の定義域は $\mathcal B(Fa,b)\otimes\mathcal A(a',a)$ である。第二変数についての条件は次式であり、その定義域は $\mathcal B(b,b')\otimes\mathcal B(Fa,b)$ である。
@@ -299,7 +296,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-対称性を使って反対豊穣圏の合成を定める（[豊穣Yonedaの反変形](../CATB2-04/index.md#thm-catb2-04-enriched-yoneda)）。$K^{\mathrm{op}}:\mathcal J^{\mathrm{op}}\to\mathcal D^{\mathrm{op}}$ と $T^{\mathrm{op}}:\mathcal J^{\mathrm{op}}\to\mathcal C^{\mathrm{op}}$ に [左Kan公式](#thm-catb2-06-left-formula) を適用する。
+対称性を使って反対豊穣圏の合成を定める（[豊穣Yonedaの反変形](../CATB2-04/index.md#thm-catb2-04-enriched-yoneda)）。$K^{\mathrm{op}}:\mathcal J^{\mathrm{op}}\to\mathcal D^{\mathrm{op}}$ と $T^{\mathrm{op}}:\mathcal J^{\mathrm{op}}\to\mathcal C^{\mathrm{op}}$ を考える。[重み付き余極限による豊穣左Kan公式](#thm-catb2-06-left-formula)の適用条件を確かめる。
 
 反対圏での反変重みは
 
@@ -349,7 +346,7 @@ $$
 
 両公式は、必要な重み付き余極限・極限が対象圏 $\mathcal C$ に存在することを仮定している。基底の完備性は $N$ を構成するための条件であり、それだけでは $\mathcal C$ に普遍対象は生まれない。例えば集合を基底とし、空の $\mathcal J$ から一対象の $\mathcal D$ へ拡張するなら、左には始対象、右には終対象が必要である。対象圏が空でない有限集合だけの圏なら始対象はない。仮に始対象 $A$ があると、二元集合への写像が唯一でなければならないが、二種類の定値写像が存在するため矛盾する。
 
-一対象の添字豊穣圏でHom対象が $I$ の場合には、対象圏を基底自身として [一対象図式の公式](../CATB2-05/index.md#thm-catb2-05-single-object) を用いると、左は $\mathcal D(K*,d)\otimes T*$、右は $[\mathcal D(d,K*),T*]$ となる。例えばベクトル空間を基底とし、これらのHom対象がそれぞれ2次元と3次元で $T*$ が4次元なら、左の次元は8、右の次元は12である。左は基底テンソルの係数、右は線形写像の行列成分を自由に選ぶことからこの差が出る。
+一対象の添字豊穣圏でHom対象が $I$ の場合には、対象圏を基底自身とする。[一対象図式の重み付き極限・余極限](../CATB2-05/index.md#thm-catb2-05-single-object)により、左は $\mathcal D(K*,d)\otimes T*$、右は $[\mathcal D(d,K*),T*]$ となる。例えばベクトル空間を基底とし、これらのHom対象がそれぞれ2次元と3次元で $T*$ が4次元なら、左の次元は8、右の次元は12である。左は基底テンソルの係数、右は線形写像の行列成分を自由に選ぶことからこの差が出る。
 
 ## 8. 演習
 
@@ -404,7 +401,7 @@ $$
 集合で $K$ が一対象圏を矢印圏 $0\to1$ の終点 $1$ へ送るとする。$T*=A$ に対して左右のKan拡張を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [左公式](#thm-catb2-06-left-formula) の重みは $d=0$ で空集合、$d=1$ で一元集合である。[一対象図式の公式](../CATB2-05/index.md#thm-catb2-05-single-object) から $L0=\varnothing,L1=A$ となる。矢印は唯一の空写像である。右側は $\mathcal D(0,1),\mathcal D(1,1)$ がともに一元集合なので $R0=R1=A$ となる。構造射は一元集合の重みの引き戻しが恒等写像であることから $1_A$ となる。比較射はどちらも $1_A$ である。
+**詳細解答。** [左公式](#thm-catb2-06-left-formula) の重みは $d=0$ で空集合、$d=1$ で一元集合である。[一対象図式の重み付き極限・余極限](../CATB2-05/index.md#thm-catb2-05-single-object)から $L0=\varnothing,L1=A$ となる。矢印は唯一の空写像である。右側は $\mathcal D(0,1),\mathcal D(1,1)$ がともに一元集合なので $R0=R1=A$ となる。構造射は一元集合の重みの引き戻しが恒等写像であることから $1_A$ となる。比較射はどちらも $1_A$ である。
 <!-- solution-end -->
 
 ### CATB2-06-A04 空の添字圏
@@ -424,7 +421,7 @@ $$
 集合の随伴 $-\times S\dashv(-)^S$ が二集合 $A,B$ の余積を保つことを、具体的な同型と任意の試験集合への写像で確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** [保存定理](#thm-catb2-06-preservation) を一元集合の重みに適用すれば余積を保つことが分かる。具体的には余積をタグ付き和とし、
+**詳細解答。** [保存定理](#thm-catb2-06-preservation) を一元集合の重みに適用すれば余積を保つことが分かる。余積を具体的に互いに交わらない二つのコピーの集合 $(\{0\}\times A)\cup(\{1\}\times B)$ と定める。次の写像を考える。
 
 $$
 \phi: (A\sqcup B)\times S\to(A\times S)\sqcup(B\times S)
@@ -440,7 +437,7 @@ $$
 基底と対象圏を実ベクトル空間とする。添字圏は一対象でHom対象が $\mathbb R$ とし、$T*=\mathbb R^2$ とする。ある $d$ について $\mathcal D(K*,d)=\mathbb R^3$、$\mathcal D(d,K*)=\mathbb R^4$ と与えられている。左右の公式の値と脚を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [左公式](#thm-catb2-06-left-formula) および [一対象図式の公式](../CATB2-05/index.md#thm-catb2-05-single-object) により
+**詳細解答。** [左公式](#thm-catb2-06-left-formula)の重みは $\mathbb R^3$ である。[一対象図式の重み付き極限・余極限](../CATB2-05/index.md#thm-catb2-05-single-object)により
 
 $$
 Ld=\mathbb R^3\otimes\mathbb R^2.
@@ -461,7 +458,7 @@ $$
 
 - Level: B
 
-左公式で $\eta_j=i_{Kj,j}u_{Kj}$ と置く。$\mathcal J(j,k)$ 上の二経路が等しいことを、脚の反変自然性と構造射の定義から示せ。
+左公式で $\eta_j=i_{Kj,j}u_{Kj}$ と置く。$\mathcal J(j,k)$ 上の二経路が等しいことを、脚の反変自然性の等式と構造射の条件 $(\ast)$ を書き、それぞれに単位を代入して示せ。
 
 <!-- solution-start -->
 **詳細解答。** [左公式の証明](#thm-catb2-06-left-formula) の構造射の条件は $m(L_{d,e}\otimes i_{d,j})=i_{e,j}m$。$d=Kj,e=Kk$ とし、第二因子を $u_{Kj}$、第一因子を $K_{jk}$ で指定すると、
