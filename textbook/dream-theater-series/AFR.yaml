@@ -64,7 +64,7 @@ chapters:
     title: "球Hecke代数とSatakeパラメータ"
   - id: AFR15
     path: textbook/volumes/dream_thater/代数系/AFR/AFR15
-    status: planned
+    status: completed
     title: "分岐局所表現・newvector"
   - id: AFR16
     path: textbook/volumes/dream_thater/代数系/AFR/AFR16
