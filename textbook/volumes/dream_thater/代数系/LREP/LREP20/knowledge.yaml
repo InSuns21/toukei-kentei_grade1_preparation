@@ -1,0 +1,32 @@
+chapter: LREP20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP19
+forward_references: []
+concepts:
+  - id: representation.dirac-plane-wave
+    name: Dirac平面波モード
+    kind: definition
+    introduction: formal
+    requires: [representation.dirac-operator]
+  - id: representation.massive-dirac-modes
+    name: 正質量のDiracモードの構成
+    kind: proposition
+    introduction: formal
+    requires: [representation.dirac-plane-wave, representation.dirac-spinor, representation.pauli-product]
+  - id: representation.dirac-spin-sums
+    name: Diracモードの規格化とスピン和
+    kind: theorem
+    introduction: formal
+    requires: [representation.massive-dirac-modes, representation.dirac-adjoint]
+  - id: representation.dirac-energy-projectors
+    name: 固定Fourier波数でのエネルギー射影
+    kind: proposition
+    introduction: formal
+    requires: [representation.dirac-spin-sums]
+  - id: representation.massless-dirac-helicity
+    name: 質量零モードのchiralityとhelicity
+    kind: theorem
+    introduction: formal
+    requires: [representation.dirac-plane-wave, representation.helicity-operator, representation.chirality-operator]
