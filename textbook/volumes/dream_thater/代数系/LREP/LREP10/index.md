@@ -343,7 +343,7 @@ $$
 -u_0^2+u_1^2+u_2^2+u_3^2=-1,\qquad u_0>0
 $$
 
-を満たします（ここで $u_\mu$ の下付きは座標ラベルであり、計量による添字下げではありません）。ゆえに $u_0=\sqrt{1+|\boldsymbol u|^2}\ge1$。[行列式と未来円錐の定理](#thm-lrep10-determinant-cone)により $Q=H(u)$ の固有値は $u_0\pm|\boldsymbol u|>0$ で、$\det Q=1$ です。
+を満たします（ここで $u_\mu$ の下付きは座標ラベルであり、計量による添字下げではありません）。ゆえに $u_0=\sqrt{1+|\boldsymbol u|^2}\ge1$。[行列式とMinkowski計量・未来円錐](#thm-lrep10-determinant-cone)により $Q=H(u)$ の固有値は $u_0\pm|\boldsymbol u|>0$ で、$\det Q=1$ です。
 
 [極分解の証明](#lem-lrep10-polar-connectivity)と同じ正定値平方根の構成で $B=Q^{1/2}$ を取り、$\det B=1$、$B^\dagger=B$ を得ます。具体的にも $Q$ の跡は $2u_0$、行列式は1なので、二次行列の[Cayley--Hamilton の定理](../../../基礎科目/LA/LA4/index.md#thm-la4-cayley-hamilton)から
 
@@ -686,7 +686,7 @@ $$
 #### LREP10-B04 微分でboostと回転を見分ける
 - Level: B
 
-$B=\sigma_3/2$ および $C=-i\sigma_3/2$ はともに跡零である。[二重被覆の証明で得た微分公式](#thm-lrep10-double-cover) $H(d\Phi_{I_2}(B)x)=BH(x)+H(x)B^\dagger$ を使い、それぞれの四元ベクトルへの無限小作用を求めよ。
+$B=\sigma_3/2$ および $C=-i\sigma_3/2$ はともに跡零である。[SL(2,C)からSO^+(1,3)への二重被覆](#thm-lrep10-double-cover)の証明で得た式 $H(d\Phi_{I_2}(B)x)=BH(x)+H(x)B^\dagger$ を使い、それぞれの四元ベクトルへの無限小作用を求めよ。
 
 <!-- solution-start -->
 **詳細解答。** $B^\dagger=B$ なので反交換子 $\{X,Y\}=XY+YX$ を使うと、$BH+HB=\frac12\{\sigma_3,H\}$ です（ここでは $H=H(x)$ と略記）。[Pauli積公式](../LREP5/index.md#lem-lrep5-pauli-product)の反交換子 $\{\sigma_3,\sigma_3\}=2I_2$、$\{\sigma_3,\sigma_1\}=\{\sigma_3,\sigma_2\}=0$ から
