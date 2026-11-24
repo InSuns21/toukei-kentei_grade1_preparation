@@ -1,0 +1,41 @@
+chapter: CATB3-04
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB3-03, F0-00A3A]
+concepts:
+  - id: set.regular-cardinal
+    name: 正則基数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則基数）"]
+    requires: [set.cardinal, set.choice-axiom]
+  - id: category.lambda-filtered-category
+    name: λ-フィルター圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（λ-フィルター圏）"]
+    requires: [set.regular-cardinal, category.filtered-finite-cocones, category.cocone]
+  - id: category.lambda-simultaneous-witness
+    name: λ個未満の等式の同時実現
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（λ個未満の等式の同時実現）"]
+    requires: [category.lambda-filtered-category, category.finite-stage-witness]
+  - id: category.lambda-presentable-object
+    name: λ-表示対象
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（λ-表示対象）"]
+    requires: [category.lambda-filtered-category, category.finitely-presentable-object]
+  - id: category.lambda-presentable-stage-test
+    name: λ-表示性の段階判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（λ-表示性の段階判定）"]
+    requires: [category.lambda-presentable-object, category.finite-stage-witness]
+  - id: category.set-lambda-presentable
+    name: 集合のλ-表示性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（集合のλ-表示性）"]
+    requires: [category.lambda-presentable-stage-test, category.lambda-simultaneous-witness, set.regular-cardinal]
