@@ -495,7 +495,7 @@ $$
 
 実素点だけでは、例えば $f(n)$ を整数上で足すと $N_1$ によって奇数項の符号が変わります。有限素点も合わせれば、すべての有理点で二次位相を打ち消せます。
 
-ここで $\mathbb A$ は [Schwartz–Bruhat関数](../AFR9/index.md#def-afr9-schwartz-bruhat) を定義したアデール環、$\mathbb A^\times$ はその可逆元（イデール）の群です。
+ここで $\mathbb A=\mathbb A_{\mathbb Q}$ は [アデール環](../../ANF/ANF19/index.md#def-anf19-adele) です。[アデールの単元とイデール位相](../../ANF/ANF19/index.md#prop-anf19-idele-topology) の命題により、$\mathbb A^\times$ は [イデール群](../../ANF/ANF19/index.md#def-anf19-idele) $\mathbb I_{\mathbb Q}$ と一致します。具体的には全成分が非零で、ほとんどすべての有限素点で $a_p\in\mathbb Z_p^\times$ となる元からなり、乗法と逆元は成分ごとに計算します。
 
 $x=(x_\infty,x_f)$ の $x_f=(x_p)_p$ は有限素点成分で、$\widehat{\mathbb Z}=\prod_p\mathbb Z_p$ と書きます。
 
