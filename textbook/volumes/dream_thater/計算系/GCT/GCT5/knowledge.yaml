@@ -6,12 +6,18 @@ prerequisites:
   - GCT1
 forward_references: []
 concepts:
+  - id: graph-counting.graph-component
+    name: グラフの連結成分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（グラフの連結成分）"]
+    requires: [graph-counting.finite-simple-graph, graph-counting.weighted-walk]
   - id: graph-counting.tree-forest
     name: 木と森
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（木と森）"]
-    requires: [graph-counting.finite-simple-graph]
+    requires: [graph-counting.graph-component]
   - id: graph-counting.unique-path
     name: 木の一意な道による特徴付け
     kind: theorem
