@@ -150,7 +150,7 @@ def flipL {α : Type} : List α → List α
 <!-- formal-statement-start -->
 ### 命題（リスト連結の右単位元）
 
-α : Type、xs : List α に対し、上記の joinL について joinL xs [] = xs が成立する。
+α : Type、xs : List α に対し、[再帰的なリスト連結](#def-lvt2-05-list-operations) joinL について joinL xs [] = xs が成立する。
 <!-- formal-statement-end -->
 
 
@@ -180,7 +180,7 @@ theorem join_nil {α : Type} (xs : List α) : joinL xs [] = xs := by
 <!-- formal-statement-start -->
 ### 命題（リスト連結の結合律）
 
-α : Type と xs, ys, zs : List α に対して、上記の joinL は joinL (joinL xs ys) zs = joinL xs (joinL ys zs) を満たす。
+α : Type と xs, ys, zs : List α に対して、[再帰的なリスト連結](#def-lvt2-05-list-operations) joinL は joinL (joinL xs ys) zs = joinL xs (joinL ys zs) を満たす。
 <!-- formal-statement-end -->
 
 
@@ -189,7 +189,18 @@ theorem join_nil {α : Type} (xs : List α) : joinL xs [] = xs := by
 <!-- proof-start -->
 ### 証明
 
-[リストの帰納法](#principle-lvt2-05-list) を使う。基底の左辺 joinL (joinL [] ys) zs は joinL ys zs、右辺 joinL [] (joinL ys zs) も joinL ys zs。ステップでは左辺 joinL (joinL (a :: xs) ys) zs = joinL (a :: joinL xs ys) zs = a :: joinL (joinL xs ys) zs。右辺は joinL (a :: xs) (joinL ys zs) = a :: joinL xs (joinL ys zs)。帰納仮定 joinL (joinL xs ys) zs = joinL xs (joinL ys zs) に先頭 a を付ける [等式の合同性](../LVT2-03/index.md#prop-lvt2-03-congr) で一致する。
+[リストの帰納法](#principle-lvt2-05-list) を使う。基底の左辺 joinL (joinL [] ys) zs は joinL ys zs、右辺 joinL [] (joinL ys zs) も joinL ys zs。ステップでは [連結の定義](#def-lvt2-05-list-operations) を展開し、左辺と右辺をそれぞれ計算する。
+
+```text
+joinL (joinL (a :: xs) ys) zs
+= joinL (a :: joinL xs ys) zs
+= a :: joinL (joinL xs ys) zs
+
+joinL (a :: xs) (joinL ys zs)
+= a :: joinL xs (joinL ys zs)
+```
+
+帰納仮定 `joinL (joinL xs ys) zs = joinL xs (joinL ys zs)` に先頭 `a` を付ける関数 `fun t : List α => a :: t` を適用する [等式の合同性](../LVT2-03/index.md#prop-lvt2-03-congr) で一致する。
 
 ```lean
 theorem join_assoc {α : Type} (xs ys zs : List α) :
@@ -215,7 +226,7 @@ theorem join_assoc {α : Type} (xs ys zs : List α) :
 <!-- formal-statement-start -->
 ### 命題（反転と連結の交換則）
 
-α : Type、xs, ys : List α に対し、上記の joinL と flipL について flipL (joinL xs ys) = joinL (flipL ys) (flipL xs) が成立する。
+α : Type、xs, ys : List α に対し、[再帰的な連結と反転](#def-lvt2-05-list-operations) joinL と flipL について flipL (joinL xs ys) = joinL (flipL ys) (flipL xs) が成立する。
 <!-- formal-statement-end -->
 
 
@@ -226,7 +237,24 @@ theorem join_assoc {α : Type} (xs ys zs : List α) :
 
 [リストの帰納法](#principle-lvt2-05-list) を適用する。基底では左辺 flipL (joinL [] ys) = flipL ys。右辺 joinL (flipL ys) (flipL []) = joinL (flipL ys) [] は [リスト連結の右単位元](#prop-lvt2-05-join-nil) により flipL ys。
 
-ステップでは帰納仮定 ih : flipL (joinL xs ys) = joinL (flipL ys) (flipL xs) を使う。左辺 flipL (joinL (a :: xs) ys) を二回展開すると flipL (a :: joinL xs ys) = joinL (flipL (joinL xs ys)) [a]。[書換え操作](../LVT2-03/index.md#def-lvt2-03-rw) で ih を左から右へ適用すると joinL (joinL (flipL ys) (flipL xs)) [a] となる。[リスト連結の結合律](#prop-lvt2-05-join-assoc) に三つの引数 flipL ys、flipL xs、[a] を渡すと joinL (flipL ys) (joinL (flipL xs) [a])。右辺 joinL (flipL ys) (flipL (a :: xs)) を展開した形と一致する。
+ステップでは帰納仮定 `ih : flipL (joinL xs ys) = joinL (flipL ys) (flipL xs)` を使う。左辺を [連結と反転の定義](#def-lvt2-05-list-operations) で二回展開する。
+
+```text
+flipL (joinL (a :: xs) ys)
+= flipL (a :: joinL xs ys)
+= joinL (flipL (joinL xs ys)) [a]
+```
+
+次に [書換え操作](../LVT2-03/index.md#def-lvt2-03-rw) で `ih` を左から右へ適用し、[リスト連結の結合律](#prop-lvt2-05-join-assoc) に `flipL ys`、`flipL xs`、`[a]` を渡す。
+
+```text
+joinL (flipL (joinL xs ys)) [a]
+= joinL (joinL (flipL ys) (flipL xs)) [a]
+= joinL (flipL ys) (joinL (flipL xs) [a])
+= joinL (flipL ys) (flipL (a :: xs))
+```
+
+最後の等式は反転の定義を右から左へ用いたもので、ステップの右辺と一致する。
 
 コードの基底では `join_nil (flipL ys)` が右辺から左辺への等式なので、[等式の対称律](../LVT2-03/index.md#prop-lvt2-03-chain) を表す `.symm` で向きを逆にする。ステップの `rw [ih, join_assoc]` は上の二つの書換えを順番に行う。
 
@@ -253,7 +281,7 @@ theorem flip_join {α : Type} (xs ys : List α) :
 <!-- formal-statement-start -->
 ### 命題（リスト反転の対合性）
 
-α : Type、xs : List α に対し、上記の flipL について flipL (flipL xs) = xs が成立する。
+α : Type、xs : List α に対し、[再帰的なリスト反転](#def-lvt2-05-list-operations) flipL について flipL (flipL xs) = xs が成立する。
 <!-- formal-statement-end -->
 
 
@@ -262,7 +290,34 @@ theorem flip_join {α : Type} (xs ys : List α) :
 <!-- proof-start -->
 ### 証明
 
-[リストの帰納法](#principle-lvt2-05-list) を適用する。基底は flipL (flipL []) = flipL [] = []。ステップでは ih : flipL (flipL xs) = xs。左辺 flipL (flipL (a :: xs)) = flipL (joinL (flipL xs) [a])。[反転と連結の交換則](#prop-lvt2-05-flip-join) に flipL xs と [a] を代入して joinL (flipL [a]) (flipL (flipL xs)) を得る。帰納仮定で後半を xs に置換する。flipL [a] = joinL (flipL []) [a] = joinL [] [a] = [a] なので、joinL [a] xs = a :: joinL [] xs = a :: xs。これが右辺である。コードの `rw [flip_join, ih]` は交換則、帰納仮定の順に書き換える。`<;> rfl` はその後に残ったすべての目標を [定義的等しさ](../LVT2-03/index.md#def-lvt2-03-defeq) に基づく反射律で閉じる（目標が既に閉じていれば何もしない）。
+[リストの帰納法](#principle-lvt2-05-list) を適用する。基底は flipL (flipL []) = flipL [] = []。ステップでは `ih : flipL (flipL xs) = xs` とする。内側の反転を展開し、[反転と連結の交換則](#prop-lvt2-05-flip-join) に `flipL xs` と `[a]` を代入してから帰納仮定を適用する。
+
+```text
+flipL (flipL (a :: xs))
+= flipL (joinL (flipL xs) [a])
+= joinL (flipL [a]) (flipL (flipL xs))
+= joinL (flipL [a]) xs
+```
+
+[連結と反転の定義](#def-lvt2-05-list-operations) から一要素リストの反転は次のように計算できる。
+
+```text
+flipL [a]
+= joinL (flipL []) [a]
+= joinL [] [a]
+= [a]
+```
+
+したがって残った左辺を計算すると、
+
+```text
+joinL (flipL [a]) xs
+= joinL [a] xs
+= a :: joinL [] xs
+= a :: xs
+```
+
+となり、右辺と一致する。コードの `rw [flip_join, ih]` は交換則、帰納仮定の順に書き換える。`<;> rfl` はその後に残ったすべての目標を [定義的等しさ](../LVT2-03/index.md#def-lvt2-03-defeq) に基づく反射律で閉じる（目標が既に閉じていれば何もしない）。
 
 ```lean
 theorem flip_twice {α : Type} (xs : List α) :
