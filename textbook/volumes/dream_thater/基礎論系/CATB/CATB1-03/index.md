@@ -2,7 +2,15 @@
 
 ## 1. 射を足すと何が変わるか
 
-整数を整数に送る写像 $f(x)=2x$ と $g(x)=-3x$ は、同じ始域・終域を持つ。ここでは射を写像として扱い、合成 $hf$ は $h\circ f$、すなわち先に $f$ を適用することを表す。入力を固定して値を足せば $(f+g)(x)=-x$ となり、再び整数の加法を保つ写像になる。さらに $h(x)=5x$ を後ろから合成すると、$h(f+g)(x)=-5x$ は $hf(x)+hg(x)=10x-15x$ と一致する。
+整数を整数に送る写像 $f(x)=2x$ と $g(x)=-3x$ は、同じ始域・終域を持つ。入力を固定して値を足せば $(f+g)(x)=-x$ となり、再び整数の加法を保つ写像になる。
+
+ここでは射を写像として扱い、合成 $hf$ は $h\circ f$、すなわち先に $f$ を適用することを表す。さらに $h(x)=5x$ を後ろから合成すると、
+
+$$
+h(f+g)(x)=-5x=10x-15x=(hf+hg)(x)
+$$
+
+となる。
 
 [圏](../../CAT/CAT1-01/index.md#def-cat1-01-category)では射の合成はできたが、平行な射の和は一般には与えられていなかった。本講では射の和と合成が両立する圏を考える。とくに、既習の[圏論の二項積](../../CAT/CAT2-02/index.md#def-cat2-02-binary-product)と[余積](../../CAT/CAT2-05/index.md#def-cat2-05-coproduct)が、なぜ加法のある場面では同じ対象で実現できるかを調べる。
 
@@ -304,7 +312,9 @@ $n=0$ のとき、[空個の積と終対象](../../CAT/CAT2-02/index.md#prop-cat
 
 ## 6. 射を行列に分解する
 
-双積 $B=\bigoplus_{i=1}^n X_i$ と $D=\bigoplus_{j=1}^m Y_j$ を取る。以下では $i$ が入力の番号、$j$ が出力の番号で、$i_i:X_i\to B$ の左の文字 $i$ は挿入射を表し、下付きの $i$ が成分番号である。$F:B\to D$ の第 $i$ 入力から第 $j$ 出力への作用だけを見るため、先に $X_i$ を挿入し、$F$ を適用し、最後に $Y_j$ へ射影する。これが行列の第 $j$ 行第 $i$ 列に対応する。
+双積 $B=\bigoplus_{i=1}^n X_i$ と $D=\bigoplus_{j=1}^m Y_j$ を取る。以下では $i$ が入力の番号、$j$ が出力の番号である。$i_i:X_i\to B$ の左の文字は挿入射を表し、下付きの文字が成分番号である。
+
+$F:B\to D$ の第 $i$ 入力から第 $j$ 出力への作用だけを見るため、先に $X_i$ を挿入し、$F$ を適用し、最後に $Y_j$ へ射影する。これが行列の第 $j$ 行第 $i$ 列に対応する。
 
 <a id="thm-catb1-03-matrix"></a>
 
@@ -438,7 +448,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$X\oplus X$ の挿入射・射影を $i_1,i_2$ と $p_1,p_2$、$Y\oplus Y$ のそれらを $k_1,k_2$ と $q_1,q_2$ とする。[対角射](../../CAT/CAT2-02/index.md#def-cat2-02-diagonal)と[双積の普遍性](#thm-catb1-03-biproduct-universality)から $\Delta_X=i_1+i_2$、$\nabla_Y=q_1+q_2$ である。実際、[有限双積の条件](#def-catb1-03-biproduct)と[双加法性](#def-catb1-03-preadditive)から
+$X\oplus X$ の挿入射・射影を $i_1,i_2$ と $p_1,p_2$、$Y\oplus Y$ のそれらを $k_1,k_2$ と $q_1,q_2$ とする。
+
+[対角射](../../CAT/CAT2-02/index.md#def-cat2-02-diagonal)と[双積の普遍性](#thm-catb1-03-biproduct-universality)から、次の式を示せばよい。
+
+$$
+\Delta_X=i_1+i_2,\qquad \nabla_Y=q_1+q_2.
+$$
+
+実際、[有限双積の条件](#def-catb1-03-biproduct)と[双加法性](#def-catb1-03-preadditive)から
 
 $$
 \begin{aligned}
@@ -633,7 +651,22 @@ $$
 加法圏で $f,g,h:X\to Y$ とする。三項双積の射を用いて、入力を三成分へ複製する射 $\Delta:X\to X^{\oplus3}$、各成分に $f,g,h$ を作用させる射 $D:X^{\oplus3}\to Y^{\oplus3}$、出力三成分をまとめる射 $\nabla:Y^{\oplus3}\to Y$ をそれぞれ構成せよ。$\nabla D\Delta=f+g+h$ を証明し、入力と出力の第1・第2成分を同時に入れ替えて $f,g$ の配置を交換したときにも、和が変わらない理由を示せ。
 
 <!-- solution-start -->
-**詳細解答。** $X^{\oplus3}$ の挿入射・射影を $i_j,p_j$、$Y^{\oplus3}$ のものを $k_j,q_j$ とする。$a_1=f,a_2=g,a_3=h$ と置く。[双積の普遍性](#thm-catb1-03-biproduct-universality)により全射影との合成が $1_X$ となる射は $\Delta=\sum_j i_j$。実際、[有限双積の条件](#def-catb1-03-biproduct)により $p_r\Delta=\sum_j p_ri_j=1_X$（$j=r$ 以外の項は零射）。全挿入射との合成が $1_Y$ となる射は $\nabla=\sum_j q_j$ で、$\nabla k_r=\sum_j q_jk_r=1_Y$（$j=r$ 以外の項は零射）。
+**詳細解答。** $X^{\oplus3}$ の挿入射・射影を $i_j,p_j$、$Y^{\oplus3}$ のものを $k_j,q_j$ とする。$a_1=f,a_2=g,a_3=h$ と置く。
+
+[双積の普遍性](#thm-catb1-03-biproduct-universality)により、全射影との合成が恒等射となる対角射と、全挿入射との合成が恒等射となる余対角射を求める。候補を
+
+$$
+\Delta=\sum_{j=1}^3 i_j,\qquad \nabla=\sum_{j=1}^3 q_j
+$$
+
+と置く。[有限双積の条件](#def-catb1-03-biproduct)と[双加法性](#def-catb1-03-preadditive)から、任意の成分番号 $r$ に対し
+
+$$
+p_r\Delta=\sum_{j=1}^3 p_ri_j=1_X,\qquad
+\nabla k_r=\sum_{j=1}^3 q_jk_r=1_Y.
+$$
+
+どちらの和でも $j=r$ 以外の項は零射である。従って普遍性から候補が目的の射に一致する。
 
 [双積の射の行列表示](#thm-catb1-03-matrix)で、対角に $a_j$ を、他に零射を持つ射を
 
@@ -673,7 +706,7 @@ q_rD'i_s&=q_rS_YD i_{\sigma(s)}\\
 \end{aligned}
 $$
 
-従って $r=s$ のとき $a_{\sigma(s)}$、それ以外は零射となる。従って
+この式は $r=s$ のとき $a_{\sigma(s)}$、それ以外は零射となる。従って
 
 $$
 \nabla D'\Delta
