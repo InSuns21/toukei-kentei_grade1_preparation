@@ -1,0 +1,41 @@
+chapter: AFR23
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR22, ANT8]
+forward_references: []
+concepts:
+  - id: automorphic-forms.twisted-smoothed-prime-power-sum
+    name: "文字付き平滑化素数冪和"
+    kind: definition
+    introduction: formal
+    requires: [analytic-number-theory.dirichlet-character, number-theory.von-mangoldt-function]
+  - id: automorphic-forms.twisted-smoothed-mellin
+    name: "平滑化和のMellin変換"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.twisted-smoothed-prime-power-sum, analytic-number-theory.character-log-derivative]
+  - id: automorphic-forms.centered-smoothed-sum
+    name: "中心化平滑和"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.twisted-smoothed-prime-power-sum, analytic-number-theory.dirichlet-l-function]
+  - id: automorphic-forms.centered-mellin-residue
+    name: "中心化変換の極と留数"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.centered-smoothed-sum, automorphic-forms.twisted-smoothed-mellin]
+  - id: automorphic-forms.interval-one-sided-zero-detection
+    name: "区間上の片側上界による零点検出"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.centered-mellin-residue]
+  - id: automorphic-forms.rh-main-inequality-reduction
+    name: "主不等式からRHへの条件付き還元"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.interval-one-sided-zero-detection, analytic-number-theory.zero-symmetry]
+  - id: automorphic-forms.fixed-character-interval-criterion
+    name: "固定文字に対するGRHの区間判定"
+    kind: corollary
+    introduction: formal
+    requires: [automorphic-forms.interval-one-sided-zero-detection, analytic-number-theory.dirichlet-grh]

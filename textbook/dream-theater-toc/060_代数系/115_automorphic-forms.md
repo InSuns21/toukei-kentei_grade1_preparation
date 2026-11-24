@@ -23,3 +23,4 @@
 20. [AFR20 theta対応とunitary／orthogonal群](textbook/volumes/dream_thater/代数系/AFR/AFR20/index.md)
 21. [AFR21 周期積分・seesaw identity](textbook/volumes/dream_thater/代数系/AFR/AFR21/index.md)
 22. [AFR22 Rallis内積公式・相対跡公式への入口](textbook/volumes/dream_thater/代数系/AFR/AFR22/index.md)
+23. [AFR23 RH・Dirichlet GRH：零点から平滑化素数冪和、主不等式(M)への解析的還元](textbook/volumes/dream_thater/代数系/AFR/AFR23/index.md)
