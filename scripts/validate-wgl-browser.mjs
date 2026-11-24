@@ -63,9 +63,9 @@ try{
     pending.delete(response.id);
     response.error?task.reject(Error(response.error.message)):task.resolve(response.result);
   });
-  const cdp=(method,params={})=>new Promise((resolve,reject)=>{
+  const cdp=(method,params={},sessionId)=>new Promise((resolve,reject)=>{
     const id=++counter;pending.set(id,{resolve,reject});
-    ws.send(JSON.stringify({id,method,params}));
+    ws.send(JSON.stringify({id,method,params,...(sessionId?{sessionId}:{})}));
   });
   const evalJS=async expression=>{
     const response=await cdp('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});
@@ -569,15 +569,44 @@ try{
   assert.match(scene7.source,/sampling.js/);
   await evalJS('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"center"})');
   await new Promise(ok=>setTimeout(ok,200));
-  const tree7=await cdp('Page.getFrameTree');
-  const child7=tree7.frameTree.childFrames?.find(f=>f.frame.url==='about:srcdoc');
-  assert.ok(child7,'WGL7 sandbox frame exists');
-  const world7=await cdp('Page.createIsolatedWorld',{frameId:child7.frame.id,worldName:'wgl7-browser-review'});
+  // The opaque-origin iframe may be an out-of-process iframe (OOPIF).
+  // Its frame is then absent from the parent target's Page.getFrameTree.
+  // Resolve the exact DOM owner, attach to that frame's CDP target if
+  // necessary, and evaluate only inside the child. Keep site isolation on.
+  const {root:root7}=await cdp('DOM.getDocument');
+  const {nodeId:nodeId7}=await cdp('DOM.querySelector',{
+    nodeId:root7.nodeId,selector:'#canvas-slot iframe'
+  });
+  assert.ok(nodeId7,'WGL7 sandbox DOM owner exists');
+  const {node:owner7}=await cdp('DOM.describeNode',{nodeId:nodeId7});
+  const frameId7=owner7.frameId;
+  assert.ok(frameId7,'WGL7 sandbox frame id exists');
+  let session7,world7;
+  // A same-process child can be addressed directly. An OOPIF needs its
+  // own flattened CDP session, whose target id is the DOM owner frame id.
+  try{
+    world7=await cdp('Page.createIsolatedWorld',{frameId:frameId7,worldName:'wgl7-browser-review'});
+  }catch(parentError){
+    const {targetInfos}=await cdp('Target.getTargets');
+    const target7=targetInfos.find(t=>t.type==='iframe'&&t.targetId===frameId7);
+    assert.ok(target7,'WGL7 sandbox OOPIF target not found: '+String(parentError));
+    ({sessionId:session7}=await cdp('Target.attachToTarget',{targetId:target7.targetId,flatten:true}));
+    await cdp('Page.enable',{},session7);
+    const childTree=await cdp('Page.getFrameTree',{},session7);
+    assert.equal(childTree.frameTree.frame.id,frameId7,'CDP session must address the GPU iframe');
+    world7=await cdp('Page.createIsolatedWorld',{
+      frameId:frameId7,worldName:'wgl7-browser-review'
+    },session7);
+  }
   const eval7=async expression=>{
-    const result=await cdp('Runtime.evaluate',{expression,contextId:world7.executionContextId,returnByValue:true,awaitPromise:true});
+    const result=await cdp('Runtime.evaluate',{
+      expression,contextId:world7.executionContextId,returnByValue:true,awaitPromise:true
+    },session7);
     if(result.exceptionDetails)throw Error(JSON.stringify(result.exceptionDetails));
     return result.result.value;
   };
+  assert.equal(await eval7('location.href'),'about:srcdoc');
+  assert.equal(await eval7('self.origin'),'null','GPU iframe must retain opaque origin');
   const pixels7=()=>eval7('document.getElementById("gpu-canvas").toDataURL()');
   assert.equal(await eval7('document.querySelectorAll("#wgl7-observation-controls select").length'),4);
   const scenePixels=await eval7('(()=>{const c=document.getElementById("gpu-canvas"),g=c.getContext("webgl2");const p=(x,y)=>{const a=new Uint8Array(4);g.readPixels(x,y,1,1,g.RGBA,g.UNSIGNED_BYTE,a);return [...a];};return {near:[p(70,50),p(100,50),p(130,50),p(160,50)],sky:p(5,390),rightNear:[p(470,50),p(500,50),p(530,50),p(560,50)]};})()');
@@ -600,6 +629,7 @@ try{
   await eval7('(()=>{const e=document.querySelector("[aria-label=右のフィルタ]");e.value="linear";e.dispatchEvent(new Event("change"));})()');
   const shot7=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
   await writeFile('_wgl_browser_review/wgl7-filtering.png',Buffer.from(shot7.data,'base64'));
+  if(session7)await cdp('Target.detachFromTarget',{sessionId:session7});
   console.log('WGL7 real GPU flat oracle, near/far floor, six filters, motion, reset and magnification: PASS');
   await click('stop');
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
