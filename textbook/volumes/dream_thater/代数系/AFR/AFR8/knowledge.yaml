@@ -8,12 +8,12 @@ concepts:
     name: "有理数体のアデール加法商の標準代表元"
     kind: theorem
     introduction: formal
-    requires: [number-theory.adele-ring, number-theory.adele-diagonal-discreteness]
+    requires: [number-theory.adele-ring, number-theory.adele-diagonal-discreteness, number-theory.p-adic-digit-expansion]
   - id: automorphic-forms.rational-adele-additive-compactness
     name: "有理数体のアデール加法商のコンパクト性"
     kind: theorem
     introduction: formal
-    requires: [automorphic-forms.rational-adele-additive-normal-form, number-theory.restricted-product-places]
+    requires: [automorphic-forms.rational-adele-additive-normal-form, number-theory.restricted-product-places, topology.compact-sequential-equivalence-metric-space, topology.continuous-image-compact-space, number-theory.p-adic-complete-field]
   - id: automorphic-forms.rational-idele-class-normal-form
     name: "有理数体のイデール類群の標準代表元"
     kind: theorem
