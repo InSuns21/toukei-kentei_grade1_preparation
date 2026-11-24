@@ -18,3 +18,4 @@
 15. [LREP11 有限次元Lorentz既約表現](textbook/volumes/dream_thater/代数系/LREP/LREP11/index.md)
 16. [LREP12 左右Weylスピノル](textbook/volumes/dream_thater/代数系/LREP/LREP12/index.md)
 17. [LREP13 Lorentz不変収縮](textbook/volumes/dream_thater/代数系/LREP/LREP13/index.md)
+18. [LREP14 Clifford代数の構成](textbook/volumes/dream_thater/代数系/LREP/LREP14/index.md)
