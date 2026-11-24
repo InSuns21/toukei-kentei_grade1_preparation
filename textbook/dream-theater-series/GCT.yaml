@@ -8,7 +8,7 @@ chapters:
   - { id: GCT2, path: textbook/volumes/dream_thater/計算系/GCT/GCT2, status: completed, title: "二部マッチングとHallの定理" }
   - { id: GCT3, path: textbook/volumes/dream_thater/計算系/GCT/GCT3, status: completed, title: "完全マッチングの重み付き母関数とパーマネント" }
   - { id: GCT4, path: textbook/volumes/dream_thater/計算系/GCT/GCT4, status: completed, title: "サイクル被覆・Hamilton閉路と順列の巡回分解" }
-  - { id: GCT5, path: textbook/volumes/dream_thater/計算系/GCT/GCT5, status: planned, title: "木・森・カット・separator：木上の動的計画" }
+  - { id: GCT5, path: textbook/volumes/dream_thater/計算系/GCT/GCT5, status: completed, title: "木・森・カット・separator：木上の動的計画" }
   - { id: GCT6, path: textbook/volumes/dream_thater/計算系/GCT/GCT6, status: planned, title: "木分解とtreewidth：境界状態による計数" }
   - { id: GCT7, path: textbook/volumes/dream_thater/計算系/GCT/GCT7, status: planned, title: "グラフ準同型・制約充足問題と因子グラフ" }
   - { id: GCT8, path: textbook/volumes/dream_thater/計算系/GCT/GCT8, status: planned, title: "格子状制約・局所表・重み付き分配和" }

@@ -1,0 +1,44 @@
+id: "GCT5"
+title: "木・森・カット・separator：木上の動的計画"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GCT4
+  - GCT1
+official_scope: []
+learning_objectives:
+  - 木と森を道の一意性と辺数から分析できる
+  - 辺カットと頂点分離集合を区別して構成できる
+  - 根付き木の子部分木の分離を証明できる
+  - 独立集合の重み付き二状態漸化式を導出し計算できる
+  - 閉路による分解の失敗を説明し分離集合の状態固定で計数できる
+definitions:
+  - { id: GCT5-DEF-01, name: "木と森" }
+  - { id: GCT5-DEF-02, name: "辺カット" }
+  - { id: GCT5-DEF-03, name: "頂点分離集合" }
+  - { id: GCT5-DEF-04, name: "根付き木と部分木" }
+  - { id: GCT5-DEF-05, name: "独立集合" }
+theorems:
+  - { id: GCT5-THM-01, name: "木の一意な道による特徴付け" }
+  - { id: GCT5-THM-02, name: "森の辺数" }
+  - { id: GCT5-THM-03, name: "子部分木の分離" }
+  - { id: GCT5-THM-04, name: "木上の独立集合の二状態漸化式" }
+canonical_examples:
+  - 四頂点の星の木と森
+  - 辺カットと分岐点の削除
+  - 根付き木の親子関係
+  - 四頂点の木と三角形の独立集合
+problem_patterns:
+  - GCT5-FOREST
+  - GCT5-CUT
+  - GCT5-ROOT
+  - GCT5-STATE
+  - GCT5-CYCLE
+  - GCT5-WEIGHT
+  - GCT5-PATH
+  - GCT5-FAILURE
+  - GCT5-SEPARATOR
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }
