@@ -1,0 +1,42 @@
+chapter: AFR5
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR4, CA12]
+forward_references: []
+concepts:
+  - id: automorphic-forms.eisenstein-series
+    name: "非正則Eisenstein級数"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非正則Eisenstein級数）"]
+    requires: [automorphic-forms.real-group]
+  - id: automorphic-forms.eisenstein-convergence
+    name: "Eisenstein級数の収束と固有方程式"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Eisenstein級数の収束と固有方程式）"]
+    requires: [automorphic-forms.eisenstein-series, automorphic-forms.hyperbolic-laplacian-equivariance, complex-analysis.riemann-zeta]
+  - id: automorphic-forms.completed-eisenstein
+    name: "完成Eisenstein級数"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（完成Eisenstein級数）"]
+    requires: [automorphic-forms.eisenstein-series, complex-analysis.completed-zeta]
+  - id: automorphic-forms.eisenstein-mellin
+    name: "格子和のMellin表示"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（格子和のMellin表示）"]
+    requires: [automorphic-forms.completed-eisenstein, automorphic-forms.eisenstein-convergence, complex-analysis.gamma-function]
+  - id: automorphic-forms.eisenstein-fourier
+    name: "完成Eisenstein級数のFourier展開"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（完成Eisenstein級数のFourier展開）"]
+    requires: [automorphic-forms.eisenstein-mellin, automorphic-forms.modified-bessel-k, fourier.fou3-gaussian-transform, fourier.fou2-dirichlet-convergence]
+  - id: automorphic-forms.eisenstein-functional-equation
+    name: "Eisenstein級数の解析接続と関数等式"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Eisenstein級数の解析接続と関数等式）"]
+    requires: [automorphic-forms.eisenstein-fourier, complex-analysis.zeta-functional-equation, complex-analysis.zeta-meromorphic-continuation]

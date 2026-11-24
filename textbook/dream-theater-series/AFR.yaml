@@ -24,7 +24,7 @@ chapters:
     title: "Whittaker係数・Bessel関数"
   - id: AFR5
     path: textbook/volumes/dream_thater/代数系/AFR/AFR5
-    status: planned
+    status: completed
     title: "Eisenstein級数と関数等式"
   - id: AFR6
     path: textbook/volumes/dream_thater/代数系/AFR/AFR6
