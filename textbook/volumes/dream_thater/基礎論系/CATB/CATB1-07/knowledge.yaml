@@ -5,6 +5,7 @@ prerequisites:
   - CAT2-02
   - CAT1-09
   - GRP2
+  - NSA2
 
 concepts:
   - id: category.lawvere-theory
@@ -18,7 +19,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（項からのLawvere理論の構成）"]
-    requires: [category.lawvere-theory]
+    requires: [category.lawvere-theory, logic.term, logic.term-evaluation]
   - id: category.lawvere-set-model
     name: Lawvere理論の集合値モデル
     kind: definition
