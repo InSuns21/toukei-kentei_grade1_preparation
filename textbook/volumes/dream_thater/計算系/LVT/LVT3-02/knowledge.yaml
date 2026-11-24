@@ -1,0 +1,41 @@
+chapter: LVT3-02
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT3-01]
+concepts:
+  - id: lean-verification.termination-def-partial
+    name: Leanの部分正当性
+    kind: definition
+    introduction: formal
+  - id: lean-verification.termination-def-terminates
+    name: Leanの停止性仕様
+    kind: definition
+    introduction: formal
+  - id: lean-verification.termination-def-total
+    name: Leanの全正当性
+    kind: definition
+    introduction: formal
+  - id: lean-verification.termination-def-drain
+    name: Leanの全域的な移送関数
+    kind: definition
+    introduction: formal
+  - id: lean-verification.termination-prop-partial
+    name: 移送モデルの部分正当性
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.termination-prop-budget
+    name: 移送モデルの実行予算
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.termination-prop-total
+    name: 移送モデルの全正当性
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.termination-prop-never
+    name: 停止性を欠く部分正当なモデル
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.termination-prop-drain
+    name: 全域的移送関数の正しさ
+    kind: proposition
+    introduction: formal
