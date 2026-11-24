@@ -632,10 +632,10 @@ function isolatedRunner() {
       if(fcg14Hooks){
         canvas.addEventListener('fcg14-progress',event=>{
           const d=event.detail;
-          if(!d||![d.time,d.mean,d.maxSlope,d.maxError].every(Number.isFinite)||
-             d.time<0||d.time>4.0000001||d.maxSlope<0||d.maxError<0||typeof d.playing!=='boolean')return;
+          if(!d||![d.time,d.mean,d.maxSpeed,d.mass,d.heat,d.massError,d.heatError,d.div].every(Number.isFinite)||
+             d.time<0||d.time>4.0000001||d.maxSpeed<0||d.mass<0||d.heat<0||d.div<0||typeof d.playing!=='boolean')return;
           send({...scope,type:'fcg14-progress',time:d.time,playing:d.playing,
-            mean:d.mean,maxSlope:d.maxSlope,maxError:d.maxError});
+            mean:d.mean,maxSpeed:d.maxSpeed,mass:d.mass,heat:d.heat,massError:d.massError,heatError:d.heatError,div:d.div});
         });
         canvas.addEventListener('fcg14-failure',event=>
           send({...scope,type:'fcg14-control-error',message:String(event.detail).slice(0,300)}));
@@ -1044,11 +1044,13 @@ window.addEventListener('message', event => {
     setStatus('FCG4 ライブ操作エラー: '+String(data.message).slice(0,300),true);return;
   }
   if(isFCG14&&data.type==='fcg14-progress'){
-    if(![data.time,data.mean,data.maxSlope,data.maxError].every(Number.isFinite)||
-      data.time<0||data.time>4.0000001||data.maxSlope<0||data.maxError<0||typeof data.playing!=='boolean')return;
+    if(![data.time,data.mean,data.maxSpeed,data.mass,data.heat,data.massError,data.heatError,data.div].every(Number.isFinite)||
+      data.time<0||data.time>4.0000001||data.maxSpeed<0||data.mass<0||data.heat<0||data.div<0||typeof data.playing!=='boolean')return;
     byId('fcg14-live-state').textContent='t='+data.time.toFixed(2)+' s / '+(data.playing?'再生中':'停止中')+
-      ' / 煙の重心高さ '+data.mean.toExponential(2)+' m / 最大流速 '+data.maxSlope.toFixed(3)+
-      ' / 直接和との差 '+data.maxError.toExponential(2);
+      ' / 煙の重心高さ '+(data.mass>0?data.mean.toFixed(3)+' m':'—')+' / 最大流速 '+data.maxSpeed.toFixed(3)+' m/s'+
+      ' / 煙の積分 '+data.mass.toFixed(5)+' m² / 温度差積分 '+data.heat.toFixed(5)+' K m²'+
+      ' / 煙収支誤差 '+data.massError.toExponential(2)+' m² / 熱収支誤差 '+data.heatError.toExponential(2)+' K m²'+
+      ' / 最大発散 '+data.div.toExponential(2)+' s⁻¹';
     byId('fcg14-live-state').dataset.time=String(data.time);
     byId('fcg14-play').disabled=data.playing||data.time>=4-1e-9;
     byId('fcg14-pause').disabled=!data.playing;
@@ -1600,8 +1602,8 @@ window.addEventListener('message', event => {
     if(active.completed){
       for(const button of document.querySelectorAll('#fcg14-live button'))button.disabled=false;
       byId('fcg14-pause').disabled=true;
-      byId('fcg14-live-state').dataset.time='1';
-      byId('fcg14-live-state').textContent='t=1.00 s / 停止中（再生または1ステップで観察）';
+      byId('fcg14-live-state').textContent='停止中（物理時刻を取得中）';
+      active.frame.contentWindow.postMessage({type:'fcg14-control',action:'pause',requestId:active.id,generation:active.generation,session:active.session},'*');
     }else if(data.ok)setStatus('FCG14 再生フックがありません。初期ソースを確認してください',true);
   }
   if(isFCG13){

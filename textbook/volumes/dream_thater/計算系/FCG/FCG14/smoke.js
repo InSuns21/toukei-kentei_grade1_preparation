@@ -116,7 +116,7 @@ report('MASS','煙='+initial.M+', 重心高さ='+initial.Y+' m, 収支誤差='+i
 report('HEAT','温度差積分='+initial.heat+', 収支誤差='+initial.heatError);
 report('PROJECTION','最大発散='+initial.div+' s^-1');
 let playing=false,timer=null;
-function emit(s){canvas.dispatchEvent(new CustomEvent('fcg14-progress',{detail:{time:s.time,playing,mean:s.Y,maxSlope:s.maxSpeed,maxError:Math.max(Math.abs(s.massError),Math.abs(s.heatError))}}));}
+function emit(s){canvas.dispatchEvent(new CustomEvent('fcg14-progress',{detail:{time:s.time,playing,mean:s.Y,maxSpeed:s.maxSpeed,mass:s.M,heat:s.heat,massError:s.massError,heatError:s.heatError,div:s.div}}));}
 function pause(){playing=false;if(timer!==null)clearTimeout(timer);timer=null;emit(sim.state());}
 function step(){pause();if(sim.state().time<4-1e-9)sim.advance();emit(draw());}
 function reset(){pause();sim.reset();emit(draw());}

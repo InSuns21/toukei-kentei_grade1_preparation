@@ -103,6 +103,8 @@ try {
   const initial=await check();
   assert.ok(initial.rows.length>=4);
   assert.match(initial.scene,/1 m四方/);
+  await waitFor('Number(document.getElementById("fcg14-live-state").dataset.time)===1');
+  assert.match(await evaluate('document.getElementById("fcg14-live-state").textContent'),/煙収支誤差.*熱収支誤差/);
   const first=await capture('coupled');
   await evaluate('document.getElementById("fcg14-step").click()');
   await waitFor('Math.abs(Number(document.getElementById("fcg14-live-state").dataset.time)-1.025)<1e-9');
@@ -114,6 +116,10 @@ try {
   const paused=await evaluate('document.getElementById("fcg14-live-state").dataset.time');
   await new Promise(ok=>setTimeout(ok,350));
   assert.equal(await evaluate('document.getElementById("fcg14-live-state").dataset.time'),paused);
+  await evaluate('document.getElementById("fcg14-play").click()');
+  await waitFor('Number(document.getElementById("fcg14-live-state").dataset.time)>=4-1e-9',90000);
+  const late=await capture('coupled-4s');
+  assert.notEqual(first,late);
   await evaluate('document.getElementById("fcg14-reset").click()');
   await waitFor('Number(document.getElementById("fcg14-live-state").dataset.time)===0');
   assert.notEqual(first,await capture('reset'));
@@ -125,6 +131,9 @@ try {
   };
   await control('buoyancy','0',/const buoyancy=0;/);
   const noBuoyancy=await capture('no-buoyancy');
+  await evaluate('document.getElementById("fcg14-play").click()');
+  await waitFor('Number(document.getElementById("fcg14-live-state").dataset.time)>=4-1e-9',90000);
+  assert.notEqual(late,await capture('no-buoyancy-4s'));
   await control('heatSource','0',/const heatSource=0;/);
   assert.notEqual(noBuoyancy,await capture('cold-smoke'));
   await control('smokeSource','0',/const smokeSource=0;/);
