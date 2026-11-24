@@ -1,0 +1,66 @@
+chapter: AFR14
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR13]
+forward_references: []
+concepts:
+  - id: automorphic-forms.local-double-coset
+    name: "局所二重剰余類"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.congruence-subgroups]
+  - id: automorphic-forms.local-cartan
+    name: "局所Cartan分解"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.local-double-coset, number-theory.p-adic-valuation]
+  - id: automorphic-forms.index-p-double-coset
+    name: "指数pの二重剰余類分解"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.local-cartan]
+  - id: automorphic-forms.spherical-hecke-algebra
+    name: "球Hecke代数"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.local-double-coset]
+  - id: automorphic-forms.spherical-hecke-action
+    name: "球Hecke作用"
+    kind: proposition
+    introduction: formal
+    requires: [automorphic-forms.spherical-hecke-algebra, automorphic-forms.spherical-vector]
+  - id: automorphic-forms.spherical-hecke-generation
+    name: "球Hecke代数の生成"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.spherical-hecke-algebra, automorphic-forms.local-cartan]
+  - id: automorphic-forms.principal-spherical-eigenvalues
+    name: "主系列の球Hecke固有値"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.principal-spherical-invariants, automorphic-forms.index-p-double-coset, automorphic-forms.spherical-hecke-action]
+  - id: automorphic-forms.gl2-satake-isomorphism
+    name: "GL_2のSatake同型"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.spherical-hecke-generation, automorphic-forms.principal-spherical-eigenvalues]
+  - id: automorphic-forms.irreducible-spherical-line
+    name: "既約許容表現の球固定直線"
+    kind: proposition
+    introduction: formal
+    requires: [automorphic-forms.padic-admissibility, automorphic-forms.spherical-hecke-generation, automorphic-forms.spherical-hecke-action]
+  - id: automorphic-forms.gl2-satake-parameter
+    name: "GL_2のSatakeパラメータ"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.irreducible-spherical-line, automorphic-forms.gl2-satake-isomorphism]
+  - id: automorphic-forms.gl2-unramified-local-factor
+    name: "GL_2の不分岐局所L因子"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.gl2-satake-parameter, automorphic-forms.unramified-zeta-factor]
+  - id: automorphic-forms.hecke-euler-recovery
+    name: "Hecke固有値からのEuler因子復元"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.gl2-unramified-local-factor]

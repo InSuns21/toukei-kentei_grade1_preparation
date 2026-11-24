@@ -1,0 +1,32 @@
+id: "AFR14"
+title: "球Hecke代数とSatakeパラメータ"
+volume: "foundations"
+status: supplementary
+prerequisites: [AFR13]
+official_scope: []
+learning_objectives:
+  - 局所Cartan分解と指数pの二重剰余類を構成できる
+  - 球Hecke代数の積と固定空間への作用を有限和で証明できる
+  - 二つの生成元による可換性とGL_2のSatake同型を証明できる
+  - 正規化主系列の球Hecke固有値と既約許容表現の固定直線を導出できる
+  - Satakeパラメータから局所Euler因子と係数漸化式を復元できる
+definitions:
+  - { id: AFR14-DEF-01, name: "局所二重剰余類" }
+  - { id: AFR14-DEF-02, name: "球Hecke代数" }
+  - { id: AFR14-DEF-03, name: "GL_2のSatakeパラメータ" }
+  - { id: AFR14-DEF-04, name: "GL_2の不分岐局所L因子" }
+theorems:
+  - { id: AFR14-THM-01, name: "局所Cartan分解" }
+  - { id: AFR14-THM-02, name: "指数pの二重剰余類分解" }
+  - { id: AFR14-THM-03, name: "球Hecke作用" }
+  - { id: AFR14-THM-04, name: "球Hecke代数の生成" }
+  - { id: AFR14-THM-05, name: "主系列の球Hecke固有値" }
+  - { id: AFR14-THM-06, name: "GL_2のSatake同型" }
+  - { id: AFR14-THM-07, name: "既約許容表現の球固定直線" }
+  - { id: AFR14-THM-08, name: "Hecke固有値からのEuler因子復元" }
+canonical_examples: [指数pの格子, 自明表現の固有値, 重根のEuler係数]
+problem_patterns: [AFR14-A1, AFR14-A2, AFR14-A3, AFR14-A4, AFR14-B1, AFR14-B2, AFR14-B3, AFR14-C1, AFR14-C2]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 5, review: 2 }
