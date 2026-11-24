@@ -12,7 +12,9 @@
 
 以下では $P:\mathcal A\rightsquigarrow\mathcal B$ の値を $P(b,a)$ と書く。最初の引数が到着側で反変、第二の引数が出発側で共変である。この向きでは関手 $F$ は $\mathcal B(b,Fa)$ を与える。
 
-基底 $\mathcal V$ は局所小な対称右閉モノイダル圏とする。対称性と[Mac Laneの整合性定理](../../CAT/CAT4-02/index.md#thm-cat4-02-coherence)を使い、テンソル因子の明示した並べ替えと括弧・単位子の省略を許す。圏は[豊穣圏](../CATB2-01/index.md#def-catb2-01-enriched-category)とし、各対象集合は小さい。基底の[自己豊穣化](../CATB2-04/index.md#thm-catb2-04-self-enrichment)により、基底値の豊穣関手を考えられる。二つの豊穣圏のテンソル積は対象対を持ち、Homは各Hom対象のテンソル積、合成は対称性で因子を並べ替えてから各圏で合成する。
+基底 $\mathcal V$ は局所小な[対称モノイダル圏](../../CAT/CAT4-03/index.md#def-cat4-03-symmetric)で、[右閉](../../CAT/CAT4-05/index.md#def-cat4-05-right-closed)であるとする。単位対象を $I$ と書く。対称性と[Mac Laneの整合性定理](../../CAT/CAT4-02/index.md#thm-cat4-02-coherence)を使い、テンソル因子の明示した並べ替えと括弧・単位子の省略を許す。圏は[豊穣圏](../CATB2-01/index.md#def-catb2-01-enriched-category)とし、各対象集合は小さい。基底の[自己豊穣化](../CATB2-04/index.md#thm-catb2-04-self-enrichment)により、基底値の豊穣関手を考えられる。二つの豊穣圏のテンソル積は対象対を持ち、Homは各Hom対象のテンソル積、合成は対称性で因子を並べ替えてから各圏で合成する。反対圏 $\mathcal B^{\mathrm{op}}$ では Hom を $\mathcal B^{\mathrm{op}}(b,b')=\mathcal B(b',b)$ とし、合成順を対称性で反転する。従って積の $(b,a)$ から $(b',a')$ への Hom 対象は $\mathcal B(b',b)\otimes\mathcal A(a,a')$ である。
+
+この積から基底の自己豊穣化への[豊穣関手](../CATB2-03/index.md#def-catb2-03-enriched-functor)として二方向の作用を持つ対応を定める。記号 $\rightsquigarrow$ はこの対応を表し、通常の関手の矢印と区別する。
 
 <a id="def-catb2-07-distributor"></a>
 
@@ -37,10 +39,35 @@ $$
 > を持ち、各作用が単位と合成を保ち、二作用が互いに可換である。
 <!-- formal-statement-end -->
 
-作用の式は、[豊穣関手の構造射](../CATB2-03/index.md#def-catb2-03-enriched-functor)を[評価射とカリー化](../../CAT/CAT4-05/index.md#thm-cat4-05-evaluation-curry)で転置したものである。具体的に、両方のHomを入力する構造射は二作用の一方に続けて他方を作用させて得る。単位を代入すれば各作用が復元される。可換性は二つの圏の射を順に作用させる順序が結果に影響しない条件である。これと各作用の合成則から、対象対の二つの射の合成を保つことが従う。
+作用の式は、[豊穣関手の構造射](../CATB2-03/index.md#def-catb2-03-enriched-functor)
+
+$$
+\mathcal B(b',b)\otimes\mathcal A(a,a')
+\longrightarrow [P(b,a),P(b',a')]
+$$
+
+を[評価射とカリー化](../../CAT/CAT4-05/index.md#thm-cat4-05-evaluation-curry)で逆転置して得る。角括弧は基底の内部Homである。右端に $P(b,a)$ をテンソルし、評価すれば $P(b',a')$ に至る。片方のHom因子に単位射 $I\to\mathcal A(a,a)$ または $I\to\mathcal B(b,b)$ を入れ、必要なら対称性で因子を交換すると、定義中の二作用が復元される。
+
+以後、反変作用を $p\cdot v$（$v:b'\to b$）、共変作用を $u\cdot p$（$u:a\to a'$）と略記する。集合値では元への作用であり、一般の基底ではそれぞれの Hom 因子と $P(b,a)$ を入力とする作用射を表す。例えば可換性とは、同じ三因子を入力とする二経路が一致すること、すなわち
+
+$$
+u\cdot(p\cdot v)=(u\cdot p)\cdot v
+$$
+
+である。逆に二作用から逆転置した構造射をこの共通の経路で作り、転置して内部Homへの射を得る。単位律は二作用の単位律から従う。合成保存について、さらに $v':b''\to b'$、$u':a'\to a''$ を入力すると
+
+$$
+\begin{aligned}
+u'\cdot((u\cdot(p\cdot v))\cdot v')
+&=u'\cdot(u\cdot((p\cdot v)\cdot v'))\\
+&=(u'u)\cdot(p\cdot(vv')).
+\end{aligned}
+$$
+
+第一等号は二作用の可換性、第二等号は各作用の合成則である。一般の基底でもこれは同じ五つのテンソル因子を適切に並べ替えた射の等式であり、元で射が決まるとは仮定しない。自己豊穣化の合成は連続評価の転置なので、転置の一意性により豊穣関手の合成保存式を得る。
 
 <!-- definition-example-start: def-catb2-07-distributor -->
-**定義の確認**。 集合を基底とする。$\mathcal A$ を一対象・恒等射のみの圏、$\mathcal B$ を $0\to1$ の矢印圏とし、$F$ が $1$ を選ぶとする。分配子の各値は
+**定義の確認**。 [集合値の豊穣圏と通常の圏の対応](../CATB2-01/index.md#prop-catb2-01-set-enrichment)により、集合を基底とし通常の関手で作用を確認する。$\mathcal A$ を一対象・恒等射のみの圏、$\mathcal B$ を $0\to1$ の矢印圏とし、$F$ が $1$ を選ぶとする。分配子の各値は
 
 $$
 P(b,*)=\operatorname{Hom}_{\mathcal B}(b,1),\qquad
@@ -56,7 +83,7 @@ $$
 となる。出発側の作用は恒等写像だけなので単位・合成を保ち、反変作用とも可換である。従って分配子である。
 <!-- definition-example-end -->
 
-一般の豊穣関手 $F:\mathcal A\to\mathcal B$ についても $\mathcal B(b,Fa)$ は分配子になる。作用は前合成と、$F$ で送った射による後合成である。二作用の可換性は結合律
+一般の豊穣関手 $F:\mathcal A\to\mathcal B$ についても $\mathcal B(b,Fa)$ は分配子になる。作用は前合成と、$F$ のHom上の構造射で送った射による後合成である。これを $F(u)$ と略記する。各作用の単位・合成保存は $\mathcal B$ の単位律・結合律と豊穣関手 $F$ の単位・合成保存から従う。二作用の可換性は結合律
 
 $$
 (F(u)h)v=F(u)(hv)
@@ -76,7 +103,7 @@ $$
 
 を同一視したい。前者の中間対象は $b$、後者は $b'$ である。この関係は中間対象の選択を忘れるだけでなく、射による情報の移動を商に組み込む。
 
-一般の基底では元の同値関係を直接使う代わりに、二射を等しくする普遍射を作る。基底に小余積と余等化子が存在すると仮定する。以下の式では $P$ の中間反変作用と $Q$ の中間共変作用をそれぞれ $r_P,l_Q$ と書く。例えば反変作用は
+一般の基底では元の同値関係を直接使う代わりに、二射を等しくする普遍射を作る。存在の構成に備え、基底に[小余積](../../CAT/CAT2-05/index.md#def-cat2-05-coproduct)と[余等化子](../../CAT/CAT2-05/index.md#def-cat2-05-coequalizer)が存在すると仮定する。釣り合いcoend自体は、以下の普遍性を満たす対象と射の族として定義する。以下の式では $P$ の中間反変作用と $Q$ の中間共変作用をそれぞれ $r_P,l_Q$ と書く。例えば反変作用は
 
 $$
 r_P:P(b',a)\otimes\mathcal B(b,b')\to P(b,a)
@@ -89,13 +116,13 @@ $$
 <!-- formal-statement-start -->
 > **定義（豊穣分配子の釣り合いcoend）**
 >
-> 局所小な対称右閉モノイダル圏 $\mathcal V$ と、その上の小さい対象集合を持つ豊穣圏 $\mathcal A,\mathcal B,\mathcal C$ を取る。分配子 $P:\mathcal A\rightsquigarrow\mathcal B$ と $Q:\mathcal B\rightsquigarrow\mathcal C$ に対し、対象 $a,c$ を固定する。釣り合いcoendとは、射の族
+> 局所小な対称右閉モノイダル圏 $\mathcal V$ と、その上の小さい対象集合を持つ豊穣圏 $\mathcal A,\mathcal B,\mathcal C$ を取る。分配子 $P:\mathcal A\rightsquigarrow\mathcal B$ と $Q:\mathcal B\rightsquigarrow\mathcal C$ に対し、対象 $a\in\mathcal A,c\in\mathcal C$ を固定する。釣り合いcoendとは、基底の対象 $D$ と、各 $b\in\mathcal B$ に対する射の族
 
 $$
 i_b:Q(c,b)\otimes P(b,a)\to D
 $$
 
-> が次の条件を満たし、同条件を満たす任意の族 $j_b:Q(c,b)\otimes P(b,a)\to T$ が唯一の射 $h:D\to T$ によって $j_b=hi_b$ と因子分解されるものである。条件は定義域
+> の組であって、射の族が次の条件を満たし、基底の任意の対象 $T$ への同条件を満たす任意の族 $j_b:Q(c,b)\otimes P(b,a)\to T$ が唯一の射 $h:D\to T$ によって $j_b=hi_b$ と因子分解されるものである。条件は定義域
 
 $$
 Q(c,b)\otimes\mathcal B(b,b')\otimes P(b',a)
@@ -108,7 +135,7 @@ i_b(1\otimes r_P)\sigma
 =i_{b'}(l_Q\otimes1)\tau
 $$
 
-> である。ここで $\sigma$ は第二・第三因子の交換、$\tau$ は第一・第二因子の交換である。この $D$ を
+> である。ここで $r_P:P(b',a)\otimes\mathcal B(b,b')\to P(b,a)$ は反変作用、$l_Q:\mathcal B(b,b')\otimes Q(c,b)\to Q(c,b')$ は共変作用である。$\sigma$ は第二・第三因子の交換、$\tau$ は第一・第二因子の交換であり、$1$ は残りの因子の恒等射を表す。この $D$ を
 
 $$
 \int^{b\in\mathcal B}Q(c,b)\otimes P(b,a)
@@ -118,7 +145,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb2-07-balanced-coend -->
-**定義の確認**。 集合値で $\mathcal A,\mathcal C$ は一対象圏、$\mathcal B$ は $0\xrightarrow{v}1$ とする。$P(0,*)=\{x,y\}$、$P(1,*)=\{z\}$、$P(v)(z)=x$。$Q(*,0)=\{s\}$、$Q(*,1)=\{t,u\}$、$Q(v)(s)=t$ とする。恒等射以外の合成はないのでこれらは関手の作用となる。対角の組は
+**定義の確認**。 集合値で $\mathcal A,\mathcal C$ は一対象・恒等射のみの圏、$\mathcal B$ は $0\xrightarrow{v}1$ とする。$P(0,*)=\{x,y\}$、$P(1,*)=\{z\}$、$P(v)(z)=x$。$Q(*,0)=\{s\}$、$Q(*,1)=\{t,u\}$、$Q(v)(s)=t$ とする。恒等射は恒等写像として作用する。非恒等射どうしの合成は存在せず、恒等射との合成は各写像を変えない。外側は恒等作用のみなので中間の作用とも可換であり、両者は[分配子](#def-catb2-07-distributor)になる。対角の組は
 
 $$
 (s,x),\ (s,y),\ (t,z),\ (u,z).
@@ -163,7 +190,7 @@ T&=\coprod_b Q(c,b)\otimes P(b,a).
 \end{aligned}
 $$
 
-小さい対象集合と小余積の仮定によって存在する。$S\rightrightarrows T$ の二射 $s,t$ を、$(b,b')$ 成分で
+小さい対象集合と小余積の仮定によって存在する。$S\rightrightarrows T$ の二射 $s,t$ を、$(b,b')$ 成分で次のように定める。$\operatorname{in}_b$ は $T$ の第 $b$ 成分からの余積への挿入射、$s|_{b,b'}$ は $S$ の当該成分の挿入射との合成を表す。
 
 $$
 \begin{aligned}
@@ -172,7 +199,7 @@ t|_{b,b'}&=\operatorname{in}_{b'}(l_Q\otimes1)\tau
 \end{aligned}
 $$
 
-と定める。$e:T\to D$ を[余等化子](../../CAT/CAT2-05/index.md#def-cat2-05-coequalizer)とし、$i_b=e\operatorname{in}_b$ とする。$es=et$ を各成分に制限すると釣り合い条件となる。
+$e:T\to D$ を[余等化子](../../CAT/CAT2-05/index.md#def-cat2-05-coequalizer)とし、$i_b=e\operatorname{in}_b$ とする。$es=et$ を各成分に制限すると釣り合い条件となる。
 
 逆に釣り合う族 $j_b$ は[余積の普遍性](../../CAT/CAT2-05/index.md#def-cat2-05-coproduct)から一意な $k:T\to U$ を与え、$ks=kt$ が各成分で成立する。余等化子の普遍性から唯一の $h:D\to U$ が存在し、
 
@@ -184,7 +211,7 @@ $$
 
 次に外側の反変作用を構成する。$X=\mathcal C(c',c)$ と置く。[右閉性](../../CAT/CAT4-05/index.md#def-cat4-05-right-closed)と対称性から $-\otimes X$ は左随伴である。
 
-[左随伴の余極限保存](../../CAT/CAT2-11/index.md#thm-cat2-11-left-preserves)により、$e\otimes1_X$ は $s\otimes1_X,t\otimes1_X$ の余等化子であり、$T\otimes X$ と $S\otimes X$ も対応する成分の余積になる。
+[左随伴の余極限保存](../../CAT/CAT2-11/index.md#thm-cat2-11-left-preserves)により、$e\otimes1_X$ は $s\otimes1_X,t\otimes1_X$ の余等化子であり、$T\otimes X$ と $S\otimes X$ も対応する成分の余積になる。特に $D\otimes X$ からの射は、全ての $i_b\otimes1_X$ との合成で一意に決まる。実際、余積の挿入射上で一致すれば $e\otimes1_X$ との合成が一致し、余等化子の一意性から元の射も一致する。
 
 以降、$q,p,v,w,u$ を用いる式はテンソル因子の入力位置を示す記号であり、一般の基底で単位からの元が射を識別すると仮定しない。各成分の射を合成した等式をこの記法で表す。
 
@@ -198,7 +225,7 @@ i'_b(q\cdot w,p'\cdot v)
 \end{aligned}
 $$
 
-第一等号は $D'$ の釣り合い条件、第二等号は $Q$ の二作用の可換性である。よって余等化子から唯一の射 $D\otimes X\to D'$ が得られる。
+ここで $q,p',v,w$ の入力位置はそれぞれ $Q(c,b),P(b',a),\mathcal B(b,b'),X$ である。第一等号は $D'$ の[釣り合い条件](#def-catb2-07-balanced-coend)、第二等号は $Q$ の[二作用の可換性](#def-catb2-07-distributor)である。よって余等化子から唯一の射 $D\otimes X\to D'$ が得られる。
 
 外側の共変作用について $Y=\mathcal A(a,a')$ を取る。$Y\otimes-$ も左随伴なので同じ余積・余等化子を保存する。$D''=(Q\odot P)(c,a')$ の脚を $i''_b$ とすると、候補の成分は $i''_b(q,u\cdot p)$ である。中間のHom因子 $v$ に関する二経路は
 
@@ -210,9 +237,9 @@ i''_b(q,u\cdot(p'\cdot v))
 \end{aligned}
 $$
 
-第一等号は $P$ の二作用の可換性、第二等号は $D''$ の釣り合い条件である。従って $Y\otimes D\to D''$ が得られる。
+ここでは $u$ の入力位置が $Y$ であり、$q,p',v$ は先ほどと同じ位置の因子である。第一等号は $P$ の[二作用の可換性](#def-catb2-07-distributor)、第二等号は $D''$ の[釣り合い条件](#def-catb2-07-balanced-coend)である。従って $Y\otimes D\to D''$ が得られる。
 
-単位・合成と二作用の可換性を確認する。テンソル積でパラメータを加えても余等化子表示が保たれるので、二つの射がすべての脚上で一致することを示せばよい。反変作用の二段の合成は各脚で
+単位・合成と二作用の可換性を確認する。テンソル積でパラメータを加えても余等化子表示が保たれるので、二つの射がすべての脚上で一致することを示せばよい。例えば反変作用の二段の合成では $w:c'\to c$、$w':c''\to c'$ のHom因子を入力とし、比較する始域は $D\otimes\mathcal C(c',c)\otimes\mathcal C(c'',c')$ である。各脚で
 
 $$
 i_b((q\cdot w)\cdot w',p)=i_b(q\cdot(ww'),p)
@@ -234,7 +261,7 @@ $$
 \left(\coprod_b Q(c,b)\times P(b,a)\right)/{\sim}.
 $$
 
-同値関係は $(q,p'\cdot v)\sim(v\cdot q,p')$ を含む最小の同値関係である。中間が離散圏なら恒等射しかなく、同一視は増えない。例えば中間二対象で組の数がそれぞれ $2\cdot3$ と $4\cdot1$ なら合成には10元が残る。第3節の矢印圏では4組が3元に減った。
+同値関係 $\sim$ は $(q,p'\cdot v)\sim(v\cdot q,p')$ を含む最小の同値関係である。以下、$[q,p]$ は中間対象 $b$ のタグ付きの組 $(q,p)\in Q(c,b)\times P(b,a)$ の同値類を表す。中間が離散圏なら恒等射しかなく、同一視は増えない。例えば中間二対象で組の数がそれぞれ $2\cdot3$ と $4\cdot1$ なら合成には10元が残る。第3節の矢印圏では4組が3元に減った。
 
 ## 5. 通常の射の合成との接続
 
@@ -245,7 +272,7 @@ $$
 <!-- formal-statement-start -->
 > **命題（関手から生じる分配子の合成）**
 >
-> 小圏 $\mathcal A,\mathcal B,\mathcal C$ と関手 $F:\mathcal A\to\mathcal B$、$G:\mathcal B\to\mathcal C$ を取る。上の関手から生じる集合値分配子の合成には、二変数で自然な全単射
+> 小圏 $\mathcal A,\mathcal B,\mathcal C$ と関手 $F:\mathcal A\to\mathcal B$、$G:\mathcal B\to\mathcal C$ を取る。$P(b,a)=\operatorname{Hom}_{\mathcal B}(b,Fa)$、$Q(c,b)=\operatorname{Hom}_{\mathcal C}(c,Gb)$ を、前合成および $F,G$ で送った射による後合成を作用とする集合値分配子とする。任意の $a\in\mathcal A,c\in\mathcal C$ に対して、その合成には二変数で自然な全単射
 
 $$
 \int^b\operatorname{Hom}_{\mathcal C}(c,Gb)
@@ -380,7 +407,7 @@ $$
 
 - Level: B
 
-中間圏は $0\xrightarrow{v}1$、外側は一対象圏とする。$P(0)=\{x,y\}$、$P(1)=\{z,w\}$ で $P(v)$ は両元を $x$ に送る。$Q(0)=\{s\}$、$Q(1)=\{t\}$、$Q(v)(s)=t$ とする。全同値類を求め、任意の釣り合う族からの因子分解を確認せよ。
+中間圏は $0\xrightarrow{v}1$、外側は一対象・恒等射のみの圏とする。$P(0)=\{x,y\}$、$P(1)=\{z,w\}$ で $P(v)$ は両元を $x$ に送る。$Q(0)=\{s\}$、$Q(1)=\{t\}$、$Q(v)(s)=t$ とする。全同値類を求め、任意の釣り合う族からの因子分解を確認せよ。
 
 <!-- solution-start -->
 **詳細解答。** [釣り合いcoend](#def-catb2-07-balanced-coend)の対角成分を列挙すると
@@ -414,7 +441,7 @@ $$
 
 - Level: B
 
-基底を実ベクトル空間とし、中間圏は一対象でHom対象が $\mathbb R[t]/(t^2)$ とする。これは基底 $1,t$ を持つ二次元実ベクトル空間に、積
+基底を全ての実ベクトル空間と線形写像の圏とし、テンソル積を用いる。[一対象の豊穣圏とモノイド対象の対応](../CATB2-01/index.md#prop-catb2-01-one-object)により、中間圏は一対象でHom対象が $\mathbb R[t]/(t^2)$ とする。これは基底 $1,t$ を持つ二次元実ベクトル空間に、積
 
 $$
 1t=t1=t,\qquad t^2=0
@@ -422,7 +449,7 @@ $$
 
 を双線形に延長した代数である（単位は $1$）。
 
-外側は各一対象でHom対象 $\mathbb R$ とする。$P,Q$ はともに $\mathbb R^2$ で、$P$ の反変作用と $Q$ の共変作用で $t$ はともに
+外側は各一対象でHom対象 $\mathbb R$ とする。$P,Q$ はともに $\mathbb R^2$ で、それぞれの標準基底を $e_1,e_2$ と書く。$P$ の反変作用と $Q$ の共変作用で $t$ はともに
 
 $$
 N(e_1)=0,\qquad N(e_2)=e_1
@@ -431,7 +458,18 @@ $$
 と作用する。合成の次元と基底を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $N^2=0$ なので、$\alpha+\beta t$ の作用を $\alpha I+\beta N$ とすれば積と単位を保つ。代数は可換なので反変側の積の順序反転にも適合する。外側の作用はスカラー倍で可換である。
+**詳細解答。** [ベクトル空間の閉構造](../../CAT/CAT4-05/index.md#thm-cat4-05-vector-spaces)を用いる。$N$ は指定された基底上の値を線形に延長した写像であり、$I$ はここでは $\mathbb R^2$ の恒等写像を表す。$N^2(e_1)=0,N^2(e_2)=N(e_1)=0$ だから $N^2=0$。Hom代数の元 $\alpha+\beta t$ の作用を $\alpha I+\beta N$ とすれば
+
+$$
+\begin{aligned}
+(\alpha I+\beta N)(\gamma I+\delta N)
+&=\alpha\gamma I+(\alpha\delta+\beta\gamma)N\\
+(\alpha+\beta t)(\gamma+\delta t)
+&=\alpha\gamma+(\alpha\delta+\beta\gamma)t.
+\end{aligned}
+$$
+
+よって積を保ち、$1$ の作用は $I$ である。代数は可換なので反変側の積の順序反転にも適合する。外側の作用はスカラー倍であり、線形性から $N(\lambda p)=\lambda N(p)$ となるので中間作用と可換である。
 
 [分配子のcoend合成](#thm-catb2-07-composition)の余等化子は $Q\otimes P$ を、次の差の張る部分空間で割る。
 
@@ -441,7 +479,15 @@ $$
 
 実際、二つの線形射を等しくする写像はそれらの差の像を零に送る必要がある。逆にその像を零に送る写像は商空間から一意に因子分解される。
 
-単位 $1$ による差は零、任意の $\alpha+\beta t$ の差は $t$ による差の $\beta$ 倍なので、基底の四組だけを確認すればよい。$E_{ij}=e_i\otimes e_j$ とすると
+単位 $1$ による差は零、任意の $\alpha+\beta t$ の差は $t$ による差の $\beta$ 倍である。また $q=\sum_i q_i e_i$、$p=\sum_j p_j e_j$ とすれば双線形性によって
+
+$$
+q\otimes Np-Nq\otimes p
+=\sum_{i,j=1}^2 q_i p_j
+(e_i\otimes Ne_j-Ne_i\otimes e_j).
+$$
+
+従って基底の四組だけを確認すればよい。[有限次元テンソル積の存在と基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)から $E_{ij}=e_i\otimes e_j$（第一因子は $Q$、第二因子は $P$）は $Q\otimes P$ の四元の基底である。各入力に対する差は
 
 $$
 \begin{array}{c|c}
@@ -454,7 +500,7 @@ $$
 \end{array}
 $$
 
-差の張る空間は $E_{11}$ と $E_{21}-E_{12}$ の二次元空間である。従って商の次元は $4-2=2$。$[E_{12}],[E_{22}]$ は張る（$[E_{11}]=0,[E_{21}]=[E_{12}]$）。両者の線形結合が差の空間に入るなら、$E_{22}$ と $E_{21}$ の係数比較から両係数が零になるため、商の基底である。
+差の張る空間は $E_{11}$ と $E_{21}-E_{12}$ の張る空間である。$E_{11}$ と $E_{21}$ の係数を比較すればこの二元は線形独立なので、その次元は $2$ である。従って商の次元は $4-2=2$。$[E_{12}],[E_{22}]$ は張る（$[E_{11}]=0,[E_{21}]=[E_{12}]$）。両者の線形結合が差の空間に入るなら、$E_{22}$ と $E_{21}$ の係数比較から両係数が零になるため、商の基底である。
 <!-- solution-end -->
 
 ### CATB2-07-B03 外側の作用が商に降りる理由
@@ -464,7 +510,7 @@ $$
 集合値で $u:a\to a'$ と $v:b\to b'$ に対し、$[q,p]\mapsto[q,u\cdot p]$ が合成の同値類上の写像となることを示せ。$P$ の二作用の可換性を使う箇所も示せ。
 
 <!-- solution-start -->
-**詳細解答。** 生成関係は $[q,p'\cdot v]=[v\cdot q,p']$ である。左側の像は
+**詳細解答。** [coend合成の商表示](#thm-catb2-07-composition)による生成関係は $[q,p'\cdot v]=[v\cdot q,p']$ である。左側の像は
 
 $$
 [q,u\cdot(p'\cdot v)]
@@ -481,7 +527,7 @@ $$
 
 - Level: C
 
-$\mathcal A$ は一対象圏、$\mathcal B$ は $0\xrightarrow{v}1$、$\mathcal C$ は二対象 $c,d$ と平行二射 $f,g:c\to d$ および恒等射のみを持つ圏とする。$F(*)=1$、$G(0)=c,G(1)=d,G(v)=f$ とする。$P(b,*)=\operatorname{Hom}_{\mathcal B}(b,F*)$ と $Q(z,b)=\operatorname{Hom}_{\mathcal C}(z,Gb)$ の合成を $z=c,d$ で計算し、外側の $f,g$ による反変作用を求め、$\operatorname{Hom}_{\mathcal C}(z,d)$ との対応を確認せよ。
+$\mathcal A$ は一対象・恒等射のみの圏、$\mathcal B$ は $0\xrightarrow{v}1$、$\mathcal C$ は二対象 $c,d$ と平行二射 $f,g:c\to d$ および恒等射のみを持つ圏とする。$F(*)=1$、$G(0)=c,G(1)=d,G(v)=f$ とする。$P(b,*)=\operatorname{Hom}_{\mathcal B}(b,F*)$ と $Q(z,b)=\operatorname{Hom}_{\mathcal C}(z,Gb)$ の合成を $z=c,d$ で計算し、外側の $f,g$ による反変作用を求め、$\operatorname{Hom}_{\mathcal C}(z,d)$ との対応を確認せよ。
 
 <!-- solution-start -->
 **詳細解答。** $P(0,*)=\{v\}$、$P(1,*)=\{1_1\}$ で $P(v)(1_1)=v$。$z=c$ では $Q(c,0)=\{1_c\}$、$Q(c,1)=\{f,g\}$。$Q(c,v)$ は $1_c\mapsto f$ なので、[釣り合いcoend](#def-catb2-07-balanced-coend)の対角の三組
@@ -490,7 +536,7 @@ $$
 (1_c,v),\ (f,1_1),\ (g,1_1)
 $$
 
-のうち第一と第二が同一視される。第三は別の類である。$z=d$ では $Q(d,0)=\varnothing$、$Q(d,1)=\{1_d\}$ だから唯一の類 $[1_d,1_1]$ が残る。$f:c\to d$ による外側の反変作用は $Q$ の前合成なので
+のうち第一と第二が同一視される。第三は別の類である。$z=d$ では $Q(d,0)=\varnothing$、$Q(d,1)=\{1_d\}$ だから唯一の類 $[1_d,1_1]$ が残る。$f:c\to d$ による外側の反変作用は [coend合成の外側作用](#thm-catb2-07-composition) により $Q$ の前合成なので
 
 $$
 [1_d,1_1]\longmapsto[f,1_1].
