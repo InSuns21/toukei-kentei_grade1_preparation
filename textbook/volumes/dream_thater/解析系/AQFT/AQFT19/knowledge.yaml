@@ -6,11 +6,6 @@ prerequisites:
   - QM6
 forward_references: []
 concepts:
-  - id: aqft.antiunitary
-    name: 反ユニタリ作用素
-    kind: definition
-    introduction: formal
-    requires: [aqft.antilinear-operator]
   - id: aqft.conjugate-hilbert-space
     name: 共役Hilbert空間
     kind: definition
