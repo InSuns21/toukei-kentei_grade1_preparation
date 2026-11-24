@@ -54,7 +54,7 @@ const isFCG12 = lesson === 'FCG12';
 const fcgTimeLab = isFCG9 || isFCG10 || isFCG11 || isFCG12;
 const fcgTimeMax = isFCG9 ? 24 : isFCG10 ? 6 : isFCG11 ? 1.8 : 3;
 const isFCG13 = lesson === 'FCG13';
-const fcgOutputLab = isFCG8 || fcgTimeLab || isFCG13;
+const fcgOutputLab = isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8 || fcgTimeLab || isFCG13;
 const fcgOutputMotion = fcgOutputLab ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
 const isWGL2 = lesson === 'WGL2';
 const isWGL3 = lesson === 'WGL3';
@@ -247,7 +247,7 @@ function selectTab(name, focus = false) {
   // FCG5 keeps the single source-linked parameter panel next to the
   // observation when running, and returns it to Conditions on other tabs.
   if(isFCG5||isFCG7||fcgOutputLab){
-    const parameters=byId('lab-parameters'),result=byId(fcgOutputLab?'fcg-output-parameters':isFCG7?'fcg7-result-parameters':'fcg5-result-parameters');
+    const parameters=byId('lab-parameters'),result=byId(isFCG7?'fcg7-result-parameters':isFCG5?'fcg5-result-parameters':'fcg-output-parameters');
     const parent=name==='result'&&result?result:byId('panel-conditions');
     if(parameters&&parameters.parentElement!==parent)parent.append(parameters);
   }
@@ -1645,8 +1645,10 @@ window.addEventListener('message', event => {
   }
   if(fcgOutputLab&&active?.completed&&active.resumePlayback&&!fcgOutputMotion.matches){
     active.resumePlayback=false;
-    if(isFCG8)fcg8Control('play');
-    else active.frame.contentWindow.postMessage({type:isFCG13?'fcg13-control':'fcg-time-control',action:'play',
+    if(isFCG2)fcg2Control('play');
+    else if(isFCG7)fcg7Control('play');
+    else if(isFCG8)fcg8Control('play');
+    else if(fcgTimeLab||isFCG13)active.frame.contentWindow.postMessage({type:isFCG13?'fcg13-control':'fcg-time-control',action:'play',
       requestId:active.id,generation:active.generation,session:active.session},'*');
   }
 });
@@ -1655,7 +1657,7 @@ function run(options = {}) {
   // A parameter commit rebuilds the same editable sandbox. Preserve playback
   // intent, except when the user explicitly selects a snapshot time/phase.
   const parameterChange=options.parameterChange;
-  const wasPlaying=!!active?.completed && (isFCG8?fcg8Playing:
+  const wasPlaying=!!active?.completed && (isFCG2?fcg2Playing:isFCG7?fcg7Playing:isFCG8?fcg8Playing:
     isFCG13?byId('fcg13-live-state').dataset.playing==='true':
     fcgTimeLab?byId('fcg-time-state').dataset.playing==='true':false);
   const resumePlayback=fcgOutputLab&&!fcgOutputMotion.matches&&
@@ -2898,8 +2900,11 @@ if (['FCG3','FCG5','WGL5','WGL9','WGL12'].includes(lesson) || ['FCG6','WGL11','W
 // or alternate model. On Conditions it returns to its original location.
 if(fcgOutputLab){
   document.querySelector('main').classList.add('fcg-output-lab');
-  const stage=document.createElement('div');stage.className='fcg-output-stage';
-  const canvasSlot=byId('canvas-slot');canvasSlot.before(stage);stage.append(canvasSlot);
+  const canvasSlot=byId('canvas-slot');
+  // FCG2 already owns a two-column stage; reuse it instead of nesting grids.
+  const stage=isFCG2?canvasSlot.parentElement:document.createElement('div');
+  stage.classList.add('fcg-output-stage');
+  if(!isFCG2){canvasSlot.before(stage);stage.append(canvasSlot);}
   const dock=document.createElement('aside');dock.id='fcg-output-parameters';
   dock.setAttribute('aria-label','描画を見ながら実験パラメータを変更');
   const details=document.createElement('button');details.type='button';details.className='action fcg-parameter-details';
@@ -2911,8 +2916,22 @@ if(fcgOutputLab){
     details.textContent=expanded?'値域・コード位置を隠す':'値域・コード位置を表示';
   });
   const note=document.createElement('p');note.className='fcg-output-note';
-  note.textContent='操作を確定すると同じ編集JSで再計算。再生中の条件変更は設定時刻から再開します。時刻・位相の指定は停止して比較します。';
-  dock.append(details,note);stage.append(dock);
+  note.textContent=isFCG3||isFCG4||isFCG5||isFCG6
+    ?'操作を確定すると同じ編集JSで再計算し、各ラボの初期条件・再生操作に従います。'
+    :'操作を確定すると同じ編集JSで再計算。再生中の条件変更は設定時刻から再開します。時刻・位相の指定は停止して比較します。';
+  dock.append(details,note);
+  // Preserve existing source-panel hooks for FCG5/7.
+  const existing=byId(isFCG5?'fcg5-result-parameters':isFCG7?'fcg7-result-parameters':'');
+  if(existing){existing.replaceChildren();dock.append(existing);}
+  if(isFCG2){
+    const inspector=byId('fcg2-inspector');
+    stage.append(dock);dock.append(inspector);
+  }else stage.append(dock);
+  fcgOutputMotion.addEventListener('change',event=>{
+    if(!event.matches)return;
+    if(isFCG2){fcg2Pending=null;fcg2Control('pause');}
+    if(isFCG7){fcg7Pending=null;fcg7Control('pause');}
+  });
 }
 mountVisualGuide(lesson,byId('panel-conditions'),{run,focusResult:selectTab});
 load();
