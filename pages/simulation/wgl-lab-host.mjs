@@ -1238,7 +1238,9 @@ window.addEventListener('message', event => {
       rows.filter(row => row.pass).length + '/' + rows.length + '）' :
       '（編集版・参考比較）';
     const pass = rows.every(row => row.pass);
-    setStatus(isFCG2&&!unchanged&&fcg2Physics ?
+    setStatus(isFCG4&&!unchanged&&fcg4Physics ?
+        (pass?'FCG4 変更格子の独立画素検算に合格':'FCG4 変更格子の独立画素検算が不一致') :
+       isFCG2&&!unchanged&&fcg2Physics ?
         (pass?'FCG2 編集した渦と染料の独立画素検算に合格':'FCG2 編集条件のGPU画素と独立CPUが不一致') :
        isFCG8&&!unchanged&&fcg8Physics ?
         (pass ? 'FCG8 編集した格子・せん断・再初期化の独立CPU初期画素検算に合格' :
@@ -1309,6 +1311,9 @@ window.addEventListener('message', event => {
       'CPUは座標と色の定数から独立に予測し、GPUはreadPixelsで実測。RGBA各成分' +
       ((isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8) ? '±2' : isWGL20 ? '±1' : isWGL19 ? '±2' : isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
+    if(isFCG4&&fcg4Physics){
+      byId('numeric-note').textContent='独立CPUの'+fcg4Physics.N+'×'+fcg4Physics.N+'格子・反復'+active.payload.steps+'回のR8診断9画素と比較。ライブ操作中の画素検査とは別です。';
+    }
     if(isFCG8&&fcg8Physics&&!unchanged){
       byId('numeric-note').textContent='FCG8：実計算N='+fcg8Physics.N+
         '、せん断率='+fcg8Physics.shear+' s⁻¹、擬似時間反復='+
