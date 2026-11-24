@@ -14,7 +14,7 @@ chapters:
   - { id: CATB1-07, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-07, status: completed, title: "Lawvere理論とモデル" }
   - { id: CATB1-08, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-08, status: completed, title: "有限項モナドとLawvere理論" }
   - { id: CATB2-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-01, status: completed, title: "モノイダル圏でHomを値付けする" }
-  - { id: CATB2-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-02, status: planned, title: "前順序・距離空間と豊穣" }
+  - { id: CATB2-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-02, status: completed, title: "前順序・距離空間と豊穣" }
   - { id: CATB2-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-03, status: planned, title: "豊穣関手と豊穣自然変換" }
   - { id: CATB2-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-04, status: planned, title: "豊穣Yonedaの補題" }
   - { id: CATB2-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-05, status: planned, title: "重み付き極限と余極限" }

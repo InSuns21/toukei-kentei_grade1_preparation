@@ -1,0 +1,37 @@
+id: "CATB2-02"
+title: "前順序・距離空間と豊穣"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CATB2-01
+  - F0-00B
+official_scope: []
+learning_objectives:
+  - 順序を基底とすると豊穣公理が射の存在条件へ還元される理由を説明できる
+  - 二値豊穣圏と前順序の対応を双方向に証明できる
+  - Lawvere距離の基底の順序反転と加法を検証し、豊穣構造と距離公理の対応を証明できる
+  - 非対称性・無限距離・分離性の違いとゼロ費用の前順序を説明できる
+definitions:
+  - { id: CATB2-02-DEF-01, name: "Lawvere距離の基底" }
+  - { id: CATB2-02-DEF-02, name: "Lawvere型拡張距離" }
+theorems:
+  - { id: CATB2-02-PROP-01, name: "二値豊穣圏と前順序" }
+  - { id: CATB2-02-THM-01, name: "Lawvere距離による豊穣化" }
+  - { id: CATB2-02-PROP-02, name: "ゼロ費用の前順序" }
+canonical_examples:
+  - 二値豊穣圏の三点関係表
+  - 二点の非対称な費用
+  - 非負部分を取る実直線の方向付き費用
+problem_patterns:
+  - CATB2-02-A01
+  - CATB2-02-A02
+  - CATB2-02-A03
+  - CATB2-02-A04
+  - CATB2-02-B01
+  - CATB2-02-B02
+  - CATB2-02-B03
+  - CATB2-02-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 4, review: 2 }
