@@ -125,6 +125,12 @@ export const lessons = {
     ['Main.lean','成功・拒否・誤実装のテスト','LVT3-07 OK を表示。','\n#eval main\n'],
     ['ExerciseSolutions.lean','演習解答の検査','全8題の命題を検査。'],
     ['Failure.lean','満杯で成功を返す誤実装','some の等式を none の等式として使おうとすると型不一致。']
+  ] },
+  'LVT3-08': { module:'LvtHoare', modes:[
+    ['Inspect.lean','加算ループ・初期値・変異','0、7、11、3 と公理依存を確認。'],
+    ['Main.lean','境界と誤実装のテスト','LVT3-08 OK を表示。','\n#eval main\n'],
+    ['ExerciseSolutions.lean','演習解答の検査','全8題の命題を検査。'],
+    ['Failure.lean','変異は正しい和を返さない','誤った等式を rfl で証明できない。']
   ] }
 };
 export function combine(module, definitions, experiment, suffix='') {

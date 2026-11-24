@@ -91,7 +91,7 @@ chapters:
     title: "抽象仕様・詳細化・モデルとの対応"
   - id: LVT3-08
     path: textbook/volumes/dream_thater/計算系/LVT/LVT3-08
-    status: planned
+    status: completed
     title: "Hoare論理・最弱事前条件・vcgen"
   - id: LVT4-01
     path: textbook/volumes/dream_thater/計算系/LVT/LVT4-01

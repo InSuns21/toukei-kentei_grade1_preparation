@@ -1,0 +1,33 @@
+chapter: LVT3-08
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT3-07]
+concepts:
+  - id: lean-verification.hoare-triple
+    name: Hoare三つ組
+    kind: definition
+    introduction: formal
+  - id: lean-verification.weakest-precondition
+    name: 最弱事前条件
+    kind: definition
+    introduction: formal
+  - id: lean-verification.loop-verification-conditions
+    name: 有限走査のループ不変量と検証条件
+    kind: definition
+    introduction: formal
+  - id: lean-verification.wp-characterization
+    name: 最弱事前条件の特徴付け
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.wp-composition
+    name: 逐次実行と分岐の逆向き計算
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.loop-vc-soundness
+    name: 有限走査の検証条件の十分性
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.sum-loop-correctness
+    name: 配列の加算ループの正当性
+    kind: proposition
+    introduction: formal
