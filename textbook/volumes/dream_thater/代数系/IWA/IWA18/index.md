@@ -342,7 +342,19 @@ $$
 
 $B\to C$ が全射なので合成による $C^\vee\to B^\vee$ は単射です。$A$ に零な準同型は剰余類で同じ値を取るので $C=B/A$ 上の準同型へ一意に降ります。
 
-全射性を示します。$A$ 上の準同型 $f$ を延長した部分群の族を包含で順序付けると、鎖の合併上で整合した準同型が定まります。[Zorn の補題](../../../基礎科目/F0/F0-00A3/index.md#thm-zorn) により極大延長 $f_M:M\to\mathbb Q_p/\mathbb Z_p$ が存在します。$M\ne B$ と仮定し $b\in B\setminus M$ を取ります。$b+M$ の位数はある $p^k$ です。$p^k y=f_M(p^k b)$ となる $y$ が存在します。実際、右辺の代表を $\mathbb Q_p$ で $u$ と取れば $y=u/p^k+\mathbb Z_p$ です。
+全射性を示します。
+
+$A$ 上の準同型 $f$ を延長した部分群の族を包含で順序付けると、鎖の合併上で整合した準同型が定まります。
+
+[Zorn の補題](../../../基礎科目/F0/F0-00A3/index.md#thm-zorn) により極大延長 $f_M:M\to\mathbb Q_p/\mathbb Z_p$ が存在します。
+
+$M\ne B$ と仮定し $b\in B\setminus M$ を取ります。
+
+$b+M$ の位数はある $p^k$ です。
+
+$p^k y=f_M(p^k b)$ となる $y$ が存在します。
+
+実際、右辺の代表を $\mathbb Q_p$ で $u$ と取れば $y=u/p^k+\mathbb Z_p$ です。
 
 $$
 f'(x+jb)=f_M(x)+jy\qquad(x\in M,\ j\in\mathbb Z)
