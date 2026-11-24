@@ -1699,9 +1699,9 @@ $$
 
 $\mathbb C^2$ の通常の内積では $Kz=\overline z$ がその条件を満たします。実際、$K^2=I_2$ であり、
 
-$
+$$
 K(\alpha z+\beta w)=\overline\alpha Kz+\overline\beta Kw
-$
+$$
 
 となります。内積については
 
