@@ -8,6 +8,7 @@ import {expectedFCG5Samples,compareFCG5Readback,fcg5State,fcg5PixelCell} from '.
 import {expectedFCG6Samples,compareFCG6Readback,fcg6State,fcg6PixelCell} from './fcg6-lab-core.mjs';
 import {expectedFCG7Samples,compareFCG7Readback,fcg7State} from './fcg7-lab-core.mjs';
 import {expectedFCG8Samples,compareFCG8Readback,fcg8State} from './fcg8-lab-core.mjs';
+import {expectedFCG15Samples,compareFCG15Readback} from './fcg15-lab-core.mjs';
 import {expectedFCG14Samples,compareFCG14Readback} from './fcg14-lab-core.mjs';
 import {expectedFCG13Samples,compareFCG13Readback} from './fcg13-lab-core.mjs';
 import {expectedFCG12Samples,compareFCG12Readback,fcg12State} from './fcg12-lab-core.mjs';
@@ -40,7 +41,7 @@ import { compareWGL18Readback, expectedWGL18Samples, compareWGL18FloatReadback }
 const VERSION = 'wgl-fcg-lab-v1';
 // ホスト/隔離実行は共通。講義のソースとCPU基準だけを切り替える。
 const requestedLesson = new URL(location.href).searchParams.get('lesson');
-const lesson = ['WGL1', 'WGL2', 'WGL3', 'WGL4', 'WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19', 'WGL20', 'FCG2', 'FCG3', 'FCG4', 'FCG5', 'FCG6', 'FCG7', 'FCG8', 'FCG9', 'FCG10', 'FCG11', 'FCG12', 'FCG13', 'FCG14'].includes(requestedLesson) ? requestedLesson : 'WGL1';
+const lesson = ['WGL1', 'WGL2', 'WGL3', 'WGL4', 'WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19', 'WGL20', 'FCG2', 'FCG3', 'FCG4', 'FCG5', 'FCG6', 'FCG7', 'FCG8', 'FCG9', 'FCG10', 'FCG11', 'FCG12', 'FCG13', 'FCG14', 'FCG15'].includes(requestedLesson) ? requestedLesson : 'WGL1';
 const isFCG2 = lesson === 'FCG2';
 const isFCG3 = lesson === 'FCG3';
 const isFCG4 = lesson === 'FCG4';
@@ -52,8 +53,9 @@ const isFCG9 = lesson === 'FCG9';
 const isFCG10 = lesson === 'FCG10';
 const isFCG11 = lesson === 'FCG11';
 const isFCG12 = lesson === 'FCG12';
-const fcgTimeLab = isFCG9 || isFCG10 || isFCG11 || isFCG12;
-const fcgTimeMax = isFCG9 ? 24 : isFCG10 ? 6 : isFCG11 ? 1.8 : 3;
+const isFCG15 = lesson === 'FCG15';
+const fcgTimeLab = isFCG9 || isFCG10 || isFCG11 || isFCG12 || isFCG15;
+const fcgTimeMax = isFCG15 ? 4 : isFCG9 ? 24 : isFCG10 ? 6 : isFCG11 ? 1.8 : 3;
 const isFCG14 = lesson === 'FCG14';
 const isFCG13 = lesson === 'FCG13';
 const fcgOutputLab = isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8 || fcgTimeLab || isFCG13 || isFCG14;
@@ -84,8 +86,8 @@ const labCase = isWGL20 && ['CS1','CS2','CS3'].includes(requestedCase) ? request
 const STORAGE_KEY = 'toukei-' + (isFCG4?'fcg4-projection-v2':isFCG7?'fcg7-vortex-v2':isFCG8?'fcg8-live-v2':isWGL14?'wgl14-visual-v2':isWGL19?'wgl19-replay-v2':VERSION) + '-' + lesson +
   (isWGL20 ? '-' + labCase : '');
 
-const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/' + ((isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8 || isFCG9 || isFCG10 || isFCG11 || isFCG12 || isFCG13 || isFCG14) ? 'FCG' : 'WGL') + '/' + lesson + '/', import.meta.url);
-const FILES = isFCG14 ? {js:'smoke.js',vertex:'smoke.vert',fragment:'smoke.frag'} : isFCG13 ? {js:'ocean.js',vertex:'ocean.vert',fragment:'ocean.frag'} : isFCG12 ? {js:'shallow.js',vertex:'shallow.vert',fragment:'shallow.frag'} : isFCG11 ? {js:'foam.js',vertex:'foam.vert',fragment:'foam.frag'} : isFCG10 ? {js:'water.js',vertex:'water.vert',fragment:'water.frag'} : isFCG9 ? {js:'surface.js',vertex:'surface.vert',fragment:'surface.frag'} : isWGL20 ? {js:'terrain.js',vertex:'terrain.vert',fragment:'terrain.frag'} : isFCG8 ? {js:'levelset.js',vertex:'levelset.vert',fragment:'levelset.frag'} : isFCG7 ? {js:'particle.js',vertex:'particle.vert',fragment:'particle.frag'} : isFCG6 ? {js:'solid.js',vertex:'solid.vert',fragment:'solid.frag'} : isFCG5 ? {js:'fluid.js',vertex:'fluid.vert',fragment:'fluid.frag'} : isFCG4 ? {js:'projection.js',vertex:'projection.vert',fragment:'projection.frag'} : isFCG3 ? {js:'advection.js',vertex:'advection.vert',fragment:'advection.frag'} : isFCG2 ? {js:'density.js', vertex:'density.vert', fragment:'density.frag'} :
+const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/' + ((isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8 || isFCG9 || isFCG10 || isFCG11 || isFCG12 || isFCG13 || isFCG14 || isFCG15) ? 'FCG' : 'WGL') + '/' + lesson + '/', import.meta.url);
+const FILES = isFCG15 ? {js:'volume.js',vertex:'volume.vert',fragment:'volume.frag'} : isFCG14 ? {js:'smoke.js',vertex:'smoke.vert',fragment:'smoke.frag'} : isFCG13 ? {js:'ocean.js',vertex:'ocean.vert',fragment:'ocean.frag'} : isFCG12 ? {js:'shallow.js',vertex:'shallow.vert',fragment:'shallow.frag'} : isFCG11 ? {js:'foam.js',vertex:'foam.vert',fragment:'foam.frag'} : isFCG10 ? {js:'water.js',vertex:'water.vert',fragment:'water.frag'} : isFCG9 ? {js:'surface.js',vertex:'surface.vert',fragment:'surface.frag'} : isWGL20 ? {js:'terrain.js',vertex:'terrain.vert',fragment:'terrain.frag'} : isFCG8 ? {js:'levelset.js',vertex:'levelset.vert',fragment:'levelset.frag'} : isFCG7 ? {js:'particle.js',vertex:'particle.vert',fragment:'particle.frag'} : isFCG6 ? {js:'solid.js',vertex:'solid.vert',fragment:'solid.frag'} : isFCG5 ? {js:'fluid.js',vertex:'fluid.vert',fragment:'fluid.frag'} : isFCG4 ? {js:'projection.js',vertex:'projection.vert',fragment:'projection.frag'} : isFCG3 ? {js:'advection.js',vertex:'advection.vert',fragment:'advection.frag'} : isFCG2 ? {js:'density.js', vertex:'density.vert', fragment:'density.frag'} :
   isWGL19 ? {js: 'audit.js', vertex: 'audit.vert', fragment: 'audit.frag'} :
   isWGL18 ? {js: 'diffusion.js', vertex: 'diffusion.vert', fragment: 'diffusion.frag'} :
   isWGL17 ? {js: 'data-grid.js', vertex: 'data-grid.vert', fragment: 'data-grid.frag'} :
@@ -105,15 +107,15 @@ const FILES = isFCG14 ? {js:'smoke.js',vertex:'smoke.vert',fragment:'smoke.frag'
   isWGL3 ? {js: 'mesh.js', vertex: 'mesh.vert', fragment: 'mesh.frag'} :
   isWGL2 ? {js: 'colors.js', vertex: 'colors.vert', fragment: 'colors.frag'} :
   {js: 'triangle.js', vertex: 'triangle.vert', fragment: 'triangle.frag'};
-const oracle = isFCG14 ? expectedFCG14Samples : isFCG13 ? expectedFCG13Samples : isFCG12 ? expectedFCG12Samples : isFCG11 ? expectedFCG11Samples : isFCG10 ? expectedFCG10Samples : isFCG9 ? expectedFCG9Samples : isWGL20 ? expectedWGL20Samples : isFCG8 ? expectedFCG8Samples : isFCG7 ? expectedFCG7Samples : isFCG6 ? expectedFCG6Samples : isFCG5 ? expectedFCG5Samples : isFCG4 ? expectedFCG4Samples : isFCG3 ? expectedFCG3Samples : isFCG2 ? expectedFCG2Samples : isWGL19 ? expectedWGL19Samples : isWGL18 ? expectedWGL18Samples : isWGL17 ? expectedWGL17Samples : isWGL16 ? expectedWGL16Samples : isWGL15 ? expectedWGL15Samples : isWGL14 ? expectedWGL14Samples : isWGL13 ? expectedWGL13Samples : isWGL12 ? expectedWGL12Samples : isWGL11 ? expectedWGL11Samples : isWGL10 ? expectedWGL10Samples : isWGL9 ? expectedWGL9Samples : isWGL8 ? expectedWGL8Samples : isWGL7 ? expectedWGL7Samples : isWGL6 ? expectedWGL6Samples : isWGL5 ? expectedWGL5Samples : isWGL4 ? expectedWGL4Samples :
+const oracle = isFCG15 ? expectedFCG15Samples : isFCG14 ? expectedFCG14Samples : isFCG13 ? expectedFCG13Samples : isFCG12 ? expectedFCG12Samples : isFCG11 ? expectedFCG11Samples : isFCG10 ? expectedFCG10Samples : isFCG9 ? expectedFCG9Samples : isWGL20 ? expectedWGL20Samples : isFCG8 ? expectedFCG8Samples : isFCG7 ? expectedFCG7Samples : isFCG6 ? expectedFCG6Samples : isFCG5 ? expectedFCG5Samples : isFCG4 ? expectedFCG4Samples : isFCG3 ? expectedFCG3Samples : isFCG2 ? expectedFCG2Samples : isWGL19 ? expectedWGL19Samples : isWGL18 ? expectedWGL18Samples : isWGL17 ? expectedWGL17Samples : isWGL16 ? expectedWGL16Samples : isWGL15 ? expectedWGL15Samples : isWGL14 ? expectedWGL14Samples : isWGL13 ? expectedWGL13Samples : isWGL12 ? expectedWGL12Samples : isWGL11 ? expectedWGL11Samples : isWGL10 ? expectedWGL10Samples : isWGL9 ? expectedWGL9Samples : isWGL8 ? expectedWGL8Samples : isWGL7 ? expectedWGL7Samples : isWGL6 ? expectedWGL6Samples : isWGL5 ? expectedWGL5Samples : isWGL4 ? expectedWGL4Samples :
   isWGL3 ? expectedWGL3Samples : isWGL2 ? expectedWGL2Samples : expectedSamples;
 const SOURCE_LIMIT = 30000;
 // Some lessons have deliberately bounded CPU pixel oracles: mirror those limits
 // in the host, rather than failing during initial oracle construction.
 const legacyViewport = isFCG2 || isFCG3 ||
   (lesson.startsWith('WGL') && Number(lesson.slice(3)) >= 7);
-const MAX_PIXELS = legacyViewport ? 524288 : 2097152;
-const MAX_SIDE = legacyViewport ? 1024 : 2048;
+const MAX_PIXELS = isFCG15 ? 524288 : legacyViewport ? 524288 : 2097152;
+const MAX_SIDE = isFCG15 ? 1024 : legacyViewport ? 1024 : 2048;
 const TIMEOUT_MS = 6000;
 const byId = id => document.getElementById(id);
 const inputs = {
@@ -314,6 +316,14 @@ function fcg4PhysicsFor(js,vertex,fragment) {
 }
 function fcg3PhysicsFor(js,vertex,fragment) {
   return isFCG3 ? verifiedFCG3Physics(js,vertex,fragment,defaults) : null;
+}
+function fcg15PhysicsFor(js,vertex,fragment) {
+  if(!isFCG15||vertex!==defaults.vertex||fragment!==defaults.fragment)return null;
+  const specs=parametersFor('FCG15'),readings=specs.map(spec=>readLabParameter(js,spec));
+  if(!readings.every(x=>x.ok))return null;
+  try{let a=js,b=defaults.js;for(const spec of specs){a=writeLabParameter(a,spec,spec.default);b=writeLabParameter(b,spec,spec.default);}
+    if(a!==b)return null;return Object.fromEntries(specs.map((spec,i)=>[spec.id,readings[i].value]));
+  }catch{return null;}
 }
 function fcg14PhysicsFor(js,vertex,fragment) {
   if(!isFCG14||vertex!==defaults.vertex||fragment!==defaults.fragment)return null;
@@ -635,10 +645,10 @@ function isolatedRunner() {
         });
         emit(hooks.snapshot());
       }
-      const fcgTimeHooks=['FCG9','FCG10','FCG11','FCG12'].includes(request.lesson)&&!!hooks&&
+      const fcgTimeHooks=['FCG9','FCG10','FCG11','FCG12','FCG15'].includes(request.lesson)&&!!hooks&&
         ['play','pause','step','reset'].every(key=>typeof hooks[key]==='function');
       if(fcgTimeHooks){
-        const max={FCG9:24,FCG10:6,FCG11:1.8,FCG12:3}[request.lesson];
+        const max={FCG9:24,FCG10:6,FCG11:1.8,FCG12:3,FCG15:4}[request.lesson];
         canvas.addEventListener('fcg-time-progress',event=>{
           const d=event.detail;
           if(!d||!Number.isFinite(d.value)||d.value<0||d.value>max||typeof d.playing!=='boolean')return;
@@ -814,7 +824,7 @@ function isolatedRunner() {
           }
         });
       }
-      const positions = (['WGL4', 'WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19', 'WGL20', 'FCG2', 'FCG3', 'FCG4', 'FCG5', 'FCG6', 'FCG7', 'FCG8', 'FCG9', 'FCG10', 'FCG11', 'FCG12', 'FCG13', 'FCG14'].includes(request.lesson)) &&
+      const positions = (['WGL4', 'WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19', 'WGL20', 'FCG2', 'FCG3', 'FCG4', 'FCG5', 'FCG6', 'FCG7', 'FCG8', 'FCG9', 'FCG10', 'FCG11', 'FCG12', 'FCG13', 'FCG14', 'FCG15'].includes(request.lesson)) &&
         Array.isArray(request.probes) ? request.probes :
         request.lesson === 'WGL4' ? [
         [Math.floor(canvas.width * 0.665), Math.floor(canvas.height * 0.56)],
@@ -895,7 +905,7 @@ function isolatedRunner() {
         {rate:Number(hooks.floatParameters.rate),steps:Number(hooks.floatParameters.steps)} : null;
       const frameAudit = request.lesson === 'WGL19' && hooks ? hooks.frameAudit : null;
       send({...scope, type: 'result', ok: glError === gl.NO_ERROR, samples, floatReadback, floatParameters, frameAudit,
-        liveHooks:['FCG9','FCG10','FCG11','FCG12'].includes(request.lesson)?!!fcgTimeHooks:request.lesson==='FCG14'?!!fcg14Hooks:request.lesson==='FCG13'?!!fcg13Hooks:request.lesson==='FCG7'?!!fcg7Hooks:request.lesson==='FCG8'?!!fcg8Hooks:request.lesson==='FCG2'?!!fcg2Hooks:undefined,
+        liveHooks:['FCG9','FCG10','FCG11','FCG12','FCG15'].includes(request.lesson)?!!fcgTimeHooks:request.lesson==='FCG14'?!!fcg14Hooks:request.lesson==='FCG13'?!!fcg13Hooks:request.lesson==='FCG7'?!!fcg7Hooks:request.lesson==='FCG8'?!!fcg8Hooks:request.lesson==='FCG2'?!!fcg2Hooks:undefined,
         checkpoints: request.lesson === 'WGL20' && hooks ? hooks.checkpoints : null,
         width: canvas.width, height: canvas.height,
         logs, glError: '0x' + glError.toString(16)});
@@ -1467,10 +1477,11 @@ window.addEventListener('message', event => {
      const fcg11Physics=isFCG11 ? fcg11PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment) : null;
      const fcg10Physics=isFCG10 ? fcg10PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment) : null;
      const fcg12Physics=isFCG12 ? fcg12PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment) : null;
+     const fcg15Physics=isFCG15 ? fcg15PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment) : null;
      const fcg14Physics=isFCG14 ? fcg14PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment) : null;
      const fcg13Physics=isFCG13 ? fcg13PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment) : null;
-     const verifiedComparison=unchanged||!!fcg13Physics||!!fcg10Physics||!!fcg9Physics||!!fcg4Physics||!!fcg2Physics||!!fcg3Physics||!!fcg5Physics||!!fcg6Physics||!!fcg8Physics||!!fcg11Physics||!!fcg12Physics||!!fcg14Physics;
-    const rows = (isFCG14 ? (got,w,h)=>compareFCG14Readback(got,w,h,fcg14Physics||{}) : isFCG13 ? (got,w,h)=>compareFCG13Readback(got,w,h,fcg13Physics||{}) : isFCG12 ? (got,w,h)=>compareFCG12Readback(got,w,h,fcg12Physics||{}) : isFCG11 ? (got,w,h)=>compareFCG11Readback(got,w,h,fcg11Physics||{}) : isFCG10 ? (got,w,h)=>compareFCG10Readback(got,w,h,fcg10Physics||{}) : isFCG9 ? (got,w,h)=>compareFCG9Readback(got,w,h,fcg9Physics||{}) : isWGL20 ? compareWGL20Readback : isFCG8 ? (got,w,h)=>compareFCG8Readback(got,w,h,active.payload.steps,2,fcg8Physics||{}) : isFCG7 ? (got,w,h)=>compareFCG7Readback(got,w,h,active.payload.steps) : isFCG6 ? (got,w,h)=>compareFCG6Readback(got,w,h,active.payload.steps,2,fcg6Physics||{}) : isFCG5 ? (got,w,h)=>compareFCG5Readback(got,w,h,active.payload.steps,2,fcg5Physics||{}) : isFCG4 ? (got,w,h)=>compareFCG4Readback(got,w,h,active.payload.steps,2,{N:active.payload.fcg4Grid||32}) : isFCG3 ? (got,w,h)=>compareFCG3Readback(got,w,h,active.payload.steps,2,fcg3Physics?.N??32,fcg3Physics?.radius??0.14) : isFCG2 ? (got,w,h)=>compareFCG2Readback(got,w,h,active.payload.steps,2,fcg2Physics||{}) : isWGL19 ? (got,w,h)=>wgl19Valid ? compareWGL19Readback(got,w,h,2,wgl19Params.rate,wgl19Params.steps) : compareWGL19Readback(got,w,h) : isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
+     const verifiedComparison=unchanged||!!fcg13Physics||!!fcg10Physics||!!fcg9Physics||!!fcg4Physics||!!fcg2Physics||!!fcg3Physics||!!fcg5Physics||!!fcg6Physics||!!fcg8Physics||!!fcg11Physics||!!fcg12Physics||!!fcg14Physics||!!fcg15Physics;
+    const rows = (isFCG15 ? (got,w,h)=>compareFCG15Readback(got,w,h,fcg15Physics||{}) : isFCG14 ? (got,w,h)=>compareFCG14Readback(got,w,h,fcg14Physics||{}) : isFCG13 ? (got,w,h)=>compareFCG13Readback(got,w,h,fcg13Physics||{}) : isFCG12 ? (got,w,h)=>compareFCG12Readback(got,w,h,fcg12Physics||{}) : isFCG11 ? (got,w,h)=>compareFCG11Readback(got,w,h,fcg11Physics||{}) : isFCG10 ? (got,w,h)=>compareFCG10Readback(got,w,h,fcg10Physics||{}) : isFCG9 ? (got,w,h)=>compareFCG9Readback(got,w,h,fcg9Physics||{}) : isWGL20 ? compareWGL20Readback : isFCG8 ? (got,w,h)=>compareFCG8Readback(got,w,h,active.payload.steps,2,fcg8Physics||{}) : isFCG7 ? (got,w,h)=>compareFCG7Readback(got,w,h,active.payload.steps) : isFCG6 ? (got,w,h)=>compareFCG6Readback(got,w,h,active.payload.steps,2,fcg6Physics||{}) : isFCG5 ? (got,w,h)=>compareFCG5Readback(got,w,h,active.payload.steps,2,fcg5Physics||{}) : isFCG4 ? (got,w,h)=>compareFCG4Readback(got,w,h,active.payload.steps,2,{N:active.payload.fcg4Grid||32}) : isFCG3 ? (got,w,h)=>compareFCG3Readback(got,w,h,active.payload.steps,2,fcg3Physics?.N??32,fcg3Physics?.radius??0.14) : isFCG2 ? (got,w,h)=>compareFCG2Readback(got,w,h,active.payload.steps,2,fcg2Physics||{}) : isWGL19 ? (got,w,h)=>wgl19Valid ? compareWGL19Readback(got,w,h,2,wgl19Params.rate,wgl19Params.steps) : compareWGL19Readback(got,w,h) : isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
       samples, active.payload.width, active.payload.height);
     showTable(rows, verifiedComparison);
     byId('result-note').textContent = 'GPUへ描画しました。コードや条件を変えて再実行できます。';
@@ -1517,7 +1528,7 @@ window.addEventListener('message', event => {
       rows.filter(row => row.pass).length + '/' + rows.length + '）' :
       '（編集版・参考比較）';
     const pass = rows.every(row => row.pass);
-    setStatus(isFCG14&&fcg14Physics ? (pass?'FCG14 煙・温度の独立画素検算に合格':'FCG14 煙・温度の独立画素検算が不一致') : isFCG13&&fcg13Physics ? (pass?'FCG13 海面の独立画素検算に合格':'FCG13 海面の独立画素検算が不一致') : isFCG12&&fcg12Physics ? (pass?'FCG12 浅水条件の独立画素検算に合格':'FCG12 浅水条件の独立画素検算が不一致') : isFCG11&&!unchanged&&fcg11Physics ?
+    setStatus(isFCG15&&fcg15Physics ? (pass?'FCG15 体積煙・断面の独立画素検算に合格':'FCG15 体積煙・断面の独立画素検算が不一致') : isFCG14&&fcg14Physics ? (pass?'FCG14 煙・温度の独立画素検算に合格':'FCG14 煙・温度の独立画素検算が不一致') : isFCG13&&fcg13Physics ? (pass?'FCG13 海面の独立画素検算に合格':'FCG13 海面の独立画素検算が不一致') : isFCG12&&fcg12Physics ? (pass?'FCG12 浅水条件の独立画素検算に合格':'FCG12 浅水条件の独立画素検算が不一致') : isFCG11&&!unchanged&&fcg11Physics ?
         (pass?'FCG11 変更粒子条件の独立画素検算に合格':'FCG11 変更粒子条件の独立画素検算が不一致') : isFCG10&&!unchanged&&fcg10Physics ?
         (pass?'FCG10 変更光学条件の独立画素検算に合格':'FCG10 変更光学条件の独立画素検算が不一致') :
         isFCG9&&!unchanged&&fcg9Physics ?
@@ -1593,8 +1604,9 @@ window.addEventListener('message', event => {
     }
     byId('numeric-note').textContent = unchanged ?
       'CPUは座標と色の定数から独立に予測し、GPUはreadPixelsで実測。RGBA各成分' +
-      ((isFCG9||isFCG10||isFCG11||isFCG13||isFCG14) ? '±3' : (isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8) ? '±2' : isWGL20 ? '±1' : isWGL19 ? '±2' : isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
+      ((isFCG9||isFCG10||isFCG11||isFCG13||isFCG14||isFCG15) ? '±3' : (isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8) ? '±2' : isWGL20 ? '±1' : isWGL19 ? '±2' : isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
+    if(isFCG15&&fcg15Physics){byId('numeric-note').textContent='初期3D濃度のR8補間と光学的厚さから体積画像・中央断面の選択画素を独立計算。';}
     if(isFCG14&&fcg14Physics){byId('numeric-note').textContent='初期時刻の煙・温度の選択画素を独立CG圧力・面流束計算と照合。再生時は現在の重心・収支を上に表示。';}
     if(isFCG13&&fcg13Physics){byId('numeric-note').textContent='左の高さ標本を独立CPUの直接余弦和で照合。右の反射は同じ逆FFTの傾きから描画。';}
     if(isFCG12&&fcg12Physics){
@@ -1654,6 +1666,7 @@ window.addEventListener('message', event => {
       for(const button of document.querySelectorAll('#fcg-time-live button'))button.disabled=false;
       byId('fcg-time-pause').disabled=true;
       byId('fcg-time-live').querySelector('output').textContent='設定条件・停止中（再生または1ステップで観察）';
+      if(isFCG15)active.frame.contentWindow.postMessage({type:'fcg-time-control',action:'pause',requestId:active.id,generation:active.generation,session:active.session},'*');
     }else if(data.ok){
       setStatus(lesson+' 再生フックがありません。初期ソースを確認してください',true);
     }
@@ -1730,7 +1743,7 @@ function run(options = {}) {
     isFCG13?byId('fcg13-live-state').dataset.playing==='true':
     fcgTimeLab?byId('fcg-time-state').dataset.playing==='true':false);
   const resumePlayback=fcgOutputLab&&!fcgOutputMotion.matches&&
-    (parameterChange ? wasPlaying&&!['time','phase','steps'].includes(parameterChange) : (isFCG13||isFCG14));
+    (parameterChange ? wasPlaying&&!['time','phase','steps'].includes(parameterChange) : (isFCG13||isFCG14||isFCG15));
   selectTab('result');
   stop('実行準備中');
   if (!ready) { setStatus('教材ソースがまだ読み込まれていません', true); return; }
@@ -1739,6 +1752,10 @@ function run(options = {}) {
     if (isWGL20) {
       payload.snapshot=plateauSnapshot;
       payload.probes=expectedWGL20Samples(payload.width,payload.height).map(p=>[p.x,p.y]);
+    }
+    if(isFCG15){
+      const physics=fcg15PhysicsFor(payload.js,payload.vertex,payload.fragment);
+      payload.probes=expectedFCG15Samples(payload.width,payload.height,physics||{}).map(p=>[p.x,p.y]);
     }
     if(isFCG14){
       const physics=fcg14PhysicsFor(payload.js,payload.vertex,payload.fragment);
@@ -1979,7 +1996,9 @@ byId('preset').addEventListener('change', event => {
       inputs.fragment.value = defaults.fragment.replace('in vec3 v_color;', 'in vec2 v_color;')
         .replace('outColor = vec4(v_color * u_gain, 1.0);',
           'outColor = vec4(v_color * u_gain.xy, 0.0, 1.0);');
-     } else if (isFCG14) {
+     } else if (isFCG15) {
+        inputs.fragment.value=defaults.fragment+'\nINVALID_FCG15_SHADER_PRESET\n';
+      } else if (isFCG14) {
         inputs.fragment.value=defaults.fragment+'\nINVALID_FCG14_SHADER_PRESET\n';
      } else if (isFCG13) {
         inputs.fragment.value=defaults.fragment+'\nINVALID_FCG13_SHADER_PRESET\n';
@@ -2083,7 +2102,7 @@ byId('preset').addEventListener('change', event => {
 });
 if(fcgTimeLab){
   const live=document.createElement('div');live.id='fcg-time-live';
-  const stepLabel=isFCG9?'1 step（0.04 s）':isFCG10?'位相を0.1 rad進める':'1表示step（0.05 s）';
+  const stepLabel=isFCG15?'1ステップ（0.05 s）':isFCG9?'1 step（0.04 s）':isFCG10?'位相を0.1 rad進める':'1表示step（0.05 s）';
   live.innerHTML='<div class="controls" role="group" aria-label="再生操作">'+
     '<button type="button" class="action" id="fcg-time-play" disabled>再生</button>'+
     '<button type="button" class="action" id="fcg-time-pause" disabled>一時停止</button>'+
@@ -2099,6 +2118,16 @@ if(fcgTimeLab){
   };
   for(const action of ['play','pause','step','reset'])byId('fcg-time-'+action).addEventListener('click',()=>control(action));
   window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',event=>{if(event.matches)control('pause');});
+}
+if(isFCG15){
+  document.title='FCG15 煙の体積レイマーチング';
+  document.querySelector('h1').textContent='FCG15 煙の厚みで背景が隠れる';
+  document.querySelector('#panel-conditions > p').textContent='左は箱の奥まで光を積分した煙。右は同じ煙の中央断面。';
+  document.querySelector('#panel-conditions ol').innerHTML='<li>再生して煙の上昇と回転を見る。</li><li>消散係数を0にして背景と断面を比較する。</li><li>一定密度に切り替え、区間数を変えて透過率を比較する。</li>';
+  byId('preset').options[0].textContent='上昇・回転する体積煙';
+  const fallback=document.createElement('p');
+  fallback.textContent='WebGL2非対応時：均質濃度0.5、消散係数2 m⁻¹、光路1 mの透過率は e⁻¹ ≈ 0.368。本文に断面の手計算表があります。';
+  byId('canvas-slot').after(fallback);
 }
 if(isFCG14){
   document.title='FCG14 煙と温度の連成';
@@ -2973,7 +3002,7 @@ if (isWGL3) {
 if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-conditions')});
 // Three physical panels must have square pixel footprints: avoid stretching a
 // 1x1 metre domain into ~100x240 strips at the original 320x240 default.
-const sizeHint=isFCG14?[960,480]:isFCG13?[960,600]:isFCG12?[960,600]:isFCG11?[960,360]:isFCG10?[768,768]:isFCG9?[720,960]:isFCG5?[768,768]:isFCG6?[640,640]:(isFCG4||isFCG7||isFCG8)?[1536,512]:
+const sizeHint=isFCG15?[768,384]:isFCG14?[960,480]:isFCG13?[960,600]:isFCG12?[960,600]:isFCG11?[960,360]:isFCG10?[768,768]:isFCG9?[720,960]:isFCG5?[768,768]:isFCG6?[640,640]:(isFCG4||isFCG7||isFCG8)?[1536,512]:
   isFCG3?[1024,512]:isFCG2?[512,512]:isWGL14?[704,704]:
   (lesson==='WGL1'||isWGL2)?[960,960]:isWGL3?[960,480]:
   isWGL19?[640,640]:isWGL7?[800,400]:isWGL10?[960,480]:legacyViewport?[800,600]:[960,720];

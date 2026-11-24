@@ -1,0 +1,34 @@
+id: "GCT2"
+title: "二部マッチングとHallの定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GCT1
+  - DOPT3
+official_scope: []
+learning_objectives:
+  - 二部グラフの候補辺とマッチングの選択辺を区別し、左右の飽和を判定できる
+  - 交互探索によって増加路を構成して更新できる
+  - 探索が停止したときの到達集合の近傍と選択相手の対応を証明できる
+  - 不足数公式とHallの定理の増加路による別証明を再構成できる
+  - 不足集合から必要な追加割当先の個数を求められる
+definitions:
+  - { id: GCT2-DEF-01, name: "マッチングに関する交互探索の到達集合" }
+theorems:
+  - { id: GCT2-THM-01, name: "交互探索による最大マッチングの不足数公式" }
+canonical_examples:
+  - 五辺の増加路による付け替え
+  - 到達集合による割当不能の証拠
+problem_patterns:
+  - GCT2-MATCHING
+  - GCT2-NEIGHBORHOOD
+  - GCT2-AUGMENT
+  - GCT2-PERFECT
+  - GCT2-DEFICIENCY
+  - GCT2-REACHABILITY
+  - GCT2-HALL
+  - GCT2-EXTENSION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }

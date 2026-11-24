@@ -1,0 +1,24 @@
+id: FCG15
+title: "煙の厚みはどう光として描くか"
+volume: foundations
+status: supplementary
+prerequisites: [FCG14, FCG10, FCG3]
+official_scope: []
+learning_objectives:
+  - "体積濃度と光学的厚さを区別し、不均質な媒質の透過率を導出できる"
+  - "区間の透過率と前から後ろへの色合成を導出し、刻み幅と不透明度の関係を説明できる"
+  - "指定速度による三次元移流と格子標本・断面・光線積分を対応させられる"
+  - "同じ密度を用いるWebGL2ラボで吸収・散乱近似・サンプル数の変更を比較できる"
+definitions:
+  - { id: FCG15-DEF-01, name: "光学的厚さ" }
+  - { id: FCG15-DEF-02, name: "光線区間の前後合成" }
+theorems:
+  - { id: FCG15-PROP-01, name: "不均質媒質の透過率" }
+  - { id: FCG15-PROP-02, name: "前から後ろへの合成と透過率の積" }
+  - { id: FCG15-PROP-03, name: "中点標本による透過率の収束" }
+canonical_examples: ["一定密度の光線", "二層の色合成", "回転と上昇で移流する煙"]
+problem_patterns: [FCG15-DEPTH, FCG15-TRANSMITTANCE, FCG15-COMPOSITE, FCG15-MARCH, FCG15-ADVECTION]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }

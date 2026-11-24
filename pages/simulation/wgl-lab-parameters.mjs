@@ -3,6 +3,15 @@
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
 
 export const LAB_PARAMETERS = Object.freeze({
+  FCG15: Object.freeze([
+    Object.freeze({id:'N',type:'integer',label:'一辺の格子数',default:48,min:32,max:64,step:16,unit:'セル',meaning:'3D濃度標本',sourceLocation:'volume.js / const N',sourceFile:'js',index:null,matcher:/^([ \t]*const N=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'extinction',type:'number',label:'消散係数',default:6,min:0,max:12,step:1,unit:'m⁻¹',meaning:'濃度に比例する光の消散',sourceLocation:'volume.js / const extinction',sourceFile:'js',index:null,matcher:/^([ \t]*const extinction=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'scattering',type:'number',label:'散乱光の明るさ',default:0.8,min:0,max:1,step:0.1,unit:'無次元',meaning:'0で吸収のみ',sourceLocation:'volume.js / const scattering',sourceFile:'js',index:null,matcher:/^([ \t]*const scattering=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'samples',type:'integer',label:'視線の区間数',default:64,min:16,max:96,step:16,unit:'区間',meaning:'光線積分の細かさ',sourceLocation:'volume.js / const samples',sourceFile:'js',index:null,matcher:/^([ \t]*const samples=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'rise',type:'number',label:'上昇速度',default:0.13,min:0,max:0.18,step:0.01,unit:'m/s',meaning:'煙の鉛直移動',sourceLocation:'volume.js / const rise',sourceFile:'js',index:null,matcher:/^([ \t]*const rise=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'spin',type:'number',label:'角速度',default:1,min:0,max:2,step:0.25,unit:'rad/s',meaning:'鉛直軸周りの回転',sourceLocation:'volume.js / const spin',sourceFile:'js',index:null,matcher:/^([ \t]*const spin=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'homogeneous',type:'integer',label:'一定密度比較',default:0,min:0,max:1,step:1,unit:'0/1',meaning:'1で濃度0.5の均質箱',sourceLocation:'volume.js / const homogeneous',sourceFile:'js',index:null,matcher:/^([ \t]*const homogeneous=)([^;\n]+)(;)/gm}),
+  ]),
   FCG14: Object.freeze([
     Object.freeze({id:'N',type:'integer',label:'一辺の格子数',default:48,min:32,max:64,step:16,unit:'セル',meaning:'数値計算の解像度',sourceLocation:'smoke.js / const N',sourceFile:'js',index:null,matcher:/^([ \t]*const N=)([^;\n]+)(;)/gm}),
     Object.freeze({id:'buoyancy',type:'number',label:'浮力係数',default:0.03,min:0,max:0.06,step:0.01,unit:'m/(s² K)',meaning:'温度差を上向き加速度に変換',sourceLocation:'smoke.js / const buoyancy',sourceFile:'js',index:null,matcher:/^([ \t]*const buoyancy=)([^;\n]+)(;)/gm}),
