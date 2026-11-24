@@ -124,7 +124,7 @@ $\mathbb Q_p/\mathbb Z_p$ は $\bigcup_{n\ge0}p^{-n}\mathbb Z_p/\mathbb Z_p$ と
 
 球は Borel 集合を生成します。各 $p^{-n}\mathbb Z_p$（$n\ge0$）内では、球の有限和が集合代数をなし、その全質量は $p^n$ です。[Carathéodory拡張定理の一意性](../../../解析系/F0/F0-00D4/index.md#thm-caratheodory-extension)から、この集合上で球の体積が一致する二つの測度は全 Borel 集合で一致します。
 
-$p^{-n}\mathbb Z_p$ は増大して $\mathbb Q_p$ を覆うので、測度の下からの連続性により全空間でも一致します。
+$p^{-n}\mathbb Z_p$ は増大して $\mathbb Q_p$ を覆うので、測度の[下からの連続性](../../../解析系/F0/F0-00D2/index.md#thm-f0-00d2-01)により全空間でも一致します。
 
 次に非零の $c$ を単元部分と付値部分に分けます。
 
