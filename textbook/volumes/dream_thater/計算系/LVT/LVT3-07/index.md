@@ -144,7 +144,7 @@ theorem step_comm (c : Slots) (a : Op) :
 有限操作列 L（空列 [] または先頭 u と残り L' からなる u :: L'）に対する最終状態 R_X と応答列 B_X を次の再帰で定める。
 
 $$
-R_X(x,[])=x,qquad B_X(x,[])=[]
+R_X(x,[])=x,\qquad B_X(x,[])=[]
 $$
 
 $$
