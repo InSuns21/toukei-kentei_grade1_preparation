@@ -28,7 +28,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep16-dirac -->
-**定義の確認。** $A=\operatorname{diag}(2,1/2)$ は行列式1です。$\psi=(1,2,3,4)^{\mathsf T}$ の上下を二成分ずつ分けると $u=(1,2)^{\mathsf T}$、$r=(3,4)^{\mathsf T}$。下側に作用する行列は $Q(A)=\operatorname{diag}(1/2,2)$ なので
+**定義の確認**。 $A=\operatorname{diag}(2,1/2)$ は行列式1です。$\psi=(1,2,3,4)^{\mathsf T}$ の上下を二成分ずつ分けると $u=(1,2)^{\mathsf T}$、$r=(3,4)^{\mathsf T}$。下側に作用する行列は $Q(A)=\operatorname{diag}(1/2,2)$ なので
 
 $$
 S(A)\psi=(2,1,3/2,8)^{\mathsf T}.
@@ -72,7 +72,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep16-chirality -->
-**定義の確認。** [Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)から $\sigma_2\sigma_3=i\sigma_1$、$\sigma_1^2=I$ です。二因子ずつ掛けると
+**定義の確認**。 [Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)から $\sigma_2\sigma_3=i\sigma_1$、$\sigma_1^2=I$ です。二因子ずつ掛けると
 
 $$
 \gamma^0\gamma^1=\begin{pmatrix}\sigma_1&0\\0&-\sigma_1\end{pmatrix},
@@ -150,7 +150,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep16-chiral-projectors -->
-**定義の確認。** [chirality演算子](#def-lrep16-chirality)の表示を代入すると
+**定義の確認**。 [chirality演算子](#def-lrep16-chirality)の表示を代入すると
 
 $$
 P_L=\begin{pmatrix}I&0\\0&0\end{pmatrix},
@@ -271,12 +271,12 @@ $m=0$ なら右辺がともに零で、$r$ と $u$ の方程式を別々に解�
 
 ## 5. chiralityとhelicityは何が違うか
 
-chiralityは四成分の表現空間を分ける固有値です。これに対し、運動量の向きに沿ったスピンを測る量をhelicity（ヘリシティ）と呼びます。ここでは運動量 $\boldsymbol p\ne0$ を持つ平面波の四成分係数に作用する演算子を使います。[回転とboostのSpin持ち上げ](../LREP15/index.md#prop-lrep15-rotation-boost)の回転行列の半角から、スピン成分は $\sigma_j/2$ が上下それぞれに作用する形になります。
+chiralityは四成分の表現空間を分ける固有値です。これに対し、運動量の向きに沿ったスピンを測ります。ここでは運動量 $\boldsymbol p\ne0$ を持つ平面波の四成分係数に作用する演算子を使います。[回転とboostのSpin持ち上げ](../LREP15/index.md#prop-lrep15-rotation-boost)の回転行列の半角から、スピン成分は $\sigma_j/2$ が上下それぞれに作用する形になります。
 
 <a id="def-lrep16-helicity"></a>
 
 <!-- formal-statement-start -->
-> **定義（helicity演算子）**  
+> **定義（helicity演算子とDiracスピノルのヘリシティ）**  
 > 非零の実三次元運動量 $\boldsymbol p$ に対して、Dirac空間上のhelicity演算子を
 
 $$
@@ -284,12 +284,14 @@ h_{\boldsymbol p}=\frac{1}{2|\boldsymbol p|}
 \begin{pmatrix}\sum_jp^j\sigma_j&0\\0&\sum_jp^j\sigma_j\end{pmatrix}
 $$
 
-> とする。helicityはこの演算子の固有値である。
+> とする。Diracスピノルのヘリシティ（helicity）は、非零の四成分係数がこの演算子の固有ベクトルであるときの固有値である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep16-helicity -->
-**定義の確認。** $\boldsymbol p=(0,0,k)$、$k>0$ なら $h_{\boldsymbol p}=\operatorname{diag}(1,-1,1,-1)/2$ です。標準基底の第一、第三列は固有値 $+1/2$、第二、第四列は $-1/2$ を持ちます。一般方向でも[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)により $(\sum_jp^j\sigma_j)^2=|\boldsymbol p|^2I$ なので $h_{\boldsymbol p}^2=I_4/4$ です。エルミート行列であり、固有値は $\pm1/2$ に限られます。
+**定義の確認**。 $\boldsymbol p=(0,0,k)$、$k>0$ なら $h_{\boldsymbol p}=\operatorname{diag}(1,-1,1,-1)/2$ です。標準基底の第一、第三列は固有値 $+1/2$、第二、第四列は $-1/2$ を持ちます。一般方向でも[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)により $(\sum_jp^j\sigma_j)^2=|\boldsymbol p|^2I$ なので $h_{\boldsymbol p}^2=I_4/4$ です。エルミート行列であり、固有値は $\pm1/2$ に限られます。
 <!-- definition-example-end -->
+
+ここでの作用対象は有限次元の場の係数です。一粒子状態空間上の運動方向に沿った回転生成子による定義とは、作用空間を区別して扱います。
 
 方向を逆にすると $h_{-\boldsymbol p}=-h_{\boldsymbol p}$ ですが、$\gamma^5$ は変わりません。静止系では $\boldsymbol p=0$ のためhelicityの定義に分母が零になり、運動方向を指定できません。chiralityは静止系でも演算子として定義されています。
 
