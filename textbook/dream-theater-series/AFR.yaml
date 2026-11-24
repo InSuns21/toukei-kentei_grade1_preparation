@@ -45,7 +45,7 @@ chapters:
   - id: AFR10
     path: textbook/volumes/dream_thater/代数系/AFR/AFR10
     status: completed
-    title: "Tateの学位論文：`GL_1`のゼータ積分"
+    title: "Tateの学位論文：GL_1のゼータ積分"
   - id: AFR11
     path: textbook/volumes/dream_thater/代数系/AFR/AFR11
     status: planned
