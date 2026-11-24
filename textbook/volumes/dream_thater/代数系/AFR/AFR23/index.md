@@ -10,7 +10,11 @@
 
 ## 1. 素数冪の重みを積分変換へ移す
 
-$x\ge1$ は実数、$s=\sigma+it$ は複素数とします。自然対数を用います。[von Mangoldt関数](../../NT/NT8/index.md#def-nt8-von-mangoldt) $\Lambda(n)$ は素数冪 $n=p^h$ に $\log p$、それ以外に0を与えます。[Dirichlet文字](../../ANT/ANT3/index.md#def-ant3-character) $\chi$ は既約剰余類の乗法的な文字を非単元で0とした関数です。ここでは[原始Dirichlet文字](../../ANT/ANT3/index.md#def-ant3-primitive)を使い、法1の定数文字 $1$ に対して $L(s,1)=\zeta(s)$ とします。
+$x\ge1$ は実数、$s=\sigma+it$ は複素数とします。自然対数を用います。
+
+[von Mangoldt関数](../../NT/NT8/index.md#def-nt8-von-mangoldt) $\Lambda(n)$ は素数冪 $n=p^h$ に $\log p$、それ以外に0を与えます。
+
+[Dirichlet文字](../../ANT/ANT3/index.md#def-ant3-character) $\chi$ は既約剰余類の乗法的な文字を非単元で0とした関数です。ここでは[原始Dirichlet文字](../../ANT/ANT3/index.md#def-ant3-primitive)を使い、法1の定数文字 $1$ に対して $L(s,1)=\zeta(s)$ とします。
 
 [一次平滑化したChebyshev和](../../ANT/ANT7/index.md#def-ant7-smoothed-psi)で使った重み $1-n/x$ を今回は $x/n$ 倍します。これは積分変換に $s-1$ という分母を作ります。例えば $x=3$ では $n=2$ の項に $1/2$、$n=3$ の項に0を掛けます。$v_+=\max(v,0)$ と書きます。
 
@@ -301,7 +305,11 @@ $$
 
 ここで $\operatorname{Re}\rho>\theta$ の零点があると仮定します。$F$ の極は上で計算した単純極であり、実軸上の極は $0<\rho<1$ にあって留数が正です。これは法1の極補正、非主文字の1での非零性、$\operatorname{Re}s>1$ のEuler積の非零性によります。$R$ を $\sigma-\theta$ と $\sigma$ から最も近い右半平面の極までの距離の小さい方とします。後者がなければ無限大とします。$R>0$ です。半径 $R$ の円板は右半平面内にあります。
 
-$R=\sigma-\theta$ なら仮定した極 $\rho$ の水平距離 $\sigma-\operatorname{Re}\rho$ は $R$ より小さいです。$R<\sigma-\theta$ で最も近い極が非実なら、その極への水平距離は斜めの距離 $R$ より小さいです。いずれの場合も中心を $z=\sigma+it$ へ垂直に動かすと距離 $R$ 未満の極を持つようにできます。近い極の個数は局所有限なので、$t$ を微小に変え、最も近い極 $\rho_0$ をただ一つにできます。実際、二つの異なる極への距離が等しくなる $t$ は、虚部が異なれば高々一つ、虚部が等しければ実部が異なるため存在しません（全ての極は線 $\operatorname{Re}s=\sigma$ より左にあります）。
+$R=\sigma-\theta$ なら仮定した極 $\rho$ の水平距離 $\sigma-\operatorname{Re}\rho$ は $R$ より小さいです。
+
+$R<\sigma-\theta$ で最も近い極が非実なら、その極への水平距離は斜めの距離 $R$ より小さいです。いずれの場合も中心を $z=\sigma+it$ へ垂直に動かすと距離 $R$ 未満の極を持つようにできます。
+
+近い極の個数は局所有限なので、$t$ を微小に変え、最も近い極 $\rho_0$ をただ一つにできます。実際、二つの異なる極への距離が等しくなる $t$ は、虚部が異なれば高々一つ、虚部が等しければ実部が異なるため存在しません（全ての極は線 $\operatorname{Re}s=\sigma$ より左にあります）。
 
 $d=|z-\rho_0|<R$ とし、$d<h<R$ で半径 $h$ の円板が他の極を含まないように取ります。留数を $b_0\ne0$ とし、$F(s)-b_0/(s-\rho_0)$ に [Cauchyの評価](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-estimate)を用いると
 
@@ -349,9 +357,39 @@ $$
 
 ### 4.2 二種類の打切り上限と(M)
 
-以下は R Part II §3–4 の設定です。小さい $\varepsilon>0$（$0<\varepsilon<1/52$）を固定し、同一の区間 $Y\le x\le Y^{3/2}$ に対し $q\equiv3\bmod8$、$d\equiv7\bmod16$、$q\mid d+1$ を満たす素数を選びます。補助パラメータ $m,k,n$ は正整数で、$n$ は2の冪、$x^{2+8\varepsilon}\le n\le2x^{2+8\varepsilon}$ とします。$N=4n$、$H=(\mathbb Z/N\mathbb Z)^\times/\{\pm1\}$ は奇数剰余類を符号で同一視した群で、位数は $n$ です。奇素数冪 $r=p^h$（$p\ne q$）を行 $v(r)=(1+\chi_q(r))/2\in\{0,1\}$ と列 $t[r]\in H$ に分類します。$t\in H$ は列を移すための元、$[r]$ は符号を同一視した剰余類です。
+以下は R Part II §3–4 の設定です。小さい $0<\varepsilon<1/52$ を固定し、同一の区間 $Y\le x\le Y^{3/2}$ に対し、次の条件を満たす素数を選びます。
 
-各素数冪の係数は $c(r)=(1-\chi_d(r))\log p$ です。$p=d$ でも $\chi_d(d^h)=0$ なので係数は $\log d$。他方 $p=2,q$ では $\chi_d(p)=1$ となり、係数が0なので除外できます（$d\equiv7\bmod8$ と二次相互法則、および $d\equiv-1\bmod q$ による）。$b=\exp(x^\varepsilon)$ とし、空でない $T,T_2\subset H$ を取ります。$\delta=|T_2|/n$、$a_t$ は正整数で $|a_t/b-x|\le1$。$u\in H,t\in T,1\le j\le m$ に対し正の重み $w_{u,j}(v,s)$ を2行 $n$ 列の各セルに与えます。行1かつ列 $s\in uT_2$ のセルを特別に選び、その重みは $b$ 以上 $b+O(b/(nx^2))$ 以下とします。他のセルの打切り上限 $a_t/w_{u,j}(v,s)$ は $\exp(x^{\varepsilon/3})/3$ 以上とします。
+$$
+q\equiv3\pmod8,\qquad d\equiv7\pmod{16},\qquad q\mid d+1.
+$$
+
+補助パラメータ $m,k,n$ は正整数で、$n$ は2の冪、$x^{2+8\varepsilon}\le n\le2x^{2+8\varepsilon}$ とします。$N=4n$ とし、
+
+$$
+H=(\mathbb Z/N\mathbb Z)^\times/\{\pm1\}
+$$
+
+は奇数剰余類を符号で同一視した群で、位数は $n$ です。奇素数冪 $r=p^h$（$p\ne q$）を次の行と列に分類します。
+
+$$
+v(r)=\frac{1+\chi_q(r)}2\in\{0,1\},\qquad t[r]\in H.
+$$
+
+$t\in H$ は列を移すための元、$[r]$ は符号を同一視した剰余類です。
+
+各素数冪の係数は $c(r)=(1-\chi_d(r))\log p$ です。$p=d$ でも $\chi_d(d^h)=0$ なので係数は $\log d$。他方 $p=2,q$ では $\chi_d(p)=1$ となり、係数が0なので除外できます。
+
+これは $d\equiv7\bmod8$ と二次相互法則、および $d\equiv-1\bmod q$ によります。
+
+$b=\exp(x^\varepsilon)$ とし、空でない $T,T_2\subset H$ を取ります。$\delta=|T_2|/n$、$a_t$ は正整数で $|a_t/b-x|\le1$。
+
+$u\in H,t\in T,1\le j\le m$ に対し正の重み $w_{u,j}(v,s)$ を2行 $n$ 列の各セルに与えます。行1かつ列 $s\in uT_2$ のセルを特別に選び、その重みを
+
+$$
+b\le w_{u,j}(1,s)\le b+O(b/(nx^2))
+$$
+
+とします。他のセルの打切り上限 $a_t/w_{u,j}(v,s)$ は $\exp(x^{\varepsilon/3})/3$ 以上とします。
 
 各表で測る量と引くべき主項は
 
@@ -409,7 +447,23 @@ $$
 a\int_1^\infty (S_1(y)-S_{\chi_d}(y)-y\log y)y^{-s-1}dy\longrightarrow C_*\quad(a\downarrow0).
 $$
 
-実際、線形項は $a\int_1^\infty C_*y^{-1-a}dy=C_*$ です。余りを $yE(y)$ と置くと $E(y)\to0$ なので、任意の $\epsilon'>0$ に対し十分大きい $Y'$ 以降の積分の絶対値は $a\epsilon'\int_{Y'}^\infty y^{-1-a}dy\le\epsilon'$、有限区間の積分は $a\downarrow0$ で0になります。一方、[平滑化和のMellin変換](#thm-afr23-mellin)と[中心化変換の極と留数](#thm-afr23-centered-transform)の展開より、同じ極限は $-1-\gamma+c_{\chi_d}$ です。従って $C_*=-1-\gamma+c_{\chi_d}$（R §5.1）。この線形係数まで一致させる必要があります。ここで $P_{u,t,j}=\sum_i w_i S_i(a_t/w_i)$ に展開を代入すれば
+実際、線形項は
+
+$$
+a\int_1^\infty C_*y^{-1-a}dy=C_*
+$$
+
+です。余りを $yE(y)$ と置くと $E(y)\to0$ なので、任意の $\epsilon'>0$ に対し十分大きい $Y'$ 以降の積分の絶対値は
+
+$$
+a\epsilon'\int_{Y'}^\infty y^{-1-a}dy\le\epsilon'
+$$
+
+です。有限区間の積分は $a\downarrow0$ で0になります。
+
+一方、[平滑化和のMellin変換](#thm-afr23-mellin)と[中心化変換の極と留数](#thm-afr23-centered-transform)の展開より、同じ極限は $-1-\gamma+c_{\chi_d}$ です。
+
+従って $C_*=-1-\gamma+c_{\chi_d}$（R §5.1）。この線形係数まで一致させる必要があります。ここで $P_{u,t,j}=\sum_i w_i S_i(a_t/w_i)$ に展開を代入すれば
 
 $$
 \begin{aligned}
@@ -456,7 +510,19 @@ $$
 \chi_q(r)^e\chi_d(r)^l\xi([r]).
 $$
 
-これは行の指示関数 $(1+(2v-1)\chi_q(r))/2$、列の指示関数 $n^{-1}\sum_\xi\overline{\xi(s)}\xi(t[r])$、係数 $1-\chi_d(r)$ の積です。合計 $4n$ 項で各係数の絶対値は $1/(2n)$。素数冪で法を割る素数も正しく扱うため、それぞれの積を誘導する原始文字として展開します。例えば $p=d$ では $1-\chi_d(p^h)=1$ であり、二次文字を含む項だけが0になります。$p=2,q$ では $\chi_d(p)=1$ なので相殺されます。詳細は R §5.2 の式(II.21)です。主項を引く操作は線形なので $R_i$ は $G_\xi$ のこの線形結合です。係数の絶対値和が2であることから、特別でないセルで
+これは行の指示関数、列の指示関数、重みの次の三因子の積です。
+
+$$
+\frac{1+(2v-1)\chi_q(r)}2,\quad
+\frac1n\sum_\xi\overline{\xi(s)}\xi(t[r]),\quad
+1-\chi_d(r).
+$$
+
+合計 $4n$ 項で各係数の絶対値は $1/(2n)$。素数冪で法を割る素数も正しく扱うため、それぞれの積を誘導する原始文字として展開します。
+
+例えば $p=d$ では $1-\chi_d(p^h)=1$ であり、二次文字を含む項だけが0になります。$p=2,q$ では $\chi_d(p)=1$ なので相殺されます。詳細は R §5.2 の式(II.21)です。
+
+主項を引く操作は線形なので $R_i$ は $G_\xi$ のこの線形結合です。係数の絶対値和が2であることから、特別でないセルで
 
 $$
 |w_iR_i(a_t/w_i)|\le2a_t e^{-\kappa x^{\varepsilon/8}}.
@@ -471,7 +537,15 @@ $$
 
 $n$ と $\delta^{-1}$ は $x$ の冪程度であり、$\upsilon$ はどの負の冪よりも速く0になります。
 
-特別なセルでは $w_i=b+\Delta_i$、$0\le\Delta_i=O(b/(nx^2))$ です。$(a_t/r-w)_+$ は $w$ に関してLipschitz定数1なので、重みの変更で有限和が変わる量は $\Delta_i\sum_{r\le a_t/b}c(r)=O(x\Delta_i)$ 以下です。ここでは[Chebyshevのψ関数の素数定理](../../ANT/ANT6/index.md#thm-ant6-psi-asymptotic)から $\sum_{r\le z}c(r)\le2\psi(z)=O(z)$ を使いました。主項の変更は $\mu a_t\log(1+\Delta_i/b)=O(x\Delta_i)$ 以下で、$a_tC_i$ は変わりません。各表に $\delta n$ 個あるので、平均の変更を $B$ で割ると $O(1/x)$ です。
+特別なセルでは $w_i=b+\Delta_i$、$0\le\Delta_i=O(b/(nx^2))$ です。$(a_t/r-w)_+$ は $w$ に関してLipschitz定数1なので、重みの変更で有限和が変わる量は
+
+$$
+\Delta_i\sum_{r\le a_t/b}c(r)=O(x\Delta_i)
+$$
+
+以下です。ここでは[Chebyshevのψ関数の素数定理](../../ANT/ANT6/index.md#thm-ant6-psi-asymptotic)から $\sum_{r\le z}c(r)\le2\psi(z)=O(z)$ を使いました。
+
+主項の変更は $\mu a_t\log(1+\Delta_i/b)=O(x\Delta_i)$ 以下で、$a_tC_i$ は変わりません。各表に $\delta n$ 個あるので、平均の変更を $B$ で割ると $O(1/x)$ です。
 
 最後に $|a_t/b-x|\le1$ です。$S_{q,d}$ の変化は $4\sum_{n\le x+1}\Lambda(n)/n=O(1+\log x)$ 以下です。これは $\psi(z)=O(z)$ を用い $\sum_{n\le z}\Lambda(n)/n=\psi(z)/z+\int_1^z\psi(v)v^{-2}dv$ と部分和を取った値です。主項の $y\log y$ の変化も $O(1+\log x)$。また R Part III Theorem III.1.1(d) は選択された文字の $|c_\chi|\le4\log x$ を与えます。従って $R_{q,d}(a_t/b)=R_{q,d}(x)+O(1+\log x)$ です。
 
