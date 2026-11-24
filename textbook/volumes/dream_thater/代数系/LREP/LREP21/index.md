@@ -85,7 +85,9 @@ $$
 =\pi(a,A)\pi(b,B).
 $$
 
-任意の $(a,\Lambda)$ に対して [Lorentz群の二重被覆](../LREP10/index.md#thm-lrep10-double-cover)から $A,-A$ のちょうど二つが $\rho(A)=\Lambda$ を満たします。特に単位元の逆像は $(0,\pm I)$ です。$\Lambda$ の近傍で二枚に分かれる被覆の局所表示に $V$ の恒等写像を掛ければ、$\pi$ も局所的に二枚の微分同相となります。積と逆元は線形作用と行列の積・逆行列からなる滑らかな写像です。$\square$
+任意の $(a,\Lambda)$ に対して [Lorentz群の二重被覆](../LREP10/index.md#thm-lrep10-double-cover)から $A,-A$ のちょうど二つが $\rho(A)=\Lambda$ を満たします。特に単位元の逆像は $(0,\pm I)$ です。
+
+$\Lambda$ の近傍で二枚に分かれる被覆の局所表示に $V$ の恒等写像を掛ければ、$\pi$ も局所的に二枚の微分同相となります。積と逆元は線形作用と行列の積・逆行列からなる滑らかな写像です。$\square$
 <!-- proof-end -->
 
 被覆群の表現で $U(0,-I)=I$ なら $U(a,A)=U(a,-A)$ となり、元の群にも表現を定められます。スピンを含む一般の状態ではこの条件を課さずに $\widetilde G$ を扱います。
@@ -164,7 +166,31 @@ $$
 
 各 $t\mapsto T(te_\mu)$ は強連続な1パラメータユニタリ群です。[Stone の定理](../../../解析系/QM/QM7/index.md#thm-qm7-stone)から一意な自己共役作用素を得ます。空間成分ではStoneの通常の $e^{-itH}$ の生成作用素の負を $P^j$ として採用します。各 $\mu$ のスペクトル測度を $F_\mu$ とします。
 
-任意の $s,t$ と $\mu,\nu$ で $T(se_\mu)T(te_\nu)=T(te_\nu)T(se_\mu)$。固定した $T(se_\mu)$ で $P^\nu$ をユニタリ共役しても、生成する1パラメータ群は同じです。[Stone の定理](../../../解析系/QM/QM7/index.md#thm-qm7-stone)の一意性より $T(se_\mu)P^\nu T(se_\mu)^{-1}=P^\nu$（定義域も共役されます）。[非有界自己共役作用素のスペクトル定理](../../../解析系/QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral)の一意性により $T(se_\mu)$ は $F_\nu(B)$ と可換です。従って反射 $I-2F_\nu(B)$ も全ての $T(se_\mu)$ と可換です。この反射はユニタリなので、再度 [Stone の定理](../../../解析系/QM/QM7/index.md#thm-qm7-stone) と [スペクトル定理](../../../解析系/QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral) の一意性を適用すると $I-2F_\nu(B)$ は $F_\mu(C)$ と可換。ゆえに全ての $F_\nu(B)$ と $F_\mu(C)$ が可換です。
+任意の実数 $s,t$ と座標番号 $\mu,\nu$ について、並進は可換なので
+
+$$
+T(se_\mu)T(te_\nu)=T(te_\nu)T(se_\mu).
+$$
+
+固定した $T(se_\mu)$ で $P^\nu$ をユニタリ共役しても、生成する1パラメータ群は同じです。[Stone の定理](../../../解析系/QM/QM7/index.md#thm-qm7-stone)の一意性より
+
+$$
+T(se_\mu)P^\nu T(se_\mu)^{-1}=P^\nu
+$$
+
+です（定義域も共役されます）。[非有界自己共役作用素のスペクトル定理](../../../解析系/QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral)の一意性により、任意のBorel集合 $B$ について
+
+$$
+T(se_\mu)F_\nu(B)=F_\nu(B)T(se_\mu).
+$$
+
+従って反射 $I-2F_\nu(B)$ も全ての $T(se_\mu)$ と可換です。この反射はユニタリなので、再度 [Stone の定理](../../../解析系/QM/QM7/index.md#thm-qm7-stone) と [スペクトル定理](../../../解析系/QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral) の一意性を適用すると
+
+$$
+(I-2F_\nu(B))F_\mu(C)=F_\mu(C)(I-2F_\nu(B))
+$$
+
+が任意のBorel集合 $C$ に対して成り立ちます。両辺の共通項を引き、$-2$ で割れば全てのスペクトル射影の可換性が得られます。
 
 [Cayley変換](../../../解析系/QM/QM6/index.md#def-qm6-cayley-transform)を使い、
 
@@ -175,7 +201,9 @@ $$
 
 と置きます。積分を有界単関数で近似すると、上の射影の可換性から $C_\mu$ と $C_\nu,C_\nu^*$ は可換です。$C_\mu$ はユニタリで $1$ の固有ベクトルは存在しません。実際 $I-C_\mu=2i(P^\mu+iI)^{-1}$ の核は零です。
 
-四つの $C_\mu$ と随伴と $I$ が生成するノルム閉部分環は可換な単位的 $C^*$ 環です。[可換 Gelfand--Naimark 定理](../../../解析系/OA/OA4/index.md#thm-oa4-commutative-gelfand-naimark)を適用すると $C(K)$ と同型になります。ここで $K$ はそのcharacter空間（非零の複素数値代数準同型全体）です。各characterは四つの $C_\mu$ とその随伴の多項式上の値で決まり、連続性によりそのノルム閉包でも決まります。$C_\mu^*C_\mu=I$ なので各characterの値は単位円上にあり、$K$ は四つの単位円の直積のコンパクト部分集合として同一視でき、$C_\mu$ は座標関数 $z_\mu$ に対応します。
+四つの $C_\mu$ と随伴と $I$ が生成するノルム閉部分環は可換な単位的 $C^*$ 環です。[可換 Gelfand--Naimark 定理](../../../解析系/OA/OA4/index.md#thm-oa4-commutative-gelfand-naimark)を適用すると $C(K)$ と同型になります。ここで $K$ はそのcharacter空間（非零の複素数値代数準同型全体）です。
+
+各characterは四つの $C_\mu$ とその随伴の多項式上の値で決まり、連続性によりそのノルム閉包でも決まります。$C_\mu^*C_\mu=I$ なので各characterの値は単位円上にあり、$K$ は四つの単位円の直積のコンパクト部分集合として同一視でき、$C_\mu$ は座標関数 $z_\mu$ に対応します。
 
 この同型から得る単位的 $*$ 準同型 $C(K)\to B(\mathcal H)$ に [可換関数環表現の射影値測度表示](../../../解析系/OA/OA6/index.md#thm-oa6-commutative-representation-pvm)の証明を適用します。同講の定理は平面のコンパクト集合で述べていますが、証明は次のようにコンパクト距離空間 $K$ にも通用します。各 $\psi$ に対する正汎関数 $f\mapsto\langle\psi,\pi(f)\psi\rangle$ を [Riesz--Markov の定理](../../../解析系/MT/MT5/index.md#thm-mt5-riesz-markov-positive) で正測度にし、偏極した測度をHilbert空間のRiesz表現で作用素に戻します。連続関数から有界Borel関数への拡張は単調族によって行い、積を保つ性質を拡張して指示関数の積を取れば直交射影が得られます。これらの操作は平面の座標に依存せず、コンパクト距離空間での有限正則測度の性質を使います。従って一意なPVM $E$ が $K$ 上に得られ、
 
@@ -199,7 +227,7 @@ T(a)=\prod_{\mu=0}^3T(a^\mu e_\mu)
 =\int e^{-ip^0a^0+i\sum_{j=1}^3p^ja^j}\,dF(p).
 $$
 
-最後に一意性を確認します。別のPVMが同じ $T$ を表すなら、各座標への押し出しは [Stone の定理](../../../解析系/QM/QM7/index.md#thm-qm7-stone) と [スペクトル定理](../../../解析系/QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral) の一意性で $F_\mu$ に一致します。直積集合 $B_0\times\cdots\times B_3$ への射影は座標ごとの射影の積 $\prod_\mu F_\mu(B_\mu)$ です。Borel集合を生成するこの直積集合上で一致するので、各ベクトルの有限正測度は全Borel集合で一致します。偏極により作用素も一致します。$\square$
+最後に一意性を確認します。別のPVMが同じ $T$ を表すなら、各座標への像測度は [Stone の定理](../../../解析系/QM/QM7/index.md#thm-qm7-stone) と [スペクトル定理](../../../解析系/QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral) の一意性で $F_\mu$ に一致します。直積集合 $B_0\times\cdots\times B_3$ への射影は座標ごとの射影の積 $\prod_\mu F_\mu(B_\mu)$ です。Borel集合を生成するこの直積集合上で一致するので、各ベクトルの有限正測度は全Borel集合で一致します。偏極により作用素も一致します。$\square$
 <!-- proof-end -->
 
 例えば $\mathbb C^2$ で $p_1=(2,0,0,0)$、$p_2=(3,1,0,0)$ とし、$T(a)=\operatorname{diag}(e^{ip_1\cdot a},e^{ip_2\cdot a})$ とします。位相の積は加法に対応し、各対角要素の絶対値は1、連続性も成り立ちます。共同PVMは $F(B)=\operatorname{diag}(\mathbf1_B(p_1),\mathbf1_B(p_2))$ です。生成作用素は $P^0=\operatorname{diag}(2,3)$、$P^1=\operatorname{diag}(0,1)$、$P^2=P^3=0$ です。個々のスペクトルの直積には $(2,1,0,0)$ も含まれますが、その点の共同射影は零です。共同スペクトルには観測量の相関も含まれます。
@@ -256,15 +284,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[Poincare群の群法則](#def-lrep21-covered-poincare)より $V(A)T(a)V(A)^{-1}=T(\Lambda a)$。左辺は [共同スペクトル表示](#thm-lrep21-translation-spectrum) によってPVM $B\mapsto V(A)F(B)V(A)^{-1}$ の位相積分になります。右辺は[Lorentz計量の保存](../LREP9/index.md#def-lrep9-lorentz-group) $p\cdot\Lambda a=(\Lambda^{-1}p)\cdot a$ から
+[被覆Poincare群](#def-lrep21-covered-poincare)の積の定義から $V(A)T(a)V(A)^{-1}=T(\Lambda a)$。左辺は [共同スペクトル表示](#thm-lrep21-translation-spectrum) によってPVM $B\mapsto V(A)F(B)V(A)^{-1}$ の位相積分になります。右辺は[Minkowski内積の保存](../LREP9/index.md#def-lrep9-lorentz-group) $p\cdot\Lambda a=(\Lambda^{-1}p)\cdot a$ から
 
 $$
 T(\Lambda a)=\int e^{i(\Lambda^{-1}p)\cdot a}\,dF(p).
 $$
 
-$p\mapsto\Lambda^{-1}p$ の押し出し測度は $B\mapsto F(\Lambda B)$ です。共同PVMの一意性から主張の式が成立します。$\Lambda$ は同相であり、ユニタリ共役は射影が零かどうかを変えないため、$\Sigma$ の各点の開近傍の条件も保存されます。
+$p\mapsto\Lambda^{-1}p$ の像測度測度は $B\mapsto F(\Lambda B)$ です。共同PVMの一意性から主張の式が成立します。$\Lambda$ は同相であり、ユニタリ共役は射影が零かどうかを変えないため、$\Sigma$ の各点の開近傍の条件も保存されます。
 
-座標関数のスペクトル積分を共役すると、まず有界な切断関数 $p^\mu\mathbf1_{|p^\mu|\le n}$ について押し出しの式が成り立ちます。切断を外すと [非有界スペクトル積分の定義域とノルム](../../../解析系/QM/QM6/index.md#prop-qm6-unbounded-integral-domain)により、共役作用素の定義域は
+座標関数のスペクトル積分を共役すると、まず有界な切断関数 $p^\mu\mathbf1_{|p^\mu|\le n}$ について像測度の式が成り立ちます。切断を外すと [非有界スペクトル積分の定義域とノルム](../../../解析系/QM/QM6/index.md#prop-qm6-unbounded-integral-domain)により、共役作用素の定義域は
 
 $$
 \int |(\Lambda^{-1}p)^\mu|^2
@@ -288,7 +316,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-円錐条件から $p^0\ge0$ がPVMの意味で成立するので、$P^0$ は非負です。逆に $P^0\ge0$ なら [共同スペクトル表示](#thm-lrep21-translation-spectrum) の第一座標への押し出しが負の半直線に射影を与えないため、$\Sigma\subset\{p:p^0\ge0\}$ です。
+円錐条件から $p^0\ge0$ がPVMの意味で成立するので、$P^0$ は非負です。逆に $P^0\ge0$ なら [共同スペクトル表示](#thm-lrep21-translation-spectrum) の第一座標への像測度が負の半直線に射影を与えないため、$\Sigma\subset\{p:p^0\ge0\}$ です。
 
 ある $p\in\Sigma$ が円錐外なら $0\le p^0<k=|\boldsymbol p|$ です。空間回転で $\boldsymbol p=(k,0,0)$ に移します。次に速度 $\beta$ が $p^0/k<\beta<1$ を満たすboostを選び、
 
@@ -341,7 +369,17 @@ $$
 
 これで群法則とユニタリ性を確認しました。
 
-強連続性も確かめます。$T(a)$ は各点で位相が連続、差の絶対値の二乗は $4|f(q)|^2$ 以下なので優収束により強連続です。$V(A)$ についてまず連続コンパクト台の $f$ を取ります。$A\to I$ のとき $\ell_{\Lambda^{-1}}(q)\to q$、Jacobianは1に収束します。$A$ を単位元のコンパクト近傍に制限すれば $f(\ell_{\Lambda^{-1}}(q))$ の台は元の台の像の和に含まれ、共通のコンパクト集合に収まります。その集合上でJacobianは連続で有界なので、優収束で $\|V(A)f-f\|\to0$ です。連続コンパクト台の関数は $L^2$ で稠密です。任意の $f$ に対しそのような $g$ を選ぶと
+強連続性も確かめます。並進については各点で位相が連続で、
+
+$$
+|(T(a)f)(q)-f(q)|^2\le4|f(q)|^2
+$$
+
+です。優収束により単位元での強連続性が従います。
+
+$V(A)$ についてまず連続コンパクト台の $f$ を取ります。$A\to I$ のとき $\ell_{\Lambda^{-1}}(q)\to q$、Jacobianは1に収束します。$A$ を単位元のコンパクト近傍に制限すれば、合成関数の台は元の台の像の和に含まれ、共通のコンパクト集合に収まります。
+
+その集合上でJacobianは連続で有界なので、優収束で $\|V(A)f-f\|\to0$ です。連続コンパクト台の関数は $L^2$ で稠密です。任意の $f$ に対しそのような $g$ を選ぶと
 
 $$
 \|V(A)f-f\|\le2\|f-g\|+\|V(A)g-g\|.
