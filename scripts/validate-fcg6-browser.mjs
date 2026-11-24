@@ -134,19 +134,34 @@ try {
     await evaluate('new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))');
     if(width===1280){
       initialGPU=await captureGPU();
-      const pos=await evaluate(`(() => {
-        const frame=document.querySelector('#canvas-slot iframe');
-        window.scrollTo(0,window.scrollY+frame.getBoundingClientRect().top-40);
-        const r=frame.getBoundingClientRect();
-        return {x:Math.floor(r.left+r.width*.15),y:Math.floor(r.top+r.width*.2)};
-      })()`);
       const paint=async()=>{
-        await cdp('Input.dispatchMouseEvent',{type:'mousePressed',...pos,button:'left',clickCount:1});
-        await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',...pos,button:'left',clickCount:1});
+        // Recompute viewport-relative coordinates after scrolling and screenshots.
+        // The tall square canvas is inside an opaque iframe; wait for Chromium's
+        // compositor to update the frame hit-test region before trusted input.
+        await evaluate('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"start",behavior:"instant"})');
+        await new Promise(ok=>setTimeout(ok,200));
+        const pos=await evaluate(`(() => {
+          const frame=document.querySelector('#canvas-slot iframe');
+          const r=frame.getBoundingClientRect();
+          const x=Math.floor(r.left+r.width*.15),y=Math.floor(r.top+r.width*.2);
+          return {x,y,hit:document.elementFromPoint(x,y)===frame,
+            viewport:innerHeight,top:r.top};
+        })()`);
+        assert.ok(pos.hit&&pos.y>0&&pos.y<pos.viewport,'FCG6 pointer target must hit visible sandbox: '+JSON.stringify(pos));
+        const point={x:pos.x,y:pos.y};
+        await cdp('Input.dispatchMouseEvent',{type:'mouseMoved',...point,buttons:0});
+        await cdp('Input.dispatchMouseEvent',{type:'mousePressed',...point,button:'left',buttons:1,clickCount:1});
+        await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',...point,button:'left',buttons:0,clickCount:1});
+        await new Promise(ok=>setTimeout(ok,200));
       };
-      await paint();
+      for(let attempt=0;attempt<3;attempt++){
+        await paint();
+        if(await evaluate('document.querySelector("#result-note")?.textContent.includes("実描画：cell(")'))break;
+      }
       await waitFor('document.querySelector("#result-note")?.textContent.includes("実描画：cell(")');
       assert.notEqual(await captureGPU(),initialGPU,'pointer dye modifies actual live GPU pixels');
+      // Refocus after the screenshot and verify the key on the live canvas.
+      await paint();
       await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowRight',code:'ArrowRight',windowsVirtualKeyCode:39});
       await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:'ArrowRight',code:'ArrowRight',windowsVirtualKeyCode:39});
       await paint();
