@@ -120,7 +120,7 @@ $$
 
 となり、残り二成分を自由に選べます（ここで $v_i$ は空間ベクトルの成分番号です）。代表元の選択は線形かつ一意なので、商空間も複素二次元です。
 
-[Lorentz群の計量保存条件](../LREP9/index.md#def-lrep9-lorentz-group)より $(\Lambda p)\cdot(\Lambda\epsilon)=p\cdot\epsilon=0$ であり、$\Lambda(\epsilon+\alpha p)=\Lambda\epsilon+\alpha\Lambda p$ なので商への写像が定まります。$\Lambda$ は実行列だから
+[未来円錐のLorentz軌道](../LREP22/index.md#thm-lrep22-orbits)により $\Lambda p$ も実非零未来光的運動量です。[Lorentz群の計量保存条件](../LREP9/index.md#def-lrep9-lorentz-group)より $(\Lambda p)\cdot(\Lambda\epsilon)=p\cdot\epsilon=0$ であり、$\Lambda(\epsilon+\alpha p)=\Lambda\epsilon+\alpha\Lambda p$ なので商への写像が定まります。$\Lambda$ は実行列だから
 
 $$
 \overline{\Lambda\epsilon}\cdot\Lambda\zeta
@@ -324,7 +324,9 @@ $v_+,v_-$ に角度 $\pi/2$ の回転を作用させよ。
 
 $$
 Q_{\pi/2}=\begin{pmatrix}0&-1\\1&0\end{pmatrix}.
-$$$(1,i)$ の像は $(-i,1)=-i(1,i)$、$(1,-i)$ の像は $(i,1)=i(1,-i)$。規格化係数は変わらず、位相は $-i,i$ です。
+$$
+
+$(1,i)$ の像は $(-i,1)=-i(1,i)$、$(1,-i)$ の像は $(i,1)=i(1,-i)$。規格化係数は変わらず、位相は $-i,i$ です。
 <!-- solution-end -->
 
 <a id="ex-lrep27-b01"></a>
