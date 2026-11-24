@@ -1,0 +1,26 @@
+id: LREP27
+title: "光子の偏極とゲージ"
+volume: "foundations"
+status: supplementary
+prerequisites: [LREP26, QFT15]
+official_scope: []
+learning_objectives:
+  - 正質量スピン1の三成分と光子の二成分を区別できる
+  - 光的偏極の商空間と正定値内積を構成できる
+  - 固定群の並進がゲージ方向の変更になることを計算できる
+  - 円偏極の二つのヘリシティと誘導作用の対応を説明できる
+definitions:
+  - { id: LREP27-DEF-01, name: 光的偏極商空間 }
+theorems:
+  - { id: LREP27-THM-01, name: 偏極商空間の正定値内積 }
+  - { id: LREP27-THM-02, name: 光的偏極への固定群作用 }
+  - { id: LREP27-THM-03, name: 光子偏極のヘリシティ分解 }
+canonical_examples:
+  - 標準光的運動量での偏極類
+  - 固定群並進による代表元の変化
+  - 円偏極の回転位相
+problem_patterns: [LREP27-A01, LREP27-A02, LREP27-A03, LREP27-A04, LREP27-B01, LREP27-B02, LREP27-B03, LREP27-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }
