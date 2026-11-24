@@ -12,7 +12,7 @@ $$
 \widehat{\mathbb Z}=\prod_p\mathbb Z_p
 $$
 
-アデールの成分を $x=(x_\infty,x_f)$、$x_f=(x_p)_p$ と書きます。$\mathbb Q_p$ は $p$ 進数体、$\mathbb Z_p$ はその整数環であり、ほとんどすべての素数で $x_p\in\mathbb Z_p$ です。積 $xy$ は成分ごとの積です。
+と書きます。アデールの成分を $x=(x_\infty,x_f)$、$x_f=(x_p)_p$ と書きます。$\mathbb Q_p$ は $p$ 進数体、$\mathbb Z_p$ はその整数環であり、ほとんどすべての素数で $x_p\in\mathbb Z_p$ です。積 $xy$ は成分ごとの積です。
 
 [p進付値](../../ANF/ANF9/index.md#def-anf9-p-adic-valuation)を $v_p$ とし、非零元の[p進絶対値](../../ANF/ANF9/index.md#def-anf9-p-adic-absolute)を次で表します（零では $0$）。
 
