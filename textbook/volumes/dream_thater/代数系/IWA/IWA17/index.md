@@ -161,7 +161,7 @@ $$
 $$
 x^{D_7}=\sigma_7(x)\sigma_7^2(x)^2\sigma_7^3(x)^3\sigma_7^4(x)^4\sigma_7^5(x)^5
 $$
-です。二つの成分を取ったときは、上の群環の積の定義により
+です。二つの成分を取ったときは、二つの和の積を分配して展開すると
 $$
 D_{7\cdot13}=\sum_{j=1}^5\sum_{h=1}^{11}jh\,\sigma_7^j\sigma_{13}^h.
 $$
@@ -338,7 +338,11 @@ $$
 \qquad \mathfrak q=\mathfrak L\cap\mathcal O_F.
 $$
 
-補助素数以外では $F_r/F$ は無分岐です。実際、$F$ に加えるのは導手 $\ell\mid r$ の円分体であり、各円分体は $\ell$ の外で無分岐です（[素数冪円分体の分岐](../../ANF/ANF22/index.md#prop-anf22-prime-power-degree)）。無分岐な局所拡大は基礎体拡大と合成でも無分岐なので、$\mathfrak q$ が $r$ の外なら $e=1$ です。従ってそのような $\mathfrak q$ における $v_{\mathfrak q}(x_r)$ は $M$ の倍数です。代表元を $M$ 乗倍しても付値の法 $M$ の値は変わりません。
+補助素数以外では $F_r/F$ は無分岐です。実際、$F$ に加えるのは導手 $\ell\mid r$ の円分体であり、各円分体は $\ell$ の外で無分岐です（[素数冪円分体の分岐](../../ANF/ANF22/index.md#prop-anf22-prime-power-degree)）。
+
+無分岐な局所拡大は基礎体拡大と合成でも無分岐なので、$\mathfrak q$ が $r$ の外なら $e=1$ です。
+
+従ってそのような $\mathfrak q$ における $v_{\mathfrak q}(x_r)$ は $M$ の倍数です。代表元を $M$ 乗倍しても付値の法 $M$ の値は変わりません。
 
 [IWA11のS単数・付値・類群の完全列](../IWA11/index.md#thm-iwa11-s-unit-exact) で見たように、主イデアルから得る付値の組は類群で関係式を与えます。今得た剰余類は、補助素数の上にだけ非自明な付値を残し得るという点が重要です。
 
@@ -379,13 +383,37 @@ $A=\mathbb Z/9\mathbb Z\oplus\mathbb Z/3\mathbb Z$ なら標準生成元に $b_1
 
 ## 4. 主予想に戻るための二つの算術入力
 
-ここからは補助素数方向の $F_r$ ではなく、前講の円分塔 $K_n=\mathbb Q(\zeta_{p^{n+1}})$（$n\ge0$）、$K_\infty=\bigcup_n K_n$ に戻ります。$\Delta$ は位数 $p-1$ の有限Galois成分、$\Gamma=\operatorname{Gal}(K_\infty/K_0)$ とし、$\gamma$ は根を $1+p$ 乗する生成元、$T=\gamma-1$、$\Lambda=\mathbb Z_p[[T]]$ とします。$\omega$ は [Teichmüller指標](../IWA8/index.md#def-iwa8-teich-character)、$\chi=\omega^i$（$2\le i\le p-3$、$i$ は偶数）です。[指標射影子](../IWA8/index.md#def-iwa8-character-idempotent) の像を上付き $(i)$ で表し、指標の番号は法 $p-1$ で読みます。これは冪を表す記号ではありません。
+ここからは補助素数方向の $F_r$ ではなく、前講の円分塔に戻ります。
 
-各層の全単数群と [円分単数群](../IWA10/index.md#def-iwa10-cyclotomic-unit) の $p$ 進完備化を $E_n,C_n$ とします。ここで $p$ 進完備化は、有限生成アーベル群 $H$ なら $\varprojlim_a H/H^{p^a}$ を取る操作です。$U_n$ は $p$ の上の [局所主単数群](../IWA11/index.md#def-iwa11-local-principal-units) です。[逆極限](../IWA4/index.md#def-iwa4-inverse-limit) をノルムで取り、$E,C,U$ と書きます。第1〜3節の単数への作用は乗法記法でしたが、以下の完備化したアーベル群は $\mathbb Z_p$ 加群として加法記法で扱います。例えば作用差 $\gamma x-x$ は乗法記法では $\gamma(x)/x$ です。
+$$
+K_n=\mathbb Q(\zeta_{p^{n+1}})\quad(n\ge0),\qquad K_\infty=\bigcup_{n\ge0}K_n.
+$$
+
+$\Delta$ は位数 $p-1$ の有限Galois成分、$\Gamma=\operatorname{Gal}(K_\infty/K_0)$ とします。根を $1+p$ 乗する生成元を $\gamma$ とし、岩澤代数の座標を
+
+$$
+T=\gamma-1,\qquad \Lambda=\mathbb Z_p[[T]]
+$$
+
+と取ります。
+
+$\omega$ は [Teichmüller指標](../IWA8/index.md#def-iwa8-teich-character)、$\chi=\omega^i$ は非自明偶指標（$2\le i\le p-3$、$i$ は偶数）です。
+
+[指標射影子](../IWA8/index.md#def-iwa8-character-idempotent) の像を上付き $(i)$ で表し、指標の番号は法 $p-1$ で読みます。これは冪を表す記号ではありません。
+
+各層の全単数群と [円分単数群](../IWA10/index.md#def-iwa10-cyclotomic-unit) の $p$ 進完備化を $E_n,C_n$ とします。ここで $p$ 進完備化は、有限生成アーベル群 $H$ なら $\varprojlim_a H/H^{p^a}$ を取る操作です。
+
+$U_n$ は $p$ の上の [局所主単数群](../IWA11/index.md#def-iwa11-local-principal-units) です。[逆極限](../IWA4/index.md#def-iwa4-inverse-limit) をノルムで取り、$E,C,U$ と書きます。
+
+第1〜3節の単数への作用は乗法記法でしたが、以下の完備化したアーベル群は $\mathbb Z_p$ 加群として加法記法で扱います。例えば作用差 $\gamma x-x$ は乗法記法では $\gamma(x)/x$ です。
 
 $E$ の偶非自明成分の局所化の単射性（円分体の場合の Leopoldt の定理を含む算術的入力）により、この成分では $C^{(i)}\subseteq E^{(i)}\subseteq U^{(i)}$ と同一視できます。一般の数体で単数の完備化と局所化した像の閉包を無条件に同一視できるわけではありません。
 
-$X$ は [無分岐岩澤加群](../IWA9/index.md#def-iwa9-unramified-iwasawa-module)、$\mathfrak X$ は $K_\infty$ 上で $p$ の上以外で無分岐な最大アーベル pro-$p$ 拡大のGalois群です。pro-$p$ とは有限 $p$ 群の逆極限であることです。[IWA16の反射置換](../IWA16/index.md#prop-iwa16-reflection-substitution) で比較する解析側の級数 $F_i$ は $F_i((1+p)^{1-s}-1)=L_p(s,\omega^i)$ という規約です。以下の $\operatorname{char}$ は [有限生成ねじれ加群の特徴イデアル](../IWA6/index.md#def-iwa6-characteristic) を表します。
+$X$ は [無分岐岩澤加群](../IWA9/index.md#def-iwa9-unramified-iwasawa-module)、$\mathfrak X$ は $K_\infty$ 上で $p$ の上以外で無分岐な最大アーベル pro-$p$ 拡大のGalois群です。pro-$p$ とは有限 $p$ 群の逆極限であることです。
+
+[IWA16の反射置換](../IWA16/index.md#prop-iwa16-reflection-substitution) で比較する解析側の級数 $F_i$ は $F_i((1+p)^{1-s}-1)=L_p(s,\omega^i)$ という規約です。
+
+以下の $\operatorname{char}$ は [有限生成ねじれ加群の特徴イデアル](../IWA6/index.md#def-iwa6-characteristic) を表します。
 
 以下は独立に証明される外部入力です。主予想そのものを仮定するのではなく、その証明に必要な別の定理を取り出します。
 
@@ -531,9 +559,15 @@ $$
 
 $p$ 部分では $p-1$ の掛け算が可逆で、右の和は自明成分上で $p-1$ 倍です。従って $j$ は固定体の $p$ 部分類群と自明指標成分との同型を与えます。
 
-類群については [実部分体のp部分類群と偶部分](../IWA8/index.md#thm-iwa8-plus-real-class) により、実部分体の $p$ 部分を $K_n$ の偶部分と同一視できます。単数の完備化でも、実部分体への次数2のノルム・延長の合成は2倍、逆の合成は $1+c$（$c$ は複素共役）です。2は奇素数 $p$ に対して可逆なので、固定された元 $x$ は $(1/2)N(x)$ の延長となり、実部分体の完備化と偶部分が同型です。円分単数についても [実単数と群の生成](../IWA10/index.md#prop-iwa10-realness) によって実円分単数と単位根の積であり、単位根の $p$ 部分は奇成分にあるため偶成分の商に影響しません。
+類群については [実部分体のp部分類群と偶部分](../IWA8/index.md#thm-iwa8-plus-real-class) により、実部分体の $p$ 部分を $K_n$ の偶部分と同一視できます。
 
-そこで $I=\{i:2\le i\le p-3,\ i\text{ は偶数}\}$ と置きます。[偶奇成分と指標の次数](../IWA8/index.md#prop-iwa8-parity-eigenspaces) による直和分解で、単数商の非自明偶成分の位数の積は偶部分全体の位数以下です。円分単数の指数公式により、その偶部分の位数は実部分体の類群の $p$ 部分の位数と一致し、類群の自明指標成分は零なので、右辺は非自明偶成分の位数の積になります。位数の $p$ 進付値を取ると次の不等式を得ます。
+単数の完備化でも、実部分体への次数2のノルム・延長の合成は2倍、逆の合成は $1+c$（$c$ は複素共役）です。2は奇素数 $p$ に対して可逆なので、固定された元 $x$ は $(1/2)N(x)$ の延長となり、実部分体の完備化と偶部分が同型です。
+
+円分単数についても [実単数と群の生成](../IWA10/index.md#prop-iwa10-realness) によって実円分単数と単位根の積であり、単位根の $p$ 部分は奇成分にあるため偶成分の商に影響しません。
+
+そこで $I=\{i:2\le i\le p-3,\ i\text{ は偶数}\}$ と置きます。[偶奇成分と指標の次数](../IWA8/index.md#prop-iwa8-parity-eigenspaces) による直和分解で、単数商の非自明偶成分の位数の積は偶部分全体の位数以下です。
+
+[円分単数の有限指数と実類数](../IWA10/index.md#thm-iwa10-finite-index) により、その偶部分の位数は実部分体の類群の $p$ 部分の位数と一致し、類群の自明指標成分は零なので、右辺は非自明偶成分の位数の積になります。位数の $p$ 進付値を取ると次の不等式を得ます。
 
 $$
 \sum_i v_p(|B_{i,n}|)\le \sum_i v_p(|A_{i,n}|).
@@ -550,7 +584,17 @@ Q[\omega_n]\to J/\omega_nJ\to L_2/\omega_nL_2\to Q/\omega_nQ\to0
 $$
 が完全です。ここで $Q[\omega_n]=\{q\in Q:\omega_nq=0\}$ です。第2列の左端の写像は $q$ の持ち上げ $z\in L_2$ に対して $\omega_n z+\omega_n J$ を返します。$\omega_n q=0$ なので $\omega_n z\in J$、持ち上げを変えても差は $\omega_n J$ に入ります。これで商の比較で生じる核の位数は $|K|,|Q|$ で抑えられ、余核の位数は $|Q|$ 以下です。従って一方の商が有限なら両方有限で、指数の差も $n$ によらず有界です。
 
-有限層とのcontrolにより $(A_i)_{\Gamma_n}$ と $(B_i)_{\Gamma_n}$ は有限です。したがって擬同型な初等加群のcoinvariantsも有限です。もし初等因子の多項式 $W$ と $\omega_n$ が非定数の既約因子 $P$ を共有すれば、$\Lambda/(W,\omega_n)$ から $\Lambda/(P)$ への全射が存在します。$P$ は [distinguished多項式](../IWA6/index.md#def-iwa6-distinguished) として取れ、[Weierstrass除法](../IWA6/index.md#thm-iwa6-division) により $\Lambda/(P)$ は正階数の自由 $\mathbb Z_p$ 加群で無限です。有限性に矛盾します。これで成長公式に必要な共通因子がないことも確かめられました。
+有限層とのcontrolにより $(A_i)_{\Gamma_n}$ と $(B_i)_{\Gamma_n}$ は有限です。したがって擬同型な初等加群のcoinvariantsも有限です。
+
+もし初等因子の多項式 $W$ と $\omega_n$ が非定数の既約因子 $P$ を共有すれば、次の全射が存在します。
+
+$
+\Lambda/(W,\omega_n)\twoheadrightarrow\Lambda/(P).
+$
+
+$P$ は [distinguished多項式](../IWA6/index.md#def-iwa6-distinguished) として取れ、[Weierstrass除法](../IWA6/index.md#thm-iwa6-division) により $\Lambda/(P)$ は正階数の自由 $\mathbb Z_p$ 加群で無限です。有限性に矛盾します。
+
+これで成長公式に必要な共通因子がないことも確かめられました。
 
 [円分単数比較とEuler系による整除](#thm-iwa17-arithmetic-inputs) で $a_i\mid b_i$（$a_i,b_i$ は第4節で定めた生成元）を得ています。従って全成分について
 
@@ -728,7 +772,15 @@ $$
 $p=5$、$a=T-5$、$b=(T-5)(T-10)$ とする。両方の $\mu,\lambda$ とイデアル包含を求めよ。$\mu=0$ と片方向の整除で等式が従うか。
 
 <!-- solution-start -->
-**詳細解答。** [係数付値とWeierstrass次数](../IWA6/index.md#def-iwa6-orders) により、法5の還元は $a\equiv T$、$b\equiv T^2$。いずれも非零なので $\mu(a)=\mu(b)=0$、最低非零次数から $\lambda(a)=1,\lambda(b)=2$。$b=a(T-10)$ なので $(b)\subseteq(a)$ です。しかし $T-10$ の定数項は5の倍数なので [単元判定](../IWA3/index.md#prop-iwa3-augmentation) により単元ではなく、包含は真です。$\mu=0$ だけでは余分な正次数の因子を取り除けません。
+**詳細解答。** [係数付値とWeierstrass次数](../IWA6/index.md#def-iwa6-orders) により、法5の還元は
+
+$$
+a\equiv T,\qquad b\equiv T^2\pmod 5.
+$$
+
+いずれも非零なので $\mu(a)=\mu(b)=0$ であり、最低非零次数から $\lambda(a)=1,\lambda(b)=2$ です。
+
+$b=a(T-10)$ なので $(b)\subseteq(a)$ です。しかし $T-10$ の定数項は5の倍数なので [単元判定](../IWA3/index.md#prop-iwa3-augmentation) により単元ではなく、包含は真です。$\mu=0$ だけでは余分な正次数の因子を取り除けません。
 <!-- solution-end -->
 
 <a id="ex-iwa17-b5"></a>
