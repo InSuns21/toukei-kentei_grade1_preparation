@@ -6,7 +6,22 @@
 
 ## 1. 二つの群が同じ交代形式を保存する
 
-実ベクトル空間 $W$ 上の双線形形式 $\Omega$ が、任意の $w$ で $\Omega(w,w)=0$ を満たし、すべての $z$ に対し $\Omega(w,z)=0$ なら $w=0$ であるとします。このような [非退化交代形式](../../../幾何系/SYM/SYM1/index.md#def-sym1-nondegenerate-form) を備えた空間では、$\Omega$ を保つ可逆線形写像の群を $\mathrm{Sp}(W,\Omega)$ と書きます。積で保存性が保たれ、逆写像についても $\Omega(A^{-1}w,A^{-1}z)=\Omega(w,z)$ が従います。
+実ベクトル空間 $W$ 上の双線形形式 $\Omega$ を考えます。任意のベクトルについて
+
+$$
+\Omega(w,w)=0,\qquad
+[\Omega(w,z)=0\ \text{for all }z\in W]\Longrightarrow w=0
+$$
+
+が成り立つとします。これが [非退化交代形式](../../../幾何系/SYM/SYM1/index.md#def-sym1-nondegenerate-form) です。
+
+この形式を保つ可逆線形写像の群（[シンプレクティック群](../../../幾何系/SYM/SYM1/index.md#def-sym1-symplectic-map)）を $\mathrm{Sp}(W,\Omega)$ と書きます。積で保存性が保たれ、逆写像についても
+
+$$
+\Omega(A^{-1}w,A^{-1}z)=\Omega(w,z)
+$$
+
+が従います。
 
 例えば $\mathbb R^2$ の形式 $\Omega((u,v),(u',v'))=uv'-vu'$ は、$(u',v')=(0,1),(1,0)$ を入れて非退化性を確認できます。前講の [Weyl作用の積公式](../AFR19/index.md#prop-afr19-weyl-product) に現れた形式です。$2$ 次行列 $S$ に対し $\Omega(Sw,Sz)=\det(S)\Omega(w,z)$ なので、この場合の保存群は $SL_2(\mathbb R)$ です。
 
