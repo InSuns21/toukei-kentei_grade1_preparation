@@ -32,7 +32,7 @@ chapters:
     title: "Hecke作用とスペクトルの接続"
   - id: AFR7
     path: textbook/volumes/dream_thater/代数系/AFR/AFR7
-    status: planned
+    status: completed
     title: "保型L関数・Rankin型積分の初例"
   - id: AFR8
     path: textbook/volumes/dream_thater/代数系/AFR/AFR8

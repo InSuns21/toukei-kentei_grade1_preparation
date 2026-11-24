@@ -1,0 +1,36 @@
+chapter: AFR7
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR6]
+forward_references: []
+concepts:
+  - id: automorphic-forms.maass-coefficient-bound
+    name: "Maassカスプ形式の係数の多項式評価"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Maassカスプ形式の係数の多項式評価）"]
+    requires: [automorphic-forms.maass-bessel-expansion, automorphic-forms.cusp-exponential-decay, automorphic-forms.bessel-k-asymptotic]
+  - id: automorphic-forms.maass-l-function
+    name: "Maass形式の保型L関数"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Maass形式の保型L関数）"]
+    requires: [automorphic-forms.maass-coefficient-bound, automorphic-forms.maass-joint-eigenbasis]
+  - id: automorphic-forms.maass-l-euler-product
+    name: "Maass保型L関数のEuler積"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Maass保型L関数のEuler積）"]
+    requires: [automorphic-forms.maass-l-function, automorphic-forms.maass-joint-eigenbasis, automorphic-forms.maass-coefficient-bound]
+  - id: automorphic-forms.maass-l-mellin
+    name: "Maass保型L関数のMellin表示"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Maass保型L関数のMellin表示）"]
+    requires: [automorphic-forms.maass-l-function, automorphic-forms.modified-bessel-k, automorphic-forms.bessel-k-asymptotic, complex-analysis.gamma-function]
+  - id: automorphic-forms.maass-rankin-integral
+    name: "Maass形式のRankin型積分"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Maass形式のRankin型積分）"]
+    requires: [automorphic-forms.maass-bessel-expansion, automorphic-forms.maass-joint-eigenbasis, automorphic-forms.maass-coefficient-bound, automorphic-forms.eisenstein-series, automorphic-forms.hyperbolic-metric-invariance]
