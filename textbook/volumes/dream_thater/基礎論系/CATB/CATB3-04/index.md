@@ -4,11 +4,11 @@
 
 有限集合から余極限への写像は一つの段階に戻せた（[集合の有限表示性](../CATB3-02/index.md#thm-catb3-02-set)）。自然数全体から自然数全体への恒等写像は、有限初期区間のどれも経由しない。しかし段階の側が可算個のデータまで一度に集められるなら、自然数全体からの写像も一段階で作れるはずである。
 
-そこで、許すデータの個数を基数で指定し、その個数に対応する合流条件と対象の表示性を定める。以下は選択公理を仮定し、集合は固定した宇宙内で、添字圏は小さいものとして扱う。
+そこで、許すデータの個数を基数で指定し、その個数に対応する合流条件と対象の表示性を定める。以下は選択公理を仮定し、集合は固定した宇宙内で、添字圏は小さいものとして扱う。$\mathbb N$ は非負整数全体を表し、射の合成は右から左に書く。
 
 ## 2. 正則性：小さいものを小さい個数だけ集める
 
-[基数・初期順序数](../../SET/SET6/index.md#def-set6-cardinal)は集合の大きさの代表である。選択公理のもとで任意の集合は整列可能なので、[整列可能な集合の基数](../../SET/SET6/index.md#def-set6-cardinality-wellorderable)を $|S|$ と書ける。$|S|<\lambda$ は基数としての厳密な不等号であり、$\lambda=\aleph_0$ なら有限、$\lambda=\aleph_1$ なら高々可算という意味になる。ここで $\aleph_0$ は最小の無限基数、$\aleph_1$ はその[次の基数](../../SET/SET7/index.md#cor-set7-successor-cardinal)である。
+[基数・初期順序数](../../SET/SET6/index.md#def-set6-cardinal)は集合の大きさの代表である。[選択公理から従う整列可能定理](../../../基礎科目/F0/F0-00A2/index.md#thm-well-ordering)により任意の集合は整列可能なので、[整列可能な集合の基数](../../SET/SET6/index.md#def-set6-cardinality-wellorderable)を $|S|$ と書ける。$|S|<\lambda$ は基数としての厳密な不等号であり、$\lambda=\aleph_0$ なら有限、$\lambda=\aleph_1$ なら高々可算という意味になる。ここで $\aleph_0$ は[最小の無限基数](../../SET/SET6/index.md#def-set6-aleph-zero)、$\aleph_1$ はその[次の基数](../../SET/SET7/index.md#cor-set7-successor-cardinal)である。
 
 小さい部分集合を合併しても引き続き小さい、という性質を以下の意味で正則性と呼ぶ。
 
@@ -43,10 +43,10 @@ $$
 x\longmapsto (j(a(x)),e_{a(x)}(x))
 $$
 
-は $\mathbb N\times\mathbb N$ への単射である。二成分が等しければ最初の成分から同じ添字、次の成分から同じ元と分かる。自然数の対は対角線順に列挙できるので高々可算であり、合併も高々可算である。従って $\aleph_1$ も正則である。
+は $\mathbb N\times\mathbb N$ への単射である。二成分が等しければ最初の成分から同じ添字、次の成分から同じ元と分かる。自然数の対は対角線順に列挙できる（[基数の乗法の例](../../SET/SET6/index.md#def-set6-cardinal-multiplication)）ので高々可算であり、合併も高々可算である。従って $\aleph_1$ も正則である。
 <!-- definition-example-end -->
 
-対照的に、$\kappa_0<\kappa_1<\cdots$ を無限基数の狭義増加列とし、$\kappa=\sup_n\kappa_n$ とする。順序数としての和集合 $\bigcup_n\kappa_n$ が $\kappa$ であり、これは基数でもある。実際、$\alpha<\kappa$ ならある $n$ で $\alpha<\kappa_n$。もし $\alpha$ と $\kappa$ が全単射なら $\kappa_n\subseteq\kappa$ から $\kappa_n$ が $\alpha$ に単射でき、[基数の順序と単射](../../SET/SET6/index.md#thm-set6-cardinal-injection-order)および初期順序数の性質に反する。
+対照的に、$\kappa_0<\kappa_1<\cdots$ を無限基数の狭義増加列とし、$\kappa=\sup_n\kappa_n$ とする。順序数としての和集合 $\bigcup_n\kappa_n$ が $\kappa$ であり、これは基数でもある。実際、$\alpha<\kappa$ ならある $n$ で $\alpha<\kappa_n$。もし $\alpha$ と $\kappa$ が全単射なら $\kappa_n\subseteq\kappa$ から $\kappa_n$ が $\alpha$ に単射できる。ところが $|\alpha|\leq\alpha<\kappa_n$ なので、$\alpha$ と $|\alpha|$ の全単射を後合成すれば $\kappa_n$ からより小さい基数 $|\alpha|$ への単射となり、[基数の順序と単射](../../SET/SET6/index.md#thm-set6-cardinal-injection-order)に反する。
 
 ここでは $|\mathbb N|<\kappa$ かつ各 $|\kappa_n|<\kappa$ だが
 
