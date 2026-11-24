@@ -3,14 +3,28 @@ open LvtTactics
 #check composeProof
 #check routeProof
 
-intro n により n : Nat が局所仮定となり、目標は n = n。反射律 Eq.refl n の型が一致するので exact で閉じる。
+example : ∀ n : Nat, n = n := by
+  intro n
+  exact Eq.refl n
 
-apply f は Q を作るための引数 P を新しい目標にする。hp : P があるので exact hp で閉じる。
+example (P Q : Prop) (f : P → Q) (hp : P) : Q := by
+  apply f
+  exact hp
 
-constructor は And.intro に対応し、先に Q、次に P を要求する。hq で Q を閉じ、hp で P を閉じる。And.intro hq hp と同じ結論になる。
+example (P Q : Prop) (hp : P) (hq : Q) : Q ∧ P := by
+  constructor
+  · exact hq
+  · exact hp
 
-連言の構成子 And.intro の引数 hp : P と hq : Q を取り出す。唯一の枝で目標は Q のままなので hq を渡す。
+example (P Q : Prop) (h : P ∧ Q) : Q := by
+  cases h with
+  | intro hp hq => exact hq
 
-f hp : Q を得て hq と名付ける。g の入力型は Q なので g hq : R。元の目標 R を exact で閉じる。
+example (P Q R : Prop) (f : P → Q) (g : Q → R) (hp : P) : R := by
+  have hq : Q := f hp
+  exact g hq
 
-左の枝では hp : P を得るので右側の構成子 Or.inr hp : Q ∨ P を選ぶ。右の枝では hq : Q を得るので左側の構成子 Or.inl hq : Q ∨ P を選ぶ。両枝を閉じて元の選言に対する証明になる。
+example (P Q : Prop) (h : P ∨ Q) : Q ∨ P := by
+  cases h with
+  | inl hp => exact Or.inr hp
+  | inr hq => exact Or.inl hq

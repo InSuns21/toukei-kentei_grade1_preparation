@@ -62,7 +62,9 @@ example (P : Prop) : P → P := by
 目標 Q に f : P → Q を apply すると、まだ与えていない引数の型 P が目標になります。f を適用しただけで P が成立するわけではありません。次に hp : P を exact で渡すことで f hp : Q が完成します。
 
 ```lean
-apply f は Q を作るための引数 P を新しい目標にする。hp : P があるので exact hp で閉じる。
+example (P Q : Prop) (f : P → Q) (hp : P) : Q := by
+  apply f
+  exact hp
 ```
 
 ### 2.2 constructor と cases
@@ -79,12 +81,17 @@ example (P Q : Prop) (hp : P) (hq : Q) : P ∧ Q := by
 反対に h : P ∧ Q からは cases h で構成子 intro の二つの引数を取り出せます。選言 h : P ∨ Q の場合には inl と inr の二つの構成子があるので、どちらの枝でも元の目標を証明する必要があります。枝の中の仮定はその枝でのみ使えます。
 
 ```lean
-連言の構成子 And.intro の引数 hp : P と hq : Q を取り出す。唯一の枝で目標は Q のままなので hq を渡す。
+example (P Q : Prop) (h : P ∧ Q) : Q := by
+  cases h with
+  | intro hp hq => exact hq
 ```
 
 
 ```lean
-左の枝では hp : P を得るので右側の構成子 Or.inr hp : Q ∨ P を選ぶ。右の枝では hq : Q を得るので左側の構成子 Or.inl hq : Q ∨ P を選ぶ。両枝を閉じて元の選言に対する証明になる。
+example (P Q : Prop) (h : P ∨ Q) : Q ∨ P := by
+  cases h with
+  | inl hp => exact Or.inr hp
+  | inr hq => exact Or.inl hq
 ```
 
 ## 3. 逆向きに証明を組む
@@ -144,7 +151,9 @@ theorem composeProof (P Q R : Prop) (f : P → Q) (g : Q → R) : P → R := by
 
 
 ```lean
-f hp : Q を得て hq と名付ける。g の入力型は Q なので g hq : R。元の目標 R を exact で閉じる。
+example (P Q R : Prop) (f : P → Q) (g : Q → R) (hp : P) : R := by
+  have hq : Q := f hp
+  exact g hq
 ```
 
 ## 5. 複数の入力経路から同じ保証を得る
