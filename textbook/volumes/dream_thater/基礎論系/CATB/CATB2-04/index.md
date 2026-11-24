@@ -131,7 +131,23 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb2-04-representable -->
-**定義の確認（有限集合）。** 通常の順序 $0<1$ を持つ二対象の圏を集合で豊穣化する。$a=0$ とすれば $H_0(0)=\{1_0\}$、$H_0(1)=\{s\}$（$s:0\to1$）。$s$ の作用は $1_0\mapsto s$。二つの恒等射の作用はそれぞれ一元集合の恒等写像である。非恒等射同士は合成できず、$s1_0=s=1_1s$ だから可能な全合成が保存される。恒等射も保存されるので確かに豊穣関手である。$a=1$ なら $H_1(0)=\varnothing$、$H_1(1)=\{1_1\}$ となり、固定点を変えると関手も変わる。
+**定義の確認（有限集合）。** 通常の順序 $0<1$ を持つ二対象の圏を集合で豊穣化する。唯一の非恒等射を $s:0\to1$ と書く。
+
+$a=0$ とすれば
+
+$$
+H_0(0)=\{1_0\},\qquad H_0(1)=\{s\}.
+$$
+
+$s$ の作用は $1_0\mapsto s$。二つの恒等射の作用はそれぞれ一元集合の恒等写像である。非恒等射同士は合成できず、$s1_0=s=1_1s$ だから可能な全合成が保存される。恒等射も保存されるので確かに豊穣関手である。
+
+$a=1$ なら
+
+$$
+H_1(0)=\varnothing,\qquad H_1(1)=\{1_1\}
+$$
+
+となり、固定点を変えると関手も変わる。
 <!-- definition-example-end -->
 
 <a id="prop-catb2-04-representable-functor"></a>
@@ -204,7 +220,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb2-04-natural-family -->
-**定義の確認。** 集合の二対象の圏 $0\to1$ で $F=H_0$ とし、$G(0)=G(1)=\{0,1\}$、$G(s)=1_{\{0,1\}}$ とする。$P=\{p,q\}$、$t_0(p,1_0)=0,t_0(q,1_0)=1$、$t_1(p,s)=0,t_1(q,s)=1$ と置く。非恒等射 $s$ に対する左辺は $t_1(p,s)=0$ と $t_1(q,s)=1$、右辺も $G(s)$ が恒等写像なのでそれぞれ $0,1$。恒等射の条件は各 $t_x$ 自身に一致する。従って全ての自然性が成立する。
+**定義の確認。** 集合の二対象の圏 $0\to1$ で $F=H_0$ とし、$G(0)=G(1)=\{0,1\}$、$G(s)=1_{\{0,1\}}$ とする。
+
+$P=\{p,q\}$ とし、族を次で定める。
+
+$$
+\begin{aligned}
+t_0(p,1_0)&=0,&t_0(q,1_0)&=1,\\
+t_1(p,s)&=0,&t_1(q,s)&=1.
+\end{aligned}
+$$
+
+非恒等射 $s$ に対する自然性の左辺は順に $0,1$ となる。右辺も $G(s)$ が恒等写像なのでそれぞれ同じ値になる。恒等射の条件は各成分自身に一致する。従って全ての自然性が成立する。
 <!-- definition-example-end -->
 
 特に $P=I$ なら転置により前講の[豊穣自然性](../CATB2-03/index.md#def-catb2-03-enriched-natural)と一致する。実際、前講の二経路を $Fx$ で逆転置すると、一方は $t_y(1\otimes d^F_{xy})$、他方は $d^G_{xy}(1\otimes t_x)$ となり、単位子と対称性の整合性で上の式に一致する。
@@ -515,7 +542,28 @@ $$
 
 二点 $a,b$ の距離を $d(a,b)=2,d(b,a)=5$ とし、対角をゼロとする。[Lawvere型拡張距離](../CATB2-02/index.md#def-catb2-02-lawvere-metric)の三角不等式は、中間点が始点または終点なら等号、始点と終点が同じなら非負性で成立する。
 
-基底は[Lawvere距離の基底](../CATB2-02/index.md#def-catb2-02-lawvere-base)で、射 $u\to v$ は数として $u\ge v$ のときに存在し、テンソルは加法、単位は $0$。任意の小さい族の積は数としての上限で、平行な二射は必ず同じなので等化子は恒等射である。内部Hom $[u,v]$ は $p+u\ge v$ と $p\ge[u,v]$ が同値となる残余である。$u$ が有限なら $[u,v]=\max(v-u,0)$（$v=\infty$ なら $\infty$）、$u=\infty$ なら常に $[u,v]=0$。これで閉性も確認できる。
+基底は[Lawvere距離の基底](../CATB2-02/index.md#def-catb2-02-lawvere-base)で、射 $u\to v$ は数として $u\ge v$ のときに存在する。テンソルは加法、単位は $0$ である。
+
+任意の小さい族の積は数としての上限である（空族の上限はゼロ）。平行な二射は必ず同じなので等化子は恒等射である。このため必要な積と等化子が存在する。
+
+閉性を確認するには、内部Homを次のように取る。
+
+$$
+[u,v]=
+\begin{cases}
+\max(v-u,0)&(u,v<\infty),\\
+\infty&(u<\infty,\ v=\infty),\\
+0&(u=\infty).
+\end{cases}
+$$
+
+有限な二数については、非負な $p$ に対する条件 $p+u\ge v$ は $p\ge\max(v-u,0)$ と同値である。第二の場合は加法の左辺が無限大になるために $p=\infty$ が必要十分であり、第三の場合はどの $p$ でも条件を満たす。よって全ての場合について
+
+$$
+p+u\ge v\quad\Longleftrightarrow\quad p\ge[u,v]
+$$
+
+が成立し、閉性が確認できる。
 
 $H_a(x)=d(a,x)$、$H_b(x)=d(b,x)$ とする。豊穣Yonedaによる $N(H_a,H_b)$ は $d(b,a)=5$。構成から直接計算しても、積 $Q$ は
 
@@ -588,7 +636,23 @@ $$
 A03 の圏と関手で $P=\{p,q,r\}$ とする。$b(p)=0,b(q)=1,b(r)=0$ から族を構成し、自然性と評価による復元を確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** [復元公式](#thm-catb2-04-enriched-yoneda)で $t_a(z,1_a)=b(z)$、$t_x(z,s)=F(s)b(z)$。従って $t_a$ の値は順に $0,1,0$、$t_x$ は $4,2,4$。非恒等射の自然性の左辺は $t_x(z,s1_a)=t_x(z,s)$、右辺は $F(s)t_a(z,1_a)$ であり、$p,q,r$ の三点でそれぞれ $4=4,2=2,4=4$。恒等射については $t_a,t_x$ 自身が両辺になる。恒等射で評価すれば $z\mapsto t_a(z,1_a)=b(z)$ となり、三点全てで元に戻る。
+**詳細解答。** [復元公式](#thm-catb2-04-enriched-yoneda)を適用すると
+
+$$
+t_a(z,1_a)=b(z),\qquad t_x(z,s)=F(s)b(z).
+$$
+
+従って $t_a$ の値は順に $0,1,0$、$t_x$ は $4,2,4$ である。
+
+非恒等射に関する自然性を確認する。左辺と右辺はそれぞれ
+
+$$
+t_x(z,s1_a)=t_x(z,s),\qquad F(s)t_a(z,1_a)
+$$
+
+であり、三点で比較すると順に $4=4,2=2,4=4$ となる。恒等射については各成分自身が両辺になる。
+
+恒等射で評価すれば $z\mapsto t_a(z,1_a)=b(z)$ となり、三点全てで元に戻る。
 <!-- solution-end -->
 
 ### CATB2-04-B02 前合成の向きと自然性
@@ -642,7 +706,31 @@ $$
 とする。$F$ が豊穣関手となることを示し、$N(H_*,F)$ を線形写像 $D\to k^2$ の部分空間として求めよ。恒等射での評価と復元を具体的に確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $D$ の積は $(a+b\varepsilon)(c+d\varepsilon)=ac+(ad+bc)\varepsilon$。単位は $1+0\varepsilon$。第三の因子を $e+f\varepsilon$ とすると、左の括弧付けでは定数項 $ace$、$\varepsilon$ の係数は $acf+(ad+bc)e$。右の括弧付けでは定数項 $ace$、$\varepsilon$ の係数は $a(cf+de)+bce$。展開すると共に $acf+ade+bce$ なので結合律が成立する。左右から $1$ を掛けても元の係数は変わらない。積と作用は各変数に線形で、[ベクトル空間の閉構造](../../CAT/CAT4-05/index.md#thm-cat4-05-vector-spaces)のテンソル積からの線形写像を定める。
+**詳細解答。** まず積と単位を確認する。積は
+
+$$
+(a+b\varepsilon)(c+d\varepsilon)=ac+(ad+bc)\varepsilon
+$$
+
+であり、単位は $1+0\varepsilon$ である。第三の因子を $e+f\varepsilon$ として、左右の括弧付けで展開すると
+
+$$
+\begin{aligned}
+((a+b\varepsilon)(c+d\varepsilon))(e+f\varepsilon)
+ &=ace+(acf+(ad+bc)e)\varepsilon\\
+ &=ace+(acf+ade+bce)\varepsilon,
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+(a+b\varepsilon)((c+d\varepsilon)(e+f\varepsilon))
+ &=ace+(a(cf+de)+bce)\varepsilon\\
+ &=ace+(acf+ade+bce)\varepsilon.
+\end{aligned}
+$$
+
+定数項も係数も一致するので結合律が成立する。左右から単位を掛けても元の係数は変わらない。積と作用は各変数に線形で、[ベクトル空間の閉構造](../../CAT/CAT4-05/index.md#thm-cat4-05-vector-spaces)のテンソル積からの線形写像を定める。
 
 まず作用の合成を確認する。$A=a+b\varepsilon,B=c+d\varepsilon$ として
 
