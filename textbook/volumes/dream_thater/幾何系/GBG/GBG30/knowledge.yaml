@@ -1,0 +1,41 @@
+chapter: GBG30
+scope: dream-theater
+coverage: complete
+prerequisites: [GBG29, GBG9, GBG19, GBG24, GBG28]
+forward_references: []
+concepts:
+  - id: gauge.twisted-spinor-bundle
+    name: スピノル束とゲージ結合スピノル束
+    kind: definition
+    introduction: formal
+    requires: [gauge.spin-structure, gauge.associated-vector-bundle, gauge.associated-component-transformation]
+  - id: gauge.twisted-dirac-operator
+    name: ゲージ結合 Dirac 作用素
+    kind: definition
+    introduction: formal
+    requires: [gauge.twisted-spinor-bundle, gauge.associated-local-formula]
+  - id: gauge.twisted-dirac-covariance
+    name: Dirac 作用素の枠独立性とゲージ共変性
+    kind: theorem
+    introduction: formal
+    requires: [gauge.twisted-dirac-operator, gauge.associated-covariance]
+  - id: gauge.spinor-chirality-splitting
+    name: カイラリティ分解
+    kind: definition
+    introduction: formal
+    requires: [gauge.twisted-spinor-bundle]
+  - id: gauge.dirac-chirality-ellipticity
+    name: Dirac 作用素のカイラリティ交換と楕円性
+    kind: proposition
+    introduction: formal
+    requires: [gauge.twisted-dirac-operator, gauge.spinor-chirality-splitting]
+  - id: gauge.twisted-dirac-index
+    name: ゲージ結合 Dirac 作用素の指数
+    kind: definition
+    introduction: formal
+    requires: [gauge.dirac-chirality-ellipticity]
+  - id: gauge.spin-dirac-index-theorem
+    name: Atiyah–Singer 指数定理のスピン Dirac 型
+    kind: theorem
+    introduction: formal
+    requires: [gauge.twisted-dirac-index, gauge.chern-character-form, gauge.pontryagin-form]

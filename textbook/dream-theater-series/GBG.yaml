@@ -124,5 +124,5 @@ chapters:
     title: "なぜ任意の多様体にspin構造があるとは限らないか"
   - id: GBG30
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG30
-    status: planned
+    status: completed
     title: "Spinor・ゲージ場・指数・異常はどうつながるか"
