@@ -72,7 +72,7 @@ advance s down = if 2 ≤ s   then some (s-2) else none
 
 ## 3. 保存を証明すれば回数を制限しなくてよい
 
-状態に対する命題 P : Nat → Prop を選びます。初期状態で真で、P が真の任意の状態から許された一回の遷移を行っても P が真のままであるなら、[到達証明の不変量原理](../LVT2-06/index.md#prop-lvt2-06-invariant) によって全到達状態で P が成り立ちます。この二条件をまとめたものが帰納的不変量です。
+状態に対する命題 P : Nat → Prop を選びます。初期状態で真で、P が真の任意の状態から許された一回の遷移を行っても P が真のままであるなら、[到達証明の不変量原理](../LVT2-06/index.md#prop-lvt2-06-invariant) によって全到達状態で P が成り立ちます。以下でこの二条件を一つの命題にまとめます。
 
 <a id="def-lvt3-05-inductive"></a>
 
@@ -92,7 +92,7 @@ i : Nat、r : Nat → Nat → Prop、P : Nat → Prop に対し、IsInductive r 
 <!-- definition-example-end -->
 
 
-二単位カウンタでは Good s を「s = 0 または s = 2 または s = 4」とします。これは上限以内という要求よりも強い候補です。初期状態は 0 であり、残る仕事は一回の遷移の保存条件を確かめることです。
+二単位カウンタでは Good s を「s = 0 または s = 2 または s = 4」とします。これは上限以内という要求よりも強い候補です。初期状態は 0 であり、次に必要なのは一回の遷移の保存条件を確かめることです。
 
 <a id="prop-lvt3-05-preserve"></a>
 
@@ -107,7 +107,7 @@ i : Nat、r : Nat → Nat → Prop、P : Nat → Prop に対し、IsInductive r 
 <!-- proof-start -->
 ### 証明
 
-初期条件は Good 0 の第一の選言 0 = 0 で成立する。任意の s,t : Nat で Good s と Step s t を仮定する。Step の定義から a : Action と advance s a = some t を得る。[選言の導入・除去規則](../LVT2-02/index.md#def-lvt2-02-or) により Good s を三場合に分け、さらに a を二場合に分ける。
+初期条件は Good 0 の第一の選言 0 = 0 で成立する。任意の s,t : Nat で Good s と Step s t を仮定する。[二単位カウンタの遷移関係](#def-lvt3-05-step) から a : Action と advance s a = some t を得る。[選言の導入・除去規則](../LVT2-02/index.md#def-lvt2-02-or) により Good s を三場合に分け、さらに a を二場合に分ける。
 
 - s = 0、a = up：advance 0 up = some 2。some 2 = some t の構成子の引数が等しいので t = 2、Good t の第二の選言が成立。
 - s = 0、a = down：advance 0 down = none。none = some t は異なる構成子の等式で矛盾。
