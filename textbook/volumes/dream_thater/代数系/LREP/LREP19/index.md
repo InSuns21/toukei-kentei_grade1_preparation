@@ -14,9 +14,9 @@ $$
 
 とします。光速と換算Planck定数を $c=\hbar=1$ に取り、質量 $m\ge0$ は実定数とします。
 
-$\partial_\mu$ は $x^\mu$ での偏微分、$\partial_0=\partial_t$ です。ギリシャ文字の添字は $0,1,2,3$、空間添字 $j$ は $1,2,3$ を走り、和を明記します。
+$x^0=t$ と書き、$\eta^{\mu\nu}$ は逆計量行列 $\eta^{-1}=\eta$ の成分とします。$\partial_\mu$ は他の三座標を固定した $x^\mu$ での偏微分、$\partial_0=\partial_t$ です。ギリシャ文字の添字は $0,1,2,3$、空間添字 $j$ は $1,2,3$ を走り、和を明記します。
 
-場とは各点に値を割り当てる関数です。ここでは [Diracスピノル](../LREP16/index.md#def-lrep16-dirac) を値とする、少なくとも二階連続微分可能な関数 $\psi:\mathbb R^4\to\mathbb C^4$ を考えます。列の成分は普通の複素数です。
+場とは各点に値を割り当てる関数です。ここでは [Diracスピノル](../LREP16/index.md#def-lrep16-dirac) を値とする、関数 $\psi:\mathbb R^4\to\mathbb C^4$ を考えます。既習のWeyl基底で上下二成分ずつを並べた列を用い、各成分は普通の複素数とします。作用素と共変性・電流保存には一階連続微分可能性で十分で、二階の因数分解では二階連続微分可能性を仮定します。
 
 [自由Klein–Gordon方程式の波動演算子](../../../物理系/QFT/QFT1/index.md#def-qft1-klein-gordon)をスカラー成分に対して
 
@@ -35,7 +35,7 @@ $$
 
 空間一定の場合にも $\partial_t^2 f=-m^2 f$ となり、一般には初期値と初期時間微分の二つが必要です。四成分を組み合わせることで、これを一階の式に因数分解できないでしょうか。
 
-[LREP15のガンマ行列](../LREP15/index.md#def-lrep15-gamma)は基底の番号を添字に持ちます。[ベクトル成分用行列の変換則](../LREP17/index.md#prop-lrep17-vector-matrices)で導入した成分用の行列をそのまま用います。$I=I_2$、$I_4$ は四次単位行列、$\sigma_j$ は [Pauli行列](../LREP5/index.md#def-lrep5-pauli-model) です。
+[LREP15のガンマ行列](../LREP15/index.md#def-lrep15-gamma)は基底の番号を添字に持ちます。[ベクトル成分用行列の変換則](../LREP17/index.md#prop-lrep17-vector-matrices)で導入した成分用の行列をそのまま用います。$I=I_2$ は二次単位行列、$I_4$ は四次単位行列、$\sigma_j$ は [Pauli行列](../LREP5/index.md#def-lrep5-pauli-model) です。
 
 $$
 G^0=-i\gamma^0=\begin{pmatrix}0&-iI\\iI&0\end{pmatrix},
@@ -46,9 +46,17 @@ $$
 G^\mu G^\nu+G^\nu G^\mu=-2\eta^{\mu\nu}I_4.
 $$
 
-特に $(G^0)^2=I_4$、$(G^j)^2=-I_4$ です。元の $\gamma^\mu$ の反交換関係とは符号が異なります。微分と行列を組み合わせるとき、時空の添字を下に持つ微分と上に持つ $G^\mu$ を組み合わせます。
+ここで $G^\mu=i\sum_\nu\eta^{\mu\nu}\gamma^\nu$ です。[ガンマ行列の反交換関係](../LREP15/index.md#def-lrep15-gamma)にこの表示を代入すると、時刻方向・空間方向をまとめて
 
-ここで構成する微分作用素は、関数そのものと一階偏微分から新しい関数を作る写像です。各偏微分に固定行列を掛け、質量の定数倍を引くので、微分の最高次数は一階になります。
+$$
+G^\mu G^\nu+G^\nu G^\mu
+=-2\sum_{a,b}\eta^{\mu a}\eta^{\nu b}\eta^{ab}I_4
+=-2\eta^{\mu\nu}I_4.
+$$
+
+最後の等号は対角行列 $\eta$ の成分が $0,1,-1$ で、$\eta^2=I_4$ であることによります。特に $(G^0)^2=I_4$、$(G^j)^2=-I_4$ です。元の $\gamma^\mu$ の反交換関係とは符号が異なります。微分と行列を組み合わせるとき、時空の添字を下に持つ微分と上に持つ $G^\mu$ を組み合わせます。
+
+ここで構成する微分作用素は、関数そのものと一階偏微分から新しい関数を作る写像です。各偏微分を四成分ごとに取って固定行列を左から掛け、元の列の質量倍を引くので、微分の最高次数は一階になります。ここで「自由」とは外部場との相互作用項がないことです。
 
 <a id="def-lrep19-dirac-operator"></a>
 
@@ -64,7 +72,11 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep19-dirac-operator -->
-**定義の確認**。 $e_k$ は $\mathbb C^4$ の標準基底、$v=e_1+ie_3$ とします。$G^0e_1=ie_3$、$G^0e_3=-ie_1$ なので $G^0v=ie_3+i(-ie_1)=v$ です。空間座標を $\boldsymbol x=(x^1,x^2,x^3)$ と書きます。$\psi(t,\boldsymbol x)=e^{-imt}v$ とすると、$\partial_t\psi=-im\psi$、$\partial_j\psi=0$ です。従って
+**定義の確認**。 $e_k$（$k=1,2,3,4$）はWeyl基底での $\mathbb C^4$ の標準座標列とし、$v=e_1+ie_3$ とします。時間だけに依存する候補では空間微分が消え、時間微分が $-im$ 倍なら方程式は $m(G^0-I_4)\psi=0$ に帰着します。そこで $G^0$ の第1列と第3列を読み、$G^0e_1=ie_3$、$G^0e_3=-ie_1$ を得ます。
+
+$$
+G^0v=ie_3+i(-ie_1)=v.
+$$空間座標を $\boldsymbol x=(x^1,x^2,x^3)$ と書きます。$\psi(t,\boldsymbol x)=e^{-imt}v$ とすると、$\partial_t\psi=-im\psi$、$\partial_j\psi=0$ です。従って
 
 $$
 D_m\psi=iG^0(-im\psi)-m\psi=m(G^0-I_4)\psi=0.
@@ -75,7 +87,7 @@ $$
 
 ## 2. Lorentz変換後にも同じ方程式
 
-[Lorentz群と単位元成分](../LREP9/index.md#def-lrep9-lorentz-group) で学んだ適正・時間向き保存Lorentz変換 $\Lambda$ は $\Lambda^{\mathsf T}\eta\Lambda=\eta$ を満たします。[Spin群とLorentz二重被覆](../LREP15/index.md#thm-lrep15-spin-cover) に対応する定数行列 $S=S(A)$ を選びます。
+[Lorentz群と単位元成分](../LREP9/index.md#def-lrep9-lorentz-group) で学んだ適正・時間向き保存Lorentz変換 $\Lambda$ は $\Lambda^{\mathsf T}\eta\Lambda=\eta$ を満たします。[Spin群とLorentz二重被覆](../LREP15/index.md#thm-lrep15-spin-cover) に対応する定数行列 $S=S(A)$（$A\in SL(2,\mathbb C)$ は $\Lambda$ の持ち上げの一つ）を選びます。
 
 点 $x'=\Lambda x$ に元の点 $x$ のスピノルを変換して配置します。変換された場は、同じ数値の座標で比較するのでなく
 
@@ -83,13 +95,13 @@ $$
 \psi'(x')=S\psi(\Lambda^{-1}x')
 $$
 
-と定めます。共変とは、この変換をした後も方程式が同じ形を保つことです。右辺の関数の引数と、値に掛ける行列の両方が変わる点が重要です。
+と定めます。ここでプライムは微分ではなく変換後の座標・場を表します。$\partial'_\mu=\partial/\partial x'^\mu$ は他の変換後の座標を固定した偏微分です。共変とは、この変換をした後も方程式が同じ形を保つことです。右辺の関数の引数と、値に掛ける行列の両方が変わる点が重要です。
 
 <a id="thm-lrep19-dirac-covariance"></a>
 
 <!-- formal-statement-start -->
 > **定理（自由Dirac方程式のLorentz共変性）**  
-> 任意の一階連続微分可能な四成分関数 $\psi$、実定数 $m\ge0$、適正・時間向き保存Lorentz変換 $\Lambda$ とそのSpin持ち上げ $S$ に対し、$x'=\Lambda x$、$\psi'(x')=S\psi(x)$ と置く。このとき
+> 任意の一階連続微分可能な関数 $\psi:\mathbb R^4\to\mathbb C^4$、実定数 $m\ge0$、適正・時間向き保存Lorentz変換 $\Lambda$ とそのSpin持ち上げ $S$ に対し、$x'=\Lambda x$、$\psi'(x')=S\psi(x)$ と置く。このとき
 
 $$
 (D_m'\psi')(x')=S(D_m\psi)(x),
@@ -104,7 +116,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$x^\nu=\sum_\mu(\Lambda^{-1})^\nu{}_\mu x'^\mu$ であり、連鎖律を各成分に適用すると
+$x^\nu=\sum_\mu(\Lambda^{-1})^\nu{}_\mu x'^\mu$ です。$S$ は座標に依存しないので、連鎖律を各成分に適用すると
+
+$$
+\frac{\partial x^\nu}{\partial x'^\mu}=(\Lambda^{-1})^\nu{}_\mu,\qquad
+\partial'_\mu\psi'=S\sum_\nu
+\frac{\partial x^\nu}{\partial x'^\mu}\partial_\nu\psi.
+$$
+
+従って
 
 $$
 \partial'_\mu\psi'(x')
@@ -129,7 +149,7 @@ $$
 
 ## 3. 一階の式を因数分解の形で確かめる
 
-$L=i\sum_\mu G^\mu\partial_\mu$ と略します。一階作用素を二回作用させると、異なる方向の偏微分が混ざります。偏微分が交換できれば、反交換子を使って混合項を消せます。
+[自由Dirac作用素](#def-lrep19-dirac-operator) の微分部分を $L=i\sum_\mu G^\mu\partial_\mu$ と略します。一階作用素を二回作用させると、異なる方向の偏微分が混ざります。偏微分が交換できれば、反交換子を使って混合項を消せます。
 
 <a id="prop-lrep19-dirac-factorization"></a>
 
@@ -171,7 +191,11 @@ $$
 [自由Dirac作用素](#def-lrep19-dirac-operator) を $\psi$ に作用させた値 $D_m\psi$ が零なら左辺も零です。全体に負号を掛ければ $(-\Box_\eta+m^2)\psi=0$ となります。$\square$
 <!-- proof-end -->
 
-逆は一般に成立しません。例えば $m>0$、$w=e_1-ie_3$ は $G^0w=-w$ を満たし、$\psi=e^{-imt}w$ は二階の方程式を満たします。しかし $D_m\psi=m(G^0-I_4)\psi=-2m\psi$ です。二階方程式だけでは、時間微分とスピノル成分の結び付きが失われます。
+逆は一般に成立しません。例えば $m>0$、$w=e_1-ie_3$ では $G^0w=ie_3-e_1=-w$ です。$\psi=e^{-imt}w$ は空間一定で $\partial_t^2\psi=-m^2\psi$ なので二階の方程式を満たします。しかし
+
+$$
+D_m\psi=m(G^0-I_4)\psi=-2m\psi\ne0.
+$$二階方程式だけでは、時間微分とスピノル成分の結び付きが失われます。
 
 ## 4. 随伴の方程式と保存電流
 
@@ -181,7 +205,7 @@ $$
 H=G^0,\qquad H^\dagger=H,\qquad H^2=I_4
 $$
 
-を満たします。$G^j$ は反Hermitian、$H$ と反交換するため
+を満たします（[Dirac随伴の変換則](../LREP17/index.md#prop-lrep17-adjoint-covariance)）。$G^j$ はブロック表示とPauli行列のHermitian性から $(G^j)^\dagger=-G^j$（反Hermitian）であり、第1節の反交換関係から $HG^j=-G^jH$ です。従って
 
 $$
 (G^0)^\dagger H=HG^0,\qquad
@@ -215,7 +239,13 @@ $$
 -m\psi^\dagger=0.
 $$
 
-$m$ が実数であることを使いました。右から $H$ を掛け、$(G^\mu)^\dagger H=HG^\mu$ を代入します。$H$ は定数なので $(\partial_\mu\psi^\dagger)H=\partial_\mu\bar\psi$。最後に全体を $-1$ 倍して結論を得ます。共役転置も $H$ の右乗算も可逆なので逆向きも成立します。$\square$
+$m$ が実数であることを使いました。実座標の偏微分は成分ごとの複素共役と交換します。右から $H$ を掛け、$(G^\mu)^\dagger H=HG^\mu$ を代入すると
+
+$$
+-i\sum_\mu(\partial_\mu\psi^\dagger)HG^\mu-m\psi^\dagger H=0.
+$$
+
+$H$ は定数なので $(\partial_\mu\psi^\dagger)H=\partial_\mu\bar\psi$ です。最後に全体を $-1$ 倍して結論を得ます。共役転置も $H$ の右乗算も可逆なので逆向きも成立します。$\square$
 <!-- proof-end -->
 
 [Dirac随伴の変換則](../LREP17/index.md#prop-lrep17-adjoint-covariance) より $\bar\psi'(x')=\bar\psi(x)S^{-1}$。[自由Dirac方程式のLorentz共変性](#thm-lrep19-dirac-covariance) と [随伴方程式](#prop-lrep19-adjoint-equation) との同値性から、行の式も変換後に成立します。質量項の符号が反対なのは、共役転置で微分項の $i$ が反転したためです。
@@ -226,7 +256,7 @@ $m$ が実数であることを使いました。右から $H$ を掛け、$(G^\
 
 <!-- formal-statement-start -->
 > **定義（自由Dirac場の電流）**  
-> 四成分複素関数 $\psi$ とその随伴 $\bar\psi$ に対し、四成分関数 $j$ を
+> 四成分複素関数 $\psi:\mathbb R^4\to\mathbb C^4$ とそのDirac随伴 $\bar\psi=\psi^\dagger H$ に対し、四成分関数 $j$ を
 
 $$
 j^\mu(x)=\bar\psi(x)G^\mu\psi(x)
@@ -236,7 +266,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep19-current -->
-**定義の確認**。 第1節の解 $\psi=e^{-imt}v$ では $v=e_1+ie_3$、$\bar\psi=e^{imt}v^\dagger H=e^{imt}v^\dagger$ です。従って $j^0=v^\dagger v=2$。空間成分は $HG^j=-G^jH$ を使うと
+**定義の確認**。 第1節の解 $\psi=e^{-imt}v$ では $v=e_1+ie_3$、$\bar\psi=e^{imt}v^\dagger H=e^{imt}v^\dagger$ です。電流の定義は行・行列・列の積なので各 $\mu$ について一つの複素数を与えます。指数の位相は互いに消え、時間成分では $G^0=H$、$Hv=v$ から
+
+$$
+j^0=v^\dagger Hv=v^\dagger v=1+|i|^2=2.
+$$
+
+空間成分は $j^j=v^\dagger G^jv$ です。$H^\dagger=H$ と $Hv=v$ から $v^\dagger H=v^\dagger$ であり、$HG^j=-G^jH$ を使うと
 
 $$
 v^\dagger G^jv=v^\dagger HG^jHv=-v^\dagger G^jv
@@ -290,7 +326,17 @@ $$
 です。和は零です。$\square$
 <!-- proof-end -->
 
-これは局所的な連続の式です。有限の箱 $[-R,R]^3$ で密度を積分して時間微分すると、連続な偏微分を持つので微分を積分内に移せます。各空間方向を一変数の微積分の基本定理で積分すると、その方向の両面の流出の差が現れます。例えば第一方向からの寄与は
+これは局所的な連続の式です。$R>0$ を固定し、有限の箱 $[-R,R]^3$ の密度の積分を $Q_R(t)$ とします。積分領域が固定され、時間偏微分がコンパクトな箱と有限の時間区間で連続なので、微分を積分内に移せます。[自由Dirac電流の保存](#thm-lrep19-current-conservation) を代入すると
+
+$$
+\begin{aligned}
+\frac{dQ_R}{dt}
+&=\int_{[-R,R]^3}\partial_t\rho(t,\boldsymbol x)\,d^3x\\
+&=-\sum_{j=1}^3\int_{[-R,R]^3}\partial_j j^j(t,\boldsymbol x)\,d^3x.
+\end{aligned}
+$$
+
+ここで $d^3x=dx^1dx^2dx^3$ で、$Q_R$ は時間だけの関数なので通常の微分 $d/dt$ を用います。各空間方向を一変数の微積分の基本定理で積分すると、その方向の両面の流出の差が現れます。例えば第一方向からの寄与は
 
 $$
 -\int_{-R}^R\int_{-R}^R
@@ -317,7 +363,7 @@ $$
 =\begin{pmatrix}\sigma_j&0\\0&-\sigma_j\end{pmatrix}.
 $$
 
-Pauli行列はHermitianなので $\alpha^j$ もHermitianであり、$H$ もHermitianです。左・右の二成分を $\psi=(u,r)^{\mathsf T}$ と書けば
+Pauli行列はHermitianなので $\alpha^j$ もHermitianであり、$H$ もHermitianです。[DiracスピノルのWeyl基底表示](../LREP16/index.md#def-lrep16-dirac)に従い、左・右の二成分列 $u,r$ を $\psi=\binom{u}{r}$ と並べます。時間発展式の上下二ブロックを比較すれば
 
 $$
 \begin{aligned}
@@ -341,7 +387,7 @@ $m=0$ なら左右は独立に時間発展します。$m>0$ では互いの成�
 $m>0$、$w=e_2-ie_4$ とする。$\psi=e^{imt}w$ が自由Dirac方程式の解か確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $G^0$ の上ブロックは $-iI$、下ブロックは $iI$ なので $G^0w=ie_4+(-i)(-ie_2)=-w$。空間微分は零で $\partial_t\psi=im\psi$ です。[自由Dirac作用素](#def-lrep19-dirac-operator) に代入すると
+**詳細解答。** $G^0$ の右上ブロックは $-iI$、左下ブロックは $iI$ なので、$G^0e_2=ie_4$、$G^0e_4=-ie_2$ です。従って $G^0w=ie_4+(-i)(-ie_2)=-w$。空間微分は零で $\partial_t\psi=im\psi$ です。[自由Dirac作用素](#def-lrep19-dirac-operator) に代入すると
 
 $$
 D_m\psi=-mG^0\psi-m\psi=0.
@@ -367,7 +413,7 @@ L^2f=-(G^0)^2\partial_t^2f
 -(G^1)^2\partial_1^2f.
 $$
 
-第1節で確認した $G^\mu$ の反交換関係から順に $I_4,0,-I_4$ となるため $L^2f=-\partial_t^2f+\partial_1^2f$ です。
+第1節で [ガンマ行列の反交換関係](../LREP15/index.md#def-lrep15-gamma) から導いた $G^\mu$ の関係により、三つの行列係数（先頭の負号を除く）は順に $I_4,0,-I_4$ となるため $L^2f=-\partial_t^2f+\partial_1^2f$ です。
 <!-- solution-end -->
 
 <a id="ex-lrep19-a03"></a>
@@ -400,7 +446,7 @@ $$
 点で $\psi=(1,2,0,0)^{\mathsf T}$ のとき $j^\mu$ を全て求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [自由Dirac場の電流](#def-lrep19-current) より $\rho=1^2+2^2=5$。$\alpha^j=HG^j$ の上ブロックは $\sigma_j$ なので $u=(1,2)^{\mathsf T}$ に対して
+**詳細解答。** [自由Dirac場の電流](#def-lrep19-current) より $\rho=1^2+2^2=5$。電流の空間成分は $j^j=\psi^\dagger HG^j\psi=\psi^\dagger\alpha^j\psi$ です。第5節の $\alpha^j$ の左上ブロックは $\sigma_j$ なので $u=(1,2)^{\mathsf T}$ に対して
 
 $$
 \sigma_1u=(2,1)^{\mathsf T},\quad
@@ -445,12 +491,23 @@ $$
 - Level: B
 - ID: LREP19-B02
 
-$m=0$ とし、二階連続微分可能な複素関数 $f$ に対して $\psi=f(t-x^3)e_1$ を考える。方程式と電流保存を直接確認せよ。
+$m=0$ とし、二階連続微分可能な関数 $f:\mathbb R\to\mathbb C$ に対して $\psi=f(t-x^3)e_1$ を考える。方程式と電流保存を直接確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $G^0e_1=ie_3=G^3e_1$ です。$\partial_t\psi=f'e_1$、$\partial_3\psi=-f'e_1$、他は零。従って $D_0\psi=if'(G^0-G^3)e_1=0$。
+**詳細解答。** $s=t-x^3$ と置き、$f'(s)=df/ds$ を一変数関数 $f$ の導関数とします。$G^0e_1=ie_3=G^3e_1$ です。$x^3$ を固定すると $\partial_t s=1$、$t$ を固定すると $\partial_3s=-1$ なので、連鎖律より
 
-[自由Dirac場の電流](#def-lrep19-current) は $\rho=|f|^2$、$\alpha^1,\alpha^2$ の上ブロックの対角成分は零、$\alpha^3$ の第一対角成分は1なので $\boldsymbol j=(0,0,|f|^2)$ です。$s=t-x^3$ と置けば
+$$
+\partial_t\psi=f'(s)e_1,\qquad
+\partial_3\psi=-f'(s)e_1.
+$$
+
+他の空間微分は零です。[自由Dirac作用素](#def-lrep19-dirac-operator) に代入すると
+
+$$
+D_0\psi=if'(s)(G^0-G^3)e_1=0.
+$$
+
+[自由Dirac場の電流](#def-lrep19-current) は $\rho=|f|^2$、$\alpha^1,\alpha^2$ の上ブロックの対角成分は零、$\alpha^3$ の第一対角成分は1なので $\boldsymbol j=(0,0,|f|^2)$ です。以下の $^*$ は複素共役です。積の微分と上の連鎖律から
 
 $$
 \partial_t|f(s)|^2=f'(s)^*f(s)+f(s)^*f'(s),
@@ -479,7 +536,7 @@ D_m\psi=(L-mI_4)(L+mI_4)\chi
 =(\Box_\eta-m^2)\chi=0.
 $$
 
-時間だけの関数なので $L\chi=mH\chi$。$H(e_1\pm ie_3)=\pm(e_1\pm ie_3)$ を代入すると、第一の $\psi=2m\chi$、第二の $\psi=0$ です。二階方程式の解から一階方程式の解が得られますが、非零の入力が零へ移る場合もあります。
+時間だけの関数なので $\partial_t\chi=-im\chi$、$\partial_j\chi=0$ であり、$L\chi=iH(-im\chi)=mH\chi$ です。$H(e_1\pm ie_3)=\pm(e_1\pm ie_3)$ を代入すると、第一の $\psi=2m\chi$、第二の $\psi=0$ です。二階方程式の解から一階方程式の解が得られますが、非零の入力が零へ移る場合もあります。
 <!-- solution-end -->
 
 <a id="ex-lrep19-b04"></a>
@@ -491,7 +548,7 @@ $$
 $m\ge0$ は実定数、$\psi$ は一階連続微分可能な自由Dirac方程式の解とする。[電荷共役](../LREP18/index.md#def-lrep18-charge-conjugation) $\psi^c=B\psi^*$ が同じ方程式を満たすことを示せ。
 
 <!-- solution-start -->
-**詳細解答。** [電荷共役行列の恒等式](../LREP18/index.md#prop-lrep18-gamma-transpose) から $B(G^\mu)^*B^{-1}=-G^\mu$ です。元の式を成分ごとに複素共役して
+**詳細解答。** [電荷共役行列の恒等式](../LREP18/index.md#prop-lrep18-gamma-transpose) から $B(G^\mu)^*B^{-1}=-G^\mu$ です。ここで $^*$ は行列や列の成分ごとの複素共役であり、転置を含みません。実座標の偏微分と交換するので、元の式を成分ごとに複素共役して
 
 $$
 -i\sum_\mu(G^\mu)^*\partial_\mu\psi^*-m\psi^*=0.
@@ -583,7 +640,7 @@ $$
 \bar\phi\psi=2e^{i(m_\phi-m_\psi)t}.
 $$
 
-$k^0$ も同じ値で、空間成分は零です。直接微分しても $2i(m_\phi-m_\psi)e^{i(m_\phi-m_\psi)t}$ は異質量なら非零。質量項の相殺に等質量性が必要だったことが分かります。
+$Hv=v$ なので $k^0=\bar\phi H\psi=\bar\phi\psi$ です。空間成分は [自由Dirac場の電流](#def-lrep19-current) の確認例と同じ $v^\dagger G^jv=0$ を使って零です。直接微分しても $2i(m_\phi-m_\psi)e^{i(m_\phi-m_\psi)t}$ は異質量なら非零。質量項の相殺に等質量性が必要だったことが分かります。
 <!-- solution-end -->
 
 ## 7. まとめ
