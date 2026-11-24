@@ -1,0 +1,54 @@
+name: Validate LVT hoare
+on:
+  pull_request:
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT3-08/**'
+      - '.github/workflows/validate-lvt-hoare.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT3-08/**'
+      - '.github/workflows/validate-lvt-hoare.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lean-hoare:
+    name: Lean hoare specification
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          lake-package-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT3-08/lab'
+          auto-config: 'false'
+          build: 'true'
+          test: 'true'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - name: Check proofs, axiom dependencies and expected failure
+        working-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT3-08/lab'
+        shell: bash
+        run: |
+          lean --version | grep -F 'version 4.35.0'
+          lake env lean Inspect.lean | tee inspect.log
+          lake exe lvtHoareDemo | grep -Fx 'LVT3-08 OK'
+          lake env lean ExerciseSolutions.lean | tee exercises.log
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          allowed = {'propext', 'Classical.choice', 'Quot.sound'}
+          for name, count in [('inspect.log', 7), ('exercises.log', 8)]:
+              output = Path(name).read_text()
+              entries = re.findall(r"depends on axioms:\s*\[([^\]]*)\]", output)
+              empty = len(re.findall(r"does not depend on any axioms", output))
+              assert len(entries) + empty == count, (name, output)
+              for entry in entries:
+                  assert set(x.strip() for x in entry.split(',') if x.strip()) <= allowed, entry
+          PY
+          if lake env lean Failure.lean > failure.log 2>&1; then
+            echo 'Invalid proof unexpectedly accepted'
+            exit 1
+          fi
+          cat failure.log
+          grep -Ei 'rfl|not definitionally equal|type mismatch' failure.log

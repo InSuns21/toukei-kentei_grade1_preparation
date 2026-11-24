@@ -22,3 +22,4 @@
 19. [LVT3-05 状態遷移系・到達可能性・不変量](textbook/volumes/dream_thater/計算系/LVT/LVT3-05/index.md)
 20. [LVT3-06 ゲーム規則の安全性](textbook/volumes/dream_thater/計算系/LVT/LVT3-06/index.md)
 21. [LVT3-07 抽象仕様・詳細化・モデルとの対応](textbook/volumes/dream_thater/計算系/LVT/LVT3-07/index.md)
+22. [LVT3-08 Hoare論理・最弱事前条件・vcgen](textbook/volumes/dream_thater/計算系/LVT/LVT3-08/index.md)

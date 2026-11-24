@@ -1,0 +1,27 @@
+id: "LVT3-08"
+title: "Hoare論理・最弱事前条件・vcgen"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT3-07]
+official_scope: []
+learning_objectives:
+  - 全域的な命令のHoare三つ組と最弱事前条件の意味を説明し条件を逆算する
+  - 逐次実行と分岐の条件を導出する
+  - 有限走査の初期化・保存・終了条件を導出し停止性を区別する
+  - 加算ループの正当性を紙上および固定版Leanのvcgenで証明する
+definitions:
+  - { id: LVT3-08-DEF-01, name: "Hoare三つ組" }
+  - { id: LVT3-08-DEF-02, name: "最弱事前条件" }
+  - { id: LVT3-08-DEF-03, name: "有限走査のループ不変量と検証条件" }
+propositions:
+  - { id: LVT3-08-PROP-01, name: "最弱事前条件の特徴付け" }
+  - { id: LVT3-08-PROP-02, name: "逐次実行と分岐の逆向き計算" }
+  - { id: LVT3-08-PROP-03, name: "有限走査の検証条件の十分性" }
+  - { id: LVT3-08-PROP-04, name: "配列の加算ループの正当性" }
+theorems: []
+canonical_examples: ["自然数の加算と逆算", "条件分岐", "有限配列の加算", "余分な1を加える変異"]
+problem_patterns: [LVT3-08-A01, LVT3-08-A02, LVT3-08-A03, LVT3-08-A04, LVT3-08-B01, LVT3-08-B02, LVT3-08-B03, LVT3-08-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 3, review: 1 }
