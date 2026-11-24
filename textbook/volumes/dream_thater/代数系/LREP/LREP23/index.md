@@ -4,7 +4,9 @@
 
 [未来円錐のLorentz軌道](../LREP22/index.md#thm-lrep22-orbits)では、質量が正の運動量を静止運動量へ移せました。しかし静止系に移した後にも、空間の座標軸を回す自由があります。この残った自由を群として取り出すと、粒子の内部自由度であるスピンを記述できます。さらに、異なる運動量を持つ静止系同士の回転を比較するための公式を作ります。
 
-[共通の符号規約](../../../../../dream-theater-lorentz-conventions.md)に従い、$c=\hbar=1$、$\eta=\operatorname{diag}(-1,1,1,1)$ とします。$m>0$ を固定し、[未来質量殻](../LREP22/index.md#def-lrep22-mass-shell)の点を $p=(E,\boldsymbol q)$、$E=\sqrt{m^2+|\boldsymbol q|^2}$、静止点を $k=(m,0,0,0)$ と書きます。変換は能動作用で、右側の行列から先に作用させます。
+[共通の符号規約](../../../../../dream-theater-lorentz-conventions.md)に従い、$c=\hbar=1$、$\eta=\operatorname{diag}(-1,1,1,1)$ とします。
+
+$m>0$ を固定し、[未来質量殻](../LREP22/index.md#def-lrep22-mass-shell)の点を $p=(E,\boldsymbol q)$、$E=\sqrt{m^2+|\boldsymbol q|^2}$、静止点を $k=(m,0,0,0)$ と書きます。変換は能動作用で、右側の行列から先に作用させます。
 
 ## 1. 運動量を変えない変換
 
@@ -40,7 +42,9 @@ R_z(\theta)=\begin{pmatrix}
 \end{pmatrix}
 $$
 
-は $R_z^{\mathsf T}R_z=I_3$、$\det R_z=\cos^2\theta+\sin^2\theta=1$ を満たします。$\operatorname{diag}(1,R_z)$ は $\eta$ を保存し、角度を零から連続的に変えれば恒等元に接続でき、さらに $k$ を固定します。従って $G_k$ の元です。対してラピディティ $\chi\ne0$ の $z$ 方向boostは $k$ を $(m\cosh\chi,0,0,m\sinh\chi)$ へ移すので $G_k$ の元ではありません。
+は $R_z^{\mathsf T}R_z=I_3$、$\det R_z=\cos^2\theta+\sin^2\theta=1$ を満たします。$\operatorname{diag}(1,R_z)$ は $\eta$ を保存し、角度を零から連続的に変えれば恒等元に接続でき、さらに $k$ を固定します。従って $G_k$ の元です。
+
+対してラピディティ $\chi\ne0$ の $z$ 方向boostは $k$ を $(m\cosh\chi,0,0,m\sinh\chi)$ へ移すので $G_k$ の元ではありません。
 
 被覆側では $A=\operatorname{diag}(e^{-i\theta/2},e^{i\theta/2})$ は行列式1、$AA^\dagger=I_2$ です。[四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action)で $H(k)=mI_2$ へ作用させると $A(mI_2)A^\dagger=mI_2$ となり、$\widetilde G_k$ に属します。
 <!-- definition-example-end -->
@@ -74,7 +78,11 @@ $$
 =\eta(e_0,v)=0.
 $$
 
-左辺は $-(\Lambda v)^0$ なので空間部分が保存されます。第一列は $e_0$、残り三列の時間成分は零だから $\Lambda=\operatorname{diag}(1,R)$ です。$\Lambda^{\mathsf T}\eta\Lambda=\eta$ にこの形を代入すると $R^{\mathsf T}R=I_3$。さらに $1=\det\Lambda=\det R$ なので $R\in SO(3)$ です。逆に任意の $R\in SO(3)$ の埋め込みは計量・行列式・未来方向を保ち、$k$ を固定します。
+左辺は $-(\Lambda v)^0$ なので空間部分が保存されます。第一列は $e_0$、残り三列の時間成分は零だから $\Lambda=\operatorname{diag}(1,R)$ です。
+
+$\Lambda^{\mathsf T}\eta\Lambda=\eta$ にこの形を代入すると $R^{\mathsf T}R=I_3$。さらに $1=\det\Lambda=\det R$ なので $R\in SO(3)$ です。
+
+逆に任意の $R\in SO(3)$ の埋め込みは計量・行列式・未来方向を保ち、$k$ を固定します。
 
 被覆側では [エルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model) により $H(k)=mI_2$ です。[四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action) と $H$ の単射性から
 
@@ -84,16 +92,22 @@ $$
 \ \Longleftrightarrow\ AA^\dagger=I_2 .
 $$
 
-$A\in SL(2,\mathbb C)$ には既に $\det A=1$ が課されているので、最後の条件は $A\in SU(2)$ と同値です。空間成分への合同作用は [共役による三次元作用](../LREP5/index.md#def-lrep5-conjugation-map) と一致します（$A^\dagger=A^{-1}$）。従って [SU(2)からSO(3)への二重被覆](../LREP5/index.md#thm-lrep5-double-cover) がその制限を与えます。$\square$
+$A\in SL(2,\mathbb C)$ には既に $\det A=1$ が課されているので、最後の条件は $A\in SU(2)$ と同値です。
+
+空間成分への合同作用は [共役による三次元作用](../LREP5/index.md#def-lrep5-conjugation-map) と一致します（$A^\dagger=A^{-1}$）。従って [SU(2)からSO(3)への二重被覆](../LREP5/index.md#thm-lrep5-double-cover) がその制限を与えます。$\square$
 <!-- proof-end -->
 
 正質量という仮定は最初の $m$ による除算で使われています。$m=0$ なら $k=0$ はすべての群元で固定されるので、非零の光的運動量を調べるためには別の標準点が必要です。
 
 ## 2. 静止運動量から一般運動量へ移す標準boost
 
-各 $p$ に対して $k$ を $p$ へ移す変換を一つ選びます。このような選択は一意ではありません。例えば先に静止点を回転させてからboostしても同じ $p$ に到達します。ここでは回転を付け加えない選択を、被覆群の正定値エルミート行列で具体的に構成します。
+各 $p$ に対して $k$ を $p$ へ移す変換を一つ選びます。このような選択は一意ではありません。
 
-[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product) から、$S=\sum_{i=1}^3 q_i\sigma_i$ は $S^\dagger=S$、$S^2=|\boldsymbol q|^2I_2$、$\operatorname{tr}S=0$ を満たします。従って $S$ の固有値は $\pm|\boldsymbol q|$（$\boldsymbol q=0$ では両方零）です。$H(p)=EI_2+S$ の固有値は $E\pm|\boldsymbol q|>0$ です。
+例えば先に静止点を回転させてからboostしても同じ $p$ に到達します。ここでは回転を付け加えない選択を、被覆群の正定値エルミート行列で具体的に構成します。
+
+[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product) から、$S=\sum_{i=1}^3 q_i\sigma_i$ は $S^\dagger=S$、$S^2=|\boldsymbol q|^2I_2$、$\operatorname{tr}S=0$ を満たします。
+
+従って $S$ の固有値は $\pm|\boldsymbol q|$（$\boldsymbol q=0$ では両方零）です。$H(p)=EI_2+S$ の固有値は $E\pm|\boldsymbol q|>0$ です。
 
 <a id="def-lrep23-standard-boost"></a>
 
@@ -165,9 +179,13 @@ mb(p)^2
 =\frac{((E+m)^2+|\boldsymbol q|^2)I_2+2(E+m)S}{2(E+m)}.
 $$
 
-$|\boldsymbol q|^2=E^2-m^2$ により単位行列の係数の分子は $2E(E+m)$ です。従って $mb(p)^2=EI_2+S=H(p)$ となります。$b(p)^\dagger=b(p)$、$H(k)=mI_2$ なので合同条件が成立します。[四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action) の定義から $H(L(p)k)=H(p)$。単射性により $L(p)k=p$ です。
+$|\boldsymbol q|^2=E^2-m^2$ により単位行列の係数の分子は $2E(E+m)$ です。従って $mb(p)^2=EI_2+S=H(p)$ となります。
 
-別の正定値エルミート行列 $T$ が同じ合同条件を満たすなら $T^2=H(p)/m$ です。$T$ は $T^2$ と可換なので $H(p)$ の各固有空間を保存します。固有値 $\lambda>0$ の空間に制限すると $T^2=(\lambda/m)I$。その空間上でエルミートな $T$ の固有値は正であり、二乗が $\lambda/m$ だからすべて $\sqrt{\lambda/m}$ です。従って各固有空間上の $T$ はその定数倍の恒等作用となり、一意に決まります。
+$b(p)^\dagger=b(p)$、$H(k)=mI_2$ なので合同条件が成立します。[四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action) の定義から $H(L(p)k)=H(p)$。単射性により $L(p)k=p$ です。
+
+別の正定値エルミート行列 $T$ が同じ合同条件を満たすなら $T^2=H(p)/m$ です。$T$ は $T^2$ と可換なので $H(p)$ の各固有空間を保存します。
+
+固有値 $\lambda>0$ の空間に制限すると $T^2=(\lambda/m)I$。その空間上でエルミートな $T$ の固有値は正であり、二乗が $\lambda/m$ だからすべて $\sqrt{\lambda/m}$ です。従って各固有空間上の $T$ はその定数倍の恒等作用となり、一意に決まります。
 
 $E=\sqrt{m^2+|\boldsymbol q|^2}$ は全 $\mathbb R^3$ で滑らかで、分母も零にならないので $b(p)$ は滑らかです。$\square$
 <!-- proof-end -->
@@ -212,7 +230,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep23-wigner-rotation -->
-**定義の確認。** $p=k$ とし、$A=\operatorname{diag}(e^{-i\theta/2},e^{i\theta/2})$ を選びます。この $A$ は行列式1かつユニタリなので静止点を固定します。$b(k)=I_2$ だから $w(A,k)=A$、四次元側では $W(\pi(A),k)=\operatorname{diag}(1,R_z(\theta))$ です。どちらも静止点を固定し、前者は $SU(2)$、後者は回転部分群の元です。
+**定義の確認。** $p=k$ とし、$A=\operatorname{diag}(e^{-i\theta/2},e^{i\theta/2})$ を選びます。この $A$ は行列式1かつユニタリなので静止点を固定します。
+
+$b(k)=I_2$ だから $w(A,k)=A$、四次元側では $W(\pi(A),k)=\operatorname{diag}(1,R_z(\theta))$ です。どちらも静止点を固定し、前者は $SU(2)$、後者は回転部分群の元です。
 
 また $p=k$、$A=b(p')$（任意の $p'\in\mathcal O_m$）なら $\pi(A)k=p'$。この場合 $w(A,k)=b(p')^{-1}b(p')=I_2$ です。運動量を変える変換そのものと、静止系に戻した回転は同じではありません。
 <!-- definition-example-end -->
@@ -313,7 +333,9 @@ $$
 逆に任意の $r(p)\in SU(2)$ を右から掛けても、$r(p)$ は静止点を固定するので $b'(p)$ は $k$ を $p$ へ送ります。$\square$
 <!-- proof-end -->
 
-これはスピンの基底を運動量ごとに変更したことに対応します。なお $p$ 自身を固定する群も $b(p)$ を用いれば静止固定群に移せます。[正質量の静止安定化群](#thm-lrep23-rest-group) から $A\in\widetilde G_p$ であることは $b(p)^{-1}Ab(p)\in SU(2)$ と同値です。従って $\widetilde G_p=b(p)SU(2)b(p)^{-1}$ です。
+これはスピンの基底を運動量ごとに変更したことに対応します。なお $p$ 自身を固定する群も $b(p)$ を用いれば静止固定群に移せます。
+
+[正質量の静止安定化群](#thm-lrep23-rest-group) から $A\in\widetilde G_p$ であることは $b(p)^{-1}Ab(p)\in SU(2)$ と同値です。従って $\widetilde G_p=b(p)SU(2)b(p)^{-1}$ です。
 
 ## 4. スピンの内部自由度
 
@@ -339,7 +361,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[正質量の静止安定化群](#thm-lrep23-rest-group) から $D$ は $SU(2)$ の表現です。[群表現と微分表現の既約性・同値性](../LREP6/index.md#prop-lrep6-group-lie-equivalence) により一意な整数 $n\ge0$ に対して $D_n$ と同値です。[多項式模型の既約性と群への積分](../LREP6/index.md#thm-lrep6-polynomial-model) で空間次元は $n+1$。$j=n/2$ と置くと $2j+1$ です。[回転群への降下と次元の偶奇](../LREP6/index.md#thm-lrep6-descent) により $D_n(-I_2)=(-1)^nI$ で、降下の必要十分条件は $n$ が偶数です。同値な表現でも定数倍の恒等作用は変わらないため、同じ結論が成り立ちます。
+[正質量の静止安定化群](#thm-lrep23-rest-group) から $D$ は $SU(2)$ の表現です。[群表現と微分表現の既約性・同値性](../LREP6/index.md#prop-lrep6-group-lie-equivalence) により一意な整数 $n\ge0$ に対して $D_n$ と同値です。
+
+[多項式模型の既約性と群への積分](../LREP6/index.md#thm-lrep6-polynomial-model) で空間次元は $n+1$。$j=n/2$ と置くと $2j+1$ です。
+
+[回転群への降下と次元の偶奇](../LREP6/index.md#thm-lrep6-descent) により $D_n(-I_2)=(-1)^nI$ で、降下の必要十分条件は $n$ が偶数です。同値な表現でも定数倍の恒等作用は変わらないため、同じ結論が成り立ちます。
 
 [Wigner回転の合成則](#thm-lrep23-wigner-cocycle) によれば $w(A,p)\in SU(2)$ です。$D$ がユニタリ表現なので $D(w(A,p))$ は内積を保存し、$D(UV)=D(U)D(V)$ を合成則の両辺に適用すると
 
@@ -351,7 +377,13 @@ $$
 となります。$\square$
 <!-- proof-end -->
 
-例えば $j=0$ は一成分、$j=1/2$ は二成分、$j=1$ は三成分です。磁気量子数は [有限次元スピンの量子化と昇降公式](../LREP7/index.md#thm-lrep7-spin-spectrum) により $-j,-j+1,\ldots,j$ の $2j+1$ 個です。前講の [正質量の静止系スピン不変量](../LREP22/index.md#prop-lrep22-rest-spin) に現れる $s$ をこの $j$ とすれば、対応する値は $m^2j(j+1)$ となります。ここで数えているのは選んだ既約内部空間の次元であって、連続的な運動量も含めた1粒子Hilbert空間の次元ではありません。後者は次々講で波束を使って構成します。
+例えば $j=0$ は一成分、$j=1/2$ は二成分、$j=1$ は三成分です。
+
+磁気量子数は [有限次元スピンの量子化と昇降公式](../LREP7/index.md#thm-lrep7-spin-spectrum) により $-j,-j+1,\ldots,j$ の $2j+1$ 個です。
+
+前講の [正質量の静止系スピン不変量](../LREP22/index.md#prop-lrep22-rest-spin) に現れる $s$ をこの $j$ とすれば、対応する値は $m^2j(j+1)$ となります。
+
+ここで数えているのは選んだ既約内部空間の次元であって、連続的な運動量も含めた1粒子Hilbert空間の次元ではありません。後者は次々講で波束を使って構成します。
 
 ## 5. 演習
 
@@ -409,7 +441,9 @@ $b(p)$ はエルミートなので合同作用で $k$ を $p$ へ移す。
 $A_\chi=\operatorname{diag}(e^{\chi/2},e^{-\chi/2})$ とし、$p=\pi(A_\alpha)k$ とする。$w(A_\beta,p)$ を任意の実数 $\alpha,\beta$ に対して求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $A_\alpha$ は正定値エルミートで行列式1だから [標準boostの存在と一意性](#thm-lrep23-boost-section) により $b(p)=A_\alpha$。対角成分の積から $A_\beta A_\alpha=A_{\alpha+\beta}$ であり、$\pi(A_\beta)p=\pi(A_{\alpha+\beta})k$。同じ一意性により $b(\pi(A_\beta)p)=A_{\alpha+\beta}$ となる。[Wigner回転](#def-lrep23-wigner-rotation) は
+**詳細解答。** $A_\alpha$ は正定値エルミートで行列式1だから [標準boostの存在と一意性](#thm-lrep23-boost-section) により $b(p)=A_\alpha$。
+
+対角成分の積から $A_\beta A_\alpha=A_{\alpha+\beta}$ であり、$\pi(A_\beta)p=\pi(A_{\alpha+\beta})k$。同じ一意性により $b(\pi(A_\beta)p)=A_{\alpha+\beta}$ となる。[Wigner回転](#def-lrep23-wigner-rotation) は
 
 $$
 w(A_\beta,p)=A_{\alpha+\beta}^{-1}A_\beta A_\alpha=I_2.
@@ -550,7 +584,9 @@ $$
 mX^2=\frac m3(5I_2+4\sigma_1)
 $$
 
-だから $p=m(5/3,4/3,0,0)$。[標準boostの存在と一意性](#thm-lrep23-boost-section) から $X=b(p)$ である。次の $Z$ によるboostは $\cosh\chi=5/3,\sinh\chi=4/3$ の $z$ 方向である。時間成分と第三成分にこの係数を代入し、第一成分を保存するので
+だから $p=m(5/3,4/3,0,0)$。[標準boostの存在と一意性](#thm-lrep23-boost-section) から $X=b(p)$ である。
+
+次の $Z$ によるboostは $\cosh\chi=5/3,\sinh\chi=4/3$ の $z$ 方向である。時間成分と第三成分にこの係数を代入し、第一成分を保存するので
 
 $$
 q=m(25/9,4/3,0,20/9).
