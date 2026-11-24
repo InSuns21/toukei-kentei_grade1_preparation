@@ -1,0 +1,29 @@
+id: "AFR5"
+title: "Eisenstein級数と関数等式"
+volume: "foundations"
+status: supplementary
+prerequisites: [AFR4, CA12]
+official_scope: []
+learning_objectives:
+  - 原始的な整数組による級数の収束と保型性を証明できる
+  - 双曲Laplace作用素の固有方程式とMellin表示を導ける
+  - Gauss積分から定数項と非零Fourier係数を計算できる
+  - 完成形の極の相殺と解析接続を説明できる
+  - 関数等式と中心線上の係数の絶対値を導ける
+definitions:
+  - { id: AFR5-DEF-01, name: "非正則Eisenstein級数" }
+  - { id: AFR5-DEF-02, name: "完成Eisenstein級数" }
+theorems:
+  - { id: AFR5-THM-01, name: "Eisenstein級数の収束と固有方程式" }
+  - { id: AFR5-THM-02, name: "格子和のMellin表示" }
+  - { id: AFR5-THM-03, name: "完成Eisenstein級数のFourier展開" }
+  - { id: AFR5-THM-04, name: "Eisenstein級数の解析接続と関数等式" }
+canonical_examples:
+  - iにおける原始的な格子点の寄与
+  - s=2の完成形と定数項
+  - s=1の留数
+problem_patterns: [AFR5-A1, AFR5-A2, AFR5-A3, AFR5-A4, AFR5-B1, AFR5-B2, AFR5-B3, AFR5-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 3 }
