@@ -8,11 +8,19 @@
 
 以下、$\mathbb H$ は[上半平面](../../MF/MF1/index.md#def-mf1-upper-half-plane)、$\Gamma=SL_2(\mathbb Z)$ は[整数モジュラー群](../../MF/MF1/index.md#def-mf1-modular-group)です。
 
-$u$ は非零の[重さ0のMaassカスプ形式](../AFR3/index.md#def-afr3-maass-cusp)で、全ての[重さ0の素数Hecke作用素](../AFR6/index.md#def-afr6-hecke)の共通固有関数とします。
+$z=x+iy$（$x\in\mathbb R,\ y>0$）と書きます。$u$ は非零の[重さ0のMaassカスプ形式](../AFR3/index.md#def-afr3-maass-cusp)で、全ての[重さ0の素数Hecke作用素](../AFR6/index.md#def-afr6-hecke)の共通固有関数とします。
+
+すなわち各素数 $p$ について同じ関数が固有方程式
+
+$$
+T_pu=\eta_pu
+$$
+
+を満たし、$\eta_p$ はその作用素 $T_p$ の固有値です。
 
 Laplace固有値 $\lambda$ は[エネルギー実現の自己共役性と非負性](../AFR3/index.md#thm-afr3-self-adjoint)から $\lambda\ge0$ です。
 
-$\nu^2=1/4-\lambda$ とします。
+$\nu^2=1/4-\lambda$ とします。二つの平方根のどちらを選んでも、[変形Bessel関数 K](../AFR4/index.md#def-afr4-k-bessel)の積分表示で $\cosh(-\nu v)=\cosh(\nu v)$ なので $K_{-\nu}=K_\nu$ です。$\rho(n)$ は次の展開の整数周波数 $n\ne0$ に対応する係数です。
 
 [Maass形式の非零周波数展開](../AFR4/index.md#thm-afr4-maass-expansion)では
 
@@ -31,9 +39,23 @@ $$
 c(mn)=c(m)c(n)\qquad(\gcd(m,n)=1).
 $$
 
-ここで $\eta_p$ は $T_pu=\eta_pu$ の固有値、$p$ は素数です。漸化式は $r\ge1$ で使います。
+ここで $m,n$ は正整数、$p$ は素数です。$\gcd(m,n)=1$ は互いに素であることを表し、漸化式は整数 $r\ge1$ で使います。
 
-係数を $n^{-s}$ で重み付けして足す形は、[Riemann ζ 関数](../../../解析系/CA/CA12/index.md#def-ca12-riemann-zeta)の係数1を $c(n)$ に取り替えたものです。このような $\sum a_n n^{-s}$ の形の級数をDirichlet級数と呼びます。実部 $\sigma=\Re s$ を大きくするほど大きな添字が抑えられます。
+複素変数を $s=\sigma+i\tau$（$\sigma,\tau\in\mathbb R$）と書きます。正の実数 $a$ の複素べきは
+
+$$
+a^s=\exp(s\log a),\qquad |a^s|=a^\sigma
+$$
+
+です。
+
+係数を $n^{-s}$ で重み付けして足す形は、[Riemann ζ 関数](../../../解析系/CA/CA12/index.md#def-ca12-riemann-zeta)の係数1を $c(n)$ に取り替えたものです。このような級数
+
+$$
+\sum_{n\ge1}a_n n^{-s}
+$$
+
+をDirichlet級数と呼びます。実部 $\sigma=\Re s$ を大きくするほど大きな添字が抑えられます。
 
 ただし、係数の漸化式だけでは無限級数の収束は分かりません。ここでは保型性から係数を評価します。
 
@@ -56,7 +78,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[標準基本領域](../../MF/MF1/index.md#def-mf1-standard-domain)の高さを $Y$ で切った部分は $y\ge\sqrt3/2$ かつ $|x|\le1/2$ の閉有界集合です。
+[標準基本領域](../../MF/MF1/index.md#def-mf1-standard-domain)では $|x|\le1/2$、$x^2+y^2\ge1$ なので $y^2\ge1-x^2\ge3/4$ です。高さを $Y\ge1$ で切った部分は $\sqrt3/2\le y\le Y$ の閉有界集合です。
 
 連続な $u$ はそこで有界です。
 
@@ -86,7 +108,15 @@ $$
 <a id="def-afr7-l-function"></a>
 <!-- formal-statement-start -->
 > **定義（Maass形式の保型L関数）**  
-> $u$ を全モジュラー群の非零の重さ0のMaassカスプ形式で、全素数Hecke作用素の共通固有関数とする。$\rho(\epsilon)\ne0$ となる符号を選び、$c(n)=\rho(\epsilon n)/\rho(\epsilon)$ と置く。$\Re s>3/2$ において
+> $u$ を全モジュラー群の非零の重さ0のMaassカスプ形式で、全素数Hecke作用素の共通固有関数とする。
+>
+> $\rho(n)$ を非零周波数展開の係数とし、$\rho(\epsilon)\ne0$ となる符号 $\epsilon\in\{1,-1\}$ を選ぶ。正整数 $n$ に対して
+
+$$
+c(n)=\frac{\rho(\epsilon n)}{\rho(\epsilon)}
+$$
+
+> と置く。複素数 $s$ の実部が $\Re s>3/2$ を満たすとき
 
 $$
 L(s,u)=\sum_{n=1}^\infty c(n)n^{-s}
@@ -96,7 +126,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr7-l-function -->
-**定義の確認**。実際の任意の非零共通固有カスプ形式を入力とし、$s=2$ とします。非零側の符号は[係数の漸化式](../AFR6/index.md#thm-afr6-joint)の保証で選べます。[係数の多項式評価](#thm-afr7-coefficient-bound)により $\sum |c(n)|n^{-2}\le C_1\sum n^{-3/2}<\infty$ です。最初の四項は
+**定義の確認**。第1節で仮定した非零共通固有カスプ形式を入力とし、$s=2$ とします。個別の固有値の数値を仮定せず、入力条件から級数が定まることを確かめます。
+
+[係数の漸化式](../AFR6/index.md#thm-afr6-joint)の保証で非零側の符号を選べます。$\rho(\epsilon)\ne0$ なので正規化が可能であり、$c(1)=1$ です。$2>3/2$ で、[係数の多項式評価](#thm-afr7-coefficient-bound)を $C_1=C/|\rho(\epsilon)|$ として使うと
+
+$$
+\sum_{n\ge1}|c(n)n^{-2}|
+\le C_1\sum_{n\ge1}n^{-3/2}<\infty.
+$$
+
+従って定義の無限和は収束します。最初の四項を得るには、固有方程式から得た[係数の漸化式](../AFR6/index.md#thm-afr6-joint)で $c(n)$ を求め、各々に $n^{-2}$ を掛けます。
 
 $$
 1+\frac{\eta_2}{4}+\frac{\eta_3}{9}
@@ -106,7 +145,13 @@ $$
 実際 $c(1)=1$、$c(2)=\eta_2$、$c(3)=\eta_3$、$c(4)=\eta_2c(2)-c(1)$ です。残りの絶対値は $C_1\int_4^\infty x^{-3/2}dx=C_1$ 以下であり、無限和は確かに有限値を定めます。
 <!-- definition-example-end -->
 
-反対側の符号も非零なら、その正規化係数は同じ初期値1と同じ素数冪漸化式を持ちます。素因数分解と乗法性から全ての $c(n)$ が一致します。片側が零なら同じ漸化式によりその側は全て零です。従って符号選択で $L$ は変わりません。
+反対側の符号も非零なら、その正規化係数は同じ初期値1と同じ素数冪漸化式を持ちます。素因数分解と乗法性から全ての $c(n)$ が一致します。片側の初期係数が零の場合は、[Maass形式のHecke係数公式](../AFR6/index.md#thm-afr6-coefficient)を固有方程式に適用した
+
+$$
+\rho(pm)=\eta_p\rho(m)-\rho(m/p)
+$$
+
+を使います。整数でない添字の係数を零と約束すると、$|pm|>|m|$ なので絶対値についての帰納法でその側の全係数が零です。従って符号選択で $L$ は変わりません。
 
 ## 2. 一つの素数から全ての整数へ
 
@@ -160,6 +205,8 @@ $P$ を $p\le B$ の全素数としたとき、右辺に含まれない整数は
 
 正の変数の関数を $y^{s-1}$ で重み付けして積分するMellin変換は、引数の拡大 $y\mapsto ny$ を係数 $n^{-s}$ に変換します。これがFourier展開とDirichlet級数を結ぶ理由です。
 
+核の積分には[Gamma関数](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function) $\Gamma(w)$ を使います。引数を持つこの記号は、第1節で群を表した $\Gamma$ とは別の記号です。
+
 片側の周波数だけを集めた高さ方向の関数を
 
 $$
@@ -206,9 +253,23 @@ $$
 =\frac2t e^{-t/2}.
 $$
 
-最後は $w=e^v$ と置きました。大きな $t$ では[Kの無限遠での漸近形](../AFR4/index.md#thm-afr4-k-asymptotic)により指数減衰します。よって $\sigma>3/2$ に対し $J_\sigma=\int_0^\infty |K_\nu(t)|t^{\sigma-1}dt<\infty$ です。
+最後は $w=e^v$ と置きました。$dw/dv=e^v>0$ なので積分区間は $[1,\infty)$ に移り、$e^v\,dv=dw$ は置換積分の微分因子を表します。
 
-各項の絶対値を先に積分して $t=2\pi ny$ と置くと
+大きな $t$ では[Kの無限遠での漸近形](../AFR4/index.md#thm-afr4-k-asymptotic)により指数減衰します。原点付近では被積分関数の絶対値が定数倍の $t^{\sigma-2}$ 以下です。よって $\sigma>3/2$ に対し
+
+$$
+J_\sigma=\int_0^\infty |K_\nu(t)|t^{\sigma-1}dt<\infty
+$$
+
+です。
+
+各項の絶対値を先に積分します。$n$ を固定して $t=2\pi ny$ と置けば、$dt/dy=2\pi n>0$ なので正の半直線を可逆に写します。置換積分の因子は
+
+$$
+y^{s-1}dy=(2\pi n)^{-s}t^{s-1}dt
+$$
+
+です。実数 $\sigma$ でも同じ式が成立するので、
 
 $$
 \sum_{n\ge1}|c(n)|\int_0^\infty
@@ -217,7 +278,13 @@ $$
 \sum_{n\ge1}|c(n)|n^{-\sigma}<\infty.
 $$
 
-[係数の多項式評価](#thm-afr7-coefficient-bound)で最後の収束が従います。[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02)から和と積分を交換でき、Mellin積分は $(2\pi)^{-s}L(s,u)J(s)$ となります。ただし $J(s)=\int_0^\infty K_\nu(t)t^{s-1}dt$ です。
+[係数の多項式評価](#thm-afr7-coefficient-bound)で最後の収束が従います。[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02)を整数の数え上げ測度と高さのLebesgue測度に適用します。複素数値の各項は実部・虚部とも絶対可積分なので、それぞれに同定理を適用できます。$J(s)=\int_0^\infty K_\nu(t)t^{s-1}dt$ と書くと
+
+$$
+\int_0^\infty h(y)y^{s-1}dy
+=\sum_{n\ge1}c(n)(2\pi n)^{-s}J(s)
+=(2\pi)^{-s}L(s,u)J(s).
+$$
 
 [Gamma関数](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function)の積分を使います。$A=(s+\nu)/2$、$B=(s-\nu)/2$ と置くと $\Re A,\Re B>0$ なので
 
@@ -226,21 +293,60 @@ $$
 \int_0^\infty\int_0^\infty e^{-r-q}r^{A-1}q^{B-1}dr\,dq.
 $$
 
-絶対可積分性は $\Gamma(\Re A)\Gamma(\Re B)<\infty$ で確認できます。$r=(t/2)e^v,\ q=(t/2)e^{-v}$（$t>0,v\in\mathbb R$）と変換します。逆写像は $t=2\sqrt{rq},v=\frac12\log(r/q)$ です。偏微分行列とその行列式は
+絶対可積分性は $\Gamma(\Re A)\Gamma(\Re B)<\infty$ で確認できます。変数を $(t,v)$（$t>0,v\in\mathbb R$）に取り替えます。座標写像を $\Psi(t,v)=(r,q)$ と書くと
 
 $$
-\begin{pmatrix}r/t&r\\ q/t&-q\end{pmatrix},
-\qquad -2rq/t=-t/2
+r=\frac t2 e^v,\qquad q=\frac t2 e^{-v}
 $$
 
-です。Jacobianの絶対値は $t/2$ なので
+であり、逆写像は
+
+$$
+t=2\sqrt{rq},\qquad v=\frac12\log(r/q)
+$$
+
+です。この写像は両方向とも滑らかです。
+
+二変数の積分の面積因子を求めるため、[AFR2で用いた実Jacobian行列](../AFR2/index.md#prop-afr2-metric-invariance)と同様に、入力の順を $(t,v)$、出力の順を $(r,q)$ として微分を並べます。
+
+$t$ で微分するときは $v$ を固定し、$v$ で微分するときは $t$ を固定します。
+
+$$
+D\Psi(t,v)
+=\begin{pmatrix}
+\partial r/\partial t & \partial r/\partial v\\
+\partial q/\partial t & \partial q/\partial v
+\end{pmatrix}
+=\begin{pmatrix}r/t&r\\ q/t&-q\end{pmatrix}.
+$$
+
+$r q=t^2/4$ より行列式は
+
+$$
+-\frac{2rq}{t}=-\frac t2\ne0.
+$$
+
+従って変数変換におけるJacobian（行列式）の絶対値は $|\det D\Psi(t,v)|=t/2$ であり、面積要素は $dr\,dq=(t/2)dt\,dv$ です。さらに $A+B=s,\ A-B=\nu$ だから
 
 $$
 r+q=t\cosh v,\qquad
 r^{A-1}q^{B-1}\frac t2=2^{1-s}t^{s-1}e^{\nu v}.
 $$
 
-$v$ の正負を合わせれば内側の積分は $2K_\nu(t)$ です。従って $\Gamma(A)\Gamma(B)=2^{2-s}J(s)$。これを $(2\pi)^{-s}L(s,u)J(s)$ に代入すると $2^{s-2}(2\pi)^{-s}=1/(4\pi^s)$ となり結論を得ます。
+$v$ の正負を合わせ、[変形Bessel関数 K](../AFR4/index.md#def-afr4-k-bessel)の定義を使うと
+
+$$
+\int_{\mathbb R}e^{-t\cosh v}e^{\nu v}dv
+=\int_0^\infty e^{-t\cosh v}(e^{\nu v}+e^{-\nu v})dv
+=2K_\nu(t).
+$$
+
+絶対可積分性と可逆な変数変換により積分順序を選べるので、
+
+$$
+\Gamma(A)\Gamma(B)=2^{2-s}\int_0^\infty K_\nu(t)t^{s-1}dt
+=2^{2-s}J(s).
+$$これを $(2\pi)^{-s}L(s,u)J(s)$ に代入すると $2^{s-2}(2\pi)^{-s}=1/(4\pi^s)$ となり結論を得ます。
 <!-- proof-end -->
 
 積分の核だけを $\nu=1/2,s=5/2$ で検算しましょう。[変形Bessel関数 K の定義例](../AFR4/index.md#def-afr4-k-bessel)の $K_{1/2}(t)=\sqrt{\pi/(2t)}e^{-t}$ から
@@ -250,7 +356,7 @@ J(5/2)=\sqrt{\pi/2}\int_0^\infty te^{-t}dt
 =\sqrt{\pi/2}.
 $$
 
-積分は部分積分で1になります。一方、先ほどのGamma積分の公式は $2^{1/2}\Gamma(3/2)\Gamma(1)=\sqrt{\pi/2}$ であり一致します。これは核の計算であって、$\lambda=0$ の非零カスプ形式の存在を意味しません。
+積分は部分積分で1になります。一方、[Gamma関数の漸化式](../../../解析系/CA/CA11/index.md#thm-ca11-functional-equation)と[反射公式](../../../解析系/CA/CA11/index.md#thm-ca11-reflection)の半整数での値から $\Gamma(3/2)=\Gamma(1/2)/2=\sqrt\pi/2$、$\Gamma(1)=1$ です。先ほどのGamma積分の公式も $2^{1/2}\Gamma(3/2)\Gamma(1)=\sqrt{\pi/2}$ となり一致します。これは核の計算であって、$\lambda=0$ の非零カスプ形式の存在を意味しません。
 
 ## 4. Rankin型積分：二乗した係数を取り出す
 
@@ -285,13 +391,23 @@ Eisenstein級数は平行移動で同一視した群要素ごとの高さの和�
 
 $\Gamma_\infty$ を $\pm\begin{pmatrix}1&k\\0&1\end{pmatrix}$（$k\in\mathbb Z$）全体とします。
 
-整数の原始的な組 $(c,d)$ はBezoutの等式 $ad-bc=1$ で行列の下段にできます。
+この部分群は整数平行移動 $z\mapsto z+k$ として作用します。$\Gamma_\infty\backslash\Gamma$ は左剰余類 $\Gamma_\infty\gamma$ の集合を表し、左からこの部分群の元を掛けて移り合う行列を同一視します。
+
+整数の原始的な組 $(c,d)$ とは $\gcd(c,d)=1$ を満たす組です。Bezoutの等式で $ad-bc=1$ となる整数 $a,b$ が取れるので、$(c,d)$ は整数モジュラー群の行列の下段にできます。
 
 同じ下段を持つ二行列の上段の差を $(a'-a,b'-b)$ とすると $(a'-a)d-(b'-b)c=0$ です。
 
 $c,d$ は互いに素なので差は $(c,d)$ の整数倍です（片方が0なら他方が $\pm1$ なので同様）。
 
-従って左から平行移動を掛けて移り合います。
+従ってある整数 $k$ で $(a',b')=(a+kc,b+kd)$ と書けます。これは
+
+$$
+\begin{pmatrix}1&k\\0&1\end{pmatrix}
+\begin{pmatrix}a&b\\c&d\end{pmatrix}
+=\begin{pmatrix}a+kc&b+kd\\c&d\end{pmatrix}
+$$
+
+なので、同じ左剰余類に属することを意味します。
 
 符号も $\Gamma_\infty$ に吸収されます。
 
@@ -304,7 +420,13 @@ E(z,s)=\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}
 (\Im\gamma z)^s.
 $$
 
-[基本領域の定理](../../MF/MF1/index.md#thm-mf1-fundamental-domain)により $\gamma\mathcal F$ を左剰余類ごとに集めると、$\Gamma_\infty$ での同一視の下で帯 $0\le x<1,y>0$ を重複なく覆います（境界の零面積集合を除く）。実際、任意の点はある群要素で $\mathcal F$ へ移され、二つの内部点が群で移り合えば同一の点なので帯の中の重複も同じ左剰余類に限られます。
+[基本領域の定理](../../MF/MF1/index.md#thm-mf1-fundamental-domain)により $\gamma\mathcal F$ を左剰余類ごとに集めると、$\Gamma_\infty$ での同一視の下で帯 $0\le x<1,y>0$ を重複なく覆います（境界の零面積集合を除く）。実際、任意の点はある群要素で $\mathcal F$ へ移されます。重複があるとすると、内部点 $z,z'\in\mathcal F^\circ$ と $\delta\in\Gamma_\infty$ について $\gamma z=\delta\gamma' z'$ です。従って
+
+$$
+z'=(\gamma')^{-1}\delta^{-1}\gamma z.
+$$
+
+基本領域の内部での一意性は $z'=z$ だけでなく $(\gamma')^{-1}\delta^{-1}\gamma=\pm I$ も保証します。$\pm I\in\Gamma_\infty$ なので $\gamma$ と $\gamma'$ は同じ左剰余類です。
 
 まず実数 $\sigma=\Re s>1$ を使い、非負の項に[Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli)を適用します。$w=\gamma z$ とすると[双曲面積要素の群不変性](../AFR2/index.md#prop-afr2-metric-invariance)と $u$ の保型性から
 
@@ -324,16 +446,29 @@ $0<y\le1$ では[係数の多項式評価の証明](#thm-afr7-coefficient-bound)
 
 十分大きな高さでは[定数項を除いたカスプでの指数減衰](../AFR4/index.md#thm-afr4-cusp-decay)から $|u|\le D e^{-2\pi(y-Y)}$ であり、残りの有限な高さの区間も有界です。
 
-よって複素 $s$ の場合にも $|(\Im\gamma z)^s|=(\Im\gamma z)^\sigma$ を用いて絶対可積分性を確認でき、[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02)で同じ展開が成立します。
+よって複素 $s$ の場合にも $|(\Im\gamma z)^s|=(\Im\gamma z)^\sigma$ を用いて絶対可積分性を確認でき、実部と虚部にそれぞれ[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02)を適用して同じ展開が成立します。
 
-固定した $y$ では[Maass形式の非零周波数展開](../AFR4/index.md#thm-afr4-maass-expansion)が絶対かつ一様に収束します。有限部分和の絶対値の二乗を展開すると $\int_0^1 e^{2\pi i(n-m)x}dx$ は $n=m$ で1、他で0です。一様収束で極限を取ると
+固定した $y$ では[Maass形式の非零周波数展開](../AFR4/index.md#thm-afr4-maass-expansion)が絶対かつ一様に収束します。$b_n(y)=\rho(n)\sqrt y K_\nu(2\pi|n|y)$ と置きます。$0<|n|\le N$ の項を取った有限部分和を $u_N$ と書けば、複素共役を取って
+
+$$
+|u_N(x+iy)|^2
+=\sum_{0<|n|,|m|\le N}b_n(y)\overline{b_m(y)}e^{2\pi i(n-m)x}.
+$$
+
+横方向の積分では $n=m$ の場合は1、$n\ne m$ の場合は $(e^{2\pi i(n-m)}-1)/(2\pi i(n-m))=0$ となります。一様収束で極限を取ると
 
 $$
 \int_0^1|u(x+iy)|^2dx
 =y\sum_{n\ne0}|\rho(n)|^2|K_\nu(2\pi|n|y)|^2.
 $$
 
-実数 $\sigma>1$ について再び[Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli)を適用し、$t=2\pi|n|y$ と置きます。
+実数 $\sigma>1$ について再び[Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli)を適用します。二乗積分の因子 $y$ と帯上の測度の重み $y^{\sigma-2}$ を掛けると $y^{\sigma-1}$ です。$n\ne0$ を固定して $t=2\pi|n|y$ と置けば $dt/dy=2\pi|n|>0$ なので
+
+$$
+y^{\sigma-1}dy=(2\pi|n|)^{-\sigma}t^{\sigma-1}dt.
+$$
+
+これを各項に使うと
 
 $$
 \int_0^\infty\int_0^1 |u|^2 y^{\sigma-2}dx\,dy
@@ -412,13 +547,13 @@ $a>0,\Re s>0$ のとき $\int_0^\infty e^{-ay}y^{s-1}dy$ を求め、$a=3,s=2$ �
 <!-- solution-start -->
 **詳細解答**
 
-$t=ay$ とすれば $dy=dt/a$ で積分区間は変わりません。[Gamma関数](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function)の積分により
+$a>0$ を固定して $t=ay$ とすれば $dt/dy=a>0$ で、正の半直線への可逆な置換です。従って $y^{s-1}dy=(t/a)^{s-1}dt/a=a^{-s}t^{s-1}dt$ となります。[Gamma関数](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function)の積分により
 
 $$
 \int_0^\infty e^{-ay}y^{s-1}dy=a^{-s}\Gamma(s).
 $$
 
-絶対値を積分しても $a^{-\Re s}\Gamma(\Re s)<\infty$ です。$a=3,s=2$ では $3^{-2}\Gamma(2)=1/9$。
+絶対値を積分しても $a^{-\Re s}\Gamma(\Re s)<\infty$ です。$a=3,s=2$ では[Gamma関数の漸化式](../../../解析系/CA/CA11/index.md#thm-ca11-functional-equation)から $\Gamma(2)=\Gamma(1)=1$ なので $3^{-2}\Gamma(2)=1/9$。
 <!-- solution-end -->
 
 <a id="ex-afr7-a4"></a>
@@ -505,7 +640,7 @@ R_{1/2}(s)=\frac\pi2\int_0^\infty e^{-2t}t^{s-2}dt
 =\frac{\pi\Gamma(s-1)}{2^s}.
 $$
 
-二番目の等号は $q=2t$、$dt=dq/2$ と置き、[Gamma関数](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function)を使いました。
+二番目の等号は $q=2t$ と置く変数変換です。$dq/dt=2>0$ なので $t^{s-2}dt=2^{1-s}q^{s-2}dq$ となり、[Gamma関数](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function)を使いました。
 
 $\Re(s-1)>0$ なので絶対収束し、$s=2$ で $\pi/4$ です。
 
