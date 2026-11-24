@@ -210,7 +210,7 @@ $$
 
 最後の等号は、$u$ が $\Gamma$ 不変なので $J'$ の基本領域を $p+1$ 枚の $F$ に折り畳んだものです。別の基本領域を用いても非負の不変関数の積分が一致するのは、二つの領域を群で重なる可算個の部分に分割し、面積保存の変数変換で対応させられるからです。
 
-この等式から零測度上の代表の違いは作用後も零測度上にしか現れません。さらに有限和の[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により
+この等式を差の関数に適用すると、零測度上の代表の違いは作用後も零測度上にしか現れません。また第2節の右乗法による代表の置換は滑らかさを用いないので、ここでも $T_pu$ は $\Gamma$ 不変です。さらに有限和の[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により
 
 $$
 \|T_pu\|^2
@@ -403,7 +403,7 @@ G(z,s)=\sum_{(c,d)\ne(0,0)}
 =2\zeta(2s)E(z,s)
 $$
 
-とします。行ベクトル $v=(c,d)$ に対し $B=\begin{pmatrix}a&b\\e&f\end{pmatrix}$ が行列式 $p$ なら、[一次分数変換の虚部公式](../AFR1/index.md#def-afr1-real-group)を $B/\sqrt p$ に適用すると $\Im(Bz)=py/|ez+f|^2$ です。また
+とします。非零の整数行ベクトル $v=(c,d)$ に対し $B=\begin{pmatrix}a&b\\e&f\end{pmatrix}$ が行列式 $p$ なら、[一次分数変換の虚部公式](../AFR1/index.md#def-afr1-real-group)を $B/\sqrt p$ に適用すると $\Im(Bz)=py/|ez+f|^2$ です。また
 
 $$
 c(Bz)+d=\frac{(ca+de)z+(cb+df)}{ez+f}.
@@ -449,11 +449,11 @@ T_pG(z,s)
 \end{aligned}
 $$
 
-第二行では $(h,k)=p(c,d)$ と置き、分母の二乗から $p^{-2s}$ を取り出しました。[Riemann ζ 関数のEuler積](../../../解析系/CA/CA12/index.md#thm-ca12-euler-product) により $\Re s>1$ では $\zeta(2s)$ は零でないので割ることができます。これで表示式を得ます。[Eisenstein級数の解析接続と関数等式](../AFR5/index.md#thm-afr5-functional) により両辺は $s$ の有理型関数であり、一致の定理により接続後も等しいです。
+第二行では $(h,k)=p(c,d)$ と置き、分母の二乗から $p^{-2s}$ を取り出しました。[Riemann ζ 関数のEuler積](../../../解析系/CA/CA12/index.md#thm-ca12-euler-product) により $\Re s>1$ では $\zeta(2s)$ は零でないので割ることができます。これで表示式を得ます。[Eisenstein級数の解析接続と関数等式](../AFR5/index.md#thm-afr5-functional) により固定した $z$ に対して両辺は $s$ の有理型関数です。両辺の差は極を除いた領域で正則であり、$\Re s>1$ で零です。[恒等定理](../../../解析系/CA/CA3/index.md#thm-ca3-isolated-zeros-identity)を適用すると極以外でも差は零となり、極でのLaurent展開も一致します。
 <!-- proof-end -->
 
 
-$s=1/2+it$（$t\in\mathbb R$）では係数は $p^{it}+p^{-it}=2\cos(t\log p)$ です。[Eisenstein級数の固有方程式](../AFR5/index.md#thm-afr5-convergence)のLaplace固有値は $s(1-s)=1/4+t^2$ でした。級数が正則かつ非零の点では両方の固有方程式を満たします。これは連続パラメータを持つ固有関数の算術的な目印です。二乗可積分空間の固有基底と同一視せず、連続スペクトルの完全な分解はここでは主張しません。
+$s=1/2+it$（$t\in\mathbb R$）では係数は $p^{it}+p^{-it}=2\cos(t\log p)$ です。[Eisenstein級数の固有方程式](../AFR5/index.md#thm-afr5-convergence)のLaplace固有値は $s(1-s)=1/4+t^2$ でした。[解析接続後の固有方程式](../AFR5/index.md#thm-afr5-functional)により、級数が正則かつ非零のパラメータでは両方の固有方程式を満たします。これは連続パラメータを持つ固有関数の算術的な目印です。二乗可積分空間の固有基底と同一視せず、連続スペクトルの完全な分解はここでは主張しません。
 
 ## 6. 演習と詳細解答
 
