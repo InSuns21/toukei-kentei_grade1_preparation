@@ -17,3 +17,4 @@
 14. [FCG14 煙の密度と浮力はどう連成するか](textbook/volumes/dream_thater/計算系/FCG/FCG14/index.md)
 15. [FCG15 煙の厚みはどう光として描くか](textbook/volumes/dream_thater/計算系/FCG/FCG15/index.md)
 16. [FCG16 炎と煙の表現をどう分けるか](textbook/volumes/dream_thater/計算系/FCG/FCG16/index.md)
+17. [FCG17 渦の細部を増やすと何が壊れるか](textbook/volumes/dream_thater/計算系/FCG/FCG17/index.md)
