@@ -9,3 +9,4 @@
 6. [LVT1-06 純粋な参照モデルと入出力境界](textbook/volumes/dream_thater/計算系/LVT/LVT1-06/index.md)
 7. [LVT2-01 Prop・Bool・Decidable・Curry–Howard対応](textbook/volumes/dream_thater/計算系/LVT/LVT2-01/index.md)
 8. [LVT2-02 含意・連言・選言・全称・存在](textbook/volumes/dream_thater/計算系/LVT/LVT2-02/index.md)
+9. [LVT2-03 等式・書換え・簡約](textbook/volumes/dream_thater/計算系/LVT/LVT2-03/index.md)

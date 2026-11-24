@@ -1,0 +1,30 @@
+id: "LVT2-03"
+title: "等式・書換え・簡約"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT2-02]
+official_scope: []
+learning_objectives:
+  - 定義的等しさと命題としての等式を区別し反射律を使う
+  - 等式の対称律・推移律・置換・関数適用を証明項として構成する
+  - rwの向きと対象を選びsimp onlyで簡約規則を指定する
+  - 入力の正規化が仕様を保存する条件と反例を説明する
+definitions:
+  - { id: LVT2-03-DEF-01, name: "Leanの等式と反射律" }
+  - { id: LVT2-03-DEF-02, name: "Leanの定義的等しさ" }
+  - { id: LVT2-03-DEF-03, name: "Leanの等式による置換" }
+  - { id: LVT2-03-DEF-04, name: "Leanの書換え操作" }
+  - { id: LVT2-03-DEF-05, name: "Leanの簡約操作" }
+propositions:
+  - { id: LVT2-03-PROP-01, name: "Leanの等式の対称律と推移律" }
+  - { id: LVT2-03-PROP-02, name: "Leanの関数適用に関する等式の合同性" }
+  - { id: LVT2-03-PROP-03, name: "Leanの自然数入力の正規化保存" }
+theorems: []
+canonical_examples:
+  - "自然数の加算と反射律"
+  - "入力の正規化による仕様保存"
+problem_patterns: [LVT2-03-A01, LVT2-03-A02, LVT2-03-A03, LVT2-03-A04, LVT2-03-A05, LVT2-03-B01, LVT2-03-B02, LVT2-03-B03, LVT2-03-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2.5, review: 0.5 }
