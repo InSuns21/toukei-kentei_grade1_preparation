@@ -266,7 +266,7 @@ $$
 (P_k(S)P_k(T)p)(z)=p((zS)T)=p(z(ST)).
 $$
 
-したがって $P_k(ST)=P_k(S)P_k(T)$ です。[テンソル積表現の群法則](../LREP4/index.md#thm-lrep4-tensor-representation)により $D$ は群法則と単位元を保ち、逆元の作用も存在します。成分は行列要素とその共役の滑らかな関数です。
+したがって $P_k(ST)=P_k(S)P_k(T)$ です。[テンソル積表現の群法則と次元](../LREP4/index.md#thm-lrep4-tensor-representation)により $D$ は群法則と単位元を保ち、逆元の作用も存在します。成分は行列要素とその共役の滑らかな関数です。
 
 [LREP10の合同作用](../LREP10/index.md#def-lrep10-sl2c-action)で $M$ を跡零の複素行列、$X$ を固定したエルミート行列とします。実変数 $t$ で微分すると
 
