@@ -43,7 +43,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fcg17-confinement -->
-**定義の確認。** $h=0.05$ m、$\varepsilon=10$ s⁻¹、$\omega=4$ s⁻¹、$g=(-3,4)$ m⁻¹s⁻¹ とする。$|g|=5$ だから $n=(-0.6,0.8)$ で長さは1。
+**定義の確認**。 $h=0.05$ m、$\varepsilon=10$ s⁻¹、$\omega=4$ s⁻¹、$g=(-3,4)$ m⁻¹s⁻¹ とする。$|g|=5$ だから $n=(-0.6,0.8)$ で長さは1。
 
 従って $f_c=2(0.8,0.6)=(1.6,1.2)$ m/s² となる。$g\cdot f_c=-4.8+4.8=0$ なので勾配と直交する。
 
