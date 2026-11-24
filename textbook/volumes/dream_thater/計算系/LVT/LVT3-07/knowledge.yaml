@@ -1,0 +1,33 @@
+chapter: LVT3-07
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT3-06]
+concepts:
+  - id: lean-verification.refinement-decode
+    name: 抽象状態と具体状態の対応
+    kind: definition
+    introduction: formal
+  - id: lean-verification.refinement-steps
+    name: 抽象仕様と具体実行の操作規則
+    kind: definition
+    introduction: formal
+  - id: lean-verification.refinement-refinement
+    name: 操作結果の詳細化条件
+    kind: definition
+    introduction: formal
+  - id: lean-verification.refinement-trace
+    name: 拒否を含む有限操作列の観測
+    kind: definition
+    introduction: formal
+  - id: lean-verification.refinement-preserve-step
+    name: 一操作の対応保存
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.refinement-preserve-advance
+    name: 次状態と応答の対応保存
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.refinement-preserve-trace
+    name: 有限操作列の対応保存
+    kind: proposition
+    introduction: formal
