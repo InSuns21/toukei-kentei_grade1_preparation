@@ -112,6 +112,7 @@ try {
   assert.match(await evaluate('document.querySelector("#fcg5-cpu-prediction").textContent'),/Poisson residual=/);
   assert.equal(initial.sandbox,'allow-scripts');
   assert.equal(initial.opaque,true);
+  assert.equal(await evaluate('document.querySelector("#lab-parameters")?.parentElement.id'),'fcg5-result-parameters');
   console.log('FCG5 actual GPU texture, nine readPixels, independent CPU and opaque sandbox: PASS');
   // The only running observation is the source-linked learner JS sandbox.
   // Crop to its actual GPU canvas, not an independent reference simulation.
@@ -216,6 +217,7 @@ try {
   // G2: GUI parameters, the animation and the independent CPU oracle all
   // target the same editable N×N MAC source.
   await click('tab-conditions');
+  assert.equal(await evaluate('document.querySelector("#lab-parameters")?.parentElement.id'),'panel-conditions');
   const gui=await evaluate('(()=>{const g=document.querySelector("#parameter-grid"),n=document.querySelector("#parameter-nu"),f=document.querySelector("#parameter-force");return {grid:g?.value,nu:n?.value,force:f?.value,gridDisabled:g?.disabled,nuDisabled:n?.disabled,forceDisabled:f?.disabled,labels:[...document.querySelectorAll("#lab-parameters .lab-parameter-row small")].map(x=>x.textContent)}})()');
   assert.equal(gui.grid,'48');assert.equal(gui.nu,'0.002');assert.equal(gui.force,'0.08');
   assert.equal(await evaluate('document.querySelector("#parameter-dt")?.value'),'0.04');
