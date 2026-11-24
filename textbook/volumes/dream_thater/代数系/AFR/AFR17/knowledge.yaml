@@ -13,7 +13,7 @@ concepts:
     name: "素数Hecke固有値による直線の決定"
     kind: proposition
     introduction: formal
-    requires: [automorphic-forms.classical-hecke-normalization]
+    requires: [modular-forms.level-hecke-coefficient]
   - id: automorphic-forms.cyclic-cusp-irreducibility
     name: "固有形式の生成加群の既約性"
     kind: theorem
