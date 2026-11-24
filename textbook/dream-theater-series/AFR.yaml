@@ -100,5 +100,5 @@ chapters:
     title: "RH・Dirichlet GRH：零点から平滑化素数冪和、主不等式(M)への解析的還元"
   - id: AFR24
     path: textbook/volumes/dream_thater/代数系/AFR/AFR24
-    status: planned
+    status: completed
     title: "Alpöge–Claudeの形式的RH/Dirichlet GRH証明の依存地図・再現可能な検証"
