@@ -4,7 +4,19 @@
 
 通常の[随伴](../../CAT/CAT2-08/index.md#def-cat2-08-adjunction)は二つのHom集合の自然な全単射を与える。しかし線形写像の空間や距離をHomに持つ場合、射の集合だけでなく、その構造も対応させたい。前講で得た重み付きの普遍性は、まさにHom対象の同型を要求していた。本講ではこの二つを結び、図式の定義域を広げる操作を構成する。
 
-基底 $\mathcal V$ は局所小な対称右閉・完備モノイダル圏とする。単位は $I$、内部Homは $[U,Z]$ とする。右閉性とは $-\otimes U$ と $[U,-]$ の随伴があること、完備性とは小さい図式の極限が存在することである（[右閉性](../../CAT/CAT4-05/index.md#def-cat4-05-right-closed)、[完備圏](../../CAT/CAT2-04/index.md#def-cat2-04-complete)）。[自己豊穣化](../CATB2-04/index.md#thm-catb2-04-self-enrichment)により基底自身も豊穣圏とみなせる。この自己豊穣化を $\underline{\mathcal V}$ と書く。すべての圏・関手・自然変換は、特に断らない限りこの基底上の豊穣なものとする。合成は $m$ と書き、通常の射の順序と同じく後に作用する因子を左に置く。括弧や単位子は [Mac Laneの整合性定理](../../CAT/CAT4-02/index.md#thm-cat4-02-coherence) により省略する。因子を交換するときは対称性 $\sigma_{U,Z}:U\otimes Z\to Z\otimes U$ を使う。[豊穣圏の定義](../CATB2-01/index.md#def-catb2-01-enriched-category)の単位射を $u_x:I\to\mathcal A(x,x)$ と書く（圏が異なる場合も同じ記号を用いる）。[豊穣関手の定義](../CATB2-03/index.md#def-catb2-03-enriched-functor)に従い、$F_{x,y}$ は対象 $x,y$ に対応するHom対象間の構造射を表す。射の合成 $gf$ は $f$ の後に $g$ を作用させる。
+基底 $\mathcal V$ は局所小な対称右閉・完備モノイダル圏とする。単位は $I$、内部Homは $[U,Z]$ とする。
+
+右閉性とは $-\otimes U$ と $[U,-]$ の随伴があること、完備性とは小さい図式の極限が存在することである（[右閉性](../../CAT/CAT4-05/index.md#def-cat4-05-right-closed)、[完備圏](../../CAT/CAT2-04/index.md#def-cat2-04-complete)）。
+
+[自己豊穣化](../CATB2-04/index.md#thm-catb2-04-self-enrichment)により基底自身も豊穣圏とみなせる。この自己豊穣化を $\underline{\mathcal V}$ と書く。
+
+すべての圏・関手・自然変換は、特に断らない限りこの基底上の豊穣なものとする。
+
+合成は $m$ と書き、通常の射の順序と同じく後に作用する因子を左に置く。括弧や単位子は [Mac Laneの整合性定理](../../CAT/CAT4-02/index.md#thm-cat4-02-coherence) により省略する。因子を交換するときは対称性 $\sigma_{U,Z}:U\otimes Z\to Z\otimes U$ を使う。
+
+[豊穣圏の定義](../CATB2-01/index.md#def-catb2-01-enriched-category)の単位射を $u_x:I\to\mathcal A(x,x)$ と書く（圏が異なる場合も同じ記号を用いる）。
+
+[豊穣関手の定義](../CATB2-03/index.md#def-catb2-03-enriched-functor)に従い、$F_{x,y}$ は対象 $x,y$ に対応するHom対象間の構造射を表す。射の合成 $gf$ は $f$ の後に $g$ を作用させる。
 
 <a id="catb2-06-general-natural-hom"></a>
 
@@ -33,7 +45,13 @@ m(t_y\otimes S_{x,y})
 =m(T_{x,y}\otimes t_x)\sigma_{P,\mathcal X(x,y)}.
 $$
 
-実際、成分族から積への射を作り、二射の各成分を逆転置するとこの等式になる。等式が成り立つときに限り、積への射が等化子を一意に経由する。対応は $P$ に関する前合成と両立する。$P=I$ の場合は [豊穣自然変換](../CATB2-03/index.md#def-catb2-03-enriched-natural) の条件である。$\mathcal Y=\underline{\mathcal V}$ の場合は $\mathcal Y(Sx,Tx)=[Sx,Tx]$ となり、二経路をさらに逆転置すれば前講の [Hom対象の普遍性](../CATB2-04/index.md#prop-catb2-04-natural-hom-universal) と一致する。以下ではこの一般の値域の場合も含めて使う。一般化された元を通常の元と混同しないよう、テンソル積を定義域とする射の等式で計算する。
+実際、成分族から積への射を作り、二射の各成分を逆転置するとこの等式になる。等式が成り立つときに限り、積への射が等化子を一意に経由する。
+
+対応は $P$ に関する前合成と両立する。
+
+$P=I$ の場合は [豊穣自然変換](../CATB2-03/index.md#def-catb2-03-enriched-natural) の条件である。
+
+$\mathcal Y=\underline{\mathcal V}$ の場合は $\mathcal Y(Sx,Tx)=[Sx,Tx]$ となり、二経路をさらに逆転置すれば前講の [Hom対象の普遍性](../CATB2-04/index.md#prop-catb2-04-natural-hom-universal) と一致する。以下ではこの一般の値域の場合も含めて使う。一般化された元を通常の元と混同しないよう、テンソル積を定義域とする射の等式で計算する。
 
 ## 2. 豊穣随伴
 
@@ -64,7 +82,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb2-06-enriched-adjunction -->
-**定義の確認**。 集合を基底とし、$F(X)=X\times S$、$G(Y)=Y^S$ とする。ここで $S$ は固定集合、$Y^S$ は $S$ から $Y$ への写像全体の集合である。射 $u:X'\to X$ は $u\times1_S$ へ、射 $v:Y\to Y'$ は $h\mapsto v h$ へ送る。例えば $u':X''\to X'$ なら $(u u')\times1_S=(u\times1_S)(u'\times1_S)$ であり、$v':Y'\to Y''$ なら $G(v'v)(h)=v'vh=G(v')(G(v)(h))$ となる。恒等射はどちらも恒等写像へ移るので豊穣関手である。写像 $f:X\times S\to Y$ の転置とは、第一引数を固定した写像を値にする操作である。転置と逆転置は
+**定義の確認**。 集合を基底とし、$F(X)=X\times S$、$G(Y)=Y^S$ とする。ここで $S$ は固定集合、$Y^S$ は $S$ から $Y$ への写像全体の集合である。
+
+射 $u:X'\to X$ は $u\times1_S$ へ、射 $v:Y\to Y'$ は $h\mapsto v h$ へ送る。
+
+例えば $u':X''\to X'$ なら $(u u')\times1_S=(u\times1_S)(u'\times1_S)$ であり、$v':Y'\to Y''$ なら $G(v'v)(h)=v'vh=G(v')(G(v)(h))$ となる。
+
+恒等射はどちらも恒等写像へ移るので豊穣関手である。
+
+写像 $f:X\times S\to Y$ の転置とは、第一引数を固定した写像を値にする操作である。転置と逆転置は
 
 $$
 \theta(f)(x)(s)=f(x,s),\qquad
@@ -180,7 +206,11 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb2-06-left-kan -->
-**定義の確認**。 集合を基底とし、$\mathcal J$ を一対象・恒等射のみの圏、$\mathcal D$ を矢印 $0\to1$ の圏とする。$K$ は対象を $0$ に送る。$T$ の値を集合 $A$ とする。$L$ を $A\xrightarrow{1_A}A$、$\eta$ を $1_A$ と置く。任意の関手 $H=(B\xrightarrow{h}C)$ に対する変換 $L\Rightarrow H$ は二写像 $f:A\to B$, $g:A\to C$ で、矢印 $0\to1$ に対する自然性が
+**定義の確認**。 集合を基底とし、$\mathcal J$ を一対象・恒等射のみの圏、$\mathcal D$ を矢印 $0\to1$ の圏とする。$K$ は対象を $0$ に送る。$T$ の値を集合 $A$ とする。
+
+$L$ を $A\xrightarrow{1_A}A$、$\eta$ を $1_A$ と置く。
+
+任意の関手 $H=(B\xrightarrow{h}C)$ に対する変換 $L\Rightarrow H$ は二写像 $f:A\to B$, $g:A\to C$ で、矢印 $0\to1$ に対する自然性が
 
 $$
 g1_A=hf
@@ -208,7 +238,11 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb2-06-right-kan -->
-**定義の確認**。 同じ $\mathcal J,\mathcal D,K,T$ で $R=(A\to\{*\})$、$\epsilon=1_A$ とする。$H=(B\xrightarrow{h}C)$ から $R$ への変換は $f:B\to A$ と $g:C\to\{*\}$ である。$g$ は唯一であり、両経路 $B\to\{*\}$ も唯一なので自然性が成立する。$R$ は恒等射を恒等写像に送ることで関手となり、$\epsilon$ の自然性は添字圏の唯一の恒等射について成立する。従って誘導射 $(f,g)\mapsto f$ は全単射である。
+**定義の確認**。 同じ $\mathcal J,\mathcal D,K,T$ で $R=(A\to\{*\})$、$\epsilon=1_A$ とする。$H=(B\xrightarrow{h}C)$ から $R$ への変換は $f:B\to A$ と $g:C\to\{*\}$ である。
+
+$g$ は唯一であり、両経路 $B\to\{*\}$ も唯一なので自然性が成立する。
+
+$R$ は恒等射を恒等写像に送ることで関手となり、$\epsilon$ の自然性は添字圏の唯一の恒等射について成立する。従って誘導射 $(f,g)\mapsto f$ は全単射である。
 <!-- definition-example-end -->
 
 これらの定義の誘導射は、パラメータ付きの成分を $K$ に沿って制限して $\eta$ または $\epsilon$ と合成する操作から、第1節の [Hom対象の普遍性](#catb2-06-general-natural-hom) によって定まる。例えば左側では $s_d:P\to\mathcal C(Ld,Hd)$ の族を
@@ -392,7 +426,13 @@ $$
 
 両公式は、必要な重み付き余極限・極限が対象圏 $\mathcal C$ に存在することを仮定している。基底の完備性は $N$ を構成するための条件であり、それだけでは $\mathcal C$ に普遍対象は生まれない。例えば集合を基底とし、空の $\mathcal J$ から一対象の $\mathcal D$ へ拡張するなら、左には始対象、右には終対象が必要である。対象圏が空でない有限集合だけの圏なら始対象はない。仮に始対象 $A$ があると、二元集合への写像が唯一でなければならないが、二種類の定値写像が存在するため矛盾する。
 
-一対象の添字豊穣圏でHom対象が $I$ の場合には、対象圏を基底自身とする。[一対象図式の重み付き極限・余極限](../CATB2-05/index.md#thm-catb2-05-single-object)により、左は $\mathcal D(K*,d)\otimes T*$、右は $[\mathcal D(d,K*),T*]$ となる。例えばベクトル空間を基底とし、これらのHom対象がそれぞれ2次元と3次元で $T*$ が4次元なら、左の次元は $2\cdot4=8$、右の次元は $4\cdot3=12$ である。左では [有限次元テンソル積の基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis) により二つの基底から作る基底テンソルを数える。右では [ベクトル空間の閉構造](../../CAT/CAT4-05/index.md#thm-cat4-05-vector-spaces) によって内部Homが線形写像の空間なので、定義域の3本の基底ベクトルの像を4次元空間内で自由に選ぶ。各像の4個の係数が行列の1列となる。
+一対象の添字豊穣圏でHom対象が $I$ の場合には、対象圏を基底自身とする。[一対象図式の重み付き極限・余極限](../CATB2-05/index.md#thm-catb2-05-single-object)により、左は $\mathcal D(K*,d)\otimes T*$、右は $[\mathcal D(d,K*),T*]$ となる。
+
+例えばベクトル空間を基底とし、これらのHom対象がそれぞれ2次元と3次元で $T*$ が4次元なら、左の次元は $2\cdot4=8$、右の次元は $4\cdot3=12$ である。
+
+左では [有限次元テンソル積の基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis) により二つの基底から作る基底テンソルを数える。
+
+右では [ベクトル空間の閉構造](../../CAT/CAT4-05/index.md#thm-cat4-05-vector-spaces) によって内部Homが線形写像の空間なので、定義域の3本の基底ベクトルの像を4次元空間内で自由に選ぶ。各像の4個の係数が行列の1列となる。
 
 ## 8. 演習
 
@@ -505,7 +545,11 @@ $$
 Rd=[\mathbb R^4,\mathbb R^2].
 $$
 
-脚は $w\mapsto(M\mapsto M(w))$ である。$M$ は $\mathbb R^4\to\mathbb R^2$ の線形写像を表し、両空間の標準基底について $M(e_i)$ の二つの成分を第 $i$ 列とする。従って $M(w)$ は行列と列ベクトルの積 $Mw$ で計算できる。行列は2行4列で、各成分を独立に指定できるため次元は8である。
+脚は $w\mapsto(M\mapsto M(w))$ である。
+
+$M$ は $\mathbb R^4\to\mathbb R^2$ の線形写像を表し、両空間の標準基底について $M(e_i)$ の二つの成分を第 $i$ 列とする。
+
+従って $M(w)$ は行列と列ベクトルの積 $Mw$ で計算できる。行列は2行4列で、各成分を独立に指定できるため次元は8である。
 
 任意の試験空間 $X$ とパラメータ $P$ に対し、脚の族 $g:P\otimes\mathbb R^4\to[X,\mathbb R^2]$ から
 
