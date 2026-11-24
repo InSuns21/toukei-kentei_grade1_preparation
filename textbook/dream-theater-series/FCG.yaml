@@ -1,7 +1,7 @@
 version: 1
 id: FCG
 title: "流体コンピュータグラフィックス"
-plan: textbook/plans_progress/DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 # 実装済み講義だけを公開目次へ追加する。残りのPLAN講義は予定として保持する。
 chapters:

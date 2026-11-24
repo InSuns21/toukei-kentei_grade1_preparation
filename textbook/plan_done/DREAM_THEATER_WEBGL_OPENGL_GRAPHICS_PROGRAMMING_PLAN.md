@@ -1,7 +1,9 @@
 # DREAM THEATER WebGL2・OpenGL系リアルタイムCG／GPUプログラミング講座 PLAN（WGL1〜WGL20・全20講確定）
 
 設計・講数確定日：2026-11-15  
-状態：in progress（系列 manifest 上はWGL1〜WGL20が全件completed。ただし最終横断監査・実ブラウザ検証は未完了）  
+状態：closed（ユーザー指定による計画終了・残件は履歴に明記）  
+
+**終了記録**：2026-11-25：ユーザー指定により終了。WGL1–20 は系列manifestで全20講 completed、各章の index.md・chapter.yaml・knowledge.yaml の存在を確認した。既存CS1–CS3およびデータ・試験は削除しない。第6節に記録されていた全20講の人手横断査読・実ブラウザ・実GPU・オフライン・PLATEAUケーススタディ受入の残件は、今回実施済みとは認定せず、追加の計画作業を終了する。以下の実装時点の要件・状態は履歴。
 講数：**20講**（A 6講＋B 6講＋C 4講＋D 4講）。既存の流体CG（FCG1〜20）とは別系列とし、共通WebGLラボを共同利用する。
 
 ## 0. 判断・中心問い・範囲
@@ -55,7 +57,7 @@
 - JSを自由編集させる以上、**ブラウザ側から無限ループを完全にプリエンプトできない**。実行ごとに隔離iframe/contextを破棄・再生成し、ホストにタイムアウト/世代上限/資源上限を設ける。GPUドライバ停止・GPUハングは完全に防げないため、カーネル/ブラウザ依存の制約と警告を明記する。検査用pixel readbackと別系統CPU参考値を持つ。
 - WebGL2が非対応/失敗なら対応検査を表示し、必要なら同じ理論のCanvas2D/CPU参照値を示す。ただしGPU-specificな到達目標をCPU再現で達成済みにはしない。GPU再試験が必要と明記する。GPUでfloat render targetを使う講は拡張・format・フィルタ可否を実測/問い合わせで判定し、対応前提で固定しない。
 - ネットワーク不要の静的Pages資産で配布できる設計を優先し、CSP/Service Worker・オフライン再訪・古い保存状態・ページ更新を検査する。外部CDN・remote texture・実ユーザーデータをラボの既定入力としない。WGL20のPLATEAU実データは**事前に抽出・ローカル座標変換した少量の固定スナップショットを同梱**し、sandbox iframeから許可済み静的資産として読み込ませる。外部3D Tiles APIの動的アクセスは共通ラボ内で無理に有効化せず、発展用の別環境に分離する。
-- [対話型シミュレーション共通基盤](DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)のstop/reset、実験記録/世代制御は適合する部分を**APIとして再利用**するが、既存WorkerプロトコルにGL contextや任意コード評価を無理に同居させない。共通UIの仮定は着手PRで実コードと照合する。
+- [対話型シミュレーション共通基盤](../plans_progress/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)のstop/reset、実験記録/世代制御は適合する部分を**APIとして再利用**するが、既存WorkerプロトコルにGL contextや任意コード評価を無理に同居させない。共通UIの仮定は着手PRで実コードと照合する。
 - **WGL1またはFCGの先行着手講（どちらが先でもよい）で最小安全ラボを同時実装**。WGL1→2・FCG2以降のWebGL課題が同じ基盤を段階拡張し、重複実装しない。共通ランタイム変更は両系列の回帰影響を評価する。ソフトウェア上の再利用は、他系列の未完了章を数学的prerequisiteに要求する理由にはならない。
 
 ### 2.3 全講での具体的受け入れ契約
