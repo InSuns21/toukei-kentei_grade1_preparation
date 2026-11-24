@@ -24,9 +24,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr11-adelic-gl2 -->
-**定義の確認。
+**定義の確認**
 
-** 実成分と $p\ne2$ の成分を単位行列とし、2成分を $\operatorname{diag}(2,1)$ とします。
+実成分と $p\ne2$ の成分を単位行列とし、2成分を $\operatorname{diag}(2,1)$ とします。
 
 逆行列は2成分だけが $\operatorname{diag}(1/2,1)$ となります。
 
@@ -37,9 +37,9 @@ $$
 
 局所行列を $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ とします。行列式が単元なら
 
-$
+$$
 A^{-1}=(ad-bc)^{-1}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}
-$
+$$
 
 の各成分が整数環に入ります。逆に整数環内で逆行列があれば $\det A\det A^{-1}=1$ なので行列式は単元です。従って各 $g_v$ が局所的に可逆であることと、大半の有限成分で行列式が単元かつ成分が整数であることを合わせれば、上の表示が得られます。
 
@@ -63,7 +63,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr11-adelic-quotient -->
-**定義の確認。** $|\det g|_{\mathbb A}$ は行列式を取ってから全素点の絶対値を掛けた正の実数です。[数体の大域積公式](../../ANF/ANF19/index.md#thm-anf19-product-formula)によって $|\det\gamma|_{\mathbb A}=1$ です。従って
+**定義の確認**
+
+$|\det g|_{\mathbb A}$ は行列式を取ってから全素点の絶対値を掛けた正の実数です。[数体の大域積公式](../../ANF/ANF19/index.md#thm-anf19-product-formula)によって $|\det\gamma|_{\mathbb A}=1$ です。従って
 
 $$
 |\det(\gamma g)|_{\mathbb A}
@@ -221,7 +223,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr11-central-character -->
-**定義の確認。** $\phi(g)=|\det g|_{\mathbb A}^{it}$（$t\in\mathbb R$）は[積公式による左不変性](#def-afr11-adelic-quotient)を満たします。$\det(zIg)=z^2\det g$ なので
+**定義の確認**
+
+$\phi(g)=|\det g|_{\mathbb A}^{it}$（$t\in\mathbb R$）は[積公式による左不変性](#def-afr11-adelic-quotient)を満たします。$\det(zIg)=z^2\det g$ なので
 
 $$
 \phi(zIg)=|z|_{\mathbb A}^{2it}\phi(g).
@@ -273,9 +277,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr11-automorphic-form -->
-**定義の確認。
+**定義の確認**
 
-** 定数関数1は左不変かつ滑らかで、右 $K_f$ 不変です。
+定数関数1は左不変かつ滑らかで、右 $K_f$ 不変です。
 
 右 $O(2)$ 移動で得る関数は1だけなので次元は1です。
 
@@ -317,7 +321,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr11-cuspidal -->
-**定義の確認。** 定数関数1は上で保型形式と確認しましたが、積分の値は全ての $g$ で1です。従ってカスプ形式ではありません。一方、零関数は全条件を満たし積分も0です。非零のカスプ形式は次節で古典的な形式から構成します。
+**定義の確認**
+
+定数関数1は上で保型形式と確認しましたが、積分の値は全ての $g$ で1です。従ってカスプ形式ではありません。一方、零関数は全条件を満たし積分も0です。非零のカスプ形式は次節で古典的な形式から構成します。
 <!-- definition-example-end -->
 
 $u$ を $u+q$ に替えると $n(u+q)=n(q)n(u)$ であり、左不変性から被積分関数は変わりません。商は [加法商のコンパクト性](../AFR8/index.md#thm-afr8-additive-quotient-compact) によりコンパクトで、被積分関数は連続なので積分は有限です。
@@ -481,18 +487,20 @@ $D_TF_f=ikF_f$ です。
 
 具体的に $k_\theta=\exp(\theta T)$ とすると
 
-$
+$$
 k_\theta(H-iS)k_\theta^{-1}=e^{-2i\theta}(H-iS).
-$
+$$
 
 これは左辺を $\theta$ で微分すると交換子により $-2i$ 倍となり、$\theta=0$ で $H-iS$ になることから従います。
 
 右回転の変換則を微分すると
 
-$
+$$
 P_-F_f(s(z)k_\theta)
 =e^{ik\theta}e^{-2i\theta}P_-F_f(s(z))=0.
-$正のスカラー方向の微分は0です。有限側を固定した任意の $g=\gamma(h,k_f)$ についても、実右微分は $F_f(h)$ への右微分に一致するので同じ結論です。
+$$
+
+正のスカラー方向の微分は0です。有限側を固定した任意の $g=\gamma(h,k_f)$ についても、実右微分は $F_f(h)$ への右微分に一致するので同じ結論です。
 
 $\mathcal Z$ の作用の有限性を示します。
 
@@ -616,9 +624,9 @@ $$
 - ID: AFR11-A1
 
 <!-- solution-start -->
-**詳細解答。
+**詳細解答**
 
-** [アデール上の一般線形群](#def-afr11-adelic-gl2)の条件を確認します。
+[アデール上の一般線形群](#def-afr11-adelic-gl2)の条件を確認します。
 
 3成分の逆は $\operatorname{diag}(1,9)$ であり、他の逆成分は単位行列です。
 
@@ -637,7 +645,9 @@ $\phi(g)=|\det g|_{\mathbb A}^{3i}$ の中心指標を求め、有理数 $q=2$ �
 - ID: AFR11-A2
 
 <!-- solution-start -->
-**詳細解答。** $\det(zIg)=z^2\det g$ なので
+**詳細解答**
+
+$\det(zIg)=z^2\det g$ なので
 
 $$
 \frac{\phi(zIg)}{\phi(g)}
@@ -659,9 +669,9 @@ $|2|_\infty=2$、$|2|_2=1/2$、他の絶対値は1なので $|2|_{\mathbb A}=1$�
 - ID: AFR11-A3
 
 <!-- solution-start -->
-**詳細解答。
+**詳細解答**
 
-** 既約分数の分母が1でなければ、その素因数で付値が負になるので、全有限素点で整な有理数は整数です。
+既約分数の分母が1でなければ、その素因数で付値が負になるので、全有限素点で整な有理数は整数です。
 
 各成分に適用すると $A,A^{-1}$ はともに整数行列です。
 
@@ -684,7 +694,9 @@ $f(z)=a_0+\sum_{n\ge1}a_ne^{2\pi inz}$ を重さ4のレベル1の正則モジュ
 - ID: AFR11-A4
 
 <!-- solution-start -->
-**詳細解答。** [定数項の実積分への還元](#prop-afr11-constant-term-reduction)と[古典形式の持ち上げ](#thm-afr11-classical-lift)より
+**詳細解答**
+
+[定数項の実積分への還元](#prop-afr11-constant-term-reduction)と[古典形式の持ち上げ](#thm-afr11-classical-lift)より
 
 $$
 C_{\phi_f}((h,1))=3^2 e^{4i\pi/4}\int_0^1f(3i+x)\,dx.
@@ -707,7 +719,9 @@ $L$ とその上三角基底行列 $\gamma$ を求め、$g=\gamma(h,k_f)$ を具
 - ID: AFR11-B1
 
 <!-- solution-start -->
-**詳細解答。** [レベル1のアデール分解](#thm-afr11-level-one-decomposition)で用いた格子の条件を第1、第2座標に分けます。第1座標は2進付値1以上、他で0以上なので $2\mathbb Z$ です。第2座標は3進付値 $-1$ 以上、他で0以上なので $\frac13\mathbb Z$ です。
+**詳細解答**
+
+[レベル1のアデール分解](#thm-afr11-level-one-decomposition)で用いた格子の条件を第1、第2座標に分けます。第1座標は2進付値1以上、他で0以上なので $2\mathbb Z$ です。第2座標は3進付値 $-1$ 以上、他で0以上なので $\frac13\mathbb Z$ です。
 
 $$
 L=2\mathbb Z\times\tfrac13\mathbb Z,\qquad
@@ -733,7 +747,9 @@ $\gamma=\begin{pmatrix}2&1\\0&3\end{pmatrix}$ とする。$\gamma^{-1}n(u)\gamma
 - ID: AFR11-B2
 
 <!-- solution-start -->
-**詳細解答。** 逆行列は $\begin{pmatrix}1/2&-1/6\\0&1/3\end{pmatrix}$ であり、
+**詳細解答**
+
+逆行列は $\begin{pmatrix}1/2&-1/6\\0&1/3\end{pmatrix}$ であり、
 
 $$
 n(u)\gamma=\begin{pmatrix}2&1+3u\\0&3\end{pmatrix},
@@ -762,9 +778,9 @@ $$
 - ID: AFR11-B3
 
 <!-- solution-start -->
-**詳細解答。
+**詳細解答**
 
-** $HS=\begin{pmatrix}0&1\\-1&0\end{pmatrix}=T$、$SH=-T$ なので交換子は $2T$ です。
+$HS=\begin{pmatrix}0&1\\-1&0\end{pmatrix}=T$、$SH=-T$ なので交換子は $2T$ です。
 
 従って $[D_H,D_S]=2D_T$ です。
 
@@ -805,9 +821,9 @@ $\phi$ を右 $K_f$ 不変、中心指標が自明で、右 $SO(2)$ 移動が重
 - ID: AFR11-C1
 
 <!-- solution-start -->
-**詳細解答。
+**詳細解答**
 
-** (1) 実成分への制限 $\Phi(s)=\phi((s,1))$（$s\in SL_2(\mathbb R)$）を考えます。
+(1) 実成分への制限 $\Phi(s)=\phi((s,1))$（$s\in SL_2(\mathbb R)$）を考えます。
 
 $\delta\in SL_2(\mathbb Z)$ の有限成分は $K_f$ に属するので
 
