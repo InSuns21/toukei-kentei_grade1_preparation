@@ -34,7 +34,14 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（Dirac空間での空間反転）**
-> 上記のWeyl基底の四成分空間で $H^2=I_4$ であり、任意の $A\in SL(2,\mathbb C)$ について
+> Weyl基底の四成分空間で任意の $A\in SL(2,\mathbb C)$ に対し $Q(A)=(A^\dagger)^{-1}$ とし、
+
+$$
+H=\begin{pmatrix}0&-iI_2\\iI_2&0\end{pmatrix},
+\quad S(A)=\operatorname{diag}(A,Q(A))
+$$
+
+> とする。このとき $H^2=I_4$ であり、
 
 $$
 HS(A)H^{-1}=S(Q(A)).
@@ -76,7 +83,7 @@ $$
 よって $H\Gamma=-\Gamma H$、右から $H$ を掛ければ結論を得ます。$\square$
 <!-- proof-end -->
 
-例えば $A=\operatorname{diag}(2,1/2)$ なら $Q(A)=\operatorname{diag}(1/2,2)$ です。左第一成分は2倍ですが、鏡映後の右第一成分には逆のboostに対する2倍の作用が現れます。場への変換を $\psi'(x)=H\psi(P_x x)$ とすれば、座標の反転と成分の交換を同時に扱えます。固有値 $\pm1$ の交換は成分に関する事実であって、この行列を粒子Hilbert空間の全作用とみなすわけではありません。
+例えば $A=\operatorname{diag}(2,1/2)$ なら $Q(A)=\operatorname{diag}(1/2,2)$ です。左第一成分は2倍ですが、鏡映後の右第一成分には逆のboostに対する2倍の作用が現れます。場への変換を $\psi'(x)=H\psi(P_x x)$ とすれば、座標の反転と成分の交換を同時に扱えます。[chirality演算子](../LREP16/index.md#def-lrep16-chirality)の固有値 $\pm1$ の交換は成分に関する事実であって、この行列を粒子Hilbert空間の全作用とみなすわけではありません。
 
 ## 2. 時間反転と正エネルギー
 
@@ -84,20 +91,41 @@ $$
 
 この確率を保存する全単射な状態の対称変換は、Wignerの定理によりユニタリまたは反ユニタリな作用素で実現できます。ここではこの量子力学上の定理を証明せず、その二種類の作用素のどちらかが存在すると仮定して時間反転の必要条件を求めます。
 
-[LREP18の電荷共役](../LREP18/index.md#def-lrep18-charge-conjugation)で反線形写像を使いました。反線形とは係数を複素共役することです。Hilbert空間でさらに全射で、内積を複素共役に移すものが反ユニタリ作用素です。例えば $\mathbb C^2$ の通常の内積では $Kz=z^*$ がその条件を満たします。実際 $K^2=I_2$、$K(\alpha z+\beta w)=\alpha^*Kz+\beta^*Kw$ であり、
+[LREP18の電荷共役](../LREP18/index.md#def-lrep18-charge-conjugation)で反線形写像を使いました。反線形とは係数を複素共役することです。Hilbert空間では、さらに遷移確率を保つ条件を課します。
+
+<a id="def-lrep28-antiunitary"></a>
+
+<!-- formal-statement-start -->
+> **定義（反ユニタリ作用素）**
+> 複素Hilbert空間 $\mathcal H$ 上の写像 $F:\mathcal H\to\mathcal H$ が全射であり、任意の $z,w\in\mathcal H$、$\alpha,\beta\in\mathbb C$ に対して
+
+$$
+F(\alpha z+\beta w)=\alpha^*Fz+\beta^*Fw,
+$$
+
+$$
+\langle Fz,Fw\rangle=\langle z,w\rangle^*
+$$
+
+> を満たすとき、反ユニタリ作用素という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-lrep28-antiunitary -->
+**定義の確認**。 例えば $\mathbb C^2$ の通常の内積では $Kz=z^*$ がその条件を満たします。実際 $K^2=I_2$、$K(\alpha z+\beta w)=\alpha^*Kz+\beta^*Kw$ であり、
 
 $$
 \langle Kz,Kw\rangle=z^{\mathsf T}w^*
 =\langle z,w\rangle^*.
 $$
 
-従ってノルムと遷移確率が保たれます。
+従ってノルムと遷移確率が保たれます。全射性は二回作用させると任意の列が元に戻ることから従います。
+<!-- definition-example-end -->
 
 <a id="prop-lrep28-time-reversal-energy"></a>
 
 <!-- formal-statement-start -->
 > **命題（正エネルギーの時間反転条件）**
-> 複素Hilbert空間上の非零の非負自己共役作用素を $E_0$ とし、$V(t)=e^{-itE_0}$ とする。ユニタリまたは反ユニタリな全単射 $\Theta$ が全実数 $t$ について
+> 複素Hilbert空間上の非零の非負自己共役作用素を $E_0$ とし、$V(t)=e^{-itE_0}$ とする。ユニタリまたは[反ユニタリ作用素](#def-lrep28-antiunitary) $\Theta$ が全実数 $t$ について
 
 $$
 \Theta V(t)\Theta^{-1}=V(-t)
@@ -173,6 +201,8 @@ $$
 
 > を満たすとする。$h(\boldsymbol p)$ の実固有値 $h$ の状態は、空間反転後は固有値 $-h$、時間反転後は固有値 $h$ の状態になる。
 <!-- formal-statement-end -->
+
+**証明の見取り図。** 進行方向の符号と角運動量の符号を別々に数えれば、空間反転では一つ、時間反転では二つの符号が変わります。
 
 <!-- proof-start -->
 ### 証明
@@ -408,7 +438,7 @@ $$
 
 $S(R)=\operatorname{diag}(R,R)$ なので $S(R)u_1=(0,2\sqrt2,0,i\sqrt2)^{\mathsf T}$、$S(R)u_2=(-\sqrt2,0,-2i\sqrt2,0)^{\mathsf T}$。一方 $B^{-1}$ で作った $u_1(p'),u_2(p')$ はそれぞれ $(\sqrt2,0,2i\sqrt2,0)^{\mathsf T}$、$(0,2\sqrt2,0,i\sqrt2)^{\mathsf T}$。$R\chi_1=\chi_2$、$R\chi_2=-\chi_1$ と一致します。これは[共変モード係数](../LREP26/index.md#def-lrep26-mode-intertwiner)の条件を四次元場と二次元内部空間の間で確認したものです。
 
-次に $M=(u_1,u_2)$ を四行二列の行列とします。$M=2(B,iB^{-1})^{\mathsf T}$ とブロック列で書けるため
+次に $M=(u_1,u_2)$ を四行二列の行列とします。$M=2\begin{pmatrix}B\\iB^{-1}\end{pmatrix}$ とブロック列で書けるため
 
 $$
 M^\dagger H=2(B^{-1},-iB).
