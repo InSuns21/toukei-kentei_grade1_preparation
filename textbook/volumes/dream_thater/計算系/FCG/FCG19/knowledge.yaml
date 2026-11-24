@@ -1,0 +1,17 @@
+chapter: FCG19
+scope: dream-theater
+coverage: complete
+prerequisites: [FCG5, FCG12, FCG14, WGL19]
+concepts:
+  - id: graphics.fcg19-display-only-quality
+    name: 描画専用の品質変更
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（描画専用の品質変更）"]
+    requires: [graphics.render-compute-audit, graphics.data-typed-formats]
+  - id: graphics.fcg19-diagnostics-invariant
+    name: 描画専用の品質変更による物理診断の不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（描画専用の品質変更による物理診断の不変性）"]
+    requires: [graphics.fcg19-display-only-quality, graphics.context-replay, graphics.fcg5-diagnostics, graphics.fcg12-positive, graphics.fcg14-balance]

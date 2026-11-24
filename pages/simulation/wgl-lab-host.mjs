@@ -63,7 +63,7 @@ const isFCG17 = lesson === 'FCG17';
 const isFCG16 = lesson === 'FCG16';
 const isFCG15 = lesson === 'FCG15';
 const fcgTimeLab = isFCG19 || isFCG9 || isFCG10 || isFCG11 || isFCG12 || isFCG15 || isFCG16 || isFCG17 || isFCG18;
-const fcgTimeMax = isFCG19 ? 1.2 : (isFCG15||isFCG16||isFCG17||isFCG18||isFCG19) ? 4 : isFCG9 ? 24 : isFCG10 ? 6 : isFCG11 ? 1.8 : 3;
+const fcgTimeMax = isFCG19 ? 1.2 : (isFCG15||isFCG16||isFCG17||isFCG18) ? 4 : isFCG9 ? 24 : isFCG10 ? 6 : isFCG11 ? 1.8 : 3;
 const isFCG14 = lesson === 'FCG14';
 const isFCG13 = lesson === 'FCG13';
 const fcgOutputLab = isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8 || fcgTimeLab || isFCG13 || isFCG14;
@@ -122,8 +122,8 @@ const SOURCE_LIMIT = 30000;
 // in the host, rather than failing during initial oracle construction.
 const legacyViewport = isFCG2 || isFCG3 ||
   (lesson.startsWith('WGL') && Number(lesson.slice(3)) >= 7);
-const MAX_PIXELS = (isFCG19||isFCG15||isFCG16||isFCG17||isFCG18||isFCG19) ? 524288 : legacyViewport ? 524288 : 2097152;
-const MAX_SIDE = (isFCG19||isFCG15||isFCG16||isFCG17||isFCG18||isFCG19) ? 1024 : legacyViewport ? 1024 : 2048;
+const MAX_PIXELS = (isFCG19||isFCG15||isFCG16||isFCG17||isFCG18) ? 524288 : legacyViewport ? 524288 : 2097152;
+const MAX_SIDE = (isFCG19||isFCG15||isFCG16||isFCG17||isFCG18) ? 1024 : legacyViewport ? 1024 : 2048;
 const TIMEOUT_MS = 6000;
 const byId = id => document.getElementById(id);
 const inputs = {
@@ -2180,7 +2180,7 @@ byId('preset').addEventListener('change', event => {
 });
 if(fcgTimeLab){
   const live=document.createElement('div');live.id='fcg-time-live';
-  const stepLabel=isFCG19?'1更新区間（モデル別Δt）':isFCG18?'1物理step（設定Δt）':(isFCG15||isFCG16||isFCG17||isFCG18||isFCG19)?'1ステップ（0.05 s）':isFCG9?'1 step（0.04 s）':isFCG10?'位相を0.1 rad進める':'1表示step（0.05 s）';
+  const stepLabel=isFCG19?'1更新区間（モデル別Δt）':isFCG18?'1物理step（設定Δt）':(isFCG15||isFCG16||isFCG17||isFCG18)?'1ステップ（0.05 s）':isFCG9?'1 step（0.04 s）':isFCG10?'位相を0.1 rad進める':'1表示step（0.05 s）';
   live.innerHTML='<div class="controls" role="group" aria-label="再生操作">'+
     '<button type="button" class="action" id="fcg-time-play" disabled>再生</button>'+
     '<button type="button" class="action" id="fcg-time-pause" disabled>一時停止</button>'+
