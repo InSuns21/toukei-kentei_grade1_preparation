@@ -1,0 +1,23 @@
+id: FCG14
+title: "煙の密度と浮力はどう連成するか"
+volume: foundations
+status: supplementary
+prerequisites: [FCG5, FDM4, FLUID31]
+official_scope: []
+learning_objectives:
+  - "煙濃度と温度差を区別し、Boussinesq近似の浮力の向き・単位・仮定を説明できる"
+  - "FCG5のMAC圧力射影と濃度・温度差の保存型移流拡散を連成できる"
+  - "面流束の相殺、非負条件、熱源・煙源の収支を導出して検算できる"
+  - "同じ物理状態から煙・温度・流速を表示し、熱源なし・浮力なしと比較できる"
+definitions:
+  - { id: FCG14-DEF-01, name: "Boussinesq型の煙・温度連成モデル" }
+  - { id: FCG14-DEF-02, name: "煙・温度の保存型面流束" }
+theorems:
+  - { id: FCG14-PROP-01, name: "閉じた格子におけるスカラー収支" }
+  - { id: FCG14-PROP-02, name: "流出係数による非負保持" }
+canonical_examples: ["温度差による上向き加速度", "2セルの移流拡散・供給収支", "同一格子の煙・温度・流速比較"]
+problem_patterns: [FCG14-BUOYANCY, FCG14-FLUX, FCG14-BALANCE, FCG14-POSITIVITY, FCG14-COUPLING]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }

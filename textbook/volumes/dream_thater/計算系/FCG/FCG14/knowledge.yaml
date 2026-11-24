@@ -1,0 +1,29 @@
+chapter: FCG14
+scope: dream-theater
+coverage: complete
+prerequisites: [FCG5, FDM4, FLUID31]
+concepts:
+  - id: graphics.fcg14-smoke-coupling
+    name: Boussinesq型の煙・温度連成モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Boussinesq型の煙・温度連成モデル）"]
+    requires: [graphics.fcg5-split-step, fluid.buoyancy-acceleration]
+  - id: graphics.fcg14-scalar-flux
+    name: 煙・温度の保存型面流束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（煙・温度の保存型面流束）"]
+    requires: [graphics.fcg14-smoke-coupling, numerical.upwind-first-difference]
+  - id: graphics.fcg14-balance
+    name: 閉じた格子におけるスカラー収支
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（閉じた格子におけるスカラー収支）"]
+    requires: [graphics.fcg14-scalar-flux]
+  - id: graphics.fcg14-positivity
+    name: 流出係数による非負保持
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（流出係数による非負保持）"]
+    requires: [graphics.fcg14-scalar-flux]
