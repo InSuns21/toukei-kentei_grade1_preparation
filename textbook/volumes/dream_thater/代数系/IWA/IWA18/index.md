@@ -187,7 +187,7 @@ $$
 > Tate–Shafarevich群は局所で零になる $E(\bar F)$ 値の類からなる群
 >
 $$
-\Sha(E/F)=\ker\left(H^1(G_F,E(\bar F))
+\operatorname{Sha}(E/F)=\ker\left(H^1(G_F,E(\bar F))
 \to\prod_v H^1(G_{F_v},E(\overline{F_v}))\right)
 $$
 >
@@ -202,7 +202,7 @@ $$
 >
 $$
 0\to E(F)/nE(F)\to
-\operatorname{Sel}_{n}(E/F)\to\Sha(E/F)[n]\to0.
+\operatorname{Sel}_{n}(E/F)\to\operatorname{Sha}(E/F)[n]\to0.
 $$
 <!-- formal-statement-end -->
 
@@ -211,9 +211,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[楕円曲線のKummer完全列](#thm-iwa18-kummer-exact) を $F$ と各 $F_v$ に適用します。$P$ の等分点を局所の代数閉包へ写せば同じずれの式になるため、制限とKummer写像は可換です。従って大域のKummer像は全ての局所条件を満たします。局所列の完全性より、局所条件は包含後の $H^1(G_{F_v},E(\overline{F_v}))[n]$ で零になることと同値です。よって大域のSelmer群からの像は $\Sha(E/F)[n]$ に入ります。
+[楕円曲線のKummer完全列](#thm-iwa18-kummer-exact) を $F$ と各 $F_v$ に適用します。$P$ の等分点を局所の代数閉包へ写せば同じずれの式になるため、制限とKummer写像は可換です。従って大域のKummer像は全ての局所条件を満たします。局所列の完全性より、局所条件は包含後の $H^1(G_{F_v},E(\overline{F_v}))[n]$ で零になることと同値です。よって大域のSelmer群からの像は $\operatorname{Sha}(E/F)[n]$ に入ります。
 
-逆に $\alpha\in\Sha(E/F)[n]$ を取ります。大域のKummer列の全射性により、$\alpha$ の持ち上げ $c\in H^1(G_F,E[n])$ が存在します。各 $v$ で $\alpha$ の制限は零だから、局所完全列より $\operatorname{res}_v(c)$ は $L_{v,n}$ に属します。よって $c$ はSelmer群の元です。最後に大域列の核はちょうど大域Kummer像なので、Selmer群への制限でも核は変わりません。
+逆に $\alpha\in\operatorname{Sha}(E/F)[n]$ を取ります。大域のKummer列の全射性により、$\alpha$ の持ち上げ $c\in H^1(G_F,E[n])$ が存在します。各 $v$ で $\alpha$ の制限は零だから、局所完全列より $\operatorname{res}_v(c)$ は $L_{v,n}$ に属します。よって $c$ はSelmer群の元です。最後に大域列の核はちょうど大域Kummer像なので、Selmer群への制限でも核は変わりません。
 <!-- proof-end -->
 
 <!-- definition-example-start: def-iwa18-elliptic-selmer -->
@@ -225,21 +225,21 @@ $P$ は全ての $\mathbb Q_v$ にも属し、等分点のずれは局所Kummer�
 
 したがって全素点の商で零になり、$\delta_2([P])$ は非零のSelmer元です。
 
-一方、係数を $E(\bar{\mathbb Q})$ へ拡大すると同じ $Q$ がコバウンダリを与えるため、この元の $\Sha$ への像は零です。
+一方、係数を $E(\bar{\mathbb Q})$ へ拡大すると同じ $Q$ がコバウンダリを与えるため、この元の $\operatorname{Sha}$ への像は零です。
 
-$\Sha$ の定義では全ての局所の制限が零であることが必要で、有限係数でのSelmer条件は局所の類自体が零であることを要求していません。
+$\operatorname{Sha}$ の定義では全ての局所の制限が零であることが必要で、有限係数でのSelmer条件は局所の類自体が零であることを要求していません。
 <!-- definition-example-end -->
 
 ## 4. 係数と体の二方向で極限を取る
 
-$E[p^\infty]=\bigcup_m E[p^m]$ とします。係数の包含によるコホモロジー写像に対応して、左端の点の商の遷移は $[P]\mapsto[pP]$ です。実際 $p^mQ=P$ なら $p^{m+1}Q=pP$ なので同じずれが使えます。右端の $\Sha[p^m]$ の遷移は包含です。
+$E[p^\infty]=\bigcup_m E[p^m]$ とします。係数の包含によるコホモロジー写像に対応して、左端の点の商の遷移は $[P]\mapsto[pP]$ です。実際 $p^mQ=P$ なら $p^{m+1}Q=pP$ なので同じずれが使えます。右端の $\operatorname{Sha}[p^m]$ の遷移は包含です。
 
 有向直極限では、二つの層の元がある共通の上層で一致するとき同じ元とみなします。有限係数のSelmer群をこの遷移で直極限にして $\operatorname{Sel}_{p^\infty}(E/F)$ を得ます。各短完全列を極限にすると
 
 $$
 0\to E(F)\otimes\mathbb Q_p/\mathbb Z_p
 \to\operatorname{Sel}_{p^\infty}(E/F)
-\to\Sha(E/F)[p^\infty]\to0.
+\to\operatorname{Sha}(E/F)[p^\infty]\to0.
 $$
 
 完全性は元で確認できます。
@@ -458,7 +458,7 @@ $$
 
 有限係数Selmer群の有限性は数体の有限分岐算術を用いる標準結果で、ここでは引用します。
 
-[有限係数Selmer完全列](#thm-iwa18-selmer-exact) より $\Sha(E/\mathbb Q)[p]$ は有限です。
+[有限係数Selmer完全列](#thm-iwa18-selmer-exact) より $\operatorname{Sha}(E/\mathbb Q)[p]$ は有限です。
 
 [Mordell–Weil定理](../../EC/EC6/index.md#thm-ec6-general-mw) により $E(\mathbb Q)\simeq\mathbb Z^r\oplus B$（$B$ は有限）なので、$E(\mathbb Q)\otimes\mathbb Q_p/\mathbb Z_p\simeq(\mathbb Q_p/\mathbb Z_p)^r$ です。
 
@@ -526,7 +526,7 @@ $$
 >
 > 各 $i=1,2$ に対し、局所制限の核の間に完全な双対性がある。特に有限群として
 >
-$
+$$
 K_S^1(F,A)\simeq K_S^2(F,A^D)^\vee.
 $$
 <!-- formal-statement-end -->
@@ -598,7 +598,7 @@ $p=5$、$D=\mathbb Z/25\mathbb Z$ とし $\gamma a=6a$ とする。双対の作�
 点の群の模型 $M=\mathbb Z\oplus\mathbb Z/9\mathbb Z$ で $p=3$ とする。$M/3^mM$ の $[P]\mapsto[3P]$ による直極限を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** 自由部分は $\mathbb Z/3^m\mathbb Z$。写像 $[a]\mapsto a/3^m+\mathbb Z_3$ は分母を上げても $3a/3^{m+1}=a/3^m$ なので整合し、全ての $3$ べき分母の類を尽くします。各段で単射なので極限は $\mathbb Q_3/\mathbb Z_3$ です。有限部分の商は $m\ge2$ で $\mathbb Z/9\mathbb Z$ になり、二段遷移で $9b=0$ となるため全ての元が極限で消えます。従って全体は $\mathbb Q_3/\mathbb Z_3$ です。有限位数点の寄与と $\Sha$ の寄与を同一視してはいけません。
+**詳細解答。** 自由部分は $\mathbb Z/3^m\mathbb Z$。写像 $[a]\mapsto a/3^m+\mathbb Z_3$ は分母を上げても $3a/3^{m+1}=a/3^m$ なので整合し、全ての $3$ べき分母の類を尽くします。各段で単射なので極限は $\mathbb Q_3/\mathbb Z_3$ です。有限部分の商は $m\ge2$ で $\mathbb Z/9\mathbb Z$ になり、二段遷移で $9b=0$ となるため全ての元が極限で消えます。従って全体は $\mathbb Q_3/\mathbb Z_3$ です。有限位数点の寄与と $\operatorname{Sha}$ の寄与を同一視してはいけません。
 <!-- solution-end -->
 
 <a id="ex-iwa18-b2"></a>
