@@ -51,7 +51,7 @@ chapters:
     title: "自然数・リストの構造帰納法"
   - id: LVT2-06
     path: textbook/volumes/dream_thater/計算系/LVT/LVT2-06
-    status: planned
+    status: completed
     title: "帰納的述語と証明の帰納法"
   - id: LVT2-07
     path: textbook/volumes/dream_thater/計算系/LVT/LVT2-07
