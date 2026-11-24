@@ -72,7 +72,7 @@ chapters:
     title: "制限テンソル積・局所大域L因子"
   - id: AFR17
     path: textbook/volumes/dream_thater/代数系/AFR/AFR17
-    status: planned
+    status: completed
     title: "`GL_2`の保型表現と古典形式"
   - id: AFR18
     path: textbook/volumes/dream_thater/代数系/AFR/AFR18
