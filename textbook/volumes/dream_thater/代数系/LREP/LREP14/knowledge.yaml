@@ -1,0 +1,37 @@
+chapter: LREP14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP13
+forward_references: []
+concepts:
+  - id: representation.tensor-algebra
+    name: テンソル代数
+    kind: definition
+    introduction: formal
+    requires: [linear.tensor-product, linear.tensor-product-basis]
+  - id: representation.clifford-algebra
+    name: Clifford代数
+    kind: definition
+    introduction: formal
+    requires: [representation.tensor-algebra, linear.bilinear-form]
+  - id: representation.clifford-anticommutator
+    name: Clifford反交換関係
+    kind: proposition
+    introduction: formal
+    requires: [representation.clifford-algebra]
+  - id: representation.clifford-universal-property
+    name: Clifford代数の普遍性
+    kind: theorem
+    introduction: formal
+    requires: [representation.clifford-algebra, linear.tensor-product]
+  - id: representation.clifford-ordered-monomials
+    name: 順序付きClifford単項式による生成
+    kind: proposition
+    introduction: formal
+    requires: [representation.clifford-anticommutator]
+  - id: representation.clifford-complex-matrix-model
+    name: 四次元複素Clifford代数の行列模型
+    kind: theorem
+    introduction: formal
+    requires: [representation.clifford-universal-property, representation.clifford-ordered-monomials, representation.pauli-product]
