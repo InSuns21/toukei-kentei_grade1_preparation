@@ -12,11 +12,16 @@ concepts:
     kind: definition
     introduction: formal
     requires: [number-theory.iwa4-inverse-limit]
+  - id: number-theory.iwa13-locally-constant-function
+    name: 局所定数関数
+    kind: definition
+    introduction: inline
+    requires: [number-theory.zp-residue-quotients]
   - id: number-theory.iwa13-integral
     name: p進積分
     kind: definition
     introduction: formal
-    requires: [number-theory.iwa13-distribution]
+    requires: [number-theory.iwa13-distribution, number-theory.iwa13-locally-constant-function]
   - id: number-theory.iwa13-extension
     name: 分布の積分への一意的延長
     kind: theorem
