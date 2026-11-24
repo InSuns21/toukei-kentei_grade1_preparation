@@ -1,0 +1,64 @@
+chapter: CATB1-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-03
+  - CAT2-03
+  - CAT2-04
+  - CAT2-05
+
+concepts:
+  - id: category.kernel-pair
+    name: 核対
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（核対）"]
+    requires: [category.pullback]
+  - id: category.regular-epi
+    name: 正則エピ射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則エピ射）"]
+    requires: [category.coequalizer]
+  - id: category.categorical-image
+    name: 圏論的な像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（圏論的な像）"]
+    requires: [category.monomorphism]
+  - id: category.regular-epi-is-epi
+    name: 正則エピ射はエピ射
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則エピ射はエピ射）"]
+    requires: [category.regular-epi, category.epimorphism]
+  - id: category.kernel-pair-coequalizer
+    name: 正則エピ射と核対の余等化子
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則エピ射と核対の余等化子）"]
+    requires: [category.kernel-pair, category.regular-epi]
+  - id: category.set-regular-epi
+    name: 集合の正則エピ射と全射
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（集合の正則エピ射と全射）"]
+    requires: [category.kernel-pair-coequalizer, category.regular-epi-is-epi, category.set-characterization]
+  - id: category.regular-epi-mono-image
+    name: 正則エピ・モノ分解は像を与える
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則エピ・モノ分解は像を与える）"]
+    requires: [category.categorical-image, category.regular-epi-is-epi]
+  - id: category.kernel-pair-image-factorization
+    name: 核対の余等化子による像分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（核対の余等化子による像分解）"]
+    requires: [category.kernel-pair, category.complete-category, category.regular-epi-mono-image]
+  - id: category.set-regular-epi-base-change
+    name: 集合における正則エピ射の引き戻し安定性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（集合における正則エピ射の引き戻し安定性）"]
+    requires: [category.set-regular-epi, category.pullback]
