@@ -95,7 +95,7 @@ const descriptions = Object.freeze({
   }),
   FCG5: Object.freeze({
     grid: snapshot => '実計算'+(snapshot.gridN || 48)+'×'+(snapshot.gridN || 48)+'（MAC格子、R8転送）',
-    color: '連続表示: 染料の濃さを青・橙の色と明るさで表現。初期検算: 染料（赤青）・|発散|（赤）・速度（緑）の3列',
+    color: 'ライブ: 暗色は低濃度、明るい水色・淡黄色は高濃度（0〜1）。背景の明るさは速さ/0.4。初期検算: 染料・|発散|・速度の3列',
     clock: (step, snapshot) => Number.isFinite(snapshot.dt) && snapshot.dt > 0 ?
       '物理step '+step+'、t='+(step*snapshot.dt).toFixed(3)+' s（dt='+snapshot.dt+' s）' :
       '物理step '+step+'、時刻は編集JSのdtを確認',
