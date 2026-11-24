@@ -82,7 +82,32 @@ $$
 <!-- definition-example-start: def-catb2-01-enriched-category -->
 **定義の確認。** 基底を $\mathbf{Set}$ とし、[集合の直積によるモノイダル構造](../../CAT/CAT4-01/index.md#def-cat4-01-monoidal)を使う。単位対象は一元集合 $I=\{*\}$ である。対象を $S=\{0\}$ と $T=\{0,1\}$ の二つに取り、各Hom対象を全ての写像の集合とする。
 
-合成射は $m_{xyz}(g,f)=g\circ f$、単位射は $j_x(*)=1_x$ と定める。いずれも集合の写像であり、合成の結果の始域と終域は $x,z$ となる。三つの写像 $f:w\to x$、$g:x\to y$、$h:y\to z$ を取ると、左経路は $((h,g),f)$ を $(h\circ g)\circ f$ へ送り、右経路は結合子によって $(h,(g,f))$ へ移して $h\circ(g\circ f)$ へ送る。任意の $a\in w$ で両方の値は $h(g(f(a)))$ である。左単位の入力 $(*,f)$ は $1_y\circ f=f$、右単位の入力 $(f,*)$ は $f\circ1_x=f$ へ送られ、単位子の作用と一致する。したがって全ての対象の組で公理が成立する。
+合成射は $m_{xyz}(g,f)=g\circ f$、単位射は $j_x(*)=1_x$ と定める。いずれも集合の写像であり、合成の結果の始域と終域は $x,z$ となる。
+
+三つの写像 $f:w\to x$、$g:x\to y$、$h:y\to z$ を取る。結合律の左経路と右経路の作用はそれぞれ
+
+$$
+((h,g),f)\longmapsto(h\circ g)\circ f,
+$$
+
+$$
+((h,g),f)\longmapsto(h,(g,f))
+\longmapsto h\circ(g\circ f)
+$$
+
+である。任意の $a\in w$ で両方の値は $h(g(f(a)))$ になる。
+
+左単位と右単位の作用はそれぞれ
+
+$$
+(*,f)\longmapsto1_y\circ f=f,
+$$
+
+$$
+(f,*)\longmapsto f\circ1_x=f
+$$
+
+であり、単位子の作用と一致する。したがって全ての対象の組で公理が成立する。
 
 例えば $f:S\to T$ を $f(0)=1$、$g:T\to T$ を $g(0)=1,g(1)=0$、$h:T\to S$ を定数写像とすれば、$g(f(0))=0$、$h(g(f(0)))=0$ になる。写像を選ぶことと合成射にその写像の組を入力することを区別しよう。
 <!-- definition-example-end -->
@@ -106,9 +131,27 @@ $$
 <!-- proof-start -->
 ### 証明
 
-豊穣圏の各Hom対象をそのまま射の集合とし、合成を $g\circ f=m_{xyz}(g,f)$、恒等射を $1_x=j_x(*)$ と定める。[豊穣圏の公理](#def-catb2-01-enriched-category)の結合律を $((h,g),f)$ に作用させる。左辺は $m(m(h,g),f)$、右辺は $m(h,m(g,f))$ なので通常の結合律を得る。左単位律を $(*,f)$ で評価すると $m(j_y(*),f)=f$、右単位律を $(f,*)$ で評価すると $m(f,j_x(*))=f$ となる。よって[圏の定義](../../CAT/CAT1-01/index.md#def-cat1-01-category)を満たす。
+豊穣圏の各Hom対象をそのまま射の集合とし、合成を $g\circ f=m_{xyz}(g,f)$、恒等射を $1_x=j_x(*)$ と定める。
 
-逆に局所小な圏からHom集合を取り、合成写像 $m(g,f)=g\circ f$ と $j_x(*)=1_x$ を作る。結合子は $((h,g),f)\mapsto(h,(g,f))$ なので通常の結合律から豊穣結合律の両辺が全入力で一致する。単位子は $(*,f)\mapsto f$ と $(f,*)\mapsto f$ なので通常の単位律から豊穣単位律の両辺も全入力で一致する。写像は全入力での値で決まるから三条件は射の等式として成立する。
+[豊穣圏の公理](#def-catb2-01-enriched-category)の結合律を $((h,g),f)$ に作用させると
+
+$$
+m(m(h,g),f)=m(h,m(g,f))
+$$
+
+なので通常の結合律を得る。左単位律を $(*,f)$ で、右単位律を $(f,*)$ で評価すると
+
+$$
+m(j_y(*),f)=f,\qquad m(f,j_x(*))=f
+$$
+
+となる。よって[圏の定義](../../CAT/CAT1-01/index.md#def-cat1-01-category)を満たす。
+
+逆に局所小な圏からHom集合を取り、合成写像 $m(g,f)=g\circ f$ と $j_x(*)=1_x$ を作る。
+
+結合子は $((h,g),f)\mapsto(h,(g,f))$ なので通常の結合律から豊穣結合律の両辺が全入力で一致する。
+
+単位子は $(*,f)\mapsto f$ と $(f,*)\mapsto f$ なので通常の単位律から豊穣単位律の両辺も全入力で一致する。写像は全入力での値で決まるから三条件は射の等式として成立する。
 
 両方向でHom集合と対象は変えず、合成の値と単位元も同一である。構成を往復すると全データが元に戻る。
 <!-- proof-end -->
@@ -144,9 +187,17 @@ $$
 \sum_{i,j} H_{ai}G_{ij}F_{jb}
 $$
 
-になることから従う。ここで $a,b$ は結果の行・列番号、$i,j$ は合成経路の二つの中間空間の座標番号である。純テンソルは始域を線形結合で生成するから、二つの線形写像は等しい。左単位律は $m(t1_y\otimes F)=tF$、右単位律は $m(F\otimes t1_x)=tF$ であり、左右単位子の作用とそれぞれ一致する。こちらも純テンソルから全域で成立する。これで線形写像の全ての豊穣公理を確認した。
+になることから従う。ここで $a,b$ は結果の行・列番号、$i,j$ は合成経路の二つの中間空間の座標番号である。純テンソルは始域を線形結合で生成するから、二つの線形写像は等しい。
 
-具体的に $x=k$、$y=k^2$、$z=k$ とし、$F=(1,2)^{\mathsf T}$、$G=(3,4)$ とすると、$m(G\otimes F)=11$ である。二つの行列の役割を交換すると $FG$ は $2\times2$ 行列になり、同じHom対象に戻るとは限らない。
+左右単位律については
+
+$$
+m(t1_y\otimes F)=tF,\qquad m(F\otimes t1_x)=tF
+$$
+
+であり、左右単位子の作用とそれぞれ一致する。こちらも純テンソルから全域で成立する。これで線形写像の全ての豊穣公理を確認した。
+
+具体的に $k=\mathbb R$ とする。$x=k$、$y=k^2$、$z=k$ とし、$F=(1,2)^{\mathsf T}$、$G=(3,4)$ とすると、$m(G\otimes F)=11$ である。二つの行列の役割を交換すると $FG$ は $2\times2$ 行列になり、同じHom対象に戻るとは限らない。
 
 ## 4. 単位対象から通常の射を取り出す
 
@@ -264,7 +315,11 @@ $$
 [整合性定理](../../CAT/CAT4-02/index.md#thm-cat4-02-coherence)を $I\otimes I$ から $I$ への構造射に適用すると $\rho_I=\lambda_I$ なので、最後の式も $f$ となる。これで[圏の公理](../../CAT/CAT1-01/index.md#def-cat1-01-category)を全て満たした。
 <!-- proof-end -->
 
-集合値の場合、$I=\{*\}$ からの写像は選んだ元で決まり、$\delta(*)=(*,*)$ だから $\mathcal A_0$ は第3節の通常の圏に戻る。線形の場合は $I=k$ から線形写像 $s:k\to\mathcal A(x,y)$ を取ると $s(t)=ts(1)$ である。評価 $s\mapsto s(1)$ の逆は $F\mapsto(t\mapsto tF)$ である。$\delta(1)=1\otimes1$ を用いると合成の評価は $m(G\otimes F)=GF$ となり、元の線形写像の合成が復元される。
+集合値の場合、$I=\{*\}$ からの写像は選んだ元で決まり、$\delta(*)=(*,*)$ だから $\mathcal A_0$ は第3節の通常の圏に戻る。
+
+線形の場合は $I=k$ から線形写像 $s:k\to\mathcal A(x,y)$ を取ると $s(t)=ts(1)$ である。評価 $s\mapsto s(1)$ の逆は $F\mapsto(t\mapsto tF)$ である。
+
+$\delta(1)=1\otimes1$ を用いると合成の評価は $m(G\otimes F)=GF$ となり、元の線形写像の合成が復元される。
 
 ただし一般の基底で $I$ からの射だけがHom対象の構造を全て記述するとは限らない。次講では、この点が特に見えやすい順序と距離の例を扱う。
 
@@ -312,7 +367,25 @@ $$
 対象 $w,x,y,z$ を持つ豊穣圏で $P=\mathcal A(y,z)$、$Q=\mathcal A(x,y)$、$R=\mathcal A(w,x)$ とする。$(P\otimes Q)\otimes R$ から $\mathcal A(w,z)$ への結合律の二経路を書け。
 
 <!-- solution-start -->
-**詳細解答。** [豊穣圏の定義](#def-catb2-01-enriched-category)で左経路は $m_{xyz}\otimes1_R$ により $\mathcal A(x,z)\otimes R$ に移り、$m_{wxz}$ で $\mathcal A(w,z)$ に至る。右経路は $\alpha_{P,Q,R}$ で $P\otimes(Q\otimes R)$ へ移り、$1_P\otimes m_{wxy}$ で $P\otimes\mathcal A(w,y)$ に移り、$m_{wyz}$ で $\mathcal A(w,z)$ に至る。結合子を抜くと右経路の最初の射の始域が一致しない。
+**詳細解答。** [豊穣圏の定義](#def-catb2-01-enriched-category)で左経路は
+
+$$
+(P\otimes Q)\otimes R
+\xrightarrow{m_{xyz}\otimes1_R}
+\mathcal A(x,z)\otimes R
+\xrightarrow{m_{wxz}}\mathcal A(w,z)
+$$
+
+となる。右経路は $\alpha_{P,Q,R}$ で $P\otimes(Q\otimes R)$ へ移り、次に
+
+$$
+P\otimes(Q\otimes R)
+\xrightarrow{1_P\otimes m_{wxy}}
+P\otimes\mathcal A(w,y)
+\xrightarrow{m_{wyz}}\mathcal A(w,z)
+$$
+
+と進む。結合子を抜くと右経路の最初の射の始域が一致しない。
 <!-- solution-end -->
 
 ### CATB2-01-A02 集合値の合成
@@ -349,7 +422,11 @@ $$
 $\mathbf{Set}$ 上の一対象豊穣圏でHom対象を $\mathbb N_0$、合成を加法とする。単位射を求め、結合律と左右単位律を確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** [一対象の豊穣圏とモノイド対象](#prop-catb2-01-one-object)により、加法の単位元 $0$ から $j(*)=0$ と定める。任意の $a,b,c\in\mathbb N_0$ で結合子は $((a,b),c)$ を $(a,(b,c))$ に移す。二経路の像は $(a+b)+c$ と $a+(b+c)$ で整数加法の結合律から一致する。左単位は $0+a=a$、右単位は $a+0=a$ なので、単位子の二つの作用とも一致する。
+**詳細解答。** [一対象の豊穣圏とモノイド対象](#prop-catb2-01-one-object)により、加法の単位元 $0$ から $j(*)=0$ と定める。
+
+任意の $a,b,c\in\mathbb N_0$ で結合子は $((a,b),c)$ を $(a,(b,c))$ に移す。二経路の像は $(a+b)+c$ と $a+(b+c)$ で整数加法の結合律から一致する。
+
+左単位は $0+a=a$、右単位は $a+0=a$ なので、単位子の二つの作用とも一致する。
 <!-- solution-end -->
 
 ### CATB2-01-B01 なぜ直積ではいけないか
@@ -359,7 +436,25 @@ $\mathbf{Set}$ 上の一対象豊穣圏でHom対象を $\mathbb N_0$、合成を
 実数の積 $(a,b)\mapsto ab$ は $\mathbb R\times\mathbb R$ のベクトル空間から $\mathbb R$ への線形写像ではないことを示せ。一方、各変数について線形であることを確認し、テンソル積からの合成射を書け。
 
 <!-- solution-start -->
-**詳細解答。** $u=(1,0),v=(0,1)$ を取ると積の値はそれぞれ $0$ だが、$u+v=(1,1)$ の値は $1$ になる。したがって加法を保たず線形ではない。一方、実数 $s,t,a,a',b,b'$ について $(sa+ta')b=sab+ta'b$ および $a(sb+tb')=sab+tab'$ が成り立つ。ゆえに双線形である。[テンソル積の普遍性](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)から一意な線形写像 $m:\mathbb R\otimes_{\mathbb R}\mathbb R\to\mathbb R$ が存在し、$m(a\otimes b)=ab$ となる。直積の加法とテンソル積の双線形関係は違う役割を持つ。
+**詳細解答。** $u=(1,0),v=(0,1)$ を取ると積の値はそれぞれ $0$ だが、$u+v=(1,1)$ の値は $1$ になる。したがって加法を保たず線形ではない。
+
+一方、実数 $s,t,a,a',b,b'$ について
+
+$$
+(sa+ta')b=sab+ta'b,
+$$
+
+$$
+a(sb+tb')=sab+tab'
+$$
+
+が成り立つ。ゆえに双線形である。[テンソル積の普遍性](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)から一意な線形写像
+
+$$
+m:\mathbb R\otimes_{\mathbb R}\mathbb R\to\mathbb R
+$$
+
+が存在し、$m(a\otimes b)=ab$ となる。直積の加法とテンソル積の双線形関係は違う役割を持つ。
 <!-- solution-end -->
 
 ### CATB2-01-B02 単位対象の展開
@@ -387,7 +482,29 @@ $$
 $\mathcal V=\mathbf{Vect}^{\rm fd}_{\mathbb R}$、$\mathcal A$ を第3節の豊穣圏とする。$x=y=z=\mathbb R$ で、$f:\mathbb R\to\mathcal A(x,y)$ は $f(t)$ が $u\mapsto2tu$ の写像、$g:\mathbb R\to\mathcal A(y,z)$ は $g(t)$ が $u\mapsto3tu$ の写像とする。$g\circ_0 f$ と $f\circ_0 j_x$ を $t$ の関数として求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [豊穣圏の台となる圏](#thm-catb2-01-underlying-category)で $\lambda_I(a\otimes b)=ab$、従って $\delta(t)=t\otimes1$ である。これは $\lambda_I(t\otimes1)=t$ かつ $\lambda_I$ が同型なので従う。$(g\otimes f)\delta(t)=g(t)\otimes f(1)$。合成射は二つの線形写像の合成に送るため、任意の $u$ で $g(t)(f(1)(u))=3t(2u)=6tu$。よって $(g\circ_0 f)(t)$ は $u\mapsto6tu$ である。単位射 $j_x(t)$ は $u\mapsto tu$ なので、$(f\otimes j_x)\delta(t)=f(t)\otimes j_x(1)$。合成後は $f(t)(j_x(1)(u))=2tu$、すなわち $(f\circ_0 j_x)(t)=f(t)$ である。
+**詳細解答。** [豊穣圏の台となる圏](#thm-catb2-01-underlying-category)で $\lambda_I(a\otimes b)=ab$、従って $\delta(t)=t\otimes1$ である。これは $\lambda_I(t\otimes1)=t$ かつ $\lambda_I$ が同型なので従う。
+
+二つの射をテンソルすると
+
+$$
+(g\otimes f)\delta(t)=g(t)\otimes f(1)
+$$
+
+となる。合成射は二つの線形写像の合成に送るため、任意の $u$ で
+
+$$
+g(t)(f(1)(u))=3t(2u)=6tu.
+$$
+
+よって $(g\circ_0 f)(t)$ は $u\mapsto6tu$ である。
+
+単位射 $j_x(t)$ は $u\mapsto tu$ なので、
+
+$$
+(f\otimes j_x)\delta(t)=f(t)\otimes j_x(1).
+$$
+
+合成後は $f(t)(j_x(1)(u))=2tu$、すなわち $(f\circ_0 j_x)(t)=f(t)$ である。
 <!-- solution-end -->
 
 ### CATB2-01-C01 行列の一対象豊穣圏と合成の順序
