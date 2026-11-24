@@ -109,7 +109,11 @@ $$
 K_X(j)=\mathcal C(Dj,X)
 $$
 
-と置く。$i\to j$ に沿って $Dj\to X$ を $Di\to X$ に移すには前合成するため、$K_X$ は $\mathcal J^{\mathrm{op}}$ 上の豊穣関手になる。反対豊穣圏はHomの向きを逆転させ、対称性で合成の入力を交換したものである（前講の[反変形の構成](../CATB2-04/index.md#thm-catb2-04-enriched-yoneda)に続く第6.2節参照）。表現可能関手の関手律を $\mathcal C^{\mathrm{op}}$ に適用し、$D^{\mathrm{op}}$ と合成すると $K_X$ が得られる。作用の型は
+と置く。$i\to j$ に沿って $Dj\to X$ を $Di\to X$ に移すには前合成するため、$K_X$ は反変になる。
+
+反対豊穣圏はHomの向きを逆転させ、対称性で合成の入力を交換したものである（前講の[豊穣Yonedaの補題](../CATB2-04/index.md#thm-catb2-04-enriched-yoneda)に続く第6.2節参照）。
+
+[表現可能関手の関手律](../CATB2-04/index.md#prop-catb2-04-representable-functor)を $\mathcal C^{\mathrm{op}}$ に適用し、反対圏上の図式 $D^{\mathrm{op}}$ と合成すると $K_X$ が $\mathcal J^{\mathrm{op}}$ 上の豊穣関手として得られる。作用の型は
 
 $$
 \mathcal J(i,j)\otimes\mathcal C(Dj,X)
@@ -166,7 +170,15 @@ $$
 最後の等式は[豊穣圏の結合律](../CATB2-01/index.md#def-catb2-01-enriched-category)である。最終行は先に $Q$ からの射で後合成し、次に図式の射で前合成する経路である。入力の第二・第三因子を対称性で元の順に戻すと、パラメータ付き自然性の両辺が一致する。[Hom対象の普遍性](../CATB2-04/index.md#prop-catb2-04-natural-hom-universal)により $\Psi_X$ が存在する。
 
 <!-- definition-example-start: def-catb2-05-weighted-colimit -->
-**定義の確認**。 第3節と同じ一対象の集合値図式と重み $S$ を用いる。今度は $Q=S\times A$ として $\iota_s:A\to Q$ を $a\mapsto(s,a)$ とする。$f:Q\to X$ は二写像 $g_s=f\iota_s:A\to X$ を与える。逆に $g_p,g_q$ があれば $f(s,a)=g_s(a)$ と置ける。この定義は $Q$ の各元で一意であり、$f\iota_s=g_s$、逆方向も $f(s,a)$ が元に戻る。恒等射以外の自然性条件はなく、$\Psi_X$ は全単射である。$Q$ は $2\cdot3=6$ 元を持つ。
+**定義の確認**。 第3節と同じ一対象の集合値図式と重み $S$ を用いる。今度は $Q=S\times A$ として $\iota_s:A\to Q$ を $a\mapsto(s,a)$ とする。$f:Q\to X$ は二写像 $g_s=f\iota_s:A\to X$ を与える。
+
+逆に二写像 $g_p,g_q$ があれば
+
+$$
+f(s,a)=g_s(a)
+$$
+
+と置ける。この定義は $Q$ の各元で一意であり、$f\iota_s=g_s$、逆方向も $f(s,a)$ が元に戻る。恒等射以外の自然性条件はなく、$\Psi_X$ は全単射である。$Q$ は $2\cdot3=6$ 元を持つ。
 <!-- definition-example-end -->
 
 ## 5. 表現普遍性から分かること
@@ -216,7 +228,9 @@ $$
 
 が唯一の逆像である。$\Phi_X$ の定義によりこれが脚の前合成で $t$ を復元する。余極限の場合も $b:I\to N(W,K_X)$ に対して $g=\Psi_X^{-1}b$ であり、脚の後合成が $b$ に対応する。
 
-極限候補を $(L,\lambda),(L',\lambda')$ とする。$X=L'$ として $\lambda'$ を因子分解すると $f:L'\to L$、$X=L$ として $\lambda$ を因子分解すると $g:L\to L'$ を得る。ここで脚 $\lambda_j$ は基底の射であり、台の圏の射 $f$ との通常の合成がそのまま定義されるわけではない。以下では脚への前合成・後合成も $\circ$ で略記する。例えば $f:I\to\mathcal C(L',L)$ と $h:I\to\mathcal C(Q,Q')$ に対して、単位子を省略すれば
+極限候補を $(L,\lambda),(L',\lambda')$ とする。$X=L'$ として $\lambda'$ を因子分解すると $f:L'\to L$ を得る。反対に $X=L$ として $\lambda$ を因子分解すると $g:L\to L'$ を得る。
+
+ここで脚 $\lambda_j$ は基底の射であり、台の圏の射 $f$ との通常の合成がそのまま定義されるわけではない。以下では脚への前合成・後合成も $\circ$ で略記する。例えば $f:I\to\mathcal C(L',L)$ と $h:I\to\mathcal C(Q,Q')$ に対して、単位子を省略すれば
 
 $$
 \begin{aligned}
@@ -398,7 +412,13 @@ P\otimes S\otimes X
 \xrightarrow{e_{S,A}}A.
 $$
 
-これは第3節の誘導射 $\Phi_X$ をさらに逆転置したものに一致する。従って $\mathcal V(P,\Phi_X)$ が任意の $P$ で全単射となる。一般に射 $h:B\to C$ がこの性質を持てば、$P=C$ で $1_C$ の逆像 $k:C\to B$ を取り $hk=1_C$ を得る。$P=B$ では $hkh=h=h1_B$ なので単射性から $kh=1_B$。従って $h$ は同型であり、$\Phi_X$ も同型である。
+これは第3節の誘導射 $\Phi_X$ をさらに逆転置したものに一致する。従って $\mathcal V(P,\Phi_X)$ が任意の $P$ で全単射となる。一般に射 $h:B\to C$ がこの性質を持てば、$P=C$ で $1_C$ の逆像 $k:C\to B$ を取り $hk=1_C$ を得る。$P=B$ では
+
+$$
+h(kh)=h=h1_B
+$$
+
+なので単射性から $kh=1_B$。従って $h$ は同型であり、$\Phi_X$ も同型である。
 
 余極限側では
 
@@ -484,7 +504,13 @@ A02と同じ $A,S$ に対し余極限の元と脚を求めよ。$X=\{0,1\}$ に�
 集合の矢印図式 $0\xrightarrow{u}1$ で $D0=\{a,b\},D1=\{0,1\}$、$D(u)(a)=D(u)(b)=0$ とする。$W0=\{p,q\},W1=\{r\}$、$W(u)(p)=W(u)(q)=r$ の重み付き極限を求めよ。任意の試験集合に対する普遍性も確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** [重み付き極限](#def-catb2-05-weighted-limit)の脚は $g_p,g_q:X\to D0$ と $h_r:X\to D1$ で、自然性は $D(u)g_p=h_r=D(u)g_q$。$D(u)$ は定値0なので $h_r$ は定値0に強制され、$g_p,g_q$ は自由である。従って $L=D0\times D0$ の4元が候補となる。脚は二射影と定値0写像であり自然性を満たす。任意の族から $f(x)=(g_p(x),g_q(x))$ が定まり、三脚と合成すれば元の族になる。二射影が $f$ の二成分を指定するため一意である。
+**詳細解答。** [重み付き極限](#def-catb2-05-weighted-limit)の脚は $g_p,g_q:X\to D0$ と $h_r:X\to D1$ で、自然性は
+
+$$
+D(u)g_p=h_r=D(u)g_q
+$$
+
+である。$D(u)$ は定値0なので $h_r$ は定値0に強制され、$g_p,g_q$ は自由である。従って $L=D0\times D0$ の4元が候補となる。脚は二射影と定値0写像であり自然性を満たす。任意の族から $f(x)=(g_p(x),g_q(x))$ が定まり、三脚と合成すれば元の族になる。二射影が $f$ の二成分を指定するため一意である。
 <!-- solution-end -->
 
 ### CATB2-05-B02 反変重みの余極限
@@ -494,7 +520,13 @@ A02と同じ $A,S$ に対し余極限の元と脚を求めよ。$X=\{0,1\}$ に�
 集合の矢印図式 $0\xrightarrow{u}1$ で $D0=\{a\}$、$D1=\{b,c\}$、$D(u)(a)=b$ とする。$W1=\{p,q\}$、$W0=\{r\}$、$W(u^{\mathrm{op}})(p)=W(u^{\mathrm{op}})(q)=r$ とする。重み付き余極限の元と普遍性を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [重み付き余極限](#def-catb2-05-weighted-colimit)の脚を $g_r:D0\to X$、$h_p,h_q:D1\to X$ とすると、自然性は $h_p(b)=g_r(a)=h_q(b)$。$h_p(c),h_q(c)$ は独立である。従って $Q=\{B,C_p,C_q\}$ とし、$\iota_r(a)=B$、$\iota_p(b)=\iota_q(b)=B$、$\iota_p(c)=C_p$、$\iota_q(c)=C_q$ とする。この脚は自然性を満たす。任意の自然な族に対して $f(B)=g_r(a)$、$f(C_p)=h_p(c)$、$f(C_q)=h_q(c)$ と置けば、上の一致条件によって全ての脚の値が復元される。三元全部の値が指定されるため一意である。
+**詳細解答。** [重み付き余極限](#def-catb2-05-weighted-colimit)の脚を $g_r:D0\to X$、$h_p,h_q:D1\to X$ とすると、自然性は
+
+$$
+h_p(b)=g_r(a)=h_q(b)
+$$
+
+である。$h_p(c),h_q(c)$ は独立である。従って $Q=\{B,C_p,C_q\}$ とし、$\iota_r(a)=B$、$\iota_p(b)=\iota_q(b)=B$、$\iota_p(c)=C_p$、$\iota_q(c)=C_q$ とする。この脚は自然性を満たす。任意の自然な族に対して $f(B)=g_r(a)$、$f(C_p)=h_p(c)$、$f(C_q)=h_q(c)$ と置けば、上の一致条件によって全ての脚の値が復元される。三元全部の値が指定されるため一意である。
 <!-- solution-end -->
 
 ### CATB2-05-B03 線形な重みと評価
