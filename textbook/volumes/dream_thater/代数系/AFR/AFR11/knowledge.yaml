@@ -1,7 +1,7 @@
 chapter: AFR11
 scope: dream-theater
 coverage: complete
-prerequisites: [AFR10, CA4]
+prerequisites: [AFR10, CA4, LIE1]
 forward_references: []
 concepts:
   - id: automorphic-forms.adelic-gl2
@@ -18,17 +18,17 @@ concepts:
     name: "レベル1のアデール分解"
     kind: theorem
     introduction: formal
-    requires: [automorphic-forms.adelic-quotient]
+    requires: [automorphic-forms.adelic-quotient, number-theory.constructive-crt]
   - id: automorphic-forms.central-character
     name: "中心指標"
     kind: definition
     introduction: formal
-    requires: [automorphic-forms.adelic-quotient, automorphic-forms.idele-modulus-power-character]
+    requires: [automorphic-forms.adelic-quotient, automorphic-forms.idele-modulus-power-character, number-theory.global-product-formula]
   - id: automorphic-forms.adelic-form
     name: "アデール上の保型形式"
     kind: definition
     introduction: formal
-    requires: [automorphic-forms.adelic-quotient, automorphic-forms.central-character]
+    requires: [automorphic-forms.adelic-quotient, automorphic-forms.central-character, lie.right-translation]
   - id: automorphic-forms.adelic-cuspidal
     name: "大域カスプ条件"
     kind: definition
