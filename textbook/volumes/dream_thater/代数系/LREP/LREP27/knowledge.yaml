@@ -1,0 +1,26 @@
+chapter: LREP27
+scope: dream-theater
+coverage: complete
+prerequisites: [LREP26, QFT15]
+forward_references: []
+concepts:
+  - id: representation.null-polarization-quotient
+    name: 光的偏極商空間
+    kind: definition
+    introduction: formal
+    requires: [qft.maxwell-two-polarizations, representation.null-standard-stabilizer]
+  - id: representation.polarization-positive-inner-product
+    name: 偏極商空間の正定値内積
+    kind: theorem
+    introduction: formal
+    requires: [representation.null-polarization-quotient]
+  - id: representation.polarization-little-group-action
+    name: 光的偏極への固定群作用
+    kind: theorem
+    introduction: formal
+    requires: [representation.null-polarization-quotient, representation.massless-little-group-iso2, representation.sl2c-lorentz-action]
+  - id: representation.photon-helicity-splitting
+    name: 光子偏極のヘリシティ分解
+    kind: theorem
+    introduction: formal
+    requires: [representation.polarization-positive-inner-product, representation.polarization-little-group-action, representation.massless-helicity-representation]
