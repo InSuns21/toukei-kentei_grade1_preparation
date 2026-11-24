@@ -6,7 +6,9 @@
 
 ## 1. 入力によって型が変わる関数
 
-通常の関数型 Nat → Nat では出力の型 Nat は入力の値と無関係です。一方、長さ2のリストを選んだ後には有効な添字は Fin 2、長さ3なら Fin 3 になります。[Fin型](../LVT1-05/index.md#def-lvt1-05-fin-index) の上界は、自然数の値を引数に取って型を決める例です。こうした値を添字とする型の集まりを型族として扱います。
+ここでは Lean の `Nat` を自然数（0 を含む非負整数）と呼びます。`A : Type` は型 A、`a : A` はその型の項、`f a` は関数適用を表します（[Leanの等式](../LVT2-03/index.md#def-lvt2-03-eq) の記法）。
+
+通常の関数型 Nat → Nat では出力の型 Nat は入力の値と無関係です。一方、長さ2のリストを選んだ後には有効な添字は Fin 2、長さ3なら Fin 3 になります。[Fin型](../LVT1-05/index.md#def-lvt1-05-fin-index) の上界は、自然数の値を引数に取って型を決める例です。こうした値を添字とする型の集まりを型族として扱います。`B : A → Type` は入力 a ごとに型 `B a` を返す関数です。`(a : A) → B a` では a が右側にも現れます。前講の到達命題の添字は終点を指定しましたが、ここでは結果のデータ型を指定します。
 
 <a id="def-lvt2-07-dependent"></a>
 
@@ -17,7 +19,7 @@ A を型、B : A → Type を型族（各 a : A に型 B a を対応させる関
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt2-07-dependent -->
-**定義の確認**　A = Nat、B n = Fin (n + 1) とする。f n を番号0と 0 < n + 1 の証明の組にすると、任意の自然数 n に対して後者は Nat.zero_lt_succ n で得られる。n = 0 なら f 0 : Fin 1、n = 2 なら f 2 : Fin 3 であり、同じ関数が入力ごとに異なる型の値を返す。
+**定義の確認**　A = Nat、B n = Fin (n + 1) とする。f n を番号0と 0 < n + 1 の証明の組にすると、任意の自然数 n に対して後者は `Nat.zero_lt_succ n : 0 < Nat.succ n` で得られる。[定義的等しさ](../LVT2-03/index.md#def-lvt2-03-defeq) により `n + 1` は `Nat.succ n` に簡約されるため、この証明の型は Fin (n + 1) の要求する条件そのものである。n = 0 なら f 0 : Fin 1、n = 2 なら f 2 : Fin 3 であり、同じ関数が入力ごとに異なる型の値を返す。
 <!-- definition-example-end -->
 
 ```lean
@@ -35,7 +37,7 @@ def readL (xs : List Nat) (i : Fin xs.length) : Nat := xs.get i
 
 ## 2. 値と条件を組にする
 
-Fin では値と上界の証明を組にしました。今度は任意の命題を条件にできます。[Curry–Howard対応](../LVT2-01/index.md#def-lvt2-01-curry-howard) で学んだように、P a : Prop の項は命題 P a の証明です。値 a とその証明を一緒に保持する Lean の Subtype を使います。
+Fin では値と上界の証明を組にしました。今度は任意の命題を条件にできます。[Curry–Howard対応](../LVT2-01/index.md#def-lvt2-01-curry-howard) で学んだように、P a : Prop の項は命題 P a の証明です。値 a とその証明を一緒に保持する Lean の Subtype を使います。`P : A → Prop` は各 a に命題を対応させる[述語](../LVT2-02/index.md#def-lvt2-02-forall) です。`{a : A // P a}` の `//` より右が値の条件、`⟨a, h⟩` の第一成分が値、第二成分がその条件の証明です。ドット記法 `x.val` と `x.property` はそれぞれの成分を取り出します。
 
 <a id="def-lvt2-07-subtype"></a>
 
@@ -46,7 +48,7 @@ A : Type と P : A → Prop に対し、部分型 {a : A // P a} は値 a : A �
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt2-07-subtype -->
-**定義の確認**　A = Nat、P n = (0 < n) とする。値4は自然数であり、0 < 4 は真なので by decide により証明を構成できる。値0では 0 < 0 が偽なので、この値を保ったまま部分型の項にはできない。
+**定義の確認**　A = Nat、P n = (0 < n) とする。値4は自然数であり、0 < 4 は真なので [決定可能性](../LVT2-01/index.md#def-lvt2-01-decidable) に基づく `by decide` で証明を構成できる。組 `x := ⟨4, by decide⟩` の値 `x.val` は4、`x.property` の型は `0 < x.val`、すなわち `0 < 4` になる。値0では 0 < 0 が偽なので、この値を保ったまま部分型の項にはできない。
 <!-- definition-example-end -->
 
 ```lean
@@ -56,11 +58,11 @@ def nextPositive (n : Nat) : PositiveL :=
   ⟨n + 1, Nat.zero_lt_succ n⟩
 ```
 
-例えば nextPositive 4 の値は 4 + 1 = 5 であり、証明の欄は 0 < 5 を保証します。すべての n に対する関数なので、具体的な n を判定するのではなく、任意の n の後者は正という Nat.zero_lt_succ を適用しています。Fin n も自然数と上界の証明を持ちますが、Lean では Fin と一般の Subtype は別の型です。条件が同じでも型が自動的に一致するわけではありません。
+例えば nextPositive 4 の値は 4 + 1 = 5 であり、証明の欄は 0 < 5 を保証します。すべての n に対する関数なので、具体的な n を判定するのではなく、任意の n の後者は正という Nat.zero_lt_succ を適用しています。Fin n も自然数と上界の証明を持ちますが、Lean では Fin と一般の Subtype は別の型です。条件が同じでも型が自動的に一致するわけではありません。また Lean は同じ命題 `P a` の二つの証明を定義的に等しいと扱います（証明の無関係性）。したがって同じ部分型で値 a が同じなら、証明欄を異なる方法で構成しても `⟨a, h₁⟩` と `⟨a, h₂⟩` は定義的に等しくなります。これは異なる命題の証明を交換できるという意味ではありません。
 
 ## 3. リストの長さを型に含める
 
-リストの型 List Nat だけでは長さは定まりません。値がリストであり、その長さが指定された自然数と等しいことまで要求する表現を作ります。
+リストの型 List Nat だけでは長さは定まりません。値がリストであり、その長さが指定された自然数と等しいことまで要求する表現を作ります。[リストの再帰的構成](../LVT1-04/index.md#def-lvt1-04-list-constructors) では `[]` は空リスト、`a :: xs` は先頭 a と残り xs からなるリストです。`xs.length` は要素数で、空なら0、先頭追加なら残りの長さに1を足します。ここでは [部分型](#def-lvt2-07-subtype) の条件を長さの等式にします。
 
 <a id="def-lvt2-07-sized"></a>
 
@@ -101,7 +103,7 @@ def SizedL (n : Nat) := {xs : List Nat // xs.length = n}
 = n + 1
 ```
 
-最後の等号は既習の [合同性](../LVT2-03/index.md#prop-lvt2-03-congr) を自然数の後者 Nat.succ に適用したもの。Lean の m + 1 は Nat.succ m に定義的に簡約されるので congrArg Nat.succ xs.property が必要な等式を与える。値 a :: xs.val とその証明を組にする。値の射影は構成時の第一成分そのものなので rfl で一致する。
+最後の等号は既習の [合同性](../LVT2-03/index.md#prop-lvt2-03-congr) を自然数の後者 Nat.succ に適用したもの。Lean の m + 1 は Nat.succ m に定義的に簡約されるので congrArg Nat.succ xs.property が必要な等式を与える。値 a :: xs.val とその証明を組にする。値の射影は構成時の第一成分そのものなので、[定義的等しさ](../LVT2-03/index.md#def-lvt2-03-defeq) により `rfl` で一致する。コードの `{n : Nat}` は暗黙引数で、xs の型 SizedL n から n が推論される。
 
 ```lean
 def prependL {n : Nat} (a : Nat) (xs : SizedL n) : SizedL (n + 1) :=
@@ -117,7 +119,7 @@ theorem prepend_value {n : Nat} (a : Nat) (xs : SizedL n) :
 
 ## 4. 容量制約を持つ予約システム
 
-容量 cap 個の資源のうち n 個を使用中とします。n は自然数なので負にはならず、さらに n ≤ cap を要求します。操作を何回行っても成立してほしい状態の性質が不変条件です。ここでは使用数の上界を状態の型に含めます。
+容量 cap 個の資源のうち n 個を使用中とします。n は自然数なので負にはならず、さらに n ≤ cap を要求します。操作を何回行っても成立してほしい状態の性質が不変条件です（[到達証明の不変量原理](../LVT2-06/index.md#prop-lvt2-06-invariant)）。この章では状態の型を制限し、状態を返す操作がその条件を満たす証明も返すようにします。ここでは使用数の上界を状態の型に含めます。
 
 <a id="def-lvt2-07-used"></a>
 
@@ -130,6 +132,8 @@ theorem prepend_value {n : Nat} (a : Nat) (xs : SizedL n) :
 <!-- definition-example-start: def-lvt2-07-used -->
 **定義の確認**　cap = 3 とする。使用数2は自然数であり 2 ≤ 3 なので有効である。満杯の3も 3 ≤ 3 なので有効である。4では 4 ≤ 3 が偽なので有効な状態にならない。cap = 0 では使用数0だけが条件を満たす。
 <!-- definition-example-end -->
+
+予約には [Option型](../LVT1-03/index.md#def-lvt1-03-option) を使います。`some` は成功した状態を包み、`none` は失敗を表します。`if h : n ≤ cap then ... else ...` は条件を判定し、真の枝で h を条件の証明として使う記法です（[検査付き配列読み出しの二分岐](../LVT1-05/index.md#prop-lvt1-05-checked-array)）。
 
 ```lean
 def UsedL (cap : Nat) := {n : Nat // n ≤ cap}
@@ -156,7 +160,17 @@ def reserveL {cap : Nat} (s : UsedL cap) : Option (UsedL cap) :=
 <!-- proof-start -->
 ### 証明
 
-reserveL s を展開すると checkedUsed cap (s.val + 1) である。さらに checkedUsed を展開する。h があるなら if は真の枝を選び、値 s.val + 1 と h の組を some で包む。否定 h があるなら偽の枝を選び none を返す。自然数の比較は決定可能なのでこの二枝がすべての場合を覆う。Lean では simp が定義を展開して与えられた h で分岐を簡約する。
+reserveL s を展開すると checkedUsed cap (s.val + 1) である。さらに checkedUsed を展開する。h があるなら if は真の枝を選び、値 s.val + 1 と h の組を some で包む。否定 h があるなら偽の枝を選び none を返す。[決定可能性](../LVT2-01/index.md#def-lvt2-01-decidable) により自然数の比較は判定できるので、この二枝がすべての場合を覆う。n = s.val + 1 と略記すると、計算は次のようになる。
+
+```text
+reserveL s
+= checkedUsed cap n
+= if h' : n ≤ cap then some ⟨n, h'⟩ else none
+= some ⟨n, h⟩   （h : n ≤ cap の場合）
+  または none   （h : ¬ (n ≤ cap) の場合）
+```
+
+真の枝の h' と仮定 h は同じ命題の証明なので、証明の無関係性により組の証明欄は一致する。偽の枝の h は条件の否定を表し、真の枝とは別の場合の名前である。[簡約タクティク](../LVT2-03/index.md#def-lvt2-03-simp) `simp [reserveL, checkedUsed, h]` は二つの定義と局所仮定 h を使ってこの分岐を簡約する。
 
 ```lean
 theorem reserve_in {cap : Nat} (s : UsedL cap) (h : s.val + 1 ≤ cap) :
@@ -176,7 +190,7 @@ theorem reserve_out {cap : Nat} (s : UsedL cap) (h : ¬ (s.val + 1 ≤ cap)) :
 | 3 | 3 | 4 | none |
 | 0 | 0 | 1 | none |
 
-some の中身からは .property によって容量条件を取り出せます。一方、常に0へ戻す関数も同じ状態型を返せます。
+some の中身からは .property によって容量条件を取り出せます。一方、常に0へ戻す関数も同じ状態型を返せます。`Nat.zero_le cap : 0 ≤ cap` は任意の自然数 cap について0が下界であるという標準補題です。
 
 ```lean
 def resetL {cap : Nat} (_ : UsedL cap) : UsedL cap :=
@@ -215,7 +229,7 @@ readL [5,8] に番号1を渡し、結果を証明せよ。番号2をそのまま
 <!-- solution-start -->
 #### 詳細解答
 
-[Fin型](../LVT1-05/index.md#def-lvt1-05-fin-index) において n = [5,8].length = 2 とする。1 < 2 なので ⟨1, by decide⟩ : Fin 2 を構成できる。readL は xs.get i に展開され、番号1では先頭を一つ飛ばし、次の8が選ばれる。計算した両辺が一致するため rfl で閉じる。番号2の場合 2 < 2 が偽である。
+[Fin型](../LVT1-05/index.md#def-lvt1-05-fin-index) において n = [5,8].length = 2 とする。1 < 2 なので ⟨1, by decide⟩ : Fin 2 を構成できる。readL は xs.get i に展開され、番号1では先頭を一つ飛ばし、次の8が選ばれる。`[5,8] = 5 :: (8 :: [])` であり、番号1の読み出しは残り `[8]` の番号0の読み出しに帰着する。そこで8を得る。[定義的等しさ](../LVT2-03/index.md#def-lvt2-03-defeq) により `rfl` で閉じる。番号2の場合 2 < 2 が偽である。
 
 ```lean
 example : readL [5, 8] ⟨1, by decide⟩ = 8 := rfl
@@ -282,7 +296,7 @@ a,b : Nat、xs : SizedL 2 から、先頭が a,b の順になる SizedL 4 の項
 <!-- solution-start -->
 #### 詳細解答
 
-[長さ付きリストの先頭追加](#prop-lvt2-07-prepend) をまず n = 2、追加値 b で適用する。値 b :: xs.val、長さ 2 + 1 = 3 を得る。次に n = 3、追加値 a で適用する。値 a :: b :: xs.val、長さ 3 + 1 = 4 となる。具体的な加算は定義簡約で一致する。
+[長さ付きリストの先頭追加](#prop-lvt2-07-prepend) をまず n = 2、追加値 b で適用する。値 b :: xs.val、長さ 2 + 1 = 3 を得る。次に n = 3、追加値 a で適用する。値 a :: b :: xs.val、長さ 3 + 1 = 4 となる。二回の追加の結果型は `SizedL ((2 + 1) + 1)` であり、[定義的等しさ](../LVT2-03/index.md#def-lvt2-03-defeq) により `SizedL 4` と一致する。
 
 ```lean
 example (a b : Nat) (xs : SizedL 2) :
@@ -299,7 +313,7 @@ example (a b : Nat) (xs : SizedL 2) :
 <!-- solution-start -->
 #### 詳細解答
 
-両状態は 2 ≤ 3、3 ≤ 3 により有効である。[予約操作の二分岐](#prop-lvt2-07-reserve) において使用数2では候補 2 + 1 = 3 が 3 ≤ 3 を満たすため reserve_in にその証明を渡す。使用数3では候補 3 + 1 = 4 が 4 ≤ 3 を満たさないため reserve_out に否定の証明を渡す。いずれも具体的比較は decide で閉じる。
+両状態は 2 ≤ 3、3 ≤ 3 により有効である。[予約操作の二分岐](#prop-lvt2-07-reserve) において使用数2では候補 2 + 1 = 3 が 3 ≤ 3 を満たすため reserve_in にその証明を渡す。使用数3では候補 3 + 1 = 4 が 4 ≤ 3 を満たさないため reserve_out に否定の証明を渡す。いずれも具体的比較は [決定可能性](../LVT2-01/index.md#def-lvt2-01-decidable) に基づく `by decide` で閉じる。コードの `_` は期待する等式の左辺から状態引数を Lean に推論させる位置である。成功結果の証明欄が別の `by decide` で作られていても、同じ命題の証明であるため等式は成立する。
 
 ```lean
 example : reserveL (⟨2, by decide⟩ : UsedL 3) =
