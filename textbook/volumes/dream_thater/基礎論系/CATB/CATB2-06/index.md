@@ -264,7 +264,7 @@ $$
 i_{e,j}=m(L_{Kj,e}\otimes\eta_j)
 $$
 
-を得る。従って $m(s_e\otimes i_{e,j})$ は $s$ の自然性により $(\dagger)$ の右辺となり、余極限の一意性から元の $s_e$ が復元される。
+を得る。従って $m(s_e\otimes i_{e,j})$ は $s$ の自然性により $(\dagger)$ の右辺となり、[重み付き余極限の定義](../CATB2-05/index.md#def-catb2-05-weighted-colimit)で与えられた同型に $\mathcal V(P,-)$ を適用した写像は単射である。従って脚との合成がすべて一致する二つのパラメータ付き射は等しく、元の $s_e$ が復元される。
 
 両操作はパラメータ $P$ の射による前合成と両立する。ゆえに [Hom対象の普遍性](../CATB2-04/index.md#prop-catb2-04-natural-hom-universal) によって、誘導射 $N(L,H)\to N(T,HK)$ に逆射が得られる（$P=N(T,HK)$ の恒等射を逆操作に入れればよい）。二つの復元式を恒等射に適用すれば両合成は恒等射になる。よって [豊穣左Kan拡張の定義](#def-catb2-06-left-kan) を満たす。
 <!-- proof-end -->
