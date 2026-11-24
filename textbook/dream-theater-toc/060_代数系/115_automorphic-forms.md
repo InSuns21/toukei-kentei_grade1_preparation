@@ -12,3 +12,4 @@
 9. [AFR9 アデール上のFourier解析](textbook/volumes/dream_thater/代数系/AFR/AFR9/index.md)
 10. [AFR10 Tateの学位論文：GL_1のゼータ積分](textbook/volumes/dream_thater/代数系/AFR/AFR10/index.md)
 11. [AFR11 GL_2(A)上の保型形式](textbook/volumes/dream_thater/代数系/AFR/AFR11/index.md)
+12. [AFR12 無限素点の GL_2(R) 表現](textbook/volumes/dream_thater/代数系/AFR/AFR12/index.md)
