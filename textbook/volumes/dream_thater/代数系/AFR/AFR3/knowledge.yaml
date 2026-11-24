@@ -1,7 +1,7 @@
 chapter: AFR3
 scope: dream-theater
 coverage: complete
-prerequisites: [AFR2, FA7, F0-02C2]
+prerequisites: [AFR2, FA7, F0-02C2, PDE6, QM5, GPDE5]
 forward_references: []
 concepts:
   - id: automorphic-forms.petersson
@@ -10,30 +10,30 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（重さ0のPetersson内積）"]
     requires: [modular-forms.standard-domain, automorphic-forms.hyperbolic-metric-invariance, functional.hilbert-space]
-  - id: automorphic-forms.energy-realization
-    name: "双曲Laplace作用素のエネルギー実現"
-    kind: definition
-    introduction: formal
-    introduction_aliases: ["定義（双曲Laplace作用素のエネルギー実現）"]
-    requires: [automorphic-forms.hyperbolic-laplacian, automorphic-forms.energy-identity]
-  - id: automorphic-forms.maass-cusp
-    name: "重さ0のMaassカスプ形式"
-    kind: definition
-    introduction: formal
-    introduction_aliases: ["定義（重さ0のMaassカスプ形式）"]
-    requires: [automorphic-forms.weight-zero-maass, automorphic-forms.energy-realization, automorphic-forms.maass-fourier-equation]
   - id: automorphic-forms.energy-identity
     name: "保型関数のエネルギー恒等式"
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（保型関数のエネルギー恒等式）"]
     requires: [automorphic-forms.petersson, automorphic-forms.hyperbolic-laplacian]
+  - id: automorphic-forms.energy-realization
+    name: "双曲Laplace作用素のエネルギー実現"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（双曲Laplace作用素のエネルギー実現）"]
+    requires: [automorphic-forms.hyperbolic-laplacian, automorphic-forms.energy-identity]
   - id: automorphic-forms.energy-self-adjoint
     name: "エネルギー実現の自己共役性と非負性"
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（エネルギー実現の自己共役性と非負性）"]
     requires: [automorphic-forms.energy-realization, functional.riesz-representation-theorem]
+  - id: automorphic-forms.maass-cusp
+    name: "重さ0のMaassカスプ形式"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重さ0のMaassカスプ形式）"]
+    requires: [automorphic-forms.weight-zero-maass, automorphic-forms.energy-realization, automorphic-forms.maass-fourier-equation]
   - id: automorphic-forms.cusp-tail
     name: "カスプ条件による尾部評価"
     kind: theorem
