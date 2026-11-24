@@ -109,7 +109,7 @@ $$
 |f(x+iy)|\le C y^{(M-k)/2}.
 $$
 
-任意の整数 $m\ge1$ に対して [Laurent展開](../../../解析系/CA/CA4/index.md#thm-ca4-laurent) の係数積分公式を半径 $r=e^{-2\pi y}$ で使うと
+任意の整数 $m\ge1$ に対して [Laurent展開](../../../解析系/CA/CA4/index.md#thm-ca4-laurent) を適用し、係数を半径 $r=e^{-2\pi y}$ で使うと
 
 $$
 |a_{-m}|\le r^m\max_{|q|=r}|\widetilde f(q)|
@@ -417,7 +417,7 @@ $$
 
 ### B1. 緩増大条件と負の指数
 
-周期1の正則関数 $f$ が $0\le x\le1,y\ge1$ で $|f(x+iy)|\le C y^5$ を満たすとする。[Laurent展開](../../../解析系/CA/CA4/index.md#thm-ca4-laurent) の係数積分公式を用いて、負の指数 $q^{-2}$ の係数が零であることを示せ。カスプ条件はこの情報だけで従うか。
+周期1の正則関数 $f$ が $0\le x\le1,y\ge1$ で $|f(x+iy)|\le C y^5$ を満たすとする。[Laurent展開](../../../解析系/CA/CA4/index.md#thm-ca4-laurent) を用いて、係数を円周積分で評価し、負の指数 $q^{-2}$ の係数が零であることを示せ。カスプ条件はこの情報だけで従うか。
 
 - Level: B
 - ID: AFR17-B1
@@ -425,7 +425,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-周期性により $f$ は $q=e^{2\pi iz}$ の穿孔円板上の正則関数 $\widetilde f$ を与えます。[Laurent展開](../../../解析系/CA/CA4/index.md#thm-ca4-laurent) の係数公式から
+周期性により $f$ は $q=e^{2\pi iz}$ の穿孔円板上の正則関数 $\widetilde f$ を与えます。[Laurent展開](../../../解析系/CA/CA4/index.md#thm-ca4-laurent) を適用すると、係数は次の積分で与えられます。
 
 $$
 a_{-2}=\frac{1}{2\pi i}\oint_{|q|=r}\widetilde f(q)q\,dq.
