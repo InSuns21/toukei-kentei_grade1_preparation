@@ -70,12 +70,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fcg8-signed-distance -->
-**直接例。** **定義の確認**： 中心 $\boldsymbol c$、半径 $r>0$ の円周は非空・閉集合で内外を分ける。$\rho=\|\boldsymbol x-\boldsymbol c\|$ とする。任意の円周上の点 $\boldsymbol z$ について三角不等式から
+**直接例。** **定義の確認**： 中心 $\boldsymbol c$、半径 $r>0$ の円周は非空・閉集合で内外を分ける。$\rho=\|\boldsymbol x-\boldsymbol c\|$ とする。任意の円周上の点 $\boldsymbol z$ について、$\boldsymbol a=\boldsymbol x-\boldsymbol c,\ \boldsymbol b=\boldsymbol z-\boldsymbol c$ と置く。$\boldsymbol a\cdot\boldsymbol b\le\rho r$ なので
 
 $$
-\|\boldsymbol x-\boldsymbol z\|\ge
-\big|\|\boldsymbol x-\boldsymbol c\|-\|\boldsymbol z-\boldsymbol c\|\big|
-=|\rho-r|.
+\|\boldsymbol a-\boldsymbol b\|^2
+=\rho^2+r^2-2\boldsymbol a\cdot\boldsymbol b
+\ge(\rho-r)^2.
+$$
+
+非負平方根を取ると
+
+$$
+\|\boldsymbol x-\boldsymbol z\|\ge|\rho-r|.
 $$
 
 $\rho>0$ なら $\boldsymbol z=\boldsymbol c+(r/\rho)(\boldsymbol x-\boldsymbol c)$ は円周上にあり、この下界を達成する。$\rho=0$ でもすべての円周上の点までの距離が $r$ である。したがって距離は $|\rho-r|$、[内外の符号](#def-fcg8-level-set)を付けると $d_\Gamma=\rho-r$ となる。$\rho>0$ では
@@ -85,7 +91,14 @@ $$
 \quad |\nabla d_\Gamma|^2=\frac{(x-0.5)^2+(y-0.5)^2}{\rho^2}=1.
 $$
 
-点 $(0.68,0.5)$ なら $d_\Gamma=0$、勾配 $(1,0)$。一般に界面外で距離が微分可能なら、三角不等式から距離関数は1-Lipschitz（点を動かした距離以上には値が変わらない）なので勾配ノルムは1以下である。最近接点への単位方向に微小距離だけ動くと、三角不等式の下界とその最近接点までの距離の上界が一致し、距離は動いた分だけ減る。従ってその方向の方向微分は $-1$ となり、勾配ノルムは1以上でもある。符号を反転してもノルムは同じである。滑らかな界面で勾配が連続に延長できれば界面上でも1になる。**距離・符号・勾配**を検証した。中心では方向ごとの最近接点が無数にあり、$\rho$ は微分不能なので勾配1を要求しない。
+点 $(0.68,0.5)$ なら $d_\Gamma=0$、勾配 $(1,0)$。一般に界面外で距離が微分可能なら、距離関数は1-Lipschitz（点を動かした距離以上には値が変わらない）である。実際、点 $\boldsymbol x,\boldsymbol y$ と任意の界面上の点 $\boldsymbol z$ について
+
+$$
+\|\boldsymbol x-\boldsymbol z\|\le
+\|\boldsymbol x-\boldsymbol y\|+\|\boldsymbol y-\boldsymbol z\|.
+$$
+
+$\boldsymbol z$ について下限を取り、$\boldsymbol x,\boldsymbol y$ を交換した式も合わせれば、距離の差の絶対値は $\|\boldsymbol x-\boldsymbol y\|$ 以下となる。従って微分可能なら勾配ノルムは1以下である。最近接点への単位方向に微小距離だけ動くと、三角不等式の下界とその最近接点までの距離の上界が一致し、距離は動いた分だけ減る。従ってその方向の方向微分は $-1$ となり、勾配ノルムは1以上でもある。符号を反転してもノルムは同じである。滑らかな界面で勾配が連続に延長できれば界面上でも1になる。**距離・符号・勾配**を検証した。中心では方向ごとの最近接点が無数にあり、$\rho$ は微分不能なので勾配1を要求しない。
 <!-- definition-example-end -->
 
 ## 2. 速度場に沿って界面を運ぶ
@@ -349,7 +362,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Godunov再初期化）**  
-> 整数 $N\ge3$ の格子で移流直後の $\phi^{\mathrm{adv}}$ を固定し、$\psi^0=\phi^{\mathrm{adv}}$ とする。内点（$1\le i,j\le N-2$）で $s_{ij}=\phi^{\mathrm{adv}}_{ij}/\sqrt{(\phi^{\mathrm{adv}}_{ij})^2+h^2}$ とする。$s_{ij}\ge0$ なら
+> 整数 $N\ge3$ の格子で移流直後の $\phi^{\mathrm{adv}}$ を固定し、$\psi^0=\phi^{\mathrm{adv}}$ とする。内点（$1\le i,j\le N-2$）で
+
+$$
+s_{ij}=\frac{\phi^{\mathrm{adv}}_{ij}}{\sqrt{(\phi^{\mathrm{adv}}_{ij})^2+h^2}}
+$$
+
+> とする。$s_{ij}\ge0$ なら
 
 $$
 G_+^2=\max\{(\max(D_x^-\psi,0))^2,(\min(D_x^+\psi,0))^2\}
