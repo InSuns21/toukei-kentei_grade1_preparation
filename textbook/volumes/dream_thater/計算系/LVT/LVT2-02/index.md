@@ -8,7 +8,7 @@
 
 ## 1. 五つの論理操作
 
-前講の [Curry–Howard対応](../LVT2-01/index.md#def-lvt2-01-curry-howard) を使えば、条件付き保証を関数として組み立てられます。導入規則とは目的の型の証明を作る方法、除去規則とは既に得た証明を使う方法です。
+前講の [Curry–Howard対応](../LVT2-01/index.md#def-lvt2-01-curry-howard) を使えば、条件付き保証を関数として組み立てられます。導入規則とは目的の型の証明を作る方法、除去規則とは既に得た証明を使う方法です。以下、`p, q, r : Prop` は三つの命題を表し、例で「p を True とする」と書くのは命題の選択を意味します。`h : p` は p の証明項、`f hp` は関数 f に証明 hp を適用した項です。
 
 <a id="def-lvt2-02-imp"></a>
 
@@ -19,10 +19,10 @@ p, q : Prop に対し、p → q の証明は p の証明を受け取って q の
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt2-02-imp -->
-**定義の確認**　p = q = True とすれば、fun h : True => h は True → True の証明であり、これを True.intro に適用すると True の証明が返る。
+**定義の確認**　p と q をともに True とする。引数 `h : True` をそのまま返す `fun h : True => h` は `True → True` の証明である。これを `True.intro : True` に適用すると、関数の本体 h に True.intro が代入され、結果も `True.intro : True` となる。
 <!-- definition-example-end -->
 
-着手には番号が範囲内で、かつマスが空いているという二条件を要求したいことがあります。両方の証明をひとまとめにします。
+着手には番号が範囲内で、かつマスが空いているという二条件を要求したいことがあります。両方の証明をひとまとめにする命題を連言と呼び、`∧` で書きます。
 
 <a id="def-lvt2-02-and"></a>
 
@@ -33,10 +33,10 @@ p, q : Prop に対し、p ∧ q は両方が成立するという命題である
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt2-02-and -->
-**定義の確認**　p = (2 = 2)、q = True とすると、And.intro rfl True.intro が連言の証明になる。left は 2 = 2 の証明、right は True の証明を返す。
+**定義の確認**　p を `2 = 2`、q を True とする。前講の [Leanの命題型](../LVT2-01/index.md#def-lvt2-01-prop) に従い `rfl : 2 = 2` と `True.intro : True` を用意する。これらを順に渡した `h := And.intro rfl True.intro` は `(2 = 2) ∧ True` の証明となる。`h.left` は最初の証明 rfl、`h.right` は二番目の証明 True.intro を取り出す。
 <!-- definition-example-end -->
 
-管理者または所有者であれば操作を許可する場合を考えます。どちらの理由が与えられるか分からないので、両方の枝で許可を導けるようにします。
+管理者または所有者であれば操作を許可する場合を考えます。少なくとも一方が成立するという命題を選言と呼び、`∨` で書きます。どちらの理由が与えられるか分からないので、両方の枝で許可を導けるようにします。
 
 <a id="def-lvt2-02-or"></a>
 
@@ -47,10 +47,10 @@ p, q : Prop に対し、p ∨ q は少なくとも一方が成立するという
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt2-02-or -->
-**定義の確認**　p = True、q = False とすれば Or.inl True.intro : True ∨ False である。r = True とし、左枝 fun h => h、右枝 fun h => False.elim h を与えると、両枝の結果型が True なので Or.elim で True が得られる。両方が成立する場合も Or.inl または Or.inr を使える。
+**定義の確認**　p を True、q を False とすると `Or.inl True.intro : True ∨ False` である。目標 r を True とし、左枝には `fun h : True => h`、右枝には `fun h : False => False.elim h` を与える。前講の [Leanの命題型](../LVT2-01/index.md#def-lvt2-01-prop) における False は構成子を持たないので、右枝は矛盾を仮定して True を導く関数になる。両枝の型はそれぞれ `True → True`、`False → True` であり、Or.elim は True の証明を返す。逆に p を False、q を True と選べば `Or.inr True.intro : False ∨ True` が得られ、左枝を False.elim、右枝を恒等関数にすれば同じ目標 True を導ける。両方が成立する場合にも選言は成立する。
 <!-- definition-example-end -->
 
-有限個のテストから離れ、任意の入力について仕様を述べます。変数 x の値ごとに命題 P x を返す関数 P を述語と呼びます。量化記号の後の x はその範囲内で名前が結び付けられる（束縛される）変数です。
+有限個のテストから離れ、任意の入力について仕様を述べます。入力の型を α とし、`α : Type` と書きます（ここでは Nat や Bool のような型を想定します）。変数 `x : α` の値ごとに命題 `P x` を返す関数 `P : α → Prop` を述語と呼びます。すべての x について主張する全称量化を `∀ x : α, P x` と書きます。量化記号の後の x はコンマより右の範囲で名前が結び付けられる（束縛される）変数です。
 
 <a id="def-lvt2-02-forall"></a>
 
@@ -61,10 +61,10 @@ p, q : Prop に対し、p ∨ q は少なくとも一方が成立するという
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt2-02-forall -->
-**定義の確認**　α = Nat、P n = (n = n) とすれば fun n => rfl は全称命題の証明になる。入力 7 を与えると 7 = 7 の証明が返る。特定の 7 だけを証明しても全称の導入にはならない。
+**定義の確認**　α を Nat、P を `fun n : Nat => n = n` とする。任意の n に対して `P n` は定義を展開すると `n = n` なので、反射性の証明 rfl が使える。したがって `fun n => rfl` は型 `∀ n : Nat, n = n` の証明となる。入力 `7 : Nat` を与えると、本体の n が 7 に置き換わり、`rfl : 7 = 7` を得る。特定の 7 だけを証明しても全称の導入にはならない。
 <!-- definition-example-end -->
 
-ある入力に対してバグが起きると主張するには、実際にその入力と条件の証明を示せば十分です。この条件を満たす具体的な値を証人と呼びます。
+ある入力に対してバグが起きると主張するには、実際にその入力と条件の証明を示せば十分です。この条件を満たす具体的な値を証人と呼び、少なくとも一つの証人があるという存在量化を `∃ x : α, P x` と書きます。
 
 <a id="def-lvt2-02-exists"></a>
 
@@ -75,10 +75,10 @@ p, q : Prop に対し、p ∨ q は少なくとも一方が成立するという
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt2-02-exists -->
-**定義の確認**　P n = (n = 3) と置く。a = 3 と ha = rfl によって Exists.intro 3 rfl が存在の証明になる。r = True とし、任意の n と hn : n = 3 を受け取る fun n hn => True.intro を使えば True を得る。この r は n に依存しない。
+**定義の確認**　α を Nat、P を `fun n : Nat => n = 3` とする。証人 `a := 3` を選ぶと P a は `3 = 3` に簡約される。したがって証明 `ha : P a` に rfl を使え、`Exists.intro 3 rfl` は `∃ n : Nat, n = 3` の証明となる。目標 r を True とすると、任意の `n : Nat` と `hn : n = 3` を受け取る `fun n hn => True.intro` の型は `∀ n : Nat, n = 3 → True` である。結果型 True は局所的な n に依存しないため、この関数を Exists.elim に渡して True を得られる。
 <!-- definition-example-end -->
 
-Lean では ∧ の優先順位は ∨ より高く、p → q → r は p → (q → r) と読まれます。迷ったら括弧を付けましょう。∀ と ∃ のコンマより右は量化の範囲です。例えば ∀ n : Nat, P n → Q n は、任意の n を受け取った後に P n の証明を受け取る関数です。∃ n : Nat, P n → Q n は、ある n で含意が成立するという異なる主張です。
+Lean では ∧ の優先順位は ∨ より高く、p → q → r は p → (q → r) と読まれます。迷ったら括弧を付けましょう。∀ と ∃ のコンマより右は量化の範囲です。例えば `P, Q : Nat → Prop` とすると、`∀ n : Nat, P n → Q n` は、任意の n を受け取った後に P n の証明を受け取る関数です。∃ n : Nat, P n → Q n は、ある n で含意が成立するという異なる主張です。
 
 ## 2. 条件をまとめ直す
 
@@ -97,7 +97,14 @@ Lean では ∧ の優先順位は ∨ より高く、p → q → r は p → (q
 <!-- proof-start -->
 ### 証明
 
-h : p ∧ (q ∨ r) を仮定する。連言の除去により h.left : p、h.right : q ∨ r を得る。選言の左枝では hq : q を仮定し And.intro h.left hq : p ∧ q を作り、Or.inl で目標の選言へ入れる。右枝では hr : r を仮定し And.intro h.left hr : p ∧ r を作り、Or.inr で同じ目標へ入れる。Or.elim に両枝の関数を渡せば目標が得られる。最後に h を束縛し、含意の証明項とする。
+`h : p ∧ (q ∨ r)` を仮定する。[Leanの連言の導入・除去規則](#def-lvt2-02-and)により `h.left : p`、`h.right : q ∨ r` を得る。目標命題を `s := (p ∧ q) ∨ (p ∧ r)` と書く。
+
+[Leanの選言の導入・除去規則](#def-lvt2-02-or)を適用するため、次の二つの関数を作る。
+
+- 左枝：`hq : q` から `And.intro h.left hq : p ∧ q` を作り、`Or.inl` で s に入れる。関数の型は `q → s`。
+- 右枝：`hr : r` から `And.intro h.left hr : p ∧ r` を作り、`Or.inr` で s に入れる。関数の型は `r → s`。
+
+Or.elim に h.right と両枝の関数を渡せば s の証明が得られる。最後に [Leanの含意の導入・除去規則](#def-lvt2-02-imp)で h を束縛し、含意の証明項とする。
 
 ```lean
 theorem distribute (p q r : Prop) : p ∧ (q ∨ r) → (p ∧ q) ∨ (p ∧ r) :=
@@ -127,7 +134,7 @@ theorem distribute (p q r : Prop) : p ∧ (q ∨ r) → (p ∧ q) ∨ (p ∧ r) 
 <!-- proof-start -->
 ### 証明
 
-h : ∃ n, P n ∧ Q n と仮定する。任意の n : Nat と hn : P n ∧ Q n を受け取る枝を作る。hn.left : P n を得るので Exists.intro n hn.left : ∃ m, P m を作れる。結論の m は新たに束縛された名前で、局所的な n は結論の外に残らない。したがって Exists.elim h にこの枝を渡せる。h を束縛して目的の含意を得る。
+`h : ∃ n, P n ∧ Q n` と仮定する。[Leanの存在量化の導入・除去規則](#def-lvt2-02-exists)に従い、任意の `n : Nat` と `hn : P n ∧ Q n` を受け取る枝を作る。[Leanの連言の導入・除去規則](#def-lvt2-02-and)で `hn.left : P n` を得るので、`Exists.intro n hn.left : ∃ m : Nat, P m` を作れる。結論の m は新たに束縛された名前で、局所的な n は結論の外に残らない。したがって Exists.elim h にこの枝を渡せる。h を束縛して目的の含意を得る。
 
 ```lean
 theorem collect (P Q : Nat → Prop) :
@@ -289,7 +296,7 @@ Bool 上で ∀ x : Bool, ∃ y : Bool, y = x を証明せよ。∃ y : Bool, �
 <!-- solution-start -->
 #### 詳細解答
 
-前者では任意の x を受け取り、証人 y = x を選べば rfl が条件を満たす。後者の存在証明を仮定すると [Leanの存在量化の導入・除去規則](#def-lvt2-02-exists)で y と h : ∀ x, y = x を得る。y = true の枝では h false : true = false、y = false の枝では h true : false = true。前講の Bool の異なる構成子の等式には成立する枝がないので、どちらも矛盾する。cases は前講で用いた場合分けである。
+前者では任意の x を受け取り、証人 y = x を選べば rfl が条件を満たす。後者の存在証明を仮定すると [Leanの存在量化の導入・除去規則](#def-lvt2-02-exists)で y と h : ∀ x, y = x を得る。y = true の枝では h false : true = false、y = false の枝では h true : false = true。[Boolの異なる構成子から生じる矛盾](../LVT2-01/index.md#lvt2-01-bool-distinct)により、どちらも False を導く。cases は前講で用いた場合分けである。
 
 ```lean
 example : ∀ x : Bool, ∃ y : Bool, y = x :=
@@ -318,7 +325,7 @@ Valid Owner Admin Allow : Nat → Prop とする。任意の n について Vali
 <!-- solution-start -->
 #### 詳細解答
 
-任意の n と h を取る。[Leanの連言の導入・除去規則](#def-lvt2-02-and)により hv : Valid n と ho : Owner n ∨ Admin n を得る。[Leanの選言の導入・除去規則](#def-lvt2-02-or)で ho を場合分けする。所有者の枝では And.intro hv hOwner、管理者の枝では And.intro hv hAdmin を作る。各枝で対応する全称仮定を n に適用し、作った連言を渡すと Allow n が得られる。両枝を束ね、n と h を関数で束縛する。反例では二つの元の仮定は、前件に False が含まれるため h.left : False を返せば成立する。だが n = 0 で Owner 0 ∨ Admin 0 は Or.inl True.intro によって成立する一方、Allow 0 は False である。よって Valid を外した含意は成立しない。
+二つの全称仮定を fo と fa と名付ける。任意の `n : Nat` と `h : Valid n ∧ (Owner n ∨ Admin n)` を取る。[Leanの連言の導入・除去規則](#def-lvt2-02-and)により hv : Valid n と ho : Owner n ∨ Admin n を得る。[Leanの選言の導入・除去規則](#def-lvt2-02-or)で ho を場合分けする。所有者の枝では And.intro hv hOwner、管理者の枝では And.intro hv hAdmin を作る。[Leanの全称量化の導入・除去規則](#def-lvt2-02-forall)で、`fo n : Valid n ∧ Owner n → Allow n` と `fa n : Valid n ∧ Admin n → Allow n` を得る。所有者の枝では `fo n (And.intro hv hOwner) : Allow n`、管理者の枝では `fa n (And.intro hv hAdmin) : Allow n` となる。両枝を束ね、n と h を関数で束縛する。反例では二つの元の仮定は、前件に False が含まれるため h.left : False を返せば成立する。だが n = 0 で Owner 0 ∨ Admin 0 は Or.inl True.intro によって成立する一方、Allow 0 は False である。よって Valid を外した含意は成立しない。
 
 ```lean
 example (Valid Owner Admin Allow : Nat → Prop)
