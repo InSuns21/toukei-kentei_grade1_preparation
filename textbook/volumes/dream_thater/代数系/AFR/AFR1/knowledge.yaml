@@ -1,0 +1,54 @@
+chapter: AFR1
+scope: dream-theater
+coverage: complete
+prerequisites: [MF1, MF2]
+forward_references: []
+concepts:
+  - id: automorphic-forms.real-group
+    name: "実特殊線形群の上半平面への作用"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（実特殊線形群の上半平面への作用）"]
+    requires: [modular-forms.fractional-action, modular-forms.upper-half-plane]
+  - id: automorphic-forms.factor
+    name: "変換因子の積法則"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（変換因子の積法則）"]
+    requires: [automorphic-forms.real-group]
+  - id: automorphic-forms.rotation
+    name: "右回転に用いる部分群"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（右回転に用いる部分群）"]
+    requires: [automorphic-forms.real-group]
+  - id: automorphic-forms.coordinates
+    name: "上半平面と回転による実行列の表示"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（上半平面と回転による実行列の表示）"]
+    requires: [automorphic-forms.factor, automorphic-forms.rotation]
+  - id: automorphic-forms.weight-space
+    name: "群上の重さ付き不変関数"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（群上の重さ付き不変関数）"]
+    requires: [automorphic-forms.real-group, automorphic-forms.rotation]
+  - id: automorphic-forms.lift
+    name: "重さ付き変換則と群上の持ち上げの対応"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（重さ付き変換則と群上の持ち上げの対応）"]
+    requires: [automorphic-forms.weight-space, automorphic-forms.coordinates, modular-forms.modular-form]
+  - id: automorphic-forms.center
+    name: "中心と重さの偶奇"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（中心と重さの偶奇）"]
+    requires: [automorphic-forms.weight-space]
+  - id: automorphic-forms.cusp-growth
+    name: "正則形式とカスプ条件の群上での読み替え"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則形式とカスプ条件の群上での読み替え）"]
+    requires: [automorphic-forms.lift, modular-forms.q-expansion, modular-forms.q-coordinate]
