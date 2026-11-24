@@ -191,7 +191,7 @@ m_{xyz}: \mathcal A(y,z)\otimes_k\mathcal A(x,y)
 \longrightarrow \mathcal A(x,z)
 $$
 
-が定まり、純テンソル（[単純テンソル](../../../基礎科目/LA/LA3E/index.md#def-la3e-simple-tensor)）$G\otimes F$ の像は $GF$ となる。ここで $x,y,z$ はそれぞれ $k^n,k^p,k^q$ である。単位射は $j_x(t)=t1_x$（$t\in k$、$1_x$ は恒等写像）であり、$j_x(at+bs)=a j_x(t)+b j_x(s)$ なので線形である。
+が定まり、純テンソル（[単純テンソル](../../../基礎科目/LA/LA3E/index.md#def-la3e-simple-tensor)）$G\otimes F$ の像は $GF$ となる。ここで $x,y,z$ はそれぞれ $k^n,k^p,k^q$ である。単位射は $j_x(t)=t1_x$（$t\in k$、$1_x$ は恒等写像）であり、任意の $a,b,s,t\in k$ について $j_x(at+bs)=a j_x(t)+b j_x(s)$ なので線形である。
 
 結合律では $w=k^n,x=k^p,y=k^q,z=k^r$ とし、$F:w\to x$、$G:x\to y$、$H:y\to z$ を取る。入力 $((H\otimes G)\otimes F)$ に結合律の二経路を作用させると、左経路は $(HG)F$、右経路は $H(GF)$ になる。結果はともに $r\times n$ 行列で、行番号 $a$、列番号 $b$ の成分を比較すると
 
@@ -205,7 +205,7 @@ $$
 \end{aligned}
 $$
 
-有限和の交換と体の分配律を使った。[テンソル積の基底定理](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)を二回適用すると、これらの形の純テンソルは始域を線形結合で生成する。したがって二経路は全域で等しい線形写像である。
+有限和の交換と体の分配律を使った。[有限次元テンソル積の存在と基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)を二回適用すると、これらの形の純テンソルは始域を線形結合で生成する。したがって二経路は全域で等しい線形写像である。
 
 左右単位律については
 
@@ -556,7 +556,7 @@ $$
 \sum_{k=1}^2 C_{ik}\left(\sum_{j=1}^2 B_{kj}A_{jl}\right)
 $$
 
-であり、有限和の交換と実数の分配律で一致する。左単位律は $m(tE\otimes A)=tA$、右単位律は $m(A\otimes tE)=tA$ で、左右単位子に等しい。[テンソル積の基底定理](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)により、各始域は純テンソルの線形結合で生成され、全て線形写像だから三式は全域で成立する。
+であり、有限和の交換と実数の分配律で一致する。左単位律は $m(tE\otimes A)=tA$、右単位律は $m(A\otimes tE)=tA$ で、左右単位子に等しい。[有限次元テンソル積の存在と基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)により、各始域は純テンソルの線形結合で生成され、全て線形写像だから三式は全域で成立する。
 
 [台となる圏](#thm-catb2-01-underlying-category)の射 $f:\mathbb R\to M$ は線形性から $f(t)=tf(1)$ であり、任意の $A\in M$ に対して $f_A(t)=tA$ が逆対応を与える。ここで $\delta(1)=1\otimes1$、$f_B(1)=B$、$f_A(1)=A$ なので、
 
