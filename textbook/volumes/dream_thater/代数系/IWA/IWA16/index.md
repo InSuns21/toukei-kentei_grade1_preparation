@@ -4,7 +4,7 @@
 
 ## 1. 算術側の成分を固定する
 
-奇素数 $p$ に対し $K_n=\mathbb Q(\zeta_{p^{n+1}})$、$n\ge0$ とします。$K_\infty=\bigcup_nK_n$ です。
+奇素数 $p$ に対し $K_n=\mathbb Q(\zeta_{p^{n+1}})$、$n\ge0$ とします。$\zeta_{p^{n+1}}$ は整合的に選んだ原始 $p^{n+1}$ 乗根です。$K_\infty=\bigcup_nK_n$ とし、IWA8・IWA9 の層 $E_r=\mathbb Q(\zeta_{p^r})$ とは $K_n=E_{n+1}$ の関係です。
 
 [円分塔の直積分解](../IWA2/index.md#thm-iwa2-odd-splitting) により Galois 群の有限部分 $\Delta$ は位数 $p-1$、無限部分 $\Gamma$ は $\mathbb Z_p$ と同型です。
 
@@ -12,7 +12,7 @@ $\gamma$ は根を $g=1+p$ 乗する $\Gamma$ の位相的生成元とし、$T=\
 
 [岩澤代数の冪級数表示](../IWA3/index.md#thm-iwa3-power-series-isomorphism) によって $\Lambda=\mathbb Z_p[[T]]$ と同一視します。
 
-$A_n$ を $K_n$ のイデアル類群の $p$ 部分とし、ノルムを遷移写像として
+$A_n=\operatorname{Cl}(K_n)[p^\infty]$ を $K_n$ のイデアル類群の $p$ 部分（$p$ の冪で消える元全体）とし、ノルムを遷移写像として
 
 $$
 X=\varprojlim_n A_n
@@ -20,19 +20,43 @@ $$
 
 と置きます。[類群逆極限のGalois表示](../IWA9/index.md#thm-iwa9-galois-inverse-limit) ではこれは $K_\infty$ 上の無分岐最大アーベル pro-$p$ 拡大の Galois 群です。作用は上の Galois 群による共役（類群表示ではイデアルに対する自然な作用）です。ここで使うのは無分岐加群であり、$p$ での分岐を許す加群とは区別します。
 
-[指標射影子と指標成分](../IWA8/index.md#def-iwa8-character-idempotent) により、Teichmüller 指標 $\omega$ を用いて
+有限群 $\Delta$ は $(\mathbb Z/p\mathbb Z)^\times$ と同一視できます。[Teichmüller指標](../IWA8/index.md#def-iwa8-teich-character) $\omega:\Delta\to\mathbb Z_p^\times$ は法 $p$ で元の剰余に一致する $(p-1)$ 乗根を返す群準同型です。[指標射影子と指標成分](../IWA8/index.md#def-iwa8-character-idempotent) により
 
 $$
 e_j=\frac1{p-1}\sum_{\delta\in\Delta}\omega(\delta)^{-j}\delta,\qquad X^{(j)}=e_jX
 $$
 
-と書きます。添字は $p-1$ を法として読みます。$X^{(j)}$ 上では $\delta$ は $\omega(\delta)^j$ 倍として作用します。例えば $p=5$ なら $j=0,1,2,3$ の4成分があり、複素共役は $\omega(-1)^j=(-1)^j$ 倍として作用するので、奇部分は $X^{(1)}\oplus X^{(3)}$ です。
+と書きます。$\delta$ は加群への作用素、上付きの $(j)$ は冪ではなく指標成分です。添字は $p-1$ を法として読みます。[類群逆極限の指標成分分解](../IWA8/index.md#thm-iwa8-limit-eigenspaces) により各射影は $\Lambda$ 線形で、$X$ はこれらの像の直和です。
+
+$\eta\in\Delta$ を固定し、和の変数を $\delta'=\eta\delta$ と替えると、
+
+$$
+\eta e_j=\frac1{p-1}\sum_{\delta'\in\Delta}
+\omega(\eta^{-1}\delta')^{-j}\delta'
+=\omega(\eta)^j e_j.
+$$
+
+従って $x=e_jy$ なら $\eta x=\omega(\eta)^j x$ です。逆にすべての $\eta\in\Delta$ についてこの条件を満たす $x$ では、
+
+$$
+e_jx=\frac1{p-1}\sum_{\delta\in\Delta}
+\omega(\delta)^{-j}\omega(\delta)^j x=x.
+$$
+
+よって固有作用の条件と射影の像に属する条件が一致します。例えば $p=5$ なら $j=0,1,2,3$ の4成分があり、[偶奇成分と指標の次数](../IWA8/index.md#prop-iwa8-parity-eigenspaces) により複素共役は $\omega(-1)^j=(-1)^j$ 倍として作用するので、奇部分は $X^{(1)}\oplus X^{(3)}$ です。
 
 円分塔の $X$ が有限生成 torsion $\Lambda$ 加群であるという Iwasawa の算術的定理を用います（[Sharifi, Iwasawa Theory, 第3章](https://www.math.ucla.edu/~sharifi/notes/iwasawa-ch03.html)）。
 
-各 $X^{(j)}$ は $\Lambda$ 線形射影の像なので、$X$ の有限個の生成元を射影すれば生成でき、各元は $X$ の元でもあるので torsion です。このため [特徴イデアルと岩澤不変量](../IWA6/index.md#def-iwa6-characteristic) が適用できます。
+[有限生成torsion岩澤加群](../IWA5/index.md#def-iwa5-fg-torsion) の条件を確認します。各 $X^{(j)}$ は $\Lambda$ 線形射影の像なので、$X$ の有限個の生成元を射影すれば生成でき、各元は $X$ の元でもあるので torsion です。このため [特徴イデアルと岩澤不変量](../IWA6/index.md#def-iwa6-characteristic) が適用できます。
 
-例えば模型加群 $\Lambda/(p)\oplus\Lambda/(T-2p)^2$ では特徴イデアルは $(p(T-2p)^2)$、$\mu=1,\lambda=2$ です。有限加群を直和しても [特徴イデアルの擬同型不変性](../IWA6/index.md#prop-iwa6-characteristic-invariance) により変わりません。特徴イデアルは加群そのものの完全な分類ではないことに注意します。
+例えば模型加群 $M=\Lambda/(p)\oplus\Lambda/((T-2p)^2)$ を取ります。両商の $1$ の剰余類が生成元であり、非零元 $p(T-2p)^2$ が全体を消すので有限生成torsionです。$T-2p$ は最高次係数が1、定数項が $p$ の倍数である一次の既約 [distinguished多項式](../IWA6/index.md#def-iwa6-distinguished) です。従って [特徴イデアルの定義](../IWA6/index.md#def-iwa6-characteristic) における指数はそれぞれ1と2で、
+
+$$
+\operatorname{char}_\Lambda M=(p(T-2p)^2),\qquad
+\mu(M)=1,\qquad \lambda(M)=2\cdot1=2.
+$$
+
+有限加群を直和しても [特徴イデアルの擬同型不変性](../IWA6/index.md#prop-iwa6-characteristic-invariance) により変わりません。特徴イデアルは加群そのものの完全な分類ではないことに注意します。
 
 ## 2. 解析側の変数を合わせる
 
@@ -44,13 +68,13 @@ $$
 
 としました。一方、無分岐加群の主予想を述べる標準的な規約では $g^s-1$ を変数とします。二つの座標を交換する必要があります。
 
-$s$ に対し $t=g^s-1$ と置くと
+ここで $i$ は固定した有限指標の番号、$s\in\mathbb Z_p$ は連続変数、$T$ は形式変数です。$g^s$ は [指数座標](../IWA2/index.md#prop-iwa2-odd-exponent-coordinates)（IWA15 第1節の主単元の連続冪）であり、$s\mapsto g^s$ は $1+p\mathbb Z_p$ への全単射です。評価点 $t=g^s-1\in p\mathbb Z_p$ と置くと
 
 $$
 g^{1-s}-1=\frac{g}{1+t}-1=\frac{p-t}{1+t}.
 $$
 
-この置換は $p\mathbb Z_p$ 内の値だけでなく冪級数環全体でも意味を持ちます。
+この置換は $p\mathbb Z_p$ 内の値だけでなく冪級数環全体でも意味を持ちます。置換先を $h(T)=(p-T)/(1+T)$、置換作用素を $\phi:H\mapsto H(h(T))$ と書きます。連続性は [岩澤代数の冪級数表示](../IWA3/index.md#thm-iwa3-power-series-isomorphism) の $(p,T)$ 進位相で考え、$\mu,\lambda$ は [係数付値とWeierstrass次数](../IWA6/index.md#def-iwa6-orders) の意味で用います。
 
 <a id="prop-iwa16-reflection-substitution"></a>
 
@@ -72,7 +96,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$h(T)=(p-T)/(1+T)$ と置きます。$1+T$ は単元であり、$h\in(p,T)$ です。任意の $H=\sum_{n\ge0}a_nT^n$ に対して $a_nh^n\in(p,T)^n$ ですから、完備性により和が収束します。有限多項式で成り立つ和・積の保存則は連続性によりこの極限でも成立します。
+$I=(p,T)$ と置きます。[単元判定](../IWA3/index.md#prop-iwa3-augmentation) により $1+T$ は単元であり、分子 $p-T$ は $I$ に属するので $h\in I$ です。任意の $H=\sum_{n\ge0}a_nT^n$ に対して $a_nh^n\in I^n$ ですから、[冪級数環の完備性](../IWA3/index.md#thm-iwa3-power-series-isomorphism) により和が収束します。
+
+各整数 $r\ge1$ に対し、$H(h(T))\bmod I^r$ を求めるには $n<r$ の項だけで足ります。多項式上の置換は $p\mapsto p,\ T\mapsto h(T)$ なので $I^r$ の生成元 $p^{r-k}T^k$ を $p^{r-k}h(T)^k\in I^r$ に移します。よって法 $I^r$ の置換は代表元によらない環準同型であり、全ての $r$ で両立します。その逆極限が $\phi$ なので、和と積を保存し、$\phi(I^r)\subseteq I^r$ によって連続です。
 
 $$
 1+h(T)=\frac{g}{1+T},\qquad
@@ -88,7 +114,15 @@ $$
 \overline h=-T/(1+T).
 $$
 
-よって $\overline{\phi(H_0)}=(-T/(1+T))^d v(-T/(1+T))$ は非零であり、その最低次数は $d$ です。$\mu(H)=m$、$\lambda(H)=d$ がともに保存されます。
+従って $\mathbb F_p[[T]]$ で
+
+$$
+\overline{\phi(H_0)}
+=T^d\left(\frac{-1}{1+T}\right)^d
+v\left(\frac{-T}{1+T}\right).
+$$
+
+$T^d$ を除いた積の定数項は $(-1)^dv(0)\ne0$ です。よって最低非零次数は $d$ であり、$\phi(H_0)$ の係数の少なくとも一つは単元です。$\phi(H)=p^m\phi(H_0)$ なので $\mu(H)=m$、$\lambda(H)=d$ がともに保存されます。
 <!-- proof-end -->
 
 例えば $p=5$ で $H(T)=T-10$ とすると
@@ -106,11 +140,11 @@ $-11$ と $1+T$ は単元なので、特徴イデアルの生成元としては 
 
 解析側で $i$ が奇数の場合、[p進L関数の偶奇消失](../IWA15/index.md#prop-iwa15-parity) により $F_i=0$ です。
 
-また $i=0$ のときは $TF_0$ が単元ですが $F_0$ は極を持ちます。したがって非自明な偶指標に限定して比較するのが自然です。
+また [p進L関数の岩澤冪級数表示](../IWA15/index.md#thm-iwa15-iwasawa-series) により $i=0$ のときは $TF_0$ が単元ですが $F_0$ は極を持ちます。したがって非自明な偶指標に限定して比較するのが自然です。
 
 有限部分でも対応を決める必要があります。指標 $\chi=\omega^i$ に対して逆指標 $\chi^{-1}$ に $\omega$ を掛けると $\omega^{1-i}$ です。
 
-これが算術側の指標となります。
+これが算術側の指標となります。$i$ は解析側の番号、$j=1-i\bmod(p-1)$ は算術側の番号です。非自明偶指標では $F_i\in\Lambda$ なので、[円分座標の反転置換](#prop-iwa16-reflection-substitution) で $f_i=\phi(F_i)\in\Lambda$ を作れます。評価点 $t=g^s-1$ では $h(t)=g^{1-s}-1$ だから $f_i(t)=L_p(s,\omega^i)$ です。
 
 偶数 $i$ から奇数 $1-i$ が得られ、非自明な偶指標から得られる奇指標には $\omega^1$ が含まれません。この反転と円分指標の積は反射指標とも呼ばれます。
 
@@ -143,7 +177,13 @@ $$
 f_i(T)=F_i\left(\frac{1+p}{1+T}-1\right)
 $$
 
-です。実際 $T=g^s-1$ なら右辺は $F_i(g^{1-s}-1)=L_p(s,\omega^i)$ になります。[岩澤冪級数表示の一意性](../IWA15/index.md#thm-iwa15-iwasawa-series) と同じ最低次係数の議論で、全ての $s$ における値の一致は冪級数としての一致を与えます。
+です。実際 $T=g^s-1$ なら右辺は $F_i(g^{1-s}-1)=L_p(s,\omega^i)$ になります。[岩澤冪級数表示の一意性](../IWA15/index.md#thm-iwa15-iwasawa-series) と同じ最低次係数の議論を確かめます。二つの候補の差 $D$ が非零なら、最初の非零係数 $a_d$ を用いて $D(T)=T^d(a_d+TQ(T))$ と書けます。$t=p^N$ で $N>v_p(a_d)$ とすると $Q(t)\in\mathbb Z_p$ なので
+
+$$
+v_p(tQ(t))\ge N>v_p(a_d).
+$$
+
+従って $a_d+tQ(t)\ne0$ かつ $D(t)\ne0$ です。ところが $s\mapsto g^s-1$ は $p\mathbb Z_p$ への全単射なので、この $t$ でも候補の値は一致するはずです。矛盾により $D=0$ です。
 
 したがって前講の $F_i$ をそのまま無分岐加群の特徴イデアルと比較してはいけません。一方で $(p,T)$ 進環の自己同型なので、不変量だけを比較するときには変数変換の影響を受けません。
 
@@ -182,7 +222,7 @@ $$
 
 主予想により $f_i$ は非零で、算術側の特徴イデアルの生成元です。[特徴イデアルと岩澤不変量](../IWA6/index.md#def-iwa6-characteristic) では生成元の係数付値とWeierstrass次数が加群の $\mu,\lambda$ になります。[円分座標の反転置換](#prop-iwa16-reflection-substitution) が両方を保存するので最初の等式が従います。
 
-$F_i(0)$ が単元なら係数比較で逆級数が作れるため $F_i$ は単元です。逆に積が1なら定数項の積も1なので定数項は単元です。自己同型 $\phi$ は単元を保存するから、これは $(f_i)=\Lambda$ と同値です。
+[増大写像と単元判定](../IWA3/index.md#prop-iwa3-augmentation) により、$F_i(0)$ が単元であることは $F_i$ が単元であることと同値です。自己同型 $\phi$ は単元を保存するから、これは $(f_i)=\Lambda$ と同値です。
 
 [IWA5の構造定理](../IWA5/index.md#thm-iwa5-structure) で $X^{(1-i)}$ は有限の核・余核を除いて $\Lambda/(p^{a})$ や $\Lambda/(q(T)^b)$ の有限直和になります。
 
@@ -213,7 +253,13 @@ $$
 
 実際の円分塔では [Ferrero–Washingtonのμ=0定理](../IWA7/index.md#thm-iwa7-ferrero-washington) を追加で適用できます。底体 $K_0$ は有理数体のアーベル拡大であり、今回の塔はその円分 $\mathbb Z_p$ 拡大だからです。
 
-$X$ の直和分解と特徴イデアルの積により各成分の $\mu$ も0です。
+[類群逆極限の指標成分分解](../IWA8/index.md#thm-iwa8-limit-eigenspaces) と [短完全列での特徴イデアルの乗法性](../IWA6/index.md#prop-iwa6-exact-additivity) を、直和の各成分を順に加える分裂短完全列へ適用すると、
+
+$$
+0=\mu(X)=\sum_{j=0}^{p-2}\mu(X^{(j)}).
+$$
+
+各項は非負なので各成分の $\mu$ も0です。
 
 主予想の等式で $\mu(F_i)=0$ となるので、定数項が非単元なら $\lambda(F_i)\ge1$ と分かります。これは主予想だけでなく、別の算術定理も用いた結論です。
 
@@ -321,7 +367,7 @@ h-14=\frac{7-T-14(1+T)}{1+T}
 =\frac{-7-15T}{1+T}.
 $$
 
-15と $1+T$ は7進の係数環で単元なので
+15は $\mathbb Z_7$ の単元で、$1+T$ は [単元判定](../IWA3/index.md#prop-iwa3-augmentation) により $\Lambda$ の単元なので
 
 $$
 \phi(H)=\frac{7\cdot15^2}{(1+T)^2}(T+7/15)^2.
@@ -383,7 +429,7 @@ $1-i=-3\equiv3\pmod6$。$i=4$ は非自明偶指標なので [主予想からの
 $M=\Lambda/(T-p)$ と $N=M\oplus\Lambda/(p,T)$ の特徴イデアルを比較せよ。$p$ 倍写像の核を調べ、両者が同型か判定せよ。
 
 <!-- solution-start -->
-**詳細解答。** $T-p$ は一次の distinguished 多項式です。[Weierstrass除法](../IWA6/index.md#thm-iwa6-division) により任意の級数は $T-p$ で割ると定数の余りを持ち、$T=p$ で評価するとその余りが得られます。
+**詳細解答。** $T-p$ は最高次係数が1で定数項が $p$ の倍数なので一次の [distinguished多項式](../IWA6/index.md#def-iwa6-distinguished) です。[Weierstrass除法](../IWA6/index.md#thm-iwa6-division) により任意の級数は $T-p$ で割ると定数の余りを持ち、$T=p$ で評価するとその余りが得られます。
 
 従って $M\cong\mathbb Z_p$（加法群）です。$p$ 倍写像は単射です。
 
@@ -424,7 +470,7 @@ $32760=2^3\cdot3^2\cdot5\cdot7\cdot13$ は $p$ と互いに素です。$1-p^{11}
 
 底体はアーベル数体、その塔は円分 $\mathbb Z_p$ 拡大なので [Ferrero–Washingtonのμ=0定理](../IWA7/index.md#thm-iwa7-ferrero-washington) により $\mu(X)=0$。
 
-指標成分は直和因子で、各 $\mu$ は非負かつ和が全体の $\mu$ なので対象成分も0です。
+[類群逆極限の指標成分分解](../IWA8/index.md#thm-iwa8-limit-eigenspaces) と [特徴イデアルの乗法性](../IWA6/index.md#prop-iwa6-exact-additivity) によって $\mu(X)=\sum_{j=0}^{689}\mu(X^{(j)})$ です。各項は非負なので対象成分も0です。
 
 したがって $F_{12}$ の法 $p$ の還元は非零ですが定数項は0、最低非零次数は1以上です。
 
