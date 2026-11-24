@@ -65,3 +65,4 @@
 62. [CATB3-04 正則基数とλ-表示対象](textbook/volumes/dream_thater/基礎論系/CATB/CATB3-04/index.md)
 63. [CATB3-05 可到達圏と可到達関手](textbook/volumes/dream_thater/基礎論系/CATB/CATB3-05/index.md)
 64. [CATB3-06 前層圏の表示対象](textbook/volumes/dream_thater/基礎論系/CATB/CATB3-06/index.md)
+65. [CATB3-07 スケッチとモデル圏](textbook/volumes/dream_thater/基礎論系/CATB/CATB3-07/index.md)

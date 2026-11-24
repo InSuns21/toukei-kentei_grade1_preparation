@@ -29,7 +29,7 @@ chapters:
   - { id: CATB3-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-04, status: completed, title: "正則基数とλ-表示対象" }
   - { id: CATB3-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-05, status: completed, title: "可到達圏と可到達関手" }
   - { id: CATB3-06, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-06, status: completed, title: "前層圏の表示対象" }
-  - { id: CATB3-07, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-07, status: planned, title: "スケッチとモデル圏" }
+  - { id: CATB3-07, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-07, status: completed, title: "スケッチとモデル圏" }
   - { id: CATB3-08, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-08, status: planned, title: "局所可呈示圏の随伴判定" }
   - { id: CATB4-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-01, status: planned, title: "Cartesian射とファイブレーション" }
   - { id: CATB4-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-02, status: planned, title: "Cleavageとsplitファイブレーション" }
