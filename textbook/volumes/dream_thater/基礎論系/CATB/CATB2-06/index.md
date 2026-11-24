@@ -6,6 +6,8 @@
 
 基底 $\mathcal V$ は局所小な対称右閉・完備モノイダル圏とする。単位は $I$、内部Homは $[U,Z]$ とする。右閉性とは $-\otimes U$ と $[U,-]$ の随伴があること、完備性とは小さい図式の極限が存在することである（[右閉性](../../CAT/CAT4-05/index.md#def-cat4-05-right-closed)、[完備圏](../../CAT/CAT2-04/index.md#def-cat2-04-complete)）。[自己豊穣化](../CATB2-04/index.md#thm-catb2-04-self-enrichment)により基底自身も豊穣圏とみなせる。この自己豊穣化を $\underline{\mathcal V}$ と書く。すべての圏・関手・自然変換は、特に断らない限りこの基底上の豊穣なものとする。合成は $m$ と書き、通常の射の順序と同じく後に作用する因子を左に置く。括弧や単位子は [Mac Laneの整合性定理](../../CAT/CAT4-02/index.md#thm-cat4-02-coherence) により省略する。因子を交換するときは対称性 $\sigma_{U,Z}:U\otimes Z\to Z\otimes U$ を使う。[豊穣圏の定義](../CATB2-01/index.md#def-catb2-01-enriched-category)の単位射を $u_x:I\to\mathcal A(x,x)$ と書く（圏が異なる場合も同じ記号を用いる）。[豊穣関手の定義](../CATB2-03/index.md#def-catb2-03-enriched-functor)に従い、$F_{x,y}$ は対象 $x,y$ に対応するHom対象間の構造射を表す。射の合成 $gf$ は $f$ の後に $g$ を作用させる。
 
+<a id="catb2-06-general-natural-hom"></a>
+
 以下では [豊穣自然変換のHom対象](../CATB2-04/index.md#def-catb2-04-natural-hom) を、基底の自己豊穣化だけでなく一般の豊穣圏を値域とする場合にも使う。なぜ同じ構成ができるかを確かめよう。
 
 小さい対象集合を持つ豊穣圏 $\mathcal X$ から豊穣圏 $\mathcal Y$ への関手 $S,T$ を取る。成分候補を集めた積と、自然性の二経路を比較する積を
@@ -179,9 +181,11 @@ $$
 
 <!-- definition-example-start: def-catb2-06-left-kan -->
 **定義の確認**。 集合を基底とし、$\mathcal J$ を一対象・恒等射のみの圏、$\mathcal D$ を矢印 $0\to1$ の圏とする。$K$ は対象を $0$ に送る。$T$ の値を集合 $A$ とする。$L$ を $A\xrightarrow{1_A}A$、$\eta$ を $1_A$ と置く。任意の関手 $H=(B\xrightarrow{h}C)$ に対する変換 $L\Rightarrow H$ は二写像 $f:A\to B$, $g:A\to C$ で、矢印 $0\to1$ に対する自然性が
+
 $$
 g1_A=hf
 $$
+
 となるものに限られる。恒等射に対する自然性は自動的に成立する。$\eta$ の定義域は一対象・恒等射だけなのでその自然性も成立する。従って誘導射は $(f,hf)\mapsto f$、逆は $f\mapsto(f,hf)$ である。互いに逆なので集合のHom対象の同型になる。
 <!-- definition-example-end -->
 
@@ -206,6 +210,19 @@ $$
 <!-- definition-example-start: def-catb2-06-right-kan -->
 **定義の確認**。 同じ $\mathcal J,\mathcal D,K,T$ で $R=(A\to\{*\})$、$\epsilon=1_A$ とする。$H=(B\xrightarrow{h}C)$ から $R$ への変換は $f:B\to A$ と $g:C\to\{*\}$ である。$g$ は唯一であり、両経路 $B\to\{*\}$ も唯一なので自然性が成立する。$R$ は恒等射を恒等写像に送ることで関手となり、$\epsilon$ の自然性は添字圏の唯一の恒等射について成立する。従って誘導射 $(f,g)\mapsto f$ は全単射である。
 <!-- definition-example-end -->
+
+これらの定義の誘導射は、パラメータ付きの成分を $K$ に沿って制限して $\eta$ または $\epsilon$ と合成する操作から、第1節の [Hom対象の普遍性](#catb2-06-general-natural-hom) によって定まる。例えば左側では $s_d:P\to\mathcal C(Ld,Hd)$ の族を
+
+$$
+P\cong P\otimes I
+\xrightarrow{s_{Kj}\otimes\eta_j}
+\mathcal C(LKj,HKj)\otimes\mathcal C(Tj,LKj)
+\xrightarrow{m}\mathcal C(Tj,HKj)
+$$
+
+へ移す。右側は比較射を後合成する。比較射の豊穣自然性と合成の結合律が、この成分族の自然性を保証する。
+
+集合を基底とする場合には $N$ は通常の自然変換の集合なので、左右の定義は通常のKan拡張の普遍性と一致する。一般の基底で $\mathcal V(I,-)$ を同型に適用して得るのは、豊穣関手間の豊穣自然変換についての全単射である。台となる圏の任意の関手や任意の通常の自然変換まで含めたKan拡張の普遍性は、これだけでは保証されない。
 
 ここまでの普遍性は関手全体を比較するものである。次に、各対象 $d$ で必要な重みを作り、そこから関手と比較射を構成する。
 
@@ -266,7 +283,7 @@ $$
 
 **比較射。** $u_{Kj}:I\to\mathcal D(Kj,Kj)$ を単位とし、$\eta_j=i_{Kj,j}u_{Kj}$ とする。$\mathcal J(j,k)$ 上で $L_{Kj,Kk}K_{jk}$ を $\eta_j$ に後合成すると、$(\ast)$ と単位律により $i_{Kk,j}K_{jk}$ となる。一方 $\eta_k$ を $T_{jk}$ に前合成しても $i_{Kk}$ の反変自然性により同じ射になる。従って $\eta$ は豊穣自然変換である。
 
-**拡張と逆操作。** 第1節で構成した一般の値域に対するHom対象の普遍性を用いる。任意の豊穣関手 $H:\mathcal D\to\mathcal C$ とパラメータ $P$ に対し、自然な族 $t_j:P\to\mathcal C(Tj,HKj)$ を取る。各 $d,j$ で
+**拡張と逆操作。** 第1節で構成した[一般の値域に対するHom対象の普遍性](#catb2-06-general-natural-hom)を用いる。任意の豊穣関手 $H:\mathcal D\to\mathcal C$ とパラメータ $P$ に対し、自然な族 $t_j:P\to\mathcal C(Tj,HKj)$ を取る。各 $d,j$ で
 
 $$
 P\otimes W_dj\xrightarrow{\sigma}
@@ -295,7 +312,7 @@ $$
 
 を得る。従って $m(s_e\otimes i_{e,j})$ は $s$ の自然性により $(\dagger)$ の右辺となり、[重み付き余極限の定義](../CATB2-05/index.md#def-catb2-05-weighted-colimit)で与えられた同型に $\mathcal V(P,-)$ を適用した写像は単射である。従って脚との合成がすべて一致する二つのパラメータ付き射は等しく、元の $s_e$ が復元される。
 
-両操作はパラメータ $P$ の射による前合成と両立する。ゆえに第1節で示した一般の値域に対するHom対象の普遍性によって、誘導射 $N(L,H)\to N(T,HK)$ に逆射が得られる（$P=N(T,HK)$ の恒等射を逆操作に入れればよい）。二つの復元式を恒等射に適用すれば両合成は恒等射になる。よって [豊穣左Kan拡張の定義](#def-catb2-06-left-kan) を満たす。
+両操作はパラメータ $P$ の射による前合成と両立する。ゆえに[一般の値域に対するHom対象の普遍性](#catb2-06-general-natural-hom)によって、誘導射 $N(L,H)\to N(T,HK)$ に逆射が得られる（$P=N(T,HK)$ の恒等射を逆操作に入れればよい）。二つの復元式を恒等射に適用すれば両合成は恒等射になる。よって [豊穣左Kan拡張の定義](#def-catb2-06-left-kan) を満たす。
 <!-- proof-end -->
 
 例えば集合で第4節の包含を考える。$d=0,1$ ともに $W_d$ は一元集合である。[一対象図式の重み付き余極限](../CATB2-05/index.md#thm-catb2-05-single-object) によって両方の値は $A$ となり、唯一の矢印は恒等写像に移る。
@@ -355,7 +372,7 @@ $$
 
 を満たす。これは左構成の $(\ast)$ を反転した式である。単位・合成の保存も反対圏を二回取ることで保存される。比較射は $\epsilon_j=\lambda_{Kj,j}u_{Kj}$ となる。
 
-最後に変換のHom対象を比較する。反対を取ると $H\Rightarrow R$ の成分 $\mathcal C(Hd,Rd)$ は $\mathcal C^{\mathrm{op}}(Rd,Hd)$ となる。パラメータ付き自然性の二経路は合成順序と因子の交換により互いに入れ替わるので、成分が同じ自然な族を表す。 第1節で示した一般の値域に対するHom対象の普遍性から両Hom対象は同型である。左拡張の同型をこの同型で挟むと
+最後に変換のHom対象を比較する。反対を取ると $H\Rightarrow R$ の成分 $\mathcal C(Hd,Rd)$ は $\mathcal C^{\mathrm{op}}(Rd,Hd)$ となる。パラメータ付き自然性の二経路は合成順序と因子の交換により互いに入れ替わるので、成分が同じ自然な族を表す。 [一般の値域に対するHom対象の普遍性](#catb2-06-general-natural-hom)から両Hom対象は同型である。左拡張の同型をこの同型で挟むと
 
 $$
 \begin{aligned}
@@ -450,7 +467,7 @@ $$
 集合の随伴 $-\times S\dashv(-)^S$ が二集合 $A,B$ の余積を保つことを、具体的な同型と任意の試験集合への写像で確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** [保存定理](#thm-catb2-06-preservation) を、二対象・恒等射のみの離散圏上の図式 $(A,B)$ と各対象で一元集合を値とする反変重みに適用すれば余積を保つことが分かる。自然性の追加条件がないので、この重み付き余極限は通常の余積である。余積を具体的に互いに交わらない二つのコピーの集合 $(\{0\}\times A)\cup(\{1\}\times B)$ と定める。次の写像を考える。
+**詳細解答。** [保存定理](#thm-catb2-06-preservation) を、二対象・恒等射のみの離散圏上の図式 $(A,B)$ と各対象で一元集合を値とする反変重みに適用すれば余積を保つことが分かる。自然性の追加条件がないので、この重み付き余極限は[集合における錐・余錐と重み付き極限・余極限の対応](../CATB2-05/index.md#thm-catb2-05-conical-set)により通常の余積である。余積を具体的に互いに交わらない二つのコピーの集合 $(\{0\}\times A)\cup(\{1\}\times B)$ と定める。次の写像を考える。
 
 $$
 \phi: (A\sqcup B)\times S\to(A\times S)\sqcup(B\times S)
