@@ -16,3 +16,4 @@
 13. [LVT2-07 依存型・部分型・不変条件を型へ](textbook/volumes/dream_thater/計算系/LVT/LVT2-07/index.md)
 14. [LVT2-08 定理探索・自動化・信頼境界](textbook/volumes/dream_thater/計算系/LVT/LVT2-08/index.md)
 15. [LVT3-01 要求を事前条件・事後条件へ](textbook/volumes/dream_thater/計算系/LVT/LVT3-01/index.md)
+16. [LVT3-02 全域性・部分正当性・停止性](textbook/volumes/dream_thater/計算系/LVT/LVT3-02/index.md)
