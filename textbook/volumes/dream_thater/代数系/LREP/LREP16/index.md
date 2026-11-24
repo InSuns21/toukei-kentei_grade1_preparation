@@ -57,7 +57,11 @@ $$
 \gamma^j=\begin{pmatrix}0&\sigma_j\\\sigma_j&0\end{pmatrix}.
 $$
 
-ここで $j=1,2,3$、$\sigma_j$ は[Pauli行列](../LREP5/index.md#def-lrep5-pauli-model)です。どのガンマ行列も上下を交換します。四つを順番に掛ければ対角ブロックの行列になり、左右を符号で区別できます。この区別をchirality（カイラリティ）と呼び、以下の符号規約を採用します。固有値 $\lambda$ に対応する成分とは、行列を作用させると $\lambda$ 倍される列です。零列も含めた条件 $Mv=\lambda v$ の解空間が固有空間です。ここではガンマ行列の上付き番号 $0,1,2,3$ は行列を区別する添字であり、$\gamma^5$ の $5$ も五乗ではなく新しい演算子の名前です。
+ここで $j=1,2,3$、$\sigma_j$ は[Pauli行列](../LREP5/index.md#def-lrep5-pauli-model)です。どのガンマ行列も上下を交換します。四つを順番に掛ければ対角ブロックの行列になり、左右を符号で区別できます。この区別をchirality（カイラリティ）と呼び、以下の符号規約を採用します。
+
+固有値 $\lambda$ に対応する成分とは、行列を作用させると $\lambda$ 倍される列です。零列も含めた条件 $Mv=\lambda v$ の解空間が固有空間です。
+
+ここではガンマ行列の上付き番号 $0,1,2,3$ は行列を区別する添字であり、$\gamma^5$ の $5$ も五乗ではなく新しい演算子の名前です。
 
 <a id="def-lrep16-chirality"></a>
 
@@ -292,7 +296,21 @@ $$
 $m=0$ なら右辺がともに零で、$r$ と $u$ の方程式を別々に解けます。$m>0$ で例えば $r\equiv0$ ならその微分も零なので第一式は $mu=0$ となり $u\equiv0$ です。$u\equiv0$ なら第二式から $r\equiv0$ です。$\square$
 <!-- proof-end -->
 
-例えば空間に依存しない場で $m>0$、$u(t)=e^{-imt}u_0$ とします。$u_0$ は定数の非零二成分列です。空間偏微分は零で、時間偏微分はこの場合に限り一変数の常微分 $d/dt$ と一致します。指数関数の連鎖律により $\partial_t u=-im u$ なので、[質量項と左右成分の結合](#prop-lrep16-mass-coupling)の第二式は $im u=mr$ となり、$m>0$ より $r=iu$ です。第一式に代入すると $\partial_t r=i(-im)u=mu$ となり成立します。静止系の正周波数の例でも左右成分がともに必要であることが分かります。
+例えば空間に依存しない場で $m>0$、$u(t)=e^{-imt}u_0$ とします。$u_0$ は定数の非零二成分列です。
+
+空間偏微分は零で、時間偏微分はこの場合に限り一変数の常微分 $d/dt$ と一致します。指数関数の連鎖律により $\partial_t u=-im u$ なので、[質量項と左右成分の結合](#prop-lrep16-mass-coupling)の第二式は
+
+$$
+im u=mr,\qquad r=iu
+$$
+
+となります。最後の等式では $m>0$ を使いました。第一式に代入すると
+
+$$
+\partial_t r=i(-im)u=mu
+$$
+
+となり成立します。静止系の正周波数の例でも左右成分がともに必要であることが分かります。
 
 ## 5. chiralityとhelicityは何が違うか
 
@@ -322,7 +340,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep16-helicity -->
-**定義の確認**。 $\boldsymbol p=(0,0,k)$、$k>0$ なら $h_{\boldsymbol p}=\operatorname{diag}(1,-1,1,-1)/2$ です。標準基底の第一、第三列は固有値 $+1/2$、第二、第四列は $-1/2$ を持ちます。一般方向でも[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)に $\boldsymbol x=\boldsymbol y=\boldsymbol p$ を代入すると外積は零なので、$(\sum_jp^j\sigma_j)^2=|\boldsymbol p|^2I$ です。従って $h_{\boldsymbol p}^2=I_4/4$ です。各Pauli行列は複素共役転置で自分自身に戻り、係数 $p^j/(2|\boldsymbol p|)$ は実数なので、$h_{\boldsymbol p}^\dagger=h_{\boldsymbol p}$ です。非零列 $v$ が $h_{\boldsymbol p}v=\lambda v$ を満たすなら、もう一度作用させて $\lambda^2v=v/4$ となり、$\lambda=\pm1/2$ に限られます。
+**定義の確認**。 $\boldsymbol p=(0,0,k)$、$k>0$ なら $h_{\boldsymbol p}=\operatorname{diag}(1,-1,1,-1)/2$ です。標準基底の第一、第三列は固有値 $+1/2$、第二、第四列は $-1/2$ を持ちます。
+
+一般方向でも[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)に $\boldsymbol x=\boldsymbol y=\boldsymbol p$ を代入すると外積は零なので、
+
+$$
+\left(\sum_jp^j\sigma_j\right)^2=|\boldsymbol p|^2I,
+\qquad h_{\boldsymbol p}^2=\frac{I_4}{4}
+$$
+
+となります。
+
+各Pauli行列は複素共役転置で自分自身に戻り、係数 $p^j/(2|\boldsymbol p|)$ は実数なので、$h_{\boldsymbol p}^\dagger=h_{\boldsymbol p}$ です。
+
+非零列 $v$ が $h_{\boldsymbol p}v=\lambda v$ を満たすなら、もう一度作用させて $\lambda^2v=v/4$ となり、$\lambda=\pm1/2$ に限られます。
 <!-- definition-example-end -->
 
 ここでの作用対象は有限次元の場の係数です。一粒子状態空間上の運動方向に沿った回転生成子による定義とは、作用空間を区別して扱います。
@@ -350,7 +381,26 @@ i(-E I+k\sigma_3)r_0=0,\qquad
 i(E I+k\sigma_3)u_0=0.
 $$
 
-$\sigma_3=\operatorname{diag}(1,-1)$ なので、二つの係数行列の対角成分は順に $-E+k,-E-k$ と $E+k,E-k$ です。$E,k>0$ なら $E+k\ne0$ であり、$E\ne k$ のときはどちらの行列も可逆なので零解しかありません。従って非零解があるには $E=k$ が必要です。すると $\sigma_3r_0=r_0$、$\sigma_3u_0=-u_0$ です。[helicity演算子](#def-lrep16-helicity)はこの方向では $\operatorname{diag}(\sigma_3,\sigma_3)/2$ なので、非零の右成分はhelicity $+1/2$、非零の左成分は $-1/2$ です。両成分が非零の重ね合わせ全体はhelicity固有ベクトルではありません。これは方程式と正周波数・非零運動量の条件を使った結論で、四成分空間上の二演算子が等しいという意味ではありません。負周波数も含む解の分類や粒子・反粒子の区別は後の講義で扱います。
+$\sigma_3=\operatorname{diag}(1,-1)$ なので、二つの係数行列はそれぞれ
+
+$$
+-E I+k\sigma_3=\operatorname{diag}(-E+k,-E-k),
+\qquad E I+k\sigma_3=\operatorname{diag}(E+k,E-k)
+$$
+
+です。
+
+$E,k>0$ なら $E+k\ne0$ であり、$E\ne k$ のときはどちらの行列も可逆なので零解しかありません。従って非零解があるには $E=k$ が必要です。すると
+
+$$
+\sigma_3r_0=r_0,\qquad \sigma_3u_0=-u_0
+$$
+
+です。
+
+[helicity演算子](#def-lrep16-helicity)はこの方向では $\operatorname{diag}(\sigma_3,\sigma_3)/2$ なので、非零の右成分はhelicity $+1/2$、非零の左成分は $-1/2$ です。両成分が非零の重ね合わせ全体はhelicity固有ベクトルではありません。
+
+これは方程式と正周波数・非零運動量の条件を使った結論で、四成分空間上の二演算子が等しいという意味ではありません。負周波数も含む解の分類や粒子・反粒子の区別は後の講義で扱います。
 
 ## 6. 演習
 
