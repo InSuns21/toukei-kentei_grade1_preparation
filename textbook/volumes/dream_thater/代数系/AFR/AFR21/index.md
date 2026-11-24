@@ -57,7 +57,23 @@ $$
 <!-- definition-example-start: def-afr21-seesaw -->
 **定義の確認**
 
-$\mathbb Q$ 上の二次元空間 $V=\mathbb Q^2$ に標準内積を置き、$U=\mathbb Q^2$ に標準交代形式を置きます。$V,U$ の標準基底をそれぞれ $e_1,e_2$ と $f_1,f_2$ とします。テンソル積基底 $e_i\otimes f_j$ により、$W=V\otimes U$ の元は $e_1\otimes w_1+e_2\otimes w_2$ と一意に書けます。ここで $w_i\in U$ とし、元を $(w_1,w_2)$ と表します。$J(w,z)=\det[w\ z]$ を $U$ の標準交代形式とすると、$e_i^Te_j=\delta_{ij}$（$i=j$ なら1、その他は0）なので、$W$ の交代形式は $\Omega(w,z)=J(w_1,z_1)+J(w_2,z_2)$ です（[直交型テンソル交代形式](../AFR20/index.md#def-afr20-orthogonal-tensor) の有理数版）。実数に係数を拡張しても以下の計算はそのまま成立します。
+$\mathbb Q$ 上の二次元空間 $V=\mathbb Q^2$ に標準内積を置き、$U=\mathbb Q^2$ に標準交代形式を置きます。
+
+$V,U$ の標準基底をそれぞれ $e_1,e_2$ と $f_1,f_2$ とします。テンソル積基底 $e_i\otimes f_j$ により、$W=V\otimes U$ の元は
+
+$$
+e_1\otimes w_1+e_2\otimes w_2
+$$
+
+と一意に書けます。ここで $w_i\in U$ とし、元を $(w_1,w_2)$ と表します。
+
+$J(w,z)=\det[w\ z]$ を $U$ の標準交代形式とします。$e_i^Te_j=\delta_{ij}$（$i=j$ なら1、その他は0）なので、$W$ の交代形式は
+
+$$
+\Omega(w,z)=J(w_1,z_1)+J(w_2,z_2)
+$$
+
+です（[直交型テンソル交代形式](../AFR20/index.md#def-afr20-orthogonal-tensor) の有理数版）。実数に係数を拡張しても以下の計算はそのまま成立します。
 
 - $G=SL_2\times SL_2$ は各平面に独立に作用し、$H=\{1,-1\}^2$ は各平面で符号を変えます。
 - $G'$ は $SL_2$ の対角埋め込み、$H'=O(2)$ は二つの平面を内積を保つ係数で混ぜます。
@@ -284,7 +300,21 @@ $|\beta(k)|=1$ なので $\overline{\beta(k)}=1/\beta(k)$ です。従って $1-
 
 乗法群 $H=G=\mathbb G_m$ では $[H]=\mathbb Q^\times\backslash\mathbb A^\times$ です。[有理数体のイデール類群の標準代表元](../AFR8/index.md#thm-afr8-idele-normal-form) により $(t,v)\in\mathbb R_{>0}\times\prod_p\mathbb Z_p^\times$ で表せます。測度を $dt/t$ と各単数群の確率 Haar 測度の積とします。前者は $t\mapsto at$ で不変、後者は単数の積による移動で不変です。
 
-[有限位数Hecke指標](../AFR10/index.md#def-afr10-hecke-character) の具体例として $v_5\bmod5$ が $1,4$ なら1、$2,3$ なら $-1$ となる $\chi(v)$ を取ります。標準代表元の単数成分 $v=(v_p)_p$ のうち $v_5$ だけに依存します。[有限位数Hecke指標の定義例](../AFR10/index.md#def-afr10-hecke-character) と同じく、還元写像は乗法を保ち、$\{1,4\}$ は非零剰余類群の指数2の部分群なので、この符号は連続な準同型です。標準代表元同士の積は再び標準代表元であり、有理数倍で代表元は変わりません。従って商のHecke指標になります。他の素点の単数上で自明という意味であり、イデールの非単数成分上まで自明とは限りません。
+[有限位数Hecke指標](../AFR10/index.md#def-afr10-hecke-character) の具体例として
+
+$$
+\chi(v)=
+\begin{cases}
+1 & (v_5\bmod 5\in\{1,4\}),\\
+-1 & (v_5\bmod 5\in\{2,3\})
+\end{cases}
+$$
+
+を取ります。標準代表元の単数成分 $v=(v_p)_p$ のうち $v_5$ だけに依存します。
+
+[有限位数Hecke指標の定義例](../AFR10/index.md#def-afr10-hecke-character) と同じく、還元写像は乗法を保ち、$\{1,4\}$ は非零剰余類群の指数2の部分群なので、この符号は連続な準同型です。
+
+標準代表元同士の積は再び標準代表元であり、有理数倍で代表元は変わりません。従って商のHecke指標になります。他の素点の単数上で自明という意味であり、イデールの非単数成分上まで自明とは限りません。
 
 指示関数 $\mathbf1_{[1,e]}$（区間内で1、外で0）を用いて
 
