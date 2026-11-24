@@ -64,13 +64,13 @@ $\mathbb Q$ 上の二次元空間 $V=\mathbb Q^2$ に標準内積を置き、$U=
 
 いずれも交代形式を保ちます。前者は各平面で行列式が1、後者の $O(2)$ の作用は行列 $A$ の係数について $\sum_i A_{ij}A_{ik}=\delta_{jk}$ となるためです。実際、交代平面の座標を $w_1,w_2$ と書くと
 
-$
+$$
 \begin{aligned}
 \Omega(Aw,Az)&=\sum_{i,j,k}A_{ij}A_{ik}J(w_j,z_k)\\
 &=\sum_{j,k}\delta_{jk}J(w_j,z_k)\\
 &=\sum_jJ(w_j,z_j).
 \end{aligned}
-$
+$$
 
 この和の形式は、片方の平面だけに任意のベクトルを入れて試せば、各平面の非退化性から非退化です。
 
@@ -214,7 +214,7 @@ $|\beta(k)|=1$ なので $\overline{\beta(k)}=1/\beta(k)$ です。従って $1-
 
 ### Hecke指標による重みの変更
 
-乗法群 $H=G=\mathbb G_m$ では $[H]=\mathbb Q^\times\backslash\mathbb A^\times$ です。[標準代表元の定理](../AFR8/index.md#thm-afr8-idele-normal-form) により $(t,v)\in\mathbb R_{>0}\times\prod_p\mathbb Z_p^\times$ で表せます。測度を $dt/t$ と各単数群の確率 Haar 測度の積とします。前者は $t\mapsto at$ で不変、後者は単数の積による移動で不変です。
+乗法群 $H=G=\mathbb G_m$ では $[H]=\mathbb Q^\times\backslash\mathbb A^\times$ です。[有理数体のイデール類群の標準代表元](../AFR8/index.md#thm-afr8-idele-normal-form) により $(t,v)\in\mathbb R_{>0}\times\prod_p\mathbb Z_p^\times$ で表せます。測度を $dt/t$ と各単数群の確率 Haar 測度の積とします。前者は $t\mapsto at$ で不変、後者は単数の積による移動で不変です。
 
 [有限位数Hecke指標](../AFR10/index.md#def-afr10-hecke-character) の具体例として $v_5\bmod5$ が $1,4$ なら1、$2,3$ なら $-1$ となる $\chi(v)$ を取ります。他の局所成分では自明です。$F(t,v)=\mathbf1_{[1,e]}(t)(2+3\chi(v))$ とし、$f=\chi$ または $1$ を選びます。$t$ の積分は $\int_1^e dt/t=1$ で、絶対値は5以下です。
 
