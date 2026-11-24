@@ -27,7 +27,7 @@ canonical_examples:
   - "並進壁0.2,0.1でPoisson右辺6,-6,3,-3とゲージ零の8セル圧力を検算"
   - "圧力反力(-4/9,-2/9)N/mを面法線の符号から計算"
   - "マスク再重み付けの濃度0.5と零埋め平均0.375を区別"
-  - "16×16移動円の壁面流束・Poisson残差・GPU R8画素を独立CPUと照合"
+  - "32・48・64実格子の移動円の壁面流束・Poisson残差・GPU R8画素を独立CPUと照合"
 problem_patterns: [FCG6-MASK, FCG6-NORMAL, FCG6-GHOST, FCG6-RESIDUAL, FCG6-GEOMETRY, FCG6-COMPAT, FCG6-POISSON, FCG6-DYE, FCG6-GPU, FCG6-INTEGRATED]
 past_exam_alignment: []
 integrated_exam_problems: []
