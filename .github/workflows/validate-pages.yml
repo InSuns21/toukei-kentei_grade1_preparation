@@ -104,6 +104,12 @@ jobs:
           node --check pages/simulation/fcg1-model.mjs
           node --test pages/simulation/fcg1-model.test.mjs
 
+      - name: Test FCG10 independent optics and actual editable GPU rendering
+        if: steps.scope.outputs.full == 'true'
+        run: |
+          node --test pages/simulation/fcg10-lab.test.mjs
+          node scripts/validate-fcg10-browser.mjs
+
       - name: Test FCG9 actual contour and extruded mesh in Chromium
         if: steps.scope.outputs.full == 'true'
         run: node scripts/validate-fcg9-browser.mjs

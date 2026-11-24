@@ -1,0 +1,28 @@
+id: FCG10
+title: "透明な水の反射・屈折を表せるか"
+volume: foundations
+status: supplementary
+prerequisites: [FCG9, WGL13, EMAG8]
+official_scope: []
+learning_objectives:
+  - "Snellの法則から屈折ベクトルを構成し、全反射条件を導ける"
+  - "Fresnel反射率とSchlick近似を区別し、正面入射と等屈折率の極限を検算できる"
+  - "光路長と吸収から水底の色を計算できる"
+  - "波面法線、視点、屈折率、吸収の編集がGPUの水面描画へ及ぼす影響を説明できる"
+definitions:
+  - { id: FCG10-DEF-01, name: "屈折方向の構成" }
+  - { id: FCG10-DEF-02, name: "誘電体境界のFresnel反射率" }
+  - { id: FCG10-DEF-03, name: "Beer–Lambert減衰" }
+theorems:
+  - { id: FCG10-PROP-01, name: "屈折方向の存在と全反射" }
+  - { id: FCG10-PROP-02, name: "Fresnel反射率の範囲と正面入射" }
+  - { id: FCG10-PROP-03, name: "均質媒質の光路長と減衰" }
+canonical_examples:
+  - "空気から水への屈折方向"
+  - "正面入射と全反射"
+  - "吸収係数と光路長"
+problem_patterns: [FCG10-SNELL, FCG10-TIR, FCG10-FRESNEL, FCG10-ABSORPTION, FCG10-PATH, FCG10-NORMAL, FCG10-MIX]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }

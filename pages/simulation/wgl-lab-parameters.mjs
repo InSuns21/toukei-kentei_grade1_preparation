@@ -3,6 +3,15 @@
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
 
 export const LAB_PARAMETERS = Object.freeze({
+  FCG10: Object.freeze([
+    Object.freeze({id:'angle',type:'number',label:'入射方向の角度',default:30,min:0,max:80,step:5,unit:'度',meaning:'鉛直から斜めへ',sourceLocation:'water.js / const angle',sourceFile:'js',index:null,matcher:/^([ \t]*const angle=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'indexWater',type:'number',label:'水の屈折率',default:1.33,min:1,max:1.6,step:0.01,unit:'無次元',meaning:'SnellとFresnelの両方に作用',sourceLocation:'water.js / const indexWater',sourceFile:'js',index:null,matcher:/^([ \t]*const indexWater=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'amplitude',type:'number',label:'波の振幅',default:0.03,min:0,max:0.06,step:0.01,unit:'m',meaning:'波面法線の傾き',sourceLocation:'water.js / const amplitude',sourceFile:'js',index:null,matcher:/^([ \t]*const amplitude=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'phase',type:'number',label:'波の位相',default:0,min:0,max:6,step:0.25,unit:'rad',meaning:'解析波を移動',sourceLocation:'water.js / const phase',sourceFile:'js',index:null,matcher:/^([ \t]*const phase=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'absorption',type:'number',label:'吸収係数',default:0.8,min:0,max:3,step:0.1,unit:'m⁻¹',meaning:'水底からの光を減衰',sourceLocation:'water.js / const absorption',sourceFile:'js',index:null,matcher:/^([ \t]*const absorption=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'side',type:'enum',label:'観察する側',default:'air',values:["air","water"],unit:'表示',meaning:'空気側または水側',sourceLocation:'water.js / const side',sourceFile:'js',index:null,matcher:/^([ \t]*const side=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'mode',type:'enum',label:'表示成分',default:'mixed',values:["mixed","reflection","transmission"],unit:'表示',meaning:'混合・反射・透過を比較',sourceLocation:'water.js / const mode',sourceFile:'js',index:null,matcher:/^([ \t]*const mode=)([^;\n]+)(;)/gm})
+  ]),
   FCG9: Object.freeze([
     Object.freeze({id:'N',type:'integer',label:'Level Set実格子 N×N',default:12,min:12,max:96,step:12,unit:'セル中心/辺',
       meaning:'粗い格子から細かい格子へ。交差点と三角形を再計算する',sourceLocation:'surface.js / const N → advect, extract',sourceFile:'js',index:null,matcher:/^([ \t]*const N=)([^;\n]+)(;)/gm}),

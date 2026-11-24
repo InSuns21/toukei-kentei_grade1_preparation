@@ -1,0 +1,41 @@
+chapter: FCG10
+scope: dream-theater
+coverage: complete
+prerequisites: [FCG9, WGL13, EMAG8]
+concepts:
+  - id: graphics.fcg10-snell
+    name: 屈折方向の構成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（屈折方向の構成）"]
+    requires: [graphics.mirror-reflection-vector]
+  - id: graphics.fcg10-tir
+    name: 屈折方向の存在と全反射
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（屈折方向の存在と全反射）"]
+    requires: [graphics.fcg10-snell]
+  - id: graphics.fcg10-fresnel
+    name: 誘電体境界のFresnel反射率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（誘電体境界のFresnel反射率）"]
+    requires: [graphics.fcg10-snell, electromagnetism.plane-wave-transversality, electromagnetism.electric-field]
+  - id: graphics.fcg10-bounds
+    name: Fresnel反射率の範囲と正面入射
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Fresnel反射率の範囲と正面入射）"]
+    requires: [graphics.fcg10-fresnel]
+  - id: graphics.fcg10-absorption
+    name: Beer–Lambert減衰
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Beer–Lambert減衰）"]
+    requires: []
+  - id: graphics.fcg10-path
+    name: 均質媒質の光路長と減衰
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（均質媒質の光路長と減衰）"]
+    requires: [graphics.fcg10-absorption, graphics.fcg10-snell]
