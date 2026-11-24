@@ -265,7 +265,9 @@ $\Lambda=\pi(A)$ と書くと $p=\Lambda q$ です。[Lorentz群の計量保存�
 $$
 p\cdot Ab=(\Lambda q)^{\mathsf T}\eta\Lambda b
 =q^{\mathsf T}\eta b=q\cdot b.
-$$[固定群補正の合成則](#thm-lrep25-cocycle)により
+$$
+
+[固定群補正の合成則](#thm-lrep25-cocycle)により
 
 $$
 D(w_s(A,q))D(w_s(B,r))=D(w_s(AB,r)).
