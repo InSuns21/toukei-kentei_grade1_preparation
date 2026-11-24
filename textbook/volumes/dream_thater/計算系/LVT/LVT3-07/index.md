@@ -365,7 +365,7 @@ c = (0,1)、u = put に対し I(c,u)、d(c)、S(d(c),u) を順に求めよ。
 
 ### LVT3-07-B01 具体表現を選ばない証明
 
-任意の c ∈ C について d(c) = O を仮定する。D(I(c,take)) = some E を一操作の対応保存から導け。
+任意の c ∈ C について d(c) = O を仮定する。D(I(c,take)) = some E を[一操作の対応保存](#prop-lvt3-07-step)から導け。
 
 - Level: B
 
