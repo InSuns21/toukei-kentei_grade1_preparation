@@ -4,3 +4,4 @@
 1. [LVT1-01 テストと形式証明は何を保証するか](textbook/volumes/dream_thater/計算系/LVT/LVT1-01/index.md)
 2. [LVT1-02 Lean環境・Lake・再現可能なプロジェクト](textbook/volumes/dream_thater/計算系/LVT/LVT1-02/index.md)
 3. [LVT1-03 型・関数・帰納型・Option/Except](textbook/volumes/dream_thater/計算系/LVT/LVT1-03/index.md)
+4. [LVT1-04 パターン照合・再帰・停止性](textbook/volumes/dream_thater/計算系/LVT/LVT1-04/index.md)
