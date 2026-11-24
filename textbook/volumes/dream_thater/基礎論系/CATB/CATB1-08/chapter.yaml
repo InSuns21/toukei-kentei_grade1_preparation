@@ -33,7 +33,8 @@ problem_patterns:
   - CATB1-08-FINITE-POWERSET
   - CATB1-08-MORPHISM
   - CATB1-08-RECOVERY
+  - CATB1-08-STAGE-EQUALITY
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 5, exercises: 5, review: 3 }
