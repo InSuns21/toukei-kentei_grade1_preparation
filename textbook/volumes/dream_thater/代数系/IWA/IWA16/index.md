@@ -4,7 +4,7 @@
 
 ## 1. 算術側の成分を固定する
 
-奇素数 $p$ に対し $K_n=\mathbb Q(\zeta_{p^{n+1}})$、$n\ge0$ とします。$\zeta_{p^{n+1}}$ は整合的に選んだ原始 $p^{n+1}$ 乗根です。$K_\infty=\bigcup_nK_n$ とし、IWA8・IWA9 の層番号とは $K_n=E_{n+1}$ の関係です。
+奇素数 $p$ に対し $K_n=\mathbb Q(\zeta_{p^{n+1}})$、$n\ge0$ とします。$\zeta_{p^{n+1}}$ は整合的に選んだ原始 $p^{n+1}$ 乗根です。$K_\infty=\bigcup_nK_n$ とし、IWA8・IWA9 の層 $E_r=\mathbb Q(\zeta_{p^r})$ とは $K_n=E_{n+1}$ の関係です。
 
 [円分塔の直積分解](../IWA2/index.md#thm-iwa2-odd-splitting) により Galois 群の有限部分 $\Delta$ は位数 $p-1$、無限部分 $\Gamma$ は $\mathbb Z_p$ と同型です。
 
@@ -54,7 +54,9 @@ $$
 $$
 \operatorname{char}_\Lambda M=(p(T-2p)^2),\qquad
 \mu(M)=1,\qquad \lambda(M)=2\cdot1=2.
-$$有限加群を直和しても [特徴イデアルの擬同型不変性](../IWA6/index.md#prop-iwa6-characteristic-invariance) により変わりません。特徴イデアルは加群そのものの完全な分類ではないことに注意します。
+$$
+
+有限加群を直和しても [特徴イデアルの擬同型不変性](../IWA6/index.md#prop-iwa6-characteristic-invariance) により変わりません。特徴イデアルは加群そのものの完全な分類ではないことに注意します。
 
 ## 2. 解析側の変数を合わせる
 
@@ -66,7 +68,7 @@ $$
 
 としました。一方、無分岐加群の主予想を述べる標準的な規約では $g^s-1$ を変数とします。二つの座標を交換する必要があります。
 
-ここで $i$ は固定した有限指標の番号、$s\in\mathbb Z_p$ は連続変数、$T$ は形式変数です。$g^s$ は IWA15 第1節の指数座標（主単元の連続冪）であり、$s\mapsto g^s$ は $1+p\mathbb Z_p$ への全単射です。評価点 $t=g^s-1\in p\mathbb Z_p$ と置くと
+ここで $i$ は固定した有限指標の番号、$s\in\mathbb Z_p$ は連続変数、$T$ は形式変数です。$g^s$ は [指数座標](../IWA2/index.md#prop-iwa2-odd-exponent-coordinates)（IWA15 第1節の主単元の連続冪）であり、$s\mapsto g^s$ は $1+p\mathbb Z_p$ への全単射です。評価点 $t=g^s-1\in p\mathbb Z_p$ と置くと
 
 $$
 g^{1-s}-1=\frac{g}{1+t}-1=\frac{p-t}{1+t}.
