@@ -16,7 +16,7 @@
 
 したがって高さと小さな線分の長さを同じ比率で変えれば、長さの比を保存できそうです。
 
-点 $(x,y)$ での速度 $(u,v)$ に対して、通常の内積を $y^2$ で割ったものを使います。内積によって各点での長さを定めることが計量の役割です。[Riemann 計量の定義](../../../幾何系/GEO/GEO12/index.md#def-geo12-riemannian-metric)をこの座標で具体化します。
+点 $(x,y)$ での速度 $(u,v)$ に対して、通常の内積を $y^2$ で割ったものを使います。内積によって各点での長さを定めることが計量の役割です。接ベクトルは座標基底 $e_x=(1,0),e_y=(0,1)$ で表した速度とします。線素 $ds^2$ は微小変位に対する計量の二次形式、面積要素 $d\mu$ は座標面積 $dx\,dy$ に計量による密度を掛けたものです。[Riemann 計量の定義](../../../幾何系/GEO/GEO12/index.md#def-geo12-riemannian-metric)をこの座標で具体化します。
 
 <a id="def-afr2-metric"></a>
 <!-- formal-statement-start -->
@@ -42,16 +42,23 @@ $$
 
 一般に双線形性と対称性は分子から従い、$y>0$ なので非零の $U$ の二乗長さは正です。
 
-座標基底での行列は $y^{-2}I_2$ で滑らかです。
+座標基底で計量を表す行列の各成分は、基底ベクトル同士の内積です。定義に代入すると
 
-[体積形式の座標表示](../../../幾何系/GEO/GEO12/index.md#prop-geo12-volume-coordinate)により密度は $\sqrt{y^{-4}}=y^{-2}$ です。
+$$
+(g_z(e_i,e_j))_{i,j=x,y}
+=\begin{pmatrix}y^{-2}&0\\0&y^{-2}\end{pmatrix}.
+$$
+
+実際、基底展開の双線形性により $g_z(U,V)=U^{\mathsf T}(g_z(e_i,e_j))V$ となります。ここでは $U,V$ を列ベクトルとみなします。全成分は $y>0$ で滑らかです。
+
+座標 $(x,y)$ の順に向きを取ると、[体積形式の座標表示](../../../幾何系/GEO/GEO12/index.md#prop-geo12-volume-coordinate)を適用できます。計量行列の行列式は $y^{-2}y^{-2}=y^{-4}>0$ なので密度は $\sqrt{y^{-4}}=y^{-2}$ です。
 
 各座標軸の単位速度の長さは $1/y$、二軸は直交するので微小面積は通常の面積の $1/y^2$ 倍です。
 
 高さ2では密度は $1/4$ です。
 <!-- definition-example-end -->
 
-縦に高さ1から2まで進む曲線の長さは $\int_1^2 dy/y=\log2$ です。高さ2から4まで進んでも長さは $\log2$ になります。通常の長さは異なりますが、比が同じならこの計量での縦方向の長さは同じです。
+[曲線の計量による長さ](../../../幾何系/GEO/GEO12/index.md#def-geo12-length-energy)では速度の計量ノルムを積分します。縦に高さ1から2まで進む曲線の長さは $\int_1^2 dy/y=\log2$ です。高さ2から4まで進んでも長さは $\log2$ になります。通常の長さは異なりますが、比が同じならこの計量での縦方向の長さは同じです。
 
 <a id="prop-afr2-metric-invariance"></a>
 <!-- formal-statement-start -->
@@ -74,7 +81,14 @@ w'(z)=\frac{a(cz+d)-c(az+b)}{(cz+d)^2}
 =\frac1{(cz+d)^2}.
 $$
 
-速度 $U=(u_1,u_2)$ を複素数 $u_1+iu_2$ とみなすと、変換後の速度は $w'(z)(u_1+iu_2)$ です。実二次元で複素数倍は回転と正の伸縮の合成で、二つの速度の通常の内積を $|w'(z)|^2$ 倍します。したがって
+ここで $Dg$ は行列 $g$ 自体ではなく、座標写像 $z\mapsto g\cdot z$ の実微分です。$w'$ は複素変数 $z$ での導関数です。速度 $U=(u_1,u_2)$ を複素数 $u_1+iu_2$ とみなすと、変換後の速度は $w'(z)(u_1+iu_2)$ です。実二次元で複素数倍は回転と正の伸縮の合成です。通常の実内積は複素表示で $\langle U,V\rangle=\operatorname{Re}(U\overline V)$ と書けるため、変換後は
+
+$$
+\operatorname{Re}((w'U)\overline{w'V})
+=|w'|^2\operatorname{Re}(U\overline V).
+$$
+
+したがって内積は $|w'(z)|^2$ 倍されます。したがって
 
 $$
 \frac{\langle Dg\,U,Dg\,V\rangle}{Y^2}
@@ -103,6 +117,8 @@ $$
 
 双曲計量では面積密度が $y^{-2}$ です。
 
+以後 $u(x+iy)$ を二変数関数 $u(x,y)$ とも書きます。下付き添字 $u_x=\partial u/\partial x$ は $y$ を固定した偏微分、$u_y$ は $x$ を固定した偏微分です。$u_{xx},u_{yy}$ は同じ変数で二度微分したものです。$\partial_x,\partial_y$ は対応する偏微分演算子です。
+
 関数 $u$ の微分を内積で表す速度（勾配）は、任意の速度 $V$ について $g_z(\operatorname{grad}_g u,V)=u_x V_1+u_y V_2$ を満たす必要があります。
 
 よってその座標は $(y^2u_x,y^2u_y)$ です。
@@ -113,7 +129,18 @@ $$
 
 これは微小長方形の左右・上下の流出量の差を面積 $\rho\,dx\,dy$ で割ることで得られます。
 
-勾配を入れると $\rho y^2=1$ が打ち消し合い、$y^2(u_{xx}+u_{yy})$ となります。
+勾配の成分を代入すると
+
+$$
+\begin{aligned}
+\operatorname{div}_g\operatorname{grad}_g u
+&=\rho^{-1}\{\partial_x(\rho y^2u_x)
++\partial_y(\rho y^2u_y)\}\\
+&=y^2(u_{xx}+u_{yy}).
+\end{aligned}
+$$
+
+ここでは $\rho y^2=1$ を使いました。
 
 GEO12 の作用素は正の発散と勾配の合成ですが、本系列ではその負号を取ります。
 
@@ -133,7 +160,7 @@ $$
 **定義の確認**： $u(x+iy)=y^2$ は全 $y>0$ で滑らかで、$u_{xx}=0$、$u_{yy}=2$ です。したがって $\Delta_{\mathbb H}u=-2y^2$ です。「非負符号規約」は任意の関数値が非負になるという意味ではありません。
 <!-- definition-example-end -->
 
-実際、上半平面の内部に台を持つ滑らかな関数（あるコンパクト集合の外で0となる関数）なら、通常の部分積分を二方向に行って
+実際、上半平面内にコンパクトな台を持つ滑らかな関数（上半平面内のあるコンパクト集合の外で0となる関数）なら、通常の部分積分を二方向に行って
 
 $$
 \begin{aligned}
@@ -165,11 +192,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$w=X+iY=g\cdot z$ とし、$u$ の偏微分は $(X,Y)$ で評価します。
+$w=X+iY=g\cdot z$ とし、$X,Y$ は $(x,y)$ の実数値関数とします。$u_X,u_Y,u_{XY}$ などは移動先の座標での偏微分で、$(X,Y)$ で評価します。例えば $u_{XY}=\partial_Y(\partial_Xu)$ であり、二階連続偏微分可能性から $u_{YX}$ と一致します。
 
 一次分数変換は分母が非零の領域で正則なので、[Cauchy–Riemann必要条件](../../../解析系/CA/CA1/index.md#thm-ca1-cr-necessary)による関係 $X_x=Y_y$、$X_y=-Y_x$ が成立します。
 
-滑らかさから混合微分の順序を交換でき、
+実部と虚部は分母が非零の有理式なので滑らかです。混合微分の順序を交換でき、
 
 $$
 X_{xx}+X_{yy}=Y_{yx}-Y_{xy}=0,\qquad
@@ -190,7 +217,7 @@ v_{yy}=u_{XX}X_y^2+2u_{XY}X_yY_y+u_{YY}Y_y^2
 +u_X X_{yy}+u_Y Y_{yy}.
 $$
 
-和を取ると $u_X,u_Y$ の係数は0です。また
+和を取ると $u_X,u_Y$ の係数は0です。また Cauchy–Riemann の関係と $w'=X_x+iY_x$ から
 
 $$
 \begin{aligned}
@@ -212,22 +239,22 @@ $$
 
 ## 3. Maass形式：不変性に固有方程式を課す
 
-[重さ付き変換則と群上の持ち上げの対応](../AFR1/index.md#thm-afr1-lift)の $k=0$ では、$u(\gamma\cdot z)=u(z)$ が群上の左不変性と右回転不変性に対応します。この条件だけでは多くの関数が残ります。そこで、一つの微分作用素を施すと元の関数の定数倍になるという条件を追加します。さらに無限遠での大きさを制御します。ここでは滑らかとは全ての次数の偏微分が連続であること、増大が高々多項式的とは高さのあるべき乗で一様に抑えられることを意味します。また、二乗可積分性とは基本領域での $|u|^2$ の双曲面積に関する積分が有限となる条件です。ここでは増大条件と区別します。
+[重さ付き変換則と群上の持ち上げの対応](../AFR1/index.md#thm-afr1-lift)の $k=0$ では、$u(\gamma\cdot z)=u(z)$ が群上の左不変性と右回転不変性に対応します。この条件だけでは多くの関数が残ります。そこで、一つの微分作用素を施すと元の関数の定数倍になるという条件を追加します。さらに無限遠での大きさを制御します。ここでは滑らかとは全ての次数の偏微分が連続であること、増大が高々多項式的とは高さのあるべき乗で一様に抑えられることを意味します。また、二乗可積分性とは [基本領域](../../MF/MF1/index.md#def-mf1-standard-domain)（群作用による重複を除いた領域）での $|u|^2$ の双曲面積に関する積分が有限となる条件です。ここでは増大条件と区別します。
 
 <a id="def-afr2-maass"></a>
 <!-- formal-statement-start -->
 > **定義（重さ0のMaass形式）**  
 > 非零の滑らかな関数 $u:\mathbb H\to\mathbb C$ が $\Gamma=SL_2(\mathbb Z)$ に関する重さ0のMaass形式であるとは、次の三条件を満たすことをいう。
 >
-> (1) 全ての $\gamma\in\Gamma$ と $z\in\mathbb H$ で $u(\gamma\cdot z)=u(z)$。
+> **（1）不変性**：全ての $\gamma\in\Gamma$ と $z\in\mathbb H$ で $u(\gamma\cdot z)=u(z)$。
 >
-> (2) ある $\lambda\in\mathbb C$ に対し
+> **（2）固有方程式**：ある $\lambda\in\mathbb C$ に対し
 >
 $$
 \Delta_{\mathbb H}u=\lambda u.
 $$
 >
-> (3) ある $C>0$、$M\ge0$ があり、全ての $x\in\mathbb R$、$y\ge1$ について
+> **（3）増大条件**：ある $C>0$、$M\ge0$ があり、全ての $x\in\mathbb R$、$y\ge1$ について
 >
 $$
 |u(x+iy)|\le C y^M.
@@ -257,7 +284,7 @@ $$
 
 ## 4. 一つの周期を切り出す
 
-整数行列 $T=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ は $z$ を $z+1$ に移します。従って Maass形式は横方向に周期1を持ちます。ここで高さを固定すると通常の周期関数になり、[複素指数係数](../../../解析系/FOU/FOU1/index.md#def-fou1-complex-exponential-coefficient)を利用できます。
+[整数モジュラー群](../../MF/MF1/index.md#def-mf1-modular-group)の行列 $T=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ は $z$ を $z+1$ に移します。従って Maass形式は横方向に周期1を持ちます。ここで高さを固定すると通常の周期関数になり、[複素指数係数](../../../解析系/FOU/FOU1/index.md#def-fou1-complex-exponential-coefficient)を利用できます。整数 $n$ は横方向の周波数の添字です。係数 $a_n$ は横方向を積分した後に高さ $y$ だけの関数となるため、$a_n'=da_n/dy$、$a_n''=d^2a_n/dy^2$ と常微分で書きます。
 
 <a id="thm-afr2-fourier-equation"></a>
 <!-- formal-statement-start -->
@@ -280,7 +307,7 @@ $$
 a_n''(y)+\left(\frac{\lambda}{y^2}-4\pi^2 n^2\right)a_n(y)=0
 $$
 >
-> を満たす。
+> を満たす。プライムは $y$ に関する常微分を表す。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -294,7 +321,13 @@ $$
 
 関数 $u(t/(2\pi)+iy)$ は周期 $2\pi$ の滑らかな関数です。
 
-[複素指数係数](../../../解析系/FOU/FOU1/index.md#def-fou1-complex-exponential-coefficient)の積分区間を周期性で $[0,2\pi]$ に移し、$dt=2\pi dx$ を代入すると $a_n(y)$ になります。
+[複素指数係数](../../../解析系/FOU/FOU1/index.md#def-fou1-complex-exponential-coefficient)の積分区間を周期性で $[0,2\pi]$ に移し、置換積分で $t=2\pi x$ の導関数 $2\pi>0$ を使うと
+
+$$
+\frac1{2\pi}\int_0^{2\pi}u(t/(2\pi)+iy)e^{-int}\,dt
+=\int_0^1 u(x+iy)e^{-2\pi inx}\,dx
+=a_n(y).
+$$
 
 [Dirichletの点ごとの極限定理](../../../解析系/FOU/FOU2/index.md#thm-fou2-dirichlet-convergence)を実部と虚部の両方に適用できます。
 
@@ -400,7 +433,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$t=\log y$、$b(t)=a_0(e^t)$ とすると
+$t=\log y$、$b(t)=a_0(e^t)$ とします。ここでは $b',v',w'$ は新しい変数 $t$ による常微分（$v,w$ は以下で導入する関数）、$a_0'$ は高さ $y$ による常微分です。$dy/dt=e^t=y>0$ なので、連鎖律と積の微分から
 
 $$
 b'=ya_0',\qquad b''=ya_0'+y^2a_0''.
@@ -419,7 +452,7 @@ $$
 \frac{d}{dt}\bigl(e^{(2s-1)t}w(t)\bigr)=0.
 $$
 
-よって $v'=D e^{(1-2s)t}$ です。$s\ne1/2$ の場合、積分して $v=A+D e^{(1-2s)t}/(1-2s)$、従って $b=Ae^{st}+Be^{(1-s)t}$ です。$s=1/2$ の場合は $v'=D$ なので $b=e^{t/2}(A+Bt)$ です。すべての変数変換は $y>0$ と $t\in\mathbb R$ の間で可逆であり、逆に各式を代入すると元の方程式を満たすので一般解です。
+指数因子は複素数の場合も零になりません。積が定数 $D\in\mathbb C$ なので、よって $v'=D e^{(1-2s)t}$ です。$s\ne1/2$ の場合、積分して $v=A+D e^{(1-2s)t}/(1-2s)$、従って $b=Ae^{st}+Be^{(1-s)t}$ です。$s=1/2$ の場合は $v'=D$ なので $b=e^{t/2}(A+Bt)$ です。すべての変数変換は $y>0$ と $t\in\mathbb R$ の間で可逆であり、逆に各式を代入すると元の方程式を満たすので一般解です。
 <!-- proof-end -->
 
 例えば $\lambda=0$ では $s=1$ と取って $a_0=Ay+B$、$\lambda=1/4$ では $a_0=\sqrt y(A+B\log y)$ です。$s=1/2+ir$（$r\in\mathbb R$）なら $\lambda=1/4+r^2$ になります。ただし、このパラメータ表示から任意の $r$ に保型的な解があるとは結論できません。
@@ -437,7 +470,12 @@ $$
 - ID: AFR2-A1
 
 <!-- solution-start -->
-**詳細解答。** [上半平面の双曲計量](#def-afr2-metric)で $dx=0$、$dy>0$ なので長さは $\int_2^6dy/y=\log6-\log2=\log3$ です。面積は
+**詳細解答。** 縦線を $y\mapsto (x_0,y)$ とパラメータ表示すると速度は $(0,1)$ です。[上半平面の双曲計量](#def-afr2-metric)と[曲線の長さ](../../../幾何系/GEO/GEO12/index.md#def-geo12-length-energy)から
+
+$$
+L=\int_2^6\sqrt{g_z((0,1),(0,1))}\,dy
+=\int_2^6\frac{dy}{y}=\log3.
+$$面積は
 
 $$
 \int_0^1dx\int_2^6 y^{-2}dy=[-y^{-1}]_2^6
@@ -450,15 +488,13 @@ $$
 <a id="ex-afr2-a2"></a>
 #### AFR2-A2 拡大と計量
 
-$g=\operatorname{diag}(3,1/3)$ を $z=1+i$ に作用させ、速度 $(2,1)$ の変換前後の双曲二乗長さを比較せよ。
+$g=\operatorname{diag}(3,1/3)$（対角成分が $3,1/3$ の二次正方行列）を $z=1+i$ に作用させ、速度 $(2,1)$ の変換前後の双曲二乗長さを比較せよ。
 
 - Level: A
 - ID: AFR2-A2
 
 <!-- solution-start -->
-**詳細解答。
-
-** 行列式は1です。
+**詳細解答。** 行列式は1です。
 
 [実特殊線形群の作用](../AFR1/index.md#def-afr1-real-group)で $g\cdot z=3z/(1/3)=9z=9+9i$。
 
@@ -478,15 +514,13 @@ $u(z)=y^3$ の双曲Laplace作用素による固有値を求めよ。また $S\c
 - ID: AFR2-A3
 
 <!-- solution-start -->
-**詳細解答。
-
-** $u_{xx}=0$、$u_y=3y^2$、$u_{yy}=6y$ です。
+**詳細解答。** $u_{xx}=0$、$u_y=3y^2$、$u_{yy}=6y$ です。
 
 [双曲Laplace作用素](#def-afr2-laplacian)より $\Delta_{\mathbb H}u=-6y^3=-6u$ なので固有値は $-6$ です。
 
 滑らかさと増大条件は $M=3,C=1$ で満たします。
 
-しかし $S\cdot(2i)=i/2$ なので $u(2i)=8$ と $u(i/2)=1/8$ は異なります。
+しかし [整数モジュラー群](../../MF/MF1/index.md#def-mf1-modular-group)の元 $S=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ に対して $S\cdot(2i)=i/2$ なので $u(2i)=8$ と $u(i/2)=1/8$ は異なります。
 
 [重さ0のMaass形式](#def-afr2-maass)の不変条件を失うためMaass形式ではありません。
 <!-- solution-end -->
@@ -507,7 +541,20 @@ $$
 =\frac{e^{2\pi ik}-1}{2\pi ik}=0
 $$
 
-で、$k=0$ では1です。従って定数2は $n=0$ に、二つの指数項はそれぞれ $n=2,-2$ にだけ残り、$a_0=2$、$a_2=a_{-2}=y/2$、他は0です。
+で、$k=0$ では1です。係数の定義に展開した式を代入すると
+
+$$
+a_n=2\int_0^1 e^{-2\pi inx}dx+
+\frac y2\int_0^1(e^{2\pi i(2-n)x}+e^{2\pi i(-2-n)x})\,dx.
+$$
+
+各積分が1になる添字だけが残るので
+
+$$
+a_0=2,\qquad a_2=a_{-2}=y/2,
+$$
+
+その他の係数は0です。
 <!-- solution-end -->
 
 <a id="ex-afr2-b1"></a>
@@ -579,11 +626,16 @@ $$
 - ID: AFR2-B3
 
 <!-- solution-start -->
-**詳細解答。
+**詳細解答。** [係数方程式](#thm-afr2-fourier-equation)で $\lambda=0$ と置き、$k=2\pi|n|>0$ とすると $a_n''-k^2a_n=0$ です。
 
-** [係数方程式](#thm-afr2-fourier-equation)で $\lambda=0$ と置き、$k=2\pi|n|>0$ とすると $a_n''-k^2a_n=0$ です。
+$a_n=e^{ky}v(y)$ と置きます。ここでプライムは全て高さ $y$ による常微分です。積の微分から
 
-$a_n=e^{ky}v$ と置けば $v''+2kv'=0$。
+$$
+a_n'=e^{ky}(kv+v'),\qquad
+a_n''=e^{ky}(k^2v+2kv'+v'').
+$$
+
+元の方程式に代入し、非零の $e^{ky}$ で割ると $v''+2kv'=0$ です。
 
 $(e^{2ky}v')'=0$ から $v'=D e^{-2ky}$、積分して $v=A-D e^{-2ky}/(2k)$、よって
 
@@ -591,9 +643,19 @@ $$
 a_n=Ae^{ky}+Be^{-ky}.
 $$
 
-一方係数の積分から $|a_n|\le\int_0^1|u|dx\le C y^M$。
+一方 [係数の積分表示](#thm-afr2-fourier-equation)と $|e^{-2\pi inx}|=1$ から
 
-両辺を $e^{ky}$ で割ると $|A+Be^{-2ky}|\le Cy^M e^{-ky}\to0$ です。
+$$
+|a_n(y)|\le\int_0^1|u(x+iy)|\,dx\le C y^M.
+$$
+
+正の $e^{ky}$ で割ると
+
+$$
+|A+Be^{-2ky}|\le Cy^M e^{-ky}.
+$$
+
+$k>0$ で $M\log y-ky\to-\infty$（$\log y/y\to0$）なので右辺は0に収束します。
 
 左辺は $|A|$ に収束するので $A=0$ です。
 
@@ -620,7 +682,14 @@ $$
 <!-- solution-start -->
 **詳細解答。** (i) $Q=(mx+n)^2+m^2y^2$ と置きます。コンパクト集合 $K\subset\mathbb H$ では $|x|\le R$、$0<\delta\le y\le R$ とできます。$m^2\le Q/\delta^2$、また $n=(mx+n)-mx$ より $n^2\le2Q+2R^2Q/\delta^2$ です。従って $Q\ge c_K(m^2+n^2)$ となる正の定数 $c_K$ が存在します。
 
-各 $Q$ の一階・二階偏微分は $K$ 上で定数倍の $m^2+n^2$ に抑えられ、三階以上は0です。
+ここで偏微分するのは $x,y$ で、整数 $m,n$ は固定します。
+
+$$
+Q_x=2m(mx+n),\quad Q_y=2m^2y,
+\qquad Q_{xx}=Q_{yy}=2m^2,\quad Q_{xy}=0.
+$$
+
+$2|mn|\le m^2+n^2$ と $K$ 上の座標の有界性から、一階・二階偏微分は定数倍の $m^2+n^2$ に抑えられ、三階以上は0です。
 
 $Q^{-2}$ の任意の偏微分は、連鎖律と積の微分を繰り返せば $Q^{-2-j}$ に $j$ 個の $Q$ の正次数偏微分を掛けた項の有限和です。
 
@@ -657,7 +726,11 @@ $(m,n)\mapsto(m,n)g$ は整数係数の逆行列を持つので非零整数対�
 
 例えば $\alpha=n/(m^2+n^2)$、$\beta=-m/(m^2+n^2)$ です。
 
-$h=\begin{pmatrix}\alpha&\beta\\m&n\end{pmatrix}\in G$ であり、項は $(\operatorname{Im}(h\cdot z))^2$ です。
+$h=\begin{pmatrix}\alpha&\beta\\m&n\end{pmatrix}\in G$ であり、整数行列である必要はありません。[実特殊線形群の作用](../AFR1/index.md#def-afr1-real-group)の虚部公式により
+
+$$
+(\operatorname{Im}(h\cdot z))^2=\frac{y^2}{|mz+n|^4}.
+$$
 
 [双曲Laplace作用素の群作用との可換性](#thm-afr2-laplacian-equivariance)を $u=y^2$ と $h$ に適用します。
 
@@ -686,7 +759,13 @@ C_1y^2\sum_{m\ne0}(|m|y)^{-3}
 =C_1y^{-1}\sum_{m\ne0}|m|^{-3}.
 $$
 
-$y\ge1$ なので全体を定数倍の $y^2$ で抑えられます。
+$y\ge1$ では $y^{-1}\le y^2$ です。二つの収束する逆べき級数を合わせると、$x$ に依存しない定数
+
+$$
+C=\sum_{n\ne0}n^{-4}+C_1\sum_{m\ne0}|m|^{-3}
+$$
+
+により $|F(x+iy)|\le Cy^2$ が成立します。
 
 全項が正で、$m=0,n=1$ の項だけでも $F(iy)\ge y^2$。
 
