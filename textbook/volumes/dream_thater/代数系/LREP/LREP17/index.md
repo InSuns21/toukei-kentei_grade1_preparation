@@ -6,7 +6,9 @@
 
 ## 1. 普通の内積が保存されない理由
 
-[Diracスピノル](../LREP16/index.md#def-lrep16-dirac)の Weyl 基底を用います。$I=I_2$、$I_4$ は単位行列、$\dagger$ は複素共役転置です。$A\in SL(2,\mathbb C)$ に対し
+[Diracスピノル](../LREP16/index.md#def-lrep16-dirac)の Weyl 基底を用います。$I=I_2$、$I_4$ は単位行列です。$\dagger$ は複素共役転置、$\mathsf T$ は転置、$i$ は虚数単位、複素数の星 $*$ は複素共役です。
+
+プライムは変換後を表し、微分ではありません。スピノルの標準基底を $e_k$（$k=1,2,3,4$）とし、時空の成分番号 $0,1,2,3$ とは区別します。$A\in SL(2,\mathbb C)$（行列式1の複素二次正方行列）に対し
 
 $$
 \psi=\binom{u}{r},\qquad Q=(A^\dagger)^{-1},
@@ -16,14 +18,25 @@ $$
 
 $u,r\in\mathbb C^2$ です。例えば $A=\operatorname{diag}(2,1/2)$、$\psi=e_1=(1,0,0,0)^{\mathsf T}$ なら $S\psi=2e_1$ です。普通の内積で測った長さの二乗は1から4へ変わります。
 
-一般に行列 $H$ を挟んだ $\phi^\dagger H\psi$ を考えます。第一引数では複素共役を伴う線形性、第二引数では通常の線形性を持つので、これは半双線形形式です。$H^\dagger=H$ なら引数を交換した値が複素共役になる Hermitian 形式です。全ての $S$ に対して値が保存される条件は
+[不変正定値Hermite内積](../LREP2/index.md#def-lrep2-invariant-inner-product)では共役対称性と正定値性の両方を要求しました。ここでは正定値性を外し、共役対称性を保つ形式を探します。[双線形形式](../../../基礎科目/LA/LA3E/index.md#def-la3e-bilinear-form)とは異なり、第一引数で共役線形、第二引数で線形の形式を半双線形形式と呼びます。標準基底で半双線形形式を $h$、成分行列を $H_{kl}=h(e_k,e_l)$ とすると、$\phi,\psi\in\mathbb C^4$ について
+
+$$
+h(\phi,\psi)=\sum_{k,l=1}^4\overline{\phi_k}H_{kl}\psi_l
+=\phi^\dagger H\psi.
+$$
+
+逆に任意の複素四次行列 $H$ でこの式を定めれば、各引数の線形性は行列積の分配則から従います。
+
+共役対称性 $h(\phi,\psi)=\overline{h(\psi,\phi)}$ は基底の組で $H_{kl}=\overline{H_{lk}}$ と同値です。従って $H^\dagger=H$ のとき、これを Hermitian 形式と呼びます。正定値とは非零の列すべてで $h(\psi,\psi)>0$ となることです。全ての $S$ に対して値が保存される条件は
 
 $$
 (S\phi)^\dagger H(S\psi)=\phi^\dagger S^\dagger HS\psi
 =\phi^\dagger H\psi.
 $$
 
-$\phi,\psi$ を全ての標準基底の組に取れば行列の各成分が等しくなるので、この条件は $S^\dagger HS=H$ と同値です。上のboostで $e_1$ を使うと $4e_1^\dagger He_1=e_1^\dagger He_1$、つまり $e_1^\dagger He_1=0$ です。従って非零の列全てに正の値を与える保存形式は存在しません。左右の成分を交差させると、一方の伸縮が他方で打ち消されます。
+$\phi,\psi$ を全ての標準基底の組に取れば行列の各成分が等しくなるので、この条件は $S^\dagger HS=H$ と同値です。
+
+上のboostで $e_1$ を使うと $4e_1^\dagger He_1=e_1^\dagger He_1$、つまり $e_1^\dagger He_1=0$ です。従って非零の列全てに正の値を与える保存形式は存在しません。左右の成分を交差させると、一方の伸縮が他方で打ち消されます。
 
 計量は $\eta=\operatorname{diag}(-1,1,1,1)$ とし、[ガンマ行列](../LREP15/index.md#def-lrep15-gamma)をそのまま使います。
 
@@ -34,7 +47,9 @@ $$
 \quad(j=1,2,3).
 $$
 
-$\sigma_j$ は[Pauli行列](../LREP5/index.md#def-lrep5-pauli-model)です。時間行列は反 Hermitian なので $-i$ を掛けると Hermitian になります。
+$\sigma_j$ は[Pauli行列](../LREP5/index.md#def-lrep5-pauli-model)です。時間行列は反 Hermitian（$(\gamma^0)^\dagger=-\gamma^0$）なので $-i$ を掛けると Hermitian になります。
+
+そこで $h(\psi,\phi)$ の第一引数を固定し、第二引数 $\phi$ に線形な行 $\psi^\dagger H$ として取り出します。この行を次の定義で名付けます。
 
 <a id="def-lrep17-dirac-adjoint"></a>
 
@@ -51,7 +66,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep17-dirac-adjoint -->
-**定義の確認**。 $\psi=(1,0,i,0)^{\mathsf T}$ なら $\psi^\dagger=(1,0,-i,0)$ です。行列積を行うと
+**定義の確認**。 Weyl 基底で二成分ずつのブロックを掛けると、任意の列に対して
+
+$$
+\bar\psi=(u^\dagger,r^\dagger)
+\begin{pmatrix}0&-iI\\iI&0\end{pmatrix}
+=(ir^\dagger,-iu^\dagger).
+$$
+
+この行を次の列に掛ければ形式の値が得られます。$\psi=(1,0,i,0)^{\mathsf T}$ なら $\psi^\dagger=(1,0,-i,0)$ です。行列積を行うと
 
 $$
 \bar\psi=(1,0,-i,0)
@@ -104,9 +127,22 @@ $$
 $\square$
 <!-- proof-end -->
 
-$H^2=I_4$ なので $H$ は可逆です。非零の列自身に対して形式が零になることはあっても、全ての相手との値が零になる非零の列はありません。保存性と正定値性は別の条件です。
+[Dirac随伴の変換則](#prop-lrep17-adjoint-covariance)で得た $H^2=I_4$ から $H$ は可逆です。非零の列自身に対して形式が零になることはあっても、全ての相手との値が零になる非零の列はありません。
+
+実際、すべての $\phi$ に対して $h(\phi,\psi)=0$ と仮定します。$\phi=e_k$ と取れば
+
+$$
+e_k^\dagger H\psi=(H\psi)_k=0
+\quad(k=1,2,3,4).
+$$
+
+従って $H\psi=0$ となり、左から $H$ を掛けて $\psi=0$ を得ます。逆も成立し、第一引数についても共役対称性から同じことが言えます。この意味で形式は非退化です。保存性、非退化性、正定値性は別の条件です。
 
 ## 2. ベクトルを作るときの添字
+
+[Lorentz群と単位元成分](../LREP9/index.md#def-lrep9-lorentz-group)のうち、適正・時間向き保存の変換 $\Lambda\in SO^+(1,3)$ を考えます。[Spin群とLorentz二重被覆](../LREP15/index.md#thm-lrep15-spin-cover)により、先ほどの $S=S(A)$ が対応するスピノル作用（Spin持ち上げの行列表現）です。
+
+ギリシャ文字の添字 $\mu,\nu,\rho,\sigma$ は $0,1,2,3$、空間添字 $j$ は $1,2,3$ を走り、総和は $\sum$ で明示します。
 
 [ガンマ行列の共変変換則](../LREP15/index.md#prop-lrep15-gamma-covariance)では $\gamma^\mu$ の上付き添字は基底の番号でした。能動変換 $\Lambda$ に対して
 
@@ -114,14 +150,33 @@ $$
 S\gamma^\mu S^{-1}=\sum_\nu\Lambda^\nu{}_\mu\gamma^\nu.
 $$
 
-この式の右辺は $\Lambda$ の第 $\mu$ 列を使っています。今欲しいのは四元ベクトルの成分と同じ変換、すなわち第 $\mu$ 行を使う式です。そのため計量を使って次の行列を用意します。$G^\mu$ はこの章の計算用記号であり、元の Clifford 関係を変更するものではありません。
+この式の右辺は $\Lambda$ の第 $\mu$ 列（時空の基底方向を $0$ から数える）を使っています。時空の列 $x=(x^0,x^1,x^2,x^3)^{\mathsf T}$ の変換 $x'=\Lambda x$ を成分で書くと
+
+$$
+x'^\mu=\sum_\nu\Lambda^\mu{}_\nu x^\nu
+$$
+
+です。今欲しいのはこの四元ベクトルの成分と同じ変換、すなわち第 $\mu$ 行を使う式です。そのため計量を使って次の行列を用意します。$G^\mu$ はこの章の計算用記号であり、元の Clifford 関係を変更するものではありません。
 
 $$
 G^\mu=i\sum_\nu\eta^{\mu\nu}\gamma^\nu,
 \quad G^0=-i\gamma^0=H,\quad G^j=i\gamma^j.
 $$
 
-$\eta^{\mu\nu}$ は逆計量の成分で、ここでは $\eta^{-1}=\eta$ です。$G$ の反交換関係は $\{G^\mu,G^\nu\}=-2\eta^{\mu\nu}I_4$ になります。元のガンマ行列の符号を保ったまま、添字と実数値の規格化に必要な因子を明示したものです。
+$\eta^{\mu\nu}$ は逆計量の成分で、ここでは $\eta^{-1}=\eta$ です。[ガンマ行列の反交換関係](../LREP15/index.md#def-lrep15-gamma)を使います。反交換子は $\{X,Y\}=XY+YX$ です。異なる添字では元の行列の反交換子が零なので $G$ でも零です。同じ添字では
+
+$$
+(G^0)^2=(-i)^2(\gamma^0)^2=I_4,\qquad
+(G^j)^2=i^2(\gamma^j)^2=-I_4.
+$$
+
+従って全ての添字の組で
+
+$$
+\{G^\mu,G^\nu\}=-2\eta^{\mu\nu}I_4
+$$
+
+となります。元のガンマ行列の符号を保ったまま、添字と実数値の規格化に必要な因子を明示したものです。
 
 <a id="prop-lrep17-vector-matrices"></a>
 
@@ -146,7 +201,20 @@ S^{-1}G^\mu S
 =i\sum_{\nu,\rho}\eta^{\mu\nu}(\Lambda^{-1})^\rho{}_\nu\gamma^\rho.
 $$
 
-Lorentz条件 $\Lambda^{\mathsf T}\eta\Lambda=\eta$ の両辺を変形すると $(\Lambda^{-1})^{\mathsf T}=\eta\Lambda\eta^{-1}$ です。従って $\eta^{-1}(\Lambda^{-1})^{\mathsf T}=\Lambda\eta^{-1}$ です。成分で書けば
+[Lorentz群の計量保存条件](../LREP9/index.md#def-lrep9-lorentz-group)の式 $\Lambda^{\mathsf T}\eta\Lambda=\eta$ に左から $(\Lambda^{-1})^{\mathsf T}$、右から $\eta^{-1}$ を順に掛けると
+
+$$
+\eta\Lambda=(\Lambda^{-1})^{\mathsf T}\eta,\qquad
+(\Lambda^{-1})^{\mathsf T}=\eta\Lambda\eta^{-1}.
+$$
+
+さらに左から $\eta^{-1}$ を掛けて
+
+$$
+\eta^{-1}(\Lambda^{-1})^{\mathsf T}=\Lambda\eta^{-1}
+$$
+
+を得ます。成分で書けば
 
 $$
 \sum_\nu\eta^{\mu\nu}(\Lambda^{-1})^\rho{}_\nu
@@ -156,11 +224,21 @@ $$
 最初の式へ代入して $i\sum_\rho\eta^{\nu\rho}\gamma^\rho=G^\nu$ を用いれば結論を得ます。$\square$
 <!-- proof-end -->
 
-例えば $A=\operatorname{diag}(2,1/2)$ なら $S=\operatorname{diag}(2,1/2,1/2,2)$ です。$\Lambda$ は $z$ 方向のboostで、[回転とboostのSpin持ち上げ](../LREP15/index.md#prop-lrep15-rotation-boost)より $\cosh\chi=17/8$、$\sinh\chi=15/8$（$e^\chi=4$）。$e_1$ から作る時間・第三空間成分は次節でこの変換を直接確かめます。
+例えば $A=\operatorname{diag}(2,1/2)$ なら $S=\operatorname{diag}(2,1/2,1/2,2)$ です。
+
+$\Lambda$ は $z$ 方向のboostです。[回転とboostのSpin持ち上げ](../LREP15/index.md#prop-lrep15-rotation-boost)よりラピディティ $\chi$ は $e^\chi=4$ を満たすので
+
+$$
+\cosh\chi=\frac{4+1/4}{2}=\frac{17}{8},
+\qquad
+\sinh\chi=\frac{4-1/4}{2}=\frac{15}{8}.
+$$
+
+$e_1$ から作る時間・第三空間成分は次節でこの変換を直接確かめます。
 
 ## 3. 五種類の量を作る
 
-行と列の間に行列を挟むと、行列の共役変換がそのまま量の変換に反映されます。スカラーは変換で値を保つ量、ベクトルは四成分が $\Lambda$ で混ざる量です。二階反対称テンソルは二つの添字がそれぞれ $\Lambda$ で変わり、添字を交換すると符号が逆になる量です。
+行と列の間に行列を挟むと、行列の共役変換がそのまま量の変換に反映されます。このように二つのスピノルを組み合わせる量を、次の定義でまとめます。複素数上では第一引数が共役線形です。スカラーは変換で値を保つ量、ベクトルは四成分が $\Lambda$ で混ざる量です。[Weyl列からの二階テンソル](../LREP13/index.md#prop-lrep13-tensor)と同じく、二階反対称テンソルは二つの添字がそれぞれ $\Lambda$ で変わり、添字を交換すると符号が逆になる量です。
 
 空間反転では時間を保ち、空間三方向を反転します。[空間反転](../LREP13/index.md#def-lrep13-parity)を $P=\operatorname{diag}(1,-1,-1,-1)$ と書きます。擬スカラーは適正Lorentz変換ではスカラーと同じですが空間反転で符号が変わる量、軸性ベクトルは適正Lorentz変換ではベクトルと同じですが空間反転で通常のベクトルと逆の符号規則を持つ量です。
 
@@ -198,7 +276,36 @@ $$
 
 従って $v=(1,0,0,1)^{\mathsf T}$、$a=-v$ です。$G^\mu$ は上下を交換するので二つの積は上の成分を上の成分へ移し、下側だけを読む $\bar e_1$ との積は零です。従って全ての $t^{\mu\nu}=0$ です。一般にも $G^\nu G^\mu-G^\mu G^\nu=-(G^\mu G^\nu-G^\nu G^\mu)$ なので $t^{\nu\mu}=-t^{\mu\nu}$ となります。
 
-前節のboostでは $\psi'=2e_1$、随伴も2倍なので $v'=4v$ です。他方、$z$ 方向のboostは時間・第三成分 $(1,1)$ を $(17/8+15/8,15/8+17/8)=(4,4)$ に移します。実際にベクトルの変換と一致します。
+左右を混ぜた例として $\psi=(1,0,1+i,0)^{\mathsf T}$ も考えます。随伴は $(1+i,0,-i,0)$ で、$\gamma^5\psi=(-1,0,1+i,0)^{\mathsf T}$ です。定義に従って行と列の積を取ると
+
+$$
+s=(1+i)-i(1+i)=2,
+\qquad p=i[-(1+i)-i(1+i)]=2.
+$$
+
+第2節の反交換関係で $i[G^0,G^3]/2=iG^0G^3$ です。ここで
+
+$$
+G^3\psi=(i(1+i),0,i,0)^{\mathsf T},\qquad
+G^0G^3\psi=(1,0,-(1+i),0)^{\mathsf T}.
+$$
+
+従って $t^{03}=i[(1+i)+i(1+i)]=-2$ となり、左右が混ざるとこれらの量は零とは限らないことが分かります。
+
+一般の二入力 $\phi,\psi$ では、どの挿入行列 $M$ も入力によらず固定されています。$\alpha,\beta\in\mathbb C$、$\xi\in\mathbb C^4$ とすると
+
+$$
+\begin{aligned}
+\overline{\alpha\phi+\beta\xi}M\psi
+&=\alpha^*\bar\phi M\psi+\beta^*\bar\xi M\psi,\\
+\bar\phi M(\alpha\psi+\beta\xi)
+&=\alpha\bar\phi M\psi+\beta\bar\phi M\xi.
+\end{aligned}
+$$
+
+ここで列の上線はDirac随伴（単なる成分ごとの複素共役ではない）を表します。これで二入力に関する条件も確認できました。
+
+最初の例に戻ります。前節のboostでは $\psi'=2e_1$、随伴も2倍なので $v'=4v$ です。他方、$z$ 方向のboostは時間・第三成分 $(1,1)$ を $(17/8+15/8,15/8+17/8)=(4,4)$ に移します。実際にベクトルの変換と一致します。
 <!-- definition-example-end -->
 
 一つの列についてこれらは二次式です。「双線形」という名称にかかわらず、複素数上で二引数とも線形なのではありません。ここでは普通の可換な複素成分を扱い、量子化した場の積の順序問題は扱いません。
@@ -262,6 +369,30 @@ $$
 
 適正変換だけでは $s,p$ の区別も $v,a$ の区別も見えません。ここで空間反転のスピノルへの作用を $B=H$ と選びます。これは上下を位相付きで交換する作用です。[空間反転による左右交換](../LREP13/index.md#prop-lrep13-parity-exchange)で用いた単純交換行列は群作用の交換を実現しましたが、そのままでは本講のガンマ行列の時間成分を反転してしまいます。ここではガンマ行列の時間成分を保つ持ち上げを選びます。
 
+単純交換行列を次のように置きます。
+
+$$
+\Pi=\begin{pmatrix}0&I\\I&0\end{pmatrix},
+\qquad \Pi^{-1}=\Pi.
+$$
+
+ブロック積を取ると
+
+$$
+\Pi\gamma^0\Pi=
+\begin{pmatrix}0&-I\\I&0\end{pmatrix}
+=-\gamma^0.
+$$
+
+一方、$B=H$ は $G^0=H$ と可換で、$B^2=I_4$ です。また $B$ は左右を交換するので
+
+$$
+BS(A)B^{-1}=\begin{pmatrix}Q&0\\0&A\end{pmatrix}
+=S(Q)
+$$
+
+となります。最後の等式は $(Q^\dagger)^{-1}=A$ によります。従って前の左右交換の群作用も保ちつつ、時間成分を変えない選択になっています。
+
 <a id="prop-lrep17-parity"></a>
 
 <!-- formal-statement-start -->
@@ -311,14 +442,28 @@ $$
 
 ## 5. 実数値と時間成分
 
-複素成分から作る量が実数であることも確認しましょう。任意の四次行列 $M$ について
+複素成分から作る量が実数であることも確認しましょう。ここでは $*$ を複素数の複素共役、$\dagger$ を行列・行・列の複素共役転置に使います。$1\times1$ 行列では両者は同じです。
+
+[Dirac随伴の変換則](#prop-lrep17-adjoint-covariance)で得た $H^\dagger=H$、$H^2=I_4$ を用いると、任意の複素四次行列 $M$ について
 
 $$
 (\bar\psi M\psi)^*=\psi^\dagger M^\dagger H\psi
 =\bar\psi(HM^\dagger H)\psi.
 $$
 
-ここで星は複素数の複素共役です。$M^\sharp=HM^\dagger H$ と略記すると、$M^\sharp=M$ なら全ての $\psi$ に対して値は実数になります。積では $(MN)^\sharp=N^\sharp M^\sharp$、複素数 $c$ について $(cM)^\sharp=c^*M^\sharp$ です。前者は $H^2=I_4$ を中央に挿入すると分かります。
+$M^\sharp=HM^\dagger H$ と略記すると、$M^\sharp=M$ なら全ての $\psi$ に対して値は実数になります。複素四次行列 $M,N$ と複素数 $c$ に対して
+
+$$
+(MN)^\sharp=HN^\dagger M^\dagger H
+=(HN^\dagger H)(HM^\dagger H)
+=N^\sharp M^\sharp,
+$$
+
+$$
+(cM)^\sharp=Hc^*M^\dagger H=c^*M^\sharp
+$$
+
+です。積の順番が逆になる点に注意します。
 
 <a id="prop-lrep17-real-bilinears"></a>
 
@@ -344,7 +489,9 @@ $$
 (G^j)^\sharp=-HG^jH=G^j.
 $$
 
-$\gamma^5$ は Hermitian で $H$ と反交換するため $(\gamma^5)^\sharp=-\gamma^5$。よって $(i\gamma^5)^\sharp=(-i)(-\gamma^5)=i\gamma^5$ です。$I_4$ も不変です。[chirality演算子の恒等式](../LREP16/index.md#prop-lrep16-chirality-algebra)による反交換から
+$\gamma^5$ は Hermitian で $H$ と反交換するため $(\gamma^5)^\sharp=-\gamma^5$。よって $(i\gamma^5)^\sharp=(-i)(-\gamma^5)=i\gamma^5$ です。$I_4$ も不変です。
+
+[chirality演算子の恒等式](../LREP16/index.md#prop-lrep16-chirality-algebra)による反交換から
 
 $$
 (G^\mu\gamma^5)^\sharp
@@ -361,7 +508,7 @@ $$
 従って $i/2$ を共役した負号がこれを打ち消します。五種類の挟む行列全てが不変なので実数値です。最後に $v^0=\psi^\dagger HH\psi=\psi^\dagger\psi=\sum_{k=1}^4|\psi_k|^2$。非負であり、零なら全成分が零です。$\square$
 <!-- proof-end -->
 
-時間成分は正ですが、その値はLorentz変換で保存されるスカラーではありません。第3節では実際に1から4へ変化しました。保存電流の微分方程式は後の講義で導きます。
+非零スピノルに対して時間成分は正ですが、その値はLorentz変換で保存されるスカラーではありません。第3節では実際に1から4へ変化しました。保存電流の微分方程式は後の講義で導きます。
 
 ## 6. 演習
 
@@ -376,7 +523,13 @@ $$
 $\psi=(1,i,2,0)^{\mathsf T}$ のDirac随伴と $s$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [Dirac随伴](#def-lrep17-dirac-adjoint)より $\bar\psi=(ir^\dagger,-iu^\dagger)$ です。$r^\dagger=(2,0)$、$u^\dagger=(1,-i)$ なので $\bar\psi=(2i,0,-i,-1)$。従って $s=2i-2i=0$ です。非零の列でも不定形式の自己収縮は零になります。
+**詳細解答。** [Dirac随伴](#def-lrep17-dirac-adjoint)より $\bar\psi=(ir^\dagger,-iu^\dagger)$ です。$r^\dagger=(2,0)$、$u^\dagger=(1,-i)$ なので $\bar\psi=(2i,0,-i,-1)$。[Dirac双線形量](#def-lrep17-bilinears)の定義に代入すると
+
+$$
+s=(2i)\cdot1+0\cdot i+(-i)\cdot2+(-1)\cdot0=0
+$$
+
+です。非零の列でも不定形式の自己収縮は零になります。
 <!-- solution-end -->
 
 <a id="ex-lrep17-a02"></a>
@@ -388,7 +541,7 @@ $\psi=(1,i,2,0)^{\mathsf T}$ のDirac随伴と $s$ を求めよ。
 $\psi=(1,0,1+i,0)^{\mathsf T}$ について $s,p$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [Dirac随伴](#def-lrep17-dirac-adjoint)は $\bar\psi=(1+i,0,-i,0)$ です。[chirality演算子](../LREP16/index.md#def-lrep16-chirality)で $\gamma^5\psi=(-1,0,1+i,0)^{\mathsf T}$。従って
+**詳細解答。** [Dirac随伴](#def-lrep17-dirac-adjoint)は $\bar\psi=(1+i,0,-i,0)$ です。[chirality演算子](../LREP16/index.md#def-lrep16-chirality)で $\gamma^5\psi=(-1,0,1+i,0)^{\mathsf T}$。[Dirac双線形量](#def-lrep17-bilinears)の定義に代入すると
 
 $$
 s=1+i-i(1+i)=2,
@@ -407,7 +560,16 @@ $$
 $\psi=e_3=(0,0,1,0)^{\mathsf T}$ の $v,a$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [Dirac随伴](#def-lrep17-dirac-adjoint)は $(i,0,0,0)$ です。$G^0e_3=-ie_1$、$G^1e_3=ie_2$、$G^2e_3=-e_2$、$G^3e_3=ie_1$ なので
+**詳細解答。** [Dirac随伴](#def-lrep17-dirac-adjoint)は $(i,0,0,0)$ です。
+
+[Dirac双線形量](#def-lrep17-bilinears)の定義で挟む行列の作用は
+
+$$
+G^0e_3=-ie_1,\quad G^1e_3=ie_2,
+\quad G^2e_3=-e_2,\quad G^3e_3=ie_1.
+$$
+
+従って
 
 $$
 v^0=i(-i)=1,\quad v^1=v^2=0,\quad v^3=i^2=-1.
@@ -445,7 +607,7 @@ $$
 \bar\psi'\psi'=(1/3)3+(-3i)(i/3)=2.
 $$
 
-元の自己収縮も2です。一方普通の長さの二乗は $9+1/9=82/9$ で、元の2から変わります。
+元の自己収縮も2です。[Dirac随伴の変換則](#prop-lrep17-adjoint-covariance)からも $\bar\psi'\psi'=\bar\psi S^{-1}S\psi=\bar\psi\psi$ と確かめられます。一方普通の長さの二乗は $9+1/9=82/9$ で、元の2から変わります。
 <!-- solution-end -->
 
 <a id="ex-lrep17-b02"></a>
@@ -457,7 +619,7 @@ $$
 $\psi=(1,0,1,0)^{\mathsf T}$ に対し $t^{03},t^{12}$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [Dirac随伴](#def-lrep17-dirac-adjoint)は $(i,0,-i,0)$。異なる添字では $G^\mu G^\nu=-G^\nu G^\mu$ なので $i[G^\mu,G^\nu]/2=iG^\mu G^\nu$ です。まず
+**詳細解答。** [Dirac随伴](#def-lrep17-dirac-adjoint)は $(i,0,-i,0)$。第2節の $G$ の反交換関係で異なる添字では $G^\mu G^\nu=-G^\nu G^\mu$ なので $i[G^\mu,G^\nu]/2=iG^\mu G^\nu$ です。まず
 
 $$
 G^3\psi=(i,0,i,0)^{\mathsf T},
@@ -476,7 +638,7 @@ $$
 $\psi=(1,0,1+i,0)^{\mathsf T}$ に $B=H$ を作用させ、$s,p,v^3,a^0$ の変化を直接求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [Dirac双線形量](#def-lrep17-bilinears)で $s=2,p=2$（A02）。$HG^3=\gamma^0\gamma^3=\operatorname{diag}(\sigma_3,-\sigma_3)$ なので $v^3=1-|1+i|^2=-1$。$HG^0=I_4$ なので $a^0=-1+|1+i|^2=1$ です。
+**詳細解答。** [Dirac双線形量](#def-lrep17-bilinears)で $s=2,p=2$（A02）。$HG^3=(-i\gamma^0)(i\gamma^3)=\gamma^0\gamma^3=\operatorname{diag}(\sigma_3,-\sigma_3)$ なので $v^3=1-|1+i|^2=-1$。$HG^0=I_4$ なので $a^0=-1+|1+i|^2=1$ です。
 
 変換後は $\psi'=(1-i,0,i,0)^{\mathsf T}$、$\bar\psi'=(1,0,1-i,0)$ です。直接掛けると
 
@@ -500,13 +662,15 @@ $v'^3=|1-i|^2-|i|^2=1$、$a'^0=-|1-i|^2+|i|^2=-1$。よって四つとも[Dirac�
 $\psi=P_L\psi$ の場合に $s,p,t^{\mu\nu}$ が零、$a=-v$ となることを一般に示せ。$P_L=(I_4-\gamma^5)/2$ とする。
 
 <!-- solution-start -->
-**詳細解答。** [chirality射影子](../LREP16/index.md#def-lrep16-chiral-projectors)により $\psi=(u,0)^{\mathsf T}$。$H$ は上下を交換するので $\bar\psi=(0,-iu^\dagger)$ です。$I_4,\gamma^5$ は上側を保ち、$G^\mu G^\nu$ は上下を二回交換するので上側を保ちます。よって随伴との積は全て零です。これで $s=p=t^{\mu\nu}=0$ が従います。さらに $\gamma^5\psi=-\psi$ だから
+**詳細解答。** [chirality射影子](../LREP16/index.md#def-lrep16-chiral-projectors)により $\psi=(u,0)^{\mathsf T}$。[Dirac随伴](#def-lrep17-dirac-adjoint)は $\bar\psi=(0,-iu^\dagger)$ です。
+
+[Dirac双線形量](#def-lrep17-bilinears)で挟む行列を調べます。$I_4,\gamma^5$ は上側を保ち、$G^\mu G^\nu$ は上下を二回交換するので上側を保ちます。よって随伴との積は全て零です。これで $s=p=t^{\mu\nu}=0$ が従います。さらに $\gamma^5\psi=-\psi$ だから
 
 $$
 a^\mu=\bar\psi G^\mu(-\psi)=-v^\mu.
 $$
 
-右成分だけの場合は同じブロック計算で $s,p,t$ が零、$\gamma^5\psi=\psi$ より $a=v$ になります。
+右成分だけの場合は $\psi=(0,r)^{\mathsf T}$、$\bar\psi=(ir^\dagger,0)$ です。$I_4,\gamma^5,G^\mu G^\nu$ は下側を保ち、随伴の下側は零なので $s,p,t$ は零です。$\gamma^5\psi=\psi$ より $a=v$ になります。
 <!-- solution-end -->
 
 ### Level C
@@ -526,7 +690,17 @@ $$
 v^j=u^\dagger\sigma_j u-r^\dagger\sigma_j r.
 $$
 
-二成分列 $w=(a,b)^{\mathsf T}$ に対して三つの実成分をまとめると、[Pauli行列](../LREP5/index.md#def-lrep5-pauli-model)から
+二成分列 $w=(a,b)^{\mathsf T}$ に対し、ここだけ $a,b$ は複素成分の名前です。$\operatorname{Re},\operatorname{Im}$ は実部・虚部を表します。[Pauli行列](../LREP5/index.md#def-lrep5-pauli-model)を掛けると
+
+$$
+\begin{aligned}
+w^\dagger\sigma_1 w&=a^*b+b^*a=2\operatorname{Re}(a^*b),\\
+w^\dagger\sigma_2 w&=-ia^*b+ib^*a=2\operatorname{Im}(a^*b),\\
+w^\dagger\sigma_3 w&=|a|^2-|b|^2.
+\end{aligned}
+$$
+
+この三つの実成分をまとめると
 
 $$
 \boldsymbol n(w)=(2\operatorname{Re}(a^*b),2\operatorname{Im}(a^*b),|a|^2-|b|^2).
@@ -557,7 +731,7 @@ v'^0=4+1/4=17/4,\qquad v'^3=4-1/4=15/4,
 \qquad v'^1=v'^2=0.
 $$
 
-二次形式は $-(17/4)^2+(15/4)^2=(-289+225)/16=-4$ です。[Dirac双線形量の共変性](#prop-lrep17-bilinear-covariance)では $v'=\Lambda v$ であり、$\Lambda^{\mathsf T}\eta\Lambda=\eta$ から一般にも $(v')^{\mathsf T}\eta v'=v^{\mathsf T}\eta v$ になります。時間成分の値は変わっても計量による収縮は保存されます。
+二次形式は $-(17/4)^2+(15/4)^2=(-289+225)/16=-4$ です。[Dirac双線形量の共変性](#prop-lrep17-bilinear-covariance)では $v'=\Lambda v$ であり、[Lorentz群の計量保存条件](../LREP9/index.md#def-lrep9-lorentz-group)から一般にも $(v')^{\mathsf T}\eta v'=v^{\mathsf T}\eta v$ になります。時間成分の値は変わっても計量による収縮は保存されます。
 <!-- solution-end -->
 
 ## 7. まとめと次講
