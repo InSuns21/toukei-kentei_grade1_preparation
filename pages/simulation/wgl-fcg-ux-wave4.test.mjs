@@ -81,3 +81,52 @@ test('FCG6 and WGL11 present initial-oracle limits and live controls to learners
   assert.ok(host.includes("['FCG6','WGL11','WGL13']"));
   assert.ok(host.includes("iframe.setAttribute('sandbox', 'allow-scripts')"));
 });
+
+test('FCG6 live controls update the actual editable solver and upload fields',async()=>{
+  const js=await read('FCG/FCG6/solid.js');
+  const elements=[];
+  function element(tag){
+    const e={tag,style:{},children:[],events:{},
+      append(...xs){this.children.push(...xs)},
+      setAttribute(k,v){this[k]=v},
+      addEventListener(k,v){this.events[k]=v},
+      insertAdjacentElement(_,x){this.after=x}};
+    elements.push(e);return e;
+  }
+  const canvas=Object.assign(element('canvas'),{width:640,height:640,
+    getBoundingClientRect:()=>({left:0,top:0,width:640,height:640})});
+  const document={hidden:false,createElement:element};
+  const window={matchMedia:()=>({matches:true,addEventListener(){}}),addEventListener(){}};
+  const callbacks=[],textures={},uniforms={};
+  let unit=0,draws=0;
+  // Capture GL uploads without claiming a browser/driver rendering test.
+  const gl=new Proxy({TEXTURE0:100,NO_ERROR:0,createTexture:()=>({}),
+    activeTexture:n=>unit=n-100,
+    texImage2D:(...args)=>textures[unit]=args.at(-1),
+    texSubImage2D:(...args)=>textures[unit]=args.at(-1),
+    getError:()=>0,createShader:()=>({}),getShaderParameter:()=>true,
+    createProgram:()=>({}),getProgramParameter:()=>true,
+    getUniformLocation:(_,n)=>n,uniform1i:(n,v)=>uniforms[n]=v,
+    uniform1f:(n,v)=>uniforms[n]=v,createVertexArray:()=>({}),
+    drawArrays:()=>draws++},{get:(o,k)=>k in o?o[k]:(()=>{})});
+  const hooks=new Function('gl','canvas','vertexSource','fragmentSource','report',
+    'settings','window','document','requestAnimationFrame','cancelAnimationFrame',js)(
+    gl,canvas,'','',()=>{},{steps:8},window,document,
+    fn=>{callbacks.push(fn);return callbacks.length},()=>{});
+  callbacks.shift()(0);
+  const initial=hooks.liveCell(96,512),d0=draws;
+  canvas.events.pointerdown({button:0,clientX:96,clientY:128});
+  const painted=hooks.liveCell(96,512);
+  canvas.events.keydown({key:'ArrowRight',preventDefault(){}});
+  const stepped=hooks.liveCell(96,512);
+  const select=elements.find(x=>x['aria-label']==='表示する物理量');
+  select.value='2';select.events.change();
+  assert.equal(initial.step,0);
+  assert.ok(painted.dye>initial.dye);
+  assert.equal(stepped.step,1);
+  assert.ok(stepped.dye<painted.dye);
+  assert.equal(uniforms.u_field,2);
+  assert.ok(textures[5].some(x=>x>0));
+  assert.ok(draws>d0);
+  assert.equal(textures[4].length,4*48*48);
+});
