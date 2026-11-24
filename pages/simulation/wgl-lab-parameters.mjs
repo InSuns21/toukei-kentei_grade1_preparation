@@ -3,6 +3,16 @@
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
 
 export const LAB_PARAMETERS = Object.freeze({
+  FCG9: Object.freeze([
+    Object.freeze({id:'N',type:'integer',label:'Level Set実格子 N×N',default:12,min:12,max:96,step:12,unit:'セル中心/辺',
+      meaning:'粗い格子から細かい格子へ。交差点と三角形を再計算する',sourceLocation:'surface.js / const N → advect, extract',sourceFile:'js',index:null,matcher:/^([ \t]*const N=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'steps',type:'integer',label:'物理ステップ',default:0,min:0,max:24,step:1,unit:'step (0.04 s/step)',
+      meaning:'せん断移流後の同じ格子から輪郭を生成。0は円、24は0.96秒後',sourceLocation:'surface.js / const steps → advect',sourceFile:'js',index:null,matcher:/^([ \t]*const steps=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'heightM',type:'number',label:'側面の押出し高さ',default:0.2,min:0.1,max:0.4,step:0.1,unit:'m',
+      meaning:'表示用高さ。平面輪郭や物理時刻は変わらない',sourceLocation:'surface.js / const heightM → build, u_height',sourceFile:'js',index:null,matcher:/^([ \t]*const heightM=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'mode',type:'enum',label:'メッシュの表示',default:'face',values:['wire','face','gradient'],unit:'描画方式',
+      meaning:'wire: 三角形の辺、face: 面法線、gradient: 頂点勾配法線',sourceLocation:'surface.js / const mode → render, build',sourceFile:'js',index:null,matcher:/^([ \t]*const mode=)([^;\n]+)(;)/gm})
+  ]),
   FCG7: Object.freeze([
     Object.freeze({
       id:'flip-mix',type:'number',label:'右側のFLIP混合係数',default:1,

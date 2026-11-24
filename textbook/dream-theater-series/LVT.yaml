@@ -47,7 +47,7 @@ chapters:
     title: "タクティク・証明状態・局所補題"
   - id: LVT2-05
     path: textbook/volumes/dream_thater/計算系/LVT/LVT2-05
-    status: planned
+    status: completed
     title: "自然数・リストの構造帰納法"
   - id: LVT2-06
     path: textbook/volumes/dream_thater/計算系/LVT/LVT2-06

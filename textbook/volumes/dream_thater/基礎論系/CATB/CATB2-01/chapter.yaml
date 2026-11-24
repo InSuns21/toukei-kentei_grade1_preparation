@@ -1,0 +1,38 @@
+id: "CATB2-01"
+title: "モノイダル圏でHomを値付けする"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT1-01
+  - CAT4-02
+  - CAT4-04
+official_scope: []
+learning_objectives:
+  - モノイダル圏を基底とする豊穣圏の合成射と単位射の型および三公理を説明できる
+  - 集合値とベクトル空間値の豊穣圏で全公理を検証できる
+  - 単位対象から台となる圏を構成し結合律と単位律を証明できる
+  - 一対象の豊穣圏とモノイド対象の対応を証明できる
+definitions:
+  - { id: CATB2-01-DEF-01, name: "豊穣圏" }
+theorems:
+  - { id: CATB2-01-PROP-01, name: "集合値の豊穣圏と通常の圏" }
+  - { id: CATB2-01-THM-01, name: "豊穣圏の台となる圏" }
+  - { id: CATB2-01-PROP-02, name: "一対象の豊穣圏とモノイド対象" }
+canonical_examples:
+  - 二つの有限集合間の全写像による集合値豊穣圏
+  - 有限次元ベクトル空間間の線形写像の双線形合成
+  - 非負整数の加法による一対象豊穣圏
+  - 行列積の一対象豊穣圏と台となる圏
+problem_patterns:
+  - CATB2-01-A01
+  - CATB2-01-A02
+  - CATB2-01-A03
+  - CATB2-01-A04
+  - CATB2-01-B01
+  - CATB2-01-B02
+  - CATB2-01-B03
+  - CATB2-01-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }

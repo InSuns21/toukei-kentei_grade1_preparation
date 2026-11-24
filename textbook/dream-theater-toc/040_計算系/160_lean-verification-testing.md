@@ -11,3 +11,4 @@
 8. [LVT2-02 含意・連言・選言・全称・存在](textbook/volumes/dream_thater/計算系/LVT/LVT2-02/index.md)
 9. [LVT2-03 等式・書換え・簡約](textbook/volumes/dream_thater/計算系/LVT/LVT2-03/index.md)
 10. [LVT2-04 タクティク・証明状態・局所補題](textbook/volumes/dream_thater/計算系/LVT/LVT2-04/index.md)
+11. [LVT2-05 自然数・リストの構造帰納法](textbook/volumes/dream_thater/計算系/LVT/LVT2-05/index.md)
