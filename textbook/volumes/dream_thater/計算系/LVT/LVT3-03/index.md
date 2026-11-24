@@ -34,7 +34,7 @@ mapL f [2,0]
 = [3,1]
 ```
 
-である。f x は Nat、残りの結果は List Nat なので構成子 :: の型が一致する。入力長は2、1、0と減り、最後は再帰を行わない。異なる型でも f : Nat → Bool を f n = (n == 0) とすれば mapL f [0,2] = true :: false :: [] であり、結果の型は List Bool。
+である。f x は Nat、残りの結果は List Nat なので構成子 :: の型が一致する。入力リストの要素数は2、1、0と減り、最後は再帰を行わない。異なる型でも f : Nat → Bool を f n = (n == 0) とすれば mapL f [0,2] = true :: false :: [] であり、結果の型は List Bool。
 <!-- definition-example-end -->
 
 ```lean
@@ -462,7 +462,7 @@ theorem a04Wrong : bad [0] ≠ mapL (fun n : Nat => n + 1) [0] := by decide
 <!-- solution-start -->
 #### 詳細解答
 
-[リスト写像と連結の交換則](#prop-lvt3-03-join) に第一引数 xs ++ ys、第二引数 zs を代入すると左辺は mapL f (xs ++ ys) ++ mapL f zs。次に xs, ys に同じ命題を適用すると要求する右辺になる。括弧の位置は変えていない。
+[リスト写像と連結の交換則](#prop-lvt3-03-join) に第一引数 xs ++ ys、第二引数 zs を代入すると左辺は mapL f (xs ++ ys) ++ mapL f zs。次に [リスト写像と連結の交換則](#prop-lvt3-03-join) に xs, ys を代入すると要求する右辺になる。括弧の位置は変えていない。
 
 ```lean
 theorem b01 {α β : Type} (f : α → β) (xs ys zs : List α) :
