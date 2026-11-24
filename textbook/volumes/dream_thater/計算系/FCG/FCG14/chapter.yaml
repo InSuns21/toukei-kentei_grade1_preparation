@@ -2,7 +2,7 @@ id: FCG14
 title: "煙の密度と浮力はどう連成するか"
 volume: foundations
 status: supplementary
-prerequisites: [FCG5]
+prerequisites: [FCG5, FDM4, FLUID31]
 official_scope: []
 learning_objectives:
   - "煙濃度と温度差を区別し、Boussinesq近似の浮力の向き・単位・仮定を説明できる"

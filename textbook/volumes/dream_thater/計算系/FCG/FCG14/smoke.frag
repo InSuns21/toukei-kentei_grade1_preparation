@@ -1,5 +1,6 @@
 #version 300 es
 precision highp float;
+precision highp sampler2D;
 in vec2 v_uv;
 uniform sampler2D u_smoke;
 uniform sampler2D u_heat;
