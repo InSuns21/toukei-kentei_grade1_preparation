@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 260" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+  <title id="title">標準運動量から出発して戻る固定群補正</title>
+  <desc id="desc">標準点 k から s(p) で p へ、A で Ap へ、s(Ap) の逆で k へ戻る。矢印を順にたどった合成は k を固定する。</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 Z" fill="#23415b"/></marker></defs>
+  <rect width="480" height="260" fill="#fff"/>
+  <g fill="none" stroke="#23415b" stroke-width="2.5" marker-end="url(#arrow)">
+    <line x1="226" y1="48" x2="100" y2="177"/>
+    <line x1="108" y1="192" x2="370" y2="192"/>
+    <line x1="380" y1="177" x2="254" y2="48"/>
+  </g>
+  <g fill="#23415b"><circle cx="240" cy="34" r="5"/><circle cx="90" cy="192" r="5"/><circle cx="390" cy="192" r="5"/></g>
+  <g fill="#172d42" font-family="sans-serif" font-size="20" text-anchor="middle">
+    <text x="240" y="22">k</text><text x="90" y="225">p</text><text x="390" y="225">Ap</text>
+    <text x="110" y="98">s(p)</text><text x="240" y="179">A</text><text x="371" y="98">s(Ap)⁻¹</text>
+  </g>
+</svg>
