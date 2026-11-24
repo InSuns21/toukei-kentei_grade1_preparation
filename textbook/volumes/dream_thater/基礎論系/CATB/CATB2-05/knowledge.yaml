@@ -24,7 +24,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（重み付き極限・余極限の普遍性と一意性）"]
-    requires: [category.weighted-limit, category.weighted-colimit, category.enriched-underlying-functor]
+    requires: [category.weighted-limit, category.weighted-colimit, category.enriched-underlying-category]
   - id: category.set-conical-weighted-limit-colimit
     name: 通常の極限・余極限は一元集合の重みの場合
     kind: theorem
