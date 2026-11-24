@@ -6,7 +6,15 @@
 
 ## 1. 二階の波動方程式から一階の作用素へ
 
-時空を $\mathbb R^4$、点を $x=(t,x^1,x^2,x^3)^{\mathsf T}$ とします。[Minkowski計量](../../../物理系/SREL/SREL2/index.md#def-srel2-minkowski-metric)を使い、[符号の共通規約](../../../../../dream-theater-lorentz-conventions.md)に従って $\eta=\operatorname{diag}(-1,1,1,1)$ とし、光速と換算Planck定数を $c=\hbar=1$ に取ります。質量 $m\ge0$ は実定数です。$\partial_\mu$ は $x^\mu$ での偏微分、$\partial_0=\partial_t$ です。ギリシャ文字の添字は $0,1,2,3$、空間添字 $j$ は $1,2,3$ を走り、和を明記します。
+時空を $\mathbb R^4$、点を $x=(t,x^1,x^2,x^3)^{\mathsf T}$ とします。[Minkowski計量](../../../物理系/SREL/SREL2/index.md#def-srel2-minkowski-metric)を使い、[符号の共通規約](../../../../../dream-theater-lorentz-conventions.md)に従って
+
+$$
+\eta=\operatorname{diag}(-1,1,1,1)
+$$
+
+とします。光速と換算Planck定数を $c=\hbar=1$ に取り、質量 $m\ge0$ は実定数とします。
+
+$\partial_\mu$ は $x^\mu$ での偏微分、$\partial_0=\partial_t$ です。ギリシャ文字の添字は $0,1,2,3$、空間添字 $j$ は $1,2,3$ を走り、和を明記します。
 
 場とは各点に値を割り当てる関数です。ここでは [Diracスピノル](../LREP16/index.md#def-lrep16-dirac) を値とする、少なくとも二階連続微分可能な関数 $\psi:\mathbb R^4\to\mathbb C^4$ を考えます。列の成分は普通の複素数です。
 
@@ -17,7 +25,15 @@ $$
 =-\partial_t^2+\sum_{j=1}^3\partial_j^2
 $$
 
-と置きます。QFT1の[自由Klein–Gordon方程式](../../../物理系/QFT/QFT1/index.md#def-qft1-klein-gordon)は $(-\Box_\eta+m^2)f=0$ です。QFT1では実数値の場を考えましたが、ここでは複素成分 $f=a+ib$ に対しても同じ演算子を使います。係数が実数なので、$(-\Box_\eta+m^2)f=0$ は実部 $a$ と虚部 $b$ がそれぞれ同じ実数値の方程式を満たすことと同値です。空間一定の場合にも $\partial_t^2 f=-m^2 f$ となり、一般には初期値と初期時間微分の二つが必要です。四成分を組み合わせることで、これを一階の式に因数分解できないでしょうか。
+と置きます。QFT1の[自由Klein–Gordon方程式](../../../物理系/QFT/QFT1/index.md#def-qft1-klein-gordon)は
+
+$$
+(-\Box_\eta+m^2)f=0
+$$
+
+です。QFT1では実数値の場を考えましたが、ここでは複素成分 $f=a+ib$ に対しても同じ演算子を使います。係数が実数なので、元の方程式は実部 $a$ と虚部 $b$ がそれぞれ同じ実数値の方程式を満たすことと同値です。
+
+空間一定の場合にも $\partial_t^2 f=-m^2 f$ となり、一般には初期値と初期時間微分の二つが必要です。四成分を組み合わせることで、これを一階の式に因数分解できないでしょうか。
 
 [LREP15のガンマ行列](../LREP15/index.md#def-lrep15-gamma)は基底の番号を添字に持ちます。[ベクトル成分用行列の変換則](../LREP17/index.md#prop-lrep17-vector-matrices)で導入した成分用の行列をそのまま用います。$I=I_2$、$I_4$ は四次単位行列、$\sigma_j$ は [Pauli行列](../LREP5/index.md#def-lrep5-pauli-model) です。
 
@@ -59,7 +75,9 @@ $$
 
 ## 2. Lorentz変換後にも同じ方程式
 
-[Lorentz群と単位元成分](../LREP9/index.md#def-lrep9-lorentz-group) で学んだ適正・時間向き保存Lorentz変換 $\Lambda$ は $\Lambda^{\mathsf T}\eta\Lambda=\eta$ を満たし、[Spin群とLorentz二重被覆](../LREP15/index.md#thm-lrep15-spin-cover) に対応する定数行列 $S=S(A)$ を選びます。点 $x'=\Lambda x$ に元の点 $x$ のスピノルを変換して配置します。変換された場は、同じ数値の座標で比較するのでなく
+[Lorentz群と単位元成分](../LREP9/index.md#def-lrep9-lorentz-group) で学んだ適正・時間向き保存Lorentz変換 $\Lambda$ は $\Lambda^{\mathsf T}\eta\Lambda=\eta$ を満たします。[Spin群とLorentz二重被覆](../LREP15/index.md#thm-lrep15-spin-cover) に対応する定数行列 $S=S(A)$ を選びます。
+
+点 $x'=\Lambda x$ に元の点 $x$ のスピノルを変換して配置します。変換された場は、同じ数値の座標で比較するのでなく
 
 $$
 \psi'(x')=S\psi(\Lambda^{-1}x')
@@ -157,7 +175,13 @@ $$
 
 ## 4. 随伴の方程式と保存電流
 
-[LREP17のDirac随伴](../LREP17/index.md#def-lrep17-dirac-adjoint) を各点で用いて $\bar\psi=\psi^\dagger H$ と書きます。$H=G^0$、$H^\dagger=H$、$H^2=I_4$ です。$\dagger$ は共役転置で、$\bar\psi$ は行です。$G^j$ は反Hermitian、$H$ と反交換するため
+[LREP17のDirac随伴](../LREP17/index.md#def-lrep17-dirac-adjoint) を各点で用いて $\bar\psi=\psi^\dagger H$ と書きます。$\dagger$ は共役転置で、$\bar\psi$ は行です。時間成分の行列は
+
+$$
+H=G^0,\qquad H^\dagger=H,\qquad H^2=I_4
+$$
+
+を満たします。$G^j$ は反Hermitian、$H$ と反交換するため
 
 $$
 (G^0)^\dagger H=HG^0,\qquad
@@ -251,7 +275,19 @@ $$
 +\sum_\mu\bar\psi G^\mu\partial_\mu\psi.
 $$
 
-[随伴方程式](#prop-lrep19-adjoint-equation) の右に $\psi$ を掛けると第一項は $(-m/i)\bar\psi\psi=im\bar\psi\psi$ です。[自由Dirac作用素](#def-lrep19-dirac-operator) の式の左に $\bar\psi$ を掛けると第二項は $(m/i)\bar\psi\psi=-im\bar\psi\psi$。和は零です。$\square$
+[随伴方程式](#prop-lrep19-adjoint-equation) の右に $\psi$ を掛けると第一項は
+
+$$
+(-m/i)\bar\psi\psi=im\bar\psi\psi
+$$
+
+です。[自由Dirac作用素](#def-lrep19-dirac-operator) の式の左に $\bar\psi$ を掛けると第二項は
+
+$$
+(m/i)\bar\psi\psi=-im\bar\psi\psi
+$$
+
+です。和は零です。$\square$
 <!-- proof-end -->
 
 これは局所的な連続の式です。有限の箱 $[-R,R]^3$ で密度を積分して時間微分すると、連続な偏微分を持つので微分を積分内に移せます。各空間方向を一変数の微積分の基本定理で積分すると、その方向の両面の流出の差が現れます。例えば第一方向からの寄与は
@@ -343,7 +379,9 @@ $$
 時間だけに依存する解 $\psi=e^{-imt}(e_1+ie_3)$ の随伴方程式を直接確かめよ。
 
 <!-- solution-start -->
-**詳細解答。** $v=e_1+ie_3$ は $Hv=v$ なので [Dirac随伴](../LREP17/index.md#def-lrep17-dirac-adjoint) は $\bar\psi=e^{imt}v^\dagger$。$H^\dagger=H$ より $v^\dagger H=v^\dagger$ です。従って $\partial_t\bar\psi=im\bar\psi$、空間微分は零で、
+**詳細解答。** $v=e_1+ie_3$ は $Hv=v$ なので [Dirac随伴](../LREP17/index.md#def-lrep17-dirac-adjoint) は $\bar\psi=e^{imt}v^\dagger$ です。
+
+$H^\dagger=H$ より $v^\dagger H=v^\dagger$ です。従って $\partial_t\bar\psi=im\bar\psi$、空間微分は零で、
 
 $$
 i(\partial_t\bar\psi)G^0+m\bar\psi
@@ -384,7 +422,14 @@ $$
 $x'^1=-x^2,\ x'^2=x^1,\ t'=t,\ x'^3=x^3$ とする。対応するSpin行列 $S$ を固定し、$\partial'_1\psi'$ と $\partial'_2\psi'$ を求め、空間の最初の二方向のDirac作用が共変であることを確かめよ。
 
 <!-- solution-start -->
-**詳細解答。** 逆変換は $x^1=x'^2,\ x^2=-x'^1$。連鎖律より $\partial'_1\psi'=-S\partial_2\psi$、$\partial'_2\psi'=S\partial_1\psi$ です。[ベクトル成分用行列の変換則](../LREP17/index.md#prop-lrep17-vector-matrices) から $G^1S=-SG^2,\ G^2S=SG^1$。よって
+**詳細解答。** 逆変換は $x^1=x'^2,\ x^2=-x'^1$ です。連鎖律より
+
+$$
+\partial'_1\psi'=-S\partial_2\psi,\qquad
+\partial'_2\psi'=S\partial_1\psi
+$$
+
+です。[ベクトル成分用行列の変換則](../LREP17/index.md#prop-lrep17-vector-matrices) から $G^1S=-SG^2,\ G^2S=SG^1$ です。よって
 
 $$
 G^1\partial'_1\psi'+G^2\partial'_2\psi'
@@ -526,7 +571,13 @@ $$
 =i(m_\phi-m_\psi)\bar\phi\psi.
 $$
 
-従って等質量なら発散は零です。異質量では $v=e_1+ie_3$、$\phi=e^{-im_\phi t}v$、$\psi=e^{-im_\psi t}v$ とすれば、両方が [自由Dirac作用素の定義](#def-lrep19-dirac-operator) の確認例と同じ計算で解になります。$v^\dagger H=v^\dagger$ なので
+従って等質量なら発散は零です。異質量では $v=e_1+ie_3$ として
+
+$$
+\phi=e^{-im_\phi t}v,\qquad \psi=e^{-im_\psi t}v
+$$
+
+を取ります。両方が [自由Dirac作用素の定義](#def-lrep19-dirac-operator) の確認例と同じ計算で解になります。$v^\dagger H=v^\dagger$ なので
 
 $$
 \bar\phi\psi=2e^{i(m_\phi-m_\psi)t}.
