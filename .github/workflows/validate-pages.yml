@@ -136,6 +136,10 @@ jobs:
         if: steps.scope.outputs.full == 'true'
         run: node scripts/validate-fcg8-browser.mjs
 
+      - name: Test FCG7 real PIC/FLIP output parameters and playback
+        if: steps.scope.outputs.full == 'true'
+        run: node scripts/validate-fcg7-browser.mjs
+
       - name: Test WGL1 shader compilation and actual GPU pixels in Chromium
         if: steps.scope.outputs.full == 'true'
         run: node scripts/validate-wgl-browser.mjs
