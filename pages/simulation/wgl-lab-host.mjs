@@ -3135,7 +3135,7 @@ if (isWGL3) {
 if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-conditions')});
 // Three physical panels must have square pixel footprints: avoid stretching a
 // 1x1 metre domain into ~100x240 strips at the original 320x240 default.
-const sizeHint=isFCG20?[768,768]:isFCG19?[640,640]:isFCG18?[896,448]:isFCG17?[896,560]:isFCG16?[960,320]:isFCG15?[768,384]:isFCG14?[960,480]:isFCG13?[960,600]:isFCG12?[960,600]:isFCG11?[960,360]:isFCG10?[768,768]:isFCG9?[720,960]:isFCG5?[768,768]:isFCG6?[640,640]:(isFCG4||isFCG7||isFCG8)?[1536,512]:
+const sizeHint=isFCG20?[640,640]:isFCG19?[640,640]:isFCG18?[896,448]:isFCG17?[896,560]:isFCG16?[960,320]:isFCG15?[768,384]:isFCG14?[960,480]:isFCG13?[960,600]:isFCG12?[960,600]:isFCG11?[960,360]:isFCG10?[768,768]:isFCG9?[720,960]:isFCG5?[768,768]:isFCG6?[640,640]:(isFCG4||isFCG7||isFCG8)?[1536,512]:
   isFCG3?[1024,512]:isFCG2?[512,512]:isWGL14?[704,704]:
   (lesson==='WGL1'||isWGL2)?[960,960]:isWGL3?[960,480]:
   isWGL19?[640,640]:isWGL7?[800,400]:isWGL10?[960,480]:legacyViewport?[800,600]:[960,720];

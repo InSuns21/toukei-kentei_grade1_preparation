@@ -1,12 +1,13 @@
 #version 300 es
 precision highp float;
-uniform sampler2D u_field;
+uniform highp sampler2D u_field;
 in vec2 uv;
 out vec4 color;
 void main(){
  vec2 local=fract(uv*2.);
  bool upper=uv.y>=.5,right=uv.x>=.5;
- vec4 s=texture(u_field,local);
+ ivec2 sz=textureSize(u_field,0);
+ vec4 s=texelFetch(u_field,clamp(ivec2(local*vec2(sz)),ivec2(0),sz-1),0);
  float h=clamp(s.g/2.,0.,1.),v=clamp(length(s.ba)/3.,0.,1.);
  vec3 dry=mix(vec3(.22,.16,.10),vec3(.83,.69,.43),clamp(s.r/3.25,0.,1.));
  vec3 water=mix(vec3(.08,.30,.48),vec3(.35,.85,1.),h);
@@ -16,7 +17,7 @@ void main(){
  else if(!right)c=mix(vec3(.05,.08,.12),vec3(1.,.65,.16),v);
  else{
   // North-south coordinate fixed at the central row; elevation in metres.
-  vec4 section=texture(u_field,vec2(local.x,.5));
+  vec4 section=texelFetch(u_field,ivec2(min(sz.x-1,int(local.x*float(sz.x))),sz.y/2),0);
   float height=local.y*4.,eta=section.r+section.g;
   c=vec3(.08,.12,.16);
   if(abs(height-round(height))<.015)c=vec3(.25,.29,.33);

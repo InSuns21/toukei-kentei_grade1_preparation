@@ -124,6 +124,12 @@ jobs:
           fi
           fc-list : family | grep -q 'Noto Sans CJK JP'
 
+      - name: Test FCG20 terrain inundation and actual editable GPU rendering
+        if: steps.scope.outputs.full == 'true'
+        run: |
+          node --test pages/simulation/fcg20-lab.test.mjs
+          node scripts/validate-fcg20-browser.mjs
+
       - name: Test FCG19 physical invariance and actual editable GPU profiling
         if: steps.scope.outputs.full == 'true'
         run: |
