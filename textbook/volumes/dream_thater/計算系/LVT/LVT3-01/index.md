@@ -6,16 +6,18 @@
 
 ## 1. 入力・出力と契約を分ける
 
-在庫数 stock と要求数量 qty は自然数（0 を含む）とします。要求の数量は正とし、在庫不足は異常な入力ではなく、正常な拒否として扱います。計算結果には [Option型](../LVT1-03/index.md#def-lvt1-03-option) を用い、成功なら `some rest`（残数 rest）、拒否なら `none` とします。ここでは純粋関数の返り値だけを扱い、データベースの更新はまだ行いません。
+在庫数 stock と要求数量 qty は Lean の `Nat`（0 を含む非負整数の型）とします。要求の数量は正とし、在庫不足は異常な入力ではなく、正常な拒否として扱います。計算結果には [Option型](../LVT1-03/index.md#def-lvt1-03-option) を用い、成功なら `some rest`（残数 rest）、拒否なら `none` とします。ここでは純粋関数の返り値だけを扱い、データベースの更新はまだ行いません。
 
 入力型に属する値がすべて有効とは限りません。qty = 0 は自然数型に属しますが、正の注文数量という要求に反します。入力が有効かどうかを [命題型 Prop](../LVT2-01/index.md#def-lvt2-01-prop) の値で表したものが事前条件、入力と結果の組に対する要求が事後条件です。たとえば 5 個ある品物を 2 個注文した場合、成功の残数が 3 でなければなりません。事後条件は実装を見て決めるのではなく、要求から独立に決めます。
+
+以下、α と β はそれぞれ入力型と出力型です。[関数適用の記法](../LVT1-06/index.md#def-lvt1-06-pure-function) に従い `f x` は f(x)、`p x` は p(x)、`q x r` は q(x, r) に対応します。`α → β → Prop` は `α → (β → Prop)` の省略で、入力 x を渡して得た関数に結果 r を渡すと命題になります。`∀ x : α` は入力型の全ての x を動かす[全称量化](../LVT2-02/index.md#def-lvt2-02-forall)、後続する `p x → ...` はその x における[含意](../LVT2-02/index.md#def-lvt2-02-imp) です。
 
 <a id="def-lvt3-01-contract"></a>
 
 <!-- formal-statement-start -->
 ### 定義（Leanの入出力契約）
 
-型 α、β、関数 f : α → β、入力に関する命題 p : α → Prop、入力と出力に関する命題 q : α → β → Prop を取る。p を事前条件、q を事後条件とする。f がこの契約を満たすとは、次の命題が成立することである。
+型 α、β : Type、関数 f : α → β、入力に関する命題 p : α → Prop、入力と出力に関する命題 q : α → β → Prop を取る。p を事前条件、q を事後条件とする。f がこの契約を満たすとは、次の命題が成立することである。
 
 ```text
 ∀ x : α, p x → q x (f x)
@@ -25,7 +27,7 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt3-01-contract -->
-**定義の確認**　α = β = Nat、p n を 0 < n、q n r を r = n + 1 とする。f n = n + 1 なら任意の n に対し f n = n + 1 は[定義的等しさ](../LVT2-03/index.md#def-lvt2-03-defeq) により成立するため、p n を仮定しても成立する。n = 2 では p 2 が真で f 2 = 3、q 2 3 は 3 = 3 で真である。一方 n = 0 では p 0 が偽なので、契約はその入力での出力値を要求しない。関数そのものは 0 に対しても値を持つ。
+**定義の確認**　α = β = Nat、p n を 0 < n、q n r を r = n + 1 とする（n と r は Nat）。f n = n + 1 なら任意の n に対し f n = n + 1 は[定義的等しさ](../LVT2-03/index.md#def-lvt2-03-defeq) により成立するため、p n を仮定しても成立する。n = 2 では p 2 が真で f 2 = 3、q 2 3 は 3 = 3 で真である。一方 n = 0 では p 0 が偽なので、契約はその入力での出力値を要求しない。関数そのものは 0 に対しても値を持つ。
 <!-- definition-example-end -->
 
 [全称量化](../LVT2-02/index.md#def-lvt2-02-forall) の導入で任意の入力 x を取り、[含意の導入](../LVT2-02/index.md#def-lvt2-02-imp) で p x の証明を仮定して q x (f x) を示します。Lean での定義は次です（以下は [LvtContracts.lean](lab/LvtContracts.lean) の抜粋です。同ファイルは `import Lean` と名前空間 `LvtContracts` を含み、実験では全文を読み込みます）。
@@ -40,9 +42,9 @@ def Satisfies {α β : Type} (p : α → Prop)
 
 ## 2. 在庫引当の要求を命題へ翻訳する
 
-入力は stock と qty を一組にした Order とします。Lean の `structure` で二つの成分を持つ型を作り、`⟨s, k⟩` で stock = s、qty = k の入力を表し、`o.stock` と `o.qty` で各成分を取り出します。事前条件は数量が正であることです。在庫不足を事前条件から除くと、不足時の拒否が証明の対象外になってしまいます。本講では不足時の動作も仕様化します。
+入力は stock と qty を一組にした Order とします。以後、`o : Order` は一件の入力、`result : Option Nat` はその結果を表します。`orderPre o` は有効な入力かを、`orderPost o result` はその入力と結果の組が要求を満たすかを表す命題です。Lean の `structure` で二つの成分を持つ型を作り、`⟨s, k⟩` で stock = s、qty = k の入力を表し、`o.stock` と `o.qty` で各成分を取り出します。事前条件は数量が正であることです。在庫不足を事前条件から除くと、不足時の拒否が証明の対象外になってしまいます。本講では不足時の動作も仕様化します。
 
-成功結果には二つの条件が必要です。引当数量が在庫以下であることと、残数に引当数量を足すと元の在庫に戻ることです。後者は在庫を余分に減らしたり増やしたりしない要求を表します。拒否結果については元の在庫が数量より少ないことを要求します。
+成功結果には二つの条件が必要です。引当数量が在庫以下であることと、残数に引当数量を足すと元の在庫に戻ることです。後者は在庫を余分に減らしたり増やしたりしない要求を表します。拒否結果については元の在庫が数量より少ないことを要求します。成功時の二条件は [連言](../LVT2-02/index.md#def-lvt2-02-and)（Lean では `∧`）なので、両方を確認します。
 
 <a id="def-lvt3-01-order"></a>
 
@@ -124,7 +126,7 @@ r + k = (s - k) + k = s
 
 場合2：k ≤ s が偽とする。自然数を比較すれば k ≤ s または s < k のどちらか一方であるため、s < k が成立する。関数は none を返す。事後条件の none 分岐は s < k なのでこれで閉じる。
 
-二つの場合は全ての有効な入力を覆う。[入出力契約](#def-lvt3-01-contract) の全称命題を得た。Lean の `by_cases` は命題の真偽で証明を分ける。各枝で `simp only` により該当する if と match を簡約し、[証明自動化](../LVT2-08/index.md#def-lvt2-08-automation) の omega で上の自然数の線形算術を検査する。
+二つの場合は全ての有効な入力を覆う。[入出力契約](#def-lvt3-01-contract) の全称命題を得た。Lean の `by_cases` は命題の真偽で証明を分ける。各枝で [簡約操作](../LVT2-03/index.md#def-lvt2-03-simp) の `simp only` により該当する if と match を簡約し、[証明自動化](../LVT2-08/index.md#def-lvt2-08-automation) の omega で上の自然数の線形算術を検査する。
 
 ```lean
 theorem takeCorrect : Satisfies orderPre orderPost takeStock := by
@@ -148,7 +150,7 @@ theorem rejectZero (stock : Nat) :
 
 ## 4. 弱すぎる仕様を見つける
 
-「成功時に残数が元の在庫を超えない」という条件だけでは、在庫を減らさずに成功しても、毎回拒否しても証明が通ります。条件が必要であることと、それだけで要求全体を表すことは違います。
+「成功時に残数が元の在庫を超えない」という条件だけでは、在庫を減らさずに成功しても、毎回拒否しても証明が通ります。条件が必要であることと、それだけで要求全体を表すことは違います。拒否側に何も要求しない事後条件は [命題型](../LVT2-01/index.md#def-lvt2-01-prop) の `True`（証明項 `True.intro` を持つ命題）で表します。
 
 <a id="def-lvt3-01-weak"></a>
 
@@ -208,17 +210,17 @@ theorem rejectNotCorrect : ¬ Satisfies orderPre orderPost rejectAll := by
 
 ## 5. 充足できない仕様と空虚な保証
 
-逆に、在庫不足でも必ず注文を成功させたい、と要求したらどうなるでしょうか。追加の仕入れをモデル化しない限り、元の在庫より大きな引当数量を引くことはできません。
+逆に、在庫不足でも必ず注文を成功させたい、と要求したらどうなるでしょうか。追加の仕入れをモデル化しない限り、元の在庫より大きな引当数量を引くことはできません。成功を必須にするには、結果が成功の形であり保存式を満たす残数が少なくとも一つある、という[存在量化](../LVT2-02/index.md#def-lvt2-02-exists)（`∃`）を用います。
 
 <a id="def-lvt3-01-impossible"></a>
 
 <!-- formal-statement-start -->
 ### 定義（Leanの成功必須仕様）
 
-事前条件を orderPre とする。入力 o : Order と結果 result : Option Nat に対し、事後条件 mustSucceed o result は、次を満たす自然数 rest が存在するという命題である。
+事前条件を [orderPre](#def-lvt3-01-order) とする。入力 o : Order と結果 result : Option Nat に対し、事後条件 mustSucceed o result は次の命題である。rest は自然数で、存在量化の範囲は連言全体である。
 
 ```text
-result = some rest ∧ rest + o.qty = o.stock
+∃ rest : Nat, result = some rest ∧ rest + o.qty = o.stock
 ```
 <!-- formal-statement-end -->
 
@@ -259,7 +261,7 @@ theorem impossible (f : Order → Option Nat) :
 ```
 <!-- proof-end -->
 
-事前条件を「数量が正で、かつ在庫以下」と変更すれば矛盾は解消するが、不足時の応答を保証するという元の要求が消える。別の危険は事前条件を常に False にすることである。この場合、[含意の導入](../LVT2-02/index.md#def-lvt2-02-imp) で偽の仮定から任意の結論を導けるため、どんな実装でも契約を満たす。有効な入力の存在を確認し、要求の範囲を勝手に縮めないことが重要である。
+事前条件を「数量が正で、かつ在庫以下」と変更すれば矛盾は解消するが、不足時の応答を保証するという元の要求が消える。別の危険は事前条件を常に False にすることである。この場合、[含意の導入](../LVT2-02/index.md#def-lvt2-02-imp) で False の証明を仮定し、[False の除去](../LVT2-01/index.md#def-lvt2-01-prop)（`False.elim`）を使えば任意の事後条件の証明を構成できるため、どんな実装でも契約を満たす。有効な入力の存在を確認し、要求の範囲を勝手に縮めないことが重要である。
 
 ## 6. 仕様から結果がどこまで決まるか
 
@@ -291,9 +293,9 @@ a + k = b + k
 a = b
 ```
 
-最後は自然数の加算の右消去である。整数として比較すれば両辺から同じ k を引ける。残数が等しいので some a = some b となる。四つの場合を尽くしたので結論を得る。
+最後は自然数の加算の右消去である。整数として比較すれば両辺から同じ k を引ける。残数が等しいので、[関数適用に関する等式の合同性](../LVT2-03/index.md#prop-lvt2-03-congr) を `some : Nat → Option Nat` に適用して some a = some b を得る。四つの場合を尽くしたので結論を得る。
 
-実装では `cases h1 : f o` が出力の二種類の形と等式 h1 を与える。事後条件をその等式で簡約して、必要な比較と保存式を得る。矛盾と右消去は omega で検査する。congrArg some e は等式 e : a = b から some a = some b を作る。
+実装では `cases h1 : f o` が出力の二種類の形と等式 h1 を与える。事後条件をその等式で簡約して、必要な比較と保存式を得る。矛盾と右消去は omega で検査する。`congrArg some e` はこの合同性の証明項であり、`e : a = b` から `some a = some b` の証明を作る。コードの `hqf` と `hqg` は f と g の事後条件の証明、`h1` と `h2` はそれぞれの結果を選んだ枝の等式である。`ha.1` と `hb.1` は比較、`ha.2` と `hb.2` は保存式の証明を取り出す [連言の除去](../LVT2-02/index.md#def-lvt2-02-and) である。
 
 ```lean
 theorem uniqueOnValid (f g : Order → Option Nat)
@@ -487,7 +489,7 @@ theorem b02 (f : Order → Option Nat) :
 <!-- solution-start -->
 #### 詳細解答
 
-[入出力契約](#def-lvt3-01-contract) を展開すると、任意の o に対して False → orderPost o (f o) を示せばよい。任意の o を取り False の証明 hp を仮定する。False.elim hp は任意の命題の証明を構成できるため目標が閉じる。これは [含意の導入](../LVT2-02/index.md#def-lvt2-02-imp) による証明である。しかし事前条件を満たす入力は一つもなく、具体的な出力についての保証はない。
+[入出力契約](#def-lvt3-01-contract) を展開すると、任意の o に対して False → orderPost o (f o) を示せばよい。任意の o を取り False の証明 hp を仮定する。[False の除去](../LVT2-01/index.md#def-lvt2-01-prop) によって `False.elim hp` は目標 `orderPost o (f o)` の証明を構成する。これは [含意の導入](../LVT2-02/index.md#def-lvt2-02-imp) による証明である。しかし事前条件を満たす入力は一つもなく、具体的な出力についての保証はない。
 
 ```lean
 theorem b03 (f : Order → Option Nat) :
@@ -507,7 +509,7 @@ theorem b03 (f : Order → Option Nat) :
 <!-- solution-start -->
 #### 詳細解答
 
-契約を満たすと仮定して o = ⟨5, 0⟩ を代入する。True.intro により事前条件は成立する。[契約充足命題](#prop-lvt3-01-correct) の数量ゼロの結論から takeStock o = none である。事後条件を展開すると 5 < 0 となり矛盾する。元の事後条件で none を許していたのは在庫不足の場合だけだった。数量ゼロにも拒否を許すなら、その条件を事後条件へ明記する必要がある。
+契約を満たすと仮定して o = ⟨5, 0⟩ を代入する。True.intro により事前条件は成立する。[契約充足命題](#prop-lvt3-01-correct) の数量ゼロの結論から takeStock o = none である。仮定から得た `orderPost ⟨5, 0⟩ (takeStock ⟨5, 0⟩)` を [等式による書換え](../LVT2-03/index.md#def-lvt2-03-rw) で `orderPost ⟨5, 0⟩ none` に変え、事後条件を展開すると 5 < 0 となり矛盾する。元の事後条件で none を許していたのは在庫不足の場合だけだった。数量ゼロにも拒否を許すなら、その条件を事後条件へ明記する必要がある。
 
 ```lean
 theorem b04 : ¬ Satisfies (fun _ => True) orderPost takeStock := by
@@ -532,7 +534,7 @@ f : Order → Option Nat が orderPre と orderPost の契約を満たすとす�
 <!-- solution-start -->
 #### 詳細解答
 
-[契約充足命題](#prop-lvt3-01-correct) で takeStock も契約を満たす。o = ⟨s, k⟩ かつ k > 0 とする。k ≤ s のとき takeStock は some (s - k) を返す。f が none を返したとすると事後条件から s < k となり仮定に矛盾する。従って f は some a を返す。保存式 a + k = s と (s - k) + k = s を比較し、a + k = (s - k) + k、右消去から a = s - k を得る。k ≤ s が偽なら s < k であり takeStock は none となる。f が some a なら k ≤ s が従って矛盾するため、f も none である。以上は [結果一意性](#prop-lvt3-01-unique) で g = takeStock とした場合の具体的な証明である。対象外の qty = 0 では一致は従わない。例えば数量ゼロのときだけ some stock を返し、他の入力では takeStock と同じ結果を返す関数は、有効入力の全てで契約を満たすが、数量ゼロでは takeStock の none と異なる。
+[契約充足命題](#prop-lvt3-01-correct) で takeStock も契約を満たす。o = ⟨s, k⟩ かつ k > 0 とする。k ≤ s のとき takeStock は some (s - k) を返す。f が none を返したとすると事後条件から s < k となり仮定に矛盾する。従って f は some a を返す。保存式 a + k = s と (s - k) + k = s を比較し、a + k = (s - k) + k、右消去から a = s - k を得る。k ≤ s が偽なら s < k であり takeStock は none となる。f が some a なら k ≤ s が従って矛盾するため、f も none である。以上は [結果一意性](#prop-lvt3-01-unique) で g = takeStock とした場合の具体的な証明である。対象外の qty = 0 では一致は従わない。例えば数量ゼロのときだけ some stock を返し、他の入力では takeStock と同じ結果を返す関数 keepZero を考える。有効な入力では k > 0 なので keepZero o = takeStock o であり、契約充足命題から事後条件が成立する。一方、⟨5, 0⟩ では keepZero ⟨5, 0⟩ = some 5、takeStock ⟨5, 0⟩ = none である。[Option型](../LVT1-03/index.md#def-lvt1-03-option) の異なる構成子の値なので一致しない。
 
 ```lean
 theorem c01 (f : Order → Option Nat)
