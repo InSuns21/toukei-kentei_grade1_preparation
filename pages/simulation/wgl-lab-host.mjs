@@ -1530,7 +1530,7 @@ function run() {
   iframe.className = 'result-frame';
   // Responsive preview without changing the actual drawing-buffer resolution.
   iframe.style.aspectRatio = payload.width + ' / ' +
-    (payload.height + (isWGL3 ? 200 : isWGL7 ? 235 : isWGL18 ? 160 : isWGL13 ? 235 : 12));
+    (payload.height + (isFCG5 ? 0 : isWGL3 ? 200 : isWGL7 ? 235 : isWGL18 ? 160 : isWGL13 ? 235 : 12));
   iframe.style.height = 'auto';
   if (isWGL3) iframe.style.minHeight = '500px'; // two GPU mesh views and controls
   if (isWGL13) iframe.style.minHeight = '540px';
