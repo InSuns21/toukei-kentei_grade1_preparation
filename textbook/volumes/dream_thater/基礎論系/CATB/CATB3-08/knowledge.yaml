@@ -1,0 +1,23 @@
+chapter: CATB3-08
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB3-05, CAT2-12]
+concepts:
+  - id: category.dual-adjoint-solution-set-condition
+    name: 双対の解集合条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（双対の解集合条件）"]
+    requires: [category.adjoint-solution-set-condition, category.comma-category]
+  - id: category.presentable-generator-weak-terminal
+    name: 表示対象からの弱終対象の構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（表示対象からの弱終対象の構成）"]
+    requires: [category.locally-presentable-category, category.dual-adjoint-solution-set-condition, category.colimit-preservation]
+  - id: category.locally-presentable-left-adjoint-criterion
+    name: 局所可呈示圏からの左随伴の判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所可呈示圏からの左随伴の判定）"]
+    requires: [category.presentable-generator-weak-terminal, category.freyd-general-adjoint-functor-theorem, category.left-adjoint-preserves-colimits]
