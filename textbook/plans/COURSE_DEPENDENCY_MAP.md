@@ -56,3 +56,17 @@
 - EOMは定理の正本を所有する単一数学科目ではなく、各研究論点を別系列の正本へ結び付ける**編集的横断PLAN**なので科目別シラバスに見せかけて分割しない。地下帝国と各横断ルートは、個別科目の進捗と分けて保守する。
 
 各個別科目の全講の正式分担と依存は各リンク先を参照。完了済み過去のPLANは履歴として保存し、書き換えない。
+
+
+## VP/VNP横断履修ルート（2026-11-24：99講設計確定）
+
+| 科目・講数 | 依存と正本 |
+| --- | --- |
+| [GCT 16講](DREAM_THEATER_GRAPH_COUNTING_COMPLEXITY_PLAN.md) | COMB1–18、CPLX1–11・18–21、CMP1–8、SGT1–3（必要箇所のみ） |
+| [ACOMP 24講](DREAM_THEATER_ALGEBRAIC_COMPLEXITY_I_II_PLAN.md) | CPLX1–11・18–21、COMB1–3、AG1-01〜04、GCT1–13（後半のみ）、既存環・体・線形代数 |
+| [TSP 16講](DREAM_THEATER_TENSOR_ASYMPTOTIC_SPECTRUM_PLAN.md) | 既存LA、AG1-01〜09・AG2-01〜03、COMB、ACOMP1–4（TSP後半はACOMP21–22） |
+| [NPCG 12講](DREAM_THEATER_NONPOSITIVE_CURVATURE_METRIC_GEOMETRY_PLAN.md) | 既存MT・TOP・LA（内積）、GEOの曲率の入口、GCT14、SGT1–3（後半のみ） |
+| [FML 7講](DREAM_THEATER_FORMAL_MATHEMATICS_LEAN_PLAN.md) | [LVT第I・II部（14講）](../plans_progress/DREAM_THEATER_LEAN4_SOFTWARE_TESTING_FORMAL_VERIFICATION_PLAN.md) → FML。LA・基礎代数・MT/TOP・ACOMPの対応箇所を参照。LVT第III〜VI部は必修でない。 |
+| [VNP 24講](DREAM_THEATER_VP_VNP_PROOF_STUDY_PLAN.md) | GCT1–16、ACOMP1–24、TSP1–16、NPCG1–12、FML1–7の対応箇所（下表の順で選択履修） |
+
+[横断ルート](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md) → [EOMのVP/VNP横断3講](DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md)（EOM全42講・13 family）。既存CPLX/COMB/AG/SGT/LVT等の正本を重複させない。新規6系列は本文未着手であり、研究claimの数学的独立検証済みとはしない。
