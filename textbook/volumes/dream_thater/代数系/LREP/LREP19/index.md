@@ -64,7 +64,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep19-dirac-operator -->
-**定義の確認。** $e_k$ は $\mathbb C^4$ の標準基底、$v=e_1+ie_3$ とします。$G^0e_1=ie_3$、$G^0e_3=-ie_1$ なので $G^0v=ie_3+i(-ie_1)=v$ です。空間座標を $\boldsymbol x=(x^1,x^2,x^3)$ と書きます。$\psi(t,\boldsymbol x)=e^{-imt}v$ とすると、$\partial_t\psi=-im\psi$、$\partial_j\psi=0$ です。従って
+**定義の確認**。 $e_k$ は $\mathbb C^4$ の標準基底、$v=e_1+ie_3$ とします。$G^0e_1=ie_3$、$G^0e_3=-ie_1$ なので $G^0v=ie_3+i(-ie_1)=v$ です。空間座標を $\boldsymbol x=(x^1,x^2,x^3)$ と書きます。$\psi(t,\boldsymbol x)=e^{-imt}v$ とすると、$\partial_t\psi=-im\psi$、$\partial_j\psi=0$ です。従って
 
 $$
 D_m\psi=iG^0(-im\psi)-m\psi=m(G^0-I_4)\psi=0.
@@ -236,7 +236,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep19-current -->
-**定義の確認。** 第1節の解 $\psi=e^{-imt}v$ では $v=e_1+ie_3$、$\bar\psi=e^{imt}v^\dagger H=e^{imt}v^\dagger$ です。従って $j^0=v^\dagger v=2$。空間成分は $HG^j=-G^jH$ を使うと
+**定義の確認**。 第1節の解 $\psi=e^{-imt}v$ では $v=e_1+ie_3$、$\bar\psi=e^{imt}v^\dagger H=e^{imt}v^\dagger$ です。従って $j^0=v^\dagger v=2$。空間成分は $HG^j=-G^jH$ を使うと
 
 $$
 v^\dagger G^jv=v^\dagger HG^jHv=-v^\dagger G^jv
