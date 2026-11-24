@@ -1,0 +1,42 @@
+id: "CATB1-05"
+title: "像・余像・完全列"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CATB1-01
+  - CATB1-04
+official_scope: []
+learning_objectives:
+  - 核の余核と余核の核から比較射を構成できる
+  - アーベル圏の正規性を用いて比較射が同型であることを証明できる
+  - 像の普遍性を用いて完全列を判定できる
+  - 核へのエピ射と余核からのモノ射によって完全性を判定できる
+  - 短完全列と核・余核の同値性を示せる
+  - 完全性と片側逆射の存在を区別できる
+definitions:
+  - { id: CATB1-05-DEF-01, name: "余像" }
+  - { id: CATB1-05-DEF-02, name: "完全列" }
+  - { id: CATB1-05-DEF-03, name: "短完全列" }
+theorems:
+  - { id: CATB1-05-THM-01, name: "像と余像の比較同型" }
+  - { id: CATB1-05-PROP-01, name: "完全性の判定" }
+  - { id: CATB1-05-THM-02, name: "短完全列の特徴づけ" }
+canonical_examples:
+  - 整数座標から偶数への比較同型
+  - 倍写像と剰余類への商射
+  - 合成が零でも完全でない列
+  - 短完全列で右逆射が存在しない例
+problem_patterns:
+  - CATB1-05-COIMAGE
+  - CATB1-05-ZERO-COMPOSITION
+  - CATB1-05-MONO-EPI
+  - CATB1-05-SHORT-EXACT
+  - CATB1-05-INDUCED-MORPHISM
+  - CATB1-05-COMPARISON-INVARIANCE
+  - CATB1-05-NONSPLIT
+  - CATB1-05-DUAL-TEST
+  - CATB1-05-NONABELIAN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }
