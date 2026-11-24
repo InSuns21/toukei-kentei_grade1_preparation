@@ -2,7 +2,7 @@ id: "CATB3-05"
 title: "可到達圏と可到達関手"
 volume: "foundations"
 status: supplementary
-prerequisites: [CATB3-04]
+prerequisites: [CATB3-04, CAT2-11]
 official_scope: []
 learning_objectives:
   - λ-可到達圏の生成条件と余極限存在条件を区別して確認できる
