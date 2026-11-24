@@ -2,6 +2,11 @@ import Lean
 
 namespace LvtRecursion
 
+def firstOrZero (xs : List Nat) : Nat :=
+  match xs with
+  | [] => 0
+  | x :: _ => x
+
 def sumList : List Nat → Nat
   | [] => 0
   | x :: xs => x + sumList xs

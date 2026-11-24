@@ -17,17 +17,17 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt1-04-list-constructors -->
-**定義の確認**　A を Nat とすると、[] は nil によって作れます。1 :: [] は 1 と空のリストから作れ、4 :: (1 :: []) は 4 とその結果から作れます。さらに 2 を先頭に置けば [2, 4, 1] です。各段で先頭は Nat、残りは List Nat になり、有限の三段で構成が終わります。true :: ([] : List Nat) は先頭が Bool なのでこの型のリストにはなりません。
+**定義の確認**　A を Nat とすると、[] は nil によって作れます。1 :: [] は 1 と空のリストから作れ、4 :: (1 :: []) は 4 とその結果から作れます。さらに 2 を先頭に置けば [2, 4, 1] です。各段で先頭は Nat、残りは List Nat になり、空の構成から三回 cons を適用すれば構成が終わります。true :: ([] : List Nat) は先頭が Bool なのでこの型のリストにはなりません。
 <!-- definition-example-end -->
 
-パターン照合は、値を構成子の形と比較して、対応する枝を選び、その構成子の引数を変数に結び付ける操作です。前講の match と同じ考え方です。次の二つの枝では、空かどうかを判定するだけでなく、空でなければ x と xs を取り出せます。
+パターン照合は、値を構成子の形と比較して、対応する枝を選び、その構成子の引数を変数に結び付ける操作です。前講の match と同じ考え方です。次の二つの枝では、空かどうかを判定するだけでなく、空でなければ先頭 x と残りを区別できます。ここでは残りを使わないので名前を付けません。
 
-~~~lean
+```lean
 def firstOrZero (xs : List Nat) : Nat :=
   match xs with
   | [] => 0
   | x :: _ => x
-~~~
+```
 
 _ は値を使わない位置です。firstOrZero [2, 4, 1] は 2、firstOrZero [] は 0 です。二つの枝でリストの全構成子を扱います。しかし、先頭だけ取り出してもリスト全体の合計はまだ求まりません。
 
@@ -47,22 +47,22 @@ _ は値を使わない位置です。firstOrZero [2, 4, 1] は 2、firstOrZero 
 **定義の確認**　[リストの再帰的構成](#def-lvt1-04-list-constructors) により、[2, 4, 1] の cons の内部には 2 と [4, 1] があるので、残り [4, 1] への呼出しは条件を満たします。次は [1]、次は [] となります。空のリストでは再帰せず結果を返します。一方、同じ [2, 4, 1] を再び渡すだけでは真の部分へ移っていません。
 <!-- definition-example-end -->
 
-~~~lean
+```lean
 def sumList : List Nat → Nat
   | [] => 0
   | x :: xs => x + sumList xs
-~~~
+```
 
 この書き方では引数の形に応じた枝を直接並べています。空の枝を基底の場合、もう一方を再帰の場合といいます。入力 [2, 4, 1] を手で展開すると、
 
-~~~
+```
 sumList [2, 4, 1]
 = 2 + sumList [4, 1]
 = 2 + (4 + sumList [1])
 = 2 + (4 + (1 + sumList []))
 = 2 + (4 + (1 + 0))
 = 7
-~~~
+```
 
 となります。再帰呼出しの結果が返る順は、空から [1]、[4, 1]、元のリストへと逆向きです。
 
@@ -83,12 +83,12 @@ sumList : List Nat → Nat を、空のリストで 0 を返し、x :: xs で x 
 
 x :: xs の場合は第二枝を選ぶ。第二枝の局所変数に与えられた x と xs がそれぞれ入るため、右辺は x + sumList xs である。残りのリストの値を具体化する必要はない。これは第二の等式そのものである。
 
-~~~lean
+```lean
 theorem sum_nil : sumList [] = 0 := rfl
 
 theorem sum_cons (x : Nat) (xs : List Nat) :
     sumList (x :: xs) = x + sumList xs := rfl
-~~~
+```
 
 rfl は定義に従う簡約で両辺が同じ式になるときの等式の証明である。ここでは任意の x と xs について第二枝の選択だけで両辺が一致する。
 <!-- proof-end -->
@@ -135,34 +135,34 @@ rfl は定義に従う簡約で両辺が同じ式になるときの等式の証�
 
 自然数 n から 2 を引ける間だけ引き続け、最後の 0 または 1 を返す関数を作ります。入力 n は非負整数で、Nat の引算は負の結果を 0 とする引算です。n が 2 以上の枝では通常の整数の引算と一致します。
 
-~~~lean
+```lean
 def byTwos (n : Nat) : Nat :=
   if n < 2 then n else byTwos (n - 2)
 termination_by n
 decreasing_by omega
-~~~
+```
 
 if は条件に応じて二つの枝を選びます。n < 2 ならそのまま n を返します。そうでなければ n ≥ 2 なので、n − 2 は非負かつ n より小さい値です。[自然数の真の減少による停止](#prop-lvt1-04-descent) により停止します。
 
-termination_by n は停止性の検査に使う尺度として n を指定します。decreasing_by は、再帰呼出しの尺度が小さくなるという証明責務を解く部分です。omega は自然数・整数の線形な算術関係を自動的に証明する手続きで、ここでは n ≥ 2 から n − 2 < n を証明します。この手続き自体の構成を知る必要はありません。Lean が検査する証明を生成します。
+termination_by n は停止性の検査に使う尺度として n を指定します。decreasing_by は、再帰呼出しの尺度が小さくなるという証明責務を解く部分です。omega は自然数・整数の線形な算術関係を自動的に証明する手続きで、ここでは n ≥ 2 から n − 2 < n を証明します。omega は Lean が検査する証明を生成します。ソースの先頭の import Lean でこの手続きを利用できます。
 
 7 を渡すと 7 → 5 → 3 → 1 で停止して 1 を返し、6 では 6 → 4 → 2 → 0 で停止して 0 を返します。0 と 1 は最初から停止します。この計算は停止性の証明とは別に、どんな値が返るかを確認するものです。
 
 ## 5. 停止性エラーを修正する
 
-~~~lean
+```lean
 def loop (n : Nat) : Nat := loop n
-~~~
+```
 
 この定義は普通の def として受理されません。同じ n を渡すため、尺度 n は減少せず、基底の場合もありません。型の形は Nat → Nat ですが、この式では結果を返す段階に到達しません。
 
 例えば、自然数が 0 なら 0 を返し、それ以外なら一つ小さい自然数に対して再帰する次の関数に変更できます。
 
-~~~lean
+```lean
 def down : Nat → Nat
   | 0 => 0
   | Nat.succ n => down n
-~~~
+```
 
 Nat.succ n は n の次の自然数、つまり n + 1 を表す構成子です。入力が 3 なら n = 2、次は 1、最後は 0 です。構造再帰であり、尺度を入力値とすれば [自然数の真の減少による停止](#prop-lvt1-04-descent) の条件を満たします。
 
@@ -172,19 +172,19 @@ Nat.succ n は n の次の自然数、つまり n + 1 を表す構成子です�
 
 [固定されたLeanプロジェクト](../LVT1-02/index.md#def-lvt1-02-fixed-environment) として、Lean v4.35.0 と外部依存のない lab を用意しました。リポジトリのルートから次を実行してください。
 
-~~~bash
+```bash
 cd "textbook/volumes/dream_thater/計算系/LVT/LVT1-04/lab"
 lake build
 lake test
 lake env lean Inspect.lean
 lake env lean ExerciseSolutions.lean
-~~~
+```
 
-LvtRecursion.lean に再帰関数と二つの等式証明があります。Main.lean の #guard は空・単一要素・複数要素の合計、偶数・奇数・境界値の byTwos、down の値を検査します。lake test の期待出力は LVT1-04 OK です。Inspect.lean の #eval は順に 7, 1, 0, 0 を表示します。
+LvtRecursion.lean に先頭の取得、再帰関数と二つの等式証明があります。Main.lean の #guard は先頭の取得、空・単一要素・複数要素の合計、偶数・奇数・境界値の byTwos、down の値を検査します。lake test の期待出力は LVT1-04 OK です。Inspect.lean の #eval は順に 7, 1, 0, 0 を表示します。
 
-~~~bash
+```bash
 lake env lean Failure.lean
-~~~
+```
 
 この最後のコマンドは意図的に停止性エラーを発生させます。Failure.lean の loop は再帰引数を変えません。import 失敗などではなく停止性の診断であることを確かめてください。修正例は down です。Failure.lean の loop の定義を down の二枝の定義に置き換えて、Lean が受理することを確認し、実験後は元に戻します。
 
@@ -215,14 +215,14 @@ sumList [3, 0, 2] を再帰の各段階を示して計算せよ。
 
 [リスト合計の計算規則](#prop-lvt1-04-sum-branches) の第二枝を三回使い、第一枝で終える。
 
-~~~
+```
 sumList [3, 0, 2]
 = 3 + sumList [0, 2]
 = 3 + (0 + sumList [2])
 = 3 + (0 + (2 + sumList []))
 = 3 + (0 + (2 + 0))
 = 5
-~~~
+```
 <!-- solution-end -->
 
 ### LVT1-04-A03 尺度を追う
@@ -262,11 +262,11 @@ List Bool を受け取り、true の個数を返す countTrue を構造再帰で
 
 空の枝では 0。空でない場合は先頭 b の寄与を、true なら 1、false なら 0 とし、残り bs に対する再帰結果へ加える。
 
-~~~lean
+```lean
 def countTrue : List Bool → Nat
   | [] => 0
   | b :: bs => (if b then 1 else 0) + countTrue bs
-~~~
+```
 
 [構造再帰](#def-lvt1-04-structural-recursion) の条件は、再帰引数 bs が元の b :: bs の残りであるため満たされる。入力 [true, false, true] では 1 + countTrue [false, true]、次は 1 + (0 + countTrue [true])、次は 1 + (0 + (1 + countTrue [])) となる。空の枝は 0 なので合計は 2。空の入力だけなら 0 である。
 <!-- solution-end -->
@@ -282,12 +282,12 @@ B01 の countTrue について任意の List Bool 型の値 bs に対し、count
 
 第二枝に b = false を代入すると (if false then 1 else 0) + countTrue bs となる。if の結果は 0 であるので左辺は 0 + countTrue bs になる。Nat の零加算の定理 Nat.zero_add は任意の自然数 k に対して 0 + k = k と述べる。k に countTrue bs を選べば目的の等式が得られる。Leanでは change で目標を定義に従って展開した形に変え、exact でその定理を与える。
 
-~~~lean
+```lean
 theorem count_false (bs : List Bool) :
     countTrue (false :: bs) = countTrue bs := by
   change 0 + countTrue bs = countTrue bs
   exact Nat.zero_add (countTrue bs)
-~~~
+```
 
 bs の具体値を選んでいないので、任意の有限リストについての証明である。
 <!-- solution-end -->
@@ -296,10 +296,10 @@ bs の具体値を選んでいないので、任意の有限リストについ�
 
 次の関数を、自然数 n から 3 を引ける間だけ引き、残りの値を返す関数へ修正せよ。停止性の理由と入力 10, 2 の結果を説明せよ。
 
-~~~lean
+```lean
 def badThree (n : Nat) : Nat :=
   if n < 3 then n else badThree n
-~~~
+```
 
 - Level: B
 
@@ -308,12 +308,12 @@ def badThree (n : Nat) : Nat :=
 
 else の枝では n ≥ 3 だが、元の定義では n が変わらず次の呼出しも同じ枝に入る。再帰引数を n − 3 に変更する。
 
-~~~lean
+```lean
 def byThrees (n : Nat) : Nat :=
   if n < 3 then n else byThrees (n - 3)
 termination_by n
 decreasing_by omega
-~~~
+```
 
 n ≥ 3 なら n − 3 ≥ 0 であり、n − 3 < n である。[自然数の真の減少による停止](#prop-lvt1-04-descent) を尺度 n に適用できる。10 → 7 → 4 → 1 となり 1 を返す。2 は最初から 2 < 3 なので 2 を返す。
 <!-- solution-end -->
@@ -331,13 +331,13 @@ n ≥ 3 なら n − 3 ≥ 0 であり、n − 3 < n である。[自然数の�
 
 [Option型](../LVT1-03/index.md#def-lvt1-03-option) は値がなければ none、値があれば some を使える。空なら正の値はないので none。先頭 x が正なら some x、そうでなければ残り xs を調べる。
 
-~~~lean
+```lean
 def firstPositive : List Nat → Option Nat
   | [] => none
   | x :: xs => if x > 0 then some x else firstPositive xs
-~~~
+```
 
-再帰呼出しが起きるのは x が 0 の枝だけである。このとき xs の要素数は x :: xs の要素数より 1 小さく、[自然数値の減少尺度](#def-lvt1-04-decreasing-measure) の条件を満たす。各枝の再帰以外の処理は比較と値の構成で有限時間に終わり、再帰呼出しは高々一つである。したがって [自然数の真の減少による停止](#prop-lvt1-04-descent) により初期の要素数を上界として停止する。
+再帰呼出しが起きるのは x が 0 の枝だけである。このとき xs の要素数は x :: xs の要素数より 1 小さく、[自然数値の減少尺度](#def-lvt1-04-decreasing-measure) の条件を満たす。各枝の再帰以外の処理は比較と値の構成で有限時間に終わり、再帰呼出しは高々一つである。したがって [自然数の真の減少による停止](#prop-lvt1-04-descent) により初期の要素数を上界として停止する。途中で読み飛ばした先頭はすべて 0 なので、正の値 x を見つけた時点で x より前に正の値は存在しない。空の枝まで進んだ場合はすべての要素が 0 だったので none が正しい。
 
 [0, 0, 4, 6] では先頭 0 を二回読み飛ばして [4, 6] へ移る。4 > 0 なので some 4 を返し、残り [6] は調べない。再帰呼出しは二回。[0, 0] では [0]、[] へ二回移り、none を返す。正の値を見つけた後に再帰結果をそのまま返す実装なら、例えば [4, 6] で後方の 6 を返したり、[4] で none を返したりして最初の正の値を返す仕様を破る。また正の値を保存してから探索を続けても、この問題の「見つけたら再帰しない」という条件は満たさない。停止性だけでは返り値や不要な呼出しの有無は決まらない。
 <!-- solution-end -->

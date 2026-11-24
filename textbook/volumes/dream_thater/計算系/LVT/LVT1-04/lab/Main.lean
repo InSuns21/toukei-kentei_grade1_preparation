@@ -1,6 +1,8 @@
 import LvtRecursion
 open LvtRecursion
 
+#guard firstOrZero [] == 0
+#guard firstOrZero [2, 4, 1] == 2
 #guard sumList [] == 0
 #guard sumList [4] == 4
 #guard sumList [2, 4, 1] == 7

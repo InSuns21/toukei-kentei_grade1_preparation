@@ -1,7 +1,7 @@
 import LvtRecursion
 open LvtRecursion
 
-#guard ([3, 0, 2] : List Nat) == 3 :: (0 :: (2 :: []))
+#guard ([3, 0, 2] : List Nat) == (3 :: (0 :: (2 :: [])))
 #guard sumList [3, 0, 2] == 5
 #guard sumList [9, 8] == 17
 #guard byTwos 8 == 0
