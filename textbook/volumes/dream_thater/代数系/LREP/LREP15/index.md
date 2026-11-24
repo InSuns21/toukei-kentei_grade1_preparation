@@ -4,7 +4,19 @@
 
 前講の[四次元複素Clifford代数の行列模型](../LREP14/index.md#thm-lrep14-matrix-model)によって、ベクトルの二乗を時空計量に一致させる積ができました。LREP10では二次複素行列からLorentz変換を作りました。今回はこの二つの構成を接続します。四次行列の共役だけで時空の回転とboost（時間軸と空間軸を混ぜるLorentz変換）を実現し、同じ時空変換に二つの持ち上げがある理由を調べます。
 
-$V=\mathbb R^4$、基底 $e_0,e_1,e_2,e_3$、計量 $\eta=\operatorname{diag}(-1,1,1,1)$ とします。時空添字 $\mu,\nu$ は $0,1,2,3$、空間添字 $j,k,\ell$ は $1,2,3$ を走ります。計量の成分は $\eta_{\mu\nu}=\eta(e_\mu,e_\nu)$、その逆行列の成分は $\eta^{\mu\nu}$ です。この基底では $\eta^2=I_4$ なので両者の数値は同じです。能動変換 $x\mapsto\Lambda x$ を使い、$\Lambda^\nu{}_\mu$ は第 $\mu$ 列の第 $\nu$ 成分です。
+$V=\mathbb R^4$、基底 $e_0,e_1,e_2,e_3$、計量 $\eta=\operatorname{diag}(-1,1,1,1)$ とします。時空添字 $\mu,\nu$ は $0,1,2,3$、空間添字 $j,k,\ell$ は $1,2,3$ を走ります。
+
+計量の成分と逆行列の成分をそれぞれ
+
+$$
+\eta_{\mu\nu}=\eta(e_\mu,e_\nu),
+\qquad
+(\eta^{\mu\nu})=(\eta_{\mu\nu})^{-1}
+$$
+
+と書きます。この基底では $\eta^2=I_4$ なので両者の数値は同じです。
+
+能動変換 $x\mapsto\Lambda x$ を使い、$\Lambda^\nu{}_\mu$ は第 $\mu$ 列の第 $\nu$ 成分です。
 
 [Clifford代数](../LREP14/index.md#def-lrep14-clifford)ではベクトルの像を元のベクトルと同じ記号で書き、実スカラー $a$ と代数の元 $a1$ も同一視します。積の二乗は計量の値を表します。
 
@@ -65,7 +77,17 @@ $$
 $j=k$ なら $2I_4$、$j\ne k$ なら零です。時間同士は $-2I_4$、時間と空間の組は零なので全条件を確認できました。
 <!-- definition-example-end -->
 
-以後、[前講の行列模型](../LREP14/index.md#thm-lrep14-matrix-model)を実Clifford代数に制限した単射な単位的代数準同型を $\rho$ とし、$\rho(e_\mu)=\gamma^\mu$ とします。上付きの $\mu$ はここでは基底行列の番号です。ベクトル $x=\sum_\mu x^\mu e_\mu$ の像を $\Gamma(x)=\sum_\mu x^\mu\gamma^\mu$ と書きます。逆計量と計量の行列はこの基底では同じですが、一般座標で添字を自由に上げ下げできるという意味ではありません。
+以後、[前講の行列模型](../LREP14/index.md#thm-lrep14-matrix-model)を実Clifford代数に制限した単射な単位的代数準同型を $\rho$ とします。$\rho(e_\mu)=\gamma^\mu$ であり、上付きの $\mu$ はここでは基底行列の番号です。
+
+ベクトルとその像をそれぞれ
+
+$$
+x=\sum_\mu x^\mu e_\mu,
+\qquad
+\Gamma(x)=\rho(x)=\sum_\mu x^\mu\gamma^\mu
+$$
+
+と書きます。逆計量と計量の行列はこの基底では同じですが、一般座標で添字を自由に上げ下げできるという意味ではありません。
 
 ## 2. 偶数個のベクトルの積
 
@@ -79,7 +101,15 @@ $j=k$ なら $2I_4$、$j\ne k$ なら零です。時間同士は $-2I_4$、時�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep15-even -->
-**定義の確認**。 $b=e_0e_3$ は二因子の積です。[Clifford反交換関係](../LREP14/index.md#prop-lrep14-anticommutator)から $b^2=-e_0^2e_3^2=1$。よって任意の実数 $a,c$ に対し $a+cb$ は偶部分に属します。二つの偶長の語を連結すれば偶長であり、有限和に分配律を適用すると積について閉じます。単位元も含むので部分代数です。
+**定義の確認**。 $b=e_0e_3$ は二因子の積です。[Clifford反交換関係](../LREP14/index.md#prop-lrep14-anticommutator)から
+
+$$
+b^2=-e_0^2e_3^2=1
+$$
+
+となります。よって任意の実数 $a,c$ に対し $a+cb$ は偶部分に属します。
+
+二つの偶長の語を連結すれば偶長であり、有限和に分配律を適用すると積について閉じます。単位元も含むので部分代数です。
 <!-- definition-example-end -->
 
 積を逆順にする操作を導入します。これは逆元そのものではなく、[テンソル代数](../LREP14/index.md#def-lrep14-tensor-algebra)で作った語の順番を反対にする操作です。商で同じ元を表す異なる語にも同じ値が対応する必要があります。
@@ -109,7 +139,23 @@ $$
 
 ## 3. 偶部分を二次行列で読む
 
-$2\times2$ 行列 $B=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ に対して余因子を転置した随伴行列を $\operatorname{adj} B=\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$ と書きます。直接積を取ると $B\operatorname{adj} B=(\det B)I=\operatorname{adj} B\,B$ です。二次の場合、この操作は成分について線形です。記号 $\dagger$ は複素共役転置であり、$\operatorname{adj}$ とは異なります。$M_2(\mathbb C)$ は二次複素正方行列全体、$\operatorname{tr}B$ は対角成分の和です。
+二次行列に対して余因子を転置した行列を随伴行列と呼び、次のように書きます。
+
+$$
+B=\begin{pmatrix}a&b\\c&d\end{pmatrix},
+\qquad
+\operatorname{adj}B=\begin{pmatrix}d&-b\\-c&a\end{pmatrix}
+$$
+
+直接積を取ると、
+
+$$
+B\operatorname{adj}B=(\det B)I=\operatorname{adj}B\,B
+$$
+
+です。二次の場合、この操作は成分について線形です。
+
+記号 $\dagger$ は複素共役転置であり、$\operatorname{adj}$ とは異なります。$M_2(\mathbb C)$ は二次複素正方行列全体、$\operatorname{tr}B$ は対角成分の和です。
 
 <a id="thm-lrep15-even-model"></a>
 
@@ -174,7 +220,9 @@ s\widetilde s=(\cosh u+b\sinh u)(\cosh u-b\sinh u)
 =\cosh^2u-\sinh^2u=1.
 $$
 
-逆の順でも積は1です。従って $s^{-1}=\widetilde s$ です。[実偶Clifford代数の行列模型](#thm-lrep15-even-model)の基底表では $1$ と $b=e_0e_3$ の上側はそれぞれ $I$ と $\sigma_3$ なので、$s$ の上側は
+逆の順でも積は1です。従って $s^{-1}=\widetilde s$ です。
+
+[実偶Clifford代数の行列模型](#thm-lrep15-even-model)の基底表では $1$ と $b=e_0e_3$ の上側はそれぞれ $I$ と $\sigma_3$ なので、$s$ の上側は
 
 $$
 \begin{aligned}
@@ -233,7 +281,22 @@ $$
 
 したがって定義した集合は群で、上側ブロックは $SL(2,\mathbb C)$ との群同型を与えます。この写像と逆写像は実線形な座標対応の制限なので連続で滑らかです。[SL(2,C)の道連結性](../LREP10/index.md#lem-lrep10-polar-connectivity)から群は連結です。
 
-[LREP10の四元ベクトルのエルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model)を $H(x)=x^0 I+\sum_j x^j\sigma_j$ とします。$H(x)$ の跡は $2x^0$ なので、第3節で確認した $\operatorname{adj}H=(\operatorname{tr}H)I-H$ に代入すると $\operatorname{adj}H(x)=x^0I-\sum_j x^j\sigma_j$。従って
+[LREP10の四元ベクトルのエルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model)を用います。
+
+$$
+H(x)=x^0 I+\sum_j x^j\sigma_j
+$$
+
+$H(x)$ の跡は $2x^0$ なので、第3節で確認した公式に代入すると、
+
+$$
+\begin{aligned}
+\operatorname{adj}H(x)&=(\operatorname{tr}H(x))I-H(x)\\
+&=x^0I-\sum_j x^j\sigma_j
+\end{aligned}
+$$
+
+となります。従って
 
 $$
 \Gamma(x)=
@@ -318,7 +381,16 @@ $s^{-1}$ の像は $\Lambda^{-1}$ なので同じ公式を適用すれば逆の�
 
 ## 6. 回転とboostを積から作る
 
-回転角を $\theta$、boostの双曲線角（ラピディティ）を $\chi$ とします。正の $z$ 方向の能動boostでは、時間軸の像が $\cosh\chi\,e_0+\sinh\chi\,e_3$ となり、$e_3$ の像は $\sinh\chi\,e_0+\cosh\chi\,e_3$ です。これは [LREP10の四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action)で使った実パラメータを $\chi$ と書いたものです。
+回転角を $\theta$、boostの双曲線角（ラピディティ）を $\chi$ とします。正の $z$ 方向の能動boostでは、時間軸と空間軸の像はそれぞれ
+
+$$
+\begin{aligned}
+e_0&\longmapsto\cosh\chi\,e_0+\sinh\chi\,e_3,\\
+e_3&\longmapsto\sinh\chi\,e_0+\cosh\chi\,e_3
+\end{aligned}
+$$
+
+となります。これは [LREP10の四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action)で使った実パラメータを $\chi$ と書いたものです。
 
 <a id="prop-lrep15-rotation-boost"></a>
 
@@ -340,7 +412,35 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[Clifford反交換関係](../LREP14/index.md#prop-lrep14-anticommutator)から $p=e_1e_2$、$q=e_0e_3$ は $p^2=-1$、$q^2=1$、$\widetilde p=-p$、$\widetilde q=-q$ を満たします。$c=\cos(\theta/2),d=\sin(\theta/2)$ とすると $r\widetilde r=c^2+d^2=1$。$a=\cosh(\chi/2),b=\sinh(\chi/2)$ とすると $h\widetilde h=a^2-b^2=1$。両方とも偶部分なので[Spin群の定義](#def-lrep15-spin)を満たし、$r^{-1}=\widetilde r=c+dp$、$h^{-1}=\widetilde h=a-bq$ です。
+[Clifford反交換関係](../LREP14/index.md#prop-lrep14-anticommutator)と[逆順写像の定義](#def-lrep15-reversion)から、
+
+$$
+\begin{aligned}
+p=e_1e_2,&\qquad p^2=-1,\qquad \widetilde p=-p,\\
+q=e_0e_3,&\qquad q^2=1,\qquad \widetilde q=-q
+\end{aligned}
+$$
+
+となります。回転の係数とboostの係数をそれぞれ
+
+$$
+\begin{aligned}
+c&=\cos(\theta/2),& d&=\sin(\theta/2),\\
+a&=\cosh(\chi/2),& b&=\sinh(\chi/2)
+\end{aligned}
+$$
+
+とおくと、$r\widetilde r=c^2+d^2=1$、$h\widetilde h=a^2-b^2=1$ です。
+
+両方とも偶部分なので[Spin群の定義](#def-lrep15-spin)を満たします。逆元は
+
+$$
+r^{-1}=\widetilde r=c+dp,
+\qquad
+h^{-1}=\widetilde h=a-bq
+$$
+
+です。
 
 $p e_1=-e_2$、$e_1p=e_2$、$p e_2=e_1$、$e_2p=-e_1$ です。また $p e_1p=e_1$、$p e_2p=e_2$ です。従って
 
@@ -443,14 +543,38 @@ $$
 
 これが1なら偶部分の元であり、Spin群に入ります。
 
-逆に任意のSpin群の元の上側ブロック $A\in SL(2,\mathbb C)$ を取ります。[SL(2,C)の極分解](../LREP10/index.md#lem-lrep10-polar-connectivity)より $A=PU$、$P$ は正定値エルミートで行列式1、$U\in SU(2)$ です。[スペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)で二次のエルミート行列を対角化すれば、$P$ の固有値は正で積1なので $e^t,e^{-t}$ と書けます。固有基底を列に並べたユニタリ行列を $W_0$ とします。$\delta=\det W_0$ は絶対値1なので、$W=W_0\operatorname{diag}(\overline\delta,1)$ とすれば固有ベクトルの長さも固有値も変わらず、$\det W=\delta\overline\delta=1$ となります。従って
+逆に任意のSpin群の元の上側ブロック $A\in SL(2,\mathbb C)$ を取ります。[SL(2,C)の極分解](../LREP10/index.md#lem-lrep10-polar-connectivity)より $A=PU$、$P$ は正定値エルミートで行列式1、$U\in SU(2)$ です。
+
+[スペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)で二次のエルミート行列を対角化すれば、$P$ の固有値は正で積1なので $e^t,e^{-t}$ と書けます。
+
+固有基底を列に並べたユニタリ行列を $W_0$ とします。$\delta=\det W_0$ は絶対値1なので、
+
+$$
+W=W_0\operatorname{diag}(\overline\delta,1)
+$$
+
+とすれば固有ベクトルの長さも固有値も変わらず、
+
+$$
+\det W=\delta\overline\delta=1
+$$
+
+となります。従って
 
 $$
 P=W\operatorname{diag}(e^t,e^{-t})W^{-1},
 \qquad W\in SU(2).
 $$
 
-任意の $U\in SU(2)$ は[LREP5の軸角表示](../LREP5/index.md#prop-lrep5-rodrigues)の形で $U=\cos u\,I-i\sin u\sum_j n^j\sigma_j$ と表せます（$n$ は単位空間的ベクトル）。実際、第一列を $(\alpha,\beta)^{\mathsf T}$ とすれば、ユニタリ性と行列式1から第二列は $(-\overline\beta,\overline\alpha)^{\mathsf T}$ です。$\alpha=a+ib_3$、$\beta=-b_2+ib_1$ と実成分に分けると
+任意の $U\in SU(2)$ は[LREP5の軸角表示](../LREP5/index.md#prop-lrep5-rodrigues)の形で
+
+$$
+U=\cos u\,I-i\sin u\sum_j n^j\sigma_j
+$$
+
+と表せます。ここで $n$ は単位空間的ベクトルです。
+
+実際、第一列を $(\alpha,\beta)^{\mathsf T}$ とすれば、ユニタリ性と行列式1から第二列は $(-\overline\beta,\overline\alpha)^{\mathsf T}$ です。$\alpha=a+ib_3$、$\beta=-b_2+ib_1$ と実成分に分けると
 
 $$
 U=aI+i\sum_{j=1}^3 b_j\sigma_j,\qquad
@@ -459,7 +583,15 @@ $$
 
 そこで $a=\cos u$ とし、$\sin u\ne0$ なら $n^j=-b_j/\sin u$ と選びます。$\sum_j(n^j)^2=1$ です。$\sin u=0$ のときは軸は任意です。
 
-$n$ に垂直な単位ベクトル $v$ を選び、$w=n\times v$ とすると、$v,w$ は直交単位ベクトルで $v\times w=n$ です。空間ベクトル $v=\sum_j v^j e_j$ に対して $X(v)=\sum_jv^j\sigma_j$ と書けば、$\rho(v)=\begin{pmatrix}0&X(v)\\X(v)&0\end{pmatrix}$ です。従って $\rho(vw)$ の上側は $X(v)X(w)$ となり、[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)により
+$n$ に垂直な単位ベクトル $v$ を選び、$w=n\times v$ とすると、$v,w$ は直交単位ベクトルで $v\times w=n$ です。
+
+空間ベクトル $v=\sum_j v^j e_j$ に対して $X(v)=\sum_jv^j\sigma_j$ と書けば、
+
+$$
+\rho(v)=\begin{pmatrix}0&X(v)\\X(v)&0\end{pmatrix}
+$$
+
+です。従って $\rho(vw)$ の上側は $X(v)X(w)$ となり、[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)により
 
 $$
 X(v)X(w)=(v\cdot w)I+iX(v\times w)=iX(n)
@@ -487,7 +619,19 @@ e_3(\cosh t\,e_3-\sinh t\,e_0)
 =\cosh t+e_0e_3\sinh t
 $$
 
-の上側は $\operatorname{diag}(e^t,e^{-t})$。第二因子の二乗は $e_3^2=1$、$e_0^2=-1$、$e_3e_0+e_0e_3=0$ から $\cosh^2t-\sinh^2t=1$ です。従って $A=W\operatorname{diag}(e^t,e^{-t})W^{-1}U$ の四つの因子は全て二本の単位空間的ベクトルの積から得られます。積を取った元の上側は $A$ であり、[偶代数の行列模型](#thm-lrep15-even-model)の一意性から元のSpin群の元に一致します。$\square$
+の上側は $\operatorname{diag}(e^t,e^{-t})$ です。第二因子の二乗は $e_3^2=1$、$e_0^2=-1$、$e_3e_0+e_0e_3=0$ を使って、
+
+$$
+(\cosh t\,e_3-\sinh t\,e_0)^2=\cosh^2t-\sinh^2t=1
+$$
+
+となります。従って
+
+$$
+A=W\operatorname{diag}(e^t,e^{-t})W^{-1}U
+$$
+
+の四つの因子は全て二本の単位空間的ベクトルの積から得られます。積を取った元の上側は $A$ であり、[偶代数の行列模型](#thm-lrep15-even-model)の一意性から元のSpin群の元に一致します。$\square$
 <!-- proof-end -->
 
 ここまでで偶Clifford積の構成と二次複素行列による構成を結び付けました。次講では上下の二成分空間がそれぞれどの表現を担うかを詳しく調べます。
@@ -565,7 +709,24 @@ $$
 角度 $\theta=\pi,2\pi,4\pi$ での $z$ 軸回転の持ち上げ $r$ と $e_1$ の像を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [回転とboostのSpin持ち上げ](#prop-lrep15-rotation-boost)に代入します。$\theta=\pi$ なら $\cos(\pi/2)=0,\sin(\pi/2)=1$ なので $r=-e_1e_2$、$e_1$ の像は $-e_1$。$\theta=2\pi$ なら $r=-1$、$\theta=4\pi$ なら $r=1$ で、どちらも $e_1$ の像は $e_1$ です。後二者はベクトルへの作用が同一でも群の元としては異なります。
+**詳細解答。** [回転とboostのSpin持ち上げ](#prop-lrep15-rotation-boost)に代入します。$\theta=\pi$ なら $\cos(\pi/2)=0,\sin(\pi/2)=1$ なので、
+
+$$
+r=-e_1e_2,\qquad re_1r^{-1}=-e_1
+$$
+
+です。$\theta=2\pi$ と $\theta=4\pi$ では、それぞれ
+
+$$
+\begin{array}{c|cc}
+\theta& r&re_1r^{-1}\\
+\hline
+2\pi&-1&e_1\\
+4\pi&1&e_1
+\end{array}
+$$
+
+となります。後二者はベクトルへの作用が同一でも群の元としては異なります。
 <!-- solution-end -->
 
 ### Level B
@@ -686,7 +847,21 @@ $p$ は $e_0,e_1$ と可換なのでこれらの方向は固定されます。�
 $z$ 軸の角度 $\pi/2$ の能動回転を $r$、正の $x$ 方向のラピディティ $\chi$ のboostを $h_x=\cosh(\chi/2)+e_0e_1\sinh(\chi/2)$ とする。$h_x r$ と $r h_x$ の共役で $e_0,e_1$ がどこへ移るか求め、$\chi\ne0$ なら両作用が異なることを示せ。
 
 <!-- solution-start -->
-**詳細解答。** $h_x$ について $q=e_0e_1$ と置けば、[Clifford反交換関係](../LREP14/index.md#prop-lrep14-anticommutator)と[逆順写像](#def-lrep15-reversion)より $q^2=1$、$\widetilde q=-q$ です。偶部分に属し、$h_x\widetilde h_x=\cosh^2(\chi/2)-\sinh^2(\chi/2)=1$ なので [Spin群の条件](#def-lrep15-spin)を満たします。$a=\cosh(\chi/2),b=\sinh(\chi/2)$ とすると $qe_0=e_1,e_0q=-e_1,qe_0q=-e_0$ なので
+**詳細解答。** $h_x$ について $q=e_0e_1$ と置けば、[Clifford反交換関係](../LREP14/index.md#prop-lrep14-anticommutator)と[逆順写像](#def-lrep15-reversion)より $q^2=1$、$\widetilde q=-q$ です。
+
+偶部分に属し、
+
+$$
+h_x\widetilde h_x=\cosh^2(\chi/2)-\sinh^2(\chi/2)=1
+$$
+
+なので [Spin群の条件](#def-lrep15-spin)を満たします。$a=\cosh(\chi/2),b=\sinh(\chi/2)$ とすると、
+
+$$
+qe_0=e_1,\qquad e_0q=-e_1,\qquad qe_0q=-e_0
+$$
+
+なので
 
 $$
 h_xe_0h_x^{-1}=(a^2+b^2)e_0+2ab e_1
@@ -723,7 +898,15 @@ $$
 \end{aligned}
 $$
 
-$\chi\ne0$ なら $\sinh\chi\ne0$ なので時間軸の像だけでも二つの変換が異なると分かります。例えば第一の時間軸の像の二乗は $-\cosh^2\chi+\sinh^2\chi=-1$。第二も同じ二乗なので、変換順序は異なっても時空計量を保存します。[ガンマ行列の共変変換則](#prop-lrep15-gamma-covariance)で各 $e_\mu$ を $\gamma^\mu$ に置き換えれば、同じ合成順序の行列共役の結果が得られます。
+$\chi\ne0$ なら $\sinh\chi\ne0$ なので時間軸の像だけでも二つの変換が異なると分かります。例えば第一の時間軸の像の二乗は
+
+$$
+-\cosh^2\chi+\sinh^2\chi=-1
+$$
+
+です。第二も同じ二乗なので、変換順序は異なっても時空計量を保存します。
+
+[ガンマ行列の共変変換則](#prop-lrep15-gamma-covariance)で各 $e_\mu$ を $\gamma^\mu$ に置き換えれば、同じ合成順序の行列共役の結果が得られます。
 <!-- solution-end -->
 
 ## 8. まとめと次講
