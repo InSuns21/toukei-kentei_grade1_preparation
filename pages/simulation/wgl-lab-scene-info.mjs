@@ -119,6 +119,14 @@ const descriptions = Object.freeze({
     mode: '初期設定はpicMix=0、flipMix=1。格子と粒子の位置を物理stepごとに更新し、右列は24×24節点値の最近傍表示。時刻は開始時の検算時刻',
     source: 'particle.js（N, count, dt, damp, force, picMix, flipMix, transfer）/ particle.frag（u_pic, u_flip, u_speed）'
   }),
+  FCG10: Object.freeze({
+    requiresSteps:false,
+    grid:'解析波の高さ・法線を描画画素ごとに計算。流体格子なし',
+    color:'空の明暗帯と水底の周期模様。混合・反射・透過を切替',
+    clock:()=> '位相は物理stepではなく解析波のパラメータ',
+    mode:()=> 'air / water：観察側。mixed / reflection / transmission：表示成分',
+    source:'water.js / water.vert / water.frag（方向、Fresnel、吸収）'
+  }),
   FCG9: Object.freeze({
     requiresSteps:false,
     grid:s => s.fcg9Options ? '実Float64セル中心 '+s.fcg9Options.N+'×'+s.fcg9Options.N+' から交差点・側面三角形を生成' : '自由編集：実行コードの格子を参照',
