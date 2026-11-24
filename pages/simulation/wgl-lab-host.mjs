@@ -952,7 +952,7 @@ function runnerHtml() {
   return '<!doctype html><html lang="ja"><head><meta charset="utf-8">' +
     '<meta http-equiv="Content-Security-Policy" content="' + policy + '">' +
     '<meta name="referrer" content="no-referrer">' +
-    '<style>' + (isFCG6 ? 'body{margin:0;background:#101e2c;color:#e5eefb}canvas{display:block;width:100%;height:auto;touch-action:pan-y}select{max-width:100%;font:inherit}button:focus-visible,select:focus-visible,input:focus-visible,canvas:focus-visible{outline:2px solid #f8c453;outline-offset:-2px}' : isFCG4 ? 'body{margin:0;background:#0c1829}canvas{display:block;width:100%;height:auto}body{overflow:hidden}@media(max-width:560px){canvas{height:300vw}}' : isWGL13 ?
+    '<style>' + (isFCG17 ? 'body{margin:0;background:#101e2c;color:#e5eefb;font:14px/1.4 system-ui}canvas{display:block;width:100%;height:auto}p{margin:6px 8px;overflow-wrap:anywhere}canvas:focus-visible{outline:2px solid #f8c453;outline-offset:-2px}' : isFCG6 ? 'body{margin:0;background:#101e2c;color:#e5eefb}canvas{display:block;width:100%;height:auto;touch-action:pan-y}select{max-width:100%;font:inherit}button:focus-visible,select:focus-visible,input:focus-visible,canvas:focus-visible{outline:2px solid #f8c453;outline-offset:-2px}' : isFCG4 ? 'body{margin:0;background:#0c1829}canvas{display:block;width:100%;height:auto}body{overflow:hidden}@media(max-width:560px){canvas{height:300vw}}' : isWGL13 ?
       'body{margin:0;padding:0 6px;background:#0c1829;color:#e5eefb;font:14px/1.5 system-ui}' +
       'canvas{display:block;width:100%;height:auto;touch-action:none}' :
       'body{margin:0;display:' + ((isWGL10||isWGL7)?'block':'grid;place-items:center') +
@@ -1943,6 +1943,11 @@ function run(options = {}) {
   iframe.style.aspectRatio = payload.width + ' / ' +
     (payload.height + (isFCG5 ? 0 : isWGL3 ? 200 : isWGL7 ? 235 : isWGL18 ? 160 : isWGL13 ? 235 : 12));
   iframe.style.height = 'auto';
+  if(isFCG17){
+    iframe.style.aspectRatio='auto';
+    const fit=()=>{iframe.style.height=Math.ceil(iframe.clientWidth*payload.height/payload.width+(iframe.clientWidth<480?120:65))+'px';};
+    const observer=new ResizeObserver(fit);observer.observe(iframe);iframe.fcg4Observer=observer;fit();
+  }
   if(isFCG6){
     iframe.style.aspectRatio='auto';
     // Canvas occupies its responsive intrinsic aspect plus wrapping controls.
@@ -3052,7 +3057,7 @@ if (isWGL3) {
 if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-conditions')});
 // Three physical panels must have square pixel footprints: avoid stretching a
 // 1x1 metre domain into ~100x240 strips at the original 320x240 default.
-const sizeHint=isFCG17?[960,600]:isFCG16?[960,320]:isFCG15?[768,384]:isFCG14?[960,480]:isFCG13?[960,600]:isFCG12?[960,600]:isFCG11?[960,360]:isFCG10?[768,768]:isFCG9?[720,960]:isFCG5?[768,768]:isFCG6?[640,640]:(isFCG4||isFCG7||isFCG8)?[1536,512]:
+const sizeHint=isFCG17?[896,560]:isFCG16?[960,320]:isFCG15?[768,384]:isFCG14?[960,480]:isFCG13?[960,600]:isFCG12?[960,600]:isFCG11?[960,360]:isFCG10?[768,768]:isFCG9?[720,960]:isFCG5?[768,768]:isFCG6?[640,640]:(isFCG4||isFCG7||isFCG8)?[1536,512]:
   isFCG3?[1024,512]:isFCG2?[512,512]:isWGL14?[704,704]:
   (lesson==='WGL1'||isWGL2)?[960,960]:isWGL3?[960,480]:
   isWGL19?[640,640]:isWGL7?[800,400]:isWGL10?[960,480]:legacyViewport?[800,600]:[960,720];

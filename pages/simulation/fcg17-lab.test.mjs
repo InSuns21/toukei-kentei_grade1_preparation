@@ -10,7 +10,7 @@ for(const N of [16,24,32])test('FCG17 editable MAC model N='+N,()=>{
   const q=initialCell(i,j,N),k=i+N*j;
   assert.ok(Math.abs(q.w-s.W[k])<1e-10);assert.ok(Math.abs(q.dye-s.dye[k])<1e-12);
  }
- for(let t=0;t<8;t++){a.advance();b.advance();c.advance();
+ for(let t=0;t<80;t++){a.advance();b.advance();c.advance();
   for(const s of [a.snapshot(),b.snapshot()]){assert.ok(s.divAfter<1e-6);assert.equal(s.wall,0);assert.ok(s.workError<1e-10);assert.ok(Number.isFinite(s.energy));}
   assert.deepEqual(a.snapshot().dye,c.snapshot().dye);
  }

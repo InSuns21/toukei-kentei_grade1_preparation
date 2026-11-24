@@ -23,7 +23,8 @@ export function expectedFCG17Samples(width,height,{grid=24,mode=0}={}){
   if(mode===0){t=byte(q.dye)/255;lo=[.04,.06,.09];hi=[.25,.88,1];}
   else if(mode===1){const z=byte(.5+q.w/20)/255;t=Math.abs(2*z-1);lo=[.12,.12,.12];hi=z<.5?[.25,.62,1]:[1,.54,.19];}
   else{t=byte(Math.hypot(q.u,q.v))/255;lo=[.04,.06,.09];hi=[1,.95,.7];}
-  out.push({label:(side?'強調あり':'強調なし')+' '+i+','+j,x,y,rgba:lo.map((z,k)=>byte(z+(hi[k]-z)*t)).concat(255)});
+  const shade=mode===1&&byte(.5+q.w/20)<127.5&&(x+y)%8<2?.65:1;
+  out.push({label:(side?'強調あり':'強調なし')+' '+i+','+j,x,y,rgba:lo.map((z,k)=>byte(shade*(z+(hi[k]-z)*t))).concat(255)});
  }return out;
 }
 export function compareFCG17Readback(samples,w,h,options={}){

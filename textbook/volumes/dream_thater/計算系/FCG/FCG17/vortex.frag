@@ -10,7 +10,10 @@ void main(){
  if(v_uv.y>=.2){
   vec3 q=texture(u_flow,vec2(v_uv.x,(v_uv.y-.2)/.8)).rgb;
   if(u_mode==0)col=mix(vec3(.04,.06,.09),vec3(.25,.88,1.),q.r);
-  else if(u_mode==1)col=mix(vec3(.12),q.g<.5?vec3(.25,.62,1.):vec3(1.,.54,.19),abs(2.*q.g-1.));
+  else if(u_mode==1){
+   col=mix(vec3(.12),q.g<.5?vec3(.25,.62,1.):vec3(1.,.54,.19),abs(2.*q.g-1.));
+   if(q.g<.5 && mod(floor(gl_FragCoord.x)+floor(gl_FragCoord.y),8.)<2.)col*=.65;
+  }
   else col=mix(vec3(.04,.06,.09),vec3(1.,.95,.7),q.b);
   if(abs(v_uv.x-.5)<.002)col=vec3(.8);
  }else{

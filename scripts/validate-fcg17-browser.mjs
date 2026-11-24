@@ -82,13 +82,13 @@ try {
   await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
   await cdp('Page.navigate',{url});
   await waitFor('document.getElementById("status")?.textContent==="実行できます"');
-  assert.deepEqual(await evaluate('([Number(document.querySelector("#width").value),Number(document.querySelector("#height").value)])'),[960,600]);
+  assert.deepEqual(await evaluate('([Number(document.querySelector("#width").value),Number(document.querySelector("#height").value)])'),[896,560]);
   const result=()=>evaluate('({source:document.getElementById("js-source").value,rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(c=>c.textContent)),logs:document.querySelector("#diagnostics").textContent,scene:document.querySelector("#scene-info").textContent,iframe:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
   const check=async()=>{
     const s=await result();
     assert.ok(s.rows.length>=2&&s.rows.every(r=>r[4]==='OK'),JSON.stringify(s.rows));
     assert.equal(s.iframe,'allow-scripts');
-    assert.match(s.logs,/GRID.*24×24/);
+    assert.match(s.logs,/GRID.*(?:16×16|24×24|32×32)/);
     return s;
   };
   const capture=async(name)=>{
@@ -130,6 +130,11 @@ try {
   await control('mode','2',/const mode=2;/);
   assert.notEqual(first,await capture('speed'));
   await control('mode','0',/const mode=0;/);
+  await control('grid','16',/const N=16;/);
+  await control('grid','24',/const N=24;/);
+  await evaluate('(()=>{const input=document.getElementById("fragment-source");input.value=input.value.replace("vec3(.25,.88,1.)","vec3(.125,.44,.5)");input.dispatchEvent(new Event("input",{bubbles:true}));})()');
+  await click('run');await waitFor('document.querySelector("#status")?.textContent.includes("編集コードを実行しました")');
+  assert.notEqual(first,await capture('edited-shader'));
   await cdp('Emulation.setDeviceMetricsOverride',{width:360,height:760,deviceScaleFactor:1,mobile:true});
   const narrow=await evaluate('({contentWidth:document.documentElement.scrollWidth,windowWidth:window.innerWidth,canvasWidth:document.querySelector("#canvas-slot iframe")?.getBoundingClientRect().width})');
   assert.ok(narrow.canvasWidth>50&&narrow.canvasWidth<=360,JSON.stringify(narrow));
