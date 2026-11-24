@@ -310,7 +310,7 @@ $L(s,\pi_f)L(s,\overline{\pi_g})$ の素数因子は単独の4つの根 $\alpha,
 
 <!-- formal-statement-start -->
 > **定理（球Whittaker関数の素数冪表示）**
-> 自明中心指標の既約許容不分岐表現で$\mathbb Q_p$ 上の $O=\mathbb Z_p$ で自明、$p^{-1}O$ で非自明な加法指標に対するWhittaker汎関数が存在するとする。非零の球固定ベクトルのWhittaker関数を $W(1)=1$ に規格化できる。Satakeパラメータを $\{A,B\}$ とすれば
+> $G=GL_2(\mathbb Q_p)$、$O=\mathbb Z_p$、$K=GL_2(O)$、$a_m=\operatorname{diag}(p^m,1)$ とする。自明中心指標を持つ $G$ の既約許容不分岐表現に対し、$O$ で自明、$p^{-1}O$ で非自明な加法指標についてのWhittaker汎関数が存在すると仮定する。非零の球固定ベクトルのWhittaker関数を $W(1)=1$ に規格化できる。Satakeパラメータを $\{A,B\}$ とすれば
 
 $$
 W(a_m)=
@@ -367,7 +367,7 @@ $U_{-1}=0,U_0=1$ より $U_1=A+B$、以降は $h_m(A,B)$ と同じ漸化式で�
 
 <!-- formal-statement-start -->
 > **定理（球Whittaker関数による局所積分）**
-> 自明中心指標を持つ二つの既約許容不分岐 $GL_2(\mathbb Q_p)$ 表現が同じ加法指標に対するWhittaker汎関数を持つとする。規格化球Whittaker関数を $W,W'$、各Satakeパラメータを $\{A,B\},\{C,D\}$ とする。十分大きな $\Re s$ では
+> $G=GL_2(\mathbb Q_p)$、$O=\mathbb Z_p$、$K=GL_2(O)$ とする。$N$ は上三角単冪群、$e_2=(0,1)$、商測度は $K$ と $N(O)$ の体積を各1としたHaar測度から定める。自明中心指標を持つ二つの既約許容不分岐 $G$ 表現が、$O$ で自明、$p^{-1}O$ で非自明な同じ加法指標についてのWhittaker汎関数を持つとする。規格化球Whittaker関数を $W,W'$、各Satakeパラメータを $\{A,B\},\{C,D\}$ とする。十分大きな $\Re s$ では
 
 $$
 Z_p(s)=\int_{N\backslash G}
