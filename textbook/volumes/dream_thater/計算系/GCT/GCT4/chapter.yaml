@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - GCT3
   - GRP1
+  - COMB9
 official_scope: []
 learning_objectives:
   - 出次数と入次数からサイクル被覆を判定できる

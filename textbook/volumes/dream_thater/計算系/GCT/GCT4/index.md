@@ -212,7 +212,7 @@ $$
 全ての被覆が一度ずつ加算され、二つの指数は各被覆の閉路数に一致しています。
 <!-- definition-example-end -->
 
-$[t^k]P_G(t)$ は多項式の $t^k$ の係数を表す記号とします。全辺の重みが1なら係数は該当する被覆の個数です。
+[COMB9の係数抽出](../../COMB/COMB9/index.md#def-comb9-formal-series)を実係数多項式に適用します。$[t^k]P_G(t)$ は $t^k$ の係数を表し、現れない次数の係数は0です。全辺の重みが1なら係数は該当する被覆の個数です。
 
 <a id="thm-gct4-hamilton-coefficient"></a>
 
@@ -339,7 +339,7 @@ $$
 (1\,2\,3),\qquad (1\,3\,2).
 $$
 
-どちらも全対応辺が実在し、[被覆と許容置換の全単射](#thm-gct4-cover-permutation)により被覆に対応します。積は各1なので [被覆多項式の定義](#def-gct4-cover-polynomial)から $P_G(t)=2t$ です。
+どちらも全対応辺が実在し、[被覆と許容置換の全単射](#thm-gct4-cover-permutation)により被覆に対応します。積は各1なので [閉路数別の被覆多項式の定義](#def-gct4-cover-polynomial)から $P_G(t)=2t$ です。
 <!-- solution-end -->
 
 #### A4. 零重みを持つ輪
@@ -352,7 +352,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-各頂点から出る辺が一本だけなので両方を選ぶしかありません。入次数も1であり、全二頂点の一つの輪を作ります。被覆もHamilton閉路も1個です。しかし重みの積は $0\cdot3=0$ なので、[被覆多項式の定義](#def-gct4-cover-polynomial)から $P_G(t)=0t=0$ です。零重みを許す場合、重み付き多項式から普通の個数は復元できません。
+各頂点から出る辺が一本だけなので両方を選ぶしかありません。入次数も1であり、全二頂点の一つの輪を作ります。被覆もHamilton閉路も1個です。しかし重みの積は $0\cdot3=0$ なので、[閉路数別の被覆多項式の定義](#def-gct4-cover-polynomial)から $P_G(t)=0t=0$ です。零重みを許す場合、重み付き多項式から普通の個数は復元できません。
 <!-- solution-end -->
 
 ### Level B：計数と構造
@@ -391,7 +391,7 @@ $$
 P_G(t)=2t+2t^2.
 $$
 
-[係数抽出の定理](#thm-gct4-hamilton-coefficient)により $\operatorname{per}(A)=P_G(1)=4$ で、Hamilton閉路は2個です。
+[有向Hamilton閉路の係数抽出](#thm-gct4-hamilton-coefficient)により $\operatorname{per}(A)=P_G(1)=4$ で、Hamilton閉路は2個です。
 <!-- solution-end -->
 
 #### B2. 五頂点の閉路数別計数
@@ -441,7 +441,7 @@ $$
 A^4=I_4,\qquad \operatorname{tr}(A^4)=4.
 $$
 
-これは [閉歩道の総数](../GCT1/index.md#cor-gct1-closed-walk)により始点を区別した四つの往復を数えます。一方、唯一の許容置換は $(1\,2)(3\,4)$ なので [被覆とパーマネントの一致](#thm-gct4-cover-permanent)より $\operatorname{per}(A)=1$ です。閉路数は2で、一つの輪で全頂点を訪問できないためHamilton閉路数は0です。
+これは [閉歩道の総数](../GCT1/index.md#cor-gct1-closed-walk)により始点を区別した四つの往復を数えます。一方、唯一の許容置換は $(1\,2)(3\,4)$ なので [サイクル被覆の重み付き総和とパーマネント](#thm-gct4-cover-permanent)より $\operatorname{per}(A)=1$ です。閉路数は2で、一つの輪で全頂点を訪問できないためHamilton閉路数は0です。
 <!-- solution-end -->
 
 ### Level C：重みと閉路数の情報を統合する
@@ -483,13 +483,13 @@ $$
 2\cdot4\cdot5\cdot x=40x.
 $$
 
-[被覆多項式の定義](#def-gct4-cover-polynomial)から
+[閉路数別の被覆多項式の定義](#def-gct4-cover-polynomial)から
 
 $$
 P_G(t)=210t^2+40xt.
 $$
 
-次に [係数抽出の定理](#thm-gct4-hamilton-coefficient)で $t=1$ とすると
+次に [有向Hamilton閉路の係数抽出](#thm-gct4-hamilton-coefficient)で $t=1$ とすると
 
 $$
 \operatorname{per}(W(x))=210+40x.
