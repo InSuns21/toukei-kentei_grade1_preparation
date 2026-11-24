@@ -68,7 +68,7 @@ $$
 これで複素線形性と括弧保存性を確認できました。四つの単項式は独立であり、次元は $4$ です。
 <!-- definition-example-end -->
 
-基底を $w_{a,b}=x^{m-a}y^a u^{n-b}v^b$ と書くと、[多項式模型の微分公式](../LREP6/index.md#thm-lrep6-polynomial-model)から
+基底を $w_{a,b}=x^{m-a}y^a u^{n-b}v^b$ と書くと、[多項式模型の既約性と群への積分](../LREP6/index.md#thm-lrep6-polynomial-model)から
 
 $$
 \begin{aligned}
@@ -220,7 +220,26 @@ $$
 
 $P_k(ST)=P_k(S)P_k(T)$ は代入の結合律から得られます。従って $D$ は群法則と単位元を保ち、逆元の作用も存在します。成分は行列要素とその共役の滑らかな関数です。
 
-[LREP10の合同作用](../LREP10/index.md#def-lrep10-sl2c-action)を微分すると $X\mapsto MX+XM^\dagger$ となります。[Pauli積公式](../LREP5/index.md#lem-lrep5-pauli-product)により $T_i=-i\sigma_i/2$ は回転 $R_i$、$U_i=\sigma_i/2$ は boost $B_i$ を誘導します。実際、$[T_i,\sigma_j]=\sum_k\varepsilon_{ijk}\sigma_k$、$U_i I+IU_i=\sigma_i$、$U_i\sigma_j+\sigma_j U_i=\delta_{ij}I$ です。これは [回転・boostの定義](../LREP9/index.md#def-lrep9-rotation-boost)の作用に一致します。
+[LREP10の合同作用](../LREP10/index.md#def-lrep10-sl2c-action)を微分すると $X\mapsto MX+XM^\dagger$ となります。回転とboostに対応する二種類の行列を取ります。
+
+$$
+T_i=-i\sigma_i/2,\qquad U_i=\sigma_i/2.
+$$
+
+[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)から、回転方向では
+
+$$
+[T_i,\sigma_j]=\sum_k\varepsilon_{ijk}\sigma_k
+$$
+
+となり、時間成分の単位行列とは可換です。boost方向では
+
+$$
+U_i I+IU_i=\sigma_i,\qquad
+U_i\sigma_j+\sigma_j U_i=\delta_{ij}I.
+$$
+
+これは [回転・boostの定義](../LREP9/index.md#def-lrep9-rotation-boost)の作用に一致するため、$T_i$ は $R_i$、$U_i$ は $B_i$ を誘導します。
 
 $Q(\exp(tM))=\exp(-tM^\dagger)$ なので右因子の微分は $M\mapsto -M^\dagger$ を経由します。$T_i^\dagger=-T_i$、$U_i^\dagger=U_i=iT_i$ です。従って
 
@@ -240,7 +259,7 @@ $$
 
 これは [二因子の分類定理](#thm-lrep11-classification)の $W_{m,n}$ の作用です。
 
-群の不変複素部分空間は微分で不変です。逆に微分の不変部分空間は指数の級数により各 $D(\exp M)=\exp(dD(M))$ で不変です（[群表現の微分定理](../LREP3/index.md#thm-lrep3-differentiation)）。指数写像は単位元近傍を覆い、その近傍で生成される部分群は開であり、他の剰余類も開なので閉でもあります。[SL(2,C)の道連結性](../LREP10/index.md#lem-lrep10-polar-connectivity)によりこの部分群は全群です。従って微分の不変部分空間は群でも不変です。複素部分空間であるため微分とその複素化の不変性は同値です。
+群の不変複素部分空間は微分で不変です。逆に微分の不変部分空間は指数の級数により各 $D(\exp M)=\exp(dD(M))$ で不変です（[群表現の微分定理](../LREP3/index.md#thm-lrep3-differentiation)）。[Lie 群の指数写像の局所可逆性](../../LIE/LIE2/index.md#ex-lie2-c01)により単位元近傍は指数の像で覆われ、その近傍で生成される部分群は開であり、他の剰余類も開なので閉でもあります。[SL(2,C)の道連結性](../LREP10/index.md#lem-lrep10-polar-connectivity)によりこの部分群は全群です。従って微分の不変部分空間は群でも不変です。複素部分空間であるため微分とその複素化の不変性は同値です。
 
 任意の既約群表現の複素化した微分は既約であり、[二因子の分類](#thm-lrep11-classification)からある $W_{m,n}$ と同値です。その同型はすべての微分作用を絡めるため指数作用も絡めます。近傍が全群を生成するので群表現を絡めます。逆に $D_{m,n}$ は微分が既約なので既約です。一意性は微分の分類に従います。$\square$
 <!-- proof-end -->
@@ -357,7 +376,7 @@ $$
 次元に関する帰納法で既約不変部分空間の直和に分解でき、その各成分は同じ正定値内積を保存するので自明です。Lorentz群の場合も [二重被覆](../LREP10/index.md#thm-lrep10-double-cover)で持ち上げて同じ結論を得て、被覆の全射性から元の作用も自明です。$\square$
 <!-- proof-end -->
 
-四元ベクトル作用がLorentz計量を保存することとは矛盾しません。計量には負の方向があり、正定値内積ではないからです。また有限次元の場の成分と、無限次元の1粒子状態空間は区別する必要があります。
+四元ベクトル作用がMinkowski計量を保存することとは矛盾しません。計量には負の方向があり、正定値内積ではないからです。また有限次元の場の成分と、無限次元の1粒子状態空間は区別する必要があります。
 
 ## 6. 演習
 
@@ -367,6 +386,7 @@ $$
 
 #### LREP11-A01 次元と降下
 - Level: A
+- ID: LREP11-A01
 
 $(j_L,j_R)=(1,1/2),(3/2,1/2),(0,2)$ の次元とLorentz群への降下の可否を求めよ。
 
@@ -384,6 +404,7 @@ $(j_L,j_R)=(1,1/2),(3/2,1/2),(0,2)$ の次元とLorentz群への降下の可否�
 
 #### LREP11-A02 左右の昇降
 - Level: A
+- ID: LREP11-A02
 
 $W_{2,1}$ の $xyv$ に $H_L,H_R,E_L,F_R$ を作用させよ。
 
@@ -406,6 +427,7 @@ $$
 
 #### LREP11-A03 逆共役転置の具体計算
 - Level: A
+- ID: LREP11-A03
 
 $S=\begin{pmatrix}1&z\\0&1\end{pmatrix}$、$z\in\mathbb C$ に対し $Q(S)$ を求め、行列式と逆元を確認せよ。
 
@@ -424,6 +446,7 @@ $$
 
 #### LREP11-A04 boostの固有値
 - Level: A
+- ID: LREP11-A04
 
 $D_{1,1}(S_t)$ の四つの固有値を基底 $xu,xv,yu,yv$ の順に求めよ。
 
@@ -444,6 +467,7 @@ $$
 
 #### LREP11-B01 二方向の最高ウェイト
 - Level: B
+- ID: LREP11-B01
 
 二因子の有限次元複素表現で非零の共通最高ウェイトベクトル $w$ を取る。すなわち $E_Lw=E_Rw=0$、$H_Lw=2w$、$H_Rw=w$ とする。このとき $f=F_L^2F_Rw$ が非零であることを上昇作用で確認し、その共通固有値を求めよ。
 
@@ -465,6 +489,7 @@ $$
 
 #### LREP11-B02 共通ウェイトの取り出し
 - Level: B
+- ID: LREP11-B02
 
 $W_{1,1}$ で $h=xu+2xv+3yu+4yv$ から $xv$ の成分だけを生成子の多項式で取り出せ。
 
@@ -482,6 +507,7 @@ $$
 
 #### LREP11-B03 回転制限での分解
 - Level: B
+- ID: LREP11-B03
 
 $D_{2,1}$ を $SU(2)$ に制限したときに現れる回転スピンと次元を求めよ。
 
@@ -499,6 +525,7 @@ $$
 
 #### LREP11-B04 右作用と四元行列の橋
 - Level: B
+- ID: LREP11-B04
 
 $S_t=\operatorname{diag}(e^{t/2},e^{-t/2})$ とし、$v=e_1,w=e_2$ について $\Phi(v\otimes w)$ と変換後の行列を二通りで求めよ。
 
@@ -518,6 +545,7 @@ $$
 
 #### LREP11-C01 六次元表現を二つの対称性から調べる
 - Level: C
+- ID: LREP11-C01
 
 $D_{1,2}$ の共通ウェイト、被覆核の作用、$z$ 軸方向boost の固有値、回転に制限した分解を求めよ。正定値内積が保存できるかも説明せよ。
 
