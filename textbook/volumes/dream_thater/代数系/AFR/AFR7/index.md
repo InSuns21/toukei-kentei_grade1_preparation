@@ -8,7 +8,15 @@
 
 以下、$\mathbb H$ は[上半平面](../../MF/MF1/index.md#def-mf1-upper-half-plane)、$\Gamma=SL_2(\mathbb Z)$ は[整数モジュラー群](../../MF/MF1/index.md#def-mf1-modular-group)です。
 
-$z=x+iy$（$x\in\mathbb R,\ y>0$）と書きます。$u$ は非零の[重さ0のMaassカスプ形式](../AFR3/index.md#def-afr3-maass-cusp)で、全ての[重さ0の素数Hecke作用素](../AFR6/index.md#def-afr6-hecke) $T_p$ の共通固有関数とします。すなわち各素数 $p$ について同じ $u$ が $T_pu=\eta_pu$ を満たし、$\eta_p$ はその作用素の固有値です。
+$z=x+iy$（$x\in\mathbb R,\ y>0$）と書きます。$u$ は非零の[重さ0のMaassカスプ形式](../AFR3/index.md#def-afr3-maass-cusp)で、全ての[重さ0の素数Hecke作用素](../AFR6/index.md#def-afr6-hecke)の共通固有関数とします。
+
+すなわち各素数 $p$ について同じ関数が固有方程式
+
+$$
+T_pu=\eta_pu
+$$
+
+を満たし、$\eta_p$ はその作用素 $T_p$ の固有値です。
 
 Laplace固有値 $\lambda$ は[エネルギー実現の自己共役性と非負性](../AFR3/index.md#thm-afr3-self-adjoint)から $\lambda\ge0$ です。
 
@@ -33,7 +41,21 @@ $$
 
 ここで $m,n$ は正整数、$p$ は素数です。$\gcd(m,n)=1$ は互いに素であることを表し、漸化式は整数 $r\ge1$ で使います。
 
-複素変数を $s=\sigma+i\tau$（$\sigma,\tau\in\mathbb R$）と書きます。正の実数 $a$ のべきは $a^s=\exp(s\log a)$ なので $|a^s|=a^\sigma$ です。係数を $n^{-s}$ で重み付けして足す形は、[Riemann ζ 関数](../../../解析系/CA/CA12/index.md#def-ca12-riemann-zeta)の係数1を $c(n)$ に取り替えたものです。このような $\sum a_n n^{-s}$ の形の級数をDirichlet級数と呼びます。実部 $\sigma=\Re s$ を大きくするほど大きな添字が抑えられます。
+複素変数を $s=\sigma+i\tau$（$\sigma,\tau\in\mathbb R$）と書きます。正の実数 $a$ の複素べきは
+
+$$
+a^s=\exp(s\log a),\qquad |a^s|=a^\sigma
+$$
+
+です。
+
+係数を $n^{-s}$ で重み付けして足す形は、[Riemann ζ 関数](../../../解析系/CA/CA12/index.md#def-ca12-riemann-zeta)の係数1を $c(n)$ に取り替えたものです。このような級数
+
+$$
+\sum_{n\ge1}a_n n^{-s}
+$$
+
+をDirichlet級数と呼びます。実部 $\sigma=\Re s$ を大きくするほど大きな添字が抑えられます。
 
 ただし、係数の漸化式だけでは無限級数の収束は分かりません。ここでは保型性から係数を評価します。
 
@@ -86,7 +108,15 @@ $$
 <a id="def-afr7-l-function"></a>
 <!-- formal-statement-start -->
 > **定義（Maass形式の保型L関数）**  
-> $u$ を全モジュラー群の非零の重さ0のMaassカスプ形式で、全素数Hecke作用素の共通固有関数とする。$\rho(n)$ を非零周波数展開の係数とし、$\rho(\epsilon)\ne0$ となる符号 $\epsilon\in\{1,-1\}$ を選ぶ。正整数 $n$ に対して $c(n)=\rho(\epsilon n)/\rho(\epsilon)$ と置く。複素数 $s$ の実部が $\Re s>3/2$ を満たすとき
+> $u$ を全モジュラー群の非零の重さ0のMaassカスプ形式で、全素数Hecke作用素の共通固有関数とする。
+>
+> $\rho(n)$ を非零周波数展開の係数とし、$\rho(\epsilon)\ne0$ となる符号 $\epsilon\in\{1,-1\}$ を選ぶ。正整数 $n$ に対して
+
+$$
+c(n)=\frac{\rho(\epsilon n)}{\rho(\epsilon)}
+$$
+
+> と置く。複素数 $s$ の実部が $\Re s>3/2$ を満たすとき
 
 $$
 L(s,u)=\sum_{n=1}^\infty c(n)n^{-s}
@@ -173,7 +203,9 @@ $P$ を $p\le B$ の全素数としたとき、右辺に含まれない整数は
 
 ## 3. 高さ方向のMellin積分
 
-正の変数の関数を $y^{s-1}$ で重み付けして積分するMellin変換は、引数の拡大 $y\mapsto ny$ を係数 $n^{-s}$ に変換します。これがFourier展開とDirichlet級数を結ぶ理由です。核の積分には[Gamma関数](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function) $\Gamma(w)$ を使います。引数を持つ $\Gamma(w)$ は、第1節で群を表した $\Gamma$ とは別の記号です。
+正の変数の関数を $y^{s-1}$ で重み付けして積分するMellin変換は、引数の拡大 $y\mapsto ny$ を係数 $n^{-s}$ に変換します。これがFourier展開とDirichlet級数を結ぶ理由です。
+
+核の積分には[Gamma関数](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function) $\Gamma(w)$ を使います。引数を持つこの記号は、第1節で群を表した $\Gamma$ とは別の記号です。
 
 片側の周波数だけを集めた高さ方向の関数を
 
@@ -221,7 +253,15 @@ $$
 =\frac2t e^{-t/2}.
 $$
 
-最後は $w=e^v$ と置きました。$dw/dv=e^v>0$ なので積分区間は $[1,\infty)$ に移り、$e^v\,dv=dw$ は置換積分の微分因子を表します。大きな $t$ では[Kの無限遠での漸近形](../AFR4/index.md#thm-afr4-k-asymptotic)により指数減衰します。よって $\sigma>3/2$ に対し $J_\sigma=\int_0^\infty |K_\nu(t)|t^{\sigma-1}dt<\infty$ です。
+最後は $w=e^v$ と置きました。$dw/dv=e^v>0$ なので積分区間は $[1,\infty)$ に移り、$e^v\,dv=dw$ は置換積分の微分因子を表します。
+
+大きな $t$ では[Kの無限遠での漸近形](../AFR4/index.md#thm-afr4-k-asymptotic)により指数減衰します。原点付近では被積分関数の絶対値が定数倍の $t^{\sigma-2}$ 以下です。よって $\sigma>3/2$ に対し
+
+$$
+J_\sigma=\int_0^\infty |K_\nu(t)|t^{\sigma-1}dt<\infty
+$$
+
+です。
 
 各項の絶対値を先に積分します。$n$ を固定して $t=2\pi ny$ と置けば、$dt/dy=2\pi n>0$ なので正の半直線を可逆に写します。置換積分の因子は
 
@@ -253,7 +293,23 @@ $$
 \int_0^\infty\int_0^\infty e^{-r-q}r^{A-1}q^{B-1}dr\,dq.
 $$
 
-絶対可積分性は $\Gamma(\Re A)\Gamma(\Re B)<\infty$ で確認できます。$r=(t/2)e^v,\ q=(t/2)e^{-v}$（$t>0,v\in\mathbb R$）と変換します。逆写像は $t=2\sqrt{rq},v=\frac12\log(r/q)$ です。この写像は両方向とも滑らかです。二変数の積分の面積因子を求めるため、[AFR2で用いた実Jacobian行列](../AFR2/index.md#prop-afr2-metric-invariance)と同様に、座標写像を $\Psi(t,v)=(r,q)$ と書き、入力 $(t,v)$ の順、出力 $(r,q)$ の順に微分を並べます。$t$ で微分するときは $v$ を固定し、$v$ で微分するときは $t$ を固定します。
+絶対可積分性は $\Gamma(\Re A)\Gamma(\Re B)<\infty$ で確認できます。変数を $(t,v)$（$t>0,v\in\mathbb R$）に取り替えます。座標写像を $\Psi(t,v)=(r,q)$ と書くと
+
+$$
+r=\frac t2 e^v,\qquad q=\frac t2 e^{-v}
+$$
+
+であり、逆写像は
+
+$$
+t=2\sqrt{rq},\qquad v=\frac12\log(r/q)
+$$
+
+です。この写像は両方向とも滑らかです。
+
+二変数の積分の面積因子を求めるため、[AFR2で用いた実Jacobian行列](../AFR2/index.md#prop-afr2-metric-invariance)と同様に、入力の順を $(t,v)$、出力の順を $(r,q)$ として微分を並べます。
+
+$t$ で微分するときは $v$ を固定し、$v$ で微分するときは $t$ を固定します。
 
 $$
 D\Psi(t,v)
