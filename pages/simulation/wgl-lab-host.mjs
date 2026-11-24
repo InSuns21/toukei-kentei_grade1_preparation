@@ -629,7 +629,7 @@ function isolatedRunner() {
         gl.readPixels(x, y, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, value);
         return {x, y, rgba: Array.from(value)};
       });
-      if (request.lesson === 'WGL7' && typeof hooks?.showObservation === 'function') {
+      if (['WGL7','FCG3'].includes(request.lesson) && typeof hooks?.showObservation === 'function') {
         hooks.showObservation();
       }
       
@@ -639,10 +639,11 @@ function isolatedRunner() {
         canvas.setAttribute('aria-label','物理格子の画素検査。クリックか矢印キー＋Enter');
         function pick(x,y,method){
           if(fcg2Hooks)hooks.select(x,y);
+          const raw=request.lesson==='FCG3'&&typeof hooks?.rawPick==='function'?hooks.rawPick(x,y):null;
           const pixel=new Uint8Array(4);
-          gl.readPixels(x,y,1,1,gl.RGBA,gl.UNSIGNED_BYTE,pixel);
+          if(!raw)gl.readPixels(x,y,1,1,gl.RGBA,gl.UNSIGNED_BYTE,pixel);
           send({...scope,type:request.lesson.toLowerCase()+'-pick',x,y,method,
-            time:fcg2Hooks?hooks.getTime():undefined,rgba:Array.from(pixel)});
+            time:fcg2Hooks?hooks.getTime():undefined,step:raw?.step,rgba:raw?.rgba??Array.from(pixel)});
         }
         canvas.addEventListener('click',event=>{
           const box=canvas.getBoundingClientRect();
@@ -916,7 +917,8 @@ window.addEventListener('message', event => {
     return;
   }
   if (isFCG8 && data.type === 'fcg8-pick') {
-    const {x,y,rgba}=data,{width,height,steps}=active.payload;
+    const {x,y,rgba}=data,{width,height}=active.payload;
+    const steps=Number.isInteger(data.step)&&data.step>=0&&data.step<=32?data.step:active.payload.steps;
     if(!Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||x>=width||y>=height||
       !Array.isArray(rgba)||rgba.length!==4||!rgba.every(v=>Number.isInteger(v)&&v>=0&&v<=255))return;
     const panel=Math.min(2,Math.floor(3*(x+0.5)/width));
@@ -1061,7 +1063,7 @@ window.addEventListener('message', event => {
     const unchanged=Object.keys(defaults).every(key=>active.payload[key]===defaults[key]);
     byId('result-note').textContent=c.panel+' 格子('+c.i+','+c.j+')、数値q='+
       q.toFixed(6)+'、解析='+e.toFixed(6)+'、GPU='+rgba.join('/')+
-      '、起動時CPU画素との差='+d+'階調（再生後は物理stepが異なるため参考値。初期の一致判定は上の6画素表で確認）';
+      '、step '+steps+'、CPUセル色との差='+d+'階調（GPUはセル表示で取得。任意の編集後は参考値）';
     return;
   }
   if (isFCG2 && data.type === 'fcg2-cursor') {
@@ -1901,7 +1903,7 @@ if (isFCG3) {
   document.title='FCG3 染料移流：編集・検算ラボ';
   document.querySelector('h1').textContent='FCG3 回転染料の移流と数値拡散';
   document.querySelector('#panel-conditions > p').textContent=
-    '実編集JSの32・64・96格子で回転染料を移流します。左=数値染料、右=5倍R8誤差map。格子を変えても物理時刻を揃え、濃度・誤差・GPU画素を比較します。';
+    '実編集JSの32・64・96格子で回転染料を移流します。左=数値染料（白破線は解析濃度0.5）、右=5倍R8絶対誤差。暗色から明色へ値が増えます。Gでセル表示、Pで再生・停止。';
   document.querySelector('#panel-conditions ol').innerHTML=
     '<li>step1で6画素の独立CPU予測とGPUを比較する。</li>'+
     '<li>1step・再生・一時停止・時刻0へ復帰、step32で一回転を確認する。</li>'+
