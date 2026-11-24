@@ -4,13 +4,13 @@
 
 前講までに、運動量を変えない変換が内部スピンやヘリシティをどう変えるかを調べました。しかし一粒子の波束には、異なる運動量の成分が同時に含まれます。任意のLorentz変換は一般に運動量を変えます。そこで各運動量の内部空間を標準運動量の内部空間と比較し、固定群の作用だけで波束全体の変換を組み立てます。
 
-[共通の符号規約](../../../../../dream-theater-lorentz-conventions.md)に従い、$c=\hbar=1$、$\eta=\operatorname{diag}(-1,1,1,1)$ とします。$p\cdot a=\eta(p,a)$ です。$\pi:SL(2,\mathbb C)\to SO^+(1,3)$ は[二重被覆](../LREP10/index.md#thm-lrep10-double-cover)とし、以下 $Ap$ は $\pi(A)p$ の略記です。
+[共通の符号規約](../../../../../dream-theater-lorentz-conventions.md)に従い、$c=\hbar=1$、$\eta=\operatorname{diag}(-1,1,1,1)$ とします。$p\cdot a=\eta(p,a)$ です。$\pi:SL(2,\mathbb C)\to SO^+(1,3)$ は[二重被覆](../LREP10/index.md#thm-lrep10-double-cover)とし、以下 $Ap$ は $\pi(A)p$ の略記です。四元ベクトルへの作用と $2\times2$ 複素行列の積を区別します。$I_2$ は被覆群の単位行列、$I$ は文脈に応じた恒等作用素です。
 
 ## 1. 運動量ごとの内部状態
 
 [未来質量殻](../LREP22/index.md#def-lrep22-mass-shell) $\mathcal O_m$ を固定します。空間運動量を $\boldsymbol q$、エネルギーを $E_{\boldsymbol q}=\sqrt{m^2+|\boldsymbol q|^2}$ とすると、$p=(E_{\boldsymbol q},\boldsymbol q)$ です。$m=0$ の場合は $\boldsymbol q=0$ を除きます。
 
-標準運動量は $m>0$ なら $k=(m,0,0,0)$、$m=0$ なら $k=(1,0,0,1)$ です。[運動量のlittle group](../LREP23/index.md#def-lrep23-little-group)の被覆側を
+[未来円錐のLorentz軌道](../LREP22/index.md#thm-lrep22-orbits)により質量殻は一つの軌道です。標準運動量は $m>0$ なら $k=(m,0,0,0)$、$m=0$ なら $k=(1,0,0,1)$ です。[運動量のlittle group](../LREP23/index.md#def-lrep23-little-group)の被覆側を
 
 $$
 K=\{R\in SL(2,\mathbb C):Rk=k\}
@@ -20,7 +20,7 @@ $$
 
 内部空間 $V$ は非零の可分複素Hilbert空間（可算個のベクトルの線形結合で稠密に近似できる空間）とします。$\mathcal U(V)$ は $V$ のユニタリ作用素の群です。$D:K\to\mathcal U(V)$ は群準同型で、各 $v\in V$ に対して $D(R)v$ が $R$ に関してノルム連続と仮定します。これは [強連続ユニタリ表現](../LREP21/index.md#def-lrep21-unitary-representation) と同じ連続性の条件を固定群に課したものです。
 
-一つの運動量での内部成分を $V$ のベクトルで表し、それを質量殻上で動かすと波束になります。ノルムは全運動量について内部ノルムの二乗を積分します。
+一つの運動量での内部成分を $V$ のベクトルで表し、それを質量殻上で動かすと波束になります。[質量殻測度](../LREP22/index.md#def-lrep22-shell-measure) $\mu_m$ は空間運動量の体積要素 $d^3q=dq_1\,dq_2\,dq_3$ に密度 $1/(2E_{\boldsymbol q})$ を掛けた測度です。ノルムは全運動量について内部ノルムの二乗を積分します。測度零の集合上でだけ異なる関数は同じ波束とみなします。以下 $1_S$ は集合 $S$ 上で1、それ以外で0となる指示関数です。
 
 <a id="def-lrep25-packet-space"></a>
 
@@ -42,7 +42,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep25-packet-space -->
-**定義の確認**。 $m=0$、$V=\mathbb C^2$ とし、球殻 $S=\{p:1<|\boldsymbol q|<2\}$ の指示関数を使って $f(p)=c\,1_S(p)(1,i)^{\mathsf T}/\sqrt2$ とします。球殻はBorel集合なのでこの関数は可測です。内部ベクトルのノルムは1であり、球座標の体積要素 $r^2dr\,d\Omega$ から
+**定義の確認**。 $m=0$、$V=\mathbb C^2$ とし、球殻 $S=\{p:1<|\boldsymbol q|<2\}$ の指示関数を使って $f(p)=c\,1_S(p)(1,i)^{\mathsf T}/\sqrt2$ とします。球殻はBorel集合なのでこの関数は可測です。ここで $c$ は複素定数（光速とは別の記号）です。内部ベクトルは標準正規直交基底での成分表示なので、ノルム二乗は $(1+|i|^2)/2=1$ です。$r=|\boldsymbol q|$、$d\Omega$ は単位球面の面積要素で、その全積分は $4\pi$ です。球座標の体積要素 $r^2dr\,d\Omega$ と $E_{\boldsymbol q}=r$ から
 
 $$
 \mu_0(S)=4\pi\int_1^2\frac{r^2}{2r}\,dr=3\pi.
@@ -51,11 +51,17 @@ $$
 従って $\|f\|^2=3\pi|c|^2$ は有限で、$c=1/\sqrt{3\pi}$ なら規格化されています。
 <!-- definition-example-end -->
 
-可分性により、有限個の固定ベクトルにスカラー連続コンパクト台関数を掛けた有限和は $\mathcal H_m$ に稠密です。実際、二乗可積分関数を有限値の単関数で近似し、各指示関数を測度の正則性でコンパクト集合と開集合の間から連続関数で近似できます。この測度は空間運動量座標で正の連続密度を持ち、コンパクト集合上で有限です。
+可分性により、有限個の固定ベクトルにスカラー連続コンパクト台関数を掛けた有限和は $\mathcal H_m$ に稠密です。実際、二乗可積分関数を有限測度の集合に台を持つ有限値の単関数で近似します。質量殻測度は空間運動量座標で正の連続密度を持ち、コンパクト集合上で有限です。測度の正則性により、有限測度の集合 $S$ と任意の $\delta>0$ に対してコンパクト集合 $C\subset S$ と開集合 $O\supset S$ を $\mu_m(O\setminus C)<\delta$ となるように取れます。$C$ の近傍を $O$ 内の相対コンパクトな開集合に縮め、$C$ 上で1、$O$ の外で0、値域が $[0,1]$ の連続コンパクト台関数 $\varphi$ を選べば
+
+$$
+\|1_S-\varphi\|_{L^2}^2\le\mu_m(O\setminus C)<\delta.
+$$
+
+単関数の各項 $1_Sv$ の近似誤差は $\|v\|_V\sqrt\delta$ 以下なので、有限和についても三角不等式で誤差を任意に小さくできます。
 
 ## 2. 標準点と各運動量を結ぶ
 
-各運動量へ標準点を移す行列を一つずつ選びます。この選択を断面と呼びます。光的運動量の場合は方向によって回転軸を選ぶため、全点で連続であることは要求せず、可測でほとんど至る所連続なものを使います。
+各運動量へ標準点を移す行列を一つずつ選びます。この選択を断面と呼びます。光的運動量の場合は方向によって回転軸を選ぶため、全点で連続であることは要求せず、まずBorel可測な選択を考えます。強連続性を証明する際には、断面がほとんど至る所連続であるという追加条件を使います。
 
 <a id="def-lrep25-section"></a>
 
@@ -71,7 +77,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep25-section -->
-**定義の確認**。 正質量では[正質量の標準boost](../LREP23/index.md#def-lrep23-standard-boost)を選べます。
+**定義の確認**。 正質量では[正質量の標準boost](../LREP23/index.md#def-lrep23-standard-boost)を選べます。$\boldsymbol q\cdot\boldsymbol\sigma=\sum_{j=1}^3q_j\sigma_j$ は[Pauli行列による表示](../LREP5/index.md#def-lrep5-pauli-model)です。行列が断面の値になるためには、行列式1と標準点の像の条件を確かめます。
 
 $$
 s(p)=\frac{(E_{\boldsymbol q}+m)I_2+\boldsymbol q\cdot\boldsymbol\sigma}{\sqrt{2m(E_{\boldsymbol q}+m)}}.
@@ -96,7 +102,7 @@ $$
 s(p)=u(\boldsymbol n)\operatorname{diag}(\sqrt r,1/\sqrt r).
 $$
 
-[エルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model)で $H(k)=\operatorname{diag}(2,0)$ です。最初に対角行列で合同変換すると $\operatorname{diag}(2r,0)$ になります。$u$ の第1列を $v$ とすれば、次の合同積は $2rvv^\dagger$ です。北側の公式では
+[エルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model)で $H(k)=\operatorname{diag}(2,0)$ です。共役転置を $\dagger$ と書きます。[四元ベクトルへの合同作用](../LREP10/index.md#def-lrep10-sl2c-action)では $H(s(p)k)=s(p)H(k)s(p)^\dagger$ であり、$H$ は単射です。従ってこの合同積が $H(p)$ になることが断面条件の判定になります。最初に対角行列で合同変換すると $\operatorname{diag}(2r,0)$ になります。$u$ の第1列を $v$ とすれば、次の合同積は $2rvv^\dagger$ です。北側の公式では
 
 $$
 2rvv^\dagger
@@ -168,10 +174,10 @@ $$
 <!-- proof-start -->
 ### 証明
 
-断面の条件から
+[断面の固定群補正](#def-lrep25-little-cocycle)と断面の条件から
 
 $$
-w_s(A,p)k=s(Ap)^{-1}Ap=k.
+w_s(A,p)k=s(Ap)^{-1}A(s(p)k)=s(Ap)^{-1}Ap=k.
 $$
 
 三つの行列はすべて行列式1なので $w_s(A,p)\in K$ です。$A=I$ では $s(p)^{-1}s(p)=I$ です。また
@@ -190,7 +196,7 @@ $$
 
 ## 4. 波束上のPoincare作用
 
-出力側の運動量を $p$ とすると、入力側の運動量は $A^{-1}p$ です。その点から出発する固定群補正を用います。時空並進は運動量ごとに位相を掛けます。
+[被覆Poincare群](../LREP21/index.md#def-lrep21-covered-poincare)の元を $(a,A)$ と書きます。$a\in\mathbb R^4$ は時空並進、$A\in SL(2,\mathbb C)$ はLorentz変換の持ち上げです。出力側の運動量を $p$ とすると、入力側の運動量は $A^{-1}p$ です。その点から出発する固定群補正を用います。時空並進は運動量ごとに位相を掛けます。
 
 <a id="def-lrep25-induced"></a>
 
@@ -207,7 +213,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep25-induced -->
-**定義の確認**。 $m>0$、$V=\mathbb C$、$D(R)=1$ とすると、任意の断面に対し内部因子は1です。例えば $a=(t,0,0,0)$、$A=I$ では
+**定義の確認**。 $m>0$、$V=\mathbb C$、$D(R)=1$ とすると、これは群の積を保ち、ノルムを保つ全射作用で、定数写像なので強連続です。[固定群補正の合成則](#thm-lrep25-cocycle)により補正は $K$ に属するため、任意の断面に対し内部因子は1です。例えば $a=(t,0,0,0)$、$A=I$ では
 
 $$
 (U_s(a,I)f)(p)=e^{-iE_{\boldsymbol q}t}f(p).
@@ -238,7 +244,7 @@ $$
 \le\|v_n-v\|+\|(D(R_n)-D(R))v\|\to0.
 $$
 
-従って誘導作用の右辺は可測です。位相と $D$ はノルムを保ち、[質量殻測度のLorentz不変性](../LREP22/index.md#thm-lrep22-measure-invariance)により変数 $q=A^{-1}p$ で
+従って[質量殻上の誘導作用](#def-lrep25-induced)の右辺は可測です。各 $p$ での内部作用も入力の取り替えも、波束について線形です。位相と $D$ はノルムを保ち、[質量殻測度のLorentz不変性](../LREP22/index.md#thm-lrep22-measure-invariance)により変数 $q=A^{-1}p$ で
 
 $$
 \begin{aligned}
@@ -287,7 +293,18 @@ $$
 w_s(A_n,A_n^{-1}p)=s(p)^{-1}A_ns(A_n^{-1}p)\to I.
 $$
 
-よって位相の連続性、$D$ の強連続性、$f$ の連続性から $U_s(a_n,A_n)f(p)\to f(p)$ です。$f$ の台をコンパクト集合 $C$ とすると、全 $A_n C$ と $C$ は一つのコンパクト集合 $C'$ に含まれます。なぜなら $\{I,A_1,A_2,\ldots\}$ がコンパクトで、その集合と $C$ の積の連続像がコンパクトだからです。
+$w_n=w_s(A_n,A_n^{-1}p)$、$v_n=f(A_n^{-1}p)$ と置くと、$w_n\to I_2$、$v_n\to f(p)$ です。点ごとの誤差は
+
+$$
+\begin{aligned}
+\|U_s(a_n,A_n)f(p)-f(p)\|_V
+&\le \|v_n-f(p)\|_V\\
+&\quad+\|(D(w_n)-I)f(p)\|_V\\
+&\quad+|e^{ip\cdot a_n}-1|\,\|f(p)\|_V
+\end{aligned}
+$$
+
+以下です。第2項は固定したベクトル $f(p)$ に対する強連続性により零に収束します。他の2項も零に収束するため、$U_s(a_n,A_n)f(p)\to f(p)$ です。$f$ の台をコンパクト集合 $C$ とすると、全 $A_n C$ と $C$ は一つのコンパクト集合 $C'$ に含まれます。なぜなら $\{I,A_1,A_2,\ldots\}$ がコンパクトで、その集合と $C$ の積の連続像がコンパクトだからです。
 
 $$
 \|U_s(a_n,A_n)f(p)-f(p)\|_V^2
@@ -301,12 +318,19 @@ $$
 \le2\varepsilon+\|U_s(a_n,A_n)f-f\|.
 $$
 
-上極限は $2\varepsilon$ 以下で、$\varepsilon>0$ は任意です。任意の群元への収束は恒等元への収束に帰着できます。以上より[強連続ユニタリ表現](../LREP21/index.md#def-lrep21-unitary-representation)の条件がすべて成立します。$\square$
+上極限は $2\varepsilon$ 以下で、$\varepsilon>0$ は任意です。任意の群元 $g$ へ $g_n\to g$ と収束する場合には $g^{-1}g_n\to e$ です。群法則とユニタリ性により
+
+$$
+\|U_s(g_n)f-U_s(g)f\|
+=\|U_s(g^{-1}g_n)f-f\|\to0.
+$$
+
+被覆Poincare群は有限次元Lie群なので列による検査で連続性が従います。以上より[強連続ユニタリ表現](../LREP21/index.md#def-lrep21-unitary-representation)の条件がすべて成立します。$\square$
 <!-- proof-end -->
 
 ## 5. 正エネルギーと質量
 
-波束の運動量がどの集合に入るかを測るには、その集合の指示関数を掛ければよいことに注目します。
+波束の運動量がどの集合に入るかを測るには、その集合の指示関数を掛ければよいことに注目します。[射影値測度](../../../解析系/QM/QM3/index.md#def-qm3-pvm)はBorel集合を直交射影へ対応させ、全空間を恒等作用素に、互いに素な可算個の集合の和を強収束する射影の和に移す測度です。ここでは[並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum)と同じく、四次元運動量のBorel集合についてこの条件を使います。未来閉光円錐 $\overline V_+=\{p:p^0\ge|\boldsymbol q|\}$ に射影値測度が集中することが[正エネルギー表現](../LREP21/index.md#def-lrep21-positive-energy)の条件です。
 
 <a id="thm-lrep25-energy"></a>
 
@@ -326,13 +350,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$F(B)$ は指示関数の実数値性から自己共役、$1_B^2=1_B$ から射影です。$F(\mathbb R^4)=I$、$F(B)F(C)=F(B\cap C)$ も指示関数の積で成立します。互いに素な $B_j$ に対して有限和と可算和の差のノルム二乗は
+$F(B)$ は線形な乗算作用素で、$\|F(B)f\|\le\|f\|$ なので全波束空間上で良定義です。指示関数の実数値性から自己共役、$1_B^2=1_B$ から射影です。$F(\mathbb R^4)=I$、$F(B)F(C)=F(B\cap C)$ も指示関数の積で成立します。互いに素な $B_j$ に対して有限和と可算和の差のノルム二乗は
 
 $$
 \int_{\mathcal O_m\cap\bigcup_{j>N}B_j}\|f(p)\|_V^2\,d\mu_m(p).
 $$
 
-尾部の指示関数が点ごとに零へ収束し、$\|f(p)\|_V^2$ が積分可能なので、この量は零へ収束します。従って各波束に対し射影の有限和がノルムで可算和へ収束します。これが射影値測度に要求される可算加法性です。
+尾部の指示関数が点ごとに零へ収束し、$\|f(p)\|_V^2$ が積分可能なので、[Lebesgueの優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)でこの量は零へ収束します。従って各波束に対し射影の有限和がノルムで可算和へ収束します。これが射影値測度に要求される可算加法性です。
 
 この測度による有界可測関数の積分は、単関数の場合の指示関数の線形結合から、一様に有界な点ごとの近似と[Lebesgueの優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)によって関数の乗算作用に一致します。特に
 
@@ -352,7 +376,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（断面変更による誘導表現の同値性）**
-> $s,s'$ を同じ質量殻と標準点についてのほとんど至る所連続な運動量断面とする。同じ固定群表現 $D$ を使用する。
+> $s,s'$ を同じ質量殻と標準点についてのほとんど至る所連続な運動量断面とする。同じ固定群の強連続ユニタリ表現 $D:K\to\mathcal U(V)$ を使用する。
 > このとき $r(p)=s(p)^{-1}s'(p)$ は固定群に属し、
 
 $$
@@ -373,7 +397,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$s'(p)k=p$、$s(p)^{-1}p=k$ より $r(p)k=k$ で、行列式は1です。従って $r(p)\in K$ です。$r$ は可測なので $J$ は可測な点ごとのユニタリ作用であり、ノルムを保存し、逆は $D(r(p))$ の乗算です。
+$s'(p)k=p$、$s(p)^{-1}p=k$ より $r(p)k=k$ で、行列式は1です。従って $r(p)\in K$ です。$r$ は可測で、$D(R)v$ の同時連続性は[誘導作用のユニタリ性と強連続性](#thm-lrep25-unitary)の証明で確認しました。従って $J$ は可測な点ごとのユニタリ作用であり、線形でノルムを保存し、零ノルムの差を零ノルムへ移すので同値類上で良定義です。逆は $D(r(p))$ の乗算です。
 
 $s'(p)=s(p)r(p)$ を代入すると
 
@@ -538,7 +562,7 @@ $k=(1,0,0,1)$、$p=rk$、$r>0$、$A=\operatorname{diag}(e^{\chi/2},e^{-\chi/2})$
 <!-- solution-start -->
 **詳細解答**
 
-エルミート行列は $H(p)=\operatorname{diag}(2r,0)$ です。$AH(p)A^\dagger=\operatorname{diag}(2re^\chi,0)$ から $Ap=re^\chi k$ です。方向は北極のままなので
+[四元ベクトルへの合同作用](../LREP10/index.md#def-lrep10-sl2c-action)を使います。エルミート行列は $H(p)=\operatorname{diag}(2r,0)$ です。$AH(p)A^\dagger=\operatorname{diag}(2re^\chi,0)$ から $Ap=re^\chi k$ です。方向は北極のままなので
 
 $$
 s(Ap)=\operatorname{diag}(\sqrt r e^{\chi/2},e^{-\chi/2}/\sqrt r)=As(p).
@@ -553,7 +577,7 @@ $$
 - Level: B
 - ID: LREP25-B02
 
-質量零の内部表現 $D_h$ について、誘導作用が四次元側のPoincare群へ降りる条件を求めよ。
+質量零の[ヘリシティの内部表現](../LREP24/index.md#def-lrep24-helicity-rep) $D_h$（$h\in\frac12\mathbb Z$）について、誘導作用が四次元側のPoincare群へ降りる条件を求めよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -566,7 +590,7 @@ $$
 
 [ヘリシティの内部表現](../LREP24/index.md#def-lrep24-helicity-rep)では $-I_2=R(2\pi)$ に対する位相は $e^{-2\pi ih}$ です。従って $U_s(0,-I_2)=e^{-2\pi ih}I$ です。
 
-[被覆Poincare群の二重被覆](../LREP21/index.md#prop-lrep21-cover)の核は $(0,\pm I_2)$ です。核の元が恒等作用なら同じ像を持つ二元は同じ作用を持ち、逆に四次元側の表現なら核は恒等作用です。よって降下条件は $e^{-2\pi ih}=1$、すなわち $h\in\mathbb Z$ です。
+[被覆Poincare群の二重被覆](../LREP21/index.md#prop-lrep21-cover)の核は $(0,\pm I_2)$ です。核の元が恒等作用なら同じ像を持つ二元は同じ作用を持ち、逆に四次元側の表現なら核は恒等作用です。よって降下条件は $e^{-2\pi ih}=1$、すなわち $h\in\mathbb Z$ です。降りた表現も強連続です。二重被覆の局所逆枝で四次元側の群元を連続に持ち上げれば、元の強連続性を適用できるからです。
 <!-- solution-end -->
 
 <a id="ex-lrep25-b03"></a>
@@ -601,18 +625,35 @@ $$
 - Level: B
 - ID: LREP25-B04
 
-質量零のスカラー波束で、ノルムを誤って $d^3q$ で定めたとする。$z$ 方向のラピディティ $\chi>0$ のboostのもとで、$q_z>0$ に台を持つ非零波束のノルムが増えることを示せ。
+質量零のスカラー波束で、ノルムを誤って $d^3q$ で定めたとする。$z$ 方向のラピディティ $\chi>0$ のboostのもとで、$q_z>0$ の外でほとんど至る所零であり、$0<\int|f|^2d^3q<\infty$ を満たす波束のノルムが増えることを示せ。
 
 <!-- solution-start -->
 **詳細解答**
 
-入力の運動量を $(r,x,y,z)$ とします。出力は $x'=x,y'=y,z'=\cosh\chi\,z+\sinh\chi\,r$ です。$r=\sqrt{x^2+y^2+z^2}$ なので空間座標のJacobianは
+入力の四元運動量を $(r,x,y,z)$ とします。ここで $(x,y,z)=\boldsymbol q$ は空間運動量の座標です。[質量殻測度のLorentz不変性](../LREP22/index.md#thm-lrep22-measure-invariance)の証明と同じboostに $m=0$ を代入すると
+
+$$
+x'=x,\qquad y'=y,\qquad z'=\cosh\chi\,z+\sinh\chi\,r.
+$$
+
+ラピディティ $\chi$ と $x,y$ を固定し、$z$ だけを微分します。原点を除くので $r=\sqrt{x^2+y^2+z^2}>0$ であり、連鎖律から $\partial r/\partial z=2z/(2r)=z/r$ です。従って
 
 $$
 \frac{\partial z'}{\partial z}=\cosh\chi+\sinh\chi\,\frac z r.
 $$
 
-他の二行は恒等だから、これが行列式です。$z>0$ では $\cosh\chi>1$ と合わせて1より大です。変数変換すると
+空間座標のJacobian行列は、$C=\cosh\chi$、$S=\sinh\chi$ と略記すると
+
+$$
+\frac{\partial(x',y',z')}{\partial(x,y,z)}
+=\begin{pmatrix}
+1&0&0\\
+0&1&0\\
+Sx/r&Sy/r&C+Sz/r
+\end{pmatrix}.
+$$
+
+下三角行列なので行列式は $C+Sz/r$ です。$|z/r|\le1$ から $e^{-\chi}\le C+Sz/r\le e^\chi$ で、正なので絶対値はそのままです。逆boostで逆写像が得られ、変数変換が可能です。$z>0$ では行列式は $C>1$ よりさらに大きくなります。変数変換すると
 
 $$
 \|U_s(0,A)f\|_{d^3q}^2
@@ -621,7 +662,7 @@ $$
 >\|f\|_{d^3q}^2.
 $$
 
-積分は有限で、非零波束なので不等式は厳密です。[誘導作用のユニタリ性と強連続性](#thm-lrep25-unitary)で使った測度不変性が欠けています。
+行列式の上界 $e^\chi$ と仮定した二乗可積分性から左辺は有限です。$f$ が零でない集合は正測度で、その上で行列式が1より大きいため不等式は厳密です。[誘導作用のユニタリ性と強連続性](#thm-lrep25-unitary)で使った測度不変性が欠けています。
 <!-- solution-end -->
 
 ### Level C
@@ -632,7 +673,7 @@ $$
 - Level: C
 - ID: LREP25-C01
 
-質量零、$h=1/2$ の内部表現を考える。第2節の光的断面を $s$ とし、実数値連続関数 $\beta(p)=p^0$ を使って $s'(p)=s(p)R(\beta(p))$ とする。新しい固定群補正と波束の変換式を求め、断面変更後も並進スペクトルが変わらないことを示せ。
+質量零、$h=1/2$ の内部表現を考える。第2節の光的断面を $s$ とし、[光的標準運動量の被覆固定群](../LREP24/index.md#thm-lrep24-null-stabilizer)の回転 $R(\theta)=\operatorname{diag}(e^{-i\theta/2},e^{i\theta/2})$ と実数値連続関数 $\beta(p)=p^0$ を使って $s'(p)=s(p)R(\beta(p))$ とする。新しい固定群補正と波束の変換式を求め、断面変更後も並進スペクトルが変わらないことを示せ。
 
 <!-- solution-start -->
 **詳細解答**
