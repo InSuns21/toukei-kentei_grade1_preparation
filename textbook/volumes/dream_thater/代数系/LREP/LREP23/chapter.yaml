@@ -14,7 +14,7 @@ learning_objectives:
 definitions:
   - { id: LREP23-DEF-01, name: 運動量のlittle group }
   - { id: LREP23-DEF-02, name: 正質量の標準boost }
-  - { id: LREP23-DEF-03, name: Wigner回転 }
+  - { id: LREP23-DEF-03, name: 正質量のWigner回転 }
 theorems:
   - { id: LREP23-THM-01, name: 正質量の静止安定化群 }
   - { id: LREP23-THM-02, name: 標準boostの存在と一意性 }
