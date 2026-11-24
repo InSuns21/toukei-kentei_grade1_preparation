@@ -6,7 +6,7 @@
 
 ## 1. 原点も変える時空の対称性
 
-[共通規約](../../../../../dream-theater-lorentz-conventions.md)に従い、$c=\hbar=1$、$\eta=\operatorname{diag}(-1,1,1,1)$ とします。時空ベクトル $x=(t,\boldsymbol x)$、並進ベクトル $a=(a^0,\boldsymbol a)$ に対し、内積を $p\cdot a=-p^0a^0+\boldsymbol p\cdot\boldsymbol a$ と書きます。$L=SO^+(1,3)$ は恒等変換と連結なLorentz群であり、未来向きの時間的・光的ベクトルの向きを保ちます。
+[共通規約](../../../../../dream-theater-lorentz-conventions.md)に従い、$c=\hbar=1$、$\eta=\operatorname{diag}(-1,1,1,1)$ とします。時空ベクトル $x=(t,\boldsymbol x)$、並進ベクトル $a=(a^0,\boldsymbol a)$ に対し、内積を $p\cdot a=-p^0a^0+\boldsymbol p\cdot\boldsymbol a$ と書きます。$L=SO^+(1,3)$ は[Lorentz群の単位元成分](../LREP9/index.md#def-lrep9-lorentz-group)であり、未来向きの時間的・光的ベクトルの向きを保ちます。
 
 原点を保つ $x\mapsto\Lambda x$ だけでなく、原点を $a$ に移す変換 $x\mapsto a+\Lambda x$ も考えます。先に $b+\Gamma x$ を作用させると $a+\Lambda b+\Lambda\Gamma x$ となります。第二の並進 $b$ が $\Lambda$ で変換されることが直積との違いです。このように一方の群が他方の群に自己同型で作用する積を半直積と呼びます。
 
@@ -92,7 +92,7 @@ $$
 
 ## 3. 状態を動かすユニタリ作用
 
-場の有限次元表現は一般に通常の正定値内積を保ちません。粒子の状態では確率の総和が保たれる必要があるので、複素Hilbert空間 $\mathcal H$ の内積を保つ全射線形写像、すなわちユニタリ作用素を用います。また群の元を少し変えたとき、各状態ベクトルの変化がノルムで小さくなることを要求します。
+場の有限次元表現は一般に通常の正定値内積を保ちません。粒子の状態では確率の総和が保たれる必要があるので、複素Hilbert空間 $\mathcal H$ の内積を保つ全射線形写像、すなわちユニタリ作用素を用います。その全体を合成に関する群 $\mathcal U(\mathcal H)$ と書きます。また群の元を少し変えたとき、各状態ベクトルの変化がノルムで小さくなることを要求します。
 
 <a id="def-lrep21-unitary-representation"></a>
 
@@ -164,7 +164,7 @@ $$
 
 各 $t\mapsto T(te_\mu)$ は強連続な1パラメータユニタリ群です。[Stone の定理](../../../解析系/QM/QM7/index.md#thm-qm7-stone)から一意な自己共役作用素を得ます。空間成分ではStoneの通常の $e^{-itH}$ の生成作用素の負を $P^j$ として採用します。各 $\mu$ のスペクトル測度を $F_\mu$ とします。
 
-任意の $s,t$ と $\mu,\nu$ で $T(se_\mu)T(te_\nu)=T(te_\nu)T(se_\mu)$。固定した $T(se_\mu)$ で $P^\nu$ をユニタリ共役しても、生成する1パラメータ群は同じです。Stoneの一意性より $T(se_\mu)P^\nu T(se_\mu)^{-1}=P^\nu$（定義域も共役されます）。[非有界自己共役作用素のスペクトル定理](../../../解析系/QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral)の一意性により $T(se_\mu)$ は $F_\nu(B)$ と可換です。従って反射 $I-2F_\nu(B)$ も全ての $T(se_\mu)$ と可換です。この反射はユニタリなので、再度Stoneとスペクトル定理の一意性を適用すると $I-2F_\nu(B)$ は $F_\mu(C)$ と可換。ゆえに全ての $F_\nu(B)$ と $F_\mu(C)$ が可換です。
+任意の $s,t$ と $\mu,\nu$ で $T(se_\mu)T(te_\nu)=T(te_\nu)T(se_\mu)$。固定した $T(se_\mu)$ で $P^\nu$ をユニタリ共役しても、生成する1パラメータ群は同じです。[Stone の定理](../../../解析系/QM/QM7/index.md#thm-qm7-stone)の一意性より $T(se_\mu)P^\nu T(se_\mu)^{-1}=P^\nu$（定義域も共役されます）。[非有界自己共役作用素のスペクトル定理](../../../解析系/QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral)の一意性により $T(se_\mu)$ は $F_\nu(B)$ と可換です。従って反射 $I-2F_\nu(B)$ も全ての $T(se_\mu)$ と可換です。この反射はユニタリなので、再度 [Stone の定理](../../../解析系/QM/QM7/index.md#thm-qm7-stone) と [スペクトル定理](../../../解析系/QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral) の一意性を適用すると $I-2F_\nu(B)$ は $F_\mu(C)$ と可換。ゆえに全ての $F_\nu(B)$ と $F_\mu(C)$ が可換です。
 
 [Cayley変換](../../../解析系/QM/QM6/index.md#def-qm6-cayley-transform)を使い、
 
@@ -175,9 +175,9 @@ $$
 
 と置きます。積分を有界単関数で近似すると、上の射影の可換性から $C_\mu$ と $C_\nu,C_\nu^*$ は可換です。$C_\mu$ はユニタリで $1$ の固有ベクトルは存在しません。実際 $I-C_\mu=2i(P^\mu+iI)^{-1}$ の核は零です。
 
-四つの $C_\mu$ と随伴と $I$ が生成するノルム閉部分環は可換な単位的 $C^*$ 環です。[可換 Gelfand--Naimark 定理](../../../解析系/OA/OA4/index.md#thm-oa4-commutative-gelfand-naimark)を適用すると $C(K)$ と同型になります。ここで $K$ はそのcharacter空間（非零の複素数値代数準同型全体）です。各characterは四つの $C_\mu$ の値で決まります。値は単位円上にあるので、$K$ は四つの単位円の直積のコンパクト部分集合として同一視でき、$C_\mu$ は座標関数 $z_\mu$ に対応します。
+四つの $C_\mu$ と随伴と $I$ が生成するノルム閉部分環は可換な単位的 $C^*$ 環です。[可換 Gelfand--Naimark 定理](../../../解析系/OA/OA4/index.md#thm-oa4-commutative-gelfand-naimark)を適用すると $C(K)$ と同型になります。ここで $K$ はそのcharacter空間（非零の複素数値代数準同型全体）です。各characterは四つの $C_\mu$ とその随伴の多項式上の値で決まり、連続性によりそのノルム閉包でも決まります。$C_\mu^*C_\mu=I$ なので各characterの値は単位円上にあり、$K$ は四つの単位円の直積のコンパクト部分集合として同一視でき、$C_\mu$ は座標関数 $z_\mu$ に対応します。
 
-この同型から得る単位的 $*$ 準同型 $C(K)\to B(\mathcal H)$ に [可換関数環表現の射影値測度表示](../../../解析系/OA/OA6/index.md#thm-oa6-commutative-representation-pvm)の証明を適用します。同講の定理は平面のコンパクト集合で述べていますが、証明は次のようにコンパクト距離空間 $K$ にも通用します。各 $\psi$ に対する正汎関数 $f\mapsto\langle\psi,\pi(f)\psi\rangle$ をRiesz--Markovで正測度にし、偏極した測度をHilbert空間のRiesz表現で作用素に戻します。連続関数から有界Borel関数への拡張は単調族によって行い、積を保つ性質を拡張して指示関数の積を取れば直交射影が得られます。これらの操作は平面の座標に依存せず、コンパクト距離空間での有限正則測度の性質を使います。従って一意なPVM $E$ が $K$ 上に得られ、
+この同型から得る単位的 $*$ 準同型 $C(K)\to B(\mathcal H)$ に [可換関数環表現の射影値測度表示](../../../解析系/OA/OA6/index.md#thm-oa6-commutative-representation-pvm)の証明を適用します。同講の定理は平面のコンパクト集合で述べていますが、証明は次のようにコンパクト距離空間 $K$ にも通用します。各 $\psi$ に対する正汎関数 $f\mapsto\langle\psi,\pi(f)\psi\rangle$ を [Riesz--Markov の定理](../../../解析系/MT/MT5/index.md#thm-mt5-riesz-markov-positive) で正測度にし、偏極した測度をHilbert空間のRiesz表現で作用素に戻します。連続関数から有界Borel関数への拡張は単調族によって行い、積を保つ性質を拡張して指示関数の積を取れば直交射影が得られます。これらの操作は平面の座標に依存せず、コンパクト距離空間での有限正則測度の性質を使います。従って一意なPVM $E$ が $K$ 上に得られ、
 
 $$
 C_\mu=\int_K z_\mu\,dE(z)
@@ -199,7 +199,7 @@ T(a)=\prod_{\mu=0}^3T(a^\mu e_\mu)
 =\int e^{-ip^0a^0+i\sum_{j=1}^3p^ja^j}\,dF(p).
 $$
 
-最後に一意性を確認します。別のPVMが同じ $T$ を表すなら、各座標への押し出しはStoneとスペクトル定理の一意性で $F_\mu$ に一致します。直積集合 $B_0\times\cdots\times B_3$ への射影は座標ごとの射影の積 $\prod_\mu F_\mu(B_\mu)$ です。Borel集合を生成するこの直積集合上で一致するので、各ベクトルの有限正測度は全Borel集合で一致します。偏極により作用素も一致します。$\square$
+最後に一意性を確認します。別のPVMが同じ $T$ を表すなら、各座標への押し出しは [Stone の定理](../../../解析系/QM/QM7/index.md#thm-qm7-stone) と [スペクトル定理](../../../解析系/QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral) の一意性で $F_\mu$ に一致します。直積集合 $B_0\times\cdots\times B_3$ への射影は座標ごとの射影の積 $\prod_\mu F_\mu(B_\mu)$ です。Borel集合を生成するこの直積集合上で一致するので、各ベクトルの有限正測度は全Borel集合で一致します。偏極により作用素も一致します。$\square$
 <!-- proof-end -->
 
 例えば $\mathbb C^2$ で $p_1=(2,0,0,0)$、$p_2=(3,1,0,0)$ とし、$T(a)=\operatorname{diag}(e^{ip_1\cdot a},e^{ip_2\cdot a})$ とします。位相の積は加法に対応し、各対角要素の絶対値は1、連続性も成り立ちます。共同PVMは $F(B)=\operatorname{diag}(\mathbf1_B(p_1),\mathbf1_B(p_2))$ です。生成作用素は $P^0=\operatorname{diag}(2,3)$、$P^1=\operatorname{diag}(0,1)$、$P^2=P^3=0$ です。個々のスペクトルの直積には $(2,1,0,0)$ も含まれますが、その点の共同射影は零です。共同スペクトルには観測量の相関も含まれます。
@@ -228,7 +228,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep21-positive-energy -->
-**定義の確認**。第3節の自明な表現では $T(a)=I=e^{i0\cdot a}I$ で、[並進の共同スペクトル表示](#thm-lrep21-translation-spectrum)の一意性より $F(B)=\mathbf1_B(0)I$。$0\in\overline V_+$ なので $F(\overline V_+)=I$ です。強連続性と群法則は第3節で確かめたため、正エネルギー表現の全条件を満たします。
+**定義の確認**。第3節の自明な表現では $T(a)=I=e^{i0\cdot a}I$ で、[並進の共同スペクトル表示](#thm-lrep21-translation-spectrum)の一意性より $F(B)=\mathbf1_B(0)I$。$0\in\overline V_+$ なので $F(\overline V_+)=I$ です。強連続性と群法則は第3節で確かめたため、正エネルギー表現の全条件を満たします。第6節では零でない連続運動量を持つ例も構成します。
 <!-- definition-example-end -->
 
 <a id="thm-lrep21-covariance"></a>
@@ -256,7 +256,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-第3節の群法則より $V(A)T(a)V(A)^{-1}=T(\Lambda a)$。左辺は [共同スペクトル表示](#thm-lrep21-translation-spectrum) によってPVM $B\mapsto V(A)F(B)V(A)^{-1}$ の位相積分になります。右辺はLorentz計量の保存 $p\cdot\Lambda a=(\Lambda^{-1}p)\cdot a$ から
+[Poincare群の群法則](#def-lrep21-covered-poincare)より $V(A)T(a)V(A)^{-1}=T(\Lambda a)$。左辺は [共同スペクトル表示](#thm-lrep21-translation-spectrum) によってPVM $B\mapsto V(A)F(B)V(A)^{-1}$ の位相積分になります。右辺は[Lorentz計量の保存](../LREP9/index.md#def-lrep9-lorentz-group) $p\cdot\Lambda a=(\Lambda^{-1}p)\cdot a$ から
 
 $$
 T(\Lambda a)=\int e^{i(\Lambda^{-1}p)\cdot a}\,dF(p).
@@ -298,7 +298,7 @@ p'^1=\gamma(k-\beta p^0),\quad
 \gamma=(1-\beta^2)^{-1/2}
 $$
 
-とします。この変換は時間・第一空間成分の計量を保存し、$\beta=0$ から連続につながるので $L$ に属します。$p'^0<0$ です。[共同スペクトルのLorentz共変性](#thm-lrep21-covariance)より $p'\in\Sigma$ となり矛盾します。従って $\Sigma\subset\overline V_+$ です。$\square$
+とします。この変換は $-(p'^0)^2+(p'^1)^2=\gamma^2(1-\beta^2)(-(p^0)^2+k^2)=-(p^0)^2+k^2$ を満たして計量を保存し、$\beta=0$ から連続につながるので $L$ に属します。$p'^0<0$ です。[共同スペクトルのLorentz共変性](#thm-lrep21-covariance)より $p'\in\Sigma$ となり矛盾します。従って $\Sigma\subset\overline V_+$ です。$\square$
 <!-- proof-end -->
 
 並進だけの表現ではこの命題は成立しません。例えば $\mathbb C$ 上の $T(a)=e^{ip\cdot a}$、$p=(1,2,0,0)$ は時間生成作用素が1ですが円錐外です。この表現を同じ空間上のPoincare群表現へ延長することはできません。欠けている条件は共同スペクトルのLorentz不変性です。
