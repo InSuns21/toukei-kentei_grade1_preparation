@@ -1,0 +1,179 @@
+version: 1
+id: LVT
+title: "Lean 4によるソフトウェアテスト・形式証明"
+plan: textbook/plans_progress/DREAM_THEATER_LEAN4_SOFTWARE_TESTING_FORMAL_VERIFICATION_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+chapters:
+  - id: LVT1-01
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT1-01
+    status: completed
+    title: "テストと形式証明は何を保証するか"
+  - id: LVT1-02
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT1-02
+    status: planned
+    title: "Lean環境・Lake・再現可能なプロジェクト"
+  - id: LVT1-03
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT1-03
+    status: planned
+    title: "型・関数・帰納型・Option/Except"
+  - id: LVT1-04
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT1-04
+    status: planned
+    title: "パターン照合・再帰・停止性"
+  - id: LVT1-05
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT1-05
+    status: planned
+    title: "List・Array・Finと安全な添字"
+  - id: LVT1-06
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT1-06
+    status: planned
+    title: "純粋な参照モデルと入出力境界"
+  - id: LVT2-01
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT2-01
+    status: planned
+    title: "Prop・Bool・Decidable・Curry–Howard対応"
+  - id: LVT2-02
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT2-02
+    status: planned
+    title: "含意・連言・選言・全称・存在"
+  - id: LVT2-03
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT2-03
+    status: planned
+    title: "等式・書換え・簡約"
+  - id: LVT2-04
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT2-04
+    status: planned
+    title: "タクティク・証明状態・局所補題"
+  - id: LVT2-05
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT2-05
+    status: planned
+    title: "自然数・リストの構造帰納法"
+  - id: LVT2-06
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT2-06
+    status: planned
+    title: "帰納的述語と証明の帰納法"
+  - id: LVT2-07
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT2-07
+    status: planned
+    title: "依存型・部分型・不変条件を型へ"
+  - id: LVT2-08
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT2-08
+    status: planned
+    title: "定理探索・自動化・信頼境界"
+  - id: LVT3-01
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT3-01
+    status: planned
+    title: "要求を事前条件・事後条件へ"
+  - id: LVT3-02
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT3-02
+    status: planned
+    title: "全域性・部分正当性・停止性"
+  - id: LVT3-03
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT3-03
+    status: planned
+    title: "リスト処理の関数正当性"
+  - id: LVT3-04
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT3-04
+    status: planned
+    title: "ソート仕様：順序と置換の両立"
+  - id: LVT3-05
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT3-05
+    status: planned
+    title: "状態遷移系・到達可能性・不変量"
+  - id: LVT3-06
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT3-06
+    status: planned
+    title: "ゲーム規則の安全性"
+  - id: LVT3-07
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT3-07
+    status: planned
+    title: "抽象仕様・詳細化・モデルとの対応"
+  - id: LVT3-08
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT3-08
+    status: planned
+    title: "Hoare論理・最弱事前条件・vcgen"
+  - id: LVT4-01
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT4-01
+    status: planned
+    title: "例示・単体テスト・`#guard`・Lake test"
+  - id: LVT4-02
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT4-02
+    status: planned
+    title: "Property-Based Testingの原理"
+  - id: LVT4-03
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT4-03
+    status: planned
+    title: "Plausibleによる反例探索"
+  - id: LVT4-04
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT4-04
+    status: planned
+    title: "有効・無効入力の生成と仮定"
+  - id: LVT4-05
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT4-05
+    status: planned
+    title: "Shrinkingと最小反例"
+  - id: LVT4-06
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT4-06
+    status: planned
+    title: "メタモルフィック・変異・カバレッジ"
+  - id: LVT5-01
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT5-01
+    status: planned
+    title: "Differential Testing・オラクルの設計"
+  - id: LVT5-02
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT5-02
+    status: planned
+    title: "Lean実行可能仕様のJSON Linesオラクル化"
+  - id: LVT5-03
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT5-03
+    status: planned
+    title: "直列化・正規化・一致判定の監査"
+  - id: LVT5-04
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT5-04
+    status: planned
+    title: "Python：pytest + Hypothesis差分テスト"
+  - id: LVT5-05
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT5-05
+    status: planned
+    title: "TypeScript：fast-check差分テスト"
+  - id: LVT5-06
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT5-06
+    status: planned
+    title: "Stateful DRTと遷移列"
+  - id: LVT5-07
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT5-07
+    status: planned
+    title: "再現可能性・CI・失敗時診断"
+  - id: LVT5-08
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT5-08
+    status: planned
+    title: "差分検査の保証範囲と弱点"
+  - id: LVT6-01
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT6-01
+    status: planned
+    title: "三目並べ教材の証明範囲を査読する"
+  - id: LVT6-02
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT6-02
+    status: planned
+    title: "三目並べの変異バグを発見する"
+  - id: LVT6-03
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT6-03
+    status: planned
+    title: "TypeScriptワークフローの仕様と照合"
+  - id: LVT6-04
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT6-04
+    status: planned
+    title: "Cedarに学ぶ認可ポリシーのモデル"
+  - id: LVT6-05
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT6-05
+    status: planned
+    title: "サーバーサイドTypeScript認可の完全性の証明：API・テナント境界"
+  - id: LVT6-06
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT6-06
+    status: planned
+    title: "証明・差分テスト・CIを統合する"
+  - id: LVT6-07
+    path: textbook/volumes/dream_thater/計算系/LVT/LVT6-07
+    status: planned
+    title: "最終課題：保証台帳を伴うソフトウェア検証"
