@@ -662,7 +662,7 @@ export function mountLabParameters(lesson, container,
     slider.addEventListener('change', () => {
       if (changed && isReady()) {
         changed = false;
-        rerun();
+        rerun(spec);
       }
     });
     return {spec, slider, display, status};
