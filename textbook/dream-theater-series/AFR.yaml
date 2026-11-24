@@ -60,7 +60,7 @@ chapters:
     title: "p進`GL_2`表現の入門"
   - id: AFR14
     path: textbook/volumes/dream_thater/代数系/AFR/AFR14
-    status: planned
+    status: completed
     title: "球Hecke代数とSatakeパラメータ"
   - id: AFR15
     path: textbook/volumes/dream_thater/代数系/AFR/AFR15
