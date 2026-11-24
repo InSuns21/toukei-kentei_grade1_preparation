@@ -1,6 +1,6 @@
 # LVT4-03 Plausibleによる反例探索
 
-前提講座：[LVT4-02 Property-Based Testingの原理](../LVT4-02/index.md)。
+前提講座：[LVT4-02 Property-Based Testingの原理](../LVT4-02/index.md)、[MC2 乱数生成とサンプリング](../../MC/MC2/index.md)（乱数の初期状態と再現性）。
 
 前講では入力列を自分で作り、要求と実装の結果を比較しました。今度は Lean の命題そのものを渡し、命題を偽にする入力を探す Plausible を使います。反例を見つけた後は、同じ失敗を説明できる、より小さな入力を探しましょう。
 
@@ -39,7 +39,7 @@ import Plausible
   { randomSeed := some 42, numInst := 100 }
 ~~~
 
-100は生成するテスト事例の目標数、42は乱数生成を再現するためのシードです。自然数は無限集合なので、100件の検査が全件成功しても全自然数の検査にはなりません。表示される Unable to find a counter-example は反例を発見しなかったという報告です。上の性質自体を証明するには、任意の自然数を取って次の一行を検査します。
+100は生成するテスト事例の目標数、42は乱数生成器の初期状態を決める入力、すなわち [シード](../../MC/MC2/index.md#def-mc2-seed) です。同じ版・生成設定・初期状態・消費順序を固定すれば、[固定された生成契約の再現性](../../MC/MC2/index.md#prop-mc2-reproducibility-contract) により同じ生成列を得られます。自然数は無限集合なので、100件の検査が全件成功しても全自然数の検査にはなりません。表示される Unable to find a counter-example は反例を発見しなかったという報告です。上の性質自体を証明するには、任意の自然数を取って次の一行を検査します。
 
 ~~~lean
 theorem next_larger (n : Nat) : n < n + 1 := by omega
@@ -122,7 +122,7 @@ $P(n)$ が $n\le8$ のとき、9は反例で、9より小さい自然数はす�
 
 [SearchShrink.lean](lab/SearchShrink.lean) は $n\le8$ の反例探索で、縮小中の候補のトレースを有効にします。実際に表示された反例、縮小回数、シードを記録し、手計算の列 $(12,10,9)$ と同一の順序になるとは仮定しません。得られた値を $n\le8$ に代入して偽であることを再確認します。
 
-前講の [独立一様抽出での反例の見逃し](../LVT4-02/index.md#prop-lvt4-02-uniform-miss) の式は、有限集合から独立一様に選ぶときに限って使えます。Plausible のサイズ付き生成器に対してその仮定を確認していないなら、100件という数字から見逃し確率を計算することはできません。
+前講の [独立一様抽出での反例の見逃し](../LVT4-02/index.md#prop-lvt4-02-uniform-miss) の式は、0〜15のように候補が有限個で、復元して独立一様に選ぶときに使えます。Plausible のサイズ付き生成器に対してその仮定を確認していないなら、100件という数字から見逃し確率を計算することはできません。
 
 ## 5. 固定版での再現
 
@@ -139,7 +139,7 @@ lake env lean ExerciseSolutions.lean
 lake env lean SearchPass.lean
 ~~~
 
-[Inspect.lean](lab/Inspect.lean) は12、10、9、8の反例判定を表示します。期待値は順に true, true, true, false です。正常系の Lake test は LVT4-03 OK を表示します。証明の公理依存も確認します。
+[Inspect.lean](lab/Inspect.lean) は12、10、9、8の反例判定を表示します。表示は順に true, true, true, false になるはずです。正常系の Lake test は LVT4-03 OK を表示します。証明の公理依存も確認します。
 
 次は別々に実行する意図的な失敗実験です。
 

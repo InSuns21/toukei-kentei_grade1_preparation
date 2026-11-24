@@ -1,7 +1,7 @@
 chapter: LVT4-03
 scope: dream-theater
 coverage: complete
-prerequisites: [LVT4-02]
+prerequisites: [LVT4-02, MC2]
 concepts:
   - id: lean-verification.counterexample-shrink-chain
     name: 反例縮小列

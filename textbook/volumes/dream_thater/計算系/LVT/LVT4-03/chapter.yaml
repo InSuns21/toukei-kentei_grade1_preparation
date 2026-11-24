@@ -2,7 +2,7 @@ id: "LVT4-03"
 title: "Plausibleによる反例探索"
 volume: "foundations"
 status: supplementary
-prerequisites: [LVT4-02]
+prerequisites: [LVT4-02, MC2]
 official_scope: []
 learning_objectives:
   - PlausibleでLean命題の反例を探索する
