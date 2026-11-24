@@ -1,0 +1,47 @@
+chapter: FCG9
+scope: dream-theater
+coverage: complete
+prerequisites: [FCG8]
+concepts:
+  - id: graphics.fcg9-edge
+    name: 辺上の零点補間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（辺上の零点補間）"]
+    requires: [graphics.fcg8-level-set]
+  - id: graphics.fcg9-unique
+    name: 異符号の辺での零点の一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（異符号の辺での零点の一意性）"]
+    requires: [graphics.fcg9-edge]
+  - id: graphics.fcg9-marching
+    name: Marching Squaresによる輪郭
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Marching Squaresによる輪郭）"]
+    requires: [graphics.fcg9-edge]
+  - id: graphics.fcg9-saddle
+    name: 四交差セルの接続判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（四交差セルの接続判定）"]
+    requires: [graphics.fcg9-marching]
+  - id: graphics.fcg9-seam
+    name: 共有辺の輪郭の継ぎ目
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共有辺の輪郭の継ぎ目）"]
+    requires: [graphics.fcg9-marching, graphics.fcg9-unique]
+  - id: graphics.fcg9-extrude
+    name: 押出し側面メッシュ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（押出し側面メッシュ）"]
+    requires: [graphics.fcg9-marching]
+  - id: graphics.fcg9-normal
+    name: 押出し面の外向き法線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（押出し面の外向き法線）"]
+    requires: [graphics.fcg9-extrude, graphics.fcg8-signed-distance]

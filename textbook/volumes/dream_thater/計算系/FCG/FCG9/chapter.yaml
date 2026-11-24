@@ -1,0 +1,30 @@
+id: FCG9
+title: "数値的な液面をどうメッシュにするか"
+volume: foundations
+status: supplementary
+prerequisites: [FCG8]
+official_scope: []
+learning_objectives:
+  - "格子上のLevel Setから辺の零点を線形補間し、共有頂点を再利用できる"
+  - "四交差セルの双線形接続判定を導き、退化例と接続の誤りを説明できる"
+  - "輪郭を三角形の側面に押し出し、面の向きと勾配法線を検算できる"
+  - "同じ編集JSとGLSLの格子・物理時刻・表示を変更し、輪郭と側面の形状差を観察できる"
+definitions:
+  - { id: FCG9-DEF-01, name: "辺上の零点補間" }
+  - { id: FCG9-DEF-02, name: "Marching Squaresによる輪郭" }
+  - { id: FCG9-DEF-03, name: "押出し側面メッシュ" }
+theorems:
+  - { id: FCG9-PROP-01, name: "異符号の辺での零点の一意性" }
+  - { id: FCG9-PROP-02, name: "四交差セルの接続判定" }
+  - { id: FCG9-PROP-03, name: "共有辺の輪郭の継ぎ目" }
+  - { id: FCG9-PROP-04, name: "押出し面の外向き法線" }
+canonical_examples:
+  - "符号−2と1をもつ辺の交差位置"
+  - "交互符号−2, 1, −2, 1の双線形接続判定"
+  - "共有辺の同じ交差頂点と次数2"
+  - "水平線分を押し出した側面の外積・面積"
+problem_patterns: [FCG9-EDGE, FCG9-CASES, FCG9-SADDLE, FCG9-SEAM, FCG9-NORMAL, FCG9-ERROR, FCG9-INTEGRATED]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 3 }
