@@ -53,7 +53,7 @@
 | 平衡統計力学・アンサンブル・Ising | `DREAM_THEATER_STATISTICAL_MECHANICS_PLAN.md`（SM1〜8） |
 | スピングラス・SK・Parisi・cavity | `DREAM_THEATER_SPIN_GLASS_PLAN.md`（SG1〜8） |
 | ブラックホール熱力学・情報・量子場など12科目PLANへの横断ルート（TH/SMを含む） | `DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md`（2026-10-13改訂・17セメスター相当、TH/SMは既存正本） |
-| Lie群の表現・相対論的粒子・スピノル | `DREAM_THEATER_LIE_REPRESENTATIONS_SPINORS_PLAN.md`（LREP：QFT I／IIIで必要な表現論の独立数学科目） |
+| Lie群の表現・相対論的粒子・スピノル | [完了済みLREP全28講PLAN](../plan_done/DREAM_THEATER_LIE_REPRESENTATIONS_SPINORS_PLAN.md)（QFT I／IIIで必要な表現論の独立数学科目） |
 | 主束・接続・Chern–Weil・大域的ゲージ幾何 | `DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md`（GBG：全30講設計確定・未実装。GEO／LIEの停止線外、QFT II／IIIと接続） |
 | Euclid場／構成的QFT・対角延長による摂動的くりこみ | `DREAM_THEATER_MATHEMATICAL_QFT_CONSTRUCTION_I_II_PLAN.md`（MQFC1–48：I 30講・II 18講、設計確定・未実装。非摂動構成・質量ギャップへの数学的接続と局所摂動的くりこみ。EOMの研究査定と分担） |
 | ローレンツ幾何・大域因果構造 | `../plans_progress/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md`（全21講・LORG1完了、LORG2以降進行中） |

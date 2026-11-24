@@ -119,6 +119,14 @@ const descriptions = Object.freeze({
     mode: '初期設定はpicMix=0、flipMix=1。格子と粒子の位置を物理stepごとに更新し、右列は24×24節点値の最近傍表示。時刻は開始時の検算時刻',
     source: 'particle.js（N, count, dt, damp, force, picMix, flipMix, transfer）/ particle.frag（u_pic, u_flip, u_speed）'
   }),
+  FCG14: Object.freeze({
+    requiresSteps:false,
+    grid:'1 m四方、初期48×48実計算セル（32/48/64）。壁流束零',
+    color:'左：煙濃度0〜2の白さ、右：温度差0〜8 Kの橙色。矢印は同じ速度場',
+    clock:()=> '初期40ステップ（1 s）。物理dt=0.025 s、再生は4 sまで、リセットは時刻0',
+    mode:'Float64の物理値を表示専用R8/RG8に変換。数値格子と表示解像度は別',
+    source:'smoke.js（MAC圧力射影・面流束・供給） / smoke.vert / smoke.frag（濃度・温度差・矢印）'
+  }),
   FCG13: Object.freeze({
     requiresSteps:false,
     grid:'64 m四方、64×64実計算標本（1 m間隔）。右端と上端は周期境界の複製',

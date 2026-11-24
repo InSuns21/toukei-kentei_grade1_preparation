@@ -26,7 +26,7 @@ GEOはベクトル束・Levi–Civita接続・微分形式・de Rhamを、LIEは
 - GBG15〜17：閉曲線のホモトピー・基本群を利用する際は必要な既習TOP章を指定し、経路の固定端点ホモトピーと自由ホモトピーを区別する。
 - GBG18〜24：de Rham類に加え、Chern数の**整数性**を論じるときは整数係数コホモロジー、長完全系列または遷移関数の巻き数という必要部分を、その講の前段で導入する。de Rham閉形式だけから整数性は導けない。
 - GBG25〜28：球面・clutching・次数／π3(SU(2))、向き付け、Hodge星、4次元積分のうち未習の道具を該当講に導入する。一般のホモトピー群分類や全Yang–Mills方程式の解空間分類を暗黙前提にしない。
-- GBG29〜30：Spin(n)被覆・Clifford表現は[Lie群の表現・スピノル](../plans/DREAM_THEATER_LIE_REPRESENTATIONS_SPINORS_PLAN.md)の関連成果に接続する。ただし未完成のLREPを既存完成章の必修前提へ遡及追加しない。Z/2係数Čech cohomologyと第二Stiefel–Whitney類はGBG29の必要最小限を先に導入する。
+- GBG29〜30：Spin(n)被覆・Clifford表現は[Lie群の表現・スピノル](../plan_done/DREAM_THEATER_LIE_REPRESENTATIONS_SPINORS_PLAN.md)の関連成果に接続する。ただしLREPを既存完成章の必修前提へ遡及追加しない。Z/2係数Čech cohomologyと第二Stiefel–Whitney類はGBG29の必要最小限を先に導入する。
 
 ### canonical ownership と停止線
 

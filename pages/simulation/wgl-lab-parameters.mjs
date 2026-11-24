@@ -3,6 +3,13 @@
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
 
 export const LAB_PARAMETERS = Object.freeze({
+  FCG14: Object.freeze([
+    Object.freeze({id:'N',type:'integer',label:'一辺の格子数',default:48,min:32,max:64,step:16,unit:'セル',meaning:'数値計算の解像度',sourceLocation:'smoke.js / const N',sourceFile:'js',index:null,matcher:/^([ \t]*const N=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'buoyancy',type:'number',label:'浮力係数',default:0.03,min:0,max:0.06,step:0.01,unit:'m/(s² K)',meaning:'温度差を上向き加速度に変換',sourceLocation:'smoke.js / const buoyancy',sourceFile:'js',index:null,matcher:/^([ \t]*const buoyancy=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'heatSource',type:'number',label:'熱源の強さ',default:3,min:0,max:4,step:0.5,unit:'K/s',meaning:'温度差の供給率',sourceLocation:'smoke.js / const heatSource',sourceFile:'js',index:null,matcher:/^([ \t]*const heatSource=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'smokeSource',type:'number',label:'煙源の強さ',default:1,min:0,max:1,step:0.1,unit:'s⁻¹',meaning:'煙の濃度供給率',sourceLocation:'smoke.js / const smokeSource',sourceFile:'js',index:null,matcher:/^([ \t]*const smokeSource=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'kappa',type:'number',label:'拡散係数',default:0.0005,min:0,max:0.002,step:0.0005,unit:'m²/s',meaning:'煙と温度差の物理拡散',sourceLocation:'smoke.js / const kappa',sourceFile:'js',index:null,matcher:/^([ \t]*const kappa=)([^;\n]+)(;)/gm}),
+  ]),
   FCG13: Object.freeze([
     Object.freeze({id:'time',type:'number',label:'物理時刻',default:2,min:0,max:20,step:0.5,unit:'s',meaning:'各成分の位相を進める',sourceLocation:'ocean.js / const time',sourceFile:'js',index:null,matcher:/^([ \t]*const time=)([^;\n]+)(;)/gm}),
     Object.freeze({id:'amplitude',type:'number',label:'第一波の振幅',default:0.35,min:0,max:0.5,step:0.05,unit:'m',meaning:'残りの波の振幅は1/(j+1)倍',sourceLocation:'ocean.js / const amplitude',sourceFile:'js',index:null,matcher:/^([ \t]*const amplitude=)([^;\n]+)(;)/gm}),
@@ -637,7 +644,7 @@ export function mountLabParameters(lesson, container,
     const display = document.createElement('output');
     display.htmlFor = id;
     display.textContent = String(spec.default);
-    if (/^FCG(?:[2-9]|1[0-3])$/.test(lesson)) {
+    if (/^FCG(?:[2-9]|1[0-4])$/.test(lesson)) {
       // Keep the compact output readable while detailed bounds and source
       // locations remain available via the inspector's disclosure button.
       display.title = spec.unit;

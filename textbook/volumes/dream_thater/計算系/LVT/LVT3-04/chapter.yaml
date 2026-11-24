@@ -1,0 +1,29 @@
+id: "LVT3-04"
+title: "ソート仕様：順序と置換の両立"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT3-03]
+official_scope: []
+learning_objectives:
+  - 整列性と重複を含む出現回数保存を独立の条件として仕様化する
+  - 挿入操作の整列性と出現回数の変化を別々の帰納法で証明する
+  - 全入力に対する挿入ソートの正当性を二条件から導く
+  - 弱い仕様を満たす誤実装を具体例で反証し再ソートの性質を証明する
+definitions:
+  - { id: LVT3-04-DEF-01, name: "出現回数" }
+  - { id: LVT3-04-DEF-02, name: "挿入ソートの挿入操作" }
+  - { id: LVT3-04-DEF-03, name: "挿入ソート" }
+  - { id: LVT3-04-DEF-04, name: "ソートの二条件仕様" }
+propositions:
+  - { id: LVT3-04-PROP-01, name: "挿入による整列性の保存" }
+  - { id: LVT3-04-PROP-02, name: "挿入による出現回数の変化" }
+  - { id: LVT3-04-PROP-03, name: "挿入ソートの整列性" }
+  - { id: LVT3-04-PROP-04, name: "挿入ソートの出現回数保存" }
+  - { id: LVT3-04-PROP-05, name: "挿入ソートの正当性" }
+theorems: []
+canonical_examples: ["重複を含む自然数リストの挿入", "空リストを返す誤実装", "入力をそのまま返す誤実装"]
+problem_patterns: [LVT3-04-A01, LVT3-04-A02, LVT3-04-A03, LVT3-04-A04, LVT3-04-B01, LVT3-04-B02, LVT3-04-B03, LVT3-04-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 3, review: 0.5 }

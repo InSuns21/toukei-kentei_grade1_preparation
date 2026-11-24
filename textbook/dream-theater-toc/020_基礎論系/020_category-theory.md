@@ -57,3 +57,4 @@
 54. [CATB2-06 豊穣随伴と豊穣Kan拡張](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-06/index.md)
 55. [CATB2-07 分配子とcoendによる合成](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-07/index.md)
 56. [CATB2-08 双圏と弱い結合律](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-08/index.md)
+57. [CATB2-09 Profの双圏](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-09/index.md)

@@ -1,0 +1,35 @@
+chapter: CATB2-09
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB2-07, CATB2-08, CAT3-09, CAT1-08]
+concepts:
+  - id: category.distributor-map
+    name: 分配子の射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（分配子の射）"]
+    requires: [category.distributor, category.natural-transformation]
+  - id: category.distributor-horizontal-composition
+    name: 分配子の水平合成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（分配子の水平合成）"]
+    requires: [category.distributor-map, category.distributor-composition]
+  - id: category.prof-unitors
+    name: Profの単位子
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Profの単位子）"]
+    requires: [category.distributor-map, category.distributor-composition, category.covariant-co-yoneda, category.contravariant-co-yoneda]
+  - id: category.double-coend-fubini
+    name: 二重coendのFubini型交換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二重coendのFubini型交換）"]
+    requires: [category.distributor-horizontal-composition, category.distributor-balanced-coend]
+  - id: category.prof-bicategory
+    name: 集合値分配子の双圏 Prof
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（集合値分配子の双圏 Prof）"]
+    requires: [category.bicategory, category.functor-category, category.prof-unitors, category.double-coend-fubini, category.distributor-horizontal-composition]

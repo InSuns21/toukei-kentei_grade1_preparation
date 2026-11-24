@@ -15,3 +15,4 @@
 12. [AFR12 無限素点の GL_2(R) 表現](textbook/volumes/dream_thater/代数系/AFR/AFR12/index.md)
 13. [AFR13 p進 GL_2 表現の入門](textbook/volumes/dream_thater/代数系/AFR/AFR13/index.md)
 14. [AFR14 球Hecke代数とSatakeパラメータ](textbook/volumes/dream_thater/代数系/AFR/AFR14/index.md)
+15. [AFR15 分岐局所表現・newvector](textbook/volumes/dream_thater/代数系/AFR/AFR15/index.md)
