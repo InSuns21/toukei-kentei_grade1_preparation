@@ -12,7 +12,7 @@ GEO / SREL → LORG → HPDE → MICA（厳密Hadamard条件）。OA / VN + QM /
 
 本ファイルは学修ゲートと直接依存を案内するだけであり、各科目のシラバスは上記ファイルを唯一の正本とする。
 
-**2026-10-13 数学的QFT補完:** 既存のLORG／HPDE／MICA／AQFTという「時空と局所場の数学基盤」4科目とは別に、[Lie群の表現・スピノル（LREP）](../plans/DREAM_THEATER_LIE_REPRESENTATIONS_SPINORS_PLAN.md)、[主束・ゲージ幾何（GBG）](../plans/DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md)、[量子場の数学的構成 I/II（MQFC）](../plans/DREAM_THEATER_MATHEMATICAL_QFT_CONSTRUCTION_I_II_PLAN.md)を**独立した未着手PLAN**として追加した。LREP／GBGは通常のQFTに必要な数学の一般化、MQFCはWightman／OS・構成的QFT・対角延長くりこみの任意発展ルートを所有する。この横断PLANの4科目を7科目に置換したり、全数学科目をGR／QCURV／HOLOの必須前提へ追加したりはしない。各PLANの実装状態・責務は各個別ファイルを正本とする。
+**2026-10-13 数学的QFT補完:** 既存のLORG／HPDE／MICA／AQFTという「時空と局所場の数学基盤」4科目とは別に、[Lie群の表現・スピノル（LREP）](../plan_done/DREAM_THEATER_LIE_REPRESENTATIONS_SPINORS_PLAN.md)、[主束・ゲージ幾何（GBG）](../plan_done/DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md)、[量子場の数学的構成 I/II（MQFC）](../plans/DREAM_THEATER_MATHEMATICAL_QFT_CONSTRUCTION_I_II_PLAN.md)を**独立した未着手PLAN**として追加した。LREP／GBGは通常のQFTに必要な数学の一般化、MQFCはWightman／OS・構成的QFT・対角延長くりこみの任意発展ルートを所有する。この横断PLANの4科目を7科目に置換したり、全数学科目をGR／QCURV／HOLOの必須前提へ追加したりはしない。各PLANの実装状態・責務は各個別ファイルを正本とする。
 
 ---
 

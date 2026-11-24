@@ -32,15 +32,15 @@
 |---|---|---|
 | Schwartz試験関数・温度分布・Fourier変換 | 既存FOU・GPDE；発展的波面集合は[MICA](../plan_done/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md) | **場を点ごとの作用素と置かず、smearingした作用素値分布**と共通定義域を明記して自由場の交換関係を導く |
 | Hilbert空間・非有界作用素・CCR／Weyl関係 | 既存QM・FA・OA | Fockの有限粒子稠密領域・無限自由度の表現非一意性・自由真空の仮定を区別する |
-| Lorentz表現・スピノル・Poincaré粒子表現 | [LREP：Lie群の表現とスピノル](../plans/DREAM_THEATER_LIE_REPRESENTATIONS_SPINORS_PLAN.md)（追加・未着手） | QFT IのDirac／Weyl、QFT IIIの質量・ヘリシティは必要な具体計算を本文に置き、一般分類の証明はLREPへ |
-| 主G束・接続・Chern–Weil・spin構造 | [GBG：主束とゲージ幾何](../plans/DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md)（追加・未着手） | QFT IIでは平坦時空の局所ゲージ変換と曲率を導く。非自明束・monopole／instanton／特性類はGBGへ |
+| Lorentz表現・スピノル・Poincaré粒子表現 | [LREP：Lie群の表現とスピノル](../plan_done/DREAM_THEATER_LIE_REPRESENTATIONS_SPINORS_PLAN.md)（全28講完了） | QFT IのDirac／Weyl、QFT IIIの質量・ヘリシティは必要な具体計算を本文に置き、一般分類の証明はLREPへ |
+| 主G束・接続・Chern–Weil・spin構造 | [GBG：主束とゲージ幾何](../plan_done/DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md)（全30講完了） | QFT IIでは平坦時空の局所ゲージ変換と曲率を導く。非自明束・monopole／instanton／特性類はGBGへ |
 | Lorentz多様体上の初期値・因果Green作用素 | [LORG](../plan_done/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)・[HPDE](../plan_done/DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md) | 一般多様体の定理を自由平坦場の計算へ逆輸入しない |
 | Euclid測度・Schwinger／Wightman・OS反射陽性 | [MQFC I：Euclid構成](../plans/DREAM_THEATER_MATHEMATICAL_QFT_CONSTRUCTION_I_II_PLAN.md)（追加・任意発展） | QFT II／IVでは**形式的Wick回転と再構成定理の違い**、特に反射陽性を要することを明示 |
 | 分布の対角延長・因果的時間順序積・摂動くりこみ | [MQFC II：数学的くりこみ](../plans/DREAM_THEATER_MATHEMATICAL_QFT_CONSTRUCTION_I_II_PLAN.md)（追加・任意発展）、MICA | QFT IIで具体的反項・1ループを計算し、時間順序分布の衝突点での延長に自由度が生じる理由を説明 |
 | BRST・ghost・異常 | QFT II／IIIは具体模型と計算；MQFC IIは摂動論のコホモロジー入口；GBGは古典幾何 | BRSTのnilpotency、物理状態の条件と量子異常の障害を区別。指数定理を前提外から暗黙使用しない |
 | Virasoro最高ウェイト表現・null状態 | QFT IVで自由boson等から直接導入、一般のVOA／共形netの数学的分類は将来の**独立候補** | 高次の一般分類をQFT IVの必須到達点にせず、2次元具体模型の計算を閉じる |
 
-**新規数学PLANの優先度:** LREP・GBGはQFT I〜IIIの高度な説明で直接必要な欠損を埋める**基幹の後続数学科目**。MQFC I/IIは「無限次元量子場をどこまで厳密に構成できるか」という別の中心問いを持つ**任意の研究水準ルート**であり、QCURVやHOLOへの標準読順に一律必修化しない。いずれも今はPLAN設計のみで、既存の完了済み章の本文・査読済み範囲を増やしたという意味ではない。
+**新規数学PLANの優先度:** LREP・GBGはQFT I〜IIIの高度な説明で直接必要な欠損を埋める**基幹の後続数学科目**。MQFC I/IIは「無限次元量子場をどこまで厳密に構成できるか」という別の中心問いを持つ**任意の研究水準ルート**であり、QCURVやHOLOへの標準読順に一律必修化しない。追加設計時点ではいずれもPLAN設計のみであり、既存の完了済み章の本文・査読済み範囲を増やしたという意味ではない。現在の実装状態は各PLANを参照する。
 
 ## 2. 科目 I：場の作用・量子化・散乱（仮テーマ）
 
