@@ -305,6 +305,8 @@ $$
 
 <iframe src="simulation/wgl-lab.html?lesson=FCG9" title="FCG9 格子の液面・輪郭・押出しメッシュ比較ラボ" loading="lazy" style="width:100%;height:1250px;border:1px solid #64748b;" allow="fullscreen"></iframe>
 
+実行後の「再生」で物理stepが0.04 sずつ進み、輪郭と側面が同じ移流結果から連続して変形する。 一時停止・1ステップで途中の形を調べ、「最初に戻す」で時刻または位相0から観察できる。再生を再び押すと続きから進み、終端に達した場合は最初から再生する。条件タブで指定した時刻・位相の静止比較も可能である。
+
 [JavaScript](surface.js)、[頂点GLSL](surface.vert)、[断片GLSL](surface.frag)を編集できる。数値格子 $N=12,24,\ldots,96$ はセル中心数/辺、初期12。物理時刻は step 0〜24、刻み1、初期0、$\Delta t=0.04$ s。前講と同じ半Lagrange移流（せん断率0.6 s⁻¹、初期半径0.18 m、再初期化なし）で時刻ごとの輪郭を取り出す。高さ $H=0.1,0.2,0.3,0.4$ m、初期0.2 m は表示用の押出し高さである。表示モードは wire、face、gradient（初期face）。これらの値は surface.js の N、steps、heightM、mode を変更する。
 
 1. $N=12$ と96を同じstepで比較する。輪郭の折れ線の数と半径方向の残差を調べる。残差は逆せん断後の円の半径との差であり、せん断後の空間における最短距離とは区別する。

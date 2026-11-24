@@ -51,6 +51,8 @@ const isFCG9 = lesson === 'FCG9';
 const isFCG10 = lesson === 'FCG10';
 const isFCG11 = lesson === 'FCG11';
 const isFCG12 = lesson === 'FCG12';
+const fcgTimeLab = isFCG9 || isFCG10 || isFCG11 || isFCG12;
+const fcgTimeMax = isFCG9 ? 24 : isFCG10 ? 6 : isFCG11 ? 1.8 : 3;
 const isFCG13 = lesson === 'FCG13';
 const isWGL2 = lesson === 'WGL2';
 const isWGL3 = lesson === 'WGL3';
@@ -457,6 +459,10 @@ function stop(message = '停止しました。実行 iframe を破棄しまし�
     active = null;
   }
   byId('canvas-slot').replaceChildren();
+  if(fcgTimeLab){
+    const view=byId('fcg-time-state');if(view){view.textContent='未実行';delete view.dataset.value;}
+    for(const button of document.querySelectorAll('#fcg-time-live button'))button.disabled=true;
+  }
   if(isFCG13){
     const view=byId('fcg13-live-state');if(view){view.textContent='未実行';delete view.dataset.time;}
     for(const button of document.querySelectorAll('#fcg13-live button'))button.disabled=true;
@@ -612,6 +618,26 @@ function isolatedRunner() {
           if(event.key===' '){event.preventDefault();hooks.snapshot().playing?hooks.pause():hooks.play();}
         });
         emit(hooks.snapshot());
+      }
+      const fcgTimeHooks=['FCG9','FCG10','FCG11','FCG12'].includes(request.lesson)&&!!hooks&&
+        ['play','pause','step','reset'].every(key=>typeof hooks[key]==='function');
+      if(fcgTimeHooks){
+        const max={FCG9:24,FCG10:6,FCG11:1.8,FCG12:3}[request.lesson];
+        canvas.addEventListener('fcg-time-progress',event=>{
+          const d=event.detail;
+          if(!d||!Number.isFinite(d.value)||d.value<0||d.value>max||typeof d.playing!=='boolean')return;
+          send({...scope,type:'fcg-time-progress',value:d.value,playing:d.playing});
+        });
+        canvas.addEventListener('fcg-time-failure',event=>
+          send({...scope,type:'fcg-time-error',message:String(event.detail).slice(0,300)}));
+        window.addEventListener('message',event=>{
+          const m=event.data;
+          if(event.source!==parent||!m||m.type!=='fcg-time-control'||
+             m.session!==scope.session||m.requestId!==scope.requestId||m.generation!==scope.generation||
+             !['play','pause','step','reset'].includes(m.action))return;
+          try{hooks[m.action]();}
+          catch(error){send({...scope,type:'fcg-time-error',message:String(error?.message||error).slice(0,300)});}
+        });
       }
       const fcg13Hooks=request.lesson==='FCG13'&&!!hooks&&
         ['play','pause','step','reset'].every(key=>typeof hooks[key]==='function');
@@ -832,7 +858,7 @@ function isolatedRunner() {
         {rate:Number(hooks.floatParameters.rate),steps:Number(hooks.floatParameters.steps)} : null;
       const frameAudit = request.lesson === 'WGL19' && hooks ? hooks.frameAudit : null;
       send({...scope, type: 'result', ok: glError === gl.NO_ERROR, samples, floatReadback, floatParameters, frameAudit,
-        liveHooks:request.lesson==='FCG13'?!!fcg13Hooks:request.lesson==='FCG7'?!!fcg7Hooks:request.lesson==='FCG8'?!!fcg8Hooks:request.lesson==='FCG2'?!!fcg2Hooks:undefined,
+        liveHooks:['FCG9','FCG10','FCG11','FCG12'].includes(request.lesson)?!!fcgTimeHooks:request.lesson==='FCG13'?!!fcg13Hooks:request.lesson==='FCG7'?!!fcg7Hooks:request.lesson==='FCG8'?!!fcg8Hooks:request.lesson==='FCG2'?!!fcg2Hooks:undefined,
         checkpoints: request.lesson === 'WGL20' && hooks ? hooks.checkpoints : null,
         width: canvas.width, height: canvas.height,
         logs, glError: '0x' + glError.toString(16)});
@@ -1007,6 +1033,25 @@ window.addEventListener('message', event => {
   }
   if(isFCG4 && data.type==='fcg4-control-error'){
     setStatus('FCG4 ライブ操作エラー: '+String(data.message).slice(0,300),true);return;
+  }
+  if(fcgTimeLab&&data.type==='fcg-time-progress'){
+    if(!active.completed||active.contextLost||!Number.isFinite(data.value)||data.value<0||
+       data.value>fcgTimeMax||typeof data.playing!=='boolean')return;
+    const output=byId('fcg-time-state');
+    output.dataset.value=String(data.value);output.dataset.playing=String(data.playing);
+    output.textContent=(isFCG9?'step '+data.value+' / t='+(0.04*data.value).toFixed(2)+' s':
+      isFCG10?'位相 '+data.value.toFixed(2)+' rad':'t='+data.value.toFixed(2)+' s')+
+      ' ｜ '+(data.playing?'再生中':'停止中');
+    byId('fcg-time-play').disabled=data.playing;
+    byId('fcg-time-pause').disabled=!data.playing;
+    byId('fcg-time-step').disabled=data.playing||data.value>=fcgTimeMax;
+    return;
+  }
+  if(fcgTimeLab&&data.type==='fcg-time-error'){
+    active.completed=false;
+    setStatus(lesson+' 再生エラー: '+String(data.message).slice(0,300),true);
+    for(const button of document.querySelectorAll('#fcg-time-live button'))button.disabled=true;
+    return;
   }
   if(isFCG13&&data.type==='fcg13-progress'){
     if(![data.time,data.mean,data.maxSlope,data.maxError].every(Number.isFinite)||
@@ -1540,6 +1585,16 @@ window.addEventListener('message', event => {
         'WGL19：実行時の数値step・拡散係数を独立CPUで再計算し、RGBA各成分±2で比較。GLSL自体を変更した場合は不一致になり得ます。';
     }
   }
+  if(fcgTimeLab){
+    active.completed=!!data.ok&&!!data.liveHooks;
+    if(active.completed){
+      for(const button of document.querySelectorAll('#fcg-time-live button'))button.disabled=false;
+      byId('fcg-time-pause').disabled=true;
+      byId('fcg-time-live').querySelector('output').textContent='設定条件・停止中（再生または1ステップで観察）';
+    }else if(data.ok){
+      setStatus(lesson+' 再生フックがありません。初期ソースを確認してください',true);
+    }
+  }
   if(isFCG13){
     active.completed=!!data.ok&&!!data.liveHooks;
     if(active.completed){
@@ -1931,6 +1986,25 @@ byId('preset').addEventListener('change', event => {
   refreshParameterControls();
   selectTab('code');
 });
+if(fcgTimeLab){
+  const live=document.createElement('div');live.id='fcg-time-live';
+  const stepLabel=isFCG9?'1 step（0.04 s）':isFCG10?'位相を0.1 rad進める':'1表示step（0.05 s）';
+  live.innerHTML='<div class="controls" role="group" aria-label="再生操作">'+
+    '<button type="button" class="action" id="fcg-time-play" disabled>再生</button>'+
+    '<button type="button" class="action" id="fcg-time-pause" disabled>一時停止</button>'+
+    '<button type="button" class="action" id="fcg-time-step" disabled>'+stepLabel+'</button>'+
+    '<button type="button" class="action" id="fcg-time-reset" disabled>最初に戻す</button></div>'+
+    '<output id="fcg-time-state" aria-live="off">未実行</output>'+
+    '<small>設定条件の初期検算後、同じ編集ソースで再生します。最初に戻すと時刻・位相は0になります。</small>';
+  byId('canvas-slot').before(live);
+  const control=action=>{
+    if(!active?.completed||active.contextLost)return;
+    active.frame.contentWindow.postMessage({type:'fcg-time-control',action,
+      requestId:active.id,generation:active.generation,session:active.session},'*');
+  };
+  for(const action of ['play','pause','step','reset'])byId('fcg-time-'+action).addEventListener('click',()=>control(action));
+  window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',event=>{if(event.matches)control('pause');});
+}
 if(isFCG13){
   document.title='FCG13 周期海面の波の合成';
   document.querySelector('h1').textContent='FCG13 長いうねりと短い波を重ねる';
