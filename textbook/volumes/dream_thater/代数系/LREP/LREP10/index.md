@@ -217,7 +217,7 @@ $$
 U(t)=V_0\operatorname{diag}(e^{it\theta},e^{-it\theta})V_0^\dagger
 $$
 
-とすればユニタリかつ行列式1で、$U(0)=I_2,\ U(1)=U$ です。そこで
+とすればユニタリかつ行列式1で、$U(0)=I_2,\ U(1)=U$ です。[LREP5の軸角表示](../LREP5/index.md#prop-lrep5-rodrigues)でも同じ道を記述できます。$U$ の固有基底で $\operatorname{diag}(-1,1)$ を表した行列 $N$ は跡零エルミートで $N^2=I_2$ ですから、Pauli模型で $N=\boldsymbol n\cdot\boldsymbol\sigma$ と置けば $|\boldsymbol n|=1$ です。上の道は $U(t)=\exp(-it\theta N)$ という軸角表示（回転角 $2t\theta$）になっています。そこで
 
 $$
 A(t)=e^{tT}U(t)\quad(0\le t\le1)
@@ -274,7 +274,7 @@ v^\dagger(AH(x)A^\dagger)v
 =(A^\dagger v)^\dagger H(x)(A^\dagger v)\ge0.
 $$
 
-$A$ は可逆なので非零の $x$ が零になることもありません。[未来円錐の判定](#thm-lrep10-determinant-cone)から未来向き因果的ベクトルを未来向き因果的ベクトルへ移します。
+$A$ は可逆なので $AH(x)A^\dagger=0$ なら左右に逆行列を掛けて $H(x)=0$ となり、模型の単射性から $x=0$ です。[未来円錐の判定](#thm-lrep10-determinant-cone)から未来向き因果的ベクトルを未来向き因果的ベクトルへ移します。
 
 最後に[道連結性](#lem-lrep10-polar-connectivity)より単位元から $A$ への道があります。その $\Phi$ 像は $I_4$ と $\Phi(A)$ を結ぶ $O(1,3)$ 内の道です。[Lorentz群と単位元成分](../LREP9/index.md#def-lrep9-lorentz-group)により、
 
@@ -319,7 +319,7 @@ $$
 なので $a=d$。よって $A=aI_2$、$\det A=a^2=1$ より $a=\pm1$ です。逆に $A=\pm I_2$ なら $AXA^\dagger=X$ が全 $X$ について成立します。$\square$
 <!-- proof-end -->
 
-$A$ と $-A$ が同じLorentz変換になるのは $\Phi(-A)=\Phi(-I_2)\Phi(A)=\Phi(A)$ から分かります。逆に同じ変換を作る $A,B$ は $A^{-1}B\in\ker\Phi$ なので $B=\pm A$。各変換の持ち上げは**高々2個**です。
+[準同型性](#thm-lrep10-lorentz-action)と核の計算から、$A$ と $-A$ が同じLorentz変換になるのは $\Phi(-A)=\Phi(-I_2)\Phi(A)=\Phi(A)$ から分かります。逆に同じ変換を作る $A,B$ は $A^{-1}B\in\ker\Phi$ なので $B=\pm A$。各変換の持ち上げは**高々2個**です。
 
 ## 4. 単位元成分のすべてに届くか
 
@@ -508,7 +508,7 @@ $$
 $x=(3,1,2,0)$ を[エルミート行列模型](#def-lrep10-hermitian-model)へ移し、行列式を求めよ。$x$ が未来向き時間的かどうかを、二つの固有値の符号から判定せよ。
 
 <!-- solution-start -->
-**詳細解答。** 定義へ $x^0=3,x^1=1,x^2=2,x^3=0$ を代入します。
+**詳細解答。** [模型の定義](#def-lrep10-hermitian-model)へ $x^0=3,x^1=1,x^2=2,x^3=0$ を代入します。
 
 $$
 H(x)=\begin{pmatrix}3&1-2i\\1+2i&3\end{pmatrix},
@@ -525,7 +525,7 @@ $$
 $s\in\mathbb R$ とし $A=\operatorname{diag}(e^{s/2},e^{-s/2})$ とする。$H(x)$ の四つの係数を比較し、$\Phi(A)$ の $4\times4$ 行列を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $H(x)$ の対角成分は $x^0\pm x^3$、非対角成分は $x^1\mp ix^2$ です。左から $A$、右から $A^\dagger=A$ を掛けると、対角はそれぞれ $e^s(x^0+x^3)$、$e^{-s}(x^0-x^3)$、非対角は元のままです。従って
+**詳細解答。** [エルミート行列模型](#def-lrep10-hermitian-model)の対角成分は $x^0\pm x^3$、非対角成分は $x^1\mp ix^2$ です。左から $A$、右から $A^\dagger=A$ を掛けると、対角はそれぞれ $e^s(x^0+x^3)$、$e^{-s}(x^0-x^3)$、非対角は元のままです。従って
 
 $$
 \begin{aligned}
@@ -557,7 +557,7 @@ $g(x',x')=g(x,x)$ は $\cosh^2s-\sinh^2s=1$ からも検算できます。
 $U_\theta=\operatorname{diag}(e^{-i\theta/2},e^{i\theta/2})\in SU(2)$ とする。$\Phi(U_\theta)$ を四元ベクトル上で求め、$x^0,x^3$ が変わらないことも示せ。
 
 <!-- solution-start -->
-**詳細解答。** ユニタリ性から $UI_2U^\dagger=I_2$、$\sigma_3$ も対角なので $U\sigma_3U^\dagger=\sigma_3$。したがって $x'^0=x^0,x'^3=x^3$。非対角成分は
+**詳細解答。** ここでは $U=U_\theta$ と略記します。ユニタリ性から $UI_2U^\dagger=I_2$、$\sigma_3$ も対角なので $U\sigma_3U^\dagger=\sigma_3$。したがって $x'^0=x^0,x'^3=x^3$。非対角成分は
 
 $$
 x'^1-ix'^2=e^{-i\theta}(x^1-ix^2)
@@ -686,10 +686,10 @@ $$
 #### LREP10-B04 微分でboostと回転を見分ける
 - Level: B
 
-$B=\sigma_3/2$ および $C=-i\sigma_3/2$ はともに跡零である。$H(d\Phi_{I_2}(B)x)=BH(x)+H(x)B^\dagger$ を使い、それぞれの四元ベクトルへの無限小作用を求めよ。
+$B=\sigma_3/2$ および $C=-i\sigma_3/2$ はともに跡零である。[二重被覆の証明で得た微分公式](#thm-lrep10-double-cover) $H(d\Phi_{I_2}(B)x)=BH(x)+H(x)B^\dagger$ を使い、それぞれの四元ベクトルへの無限小作用を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $B^\dagger=B$ なので 反交換子 $\{X,Y\}=XY+YX$ を使うと、$BH+HB=\frac12\{\sigma_3,H\}$ です（ここでは $H=H(x)$ と略記）。[Pauli積公式](../LREP5/index.md#lem-lrep5-pauli-product)の反交換子 $\{\sigma_3,\sigma_3\}=2I_2$、$\{\sigma_3,\sigma_1\}=\{\sigma_3,\sigma_2\}=0$ から
+**詳細解答。** $B^\dagger=B$ なので反交換子 $\{X,Y\}=XY+YX$ を使うと、$BH+HB=\frac12\{\sigma_3,H\}$ です（ここでは $H=H(x)$ と略記）。[Pauli積公式](../LREP5/index.md#lem-lrep5-pauli-product)の反交換子 $\{\sigma_3,\sigma_3\}=2I_2$、$\{\sigma_3,\sigma_1\}=\{\sigma_3,\sigma_2\}=0$ から
 
 $$
 BH(x)+H(x)B
@@ -744,7 +744,7 @@ D_aI_2D_a^\dagger=D_a^2
 =H(\cosh a,\sinh a,0,0).
 $$
 
-さらに $\{\sigma_1,\sigma_2\}=\{\sigma_1,\sigma_3\}=0$ なので、$D_aH(x)D_a$ で $x^2,x^3$ は不変です。実際、$c_a=\cosh(a/2),s_a=\sinh(a/2)$ と置けば $j=2,3$ について
+さらに [Pauli積公式](../LREP5/index.md#lem-lrep5-pauli-product)の反交換子 $\{\sigma_1,\sigma_2\}=\{\sigma_1,\sigma_3\}=0$ なので、$D_aH(x)D_a$ で $x^2,x^3$ は不変です。実際、$c_a=\cosh(a/2),s_a=\sinh(a/2)$ と置けば $j=2,3$ について
 
 $$
 \begin{aligned}
