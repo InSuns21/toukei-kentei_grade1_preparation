@@ -20,7 +20,7 @@ chapters:
     title: "保型スペクトルとカスプ形式"
   - id: AFR4
     path: textbook/volumes/dream_thater/代数系/AFR/AFR4
-    status: planned
+    status: completed
     title: "Whittaker係数・Bessel関数"
   - id: AFR5
     path: textbook/volumes/dream_thater/代数系/AFR/AFR5
