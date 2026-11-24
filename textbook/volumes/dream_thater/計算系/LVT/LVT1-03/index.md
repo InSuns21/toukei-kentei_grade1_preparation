@@ -209,7 +209,7 @@ lake env lean ExerciseSolutions.lean
 
 lake test は Main.lean の実行入口を起動し、LVT1-03 OK を表示します。Mainの #guard はビルド中に具体例の比較を確認します。Inspectでは owner empty が none、owner (occupied x) が some x、占有されたマスへの着手が error (occupied o) になることを確認します。表示の修飾名は環境によって異なることがあります。
 
-Lean 4.35.0 の Except にはこの比較に必要な BEq が用意されていないため、結果の比較関数を自作します。二つの結果を同時に match し、成功同士では Cell、失敗同士では PlayError の値を比較します。残る二通り（成功と失敗、失敗と成功）は false です。これはテストで使う比較関数であり、上の等式の証明には使いません。
+Lean 4.35.0 の Except にはこの比較に必要な BEq が用意されていないため、二つの結果が一致するかを真偽値で返す sameOutcome を自作します。二つの結果を同時に match し、成功同士では Cell、失敗同士では PlayError の値を比較します。残る二通り（成功と失敗、失敗と成功）は false です。これはテストで使う関数であり、上の等式の証明には使いません。
 
 ```lean
 def sameOutcome (a b : Except PlayError Cell) : Bool :=
