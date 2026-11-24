@@ -6,7 +6,7 @@
 
 ## 1. 横方向の振動と高さ方向の方程式
 
-$z=x+iy$（$y>0$）とし、[重さ0のMaass形式](../AFR2/index.md#def-afr2-maass) $u$ の固有値を $\lambda$ とします。記号 $a_n(y)$ は整数 $n$ に対する横方向のFourier係数です。[周期方向のFourier展開と係数方程式](../AFR2/index.md#thm-afr2-fourier-equation)から
+$z=x+iy$（$y>0$）とし、[重さ0のMaass形式](../AFR2/index.md#def-afr2-maass) $u$ の固有値を $\lambda$ とします。記号 $a_n(y)$ は整数 $n$ に対する横方向のFourier係数です。$a_n''(y)=d^2a_n(y)/dy^2$ と書きます。Maass形式の不変性を平行移動 $z\mapsto z+1$ に適用すると、$u$ は $x$ について周期1です。[周期方向のFourier展開と係数方程式](../AFR2/index.md#thm-afr2-fourier-equation)から
 
 $$
 a_n(y)=\int_0^1 u(x+iy)e^{-2\pi inx}\,dx,\qquad
@@ -29,7 +29,7 @@ $$
 \nu^2=\frac14-\lambda.
 $$
 
-得られる方程式を変形Bessel方程式と呼び、まず変換の同値性を確かめます。
+得られる方程式を変形Bessel方程式と呼び、まず変換の同値性を確かめます。以下、$a$ のプライムは高さ $y$ による常微分、$b$ のプライムは伸縮後の変数 $t$ による常微分です。
 
 <a id="thm-afr4-bessel-reduction"></a>
 <!-- formal-statement-start -->
@@ -64,7 +64,11 @@ a'=\frac{b}{2\sqrt y}+c\sqrt y\,b',
 $$
 
 $$
-a''=-\frac{b}{4y^{3/2}}+\frac{c}{\sqrt y}b'+c^2\sqrt y\,b''.
+\begin{aligned}
+a''&=-\frac{b}{4y^{3/2}}+\frac{c}{2\sqrt y}b'
++\frac{c}{2\sqrt y}b'+c^2\sqrt y\,b''\\
+&=-\frac{b}{4y^{3/2}}+\frac{c}{\sqrt y}b'+c^2\sqrt y\,b''.
+\end{aligned}
 $$
 
 各 $b,b',b''$ は $t=cy$ で評価します。元の左辺に代入して $y^{3/2}$ を掛けると
@@ -89,7 +93,16 @@ ODE6の[指標根の差とFrobenius解の分岐](../../../解析系/ODE/ODE6/ind
 
 ## 2. 無限遠で減衰する関数を積分で作る
 
-方程式だけでは解は一意に定まりません。高さが大きくなると消える解を、次の収束積分で規格化します。$\cosh v=(e^v+e^{-v})/2$、$\sinh v=(e^v-e^{-v})/2$ とします。
+方程式だけでは解は一意に定まりません。高さが大きくなると消える解を、次の収束積分で規格化します。$\cosh v=(e^v+e^{-v})/2$、$\sinh v=(e^v-e^{-v})/2$ とします。複素引数でも同じ指数関数の式を使います。
+
+固定した $\nu\in\mathbb C$ と $t>0$ に対し、これから使う積分が存在することを先に確かめます。$v\ge0$ では $\cosh v\ge e^v/2$ であり、$A=|\operatorname{Re}\nu|$ と書くと三角不等式から $|\cosh(\nu v)|\le e^{Av}$ です。従って
+
+$$
+\int_0^\infty |e^{-t\cosh v}\cosh(\nu v)|\,dv
+\le \int_1^\infty e^{-tp/2}p^{A-1}\,dp<\infty.
+$$
+
+ここで $p=e^v$ は $[0,\infty)$ から $[1,\infty)$ への単調な変数変換で、$dp/dv=p>0$ より $dv=dp/p$ です。最後の積分は $t>0$ による指数減衰がどんな固定のべき乗にも勝つため有限です。この積分で減衰解の候補を定めます。
 
 <a id="def-afr4-k-bessel"></a>
 <!-- formal-statement-start -->
@@ -104,7 +117,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr4-k-bessel -->
-**定義の確認**。 $\nu=1/2$、任意の $t>0$ で積分を評価します。$w=\sinh(v/2)$ と置くと
+**定義の確認**。 $\nu=1/2$、任意の $t>0$ で積分を評価します。$w=\sinh(v/2)$ と置きます。$dw/dv=\cosh(v/2)/2>0$ なので一対一の置換積分ができ、
 
 $$
 \cosh v=1+2w^2,\qquad
@@ -118,12 +131,19 @@ K_{1/2}(t)=2e^{-t}\int_0^\infty e^{-2tw^2}\,dw
 =\sqrt{\frac{\pi}{2t}}e^{-t}.
 $$
 
-最後の積分は $q=\sqrt{2t}\,w$ と置き、$\int_0^\infty e^{-q^2}dq=\sqrt\pi/2$ を使いました。この値は積分の二乗を第一象限で極座標に直して $\int_0^{\pi/2}\int_0^\infty e^{-r^2}r\,dr\,d\theta=\pi/4$ と計算しても得られます。有限で正の値が定まり、確かに $t$ が増えると減衰します。
+最後の積分は $q=\sqrt{2t}\,w$ と置き、$dw=dq/\sqrt{2t}$ として計算しました。Gaussian積分の値は、$I=\int_0^\infty e^{-q^2}dq$ と置いて積分の二乗を第一象限の極座標（半径 $r$、角度 $\theta$、面積要素 $r\,dr\,d\theta$）に直せば確認できます。
+
+$$
+I^2=\int_0^{\pi/2}\int_0^\infty e^{-r^2}r\,dr\,d\theta
+=\frac{\pi}{2}\cdot\frac12=\frac{\pi}{4}.
+$$
+
+$I>0$ なので $I=\sqrt\pi/2$ です。有限で正の値が定まり、確かに $t$ が増えると減衰します。
 <!-- definition-example-end -->
 
-一般の $\nu$ でも $\cosh v\ge e^v/2$、$|\cosh(\nu v)|\le e^{|\operatorname{Re}\nu|v}$（$v\ge0$）なので、被積分関数の絶対値は $\exp(-te^v/2+|\operatorname{Re}\nu|v)$ 以下です。$p=e^v$ と置けば指数減衰とべき乗の積の積分となり、収束します。また $\cosh(-\nu v)=\cosh(\nu v)$ なので $K_{-\nu}=K_\nu$ です。
+また $\cosh(-\nu v)=\cosh(\nu v)$ なので $K_{-\nu}=K_\nu$ です。
 
-この積分が先ほどの方程式を満たすのは、$t$ で微分した結果を $v$ の微分に置き換えられるためです。
+この積分が先ほどの方程式を満たすのは、$t$ で微分した結果を $v$ の微分に置き換えられるためです。$K_\nu'$ と $K_\nu''$ は次数 $\nu$ を固定した引数 $t$ による常微分です。
 
 <a id="thm-afr4-k-equation"></a>
 <!-- formal-statement-start -->
@@ -166,7 +186,7 @@ t^2K_\nu''+tK_\nu'-t^2K_\nu
 =\int_0^\infty E''(v)h(v)\,dv.
 $$
 
-ここでは $\cosh^2v-1=\sinh^2v$ を用いました。有限区間 $[0,R]$ で部分積分を二度行うと
+実際、積分内で $t$ の微分を一度行うと $-\cosh v$、二度行うと $\cosh^2v$ が $E$ に掛かります。従って三項を合わせた因子は $t^2(\cosh^2v-1)-t\cosh v$ であり、$\cosh^2v-1=\sinh^2v$ によって $E''/E$ と一致します。有限区間 $[0,R]$ で部分積分を二度行うと
 
 $$
 \int_0^R E''h\,dv=[E'h-Eh']_0^R+\int_0^R Eh''\,dv.
@@ -263,7 +283,14 @@ $$
 \qquad \varepsilon(s)\to0.
 $$
 
-任意の $\delta>0$ に対し、ある $S\ge T$ で $|\varepsilon(s)|\le\delta$（$s\ge S$）となります。積分を $S$ で分け、$[T,S]$ の積分を $e^{2t}$ で割った値は0へ近づきます。残りの誤差積分の絶対値は $\delta(e^{2t}-e^{2S})/2$ 以下です。$\delta$ は任意なので
+任意の $\delta>0$ に対し、ある $S\ge T$ で $|\varepsilon(s)|\le\delta$（$s\ge S$）となります。積分を $S$ で分け、$[T,S]$ の積分を $e^{2t}$ で割った値は0へ近づきます。残りの誤差積分の絶対値は
+
+$$
+\left|c_0^{-2}\int_S^t e^{2s}\varepsilon(s)\,ds\right|
+\le \frac{\delta}{2c_0^2}(e^{2t}-e^{2S})
+$$
+
+です。$\delta$ は任意なので
 
 $$
 \int_T^t\frac{ds}{sK(s)^2}\sim\frac{e^{2t}}{2c_0^2}.
@@ -277,6 +304,8 @@ $$
 例えば $\nu=1/2$ での減衰解は第2節で明示できました。増大解 $t^{-1/2}e^t$ も同じ方程式を満たしますが、増大条件によって除かれます。これは単に「$K$ を選ぶ」という約束ではなく、元の保型形式の条件が解を選び出しているのです。
 
 ## 4. Maass形式の展開とカスプでの減衰
+
+以下、$u_x=\partial_xu=\partial u/\partial x$、$u_y=\partial_yu=\partial u/\partial y$ と書きます。偏微分では他方の座標を固定します。$a_n'(y)$ は一変数の高さ係数の常微分です。
 
 <a id="thm-afr4-maass-expansion"></a>
 <!-- formal-statement-start -->
@@ -365,11 +394,11 @@ $$
 
 第二式は有限幾何和を微分するか、$\sum_{k\ge1}\sum_{j\ge k}q^j$ を順に足すことで得られます。どちらも $q$ の定数倍以下です。これらの評価は $y\ge Y+1$ で一様なので、級数と二つの一階微分級数が絶対かつ一様に収束します。[微分と極限の交換定理](../../../基礎科目/RA/RA5/index.md#thm-ra5-derivative)を任意の有限閉区間で、他方の変数を固定した有限部分和の実部・虚部に適用します。部分和は一点で収束し、導関数列は一様収束するので、和の一階微分は表示した微分級数に等しくなります。従って主張した評価が成立します。
 
-$a_0\equiv0$ なら基本領域の有限高さ部分では滑らかさから $u$ とその微分は有界です。高さ $Y+1$ 以上では指数減衰を用いて、$|u|^2y^{-2}$ および $|u_x|^2+|u_y|^2$ の積分が有限になります。
+[標準基本領域](../../MF/MF1/index.md#def-mf1-standard-domain)を $F$ とし、商空間を $X=\Gamma\backslash\mathbb H$ と書きます。$a_0\equiv0$ なら $F$ の有限高さ部分では滑らかさから $u$ とその微分は有界です。高さ $Y+1$ 以上では指数減衰を用いて、$|u|^2y^{-2}$ および $|u_x|^2+|u_y|^2$ の積分が有限になります。
 
 [双曲Laplace作用素のエネルギー実現](../AFR3/index.md#def-afr3-energy-realization)の空間 $V$ への所属も確認します。$R>Y+1$ とし、高さ $R$ 以下は1、高さ $2R$ 以上は0となる滑らかな切断を用います。
 
-高さ方向の切断を $\chi(y/R)$ と書き、商の上で滑らかなコンパクト台の関数 $u_R=\chi(y/R)u$ を作ります。
+切断は $0\le\chi\le1$、引数が1以下では1、2以上では0となる滑らかな実関数を選びます。$F$ の $y>1$ の帯にだけ $\chi(y/R)$ を置き、残りは1とします。縦辺では高さが等しく、円弧の近くでは恒等的に1なので、[基本領域の存在と内部での一意性](../../MF/MF1/index.md#thm-mf1-fundamental-domain)に従って軌道に沿って延長すれば商上の滑らかな関数 $\chi_R$ になります。全上半平面で単に高さだけの関数を掛けるわけではありません。$u_R=\chi_Ru$ は滑らかで不変かつコンパクトな台を持ちます。
 
 微分すると、元の微分の尾部に加えて $u\chi'(y/R)/R$ が現れます。その二乗積分は
 
@@ -378,7 +407,13 @@ R^{-2}\|\chi'\|_\infty^2
 \int_R^{2R}\int_{-1/2}^{1/2}|u|^2\,dx\,dy
 $$
 
-以下で0に近づきます。他の誤差も可積分な尾部なので0へ近づき、$u_R\to u$ が $V$ のノルムで成立します。
+以下で0に近づきます。実際、指数減衰によりこの積分は定数倍の $R^{-2}e^{-4\pi(R-Y)}$ 以下です。また $w_R=u-u_R$ と置くと、$F$ 上で $w_R=(1-\chi_R)u$ であり、
+
+$$
+\|w_R\|_V^2=\int_F (|w_R|^2y^{-2}+|\partial_xw_R|^2+|\partial_yw_R|^2)\,dx\,dy.
+$$
+
+右辺のうち $1-\chi_R$ が掛かる項は $y\ge R$ の可積分な尾部で抑えられます。$\partial_yw_R=(1-\chi_R)u_y-u\chi'(y/R)/R$ の二項の和の二乗は各二乗の和の2倍以下なので、先ほどの評価と合わせて右辺は0へ近づきます。従って $u_R$ は $V$ のノルムでCauchy列となり、その $H$ での極限は $u$ です。$V$ は滑らかなコンパクト台の不変関数の完備化なので $u\in V$ です。
 
 コンパクト台の滑らかな試験関数 $v$ に対して、十分大きな $R$ では $u_R=u$ が $v$ の台上で成立します。[エネルギー恒等式](../AFR3/index.md#thm-afr3-green)を $u_R,v$ に適用すると
 
@@ -386,7 +421,7 @@ $$
 a(u,v)=a(u_R,v)=(\Delta u_R,v)=(\lambda u,v).
 $$
 
-試験関数の $V$ での稠密性により全ての $v\in V$ へ延長できます。これは[双曲Laplace作用素のエネルギー実現](../AFR3/index.md#def-afr3-energy-realization)で要求される等式です。従って $u\in D(A)$ かつ $Au=\lambda u$ です。
+試験関数の $V$ での稠密性により全ての $v\in V$ へ延長できます。実際、$|a(u,v)|\le\|u\|_V\|v\|_V$、$|(\lambda u,v)|\le|\lambda|\|u\|\|v\|_V$ なので両辺は $V$ のノルムで連続です。これは[双曲Laplace作用素のエネルギー実現](../AFR3/index.md#def-afr3-energy-realization)で要求される等式です。従って $u\in D(A)$ かつ $Au=\lambda u$ です。
 <!-- proof-end -->
 
 これで増大条件と平均0から[重さ0のMaassカスプ形式](../AFR3/index.md#def-afr3-maass-cusp)の定義域条件まで導けました。さらに[エネルギー実現の非負性](../AFR3/index.md#thm-afr3-self-adjoint)から $\lambda\ge0$ です。ただし $\lambda\ge1/4$ まではこの議論で結論できません。
@@ -402,7 +437,14 @@ N(v)=\begin{pmatrix}1&v\\0&1\end{pmatrix},
 \qquad A_y=\begin{pmatrix}\sqrt y&0\\0&1/\sqrt y\end{pmatrix}
 $$
 
-はそれぞれ $z\mapsto z+v$ と $z\mapsto yz$ を与えます。積は $N(v)N(w)=N(v+w)$、$N(m)\in\Gamma$（$m\in\mathbb Z$）です。$v\mapsto e^{2\pi inv}$ は和を積に移す絶対値1の関数で、整数を足しても変わりません。このように和を積に移し、絶対値1を取る関数を加法指標と呼びます。
+を使います。$v\in\mathbb R$、$y>0$ なので両者は実成分を持ち、行列式はそれぞれ $1\cdot1=1$、$\sqrt y/\sqrt y=1$ です。従って $G$ の元です。既習の作用式に各成分を代入すると
+
+$$
+N(v)\cdot z=\frac{z+v}{1}=z+v,\qquad
+A_y\cdot z=\frac{\sqrt y\,z}{1/\sqrt y}=yz.
+$$
+
+このため $N(v)A_y\cdot i=v+iy$ となり、群の行列で横方向と高さを指定できます。行列積から $N(v)N(w)=N(v+w)$、さらに整数 $m$ では全成分が整数なので $N(m)\in\Gamma$ です。$v\mapsto e^{2\pi inv}$ は和を積に移す絶対値1の関数で、整数を足しても変わりません。このように和を積に移し、絶対値1を取る関数を加法指標と呼びます。連続な関数 $\Phi:G\to\mathbb C$ に対し、左不変性とは全ての $\gamma\in\Gamma$ と $g\in G$ で $\Phi(\gamma g)=\Phi(g)$ となることです。従って $\Phi(N(v)g)$ は $v$ について周期1となります。この一変数の周期関数から、古典的Fourier係数と同じ積分で非零周波数の成分を取り出します。
 
 <a id="def-afr4-whittaker"></a>
 <!-- formal-statement-start -->
@@ -436,7 +478,7 @@ $$
 
 $\psi(y)\ne0$ となる高さでは実際に非零の係数が得られます。これは固有方程式を課していない群上の関数の例です。
 
-この定義では重さや固有方程式はまだ要求しません。Maass形式を入力すると、第4節の特殊関数がそのまま現れます。
+この定義では重さや固有方程式はまだ要求しません。Maass形式を入力すると、第4節の特殊関数がそのまま現れます。[上半平面と回転による実行列の表示](../AFR1/index.md#thm-afr1-coordinates)の右回転 $k_\theta$ は $i$ を固定する行列で、任意の $g\in G$ は $N(x)A_yk_\theta$ と表示できます。実際、$N(x)A_y$ の行列積は同定理の $s(x+iy)$ です。
 
 <a id="thm-afr4-whittaker-equivariance"></a>
 <!-- formal-statement-start -->
@@ -464,7 +506,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$F(v)=\Phi(N(v)g)e^{-2\pi inv}$ と置きます。$N(v+1)=N(1)N(v)$ で $N(1)\in\Gamma$、$e^{-2\pi in}=1$ なので $F(v+1)=F(v)$ です。定義へ $N(v_0)g$ を代入し、$w=v+v_0$ と置くと
+$F(v)=\Phi(N(v)g)e^{-2\pi inv}$ と置きます。$N(v+1)=N(1)N(v)$ で $N(1)\in\Gamma$、$e^{-2\pi in}=1$ なので $F(v+1)=F(v)$ です。[Whittaker係数の定義](#def-afr4-whittaker)へ $N(v_0)g$ を代入し、$w=v+v_0$ と置くと
 
 $$
 W_n^\Phi(N(v_0)g)
@@ -509,7 +551,14 @@ $u(x+iy)=e^{-6\pi y}e^{-6\pi ix}$ の非零のFourier係数と双曲Laplace作�
 - ID: AFR4-A2
 
 <!-- solution-start -->
-**詳細解答。** [Fourier係数の式](../AFR2/index.md#thm-afr2-fourier-equation)へ代入すると、$a_n=e^{-6\pi y}\int_0^1e^{-2\pi i(n+3)x}dx$ です。$n=-3$ で積分は1、それ以外では指数関数の原始関数を両端で評価すると0です。従って $a_{-3}=e^{-6\pi y}$ だけが非零です。$u_{xx}=-36\pi^2u$、$u_{yy}=36\pi^2u$ なので [双曲Laplace作用素](../AFR2/index.md#def-afr2-laplacian)を作用させると0です。反転について $u(2i)=e^{-12\pi}$ と $u(i/2)=e^{-3\pi}$ が異なるので、これは大域的なMaass形式ではありません。
+**詳細解答。** [Fourier係数の式](../AFR2/index.md#thm-afr2-fourier-equation)へ代入すると、$a_n=e^{-6\pi y}\int_0^1e^{-2\pi i(n+3)x}dx$ です。$n=-3$ で積分は1、それ以外では指数関数の原始関数を両端で評価すると0です。従って $a_{-3}=e^{-6\pi y}$ だけが非零です。$x$ 方向では $-6\pi i$、$y$ 方向では $-6\pi$ が微分ごとに掛かるため、
+
+$$
+u_{xx}=(-6\pi i)^2u=-36\pi^2u,\qquad
+u_{yy}=(-6\pi)^2u=36\pi^2u.
+$$
+
+従って [双曲Laplace作用素](../AFR2/index.md#def-afr2-laplacian)を作用させると0です。[実特殊線形群の作用](../AFR1/index.md#def-afr1-real-group)による整数行列の反転 $z\mapsto-1/z$ は $2i$ を $i/2$ に移しますが、$u(2i)=e^{-12\pi}$ と $u(i/2)=e^{-3\pi}$ が異なるので、これは大域的なMaass形式ではありません。
 <!-- solution-end -->
 
 <a id="ex-afr4-a3"></a>
@@ -552,11 +601,12 @@ $t>0$ で $b_\pm(t)=t^{-1/2}e^{\pm t}$ が $\nu=1/2$ の変形Bessel方程式を
 - ID: AFR4-B1
 
 <!-- solution-start -->
-**詳細解答。** $\sigma=\pm1$ と置き $b=t^{-1/2}e^{\sigma t}$ と書きます。対数微分に相当する積の微分から
+**詳細解答。** $\sigma=\pm1$ と置き $b=t^{-1/2}e^{\sigma t}$ と書きます。プライムは $t$ による常微分です。積の微分で $b'=(\sigma-1/(2t))b$ を得て、さらにこの式を微分すると
 
 $$
 b'=(\sigma-1/(2t))b,\quad
-b''=(1-\sigma/t+3/(4t^2))b.
+b''=\left(\frac{1}{2t^2}+(\sigma-1/(2t))^2\right)b
+=(1-\sigma/t+3/(4t^2))b.
 $$
 
 [係数方程式の変換](#thm-afr4-bessel-reduction)の左辺に代入すると
@@ -605,7 +655,7 @@ $$
 a_{-n}(y)=-\int_0^1u(t+iy)e^{-2\pi int}dt=-a_n(y).
 $$
 
-$n=0$ なら $2a_0=0$ です。$n\ne0$ では [非零周波数展開](#thm-afr4-maass-expansion)の共通因子 $\sqrt yK_\nu(2\pi|n|y)$ が十分大きな $y$ で非零なので割って $\rho(-n)=-\rho(n)$ を得ます。[指数減衰の定理](#thm-afr4-cusp-decay)によりこの $u$ は二乗可積分でエネルギー実現の定義域に属し、平均0なのでカスプ形式です。
+$n=0$ なら $2a_0=0$ です。$n\ne0$ では [非零周波数展開](#thm-afr4-maass-expansion)の共通因子 $\sqrt yK_\nu(2\pi|n|y)$ が [Kの無限遠での漸近形](#thm-afr4-k-asymptotic) により十分大きな $y$ で非零なので割って $\rho(-n)=-\rho(n)$ を得ます。[指数減衰の定理](#thm-afr4-cusp-decay)によりこの $u$ は二乗可積分でエネルギー実現の定義域に属し、平均0なのでカスプ形式です。
 <!-- solution-end -->
 
 <a id="ex-afr4-c1"></a>
