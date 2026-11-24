@@ -6,7 +6,7 @@
 
 ## 1. 整数の指数を連続変数に変える
 
-$IWA8$ の [Teichmüller指標](../IWA8/index.md#def-iwa8-teich-character) を単元 $x\in\mathbb Z_p^\times$ に対して $\omega(x)=\omega(x\bmod p)$ と書きます。これは $p-1$ 乗して $1$ になり、法 $p$ で $x$ と一致する根です。
+IWA8 の [Teichmüller指標](../IWA8/index.md#def-iwa8-teich-character) を単元 $x\in\mathbb Z_p^\times$ に対して $\omega(x)=\omega(x\bmod p)$ と書きます。これは $p-1$ 乗して $1$ になり、法 $p$ で $x$ と一致する根です。
 
 [IWA2の単元群の直積分解](../IWA2/index.md#thm-iwa2-odd-splitting) と [指数座標](../IWA2/index.md#prop-iwa2-odd-exponent-coordinates) を各有限層から逆極限へ移すと、$g=1+p$ に対し
 
@@ -15,17 +15,24 @@ x=\omega(x)\langle x\rangle,\qquad
 \langle x\rangle=g^{\ell(x)},\qquad \ell(x)\in\mathbb Z_p
 $$
 
-と一意に書けます。$\langle x\rangle=x/\omega(x)$ は $1+p\mathbb Z_p$ の元です。$\ell$ は積を和に移し、法 $p^{n+1}$ の単元の値から $\ell(x)\bmod p^n$ が決まるので連続です。
+と一意に書けます。$\langle x\rangle=x/\omega(x)$ は主単元、つまり $1+p\mathbb Z_p$ の元です。$\ell(x)$ はこの主単元を生成元 $g$ の冪で表す指数座標であり、有限部分の指標番号とは異なります。$\ell$ は積を和に移し、法 $p^{n+1}$ の単元の値から $\ell(x)\bmod p^n$ が決まるので連続です。
 
-例えば $p=5,x=2$ なら法25で $\omega(2)=7$ です。実際 $7^4=2401\equiv1\pmod{25}$ かつ $7\equiv2\pmod5$。$7\cdot6^2=252\equiv2\pmod{25}$ なので $\ell(2)\equiv2\pmod5$ です。
+例えば $p=5,x=2$ なら法25で $\omega(2)\equiv7\pmod{25}$ です。[Teichmüller指標](../IWA8/index.md#def-iwa8-teich-character) の二条件を確かめると、$7^4=2401\equiv1\pmod{25}$ かつ $7\equiv2\pmod5$。次に $7^{-1}\equiv18\pmod{25}$ なので主単元の値は $2\cdot18\equiv11\pmod{25}$ です。
 
-$p$ 進指数 $u\in\mathbb Z_p$ に対し、$z\in p\mathbb Z_p$ なら
+$$
+6^2\equiv11\pmod{25},\qquad
+7\cdot6^2\equiv2\pmod{25}.
+$$
+
+[指数座標](../IWA2/index.md#prop-iwa2-odd-exponent-coordinates) の一意性により $\ell(2)\equiv2\pmod5$ と判定できます。
+
+$p$ 進指数 $u\in\mathbb Z_p$ に対し、$z\in p\mathbb Z_p$ なら、二項係数を $\binom u0=1$、$j\ge1$ では $\binom uj=u(u-1)\cdots(u-j+1)/j!$ として
 
 $$
 (1+z)^u=\sum_{j\ge0}\binom uj z^j
 $$
 
-を使えます。[IWA13の二項式変換](../IWA13/index.md#def-iwa13-amice-transform) で確認したように、$\binom uj$ は連続な整数値関数です。各項の絶対値は $p^{-j}$ 以下なので一様収束し、通常の整数指数の法則も非負整数の稠密性によって全ての $p$ 進指数へ延びます。
+を使えます。[IWA13の二項式変換](../IWA13/index.md#def-iwa13-amice-transform) で確認したように、$\binom uj$ は $u$ の連続な $\mathbb Z_p$ 値関数です。各項の絶対値は $p^{-j}$ 以下なので一様収束し、通常の整数指数の法則も非負整数の稠密性によって全ての $p$ 進指数へ延びます。
 
 例えば $\langle x\rangle^{-s}$ は $s\in\mathbb Z_p$ に対して定義できます。一方 $\omega(x)$ の指数は $p-1$ を法として決める必要があります。$p^n\to0$ ですが $p^n\equiv1\pmod{p-1}$ なので、$u\mapsto\omega(x)^u$ を整数から $p$ 進的に連続延長することは、$\omega(x)\ne1$ ならできません。有限指標の番号 $i$ と連続変数 $s$ は別々に固定する必要があります。
 
@@ -39,7 +46,7 @@ $i\ne0$ は導手 $p$ の原始文字で、$p$ の倍数上では零です。こ
 
 これらの値は代数的な根です。複素側の特殊値を比較する際は、$p-1$ 乗根の生成元を複素側の一つの原始根に対応させ、同じ代数的数を複素数と $p$ 進数として読み分けます。
 
-[IWA14のBernoulli多項式](../IWA14/index.md#def-iwa14-bernoulli-polynomial) は剰余類を細分する公式を持っていました。指標で重みを付けた有限和を作ると、Dirichlet L関数の特殊値を表せます。
+[IWA14のBernoulli多項式](../IWA14/index.md#def-iwa14-bernoulli-polynomial) は剰余類を細分する公式を持っていました。その評価点を導手 $f$ の剰余類に合わせ、指標で重みを付けた有限和を一般化Bernoulli数と呼びます。これは [Dirichlet L関数](../../ANT/ANT3/index.md#def-ant3-l-function) の特殊値を表すための量です。
 
 <a id="def-iwa15-generalized-bernoulli"></a>
 
@@ -55,7 +62,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa15-generalized-bernoulli -->
-**定義の確認**。 $p=3$ で非自明な文字 $\psi=\omega$ を選ぶと、値は法3の $1,2,0$ に対して $1,-1,0$。単元群の位数2の生成元2を $-1$ に送るので乗法性があり、導手は3です。$B_1(x)=x-1/2$ を代入すると
+**定義の確認**。 $p=3$ で非自明な文字 $\psi=\omega$ を選ぶと、値は法3の $1,2,0$ に対して $1,-1,0$。単元群の位数2の生成元2を $-1$ に送るので乗法性があり、非単元では零です。法3の真の約数は1だけですが、法1の文字は単元でも常に1なので、この文字は法1から誘導されません。[原始文字の定義](../../ANT/ANT3/index.md#def-ant3-primitive) により導手は3です。[Bernoulli多項式](../IWA14/index.md#def-iwa14-bernoulli-polynomial) の $B_1(x)=x-1/2$ を代入すると
 
 $$
 B_{1,\psi}=B_1(1/3)-B_1(2/3)=-1/3.
@@ -76,17 +83,17 @@ $$
 L(1-k,\psi)=-\frac{B_{k,\psi}}{k}
 $$
 >
-> である。ここで一般化Bernoulli数は上の規約を用いる。
+> である。ここで [一般化Bernoulli数](#def-iwa15-generalized-bernoulli) は上の規約を用いる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-指数関数を使って剰余類ごとの幾何級数を足すと、Bernoulli多項式の生成関数が現れます。その級数をMellin積分に入れ、原点付近の項を引き出すと、Gamma関数の極と相殺される係数が求まります。
+指数関数を使って剰余類ごとの幾何級数を足すと、Bernoulli多項式の生成関数が現れます。その級数をMellin積分（正の実変数 $t$ について $t^{z-1}$ を掛けて積分する変換）に入れ、原点付近の項を引き出すと、Gamma関数の極と相殺される係数が求まります。
 
 <!-- proof-start -->
 ### 証明
 
-複素変数を $z$ とします。$t>0$ に対し
+複素変数を $z$、積分する実変数を $t>0$ とします。複素冪は実対数を用いて $t^{z-1}=\exp((z-1)\log t)$ と定めます。まず
 
 $$
 h_\psi(t)=\sum_{n\ge1}\psi(n)e^{-nt}
@@ -101,9 +108,23 @@ $$
 \Gamma(z)L(z,\psi)=\int_0^\infty t^{z-1}h_\psi(t)\,dt.
 $$
 
-[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) による和と積分の交換は、$\sigma=\operatorname{Re}z>1$ として絶対積分の和が $\Gamma(\sigma)\sum_{n\ge1}n^{-\sigma}<\infty$ であることから正当化できます。各項で $u=nt$ と置けば $\Gamma(z)n^{-z}$ が得られます。
+[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) を数え上げ測度と実変数のLebesgue測度の積に適用します。複素値の場合は実部と虚部にそれぞれ適用します。$\sigma=\operatorname{Re}z>1$ として絶対積分の和は
 
-$IWA14$ の [Bernoulli多項式の生成関数](../IWA14/index.md#def-iwa14-bernoulli-polynomial) に変数 $-ft$ を入れると
+$$
+\sum_{n\ge1}|\psi(n)|\int_0^\infty t^{\sigma-1}e^{-nt}\,dt
+\le\Gamma(\sigma)\sum_{n\ge1}n^{-\sigma}<\infty.
+$$
+
+各項では $u=nt$ と置換すると $dt=du/n$、$t^{z-1}=n^{1-z}u^{z-1}$ なので
+
+$$
+\int_0^\infty t^{z-1}e^{-nt}\,dt
+=n^{-z}\Gamma(z).
+$$
+
+これが和と積分を交換した等式の根拠です。
+
+IWA14 の [Bernoulli多項式の生成関数](../IWA14/index.md#def-iwa14-bernoulli-polynomial) に変数 $-ft$ を入れると
 
 $$
 t h_\psi(t)
@@ -153,7 +174,7 @@ $$
 \mu_{c,n}(a)=\frac{a-cb}{N}+\frac{c-1}{2}.
 $$
 
-この重みは整数値で細分と整合することを [正則化分布の有界性](../IWA14/index.md#thm-iwa14-measure) で証明しました。単元上の積分に $\psi$ を掛ければ、有限部分ごとの特殊値が得られます。
+この重みは $p$ 進整数値（$\mathbb Z_p$ の元であり、通常の整数とは限りません）で細分と整合することを [正則化分布の有界性](../IWA14/index.md#thm-iwa14-measure) で証明しました。$\mu_{c,n}(a)$ は剰余類 $a+p^n\mathbb Z_p$ の重みです。単元上の積分とは、被積分関数を $p\mathbb Z_p$ 上で零に延長し、[p進積分](../IWA13/index.md#def-iwa13-integral) を取ることです。単元と非単元はともに開かつ閉なので、連続性が保たれます。単元上の被積分関数に $\psi$ を掛ければ、有限部分ごとの特殊値が得られます。
 
 <a id="thm-iwa15-twisted-moments"></a>
 
@@ -241,7 +262,15 @@ $$
 c^{p-1}\equiv a^{p-1}+(p-1)a^{p-2}tp\pmod{p^2}.
 $$
 
-$t\bmod p$ の係数は法 $p$ で非零なので、除くべき $t$ はちょうど一つです。$c>1$ も満たすよう選べます。この選択では $e=\ell(c)$ は単元です。実際 $\omega(c)^{p-1}=1$ で、$g^{(p-1)e}\equiv1+p(p-1)e\bmod p^2$ だからです。
+[Fermatの小定理](../../NT/NT2/index.md#cor-nt2-fermat) により $a^{p-1}-1$ は $p$ の倍数です。従って除くべき条件は
+
+$$
+\frac{a^{p-1}-1}{p}+(p-1)a^{p-2}t\equiv0\pmod p
+$$
+
+です。$t$ の係数は法 $p$ で非零なので、除くべき $t\bmod p$ はちょうど一つです。$c>1$ も満たすよう選べます。この選択では $e=\ell(c)$ は単元です。実際 $\omega(c)^{p-1}=1$ で、$g^{(p-1)e}\equiv1+p(p-1)e\bmod p^2$ だからです。
+
+この補助整数で測度の積分を作り、積分公式に現れる補助因子を分母で打ち消します。こうして得る関数を Kubota–Leopoldt $p$ 進L関数と呼びます。
 
 <a id="def-iwa15-kl-function"></a>
 
@@ -276,10 +305,10 @@ $$
 H_{2,2}(-1)=(1-4)(1-5)\frac{1/6}{2}=1.
 $$
 
-また $\omega(2)^2\langle2\rangle^2=2^2=4$。分母は $-3\ne0$ なので $L_5(-1,\omega^2)=1/3$ が得られます。被積分関数は全ての単元で整数値、測度は有界なので積分は存在します。
+また $\omega(2)^2\langle2\rangle^2=2^2=4$。分母は $-3\ne0$ なので $L_5(-1,\omega^2)=1/3$ が得られます。被積分関数は全ての単元で $\mathbb Z_5$ 値であり、5の倍数上で零に延長しても連続です。[積分への一意的延長](../IWA13/index.md#thm-iwa13-extension) の仮定を満たすので積分が存在します。
 <!-- definition-example-end -->
 
-定義中の積分は、二項級数の一様収束と [p進積分の連続性](../IWA13/index.md#thm-iwa13-extension) から $s$ の連続関数です。分母は $i\ne0$ なら法 $p$ で $1-\omega(c)^i\ne0$ なので単元です。$i=0$ なら分母が零になるのは $\ell(c)(1-s)=0$ のときだけです。指数座標は単射で $e$ は単元なので、これは $s=1$ に限ります。
+定義中の積分が $s$ の連続関数であることも確かめます。二項級数では $z=\langle x\rangle-1$、$u=-s$ で、$x$ によらず第 $j$ 項の絶対値は $p^{-j}$ 以下です。有限個の係数 $\binom{-s}{j}$ は $s$ に連続なので、$s'\to s$ のとき被積分関数の差は $x$ について一様に零へ収束します。[p進積分の連続性](../IWA13/index.md#thm-iwa13-extension) の評価 $|I_\mu(f)|_p\le\|f\|_\infty$ により $H_{i,c}(s')\to H_{i,c}(s)$ となります。分母は $i\ne0$ なら法 $p$ で $1-\omega(c)^i\ne0$ なので単元です。$i=0$ なら分母が零になるのは $\ell(c)(1-s)=0$ のときだけです。指数座標は単射で $e$ は単元なので、これは $s=1$ に限ります。
 
 <a id="thm-iwa15-interpolation"></a>
 
@@ -332,7 +361,7 @@ $$
 T=g^{1-s}-1,\qquad g=1+p
 $$
 
-に固定します。$1-s$ が走ると $T$ は $p\mathbb Z_p$ 全体を走ります。被積分関数の連続部分は
+に固定します。[指数座標](../IWA2/index.md#prop-iwa2-odd-exponent-coordinates) により $1-s$ が $\mathbb Z_p$ 全体を走ると $g^{1-s}$ は主単元群全体を走るので、$T$ は $p\mathbb Z_p$ 全体を走ります。$T$ は形式的な冪級数変数としても使い、関数の値を求めるときだけ $g^{1-s}-1$ を代入します。被積分関数の連続部分は
 
 $$
 \langle x\rangle^{-s}
@@ -365,14 +394,21 @@ $$
 
 ### 証明の見取り図
 
-二項係数の積分は整数値なので、分子は整数係数です。非自明な有限指標では分母の定数項が単元。自明な指標の場合、分母は $T$ に単元を掛けたものです。そのとき分子の定数項が零でないことまで有限層で調べ、極が消えないことを確認します。
+二項係数の積分は $p$ 進整数値なので、分子は整数係数です。非自明な有限指標では分母の定数項が単元。自明な指標の場合、分母は $T$ に単元を掛けたものです。そのとき分子の定数項が零でないことまで有限層で調べ、極が消えないことを確認します。
 
 <!-- proof-start -->
 ### 証明
 
 被積分関数は連続な $\mathbb Z_p$ 値関数なので、[p進積分の連続性](../IWA13/index.md#thm-iwa13-extension) により各係数は $\mathbb Z_p$ に入ります。$T\in p\mathbb Z_p$ では二項展開の $j$ 次項が絶対値 $p^{-j}$ 以下で一様収束するので、積分と級数和を交換して $A_{i,c}(T)=H_{i,c}(s)$ を得ます。また $\langle c\rangle^{1-s}=(1+T)^e$ なので分母も一致します。
 
-$i\ne0$ では分母の定数項 $1-\omega(c)^i$ は単元です。一般に整数係数級数 $d_0+d_1T+\cdots$ で $d_0$ が単元なら、逆級数の定数項を $d_0^{-1}$、$n$ 次係数を $-d_0^{-1}\sum_{j=1}^n d_j b_{n-j}$ と順次定めれば逆元が得られます。従って $F_i\in\Lambda$。
+$i\ne0$ では分母の定数項 $1-\omega(c)^i$ は単元です。[岩澤代数の単元判定](../IWA3/index.md#prop-iwa3-augmentation) により、$\mathbb Z_p$ 係数級数 $D(T)=\sum_{j\ge0}d_jT^j$ で $d_0$ が単元なら逆元があります。実際、逆級数を $\sum_{n\ge0}b_nT^n$ と書き、積の各次数の係数を比較すると
+
+$$
+d_0b_0=1,\qquad
+d_0b_n+\sum_{j=1}^n d_jb_{n-j}=0\quad(n\ge1).
+$$
+
+これを順に解くと $b_0=d_0^{-1}$、$b_n=-d_0^{-1}\sum_{j=1}^n d_jb_{n-j}$ で、各係数は $\mathbb Z_p$ に属します。従って $F_i\in\Lambda$。
 
 $i=0$ では分母は
 
@@ -381,9 +417,9 @@ $$
 U(T)=e+\binom e2 T+\binom e3 T^2+\cdots.
 $$
 
-$e\in\mathbb Z_p^\times$ より $U\in\Lambda^\times$ です。残る確認は $A_{0,c}(0)\in\mathbb Z_p^\times$ です。
+$e\in\mathbb Z_p^\times$ より、同じ [単元判定](../IWA3/index.md#prop-iwa3-augmentation) で $U\in\Lambda^\times$ です。残る確認は $A_{0,c}(0)\in\mathbb Z_p^\times$ です。
 
-この定数項は $\int_{\mathbb Z_p^\times}x^{-1}\,d\mu_c$ です。法 $p$ での値は第1層で計算できます。$1\le a\le p-1$、$1\le b_a\le p-1$ を $cb_a\equiv a\bmod p$ の代表とし、$q_a=(a-cb_a)/p$ とすると
+この定数項の被積分関数は $\omega(x)^{-1}\langle x\rangle^{-1}\binom{\ell(x)}0=x^{-1}$ です。$x\equiv a\pmod p$ なら $x^{-1}-a^{-1}=(a-x)/(ax)\in p\mathbb Z_p$ なので、[積分の評価式](../IWA13/index.md#thm-iwa13-extension) により法 $p$ での値は第1層で計算できます。$1\le a\le p-1$、$1\le b_a\le p-1$ を $cb_a\equiv a\bmod p$ の代表とし、$q_a=(a-cb_a)/p$ とすると
 
 $$
 A_{0,c}(0)\equiv
@@ -424,7 +460,7 @@ $$
 
 最後に $c$ の違いは関数の値に影響しないことを [補間公式](#thm-iwa15-interpolation) で示しました。冪級数の一意性も確認します。二つの級数の差を取り、自明成分の場合だけ $T$ を掛けると、整数係数級数 $Q(T)$ が得られます。
 
-$T_n=g^{p^n}-1$ は零でないまま0に収束し、各点で $Q(T_n)=0$ です。もし $Q$ が非零で最低次の非零係数が $q_m$ なら
+$T_n=g^{p^n}-1$ は [指数座標](../IWA2/index.md#prop-iwa2-odd-exponent-coordinates) の連続性と単射性から、零でないまま0に収束し、各点で $Q(T_n)=0$ です。もし $Q$ が非零で最低次の非零係数が $q_m$ なら
 
 $$
 \frac{Q(T_n)}{T_n^m}
@@ -489,9 +525,9 @@ L_p(1-k,\chi)
 =(1-(\chi\omega^{-k})(p)p^{k-1})L(1-k,\chi\omega^{-k})
 $$
 
-が成立します。ここでは一般形を外部定理として用います（Sharifi, Iwasawa Theory, Proposition 5.3.15）。一般形では各積文字をその原始文字として取り、代数的値は固定した $p$ 進埋め込みで評価します。奇素数、有限位数のDirichlet文字、整数 $k\ge1$ が仮定です。非自明な偶指標では全域で正則、自明指標だけは $s=1$ の極を除きます。上で証明したのは導手1または $p$ の場合で、一般形には $p$ と互いに素な法を含む剰余類空間上で測度を構成する追加の議論が必要です。
+が成立します。ここでは一般形を外部定理として用います（[Sharifi, Iwasawa Theory, Proposition 5.3.15](https://math.ucla.edu/~sharifi/notes/iwasawa-ch05.html)）。一般形では各積文字をその原始文字として取り、代数的値は固定した $p$ 進埋め込みで評価します。奇素数、有限位数の原始Dirichlet文字（導手が $mp^n$、$p\nmid m$、$n\ge0$）、整数 $k\ge1$ が仮定です。非自明な偶指標では全域で正則、自明指標だけは $s=1$ の極を除きます。上で証明したのは導手1または $p$ の場合で、一般形には $p$ と互いに素な法を含む剰余類空間上で測度を構成する追加の議論が必要です。
 
-例えば $p=7$ とし、導手3の奇指標 $\eta$ を $\eta(1)=1,\eta(2)=-1$ と取ります。$\chi=\eta\omega$ は導手21の偶指標です。$k=1$ で $\chi\omega^{-1}=\eta$ となり、$\eta(7)=1$ です。従って
+例えば $p=7$ とし、導手3の奇指標 $\eta$ を $\eta(1)=1,\eta(2)=-1$ と取ります。$\chi=\eta\omega$ は $\chi(-1)=(-1)(-1)=1$ の偶指標です。法21の文字ですが、$8\equiv1\bmod7$ で $\chi(8)=-1\ne\chi(1)$、$4\equiv1\bmod3$ で $\chi(4)=\omega(4)\ne1$ です。従って法7にも法3にも下りず、[原始文字の定義](../../ANT/ANT3/index.md#def-ant3-primitive) から導手は21です。$k=1$ で $\chi\omega^{-1}=\eta$ となり、$\eta(7)=1$ です。従って
 
 $$
 L_p(0,\chi)=(1-\eta(7))L(0,\eta)=0.
@@ -530,7 +566,14 @@ $p=3,g=4$ とする。$x=2$ を法9で $\omega(x)g^{\ell(x)}$ の形に分解せ
 $p=3,\psi=\omega$ とする。$B_{2,\psi}$ を求め、$L(-1,\psi)$ を計算せよ。
 
 <!-- solution-start -->
-**詳細解答。** [一般化Bernoulli数](#def-iwa15-generalized-bernoulli) では $f=3$、$\psi(1)=1,\psi(2)=-1,\psi(3)=0$ です。$B_2(x)=x^2-x+1/6$ なので $B_2(1/3)=-1/18$、$B_2(2/3)=4/9-2/3+1/6=-1/18$。従って $B_{2,\psi}=3(-1/18+1/18)=0$。[特殊値公式](#thm-iwa15-complex-values) から $L(-1,\psi)=-B_{2,\psi}/2=0$。
+**詳細解答。** [一般化Bernoulli数](#def-iwa15-generalized-bernoulli) では $f=3$、$\psi(1)=1,\psi(2)=-1,\psi(3)=0$ です。[Bernoulli多項式](../IWA14/index.md#def-iwa14-bernoulli-polynomial) から $B_2(x)=x^2-x+1/6$ なので
+
+$$
+B_2(1/3)=1/9-1/3+1/6=-1/18,\qquad
+B_2(2/3)=4/9-2/3+1/6=-1/18.
+$$
+
+従って $B_{2,\psi}=3(-1/18+1/18)=0$。[特殊値公式](#thm-iwa15-complex-values) から $L(-1,\psi)=-B_{2,\psi}/2=0$。
 <!-- solution-end -->
 
 <a id="ex-iwa15-a3"></a>
@@ -573,7 +616,7 @@ $p=7,i=4$ で $k=1,2,4,10$ に対応する $\psi_k$、導手、Euler因子を求
 $p=5,c=2,\psi=\omega^2,k=1$ とする。第1層の有限和と [指標付き積分公式](#thm-iwa15-twisted-moments) の両方で積分を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $\psi(1),\psi(2),\psi(3),\psi(4)$ は $1,-1,-1,1$。重みは [正則化測度](../IWA14/index.md#def-iwa14-regularized-measure) から $-1/2,1/2,-1/2,1/2$ なので積分は $-1/2-1/2+1/2+1/2=0$。被積分関数が法5で一定なのでこの層で厳密です。一般化Bernoulli数の和は
+**詳細解答。** $\psi=\omega^2$ の値は法5の生成元2の冪で計算できます。$\omega(2)^2=-1$、$3\equiv2^3$、$4\equiv2^2\pmod5$ なので $\psi(1),\psi(2),\psi(3),\psi(4)$ は $1,-1,-1,1$ です。重みは [正則化測度](../IWA14/index.md#def-iwa14-regularized-measure) から $-1/2,1/2,-1/2,1/2$ なので積分は $-1/2-1/2+1/2+1/2=0$。被積分関数が法5で一定なのでこの層で厳密です。一般化Bernoulli数の和は
 $$
 B_{1,\psi}=(1-2-3+4)/5-(1-1-1+1)/2=0.
 $$
@@ -589,7 +632,7 @@ $\psi(5)=0$、$1-\psi(2)2=3$ なので積分公式でも $3\cdot1\cdot0=0$。偶
 $p=5,c=2,i=2$ とし、$e=\ell(2)$ とする。$D(T)=1-\omega(2)^2(1+T)^e$ の逆級数の定数項と一次係数を求め、法5でも評価せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\omega(2)$ の位数は4なので二乗は $-1$（二乗して1となる元のうち1ではない）。従って $D(T)=2+eT+\cdots$。逆級数との積が1であることから、定数項と一次係数を比較します。
+**詳細解答。** $\omega(2)$ の位数は4なので二乗は $-1$（二乗して1となる元のうち1ではない）。従って $D(T)=2+eT+\cdots$。[単元判定](../IWA3/index.md#prop-iwa3-augmentation) で逆級数 $b_0+b_1T+\cdots$ が存在します。この級数との積が1であることから、定数項と一次係数を比較します。
 
 $$
 2b_0=1,\qquad 2b_1+eb_0=0.
@@ -619,11 +662,11 @@ $$
 $p=3,c=2,i=0$ とする。$A_{0,2}(0)\bmod3$ と $TF_0$ の定数項の法3での値を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $2^2=4\not\equiv1\bmod9$ なので補助整数の条件を満たします。$A_{0,2}(0)$ は $x^{-1}$ の積分で、法3では単元代表1,2で計算できます。[正則化測度](../IWA14/index.md#def-iwa14-regularized-measure) の重みは $-1/2,1/2$ なので
+**詳細解答。** $2\not\equiv1\bmod3$ なので位数は2であり、$2^2=4\not\equiv1\bmod9$ なので補助整数の二条件を満たします。$A_{0,2}(0)$ は $x^{-1}$ の積分で、法3では単元代表1,2で計算できます。[正則化測度](../IWA14/index.md#def-iwa14-regularized-measure) の重みは $-1/2,1/2$ なので
 $$
 A_{0,2}(0)\equiv-1/2+(1/2)(1/2)=-1/4\equiv2\pmod3.
 $$
-A1で求めた $e=\ell(2)\equiv2\bmod3$ を使います。[冪級数表示](#thm-iwa15-iwasawa-series) の $TF_0=A_{0,2}/U$ では $U(0)=e$ なので定数項は $2/2=1\bmod3$。分母の $T$ は相殺されず、単純極となります。
+[A1](#ex-iwa15-a1) で求めた $e=\ell(2)\equiv2\bmod3$ を使います。[冪級数表示](#thm-iwa15-iwasawa-series) の $TF_0=A_{0,2}/U$ では $U(0)=e$ なので定数項は $2/2=1\bmod3$。分母の $T$ は相殺されず、単純極となります。
 <!-- solution-end -->
 
 <a id="ex-iwa15-b4"></a>
@@ -635,7 +678,7 @@ A1で求めた $e=\ell(2)\equiv2\bmod3$ を使います。[冪級数表示](#thm
 $p=13$、導手3の奇指標 $\eta$ を $\eta(1)=1,\eta(2)=-1$ とし、$\chi=\eta\omega$ とする。[第6節の一般形の補間式](#ref-iwa15-general-interpolation) を用いて $L_p(0,\chi)$ を求めよ。$\chi$ の偶奇と、複素特殊値が零でないことも確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\eta(-1)=-1$、$\omega(-1)=-1$ なので $\chi(-1)=1$。法3と法13の非自明な指標の積であり、導手は39です。
+**詳細解答。** $\eta(-1)=-1$、$\omega(-1)=-1$ なので $\chi(-1)=1$。法39の文字です。$14\equiv1\bmod13$ でも $\chi(14)=-1$、$4\equiv1\bmod3$ でも $\chi(4)=\omega(4)\ne1$ です。法13にも法3にも下りないので [原始文字の定義](../../ANT/ANT3/index.md#def-ant3-primitive) から導手は39です。
 
 $k=1$ で $\chi\omega^{-1}=\eta$。$13\equiv1\bmod3$ から $\eta(13)=1$。[第6節の一般形の補間式](#ref-iwa15-general-interpolation) の因子は $1-\eta(13)13^0=0$ です。
 
@@ -669,7 +712,19 @@ $p=5,i=2$ とする。
 $$
 C_2=-1/3,\qquad C_6=(1-3125)/(42\cdot6)=-781/63.
 $$
-[指標付き正則化測度の積分公式](#thm-iwa15-twisted-moments) で $H_{2,c}(1-k)=(1-c^k)C_k$ です。$c=2$ の場合 $k=2$ では1、$k=6$ では $(-63)(-781/63)=781$。$c=3$ ではそれぞれ $8/3$、$728\cdot781/63$。分母は $1-c^2$ と $1-c^6$ でいずれも法5で非零です。[L関数の定義](#def-iwa15-kl-function) の負号を含めて割ると、どちらの $c$ でも $L_5(-1,\omega^2)=1/3$、$L_5(-5,\omega^2)=781/63$。
+[指標付き正則化測度の積分公式](#thm-iwa15-twisted-moments) で $H_{2,c}(1-k)=(1-c^k)C_k$ です。具体的に $c=2,3$ の順に代入すると
+
+$$
+H_{2,2}(-1)=(-3)(-1/3)=1,\qquad
+H_{2,2}(-5)=(-63)(-781/63)=781,
+$$
+
+$$
+H_{2,3}(-1)=(-8)(-1/3)=8/3,\qquad
+H_{2,3}(-5)=(-728)(-781/63)=728\cdot781/63.
+$$
+
+分母は $1-c^2$ と $1-c^6$ でいずれも法5で非零です。[L関数の定義](#def-iwa15-kl-function) の負号を含めて割ると、どちらの $c$ でも $L_5(-1,\omega^2)=1/3$、$L_5(-5,\omega^2)=781/63$。
 
 3. 差は
 $$
