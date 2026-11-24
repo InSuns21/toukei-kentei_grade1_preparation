@@ -104,6 +104,12 @@ jobs:
           node --check pages/simulation/fcg1-model.mjs
           node --test pages/simulation/fcg1-model.test.mjs
 
+      - name: Test FCG18 momentum coupling and actual editable GPU rendering
+        if: steps.scope.outputs.full == 'true'
+        run: |
+          node --test pages/simulation/fcg18-lab.test.mjs
+          node scripts/validate-fcg18-browser.mjs
+
       - name: Test FCG17 confinement and actual editable GPU rendering
         if: steps.scope.outputs.full == 'true'
         run: |

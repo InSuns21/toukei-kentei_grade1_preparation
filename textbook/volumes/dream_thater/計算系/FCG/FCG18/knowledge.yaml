@@ -1,0 +1,23 @@
+chapter: FCG18
+scope: dream-theater
+coverage: complete
+prerequisites: [FCG6]
+concepts:
+  - id: graphics.fcg18-normal-impulse
+    name: 粒子・浮体間の法線力積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（粒子・浮体間の法線力積）"]
+    requires: [graphics.fcg6-moving-normal, graphics.fcg6-pressure-force]
+  - id: graphics.fcg18-exchange
+    name: 二方向連成の力積と運動量保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二方向連成の力積と運動量保存）"]
+    requires: [graphics.fcg18-normal-impulse]
+  - id: graphics.fcg18-contact-time
+    name: 直線移動区間の最初の接触時刻
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（直線移動区間の最初の接触時刻）"]
+    requires: [graphics.fcg18-normal-impulse]

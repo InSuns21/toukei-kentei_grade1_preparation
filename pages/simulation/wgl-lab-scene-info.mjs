@@ -119,6 +119,14 @@ const descriptions = Object.freeze({
     mode: '初期設定はpicMix=0、flipMix=1。格子と粒子の位置を物理stepごとに更新し、右列は24×24節点値の最近傍表示。時刻は開始時の検算時刻',
     source: 'particle.js（N, count, dt, damp, force, picMix, flipMix, transfer）/ particle.frag（u_pic, u_flip, u_speed）'
   }),
+  FCG18: Object.freeze({
+    requiresSteps:false,
+    grid:'1 m四方を左右に表示。各24点粒子、半径0.12 mの円形浮体',
+    color:'左は斜線付き固定浮体、右は自由浮体。白：粒子力積、橙：浮体力積、濃い矢印：浮体速度',
+    clock:()=> '0〜4 s、設定した物理刻み（初期0.05 s）、再生間隔80 msとは別',
+    mode:'接触位置の最新力積を0.35 s保持。長さ0.04〜0.16 m相当に表示制限',
+    source:'coupling.js（mass, restitution, dt） / coupling.frag（粒子・浮体の色と矢印）'
+  }),
   FCG17: Object.freeze({
     requiresSteps:false,
     grid:'1 m四方、初期24×24のMAC格子を左右で独立に更新',
