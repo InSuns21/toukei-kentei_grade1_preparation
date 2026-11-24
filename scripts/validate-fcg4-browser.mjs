@@ -97,7 +97,7 @@ try {
   assert.match(initial.log,/POISSON/);
   assert.match(initial.log,/DIV/);
   assert.match(initial.log,/BOUNDARY/);
-  assert.match(await evaluate('document.querySelector("#fcg4-cpu-prediction").textContent'),/Poisson max=/);
+  assert.match(await evaluate('document.querySelector("#fcg4-cpu-prediction").textContent'),/32×32.*Poisson max=/);
   assert.equal(initial.sandbox,'allow-scripts');
   assert.equal(initial.opaque,true);
   console.log('FCG4 actual GPU texture, nine readPixels, independent CPU and opaque sandbox: PASS');
@@ -123,8 +123,8 @@ try {
   assert.ok(zero>0);
   await click('fcg4-step');
   await waitFor('document.querySelector("#fcg4-live-state")?.dataset.iter==="1"');
-  await evaluate('(()=>{const e=document.querySelector("#fcg4-iterations");e.value="160";e.dispatchEvent(new Event("input",{bubbles:true}));})()');
-  await waitFor('document.querySelector("#fcg4-live-state")?.dataset.iter==="160"');
+  await evaluate('(()=>{const e=document.querySelector("#fcg4-iterations");e.value=e.max;e.dispatchEvent(new Event("input",{bubbles:true}));})()');
+  await waitFor('document.querySelector("#fcg4-live-state")?.dataset.iter==="2560"');
   const final=await evaluate('Number(document.querySelector("#fcg4-live-state").dataset.divergence)');
   assert.ok(final<zero/10,JSON.stringify({zero,final}));
   assert.equal(await evaluate('document.querySelector("#canvas-slot iframe").srcdoc.length'),frameAtZero);
