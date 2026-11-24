@@ -24,7 +24,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa14-bernoulli -->
-**定義の確認。** 両辺に $(e^t-1)/t$ を掛けて $1$ とします。定数項から $B_0=1$、一次の係数から $B_1+1/2=0$、二次の係数から
+**定義の確認**。 両辺に $(e^t-1)/t$ を掛けて $1$ とします。定数項から $B_0=1$、一次の係数から $B_1+1/2=0$、二次の係数から
 
 $$
 \frac{B_2}{2}+\frac{B_1}{2}+\frac16=0
@@ -63,7 +63,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa14-bernoulli-polynomial -->
-**定義の確認。** $e^{xt}$ の係数と [Bernoulli数](#def-iwa14-bernoulli) の係数を掛けると
+**定義の確認**。 $e^{xt}$ の係数と [Bernoulli数](#def-iwa14-bernoulli) の係数を掛けると
 
 $$
 B_k(x)=\sum_{j=0}^k\binom{k}{j}B_j x^{k-j}.
@@ -164,7 +164,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa14-regularized-measure -->
-**定義の確認。** $p=5,c=2,N=5$ では、$a=0,1,2,3,4$ に対応する $b$ は順に $0,3,1,4,2$ です。$a-2b$ は $0,-5,0,-5,0$ となるので、重みは
+**定義の確認**。 $p=5,c=2,N=5$ では、$a=0,1,2,3,4$ に対応する $b$ は順に $0,3,1,4,2$ です。$a-2b$ は $0,-5,0,-5,0$ となるので、重みは
 
 $$
 (1/2,-1/2,1/2,-1/2,1/2).
