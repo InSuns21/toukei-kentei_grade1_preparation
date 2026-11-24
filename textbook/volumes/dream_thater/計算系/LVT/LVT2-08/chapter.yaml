@@ -1,0 +1,30 @@
+id: "LVT2-08"
+title: "定理探索・自動化・信頼境界"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT2-07]
+official_scope: []
+learning_objectives:
+  - 標準ライブラリとmathlibの補題を目標の型から探索し仮定を確認する
+  - simp、decide、omegaの適用範囲を区別し線形不等式を証明する
+  - sorryと追加公理の直接および間接依存を調べる
+  - 判定値と証明済み命題と実装の保証を分離する
+definitions:
+  - { id: LVT2-08-DEF-01, name: "Leanの定理探索" }
+  - { id: LVT2-08-DEF-02, name: "Leanの証明自動化" }
+  - { id: LVT2-08-DEF-03, name: "Leanの公理依存" }
+  - { id: LVT2-08-DEF-04, name: "Leanの信頼境界" }
+propositions:
+  - { id: LVT2-08-PROP-01, name: "Leanの容量上界の補題適用" }
+  - { id: LVT2-08-PROP-02, name: "Leanの一枠予約の算術保証" }
+  - { id: LVT2-08-PROP-03, name: "Leanの外部判定値の非健全性の反例" }
+theorems: []
+canonical_examples:
+  - "容量上界の補題探索"
+  - "一枠予約の線形算術"
+  - "意図的な公理依存と外部判定の反例"
+problem_patterns: [LVT2-08-A01, LVT2-08-A02, LVT2-08-A03, LVT2-08-A04, LVT2-08-B01, LVT2-08-B02, LVT2-08-B03, LVT2-08-B04, LVT2-08-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 3, review: 0.5 }
