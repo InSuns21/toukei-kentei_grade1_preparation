@@ -117,7 +117,7 @@ $$
 
 ## 2. スピン構造の条件
 
-枠束そのものを変えるのではなく、その上に各枠を二通りに表す新しい [主束](../GBG2/index.md#def-gbg2-principal-bundle) を載せる。二つの右作用が被覆写像を通じて対応する必要がある。この組をスピン構造と呼ぶ。二つの組を比較するときには、[基底を固定した主束同型](../GBG2/index.md#def-gbg2-bundle-isomorphism) が枠への写像も保つことを要求する。
+枠束そのものを変えるのではなく、その上に各枠を二通りに表す新しい [主束](../GBG2/index.md#def-gbg2-principal-bundle) を載せる。二つの右作用が被覆写像を通じて対応する必要がある。二つの組を比較するときには、[基底を固定した主束同型](../GBG2/index.md#def-gbg2-bundle-isomorphism) が枠への写像も保つことを要求する。
 
 <a id="def-gbg29-spin-structure"></a>
 
