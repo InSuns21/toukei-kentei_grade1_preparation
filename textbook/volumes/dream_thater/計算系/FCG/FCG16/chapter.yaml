@@ -1,0 +1,22 @@
+id: FCG16
+title: "炎と煙の表現をどう分けるか"
+volume: foundations
+status: supplementary
+prerequisites: [FCG14, FCG15]
+official_scope: []
+learning_objectives:
+  - "燃料・熱・煙の更新を計算し、非負性と上限を証明できる"
+  - "指定された速度と格子刻みの関係を説明し、反応・移流を計算できる"
+  - "均質な層の発光吸収解を導出し、発光と消散を区別できる"
+  - "同じ格子を描くWebGL2ラボで発光と吸収を独立に変更できる"
+definitions:
+  - { id: FCG16-DEF-01, name: "燃料・熱・煙の反応更新" }
+theorems:
+  - { id: FCG16-PROP-01, name: "反応更新の非負性と上限" }
+  - { id: FCG16-PROP-02, name: "均質層の発光吸収解" }
+canonical_examples: ["一セルの反応", "上昇する燃料塊", "均質層の光合成"]
+problem_patterns: [FCG16-REACTION, FCG16-TRANSPORT, FCG16-EMISSION, FCG16-ABSORPTION]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }

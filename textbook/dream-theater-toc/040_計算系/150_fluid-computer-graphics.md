@@ -16,3 +16,4 @@
 13. [FCG13 広い海の波を高速に合成するには](textbook/volumes/dream_thater/計算系/FCG/FCG13/index.md)
 14. [FCG14 煙の密度と浮力はどう連成するか](textbook/volumes/dream_thater/計算系/FCG/FCG14/index.md)
 15. [FCG15 煙の厚みはどう光として描くか](textbook/volumes/dream_thater/計算系/FCG/FCG15/index.md)
+16. [FCG16 炎と煙の表現をどう分けるか](textbook/volumes/dream_thater/計算系/FCG/FCG16/index.md)

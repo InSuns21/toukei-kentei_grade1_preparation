@@ -1,0 +1,23 @@
+chapter: FCG16
+scope: dream-theater
+coverage: complete
+prerequisites: [FCG14, FCG15]
+concepts:
+  - id: graphics.fcg16-reaction-step
+    name: 燃料・熱・煙の反応更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（燃料・熱・煙の反応更新）"]
+    requires: []
+  - id: graphics.fcg16-invariant
+    name: 反応更新の非負性と上限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（反応更新の非負性と上限）"]
+    requires: [graphics.fcg16-reaction-step]
+  - id: graphics.fcg16-emission-absorption
+    name: 均質層の発光吸収解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（均質層の発光吸収解）"]
+    requires: [graphics.fcg15-variable-transmittance]
