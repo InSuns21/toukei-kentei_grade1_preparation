@@ -168,14 +168,29 @@ try {
   // Live step/reset must act inside the same running sandbox, not re-run a static snapshot.
   const liveFrame=await evaluate('document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")');
   await click('fcg5-live-reset');
-  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("step 0/32") && document.querySelector("#fcg5-live-state")?.textContent.includes("一時停止中")');
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("step 0、") && document.querySelector("#fcg5-live-state")?.textContent.includes("一時停止中")');
   assert.equal(await evaluate('document.querySelector("#fcg5-live-step").disabled'),false);
   await click('fcg5-live-step');
-  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("step 1/32") && document.querySelector("#fcg5-live-state")?.textContent.includes("一時停止中")');
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("step 1、") && document.querySelector("#fcg5-live-state")?.textContent.includes("一時停止中")');
   await click('fcg5-live-reset');
-  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("step 0/32")');
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("step 0、")');
   assert.equal(await evaluate('document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")'),liveFrame);
   console.log('FCG5 authenticated in-place GPU step/reset: PASS');
+  // Real pointer events on the opaque GPU iframe while physical time is frozen.
+  await evaluate('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"center"})');
+  const paintBox=await evaluate('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.left,y:r.top,width:r.width,height:r.height};})()');
+  assert.ok(Math.abs(paintBox.width-paintBox.height)<5,'FCG5 live view is square and uses the full stage');
+  const paintClip={x:paintBox.x+await evaluate('scrollX'),y:paintBox.y+await evaluate('scrollY'),width:paintBox.width,height:paintBox.height,scale:1};
+  const beforePaint=await cdp('Page.captureScreenshot',{format:'png',clip:paintClip,captureBeyondViewport:true});
+  const x=paintBox.x+paintBox.width*.33,y=paintBox.y+paintBox.height*.45;
+  await cdp('Input.dispatchMouseEvent',{type:'mousePressed',x,y,button:'left',buttons:1,clickCount:1});
+  await cdp('Input.dispatchMouseEvent',{type:'mouseMoved',x:x+paintBox.width*.12,y:y+paintBox.height*.08,button:'left',buttons:1});
+  await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:x+paintBox.width*.12,y:y+paintBox.height*.08,button:'left',buttons:0,clickCount:1});
+  const afterPaint=await cdp('Page.captureScreenshot',{format:'png',clip:paintClip,captureBeyondViewport:true});
+  assert.notEqual(afterPaint.data,beforePaint.data,'actual drag must change paused GPU ink image');
+  assert.match(await evaluate('document.querySelector("#fcg5-live-state").textContent'),/step 0、/);
+  await click('fcg5-live-reset');
+  console.log('FCG5 direct drag paints the actual paused GPU simulation: PASS');
 
   await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="1ステップ")).click()');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格") && document.querySelector("#fcg5-cpu-prediction")?.textContent.includes("steps=9")',25000);
