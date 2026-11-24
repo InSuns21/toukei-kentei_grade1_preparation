@@ -1,7 +1,7 @@
 # DREAM THEATER 岩澤理論（IWA1〜IWA20）
 
 設計確定: 2026-11-21 JST  
-状態: in_progress / **全20講確定**。IWA1〜IWA15の本文・系列manifest・公開索引を実装、IWA16〜IWA20は計画中。  
+状態: in_progress / **全20講確定**。IWA1〜IWA16の本文・系列manifest・公開索引を実装、IWA17〜IWA20は計画中。  
 系列ID: `IWA`。分野: 代数系。上流の新規計画: [ANF1〜ANF22](../plan_done/DREAM_THEATER_ALGEBRAIC_NUMBER_THEORY_CLASS_FIELD_THEORY_PLAN.md)。横断: [RH研究講読ルート](../plans/DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)。
 
 ## 中心問い・到達目標
@@ -89,4 +89,4 @@
 
 ## 着手・完了運用
 
-IWA1着手時に本PLANを `textbook/plans_progress/` へ移動し、`textbook/dream-theater-series/IWA.yaml`に20講を登録した。IWA1〜IWA15は本文・`chapter.yaml`・`knowledge.yaml`・公開目次を整合させて `completed` とし、IWA16〜IWA20は `planned` とする。共有ルーターは改変しない。終端の`IWA20`完了後も系列横断査読・参照整合が済むまで`plan_done/`へ移動しない。
+IWA1着手時に本PLANを `textbook/plans_progress/` へ移動し、`textbook/dream-theater-series/IWA.yaml`に20講を登録した。IWA1〜IWA16は本文・`chapter.yaml`・`knowledge.yaml`・公開目次を整合させて `completed` とし、IWA17〜IWA20は `planned` とする。共有ルーターは改変しない。終端の`IWA20`完了後も系列横断査読・参照整合が済むまで`plan_done/`へ移動しない。

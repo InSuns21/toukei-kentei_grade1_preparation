@@ -1,0 +1,24 @@
+chapter: IWA16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - IWA15
+  - IWA9
+forward_references: []
+concepts:
+  - id: number-theory.iwa16-reflection-substitution
+    name: 円分座標の反転置換
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa15-iwasawa-series, number-theory.iwa6-orders]
+  - id: number-theory.iwa16-main-conjecture
+    name: 円分岩澤主予想
+    introduction_aliases: ["円分岩澤主予想、Mazur–Wiles"]
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa9-galois-inverse-limit, number-theory.iwa8-idempotent, number-theory.iwa6-characteristic, number-theory.iwa15-interpolation, number-theory.iwa16-reflection-substitution]
+  - id: number-theory.iwa16-invariants
+    name: 主予想からの不変量比較
+    kind: corollary
+    introduction: formal
+    requires: [number-theory.iwa16-main-conjecture, number-theory.iwa16-reflection-substitution, number-theory.iwa6-characteristic-invariance, number-theory.iwa5-structure]
