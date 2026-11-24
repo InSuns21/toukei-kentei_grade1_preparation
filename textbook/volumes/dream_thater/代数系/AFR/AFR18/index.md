@@ -93,7 +93,15 @@ $$
 =\sum_{n\ge1}a_n\overline{b_n}e^{-4\pi ny}.
 $$
 
-和と高さ積分の交換にはさらに絶対可積分性が要ります。先に $g=f$ の場合の非負項に Tonelli の定理を適用し、$t=4\pi ny$ と置きます。
+和と高さ積分の交換にはさらに絶対可積分性が要ります。先に $g=f$ の場合の非負項に [Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli) を適用します。
+
+固定した整数 $n\ge1$ に対して $t=4\pi ny$ と置きます。これは正の半直線の一対一の変数変換で、
+
+$$
+y=\frac{t}{4\pi n},\qquad dy=\frac{dt}{4\pi n}
+$$
+
+となります。
 
 $$
 \int_0^\infty y^{k+\sigma-2}e^{-4\pi ny}dy
@@ -142,17 +150,42 @@ $$
 
 和はそれぞれ $\lambda_f(p),\lambda_g(p)$、積はいずれも1です。
 
-二つの表現の局所データを組み合わせるには、二つの対角行列のテンソル積を取ります。
+ここで使う [GL_2のSatakeパラメータ](../AFR14/index.md#def-afr14-satake-parameter) は、既約許容的な滑らかな不分岐表現の[球Hecke作用](../AFR14/index.md#prop-afr14-action)から得た、重複を許す非零の二根です。不分岐とは $K=GL_2(\mathbb Z_p)$ の固定ベクトルが非零に存在することです。その二根は対角行列の共役類として表せます。
 
-例えば $\operatorname{diag}(2,1/2)$ と $\operatorname{diag}(3,1/3)$ の積は4次元の空間で固有値 $6,2/3,3/2,1/6$ を持ちます。
+積分では $g$ に複素共役を取ったので、第二の局所データにも共役を取ります。$S=\operatorname{diag}(\alpha,\beta)$、$T=\operatorname{diag}(\bar\gamma,\bar\delta)$ とします。これは局所表現自体が二次元だという意味ではなく、二根を記録するための行列です。
 
-積分では $g$ に複素共役を取ったので、局所データにも共役を取ります。以下の $\pi_f,\pi_g$ は AFR17 で得た [カスプ保型表現](../AFR17/index.md#def-afr17-cuspidal-representation) です。
+それぞれの標準基底を $e_1,e_2$ と $v_1,v_2$ とします。[有限次元テンソル積の基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis) により、$\mathbb C^2\otimes\mathbb C^2$ は四次元で、基底は
+
+$$
+e_i\otimes v_j\qquad (1\le i,j\le2)
+$$
+
+です。$S\otimes T$ はこの基底に成分ごとに作用します。例えば
+
+$$
+(S\otimes T)(e_1\otimes v_2)
+=(\alpha e_1)\otimes(\bar\delta v_2)
+=\alpha\bar\delta(e_1\otimes v_2).
+$$
+
+従って基底を $(1,1),(1,2),(2,1),(2,2)$ の添字順に並べれば
+
+$$
+S\otimes T=\operatorname{diag}
+(\alpha\bar\gamma,\alpha\bar\delta,\beta\bar\gamma,\beta\bar\delta).
+$$
+
+例えば二組が $(2,1/2),(3,1/3)$ なら四つの固有値は $6,2/3,3/2,1/6$ です。各二根の順序を替えても四つの固有値は並べ替わるだけです。
+
+単独の [GL_2の不分岐局所L因子](../AFR14/index.md#def-afr14-local-l-factor) と同じく、これらの固有値を Euler 因子の分母に使います。
+
+以下の $\pi_f,\pi_g$ は AFR17 で得た [カスプ保型表現](../AFR17/index.md#def-afr17-cuspidal-representation) で、$\pi_{f,p},\pi_{g,p}$ はその素点 $p$ の局所成分です。
 
 <a id="def-afr18-pair-factor"></a>
 
 <!-- formal-statement-start -->
 > **定義（不分岐積L因子）**
-> 同じ素点 $p$ における二つの不分岐の $GL_2$ 表現のSatakeパラメータを $\{\alpha,\beta\}$ と $\{\gamma,\delta\}$ とする。複素共役を取った第二のデータとの積L因子を
+> 素数 $p$ における二つの既約許容的な滑らかな不分岐 $GL_2(\mathbb Q_p)$ 表現のSatakeパラメータを、重複を許す順序なしの組 $\{\alpha,\beta\}$ と $\{\gamma,\delta\}$ とする。複素共役を取った第二のデータとの積L因子を次式で定める。大域表現 $\pi_f,\pi_g$ の局所成分の場合には
 
 $$
 L_p(s,\pi_f\times\overline{\pi_g})=
@@ -161,11 +194,13 @@ L_p(s,\pi_f\times\overline{\pi_g})=
 (1-u\overline v p^{-s})^{-1}
 $$
 
-> と定める。積は重複を含めて4項とし、$p^{-s}=\exp(-s\log p)$ とする。分母の零点は極として扱う。
+> と書く。ここで $s\in\mathbb C$、積は重複を含めて4項とし、$p^{-s}=\exp(-s\log p)$ とする。分母の零点は極として扱う。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr18-pair-factor -->
-**定義の確認**。 まず局所データの模型として、$p=2$ で $\alpha=i,\beta=-i,\gamma=\delta=1$ を取ります。二組とも非零で積が1、二つのパラメータの順序は区別しません（特定の大域固有形式の存在を主張しているのではありません）。$X=2^{-s}$ と置くと4つの積は $i,i,-i,-i$ です。従って
+**定義の確認**。 まず局所データの模型として、$p=2$ で $\alpha=i,\beta=-i,\gamma=\delta=1$ を取ります。二組とも非零で積が1、二つのパラメータの順序は区別しません（特定の大域固有形式の存在を主張しているのではありません）。
+
+$X=2^{-s}$ と置くと、第二の二根は共役しても1のままなので、上で求めたテンソル積の四つの対角成分は $i,i,-i,-i$ です。従って
 
 $$
 L_2(s)=\frac{1}{(1-iX)^2(1+iX)^2}
@@ -174,7 +209,18 @@ $$
 
 $s=1$ なら $X=1/2$ で分母は非零、値は $16/25$ です。重根を一つにまとめて消してはいけません。
 
-実際の大域形式でも確認します。$f=g=\Delta$ は重さ12の正規化固有カスプ形式で、[レベル1固有形式の局所データ](../AFR17/index.md#thm-afr17-local-data) により素点2で不分岐です。二根は和 $-24/2^{11/2}$、積1を持ち、実係数の二次方程式の根なので共役しても組は変わりません。4つの積は $\alpha^2,1,1,\beta^2$ です。$\alpha^2+\beta^2=9/32-2=-55/32$ より
+実際の大域形式でも確認します。$f=g=\Delta$ は重さ12の正規化固有カスプ形式で、[レベル1固有形式の局所データ](../AFR17/index.md#thm-afr17-local-data) により素点2で不分岐です。
+
+二根は和 $-24/2^{11/2}$、積1を持ち、実係数の二次方程式の根なので共役しても組は変わりません。共役によって第二の根の順序が替わっても四つの積は重複込みで $\alpha^2,1,1,\beta^2$ です。
+
+$\alpha\beta=1$ より
+
+$$
+(1-\alpha^2X)(1-\beta^2X)
+=1-(\alpha^2+\beta^2)X+X^2.
+$$
+
+また $(\alpha+\beta)^2=576/2048=9/32$ なので $\alpha^2+\beta^2=9/32-2=-55/32$ です。従って
 
 $$
 L_2(s,\pi_\Delta\times\overline{\pi_\Delta})
@@ -237,7 +283,15 @@ $$
 \frac{AB^2CD-BA^2CD}{A-B}X^2=-ABCD X^2.
 $$
 
-これで相異なる根の場合が示せました。分母の定数項は1なので形式的逆数が存在し、その係数は根の多項式です。各次数で両辺は連続な多項式だから、相異なる根から極限を取って $A=B$ や $C=D$ にも成立します。解析的には $|ACX|,|ADX|,|BCX|,|BDX|<1$ なら $h_r$ の積の絶対値の和も、最大の積の絶対値の $r$ 乗に $(r+1)^2$ を掛けた級数で抑えられます。
+これで相異なる根の場合が示せました。分母の定数項は1なので形式的逆数が存在し、その係数は根の多項式です。各次数で両辺は連続な多項式だから、相異なる根から極限を取って $A=B$ や $C=D$ にも成立します。
+
+解析的には
+
+$$
+q_0=\max(|ACX|,|ADX|,|BCX|,|BDX|)<1
+$$
+
+なら、積の絶対値は $(r+1)^2 q_0^r$ 以下です。この上界を足した級数が収束するので、母関数も絶対収束します。
 <!-- proof-end -->
 
 [合同部分群上の素数作用素の係数](../../MF/MF5/index.md#prop-mf5-level-q) をレベル1に適用すると
@@ -254,7 +308,18 @@ $$
 -\alpha\beta\lambda_f(p^{r-1}).
 $$
 
-初期値は1と $\alpha+\beta$ です。有限和 $h_r(\alpha,\beta)$ も同じ漸化式と初期値を持ちます。実際 $(\alpha+\beta)h_r$ を展開すると端の項は一度ずつ、中間項は二度ずつ現れ、$\alpha\beta h_{r-1}$ を引くと中間項も一度ずつ残るので $h_{r+1}$ です。帰納法で $\lambda_f(p^r)=h_r(\alpha,\beta)$ となります。$g$ についても同様に $\overline{\lambda_g(p^r)}=h_r(\bar\gamma,\bar\delta)$ です。従って [積係数の母関数](#thm-afr18-local-identity) に $ABCD=1$、$X=p^{-s}$ を代入すると、素数冪の級数には余分な分子 $1-p^{-2s}$ が現れます。
+初期値は1と $\alpha+\beta$ です。有限和 $h_r(\alpha,\beta)$ も同じ漸化式と初期値を持ちます。
+
+実際、$(\alpha+\beta)h_r$ を展開すると端の項は一度ずつ、中間項は二度ずつ現れます。$\alpha\beta h_{r-1}$ を引くと中間項も一度ずつ残るので、$h_{r+1}$ になります。
+
+帰納法を用いれば、第二の固有形式についても同じ計算により
+
+$$
+\lambda_f(p^r)=h_r(\alpha,\beta),\qquad
+\overline{\lambda_g(p^r)}=h_r(\bar\gamma,\bar\delta)
+$$
+
+となります。従って [積係数の母関数](#thm-afr18-local-identity) に $ABCD=1$、$X=p^{-s}$ を代入すると、素数冪の級数には余分な分子 $1-p^{-2s}$ が現れます。
 
 <a id="thm-afr18-euler"></a>
 
@@ -316,13 +381,27 @@ $L(s,\pi_f)L(s,\overline{\pi_g})$ の素数因子は単独の4つの根 $\alpha,
 
 $N$ は $n(u)=\begin{pmatrix}1&u\\0&1\end{pmatrix}$（$u\in F$）全体です。
 
-加法指標 $\psi$ は $O$ 上自明、$p^{-1}O$ 上非自明とします。
+加法指標 $\psi$ は [AFR9 の加法指標](../AFR9/index.md#def-afr9-additive-character) と同じく絶対値1の複素数への加法群準同型で、$O$ 上自明（値が1）、$p^{-1}O$ 上非自明とします。
 
 既習の [Whittaker汎関数](../AFR15/index.md#def-afr15-whittaker) を持つ二つの既約許容不分岐表現を考え、中心指標は両方とも自明とします。
 
 ここではこの汎関数が存在することを仮定し、不分岐主系列に対する構成は [主系列の安定Whittaker積分](../AFR15/index.md#thm-afr15-jacquet) を参照してください。
 
-非零の球固定ベクトルから作った Whittaker 関数 $W$ は、[Whittaker関数の変換則](../AFR15/index.md#prop-afr15-model) により $W(n(u)hk)=\psi(u)W(h)$ を満たします。$W'$ は第二の表現の同じ指標による関数です。積 $W\overline{W'}$ は左 $N$ 不変です。$a_m=\operatorname{diag}(p^m,1)$ とします。
+非零の球固定ベクトルから作った Whittaker 関数 $W$ は、[Whittaker関数の変換則](../AFR15/index.md#prop-afr15-model) により
+
+$$
+W(n(u)hk)=\psi(u)W(h)
+$$
+
+を満たします。$W'$ は第二の表現の同じ指標による関数です。ここでプライムは微分を表すものではありません。
+
+積 $W\overline{W'}$ は左 $N$ 不変です。実際、二つの変換因子の積は
+
+$$
+\psi(u)\overline{\psi(u)}=1
+$$
+
+です。整数 $m$ に対して $a_m=\operatorname{diag}(p^m,1)$ とします。
 
 <a id="thm-afr18-spherical-whittaker"></a>
 
@@ -341,7 +420,7 @@ $$
 
 ### 証明の見取り図
 
-右 $K$ 不変性と加法指標の非自明性から負の添字を消します。球Hecke作用を $p+1$ 個の剰余類に分解すると、非負添字の漸化式が出ます。
+右 $K$ 不変性と加法指標の非自明性から負の添字を消します。[球Hecke作用](../AFR14/index.md#prop-afr14-action)を $p+1$ 個の剰余類に分解すると、非負添字の漸化式が出ます。
 
 <!-- proof-start -->
 ### 証明
@@ -354,7 +433,19 @@ $$
 
 従って $W(a_m)=0$ です。
 
-$W_m=W(a_m)$ と書きます。[指数pの二重剰余類分解](../AFR14/index.md#thm-afr14-p-cosets) の代表元を $r_u=\begin{pmatrix}p&u\\0&1\end{pmatrix}$ と $r_\infty=\operatorname{diag}(1,p)$ とします。$K$ の測度を1とすれば [球Hecke作用](../AFR14/index.md#prop-afr14-action) から、固有値 $\tau$ に対し
+$W_m=W(a_m)$ と書きます（添字 $m$ は素数 $p$ の冪指数です）。
+
+[既約許容表現の球固定直線](../AFR14/index.md#prop-afr14-spherical-line) により非零の $K$ 固定空間は一次元で、[球Hecke作用](../AFR14/index.md#prop-afr14-action)の固有値を取れます。
+
+[指数pの二重剰余類分解](../AFR14/index.md#thm-afr14-p-cosets) の代表元を
+
+$$
+r_u=\begin{pmatrix}p&u\\0&1\end{pmatrix}
+\quad (0\le u<p,\ u\in\mathbb Z),\qquad
+r_\infty=\operatorname{diag}(1,p)
+$$
+
+とします。$K$ の測度を1とすれば [球Hecke作用](../AFR14/index.md#prop-afr14-action) から、固有値 $\tau$ に対し
 
 $$
 \tau W_m=\sum_{u=0}^{p-1}W(a_mr_u)+W(a_m r_\infty).
@@ -366,7 +457,17 @@ $$
 \tau W_m=pW_{m+1}+W_{m-1}.
 $$
 
-$W_{-1}=0$ なので、仮に $W_0=0$ なら漸化式で全 $W_m=0$ です。[局所三角分解](../AFR13/index.md#thm-afr13-bk) により任意の行列は $n(u)\operatorname{diag}(p^{m+b},p^b)k$ と書けます（対角の単数は右 $K$ に吸収）。中心指標、右不変性、左変換則より全 $W$ が零になり、Whittaker模型の単射性と矛盾します。従って $W_0\ne0$ で規格化可能です。
+$W_{-1}=0$ なので、仮に $W_0=0$ なら漸化式で全 $W_m=0$ です。
+
+[局所三角分解](../AFR13/index.md#thm-afr13-bk) により任意の行列は
+
+$$
+n(u)\operatorname{diag}(p^{m+b},p^b)k
+$$
+
+と書けます（対角の単数は右 $K$ に吸収）。中心指標、右不変性、左変換則より全 $W$ が零になり、[Whittaker関数の変換則と既約表現での単射性](../AFR15/index.md#prop-afr15-model) と矛盾します。
+
+従って $W_0\ne0$ で規格化可能です。
 
 $U_m=p^{m/2}W_m$ とすると $\tau U_m=p^{1/2}(U_{m+1}+U_{m-1})$ です。[GL_2のSatakeパラメータ](../AFR14/index.md#def-afr14-satake-parameter) の和と積は $A+B=p^{-1/2}\tau,AB=1$ なので
 
@@ -381,11 +482,11 @@ $U_{-1}=0,U_0=1$ より $U_1=A+B$、以降は $h_m(A,B)$ と同じ漸化式で�
 
 今度は二つの関数に試験関数 $\Phi$ を掛けて積分します。
 
-$\Phi=1_{O^2}$ は行ベクトルが整数環に入るとき1となる関数です。
+$\Phi=1_{O^2}$ は行ベクトルの二成分がともに整数環 $O$ に入るとき1、それ以外で0となる指示関数です。
 
 $e_2=(0,1)$ とすると $e_2n(u)=e_2$ なので、$W\overline{W'}\Phi(e_2h)|\det h|_p^s$ は左 $N$ 不変となります。
 
-右 $K$ に対しても不変です。
+右 $K$ に対しても不変です。$W,W'$ は右 $K$ 不変であり、$k\in K$ と $k^{-1}$ の成分はいずれも $O$ に入るので、行ベクトル $v$ が $O^2$ に入ることと $vk$ が $O^2$ に入ることは同値です。さらに $|\det k|_p=1$ です。
 
 $dh$ は $K$ の体積1の Haar 測度、$du$ は $O$ の体積1の加法 Haar 測度とし、商測度 $d\dot h$ は $\int_G F(h)dh=\int_{N\backslash G}\int_N F(nh)dn\,d\dot h$ で規格化します。
 
@@ -419,17 +520,33 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[局所三角分解](../AFR13/index.md#thm-afr13-bk) より代表元を $t_{m,b}=\operatorname{diag}(p^{m+b},p^b)$ とできます。左 $N$ は下段を変えず、右 $K$ は下段の二成分の付値の最小値を保存します（$k,k^{-1}$ とも整数成分なので双方の不等式が成立）。この最小値は $b$ です。行列式の付値は左 $N$、右 $K$ で不変で、$m+2b$ です。従って $m,b$ は軌道ごとに一意です。
+[局所三角分解](../AFR13/index.md#thm-afr13-bk) より代表元を $t_{m,b}=\operatorname{diag}(p^{m+b},p^b)$ とできます。
 
-$N\cap t_{m,b}Kt_{m,b}^{-1}$ は $u\in p^mO$ に対応します。実際、
+左 $N$ は下段を変えず、右 $K$ は下段の二成分の付値の最小値を保存します（$k,k^{-1}$ とも整数成分なので双方の不等式が成立）。この最小値は $b$ です。
+
+行列式の付値は左 $N$、右 $K$ で不変で、$m+2b$ です。従って $m,b$ は軌道ごとに一意です。
+
+ここで $m,b$ は任意の整数です。$N\cap t_{m,b}Kt_{m,b}^{-1}$ は $u\in p^mO$ に対応します。実際、
 
 $$
 t_{m,b}^{-1} n(u)t_{m,b}=n(p^{-m}u)
 $$
 
-が $K$ に入る条件は $p^{-m}u\in O$ です。[p進加法Haar測度の規格化](../AFR9/index.md#prop-afr9-local-measure) よりその加法測度は $|p^m|_p=p^{-m}$ です。商積分の公式を $1_{t_{m,b}K}$ に適用すると左辺は1、右辺は軌道 $Nt_{m,b}K$ の商での体積に $p^{-m}$ を掛けた値になります。実際、その軌道上では内側の積分は上の部分群の平行移動の測度であり、外では0です。従って各軌道の商体積は $p^m$ です。
+が $K$ に入る条件は $p^{-m}u\in O$ です。[p進加法Haar測度の規格化](../AFR9/index.md#prop-afr9-local-measure) よりその加法測度は $|p^m|_p=p^{-m}$ です。
 
-$t_{m,b}=p^b I\,a_m$ なので中心指標の自明性から $W(t_{m,b})=W(a_m)$、第二の関数も同じです。$e_2t_{m,b}=(0,p^b)$ より $\Phi(e_2t_{m,b})=1$ は $b\ge0$ と同値です。また $|\det t_{m,b}|_p^s=p^{-(m+2b)s}$ です。[球Whittaker関数の素数冪表示](#thm-afr18-spherical-whittaker) によって $m<0$ の寄与は消えます。従って
+商積分の公式を $1_{t_{m,b}K}$ に適用すると左辺は1、右辺は軌道 $Nt_{m,b}K$ の商での体積に $p^{-m}$ を掛けた値になります。実際、その軌道上では内側の積分は上の部分群の平行移動の測度であり、外では0です。
+
+従って各軌道の商体積は $p^m$ です。
+
+$t_{m,b}=p^b I\,a_m$ なので中心指標の自明性から $W(t_{m,b})=W(a_m)$、第二の関数も同じです。
+
+$e_2t_{m,b}=(0,p^b)$ より $\Phi(e_2t_{m,b})=1$ は $b\ge0$ と同値です。行列式の絶対値のべきは
+
+$$
+|\det t_{m,b}|_p^s=p^{-(m+2b)s}
+$$
+
+です。[球Whittaker関数の素数冪表示](#thm-afr18-spherical-whittaker) によって $m<0$ の寄与は消えます。従って
 
 $$
 \begin{aligned}
@@ -497,14 +614,20 @@ $$
 \end{aligned}
 $$
 
-[完成Eisenstein級数のFourier展開](../AFR5/index.md#thm-afr5-fourier) と [Eisenstein級数の解析接続と関数等式](../AFR5/index.md#thm-afr5-functional) を使い、極を除いた任意のコンパクトな $s$ の集合で一様な評価を得ます。基本領域では $y\ge\sqrt3/2$ です。非零周波数 $n$ に対し、$T=2\pi|n|y$ とします。[変形Bessel関数 K](../AFR4/index.md#def-afr4-k-bessel) の積分表示で $\nu=s-1/2$、$|\Re\nu|\le M$ とすれば
+[完成Eisenstein級数のFourier展開](../AFR5/index.md#thm-afr5-fourier) と [Eisenstein級数の解析接続と関数等式](../AFR5/index.md#thm-afr5-functional) を使い、極を除いた任意のコンパクトな $s$ の集合で一様な評価を得ます。
+
+基本領域では $y\ge\sqrt3/2$ です。非零周波数 $n$ に対し、$T=2\pi|n|y$ とします。
+
+[変形Bessel関数 K](../AFR4/index.md#def-afr4-k-bessel) の積分表示で $\nu=s-1/2$、$|\Re\nu|\le M$ とすれば
 
 $$
 |K_\nu(T)|
 \le e^{-T}\int_0^\infty e^{-Tv^2/2+Mv}dv.
 $$
 
-ここで $\cosh v\ge1+v^2/2$、$|\cosh(\nu v)|\le e^{Mv}$ を使いました。$T\ge\pi\sqrt3$ なので積分は $T$ に依らない有限な定数で抑えられます。約数和は約数の個数を $|n|$ 以下とし各べきの絶対値を $|n|^{\max(0,\Re(1-2s))}$ 以下とすれば、$s$ のコンパクト集合で一定の多項式で抑えられます。従って非零周波数の和は
+ここで $\cosh v\ge1+v^2/2$、$|\cosh(\nu v)|\le e^{Mv}$ を使いました。$T\ge\pi\sqrt3$ なので積分は $T$ に依らない有限な定数で抑えられます。
+
+約数和は約数の個数を $|n|$ 以下とし各べきの絶対値を $|n|^{\max(0,\Re(1-2s))}$ 以下とすれば、$s$ のコンパクト集合で一定の多項式で抑えられます。従って非零周波数の和は
 
 $$
 C\sqrt y\sum_{n\ge1} n^{M_0} e^{-2\pi ny}
@@ -525,9 +648,21 @@ $$
 \frac{\sqrt y\log y}{2}\int_{-1}^1 e^{th\log y}dt
 $$
 
-と書けます。基本領域の高さの下限は正なので、$h$ の有界集合でこの式は $y$ の固定べきと $1+|\log y|$ の積により抑えられます。残る正則部分も $s$ のコンパクト集合で有界な係数と $y$ の固定べきの積です。従って $s=0,1$ を避けたコンパクト集合では $E^*$ 全体が $C(1+y)^B(1+|\log y|)$ の形の上界を持ちます。
+と書けます。基本領域の高さの下限は正なので、$h$ の有界集合でこの式は $y$ の固定べきと $1+|\log y|$ の積により抑えられます。
 
-$H$ は $y\ge1$ で $O(y^ke^{-4\pi y})$（第1節の評価）なので、この上界を掛けても $d\mu$ について可積分です。基本領域の高さが1以下の部分はコンパクトで、同じ評価で積分可能です。高さを $Y$ で切った積分は $s$ に関して連続であり、[Cauchyの積分定理](../../../解析系/CA/CA2/index.md#thm-ca2-cauchy-simply-connected) を極を含まない小円板内の三角形境界に適用し、有限領域で積分を交換すると境界積分は0です。[Moreraの定理](../../../解析系/CA/CA7/index.md#lem-ca7-morera) により正則であり、$Y\to\infty$ の尾部は上の可積分関数でコンパクト集合上一様に0となります。従って [正則関数列の局所一様極限定理](../../../解析系/CA/CA7/index.md#thm-ca7-holomorphic-locally-uniform-limit) によって極を除いた積分は正則です。
+残る正則部分も $s$ のコンパクト集合で有界な係数と $y$ の固定べきの積です。従って $s=0,1$ を避けたコンパクト集合では、ある定数 $C,B$ により
+
+$$
+|E^*(z,s)|\le C(1+y)^B(1+|\log y|)
+$$
+
+と評価できます。
+
+$H$ は $y\ge1$ で $O(y^ke^{-4\pi y})$（第1節の評価）なので、この上界を掛けても $d\mu$ について可積分です。基本領域の高さが1以下の部分はコンパクトで、同じ評価で積分可能です。
+
+高さを $Y$ で切った積分は $s$ に関して連続であり、[Cauchyの積分定理](../../../解析系/CA/CA2/index.md#thm-ca2-cauchy-simply-connected) を極を含まない小円板内の三角形境界に適用し、有限領域で積分を交換すると境界積分は0です。[Moreraの定理](../../../解析系/CA/CA7/index.md#lem-ca7-morera) により正則です。
+
+$Y\to\infty$ の尾部は上の可積分関数でコンパクト集合上一様に0となります。従って [正則関数列の局所一様極限定理](../../../解析系/CA/CA7/index.md#thm-ca7-holomorphic-locally-uniform-limit) によって極を除いた積分は正則です。
 
 $s=1$ の近傍では $\Lambda(2s-1)$ の主要部は $1/(2(s-1))$ です。定数項のその部分から $1/(2(s-1))$ を引くと
 
@@ -586,7 +721,25 @@ $f_0=q+2q^2$、$g_0=3q-q^2$ とする（周期関数の模型であり保型性�
 <!-- solution-start -->
 **詳細解答**
 
-積の4項のうち添字が等しいものだけが一周期の積分で残るので、$3e^{-4\pi y}-2e^{-8\pi y}$ です。高さ積分では $t=4\pi y$ と $t=8\pi y$ をそれぞれ使います。$\int_0^\infty t^2e^{-t}dt=\Gamma(3)=2$ なので
+[正則カスプ形式のRankin–Selberg展開](#thm-afr18-unfolding) の証明と同じ横方向の直交性を使います。積を展開すると
+
+$$
+f_0\overline{g_0}
+=3e^{-4\pi y}
+-e^{-2\pi ix}e^{-6\pi y}
++6e^{2\pi ix}e^{-6\pi y}
+-2e^{-8\pi y}.
+$$
+
+$x$ の一周期の積分では中央の二項が消え、$3e^{-4\pi y}-2e^{-8\pi y}$ が残ります。
+
+高さ積分では $a=4\pi$ と $a=8\pi$ について $t=ay$ と置き、
+
+$$
+dy=\frac{dt}{a},\qquad y^2dy=\frac{t^2dt}{a^3}
+$$
+
+を使います。[Gamma関数の積分表示](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function) により $\int_0^\infty t^2e^{-t}dt=\Gamma(3)=2$ なので
 
 $$
 \int_0^\infty y^2(3e^{-4\pi y}-2e^{-8\pi y})dy
@@ -630,7 +783,11 @@ $A=B=C=D=1$ とする。$h_0,h_1,h_2$ と、二つの係数列の積の母関数
 <!-- solution-start -->
 **詳細解答**
 
-$h_r(1,1)=\sum_{j=0}^r1=r+1$ なので $h_0=1,h_1=2,h_2=3$ です。積の母関数は $1+4X+9X^2+\cdots$ です。[積係数の母関数](#thm-afr18-local-identity) の4次因子は $(1-X)^{-4}$ で、2次係数は一つの因子から $X^2$ を選ぶ4通りと、二つの因子から $X$ を選ぶ6通りの和10です。これに $1-X^2$ を掛けると2次係数は $10-1=9$ となり一致します。
+[積係数の母関数](#thm-afr18-local-identity) で定めた有限和は $h_r(1,1)=\sum_{j=0}^r1=r+1$ なので $h_0=1,h_1=2,h_2=3$ です。積の母関数は $1+4X+9X^2+\cdots$ です。
+
+同定理の4次因子は $(1-X)^{-4}$ で、2次係数は一つの因子から $X^2$ を選ぶ4通りと、二つの因子から $X$ を選ぶ6通りの和10です。
+
+これに $1-X^2$ を掛けると2次係数は $10-1=9$ となり一致します。
 <!-- solution-end -->
 
 <a id="ex-afr18-b1"></a>
@@ -760,7 +917,11 @@ $$
 =\frac{\sqrt y\log y}{2}\int_{-1}^1 e^{th\log y}dt.
 $$
 
-$|h|\le1/4,y\ge1$ では $|e^{th\log y}|\le y^{1/4}$ なので絶対値は $y^{3/4}\log y$ 以下、さらに $\log y\le y$ から $y^{7/4}$ 以下です。[カスプ形式の係数と端点での減衰](../../MF/MF6/index.md#lem-mf6-growth) を用いた第1節の上界によって $|H|\le C y^k e^{-4\pi y}$ です。双曲面積要素を掛けて $0\le x<1$、$y\ge1$ で積分する絶対値の上界は
+この表示は $h\ne0$ で、固定した $y$ に対し $\frac{d}{dt}e^{th\log y}=h\log y\,e^{th\log y}$ を積分して得られます。$h$ は固定した複素数、$t$ は実積分変数です。右辺は $h=0$ にも連続に延長します。
+
+$|h|\le1/4,y\ge1$ では $|e^{th\log y}|\le y^{1/4}$ なので絶対値は $y^{3/4}\log y$ 以下、さらに $\log y\le y$ から $y^{7/4}$ 以下です。
+
+[カスプ形式の係数と端点での減衰](../../MF/MF6/index.md#lem-mf6-growth) を用いた第1節の上界によって $|H|\le C y^k e^{-4\pi y}$ です。双曲面積要素を掛けて $0\le x<1$、$y\ge1$ で積分する絶対値の上界は
 
 $$
 C\int_1^\infty y^{k-2+7/4} e^{-4\pi y}dy<\infty.
