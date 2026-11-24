@@ -1,0 +1,34 @@
+chapter: LREP12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP11
+forward_references: []
+concepts:
+  - id: representation.weyl-spinors
+    name: 左右Weylスピノル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（左右Weylスピノル）"]
+    requires: [representation.sl2c-finite-dimensional-classification]
+  - id: representation.weyl-inequivalence
+    name: 左右Weyl表現の非同値性
+    kind: proposition
+    introduction: formal
+    requires: [representation.weyl-spinors]
+  - id: representation.weyl-index-convention
+    name: Weyl添字の上げ下げ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Weyl添字の上げ下げ）"]
+    requires: [representation.weyl-spinors, representation.epsilon-determinant]
+  - id: representation.weyl-conjugate-right
+    name: 共役空間と右Weyl空間の同型
+    kind: proposition
+    introduction: formal
+    requires: [representation.weyl-index-convention, representation.epsilon-determinant]
+  - id: representation.weyl-bispinor-vector
+    name: 二添字Weyl表示と四元ベクトル
+    kind: proposition
+    introduction: formal
+    requires: [representation.weyl-conjugate-right, representation.lorentz-vector-complexification, representation.sl2c-lorentz-action]
