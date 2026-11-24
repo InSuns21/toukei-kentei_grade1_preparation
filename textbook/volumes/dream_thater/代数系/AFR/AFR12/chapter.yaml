@@ -2,7 +2,7 @@ id: "AFR12"
 title: "無限素点の GL_2(R) 表現"
 volume: "foundations"
 status: supplementary
-prerequisites: [AFR11, AFR2]
+prerequisites: [AFR11, AFR2, LREP2]
 official_scope: []
 learning_objectives:
   - 実回転の重さと K 有限性を判定できる
@@ -14,6 +14,7 @@ definitions:
   - { id: AFR12-DEF-01, name: "実回転の重さと K 有限ベクトル" }
   - { id: AFR12-DEF-02, name: "主系列の円周模型" }
   - { id: AFR12-DEF-03, name: "正則離散系列の円板模型" }
+  - { id: AFR12-DEF-04, name: "群の左正則表現" }
 theorems:
   - { id: AFR12-THM-01, name: "昇降作用と交換関係" }
   - { id: AFR12-THM-02, name: "円周模型の昇降係数" }
