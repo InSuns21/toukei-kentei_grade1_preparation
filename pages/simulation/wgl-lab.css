@@ -249,3 +249,26 @@ main{max-width:1120px}
 #wgl19-timeline tr.completed:not(.current){background:#f0f5f8}
 .wgl19-examples{margin-top:.6rem;padding:.5rem 0;border-top:1px solid #cbd5e1}
 .wgl19-examples button{margin:0 .4rem .4rem 0}
+
+/* FCG8–13: a docked inspector, outside the opaque-origin GPU iframe.
+   Keep the canvas unobscured; stack the same controls on narrow screens. */
+main.fcg-output-lab{max-width:1220px}
+.fcg-output-stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(245px,290px);align-items:start;gap:14px}
+#fcg-output-parameters{min-width:0;border-left:1px solid #cbd5e1;padding:.35rem 0 .35rem .8rem}
+#fcg-output-parameters .lab-parameters{border:0;margin:0;padding:0}
+#fcg-output-parameters .lab-parameters>p{display:none}
+#fcg-output-parameters .lab-parameters h2{margin:.25rem 0 .4rem}
+#fcg-output-parameters .lab-parameter-row{grid-template-columns:minmax(0,1fr) auto;gap:.1rem .5rem;margin:.45rem 0}
+#fcg-output-parameters .lab-parameter-row label{grid-column:1/-1;font-size:.88rem}
+#fcg-output-parameters .lab-parameter-row input[type=range],#fcg-output-parameters .lab-parameter-row select{grid-column:1;grid-row:auto;min-width:0;max-width:100%}
+#fcg-output-parameters .lab-parameter-row output{grid-column:2;grid-row:auto;white-space:nowrap;font-size:.85rem}
+#fcg-output-parameters .lab-parameter-row small{display:none}
+#fcg-output-parameters.show-parameter-details .lab-parameter-row small{display:block}
+#fcg-output-parameters .lab-parameter-status:empty{display:none}
+#fcg-output-parameters .lab-parameter-status{font-size:.75rem}
+.fcg-output-note{font-size:.8rem;color:#475569;line-height:1.4}
+button.fcg-parameter-details{padding:.2rem .45rem;font-size:.8rem}
+@media(max-width:720px){
+ .fcg-output-stage{grid-template-columns:minmax(0,1fr);gap:4px}
+ #fcg-output-parameters{border-left:0;border-top:1px solid #cbd5e1;padding:.4rem 0}
+}
