@@ -101,7 +101,7 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-iwa17-cyclotomic-euler-system -->
-**定義の確認。** $p=3,k=1$、$m=3$、$\ell=7$ とします。$7\equiv1\pmod3$、$F=\mathbb Q$ で $\zeta_3+\zeta_3^{-1}=-1$ です。従って $c_1=3$、
+**定義の確認**。 $p=3,k=1$、$m=3$、$\ell=7$ とします。$7\equiv1\pmod3$、$F=\mathbb Q$ で $\zeta_3+\zeta_3^{-1}=-1$ です。従って $c_1=3$、
 
 $$
 c_7=1+\zeta_7+\zeta_7^2
@@ -136,7 +136,7 @@ $$
 ここでの微分は変数の微分ではなく、巡回群の作用に重みをつけた和です。
 
 <!-- definition-example-start: def-iwa17-derivative -->
-**定義の確認。** 例えば $d=4$ なら $D_\ell=\sigma_\ell+2\sigma_\ell^2+3\sigma_\ell^3$。$N_\ell=1+\sigma_\ell+\sigma_\ell^2+\sigma_\ell^3$ となり、定義の全係数が具体的に決まります。空積なら $D_1=1$、例えば位数4と6の二つの成分なら $D_{5\cdot7}=D_5D_7$ と各成分の作用を順に適用します（群環の計算だけを示す例です。ここでは $m,M$ を指定しておらず、5と7が第1節の仮定を満たすとは主張していません）。
+**定義の確認**。 例えば $d=4$ なら $D_\ell=\sigma_\ell+2\sigma_\ell^2+3\sigma_\ell^3$。$N_\ell=1+\sigma_\ell+\sigma_\ell^2+\sigma_\ell^3$ となり、定義の全係数が具体的に決まります。空積なら $D_1=1$、例えば位数4と6の二つの成分なら $D_{5\cdot7}=D_5D_7$ と各成分の作用を順に適用します（群環の計算だけを示す例です。ここでは $m,M$ を指定しておらず、5と7が第1節の仮定を満たすとは主張していません）。
 <!-- definition-example-end -->
 
 <a id="lem-iwa17-derivative-identity"></a>
