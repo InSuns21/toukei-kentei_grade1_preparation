@@ -119,6 +119,12 @@ export const lessons = {
     ['Main.lean','範囲外・重複・勝利・満盤','LVT3-06 OK を表示。','\n#eval main\n'],
     ['ExerciseSolutions.lean','演習解答の検査','全8題の命題を検査。'],
     ['Failure.lean','範囲外の着手は成功しない','none の等式を some の等式として使おうとすると型不一致。']
+  ] },
+  'LVT3-07': { module:'LvtRefinement', modes:[
+    ['Inspect.lean','抽象状態・応答列・変異の違い','左 false・右 true、one、双方の応答列と変異の true / false を確認。'],
+    ['Main.lean','成功・拒否・誤実装のテスト','LVT3-07 OK を表示。','\n#eval main\n'],
+    ['ExerciseSolutions.lean','演習解答の検査','全8題の命題を検査。'],
+    ['Failure.lean','満杯で成功を返す誤実装','some の等式を none の等式として使おうとすると型不一致。']
   ] }
 };
 export function combine(module, definitions, experiment, suffix='') {
