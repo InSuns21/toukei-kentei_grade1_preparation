@@ -10,7 +10,7 @@
 
 普通の圏で対象 $A,B$ を固定すると射 $f:A\to B$ の集まりを考えられる。ここではその集まり自身を圏 $\mathcal K(A,B)$ にする。この圏の対象 $f$ が元の対象間の射（1-射）、その圏の射 $\alpha:f\Rightarrow f'$ が平行な二つの1-射の間の比較（2-射）となる。
 
-例えば小圏 $A,B$ の間では関手が1-射、[自然変換](../../CAT/CAT1-07/index.md#def-cat1-07-natural-transformation)が2-射になる。$f$ と $f'$ の間の比較を $g$ と $g'$ の間の比較につなぎ、$gf$ と $g'f'$ の比較を作りたい。このために合成を関手として与える。
+例えば小圏 $A,B$ の間では関手が1-射、[自然変換](../../CAT/CAT1-07/index.md#def-cat1-07-natural-transformation)が2-射になる。$f$ と $f'$ の間の比較を $g$ と $g'$ の間の比較につなぎ、$gf$ と $g'f'$ の比較を作りたい。このために合成を関手として与える。括弧の比較と恒等1-射を取り除く比較は、各入力の2-射と可換になる[自然同型](../../CAT/CAT1-07/index.md#def-cat1-07-natural-isomorphism)として指定する。これらの比較をそれぞれ結合子・単位子と呼び、既習の[モノイダル圏の整合条件](../../CAT/CAT4-01/index.md#def-cat4-01-monoidal)を対象の異なる場合へ拡張する。
 
 <a id="def-catb2-08-bicategory"></a>
 
@@ -70,7 +70,16 @@ a_{h',g',f'}\cdot((\gamma*\beta)*\alpha)
 =(\gamma*(\beta*\alpha))\cdot a_{h,g,f}
 $$
 
-である。左辺は先に2-射を合成してから括弧を変え、右辺は先に括弧を変えてから2-射を合成する。
+である。左辺は先に2-射を合成してから括弧を変え、右辺は先に括弧を変えてから2-射を合成する。単位子の自然性も、任意の $\alpha:f\Rightarrow f'$ について
+
+$
+\begin{aligned}
+l_{f'}\cdot(1_{1_B}*\alpha)&=\alpha\cdot l_f,\\
+r_{f'}\cdot(\alpha*1_{1_A})&=\alpha\cdot r_f
+\end{aligned}
+$
+
+である。ここで $1_{1_B}$ は恒等1-射 $1_B$ 自身の恒等2-射である。
 
 <!-- definition-example-start: def-catb2-08-bicategory -->
 **定義の確認**。一対象 $O$ の双圏で $\mathcal K(O,O)$ を非負整数の離散圏とする。1-射は整数 $n\geq0$、2-射は $1_n$ のみ。$m\circ n=m+n$、$1_O=0$ とする。恒等2-射の組は $1_{m+n}$ に写り、合成可能な2-射は恒等射だけなので関手性が成立する。加法の結合律と零の単位律により結合子・単位子の両端は同じ整数で、恒等2-射を選べる。自然性の各経路も恒等射、四整数の五角形と二整数の三角形の各経路も共通の和の恒等射になる。従って双圏の全条件が成立する。
@@ -123,9 +132,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-小圏 $A,B$ に対し[関手圏](../../CAT/CAT1-08/index.md#def-cat1-08-functor-category) $[A,B]$ は圏をなす。$\alpha:F\Rightarrow F'$ と $\beta:G\Rightarrow G'$ の水平合成は
+小圏 $A,B,C,D$ を取る。小圏 $A,B$ に対し[関手圏](../../CAT/CAT1-08/index.md#def-cat1-08-functor-category) $[A,B]$ は圏をなす。関手 $F,F':A\to B$ と $G,G':B\to C$ を取り、$\alpha:F\Rightarrow F'$ と $\beta:G\Rightarrow G'$ の水平合成を考える。各対象 $x$ での成分は
 
-$$
+$
 (\beta*\alpha)_x=\beta_{F'x}\circ G(\alpha_x)
 =G'(\alpha_x)\circ\beta_{Fx}
 $$
@@ -183,7 +192,7 @@ $$
 <!-- formal-statement-start -->
 > **定理（集合のスパンの双圏 Span）**
 >
-> 小さい集合を対象、[スパン](#def-catb2-08-span)を1-射、両端を保つ頂点集合の写像を2-射とする。二つの合成は次の頂点集合と両端の写像で与える。
+> 固定した集合論的宇宙の小さい集合を対象、[スパン](#def-catb2-08-span)を1-射、両端を保つ頂点集合の写像を2-射とする。頂点集合も小さいとし、$(S,p,q):A\to B$ と $(T,r,s):B\to C$ の合成を次の頂点集合と両端の写像で与える。
 
 $$
 \begin{aligned}
@@ -202,7 +211,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-第4節の確認からHom圏が存在する。合成の頂点集合は $T\times S$ の部分集合であり、両端は定義域の全元で定まる。$u:S\to S'$ と $v:T\to T'$ がスパンの射なら、合成関手の射への作用を
+[スパンの射の条件](#def-catb2-08-span)から、恒等写像は両端を保ち、二射の合成も両端を保つ。結合律と単位律は写像のそれを引き継ぐのでHom圏が存在する。合成の頂点集合は $T\times S$ の部分集合であり、両端は定義域の全元で定まる。$u:S\to S'$ と $v:T\to T'$ がスパンの射なら、合成関手の射への作用を
 
 $$
 (v*u)(y,x)=(v(y),u(x))
