@@ -26,10 +26,10 @@ theorem b03Wrong : ¬ PartialCorrect wrong := by
 theorem c01 (k n a r : Nat) (h : run k n a = some r) :
     n < k ∧ r = drain n a := by
   constructor
-  · by_contra hn
-    have hs := short k n a (by omega)
-    rw [hs] at h
-    simp at h
+  · by_cases hk : k ≤ n
+    · have hs := short k n a hk
+      simp [hs] at h
+    · omega
   · exact runAgrees k n a r h
 
 #print axioms a01

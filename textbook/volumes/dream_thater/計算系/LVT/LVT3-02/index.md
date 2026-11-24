@@ -70,7 +70,7 @@ exec は各予算内での実行結果を表す。ここでの停止性は各入
 
 
 <!-- definition-example-start: def-lvt3-02-terminates -->
-**定義の確認**　exec k n a = some 0 と常に定めるなら、任意の n, a に対して k = 0, r = 0 を選べば条件が成立する。しかし n = 1, a = 2 のとき期待値は 3 であり、結果の正しさは別に確認する必要がある。常に none のモデルは n = a = 0 でもどの k, r についても some r を返さず、停止性仕様を満たさない。
+**定義の確認**　exec k n a = some 0 と常に定めるなら、任意の n, a に対して k = 0, r = 0 を選べば条件が成立する。しかし n = 1, a = 2 のとき要求する結果は 3 であり、結果の正しさは別に確認する必要がある。常に none のモデルは n = a = 0 でもどの k, r についても some r を返さず、停止性仕様を満たさない。
 <!-- definition-example-end -->
 
 
@@ -236,12 +236,12 @@ run は [全正当性](#def-lvt3-02-total)を満たす。
 <!-- formal-statement-end -->
 
 
-**証明の見取り図**　[予算の命題](#prop-lvt3-02-budget)から存在する予算と結果を構成し、[部分正当性の命題](#prop-lvt3-02-partial)と組にする。
+**証明の見取り図**　[移送モデルの実行予算](#prop-lvt3-02-budget)から存在する予算と結果を構成し、[移送モデルの部分正当性](#prop-lvt3-02-partial)と組にする。
 
 <!-- proof-start -->
 ### 証明
 
-任意の n, a に対し k = n + 1, r = a + n を取る。[予算の命題](#prop-lvt3-02-budget)により run k n a = some r。これで停止性仕様が成立する。[部分正当性の命題](#prop-lvt3-02-partial)も成立しているから、[連言の導入](../LVT2-02/index.md#def-lvt2-02-and)で両者を組にする。
+任意の n, a に対し k = n + 1, r = a + n を取る。[移送モデルの実行予算](#prop-lvt3-02-budget)により run k n a = some r。これで停止性仕様が成立する。[移送モデルの部分正当性](#prop-lvt3-02-partial)も成立しているから、[連言の導入](../LVT2-02/index.md#def-lvt2-02-and)で両者を組にする。
 
 ```lean
 theorem runTerminates : Terminates run := by
@@ -256,7 +256,7 @@ theorem runTotal : TotalCorrect run := ⟨runPartial, runTerminates⟩
 
 ## 5. 終了を証明し忘れたとき
 
-状態を更新せず終了判定も行わないループを考えます。どの有限予算でも結果が返らないことを never k n a = none でモデル化します。never 自体は Lean の全域関数で、ここで表現しているループの動作とは区別してください。
+状態を更新せず終了判定も行わないループを考えます。どの有限予算でも結果が返らないことを never k n a = none でモデル化します。never 自体は Lean 上で全ての入力に none を返す関数で、ここで表現しているループの動作とは区別してください。
 
 ```lean
 def never (_ _ _ : Nat) : Option Nat := none
@@ -328,7 +328,7 @@ def drain : Nat → Nat → Nat
 ```
 
 
-[減少量](../LVT1-04/index.md#def-lvt1-04-decreasing-measure)として n を使えます。a は増えますが、再帰のたびに n が厳密に減るので停止に影響しません。Lean は構造再帰としてこの定義を受理します。続いてこの関数の結果と実行予算モデルの結果を比較します。
+[減少量](../LVT1-04/index.md#def-lvt1-04-decreasing-measure)として n を使えます。a は増えますが、再帰のたびに n が厳密に減るので停止に影響しません。各呼出しの比較・加算・結果の返却は有限で、再帰呼出しは高々一つなので、[自然数の真の減少による停止](../LVT1-04/index.md#prop-lvt1-04-descent)を適用すると高々 n 回の再帰で停止します。Lean は構造再帰としてこの定義を受理します。続いてこの関数の結果と実行予算モデルの結果を比較します。
 
 <a id="prop-lvt3-02-drain"></a>
 
@@ -339,7 +339,7 @@ def drain : Nat → Nat → Nat
 <!-- formal-statement-end -->
 
 
-**証明の見取り図**　残り個数 n の[自然数の帰納法](../LVT2-05/index.md#principle-lvt2-05-nat)で drain の結果を求め、[部分正当性の命題](#prop-lvt3-02-partial)と比較する。
+**証明の見取り図**　残り個数 n の[自然数の帰納法](../LVT2-05/index.md#principle-lvt2-05-nat)で drain の結果を求め、[移送モデルの部分正当性](#prop-lvt3-02-partial)と比較する。
 
 <!-- proof-start -->
 ### 証明
@@ -488,7 +488,7 @@ theorem a04 : run 0 0 9 = none := rfl
 <!-- solution-start -->
 #### 詳細解答
 
-[移送モデルの部分正当性](#prop-lvt3-02-partial)は全ての k に対する含意である。仮定 run k n a = some r をそのまま適用して r = a + n を得る。成功したという仮定があるため、予算の下限を別途仮定する必要はない。
+[移送モデルの部分正当性](#prop-lvt3-02-partial)は全ての k に対する含意である。仮定 run k n a = some r をそのまま適用して r = a + n を得る。成功したという仮定があるため、k > n を別途仮定する必要はない。
 
 ```lean
 theorem b01 (k n a r : Nat) (h : run k n a = some r) :
@@ -507,7 +507,7 @@ theorem b01 (k n a r : Nat) (h : run k n a = some r) :
 <!-- solution-start -->
 #### 詳細解答
 
-[予算の命題](#prop-lvt3-02-budget)の不足側で k = n とする。比較 n ≤ n は反射律により成立するので run n n a = none。n = 0 の場合も run 0 0 a = none で含まれる。十分性の側では run (n + 1) n a = some (a + n) となる。
+[移送モデルの実行予算](#prop-lvt3-02-budget)の不足側で k = n とする。比較 n ≤ n は反射律により成立するので run n n a = none。n = 0 の場合も run 0 0 a = none で含まれる。十分性の側では run (n + 1) n a = some (a + n) となる。
 
 ```lean
 theorem b02 (n a : Nat) : run n n a = none :=
@@ -546,7 +546,7 @@ theorem b03Wrong : ¬ PartialCorrect wrong := by
 
 ### Level C
 
-### LVT3-02-C01 成功から予算と全域関数の結果を復元する
+### LVT3-02-C01 成功から予算と drain の結果を復元する
 
 自然数 k, n, a, r で run k n a = some r とする。n < k かつ r = drain n a を示せ。
 
@@ -555,16 +555,16 @@ theorem b03Wrong : ¬ PartialCorrect wrong := by
 <!-- solution-start -->
 #### 詳細解答
 
-まず n < k が偽と仮定する。自然数の比較から k ≤ n。[予算の命題](#prop-lvt3-02-budget)の不足側によって run k n a = none。これを仮定へ代入すると none = some r となり矛盾する。従って n < k。次に [全域的移送関数の正しさ](#prop-lvt3-02-drain)の後半を仮定 run k n a = some r に適用し r = drain n a を得る。二条件を連言で組にする。この結論は成功時の予算の必要条件と結果の対応を同時に与える。
+まず n < k が偽と仮定する。自然数の比較から k ≤ n。[移送モデルの実行予算](#prop-lvt3-02-budget)の不足側によって run k n a = none。これを仮定へ代入すると none = some r となり矛盾する。従って n < k。次に [全域的移送関数の正しさ](#prop-lvt3-02-drain)の後半を仮定 run k n a = some r に適用し r = drain n a を得る。二条件を連言で組にする。この結論は成功時の予算の必要条件と結果の対応を同時に与える。
 
 ```lean
 theorem c01 (k n a r : Nat) (h : run k n a = some r) :
     n < k ∧ r = drain n a := by
   constructor
-  · by_contra hn
-    have hs := short k n a (by omega)
-    rw [hs] at h
-    simp at h
+  · by_cases hk : k ≤ n
+    · have hs := short k n a hk
+      simp [hs] at h
+    · omega
   · exact runAgrees k n a r h
 ```
 
