@@ -6,7 +6,7 @@ prerequisites: [AFR18, AFR9, CA12]
 official_scope: []
 learning_objectives:
   - Weyl作用の積公式と振動子の三基本変換の共変性を計算できる
-  - 実振動子作用の射影性を証明し二重被覆と位相の役割を説明できる
+  - 実振動子作用の射影性を証明し二重被覆上の実Weil表現を構成できる
   - 有理基本変換に対するtheta和の不変性を証明できる
   - 複素theta級数の変換則を導出し二次元の直交群との交換を確認できる
 definitions:
@@ -20,9 +20,10 @@ theorems:
   - { id: AFR19-THM-03, name: "実振動子作用の射影性" }
   - { id: AFR19-THM-04, name: "有理基本変換に対するtheta和の不変性" }
   - { id: AFR19-THM-05, name: "複素theta級数の基本変換" }
+  - { id: AFR19-THM-06, name: "実Weil表現の構成" }
 canonical_examples: [Weyl作用の位相差, Gauss関数の変換, 2進成分による位相相殺, 二次元theta級数]
-problem_patterns: [AFR19-A1, AFR19-A2, AFR19-A3, AFR19-A4, AFR19-B1, AFR19-B2, AFR19-B3, AFR19-C1]
+problem_patterns: [AFR19-A1, AFR19-A2, AFR19-A3, AFR19-A4, AFR19-B1, AFR19-B2, AFR19-B3, AFR19-B4, AFR19-C1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 7, exercises: 5, review: 2 }

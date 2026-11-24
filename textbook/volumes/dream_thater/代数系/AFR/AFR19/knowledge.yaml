@@ -49,3 +49,8 @@ concepts:
     kind: theorem
     introduction: formal
     requires: [automorphic-forms.rational-theta-invariance, automorphic-forms.p-adic-ball-transform, complex-analysis.theta-transformation]
+  - id: automorphic-forms.real-weil-representation
+    name: "実Weil表現の構成"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.real-projective-oscillator, automorphic-forms.real-metaplectic-cover, automorphic-forms.oscillator-generators]
