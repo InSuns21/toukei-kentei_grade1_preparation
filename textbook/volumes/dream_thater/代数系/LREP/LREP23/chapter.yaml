@@ -1,0 +1,40 @@
+id: LREP23
+title: "正質量little group"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP22
+official_scope: []
+learning_objectives:
+  - 静止運動量の固定群と被覆群を同定できる
+  - 正質量の標準boostを構成し一意性を証明できる
+  - Wigner回転の合成則と標準boostの選択変更を導出できる
+  - 既約内部スピン空間の次元と被覆からの降下条件を説明できる
+  - 非平行boostのWigner回転を具体的に計算できる
+definitions:
+  - { id: LREP23-DEF-01, name: 運動量のlittle group }
+  - { id: LREP23-DEF-02, name: 正質量の標準boost }
+  - { id: LREP23-DEF-03, name: Wigner回転 }
+theorems:
+  - { id: LREP23-THM-01, name: 正質量の静止安定化群 }
+  - { id: LREP23-THM-02, name: 標準boostの存在と一意性 }
+  - { id: LREP23-THM-03, name: Wigner回転の合成則 }
+  - { id: LREP23-PROP-01, name: 標準boostの選択変更 }
+  - { id: LREP23-PROP-02, name: 正質量の既約内部スピン空間 }
+canonical_examples:
+  - 静止運動量を固定する回転と固定しないboost
+  - 正質量の標準boostの明示行列
+  - 回転と非平行boostの内部作用
+problem_patterns:
+  - LREP23-REST-GROUP
+  - LREP23-STANDARD-BOOST
+  - LREP23-COLLINEAR-BOOST
+  - LREP23-SPIN-DIMENSION
+  - LREP23-ROTATION
+  - LREP23-MOVING-STABILIZER
+  - LREP23-INVERSE-SECTION
+  - LREP23-NONCOLLINEAR-BOOST
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
