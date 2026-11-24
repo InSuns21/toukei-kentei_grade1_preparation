@@ -197,7 +197,7 @@ $$
 
 実際、[p進整数の桁展開](../../ANF/ANF9/index.md#thm-anf9-digit-expansion)を使えば、任意の列から第1桁が同じ無限部分列、第2桁まで同じ無限部分列、と順次選べます。対角部分列の二項は最初の $n$ 桁で最終的に一致するので、距離は $p_j^{-n}$ 以下です。
 
-従って Cauchy 列になり、[完備化は体となる](../../ANF/ANF9/index.md#thm-anf9-completion-field)の定理により $\mathbb Q_{p_j}$ 内のある点 $z$ へ収束します。部分列を $(z_k)$ と書きます。各項の絶対値は $1$ 以下であり、十分大きな $k$ で $|z-z_k|_{p_j}\le1$ です。[完備化上の非Archimedes三角不等式](../../ANF/ANF9/index.md#thm-anf9-completion-field)から
+従って Cauchy 列になり、[完備化は体となる](../../ANF/ANF9/index.md#thm-anf9-completion-field)の定理により $\mathbb Q_{p_j}$ 内のある点 $z$ へ収束します。部分列を $(z_k)$ と書きます。各項の絶対値は $1$ 以下であり、十分大きな $k$ で $|z-z_k|_{p_j}\le1$ です。有理数上の [非Archimedes三角不等式](../../ANF/ANF9/index.md#prop-anf9-ultrametric) は、[完備化は体となるという定理](../../ANF/ANF9/index.md#thm-anf9-completion-field) によって完備化上でも成立するので
 
 $$
 |z|_{p_j}\le\max(|z-z_k|_{p_j},|z_k|_{p_j})\le1.
@@ -427,6 +427,8 @@ $s=2$ なら指標値は $625/4$ です。一方、実成分だけの絶対値�
 絶対値以外の情報も残ります。[イデール類群の標準代表元](#thm-afr8-idele-normal-form)の有限単数成分 $u_5$ を $5$ で還元すると、非零剰余類 $1,2,3,4$ のいずれかになります。
 
 <a id="ref-afr8-unit-character-mod-five"></a>
+
+### 有限単数から作る指標
 
 [整数環の剰余体](../../ANF/ANF9/index.md#prop-anf9-dvr-structure)は $\mathbb Z_5/5\mathbb Z_5=\mathbb F_5$ です。還元とはこの商への写像で、単数は非零剰余類に写ります。平方剰余とは非零剰余類の二乗で得られる元です。$1^2,2^2,3^2,4^2$ を法 $5$ で計算すると $1,4,4,1$ です。その中で平方剰余かどうかを表す次の関数を $\eta$ とします。
 
