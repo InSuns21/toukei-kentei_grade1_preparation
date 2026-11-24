@@ -6,7 +6,7 @@
 
 ## 1. 実行予算を持つモデル
 
-自然数 n を残り個数、a を処理済み個数とします。n が正なら状態 (n, a) を (n - 1, a + 1) に変えます。n が 0 なら a を返します。各状態で一回の判定を行うため、初期状態 (3, 7) では移送3回と終了判定1回が必要です。
+本講の自然数は Lean の `Nat`（0 を含む非負整数型）を指します。n を残り個数、a を処理済み個数とします。n が正なら状態 (n, a) を (n - 1, a + 1) に変えます。n が 0 なら a を返します。各状態で一回の判定を行うため、初期状態 (3, 7) では移送3回と終了判定1回が必要です。
 
 | 残り n | 処理済み a | 次の処理 |
 | ---: | ---: | --- |
@@ -15,7 +15,7 @@
 | 1 | 9 | 一個移す |
 | 0 | 10 | 10 を返す |
 
-実行予算 k はあと何回判定できるかを表す自然数です。[Option型](../LVT1-03/index.md#def-lvt1-03-option)を使い、some r は値 r を返して終了したこと、none は与えられた予算内に値を返さなかったことを表します。予算切れは業務上の拒否とは別です。none だけから無限に続くとは判断できません。
+実行予算 k はあと何回判定できるかを表す自然数です。`run k n a` は[関数適用の記法](../LVT1-06/index.md#def-lvt1-06-pure-function)で run(k, n, a) に対応し、`Nat → Nat → Nat → Option Nat` は k、n、a を順に渡して `Option Nat` の値を得る型です。[Option型](../LVT1-03/index.md#def-lvt1-03-option)を使い、some r は値 r を返して終了したこと、none は与えられた予算内に値を返さなかったことを表します。同じ Option 型でも、前講の在庫引当では none が正常な拒否を表していました。本講の run では none は予算内に終了結果を得られなかったことだけを表します。`some u = some v` なら中身 u = v が従い、none と some r は異なる構成子なので等しくなりません。none だけから無限に続くとは判断できません。
 
 次の run は予算を一回ずつ減らして計算する関数です。[構造再帰](../LVT1-04/index.md#def-lvt1-04-structural-recursion)により k が小さくなるので run 自身は必ず値（some または none）を返します。以下の Lean コードは [LvtTermination.lean](lab/LvtTermination.lean) の抜粋で、同ファイルには import Lean と名前空間の宣言も含まれます。
 
@@ -26,13 +26,19 @@ def run : Nat → Nat → Nat → Option Nat
   | k + 1, n + 1, a => run k n (a + 1)
 ```
 
-run 3 3 7 は run 2 2 8、run 1 1 9、run 0 0 10 へ進み、最後は none です。run 4 3 7 なら最後は run 1 0 10 となり some 10 を返します。n が 0 の場合でも、終了判定に予算が一回必要です。
+パターンの `_` は使わない引数、`k + 1` と `n + 1` はそれぞれ正の自然数の後者パターンです。例えば予算 3 は再帰枝では k = 2 と照合されます。[構造再帰](../LVT1-04/index.md#def-lvt1-04-structural-recursion)の減少引数は第1引数 k であり、a が増えても支障はありません。
+
+```text
+run 3 3 7 = run 2 2 8 = run 1 1 9 = run 0 0 10 = none
+run 4 3 7 = run 3 2 8 = run 2 1 9 = run 1 0 10 = some 10
+```
+n が 0 の場合でも、終了判定に予算が一回必要です。
 
 ## 2. 結果が返る場合と必ず返る場合
 
 正しい結果は a + n です。この要求は run の再帰式からではなく、最初の処理済み個数に未処理個数を全部足すという業務要求から決めています。
 
-ここでは任意の自然数 k, n, a に対して exec k n a が Option Nat を返す計算モデルを考えます。結果が得られた場合にだけその値を検査する条件を部分正当性とします。
+ここでは任意の自然数 k, n, a に対して exec k n a が Option Nat を返す計算モデルを考えます。結果が得られた場合にだけその値を検査する条件を部分正当性とします。r は返された自然数です。[全称量化](../LVT2-02/index.md#def-lvt2-02-forall) `∀ k n a r : Nat` は四変数すべてを独立に動かし、命題間の矢印は[含意](../LVT2-02/index.md#def-lvt2-02-imp)を表します。以下の exec の型だけでは予算に関する単調性や実際のプログラムとの対応は仮定していません。実際の停止性を論じるときには、some が対象の計算の終了結果を正しく表すという対応が必要です。
 
 <a id="def-lvt3-02-partial"></a>
 
@@ -48,11 +54,11 @@ exec : Nat → Nat → Nat → Option Nat とする。k は実行予算、n は�
 
 
 <!-- definition-example-start: def-lvt3-02-partial -->
-**定義の確認**　例えば、どんな k, n, a に対しても some (a + n) を返す関数は、some の中身が a + n であるから条件を満たす。一方、常に none を返す関数も、some r に等しいという仮定が決して成立しないので条件を満たす。部分正当性だけでは値の存在を要求していない。
+**定義の確認**　例えば、どんな k, n, a に対しても some (a + n) を返す関数を考える。任意の k, n, a, r で前件 exec k n a = some r を仮定すると、some (a + n) = some r となる。[Option型](../LVT1-03/index.md#def-lvt1-03-option)の同じ構成子の中身を比較して a + n = r、等式の対称性から r = a + n を得る。一方、常に none を返す関数も、none = some r は異なる構成子の等式で成立しないため、[含意](../LVT2-02/index.md#def-lvt2-02-imp)の前件が偽で条件を満たす。部分正当性だけでは値の存在を要求していない。
 <!-- definition-example-end -->
 
 
-実際に値を得たいなら、入力ごとに十分な予算を取れることも示します。予算を先に一つ固定するのではなく、入力 n, a を取ってから k を選びます。
+実際に値を得たいなら、入力ごとに十分な予算を取れることも示します。予算を先に一つ固定するのではなく、入力 n, a を取ってから k を選びます。`∃ k r : Nat` は[存在量化](../LVT2-02/index.md#def-lvt2-02-exists)で、選んだ k と r に対して後続の等式が成立することを要求します。
 
 <a id="def-lvt3-02-terminates"></a>
 
@@ -70,11 +76,11 @@ exec は各予算内での実行結果を表す。ここでの停止性は各入
 
 
 <!-- definition-example-start: def-lvt3-02-terminates -->
-**定義の確認**　exec k n a = some 0 と常に定めるなら、任意の n, a に対して k = 0, r = 0 を選べば条件が成立する。しかし n = 1, a = 2 のとき要求する結果は 3 であり、結果の正しさは別に確認する必要がある。常に none のモデルは n = a = 0 でもどの k, r についても some r を返さず、停止性仕様を満たさない。
+**定義の確認**　exec k n a = some 0 と常に定めるなら、任意の n, a に対して k = 0, r = 0 を選べば条件が成立する。この例の k = 0 は抽象的な exec に許された即時応答であり、run の予算 0 の分岐とは異なる。しかし n = 1, a = 2 のとき要求する結果は 3 であり、結果の正しさは別に確認する必要がある。常に none のモデルは n = a = 0 でもどの k, r についても some r を返さず、停止性仕様を満たさない。
 <!-- definition-example-end -->
 
 
-これら二つの条件を同時に要求すると、入力ごとに結果が存在し、返った結果は仕様に適合するといえます。
+これら二つの条件を[連言](../LVT2-02/index.md#def-lvt2-02-and) `∧` で同時に要求すると、入力ごとに結果が存在し、返った結果は仕様に適合するといえます。これが全正当性です。
 
 <a id="def-lvt3-02-total"></a>
 
@@ -120,6 +126,8 @@ def TotalCorrect (exec : Nat → Nat → Nat → Option Nat) : Prop :=
 
 <!-- proof-start -->
 ### 証明
+
+[自然数の帰納法](../LVT2-05/index.md#principle-lvt2-05-nat)に適用する命題 P(k) は「任意の n, a, r について run k n a = some r なら r = a + n」である。n, a, r は P(k) の内部で全称量化し、固定しない。
 
 k = 0 の場合、run 0 n a = none なので some r を返すという仮定と矛盾する。従って含意は真である。
 
@@ -176,7 +184,7 @@ run (n + 1) n a = some (a + n)
 <!-- formal-statement-end -->
 
 
-**証明の見取り図**　十分性には残り個数 n の帰納法、不足には予算 k の帰納法を使う。終了判定を数えるため境界は n ではなく n + 1 になる。
+**証明の見取り図**　十分性には残り個数 n の[自然数の帰納法](../LVT2-05/index.md#principle-lvt2-05-nat)、不足には予算 k の帰納法を使う。終了判定を数えるため境界は n ではなく n + 1 になる。
 
 <!-- proof-start -->
 ### 証明
@@ -190,9 +198,9 @@ run (m + 2) (m + 1) a
 = some (a + (m + 1))
 ```
 
-となる。二行目で a を任意とした帰納仮定を a + 1 に適用した。最後は加法の結合則と交換則による。
+となる。二つ目の等号で a を任意とした帰納仮定を a + 1 に適用した。最後は加法の結合則と交換則による。
 
-不足：k = 0 のとき run 0 n a = none。k + 1 ≤ n のとき n = 0 は不可能なので n = m + 1 と書ける。比較から k ≤ m。再帰式と、n, a を任意にした帰納仮定によって
+不足：帰納法の命題は「任意の n, a について k ≤ n なら run k n a = none」である。k = 0 のとき run 0 n a = none。k + 1 ≤ n のとき n = 0 は不可能なので n = m + 1 と書ける。k + 1 ≤ m + 1 の両辺から整数として 1 を引くと k ≤ m となる。再帰式と、n, a を任意にした帰納仮定によって
 
 ```text
 run (k + 1) (m + 1) a
@@ -241,7 +249,7 @@ run は [全正当性](#def-lvt3-02-total)を満たす。
 <!-- proof-start -->
 ### 証明
 
-任意の n, a に対し k = n + 1, r = a + n を取る。[移送モデルの実行予算](#prop-lvt3-02-budget)により run k n a = some r。これで停止性仕様が成立する。[移送モデルの部分正当性](#prop-lvt3-02-partial)も成立しているから、[連言の導入](../LVT2-02/index.md#def-lvt2-02-and)で両者を組にする。
+任意の n, a に対し k = n + 1, r = a + n を取る。[移送モデルの実行予算](#prop-lvt3-02-budget)により run k n a = some r。[存在量化の導入](../LVT2-02/index.md#def-lvt2-02-exists)により、この k, r と等式が証拠になるので[停止性仕様](#def-lvt3-02-terminates)が成立する。Lean の `⟨k, r, h⟩` は二重の存在量化の証人 k, r と等式の証明 h を組み立てる記法である。[移送モデルの部分正当性](#prop-lvt3-02-partial)も成立しているから、[連言の導入](../LVT2-02/index.md#def-lvt2-02-and)で両者を組にする。
 
 ```lean
 theorem runTerminates : Terminates run := by
@@ -277,9 +285,9 @@ never k n a = none と全ての自然数 k, n, a に対し定めたモデル nev
 <!-- proof-start -->
 ### 証明
 
-任意の k, n, a, r を取り never k n a = some r を仮定すると、none = some r となり異なる構成子が等しいことになって矛盾する。偽の仮定からは任意の命題を導けるので部分正当性が成立する。
+任意の k, n, a, r を取り never k n a = some r を仮定すると、none = some r となり異なる構成子が等しいことになって矛盾する。[False の除去](../LVT2-01/index.md#def-lvt2-01-prop)で偽の仮定から r = a + n を導けるので部分正当性が成立する。
 
-停止性仕様が成立すると仮定する。n = a = 0 に適用すると k, r が存在して never k 0 0 = some r となるはずである。しかし左辺は none である。この矛盾により停止性仕様は成立しない。
+停止性仕様が成立すると仮定する。n = a = 0 に適用し、[存在量化の除去](../LVT2-02/index.md#def-lvt2-02-exists)によって k, r と等式を取り出すと never k 0 0 = some r となるはずである。しかし左辺は none である。この矛盾により停止性仕様は成立しない。
 
 ```lean
 theorem neverPartial : PartialCorrect never := by
@@ -328,7 +336,7 @@ def drain : Nat → Nat → Nat
 ```
 
 
-[減少量](../LVT1-04/index.md#def-lvt1-04-decreasing-measure)として n を使えます。a は増えますが、再帰のたびに n が厳密に減るので停止に影響しません。各呼出しの比較・加算・結果の返却は有限で、再帰呼出しは高々一つなので、[自然数の真の減少による停止](../LVT1-04/index.md#prop-lvt1-04-descent)を適用すると高々 n 回の再帰で停止します。Lean は構造再帰としてこの定義を受理します。続いてこの関数の結果と実行予算モデルの結果を比較します。
+[自然数値の減少尺度](../LVT1-04/index.md#def-lvt1-04-decreasing-measure)として n を使えます。a は増えますが、再帰のたびに n が厳密に減るので停止に影響しません。各呼出しの比較・加算・結果の返却は有限で、再帰呼出しは高々一つなので、[自然数の真の減少による停止](../LVT1-04/index.md#prop-lvt1-04-descent)を適用すると高々 n 回の再帰で停止します。Lean は構造再帰としてこの定義を受理します。続いてこの関数の結果と実行予算モデルの結果を比較します。
 
 <a id="prop-lvt3-02-drain"></a>
 
@@ -353,9 +361,9 @@ drain (m + 1) a
 = a + (m + 1)
 ```
 
-である。二行目で任意の a に対する帰納仮定を a + 1 に適用した。従って drain n a = a + n が成立する。
+である。二つ目の等号で任意の a に対する帰納仮定を a + 1 に適用した。最後の等号は (a + 1) + m = a + (1 + m) = a + (m + 1) による。従って drain n a = a + n が成立する。
 
-run k n a = some r と仮定すると、[移送モデルの部分正当性](#prop-lvt3-02-partial)より r = a + n。上の式の右辺と等しいので r = drain n a となる。
+run k n a = some r と仮定すると、[移送モデルの部分正当性](#prop-lvt3-02-partial)より r = a + n。上の式と合わせて、等式の対称性・推移性（[等式の連鎖](../LVT2-03/index.md#prop-lvt2-03-chain)）により r = a + n = drain n a となる。
 
 ```lean
 theorem drainCorrect (n a : Nat) : drain n a = a + n := by
@@ -397,7 +405,7 @@ lake env lean ExerciseSolutions.lean
 lake env lean Failure.lean
 ```
 
-最後のコマンドは意図的に失敗します。成功する四つのコマンドとは分けて実行します。Inspect.lean では評価値のほかに各証明の公理依存を確認できます。run の実行予算はこのモデルの判定回数であり、実機の時間やメモリ使用量ではありません。
+最後のコマンドは意図的に失敗します。成功する四つのコマンドとは分けて実行します。Inspect.lean では評価値のほかに各証明の[公理依存](../LVT2-08/index.md#def-lvt2-08-axioms)を確認できます。run の実行予算はこのモデルの判定回数であり、実機の時間やメモリ使用量ではありません。
 
 ## 8. 演習
 
@@ -414,7 +422,13 @@ run 2 2 4 の値を再帰式で求めよ。
 <!-- solution-start -->
 #### 詳細解答
 
-run 2 2 4 = run 1 1 5 = run 0 0 6。最後は予算が 0 なので none。状態は残り 0 に達しているが、終了判定を行う予算がない。
+第1節の再帰式を順に展開する。
+
+```text
+run 2 2 4 = run 1 1 5 = run 0 0 6 = none
+```
+
+最後は予算が 0 なので none。状態は残り 0 に達しているが、終了判定を行う予算がない。
 
 ```lean
 theorem a01 : run 2 2 4 = none := rfl
@@ -432,7 +446,13 @@ run 3 2 4 の値と結果仕様を確認せよ。
 <!-- solution-start -->
 #### 詳細解答
 
-run 3 2 4 = run 2 1 5 = run 1 0 6 = some 6。結果の中身は 6 = 4 + 2 なので要求を満たす。
+第1節の再帰式を順に展開する。
+
+```text
+run 3 2 4 = run 2 1 5 = run 1 0 6 = some 6
+```
+
+結果の中身は 6 = 4 + 2 なので要求を満たす。A01〜A04 の `rfl` はこの展開で両辺が[定義的に等しい](../LVT2-03/index.md#def-lvt2-03-defeq)ことを利用する。
 
 ```lean
 theorem a02 : run 3 2 4 = some 6 := rfl
@@ -526,7 +546,7 @@ wrong k n a = some 0 と定める。停止性仕様は成立し、部分正当�
 <!-- solution-start -->
 #### 詳細解答
 
-任意の n, a に対し k = 0, r = 0 を選ぶと wrong 0 n a = some 0。従って停止性仕様を満たす。部分正当性を仮定して k = 0, n = 1, a = 2, r = 0 を代入すると、wrong 0 1 2 = some 0 から 0 = 2 + 1 = 3 が従い矛盾する。従って部分正当性は成立しない。
+任意の n, a に対し k = 0, r = 0 を選ぶと wrong 0 n a = some 0。従って[停止性仕様](#def-lvt3-02-terminates)を満たす。[部分正当性](#def-lvt3-02-partial)を仮定して k = 0, n = 1, a = 2, r = 0 を代入すると、wrong 0 1 2 = some 0 から 0 = 2 + 1 = 3 が従い矛盾する。従って部分正当性は成立しない。
 
 ```lean
 def wrong (_ _ _ : Nat) : Option Nat := some 0
@@ -555,7 +575,7 @@ theorem b03Wrong : ¬ PartialCorrect wrong := by
 <!-- solution-start -->
 #### 詳細解答
 
-まず n < k が偽と仮定する。自然数の比較から k ≤ n。[移送モデルの実行予算](#prop-lvt3-02-budget)の不足側によって run k n a = none。これを仮定へ代入すると none = some r となり矛盾する。従って n < k。次に [全域的移送関数の正しさ](#prop-lvt3-02-drain)の後半を仮定 run k n a = some r に適用し r = drain n a を得る。二条件を連言で組にする。この結論は成功時の予算の必要条件と結果の対応を同時に与える。
+まず n < k が偽と仮定する。自然数の比較から k ≤ n。[移送モデルの実行予算](#prop-lvt3-02-budget)の不足側によって run k n a = none。これを仮定へ代入すると none = some r となり矛盾する。従って n < k。次に [全域的移送関数の正しさ](#prop-lvt3-02-drain)の後半を仮定 run k n a = some r に適用し r = drain n a を得る。二条件を[連言の導入](../LVT2-02/index.md#def-lvt2-02-and)で組にする。この結論は成功時の予算の必要条件と結果の対応を同時に与える。
 
 ```lean
 theorem c01 (k n a r : Nat) (h : run k n a = some r) :
