@@ -1,7 +1,7 @@
 chapter: AFR3
 scope: dream-theater
 coverage: complete
-prerequisites: [AFR2, FA5, F0-02C2]
+prerequisites: [AFR2, FA7, F0-02C2]
 forward_references: []
 concepts:
   - id: automorphic-forms.petersson
