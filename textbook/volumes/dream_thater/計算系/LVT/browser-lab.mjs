@@ -76,7 +76,14 @@ export const lessons = {
     ['Main.lean','長さと予約の検査','LVT2-07 OK を表示。','\n#eval main\n'],
     ['ExerciseSolutions.lean','演習解答の検査','全8題の証明を検査。'],
     ['Failure.lean','長さの型不一致','SizedL 2 を SizedL 3 として返すと拒否される。']
-  ] }
+  ] },
+  'LVT2-08': { module:'LvtAutomation', modes:[
+    ['Inspect.lean','定理探索・公理依存','補題の型、exact? の候補、true と false、正常系の公理依存を確認。'],
+    ['Main.lean','線形算術と外部判定','LVT2-08 OK を表示。','\n#eval main\n'],
+    ['ExerciseSolutions.lean','演習解答の検査','通常系の証明とその公理依存を確認。'],
+    ['TrustDemo.lean','意図的に不正な証明を受理させる','sorry の警告と claimedFits、sorryAx の依存を確認。正常系には取り込まない。'],
+    ['Failure.lean','意図した型エラー','True.intro を偽の比較の証明として渡すと拒否される。']
+  ], commands:'lake build\nlake test\nlake env lean Inspect.lean\nlake env lean ExerciseSolutions.lean\nlake env lean TrustDemo.lean\nlake env lean Failure.lean' }
 };
 export function combine(module, definitions, experiment, suffix='') {
   // Only the exact local module import is replaced by its source.

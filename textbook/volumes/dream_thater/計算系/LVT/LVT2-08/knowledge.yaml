@@ -1,0 +1,33 @@
+chapter: LVT2-08
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT2-07]
+concepts:
+  - id: lean-verification.automation-search
+    name: Leanの定理探索
+    kind: definition
+    introduction: formal
+  - id: lean-verification.automation-automation
+    name: Leanの証明自動化
+    kind: definition
+    introduction: formal
+  - id: lean-verification.automation-axioms
+    name: Leanの公理依存
+    kind: definition
+    introduction: formal
+  - id: lean-verification.automation-trust
+    name: Leanの信頼境界
+    kind: definition
+    introduction: formal
+  - id: lean-verification.automation-chain
+    name: Leanの容量上界の補題適用
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.automation-next
+    name: Leanの一枠予約の算術保証
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.automation-external
+    name: Leanの外部判定値の非健全性の反例
+    kind: proposition
+    introduction: formal

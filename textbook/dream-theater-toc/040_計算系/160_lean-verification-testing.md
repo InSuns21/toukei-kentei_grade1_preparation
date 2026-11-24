@@ -14,3 +14,4 @@
 11. [LVT2-05 自然数・リストの構造帰納法](textbook/volumes/dream_thater/計算系/LVT/LVT2-05/index.md)
 12. [LVT2-06 帰納的述語と証明の帰納法](textbook/volumes/dream_thater/計算系/LVT/LVT2-06/index.md)
 13. [LVT2-07 依存型・部分型・不変条件を型へ](textbook/volumes/dream_thater/計算系/LVT/LVT2-07/index.md)
+14. [LVT2-08 定理探索・自動化・信頼境界](textbook/volumes/dream_thater/計算系/LVT/LVT2-08/index.md)

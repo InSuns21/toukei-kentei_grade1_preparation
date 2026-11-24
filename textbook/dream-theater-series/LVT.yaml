@@ -59,7 +59,7 @@ chapters:
     title: "依存型・部分型・不変条件を型へ"
   - id: LVT2-08
     path: textbook/volumes/dream_thater/計算系/LVT/LVT2-08
-    status: planned
+    status: completed
     title: "定理探索・自動化・信頼境界"
   - id: LVT3-01
     path: textbook/volumes/dream_thater/計算系/LVT/LVT3-01
