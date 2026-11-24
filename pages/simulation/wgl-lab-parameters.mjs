@@ -3,6 +3,14 @@
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
 
 export const LAB_PARAMETERS = Object.freeze({
+  FCG12: Object.freeze([
+    Object.freeze({id:'N',type:'integer',label:'一辺の格子数',default:40,min:20,max:60,step:20,unit:'セル',meaning:'実計算格子',sourceLocation:'shallow.js / const N',sourceFile:'js',index:null,matcher:/^([ \t]*const N=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'time',type:'number',label:'観察時刻',default:1,min:0,max:3,step:0.1,unit:'s',meaning:'同じ初期条件から再計算',sourceLocation:'shallow.js / const time',sourceFile:'js',index:null,matcher:/^([ \t]*const time=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'baseDepth',type:'number',label:'周囲の水深',default:0.25,min:0.1,max:0.5,step:0.05,unit:'m',meaning:'全域が湿った水槽',sourceLocation:'shallow.js / const baseDepth',sourceFile:'js',index:null,matcher:/^([ \t]*const baseDepth=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'bump',type:'number',label:'中央の追加水深',default:0.5,min:0,max:0.5,step:0.05,unit:'m',meaning:'中央の水柱の高さ',sourceLocation:'shallow.js / const bump',sourceFile:'js',index:null,matcher:/^([ \t]*const bump=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'maxDt',type:'number',label:'時間刻み上限',default:0.05,min:0.01,max:0.1,step:0.01,unit:'s',meaning:'実刻みはCFL条件でも制限',sourceLocation:'shallow.js / const maxDt',sourceFile:'js',index:null,matcher:/^([ \t]*const maxDt=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'cfl',type:'number',label:'Courant数上限',default:0.4,min:0.1,max:0.45,step:0.05,unit:'無次元',meaning:'正値性のため0.5未満',sourceLocation:'shallow.js / const cfl',sourceFile:'js',index:null,matcher:/^([ \t]*const cfl=)([^;\n]+)(;)/gm})
+  ]),
   FCG11: Object.freeze([
     Object.freeze({id:'time',type:'number',label:'観察時刻',default:0.35,min:0,max:1.8,step:0.05,unit:'s',meaning:'同じ軌道の時刻を変更',sourceLocation:'foam.js / const time',sourceFile:'js',index:null,matcher:/^([ \t]*const time=)([^;\n]+)(;)/gm}),
     Object.freeze({id:'curvatureThreshold',type:'number',label:'曲率閾値',default:0.8,min:0,max:3,step:0.1,unit:'m⁻¹',meaning:'波の曲がりで発生を選別',sourceLocation:'foam.js / const curvatureThreshold',sourceFile:'js',index:null,matcher:/^([ \t]*const curvatureThreshold=)([^;\n]+)(;)/gm}),
