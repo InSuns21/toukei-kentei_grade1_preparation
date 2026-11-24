@@ -23,7 +23,7 @@ chapters:
   - { id: CATB2-08, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-08, status: completed, title: "双圏と弱い結合律" }
   - { id: CATB2-09, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-09, status: completed, title: "Profの双圏" }
   - { id: CATB2-10, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-10, status: completed, title: "冪等分裂とCauchy完備化" }
-  - { id: CATB3-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-01, status: planned, title: "フィルター圏とフィルター余極限" }
+  - { id: CATB3-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-01, status: completed, title: "フィルター圏とフィルター余極限" }
   - { id: CATB3-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-02, status: planned, title: "有限表示対象" }
   - { id: CATB3-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-03, status: planned, title: "局所有限表示圏" }
   - { id: CATB3-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-04, status: planned, title: "正則基数とλ-表示対象" }
