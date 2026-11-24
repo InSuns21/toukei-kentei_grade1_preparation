@@ -111,12 +111,12 @@ $$
 > 特に $\psi$ が解であることと $\psi'$ が解であることは同値である。
 <!-- formal-statement-end -->
 
-**証明の見取り図。** 連鎖律で微分の添字を変換し、行列側の変換と打ち消し合わせます。質量項はスカラー倍なので残ります。
+**証明の見取り図。** [多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)で微分の添字を変換し、行列側の変換と打ち消し合わせます。質量項はスカラー倍なので残ります。
 
 <!-- proof-start -->
 ### 証明
 
-$x^\nu=\sum_\mu(\Lambda^{-1})^\nu{}_\mu x'^\mu$ です。$S$ は座標に依存しないので、連鎖律を各成分に適用すると
+$x^\nu=\sum_\mu(\Lambda^{-1})^\nu{}_\mu x'^\mu$ です。$S$ は座標に依存しないので、[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を実部・虚部の各成分に適用すると
 
 $$
 \frac{\partial x^\nu}{\partial x'^\mu}=(\Lambda^{-1})^\nu{}_\mu,\qquad
@@ -170,7 +170,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$G^\mu$ は定数で、$\partial_\mu\partial_\nu\psi=\partial_\nu\partial_\mu\psi$ です。$i^2=-1$ に注意して
+$G^\mu$ は定数で、$\psi$ は二階連続微分可能なので、[混合偏微分の交換](../../../基礎科目/RA/RA6/index.md#thm-ra6-mixed-partials)により $\partial_\mu\partial_\nu\psi=\partial_\nu\partial_\mu\psi$ です。$i^2=-1$ に注意して
 
 $$
 \begin{aligned}
@@ -334,7 +334,7 @@ $$
 Q_R(t)=\int_{[-R,R]^3}\rho(t,\boldsymbol x)\,d^3x
 $$
 
-とします。ここで $d^3x=dx^1dx^2dx^3$ です。積分領域が固定され、時間偏微分がコンパクトな箱と有限の時間区間で連続なので、微分を積分内に移せます。[自由Dirac電流の保存](#thm-lrep19-current-conservation) を代入すると
+とします。ここで $d^3x=dx^1dx^2dx^3$ です。積分領域が固定され、時間偏微分がコンパクトな箱と閉じた有限の時間区間で連続なので、[有限次元のHeine–Cantorの定理](../../../基礎科目/RA/RA7/index.md#thm-ra7-finite-dimensional-heine-cantor)により一様連続です。時間の差商は時間方向の微積分の基本定理から時間偏微分の短区間での平均になり、その差商は箱全体で一様に時間偏微分へ収束します。箱の体積は有限なので積分と極限を交換でき、微分を積分内に移せます。[自由Dirac電流の保存](#thm-lrep19-current-conservation) を代入すると
 
 $$
 \begin{aligned}
@@ -344,7 +344,7 @@ $$
 \end{aligned}
 $$
 
-$Q_R$ は時間だけの関数なので通常の微分 $d/dt$ を用います。各空間方向を一変数の微積分の基本定理で積分すると、その方向の両面の流出の差が現れます。例えば第一方向からの寄与は
+$Q_R$ は時間だけの関数なので通常の微分 $d/dt$ を用います。[矩形上の反復積分定理](../../../基礎科目/RA/RA7/index.md#thm-ra7-iterated-integral)で各空間方向を内側の積分に取り、[微積分学の基本定理II](../../../基礎科目/RA/RA4/index.md#thm-ra4-ftc2)を使うと、その方向の両面の流出の差が現れます。例えば第一方向からの寄与は
 
 $$
 -\int_{-R}^R\int_{-R}^R
@@ -413,7 +413,7 @@ $$
 $f(t,x^1)$ を二階連続微分可能な四成分関数とする。$L^2 f$ を時間と第一空間方向だけで展開せよ。
 
 <!-- solution-start -->
-**詳細解答。** $L=iG^0\partial_t+iG^1\partial_1$ です。行列は定数で混合微分は交換できるので
+**詳細解答。** $L=iG^0\partial_t+iG^1\partial_1$ です。行列は定数で、二階連続微分可能性により[混合偏微分の交換](../../../基礎科目/RA/RA6/index.md#thm-ra6-mixed-partials)が使えるので
 
 $$
 L^2f=-(G^0)^2\partial_t^2f
@@ -476,7 +476,7 @@ $$
 $x'^1=-x^2,\ x'^2=x^1,\ t'=t,\ x'^3=x^3$ とする。対応するSpin行列 $S$ を固定し、$\partial'_1\psi'$ と $\partial'_2\psi'$ を求め、空間の最初の二方向のDirac作用が共変であることを確かめよ。
 
 <!-- solution-start -->
-**詳細解答。** 逆変換は $x^1=x'^2,\ x^2=-x'^1$ です。連鎖律より
+**詳細解答。** 逆変換は $x^1=x'^2,\ x^2=-x'^1$ です。[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)より
 
 $$
 \partial'_1\psi'=-S\partial_2\psi,\qquad
@@ -502,7 +502,7 @@ $$
 $m=0$ とし、二階連続微分可能な関数 $f:\mathbb R\to\mathbb C$ に対して $\psi=f(t-x^3)e_1$ を考える。方程式と電流保存を直接確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $s=t-x^3$ と置き、$f'(s)=df/ds$ を一変数関数 $f$ の導関数とします。$G^0e_1=ie_3=G^3e_1$ です。$x^3$ を固定すると $\partial_t s=1$、$t$ を固定すると $\partial_3s=-1$ なので、連鎖律より
+**詳細解答。** $s=t-x^3$ と置き、$f'(s)=df/ds$ を一変数関数 $f$ の導関数とします。$G^0e_1=ie_3=G^3e_1$ です。$x^3$ を固定すると $\partial_t s=1$、$t$ を固定すると $\partial_3s=-1$ なので、[連鎖律](../../../基礎科目/RA/RA3/index.md#prop-ra3-chain-rule)を実部・虚部に適用すると
 
 $$
 \partial_t\psi=f'(s)e_1,\qquad
