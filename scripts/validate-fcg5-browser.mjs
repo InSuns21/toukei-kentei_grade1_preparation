@@ -181,14 +181,28 @@ try {
   await evaluate('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"center"})');
   const paintBox=await evaluate('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.left,y:r.top,width:r.width,height:r.height};})()');
   assert.ok(Math.abs(paintBox.width-paintBox.height)<5,'FCG5 live view is square and uses the full stage');
-  const paintClip={x:paintBox.x+await evaluate('scrollX'),y:paintBox.y+await evaluate('scrollY'),width:paintBox.width,height:paintBox.height,scale:1};
+  // Capture an interior region, not the iframe border/focus outline. A
+  // full-frame capture beyond the viewport may change the viewport/scroll.
+  const paintClip={x:paintBox.x+await evaluate('scrollX')+paintBox.width*.18,
+    y:paintBox.y+await evaluate('scrollY')+paintBox.height*.30,
+    width:paintBox.width*.45,height:paintBox.height*.35,scale:1};
   const beforePaint=await cdp('Page.captureScreenshot',{format:'png',clip:paintClip,captureBeyondViewport:true});
-  const x=paintBox.x+paintBox.width*.33,y=paintBox.y+paintBox.height*.45;
-  await cdp('Input.dispatchMouseEvent',{type:'mousePressed',x,y,button:'left',buttons:1,clickCount:1});
-  await cdp('Input.dispatchMouseEvent',{type:'mouseMoved',x:x+paintBox.width*.12,y:y+paintBox.height*.08,button:'left',buttons:1});
-  await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:x+paintBox.width*.12,y:y+paintBox.height*.08,button:'left',buttons:0,clickCount:1});
-  const afterPaint=await cdp('Page.captureScreenshot',{format:'png',clip:paintClip,captureBeyondViewport:true});
-  assert.notEqual(afterPaint.data,beforePaint.data,'actual drag must change paused GPU ink image');
+  await evaluate('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"center",behavior:"instant"})');
+  await new Promise(ok=>setTimeout(ok,100));
+  const points=await evaluate('(()=>{const f=document.querySelector("#canvas-slot iframe"),r=f.getBoundingClientRect(),x=r.left+r.width*.33,y=r.top+r.height*.45,X=x+r.width*.12,Y=y+r.height*.08;return {x,y,X,Y,hit:document.elementFromPoint(x,y)===f,endHit:document.elementFromPoint(X,Y)===f};})()');
+  assert.ok(points.hit&&points.endHit,'pointer must hit the visible GPU iframe: '+JSON.stringify(points));
+  await cdp('Input.dispatchMouseEvent',{type:'mouseMoved',x:points.x,y:points.y,button:'none',buttons:0});
+  await cdp('Input.dispatchMouseEvent',{type:'mousePressed',x:points.x,y:points.y,button:'left',buttons:1,clickCount:1});
+  await cdp('Input.dispatchMouseEvent',{type:'mouseMoved',x:points.X,y:points.Y,button:'left',buttons:1});
+  await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:points.X,y:points.Y,button:'left',buttons:0,clickCount:1});
+  // CDP input dispatch and compositing are asynchronous on CI SwiftShader.
+  let changed=false;
+  for(let i=0;i<10&&!changed;i++){
+    await new Promise(ok=>setTimeout(ok,150));
+    const afterPaint=await cdp('Page.captureScreenshot',{format:'png',clip:paintClip,captureBeyondViewport:true});
+    changed=afterPaint.data!==beforePaint.data;
+  }
+  assert.ok(changed,'actual drag must change paused GPU ink image');
   assert.match(await evaluate('document.querySelector("#fcg5-live-state").textContent'),/step 0、/);
   await click('fcg5-live-reset');
   console.log('FCG5 direct drag paints the actual paused GPU simulation: PASS');
