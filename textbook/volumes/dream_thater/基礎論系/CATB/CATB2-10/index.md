@@ -6,7 +6,7 @@
 
 前講で構成した[集合値分配子の双圏 Prof](../CATB2-09/index.md#thm-catb2-09-prof)では、対象間の射の集合を分配子として扱えた。今回は、既存の対象から切り出した部分を新しい対象として補い、この補い方が分配子の表現可能性とどう結び付くかを調べる。
 
-以下、$\mathcal C$ は固定した宇宙に関して[小さい圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)である通常の圏とする。関手の値を取る圏や関手圏は必要に応じてより大きな宇宙に置く。射の合成は右から左に読み、$gf=g\circ f$ と書く。
+以下、$\mathcal C$ は固定した宇宙に関して[小さい圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)である通常の圏とする。関手の値を取る圏や関手圏は必要に応じてより大きな宇宙に置く。射の合成は右から左に読み、$gf=g\circ f$ と書く。$1_X$ は対象 $X$ の恒等射、$\operatorname{Hom}_{\mathcal C}(X,Y)$ は $X$ から $Y$ への射の集合である。自己射 $e$ の二回の合成は $e^2=ee$ と書く。
 
 ## 2. 二度適用しても変わらない射
 
@@ -202,14 +202,14 @@ $$
 
 ## 5. 普遍性：完備な圏への関手は延長できる
 
-包絡を作る別の方法があったとしても、元の圏の関手をどのように延長できるかで構成の役割を判定できる。冪等射を分裂できる圏へ関手を送ると、分裂対象の選び方以外に自由はないはずである。ここでは関手だけでなく自然変換も含めて、[関手圏](../../CAT/CAT1-08/index.md#def-cat1-08-functor-category)の間の同値として示す。
+包絡を作る別の方法があったとしても、元の圏の関手をどのように延長できるかで構成の役割を判定できる。冪等射を分裂できる圏へ関手を送ると、分裂対象の選び方以外に自由はないはずである。ここでは関手だけでなく自然変換も含めて、[関手圏](../../CAT/CAT1-08/index.md#def-cat1-08-functor-category)の間の同値として示す。関手圏を $\operatorname{Fun}(\mathcal A,\mathcal D)$ と書く（既習の $[\mathcal A,\mathcal D]$ と同じ意味）。制限とは $J$ を前合成する操作で、関手 $H$ を $HJ$ に、自然変換をその $JX$ 成分に送る。これを $J^*$ と書く。[本質的全射](../../CAT/CAT1-09/index.md#def-cat1-09-essentially-surjective)とは、到着側の任意の対象が像の対象と同型になることである。
 
 <a id="thm-catb2-10-universal"></a>
 
 <!-- formal-statement-start -->
 > **定理（Karoubi包絡の普遍性）**
 >
-> 小圏 $\mathcal C$ とCauchy完備な局所小圏 $\mathcal D$ を取る。$\mathcal D$ の各冪等射の分裂が一斉に選ばれているとする（例えば、より大きな宇宙で $\mathcal D$ が小さく選択公理を用いる場合）。このとき制限関手
+> 小圏 $\mathcal C$ とCauchy完備な[局所小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size) $\mathcal D$ を取る。$\mathcal D$ の各冪等射の分裂が一斉に選ばれているとする（例えば、より大きな宇宙で $\mathcal D$ が小さく選択公理を用いる場合）。このとき制限関手
 
 $$
 J^*:\operatorname{Fun}(\operatorname{Kar}(\mathcal C),\mathcal D)
@@ -226,7 +226,7 @@ $F(e)$ の分裂を選ぶ。新しい対象間の射は「部分から元の対�
 <!-- proof-start -->
 ### 証明
 
-各 $F(e)$ は $F(e)^2=F(e^2)=F(e)$ を満たす。分裂を $(D_e,r_e,i_e)$ とし、$i_e r_e=F(e)$、$r_e i_e=1_{D_e}$ とする。$e=1_X$ には $D_e=FX$、$r_e=i_e=1_{FX}$ を選ぶ。
+任意の関手 $F:\mathcal C\to\mathcal D$ を固定する。各 $F(e)$ は $F(e)^2=F(e^2)=F(e)$ を満たす。分裂を $(D_e,r_e,i_e)$ とし、$i_e r_e=F(e)$、$r_e i_e=1_{D_e}$ とする。$e=1_X$ には $D_e=FX$、$r_e=i_e=1_{FX}$ を選ぶ。
 
 延長関手を
 
@@ -235,7 +235,13 @@ $$
 \overline F(f)=r_dF(f)i_e
 $$
 
-と定める。ここで $f:(X,e)\to(Y,d)$ である。恒等射の像は
+と定める。ここで $f:(X,e)\to(Y,d)$ であり、右辺の $F(f)$ は元の圏の射 $f:X\to Y$ に $F$ を適用したものである。合成の型は
+
+$$
+D_e\xrightarrow{i_e}FX\xrightarrow{F(f)}FY\xrightarrow{r_d}D_d.
+$$
+
+恒等射の像は
 
 $$
 \overline F(e)=r_eF(e)i_e
@@ -256,7 +262,7 @@ $$
 
 最後は $df=f$ を使った。恒等冪等射の分裂の選択から $\overline FJ=F$ が成り立つ。従って制限は対象について本質的全射である。
 
-次に包絡上の任意の関手 $H,K$ と自然変換 $\alpha:HJ\Rightarrow KJ$ を取る。第4節で構成した射を $i_e:(X,e)\to JX$、$r_e:JX\to(X,e)$ と記す。今度は包絡内の射である。拡張成分の候補は
+次に包絡上の任意の関手 $H,K$ と自然変換 $\alpha:HJ\Rightarrow KJ$ を取る。[Karoubi包絡による冪等完備化](#thm-catb2-10-completion)で構成した射を $i_e:(X,e)\to JX$、$r_e:JX\to(X,e)$ と記す。今度は包絡内の射である。拡張成分の候補は
 
 $$
 \beta_{(X,e)}=K(r_e)\alpha_X H(i_e).
@@ -347,13 +353,50 @@ $$
 $\theta_b$ は単射だから $ri=1_b$。分裂が得られた。
 <!-- proof-end -->
 
-第3節の一対象圏では $P_e(*)=\{e\}$ だが、唯一の対象が表すHom集合は $\{1,e\}$ である。元数が異なり自然同型以前に全単射がない。包絡で追加した $(*,e)$ がこの一元の関手を表す。
+第3節の一対象圏では $P_e(*)=\{e\}$ だが、唯一の対象が表すHom集合は $\{1,e\}$ である。元数が異なり自然同型以前に全単射がない。包絡で追加した $(*,e)$ の表現関手を $J$ に沿って元の圏へ制限すると、この一元の前層になる。
 
 ## 7. Profの単位と余単位から冪等射を取り出す
 
 一対象・恒等射のみの圏を $\mathbf 1$ とする。[分配子](../CATB2-07/index.md#def-catb2-07-distributor) $P:\mathbf 1\rightsquigarrow\mathcal C$ は反変集合値関手 $P$ に、$Q:\mathcal C\rightsquigarrow\mathbf 1$ は共変集合値関手 $Q$ に相当する。第6節の $P_e$ はこの $P$ の例である。
 
 通常の随伴の[単位・余単位と三角恒等式](../../CAT/CAT2-09/index.md#def-cat2-09-triangle-data)に倣い、分配子の合成に対しても単位と余単位を要求できる。ここでは $\mathbf 1$ が出発側の場合に限り、[Profの単位子](../CATB2-09/index.md#thm-catb2-09-unitors)と[二重coendのFubini型交換](../CATB2-09/index.md#thm-catb2-09-fubini)で括弧と恒等分配子を取り除いた元ごとの形を用いる。
+
+まず単位と余単位の始域・終域を確認する。$I_{\mathcal A}$ は圏 $\mathcal A$ のHom関手を用いた恒等分配子、$\odot$ は[分配子のcoend合成](../CATB2-07/index.md#thm-catb2-07-composition)を表す。単位と余単位はそれぞれ
+
+$$
+I_{\mathbf 1}\longrightarrow Q\odot P,\qquad
+P\odot Q\longrightarrow I_{\mathcal C}
+$$
+
+という分配子の射である。単位の始域は一元集合なので、その射は $Q\odot P$ の元を一つ選ぶことに相当する。ここで $Q\odot P$ はタグ付き直積の余積を商にした集合
+
+$$
+\int^a Q(a)\times P(a)
+=
+\left(\coprod_{a\in\operatorname{Ob}(\mathcal C)}Q(a)\times P(a)\right)/{\sim}
+$$
+
+である。$[q,p]_a$ は対象 $a$ の成分の組 $(q,p)$ の同値類を表す。射 $t:a\to a'$ に対し、$q\in Q(a)$、$p'\in P(a')$ について
+
+$$
+[q,P(t)(p')]_a=[Q(t)(q),p']_{a'}
+$$
+
+という関係で同一視する。$P\odot Q$ の中間圏は $\mathbf 1$ なので、$x,y$ 成分は単に $P(x)\times Q(y)$ である。
+
+余単位の自然性とは、$v:x'\to x$、$w:y\to y'$、$u\in P(x)$、$q\in Q(y)$ に対し次を満たすことである。
+
+$$
+\varepsilon_{x',y}(P(v)(u),q)
+=\varepsilon_{x,y}(u,q)v,
+$$
+
+$$
+\varepsilon_{x,y'}(u,Q(w)(q))
+=w\varepsilon_{x,y}(u,q).
+$$
+
+左の変数では前合成、右の変数では後合成になる。以下、成分の添字が射と元の型から決まるときは $\varepsilon(u,q)$ と略し、関手の作用も $P(v)(u)=P(v)u$ のように括弧を省く。
 
 <a id="def-catb2-10-prof-adjoint"></a>
 
@@ -381,18 +424,9 @@ Q(\varepsilon_{a,x}(p,v))(q)=v.
 $$
 <!-- formal-statement-end -->
 
-ここで [分配子のcoend合成](../CATB2-07/index.md#thm-catb2-07-composition) により $Q\odot P$ は表示したcoendである。一方 $P\odot Q$ の中間圏は $\mathbf 1$ なので積集合 $P(x)\times Q(y)$ になる。単位と余単位の型はそれぞれ
+第一の三角恒等式は $u\in P(x)$ に単位の代表元を添え、余単位で射 $h=\varepsilon_{x,a}(u,q):x\to a$ を作り、反変関手の写像 $P(h):P(a)\to P(x)$ を $p$ に適用して $u$ に戻す経路である。
 
-$$
-I_{\mathbf 1}\longrightarrow Q\odot P,\qquad
-P\odot Q\longrightarrow I_{\mathcal C}
-$$
-
-である。
-
-第一の三角恒等式は $u$ に単位の代表元を添え、$u,q$ に余単位を作用させ、残った $p$ に射を前合成させる経路である。
-
-第二は $v$ に単位を添え、$p,v$ に余単位を作用させ、残った $q$ に射を後合成させる経路である。
+第二は $v\in Q(x)$ に単位を添え、射 $k=\varepsilon_{a,x}(p,v):a\to x$ を作り、共変関手の写像 $Q(k):Q(a)\to Q(x)$ を $q$ に適用して $v$ に戻す経路である。
 
 代表元を $[q,P(t)p']_a=[Q(t)q,p']_{a'}$（$t:a\to a'$）で変更した場合、第一式の左辺は
 
@@ -431,7 +465,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-右随伴データがあるとし、$\eta=[q,p]_a$ を選ぶ。coendはタグ付き組の商なので代表元が存在する。$e=\varepsilon_{a,a}(p,q)$ と置く。第一の三角式に $u=p$ を代入して $P(e)p=p$ を得る。余単位の第一変数の自然性を $e:a\to a$ に適用すると
+右随伴データがあるとし、$\eta=[q,p]_a$ を選ぶ。[coend合成の商表示](../CATB2-07/index.md#thm-catb2-07-composition)により代表元が存在する。$e=\varepsilon_{a,a}(p,q)$ と置く。第一の三角式に $u=p$ を代入して $P(e)p=p$ を得る。余単位の第一変数の自然性を $e:a\to a$ に適用すると
 
 $$
 \varepsilon_{a,a}(P(e)p,q)
@@ -446,7 +480,7 @@ $$
 \psi_x(f)=P(f)p
 $$
 
-と置く。第二の三角式に $v=q$ を代入すれば $Q(e)q=q$。余単位の第二変数の自然性より
+と置く。ここで $\phi_x:P(x)\to\operatorname{Hom}_{\mathcal C}(x,a)$、$\psi_x:P_e(x)\to P(x)$ である。後者は $f:x\to a$ に対して $P(f):P(a)\to P(x)$ となるため定義できる。第二の三角式に $v=q$ を代入すれば $Q(e)q=q$。余単位の第二変数の自然性より
 
 $$
 e\phi_x(u)=\varepsilon_{x,a}(u,Q(e)q)
@@ -507,7 +541,7 @@ $$
 なので $ri=1_Y$ も成立する。
 <!-- solution-end -->
 
-### CATB2-10-A02 冪等な全単射
+### CATB2-10-A02 冪等な同型射
 
 - Level: A
 
@@ -573,9 +607,11 @@ A03の圏から集合の圏への関手 $F$ を $F(*)=\{0,1,2\}$、$F(1)$ は恒
 <!-- solution-start -->
 **詳細解答。** $F(e)$ は値 $0,1$ を固定するため冪等。$F(z)$ は定値 $0$ なので冪等であり、$F(e)(0)=0$ から $F(e)F(z)=F(z)$、定値性から $F(z)F(e)=F(z)$。恒等射との合成も保存するので関手である。
 
-[Karoubi包絡の普遍性](#thm-catb2-10-universal)の構成で $D_e=\{0,1\}$、$D_z=\{0\}$ とし、$i_e,i_z$ は包含、$r_e(x)=F(e)(x)$、$r_z(x)=0$ とする。各分裂の二条件は像上で写像が恒等であることから成立する。
+[Karoubi包絡の普遍性](#thm-catb2-10-universal)の構成で $D_e=\{0,1\}$、$D_z=\{0\}$ とし、$i_e,i_z$ は包含、$r_e(x)=F(e)(x)$、$r_z(x)=0$ とする。分裂条件を直接確認する。$i_er_e=F(e)$、$i_zr_z=F(z)$ は包含の定義から成り立つ。また $r_ei_e$ は $0,1$ を固定し、$r_zi_z$ は $0$ を固定するので、それぞれ $1_{D_e}$、$1_{D_z}$ である。
 
-A04で求めた $E\to Z$ の唯一の射 $z$ は $r_zF(z)i_e$ へ送られる。$0,1$ はともに $0$ へ送られる。$Z\to E$ の $z$ は $r_eF(z)i_z$ へ送られ、$0\mapsto0$ である。$Z\to E\to Z$ は一元集合の恒等写像、$E\to Z\to E$ は二元集合の定値 $0$ となり、元の合成 $zz=z$ と一致する。
+A04で求めた四つのHom集合を順に調べる。$E\to E$ の $e$ は $r_eF(e)i_e$ となり、$0,1$ を固定する。$E\to E$ の $z$ は $r_eF(z)i_e$ となり、両元を $0$ に送る。$Z\to Z$ の $z$ は $r_zF(z)i_z$ となり、唯一の元 $0$ を固定する。
+
+$E\to Z$ の唯一の射 $z$ は $r_zF(z)i_e$ へ送られる。$0,1$ はともに $0$ へ送られる。$Z\to E$ の $z$ は $r_eF(z)i_z$ へ送られ、$0\mapsto0$ である。$Z\to E\to Z$ は一元集合の恒等写像、$E\to Z\to E$ は二元集合の定値 $0$ となり、元の合成 $zz=z$ と一致する。
 <!-- solution-end -->
 
 ### CATB2-10-B03 冪等射を表す前層
