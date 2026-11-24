@@ -265,9 +265,19 @@ m(\lambda_j\otimes m(1_P\otimes1_U))
 =m(m(\lambda_j\otimes1_P)\otimes1_U).
 $$
 
-左辺は先に二射を合成する経路、右辺は先に脚を作る経路であり、[豊穣圏の結合律](../CATB2-01/index.md#def-catb2-01-enriched-category)による等式である。右辺で $P$ を $N(W,H_X)$ に置き換え、$\lambda_j$ と $P$ の合成の代わりにHom対象の普遍族の成分を使えば、自然変換のHom対象への前合成の作用も定義できる。族の自然性は第3節と同じ結合律で保たれ、作用の単位・合成保存は各成分で単位律・結合律に帰着する。[Hom対象の普遍性](../CATB2-04/index.md#prop-catb2-04-natural-hom-universal)により全成分での一致は誘導射の一致を意味するので、同型は試験対象について豊穣自然である。
+左辺は先に二射を合成する経路、右辺は先に脚を作る経路であり、[豊穣圏の結合律](../CATB2-01/index.md#def-catb2-01-enriched-category)による等式である。ここで $N_X=N(W,H_X)$ と書き、普遍族の成分を $n_j:N_X\otimes Wj\to\mathcal C(X,Dj)$ とする（Hom対象の普遍性で $1_{N_X}$ に対応する族）。前合成の作用は次の族に対応する。
 
-余極限側では $v:X\to X'$ に対して
+$$
+U\otimes N_X\otimes Wj
+\xrightarrow{\sigma_{U,N_X\otimes Wj}}
+N_X\otimes Wj\otimes U
+\xrightarrow{n_j\otimes1_U}\mathcal C(X,Dj)\otimes U
+\xrightarrow{m}\mathcal C(X',Dj).
+$$
+
+自然性は第3節の結合律の計算で $\lambda_i,\lambda_j$ の代わりに $n_i,n_j$ を使えばよい。単位を挿入すると各成分は $n_j$ に戻り、二つの前合成は各成分で $m(m(n_j\otimes1)\otimes1)=m(n_j\otimes m)$ となるので、作用の単位・合成保存も成立する。[Hom対象の普遍性](../CATB2-04/index.md#prop-catb2-04-natural-hom-universal)により全成分での一致は誘導射の一致を意味するので、同型は試験対象について豊穣自然である。
+
+余極限側では $f:Q\to X$ と $v:X\to X'$ に対して
 
 $$
 v\circ(f\circ\iota_j)=(vf)\circ\iota_j
@@ -286,7 +296,7 @@ m(1_U\otimes m(1_P\otimes\iota_j))
 =m(m(1_U\otimes1_P)\otimes\iota_j)
 $$
 
-となる。左辺は先に脚を後合成する経路、右辺は先に二射を合成する経路である。極限側と同じく普遍族への後合成でHom対象の作用を定め、[Hom対象の普遍性](../CATB2-04/index.md#prop-catb2-04-natural-hom-universal)で全成分の一致から誘導射の一致を得る。よって余極限の同型も試験対象について豊穣自然である。
+となる。左辺は先に脚を後合成する経路、右辺は先に二射を合成する経路である。$N'_X=N(W,K_X)$ と書き、その普遍族を $n'_j:N'_X\otimes Wj\to\mathcal C(Dj,X)$ とする。後合成の作用は $m(1_U\otimes n'_j)$ の族で定まる。第4節と同じ結合律で自然性が保たれ、単位を挿入すれば $n'_j$ に戻り、二つの後合成は結合律で一つの合成にまとめられる。[Hom対象の普遍性](../CATB2-04/index.md#prop-catb2-04-natural-hom-universal)で全成分の一致から誘導射の一致を得る。よって余極限の同型も試験対象について豊穣自然である。
 
 ## 6. 一元集合の重みで通常の極限を取り戻す
 
@@ -521,13 +531,10 @@ $$
 
 $$
 L=\left\{(a_{j,w})\in\prod_j\prod_{w\in Wj}Dj:
-\begin{array}{l}
-D(u)(a_{i,w})=a_{j,W(u)(w)}\\
-\text{for all }u:i\to j,\ w\in Wi
-\end{array}\right\}
+D(u)(a_{i,w})=a_{j,W(u)(w)} \right\}
 $$
 
-を考える。条件は全ての $u:i\to j$ と $w\in Wi$ に課す。この集合が重み付き極限であることを証明せよ。さらに反変重み $V:\mathcal J^{\mathrm{op}}\to\mathbf{Set}$ の場合、非交和 $\coprod_j(Vj\times Dj)$ に関係
+を考える。右辺の条件は全ての $u:i\to j$ と $w\in Wi$ について同時に課す。この集合が重み付き極限であることを証明せよ。さらに反変重み $V:\mathcal J^{\mathrm{op}}\to\mathbf{Set}$ の場合、非交和 $\coprod_j(Vj\times Dj)$ に関係
 
 $$
 (i,V(u^{\mathrm{op}})(v),a)\sim(j,v,D(u)(a))
