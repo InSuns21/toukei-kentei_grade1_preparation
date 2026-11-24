@@ -6,7 +6,9 @@
 
 ## 1. 命題を作る規則
 
-自然数で表した画面や状態を考えます。二つの状態 x,y の間を直接移動できるという命題を r x y : Prop とします。このように各入力に命題を対応させるものが述語（入力が二つなら関係）です。命題の証明がその型の項であることは [Curry–Howard対応](../LVT2-01/index.md#def-lvt2-01-curry-howard) で学びました。ここでは、ある命題の証明を作る方法を構成子として列挙します。これが帰納的述語です。直接移動の関係と、零回以上の有限回の移動で到達できる関係は区別します。
+自然数で表した画面や状態を考えます。ここで `Nat` は 0 を含む非負整数の型です。二つの状態 x,y の間を直接移動できるという命題を r x y : Prop とします。このように各入力に命題を対応させるものが述語（入力が二つなら関係）です。命題の証明がその型の項であることは [Curry–Howard対応](../LVT2-01/index.md#def-lvt2-01-curry-howard) で学びました。ここでは [帰納型](../LVT1-03/index.md#def-lvt1-03-inductive-type) の考え方を証明に適用し、ある命題の証明を作る方法を構成子として列挙します。これが帰納的述語です。直接移動の関係と、零回以上の有限回の移動で到達できる関係は区別します。
+
+`r : Nat → Nat → Prop` は x を受け取り、次に y を受け取って命題を返す関数です。`ReachL r s t` は関係 r のもとで開始点 s から終点 t へ到達できるという命題です。r と s は固定するパラメータ、t は構成子の結論に応じて変わる型の添字（リスト内の位置番号ではありません）です。base は移動なしの証明、step は既存の到達証明に直接移動一回の証明を追加する構成子です。
 
 <a id="def-lvt2-06-reach"></a>
 
@@ -17,7 +19,13 @@ r : Nat → Nat → Prop、s : Nat を固定する。ReachL r s : Nat → Prop �
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt2-06-reach -->
-**定義の確認**　r 0 1 と r 1 2 の証明を e01, e12 とする。base : ReachL r 0 0、step base e01 : ReachL r 0 1、step (step base e01) e12 : ReachL r 0 2 の順に証明を作れる。r 0 2 を仮定する必要はない。移動が一度もない場合も base に含まれる。
+**定義の確認**　開始点 s = 0 を固定し、`e01 : r 0 1` と `e12 : r 1 2` が与えられたとする。各段で前の終点と辺の始点が同じであることを確認する。
+
+- `h0 := base` は `ReachL r 0 0` の証明。
+- step に x = 0、y = 1 を選ぶと、必要な引数は `ReachL r 0 0` と `r 0 1`。従って `h1 := step h0 e01` は `ReachL r 0 1` の証明。
+- step に x = 1、y = 2 を選ぶと、必要な引数は `ReachL r 0 1` と `r 1 2`。従って `step h1 e12` は `ReachL r 0 2` の証明。
+
+r 0 2 を仮定する必要はない。一方、h0 に e12 を直接渡すことはできない。前の終点 0 と辺の始点 1 が一致しないからである。
 <!-- definition-example-end -->
 
 
@@ -27,11 +35,11 @@ inductive ReachL (r : Nat → Nat → Prop) (s : Nat) : Nat → Prop where
   | step {x y : Nat} : ReachL r s x → r x y → ReachL r s y
 ```
 
-Lean では r と s は証明全体で固定するパラメータ、最後の状態 t は構成子ごとに変わる添字です。step の暗黙引数 x,y は、前の証明と辺の型から推論されます。証明は base を根とする有限な構成です。例えば t = 2 を数として分解しても移動経路は分かりません。分解する対象を h : ReachL r s t に変えます。
+コードの `{x y : Nat}` は step の暗黙引数です。通常は前の証明と辺の型から推論されるので、呼出しでは省略できます。`ReachL.step` のように型名を付けると、どの型の構成子かが明確になります。証明は base を根とする有限な構成です。例えば t = 2 を数として分解しても移動経路は分かりません。分解する対象を h : ReachL r s t に変えます。
 
 ## 2. 到達証明についての帰納法
 
-すべての到達状態で成立してほしい性質 P を考えます。開始時に P が成立し、一回の移動で P が保存されるなら、何回移動しても P が成立するはずです。ここで保存を証明するとは、移動前の P x と辺 r x y の証明を入力として移動後の P y を構成することです。
+すべての到達状態で成立してほしい性質 `P : Nat → Prop` を考えます。前講の [Leanのリストの帰納法](../LVT2-05/index.md#principle-lvt2-05-list) と同じく基底と再帰的な引数の帰納仮定を使います。ただし今回はリストではなく証明を分解します。開始時に P が成立し、一回の移動で P が保存されるなら、何回移動しても P が成立するはずです。ここで保存を証明するとは、移動前の P x と辺 r x y の証明を入力として移動後の P y を構成することです。
 
 <a id="prop-lvt2-06-invariant"></a>
 
@@ -41,12 +49,23 @@ Lean では r と s は証明全体で固定するパラメータ、最後の状
 r : Nat → Nat → Prop、s,t : Nat、P : Nat → Prop とする。P s が成立し、任意の x,y : Nat で P x と r x y から P y が従うと仮定する。このとき ReachL r s t が成立するなら P t が成立する。
 <!-- formal-statement-end -->
 
-**証明の見取り図**　h の最後の構成子を調べます。base なら開始条件、step なら一つ短い到達証明から帰納仮定を得て保存条件を適用します。
+**証明の見取り図**　`h : ReachL r s t` の最後の構成子を調べます。base なら開始条件、step なら一つ短い到達証明から帰納仮定を得て保存条件を適用します。
 
 <!-- proof-start -->
 ### 証明
 
-h の構成について帰納法を行う。base の場合、終点 t は s であり、目標 P s は init で閉じる。step の場合、ある x,y に対し h は step hx e、hx : ReachL r s x、e : r x y である。目標は P y となる。hx に対する帰納仮定 ih : P x を得る。preserve x y の型は P x → r x y → P y なので、ih、e の順に適用して P y を得る。各構成子を覆ったので、有限な任意の到達証明で結論が成立する。Lean の @step は暗黙引数 x,y も名前で取り出す。
+初期条件の証明を `init : P s`、保存条件の証明を `preserve : ∀ x y, P x → r x y → P y` と名付ける。[到達可能性の生成規則](#def-lvt2-06-reach) に沿って h の構成について帰納法を行う。
+
+- base の場合、終点 t は s であり、目標 `P s` は init で閉じる。
+- step の場合、ある x,y に対し h は `step hx e`、`hx : ReachL r s x`、`e : r x y` である。目標は `P y` となる。hx に対する帰納仮定は `ih : P x` である。[全称量化の導入・除去規則](../LVT2-02/index.md#def-lvt2-02-forall) と [含意の導入・除去規則](../LVT2-02/index.md#def-lvt2-02-imp) に従って引数を順に適用する。
+
+  ```text
+  preserve x y      : P x → r x y → P y
+  preserve x y ih   : r x y → P y
+  preserve x y ih e : P y
+  ```
+
+各構成子を覆ったので、有限な任意の到達証明で結論が成立する。Lean の `@step` は暗黙引数 x,y も枝のパターンに明示して名前で取り出す。
 
 ```lean
 theorem reach_invariant {r : Nat → Nat → Prop} {s t : Nat}
@@ -61,7 +80,7 @@ theorem reach_invariant {r : Nat → Nat → Prop} {s t : Nat}
 <!-- proof-end -->
 
 
-状態を表す自然数で帰納法をするのではありません。移動は数を小さくするとは限らず、同じ状態へ戻る辺があっても到達証明の構成の長さは有限です。cases h では最後の構成子は分かりますが、induction h のような ih は得られません。
+状態を表す自然数で帰納法をするのではありません。移動は数を小さくするとは限らず、同じ状態へ戻る辺があっても到達証明の構成の長さは有限です。[基本タクティク](../LVT2-04/index.md#def-lvt2-04-tactic) の `cases h` では最後の構成子は分かりますが、`induction h` のような ih は得られません。
 
 <a id="prop-lvt2-06-trans"></a>
 
@@ -76,7 +95,7 @@ r : Nat → Nat → Prop と a,b,c : Nat に対し、ReachL r a b と ReachL r b
 <!-- proof-start -->
 ### 証明
 
-[到達証明の不変量原理](#prop-lvt2-06-invariant) に開始点 b、終点 c、P x = ReachL r a x を代入する。初期条件 P b は hab。任意の x,y と hx : P x、e : r x y について、step hx e : ReachL r a y は P y の証明である。したがって保存条件は fun x y hx e => ReachL.step hx e で与えられる。最後に hbc を原理に渡すと P c、つまり ReachL r a c を得る。
+[到達証明の不変量原理](#prop-lvt2-06-invariant) に開始点 b、終点 c、P x = ReachL r a x を代入する。`hab : ReachL r a b`、`hbc : ReachL r b c` と名付ける。初期条件 P b は hab。任意の x,y と hx : P x、e : r x y について、step hx e : ReachL r a y は P y の証明である。したがって保存条件は fun x y hx e => ReachL.step hx e で与えられる。最後に hbc を原理に渡すと P c、つまり ReachL r a c を得る。
 
 ```lean
 theorem reach_trans {r : Nat → Nat → Prop} {a b c : Nat}
@@ -90,7 +109,7 @@ theorem reach_trans {r : Nat → Nat → Prop} {a b c : Nat}
 
 ## 3. 到達できないことも証明する
 
-具体的な辺を二本だけ持つモデルを作ります。EdgeL の構成子は 0 → 1 と 1 → 2 のみです。自然数 3 は状態として表現できますが、開始点 0 からの到達証明が存在するとは限りません。次の SmallL は状態が 0,1,2 のいずれかであるという命題です。
+具体的な辺を二本だけ持つモデルを作ります。ここでは [選言の導入・除去規則](../LVT2-02/index.md#def-lvt2-02-or) を使います。`p ∨ q ∨ u` は `p ∨ (q ∨ u)` の意味です。`Or.inl` は左、`Or.inr` は右の証明を入れる構成子です。`¬ p` は `p → False`、`by decide` は [Leanの決定可能性](../LVT2-01/index.md#def-lvt2-01-decidable) を使って具体的な命題の証明を計算で作る記法です。任意の到達可能性を自動判定できるという意味ではありません。EdgeL の構成子は 0 → 1 と 1 → 2 のみです。自然数 3 は状態として表現できますが、開始点 0 からの到達証明が存在するとは限りません。次の SmallL は状態が 0,1,2 のいずれかであるという命題です。
 
 
 ```lean
@@ -114,7 +133,7 @@ EdgeL を e01 : EdgeL 0 1、e12 : EdgeL 1 2 のみから生成する関係とす
 <!-- proof-start -->
 ### 証明
 
-P = SmallL とする。P 0 は左の等式 0 = 0 から Or.inl rfl。任意の x,y と e : EdgeL x y に対し e を場合分けする。e01 なら y = 1 なので Or.inr (Or.inl rfl) : P 1、e12 なら y = 2 なので Or.inr (Or.inr rfl) : P 2。この二本以外の構成子はない。従って P x を仮定した保存条件が成立する（この例では前の状態の性質を使わなくてもよい）。[到達証明の不変量原理](#prop-lvt2-06-invariant) に開始点 0、終点 t、P、上の基底と保存条件、到達証明 h を渡すと P t を得る。仮に t = 3 へ到達するなら P 3 = (3 = 0 ∨ 3 = 1 ∨ 3 = 2)。三つの比較はいずれも偽で、具体的な決定可能命題の否定を decide で証明できる。P 3 とその否定を適用して False を得る。
+P を SmallL とする。P 0 は左の等式 0 = 0 から `Or.inl rfl` で得る。`rfl` は [等式と反射律](../LVT2-03/index.md#def-lvt2-03-eq) の証明項である。任意の x,y と e : EdgeL x y に対し e を場合分けする。e01 なら y = 1 なので Or.inr (Or.inl rfl) : P 1、e12 なら y = 2 なので Or.inr (Or.inr rfl) : P 2。この二本以外の構成子はない。従って P x を仮定した保存条件が成立する（この例では前の状態の性質を使わなくてもよい）。[到達証明の不変量原理](#prop-lvt2-06-invariant) に開始点 0、終点 t、P、上の基底と保存条件、到達証明 h を渡すと P t を得る。仮に t = 3 へ到達するなら P 3 = (3 = 0 ∨ 3 = 1 ∨ 3 = 2)。三つの比較はいずれも偽で、具体的な決定可能命題の否定を decide で証明できる。`h3 : P 3` と `hn : P 3 → False` を得たので、`hn h3 : False` となる。これは仮の到達証明 h から矛盾を導く関数、すなわち到達不能性の証明である。逆に 0 は base、1 は step base e01、2 は演習 A02 の二回の step で到達できる。
 
 ```lean
 theorem small_step (x y : Nat) (_ : SmallL x) (e : EdgeL x y) :
@@ -140,7 +159,7 @@ theorem not_reach_three : ¬ ReachL EdgeL 0 3 := by
 
 ## 4. リストの整列性を証明の構成で表す
 
-自然数のリストを小さい順（等しい値は許す）に並べたいとします。空と一要素なら隣接する二要素はありません。二要素以上なら、先頭二要素の比較と、先頭を一つ除いたリストの整列性を同時に確認します。各隣接対をこのように確認する命題を SortedL とします。ここで扱う整列性は、有限リストの要素の並び方についての条件です。
+自然数のリストを小さい順（等しい値は許す）に並べたいとします。[リストの再帰的構成](../LVT1-04/index.md#def-lvt1-04-list-constructors) の `a :: xs` は a を xs の先頭に加える記法です。`a :: b :: xs` は `a :: (b :: xs)`、`[a]` は `a :: []` を表します。空と一要素なら隣接する二要素はありません。二要素以上なら、先頭二要素の比較と、先頭を一つ除いたリストの整列性を同時に確認します。各隣接対をこのように確認する命題を SortedL とします。ここで扱う整列性は、有限リストの要素の並び方についての条件です。
 
 <a id="def-lvt2-06-sorted"></a>
 
@@ -151,7 +170,13 @@ SortedL : List Nat → Prop を次の三構成子で帰納的に定める。nil 
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt2-06-sorted -->
-**定義の確認**　[] は nil、[3] は single 3 で成立する。[1,2,3] では 2 ≤ 3 と single 3 から cons で SortedL [2,3]、1 ≤ 2 とその証明から cons で SortedL [1,2,3] を得る。各比較は具体的な自然数の比較として decide で証明できる。
+**定義の確認**　`[]` は nil、`[3]` は single 3 で成立する。二要素以上では cons が要求する比較の証明と残りの整列証明をそれぞれ用意する。
+
+- `h3 := single 3` は `SortedL [3]` の証明。
+- a = 2、b = 3、xs = [] とすると `2 ≤ 3` と `SortedL [3]` が必要なので、`cons (by decide) h3` は `SortedL [2,3]` の証明 h23 になる。
+- a = 1、b = 2、xs = [3] とすると `1 ≤ 2` と `SortedL [2,3]` が必要なので、`cons (by decide) h23` は `SortedL [1,2,3]` の証明になる。
+
+各 `by decide` はその位置で必要な自然数の比較を証明する。リスト全体の整列性は比較だけでなく、残りの整列証明を渡して構成する。
 <!-- definition-example-end -->
 
 
@@ -185,7 +210,13 @@ example : SortedL [1,2,3] :=
 <!-- proof-start -->
 ### 証明
 
-h : SortedL (a :: b :: xs) を cases で分解する。nil の添字 [] と single の添字 [u] は a :: b :: xs と一致できない。cons の添字 u :: v :: ys が a :: b :: xs と一致するには u = a、v = b、ys = xs が必要である（List の構成子の形と引数が対応する）。従って残る引数は hle : a ≤ b と hs : SortedL (b :: xs)。連言の構成子 ⟨hle, hs⟩ が目標を閉じる。帰納仮定は不要であり cases で十分である。
+`h : SortedL (a :: b :: xs)` を [整列リストの生成規則](#def-lvt2-06-sorted) に沿って cases で分解する。[リストの再帰的構成](../LVT1-04/index.md#def-lvt1-04-list-constructors) では nil と cons は異なる構成子であり、同じ cons の値が等しければ先頭と残りがそれぞれ等しい。
+
+- nil の添字 `[]` は `a :: (b :: xs)` と異なる構成子なので一致しない。
+- single の添字 `u :: []` が一致するなら残りについて `[] = b :: xs` が必要になるが、これも異なる構成子なので成立しない。
+- cons の添字 `u :: (v :: ys)` が一致するなら、まず `u = a` と `v :: ys = b :: xs`、さらに後者から `v = b` と `ys = xs` が従う。
+
+従って cons の引数は `hle : a ≤ b` と `hs : SortedL (b :: xs)` になる。[連言の導入・除去規則](../LVT2-02/index.md#def-lvt2-02-and) により `⟨hle, hs⟩`（`And.intro hle hs`）が目標を閉じる。帰納仮定は不要であり cases で十分である。
 
 ```lean
 theorem sorted_pair {a b : Nat} {xs : List Nat}
@@ -212,7 +243,7 @@ theorem sorted_pair {a b : Nat} {xs : List Nat}
 <!-- proof-start -->
 ### 証明
 
-h の添字は a :: xs なので nil は一致しない。single の場合 xs = [] であり、SortedL.nil が目標の証明である。cons の場合 xs = b :: ys となり、構成子の第二引数 hs : SortedL (b :: ys) がちょうど SortedL xs である。全ての可能な構成子を覆った。
+`h : SortedL (a :: xs)` を [整列リストの生成規則](#def-lvt2-06-sorted) で場合分けする。h の添字は a :: xs なので nil は一致しない。single の場合 xs = [] であり、SortedL.nil が目標の証明である。cons の場合 xs = b :: ys となり、構成子の第二引数 hs : SortedL (b :: ys) がちょうど SortedL xs である。全ての可能な構成子を覆った。
 
 ```lean
 theorem sorted_tail {a : Nat} {xs : List Nat}
@@ -308,7 +339,7 @@ a b : Nat、h : SortedL [a,b] から a ≤ b を示せ。
 <!-- solution-start -->
 #### 詳細解答
 
-[整列証明の逆向き推論](#prop-lvt2-06-pair) に xs = [] を入れると a ≤ b ∧ SortedL [b] を得る。第一成分 .1 が目的の比較の証明である。
+[整列証明の逆向き推論](#prop-lvt2-06-pair) に xs = [] を入れると a ≤ b ∧ SortedL [b] を得る。[連言の導入・除去規則](../LVT2-02/index.md#def-lvt2-02-and) の第一成分 `.1`（`.left` と同じ）が目的の比較の証明である。
 
 ```lean
 example (a b : Nat) (h : SortedL [a,b]) : a ≤ b :=
@@ -386,7 +417,7 @@ EdgeL で 1 から 0 へ到達できないことを、P n = (n = 1 ∨ n = 2) �
 <!-- solution-start -->
 #### 詳細解答
 
-開始点 1 では左側の等式 1 = 1 が rfl で成り立つ。辺 e01 の終点は 1 なので P 1 の左側、e12 の終点は 2 なので P 2 の右側を証明できる。これで任意の辺で P が保存される。[到達証明の不変量原理](#prop-lvt2-06-invariant) を開始点 1、終点 0、仮の到達証明 h に適用すると P 0、すなわち 0 = 1 ∨ 0 = 2 が得られる。この選言は具体的な等式の判定により否定されるため矛盾する。開始点を 0 に変えると基底が壊れることにも注意する。
+開始点 1 では左側の等式 1 = 1 が rfl で成り立つ。コードの `let P : Nat → Prop := fun n => ...` は局所的に述語を定める記法で、n が変わる入力である。辺 e01 の終点は 1 なので P 1 の左側、e12 の終点は 2 なので P 2 の右側を証明できる。これで任意の辺で P が保存される。[到達証明の不変量原理](#prop-lvt2-06-invariant) を開始点 1、終点 0、仮の到達証明 h に適用すると P 0、すなわち 0 = 1 ∨ 0 = 2 が得られる。この選言は具体的な等式の判定により否定される。`h0 : P 0` と `hn : ¬ (0 = 1 ∨ 0 = 2)` の型は P の定義を展開すると対応するので、`hn h0 : False` で矛盾が得られる。開始点を 0 に変えると基底が壊れることにも注意する。
 
 ```lean
 example : ¬ ReachL EdgeL 1 0 := by
