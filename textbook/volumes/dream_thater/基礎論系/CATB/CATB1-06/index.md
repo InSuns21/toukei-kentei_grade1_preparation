@@ -14,6 +14,16 @@ $$
 0\xrightarrow{} A'\xrightarrow{i'} B'\xrightarrow{p'} C'\xrightarrow{}0
 $$
 
+上下の列と縦の射の対応を一つの図式に並べると次のようになる。零対象は省略している。
+
+$$
+\begin{array}{ccccc}
+A&\xrightarrow{i}&B&\xrightarrow{p}&C\\
+\downarrow a&&\downarrow b&&\downarrow c\\
+A'&\xrightarrow{i'}&B'&\xrightarrow{p'}&C'
+\end{array}
+$$
+
 縦の射を左から $a:A\to A'$, $b:B\to B'$, $c:C\to C'$ とし、二つの四角形が可換、すなわち
 
 $$
@@ -142,7 +152,12 @@ $$
 **定義の確認。** 第1節の整数の例では $K_c=C=\mathbb Z/2\mathbb Z$、$k_c=1$ なので $P=B=\mathbb Z$, $u=1$, $s=p$ と取れる。$i'v(n)=2v(n)=2n$ より $v(n)=n$。$q_a(n)=[n]_2$ だから $\delta([n]_2)=[n]_2$ とすれば $\delta s=q_av$ を満たす。$s$ が全射なのでこの $\delta$ は一意であり、代表元を $n+2t$ に替えても値は変わらない。
 <!-- definition-example-end -->
 
-一般の場合にもこの射が存在する。$l:L\to P$ を $s$ の核とすると $pul=k_csl=0$。$i=\ker p$ より $ul=iw$ となる $w:L\to A$ が存在する。従って
+一般の場合にもこの射が存在する。引き戻しの核に沿って差が消えることを示せば、余核の普遍性によって接続射を作れる。
+
+<!-- proof-start -->
+### 接続射の存在・一意性と選択独立性の証明
+
+$l:L\to P$ を $s$ の核とすると $pul=k_csl=0$。$i=\ker p$ より $ul=iw$ となる $w:L\to A$ が存在する。従って
 
 $$
 i'vl=bul=biw=i'aw.
@@ -150,7 +165,9 @@ $$
 
 $i'$ のモノ射性から $vl=aw$、よって $q_avl=q_aaw=0$。エピ射 $s$ は[正規射の復元](../CATB1-04/index.md#prop-catb1-04-normal-recovery)により $l$ の余核だから、$\delta s=q_av$ を満たす $\delta$ が一意に存在する。
 
-この構成は引き戻しの選択にも依存しない。二つの引き戻しの普遍性から、それぞれの二射と両立する互いに逆の射が存在する。片方の $s,u,v$ をもう片方の射で引き戻せば、$i'$ のモノ射性により $v$ も一致する。従って接続射の等式はどちらの選択でも同じになり、$s$ のエピ射性から一致する。
+この構成は引き戻しの選択にも依存しない。二つの[引き戻しの普遍性](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)から、それぞれの二射と両立する互いに逆の射が存在する。片方の $s,u,v$ をもう片方の射で引き戻せば、$i'$ のモノ射性により $v$ も一致する。従って接続射の等式はどちらの選択でも同じになり、$s$ のエピ射性から一致する。
+
+<!-- proof-end -->
 
 加群の場合には、$x\in K_c$ に対して $pz=x$ となる $z\in B$ を取り、$i'w=bz$ を解いて $\delta(x)=[w]$ と計算する。別の持ち上げ $z_1$ との差は $z_1-z=it$ であり、
 
@@ -175,7 +192,7 @@ $$
 0\to A\xrightarrow{i}B\xrightarrow{p}C\to0,\qquad
 0\to A'\xrightarrow{i'}B'\xrightarrow{p'}C'\to0
 $$
-> の間に射 $a:A\to A'$, $b:B\to B'$, $c:C\to C'$ があり、二つの四角形が可換とする。各縦射 $v$ の核と余核の対象を $K_v,Q_v$ とする。核・余核の普遍性から誘導される四射と、上で定義した接続射 $\delta$ により次の列は完全になる。
+> の間に射 $a:A\to A'$, $b:B\to B'$, $c:C\to C'$ があり、二つの四角形が可換とする。各縦射 $v$ の核と余核の対象を $K_v,Q_v$ とする。核・余核の普遍性から誘導される四射と、[接続射](#def-catb1-06-connecting) $\delta$ により次の列は完全になる。
 
 $$
 0\to K_a\xrightarrow{\alpha}K_b\xrightarrow{\beta}K_c
@@ -220,7 +237,7 @@ $by=0$ より $y=k_bz_1$ と分解でき、$k_c\beta z_1=py=k_cxee_1$。$k_c$ �
 
 **$Q_a$ での完全性。** $\gamma\delta s=\gamma q_av=q_bi'v=q_bbu=0$ なので $s$ を消去して $\gamma\delta=0$。
 
-$x:T\to Q_a$ が $\gamma x=0$ を満たすとする。エピ射 $q_a$ に沿って持ち上げ、$e:S\to T$, $w:S\to A'$ を取り $q_aw=xe$ とする（以下の持ち上げも[持ち上げの補題](#lem-catb1-06-epi-lift)による）。すると $q_bi'w=\gamma q_aw=0$。$b=m_bd_b$ と像分解すれば $i'w=m_bz$ となる $z:S\to\operatorname{Im}b$ がある。エピ射 $d_b$ に沿って持ち上げ、$e_1:S_1\to S$ と $y:S_1\to B$ で $d_by=ze_1$ とする。従って $by=i'we_1$。
+$x:T\to Q_a$ が $\gamma x=0$ を満たすとする。エピ射 $q_a$ に沿って持ち上げ、$e:S\to T$, $w:S\to A'$ を取り $q_aw=xe$ とする（以下の持ち上げも[持ち上げの補題](#lem-catb1-06-epi-lift)による）。すると $q_bi'w=\gamma q_aw=0$。[像分解](../CATB1-05/index.md#thm-catb1-05-image-coimage)を $b=m_bd_b$ と書けば $i'w=m_bz$ となる $z:S\to\operatorname{Im}b$ がある。エピ射 $d_b$ に沿って持ち上げ、$e_1:S_1\to S$ と $y:S_1\to B$ で $d_by=ze_1$ とする。従って $by=i'we_1$。
 
 $$
 cpy=p'by=p'i'we_1=0.
@@ -234,7 +251,7 @@ $$
 
 合成 $ee_1$ はエピ射なので[完全性の判定](#prop-catb1-06-local-exactness)により完全である。
 
-**$Q_b$ での完全性。** 第2節で $\eta\gamma=0$ を示した。$x:T\to Q_b$ が $\eta x=0$ を満たすとする。エピ射 $q_b$ に沿って持ち上げ、$e:S\to T$, $y:S\to B'$ で $q_by=xe$ とする。$q_cp'y=\eta q_by=0$。$c=m_cd_c$ と像分解して $p'y=m_cz$ とし、エピ射 $d_c$ に沿って $e_1:S_1\to S$, $t:S_1\to C$ を取り $d_ct=ze_1$ とする。従って $ct=p'ye_1$。
+**$Q_b$ での完全性。** 第2節で $\eta\gamma=0$ を示した。$x:T\to Q_b$ が $\eta x=0$ を満たすとする。[持ち上げの補題](#lem-catb1-06-epi-lift)をエピ射 $q_b$ に適用し、$e:S\to T$, $y:S\to B'$ で $q_by=xe$ とする。$q_cp'y=\eta q_by=0$。[像分解](../CATB1-05/index.md#thm-catb1-05-image-coimage)を $c=m_cd_c$ と書いて $p'y=m_cz$ とし、エピ射 $d_c$ に沿って $e_1:S_1\to S$, $t:S_1\to C$ を取り $d_ct=ze_1$ とする。従って $ct=p'ye_1$。
 
 さらにエピ射 $p$ に沿って $e_2:S_2\to S_1$, $v_0:S_2\to B$ を取り $pv_0=te_2$ とする。すると
 
@@ -259,7 +276,7 @@ $$
 
 短完全性を失うと、この構成は壊れ得る。上下段をともに $0\to0\to\mathbb Z\xrightarrow{\times2}\mathbb Z\to0$、縦射をすべて零とする。両四角形は可換で中央では完全だが、右端の倍写像は全射でない。$K_c=\mathbb Z$ の元 $1$ は上段で持ち上がらない。しかも $K_b\to K_c$ は倍写像、$Q_a=0$ なので、どんな $\delta$ でも $K_c$ で完全にすることは不可能である。横のエピ射性が必要な理由が分かる。
 
-複数の短完全列が連なる場面では、核と余核をつなぐこの構成が、後にコホモロジーを通じて障害を記述する際の基本になる。
+この構成により、縦の核に持ち上げられない理由を左下の商の元として記録できる。複数の短完全列が連なる場面でも、核と余核を結ぶ射が情報の伝達を調べる基本になる。
 
 ## 7. 演習
 
@@ -343,7 +360,7 @@ $$
 
 - Level: B
 
-第4節の可換図式から別の同じ形の可換図式への射があるとする。上段の三射を $F_A,F_B,F_C$、下段の三射を $G_A,G_B,G_C$ とし、すべての横・縦の四角形が可換とする。移り先の縦射を $\tilde a,\tilde b,\tilde c$ と書く。核に誘導される $F_K:K_c\to K_{\tilde c}$ と余核に誘導される $G_Q:Q_a\to Q_{\tilde a}$ について、$\tilde\delta F_K=G_Q\delta$ を示せ。
+同じアーベル圏内で、第4節の可換図式から別の同じ形の可換図式への射があるとする。上段の三射を $F_A,F_B,F_C$、下段の三射を $G_A,G_B,G_C$ とし、すべての横・縦の四角形が可換とする。移り先の縦射を $\tilde a,\tilde b,\tilde c$ と書く。核に誘導される $F_K:K_c\to K_{\tilde c}$ と余核に誘導される $G_Q:Q_a\to Q_{\tilde a}$ について、$\tilde\delta F_K=G_Q\delta$ を示せ。
 
 <!-- solution-start -->
 **詳細解答。** まず $\tilde c F_C k_c=G_C c k_c=0$ なので核の普遍性で $\tilde k_c F_K=F_C k_c$ を満たす射が一意に存在する。また $\tilde q_a G_A a=\tilde q_a\tilde a F_A=0$ より余核の普遍性で $G_Q q_a=\tilde q_aG_A$ を満たす射が一意に存在する。
@@ -389,7 +406,7 @@ $$
 <!-- solution-start -->
 **詳細解答。** 横列は単射、像と核が $n\mathbb Z$、商射が全射なので短完全である。$m(nx)=n(mx)$ と $[mx]_n=m[x]_n$ から可換。$m>0$ なので $K_a=K_b=0$、$Q_a=Q_b=\mathbb Z/m\mathbb Z$。
 
-$m=dm_0,n=dn_0$ と書けば $m_0,n_0$ は互いに素である。$c([x]_n)=0$ は $n\mid mx$、すなわち $n_0\mid m_0x$ と同値。互いに素なので Bézout の等式から $n_0\mid x$。逆に $x=n_0t$ なら $mx=nm_0t$。従って
+$m=dm_0,n=dn_0$ と書けば $m_0,n_0$ は互いに素である。$c([x]_n)=0$ は $n\mid mx$、すなわち $n_0\mid m_0x$ と同値。互いに素なので整数 $u_0,v_0$ があり $u_0m_0+v_0n_0=1$。両辺に $x$ を掛ければ $x=u_0m_0x+v_0n_0x$ であり、右辺はどちらの項も $n_0$ の倍数だから $n_0\mid x$。逆に $x=n_0t$ なら $mx=nm_0t$。従って
 
 $$
 K_c=\{[n_0t]_n:0\le t<d\}.
@@ -416,5 +433,5 @@ $$
 
 前者は代表元の差 $m$ が $nm$ に移り、後者は $d\mid m$ により定義できる。$\gamma q_a=q_bi'$ と $\eta q_b=q_cp'$ の等式でこれらの射が得られる。
 
-$\ker\gamma$ は $m\mid nx$ を満たす類である。これは $m_0\mid n_0x$、従って $m_0\mid x$ と同値。よって $\ker\gamma$ は $m_0$ の倍数の類で、$\delta$ の像と一致する。$\operatorname{Im}\gamma$ は $n$ の倍数の類であり、$d=um+vn$ から $[d]_m=[vn]_m$。従って $\operatorname{Im}\gamma$ は $d$ の倍数の類全体で、$\ker\eta$ と一致する。$\eta$ は全射であり、左端の二つの核は零。こうして [Snakeの補題](#lem-catb1-06-snake) の完全性をすべて具体的に確認できた。$d=1$ のとき $K_c,Q_c$ は零となり、$\gamma$ は同型である。
+$\ker\gamma$ は $m\mid nx$ を満たす類である。これは $m_0\mid n_0x$、従って $m_0\mid x$ と同値（$x=u_0m_0x+v_0n_0x$ の両項が $m_0$ の倍数になる）。よって $\ker\gamma$ は $m_0$ の倍数の類で、$\delta$ の像と一致する。$\operatorname{Im}\gamma$ は $n$ の倍数の類であり、$d=um+vn$ から $[d]_m=[vn]_m$。従って $\operatorname{Im}\gamma$ は $d$ の倍数の類全体で、$\ker\eta$ と一致する。$\eta$ は全射であり、左端の二つの核は零。こうして [Snakeの補題](#lem-catb1-06-snake) の完全性をすべて具体的に確認できた。$d=1$ のとき $K_c,Q_c$ は零となり、$\gamma$ は同型である。
 <!-- solution-end -->
