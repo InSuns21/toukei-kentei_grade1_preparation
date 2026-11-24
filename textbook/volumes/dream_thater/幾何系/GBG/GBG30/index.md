@@ -71,7 +71,9 @@ $$
 
 実際、$[q_j,a_j]\otimes[p_j,v_j]$ は $[q_i,\sigma(h_{ij})a_j]\otimes[p_i,\tau(g_{ij})v_j]$ と同じ元だからである。三重重なりでは $T_{ij}T_{jk}=T_{ik}$ が両表現の積保存性から従う。従って局所積を貼り合わせた束の階数は $2^m\dim V$ であり、積内積も保存される。
 
-例えば標準枠を持つ平面に自明スピン構造と自明な $U(1)$ 束を入れ、$\tau(z)=z$ とする。遷移関数は両方とも $1$ なので $S=\mathbb R^2\times\mathbb C^2$、$W=\mathbb R^2\times\mathbb C^2$ である。局所枠を $e^{it}$ と $e^{i\alpha}$ で変えても、成分を $\sigma(e^{it})^{-1}e^{-i\alpha}$ 倍すれば束の同じ点を表す。
+<!-- definition-example-start: def-gbg30-twisted-spinor -->
+**定義の確認**。例えば標準枠を持つ平面に自明スピン構造と自明な $U(1)$ 束を入れ、$\tau(z)=z$ とする。遷移関数は両方とも $1$ なので $S=\mathbb R^2\times\mathbb C^2$、$W=\mathbb R^2\times\mathbb C^2$ である。局所枠を $e^{it}$ と $e^{i\alpha}$ で変えても、成分を $\sigma(e^{it})^{-1}e^{-i\alpha}$ 倍すれば束の同じ点を表す。
+<!-- definition-example-end -->
 
 接ベクトル $X=q_i^{\rm fr}v$（$q_i^{\rm fr}=\lambda(q_i)$）に対する作用を局所的に $c(v)\otimes I$ と置ける。枠を変更すると $v_j=\pi_s(h_{ij})^{-1}v_i$ だから
 
@@ -115,7 +117,8 @@ $$
 > と置く。ここで $c(e_a)$ は束上の Clifford 作用（ゲージ因子では恒等作用）、$\Gamma(W)$ は滑らかな切断全体である。
 <!-- formal-statement-end -->
 
-平面の標準枠と自明接続では $D=c_1\partial_x+c_2\partial_y$。例えば $\psi=(x+iy,0)^t$ には
+<!-- definition-example-start: def-gbg30-dirac -->
+**定義の確認**。平面の標準枠と自明接続では $D=c_1\partial_x+c_2\partial_y$。例えば $\psi=(x+iy,0)^t$ には
 
 $$
 D\psi=c_1(1,0)^t+c_2(i,0)^t
@@ -123,6 +126,7 @@ D\psi=c_1(1,0)^t+c_2(i,0)^t
 $$
 
 これは局所方程式の解であり、まだコンパクト多様体上の解空間の次元を主張していない。
+<!-- definition-example-end -->
 
 <a id="thm-gbg30-dirac-covariance"></a>
 
@@ -196,7 +200,9 @@ $$
 > と分解する。
 <!-- formal-statement-end -->
 
-射影は $(I\pm\chi)/2$。二乗すると自身になり、積は零、和は $I$ だからこの分解が得られる。可逆な $c(e_1)$ は二つの固有空間を互いに交換するので階数は等しい。二次元では $(z,0)^t$ と $(0,z)^t$ がそれぞれの固有空間である。
+<!-- definition-example-start: def-gbg30-chirality -->
+**定義の確認**。射影は $(I\pm\chi)/2$。二乗すると自身になり、積は零、和は $I$ だからこの分解が得られる。可逆な $c(e_1)$ は二つの固有空間を互いに交換するので階数は等しい。二次元では $(z,0)^t$ と $(0,z)^t$ がそれぞれの固有空間である。
+<!-- definition-example-end -->
 
 <a id="thm-gbg30-dirac-odd"></a>
 
@@ -247,7 +253,8 @@ $$
 > 各核の元は Dirac 方程式の零モード（固有値零の解）である。
 <!-- formal-statement-end -->
 
-例えば標準平坦トーラス $\mathbb R^2/(2\pi\mathbb Z)^2$ に周期的スピン構造と自明接続を入れる。$D^2=-(\partial_x^2+\partial_y^2)I$ だから $D\psi=0$ なら $D^2\psi=0$。一周期の積分で境界項が相殺し、
+<!-- definition-example-start: def-gbg30-index -->
+**定義の確認**。例えば標準平坦トーラス $\mathbb R^2/(2\pi\mathbb Z)^2$ に周期的スピン構造と自明接続を入れる。$D^2=-(\partial_x^2+\partial_y^2)I$ だから $D\psi=0$ なら $D^2\psi=0$。一周期の積分で境界項が相殺し、
 
 $$
 0=\int \langle\psi,D^2\psi\rangle
@@ -255,6 +262,7 @@ $$
 $$
 
 従って両微分が零となり、連結性から $\psi$ は定数。逆に定数は解である。正負それぞれ一次元なので指数は $1-1=0$。指数零は零モードが存在しないという意味ではない。
+<!-- definition-example-end -->
 
 ## 4. 曲率の積分との橋
 
