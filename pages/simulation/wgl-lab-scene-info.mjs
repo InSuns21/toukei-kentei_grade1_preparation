@@ -119,6 +119,14 @@ const descriptions = Object.freeze({
     mode: '初期設定はpicMix=0、flipMix=1。格子と粒子の位置を物理stepごとに更新し、右列は24×24節点値の最近傍表示。時刻は開始時の検算時刻',
     source: 'particle.js（N, count, dt, damp, force, picMix, flipMix, transfer）/ particle.frag（u_pic, u_flip, u_speed）'
   }),
+  FCG9: Object.freeze({
+    requiresSteps:false,
+    grid:'実Float64セル中心N×N（初期12×12、条件で変更）から交差点・側面三角形を生成',
+    color:'横長は左が格子と黄の輪郭、右が側面。縦長は上が格子、下が側面。青い標本は内部、灰色は外部',
+    clock:()=> '物理stepはsurface.jsのsteps（0.04 s/step）で指定',
+    mode:'同じ交差頂点からwire（辺）／face（面法線）／gradient（勾配法線）を切り替える',
+    source:'surface.js（N, steps, heightM, mode, extract）/ surface.vert・surface.frag（投影・光源）'
+  }),
   FCG8: Object.freeze({
     grid: snapshot => {
       const n=snapshot.gridN===undefined ? 48 :

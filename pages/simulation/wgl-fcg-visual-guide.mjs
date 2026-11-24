@@ -1,4 +1,4 @@
-// Cross-series observation guide for every *implemented* WGL1..20 / FCG2..8
+// Cross-series observation guide for every *implemented* WGL1..20 / FCG2..9
 // (FCG1 uses its separate Canvas2D lab). This module does not run user source:
 // the Run button hands off to the existing isolated WebGL laboratory.
 export const VISUAL_GUIDES=Object.freeze({
@@ -30,6 +30,7 @@ export const VISUAL_GUIDES=Object.freeze({
  FCG6:['流れと動く固体','白い速度矢印と粒子軌跡、斜線の固体と橙の境界面','水槽をクリックして染料を足す。圧力・速さ・発散へ切り替え、固体の振幅を変えて再実行','32/48/64の実MAC格子。白い粒子は観察用で格子への力は与えない'],
 
  FCG7:['同じ渦のPICとFLIP','同じ4色の粒子群とPIC格子速度','step 0へ戻し再生。右側の混合係数を0へ変えると両群が一致','粒子の色模様と初期エネルギーに対する割合'],
+ FCG9:['格子の値から水の形を作る','格子標本と黄の輪郭、その同じ頂点を押し出した側面（横長は左右、縦長は上下）','Nと物理stepを変えて再実行。wire・face・gradientで辺と陰影を比べる','粗い格子では角ばる。法線の補間で滑らかに見えても輪郭頂点の位置は変わらない'],
  FCG8:['自由表面の形','移流・再初期化・粒子軌道の3列','時間を動かし、再初期化の有無を変える','黄の数値輪郭・白破線の厳密界面・面積差']
 });
 export const visualGuideIds=Object.freeze(Object.keys(VISUAL_GUIDES));

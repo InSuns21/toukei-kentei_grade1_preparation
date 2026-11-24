@@ -1,3 +1,4 @@
+import './fcg9-lab.test.mjs';
 import test from 'node:test';
 // G2 regression is part of the existing shared-lab CI entry point.
 import './wgl-lab-parameters.test.mjs';
