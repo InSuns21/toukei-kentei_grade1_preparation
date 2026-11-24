@@ -1,7 +1,7 @@
 chapter: CATB2-10
 scope: dream-theater
 coverage: complete
-prerequisites: [CATB2-09, CAT1-10, CAT2-09, CAT1-03]
+prerequisites: [CATB2-09, CAT1-12, CAT2-09, CAT1-03]
 concepts:
   - id: category.category-idempotent-splitting
     name: 圏の冪等射と分裂
@@ -32,25 +32,25 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（Karoubi包絡による冪等完備化）"]
-    requires: [category.karoubi-envelope, category.ordinary-cauchy-completeness, category.covariant-functor]
+    requires: [category.karoubi-envelope, category.ordinary-cauchy-completeness, category.covariant-functor, category.fully-faithful-functor]
   - id: category.karoubi-universal-property
     name: Karoubi包絡の普遍性
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（Karoubi包絡の普遍性）"]
-    requires: [category.karoubi-cauchy-completion, category.functor-category, category.natural-transformation]
+    requires: [category.karoubi-cauchy-completion, category.functor-category, category.natural-transformation, category.equivalence-criterion]
   - id: category.idempotent-presheaf-representability
     name: 冪等射から得られる前層の表現可能性
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（冪等射から得られる前層の表現可能性）"]
-    requires: [category.karoubi-envelope, category.contravariant-representable-functor]
+    requires: [category.karoubi-envelope, category.contravariant-representable-functor, category.set-valued-presheaf]
   - id: category.point-distributor-right-adjoint
     name: 点からの分配子の右随伴データ
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（点からの分配子の右随伴データ）"]
-    requires: [category.prof-bicategory, category.distributor-composition]
+    requires: [category.prof-bicategory, category.distributor-composition, category.adjunction-triangle-identities]
   - id: category.point-distributor-idempotent
     name: 右随伴を持つ点分配子と冪等射
     kind: theorem

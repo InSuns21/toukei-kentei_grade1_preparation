@@ -2,7 +2,7 @@ id: "CATB2-10"
 title: "冪等分裂とCauchy完備化"
 volume: "foundations"
 status: supplementary
-prerequisites: [CATB2-09, CAT1-10, CAT2-09, CAT1-03]
+prerequisites: [CATB2-09, CAT1-12, CAT2-09, CAT1-03]
 official_scope: []
 learning_objectives:
   - 冪等射と分裂の条件を確認し、分裂しない圏の例を説明できる
