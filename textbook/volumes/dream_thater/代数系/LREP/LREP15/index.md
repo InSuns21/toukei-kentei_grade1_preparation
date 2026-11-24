@@ -8,7 +8,7 @@ $V=\mathbb R^4$、基底 $e_0,e_1,e_2,e_3$、計量 $\eta=\operatorname{diag}(-1
 
 ## 1. Weyl基底でのガンマ行列
 
-二つの二成分空間を上下のブロックに置きます。この配置をWeyl基底と呼びます。ベクトルの各基底方向に対応する四次行列をガンマ行列とし、前講の模型を具体的に使います。$I=I_2$、$I_4$ は四次単位行列、$\sigma_j$ は[LREP5のPauli行列](../LREP5/index.md#def-lrep5-pauli-model)です。
+[左右Weylスピノル](../LREP12/index.md#def-lrep12-weyl)に対応する二つの二成分空間を上下のブロックに置きます。この配置をWeyl基底と呼びます。ベクトルの各基底方向に対応する四次行列をガンマ行列とし、前講の模型を具体的に使います。$I=I_2$、$I_4$ は四次単位行列、$\sigma_j$ は[LREP5のPauli行列](../LREP5/index.md#def-lrep5-pauli-model)です。
 
 <a id="def-lrep15-gamma"></a>
 
@@ -67,26 +67,26 @@ $j=k$ なら $2I_4$、$j\ne k$ なら零です。時間同士は $-2I_4$、時�
 
 ## 2. 偶数個のベクトルの積
 
-一個の基底行列は非対角ブロックだけを持ち、二個掛けると対角ブロックだけになります。従って二個ずつ掛けることで上下の二成分空間を保つ変換が作れそうです。
+一個の基底行列は非対角ブロックだけを持ち、二個掛けると対角ブロックだけになります。従って二個ずつ掛けることで上下の二成分空間を保つ変換が作れそうです。この偶数長の積に着目した部分代数が偶Clifford代数です。
 
 <a id="def-lrep15-even"></a>
 
 <!-- formal-statement-start -->
 > **定義（偶Clifford代数）**  
-> 実Clifford代数 $\mathrm{Cl}(V,\eta)$ の中で、偶数個のベクトルの積（単位元を含む）の実線形結合全体を偶Clifford代数 $\mathrm{Cl}^0(V,\eta)$ とする。
+> 実ベクトル空間 $V$ と対称双線形形式 $\eta$ のClifford代数 $\mathrm{Cl}(V,\eta)$ の中で、偶数個のベクトルの積（単位元を含む）の実線形結合全体を偶Clifford代数 $\mathrm{Cl}^0(V,\eta)$ とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep15-even -->
 **定義の確認。** $b=e_0e_3$ は二因子の積です。[Clifford反交換関係](../LREP14/index.md#prop-lrep14-anticommutator)から $b^2=-e_0^2e_3^2=1$。よって任意の実数 $a,c$ に対し $a+cb$ は偶部分に属します。二つの偶長の語を連結すれば偶長であり、有限和に分配律を適用すると積について閉じます。単位元も含むので部分代数です。
 <!-- definition-example-end -->
 
-積を逆順にする操作を導入します。これは逆元そのものではなく、語の順番を反対にする操作です。
+積を逆順にする操作を導入します。このClifford逆順写像は逆元そのものではなく、語の順番を反対にする操作です。
 
 <a id="def-lrep15-reversion"></a>
 
 <!-- formal-statement-start -->
 > **定義（Clifford逆順写像）**  
-> 実Clifford代数 $\mathrm{Cl}(V,\eta)$ 上で、各ベクトルと実スカラーを固定し、語を逆順にする実線形写像を $s\mapsto\widetilde s$ と書く。すなわち
+> 実ベクトル空間 $V$ と対称双線形形式 $\eta$ のClifford代数 $\mathrm{Cl}(V,\eta)$ 上で、各ベクトルと実スカラーを固定し、語を逆順にする実線形写像を $s\mapsto\widetilde s$ と書く。すなわち
 
 $$
 \widetilde{v_1\cdots v_k}=v_k\cdots v_1.
@@ -144,13 +144,13 @@ $I,\sigma_1,\sigma_2,\sigma_3$ は二次複素行列の複素基底です。実�
 
 ## 4. Spin群と共役作用
 
-偶部分の元のうち、逆順写像が逆元になるものを選びます。四次元のこの符号では、これによって時間の向きと空間の向きを保つLorentz変換の持ち上げが得られます。一般の符号や次元で同じ条件だけを無検証で使ってはいけません。
+Spin群を構成するため、偶部分の元のうち、逆順写像が逆元になるものを選びます。四次元のこの符号では、これによって時間の向きと空間の向きを保つLorentz変換の持ち上げが得られます。一般の符号や次元で同じ条件だけを無検証で使ってはいけません。
 
 <a id="def-lrep15-spin"></a>
 
 <!-- formal-statement-start -->
 > **定義（Spin群）**  
-> $V=\mathbb R^4$、$\eta=\operatorname{diag}(-1,1,1,1)$ とする。本講で扱う連結Spin群は
+> $V=\mathbb R^4$、$\eta=\operatorname{diag}(-1,1,1,1)$ とする。逆順写像を $s\mapsto\widetilde s$ とする。本講で扱う連結Spin群は
 
 $$
 \operatorname{Spin}^+(1,3)=
@@ -365,7 +365,7 @@ $$
 > $V=\mathbb R^4$、$\eta=\operatorname{diag}(-1,1,1,1)$ とする。$\operatorname{Spin}^+(1,3)$ は、各因子が $\eta(v,v)=\pm1$ を満たす偶数個のベクトルの積のうち、それらの二乗の積が $1$ であるもの全体に等しい。
 <!-- formal-statement-end -->
 
-**証明の見取り図。** 一方の包含は逆順に掛ければ得られます。逆は二次行列の極分解を使い、回転とboostをそれぞれ二本の単位空間ベクトルの積として構成します。
+**証明の見取り図。** 一方の包含は逆順に掛ければ得られます。逆は二次行列の極分解を使い、回転とboostをそれぞれ二本の単位空間的ベクトル（計量による二乗が1のベクトル）の積として構成します。
 
 <!-- proof-start -->
 ### 証明
@@ -378,14 +378,14 @@ $$
 
 これが1なら偶部分の元であり、Spin群に入ります。
 
-逆に任意のSpin群の元の上側ブロック $A\in SL(2,\mathbb C)$ を取ります。[SL(2,C)の極分解](../LREP10/index.md#lem-lrep10-polar-connectivity)より $A=PU$、$P$ は正定値エルミートで行列式1、$U\in SU(2)$ です。二次のエルミート行列を対角化すれば、$P$ の固有値は正で積1なので $e^t,e^{-t}$ と書けます。固有基底の行列 $W$ はユニタリで、片方の列の位相を調整すれば行列式1にもできます。従って
+逆に任意のSpin群の元の上側ブロック $A\in SL(2,\mathbb C)$ を取ります。[SL(2,C)の極分解](../LREP10/index.md#lem-lrep10-polar-connectivity)より $A=PU$、$P$ は正定値エルミートで行列式1、$U\in SU(2)$ です。[スペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)で二次のエルミート行列を対角化すれば、$P$ の固有値は正で積1なので $e^t,e^{-t}$ と書けます。固有基底の行列 $W$ はユニタリで、片方の列の位相を調整すれば行列式1にもできます。従って
 
 $$
 P=W\operatorname{diag}(e^t,e^{-t})W^{-1},
 \qquad W\in SU(2).
 $$
 
-任意の $U\in SU(2)$ は[LREP5のPauli行列による表示](../LREP5/index.md#def-lrep5-pauli-model)で $U=\cos u\,I-i\sin u\sum_j n^j\sigma_j$ と表せます（$n$ は単位空間ベクトル）。実際 $U$ の形は $aI+i\sum_j b_j\sigma_j$（$a,b_j$ は実数、$a^2+\sum_j b_j^2=1$）であり、$a=\cos u$、$b_j=-n^j\sin u$ と選べます。$\sin u=0$ のときは軸は任意です。
+任意の $U\in SU(2)$ は[LREP5の軸角表示](../LREP5/index.md#prop-lrep5-rodrigues)の形で $U=\cos u\,I-i\sin u\sum_j n^j\sigma_j$ と表せます（$n$ は単位空間的ベクトル）。実際 $U$ の形は $aI+i\sum_j b_j\sigma_j$（$a,b_j$ は実数、$a^2+\sum_j b_j^2=1$）であり、$a=\cos u$、$b_j=-n^j\sin u$ と選べます。$\sin u=0$ のときは軸は任意です。
 
 $n$ に垂直な単位ベクトル $v$ を選び、$w=n\times v$ とすると、$v,w$ は直交単位ベクトルで $v\times w=n$ です。[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)により $\rho(vw)$ の上側は $i\sum_j n^j\sigma_j$。そこで
 
@@ -394,7 +394,7 @@ v(\cos u\,v-\sin u\,w)
 =\cos u-vw\sin u
 $$
 
-は上側 $U$ の元です。第二因子の二乗は $\cos^2u+\sin^2u=1$ なので二本とも単位空間ベクトルです。
+は上側 $U$ の元です。第二因子の二乗は $\cos^2u+\sin^2u=1$ なので二本とも単位空間的ベクトルです。
 
 また
 
@@ -403,7 +403,7 @@ e_3(\cosh t\,e_3-\sinh t\,e_0)
 =\cosh t+e_0e_3\sinh t
 $$
 
-の上側は $\operatorname{diag}(e^t,e^{-t})$。第二因子の二乗は $\cosh^2t-\sinh^2t=1$ です。従って $A=W\operatorname{diag}(e^t,e^{-t})W^{-1}U$ の四つの因子は全て二本の単位空間ベクトルの積から得られます。積を取った元の上側は $A$ であり、[偶代数の行列模型](#thm-lrep15-even-model)の一意性から元のSpin群の元に一致します。$\square$
+の上側は $\operatorname{diag}(e^t,e^{-t})$。第二因子の二乗は $\cosh^2t-\sinh^2t=1$ です。従って $A=W\operatorname{diag}(e^t,e^{-t})W^{-1}U$ の四つの因子は全て二本の単位空間的ベクトルの積から得られます。積を取った元の上側は $A$ であり、[偶代数の行列模型](#thm-lrep15-even-model)の一意性から元のSpin群の元に一致します。$\square$
 <!-- proof-end -->
 
 ここまでで偶Clifford積の構成と二次複素行列による構成を結び付けました。次講では上下の二成分空間がそれぞれどの表現を担うかを詳しく調べます。
@@ -560,7 +560,7 @@ $$
 - Level: B
 - ID: LREP15-B04
 
-$x$ 軸回転角 $\pi/2$ の持ち上げを二本の単位空間ベクトルの積で作り、上側ブロックを求めよ。
+$x$ 軸回転角 $\pi/2$ の持ち上げを二本の単位空間的ベクトルの積で作り、上側ブロックを求めよ。
 
 <!-- solution-start -->
 **詳細解答。** [単位ベクトル積によるSpin群の構成](#prop-lrep15-even-products)で $v=e_2,w=e_3,u=\pi/4$ と選びます。$v\times w$ は正の $x$ 方向です。
@@ -570,7 +570,15 @@ s=e_2\frac{e_2-e_3}{\sqrt2}
 =\frac{1-e_2e_3}{\sqrt2}.
 $$
 
-第二因子の二乗は $(1+1-e_2e_3-e_3e_2)/2=1$。第一因子の二乗も1です。上側は [実偶Clifford代数の行列模型](#thm-lrep15-even-model)により $(I-i\sigma_1)/\sqrt2$ です。$e_2$ と $e_3$ の交換を使うと $s e_2s^{-1}=e_3$ となるので正の回転です。
+第二因子の二乗は $(1+1-e_2e_3-e_3e_2)/2=1$。第一因子の二乗も1です。上側は [実偶Clifford代数の行列模型](#thm-lrep15-even-model)により $(I-i\sigma_1)/\sqrt2$ です。$p=e_2e_3$ とすると $pe_2=-e_3$、$e_2p=e_3$、$pe_2p=e_2$ です。従って
+
+$
+s e_2s^{-1}
+=\frac{e_2+e_2p-pe_2-pe_2p}{2}
+=\frac{2e_3}{2}=e_3.
+$
+
+$p$ は $e_0,e_1$ と可換なのでこれらの方向は固定され、正の $x$ 軸回転です。
 <!-- solution-end -->
 
 ### Level C
