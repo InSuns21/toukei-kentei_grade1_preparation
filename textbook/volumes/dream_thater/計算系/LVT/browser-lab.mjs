@@ -64,6 +64,12 @@ export const lessons = {
     ['Main.lean','連結・反転の検査','LVT2-05 OK を表示。','\n#eval main\n'],
     ['ExerciseSolutions.lean','演習解答の検査','全8題の証明を検査。'],
     ['Failure.lean','帰納仮定の型不一致','帰納仮定をステップの目標にそのまま渡すと型不一致になる。']
+  ] },
+  'LVT2-06': { module:'LvtPredicates', modes:[
+    ['Inspect.lean','到達証明と整列証明','構成子の型と具体的な到達・整列証明を確認。'],
+    ['Main.lean','到達不能性と整列性','LVT2-06 OK を表示。','\n#eval main\n'],
+    ['ExerciseSolutions.lean','演習解答の検査','全8題の証明を検査。'],
+    ['Failure.lean','終点の型不一致','base を異なる終点への証明として渡すと拒否される。']
   ] }
 };
 export function combine(module, definitions, experiment, suffix='') {

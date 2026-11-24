@@ -1,0 +1,33 @@
+chapter: LVT2-06
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT2-05]
+concepts:
+  - id: lean-verification.predicates-reach
+    name: 到達可能性の生成規則
+    kind: definition
+    introduction: formal
+  - id: lean-verification.predicates-invariant
+    name: 到達証明の不変量原理
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.predicates-trans
+    name: 到達可能性の推移性（Lean）
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.predicates-small
+    name: 有限辺モデルの到達範囲
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.predicates-sorted
+    name: 整列リストの生成規則
+    kind: definition
+    introduction: formal
+  - id: lean-verification.predicates-pair
+    name: 整列証明の逆向き推論
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.predicates-tail
+    name: 整列性の末尾保存
+    kind: proposition
+    introduction: formal

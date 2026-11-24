@@ -1,0 +1,29 @@
+id: "LVT2-06"
+title: "帰納的述語と証明の帰納法"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT2-05]
+official_scope: []
+learning_objectives:
+  - 到達可能性を帰納的述語として定義し構成子から具体的証明を組み立てる
+  - 証明についての帰納法で不変量保存と到達可能性の推移性を証明する
+  - 具体的な辺のモデルで到達不能性を証明し仮定の役割を説明する
+  - 整列性の証明から構成子の引数を逆向きに取り出し末尾保存を示す
+definitions:
+  - { id: LVT2-06-DEF-01, name: "到達可能性の生成規則" }
+  - { id: LVT2-06-DEF-02, name: "整列リストの生成規則" }
+propositions:
+  - { id: LVT2-06-PROP-01, name: "到達証明の不変量原理" }
+  - { id: LVT2-06-PROP-02, name: "到達可能性の推移性（Lean）" }
+  - { id: LVT2-06-PROP-03, name: "有限辺モデルの到達範囲" }
+  - { id: LVT2-06-PROP-04, name: "整列証明の逆向き推論" }
+  - { id: LVT2-06-PROP-05, name: "整列性の末尾保存" }
+theorems: []
+canonical_examples:
+  - "二本の辺による到達証明"
+  - "整列リストの構成と逆向き推論"
+problem_patterns: [LVT2-06-A01, LVT2-06-A02, LVT2-06-A03, LVT2-06-A04, LVT2-06-B01, LVT2-06-B02, LVT2-06-B03, LVT2-06-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 3, review: 0.5 }
