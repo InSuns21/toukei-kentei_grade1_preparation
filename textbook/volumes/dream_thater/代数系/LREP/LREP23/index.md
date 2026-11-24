@@ -30,7 +30,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep23-little-group -->
-**定義の確認。** 恒等変換は $p$ を固定し、$\Lambda_1p=\Lambda_2p=p$ なら $\Lambda_1\Lambda_2p=p$ です。また $\Lambda p=p$ の両辺に逆変換を作用させると $\Lambda^{-1}p=p$。従って固定群は部分群です。被覆側でも $\pi$ が準同型なので積・逆元について閉じています。
+**定義の確認**。 恒等変換は $p$ を固定し、$\Lambda_1p=\Lambda_2p=p$ なら $\Lambda_1\Lambda_2p=p$ です。また $\Lambda p=p$ の両辺に逆変換を作用させると $\Lambda^{-1}p=p$。従って固定群は部分群です。被覆側でも $\pi$ が準同型なので積・逆元について閉じています。
 
 静止点 $k$ について、例えば $z$ 軸まわりの回転
 
@@ -125,7 +125,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep23-standard-boost -->
-**定義の確認。** $m=4$、$p=(5,0,0,3)$ なら $25-9=16=m^2$、$E>0$ です。$\sigma_3=\operatorname{diag}(1,-1)$ を代入すると
+**定義の確認**。 $m=4$、$p=(5,0,0,3)$ なら $25-9=16=m^2$、$E>0$ です。$\sigma_3=\operatorname{diag}(1,-1)$ を代入すると
 
 $$
 b(p)=\frac{1}{\sqrt{72}}\operatorname{diag}(12,6)
@@ -181,7 +181,7 @@ $$
 
 $|\boldsymbol q|^2=E^2-m^2$ により単位行列の係数の分子は $2E(E+m)$ です。従って $mb(p)^2=EI_2+S=H(p)$ となります。
 
-$b(p)^\dagger=b(p)$、$H(k)=mI_2$ なので合同条件が成立します。[SL(2,C)の四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action) の定義から $H(L(p)k)=H(p)$。単射性により $L(p)k=p$ です。
+$b(p)^\dagger=b(p)$、$H(k)=mI_2$ なので合同条件が成立します。[SL(2,C)の四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action) は $H(L(p)k)=b(p)H(k)b(p)^\dagger$ を意味するので、右辺は上の計算により $H(p)$ です。単射性により $L(p)k=p$ です。
 
 別の正定値エルミート行列 $T$ が同じ合同条件を満たすなら $T^2=H(p)/m$ です。$T$ は $T^2$ と可換なので $H(p)$ の各固有空間を保存します。
 
@@ -230,7 +230,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep23-wigner-rotation -->
-**定義の確認。** $p=k$ とし、$A=\operatorname{diag}(e^{-i\theta/2},e^{i\theta/2})$ を選びます。この $A$ は行列式1かつユニタリなので静止点を固定します。
+**定義の確認**。 $p=k$ とし、$A=\operatorname{diag}(e^{-i\theta/2},e^{i\theta/2})$ を選びます。この $A$ は行列式1かつユニタリなので静止点を固定します。
 
 $b(k)=I_2$ だから $w(A,k)=A$、四次元側では $W(\pi(A),k)=\operatorname{diag}(1,R_z(\theta))$ です。どちらも静止点を固定し、前者は $SU(2)$、後者は回転部分群の元です。
 
