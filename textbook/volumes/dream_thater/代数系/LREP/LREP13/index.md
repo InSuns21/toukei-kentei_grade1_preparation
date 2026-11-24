@@ -22,7 +22,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Weyl不変収縮）**  
-> $G=SL(2,\mathbb C)$ の左空間 $L$ および右空間 $R$ に対して、$J$ を上記の交代行列とする。二本の同じ種類の列から作る複素双線形形式
+> $G=SL(2,\mathbb C)$ の左空間 $L$ および右空間 $R$（いずれも $\mathbb C^2$）に対して、$J=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ とする。二本の同じ種類の列から作る複素双線形形式
 
 $$
 B_L(u,v)=u^{\mathsf T}Jv,\qquad
