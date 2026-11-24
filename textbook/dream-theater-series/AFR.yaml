@@ -96,7 +96,7 @@ chapters:
     title: "Rallis内積公式・相対跡公式への入口"
   - id: AFR23
     path: textbook/volumes/dream_thater/代数系/AFR/AFR23
-    status: planned
+    status: completed
     title: "RH・Dirichlet GRH：零点から平滑化素数冪和、主不等式(M)への解析的還元"
   - id: AFR24
     path: textbook/volumes/dream_thater/代数系/AFR/AFR24

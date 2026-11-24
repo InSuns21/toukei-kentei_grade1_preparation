@@ -1,0 +1,27 @@
+id: "AFR23"
+title: "RH・Dirichlet GRH：零点から平滑化素数冪和、主不等式(M)への解析的還元"
+volume: "foundations"
+status: supplementary
+prerequisites: [AFR22, ANT8]
+official_scope: []
+learning_objectives:
+  - 文字付き平滑化素数冪和のMellin変換を絶対収束から導出できる
+  - 中心化変換の極補正と零点での留数を計算できる
+  - 片側区間上界と高階微分による零点検出を説明できる
+  - 主不等式と補助評価からRHへの解析的帰結を導出し固定文字への拡張を区別できる
+definitions:
+  - { id: AFR23-DEF-01, name: "文字付き平滑化素数冪和" }
+  - { id: AFR23-DEF-02, name: "中心化平滑和" }
+  - { id: AFR23-DEF-03, name: "Mellin変換" }
+theorems:
+  - { id: AFR23-THM-01, name: "平滑化和のMellin変換" }
+  - { id: AFR23-THM-02, name: "中心化変換の極と留数" }
+  - { id: AFR23-THM-03, name: "区間上の片側上界による零点検出" }
+  - { id: AFR23-THM-04, name: "主不等式からRHへの条件付き還元" }
+  - { id: AFR23-COR-01, name: "固定文字に対するGRHの区間判定" }
+canonical_examples: ["法4の文字付き和", "単純極の留数", "平行移動によるセル選択", "位数4の文字の正係数"]
+problem_patterns: [AFR23-A1, AFR23-A2, AFR23-A3, AFR23-A4, AFR23-B1, AFR23-B2, AFR23-B3, AFR23-B4, AFR23-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 4, review: 3 }
