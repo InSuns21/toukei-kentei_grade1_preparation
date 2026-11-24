@@ -1,0 +1,37 @@
+chapter: LREP19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP18
+forward_references: []
+concepts:
+  - id: representation.dirac-operator
+    name: 自由Dirac作用素
+    kind: definition
+    introduction: formal
+    requires: [representation.dirac-spinor, representation.dirac-vector-matrices]
+  - id: representation.dirac-covariance
+    name: 自由Dirac方程式のLorentz共変性
+    kind: theorem
+    introduction: formal
+    requires: [representation.dirac-operator, representation.dirac-vector-matrices]
+  - id: representation.dirac-factorization
+    name: Dirac作用素による波動作用素の因数分解
+    kind: proposition
+    introduction: formal
+    requires: [representation.dirac-operator, representation.gamma-matrices]
+  - id: representation.dirac-adjoint-equation
+    name: 自由Dirac方程式の随伴方程式
+    kind: proposition
+    introduction: formal
+    requires: [representation.dirac-operator, representation.dirac-adjoint]
+  - id: representation.dirac-current
+    name: 自由Dirac場の電流
+    kind: definition
+    introduction: formal
+    requires: [representation.dirac-bilinears]
+  - id: representation.dirac-current-conservation
+    name: 自由Dirac電流の保存
+    kind: theorem
+    introduction: formal
+    requires: [representation.dirac-current, representation.dirac-adjoint-equation, representation.dirac-bilinear-covariance, representation.dirac-bilinear-reality]
