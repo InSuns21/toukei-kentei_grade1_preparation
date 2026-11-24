@@ -55,7 +55,7 @@ chapters:
     title: "控制定理（control）の原型"
   - id: IWA13
     path: textbook/volumes/dream_thater/代数系/IWA/IWA13
-    status: planned
+    status: completed
     title: "p進測度・積分とIwasawa代数"
   - id: IWA14
     path: textbook/volumes/dream_thater/代数系/IWA/IWA14

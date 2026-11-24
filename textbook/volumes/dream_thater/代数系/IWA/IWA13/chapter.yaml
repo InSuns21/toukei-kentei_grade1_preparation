@@ -1,0 +1,54 @@
+id: "IWA13"
+title: "p進測度・積分とIwasawa代数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IWA12
+  - F0-00P1
+  - F0-02C2
+official_scope: []
+learning_objectives:
+  - p進分布の有限層整合関係とZ_p値測度を具体例で確認できる
+  - 局所定数関数から連続関数へ積分を一意に延長し作用素評価を証明できる
+  - 測度と連続Z_p線形汎関数の双方向の対応を証明できる
+  - 畳み込みの分布関係と積分公式を有限層から証明できる
+  - 測度環から完備群環・岩澤代数への環同型を構成できる
+  - 二項式モーメントの冪級数と岩澤代数の積を対応させられる
+  - p進Mellin変換を連続指標で定義し評価公式を計算できる
+  - 一様なQ_p値分布が有界測度にならない理由を説明できる
+definitions:
+  - { id: IWA13-DEF-01, name: p進分布 }
+  - { id: IWA13-DEF-02, name: p進積分 }
+  - { id: IWA13-DEF-03, name: 測度の畳み込み }
+  - { id: IWA13-DEF-04, name: 二項式変換 }
+  - { id: IWA13-DEF-05, name: p進Mellin変換 }
+theorems:
+  - { id: IWA13-THM-01, name: 分布の積分への一意的延長 }
+  - { id: IWA13-THM-02, name: 測度と連続線形汎関数の対応 }
+  - { id: IWA13-PROP-01, name: 畳み込みの整合性と積分公式 }
+  - { id: IWA13-THM-03, name: 測度環と岩澤代数 }
+  - { id: IWA13-THM-04, name: 二項式変換と岩澤代数の積 }
+  - { id: IWA13-THM-05, name: Mellin変換の評価公式 }
+  - { id: IWA13-PROP-02, name: 平行移動不変な有界Q_p値測度 }
+canonical_examples:
+  - 点質量delta_1の有限層分布関係
+  - 三つの点質量による多項式積分
+  - 点質量の畳み込みと有限層の違い
+  - 二項式変換の係数を二項式モーメントで検算
+  - 3進連続指標の評価
+  - p^-nで与える有界でないQ_p値分布
+problem_patterns:
+  - IWA13-FINITE-DISTRIBUTION
+  - IWA13-REFINEMENT
+  - IWA13-POLYNOMIAL-INTEGRATION
+  - IWA13-DELTA-CONVOLUTION
+  - IWA13-BINOMIAL-MOMENTS
+  - IWA13-FUNCTIONAL-UNIQUENESS
+  - IWA13-FINITE-CHARACTER-EVALUATION
+  - IWA13-UNBOUNDED-DISTRIBUTION
+  - IWA13-CONVOLUTION-CHARACTER
+  - IWA13-INTEGRATED-TRANSFORM
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 11, review: 3 }

@@ -57,7 +57,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（4次元の星の二乗）**  
-> 上の向きと正定値計量の下で、任意の実2形式 $\alpha$ に対して
+> 向き付き4次元実内積空間 $(V,g)$ のHodge星 $*:\Lambda^2V^*\to\Lambda^2V^*$ に対し、任意の実2形式 $\alpha,\beta\in\Lambda^2V^*$ について
 
 $$
 *^2\alpha=\alpha,\qquad
@@ -129,7 +129,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（曲率の直交分解）**  
-> 上の仮定の下で $\mathfrak{su}(2)$ 値曲率は $F_A=F_A^++F_A^-$ と一意に分解され、点ごとに
+> $M$ を向き付きRiemann 4多様体、$P\to M$ を滑らかな右主 $SU(2)$ 束、$A$ をその接続とする。$\mathfrak{su}(2)$ 値曲率は $F_A=F_A^++F_A^-$ と一意に分解され、点ごとに
 
 $$
 \lvert F_A\rvert^2=\lvert F_A^+\rvert^2+\lvert F_A^-\rvert^2
@@ -150,7 +150,16 @@ $$
 =\sum_{i,j}|X_{ij}|^2\ge0,
 $$
 
-かつ等号は $X=0$ の場合だけである。ゆえに $-\operatorname{tr}(XY)$ は対称・正定値な実内積を与える。正の正規直交余接基底で $F=\sum_{i<j}F_{ij}e^{ij}$ と書くと、形式部分の星は係数を変えない。[星の二乗](#prop-gbg27-star-involution)と直交性から各行列成分について $\langle F^+,F^-\rangle=0$。従って
+かつ等号は $X=0$ の場合だけである。また、跡の巡回性で $\operatorname{tr}(XY)=\operatorname{tr}(YX)$ だから対称であり、反Hermite性から
+
+$$
+\overline{\operatorname{tr}(XY)}
+=\operatorname{tr}(Y^\dagger X^\dagger)
+=\operatorname{tr}(YX)
+=\operatorname{tr}(XY)
+$$
+
+となるので実数値である。ゆえに $-\operatorname{tr}(XY)$ は対称・正定値な実内積を与える。正の正規直交余接基底で $F=\sum_{i<j}F_{ij}e^{ij}$ と書くと、形式部分の星は係数を変えない。[星の二乗](#prop-gbg27-star-involution)と直交性から各行列成分について $\langle F^+,F^-\rangle=0$。従って
 
 $$
 |F|^2=|F^++F^-|^2=|F^+|^2+2\langle F^+,F^-\rangle+|F^-|^2
@@ -179,6 +188,16 @@ $$
 
 > を Yang–Mills作用と定める。ここでは係数 $1/2$ や結合定数は前に付けない。
 <!-- formal-statement-end -->
+
+正の正規直交余接基底で $F=\sum_{i<j}F_{ij}e^{ij}$ と展開すれば、星は2形式の基底に作用し、行列係数は保つ。定義式から $e^{ij}\wedge *e^{kl}=\delta_{(ij),(kl)}\operatorname{vol}_g$ なので、異なる基底間の交差項が消え、
+
+$$
+-\operatorname{tr}(F\wedge *F)
+=-\sum_{i<j}\operatorname{tr}(F_{ij}^{2})\operatorname{vol}_g
+=|F|^{2}\operatorname{vol}_g.
+$$
+
+これが積分表示とノルム表示が一致する理由である。
 
 <!-- definition-example-start: def-gbg27-yang-mills-action -->
 **定義の確認**。一点の正規直交基底で $F=T\,e^{12}$、$T=\operatorname{diag}(i,-i)$ なら $*F=T\,e^{34}$、$T^2=-I_2$ なので
@@ -211,7 +230,15 @@ $$
 \end{aligned}
 $$
 
-二行目の根拠は次の式である。
+二行目では $F^+\wedge F^-$ の交差項が消える。実際、$\langle F^+,F^-\rangle=0$ かつ $*F^-=-F^-$ なので
+
+$$
+\operatorname{tr}(F^+\wedge F^-)
+=-\langle F^+,*F^-\rangle\operatorname{vol}_g
+=\langle F^+,F^-\rangle\operatorname{vol}_g=0.
+$$
+
+残る対角項は次の式である。
 
 $$
 \operatorname{tr}(F^\pm\wedge F^\pm)
@@ -262,7 +289,15 @@ $$
 =(u+v)+(-u+v)=2v.
 $$
 
-両方が非負なので $\operatorname{YM}(A)\ge\max\{8\pi^2k,-8\pi^2k\}=8\pi^2|k|$。$k>0$ の場合、下界での等号は $u=0$、すなわち $F^+=0$。滑らかな非負関数 $|F^+|^2$ の積分が零なら各点で零なので、$F=-*F$ に等しい。逆向きは代入すれば分かる。$k<0$ は $v=0$、$k=0$ は $u=v=0$ が必要十分である。
+どちらの右辺も非負なので
+
+$$
+\operatorname{YM}(A)\ge\max\{8\pi^2k,-8\pi^2k\}=8\pi^2|k|.
+$$
+
+$k>0$ で等号が成り立つのは $u=0$、すなわち $F^+=0$ のときである。滑らかな非負関数の積分が零なら各点で零なので、これは $F=-*F$ に等しい。逆向きは平方完成へ代入して確認できる。
+
+$k<0$ の場合は同様に $v=0$（自己双対）が必要十分であり、$k=0$ の場合は $u=v=0$（平坦）が必要十分である。
 <!-- proof-end -->
 
 **例：符号と束の関係**。$S^4$ 上で前講の $P_Q$ は $k(P_Q)=+1$ なので
@@ -286,13 +321,31 @@ F_{A_t}=F_A+t(d a+A\wedge a+a\wedge A)+t^2a\wedge a
 =F_A+t\,d_Aa+t^2a\wedge a.
 $$
 
-ここで $d_Aa=da+A\wedge a+a\wedge A$ は次数1の[共変外微分](../GBG11/index.md#def-gbg11-local-covariant-exterior)である。従って $\dot F_{A_t}|_{t=0}=d_Aa$。計量は動かさないので $\dot{(*F)}=*\dot F$ である。
+ここで $d_Aa=da+A\wedge a+a\wedge A$ は次数1の[共変外微分](../GBG11/index.md#def-gbg11-local-covariant-exterior)である。$t\in\mathbb R$ は変分のパラメータで、$d/dt$ は $A_t$ の $t$ に関する微分を表す。従って
+
+$$
+\left.\frac{dF_{A_t}}{dt}\right|_{t=0}=d_Aa,
+\qquad
+\left.\frac{d(*F_{A_t})}{dt}\right|_{t=0}=*d_Aa.
+$$
+
+二式目では計量・向きが $t$ に依存しないため、星と $t$ 微分を交換した。
+
+後の必要性の証明では $B=d_A*F_A$ という**3形式**にも星を用いる。先ほどの2形式上の星とは作用する次数が異なる。実3形式 $\eta,\beta$ に対して、3形式から1形式への星を次で定める。
+
+$$
+*:\Lambda^3T^*M\longrightarrow\Lambda^1T^*M,
+\qquad
+\eta\wedge*\beta=\langle\eta,\beta\rangle_g\operatorname{vol}_g.
+$$
+
+たとえば正の正規直交基底で $*e^{123}=e^4$。随伴束値形式では星を行列係数ごとに作用させる。
 
 <a id="thm-gbg27-yang-mills-equation"></a>
 
 <!-- formal-statement-start -->
 > **定理（Yang–Mills作用の第一変分と方程式）**  
-> $M$ を向き付きコンパクト境界なしRiemann 4多様体、$A$ を滑らかな $SU(2)$ 接続とする。任意の滑らかな $\operatorname{ad}(P)$ 値1形式 $a$ について
+> $M$ を向き付きコンパクト境界なしRiemann 4多様体、$P\to M$ を滑らかな右主 $SU(2)$ 束、$A$ を $P$ 上の滑らかな接続とする。任意の滑らかな $\operatorname{ad}(P)$ 値1形式 $a$ について
 
 $$
 \left.\frac{d}{dt}\operatorname{YM}(A+ta)\right|_{t=0}
@@ -330,14 +383,28 @@ $$
 
 接続の補正項は $\operatorname{tr}$ の中で交換子として相殺される。[一般Stokes定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を閉 $M$ に適用すると左辺の積分は零だから、主張の第一変分式を得る。
 
-十分性は $d_A*F=0$ を代入すれば直ちに分かる。必要性については、各点の局所正規直交基底で $d_A*F$ の3形式成分を取る。もし成分が一点で零でなければ、正定値の $-\operatorname{tr}$ と星を使い、その成分に対応する $a$ を小さい近傍に台を持つ形で選べば $\int\operatorname{tr}(a\wedge d_A*F)\ne0$ となる（具体的には $a=*(d_A*F)$ に非負のカットオフを掛ければ、$a\wedge d_A*F$ はその成分の符号付き二乗に等しい）。これは停留性に矛盾する。従って全点で $d_A*F=0$。
+十分性は $d_A*F=0$ を代入すれば分かる。必要性を示すため、3形式 $B=d_A*F$ が一点で非零と仮定する。$B$ が非零の近傍に台を持ち、その点で正となる滑らかな非負カットオフ $\chi$ を取り、先ほど定めた3形式への星で次の変分を作る。
+
+$$
+a=\chi*B.
+$$
+
+この $a$ は随伴束値1形式である。3形式と1形式の外積は順序交換で負号 $(-1)^{3\cdot1}=-1$ を生じ、行列係数の内積は $-\operatorname{tr}$ だから
+
+$$
+\operatorname{tr}((*B)\wedge B)
+=-\operatorname{tr}(B\wedge*B)
+=|B|^2\operatorname{vol}_g.
+$$
+
+したがって第一変分は $-2\int_M\chi|B|^2\operatorname{vol}_g<0$ となり、すべての $a$ に対する停留性に反する。ゆえに全点で $d_A*F=0$。
 <!-- proof-end -->
 
 <a id="thm-gbg27-self-dual-solves-ym"></a>
 
 <!-- formal-statement-start -->
 > **定理（自己双対・反自己双対接続はYang–Mills接続）**  
-> 向き付きRiemann 4多様体上の任意の滑らかな $SU(2)$ 接続 $A$ が $F_A=*F_A$ または $F_A=-*F_A$ を満たすなら、
+> $M$ を向き付きRiemann 4多様体、$P\to M$ を滑らかな右主 $SU(2)$ 束とする。$P$ 上の滑らかな接続 $A$ が $F_A=*F_A$ または $F_A=-*F_A$ を満たすなら、
 
 $$
 d_A*F_A=0.
@@ -507,7 +574,7 @@ $$
 境界付きコンパクト4多様体 $U$ 上で $A_t=A+ta$ とする。$a$ が境界で必ずしも零でない場合の $\left.\frac d{dt}\operatorname{YM}_U(A_t)\right|_0$ を、内部と境界の二つの積分で表せ。停留性を得るために必要な境界側の条件を一つ挙げよ。
 
 <!-- solution-start -->
-**詳細解答**。曲率の微分は $d_Aa$ なので $\delta\operatorname{YM}_U=-2\int_U\operatorname{tr}(d_Aa\wedge*F)$。次数付き積の法則
+**詳細解答**。曲率の微分は $d_Aa$ なので $\delta\operatorname{YM}_U=-2\int_U\operatorname{tr}(d_Aa\wedge*F)$。[次数付きLeibniz則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)
 
 $$
 d\operatorname{tr}(a\wedge*F)
@@ -555,7 +622,7 @@ $k=0$ が意味するのは $u=v$ だけであって、$u=v=0$ ではない。[G
 #### GBG27-C01 クラッチング束上の最小作用と方程式
 - Level: C
 
-$S^4$ に標準向き・任意の滑らかな正定値Riemann計量を与える。$f:S^3\to SU(2)$ を滑らかなクラッチング写像、$P_f$ をGBG25の右主束とし、$k(P_f)=\deg f=m$ を使ってよい。
+$S^4$ に標準向き・任意の滑らかな正定値Riemann計量を与える。$f:S^3\to SU(2)$ を滑らかなクラッチング写像、$P_f$ を[GBG25の右主クラッチング束](../GBG25/index.md#def-gbg25-clutching)とし、$k(P_f)=\deg f=m$ を使ってよい。
 
 1. $\operatorname{YM}(A)\ge8\pi^2|m|$ を示し、$m=1$、$m=-1$、$m=0$ のそれぞれについて等号条件を明示せよ。
 2. 等号を達成する接続があると仮定して、その接続が $d_A*F_A=0$ を満たすことを、Bianchi恒等式と星の符号から導け。
@@ -571,7 +638,13 @@ $$
 \operatorname{YM}+8\pi^2m=2v\ge0.
 $$
 
-$m=1$ なら $\operatorname{YM}\ge8\pi^2$ で $u=0$、すなわち $F=-*F$ が等号成立の条件。$m=-1$ なら $\operatorname{YM}\ge8\pi^2$ で $v=0$、すなわち $F=*F$。$m=0$ なら $\operatorname{YM}\ge0$ で等号は $u=v=0$、つまり $F=0$。どの場合も**等号を達成するための条件**を導いたのであって、その条件を実現する接続の存在は別に証明する必要がある。
+各次数について等号条件を分けて確認する。
+
+- $m=1$：$\operatorname{YM}\ge8\pi^2$ で、等号は $u=0$、すなわち $F=-*F$ のとき。
+- $m=-1$：$\operatorname{YM}\ge8\pi^2$ で、等号は $v=0$、すなわち $F=*F$ のとき。
+- $m=0$：$\operatorname{YM}\ge0$ で、等号は $u=v=0$、すなわち $F=0$ のとき。
+
+いずれも**等号を達成するための条件**を導いたのであって、その条件を実現する接続の存在は別途示す必要がある。
 
 **(2)** 例えば $m=1$ の等号接続では $*F=-F$ である。[主束曲率の Bianchi 恒等式・局所形式](../GBG11/index.md#thm-gbg11-bianchi-local)より $d_AF=0$。従って
 

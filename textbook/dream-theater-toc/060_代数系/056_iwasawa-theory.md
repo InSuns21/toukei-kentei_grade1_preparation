@@ -13,3 +13,4 @@
 10. [IWA10 円分単数・ノルム整合性](textbook/volumes/dream_thater/代数系/IWA/IWA10/index.md)
 11. [IWA11 局所／大域単数の完全列](textbook/volumes/dream_thater/代数系/IWA/IWA11/index.md)
 12. [IWA12 控制定理（control）の原型](textbook/volumes/dream_thater/代数系/IWA/IWA12/index.md)
+13. [IWA13 p進測度・積分とIwasawa代数](textbook/volumes/dream_thater/代数系/IWA/IWA13/index.md)
