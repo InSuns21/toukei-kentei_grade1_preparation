@@ -15,7 +15,11 @@ S(A)=\begin{pmatrix}A&0\\0&Q\end{pmatrix},
 \quad A\in SL(2,\mathbb C).
 $$
 
-$u,r$ は二成分複素列です。$SL(2,\mathbb C)$ は行列式が1の複素二次正方行列の群なので、$A$ と $A^\dagger$ は可逆です。以下では $S=S(A)$ と略記し、四成分列の標準基底を $e_k$（$k=1,2,3,4$）と書きます。[Spin群とLorentz二重被覆](../LREP15/index.md#thm-lrep15-spin-cover)により、ここでの群作用は適正・時間向き保存Lorentz変換の Spin 持ち上げを表します。
+$u,r$ は二成分複素列です。$SL(2,\mathbb C)$ は行列式が1の複素二次正方行列の群なので、$A$ と $A^\dagger$ は可逆です。
+
+以下では $S=S(A)$ と略記し、四成分列の標準基底を $e_k$（$k=1,2,3,4$）と書きます。
+
+[Spin群とLorentz二重被覆](../LREP15/index.md#thm-lrep15-spin-cover)により、ここでの群作用は適正・時間向き保存Lorentz変換の Spin 持ち上げを表します。
 
 単純な複素共役では $u$ は $A^*$ で変換され、一般に $A$ では変換されません。例えば $A=\operatorname{diag}(i,-i)$ なら $A^*=-A$ です。そこで [二次元交代形式と行列式](../LREP4/index.md#prop-lrep4-epsilon)に現れた実行列
 
@@ -390,14 +394,27 @@ $$
 
 よって $x,y\in M$ で $\psi=x+iy$。もし $x=iy$ が $M$ にも属するなら $x=\mathcal K x=-iy=-x$ なので $x=0$ です。従って直和になります。
 
-[chirality射影子](../LREP16/index.md#def-lrep16-chiral-projectors)は左側・右側をそれぞれ取り出します。固定点で $r=0$ なら $-Ju^*=0$ より $u=0$。$u=0$ なら $r=0$ です。従って非零固定点は片側だけにはできません。$\square$
+[chirality射影子](../LREP16/index.md#def-lrep16-chiral-projectors)は左側・右側をそれぞれ取り出します。固定点条件と $J^{-1}=-J$ から
+
+$$
+r=0\ \Longrightarrow\ -Ju^*=0\ \Longrightarrow\ u=0,
+\qquad u=0\ \Longrightarrow\ r=0.
+$$
+
+従って非零固定点は片側だけにはできません。$\square$
 <!-- proof-end -->
 
 つまり左 Weyl 列は複素2成分、Dirac 列は複素4成分、Majorana 条件付き Dirac 列は実4成分の自由度を持ちます。これらは成分の自由度であって、運動方程式を課した後の粒子状態数ではありません。
 
 ## 5. 電荷の位相と粒子の対称性
 
-外部の $U(1)$ 対称性を、実数 $q$ と角度 $\alpha$ による位相作用 $\psi\mapsto e^{iq\alpha}\psi$ として考えます。$U(1)$ は絶対値1の複素数の群であり、角度を $2\pi$ 周期とする場合には $q$ は整数とします。ここでの電荷とは、この位相の重み $q$ のことです。これは [Lorentz群の単位元成分](../LREP9/index.md#def-lrep9-lorentz-group) の作用とは別の作用です。
+外部の $U(1)$ 対称性を考えます。$U(1)$ は絶対値1の複素数の群です。実数 $q$ と角度 $\alpha$ による位相作用を
+
+$$
+U_q(\alpha)\psi=e^{iq\alpha}\psi
+$$
+
+と書きます。角度を $2\pi$ 周期とする場合には $q$ は整数とします。ここでの電荷とは、この位相の重み $q$ のことです。これは [Lorentz群の単位元成分](../LREP9/index.md#def-lrep9-lorentz-group) の作用とは別の作用です。
 
 <a id="prop-lrep18-charge-reversal"></a>
 
@@ -443,7 +460,11 @@ $$
 
 を考えると、$\widehat C(i|+\rangle)=i|-\rangle$ です。これはスピノルの $\mathcal K$ の反線形性とは異なります。量子論での対称性の実現には状態空間と力学の指定が必要で、この成分計算だけからその存在は結論できません。
 
-同じ理由で、古典的な可換成分の双線形量に量子化した反交換成分の符号をそのまま持ち込むことはできません。例えば前講の[Dirac双線形量の実数値性](../LREP17/index.md#prop-lrep17-real-bilinears)から $v^0=\psi^\dagger\psi$ です。$J^{\mathsf T}=-J$ と $B^*=B$ から $B^\dagger=B$ です。[電荷共役の共変性と対合性](#prop-lrep18-real-structure)の $B^2=I_4$ により
+同じ理由で、古典的な可換成分の双線形量に量子化した反交換成分の符号をそのまま持ち込むことはできません。
+
+例えば前講の[Dirac双線形量の実数値性](../LREP17/index.md#prop-lrep17-real-bilinears)から $v^0=\psi^\dagger\psi$ です。
+
+$J^{\mathsf T}=-J$ と $B^*=B$ から $B^\dagger=B$ です。[電荷共役の共変性と対合性](#prop-lrep18-real-structure)の $B^2=I_4$ により
 
 $$
 (\psi^c)^\dagger\psi^c
@@ -522,7 +543,22 @@ $$
 $\psi=(1,0,0,1)^{\mathsf T}$ は Majorana 条件を満たす。$q=2$ の位相作用において $\alpha=\pi/4,\pi/2$ の各変換後に条件を保つか判定せよ。
 
 <!-- solution-start -->
-**詳細解答。** [Majorana条件の自由度とchirality](#prop-lrep18-majorana-structure)により $u=(1,0)^{\mathsf T}$ から $-Ju^*=(0,1)^{\mathsf T}=r$ です。[電荷反転とMajorana条件の制約](#prop-lrep18-charge-reversal)により変換後の共役は $e^{-2i\alpha}\psi$。$\alpha=\pi/4$ では変換後が $i\psi$、共役は $-i\psi$ で一致しません。$\alpha=\pi/2$ では両方が $-\psi$ で一致します。一部の角度での保存と全角度での保存は異なります。
+**詳細解答。** [Majorana条件の自由度とchirality](#prop-lrep18-majorana-structure)により、固定点条件をまず確認します。
+
+$$
+u=\binom{1}{0},\qquad -Ju^*=\binom{0}{1}=r.
+$$
+
+[電荷反転とMajorana条件の制約](#prop-lrep18-charge-reversal)により変換後の列とその共役は
+
+$$
+U_2(\alpha)\psi=e^{2i\alpha}\psi,\qquad
+\mathcal K(U_2(\alpha)\psi)=e^{-2i\alpha}\psi.
+$$
+
+$\alpha=\pi/4$ ではそれぞれ $i\psi$ と $-i\psi$ になり、一致しません。
+
+$\alpha=\pi/2$ では両方とも $-\psi$ になり、条件を保ちます。一部の角度での保存と全角度での保存は異なります。
 <!-- solution-end -->
 
 ### Level B
@@ -543,7 +579,21 @@ A^\dagger=\begin{pmatrix}1&0\\-i&1\end{pmatrix},
 \quad Q=\begin{pmatrix}1&0\\i&1\end{pmatrix}.
 $$
 
-[Diracスピノル](../LREP16/index.md#def-lrep16-dirac)の群作用より $S\psi=(i,1,0,0)^{\mathsf T}$ です。その共役の右側は $-J(-i,1)^{\mathsf T}=(-1,-i)^{\mathsf T}$ なので $(S\psi)^c=(0,0,-1,-i)^{\mathsf T}$。他方 $\psi^c=-e_3$ に $S$ を作用させると右側が $Q(-1,0)^{\mathsf T}=(-1,-i)^{\mathsf T}$ です。二つは一致します。
+[Diracスピノル](../LREP16/index.md#def-lrep16-dirac)の群作用より $S\psi=(i,1,0,0)^{\mathsf T}$ です。[電荷共役](#def-lrep18-charge-conjugation)の下側ブロックを使うと
+
+$$
+-J\binom{-i}{1}=\binom{-1}{-i},
+\qquad (S\psi)^c=(0,0,-1,-i)^{\mathsf T}.
+$$
+
+他方、先に共役を取ると $\psi^c=-e_3$ です。これに $S$ を作用させると、右側の計算は
+
+$$
+Q\binom{-1}{0}=\binom{-1}{-i},
+\qquad S\psi^c=(0,0,-1,-i)^{\mathsf T}.
+$$
+
+二つは一致します。
 <!-- solution-end -->
 
 <a id="ex-lrep18-b02"></a>
