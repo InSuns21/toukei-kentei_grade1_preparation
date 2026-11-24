@@ -50,3 +50,4 @@
 47. [CATB1-07 Lawvere理論とモデル](textbook/volumes/dream_thater/基礎論系/CATB/CATB1-07/index.md)
 48. [CATB1-08 有限項モナドとLawvere理論](textbook/volumes/dream_thater/基礎論系/CATB/CATB1-08/index.md)
 49. [CATB2-01 モノイダル圏でHomを値付けする](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-01/index.md)
+50. [CATB2-02 前順序・距離空間と豊穣](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-02/index.md)
