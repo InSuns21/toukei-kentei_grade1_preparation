@@ -130,7 +130,7 @@ function tick(){
   canvas.dispatchEvent(new CustomEvent('fcg13-failure',{detail:String(error?.message||error)}));
  }
 }
-function play(){if(playing||current>=20)return;playing=true;emit();timer=setTimeout(tick,100);}
+function play(){if(playing)return;if(current>=20)advance(0);playing=true;emit();timer=setTimeout(tick,100);}
 function step(){cancel();advance(Math.min(20,Math.round((current+0.1)*1e8)/1e8));emit();}
 function reset(){cancel();advance(time);emit();}
 canvas.addEventListener('webglcontextlost',cancel);

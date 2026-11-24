@@ -9,6 +9,12 @@ prerequisites:
 forward_references: []
 
 concepts:
+  - id: aqft.antiunitary
+    name: 反ユニタリ作用素
+    kind: definition
+    introduction: formal
+    requires: []
+
   - id: quantum.unbounded-spectral-integral
     name: 非有界スペクトル積分
     kind: definition

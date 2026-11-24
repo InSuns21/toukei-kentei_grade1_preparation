@@ -6,7 +6,13 @@
 
 ## 1. 全要素を変換する
 
-[リストの再帰的構成](../LVT1-04/index.md#def-lvt1-04-list-constructors) を使います。要素の型を α : Type、変換後の型を β : Type とし、f : α → β は一要素を変換する全域的な純粋関数です。空リストは []、先頭 x と残り xs を持つリストは x :: xs と書きます。変換後のリストは、元の順序のまま各要素を f に通したものです。この処理をリスト写像と呼びます。Lean 標準ライブラリの List.map はこの要求を表す関数で、xs.map f と書きます。空なら空、先頭と残りなら f x を先頭にし残りを写像する、という二つの計算規則を持ちます。今回は別の実装 mapL を作り、標準の関数と一致するかを調べます。
+[リストの再帰的構成](../LVT1-04/index.md#def-lvt1-04-list-constructors) を使います。要素の型を α : Type、変換後の型を β : Type とし、f : α → β は一要素を変換する全域的な純粋関数です。空リストは `[]`、先頭 `x : α` と残り `xs : List α` を持つリストは `x :: xs` と書きます。`[a,b]` は `a :: (b :: [])` の略記です。Lean の `Nat` は 0 を含む自然数の型、`Bool` は [真偽値型](../LVT2-01/index.md#def-lvt2-01-bool) です。`f x` は関数適用、`fun x => ...` は x を引数とする関数を表します。変換後のリストは、元の順序のまま各要素を f に通したものです。この処理をリスト写像と呼びます。Lean 標準ライブラリの `List.map` はこの要求を表す関数で、`xs.map f` は `List.map f xs` と同じです。入力 xs の型は List α、出力は List β です。空と非空の計算規則は次のとおりです。
+
+```text
+[].map f = []
+(x :: xs).map f = f x :: xs.map f
+```
+今回は別の実装 mapL を作り、標準の関数と一致するかを調べます。
 
 <a id="def-lvt3-03-map"></a>
 
@@ -20,7 +26,7 @@ mapL f [] = []
 mapL f (x :: xs) = f x :: mapL f xs
 ```
 
-各再帰呼出しでは xs が元の入力 x :: xs の残りとなる。
+各再帰呼出しでは x : α、xs : List α であり、xs が元の入力 x :: xs の残りとなる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt3-03-map -->
@@ -34,7 +40,16 @@ mapL f [2,0]
 = [3,1]
 ```
 
-である。f x は Nat、残りの結果は List Nat なので構成子 :: の型が一致する。入力リストの要素数は2、1、0と減り、最後は再帰を行わない。異なる型でも f : Nat → Bool を f n = (n == 0) とすれば mapL f [0,2] = true :: false :: [] であり、結果の型は List Bool。
+である。f x は Nat、残りの結果は List Nat なので構成子 :: の型が一致する。入力リストの要素数は2、1、0と減り、最後は再帰を行わない。異なる型でも f : Nat → Bool を考えられる。ここで `n == 0` は Nat の値を比較して Bool を返す式で、命題を表す `n = 0` とは区別する。f n = (n == 0) なら、
+
+```text
+mapL f [0,2]
+= true :: mapL f [2]
+= true :: (false :: mapL f [])
+= true :: (false :: [])
+```
+
+各段の先頭は Bool、残りの結果は List Bool なので、構成子の要求する型が一致する。
 <!-- definition-example-end -->
 
 ```lean
@@ -132,7 +147,7 @@ theorem mapLength {α β : Type} (f : α → β) (xs : List α) :
 
 ## 4. 分割して処理しても同じ結果になる
 
-xs ++ ys は Lean 標準のリスト連結です。先行講義の[再帰的なリスト連結と反転](../LVT2-05/index.md#def-lvt2-05-list-operations) の joinL と同じ計算規則、[] ++ ys = ys と (x :: xs) ++ ys = x :: (xs ++ ys) を持ちます。例えば [1,2] と [3] を連結してから1を足すと [2,3,4] になります。二つを別々に処理してから連結しても同じです。
+`xs ++ ys` は Lean 標準のリスト連結 `List.append xs ys` です。両方のリストは同じ要素型を持ちます。先行講義の[再帰的なリスト連結と反転](../LVT2-05/index.md#def-lvt2-05-list-operations) の joinL と同じ計算規則、[] ++ ys = ys と (x :: xs) ++ ys = x :: (xs ++ ys) を持ちます。例えば [1,2] と [3] を連結してから1を足すと [2,3,4] になります。二つを別々に処理してから連結しても同じです。
 
 <a id="prop-lvt3-03-join"></a>
 
@@ -177,7 +192,7 @@ theorem mapJoin {α β : Type} (f : α → β) (xs ys : List α) :
 
 ## 5. 二段の変換を一段にまとめる
 
-さらに γ : Type、g : β → γ を取り、f の結果に g を適用します。関数の合成は h x = g (f x) で与えられます。例えば f n = n + 1、g n = 2 * n なら [1,3] を f で [2,4]、g で [4,8] にし、一度に h を適用しても [4,8] です。
+さらに γ : Type、g : β → γ を取り、f の結果に g を適用します。x : α に対して f x : β、g (f x) : γ です。関数の合成 h : α → γ は h x = g (f x) で与えられ、Lean では `fun x => g (f x)` と書きます。例えば f n = n + 1、g n = 2 * n なら [1,3] を f で [2,4]、g で [4,8] にし、一度に h を適用しても [4,8] です。
 
 <a id="prop-lvt3-03-compose"></a>
 
@@ -221,7 +236,7 @@ theorem mapCompose {α β γ : Type} (f : α → β) (g : β → γ)
 
 ## 6. 反転と変換の順番
 
-標準リストの xs.reverse は順序を逆にする関数です。先行講義の flipL と同じ計算規則を持ちます。空なら空、(x :: xs).reverse = xs.reverse ++ [x] です（Lean の標準補題 List.reverse_cons）。[反転と連結の交換則](../LVT2-05/index.md#prop-lvt2-05-flip-join) では連結した左右の順序が入れ替わりました。ここでは各要素を独立に変換するので、反転と変換の順序を交換しても結果が変わりません。
+標準リストの `xs.reverse` は `List.reverse xs` と同じで、順序を逆にする関数です。先行講義の [再帰的なリスト連結と反転](../LVT2-05/index.md#def-lvt2-05-list-operations) の flipL と同じ計算規則を持ちます。連結と反転は、標準関数も自作関数も同じ空・非空の規則を持つので、有限リストの [リストの帰納法](../LVT2-05/index.md#principle-lvt2-05-list) で結果が一致します。例えば連結では第二引数を固定し、空の場合は両者とも第二引数、非空の場合は残りの連結に同じ先頭を付けます。反転では空の場合は両者とも空、非空の場合は残りの反転の一致と連結の一致を順に用います。空なら空、(x :: xs).reverse = xs.reverse ++ [x] です（Lean の標準補題 List.reverse_cons）。[反転と連結の交換則](../LVT2-05/index.md#prop-lvt2-05-flip-join) では連結した左右の順序が入れ替わりました。ここでは各要素を独立に変換するので、反転と変換の順序を交換しても結果が変わりません。
 
 <a id="prop-lvt3-03-reverse"></a>
 
@@ -264,7 +279,7 @@ theorem mapReverse {α β : Type} (f : α → β) (xs : List α) :
 
 ## 7. 累積引数のある実装
 
-mapL は残りの計算が終わった後に先頭を付けます。別の方法は、処理した値を累積リスト acc の先頭に追加してから残りに進むことです。この方法では最後の再帰呼出しの結果がそのまま呼出し元の結果になるため、末尾再帰と呼びます。処理済みの値は逆順に積まれます。元の入力と累積リストの関係を定式化しましょう。
+mapL は残りの計算が終わった後に先頭を付けます。別の方法は、処理した値を累積リスト acc の先頭に追加してから残りに進むことです。この方法では最後の再帰呼出しの結果がそのまま呼出し元の結果になるため、末尾再帰と呼びます。処理済みの値は逆順に積まれます。`acc : List β` は処理済みの値を保持するリストで、初期値は空である必要はありません。`mapRevAcc f xs acc` は `((mapRevAcc f) xs) acc` の意味で、f を固定したときの第一引数 xs が未処理、第二引数 acc が累積リストです。元の入力と累積リストの関係を定式化しましょう。
 
 <a id="def-lvt3-03-acc"></a>
 
@@ -278,7 +293,7 @@ mapRevAcc f [] acc = acc
 mapRevAcc f (x :: xs) acc = mapRevAcc f xs (f x :: acc)
 ```
 
-第一引数は未処理のリスト、第二引数 acc は累積リストであり、再帰ごとに第一引数が短くなる。
+ここで x : α、xs : List α、acc : List β である。第一引数は未処理のリスト、第二引数 acc は累積リストであり、[構造再帰](../LVT1-04/index.md#def-lvt1-04-structural-recursion) に従い再帰ごとに第一引数が短くなる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt3-03-acc -->
@@ -308,7 +323,7 @@ def mapRevAcc {α β : Type} (f : α → β) :
 <!-- formal-statement-start -->
 ### 命題（累積リスト写像の一般化された正当性）
 
-α β : Type、f : α → β、xs : List α、acc : List β に対して、[累積引数付き逆順写像](#def-lvt3-03-acc) は次を満たす。
+α β : Type、f : α → β、xs : List α、acc : List β を任意に取る。[累積引数付き逆順写像](#def-lvt3-03-acc) と [再帰的なリスト写像](#def-lvt3-03-map) は次を満たす。
 
 ```text
 mapRevAcc f xs acc = (mapL f xs).reverse ++ acc
@@ -316,7 +331,7 @@ mapRevAcc f xs acc = (mapL f xs).reverse ++ acc
 
 <!-- formal-statement-end -->
 
-**証明の見取り図**　[リストの帰納法](../LVT2-05/index.md#principle-lvt2-05-list) で xs に関して証明する。acc を任意のままにして、帰納仮定を f x :: acc に適用する。
+**証明の見取り図**　[リストの帰納法](../LVT2-05/index.md#principle-lvt2-05-list) で xs に関して証明する。帰納法の述語は `P xs := ∀ b : List β, mapRevAcc f xs b = (mapL f xs).reverse ++ b` とする。ここで ∀ はすべての b を量化し、f は固定する。帰納仮定を f x :: acc に適用できるようにする。
 
 <!-- proof-start -->
 ### 証明
@@ -382,7 +397,7 @@ lake env lean Failure.lean
 
 ## 9. 演習と詳細解答
 
-紙上で計算または証明してから [ExerciseSolutions.lean](lab/ExerciseSolutions.lean) で照合してください。mapL と mapRevAcc は本文の定義を用います。
+紙上で計算または証明してから [ExerciseSolutions.lean](lab/ExerciseSolutions.lean) で照合してください。[再帰的なリスト写像](#def-lvt3-03-map) mapL と [累積引数付き逆順写像](#def-lvt3-03-acc) mapRevAcc は本文の定義を用います。
 
 ### Level A
 
@@ -411,7 +426,18 @@ Nat 上の f n = n + 1 に対して mapL f [2,2,0] を計算せよ。
 <!-- solution-start -->
 #### 詳細解答
 
-mapL f [2,2,0] = 3 :: mapL f [2,0] = 3 :: 3 :: mapL f [0] = 3 :: 3 :: 1 :: mapL f [] = [3,3,1]。同じ値の要素を消さない。
+[再帰的なリスト写像](#def-lvt3-03-map) の非空・空の枝を順に使う。
+
+```text
+mapL f [2,2,0]
+= 3 :: mapL f [2,0]
+= 3 :: (3 :: mapL f [0])
+= 3 :: (3 :: (1 :: mapL f []))
+= 3 :: (3 :: (1 :: []))
+= [3,3,1]
+```
+
+同じ値の要素を消さない。
 
 ```lean
 theorem a02 : mapL (fun n : Nat => n + 1) [2,2,0] = [3,3,1] := rfl
@@ -498,7 +524,16 @@ f n = n + 1、xs = [1,2]、acc = [9] とし mapRevAcc f xs acc を計算せよ�
 <!-- solution-start -->
 #### 詳細解答
 
-mapRevAcc f [1,2] [9] = mapRevAcc f [2] [2,9] = mapRevAcc f [] [3,2,9] = [3,2,9]。空から始めても最初の再帰で acc = [2] となる。空の場合だけの帰納仮定では [2] に適用できない。[累積リスト写像の一般化された正当性](#prop-lvt3-03-acc) は任意の acc に適用できるのでこの問題を解決する。
+[累積引数付き逆順写像](#def-lvt3-03-acc) の再帰式で未処理のリストと累積リストを同時に更新する。
+
+```text
+mapRevAcc f [1,2] [9]
+= mapRevAcc f [2] [2,9]
+= mapRevAcc f [] [3,2,9]
+= [3,2,9]
+```
+
+空から始めても最初の再帰で acc = [2] となる。空の場合だけの帰納仮定では [2] に適用できない。[累積リスト写像の一般化された正当性](#prop-lvt3-03-acc) は任意の acc に適用できるのでこの問題を解決する。
 
 ```lean
 theorem b03 : mapRevAcc (fun n : Nat => n + 1) [1,2] [9] = [3,2,9] := rfl
@@ -516,7 +551,18 @@ theorem b03 : mapRevAcc (fun n : Nat => n + 1) [1,2] [9] = [3,2,9] := rfl
 <!-- solution-start -->
 #### 詳細解答
 
-[累積リスト写像の一般化された正当性](#prop-lvt3-03-acc) を acc = [] に適用すると mapRevAcc f xs [] = (mapL f xs).reverse ++ []。右単位元でこれは (mapL f xs).reverse。両辺を反転し、[リスト反転の対合性](../LVT2-05/index.md#prop-lvt2-05-flip-twice) と同じ標準リストの反転則 List.reverse_reverse を mapL f xs に適用すると fastMap f xs = mapL f xs。[リスト写像の入出力一致](#prop-lvt3-03-spec) から mapL f xs = xs.map f である。入力が空の場合も定理の量化に含まれる。
+[累積リスト写像の一般化された正当性](#prop-lvt3-03-acc) を acc = [] に適用すると mapRevAcc f xs [] = (mapL f xs).reverse ++ []。標準連結についての [リスト連結の右単位元](../LVT2-05/index.md#prop-lvt2-05-join-nil) に対応する `List.append_nil` を使う。両辺に反転を適用できるのは [等式の合同性](../LVT2-03/index.md#prop-lvt2-03-congr) による。さらに [リスト反転の対合性](../LVT2-05/index.md#prop-lvt2-05-flip-twice) と同じ標準リストの反転則 `List.reverse_reverse` を List β の値 mapL f xs に適用し、[リスト写像の入出力一致](#prop-lvt3-03-spec) を使う。
+
+```text
+fastMap f xs
+= (mapRevAcc f xs []).reverse
+= ((mapL f xs).reverse ++ []).reverse
+= ((mapL f xs).reverse).reverse
+= mapL f xs
+= xs.map f
+```
+
+入力が空の場合も定理の量化に含まれる。
 
 ```lean
 def fastMap {α β : Type} (f : α → β) (xs : List α) :=
