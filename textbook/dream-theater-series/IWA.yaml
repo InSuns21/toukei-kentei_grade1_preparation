@@ -63,7 +63,7 @@ chapters:
     title: "Kummer合同とBernoulli数"
   - id: IWA15
     path: textbook/volumes/dream_thater/代数系/IWA/IWA15
-    status: planned
+    status: completed
     title: "Kubota–Leopoldt p進L関数"
   - id: IWA16
     path: textbook/volumes/dream_thater/代数系/IWA/IWA16

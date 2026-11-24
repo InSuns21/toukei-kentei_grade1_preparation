@@ -15,3 +15,4 @@
 12. [IWA12 控制定理（control）の原型](textbook/volumes/dream_thater/代数系/IWA/IWA12/index.md)
 13. [IWA13 p進測度・積分とIwasawa代数](textbook/volumes/dream_thater/代数系/IWA/IWA13/index.md)
 14. [IWA14 Kummer合同とBernoulli数](textbook/volumes/dream_thater/代数系/IWA/IWA14/index.md)
+15. [IWA15 Kubota–Leopoldt p進L関数](textbook/volumes/dream_thater/代数系/IWA/IWA15/index.md)
