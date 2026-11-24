@@ -1,0 +1,37 @@
+id: "CATB1-07"
+title: "Lawvere理論とモデル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT2-02
+  - CAT1-07
+official_scope: []
+learning_objectives:
+  - 有限積と射影によってLawvere理論の射を演算の組として理解できる
+  - 項の同値類と代入からLawvere理論を構成できる
+  - 有限積保存関手の比較写像から集合上の演算と等式を復元できる
+  - モデル間の自然変換と準同型の対応を証明できる
+  - モノイドと群の理論を具体的に計算できる
+definitions:
+  - { id: CATB1-07-DEF-01, name: "Lawvere理論" }
+  - { id: CATB1-07-DEF-02, name: "Lawvere理論の集合値モデル" }
+theorems:
+  - { id: CATB1-07-THM-01, name: "項からのLawvere理論の構成" }
+  - { id: CATB1-07-THM-02, name: "集合値モデルと代数の対応" }
+canonical_examples:
+  - 入力の選択だけの理論
+  - 整数の加法モノイドの評価モデル
+  - 群の逆元演算と準同型
+problem_patterns:
+  - CATB1-07-INPUT
+  - CATB1-07-ASSOCIATIVE
+  - CATB1-07-CONSTANT
+  - CATB1-07-NONCOMMUTATIVE
+  - CATB1-07-PRODUCT
+  - CATB1-07-NATURAL
+  - CATB1-07-EMPTY
+  - CATB1-07-IDEMPOTENT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 5, review: 2 }
