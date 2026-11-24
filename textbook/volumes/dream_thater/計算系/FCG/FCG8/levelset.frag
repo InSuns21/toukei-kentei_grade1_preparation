@@ -29,8 +29,23 @@ void main(){
     vec2 original=vec2(xy.x-u_shear*u_time*(xy.y-0.5),xy.y);
     phi=length(original-vec2(0.5))-0.18;
   }
-  vec3 rgb=phi < -0.014?vec3(0.08,0.55,0.79):
-    (phi > 0.014?vec3(0.06,0.10,0.14):vec3(0.98,0.74,0.20));
+  // Reference is evaluated at the same physical point and time in all panels.
+  vec2 back=xy-vec2(0.5+u_shear*u_time*(xy.y-0.5),0.5);
+  float exact=length(back)-0.18;
+  vec3 rgb=phi<0.0?vec3(0.08,0.55,0.79):vec3(0.06,0.10,0.14);
+  // Equally spaced level values reveal stretching of the distance field.
+  // The lines are contours of the uploaded scalar field, not a decorative grid.
+  float band=abs(fract(abs(phi)/0.04+0.5)-0.5)*0.04;
+  if(panel<2 && abs(phi)>0.014 && abs(phi)<0.115 && band<0.0025)
+    rgb=phi<0.0?vec3(0.50,0.80,0.90):vec3(0.32,0.43,0.50);
+  if(abs(phi)<=0.014)rgb=phi<0.0?vec3(0.16,0.42,0.49):vec3(0.20,0.24,0.23);
+  // A contrasting strip marks disagreement of the numerical and exact signs.
+  if(panel<2 && (phi<0.0)!=(exact<0.0))rgb=vec3(0.83,0.24,0.49);
+  if(abs(phi)<0.0035)rgb=vec3(0.98,0.74,0.20);
+  // Dashed analytic outline stays visible on top of the numerical result.
+  float angle=atan(back.y,back.x);
+  if(panel<2 && abs(exact)<0.0025 && fract((angle+3.14159265)*3.81971863)<0.55)
+    rgb=vec3(0.96,0.96,0.96);
   if(panel==2){
     for(int k=0;k<64;k++){
       if(distance(xy,u_particles[k])<0.010)rgb=vec3(0.96,0.50,0.14);
