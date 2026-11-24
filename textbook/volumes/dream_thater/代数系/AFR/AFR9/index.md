@@ -12,7 +12,15 @@ $$
 \widehat{\mathbb Z}=\prod_p\mathbb Z_p
 $$
 
-と書きます。$x=(x_\infty,x_f)$ と書き、$x_f=(x_p)_p$ はほとんどすべての素数で $x_p\in\mathbb Z_p$ を満たします。積 $xy$ は成分ごとの積です。$\mathbb Q_p$ は $p$ 進数体、$\mathbb Z_p$ はその整数環です。[p進付値](../../ANF/ANF9/index.md#def-anf9-p-adic-valuation)を $v_p$、[p進絶対値](../../ANF/ANF9/index.md#def-anf9-p-adic-absolute)を $|x|_p=p^{-v_p(x)}$（零では $0$）とします。[p進整数の桁展開](../../ANF/ANF9/index.md#thm-anf9-digit-expansion)を $p^{-v_p(x)}x\in\mathbb Z_p$ に適用し、再び $p^{v_p(x)}$ を掛けると、非零の $x\in\mathbb Q_p$ は
+アデールの成分を $x=(x_\infty,x_f)$、$x_f=(x_p)_p$ と書きます。$\mathbb Q_p$ は $p$ 進数体、$\mathbb Z_p$ はその整数環であり、ほとんどすべての素数で $x_p\in\mathbb Z_p$ です。積 $xy$ は成分ごとの積です。
+
+[p進付値](../../ANF/ANF9/index.md#def-anf9-p-adic-valuation)を $v_p$ とし、非零元の[p進絶対値](../../ANF/ANF9/index.md#def-anf9-p-adic-absolute)を次で表します（零では $0$）。
+
+$$
+|x|_p=p^{-v_p(x)}.
+$$
+
+[p進整数の桁展開](../../ANF/ANF9/index.md#thm-anf9-digit-expansion)を $p^{-v_p(x)}x\in\mathbb Z_p$ に適用し、再び $p^{v_p(x)}$ を掛けると、非零の $x\in\mathbb Q_p$ は
 
 $$
 x=\sum_{j=v_p(x)}^\infty a_jp^j,\qquad 0\le a_j<p
@@ -114,7 +122,17 @@ $p^k\mathbb Z_p$ の平行移動は $k\ge0$ なら $\mathbb Z_p$ を $p^k$ 個�
 
 $\mathbb Q_p/\mathbb Z_p$ は $\bigcup_{n\ge0}p^{-n}\mathbb Z_p/\mathbb Z_p$ として可算です。各剰余類へ先ほどの確率測度を平行移動し、その可算和を取れば $\mathbb Q_p$ 上の測度が得られます。代表元の選択によらず、加法平行移動で剰余類が置換されるので不変です。コンパクト集合は開集合である剰余類の有限個で被覆され、測度は有限です。
 
-球は Borel 集合を生成します。各 $p^{-n}\mathbb Z_p$（$n\ge0$）内では、球の有限和が集合代数をなし、その全質量は $p^n$ です。[Carathéodory拡張定理の一意性](../../../解析系/F0/F0-00D4/index.md#thm-caratheodory-extension)から、この集合上で球の体積が一致する二つの測度は全 Borel 集合で一致します。$p^{-n}\mathbb Z_p$ は増大して $\mathbb Q_p$ を覆うので、測度の下からの連続性により全空間でも一致します。$c=p^m u$（$m=v_p(c)$、$u\in\mathbb Z_p^\times$ は整数環の単元、すなわち逆元も整数環にある元）なら、$u\mathbb Z_p=\mathbb Z_p$ なので
+球は Borel 集合を生成します。各 $p^{-n}\mathbb Z_p$（$n\ge0$）内では、球の有限和が集合代数をなし、その全質量は $p^n$ です。[Carathéodory拡張定理の一意性](../../../解析系/F0/F0-00D4/index.md#thm-caratheodory-extension)から、この集合上で球の体積が一致する二つの測度は全 Borel 集合で一致します。
+
+$p^{-n}\mathbb Z_p$ は増大して $\mathbb Q_p$ を覆うので、測度の下からの連続性により全空間でも一致します。
+
+次に非零の $c$ を単元部分と付値部分に分けます。
+
+$$
+c=p^m u,\qquad m=v_p(c),\quad u\in\mathbb Z_p^\times.
+$$
+
+ここで単元とは逆元も整数環にある元です。$u\mathbb Z_p=\mathbb Z_p$ なので
 
 $$
 c(a+p^k\mathbb Z_p)=ca+p^{k+m}\mathbb Z_p.
@@ -164,7 +182,16 @@ $$
 =(P_n'(t)-2\pi tP_n(t))e^{-\pi t^2}.
 $$
 
-従って $P_{n+1}=P_n'-2\pi tP_n$ は多項式で、帰納的に $g^{(n)}=P_n g$ です。任意の $m,n$ に対し $(1+|t|)^m|P_n(t)|e^{-\pi t^2}$ は無限遠で零に収束し、連続なので有界です。$1_E$ は集合 $E$ 上で $1$、外で $0$ となる指示関数です。$1_{\mathbb Z_p}$ は $\mathbb Z_p$ とその補集合がともに開なので局所定数です。整数環のコンパクト性は [AFR8 のコンパクト性定理の証明](../AFR8/index.md#thm-afr8-additive-quotient-compact)で確認しました。従って
+従って $P_{n+1}=P_n'-2\pi tP_n$ は多項式で、帰納的に $g^{(n)}=P_n g$ です。任意の非負整数 $m,n$ について、
+
+$$
+(1+|t|)^m|P_n(t)|e^{-\pi t^2}\longrightarrow0
+\qquad (|t|\to\infty).
+$$
+
+この式の左辺は連続なので有界です。
+
+$1_E$ は集合 $E$ 上で $1$、外で $0$ となる指示関数です。$1_{\mathbb Z_p}$ は $\mathbb Z_p$ とその補集合がともに開なので局所定数です。整数環のコンパクト性は [AFR8 のコンパクト性定理の証明](../AFR8/index.md#thm-afr8-additive-quotient-compact)で確認しました。従って
 
 $$
 f(x)=e^{-\pi x_\infty^2}\prod_p1_{\mathbb Z_p}(x_p)
@@ -300,7 +327,16 @@ $$
 
 実際、$b$ は有理数で $d=\prod_p p^{k_p}$、ほとんどすべての素数で $b$ は整かつ $k_p=0$ です。固定した $y_f$ の非整成分も有限個であり、それらをすべて例外集合へ入れると残りの局所積分は $1$ です。
 
-例外集合を $S$ とすると、剰余類は $S$ の局所球の積と、外側の整数環の積からなります。第2節で構成した測度はこの分割上で局所測度の積と外側の確率測度の積に一致します（有限剰余類を指定する集合で一致し、有限測度の一意性で拡張できます）。外側では $x_py_p$ が整なので指標は $1$ です。従って Fubini の定理を実部と虚部に適用し、有限個の局所積分の積に [球指示関数の変換](#thm-afr9-ball-transform)を代入すると係数は $d^{-1}$、条件は各 $p$ で $y_p\in p^{-k_p}\mathbb Z_p$ となります。特に $b=0,d=1$ なら有限側の指示関数は自分自身へ移ります。実側の Gaussian と積を取ると、先ほどの大域試験関数も自分自身へ移ります。
+例外集合を $S$ とすると、剰余類は $S$ の局所球の積と、外側の整数環の積からなります。第2節で構成した測度はこの分割上で局所測度の積と外側の確率測度の積に一致します（有限剰余類を指定する集合で一致し、有限測度の一意性で拡張できます）。
+
+外側では $x_py_p$ が整なので指標は $1$ です。従って [Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02)を実部と虚部に適用し、有限個の局所積分の積に [球指示関数の変換](#thm-afr9-ball-transform)を代入すると係数と台の条件は
+
+$$
+\prod_p p^{-k_p}=d^{-1},\qquad
+y_p\in p^{-k_p}\mathbb Z_p\quad(\text{すべての }p)
+$$
+
+となります。特に $b=0,d=1$ なら有限側の指示関数は自分自身へ移ります。実側の Gaussian と積を取ると、先ほどの大域試験関数も自分自身へ移ります。
 
 <a id="thm-afr9-inversion"></a>
 
