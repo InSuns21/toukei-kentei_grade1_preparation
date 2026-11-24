@@ -101,7 +101,7 @@ P_-F(s(z))=2y^{k/2+1}(f_y-if_x)
 =-4iy^{k/2+1}\partial_{\bar z}f.
 $$
 
-ここで $\partial_{\bar z}f=(f_x+if_y)/2$ です。$y>0$ なので $P_-\phi=0$ は $\partial_{\bar z}f=0$ を含意します。滑らかさと Cauchy–Riemann 方程式から $f$ は正則です。
+ここで $\partial_{\bar z}f=(f_x+if_y)/2$ です。$y>0$ なので $P_-\phi=0$ は $\partial_{\bar z}f=0$ を含意します。$f$ は滑らかなので、[Wirtinger判定](../../../解析系/CA/CA1/index.md#prop-ca1-wirtinger-criterion) により正則です。
 
 周期1により $q=e^{2\pi iz}$ を座標として $0<|q|<1$ 上の正則関数 $\widetilde f(q)$ が定まります。局所的に対数で逆写像を取り、枝の違いは整数平行移動なので値は一致します。[アデール上の保型形式](../AFR11/index.md#def-afr11-automorphic-form) の緩増大条件 $|\phi(g)|\le C H(g)^M$ を、$0\le x\le1,\ y\ge1$ の $s(z)$ に適用します。$s(z)^{-1}=\begin{pmatrix}1/\sqrt y&-x/\sqrt y\\0&\sqrt y\end{pmatrix}$ なので高さは $\sqrt y$ です。よって
 
@@ -109,7 +109,7 @@ $$
 |f(x+iy)|\le C y^{(M-k)/2}.
 $$
 
-任意の整数 $m\ge1$ に対して [Laurent展開](../../../解析系/CA/CA4/index.md#thm-ca4-laurent) を適用し、係数を半径 $r=e^{-2\pi y}$ で使うと
+任意の整数 $m\ge1$ に対して [Laurent展開](../../../解析系/CA/CA4/index.md#thm-ca4-laurent) を適用し、半径 $r=e^{-2\pi y}$ の円周上で係数を評価すると
 
 $$
 |a_{-m}|\le r^m\max_{|q|=r}|\widetilde f(q)|
@@ -250,9 +250,9 @@ $\phi_f\ne0$ なので少なくとも一つの $\phi_j$ は非零です。その
 
 ## 4. 一つの表現から局所成分と古典形式を読む
 
-### 外部入力：既約許容加群の局所分解
-
 <a id="ref-afr17-flath"></a>
+
+### 外部入力：Flath のテンソル積定理
 
 Flath のテンソル積定理は、アデール群の既約許容加群を実側の既約許容加群と有限側の既約滑らかな許容表現の制限テンソル積に分解します。ここで有限側の許容性は [p進表現の許容性](../AFR13/index.md#def-afr13-admissible) の意味です。本講で必要なのは有理数体上の $GL_2$ の場合で、全ての有限素点を同一視したり、無限積を完成 Hilbert テンソル積とみなしたりはしません。
 

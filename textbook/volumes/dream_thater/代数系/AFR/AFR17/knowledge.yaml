@@ -8,7 +8,7 @@ concepts:
     name: "最低重さ条件による古典カスプ形式の復元"
     kind: theorem
     introduction: formal
-    requires: [automorphic-forms.classical-adelization, automorphic-forms.real-ladder, automorphic-forms.constant-term-reduction, complex-analysis.laurent-expansion]
+    requires: [automorphic-forms.classical-adelization, automorphic-forms.real-ladder, automorphic-forms.constant-term-reduction, complex-analysis.laurent-expansion, complex-analysis.wirtinger-criterion]
   - id: automorphic-forms.prime-hecke-eigenline
     name: "素数Hecke固有値による直線の決定"
     kind: proposition
