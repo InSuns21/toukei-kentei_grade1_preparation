@@ -50,3 +50,4 @@
 46. [PML2-24 データ同化を単発の逆問題とどう区別するか](textbook/volumes/dream_thater/応用系/PML/PML2-24/index.md)
 
 47. [PML2-25 何を比較すれば科学計算として信頼できるか](textbook/volumes/dream_thater/応用系/PML/PML2-25/index.md)
+48. [PML2-26 PINN・FNO・古典解法はどんな条件で勝敗が変わるか](textbook/volumes/dream_thater/応用系/PML/PML2-26/index.md)
