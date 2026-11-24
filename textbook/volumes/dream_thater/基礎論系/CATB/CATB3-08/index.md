@@ -209,7 +209,7 @@ $$
 \Phi_{x,d'}(su)=L^{\mathrm{op}}(s)\Phi_{x,d}(u).
 $$
 
-これは反対圏での二変数自然性をそれぞれ前合成と後合成に読み替えた式である。従って $R=L^{\mathrm{op}}:\mathcal D\to\mathcal C$ と置くと [随伴のHom全単射](../../CAT/CAT2-08/index.md#def-cat2-08-adjunction) の定義により $F\dashv R$ となる。
+これは反対圏での二変数自然性をそれぞれ前合成と後合成に読み替えた式である。そこで $R=L^{\mathrm{op}}:\mathcal D\to\mathcal C$ と置く。[Hom集合による随伴](../../CAT/CAT2-08/index.md#def-cat2-08-adjunction) の定義により $F\dashv R$ となる。
 <!-- proof-end -->
 
 ここで $\mathcal D$ の局所可呈示性や余完備性を要求していない。必要な像の余極限は、$F$ の保存条件から得られる。小さい候補圏から得た弱終対象がそのまま右随伴の値になるとは限らない。Freydの定理の双対では、自己射の余等化子などを使って一意性まで得る。
