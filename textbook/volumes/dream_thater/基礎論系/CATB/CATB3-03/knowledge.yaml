@@ -1,0 +1,23 @@
+chapter: CATB3-03
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB3-02, CAT2-05]
+concepts:
+  - id: category.locally-finitely-presentable-category
+    name: 局所有限表示圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所有限表示圏）"]
+    requires: [category.locally-small-category, category.cocomplete-category, category.finitely-presentable-object, category.filtered-colimit]
+  - id: category.set-locally-finitely-presentable
+    name: 集合の圏の局所有限表示性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（集合の圏の局所有限表示性）"]
+    requires: [category.locally-finitely-presentable-category, category.set-finitely-presentable, category.cocompleteness-criterion, category.filtered-category]
+  - id: category.module-locally-finitely-presentable
+    name: 加群の圏の局所有限表示性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（加群の圏の局所有限表示性）"]
+    requires: [category.locally-finitely-presentable-category, category.module-finitely-presentable, category.cocompleteness-criterion, algebra.free-module-universal-property]
