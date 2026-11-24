@@ -6,17 +6,26 @@ Dirac方程式の場には四成分がありました。一方、正質量スピ
 
 ## 1. 二つの変換の対象
 
-[共通符号規約](../../../../../dream-theater-lorentz-conventions.md)に従い、$c=\hbar=1$、$\eta=\operatorname{diag}(-1,1,1,1)$ とします。$G=SL(2,\mathbb C)$ とし、$Ax$ は[二重被覆](../LREP10/index.md#thm-lrep10-double-cover)による四元ベクトルの変換の略記です。$p\cdot x=\eta(p,x)$ とします。
+[共通符号規約](../../../../../dream-theater-lorentz-conventions.md)に従い、$c=\hbar=1$、$\eta=\operatorname{diag}(-1,1,1,1)$ とします。
 
-$m>0$ を固定し、[未来質量殻](../LREP22/index.md#def-lrep22-mass-shell) $\mathcal O_m$ と静止点 $k=(m,\boldsymbol 0)$ を取ります。$p=(E,\boldsymbol p)$、$E=\sqrt{m^2+|\boldsymbol p|^2}$ です。場の値を取る有限次元複素空間を $F=\mathbb C^n$ とし、粒子の内部空間を $V=\mathbb C^d$ とします。一般に $n$ と $d$ は等しくありません。
+$G=SL(2,\mathbb C)$ とし、$Ax$ は[二重被覆](../LREP10/index.md#thm-lrep10-double-cover)による四元ベクトルの変換の略記です。$p\cdot x=\eta(p,x)$ とします。
 
-場は時空の各点に $F$ の列を割り当てます。$GL(F)$ は $F$ の可逆複素線形写像の群、$U(d)$ は $d$ 次ユニタリ行列の群です。座標の引き戻しと成分の変換を組み合わせる必要があります。ここでは前講の並進位相 $e^{ip\cdot a}$ に合わせ、引き戻しの引数を $A^{-1}(x+a)$ とします（時空並進を逆向きにラベルする約束です）。
+$m>0$ を固定し、[未来質量殻](../LREP22/index.md#def-lrep22-mass-shell) $\mathcal O_m$ と静止点 $k=(m,\boldsymbol 0)$ を取ります。
+
+$p=(E,\boldsymbol p)$、$E=\sqrt{m^2+|\boldsymbol p|^2}$ です。
+
+場の値を取る有限次元複素空間を $F=\mathbb C^n$ とし、粒子の内部空間を $V=\mathbb C^d$ とします。一般に $n$ と $d$ は等しくありません。
+
+場は時空の各点に $F$ の列を割り当てます。$GL(F)$ は $F$ の可逆複素線形写像の群、$U(d)$ は $d$ 次ユニタリ行列の群です。
+
+座標の引き戻しと成分の変換を組み合わせる必要があります。ここでは前講の並進位相 $e^{ip\cdot a}$ に合わせ、引き戻しの引数を $A^{-1}(x+a)$ とします（時空並進を逆向きにラベルする約束です）。
 
 <a id="def-lrep26-field-action"></a>
 
 <!-- formal-statement-start -->
 > **定義（有限成分場の共変作用）**
-> $F$ を有限次元複素ベクトル空間、$D:G\to GL(F)$ を連続な[有限次元複素線形表現](../LREP1/index.md#def-lrep1-linear-representation)とする。連続な場 $\Phi:\mathbb R^{1,3}\to F$ 上の作用を、被覆Poincare群の元 $(a,A)$ に対して
+> $F$ を有限次元複素ベクトル空間、$D:G\to GL(F)$ を連続な[有限次元複素線形表現](../LREP1/index.md#def-lrep1-linear-representation)とする。
+> 連続な場 $\Phi:\mathbb R^{1,3}\to F$ 上の作用を、被覆Poincare群の元 $(a,A)$ に対して
 
 $$
 (T_D(a,A)\Phi)(x)=D(A)\Phi(A^{-1}(x+a))
@@ -41,7 +50,11 @@ $$
 
 単位元は恒等作用であり、逆元の作用が逆写像になるので、場全体の線形表現になります。ここで $D(A)$ が通常の正定値内積を保存するとは仮定していません。
 
-一方、[正質量の静止安定化群](../LREP23/index.md#thm-lrep23-rest-group)は $K=SU(2)$ です。連続なユニタリ表現 $\rho:K\to U(d)$ と連続な[運動量断面](../LREP25/index.md#def-lrep25-section) $s(p)$ を選び、$s(k)=I_2$ とします。$\rho$ は前講で固定群の表現を表すために使った $D$ に当たります。本講では場の $D$ と区別します。
+一方、[正質量の静止安定化群](../LREP23/index.md#thm-lrep23-rest-group)は $K=SU(2)$ です。
+
+連続なユニタリ表現 $\rho:K\to U(d)$ と連続な[運動量断面](../LREP25/index.md#def-lrep25-section) $s(p)$ を選び、$s(k)=I_2$ とします。
+
+$\rho$ は前講で固定群の表現を表すために使った $D$ に当たります。本講では場の $D$ と区別します。
 
 [断面の固定群補正](../LREP25/index.md#def-lrep25-little-cocycle)と[質量殻上の誘導作用](../LREP25/index.md#def-lrep25-induced)は
 
@@ -63,9 +76,29 @@ $$
 
 ## 2. 静止系の長方形行列から全運動量へ
 
-運動量 $p$ の内部列 $v\in V$ から場の係数を作るには、$F$ に値を取る線形写像 $u(p):V\to F$ が必要です。静止系の係数は $u(k)$ です。静止点を固定する回転 $R$ に対して、内部列を回転させてから場へ移しても、先に場へ移してその成分を回転させても一致してほしいと考えます。これは[絡作用素](../LREP1/index.md#def-lrep1-intertwiner)の考え方です。
+運動量 $p$ の内部列 $v\in V$ から場の係数を作るには、$F$ に値を取る線形写像 $u(p):V\to F$ が必要です。静止系の係数は $u(k)$ です。
 
-一般の運動量でも比較できます。単一の平面波 $e^{ip\cdot x}u(p)v$ は二乗可積分な波束そのものではなく、波束を構成するモードです。場の変換 $T_D(0,A)$ を施すと $e^{ip\cdot A^{-1}x}D(A)u(p)v$ になります。計量保存性から指数は $e^{i(Ap)\cdot x}$ です。一方、[誘導作用](../LREP25/index.md#def-lrep25-induced)では入力 $p$ の内部列 $v$ は出力 $Ap$ の内部列 $\rho(w(A,p))v$ に対応します。これを場へ移せば $e^{i(Ap)\cdot x}u(Ap)\rho(w(A,p))v$ です。指数を消し、任意の $v$ で二つの列が一致することを要求すれば次の行列条件が得られます。$\operatorname{Hom}(V,F)$ は $V$ から $F$ への複素線形写像全体です。
+静止点を固定する回転 $R$ に対して、内部列を回転させてから場へ移しても、先に場へ移してその成分を回転させても一致してほしいと考えます。これは[絡作用素](../LREP1/index.md#def-lrep1-intertwiner)の考え方です。
+
+一般の運動量でも比較できます。単一の平面波 $e^{ip\cdot x}u(p)v$ は二乗可積分な波束そのものではなく、波束を構成するモードです。
+
+場の変換 $T_D(0,A)$ を施した結果は
+
+$$
+e^{ip\cdot A^{-1}x}D(A)u(p)v=e^{i(Ap)\cdot x}D(A)u(p)v
+$$
+
+です。最後の等号は計量保存性によります。
+
+一方、[誘導作用](../LREP25/index.md#def-lrep25-induced)では入力 $p$ の内部列 $v$ は出力 $Ap$ の内部列 $\rho(w(A,p))v$ に対応します。これを場へ移した結果は
+
+$$
+e^{i(Ap)\cdot x}u(Ap)\rho(w(A,p))v
+$$
+
+です。指数を消し、任意の $v$ で二つの列が一致することを要求すれば次の行列条件が得られます。
+
+$\operatorname{Hom}(V,F)$ は $V$ から $F$ への複素線形写像全体です。
 
 <a id="def-lrep26-mode-intertwiner"></a>
 
@@ -150,7 +183,8 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（正周波数波束の場への写像）**
-> $m>0$ とし、[共変モード係数](#def-lrep26-mode-intertwiner) $u$ と連続コンパクト台の内部波束 $f:\mathcal O_m\to V$ を取る。$\mu_m$ は[質量殻測度](../LREP22/index.md#def-lrep22-shell-measure)とする。このとき
+> $m>0$ とし、[共変モード係数](#def-lrep26-mode-intertwiner) $u$ と連続コンパクト台の内部波束 $f:\mathcal O_m\to V$ を取る。
+> $\mu_m$ は[質量殻測度](../LREP22/index.md#def-lrep22-shell-measure)とする。このとき
 
 $$
 (\mathcal J_u f)(x)=\int_{\mathcal O_m}e^{ip\cdot x}u(p)f(p)\,d\mu_m(p)
@@ -160,7 +194,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep26-packet-field-map -->
-**定義の確認**。 自明表現の例の $u=1$ を使い、$f(p)=\max(1-|\boldsymbol p|,0)$ とします。連続で閉単位球に台を持ち、$E\ge m>0$ より測度密度は $1/(2m)$ 以下です。従って積分は絶対収束します。$x=0$ では被積分関数は非負で球の内部で正なので $\mathcal J_u f(0)>0$ です。また任意の $x_j\to x$ について指数因子は点ごとに収束し、絶対値は1です。有界な台上の可積分関数 $|f|$ により支配されるので積分値も連続です。ここでは[Lebesgueの優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)を適用しています。
+**定義の確認**。 自明表現の例の $u=1$ を使い、$f(p)=\max(1-|\boldsymbol p|,0)$ とします。
+
+連続で閉単位球に台を持ち、$E\ge m>0$ より測度密度は $1/(2m)$ 以下です。従って積分は絶対収束します。
+
+$x=0$ では被積分関数は非負で球の内部で正なので $\mathcal J_u f(0)>0$ です。
+
+また任意の $x_j\to x$ について指数因子は点ごとに収束し、絶対値は1です。有界な台上の可積分関数 $|f|$ により支配されるので積分値も連続です。ここでは[Lebesgueの優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)を適用しています。
 <!-- definition-example-end -->
 
 場と粒子の変換の一致は、次の一つの等式として表せます。
@@ -169,7 +209,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（波束写像の共変性）**
-> $m>0$、連続な表現 $D,\rho$ と連続な運動量断面 $s$、それらに対応する[共変モード係数](#def-lrep26-mode-intertwiner) $u$ を取る。$f$ は質量殻上の連続コンパクト台の内部波束とする。[波束の場への写像](#def-lrep26-packet-field-map) $\mathcal J_u$、[場の共変作用](#def-lrep26-field-action) $T_D$、[誘導作用](../LREP25/index.md#def-lrep25-induced) $U$ について、任意の被覆Poincare群の元 $(a,A)$ に対し
+> $m>0$、連続な表現 $D,\rho$ と連続な運動量断面 $s$、それらに対応する[共変モード係数](#def-lrep26-mode-intertwiner) $u$ を取る。
+> $f$ は質量殻上の連続コンパクト台の内部波束とする。
+>
+> [波束の場への写像](#def-lrep26-packet-field-map) $\mathcal J_u$、[場の共変作用](#def-lrep26-field-action) $T_D$、[誘導作用](../LREP25/index.md#def-lrep25-induced) $U$ について、
+> 任意の被覆Poincare群の元 $(a,A)$ に対し
 
 $$
 \mathcal J_u U(a,A)f=T_D(a,A)\mathcal J_u f
@@ -183,7 +227,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$U(a,A)f$ は連続で、台は元の台の $A$ による像に含まれます。像はコンパクトなので、この波束にも積分を定義できます。一般の $f$ に対し、台上の連続関数 $\|u(p)\|\|f(p)\|$ は有界で、測度は有限です。従って積分は絶対収束し、指数因子の絶対値が1なので[Lebesgueの優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)により $\mathcal J_u f$ は連続です。
+$U(a,A)f$ は連続で、台は元の台の $A$ による像に含まれます。像はコンパクトなので、この波束にも積分を定義できます。
+
+一般の $f$ に対し、台上の連続関数 $\|u(p)\|\|f(p)\|$ は有界で、測度は有限です。
+
+従って積分は絶対収束し、指数因子の絶対値が1なので[Lebesgueの優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)により $\mathcal J_u f$ は連続です。
 
 [質量殻上の誘導作用](../LREP25/index.md#def-lrep25-induced)を代入します。
 
@@ -302,7 +350,11 @@ $$
 =\int\|f(p)\|^2\,d\mu_m(p).
 $$
 
-右辺は[誘導作用のユニタリ性](../LREP25/index.md#thm-lrep25-unitary)により保存されるので、左辺も誘導された変換で保存されます。重みを落とした成分ノルムとは異なります。この積分で作った場が自由Dirac方程式を満たすことも確認できます。コンパクトな台では $p_\mu$ と $u(p)$ が有界なので、指数関数を微分した被積分関数は可積分な関数で一様に支配されます。差商にも同じ支配が使えるので、[Lebesgueの優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)で積分と一階微分を交換できます。[自由Dirac作用素](../LREP19/index.md#def-lrep19-dirac-operator)を $\mathcal J_u f$ に適用し、$i\partial_\mu e^{ip\cdot x}=-p_\mu e^{ip\cdot x}$ を代入すると
+右辺は[誘導作用のユニタリ性](../LREP25/index.md#thm-lrep25-unitary)により保存されるので、左辺も誘導された変換で保存されます。重みを落とした成分ノルムとは異なります。
+
+この積分で作った場が自由Dirac方程式を満たすことも確認できます。コンパクトな台では $p_\mu$ と $u(p)$ が有界なので、指数関数を微分した被積分関数は可積分な関数で一様に支配されます。差商にも同じ支配が使えるので、[Lebesgueの優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)で積分と一階微分を交換できます。
+
+[自由Dirac作用素](../LREP19/index.md#def-lrep19-dirac-operator)を $\mathcal J_u f$ に適用し、$i\partial_\mu e^{ip\cdot x}=-p_\mu e^{ip\cdot x}$ を代入すると
 
 $$
 D_m\mathcal J_u f=\int_{\mathcal O_m}e^{ip\cdot x}(K(p)-mI_4)u(p)f(p)\,d\mu_m(p)=0.
@@ -395,7 +447,9 @@ $F=\mathbb C$ の自明表現、$V=\mathbb C^2$ の標準回転表現 $\rho(R)=R
 <!-- solution-start -->
 **詳細解答**
 
-[静止系の構成定理](#thm-lrep26-rest-extension)の必要条件は $C=C R$ です。$R=-I_2$ は行列式1かつユニタリなので $SU(2)$ に属します。この元を代入すると $C=-C$、従って $2C=0$ より $C=0$。同定理から $u(p)=D(s(p))C=0$ が全点で従います。場がスカラーである限り、この粒子の非零の係数は作れません。
+[静止系の構成定理](#thm-lrep26-rest-extension)の必要条件は $C=C R$ です。$R=-I_2$ は行列式1かつユニタリなので $SU(2)$ に属します。
+
+この元を代入すると $C=-C$、従って $2C=0$ より $C=0$。同定理から $u(p)=D(s(p))C=0$ が全点で従います。場がスカラーである限り、この粒子の非零の係数は作れません。
 <!-- solution-end -->
 
 <a id="ex-lrep26-b02"></a>
@@ -409,7 +463,11 @@ $m>0$、$r,t\in\mathbb R$ とし、$p=(m\cosh r,0,0,m\sinh r)$、$A=\operatornam
 <!-- solution-start -->
 **詳細解答**
 
-$s(p)$ の二つの分子は $m(1+\cosh r\pm\sinh r)=m(1+e^{\pm r})$。分母は $2m\cosh(r/2)$ なので $s(p)=\operatorname{diag}(e^{r/2},e^{-r/2})$ です。[エルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model)では $p$ の行列は $m\operatorname{diag}(e^r,e^{-r})$。$A$ による合同積は $m\operatorname{diag}(e^{r+t},e^{-r-t})$ です。従って $s(Ap)=As(p)$。補正は $(As(p))^{-1}As(p)=I_2$ です。
+$s(p)$ の二つの分子は $m(1+\cosh r\pm\sinh r)=m(1+e^{\pm r})$。分母は $2m\cosh(r/2)$ なので $s(p)=\operatorname{diag}(e^{r/2},e^{-r/2})$ です。
+
+[エルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model)では $p$ の行列は $m\operatorname{diag}(e^r,e^{-r})$。$A$ による合同積は $m\operatorname{diag}(e^{r+t},e^{-r-t})$ です。
+
+従って $s(Ap)=As(p)$。補正は $(As(p))^{-1}As(p)=I_2$ です。
 
 $s(p),A$ は対角なので可換です。$D(A)=\operatorname{diag}(A,A^{-1})$ より
 
@@ -432,7 +490,9 @@ $m>0$、$p\in\mathcal O_m$、$v\in\mathbb C^2$ とする。正質量Diracモー�
 <!-- solution-start -->
 **詳細解答**
 
-[内部空間の埋め込み](#thm-lrep26-dirac-embedding)で $u^\dagger H u=2mI_2$ です。$g$ の両辺に $u^\dagger H$ を掛けると $u^\dagger H g=2mv$。$m>0$ より $v=u^\dagger H g/(2m)$ となります。$m=0$ では分母が零であり、静止点 $(m,\boldsymbol0)$ も非零の未来光的軌道に属しません。したがってこの静止点からの構成自体を使えません。
+[内部空間の埋め込み](#thm-lrep26-dirac-embedding)で $u^\dagger H u=2mI_2$ です。$g$ の両辺に $u^\dagger H$ を掛けると $u^\dagger H g=2mv$。$m>0$ より $v=u^\dagger H g/(2m)$ となります。
+
+$m=0$ では分母が零であり、静止点 $(m,\boldsymbol0)$ も非零の未来光的軌道に属しません。したがってこの静止点からの構成自体を使えません。
 <!-- solution-end -->
 
 <a id="ex-lrep26-b04"></a>
@@ -477,7 +537,9 @@ $D(R)=\operatorname{diag}(R,R)$、$u(p)$ の第1列は $(3,0,i,0)^{\mathsf T}$ �
 - Level: C
 - ID: LREP26-C01
 
-$m>0$、連続な $h:\mathcal O_m\to SU(2)$、$h(k)=I_2$、連続コンパクト台の波束 $f$ を取る。$s'(p)=s(p)h(p)$ とする。静止行列 $C$ は同じとする。新しい係数 $u'(p)$ と新しい波束 $f'(p)$ を求め、同じ場が得られること、波束ノルムが保たれること、誘導作用が対応することを示せ。
+$m>0$、連続な $h:\mathcal O_m\to SU(2)$、$h(k)=I_2$、連続コンパクト台の波束 $f$ を取る。
+
+$s'(p)=s(p)h(p)$ とする。静止行列 $C$ は同じとする。新しい係数 $u'(p)$ と新しい波束 $f'(p)$ を求め、同じ場が得られること、波束ノルムが保たれること、誘導作用が対応することを示せ。
 
 <!-- solution-start -->
 **詳細解答**
