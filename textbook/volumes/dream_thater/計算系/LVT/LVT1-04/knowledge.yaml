@@ -1,0 +1,25 @@
+chapter: LVT1-04
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT1-03]
+concepts:
+  - id: lean-verification.list-constructors
+    name: リストの再帰的構成
+    kind: definition
+    introduction: formal
+  - id: lean-verification.structural-recursion
+    name: 構造再帰
+    kind: definition
+    introduction: formal
+  - id: lean-verification.decreasing-measure
+    name: 自然数値の減少尺度
+    kind: definition
+    introduction: formal
+  - id: lean-verification.sum-branches
+    name: リスト合計の計算規則
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.natural-descent-termination
+    name: 自然数の真の減少による停止
+    kind: proposition
+    introduction: formal

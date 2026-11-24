@@ -19,7 +19,7 @@ chapters:
     title: "型・関数・帰納型・Option/Except"
   - id: LVT1-04
     path: textbook/volumes/dream_thater/計算系/LVT/LVT1-04
-    status: planned
+    status: completed
     title: "パターン照合・再帰・停止性"
   - id: LVT1-05
     path: textbook/volumes/dream_thater/計算系/LVT/LVT1-05
