@@ -121,7 +121,7 @@ try {
       assert.ifError(result.error);
       if(entry[0]==='Failure.lean') {
         assert.notEqual(result.status,0,id+' intentional failure accepted');
-        const pattern=id==='LVT1-01'?/guard/i:id==='LVT1-04'?/terminat/i:id==='LVT1-05'?/decide|false/i:/type mismatch/i;
+        const pattern=id==='LVT1-01'?/did not evaluate to `true`/i:id==='LVT1-04'?/terminat/i:id==='LVT1-05'?/decide|false/i:/type mismatch/i;
         assert.match(result.stdout+result.stderr,pattern);
       } else {
         assert.equal(result.status,0,id+' '+entry[0]+'\n'+result.stdout+result.stderr);
