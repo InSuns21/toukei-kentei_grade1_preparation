@@ -9,16 +9,6 @@ concepts:
     kind: definition
     introduction: formal
     requires: [number-theory.p-adic-digit-expansion]
-  - id: automorphic-forms.schwartz-bruhat
-    name: "Schwartz–Bruhat関数"
-    kind: definition
-    introduction: formal
-    requires: [number-theory.adele-ring]
-  - id: automorphic-forms.adelic-fourier
-    name: "アデールFourier変換"
-    kind: definition
-    introduction: formal
-    requires: [automorphic-forms.schwartz-bruhat, automorphic-forms.global-additive-character, automorphic-forms.local-additive-measure, fourier.fou3-fourier-transform]
   - id: automorphic-forms.global-additive-character
     name: "大域加法指標の有理数上の自明性"
     kind: proposition
@@ -28,12 +18,22 @@ concepts:
     name: "p進加法Haar測度の規格化"
     kind: proposition
     introduction: formal
-    requires: [number-theory.p-adic-digit-expansion]
+    requires: [number-theory.p-adic-digit-expansion, measure.caratheodory-extension-theorem]
+  - id: automorphic-forms.schwartz-bruhat
+    name: "Schwartz–Bruhat関数"
+    kind: definition
+    introduction: formal
+    requires: [number-theory.adele-ring]
   - id: automorphic-forms.finite-coset-decomposition
     name: "有限アデール試験関数の剰余類分解"
     kind: lemma
     introduction: formal
     requires: [automorphic-forms.schwartz-bruhat, automorphic-forms.rational-adele-additive-normal-form]
+  - id: automorphic-forms.adelic-fourier
+    name: "アデールFourier変換"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.schwartz-bruhat, automorphic-forms.global-additive-character, automorphic-forms.local-additive-measure, fourier.fou3-fourier-transform]
   - id: automorphic-forms.p-adic-ball-transform
     name: "p進球指示関数のFourier変換"
     kind: theorem
