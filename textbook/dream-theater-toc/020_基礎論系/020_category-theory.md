@@ -53,3 +53,4 @@
 50. [CATB2-02 前順序・距離空間と豊穣](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-02/index.md)
 51. [CATB2-03 豊穣関手と豊穣自然変換](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-03/index.md)
 52. [CATB2-04 豊穣Yonedaの補題](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-04/index.md)
+53. [CATB2-05 重み付き極限と余極限](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-05/index.md)
