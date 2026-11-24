@@ -301,3 +301,5 @@ R1〜R4の実装・実GPU表示・人手360px/1280px視覚査読が終わるま�
 
 
 - 2026-11-24：R3/FCG3 の32・64・96セル実計算切替を着手。共通G2 GUIは編集 `advection.js` の単一Nを変更し、半Lagrange補間・Float64配列・R8転送に連動。`advection.frag` は `textureSize` で参照格子を切り替える。独立CPU側の格子・半径・画素予測と実行パラメータの照合、画面凡例・教材の比較操作・Node契約回帰を変更。**CI、実Chromium GPU操作、360/1280pxの人手視覚確認、FPS/端末性能、FCG7/8と全講受入は未完了**。R3およびPLAN全体は進行中。
+
+- 2026-11-24：WGL7の従来の全画面チェッカー／単色比較を、同じ入力テクスチャ・同じ編集GLSLによる遠近のある床と拡大・UV境界の観察に置換。左右6種の縮小フィルタ・模様密度・ラップ・UV移動／停止／リセットを実際のuniform・sampler設定へ接続。従来の平面8画素CPU/GPU検算を観察開始前に維持し、共通ホストのWGL7分岐・凡例・教材第6節・回帰を同期。参考：WebGL2 Fundamentals Textures、three.js texture filtering。**CIと実ブラウザの視覚・操作受入は別途判定**し、WGL7の教材status・PLAN全体の進捗は変更しない。

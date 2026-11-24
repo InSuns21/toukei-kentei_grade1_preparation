@@ -74,6 +74,6 @@ test('FCG6 and WGL11 present initial-oracle limits and live controls to learners
     assert.match(md,/Space\/Enter/);
   }
   const host=await readFile(new URL('./wgl-lab-host.mjs',import.meta.url),'utf8');
-  assert.ok(host.includes("['FCG4','FCG6','WGL7','WGL11','WGL13']"));
+  assert.ok(host.includes("['FCG4','FCG6','WGL11','WGL13']"));
   assert.ok(host.includes("iframe.setAttribute('sandbox', 'allow-scripts')"));
 });

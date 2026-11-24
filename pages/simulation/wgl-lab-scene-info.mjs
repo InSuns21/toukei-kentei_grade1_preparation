@@ -134,10 +134,10 @@ const descriptions = Object.freeze({
   }),
   WGL7: Object.freeze({
     requiresSteps: false,
-    grid: '初期checker模様は8×8 RGBA8、data模様へ変更した場合は4×4 RGBA8（計算格子ではなく入力テクスチャ）',
-    color: '左は初期NEAREST、右は初期LINEAR_MIPMAP_LINEAR。実際のフィルタ・繰返し数はsampling.jsの設定が優先',
-    clock: () => '初期UVオフセットでの静止画素（物理時間ではない）',
-    mode: '再生は同一GLSLのUVオフセットだけを移動。模様の8×8 texelと描画バッファの画素を区別',
+    grid: '入力は8×8 RGBA8の模様（dataは4×4）。左右の床に同じ画像を貼る',
+    color: '初期の左はNEAREST、右はLINEAR_MIPMAP_LINEAR。各フィルタは画面上で切替可能',
+    clock: () => 'UV移動は任意に開始・停止できる',
+    mode: '手前から奥へ縮小する床と拡大・境界の2場面。数値詳細は表示前の平面8画素の検算',
     source: 'sampling.js / sampling.frag（u_repeats, u_offset, gl.TEXTURE_MIN_FILTER）'
   }),
   WGL11: Object.freeze({

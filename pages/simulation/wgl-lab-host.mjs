@@ -629,6 +629,9 @@ function isolatedRunner() {
         gl.readPixels(x, y, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, value);
         return {x, y, rgba: Array.from(value)};
       });
+      if (request.lesson === 'WGL7' && typeof hooks?.showObservation === 'function') {
+        hooks.showObservation();
+      }
       
       if(request.lesson === 'FCG2' || request.lesson === 'FCG3' || request.lesson === 'FCG4' || request.lesson === 'FCG5' || request.lesson === 'FCG6' || request.lesson === 'FCG7' || request.lesson === 'FCG8'){
         let cursorX=Math.floor(canvas.width/2),cursorY=Math.floor(canvas.height/2);
@@ -702,7 +705,7 @@ function runnerHtml() {
     '<style>' + (isWGL13 ?
       'body{margin:0;padding:0 6px;background:#0c1829;color:#e5eefb;font:14px/1.5 system-ui}' +
       'canvas{display:block;width:100%;height:auto;touch-action:none}' :
-      'body{margin:0;display:' + (isWGL10?'block':'grid;place-items:center') +
+      'body{margin:0;display:' + ((isWGL10||isWGL7)?'block':'grid;place-items:center') +
       ';background:#e2e8f0}canvas{display:block;width:100%;max-width:100%;height:auto}') +
     '</style></head><body>' +
     '<canvas id="gpu-canvas" aria-label="GPUが描画した画素"></canvas>' +
@@ -1450,10 +1453,11 @@ function run() {
   iframe.className = 'result-frame';
   // Responsive preview without changing the actual drawing-buffer resolution.
   iframe.style.aspectRatio = payload.width + ' / ' +
-    (payload.height + (isWGL3 ? 200 : isWGL18 ? 160 : isWGL13 ? 235 : 12));
+    (payload.height + (isWGL3 ? 200 : isWGL7 ? 235 : isWGL18 ? 160 : isWGL13 ? 235 : 12));
   iframe.style.height = 'auto';
   if (isWGL3) iframe.style.minHeight = '500px'; // two GPU mesh views and controls
   if (isWGL13) iframe.style.minHeight = '540px';
+  if (isWGL7) iframe.style.minHeight = '450px';
   if (isWGL17) {
     // The texel inspector belongs below the GPU canvas, never over its pixels.
     iframe.style.aspectRatio = 'auto';
@@ -2342,13 +2346,12 @@ if (isWGL7) {
   document.querySelector('h1').textContent =
     'WGL7 テクスチャ縮小：左は最近傍、右はミップマップ';
   document.querySelector('#panel-conditions > p').textContent =
-    '同じ8×8チェッカーボードを128回繰り返します。左はmipmapなしの最近傍参照、右はLINEAR_MIPMAP_LINEAR。左の明暗の折返しと右の平均灰色を8画素のCPU計算で照合します。';
+    '同じ模様の床を左右に描きます。手前のタイル、奥の偽の縞、移動時のちらつきをフィルタごとに比べましょう。';
   document.querySelector('#panel-conditions ol').innerHTML =
-    '<li>初期ソースで左右それぞれ4画素のRGBAとCPU基準を比較する。</li>' +
-    '<li>sampling.jsのrepeatsを1、8、128と変え、拡大と縮小の違いを見る。</li>' +
-    '<li>wrapModeをclampやmirrorに変え、UV境界の色を観察する。</li>' +
-    '<li>textureKindをdataへ変え4×4の数値テクスチャを調べ、GLSLも編集する。</li>' +
-    '<li>構文エラープリセットでGLSL診断を確認し、修正して再実行する。</li>';
+    '<li>描画して奥行きのある床を表示し、左右のフィルタを変える。</li>' +
+    '<li>模様を移動して遠方のちらつきを比較する。</li>' +
+    '<li>拡大・UV境界に切り替え、NEARESTとLINEAR、ラップ方式を試す。</li>' +
+    '<li>sampling.jsやGLSLで描画条件を編集する。数値詳細には平面8画素の初期検算を残す。</li>';
   byId('preset').options[0].textContent = '初期の最近傍とmipmapの比較';
   byId('preset').options[1].textContent = 'fragmentの構文エラー';
 }
@@ -2414,7 +2417,7 @@ if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-condi
 const sizeHint=(isFCG4||isFCG5||isFCG6||isFCG7||isFCG8)?[1536,512]:
   isFCG3?[1024,512]:isFCG2?[512,512]:isWGL14?[704,704]:
   (lesson==='WGL1'||isWGL2)?[960,960]:isWGL3?[960,480]:
-  isWGL19?[640,640]:isWGL10?[960,480]:legacyViewport?[800,600]:[960,720];
+  isWGL19?[640,640]:isWGL7?[800,400]:isWGL10?[960,480]:legacyViewport?[800,600]:[960,720];
 // Make the actual limits legible when a lesson's independent CPU oracle
 // intentionally supports fewer pixels than the shared WebGL2 host.
 byId('width').max=String(MAX_SIDE);byId('height').max=String(MAX_SIDE);
@@ -2426,7 +2429,7 @@ byId('width').value=String(sizeHint[0]);
 byId('height').value=String(sizeHint[1]);
 // An animated scene is only validated at its first static snapshot.
 // Keep that boundary visible next to the real GPU canvas, not just in theory.
-if (['FCG3','FCG5','WGL5','WGL9','WGL12'].includes(lesson) || ['FCG4','FCG6','WGL7','WGL11','WGL13'].includes(lesson)) {
+if (['FCG3','FCG5','WGL5','WGL9','WGL12'].includes(lesson) || ['FCG4','FCG6','WGL11','WGL13'].includes(lesson)) {
   const note=document.createElement('p');
   note.className='visual-snapshot-note';
   note.setAttribute('role','note');
