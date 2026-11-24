@@ -1,0 +1,23 @@
+id: "AFR21"
+title: "周期積分・seesaw identity"
+volume: "foundations"
+status: supplementary
+prerequisites: [AFR20, AFR10, AFR18]
+official_scope: []
+learning_objectives:
+  - 部分群の商に沿う周期積分を定義し具体的に計算できる
+  - 双対対の包含と共通部分の核を確認できる
+  - 絶対可積分性を確認してseesaw identityを導出できる
+  - 指標選択則を証明しHecke指標の変更による周期の変化を計算できる
+definitions:
+  - { id: AFR21-DEF-01, name: "周期積分" }
+  - { id: AFR21-DEF-02, name: "seesaw配置" }
+theorems:
+  - { id: AFR21-THM-01, name: "seesaw identity" }
+  - { id: AFR21-THM-02, name: "周期積分の指標選択則" }
+canonical_examples: ["直交型の入れ子の双対対", "有限行列核の二方向積分", "法5のHecke指標"]
+problem_patterns: [AFR21-A1, AFR21-A2, AFR21-A3, AFR21-A4, AFR21-B1, AFR21-B2, AFR21-B3, AFR21-B4, AFR21-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
