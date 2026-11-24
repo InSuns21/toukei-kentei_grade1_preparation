@@ -53,6 +53,16 @@ test('animated teaching code uses original lesson state and shader',async()=>{
         "canvas.addEventListener('pointermove'","canvas.addEventListener('wheel'",
         "canvas.addEventListener('keydown'"])
         assert.ok(text.includes(interaction),path+': '+interaction);
+    }else if(path==='FCG/FCG3/advection.js'){
+      assert.ok(text.includes("canvas.addEventListener('keydown'"),path);
+      for(const signal of ['showObservation(){','rawPick(x,y){','fcg3Draw(false)','fcg3Draw();','advance();fcg3Step++','fcg3Playing=false'])
+        assert.ok(text.includes(signal),path+': '+signal);
+      const shader=await readFile(new URL('FCG/FCG3/advection.frag',root),'utf8');
+      assert.match(shader,/uniform bool u_observe/);
+      assert.match(shader,/if\(!u_observe\)/);
+      assert.match(shader,/return vec3\(q,e,abs\(q-e\)\)/);
+      assert.match(shader,/vec3 f=reconstruct\(cellUv\)/);
+      assert.match(shader,/abs\(f.y-0.5\)/);
     }else assert.ok(text.includes("canvas.addEventListener('click'"),path);
     const first=text.indexOf('gl.flush()');
     const animation=text.indexOf('requestAnimationFrame(');

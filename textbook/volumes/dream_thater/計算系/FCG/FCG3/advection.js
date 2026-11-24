@@ -23,7 +23,7 @@ function sample(q,x,y){
 let previous=Float64Array.from({length:N*N},(_,k)=>initial(at(k%N),at(Math.floor(k/N))));
 let next=new Float64Array(N*N);
 const c=Math.cos(omega*dt),s=Math.sin(omega*dt);
-for(let n=0;n<steps;n++){
+function advance(){
   for(let j=0;j<N;j++)for(let i=0;i<N;i++){
     const dx=at(i)-0.5,dy=at(j)-0.5;
     // Inverse characteristic: exact for this prescribed rotation.
@@ -33,6 +33,7 @@ for(let n=0;n<steps;n++){
   }
   [previous,next]=[next,previous];
 }
+for(let n=0;n<steps;n++)advance();
 const analytic=Float64Array.from({length:N*N},(_,k)=>exact(at(k%N),at(Math.floor(k/N)),steps*dt));
 const cellArea=1/(N*N);
 let mass=0,exactMass=0,l1=0,maximum=0,peak=0;
@@ -93,7 +94,7 @@ report('MASS','area*sum q='+mass.toPrecision(9)+', exact sampled='+exactMass.toP
   ', difference='+(mass-exactMass).toPrecision(6)+' (NOT conservative)');
 report('ERROR','area*sum |q-exact|='+l1.toPrecision(7)+', max cell error='+maximum.toPrecision(7));
 report('PEAK','peak q='+peak.toPrecision(7)+'; convex weights bound q to [0,1]');
-report('DISPLAY','left=numerical q, right=5x abs(R8 numerical - R8 analytic); GPU draws only');
+report('DISPLAY','cell audit: left=numerical q, right=5x abs(R8 numerical - R8 analytic); smooth view reconstructs the same R8 fields; G toggles cells');
 report('R8','each texture '+(N*N)+' bytes; R8 rounding separated from Float64 CPU metrics');
 
 
@@ -103,23 +104,28 @@ report('R8','each texture '+(N*N)+' bytes; R8 rounding separated from Float64 CP
 const fcg3Reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
 let fcg3Playing=!fcg3Reduced.matches,fcg3FrameStamp=null,fcg3Accum=0,fcg3Step=steps;
 canvas.tabIndex=0;
-canvas.setAttribute('aria-label','FCG3 染料の回転とぼやけ。クリック・Spaceで一時停止');
-canvas.title='クリック／Spaceで再生・停止。移流は物理時間1/32秒ずつ更新し、描画fpsとは区別します。';
+const observeLoc=gl.getUniformLocation(program,'u_observe');
+let observing=false;
+function fcg3Draw(mode=observing){
+  gl.useProgram(program);gl.bindVertexArray(vao);
+  gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,numericalTex);
+  gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,analyticTex);
+  if(observeLoc!==null)gl.uniform1i(observeLoc,mode?1:0);
+  gl.viewport(0,0,canvas.width,canvas.height);
+  gl.drawArrays(gl.TRIANGLES,0,3);
+}
+canvas.title='P: 再生・停止 / G: 滑らか表示・セル表示 / クリック: 現在のセル値';
 function fcg3Toggle(){fcg3Playing=!fcg3Playing;fcg3FrameStamp=null;}
-canvas.addEventListener('click',fcg3Toggle);
 canvas.addEventListener('keydown',e=>{
-  if(e.key===' '||e.key==='Enter'){e.preventDefault();fcg3Toggle();}
+  if(e.key.toLowerCase()==='p'){e.preventDefault();fcg3Toggle();}
+  if(e.key.toLowerCase()==='g'){e.preventDefault();observing=!observing;fcg3Draw();}
 });
 function fcg3UpdateOnce(){
   if(fcg3Step>=32){
     previous=Float64Array.from({length:N*N},(_,k)=>initial(at(k%N),at(Math.floor(k/N))));
     fcg3Step=0;
   }else{
-    for(let j=0;j<N;j++)for(let i=0;i<N;i++){
-      const dx=at(i)-.5,dy=at(j)-.5;
-      next[i+N*j]=sample(previous,.5+c*dx+s*dy,.5-s*dx+c*dy);
-    }
-    [previous,next]=[next,previous];fcg3Step++;
+    advance();fcg3Step++;
   }
   const now=fcg3Step*dt;
   for(let j=0;j<N;j++)for(let i=0;i<N;i++)
@@ -139,12 +145,20 @@ function fcg3VisualFrame(now){
     // Slow playback: one physical update every 125 ms. This does NOT
     // change dt or its numerical stability, only the observation rate.
     if(fcg3Accum>=.125){fcg3Accum-=.125;fcg3UpdateOnce();}
-    gl.useProgram(program);gl.bindVertexArray(vao);
-    gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,numericalTex);
-    gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,analyticTex);
-    gl.viewport(0,0,canvas.width,canvas.height);
-    gl.drawArrays(gl.TRIANGLES,0,3);
+    fcg3Draw();
   }else fcg3FrameStamp=null;
   requestAnimationFrame(fcg3VisualFrame);
 }
 requestAnimationFrame(fcg3VisualFrame);
+
+// The runner captures the original cell colors before enabling observation.
+return {
+  showObservation(){observing=true;fcg3Draw();},
+  rawPick(x,y){
+    fcg3Playing=false;fcg3FrameStamp=null;
+    const rgba=new Uint8Array(4);
+    fcg3Draw(false);gl.readPixels(x,y,1,1,gl.RGBA,gl.UNSIGNED_BYTE,rgba);
+    fcg3Draw();
+    return {rgba:Array.from(rgba),step:fcg3Step};
+  }
+};

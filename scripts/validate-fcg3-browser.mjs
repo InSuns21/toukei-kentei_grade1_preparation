@@ -61,9 +61,9 @@ try {
     const job=pending.get(msg.id);
     if(job){pending.delete(msg.id);msg.error?job.reject(Error(msg.error.message)):job.resolve(msg.result);}
   });
-  const cdp=(method,params={})=>new Promise((resolve,reject)=>{
+  const cdp=(method,params={},sessionId)=>new Promise((resolve,reject)=>{
     const id=++requestId;pending.set(id,{resolve,reject});
-    ws.send(JSON.stringify({id,method,params}));
+    ws.send(JSON.stringify({id,method,params,...(sessionId?{sessionId}:{})}));
   });
   const evaluate=async expression=>{
     const response=await cdp('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});
@@ -106,6 +106,55 @@ try {
   assert.notEqual(dyeFrame0.data,dyeFrameNext.data,'FCG3 actual semi-Lagrangian dye should animate');
   console.log('FCG3 source-linked physical steps alter real Chromium display frames: PASS');
   console.log('FCG3 actual GPU texture, six readPixels, independent CPU and opaque sandbox: PASS');
+  // Freeze the real edited field through the normal inspector, then toggle
+  // reconstruction without changing the step. Crop to the sandbox canvas.
+  // The opaque child has a separate document. Use CDP's frame execution
+  // world to exercise its real event listeners, not guessed iframe geometry
+  // or a parent-window synthetic event (neither reaches the GPU canvas).
+  const {root:domRoot}=await cdp('DOM.getDocument');
+  const {nodeId}=await cdp('DOM.querySelector',{nodeId:domRoot.nodeId,selector:'#canvas-slot iframe'});
+  assert.ok(nodeId,'FCG3 sandbox DOM owner exists');
+  const {node:owner}=await cdp('DOM.describeNode',{nodeId});
+  const frameId=owner.frameId;
+  assert.ok(frameId,'FCG3 sandbox frame id exists');
+  let childSession,world;
+  try{
+    world=await cdp('Page.createIsolatedWorld',{frameId,worldName:'fcg3-browser-test'});
+  }catch(parentError){
+    const {targetInfos}=await cdp('Target.getTargets');
+    const target=targetInfos.find(t=>t.type==='iframe'&&t.targetId===frameId);
+    assert.ok(target,'FCG3 sandbox OOPIF target not found: '+String(parentError));
+    ({sessionId:childSession}=await cdp('Target.attachToTarget',{targetId:target.targetId,flatten:true}));
+    await cdp('Page.enable',{},childSession);
+    const tree=await cdp('Page.getFrameTree',{},childSession);
+    assert.equal(tree.frameTree.frame.id,frameId);
+    world=await cdp('Page.createIsolatedWorld',{frameId,worldName:'fcg3-browser-test'},childSession);
+  }
+  const inFrame=async expression=>{
+    const result=await cdp('Runtime.evaluate',{contextId:world.executionContextId,expression,
+      returnByValue:true,awaitPromise:true},childSession);
+    assert.ok(!result.exceptionDetails,JSON.stringify(result.exceptionDetails));
+    return result.result.value;
+  };
+  assert.equal(await inFrame('location.href'),'about:srcdoc');
+  assert.equal(await inFrame('self.origin'),'null');
+  await inFrame(`(()=>{
+    const c=document.getElementById('gpu-canvas');
+    c.focus();
+    c.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));
+  })()`);
+  await waitFor('document.querySelector("#result-note")?.textContent.includes("CPUセル色との差=")');
+  assert.match(await evaluate('document.querySelector("#result-note").textContent'),/CPUセル色との差=[012]階調/);
+  const shot=()=>inFrame("document.getElementById('gpu-canvas').toDataURL()");
+  const toggleGrid=()=>inFrame(`document.getElementById('gpu-canvas').dispatchEvent(
+    new KeyboardEvent('keydown',{key:'g',bubbles:true,cancelable:true}))`);
+  const smooth=await shot();await toggleGrid();const cells=await shot();
+  assert.notEqual(smooth,cells,'smooth reconstruction must visibly differ from raw cells');
+  await toggleGrid();const restored=await shot();
+  assert.equal(restored,smooth,'G toggle returns to same frozen actual data');
+  if(childSession)await cdp('Target.detachFromTarget',{sessionId:childSession});
+  console.log('FCG3 GPU smooth/cell toggle and live raw-cell oracle: PASS');
+
 
   await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="1step")).click()');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格") && document.querySelector("#fcg3-cpu-prediction")?.textContent.includes("step 2")',25000);
@@ -132,7 +181,7 @@ try {
     'N64 and N96 readbacks must represent different physical grid samples');
 
   await click('tab-code');
-  const modified=await evaluate('(()=>{const e=document.querySelector("#fragment-source");e.value=e.value.replace("if(left)outColor=vec4(q,0.15,1.0-q,1.0);","if(left)outColor=vec4(0.0,q,0.0,1.0);");e.dispatchEvent(new Event("input",{bubbles:true}));return e.value.includes("vec4(0.0,q,0.0,1.0)")})()');
+  const modified=await evaluate('(()=>{const e=document.querySelector("#fragment-source");e.value=e.value.replace("if(left)outColor=vec4(raw.x,0.15,1.0-raw.x,1.0);","if(left)outColor=vec4(0.0,raw.x,0.0,1.0);");e.dispatchEvent(new Event("input",{bubbles:true}));return e.value.includes("vec4(0.0,raw.x,0.0,1.0)")})()');
   assert.ok(modified,'shader edit not applied');
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("編集コードを実行しました")',25000);

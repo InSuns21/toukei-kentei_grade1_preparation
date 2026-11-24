@@ -81,9 +81,9 @@ const descriptions = Object.freeze({
   }),
   FCG3: Object.freeze({
     grid: snapshot => (snapshot.gridN || 32)+'×'+(snapshot.gridN || 32)+'（実Float64移流格子・数値/解析2枚のR8テクスチャ）',
-    color: '左: 数値染料 q → (q, 0.15, 1−q)。右: 数値と解析の差 5|q−q_exact| を1で上限処理して赤で表示',
+    color: '左: 数値染料（暗紺→青緑→淡黄）、白破線=解析濃度0.5。右: 5倍のR8絶対誤差（暗紺→橙→淡黄、上限1）。Gで元のセル色に切替',
     clock: step => '物理step '+step+'、t='+(step/32).toFixed(5)+' s（dt=1/32 s）',
-    mode: '左右は同じ編集JSのN×N実計算を最近傍表示。物理dt=1/32秒と描画フレームは別で、格子数を変えても同じ物理時刻を比較する',
+    mode: '同じN×N R8セルを双線形再構成して観察。Gで最近傍セル表示、Pで再生・停止、クリックで現在のセル検査。物理dt=1/32秒は固定',
     source: 'advection.js / advection.frag'
   }),
   FCG4: Object.freeze({

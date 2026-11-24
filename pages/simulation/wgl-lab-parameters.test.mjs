@@ -140,7 +140,9 @@ test('FCG3 G2 grid and radius changes can be independently rechecked only for kn
   assert.equal(readLabParameter(expression,specs[1]).ok,false);
   assert.equal(verifiedFCG3Physics(expression,vertex,fragment,defaults),null);
   assert.equal(verifiedFCG3Physics(js.replace('steps=settings.steps','steps=0'),vertex,fragment,defaults),null);
-  assert.equal(verifiedFCG3Physics(js,vertex,fragment.replace('5.0*abs','10.0*abs'),defaults),null);
+  const changedFragment=fragment.replace('errorGain=5.0','errorGain=10.0');
+  assert.notEqual(changedFragment,fragment);
+  assert.equal(verifiedFCG3Physics(js,vertex,changedFragment,defaults),null);
 });
 
 test('WGL17 GUI rewrites the same mode and probe value uploaded to the GPU', async()=>{
