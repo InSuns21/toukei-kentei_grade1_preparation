@@ -131,21 +131,23 @@ $$
 <!-- formal-statement-start -->
 > **定理（重み付き極限・余極限の普遍性と一意性）**
 >
-> 局所小な対称右閉・完備モノイダル圏を基底とし、小さい対象集合を持つ添字豊穣圏からの図式 $D$ を取る。共変豊穣関手 $W$ による重み付き極限 $(L,\lambda)$ が存在するとする。
+> 局所小な対称右閉・完備モノイダル圏 $\mathcal V$ 上の豊穣圏 $\mathcal J,\mathcal C$ を取り、$\mathcal J$ の対象集合は小さいとする。
+>
+> 図式 $D:\mathcal J\to\mathcal C$ と共変重み $W:\mathcal J\to\underline{\mathcal V}$ による重み付き極限 $(L,\lambda)$ が存在するとする。
 >
 > 任意の試験対象 $X$ と豊穣自然変換
->
-$
+
+$$
 t:W\Rightarrow\mathcal C(X,D-)
-$
+$$
 
 > に対し、$\lambda$ を前合成して $t$ を得る台となる圏の射 $f:X\to L$ が一意に存在する。
 >
-> 反変豊穣関手 $W$ による重み付き余極限 $(Q,\iota)$ が存在するとする。任意の豊穣自然変換
+> 反変重み $W:\mathcal J^{\mathrm{op}}\to\underline{\mathcal V}$ による重み付き余極限 $(Q,\iota)$ が存在するとする。任意の試験対象 $X$ と豊穣自然変換
 
-$
+$$
 t:W\Rightarrow\mathcal C(D-,X)
-$
+$$
 
 > に対し、$\iota$ を後合成して $t$ を得る射 $Q\to X$ が一意に存在する。
 >
