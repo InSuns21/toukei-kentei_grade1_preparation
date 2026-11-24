@@ -104,6 +104,12 @@ jobs:
           node --check pages/simulation/fcg1-model.mjs
           node --test pages/simulation/fcg1-model.test.mjs
 
+      - name: Test FCG15 volume transport and actual editable GPU rendering
+        if: steps.scope.outputs.full == 'true'
+        run: |
+          node --test pages/simulation/fcg15-lab.test.mjs
+          node scripts/validate-fcg15-browser.mjs
+
       - name: Test FCG14 coupled smoke and actual editable GPU rendering
         if: steps.scope.outputs.full == 'true'
         run: |

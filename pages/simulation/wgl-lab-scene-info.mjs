@@ -119,6 +119,14 @@ const descriptions = Object.freeze({
     mode: '初期設定はpicMix=0、flipMix=1。格子と粒子の位置を物理stepごとに更新し、右列は24×24節点値の最近傍表示。時刻は開始時の検算時刻',
     source: 'particle.js（N, count, dt, damp, force, picMix, flipMix, transfer）/ particle.frag（u_pic, u_flip, u_speed）'
   }),
+  FCG15: Object.freeze({
+    requiresSteps:false,
+    grid:'1 m立方体、初期48³セル中心の濃度。右は z=0.5 m の断面',
+    color:'左は白い散乱光と背景の残存光、右は濃度0〜1（暗色〜黄色）',
+    clock:()=> '時刻0から0.05 sずつ4 sまで。描画間隔は物理刻みと別',
+    mode:'R8の3Dテクスチャ、三線形補間、初期64区間の光線積分。画素解像度は別',
+    source:'volume.js（濃度・回転・上昇） / volume.vert / volume.frag（区間の指数透過と前後合成）'
+  }),
   FCG14: Object.freeze({
     requiresSteps:false,
     grid:'1 m四方、初期48×48実計算セル（32/48/64）。壁流束零',
