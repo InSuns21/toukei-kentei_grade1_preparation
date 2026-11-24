@@ -1,0 +1,21 @@
+id: FCG17
+title: "渦の細部を増やすと何が壊れるか"
+volume: foundations
+status: supplementary
+prerequisites: [FCG5]
+official_scope: []
+learning_objectives:
+  - "二次元速度から渦度と渦度強調力を計算できる"
+  - "追加力の離散運動エネルギー変化を導出し、正負を判定できる"
+  - "同じ格子の強調あり・なしの流れを動かし、染料・渦度・速度・エネルギーを比較できる"
+  - "手続き的ノイズとDNS・LES・渦度強調を区別できる"
+definitions:
+  - { id: FCG17-DEF-01, name: "渦度強調力" }
+theorems:
+  - { id: FCG17-PROP-01, name: "追加力による離散運動エネルギー変化" }
+canonical_examples: ["剛体回転の渦度", "円形渦の強調方向", "力の仕事と二次項"]
+problem_patterns: [FCG17-CURL, FCG17-CONFINEMENT, FCG17-ENERGY, FCG17-COMPARISON]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 5, review: 2 }

@@ -5,11 +5,11 @@ import {VISUAL_GUIDES,visualGuideIds} from './wgl-fcg-visual-guide.mjs';
 
 test('every implemented shared WGL/FCG lesson has nonempty visual first guide',()=>{
   const ids=[...Array.from({length:20},(_,i)=>'WGL'+(i+1)),
-    ...Array.from({length:15},(_,i)=>'FCG'+(i+2))];
+    ...Array.from({length:16},(_,i)=>'FCG'+(i+2))];
   assert.equal(visualGuideIds.length,ids.length);
   assert.deepEqual(visualGuideIds.slice().sort(),ids.sort());
   for(const [id,parts] of Object.entries(VISUAL_GUIDES)){
-    assert.match(id,/^(?:WGL(?:[1-9]|1[0-9]|20)|FCG(?:[2-9]|1[0123456]))$/);
+    assert.match(id,/^(?:WGL(?:[1-9]|1[0-9]|20)|FCG(?:[2-9]|1[01234567]))$/);
     assert.equal(parts.length,4,id);
     assert.ok(parts.every(v=>typeof v==='string'&&v.trim().length>=3),id);
   }
