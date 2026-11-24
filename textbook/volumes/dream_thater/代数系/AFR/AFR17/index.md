@@ -1,17 +1,33 @@
 # AFR17 GL_2の保型表現と古典形式
 
-AFR11 では古典形式をアデール上の一つの関数に移し、AFR16 では局所の表現から大域的な空間とL因子を組み立てました。両者を接続するには、一つの関数からどのように表現を生成し、その表現から元の古典形式を取り出すのかを理解する必要があります。ここでは基礎体を有理数体、中心指標を自明、古典側をレベル1・偶数重さ $k\ge2$ に固定します。正則性の逆方向、固有形式から生成した空間が分解できない理由、局所成分への対応を順に調べます。
+AFR11 では古典形式をアデール上の一つの関数に移し、AFR16 では局所の表現から大域的な空間とL因子を組み立てました。両者を接続するには、一つの関数からどのように表現を生成し、その表現から元の古典形式を取り出すのかを理解する必要があります。ここでは基礎体を有理数体、[中心指標](../AFR11/index.md#def-afr11-central-character) を自明（中心の全ての元が恒等作用すること）、古典側をレベル1・偶数重さ $k\ge2$ に固定します。正則性の逆方向、固有形式から生成した空間が分解できない理由、局所成分への対応を順に調べます。
 
 ## 1. 古典形式を取り出す条件
 
-[アデール上の一般線形群](../AFR11/index.md#def-afr11-adelic-gl2) を $G$、有限部分を $G_f$、$K_f=\prod_p GL_2(\mathbb Z_p)$、実側の直交群を $K_\infty=O(2)$ とします。回転と上半平面の座標行列は [実行列の座標表示](../AFR1/index.md#thm-afr1-coordinates) の規約で
+[アデール上の一般線形群](../AFR11/index.md#def-afr11-adelic-gl2) を $G=GL_2(\mathbb A)$、その有限アデール部分を $G_f$ とします。素数ごとのコンパクト部分群とその直積を
+
+$$
+K_p=GL_2(\mathbb Z_p),\qquad K_f=\prod_p K_p
+$$
+
+とし、実側の直交群を $K_\infty=O(2)$ とします。
+
+右 $K_f$ 不変とは、全ての $u\in K_f$ について $\phi(gu)=\phi(g)$ となることです。
+
+回転と上半平面の座標行列は [実行列の座標表示](../AFR1/index.md#thm-afr1-coordinates) の規約で
 
 $$
 k_\theta=\begin{pmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{pmatrix},
 \qquad s(z)=\begin{pmatrix}\sqrt y&x/\sqrt y\\0&1/\sqrt y\end{pmatrix}
 $$
 
-です。ここで $z=x+iy$、$y>0$ です。実行列は有限成分を単位元として $G$ に入れます。右作用は $R(h)\phi(g)=\phi(gh)$ とし、右微分は $D_X\phi(g)=\left.\frac{d}{dt}\phi(g\exp(tX))\right|_{t=0}$ とします。
+です。ここで $z=x+iy$、$y>0$ です。実行列は有限成分を単位元として $G$ に入れます。右作用は $R(h)\phi(g)=\phi(gh)$ とします。実 $2\times2$ 行列 $X$ を微分方向とし、右微分を
+
+$$
+D_X\phi(g)=\left.\frac{d}{dt}\phi(g\exp(tX))\right|_{t=0}
+$$
+
+とします。ここでは $g$ と $X$ を固定し、実数 $t$ だけを動かします。
 
 [昇降作用と交換関係](../AFR12/index.md#thm-afr12-ladder) に従い
 
@@ -19,7 +35,7 @@ $$
 H=\begin{pmatrix}1&0\\0&-1\end{pmatrix},\qquad S=\begin{pmatrix}0&1\\1&0\end{pmatrix},\qquad P_-=D_H-iD_S
 $$
 
-とします。右回転で重さ $k$ の変換則を持っても、それだけでは古典側の関数は正則とは限りません。正則性を保証するのがこの微分作用素の消滅です。
+とします。[実回転の重さ](../AFR12/index.md#def-afr12-k-type) $k$ とは $R(k_\theta)\phi=e^{ik\theta}\phi$ が全ての $\theta$ で成立することです。それだけでは古典側の関数は正則とは限りません。ここで扱うのは正の重さ $k$ で、さらに $P_-\phi=0$ を満たす場合です。この二つの条件を以下の定理で最低重さの条件として使います。正則性を保証するのが微分作用素の消滅です。復元先の [古典モジュラー形式の変換則](../../MF/MF2/index.md#def-mf2-modular-form) と [カスプ条件](../../MF/MF2/index.md#def-mf2-q-expansion) は、以下で個別に確認します。
 
 <a id="thm-afr17-reconstruction"></a>
 
@@ -47,19 +63,41 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $F(h)=\phi((h,1))$（$\det h>0$）とします。中心指標が自明なので正の実スカラー行列による移動は値を変えません。[実行列の座標表示](../AFR1/index.md#thm-afr1-coordinates) で $h=t s(z) k_\theta$、$t>0$ と分解すれば、右回転の条件より
+まず $F(h)=\phi((h,1))$（$\det h>0$）とします。ここで $1$ は有限アデール側の単位元です。実行列方向に微分しても有限成分は $1$ のままなので、
+
+$$
+D_XF(h)=(D_X\phi)((h,1))
+$$
+
+と書けます。
+
+中心指標が自明なので正の実スカラー行列による移動は値を変えません。[実行列の座標表示](../AFR1/index.md#thm-afr1-coordinates) は行列式1の行列についての結果です。一般の正行列式の場合には $\rho=\sqrt{\det h}>0$ と置きます。$\rho^{-1}h$ の行列式は1なので
+
+$$
+h=\rho s(z)k_\theta
+$$
+
+と分解できます。右回転の条件より
 
 $$
 F(h)=y^{k/2}e^{ik\theta}f(z).
 $$
 
-$h\cdot i=z$、$j(h,i)=t y^{-1/2}e^{-i\theta}$、$\det h=t^2$ なのでこの式は
+実行列 $h=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ の作用を $h\cdot z=(az+b)/(cz+d)$、変換因子を $j(h,z)=cz+d$ と書きます。$s(z)\cdot i=z$、$k_\theta\cdot i=i$ であり、$h$ の下段は $\rho y^{-1/2}(-\sin\theta,\cos\theta)$ です。従って
+
+$$
+j(h,i)=\rho y^{-1/2}(\cos\theta-i\sin\theta)
+=\rho y^{-1/2}e^{-i\theta},
+\qquad \det h=\rho^2.
+$$
+
+この式から
 
 $$
 F(h)=(\det h)^{k/2}j(h,i)^{-k}f(h\cdot i)
 $$
 
-と書けます。ここで $j(h,z)=cz+d$（$c,d$ は $h$ の下段）です。この導出ではまだ $f$ の正則性を仮定していません。
+と書けます。この導出ではまだ $f$ の正則性を仮定していません。
 
 整数行列 $\gamma\in SL_2(\mathbb Z)$ は有限成分が全て整数可逆行列なので、左有理行列不変性と右 $K_f$ 不変性より $F(\gamma h)=F(h)$ です。[変換因子の積法則](../AFR1/index.md#prop-afr1-factor) を $h=s(z)$ に適用すると
 
@@ -69,26 +107,43 @@ $$
 
 従って $f(\gamma\cdot z)=j(\gamma,z)^k f(z)$ です。特に $\gamma=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ により $f(z+1)=f(z)$ です。
 
-次に $P_-$ を計算します。$f$ は実変数 $x,y$ について滑らかです。$\exp(tH)$ は対角成分が $e^t,e^{-t}$ なので
+次に $P_-$ を計算します。$f$ は実変数 $x,y$ について滑らかです。以下では
+
+$$
+f_x=\frac{\partial f}{\partial x},\qquad
+f_y=\frac{\partial f}{\partial y}
+$$
+
+と略記します。前者は虚部を固定、後者は実部を固定し、ともに $z=x+iy$ で評価します。群方向の微分 $D_X$ は曲線に沿う $t$ 微分なので、上の二つの微分とは連鎖律で結び付きます。
+
+$\exp(tH)$ は対角成分が $e^t,e^{-t}$ なので
 
 $$
 F(s(z)\exp(tH))=y^{k/2}e^{kt}f(x+i ye^{2t}).
 $$
 
-$t=0$ で微分して
+$x$ は固定され、虚部 $ye^{2t}$ の $t=0$ における導関数は $2y$ です。積の微分と連鎖律により
 
 $$
 D_HF(s(z))=y^{k/2}(kf+2yf_y).
 $$
 
-一方 $\exp(tS)=I+tS+O(t^2)$ だから $\exp(tS)\cdot i=i+2t+O(t^2)$、$j(\exp(tS),i)=1+it+O(t^2)$ です。行列式は1です。$s(z)$ の作用が $w\mapsto x+yw$ であることから
+一方 $I$ を $2\times2$ 単位行列とすると、$\exp(tS)=I+tS+O(t^2)$ です。一次分数変換の分母は $1+it+O(t^2)$ であり、$t=0$ の近くでは非零です。分子と分母から
+
+$$
+\exp(tS)\cdot i
+=\frac{i+t+O(t^2)}{1+it+O(t^2)}
+=i+2t+O(t^2).
+$$
+
+ここで $j(\exp(tS),i)=1+it+O(t^2)$ です。また $\exp(tS)$ の対角成分は $\cosh t$、非対角成分は $\sinh t$ なので行列式は $\cosh^2t-\sinh^2t=1$ です。$s(z)$ の作用が $w\mapsto x+yw$ であることから
 
 $$
 F(s(z)\exp(tS))
 =y^{k/2}(1+it+O(t^2))^{-k}f(z+2yt+O(t^2)).
 $$
 
-滑らかな関数の実変数の連鎖律により
+$z+2yt+O(t^2)$ の実部の導関数は $2y$、虚部の導関数は $0$ です。また $(1+it+O(t^2))^{-k}$ の $t=0$ における導関数は $-ki$ です。積の微分と実変数の連鎖律により
 
 $$
 D_SF(s(z))=y^{k/2}(-ikf+2yf_x).
@@ -103,7 +158,23 @@ $$
 
 ここで $\partial_{\bar z}f=(f_x+if_y)/2$ です。$y>0$ なので $P_-\phi=0$ は $\partial_{\bar z}f=0$ を含意します。$f$ は滑らかなので、[Wirtinger判定](../../../解析系/CA/CA1/index.md#prop-ca1-wirtinger-criterion) により正則です。
 
-周期1により $q=e^{2\pi iz}$ を座標として $0<|q|<1$ 上の正則関数 $\widetilde f(q)$ が定まります。局所的に対数で逆写像を取り、枝の違いは整数平行移動なので値は一致します。[アデール上の保型形式](../AFR11/index.md#def-afr11-automorphic-form) の緩増大条件 $|\phi(g)|\le C H(g)^M$ を、$0\le x\le1,\ y\ge1$ の $s(z)$ に適用します。$s(z)^{-1}=\begin{pmatrix}1/\sqrt y&-x/\sqrt y\\0&\sqrt y\end{pmatrix}$ なので高さは $\sqrt y$ です。よって
+[周期正則関数の $q$ 表示](../../MF/MF2/index.md#thm-mf2-q-coordinate) と同じ座標変換を用います。周期1により $q=e^{2\pi iz}$ を座標として $0<|q|<1$ 上の正則関数 $\widetilde f(q)$ が定まります。局所的に対数で逆写像を取り、枝の違いは整数平行移動なので値は一致します。
+
+[アデール上の保型形式](../AFR11/index.md#def-afr11-automorphic-form) の緩増大条件
+
+$$
+|\phi(g)|\le C H(g)^M
+$$
+
+を、$0\le x\le1,\ y\ge1$ の $s(z)$ に適用します。
+
+ここで $H(g)$ は行列 $H$ とは別の記号で、各局所成分とその逆行列の成分の絶対値（および1）の最大値を素点ごとに掛けた高さです。有限成分は単位元なので実側だけを評価します。
+
+$$
+s(z)^{-1}=\begin{pmatrix}1/\sqrt y&-x/\sqrt y\\0&\sqrt y\end{pmatrix}.
+$$
+
+$0\le x\le1$、$y\ge1$ では $1/\sqrt y$ と $|x|/\sqrt y$ はともに $\sqrt y$ 以下であり、$\sqrt y$ 自身が成分に現れます。従って $H((s(z),1))=\sqrt y$ です。よって
 
 $$
 |f(x+iy)|\le C y^{(M-k)/2}.
@@ -124,16 +195,18 @@ $$
 0=C_\phi(g)=y^{k/2}\int_0^1 f(z+u)\,du=y^{k/2}a_0.
 $$
 
-固定した $y$ では正則な $q$ 展開は円周上で一様絶対収束するので最後の項別積分が可能です。従って $a_0=0$。レベル1では全ての有理カスプが $\infty$ と同値です。実際、既約分数 $a/c$ は $ad-bc=1$ を満たす整数 $b,d$ を選べば行列 $\gamma$ の $\gamma\cdot\infty$ として得られます。よって $f$ はカスプ形式です。
+固定した $y$ では正則な $q$ 展開は円周上で一様絶対収束するので最後の項別積分が可能です。従って $a_0=0$。
+
+レベル1では全ての有理カスプが $\infty$ と同値です。実際、既約分数 $a/c$ は $ad-bc=1$ を満たす整数 $b,d$ を選べば行列 $\gamma$ の $\gamma\cdot\infty$ として得られます。よって $f$ はカスプ形式です。
 
 最後に [レベル1のアデール分解](../AFR11/index.md#thm-afr11-level-one-decomposition) により右 $K_f$ 不変かつ左有理行列不変な関数は実側の制限から一意に定まります。実側の式は [アデール化](../AFR11/index.md#thm-afr11-classical-lift) と同じなので $\phi=\phi_f$ です。逆方向の条件も同定理の証明で確認済みです。
 <!-- proof-end -->
 
-例えば $\phi_\Delta$ は重さ12のモジュラー判別式の持ち上げです。$s(2i)$ での値は $2^6\Delta(2i)$ なので復元には $2^{-6}$ を掛けます。単に $\phi((s(z),1))$ を古典形式とすると余分な $y^{k/2}$ が残ります。
+例えば $\phi_\Delta$ は重さ12の [モジュラー判別式](../../MF/MF2/index.md#def-mf2-discriminant) $\Delta$ の持ち上げです。$s(2i)$ での値は $2^6\Delta(2i)$ なので復元には $2^{-6}$ を掛けます。単に $\phi((s(z),1))$ を古典形式とすると余分な $y^{k/2}$ が残ります。
 
 ## 2. 固有値から古典形式の直線を決める
 
-前節で古典形式への復元ができました。しかし同じ重さのカスプ形式は複数存在し得ます。その中のどの直線を選ぶかを有限素点の作用で指定します。重さ $k$ のレベル1カスプ形式空間を $S_k$、古典 Hecke 作用素を $T_p$ とします。
+前節で古典形式への復元ができました。しかし同じ重さのカスプ形式は複数存在し得ます。その中のどの直線を選ぶかを有限素点の作用で指定します。重さ $k$ の [レベル1カスプ形式空間](../../MF/MF2/index.md#def-mf2-q-expansion) を $S_k$、[レベル1のHecke作用素](../../MF/MF5/index.md#def-mf5-hecke-level-one) の素数 $p$ に対するものを $T_p$ とします。固有値 $\lambda_p$ は $T_p f=\lambda_p f$ を満たすスカラーです。
 
 <a id="prop-afr17-eigenline"></a>
 
@@ -174,7 +247,7 @@ $a_6$ の計算では $m=2,p=3$ なので第2項は0です。固有値を並べ�
 
 $\mathcal A_0$ を自明な中心指標を持つ [大域カスプ形式](../AFR11/index.md#def-afr11-cuspidal) の空間とします。非零元 $\phi$ から、上の作用を有限回合成した全ての像の有限線形結合を取ります。これが $\phi$ を含む最小の作用不変部分空間、すなわち $\phi$ が生成する加群 $V_\phi$ です。作用不変部分空間が零と全体の二つしかない非零加群が既約です。
 
-有限側の右移動がカスプ条件を保存する理由は
+[大域カスプ条件](../AFR11/index.md#def-afr11-cuspidal) の定数項 $C_\phi$ では $n(u)=\begin{pmatrix}1&u\\0&1\end{pmatrix}$ とし、$du$ は加法商 $\mathbb Q\backslash\mathbb A$ 上の規格化 Haar 測度です。有限側の右移動がカスプ条件を保存する理由は
 
 $$
 C_{R(h)\phi}(g)=\int_{\mathbb Q\backslash\mathbb A}\phi(n(u)gh)\,du=C_\phi(gh)
@@ -184,11 +257,18 @@ $$
 
 ### 外部入力：カスプスペクトルの離散分解
 
-固定されたユニタリ中心指標を持つ $GL_2(\mathbb A)$ のカスプ形式の空間は、実側の Lie 代数と最大コンパクト群、有限側の滑らかな群作用に関して既約許容加群の代数的直和になります。許容性とは、有限側のコンパクト開部分群による固定条件と実側の一つの $K_\infty$ 型を固定した部分の重複度が有限であることです。
+固定されたユニタリ中心指標を持つ $GL_2(\mathbb A)$ のカスプ形式の空間は、実側の Lie 代数と最大コンパクト群、有限側の滑らかな群作用に関して既約許容加群の代数的直和になります。許容性とは、各有限側コンパクト開部分群 $U\subset G_f$ と各既約有限次元 $K_\infty$ 表現 $\sigma$ に対し、$U$ 固定部分における $\sigma$ の重複度（$\sigma$ と同型な直和成分の個数）が有限であることです。有限側だけの [p進表現の許容性](../AFR13/index.md#def-afr13-admissible) と区別します。
 
 ここで使うのは自明中心指標の場合です。カスプ Hilbert 空間の離散分解とその有限ベクトル部分の比較を含む大域解析の結果であり、本講では証明しません。出典は Getz–Hahn, *An Introduction to Automorphic Representations* (2024), Automorphic Forms および Discrete Spectrum の章（[出版社](https://link.springer.com/book/10.1007/978-3-031-41153-3)）、また固定中心指標の加群としての定式化は [Grobner–Žunar の論文](https://pmc.ncbi.nlm.nih.gov/articles/PMC11599404/) のカスプ部分の分解を参照してください。
 
-代数的直和であるため、一つの元は有限個の成分を持ち、各成分への射影は全ての加群作用と可換です。たとえば $\mathbb C^2=\mathbb C(1,0)\oplus\mathbb C(0,1)$ に対角行列が作用するとき、各座標を取り出しても固有方程式は保たれます。次の証明では、この小模型と同じ射影操作を使います。
+代数的直和であるため、一つの元は有限個の成分を持ちます。各成分への射影 $E_j$ は有限和 $\sum_\ell v_\ell$（$v_\ell\in V_\ell$）から $v_j$ を取り出す写像です。加群作用 $A$ は各 $V_\ell$ を保つので
+
+$$
+E_j A\left(\sum_\ell v_\ell\right)
+=Av_j=A E_j\left(\sum_\ell v_\ell\right)
+$$
+
+となり、射影は全ての加群作用と可換です。たとえば $\mathbb C^2=\mathbb C(1,0)\oplus\mathbb C(0,1)$ に対角行列が作用するとき、各座標を取り出しても固有方程式は保たれます。次の証明では、この小模型と同じ射影操作を使います。
 
 <a id="thm-afr17-cyclic-irreducibility"></a>
 
@@ -206,7 +286,9 @@ $$
 
 $f$ を $a_1=1$ に規格化し、$T_pf=a_pf$ と書きます。[素数Hecke固有値による直線の決定](#prop-afr17-eigenline) の係数式で $m=1$ と置けば固有値が $a_p$ であることが分かります。
 
-[アデール化](../AFR11/index.md#thm-afr11-classical-lift) より $\phi_f\in\mathcal A_0$ は右 $K_f$ 固定、重さ $k$、$P_-\phi_f=0$ です。[古典Hecke作用と球Hecke作用の正規化](../AFR16/index.md#thm-afr16-hecke-normalization) により有限素点の球Hecke元 $T=1_{K_p\operatorname{diag}(p,1)K_p}$ の固有値は $\tau_p=p^{1-k/2}a_p$ です（$K_p$ の測度を1に規格化します）。
+[アデール化](../AFR11/index.md#thm-afr11-classical-lift) より $\phi_f\in\mathcal A_0$ は右 $K_f$ 固定、重さ $k$、$P_-\phi_f=0$ です。
+
+[古典Hecke作用と球Hecke作用の正規化](../AFR16/index.md#thm-afr16-hecke-normalization) により有限素点の [球Hecke代数](../AFR14/index.md#def-afr14-hecke-algebra) の元 $T^{(p)}=1_{K_p\operatorname{diag}(p,1)K_p}$（添字の集合の指示関数）の固有値は $\tau_p=p^{1-k/2}a_p$ です（$K_p$ の測度を1に規格化します）。
 
 外部入力によって $\mathcal A_0=\bigoplus_j V_j$ と既約加群に分解し、射影を $E_j$ とします。$\phi_j=E_j\phi_f$ と置くと
 
@@ -215,13 +297,13 @@ R(u)\phi_j=\phi_j\quad(u\in K_f),\qquad
 R(k_\theta)\phi_j=e^{ik\theta}\phi_j,\qquad P_-\phi_j=0.
 $$
 
-例えば最後の式は $P_-E_j\phi_f=E_jP_-\phi_f=0$ です。[球Hecke作用](../AFR14/index.md#prop-afr14-action) は固定ベクトル上では有限個の右移動の和なので射影と可換です。従って $R(T)\phi_j=\tau_p\phi_j$ も成立します。
+例えば最後の式は $P_-E_j\phi_f=E_jP_-\phi_f=0$ です。[球Hecke作用](../AFR14/index.md#prop-afr14-action) は固定ベクトル上では有限個の右移動の和なので射影と可換です。従って $R(T^{(p)})\phi_j=\tau_p\phi_j$ も成立します。
 
-[最低重さ条件による古典カスプ形式の復元](#thm-afr17-reconstruction) により $\phi_j=\phi_{f_j}$ と書けます。右Hecke作用の正規化を $f_j$ に適用すると
+[最低重さ条件による古典カスプ形式の復元](#thm-afr17-reconstruction) により $\phi_j=\phi_{f_j}$ と書けます。[古典Hecke作用と球Hecke作用の正規化](../AFR16/index.md#thm-afr16-hecke-normalization) を $f_j$ に適用すると
 
 $$
 p^{1-k/2}\phi_{T_pf_j}
-=R(T)\phi_j=\tau_p\phi_{f_j}.
+=R(T^{(p)})\phi_j=\tau_p\phi_{f_j}.
 $$
 
 アデール化は単射で $p^{1-k/2}\ne0$ です。従って $T_pf_j=a_pf_j$ です。[素数Hecke固有値による直線の決定](#prop-afr17-eigenline) から $f_j=c_j f$、ゆえに $\phi_j=c_j\phi_f$ です。
@@ -231,7 +313,7 @@ $\phi_f\ne0$ なので少なくとも一つの $\phi_j$ は非零です。その
 生成加群は非零かつ $V_j$ の不変部分空間です。$V_j$ が既約であるため $V_{\phi_f}=V_j$ となります。
 <!-- proof-end -->
 
-この証明は大域的な重複度1定理を仮定していません。レベル1・正則・固定重さという条件のもとで Fourier 係数を再構成することがポイントです。大域分解そのものは外部入力です。
+この証明は大域的な重複度1定理を仮定していません。レベル1・正則・固定重さという条件のもとで Fourier 係数を再構成することがポイントです。大域分解そのものは外部入力です。このように、カスプ形式の空間の中で非零の真の作用不変部分空間を持たない非零の部分加群が得られました。この性質を持つ加群を次の定義で取り出します。
 
 <a id="def-afr17-cuspidal-representation"></a>
 
@@ -243,10 +325,22 @@ $\phi_f\ne0$ なので少なくとも一つの $\phi_j$ は非零です。その
 <!-- definition-example-start: def-afr17-cuspidal-representation -->
 **定義の確認**
 
-[同時固有形式と乗法的Fourier係数](../../MF/MF5/index.md#thm-mf5-eigenforms) で扱った正規化固有カスプ形式 $\Delta$（重さ12、レベル1）のアデール化は第1係数が1なので非零です。[アデール化](../AFR11/index.md#thm-afr11-classical-lift) は自明な中心指標と大域カスプ条件を保証します。その生成加群は作用不変な部分空間であり、[固有形式の生成加群の既約性](#thm-afr17-cyclic-irreducibility) により非零の真の不変部分空間を持ちません。従って定義の全条件を満たします。
+[モジュラー判別式](../../MF/MF2/index.md#def-mf2-discriminant) $\Delta=q+O(q^2)$ は重さ12、レベル1の非零カスプ形式です。
+
+[次元公式](../../MF/MF3/index.md#thm-mf3-dimension) により $\dim S_{12}=1$ であり、[Hecke作用素のFourier係数公式](../../MF/MF5/index.md#thm-mf5-coefficient) により $T_p$ は $S_{12}$ を保つので、全ての素数で $T_p\Delta=\lambda_p\Delta$ です。
+
+$\Delta$ の第一係数が1なので $\Delta$ は零関数ではありません。[アデール化の復元](#thm-afr17-reconstruction) の式
+
+$$
+y^{-6}\phi_\Delta((s(z),1))=\Delta(z)
+$$
+
+により $\phi_\Delta$ も非零です。
+
+[アデール化](../AFR11/index.md#thm-afr11-classical-lift) は自明な中心指標と大域カスプ条件を保証します。その生成加群は作用不変な部分空間であり、[固有形式の生成加群の既約性](#thm-afr17-cyclic-irreducibility) により非零の真の不変部分空間を持ちません。従って定義の全条件を満たします。
 <!-- definition-example-end -->
 
-一つの関数と、それが生成する表現は異なります。たとえば右微分で重さ14の非零元が $\phi_\Delta$ から生じます。右回転の固有値が異なるため、それは $\phi_\Delta$ のスカラー倍ではありません。
+一つの関数と、それが生成する表現は異なります。たとえば次節で計算する上げる作用素 $P_+=D_H+iD_S$ により、重さ14の非零元 $P_+\phi_\Delta$ が生じます。右回転の固有値が異なるため、それは $\phi_\Delta$ のスカラー倍ではありません。
 
 ## 4. 一つの表現から局所成分と古典形式を読む
 
@@ -254,7 +348,11 @@ $\phi_f\ne0$ なので少なくとも一つの $\phi_j$ は非零です。その
 
 ### 外部入力：Flath のテンソル積定理
 
-Flath のテンソル積定理は、アデール群の既約許容加群を実側の既約許容加群と有限側の既約滑らかな許容表現の制限テンソル積に分解します。ここで有限側の許容性は [p進表現の許容性](../AFR13/index.md#def-afr13-admissible) の意味です。本講で必要なのは有理数体上の $GL_2$ の場合で、全ての有限素点を同一視したり、無限積を完成 Hilbert テンソル積とみなしたりはしません。
+Flath のテンソル積定理は、アデール群の既約許容加群を実側の既約許容加群と有限側の既約滑らかな許容表現の [制限テンソル積](../AFR16/index.md#def-afr16-restricted-tensor) に分解します。
+
+各素点の表現を $\pi_p$ と書き、その空間も同じ記号で表します。$\pi_p^{K_p}$ は全ての $u\in K_p$ で $\pi_p(u)v=v$ となる固定空間です。これが非零であることを不分岐（球表現）と呼び、次にそれが1次元（球固定直線）になることを示します。
+
+ここで有限側の許容性は [p進表現の許容性](../AFR13/index.md#def-afr13-admissible) の意味です。本講で必要なのは有理数体上の $GL_2$ の場合で、全ての有限素点を同一視したり、無限積を完成 Hilbert テンソル積とみなしたりはしません。
 
 出典は Getz–Hahn, *An Introduction to Automorphic Representations* (2024), Tensor Product Theorem および Automorphic Forms の章（[出版社](https://link.springer.com/book/10.1007/978-3-031-41153-3)）です。Flath の定理自体は外部入力とし、以下では実際に得られるベクトル、重さ、固有値を計算します。
 
@@ -262,7 +360,7 @@ Flath のテンソル積定理は、アデール群の既約許容加群を実�
 
 <!-- formal-statement-start -->
 > **定理（レベル1固有形式の局所データ）**
-> $f=\sum_{n\ge1}a_nq^n$ を偶数重さ $k\ge2$ の正規化レベル1同時Hecke固有カスプ形式とし、$\pi_f=V_{\phi_f}$ とする。[Flath のテンソル積定理](#ref-afr17-flath) を用いると
+> $f=\sum_{n\ge1}a_nq^n$ を偶数重さ $k\ge2$ の正規化（$a_1=1$）レベル1同時Hecke固有カスプ形式とし、$\pi_f=V_{\phi_f}$ とする。[Flath のテンソル積定理](#ref-afr17-flath) を用いると
 
 $$
 \pi_f\simeq\pi_\infty\otimes\bigotimes_p'\pi_p
@@ -284,9 +382,17 @@ $$
 
 [固有形式の生成加群の既約性](#thm-afr17-cyclic-irreducibility) と外部のカスプ分解から $\pi_f$ は既約許容加群です。従って [Flath のテンソル積定理](#ref-afr17-flath) を適用できます。[制限テンソル積](../AFR16/index.md#def-afr16-restricted-tensor) の意味で、$\phi_f$ に対応する元はある有限集合 $S$ 内だけ基準ベクトルを変えた純テンソルの有限和として表せます。$S$ は基準ベクトルが $K_p$ 固定とは限らない有限個の例外素点も含むように取ります。
 
-任意の $p\in S$ について $K_p$ で平均します。局所ベクトルは滑らかなので開部分群で固定され、コンパクトな $K_p$ 内の剰余類は有限個です。従って平均は有限和であり、作用後は $K_p$ 固定空間に入ります。もとの $\phi_f$ は $K_p$ 固定なので平均しても変化しません。もし $\pi_p^{K_p}=0$ なら平均は零になり矛盾します。$p\notin S$ の基準元は既に非零の固定ベクトルです。
+任意の $p\in S$ について $K_p$ で平均します。[p進群の滑らかな表現](../AFR13/index.md#def-afr13-smooth) の条件により有限和に現れる局所ベクトルは共通の十分小さい開部分群 $U_p\subset K_p$ で固定されます。コンパクト性から指数 $d_p=[K_p:U_p]$ は有限です。[球固定直線の証明](../AFR14/index.md#prop-afr14-spherical-line) と同様に、局所ベクトル $w$ の平均を
 
-従って全ての $p$ で $\pi_p^{K_p}\ne0$ です。[既約許容表現の球固定直線](../AFR14/index.md#prop-afr14-spherical-line) を適用すると各空間は1次元です。各 $p$ で非零元 $e_p$ を取れば全有限平均後の元は
+$$
+E_p w=\frac1{d_p}\sum_{uU_p\in K_p/U_p}\pi_p(u)w
+$$
+
+と置きます。左から $K_p$ の元を作用させると和が並べ替わるので $E_p w$ は固定ベクトルであり、もともと固定されている $w$ では全項が $w$ なので $E_pw=w$ です。
+
+他の素点や実側には恒等作用をさせます。もとの $\phi_f$ は $K_p$ 固定なので平均しても変化しません。もし $\pi_p^{K_p}=0$ なら平均は零になり矛盾します。$p\notin S$ の基準元は既に非零の固定ベクトルです。
+
+従って全ての $p$ で $\pi_p^{K_p}\ne0$ です。[既約許容表現の球固定直線](../AFR14/index.md#prop-afr14-spherical-line) を適用すると各空間は1次元です。各 $p$ で非零固定元 $e_p$ を取ります。ただし $p\notin S$ ではもとの制限テンソル積の基準元をそのまま取ります。有限集合 $S$ 内でのみ平均・基準元の変更を行えば、平均後の元は
 
 $$
 v_\infty\otimes\bigotimes_p e_p,\qquad v_\infty\ne0
@@ -294,7 +400,31 @@ $$
 
 の形になります。有限個の変更は各直線内のスカラーだけなので、それを実側へ吸収できます。
 
-実側の $v_\infty$ は重さ $k$ で $P_-v_\infty=0$ です。$P_+=D_H+iD_S$、$T=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ とします。[昇降作用と交換関係](../AFR12/index.md#thm-afr12-ladder) で $v_n=P_+^n v_\infty$ と置けば
+有限成分のテンソル積は非零なので、実側からの写像
+
+$$
+v\longmapsto v\otimes\bigotimes_p e_p
+$$
+
+は単射です。[制限テンソル積の定義](../AFR16/index.md#def-afr16-restricted-tensor) の直後の埋め込みの証明と同様、有限段で各非零元に値1を取る線形汎関数を作用させれば元の $v$ に戻ります。
+
+回転と $P_-$ は実側だけに作用するため、大域ベクトルの条件は $v_\infty$ の重さ $k$ と $P_-v_\infty=0$ に移ります。
+
+ここで上げる作用素と回転方向の行列を
+
+$$
+P_+=D_H+iD_S,\qquad T=\begin{pmatrix}0&1\\-1&0\end{pmatrix}
+$$
+
+とします。行列 $T$ は先ほどの有限素点の球Hecke元 $T^{(p)}$ とは別です。
+
+$k_\theta=\exp(\theta T)$ なので回転の固有方程式を $\theta=0$ で微分すると
+
+$$
+D_Tv_\infty=ikv_\infty
+$$
+
+です。[昇降作用と交換関係](../AFR12/index.md#thm-afr12-ladder) で $v_n=P_+^n v_\infty$ と置けば
 
 $$
 D_Tv_n=i(k+2n)v_n,\qquad
@@ -309,13 +439,27 @@ $$
 rHr^{-1}=H,\qquad rSr^{-1}=-S,\qquad rTr^{-1}=-T.
 $$
 
-従って $r v_n$ は重さ $-k-2n$ を持ち、$P_+$ と $P_-$ が入れ替わった列を作ります。
+$rv_n$ は実側の群作用 $\pi_\infty(r)v_n$ の略記です。[昇降作用と交換関係](../AFR12/index.md#thm-afr12-ladder) を用いて群作用による共役を計算すると、$D_T(rv_n)=-rD_Tv_n=-i(k+2n)rv_n$ であり、
 
-正と負の二つの列の線形包は $P_\pm,D_T,D_I$（中心方向は0）、回転と反射で不変です。これらが実 Lie 代数と $K_\infty$ の作用を生成します。$\pi_\infty$ は既約なので、この非零の線形包は $\pi_\infty$ 全体です。
+$$
+P_-(rv_n)=rP_+v_n=rv_{n+1},\qquad
+P_+(rv_n)=rP_-v_n.
+$$
+
+従って $rv_n$ は重さ $-k-2n$ を持ち、$P_+$ と $P_-$ が入れ替わった列を作ります。
+
+正と負の二つの列の線形包は $P_\pm,D_T,D_I$（中心方向は0）、回転と反射で不変です。実行列は $H,S,T,I$ の実線形結合であり、
+
+$$
+D_H=\frac{P_++P_-}{2},\qquad
+D_S=\frac{P_+-P_-}{2i}
+$$
+
+です。従ってこれらが実 Lie 代数の作用を張ります。また $O(2)$ の各元は回転または回転と反射の積なので $K_\infty$ の作用も保たれます。$\pi_\infty$ は既約なので、この非零の線形包は $\pi_\infty$ 全体です。
 
 重さ $k$ の元は $v_0$ のスカラー倍に限られるため、その直線が一意です。正の列は [円板模型のユニタリ性と離散系列](../AFR12/index.md#thm-afr12-discrete) に対応する最低重さ加群です。
 
-各有限素点の固有値は [古典Hecke作用と球Hecke作用の正規化](../AFR16/index.md#thm-afr16-hecke-normalization) より $\tau_p=p^{1-k/2}a_p$、中心の球Hecke元の固有値は1です。[Hecke固有値からのEuler因子復元](../AFR14/index.md#thm-afr14-euler-recovery) に代入すると Satake パラメータ $\alpha_p,\beta_p$ の和と積は
+各有限素点の固有値は [古典Hecke作用と球Hecke作用の正規化](../AFR16/index.md#thm-afr16-hecke-normalization) より $\tau_p=p^{1-k/2}a_p$、中心の球Hecke元 $Z^{(p)}=1_{pI K_p}$ の固有値は1です。[Hecke固有値からのEuler因子復元](../AFR14/index.md#thm-afr14-euler-recovery) に代入すると [Satake パラメータ](../AFR14/index.md#def-afr14-satake-parameter) $\alpha_p,\beta_p$ の和と積は
 
 $$
 \alpha_p+\beta_p=p^{-1/2}\tau_p=p^{-(k-1)/2}a_p,\qquad
@@ -327,7 +471,7 @@ $$
 
 [古典Euler積との一致](../AFR16/index.md#thm-afr16-classical-euler-match) により有限L関数は古典変数 $t=s+(k-1)/2$ の $L(f,t)$ と $\operatorname{Re}s>3/2$ で一致します。これは絶対収束域での主張です。例えば $\Delta$ では $p=2$ の固有値は $2^{1-12/2}(-24)=-3/4$、和は $-24/2^{11/2}$、積は1です。
 
-逆に、自明中心指標のカスプ保型表現が全有限素点で球固定直線と実側の正の最低重さ $k$ の直線を持つとします（ここでは偶数 $k\ge2$）。その純テンソルをカスプ形式空間へ埋め込めば [最低重さ条件による古典カスプ形式の復元](#thm-afr17-reconstruction) を適用できます。有限側の各球Hecke作用は1次元の固定空間を保つのでスカラー作用となり、[古典Hecke作用と球Hecke作用の正規化](../AFR16/index.md#thm-afr16-hecke-normalization) により復元された古典形式は全素数の同時固有元です。[素数Hecke固有値による直線の決定](#prop-afr17-eigenline) で第1係数は非零なのでそれを1にできます。埋め込みの取り方を変えても局所Hecke固有値と重さは変わらず、同じ正規化形式に戻ります。
+逆に、自明中心指標のカスプ保型表現が全有限素点で球固定直線と実側の正の最低重さ $k$ の直線を持つとします（ここでは偶数 $k\ge2$）。[Flath のテンソル積定理](#ref-afr17-flath) の基準元とほとんど全ての素点で一致するように非零の球固定元を選び、最低重さ直線の非零元との純テンソルを作ります。その非零純テンソルをカスプ形式空間へ埋め込めば [最低重さ条件による古典カスプ形式の復元](#thm-afr17-reconstruction) を適用できます。有限側の各球Hecke作用は1次元の固定空間を保つのでスカラー作用となり、[古典Hecke作用と球Hecke作用の正規化](../AFR16/index.md#thm-afr16-hecke-normalization) により復元された古典形式は全素数の同時固有元です。[素数Hecke固有値による直線の決定](#prop-afr17-eigenline) で第1係数は非零なのでそれを1にできます。埋め込みの取り方を変えても局所Hecke固有値と重さは変わらず、同じ正規化形式に戻ります。
 
 一般レベルでは $K_p$ をより小さなレベル部分群に替えます。[局所レベルの積](../AFR16/index.md#prop-afr16-level-product) は局所の新ベクトルの固定条件を大域レベルにまとめます。しかし小さな部分群の固定空間は必ずしも1次元ではありません。古典的な旧形式の混入、中心指標の非自明性、全レベルの新形式対応や強重複度1の証明は、レベル1のこの議論とは区別します。
 
@@ -392,7 +536,7 @@ $z^2$ なら $f_x=2z,f_y=2iz$ で $\partial_{\bar z}f=(2z+i(2iz))/2=0$。従っ�
 
 ### A4. 球Hecke固有値の換算
 
-重さ12で $a_3=252$ とする。有限素点3の球Hecke固有値と正規化された局所L因子を求めよ。
+重さ12の正規化レベル1同時Hecke固有カスプ形式で $a_3=252$ とする。有限素点3の球Hecke固有値と正規化された局所L因子を求めよ。
 
 - Level: A
 - ID: AFR17-A4
@@ -495,7 +639,7 @@ $$
 
 ### C1. 局所成分から古典係数と実側の条件を復元する
 
-自明中心指標のレベル1カスプ保型表現に重さ12の最低重さ直線があり、全有限素点で球固定直線を持つとする。素点2、3の球Hecke固有値がそれぞれ $-3/4,28/27$ である。埋め込みから得る正規化古典形式の $a_2,a_3,a_4,a_6,a_9$ を求め、素点2の古典変数での局所因子を書け。さらに重さ14のベクトルを同じ方法で正則形式へ戻せない理由を示せ。
+自明中心指標のレベル1カスプ保型表現に重さ12の最低重さ直線があり、全有限素点で球固定直線を持つとする。素点2、3の球Hecke固有値がそれぞれ $-3/4,28/27$ である。埋め込みから得る正規化古典形式の $a_2,a_3,a_4,a_6,a_9$ を求め、素点2の古典変数での局所因子を書け。さらに実側の最低重さベクトルを一回上げて得られる重さ14のベクトルを、同じ方法で正則形式へ戻せない理由を示せ。
 
 - Level: C
 - ID: AFR17-C1
@@ -527,7 +671,7 @@ $$
 (1+24\cdot2^{-t}+2048\cdot2^{-2t})^{-1}.
 $$
 
-一方、重さ14の元 $v_1=P_+v_0$ は [昇降作用と交換関係](../AFR12/index.md#thm-afr12-ladder) により $P_-v_1=4i(12i)v_0=-48v_0\ne0$ です。従って重さ14という回転の条件は満たしますが、復元定理で必要な正則性の条件を失っています。もし高さ因子を取り除いた関数が正則なら、復元定理の証明の微分式と回転・中心による延長から $P_-v_1=0$ となるはずで矛盾します。有限素点の固有値が同じでも、実側のベクトルの選択が古典関数の正則性を左右します。
+一方、重さ12の最低重さ直線の非零元を $v_0$ とし、重さ14の元 $v_1=P_+v_0$ を取ると [昇降作用と交換関係](../AFR12/index.md#thm-afr12-ladder) により $P_-v_1=4i(12i)v_0=-48v_0\ne0$ です。従って重さ14という回転の条件は満たしますが、復元定理で必要な正則性の条件を失っています。もし高さ因子を取り除いた関数が正則なら、復元定理の証明の微分式と回転・中心による延長から $P_-v_1=0$ となるはずで矛盾します。有限素点の固有値が同じでも、実側のベクトルの選択が古典関数の正則性を左右します。
 <!-- solution-end -->
 
 ## 6. 次講への接続
