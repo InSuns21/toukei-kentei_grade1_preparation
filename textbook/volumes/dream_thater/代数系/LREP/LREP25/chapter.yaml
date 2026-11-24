@@ -1,0 +1,42 @@
+id: LREP25
+title: "1粒子Hilbert空間の誘導表現"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP24
+official_scope: []
+learning_objectives:
+  - 質量殻波束空間と運動量断面を具体的に構成できる
+  - 固定群補正の合成則を導出できる
+  - 誘導作用の群法則・ユニタリ性・強連続性を証明できる
+  - 共同運動量と正エネルギー条件を確認できる
+  - 断面変更によるユニタリ同値を導出できる
+definitions:
+  - { id: LREP25-DEF-01, name: 質量殻波束空間 }
+  - { id: LREP25-DEF-02, name: 運動量断面 }
+  - { id: LREP25-DEF-03, name: 断面の固定群補正 }
+  - { id: LREP25-DEF-04, name: 質量殻上の誘導作用 }
+theorems:
+  - { id: LREP25-THM-01, name: 固定群補正の合成則 }
+  - { id: LREP25-THM-02, name: 誘導作用のユニタリ性と強連続性 }
+  - { id: LREP25-THM-03, name: 誘導表現の共同運動量と正エネルギー }
+  - { id: LREP25-THM-04, name: 断面変更による誘導表現の同値性 }
+canonical_examples:
+  - 光的球殻波束の規格化
+  - 正質量標準boostと光的運動量断面
+  - スカラー波束の並進作用
+  - 半整数ヘリシティの被覆中心作用
+problem_patterns:
+  - LREP25-PACKET-NORM
+  - LREP25-NULL-SECTION
+  - LREP25-INVERSE-INPUT
+  - LREP25-PHASE
+  - LREP25-COLLINEAR-BOOST
+  - LREP25-COVER-DESCENT
+  - LREP25-SPECTRUM-COVARIANCE
+  - LREP25-WRONG-MEASURE
+  - LREP25-SECTION-EQUIVALENCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
