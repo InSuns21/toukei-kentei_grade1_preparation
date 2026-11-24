@@ -1,0 +1,50 @@
+id: "PML2-25"
+title: "何を比較すれば科学計算として信頼できるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-24
+  - PML2-04
+  - PML2-05
+  - PML2-11
+  - PML2-17
+official_scope: []
+learning_objectives:
+  - PDE・評価領域・参照解・同一資源条件を固定した科学計算の評価仕様を定義できる
+  - 真値誤差・連続残差・境界誤差を区別し、残差だけで順位が逆転する反例を計算できる
+  - 一次境界補正とPoincare評価からPoissonの連続L2および導関数誤差上界を証明できる
+  - 四次製造解と三点差分の厳密格子誤差を導出し二次収束を確認できる
+  - 周期有限体積法の共通面流束から総質量保存を証明し解誤差との違いを説明できる
+  - 条件付き二乗誤差の分解から不確かさの校正不足を判定できる
+  - 訓練範囲の完全一致と外挿失敗を構成的反例で区別できる
+  - 学習費用と推論費用を分離して計算件数ごとの実行時間比較をできる
+  - 標準PythonでPoisson差分解の収束表を再現できる
+definitions:
+  - { id: PML2-25-DEF-01, name: 科学計算の評価仕様 }
+theorems:
+  - { id: PML2-25-THM-01, name: Poisson方程式の残差と両端誤差による評価 }
+  - { id: PML2-25-PROP-01, name: 共通面流束による離散質量保存 }
+  - { id: PML2-25-PROP-02, name: 正規化二乗誤差が測るもの }
+canonical_examples:
+  - 零Dirichlet Poissonで残差零なのに端点と真値がずれる定数シフト
+  - 正弦摂動の残差・解誤差と連続上界での等号
+  - 四次製造解に対する三点差分誤差の厳密公式と格子表
+  - 二セルの周期有限体積更新での質量保存
+  - 正しい平均と誤った予測分散に対する正規化誤差
+  - 訓練区間で一致して外挿点で任意の差が生じる二つの関数
+  - 学習時間の償却件数と標準Pythonの再現実験
+problem_patterns:
+  - PML2-25-A01
+  - PML2-25-A02
+  - PML2-25-A03
+  - PML2-25-A04
+  - PML2-25-A05
+  - PML2-25-B01
+  - PML2-25-B02
+  - PML2-25-B03
+  - PML2-25-B04
+  - PML2-25-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }

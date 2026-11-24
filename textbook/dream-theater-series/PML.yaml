@@ -191,7 +191,7 @@ chapters:
     title: "データ同化を単発の逆問題とどう区別するか"
   - id: PML2-25
     path: textbook/volumes/dream_thater/応用系/PML/PML2-25
-    status: planned
+    status: completed
     title: "何を比較すれば科学計算として信頼できるか"
   - id: PML2-26
     path: textbook/volumes/dream_thater/応用系/PML/PML2-26

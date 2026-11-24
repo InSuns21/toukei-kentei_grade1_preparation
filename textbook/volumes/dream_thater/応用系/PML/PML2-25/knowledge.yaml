@@ -1,0 +1,40 @@
+chapter: PML2-25
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-24
+  - PML2-04
+  - PML2-05
+  - PML2-11
+  - PML2-17
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-25-protocol
+    name: 科学計算の評価仕様
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（科学計算の評価仕様）"]
+    requires:
+      - physics-machine-learning.pml2-04-error-metrics
+      - physics-machine-learning.pml2-05-group-split
+      - physics-machine-learning.pml2-17-grid-error
+  - id: physics-machine-learning.pml2-25-joint-bound
+    name: Poisson方程式の残差と両端誤差による評価
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-25-protocol
+      - physics-machine-learning.pml2-11-boundary-error
+  - id: physics-machine-learning.pml2-25-mass
+    name: 共通面流束による離散質量保存
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-25-protocol
+  - id: physics-machine-learning.pml2-25-calibration
+    name: 正規化二乗誤差が測るもの
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-24-innovation-check
+      - physics-machine-learning.pml2-25-protocol

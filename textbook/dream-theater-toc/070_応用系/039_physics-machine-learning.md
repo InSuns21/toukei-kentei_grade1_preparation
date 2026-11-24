@@ -48,3 +48,5 @@
 44. [PML2-22 数値ソルバを通じた勾配はどう求めるか](textbook/volumes/dream_thater/応用系/PML/PML2-22/index.md)
 45. [PML2-23 時間発展を微分すると勾配はどこで狂うか](textbook/volumes/dream_thater/応用系/PML/PML2-23/index.md)
 46. [PML2-24 データ同化を単発の逆問題とどう区別するか](textbook/volumes/dream_thater/応用系/PML/PML2-24/index.md)
+
+47. [PML2-25 何を比較すれば科学計算として信頼できるか](textbook/volumes/dream_thater/応用系/PML/PML2-25/index.md)
