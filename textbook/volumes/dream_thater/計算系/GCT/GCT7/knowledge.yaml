@@ -1,0 +1,57 @@
+chapter: GCT7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GCT6
+  - GCT1
+  - GCT5
+forward_references: []
+concepts:
+  - id: graph-counting.homomorphism
+    name: グラフ準同型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（グラフ準同型）"]
+    requires: [graph-counting.finite-simple-graph]
+  - id: graph-counting.csp
+    name: 制約充足問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（制約充足問題）"]
+    requires: []
+  - id: graph-counting.factor-graph
+    name: 因子グラフ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（因子グラフ）"]
+    requires: [graph-counting.csp]
+  - id: graph-counting.coloring
+    name: 彩色とグラフ準同型の対応
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（彩色とグラフ準同型の対応）"]
+    requires: [graph-counting.homomorphism]
+  - id: graph-counting.hom-csp
+    name: グラフ準同型の制約充足表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（グラフ準同型の制約充足表示）"]
+    requires: [graph-counting.homomorphism, graph-counting.csp]
+  - id: graph-counting.indicator-count
+    name: 充足割当の積和計数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（充足割当の積和計数）"]
+    requires: [graph-counting.csp, graph-counting.factor-graph]
+  - id: graph-counting.elimination
+    name: 変数消去の積和恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（変数消去の積和恒等式）"]
+    requires: [graph-counting.factor-graph]
+  - id: graph-counting.factor-tree-dp
+    name: 木分解上の因子積和漸化式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（木分解上の因子積和漸化式）"]
+    requires: [graph-counting.factor-graph, graph-counting.tree-decomposition, graph-counting.bag-separation]
