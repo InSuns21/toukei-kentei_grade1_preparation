@@ -4,7 +4,7 @@
 
 [分配子のcoend合成](../CATB2-07/index.md#thm-catb2-07-composition)により、中間の射を左右どちらで処理しても同じとみなして二つの対応をつなげられた。しかし三つの対応をつなぐと、どちらの二つを先に合成するかで商集合の作り方が異なる。前講の[双圏](../CATB2-08/index.md#def-catb2-08-bicategory)の考え方を使い、括弧の違いを比較し、単位と整合させよう。
 
-以下、小圏は固定した集合論的宇宙に関して小さいとし、圏全体や関手の圏は必要に応じてより大きな宇宙で扱う。値は集合とし、前講までの一般の豊穣基底とは区別する。
+以下、小圏は固定した集合論的宇宙に関して対象と射がともに小さいとし、圏全体や関手の圏は必要に応じてより大きな宇宙で扱う。値は集合とし、前講までの一般の豊穣基底とは区別する。
 
 ## 2. 分配子どうしの射
 
@@ -14,7 +14,23 @@ $$
 P:B^{\mathrm{op}}\times A\to\mathbf{Set}
 $$
 
-である。$v:b'\to b$ の作用を $p\cdot v$、$u:a\to a'$ の作用を $u\cdot p$ と書く。二方向の作用が可換である。対応を比較するには各集合の写像だけでなく、この作用との両立を要求する。
+である。$p\in P(b,a)$ に対して、到着側の射 $v:b'\to b$ と出発側の射 $u:a\to a'$ の作用を、関手としての記法と対応させて
+
+$$
+\begin{aligned}
+p\cdot v&=P(v^{\mathrm{op}},1_a)(p)\in P(b',a),\\
+u\cdot p&=P(1_b,u)(p)\in P(b,a')
+\end{aligned}
+$$
+
+と書く。ここで $v^{\mathrm{op}}:b\to b'$ は反対圏での射である。片方の引数を固定しているときは $P(v)p$、$P(u)p$ とも略記する。二方向の作用が可換なので、積圏の射 $(v^{\mathrm{op}},u)$ の作用は
+
+$$
+P(v^{\mathrm{op}},u)(p)=u\cdot(p\cdot v)
+=(u\cdot p)\cdot v
+$$
+
+となる。対応を比較するには、既習の[自然変換](../../CAT/CAT1-07/index.md#def-cat1-07-natural-transformation)と同じく、各集合の写像と各射の作用が可換になることを要求する。積圏の射は上のように二方向の作用に分解できるため、自然性も各方向について検査すればよい。
 
 <a id="def-catb2-09-distributor-map"></a>
 
@@ -67,7 +83,23 @@ $$
 である。共変作用と恒等射との両立は恒等写像なので成立する。一方 $\alpha_0(z)=W$ に変えると左辺が $W$、右辺が $Z$ となり、射にならない。
 <!-- definition-example-end -->
 
-この条件は各変数での自然性であり、両方の射を同時に作用させる自然性は二式の連続適用から得られる。従って Hom 圏を既習の[関手圏](../../CAT/CAT1-08/index.md#def-cat1-08-functor-category)として扱える。
+二変数を同時に動かす場合も、定義の共変側、反変側の条件を順に使うと
+
+$$
+\begin{aligned}
+\alpha_{b',a'}(u\cdot(p\cdot v))
+&=u\cdot\alpha_{b',a}(p\cdot v)\\
+&=u\cdot(\alpha_{b,a}(p)\cdot v)
+\end{aligned}
+$$
+
+となり、積圏の任意の射について自然性が成立する。逆に自然性で一方の射を恒等射にすれば定義の二条件を得る。従って Hom 圏は既習の[関手圏](../../CAT/CAT1-08/index.md#def-cat1-08-functor-category)である。
+
+$$
+\mathbf{Prof}(A,B)=[B^{\mathrm{op}}\times A,\mathbf{Set}].
+$$
+
+積圏は小さく、集合の圏は局所小なので関手圏の定義の仮定を満たす。ここでの Hom 圏の対象は分配子、射はその間の自然変換である。
 
 ## 3. 合成を射にも作用させる
 
@@ -83,7 +115,13 @@ $$
 [q,p'\cdot v]_b=[v\cdot q,p']_{b'}
 $$
 
-で生成される同値関係で割る。外側の作用は $w:c'\to c$ と $u:a\to a'$ に対して $[q\cdot w,u\cdot p]_b$ である。
+で生成される同値関係で割る。ここで $q\in Q(c,b)$、$p'\in P(b',a)$ であり、両辺のタグは異なっても同じ同値類を表す。外側の作用は $w:c'\to c$ と $u:a\to a'$ に対して
+
+$$
+[q,p]_b\longmapsto[q\cdot w,u\cdot p]_b
+$$
+
+である。中間対象を動かす商関係と、外側の引数を動かす作用を区別しよう。
 
 <a id="prop-catb2-09-horizontal"></a>
 
@@ -97,7 +135,14 @@ $$
 =[\beta_{c,b}(q),\alpha_{b,a}(p)]_b
 $$
 
-> を対応させることで、Hom圏の積からHom圏への関手をなす。
+> を対応させることで、合成関手
+>
+$$
+\mathbf{Prof}(B,C)\times\mathbf{Prof}(A,B)
+\longrightarrow\mathbf{Prof}(A,C)
+$$
+
+> をなす。記号 $*$ はこの関手による2-射の水平合成を表す。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -120,14 +165,14 @@ $$
 
 第一・第三等号は[分配子の射](#def-catb2-09-distributor-map)の自然性、第二等号は合成先の商関係である。生成関係の両端の像が等しいので、その関係を逆向きにたどっても、有限回つないでも像は変わらない。従って同値類の代表元の選択によらず写像が定まる。
 
-外側の射 $w,u$ に対して像は
+外側の射 $w:c'\to c$、$u:a\to a'$ に対して、外側の作用を先に行ってから水平合成を作用させると
 
 $$
 [\beta(q\cdot w),\alpha(u\cdot p)]_b
 =[\beta(q)\cdot w,u\cdot\alpha(p)]_b.
 $$
 
-従って自然変換である。恒等射の組の作用は $[q,p]_b$ を変えない。さらに $\alpha':P'\Rightarrow P''$ と $\beta':Q'\Rightarrow Q''$ を取ると
+となり、水平合成を先に作用させた後で外側の作用を行う経路と一致する。従って自然変換である。恒等2-射の組の作用は $[q,p]_b$ を変えない。ここからは [垂直合成](../../CAT/CAT1-08/index.md#def-cat1-08-vertical) を $\alpha'\alpha=\alpha'\circ\alpha$ と略記する。さらに $\alpha':P'\Rightarrow P''$ と $\beta':Q'\Rightarrow Q''$ を取ると
 
 $$
 \begin{aligned}
@@ -148,7 +193,7 @@ $$
 I_A(a',a)=\operatorname{Hom}_A(a',a)
 $$
 
-と置く。[分配子の定義](../CATB2-07/index.md#def-catb2-07-distributor)の二作用は前合成と後合成である。射 $h:a'\to a$ に対し、前合成の射を $v:a''\to a'$、$v':a'''\to a''$ とし、後合成の射を $u:a\to a_1$、$u':a_1\to a_2$ とする。恒等射は $h$ を変えず、合成則は
+と置く。これは既習の[Hom関手](../../CAT/CAT1-06/index.md#def-cat1-06-hom-functors)であり、二変数を同時に動かす場合は射 $h$ の前後に射を合成する。[分配子の定義](../CATB2-07/index.md#def-catb2-07-distributor)の二作用は前合成と後合成である。射 $h:a'\to a$ に対し、前合成の射を $v:a''\to a'$、$v':a'''\to a''$ とし、後合成の射を $u:a\to a_1$、$u':a_1\to a_2$ とする。恒等射は $h$ を変えず、合成則は
 
 $$
 (hv)v'=h(vv'),\qquad u'(uh)=(u'u)h
@@ -230,7 +275,25 @@ $$
 
 である。第一式は反変作用の合成則と二作用の可換性、第二式は共変作用の合成則と可換性を使った。成分が全単射である自然変換の逆は、自然性の等式の両側に逆写像を合成すれば自然になる。
 
-最後に $\alpha:P\Rightarrow P'$ について左の二経路は $\alpha(p\cdot h)=\alpha(p)\cdot h$、右の二経路は $\alpha(k\cdot p)=k\cdot\alpha(p)$。よって分配子の射についても自然である。
+最後に $\alpha:P\Rightarrow P'$ について、[水平合成](#prop-catb2-09-horizontal)と単位子の二経路を計算する。左単位子では
+
+$$
+\begin{aligned}
+[h,p]&\mapsto p\cdot h\mapsto\alpha(p\cdot h),\\
+[h,p]&\mapsto[h,\alpha(p)]\mapsto\alpha(p)\cdot h.
+\end{aligned}
+$$
+
+右単位子では
+
+$$
+\begin{aligned}
+[p,k]&\mapsto k\cdot p\mapsto\alpha(k\cdot p),\\
+[p,k]&\mapsto[\alpha(p),k]\mapsto k\cdot\alpha(p).
+\end{aligned}
+$$
+
+[分配子の射の二条件](#def-catb2-09-distributor-map)によってそれぞれの二経路が一致する。よって分配子の射についても自然である。
 <!-- proof-end -->
 
 ## 5. 二重coendの順序を交換する
@@ -344,7 +407,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Hom圏は第2節の関手圏である。[分配子のcoend合成](../CATB2-07/index.md#thm-catb2-07-composition)と[分配子の水平合成](#prop-catb2-09-horizontal)で合成関手が得られ、[Profの単位子](#thm-catb2-09-unitors)と[二重coendのFubini型交換](#thm-catb2-09-fubini)で必要な自然同型を得る。
+Hom圏は第2節で構成した[関手圏](../../CAT/CAT1-08/index.md#def-cat1-08-functor-category)である。[分配子のcoend合成](../CATB2-07/index.md#thm-catb2-07-composition)と[分配子の水平合成](#prop-catb2-09-horizontal)で合成関手が得られ、[Profの単位子](#thm-catb2-09-unitors)と[二重coendのFubini型交換](#thm-catb2-09-fubini)で必要な自然同型を得る。
 
 四つ目の分配子 $S:D\rightsquigarrow E$ を取り、外側の対象を $e,a$ と固定する。各代表元の型は $t\in S(e,d),r\in R(d,c),q\in Q(c,b),p\in P(b,a)$ である。添字を省き、[双圏の五角形条件](../CATB2-08/index.md#def-catb2-08-bicategory)の二経路を計算する。
 
@@ -358,9 +421,9 @@ $$
 \end{aligned}
 $$
 
-各写像は結合子または恒等2-射との水平合成である。どの元もこの形の代表元を持ち、すべての写像は既に商上で定義済みなので、二経路は写像として一致する。
+短い経路の二写像は $a_{S\odot R,Q,P}$、$a_{S,R,Q\odot P}$ である。長い経路は $a_{S,R,Q}*1_P$、$a_{S,R\odot Q,P}$、$1_S*a_{R,Q,P}$ の順である。ここで $1_P,1_S$ はそれぞれの分配子の恒等2-射であり、恒等分配子とは異なる。いずれも[結合子](#thm-catb2-09-fubini)または[水平合成](#prop-catb2-09-horizontal)によって定まる。どの元もこの形の代表元を持ち、すべての写像は既に商上で定義済みなので、二経路は写像として一致する。
 
-三角形の始域は $(Q\odot I_B)\odot P$ である。代表元 $[[q,h],p]$ の型は $q\in Q(c,b')$、$h:b'\to b$、$p\in P(b,a)$。右単位子を先に用いる経路と、結合子を通って左単位子を用いる経路は
+三角形の始域は $(Q\odot I_B)\odot P$ である。代表元 $[[q,h],p]$ の型は $q\in Q(c,b')$、$h:b'\to b$、$p\in P(b,a)$。[双圏の三角形条件](../CATB2-08/index.md#def-catb2-08-bicategory)の二経路は、$r_Q*1_P$ と $(1_Q*l_P)a_{Q,I_B,P}$ である。右単位子を先に用いる経路と、結合子を通って左単位子を用いる経路を代表元で書くと
 
 $$
 \begin{aligned}
@@ -418,7 +481,7 @@ $$
 $A$ は一対象・恒等射のみ、$B$ は $0\xrightarrow{v}1$。$P(0)=\{x\}$、$P(1)=\{y,z\}$ で $P(v)$ は両元を $x$ に送る。$(I_B\odot P)(0)$ の全同値類とその単位子の像を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** 対角の組は次の三つである。
+**詳細解答。** [分配子のcoend合成](../CATB2-07/index.md#thm-catb2-07-composition)のタグ付き余積は、$b=0$ の $\operatorname{Hom}_B(0,0)\times P(0)$ と $b=1$ の $\operatorname{Hom}_B(0,1)\times P(1)$ からなる。商に入る三つの代表元は次である。
 
 $$
 [1_0,x]_0,\quad [v,y]_1,\quad [v,z]_1.
@@ -444,7 +507,7 @@ $$
 $A$ は $0\xrightarrow{v}1$、$B$ は一対象・恒等射のみ。$P(0)=\{x,y\}$、$P(1)=\{z,w\}$ で $P(v)$ は両元を $z$ に送る。$(P\odot I_A)(1)$ の全同値類を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** 対角成分は
+**詳細解答。** [分配子のcoend合成](../CATB2-07/index.md#thm-catb2-07-composition)では中間対象 $a'=0,1$ ごとに $P(a')\times\operatorname{Hom}_A(a',1)$ の元を集める。商に入る四つの代表元は
 
 $$
 [x,v]_0,\quad[y,v]_0,\quad[z,1_1]_1,\quad[w,1_1]_1.
@@ -468,7 +531,13 @@ $$
 \beta_1(Q(v)s)=\beta_1(t)=t'=Q'(v)\beta_0(s)
 $$
 
-だから自然である。元の合成には $[s,x]_0=[t,y]_1$ と $[u,y]_1$ の二類がある。像の合成は $[s',x]_0=[t',y]_1$ の一類である。
+だから自然である。[分配子のcoend合成](../CATB2-07/index.md#thm-catb2-07-composition)で中間射 $v$ と $y$ を使うと
+
+$$
+[s,P(v)y]_0=[Q(v)s,y]_1=[t,y]_1
+$$
+
+を得る。左端は $[s,x]_0$ である。恒等射以外の生成関係はこれだけなので、元の合成はこの類と $[u,y]_1$ の二類である。同じ計算で像の合成は $[s',x]_0=[t',y]_1$ の一類となる。
 
 [分配子の水平合成](#prop-catb2-09-horizontal)で $\alpha=1_P$ とすると、第一類の二代表元の像は
 
@@ -502,7 +571,14 @@ $$
 (0,b,0)\sim(1,b,i)
 $$
 
-である（$i=0,1$）。四つの $i=0$ の元は両関係でつながる。
+である（$i=0,1$）。四つの $i=0$ の元は、第一関係で $b$ を、第二関係で $c$ を変えることで
+
+$$
+(0,0,0)\sim(0,1,0)\sim(1,1,0)
+\sim(1,0,0)
+$$
+
+とつながる。
 
 $i=1$ のうち $b=0$ の二元は第一関係、$c=1$ の二元は第二関係で0の類につながる。残る $(0,1,1)$ はどの生成関係の端点にも現れない。したがって7元の類と一元の類の二類である。どちらの順序で商を取ってもこの二類が残る。
 <!-- solution-end -->
@@ -569,6 +645,7 @@ $$
 $$
 [[[t,r],q],p]\mapsto[[t,r],[q,p]]\mapsto[t,[r,[q,p]]].
 $$
+
 長い経路では左の三因子を先に組み直し、次いで外側、最後に右の三因子を組み直す。
 
 $$
@@ -578,6 +655,7 @@ $$
 &\mapsto[t,[r,[q,p]]].
 \end{aligned}
 $$
+
 両写像は一元集合の唯一の元を同じ元へ送るから等しい。一般の場合の五角形もこの代表元計算を各同値類に適用したものである。
 <!-- solution-end -->
 

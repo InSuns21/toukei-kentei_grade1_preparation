@@ -68,7 +68,7 @@ chapters:
     title: "分岐局所表現・newvector"
   - id: AFR16
     path: textbook/volumes/dream_thater/代数系/AFR/AFR16
-    status: planned
+    status: completed
     title: "制限テンソル積・局所大域L因子"
   - id: AFR17
     path: textbook/volumes/dream_thater/代数系/AFR/AFR17

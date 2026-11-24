@@ -1,0 +1,41 @@
+chapter: AFR16
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR15, MF6]
+forward_references: []
+concepts:
+  - id: automorphic-forms.restricted-tensor-product
+    name: "制限テンソル積"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.adelic-gl2, automorphic-forms.spherical-vector]
+  - id: automorphic-forms.restricted-tensor-action
+    name: "制限テンソル積上の群作用"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.restricted-tensor-product, automorphic-forms.padic-smooth]
+  - id: automorphic-forms.local-level-product
+    name: "局所レベルの積"
+    kind: proposition
+    introduction: formal
+    requires: [automorphic-forms.restricted-tensor-action, automorphic-forms.local-conductor-newvector]
+  - id: automorphic-forms.finite-l-product
+    name: "有限素点のL積"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.gl2-unramified-local-factor]
+  - id: automorphic-forms.local-factor-convergence
+    name: "局所因子の積の絶対収束"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.finite-l-product, analytic-number-theory.euler-product]
+  - id: automorphic-forms.classical-hecke-normalization
+    name: "古典Hecke作用と球Hecke作用の正規化"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.classical-adelization, automorphic-forms.index-p-double-coset, automorphic-forms.spherical-hecke-action]
+  - id: automorphic-forms.classical-euler-match
+    name: "古典Euler積との一致"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.classical-hecke-normalization, automorphic-forms.hecke-euler-recovery, modular-forms.l-euler-product]
