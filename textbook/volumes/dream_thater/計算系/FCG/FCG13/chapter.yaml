@@ -17,5 +17,5 @@ canonical_examples: ["二方向の周期重力波", "逆変換と直接和の比
 problem_patterns: [FCG13-WAVE, FCG13-FFT, FCG13-ALIAS, FCG13-NORMAL]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 5, exercises: 4, review: 2 }
