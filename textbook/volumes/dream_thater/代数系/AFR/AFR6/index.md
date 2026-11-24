@@ -6,7 +6,13 @@
 
 ## 1. 素数に対応する有限個の移動
 
-[上半平面](../../MF/MF1/index.md#def-mf1-upper-half-plane)を $\mathbb H$、[整数モジュラー群](../../MF/MF1/index.md#def-mf1-modular-group)を $\Gamma=SL_2(\mathbb Z)$ とします。正の行列式を持つ実行列 $B$ は $B/\sqrt{\det B}$ と同じ一次分数変換を与えます。後者は行列式1なので、[双曲計量と面積要素の群不変性](../AFR2/index.md#prop-afr2-metric-invariance)が適用できます。
+[上半平面](../../MF/MF1/index.md#def-mf1-upper-half-plane)を $\mathbb H$、[整数モジュラー群](../../MF/MF1/index.md#def-mf1-modular-group)を $\Gamma=SL_2(\mathbb Z)$ とします。点を $z=x+iy$（$x,y\in\mathbb R,\ y>0$）と書きます。[実特殊線形群の上半平面への作用](../AFR1/index.md#def-afr1-real-group) と同じ記法で、正の行列式を持つ実行列 $B=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ の点移動を
+
+$$
+Bz=\frac{az+b}{cz+d}
+$$
+
+と書きます。分母は上半平面で零にならず、虚部は $(\det B)y/|cz+d|^2>0$ です。行列全体を正の数で割っても分子・分母の倍率は相殺されます。特に $B$ と $B/\sqrt{\det B}$ は同じ点移動を与え、後者は行列式1なので、[双曲計量と面積要素の群不変性](../AFR2/index.md#prop-afr2-metric-invariance)が適用できます。
 
 素数 $p$ に対し $\mathcal M_p$ を行列式 $p$ の整数二次正方行列全体とします。左から $\Gamma$ の行列を掛けて移り合うものを同じ左剰余類とみなします。[整数行列の左剰余類代表](../../MF/MF5/index.md#lem-mf5-hermite)を $n=p$ に適用すると、代表は
 
@@ -17,7 +23,17 @@ B_b=\begin{pmatrix}1&b\\0&p\end{pmatrix}
 \quad(0\le b<p)
 $$
 
-の $p+1$ 個です。ここでは正則性を課さず、行列の作用によって関数の評価点だけを変えます。MF5の[レベル1のHecke作用素](../../MF/MF5/index.md#def-mf5-hecke-level-one)を重さ0とした場合の正規化は $1/p$ でした。本講ではその $\sqrt p$ 倍を用います。後で非零Fourier係数の漸化式が簡単になります。
+の $p+1$ 個です。補題の条件 $ad=p$ から $(a,d)=(p,1),(1,p)$ の二通りしかなく、それぞれ上右成分の範囲が $0\le b<1$ と $0\le b<p$ になるためです。一次分数変換に代入すると
+
+$$
+Dz=pz,\qquad B_bz=\frac{z+b}{p}.
+$$
+
+MF5の[レベル1のHecke作用素](../../MF/MF5/index.md#def-mf5-hecke-level-one)を参考に、各点移動の先で関数を評価し、その値を足し合わせる線形作用を構成します。
+
+$\Gamma$ 不変とは、任意の $\gamma\in\Gamma$ と $z\in\mathbb H$ で $u(\gamma z)=u(z)$ が成立することです。ここでは正則性を課しません。
+
+MF5の式で重さを0とした場合の正規化は $1/p$ でした。本講ではその $\sqrt p$ 倍を用います。後で非零Fourier係数の漸化式が簡単になります。
 
 
 <a id="def-afr6-hecke"></a>
@@ -35,7 +51,15 @@ $$
 
 
 <!-- definition-example-start: def-afr6-hecke -->
-**定義の確認**：$p=2$ は素数で、$u(z)=1$ は全ての $\Gamma$ の作用に不変です。代表3個の行列式は2で、下段の正成分は順に1,2,2、後二者の上右成分は0,1です。
+**定義の確認**：$p=2$ は素数で、$u(z)=1$ は全ての $\Gamma$ の作用に不変です。[整数行列の左剰余類代表](../../MF/MF5/index.md#lem-mf5-hermite)の条件に $p=2$ を代入すると、代表は
+
+$$
+\begin{pmatrix}2&0\\0&1\end{pmatrix},
+\quad\begin{pmatrix}1&0\\0&2\end{pmatrix},
+\quad\begin{pmatrix}1&1\\0&2\end{pmatrix}
+$$
+
+です。いずれも行列式2であり、対角成分は正、上右成分は下右成分未満の非負整数です。それぞれの点移動は $2z,z/2,(z+1)/2$ で、虚部は $2y,y/2,y/2$ とすべて正です。したがって各評価点で $u$ が定義され、値は1になります。
 
 $$
 (T_2 1)(z)=\frac{1+1+1}{\sqrt2}=\frac3{\sqrt2}.
@@ -48,7 +72,7 @@ $$
 
 ## 2. 微分方程式とカスプ条件を保存する
 
-[双曲Laplace作用素](../AFR2/index.md#def-afr2-laplacian) を用います。Maass形式の定義にある不変性、固有方程式、増大条件と、カスプでの平均0を一つずつ確かめます。
+[双曲Laplace作用素](../AFR2/index.md#def-afr2-laplacian) $\Delta_{\mathbb H}=-y^2(\partial_x^2+\partial_y^2)$ を用います。$\partial_x$ は高さ $y$ を固定した横方向の偏微分、$\partial_y$ は $x$ を固定した高さ方向の偏微分です。[Maass形式](../AFR2/index.md#def-afr2-maass)の不変性、固有方程式、増大条件と、[Maassカスプ形式](../AFR3/index.md#def-afr3-maass-cusp)の平均0および作用素の定義域への所属を一つずつ確かめます。
 
 
 <a id="thm-afr6-preserve"></a>
@@ -83,14 +107,14 @@ $$
 
 $1\le y\le p$ では $T_pu$ は周期1かつ連続で、$0\le x\le1$ のコンパクトな帯上で有界です。定数を大きくすれば $y\ge1$ 全体で増大条件が成立します。
 
-横方向の平均を $a_0(y)=\int_0^1u(x+iy)dx$ とします。$v=px$ により第一項の平均は
+横方向の平均を $a_0(y)=\int_0^1u(x+iy)dx$ とします。高さ $y$ を固定し、横座標だけを $v=px$ と置換します。$dv/dx=p>0$ なので $dx=dv/p$ となり、第一項の平均は
 
 $$
 \int_0^1u(px+ipy)dx
 =\frac1p\int_0^pu(v+ipy)dv=a_0(py).
 $$
 
-第二項は $v=(x+b)/p$ とすると
+第二項も高さ $y/p$ を固定し、$v=(x+b)/p$ と置換します。$dv/dx=1/p>0$ より $dx=p\,dv$ となり、区間の両端は $b/p,(b+1)/p$ です。したがって
 
 $$
 \sum_{b=0}^{p-1}p\int_{b/p}^{(b+1)/p}
@@ -105,7 +129,7 @@ $$
 
 [重さ0のPetersson内積](../AFR3/index.md#def-afr3-petersson)を用いる空間を $H=L^2(\Gamma\backslash\mathbb H,d\mu)$、$d\mu=dx\,dy/y^2$ とします。[標準基本領域](../../MF/MF1/index.md#def-mf1-standard-domain)を $F$ とし、内積は第一変数について線形な規約 $(u,v)=\int_F u\overline v\,d\mu$ です。
 
-有界とはノルムの増加率が一定の数で抑えられることです。ここでは定義域が空間全体なので、内積の左右に作用素を移せる性質が自己共役性になります。
+有界とは、ある定数 $C$ がすべての $u\in H$ に対して $\|T_pu\|\le C\|u\|$ を満たすことです。ここでは $H$ の要素は不変な二乗可積分関数をほとんど至る所の一致で同一視したものです。定義域が空間全体の有界線形作用素について、内積の左右に作用素を移せる等式が自己共役性を意味します。
 
 自己共役性を示すには、単に各点の移動が面積を保存するだけでは足りません。移動した基本領域をどの部分群の基本領域として扱うかを調べます。部分群 $J\subset\Gamma$ の指数とは左剰余類 $J\backslash\Gamma$ の個数です。
 
@@ -138,9 +162,40 @@ J=\Gamma\cap D^{-1}\Gamma D,\qquad
 J'=\Gamma\cap D\Gamma D^{-1}=DJD^{-1}
 $$
 
-と置きます。$\Gamma D\gamma=\Gamma D\delta$ と $D\gamma\delta^{-1}D^{-1}\in\Gamma$ は同値であり、これは $\gamma\delta^{-1}\in J$、すなわち $J\gamma=J\delta$ と同値です。従って $J\backslash\Gamma$ の代表 $\gamma_j$ は $p+1$ 個で、$D\gamma_j$ は二重剰余類の左代表です。$pD^{-1}=\operatorname{diag}(1,p)=SDS^{-1}$ なので、逆向きの二重剰余類にも同数の左代表があり、$J'$ の指数も $p+1$ です。
+と置きます。左剰余類の一致条件を順に書くと、
 
-境界の零測度部分を除けば $F_J=\bigcup_j\gamma_j F$ は $J$ の基本領域です。実際、任意の点を $\gamma z$（$z\in F$）と書き、$\gamma=h\gamma_j$（$h\in J$）と分解すればこの領域で代表できます。内部での重複は [基本領域の存在と内部での一意性](../../MF/MF1/index.md#thm-mf1-fundamental-domain) と左剰余類の一意性から除かれます。$DF_J$ は共役部分群 $J'$ の基本領域です。
+$$
+\begin{aligned}
+\Gamma D\gamma=\Gamma D\delta
+&\iff D\gamma\delta^{-1}D^{-1}\in\Gamma\\
+&\iff \gamma\delta^{-1}\in J\\
+&\iff J\gamma=J\delta
+\end{aligned}
+$$
+
+となります。従って $J\backslash\Gamma$ の代表 $\gamma_j$ は $p+1$ 個で、$D\gamma_j$ は二重剰余類の左代表です。
+
+$pD^{-1}=\operatorname{diag}(1,p)=SDS^{-1}$ なので、逆向きの二重剰余類にも同数の左代表があり、$J'$ の指数も $p+1$ です。
+
+境界の零測度部分を除けば $F_J=\bigcup_j\gamma_j F$ は $J$ の基本領域です。実際、任意の点を $\gamma z$（$z\in F$）と書き、$\gamma=h\gamma_j$（$h\in J$）と分解すればこの領域で代表できます。
+
+内部での重複を調べます。$z,z'\in F^\circ$ と $h\in J$ について、次の等式が成り立つと仮定します。
+
+$$
+h\gamma_j z=\gamma_k z'
+\quad\Longrightarrow\quad
+z'=(\gamma_k^{-1}h\gamma_j)z.
+$$
+
+括弧内の行列は $\Gamma$ に属します。[基本領域の存在と内部での一意性](../../MF/MF1/index.md#thm-mf1-fundamental-domain)より $z=z'$ であり、$\gamma_k^{-1}h\gamma_j=\pm I$ です。$\pm I\in J$ なので
+
+$$
+J\gamma_j=J\gamma_k
+$$
+
+となり、代表の一意性から $j=k$ です。
+
+$DF_J$ は共役部分群 $J'$ の基本領域です。
 
 [面積要素の不変性](../AFR2/index.md#prop-afr2-metric-invariance)を $\gamma_j$ と $D/\sqrt p$ に適用して、
 
@@ -155,7 +210,7 @@ $$
 
 最後の等号は、$u$ が $\Gamma$ 不変なので $J'$ の基本領域を $p+1$ 枚の $F$ に折り畳んだものです。別の基本領域を用いても非負の不変関数の積分が一致するのは、二つの領域を群で重なる可算個の部分に分割し、面積保存の変数変換で対応させられるからです。
 
-この等式から零測度上の代表の違いは作用後も零測度上にしか現れません。さらに有限和の[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により
+この等式を差の関数に適用すると、零測度上の代表の違いは作用後も零測度上にしか現れません。また第2節の右乗法による代表の置換は滑らかさを用いないので、ここでも $T_pu$ は $\Gamma$ 不変です。さらに有限和の[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により
 
 $$
 \|T_pu\|^2
@@ -173,7 +228,13 @@ $$
 \end{aligned}
 $$
 
-$J'$ の左代表を $\delta_j$ として最後の積分を $\bigcup_j\delta_j F$ で計算します。被積分関数は $J'$ 不変なので基本領域の交換が許されます。$t=\delta_j z$ によって
+$J'$ の左代表を $\delta_j$ として最後の積分を $\bigcup_j\delta_j F$ で計算します。任意の $h'\in J'$ について $D^{-1}h'D\in J\subset\Gamma$ です。したがって $u(h't)=u(t)$ かつ
+
+$$
+v(D^{-1}h't)=v((D^{-1}h'D)D^{-1}t)=v(D^{-1}t)
+$$
+
+となります。被積分関数は $J'$ 不変かつ絶対可積分なので基本領域の交換が許されます。$t=\delta_j z$ によって
 
 $$
 \sqrt p(T_pu,v)=
@@ -188,19 +249,19 @@ $D^{-1}$ と $pD^{-1}$ は同じ点移動を与えます。後者の二重剰余
 
 ## 4. 非零Fourier係数と固有値
 
-[Maass形式の非零周波数展開](../AFR4/index.md#thm-afr4-maass-expansion)を用います。カスプ形式 $u$ のLaplace固有値を $\lambda$ とし、$\nu^2=1/4-\lambda$ を満たす次数 $\nu$ を選びます。定数項が0なので
+[Maass形式の非零周波数展開](../AFR4/index.md#thm-afr4-maass-expansion)を用います。カスプ形式 $u$ のLaplace固有値を $\lambda$ とし、$\nu^2=1/4-\lambda$ を満たす次数 $\nu$ を選びます。ここで $\rho(n)$ は整数周波数 $n\ne0$ に対応する定数で、$K_\nu$ は [変形Bessel関数 K](../AFR4/index.md#def-afr4-k-bessel) です。定数項が0なので
 
 $$
 u(x+iy)=\sqrt y\sum_{n\ne0}\rho(n)K_\nu(2\pi|n|y)e^{2\pi inx}.
 $$
 
-$K_\nu$ は [変形Bessel関数 K](../AFR4/index.md#def-afr4-k-bessel) です。各高さで絶対一様収束します。以下で $\rho(n/p)$ は $p\nmid n$ のとき0とする約束を置きます。
+各高さで絶対収束し、横座標 $x$ について一様収束します。以下で $\rho(n/p)$ は $p\nmid n$ のとき0とする約束を置きます。
 
 
 <a id="thm-afr6-coefficient"></a>
 <!-- formal-statement-start -->
 > **定理（Maass形式のHecke係数公式）**  
-> $p$ を素数、$u$ を [重さ0のMaassカスプ形式](../AFR3/index.md#def-afr3-maass-cusp) とする。$T_pu$ の非零周波数展開の係数を $\rho_p(n)$ とすれば
+> $p$ を素数、$u$ を [重さ0のMaassカスプ形式](../AFR3/index.md#def-afr3-maass-cusp) とする。$u$ と $T_pu$ の同じ次数 $\nu$（$\nu^2=1/4-\lambda$、$\lambda$ は $u$ のLaplace固有値）を用いた非零周波数展開の係数をそれぞれ $\rho(n),\rho_p(n)$ とする。$p\nmid n$ の場合は $\rho(n/p)=0$ と約束すれば
 
 $$
 \rho_p(n)=\rho(pn)+\rho(n/p)
@@ -276,7 +337,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[カスプ固有値の有限重複度と非集積性](../AFR3/index.md#prop-afr3-cusp-discrete) により $W_\lambda$ は有限次元です（零空間なら主張は空の基底で成立）。非零なら [エネルギー実現の自己共役性と非負性](../AFR3/index.md#thm-afr3-self-adjoint) により $\lambda\ge0$ です。[保型固有方程式の保存](#thm-afr6-preserve) から $W_\lambda$ は各 $T_p$ で不変、[自己共役性](#thm-afr6-self-adjoint) から制限も自己共役です。
+$W_\lambda$ が零空間なら主張は空の基底で成立します。非零ならカスプ形式はエネルギー実現の定義域に属するので、[エネルギー実現の自己共役性と非負性](../AFR3/index.md#thm-afr3-self-adjoint) により $\lambda\ge0$ です。そこで [カスプ固有値の有限重複度と非集積性](../AFR3/index.md#prop-afr3-cusp-discrete) を区間 $[0,\lambda]$ に適用すると、$W_\lambda$ は有限次元です。[保型固有方程式の保存](#thm-afr6-preserve) から $W_\lambda$ は各 $T_p$ で不変、[自己共役性](#thm-afr6-self-adjoint) から制限も自己共役です。
 
 異なる素数 $p,q$ に対し [係数公式](#thm-afr6-coefficient) を二度使うと、$T_pT_qu$ の係数は
 
@@ -342,16 +403,39 @@ G(z,s)=\sum_{(c,d)\ne(0,0)}
 =2\zeta(2s)E(z,s)
 $$
 
-とします。行ベクトル $v=(c,d)$ に対し $B=\begin{pmatrix}a&b\\e&f\end{pmatrix}$ が行列式 $p$ なら、虚部の公式を $B/\sqrt p$ で計算して
+とします。非零の整数行ベクトル $v=(c,d)$ に対し $B=\begin{pmatrix}a&b\\e&f\end{pmatrix}$ が行列式 $p$ なら、[一次分数変換の虚部公式](../AFR1/index.md#def-afr1-real-group)を $B/\sqrt p$ に適用すると $\Im(Bz)=py/|ez+f|^2$ です。また
+
+$$
+c(Bz)+d=\frac{(ca+de)z+(cb+df)}{ez+f}.
+$$
+
+分母 $ez+f$ は零でなく、行ベクトル $vB$ も非零なので、絶対値の二乗を取って虚部の式と割り合わせると
 
 $$
 \frac{\Im(Bz)}{|c(Bz)+d|^2}
 =\frac{py}{|(ca+de)z+(cb+df)|^2}.
 $$
 
-つまり $vB$ の格子和が現れ、倍率は $p^s$ です。$D$ の行格子は第一成分が $p$ の倍数の行ベクトル、$B_b$ の行格子は第二成分が第一成分の $b$ 倍と法 $p$ で合同な行ベクトル全体です。
+つまり $vB$ の格子和が現れ、倍率は $p^s$ です。各整数行ベクトル $(m,n)$ に対する行列積は
 
-非零の整数組 $(h,k)$ が両成分とも $p$ で割れれば、$p+1$ 個全ての行格子に入ります。それ以外で $p\mid h$ なら $p\nmid k$ なので $D$ の格子だけに入り、$p\nmid h$ なら $k\equiv bh\pmod p$ を満たす $b$ が一意なので一つだけに入ります。各行列の行ベクトルへの作用は単射です。
+$$
+(m,n)D=(pm,n),\qquad
+(m,n)B_b=(m,bm+pn).
+$$
+
+よって $(h,k)$ が $D$ の行格子に入る条件は $p\mid h$ です。このとき逆像は $(h/p,k)$ です。$B_b$ の行格子に入る条件は $k\equiv bh\pmod p$ で、逆像は $(h,(k-bh)/p)$ です。これで各条件の必要性と十分性が確認できました。
+
+非零の整数組 $(h,k)$ が両成分とも $p$ で割れれば、$p+1$ 個全ての行格子に入ります。
+
+それ以外で $p\mid h$ なら $p\nmid k$ なので $D$ の格子だけに入ります。
+
+$p\nmid h$ なら $h$ は法 $p$ で逆元を持ちます。合同式
+
+$$
+b\equiv kh^{-1}\pmod p
+$$
+
+を満たす代表 $0\le b<p$ は一意なので、ちょうど一つの行格子に入ります。各行列の行ベクトルへの作用は単射です。
 
 従って絶対収束する和を並べ替えると、
 
@@ -365,11 +449,11 @@ T_pG(z,s)
 \end{aligned}
 $$
 
-第二行では $(h,k)=p(c,d)$ と置き、分母の二乗から $p^{-2s}$ を取り出しました。[Riemann ζ 関数のEuler積](../../../解析系/CA/CA12/index.md#thm-ca12-euler-product) により $\Re s>1$ では $\zeta(2s)$ は零でないので割ることができます。これで表示式を得ます。[Eisenstein級数の解析接続と関数等式](../AFR5/index.md#thm-afr5-functional) により両辺は $s$ の有理型関数であり、一致の定理により接続後も等しいです。
+第二行では $(h,k)=p(c,d)$ と置き、分母の二乗から $p^{-2s}$ を取り出しました。[Riemann ζ 関数のEuler積](../../../解析系/CA/CA12/index.md#thm-ca12-euler-product) により $\Re s>1$ では $\zeta(2s)$ は零でないので割ることができます。これで表示式を得ます。[Eisenstein級数の解析接続と関数等式](../AFR5/index.md#thm-afr5-functional) により固定した $z$ に対して両辺は $s$ の有理型関数です。両辺の差は極を除いた領域で正則であり、$\Re s>1$ で零です。[恒等定理](../../../解析系/CA/CA3/index.md#thm-ca3-isolated-zeros-identity)を適用すると極以外でも差は零となり、極でのLaurent展開も一致します。
 <!-- proof-end -->
 
 
-$s=1/2+it$（$t\in\mathbb R$）では係数は $p^{it}+p^{-it}=2\cos(t\log p)$ です。Laplace固有値は $s(1-s)=1/4+t^2$ でした。級数が正則かつ非零の点では両方の固有方程式を満たします。これは連続パラメータを持つ固有関数の算術的な目印です。二乗可積分空間の固有基底と同一視せず、連続スペクトルの完全な分解はここでは主張しません。
+$s=1/2+it$（$t\in\mathbb R$）では係数は $p^{it}+p^{-it}=2\cos(t\log p)$ です。[Eisenstein級数の固有方程式](../AFR5/index.md#thm-afr5-convergence)のLaplace固有値は $s(1-s)=1/4+t^2$ でした。[解析接続後の固有方程式](../AFR5/index.md#thm-afr5-functional)により、級数が正則かつ非零のパラメータでは両方の固有方程式を満たします。これは連続パラメータを持つ固有関数の算術的な目印です。二乗可積分空間の固有基底と同一視せず、連続スペクトルの完全な分解はここでは主張しません。
 
 ## 6. 演習と詳細解答
 
@@ -512,7 +596,13 @@ $p=3$ とし、行ベクトル $(0,1),(1,2),(3,6)$ がどの代表行列の行�
 
 - Level: C
 
-共通固有関数の正規化された係数 $c$ を考える。仮の固有値を $\eta_2=1/2,\eta_3=2$ として $c(4),c(8),c(9),c(72)$ を求めよ。また任意の素数 $p$ について形式的冪級数 $F_p(X)=\sum_{r\ge0}c(p^r)X^r$ に対して $(1-\eta_pX+X^2)F_p(X)=1$ を示せ。収束は仮定しない。
+共通固有関数の正規化された係数 $c$ を考える。仮の固有値を $\eta_2=1/2,\eta_3=2$ として $c(4),c(8),c(9),c(72)$ を求めよ。また任意の素数 $p$ について形式的冪級数（変数 $X$ の各次数の係数を比較する級数）
+
+$$
+F_p(X)=\sum_{r\ge0}c(p^r)X^r
+$$
+
+に対して $(1-\eta_pX+X^2)F_p(X)=1$ を示せ。収束は仮定しない。
 
 <!-- solution-start -->
 **詳細解答**
