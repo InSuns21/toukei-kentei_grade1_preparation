@@ -2,7 +2,7 @@ id: FCG12
 title: "浅水を三次元の水面として描けるか"
 volume: foundations
 status: supplementary
-prerequisites: [FCG5, FCG11, FLUID29, FLUID45, FLUID46]
+prerequisites: [FCG5, FCG11, FLUID29, FLUID45, FLUID46, FDM3]
 official_scope: []
 learning_objectives:
   - "水深と二方向の流量から浅水保存形の面流束を計算できる"
