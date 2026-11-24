@@ -1,0 +1,23 @@
+chapter: FCG11
+scope: dream-theater
+coverage: complete
+prerequisites: [FCG10, GEO10]
+concepts:
+  - id: graphics.fcg11-emission
+    name: 二次粒子の発生規則
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二次粒子の発生規則）"]
+    requires: [geometry.curve-curvature]
+  - id: graphics.fcg11-ballistic
+    name: 飛沫の放物運動
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（飛沫の放物運動）"]
+    requires: []
+  - id: graphics.fcg11-reentry
+    name: 再突入後の再出現を防ぐ条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（再突入後の再出現を防ぐ条件）"]
+    requires: [graphics.fcg11-ballistic]

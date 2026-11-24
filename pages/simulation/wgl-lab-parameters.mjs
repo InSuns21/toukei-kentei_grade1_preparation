@@ -3,6 +3,14 @@
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
 
 export const LAB_PARAMETERS = Object.freeze({
+  FCG11: Object.freeze([
+    Object.freeze({id:'time',type:'number',label:'観察時刻',default:0.35,min:0,max:1.8,step:0.05,unit:'s',meaning:'同じ軌道の時刻を変更',sourceLocation:'foam.js / const time',sourceFile:'js',index:null,matcher:/^([ \t]*const time=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'curvatureThreshold',type:'number',label:'曲率閾値',default:0.8,min:0,max:3,step:0.1,unit:'m⁻¹',meaning:'波の曲がりで発生を選別',sourceLocation:'foam.js / const curvatureThreshold',sourceFile:'js',index:null,matcher:/^([ \t]*const curvatureThreshold=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'speedThreshold',type:'number',label:'速さ閾値',default:1.5,min:0,max:2.5,step:0.1,unit:'m/s',meaning:'速さ指標で発生を選別',sourceLocation:'foam.js / const speedThreshold',sourceFile:'js',index:null,matcher:/^([ \t]*const speedThreshold=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'lifetime',type:'number',label:'寿命',default:0.8,min:0.1,max:1.5,step:0.1,unit:'s',meaning:'粒子が生存できる期間',sourceLocation:'foam.js / const lifetime',sourceFile:'js',index:null,matcher:/^([ \t]*const lifetime=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'radius',type:'number',label:'描画半径',default:0.055,min:0.025,max:0.1,step:0.005,unit:'m',meaning:'中心の運動は保ったまま表示の大きさを変更',sourceLocation:'foam.js / const radius',sourceFile:'js',index:null,matcher:/^([ \t]*const radius=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'amount',type:'integer',label:'候補点数',default:24,min:1,max:40,step:1,unit:'点',meaning:'等間隔の発生候補数',sourceLocation:'foam.js / const amount',sourceFile:'js',index:null,matcher:/^([ \t]*const amount=)([^;\n]+)(;)/gm})
+  ]),
   FCG10: Object.freeze([
     Object.freeze({id:'angle',type:'number',label:'入射方向の角度',default:30,min:0,max:80,step:5,unit:'度',meaning:'鉛直から斜めへ',sourceLocation:'water.js / const angle',sourceFile:'js',index:null,matcher:/^([ \t]*const angle=)([^;\n]+)(;)/gm}),
     Object.freeze({id:'indexWater',type:'number',label:'水の屈折率',default:1.33,min:1,max:1.6,step:0.01,unit:'無次元',meaning:'SnellとFresnelの両方に作用',sourceLocation:'water.js / const indexWater',sourceFile:'js',index:null,matcher:/^([ \t]*const indexWater=)([^;\n]+)(;)/gm}),
