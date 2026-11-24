@@ -38,7 +38,19 @@ $$
 k_v:K_v\to X,\qquad q_v:Y\to Q_v.
 $$
 
-添字 $v$ はどの縦射を対象にしているかを表す。[核・余核の消去性](../CATB1-04/index.md#prop-catb1-04-kernel-cokernel-uniqueness)により $k_v$ はモノ射、$q_v$ はエピ射である。加群の具体例では $K_v=\ker v$ を零に写る元の部分加群、$Q_v=Y/\operatorname{Im}v$ を商加群と選び、$k_v$ は包含、$q_v$ は商射とする。ここで $\operatorname{Im}v$ は $v$ の値全体である。$[w]$ は余核における $w$ の類、$[n]_r$ は整数 $n$ の $r$ を法とする剰余類（$r$ は正整数）を表す。可換群は $\mathbb Z$ 加群であるから、[加群の圏の定理](../CATB1-04/index.md#thm-catb1-04-module-category)によりこれらの選択が可能で、モノ射・エピ射はそれぞれ単射・全射に一致する。
+添字 $v$ はどの縦射を対象にしているかを表す。[核・余核の消去性](../CATB1-04/index.md#prop-catb1-04-kernel-cokernel-uniqueness)により $k_v$ はモノ射、$q_v$ はエピ射である。
+
+加群の具体例では次の対象を選ぶ。
+
+$$
+K_v=\ker v,\qquad Q_v=Y/\operatorname{Im}v.
+$$
+
+前者は零に写る元の部分加群、後者は値全体を零と同一視した商加群である。$k_v$ は包含、$q_v$ は商射とする。ここで $\operatorname{Im}v$ は $v$ の値全体である。
+
+$[w]$ は余核における $w$ の類を表す。正整数 $r$ に対して、$[n]_r$ は整数 $n$ の $r$ を法とする剰余類である。
+
+可換群は $\mathbb Z$ 加群であるから、[加群の圏の定理](../CATB1-04/index.md#thm-catb1-04-module-category)によりこれらの選択が可能で、モノ射・エピ射はそれぞれ単射・全射に一致する。
 
 ### 1.1 整数で起こる小さな謎
 
@@ -70,7 +82,11 @@ $$
 
 核側の二射は $k_c\beta\alpha=pi k_a=0$ から $\beta\alpha=0$。余核側は $\eta\gamma q_a=q_c p'i'=0$ から $\eta\gamma=0$ である。ここで核射のモノ射性、余核射のエピ射性をそれぞれ使った。
 
-しかし $K_c$ と $Q_a$ の間にはまだ射がない。加群なら元を持ち上げられるが、一般の圏で対象の内部の元を直接扱うことはできない。そこで任意の対象 $T$ からの射 $x:T\to X$ を、$T$ を変域とする元のように扱う。等式 $x=y$ は射の等式であり、$T$ と終域 $X$ を固定すると[前加法圏の構造](../CATB1-03/index.md#def-catb1-03-preadditive)により射の和・差が使え、合成は和・差を保つ。
+しかし $K_c$ と $Q_a$ の間にはまだ射がない。加群なら元を持ち上げられるが、一般の圏で対象の内部の元を直接扱うことはできない。
+
+そこで任意の対象 $T$ からの射 $x:T\to X$ を、$T$ を変域とする元のように扱う。
+
+等式 $x=y$ は射の等式である。$T$ と終域 $X$ を固定すると[前加法圏の構造](../CATB1-03/index.md#def-catb1-03-preadditive)により射の和・差が使え、合成は和・差を保つ。
 
 ## 3. エピ射に沿って持ち上げる方法
 
@@ -279,7 +295,27 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**端点。** $k_b\alpha=i k_a$ はモノ射の合成だからモノ射であり、$\alpha x=\alpha y$ なら $i k_ax=i k_ay$、よって $x=y$。$\eta q_b=q_c p'$ はエピ射の合成なので、$x\eta=y\eta$ なら $xq_cp'=yq_cp'$、よって $x=y$。従って $\alpha$ はモノ射、$\eta$ はエピ射である。[零射による判定](../CATB1-04/index.md#prop-catb1-04-zero-test)から $\alpha$ の核の対象と $\eta$ の余核の対象は零対象である。[像の構成](../CATB1-05/index.md#thm-catb1-05-image-coimage)により零対象からの射の像は零、$\eta$ の像は $1_{Q_c}$ と選べる。従って $K_a$ では零射の像と $\alpha$ の核、$Q_c$ では $\eta$ の像と零射の核が一致し、両端で完全である。
+**端点。** $k_b\alpha=i k_a$ はモノ射の合成だからモノ射である。もし $\alpha x=\alpha y$ なら、
+
+$$
+ik_ax=k_b\alpha x=k_b\alpha y=ik_ay.
+$$
+
+左消去により $x=y$ なので $\alpha$ はモノ射である。
+
+一方 $\eta q_b=q_cp'$ はエピ射の合成である。もし $x\eta=y\eta$ なら、
+
+$$
+xq_cp'=x\eta q_b=y\eta q_b=yq_cp'.
+$$
+
+右消去により $x=y$ なので $\eta$ はエピ射である。
+
+[零射による判定](../CATB1-04/index.md#prop-catb1-04-zero-test)から $\alpha$ の核の対象と $\eta$ の余核の対象は零対象である。
+
+[像の構成](../CATB1-05/index.md#thm-catb1-05-image-coimage)により零対象からの射の像は零、$\eta$ の像は $1_{Q_c}$ と選べる。
+
+従って $K_a$ では零射の像と $\alpha$ の核、$Q_c$ では $\eta$ の像と零射の核が一致し、両端で完全である。
 
 **$K_b$ での完全性。** 第2節で $\beta\alpha=0$ を示した。$x:T\to K_b$ が $\beta x=0$ を満たすなら $pk_bx=k_c\beta x=0$。$i$ は $p$ の核なので $iz=k_bx$ となる $z:T\to A$ がある。$i'az=biz=bk_bx=0$ より $az=0$。従って $z=k_ay$ となる $y:T\to K_a$ があり、
 
