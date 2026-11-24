@@ -6,7 +6,7 @@
 
 ## 1. 素数に対応する有限個の移動
 
-上半平面を $\mathbb H$、[整数モジュラー群](../../MF/MF1/index.md#def-mf1-modular-group)を $\Gamma=SL_2(\mathbb Z)$ とします。正の行列式を持つ実行列 $B$ は $B/\sqrt{\det B}$ と同じ一次分数変換を与えます。後者は行列式1なので、[双曲計量と面積要素の群不変性](../AFR2/index.md#prop-afr2-metric-invariance)が適用できます。
+[上半平面](../../MF/MF1/index.md#def-mf1-upper-half-plane)を $\mathbb H$、[整数モジュラー群](../../MF/MF1/index.md#def-mf1-modular-group)を $\Gamma=SL_2(\mathbb Z)$ とします。正の行列式を持つ実行列 $B$ は $B/\sqrt{\det B}$ と同じ一次分数変換を与えます。後者は行列式1なので、[双曲計量と面積要素の群不変性](../AFR2/index.md#prop-afr2-metric-invariance)が適用できます。
 
 素数 $p$ に対し $\mathcal M_p$ を行列式 $p$ の整数二次正方行列全体とします。左から $\Gamma$ の行列を掛けて移り合うものを同じ左剰余類とみなします。[整数行列の左剰余類代表](../../MF/MF5/index.md#lem-mf5-hermite)を $n=p$ に適用すると、代表は
 
@@ -101,7 +101,9 @@ $$
 
 ## 3. 積分で逆向きの移動を調べる
 
-[重さ0のPetersson内積](../AFR3/index.md#def-afr3-petersson)を用いる空間を $H=L^2(\Gamma\backslash\mathbb H,d\mu)$、$d\mu=dx\,dy/y^2$ とします。基本領域を $F$ とし、内積は第一変数について線形な規約 $(u,v)=\int_F u\overline v\,d\mu$ です。
+[重さ0のPetersson内積](../AFR3/index.md#def-afr3-petersson)を用いる空間を $H=L^2(\Gamma\backslash\mathbb H,d\mu)$、$d\mu=dx\,dy/y^2$ とします。[標準基本領域](../../MF/MF1/index.md#def-mf1-standard-domain)を $F$ とし、内積は第一変数について線形な規約 $(u,v)=\int_F u\overline v\,d\mu$ です。
+
+有界とはノルムの増加率が一定の数で抑えられることです。ここでは定義域が空間全体なので、内積の左右に作用素を移せる性質が自己共役性になります。
 
 自己共役性を示すには、単に各点の移動が面積を保存するだけでは足りません。移動した基本領域をどの部分群の基本領域として扱うかを調べます。部分群 $J\subset\Gamma$ の指数とは左剰余類 $J\backslash\Gamma$ の個数です。
 
@@ -136,7 +138,7 @@ $$
 
 と置きます。$\Gamma D\gamma=\Gamma D\delta$ と $D\gamma\delta^{-1}D^{-1}\in\Gamma$ は同値であり、これは $\gamma\delta^{-1}\in J$、すなわち $J\gamma=J\delta$ と同値です。従って $J\backslash\Gamma$ の代表 $\gamma_j$ は $p+1$ 個で、$D\gamma_j$ は二重剰余類の左代表です。$pD^{-1}=\operatorname{diag}(1,p)=SDS^{-1}$ なので、逆向きの二重剰余類にも同数の左代表があり、$J'$ の指数も $p+1$ です。
 
-境界の零測度部分を除けば $F_J=\bigcup_j\gamma_j F$ は $J$ の基本領域です。実際、任意の点を $\gamma z$（$z\in F$）と書き、$\gamma=h\gamma_j$（$h\in J$）と分解すればこの領域で代表できます。内部での重複は $\Gamma$ の基本領域の一意性と左剰余類の一意性から除かれます。$DF_J$ は共役部分群 $J'$ の基本領域です。
+境界の零測度部分を除けば $F_J=\bigcup_j\gamma_j F$ は $J$ の基本領域です。実際、任意の点を $\gamma z$（$z\in F$）と書き、$\gamma=h\gamma_j$（$h\in J$）と分解すればこの領域で代表できます。内部での重複は [基本領域の存在と内部での一意性](../../MF/MF1/index.md#thm-mf1-fundamental-domain) と左剰余類の一意性から除かれます。$DF_J$ は共役部分群 $J'$ の基本領域です。
 
 [面積要素の不変性](../AFR2/index.md#prop-afr2-metric-invariance)を $\gamma_j$ と $D/\sqrt p$ に適用して、
 
@@ -151,7 +153,7 @@ $$
 
 最後の等号は、$u$ が $\Gamma$ 不変なので $J'$ の基本領域を $p+1$ 枚の $F$ に折り畳んだものです。別の基本領域を用いても非負の不変関数の積分が一致するのは、二つの領域を群で重なる可算個の部分に分割し、面積保存の変数変換で対応させられるからです。
 
-この等式から零測度上の代表の違いは作用後も零測度上にしか現れません。さらに有限和のCauchy–Schwarz不等式により
+この等式から零測度上の代表の違いは作用後も零測度上にしか現れません。さらに有限和の[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により
 
 $$
 \|T_pu\|^2
@@ -159,7 +161,7 @@ $$
 =\frac{(p+1)^2}{p}\|u\|^2.
 $$
 
-混合積は二乗可積分関数の積なので絶対可積分です。従って変数変換で
+混合積は二乗可積分関数の積なので [Petersson内積の絶対可積分性](../AFR3/index.md#def-afr3-petersson) と同じCauchy–Schwarzの評価で絶対可積分です。従って変数変換で
 
 $$
 \begin{aligned}
@@ -213,7 +215,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$u(pz)/\sqrt p$ に上の展開を代入すると
+$u(pz)/\sqrt p$ に[Maass形式の非零周波数展開](../AFR4/index.md#thm-afr4-maass-expansion)を代入すると
 
 $$
 \sqrt y\sum_{m\ne0}\rho(m)K_\nu(2\pi|pm|y)e^{2\pi ipmx}.
@@ -236,6 +238,8 @@ $$
 各高さでの絶対収束により項の選別と有限和の交換が許されます。二項の和を取り、[非零周波数展開の係数の一意性](../AFR4/index.md#thm-afr4-maass-expansion)を適用します。
 <!-- proof-end -->
 
+
+同時対角化とは一つの基底を選び、全ての作用素が各基底ベクトルをそれぞれ定数倍するようにすることです。互いに異なる素数の作用が交換できれば、この基底を選ぶことができます。
 
 例えば $T_2$ の周波数1は $\rho(2)$、周波数2は $\rho(4)+\rho(1)$ です。正則形式の係数公式と似ていますが、$\sqrt y$ を含む基底と $p^{-1/2}$ の正規化によって二項の係数がともに1になりました。
 
@@ -323,7 +327,7 @@ $$
 
 ### 証明の見取り図
 
-原始的な組の条件を外した格子和に戻し、各代表がどの整数行ベクトルを像に持つか数えます。
+原始的な組の条件を外した格子和に戻し、各代表がどの整数行ベクトルを像に持つか数えます。行格子とは行列の二つの行の整数係数線形結合の全体です。
 
 <!-- proof-start -->
 ### 証明
