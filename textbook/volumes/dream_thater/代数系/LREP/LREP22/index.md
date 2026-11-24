@@ -200,7 +200,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[正エネルギー表現](../LREP21/index.md#def-lrep21-positive-energy)では $p^0\ge|\boldsymbol p|$ がPVMの意味で成立するので $h(p)=-\eta(p,p)\ge0$ です。[並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum)の $F$ に対して、実関数 $h(p)$ による像測度を $F_h(D)=F(h^{-1}(D))$ と定めます。逆像は交わり・可算和を保ち、$F_h(\mathbb R)=I$ なので $F_h$ もPVMです。[実座標のスペクトル積分の自己共役性](../../../解析系/QM/QM6/index.md#thm-qm6-spectral-integral-self-adjoint) と [非有界スペクトル積分の定義域](../../../解析系/QM/QM6/index.md#prop-qm6-unbounded-integral-domain) をこの一次元のPVMに適用すると、
+[正エネルギー表現](../LREP21/index.md#def-lrep21-positive-energy)では $p^0\ge|\boldsymbol p|$ がPVMの意味で成立するので $h(p)=-\eta(p,p)$ は $F$ の意味でほとんど至る所で非負です。[並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum)の $F$ に対して、実関数 $h(p)$ による像測度を $F_h(D)=F(h^{-1}(D))$ と定めます。逆像は交わり・可算和を保ち、$F_h(\mathbb R)=I$ なので $F_h$ もPVMです。[実座標のスペクトル積分の自己共役性](../../../解析系/QM/QM6/index.md#thm-qm6-spectral-integral-self-adjoint) と [非有界スペクトル積分の定義域](../../../解析系/QM/QM6/index.md#prop-qm6-unbounded-integral-domain) をこの一次元のPVMに適用すると、
 
 $$
 C_m=\int_{\mathbb R}\lambda\,dF_h(\lambda),
@@ -243,7 +243,7 @@ $m=0$ の場合は原点と非零光的軌道の区別が質量だけではで�
 
 角運動量の三成分は空間回転には自然ですが、boostを施すと回転生成子も混ざります。[LREP9の回転・boost生成子](../LREP9/index.md#def-lrep9-rotation-boost)を反対称な二添字にまとめ、運動量と組み合わせます。
 
-ここからは正エネルギー条件を課さず、被覆Poincare群の任意の強連続ユニタリ表現 $U$ を扱います。Lie環元 $Y$ に対する微分生成作用素は $dU(Y)\psi=\left.\frac{d}{dt}U(\exp(tY))\psi\right|_{t=0}$ と書きます。$t$ は実数であり、微分はHilbert空間のノルムで取ります。$U$ の滑らかなベクトルの空間 $\mathcal D$、すなわち $g\mapsto U(g)\psi$ がノルムで無限回微分可能な $\psi$ の全体で計算します。これは群の作用で不変で、微分生成作用素を適用しても滑らかです。後者は $U(g)dU(X)\psi$ が $(g,t)\mapsto U(g\exp(tX))\psi$ の $t=0$ での微分であることから従います。
+ここからは正エネルギー条件を課さず、被覆Poincare群の任意の強連続ユニタリ表現 $U$ を扱います。Lie環元 $Y$ に対する微分生成作用素は $dU(Y)\psi=\left.\frac{d}{dt}U(\exp(tY))\psi\right|_{t=0}$ と書きます。$t$ は実数であり、微分はHilbert空間のノルムで取ります。$U$ の滑らかなベクトルの空間 $\mathcal D$、すなわち $g\mapsto U(g)\psi$ がノルムで無限回微分可能な $\psi$ の全体で計算します。これは群の作用で不変で、微分生成作用素を適用しても滑らかです。後者は $U(g)dU(Y)\psi$ が $(g,t)\mapsto U(g\exp(tY))\psi$ の $t=0$ での微分であることから従います。
 
 この空間は稠密です。単位元近傍に台を持つ滑らかな非負関数 $\phi_n$ を左不変体積に関して積分1に規格化し、その台を単位元へ縮めます。左不変体積は単位元の体積形式を左移動して作れます。任意の $\psi$ に対して $\psi_n=\int\phi_n(g)U(g)\psi\,dg$ と置くと、
 
@@ -293,7 +293,7 @@ $$
 <!-- definition-example-start: def-lrep22-pauli-lubanski -->
 **定義の確認**。 前講と同じスカラー波束の考え方で、質量 $m>0$ の $L^2(\mathcal O_m,\mu_m)$ を使います。並進は $T(a)f(p)=e^{ip\cdot a}f(p)$、Lorentz変換は $V(A)f(p)=f(\rho(A)^{-1}p)$。[質量殻測度のLorentz不変性](#thm-lrep22-measure-invariance) によりユニタリで、逆は逆変換、積は合成則に従います。群積と位相は $p\cdot\Lambda b=(\Lambda^{-1}p)\cdot b$ から整合します。コンパクト台の滑らかな関数上では、台と各微分が局所的に共通コンパクト集合に収まるため強連続かつ滑らかです。稠密性とノルム保存で強連続性は全空間へ延長されます。
 
-[並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum) から $P^\mu$ は $p^\mu$ の乗算です。Lorentz作用は逆行列で引数を動かすので、$p$ を固定して実数 $t$ で微分すると
+[並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum) から $P^\mu$ は $p^\mu$ の乗算です。Lorentz作用は逆行列で引数を動かします。$\partial_\alpha$ は殻上の関数を四元座標へ局所的に滑らかに延長し、その第 $\alpha$ 座標だけで微分する記号とします。$p$ を固定して実数 $t$ で微分すると
 
 $$
 i\left.\frac{d}{dt}f(e^{-tX^{\rho\sigma}}p)\right|_{t=0}
@@ -306,7 +306,7 @@ $$
 M_{\rho\sigma}=-i(p_\rho\partial_\sigma-p_\sigma\partial_\rho)
 $$
 
-と書けます。$\partial_\sigma$ は四元座標への局所的な滑らかな延長を微分したもので、括弧内の方向は殻に接するので延長によらない値です。実際、$\eta(e^{-tX}p,e^{-tX}p)=\eta(p,p)$ であり、曲線は未来質量殻の内部にとどまります。二つの延長が殻上で一致すればこの曲線上での微分も一致します。定義に代入すると
+と書けます。括弧内の微分方向は殻に接するので延長によらない値です。実際、$\eta(e^{-tX}p,e^{-tX}p)=\eta(p,p)$ であり、曲線は未来質量殻の内部にとどまります。二つの延長が殻上で一致すればこの曲線上での微分も一致します。定義に代入すると
 
 $$
 W^\mu f=-\frac i2\varepsilon^{\mu\nu\rho\sigma}
@@ -325,14 +325,14 @@ W^1=-P_0 M_{23}+P_2 M_{03}-P_3 M_{02}
 =P^0J_1-P^2K_3+P^3K_2.
 $$
 
-二つずつ現れる添字の順序を入れ替えた項は同じ値なので係数 $1/2$ が消えます。全成分について
+二つずつ現れる添字の順序を入れ替えた項は同じ値なので係数 $1/2$ が消えます。ここで $\varepsilon_{ijk}$ は $\varepsilon_{123}=1$ の三次元の反対称記号であり、外積の記号は $(\boldsymbol P\times\boldsymbol K)_i=\sum_{j,k=1}^3\varepsilon_{ijk}P^jK_k$ の略記です。全成分について
 
 $$
 W^0=\boldsymbol P\cdot\boldsymbol J,\qquad
 \boldsymbol W=P^0\boldsymbol J-\boldsymbol P\times\boldsymbol K.
 $$
 
-ここで $\varepsilon_{ijk}$ は $\varepsilon_{123}=1$ の三次元の反対称記号であり、外積の記号は $(\boldsymbol P\times\boldsymbol K)_i=\sum_{j,k=1}^3\varepsilon_{ijk}P^jK_k$ の略記です。積の順序は定義と同じく運動量が左です。$P_\mu W^\mu=0$ も確認できます。共同PVMによって $P_\mu,P_\nu$ は $\mathcal D$ 上で可換なので、$\varepsilon^{\mu\nu\rho\sigma}P_\mu P_\nu M_{\rho\sigma}$ の $\mu,\nu$ の対称・反対称性により零になります。
+積の順序は定義と同じく運動量が左です。$P_\mu W^\mu=0$ も確認できます。共同PVMによって $P_\mu,P_\nu$ は $\mathcal D$ 上で可換なので、$\varepsilon^{\mu\nu\rho\sigma}P_\mu P_\nu M_{\rho\sigma}$ の $\mu,\nu$ の対称・反対称性により零になります。
 
 ## 5. 第二の不変量：Pauli–Lubanskiの二乗
 
