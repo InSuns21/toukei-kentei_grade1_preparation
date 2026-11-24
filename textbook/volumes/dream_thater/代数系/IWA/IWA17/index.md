@@ -588,9 +588,9 @@ $$
 
 もし初等因子の多項式 $W$ と $\omega_n$ が非定数の既約因子 $P$ を共有すれば、次の全射が存在します。
 
-$
+$$
 \Lambda/(W,\omega_n)\twoheadrightarrow\Lambda/(P).
-$
+$$
 
 $P$ は [distinguished多項式](../IWA6/index.md#def-iwa6-distinguished) として取れ、[Weierstrass除法](../IWA6/index.md#thm-iwa6-division) により $\Lambda/(P)$ は正階数の自由 $\mathbb Z_p$ 加群で無限です。有限性に矛盾します。
 
