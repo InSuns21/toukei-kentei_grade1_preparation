@@ -1,0 +1,40 @@
+id: "CATB1-02"
+title: "正則圏と有効同値関係"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CATB1-01
+official_scope: []
+learning_objectives:
+  - 正則圏の三公理を説明し集合で検証できる
+  - 正則エピ・モノ分解の引き戻し安定性を普遍性から証明できる
+  - 内部同値関係の三操作を構成し核対が内部同値関係となることを証明できる
+  - 有効性と商の核対の同値性を証明できる
+  - Barr-正確性を集合で検証し正則性との差を指定部分集合の例で説明できる
+definitions:
+  - { id: CATB1-02-DEF-01, name: 正則圏 }
+  - { id: CATB1-02-DEF-02, name: 内部同値関係 }
+  - { id: CATB1-02-DEF-03, name: 有効同値関係 }
+  - { id: CATB1-02-DEF-04, name: Barr-正確圏 }
+theorems:
+  - { id: CATB1-02-THM-01, name: 正則圏の像分解とその引き戻し安定性 }
+  - { id: CATB1-02-PROP-01, name: 核対は内部同値関係 }
+  - { id: CATB1-02-THM-02, name: 有効性と商の核対 }
+  - { id: CATB1-02-PROP-02, name: 指定部分集合を持つ集合の圏の正則性 }
+  - { id: CATB1-02-PROP-03, name: 正則性は Barr-正確性を含意しない }
+canonical_examples:
+  - 集合の同値関係と商
+  - 指定部分集合を持つ集合の圏の正則性と非正確性
+problem_patterns:
+  - CATB1-02-QUOTIENT
+  - CATB1-02-OPERATIONS
+  - CATB1-02-EFFECTIVE
+  - CATB1-02-MARKED-EPI
+  - CATB1-02-MONO-KERNEL
+  - CATB1-02-COMPARISON
+  - CATB1-02-BASE-CHANGE
+  - CATB1-02-NONEXACT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }

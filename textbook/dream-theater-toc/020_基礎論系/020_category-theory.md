@@ -42,3 +42,4 @@
 39. [CAT4-05 閉モノイダル圏と Cartesian closed category](textbook/volumes/dream_thater/基礎論系/CAT/CAT4-05/index.md)
 40. [CAT4-06 型付きラムダ計算の圏論的意味](textbook/volumes/dream_thater/基礎論系/CAT/CAT4-06/index.md)
 41. [CATB1-01 像と正則エピ射](textbook/volumes/dream_thater/基礎論系/CATB/CATB1-01/index.md)
+42. [CATB1-02 正則圏と有効同値関係](textbook/volumes/dream_thater/基礎論系/CATB/CATB1-02/index.md)

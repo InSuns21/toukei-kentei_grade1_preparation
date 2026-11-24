@@ -6,7 +6,7 @@ chapter_root: textbook/volumes/dream_thater
 
 chapters:
   - { id: CATB1-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-01, status: completed, title: "像と正則エピ射" }
-  - { id: CATB1-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-02, status: planned, title: "正則圏と有効同値関係" }
+  - { id: CATB1-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-02, status: completed, title: "正則圏と有効同値関係" }
   - { id: CATB1-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-03, status: planned, title: "加法圏と双積" }
   - { id: CATB1-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-04, status: planned, title: "核・余核とアーベル圏" }
   - { id: CATB1-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-05, status: planned, title: "像・余像・完全列" }
