@@ -18,6 +18,7 @@ learning_objectives:
   - 一様なQ_p値分布が有界測度にならない理由を説明できる
 definitions:
   - { id: IWA13-DEF-01, name: p進分布 }
+  - { id: IWA13-DEF-06, name: 局所定数関数 }
   - { id: IWA13-DEF-02, name: p進積分 }
   - { id: IWA13-DEF-03, name: 測度の畳み込み }
   - { id: IWA13-DEF-04, name: 二項式変換 }
@@ -32,6 +33,7 @@ theorems:
   - { id: IWA13-PROP-02, name: 平行移動不変な有界Q_p値測度 }
 canonical_examples:
   - 点質量delta_1の有限層分布関係
+  - 法3の剰余類で一定となる関数
   - 三つの点質量による多項式積分
   - 点質量の畳み込みと有限層の違い
   - 二項式変換の係数を二項式モーメントで検算

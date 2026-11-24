@@ -1,0 +1,43 @@
+id: "IWA14"
+title: "Kummer合同とBernoulli数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IWA13
+  - NT2
+  - CA12
+official_scope: []
+learning_objectives:
+  - Bernoulli数と多項式を生成関数から計算できる
+  - 多項式の分布公式を係数比較から証明できる
+  - Bernoulli分布の正則化と整数値測度の条件を確認できる
+  - 正則化測度の積分公式を一様誤差評価から証明できる
+  - Kummer合同の整数性と補助因子を除く条件を説明できる
+  - 合同から固定剰余類上の連続補間を構成できる
+definitions:
+  - { id: IWA14-DEF-01, name: "Bernoulli数" }
+  - { id: IWA14-DEF-02, name: "Bernoulli多項式" }
+  - { id: IWA14-DEF-03, name: "Bernoulli分布の正則化" }
+theorems:
+  - { id: IWA14-THM-01, name: "Bernoulli多項式の分布公式" }
+  - { id: IWA14-THM-02, name: "正則化分布の有界性" }
+  - { id: IWA14-THM-03, name: "正則化測度の積分公式" }
+  - { id: IWA14-THM-04, name: "Kummer合同" }
+canonical_examples:
+  - Bernoulli数の初項と分布公式
+  - p=5とc=2の正則化測度
+  - 正規化値の合同と例外成分の分母
+problem_patterns:
+  - IWA14-BERNOULLI-RECURRENCE
+  - IWA14-DISTRIBUTION
+  - IWA14-REGULARIZATION
+  - IWA14-CONGRUENCE
+  - IWA14-MASS
+  - IWA14-ERROR
+  - IWA14-NONUNIT-FACTOR
+  - IWA14-MOMENT-CONGRUENCE
+  - IWA14-INTERPOLATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 3 }

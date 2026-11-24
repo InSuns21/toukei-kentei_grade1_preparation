@@ -195,5 +195,5 @@ chapters:
     title: "何を比較すれば科学計算として信頼できるか"
   - id: PML2-26
     path: textbook/volumes/dream_thater/応用系/PML/PML2-26
-    status: planned
+    status: completed
     title: "PINN・FNO・古典解法はどんな条件で勝敗が変わるか"

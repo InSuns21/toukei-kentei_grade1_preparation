@@ -1,0 +1,41 @@
+chapter: PML2-26
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML2-25
+  - PML2-03
+  - PML2-05
+  - PML2-06
+  - PML2-16
+  - PML2-17
+forward_references: []
+concepts:
+  - id: physics-machine-learning.pml2-26-grid
+    name: 三モード正弦格子の直交性と差分解
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-03-fd
+      - physics-machine-learning.pml2-03-dmp
+  - id: physics-machine-learning.pml2-26-pinn
+    name: 固定正弦PINNの有限反復誤差
+    kind: theorem
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-26-grid
+      - physics-machine-learning.pml2-06-collocation
+  - id: physics-machine-learning.pml2-26-fno
+    name: 二モード線形FNOの学習解と切断誤差
+    kind: proposition
+    introduction: formal
+    requires:
+      - physics-machine-learning.pml2-26-grid
+      - physics-machine-learning.pml2-16-fno
+      - physics-machine-learning.pml2-16-dft
+  - id: physics-machine-learning.pml2-26-feasible-cost
+    name: 許容誤差付き総費用比較
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（許容誤差付き総費用比較）"]
+    requires:
+      - physics-machine-learning.pml2-25-protocol

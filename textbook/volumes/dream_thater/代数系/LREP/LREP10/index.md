@@ -4,16 +4,24 @@
 
 [LREP9のLorentz Lie環](../LREP9/index.md#thm-lrep9-lie-algebra)は、回転三方向とboost三方向を一つの実六次元Lie環として捉えました。しかし交換関係だけでは、**有限のLorentz変換を二成分の複素ベクトルでどう表すか**、またその表示がLorentz群のどこまで届くかは分かりません。
 
-[LREP5のPauli行列模型](../LREP5/index.md#def-lrep5-pauli-model)は空間の三座標を跡零のエルミート行列に収め、[SU(2)による回転の二重被覆](../LREP5/index.md#thm-lrep5-double-cover)を構成しました。本講ではその行列に時間成分を加えます。行列式がMinkowski計量を表すため、行列への共役作用からLorentz変換を構成できます。
+[LREP5のPauli行列模型](../LREP5/index.md#def-lrep5-pauli-model)は空間の三座標を跡零のエルミート行列に収め、[SU(2)による回転の二重被覆](../LREP5/index.md#thm-lrep5-double-cover)を構成しました。本講ではその行列に時間成分を加えます。行列式がMinkowski計量を表すため、行列への合同作用からLorentz変換を構成できます。
 
-全章で実四元ベクトルを列ベクトルとして扱い、次の座標と計量を用います。
+全章で実四元ベクトルを列ベクトルとして扱い、次の座標と [Minkowski計量](../../../物理系/SREL/SREL2/index.md#def-srel2-minkowski-metric) を用います。
 
 $$
 x=(x^0,x^1,x^2,x^3)^{\mathsf T}=(ct,x,y,z)^{\mathsf T},
-\qquad \eta=\operatorname{diag}(-1,1,1,1).
+\qquad \eta=\operatorname{diag}(-1,1,1,1),\qquad
+g(u,v)=u^{\mathsf T}\eta v.
 $$
 
-$\dagger$ は複素共役転置、$I_n$ は単位行列を表します。変換は列ベクトルへの**能動作用**です。
+本章の記号を整理します。
+
+- $\dagger$ は複素共役転置です。[LA5の随伴](../../../基礎科目/LA/LA5/index.md#def-la5-adjoint)の $*$ と標準正規直交基底では同じです。
+- $I_n$ は $n$ 次単位行列、$M_n(\mathbb C)$ は複素 $n$ 次正方行列全体、$\operatorname{tr}$ は跡です。
+- $e_\mu$ は時空の標準基底です。時空添字は $\mu=0,1,2,3$、空間添字は $i,j,k=1,2,3$ とし、総和は明記します。
+- $\delta_{ij}$ はKroneckerのデルタ、$\varepsilon_{ijk}$ は $\varepsilon_{123}=1$ の完全反対称記号です。添字と虚数単位の $i$ は文脈で区別します。
+
+変換は列ベクトルへの**能動作用**です。[Lorentz群と単位元成分](../LREP9/index.md#def-lrep9-lorentz-group)の記法 $O(1,3),SO^+(1,3)$ を引き継ぎます。
 
 Pauli行列は[既出の定義](../LREP5/index.md#def-lrep5-pauli-model)に従い、[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)を用います。具体的には
 
@@ -25,7 +33,7 @@ $$
 
 ## 1. 四元ベクトルをエルミート行列へ移す
 
-実数4個を複素 $2\times2$ 行列で扱うには、対角成分が実数、非対角成分が互いに複素共役である **エルミート行列** を使います。これは $X^\dagger=X$ を満たす行列で、実次元は4です。空間三座標に係数 $x^0$ の単位行列を足すと、4座標を余さず表せます。
+実数4個を複素 $2\times2$ 行列で扱うには、対角成分が実数、非対角成分が互いに複素共役である **エルミート行列** を使います。これは [Hermitian作用素](../../../基礎科目/LA/LA5/index.md#def-la5-hermitian)を標準正規直交基底で行列表示したもので、$X^\dagger=X$ を満たします。対角の実成分二つと非対角の複素成分一つで実次元は4です。空間三座標に係数 $x^0$ の単位行列を足すと、4座標を余さず表せます。
 
 <a id="def-lrep10-hermitian-model"></a>
 
@@ -60,16 +68,33 @@ x^0=\frac{a+b}{2},\quad x^3=\frac{a-b}{2},\quad
 x^1=\operatorname{Re}z,\quad x^2=-\operatorname{Im}z.
 $$
 
-これでエルミート性だけでなく、$H$ が実線形の全単射であることも確かめました。
+実係数 $r,s$ と四元ベクトル $x,y$ に対して、各基底行列の係数を比較すると $H(rx+sy)=rH(x)+sH(y)$ です。上の逆座標は一意なので、$H$ は実線形の全単射です。行列式 $3$ の意味は次の定理で確認します。
 <!-- definition-example-end -->
 
-空間成分 $\boldsymbol x=(x^1,x^2,x^3)$ に対する行列 $S=\sum_i x^i\sigma_i$ には、[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)を適用できます。その交差項は反対称性によって相殺され、
+空間成分 $\boldsymbol x=(x^1,x^2,x^3)$ に対する行列 $S=\sum_i x^i\sigma_i$ には、[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)を適用できます。ここで $|\boldsymbol x|=\sqrt{\sum_{i=1}^3(x^i)^2}$ は空間のEuclidノルムです。交差項は $x^ix^j=x^jx^i$ と $\varepsilon_{ijk}=-\varepsilon_{jik}$ によって相殺され、
 
 $$
-S^2=|\boldsymbol x|^2 I_2
+S^2=\sum_{i,j}x^ix^j\sigma_i\sigma_j
+=\sum_i(x^i)^2I_2=|\boldsymbol x|^2 I_2
 $$
 
-となります。したがって $S$ の固有値は $\pm|\boldsymbol x|$、$H(x)$ の固有値は $x^0\pm|\boldsymbol x|$ です。これが行列の符号と因果円錐の橋になります。
+となります。$S$ はエルミートなので[複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)により正規直交固有基底を持ちます。固有値 $\lambda$ は $\lambda^2=|\boldsymbol x|^2$ を満たし、跡零なので $|\boldsymbol x|>0$ なら正負が一つずつ、$|\boldsymbol x|=0$ なら両方が零です。同じ基底において $H(x)=x^0I_2+S$ の固有値は $x^0\pm|\boldsymbol x|$ となります。
+
+[Hermitian半正定値作用素](../../../基礎科目/LA/LA6/index.md#def-la6-psd)の条件を標準正規直交基底で書けば、エルミート行列 $X$ に対する
+
+$$
+\xi^\dagger X\xi\ge0\qquad(\xi\in\mathbb C^2)
+$$
+
+です。本章ではこれを正半定値と表記します。[LA6での正定値性の判定](../../../基礎科目/LA/LA6/index.md#ex-la6-b03)と同様、正定値の場合は非零の $\xi$ に対して厳密な不等号を要求します。これはMinkowski計量の不定符号とは別の条件です。
+
+正規直交固有基底 $v_1,v_2$ における $\xi=c_1v_1+c_2v_2$ を代入すると
+
+$$
+\xi^\dagger X\xi=\lambda_1|c_1|^2+\lambda_2|c_2|^2.
+$$
+
+各固有ベクトルを選べば必要性、任意の係数を入れれば十分性が分かり、正半定値は全固有値が非負、正定値は全固有値が正と同値です。[因果的分類](../../../物理系/SREL/SREL2/index.md#def-srel2-causal-types)では非零の $x$ が未来向き時間的なら $x^0>|\boldsymbol x|$、未来向き光的なら $x^0=|\boldsymbol x|>0$ です。零を含む閉未来円錐は $x^0\ge|\boldsymbol x|$ で表されます。これが行列の符号と因果円錐の橋になります。
 
 <a id="thm-lrep10-determinant-cone"></a>
 
@@ -107,7 +132,13 @@ $$
 
 ## 2. 複素2次行列でLorentz変換を作る
 
-空間回転の $UXU^\dagger$ では $U^\dagger=U^{-1}$ が成り立ちました。時間と空間を混ぜるにはユニタリ性を外しても、$AXA^\dagger$ の形ならエルミート性が保たれます。さらに行列式を厳密に保つため、$\det A=1$ を課します。
+空間回転の [共役作用](../LREP5/index.md#def-lrep5-conjugation-map)では $U^\dagger=U^{-1}$ が成り立ちました。[特殊ユニタリ群](../../LIE/LIE3/index.md#def-lie3-unitary-groups) $SU(2)$ はユニタリかつ行列式1の複素2次行列の群です。時間と空間を混ぜるにはユニタリ性を外し、$X$ を $AXA^\dagger$ に移す合同作用を考えます。実際、
+
+$$
+(AXA^\dagger)^\dagger=AX^\dagger A^\dagger=AXA^\dagger
+$$
+
+なのでエルミート性が保たれます。さらに行列式を厳密に保つため $\det A=1$ を課した複素特殊線形群を使います。積と逆行列でも行列式1が保たれるので群になります。
 
 <a id="def-lrep10-sl2c-action"></a>
 
@@ -132,7 +163,7 @@ A_\chi=\begin{pmatrix}e^{\chi/2}&0\\0&e^{-\chi/2}\end{pmatrix}
 =\cosh(\chi/2)I_2+\sinh(\chi/2)\sigma_3
 $$
 
-と置けば $\det A_\chi=1$ です。時間単位ベクトル $e_0=(1,0,0,0)^{\mathsf T}$ は $H(e_0)=I_2$ に対応するので
+と置けば $\det A_\chi=e^{\chi/2}e^{-\chi/2}=1$ です。実線形性は $H$ とその逆写像、および固定した $A_\chi$ による左右の行列積の実線形性から従います。時間単位ベクトル $e_0=(1,0,0,0)^{\mathsf T}$ は $H(e_0)=I_2$ に対応するので
 
 $$
 A_\chi I_2A_\chi^\dagger
@@ -157,7 +188,7 @@ $$
 非対角成分 $x^1\mp ix^2$ は左右の対角係数が積1なので不変です。[LREP9のboost指数](../LREP9/index.md#def-lrep9-rotation-boost)と同じ符号になっています。
 <!-- definition-example-end -->
 
-$\det A=1$ は複素方程式1個、すなわち局所的には実2条件です。複素行列の実8成分から2条件を引き、$SL(2,\mathbb C)$ は**実6次元**です。その接空間は複素跡零行列を実ベクトル空間として見た
+$\det A=1$ は複素方程式1個、すなわち実2条件です。独立性も確かめましょう。行列式1の行列 $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ では少なくとも一成分が非零です。例えば $a\ne0$ の近傍では $d=(1+bc)/a$ と解け、$a,b,c$ を自由な複素座標にできます。他の成分が非零なら同じ方程式をその対角相手（または非対角相手）について解けます。従って $SL(2,\mathbb C)$ は**実6次元**の滑らかな行列群です。その接空間は複素跡零行列を実ベクトル空間として見た
 
 $$
 \mathfrak{sl}_2(\mathbb C)_{\mathbb R}
@@ -175,12 +206,28 @@ $$
 > 任意の $A\in SL(2,\mathbb C)$ は一意に $A=PU$ と書ける。ただし $P$ は正定値エルミート、$U\in SU(2)$ で、$\det P=1$ である。さらに跡零エルミート行列 $T$ で $P=e^T$ と書け、$SL(2,\mathbb C)$ は単位元から各元への連続な道を持つ。
 <!-- formal-statement-end -->
 
-**証明の見取り図。** $AA^\dagger$ の正の固有値を平方根に取り、残りがユニタリであることを示します。正定値因子は対数によって縮め、回転因子は[SU(2)の軸角表示](../LREP5/index.md#prop-lrep5-rodrigues)で単位元につなぎます。
+**証明の見取り図。** $AA^\dagger$ の正の固有値を平方根に取り、残りがユニタリであることを示します。正定値因子は対数によって縮め、回転因子は[スペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)で対角化し、固有値の位相を縮めて単位元につなぎます。
 
 <!-- proof-start -->
 ### 証明
 
-$A$ は可逆なので $AA^\dagger$ は正定値エルミートです。固有値 $\lambda_1,\lambda_2>0$ と正規直交固有基底を取って、それぞれを $\sqrt{\lambda_i}$ に置き換えた正定値行列を $P=(AA^\dagger)^{1/2}$ と定めます。この正の平方根は一意です。$U=P^{-1}A$ と置くと
+$A$ は可逆なので $AA^\dagger$ はエルミートで、非零の $v$ に対して
+
+$$
+v^\dagger AA^\dagger v=\|A^\dagger v\|^2>0
+$$
+
+です。[スペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)を適用し、固有値 $\lambda_1,\lambda_2>0$ と正規直交固有基底を取ります。固有値をそれぞれ $\sqrt{\lambda_i}$ に置き換えた正定値行列を $P=(AA^\dagger)^{1/2}$ と定めます。
+
+[Hermitian半正定値平方根定理](../../../基礎科目/LA/LA6/index.md#thm-la6-psd-square-root)から、この正の平方根は一意です。ここでもその根拠を確認します。別の正定値平方根 $P_1$ があれば、
+
+$$
+P_1^2=AA^\dagger,\qquad P_1(AA^\dagger)=(AA^\dagger)P_1
+$$
+
+なので $P_1$ は各固有空間を保ちます。固有値 $\lambda$ に対応する空間上では正定値かつ平方が $\lambda I$ であるため、固有値はすべて $\sqrt{\lambda}$ に限られます。よって各固有空間上で $\sqrt{\lambda}I$ となり、$P_1=P$ です。
+
+$U=P^{-1}A$ と置くと
 
 $$
 UU^\dagger=P^{-1}AA^\dagger P^{-1}
@@ -195,7 +242,21 @@ $$
 e^T=P,\qquad \operatorname{tr}T=\log(\mu_1\mu_2)=0.
 $$
 
-[LREP5の軸角表示](../LREP5/index.md#prop-lrep5-rodrigues)から $U$ を単位元につなぐ $U(t)\in SU(2)$、$U(0)=I_2$、$U(1)=U$ が取れます。そこで
+[ユニタリ行列のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)を $U$ に適用します。固有値は絶対値1、積1なので、ある実数 $\theta$ とユニタリ行列 $V_0$ によって $U=V_0\operatorname{diag}(e^{i\theta},e^{-i\theta})V_0^\dagger$ と書けます。実パラメータ $t$ に対し
+
+$$
+U(t)=V_0\operatorname{diag}(e^{it\theta},e^{-it\theta})V_0^\dagger
+$$
+
+とすればユニタリかつ行列式1で、$U(0)=I_2,\ U(1)=U$ です。
+
+[LREP5の軸角表示](../LREP5/index.md#prop-lrep5-rodrigues)でも同じ道を記述できます。$U$ の固有基底で $\operatorname{diag}(-1,1)$ を表した行列 $N$ は跡零エルミートで $N^2=I_2$ です。Pauli模型で $N=\boldsymbol n\cdot\boldsymbol\sigma$ と置けば $|\boldsymbol n|=1$ となります。上の道は
+
+$$
+U(t)=\exp(-it\theta N)
+$$
+
+という軸角表示（回転角 $2t\theta$）になっています。そこで
 
 $$
 A(t)=e^{tT}U(t)\quad(0\le t\le1)
@@ -243,7 +304,19 @@ $$
 =\det H(x).
 $$
 
-[行列式と計量の同一性](#thm-lrep10-determinant-cone)から $g(\Phi(A)x,\Phi(A)x)=g(x,x)$。これを $x+y$ に適用して二乗の差を取れば $g(\Phi(A)x,\Phi(A)y)=g(x,y)$ となり、$\Phi(A)\in O(1,3)$ です。
+[行列式と計量の同一性](#thm-lrep10-determinant-cone)から $g(\Phi(A)x,\Phi(A)x)=g(x,x)$。$q(x)=g(x,x)$ と書くと、対称双線形性から
+
+$$
+2g(x,y)=q(x+y)-q(x)-q(y)
+$$
+
+です。$\Phi(A)$ の実線形性と $q$ の保存をこの式に代入すれば
+
+$$
+g(\Phi(A)x,\Phi(A)y)=g(x,y)
+$$
+
+となり、$\Phi(A)\in O(1,3)$ です。
 
 未来向き因果的な $x$ では $H(x)$ は正半定値であり、任意の $v\in\mathbb C^2$ に対し
 
@@ -252,7 +325,7 @@ v^\dagger(AH(x)A^\dagger)v
 =(A^\dagger v)^\dagger H(x)(A^\dagger v)\ge0.
 $$
 
-$A$ は可逆なので非零の $x$ が零になることもありません。[未来円錐の判定](#thm-lrep10-determinant-cone)から未来向き因果的ベクトルを未来向き因果的ベクトルへ移します。
+$A$ は可逆なので $AH(x)A^\dagger=0$ なら左右に逆行列を掛けて $H(x)=0$ となり、模型の単射性から $x=0$ です。[未来円錐の判定](#thm-lrep10-determinant-cone)から未来向き因果的ベクトルを未来向き因果的ベクトルへ移します。
 
 最後に[道連結性](#lem-lrep10-polar-connectivity)より単位元から $A$ への道があります。その $\Phi$ 像は $I_4$ と $\Phi(A)$ を結ぶ $O(1,3)$ 内の道です。[Lorentz群と単位元成分](../LREP9/index.md#def-lrep9-lorentz-group)により、
 
@@ -297,7 +370,7 @@ $$
 なので $a=d$。よって $A=aI_2$、$\det A=a^2=1$ より $a=\pm1$ です。逆に $A=\pm I_2$ なら $AXA^\dagger=X$ が全 $X$ について成立します。$\square$
 <!-- proof-end -->
 
-$A$ と $-A$ が同じLorentz変換になるのは $\Phi(-A)=\Phi(-I_2)\Phi(A)=\Phi(A)$ から分かります。逆に同じ変換を作る $A,B$ は $A^{-1}B\in\ker\Phi$ なので $B=\pm A$。各変換の持ち上げは**高々2個**です。
+[準同型性](#thm-lrep10-lorentz-action)と核の計算から、$A$ と $-A$ が同じLorentz変換になるのは $\Phi(-A)=\Phi(-I_2)\Phi(A)=\Phi(A)$ から分かります。逆に同じ変換を作る $A,B$ は $A^{-1}B\in\ker\Phi$ なので $B=\pm A$。各変換の持ち上げは**高々2個**です。
 
 ## 4. 単位元成分のすべてに届くか
 
@@ -321,9 +394,9 @@ $$
 -u_0^2+u_1^2+u_2^2+u_3^2=-1,\qquad u_0>0
 $$
 
-を満たします（ここで $u_\mu$ の下付きは座標ラベルであり、計量による添字下げではありません）。ゆえに $u_0=\sqrt{1+|\boldsymbol u|^2}\ge1$。$Q=H(u)$ の固有値は $u_0\pm|\boldsymbol u|>0$ で、$\det Q=1$ です。
+を満たします（ここで $u_\mu$ の下付きは座標ラベルであり、計量による添字下げではありません）。ゆえに $u_0=\sqrt{1+|\boldsymbol u|^2}\ge1$。[行列式とMinkowski計量・未来円錐](#thm-lrep10-determinant-cone)により $Q=H(u)$ の固有値は $u_0\pm|\boldsymbol u|>0$ で、$\det Q=1$ です。
 
-正の平方根 $B=Q^{1/2}$ を取り、$\det B=1$、$B^\dagger=B$ を得ます。具体的にも $Q$ の跡は $2u_0$、行列式は1なので、二次行列の[Cayley--Hamilton の定理](../../../基礎科目/LA/LA4/index.md#thm-la4-cayley-hamilton)から
+[極分解の証明](#lem-lrep10-polar-connectivity)と同じ正定値平方根の構成で $B=Q^{1/2}$ を取り、$\det B=1$、$B^\dagger=B$ を得ます。具体的にも $Q$ の跡は $2u_0$、行列式は1なので、二次行列の[Cayley--Hamilton の定理](../../../基礎科目/LA/LA4/index.md#thm-la4-cayley-hamilton)から
 
 $$
 Q^2-2u_0Q+I_2=0,\qquad
@@ -367,7 +440,7 @@ $BU\in SL(2,\mathbb C)$ は行列式1なので、この元が求める持ち上�
 
 ## 5. 二重被覆としての局所構造
 
-各 $\Lambda$ に持ち上げが二つあることと、位相的な意味で二重被覆であることは別の主張です。局所的に逆写像が取れることを確かめるため、行列群の単位元で微分します。
+各 $\Lambda$ に持ち上げが二つあることと、位相的な意味で二重被覆であることは別の主張です。[LREP5の二重被覆](../LREP5/index.md#thm-lrep5-double-cover)のように、標的の開近傍の逆像全体が互いに交わらない二つの開集合に分かれ、それぞれが元の近傍と同相になることを示します。局所的に逆写像が取れることを確かめるため、行列群の単位元で微分します。$d\Phi_{I_2}(B)$ は単位元を通る群曲線の初速度 $B$ を入力とし、その像の曲線の初速度を返す微分です。
 
 <a id="thm-lrep10-double-cover"></a>
 
@@ -387,18 +460,25 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\det(I_2+tB)=1+t\operatorname{tr}B+O(t^2)$ より、単位元での接ベクトルは跡零複素行列 $B$ です（実パラメータ $t$）。任意の実四元ベクトル $x$ について
+$\det(I_2+tB)=1+t\operatorname{tr}B+O(t^2)$ より、単位元での接ベクトルは跡零複素行列 $B$ です（実パラメータ $t$）。任意の実四元ベクトル $x$ を固定し、群曲線 $A(t)=e^{tB}$ の実パラメータ $t$ だけを動かします。$t$ はここでは時空座標の時間ではありません。
 
 $$
 \begin{aligned}
 H\bigl(d\Phi_{I_2}(B)x\bigr)
 &=\left.\frac{d}{dt}\right|_{t=0}
-\bigl((I_2+tB)H(x)(I_2+tB^\dagger)\bigr)\\
+\bigl(e^{tB}H(x)e^{tB^\dagger}\bigr)\\
 &=BH(x)+H(x)B^\dagger.
 \end{aligned}
 $$
 
-ここで実際の群曲線は $e^{tB}\in SL(2,\mathbb C)$ であり、同じ一次項 $I_2+tB+O(t^2)$ を持つので上の微分式が正当化されます。
+実際、$\det e^{tB}=e^{t\operatorname{tr}B}=1$ で、$t$ が実数なので $(e^{tB})^\dagger=e^{tB^\dagger}$ です。一次展開は
+
+$$
+e^{tB}H(x)e^{tB^\dagger}
+=H(x)+t(BH(x)+H(x)B^\dagger)+O(t^2)
+$$
+
+となります。$O(t^2)$ は各行列成分で二次以上の誤差を表し、差を $t$ で割るとその項は零へ収束します。
 
 $d\Phi_{I_2}(B)=0$ と仮定します。$H(e_0)=I_2$ に代入すると $B+B^\dagger=0$。この式を $H(e_i)=\sigma_i$ への代入に戻せば
 
@@ -409,7 +489,7 @@ $$
 
 [核の計算](#prop-lrep10-kernel)と同じ対角化の議論で、$\sigma_3$ と $\sigma_1$ の両方と可換な $B$ はスカラー行列 $bI_2$ です。$\operatorname{tr}B=2b=0$ だから $B=0$。よって微分は単射です。
 
-$\mathfrak{sl}_2(\mathbb C)_{\mathbb R}$ の実次元は $2(4-1)=6$、[Lorentz Lie環の六次元性](../LREP9/index.md#thm-lrep9-lie-algebra)から標的も実6次元です。従って微分は実線形同型となり、Lie群準同型の微分なのでLie括弧も保ちます。
+$\mathfrak{sl}_2(\mathbb C)_{\mathbb R}$ の実次元は $2(4-1)=6$、[Lorentz Lie環の六次元性](../LREP9/index.md#thm-lrep9-lie-algebra)から標的も実6次元です。従って微分は実線形同型となり、[Lie群準同型の微分はLie環準同型](../../LIE/LIE1/index.md#thm-lie1-homomorphism-differential)であるためLie括弧も保ちます。
 
 両群の単位元付近の実6次元座標を取ります。この座標で表した $\Phi$ は滑らかで、単位元でのJacobi行列は上で求めた可逆な微分の基底表示です。よって[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)を適用できます。局所逆の微分は微分行列の逆で与えられ、元の写像が滑らかなので微分公式を繰り返して局所逆も滑らかになります。
 
@@ -424,11 +504,11 @@ $$
 かつ双方から $W$ への制限は微分同相です。任意の標的 $\Lambda$ には[全射性](#thm-lrep10-surjectivity)で持ち上げ $A$ があり、左右の群平行移動によって $W$ の局所二枚構造を $\Lambda$ 付近へ運べます。よって二重被覆です。最後の商群同型は、全射かつ核が $\{\pm I_2\}$ であることによる群の準同型定理から従います。$\square$
 <!-- proof-end -->
 
-**どこまで被覆するか。** $SO^+(1,3)$ は空間の向きを保ち、未来円錐も保つ成分です。空間反転 $\operatorname{diag}(1,-1,-1,-1)$ は行列式が $-1$ なのでその外にあり、上の $SL(2,\mathbb C)$ 作用では得られません。空間反転や時間反転を加えた全 $O(1,3)$ の被覆だと読み替えてはいけません。
+**どこまで被覆するか。** $SO^+(1,3)$ は時空の向き（四次元の行列式が正）と時間の向き（未来円錐）を保つ成分です。空間反転 $\operatorname{diag}(1,-1,-1,-1)$ は行列式が $-1$ なのでその外にあり、上の $SL(2,\mathbb C)$ 作用では得られません。空間反転や時間反転を加えた全 $O(1,3)$ の被覆だと読み替えてはいけません。
 
 ## 6. 光円錐上では二成分ベクトルが現れる
 
-未来向きの光的ベクトルの行列は正半定値かつ階数1でした。階数1のエルミート行列は、二成分の複素列ベクトルとその共役転置の積で表せます。この事実が次講以降の二成分スピノルと四元ベクトルを結ぶ入口です。
+未来向きの光的ベクトルの行列は正半定値かつ階数1でした。正半定値かつ階数1のエルミート行列は、二成分の複素列ベクトルとその共役転置の積で表せます。正半定値性が必要で、例えば $\operatorname{diag}(-1,0)$ は階数1でもこの積では表せません。この事実が次講以降の二成分スピノルと四元ベクトルを結ぶ入口です。
 
 <a id="prop-lrep10-null-factorization"></a>
 
@@ -448,7 +528,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-未来向きの非零光的 $x$ では、$H(x)$ の固有値は $2x^0>0$ と0です。正規化された固有ベクトルを $v$ とすると、スペクトル分解から
+未来向きの非零光的 $x$ では、$H(x)$ の固有値は $2x^0>0$ と0です。正規化された固有ベクトルを $v$ とすると、[スペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)による分解から
 
 $$
 H(x)=(2x^0)vv^\dagger,\qquad
@@ -479,7 +559,7 @@ $$
 $x=(3,1,2,0)$ を[エルミート行列模型](#def-lrep10-hermitian-model)へ移し、行列式を求めよ。$x$ が未来向き時間的かどうかを、二つの固有値の符号から判定せよ。
 
 <!-- solution-start -->
-**詳細解答。** 定義へ $x^0=3,x^1=1,x^2=2,x^3=0$ を代入します。
+**詳細解答。** [模型の定義](#def-lrep10-hermitian-model)へ $x^0=3,x^1=1,x^2=2,x^3=0$ を代入します。
 
 $$
 H(x)=\begin{pmatrix}3&1-2i\\1+2i&3\end{pmatrix},
@@ -496,7 +576,7 @@ $$
 $s\in\mathbb R$ とし $A=\operatorname{diag}(e^{s/2},e^{-s/2})$ とする。$H(x)$ の四つの係数を比較し、$\Phi(A)$ の $4\times4$ 行列を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $H(x)$ の対角成分は $x^0\pm x^3$、非対角成分は $x^1\mp ix^2$ です。左から $A$、右から $A^\dagger=A$ を掛けると、対角はそれぞれ $e^s(x^0+x^3)$、$e^{-s}(x^0-x^3)$、非対角は元のままです。従って
+**詳細解答。** [エルミート行列模型](#def-lrep10-hermitian-model)の対角成分は $x^0\pm x^3$、非対角成分は $x^1\mp ix^2$ です。左から $A$、右から $A^\dagger=A$ を掛けると、対角はそれぞれ $e^s(x^0+x^3)$、$e^{-s}(x^0-x^3)$、非対角は元のままです。従って
 
 $$
 \begin{aligned}
@@ -528,7 +608,7 @@ $g(x',x')=g(x,x)$ は $\cosh^2s-\sinh^2s=1$ からも検算できます。
 $U_\theta=\operatorname{diag}(e^{-i\theta/2},e^{i\theta/2})\in SU(2)$ とする。$\Phi(U_\theta)$ を四元ベクトル上で求め、$x^0,x^3$ が変わらないことも示せ。
 
 <!-- solution-start -->
-**詳細解答。** ユニタリ性から $UI_2U^\dagger=I_2$、$\sigma_3$ も対角なので $U\sigma_3U^\dagger=\sigma_3$。したがって $x'^0=x^0,x'^3=x^3$。非対角成分は
+**詳細解答。** ここでは $U=U_\theta$ と略記します。ユニタリ性から $UI_2U^\dagger=I_2$、$\sigma_3$ も対角なので $U\sigma_3U^\dagger=\sigma_3$。したがって $x'^0=x^0,x'^3=x^3$。非対角成分は
 
 $$
 x'^1-ix'^2=e^{-i\theta}(x^1-ix^2)
@@ -657,10 +737,10 @@ $$
 #### LREP10-B04 微分でboostと回転を見分ける
 - Level: B
 
-$B=\sigma_3/2$ および $C=-i\sigma_3/2$ はともに跡零である。$H(d\Phi_{I_2}(B)x)=BH(x)+H(x)B^\dagger$ を使い、それぞれの四元ベクトルへの無限小作用を求めよ。
+$B=\sigma_3/2$ および $C=-i\sigma_3/2$ はともに跡零である。[SL(2,C)からSO^+(1,3)への二重被覆](#thm-lrep10-double-cover)の証明で得た式 $H(d\Phi_{I_2}(B)x)=BH(x)+H(x)B^\dagger$ を使い、それぞれの四元ベクトルへの無限小作用を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $B^\dagger=B$ なので $BH+HB=\frac12\{\sigma_3,H\}$ です。[Pauli積公式](../LREP5/index.md#lem-lrep5-pauli-product)の反交換子 $\{\sigma_3,\sigma_3\}=2I_2$、$\{\sigma_3,\sigma_1\}=\{\sigma_3,\sigma_2\}=0$ から
+**詳細解答。** $B^\dagger=B$ なので反交換子 $\{X,Y\}=XY+YX$ を使うと、$BH+HB=\frac12\{\sigma_3,H\}$ です（ここでは $H=H(x)$ と略記）。[Pauli積公式](../LREP5/index.md#lem-lrep5-pauli-product)の反交換子 $\{\sigma_3,\sigma_3\}=2I_2$、$\{\sigma_3,\sigma_1\}=\{\sigma_3,\sigma_2\}=0$ から
 
 $$
 BH(x)+H(x)B
@@ -668,7 +748,7 @@ BH(x)+H(x)B
 =H(x^3,0,0,x^0).
 $$
 
-したがって $d\Phi(B)x=(x^3,0,0,x^0)$、これは [LREP9の $B_3$](../LREP9/index.md#def-lrep9-rotation-boost) の作用です。
+したがって $d\Phi_{I_2}(B)x=(x^3,0,0,x^0)$、これは [LREP9の $B_3$](../LREP9/index.md#def-lrep9-rotation-boost) の作用です。
 
 一方 $C^\dagger=-C$ なので $CH+HC^\dagger=[C,H]$。Pauli交換子から
 
@@ -676,7 +756,7 @@ $$
 [C,\sigma_1]=\sigma_2,\qquad [C,\sigma_2]=-\sigma_1,\qquad [C,\sigma_3]=0
 $$
 
-です。従って $CH+HC^\dagger=-x^2\sigma_1+x^1\sigma_2=H(0,-x^2,x^1,0)$。すなわち $d\Phi(C)x=(0,-x^2,x^1,0)$ であり、[LREP9の $R_3$](../LREP9/index.md#def-lrep9-rotation-boost) と一致します。時間・空間の座標作用の違いが $B^\dagger=\pm B$ で生じることも確認できます。
+です。従って $CH+HC^\dagger=-x^2\sigma_1+x^1\sigma_2=H(0,-x^2,x^1,0)$。すなわち $d\Phi_{I_2}(C)x=(0,-x^2,x^1,0)$ であり、[LREP9の $R_3$](../LREP9/index.md#def-lrep9-rotation-boost) と一致します。時間・空間の座標作用の違いが、$B^\dagger=B$ と $C^\dagger=-C$ による反交換子と交換子の違いから生じることも確認できます。
 <!-- solution-end -->
 
 ### Level C
@@ -715,7 +795,26 @@ D_aI_2D_a^\dagger=D_a^2
 =H(\cosh a,\sinh a,0,0).
 $$
 
-さらに $\{\sigma_1,\sigma_2\}=\{\sigma_1,\sigma_3\}=0$ なので、$D_aH(x)D_a$ で $x^2,x^3$ は不変です。一方 $D_a\sigma_1D_a=\sinh a\,I_2+\cosh a\,\sigma_1$ となります。従って $\Phi(D_a)$ は $x$ 方向の能動boostです。
+さらに [Pauli積公式](../LREP5/index.md#lem-lrep5-pauli-product)の反交換子 $\{\sigma_1,\sigma_2\}=\{\sigma_1,\sigma_3\}=0$ なので、$D_aH(x)D_a$ で $x^2,x^3$ は不変です。実際、$c_a=\cosh(a/2),s_a=\sinh(a/2)$ と置けば $j=2,3$ について
+
+$$
+\begin{aligned}
+D_a\sigma_jD_a
+&=c_a^2\sigma_j+c_as_a(\sigma_1\sigma_j+\sigma_j\sigma_1)
++s_a^2\sigma_1\sigma_j\sigma_1\\
+&=(c_a^2-s_a^2)\sigma_j=\sigma_j.
+\end{aligned}
+$$
+
+一方 $D_a\sigma_1D_a=\sinh a\,I_2+\cosh a\,\sigma_1$ となります。従って新座標を $x'=\Phi(D_a)x$ と書けば
+
+$$
+x'^0=\cosh a\,x^0+\sinh a\,x^1,\quad
+x'^1=\sinh a\,x^0+\cosh a\,x^1,\quad
+x'^2=x^2,\quad x'^3=x^3.
+$$
+
+これは $x$ 方向の能動boostです。
 
 先に回転してからboostを作用させるので、[準同型性](#thm-lrep10-lorentz-action)から
 
