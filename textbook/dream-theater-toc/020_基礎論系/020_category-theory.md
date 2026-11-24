@@ -61,3 +61,4 @@
 58. [CATB2-10 冪等分裂とCauchy完備化](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-10/index.md)
 59. [CATB3-01 フィルター圏とフィルター余極限](textbook/volumes/dream_thater/基礎論系/CATB/CATB3-01/index.md)
 60. [CATB3-02 有限表示対象](textbook/volumes/dream_thater/基礎論系/CATB/CATB3-02/index.md)
+61. [CATB3-03 局所有限表示圏](textbook/volumes/dream_thater/基礎論系/CATB/CATB3-03/index.md)
