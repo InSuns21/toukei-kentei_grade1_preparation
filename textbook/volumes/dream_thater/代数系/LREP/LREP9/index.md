@@ -442,7 +442,15 @@ $$
 =\sum_{k=1}^3\varepsilon_{ijk}T_k.
 $$
 
-$T_1,T_2,T_3$ はいずれもトレース零であり、[Pauli行列の具体形](../LREP5/index.md#def-lrep5-pauli-model)から複素線形独立です。トレース零行列の一般形は $\begin{pmatrix}p&q\\r&-p\end{pmatrix}$（$p,q,r\in\mathbb C$）なので次元は $3$、従って三つは $\mathfrak{sl}_2(\mathbb C)$ の複素基底です。したがって $A_i\mapsto(T_i,0)$、$C_i\mapsto(0,T_i)$ と定めた写像は各組の交換子を保ちます。$R_i=A_i+C_i$、$B_i=-i(A_i-C_i)$ から六つは複素基底なので、写像は全単射です。よって複素Lie環の同型が得られます。$\square$
+$T_1,T_2,T_3$ はいずれもトレース零であり、[Pauli行列の具体形](../LREP5/index.md#def-lrep5-pauli-model)から複素線形独立です。トレース零行列の一般形は
+
+$$
+\begin{pmatrix}p&q\\r&-p\end{pmatrix},\qquad p,q,r\in\mathbb C
+$$
+
+なので、その空間の複素次元は $3$ です。従って三つは $\mathfrak{sl}_2(\mathbb C)$ の複素基底です。
+
+$A_i\mapsto(T_i,0)$、$C_i\mapsto(0,T_i)$ と定めた写像は、それぞれの組と混合項の交換子を保ちます。さらに $R_i=A_i+C_i$、$B_i=-i(A_i-C_i)$ より $A_1,A_2,A_3,C_1,C_2,C_3$ は複素基底なので、この写像は全単射です。よって複素Lie環の同型が得られます。$\square$
 <!-- proof-end -->
 
 ### 実Lie環はどう戻るか
