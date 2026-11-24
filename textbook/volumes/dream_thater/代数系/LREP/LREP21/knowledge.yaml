@@ -1,0 +1,49 @@
+chapter: LREP21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP20
+  - QM7
+  - OA6
+forward_references: []
+concepts:
+  - id: representation.poincare-group
+    name: Poincare群
+    kind: definition
+    introduction: formal
+    requires: [representation.lorentz-group, algebra.group-action]
+  - id: representation.covered-poincare-group
+    name: 被覆Poincare群
+    kind: definition
+    introduction: formal
+    requires: [representation.poincare-group, representation.sl2c-double-cover]
+  - id: representation.poincare-double-cover
+    name: Poincare群の二重被覆
+    kind: proposition
+    introduction: formal
+    requires: [representation.covered-poincare-group, representation.sl2c-double-cover]
+  - id: representation.strongly-continuous-unitary-representation
+    name: 強連続ユニタリ表現
+    kind: definition
+    introduction: formal
+    requires: [representation.covered-poincare-group, quantum.strongly-continuous-unitary-group]
+  - id: representation.translation-joint-spectrum
+    name: 並進の共同スペクトル表示
+    kind: theorem
+    introduction: formal
+    requires: [representation.strongly-continuous-unitary-representation, quantum.stone-theorem, quantum.unbounded-self-adjoint-spectral-theorem, operator-algebra.commutative-gelfand-naimark, operator-algebra.commutative-representation-pvm]
+  - id: representation.positive-energy
+    name: 正エネルギー表現
+    kind: definition
+    introduction: formal
+    requires: [representation.translation-joint-spectrum, representation.lorentz-determinant-cone]
+  - id: representation.translation-spectrum-covariance
+    name: 共同スペクトルのLorentz共変性
+    kind: theorem
+    introduction: formal
+    requires: [representation.translation-joint-spectrum, representation.covered-poincare-group]
+  - id: representation.nonnegative-energy-cone
+    name: 非負時間生成作用素と未来円錐
+    kind: proposition
+    introduction: formal
+    requires: [representation.positive-energy, representation.translation-spectrum-covariance]

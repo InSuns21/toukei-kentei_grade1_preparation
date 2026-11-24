@@ -87,7 +87,7 @@ chapters:
     title: "平面波解・スピン和・helicity"
   - id: LREP21
     path: textbook/volumes/dream_thater/代数系/LREP/LREP21
-    status: planned
+    status: completed
     title: "Poincare群と正エネルギー表現"
   - id: LREP22
     path: textbook/volumes/dream_thater/代数系/LREP/LREP22
