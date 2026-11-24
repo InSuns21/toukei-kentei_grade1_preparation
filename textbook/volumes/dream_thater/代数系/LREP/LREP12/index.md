@@ -137,7 +137,19 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（共役空間と右Weyl空間の同型）**  
-> $G=SL(2,\mathbb C)$ の共役作用 $\overline S$ と右Weyl作用 $Q(S)=(S^\dagger)^{-1}$ の間で、$z\mapsto Jz$ は複素線形な絡同型である。左空間から右空間への対応 $u\mapsto J\overline u$ は反線形な同型である。
+> $G=SL(2,\mathbb C)$ の共役作用と右Weyl作用の間で、次の写像は複素線形な絡同型である。
+
+$$
+z\mapsto Jz,\qquad J\overline S=Q(S)J,\quad Q(S)=(S^\dagger)^{-1}.
+$$
+
+> 左空間から右空間への対応
+
+$$
+u\mapsto J\overline u
+$$
+
+> は反線形な同型である。
 <!-- formal-statement-end -->
 
 **証明の見取り図。** 共役行列も行列式1なので、交代形式の恒等式に代入します。複素共役を含むかどうかで線形性が変わります。
