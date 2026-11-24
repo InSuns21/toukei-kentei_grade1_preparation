@@ -12,7 +12,7 @@ export function assembleFCG19(fluid,water,smoke,driver){
  'function makeWater(){\n'+b+
  '\nlet n=0;return {N,dt:.05,advance(){solveUntil(++n*.05);},state(){let min=Infinity;const field=new Float64Array(N*N);for(let k=0;k<field.length;k++){field[k]=U[3*k];min=Math.min(min,field[k]);}return {time:t,steps,field,arrays:[U],diagnostic:[["水量差 [m³]",volume(U)-initialVolume],["最小水深 [m]",min],["最大Courant数",largestCourant]],scale:1};}};}\n'+
  'function makeSmoke(){\n'+c+
- '\nconst m=createSmoke({N,dt,buoyancy,heatSource,smokeSource,kappa});return {N,dt,advance:m.advance,state(){const s=m.state();return {time:s.time,steps:s.step,field:s.q,arrays:[s.u,s.v,s.q,s.T],diagnostic:[["最大発散 [1/s]",s.div],["煙の累積収支誤差",s.M-s.time*smokeSource*s.sourceIntegral],["熱の累積収支誤差",s.heat-s.time*heatSource*s.sourceIntegral]],scale:2};}};}\n'+driver;
+ '\nconst m=createSmoke({N,dt,buoyancy,heatSource,smokeSource,kappa});return {N,dt,advance:m.advance,state(){const s=m.state();return {time:s.time,steps:s.step,field:s.q,arrays:[s.u,s.v,s.q,s.T],diagnostic:[["最大発散 [1/s]",s.div],["煙の累積収支誤差",s.M-s.time*smokeSource*s.sourceIntegral],["熱の累積収支誤差",s.heat-s.time*heatSource*s.sourceIntegral]],scale:1.1};}};}\n'+driver;
  if(source.length>30000)throw Error('FCG19 assembled source exceeds editable source limit');
  return source;
 }

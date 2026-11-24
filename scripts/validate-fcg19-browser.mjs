@@ -131,7 +131,7 @@ try {
   await click('fcg-time-step');await waitFor('Number('+state+'.dataset.value)>=0.05');
   await capture('shallow-water');
   await control('modelIndex','2',/const modelIndex=2;/);
-  await click('fcg-time-play');await waitFor('Number('+state+'.dataset.value)>=0.1');
+  await click('fcg-time-play');await waitFor('Number('+state+'.dataset.value)>=0.6');
   await click('fcg-time-pause');await waitFor(state+'.dataset.playing==="false"');
   await capture('smoke');
   await control('renderScale','1',/const renderScale=1;/);
@@ -141,6 +141,12 @@ try {
   await click('run');await waitFor('document.querySelector("#status")?.textContent.includes("編集コードを実行しました")');
   assert.notEqual(first,await capture('edited-shader'));
   await cdp('Emulation.setDeviceMetricsOverride',{width:360,height:760,deviceScaleFactor:1,mobile:true});
+  await evaluate('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"start"})');
+  await new Promise(ok=>setTimeout(ok,500));
+  await click('run');
+  await waitFor('document.querySelector("#status")?.textContent.includes("編集コードを実行しました")');
+  await evaluate('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"start"})');
+  await new Promise(ok=>setTimeout(ok,500));
   const narrow=await evaluate('({contentWidth:document.documentElement.scrollWidth,windowWidth:window.innerWidth,canvasWidth:document.querySelector("#canvas-slot iframe")?.getBoundingClientRect().width})');
   assert.ok(narrow.canvasWidth>50&&narrow.canvasWidth<=360,JSON.stringify(narrow));
   assert.ok(narrow.contentWidth<=narrow.windowWidth+2,JSON.stringify(narrow));

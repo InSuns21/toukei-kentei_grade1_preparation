@@ -53,11 +53,12 @@ gl.uniform1i(gl.getUniformLocation(program,'u_field'),0);
 const ext=gl.getExtension('EXT_disjoint_timer_query_webgl2');
 let pending=null,gpuMs=null,model,physical,encoding,playing=false,raf=null,lastFrame=null,nextPhysical=0;
 let cpuMs=0,submitMs=0,intervals=[],lost=false;
-const caption=document.createElement('p');caption.setAttribute('aria-label','FCG19 性能と物理診断');canvas.after(caption);
+const caption=document.createElement('p');caption.setAttribute('aria-label','FCG19 性能と物理診断');caption.style.whiteSpace='pre-wrap';canvas.after(caption);
 function clearQuery(){if(pending&&!lost)gl.deleteQuery(pending);pending=null;gpuMs=null;}
 function poll(){
- if(!ext||!pending)return;
+ if(!ext)return;
  if(gl.getParameter(ext.GPU_DISJOINT_EXT)){clearQuery();return;}
+ if(!pending)return;
  if(gl.getQueryParameter(pending,gl.QUERY_RESULT_AVAILABLE)){
   gpuMs=gl.getQueryParameter(pending,gl.QUERY_RESULT)/1e6;
   gl.deleteQuery(pending);pending=null;
@@ -89,10 +90,10 @@ function draw(){
  const fps=intervals.length?1000*intervals.length/intervals.reduce((a,b)=>a+b,0):null;
  const ms=x=>x===null?'未計測':x.toFixed(2)+' ms';
  caption.textContent=names[modelIndex]+'（色0〜'+physical.scale+'、暗→明）｜格子 '+model.N+'²／描画 '+w+'×'+h+'／'+(formatIndex?'R8':'R32F')+
- '｜時刻 '+physical.time.toFixed(3)+' s、物理step '+physical.steps+
- '｜CPU更新 '+ms(physical.steps?cpuMs:null)+'、描画発行 '+ms(submitMs)+'、GPU '+(ext?ms(gpuMs):'拡張未対応')+'、FPS '+(fps===null?'未計測':fps.toFixed(1))+
- '｜転送誤差 '+encoding.maxError.toExponential(2)+'（正規化値）、クリップ '+encoding.clipped+
- '｜'+physical.diagnostic.map(([label,value])=>label+' '+value.toExponential(3)).join('、');
+ '\n時刻 '+physical.time.toFixed(3)+' s、物理step '+physical.steps+
+ '\nCPU更新 '+ms(physical.steps?cpuMs:null)+'、描画発行 '+ms(submitMs)+'、GPU '+(ext?ms(gpuMs):'拡張未対応')+'、FPS '+(fps===null?'未計測':fps.toFixed(1))+
+ '\n転送誤差 '+encoding.maxError.toExponential(2)+'（正規化値）、クリップ '+encoding.clipped+
+ '\n'+physical.diagnostic.map(([label,value])=>label+' '+value.toExponential(3)).join('、');
 }
 function emit(){canvas.dispatchEvent(new CustomEvent('fcg-time-progress',{detail:{value:Math.min(endTime,physical.time),playing}}));}
 function pause(){playing=false;if(raf!==null)cancelAnimationFrame(raf);raf=null;lastFrame=null;emit();}
