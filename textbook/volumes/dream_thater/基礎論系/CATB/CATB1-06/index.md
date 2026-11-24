@@ -30,7 +30,7 @@ $$
 bi=i'a,\qquad p'b=cp
 $$
 
-と仮定する。横の射 $i,i'$ は核、$p,p'$ は余核である。これは[短完全列の特徴づけ](../CATB1-05/index.md#thm-catb1-05-short-exact-test)の適用であり、特に $i,i'$ はモノ射、$p,p'$ はエピ射になる。
+と仮定する。横の射 $i,i'$ は核、$p,p'$ は余核である。これは[短完全列の特徴づけ](../CATB1-05/index.md#thm-catb1-05-short-exact-test)の適用であり、特に $i,i'$ は[モノ射](../../CAT/CAT1-03/index.md#def-cat1-03-monomorphism)（左消去可能）、$p,p'$ は[エピ射](../../CAT/CAT1-03/index.md#def-cat1-03-epimorphism)（右消去可能）になる。
 
 縦の射 $v:X\to Y$（$v=a,b,c$ のいずれか）について、[核](../CATB1-04/index.md#def-catb1-04-kernel)と[余核](../CATB1-04/index.md#def-catb1-04-cokernel)を次の型で選ぶ。
 
@@ -215,11 +215,23 @@ $$
 
 $i'$ のモノ射性から $vl=aw$、よって $q_avl=q_aaw=0$。エピ射 $s$ は[正規射の復元](../CATB1-04/index.md#prop-catb1-04-normal-recovery)により $l$ の余核だから、$\delta s=q_av$ を満たす $\delta$ が一意に存在する。
 
-この構成は引き戻しの選択にも依存しない。二つの[引き戻しの普遍性](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)から、それぞれの二射と両立する互いに逆の射が存在する。片方の $s,u,v$ をもう片方の射で引き戻せば、$i'$ のモノ射性により $v$ も一致する。従って接続射の等式はどちらの選択でも同じになり、$s$ のエピ射性から一致する。
+この構成は引き戻しの選択にも依存しない。別の引き戻しを $(\bar P,\bar u,\bar s)$ とし、$\bar v,\bar\delta$ をそこから作った射とする。[引き戻しの普遍性](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)で $r:P\to\bar P$ を取り、$\bar u r=u$, $\bar s r=s$ とする。すると
+
+$$
+i'\bar v r=b\bar u r=bu=i'v.
+$$
+
+$i'$ を左消去して $\bar v r=v$。従って
+
+$$
+\bar\delta s=\bar\delta\bar s r=q_a\bar v r=q_av=\delta s.
+$$
+
+$s$ のエピ射性から $\bar\delta=\delta$ となる。
 
 <!-- proof-end -->
 
-加群の場合には、$x\in K_c$ に対して $pz=x$ となる $z\in B$ を取り、$i'w=bz$ を解いて $\delta(x)=[w]$ と計算する。別の持ち上げ $z_1$ との差は $z_1-z=it$ であり、
+加群の場合には、$x\in K_c$ に対して $pz=x$ となる $z\in B$ を取り、$i'w=bz$ を解いて $\delta(x)=[w]$ と計算する。別の持ち上げ $z_1$ との差は $p(z_1-z)=x-x=0$ なので $\ker p=\operatorname{Im}i$ により $z_1-z=it$ と書ける。従って
 
 $$
 i'(w_1-w)=b(z_1-z)=bit=i'at.
@@ -242,7 +254,15 @@ $$
 0\to A\xrightarrow{i}B\xrightarrow{p}C\to0,\qquad
 0\to A'\xrightarrow{i'}B'\xrightarrow{p'}C'\to0
 $$
-> の間に射 $a:A\to A'$, $b:B\to B'$, $c:C\to C'$ があり、二つの四角形が可換とする。各縦射 $v$ の核と余核の対象を $K_v,Q_v$ とする。核・余核の普遍性から誘導される四射と、[接続射](#def-catb1-06-connecting) $\delta$ により次の列は完全になる。
+> の間に射 $a:A\to A'$, $b:B\to B'$, $c:C\to C'$ があり、二つの四角形が可換とする。各縦射 $v$ の核と余核の対象を $K_v,Q_v$ とする。核射と余核射を $k_v,q_v$ とする。四射 $\alpha:K_a\to K_b$, $\beta:K_b\to K_c$, $\gamma:Q_a\to Q_b$, $\eta:Q_b\to Q_c$ を次の等式により定める。
+>
+$$
+k_b\alpha=ik_a,\qquad k_c\beta=pk_b,
+$$
+$$
+\gamma q_a=q_bi',\qquad \eta q_b=q_cp'.
+$$
+> 核・余核の普遍性から誘導されるこれらの四射と、[接続射](#def-catb1-06-connecting) $\delta$ により次の列は完全になる。
 
 $$
 0\to K_a\xrightarrow{\alpha}K_b\xrightarrow{\beta}K_c
@@ -259,7 +279,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**端点。** $k_b\alpha=i k_a$ はモノ射の合成だからモノ射であり、$\alpha x=\alpha y$ なら $i k_ax=i k_ay$、よって $x=y$。$\eta q_b=q_c p'$ はエピ射の合成なので、$x\eta=y\eta$ なら $xq_cp'=yq_cp'$、よって $x=y$。従って $\alpha$ はモノ射、$\eta$ はエピ射である。[零射による判定](../CATB1-04/index.md#prop-catb1-04-zero-test)から $\alpha$ の核の対象と $\eta$ の余核の対象は零対象である。よって $K_a$ では零射の像と $\alpha$ の核、$Q_c$ では $\eta$ の像と零射の核が一致し、両端で完全である。
+**端点。** $k_b\alpha=i k_a$ はモノ射の合成だからモノ射であり、$\alpha x=\alpha y$ なら $i k_ax=i k_ay$、よって $x=y$。$\eta q_b=q_c p'$ はエピ射の合成なので、$x\eta=y\eta$ なら $xq_cp'=yq_cp'$、よって $x=y$。従って $\alpha$ はモノ射、$\eta$ はエピ射である。[零射による判定](../CATB1-04/index.md#prop-catb1-04-zero-test)から $\alpha$ の核の対象と $\eta$ の余核の対象は零対象である。[像の構成](../CATB1-05/index.md#thm-catb1-05-image-coimage)により零対象からの射の像は零、$\eta$ の像は $1_{Q_c}$ と選べる。従って $K_a$ では零射の像と $\alpha$ の核、$Q_c$ では $\eta$ の像と零射の核が一致し、両端で完全である。
 
 **$K_b$ での完全性。** 第2節で $\beta\alpha=0$ を示した。$x:T\to K_b$ が $\beta x=0$ を満たすなら $pk_bx=k_c\beta x=0$。$i$ は $p$ の核なので $iz=k_bx$ となる $z:T\to A$ がある。$i'az=biz=bk_bx=0$ より $az=0$。従って $z=k_ay$ となる $y:T\to K_a$ があり、
 
@@ -358,7 +378,7 @@ $$
 
 第1節の例で $\alpha,\beta$ の始域はいずれも零対象である。$\delta$ は恒等射、$\gamma$ は $[n]_2\mapsto[2n]_2=0$、$\eta$ は恒等射である。
 
-従って $K_c$ で像は零、核も零、$Q_a$ で像は全体、核も全体、$Q_b$ で像は零、核も零になり、[完全列の定義](../CATB1-05/index.md#def-catb1-05-exact)を直接確認できる。
+従って $K_c$ で $\operatorname{Im}\beta=\ker\delta=0$、$Q_a$ で $\operatorname{Im}\delta=\ker\gamma=Q_a$、$Q_b$ で $\operatorname{Im}\gamma=\ker\eta=0$ となり、[完全列の定義](../CATB1-05/index.md#def-catb1-05-exact)を直接確認できる。
 
 加群で $x\in K_c$ が $\delta(x)=0$ を満たすことは、$x$ に $K_b$ に属する持ち上げがあることと同値である。任意の持ち上げ $z$ について $bz=i'w$ とすると、$\delta(x)=0$ は $w=at$ と書けることを意味する。すると
 
@@ -517,7 +537,7 @@ $$
 移り先の縦射を $\tilde a,\tilde b,\tilde c$ と書く。核に誘導される $F_K:K_c\to K_{\tilde c}$ と余核に誘導される $G_Q:Q_a\to Q_{\tilde a}$ について、$\tilde\delta F_K=G_Q\delta$ を示せ。
 
 <!-- solution-start -->
-**詳細解答。** まず $\tilde c F_C k_c=G_C c k_c=0$ なので核の普遍性で $\tilde k_c F_K=F_C k_c$ を満たす射が一意に存在する。また $\tilde q_a G_A a=\tilde q_a\tilde a F_A=0$ より余核の普遍性で $G_Q q_a=\tilde q_aG_A$ を満たす射が一意に存在する。
+**詳細解答。** まず $\tilde c F_C k_c=G_C c k_c=0$ なので[核の普遍性](../CATB1-04/index.md#def-catb1-04-kernel)で $\tilde k_c F_K=F_C k_c$ を満たす射が一意に存在する。また $\tilde q_a G_A a=\tilde q_a\tilde a F_A=0$ より[余核の普遍性](../CATB1-04/index.md#def-catb1-04-cokernel)で $G_Q q_a=\tilde q_aG_A$ を満たす射が一意に存在する。
 
 移り先の引き戻しを $\tilde P$ とし、その射を $\tilde u,\tilde s$ とする。上段の可換性から
 
@@ -525,7 +545,7 @@ $$
 \tilde p F_B u=F_Cpu=F_Ck_cs=\tilde k_c F_Ks.
 $$
 
-従って引き戻しの普遍性で $r:P\to\tilde P$ が存在し、$\tilde u r=F_Bu$, $\tilde s r=F_Ks$。下段と縦の可換性から
+従って[引き戻しの普遍性](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)で $r:P\to\tilde P$ が存在し、$\tilde u r=F_Bu$, $\tilde s r=F_Ks$。下段と縦の可換性から
 
 $$
 \tilde i'\tilde v r=\tilde b\tilde u r
@@ -555,7 +575,7 @@ $$
 0\to\mathbb Z\xrightarrow{\times n}\mathbb Z\to\mathbb Z/n\mathbb Z\to0
 $$
 
-とし、縦射を $m$ 倍写像とする。$d=\gcd(m,n)$ と置く。六つの対象を求め、接続射と余核側の二射を計算し、完全性を直接確かめよ。
+とし、縦射を $m$ 倍写像とする。$d=\gcd(m,n)$（最大公約数）と置く。六つの対象を求め、接続射と余核側の二射を計算し、完全性を直接確かめよ。
 
 <!-- solution-start -->
 **詳細解答。** 倍写像は単射で、その像は $n\mathbb Z$ である。商射は全射であり、その核も $n\mathbb Z$ なので横列は短完全である。$m(nx)=n(mx)$ と $[mx]_n=m[x]_n$ から可換。$m>0$ なので $K_a=K_b=0$、$Q_a=Q_b=\mathbb Z/m\mathbb Z$。
