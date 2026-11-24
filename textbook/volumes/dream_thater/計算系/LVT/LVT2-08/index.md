@@ -6,7 +6,7 @@
 
 ## 1. 定理名ではなく、欲しい結論から探す
 
-自然数の使用数 used、予約枠 reserved、容量 cap があり、used ≤ reserved と reserved ≤ cap が分かっているとします。目標は used ≤ cap です。欲しい補題の形は「三つの数について、最初の二つの不等式から三つ目の不等式を得る」です。名前を知らなくても、この形から候補を探せます。
+自然数の使用数 used、予約枠 reserved、容量 cap があり、used ≤ reserved と reserved ≤ cap が分かっているとします。目標は used ≤ cap です。欲しい補題は、三つの自然数 a、b、c に対する仮定 a ≤ b、b ≤ c と結論 a ≤ c を持つものです。名前を知らなくても、この形から候補を探せます。
 
 <a id="def-lvt2-08-search"></a>
 
@@ -425,7 +425,7 @@ example (n cap : Nat) (h : goodCheck n cap = true) :
 
 判定が true のとき、定義展開で decide (used < cap) = true を得る。[証明付き判定の健全性と完全性](../LVT2-01/index.md#prop-lvt2-01-decision-bridge) において P を used < cap に選び、of_decide_eq_true で used < cap の証明を得る。[一枠予約の算術保証](#prop-lvt2-08-next) にこれを適用すると used + 1 ≤ cap が成り立つ。
 
-false のときは used < cap と仮定すると、同じ判定器の完全性により decide (used < cap) = true となり、false と true が一致する矛盾になる。従って ¬ (used < cap) である。自然数の全順序から cap ≤ used を得て、仮定 used ≤ cap と合わせると両者は等しい。Leanでは of_decide_eq_false により否定を得て、omega が二つの不等式から等式を構成する。
+false のときは used < cap と仮定すると、同じ判定器の完全性により decide (used < cap) = true となり、false と true が一致する矛盾になる。従って ¬ (used < cap) である。自然数を比較すると、used < cap、used = cap、cap < used のいずれか一つが成立する。最初の場合は ¬ (used < cap) に反し、最後の場合は仮定 used ≤ cap に反する。残る used = cap が結論である。Leanでは of_decide_eq_false を h に適用して否定を得る。omega は hn と h₀ を用いて等式の目標を閉じる。
 
 ```lean
 def checkRoom (used cap : Nat) : Bool := decide (used < cap)
