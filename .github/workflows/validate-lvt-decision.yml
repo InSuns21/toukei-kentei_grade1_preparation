@@ -1,0 +1,39 @@
+name: Validate LVT decision
+on:
+  pull_request:
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT2-01/**'
+      - '.github/workflows/validate-lvt-decision.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT2-01/**'
+      - '.github/workflows/validate-lvt-decision.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lean-decision:
+    name: Lean propositions and decisions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee # v1
+        with:
+          lake-package-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT2-01/lab'
+          auto-config: 'false'
+          build: 'true'
+          test: 'true'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - name: Verify version, exercises and independent comparison
+        working-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT2-01/lab'
+        shell: bash
+        run: |
+          lean --version | grep -F 'version 4.35.0'
+          lake env lean Inspect.lean
+          lake exe lvtDecisionDemo | grep -Fx 'LVT2-01 OK'
+          lake env lean ExerciseSolutions.lean
+          python3 check_matches.py
