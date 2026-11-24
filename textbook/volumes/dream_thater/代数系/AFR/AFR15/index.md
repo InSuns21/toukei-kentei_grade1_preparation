@@ -55,7 +55,7 @@ $$
 $$
 特に $u\in1+p^nO$ なら $uI_2\in K_1(p^n)$ なので $(\omega(u)-1)v=0$ です。$v\ne0$ なら $\omega(u)=1$ です。
 
-逆に右辺の条件を満たす $v$ を取ります。$uI_2$ を代入するだけでは条件は自動的なので、中心指標の自明性なしには逆向きは一般に成立しません。例えば分岐した $\omega$ による右下成分の変換則が存在すると仮定しても、それが群の作用として整合するかを調べる必要があります。
+逆に右辺の条件を満たす $v$ を取ります。右下成分による変換則と群の積が整合することから、中心指標の必要な自明性を導きます。
 
 $k=\begin{pmatrix}1&0\\p^n&1\end{pmatrix}$、$l=\begin{pmatrix}1&t\\0&1\end{pmatrix}$ ($t\in O$) とすると、両者は $K_0(p^n)$ の元で右下成分は1です。従って $\pi(k)\pi(l)v=v$ です。一方 $kl$ の右下成分は $1+p^nt$ なので
 $$
@@ -196,7 +196,7 @@ $n(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix}$ とし、$\psi:F\to\mathbb C^\times$
 $$
 \ell(\pi(n(x))v)=\psi(x)\ell(v)
 $$
-> を全ての $x\in F,v\in V$ で満たすとき Whittaker 汎関数と呼び、このような汎関数を持つ表現を generic（ジェネリック）と呼ぶ。$W_v(g)=\ell(\pi(g)v)$ として得られる関数の空間を Whittaker 模型（既約表現の場合）と呼ぶ。
+> を全ての $x\in F,v\in V$ で満たすとき Whittaker 汎関数と呼び、このような汎関数を持つ表現を generic（ジェネリック）と呼ぶ。$W_v(g)=\ell(\pi(g)v)$ として得られる関数の空間を Whittaker 模型と呼ぶ。既約表現の場合には次の命題により元の表現と同型になる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr15-whittaker -->
@@ -471,7 +471,7 @@ $$
 
 ### C2. 分岐と generic を混同しない
 
-$p=3$ の一次元表現 $\pi(g)=\eta(\det g)$（$\eta$ は A2 と同様に法3の非自明な符号指標とし $\eta(3)=1$）を考える。滑らかさ、許容性、既約性、レベル固定空間、および非自明な $\psi$ に対する Whittaker 汎関数の存在を判定せよ。
+$p=3$ の一次元表現 $\pi(g)=\eta(\det g)$（$\eta(3^mu)$ は $u\bmod3$ が1なら1、2なら $-1$ とする）を考える。滑らかさ、許容性、既約性、レベル固定空間、および非自明な $\psi$ に対する Whittaker 汎関数の存在を判定せよ。
 
 - Level: C
 - ID: AFR15-C2
