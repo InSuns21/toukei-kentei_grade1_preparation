@@ -6,7 +6,13 @@
 
 ## 1. Hecke係数を複素関数にする
 
-以下、$\mathbb H$ は[上半平面](../../MF/MF1/index.md#def-mf1-upper-half-plane)、$\Gamma=SL_2(\mathbb Z)$ は[整数モジュラー群](../../MF/MF1/index.md#def-mf1-modular-group)です。$u$ は非零の[重さ0のMaassカスプ形式](../AFR3/index.md#def-afr3-maass-cusp)で、全ての[重さ0の素数Hecke作用素](../AFR6/index.md#def-afr6-hecke)の共通固有関数とします。Laplace固有値 $\lambda$ は[エネルギー実現の自己共役性と非負性](../AFR3/index.md#thm-afr3-self-adjoint)から $\lambda\ge0$ です。$\nu^2=1/4-\lambda$ とします。
+以下、$\mathbb H$ は[上半平面](../../MF/MF1/index.md#def-mf1-upper-half-plane)、$\Gamma=SL_2(\mathbb Z)$ は[整数モジュラー群](../../MF/MF1/index.md#def-mf1-modular-group)です。
+
+$u$ は非零の[重さ0のMaassカスプ形式](../AFR3/index.md#def-afr3-maass-cusp)で、全ての[重さ0の素数Hecke作用素](../AFR6/index.md#def-afr6-hecke)の共通固有関数とします。
+
+Laplace固有値 $\lambda$ は[エネルギー実現の自己共役性と非負性](../AFR3/index.md#thm-afr3-self-adjoint)から $\lambda\ge0$ です。
+
+$\nu^2=1/4-\lambda$ とします。
 
 [Maass形式の非零周波数展開](../AFR4/index.md#thm-afr4-maass-expansion)では
 
@@ -50,7 +56,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[標準基本領域](../../MF/MF1/index.md#def-mf1-standard-domain)の高さを $Y$ で切った部分は $y\ge\sqrt3/2$ かつ $|x|\le1/2$ の閉有界集合です。連続な $u$ はそこで有界です。[定数項を除いたカスプでの指数減衰](../AFR4/index.md#thm-afr4-cusp-decay)により残りの高さでも有界です。[標準基本領域の定理](../../MF/MF1/index.md#thm-mf1-fundamental-domain)と $\Gamma$ 不変性から、全ての $z\in\mathbb H$ に対し $|u(z)|\le M$ となる $M$ が存在します。
+[標準基本領域](../../MF/MF1/index.md#def-mf1-standard-domain)の高さを $Y$ で切った部分は $y\ge\sqrt3/2$ かつ $|x|\le1/2$ の閉有界集合です。
+
+連続な $u$ はそこで有界です。
+
+[定数項を除いたカスプでの指数減衰](../AFR4/index.md#thm-afr4-cusp-decay)により残りの高さでも有界です。
+
+[標準基本領域の定理](../../MF/MF1/index.md#thm-mf1-fundamental-domain)と $\Gamma$ 不変性から、全ての $z\in\mathbb H$ に対し $|u(z)|\le M$ となる $M$ が存在します。
 
 [Kの無限遠での漸近形](../AFR4/index.md#thm-afr4-k-asymptotic)から十分大きい実数 $T>0$ で $K_\nu(T)\ne0$ です。各 $n\ne0$ に対し $y_n=T/(2\pi|n|)>0$ と置きます。[Maass形式の非零周波数展開](../AFR4/index.md#thm-afr4-maass-expansion)の一様収束により、横方向の積分から
 
@@ -183,7 +195,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\lambda\ge0$ が実数なので $\nu$ は実数または純虚数で、$a=|\Re\nu|\le1/2$ です。[変形Bessel関数 K](../AFR4/index.md#def-afr4-k-bessel)の積分表示から $|\cosh(\nu v)|\le e^{av}$、$\cosh v\ge e^v/2$ です。$0<t\le1$ では $e^{av}\le e^v$ と緩く評価して
+$\lambda\ge0$ が実数なので $\nu$ は実数または純虚数で、$a=|\Re\nu|\le1/2$ です。
+
+[変形Bessel関数 K](../AFR4/index.md#def-afr4-k-bessel)の積分表示から $|\cosh(\nu v)|\le e^{av}$、$\cosh v\ge e^v/2$ です。
+
+$0<t\le1$ では $e^{av}\le e^v$ と緩く評価して
 
 $$
 |K_\nu(t)|\le\int_0^\infty e^{-te^v/2}e^v dv
@@ -267,7 +283,21 @@ Eisenstein級数は平行移動で同一視した群要素ごとの高さの和�
 <!-- proof-start -->
 ### 証明
 
-$\Gamma_\infty$ を $\pm\begin{pmatrix}1&k\\0&1\end{pmatrix}$（$k\in\mathbb Z$）全体とします。整数の原始的な組 $(c,d)$ はBezoutの等式 $ad-bc=1$ で行列の下段にできます。同じ下段を持つ二行列の上段の差を $(a'-a,b'-b)$ とすると $(a'-a)d-(b'-b)c=0$ です。$c,d$ は互いに素なので差は $(c,d)$ の整数倍です（片方が0なら他方が $\pm1$ なので同様）。従って左から平行移動を掛けて移り合います。符号も $\Gamma_\infty$ に吸収されます。逆に左からこの部分群を掛ければ下段は符号以外変わりません。[虚部公式](../../MF/MF1/index.md#thm-mf1-imaginary-action)と[Eisenstein級数の定義](../AFR5/index.md#def-afr5-eisenstein)から
+$\Gamma_\infty$ を $\pm\begin{pmatrix}1&k\\0&1\end{pmatrix}$（$k\in\mathbb Z$）全体とします。
+
+整数の原始的な組 $(c,d)$ はBezoutの等式 $ad-bc=1$ で行列の下段にできます。
+
+同じ下段を持つ二行列の上段の差を $(a'-a,b'-b)$ とすると $(a'-a)d-(b'-b)c=0$ です。
+
+$c,d$ は互いに素なので差は $(c,d)$ の整数倍です（片方が0なら他方が $\pm1$ なので同様）。
+
+従って左から平行移動を掛けて移り合います。
+
+符号も $\Gamma_\infty$ に吸収されます。
+
+逆に左からこの部分群を掛ければ下段は符号以外変わりません。
+
+[虚部公式](../../MF/MF1/index.md#thm-mf1-imaginary-action)と[Eisenstein級数の定義](../AFR5/index.md#def-afr5-eisenstein)から
 
 $$
 E(z,s)=\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}
@@ -288,7 +318,13 @@ $$
 =\int_0^\infty\int_0^1 |u(x+iy)|^2 y^{\sigma-2}dx\,dy.
 $$
 
-この帯上の積分は有限です。$0<y\le1$ では[係数の多項式評価の証明](#thm-afr7-coefficient-bound)で得た全域での有界性 $|u|\le M$ から、上界は $M^2/(\sigma-1)$ です。十分大きな高さでは[定数項を除いたカスプでの指数減衰](../AFR4/index.md#thm-afr4-cusp-decay)から $|u|\le D e^{-2\pi(y-Y)}$ であり、残りの有限な高さの区間も有界です。よって複素 $s$ の場合にも $|(\Im\gamma z)^s|=(\Im\gamma z)^\sigma$ を用いて絶対可積分性を確認でき、[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02)で同じ展開が成立します。
+この帯上の積分は有限です。
+
+$0<y\le1$ では[係数の多項式評価の証明](#thm-afr7-coefficient-bound)で得た全域での有界性 $|u|\le M$ から、上界は $M^2/(\sigma-1)$ です。
+
+十分大きな高さでは[定数項を除いたカスプでの指数減衰](../AFR4/index.md#thm-afr4-cusp-decay)から $|u|\le D e^{-2\pi(y-Y)}$ であり、残りの有限な高さの区間も有界です。
+
+よって複素 $s$ の場合にも $|(\Im\gamma z)^s|=(\Im\gamma z)^\sigma$ を用いて絶対可積分性を確認でき、[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02)で同じ展開が成立します。
 
 固定した $y$ では[Maass形式の非零周波数展開](../AFR4/index.md#thm-afr4-maass-expansion)が絶対かつ一様に収束します。有限部分和の絶対値の二乗を展開すると $\int_0^1 e^{2\pi i(n-m)x}dx$ は $n=m$ で1、他で0です。一様収束で極限を取ると
 
@@ -335,7 +371,15 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[係数の漸化式](../AFR6/index.md#thm-afr6-joint)の初期値は $c(1)=1,c(2)=2,c(3)=-1$ です。よって $c(4)=2\cdot2-1=3$、$c(9)=(-1)(-1)-1=0$。2と3は互いに素なので $c(6)=2(-1)=-2$ です。[L関数の定義](#def-afr7-l-function)に対応する三項は $3\cdot4^{-s},-2\cdot6^{-s},0$ となります。これは係数法則の模型です。
+[係数の漸化式](../AFR6/index.md#thm-afr6-joint)の初期値は $c(1)=1,c(2)=2,c(3)=-1$ です。
+
+よって $c(4)=2\cdot2-1=3$、$c(9)=(-1)(-1)-1=0$。
+
+2と3は互いに素なので $c(6)=2(-1)=-2$ です。
+
+[L関数の定義](#def-afr7-l-function)に対応する三項は $3\cdot4^{-s},-2\cdot6^{-s},0$ となります。
+
+これは係数法則の模型です。
 <!-- solution-end -->
 
 <a id="ex-afr7-a2"></a>
@@ -409,7 +453,13 @@ $\eta_p=2$ の係数模型で $c(p^r)=r+1$ を示し、$|X|<1$ で局所級数�
 
 初期値は $c(1)=1,c(p)=2$。[係数の漸化式](../AFR6/index.md#thm-afr6-joint)に $c(p^r)=r+1,c(p^{r-1})=r$ を代入すると $c(p^{r+1})=2(r+1)-r=r+2$ です。帰納法で全ての $r\ge0$ に成立します。
 
-$|X|<1$ なら $\sum(r+1)|X|^r$ は比の極限が $|X|$ なので収束します。有限多項式 $(1-X)^2$ を掛けた級数は定数項1、一次係数 $2-2=0$、$r\ge2$ の係数 $(r+1)-2r+(r-1)=0$ です。よって和は $(1-X)^{-2}$。$X=2$ なら右辺の有理式は1ですが、級数の項 $(r+1)2^r$ は0にすら近づきません。
+$|X|<1$ なら $\sum(r+1)|X|^r$ は比の極限が $|X|$ なので収束します。
+
+有限多項式 $(1-X)^2$ を掛けた級数は定数項1、一次係数 $2-2=0$、$r\ge2$ の係数 $(r+1)-2r+(r-1)=0$ です。
+
+よって和は $(1-X)^{-2}$。
+
+$X=2$ なら右辺の有理式は1ですが、級数の項 $(r+1)2^r$ は0にすら近づきません。
 <!-- solution-end -->
 
 <a id="ex-afr7-b2"></a>
@@ -455,7 +505,11 @@ R_{1/2}(s)=\frac\pi2\int_0^\infty e^{-2t}t^{s-2}dt
 =\frac{\pi\Gamma(s-1)}{2^s}.
 $$
 
-二番目の等号は $q=2t$、$dt=dq/2$ と置き、[Gamma関数](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function)を使いました。$\Re(s-1)>0$ なので絶対収束し、$s=2$ で $\pi/4$ です。$s=1$ では原点で $t^{-1}$ の積分が発散します。
+二番目の等号は $q=2t$、$dt=dq/2$ と置き、[Gamma関数](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function)を使いました。
+
+$\Re(s-1)>0$ なので絶対収束し、$s=2$ で $\pi/4$ です。
+
+$s=1$ では原点で $t^{-1}$ の積分が発散します。
 <!-- solution-end -->
 
 <a id="ex-afr7-c1"></a>
