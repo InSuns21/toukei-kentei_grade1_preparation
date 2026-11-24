@@ -282,7 +282,9 @@ $$
 $$
 \bar\psi'=(T\psi)^\dagger(T^{-1})^\dagger HT^{-1}
 =\psi^\dagger HT^{-1}=\bar\psi T^{-1}.
-$$転置して $\bar\psi^{\mathsf T}=T^{\mathsf T}(\bar\psi')^{\mathsf T}$ を得ます。[電荷共役行列](#def-lrep18-charge-matrix)の式へ代入すると
+$$
+
+転置して $\bar\psi^{\mathsf T}=T^{\mathsf T}(\bar\psi')^{\mathsf T}$ を得ます。[電荷共役行列](#def-lrep18-charge-matrix)の式へ代入すると
 
 $$
 T\psi^c=TC\bar\psi^{\mathsf T}
@@ -448,7 +450,9 @@ $$
 =(\psi^*)^\dagger B^\dagger B\psi^*
 =\sum_{k=1}^4|\psi_k|^2
 =\psi^\dagger\psi.
-$$電荷位相の重みが反転することと、この非負の量の符号とは別問題です。
+$$
+
+電荷位相の重みが反転することと、この非負の量の符号とは別問題です。
 
 ## 6. 演習
 
