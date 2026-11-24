@@ -402,6 +402,32 @@ $$
 両添字を下げると両方の因子が双対の作用になります。
 <!-- solution-end -->
 
+<a id="ex-lrep12-b04"></a>
+
+#### LREP12-B04 二つの試験行列で非同値性を判定する
+- Level: B
+- ID: LREP12-B04
+
+$D=\operatorname{diag}(3,1/3)$、$U=\operatorname{diag}(i,-i)$ とする。複素線形写像 $T:L\to R$ が $TD=Q(D)T$ と $TU=Q(U)T$ の両方を満たすなら $T=0$ であることを示せ。
+
+<!-- solution-start -->
+**詳細解答。** [左右Weyl表現の作用](#def-lrep12-weyl)より $Q(D)=\operatorname{diag}(1/3,3)$、$Q(U)=U$ です。$T=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ とおくと、一つ目の条件は
+
+$$
+\begin{pmatrix}3a&b/3\\3c&d/3\end{pmatrix}
+=\begin{pmatrix}a/3&b/3\\3c&3d\end{pmatrix}.
+$$
+
+対角成分から $(3-1/3)a=0$、$(1/3-3)d=0$ なので $a=d=0$ です。二つ目の条件は
+
+$$
+\begin{pmatrix}0&-ib\\ic&0\end{pmatrix}
+=\begin{pmatrix}0&ib\\-ic&0\end{pmatrix}.
+$$
+
+従って $b=c=0$ となります。[絡作用素の定義](../LREP1/index.md#def-lrep1-intertwiner)では全群元に対する条件が必要ですが、そのうち二つだけで零写像に限られるので、可逆な絡作用素は存在しません。[左右表現の非同値性](#prop-lrep12-inequivalent)を別の試験行列で確かめられました。
+<!-- solution-end -->
+
 ### Level C
 
 <a id="ex-lrep12-c01"></a>
