@@ -1,0 +1,21 @@
+chapter: AFR24
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR23, IWA20, ANF5, ANF20, IWA9]
+forward_references: []
+concepts:
+  - id: automorphic-forms.prime-weight-divisibility-bound
+    name: "整除性からの素数重み評価"
+    kind: proposition
+    introduction: formal
+    requires: []
+  - id: automorphic-forms.integral-period-map
+    name: "周期写像の整数化"
+    kind: proposition
+    introduction: formal
+    requires: [automorphic-forms.period]
+  - id: automorphic-forms.independent-image-covolume-bound
+    name: "独立な整数像による共体積評価"
+    kind: proposition
+    introduction: formal
+    requires: [diophantine.lattice-covolume]
