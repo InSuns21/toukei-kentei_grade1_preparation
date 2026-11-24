@@ -224,6 +224,13 @@ const refreshSourceHighlights = initializeHighlightedEditors();
 
 
 function selectTab(name, focus = false) {
+  // FCG5 keeps the single source-linked parameter panel next to the
+  // observation when running, and returns it to Conditions on other tabs.
+  if(isFCG5){
+    const parameters=byId('lab-parameters'),result=byId('fcg5-result-parameters');
+    const parent=name==='result'&&result?result:byId('panel-conditions');
+    if(parameters&&parameters.parentElement!==parent)parent.append(parameters);
+  }
   for (const tab of tabs) {
     const selected = tab === name;
     const control = byId('tab-' + tab);
@@ -1838,7 +1845,6 @@ if (isFCG6) {
 }
 if (isFCG5) {
   document.title='FCG5 流体・染料更新：編集・検算ラボ';
-  document.querySelector('h1').textContent='FCG5 2D染料流体の時間分割ソルバー';
   document.querySelector('h1').textContent='FCG5 インクを流して、渦をつくる';
   document.querySelector('#panel-conditions > p').textContent=
     '水で満たされた正方形の箱に染料を入れ、流体の動きを見ます。ドラッグすると染料と速度が変化し、Shift+ドラッグでは染料だけが加わります。';
@@ -1888,6 +1894,12 @@ if (isFCG5) {
   liveReset.id='fcg5-live-reset';liveReset.type='button';liveReset.className='action';
   liveReset.textContent='GPUの時刻0へ戻す';liveReset.disabled=true;
   liveControls.append(liveToggle,liveStep,liveReset);
+  const resultParameters=document.createElement('section');
+  resultParameters.id='fcg5-result-parameters';
+  const parameterHeading=document.createElement('h3');
+  parameterHeading.textContent='流れの条件を変えて比較';
+  resultParameters.append(parameterHeading);
+  liveControls.after(resultParameters);
   const interaction=document.createElement('p');
   interaction.textContent='ドラッグ：かき混ぜる＋染料を入れる ／ Shift+ドラッグ：染料だけ ／ Space：再生・停止。暗い部分は染料が少なく、明るい部分は濃い染料です。';
   byId('canvas-slot').before(interaction);
