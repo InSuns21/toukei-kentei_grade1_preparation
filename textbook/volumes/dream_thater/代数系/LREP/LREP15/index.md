@@ -8,7 +8,7 @@ $V=\mathbb R^4$、基底 $e_0,e_1,e_2,e_3$、計量 $\eta=\operatorname{diag}(-1
 
 ## 1. Weyl基底でのガンマ行列
 
-[左右Weylスピノル](../LREP12/index.md#def-lrep12-weyl)に対応する二つの二成分空間を上下のブロックに置きます。この配置をWeyl基底と呼びます。ベクトルの各基底方向に対応する四次行列をガンマ行列とし、前講の模型を具体的に使います。$I=I_2$、$I_4$ は四次単位行列、$\sigma_j$ は[LREP5のPauli行列](../LREP5/index.md#def-lrep5-pauli-model)です。
+[左右Weylスピノル](../LREP12/index.md#def-lrep12-weyl)に対応する二つの二成分空間を上下のブロックに置きます。この配置をWeyl基底と呼びます。ベクトルの各基底方向に対応する四次行列の組に反交換関係を課し、前講の模型を具体的に使います。$I=I_2$、$I_4$ は四次単位行列、$\sigma_j$ は[LREP5のPauli行列](../LREP5/index.md#def-lrep5-pauli-model)です。
 
 <a id="def-lrep15-gamma"></a>
 
@@ -67,7 +67,7 @@ $j=k$ なら $2I_4$、$j\ne k$ なら零です。時間同士は $-2I_4$、時�
 
 ## 2. 偶数個のベクトルの積
 
-一個の基底行列は非対角ブロックだけを持ち、二個掛けると対角ブロックだけになります。従って二個ずつ掛けることで上下の二成分空間を保つ変換が作れそうです。この偶数長の積に着目した部分代数が偶Clifford代数です。
+一個の基底行列は非対角ブロックだけを持ち、二個掛けると対角ブロックだけになります。従って二個ずつ掛けることで上下の二成分空間を保つ変換が作れそうです。そこで偶数長の積に着目した部分代数を取り出します。
 
 <a id="def-lrep15-even"></a>
 
@@ -80,7 +80,7 @@ $j=k$ なら $2I_4$、$j\ne k$ なら零です。時間同士は $-2I_4$、時�
 **定義の確認。** $b=e_0e_3$ は二因子の積です。[Clifford反交換関係](../LREP14/index.md#prop-lrep14-anticommutator)から $b^2=-e_0^2e_3^2=1$。よって任意の実数 $a,c$ に対し $a+cb$ は偶部分に属します。二つの偶長の語を連結すれば偶長であり、有限和に分配律を適用すると積について閉じます。単位元も含むので部分代数です。
 <!-- definition-example-end -->
 
-積を逆順にする操作を導入します。このClifford逆順写像は逆元そのものではなく、語の順番を反対にする操作です。
+積を逆順にする操作を導入します。これは逆元そのものではなく、語の順番を反対にする操作です。
 
 <a id="def-lrep15-reversion"></a>
 
@@ -144,7 +144,7 @@ $I,\sigma_1,\sigma_2,\sigma_3$ は二次複素行列の複素基底です。実�
 
 ## 4. Spin群と共役作用
 
-Spin群を構成するため、偶部分の元のうち、逆順写像が逆元になるものを選びます。四次元のこの符号では、これによって時間の向きと空間の向きを保つLorentz変換の持ち上げが得られます。一般の符号や次元で同じ条件だけを無検証で使ってはいけません。
+時空変換の持ち上げを構成するため、偶部分の元のうち、逆順写像が逆元になるものを選びます。四次元のこの符号では、これによって時間の向きと空間の向きを保つLorentz変換の持ち上げが得られます。一般の符号や次元で同じ条件だけを無検証で使ってはいけません。
 
 <a id="def-lrep15-spin"></a>
 
@@ -198,7 +198,7 @@ $$
 
 [実偶Clifford代数の行列模型](#thm-lrep15-even-model)により上側ブロックが $B$ のとき、$s\widetilde s$ の上側は $B\operatorname{adj}B=(\det B)I$ です。上側ブロックが元を一意に決めるので、$s\widetilde s=1$ と $\det B=1$ は同値です。この場合 $\operatorname{adj} B=B^{-1}$ です。上側ブロックは積で通常の行列積を取り、単位元の上側は $I$、逆元は上側 $B^{-1}$ の元です。したがって定義した集合は群で、上側ブロックは $SL(2,\mathbb C)$ との群同型です。この写像と逆写像は実線形な座標対応の制限なので連続で滑らかです。[SL(2,C)の道連結性](../LREP10/index.md#lem-lrep10-polar-connectivity)から群は連結です。
 
-[LREP10の四元ベクトルのエルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model)を $H(x)=x^0 I+\sum_j x^j\sigma_j$ とします。二次の随伴行列の公式から $\operatorname{adj}H(x)=x^0I-\sum_j x^j\sigma_j$。従って
+[LREP10の四元ベクトルのエルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model)を $H(x)=x^0 I+\sum_j x^j\sigma_j$ とします。$H(x)$ の跡は $2x^0$ なので、第3節で確認した $\operatorname{adj}H=(\operatorname{tr}H)I-H$ に代入すると $\operatorname{adj}H(x)=x^0I-\sum_j x^j\sigma_j$。従って
 
 $$
 \Gamma(x)=
@@ -362,7 +362,15 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（単位ベクトル積によるSpin群の構成）**  
-> $V=\mathbb R^4$、$\eta=\operatorname{diag}(-1,1,1,1)$ とする。$\operatorname{Spin}^+(1,3)$ は、各因子が $\eta(v,v)=\pm1$ を満たす偶数個のベクトルの積のうち、それらの二乗の積が $1$ であるもの全体に等しい。
+> $V=\mathbb R^4$、$\eta=\operatorname{diag}(-1,1,1,1)$ とする。$\operatorname{Spin}^+(1,3)$ は、次の条件を満たす偶数個のベクトルの積全体に等しい。
+
+$
+s=v_1\cdots v_{2m},\qquad
+\eta(v_k,v_k)\in\{-1,1\},\qquad
+\prod_{k=1}^{2m}\eta(v_k,v_k)=1.
+$
+
+> ここで $m$ は非負整数、各 $v_k$ は $V$ の元とし、空積も含める。
 <!-- formal-statement-end -->
 
 **証明の見取り図。** 一方の包含は逆順に掛ければ得られます。逆は二次行列の極分解を使い、回転とboostをそれぞれ二本の単位空間的ベクトル（計量による二乗が1のベクトル）の積として構成します。
