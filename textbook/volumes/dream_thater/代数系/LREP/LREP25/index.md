@@ -42,7 +42,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep25-packet-space -->
-**定義の確認。** $m=0$、$V=\mathbb C^2$ とし、球殻 $S=\{p:1<|\boldsymbol q|<2\}$ の指示関数を使って $f(p)=c\,1_S(p)(1,i)^{\mathsf T}/\sqrt2$ とします。球殻はBorel集合なのでこの関数は可測です。内部ベクトルのノルムは1であり、球座標の体積要素 $r^2dr\,d\Omega$ から
+**定義の確認**。 $m=0$、$V=\mathbb C^2$ とし、球殻 $S=\{p:1<|\boldsymbol q|<2\}$ の指示関数を使って $f(p)=c\,1_S(p)(1,i)^{\mathsf T}/\sqrt2$ とします。球殻はBorel集合なのでこの関数は可測です。内部ベクトルのノルムは1であり、球座標の体積要素 $r^2dr\,d\Omega$ から
 
 $$
 \mu_0(S)=4\pi\int_1^2\frac{r^2}{2r}\,dr=3\pi.
@@ -71,7 +71,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep25-section -->
-**定義の確認。** 正質量では[正質量の標準boost](../LREP23/index.md#def-lrep23-standard-boost)を選べます。
+**定義の確認**。 正質量では[正質量の標準boost](../LREP23/index.md#def-lrep23-standard-boost)を選べます。
 
 $$
 s(p)=\frac{(E_{\boldsymbol q}+m)I_2+\boldsymbol q\cdot\boldsymbol\sigma}{\sqrt{2m(E_{\boldsymbol q}+m)}}.
@@ -130,7 +130,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep25-little-cocycle -->
-**定義の確認。** $m>0$ で[正質量の標準boost](../LREP23/index.md#def-lrep23-standard-boost)を使います。$p=k$ とし、回転
+**定義の確認**。 $m>0$ で[正質量の標準boost](../LREP23/index.md#def-lrep23-standard-boost)を使います。$p=k$ とし、回転
 
 $$
 A=R=\operatorname{diag}(e^{-i\theta/2},e^{i\theta/2})
@@ -207,7 +207,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep25-induced -->
-**定義の確認。** $m>0$、$V=\mathbb C$、$D(R)=1$ とすると、任意の断面に対し内部因子は1です。例えば $a=(t,0,0,0)$、$A=I$ では
+**定義の確認**。 $m>0$、$V=\mathbb C$、$D(R)=1$ とすると、任意の断面に対し内部因子は1です。例えば $a=(t,0,0,0)$、$A=I$ では
 
 $$
 (U_s(a,I)f)(p)=e^{-iE_{\boldsymbol q}t}f(p).
