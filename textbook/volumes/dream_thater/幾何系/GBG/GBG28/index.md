@@ -211,6 +211,8 @@ $$
 標準sectionでは $K=I_2$、$W=0$ となるため $s_0^*\omega=A$ である。$\rho>0$ を外すと原点で分母が零になり、この「全空間で滑らか」という確認が壊れる。
 <!-- definition-example-end -->
 
+接続による[共変外微分](../GBG11/index.md#def-gbg11-local-covariant-exterior)を $d_A$ と書く。曲率に対する $d_A*F=0$ がYang–Mills方程式である。
+
 <a id="thm-gbg28-curvature"></a>
 
 <!-- formal-statement-start -->
@@ -228,7 +230,7 @@ $$
 *F=F,\qquad d_A*F=0
 $$
 
-> を満たす。$d_A$ は接続 $A$ による[共変外微分](../GBG11/index.md#def-gbg11-local-covariant-exterior)であり、$d_A*F=0$ がYang–Mills方程式である。$F$ はどの点でも零でない。
+> を満たす。$F$ はどの点でも零でない。
 <!-- formal-statement-end -->
 
 **証明の見取り図**。[曲率の局所式](../GBG10/index.md#thm-gbg10-local-formula)に接続成分を代入する。偏微分とLie括弧から $x^\mu x^\nu$ の項が現れるが、['t Hooft記号の積恒等式](#lem-gbg28-eta-identity)によって相殺され、$\eta$ の定数倍だけが残る。
@@ -378,7 +380,7 @@ $$
 g(x)=\frac{x^4I_2-i\sum_{a=1}^3x^a\sigma_a}{r}.
 $$
 
-まず $SU(2)$ の条件を確認する。$s=x^4$、$X=x^a\sigma_a$、$q=sI_2-iX$ と置くと $g=q/r$ である。Pauli行列の積公式から
+まず $SU(2)$ の条件を確認する。$s=x^4$、$X=x^a\sigma_a$、$q=sI_2-iX$ と置くと $g=q/r$ である。第1節で直接掛け算した $\sigma_a\sigma_b=\delta_{ab}I_2+i\varepsilon_{abc}\sigma_c$ を代入すると
 
 $$
 X^2=x^ax^b(\delta_{ab}I_2+i\varepsilon_{abc}\sigma_c)
@@ -470,7 +472,7 @@ dq_y\,q_y^\dagger
 \end{aligned}
 $$
 
-Pauli行列積の順序が逆なので交代記号の項だけ符号が変わる。従って
+行列積の順序が逆なので $\sigma_b\sigma_c-\sigma_c\sigma_b=2i\varepsilon_{bca}\sigma_a$ に対応する項だけ符号が変わる。従って
 
 $$
 dg(y)\,g(y)^{-1}
@@ -515,7 +517,15 @@ $$
 =-8\pi^2.
 $$
 
-もし $P$ が自明なら大域的に $A=0$ という平坦接続が存在し、その第二Chern数は零である。[GBG22の接続非依存性](../GBG22/index.md#cor-gbg22-class-independence)を同じ閉多様体 $S^4$ と同じ束 $P$ に適用する。不変双線形形式 $p(X,Y)=\operatorname{tr}(XY)/(8\pi^2)$ は跡の巡回性から対称かつAd不変である。二接続のChern–Weil形式の差は完全4形式であり、閉多様体上でその積分は零なので矛盾する。
+もし $P$ が自明なら大域的に $A=0$ という平坦接続が存在し、その第二Chern数は零である。[GBG22の接続非依存性](../GBG22/index.md#cor-gbg22-class-independence)を同じ閉多様体 $S^4$ と同じ束 $P$ に適用する。[対称Ad不変多重線形形式](../GBG20/index.md#def-gbg20-invariant-polynomial)の条件を2変数で確認する。$p(X,Y)=\operatorname{tr}(XY)/(8\pi^2)$ は双線形で、跡の巡回性から $p(X,Y)=p(Y,X)$。共役変換に対しても
+
+$$
+p(hXh^{-1},hYh^{-1})
+=\frac{\operatorname{tr}(hXYh^{-1})}{8\pi^2}
+=p(X,Y)
+$$
+
+なので適用条件を満たす。二接続のChern–Weil形式の差は完全4形式であり、閉多様体上でその積分は零なので矛盾する。
 
 遷移関数の次数も確かめる。[GBG25の標準同一視](../GBG25/index.md#def-gbg25-su2-s3)の $Q(x)$ と比較すると、$\lvert x\rvert=1$ で $Q^{-1}\circ g$ は実4次元座標に
 
@@ -524,7 +534,15 @@ $$
 (x^4,-x^3,x^2,-x^1)
 $$
 
-を対応させる。これは $z=x^4-ix^3$、$w=x^2-ix^1$ を実部・虚部の順に並べたものである。座標の逆順置換は符号 $(-1)^6=1$、二つの負符号の積も $+1$ なので、この直交変換の行列式は $+1$ である。従って、[GBG25の次数規約](../GBG25/index.md#def-gbg25-degree)で $\deg g=+1$。群の逆元写像は同講の計算で次数 $-1$ なので $\deg(g^{-1})=-1$。$\mathbb R^4$ 側の4球を基準に境界の向きを選べば、この $g^{-1}$ が貼り合わせ写像となり、[GBG26の境界次数と第二Chern数の関係](../GBG26/index.md#thm-gbg26-clutching-number)とも整合する。
+を対応させる。これは $z=x^4-ix^3$、$w=x^2-ix^1$ を実部・虚部の順に並べたものである。逆順置換の符号は $(-1)^6=1$、二つの負符号の積も正である。
+
+従ってこの直交変換は向きを保つ。[GBG25の次数規約](../GBG25/index.md#def-gbg25-degree)で $\deg g=+1$ となる。群の逆元写像は同講の計算で次数 $-1$ なので
+
+$$
+\deg(g^{-1})=-1.
+$$
+
+$\mathbb R^4$ 側の4球を基準に境界の向きを選べば、この $g^{-1}$ が貼り合わせ写像となり、[GBG26の境界次数と第二Chern数の関係](../GBG26/index.md#thm-gbg26-clutching-number)とも整合する。
 <!-- proof-end -->
 
 
@@ -540,7 +558,16 @@ $$
 \left(\frac{2v}{H}-\frac{4x(x\cdot v)}{H^2},-\frac{4(x\cdot v)}{H^2}\right).
 $$
 
-その長さの二乗では $-16(x\cdot v)^2/H^3$ と $16(r^2+1)(x\cdot v)^2/H^4$ が相殺し、$4|v|^2/H^2$ が残る。4次元で計量を $\lambda^2g$ に変えると、2形式の内積は $\lambda^{-4}$ 倍、体積形式は $\lambda^4$ 倍になる。[Hodge星の定義](../GBG27/index.md#def-gbg27-hodge-star)の右辺では両者が相殺されるので、2形式上の星は変わらない。したがってこの丸い計量で $F=*F$ が成り立ち、滑らかさにより無限遠でも成立する。作用密度4形式も同じであり、球面上での作用は $8\pi^2$ である。任意の計量で自己双対になるという主張ではない。
+その長さの二乗を展開すると
+
+$$
+\frac{4|v|^2}{H^2}
+-\frac{16(x\cdot v)^2}{H^3}
++\frac{16(r^2+1)(x\cdot v)^2}{H^4}
+=\frac{4|v|^2}{H^2}.
+$$
+
+4次元で計量を $\lambda^2g$ に変えると、2形式の内積は $\lambda^{-4}$ 倍、体積形式は $\lambda^4$ 倍になる。[Hodge星の定義](../GBG27/index.md#def-gbg27-hodge-star)の右辺では両者が相殺されるので、2形式上の星は変わらない。したがってこの丸い計量で $F=*F$ が成り立ち、滑らかさにより無限遠でも成立する。作用密度4形式も同じであり、球面上での作用は $8\pi^2$ である。任意の計量で自己双対になるという主張ではない。
 
 **正則と特異は何が違うか**。$A$ は $x=0$ で滑らかだが無限遠の座標には直接延長できない。$A_\infty$ は $y=0$（無限遠）で滑らかだが、同じ式を $x=0$ まで使おうとすると $g$ が定義されない。この後者が *特異ゲージ* と呼ばれる理由である。**特異なのは局所表示であり、主束の接続や曲率そのものではない**。非零の第二Chern数こそ、大域の単一ゲージで全てを書けないことの証拠となる。
 
@@ -769,7 +796,7 @@ g^{-1}dg&=r^{-2}q^\dagger dq-r^{-1}dr\,I_2\\
 \end{aligned}
 $$
 
-$2T_a=-i\sigma_a$ と 't Hooft 記号の定義から $A=r^2g^{-1}dg/D$ と一致する。$h=g^{-1}$ として [局所ゲージ変換則](../GBG8/index.md#thm-gbg8-local-transform)を使うと
+$2T_a=-i\sigma_a$ と[自己双対 't Hooft 記号](#def-gbg28-eta)の成分を代入すると $A=r^2g^{-1}dg/D$ と一致する。$h=g^{-1}$ として [局所ゲージ変換則](../GBG8/index.md#thm-gbg8-local-transform)を使うと
 
 $$
 A_\infty=gAg^{-1}+g\,dg^{-1}
@@ -784,7 +811,7 @@ A_\infty
 (y^4dy^a-y^ady^4+\varepsilon_{abc}y^bdy^c),
 $$
 
-なので $y=0$ でも分母は1で、全係数は滑らかである。$x\ne0$ で変換則が成立するため、[局所再構成定理](../GBG8/index.md#thm-gbg8-local-reconstruction)から大域接続が得られる。
+なので $y=0$ でも分母は1で、全係数は滑らかである。$x\ne0$ で変換則が成立するため、[局所ポテンシャルからの大域接続の再構成](../GBG8/index.md#thm-gbg8-local-reconstruction)を適用して大域接続が得られる。
 
 **4.** [第二Chern形式の接続非依存性](../GBG22/index.md#cor-gbg22-class-independence)を閉多様体 $S^4$ に適用する。もし主束が自明なら大域接続 $A=0$ を選べるので $k=0$ になる。しかし上の接続は $k=-1$ だから矛盾する。$g$ が原点で未定義であること自体は、二つの局所sectionの重なりで $g$ だけを定義すればよいという主束の原則と矛盾せず、非自明性の根拠にはならない。
 <!-- solution-end -->
