@@ -1,0 +1,37 @@
+chapter: LVT3-01
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT2-08]
+concepts:
+  - id: lean-verification.contract-def-contract
+    name: Leanの入出力契約
+    kind: definition
+    introduction: formal
+  - id: lean-verification.contract-def-order
+    name: Leanの在庫引当仕様
+    kind: definition
+    introduction: formal
+  - id: lean-verification.contract-def-weak
+    name: Leanの弱い在庫仕様
+    kind: definition
+    introduction: formal
+  - id: lean-verification.contract-def-impossible
+    name: Leanの成功必須仕様
+    kind: definition
+    introduction: formal
+  - id: lean-verification.contract-prop-correct
+    name: 在庫引当関数の契約充足
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.contract-prop-weak
+    name: 弱い在庫仕様の反例
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.contract-prop-impossible
+    name: 成功必須仕様の充足不能性
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.contract-prop-unique
+    name: 在庫引当仕様の結果一意性
+    kind: proposition
+    introduction: formal

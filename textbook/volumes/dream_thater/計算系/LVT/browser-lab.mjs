@@ -83,7 +83,13 @@ export const lessons = {
     ['ExerciseSolutions.lean','演習解答の検査','通常系の証明とその公理依存を確認。'],
     ['TrustDemo.lean','意図的に不正な証明を受理させる','sorry の警告と claimedFits、sorryAx の依存を確認。正常系には取り込まない。'],
     ['Failure.lean','意図した型エラー','True.intro を偽の比較の証明として渡すと拒否される。']
-  ], commands:'lake build\nlake test\nlake env lean Inspect.lean\nlake env lean ExerciseSolutions.lean\nlake env lean TrustDemo.lean\nlake env lean Failure.lean' }
+  ], commands:'lake build\nlake test\nlake env lean Inspect.lean\nlake env lean ExerciseSolutions.lean\nlake env lean TrustDemo.lean\nlake env lean Failure.lean' },
+  'LVT3-01': { module:'LvtContracts', modes:[
+    ['Inspect.lean','在庫引当の結果と証明の型','some 3、some 0、none、none、none と公理依存を確認。'],
+    ['Main.lean','成功・不足・数量ゼロ','LVT3-01 OK を表示。','\n#eval main\n'],
+    ['ExerciseSolutions.lean','演習解答の検査','全9題の証明を検査。'],
+    ['Failure.lean','弱い仕様の証明は流用できない','型不一致で拒否される。']
+  ] }
 };
 export function combine(module, definitions, experiment, suffix='') {
   // Only the exact local module import is replaced by its source.
