@@ -91,7 +91,7 @@ chapters:
     title: "Poincare群と正エネルギー表現"
   - id: LREP22
     path: textbook/volumes/dream_thater/代数系/LREP/LREP22
-    status: planned
+    status: completed
     title: "質量・スピンと不変量"
   - id: LREP23
     path: textbook/volumes/dream_thater/代数系/LREP/LREP23
