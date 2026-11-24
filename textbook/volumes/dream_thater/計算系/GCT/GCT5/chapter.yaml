@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - GCT4
   - GCT1
+  - SGT1
 official_scope: []
 learning_objectives:
   - 木と森を道の一意性と辺数から分析できる
@@ -13,7 +14,6 @@ learning_objectives:
   - 独立集合の重み付き二状態漸化式を導出し計算できる
   - 閉路による分解の失敗を説明し分離集合の状態固定で計数できる
 definitions:
-  - { id: GCT5-DEF-06, name: "グラフの連結成分" }
   - { id: GCT5-DEF-01, name: "木と森" }
   - { id: GCT5-DEF-02, name: "辺カット" }
   - { id: GCT5-DEF-03, name: "頂点分離集合" }
