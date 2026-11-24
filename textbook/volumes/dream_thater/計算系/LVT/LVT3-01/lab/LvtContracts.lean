@@ -48,7 +48,10 @@ theorem weakAllowsReject : Satisfies orderPre weakPost rejectAll := by
 
 theorem rejectNotCorrect : ¬ Satisfies orderPre orderPost rejectAll := by
   intro h
-  have bad := h ⟨5, 2⟩ (by decide : orderPre ⟨5, 2⟩)
+  have hp : orderPre ⟨5, 2⟩ := by
+    change 0 < (2 : Nat)
+    decide
+  have bad := h ⟨5, 2⟩ hp
   change (5 : Nat) < 2 at bad
   omega
 
@@ -58,7 +61,10 @@ def mustSucceed (o : Order) (result : Option Nat) : Prop :=
 theorem impossible (f : Order → Option Nat) :
     ¬ Satisfies orderPre mustSucceed f := by
   intro h
-  obtain ⟨rest, _, hr⟩ := h ⟨1, 2⟩ (by decide : orderPre ⟨1, 2⟩)
+  have hp : orderPre ⟨1, 2⟩ := by
+    change 0 < (2 : Nat)
+    decide
+  obtain ⟨rest, _, hr⟩ := h ⟨1, 2⟩ hp
   change rest + 2 = 1 at hr
   omega
 
