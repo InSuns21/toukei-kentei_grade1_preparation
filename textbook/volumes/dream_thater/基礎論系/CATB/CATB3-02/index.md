@@ -54,7 +54,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb3-02-finitely-presentable -->
-**定義の確認。** $\mathbf{Set}$ の一元集合 $P=\{*\}$ を取る。任意の小さいフィルター図式に対し、写像 $P\to D_i$ は $*$ の像 $x\in D_i$ を一つ選ぶことと同じである。移行射による後合成は $x\mapsto D(p)x$ に対応する。
+**定義の確認**。 $\mathbf{Set}$ の一元集合 $P=\{*\}$ を取る。任意の小さいフィルター図式に対し、写像 $P\to D_i$ は $*$ の像 $x\in D_i$ を一つ選ぶことと同じである。移行射による後合成は $x\mapsto D(p)x$ に対応する。
 
 任意の写像 $P\to X$ の値はある $\lambda_i(x)$ と表せるので、比較写像は全射である。
 
