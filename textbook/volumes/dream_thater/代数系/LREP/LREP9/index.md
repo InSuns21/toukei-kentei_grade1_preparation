@@ -37,7 +37,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep9-lorentz-group -->
-**定義の確認**。単位行列は $I_4^{\mathsf T}\eta I_4=\eta$ を満たすので $O(1,3)$ に属し、単位元成分にも属します。空間反転 $P=\operatorname{diag}(1,-1,-1,-1)$ も、対角成分を直接掛ければ $P^{\mathsf T}\eta P=\eta$ です。
+**定義の確認**。単位行列は $I_4^{\mathsf T}\eta I_4=\eta$ を満たすので $O(1,3)$ に属し、単位元成分にも属します。
+
+空間反転を表す変換行列は
+
+$
+P=\operatorname{diag}(1,-1,-1,-1)
+$
+
+です。これは計量行列 $\eta$ とは別の行列です。対角成分を直接掛ければ $P^{\mathsf T}\eta P=\eta$ となり、$P\in O(1,3)$ です。
 
 ここで計量保存式の行列式を取ると、$\det\eta=-1\ne0$ より
 
