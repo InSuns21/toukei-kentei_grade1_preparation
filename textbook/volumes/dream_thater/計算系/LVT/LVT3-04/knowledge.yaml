@@ -1,0 +1,41 @@
+chapter: LVT3-04
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT3-03]
+concepts:
+  - id: lean-verification.sort-count
+    name: 出現回数
+    kind: definition
+    introduction: formal
+  - id: lean-verification.sort-insert
+    name: 挿入ソートの挿入操作
+    kind: definition
+    introduction: formal
+  - id: lean-verification.sort-sort
+    name: 挿入ソート
+    kind: definition
+    introduction: formal
+  - id: lean-verification.sort-spec
+    name: ソートの二条件仕様
+    kind: definition
+    introduction: formal
+  - id: lean-verification.sort-insert-sorted
+    name: 挿入による整列性の保存
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.sort-insert-count
+    name: 挿入による出現回数の変化
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.sort-sort-sorted
+    name: 挿入ソートの整列性
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.sort-sort-count
+    name: 挿入ソートの出現回数保存
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.sort-correct
+    name: 挿入ソートの正当性
+    kind: proposition
+    introduction: formal
