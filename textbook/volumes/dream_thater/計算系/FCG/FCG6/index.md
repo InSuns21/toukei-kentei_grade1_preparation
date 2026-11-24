@@ -416,7 +416,7 @@ $$
 
 ### 6.3 数値で境界条件を確認する
 
-実行開始時の指定stepで染料・発散・速さのGPU画素を独立CPU計算と比較した後、同じ編集ソルバーで時刻0から観察する。初期3列の検算用シェーダは `u_viewMode=0`、観察画面は `u_viewMode=1` である。クリックで染料を足した後の結果は、初期検算とは異なる実験条件になる。
+実行開始時の指定stepで染料・発散・速さのGPU画素を独立CPU計算と比較する（CPU/GPU照合）。その後、同じ編集ソルバーで時刻0から観察する。初期3列の検算用シェーダは `u_viewMode=0`、観察画面は `u_viewMode=1` である。クリックで染料を足した後の結果は、初期検算とは異なる実験条件になる。
 
 - 壁法線速度差 $E_W$ [m/s]：cut faceでの $|\boldsymbol u_f\cdot\boldsymbol n-\boldsymbol U_s\cdot\boldsymbol n|$ の最大。
 - Poisson残差 $E_P=\max_{c\in F}|R_c|$ [Pa/m²] と最大発散 $E_D=\max_{c\in F}|(D_h\boldsymbol u^{n+1})_c|$ [s⁻¹]：圧力の赤黒SOR反復の停止判定は残差 $10^{-6}$ [Pa/m²] 未満である。
