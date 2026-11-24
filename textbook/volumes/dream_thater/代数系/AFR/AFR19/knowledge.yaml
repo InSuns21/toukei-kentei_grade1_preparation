@@ -1,0 +1,51 @@
+chapter: AFR19
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR18, AFR9, CA12]
+forward_references: []
+concepts:
+  - id: automorphic-forms.weyl-action
+    name: "Weyl作用"
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: automorphic-forms.oscillator-generators
+    name: "振動子作用の基本変換"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.weyl-action, automorphic-forms.adelic-fourier]
+  - id: automorphic-forms.real-metaplectic-cover
+    name: "実メタプレクティック二重被覆"
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: automorphic-forms.theta-sum-functional
+    name: "theta和汎関数"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.schwartz-bruhat, automorphic-forms.adelic-poisson-summation]
+  - id: automorphic-forms.weyl-product
+    name: "Weyl作用の積公式"
+    kind: proposition
+    introduction: formal
+    requires: [automorphic-forms.weyl-action]
+  - id: automorphic-forms.oscillator-covariance
+    name: "基本変換の共変性"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.weyl-action, automorphic-forms.oscillator-generators]
+  - id: automorphic-forms.real-projective-oscillator
+    name: "実振動子作用の射影性"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.oscillator-covariance, automorphic-forms.weyl-product]
+  - id: automorphic-forms.rational-theta-invariance
+    name: "有理基本変換に対するtheta和の不変性"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.theta-sum-functional, automorphic-forms.global-additive-character, automorphic-forms.adelic-poisson-summation]
+  - id: automorphic-forms.complex-theta-basic-transform
+    name: "複素theta級数の基本変換"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.rational-theta-invariance, automorphic-forms.p-adic-ball-transform, complex-analysis.theta-transformation]
