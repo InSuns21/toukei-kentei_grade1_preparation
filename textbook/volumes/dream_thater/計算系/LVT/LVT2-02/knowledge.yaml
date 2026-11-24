@@ -1,0 +1,33 @@
+chapter: LVT2-02
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT2-01]
+concepts:
+  - id: lean-verification.imp-rules
+    name: Leanの含意の導入・除去規則
+    kind: definition
+    introduction: formal
+  - id: lean-verification.and-rules
+    name: Leanの連言の導入・除去規則
+    kind: definition
+    introduction: formal
+  - id: lean-verification.or-rules
+    name: Leanの選言の導入・除去規則
+    kind: definition
+    introduction: formal
+  - id: lean-verification.forall-rules
+    name: Leanの全称量化の導入・除去規則
+    kind: definition
+    introduction: formal
+  - id: lean-verification.exists-rules
+    name: Leanの存在量化の導入・除去規則
+    kind: definition
+    introduction: formal
+  - id: lean-verification.and-or-distribution
+    name: Leanの連言と選言の分配
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.exists-and-projection
+    name: Leanの存在量化と連言の射影
+    kind: proposition
+    introduction: formal

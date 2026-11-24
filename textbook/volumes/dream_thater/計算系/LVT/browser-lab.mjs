@@ -40,7 +40,13 @@ export const lessons = {
     ['Inspect.lean','誤った判定器の反例','sameNumber 2 3 は false、wrongMatches 2 3 は true。','\n#eval sameNumber 2 3\n#eval wrongMatches 2 3\n'],
     ['ExerciseSolutions.lean','演習解答の検査','すべての #guard と証明が通る。'],
     ['Export.lean','81組の判定結果','n,k,正しい判定,誤った判定の4列を81行出力。','\n#eval main\n']
-  ], commands:'lake build\nlake test\nlake env lean Inspect.lean\nlake env lean ExerciseSolutions.lean\npython3 check_matches.py' }
+  ], commands:'lake build\nlake test\nlake env lean Inspect.lean\nlake env lean ExerciseSolutions.lean\npython3 check_matches.py' },
+  'LVT2-02': { module:'LvtLogic', modes:[
+    ['Inspect.lean','論理操作と証明の型','連言・選言・存在の構成子、分配と射影の型を確認。'],
+    ['Main.lean','複合仕様の証明','二つの証明が通り、LVT2-02 OK を表示。','\n#eval main\n'],
+    ['ExerciseSolutions.lean','演習解答の検査','全9題の証明項を検査。'],
+    ['Failure.lean','意図した型エラー','選言を連言として返すと型不一致になる。']
+  ] }
 };
 export function combine(module, definitions, experiment, suffix='') {
   // Only the exact local module import is replaced by its source.

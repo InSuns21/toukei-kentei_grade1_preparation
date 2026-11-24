@@ -1,0 +1,29 @@
+id: "LVT2-02"
+title: "含意・連言・選言・全称・存在"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT2-01]
+official_scope: []
+learning_objectives:
+  - 含意・連言・選言の導入と除去を証明項として構成する
+  - 全称量化・存在量化の導入と除去を証明項として構成する
+  - 量化の順序と変数の束縛範囲を確認する
+  - 複合仕様の証明と仮定漏れの反例を構成する
+definitions:
+  - { id: LVT2-02-DEF-01, name: "Leanの含意の導入・除去規則" }
+  - { id: LVT2-02-DEF-02, name: "Leanの連言の導入・除去規則" }
+  - { id: LVT2-02-DEF-03, name: "Leanの選言の導入・除去規則" }
+  - { id: LVT2-02-DEF-04, name: "Leanの全称量化の導入・除去規則" }
+  - { id: LVT2-02-DEF-05, name: "Leanの存在量化の導入・除去規則" }
+propositions:
+  - { id: LVT2-02-PROP-01, name: "Leanの連言と選言の分配" }
+  - { id: LVT2-02-PROP-02, name: "Leanの存在量化と連言の射影" }
+theorems: []
+canonical_examples:
+  - "論理結合子の証明項"
+  - "存在証明からの条件の射影"
+problem_patterns: [LVT2-02-A01, LVT2-02-A02, LVT2-02-A03, LVT2-02-A04, LVT2-02-A05, LVT2-02-B01, LVT2-02-B02, LVT2-02-B03, LVT2-02-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2.5, review: 0.5 }

@@ -35,7 +35,7 @@ chapters:
     title: "Prop・Bool・Decidable・Curry–Howard対応"
   - id: LVT2-02
     path: textbook/volumes/dream_thater/計算系/LVT/LVT2-02
-    status: planned
+    status: completed
     title: "含意・連言・選言・全称・存在"
   - id: LVT2-03
     path: textbook/volumes/dream_thater/計算系/LVT/LVT2-03
