@@ -56,7 +56,7 @@ example (n : Nat) : n + 1 = n := by
 
 Found a counter-example! とともに入力と失敗条件を観察します。これはわざと失敗するファイルです。依存パッケージがないというエラーとは区別してください。
 
-重要なのは、固定版の plausible タクティクが反例を発見しなかった場合、証明ゴールを admitGoal で処理することです。未証明の主張を証明済みとして使ってはいけません。探索には #eval を優先し、正式な定理には探索と独立した証明を与えます。[信頼境界を扱った講義](../LVT2-08/index.md) で学んだように、定理の公理依存を確認することもできます。
+重要なのは、固定版の plausible タクティクが反例を発見しなかった場合、証明ゴールを admitGoal で処理することです。未証明の主張を証明済みとして使ってはいけません。探索には #eval を優先し、正式な定理には探索と独立した証明を与えます。[Leanの公理依存](../LVT2-08/index.md#def-lvt2-08-axioms) を調べるには、定理名を #print axioms に渡します。sorryAx が含まれる主張は未証明の仮定に依存しています。
 
 生成・判定に必要なインスタンスが不足すれば検査自体ができません。また条件付き命題で条件に合う入力を十分生成できなければ、Gave up という報告になる場合があります。反例なし、生成不足、反例発見、検査不能の四つを区別して記録しましょう。
 
@@ -84,7 +84,7 @@ Found a counter-example! とともに入力と失敗条件を観察します。�
 <!-- formal-statement-start -->
 ### 命題（反例縮小列の長さの上界）
 
-反例縮小列 $n_0,\ldots,n_k$ の任意の添字 $0\le j\le k$ について $\neg P(n_j)$ および次が成立する。
+自然数上の判定可能な命題 $P(n)$ に対する [反例縮小列](#def-lvt4-03-shrink-chain) $n_0,\ldots,n_k$ の任意の添字 $0\le j\le k$ について $\neg P(n_j)$ および次が成立する。
 
 $$
 n_j+j\le n_0.
@@ -109,7 +109,7 @@ n_{j+1}+(j+1)
 \le n_0.
 $$
 
-自然数の帰納法によりすべての添字で成立する。$j=k$ とすると $n_k+k\le n_0$ であり、$n_k\ge0$ なので $k\le n_0$ となる。
+[Leanの自然数の帰納法](../LVT2-05/index.md#principle-lvt2-05-nat) によりすべての添字で成立する。$j=k$ とすると $n_k+k\le n_0$ であり、$n_k\ge0$ なので $k\le n_0$ となる。
 <!-- proof-end -->
 
 実際の縮小器は、型に応じた候補を生成して失敗を再検査します。自然数の例のような尺度を用意すれば、受理した縮小の回数の上界を論じられます。ただし一回の候補生成・判定が終了することは別途必要で、上の命題は Plausible の任意の型に対する実行時間の定理ではありません。
@@ -132,6 +132,7 @@ $P(n)$ が $n\le8$ のとき、9は反例で、9より小さい自然数はす�
 cd "textbook/volumes/dream_thater/計算系/LVT/LVT4-03/lab"
 lean --version
 lake build
+lake build Plausible
 lake test
 lake env lean Inspect.lean
 lake env lean ExerciseSolutions.lean
