@@ -1,0 +1,41 @@
+id: LREP22
+title: "質量・スピンと不変量"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP21
+official_scope: []
+learning_objectives:
+  - 未来向き時間的運動量と非零光的運動量の軌道および標準運動量を求められる
+  - 質量殻測度のLorentz不変性を変数変換で証明できる
+  - 共同PVMから質量二乗を構成し既約表現での質量の固定を説明できる
+  - Pauli–Lubanskiベクトルの成分と共変性を導出できる
+  - 正質量の静止系でスピン不変量を計算し質量零の場合と区別できる
+definitions:
+  - { id: LREP22-DEF-01, name: 未来質量殻 }
+  - { id: LREP22-DEF-02, name: 質量殻測度 }
+  - { id: LREP22-DEF-03, name: Pauli–Lubanskiベクトル }
+theorems:
+  - { id: LREP22-THM-01, name: 未来円錐のLorentz軌道 }
+  - { id: LREP22-THM-02, name: 質量殻測度のLorentz不変性 }
+  - { id: LREP22-THM-03, name: 質量二乗の不変性 }
+  - { id: LREP22-THM-04, name: Pauli–Lubanskiの共変性とCasimir }
+  - { id: LREP22-PROP-05, name: 正質量の静止系スピン不変量 }
+canonical_examples:
+  - 正質量と質量零の標準運動量
+  - 質量零の球殻の測度
+  - スカラー波束表現のPauli–Lubanskiベクトル
+  - スピン二分の一の静止系
+problem_patterns:
+  - LREP22-MASS-SHELL
+  - LREP22-RAPIDITY
+  - LREP22-SHELL-MEASURE
+  - LREP22-REST-SPIN
+  - LREP22-JACOBIAN
+  - LREP22-MASS-DIRECT-SUM
+  - LREP22-ORTHOGONALITY
+  - LREP22-SCALAR-WAVE-PACKET
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
