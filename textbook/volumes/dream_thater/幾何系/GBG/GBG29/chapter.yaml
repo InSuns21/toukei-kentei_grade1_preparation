@@ -2,7 +2,7 @@ id: "GBG29"
 title: "なぜ任意の多様体にspin構造があるとは限らないか"
 volume: "foundations"
 status: supplementary
-prerequisites: [GBG3, GEO14, LA6, LREP5]
+prerequisites: [GBG3, GEO15, LA6, LREP5]
 official_scope: []
 learning_objectives:
   - 向き付き直交枠束とスピン構造の同変条件を確認できる
@@ -13,7 +13,7 @@ learning_objectives:
 definitions:
   - { id: GBG29-DEF-01, name: 向き付き直交枠束 }
   - { id: GBG29-DEF-02, name: スピン構造 }
-  - { id: GBG29-DEF-03, name: "Čechコホモロジー：2元係数" }
+  - { id: GBG29-DEF-03, name: "2元係数のČechコホモロジー" }
   - { id: GBG29-DEF-04, name: 第二Stiefel–Whitney類 }
 theorems:
   - { id: GBG29-THM-01, name: 三重重なりの符号は2-cocycleになる }

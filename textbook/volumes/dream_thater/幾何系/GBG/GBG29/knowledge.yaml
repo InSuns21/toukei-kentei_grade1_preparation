@@ -1,7 +1,7 @@
 chapter: GBG29
 scope: dream-theater
 coverage: complete
-prerequisites: [GBG3, GEO14, LA6, LREP5]
+prerequisites: [GBG3, GEO15, LA6, LREP5]
 forward_references: []
 concepts:
   - id: gauge.oriented-orthonormal-frame-bundle
@@ -16,7 +16,7 @@ concepts:
     aliases: [spin構造]
     requires: [gauge.oriented-orthonormal-frame-bundle, gauge.principal-bundle, representation.su2-so3-double-cover]
   - id: gauge.cech-cohomology-mod-two
-    name: "Čechコホモロジー：2元係数"
+    name: "2元係数のČechコホモロジー"
     kind: definition
     introduction: formal
     requires: [gauge.open-cover, topology.open-cover-refinement]
@@ -24,7 +24,7 @@ concepts:
     name: 三重重なりの符号は2-cocycleになる
     kind: theorem
     introduction: formal
-    requires: [gauge.cech-cohomology-mod-two, gauge.smooth-transition-cocycle, gauge.spin-structure, gauge.transition-section-change]
+    requires: [gauge.cech-cohomology-mod-two, gauge.smooth-transition-cocycle, gauge.spin-structure, gauge.transition-section-change, geometry.convex-normal-neighborhood-existence, geometry.minimizing-geodesic]
   - id: gauge.second-stiefel-whitney-class
     name: 第二Stiefel–Whitney類
     kind: definition
