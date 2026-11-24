@@ -109,7 +109,7 @@ xs, ys : List Nat に対し SortSpec xs ys は、ys が [整列リストの生�
 <!-- proof-start -->
 ### 証明
 
-空の場合は [x] が single x で整列する。一要素 [a] では x ≤ a なら [x,a]、そうでなければ自然数の全順序から a ≤ x なので [a,x] が整列する。
+空の場合は [x] が single x で整列する。一要素 [a] では x ≤ a なら [x,a]、そうでなければ自然数の比較では x ≤ a が偽なら a < x であり、従って a ≤ x なので [a,x] が整列する。
 
 二要素以上 a :: b :: xs の整列証明から a ≤ b と SortedL (b :: xs) が得られる。帰納仮定は SortedL (insertL x (b :: xs))。次の三場合を尽くす。
 
