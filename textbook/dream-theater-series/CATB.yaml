@@ -25,7 +25,7 @@ chapters:
   - { id: CATB2-10, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-10, status: completed, title: "冪等分裂とCauchy完備化" }
   - { id: CATB3-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-01, status: completed, title: "フィルター圏とフィルター余極限" }
   - { id: CATB3-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-02, status: completed, title: "有限表示対象" }
-  - { id: CATB3-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-03, status: planned, title: "局所有限表示圏" }
+  - { id: CATB3-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-03, status: completed, title: "局所有限表示圏" }
   - { id: CATB3-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-04, status: planned, title: "正則基数とλ-表示対象" }
   - { id: CATB3-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-05, status: planned, title: "可到達圏と可到達関手" }
   - { id: CATB3-06, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-06, status: planned, title: "前層圏の表示対象" }
