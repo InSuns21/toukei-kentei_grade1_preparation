@@ -1,7 +1,7 @@
 chapter: FCG10
 scope: dream-theater
 coverage: complete
-prerequisites: [FCG9, WGL13]
+prerequisites: [FCG9, WGL13, EMAG8]
 concepts:
   - id: graphics.fcg10-snell
     name: 屈折方向の構成
@@ -20,7 +20,7 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（誘電体境界のFresnel反射率）"]
-    requires: [graphics.fcg10-snell]
+    requires: [graphics.fcg10-snell, electromagnetism.plane-wave-transversality, electromagnetism.electric-field]
   - id: graphics.fcg10-bounds
     name: Fresnel反射率の範囲と正面入射
     kind: proposition

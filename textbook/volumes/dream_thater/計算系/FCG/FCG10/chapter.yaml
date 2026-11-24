@@ -2,7 +2,7 @@ id: FCG10
 title: "透明な水の反射・屈折を表せるか"
 volume: foundations
 status: supplementary
-prerequisites: [FCG9, WGL13]
+prerequisites: [FCG9, WGL13, EMAG8]
 official_scope: []
 learning_objectives:
   - "Snellの法則から屈折ベクトルを構成し、全反射条件を導ける"

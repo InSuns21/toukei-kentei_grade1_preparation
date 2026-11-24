@@ -1326,7 +1326,7 @@ window.addEventListener('message', event => {
     }
 
     byId('numeric-summary').textContent = verifiedComparison ?
-      '（' + (isFCG9&&!unchanged&&fcg9Physics ? '変更メッシュ条件の独立CPU画素 ' : isFCG2&&!unchanged&&fcg2Physics ? '変更した回転速度・染料の独立CPU画素 ' :
+      '（' + (isFCG10&&!unchanged&&fcg10Physics ? '変更した水面光学条件の独立CPU画素 ' : isFCG9&&!unchanged&&fcg9Physics ? '変更メッシュ条件の独立CPU画素 ' : isFCG2&&!unchanged&&fcg2Physics ? '変更した回転速度・染料の独立CPU画素 ' :
        isFCG8&&!unchanged ? '変更Level Set条件の独立CPU初期画素 ' :
          isFCG3&&!unchanged ? '変更格子の独立CPU初期画素 ' :
         isFCG5&&!unchanged ? '変更条件の独立CPU初期画素 ' :
@@ -1334,7 +1334,9 @@ window.addEventListener('message', event => {
       rows.filter(row => row.pass).length + '/' + rows.length + '）' :
       '（編集版・参考比較）';
     const pass = rows.every(row => row.pass);
-    setStatus(isFCG9&&!unchanged&&fcg9Physics ?
+    setStatus(isFCG10&&!unchanged&&fcg10Physics ?
+        (pass?'FCG10 変更光学条件の独立画素検算に合格':'FCG10 変更光学条件の独立画素検算が不一致') :
+        isFCG9&&!unchanged&&fcg9Physics ?
         (pass?'FCG9 変更メッシュ条件の独立画素検算に合格':'FCG9 変更メッシュ条件の独立画素検算が不一致') :
         isFCG4&&!unchanged&&fcg4Physics ?
         (pass?'FCG4 変更格子の独立画素検算に合格':'FCG4 変更格子の独立画素検算が不一致') :
@@ -1409,6 +1411,9 @@ window.addEventListener('message', event => {
       'CPUは座標と色の定数から独立に予測し、GPUはreadPixelsで実測。RGBA各成分' +
       ((isFCG9||isFCG10) ? '±3' : (isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8) ? '±2' : isWGL20 ? '±1' : isWGL19 ? '±2' : isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
+    if(isFCG10&&fcg10Physics){
+      byId('numeric-note').textContent='独立CPUの屈折方向・Fresnel・水底交点・吸収を計算し、GPU選択画素をRGBA各成分±3で照合。';
+    }
     if(isFCG9&&fcg9Physics){
       byId('numeric-note').textContent='独立CPUで輪郭と面の投影・陰影を予測し、GPUの選択画素をRGBA各成分±3で照合。自由編集時は参考比較。';
     }
