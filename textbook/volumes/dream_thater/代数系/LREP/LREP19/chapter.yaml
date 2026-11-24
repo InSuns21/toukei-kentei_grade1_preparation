@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - LREP18
+  - QFT1
 official_scope: []
 learning_objectives:
   - 自由Dirac作用素を計量と成分用行列の規約から構成できる
