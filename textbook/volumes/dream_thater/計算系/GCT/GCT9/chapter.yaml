@@ -13,7 +13,7 @@ learning_objectives:
   - GapP を二つの計数の差と機械の経路差で表し閉性を導ける
   - 充足割当と0–1パーマネントの所属を符号化から説明できる
 definitions:
-  - { id: GCT9-DEF-01, name: "クラス #P" }
+  - { id: GCT9-DEF-01, name: "計数クラス #P" }
   - { id: GCT9-DEF-02, name: "関数クラス FP" }
   - { id: GCT9-DEF-03, name: "クラス GapP" }
 theorems:
