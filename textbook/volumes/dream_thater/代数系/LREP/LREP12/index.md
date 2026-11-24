@@ -157,7 +157,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\det\overline S=\overline{\det S}=1$ です。[交代形式の行列式公式](../LREP4/index.md#prop-lrep4-epsilon)に $A=\overline S$ を代入すると
+$\det\overline S=\overline{\det S}=1$ です。[二次元交代形式と行列式](../LREP4/index.md#prop-lrep4-epsilon)に $A=\overline S$ を代入すると
 
 $$
 \overline S^{\mathsf T}J\overline S=J,
@@ -401,7 +401,7 @@ JX=\begin{pmatrix}c&d\\-a&-b\end{pmatrix},
 \qquad Y=\begin{pmatrix}d&-c\\-b&a\end{pmatrix}.
 $$
 
-[交代形式の行列式公式](../LREP4/index.md#prop-lrep4-epsilon)から $JS=S^{-\mathsf T}J$、共役側では $J\overline S=\overline S^{-\mathsf T}J$ です。後者を転置すると $\overline S^{\mathsf T}J^{\mathsf T}=J^{\mathsf T}\overline S^{-1}$。従って
+[二次元交代形式と行列式](../LREP4/index.md#prop-lrep4-epsilon)から $JS=S^{-\mathsf T}J$、共役側では $J\overline S=\overline S^{-\mathsf T}J$ です。後者を転置すると $\overline S^{\mathsf T}J^{\mathsf T}=J^{\mathsf T}\overline S^{-1}$。従って
 
 $$
 \begin{aligned}
