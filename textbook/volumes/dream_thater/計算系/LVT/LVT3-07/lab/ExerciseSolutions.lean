@@ -12,7 +12,6 @@ theorem b01 (c : Slots) : decode c = .one →
     (impl c .take).map decode = some Count.empty := by
   intro h
   rw [step_comm, h]
-  rfl
 theorem b02 : runC initial [.put, .put, .take, .put] = ⟨true, true⟩ ∧
     obsC initial [.put, .put, .take, .put] = [true, true, true, true] := by decide
 theorem b03 : (badImpl ⟨true, true⟩ .put).getD ⟨true, true⟩ =
