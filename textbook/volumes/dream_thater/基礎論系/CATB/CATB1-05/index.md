@@ -281,9 +281,7 @@ $g$ は正規エピ射であるから正規射の復元により $g$ は自身�
 可換群の圏で $O\to\mathbb Z\xrightarrow{f}\mathbb Z\xrightarrow{g}\mathbb Z/5\mathbb Z\to O$、$f(n)=5n$、$g(n)=[n]_5$ とする。短完全列であることを示せ。
 
 <!-- solution-start -->
-**詳細解答。
-
-** $5n=5m$ なら $5(n-m)=0$ より $n=m$、$f$ は単射。
+**詳細解答。** $5n=5m$ なら $5(n-m)=0$ より $n=m$、$f$ は単射。
 
 $g$ は任意の剰余類 $[r]_5$ を $r$ から得るので全射。
 
@@ -329,7 +327,7 @@ $m'$ は核なのでモノ射である。左消去して $vaq=a'uq$。さらに 
 可換群の圏で $O\to\mathbb Z\xrightarrow{d}\mathbb Z\xrightarrow{p}\mathbb Z/4\mathbb Z\to O$、$d(n)=4n$、$p(n)=[n]_4$ とする。短完全列であること、$p$ に右逆射が存在しないことを示せ。
 
 <!-- solution-start -->
-**詳細解答。** $d$ は整数で単射、$p$ は各剰余類を代表元から得られるので全射。中央で像と核は $4\mathbb Z$ の包含になる。[短完全列の特徴づけ](#thm-catb1-05-short-exact-test)により短完全列である。
+**詳細解答。** $d$ は整数で単射、$p$ は各剰余類を代表元から得られるので全射。中央で前の射の像と後の射の核は $4\mathbb Z$ の包含になる。[短完全列の特徴づけ](#thm-catb1-05-short-exact-test)により短完全列である。
 
 仮に加法を保つ $s:\mathbb Z/4\mathbb Z\to\mathbb Z$ が $ps=1_{\mathbb Z/4\mathbb Z}$ を満たすとする。$4[1]_4=[0]_4$ より $4s([1]_4)=s([0]_4)=0$。整数では $4t=0$ なら $t=0$ だから $s([1]_4)=0$。すると $ps([1]_4)=[0]_4$ だが恒等射なら $[1]_4$ となる。矛盾。短完全列の右側はエピ射だが右逆射を持つとは限らない。
 <!-- solution-end -->
@@ -341,9 +339,7 @@ $m'$ は核なのでモノ射である。左消去して $vaq=a'uq$。さらに 
 アーベル圏の射 $f:A\to B$、$g:B\to C$ が $gf=0$ を満たすとし、$c:B\to D$ を $f$ の余核とする。$g=wc$ を満たす $w:D\to C$ がモノ射であることと、$B$ で完全であることの同値性を示せ。
 
 <!-- solution-start -->
-**詳細解答。
-
-** $gf=0$ から[余核の普遍性](../CATB1-04/index.md#def-catb1-04-cokernel)により $w$ が一意に得られる。
+**詳細解答。** $gf=0$ から[余核の普遍性](../CATB1-04/index.md#def-catb1-04-cokernel)により $w$ が一意に得られる。
 
 $m=\ker c$ は[像の構成](#thm-catb1-05-image-coimage)による $f$ の像。
 
@@ -361,7 +357,7 @@ $h$ はエピ射なので[正規射の復元](../CATB1-04/index.md#prop-catb1-04
 
 一方 $c$ は余核、従ってエピ射であり、$m=\ker c$ である。
 
-[正規射の復元](../CATB1-04/index.md#prop-catb1-04-normal-recovery)を $c$ に適用すると、 $c$ も $m$ の余核である。
+[正規射の復元](../CATB1-04/index.md#prop-catb1-04-normal-recovery)を $c$ に適用すると $c$ も $m$ の余核である。
 
 [余核の同型一意性](../CATB1-04/index.md#prop-catb1-04-kernel-cokernel-uniqueness)より $h=jc$ となる同型 $j:D\to\operatorname{Im}g$ が存在する。
 
