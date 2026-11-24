@@ -121,10 +121,10 @@ const descriptions = Object.freeze({
   }),
   FCG9: Object.freeze({
     requiresSteps:false,
-    grid:'実Float64セル中心N×N（初期12×12、条件で変更）から交差点・側面三角形を生成',
-    color:'横長は左が格子と黄の輪郭、右が側面。縦長は上が格子、下が側面。青い標本は内部、灰色は外部',
-    clock:()=> '物理stepはsurface.jsのsteps（0.04 s/step）で指定',
-    mode:'同じ交差頂点からwire（辺）／face（面法線）／gradient（勾配法線）を切り替える',
+    grid:s => s.fcg9Options ? '実Float64セル中心 '+s.fcg9Options.N+'×'+s.fcg9Options.N+' から交差点・側面三角形を生成' : '自由編集：実行コードの格子を参照',
+    color:'横長は左が格子と黄の輪郭、右が側面。縦長は上が格子、下が側面。粗い格子（N≤24）では青い標本は内部、灰色は外部',
+    clock:(_,s)=> s.fcg9Options ? '物理step '+s.fcg9Options.steps+'、t='+ (s.fcg9Options.steps*0.04).toFixed(2)+' s（0.04 s/step）' : '自由編集：surface.jsのstepsを参照',
+    mode:s => (s.fcg9Options ? '表示 '+s.fcg9Options.mode+'、H='+s.fcg9Options.heightM+' m。' : '自由編集。')+'同じ交差頂点からwire（辺）／face（面法線）／gradient（勾配法線）を切り替える',
     source:'surface.js（N, steps, heightM, mode, extract）/ surface.vert・surface.frag（投影・光源）'
   }),
   FCG8: Object.freeze({

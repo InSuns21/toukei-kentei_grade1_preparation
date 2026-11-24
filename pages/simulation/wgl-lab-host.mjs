@@ -1237,6 +1237,7 @@ window.addEventListener('message', event => {
     width: active.payload.width, height: active.payload.height,
     steps: (isWGL18 || isWGL19) ? data.floatParameters?.steps : active.payload.steps,
     frameAudit: isWGL19 ? data.frameAudit : undefined,
+    fcg9Options: isFCG9 ? fcg9PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment) : undefined,
     gridN: isFCG4 ? readLabParameter(active.payload.js,parametersFor('FCG4')[0]).value : isFCG3 ? readLabParameter(active.payload.js,parametersFor('FCG3')[1]).value :
        isFCG8 ? (fcg8PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment)?.N??null) :
         isFCG5 ? readLabParameter(active.payload.js,parametersFor('FCG5')[0]).value :
@@ -1314,7 +1315,7 @@ window.addEventListener('message', event => {
     }
 
     byId('numeric-summary').textContent = verifiedComparison ?
-      '（' + (isFCG2&&!unchanged&&fcg2Physics ? '変更した回転速度・染料の独立CPU画素 ' :
+      '（' + (isFCG9&&!unchanged&&fcg9Physics ? '変更メッシュ条件の独立CPU画素 ' : isFCG2&&!unchanged&&fcg2Physics ? '変更した回転速度・染料の独立CPU画素 ' :
        isFCG8&&!unchanged ? '変更Level Set条件の独立CPU初期画素 ' :
          isFCG3&&!unchanged ? '変更格子の独立CPU初期画素 ' :
         isFCG5&&!unchanged ? '変更条件の独立CPU初期画素 ' :
@@ -1322,7 +1323,9 @@ window.addEventListener('message', event => {
       rows.filter(row => row.pass).length + '/' + rows.length + '）' :
       '（編集版・参考比較）';
     const pass = rows.every(row => row.pass);
-    setStatus(isFCG4&&!unchanged&&fcg4Physics ?
+    setStatus(isFCG9&&!unchanged&&fcg9Physics ?
+        (pass?'FCG9 変更メッシュ条件の独立画素検算に合格':'FCG9 変更メッシュ条件の独立画素検算が不一致') :
+        isFCG4&&!unchanged&&fcg4Physics ?
         (pass?'FCG4 変更格子の独立画素検算に合格':'FCG4 変更格子の独立画素検算が不一致') :
        isFCG2&&!unchanged&&fcg2Physics ?
         (pass?'FCG2 編集した渦と染料の独立画素検算に合格':'FCG2 編集条件のGPU画素と独立CPUが不一致') :
@@ -1395,6 +1398,9 @@ window.addEventListener('message', event => {
       'CPUは座標と色の定数から独立に予測し、GPUはreadPixelsで実測。RGBA各成分' +
       (isFCG9 ? '±3' : (isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8) ? '±2' : isWGL20 ? '±1' : isWGL19 ? '±2' : isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
+    if(isFCG9&&fcg9Physics){
+      byId('numeric-note').textContent='独立CPUで輪郭と面の投影・陰影を予測し、GPUの選択画素をRGBA各成分±3で照合。自由編集時は参考比較。';
+    }
     if(isFCG4&&fcg4Physics){
       byId('numeric-note').textContent='独立CPUの'+fcg4Physics.N+'×'+fcg4Physics.N+'格子・反復'+active.payload.steps+'回のR8診断9画素と比較。ライブ操作中の画素検査とは別です。';
     }
