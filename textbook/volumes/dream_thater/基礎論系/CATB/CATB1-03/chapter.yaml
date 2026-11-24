@@ -1,0 +1,45 @@
+id: "CATB1-03"
+title: "加法圏と双積"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT2-05
+official_scope: []
+learning_objectives:
+  - Homの可換群構造と合成の双加法性を具体例で検証できる
+  - 零対象と恒等射が零射に一致する条件の同値性を証明できる
+  - 有限積と有限余積から双積を構成し双方の普遍性を証明できる
+  - 加法圏の存在条件と前加法圏との差を説明できる
+  - 有限双積に関する射の行列表示と合成則を導出できる
+  - 対角射と余対角射を用いて射の加法を復元できる
+definitions:
+  - { id: CATB1-03-DEF-01, name: 前加法圏 }
+  - { id: CATB1-03-DEF-02, name: 零対象 }
+  - { id: CATB1-03-DEF-03, name: 有限双積 }
+  - { id: CATB1-03-DEF-04, name: 加法圏 }
+theorems:
+  - { id: CATB1-03-PROP-01, name: 零射との合成 }
+  - { id: CATB1-03-PROP-02, name: 零対象の判定と零射 }
+  - { id: CATB1-03-THM-01, name: 双積の普遍性と有限積・有限余積 }
+  - { id: CATB1-03-THM-02, name: 加法圏の存在条件 }
+  - { id: CATB1-03-THM-03, name: 双積の射の行列表示 }
+  - { id: CATB1-03-PROP-03, name: 双積による射の和の復元 }
+canonical_examples:
+  - 整数の一対象圏と前加法性
+  - 整数座標の双積と加法圏
+  - 集合の積と余積の非同型
+  - 射の成分による行列積
+problem_patterns:
+  - CATB1-03-BILINEAR
+  - CATB1-03-ZERO-OBJECT
+  - CATB1-03-INJECTION-PROJECTION
+  - CATB1-03-MATRIX-ENTRIES
+  - CATB1-03-UNIQUENESS
+  - CATB1-03-PRODUCT-TO-COPRODUCT
+  - CATB1-03-PREADDITIVE-COUNTEREXAMPLE
+  - CATB1-03-MATRIX-COMPOSITION
+  - CATB1-03-SUM-RECONSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }
