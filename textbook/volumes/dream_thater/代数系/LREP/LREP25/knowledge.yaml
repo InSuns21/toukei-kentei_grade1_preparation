@@ -1,0 +1,47 @@
+chapter: LREP25
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP24
+forward_references: []
+concepts:
+  - id: representation.mass-shell-packet-space
+    name: 質量殻波束空間
+    kind: definition
+    introduction: formal
+    requires: [representation.mass-shell-measure, representation.strongly-continuous-unitary-representation]
+  - id: representation.momentum-section
+    name: 運動量断面
+    kind: definition
+    introduction: formal
+    requires: [representation.future-cone-orbits, representation.massive-boost-section]
+  - id: representation.section-little-correction
+    name: 断面の固定群補正
+    kind: definition
+    introduction: formal
+    requires: [representation.momentum-section, representation.momentum-little-group]
+  - id: representation.section-little-cocycle
+    name: 固定群補正の合成則
+    kind: theorem
+    introduction: formal
+    requires: [representation.section-little-correction]
+  - id: representation.mass-shell-induced-action
+    name: 質量殻上の誘導作用
+    kind: definition
+    introduction: formal
+    requires: [representation.mass-shell-packet-space, representation.section-little-correction, representation.covered-poincare-group]
+  - id: representation.mass-shell-induced-unitarity
+    name: 誘導作用のユニタリ性と強連続性
+    kind: theorem
+    introduction: formal
+    requires: [representation.mass-shell-induced-action, representation.section-little-cocycle, representation.mass-shell-measure-invariance, representation.strongly-continuous-unitary-representation]
+  - id: representation.induced-positive-energy
+    name: 誘導表現の共同運動量と正エネルギー
+    kind: theorem
+    introduction: formal
+    requires: [representation.mass-shell-induced-unitarity, representation.translation-joint-spectrum, representation.positive-energy, representation.mass-squared-casimir]
+  - id: representation.induced-section-equivalence
+    name: 断面変更による誘導表現の同値性
+    kind: theorem
+    introduction: formal
+    requires: [representation.mass-shell-induced-unitarity, representation.section-little-correction]
