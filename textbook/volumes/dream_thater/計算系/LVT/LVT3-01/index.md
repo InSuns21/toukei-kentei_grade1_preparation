@@ -186,7 +186,7 @@ def rejectAll (_ : Order) : Option Nat := none
 
 任意の o と orderPre o の証明を取る。rejectAll o = none なので weakPost o (rejectAll o) は定義展開で True になる。その証明項は True.intro であり、数量や在庫とは無関係に構成できる。
 
-元の仕様を満たすと仮定し、o = ⟨5, 2⟩ を選ぶ。2 > 0 なので事前条件は真である。仮定した契約から orderPost o (rejectAll o) が従うが、rejectAll o = none を代入すると 5 < 2 になる。これは偽である。従って元の契約を満たすという仮定を否定できる。
+元の仕様を満たすと仮定し、o = ⟨5, 2⟩ を選ぶ。2 > 0 なので事前条件は真である。仮定した契約から orderPost o (rejectAll o) が従うが、rejectAll o = none を代入すると 5 < 2 になる。これは偽である。従って元の契約を満たすという仮定を否定できる。Lean では orderPre の具体値を `change` で自然数の比較 0 < 2 に展開してから `decide` で事前条件を証明する。
 
 ```lean
 theorem weakAllowsReject : Satisfies orderPre weakPost rejectAll := by
@@ -195,7 +195,10 @@ theorem weakAllowsReject : Satisfies orderPre weakPost rejectAll := by
 
 theorem rejectNotCorrect : ¬ Satisfies orderPre orderPost rejectAll := by
   intro h
-  have bad := h ⟨5, 2⟩ (by decide : orderPre ⟨5, 2⟩)
+  have hp : orderPre ⟨5, 2⟩ := by
+    change 0 < (2 : Nat)
+    decide
+  have bad := h ⟨5, 2⟩ hp
   change (5 : Nat) < 2 at bad
   omega
 ```
@@ -247,7 +250,10 @@ def mustSucceed (o : Order) (result : Option Nat) : Prop :=
 theorem impossible (f : Order → Option Nat) :
     ¬ Satisfies orderPre mustSucceed f := by
   intro h
-  obtain ⟨rest, _, hr⟩ := h ⟨1, 2⟩ (by decide : orderPre ⟨1, 2⟩)
+  have hp : orderPre ⟨1, 2⟩ := by
+    change 0 < (2 : Nat)
+    decide
+  obtain ⟨rest, _, hr⟩ := h ⟨1, 2⟩ hp
   change rest + 2 = 1 at hr
   omega
 ```
