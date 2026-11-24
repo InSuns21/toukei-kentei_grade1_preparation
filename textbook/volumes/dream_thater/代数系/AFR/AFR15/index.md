@@ -195,7 +195,7 @@ $n(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix}$ とし、$\psi:F\to\mathbb C^\times$
 <a id="def-afr15-whittaker"></a>
 
 <!-- formal-statement-start -->
-> **定義（Whittaker汎関数と模型）**
+> **定義（Whittaker汎関数）**
 > 滑らかな複素表現 $(\pi,V)$ と非自明な加法指標 $\psi$ を考える。非零の線形汎関数 $\ell:V\to\mathbb C$ が
 $$
 \ell(\pi(n(x))v)=\psi(x)\ell(v)
@@ -497,5 +497,5 @@ $p=3$ の一次元表現 $\pi(g)=\eta(\det g)$（$\eta(3^mu)$ は $u\bmod3$ が1
 
 $\operatorname{diag}(2,1)$ は全レベルの $K_1(3^n)$ に含まれ、作用は $\eta(2)=-1$ です。固定条件 $-v=v$ から $v=0$ です。従ってすべてのレベルで固定空間は零であり、新ベクトルはありません。
 
-$n(x)$ の行列式は1なので $\pi(n(x))$ は恒等です。[Whittaker汎関数と模型](#def-afr15-whittaker) の条件は $\ell(v)=\psi(x)\ell(v)$ になります。$\psi(x)\ne1$ となる $x$ を選ぶと全ての $v$ に対して $\ell(v)=0$ です。従って generic ではありません。滑らか・許容的・既約という三条件を満たしても generic の仮定を省略して一般の新形式定理を適用することはできません。
+$n(x)$ の行列式は1なので $\pi(n(x))$ は恒等です。[Whittaker汎関数](#def-afr15-whittaker) の条件は $\ell(v)=\psi(x)\ell(v)$ になります。$\psi(x)\ne1$ となる $x$ を選ぶと全ての $v$ に対して $\ell(v)=0$ です。従って generic ではありません。滑らか・許容的・既約という三条件を満たしても generic の仮定を省略して一般の新形式定理を適用することはできません。
 <!-- solution-end -->
