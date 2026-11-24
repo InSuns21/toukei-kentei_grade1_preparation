@@ -16,7 +16,7 @@ chapters:
     title: "Maass形式・双曲Laplace作用素"
   - id: AFR3
     path: textbook/volumes/dream_thater/代数系/AFR/AFR3
-    status: planned
+    status: completed
     title: "保型スペクトルとカスプ形式"
   - id: AFR4
     path: textbook/volumes/dream_thater/代数系/AFR/AFR4
