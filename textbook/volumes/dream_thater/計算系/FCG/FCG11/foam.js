@@ -13,6 +13,7 @@ if(![time,curvatureThreshold,speedThreshold,lifetime,radius,amount].every(Number
 const h=x=>0.25*Math.cos(Math.PI*(x-1));
 const sprites=new Float32Array(120*4);
 function computeAt(time){
+ sprites.fill(0);
 let count=0,emitted=0,sprayCount=0,foamCount=0,bubbleCount=0;
 function add(x,z,kind){sprites.set([x,z,radius,kind],4*count++);}
 for(let i=0;i<amount;i++){
