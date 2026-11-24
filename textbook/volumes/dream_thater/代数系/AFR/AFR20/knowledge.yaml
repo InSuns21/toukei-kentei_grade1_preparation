@@ -1,14 +1,14 @@
 chapter: AFR20
 scope: dream-theater
 coverage: complete
-prerequisites: [AFR19]
+prerequisites: [AFR19, SYM1]
 forward_references: []
 concepts:
   - id: automorphic-forms.dual-pair
     name: "双対対"
     kind: definition
     introduction: formal
-    requires: []
+    requires: [symplectic.non-degenerate-form, symplectic.linear-symplectic-map]
   - id: automorphic-forms.orthogonal-tensor
     name: "直交型テンソル交代形式"
     kind: definition

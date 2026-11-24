@@ -2,7 +2,7 @@ id: "AFR20"
 title: "theta対応とunitary／orthogonal群"
 volume: "foundations"
 status: supplementary
-prerequisites: [AFR19]
+prerequisites: [AFR19, SYM1]
 official_scope: []
 learning_objectives:
   - 直交型・ユニタリ型の交代形式を構成して非退化性を確認し低ランク双対対の相互中心化を証明できる
