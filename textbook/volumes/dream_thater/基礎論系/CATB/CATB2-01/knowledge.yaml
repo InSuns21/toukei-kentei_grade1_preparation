@@ -10,8 +10,7 @@ concepts:
   - id: category.enriched-category
     name: 豊穣圏
     kind: definition
-    introduction: formal
-    introduction_aliases: ["定義（豊穣圏）"]
+    introduction: inline
     requires: [category.monoidal-category]
   - id: category.set-enrichment
     name: 集合値の豊穣圏と通常の圏
