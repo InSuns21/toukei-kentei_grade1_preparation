@@ -23,4 +23,4 @@
 20. [LVT3-06 ゲーム規則の安全性](textbook/volumes/dream_thater/計算系/LVT/LVT3-06/index.md)
 21. [LVT3-07 抽象仕様・詳細化・モデルとの対応](textbook/volumes/dream_thater/計算系/LVT/LVT3-07/index.md)
 22. [LVT3-08 Hoare論理・最弱事前条件・vcgen](textbook/volumes/dream_thater/計算系/LVT/LVT3-08/index.md)
-23. [LVT4-01 例示・単体テスト・`#guard`・Lake test](textbook/volumes/dream_thater/計算系/LVT/LVT4-01/index.md)
+23. [LVT4-01 例示・単体テスト・#guard・Lake test](textbook/volumes/dream_thater/計算系/LVT/LVT4-01/index.md)
