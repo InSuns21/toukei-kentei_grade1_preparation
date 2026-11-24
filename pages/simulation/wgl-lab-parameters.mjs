@@ -637,6 +637,14 @@ export function mountLabParameters(lesson, container,
     const display = document.createElement('output');
     display.htmlFor = id;
     display.textContent = String(spec.default);
+    if (['FCG8','FCG9','FCG10','FCG11','FCG12','FCG13'].includes(lesson)) {
+      // Keep the compact output readable while detailed bounds and source
+      // locations remain available via the inspector's disclosure button.
+      display.title = spec.unit;
+      slider.title = spec.type === 'enum' ? spec.values.join(' / ') :
+        spec.min + '〜' + spec.max + ' / ' + spec.unit + ' / 刻み ' + spec.step;
+      slider.setAttribute('aria-description',spec.meaning + ' / ' + slider.title);
+    }
     const description = document.createElement('small');
     description.textContent = spec.meaning + ' / 初期値 ' + spec.default +
       (spec.type === 'enum' ? ' / 選択肢 ' + spec.values.join(' / ') :
