@@ -11,7 +11,7 @@ chapters:
   - { id: GCT5, path: textbook/volumes/dream_thater/計算系/GCT/GCT5, status: completed, title: "木・森・カット・separator：木上の動的計画" }
   - { id: GCT6, path: textbook/volumes/dream_thater/計算系/GCT/GCT6, status: completed, title: "木分解とtreewidth：境界状態による計数" }
   - { id: GCT7, path: textbook/volumes/dream_thater/計算系/GCT/GCT7, status: completed, title: "グラフ準同型・制約充足問題と因子グラフ" }
-  - { id: GCT8, path: textbook/volumes/dream_thater/計算系/GCT/GCT8, status: planned, title: "格子状制約・局所表・重み付き分配和" }
+  - { id: GCT8, path: textbook/volumes/dream_thater/計算系/GCT/GCT8, status: completed, title: "格子状制約・局所表・重み付き分配和" }
   - { id: GCT9, path: textbook/volumes/dream_thater/計算系/GCT/GCT9, status: planned, title: "計数複雑性クラス：#P・FP・GapP" }
   - { id: GCT10, path: textbook/volumes/dream_thater/計算系/GCT/GCT10, status: planned, title: "parsimonious帰着・計数Turing帰着" }
   - { id: GCT11, path: textbook/volumes/dream_thater/計算系/GCT/GCT11, status: planned, title: "計数完全性と0–1 permanent：Valiantの帰着" }

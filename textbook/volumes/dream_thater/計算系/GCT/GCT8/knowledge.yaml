@@ -1,0 +1,32 @@
+chapter: GCT8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GCT7
+  - COMB18
+forward_references: []
+concepts:
+  - id: graph-counting.grid-local-factors
+    name: 格子状局所因子系
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（格子状局所因子系）"]
+    requires: [graph-counting.factor-graph]
+  - id: graph-counting.grid-partition-sum
+    name: 重み付き分配和
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重み付き分配和）"]
+    requires: [graph-counting.grid-local-factors]
+  - id: graph-counting.grid-row-dp
+    name: 行状態による分配和漸化式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（行状態による分配和漸化式）"]
+    requires: [graph-counting.grid-partition-sum, graph-counting.elimination]
+  - id: graph-counting.grid-transfer-matrix
+    name: 転送行列表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（転送行列表示）"]
+    requires: [graph-counting.grid-row-dp, combinatorics.transfer-matrix]
