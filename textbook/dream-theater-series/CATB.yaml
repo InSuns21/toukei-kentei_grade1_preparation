@@ -17,7 +17,7 @@ chapters:
   - { id: CATB2-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-02, status: completed, title: "前順序・距離空間と豊穣" }
   - { id: CATB2-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-03, status: completed, title: "豊穣関手と豊穣自然変換" }
   - { id: CATB2-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-04, status: completed, title: "豊穣Yonedaの補題" }
-  - { id: CATB2-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-05, status: planned, title: "重み付き極限と余極限" }
+  - { id: CATB2-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-05, status: completed, title: "重み付き極限と余極限" }
   - { id: CATB2-06, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-06, status: planned, title: "豊穣随伴と豊穣Kan拡張" }
   - { id: CATB2-07, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-07, status: planned, title: "分配子とcoendによる合成" }
   - { id: CATB2-08, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-08, status: planned, title: "双圏と弱い結合律" }

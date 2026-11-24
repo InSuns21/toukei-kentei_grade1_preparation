@@ -1,0 +1,39 @@
+chapter: CATB2-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CATB2-04
+  - CAT2-01
+  - CAT2-05
+
+concepts:
+  - id: category.weighted-limit
+    name: 重み付き極限
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重み付き極限）"]
+    requires: [category.enriched-natural-hom, category.enriched-representable-functor, category.limit]
+  - id: category.weighted-colimit
+    name: 重み付き余極限
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重み付き余極限）"]
+    requires: [category.enriched-natural-hom, category.enriched-representable-functor, category.colimit]
+  - id: category.weighted-limit-colimit-uniqueness
+    name: 重み付き極限・余極限の普遍性と一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（重み付き極限・余極限の普遍性と一意性）"]
+    requires: [category.weighted-limit, category.weighted-colimit, category.enriched-underlying-functor]
+  - id: category.set-conical-weighted-limit-colimit
+    name: 通常の極限・余極限は一元集合の重みの場合
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（通常の極限・余極限は一元集合の重みの場合）"]
+    requires: [category.weighted-limit, category.weighted-colimit, category.constant-diagram-cone, category.cocone]
+  - id: category.single-object-weighted-limit-colimit
+    name: 一対象図式の重み付き極限・余極限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一対象図式の重み付き極限・余極限）"]
+    requires: [category.weighted-limit, category.weighted-colimit, category.evaluation-currying, category.enriched-self-enrichment]
