@@ -6,7 +6,7 @@
 
 ## 1. 二階の波動方程式から一階の作用素へ
 
-時空を $\mathbb R^4$、点を $x=(t,x^1,x^2,x^3)^{\mathsf T}$ とします。[Lorentz計量の共通規約](../../../../../dream-theater-lorentz-conventions.md)に従い $\eta=\operatorname{diag}(-1,1,1,1)$ とし、光速と換算Planck定数を $c=\hbar=1$ に取ります。質量 $m\ge0$ は実定数です。$\partial_\mu$ は $x^\mu$ での偏微分、$\partial_0=\partial_t$。Greek添字は $0,1,2,3$、空間添字 $j$ は $1,2,3$ を走り、和を明記します。
+時空を $\mathbb R^4$、点を $x=(t,x^1,x^2,x^3)^{\mathsf T}$ とします。[Lorentz計量の共通規約](../../../../../dream-theater-lorentz-conventions.md)に従い $\eta=\operatorname{diag}(-1,1,1,1)$ とし、光速と換算Planck定数を $c=\hbar=1$ に取ります。質量 $m\ge0$ は実定数です。$\partial_\mu$ は $x^\mu$ での偏微分、$\partial_0=\partial_t$ です。ギリシャ文字の添字は $0,1,2,3$、空間添字 $j$ は $1,2,3$ を走り、和を明記します。
 
 場とは各点に値を割り当てる関数です。ここでは [Diracスピノル](../LREP16/index.md#def-lrep16-dirac) を値とする、少なくとも二階連続微分可能な関数 $\psi:\mathbb R^4\to\mathbb C^4$ を考えます。列の成分は普通の複素数です。
 
@@ -48,7 +48,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep19-dirac-operator -->
-**定義の確認。** $e_k$ は $\mathbb C^4$ の標準基底、$v=e_1+ie_3$ とします。$G^0v=v$ は上の行列を掛ければ分かります。$\psi(t,\boldsymbol x)=e^{-imt}v$ とすると、$\partial_t\psi=-im\psi$、$\partial_j\psi=0$ です。従って
+**定義の確認。** $e_k$ は $\mathbb C^4$ の標準基底、$v=e_1+ie_3$ とします。$G^0e_1=ie_3$、$G^0e_3=-ie_1$ なので $G^0v=ie_3+i(-ie_1)=v$ です。空間座標を $\boldsymbol x=(x^1,x^2,x^3)$ と書きます。$\psi(t,\boldsymbol x)=e^{-imt}v$ とすると、$\partial_t\psi=-im\psi$、$\partial_j\psi=0$ です。従って
 
 $$
 D_m\psi=iG^0(-im\psi)-m\psi=m(G^0-I_4)\psi=0.
@@ -59,7 +59,7 @@ $$
 
 ## 2. Lorentz変換後にも同じ方程式
 
-適正・時間向き保存Lorentz変換 $\Lambda$ は $\Lambda^{\mathsf T}\eta\Lambda=\eta$ を満たし、[Spin群とLorentz二重被覆](../LREP15/index.md#thm-lrep15-spin-cover) に対応する定数行列 $S=S(A)$ を選びます。点 $x'=\Lambda x$ に元の点 $x$ のスピノルを変換して配置します。変換された場は、同じ数値の座標で比較するのでなく
+[Lorentz群と単位元成分](../LREP9/index.md#def-lrep9-lorentz-group) で学んだ適正・時間向き保存Lorentz変換 $\Lambda$ は $\Lambda^{\mathsf T}\eta\Lambda=\eta$ を満たし、[Spin群とLorentz二重被覆](../LREP15/index.md#thm-lrep15-spin-cover) に対応する定数行列 $S=S(A)$ を選びます。点 $x'=\Lambda x$ に元の点 $x$ のスピノルを変換して配置します。変換された場は、同じ数値の座標で比較するのでなく
 
 $$
 \psi'(x')=S\psi(\Lambda^{-1}x')
@@ -80,6 +80,7 @@ $$
 
 > 特に $\psi$ が解であることと $\psi'$ が解であることは同値である。
 <!-- formal-statement-end -->
+
 **証明の見取り図。** 連鎖律で微分の添字を変換し、行列側の変換と打ち消し合わせます。質量項はスカラー倍なので残ります。
 
 <!-- proof-start -->
@@ -125,6 +126,7 @@ $$
 
 > 従って自由Dirac方程式の解の各成分は自由Klein–Gordon方程式を満たす。
 <!-- formal-statement-end -->
+
 **証明の見取り図。** 二重和を添字交換した式と平均し、反交換関係を代入します。
 
 <!-- proof-start -->
@@ -148,7 +150,7 @@ $$
 (L+mI_4)(L-mI_4)\psi=L^2\psi-m^2\psi.
 $$
 
-[自由Dirac作用素](#def-lrep19-dirac-operator) が零なら左辺も零です。全体に負号を掛ければ $(-\Box_\eta+m^2)\psi=0$ となります。$\square$
+[自由Dirac作用素](#def-lrep19-dirac-operator) を $\psi$ に作用させた値 $D_m\psi$ が零なら左辺も零です。全体に負号を掛ければ $(-\Box_\eta+m^2)\psi=0$ となります。$\square$
 <!-- proof-end -->
 
 逆は一般に成立しません。例えば $m>0$、$w=e_1-ie_3$ は $G^0w=-w$ を満たし、$\psi=e^{-imt}w$ は二階の方程式を満たします。しかし $D_m\psi=m(G^0-I_4)\psi=-2m\psi$ です。二階方程式だけでは、時間微分とスピノル成分の結び付きが失われます。
@@ -176,6 +178,7 @@ $$
 
 > は同値である。
 <!-- formal-statement-end -->
+
 **証明の見取り図。** 共役転置で $i$ の符号と行列の順番を反転し、右から $H$ を掛けます。
 
 <!-- proof-start -->
@@ -191,7 +194,7 @@ $$
 $m$ が実数であることを使いました。右から $H$ を掛け、$(G^\mu)^\dagger H=HG^\mu$ を代入します。$H$ は定数なので $(\partial_\mu\psi^\dagger)H=\partial_\mu\bar\psi$。最後に全体を $-1$ 倍して結論を得ます。共役転置も $H$ の右乗算も可逆なので逆向きも成立します。$\square$
 <!-- proof-end -->
 
-[Dirac随伴の変換則](../LREP17/index.md#prop-lrep17-adjoint-covariance) より $\bar\psi'(x')=\bar\psi(x)S^{-1}$。列の式が共変であることと随伴方程式との同値性から、行の式も変換後に成立します。質量項の符号が反対なのは、共役転置で微分項の $i$ が反転したためです。
+[Dirac随伴の変換則](../LREP17/index.md#prop-lrep17-adjoint-covariance) より $\bar\psi'(x')=\bar\psi(x)S^{-1}$。[自由Dirac方程式のLorentz共変性](#thm-lrep19-dirac-covariance) と [随伴方程式](#prop-lrep19-adjoint-equation) との同値性から、行の式も変換後に成立します。質量項の符号が反対なのは、共役転置で微分項の $i$ が反転したためです。
 
 [LREP17のDirac双線形量](../LREP17/index.md#def-lrep17-bilinears) のベクトルを各時空点で考えます。時間成分が密度、空間成分がその移動を表す流れになります。この密度と流れの組を電流と呼びます（電荷の定数倍を掛ける前の規格化です）。
 
@@ -232,6 +235,7 @@ $$
 
 > を満たす。$\rho(x)=0$ となるのは $\psi(x)=0$ のときに限る。
 <!-- formal-statement-end -->
+
 **証明の見取り図。** ベクトルとしての変換則と実数値性は既習の双線形量に帰着し、微分では列と行の方程式を組み合わせます。
 
 <!-- proof-start -->
@@ -268,7 +272,16 @@ i\partial_t\psi=-i\sum_j\alpha^j\partial_j\psi+mH\psi,
 \qquad \alpha^j=HG^j
 $$
 
-となります。$\alpha^j=\operatorname{diag}(\sigma_j,-\sigma_j)$ なのでHermitianであり、$H$ もHermitianです。左・右の二成分を $\psi=(u,r)^{\mathsf T}$ と書けば
+となります。行列積をブロックごとに計算すると
+
+$$
+\alpha^j=
+\begin{pmatrix}0&-iI\\iI&0\end{pmatrix}
+\begin{pmatrix}0&i\sigma_j\\i\sigma_j&0\end{pmatrix}
+=\begin{pmatrix}\sigma_j&0\\0&-\sigma_j\end{pmatrix}.
+$$
+
+Pauli行列はHermitianなので $\alpha^j$ もHermitianであり、$H$ もHermitianです。左・右の二成分を $\psi=(u,r)^{\mathsf T}$ と書けば
 
 $$
 \begin{aligned}
@@ -289,17 +302,18 @@ $m=0$ なら左右は独立に時間発展します。$m>0$ では互いの成�
 - Level: A
 - ID: LREP19-A01
 
-$m>0$、$w=e_2+ie_4$ とする。$\psi=e^{-imt}w$ が自由Dirac方程式の解か確認せよ。
+$m>0$、$w=e_2-ie_4$ とする。$\psi=e^{imt}w$ が自由Dirac方程式の解か確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $G^0$ の上ブロックは $-iI$、下ブロックは $iI$ なので $G^0w=e_2+ie_4=w$。空間微分は零で $\partial_t\psi=-im\psi$ です。[自由Dirac作用素](#def-lrep19-dirac-operator) に代入すると
+**詳細解答。** $G^0$ の上ブロックは $-iI$、下ブロックは $iI$ なので $G^0w=ie_4+(-i)(-ie_2)=-w$。空間微分は零で $\partial_t\psi=im\psi$ です。[自由Dirac作用素](#def-lrep19-dirac-operator) に代入すると
 
 $$
-D_m\psi=mG^0\psi-m\psi=0.
+D_m\psi=-mG^0\psi-m\psi=0.
 $$
 
 従って解です。
 <!-- solution-end -->
+
 <a id="ex-lrep19-a02"></a>
 
 #### LREP19-A02 反交換と混合微分
@@ -317,8 +331,9 @@ L^2f=-(G^0)^2\partial_t^2f
 -(G^1)^2\partial_1^2f.
 $$
 
-[ベクトル成分用行列の変換則の導入](../LREP17/index.md#prop-lrep17-vector-matrices) の反交換関係から順に $I_4,0,-I_4$ となるため $L^2f=-\partial_t^2f+\partial_1^2f$ です。
+第1節で確認した $G^\mu$ の反交換関係から順に $I_4,0,-I_4$ となるため $L^2f=-\partial_t^2f+\partial_1^2f$ です。
 <!-- solution-end -->
+
 <a id="ex-lrep19-a03"></a>
 
 #### LREP19-A03 随伴の符号
@@ -337,6 +352,7 @@ $$
 
 [随伴方程式](#prop-lrep19-adjoint-equation) を満たします。
 <!-- solution-end -->
+
 <a id="ex-lrep19-a04"></a>
 
 #### LREP19-A04 電流の成分
@@ -377,6 +393,7 @@ $$
 
 二つの負号が打ち消されます。
 <!-- solution-end -->
+
 <a id="ex-lrep19-b02"></a>
 
 #### LREP19-B02 質量零の進行波
@@ -400,6 +417,7 @@ $$
 
 両者の和は零で [自由Dirac電流の保存](#thm-lrep19-current-conservation) と一致します。
 <!-- solution-end -->
+
 <a id="ex-lrep19-b03"></a>
 
 #### LREP19-B03 二階方程式から解を作る
@@ -418,13 +436,14 @@ $$
 
 時間だけの関数なので $L\chi=mH\chi$。$H(e_1\pm ie_3)=\pm(e_1\pm ie_3)$ を代入すると、第一の $\psi=2m\chi$、第二の $\psi=0$ です。二階方程式の解から一階方程式の解が得られますが、非零の入力が零へ移る場合もあります。
 <!-- solution-end -->
+
 <a id="ex-lrep19-b04"></a>
 
 #### LREP19-B04 電荷共役された解
 - Level: B
 - ID: LREP19-B04
 
-$m$ は実定数とする。$\psi^c=B\psi^*$ が $\psi$ と同じ自由Dirac方程式を満たすことを示せ。
+$m\ge0$ は実定数、$\psi$ は一階連続微分可能な自由Dirac方程式の解とする。[電荷共役](../LREP18/index.md#def-lrep18-charge-conjugation) $\psi^c=B\psi^*$ が同じ方程式を満たすことを示せ。
 
 <!-- solution-start -->
 **詳細解答。** [電荷共役行列の恒等式](../LREP18/index.md#prop-lrep18-gamma-transpose) から $B(G^\mu)^*B^{-1}=-G^\mu$ です。元の式を成分ごとに複素共役して
@@ -440,6 +459,32 @@ i\sum_\mu G^\mu\partial_\mu(B\psi^*)-mB\psi^*=0.
 $$
 
 これが $\psi^c$ の方程式です。$i$ と行列共役の二つの負号が消えます。
+<!-- solution-end -->
+
+<a id="ex-lrep19-b05"></a>
+
+#### LREP19-B05 質量による左右成分の結合
+- Level: B
+- ID: LREP19-B05
+
+空間一定で $u(0)=a\in\mathbb C^2$、$r(0)=0$ とする。$u(t)=\cos(mt)a$、$r(t)=\sin(mt)a$ が第5節の時間発展を満たすことを示せ。密度を求め、$m=0$ と $m>0$ を比較せよ。
+
+<!-- solution-start -->
+**詳細解答。** 空間微分は零なので第5節の二つの式は $i\partial_t u=-imr$、$i\partial_t r=imu$。$i$ で割ると $\partial_t u=-mr$、$\partial_t r=mu$ です。候補を微分すると
+
+$$
+\partial_t u=-m\sin(mt)a=-mr,\qquad
+\partial_t r=m\cos(mt)a=mu.
+$$
+
+初期時刻で $\cos(0)=1$、$\sin(0)=0$ なので指定の値も満たします。[自由Dirac電流の保存](#thm-lrep19-current-conservation) の密度の式から
+
+$$
+\rho=u^\dagger u+r^\dagger r
+=(\cos^2(mt)+\sin^2(mt))a^\dagger a=a^\dagger a.
+$$
+
+$m=0$ なら全時刻で右成分は零です。$m>0$ かつ $a\ne0$ なら $t=\pi/(2m)$ で $u=0$、$r=a$ となります。密度は変わりませんが、質量による結合で左右の成分の大きさは変わります。
 <!-- solution-end -->
 
 ### Level C
