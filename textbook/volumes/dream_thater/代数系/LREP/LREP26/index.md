@@ -29,7 +29,7 @@ $$
 **定義の確認**。 $F=\mathbb C$、全ての $A$ で $D(A)=1$ とすれば、$D(I)=1$、$D(AB)=1=D(A)D(B)$ で連続です。$\Phi(x)=e^{-imt}$ は連続な一成分の場です。$a=(b,\boldsymbol0)$、$A=I$ では $T_D(a,I)\Phi=e^{-imb}\Phi$ となります。一般の $(a,A)$ でも連続なアフィン写像との合成により連続な場を得ます。
 <!-- definition-example-end -->
 
-群の積は $(a,A)(b,B)=(a+Ab,AB)$ です。実際に二回作用させると
+[被覆Poincare群](../LREP21/index.md#def-lrep21-covered-poincare)の群の積は $(a,A)(b,B)=(a+Ab,AB)$ です。実際に二回作用させると
 
 $$
 \begin{aligned}
@@ -69,7 +69,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（共変モード係数）**
-> $m>0$ とし、上記の連続な表現 $D,\rho$ と運動量断面 $s$ を取る。連続な行列値写像 $u:\mathcal O_m\to\operatorname{Hom}(V,F)$ が、任意の $A\in G$、$p\in\mathcal O_m$ に対して
+> $m>0$、$F=\mathbb C^n$、$V=\mathbb C^d$ とする。$D:G\to GL(F)$ と $\rho:SU(2)\to U(d)$ を連続な表現、$s$ を未来質量殻上の連続な運動量断面とし、$w(A,p)=s(Ap)^{-1}As(p)$ とする。連続な行列値写像 $u:\mathcal O_m\to\operatorname{Hom}(V,F)$ が、任意の $A\in G$、$p\in\mathcal O_m$ に対して
 
 $$
 D(A)u(p)=u(Ap)\rho(w(A,p))
@@ -88,7 +88,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（静止系からの共変モード係数の構成）**
-> $m>0$、$D,\rho,s$ を上記のものとし、$s(k)=I_2$ とする。共変モード係数と、全ての $R\in K$ について
+> $m>0$、$F=\mathbb C^n$、$V=\mathbb C^d$ とする。$D:G\to GL(F)$ と $\rho:K\to U(d)$ を連続な表現、$K=SU(2)$ とする。連続な運動量断面 $s$ は静止点 $k=(m,\boldsymbol0)$ で $s(k)=I_2$ を満たすとする。[共変モード係数](#def-lrep26-mode-intertwiner)と、全ての $R\in K$ について
 
 $$
 D(R)C=C\rho(R),\qquad C\in\operatorname{Hom}(V,F)
@@ -141,7 +141,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（正周波数波束の場への写像）**
-> $m>0$、共変モード係数 $u$ と連続コンパクト台の内部波束 $f:\mathcal O_m\to V$ に対して
+> $m>0$ とし、[共変モード係数](#def-lrep26-mode-intertwiner) $u$ と連続コンパクト台の内部波束 $f:\mathcal O_m\to V$ を取る。$\mu_m$ は[質量殻測度](../LREP22/index.md#def-lrep22-shell-measure)とする。このとき
 
 $$
 (\mathcal J_u f)(x)=\int_{\mathcal O_m}e^{ip\cdot x}u(p)f(p)\,d\mu_m(p)
@@ -160,7 +160,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（波束写像の共変性）**
-> $m>0$、連続な共変モード係数 $u$ と連続コンパクト台の波束 $f$ に対し、任意の被覆Poincare群の元 $(a,A)$ について
+> $m>0$、連続な表現 $D,\rho$ と連続な運動量断面 $s$、それらに対応する[共変モード係数](#def-lrep26-mode-intertwiner) $u$ を取る。$f$ は質量殻上の連続コンパクト台の内部波束とする。[波束の場への写像](#def-lrep26-packet-field-map) $\mathcal J_u$、[場の共変作用](#def-lrep26-field-action) $T_D$、[誘導作用](../LREP25/index.md#def-lrep25-induced) $U$ について、任意の被覆Poincare群の元 $(a,A)$ に対し
 
 $$
 \mathcal J_u U(a,A)f=T_D(a,A)\mathcal J_u f
@@ -219,7 +219,7 @@ $$
 C=\sqrt m\begin{pmatrix}I_2\\iI_2\end{pmatrix}
 $$
 
-と置きます。$D(R)C=\sqrt m(R,iR)^{\mathsf T}=CR$ なので、これは静止条件を満たす $4\times2$ 行列です。
+と置きます。$D(R)C=\sqrt m\binom{R}{iR}=CR$ なので、これは静止条件を満たす $4\times2$ 行列です。
 
 [正質量の標準boost](../LREP23/index.md#def-lrep23-standard-boost)を断面に取ります。$P=\boldsymbol p\cdot\boldsymbol\sigma$（$\sigma_j$ は[Pauli行列](../LREP5/index.md#def-lrep5-pauli-model)）とすると
 
@@ -239,7 +239,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（正質量Diracモードによる内部空間の埋め込み）**
-> $m>0$、上記の標準boostと行列 $u(p)$ を取る。LREP20の記号で $H=G^0$、$K(p)=EG^0-\sum_{j=1}^3p_jG^j$ とする。このとき
+> $m>0$、$p=(E,\boldsymbol p)\in\mathcal O_m$ とし、$s(p)$ を[正質量の標準boost](../LREP23/index.md#def-lrep23-standard-boost)とする。$u(p)$ は次の四行二列の行列とする。
+
+$$
+u(p)=\sqrt m\begin{pmatrix}s(p)\\i s(p)^{-1}\end{pmatrix}.
+$$
+
+> [Dirac平面波モード](../LREP20/index.md#def-lrep20-plane-wave)の記号で $H=G^0$ とし、$K(p)=EG^0-\sum_{j=1}^3p_jG^j$ とする。このとき
 
 $$
 \operatorname{im}u(p)=\ker(K(p)-mI_4),
@@ -260,7 +266,7 @@ $$
 
 [LREP20の正質量のDiracモードの構成](../LREP20/index.md#prop-lrep20-boost-modes)により、標準基底を $\chi_1,\chi_2$ としたとき $u(p)\chi_1,u(p)\chi_2$ は核の基底です。従って像と核は一致します。
 
-$s=s(p)$ と略記します。$s^\dagger=s$、$(s^{-1})^\dagger=s^{-1}$ であり、LREP20の同じ構成で $s^2=(EI_2+P)/m$、$s^{-2}=(EI_2-P)/m$ が得られています。$H=\begin{pmatrix}0&-iI_2\\iI_2&0\end{pmatrix}$ なので
+$s=s(p)$ と略記します。$s^\dagger=s$、$(s^{-1})^\dagger=s^{-1}$ であり、[正質量のDiracモードの構成](../LREP20/index.md#prop-lrep20-boost-modes)で $s^2=(EI_2+P)/m$、$s^{-2}=(EI_2-P)/m$ が得られています。$H=\begin{pmatrix}0&-iI_2\\iI_2&0\end{pmatrix}$ なので
 
 $$
 Hu(p)=\sqrt m\begin{pmatrix}s^{-1}\\i s\end{pmatrix}.
@@ -311,7 +317,7 @@ $A^\dagger=A$ なので $(A^\dagger)^{-1}=\operatorname{diag}(1/2,2)$ です。�
 - Level: A
 - ID: LREP26-A02
 
-$m=1$、$R=\operatorname{diag}(i,-i)$、$C=(I_2,iI_2)^{\mathsf T}$ とする（上下のブロックを並べた行列）。$R\in SU(2)$ と $D(R)C=CR$ を確認せよ。
+$m=1$、$R=\operatorname{diag}(i,-i)$ とし、$C=\binom{I_2}{iI_2}$ とする。$R\in SU(2)$ と $D(R)C=CR$ を確認せよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -381,7 +387,7 @@ $F=\mathbb C$ の自明表現、$V=\mathbb C^2$ の標準回転表現 $\rho(R)=R
 - Level: B
 - ID: LREP26-B02
 
-$m>0$、$p=(m\cosh r,0,0,m\sinh r)$、$A=\operatorname{diag}(e^{t/2},e^{-t/2})$ とする。標準boost断面で $w(A,p)=I_2$ を示し、$D(A)u(p)$ を計算せよ。
+$m>0$、$r,t\in\mathbb R$ とし、$p=(m\cosh r,0,0,m\sinh r)$、$A=\operatorname{diag}(e^{t/2},e^{-t/2})$ とする。標準boost断面で $w(A,p)=I_2$ を示し、$D(A)u(p)$ を計算せよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -404,7 +410,7 @@ $$
 - Level: B
 - ID: LREP26-B03
 
-正質量Diracモードの運動量係数 $g=u(p)v$ が与えられたとき、$v$ を回収せよ。また $m=0$ へこの式をそのまま延長できない理由を述べよ。
+$m>0$、$p\in\mathcal O_m$、$v\in\mathbb C^2$ とする。正質量Diracモードの運動量係数 $g=u(p)v$ が与えられたとき、$v$ を回収せよ。また $m=0$ へこの式をそのまま延長できない理由を述べよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -418,7 +424,7 @@ $$
 - Level: C
 - ID: LREP26-C01
 
-$m>0$、連続な $h:\mathcal O_m\to SU(2)$、$h(k)=I_2$ を使って $s'(p)=s(p)h(p)$ とする。静止行列 $C$ は同じとする。新しい係数 $u'(p)$ と新しい波束 $f'(p)$ を求め、同じ場が得られること、波束ノルムが保たれること、誘導作用が対応することを示せ。
+$m>0$、連続な $h:\mathcal O_m\to SU(2)$、$h(k)=I_2$、連続コンパクト台の波束 $f$ を取る。$s'(p)=s(p)h(p)$ とする。静止行列 $C$ は同じとする。新しい係数 $u'(p)$ と新しい波束 $f'(p)$ を求め、同じ場が得られること、波束ノルムが保たれること、誘導作用が対応することを示せ。
 
 <!-- solution-start -->
 **詳細解答**
