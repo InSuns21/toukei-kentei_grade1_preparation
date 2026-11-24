@@ -2,15 +2,15 @@
 
 ## 1. 射を足すと何が変わるか
 
-整数を整数に送る写像 $f(x)=2x$ と $g(x)=-3x$ は、同じ始域・終域を持つ。入力を固定して値を足せば $(f+g)(x)=-x$ となり、再び整数の加法を保つ写像になる。さらに $h(x)=5x$ を後ろから合成すると、$h(f+g)(x)=-5x$ は $hf(x)+hg(x)=10x-15x$ と一致する。
+整数を整数に送る写像 $f(x)=2x$ と $g(x)=-3x$ は、同じ始域・終域を持つ。ここでは射を写像として扱い、合成 $hf$ は $h\circ f$、すなわち先に $f$ を適用することを表す。入力を固定して値を足せば $(f+g)(x)=-x$ となり、再び整数の加法を保つ写像になる。さらに $h(x)=5x$ を後ろから合成すると、$h(f+g)(x)=-5x$ は $hf(x)+hg(x)=10x-15x$ と一致する。
 
 [圏](../../CAT/CAT1-01/index.md#def-cat1-01-category)では射の合成はできたが、平行な射の和は一般には与えられていなかった。本講では射の和と合成が両立する圏を考える。とくに、既習の[圏論の二項積](../../CAT/CAT2-02/index.md#def-cat2-02-binary-product)と[余積](../../CAT/CAT2-05/index.md#def-cat2-05-coproduct)が、なぜ加法のある場面では同じ対象で実現できるかを調べる。
 
-本講は[局所小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)を扱う。$\mathcal C(X,Y)$ は $X$ から $Y$ への射の集合、$gf$ は $g\circ f$、$1_X$ は恒等射とする。対象全体の集合性は仮定しない。
+本講は[局所小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)を扱う。$\mathcal C(X,Y)=\operatorname{Hom}_{\mathcal C}(X,Y)$ は $X$ から $Y$ への射の集合、$gf$ は $g\circ f$、$1_X$ は恒等射とする。対象全体の集合性は仮定しない。
 
 ## 2. 平行な射に和を入れる
 
-平行な射 $f,g:X\to Y$ に対し、和 $f+g:X\to Y$ を作りたい。和の単位元と逆元も同じ射の集合の中で選べるようにし、合成の前後どちらからでも和を展開できることを要求する。
+平行な射 $f,g:X\to Y$ に対し、和 $f+g:X\to Y$ を作りたい。和の単位元と逆元も同じ射の集合の中で選べるようにする。和が結合的・可換で、零元と各元の逆元を持つ集合を可換群という。ここで $-f$ は加法逆元、$f-g$ は $f+(-g)$ を表し、逆射とは区別する。さらに合成の前後どちらからでも和を展開できること（双加法性）を要求する。
 
 <a id="def-catb1-03-preadditive"></a>
 
@@ -30,7 +30,7 @@ $$
 <!-- definition-example-start: def-catb1-03-preadditive -->
 **定義の確認**
 
-整数の加法を保つ写像 $\mathbb Z\to\mathbb Z$ は $x\mapsto ax$ ($a\in\mathbb Z$) と表せる。実際、$f(0)=f(0)+f(0)$ から $f(0)=0$、正整数について $f(n+1)=f(n)+f(1)$、負整数について $f(-n)=-f(n)$ なので $a=f(1)$ が全てを決める。
+整数の加法を保つ写像とは、任意の整数 $x,y$ について $f(x+y)=f(x)+f(y)$ を満たす写像である。このような写像 $\mathbb Z\to\mathbb Z$ は $x\mapsto ax$ ($a\in\mathbb Z$) と表せる。実際、$f(0)=f(0)+f(0)$ から $f(0)=0$、正整数について $f(n+1)=f(n)+f(1)$、負整数について $f(-n)=-f(n)$ なので $a=f(1)$ が全てを決める。逆に任意の整数 $a$ に対して $a(x+y)=ax+ay$ なので、全ての整数係数が実際に射を与える。
 
 一つの対象 $\mathbb Z$ とこれらの写像からなる圏を取る。合成は整数係数の積、恒等射の係数は $1$ である。写像として合成は結合的で恒等射が単位となる。射の和は整数係数の和、零元は係数 $0$、逆元は係数 $-a$ なので整数加法の結合律・交換律・単位元・逆元の条件を満たす。整数の分配律により $c(a+b)=ca+cb$ と $(c+d)a=ca+da$ が成立し、合成の双加法性も満たす。
 <!-- definition-example-end -->
@@ -84,7 +84,7 @@ $$
 
 従って和は再び射であり、負の写像についても $(-f)(x+y)=-f(x)-f(y)$ だから閉じている。零写像は加法を保ち、可換群の各公理は値ごとの整数の加法から従う。$h$ が加法を保つことから $h(f+g)(x)=h(f(x))+h(g(x))$、また $(h+k)f(x)=h(f(x))+k(f(x))$ なので双加法性も成立する。 これで後の座標の例に必要な前加法性が確認できた。
 
-[終対象](../../CAT/CAT2-02/index.md#prop-cat2-02-empty-product)へは任意の対象からちょうど一つの射があり、[始対象](../../CAT/CAT2-05/index.md#prop-cat2-05-discrete-empty)からは任意の対象へちょうど一つの射がある。両方の役割を果たす対象があれば、空の積と空の余積を一緒に扱える。
+[始対象・終対象の定義](../../CAT/CAT1-04/index.md#def-cat1-04-initial-terminal)を思い出そう。終対象へは任意の対象からちょうど一つの射があり、始対象からは任意の対象へちょうど一つの射がある。両方の役割を果たす対象があれば、空の積と空の余積を一緒に扱える。
 
 <a id="def-catb1-03-zero-object"></a>
 
@@ -132,7 +132,7 @@ $$
 
 前加法圏で二対象 $X_1,X_2$ の積 $P$ が存在するとする。射影 $p_j:P\to X_j$ があれば、$X_i$ から各成分へ向かう射を、$i$ 番目だけ恒等射、他は零射と指定できる。[圏論の二項積](../../CAT/CAT2-02/index.md#def-cat2-02-binary-product)によって、この指定を満たす射 $i_i:X_i\to P$ が一意に作れる。
 
-この四本の射から、入力を一度成分ごとに分解し、再び足し合わせる操作が恒等射になるかを調べたい。有限個の対象についてこの仕組みを定式化する。
+$i_k$ を第 $k$ 成分の挿入射、$p_j$ を第 $j$ 成分の射影と呼ぶ。$p_ji_k$ は挿入してから取り出す合成、$i_jp_j$ は第 $j$ 成分を取り出して元の対象に戻す合成である。この四本の射から、入力を一度成分ごとに分解し、再び足し合わせる操作が恒等射になるかを調べたい。有限個の対象についてこの仕組みを定式化する。
 
 <a id="def-catb1-03-biproduct"></a>
 
@@ -241,7 +241,7 @@ $$
 
 従って余積でもある。
 
-$n=0$ のとき、空の積は終対象、空の余積は始対象である。いずれも自己射の集合は一元集合なので恒等射が零元に等しい。[零対象の判定](#prop-catb1-03-zero-object-criterion)から零対象となり、逆に零対象なら両普遍性を満たす。双積の条件も $1_B=0_{B,B}$ となるので同値である。
+$n=0$ のとき、[空個の積と終対象](../../CAT/CAT2-02/index.md#prop-cat2-02-empty-product)、[空図式の余極限と始対象](../../CAT/CAT2-05/index.md#prop-cat2-05-discrete-empty)の対応により、空の積は終対象、空の余積は始対象である。いずれも自己射の集合は一元集合なので恒等射が零元に等しい。[零対象の判定](#prop-catb1-03-zero-object-criterion)から零対象となり、逆に零対象なら両普遍性を満たす。双積の条件も $1_B=0_{B,B}$ となるので同値である。
 <!-- proof-end -->
 
 例えば $\mathbb Z^2$ へ二本の射 $x\mapsto2x$、$x\mapsto-3x$ を束ねると $x\mapsto(2x,-3x)$、$\mathbb Z^2$ から二本の射 $x\mapsto4x$、$y\mapsto5y$ をまとめると $(x,y)\mapsto4x+5y$ になる。いずれも同じ対象を使う。
@@ -269,7 +269,7 @@ $n=0$ のとき、空の積は終対象、空の余積は始対象である。�
 
 有限個の $\mathbb Z^{n_j}$ に対して $\mathbb Z^{N}$ を取る。ただし $N=\sum_j n_j$ である。座標を長さ $n_j$ のブロックに分け、射影は対応するブロックを抜き出し、挿入射は他のブロックを零にする。
 
-第4節の二成分の計算と同じく、$p_ji_k$ は $j=k$ のとき入力をそのまま返し、$j\ne k$ のとき零を返す。
+各ブロックの取り出しと零による埋め込みは加法を保つ。従ってこれらはこの圏の射である。[有限双積の第一条件](#def-catb1-03-biproduct)について、$p_ji_k$ は $j=k$ のとき入力をそのまま返し、$j\ne k$ のとき零を返す。
 
 任意の入力 $(x_1,\dots,x_n)$ に対して $\sum_j i_jp_j$ の第 $k$ ブロックは $x_k$ なので恒等射となる。
 
@@ -304,14 +304,14 @@ $n=0$ のとき、空の積は終対象、空の余積は始対象である。�
 
 ## 6. 射を行列に分解する
 
-双積 $B=\bigoplus_{i=1}^n X_i$ と $D=\bigoplus_{j=1}^m Y_j$ を取る。$F:B\to D$ の第 $i$ 入力から第 $j$ 出力への作用だけを見るため、先に $X_i$ を挿入し、$F$ を適用し、最後に $Y_j$ へ射影する。これが行列の第 $j$ 行第 $i$ 列に対応する。
+双積 $B=\bigoplus_{i=1}^n X_i$ と $D=\bigoplus_{j=1}^m Y_j$ を取る。以下では $i$ が入力の番号、$j$ が出力の番号で、$i_i:X_i\to B$ の左の文字 $i$ は挿入射を表し、下付きの $i$ が成分番号である。$F:B\to D$ の第 $i$ 入力から第 $j$ 出力への作用だけを見るため、先に $X_i$ を挿入し、$F$ を適用し、最後に $Y_j$ へ射影する。これが行列の第 $j$ 行第 $i$ 列に対応する。
 
 <a id="thm-catb1-03-matrix"></a>
 
 <!-- formal-statement-start -->
 > **定理（双積の射の行列表示）**
 >
-> 前加法圏で有限双積 $B=\bigoplus_i X_i$ と $D=\bigoplus_j Y_j$ が存在するとする。$B$ の挿入射と射影を $i_i,p_i$、$D$ のそれらを $k_j,q_j$ とする。
+> 前加法圏で有限双積 $B=\bigoplus_{i=1}^n X_i$ と $D=\bigoplus_{j=1}^m Y_j$ が存在するとする（$n,m\geq0$）。$B$ の挿入射と射影を $i_i,p_i$、$D$ のそれらを $k_j,q_j$ とする。
 >
 > 射 $F:B\to D$ と射族 $f_{ji}:X_i\to Y_j$ の間に次の互いに逆な対応がある。
 
@@ -322,7 +322,7 @@ $$
 
 > この対応は射の加法を成分ごとの加法に移す。
 >
-> さらに $E=\bigoplus_{\ell=1}^r Z_\ell$、$G:D\to E$ の成分を $g_{\ell j}:Y_j\to Z_\ell$ とすると、合成の成分は
+> さらに有限双積 $E=\bigoplus_{\ell=1}^r Z_\ell$ が存在するとし（$r\geq0$）、$G:D\to E$ の成分を $g_{\ell j}:Y_j\to Z_\ell$ とすると、合成の成分は
 
 $$
 (GF)_{\ell i}=\sum_{j=1}^m g_{\ell j}f_{ji}.
@@ -376,7 +376,7 @@ $$
 \end{aligned}
 $$
 
-各項は $X_i\to Y_j\to Z_\ell$ の合成であり、全項は同じ $\mathcal C(X_i,Z_\ell)$ に属する。空の双積を通る場合も恒等射が零元に等しく、空和は零射になる。始域または終域が空の双積なら射の集合は一元集合なので空の行列も一意な射を表す。
+各項は $X_i\to Y_j\to Z_\ell$ の合成であり、全項は同じ $\mathcal C(X_i,Z_\ell)$ に属する。空の双積を通る場合も恒等射が零元に等しく、空和は零射になる。始域または終域が空の双積なら [零対象の判定](#prop-catb1-03-zero-object-criterion) により射の集合は一元集合なので空の行列も一意な射を表す。
 <!-- proof-end -->
 
 ### 数値例
@@ -387,7 +387,7 @@ $$
 F(x,y)=(2x-y,3x+4y)
 $$
 
-の成分を求める。$F i_1(x)=(2x,3x)$、$F i_2(y)=(-y,4y)$ なので、射影を合成すると係数の表は
+の成分を求める。各成分は $\mathbb Z\to\mathbb Z$ の加法を保つ写像なので、第2節の計算により一つの整数係数で表せる。$F i_1(x)=(2x,3x)$、$F i_2(y)=(-y,4y)$ から、\n\n$$\n\begin{aligned}\np_1Fi_1(t)&=2t,&p_2Fi_1(t)&=3t,\\\\\np_1Fi_2(t)&=-t,&p_2Fi_2(t)&=4t.\n\end{aligned}\n$$\n\nここでは $p_j$ が出力側の射影であり、$t$ は各入力成分の任意の整数である。第 $j$ 行第 $i$ 列にこの係数を置けば、係数の表は
 
 $$
 F\ \longleftrightarrow\
@@ -408,7 +408,7 @@ $$
 
 ## 7. 対角射と余対角射から和を復元する
 
-加法は前加法圏の構造として与えた。しかし双積があれば、射の和を積と余積の普遍性だけから復元できる。
+加法は前加法圏の構造として与えた。しかし双積と零射があれば、射の和を積・余積の普遍性で特徴付けた射の合成として復元できる。既習の[対角射](../../CAT/CAT2-02/index.md#def-cat2-02-diagonal)をここでは $\Delta_X$ と書く。両射影との合成が恒等射になる射である。逆に、両挿入射との合成が恒等射になる射を余対角射と呼び、$\nabla_Y$ と書く。$f\oplus g$ は各成分に別々に $f,g$ を作用させる射を表す。
 
 <a id="prop-catb1-03-sum-reconstruction"></a>
 
@@ -429,12 +429,12 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$X\oplus X$ の挿入射・射影を $i_1,i_2$ と $p_1,p_2$、$Y\oplus Y$ のそれらを $k_1,k_2$ と $q_1,q_2$ とする。[対角射](../../CAT/CAT2-02/index.md#def-cat2-02-diagonal)と[双積の普遍性](#thm-catb1-03-biproduct-universality)から $\Delta_X=i_1+i_2$、$\nabla_Y=q_1+q_2$ である。例えば $p_j(i_1+i_2)=1_X$、$(q_1+q_2)k_j=1_Y$ なので、それぞれの普遍性による一意性を使った。
+$X\oplus X$ の挿入射・射影を $i_1,i_2$ と $p_1,p_2$、$Y\oplus Y$ のそれらを $k_1,k_2$ と $q_1,q_2$ とする。[対角射](../../CAT/CAT2-02/index.md#def-cat2-02-diagonal)と[双積の普遍性](#thm-catb1-03-biproduct-universality)から $\Delta_X=i_1+i_2$、$\nabla_Y=q_1+q_2$ である。実際、[有限双積の条件](#def-catb1-03-biproduct)と[双加法性](#def-catb1-03-preadditive)から\n\n$$\n\begin{aligned}\np_1(i_1+i_2)&=1_X+0_{X,X}=1_X,\\\\\np_2(i_1+i_2)&=0_{X,X}+1_X=1_X,\\\\\n(q_1+q_2)k_1&=1_Y+0_{Y,Y}=1_Y,\\\\\n(q_1+q_2)k_2&=0_{Y,Y}+1_Y=1_Y.\n\end{aligned}\n$$\n\n従ってそれぞれの普遍性による一意性を使える。
 
 [双積の射の行列表示](#thm-catb1-03-matrix)から $f\oplus g=k_1fp_1+k_2gp_2$ となる。従って
 
 $$
-(f\oplus g)\Delta_X=k_1f+k_2g
+\begin{aligned}\n(f\oplus g)\Delta_X\n&=(k_1fp_1+k_2gp_2)\Delta_X\\\\\n&=k_1f(p_1\Delta_X)+k_2g(p_2\Delta_X)\\\\\n&=k_1f+k_2g.\n\end{aligned}
 $$
 
 である。最後に $\nabla_Y k_j=1_Y$ を使い
@@ -503,7 +503,7 @@ $$
 前加法圏の双積 $B=X_1\oplus X_2$ に対し $u,v:T\to B$ が $p_1u=p_1v$、$p_2u=p_2v$ を満たすとする。差 $u-v$ に恒等射の分解を適用し、$u=v$ を証明せよ。
 
 <!-- solution-start -->
-**詳細解答。** [双加法性](#def-catb1-03-preadditive)により $p_j(u-v)=p_ju-p_jv=0_{T,X_j}$。ここで $p_j(-v)=-p_jv$ は $p_jv+p_j(-v)=p_j0=0$ から従う。[有限双積の条件](#def-catb1-03-biproduct)と[零射との合成](#prop-catb1-03-zero-composition)より
+**詳細解答。** [双加法性](#def-catb1-03-preadditive)により $p_j(u-v)=p_ju-p_jv=0_{T,X_j}$。ここで $p_j(-v)=-p_jv$ は $p_jv+p_j(-v)=p_j0_{T,B}=0_{T,X_j}$ から従う。[有限双積の条件](#def-catb1-03-biproduct)と[零射との合成](#prop-catb1-03-zero-composition)より
 
 $$
 \begin{aligned}
@@ -524,7 +524,7 @@ $\mathcal C(T,B)$ で $v$ を足せば $u=v$ となる。
 前加法圏で二項積 $(P,p_1,p_2)$ が存在するとする。$i_1:X_1\to P$、$i_2:X_2\to P$ を作り、任意の $a:X_1\to T$、$b:X_2\to T$ に対して $a p_1+b p_2$ が余積の媒介射となることを証明せよ。
 
 <!-- solution-start -->
-**詳細解答。** [圏論の二項積](../../CAT/CAT2-02/index.md#def-cat2-02-binary-product)で $(1_{X_1},0_{X_1,X_2})$ と $(0_{X_2,X_1},1_{X_2})$ をそれぞれ束ねて $i_1,i_2$ を作る。$p_1(i_1p_1+i_2p_2)=p_1$、$p_2(i_1p_1+i_2p_2)=p_2$ なので、積の一意性より $i_1p_1+i_2p_2=1_P$。
+**詳細解答。** [圏論の二項積](../../CAT/CAT2-02/index.md#def-cat2-02-binary-product)で $(1_{X_1},0_{X_1,X_2})$ と $(0_{X_2,X_1},1_{X_2})$ をそれぞれ束ねて $i_1,i_2$ を作る。[双加法性](#def-catb1-03-preadditive)と[零射との合成](#prop-catb1-03-zero-composition)を使うと\n\n$$\n\begin{aligned}\np_1(i_1p_1+i_2p_2)&=1_{X_1}p_1+0_{P,X_1}=p_1,\\\\\np_2(i_1p_1+i_2p_2)&=0_{P,X_2}+1_{X_2}p_2=p_2.\n\end{aligned}\n$$\n\n積の一意性より $i_1p_1+i_2p_2=1_P$。
 
 $w=a p_1+b p_2:P\to T$ と置く。[双加法性](#def-catb1-03-preadditive)と[零射との合成](#prop-catb1-03-zero-composition)により $wi_1=a1_{X_1}+b0_{X_1,X_2}=a$、$wi_2=a0_{X_2,X_1}+b1_{X_2}=b$。別の候補 $w'$ についても $w'i_1=a,w'i_2=b$ なら
 
@@ -596,10 +596,10 @@ $$
 
 - Level: C
 
-加法圏で $f,g,h:X\to Y$ とする。三項双積の射を用いて、入力を三成分へ複製する射 $\Delta:X\to X^{\oplus3}$、各成分に $f,g,h$ を作用させる射 $D:X^{\oplus3}\to Y^{\oplus3}$、出力三成分をまとめる射 $\nabla:Y^{\oplus3}\to Y$ をそれぞれ構成せよ。$\nabla D\Delta=f+g+h$ を証明し、入力成分を入れ替えたときの和が変わらない理由も示せ。
+加法圏で $f,g,h:X\to Y$ とする。三項双積の射を用いて、入力を三成分へ複製する射 $\Delta:X\to X^{\oplus3}$、各成分に $f,g,h$ を作用させる射 $D:X^{\oplus3}\to Y^{\oplus3}$、出力三成分をまとめる射 $\nabla:Y^{\oplus3}\to Y$ をそれぞれ構成せよ。$\nabla D\Delta=f+g+h$ を証明し、入力と出力の第1・第2成分を同時に入れ替えて $f,g$ の配置を交換したときにも、和が変わらない理由を示せ。
 
 <!-- solution-start -->
-**詳細解答。** $X^{\oplus3}$ の挿入射・射影を $i_j,p_j$、$Y^{\oplus3}$ のものを $k_j,q_j$ とする。$a_1=f,a_2=g,a_3=h$ と置く。[双積の普遍性](#thm-catb1-03-biproduct-universality)により全射影との合成が $1_X$ となる射は $\Delta=\sum_j i_j$。実際 $p_r\Delta=p_ri_r=1_X$。全挿入射との合成が $1_Y$ となる射は $\nabla=\sum_j q_j$ で、$\nabla k_r=q_rk_r=1_Y$。
+**詳細解答。** $X^{\oplus3}$ の挿入射・射影を $i_j,p_j$、$Y^{\oplus3}$ のものを $k_j,q_j$ とする。$a_1=f,a_2=g,a_3=h$ と置く。[双積の普遍性](#thm-catb1-03-biproduct-universality)により全射影との合成が $1_X$ となる射は $\Delta=\sum_j i_j$。実際、[有限双積の条件](#def-catb1-03-biproduct)により $p_r\Delta=\sum_j p_ri_j=1_X$（$j=r$ 以外の項は零射）。全挿入射との合成が $1_Y$ となる射は $\nabla=\sum_j q_j$ で、$\nabla k_r=\sum_j q_jk_r=1_Y$（$j=r$ 以外の項は零射）。
 
 [双積の射の行列表示](#thm-catb1-03-matrix)で、対角に $a_j$ を、他に零射を持つ射を
 
@@ -618,9 +618,9 @@ $$
 =\sum_j a_j=f+g+h.
 $$
 
-次に添字 $1,2$ を入れ替え、$3$ を固定する置換を $\sigma$ とする。$S_X=\sum_j i_{\sigma(j)}p_j$、$S_Y=\sum_j k_{\sigma(j)}q_j$ と置く。有限双積の条件から $p_rS_X\Delta=1_X$ となるので $S_X\Delta=\Delta$。また $\nabla S_Yk_j=1_Y$ なので $\nabla S_Y=\nabla$。両置換は二回適用すると恒等射になる（例えば $S_X^2i_j=i_{\sigma(\sigma(j))}=i_j$、余積の一意性を使う）。
+次に添字 $1,2$ を入れ替え、$3$ を固定する置換を $\sigma$ とする。$S_X=\sum_j i_{\sigma(j)}p_j$、$S_Y=\sum_j k_{\sigma(j)}q_j$ と置く。[有限双積の条件](#def-catb1-03-biproduct)と[零射との合成](#prop-catb1-03-zero-composition)を使うと\n\n$$\n\begin{aligned}\nS_Xi_s&=\sum_j i_{\sigma(j)}(p_ji_s)=i_{\sigma(s)},\\\\\nS_Yk_s&=\sum_j k_{\sigma(j)}(q_jk_s)=k_{\sigma(s)}.\n\end{aligned}\n$$\n\nまた $\Delta=\sum_s i_s$ なので $S_X\Delta=\sum_s i_{\sigma(s)}=\Delta$。$\nabla S_Yk_s=\nabla k_{\sigma(s)}=1_Y=\nabla k_s$ だから、[双積の余積としての普遍性](#thm-catb1-03-biproduct-universality)より $\nabla S_Y=\nabla$。両置換は二回適用すると恒等射になる。例えば $S_X^2i_s=i_{\sigma(\sigma(s))}=i_s$ であり、余積の一意性から $S_X^2=1_{X^{\oplus3}}$。$S_Y^2$ も同じ計算で恒等射となる。
 
-対角成分を入れ替えた射は $D'=S_YDS_X$ であり、$q_rD'i_s$ は $r=s$ のとき $a_{\sigma(s)}$、それ以外は零射となる。従って
+対角成分を入れ替えた射は $D'=S_YDS_X$ であり、成分を取り出すと\n\n$$\n\begin{aligned}\nq_rD'i_s&=q_rS_YD i_{\sigma(s)}\\\\\n&=q_rS_Y k_{\sigma(s)}a_{\sigma(s)}\\\\\n&=q_r k_s a_{\sigma(s)}.\n\end{aligned}\n$$\n\n従って $r=s$ のとき $a_{\sigma(s)}$、それ以外は零射となる。従って
 
 $$
 \nabla D'\Delta
