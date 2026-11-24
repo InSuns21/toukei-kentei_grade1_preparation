@@ -48,7 +48,9 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（三モード正弦格子の直交性と差分解）**  
-> 整数 $N\ge4$、内部点 $x_j=j/N$、$S_{jk}=\sin(k\pi x_j)$ とする。添字は $1\le j<N$、$1\le k\le3$ である。零端点の三点差分行列 $A_N$ は、対角成分 $2N^2$、上下隣接成分 $-N^2$、その他零の行列とする。次の正数を置く。
+> 整数 $N\ge4$、内部点 $x_j=j/N$、$S_{jk}=\sin(k\pi x_j)$ とする。添字は $1\le j<N$、$1\le k\le3$ である。
+>
+> 零端点の三点差分行列 $A_N$ は、対角成分 $2N^2$、上下隣接成分 $-N^2$、その他零の行列とする。次の正数を置く。
 
 $$
 \mu_k=4N^2\sin^2\left(\frac{k\pi}{2N}\right).
@@ -176,11 +178,18 @@ b_k^{(t)}=\frac{a_k}{\lambda_k}
 \left[1-(1-\eta\lambda_k^2)^t\right].
 $$
 
-> 内部格子点 $x_j=j/N$ において、候補 $v_b(x)=\sum_{k=1}^3b_k\sin(k\pi x)$ と真解 $u_a(x)=\sum_{k=1}^3(a_k/\lambda_k)\sin(k\pi x)$ を比較する。格子誤差を
+> 内部格子点 $x_j=j/N$ において、次の候補と真解を比較する。
 
-$
+$$
+v_b(x)=\sum_{k=1}^3b_k\sin(k\pi x),\qquad
+u_a(x)=\sum_{k=1}^3(a_k/\lambda_k)\sin(k\pi x).
+$$
+
+> 格子誤差を
+
+$$
 E_N(v_b)=\sqrt{\frac1N\sum_{j=1}^{N-1}|v_b(x_j)-u_a(x_j)|^2}
-$
+$$
 
 > とすると、
 
@@ -241,16 +250,23 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（二モード線形FNOの学習解と切断誤差）**  
-> 整数 $N\ge4$ とし、$s_k(x)=\sin(k\pi x)$、$\lambda_k=(k\pi)^2$ とする。整数 $l=1,\ldots,L$（$L\ge1$）で訓練ケースを番号付けする。外力係数を $a^{(l)}\in\mathbb R^3$ とし、真解は $u_{a^{(l)}}=\sum_{k=1}^3(a_k^{(l)}/\lambda_k)s_k$ とする。
+> 整数 $N\ge4$ とし、$s_k(x)=\sin(k\pi x)$、$\lambda_k=(k\pi)^2$ とする。整数 $l=1,\ldots,L$（$L\ge1$）で訓練ケースを番号付けする。
+> 外力係数を $a^{(l)}\in\mathbb R^3$ とし、真解を
+
+$$
+u_{a^{(l)}}=\sum_{k=1}^3(a_k^{(l)}/\lambda_k)s_k
+$$
+
+> とする。
 >
 > 訓練ケースの全てで第3係数は零であり、第1・第2係数は各々少なくとも一件で非零と仮定する。
 >
 > 候補 $v_{m,a}=\sum_{k=1}^2m_ka_ks_k$ について第4節の格子誤差の規約で、訓練損失
 
-$
+$$
 \sum_{l=1}^L\frac1N\sum_{j=1}^{N-1}
 |v_{m,a^{(l)}}(j/N)-u_{a^{(l)}}(j/N)|^2
-$
+$$
 
 > を最小にする実数重みは一意で、
 
