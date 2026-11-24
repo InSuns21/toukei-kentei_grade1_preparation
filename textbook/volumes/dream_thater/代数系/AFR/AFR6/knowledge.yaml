@@ -1,0 +1,42 @@
+chapter: AFR6
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR5, MF5]
+forward_references: []
+concepts:
+  - id: automorphic-forms.prime-hecke
+    name: "重さ0の素数Hecke作用素"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重さ0の素数Hecke作用素）"]
+    requires: [modular-forms.hermite-representatives, modular-forms.hecke-level-one]
+  - id: automorphic-forms.hecke-preservation
+    name: "Hecke作用による保型固有方程式の保存"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hecke作用による保型固有方程式の保存）"]
+    requires: [automorphic-forms.prime-hecke, automorphic-forms.hyperbolic-laplacian-equivariance, automorphic-forms.weight-zero-maass, automorphic-forms.maass-cusp, automorphic-forms.cusp-exponential-decay]
+  - id: automorphic-forms.hecke-self-adjoint-weight-zero
+    name: "重さ0のHecke作用素の自己共役性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（重さ0のHecke作用素の自己共役性）"]
+    requires: [automorphic-forms.prime-hecke, automorphic-forms.petersson, automorphic-forms.hyperbolic-metric-invariance, modular-forms.hecke-self-adjoint]
+  - id: automorphic-forms.maass-hecke-coefficient
+    name: "Maass形式のHecke係数公式"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Maass形式のHecke係数公式）"]
+    requires: [automorphic-forms.hecke-preservation, automorphic-forms.maass-bessel-expansion]
+  - id: automorphic-forms.maass-joint-eigenbasis
+    name: "カスプ固有空間の同時対角化と係数の漸化式"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（カスプ固有空間の同時対角化と係数の漸化式）"]
+    requires: [automorphic-forms.maass-hecke-coefficient, automorphic-forms.hecke-self-adjoint-weight-zero, automorphic-forms.cusp-discrete, modular-forms.eigenforms]
+  - id: automorphic-forms.eisenstein-hecke-eigenvalue
+    name: "Eisenstein級数の素数Hecke固有値"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Eisenstein級数の素数Hecke固有値）"]
+    requires: [automorphic-forms.prime-hecke, automorphic-forms.eisenstein-convergence, automorphic-forms.eisenstein-functional-equation]

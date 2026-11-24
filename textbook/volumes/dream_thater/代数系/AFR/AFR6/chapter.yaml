@@ -1,0 +1,29 @@
+id: "AFR6"
+title: "Hecke作用とスペクトルの接続"
+volume: "foundations"
+status: supplementary
+prerequisites: [AFR5, MF5]
+official_scope: []
+learning_objectives:
+  - 素数の二重剰余類と重さ0のHecke作用を説明し、代表を列挙できる
+  - 保型性・固有方程式・増大条件・カスプ条件の保存を証明できる
+  - 部分群の基本領域を使って有界性と自己共役性を導ける
+  - 非零Fourier係数から可換性と同時対角化、乗法的係数の漸化式を導ける
+  - 格子像の数え上げからEisenstein級数のHecke固有値を計算できる
+definitions:
+  - { id: AFR6-DEF-01, name: "重さ0の素数Hecke作用素" }
+theorems:
+  - { id: AFR6-THM-01, name: "Hecke作用による保型固有方程式の保存" }
+  - { id: AFR6-THM-02, name: "重さ0のHecke作用素の自己共役性" }
+  - { id: AFR6-THM-03, name: "Maass形式のHecke係数公式" }
+  - { id: AFR6-THM-04, name: "カスプ固有空間の同時対角化と係数の漸化式" }
+  - { id: AFR6-THM-05, name: "Eisenstein級数の素数Hecke固有値" }
+canonical_examples:
+  - 定数関数へのT_2の作用
+  - 二素数の係数の可換性
+  - Eisenstein級数の中心線での固有値
+problem_patterns: [AFR6-A1, AFR6-A2, AFR6-A3, AFR6-A4, AFR6-B1, AFR6-B2, AFR6-B3, AFR6-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 3 }

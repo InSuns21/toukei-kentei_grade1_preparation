@@ -1,0 +1,37 @@
+chapter: LVT2-05
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT2-04]
+concepts:
+  - id: lean-verification.induction-nat-induction
+    name: Leanの自然数の帰納法
+    kind: principle
+    introduction: formal
+  - id: lean-verification.induction-list-induction
+    name: Leanのリストの帰納法
+    kind: principle
+    introduction: formal
+  - id: lean-verification.induction-list-operations
+    name: 再帰的なリスト連結と反転
+    kind: definition
+    introduction: formal
+  - id: lean-verification.induction-steps-id
+    name: 自然数再帰による入力の保存
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.induction-join-nil
+    name: リスト連結の右単位元
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.induction-join-assoc
+    name: リスト連結の結合律
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.induction-flip-join
+    name: 反転と連結の交換則
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.induction-flip-twice
+    name: リスト反転の対合性
+    kind: proposition
+    introduction: formal
