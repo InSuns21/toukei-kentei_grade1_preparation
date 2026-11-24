@@ -480,6 +480,8 @@ $i$ が奇数なら $2B_{k,\psi_k}=0$、従って零です。$\psi_k=1$ の場�
 
 <a id="ref-iwa15-general-interpolation"></a>
 
+### 導手が $p$ 以外の素因数を持つ場合
+
 一般のDirichlet文字 $\chi$ では、$\chi\omega^{-k}$ は導手が $p$ 以外の素因数を持つことがあります。この場合にも同じ正規化の補間公式
 
 $$
