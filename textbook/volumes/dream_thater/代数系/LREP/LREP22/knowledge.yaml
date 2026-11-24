@@ -1,0 +1,47 @@
+chapter: LREP22
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP21
+forward_references: []
+concepts:
+  - id: representation.future-mass-shell
+    name: 未来質量殻
+    kind: definition
+    introduction: formal
+    requires: [representation.positive-energy, representation.lorentz-group]
+  - id: representation.future-cone-orbits
+    name: 未来円錐のLorentz軌道
+    kind: theorem
+    introduction: formal
+    requires: [representation.future-mass-shell, representation.lorentz-rotation-boost]
+  - id: representation.mass-shell-measure
+    name: 質量殻測度
+    kind: definition
+    introduction: formal
+    requires: [representation.future-mass-shell]
+  - id: representation.mass-shell-measure-invariance
+    name: 質量殻測度のLorentz不変性
+    kind: theorem
+    introduction: formal
+    requires: [representation.mass-shell-measure, representation.future-cone-orbits]
+  - id: representation.mass-squared-casimir
+    name: 質量二乗の不変性
+    kind: theorem
+    introduction: formal
+    requires: [representation.translation-joint-spectrum, representation.translation-spectrum-covariance, representation.positive-energy]
+  - id: representation.pauli-lubanski-vector
+    name: Pauli–Lubanskiベクトル
+    kind: definition
+    introduction: formal
+    requires: [representation.lorentz-rotation-boost, representation.translation-joint-spectrum, representation.strongly-continuous-unitary-representation]
+  - id: representation.pauli-lubanski-covariance
+    name: Pauli–Lubanskiの共変性とCasimir
+    kind: theorem
+    introduction: formal
+    requires: [representation.pauli-lubanski-vector, representation.translation-spectrum-covariance, representation.covered-poincare-group]
+  - id: representation.rest-spin-invariant
+    name: 正質量の静止系スピン不変量
+    kind: proposition
+    introduction: formal
+    requires: [representation.pauli-lubanski-covariance, representation.future-cone-orbits, representation.spin-spectrum]
