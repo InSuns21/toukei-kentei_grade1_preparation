@@ -1006,7 +1006,7 @@ W(0,\boldsymbol r)
 s^{-2}e^{-m^2s-|\boldsymbol r|^2/(4s)}\,ds>0.
 $$
 
-実際には本設問の $F,G$ に対して、より強い結論まで確認できます。[空間的分離での二点核の計算](#ref-qft5-spacelike-wightman)で導いた質量殻測度のLorentz不変性により、任意の $x\in\operatorname{supp}F$、$y\in\operatorname{supp}G$ について $r_{xy}^2=|\boldsymbol x-\boldsymbol y|^2-(x^0-y^0)^2>0$ と置くと
+実際には本設問の $F,G$ に対して、より強い結論まで確認できます。[空間的分離での二点核の計算](#ref-qft5-spacelike-wightman)で確認したように、質量殻・正エネルギー枝・四次元体積要素を保つLorentz変換を用いると、任意の $x\in\operatorname{supp}F$、$y\in\operatorname{supp}G$ について $r_{xy}^2=|\boldsymbol x-\boldsymbol y|^2-(x^0-y^0)^2>0$ と置くと
 
 $$
 W(x-y)=\frac1{16\pi^2}\int_0^\infty
