@@ -101,6 +101,12 @@ export const lessons = {
     ['Main.lean','境界のテスト','LVT3-03 OK を表示。','\n#eval main\n'],
     ['ExerciseSolutions.lean','演習解答の検査','全8題の命題を検査。'],
     ['Failure.lean','長さの等式では足りない','型不一致で拒否される。']
+  ] },
+  'LVT3-04': { module:'LvtSorting', modes:[
+    ['Inspect.lean','整列・重複要素の保存','[]、[0,1,3,3]、2、0 と公理依存を確認。'],
+    ['Main.lean','境界と誤実装のテスト','LVT3-04 OK を表示。','\n#eval main\n'],
+    ['ExerciseSolutions.lean','演習解答の検査','全8題の証明を検査。'],
+    ['Failure.lean','整列性だけでは足りない','型不一致で拒否される。']
   ] }
 };
 export function combine(module, definitions, experiment, suffix='') {
