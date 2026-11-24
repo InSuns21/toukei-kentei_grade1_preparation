@@ -196,7 +196,21 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[実偶Clifford代数の行列模型](#thm-lrep15-even-model)により上側ブロックが $B$ のとき、$s\widetilde s$ の上側は $B\operatorname{adj}B=(\det B)I$ です。上側ブロックが元を一意に決めるので、$s\widetilde s=1$ と $\det B=1$ は同値です。この場合 $\operatorname{adj} B=B^{-1}$ です。上側ブロックは積で通常の行列積を取り、単位元の上側は $I$、逆元は上側 $B^{-1}$ の元です。したがって定義した集合は群で、上側ブロックは $SL(2,\mathbb C)$ との群同型です。この写像と逆写像は実線形な座標対応の制限なので連続で滑らかです。[SL(2,C)の道連結性](../LREP10/index.md#lem-lrep10-polar-connectivity)から群は連結です。
+[実偶Clifford代数の行列模型](#thm-lrep15-even-model)により上側ブロックが $B$ のとき、$s\widetilde s$ の上側は
+
+$
+B\operatorname{adj}B=(\det B)I
+$
+
+です。上側ブロックが元を一意に決めるので、
+
+$
+s\widetilde s=1\quad\Longleftrightarrow\quad\det B=1.
+$
+
+この場合 $\operatorname{adj} B=B^{-1}$ です。上側ブロックは積で通常の行列積を取り、単位元の上側は $I$、逆元は上側 $B^{-1}$ の元です。
+
+したがって定義した集合は群で、上側ブロックは $SL(2,\mathbb C)$ との群同型を与えます。この写像と逆写像は実線形な座標対応の制限なので連続で滑らかです。[SL(2,C)の道連結性](../LREP10/index.md#lem-lrep10-polar-connectivity)から群は連結です。
 
 [LREP10の四元ベクトルのエルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model)を $H(x)=x^0 I+\sum_j x^j\sigma_j$ とします。$H(x)$ の跡は $2x^0$ なので、第3節で確認した $\operatorname{adj}H=(\operatorname{tr}H)I-H$ に代入すると $\operatorname{adj}H(x)=x^0I-\sum_j x^j\sigma_j$。従って
 
