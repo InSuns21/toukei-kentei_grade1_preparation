@@ -571,7 +571,7 @@ $$
 
 (3) [木分解上の因子積和漸化式](#thm-gct7-factor-tree-dp) で共有する値を $c_1,c_3$ とする。右の集計を求める。$\boldsymbol{1}$ は添字条件が真なら1、偽なら0を表す。
 
-$
+$$
 M(c_1,c_3)=
 \sum_{d=1}^4\boldsymbol{1}_{d\ne c_1}
 \boldsymbol{1}_{d\ne c_3}.
