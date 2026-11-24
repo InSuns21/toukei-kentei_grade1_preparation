@@ -1,0 +1,31 @@
+id: "LVT3-01"
+title: "要求を事前条件・事後条件へ"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT2-08]
+official_scope: []
+learning_objectives:
+  - 入力型と事前条件および入力と出力を関係付ける事後条件を区別する
+  - 在庫引当の成功と拒否を独立した仕様として定義し全分岐の正しさを証明する
+  - 弱い仕様と充足不能な仕様および空虚な仮定を反例で区別する
+  - 仕様が許す結果の一意性と対象外入力の保証を区別する
+definitions:
+  - { id: LVT3-01-DEF-01, name: "Leanの入出力契約" }
+  - { id: LVT3-01-DEF-02, name: "Leanの在庫引当仕様" }
+  - { id: LVT3-01-DEF-03, name: "Leanの弱い在庫仕様" }
+  - { id: LVT3-01-DEF-04, name: "Leanの成功必須仕様" }
+propositions:
+  - { id: LVT3-01-PROP-01, name: "在庫引当関数の契約充足" }
+  - { id: LVT3-01-PROP-02, name: "弱い在庫仕様の反例" }
+  - { id: LVT3-01-PROP-03, name: "成功必須仕様の充足不能性" }
+  - { id: LVT3-01-PROP-04, name: "在庫引当仕様の結果一意性" }
+theorems: []
+canonical_examples:
+  - "在庫引当の成功・不足・数量ゼロ"
+  - "常に拒否する実装と弱い仕様"
+  - "全要求を成功させる仕様の矛盾"
+problem_patterns: [LVT3-01-A01, LVT3-01-A02, LVT3-01-A03, LVT3-01-A04, LVT3-01-B01, LVT3-01-B02, LVT3-01-B03, LVT3-01-B04, LVT3-01-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 3, review: 0.5 }
