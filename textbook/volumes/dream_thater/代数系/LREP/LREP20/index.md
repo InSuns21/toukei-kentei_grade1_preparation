@@ -12,7 +12,7 @@ $$
 \sum_{\mu=0}^3p_\mu p^\mu=-E^2+k^2=-m^2.
 $$
 
-時空点を $x=(t,\boldsymbol x)$、$\boldsymbol x=(x^1,x^2,x^3)$ と書きます。空間添字 $j$ は $1,2,3$、時空添字 $\mu,\nu$ は $0,1,2,3$ を走ります。空間部分の計量は単位行列なので $p_j=p^j$ です。列は [Diracスピノル](../LREP16/index.md#def-lrep16-dirac) の Weyl 基底（上二成分が左、下二成分が右）で表し、$e_j$ は四成分の標準基底（この添字だけは $j=1,2,3,4$）、$\dagger$ は複素共役転置、\mathsf T$ は転置です。
+時空点を $x=(t,\boldsymbol x)$、$\boldsymbol x=(x^1,x^2,x^3)$ と書きます。空間添字 $j$ は $1,2,3$、時空添字 $\mu,\nu$ は $0,1,2,3$ を走り、$\eta^{\mu\nu}$ は逆計量の成分です。偏微分 $\partial_\mu$ は他の時空座標を固定して $x^\mu$（$x^0=t$）で微分する操作で、$\partial_0=\partial_t$ です。空間部分の計量は単位行列なので $p_j=p^j$ です。列は [Diracスピノル](../LREP16/index.md#def-lrep16-dirac) の Weyl 基底（上二成分が左、下二成分が右）で表し、$e_j$ は四成分の標準基底（この添字だけは $j=1,2,3,4$）、$\dagger$ は複素共役転置、$\mathsf T$ は転置です。
 
 [ベクトル成分用行列](../LREP17/index.md#prop-lrep17-vector-matrices) と [Dirac随伴](../LREP17/index.md#def-lrep17-dirac-adjoint) は前講と同じものを使います。[Pauli行列](../LREP5/index.md#def-lrep5-pauli-model) を $\sigma_j$ として
 
@@ -42,7 +42,7 @@ $$
 > をそれぞれ正周波数・負周波数のDirac平面波モードと呼ぶ。$p=(E,\boldsymbol p)$ はどちらにも使う未来向きのラベルである。
 <!-- formal-statement-end -->
 
-偏微分 $\partial_\mu$ は他の時空座標を固定して $x^\mu$ で微分する操作で、$\partial_0=\partial_t$ です。運動量と質量は定数なので $\partial_t\theta=E$、$\partial_j\theta=-p_j$ です。指数関数の連鎖律を使うと、例えば正周波数では
+運動量と質量は定数なので $\partial_t\theta=E$、$\partial_j\theta=-p_j$ です。指数関数の連鎖律を使うと、例えば正周波数では
 
 $$
 i\partial_t(ue^{-i\theta})=Eu e^{-i\theta},
@@ -90,7 +90,7 @@ $$
 
 ## 2. 静止系から任意の運動量の係数を作る
 
-$m>0$ では静止系で $E=m$ です。$H^2=I_4$ なので、正周波数・負周波数の静止係数はそれぞれ $H$ の固有値 $+1,-1$ に対応します。$\chi_1=(1,0)^{\mathsf T}$、$\chi_2=(0,1)^{\mathsf T}$ を使って
+$m>0$ では静止系で $E=m$ です。$H^2=I_4$ なので、正周波数・負周波数の静止係数はそれぞれ $H$ の固有値 $+1,-1$ に対応します。$\chi_1=(1,0)^{\mathsf T}$、$\chi_2=(0,1)^{\mathsf T}$ を使い、$s=1,2$ に対して（引数 $0$ は空間運動量が零の意味で、四元運動量は $(m,\boldsymbol0)$）
 
 $$
 u_s(0)=\sqrt m\begin{pmatrix}\chi_s\\i\chi_s\end{pmatrix},
@@ -303,7 +303,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$(K(p)-mI_4)u_s=0$ の左から $H$ を掛けると $Eu_s=(H\sum_jp_jG^j+mH)u_s=T(\boldsymbol p)u_s$ です。負周波数の係数に対して $p'=(E,-\boldsymbol p)$ とすると $(K(p')+mI_4)v_s(p')=0$ なので $Ev_s(p')=-T(\boldsymbol p)v_s(p')$ です。
+[Dirac平面波モード](#def-lrep20-plane-wave) の係数方程式 $(K(p)-mI_4)u_s=0$ の左から $H$ を掛けると $Eu_s=(H\sum_jp_jG^j+mH)u_s=T(\boldsymbol p)u_s$ です。負周波数の係数に対して $p'=(E,-\boldsymbol p)$ とすると $(K(p')+mI_4)v_s(p')=0$ なので $Ev_s(p')=-T(\boldsymbol p)v_s(p')$ です。
 
 Hermitian性により $Eu_s^\dagger v_t(p')=-Eu_s^\dagger v_t(p')$ となるため、$E>0$ から異符号間の通常の内積は0です。[規格化とスピン和](#thm-lrep20-spin-sums) の通常の内積から、同符号の二列を $\sqrt{2E}$ で割ると正規直交します。四列は互いに直交する非零列なので四次元の基底です。
 
@@ -315,7 +315,7 @@ $$
 \Pi_+\Pi_-=\tfrac14(I_4-T^2/E^2)=0.
 $$
 
-さらに $\Pi_++\Pi_-=I_4$、$\Pi_\pm^\dagger=\Pi_\pm$ です。$T\Pi_\pm=(T\pm EI_4)/2=\pm E\Pi_\pm$ なので像は対応する固有空間に入り、$Tw=\pm Ew$ なら $\Pi_\pm w=w$ なので逆も成り立ちます。異なる像の内積は $(\Pi_+a)^\dagger\Pi_-b=a^\dagger\Pi_+\Pi_-b=0$ です。ここで用いた条件は $T^\dagger=T$、$T^2=E^2I_4$、$E>0$ だけなので $m=0$、$\boldsymbol p\ne0$ の場合にも成立します。$\operatorname{tr}T=0$ から両射影の跡は2で、固有空間は各二次元です。$\square$
+さらに $\Pi_++\Pi_-=I_4$、$\Pi_\pm^\dagger=\Pi_\pm$ です。$T\Pi_\pm=(T\pm EI_4)/2=\pm E\Pi_\pm$ なので像は対応する固有空間に入り、$Tw=\pm Ew$ なら $\Pi_\pm w=w$ なので逆も成り立ちます。異なる像の内積は $(\Pi_+a)^\dagger\Pi_-b=a^\dagger\Pi_+\Pi_-b=0$ です。ここで用いた条件は $T^\dagger=T$、$T^2=E^2I_4$、$E>0$ だけなので $m=0$、$\boldsymbol p\ne0$ の場合にも成立します。$\operatorname{tr}T=0$ から $\operatorname{tr}\Pi_\pm=2$ です。各射影の像の基底と核の基底を合わせた基底では、射影行列の対角成分は像で1、核で0になるため、跡は像の次元に等しく、固有空間は各二次元です。$\square$
 <!-- proof-end -->
 
 次に運動方向に沿ったスピンを測ります。$\boldsymbol p\ne0$ とし、[helicity演算子](../LREP16/index.md#def-lrep16-helicity) を
@@ -324,7 +324,7 @@ $$
 h_{\boldsymbol p}=\frac1{2k}\begin{pmatrix}P&0\\0&P\end{pmatrix}
 $$
 
-と書きます。$P$ はHermitian、$P^2=k^2I$ かつトレース0なので、固有値は $+k,-k$ です。単位固有ベクトルを $\chi_\tau$（$\tau=+1,-1$）とし、$P\chi_\tau=\tau k\chi_\tau$ とします。これらを第2節の基底に選べば
+と書きます。$P$ はHermitian、$P^2=k^2I$ かつトレース0なので、固有値は $+k,-k$ です。単位固有ベクトルを $\chi_\tau$（$\tau=+1,-1$）とし、$P\chi_\tau=\tau k\chi_\tau$ とします。$m>0$ の場合、これらを [正質量のDiracモードの構成](#prop-lrep20-boost-modes) の基底に選べば
 
 $$
 \begin{aligned}
@@ -333,7 +333,7 @@ A^{-1}\chi_\tau&=\sqrt{(E-\tau k)/m}\,\chi_\tau.
 \end{aligned}
 $$
 
-$m>0$ の場合について、第2節の $A$ の固有値は正なので、二乗の式から正の平方根を選びました。従って
+第2節の $A$ の固有値は正なので、二乗の式から正の平方根を選びました。従って
 
 $$
 u_\tau=\begin{pmatrix}\sqrt{E+\tau k}\,\chi_\tau\\
@@ -347,7 +347,7 @@ $$
 
 ## 5. 質量零のWeyl方程式と符号の読み方
 
-$m=0$、$k>0$ とします。質量項が左右のWeyl成分を結合していた [前々講までの構成](../LREP16/index.md#prop-lrep16-mass-coupling) と異なり、質量零では二つの成分の方程式が分離します。第2節のboostの式は $m$ で割るため使えません。しかし第4節の平方根の式は $m\to0+$ で有限の極限を持ちます。直接、方程式を解いて同じ結果になることを確かめます。
+$m=0$、$k>0$ とします。質量項が左右のWeyl成分を結合していた [LREP16の質量項による左右の結合](../LREP16/index.md#prop-lrep16-mass-coupling) と異なり、質量零では二つの成分の方程式が分離します。第2節のboostの式は $m$ で割るため使えません。しかし第4節の平方根の式は $m\to0+$ で有限の極限を持ちます。直接、方程式を解いて同じ結果になることを確かめます。
 
 <a id="thm-lrep20-massless-helicity"></a>
 
@@ -367,7 +367,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-第1節で導いた係数方程式では $m=0$ なので両符号とも $K(p)w=0$ です。$w=(a,b)^{\mathsf T}$ と分けると
+[Dirac平面波モード](#def-lrep20-plane-wave) の係数方程式では $m=0$ なので両符号とも $K(p)w=0$ です。$w=(a,b)^{\mathsf T}$ と分けると
 
 $$
 (kI+P)b=0,\qquad(kI-P)a=0.
@@ -402,7 +402,7 @@ $$
 
 よって $JP^*=-PJ$ となり、上下の非対角ブロックを比較して $h_{\boldsymbol p} B=-B h_{\boldsymbol p}^*$ です。また実対角行列 $\gamma^5$ と $B$ は反交換するので、共役はchiralityとラベル方向の係数helicityの双方を反転させます。
 
-正エネルギーの反粒子として解釈するときは、負周波数モードそのもののFourier波数を反粒子の運動量と同一視しません。$v$ に付けたラベル $p$ は未来向きの運動量で、共役された係数の回転位相は元の係数と逆です。例えばラベル方向の回転に対し $u$ が $e^{-ih\varphi}$ を受けるなら、共役列は $e^{ih\varphi}$ を受けます。反粒子状態のスピンラベルを共役係数の固有値と同一視しない理由です。状態空間での厳密な作用は後の講義で構成します。
+正エネルギーの反粒子として解釈するときは、負周波数モードそのもののFourier波数を反粒子の運動量と同一視しません。$v$ に付けたラベル $p$ は未来向きの運動量で、共役された係数の回転位相は元の係数と逆です。例えばラベル方向の回転角 $\varphi$ に対し、helicity固有値 $h$ の係数 $u$ が位相 $e^{-ih\varphi}$ を受けるなら、[電荷共役のLorentz共変性](../LREP18/index.md#prop-lrep18-real-structure) と反線形性により共役列は $e^{ih\varphi}$ を受けます。反粒子状態のスピンラベルを共役係数の固有値と同一視しない理由です。状態空間での厳密な作用は後の講義で構成します。
 
 なお $m=0$ でも $k>0$ で固定Fourier波数の時間発展の二乗は $k^2I_4$ となりますが、$m$ で割る第3節の完全性の式は使えません。$\boldsymbol p=0$ の質量零の場合は $E=0$ であり、運動方向も周波数の区別も失われます。
 
@@ -553,7 +553,7 @@ $$
 i\frac{dw}{dt}=5e^{-5it}a_+-5e^{5it}a_-=Tw(t).
 $$
 
-$t=0$ で和は $e_1$ です。元の場では空間指数を固定して $\partial_t\psi=e^{i3z}dw/dt$ と偏微分します。二項は直交し、それぞれの長さの二乗は $16/25+4/25=4/5$ と $1/25+4/25=1/5$。全密度は1のままです。
+$t=0$ で和は $e_1$ です。元の場では空間指数を固定して $\partial_t\psi=e^{i3z}dw/dt$ と偏微分します。定数列の通常の内積も $a_+^\dagger a_-=4/25-4/25=0$ です。指数の絶対値は1なので二項は直交し、それぞれの長さの二乗は $16/25+4/25=4/5$ と $1/25+4/25=1/5$。全密度 $\psi^\dagger\psi=w^\dagger w$ は1のままです。
 <!-- solution-end -->
 
 <a id="ex-lrep20-b04"></a>
@@ -567,7 +567,7 @@ $m=0$、$\boldsymbol p=(0,0,k)$、$k>0$ で $\psi=e_1 e^{-ikt+ikz}$ とする。
 <!-- solution-start -->
 **詳細解答。** [電荷共役](../LREP18/index.md#def-lrep18-charge-conjugation) の行列 $B$ を掛けると、$-J(1,0)^{\mathsf T}=(0,1)^{\mathsf T}$ なので $Be_1=e_4$ です。
 
-指数は共役で $e^{ikt-ikz}$ となります。$P=k\sigma_3$ なので右成分は $Pb=-kb$ を満たし、[質量零モードの係数条件](#thm-lrep20-massless-helicity) を満たします。
+指数は共役で $e^{ikt-ikz}$ となります。$P=k\sigma_3$ なので右成分 $b=(0,1)^{\mathsf T}$ は $Pb=-kb$、左成分 $a=0$ は $Pa=ka$ を満たし、[質量零モードの係数条件](#thm-lrep20-massless-helicity) が成立します。
 
 [chirality演算子](../LREP16/index.md#def-lrep16-chirality) は $e_4$ に固有値 $+1$ を与えます。[helicity演算子](../LREP16/index.md#def-lrep16-helicity) を掛けると
 
