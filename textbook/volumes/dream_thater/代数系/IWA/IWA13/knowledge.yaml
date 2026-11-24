@@ -1,0 +1,69 @@
+chapter: IWA13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - IWA12
+  - F0-00P1
+  - F0-02C2
+forward_references: []
+concepts:
+  - id: number-theory.iwa13-distribution
+    name: p進分布
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa4-inverse-limit]
+  - id: number-theory.iwa13-integral
+    name: p進積分
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa13-distribution]
+  - id: number-theory.iwa13-extension
+    name: 分布の積分への一意的延長
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa13-integral]
+  - id: number-theory.iwa13-functional-correspondence
+    name: 測度と連続線形汎関数の対応
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa13-extension]
+  - id: number-theory.iwa13-convolution
+    name: 測度の畳み込み
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa13-distribution]
+  - id: number-theory.iwa13-convolution-formula
+    name: 畳み込みの整合性と積分公式
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa13-convolution, number-theory.iwa13-integral]
+  - id: number-theory.iwa13-measure-algebra
+    name: 測度環と岩澤代数
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa13-convolution-formula, number-theory.iwasawa-algebra]
+  - id: number-theory.iwa13-amice-transform
+    name: 二項式変換
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa13-integral]
+  - id: number-theory.iwa13-amice-isomorphism
+    name: 二項式変換と岩澤代数の積
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa13-amice-transform, number-theory.iwa13-measure-algebra, number-theory.iwasawa-power-series-isomorphism]
+  - id: number-theory.iwa13-mellin
+    name: p進Mellin変換
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa13-integral, number-theory.iwa13-amice-transform]
+  - id: number-theory.iwa13-mellin-evaluation
+    name: Mellin変換の評価公式
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa13-mellin, number-theory.iwa13-amice-isomorphism]
+  - id: number-theory.iwa13-no-haar-probability
+    name: 平行移動不変な有界Q_p値測度
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa13-distribution]
