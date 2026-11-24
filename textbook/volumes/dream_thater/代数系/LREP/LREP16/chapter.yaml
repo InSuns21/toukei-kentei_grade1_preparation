@@ -15,7 +15,7 @@ definitions:
   - { id: LREP16-DEF-01, name: Diracスピノル }
   - { id: LREP16-DEF-02, name: chirality演算子 }
   - { id: LREP16-DEF-03, name: chirality射影子 }
-  - { id: LREP16-DEF-04, name: helicity演算子 }
+  - { id: LREP16-DEF-04, name: helicity演算子とDiracスピノルのヘリシティ }
 theorems:
   - { id: LREP16-PROP-01, name: chirality演算子の恒等式 }
   - { id: LREP16-PROP-02, name: chirality射影の分解と交換則 }
