@@ -2,7 +2,7 @@ id: "CATB3-02"
 title: "有限表示対象"
 volume: "foundations"
 status: supplementary
-prerequisites: [CATB3-01, CATB1-04]
+prerequisites: [CATB3-01, CATB1-04, MOD2]
 official_scope: []
 learning_objectives:
   - Homの比較写像を構成し、有限表示性を段階表示と等号の段階判定で説明できる
@@ -12,8 +12,8 @@ learning_objectives:
   - 有限生成でも有限表示でない加群の反例を検証できる
 definitions:
   - { id: CATB3-02-DEF-01, name: "有限表示対象" }
-  - { id: CATB3-02-DEF-02, name: "加群の有限生成と有限関係式による表示" }
 theorems:
+  - { id: CATB3-02-PROP-02, name: "有限関係式による加群の有限表示の判定" }
   - { id: CATB3-02-PROP-01, name: "有限表示性の段階判定" }
   - { id: CATB3-02-THM-01, name: "集合の有限表示性" }
   - { id: CATB3-02-LEM-01, name: "加群のフィルター余極限の集合構成" }
