@@ -98,8 +98,14 @@ $$
 -s\varepsilon_{aic}x^c.
 $$
 
-ここでは $\varepsilon_{abc}\varepsilon_{bik}
-=\delta_{ak}\delta_{ci}-\delta_{ai}\delta_{ck}$ を使った。右辺に $\eta^a_{i4}=\delta_{ai}$ と $\eta^a_{4\lambda}x^\lambda=-x^a$ を代入すると
+ここでは次の縮約公式を使った。
+
+$$
+\varepsilon_{abc}\varepsilon_{bik}
+=\delta_{ak}\delta_{ci}-\delta_{ai}\delta_{ck}.
+$$
+
+右辺に $\eta^a_{i4}=\delta_{ai}$ と $\eta^a_{4\lambda}x^\lambda=-x^a$ を代入すると
 
 $$
 r^2\delta_{ai}-x^ix^a
