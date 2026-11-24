@@ -33,7 +33,14 @@ export const lessons = {
     ['Main.lean','具体例の検査','すべての #guard が通り、LVT1-06 OK を表示。','\n#eval main\n'],
     ['Boundary.lean','実行入口を試す','文字列2、9、abcの出力を確認。引数を書き換えて試す。','\n#eval main ["2"]\n#eval main ["9"]\n#eval main ["abc"]\n'],
     ['ExerciseSolutions.lean','演習解答の検査','すべての #guard が通る。']
-  ], commands:'lake build\nlake test\nlake env lean Inspect.lean\nlake env lean ExerciseSolutions.lean\nlake env lean --run Boundary.lean 2\nlake env lean --run Boundary.lean 9\nlake env lean --run Boundary.lean abc\npython3 check_boundary.py' }
+  ], commands:'lake build\nlake test\nlake env lean Inspect.lean\nlake env lean ExerciseSolutions.lean\nlake env lean --run Boundary.lean 2\nlake env lean --run Boundary.lean 9\nlake env lean --run Boundary.lean abc\npython3 check_boundary.py' },
+  'LVT2-01': { module:'LvtDecision', modes:[
+    ['Inspect.lean','命題と判定','true、false、true、false の順に表示。型と証明を確認。'],
+    ['Main.lean','具体例の検査','すべての #guard が通り、LVT2-01 OK を表示。','\n#eval main\n'],
+    ['Inspect.lean','誤った判定器の反例','sameNumber 2 3 は false、wrongMatches 2 3 は true。','\n#eval sameNumber 2 3\n#eval wrongMatches 2 3\n'],
+    ['ExerciseSolutions.lean','演習解答の検査','すべての #guard と証明が通る。'],
+    ['Export.lean','81組の判定結果','n,k,正しい判定,誤った判定の4列を81行出力。','\n#eval main\n']
+  ], commands:'lake build\nlake test\nlake env lean Inspect.lean\nlake env lean ExerciseSolutions.lean\npython3 check_matches.py' }
 };
 export function combine(module, definitions, experiment, suffix='') {
   // Only the exact local module import is replaced by its source.

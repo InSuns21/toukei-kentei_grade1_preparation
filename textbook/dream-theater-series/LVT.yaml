@@ -31,7 +31,7 @@ chapters:
     title: "純粋な参照モデルと入出力境界"
   - id: LVT2-01
     path: textbook/volumes/dream_thater/計算系/LVT/LVT2-01
-    status: planned
+    status: completed
     title: "Prop・Bool・Decidable・Curry–Howard対応"
   - id: LVT2-02
     path: textbook/volumes/dream_thater/計算系/LVT/LVT2-02

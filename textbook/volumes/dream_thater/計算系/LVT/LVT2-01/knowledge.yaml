@@ -1,0 +1,25 @@
+chapter: LVT2-01
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT1-06]
+concepts:
+  - id: lean-verification.bool
+    name: Leanの真偽値型
+    kind: definition
+    introduction: formal
+  - id: lean-verification.prop
+    name: Leanの命題型
+    kind: definition
+    introduction: formal
+  - id: lean-verification.curry-howard
+    name: Curry–Howard対応
+    kind: definition
+    introduction: formal
+  - id: lean-verification.decidable
+    name: Leanの決定可能性
+    kind: definition
+    introduction: formal
+  - id: lean-verification.decision-bridge
+    name: 証明付き判定の健全性と完全性
+    kind: proposition
+    introduction: formal
