@@ -9,11 +9,16 @@ concepts:
     kind: proposition
     introduction: formal
     requires: [representation.dirac-spinor, representation.weyl-parity-exchange, representation.chirality-operator]
+  - id: representation.antiunitary-operator
+    name: 反ユニタリ作用素
+    kind: definition
+    introduction: formal
+    requires: [representation.strongly-continuous-unitary-representation]
   - id: representation.positive-energy-time-reversal
     name: 正エネルギーの時間反転条件
     kind: proposition
     introduction: formal
-    requires: [representation.positive-energy, quantum.stone-theorem]
+    requires: [representation.positive-energy, quantum.stone-theorem, representation.antiunitary-operator]
   - id: representation.discrete-helicity-reflection
     name: 離散操作によるヘリシティの変化
     kind: proposition
