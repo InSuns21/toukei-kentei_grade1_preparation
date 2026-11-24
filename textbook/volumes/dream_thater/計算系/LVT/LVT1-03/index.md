@@ -133,7 +133,13 @@ def play (p : Player) (c : Cell) : Result :=
 
 play の型は Player → Cell → Result です。play Player.x Cell.empty では空きマスの枝に入り、played (occupied x) を返します。play Player.x (Cell.occupied Player.o) では既存の所有者 q に o が入り、blocked o を返します。p と q を混同すると、誰が先に置いていたかの情報が失われます。
 
-成功型とエラー型を引数として指定できる汎用の型 Except もあります。ここではエラーの種類を PlayError として分離します。
+成功型とエラー型を引数として指定できる汎用の型 Except もあります。ここではエラーの種類を PlayError として分離します。既存プレイヤーを受け取る occupied という構成子を一つ持たせます。
+
+```lean
+inductive PlayError where
+  | occupied (p : Player)
+  deriving Repr, BEq
+```
 
 <a id="def-lvt1-03-except"></a>
 
@@ -148,10 +154,6 @@ play の型は Player → Cell → Result です。play Player.x Cell.empty で�
 <!-- definition-example-end -->
 
 ```lean
-inductive PlayError where
-  | occupied (p : Player)
-  deriving Repr, BEq
-
 def playExcept (p : Player) (c : Cell) : Except PlayError Cell :=
   match play p c with
   | .played d => .ok d
@@ -165,7 +167,7 @@ playExcept は Result の二つの形を [Except型](#def-lvt1-03-except) の二
 <!-- formal-statement-start -->
 ### 命題（空きマスと占有マスの着手結果）
 
-上で定義した Player、Cell、PlayError、play、playExcept に対し、任意の Player 型の値 p, q について次が成立する。
+Player は x と o を持ち、Cell は empty または occupied q（q は Player）、PlayError は occupied q を持つとする。play は空きマスで played (occupied p)、占有マスで blocked q を返す。playExcept は前者を ok、後者を error (PlayError.occupied q) へ変換する関数である。任意の Player 型の値 p, q について次が成立する。
 
 - playExcept p Cell.empty = Except.ok (Cell.occupied p)
 - playExcept p (Cell.occupied q) = Except.error (PlayError.occupied q)
