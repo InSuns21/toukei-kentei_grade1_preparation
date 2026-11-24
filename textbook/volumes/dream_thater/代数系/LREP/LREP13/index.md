@@ -214,7 +214,7 @@ $u=(\sqrt2,0)^{\mathsf T}$、$v=(0,\sqrt2)^{\mathsf T}$ なら $x=(1,0,0,1)$、$
 
 <!-- formal-statement-start -->
 > **定義（空間反転）**  
-> 実Minkowski空間上の線形写像 $P=\operatorname{diag}(1,-1,-1,-1)$ を空間反転と呼ぶ。すなわち
+> 実Minkowski空間上の線形写像 $P=\begin{pmatrix}1&0\\0&-I_3\end{pmatrix}$ を空間反転と呼ぶ。すなわち
 
 $$
 P(x^0,\mathbf x)=(x^0,-\mathbf x).
