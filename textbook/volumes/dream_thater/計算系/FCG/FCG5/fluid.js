@@ -201,7 +201,9 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
   if(modeLoc!==null&&aspectLoc!==null){
     const motionPreference=window.matchMedia?.('(prefers-reduced-motion: reduce)');
     let stateStep=steps,playing=!(motionPreference?.matches??false);
-    let last=0,acc=0,raf=0,dragging=false;
+    let last=0,acc=0,raf=0,dragging=false,previous=null;
+    // A live experiment may continue beyond the 0..32 initial audit window.
+    const liveLimit=10000;
     // This progress event is relayed by the isolated host with its session token.
     // The UI's live clock and the rendered solver therefore share one state.
     function emitProgress(){
@@ -231,8 +233,9 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
     motionPreference?.addEventListener?.('change',onMotionPreferenceChange);
     window.addEventListener('message',onParentMotion);
     canvas.tabIndex=0;
-    canvas.title='FCG5 '+N+'×'+N+'実ソルバー：Spaceで再生・停止、Shift+ドラッグ（タッチならドラッグ）で染料追加。通常クリックはGPU画素診断です。';
-    canvas.setAttribute('aria-label','FCG5 実際のMAC格子ソルバーの染料アニメーション。Spaceで再生停止、Shift+ドラッグで色を投入');
+    canvas.title='ドラッグで染料を入れて流れをかき混ぜる。Shift+ドラッグは染料だけ。Spaceで再生・停止。';
+    canvas.setAttribute('aria-label','流体の染料。ドラッグでかき混ぜる、Shift+ドラッグで染料だけ追加、Spaceで再生停止');
+    if(canvas.style)canvas.style.touchAction='none';
     for(const tex of [textures[0],textures[2]]){
       gl.bindTexture(gl.TEXTURE_2D,tex);
       gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
@@ -267,30 +270,59 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
     }
     // Inject dye into the editable numerical state. This is an *external dye
     // source*, not a conservative update or a fluid pressure/velocity input.
-    function inject(e){
+    function position(e){
       const rect=canvas.getBoundingClientRect();
       const x=((e.clientX-rect.left)/rect.width-.5)*(canvas.width/canvas.height)+.5,
         y=1-(e.clientY-rect.top)/rect.height;
-      if(x<0||x>1||y<0||y>1)return;
+      if(x<0||x>1||y<0||y>1)return null;
+      return {x,y};
+    }
+    function inject({x,y}){
       for(let j=0;j<N;j++)for(let i=0;i<N;i++){
         const dx=(i+.5)*h-x,dy=(j+.5)*h-y;
         dye[ci(i,j)]=clip(dye[ci(i,j)]+dyeBrushStrength*Math.exp(-(dx*dx+dy*dy)/(dyeBrushRadius*dyeBrushRadius)),0,1);
       }
+    }
+    // Apply a bounded local velocity impulse as the discrete curl of a
+    // streamfunction on vertices. Zero boundary values imply zero normal
+    // wall velocity; mixed differences cancel in every cell divergence.
+    function stir({x,y},from){
+      let dx=x-from.x,dy=y-from.y;
+      const length=Math.hypot(dx,dy);
+      if(length<1e-5)return;
+      const magnitude=Math.min(0.12,3*length);
+      dx*=magnitude/length;dy*=magnitude/length;
+      const r=dyeBrushRadius,psiImpulse=new Float64Array((N+1)*(N+1));
+      const pi=(i,j)=>i+(N+1)*j;
+      for(let j=1;j<N;j++)for(let i=1;i<N;i++){
+        const X=i*h-x,Y=j*h-y;
+        psiImpulse[pi(i,j)]=(dx*Y-dy*X)*Math.exp(-(X*X+Y*Y)/(r*r));
+      }
+      for(let j=0;j<N;j++)for(let i=1;i<N;i++)
+        u[ui(i,j)]+=(psiImpulse[pi(i,j+1)]-psiImpulse[pi(i,j)])/h;
+      for(let j=1;j<N;j++)for(let i=0;i<N;i++)
+        v[vi(i,j)]-=(psiImpulse[pi(i+1,j)]-psiImpulse[pi(i,j)])/h;
+    }
+    function paint(e){
+      const point=position(e);
+      if(!point){previous=null;return;}
+      if(previous&&!e.shiftKey)stir(point,previous);
+      inject(point);previous=point;
       refreshGpuFields();drawPhysicalDye();
     }
     canvas.addEventListener('pointerdown',e=>{
-      if(e.pointerType!=='touch'&&!e.shiftKey)return;
-      dragging=true;canvas.setPointerCapture?.(e.pointerId);
-      e.preventDefault();inject(e);
+      if(e.button!==undefined&&e.button!==0)return;
+      dragging=true;previous=null;canvas.setPointerCapture?.(e.pointerId);
+      e.preventDefault();paint(e);
     });
-    canvas.addEventListener('pointermove',e=>{if(dragging)inject(e);});
-    const release=()=>{dragging=false;};
+    canvas.addEventListener('pointermove',e=>{if(dragging)paint(e);});
+    const release=()=>{dragging=false;previous=null;};
     canvas.addEventListener('pointerup',release);
     canvas.addEventListener('pointercancel',release);
     function toggleLivePlayback(){
       playing=!playing;last=0;acc=0;
-      canvas.title=playing?'FCG5 再生中：Spaceで停止、Shift+ドラッグで染料追加':
-        'FCG5 一時停止中：Spaceで再生、Shift+ドラッグで染料追加';
+      canvas.title=playing?'FCG5 再生中：Spaceで停止、ドラッグでかき混ぜる／Shift+ドラッグで染料だけ追加':
+        'FCG5 一時停止中：Spaceで再生、ドラッグでかき混ぜる／Shift+ドラッグで染料だけ追加';
       emitProgress();
     }
     const onLiveControl=event=>{
@@ -300,9 +332,9 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
       // Manual controls use the same MAC arrays as continuous playback.
       playing=false;last=0;acc=0;
       if(action==='reset')resetPhysics();
-      else if(stateStep<32){advanceFluidStep();stateStep++;}
+      else if(stateStep<liveLimit){advanceFluidStep();stateStep++;}
       refreshGpuFields();drawPhysicalDye();
-      canvas.title='FCG5 一時停止中：Spaceで再生、Shift+ドラッグで染料追加';
+      canvas.title='FCG5 一時停止中：Spaceで再生、ドラッグでかき混ぜる／Shift+ドラッグで染料だけ追加';
       emitProgress();
     };
     canvas.addEventListener('fcg5-physics-control',onLiveControl);
@@ -320,7 +352,7 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
         const interval=playbackIntervalMs/1000;
         if(acc>=interval){
           acc-=interval;
-          if(stateStep>=32)resetPhysics();
+          if(stateStep>=liveLimit){playing=false;}
           else{advanceFluidStep();stateStep++;}
           refreshGpuFields();
           emitProgress();
