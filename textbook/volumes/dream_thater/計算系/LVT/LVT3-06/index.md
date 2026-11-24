@@ -6,7 +6,7 @@
 
 ## 1. 盤面を型で表す
 
-マス番号は行ごとに左から右へ0〜8とします。
+マス番号は行ごとに左から右へ0〜8とします。行番号 r と列番号 c をともに0から数えると、番号は 3r+c です。[3行3列の添字の有効性](../LVT1-05/index.md#prop-lvt1-05-grid-index)より、0≤r,c≤2 なら 0≤3r+c≤8 となります。
 
 ```text
 0 1 2
@@ -14,7 +14,7 @@
 6 7 8
 ```
 
-プレイヤーは X と O の二人、マスは空・X・O の三種類です。手番は次に着手するプレイヤーを意味します。[固定長盤面の関数表現](../LVT1-05/index.md#def-lvt1-05-fixed-board)を使い、全九つの位置に値を割り当てます。外部から受け取る自然数と、範囲確認済みの [Fin型](../LVT1-05/index.md#def-lvt1-05-fin-index) の値を区別します。
+プレイヤーは X と O の二人、マスは空・X・O の三種類です。手番は次に着手するプレイヤーを意味します。[固定長盤面の関数表現](../LVT1-05/index.md#def-lvt1-05-fixed-board)を使い、全九つの位置に値を割り当てます。外部から受け取る自然数（Lean の Nat は0を含む）と、範囲確認済みの [Fin型](../LVT1-05/index.md#def-lvt1-05-fin-index) の値を区別します。Player と Cell は別の型なので、プレイヤーをマスの印に変換する mark と、相手を返す other を用意します。
 
 <a id="def-lvt3-06-board"></a>
 
@@ -25,15 +25,17 @@ Player は X または O、Cell は空・X・O のいずれかとする。mark(p
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt3-06-board -->
-**定義の確認**　初期盤面では b(0), …, b(8) がすべて空で、p = X。番号8は 8 < 9 の証明と組にして Fin 9 の値になるが、9は 9 < 9 が偽なのでならない。X の相手は O、O の相手は X である。
+**定義の確認**　初期盤面では b(0), …, b(8) がすべて空で、p = X。番号8は 8 < 9 の証明と組にして Fin 9 の値になるが、9は 9 < 9 が偽なのでならない。mark(X)=X のマス値、mark(O)=O のマス値であり、X の相手は O、O の相手は X である。
 <!-- definition-example-end -->
 
+
+以下では i : Fin 9 の番号を i.val、範囲の証明を i.isLt と書きます。b(i) は Lean の `b i`、状態 s=(b,p) の盤面と手番は `s.board` と `s.turn` に対応します。b(0) などは範囲内の定数を Fin 9 として使った表記です。外部入力 n を直接 Fin の数値リテラルのように扱うと剰余への変換が起こり得るため、n<9 を確認して `⟨n, hn⟩`（hn はその証明）を構成します。
 
 任意長の List Cell 型は空リストや10要素のリストも許します。本講の Board は最初から九つの位置を持つ型なので、List へ位置順に変換した boardList の長さは必ず9です。Lean の List.ofFn は Fin 9 の各要素を順に列挙し、その関数値をリスト化します。これは任意のリストが9要素だという主張ではありません。リストを状態に採用する別実装では、初期長9と一回の更新の長さ保存を別々に示す必要があります。
 
 ## 2. 何を勝利とするか
 
-縦・横・斜めに同じプレイヤーの印が三つ揃ったら勝利です。三つの番号を一組として列挙すれば、判定を決定可能な命題にできます。満盤とは九マスすべてが空でないこと、終局とは勝利したプレイヤーがいるか満盤であることです。
+縦・横・斜めに同じプレイヤーの印が三つ揃ったら勝利です。三つの番号を一組として列挙し、その三マスがすべて同じ印かを [連言](../LVT2-02/index.md#def-lvt2-02-and) で調べます。八本のうち少なくとも一本が成立するかは [選言](../LVT2-02/index.md#def-lvt2-02-or) で表します。各マスの値は三種類のいずれかなので等式を計算で判定でき、これらの連言・選言も [決定可能な命題](../LVT2-01/index.md#def-lvt2-01-decidable) になります。満盤とは九マスすべてが空でないこと、終局とは勝利したプレイヤーがいるか満盤であることです。
 
 <a id="def-lvt3-06-win"></a>
 
@@ -48,7 +50,7 @@ Player は X または O、Cell は空・X・O のいずれかとする。mark(p
 | 縦 | (0,3,6), (1,4,7), (2,5,8) |
 | 斜め | (0,4,8), (2,4,6) |
 
-Full b は b(0) から b(8) までのすべてが空でないこと、Finished s は Wins b X または Wins b O または Full b とする。
+Full b は b(0) から b(8) までのすべてが空でないこととする。状態 s=(b,p) に対して Finished s は Wins b X または Wins b O または Full b とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt3-06-win -->
@@ -60,7 +62,7 @@ Full b は b(0) から b(8) までのすべてが空でないこと、Finished s
 
 ## 3. 着手を一回の関数にする
 
-着手に成功したら選んだ一マスだけを手番の印に更新し、手番を相手に変えます。失敗なら none、成功なら some で新状態を返します。画面側が拒否時に元状態を維持する規則も別に定めます。
+着手に成功したら選んだ一マスだけを手番の印に更新し、手番を相手に変えます。結果には [Option型](../LVT1-03/index.md#def-lvt1-03-option) を使い、失敗なら none、成功なら some t で新状態 t を返します。write は盤面上の一位置を変更する関数、moved はその更新と手番交替を組にする関数です。画面側が拒否時に元状態を維持する規則も別に定めます。
 
 <a id="def-lvt3-06-play"></a>
 
@@ -78,7 +80,7 @@ attempt s n は play が some t なら t、none なら s とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt3-06-play -->
-**定義の確認**　初期状態で n=2 は終局でなく 2<9 かつ b(2) が空なので成功し、b(2)=X、手番Oとなる。同じ2をもう一度選ぶと終局ではないが b(2)=X が空でないため none。attempt なら状態は変化しない。初期状態で9を選ぶと範囲外なので none。
+**定義の確認**　初期状態で n=2 は終局でなく 2<9 かつ b(2) が空なので成功し、b(2)=X、手番Oとなる。同じ2をもう一度選ぶと終局ではないが b(2)=X が空でないため none。attempt なら状態は変化しない。初期状態で9を選ぶと範囲外なので none。第2節の反対角線で X が勝った盤面では、空いている番号8を選んでも Finished が真なので最初の枝で none となる。
 <!-- definition-example-end -->
 
 
@@ -114,7 +116,7 @@ attempt s n は play が some t なら t、none なら s とする。
 <!-- proof-start -->
 ### 証明
 
-[三目並べの着手規則](#def-lvt3-06-play)による。Finished s が真なら第一枝で none。n≥9 の場合、第一枝が真ならすでに none、偽なら第二枝が真なので none。空でない i の場合、第一枝が真なら none、偽なら i.isLt により第二枝は該当せず第三枝で none。これで全拒否条件を尽くした。最後に play s n = none を attempt の定義に代入すると元状態 s が返る。none 自体は状態を表さないので、この最後の保証は attempt に関するものである。
+[三目並べの着手規則](#def-lvt3-06-play)による。Finished s が真なら第一枝で none。n≥9 の場合、第一枝が真ならすでに none、偽なら第二枝が真なので none。空でない i の場合、第一枝が真なら none、偽なら [Fin型](../LVT1-05/index.md#def-lvt1-05-fin-index) の i.isLt により i.val<9 なので第二枝は該当しない。構成し直した添字の値は i.val と同じであり、第三枝で同じマスを調べて none となる。これで全拒否条件を尽くした。最後に play s n = none を attempt の定義に代入すると元状態 s が返る。none 自体は状態を表さないので、この最後の保証は attempt に関するものである。
 <!-- proof-end -->
 
 
@@ -132,7 +134,11 @@ attempt s n は play が some t なら t、none なら s とする。
 <!-- proof-start -->
 ### 証明
 
-順方向：第一枝が真なら none=some t となり異なる構成子の等式で矛盾する。従って Finished s は偽。第二枝で n≥9 も同じ矛盾を生むので n<9。i=⟨n, n<9 の証明⟩を取る。第三枝が真でも none=some t になるので b(i) は空。残る第四枝により some (moved s i)=some t。some の引数が等しいので t=moved s i。逆方向：i.val=n と i.isLt から n<9、Finished s が偽なので第一枝を通過し、第二枝も通過する。構成した Fin の番号は i と一致する（証明欄の違いは値を変えない）。b(i) が空なので第四枝で some (moved s i)=some t を得る。
+[三目並べの着手規則](#def-lvt3-06-play)を展開する。ここで Option の等式には、前講の [二単位カウンタの保存条件](../LVT3-05/index.md#prop-lvt3-05-preserve) と同じ判定を使う。none を0、some を1に写す関数を適用すれば none=some t から 0=1 が従い矛盾する。また some u=some t に、none を initial、some v を v に写す関数を適用すれば u=t となる。いずれも [関数適用に関する等式の合同性](../LVT2-03/index.md#prop-lvt2-03-congr) による。
+
+**順方向**：第一枝が真なら none=some t となり矛盾する。従って Finished s は偽。第二枝で n≥9 も同じ矛盾を生むので n<9。i=⟨n, n<9 の証明⟩を取る。第三枝が真でも none=some t になるので b(i) は空。残る第四枝により some (moved s i)=some t。some の引数が等しいので t=moved s i。
+
+**逆方向**：i.val=n と i.isLt から n<9、Finished s が偽なので第一枝を通過し、第二枝も通過する。構成した Fin の値欄は n=i.val と一致する。不等式の証明欄は同じ命題の証明であり、Lean ではその違いで Fin の値は区別されない。したがって構成した添字は i と等しく、同じ b(i) を読む。b(i) が空なので第四枝で some (moved s i)=some t を得る。
 <!-- proof-end -->
 
 
@@ -140,7 +146,7 @@ attempt s n は play が some t なら t、none なら s とする。
 
 ## 4. 二人同時に勝つことはあるか
 
-入力としては、上段すべてX、下段すべてOという盤面も構成できます。型だけではこの矛盾した勝敗を排除できません。初期状態から実際に許される着手だけを繰り返した盤面を区別します。
+入力としては、上段すべてX、下段すべてOという盤面も構成できます。型だけではこの矛盾した勝敗を排除できません。初期状態から実際に許される着手だけを繰り返した盤面を区別します。[到達可能性の生成規則](../LVT2-06/index.md#def-lvt2-06-reach) の base（初期状態）と step（成功した一回の着手を追加）を使います。
 
 <a id="def-lvt3-06-reachable"></a>
 
@@ -171,7 +177,7 @@ Reachable s を次の二規則で生成する。初期状態 initial は Reachab
 <!-- proof-start -->
 ### 証明
 
-任意の j で b′(j)=mark(other(p)) とする。もし j=i なら[一マス更新の保存性](#prop-lvt3-06-write)により b′(j)=mark(p)。p=X なら X=O、p=O なら O=X となり、いずれも異なる構成子の等式で矛盾する。従って j≠i であり、同じ命題から b′(j)=b(j)。これを仮定の等式に代入すると b(j)=mark(other(p)) となる。
+ここで b′ は更新後、b は更新前の盤面であり、更新位置 i とプレイヤー p を固定する。任意の j : Fin 9 で b′(j)=mark(other(p)) とする。もし j=i なら[一マス更新の保存性](#prop-lvt3-06-write)により b′(j)=mark(p)。p=X なら X=O、p=O なら O=X となり、いずれも異なる構成子の等式で矛盾する。従って j≠i であり、同じ命題から b′(j)=b(j)。これを仮定の等式に代入すると b(j)=mark(other(p)) となる。
 
 [三目並べの勝利条件](#def-lvt3-06-win)により b′ で相手の勝利線 (a,d,e) が八組のいずれかに存在する。上の議論を j=a,d,e の三つそれぞれに適用し、b(a)=mark(other(p))、b(d)=mark(other(p))、b(e)=mark(other(p)) を得る。三等式を連言にすると Line b other(p) a d e。同じ組が八組の中に含まれるので、対応する選言に入れて Wins b other(p) を得る。
 <!-- proof-end -->
@@ -191,7 +197,7 @@ Reachable s を次の二規則で生成する。初期状態 initial は Reachab
 <!-- proof-start -->
 ### 証明
 
-初期盤面は全マス空である。どの勝利線でも最初のマスの等式が空=X または空=O となり偽なので、両者の Wins は偽である。
+[三目並べの状態](#def-lvt3-06-board)より初期盤面は全マス空である。[三目並べの勝利条件](#def-lvt3-06-win)のどの勝利線でも最初のマスの等式が空=X または空=O となり偽なので、両者の Wins は偽である。
 
 成功した着手 play s n = some t を考える。[合法着手の必要十分条件](#prop-lvt3-06-success)から Finished s が偽で、ある i に対し t=moved s i である。ここで p=s.turn とする。もし t で X と O がともに勝っていれば、p=X なら O が、p=O なら X が勝っているので Wins t.board other(p) が成立する。[相手の勝利線の逆保存](#prop-lvt3-06-opponent)に b=s.board、b′=t.board を代入すると Wins s.board other(p)。これは Finished s の第一または第二の選言を成立させ、Finished s が偽という条件に矛盾する。
 
@@ -319,7 +325,21 @@ A03 の計算では X が反対角線で勝ち、次の手番は O。[三目並�
 <!-- solution-start -->
 #### 詳細解答
 
-X={0,2,3,7,8}、O={1,4,5,6}。最終盤面の八線を順に読むと、横は XOX・XOO・OXX、縦は XXO・OOX・XOX、斜めは XOX・XOO。いずれも両方の印を含む。途中に勝利があれば、その三マスは上書きされないので最終盤面にも残るはずだが八線の確認に反する。したがって九手はすべて終局前の空マスへの合法着手である。九マス埋まったので Full が真、両者の Wins は偽、引き分けとなる。
+X={0,2,3,7,8}、O={1,4,5,6}。最終盤面を行ごとに書くと次のようになる。
+
+```text
+X O X
+X O O
+O X X
+```
+
+[三目並べの勝利条件](#def-lvt3-06-win)の八線を順に読むと、横は XOX・XOO・OXX、縦は XXO・OOX・XOX、斜めは XOX・XOO。いずれも両方の印を含む。
+
+まず合法性を仮定せず、指定された九つの異なる番号へ交互に印を配置した仮の盤面列を考える。各途中盤面の印は最終盤面の同じ位置に残るので、途中で勝利線があれば最終盤面にも残る。これは上の八線の確認に反する。
+
+また第 k 手の直前は k−1 マスしか埋まっておらず、1≤k≤9 なら k−1≤8 なので満盤でない。各入力は0〜8で、以前に選ばれていないから空マスである。[合法着手の必要十分条件](#prop-lvt3-06-success)を各手に順に適用すると、仮の盤面列と実際の成功した着手列が一致する。
+
+九マス埋まったので Full が真、両者の Wins は偽、引き分けとなる。
 
 対応する Lean の命題は [ExerciseSolutions.lean](lab/ExerciseSolutions.lean) の b03 を参照してください。
 <!-- solution-end -->
@@ -335,9 +355,9 @@ Reachable s なら、両者同時勝利がなく、boardList s の長さが9で�
 <!-- solution-start -->
 #### 詳細解答
 
-[合法着手による到達盤面](#def-lvt3-06-reachable)の最後の生成規則で場合分けする。base は全マス空なので各勝利線の最初の等式が偽で両者とも勝たない。step はある旧状態 u、番号 n と play u n=some s を持つ。[合法着手の必要十分条件](#prop-lvt3-06-success)で Finished u は偽、s=moved u i。p=u.turn とし、両者勝利を仮定すると相手 other(p) も勝つ。[相手の勝利線の逆保存](#prop-lvt3-06-opponent)で旧盤面でも相手が勝っており、Finished u が真になって矛盾する。従って二重勝利なし。List.ofFn の九つの値の列挙から長さ9。終局検査を削除した場合、0,3,1,4,2,5 と交互に置くとXは上段、Oは中段を完成させる。第五手でXが勝ち、第六手も許されるため、Finished u が偽という証明の前提が失われる。
+[合法着手による到達盤面](#def-lvt3-06-reachable)の最後の生成規則で場合分けする。base は全マス空なので各勝利線の最初の等式が偽で両者とも勝たない。step はある旧状態 u、番号 n と play u n=some s を持つ。[合法着手の必要十分条件](#prop-lvt3-06-success)で Finished u は偽、s=moved u i。p=u.turn とし、両者勝利を仮定すると相手 other(p) も勝つ。[相手の勝利線の逆保存](#prop-lvt3-06-opponent)で旧盤面でも相手が勝っており、Finished u が真になって矛盾する。従って二重勝利なし。[三目並べの状態](#def-lvt3-06-board)の Board は Fin 9 の全要素に一つずつ値を対応させるので、List.ofFn の九つの値の列挙から長さ9。終局検査を削除した場合、0,3,1,4,2,5 と交互に置くとXは上段、Oは中段を完成させる。第五手でXが勝ち、第六手も許されるため、Finished u が偽という証明の前提が失われる。
 
-対応する Lean の命題は [ExerciseSolutions.lean](lab/ExerciseSolutions.lean) の c01 を参照してください。
+二重勝利排除と長さの保証に対応する Lean の命題は [ExerciseSolutions.lean](lab/ExerciseSolutions.lean) の c01 を参照してください。終局検査を削除した規則の反例は上の手計算で確認しています。
 <!-- solution-end -->
 
 ## 7. 次の講義へ
