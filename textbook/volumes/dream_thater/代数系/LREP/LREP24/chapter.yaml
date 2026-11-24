@@ -1,0 +1,40 @@
+id: LREP24
+title: "質量零little group"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP23
+official_scope: []
+learning_objectives:
+  - 光的標準運動量の被覆固定群を行列から同定できる
+  - 平面運動群との同型と被覆の核を導出できる
+  - ヘリシティの内部表現と整数・半整数の条件を説明できる
+  - 有限次元ユニタリ内部表現の並進自明性を証明できる
+  - 非自明な内部並進の円周模型を計算できる
+definitions:
+  - { id: LREP24-DEF-01, name: 平面の向きを保つ等長変換群 }
+  - { id: LREP24-DEF-02, name: ヘリシティの内部表現 }
+theorems:
+  - { id: LREP24-THM-01, name: 光的標準運動量の被覆固定群 }
+  - { id: LREP24-THM-02, name: 質量零固定群と平面運動群 }
+  - { id: LREP24-THM-03, name: 並進自明な有限次元既約内部表現 }
+  - { id: LREP24-THM-04, name: 有限次元ユニタリ内部表現の並進自明性 }
+  - { id: LREP24-PROP-01, name: 非自明な並進を持つ円周上の内部表現 }
+canonical_examples:
+  - 光的標準運動量を固定する上三角行列
+  - 光的固定群の横方向ベクトルへの作用
+  - 整数・半整数ヘリシティの回転位相
+  - 円周上の非自明な並進作用
+problem_patterns:
+  - LREP24-STABILIZER
+  - LREP24-GROUP-LAW
+  - LREP24-NULL-ACTION
+  - LREP24-DESCENT
+  - LREP24-CONJUGATE-STABILIZER
+  - LREP24-NONUNITARY
+  - LREP24-HELICITY-SUM
+  - LREP24-TRANSLATION-GENERATORS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }

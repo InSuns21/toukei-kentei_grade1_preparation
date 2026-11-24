@@ -1,0 +1,59 @@
+chapter: CATB2-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CATB2-03
+  - CAT4-05
+  - CAT2-04
+  - CAT1-11
+  - CAT1-12
+
+concepts:
+  - id: category.enriched-self-enrichment
+    name: 閉モノイダル圏の自己豊穣化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（閉モノイダル圏の自己豊穣化）"]
+    requires: [category.internal-hom, category.evaluation-currying, category.enriched-category]
+  - id: category.enriched-representable-functor
+    name: 豊穣表現可能関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（豊穣表現可能関手）"]
+    requires: [category.enriched-self-enrichment, category.enriched-functor]
+  - id: category.enriched-representable-functor-law
+    name: 表現可能関手の関手律
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（表現可能関手の関手律）"]
+    requires: [category.enriched-representable-functor, category.evaluation-currying]
+  - id: category.enriched-parametrized-natural-family
+    name: 豊穣自然変換のパラメータ付き族
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（豊穣自然変換のパラメータ付き族）"]
+    requires: [category.enriched-natural-transformation, category.symmetric-monoidal, category.evaluation-currying]
+  - id: category.enriched-natural-hom
+    name: 豊穣自然変換のHom対象
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（豊穣自然変換のHom対象）"]
+    requires: [category.enriched-parametrized-natural-family, category.internal-hom, category.complete-category, category.equalizer, category.small-product]
+  - id: category.enriched-natural-hom-universal
+    name: 自然変換のHom対象の普遍性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（自然変換のHom対象の普遍性）"]
+    requires: [category.enriched-natural-hom, category.evaluation-currying]
+  - id: category.enriched-yoneda-lemma
+    name: 豊穣Yonedaの補題
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（豊穣Yonedaの補題）"]
+    requires: [category.enriched-natural-hom-universal, category.enriched-representable-functor-law, category.covariant-yoneda-lemma]
+  - id: category.enriched-yoneda-naturality
+    name: 豊穣Yoneda同型の自然性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（豊穣Yoneda同型の自然性）"]
+    requires: [category.enriched-yoneda-lemma, category.enriched-underlying-functor]

@@ -104,6 +104,12 @@ jobs:
           node --check pages/simulation/fcg1-model.mjs
           node --test pages/simulation/fcg1-model.test.mjs
 
+      - name: Test FCG12 independent shallow water and actual editable GPU rendering
+        if: steps.scope.outputs.full == 'true'
+        run: |
+          node --test pages/simulation/fcg12-lab.test.mjs
+          node scripts/validate-fcg12-browser.mjs
+
       - name: Test FCG11 independent secondary particles and actual editable GPU rendering
         if: steps.scope.outputs.full == 'true'
         run: |

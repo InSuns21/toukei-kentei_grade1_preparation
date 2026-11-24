@@ -119,6 +119,14 @@ const descriptions = Object.freeze({
     mode: '初期設定はpicMix=0、flipMix=1。格子と粒子の位置を物理stepごとに更新し、右列は24×24節点値の最近傍表示。時刻は開始時の検算時刻',
     source: 'particle.js（N, count, dt, damp, force, picMix, flipMix, transfer）/ particle.frag（u_pic, u_flip, u_speed）'
   }),
+  FCG12: Object.freeze({
+    requiresSteps:false,
+    grid:'20 m四方、N×N実計算セル（20/40/60）。表示はセル中心の三角形補間',
+    color:'左上：深さ0 mの濃青〜1 m以上の明青、白矢印は水平速度。橙線は同一断面。右は三次元水面',
+    clock:()=> 'shallow.js の time（s）まで再計算。maxDt（s）とCourant数で刻み制限',
+    mode:'左下の断面は高さ0〜1 m。右は見やすく鉛直表示を拡大。水量は数値格子から算出',
+    source:'shallow.js（有限体積更新・頂点） / shallow.vert（投影） / shallow.frag（色）'
+  }),
   FCG11: Object.freeze({
     requiresSteps:false,
     grid:'解析水面の横断面4 m×1.5 m。最大40候補・120粒子、流体格子なし',

@@ -6,7 +6,15 @@
 
 通常の[共変関手](../../CAT/CAT1-06/index.md#def-cat1-06-functor)では対象を移し、各Hom集合の写像で合成と恒等射を保存する。ここではHom集合の写像を基底の圏の射に置き換える。
 
-基底を局所小な[モノイダル圏](../../CAT/CAT4-01/index.md#def-cat4-01-monoidal) $(\mathcal V,\otimes,I,\alpha,\lambda,\rho)$ とする。本講の豊穣圏はすべてこの同じ基底上にあり、対象の集まりは集合とする。[豊穣圏の定義](../CATB2-01/index.md#def-catb2-01-enriched-category)に従い、合成と単位を $m^{\mathcal A}_{xyz},j^{\mathcal A}_x$ と書く。上添字はどの豊穣圏の構造射かを区別する。射の並置は右から先に作用する。
+基底を[モノイダル圏](../../CAT/CAT4-01/index.md#def-cat4-01-monoidal) $(\mathcal V,\otimes,I,\alpha,\lambda,\rho)$ とする。ここで $I$ は単位対象、$\alpha$ は結合子、$\lambda,\rho$ は左・右単位子である。
+
+基底は[局所小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)、すなわち任意の二対象間の射が集合をなす圏と仮定する。本講の豊穣圏はすべてこの同じ基底上にあり、対象の集まりは集合とする。
+
+[豊穣圏の定義](../CATB2-01/index.md#def-catb2-01-enriched-category)に従い、合成と単位を $m^{\mathcal A}_{xyz},j^{\mathcal A}_x$ と書く。上添字はどの豊穣圏の構造射かを区別し、$xyz$ は出発点・中間点・到着点、$x$ は単位射の対象を表す。
+
+$\mathcal A(x,y)$ は基底の対象、$1_{\mathcal A(x,y)}$ はその基底での恒等射であり、$j_x^{\mathcal A}$ とは異なる。
+
+射の並置は右から先に作用する合成を表し、通常の写像の合成では $\circ$ とも書く。対象の像 $F(x)$ は $Fx$ と略記する。
 
 <a id="def-catb2-03-enriched-functor"></a>
 
@@ -36,7 +44,7 @@ $$
 第一式の二経路の始域は $\mathcal A(y,z)\otimes\mathcal A(x,y)$、終域は $\mathcal B(Fx,Fz)$ である。先に合成してから移す経路と、各Hom対象を移してから合成する経路を比較している。第二式は $I$ から $\mathcal B(Fx,Fx)$ への二経路を比較する。
 
 <!-- definition-example-start: def-catb2-03-enriched-functor -->
-**定義の確認**。 基底を[集合の直積によるモノイダル圏](../../CAT/CAT4-01/index.md#thm-cat4-01-cartesian-monoidal)とし、通常の圏を[集合値の豊穣圏](../CATB2-01/index.md#prop-catb2-01-set-enrichment)として読む。対象は $S=\{0,1\}$ 一つだけとし、Hom集合を $S$ から $S$ への全写像の集合とする。合成は写像の合成である。$s:S\to S$ を $s(0)=1,s(1)=0$ と置く。対象を変えず、Homの写像を
+**定義の確認**。 基底を[集合の直積によるモノイダル圏](../../CAT/CAT4-01/index.md#thm-cat4-01-cartesian-monoidal)とし、通常の圏を[集合値の豊穣圏](../CATB2-01/index.md#prop-catb2-01-set-enrichment)として読む。対象は $S=\{0,1\}$ 一つだけとし、Hom集合を $S$ から $S$ への全写像の集合とする。合成は写像の合成である。$s:S\to S$ を $s(0)=1,s(1)=0$ と置く。対象は一つなので対象写像は一意であり、構造射 $F_{SS}$ は自己写像の集合から自身への写像になる。以下ではその作用を $F(f)=F_{SS}(f)$ と略記する。対象を変えず、Homの写像を
 
 $$
 F(f)=s\circ f\circ s
@@ -82,7 +90,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$F_{xy}f$ は $I\to\mathcal B(Fx,Fy)$ なので通常の射の像として正しい型を持つ。[台となる圏の合成](../CATB2-01/index.md#thm-catb2-01-underlying-category)で $\delta=\lambda_I^{-1}$ と置く。射 $f:I\to\mathcal A(x,y)$ と $g:I\to\mathcal A(y,z)$ を取る。
+$F_{xy}f$ は $I\to\mathcal B(Fx,Fy)$ なので通常の射の像として正しい型を持つ。[台となる圏の合成](../CATB2-01/index.md#thm-catb2-01-underlying-category)の記法に従い、台の圏での合成を $\circ_0$、単位対象を二入力に分ける射を $\delta=\lambda_I^{-1}:I\to I\otimes I$ と書く。射 $f:I\to\mathcal A(x,y)$ と $g:I\to\mathcal A(y,z)$ を取る。
 
 [豊穣関手の合成保存](#def-catb2-03-enriched-functor)と[テンソル双関手の合成保存](../../CAT/CAT4-01/index.md#def-cat4-01-tensor-bifunctor)を順に使うと
 
@@ -119,7 +127,21 @@ $$
 
 ## 3. 二値と費用の場合の判定
 
-前講の[二値豊穣圏と前順序](../CATB2-02/index.md#prop-catb2-02-preorder-enrichment)を用いると、関係 $x\preceq y$ はHomの値が $1$ であることを表す。基底の射が存在する条件を調べるだけで、構造を保存する写像を判定できる。
+前講の[二値豊穣圏と前順序](../CATB2-02/index.md#prop-catb2-02-preorder-enrichment)を用いる。前順序集合 $X$ のHom対象を $h_X(x,y)$ と書く。
+
+$$
+h_X(x,y)=
+\begin{cases}
+1 & (x\preceq_X y),\\
+0 & (\text{それ以外}).
+\end{cases}
+$$
+
+基底は $0\le1$ に対応する二値の圏で、単位対象は $1$ である。
+
+費用の場合は [Lawvere型拡張距離](../CATB2-02/index.md#def-catb2-02-lawvere-metric) $d_X$ を [豊穣圏のHom対象](../CATB2-02/index.md#thm-catb2-02-lawvere-enrichment)として用いる。
+
+いずれの基底でも同じ始域・終域を持つ射は高々一本なので、構造射の存在条件から関手を判定できる。
 
 <a id="prop-catb2-03-thin-functors"></a>
 
@@ -188,10 +210,32 @@ $$
 > これを豊穣自然性の条件とする。
 <!-- formal-statement-end -->
 
-左辺は $P\to I\otimes P\to\mathcal B(Fy,Gy)\otimes\mathcal B(Fx,Fy)\to\mathcal B(Fx,Gy)$。右辺は $P\to P\otimes I\to\mathcal B(Gx,Gy)\otimes\mathcal B(Fx,Gx)\to\mathcal B(Fx,Gy)$。どちらも $P\to\mathcal B(Fx,Gy)$ という同じ型である。因子を交換する必要はなく、基底の対称性も要求しない。
+左辺の経路は
+
+$$
+\begin{aligned}
+P&\xrightarrow{\lambda_P^{-1}}I\otimes P\\
+&\xrightarrow{a_y\otimes F_{xy}}
+\mathcal B(Fy,Gy)\otimes\mathcal B(Fx,Fy)\\
+&\xrightarrow{m^\mathcal B_{Fx,Fy,Gy}}\mathcal B(Fx,Gy).
+\end{aligned}
+$$
+
+右辺の経路は
+
+$$
+\begin{aligned}
+P&\xrightarrow{\rho_P^{-1}}P\otimes I\\
+&\xrightarrow{G_{xy}\otimes a_x}
+\mathcal B(Gx,Gy)\otimes\mathcal B(Fx,Gx)\\
+&\xrightarrow{m^\mathcal B_{Fx,Gx,Gy}}\mathcal B(Fx,Gy).
+\end{aligned}
+$$
+
+どちらも $P\to\mathcal B(Fx,Gy)$ という同じ型である。因子を交換する必要はなく、基底の対称性も要求しない。
 
 <!-- definition-example-start: def-catb2-03-enriched-natural -->
-**定義の確認**。 第1節の一対象の例で $E$ を恒等関手、$F$ を $F(f)=sfs$ とする関手とする。集合の基底では成分を指定することは一元集合からの写像を指定することなので、唯一の対象の成分を $s$ とする。左単位子の逆は $f\mapsto(*,f)$、右単位子の逆は $f\mapsto(f,*)$ である。左経路は $s\circ f$、右経路は $F(f)\circ s$ であり、
+**定義の確認**。 第1節の一対象の例で $E$ を恒等関手、$F$ を $F(f)=sfs$ とする関手とする。集合の基底では成分を指定することは一元集合からの写像を指定することなので、単位対象を一元集合 $I=\{*\}$ とし、唯一の対象 $S$ での成分を $a_S(*)=s$ と指定する。左単位子の逆は $f\mapsto(*,f)$、右単位子の逆は $f\mapsto(f,*)$ である。左経路は $s\circ f$、右経路は $F(f)\circ s$ であり、
 
 $$
 F(f)\circ s=s\circ f\circ s\circ s=s\circ f.
@@ -229,7 +273,7 @@ $$
 
 である。[Mac Laneの整合性定理](../../CAT/CAT4-02/index.md#thm-cat4-02-coherence)から $\rho_I=\lambda_I$。その逆を $\delta$ とする。
 
-[豊穣自然性の等式](#def-catb2-03-enriched-natural)の左辺に $f$ を前合成すると、テンソルの合成保存を使って
+[豊穣自然性の等式](#def-catb2-03-enriched-natural)の左辺に $f$ を前合成すると、[テンソルの合成保存](../../CAT/CAT4-01/index.md#def-cat4-01-tensor-bifunctor)を使って
 
 $$
 \begin{aligned}
@@ -264,7 +308,7 @@ $$
 
 ### 5.1 順序・距離の場合の自然性
 
-前順序間の順序保存写像 $F,G$ について、成分 $I\to h_Y(Fx,Gx)$ の存在は $Fx\preceq Gx$ と同値である。[Lawvere距離の基底](../CATB2-02/index.md#def-catb2-02-lawvere-base)の場合、成分 $0\to d_Y(Fx,Gx)$ が存在するのは $d_Y(Fx,Gx)=0$ のときに限る。いずれも成分が存在すれば自然性の二経路は同じ始域と終域を持つので、基底の射の一意性から等しい。したがって自然変換の存在は、それぞれ全点での順序またはゼロ費用だけで判定できる。
+[順序による関手判定](#prop-catb2-03-thin-functors)を満たす前順序間の写像 $F,G$ について、[二値豊穣圏](../CATB2-02/index.md#prop-catb2-02-preorder-enrichment)での単位対象は $I=1$ なので、成分 $1\to h_Y(Fx,Gx)$ の存在は $h_Y(Fx,Gx)=1$、すなわち $Fx\preceq_Y Gx$ と同値である。[Lawvere距離の基底](../CATB2-02/index.md#def-catb2-02-lawvere-base)の場合、成分 $0\to d_Y(Fx,Gx)$ が存在するのは $d_Y(Fx,Gx)=0$ のときに限る。いずれも成分が存在すれば自然性の二経路は同じ始域と終域を持つので、基底の射の一意性から等しい。したがって自然変換の存在は、それぞれ全点での順序またはゼロ費用だけで判定できる。
 
 前講で扱った非対称な費用 $d(x,y)=\max(y-x,0)$ を区間 $[0,1]$ に制限する。$F(x)=x$、$G(x)=0$ とすると、$F$ は費用を保ち、$G$ は費用をゼロにするので[費用による関手判定](#prop-catb2-03-thin-functors)を満たす。
 
@@ -299,7 +343,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-固定した成分 $u:I\to\mathcal B(v,w)$ と、基底の任意の対象 $P$ からの射 $t:P\to\mathcal B(p,v)$ に対し、左からの合成を
+以下では $p,v,w$ を $\mathcal B$ の対象とする。固定した成分 $u:I\to\mathcal B(v,w)$ と、基底の任意の対象 $P$ からの射 $t:P\to\mathcal B(p,v)$ に対し、左からの合成を
 
 $$
 u*t=m^\mathcal B_{p,v,w}(u\otimes t)\lambda_P^{-1}
@@ -313,7 +357,13 @@ $$
 
 と書く。どちらも始域は $P$。両方が $I$ からの射なら $\lambda_I=\rho_I$ なので[台となる圏の合成](../CATB2-01/index.md#thm-catb2-01-underlying-category)に一致する。
 
-この記法で、三入力が合成可能で、そのうち二つが固定成分、残り一つが $P$ からの射なら $(u*v)*w=u*(v*w)$ が成立する。ここでは $u,v,w$ のどれが固定成分かを限定しない。根拠を確認しよう。三入力の始域を順に $Q_3,Q_2,Q_1$ とすると、二つは $I$、残りは $P$ である。各入力の終域を $R_3,R_2,R_1$ とし、三射を $t_3,t_2,t_1$ と書く。
+この記法で三入力を合成する。$\mathcal B$ の四対象 $z_0,z_1,z_2,z_3$ を取り、$i=1,2,3$ について $R_i=\mathcal B(z_{i-1},z_i)$、$t_i:Q_i\to R_i$ と書く。始域 $Q_1,Q_2,Q_3$ のうち二つは $I$、残りは $P$ とする。このとき
+
+$$
+(t_3*t_2)*t_1=t_3*(t_2*t_1)
+$$
+
+が成立する。ここではどの入力が固定成分かを限定しない。根拠を確認しよう。
 
 左の括弧付けでは単位子の逆で $P$ から $(Q_3\otimes Q_2)\otimes Q_1$ へ移す構造射 $s_L$ を作り、右では $Q_3\otimes(Q_2\otimes Q_1)$ へ移す $s_R$ を作る。例えば $Q_3=Q_2=I,Q_1=P$ なら
 
@@ -357,7 +407,7 @@ $$
 m(m\otimes1_{R_1})((t_3\otimes t_2)\otimes t_1)s_L
 $$
 
-と書ける。ここで各 $m$ は隣接したHom対象の合成である。[豊穣圏の結合律](../CATB2-01/index.md#def-catb2-01-enriched-category)を代入し、結合子の自然性を使うと
+と書ける。ここでは添字を省いた。左辺の外側の $m$ は $m^\mathcal B_{z_0,z_1,z_3}$、内側は $m^\mathcal B_{z_1,z_2,z_3}$ である。右の括弧付けではそれぞれ $m^\mathcal B_{z_0,z_2,z_3}$ と $m^\mathcal B_{z_0,z_1,z_2}$ になる。両経路の終域は $\mathcal B(z_0,z_3)$ である。[豊穣圏の結合律](../CATB2-01/index.md#def-catb2-01-enriched-category)を代入し、結合子の自然性を使うと
 
 $$
 \begin{aligned}
@@ -389,7 +439,11 @@ $$
 
 第二、第四、第六行への変形は上で得た結合性、第三、第五行への変形はそれぞれ $a,b$ の自然性である。全て $P\to\mathcal B(Fx,Hy)$ の射なので、$c$ の自然性が成立する。
 
-恒等変換の自然性は[豊穣圏の左右単位律](../CATB2-01/index.md#def-catb2-01-enriched-category)と単位子の自然性から確認できる。例えば $t=F_{xy}$ とすると
+恒等変換の自然性は[豊穣圏の左右単位律](../CATB2-01/index.md#def-catb2-01-enriched-category)と[単位子の自然性](../../CAT/CAT4-01/index.md#def-cat4-01-monoidal)から確認できる。
+
+例えば $t=F_{xy}$、$R=\mathcal B(Fx,Fy)$ とし、以下の $1$ は $1_R$、$j$ は $\mathcal B$ の単位射とする。
+
+左の合成では $m=m^\mathcal B_{Fx,Fy,Fy}$、右の合成では $m=m^\mathcal B_{Fx,Fx,Fy}$ である。すると
 
 $$
 j_{Fy}*t
@@ -410,7 +464,20 @@ $$
 したがって恒等変換は自然である。最後に成分ごとの合成は台の圏の合成なので、三変換の各成分の結合律と左右単位律は[台となる圏の公理](../CATB2-01/index.md#thm-catb2-01-underlying-category)で成立する。変換は成分の族そのものだから、全成分で等しければ変換も等しい。
 <!-- proof-end -->
 
-これで豊穣関手を対象、豊穣自然変換を射とする通常の圏を作れる。対象集合が小さく基底が局所小であるという本講の仮定の下では、関手の集合も各変換の集合も、対象写像や基底のHom集合の直積の部分集合として得られる。次講では基底自身を豊穣圏として扱うための追加条件を導入する。
+これで豊穣関手を対象、豊穣自然変換を射とする通常の圏を作れる。[局所小性](../../CAT/CAT1-02/index.md#def-cat1-02-size)がここで効く。$\mathcal A,\mathcal B$ の対象集合をそれぞれ $X,Y$ とする。対象写像 $F:X\to Y$ を一つ固定すると、関手の構造射の族は
+
+$$
+\prod_{(x,y)\in X\times X}
+\mathcal V(\mathcal A(x,y),\mathcal B(Fx,Fy))
+$$
+
+の元であり、そのうち二つの保存条件を満たすものだけを取る。各因子は局所小性により集合であり、添字も集合である。対象写像全体も集合なので、これらの候補を対象写像について集めても集合になる。同様に、固定した二関手 $F,G$ の間の自然変換は
+
+$$
+\prod_{x\in X}\mathcal V(I,\mathcal B(Fx,Gx))
+$$
+
+のうち自然性を満たす元の集合である。したがって関手を対象、変換を射とする圏は小さい圏になる。次講では基底自身を豊穣圏として扱うための追加条件を導入する。
 
 ## 7. 演習
 
@@ -459,13 +526,18 @@ $$
 
 - Level: A
 
-通常の距離を持つ実直線上で $F(x)=ax+b$ とする。実数 $a,b$ に対して豊穣関手となる条件を求めよ。
+実直線に通常の距離 $d(x,y)=|y-x|$ を入れ、Lawvere距離の基底で豊穣圏として扱う。$F(x)=ax+b$ とする。実数 $a,b$ に対して豊穣関手となる条件を求めよ。
 
 <!-- solution-start -->
 **詳細解答。** [費用による判定](#prop-catb2-03-thin-functors)により全ての実数 $x,y$ で
 
 $$
-|F(y)-F(x)|=|a|\,|y-x|\le|y-x|
+\begin{aligned}
+|F(y)-F(x)|
+&=|(ay+b)-(ax+b)|\\
+&=|a|\,|y-x|\\
+&\le|y-x|.
+\end{aligned}
 $$
 
 が必要である。$x=0,y=1$ を代入すると $|a|\le1$ が必要となる。逆にこの条件なら $|y-x|\ge0$ を掛けて全点対の不等式を得る。従って $-1\le a\le1$ が必要十分であり、平行移動の量 $b$ は任意である。
@@ -516,7 +588,7 @@ $$
 m^\mathcal B_{Fx,Gx,Gy}(G_{xy}\otimes a_x)\rho_P^{-1}f
 $$
 
-である。[単位子の自然性](../../CAT/CAT4-01/index.md#def-cat4-01-monoidal)を $f:I\to P$ に適用して $\rho_P^{-1}f=(f\otimes1_I)\rho_I^{-1}$ を得る。さらに[整合性定理](../../CAT/CAT4-02/index.md#thm-cat4-02-coherence)で $\rho_I^{-1}=\lambda_I^{-1}=\delta$。よってテンソルの合成保存により
+である。[単位子の自然性](../../CAT/CAT4-01/index.md#def-cat4-01-monoidal)を $f:I\to P$ に適用して $\rho_P^{-1}f=(f\otimes1_I)\rho_I^{-1}$ を得る。さらに[整合性定理](../../CAT/CAT4-02/index.md#thm-cat4-02-coherence)で $\rho_I^{-1}=\lambda_I^{-1}=\delta$。よって[テンソルの合成保存](../../CAT/CAT4-01/index.md#def-cat4-01-tensor-bifunctor)により
 
 $$
 \begin{aligned}
@@ -534,7 +606,7 @@ $$
 
 - Level: B
 
-B01 の一対象の圏で、$F(n)=kn$ と $G(n)=\ell n$ を考える。豊穣自然変換の存在条件と、その全成分の候補を求めよ。$k,\ell$ は非負整数とする。
+B01 の一対象の圏で、Hom集合上の作用を $F(n)=kn$ と $G(n)=\ell n$ と略記する二つの豊穣関手を考える。豊穣自然変換の存在条件と、その全成分の候補を求めよ。$k,\ell$ は非負整数とする。
 
 <!-- solution-start -->
 **詳細解答。** 基底は集合で、単位対象からの射は非負整数の指定に等しい。唯一の成分を $c\ge0$ とする。[豊穣自然性](#def-catb2-03-enriched-natural)をHom集合の各元 $n$ に適用すると
@@ -543,14 +615,27 @@ $$
 c+kn=\ell n+c
 $$
 
-が全ての非負整数 $n$ で必要となる。$n=1$ として $c+k=\ell+c$。有限の整数の加法の消去律から $k=\ell$。逆に $k=\ell$ なら加法の可換性で任意の $c,n$ について等式が成立する。したがって $k\ne\ell$ なら変換は存在せず、$k=\ell$ なら全ての非負整数 $c$ が成分の候補となる。二変換の合成は成分の和であり、恒等変換は成分 $0$ であることも[成分ごとの合成](#prop-catb2-03-vertical)から従う。
+が全ての非負整数 $n$ で必要となる。$n=1$ とすると
+
+$$
+c+k=\ell+c
+\quad\Longrightarrow\quad k=\ell
+$$
+
+である。ここでは有限の整数の加法の消去律を使った。
+
+逆に $k=\ell$ なら加法の可換性で任意の $c,n$ について等式が成立する。基底は集合なので、全入力 $n$ における等式は二本のHom集合上の写像そのものの等式を意味し、豊穣自然性も成立する。
+
+したがって $k\ne\ell$ なら変換は存在せず、$k=\ell$ なら全ての非負整数 $c$ が成分の候補となる。
+
+二変換の合成は成分の和であり、恒等変換は成分 $0$ であることも[成分ごとの合成](#prop-catb2-03-vertical)から従う。
 <!-- solution-end -->
 
 ### CATB2-03-C01 方向付き費用と台の圏
 
 - Level: C
 
-実直線上の費用を $d(x,y)=\max(y-x,0)$ とする。$F(x)=ax+b$ と $G(x)=cx+e$ について、次を示せ。
+実直線上の費用を $d(x,y)=\max(y-x,0)$ とする。実数 $a,b,c,e$ に対して $F(x)=ax+b$ と $G(x)=cx+e$ とする。費用をHom対象とするLawvere距離の豊穣圏について、次を示せ。
 
 1. $F$ が豊穣関手になるための必要十分条件を求めよ。
 2. $F,G$ がともに豊穣関手のとき、豊穣自然変換 $F\Rightarrow G$ が存在する必要十分条件を求めよ。
@@ -563,7 +648,14 @@ $$
 \max(u+v,0)\le\max(u,0)+\max(v,0).
 $$
 
-$u=y-x,v=z-y$ と置けば三角不等式となる。
+$u=y-x,v=z-y$ と置くと $u+v=z-x$ だから
+
+$$
+d(x,z)=\max(u+v,0)
+\le d(x,y)+d(y,z).
+$$
+
+従って [Lawvere距離による豊穣化](../CATB2-02/index.md#thm-catb2-02-lawvere-enrichment) を適用できる。
 
 **（1）関手の条件。** [費用の関手判定](#prop-catb2-03-thin-functors)により
 
@@ -573,7 +665,7 @@ $$
 
 が全点対で成立することが必要十分である。$y-x=-1$ なら $\max(-a,0)\le0$ なので $a\ge0$。$y-x=1$ なら $\max(a,0)\le1$ なので $a\le1$。逆に $0\le a\le1$ とすると、$y-x\le0$ の場合は両辺ゼロ、$y-x>0$ の場合は左辺 $a(y-x)$ が右辺 $y-x$ 以下である。従って $0\le a\le1$ が必要十分で、$b$ は任意。
 
-**（2）変換の条件。** 同じ判定により $0\le c\le1$ も成立している。各成分の存在は
+**（2）変換の条件。** 同じ判定により $0\le c\le1$ も成立している。[豊穣自然変換の定義](#def-catb2-03-enriched-natural)で各成分の型は $0\to d(Fx,Gx)$ である。[Lawvere距離の基底](../CATB2-02/index.md#def-catb2-02-lawvere-base)ではこれは $0\ge d(Fx,Gx)$ のときだけ存在し、費用は非負なので
 
 $$
 d(Fx,Gx)=\max((c-a)x+e-b,0)=0
