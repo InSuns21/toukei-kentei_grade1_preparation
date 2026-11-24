@@ -2,13 +2,14 @@ id: "AFR2"
 title: "Maass形式・双曲Laplace作用素"
 volume: "foundations"
 status: supplementary
-prerequisites: [AFR1, GEO12, FOU2, CA1]
+prerequisites: [AFR1, GEO12, FOU2, CA1, ODE7]
 official_scope: []
 learning_objectives:
   - 上半平面の双曲計量と面積要素を計算し実特殊線形群による保存を証明できる
   - 双曲Laplace作用素の符号を固定して導出し群作用との可換性を証明できる
   - 重さ0のMaass形式の不変性・固有方程式・増大条件を区別し直接検証できる
   - 周期方向のFourier展開と係数方程式を部分積分から導出できる
+  - 有限区間の境界条件と保型形式の条件を区別し固有値の符号の議論を比較できる
   - 定数項の一般解を重根の場合まで求め増大条件を非零周波数に適用できる
 definitions:
   - { id: AFR2-DEF-01, name: "上半平面の双曲計量" }
