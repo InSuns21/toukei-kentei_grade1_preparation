@@ -35,6 +35,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr9-additive-character -->
+**定義の確認**
+
 例えば $p=3$ では $\{2/3\}_3=2/3$、$\{1/3\}_3=1/3$、$\{1\}_3=0$ です。二つの値の積は $e^{2\pi i}=1=\psi_3(1)$ になります。一般に $\{x+y\}_p-\{x\}_p-\{y\}_p$ は分母が $p$ の冪の有理数であり、同時に $\mathbb Z_p$ に属するため整数です。従って指数関数は加法を積へ移します。
 
 $\psi_p(x)=1$ と $\{x\}_p=0$ は同値であり、これは $x\in\mathbb Z_p$ と同値です。指標は $x+\mathbb Z_p$ 上で一定なので連続です。実指標は指数関数の加法則と連続性から条件を満たします。
@@ -147,6 +149,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr9-schwartz-bruhat -->
+**定義の確認**
+
 $g(t)=e^{-\pi t^2}$ は微分するごとに多項式と Gaussian の積になるため、任意の $m,n$ の条件を満たします。$1_{\mathbb Z_p}$ は $\mathbb Z_p$ とその補集合がともに開なので局所定数です。整数環のコンパクト性は [AFR8 のコンパクト性定理の証明](../AFR8/index.md#thm-afr8-additive-quotient-compact)で確認しました。従って
 
 $$
@@ -205,6 +209,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr9-adelic-fourier -->
+**定義の確認**
+
 まず $g(t)=e^{-\pi t^2}$、$h=1_{\widehat{\mathbb Z}}$ とする先ほどの例を周波数 $y=0$ で評価します。$\psi(0)=1$ なので
 
 $$
@@ -305,7 +311,7 @@ $$
 \psi_f((b+x_f)y_f)\,d\mu_f(y_f).
 $$
 
-球指示関数の有限積の式で $b=0$、幅 $d^{-1}$、周波数 $b+x_f$ を選ぶと
+球指示関数を素点ごとに掛け合わせた変換公式で $b=0$、幅 $d^{-1}$、周波数 $b+x_f$ を選ぶと
 
 $$
 \widehat{\widehat h}(x_f)
