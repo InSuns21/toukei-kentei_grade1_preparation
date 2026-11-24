@@ -1,0 +1,46 @@
+id: "PML2-26"
+title: "PINN・FNO・古典解法はどんな条件で勝敗が変わるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML2-25
+  - PML2-03
+  - PML2-05
+  - PML2-06
+  - PML2-16
+  - PML2-17
+official_scope: []
+learning_objectives:
+  - 三モードPoisson問題の解析真解・境界条件と解単位のデータ分割を確認できる
+  - 正弦格子の直交性と三点差分の固有値から差分解と格子誤差を導出できる
+  - 固定正弦PINNの損失・勾配降下の有限反復誤差を導出できる
+  - 奇延長とFourier変換を用いた二モード線形FNOの最小二乗学習解と切断誤差を導出できる
+  - 同一格子の数値実験で真値誤差・連続残差・離散残差・費用の違いを比較できる
+  - 精度閾値・未見モード・格子分割・反復数・処理件数から候補を選び古典スペクトル法も比較対象に含められる
+definitions:
+  - { id: PML2-26-DEF-01, name: 許容誤差付き総費用比較 }
+theorems:
+  - { id: PML2-26-THM-01, name: 三モード正弦格子の直交性と差分解 }
+  - { id: PML2-26-THM-02, name: 固定正弦PINNの有限反復誤差 }
+  - { id: PML2-26-PROP-01, name: 二モード線形FNOの学習解と切断誤差 }
+canonical_examples:
+  - 三モードの製造解と零Dirichlet条件
+  - N=4の正弦格子と差分固有値
+  - PINNの50回と500回の最適化誤差
+  - 二モードFNOの未見第3モードでの切断誤差
+  - NumPyによる同一入力での精度・残差・費用比較
+  - 許容誤差による候補の選別と償却件数
+problem_patterns:
+  - PML2-26-A01
+  - PML2-26-A02
+  - PML2-26-A03
+  - PML2-26-A04
+  - PML2-26-B01
+  - PML2-26-B02
+  - PML2-26-B03
+  - PML2-26-B04
+  - PML2-26-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
