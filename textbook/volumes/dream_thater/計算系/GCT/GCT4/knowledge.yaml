@@ -1,0 +1,39 @@
+chapter: GCT4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GCT3
+  - GRP1
+  - COMB9
+forward_references: []
+concepts:
+  - id: graph-counting.directed-cycle-cover
+    name: 有向グラフのサイクル被覆
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有向グラフのサイクル被覆）"]
+    requires: [graph-counting.finite-simple-graph]
+  - id: graph-counting.cycle-cover-permutation
+    name: サイクル被覆と許容置換の全単射
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（サイクル被覆と許容置換の全単射）"]
+    requires: [graph-counting.directed-cycle-cover, algebra.disjoint-cycle-decomposition, algebra.permutation]
+  - id: graph-counting.cycle-cover-permanent
+    name: サイクル被覆の重み付き総和とパーマネント
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（サイクル被覆の重み付き総和とパーマネント）"]
+    requires: [graph-counting.cycle-cover-permutation, graph-counting.permanent, graph-counting.adjacency-matrix]
+  - id: graph-counting.cycle-cover-polynomial
+    name: 閉路数別の被覆多項式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（閉路数別の被覆多項式）"]
+    requires: [graph-counting.cycle-cover-permutation, graph-counting.edge-weight]
+  - id: graph-counting.hamilton-coefficient
+    name: 有向Hamilton閉路の係数抽出
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有向Hamilton閉路の係数抽出）"]
+    requires: [graph-counting.cycle-cover-polynomial, graph-counting.cycle-cover-permanent, theoretical-computer-science.directed-hamiltonian-cycle-language, combinatorics.formal-coefficient-extraction]
