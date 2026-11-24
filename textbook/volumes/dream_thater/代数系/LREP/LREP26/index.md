@@ -8,7 +8,7 @@ Dirac方程式の場には四成分がありました。一方、正質量スピ
 
 [共通符号規約](../../../../../dream-theater-lorentz-conventions.md)に従い、$c=\hbar=1$、$\eta=\operatorname{diag}(-1,1,1,1)$ とします。
 
-$G=SL(2,\mathbb C)$ とし、$Ax$ は[二重被覆](../LREP10/index.md#thm-lrep10-double-cover)による四元ベクトルの変換の略記です。$p\cdot x=\eta(p,x)$ とします。
+$G=SL(2,\mathbb C)$ とし、$Ax$ は[二重被覆](../LREP10/index.md#thm-lrep10-double-cover)による四元ベクトルの変換の略記です。$x=(t,\boldsymbol x)$ とし、$p\cdot x=\eta(p,x)=-Et+\boldsymbol p\cdot\boldsymbol x$ とします（$E=p^0$）。
 
 $m>0$ を固定し、[未来質量殻](../LREP22/index.md#def-lrep22-mass-shell) $\mathcal O_m$ と静止点 $k=(m,\boldsymbol 0)$ を取ります。
 
@@ -18,7 +18,7 @@ $p=(E,\boldsymbol p)$、$E=\sqrt{m^2+|\boldsymbol p|^2}$ です。
 
 場は時空の各点に $F$ の列を割り当てます。$GL(F)$ は $F$ の可逆複素線形写像の群、$U(d)$ は $d$ 次ユニタリ行列の群です。
 
-座標の引き戻しと成分の変換を組み合わせる必要があります。ここでは前講の並進位相 $e^{ip\cdot a}$ に合わせ、引き戻しの引数を $A^{-1}(x+a)$ とします（時空並進を逆向きにラベルする約束です）。
+[被覆Poincare群](../LREP21/index.md#def-lrep21-covered-poincare)の元 $(a,A)$ は四元並進 $a$ と被覆群の元 $A$ の組で、積は $(a,A)(b,B)=(a+Ab,AB)$ です。座標の引き戻しと成分の変換を組み合わせる必要があります。ここでは前講の並進位相 $e^{ip\cdot a}$ に合わせ、引き戻しの引数を $A^{-1}(x+a)$ とします（時空並進を逆向きにラベルする約束です）。
 
 <a id="def-lrep26-field-action"></a>
 
@@ -38,7 +38,7 @@ $$
 **定義の確認**。 $F=\mathbb C$、全ての $A$ で $D(A)=1$ とすれば、$D(I)=1$、$D(AB)=1=D(A)D(B)$ で連続です。$\Phi(x)=e^{-imt}$ は連続な一成分の場です。$a=(b,\boldsymbol0)$、$A=I$ では $T_D(a,I)\Phi=e^{-imb}\Phi$ となります。一般の $(a,A)$ でも連続なアフィン写像との合成により連続な場を得ます。
 <!-- definition-example-end -->
 
-[被覆Poincare群](../LREP21/index.md#def-lrep21-covered-poincare)の群の積は $(a,A)(b,B)=(a+Ab,AB)$ です。実際に二回作用させると
+上で確認した群の積に対して、場の変換も表現の積を保つか確かめます。実際に二回作用させると
 
 $$
 \begin{aligned}
@@ -52,7 +52,7 @@ $$
 
 一方、[正質量の静止安定化群](../LREP23/index.md#thm-lrep23-rest-group)は $K=SU(2)$ です。
 
-連続なユニタリ表現 $\rho:K\to U(d)$ と連続な[運動量断面](../LREP25/index.md#def-lrep25-section) $s(p)$ を選び、$s(k)=I_2$ とします。
+連続なユニタリ表現 $\rho:K\to U(d)$ と連続な[運動量断面](../LREP25/index.md#def-lrep25-section) $s:\mathcal O_m\to G$ を選びます。断面とは $s(p)k=p$ を満たす写像で、本講ではさらに $s(k)=I_2$ とします。
 
 $\rho$ は前講で固定群の表現を表すために使った $D$ に当たります。本講では場の $D$ と区別します。
 
@@ -96,7 +96,7 @@ $$
 e^{i(Ap)\cdot x}u(Ap)\rho(w(A,p))v
 $$
 
-です。指数を消し、任意の $v$ で二つの列が一致することを要求すれば次の行列条件が得られます。
+です。指数は零にならないので消去できます。$V,F$ の標準基底で $u(p)$ は $n$ 行 $d$ 列です。任意の内部列 $v=\sum_{j=1}^d v_j e_j$ に対する一致は、各標準基底 $e_j$ に対する一致と同値です。従って二つの行列の第 $j$ 列がすべて等しいことを要求すればよいのです。
 
 $\operatorname{Hom}(V,F)$ は $V$ から $F$ への複素線形写像全体です。
 
@@ -177,7 +177,7 @@ $$
 
 ## 3. 波束を場に移すときの変換
 
-各運動量の係数を平面波 $e^{ip\cdot x}$ に掛けて重ね合わせます。まず $f:\mathcal O_m\to V$ を連続かつコンパクト台を持つ関数に限定します。台とは零でない点の集合の閉包です。これなら積分の存在を個々の運動量成分の連続性から確かめられます。
+各運動量の係数を平面波 $e^{ip\cdot x}=e^{-iEt+i\boldsymbol p\cdot\boldsymbol x}$ に掛けて重ね合わせます。時間因子が $e^{-iEt}$ で $E>0$ なので、[Dirac平面波モード](../LREP20/index.md#def-lrep20-plane-wave)と同じ意味で正周波数と呼びます。まず $f:\mathcal O_m\to V$ を連続かつコンパクト台を持つ関数に限定します。台とは零でない点の集合の閉包です。これなら積分の存在を個々の運動量成分の連続性から確かめられます。
 
 <a id="def-lrep26-packet-field-map"></a>
 
@@ -255,7 +255,7 @@ u(Aq)\rho(w(A,q))f(q)\,d\mu_m(q)\\
 \end{aligned}
 $$
 
-第二行では共変モード係数の条件を用い、定数行列 $D(A)$ を積分の外へ出しました。最後の式は場の共変作用そのものです。$\square$
+第二行では[共変モード係数](#def-lrep26-mode-intertwiner)の条件を用い、積分変数 $q$ に依存しない行列 $D(A)$ を積分の外へ出しました。最後の式は[場の共変作用](#def-lrep26-field-action)そのものです。$\square$
 <!-- proof-end -->
 
 ここでの積分は通常の関数として扱える波束に限定しました。任意の二乗可積分波束に対して各時空点で絶対収束するとは限りません。粒子のHilbert空間におけるユニタリ性と、場が各点で持つ成分のノルムは別の問題です。
@@ -284,13 +284,13 @@ $$
 s(p)=\frac{(E+m)I_2+P}{\sqrt{2m(E+m)}}.
 $$
 
-$s(p)$ はHermitianであり、[静止系からの共変モード係数の構成](#thm-lrep26-rest-extension)を適用すると
+[標準boostの存在と一意性](../LREP23/index.md#thm-lrep23-boost-section)によって $s(p)$ は正定値エルミート行列であり、$s(p)k=p$ です。$p=k$ の代入で $s(k)=I_2$ となります。[静止系からの共変モード係数の構成](#thm-lrep26-rest-extension)を適用すると
 
 $$
 u(p)=\sqrt m\begin{pmatrix}s(p)\\i s(p)^{-1}\end{pmatrix}.
 $$
 
-各列は前に構成した正周波数Diracモードです。この対応は四成分を二成分へ勝手に削る操作ではなく、二成分を運動量に応じた四成分の解空間へ写す操作です。
+ここで $u(p)$ は個々のモード列ではなく、二列を並べた行列です。[正質量のDiracモードの構成](../LREP20/index.md#prop-lrep20-boost-modes)での $u_j(p)$ は本講の $u(p)e_j$ に当たります。この対応は四成分を二成分へ勝手に削る操作ではなく、二成分を運動量に応じた四成分の解空間へ写す操作です。
 
 <a id="thm-lrep26-dirac-embedding"></a>
 
@@ -323,7 +323,7 @@ $$
 
 [LREP20の正質量のDiracモードの構成](../LREP20/index.md#prop-lrep20-boost-modes)により、標準基底を $\chi_1,\chi_2$ としたとき $u(p)\chi_1,u(p)\chi_2$ は核の基底です。従って像と核は一致します。
 
-$s=s(p)$ と略記します。$s^\dagger=s$、$(s^{-1})^\dagger=s^{-1}$ であり、[正質量のDiracモードの構成](../LREP20/index.md#prop-lrep20-boost-modes)で $s^2=(EI_2+P)/m$、$s^{-2}=(EI_2-P)/m$ が得られています。$H=\begin{pmatrix}0&-iI_2\\iI_2&0\end{pmatrix}$ なので
+$s=s(p)$ と略記し、$\dagger$ は複素共役転置を表します。$s^\dagger=s$、$(s^{-1})^\dagger=s^{-1}$ であり、[正質量のDiracモードの構成](../LREP20/index.md#prop-lrep20-boost-modes)で $s^2=(EI_2+P)/m$、$s^{-2}=(EI_2-P)/m$ が得られています。$H=\begin{pmatrix}0&-iI_2\\iI_2&0\end{pmatrix}$ なので
 
 $$
 Hu(p)=\sqrt m\begin{pmatrix}s^{-1}\\i s\end{pmatrix}.
@@ -343,7 +343,7 @@ $m>0$ だから最初の積を $2m$ で割った行列は左逆です。$u(p)v=0
 
 例えば $m=4$、$\boldsymbol p=(0,0,3)$ なら $E=5$、$s=\operatorname{diag}(\sqrt2,1/\sqrt2)$ です。第1列は $(2\sqrt2,0,i\sqrt2,0)^{\mathsf T}$ で、通常のノルム二乗は $8+2=10=2E$ です。一方、静止点ではノルム二乗は8でした。従って場の成分の変換は標準内積についてユニタリとは限りません。
 
-この二つのノルムの違いは矛盾ではありません。粒子波束のノルムは $\int\|f(p)\|^2\,d\mu_m(p)$ です。場の運動量係数を $g(p)=u(p)f(p)$ と書くと上の定理から
+この二つのノルムの違いは矛盾ではありません。粒子波束のノルムは $\int\|f(p)\|^2\,d\mu_m(p)$ です。場の運動量係数を $g(p)=u(p)f(p)$ と書くと[内部空間の埋め込み](#thm-lrep26-dirac-embedding)により $\|g(p)\|^2=f(p)^\dagger u(p)^\dagger u(p)f(p)=2E\|f(p)\|^2$ です。従って
 
 $$
 \int\frac{\|g(p)\|^2}{2E}\,d\mu_m(p)
@@ -352,9 +352,24 @@ $$
 
 右辺は[誘導作用のユニタリ性](../LREP25/index.md#thm-lrep25-unitary)により保存されるので、左辺も誘導された変換で保存されます。重みを落とした成分ノルムとは異なります。
 
-この積分で作った場が自由Dirac方程式を満たすことも確認できます。コンパクトな台では $p_\mu$ と $u(p)$ が有界なので、指数関数を微分した被積分関数は可積分な関数で一様に支配されます。差商にも同じ支配が使えるので、[Lebesgueの優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)で積分と一階微分を交換できます。
+この積分で作った場が自由Dirac方程式を満たすことも確認できます。$x^0=t$、$x^j$ は空間座標、下付きの $p_\mu=\sum_{\nu=0}^3\eta_{\mu\nu}p^\nu$ は $p_0=-E$、$p_j=p^j$ です。従って $p\cdot x=\sum_{\mu=0}^3p_\mu x^\mu$ です。$\partial_\mu=\partial/\partial x^\mu$ は他の三つの時空座標と積分変数 $p$ を固定した微分です。
 
-[自由Dirac作用素](../LREP19/index.md#def-lrep19-dirac-operator)を $\mathcal J_u f$ に適用し、$i\partial_\mu e^{ip\cdot x}=-p_\mu e^{ip\cdot x}$ を代入すると
+$x^\mu$ 方向の単位座標列を $e_\mu$、実数の増分を $h\ne0$ とします。指数関数の微分を積分すると差商は
+
+$$
+\frac{e^{ip\cdot(x+he_\mu)}-e^{ip\cdot x}}{h}
+=e^{ip\cdot x}ip_\mu\int_0^1 e^{i\tau h p_\mu}\,d\tau .
+$$
+
+右辺は絶対値が $|p_\mu|$ 以下で、$h\to0$ のとき $ip_\mu e^{ip\cdot x}$ に収束します。従って波束の差商は各成分で $|p_\mu|\|u(p)\|\|f(p)\|$ に支配されます。この関数はコンパクトな台上で有界、台外で零なので質量殻測度で可積分です。[Lebesgueの優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)を実部と虚部に適用して、積分と一階微分を交換できます。
+
+[自由Dirac作用素](../LREP19/index.md#def-lrep19-dirac-operator)を $\mathcal J_u f$ に適用します。差商の極限に $i$ を掛けると $i\partial_\mu e^{ip\cdot x}=-p_\mu e^{ip\cdot x}$ です。従って
+
+$$
+-\sum_{\mu=0}^3p_\mu G^\mu=EG^0-\sum_{j=1}^3p_jG^j=K(p).
+$$
+
+これを代入すると
 
 $$
 D_m\mathcal J_u f=\int_{\mathcal O_m}e^{ip\cdot x}(K(p)-mI_4)u(p)f(p)\,d\mu_m(p)=0.
@@ -362,7 +377,7 @@ $$
 
 最後は[内部空間の埋め込み](#thm-lrep26-dirac-embedding)の像と核の一致によります。
 
-負周波数モードについても静止行列の下側を $-iI_2$ に変えれば固定群条件を満たしますが、負周波数の場の量子化や反粒子の生成消滅作用素は本講の構成とは別です。
+負周波数モードについても静止行列の下側を $-iI_2$ に変えれば固定群条件を満たし、[Dirac平面波モード](../LREP20/index.md#def-lrep20-plane-wave)の $e^{-ip\cdot x}$ と組み合わせれば負周波数解になります。ただし正周波数の波束写像の位相をそのまま使うことはできません。負周波数の場の量子化や反粒子の生成消滅作用素は本講の構成とは別です。
 
 ## 5. 演習
 
@@ -391,7 +406,7 @@ $m=1$、$R=\operatorname{diag}(i,-i)$ とし、$C=\binom{I_2}{iI_2}$ とする�
 <!-- solution-start -->
 **詳細解答**
 
-$R^\dagger R=I_2$、$\det R=i(-i)=1$ なので $R\in SU(2)$。下ブロックも $(R^\dagger)^{-1}=R$ だから
+$SU(2)$ に属する条件はユニタリ性と行列式1です。$R^\dagger=\operatorname{diag}(-i,i)$ なので $R^\dagger R=\operatorname{diag}(1,1)=I_2$、$\det R=i(-i)=1$ です。従って $R\in SU(2)$。下ブロックも $(R^\dagger)^{-1}=R$ だから
 
 $$
 D(R)C=\begin{pmatrix}R\\iR\end{pmatrix}
@@ -433,7 +448,21 @@ $m=3$、$\boldsymbol p=(0,0,4)$ とする。標準boostの対角成分と正周�
 <!-- solution-start -->
 **詳細解答**
 
-$E=5$、$P=\operatorname{diag}(4,-4)$ です。標準boostの分子は $\operatorname{diag}(12,4)$、分母は $\sqrt{2\cdot3\cdot8}=4\sqrt3$ なので $s=\operatorname{diag}(\sqrt3,1/\sqrt3)$。従って第1列は $\sqrt3(\sqrt3,0,i/\sqrt3,0)^{\mathsf T}=(3,0,i,0)^{\mathsf T}$。ノルム二乗は $9+1=10=2E$ で、[内部空間の埋め込み](#thm-lrep26-dirac-embedding)と一致します。
+$E=\sqrt{3^2+4^2}=5$、$P=\operatorname{diag}(4,-4)$ です。[標準boost](../LREP23/index.md#def-lrep23-standard-boost)に代入すると
+
+$$
+s=\frac{\operatorname{diag}(12,4)}{4\sqrt3}
+=\operatorname{diag}(\sqrt3,1/\sqrt3).
+$$
+
+[内部空間の埋め込み](#thm-lrep26-dirac-embedding)の係数行列の第1列は
+
+$$
+\sqrt3\begin{pmatrix}\sqrt3\\0\\i/\sqrt3\\0\end{pmatrix}
+=\begin{pmatrix}3\\0\\i\\0\end{pmatrix}.
+$$
+
+ノルム二乗は $9+1=10=2E$ で、[内部空間の埋め込み](#thm-lrep26-dirac-embedding)と一致します。
 <!-- solution-end -->
 
 <a id="ex-lrep26-b01"></a>
@@ -463,11 +492,15 @@ $m>0$、$r,t\in\mathbb R$ とし、$p=(m\cosh r,0,0,m\sinh r)$、$A=\operatornam
 <!-- solution-start -->
 **詳細解答**
 
-$s(p)$ の二つの分子は $m(1+\cosh r\pm\sinh r)=m(1+e^{\pm r})$。分母は $2m\cosh(r/2)$ なので $s(p)=\operatorname{diag}(e^{r/2},e^{-r/2})$ です。
+$s(p)$ の二つの分子は $m(1+\cosh r\pm\sinh r)=m(1+e^{\pm r})$。分母は $2m\cosh(r/2)>0$ です。$1+e^{\pm r}=2e^{\pm r/2}\cosh(r/2)$ なので
+
+$$
+s(p)=\operatorname{diag}(e^{r/2},e^{-r/2}).
+$$
 
 [エルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model)では $p$ の行列は $m\operatorname{diag}(e^r,e^{-r})$。$A$ による合同積は $m\operatorname{diag}(e^{r+t},e^{-r-t})$ です。
 
-従って $s(Ap)=As(p)$。補正は $(As(p))^{-1}As(p)=I_2$ です。
+対角成分の和と差から $Ap=(m\cosh(r+t),0,0,m\sinh(r+t))$ です。上の断面の式で $r$ を $r+t$ に置き換えると $s(Ap)=As(p)$ です。[固定群補正](../LREP25/index.md#def-lrep25-little-cocycle)は $(As(p))^{-1}As(p)=I_2$ です。
 
 $s(p),A$ は対角なので可換です。$D(A)=\operatorname{diag}(A,A^{-1})$ より
 
@@ -506,7 +539,7 @@ $m=3$、$p=(5,0,0,4)$、$R=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ とする。$R
 <!-- solution-start -->
 **詳細解答**
 
-$R^\dagger R=I_2$、$\det R=1$ です。[エルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model)では $p$ の行列は $\operatorname{diag}(9,1)$ です。回転で二つの対角成分が交換され、
+$R^\dagger=R^{\mathsf T}=-R$、$R^2=-I_2$ なので $R^\dagger R=I_2$ です。また $\det R=0-(-1)\cdot1=1$ なので $R\in SU(2)$ です。[エルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model)では $p$ の行列は $\operatorname{diag}(9,1)$ です。回転で二つの対角成分が交換され、
 
 $$
 R\operatorname{diag}(9,1)R^\dagger=\operatorname{diag}(1,9)
@@ -557,7 +590,7 @@ $$
 u'(p)f'(p)=u(p)\rho(h(p))\rho(h(p))^{-1}f(p)=u(p)f(p).
 $$
 
-従って連続コンパクト台の波束に対して積分も同じです。$\rho(h(p))$ はユニタリなので $\|f'(p)\|=\|f(p)\|$、積分して波束ノルムが一致します。
+$f'$ は連続で、各点で可逆な行列を掛けているため $f$ と零点集合が一致し、台も同じです。従って[波束写像](#def-lrep26-packet-field-map)の積分は両方で定義され、同じ場を与えます。$\rho(h(p))$ はユニタリなので $\|f'(p)\|=\|f(p)\|$、積分して波束ノルムが一致します。
 
 新しい固定群補正は
 
