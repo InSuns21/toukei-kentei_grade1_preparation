@@ -4,6 +4,8 @@
 
 前提：[LVT1-06](../LVT1-06/index.md)。到達点は、命題と証明の型を読み、決定手続きの二つの分岐から判定の正しさを示し、誤った判定器の反例を作ることです。
 
+**ブラウザで実行：** [本講の実行ラボを開く](../browser-lab.html?chapter=LVT2-01)。Lean Web で命題・証明・判定器を編集し、型、評価値、反例を確認できます。Python との照合や Lake の実行は同じラボから GitHub Codespaces（ブラウザ版VS Code）を開いて行います。ローカルへのインストールは不要です。
+
 ## 1. 計算と論理の二つの役割
 
 自然数 2 と 3 を比較したとき、プログラムの結果として false を受け取れます。一方、数学の主張「2 = 3」は偽の命題です。false というデータは存在しますが、矛盾のない論理のもとでは偽の命題の正しい証明は作れません。この違いを Lean の型で捉えます。
@@ -211,7 +213,7 @@ wrongMatches については一致する入力のテストだけなら成功し�
 
 ## 6. Leanで実験する
 
-[固定されたLeanプロジェクト](../LVT1-02/index.md#def-lvt1-02-fixed-environment)に従い、リポジトリのルートから実行します。
+[固定されたLeanプロジェクト](../LVT1-02/index.md#def-lvt1-02-fixed-environment)に従い、Codespaces の端末でリポジトリのルートから実行します。
 
 ```bash
 cd "textbook/volumes/dream_thater/計算系/LVT/LVT2-01/lab"

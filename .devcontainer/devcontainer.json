@@ -1,0 +1,15 @@
+{
+  "name": "LVT Lean 4 browser workspace",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "leanprover.lean4"
+      ]
+    }
+  },
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:${containerEnv:HOME}/.elan/bin"
+  },
+  "postCreateCommand": "bash .devcontainer/setup-lvt.sh"
+}

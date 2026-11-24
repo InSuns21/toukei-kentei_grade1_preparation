@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LVT ブラウザ実行ラボ</title>
+<style>
+body{font:16px/1.65 system-ui,sans-serif;max-width:76rem;margin:auto;padding:1.2rem;color:#202124;background:#fff}
+h1{font-size:1.6rem}h2{font-size:1.2rem;margin-top:1.5rem}
+label{display:block;font-weight:600;margin-top:.8rem}select,button,a.action{font:inherit;padding:.35rem .6rem}
+textarea{display:block;box-sizing:border-box;width:100%;min-height:20rem;font:14px/1.5 monospace;tab-size:2;margin:.5rem 0;resize:vertical}
+a{color:#0756a8}a.action{display:inline-block;border:1px solid currentColor;text-decoration:none;font-weight:600}
+a[aria-disabled=true]{pointer-events:none;color:#666}button{margin:.4rem .4rem .4rem 0}
+:focus-visible{outline:3px solid #0b64c0;outline-offset:3px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f4f4;padding:.7rem}
+#status{min-height:1.6em}p{max-width:70ch}
+</style>
+</head>
+<body>
+<h1>LVT ブラウザ実行ラボ</h1>
+<p><a id="back">講義本文へ戻る</a></p>
+<label for="chapter">講義</label><select id="chapter"></select>
+<h2>1. Leanの計算・証明・エラーを試す</h2>
+<p>実際の教材ソースを読み込みます。コードを編集してから Lean Web を開くと、オンラインの Lean が検査し、InfoView に計算値・型・エラー・証明目標を表示します。</p>
+<label for="mode">実験</label><select id="mode"></select>
+<p id="expected"></p>
+<p id="status" role="status" aria-live="polite"></p>
+<label for="source">Leanソース（編集可能）</label>
+<textarea id="source" spellcheck="false" autocapitalize="off" autocomplete="off" disabled></textarea>
+<button id="reset" type="button" disabled>教材ソースに戻す</button>
+<a id="run" class="action" target="_blank" rel="noopener noreferrer" aria-disabled="true" tabindex="-1">Lean Web で実行</a>
+<p>Lean Web は外部のオンライン実行サービスです。開いた時点で編集内容が渡ります。機密コードは入力しないでください。提供されるLeanの版は教材の固定版と異なる場合があります。固定版や複数ファイルの確認は次の実行環境を使います。</p>
+<h2>2. Lake・複数ファイル・差分テストを実行する</h2>
+<p><a class="action" href="https://codespaces.new/InSuns21/toukei-kentei_grade1_preparation?quickstart=1" target="_blank" rel="noopener noreferrer">GitHub Codespaces を開く</a></p>
+<p>GitHubへのログインと利用枠が必要です。利用枠を超えると課金される場合があります。作成または再開したブラウザ版VS Codeの端末で以下を実行します。初回セットアップの完了を待ってから実行してください。</p>
+<pre id="commands"></pre>
+<p>意図した失敗例は正常系から分けて実行します。Lean Web は単一ファイルの検査、Codespaces は固定版のLakeビルドと実行ファイル・外部言語のテストを担当します。</p>
+<script type="module" src="browser-lab.mjs"></script>
+</body>
+</html>

@@ -4,6 +4,8 @@
 
 前提：[LVT1-04](../LVT1-04/index.md)。到達点は、List と Array の違いを説明し、範囲外を Option で処理し、Fin によって添字の条件を型に含め、固定長盤面の座標変換を検査することです。
 
+**ブラウザで実行：** [本講の実行ラボを開く](../browser-lab.html?chapter=LVT1-05)。Lean Web では教材の定義・証明・具体例を編集し、実行結果やエラーを確認できます。Lake や複数ファイルの実行は同じラボから GitHub Codespaces（ブラウザ版VS Code）を開いて行います。ローカルへのインストールは不要です。
+
 ## 1. 列を番号で読む
 
 [リストの再帰的構成](../LVT1-04/index.md#def-lvt1-04-list-constructors)では、空と先頭・残りから有限列を作りました。`A` を要素の型とします。配列 `Array A` も A 型の値を順に並べた有限列で、Lean では `#[4, 7, 0]` と書けます。`List` では同じ列を `[4, 7, 0]` と書きます。要素の順序と個数が重要で、List の長さは length、Array の個数は size で得られます。
@@ -228,7 +230,7 @@ def gridIndex (r c : Fin 3) : Fin 9 :=
 
 ## 6. Leanで実験する
 
-第2講の[固定されたLeanプロジェクト](../LVT1-02/index.md#def-lvt1-02-fixed-environment)に従い Lean v4.35.0 の lab を用意しました。リポジトリのルートから実行します。
+第2講の[固定されたLeanプロジェクト](../LVT1-02/index.md#def-lvt1-02-fixed-environment)に従い Lean v4.35.0 の lab を用意しました。Codespaces の端末で、リポジトリのルートから実行します。
 
 ```bash
 cd "textbook/volumes/dream_thater/計算系/LVT/LVT1-05/lab"
