@@ -2,7 +2,7 @@
 const N=48;
 const pulse=1;
 const ridge=1.5;
-const g=9.81,L=48,dx=L/N,interval=.05,endTime=4;
+const g=9.81,L=48,interval=.05,endTime=4;
 function makeFlood(n=N,p=pulse,b=ridge){
  if(!Number.isInteger(n)||n<12||n>96||!Number.isFinite(p)||p<0||p>2||!Number.isFinite(b)||b<0||b>3)throw RangeError('FCG20 parameter range');
  const d=L/n,z=new Float64Array(n*n),U=new Float64Array(3*n*n);
@@ -31,7 +31,7 @@ function makeFlood(n=N,p=pulse,b=ridge){
    const k=idx(i,j),lo=axis===0?i:j,hi=n-1;
    const left=lo===0?face(k,k,axis,1):face(k-(axis===0?1:n),k,axis);
    // At a left wall the reflected state must be on the left.
-   if(lo===0){const h=U[3*k],u=h?U[3*k+q]/h:0;left[1]=h*u*u+.5*g*h*h+left[5]*h*u;}
+   if(lo===0){const h=U[3*k],u=h?U[3*k+q]/h:0;left[1]=h*u*u+.5*g*h*h-left[5]*h*u;}
    const right=lo===hi?face(k,k,axis,1):face(k,k+(axis===0?1:n),axis);
    const a=dt/d;
    next[3*k]-=a*(right[0]-left[0]);
@@ -46,13 +46,13 @@ function makeFlood(n=N,p=pulse,b=ridge){
  function advance(){
   const target=Math.min(endTime,time+interval);
   while(time<target-1e-12){
-   if(steps>50000)throw Error('step limit');
+   if(steps>=50000)throw Error('step limit');
    const dt=Math.min(target-time,.2*d/Math.max(maxSpeed(),1e-9));
    // Each directional stage uses its own CFL bound. Subdivide the second sweep
    // if the first changes the characteristic speed.
    sweep(0,dt);
-   let remain=dt;
-   while(remain>1e-12){const sub=Math.min(remain,.2*d/Math.max(maxSpeed(),1e-9));sweep(1,sub);remain-=sub;}
+   let remain=dt,substeps=0;
+   while(remain>1e-12){if(++substeps>10000)throw Error('substep limit');const sub=Math.min(remain,.2*d/Math.max(maxSpeed(),1e-9));sweep(1,sub);remain-=sub;}
    time+=dt;steps++;
   }
  }
@@ -77,7 +77,7 @@ let sim=makeFlood(),playing=false,raf=null,last=0,lost=false;
 const caption=document.createElement('p');caption.setAttribute('aria-label','浸水診断');canvas.after(caption);
 function draw(){if(lost)return;const s=sim.state();gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA32F,N,N,0,gl.RGBA,gl.FLOAT,s.field);gl.viewport(0,0,canvas.width,canvas.height);gl.drawArrays(gl.TRIANGLES,0,3);
  if(gl.getError()!==gl.NO_ERROR)throw Error('FCG20 draw failed');
- caption.textContent='左：地形＋水深（乾地は茶、浸水は青）｜中央：水深 0–2 m｜右：流速 0–3 m/s。時刻 '+s.time.toFixed(2)+' s、水量 '+s.volume.toFixed(3)+' m³、収支差 '+s.error.toExponential(2)+' m³、最小水深 '+s.min.toFixed(4)+' m、浸水面積（h>1 mm） '+s.wetArea.toFixed(1)+' m²、最大流速 '+s.velocity.toFixed(3)+' m/s';}
+ caption.textContent='左上：地形＋水面（茶＝乾地、青＝水）｜右上：水深 0–2 m（暗→明）｜左下：流速 0–3 m/s（暗→明）｜右下：中央断面（横48 m・縦4 m、縦12倍、白線＝水面、茶＝地盤）。時刻 '+s.time.toFixed(2)+' s、水量 '+s.volume.toFixed(3)+' m³、収支差 '+s.error.toExponential(2)+' m³、最小水深 '+s.min.toFixed(4)+' m、浸水面積（h>1 mm） '+s.wetArea.toFixed(1)+' m²、最大流速 '+s.velocity.toFixed(3)+' m/s';}
 function emit(){canvas.dispatchEvent(new CustomEvent('fcg-time-progress',{detail:{value:sim.state().time,playing}}));}
 function pause(){playing=false;if(raf!==null)cancelAnimationFrame(raf);raf=null;emit();}
 function step(){pause();sim.advance();draw();emit();}
