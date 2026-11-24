@@ -73,7 +73,7 @@ $$
 
 無限素点の表現 $(\pi_\infty,V_\infty)$ が与えられれば、通常の有限テンソル積 $V_\infty\otimes V_f$ に各成分で作用させます。無限素点の滑らかさや完備化は有限素点の滑らかさとは別問題です。この代数的構成だけでは、ある大域カスプ形式から生成される既約保型表現が必ずこの形になることを証明していません。その逆方向の分解と古典形式との対応は次講で扱います。
 
-基準元の重要性を確認します。各 $V_p=\mathbb C$ で、[p進付値](../../ANF/ANF9/index.md#def-anf9-p-adic-valuation) $v_p(x)$（非零数 $x$ に含まれる $p$ の指数）を使い $\pi_p(g)=(-1)^{v_p(\det g)}$、$e_p=1$ とすれば $K_p$ 上で自明なので、群元の作用は有限個の符号の積です。一方、無限個の素点で $e_p$ が $K_p$ 固定でない場合は、それらの素点で $e_p$ を変える $k_p\in K_p$ を選べます。この族は $G_f$ の元ですが、作用結果は有限変更ではなく、上の構成では定義できません。
+基準元の重要性を確認します。各 $V_p=\mathbb C$ で、[p進付値](../../ANF/ANF9/index.md#def-anf9-p-adic-valuation) $v_p(x)$（非零数 $x$ に含まれる $p$ の指数）を使い $\pi_p(g)=(-1)^{v_p(\det g)}$、$e_p=1$ とすれば $K_p$ 上で自明なので、群元の作用は有限個の符号の積です。行列式の乗法性と付値の加法性により符号は乗法的で、$K_p$ 上では付値0なので滑らかさも満たします。一方、無限個の素点で $e_p$ が $K_p$ 固定でない場合は、それらの素点で $e_p$ を変える $k_p\in K_p$ を選べます。この族は $G_f$ の元ですが、作用結果は有限変更ではなく、上の構成では定義できません。
 
 ## 3. 局所レベルをまとめる
 
@@ -106,7 +106,7 @@ $M$ が $N$ の倍数なら $v_p(M)\ge a_p$ です。レベル部分群は指数
 
 ## 4. 局所因子からDirichlet級数へ
 
-不分岐素点では [GL_2の不分岐局所L因子](../AFR14/index.md#def-afr14-local-l-factor) が二つのSatakeパラメータから決まります。分岐素点では球固定直線がないので同じ計算を強制できません。まず一般の局所表現の分類を使わずに、有限個の例外因子も含めて積を作る解析上の条件を明確にします。
+不分岐素点では [GL_2の不分岐局所L因子](../AFR14/index.md#def-afr14-local-l-factor) が二つのSatakeパラメータから決まります。分岐素点では球固定直線がないので同じ計算を強制できません。まず一般の局所表現の分類を使わずに、有限個の例外因子も含めて積を作る解析上の条件を明確にします。各素数に局所因子の分母となる定数項1の多項式を割り当て、素数の上限を増やした積の極限として全有限素点のL積を定義します。
 
 <a id="def-afr16-finite-l"></a>
 
@@ -190,7 +190,21 @@ $$
 
 ### 分岐因子の具体例
 
-[主系列の安定Whittaker積分](../AFR15/index.md#thm-afr15-jacquet) の構成で、$p=3$、$\chi_1=\eta$（法3の非自明な単数指標、$\eta(3)=1$）、$\chi_2=1$ を取ります。そこで構成した新ベクトル $f$ は $f(wn(x))=1$ ($x\in\mathbb Z_3$)、外では0でした。$a_y=\operatorname{diag}(y,1)$ とすると $wn(x)a_y=\operatorname{diag}(1,y)wn(x/y)$ です。ここで $y\in\mathbb Q_3^\times$、$x\in\mathbb Q_3$ とし、$n(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix}$、$w=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ です。[Whittaker汎関数](../AFR15/index.md#def-afr15-whittaker) の記法 $W_f(g)=\ell(\pi(g)f)$ と [p進正規化主系列](../AFR13/index.md#def-afr13-principal) の右移動・左変換則から
+[主系列の安定Whittaker積分](../AFR15/index.md#thm-afr15-jacquet) の構成で、$p=3$、$\chi_1=\eta$、$\chi_2=1$ を取ります。$\eta$ は非零元 $3^m u$（$u\in\mathbb Z_3^\times$）について $u$ の法3での剰余が1なら1、2なら $-1$ を返す乗法指標です。特に $\eta(3)=1$ です。
+
+$x\in\mathbb Q_3$、$y\in\mathbb Q_3^\times$ とし、次の行列を使います。
+$$
+n(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix},\qquad
+w=\begin{pmatrix}0&-1\\1&0\end{pmatrix},\qquad
+a_y=\operatorname{diag}(y,1).
+$$
+前講で構成した新ベクトル $f$ は $f(wn(x))=1$ ($x\in\mathbb Z_3$)、外では0でした。両辺を行列の積として計算すると
+$$
+wn(x)a_y=\begin{pmatrix}0&-1\\y&x\end{pmatrix}
+=\operatorname{diag}(1,y)wn(x/y).
+$$
+
+[Whittaker汎関数](../AFR15/index.md#def-afr15-whittaker) の記法 $W_f(g)=\ell(\pi(g)f)$ と [p進正規化主系列](../AFR13/index.md#def-afr13-principal) の右移動・左変換則から
 $$
 f(wn(x)a_y)=|y|_3^{-1/2}\chi_2(y)f(wn(x/y)).
 $$
@@ -275,7 +289,7 @@ $Z$ の作用は $p$ 成分だけが $pI_2$ である中心元の右移動です
 
 <!-- formal-statement-start -->
 > **定理（古典Euler積との一致）**
-> $f=\sum_{n\ge1}a_nq^n$ を偶数重さ $k\ge2$ のレベル1正規化同時Hecke固有カスプ形式とし、$a_1=1$ とする。$A_p=a_pp^{-(k-1)/2}$ と置く。球Hecke固有値から作る局所因子は
+> $f=\sum_{n\ge1}a_nq^n$ を偶数重さ $k\ge2$ のレベル1正規化同時Hecke固有カスプ形式とし、$q=e^{2\pi iz}$、$a_1=1$ とする。$A_p=a_pp^{-(k-1)/2}$ と置く。球Hecke固有値から作る局所因子は
 $$
 L_p(s)=\left(1-A_pp^{-s}+p^{-2s}\right)^{-1}.
 $$
@@ -423,7 +437,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-第4節で [主系列の安定Whittaker積分](../AFR15/index.md#thm-afr15-jacquet) から得た式は $W_f(a_y)=|y|_3^{1/2}\int_{\mathbb Z_3}\psi(-yt)dt$ です。$y=3^{-1}$ なら積分は非自明な指標の平行移動で零です。$y=9$ なら $yt$ は整数環内なので積分は1、$|9|_3=3^{-2}$ から $W_f(a_9)=1/3$。単元倍しても同じ値です。殻の乗法測度は1であり、
+第4節で [主系列の安定Whittaker積分](../AFR15/index.md#thm-afr15-jacquet) から得た式は $W_f(a_y)=|y|_3^{1/2}\int_{\mathbb Z_3}\psi(-yt)dt$ です。$y=3^{-1}$ なら $t_0=1$ を選ぶと $\psi(-yt_0)=e^{-2\pi i/3}\ne1$ です。平行移動で積分がこの値の倍に等しくなるため零です。従って $W_f(a_{3^{-1}})=0$ です。$y=9$ なら $yt$ は整数環内なので積分は1、$|9|_3=3^{-2}$ から $W_f(a_9)=1/3$ です。単元倍しても付値は2で変わらず、$yt\in\mathbb Z_3$ なので同じ値です。[局所乗法測度](../AFR10/index.md#def-afr10-multiplicative-measure) により殻の体積は1であり、
 $$
 (1/3)(3^{-2})^{s-1/2}=3^{-2s}.
 $$
