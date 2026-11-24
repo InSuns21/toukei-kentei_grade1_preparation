@@ -7,6 +7,7 @@ prerequisites:
   - SGT1
   - CPLX3
   - F0-00F
+  - DOPT4
 official_scope: []
 learning_objectives:
   - 有限単純有向・無向グラフの頂点と辺を区別し、零重みの辺を含む辺重みを扱える
