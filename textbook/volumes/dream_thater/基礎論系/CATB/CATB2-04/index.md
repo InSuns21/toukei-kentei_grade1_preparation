@@ -14,7 +14,7 @@ $$
 
 が存在し、小さい積と等化子も存在する。豊穣圏 $\mathcal A$ の対象は集合をなすとする。基底自身は対象の集まりが真の類でもよい。豊穣圏の合成・単位の公理は対象の集まりの大きさに依存せず、以下の積を取る箇所では添字の小ささを確認する。
 
-記号を軽くするため、[Mac Laneの整合性定理](../../CAT/CAT4-02/index.md#thm-cat4-02-coherence)で許される括弧の付け替えと単位子は省略して書く。例えば $P\otimes I=P$ と書く操作は実際には右単位子による同一視である。因子の順序を変えるときは対称性を使い、単なる括弧変更とは区別する。射の合成は右から左に読む。
+記号を軽くするため、[Mac Laneの整合性定理](../../CAT/CAT4-02/index.md#thm-cat4-02-coherence)で許される括弧の付け替えと単位子は省略して書く。例えば $P\otimes I=P$ と書く操作は実際には右単位子による同一視である。因子の順序を変えるときは対称性を使い、単なる括弧変更とは区別する。射の合成は右から左に読む。[豊穣圏の定義](../CATB2-01/index.md#def-catb2-01-enriched-category)の合成 $m^\mathcal A_{xyz}$ と単位 $j^\mathcal A_x$ は、所属する圏が明らかなとき上添字を省く。
 
 ## 2. 基底自身を豊穣圏として見る
 
@@ -204,7 +204,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb2-04-natural-family -->
-**定義の確認。** 集合の二対象の圏 $0\to1$ で $F=H_0$ とし、$G(0)=G(1)=\{0,1\}$、$G(s)=1$ とする。$P=\{p,q\}$、$t_0(p,1_0)=0,t_0(q,1_0)=1$、$t_1(p,s)=0,t_1(q,s)=1$ と置く。非恒等射 $s$ に対する左辺は $t_1(p,s)=0$ と $t_1(q,s)=1$、右辺も $G(s)$ が恒等写像なのでそれぞれ $0,1$。恒等射の条件は各 $t_x$ 自身に一致する。従って全ての自然性が成立する。
+**定義の確認。** 集合の二対象の圏 $0\to1$ で $F=H_0$ とし、$G(0)=G(1)=\{0,1\}$、$G(s)=1_{\{0,1\}}$ とする。$P=\{p,q\}$、$t_0(p,1_0)=0,t_0(q,1_0)=1$、$t_1(p,s)=0,t_1(q,s)=1$ と置く。非恒等射 $s$ に対する左辺は $t_1(p,s)=0$ と $t_1(q,s)=1$、右辺も $G(s)$ が恒等写像なのでそれぞれ $0,1$。恒等射の条件は各 $t_x$ 自身に一致する。従って全ての自然性が成立する。
 <!-- definition-example-end -->
 
 特に $P=I$ なら転置により前講の[豊穣自然性](../CATB2-03/index.md#def-catb2-03-enriched-natural)と一致する。実際、前講の二経路を $Fx$ で逆転置すると、一方は $t_y(1\otimes d^F_{xy})$、他方は $d^G_{xy}(1\otimes t_x)$ となり、単位子と対称性の整合性で上の式に一致する。
@@ -226,8 +226,8 @@ $$
 > となるように定める。豊穣自然変換のHom対象 $N(F,G)$ は、この二射の等化子とする。
 
 $$
-N(F,G)\xrightarrow{k}Q
-\mathrel{\substack{\xrightarrow{L}\\[-2pt]\xrightarrow[R']{}}}R.
+k:N(F,G)\to Q,\qquad
+L,R':Q\to R,\qquad Lk=R'k.
 $$
 <!-- formal-statement-end -->
 
@@ -455,6 +455,52 @@ $$
 
 共変表現可能関手では添字の向きが逆になる。この同型は豊穣版のYoneda埋め込みのHom上の計算である。
 
+### 6.1 Hom対象全体についての両立性
+
+直前の命題は単位対象からの射に対する自然性を述べた。実際には、パラメータ付きの自然な族を使えば、より強いHom対象上の両立性も確認できる。
+
+まず $D=\mathcal A(a,b)$ とする。$t_x:P\otimes H_ax\to Fx$ を $p:P\to N(H_a,F)$ に対応する族とし、前合成のパラメータを $D$ 全体へ拡張する。
+
+$$
+s_x=t_x(1_P\otimes m_{abx}):
+P\otimes H_bx\otimes D\to Fx.
+$$
+
+$H_bx$ と $D$ を対称性で交換すれば、$P\otimes D$ をパラメータとする族になる。その自然性は、$\mathcal A(x,y)\otimes H_bx\otimes D$ 上の結合律
+
+$$
+m_{aby}(m_{bxy}\otimes1_D)
+=m_{axy}(1\otimes m_{abx})
+$$
+
+と $t$ の自然性から得られる。具体的に、$P,D,\mathcal A(x,y),H_bx$ の順の入力を二経路とも $P,\mathcal A(x,y),H_bx,D$ の順に並べ直し、左経路では $m_{bxy}$ の後に $m_{aby}$、右経路では $m_{abx}$ の後に $m_{axy}$ を作用させる。結合律で一致し、さらに $t_y$ の自然性を使うと $d^F_{xy}$ を最後に作用させる経路に一致する。交換は対称性の自然性と六角形条件で同じ置換に整理される。
+
+この族を $j_b$ で評価すると $m_{abb}(j_b\otimes1_D)=1_D$ だから $t_b:P\otimes D\to Fb$ そのものになる。[豊穣Yonedaの復元公式](#thm-catb2-04-enriched-yoneda)で
+
+$$
+t_b=d^F_{ab}(1_D\otimes E_{a,F}p)\sigma_{P,D}.
+$$
+
+特に $P=N(H_a,F)$ と $p=1_P$ を選ぶと、前合成のHom対象上の作用と $F$ のHom対象上の作用が評価同型で結ばれる。
+
+後合成についても、$q:S\to N(F,G)$ に対応する族を $v_x:S\otimes Fx\to Gx$ とすれば、$v_x(1_S\otimes t_x)$ は $S\otimes P$ をパラメータとする自然な族になる。自然性の左辺にまず $t$ の自然性を代入すると $d^F_{xy}$ が $v_y$ の直前に現れる。次に $v$ の自然性
+
+$$
+v_y(1_S\otimes d^F_{xy})
+=d^G_{xy}(1\otimes v_x)(\sigma_{S,\mathcal A(x,y)}\otimes1)
+$$
+
+を代入すると、$d^G_{xy}$ が最後に作用する右辺になる。二回の交換は六角形条件で $S\otimes P$ と $\mathcal A(x,y)$ の交換に等しい。$j_a$ で評価すれば
+
+$$
+v_a(1_S\otimes t_a)(1_{S\otimes P}\otimes j_a)
+=v_a(1_S\otimes E_{a,F}p).
+$$
+
+$S=N(F,G)$、$P=N(H_a,F)$、$q=1_S,p=1_P$ とすれば、後合成のHom対象上の作用と評価での作用も両立する。この二つの計算が、単位対象からの射だけに限定しない自然性の内容である。
+
+### 6.2 反変形
+
 反変形も得られる。対称基底の上で $\mathcal A^{\mathrm{op}}(x,y)=\mathcal A(y,x)$ と置き、合成は二つのHom因子を対称性で交換してから $\mathcal A$ で合成する。三入力では二通りの括弧付けとも因子を逆順にする同じ置換になる（六角形条件と対称性）。その後の合成は $\mathcal A$ の結合律で一致する。単位は同じ $j_x$ を使い、左右単位律が入れ替わる。従って豊穣圏である。
 
 豊穣関手 $F:\mathcal A^{\mathrm{op}}\to\underline{\mathcal V}$ に定理を適用すると、$\mathcal A^{\mathrm{op}}(a,x)=\mathcal A(x,a)$ なので
@@ -587,7 +633,7 @@ $$
 
 - Level: C
 
-体 $k$ 上のベクトル空間を基底とする一対象の豊穣圏 $\mathcal A$ を考える。Hom対象を双対数の代数 $D=k[\varepsilon]/(\varepsilon^2)$ とし、合成を積、単位を $1$ とする。$F$ は唯一の対象を $k^2$ に送り、作用を
+体 $k$ 上のベクトル空間を基底とする一対象の豊穣圏 $\mathcal A$ を考える。Hom対象 $D$ は基底 $1,\varepsilon$ を持つ二次元ベクトル空間で、合成は双線形な積 $(a+b\varepsilon)(c+d\varepsilon)=ac+(ad+bc)\varepsilon$、単位は $1$ とする（この代数は双対数の代数と呼ばれる）。$F$ は唯一の対象を $k^2$ に送り、作用を
 
 $$
 (a+b\varepsilon)\cdot(x,y)=(ax+by,ay)
@@ -596,7 +642,7 @@ $$
 とする。$F$ が豊穣関手となることを示し、$N(H_*,F)$ を線形写像 $D\to k^2$ の部分空間として求めよ。恒等射での評価と復元を具体的に確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $D$ の積は $(a+b\varepsilon)(c+d\varepsilon)=ac+(ad+bc)\varepsilon$。単位は $1+0\varepsilon$。結合律は多項式の積の結合律がイデアルによる商に降りることから従う。作用は各変数に線形で、テンソル積からの線形写像を定める。
+**詳細解答。** $D$ の積は $(a+b\varepsilon)(c+d\varepsilon)=ac+(ad+bc)\varepsilon$。単位は $1+0\varepsilon$。第三の因子を $e+f\varepsilon$ とすると、左の括弧付けでは定数項 $ace$、$\varepsilon$ の係数は $acf+(ad+bc)e$。右の括弧付けでは定数項 $ace$、$\varepsilon$ の係数は $a(cf+de)+bce$。展開すると共に $acf+ade+bce$ なので結合律が成立する。左右から $1$ を掛けても元の係数は変わらない。積と作用は各変数に線形で、[ベクトル空間の閉構造](../../CAT/CAT4-05/index.md#thm-cat4-05-vector-spaces)のテンソル積からの線形写像を定める。
 
 まず作用の合成を確認する。$A=a+b\varepsilon,B=c+d\varepsilon$ として
 
