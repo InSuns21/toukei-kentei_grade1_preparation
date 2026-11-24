@@ -85,7 +85,7 @@ function reset(){pause();sim=makeFlood();draw();emit();}
 function tick(t){if(!playing||lost)return;try{if(!document.hidden&&t-last>=75){sim.advance();draw();emit();last=t;}if(sim.state().time>=endTime-1e-10){pause();return;}raf=requestAnimationFrame(tick);}catch(e){pause();canvas.dispatchEvent(new CustomEvent('fcg-time-failure',{detail:String(e)}));}}
 function play(){if(playing||lost)return;if(sim.state().time>=endTime-1e-10)reset();playing=true;last=0;emit();raf=requestAnimationFrame(tick);}
 draw();report('GRID',N+'×'+N+' cells; local metric 48×48 m; synthetic DEM');
-canvas.tabIndex=0;canvas.setAttribute('aria-label','地形と水深・流速の3面比較。Spaceで再生停止');canvas.addEventListener('keydown',e=>{if(e.key===' '){e.preventDefault();playing?pause():play();}});
+canvas.tabIndex=0;canvas.setAttribute('aria-label','地形と水深・流速・中央断面の4面比較。Spaceで再生停止');canvas.addEventListener('keydown',e=>{if(e.key===' '){e.preventDefault();playing?pause():play();}});
 canvas.addEventListener('webglcontextlost',()=>{lost=true;pause();});
 window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',e=>{if(e.matches)pause();});
 window.addEventListener('pagehide',()=>{pause();if(!lost){gl.deleteTexture(tex);gl.deleteVertexArray(vao);gl.deleteProgram(program);}},{once:true});
