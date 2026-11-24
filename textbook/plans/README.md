@@ -60,7 +60,7 @@
 | Lorentz多様体上の双曲型PDE | `../plan_done/DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md`（HPDE1〜HPDE24・全24講完了） |
 | 超局所解析・Hadamard条件 | `../plans_progress/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md`（MICA1完了・以降進行中） |
 | 代数的QFT・モジュラー理論 | [進行中のAQFT全34講PLAN](../plans_progress/DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)（AQFT1完了、AQFT2–34は未着手。進捗は系列manifest `textbook/dream-theater-series/AQFT.yaml` を参照） |
-| THE END OF MATHEMATICS? 5テーマの横断接続 | `DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md` |
+| THE END OF MATHEMATICS? 13 family・42講の横断接続 | `DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md` |
 | 金融の価格付け・最適執行の応用 | [進行中のU3数理ファイナンスPLAN](../plans_progress/DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md)（U3-01完成・以降計画中。HJB理論は既存の最適制御PLANを参照） |
 | 確率ロボティクス・自己位置推定 | [DREAM_THEATER_APPLIED_PROBABILISTIC_ROBOTICS_PLAN.md](../plans_progress/DREAM_THEATER_APPLIED_PROBABILISTIC_ROBOTICS_PLAN.md)（全28講、U2-01完了・U2-02から実装予定） |
 | 無裁定・相対価値・統計的裁定の応用 | [DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md](DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md)（U4、全30講の設計確定・未実装。U3のデリバティブ価格付けと役割分担） |
@@ -82,3 +82,15 @@
 **個別科目と横断ルートの一覧は [科目PLAN依存マップ](COURSE_DEPENDENCY_MAP.md) を参照。** 独立した科目は個別PLANに執筆内容を所有させ、既存の複合ファイルは必要に応じてルートとして保持する。
 
 旧来の「GPDE 後続を一つの大PLANへまとめる」umbrella 型の運用は採らない。PDE の後続であっても、中心問い・前提・証明機構が異なる場合は上表の科目別 PLAN へ分離する。
+
+
+### VP/VNP（2026-11-24追加）
+
+[横断履修ルート](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md)（新規102講、未着手）。個別の正本は以下の6系列。EOMへの横断3講は別計上。
+
+- [GCT 組合せグラフ理論・計数計算量・16講](DREAM_THEATER_GRAPH_COUNTING_COMPLEXITY_PLAN.md)
+- [ACOMP 代数的計算複雑性理論 I・II・24講](DREAM_THEATER_ALGEBRAIC_COMPLEXITY_I_II_PLAN.md)
+- [TSP テンソル理論・漸近スペクトル・16講](DREAM_THEATER_TENSOR_ASYMPTOTIC_SPECTRUM_PLAN.md)
+- [NPCG 距離幾何学・非正曲率空間・12講](DREAM_THEATER_NONPOSITIVE_CURVATURE_METRIC_GEOMETRY_PLAN.md)
+- [FML 形式数学・Lean 4・10講](DREAM_THEATER_FORMAL_MATHEMATICS_LEAN_PLAN.md)
+- [VNP VP ≠ VNP 証明研究講読・24講](DREAM_THEATER_VP_VNP_PROOF_STUDY_PLAN.md)
