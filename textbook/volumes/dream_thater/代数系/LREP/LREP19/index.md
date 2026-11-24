@@ -16,7 +16,7 @@ $$
 
 $x^0=t$ と書き、$\eta^{\mu\nu}$ は逆計量行列 $\eta^{-1}=\eta$ の成分とします。$\partial_\mu$ は他の三座標を固定した $x^\mu$ での偏微分、$\partial_0=\partial_t$ です。ギリシャ文字の添字は $0,1,2,3$、空間添字 $j$ は $1,2,3$ を走り、和を明記します。
 
-場とは各点に値を割り当てる関数です。ここでは [Diracスピノル](../LREP16/index.md#def-lrep16-dirac) を値とする、関数 $\psi:\mathbb R^4\to\mathbb C^4$ を考えます。既習のWeyl基底で上下二成分ずつを並べた列を用い、各成分は普通の複素数とします。作用素と共変性・電流保存には一階連続微分可能性で十分で、二階の因数分解では二階連続微分可能性を仮定します。
+場とは各点に値を割り当てる関数です。ここでは [Diracスピノル](../LREP16/index.md#def-lrep16-dirac) を値とする関数 $\psi:\mathbb R^4\to\mathbb C^4$ を考えます。既習のWeyl基底で上下二成分ずつを並べた列を用い、各成分は普通の複素数とします。作用素と共変性・電流保存には一階連続微分可能性で十分で、二階の因数分解では二階連続微分可能性を仮定します。
 
 [自由Klein–Gordon方程式の波動演算子](../../../物理系/QFT/QFT1/index.md#def-qft1-klein-gordon)をスカラー成分に対して
 
@@ -45,9 +45,11 @@ $$
 ここで $G^\mu=i\sum_\nu\eta^{\mu\nu}\gamma^\nu$ です。[ガンマ行列の反交換関係](../LREP15/index.md#def-lrep15-gamma)にこの表示を代入すると、時刻方向・空間方向をまとめて（和の添字 $a,b$ も $0,1,2,3$ を走ります）
 
 $$
+\begin{aligned}
 G^\mu G^\nu+G^\nu G^\mu
-=-2\sum_{a,b}\eta^{\mu a}\eta^{\nu b}\eta^{ab}I_4
-=-2\eta^{\mu\nu}I_4.
+&=-2\sum_{a,b}\eta^{\mu a}\eta^{\nu b}\eta^{ab}I_4\\
+&=-2\eta^{\mu\nu}I_4.
+\end{aligned}
 $$
 
 最後の等号は対角行列 $\eta$ の成分が $0,1,-1$ で、$\eta^2=I_4$ であることによります。特に $(G^0)^2=I_4$、$(G^j)^2=-I_4$ です。元の $\gamma^\mu$ の反交換関係とは符号が異なります。微分と行列を組み合わせるとき、時空の添字を下に持つ微分と上に持つ $G^\mu$ を組み合わせます。
@@ -72,7 +74,9 @@ $$
 
 $$
 G^0v=ie_3+i(-ie_1)=v.
-$$空間座標を $\boldsymbol x=(x^1,x^2,x^3)$ と書きます。$\psi(t,\boldsymbol x)=e^{-imt}v$ とすると、$\partial_t\psi=-im\psi$、$\partial_j\psi=0$ です。従って
+$$
+
+空間座標を $\boldsymbol x=(x^1,x^2,x^3)$ と書きます。$\psi(t,\boldsymbol x)=e^{-imt}v$ とすると、$\partial_t\psi=-im\psi$、$\partial_j\psi=0$ です。従って
 
 $$
 D_m\psi=iG^0(-im\psi)-m\psi=m(G^0-I_4)\psi=0.
@@ -191,7 +195,9 @@ $$
 
 $$
 D_m\psi=m(G^0-I_4)\psi=-2m\psi\ne0.
-$$二階方程式だけでは、時間微分とスピノル成分の結び付きが失われます。
+$$
+
+二階方程式だけでは、時間微分とスピノル成分の結び付きが失われます。
 
 ## 4. 随伴の方程式と保存電流
 
@@ -322,7 +328,13 @@ $$
 です。和は零です。$\square$
 <!-- proof-end -->
 
-これは局所的な連続の式です。$R>0$ を固定し、有限の箱 $[-R,R]^3$ の密度の積分を $Q_R(t)=\int_{[-R,R]^3}\rho(t,\boldsymbol x)\,d^3x$ とします。ここで $d^3x=dx^1dx^2dx^3$ です。積分領域が固定され、時間偏微分がコンパクトな箱と有限の時間区間で連続なので、微分を積分内に移せます。[自由Dirac電流の保存](#thm-lrep19-current-conservation) を代入すると
+これは局所的な連続の式です。$R>0$ を固定し、有限の箱 $[-R,R]^3$ の密度の積分を
+
+$$
+Q_R(t)=\int_{[-R,R]^3}\rho(t,\boldsymbol x)\,d^3x
+$$
+
+とします。ここで $d^3x=dx^1dx^2dx^3$ です。積分領域が固定され、時間偏微分がコンパクトな箱と有限の時間区間で連続なので、微分を積分内に移せます。[自由Dirac電流の保存](#thm-lrep19-current-conservation) を代入すると
 
 $$
 \begin{aligned}
