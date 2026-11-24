@@ -27,7 +27,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（表現可能前層の有限表示性）**
 >
-> 小さい圏 $\mathcal C$ の任意の対象 $a$ に対し、表現可能前層 $h^a=\mathcal C(-,a)$ は $\widehat{\mathcal C}$ の有限表示対象である。さらに $\widehat{\mathcal C}(h^a,-)$ は全ての小さい余極限を保存する。
+> 小さい圏 $\mathcal C$ の任意の対象 $a$ に対し、表現可能前層 $h^a$ は前層圏の有限表示対象である。さらに Hom 関手
+>
+$$
+\widehat{\mathcal C}(h^a,-):\widehat{\mathcal C}\to\mathbf{Set}
+$$
+
+> は全ての小さい余極限を保存する。
 <!-- formal-statement-end -->
 
 見取り図：自然変換 $h^a\to P$ は $1_a$ の像で決まる。余極限の $a$ 成分を取ることと、先に各段階で $a$ 成分を取ってから余極限を作ることを比較すればよい。
@@ -231,7 +237,7 @@ $$
 
 に全単射である。空の直積は一元集合となる。各二射の組について点ごとの余等化子を一つ固定し、これらを集めた対象集合を $G$ とする。[有限生成元・関係式表示から有限表示性](#prop-catb3-06-finite-presentation)により $G$ の全対象は有限表示対象である。
 
-[フィルター生成定理](#thm-catb3-06-filtered-presentation)の各 $Q_k$ は添字を並べ直すことにより $G$ の対象 $A_k$ に同型である。同型 $e_k:A_k\to Q_k$ を選び、移行射を $e_l^{-1}m_{kl}e_k$ とすれば恒等と合成を保つ。余錐の脚は $p_ke_k$ とする。整合する余錐から $e_k^{-1}$ を合成して $Q_k$ 上の余錐に戻せるので余極限は変わらない。従って $G$ の充満部分圏に値を取るフィルター図式で任意の前層を生成できる。
+[前層の有限表示によるフィルター生成](#thm-catb3-06-filtered-presentation)の各 $Q_k$ は添字を並べ直すことにより $G$ の対象 $A_k$ に同型である。同型 $e_k:A_k\to Q_k$ を選び、移行射を $e_l^{-1}m_{kl}e_k$ とすれば恒等と合成を保つ。余錐の脚は $p_ke_k$ とする。整合する余錐から $e_k^{-1}$ を合成して $Q_k$ 上の余錐に戻せるので余極限は変わらない。従って $G$ の充満部分圏に値を取るフィルター図式で任意の前層を生成できる。
 
 全条件が成立したので局所有限表示圏である。$\lambda=\aleph_0$ と置けば[局所可呈示圏の定義](../CATB3-05/index.md#def-catb3-05-locally-presentable)も満たす。
 <!-- proof-end -->
@@ -251,7 +257,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-逆向きの含意は[有限生成元・関係式表示から有限表示性](#prop-catb3-06-finite-presentation)で示した。$P$ を有限表示対象とする。[フィルター生成定理](#thm-catb3-06-filtered-presentation)により $P$ を $Q_k$ の余極限として表す。[有限表示性の段階判定](../CATB3-02/index.md#prop-catb3-02-stage-test)を $1_P:P\to P$ に適用すると、ある $Q=Q_k$ と $s:P\to Q$ があり、余極限の脚 $r:Q\to P$ に対して $rs=1_P$ となる。
+逆向きの含意は[有限生成元・関係式表示から有限表示性](#prop-catb3-06-finite-presentation)で示した。$P$ を有限表示対象とする。[前層の有限表示によるフィルター生成](#thm-catb3-06-filtered-presentation)により $P$ を $Q_k$ の余極限として表す。[有限表示性の段階判定](../CATB3-02/index.md#prop-catb3-02-stage-test)を $1_P:P\to P$ に適用すると、ある $Q=Q_k$ と $s:P\to Q$ があり、余極限の脚 $r:Q\to P$ に対して $rs=1_P$ となる。
 
 $e=sr:Q\to Q$ と置く。$re=rsr=r$ である。$v:Q\to Z$ が $ve=v$ を満たせば $w=vs:P\to Z$ と置くことで $wr=vsr=ve=v$。別の $w'$ も $w'r=v$ なら $w'=w'rs=vs$ となる。よって $r$ は $1_Q,e$ の余等化子である。
 
