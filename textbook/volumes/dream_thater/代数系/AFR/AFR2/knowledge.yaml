@@ -1,0 +1,48 @@
+chapter: AFR2
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR1, GEO12, FOU2, CA1, ODE7]
+forward_references: []
+concepts:
+  - id: automorphic-forms.hyperbolic-metric
+    name: "上半平面の双曲計量"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（上半平面の双曲計量）"]
+    requires: [modular-forms.upper-half-plane, geometry.riemannian-metric, geometry.riemannian-volume-coordinate]
+  - id: automorphic-forms.hyperbolic-metric-invariance
+    name: "双曲計量と面積要素の群不変性"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（双曲計量と面積要素の群不変性）"]
+    requires: [automorphic-forms.hyperbolic-metric, automorphic-forms.real-group]
+  - id: automorphic-forms.hyperbolic-laplacian
+    name: "双曲Laplace作用素"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（双曲Laplace作用素）"]
+    requires: [automorphic-forms.hyperbolic-metric, geometry.riemannian-divergence-laplacian-coordinate]
+  - id: automorphic-forms.hyperbolic-laplacian-equivariance
+    name: "双曲Laplace作用素の群作用との可換性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（双曲Laplace作用素の群作用との可換性）"]
+    requires: [automorphic-forms.hyperbolic-laplacian, automorphic-forms.hyperbolic-metric-invariance]
+  - id: automorphic-forms.weight-zero-maass
+    name: "重さ0のMaass形式"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重さ0のMaass形式）"]
+    requires: [automorphic-forms.hyperbolic-laplacian, automorphic-forms.weight-space]
+  - id: automorphic-forms.maass-fourier-equation
+    name: "周期方向のFourier展開と係数方程式"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（周期方向のFourier展開と係数方程式）"]
+    requires: [automorphic-forms.hyperbolic-laplacian, fourier.fou1-complex-exponential-coefficient, fourier.fou2-dirichlet-convergence]
+  - id: automorphic-forms.maass-zero-mode
+    name: "定数項の一般解"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（定数項の一般解）"]
+    requires: [automorphic-forms.maass-fourier-equation]
