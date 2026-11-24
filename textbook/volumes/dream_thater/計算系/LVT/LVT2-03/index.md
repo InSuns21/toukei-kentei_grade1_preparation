@@ -73,7 +73,7 @@ example (n : Nat) : 0 + n = n := Nat.zero_add n
 - 入力の等式 `h : (1 : Nat) + 2 = 3` は、左辺を計算すると 3 になるので `rfl` で作れます。
 - 元の条件 `ha : P a` は `(1 + 2) + 1 = 4` に展開され、左辺が `3 + 1`、さらに 4 になるので `rfl` で作れます。
 
-`Eq.subst` にこの二つを渡して得る命題は `P b` です。述語の本体の n に b を代入すると `3 + 1 = 4` になります。h は入力の等しさ、ha はその入力で条件が成立することの証明で、型も役割も異なります。
+`Eq.subst` にこの二つを渡して得るのは `P b` の証明です。述語の本体の n に b を代入すると `3 + 1 = 4` になります。h は入力の等しさ、ha はその入力で条件が成立することの証明で、型も役割も異なります。
 <!-- definition-example-end -->
 
 ```lean
@@ -133,7 +133,7 @@ theorem chainEq {α : Type} {a b c : α}
 <!-- proof-start -->
 ### 証明
 
-P a は f a = f a である。[Leanの等式と反射律](#def-lvt2-03-eq) からその証明 rfl が得られる。h : a = b で P a を P b へ置換すると f a = f b となる。
+a と f を固定し、x を動かす述語 `P := fun x : α => f a = f x` を用いる。P a は f a = f a である。[Leanの等式と反射律](#def-lvt2-03-eq) からその証明 rfl が得られる。h : a = b で P a を P b へ置換すると f a = f b となる。
 
 コードでは h を反射律の枝に分解すると b が a になり、目標も f a = f a となるため rfl で閉じる。
 
@@ -184,7 +184,7 @@ example (P : Nat → Prop) (a b : Nat) (h : a = b) (hp : P a) :
 <!-- formal-statement-start -->
 ### 定義（Leanの簡約操作）
 
-simp は簡約用に登録された定理と指定された規則などを使い、目標や仮定の式を簡約する指示である。simp only [r₁, …, rₖ] は使用する簡約定理を指定した集合に制限する（基本的な計算規則は働く）。簡約後に残る目標は別途証明する必要がある。
+simp は簡約用に登録された定理と指定された規則などを使い、目標や仮定の式を簡約する指示である。簡約定理 r₁, …, rₖ を指定した simp only [r₁, …, rₖ] は、既定の簡約定理の集合を用いず、指定した規則に制限する（基本的な計算規則などは働く）。簡約後に残る目標は別途証明する必要がある。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt2-03-simp -->
@@ -221,7 +221,7 @@ normalize : Nat → Nat を normalize n = (0 + n) + 0 と定義する。任意�
 
 n を任意に固定する。normalize n を展開すると (0 + n) + 0 になる。Nat.zero_add n で内側を n に置換すると n + 0、Nat.add_zero n で n となる。したがって h : normalize n = n が得られる。
 
-P n の証明 hp を仮定する。h の向きを Eq.symm h により反転すると n = normalize n となる。この等式で P n を置換すれば P (normalize n) の証明になる。
+P n の証明 hp を仮定する。h の向きを Eq.symm h により反転すると n = normalize n となる。[Leanの等式による置換](#def-lvt2-03-subst) にこの等式と hp を渡す。置換元が n、置換先が normalize n なので `Eq.subst (Eq.symm h) hp` の型は `P (normalize n)` になる。
 
 ```lean
 theorem normalize_eq (n : Nat) : normalize n = n := by
