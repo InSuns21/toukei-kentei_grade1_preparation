@@ -29,3 +29,4 @@
 26. [LREP22 質量・スピンと不変量](textbook/volumes/dream_thater/代数系/LREP/LREP22/index.md)
 27. [LREP23 正質量little group](textbook/volumes/dream_thater/代数系/LREP/LREP23/index.md)
 28. [LREP24 質量零little group](textbook/volumes/dream_thater/代数系/LREP/LREP24/index.md)
+29. [LREP25 1粒子Hilbert空間の誘導表現](textbook/volumes/dream_thater/代数系/LREP/LREP25/index.md)
