@@ -17,7 +17,7 @@ for(let j=0;j<N;j++)for(let i=0;i<N;i++){
  U[at(i,j)]=baseDepth+(x>7&&x<13&&y>7&&y<13?bump:0);
 }
 function volume(A){let s=0;for(let k=0;k<A.length;k+=3)s+=A[k];return s*dx*dx;}
-const initialVolume=volume(U);
+const initialVolume=volume(U),initialState=U.slice();
 let t=0,steps=0,largestCourant=0;
 function face(i,j,axis){
  const k=at(i,j),h=U[k],m=U[k+1],n=U[k+2];
@@ -40,14 +40,15 @@ function addFace(i,j,axis,a,dt){
   if(kR>=0)V[kR+d]+=change;
  }
 }
-while(t<time-1e-12){
+function solveUntil(target){
+while(t<target-1e-12){
  let a=0;
  for(let k=0;k<U.length;k+=3){
   const h=U[k];
   if(!(h>0)||!Number.isFinite(h))throw Error('nonpositive or invalid depth');
   a=Math.max(a,Math.max(Math.abs(U[k+1]),Math.abs(U[k+2]))/h+Math.sqrt(g*h));
  }
- const dt=Math.min(maxDt,cfl*dx/a,time-t);
+ const dt=Math.min(maxDt,cfl*dx/a,target-t);
  if(!(dt>0)||++steps>10000)throw Error('invalid time step');
  largestCourant=Math.max(largestCourant,a*dt/dx);
  V.set(U);
@@ -55,6 +56,8 @@ while(t<time-1e-12){
  for(let i=0;i<N;i++)for(let j=-1;j<N;j++)addFace(i,j,1,a,dt);
  [U,V]=[V,U];t+=dt;
 }
+}
+solveUntil(time);
 let minDepth=Infinity,maxDepth=0,maxSpeed=0;
 for(let k=0;k<U.length;k+=3){
  const h=U[k],speed=Math.hypot(U[k+1],U[k+2])/h;
@@ -78,6 +81,7 @@ let vertices=[];
 function point(x,y,z,c){vertices.push(x,y,z,...c);}
 function draw(kind,m){gl.uniform1i(mode,m);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(vertices),gl.STREAM_DRAW);gl.drawArrays(kind,0,vertices.length/6);vertices=[];}
 function h(i,j){return U[at(i,j)];}
+function render(){
 gl.viewport(0,0,canvas.width,canvas.height);gl.clearColor(0.045,0.075,0.12,1);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
 gl.disable(gl.DITHER);gl.disable(gl.BLEND);gl.disable(gl.DEPTH_TEST);
 // Left: top-down depth cells. World x,y normalised to [-1,1].
@@ -114,3 +118,23 @@ for(let i=0;i<N;i+=5)for(let j=0;j<N-1;j++){node(i,j,dark);node(i,j+1,dark);}
 for(let i=0;i<N-1;i++){node(i,row,orange);node(i+1,row,orange);}
 draw(gl.LINES,2);
 gl.disable(gl.DEPTH_TEST);gl.finish();
+}
+render();
+
+ // Advance the same editable computation; the first frame remains the audit snapshot.
+let liveValue=time,playing=false,timer=null;
+function emit(){canvas.dispatchEvent(new CustomEvent('fcg-time-progress',{detail:{value:liveValue,playing}}));}
+function cancel(){if(timer!==null)clearTimeout(timer);timer=null;playing=false;}
+function advanceLive(value){if(value<t){U.set(initialState);t=0;steps=0;largestCourant=0;}solveUntil(value);render();liveValue=value;}
+function pause(){cancel();emit();}
+function next(){return Math.min(3,Math.round((liveValue+0.05)*1e8)/1e8);}
+function tick(){
+ timer=null;if(!playing)return;
+ try{advanceLive(next());if(liveValue>=3)cancel();emit();if(playing)timer=setTimeout(tick,70);}
+ catch(error){cancel();canvas.dispatchEvent(new CustomEvent('fcg-time-failure',{detail:String(error?.message||error)}));}
+}
+function play(){if(playing)return;if(liveValue>=3)advanceLive(0);playing=true;emit();timer=setTimeout(tick,70);}
+function step(){cancel();advanceLive(next());emit();}
+function reset(){cancel();advanceLive(0);emit();}
+canvas.addEventListener?.('webglcontextlost',cancel);
+return {play,pause,step,reset};
