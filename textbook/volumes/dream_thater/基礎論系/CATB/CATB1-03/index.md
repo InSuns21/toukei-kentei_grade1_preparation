@@ -387,7 +387,16 @@ $$
 F(x,y)=(2x-y,3x+4y)
 $$
 
-の成分を求める。各成分は $\mathbb Z\to\mathbb Z$ の加法を保つ写像なので、第2節の計算により一つの整数係数で表せる。$F i_1(x)=(2x,3x)$、$F i_2(y)=(-y,4y)$ から、\n\n$$\n\begin{aligned}\np_1Fi_1(t)&=2t,&p_2Fi_1(t)&=3t,\\\\\np_1Fi_2(t)&=-t,&p_2Fi_2(t)&=4t.\n\end{aligned}\n$$\n\nここでは $p_j$ が出力側の射影であり、$t$ は各入力成分の任意の整数である。第 $j$ 行第 $i$ 列にこの係数を置けば、係数の表は
+の成分を求める。各成分は $\mathbb Z\to\mathbb Z$ の加法を保つ写像なので、第2節の計算により一つの整数係数で表せる。$F i_1(x)=(2x,3x)$、$F i_2(y)=(-y,4y)$ から、
+
+$$
+\begin{aligned}
+p_1Fi_1(t)&=2t,&p_2Fi_1(t)&=3t,\\
+p_1Fi_2(t)&=-t,&p_2Fi_2(t)&=4t.
+\end{aligned}
+$$
+
+ここでは $p_j$ が出力側の射影であり、$t$ は各入力成分の任意の整数である。第 $j$ 行第 $i$ 列にこの係数を置けば、係数の表は
 
 $$
 F\ \longleftrightarrow\
@@ -429,12 +438,28 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$X\oplus X$ の挿入射・射影を $i_1,i_2$ と $p_1,p_2$、$Y\oplus Y$ のそれらを $k_1,k_2$ と $q_1,q_2$ とする。[対角射](../../CAT/CAT2-02/index.md#def-cat2-02-diagonal)と[双積の普遍性](#thm-catb1-03-biproduct-universality)から $\Delta_X=i_1+i_2$、$\nabla_Y=q_1+q_2$ である。実際、[有限双積の条件](#def-catb1-03-biproduct)と[双加法性](#def-catb1-03-preadditive)から\n\n$$\n\begin{aligned}\np_1(i_1+i_2)&=1_X+0_{X,X}=1_X,\\\\\np_2(i_1+i_2)&=0_{X,X}+1_X=1_X,\\\\\n(q_1+q_2)k_1&=1_Y+0_{Y,Y}=1_Y,\\\\\n(q_1+q_2)k_2&=0_{Y,Y}+1_Y=1_Y.\n\end{aligned}\n$$\n\n従ってそれぞれの普遍性による一意性を使える。
+$X\oplus X$ の挿入射・射影を $i_1,i_2$ と $p_1,p_2$、$Y\oplus Y$ のそれらを $k_1,k_2$ と $q_1,q_2$ とする。[対角射](../../CAT/CAT2-02/index.md#def-cat2-02-diagonal)と[双積の普遍性](#thm-catb1-03-biproduct-universality)から $\Delta_X=i_1+i_2$、$\nabla_Y=q_1+q_2$ である。実際、[有限双積の条件](#def-catb1-03-biproduct)と[双加法性](#def-catb1-03-preadditive)から
+
+$$
+\begin{aligned}
+p_1(i_1+i_2)&=1_X+0_{X,X}=1_X,\\
+p_2(i_1+i_2)&=0_{X,X}+1_X=1_X,\\
+(q_1+q_2)k_1&=1_Y+0_{Y,Y}=1_Y,\\
+(q_1+q_2)k_2&=0_{Y,Y}+1_Y=1_Y.
+\end{aligned}
+$$
+
+従ってそれぞれの普遍性による一意性を使える。
 
 [双積の射の行列表示](#thm-catb1-03-matrix)から $f\oplus g=k_1fp_1+k_2gp_2$ となる。従って
 
 $$
-\begin{aligned}\n(f\oplus g)\Delta_X\n&=(k_1fp_1+k_2gp_2)\Delta_X\\\\\n&=k_1f(p_1\Delta_X)+k_2g(p_2\Delta_X)\\\\\n&=k_1f+k_2g.\n\end{aligned}
+\begin{aligned}
+(f\oplus g)\Delta_X
+&=(k_1fp_1+k_2gp_2)\Delta_X\\
+&=k_1f(p_1\Delta_X)+k_2g(p_2\Delta_X)\\
+&=k_1f+k_2g.
+\end{aligned}
 $$
 
 である。最後に $\nabla_Y k_j=1_Y$ を使い
@@ -524,7 +549,16 @@ $\mathcal C(T,B)$ で $v$ を足せば $u=v$ となる。
 前加法圏で二項積 $(P,p_1,p_2)$ が存在するとする。$i_1:X_1\to P$、$i_2:X_2\to P$ を作り、任意の $a:X_1\to T$、$b:X_2\to T$ に対して $a p_1+b p_2$ が余積の媒介射となることを証明せよ。
 
 <!-- solution-start -->
-**詳細解答。** [圏論の二項積](../../CAT/CAT2-02/index.md#def-cat2-02-binary-product)で $(1_{X_1},0_{X_1,X_2})$ と $(0_{X_2,X_1},1_{X_2})$ をそれぞれ束ねて $i_1,i_2$ を作る。[双加法性](#def-catb1-03-preadditive)と[零射との合成](#prop-catb1-03-zero-composition)を使うと\n\n$$\n\begin{aligned}\np_1(i_1p_1+i_2p_2)&=1_{X_1}p_1+0_{P,X_1}=p_1,\\\\\np_2(i_1p_1+i_2p_2)&=0_{P,X_2}+1_{X_2}p_2=p_2.\n\end{aligned}\n$$\n\n積の一意性より $i_1p_1+i_2p_2=1_P$。
+**詳細解答。** [圏論の二項積](../../CAT/CAT2-02/index.md#def-cat2-02-binary-product)で $(1_{X_1},0_{X_1,X_2})$ と $(0_{X_2,X_1},1_{X_2})$ をそれぞれ束ねて $i_1,i_2$ を作る。[双加法性](#def-catb1-03-preadditive)と[零射との合成](#prop-catb1-03-zero-composition)を使うと
+
+$$
+\begin{aligned}
+p_1(i_1p_1+i_2p_2)&=1_{X_1}p_1+0_{P,X_1}=p_1,\\
+p_2(i_1p_1+i_2p_2)&=0_{P,X_2}+1_{X_2}p_2=p_2.
+\end{aligned}
+$$
+
+積の一意性より $i_1p_1+i_2p_2=1_P$。
 
 $w=a p_1+b p_2:P\to T$ と置く。[双加法性](#def-catb1-03-preadditive)と[零射との合成](#prop-catb1-03-zero-composition)により $wi_1=a1_{X_1}+b0_{X_1,X_2}=a$、$wi_2=a0_{X_2,X_1}+b1_{X_2}=b$。別の候補 $w'$ についても $w'i_1=a,w'i_2=b$ なら
 
@@ -618,9 +652,28 @@ $$
 =\sum_j a_j=f+g+h.
 $$
 
-次に添字 $1,2$ を入れ替え、$3$ を固定する置換を $\sigma$ とする。$S_X=\sum_j i_{\sigma(j)}p_j$、$S_Y=\sum_j k_{\sigma(j)}q_j$ と置く。[有限双積の条件](#def-catb1-03-biproduct)と[零射との合成](#prop-catb1-03-zero-composition)を使うと\n\n$$\n\begin{aligned}\nS_Xi_s&=\sum_j i_{\sigma(j)}(p_ji_s)=i_{\sigma(s)},\\\\\nS_Yk_s&=\sum_j k_{\sigma(j)}(q_jk_s)=k_{\sigma(s)}.\n\end{aligned}\n$$\n\nまた $\Delta=\sum_s i_s$ なので $S_X\Delta=\sum_s i_{\sigma(s)}=\Delta$。$\nabla S_Yk_s=\nabla k_{\sigma(s)}=1_Y=\nabla k_s$ だから、[双積の余積としての普遍性](#thm-catb1-03-biproduct-universality)より $\nabla S_Y=\nabla$。両置換は二回適用すると恒等射になる。例えば $S_X^2i_s=i_{\sigma(\sigma(s))}=i_s$ であり、余積の一意性から $S_X^2=1_{X^{\oplus3}}$。$S_Y^2$ も同じ計算で恒等射となる。
+次に添字 $1,2$ を入れ替え、$3$ を固定する置換を $\sigma$ とする。$S_X=\sum_j i_{\sigma(j)}p_j$、$S_Y=\sum_j k_{\sigma(j)}q_j$ と置く。[有限双積の条件](#def-catb1-03-biproduct)と[零射との合成](#prop-catb1-03-zero-composition)を使うと
 
-対角成分を入れ替えた射は $D'=S_YDS_X$ であり、成分を取り出すと\n\n$$\n\begin{aligned}\nq_rD'i_s&=q_rS_YD i_{\sigma(s)}\\\\\n&=q_rS_Y k_{\sigma(s)}a_{\sigma(s)}\\\\\n&=q_r k_s a_{\sigma(s)}.\n\end{aligned}\n$$\n\n従って $r=s$ のとき $a_{\sigma(s)}$、それ以外は零射となる。従って
+$$
+\begin{aligned}
+S_Xi_s&=\sum_j i_{\sigma(j)}(p_ji_s)=i_{\sigma(s)},\\
+S_Yk_s&=\sum_j k_{\sigma(j)}(q_jk_s)=k_{\sigma(s)}.
+\end{aligned}
+$$
+
+また $\Delta=\sum_s i_s$ なので $S_X\Delta=\sum_s i_{\sigma(s)}=\Delta$。$\nabla S_Yk_s=\nabla k_{\sigma(s)}=1_Y=\nabla k_s$ だから、[双積の余積としての普遍性](#thm-catb1-03-biproduct-universality)より $\nabla S_Y=\nabla$。両置換は二回適用すると恒等射になる。例えば $S_X^2i_s=i_{\sigma(\sigma(s))}=i_s$ であり、余積の一意性から $S_X^2=1_{X^{\oplus3}}$。$S_Y^2$ も同じ計算で恒等射となる。
+
+対角成分を入れ替えた射は $D'=S_YDS_X$ であり、成分を取り出すと
+
+$$
+\begin{aligned}
+q_rD'i_s&=q_rS_YD i_{\sigma(s)}\\
+&=q_rS_Y k_{\sigma(s)}a_{\sigma(s)}\\
+&=q_r k_s a_{\sigma(s)}.
+\end{aligned}
+$$
+
+従って $r=s$ のとき $a_{\sigma(s)}$、それ以外は零射となる。従って
 
 $$
 \nabla D'\Delta
