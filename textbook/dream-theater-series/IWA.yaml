@@ -79,7 +79,7 @@ chapters:
     title: "Selmer群とPontryagin双対"
   - id: IWA19
     path: textbook/volumes/dream_thater/代数系/IWA/IWA19
-    status: planned
+    status: completed
     title: "CM楕円曲線・Hecke指標のp進算術"
   - id: IWA20
     path: textbook/volumes/dream_thater/代数系/IWA/IWA20
