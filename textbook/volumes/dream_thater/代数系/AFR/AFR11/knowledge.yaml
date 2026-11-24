@@ -1,0 +1,46 @@
+chapter: AFR11
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR10, CA4, LIE1]
+forward_references: []
+concepts:
+  - id: automorphic-forms.adelic-gl2
+    name: "アデール上の一般線形群"
+    kind: definition
+    introduction: formal
+    requires: [number-theory.adele-ring, number-theory.idele-group, number-theory.restricted-product-places]
+  - id: automorphic-forms.adelic-quotient
+    name: "保型商"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.adelic-gl2]
+  - id: automorphic-forms.level-one-decomposition
+    name: "レベル1のアデール分解"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.adelic-quotient, number-theory.constructive-crt]
+  - id: automorphic-forms.central-character
+    name: "中心指標"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.adelic-quotient, automorphic-forms.idele-modulus-power-character, number-theory.global-product-formula]
+  - id: automorphic-forms.adelic-form
+    name: "アデール上の保型形式"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.adelic-quotient, automorphic-forms.central-character, lie.right-translation]
+  - id: automorphic-forms.adelic-cuspidal
+    name: "大域カスプ条件"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.adelic-form, automorphic-forms.rational-adele-additive-compactness, automorphic-forms.local-additive-measure]
+  - id: automorphic-forms.constant-term-reduction
+    name: "レベル1の定数項の実積分への還元"
+    kind: proposition
+    introduction: formal
+    requires: [automorphic-forms.adelic-cuspidal, automorphic-forms.level-one-decomposition]
+  - id: automorphic-forms.classical-adelization
+    name: "レベル1正則モジュラー形式のアデール化"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.constant-term-reduction, automorphic-forms.lift, automorphic-forms.central-character, automorphic-forms.cusp-growth]

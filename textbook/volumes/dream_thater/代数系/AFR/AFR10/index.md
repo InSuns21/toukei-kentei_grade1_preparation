@@ -6,7 +6,17 @@ AFR8 では非零有理数による乗法商を、AFR9 では加法上の Fourie
 
 ## 1. 乗法に適した測度
 
-$\mathbb A$ をアデール環、$\mathbb I=\mathbb A^\times$ を[イデール群](../../ANF/ANF19/index.md#def-anf19-idele)とします。
+$\mathbb A$ を[アデール環](../../ANF/ANF19/index.md#def-anf19-adele)、$\mathbb I=\mathbb A^\times$ を[イデール群](../../ANF/ANF19/index.md#def-anf19-idele)とします。
+
+素点を $v$ と書き、$v=\infty$ は実素点、$v=p$ は素数に対応する有限素点とします。
+
+$\mathbb Q_p$ は $p$ 進数体、$\mathbb Z_p$ はその整数環です。$\mathbb Z_p^\times$ は絶対値が $1$ の単数群です。
+
+付値を $v_p(x)$ と書くと、非零元の絶対値は次の式で得られます。
+
+$$
+|x|_p=p^{-v_p(x)}.
+$$
 
 有限素点 $p$ では加法測度 $dx_p$ を [AFR9 の規格化](../AFR9/index.md#prop-afr9-local-measure)に従って $\mu_p(\mathbb Z_p)=1$ とし、実素点では Lebesgue 測度 $dx_\infty$ を使います。
 
@@ -53,7 +63,7 @@ $U=\prod_p\mathbb Z_p^\times$ とおきます。
 
 [有理数体のイデール類群の標準代表元](../AFR8/index.md#thm-afr8-idele-normal-form)により、任意の $x\in\mathbb I$ は一意的に $q(t,u)$ と表せます。
 
-ここで各成分は次の範囲を動きます。
+ここで $q$ は対角に埋め込む有理数、$(t,u)$ は実成分 $t$ と有限成分 $u=(u_p)_p$ を持つイデールです。各成分は次の範囲を動きます。
 
 $$
 q\in\mathbb Q^\times,\qquad t>0,\qquad u\in U.
@@ -75,7 +85,7 @@ $$
 
 $\mathbb T$ は絶対値 $1$ の複素数の群とします。
 
-ここでは $U$ の連続指標 $\eta:U\to\mathbb T$ を選びます。
+ここでは $U$ の連続指標 $\eta:U\to\mathbb T$ を選びます。指標とは連続な群準同型であり、有限位数とはある正整数 $m$ が存在してすべての入力で値の $m$ 乗が $1$ になることです。以下の構成で有限位数になる理由も確認します。
 
 正の実成分は複素変数 $s$ によって重み付けするので、指標側では無視します。
 
@@ -89,7 +99,7 @@ $$
 \chi(x)=\eta(u).
 $$
 
-> これは対角の非零有理数上で自明な連続乗法指標であり、正の実成分上でも自明である。
+> これは有限位数の連続乗法指標であり、対角の非零有理数上および正の実成分上で自明（値が $1$）である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr10-hecke-character -->
@@ -97,11 +107,15 @@ $$
 
 $5$ 進単数の還元が $1,4$ なら $1$、$2,3$ なら $-1$ とする写像を $\eta$ とします。
 
-非零剰余類の積で平方剰余の集合 $\{1,4\}$ は指数 $2$ の部分群なので、この写像は準同型です。
+$U$ から $5$ 進単数の法 $5$ の剰余類を取り出す写像は積を保ちます。
+
+非零剰余類の積で平方剰余の集合 $\{1,4\}$ は指数 $2$ の部分群なので、その商群を $\{1,-1\}$ に対応させる写像も積を保ちます。
+
+従って合成した $\eta$ は準同型で、すべての値の二乗は $1$ です。
 
 剰余類は開であるため連続です。
 
-標準代表元の積は標準代表元同士の積なので
+[標準代表元の定理](../AFR8/index.md#thm-afr8-idele-normal-form)による群同型は位相も保つので、商への射影と $U$ への射影を $\eta$ と合成した $\chi$ は連続です。標準代表元の積は標準代表元同士の積なので
 
 $$
 \chi(xy)=\chi(x)\chi(y)
@@ -144,7 +158,9 @@ $$
 
 $\chi(x)=\prod_v\chi_v(x_v)$ が成り立ちます。実際、有限個の非単数成分と、$\eta$ が非自明な有限個の単数成分だけを残せば、残りの単数成分からなる元は $\chi$ の核に入ります。各成分の積に対し準同型性を適用できます。
 
-[Schwartz–Bruhat関数](../AFR9/index.md#def-afr9-schwartz-bruhat)は加法側で急減少性やコンパクト台を持つ試験関数です。非零元だけを積分し、指標と絶対値の冪を掛けることで乗法側の情報を取り出します。
+[Schwartz–Bruhat関数](../AFR9/index.md#def-afr9-schwartz-bruhat)は、実素点ではすべての階数の導関数が急減少する滑らかな関数、有限素点では局所定数でコンパクト台を持つ関数です。大域の試験関数の空間を $\mathcal S(\mathbb A)$ と書きます。集合 $E$ の指示関数を $1_E$ と書き、$E$ 上で $1$、外で $0$ とします。
+
+[イデール絶対値](../../ANF/ANF19/index.md#def-anf19-idele-modulus)は $|x|_{\mathbb A}=\prod_v|x_v|_v$ で、標準代表元 $(t,u)$ では $t$ です。正の実数 $r$ の複素冪は $r^s=\exp(s\log r)$ と約束します。従って $|r^s|=r^{\Re s}$ です。非零元だけを積分し、指標と絶対値の冪を掛けることで乗法側の情報を取り出します。
 
 <a id="def-afr10-zeta-integral"></a>
 
@@ -175,6 +191,39 @@ $p=2$、$f_2=1_{\mathbb Z_2^\times}$、$\chi_2=1$ とすれば、積分の台は
 従って任意の $s$ で絶対積分値も積分値も $1$ です。
 
 $f_2$ を $1_{2\mathbb Z_2^\times}$ に変えると絶対値が $1/2$ となり、乗法体積は変わらないため積分値は $2^{-s}$ です。
+
+大域積分の例として $\chi=1$、$s=2$ として、次の関数を取ります。
+
+$$
+f(x)=e^{-\pi x_\infty^2}1_{\widehat{\mathbb Z}}(x_f),
+\qquad \widehat{\mathbb Z}=\prod_p\mathbb Z_p.
+$$
+
+実関数は微分しても多項式と Gaussian の積となり、有限側はコンパクトな開部分群の指示関数なので、大域の試験関数の条件を満たします。
+
+$x=q(t,u)$ とすると、有限側が非零となる条件は
+
+$$
+qu_p\in\mathbb Z_p\qquad(\text{すべての素数 }p)
+$$
+
+です。各成分 $u_p$ は単数なので、この条件は $q$ が非零整数であることと同値です。
+
+また $|x|_{\mathbb A}=t$ で、$du$ の全体積は $1$ です。正負の整数からの寄与は等しいので、非負関数に [Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli) を使うと
+
+$$
+Z(f,1,2)=2\sum_{m=1}^{\infty}\int_0^\infty e^{-\pi m^2t^2}t\,dt.
+$$
+
+$w=\pi m^2t^2$ と置くと $dw/dt=2\pi m^2t>0$（$t>0$）であり、置換積分で
+
+$$
+2\int_0^\infty e^{-\pi m^2t^2}t\,dt
+=\frac{1}{\pi m^2}\int_0^\infty e^{-w}dw
+=\frac{1}{\pi m^2}.
+$$
+
+従って $Z(f,1,2)=\pi^{-1}\sum_{m\ge1}m^{-2}<\infty$ であり、絶対収束の条件も確認できました。
 <!-- definition-example-end -->
 
 局所では $\Re s>0$ なら絶対収束します。実素点の原点近くでは試験関数が有界なので $r^{\Re s-1}$ が可積分であり、無限遠では急減少性が任意の冪を抑えます。有限素点では台のコンパクト性により付値に下限があり、各殻の体積は $1$、試験関数は有界です。従って絶対積分は下限から始まる収束等比級数で抑えられます。
@@ -277,7 +326,7 @@ $$
 Z_\infty=2\int_0^\infty e^{-\pi r^2}r^{s+a-1}\,dr.
 $$
 
-$w=\pi r^2$ と置くと $dr=(2\sqrt{\pi w})^{-1}dw$ です。従って
+$w=\pi r^2$ は $r>0$ で $dw/dr=2\pi r>0$ の一対一の変数変換です。逆関数 $r=\sqrt{w/\pi}$ の導関数が $dr/dw=(2\sqrt{\pi w})^{-1}$ なので、置換積分における測度の変換を $dr=(2\sqrt{\pi w})^{-1}dw$ と書きます。従って
 
 $$
 2r^{s+a-1}\,dr
@@ -334,11 +383,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-全ての例外素点を含む有限集合 $S$ を取り、$p\notin S$ では $x_p\in\mathbb Z_p^\times$ に制限します。
+試験関数が標準球と異なる素点および指標の全分岐素点を含む有限集合 $S$ を取り、$p\notin S$ では $x_p\in\mathbb Z_p^\times$ に制限します。
 
 その集合上では外側の被積分関数の因子は $1$、外側の測度の総量も $1$ です。
 
-制限した領域での積分は前節の局所絶対収束性により [Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02)で分離できます。
+制限した領域での積分は前節の局所絶対収束性により [Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02)を実部と虚部に適用して分離できます。
 
 絶対積分を考えると、例外素点以外の積分は [不分岐局所ゼータ因子の計算](#thm-afr10-unramified-factor)で $\alpha_p=1,s=\sigma=\Re s$ としたものです。有限個の正のEuler因子の積は
 
@@ -347,10 +396,16 @@ $$
 \le\sum_{m\ge1}m^{-\sigma}<\infty
 $$
 
-で一様に抑えられます。例外素点と実素点の絶対積分は有限です。$S$ を増やすと制限集合は $\mathbb I$ 全体を覆うので、単調収束定理によって絶対積分も有限となります。元の複素積分には優収束定理を適用でき、局所因子の積の極限が結論です。
+で一様に抑えられます。例外素点と実素点の絶対積分は有限です。$S$ を増やすと制限集合は $\mathbb I$ 全体を覆うので、[単調収束定理](../../../解析系/F0/F0-00D2B/index.md#ref-limit-integral-exchange)によって絶対積分も有限となります。元の複素積分には[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)を実部と虚部に適用でき、局所因子の積の極限が結論です。
 <!-- proof-end -->
 
-従って標準的な選択 $f_\chi=g_a\prod_{n_p=0}1_{\mathbb Z_p}\prod_{n_p>0}h_p$ では
+従って標準的な選択 $f_\chi$ を、[実局所ゼータ因子](#prop-afr10-real-factor)、[不分岐局所ゼータ因子](#thm-afr10-unramified-factor)、[分岐指標に適合する試験関数](#prop-afr10-ramified-test) に対応させて
+
+$$
+f_\chi=g_a\prod_{n_p=0}1_{\mathbb Z_p}\prod_{n_p>0}h_p
+$$
+
+とすると
 
 $$
 Z(f_\chi,\chi,s)
@@ -455,10 +510,15 @@ $x=(t,u)$ と固定し $f_x(y)=f(xy)$ と置きます。
 
 加法測度の尺度変換を各素点で適用すると大域の係数は $|x|_{\mathbb A}=t$ です。
 
-変数 $z=xy$ を使って
+[アデールFourier変換の定義](../AFR9/index.md#def-afr9-adelic-fourier)で、$x$ は固定し、$y$ を積分変数、$w$ を周波数とします。変数 $z=xy$ は $x\in\mathbb I$ なので可逆であり、加法測度は $dy=t^{-1}dz$ と変換されます。従って
 
 $$
-\widehat{f_x}(w)=t^{-1}\widehat f(x^{-1}w).
+\begin{aligned}
+\widehat{f_x}(w)
+&=\int_{\mathbb A}f(xy)\psi(yw)\,dy\\
+&=t^{-1}\int_{\mathbb A}f(z)\psi(zx^{-1}w)\,dz\\
+&=t^{-1}\widehat f(x^{-1}w).
+\end{aligned}
 $$
 
 [有理数体のアデールPoisson和公式](../AFR9/index.md#thm-afr9-poisson)を $f_x$ に適用して零の項を分けます。
@@ -489,7 +549,16 @@ $$
 
 複素微分の際の $(\log t)^k$ を掛けても可積分なので、積分の下で複素微分でき、$J$ は整関数です。
 
-$t<1$ の部分の変換項で $r=1/t,v=u^{-1}$ と置きます。$dt/t=-dr/r$、$\eta(u)=\eta(v)^{-1}$、$t^{s-1}=r^{1-s}$ です。$du$ は逆元写像で保存されるため変換項の積分は $J(\widehat f,\chi^{-1},1-s)$ になります。
+$t<1$ の部分の変換項で、$r=1/t$、$u'=u^{-1}$ と置きます。逆関数の導関数は $dt/dr=-r^{-2}$ なので、置換積分では
+
+$$
+\frac{dt}{t}=-\frac{dr}{r},\qquad
+t^{s-1}=r^{1-s}.
+$$
+
+積分区間は $(0,1)$ から $(1,\infty)$ へ向きを反転します。また $\eta(u)=\eta(u')^{-1}$ で、$du$ は逆元写像で保存されます。
+
+従って変換項の積分は $J(\widehat f,\chi^{-1},1-s)$ になります。
 
 残る定数項では $c_\eta=\int_U\eta(u)du$ とおくと、$\eta=1$ なら $c_\eta=1$ です。そうでなければ $\eta(v)\ne1$ となる元の乗法平行移動から $c_\eta=\eta(v)c_\eta$、従って $c_\eta=0$ です。$\Re s>1$ で積分すると
 
@@ -522,7 +591,15 @@ $$
 二つの $J$ も順序が入れ替わるだけなので、解析接続した関数が一致します。留数は表示された有理式から読み取れます。
 <!-- proof-end -->
 
-特に $\chi=1$ で $f=e^{-\pi x_\infty^2}1_{\widehat{\mathbb Z}}(x_f)$ を選ぶと、[局所球のFourier変換](../AFR9/index.md#thm-afr9-ball-transform)と [GaussianのFourier変換](../../../解析系/FOU/FOU3/index.md#lem-fou3-gaussian-transform)により $\widehat f=f$ です。従って
+実素点の Fourier 変換には [AFR9 の規格化](../AFR9/index.md#def-afr9-adelic-fourier)を使います。[FOU3 の Fourier 変換](../../../解析系/FOU/FOU3/index.md#def-fou3-fourier-transform)の周波数 $\xi$ と本章の周波数 $y$ は $\xi=2\pi y$ で対応します。そこで [GaussianのFourier変換](../../../解析系/FOU/FOU3/index.md#lem-fou3-gaussian-transform)の減衰係数を $\pi$ として代入すると
+
+$$
+\widehat g_0(y)=\sqrt{\frac{\pi}{\pi}}
+\exp\!\left(-\frac{(2\pi y)^2}{4\pi}\right)
+=e^{-\pi y^2}.
+$$
+
+特に $\chi=1$ で $f=e^{-\pi x_\infty^2}1_{\widehat{\mathbb Z}}(x_f)$ を選ぶと、有限側も [局所球のFourier変換](../AFR9/index.md#thm-afr9-ball-transform)の $k=0$、中心 $0$ の場合で自己双対です。従って $\widehat f=f$ であり、[大域関数等式](#thm-afr10-global-functional-equation)と[大域ゼータ積分のEuler分解](#thm-afr10-euler-factorization)から
 
 $$
 \pi^{-s/2}\Gamma(s/2)\zeta(s)
@@ -533,7 +610,7 @@ $$
 
 ## 6. 導手と関数等式の定数
 
-分岐した素点では試験関数の Fourier 変換が単数群に留まらず、導手に対応する殻へ移動します。その係数が関数等式に現れます。
+分岐した素点では試験関数の Fourier 変換が単数群に留まらず、導手に対応する殻へ移動します。その係数が関数等式に現れます。[標準局所加法指標](../AFR9/index.md#def-afr9-additive-character)は有限素点で $\psi_p(z)=e^{2\pi i\{z\}_p}$、実素点で $\psi_\infty(z)=e^{-2\pi iz}$ です。有限素点の和で正符号を使うことに注意します。
 
 <a id="thm-afr10-ramified-transform"></a>
 
@@ -558,7 +635,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$x=b+p^nz$ として [局所球のFourier変換](../AFR9/index.md#thm-afr9-ball-transform)を使うと
+法 $p^n$ の各単数剰余類の代表整数を $b$ とすると、その剰余類の元 $x$ は $x=b+p^nz$、$z\in\mathbb Z_p$ と書けます。導手指数の定義によりその上で $h_p(x)=\chi_p(b)^{-1}$ です。従って指示関数の有限線形結合に [局所球のFourier変換](../AFR9/index.md#thm-afr9-ball-transform)を使うと
 
 $$
 \widehat h_p(y)=p^{-n}1_{p^{-n}\mathbb Z_p}(y)
@@ -607,14 +684,29 @@ Z_p(\widehat h_p,\chi_p^{-1},1-s)
 =G_p\chi_p(p)^n p^{n(1-s)}.
 $$
 
-実素点では [GaussianのFourier変換](../../../解析系/FOU/FOU3/index.md#lem-fou3-gaussian-transform)から $\widehat g_0=g_0$ です。微分を積分の下に入れることは $|x|e^{-\pi x^2}$ の可積分性で正当化され、
+実素点では第5節で求めた [GaussianのFourier変換](../../../解析系/FOU/FOU3/index.md#lem-fou3-gaussian-transform)（$\xi=2\pi y$ と置換済み）から $\widehat g_0=g_0$ です。
+
+ここで $x$ は積分変数、$y$ は実周波数です。$d/dy$ は周波数に関する通常の微分で、積分核を微分するときは積分変数を固定します。
+
+微分の絶対値は次の可積分関数に抑えられます。
 
 $$
+2\pi|x|e^{-\pi x^2}.
+$$
+
+従って [優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01) により積分の下で微分でき、
+
+$$
+\begin{aligned}
 \frac{d}{dy}\widehat g_0(y)
-=-2\pi i\widehat g_1(y)=-2\pi y e^{-\pi y^2}.
+&=\int_{\mathbb R}(-2\pi ix)e^{-\pi x^2}e^{-2\pi ixy}\,dx\\
+&=-2\pi i\widehat g_1(y)\\
+&=\frac{d}{dy}e^{-\pi y^2}
+=-2\pi y e^{-\pi y^2}.
+\end{aligned}
 $$
 
-よって $\widehat g_a=(-i)^a g_a$ です。符号は実指標を $e^{-2\pi ixy}$ と選んだことに由来します。
+両辺を $-2\pi i$ で割ると $\widehat g_1(y)=-iy e^{-\pi y^2}$ です。よって $a=0,1$ の両方について $\widehat g_a=(-i)^a g_a$ です。符号は実指標を $e^{-2\pi ixy}$ と選んだことに由来します。
 
 <a id="thm-afr10-completed-l"></a>
 
@@ -683,13 +775,30 @@ $$
 
 従って $\varepsilon=(-i)\sqrt3\,i/\sqrt3=1$ です。不分岐素点 $\ell\ne3$ では $\chi_\ell(\ell)=\eta(\ell^{-1}\bmod3)=\eta(\ell\bmod3)$ で、Euler 因子はこの Dirichlet 指標のものになります。
 
-一般にも $\eta^{-1}$ を法 $N$ の[原始Dirichlet文字](../../ANT/ANT3/index.md#def-ant3-primitive)（単数剰余群の指標を非単数では零としたもの、原始とはより小さい法を経由しないこと）として読むと、不分岐素点では次が成立します。
+一般にも $N>1$ なら $\eta^{-1}$ を法 $N$ の[原始Dirichlet文字](../../ANT/ANT3/index.md#def-ant3-primitive)（単数剰余群の指標を非単数では零としたもの、原始とはより小さい法を経由しないこと）として読むと、不分岐素点では次が成立します。
 
 $$
 \chi_p(p)=\eta^{-1}(p\bmod N),\qquad p\nmid N.
 $$
 
-標準代表元にするには対角 $p$ で割るためです。
+標準代表元にするには対角 $p$ で割るためです。$p\nmid N$ なら導手に関係する各素点でその有限単数は $p^{-1}$ です。
+
+次に指標の原始性を確認します。各分岐局所指標は $1+p^{n_p}\mathbb Z_p$ 上で自明であり、不分岐局所指標は単数群全体で自明です。
+
+従って [中国剰余定理](../../NT/NT1/index.md#thm-nt1-crt-constructive)による単数群の同型
+
+$$
+(\mathbb Z/N\mathbb Z)^\times
+\cong\prod_{p\mid N}(\mathbb Z/p^{n_p}\mathbb Z)^\times
+$$
+
+を通じて、$\eta$ は法 $N$ の単数群上の指標になります。
+
+分岐素点を一つ固定します。法 $p^{n_p}$ から法 $p^{n_p-1}$ への縮約の核には、導手指数の最小性から $\chi_p$ の値が $1$ でない単数が存在します。導手指数が一の場合は法一への縮約なので、核は単数群全体です。
+
+その単数と他の素点の単位元を組み合わせれば、法 $N/p$ では単位元と同じ剰余類なのに、$\eta^{-1}$ の値が異なる元を得ます。
+
+このことはすべての分岐素点で成立し、導手のどの素因数も取り除けません。従って原始性が確認できます。$N>1$ なら本章の $L(s,\chi)$ は [Dirichlet L関数のEuler積](../../ANT/ANT3/index.md#thm-ant3-l-euler)と一致します。$N=1$ の場合は自明指標です。
 
 このように古典的な $L$ 関数の導手、Gamma 因子、関数等式の定数が一つの大域積分から現れます。
 
@@ -719,9 +828,7 @@ $p=5$ の殻 $5^{-2}\mathbb Z_5^\times$ の加法体積、絶対値、乗法体�
 - ID: AFR10-A1
 
 <!-- solution-start -->
-**詳細解答。
-
-** [加法Haar測度の規格化](../AFR9/index.md#prop-afr9-local-measure)で単数群の体積は $1-1/5=4/5$ です。
+**詳細解答。** [加法Haar測度の規格化](../AFR9/index.md#prop-afr9-local-measure)で単数群の体積は $1-1/5=4/5$ です。
 
 $5^{-2}$ 倍の尺度係数は $25$ なので加法体積は $20$、殻上の絶対値は $25$ です。
 
@@ -803,9 +910,7 @@ $$
 - ID: AFR10-B1
 
 <!-- solution-start -->
-**詳細解答。
-
-** [有理数体のイデール類群の標準代表元](../AFR8/index.md#thm-afr8-idele-normal-form)で対角有理数は $q=-2^2/5=-4/5$ です。
+**詳細解答。** [有理数体のイデール類群の標準代表元](../AFR8/index.md#thm-afr8-idele-normal-form)で対角有理数は $q=-2^2/5=-4/5$ です。
 
 正の実成分と $5$ 進単数を計算すると
 
@@ -865,11 +970,9 @@ $\chi=1$、$f(x)=e^{-4\pi x_\infty^2}1_{\widehat{\mathbb Z}}(x_f)$ とする。$
 - ID: AFR10-B3
 
 <!-- solution-start -->
-**詳細解答。
+**詳細解答。** $f(0)=1$ です。
 
-** $f(0)=1$ です。
-
-[GaussianのFourier変換](../../../解析系/FOU/FOU3/index.md#lem-fou3-gaussian-transform)に $\varepsilon=4\pi,\xi=0$ を代入すると実変換の零での値は $1/2$ です。
+[GaussianのFourier変換](../../../解析系/FOU/FOU3/index.md#lem-fou3-gaussian-transform)の減衰係数を $4\pi$ とし、周波数 $\xi=2\pi y=0$ を代入すると、実変換の零での値は $\sqrt{\pi/(4\pi)}=1/2$ です。
 
 有限側の加法体積は $1$ なので $\widehat f(0)=1/2$ です。
 
@@ -890,16 +993,14 @@ $$
 
 1. 実素点の偶奇と分岐素点の導手指数を求めよ。
 2. $G_2$ を計算し、$Z_2(\widehat h_2,\chi_2^{-1},1-s)$ を求めよ。
-3. $L(s,\chi)$ の [Dirichlet 級数](../../NT/NT8/index.md#def-nt8-dirichlet-series)を明示せよ。
+3. $L(s,\chi)$ の [Dirichlet 級数](../../ANT/ANT3/index.md#def-ant3-l-function)を明示せよ。
 4. 完成関数の関数等式を導き、定数を確かめよ。
 
 - Level: C
 - ID: AFR10-C1
 
 <!-- solution-start -->
-**詳細解答。
-
-** 実符号 $-1$ だけのイデールを対角 $-1$ で割ると、有限単数の $2$ 成分は次を満たします。
+**詳細解答。** 実符号 $-1$ だけのイデールを対角 $-1$ で割ると、有限単数の $2$ 成分は次を満たします。
 
 $$
 u_2=-1\equiv3\pmod4.
@@ -926,7 +1027,7 @@ $$
 Z_2(\widehat h_2,\chi_2^{-1},1-s)=\frac i2\,4^{1-s}.
 $$
 
-奇素数 $\ell$ では対角 $\ell$ で割るため $\chi_\ell(\ell)=\eta(\ell^{-1}\bmod4)=\eta(\ell\bmod4)$ です。有限個のEuler因子の積の展開と $\Re s>1$ での絶対収束から
+奇素数 $\ell$ では対角 $\ell$ で割るため $\chi_\ell(\ell)=\eta(\ell^{-1}\bmod4)=\eta(\ell\bmod4)$ です。[Dirichlet L関数のEuler積](../../ANT/ANT3/index.md#thm-ant3-l-euler)を用い、法 $4$ の単数の値が $(-1)^m$（整数 $2m+1$ に対して）で偶数では零になることから
 
 $$
 L(s,\chi)=\sum_{m=0}^\infty\frac{(-1)^m}{(2m+1)^s}.
