@@ -9,11 +9,16 @@ concepts:
     kind: definition
     introduction: formal
     requires: [analytic-number-theory.dirichlet-character, number-theory.von-mangoldt-function]
+  - id: automorphic-forms.mellin-transform
+    name: "Mellin変換"
+    kind: definition
+    introduction: formal
+    requires: []
   - id: automorphic-forms.twisted-smoothed-mellin
     name: "平滑化和のMellin変換"
     kind: theorem
     introduction: formal
-    requires: [automorphic-forms.twisted-smoothed-prime-power-sum, analytic-number-theory.character-log-derivative]
+    requires: [automorphic-forms.mellin-transform, automorphic-forms.twisted-smoothed-prime-power-sum, analytic-number-theory.character-log-derivative]
   - id: automorphic-forms.centered-smoothed-sum
     name: "中心化平滑和"
     kind: definition

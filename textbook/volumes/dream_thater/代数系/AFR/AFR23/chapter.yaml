@@ -12,6 +12,7 @@ learning_objectives:
 definitions:
   - { id: AFR23-DEF-01, name: "文字付き平滑化素数冪和" }
   - { id: AFR23-DEF-02, name: "中心化平滑和" }
+  - { id: AFR23-DEF-03, name: "Mellin変換" }
 theorems:
   - { id: AFR23-THM-01, name: "平滑化和のMellin変換" }
   - { id: AFR23-THM-02, name: "中心化変換の極と留数" }
