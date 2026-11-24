@@ -917,8 +917,7 @@ window.addEventListener('message', event => {
     return;
   }
   if (isFCG8 && data.type === 'fcg8-pick') {
-    const {x,y,rgba}=data,{width,height}=active.payload;
-    const steps=Number.isInteger(data.step)&&data.step>=0&&data.step<=32?data.step:active.payload.steps;
+    const {x,y,rgba}=data,{width,height,steps}=active.payload;
     if(!Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||x>=width||y>=height||
       !Array.isArray(rgba)||rgba.length!==4||!rgba.every(v=>Number.isInteger(v)&&v>=0&&v<=255))return;
     const panel=Math.min(2,Math.floor(3*(x+0.5)/width));
@@ -1048,7 +1047,8 @@ window.addEventListener('message', event => {
     return;
   }
   if (isFCG3 && data.type === 'fcg3-pick') {
-    const {x,y,rgba}=data,{width,height,steps}=active.payload;
+    const {x,y,rgba}=data,{width,height}=active.payload;
+    const steps=Number.isInteger(data.step)&&data.step>=0&&data.step<=32?data.step:active.payload.steps;
     if(!Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||
        x>=width||y>=height||!Array.isArray(rgba)||rgba.length!==4||
        !rgba.every(v=>Number.isInteger(v)&&v>=0&&v<=255))return;
