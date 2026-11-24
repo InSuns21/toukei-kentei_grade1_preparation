@@ -104,6 +104,23 @@ try {
   assert.ok(initial.rows.length>=4);
   assert.match(initial.scene,/20 m四方/);
   const first=await capture('water-wave');
+  // Playback must reuse the actual sandbox and visibly change GPU pixels.
+  await evaluate('document.getElementById("fcg-time-reset").click()');
+  await waitFor('document.getElementById("fcg-time-state").dataset.value==="0"');
+  const zero=await capture('playback-zero');
+  await evaluate('document.getElementById("fcg-time-step").click()');
+  await waitFor('Number(document.getElementById("fcg-time-state").dataset.value)===0.05');
+  await evaluate('document.getElementById("fcg-time-play").click()');
+  await waitFor('Number(document.getElementById("fcg-time-state").dataset.value)>=0.35');
+  await evaluate('document.getElementById("fcg-time-pause").click()');
+  await waitFor('document.getElementById("fcg-time-state").dataset.playing==="false"');
+  const paused=await evaluate('document.getElementById("fcg-time-state").dataset.value');
+  assert.notEqual(zero,await capture('playback-paused'));
+  await new Promise(ok=>setTimeout(ok,300));
+  assert.equal(await evaluate('document.getElementById("fcg-time-state").dataset.value'),paused);
+  await evaluate('document.getElementById("fcg-time-reset").click()');
+  await waitFor('document.getElementById("fcg-time-state").dataset.value==="0"');
+  assert.equal(zero,await capture('playback-reset'));
   const control=async(id,value,pattern)=>{
     await evaluate('document.getElementById("tab-conditions").click()');
     await evaluate('(()=>{const input=document.getElementById("parameter-'+id+'");input.value='+JSON.stringify(value)+';input.dispatchEvent(new Event("input",{bubbles:true}));input.dispatchEvent(new Event("change",{bubbles:true}));})()');
