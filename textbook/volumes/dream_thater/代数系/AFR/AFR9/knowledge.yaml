@@ -1,0 +1,51 @@
+chapter: AFR9
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR8, FOU3]
+forward_references: []
+concepts:
+  - id: automorphic-forms.local-additive-character
+    name: "標準局所加法指標"
+    kind: definition
+    introduction: formal
+    requires: [number-theory.p-adic-digit-expansion]
+  - id: automorphic-forms.schwartz-bruhat
+    name: "Schwartz–Bruhat関数"
+    kind: definition
+    introduction: formal
+    requires: [number-theory.adele-ring]
+  - id: automorphic-forms.adelic-fourier
+    name: "アデールFourier変換"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.schwartz-bruhat, automorphic-forms.global-additive-character, automorphic-forms.local-additive-measure, fourier.fou3-fourier-transform]
+  - id: automorphic-forms.global-additive-character
+    name: "大域加法指標の有理数上の自明性"
+    kind: proposition
+    introduction: formal
+    requires: [automorphic-forms.local-additive-character, number-theory.adele-ring]
+  - id: automorphic-forms.local-additive-measure
+    name: "p進加法Haar測度の規格化"
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.p-adic-digit-expansion]
+  - id: automorphic-forms.finite-coset-decomposition
+    name: "有限アデール試験関数の剰余類分解"
+    kind: lemma
+    introduction: formal
+    requires: [automorphic-forms.schwartz-bruhat, automorphic-forms.rational-adele-additive-normal-form]
+  - id: automorphic-forms.p-adic-ball-transform
+    name: "p進球指示関数のFourier変換"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.local-additive-character, automorphic-forms.local-additive-measure, automorphic-forms.adelic-fourier]
+  - id: automorphic-forms.adelic-fourier-inversion
+    name: "アデールFourier反転"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.p-adic-ball-transform, automorphic-forms.finite-coset-decomposition, fourier.fou3-inversion]
+  - id: automorphic-forms.adelic-poisson-summation
+    name: "有理数体のアデールPoisson和公式"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.adelic-fourier-inversion, automorphic-forms.global-additive-character, fourier.fou2-fejer-uniform]
