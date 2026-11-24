@@ -37,7 +37,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb2-06-enriched-adjunction -->
-**定義の確認。** 集合を基底とし、$F(X)=X\times S$、$G(Y)=Y^S$ とする。射 $u:X'\to X$ は $u\times1_S$ へ、射 $v:Y\to Y'$ は $h\mapsto v h$ へ送る。いずれも恒等射と合成を保つ。転置と逆転置は
+**定義の確認**。 集合を基底とし、$F(X)=X\times S$、$G(Y)=Y^S$ とする。射 $u:X'\to X$ は $u\times1_S$ へ、射 $v:Y\to Y'$ は $h\mapsto v h$ へ送る。いずれも恒等射と合成を保つ。転置と逆転置は
 
 $$
 \theta(f)(x)(s)=f(x,s),\qquad
@@ -153,7 +153,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb2-06-left-kan -->
-**定義の確認。** 集合を基底とし、$\mathcal J$ を一対象・恒等射のみの圏、$\mathcal D$ を矢印 $0\to1$ の圏とする。$K$ は対象を $0$ に送る。$T$ の値を集合 $A$ とする。$L$ を $A\xrightarrow{1_A}A$、$\eta$ を $1_A$ と置く。任意の関手 $H=(B\xrightarrow{h}C)$ に対する変換 $L\Rightarrow H$ は二写像 $f:A\to B$, $g:A\to C$ で $g=hf$ を満たすものとなる。従って誘導射は $(f,hf)\mapsto f$、逆は $f\mapsto(f,hf)$ である。互いに逆なので集合のHom対象の同型になる。
+**定義の確認**。 集合を基底とし、$\mathcal J$ を一対象・恒等射のみの圏、$\mathcal D$ を矢印 $0\to1$ の圏とする。$K$ は対象を $0$ に送る。$T$ の値を集合 $A$ とする。$L$ を $A\xrightarrow{1_A}A$、$\eta$ を $1_A$ と置く。任意の関手 $H=(B\xrightarrow{h}C)$ に対する変換 $L\Rightarrow H$ は二写像 $f:A\to B$, $g:A\to C$ で $g=hf$ を満たすものとなる。従って誘導射は $(f,hf)\mapsto f$、逆は $f\mapsto(f,hf)$ である。互いに逆なので集合のHom対象の同型になる。
 <!-- definition-example-end -->
 
 右向きでは比較射が制限から $T$ へ向かうため、普遍性の試験関手も逆向きになる。
@@ -175,7 +175,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb2-06-right-kan -->
-**定義の確認。** 同じ $\mathcal J,\mathcal D,K,T$ で $R=(A\to\{*\})$、$\epsilon=1_A$ とする。$H=(B\xrightarrow{h}C)$ から $R$ への変換は $f:B\to A$ と $g:C\to\{*\}$ である。$g$ は唯一であり、両経路 $B\to\{*\}$ も唯一なので自然性が成立する。従って誘導射 $(f,g)\mapsto f$ は全単射である。
+**定義の確認**。 同じ $\mathcal J,\mathcal D,K,T$ で $R=(A\to\{*\})$、$\epsilon=1_A$ とする。$H=(B\xrightarrow{h}C)$ から $R$ への変換は $f:B\to A$ と $g:C\to\{*\}$ である。$g$ は唯一であり、両経路 $B\to\{*\}$ も唯一なので自然性が成立する。従って誘導射 $(f,g)\mapsto f$ は全単射である。
 <!-- definition-example-end -->
 
 ここまでの普遍性は関手全体を比較するものである。次に、各対象 $d$ で必要な重みを作り、そこから関手と比較射を構成する。
