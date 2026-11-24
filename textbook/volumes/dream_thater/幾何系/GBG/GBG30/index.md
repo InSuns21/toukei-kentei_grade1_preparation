@@ -260,7 +260,7 @@ $$
 
 この定理は微分方程式の解の差を、既習の曲率から計算できることを意味する。適用を二次元と四次元に絞って自力で展開する。
 
-二次元では $\widehat A$ の正次数部分は4以上なので、積の2形式は $c_1(E)$ だけである。$E$ が線束なら $\operatorname{ind}D_E^+=(i/2\pi)\int F$。球面にスピン構造が存在することは、接束の遷移回転の巻き数が2で二重被覆に持ち上がることから従う（[球面の貼り合わせの演習](../GBG29/index.md#ex-gbg29-b03)）。[Dirac monopole の磁束計算](../GBG19/index.md#thm-gbg19-curvature-flux)の線束では $F=-in\sin\vartheta\,d\vartheta\wedge d\varphi/2$。外向きの向きで積分すると $i(-in)/(4\pi)\cdot2\cdot2\pi=n$。従って指数は $n$ である。
+二次元では $\widehat A$ の正次数部分は4以上なので、積の2形式は $c_1(E)$ だけである。$E$ が線束なら $\operatorname{ind}D_E^+=(i/2\pi)\int F$。球面にスピン構造が存在することも確認しよう。単位球面 $S^d$（ここでは $d=2,4$）では $T_xS^d=x^\perp\subset\mathbb R^{d+1}$ である。正の直交接枠に法線 $x$ を最後に加えると正の直交枠 $(e_1,\ldots,e_d,x)$ を得る（$d$ は偶数）。従って直交枠束は $SO(d+1)$ の最終列を $x$ とする部分に対応する。標準スピン被覆では、最後の座標を固定する $SO(d)$ の逆像は $\operatorname{Spin}(d)$ である。この群の性質を入力として、$Q=\operatorname{Spin}(d+1)$ を $S^d$ 上の束と見る。射影は被覆写像で得た行列の最終列である。二つの元が同じ $x$ に写ればその比は $\operatorname{Spin}(d)$ に入り、右作用は自由で推移的である。局所的な直交接枠を小さな座標近傍で被覆へ持ち上げれば局所自明化を得る。被覆から最初の $d$ 列を取る写像は射影を保ち、右作用を $SO(d)$ の作用へ移すので、[スピン構造の条件](../GBG29/index.md#def-gbg29-spin-structure)を満たす。[Dirac monopole の磁束計算](../GBG19/index.md#thm-gbg19-curvature-flux)の線束では $F=-in\sin\vartheta\,d\vartheta\wedge d\varphi/2$。外向きの向きで積分すると $i(-in)/(4\pi)\cdot2\cdot2\pi=n$。従って指数は $n$ である。
 
 四次元で $r=\operatorname{rank}E$ と書く。[Chern 指標と低次 Chern 形式の関係](../GBG23/index.md#prop-gbg23-chern-character-degrees)より、次数0、2、4の部分を掛けると
 
@@ -276,7 +276,7 @@ $$
 =-\int_M c_2(E)-\frac1{12}\int_M p_1(TM).
 $$
 
-丸い $S^4$ にはスピン構造がある。実際、単位球面の接束に外向き法線の自明な一次元束を加えると自明な五次元束になる。固定五次元枠の自明スピン束を、最終枠ベクトルが法線である部分へ制限すると Spin(4) の主束が得られる（Spin(5) から SO(5) への被覆で SO(4) の逆像が Spin(4) となる標準被覆の性質を用いる）。この写像は前章のスピン構造の条件を満たす。
+丸い $S^4$ のスピン構造には直前の $d=4$ の構成を使う。
 
 丸い球面の曲率行列は正規直交余枠 $\theta^a$ で $R_{ab}=K\theta^a\wedge\theta^b$（$K$ は一定断面曲率、全体符号を逆にしても以下は同じ）。各 $R_{ab}\wedge R_{ab}=0$ だから [第一 Pontryagin 形式の跡公式](../GBG24/index.md#prop-gbg24-first-pontryagin)より $p_1(TM)=0$。従って [BPST 束の第二 Chern 数](../GBG28/index.md#thm-gbg28-nontrivial) $-1$ を代入すると指数は $+1$ となる。この計算は $S^4$ 上に滑らかに貼り合わせた接続に対して行った。非コンパクトな $\mathbb R^4$ 上に同じ Fredholm の結論を条件なしで適用してはいけない。また指数だけでは二つの核の個別次元は分からない。
 
@@ -401,7 +401,7 @@ $$
 外向き $S^2$ の $n=2$ monopole 線束と、GBG28 の向きでの丸い $S^4$ の BPST 基本表現束を比較する。各々について (i) スピン構造の存在をどう確保するか、(ii) 指数、(iii) 片側の零モード変数だけの測度の $\alpha=\pi/2$ における変換因子を求めよ。(iv) これだけではゲージ異常を証明できない理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答**。(i) $S^2$ の接束の遷移回転は巻き数2なので [二重被覆の持ち上げ条件](../GBG29/index.md#ex-gbg29-b03) で持ち上げられる。$S^4$ は法線で安定自明化し、4節の枠の持ち上げを使う。どちらもゲージ束とは別の構造である。
+**詳細解答**。(i) 4節の球面の構成で $d=2,4$ を選ぶ。外向き法線を最後の列に持つ枠をスピン被覆で持ち上げると、各ファイバーは Spin($d$) の右作用で自由かつ推移的であり、被覆は枠束への同変写像を与える。従って [スピン構造の条件](../GBG29/index.md#def-gbg29-spin-structure) を満たす。どちらもゲージ束とは別の構造である。
 
 (ii) $S^2$ は [monopole の曲率と第一 Chern 数](../GBG19/index.md#thm-gbg19-curvature-flux)より $(i/2\pi)\int F=2$。コンパクト・境界なしでスピン構造を固定したから [指数定理](#thm-gbg30-index-bridge)の次数2部分を使って $N_+-N_-=2$。$S^4$ では [BPST 束の第二 Chern 数](../GBG28/index.md#thm-gbg28-nontrivial) が $-1$。丸い計量の $R_{ab}$ は単純2形式なので各平方が零、[Pontryagin の跡公式](../GBG24/index.md#prop-gbg24-first-pontryagin)で $p_1=0$。基本表現の跡零から次数4部分は $-c_2-p_1/12$、従って $N_+-N_-=1$。
 
