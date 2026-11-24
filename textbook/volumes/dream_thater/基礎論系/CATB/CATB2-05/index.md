@@ -10,9 +10,11 @@
 
 以下では[Mac Laneの整合性定理](../../CAT/CAT4-02/index.md#thm-cat4-02-coherence)により括弧・単位子を適宜省略する。テンソル因子を交換する場合には対称性を用いる。
 
+[豊穣圏の公理](../CATB2-01/index.md#def-catb2-01-enriched-category)の合成を $m_{xyz}:\mathcal C(y,z)\otimes\mathcal C(x,y)\to\mathcal C(x,z)$ と書き、型から添字が分かる場合は $m$ と略す。$1$ は対応する因子の恒等射、$\sigma$ は交換する二因子の対称性、$gf$ は $g\circ f$（右から左への合成）を表す。基底での評価射 $e_{U,Z}:[U,Z]\otimes U\to Z$ と転置・逆転置は[評価とカリー化の普遍性](../../CAT/CAT4-05/index.md#thm-cat4-05-evaluation-curry)による。
+
 ## 2. 重み付きの脚を集める
 
-豊穣関手 $D:\mathcal J\to\mathcal C$ が図式を与える。固定した $X$ から各 $Dj$ へ向かうHomを
+[豊穣関手](../CATB2-03/index.md#def-catb2-03-enriched-functor) $D:\mathcal J\to\mathcal C$ が図式を与える。対象 $j$ の像を $Dj=D(j)$、Hom上の構造射を $D_{ij}:\mathcal J(i,j)\to\mathcal C(Di,Dj)$ と書く。固定した $X$ から各 $Dj$ へ向かうHomを
 
 $$
 H_X(j)=\mathcal C(X,Dj)
@@ -31,7 +33,7 @@ $$
 
 ここに共変豊穣関手 $W:\mathcal J\to\underline{\mathcal V}$ を指定する。$Wj$ は脚の添字や脚に課す構造を与え、$W$ の作用は図式の射に沿って添字を移す。これが極限側の重みである。例えば集合では $Wj$ の各元が一本の脚を指定し、自然性が脚同士の整合を要求する。
 
-$W$ から $H_X$ への豊穣自然変換を集めたHom対象を $N(W,H_X)$ と書く。[自然変換のHom対象の普遍性](../CATB2-04/index.md#prop-catb2-04-natural-hom-universal)によれば、任意の基底の対象 $P$ からこの対象への射は自然性を満たす族
+$W$ から $H_X$ への[豊穣自然変換](../CATB2-03/index.md#def-catb2-03-enriched-natural)を集めたHom対象を $N(W,H_X)$ と書く。自己豊穣化への変換の成分は、射 $I\to[Wj,H_X(j)]$ を評価して得る基底の射 $Wj\to H_X(j)$ として書く。[自然変換のHom対象の普遍性](../CATB2-04/index.md#prop-catb2-04-natural-hom-universal)によれば、任意の基底の対象 $P$ からこの対象への射は自然性を満たす族
 
 $$
 t_j:P\otimes Wj\to\mathcal C(X,Dj)
@@ -69,13 +71,13 @@ $$
 
 ここで $\lambda_j:Wj\to\mathcal C(L,Dj)$ は自然変換の成分を評価で表した射である。
 
-誘導族の自然性を確認するには、まず入力を $\mathcal J(i,j)\otimes Wi\otimes\mathcal C(X,L)$ の順に並べる。重みの作用を $d^W_{ij}$、図式の構造射を $D_{ij}$ とすると、脚の自然性は
+誘導族の自然性を確認するには、まず入力を $\mathcal J(i,j)\otimes Wi\otimes\mathcal C(X,L)$ の順に並べる。重みの構造射を逆転置した作用を $d^W_{ij}:\mathcal J(i,j)\otimes Wi\to Wj$ と書く。[パラメータ付き自然性](../CATB2-04/index.md#def-catb2-04-natural-family)を $P=I$ に適用し、第2節の $H_L$ の作用を代入すると、脚の自然性は
 
 $$
 \lambda_j d^W_{ij}=m(D_{ij}\otimes\lambda_i)
 $$
 
-である。この等式の両辺を $X$ からの射で前合成する。豊穣圏の結合律により
+である。この等式の両辺を $X$ からの射で前合成する。[豊穣圏の結合律](../CATB2-01/index.md#def-catb2-01-enriched-category)により
 
 $$
 \begin{aligned}
@@ -107,7 +109,15 @@ $$
 K_X(j)=\mathcal C(Dj,X)
 $$
 
-と置く。$i\to j$ に沿って $Dj\to X$ を $Di\to X$ に移すには前合成するため、$K_X$ は $\mathcal J^{\mathrm{op}}$ 上の豊穣関手になる。反対豊穣圏はHomの向きを逆転させ、対称性で合成の入力を交換したものである（[豊穣Yonedaの反変形](../CATB2-04/index.md#thm-catb2-04-enriched-yoneda)参照）。
+と置く。$i\to j$ に沿って $Dj\to X$ を $Di\to X$ に移すには前合成するため、$K_X$ は $\mathcal J^{\mathrm{op}}$ 上の豊穣関手になる。反対豊穣圏はHomの向きを逆転させ、対称性で合成の入力を交換したものである（前講の[反変形の構成](../CATB2-04/index.md#thm-catb2-04-enriched-yoneda)に続く第6.2節参照）。表現可能関手の関手律を $\mathcal C^{\mathrm{op}}$ に適用し、$D^{\mathrm{op}}$ と合成すると $K_X$ が得られる。作用の型は
+
+$$
+\mathcal J(i,j)\otimes\mathcal C(Dj,X)
+\xrightarrow{\sigma}\mathcal C(Dj,X)\otimes\mathcal J(i,j)
+\xrightarrow{1\otimes D_{ij}}
+\mathcal C(Dj,X)\otimes\mathcal C(Di,Dj)
+\xrightarrow{m}\mathcal C(Di,X).
+$$
 
 そこで余極限の重みも $W:\mathcal J^{\mathrm{op}}\to\underline{\mathcal V}$ とする。極限側と同じ文字 $W$ を使うが定義域が異なる。脚の族を余極限候補 $Q$ からのHom対象で表したい。
 
@@ -134,7 +144,26 @@ $$
 $$
 <!-- formal-statement-end -->
 
-誘導族は、$\iota$ の自然性と合成の結合律により自然である。実際、$i\to j$ に対応するHom対象からの入力を $Dj$ への脚の前に合成してから $Q\to X$ を後合成する経路と、先に $Q\to X$ を後合成してから前合成する経路は結合律で一致する。重みの作用との一致は $\iota$ の自然性で保証される。
+ここで $\iota_j:Wj\to\mathcal C(Dj,Q)$ は評価で表した成分である。反変重みの作用を $d^W_{ji}:\mathcal J(i,j)\otimes Wj\to Wi$ と書く。$j,i$ は反対圏での始域・終域の順である。
+
+[パラメータ付き自然性](../CATB2-04/index.md#def-catb2-04-natural-family)の $P=I$ の条件に $K_Q$ の作用を入れると、
+
+$$
+\iota_i d^W_{ji}\sigma_{Wj,\mathcal J(i,j)}
+=m(\iota_j\otimes D_{ij})
+$$
+
+となる。両辺の始域は $Wj\otimes\mathcal J(i,j)$、終域は $\mathcal C(Di,Q)$ である。$P=\mathcal C(Q,X)$ とし、入力を $P\otimes Wj\otimes\mathcal J(i,j)$ の順に置けば、誘導族の二経路は
+
+$$
+\begin{aligned}
+&m(1_P\otimes\iota_i d^W_{ji}\sigma_{Wj,\mathcal J(i,j)})\\
+&=m(1_P\otimes m(\iota_j\otimes D_{ij}))\\
+&=m(m(1_P\otimes\iota_j)\otimes D_{ij}).
+\end{aligned}
+$$
+
+最後の等式は[豊穣圏の結合律](../CATB2-01/index.md#def-catb2-01-enriched-category)である。最終行は先に $Q$ からの射で後合成し、次に図式の射で前合成する経路である。入力の第二・第三因子を対称性で元の順に戻すと、パラメータ付き自然性の両辺が一致する。[Hom対象の普遍性](../CATB2-04/index.md#prop-catb2-04-natural-hom-universal)により $\Psi_X$ が存在する。
 
 <!-- definition-example-start: def-catb2-05-weighted-colimit -->
 **定義の確認**。 第3節と同じ一対象の集合値図式と重み $S$ を用いる。今度は $Q=S\times A$ として $\iota_s:A\to Q$ を $a\mapsto(s,a)$ とする。$f:Q\to X$ は二写像 $g_s=f\iota_s:A\to X$ を与える。逆に $g_p,g_q$ があれば $f(s,a)=g_s(a)$ と置ける。この定義は $Q$ の各元で一意であり、$f\iota_s=g_s$、逆方向も $f(s,a)$ が元に戻る。恒等射以外の自然性条件はなく、$\Psi_X$ は全単射である。$Q$ は $2\cdot3=6$ 元を持つ。
@@ -187,7 +216,23 @@ $$
 
 が唯一の逆像である。$\Phi_X$ の定義によりこれが脚の前合成で $t$ を復元する。余極限の場合も $b:I\to N(W,K_X)$ に対して $g=\Psi_X^{-1}b$ であり、脚の後合成が $b$ に対応する。
 
-極限候補を $(L,\lambda),(L',\lambda')$ とする。$X=L'$ として $\lambda'$ を因子分解すると $f:L'\to L$、$X=L$ として $\lambda$ を因子分解すると $g:L\to L'$ を得る。台となる圏の射による前合成を $\circ$ で書けば、各 $j$ で
+極限候補を $(L,\lambda),(L',\lambda')$ とする。$X=L'$ として $\lambda'$ を因子分解すると $f:L'\to L$、$X=L$ として $\lambda$ を因子分解すると $g:L\to L'$ を得る。ここで脚 $\lambda_j$ は基底の射であり、台の圏の射 $f$ との通常の合成がそのまま定義されるわけではない。以下では脚への前合成・後合成も $\circ$ で略記する。例えば $f:I\to\mathcal C(L',L)$ と $h:I\to\mathcal C(Q,Q')$ に対して、単位子を省略すれば
+
+$$
+\begin{aligned}
+\lambda_j\circ f&=m(\lambda_j\otimes f):Wj\to\mathcal C(L',Dj),\\
+h\circ\iota_j&=m(h\otimes\iota_j):Wj\to\mathcal C(Dj,Q').
+\end{aligned}
+$$
+
+第一式の入力は $Wj\otimes I$、第二式の入力は $I\otimes Wj$ である。この操作の結合律・単位律は豊穣圏の公理と台となる圏の合成の定義から従う。例えば $g:I\to\mathcal C(L,L')$ に対し、$Wj\otimes I\otimes I$ を入力とすると
+
+$$
+m(m(\lambda_j\otimes f)\otimes g)
+=m(\lambda_j\otimes m(f\otimes g)).
+$$
+
+従って各 $j$ で
 
 $$
 \lambda_j\circ f=\lambda'_j,\qquad
@@ -213,7 +258,14 @@ $$
 \mathcal C(X',X)\otimes\mathcal C(X,L)\otimes Wj.
 $$
 
-対称性で重みの因子を先頭へ移すと、二つの構造射は脚の構造射を適用した後の三射の合成になる。豊穣圏の結合律で両者は一致する。[Hom対象の普遍性](../CATB2-04/index.md#prop-catb2-04-natural-hom-universal)により全成分での一致は誘導射の一致を意味するので、同型は試験対象について豊穣自然である。
+$U=\mathcal C(X',X)$、$P=\mathcal C(X,L)$ と置く。$U\otimes P\otimes Wj$ を対称性によって $Wj\otimes P\otimes U$ の順に並べ替える（重みだけでなく二つのHom因子の順も反転する）。この順の入力に対する二経路は
+
+$$
+m(\lambda_j\otimes m(1_P\otimes1_U))
+=m(m(\lambda_j\otimes1_P)\otimes1_U).
+$$
+
+左辺は先に二射を合成する経路、右辺は先に脚を作る経路であり、[豊穣圏の結合律](../CATB2-01/index.md#def-catb2-01-enriched-category)による等式である。右辺で $P$ を $N(W,H_X)$ に置き換え、$\lambda_j$ と $P$ の合成の代わりにHom対象の普遍族の成分を使えば、自然変換のHom対象への前合成の作用も定義できる。族の自然性は第3節と同じ結合律で保たれ、作用の単位・合成保存は各成分で単位律・結合律に帰着する。[Hom対象の普遍性](../CATB2-04/index.md#prop-catb2-04-natural-hom-universal)により全成分での一致は誘導射の一致を意味するので、同型は試験対象について豊穣自然である。
 
 余極限側では $v:X\to X'$ に対して
 
@@ -227,11 +279,18 @@ $$
 \mathcal C(X,X')\otimes\mathcal C(Q,X)\otimes Wj
 $$
 
-を入力とする二つの構造射を比較する。余極限の脚を適用した後、三射を合成する順序だけが異なるため、豊穣圏の結合律で一致する。
+を入力とする二つの構造射を比較する。$U=\mathcal C(X,X')$、$P=\mathcal C(Q,X)$ と書くと、交換をせずに
+
+$$
+m(1_U\otimes m(1_P\otimes\iota_j))
+=m(m(1_U\otimes1_P)\otimes\iota_j)
+$$
+
+となる。左辺は先に脚を後合成する経路、右辺は先に二射を合成する経路である。極限側と同じく普遍族への後合成でHom対象の作用を定め、[Hom対象の普遍性](../CATB2-04/index.md#prop-catb2-04-natural-hom-universal)で全成分の一致から誘導射の一致を得る。よって余極限の同型も試験対象について豊穣自然である。
 
 ## 6. 一元集合の重みで通常の極限を取り戻す
 
-普通の圏は集合に豊穣化した場合である。通常の錐は各対象へ一本の脚を持つので、各対象に一元集合を割り当て、各射を一元集合の恒等写像に送る重みを考える。
+[集合を基底とする豊穣圏](../CATB2-01/index.md#prop-catb2-01-set-enrichment)は通常の局所小圏に対応する。通常の錐は各対象へ一本の脚を持つので、各対象に一元集合を割り当て、各射を一元集合の恒等写像に送る重みを考える。
 
 <a id="thm-catb2-05-conical-set"></a>
 
@@ -279,7 +338,13 @@ $$
 
 基底に線形構造があるとき、重み付き極限・余極限は単なる脚の複製を超える。例えば一つのベクトル空間 $A$ に向けた脚をベクトル空間 $S$ で添字付けし、添字に関しても線形であることを要求できる。これを一般の閉モノイダル圏で計算する。
 
-添字圏を対象 $*$ 一つ、Hom対象 $I$、合成と単位を単位子と恒等射で与えた豊穣圏とする。図式・重みはそれぞれ対象 $A,S$ を指定し、作用は単位子で決まる。自然性は単位律だけなので、前講の等化子の二射が一致し、$N(W,H_X)=[S,[X,A]]$ となる。余極限側では $N(W,K_X)=[S,[A,X]]$ となる。
+対象圏を $\underline{\mathcal V}$ とする。添字圏を対象 $*$ 一つ、Hom対象 $I$、合成と単位を単位子と恒等射で与えた豊穣圏とする。図式・重みはそれぞれ対象 $A,S$ を指定し、作用は単位子で決まる。[パラメータ付き自然性](../CATB2-04/index.md#def-catb2-04-natural-family)では唯一の対象対について、任意の $t:P\otimes S\to [X,A]$ に対する両経路は単位子で同一視すればともに $t$ になる。従って[Hom対象の等化子構成](../CATB2-04/index.md#def-catb2-04-natural-hom)の二射は一致し、その等化子は積の恒等射である。積は一因子だけなので
+
+$$
+N(W,H_X)=[S,[X,A]].
+$$
+
+余極限側も反対圏の唯一のHomが $I$ であるため、同じ単位律によって $N(W,K_X)=[S,[A,X]]$ となる。
 
 <a id="thm-catb2-05-single-object"></a>
 
@@ -340,7 +405,25 @@ $$
 $Q=S\otimes A$ の脚 $\iota:S\to[A,Q]$ は $1_{S\otimes A}$ の転置である。$P\to[Q,X]$ の逆転置 $b:P\otimes Q\to X$ を取ると、上の対応で得る三引数の射は $P\otimes S\otimes A$ を結合子で $P\otimes Q$ に移し、$b$ を適用するものである。これは $\iota$ の評価が恒等射であるため、第4節の $\Psi_X$ を逆転置したものに等しい。先ほどの全単射性による同型判定を $\Psi_X$ に適用すれば、余極限の普遍性も成立する。
 <!-- proof-end -->
 
-ベクトル空間の場合には $S=k^2$、$A=k^3$ とすれば、極限 $[S,A]$ は $3\times2$ 行列の空間、余極限 $S\otimes A$ は六つの基底テンソル $e_i\otimes f_j$ で張られる空間である。どちらも6次元だが、極限は評価で脚を出す空間、余極限は双線形写像を受け取る空間である。次元が等しいことだけが普遍性ではない。
+ベクトル空間の場合は任意次元の空間の圏を基底とする。体 $k$ 上の[ベクトル空間の閉構造](../../CAT/CAT4-05/index.md#thm-cat4-05-vector-spaces)によって内部Homは線形写像の空間であり、小さい積は成分ごとの直積、等化子は二射の差の核で与えられるので、基底の完備性も満たす。
+
+$S=k^2$、$A=k^3$ とし、それぞれの標準基底を $(e_1,e_2)$、$(f_1,f_2,f_3)$ とする。極限 $[S,A]$ の元である線形写像 $M:S\to A$ は
+
+$$
+M(e_i)=\sum_{j=1}^3 M_{ji}f_j,\qquad
+M\left(\sum_{i=1}^2s_i e_i\right)
+=\sum_{j=1}^3\left(\sum_{i=1}^2M_{ji}s_i\right)f_j
+$$
+
+と表せる。逆に任意の $3\times2$ 行列の列から基底の像を指定できるため、この表示は線形写像の空間と行列の空間の線形同型を与える。脚 $\lambda:S\to[[S,A],A]$ は $s$ を $M\mapsto M(s)$ に送る評価であり、上の行列積がまさに脚の計算である。
+
+余極限 $S\otimes A$ は[有限次元テンソル積の存在と基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)から六つの $e_i\otimes f_j$ を基底に持つ。脚は $s$ を線形写像 $a\mapsto s\otimes a$ に送る。任意の双線形写像 $B:S\times A\to X$ からは $F(e_i\otimes f_j)=B(e_i,f_j)$ と指定する線形写像 $F:S\otimes A\to X$ が一意に得られ、双線形性から
+
+$$
+F(s\otimes a)=\sum_{i,j}s_i a_j B(e_i,f_j)=B(s,a).
+$$
+
+従って脚から $B$ を復元できる。どちらも6次元だが、極限は評価で脚を出す空間、余極限は双線形写像を受け取る空間である。次元が等しいことだけでは普遍性を保証せず、Hom対象としての同型は上の定理の証明で確認したものである。
 
 ## 8. 演習
 
@@ -388,7 +471,7 @@ A02と同じ $A,S$ に対し余極限の元と脚を求めよ。$X=\{0,1\}$ に�
 
 - Level: B
 
-集合で $D0=\{a,b\},D1=\{0,1\}$、$D(u)(a)=D(u)(b)=0$ とする。$W0=\{p,q\},W1=\{r\}$、$W(u)(p)=W(u)(q)=r$ の重み付き極限を求めよ。任意の試験集合に対する普遍性も確認せよ。
+集合の矢印図式 $0\xrightarrow{u}1$ で $D0=\{a,b\},D1=\{0,1\}$、$D(u)(a)=D(u)(b)=0$ とする。$W0=\{p,q\},W1=\{r\}$、$W(u)(p)=W(u)(q)=r$ の重み付き極限を求めよ。任意の試験集合に対する普遍性も確認せよ。
 
 <!-- solution-start -->
 **詳細解答。** [重み付き極限](#def-catb2-05-weighted-limit)の脚は $g_p,g_q:X\to D0$ と $h_r:X\to D1$ で、自然性は $D(u)g_p=h_r=D(u)g_q$。$D(u)$ は定値0なので $h_r$ は定値0に強制され、$g_p,g_q$ は自由である。従って $L=D0\times D0$ の4元が候補となる。脚は二射影と定値0写像であり自然性を満たす。任意の族から $f(x)=(g_p(x),g_q(x))$ が定まり、三脚と合成すれば元の族になる。二射影が $f$ の二成分を指定するため一意である。
@@ -398,7 +481,7 @@ A02と同じ $A,S$ に対し余極限の元と脚を求めよ。$X=\{0,1\}$ に�
 
 - Level: B
 
-集合で $D0=\{a\}$、$D1=\{b,c\}$、$D(u)(a)=b$ とする。$W1=\{p,q\}$、$W0=\{r\}$、$W(u^{\mathrm{op}})(p)=W(u^{\mathrm{op}})(q)=r$ とする。重み付き余極限の元と普遍性を求めよ。
+集合の矢印図式 $0\xrightarrow{u}1$ で $D0=\{a\}$、$D1=\{b,c\}$、$D(u)(a)=b$ とする。$W1=\{p,q\}$、$W0=\{r\}$、$W(u^{\mathrm{op}})(p)=W(u^{\mathrm{op}})(q)=r$ とする。重み付き余極限の元と普遍性を求めよ。
 
 <!-- solution-start -->
 **詳細解答。** [重み付き余極限](#def-catb2-05-weighted-colimit)の脚を $g_r:D0\to X$、$h_p,h_q:D1\to X$ とすると、自然性は $h_p(b)=g_r(a)=h_q(b)$。$h_p(c),h_q(c)$ は独立である。従って $Q=\{B,C_p,C_q\}$ とし、$\iota_r(a)=B$、$\iota_p(b)=\iota_q(b)=B$、$\iota_p(c)=C_p$、$\iota_q(c)=C_q$ とする。この脚は自然性を満たす。任意の自然な族に対して $f(B)=g_r(a)$、$f(C_p)=h_p(c)$、$f(C_q)=h_q(c)$ と置けば、上の一致条件によって全ての脚の値が復元される。三元全部の値が指定されるため一意である。
@@ -408,17 +491,26 @@ A02と同じ $A,S$ に対し余極限の元と脚を求めよ。$X=\{0,1\}$ に�
 
 - Level: B
 
-基底を $k$ 上のベクトル空間、$S=k^2,A=k^3$ とする。一対象図式の極限の脚を $s=(2,3)$ と $M=\begin{pmatrix}1&0\\0&1\\1&1\end{pmatrix}$ について評価せよ。また任意の線形写像 $X\otimes S\to A$ から極限への射を復元する式を書け。
+体 $k$ 上のベクトル空間の圏を基底とし、$S=k^2,A=k^3$ とする。一対象図式の極限の脚を $s=(2,3)$ と $M=\begin{pmatrix}1&0\\0&1\\1&1\end{pmatrix}$ について評価せよ。また任意の線形写像 $X\otimes S\to A$ から極限への射を復元する式を書け。
 
 <!-- solution-start -->
-**詳細解答。** [一対象図式の重み付き極限・余極限](#thm-catb2-05-single-object)により極限は $[S,A]$ であり、脚は $s$ における評価である。行列 $M$ は標準基底での線形写像を表すので
+**詳細解答。** [一対象図式の重み付き極限・余極限](#thm-catb2-05-single-object)により極限は $[S,A]$ であり、脚は $s$ における評価である。第7節で確認したように、$M$ の二列は標準基底 $e_1,e_2$ の像である。$s=2e_1+3e_2$ なので、線形性により $M(s)=2M(e_1)+3M(e_2)$。ここで整数係数は体 $k$ の元として読む。標準座標列に直すと
 
 $$
 Ms=\begin{pmatrix}2\\3\\2+3\end{pmatrix}
 =\begin{pmatrix}2\\3\\5\end{pmatrix}.
 $$
 
-線形写像 $T:X\otimes S\to A$ から $F:X\to[S,A]$ を $F(x)(s)=T(x\otimes s)$ と置く。テンソル積の双線形性と $T$ の線形性により $s$ について線形、さらに $x$ についても線形である。評価すれば $F(x)(s)=T(x\otimes s)$ を回収し、純テンソルは全体を張るため $T$ が一意に復元される。逆方向も全ての $s$ での値が $F(x)$ を決定する。
+線形写像 $T:X\otimes S\to A$ から $F:X\to[S,A]$ を $F(x)(s)=T(x\otimes s)$ と置く。[ベクトル空間の閉構造](../../CAT/CAT4-05/index.md#thm-cat4-05-vector-spaces)の対応を直接確認する。任意の $c,d\in k$ と $s,s'\in S$、$x,x'\in X$ に対して、テンソル積の双線形性と $T$ の線形性より
+
+$$
+\begin{aligned}
+F(x)(cs+ds')&=cT(x\otimes s)+dT(x\otimes s'),\\
+F(cx+dx')(s)&=cT(x\otimes s)+dT(x'\otimes s).
+\end{aligned}
+$$
+
+第一式から $F(x)$ は線形写像、第二式から $F$ は線形写像の空間への線形写像である。評価すれば $F(x)(s)=T(x\otimes s)$ を回収し、純テンソルは全体を張るため $T$ が一意に復元される。逆方向も全ての $s$ での値が $F(x)$ を決定する。
 <!-- solution-end -->
 
 ### CATB2-05-C01 集合値図式の一般構成
@@ -429,7 +521,10 @@ $$
 
 $$
 L=\left\{(a_{j,w})\in\prod_j\prod_{w\in Wj}Dj:
-D(u)(a_{i,w})=a_{j,W(u)(w)}\right\}
+\begin{array}{l}
+D(u)(a_{i,w})=a_{j,W(u)(w)}\\
+\text{for all }u:i\to j,\ w\in Wi
+\end{array}\right\}
 $$
 
 を考える。条件は全ての $u:i\to j$ と $w\in Wi$ に課す。この集合が重み付き極限であることを証明せよ。さらに反変重み $V:\mathcal J^{\mathrm{op}}\to\mathbf{Set}$ の場合、非交和 $\coprod_j(Vj\times Dj)$ に関係
@@ -451,7 +546,7 @@ $$
 
 を満たす。従って $f(x)=(t_{j,w}(x))_{j,w}$ は $L$ に属し、写像 $f:X\to L$ ができる。各射影を取ると $e_{j,w}f=t_{j,w}$。逆にこの等式を満たす $f'$ は全ての成分で $f'(x)=f(x)$ だから一意である。集合でのHom対象は自然な族の集合なので [重み付き極限の定義](#def-catb2-05-weighted-limit)を満たす。
 
-余極限候補を $Q$、同値類を $[j,v,a]$ と書く。脚 $\iota_{j,v}:Dj\to Q$ は $a\mapsto[j,v,a]$ と定める。生成関係から
+余極限候補を $Q$、同値類を $[j,v,a]$ と書く。[集合の余等化子の商構成](../../CAT/CAT2-05/index.md#thm-cat2-05-set-coequalizer)と同じく、生成関係を含む最小同値関係による商を使う。脚 $\iota_{j,v}:Dj\to Q$ は $a\mapsto[j,v,a]$ と定める。生成関係から
 
 $$
 \iota_{i,V(u^{\mathrm{op}})(v)}(a)
