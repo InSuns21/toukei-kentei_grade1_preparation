@@ -28,7 +28,10 @@ test('FCG4 animated convergence uses EXACT initial numerical Jacobi update',asyn
 test('WGL7 samples the same editable texture with moving UV and independent filters',async()=>{
   const js=await file('WGL/WGL7/sampling.js');
   const frag=await file('WGL/WGL7/sampling.frag');
-  assert.match(js,/gl\.uniform2f\(uvLocation,dx,dy\)/);
+  assert.match(js,/gl\.uniform2f\(offsetLoc,offset\[0\],offset\[1\]\+shift\)/);
+  assert.match(js,/gl\.uniform1f\(repeatsLoc,density\)/);
+  assert.match(js,/gl\.texParameteri\(gl\.TEXTURE_2D, gl\.TEXTURE_MIN_FILTER,filters\[filter\]\)/);
+  assert.match(js,/gl\.enableVertexAttribArray\(2\)/);
   assert.match(js,/leftMinFilter/);
   assert.match(js,/rightMinFilter/);
   assert.match(js,/gl\.LINEAR_MIPMAP_LINEAR/);
@@ -63,7 +66,12 @@ test('changed chapters explain animation versus the static oracle',async()=>{
   }
   const host=await readFile(new URL('./wgl-lab-host.mjs',import.meta.url),'utf8');
   const note=host.slice(host.indexOf("if (['FCG3'"),host.indexOf('mountVisualGuide('));
-  for(const id of ['FCG4','WGL7','WGL13'])
+  for(const id of ['FCG4','WGL13'])
     assert.ok(note.includes("'"+id+"'"),id+' must retain its static-oracle label');
+  const sceneInfo=await readFile(new URL('./wgl-lab-scene-info.mjs',import.meta.url),'utf8');
+  const wgl7=sceneInfo.slice(sceneInfo.indexOf('WGL7: Object.freeze'),sceneInfo.indexOf('WGL11: Object.freeze'));
+  assert.match(wgl7,/平面8画素の検算/);
+  assert.ok(host.indexOf('hooks.showObservation();')>host.indexOf('const samples = positions.map'),
+    'WGL7 displays the interactive floor only after the initial flat readback');
   assert.ok(host.includes("iframe.setAttribute('sandbox', 'allow-scripts')"));
 });

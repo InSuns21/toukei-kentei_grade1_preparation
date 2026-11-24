@@ -257,7 +257,7 @@ $\rho=\max(\rho_x,\rho_y)\ge\rho_x\ge2$。$\log_2$ は正数上で単調増加�
 
 <iframe src="simulation/wgl-lab.html?lesson=WGL7" title="WGL7 奥行きのある床でテクスチャフィルタを比較するWebGL2ラボ" loading="lazy" style="width:100%;height:980px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
 
-**観察1：遠くの床。** 左右の手前のタイルが同じ模様であることを確かめます。次に奥に注目し、「模様を移動」を押します。NEARESTでは偽の縞が動き、LINEARでは近傍4点を混ぜても遠方の細かな模様が残りやすくなります。ミップマップを使うと、遠方の平均色へ徐々に近づきます。左右のフィルタを同じ設定にすれば同じ描画になります。
+**観察1：遠くの床。** 左右の手前のタイルが同じ模様であることを確かめます。次に奥に注目し、「模様を移動」を押します。NEARESTでは偽の縞が動き、LINEARでは近傍4点を混ぜても遠方の細かな模様が残りやすくなります。ミップマップを使うと、遠方の平均色へ徐々に近づきます。左右のフィルタを同じ設定にすれば同じ描画になります。キャンバスにフォーカスした状態ではSpace/Enterでも移動を開始・停止できます。
 
 **観察2：拡大と境界。** 場面を「拡大・UV境界」へ切り替え、左をNEAREST、右をLINEARにします。テクセルの四角い境界と、その間の中間色を比較します。REPEAT、CLAMP_TO_EDGE、MIRRORED_REPEATを切り替えると、画像の端を越えた場所の色が変わります。
 
@@ -275,7 +275,7 @@ $\rho=\max(\rho_x,\rho_y)\ge\rho_x\ge2$。$\log_2$ は正数上で単調増加�
 
 sampling.js の textureKind を data に変えると4×4のRGBA8データ格子を同じ床と拡大場面で観察できます。sampling.frag の texture 関数を編集して、値が画面にどう現れるかも試してください。
 
-数値詳細では、観察画面を表示する前に同じテクスチャとシェーダで平面を描き、初期条件の8画素をCPU予測と比較します。平面検算は次の手計算に対応し、床の透視投影とは区別します。
+数値詳細のCPU/GPU検算では、観察画面を表示する前に同じテクスチャとシェーダで平面を描き、初期条件の8画素を比較します。平面検算は次の手計算に対応し、床の透視投影とは区別します。
 
 参考デモ：[WebGL2 Fundamentals — Textures](https://webgl2fundamentals.org/webgl/lessons/webgl-3d-textures.html)、[three.js — Texture Filtering](https://threejs.org/examples/webgl_materials_texture_filters.html)。
 
