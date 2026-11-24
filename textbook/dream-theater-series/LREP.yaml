@@ -67,7 +67,7 @@ chapters:
     title: "Spin群とガンマ行列"
   - id: LREP16
     path: textbook/volumes/dream_thater/代数系/LREP/LREP16
-    status: planned
+    status: completed
     title: "Diracスピノルとchirality"
   - id: LREP17
     path: textbook/volumes/dream_thater/代数系/LREP/LREP17
