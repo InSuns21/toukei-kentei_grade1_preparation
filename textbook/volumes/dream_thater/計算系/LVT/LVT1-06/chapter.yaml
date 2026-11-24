@@ -1,0 +1,27 @@
+id: "LVT1-06"
+title: "純粋な参照モデルと入出力境界"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT1-05]
+official_scope: []
+learning_objectives:
+  - 純粋関数による盤面更新と外部入出力を区別する
+  - 実行可能な参照モデルとして着手処理を定義する
+  - 成功・占有済み・復号失敗の各分岐を確認する
+  - 添字の誤変換と符号化の誤りを具体的入力で診断する
+definitions:
+  - { id: LVT1-06-DEF-01, name: "純粋関数" }
+  - { id: LVT1-06-DEF-02, name: "実行可能な参照モデル" }
+  - { id: LVT1-06-DEF-03, name: "入出力境界" }
+propositions:
+  - { id: LVT1-06-PROP-01, name: "着手の分岐と更新位置" }
+  - { id: LVT1-06-PROP-02, name: "復号失敗の伝播" }
+theorems: []
+canonical_examples:
+  - "空盤面と占有マスの更新"
+  - "0始まりの番号の復号と誤変換"
+problem_patterns: [LVT1-06-A01, LVT1-06-A02, LVT1-06-A03, LVT1-06-A04, LVT1-06-B01, LVT1-06-B02, LVT1-06-B03, LVT1-06-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2, review: 0.5 }
