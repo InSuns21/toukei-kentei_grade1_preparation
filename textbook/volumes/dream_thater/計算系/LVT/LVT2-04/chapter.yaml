@@ -1,0 +1,27 @@
+id: "LVT2-04"
+title: "タクティク・証明状態・局所補題"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT2-03]
+official_scope: []
+learning_objectives:
+  - 局所文脈と未解決ゴールを区別して証明状態を読む
+  - intro、apply、exact、constructor、cases の目標変化を証明項へ翻訳する
+  - have で局所補題を構成し分岐後の共通条件を再利用する
+  - 型不一致の原因を特定し修復する
+definitions:
+  - { id: LVT2-04-DEF-01, name: "Leanの証明状態" }
+  - { id: LVT2-04-DEF-02, name: "Leanの基本タクティク" }
+  - { id: LVT2-04-DEF-03, name: "Leanの局所補題" }
+propositions:
+  - { id: LVT2-04-PROP-01, name: "Leanの含意の合成のタクティク証明" }
+  - { id: LVT2-04-PROP-02, name: "Leanの選言による仕様の分岐" }
+theorems: []
+canonical_examples:
+  - "含意を逆向きに組み立てる証明"
+  - "二経路の共通条件を局所補題にする"
+problem_patterns: [LVT2-04-A01, LVT2-04-A02, LVT2-04-A03, LVT2-04-A04, LVT2-04-A05, LVT2-04-B01, LVT2-04-B02, LVT2-04-B03, LVT2-04-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2.5, review: 0.5 }

@@ -52,6 +52,12 @@ export const lessons = {
     ['Main.lean','正規化と仕様保存','等式と仕様保存の証明が通り、LVT2-03 OK を表示。','\n#eval main\n'],
     ['ExerciseSolutions.lean','演習解答の検査','全9題の証明を検査。'],
     ['Failure.lean','意図した等式エラー','根拠のない rfl と逆向きの証明が拒否される。']
+  ] },
+  'LVT2-04': { module:'LvtTactics', modes:[
+    ['Inspect.lean','証明状態を読む','intro、apply、exact、constructor、cases の各段階を確認。'],
+    ['Main.lean','局所補題による証明','LVT2-04 OK を表示。','\n#eval main\n'],
+    ['ExerciseSolutions.lean','演習解答の検査','全9題の証明を検査。'],
+    ['Failure.lean','意図した型エラー','連言をその片側として渡すと型不一致になる。']
   ] }
 };
 export function combine(module, definitions, experiment, suffix='') {
