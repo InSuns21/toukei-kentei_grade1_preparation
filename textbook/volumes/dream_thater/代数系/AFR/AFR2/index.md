@@ -16,7 +16,11 @@
 
 したがって高さと小さな線分の長さを同じ比率で変えれば、長さの比を保存できそうです。
 
-点 $(x,y)$ での速度 $(u,v)$ に対して、通常の内積を $y^2$ で割ったものを使います。内積によって各点での長さを定めることが計量の役割です。接ベクトルは座標基底 $e_x=(1,0),e_y=(0,1)$ で表した速度とします。線素 $ds^2$ は微小変位に対する計量の二次形式、面積要素 $d\mu$ は座標面積 $dx\,dy$ に計量による密度を掛けたものです。[Riemann 計量の定義](../../../幾何系/GEO/GEO12/index.md#def-geo12-riemannian-metric)をこの座標で具体化します。
+点 $(x,y)$ での速度 $(u,v)$ に対して、通常の内積を $y^2$ で割ったものを使います。内積によって各点での長さを定めることが計量の役割です。
+
+接ベクトルは座標基底 $e_x=(1,0),e_y=(0,1)$ で表した速度とします。
+
+線素 $ds^2$ は微小変位に対する計量の二次形式、面積要素 $d\mu$ は座標面積 $dx\,dy$ に計量による密度を掛けたものです。[Riemann 計量の定義](../../../幾何系/GEO/GEO12/index.md#def-geo12-riemannian-metric)をこの座標で具体化します。
 
 <a id="def-afr2-metric"></a>
 <!-- formal-statement-start -->
@@ -80,7 +84,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$w=g\cdot z=X+iY$ と置きます。$c\ne0$ なら分母の零点は実数 $-d/c$ です。$c=0$ なら $ad=1$ より $d\ne0$ です。従って上半平面では分母が非零です。[実特殊線形群の作用](../AFR1/index.md#def-afr1-real-group)の虚部公式と[複素微分の商の法則](../../../解析系/CA/CA1/index.md#thm-ca1-derivative-rules)から
+$w=g\cdot z=X+iY$ と置きます。$c\ne0$ なら分母の零点は実数 $-d/c$ です。$c=0$ なら $ad=1$ より $d\ne0$ です。従って上半平面では分母が非零です。
+
+[実特殊線形群の上半平面への作用](../AFR1/index.md#def-afr1-real-group)で導いた虚部の式を用います。分母は非零なので、商の微分には[複素微分の微分法則](../../../解析系/CA/CA1/index.md#thm-ca1-derivative-rules)を適用します。
 
 $$
 Y=\frac{y}{|cz+d|^2},\qquad
@@ -88,7 +94,11 @@ w'(z)=\frac{a(cz+d)-c(az+b)}{(cz+d)^2}
 =\frac1{(cz+d)^2}.
 $$
 
-ここで $Dg$ は行列 $g$ 自体ではなく、座標写像 $z\mapsto g\cdot z$ の実微分です。$w'$ は複素変数 $z$ での導関数です。速度 $U=(u_1,u_2)$ を複素数 $u_1+iu_2$ とみなすと、変換後の速度は $w'(z)(u_1+iu_2)$ です。実二次元で複素数倍は回転と正の伸縮の合成です。通常の実内積は複素表示で $\langle U,V\rangle=\operatorname{Re}(U\overline V)$ と書けるため、変換後は
+ここで $Dg$ は行列 $g$ 自体ではなく、座標写像 $z\mapsto g\cdot z$ の実微分です。$w'$ は複素変数 $z$ での導関数です。
+
+速度 $U=(u_1,u_2)$ を複素数 $u_1+iu_2$ とみなすと、変換後の速度は $w'(z)(u_1+iu_2)$ です。実二次元で複素数倍は回転と正の伸縮の合成です。
+
+通常の実内積は複素表示で $\langle U,V\rangle=\operatorname{Re}(U\overline V)$ と書けるため、変換後は
 
 $$
 \operatorname{Re}((w'U)\overline{w'V})
@@ -301,7 +311,16 @@ $$
 
 ## 4. 一つの周期を切り出す
 
-[整数モジュラー群](../../MF/MF1/index.md#def-mf1-modular-group)の行列 $T=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ は $z$ を $z+1$ に移します。従って [Maass形式の不変条件](#def-afr2-maass)から横方向に周期1を持ちます。ここで高さを固定すると通常の周期関数になり、[複素指数係数](../../../解析系/FOU/FOU1/index.md#def-fou1-complex-exponential-coefficient)を利用できます。整数 $n$ は横方向の周波数の添字です。係数 $a_n$ は横方向を積分した後に高さ $y$ だけの関数となるため、$a_n'=da_n/dy$、$a_n''=d^2a_n/dy^2$ と常微分で書きます。
+[整数モジュラー群](../../MF/MF1/index.md#def-mf1-modular-group)の行列 $T=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ は $z$ を $z+1$ に移します。従って [Maass形式の不変条件](#def-afr2-maass)から横方向に周期1を持ちます。
+
+ここで高さを固定すると通常の周期関数になり、[複素指数係数](../../../解析系/FOU/FOU1/index.md#def-fou1-complex-exponential-coefficient)を利用できます。
+
+整数 $n$ は横方向の周波数の添字です。係数 $a_n$ は横方向を積分した後に高さ $y$ だけの関数となるため、常微分の記法を使います。
+
+$$
+a_n'=\frac{da_n}{dy},\qquad
+a_n''=\frac{d^2a_n}{dy^2}.
+$$
 
 <a id="thm-afr2-fourier-equation"></a>
 <!-- formal-statement-start -->
@@ -363,7 +382,9 @@ $$
 
 $n=0$ でも左辺は $u_x(1+iy)-u_x(iy)=0$ なので同じ式です。固定高さで $n\ne0$ に対し $|a_n(y)|\le \max_{0\le x\le1}|u_{xx}(x+iy)|/(4\pi^2n^2)$ が従い、逆二乗和の収束によって級数は $x$ について絶対かつ一様に収束します。
 
-任意の $y_0>0$ を取ると $u_y,u_{yy}$ は $[0,1]\times[y_0/2,3y_0/2]$ で連続です。$y=y_0$ とし、$0<|h|<y_0/2$ での差商は、線分を $y+\theta h$（$0\le\theta\le1$）とパラメータ表示して微積分の基本定理を使うと
+任意の $y_0>0$ を取ると $u_y,u_{yy}$ は $[0,1]\times[y_0/2,3y_0/2]$ で連続です。$y=y_0$ とし、$0<|h|<y_0/2$ での差商を考えます。
+
+線分を $y+\theta h$（$0\le\theta\le1$）と表すと、合成関数 $u(x+i(y+\theta h))$ の $\theta$ 微分は $h u_y(x+i(y+\theta h))$ です。連続な導関数を持つので、実部と虚部にそれぞれ[微積分学の基本定理II](../../../基礎科目/RA/RA4/index.md#thm-ra4-ftc2)を適用して端点の差を求め、非零の $h$ で割ります。
 
 $$
 \frac{u(x+i(y+h))-u(x+iy)}h
@@ -469,7 +490,31 @@ $$
 \frac{d}{dt}\bigl(e^{(2s-1)t}w(t)\bigr)=0.
 $$
 
-指数因子は複素数の場合も零になりません。積が定数 $D\in\mathbb C$ なので、よって $v'=D e^{(1-2s)t}$ です。$s\ne1/2$ の場合、積分して $v=A+D e^{(1-2s)t}/(1-2s)$、従って $b=Ae^{st}+Be^{(1-s)t}$ です。$s=1/2$ の場合は $v'=D$ なので $b=e^{t/2}(A+Bt)$ です。すべての変数変換は $y>0$ と $t\in\mathbb R$ の間で可逆であり、逆に各式を代入すると元の方程式を満たすので一般解です。
+指数因子は複素数の場合も零になりません。積が定数 $D\in\mathbb C$ なので
+
+$$
+v'=D e^{(1-2s)t}.
+$$
+
+$s\ne1/2$ の場合、積分して
+
+$$
+v=A+\frac{D}{1-2s}e^{(1-2s)t}.
+$$
+
+従って $B=D/(1-2s)$ と置けば
+
+$$
+b=e^{st}v=Ae^{st}+Be^{(1-s)t}.
+$$
+
+$s=1/2$ の場合は $v'=D$ なので、積分して $v=A+Dt$ となります。$B=D$ と置けば
+
+$$
+b=e^{t/2}(A+Bt).
+$$
+
+すべての変数変換は $y>0$ と $t\in\mathbb R$ の間で可逆であり、逆に各式を代入すると元の方程式を満たすので一般解です。
 <!-- proof-end -->
 
 例えば $\lambda=0$ では $s=1$ と取って $a_0=Ay+B$、$\lambda=1/4$ では $a_0=\sqrt y(A+B\log y)$ です。$s=1/2+ir$（$r\in\mathbb R$）なら $\lambda=1/4+r^2$ になります。ただし、このパラメータ表示から任意の $r$ に保型的な解があるとは結論できません。
@@ -585,7 +630,7 @@ $u(X+iY)=Y^2$、$S\cdot z=-1/z$ とする。$v(z)=u(S\cdot z)$ の通常の二�
 - ID: AFR2-B1
 
 <!-- solution-start -->
-**詳細解答。** [反転の虚部公式](../../MF/MF1/index.md#thm-mf1-imaginary-action)より $Y=y/(x^2+y^2)$ なので $v=y^2/(x^2+y^2)^2$。$x$ 方向は
+**詳細解答。** [上半平面への群作用と虚部公式](../../MF/MF1/index.md#thm-mf1-imaginary-action)を反転に適用すると $Y=y/(x^2+y^2)$ なので $v=y^2/(x^2+y^2)^2$。$x$ 方向は
 
 $$
 v_x=-4xy^2(x^2+y^2)^{-3},
@@ -699,7 +744,19 @@ $$
 - ID: AFR2-C1
 
 <!-- solution-start -->
-**詳細解答。** (i) $Q=(mx+n)^2+m^2y^2$ と置きます。コンパクト集合 $K\subset\mathbb H$ では $|x|\le R$、$0<\delta\le y\le R$ とできます。$m^2\le Q/\delta^2$、また $n=(mx+n)-mx$ より $n^2\le2Q+2R^2Q/\delta^2$ です。従って $Q\ge c_K(m^2+n^2)$ となる正の定数 $c_K$ が存在します。
+**詳細解答。** (i) $Q=(mx+n)^2+m^2y^2$ と置きます。
+
+コンパクト集合 $K\subset\mathbb H$ では $|x|\le R$、$0<\delta\le y\le R$ とできます。まず $Q\ge m^2y^2\ge m^2\delta^2$ です。また $n=(mx+n)-mx$ と平方の不等式から
+
+$$
+\begin{aligned}
+m^2&\le Q/\delta^2,\\
+n^2&\le 2(mx+n)^2+2m^2x^2\\
+&\le 2Q+2R^2Q/\delta^2.
+\end{aligned}
+$$
+
+従って $Q\ge c_K(m^2+n^2)$ となる正の定数 $c_K$ が存在します。
 
 ここで偏微分するのは $x,y$ で、整数 $m,n$ は固定します。
 
@@ -745,7 +802,7 @@ $(m,n)\mapsto(m,n)g$ は整数係数の逆行列を持つので非零整数対�
 
 例えば $\alpha=n/(m^2+n^2)$、$\beta=-m/(m^2+n^2)$ です。
 
-$h=\begin{pmatrix}\alpha&\beta\\m&n\end{pmatrix}\in G$ であり、整数行列である必要はありません。[実特殊線形群の作用](../AFR1/index.md#def-afr1-real-group)の虚部公式により
+$h=\begin{pmatrix}\alpha&\beta\\m&n\end{pmatrix}\in G$ であり、整数行列である必要はありません。[実特殊線形群の上半平面への作用](../AFR1/index.md#def-afr1-real-group)で導いた虚部の式に $h$ の成分を代入します。
 
 $$
 (\operatorname{Im}(h\cdot z))^2=\frac{y^2}{|mz+n|^4}.
