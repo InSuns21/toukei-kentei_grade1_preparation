@@ -1,0 +1,61 @@
+chapter: CATB1-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CATB1-01
+
+concepts:
+  - id: category.regular-category
+    name: 正則圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則圏）"]
+    requires: [category.kernel-pair, category.regular-epi, category.complete-category]
+  - id: category.regular-factorization-base-change
+    name: 正則圏の像分解とその引き戻し安定性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則圏の像分解とその引き戻し安定性）"]
+    requires: [category.regular-category, category.kernel-pair-image-factorization, category.regular-epi-mono-image]
+  - id: category.internal-equivalence-relation
+    name: 内部同値関係
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（内部同値関係）"]
+    requires: [category.monomorphism, category.pullback]
+  - id: category.kernel-pair-internal-equivalence
+    name: 核対は内部同値関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（核対は内部同値関係）"]
+    requires: [category.kernel-pair, category.internal-equivalence-relation]
+  - id: category.effective-equivalence-relation
+    name: 有効同値関係
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有効同値関係）"]
+    requires: [category.internal-equivalence-relation, category.kernel-pair]
+  - id: category.effective-equivalence-quotient
+    name: 有効性と商の核対
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有効性と商の核対）"]
+    requires: [category.effective-equivalence-relation, category.regular-factorization-base-change, category.kernel-pair-coequalizer]
+  - id: category.barr-exact-category
+    name: Barr-正確圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Barr-正確圏）"]
+    requires: [category.regular-category, category.effective-equivalence-relation]
+  - id: category.marked-set-regularity
+    name: 指定部分集合を持つ集合の圏の正則性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（指定部分集合を持つ集合の圏の正則性）"]
+    requires: [category.regular-category, category.kernel-pair-coequalizer]
+  - id: category.regular-not-exact
+    name: 正則性は Barr-正確性を含意しない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則性は Barr-正確性を含意しない）"]
+    requires: [category.marked-set-regularity, category.barr-exact-category]
