@@ -4,11 +4,13 @@
 
 [前講の左右Weylスピノル](../LREP12/index.md#def-lrep12-weyl)では、二成分列から四元ベクトルを作りました。今回は複数の列を組み合わせて、観測者を変えても値の変わらない数や、四元ベクトル・二階テンソルとして変わる量を作ります。さらに空間の向きを反転したときに左右の表現がどうなるかを調べます。
 
-$G=SL(2,\mathbb C)$、$\eta=\operatorname{diag}(-1,1,1,1)$ とし、能動変換を使います。左列 $u,v\in L=\mathbb C^2$ は $S$、右列 $r,s\in R=\mathbb C^2$ は $Q(S)=(S^\dagger)^{-1}$ で変換します。成分は通常の可換な複素数です。
+[四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action)の群 $G=SL(2,\mathbb C)$（行列式1の複素二次正方行列の群）を使います。能動変換、すなわち座標系を固定してベクトルを動かす規約です。[Minkowski計量](../../../物理系/SREL/SREL2/index.md#def-srel2-minkowski-metric)の標準座標での行列を $\eta=\operatorname{diag}(-1,1,1,1)$ とし、二引数の値を $\eta(x,y)=x^{\mathsf T}\eta y$ と書きます。
+
+[左右Weylスピノル](../LREP12/index.md#def-lrep12-weyl)の標準基底で、左列 $u,v\in L=\mathbb C^2$ は $S\in G$、右列 $r,s\in R=\mathbb C^2$ は $Q(S)=(S^\dagger)^{-1}$ で変換します。$L,R$ は別々の空間ですが、どちらも同じ形の成分列で表示します。$\mathsf T$ は転置、$\dagger$ は共役転置、上線は成分ごとの複素共役です。プライムは変換後の量を表し、微分ではありません。成分は通常の可換な複素数です。
 
 ## 1. どの二成分の積が不変か
 
-回転だけなら $u^\dagger v$ は保存されますが、boost $S=\operatorname{diag}(2,1/2)$ に対して $u=v=(1,0)^{\mathsf T}$ とすると、$u^\dagger v=1$ が $4$ に変わります。そこで内積の代わりに二本の列が作る符号付き面積に相当する量を使います。
+回転では $S^\dagger S=I_2$ なので $u^\dagger v$ は保存されますが、[正の $z$ 方向のboost](../LREP10/index.md#def-lrep10-sl2c-action)に対応する $S=\operatorname{diag}(2,1/2)$ に対して $u=v=(1,0)^{\mathsf T}$ とすると、$u^\dagger v=1$ が $4$ に変わります。そこで内積の代わりに二本の列が作る符号付き面積に相当する量を使います。
 
 [LREP4の二次元交代形式と行列式](../LREP4/index.md#prop-lrep4-epsilon)で得た行列を
 
@@ -16,7 +18,14 @@ $$
 J=\begin{pmatrix}0&1\\-1&0\end{pmatrix}
 $$
 
-とします。$B(u,v)=u^{\mathsf T}Jv=u^1v^2-u^2v^1$ は両引数で複素線形で、$B(u,u)=0$ です。こうした双線形形式を交代形式といいます。成分積を足して添字を消し、数を得る操作を収縮と呼びます。表現を変換しても収縮値が変わらなければ不変収縮です。
+とします。標準基底 $e_1,e_2$ で $u=u^1e_1+u^2e_2$ と書き、上付きの $1,2$ は成分番号（べき乗ではない）とします。[双線形形式の行列表示](../../../基礎科目/LA/LA3E/index.md#prop-la3e-bilinear-nondegenerate-matrix)では $J_{ab}=B(e_a,e_b)$ を並べれば、双線形性により
+
+$$
+B(u,v)=\sum_{a,b=1}^2 u^aJ_{ab}v^b
+=u^{\mathsf T}Jv=u^1v^2-u^2v^1
+$$
+
+となります。[双線形形式](../../../基礎科目/LA/LA3E/index.md#def-la3e-bilinear-form)は両引数で複素線形であり、さらにすべての $u$ で $B(u,u)=0$ となるものを交代形式と呼びます。成分積を足して添字を消し、数を得る操作を収縮と呼びます。[不変双線形形式](../LREP4/index.md#def-lrep4-invariant-bilinear)の条件は、任意の群元と任意の二入力を同時に変換しても値が変わらないことです。これを左右それぞれの列に適用します。
 
 <a id="def-lrep13-contraction"></a>
 
@@ -29,13 +38,31 @@ B_L(u,v)=u^{\mathsf T}Jv,\qquad
 B_R(r,s)=r^{\mathsf T}Js
 $$
 
-> をWeyl不変収縮と呼ぶ。左列には $S$、右列には $Q(S)=(S^\dagger)^{-1}$ が作用する。不変性とは両引数を同時に変換しても値が変わらないことである。
+> をWeyl不変収縮と呼ぶ。左列には $S$、右列には $Q(S)=(S^\dagger)^{-1}$ が作用する。不変性とは任意の $S\in G$、$u,v\in L$、$r,s\in R$ に対し
+
+$$
+B_L(Su,Sv)=B_L(u,v),\qquad
+B_R(Q(S)r,Q(S)s)=B_R(r,s)
+$$
+
+> が成立することである。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep13-contraction -->
-**定義の確認**。 $u=(1,2)^{\mathsf T}$、$v=(3,i)^{\mathsf T}$ なら $Jv=(i,-3)^{\mathsf T}$ なので $B_L(u,v)=i-6$。逆順では $B_L(v,u)=6-i$、同じ列なら $B_L(u,u)=2-2=0$ です。行列積は各引数について線形なので双線形です。
+**定義の確認**。 $u=(1,2)^{\mathsf T}$、$v=(3,i)^{\mathsf T}$ なら $Jv=(i,-3)^{\mathsf T}$ なので $B_L(u,v)=i-6$。逆順では $B_L(v,u)=6-i$、同じ列なら $B_L(u,u)=2-2=0$ です。双線形性は一組の値だけでなく、任意の複素数 $\lambda,\kappa$ と列 $w$ に対して
 
-boost $D=\operatorname{diag}(2,1/2)$ では $Du=(2,1)^{\mathsf T}$、$Dv=(6,i/2)^{\mathsf T}$ となり、収縮は $2(i/2)-6=i-6$ です。同じ入力を右列とすると $Q(D)u=(1/2,4)^{\mathsf T}$、$Q(D)v=(3/2,2i)^{\mathsf T}$ なので $(1/2)(2i)-4(3/2)=i-6$。左右とも値を保存します。一般の群元については次の命題で確認します。
+$$
+\begin{aligned}
+B_L(\lambda u+\kappa w,v)
+&=\lambda B_L(u,v)+\kappa B_L(w,v),\\
+B_L(u,\lambda v+\kappa w)
+&=\lambda B_L(u,v)+\kappa B_L(u,w)
+\end{aligned}
+$$
+
+が行列積の分配法則から成立することで確認できます。右側も同じ成分式です。任意の列 $w$ について $w^1w^2-w^2w^1=0$ なので交代性も成立します。
+
+boost $D=\operatorname{diag}(2,1/2)$ では $Du=(2,1)^{\mathsf T}$、$Dv=(6,i/2)^{\mathsf T}$ となり、収縮は $2(i/2)-6=i-6$ です。同じ入力を右列とすると $Q(D)u=(1/2,4)^{\mathsf T}$、$Q(D)v=(3/2,2i)^{\mathsf T}$ なので $(1/2)(2i)-4(3/2)=i-6$。左右とも値を保存します。さらに [二次元交代形式と行列式](../LREP4/index.md#prop-lrep4-epsilon)より $A^{\mathsf T}JA=(\det A)J$ であり、任意の $S\in G$ に対して $\det S=\det Q(S)=1$ なので両作用とも $J$ を保存します。これが任意の二入力に対する不変性の判定根拠です。次の命題で一意性も含めて確認します。
 <!-- definition-example-end -->
 
 <a id="prop-lrep13-scalar"></a>
@@ -59,7 +86,14 @@ B_R(Qr,Qs)&=r^{\mathsf T}Q^{\mathsf T}JQs=r^{\mathsf T}Js.
 \end{aligned}
 $$
 
-任意の複素双線形形式は標準基底での値を成分とする行列 $M$ によって $u^{\mathsf T}Mv$ と書けます。不変性はすべての $u,v$ に対する等式なので、基底列をそれぞれ代入すれば $S^{\mathsf T}MS=M$ と同値です。
+[双線形形式の行列表示](../../../基礎科目/LA/LA3E/index.md#prop-la3e-bilinear-nondegenerate-matrix)により、任意の複素双線形形式 $B$ は標準基底での値 $M_{ab}=B(e_a,e_b)$ を成分とする二次正方行列 $M$ を使って $u^{\mathsf T}Mv$ と書けます。不変性は
+
+$$
+u^{\mathsf T}(S^{\mathsf T}MS-M)v=0
+\qquad(u,v\in\mathbb C^2)
+$$
+
+です。$u=e_a,v=e_b$ を代入すると括弧内の $(a,b)$ 成分が零となります。逆に $S^{\mathsf T}MS=M$ なら任意の二入力で上式が成立するので、この行列条件と同値です。
 
 $M=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ とし、$D=\operatorname{diag}(2,1/2)$ を代入すると
 
@@ -73,7 +107,14 @@ $$
 N^{\mathsf T}MN=\begin{pmatrix}0&b\\c&b+c\end{pmatrix}=M
 $$
 
-だから $c=-b$、従って $M=bJ$ です。右作用についても $Q(Q(S))=S$ だから $Q(S)$ は $G$ の全体を走り、同じ二行列による条件が成立します。
+だから $c=-b$、従って $M=bJ$ です。右作用については
+
+$$
+Q(S)^\dagger=S^{-1},\qquad
+Q(Q(S))=(S^{-1})^{-1}=S
+$$
+
+なので $Q$ は $G$ から $G$ への全単射です。従って右の不変性にも $Q(S)=D,N$ の場合を代入でき、同じ結論を得ます。
 
 最後に $Q(S)^\dagger=S^{-1}$ ですから
 
@@ -88,7 +129,15 @@ $$
 
 ## 2. 四元ベクトルを収縮する
 
-数を作るだけでなく、成分を残して変換則を持つ量も作れます。[二添字Weyl表示と四元ベクトル](../LREP12/index.md#prop-lrep12-bispinor-vector)では $X=uz^{\mathsf T}$ に対する作用が $X'=SXS^\dagger$ でした。ここでは $z=\overline v$ として $X=uv^\dagger$ と書きます。これは一般には複素四元ベクトルで、$X^\dagger=X$ のとき実四元ベクトルになります。
+数を作るだけでなく、成分を残して変換則を持つ量も作れます。[二添字Weyl表示と四元ベクトル](../LREP12/index.md#prop-lrep12-bispinor-vector)では $X=uz^{\mathsf T}$ に対する作用が $X'=SXS^\dagger$ でした。ここでは $z=\overline v$ として $X=uv^\dagger$ と書きます。ここで $v$ は左列であり、$z$ は右列そのものではなく共役空間の列です。実際、変換後は $(Su)(Sv)^\dagger=Suv^\dagger S^\dagger$ です。
+
+[エルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model)の基底 $I_2,\sigma_1,\sigma_2,\sigma_3$（$\sigma_i$ は [Pauli行列](../LREP5/index.md#def-lrep5-pauli-model)）を使うと、一般の行列を
+
+$$
+X=\begin{pmatrix}x^0+x^3&x^1-ix^2\\x^1+ix^2&x^0-x^3\end{pmatrix}
+$$
+
+と一意に表せます。添字 $0$ は時間成分、$1,2,3$ は空間成分です。一般には複素四元ベクトルで、$X^\dagger=X$ のとき、対角成分が実数かつ非対角成分が互いに共役なので四つの係数が実数になります。
 
 二本のベクトルのMinkowski内積も、交代行列を使って求められます。二次正方行列の余因子を転置した行列（余因子行列の転置）を $\operatorname{adj}X$ と書きます。$X=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ なら
 
@@ -97,7 +146,7 @@ $$
 =JX^{\mathsf T}J^{\mathsf T}.
 $$
 
-この式は $X$ が特異なときにも成立します。
+この式は $X$ が特異なときにも成立します。$\operatorname{tr}$ は行列の対角成分の和（跡）です。
 
 <a id="prop-lrep13-vector-pairing"></a>
 
@@ -142,7 +191,13 @@ $$
 
 ## 3. 二階テンソルを作る
 
-四元ベクトル二本を組み合わせ、時空添字を二つ残した量を考えます。ここで二階反変テンソルとは成分 $T^{\mu\nu}$ がLorentz変換 $\Lambda$ のもとで次の規則に従う量です。
+四元ベクトル二本を組み合わせ、時空添字を二つ残した量を考えます。[四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action)で $\Phi(S)$ と書いたLorentz変換を、本講では行列 $\Lambda(S)$（群元を固定した場合は $\Lambda$）と書きます。$\Lambda^\mu{}_\alpha$ は行 $\mu$、列 $\alpha$ の成分であり、四元ベクトルは
+
+$$
+(x')^\mu=\sum_{\alpha=0}^3\Lambda^\mu{}_\alpha x^\alpha
+$$
+
+と変わります。ここで時空添字 $\mu,\nu,\alpha,\beta$ はすべて $0,1,2,3$ を走ります。[テンソル積表現](../LREP4/index.md#def-lrep4-tensor-product)を四元ベクトル空間二つに適用し、二階反変テンソルを成分 $T^{\mu\nu}$ が次の規則に従う量として扱います。
 
 $$
 (T')^{\mu\nu}
@@ -170,7 +225,14 @@ F^{\mu\nu}F_{\mu\nu}
 =-2\eta(x,y)^2
 $$
 
-> となる。ただし時空添字の下げ方は $F_{\mu\nu}=\sum_{\alpha,\beta}\eta_{\mu\alpha}\eta_{\nu\beta}F^{\alpha\beta}$ とし、反復添字は和を取る。
+> となる。ただし時空添字の下げ方は
+
+$$
+F_{\mu\nu}=\sum_{\alpha,\beta=0}^3
+\eta_{\mu\alpha}\eta_{\nu\beta}F^{\alpha\beta}
+$$
+
+> とする。完全収縮の左辺は $\sum_{\mu,\nu=0}^3 F^{\mu\nu}F_{\mu\nu}$ の略記である。以降、和記号を省いた式では上下に一度ずつ現れる反復時空添字について $0$ から $3$ まで和を取る。
 <!-- formal-statement-end -->
 
 **証明の見取り図。** 各列から作るベクトルのLorentz共変性を使い、最後に光的条件で項を消します。
@@ -186,7 +248,19 @@ $$
 \Lambda^\nu{}_\beta x^\alpha y^\beta.
 $$
 
-交換項にも同じ式を適用し、和の添字 $\alpha,\beta$ を交換すると $F'$ も所定の変換則に従います。
+交換項にも同じ式を適用すると
+
+$$
+\begin{aligned}
+(x')^\nu(y')^\mu
+&=\sum_{\alpha,\beta}\Lambda^\nu{}_\alpha
+\Lambda^\mu{}_\beta x^\alpha y^\beta\\
+&=\sum_{\alpha,\beta}\Lambda^\mu{}_\alpha
+\Lambda^\nu{}_\beta x^\beta y^\alpha .
+\end{aligned}
+$$
+
+二行目では和の添字 $\alpha,\beta$ を交換しました。二つの式の差が $F'$ の変換則になります。
 
 下添字を $x_\mu=\sum_\alpha\eta_{\mu\alpha}x^\alpha$ と書くと $F_{\mu\nu}=x_\mu y_\nu-x_\nu y_\mu$。四項を掛け合わせれば
 
@@ -201,7 +275,7 @@ F^{\mu\nu}F_{\mu\nu}
 \end{aligned}
 $$
 
-$uu^\dagger$ と $vv^\dagger$ は階数が高々1なので行列式が0です。[行列式とMinkowski二乗](../LREP10/index.md#thm-lrep10-determinant-cone)から $\eta(x,x)=\eta(y,y)=0$（零ベクトルも含む）。よって所定の式を得ます。$\square$
+任意の列 $w$ に対して $(uu^\dagger)w=u(u^\dagger w)$ なので像は $u$ の張る空間に含まれます。$vv^\dagger$ も同様に像が $v$ の張る空間に含まれます。従ってどちらも二次正方行列で階数が高々1、行列式は0です。[行列式とMinkowski二乗](../LREP10/index.md#thm-lrep10-determinant-cone)から $\eta(x,x)=\eta(y,y)=0$（零ベクトルも含む）。よって所定の式を得ます。$\square$
 <!-- proof-end -->
 
 $u=(\sqrt2,0)^{\mathsf T}$、$v=(0,\sqrt2)^{\mathsf T}$ なら $x=(1,0,0,1)$、$y=(1,0,0,-1)$ です。$F^{03}=-2,F^{30}=2$ が唯一の非零成分であり、添字を下げると $F_{03}=2,F_{30}=-2$ です。完全収縮は $-4-4=-8$。$\eta(x,y)=-2$ を代入した式と一致します。
@@ -228,10 +302,28 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep13-parity -->
-**定義の確認**。 $x=(2,1,-3,4)$ は $(2,-1,3,-4)$ に移ります。$P^2=I$ で元へ戻ります。$P^{\mathsf T}\eta P=\operatorname{diag}(-1,1,1,1)=\eta$ なので計量を保ちますが $\det P=-1$ なので固有Lorentz群には属しません。時間座標は変わりません。
+**定義の確認**。 $x=(2,1,-3,4)$ は $(2,-1,3,-4)$ に移ります。標準座標の基底 $e_0,e_1,e_2,e_3$ に対し $Pe_0=e_0$、$Pe_i=-e_i$（$i=1,2,3$）なので、線形写像の表示行列の各列は定義どおりです。対角成分を二乗すると $P^2=I_4$ となり、二回の反転で元へ戻ります。
+
+[Lorentz群と単位元成分](../LREP9/index.md#def-lrep9-lorentz-group)の計量保存条件をこの表示行列で判定すると、
+
+$$
+P^{\mathsf T}\eta P
+=\operatorname{diag}(-1,(-1)^2,(-1)^2,(-1)^2)
+=\eta.
+$$
+
+従って任意の二入力の計量を保存します。一方 $\det P=1\cdot(-1)^3=-1$ なので行列式1の固有Lorentz群には属しません。時間座標は変わりません。
 <!-- definition-example-end -->
 
-[エルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model)で $P$ の行列作用は $\mathcal P(X)=\operatorname{adj}X$ です。実際、$X$ の対角を交換し非対角の符号を反転すると $x^0I-\sum_i x^i\sigma_i$ が得られます。
+[エルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model)で $P$ に対応する行列作用を $\mathcal P$ と書きます。$X$ の対角を交換し非対角の符号を反転すると、
+
+$$
+\mathcal P(X)=
+\begin{pmatrix}x^0-x^3&-x^1+ix^2\\-x^1-ix^2&x^0+x^3\end{pmatrix}
+=\operatorname{adj}X=x^0I-\sum_i x^i\sigma_i
+$$
+
+となり、空間成分だけ反転しています。左右を交換する場合は [表現の直和](../LREP4/index.md#def-lrep4-direct-sum)を使い、標準成分を保ったまま左の列を右の空間へ、右の列を左の空間へ移します。
 
 <a id="prop-lrep13-parity-exchange"></a>
 
@@ -258,7 +350,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-二次正方行列では $\operatorname{adj}(AB)=\operatorname{adj}(B)\operatorname{adj}(A)$。実際、前節で成分ごとに確かめた表示を代入すると
+二次正方行列では $\operatorname{adj}(AB)=\operatorname{adj}(B)\operatorname{adj}(A)$。実際、第2節で成分ごとに確かめた表示を代入すると
 
 $$
 \begin{aligned}
@@ -340,7 +432,7 @@ $$
 $X=\operatorname{diag}(3,1)$、$Y=\begin{pmatrix}2&1\\1&4\end{pmatrix}$ の実四元ベクトル間のMinkowski内積を行列式の差と成分の両方から求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $\det X=3,\det Y=7,\det(X+Y)=25-1=24$。 [四元ベクトルの行列収縮](#prop-lrep13-vector-pairing)の証明の差を使えば $-(24-3-7)/2=-7$ です。[二添字Weyl表示と四元ベクトル](../LREP12/index.md#prop-lrep12-bispinor-vector)で与えられた逆算を使うと $x=(2,0,0,1),y=(3,1,0,-1)$ なので $-6-1=-7$ です。
+**詳細解答。** $X+Y=\begin{pmatrix}5&1\\1&5\end{pmatrix}$ なので、行列式は $\det X=3$、$\det Y=2\cdot4-1=7$、$\det(X+Y)=25-1=24$ です。 [四元ベクトルの行列収縮](#prop-lrep13-vector-pairing)の証明の差を使えば $-(24-3-7)/2=-7$ です。[二添字Weyl表示と四元ベクトル](../LREP12/index.md#prop-lrep12-bispinor-vector)で与えられた逆算を使うと $x=(2,0,0,1),y=(3,1,0,-1)$ なので $-6-1=-7$ です。
 <!-- solution-end -->
 
 <a id="ex-lrep13-a04"></a>
@@ -352,7 +444,7 @@ $X=\operatorname{diag}(3,1)$、$Y=\begin{pmatrix}2&1\\1&4\end{pmatrix}$ の実�
 $X=\begin{pmatrix}4&1+i\\1-i&2\end{pmatrix}$ の空間反転後の行列と四元成分を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [二添字Weyl表示](../LREP12/index.md#prop-lrep12-bispinor-vector)より $x=(3,1,-1,1)$。[空間反転](#def-lrep13-parity)により $Px=(3,-1,1,-1)$ です。行列へ戻せば
+**詳細解答。** [二添字Weyl表示](../LREP12/index.md#prop-lrep12-bispinor-vector)の逆公式より $x^0=(4+2)/2=3$、$x^3=(4-2)/2=1$、$x^1=1$、$x^2=((1-i)-(1+i))/(2i)=-1$。従って $x=(3,1,-1,1)$。[空間反転](#def-lrep13-parity)により $Px=(3,-1,1,-1)$ です。行列へ戻せば
 
 $$
 \mathcal P(X)=\begin{pmatrix}2&-1-i\\-1+i&4\end{pmatrix}
@@ -452,7 +544,7 @@ $$
 C_\pm'=B_L(r,s)\pm B_R(u,v).
 $$
 
-ここで両側の成分公式は同じ $J$ なので $C_+'=C_+$、$C_-'=-C_-$ となります。空間反転を含めると、和は不変、差は符号を変えます。この性質は選んだ直和上の反転作用に対するものです。
+ここで $B_L(r,s)$ は右列の成分を左空間の標準基底で読み直した値、$B_R(u,v)$ はその逆の読み直しです。両側の成分公式は同じ $J$ なので $C_+'=C_+$、$C_-'=-C_-$ となります。空間反転を含めると、和は不変、差は符号を変えます。この性質は選んだ直和上の反転作用に対するものです。
 <!-- solution-end -->
 
 ### Level C
@@ -473,7 +565,7 @@ X=\begin{pmatrix}2&0\\0&0\end{pmatrix},
 \quad Y=\begin{pmatrix}1&1\\1&1\end{pmatrix}
 $$
 
-だから $x=(1,0,0,1),y=(1,1,0,0)$。内積は $-1$。反対称性から $\mu<\nu$ の成分のみ計算すると $F^{01}=1,F^{03}=-1,F^{13}=-1$、残りは0です。完全収縮では各独立成分が二回現れ、時刻添字を含む項は負になるため
+だから $x=(1,0,0,1),y=(1,1,0,0)$。内積は $-1$。反対称性から $\mu<\nu$ の成分のみ計算すると $F^{01}=1,F^{03}=-1,F^{13}=-1$、残りは0です。添字を下げる際に $\eta$ の対角成分を各添字に掛けるので、$F_{01}=-F^{01}$、$F_{03}=-F^{03}$、$F_{13}=F^{13}$ です。完全収縮では反対称な二成分の積が等しく、各独立成分が二回現れるため
 
 $$
 F^{\mu\nu}F_{\mu\nu}=2(-1-1+1)=-2.
@@ -486,7 +578,7 @@ X'=\begin{pmatrix}8&0\\0&0\end{pmatrix},
 \quad Y'=\begin{pmatrix}4&1\\1&1/4\end{pmatrix}.
 $$
 
-逆公式により $x'=(4,0,0,4),y'=(17/8,1,0,15/8)$。内積は $-68/8+60/8=-1$ です。独立非零成分は
+[四元成分の逆公式](../LREP12/index.md#prop-lrep12-bispinor-vector)により $x'=(4,0,0,4)$。$Y'$ の対角成分の半和は $(4+1/4)/2=17/8$、半差は $(4-1/4)/2=15/8$ で、非対角成分はともに1なので $y'=(17/8,1,0,15/8)$。内積は $-68/8+60/8=-1$ です。独立非零成分は
 
 $$
 \begin{aligned}
