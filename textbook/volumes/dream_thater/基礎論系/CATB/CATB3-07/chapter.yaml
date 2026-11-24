@@ -18,8 +18,8 @@ theorems:
   - { id: CATB3-07-THM-02, name: "スケッチのモデルの点ごとの極限" }
   - { id: CATB3-07-THM-03, name: "スケッチのモデルの点ごとのフィルター余極限" }
 canonical_examples: [引き戻しスケッチ, Lawvere理論のスケッチ表示, 等化子の指定]
-problem_patterns: [CATB3-07-A01, CATB3-07-A02, CATB3-07-A03, CATB3-07-A04, CATB3-07-B01, CATB3-07-B02, CATB3-07-B03, CATB3-07-C01]
+problem_patterns: [CATB3-07-A01, CATB3-07-A02, CATB3-07-A03, CATB3-07-A04, CATB3-07-B01, CATB3-07-B02, CATB3-07-B03, CATB3-07-B04, CATB3-07-B05, CATB3-07-C01]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 5, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 6, exercises: 4, review: 2 }
