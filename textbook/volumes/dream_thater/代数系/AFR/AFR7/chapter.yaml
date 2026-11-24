@@ -1,0 +1,27 @@
+id: "AFR7"
+title: "保型L関数・Rankin型積分の初例"
+volume: "foundations"
+status: supplementary
+prerequisites: [AFR6]
+official_scope: []
+learning_objectives:
+  - 保型性と高さの選択を用いてMaassカスプ形式の係数を評価できる
+  - 絶対収束域を確かめてDirichlet級数とEuler積を結び付けられる
+  - Mellin積分の尺度変換とGamma積分による核の計算を再現できる
+  - Rankin型積分を帯に展開して二乗係数級数と平均的評価を導ける
+definitions:
+  - { id: AFR7-DEF-01, name: "Maass形式の保型L関数" }
+theorems:
+  - { id: AFR7-THM-01, name: "Maassカスプ形式の係数の多項式評価" }
+  - { id: AFR7-THM-02, name: "Maass保型L関数のEuler積" }
+  - { id: AFR7-THM-03, name: "Maass保型L関数のMellin表示" }
+  - { id: AFR7-THM-04, name: "Maass形式のRankin型積分" }
+canonical_examples:
+  - Hecke係数の局所級数
+  - Bessel核のMellin積分
+  - Rankin型積分による係数の二乗平均
+problem_patterns: [AFR7-A1, AFR7-A2, AFR7-A3, AFR7-A4, AFR7-B1, AFR7-B2, AFR7-B3, AFR7-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 5, review: 3 }
