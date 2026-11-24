@@ -10,7 +10,8 @@ learning_objectives:
   - 空間反転と時間反転のヘリシティの変化を区別できる
   - 場の電荷共役と粒子空間上の電荷交換を区別しCPTとスピン統計定理の追加仮定を説明できる
   - Weyl収縮、Wigner回転、Diracスピン和、光子偏極を相互に接続できる
-definitions: []
+definitions:
+  - { id: LREP28-DEF-01, name: 反ユニタリ作用素 }
 theorems:
   - { id: LREP28-PROP-01, name: Dirac空間での空間反転 }
   - { id: LREP28-PROP-02, name: 正エネルギーの時間反転条件 }
