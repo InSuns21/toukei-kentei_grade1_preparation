@@ -1,0 +1,44 @@
+chapter: GCT6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GCT5
+  - GCT1
+forward_references: []
+concepts:
+  - id: graph-counting.tree-decomposition
+    name: 木分解
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（木分解）"]
+    requires: [graph-counting.finite-simple-graph, graph-counting.tree-forest, graph-counting.unique-path]
+  - id: graph-counting.treewidth
+    name: 木幅
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（木幅）"]
+    requires: [graph-counting.tree-decomposition]
+  - id: graph-counting.width-one-forest
+    name: 木幅1以下と森
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（木幅1以下と森）"]
+    requires: [graph-counting.treewidth, graph-counting.rooted-tree]
+  - id: graph-counting.bag-separation
+    name: バッグ間の分離
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（バッグ間の分離）"]
+    requires: [graph-counting.tree-decomposition, graph-counting.unique-path]
+  - id: graph-counting.boundary-state
+    name: 境界状態表
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（境界状態表）"]
+    requires: [graph-counting.tree-decomposition, graph-counting.rooted-tree, graph-counting.independent-set]
+  - id: graph-counting.boundary-dp
+    name: 木分解上の境界状態漸化式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（木分解上の境界状態漸化式）"]
+    requires: [graph-counting.boundary-state, graph-counting.bag-separation, graph-counting.child-separation]
