@@ -330,7 +330,7 @@ p : Prop、d : Decidable p、hn : ¬ p とする。decisionBool p d = false を�
 <!-- solution-start -->
 #### 詳細解答
 
-[Leanの決定可能性](#def-lvt2-01-decidable)の d が isFalse の場合、decisionBool の定義から目標は `false = false` であり、rfl で証明できる。d が isTrue hp なら `hp : p` なので `hn hp : False` を得る。目標は `true = false` に簡約されており、False.elim によりこの目標の等式を導く。
+[Leanの決定可能性](#def-lvt2-01-decidable)の d が isFalse の場合、decisionBool の match は `.isFalse _ => false` の枝を選ぶ。したがって目標は `false = false` に簡約され、rfl で証明できる。d が isTrue hp なら `hp : p` なので `hn hp : False` を得る。目標は `true = false` に簡約されており、False.elim によりこの目標の等式を導く。
 
 ```lean
 example (p : Prop) (d : Decidable p)
