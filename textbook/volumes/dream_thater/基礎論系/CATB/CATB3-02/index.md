@@ -58,9 +58,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb3-02-finitely-presentable -->
-**定義の確認**。[集合の圏は小さい余極限を持つ](../../CAT/CAT2-05/index.md#thm-cat2-05-cocompleteness)ので、定義の圏に関する仮定を満たす。$\mathbf{Set}$ の一元集合 $P=\{*\}$ を取る。任意の小さいフィルター図式に対し、写像 $P\to D_i$ は $*$ の像 $x\in D_i$ を一つ選ぶことと同じである。移行射による後合成は $x\mapsto D(p)x$ に対応する。
+**定義の確認**。集合と写像の圏は局所小圏であり、[小さい余極限を持つ](../../CAT/CAT2-05/index.md#thm-cat2-05-cocompleteness)ので、定義の圏に関する仮定を満たす。$\mathbf{Set}$ の一元集合 $P=\{*\}$ を取る。任意の小さいフィルター図式に対し、写像 $P\to D_i$ は $*$ の像 $x\in D_i$ を一つ選ぶことと同じである。移行射による後合成は $x\mapsto D(p)x$ に対応する。
 
-任意の写像 $g:P\to X$ に対し、[有限データの段階表示](../CATB1-08/index.md#lem-catb1-08-finite-witness)により $g(*)=\lambda_i(x)$ と表せる。$f(*)=x$ と置けば $\theta([i,f])(*)=\lambda_i(x)=g(*)$ であり、始域の唯一の元で一致するから $\theta([i,f])=g$。従って比較写像は全射である。
+任意の写像 $g:P\to X$ に対し、[有限データの段階表示](../CATB1-08/index.md#lem-catb1-08-finite-witness)により $g(*)=\lambda_i(x)$ と表せる。$f(*)=x$ と置けば
+
+$$
+\theta([i,f])(*)=\lambda_i(x)=g(*)
+$$
+
+であり、始域の唯一の元で一致するから $\theta([i,f])=g$。従って比較写像は全射である。
 
 また二つの値が $\lambda_i(x)=\lambda_j(y)$ を満たすなら、[有限データの段階表示](../CATB1-08/index.md#lem-catb1-08-finite-witness)により共通段階で値が等しくなり、写像も等しい。従って比較写像は単射でもあり、任意の図式について定義の条件を満たす。
 <!-- definition-example-end -->
@@ -144,7 +150,11 @@ $$
 
 ## 4. 加群では有限個の関係式も必要
 
-[単位元を持つ環](../../../代数系/RNG/RNG1/index.md#def-rng1-ring) $R$ を固定する。積の可換性は仮定しない。[左加群](../../../代数系/MOD/MOD1/index.md#def-mod1-module) と [加群準同型](../../../代数系/MOD/MOD1/index.md#def-mod1-homomorphism) の圏 $R\text{-}\mathrm{Mod}$ を用いる。$\operatorname{Hom}_R(M,N)$ はこの圏での $M$ から $N$ への射の集合を表し、前節の $\mathcal C(P,X)$ の加群の場合に当たる。[部分加群判定](../../../代数系/MOD/MOD1/index.md#prop-mod1-submodule-test) によれば、部分加群は零元を含み、差と左スカラー作用で閉じる部分集合である。[商加群](../../../代数系/MOD/MOD1/index.md#def-mod1-quotient-module) $F/K$ は差が $K$ に属する元を同一視する加群である。
+[単位元を持つ環](../../../代数系/RNG/RNG1/index.md#def-rng1-ring) $R$ を固定する。積の可換性は仮定しない。[左加群](../../../代数系/MOD/MOD1/index.md#def-mod1-module) と [加群準同型](../../../代数系/MOD/MOD1/index.md#def-mod1-homomorphism) の圏 $R\text{-}\mathrm{Mod}$ を用いる。
+
+$\operatorname{Hom}_R(M,N)$ はこの圏での $M$ から $N$ への射の集合を表し、前節の $\mathcal C(P,X)$ の加群の場合に当たる。
+
+[部分加群判定](../../../代数系/MOD/MOD1/index.md#prop-mod1-submodule-test) によれば、部分加群は零元を含み、差と左スカラー作用で閉じる部分集合である。[商加群](../../../代数系/MOD/MOD1/index.md#def-mod1-quotient-module) $F/K$ は差が $K$ に属する元を同一視する加群である。
 
 $R^n$ は $n$ 個の成分を持つ左加群で、$e_a$ は第 $a$ 成分が $1_R$、他成分が零の元である。任意の元は一意に
 
@@ -156,7 +166,9 @@ $$
 
 従って $R^n$ は有限階数の [自由加群](../../../代数系/MOD/MOD1/index.md#def-mod1-free-module-basis) であり、[自由加群の普遍性](../../../代数系/MOD/MOD1/index.md#thm-mod1-free-universal-property) によって $e_a$ の像を任意に選ぶと射が一意に定まる。
 
-[有限生成加群の定義](../../../代数系/MOD/MOD1/index.md#def-mod1-generating-set)によれば、有限個の元の左線形結合で全体を表せるとき有限生成である。さらに、二つの線形結合が同じ元を表す理由も有限個の関係式から得られるかを区別する。[加群の有限表示](../../../代数系/MOD/MOD2/index.md#def-mod2-presentation-cokernel) は有限階数自由加群間の射の余核として加群を表すことだった。MOD2 では PID を扱ったが、[加群の圏での核・余核の構成](../CATB1-04/index.md#thm-catb1-04-module-category)により、任意の単位元を持つ環上でも射 $\psi:R^m\to R^n$ の余核は $R^n/\operatorname{Im}\psi$ への商射である。$\operatorname{Im}\psi$ は像、$\ker q$ は $q$ が零に送る元全体を表す。有限表示では $m,n$ は非負整数とする。行列の標準形や環の可換性は使わない。
+[有限生成加群の定義](../../../代数系/MOD/MOD1/index.md#def-mod1-generating-set)によれば、有限個の元の左線形結合で全体を表せるとき有限生成である。さらに、二つの線形結合が同じ元を表す理由も有限個の関係式から得られるかを区別する。[加群の有限表示](../../../代数系/MOD/MOD2/index.md#def-mod2-presentation-cokernel) は有限階数自由加群間の射の余核として加群を表すことだった。MOD2 では PID を扱ったが、[加群の圏での核・余核の構成](../CATB1-04/index.md#thm-catb1-04-module-category)により、任意の単位元を持つ環上でも射 $\psi:R^m\to R^n$ の余核は $R^n/\operatorname{Im}\psi$ への商射である。
+
+ここで $\operatorname{Im}\psi$ は像を表す。また射 $q$ の核 $\ker q$ は $q$ が零に送る元全体を表す。有限表示では $m,n$ は非負整数とする。行列の標準形や環の可換性は使わない。
 
 <a id="prop-catb3-02-module-presentation"></a>
 
@@ -203,7 +215,16 @@ $$
 
 生成元 $[1]$ と関係式 $6[1]=0$ が有限表示を与える。任意の整数 $t,u$ の像が等しいのは差が6の倍数である場合に限るので、この関係式で全ての等号を説明できる。
 
-全射 $q:R^n\to M$ の核を $K$ とすれば $[v]\mapsto q(v)$ は $R^n/K\to M$ の同型である。実際、$q(v)=q(w)$ と $v-w\in K$ が同値なので代表によらず単射であり、$q$ の全射性から全射になる。関係元 $k_b=\sum_a r_{ba}e_a$ が $K$ を生成するとする。ここで $a$ は生成元の番号、$b$ は関係元の番号で、$r_{ba}\in R$ は左から作用する係数である。$[v]=v+K$ と略記する。射 $M\to N$ は $y_a\in N$ の選択で
+全射 $q:R^n\to M$ の核を $K$ とする。$[v]=v+K$ と略記すれば $[v]\mapsto q(v)$ は $R^n/K\to M$ の同型である。実際、$q(v)=q(w)$ と $v-w\in K$ が同値なので代表によらず単射であり、$q$ の全射性から全射になる。
+
+関係元が核を生成するとする。ここで $a$ は生成元の番号、$b$ は関係元の番号で、$r_{ba}\in R$ は左から作用する係数である。関係元の基底表示は
+
+$$
+k_b=\sum_{a=1}^n r_{ba}e_a
+\qquad(1\le b\le m)
+$$
+
+である。射 $M\to N$ は $y_a\in N$ の選択で
 
 $$
 \sum_{a=1}^n r_{ba}y_a=0\quad(1\le b\le m)
@@ -327,7 +348,11 @@ $$
 t_{LL'}:F/L\to F/L',\qquad v+L\mapsto v+L'
 $$
 
-を用いる。[加群の第一同型定理](../../../代数系/MOD/MOD1/index.md#thm-mod1-first-isomorphism)で $F/K\cong M$ となる。各商から $M$ への射は $v+L\mapsto q(v)$ であり、$L\subseteq K$ だから代表によらず定まり、移行射とも整合する。この射族が台集合の余極限から誘導する写像を調べる。$q$ は全射なので $M$ の任意の元はある $v+L$ の像である。二代表 $v+L,w+L'$ が $M$ で等しければ $v-w\in K$ であり、
+を用いる。[加群の第一同型定理](../../../代数系/MOD/MOD1/index.md#thm-mod1-first-isomorphism)で $F/K\cong M$ となる。各商から $M$ への射は $v+L\mapsto q(v)$ であり、$L\subseteq K$ だから代表によらず定まり、移行射とも整合する。
+
+この射族が台集合の余極限から誘導する写像を調べる。$q$ は全射なので $M$ の任意の元はある $v+L$ の像である。
+
+二代表 $v+L,w+L'$ が $M$ で等しければ $v-w\in K$ であり、
 
 $$
 L''=L+L'+R(v-w)
@@ -371,11 +396,27 @@ $$
 
 $R$ を二元体 $\mathbb F_2=\{0,1\}$ の可算個の直積環とする。すなわち元は二進数列で、和と積は成分ごとに法2で計算する。単位元は全成分が1の列である。環の公理は各成分で成立する。
 
-列 $v=(v_k)_{k\ge1}$ の台とは $\{k\ge1:v_k\ne0\}$ のこととする。$J\subset R$ を台が有限な列全体とする。差の非零成分は二つの列の非零成分の和集合に含まれ、任意の列を掛けても非零成分は増えないので零列を含む $J$ は[部分加群判定](../../../代数系/MOD/MOD1/index.md#prop-mod1-submodule-test)を満たす。環 $R$ は可換なので $J$ は両側[イデアル](../../../代数系/RNG/RNG1/index.md#def-rng1-ideal)でもある。ここでは左加群としての商を考え、$M=R/J$ は $1+J$ 一つで生成される。
+列 $v=(v_k)_{k\ge1}$ の台とは $\{k\ge1:v_k\ne0\}$ のこととする。$J\subset R$ を台が有限な列全体とする。
 
-$J_n$ を第1成分から第 $n$ 成分までにのみ非零成分を持ちうる列の部分加群とする。$J_0=0$ であり、$J_n$ は最初の $n$ 個の座標だけが1の列 $c_n$ 一つで生成される。実際、任意の $v\in J_n$ は成分ごとの積 $vc_n=v$ と書け、逆に任意の $r\in R$ に対して $rc_n$ は第 $n+1$ 成分以降が零である。
+差の非零成分は二つの列の非零成分の和集合に含まれ、任意の列を掛けても非零成分は増えないので零列を含む $J$ は[部分加群判定](../../../代数系/MOD/MOD1/index.md#prop-mod1-submodule-test)を満たす。
 
-包含 $J_n\subseteq J_{n+1}$ に沿った商図式 $R/J_n$ の余極限は $R/J$ である。実際、非負整数の順序圏は[フィルター圏](../CATB3-01/index.md#def-catb3-01-filtered)であり、構造射 $v+J_n\mapsto v+J$ は全射で整合する。二代表 $v+J_n,w+J_m$ の像が等しければ $v-w\in J$ なので、ある $\ell\ge n,m$ で $v-w\in J_\ell$ となる。逆にその段階で等しければ差は $J$ に属する。[有限データの段階表示](../CATB1-08/index.md#lem-catb1-08-finite-witness)から誘導写像は全単射であり、[加群のフィルター余極限の集合構成](#lem-catb3-02-module-colimit)から加群としても余極限になる。
+環 $R$ は可換なので $J$ は両側[イデアル](../../../代数系/RNG/RNG1/index.md#def-rng1-ideal)でもある。ここでは左加群としての商を考え、$M=R/J$ は $1+J$ 一つで生成される。
+
+$J_n$ を第1成分から第 $n$ 成分までにのみ非零成分を持ちうる列の部分加群とする。$J_0=0$ であり、$J_n$ は最初の $n$ 個の座標だけが1の列 $c_n$ 一つで生成される。
+
+実際、任意の $v\in J_n$ は成分ごとの積
+
+$$
+vc_n=v
+$$
+
+と書ける。逆に任意の $r\in R$ に対して $rc_n$ は第 $n+1$ 成分以降が零である。
+
+包含 $J_n\subseteq J_{n+1}$ に沿った商図式 $R/J_n$ の余極限は $R/J$ である。実際、非負整数の順序圏は[フィルター圏](../CATB3-01/index.md#def-catb3-01-filtered)であり、構造射 $v+J_n\mapsto v+J$ は全射で整合する。
+
+二代表 $v+J_n,w+J_m$ の像が等しければ $v-w\in J$ なので、ある $\ell\ge n,m$ で $v-w\in J_\ell$ となる。逆にその段階で等しければ差は $J$ に属する。
+
+[有限データの段階表示](../CATB1-08/index.md#lem-catb1-08-finite-witness)から誘導写像は全単射であり、[加群のフィルター余極限の集合構成](#lem-catb3-02-module-colimit)から加群としても余極限になる。
 
 もし恒等射 $M\to M$ が $R/J_n$ を経由するなら、$1+J$ の像はある $v+J_n$ であり $v-1\in J$。従って十分大きな $k>n$ では $v_k=1$。第 $k$ 成分のみ1の列を $d_k$ とすれば $d_k\in J$ なので $d_k(1+J)=0$。しかし像に作用させると
 
