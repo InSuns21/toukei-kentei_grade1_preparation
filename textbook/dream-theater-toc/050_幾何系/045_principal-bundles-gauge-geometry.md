@@ -29,3 +29,4 @@
 26. [GBG26 第二Chern数は純ゲージ場と非自明な場をどう区別するか](textbook/volumes/dream_thater/幾何系/GBG/GBG26/index.md)
 27. [GBG27 自己双対性はYang–Mills作用に何を与えるか](textbook/volumes/dream_thater/幾何系/GBG/GBG27/index.md)
 28. [GBG28 BPST instantonは実際に何を満たすか](textbook/volumes/dream_thater/幾何系/GBG/GBG28/index.md)
+29. [GBG29 なぜ任意の多様体にspin構造があるとは限らないか](textbook/volumes/dream_thater/幾何系/GBG/GBG29/index.md)

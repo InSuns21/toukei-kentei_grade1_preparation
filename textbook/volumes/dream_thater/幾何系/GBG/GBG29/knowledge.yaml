@@ -1,0 +1,42 @@
+chapter: GBG29
+scope: dream-theater
+coverage: complete
+prerequisites: [GBG3, GEO15, LA6, LREP5]
+forward_references: []
+concepts:
+  - id: gauge.oriented-orthonormal-frame-bundle
+    name: 向き付き直交枠束
+    kind: definition
+    introduction: formal
+    requires: [gauge.frame-bundle, geometry.riemannian-metric, geometry.vector-space-orientation, lie.special-orthogonal-group]
+  - id: gauge.spin-structure
+    name: スピン構造
+    kind: definition
+    introduction: formal
+    aliases: [spin構造]
+    requires: [gauge.oriented-orthonormal-frame-bundle, gauge.principal-bundle, representation.su2-so3-double-cover]
+  - id: gauge.cech-cohomology-mod-two
+    name: "2元係数のČechコホモロジー"
+    kind: definition
+    introduction: formal
+    requires: [gauge.open-cover, topology.open-cover-refinement]
+  - id: gauge.spin-lift-sign-cocycle
+    name: 三重重なりの符号は2-cocycleになる
+    kind: theorem
+    introduction: formal
+    requires: [gauge.cech-cohomology-mod-two, gauge.smooth-transition-cocycle, gauge.spin-structure, gauge.transition-section-change, geometry.convex-normal-neighborhood-existence, geometry.minimizing-geodesic]
+  - id: gauge.second-stiefel-whitney-class
+    name: 第二Stiefel–Whitney類
+    kind: definition
+    introduction: formal
+    requires: [gauge.spin-lift-sign-cocycle]
+  - id: gauge.spin-existence-obstruction
+    name: スピン構造の存在障害
+    kind: theorem
+    introduction: formal
+    requires: [gauge.second-stiefel-whitney-class, gauge.smooth-gluing-theorem]
+  - id: gauge.spin-structure-classification
+    name: スピン構造の選択と一次コホモロジー
+    kind: theorem
+    introduction: formal
+    requires: [gauge.spin-existence-obstruction, gauge.cech-cohomology-mod-two, gauge.principal-bundle-isomorphism]

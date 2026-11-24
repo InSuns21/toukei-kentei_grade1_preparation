@@ -1,0 +1,31 @@
+id: "GBG29"
+title: "なぜ任意の多様体にspin構造があるとは限らないか"
+volume: "foundations"
+status: supplementary
+prerequisites: [GBG3, GEO15, LA6, LREP5]
+official_scope: []
+learning_objectives:
+  - 向き付き直交枠束とスピン構造の同変条件を確認できる
+  - 局所持ち上げの三重共通部分から符号の2-cocycleを構成できる
+  - Čechコホモロジーによる第二Stiefel–Whitney類の選択独立性を説明できる
+  - w2が零であることとスピン構造の存在の同値性を証明できる
+  - スピン構造の選択を一次コホモロジーで分類し具体例で検算できる
+definitions:
+  - { id: GBG29-DEF-01, name: 向き付き直交枠束 }
+  - { id: GBG29-DEF-02, name: スピン構造 }
+  - { id: GBG29-DEF-03, name: "2元係数のČechコホモロジー" }
+  - { id: GBG29-DEF-04, name: 第二Stiefel–Whitney類 }
+theorems:
+  - { id: GBG29-THM-01, name: 三重重なりの符号は2-cocycleになる }
+  - { id: GBG29-THM-02, name: スピン構造の存在障害 }
+  - { id: GBG29-THM-03, name: スピン構造の選択と一次コホモロジー }
+canonical_examples:
+  - 標準枠のスピン構造
+  - 三枚の重なりの符号修正
+  - 複素射影平面の非存在障害
+  - 円筒とトーラスの異なるスピン構造
+problem_patterns: [GBG29-FRAME, GBG29-LIFT, GBG29-CECH, GBG29-OBSTRUCTION, GBG29-CLASSIFICATION]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 3 }
