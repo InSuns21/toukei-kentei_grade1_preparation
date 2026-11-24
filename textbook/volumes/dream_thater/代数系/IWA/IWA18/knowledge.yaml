@@ -1,0 +1,77 @@
+chapter: IWA18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - IWA6
+  - IWA9
+  - IWA12
+  - EC4
+  - EC6
+  - EC9
+forward_references: []
+concepts:
+  - id: number-theory.iwa18-h1
+    name: "連続1次群コホモロジー"
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: number-theory.iwa18-kummer
+    name: "楕円曲線のKummer写像"
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa18-h1, elliptic-curve.torsion-structure, elliptic-curve.multiplication-degree]
+  - id: number-theory.iwa18-kummer-exact
+    name: "楕円曲線のKummer完全列"
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa18-kummer]
+  - id: number-theory.iwa18-local-selmer
+    name: "局所条件付きSelmer群"
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa18-h1]
+  - id: number-theory.iwa18-elliptic-selmer
+    name: "楕円曲線の有限係数Selmer群とTate–Shafarevich群"
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa18-kummer, number-theory.iwa18-local-selmer]
+  - id: number-theory.iwa18-selmer-exact
+    name: "有限係数Selmer完全列"
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa18-elliptic-selmer, number-theory.iwa18-kummer-exact]
+  - id: number-theory.iwa18-tower-selmer
+    name: "円分塔のp無限Selmer群"
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa18-elliptic-selmer, number-theory.iwa18-selmer-exact]
+  - id: number-theory.iwa18-pontryagin
+    name: "離散pべきねじれ群のPontryagin双対"
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: number-theory.iwa18-dual-exact
+    name: "離散pべきねじれ群の双対完全性"
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa18-pontryagin]
+  - id: number-theory.iwa18-invariants
+    name: "Selmer双対の不変元と商の対応"
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa18-pontryagin, number-theory.iwa18-dual-exact, number-theory.iwasawa-power-series-isomorphism]
+  - id: number-theory.iwa18-finite-generation
+    name: "Selmer双対の有限生成判定"
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa18-invariants, number-theory.iwa18-dual-exact]
+  - id: number-theory.iwa18-h2
+    name: "連続2次群コホモロジー"
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa18-h1]
+  - id: number-theory.iwa18-poitou-tate
+    name: "Poitou–Tate双対の核の対応"
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa18-local-selmer, number-theory.iwa18-h2, number-theory.iwa18-pontryagin]
