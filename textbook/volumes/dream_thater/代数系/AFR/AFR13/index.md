@@ -12,8 +12,8 @@ $G=GL_2(F)$ は可逆二次行列群で、各成分に p進位相を入れます
 
 <!-- formal-statement-start -->
 > **定義（主合同部分群）**
-> $G=GL_2(\mathbb Q_p)$、$K=GL_2(\mathbb Z_p)$ とし、整数 $n\ge1$ に対し
-$$
+> $G=GL_2(\mathbb Q_p)$、$K=GL_2(\mathbb Z_p)$ とし、$O=\mathbb Z_p$ と書く。整数 $n\ge1$ に対し
+$
 K_n=\ker(K\longrightarrow GL_2(O/p^nO))
 =\{k\in K:k\equiv I_2\pmod{p^nO}\}.
 $$
@@ -40,7 +40,7 @@ p進群では各ベクトルが十分小さい合同部分群で固定される�
 
 <!-- formal-statement-start -->
 > **定義（p進群の滑らかな表現）**
-> $G=GL_2(\mathbb Q_p)$ の複素表現 $(\pi,V)$ は、各 $v\in V$ に対しある整数 $n\ge1$ が存在して $v\in V^{K_n}$ となるとき滑らかである。すなわち
+> $G=GL_2(\mathbb Q_p)$ の複素表現 $(\pi,V)$ は、各 $v\in V$ に対しある整数 $n\ge1$ が存在して $v\in V^{K_n}$ となるとき滑らかである。ここで $K_n$ は主合同部分群、$V^{K_n}$ はその固定空間である。すなわち
 $$
 V=\bigcup_{n\ge1}V^{K_n}.
 $$
@@ -110,13 +110,13 @@ $$
 \lambda\left(\begin{pmatrix}a&x\\0&d\end{pmatrix}\right)
 =|a/d|_p^{1/2}\chi_1(a)\chi_2(d).
 $$
-平方根は正規化の因子です。非対角方向 $n(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix}$ を $\operatorname{diag}(a,d)$ で共役すると $n((a/d)x)$ になります。[p進加法Haar測度の規格化](../AFR9/index.md#prop-afr9-local-measure) に対応する変数変換の測度倍率は $|a/d|_p$ で、その平方根を使います。
+平方根は正規化の因子です。非対角方向 $n(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix}$ を $\operatorname{diag}(a,d)$ で共役すると $n((a/d)x)$ になります。[p進加法Haar測度の規格化](../AFR9/index.md#prop-afr9-local-measure) を非零の倍率 $c=a/d$ に適用すると、任意の Borel 集合 $E$ の像の測度は $\mu_p(cE)=|a/d|_p\mu_p(E)$ です。この倍率の平方根を使います。
 
 <a id="def-afr13-principal"></a>
 
 <!-- formal-statement-start -->
 > **定義（p進正規化主系列）**
-> $F=\mathbb Q_p$、$G=GL_2(F)$、$\chi_1,\chi_2$ を局所定数な乗法指標とする。$I(\chi_1,\chi_2)$ は関数 $f:G\to\mathbb C$ で
+> $F=\mathbb Q_p$、$G=GL_2(F)$、$B$ を上三角可逆行列群とする。$\chi_1,\chi_2:F^\times\to\mathbb C^\times$ を局所定数な乗法指標とする。$I(\chi_1,\chi_2)$ は関数 $f:G\to\mathbb C$ で
 $$
 f(bg)=\lambda(b)f(g)\quad(b\in B,\ g\in G),
 $$
@@ -124,7 +124,7 @@ $$
 \lambda\left(\begin{pmatrix}a&x\\0&d\end{pmatrix}\right)
 =|a/d|_p^{1/2}\chi_1(a)\chi_2(d)
 $$
-> を満たし、ある $n\ge1$ について全ての $g\in G,k\in K_n$ で $f(gk)=f(g)$ となるものの空間である。作用は右移動 $(\pi(t)f)(g)=f(gt)$ で与える。
+> を満たし、ある主合同部分群 $K_n$（$n\ge1$）について全ての $g\in G,k\in K_n$ で $f(gk)=f(g)$ となるものの空間である。作用は右移動 $(\pi(t)f)(g)=f(gt)$ で与える。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr13-principal -->
@@ -180,11 +180,11 @@ $$
 
 以下その自明性を仮定します。$R=O/p^nO$ と置きます。$K\to GL_2(R)$ は全射です。剰余行列を整数環へ持ち上げると行列式は法 $p$ で非零なので可逆です。同様に $D$ は $R$ 上の上三角可逆行列群 $B(R)$ 全体へ写ります。$\lambda|_D$ は核 $D\cap K_n$ 上自明なので $B(R)$ の指標 $\bar\lambda$ を定めます。
 
-各左剰余類 $B(R)\bar k$ の代表元を一つ選び、その値を任意の $c\in\mathbb C$ とします。同じ類の元は一意な $\bar b$ により $\bar b\bar k$ と書けるので、値を $\bar\lambda(\bar b)c$ と決められます。逆に変換則を満たす関数はこの形です。従って次元は左剰余類の個数になります。
+上三角群の右剰余類（左作用の軌道）$B(R)\bar k$ の代表元を一つ選び、その値を任意の $c\in\mathbb C$ とします。同じ類の元は一意な $\bar b$ により $\bar b\bar k$ と書けるので、値を $\bar\lambda(\bar b)c$ と決められます。逆に変換則を満たす関数はこの形です。従って次元は右剰余類の個数になります。
 
 可逆行列の第二行は少なくとも一成分が単元です。左から上三角可逆行列を掛けると第二行は単元倍されます。逆に $h_2$ の第二行が $h_1$ の第二行の単元 $u$ 倍なら、$h_2h_1^{-1}$ の第二行は $(0,u)$ なので上三角可逆行列です。少なくとも一成分が単元である行（原始的な行）は、第3節と同じ第一行の選び方によって可逆行列の第二行にできます。
 
-従って左剰余類は原始的な行の単元倍による同値類です。第二成分が単元なら $(t,1)$（$t\in R$）へ一意に正規化でき、そうでなければ第一成分が単元なので $(1,t)$（$t\in pR$）へ一意に正規化できます。二種類は第二成分の単元性で区別されます。[p進整数の桁展開](../../ANF/ANF9/index.md#thm-anf9-digit-expansion) より $|R|=p^n$、$|pR|=p^{n-1}$ です。従って
+従って右剰余類は原始的な行の単元倍による同値類です。第二成分が単元なら $(t,1)$（$t\in R$）へ一意に正規化でき、そうでなければ第一成分が単元なので $(1,t)$（$t\in pR$）へ一意に正規化できます。二種類は第二成分の単元性で区別されます。[p進整数の桁展開](../../ANF/ANF9/index.md#thm-anf9-digit-expansion) より $|R|=p^n$、$|pR|=p^{n-1}$ です。従って
 $$
 \dim I^{K_n}=p^n+p^{n-1}=p^{n-1}(p+1).
 $$
@@ -201,7 +201,7 @@ $p=3,n=1$ の代表は $(0,1),(1,1),(2,1),(1,0)$ です。両指標が $1+3O$ �
 
 <!-- formal-statement-start -->
 > **定義（球ベクトルと不分岐表現）**
-> $G=GL_2(\mathbb Q_p)$、$K=GL_2(\mathbb Z_p)$ とし、$(\pi,V)$ を滑らかな複素表現とする。$V^K$ の非零元を球ベクトルと呼ぶ。$V^K\ne0$ のとき不分岐、$V^K=0$ のとき分岐とする（既約表現に対する通常の用語をここでは固定空間の性質として用いる）。
+> $G=GL_2(\mathbb Q_p)$、$K=GL_2(\mathbb Z_p)$ とし、$(\pi,V)$ を滑らかな複素表現とする。$V^K$ の非零元を球ベクトルと呼ぶ。$V^K\ne0$ のとき不分岐、$V^K=0$ のとき分岐とする（通常は既約、すなわち零と全体以外の不変部分空間を持たない表現に用いる用語だが、ここでは固定空間の性質として用いる）。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr13-spherical -->
@@ -258,7 +258,7 @@ $p=3$ とし、$g=\begin{pmatrix}1&9\\3&1\end{pmatrix}$ が $K_1,K_2$ のどち�
 
 ### A2. 一次元表現
 
-$p=3$ とし、第6節の指標 $\eta$ による表現 $\pi(g)=\eta(\det g)$ の $K,K_1$ 固定空間を求めよ。
+$p=3$ とし、$x=3^mu$ に対し $u\bmod3$ が1なら1、2なら $-1$ を返す指標 $\eta(x)$ による表現 $\pi(g)=\eta(\det g)$ の $K,K_1$ 固定空間を求めよ。
 
 - Level: A
 - ID: AFR13-A2
@@ -352,7 +352,7 @@ $V=\bigoplus_{j=1}^\infty\mathbb C e_j$ に自明な $G$ の作用を入れる�
 
 ### C1. 球ベクトルの移動
 
-$p=3,\chi_1(x)=|x|_3^s,\chi_2(x)=|x|_3^{-s}$（$s\in\mathbb R$）とする。正規化球ベクトル $f_0$ を構成し、$t=\operatorname{diag}(3,1)$ に対して $(\pi(t)f_0)(I_2)$ と $(\pi(t)f_0)(w)$ を求めよ。ただし $w=\begin{pmatrix}0&1\\1&0\end{pmatrix}$。$s=1$ なら $\pi(t)f_0$ は $K$ 固定か。
+$p=3,\chi_1(x)=|x|_3^s,\chi_2(x)=|x|_3^{-s}$（$s\in\mathbb R$）とする。$f_0(I_2)=1$ を満たす球ベクトルを構成し、$t=\operatorname{diag}(3,1)$ に対して $(\pi(t)f_0)(I_2)$ と $(\pi(t)f_0)(w)$ を求めよ。ただし $w=\begin{pmatrix}0&1\\1&0\end{pmatrix}$。$s=1$ なら $\pi(t)f_0$ は $K$ 固定か。
 
 - Level: C
 - ID: AFR13-C1
