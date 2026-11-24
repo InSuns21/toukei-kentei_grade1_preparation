@@ -61,9 +61,9 @@ try {
     const job=pending.get(msg.id);
     if(job){pending.delete(msg.id);msg.error?job.reject(Error(msg.error.message)):job.resolve(msg.result);}
   });
-  const cdp=(method,params={})=>new Promise((resolve,reject)=>{
+  const cdp=(method,params={},sessionId)=>new Promise((resolve,reject)=>{
     const id=++requestId;pending.set(id,{resolve,reject});
-    ws.send(JSON.stringify({id,method,params}));
+    ws.send(JSON.stringify({id,method,params,...(sessionId?{sessionId}:{})}));
   });
   const evaluate=async expression=>{
     const response=await cdp('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});
@@ -111,17 +111,33 @@ try {
   // The opaque child has a separate document. Use CDP's frame execution
   // world to exercise its real event listeners, not guessed iframe geometry
   // or a parent-window synthetic event (neither reaches the GPU canvas).
-  const tree=(await cdp('Page.getFrameTree')).frameTree;
-  const frame=tree.childFrames?.find(f=>f.frame.url==='about:srcdoc');
-  assert.ok(frame,'FCG3 opaque GPU frame exists');
-  const {executionContextId}=await cdp('Page.createIsolatedWorld',{
-    frameId:frame.frame.id,worldName:'fcg3-browser-test'});
+  const {root:domRoot}=await cdp('DOM.getDocument');
+  const {nodeId}=await cdp('DOM.querySelector',{nodeId:domRoot.nodeId,selector:'#canvas-slot iframe'});
+  assert.ok(nodeId,'FCG3 sandbox DOM owner exists');
+  const {node:owner}=await cdp('DOM.describeNode',{nodeId});
+  const frameId=owner.frameId;
+  assert.ok(frameId,'FCG3 sandbox frame id exists');
+  let childSession,world;
+  try{
+    world=await cdp('Page.createIsolatedWorld',{frameId,worldName:'fcg3-browser-test'});
+  }catch(parentError){
+    const {targetInfos}=await cdp('Target.getTargets');
+    const target=targetInfos.find(t=>t.type==='iframe'&&t.targetId===frameId);
+    assert.ok(target,'FCG3 sandbox OOPIF target not found: '+String(parentError));
+    ({sessionId:childSession}=await cdp('Target.attachToTarget',{targetId:target.targetId,flatten:true}));
+    await cdp('Page.enable',{},childSession);
+    const tree=await cdp('Page.getFrameTree',{},childSession);
+    assert.equal(tree.frameTree.frame.id,frameId);
+    world=await cdp('Page.createIsolatedWorld',{frameId,worldName:'fcg3-browser-test'},childSession);
+  }
   const inFrame=async expression=>{
-    const result=await cdp('Runtime.evaluate',{contextId:executionContextId,expression,
-      returnByValue:true,awaitPromise:true});
+    const result=await cdp('Runtime.evaluate',{contextId:world.executionContextId,expression,
+      returnByValue:true,awaitPromise:true},childSession);
     assert.ok(!result.exceptionDetails,JSON.stringify(result.exceptionDetails));
     return result.result.value;
   };
+  assert.equal(await inFrame('location.href'),'about:srcdoc');
+  assert.equal(await inFrame('self.origin'),'null');
   await inFrame(`(()=>{
     const c=document.getElementById('gpu-canvas');
     c.focus();
@@ -136,6 +152,7 @@ try {
   assert.notEqual(smooth,cells,'smooth reconstruction must visibly differ from raw cells');
   await toggleGrid();const restored=await shot();
   assert.equal(restored,smooth,'G toggle returns to same frozen actual data');
+  if(childSession)await cdp('Target.detachFromTarget',{sessionId:childSession});
   console.log('FCG3 GPU smooth/cell toggle and live raw-cell oracle: PASS');
 
 
