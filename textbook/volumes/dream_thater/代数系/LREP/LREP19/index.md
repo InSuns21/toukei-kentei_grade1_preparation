@@ -334,7 +334,7 @@ $$
 Q_R(t)=\int_{[-R,R]^3}\rho(t,\boldsymbol x)\,d^3x
 $$
 
-とします。ここで $d^3x=dx^1dx^2dx^3$ です。積分領域が固定され、時間偏微分がコンパクトな箱と閉じた有限の時間区間で連続なので、[有限次元のHeine–Cantorの定理](../../../基礎科目/RA/RA7/index.md#thm-ra7-finite-dimensional-heine-cantor)により一様連続です。時間の差商は時間方向の微積分の基本定理から時間偏微分の短区間での平均になり、その差商は箱全体で一様に時間偏微分へ収束します。箱の体積は有限なので積分と極限を交換でき、微分を積分内に移せます。[自由Dirac電流の保存](#thm-lrep19-current-conservation) を代入すると
+とします。ここで $d^3x=dx^1dx^2dx^3$ です。積分領域が固定され、時間偏微分がコンパクトな箱と閉じた有限の時間区間で連続なので、[有限次元 Heine--Cantor 型結果](../../../基礎科目/RA/RA7/index.md#thm-ra7-finite-dimensional-heine-cantor)により一様連続です。時間の差商は時間方向の微積分の基本定理から時間偏微分の短区間での平均になり、その差商は箱全体で一様に時間偏微分へ収束します。箱の体積は有限なので積分と極限を交換でき、微分を積分内に移せます。[自由Dirac電流の保存](#thm-lrep19-current-conservation) を代入すると
 
 $$
 \begin{aligned}
