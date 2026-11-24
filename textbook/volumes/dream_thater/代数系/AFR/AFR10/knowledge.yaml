@@ -1,7 +1,7 @@
 chapter: AFR10
 scope: dream-theater
 coverage: complete
-prerequisites: [AFR9, CA11]
+prerequisites: [AFR9, CA11, ANT3, NT8]
 forward_references: []
 concepts:
   - id: automorphic-forms.multiplicative-measure
@@ -38,7 +38,7 @@ concepts:
     name: "有限位数Hecke L関数"
     kind: definition
     introduction: formal
-    requires: [automorphic-forms.unramified-zeta-factor]
+    requires: [automorphic-forms.unramified-zeta-factor, number-theory.dirichlet-series]
   - id: automorphic-forms.tate-euler-factorization
     name: "大域ゼータ積分のEuler分解"
     kind: theorem
@@ -58,7 +58,7 @@ concepts:
     name: "分岐試験関数のFourier変換"
     kind: theorem
     introduction: formal
-    requires: [automorphic-forms.ramified-zeta-test, automorphic-forms.p-adic-ball-transform]
+    requires: [automorphic-forms.ramified-zeta-test, automorphic-forms.p-adic-ball-transform, analytic-number-theory.gauss-sum]
   - id: automorphic-forms.completed-hecke-l-functional-equation
     name: "完成Hecke L関数の関数等式"
     kind: theorem
