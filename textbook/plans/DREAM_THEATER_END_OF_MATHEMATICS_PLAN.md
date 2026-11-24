@@ -4,11 +4,12 @@
 旧構成確定日: 2026-11-09（5 family・12講）
 前回構成確定日: 2026-11-18（8 family・25講）
 構成再確定日: 2026-11-19（9 family・31講：268/Haldane–Tasakiを正式採択）
+現行構成確定日: 2026-11-24（12 family・39講：Euler/無外力NS/RH・GRHを採択）
 状態: planned（講義設計確定・EOM固有の章本文は未着手）
 
 ## 0. 目的と研究上の留保
 
-2026年の数学・理論計算機科学・数理物理の研究主張を、基礎科目から原論文へつなぐ**研究読解科目**として扱う。対象は以下の **9 research family** とする。268 は OpenAI/math のカタログ上の結果群であり、田崎晴明の研究は別著者の関連論文として同じ教材 family に接続する（田崎論文を268の公式構成論文とはしない）。
+2026年の数学・理論計算機科学・数理物理の研究主張を、基礎科目から原論文へつなぐ**研究読解科目**として扱う。対象は以下の **12 research family（11群の研究講読＋RH/GRHの横断導入）** とする。268 は OpenAI/math のカタログ上の結果群であり、田崎晴明の研究は別著者の関連論文として同じ教材 family に接続する（田崎論文を268の公式構成論文とはしない）。
 
 - **074**: 3次元 Kakeya 最大作用素・4次元 Kakeya 集合の次元（従来）
 - **079**: 全次元の波動方程式の local smoothing と Kakeya・restriction 等への帰結（追加）
@@ -20,21 +21,27 @@
 - **378**: 指数時間仮説（ETH）への反証と厳密な #SAT 算法（追加）
 - **YM/QCD**: 4次元 pure Yang–Mills 存在構成・QCD・ゲージ場とフェルミオンを含む模型（追加、公開資料と検証範囲を分離）
 
+- **Euler-BU**: 3次元周期非圧縮 Euler の無外力有限時間特異点（Alpöge–Buckmaster–Coiculescu）
+- **NS-BU**: 3次元非圧縮 Navier–Stokes の無外力有限時間特異点（Alpöge–Buckmaster、数値証明書未公開）
+- **RH/GRH**: Alpöge–Claude のRH・Dirichlet GRH形式証明と独立認証。詳細は [RHP研究講読](DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md) が担う。
+
+Euler-BU、NS-BU、RH/GRHは本PLAN内の便宜的な群名で、OpenAI/mathの数値IDではない。376の計算普遍性、9月の外力付き特異点、11月の無外力特異点を別の命題として扱う。
+
 2026-11-18に追加した3件の起点は [OpenAI の2026年10月26日発表](https://openai.com/index/building-scientific-understanding-with-academic-communities/) と [関連記事](https://finance.biggo.com/news/9dcf4c0c-13a2-40b6-8870-10c6c38e8b49)。**「3件＝研究テーマ3群」であり、「3講追加」ではない。** 079 は 074 と数学的帰結が重なるが、074 の3D/4D幾何的議論と 079 の波動方程式・調和解析からの多次元的含意は異なる中心問いとして扱い、説明・演習を重複させない。
 
 result family は成果群識別子であって講数ではない。268 は OpenAI の Haldane gap 群のIDであり、田崎氏の2025/2026年の論文にこのIDを割り当てない。078/079 等のカタログ番号は論文・formalization catalogue の版と照合する。YM/QCD はこの PLAN 独自の便宜的な群名であり、OpenAI/math に数値 ID があると主張しない。計画上の章IDは仮予約し、着手時に実在 ID・索引・manifest との衝突を検査する。
 
 原論文全体の独立完全証明と、教材で再構成できる主要補題・計算と、原論文へ依存関係を残す箇所を厳密に区別する。論文、Lean kernel 検証、statement と自然言語との一致、独立専門家の判断、査読・出版、Clay等の公式認定は別々の証拠である。**数学上の未検証 claim を他章の無条件な既知定理にしない。**
 
-とくにYM/QCDでは2026年11月10日の [Yang–Mills group の第一評価](https://github.com/yang-mills-group/YM) が、2026年10月28日提出の pure Yang–Mills の Wightman 型存在構成を肯定的に評価した一方、**無限体積極限の一意性および正の質量ギャップは示していない**。同グループが審査した pure YM と、QCD・統一模型の非公開または別審査の主張を混ぜない。評価はその提出版と日付に限定する。
+とくにYM/QCDでは2026年11月10日の [Yang–Mills group の第一評価](https://github.com/yang-mills-group/YM) が、2026年10月28日提出の pure Yang–Mills の Wightman 型存在構成を肯定的に評価した一方、**無限体積極限の一意性および正の質量ギャップは示していない**。同グループが審査した pure YM と、QCD・統一模型の非公開または別審査の主張を混ぜない。評価はその提出版と日付に限定する。11月24日確認時点で同グループの一覧には OpenAI の11月4日提出版と Alpöge–Sussman の11月15日提出版が掲載されるが、どちらも審査中（work in progress）である。EOMYMでは3提出版を別の記録にし、新たな肯定的評価が公開されるまで10月28日版の査定を外挿しない。
 
-## 1. 講義数の再確定：全31講
+## 1. 講義数の再確定：全39講
 
-**全31講とする（2026-11-18時点の25講 + 268/Haldane–Tasakiの6講）。** 旧25講の8講の橋渡し（079A/B、378A/B、YMA/B/C、QCDA）を維持し、新たに268A/B/Eの3講へ有限スピン・転送作用素・作用素代数/SPTの基礎橋渡しを埋め込む。268C/Dと268の3講は研究論文の異なる証明責務に対応する。講数は証明のまとまりと未習概念の量から決め、1講1論文・15週の時間割には従わない。EOM0 と EOM6、従来の章ID・中心問いを保つ。
+**全39講とする（11月19日の31講 + Euler 4講 + 無外力NS 3講 + RH/GRH横断1講）。** 既存30講のIDと順序は維持し、新規8講を総括の前に置く。RH/GRHの23講の詳細研究講読は別PLANであり39講には含めない。 旧25講の8講の橋渡し（079A/B、378A/B、YMA/B/C、QCDA）を維持し、新たに268A/B/Eの3講へ有限スピン・転送作用素・作用素代数/SPTの基礎橋渡しを埋め込む。268C/Dと268の3講は研究論文の異なる証明責務に対応する。講数は証明のまとまりと未習概念の量から決め、1講1論文・15週の時間割には従わない。EOM0 と EOM6、従来の章ID・中心問いを保つ。
 
 | 講 | 予定章ID | 中心問い・到達目標 | prerequisite / 接続 |
 | --- | --- | --- | --- |
-| 1 | **EOM0** | 問題・予想・主張・形式化・独立検証・出版をどう区別するか。9 family の証拠台帳。 | CMP、数学的証明の基礎 |
+| 1 | **EOM0** | 問題・予想・主張・形式化・独立検証・出版をどう区別するか。12 family の証拠台帳。 | CMP、数学的証明の基礎 |
 | 2 | **EOM074A** | Kakeya set を tube 最大作用素へ翻訳し、方向分離・体積・次元・ノルム指数を計算。 | MT8、HA11、GMT1–8・GMT31–36 |
 | 3 | **EOM074B** | 3D Kakeya maximal の評価と多重尺度補題の入力・出力。 | EOM074A |
 | 4 | **EOM074** | 4D Kakeya の Hausdorff 次元4への幾何的入力。 | EOM074B、GMT35–36 |
@@ -64,13 +71,21 @@ result family は成果群識別子であって講数ではない。268 は Open
 | 28 | **EOMYM** | pure 4D Yang–Mills 存在構成の査定：Wightman・観測量・独立評価と質量ギャップ未解決。 | EOMYMC、AQFT関連章 |
 | 29 | **EOMQCDA** | **追加前提⑧** 格子フェルミオン、Grassmann積分、行列式、ゲージ異常と表現の条件。 | EOMYMB、QFT7–8・19・39–41 |
 | 30 | **EOMQCD** | QCD・ゲージ場/フェルミオン統一模型の存在主張と pure YM との差、公開証拠・残る未検証箇所。 | EOMQCDA、EOMYM、QFT35–42 |
-| 31 | **EOM6** | 定理生成・形式化・独立検証・理論構築・教育の役割分担を9 family で総括。 | EOM0 と全9 family |
+| 31 | **EOMEULERA** | 線形背景流上の平面波・移動座標系・波数と振幅の発展・増幅機構（原論文§2）。 | NS1/2/7、Fourier解析、ODE |
+| 32 | **EOMEULERB** | Lagrange座標の局在波、発散零補正、両端条件付き線形逆問題とHölder評価（§§3–4）。 | EOMEULERA、GPDE3/7、FAの対応正本 |
+| 33 | **EOMEULERC** | 位相平均・振動補正、有限次数展開、Fourier切断、尺度間の誤差・増幅の両立（§§5–7）。 | EOMEULERB、HA/FOUの対応正本 |
+| 34 | **EOMEULER** | 近似解列の収束・有限時間への集積・中心渦度の下界、Theorem 1.1と終端正則性・Lean対応（§8、付随ノート）。 | EOMEULERC、NS5/7 |
+| 35 | **EOMNSBUA** | 無外力NSの後退自己相似変数、離散自己相似（回転込み周期）の非零profile、残差と線形化。 | NS1–8、NPDE4/6 |
+| 36 | **EOMNSBUB** | 有限近似profile・coercivity・誤差閉包、区間演算と証明書の設計（§7、Appendix B）。 | EOMNSBUA、数値解析・関数解析の対応正本 |
+| 37 | **EOMNSBU** | 証明書条件から弱profile、正則化、全空間・周期領域のbreakdownへ。9月の外力付き結果との違い、未公開数値入力の射程。 | EOMNSBUB、NS5–8A、EOMEULER（比較のみ） |
+| 38 | **EOMRH** | RH/Dirichlet GRHの命題・独立kernel認証・自然言語再構成の差、標準公理・statement matchingを小規模Lean例で比較。 | EOM0、ANT7/8の対応正本。RHPへの導入でありRHP全講を前提にしない |
+| 39 | **EOM6** | 定理生成・形式化・独立検証・理論構築・教育の役割分担を12 family で総括。 | EOM0 と全12 family |
 
-内訳：**導入1 + Kakeya(074)3 + local smoothing(079)4 + $\pi$1 + H10(Q)2 + NS計算普遍性2 + スピングラス2 + Haldane–Tasaki(268)6 + ETH3 + YM/QCD6 + 総括1 = 31講**。
+内訳：**導入1 + Kakeya(074)3 + local smoothing(079)4 + $\pi$1 + H10(Q)2 + NS計算普遍性2 + スピングラス2 + Haldane–Tasaki(268)6 + ETH3 + YM/QCD6 + Euler-BU4 + NS-BU3 + RH/GRH横断1 + 総括1 = 39講**。
 
-橋渡し11講（従来8講 + 268A/B/E）は、既存の HA/GMT/HPDE、CMP、QFT/AQFT・SM等の学習内容と、専門的な研究原論文の間にある未導入概念を埋めるためのもの。未修の全科目をEOMへ再掲するのではなく、各講で必要な直接例・主要中間式と、到達可能な正本リンクに絞る。特に079と074の重複したKakeya基礎、EOMYMとEOMQCDの共通格子構成を二度証明しない。
+従来の橋渡し11講（079A/B・378A/B・YMA/B/C・QCDA・268A/B/E）と新規Euler/NSの前段5講（EOMEULERA–C・EOMNSBUA/B）は、既存の HA/GMT/HPDE、CMP、QFT/AQFT・SM等の学習内容と、専門的な研究原論文の間にある未導入概念を埋めるためのもの。未修の全科目をEOMへ再掲するのではなく、各講で必要な直接例・主要中間式と、到達可能な正本リンクに絞る。特に079と074の重複したKakeya基礎、EOMYMとEOMQCDの共通格子構成を二度証明しない。
 
-## 2. 現在の依存関係と着手可否（2026-11-19再設計）
+## 2. 現在の依存関係と着手可否（2026-11-24再設計）
 
 既存8 familyに関する GitHub の系列 manifest は2026-11-18に再確認した。268系の既存canonical接続は執筆前に章本文・manifestの語義まで追加照合する。**GMT1–36、HA1–11、CMP1–8、QFT1–64、AQFT1–34 は completed**。従来の「GMT2–36進行中・074は続講待ち」は旧スナップショットであり、現在の前提充足判定に使わない。既存正本で実際にどの命題まで証明したかは執筆時に章本文・knowledge.yaml・stable anchor を点検する。
 
@@ -82,13 +97,16 @@ result family は成果群識別子であって講数ではない。268 は Open
 | 004 | NT9–10、CMP1–8、EC1–11 | 既存前提から着手可能（原論文固有の算術補題を別途確認） |
 | 376 | NS1–8A、CMP1–8、CELL1–15 | 既存前提から着手可能 |
 | 221 | TH1–8、SM1–8、SG1–8 | 既存前提から着手可能 |
-| **268/Haldane–Tasaki** | 有限次元量子論・QFT/SM/作用素論・AQFTの既存正本 → EOM268A/B/E（概念橋渡し）→ EOM268C/D/268（論文読解） | **全31講へ正式採択**。量子スピン鎖・SPTの専門概念と計算機援用評価の独立再実行は未完了であり、別途proof ledgerが必要 |
+| **268/Haldane–Tasaki** | 有限次元量子論・QFT/SM/作用素論・AQFTの既存正本 → EOM268A/B/E（概念橋渡し）→ EOM268C/D/268（論文読解） | **11月19日に正式採択**。量子スピン鎖・SPTの専門概念と計算機援用評価の独立再実行は未完了であり、別途proof ledgerが必要 |
 | 378 | CMP1–8（計算可能性）→ EOM378A–B | **橋渡し2講が必要**。CMP修了をfine-grained complexity修了と取り違えない |
 | YM/QCD | QFT1–64、AQFT1–34 + LIE等 → EOMYMA–C、EOMQCDA | **橋渡し4講が必要**。摂動QFT・自由場AQFTから非摂動4D構成を飛躍させない |
+| Euler-BU | 現行NS1–8A・NPDE1–7はcompleted。NS/FOU/GPDEの既出結果 → EOMEULERA–C → EOMEULER | 新規の波の増幅・endpoint inverse・多重尺度展開は橋渡しが必要。原論文とLeanの対応は著者報告、独立再検証は別途 |
+| NS-BU | NS5–8A、NPDE4/6 → EOMNSBUA/B → EOMNSBU | 基礎は着手可能。原論文の数値証明書と区間演算が未公開で無条件の主張の確定は不可 |
+| RH/GRH | ANT7/8 → EOMRH → RHPへの参照（詳細は独立PLANのANF/IWA/AFR等） | 横断導入はRHP全講の完成待ちにしない。実装時にANT正本を確認 |
 
-**実装推奨順**：EOM0 → 074系 → 079A–079 → 017/004/376/221（各独立）→ 268A–268 → 378A–378 → YMA–YM・QCDA–QCD → EOM6。上の表の順序は学修の依存を表示するもので、別々のfamilyは独立に着手してよい。YM/QCD の論文が非公開・検証中の場合でも**基礎橋渡しは執筆可能**。未公開の主定理を教材として既証明扱いにしない。
+**実装推奨順**：EOM0 → 074系 → 079A–079 → 017/004/376/221（各独立）→ 268A–268 → 378A–378 → YMA–YM・QCDA–QCD → EOMEULERA–EOMEULER → EOMNSBUA–EOMNSBU → EOMRH → EOM6。上の表の順序は学修の依存を表示するもので、別々のfamilyは独立に着手してよい。YM/QCD の論文が非公開・検証中の場合でも**基礎橋渡しは執筆可能**。未公開の主定理を教材として既証明扱いにしない。
 
-**PLAN状態**：EOM固有の本文・検証・監査は未着手のため引き続き plans に置き、今回の変更では EOM.yaml を作成しない。最初の実装を始めた作業単位で plans_progress に移し、EOM系列manifest（全31講・plannedから開始）と path を整合させる。全章・公開導線・検証が揃ってから plan_done に移す。
+**PLAN状態**：EOM固有の本文・検証・監査は未着手のため引き続き plans に置き、今回の変更では EOM.yaml を作成しない。最初の実装を始めた作業単位で plans_progress に移し、EOM系列manifest（全39講・plannedから開始）と path を整合させる。全章・公開導線・検証が揃ってから plan_done に移す。
 
 ## 3. 各 family の正確な論点と証明責務
 
@@ -166,6 +184,28 @@ result family は成果群識別子であって講数ではない。268 は Open
 - **独立な読解の評価**：田崎氏の [2026-10-18解説](https://haltasaki.github.io/writings/AI/OpenAI_Haldane.html) は解析部分を連続時間版・離散時間版で解説する一方、計算機援用評価は独立には確認していないと明記する。数学者の読解・演算証明書・Lean kernel・査読付き出版は別々の証拠である。
 - **完成時の証明責務**：小さな $L$ の行列・スペクトルを直接計算し、AKLTを具体例として示し、周期鎖と開放鎖の定理の仮定・不等式・量化・境界条件を同一表で照合する。計算機の補題を教材内で再現できなければ残る依存を記録し、SPT指数と無限鎖の一意性を自明な帰結としない。
 
+### 3.10 Euler-BU：無外力の周期Euler方程式
+
+- [原論文 arXiv:2611.26772](https://arxiv.org/abs/2611.26772) Theorem 1.1 は三次元トーラス上の奇な滑らかな発散零初期値からの最大古典解が有限時刻までに破綻し、速度勾配と渦度の時間積分が発散するという存在主張。全空間版、NSの粘性付き問題、弱解の非一意性とは異なる。Remark 1.2の原点以外の終端正則性は付随ノートの別証明である。
+- Aでは線形背景流の波数・振幅ODEを代入から導き、横波条件と増幅を具体的行列で確認する。BではLagrange座標の変形勾配、局在・発散補正、線形化Eulerのendpoint問題、coercivityとHölder逆作用素を導入。両端条件で初期データを選ぶ機構を単なる初期値問題と混同しない。
+- Cでは平均成分と振動成分の補正、有限展開・切断誤差・次の波の起動条件を同じ尺度台帳に載せ、収束する誤差列と増幅する渦度を区別する。最終講ではTheorem 7.1からPropositions 8.1/8.2、Corollary 8.3への推論を追い、コンパクトな時間区間での滑らかな収束、有限の集積時刻、渦度の時間積分発散の三つを別々に証明する。
+- [著者のLeanリポジトリ](https://github.com/mcoiculescu/EulerBlowupPublic) は arXiv版の定理・引用関係を spine.json で対応づけ、標準3公理のみと報告する。凍結11月18日版とarXiv版の§2の変更、終端正則性の別形式化、BKM判定を使う紙面と渦度下界を直接使うLeanの相違を確認する。著者の報告を独立kernel再実行済みとはしない。[Taoの11月23日解説](https://terrytao.wordpress.com/2026/11/23/finite-time-singularity-formation-for-the-three-dimensional-euler-equations/)を波の増幅と多重尺度の補助読本とし、全文査読の代替にしない。
+
+### 3.11 NS-BU：無外力Navier–Stokesと数値証明書
+
+- [11月20日版の論文・Lean README](https://github.com/tristanbuckmaster/navier-stokes/blob/main/lean/README.md) は非零の回転込み周期的な自己相似profileの存在から、全空間の滑らかなコンパクト支持初期値での有界エネルギー大域滑らか解の不存在、周期初期値での大域滑らか周期解の不存在を得る条件付き形式定理を記載する。紙面の粘性1と任意の正粘性への換算、profileの減衰・微分・圧力の追加仮定、紙面の発散率・profileへの収束が形式statementにないことを照合する。
+- AはNS6の尺度変換から後退自己相似変数を直接導き、時間周期性・回転・非零性、空間無限遠の境界条件、残差と線形化を具体例で確認する。Eulerの非粘性増幅をそのまま粘性付き方程式へ移せない理由を散逸項から示す。
+- Bでは近似解の残差、線形作用素のcoercivity、非線形誤差の閉包と不動点の適用条件、区間演算の外向き丸め・有限セルごとの誤差上界を小模型で再現する。Appendix Bの15条件と7種のデータを個別に照合する。Theorem 7.1の紙面の滑らかな近接profileと形式化の弱profileを区別し、その後の正則化または直接breakdown経路を追う。
+- [公開リポジトリ](https://github.com/tristanbuckmaster/navier-stokes) には約2270ファイルのLeanコードと79頁の論文があるが、論文のhashが指す証明書本体および128-bit Arb/FLINT区間演算による条件確認は収録されていない。11月20日のセル条件修正（重み、定数の零許容、調和成分の制限）を含む版は公開時未再ビルドと明記されている。よって Appendix B の条件充足を無条件に認定せず、証明書入手・hash照合・区間演算再実行・patched版ビルド・statement matchingをそれぞれゲートにする。
+- NS8/8Aの9月の外力付きbreakdown、EOM376の停止問題帰着、今回の無外力breakdownを、領域、初期値、外力、粘性、解クラス、主張と証拠の表で対照する。Clay公式問題のA/B（無外力の大域滑らかさ）に対する反例の主張であることと、Clayの制度的認定を分ける。公開証明書がない間も条件付き推論と橋渡しの教材は設計可能だが、証明書の実在確認を省いて無条件の完成を宣言しない。
+
+### 3.12 RH/GRH：形式証明の認証と数学的再構成
+
+- [Lean FRO・Mathlib共同声明（11月21日）](https://leanprover-community.github.io/blog/posts/riemann-hypothesis/) はMathlib標準RH命題との一致・全体のコンパイル・複数kernelによる検査を認証した。[MIT Sutherlandの検証（11月23日23:45 UTC）](https://math.mit.edu/~drew/grh/) では5主要定理の標準3公理への依存、独立sandbox buildと同一export、複数kernel、lean4lean、およびcon-leche/con-ronの5定理のstatement比較が報告されている。別版lake comparatorの実行はその時点で継続中。共同声明のRHと独立検証のDirichlet GRHの範囲を区別する。
+- [Rubinsteinの解説一覧](https://www.math.uwaterloo.ca/~mrubinst/alpoge_claude_grh/) の11月22日v2は265頁で、主不等式(M)を13仮定へ還元するが、それらの無条件の証明は掲載していない。形式認証が自然言語による全補題の再構成を意味するわけではない。
+- EOMRHは零点主張の正確な量化、標準RHとDirichlet GRHの差、仮定の追加で別命題になる例、Leanの公理・statement照合の小実験を中心にする。全Hecke・保型L関数へのGRHを直接証明したとしない。証明の算術機構と13仮定の詳細は[RHP全23講](DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md)を正本とし、EOMの完成条件に未実装RHP全講の完成を要求しない。Clayの認定は別欄に置く。
+- [Taoの11月20日概観](https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/)に挙げられた三成果を同じ証拠台帳で比較する。原著者の数学的主張、著者の形式化、第三者の検証、自然言語の理解、査読・制度的認定のどの段階にあるかを講義時点で固定する。
+
 ## 4. EOM各章の統一フォーマットと検証状態
 
 各講は次を基本形とする。family の前段講と後段講で不要に重複させない。
@@ -187,6 +227,10 @@ result family は成果群識別子であって講数ではない。268 は Open
 
 ### 標準教科書
 
+- Andrew J. Majda and Andrea L. Bertozzi, *Vorticity and Incompressible Flow* (Cambridge University Press, 2002): Eulerの渦度・Lagrange座標・局所存在と特異点判定の入口。EOMEULERA/Bの準備。
+- Pierre-Gilles Lemarié-Rieusset, *The Navier–Stokes Problem in the 21st Century* (CRC Press, 2016): 弱解・臨界空間・正則性・自己相似性の既知部分。EOMNSBUAの準備。
+- Ramon E. Moore, R. Baker Kearfott and Michael J. Cloud, *Introduction to Interval Analysis* (SIAM, 2009): 区間包含・丸め・検証付き数値計算の小例。EOMNSBUBで証明書と近似値を区別するための入口。
+
 - Pertti Mattila, [Geometry of Sets and Measures in Euclidean Spaces](https://www.cambridge.org/core/books/geometry-of-sets-and-measures-in-euclidean-spaces/3E3DDE579ABAEEC863B8964D68DCC72F): Hausdorff測度、energy、射影、rectifiability。GMT科目の入口と停止線。
 - Pertti Mattila, [Fourier Analysis and Hausdorff Dimension](https://www.cambridge.org/core/books/fourier-analysis-and-hausdorff-dimension/78A25BED2C6E4F9B911971305DC928B0): Fourier、energy、次元・射影の連結。
 - Yuri Matiyasevich, [Hilbert's 10th Problem](https://mitpress.mit.edu/9780262132954/hilberts-10th-problem/): 整数上の非決定可能性。$\mathbb Q$ 上の新主張とは分離。
@@ -204,6 +248,10 @@ result family は成果群識別子であって講数ではない。268 は Open
 
 ### 2026年原資料
 
+- Euler-BU: [arXiv原論文](https://arxiv.org/abs/2611.26772)、[著者のLean・spine対応](https://github.com/mcoiculescu/EulerBlowupPublic)、[Tao 11月23日解説](https://terrytao.wordpress.com/2026/11/23/finite-time-singularity-formation-for-the-three-dimensional-euler-equations/)。
+- NS-BU: [11月20日論文・Lean・検証範囲](https://github.com/tristanbuckmaster/navier-stokes)、[形式statementと原論文の対応](https://github.com/tristanbuckmaster/navier-stokes/blob/main/lean/README.md)。
+- RH/GRH: [原著者の告知](https://alpo.ge/remark.pdf)、[Lean/Mathlib共同声明](https://leanprover-community.github.io/blog/posts/riemann-hypothesis/)、[Waterloo解説・検証](https://www.math.uwaterloo.ca/~mrubinst/alpoge_claude_grh/)、[MIT独立検証](https://math.mit.edu/~drew/grh/)、[Clay公式問題](https://www.claymath.org/millennium/Riemann-Hypothesis/)。
+
 - OpenAI, [mathematics release / catalogue / verification history](https://github.com/openai/math): familyとmanuscriptの区別、Lean artefact、更新履歴。公開元も未形式化成果に問題があり得ると明記する。
 - 074: [3D Kakeya maximal](https://github.com/openai/math/tree/main/preprints/The-Kakeya-maximal-conjecture-in-three-dimensions-September-23-2026) / [4D Hausdorff dimension](https://github.com/openai/math/tree/main/preprints/Every-four-dimensional-Kakeya-set-has-full-Hausdorff-dimension-September-24-2026)。
 - 017: [無理数度原論文](https://github.com/openai/math/tree/main/preprints/The-irrationality-exponent-of-pi-is-2-September-24-2026) / [Lean scope](https://github.com/openai/math/blob/main/lean/docs/017.md)。
@@ -215,21 +263,24 @@ result family は成果群識別子であって講数ではない。268 は Open
 - 378: [ETH反証 原論文](https://github.com/openai/math/tree/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026) / [Lean scope](https://github.com/openai/math/blob/main/lean/docs/378.md) / [10月26日公式説明](https://openai.com/index/building-scientific-understanding-with-academic-communities/)。
 - YM/QCD: [OpenAI 10月26日発表](https://openai.com/index/building-scientific-understanding-with-academic-communities/) / [Yang–Mills group 現行資料](https://github.com/yang-mills-group/YM)（10月28日提出版に対する11月10日付 first assessment、改訂提出版は別扱い） / [Clay 公式問題](https://www.claymath.org/millennium/yang-mills-the-maths-gap/)。QCDと統一模型はpure YM査定から外挿しない。
 
-資料確認基準日は **2026-11-19**（従来5 familyの記述の起点は2026-11-09、追加3件の前回構成は2026-11-18）。この一覧は全9 family の査読付き出版・証明完了認定ではない。Yang–Mills group の2026-11-10 assessment は明示した版の**限定的な独立評価**であり、他の family やQCDの検証完了を意味しない。本文執筆時は原論文・提出版のSHA・対象 theorem と形式化・評価範囲を再点検する。
+追加3群とYM再照合の資料確認基準日は **2026-11-24 JST**（既存群の前回確認は2026-11-19、従来5 familyの記述の起点は2026-11-09、追加3件の前回構成は2026-11-18）。この一覧は全12 family の査読付き出版・証明完了認定ではない。Yang–Mills group の2026-11-10 assessment は明示した版の**限定的な独立評価**であり、他の family やQCDの検証完了を意味しない。本文執筆時は原論文・提出版のSHA・対象 theorem と形式化・評価範囲を再点検する。
 
 ## 6. 完成条件
 
-- [ ] EOM manifest に**31講**を順序・ID・prerequisite付きで登録し、実際に完成した章のみ completed とする。
+- [ ] EOM manifest に**39講**を順序・ID・prerequisite付きで登録し、実際に完成した章のみ completed とする。
 - [ ] 各章の本文・chapter.yaml・knowledge.yaml と prerequisite・stable anchor が対応する。
 - [ ] 全主要定義、主定理、核心の中間補題、演習と詳細解答が独習者に再構成可能な粒度にある。
-- [ ] **9 family** で主張・証明 artifact・形式化・独立査読・出版・賞を混同せず、基準日と未確認事項を示す。
+- [ ] **12 family** で主張・証明 artifact・形式化・独立査読・出版・賞を混同せず、基準日と未確認事項を示す。
 - [ ] 079A–B・378A–B・YMA–C・QCDA・268A/B/E の**橋渡し11講**で不足する基礎概念を導入し、QFT/AQFT・CMP・HA/GMT・SM等の既存成果は参照・重複抑制する。
 - [ ] 079 と074のKakeya重複を解消し、restriction・Bochner–Riesz 等の指数・端点の差を原論文/Leanで照合する。
 - [ ] 268A–E・268 の6講で周期鎖と境界場付き開放鎖のギャップ、田崎氏の条件付きSPT/指数同値性、無限鎖の**並進不変**一意性を区別し、証明書の再計算・解析的証明・第三者検証の証拠台帳を付ける。
 - [ ] 378 の原論文とLeanで異なる時間指数を照合し、ETH反証とP vs NPを混同しない。
 - [ ] 4D pure YMの存在・無限体積極限の一意性・正の質量ギャップ・QCD/統一模型を分離し、2026-11-10 assessmentを過大評価しない。
 - [ ] GMT からの canonical prerequisite を満たし、Kakeya の集合版・次元版・最大作用素版とlocal smoothingの論理的帰結を混同しない。
-- [ ] 今回確定した9 family の外へEOMを無制限に増やさず、独立した基礎科目は正規PLANで扱う。
+- [ ] 今回確定した12 family の外へEOMを無制限に増やさず、独立した基礎科目は正規PLANで扱う。
+- [ ] Euler-BUの4講で波の増幅、endpoint問題、残差・多重尺度、極限と特異点を分離し、紙面とLeanの対応・差を記録する。
+- [ ] NS-BUの3講でprofileからbreakdownへの条件付き推論を追い、数値証明書本体・区間演算・patched版ビルドの確認状況を分ける。未公開入力を既証明扱いしない。
+- [ ] RH/GRHの横断1講で形式認証と自然言語証明の射程を比較し、RHPへの導線を維持する。RHPの23講を重複実装しない。
 - [ ] DREAM THEATER の変更区分別査読、concept / knowledge / exercise / KaTeX / formal statement / Pages link 検証と公開導線を完了する。
 - [ ] 未実装章を公開目次へ先行登録せず、PLAN を重複配置しない。
 
@@ -255,6 +306,6 @@ EOM268Aの線形代数・量子スピン行列の直接計算を出発点とし�
 
 ### 7.2 着手・完成の判定
 
-今回行うのは**PLANへの正式採択・章割り・前提設計**までである。EOMの章本文・章別chapter.yaml/knowledge.yaml・manifest・公開導線は未着手として扱い、最初の実装単位で plans_progress に移してEOM系列を全31講で登録する。講義内では定理・証明の全依存、有限計算の再現条件、場合分けされた基底状態の一意性の量化を検査する。原論文の評価に疑義が残る場合は明記し、教材で無条件の既知定理にしない。
+今回行うのは**PLANへの正式採択・章割り・前提設計**までである。EOMの章本文・章別chapter.yaml/knowledge.yaml・manifest・公開導線は未着手として扱い、最初の実装単位で plans_progress に移してEOM系列を当時の31講で登録する設計だった（現行は第1節の39講を登録する）。講義内では定理・証明の全依存、有限計算の再現条件、場合分けされた基底状態の一意性の量化を検査する。原論文の評価に疑義が残る場合は明記し、教材で無条件の既知定理にしない。
 
-資料確認基準日: **2026-11-19**。268はOpenAIカタログの結果IDであり、講数ではない。
+この採択時点の資料確認基準日: **2026-11-19**。268はOpenAIカタログの結果IDであり、講数ではない。
