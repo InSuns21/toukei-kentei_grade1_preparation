@@ -120,7 +120,7 @@ function emit(s){canvas.dispatchEvent(new CustomEvent('fcg14-progress',{detail:{
 function pause(){playing=false;if(timer!==null)clearTimeout(timer);timer=null;emit(sim.state());}
 function step(){pause();if(sim.state().time<4-1e-9)sim.advance();emit(draw());}
 function reset(){pause();sim.reset();emit(draw());}
-function play(){if(playing||sim.state().time>=4-1e-9)return;playing=true;emit(sim.state());
+function play(){if(playing)return;if(sim.state().time>=4-1e-9){sim.reset();draw();}playing=true;emit(sim.state());
  function tick(){if(!playing)return;try{if(!document.hidden){sim.advance();const s=draw();if(s.time>=4-1e-9){pause();return;}emit(s);}timer=setTimeout(tick,60);}catch(e){pause();canvas.dispatchEvent(new CustomEvent('fcg14-failure',{detail:String(e)}));}}
  timer=setTimeout(tick,60);
 }

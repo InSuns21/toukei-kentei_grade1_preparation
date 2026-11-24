@@ -56,7 +56,7 @@ const fcgTimeLab = isFCG9 || isFCG10 || isFCG11 || isFCG12;
 const fcgTimeMax = isFCG9 ? 24 : isFCG10 ? 6 : isFCG11 ? 1.8 : 3;
 const isFCG14 = lesson === 'FCG14';
 const isFCG13 = lesson === 'FCG13';
-const fcgOutputLab = isFCG8 || fcgTimeLab || isFCG13;
+const fcgOutputLab = isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8 || fcgTimeLab || isFCG13 || isFCG14;
 const fcgOutputMotion = fcgOutputLab ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
 const isWGL2 = lesson === 'WGL2';
 const isWGL3 = lesson === 'WGL3';
@@ -249,7 +249,7 @@ function selectTab(name, focus = false) {
   // FCG5 keeps the single source-linked parameter panel next to the
   // observation when running, and returns it to Conditions on other tabs.
   if(isFCG5||isFCG7||fcgOutputLab){
-    const parameters=byId('lab-parameters'),result=byId(fcgOutputLab?'fcg-output-parameters':isFCG7?'fcg7-result-parameters':'fcg5-result-parameters');
+    const parameters=byId('lab-parameters'),result=byId(isFCG7?'fcg7-result-parameters':isFCG5?'fcg5-result-parameters':'fcg-output-parameters');
     const parent=name==='result'&&result?result:byId('panel-conditions');
     if(parameters&&parameters.parentElement!==parent)parent.append(parameters);
   }
@@ -476,7 +476,7 @@ function stop(message = '停止しました。実行 iframe を破棄しまし�
     for(const button of document.querySelectorAll('#fcg-time-live button'))button.disabled=true;
   }
   if(isFCG14){
-    const view=byId('fcg14-live-state');if(view){view.textContent='未実行';delete view.dataset.time;}
+    const view=byId('fcg14-live-state');if(view){view.textContent='未実行';delete view.dataset.time;delete view.dataset.playing;}
     for(const button of document.querySelectorAll('#fcg14-live button'))button.disabled=true;
   }
   if(isFCG13){
@@ -1099,13 +1099,15 @@ window.addEventListener('message', event => {
       ' / 煙収支誤差 '+data.massError.toExponential(2)+' m² / 熱収支誤差 '+data.heatError.toExponential(2)+' K m²'+
       ' / 最大発散 '+data.div.toExponential(2)+' s⁻¹';
     byId('fcg14-live-state').dataset.time=String(data.time);
-    byId('fcg14-play').disabled=data.playing||data.time>=4-1e-9;
+    byId('fcg14-live-state').dataset.playing=String(data.playing);
+    byId('fcg14-play').disabled=data.playing;
     byId('fcg14-pause').disabled=!data.playing;
     byId('fcg14-step').disabled=data.playing||data.time>=4-1e-9;
     byId('numeric-note').textContent='下のGPU画素表は設定時刻の初期検算。現在時刻の重心と収支は上の欄に表示。';
     return;
   }
   if(isFCG14&&data.type==='fcg14-control-error'){
+    active.completed=false;
     setStatus('FCG14 再生エラー: '+String(data.message).slice(0,300),true);
     for(const button of document.querySelectorAll('#fcg14-live button'))button.disabled=true;
     return;
@@ -1468,7 +1470,7 @@ window.addEventListener('message', event => {
      const fcg14Physics=isFCG14 ? fcg14PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment) : null;
      const fcg13Physics=isFCG13 ? fcg13PhysicsFor(active.payload.js,active.payload.vertex,active.payload.fragment) : null;
      const verifiedComparison=unchanged||!!fcg13Physics||!!fcg10Physics||!!fcg9Physics||!!fcg4Physics||!!fcg2Physics||!!fcg3Physics||!!fcg5Physics||!!fcg6Physics||!!fcg8Physics||!!fcg11Physics||!!fcg12Physics||!!fcg14Physics;
-    const rows = (isFCG14 ? (got,w,h)=>compareFCG14Readback(got,w,h,fcg14Physics||{}) : isFCG13 ? (got,w,h)=>compareFCG13Readback(got,w,h,fcg13Physics||{}) : isFCG12 ? (got,w,h)=>compareFCG12Readback(got,w,h,fcg12Physics||{}) : isFCG11 ? (got,w,h)=>compareFCG11Readback(got,w,h,fcg11Physics||{}) : isFCG10 ? (got,w,h)=>compareFCG10Readback(got,w,h,fcg10Physics||{}) : isFCG9 ? (got,w,h)=>compareFCG9Readback(got,w,h,fcg9Physics||{}) : isWGL20 ? compareWGL20Readback : isFCG8 ? (got,w,h)=>compareFCG8Readback(got,w,h,active.payload.steps,2,fcg8Physics||{}) : isFCG7 ? (got,w,h)=>compareFCG7Readback(got,w,h,active.payload.steps) : isFCG6 ? (got,w,h)=>compareFCG6Readback(got,w,h,active.payload.steps,2,fcg6Physics||{}) : isFCG5 ? (got,w,h)=>compareFCG5Readback(got,w,h,active.payload.steps,2,fcg5Physics||{}) : isFCG4 ? (got,w,h)=>compareFCG4Readback(got,w,h,active.payload.steps,2,{N:active.payload.fcg4Grid||32}) : isFCG3 ? (got,w,h)=>compareFCG3Readback(got,w,h,active.payload.steps,2,fcg3Physics?.N??32,fcg3Physics?.radius??0.14) : isFCG2 ? (got,w,h)=>compareFCG2Readback(got,w,h,active.payload.steps) : isWGL19 ? (got,w,h)=>wgl19Valid ? compareWGL19Readback(got,w,h,2,wgl19Params.rate,wgl19Params.steps) : compareWGL19Readback(got,w,h) : isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
+    const rows = (isFCG14 ? (got,w,h)=>compareFCG14Readback(got,w,h,fcg14Physics||{}) : isFCG13 ? (got,w,h)=>compareFCG13Readback(got,w,h,fcg13Physics||{}) : isFCG12 ? (got,w,h)=>compareFCG12Readback(got,w,h,fcg12Physics||{}) : isFCG11 ? (got,w,h)=>compareFCG11Readback(got,w,h,fcg11Physics||{}) : isFCG10 ? (got,w,h)=>compareFCG10Readback(got,w,h,fcg10Physics||{}) : isFCG9 ? (got,w,h)=>compareFCG9Readback(got,w,h,fcg9Physics||{}) : isWGL20 ? compareWGL20Readback : isFCG8 ? (got,w,h)=>compareFCG8Readback(got,w,h,active.payload.steps,2,fcg8Physics||{}) : isFCG7 ? (got,w,h)=>compareFCG7Readback(got,w,h,active.payload.steps) : isFCG6 ? (got,w,h)=>compareFCG6Readback(got,w,h,active.payload.steps,2,fcg6Physics||{}) : isFCG5 ? (got,w,h)=>compareFCG5Readback(got,w,h,active.payload.steps,2,fcg5Physics||{}) : isFCG4 ? (got,w,h)=>compareFCG4Readback(got,w,h,active.payload.steps,2,{N:active.payload.fcg4Grid||32}) : isFCG3 ? (got,w,h)=>compareFCG3Readback(got,w,h,active.payload.steps,2,fcg3Physics?.N??32,fcg3Physics?.radius??0.14) : isFCG2 ? (got,w,h)=>compareFCG2Readback(got,w,h,active.payload.steps,2,fcg2Physics||{}) : isWGL19 ? (got,w,h)=>wgl19Valid ? compareWGL19Readback(got,w,h,2,wgl19Params.rate,wgl19Params.steps) : compareWGL19Readback(got,w,h) : isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
       samples, active.payload.width, active.payload.height);
     showTable(rows, verifiedComparison);
     byId('result-note').textContent = 'GPUへ描画しました。コードや条件を変えて再実行できます。';
@@ -1711,8 +1713,10 @@ window.addEventListener('message', event => {
   }
   if(fcgOutputLab&&active?.completed&&active.resumePlayback&&!fcgOutputMotion.matches){
     active.resumePlayback=false;
-    if(isFCG8)fcg8Control('play');
-    else active.frame.contentWindow.postMessage({type:isFCG13?'fcg13-control':'fcg-time-control',action:'play',
+    if(isFCG2)fcg2Control('play');
+    else if(isFCG7)fcg7Control('play');
+    else if(isFCG8)fcg8Control('play');
+    else if(fcgTimeLab||isFCG13||isFCG14)active.frame.contentWindow.postMessage({type:isFCG14?'fcg14-control':isFCG13?'fcg13-control':'fcg-time-control',action:'play',
       requestId:active.id,generation:active.generation,session:active.session},'*');
   }
 });
@@ -1721,11 +1725,12 @@ function run(options = {}) {
   // A parameter commit rebuilds the same editable sandbox. Preserve playback
   // intent, except when the user explicitly selects a snapshot time/phase.
   const parameterChange=options.parameterChange;
-  const wasPlaying=!!active?.completed && (isFCG8?fcg8Playing:
+  const wasPlaying=!!active?.completed && (isFCG2?fcg2Playing:isFCG7?fcg7Playing:isFCG8?fcg8Playing:
+    isFCG14?byId('fcg14-live-state').dataset.playing==='true':
     isFCG13?byId('fcg13-live-state').dataset.playing==='true':
     fcgTimeLab?byId('fcg-time-state').dataset.playing==='true':false);
   const resumePlayback=fcgOutputLab&&!fcgOutputMotion.matches&&
-    (parameterChange ? wasPlaying&&!['time','phase','steps'].includes(parameterChange) : isFCG13);
+    (parameterChange ? wasPlaying&&!['time','phase','steps'].includes(parameterChange) : (isFCG13||isFCG14));
   selectTab('result');
   stop('実行準備中');
   if (!ready) { setStatus('教材ソースがまだ読み込まれていません', true); return; }
@@ -2115,7 +2120,7 @@ if(isFCG14){
       requestId:active.id,generation:active.generation,session:active.session},'*');
   };
   for(const action of ['play','pause','step','reset'])byId('fcg14-'+action).addEventListener('click',()=>control(action));
-  // Explicit play only; pause an ongoing session if reduced-motion becomes active.
+  // Start after explicit Run and initial readback; pause if reduced-motion becomes active.
   const motion=window.matchMedia('(prefers-reduced-motion: reduce)');
   motion.addEventListener('change',event=>{if(event.matches)control('pause');});
   const fallback=document.createElement('p');
@@ -2997,8 +3002,11 @@ if (['FCG3','FCG5','WGL5','WGL9','WGL12'].includes(lesson) || ['FCG6','WGL11','W
 // or alternate model. On Conditions it returns to its original location.
 if(fcgOutputLab){
   document.querySelector('main').classList.add('fcg-output-lab');
-  const stage=document.createElement('div');stage.className='fcg-output-stage';
-  const canvasSlot=byId('canvas-slot');canvasSlot.before(stage);stage.append(canvasSlot);
+  const canvasSlot=byId('canvas-slot');
+  // FCG2 already owns a two-column stage; reuse it instead of nesting grids.
+  const stage=isFCG2?canvasSlot.parentElement:document.createElement('div');
+  stage.classList.add('fcg-output-stage');
+  if(!isFCG2){canvasSlot.before(stage);stage.append(canvasSlot);}
   const dock=document.createElement('aside');dock.id='fcg-output-parameters';
   dock.setAttribute('aria-label','描画を見ながら実験パラメータを変更');
   const details=document.createElement('button');details.type='button';details.className='action fcg-parameter-details';
@@ -3010,8 +3018,22 @@ if(fcgOutputLab){
     details.textContent=expanded?'値域・コード位置を隠す':'値域・コード位置を表示';
   });
   const note=document.createElement('p');note.className='fcg-output-note';
-  note.textContent='操作を確定すると同じ編集JSで再計算。再生中の条件変更は設定時刻から再開します。時刻・位相の指定は停止して比較します。';
-  dock.append(details,note);stage.append(dock);
+  note.textContent=isFCG3||isFCG4||isFCG5||isFCG6
+    ?'操作を確定すると同じ編集JSで再計算し、各ラボの初期条件・再生操作に従います。'
+    :'操作を確定すると同じ編集JSで再計算。再生中の条件変更は設定時刻から再開します。時刻・位相の指定は停止して比較します。';
+  dock.append(details,note);
+  // Preserve existing source-panel hooks for FCG5/7.
+  const existing=byId(isFCG5?'fcg5-result-parameters':isFCG7?'fcg7-result-parameters':'');
+  if(existing){existing.replaceChildren();dock.append(existing);}
+  if(isFCG2){
+    const inspector=byId('fcg2-inspector');
+    stage.append(dock);dock.append(inspector);
+  }else stage.append(dock);
+  fcgOutputMotion.addEventListener('change',event=>{
+    if(!event.matches)return;
+    if(isFCG2){fcg2Pending=null;fcg2Control('pause');}
+    if(isFCG7){fcg7Pending=null;fcg7Control('pause');}
+  });
 }
 mountVisualGuide(lesson,byId('panel-conditions'),{run,focusResult:selectTab});
 load();

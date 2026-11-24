@@ -17,7 +17,7 @@
 @media (max-width:400px){main{padding:6px}.tabs button{padding:6px 8px}}
 </style>
 </head>
-<body><main>
+<body><main class="fcg-output-lab">
 <h1>FCG1 速度場から流線・流跡線を描く</h1>
 <p>速度場を切り替えて粒子を動かし、瞬時流線と流跡線を同じ座標で比べます。描画と時間更新には編集可能なJavaScriptを使います。</p>
 <div class="tabs" role="tablist" aria-label="ラボの3タブ">
@@ -45,11 +45,11 @@
 <button type="button" class="action" id="fcg1-edit-velocity">velocity() を編集</button>
 </div>
 <details class="visual-guide-details"><summary>線種と実行方法</summary>
-<p>実線は粒子IDごとのEuler追跡、点線は現在時刻に固定した流線、破線は解析流跡です。設定やソースの変更は「実行・リセット」で反映し、保存したソースは自動実行しません。</p>
+<p>実線は粒子IDごとのEuler追跡、点線は現在時刻に固定した流線、破線は解析流跡です。結果画面の実験パラメータは変更時に反映し、ソース編集は「実行・リセット」で反映します。保存したソースは自動実行しません。</p>
 </details>
 </section>
-<h2>実験条件</h2>
-<div class="controls">
+<div id="fcg1-conditions-home"><div id="lab-parameters" class="lab-parameters"><h2>実験パラメータ</h2>
+<div class="controls fcg1-parameters">
 <label>解析速度場
 <select id="field">
 <option value="rotation">定常回転 u=(-y,x)</option>
@@ -64,7 +64,7 @@
 <option value="0.25">0.25</option>
 </select></label>
 </div>
-<p class="legend">入力：<code>settings.mode</code>（速度場）、<code>settings.dt</code> → <code>h</code>（物理step [s]）。初期値は回転流・0.1 s。値域：h は0.025〜0.25 s、ここでは選択肢の4値を使用。<code>tracer.js</code> の <code>velocity()</code> と <code>euler()</code> が実際に動く処理です。</p>
+<details class="fcg1-parameter-details"><summary>値域・コード位置</summary><p class="legend">入力：<code>settings.mode</code>（速度場）、<code>settings.dt</code> → <code>h</code>（物理step [s]）。初期値は回転流・0.1 s。値域：h は0.025〜0.25 s、ここでは選択肢の4値を使用。<code>tracer.js</code> の <code>velocity()</code> と <code>euler()</code> が実際に動く処理です。</p></details></div></div>
 <p>回転流はID1=(1,0) m、ID2=(0,1) mから出発。せん断流はID1=(0,0) m、ID2=(0,0.5) mから出発します。物理時刻0〜2.5秒までの運動学を追跡します。</p>
 <ol>
 <li>初期ソースで「実行・リセット」→「1step」を繰り返す。粒子IDと物理時刻を確認する。</li>
@@ -85,7 +85,7 @@
 <section id="panel-result" role="tabpanel" aria-labelledby="tab-result" hidden>
 <p id="status" role="status" aria-live="polite">準備中</p>
 <div class="legend" aria-label="線種の凡例"><span>実線＝数値の流跡</span><span>点線＝現在時刻の流線</span><span>破線＝厳密流跡</span></div>
-<div id="canvas-slot" aria-label="流線・流跡の数値描画"></div>
+<div class="fcg-output-stage"><div id="canvas-slot" aria-label="流線・流跡の数値描画"></div><aside id="fcg-output-parameters" aria-label="描画を見ながら実験パラメータを変更"><p class="fcg-output-note">設定変更で時刻0から再計算します。再生中は再開します。</p></aside></div>
 <p id="fcg1-scene-info" role="status" aria-live="polite">物理時刻 0 s・0 step。描画バッファ660×410 px、座標[m]。</p>
 <p id="fcg1-pending" role="status" aria-live="polite"></p>
 <div class="controls"><button id="fcg1-edit-euler" type="button" class="action">euler() を編集</button></div>

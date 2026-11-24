@@ -79,6 +79,7 @@ try {
   };
   await cdp('Runtime.enable');await cdp('Page.enable');
   await cdp('Emulation.setDeviceMetricsOverride',{width:1280,height:900,deviceScaleFactor:1,mobile:false});
+  await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
   await cdp('Page.navigate',{url});
   await waitFor('document.getElementById("status")?.textContent==="実行できます"');
   assert.deepEqual(await evaluate('([Number(document.querySelector("#width").value),Number(document.querySelector("#height").value)])'),[960,480]);
@@ -101,6 +102,8 @@ try {
   await evaluate('document.getElementById("run").click()');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")');
   const initial=await check();
+  assert.ok(await evaluate('document.querySelector("#panel-result #fcg-output-parameters #lab-parameters") && document.querySelectorAll("#lab-parameters").length===1 && document.getElementById("parameter-buoyancy").getBoundingClientRect().width>40'));
+  await waitFor('document.getElementById("fcg14-live-state").dataset.playing==="false"');
   assert.ok(initial.rows.length>=4);
   assert.match(initial.scene,/1 m四方/);
   await waitFor('Number(document.getElementById("fcg14-live-state").dataset.time)===1');
@@ -124,7 +127,7 @@ try {
   await waitFor('Number(document.getElementById("fcg14-live-state").dataset.time)===0');
   assert.notEqual(first,await capture('reset'));
   const control=async(id,value,pattern)=>{
-    await evaluate('document.getElementById("tab-conditions").click()');
+    assert.ok(await evaluate('document.querySelector("#panel-result #fcg-output-parameters #lab-parameters") && !document.getElementById("panel-result").hidden'));
     await evaluate('(()=>{const input=document.getElementById("parameter-'+id+'");input.value='+JSON.stringify(value)+';input.dispatchEvent(new Event("input",{bubbles:true}));input.dispatchEvent(new Event("change",{bubbles:true}));})()');
     await waitFor('document.querySelector("#status")?.textContent.includes("FCG14 煙・温度の独立画素検算に合格")');
     const s=await check();assert.match(s.source,pattern);return s;
@@ -142,10 +145,26 @@ try {
   await control('heatSource','3',/const heatSource=3;/);
   await control('buoyancy','0.03',/const buoyancy=0.03;/);
   await control('smokeSource','1',/const smokeSource=1;/);
+  // Normal motion: explicit Run starts the same smoke solver; changing a
+  // source-linked parameter during playback rebuilds and resumes it.
+  await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
+  await evaluate('document.getElementById("run").click()');
+  await waitFor('document.getElementById("fcg14-live-state").dataset.playing==="true" && Number(document.getElementById("fcg14-live-state").dataset.time)>1');
+  await control('buoyancy','0.04',/const buoyancy=0.04;/);
+  await waitFor('document.getElementById("fcg14-live-state").dataset.playing==="true" && Number(document.getElementById("fcg14-live-state").dataset.time)>1');
+  await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
+  await waitFor('document.getElementById("fcg14-live-state").dataset.playing==="false"');
+  await evaluate('document.getElementById("fcg14-play").click()');
+  await waitFor('Number(document.getElementById("fcg14-live-state").dataset.time)>=4-1e-9',90000);
+  await evaluate('document.getElementById("fcg14-play").click()');
+  await waitFor('document.getElementById("fcg14-live-state").dataset.playing==="true" && Number(document.getElementById("fcg14-live-state").dataset.time)<1');
+  await evaluate('document.getElementById("fcg14-pause").click()');
+  await waitFor('document.getElementById("fcg14-live-state").dataset.playing==="false"');
   await cdp('Emulation.setDeviceMetricsOverride',{width:360,height:760,deviceScaleFactor:1,mobile:true});
   const narrow=await evaluate('({contentWidth:document.documentElement.scrollWidth,windowWidth:window.innerWidth,canvasWidth:document.querySelector("#canvas-slot iframe")?.getBoundingClientRect().width})');
   assert.ok(narrow.canvasWidth>50&&narrow.canvasWidth<=360,JSON.stringify(narrow));
   assert.ok(narrow.contentWidth<=narrow.windowWidth+2,JSON.stringify(narrow));
+  assert.ok(await evaluate('(()=>{const d=document.getElementById("fcg-output-parameters").getBoundingClientRect(),g=document.getElementById("canvas-slot").getBoundingClientRect();return d.top>=g.bottom-2&&d.width<=innerWidth&&document.getElementById("parameter-buoyancy").getBoundingClientRect().width>40})()'));
   await capture('mobile');
   console.log('FCG14 actual Chromium editable smoke, buoyancy, sources, playback, GPU readback and narrow layout: PASS');
 } finally {

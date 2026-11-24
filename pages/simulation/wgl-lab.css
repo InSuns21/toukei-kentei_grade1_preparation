@@ -272,3 +272,13 @@ button.fcg-parameter-details{padding:.2rem .45rem;font-size:.8rem}
  .fcg-output-stage{grid-template-columns:minmax(0,1fr);gap:4px}
  #fcg-output-parameters{border-left:0;border-top:1px solid #cbd5e1;padding:.4rem 0}
 }
+
+/* FCG1 shares the output dock without changing the tracer's physical model. */
+#fcg-output-parameters .fcg1-parameters{display:grid;grid-template-columns:minmax(0,1fr);gap:.5rem}
+#fcg-output-parameters .fcg1-parameters label{display:grid;gap:.2rem}
+#fcg-output-parameters .fcg1-parameters select{width:100%;min-width:0}
+#fcg-output-parameters .fcg1-parameter-details{font-size:.8rem;overflow-wrap:anywhere}
+.fcg2-stage.fcg-output-stage{grid-template-columns:minmax(0,1fr) minmax(245px,290px)}
+.fcg2-stage.fcg-output-stage #fcg2-inspector{margin-top:.75rem;border:0;background:transparent;padding:.25rem 0}
+#fcg-output-parameters .fcg5-preset-row button{grid-column:1/-1}
+@media(max-width:720px){.fcg2-stage.fcg-output-stage{grid-template-columns:minmax(0,1fr)}}

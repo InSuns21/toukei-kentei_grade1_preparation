@@ -55,10 +55,20 @@ function focusSource(term) {
 }
 el('fcg1-edit-velocity').addEventListener('click', () => focusSource('function velocity('));
 el('fcg1-edit-euler').addEventListener('click', () => focusSource('function euler('));
-for (const id of ['field','dt']) el(id).addEventListener('change', pendingSettings);
+const motionPreference=window.matchMedia('(prefers-reduced-motion: reduce)');
+motionPreference.addEventListener('change',event=>{if(event.matches){if(active)active.resumePlayback=false;pause();}});
+for (const id of ['field','dt']) el(id).addEventListener('change', () => {
+  if(ready&&!el('panel-result').hidden){
+    const resumePlayback=interval!==null||!!active?.resumePlayback;
+    run({resumePlayback});
+  }else pendingSettings();
+});
 editor.addEventListener('input', pendingSettings);
 
 function selectTab(name, focus = false) {
+  const parameters=el('lab-parameters');
+  const parent=el(name==='result'?'fcg-output-parameters':'fcg1-conditions-home');
+  if(parameters.parentElement!==parent)parent.append(parameters);
   for (const tab of tabs) {
     const selected = tab === name;
     const button = el('tab-' + tab);
@@ -307,6 +317,7 @@ window.addEventListener('message', event => {
     active.initialized = true;
     clearTimeout(active.timeout); active.timeout = null;
     setStatus('Canvas2D実行準備完了。1stepまたは再生を押してください。');
+    if(active.resumePlayback&&!motionPreference.matches){active.resumePlayback=false;interval=setInterval(sendStep,150);}
     return;
   }
   if (msg.type === 'complete') {
@@ -355,7 +366,7 @@ window.addEventListener('message', event => {
   }
 });
 
-function run() {
+function run(options={}) {
   selectTab('result');
   stop('隔離実行環境を準備中');
   // A new execution must not display the prior run's numeric rows.
@@ -381,6 +392,7 @@ function run() {
   const id = ++generation;
   active = {id, generation: id, frame, payload, sent: false,
     initialized: false, busy: false, steps: 0, messages: 0, session,
+    resumePlayback: !!options.resumePlayback,
     timeout: setTimeout(() => {
       if (active?.generation !== id) return;
       stop('実行開始が6秒を超えたため隔離環境を破棄しました');
@@ -397,6 +409,7 @@ el('play').addEventListener('click', () => {
   setStatus('物理stepを一定間隔で実行中。停止してもCanvasの描画フレーム数は物理時刻に含みません。');
 });
 el('pause').addEventListener('click', () => {
+  if(active)active.resumePlayback=false;
   pause(); setStatus('一時停止しました（物理状態は保持）');
 });
 el('stop').addEventListener('click', () => stop());

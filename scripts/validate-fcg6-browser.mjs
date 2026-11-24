@@ -119,6 +119,7 @@ try {
     }
     await click('run');
     await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',90000);
+  assert.ok(await evaluate('document.querySelector("#panel-result #fcg-output-parameters #lab-parameters") && document.querySelectorAll("#lab-parameters").length===1 && document.querySelector("#lab-parameters input[type=range]").getBoundingClientRect().width>40'), 'FCG6 controls visible on output');
     const result=await evaluate('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(x=>x.textContent)),log:document.querySelector("#diagnostics").textContent,frame:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox"),info:document.querySelector("#scene-info")?.textContent||document.querySelector(".scene-info")?.textContent||"",pageWidth:document.querySelector("main")?.getBoundingClientRect().width})');
     assert.equal(result.rows.length,9,'FCG6 actual WebGL2 readback count');
     assert.ok(result.rows.every(r=>r[4]==='OK'),JSON.stringify(result.rows));
@@ -130,6 +131,7 @@ try {
     const box=await evaluate('(() => {const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {left:r.left,right:r.right,width:r.width,height:r.height};})()');
     assert.ok(box.width>80&&box.height>20,'real result iframe is visible');
     assert.ok(box.left>=-2&&box.right<=width+8,'GPU canvas horizontal overflow: '+JSON.stringify(box));
+    if(width===360)assert.ok(await evaluate('(()=>{const d=document.getElementById("fcg-output-parameters").getBoundingClientRect(),g=document.getElementById("canvas-slot").getBoundingClientRect();return d.top>=g.bottom-2&&d.width<=innerWidth})()'));
     // Wait for the post-readback live scene, then exercise actual sandbox input.
     await evaluate('new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))');
     if(width===1280){

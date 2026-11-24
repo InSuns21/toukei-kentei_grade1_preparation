@@ -91,6 +91,7 @@ try {
   assert.match(await evaluate('document.querySelector("#fragment-source").value'),/texelFetch/);
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
+  assert.ok(await evaluate('document.querySelector("#panel-result #fcg-output-parameters #lab-parameters") && document.querySelectorAll("#lab-parameters").length===1 && document.querySelector("#lab-parameters input[type=range]").getBoundingClientRect().width>40'), 'FCG4 controls visible on output');
   const initial=await evaluate('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(x=>x.textContent)),log:document.querySelector("#diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox"),opaque:(()=>{try{return !!document.querySelector("#canvas-slot iframe").contentWindow.document.body}catch{return true}})()})');
   assert.equal(initial.rows.length,9);
   assert.ok(initial.rows.every(r=>r[4]==='OK'),JSON.stringify(initial.rows));

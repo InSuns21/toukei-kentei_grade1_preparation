@@ -161,14 +161,13 @@ try {
     assert.ok(rows.every(r=>r[5]==='一致'),mode+' CPU reference mismatch');
     console.log('FCG1 '+mode+' physical stepping and independent Euler oracle: PASS');
   }
-  // A changed form value does not secretly alter an already running physical model.
+  // A result-side change rebuilds the same editable physical model at t=0.
   await evaluate('(()=>{const e=document.getElementById("dt");e.value="0.05";e.dispatchEvent(new Event("change",{bubbles:true}));})()');
-  assert.match(await evaluate('document.getElementById("fcg1-pending").textContent'),/実行・リセット/);
-  assert.match(await evaluate('document.getElementById("fcg1-scene-info").textContent'),/h=0.1 s/);
-  await click('run');
+  assert.ok(await evaluate('document.querySelector("#panel-result #fcg-output-parameters #lab-parameters") && document.querySelectorAll("#lab-parameters").length===1 && document.querySelector("#lab-parameters select").getBoundingClientRect().width>40'), 'FCG1 controls visible on output');
   await waitFor('document.getElementById("status")?.textContent.includes("Canvas2D実行準備完了")',22000);
   assert.match(await evaluate('document.getElementById("fcg1-scene-info").textContent'),/h=0.05 s/);
   assert.equal(await evaluate('document.getElementById("fcg1-pending").textContent'),'');
+  assert.match(await evaluate('document.getElementById("fcg1-scene-info").textContent'),/0.000 s・0 step/);
   console.log('FCG1 source-backed settings, explicit rerun and live physical clock: PASS');
 
   // Modifying the actual learner script must change the model, not just the legend.
@@ -212,6 +211,7 @@ try {
   assert.ok(mobileCanvas.width>250 && mobileCanvas.width<=mobileCanvas.innerWidth+2,JSON.stringify(mobileCanvas));
   assert.ok(Math.abs(mobileCanvas.height/mobileCanvas.width-410/660)<0.025,JSON.stringify(mobileCanvas));
   assert.ok(mobileCanvas.scrollWidth<=mobileCanvas.innerWidth+2,JSON.stringify(mobileCanvas));
+  assert.ok(await evaluate('(()=>{const d=document.getElementById("fcg-output-parameters").getBoundingClientRect(),g=document.getElementById("canvas-slot").getBoundingClientRect();return d.top>=g.bottom-2&&document.getElementById("field").getBoundingClientRect().width>40})()'));
   const mobileShot=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
   await writeFile('_fcg1_browser_review/fcg1-mobile.png',Buffer.from(mobileShot.data,'base64'));
   await click('play');
