@@ -9,7 +9,7 @@ test('every implemented shared WGL/FCG lesson has nonempty visual first guide',(
   assert.equal(visualGuideIds.length,ids.length);
   assert.deepEqual(visualGuideIds.slice().sort(),ids.sort());
   for(const [id,parts] of Object.entries(VISUAL_GUIDES)){
-    assert.match(id,/^(?:WGL(?:[1-9]|1[0-9]|20)|FCG(?:[2-9]|1[01234]))$/);
+    assert.match(id,/^(?:WGL(?:[1-9]|1[0-9]|20)|FCG(?:[2-9]|1[012345]))$/);
     assert.equal(parts.length,4,id);
     assert.ok(parts.every(v=>typeof v==='string'&&v.trim().length>=3),id);
   }

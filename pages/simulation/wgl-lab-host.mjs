@@ -1666,6 +1666,7 @@ window.addEventListener('message', event => {
       for(const button of document.querySelectorAll('#fcg-time-live button'))button.disabled=false;
       byId('fcg-time-pause').disabled=true;
       byId('fcg-time-live').querySelector('output').textContent='設定条件・停止中（再生または1ステップで観察）';
+      if(isFCG15)active.frame.contentWindow.postMessage({type:'fcg-time-control',action:'pause',requestId:active.id,generation:active.generation,session:active.session},'*');
     }else if(data.ok){
       setStatus(lesson+' 再生フックがありません。初期ソースを確認してください',true);
     }
