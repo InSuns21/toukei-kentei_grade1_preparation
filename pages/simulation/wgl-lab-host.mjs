@@ -1826,39 +1826,22 @@ if (isFCG6) {
     '<li>描画下の表示を圧力または絶対発散に切り替え、数値診断との関係を見る。</li>';
   byId('preset').options[0].textContent='固体と流れの観察';
   byId('preset').options[1].textContent='fragment構文エラー';
-  const controls=document.createElement('div');controls.className='controls';
-  const step=document.createElement('button'),play=document.createElement('button'),
-    pause=document.createElement('button'),back=document.createElement('button'),
-    marker=document.createElement('output');
-  for(const [button,label] of [[step,'1ステップ'],[play,'再生'],[pause,'一時停止'],[back,'step 0へ戻す']]){
-    button.type='button';button.className='action';button.textContent=label;controls.append(button);
+  const verification=document.createElement('details');
+  const summary=document.createElement('summary');summary.textContent='初期数値検算の条件';
+  const label=document.createElement('label');label.textContent='検算する物理step ';
+  const step=document.createElement('select');step.setAttribute('aria-label','FCG6 初期検算ステップ');
+  for(const n of [0,1,8,24]){
+    const option=document.createElement('option');option.value=String(n);
+    option.textContent=n+'（'+(n*.05).toFixed(2)+' s）';step.append(option);
   }
-  controls.append(marker);byId('run').parentElement.before(controls);
+  step.value=String(fcg6Steps);step.addEventListener('change',()=>{fcg6Steps=Number(step.value);});
+  label.append(step);verification.append(summary,label);
+  byId('run').parentElement.before(verification);
   const preview=document.createElement('p');preview.id='fcg6-cpu-prediction';
   preview.setAttribute('aria-live','polite');
   preview.textContent='GPUが使えない場合も独立CPUの診断値を表示します。';
   byId('panel-result').append(preview);
-  function mark(){
-    marker.textContent='物理step '+fcg6Steps+'/24、時刻 '+(fcg6Steps*0.05).toFixed(2)+'s（描画fpsとは別）';
-    pause.disabled=fcg6Timer===null;play.disabled=fcg6Timer!==null;
-  }
-  function pausePlay(){if(fcg6Timer!==null){clearInterval(fcg6Timer);fcg6Timer=null;}mark();}
-  step.addEventListener('click',()=>{
-    pausePlay();if(fcg6Steps>=24){setStatus('24 stepで上限。step0へ戻してください');return;}
-    fcg6Steps++;mark();run();
-  });
-  play.addEventListener('click',()=>{
-    if(fcg6Timer!==null)return;
-    fcg6Timer=setInterval(()=>{
-      if(fcg6Steps>=24){pausePlay();return;}
-      fcg6Steps++;mark();run();if(fcg6Steps>=24)pausePlay();
-    },1000);mark();
-  });
-  pause.addEventListener('click',pausePlay);
-  back.addEventListener('click',()=>{pausePlay();fcg6Steps=0;mark();run();});
-  byId('reset').addEventListener('click',mark);
-  byId('stop').addEventListener('click',mark);
-  mark();
+  byId('reset').addEventListener('click',()=>{step.value=String(fcg6Steps);});
 }
 if (isFCG5) {
   document.title='FCG5 流体・染料更新：編集・検算ラボ';
