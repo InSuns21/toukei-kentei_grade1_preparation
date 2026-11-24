@@ -115,17 +115,18 @@ report('UPLOAD', 'RGBA8/UNSIGNED_BYTE, UNPACK_ALIGNMENT=1; mipmap generated loca
 // Both views continue to use this exact program, texture and UV uniforms.
 function showObservation() {
   const names = {
-    nearest:'NEAREST', linear:'LINEAR',
-    'nearest-mip-nearest':'NEAREST_MIPMAP_NEAREST',
-    'linear-mip-nearest':'LINEAR_MIPMAP_NEAREST',
-    'nearest-mip-linear':'NEAREST_MIPMAP_LINEAR',
-    mipmap:'LINEAR_MIPMAP_LINEAR'
+    nearest:'最近傍', linear:'線形',
+    'nearest-mip-nearest':'最近傍・ミップ1段',
+    'linear-mip-nearest':'線形・ミップ1段',
+    'nearest-mip-linear':'最近傍・ミップ2段',
+    mipmap:'線形・ミップ2段'
   };
   let left=leftMinFilter, right=rightMinFilter, wrap=wrapMode;
   let density=repeats, mode='floor', shift=0, playing=false, last=null, raf=0;
   let lost=false;
   const motion=window.matchMedia('(prefers-reduced-motion: reduce)');
   const panel=document.createElement('div');
+  panel.id='wgl7-observation-controls';
   panel.style.cssText='padding:6px 8px;font:13px/1.45 system-ui;color:#152637;background:#fff';
   const top=document.createElement('div');
   top.style.cssText='display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center';
@@ -139,7 +140,7 @@ function showObservation() {
     for(const [key,title] of Object.entries(options)){
       const o=document.createElement('option');o.value=key;o.textContent=title;el.append(o);
     }
-    el.value=value;el.addEventListener('change',()=>{change(el.value);render();});
+    el.value=value;el.setAttribute('aria-label',label);el.addEventListener('change',()=>{change(el.value);render();});
     l.append(el);parent.append(l);
     return el;
   }
@@ -148,7 +149,7 @@ function showObservation() {
   const densityLabel=document.createElement('label');
   const densityText=document.createElement('span');
   const slider=document.createElement('input');
-  slider.type='range';slider.min='1';slider.max='256';slider.step='1';slider.value=String(density);
+  slider.id='wgl7-density';slider.type='range';slider.min='1';slider.max='256';slider.step='1';slider.value=String(density);
   slider.style.cssText='width:100%;display:block';
   densityLabel.style.cssText='flex:1 1 140px;min-width:0';
   densityLabel.append(densityText,slider);top.append(densityLabel);
@@ -156,6 +157,7 @@ function showObservation() {
   const buttons=document.createElement('div');
   buttons.style.cssText='display:flex;gap:6px;align-items:center;margin:5px 0;flex-wrap:wrap';
   const play=document.createElement('button'), reset=document.createElement('button');
+  play.id='wgl7-play';reset.id='wgl7-reset';
   play.type=reset.type='button';play.textContent='模様を移動';reset.textContent='移動をリセット';
   const status=document.createElement('span');status.setAttribute('aria-live','off');
   buttons.append(play,reset,status);panel.append(buttons);
@@ -165,6 +167,7 @@ function showObservation() {
   select(labels,'右のフィルタ',names,right,value=>{right=value;});
   panel.append(labels);canvas.before(panel);
   const legend=document.createElement('p');
+  legend.id='wgl7-observation-legend';
   legend.style.cssText='margin:0;padding:5px 8px;background:#fff;color:#152637;font:13px/1.4 system-ui';
   canvas.after(legend);
   canvas.tabIndex=0;

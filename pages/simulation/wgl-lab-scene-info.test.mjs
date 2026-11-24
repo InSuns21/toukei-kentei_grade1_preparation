@@ -29,7 +29,8 @@ test('G3 legends derive their initial step and GPU buffer dimensions from the ru
   assert.match(e.mode,/角速度Ω.*NEAREST/);
   const uv=sceneDescription('WGL7',{width:960,height:720});
   assert.match(uv.grid,/8×8 RGBA8/);
-  assert.match(uv.mode,/UVオフセット/);
+  assert.match(uv.mode,/手前から奥へ縮小する床.*拡大・境界/);
+  assert.match(uv.clock,/開始・停止/);
   assert.equal(uv.pixels,'960×720 px（GPU描画バッファ）');
   const material=sceneDescription('WGL12',{width:960,height:720});
   assert.match(material.grid,/数値計算格子なし/);
