@@ -131,7 +131,13 @@ export const lessons = {
     ['Main.lean','境界と誤実装のテスト','LVT3-08 OK を表示。','\n#eval main\n'],
     ['ExerciseSolutions.lean','演習解答の検査','全8題の命題を検査。'],
     ['Failure.lean','変異は正しい和を返さない','誤った等式を rfl で証明できない。']
-  ] }
+  ] },
+  'LVT4-01': { module:'LvtGame', sourcePath:'../../LVT3-06/lab/LvtGame.lean', modes:[
+    ['Inspect.lean','勝利と拒否の観測値','true が4回、全称命題の型と公理依存を確認。'],
+    ['Main.lean','実行時の単体テスト','LVT4-01 OK を表示。','\n#eval main []\n'],
+    ['ExerciseSolutions.lean','演習解答の検査','全8題の命題を検査。'],
+    ['Failure.lean','誤った期待値のguard','番号9は拒否され、guardが失敗する。']
+  ], commands:'lake build\nlake test\nlake env lean Inspect.lean\nlake env lean ExerciseSolutions.lean\nlake env lean Failure.lean\nlake exe lvtUnitDemo --fail' }
 };
 export function combine(module, definitions, experiment, suffix='') {
   // Only the exact local module import is replaced by its source.
@@ -174,7 +180,7 @@ if (typeof document !== 'undefined') {
         if(!response.ok) throw new Error(name+' (HTTP '+response.status+')');
         return response.text();
       };
-      const [definitions,experiment]=await Promise.all([read(lesson.module+'.lean'),read(entry[0])]);
+      const [definitions,experiment]=await Promise.all([read(lesson.sourcePath ?? lesson.module+'.lean'),read(entry[0])]);
       if(current!==generation)return;
       original=combine(lesson.module,definitions,experiment,entry[3]);
       source.value=original;enable(true);$('status').textContent='読み込み完了。編集して実行できます。';
