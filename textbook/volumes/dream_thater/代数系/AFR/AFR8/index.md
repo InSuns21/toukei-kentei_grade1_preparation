@@ -159,7 +159,13 @@ $$
 
 実際、[p進整数の桁展開](../../ANF/ANF9/index.md#thm-anf9-digit-expansion)を使えば、任意の列から第1桁が同じ無限部分列、第2桁まで同じ無限部分列、と順次選べます。対角部分列の二項は最初の $n$ 桁で最終的に一致するので、距離は $p_j^{-n}$ 以下です。
 
-従って Cauchy 列になり、[p進数体の完備性](../../ANF/ANF9/index.md#thm-anf9-completion-field)と整数環の閉性から $\mathbb Z_{p_j}$ 内で収束します。これに[距離空間における点列コンパクト性との同値](../../../基礎科目/TOP/TOP5/index.md#thm-top5-metric-sequential)を適用するとコンパクト性が従います。
+従って Cauchy 列になり、[完備化は体となる](../../ANF/ANF9/index.md#thm-anf9-completion-field)の定理により $\mathbb Q_{p_j}$ 内のある点 $z$ へ収束します。部分列を $(z_k)$ と書きます。各項の絶対値は $1$ 以下であり、十分大きな $k$ で $|z-z_k|_{p_j}\le1$ です。[非Archimedes三角不等式](../../ANF/ANF9/index.md#prop-anf9-ultrametric)から
+
+$$
+|z|_{p_j}\le\max(|z-z_k|_{p_j},|z_k|_{p_j})\le1.
+$$
+
+よって極限も $\mathbb Z_{p_j}$ に属します。これに[距離空間ではコンパクト性と点列コンパクト性が同値](../../../基礎科目/TOP/TOP5/index.md#thm-top5-metric-sequential)という定理を適用するとコンパクト性が従います。
 
 集合 $D=[0,1]\times\widehat{\mathbb Z}$ 上で距離を
 
