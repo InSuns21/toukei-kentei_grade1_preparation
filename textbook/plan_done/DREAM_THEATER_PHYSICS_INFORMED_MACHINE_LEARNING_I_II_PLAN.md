@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 講義構成確定: 2026-11-13  
-状態: in_progress（PML2-26まで通算48講実装、予定講義は終了。系列横断の前提・実験再現性・公開検証の確認は残作業）  
+状態: done（2026-11-24、全48講実装・系列完了確認）  
 **確定講義数: PML I 22講（PML1-01〜PML1-22）、PML II 26講（PML2-01〜PML2-26）、全48講**
 
 ## 0. 中心問い・講数の確定理由
@@ -184,4 +184,14 @@
 - **進捗と公開**：実装開始時にPML系列manifest、対象chapter/knowledge、直接依存・stable anchor、目次カテゴリを作成・照合し、計画に着手した時点でPLANを `plans_progress/` へ**移動**する（元を複製しない）。manifestのplan参照も同じ変更で更新する。planned章を公開目次に載せず、completedのみ登録する。全48講の実装後、連続するprerequisites、実験再現性、公開導線、必要な検証・横断監査を確かめ、残作業がなくなった時点で `plan_done/` に移す。
 - **変更時の検証**：leaf chapterの通常変更はchanged-only、global index/validator/共通依存等の変更はfull auditとし、CI greenだけで数学的正しさを宣言しない。
 
-本改訂は**PLAN設計の確定**であり、PML1-01〜PML2-26の執筆・実装・独立査読・公開が完了したとは主張しない。
+当初の設計確定時点では執筆・実装・独立査読・公開の完了を主張していなかった。現在の完了確認は第7節に記録する。
+
+## 7. 系列完了確認（2026-11-24）
+
+- **講義・依存関係**：PML I 22講、II 26講の全48講を manifest の順に照合。各章の index.md / chapter.yaml / knowledge.yaml が実在し、chapter と knowledge の prerequisites が一致、knowledge の coverage は complete。系列内の先行章への連鎖と I→II の接続、A4/B3/C1以上の metadata、応用系公開目次の48項目（各1回）を確認した。予定講義の残りはない。
+- **必須数学項目**：Gibbs変分恒等式（PML1-03）、正規化・流束・不変性（PML1-09）、SGD雑音・OUの有限step差（PML1-12〜14）、Noetherと離散化（PML1-17、20）、Poisson残差・誤差評価と有限点反例（PML2-11、12）、作用素の格子・切断・センサ・近似保証（PML2-16〜19、26）の本文・主要結果を照合。全47既存章の新たな個別追跡監査を意味しない。
+- **実験の再現性**：系列内の外部Pythonファイル全7本をGitHub blob SHAと照合して実行し、全て正常終了。PML1-11 langevin_em.py、PML2-03 poisson_baselines.py、PML2-04 poisson_error_budget.py（既定値と非零摂動）、PML2-05 pde_dataset.py、PML2-17 resolution_demo.py、PML2-18 deeponet_demo.py、PML2-26 benchmark.py。assertを備えるスクリプトでは全assert通過。確率実験は固定seed、計時は環境依存のため同一秒数を要求しない。
+- **代表検算**：PML1-02 二状態ギャップ2、温度1で励起確率0.1192029220。PML1-11 二次Langevinの連続分散0.5、刻み0.25の離散定常分散2/3（標本0.659969）。PML1-13〜14 の二点雑音SGDでは学習率0.5で離散分散0.25、OU分散0.125。PML1-20 振動子1000step、h=0.1で通常Eulerのエネルギー10479.5778189、symplectic Eulerの修正エネルギーの最大ずれ1.61e-15。PML1-22の本文コードと同じ三モデル計算を再実行し、保守的真値では制約付きモデルのtest誤差0、散逸真値では通常NNのtest誤差0と優劣反転を再現。
+- **PML II の数値例**：Poisson四次解のFD誤差はn=4,8,16で0.015625,0.00390625,0.0009765625、FEM節点誤差は丸め範囲。PML2-05の熱方程式製造解（時間外挿例）は時間・空間微分が一致し、時刻1の中央値5.17231862e-5。Poissonデータ21ケースの分割・残差・真値比較assert通過。PML2-17のaliasingとPML2-18のセンサ不可識別性（5/192を2センサでは失い3センサで復元）を再現。PML2-21のノイズ付き逆問題は真の係数2に対し4/3でデータ・物理残差とも零になる反例を再計算。最終章で同一Poisson問題に対するPINN/FD、FNO/FD/スペクトル比較を確認した。
+- **最終講追跡監査**：[PR #4235](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4235) に全主要結果・全9演習の検算、定義・記号・リンク・表示の修正証拠を記録し、5系統のPR CI成功後に main へマージ（2ba5c4c8fe42912a287c5249ed6e5ed141685f1c）。同一担当者ChatGPTの自己査読と別観点の再読であり第三者独立査読ではない。mainの教材全体検証も成功した。
+- **公開・routing**：公開目次ソースの48講とmanifestを照合し、最終講PRのPages assembly・公開索引検証成功を確認した。ブラウザで全48講を目視したという意味ではない。共通routerにPML固有状態を追加せず、計画書を plan_done/ へ移動し系列manifestの参照を更新する。移動PRの検証はPRのCI記録を正本とする。

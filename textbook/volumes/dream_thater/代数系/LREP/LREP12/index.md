@@ -4,11 +4,11 @@
 
 [前講の被覆群の分類](../LREP11/index.md#thm-lrep11-group)では、二つの二次元複素表現がありました。回転だけを見ると同じ二成分の変換則ですが、boostでは逆の伸縮が起こります。今回はその違いを明示し、二成分を組み合わせて四元ベクトルを作ります。場の方程式を仮定せず、有限次元の表現だけで議論します。
 
-計量は $\eta=\operatorname{diag}(-1,1,1,1)$、変換は能動的、$G=SL(2,\mathbb C)$ は実Lie群とします。$S^\dagger=\overline S^{\mathsf T}$、$S^{-\mathsf T}=(S^{-1})^{\mathsf T}$ と書きます。
+計量は $\eta=\operatorname{diag}(-1,1,1,1)$、変換は能動的、$G=SL(2,\mathbb C)$ は実Lie群とします。$S^\dagger=\overline S^{\mathsf T}$、$S^{-\mathsf T}=(S^{-1})^{\mathsf T}$ と書きます。プライムは変換後の成分を表し、微分ではありません。
 
 ## 1. 二つの二成分表現
 
-[LREP11の左右の分類](../LREP11/index.md#thm-lrep11-group)に $(m,n)=(1,0),(0,1)$ を代入します。一次多項式の係数列に作用する行列はそれぞれ $S$ と $Q(S)=(S^\dagger)^{-1}$ です。回転では両者が一致しますが、一般のLorentz変換では一致しません。この二種類の表現空間の元をWeylスピノルとして扱います。
+[LREP11の左右の分類](../LREP11/index.md#thm-lrep11-group)に $(m,n)=(1,0),(0,1)$ を代入します。次数と分類番号の対応は $(j_L,j_R)=(m/2,n/2)$ です。一次多項式の係数列を標準基底で表すと、作用行列はそれぞれ $S$ と $Q(S)=(S^\dagger)^{-1}$ です。回転では両者が一致しますが、一般のLorentz変換では一致しません。この二種類の表現空間の元をWeylスピノルとして扱います。
 
 <a id="def-lrep12-weyl"></a>
 
@@ -24,9 +24,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep12-weyl -->
-**定義の確認**。 $Q(ST)=((ST)^\dagger)^{-1}=(T^\dagger S^\dagger)^{-1}=Q(S)Q(T)$、$Q(I)=I$ です。左作用も行列積を保ちます。両行列は行列式1で可逆です。
+**定義の確認**。 標準基底の成分列に対する行列積が複素線形写像を表します。表現の条件は単位元と積を保つことです。任意の $S,T\in G$ について
 
-例えば実数 $t=\log 4$ を用いた $z$ 方向のboostの持ち上げは
+$$
+\begin{aligned}
+Q(ST)&=((ST)^\dagger)^{-1}\\
+&=(T^\dagger S^\dagger)^{-1}\\
+&=(S^\dagger)^{-1}(T^\dagger)^{-1}\\
+&=Q(S)Q(T).
+\end{aligned}
+$$
+
+また $Q(I)=I$ です。左作用も行列積と単位元を保ちます。$\det S=1$ と $\det Q(S)=1/\overline{\det S}=1$ から両作用行列は可逆です。
+
+[四元ベクトル作用の正の $z$ 方向boostの例](../LREP10/index.md#def-lrep10-sl2c-action)では、実パラメータ $t$ の持ち上げは $\operatorname{diag}(e^{t/2},e^{-t/2})$ です。例えば $t=\log 4$ なら
 
 $$
 S_t=\begin{pmatrix}2&0\\0&1/2\end{pmatrix},
@@ -58,7 +69,15 @@ $$
 U_2=\begin{pmatrix}0&1\\-1&0\end{pmatrix}\in SU(2)
 $$
 
-と可換であるため、$T=\operatorname{diag}(p,q)$ に対し $p=q$ が必要です。従って $T=pI$ です。先ほどの $S_t=\operatorname{diag}(2,1/2)$ を代入すると
+と可換であるため、$T=\operatorname{diag}(p,q)$ に対して
+
+$$
+TU_2=\begin{pmatrix}0&p\\-q&0\end{pmatrix},
+\qquad
+U_2T=\begin{pmatrix}0&q\\-p&0\end{pmatrix}
+$$
+
+が一致し、$p=q$ が必要です。従って $T=pI$ です。先ほどの $S_t=\operatorname{diag}(2,1/2)$ を代入すると
 
 $$
 p\begin{pmatrix}2&0\\0&1/2\end{pmatrix}
@@ -128,7 +147,28 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep12-index-convention -->
-**定義の確認**。 $u=(2,3i)^{\mathsf T}$ なら $Ju=(3i,-2)^{\mathsf T}$、$-J(Ju)=(2,3i)^{\mathsf T}$ です。共役列 $z=(2,-3i)^{\mathsf T}$ なら $Jz=(-3i,-2)^{\mathsf T}$、$-J(Jz)=(2,-3i)^{\mathsf T}$ です。どちらも元へ戻りました。行列の成分は $\epsilon_{12}=1$、$\epsilon^{12}=-1$ であり、同じ符号ではありません。
+**定義の確認**。 標準基底の成分列に対し、例えば $u_1=\epsilon_{11}u^1+\epsilon_{12}u^2=u^2$、$u_2=-u^1$ です。上下の配列が逆であることは
+
+$$
+J^2=\begin{pmatrix}-1&0\\0&-1\end{pmatrix}=-I,
+\qquad (-J)J=I
+$$
+
+から確認できます。$u=(2,3i)^{\mathsf T}$ なら
+
+$$
+Ju=(3i,-2)^{\mathsf T},\qquad
+-J(Ju)=(2,3i)^{\mathsf T}.
+$$
+
+共役列 $z=(2,-3i)^{\mathsf T}$ についても
+
+$$
+Jz=(-3i,-2)^{\mathsf T},\qquad
+-J(Jz)=(2,-3i)^{\mathsf T}.
+$$
+
+どちらも元へ戻りました。行列の成分は $\epsilon_{12}=1$、$\epsilon^{12}=-1$ であり、同じ符号ではありません。
 
 さらに前節の三角行列 $S$ について $Ju' = J S u$ を計算すると、$Su=(-1,3i)^{\mathsf T}$ なので $Ju'=(3i,1)^{\mathsf T}$ です。$S^{-\mathsf T}Ju=(3i,-i(3i)-2)^{\mathsf T}=(3i,1)^{\mathsf T}$ と一致し、下添字が双対の作用を受けることも確認できます。
 <!-- definition-example-end -->
@@ -190,13 +230,21 @@ $$
 \sigma_3=\begin{pmatrix}1&0\\0&-1\end{pmatrix}
 $$
 
-とします。行・列を $a,\dot b$ で識別する成分表記では
+とします。時空添字 $\mu,\nu$ は $0,1,2,3$、空間添字 $i$ は $1,2,3$ を動きます。上下に反復する時空添字も和を取ります。行・列を $a,\dot b$ で識別する成分表記では
 
 $$
 X^{a\dot b}=x^\mu(\sigma_\mu)^{a\dot b}.
 $$
 
-ここでスピノル添字を両方下げるなら行列は $JXJ^{\mathsf T}$ となります。時空添字を上げる操作は別であり、$\sigma^\mu=\eta^{\mu\nu}\sigma_\nu$、従って $\sigma^0=-I,\sigma^i=\sigma_i$ です。両スピノル添字を下げた $\sigma^\mu_{a\dot b}$ は $J\sigma^\mu J^{\mathsf T}$ の成分です。
+[Weyl添字の上げ下げ](#def-lrep12-index-convention)を行と列の両方に適用すると
+
+$$
+X_{a\dot b}
+=\sum_{c,\dot d}J_{ac}X^{c\dot d}J_{\dot b\dot d}
+=(JXJ^{\mathsf T})_{a\dot b}.
+$$
+
+最後の等号は右側の行列積の成分公式です。時空添字を上げる操作は別であり、$\sigma^\mu=\eta^{\mu\nu}\sigma_\nu$、従って $\sigma^0=-I,\sigma^i=\sigma_i$ です。両スピノル添字を下げた $\sigma^\mu_{a\dot b}$ は $J\sigma^\mu J^{\mathsf T}$ の成分です。
 
 <a id="prop-lrep12-bispinor-vector"></a>
 
@@ -217,7 +265,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-写像 $(u,z)\mapsto uz^{\mathsf T}$ は二つの引数で複素線形なので、[テンソル積表現](../LREP4/index.md#def-lrep4-tensor-product)の空間上の線形写像を定めます。標準基底 $e_1,e_2$ と共役空間の基底 $\bar e_1,\bar e_2$ を用いると $F(e_a\otimes\bar e_b)=E_{ab}$ です。$E_{ab}$ は $(a,b)$ 成分だけ1の行列で、四つは全行列空間の基底です。従って $F$ は同型です。
+写像 $(u,z)\mapsto uz^{\mathsf T}$ は二つの引数で複素線形なので、[テンソル積表現](../LREP4/index.md#def-lrep4-tensor-product)の空間上の線形写像を定めます。[有限次元テンソル積の存在と基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)を二つの二次元複素空間に適用します。標準基底 $e_1,e_2$ と共役空間の基底 $\bar e_1,\bar e_2$ を用いると $F(e_a\otimes\bar e_b)=E_{ab}$ です。$E_{ab}$ は $(a,b)$ 成分だけ1の行列で、四つは全行列空間の基底です。従って $F$ は同型です。
 
 $$
 \begin{aligned}
@@ -239,7 +287,16 @@ x^1+ix^2&x^0-x^3
 \end{pmatrix}
 $$
 
-の四つの係数は実数として一意に決まります。逆に任意の実四元ベクトルはこの行列を作ります。合同作用で $(SXS^\dagger)^\dagger=S X^\dagger S^\dagger=SXS^\dagger$ となるため、この実部分空間は不変です。[Lorentz群への二重被覆](../LREP10/index.md#thm-lrep10-double-cover)をこの実空間に適用すると結論が得られます。$\square$
+と書けます。一般の $X=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ から四元成分を逆算すると
+
+$$
+\begin{aligned}
+x^0&=(a+d)/2,& x^3&=(a-d)/2,\\
+x^1&=(b+c)/2,& x^2&=(c-b)/(2i).
+\end{aligned}
+$$
+
+エルミート条件は $a,d\in\mathbb R$ かつ $c=\overline b$ と同値です。このとき $x^1=\operatorname{Re} b$、$x^2=-\operatorname{Im} b$ となり、四つの係数は実数として一意に決まります。逆に任意の実四元ベクトルはこの行列を作ります。これが[四元ベクトルのエルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model)です。合同作用で $(SXS^\dagger)^\dagger=S X^\dagger S^\dagger=SXS^\dagger$ となるため、この実部分空間は不変です。[Lorentz群への二重被覆](../LREP10/index.md#thm-lrep10-double-cover)をこの実空間に適用すると結論が得られます。$\square$
 <!-- proof-end -->
 
 例えば $u=(1,i)^{\mathsf T}$ と $z=\overline u$ なら
@@ -331,7 +388,7 @@ $$
 \eta(x,x)=-9+4+1+4=0.
 $$
 
-行列式も $5-(2+i)(2-i)=5-5=0$ で一致します。$x^0=3>0$ なので未来光的です。
+[行列式と未来円錐の判定](../LREP10/index.md#thm-lrep10-determinant-cone)の関係 $\det X=-\eta(x,x)$ も、$\det X=5-(2+i)(2-i)=0$ から確認できます。$x^0=3>0$ なので未来光的です。
 <!-- solution-end -->
 
 ### Level B
@@ -474,7 +531,7 @@ $$
 \eta(x',x')=-289/64+1+225/64=0
 $$
 
-となり元の $-1+1=0$ と一致します。$x'^0>0$ なので未来向きのままです。行列式も $4/4-1=0$ で検算できます。
+となり元の $-1+1=0$ と一致します。$x'^0>0$ なので未来向きのままです。[行列式と未来円錐の判定](../LREP10/index.md#thm-lrep10-determinant-cone)の関係 $\det X'=-\eta(x',x')$ も、$\det X'=4/4-1=0$ から確認できます。
 <!-- solution-end -->
 
 ## 6. まとめと次講

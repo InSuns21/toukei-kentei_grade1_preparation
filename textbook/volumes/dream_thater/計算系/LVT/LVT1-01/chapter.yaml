@@ -1,0 +1,27 @@
+id: "LVT1-01"
+title: "テストと形式証明は何を保証するか"
+volume: "foundations"
+status: supplementary
+prerequisites: [F0-00A]
+official_scope: []
+learning_objectives:
+  - 入力集合と期待出力を独立に記述し、例示テストの成功範囲を説明できる
+  - 有限な例示テストから全入力一致が導けないことを反例で証明できる
+  - 零判定仕様の全入力での正しさを場合分けし、Leanの証明と対応づけられる
+  - 仕様と独立実装の差分テストを再現し、証明とテストの保証を区別できる
+definitions:
+  - { id: LVT1-01-DEF-01, name: "実行可能仕様" }
+  - { id: LVT1-01-DEF-02, name: "例示テスト" }
+  - { id: LVT1-01-DEF-03, name: "差分テスト" }
+propositions:
+  - { id: LVT1-01-PROP-01, name: "有限な例示テストと全入力一致" }
+theorems:
+  - { id: LVT1-01-THM-01, name: "零判定仕様の正しさ" }
+canonical_examples:
+  - "0だけを受理する仕様と2も受理する製品"
+  - "Lean仕様とPython製品の差分比較"
+problem_patterns: [LVT1-01-A01, LVT1-01-A02, LVT1-01-A03, LVT1-01-A04, LVT1-01-B01, LVT1-01-B02, LVT1-01-B03, LVT1-01-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 1.5, exercises: 1.5, review: 0.5 }
