@@ -1,0 +1,43 @@
+chapter: LREP16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP15
+  - LREP13
+forward_references: []
+concepts:
+  - id: representation.dirac-spinor
+    name: Diracスピノル
+    kind: definition
+    introduction: formal
+    requires: [representation.spin-lorentz-cover]
+  - id: representation.chirality-operator
+    name: chirality演算子
+    kind: definition
+    introduction: formal
+    requires: [representation.gamma-matrices, representation.dirac-spinor]
+  - id: representation.chirality-algebra
+    name: chirality演算子の恒等式
+    kind: proposition
+    introduction: formal
+    requires: [representation.chirality-operator]
+  - id: representation.chiral-projectors
+    name: chirality射影子
+    kind: definition
+    introduction: formal
+    requires: [representation.chirality-operator]
+  - id: representation.chiral-projector-identities
+    name: chirality射影の分解と交換則
+    kind: proposition
+    introduction: formal
+    requires: [representation.chiral-projectors, representation.chirality-algebra]
+  - id: representation.chiral-mass-coupling
+    name: 質量項と左右成分の結合
+    kind: proposition
+    introduction: formal
+    requires: [representation.gamma-matrices, representation.chiral-projector-identities]
+  - id: representation.helicity-operator
+    name: helicity演算子
+    kind: definition
+    introduction: formal
+    requires: [representation.dirac-spinor, representation.spin-rotation-boost, representation.pauli-product]
