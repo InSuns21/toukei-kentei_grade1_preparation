@@ -93,31 +93,7 @@ $$
 
 <a id="def-lrep28-antiunitary"></a>
 
-<!-- formal-statement-start -->
-> **定義（反ユニタリ作用素）**
-> 複素Hilbert空間 $\mathcal H$ 上の写像 $F:\mathcal H\to\mathcal H$ が全射であり、任意の $z,w\in\mathcal H$、$\alpha,\beta\in\mathbb C$ に対して
-
-$$
-F(\alpha z+\beta w)=\alpha^*Fz+\beta^*Fw,
-$$
-
-$$
-\langle Fz,Fw\rangle=\langle z,w\rangle^*
-$$
-
-> を満たすとき、反ユニタリ作用素という。
-<!-- formal-statement-end -->
-
-<!-- definition-example-start: def-lrep28-antiunitary -->
-**定義の確認**。 $\mathbb C^2$ の通常の内積では $Kz=z^*$ がその条件を満たします。実際 $K^2=I_2$、$K(\alpha z+\beta w)=\alpha^*Kz+\beta^*Kw$ であり、
-
-$$
-\langle Kz,Kw\rangle=z^{\mathsf T}w^*
-=\langle z,w\rangle^*.
-$$
-
-従ってノルムと遷移確率が保たれます。全射性は二回作用させると任意の列が元に戻ることから従います。
-<!-- definition-example-end -->
+[QM6の反ユニタリ作用素](../../../解析系/QM/QM6/index.md#def-qm6-antiunitary)は、全域定義の反線形全射であり、内積を複素共役に移す写像です。成分ごとの共役 $Kz=z^*$ はその具体例です。従ってノルムと遷移確率が保たれます。
 
 この確率を保存する全単射な状態の対称変換は、[Wignerの定理（Weinberg 第2章）](https://www.cambridge.org/core/books/quantum-theory-of-fields/relativistic-quantum-mechanics/3F963D187A0ABBB757DA00B3A98E3439)によりユニタリまたは反ユニタリな作用素で実現できます。ここではこの量子力学上の定理を証明せず、その二種類の作用素のどちらかが存在すると仮定して時間反転の必要条件を求めます。
 
@@ -125,7 +101,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（正エネルギーの時間反転条件）**
-> 複素Hilbert空間上の非零の非負自己共役作用素を $E_0$ とし、$V(t)=e^{-itE_0}$ とする。ユニタリまたは[反ユニタリ作用素](#def-lrep28-antiunitary) $\Theta$ が全実数 $t$ について
+> 複素Hilbert空間上の非零の非負自己共役作用素を $E_0$ とし、$V(t)=e^{-itE_0}$ とする。ユニタリまたは[反ユニタリ作用素](../../../解析系/QM/QM6/index.md#def-qm6-antiunitary) $\Theta$ が全実数 $t$ について
 
 $$
 \Theta V(t)\Theta^{-1}=V(-t)
@@ -163,7 +139,27 @@ $$
 
 一成分の状態で $E_0=2$ とすると $K e^{-2it}K^{-1}=e^{2it}$ です。単に過去向きの四元運動量を粒子の運動量として採用したのではなく、複素位相も反転しています。非負条件を外せば、$E_0=\operatorname{diag}(1,-1)$ を二成分の交換行列で共役して $-E_0$ にする線形な反転も可能です。正エネルギー条件が排除したのはこの機構です。
 
-空間並進についても確認しましょう。空間方向 $i$ の距離 $s$ の並進は $e^{isP^i}$ です。時間反転の時空行列 $T_x$ は空間並進を変えないため、時空の並進を実装する対称作用素には $\Theta e^{isP^i}\Theta^{-1}=e^{isP^i}$ を要求します。反線形性から左辺は $e^{-is\Theta P^i\Theta^{-1}}$ です。[Stoneの定理](../../../解析系/QM/QM7/index.md#thm-qm7-stone)の一意性より $\Theta P^i\Theta^{-1}=-P^i$ となります。エネルギーは保たれるので、物理的な運動量の変化は $(E,\boldsymbol p)\mapsto(E,-\boldsymbol p)$ です。空間反転 $\Pi$ がユニタリな実装を持つ場合は、空間並進が逆向きになり、$\Pi e^{isP^i}\Pi^{-1}=e^{-isP^i}$ から同じ運動量の反転を得ます。時間並進は変わらないのでエネルギーは保たれます。
+空間並進についても確認しましょう。空間方向 $i$ の距離 $s$ の並進は $e^{isP^i}$ です。時間反転の時空行列 $T_x$ は空間並進を変えないため、時空の並進を実装する対称作用素には
+
+$$
+\Theta e^{isP^i}\Theta^{-1}=e^{isP^i}
+$$
+
+を要求します。反線形性から左辺は $e^{-is\Theta P^i\Theta^{-1}}$ です。[Stoneの定理](../../../解析系/QM/QM7/index.md#thm-qm7-stone)の一意性より
+
+$$
+\Theta P^i\Theta^{-1}=-P^i
+$$
+
+となります。エネルギーは保たれるので、物理的な運動量の変化は $(E,\boldsymbol p)\mapsto(E,-\boldsymbol p)$ です。
+
+空間反転 $\Pi$ がユニタリな実装を持つ場合は、空間並進が逆向きになります。
+
+$$
+\Pi e^{isP^i}\Pi^{-1}=e^{-isP^i}
+$$
+
+から同じ運動量の反転を得ます。時間並進は変わらないのでエネルギーは保たれます。
 
 ## 3. ヘリシティを追跡する
 
@@ -285,7 +281,7 @@ $P_x,T_x,P_xT_x$ の行列式と $x=(2,1,0,3)$ の像を求め、計量による
 <!-- solution-start -->
 **詳細解答**
 
-行列式は対角要素の積なので $-1,-1,1$。像は $(2,-1,0,-3)$、$(-2,1,0,3)$、$(-2,-1,0,-3)$ です。元の二乗は $-4+1+9=6$。各成分の符号だけを変えたため全て6です。積は行列式1でも時間向きを保存しません。
+行列式は対角要素の積なので $-1,-1,1$。像は $(2,-1,0,-3)$、$(-2,1,0,3)$、$(-2,-1,0,-3)$ です。元の二乗は $-4+1+9=6$。各成分の符号だけを変えたため全て6です。積は行列式1でも未来向きの時間軸を過去向きに移します。
 <!-- solution-end -->
 
 <a id="ex-lrep28-a02"></a>
