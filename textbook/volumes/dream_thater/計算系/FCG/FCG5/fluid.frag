@@ -19,17 +19,14 @@ void main(){
       outColor=vec4(0.013,0.029,0.055,1.0);return;
     }
     float q=texture(u_dye,xy).r,flow=texture(u_speed,xy).r;
-    float bloom=pow(max(q,0.0),0.72);
-    vec3 dyeColor=vec3(0.015,0.035,0.085)
-      +bloom*vec3(0.10,0.42,0.71)
-      +pow(bloom,2.2)*vec3(0.62,0.28,0.16);
-    // Velocity is encoded as |u|/0.4 and influences only the display.
-    dyeColor+=0.055*flow*vec3(0.11,0.24,0.34);
-    // Fine lattice lines identify computed cells; interpolation is display-only.
-    vec2 g=fract(xy*gridSize),edges=min(g,1.0-g);
-    float grid=1.0-smoothstep(0.0,0.025,min(edges.x,edges.y));
-    dyeColor*=1.0-0.10*grid;
-    outColor=vec4(clamp(dyeColor,0.0,1.0),1.0);
+    // Dark water and luminous dye; use a monotone luminance ramp so
+    // faint transported filaments stay visible even without hue perception.
+    float ink=pow(max(q,0.0),0.48);
+    vec3 water=mix(vec3(0.025,0.045,0.075),vec3(0.075,0.14,0.20),flow);
+    vec3 dyeColor=mix(water,vec3(0.18,0.75,0.91),ink);
+    dyeColor=mix(dyeColor,vec3(1.0,0.91,0.61),smoothstep(0.45,1.0,q));
+    // The velocity background is subtle; the dye is the primary observation.
+    outColor=vec4(dyeColor,1.0);
     return;
   }
   int panel=min(2,int(floor(v_uv.x*3.0)));

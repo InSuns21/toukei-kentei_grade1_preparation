@@ -11,7 +11,10 @@ test('FCG5 animates one and the same editable MAC state and retains static panel
   assert.match(js,/else\{advanceFluidStep\(\);stateStep\+\+;\}/);
   assert.match(js,/function refreshGpuFields\(\)/);
   assert.match(js,/gl\.texSubImage2D\(gl\.TEXTURE_2D/);
-  assert.match(js,/function inject\(e\)/);
+  assert.match(js,/function inject\(\{x,y\}\)/);
+  assert.match(js,/function stir\(\{x,y\},from\)/);
+  assert.match(js,/if\(previous&&!e\.shiftKey\)stir\(point,previous\)/);
+  assert.match(js,/inject\(point\);previous=point/);
   assert.match(js,/dye\[ci\(i,j\)\]=clip\(/);
   assert.match(js,/requestAnimationFrame\(frame\)/);
   assert.match(js,/matchMedia\?\.\('\(prefers-reduced-motion: reduce\)'\)/);

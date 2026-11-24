@@ -112,6 +112,7 @@ try {
   assert.match(await evaluate('document.querySelector("#fcg5-cpu-prediction").textContent'),/Poisson residual=/);
   assert.equal(initial.sandbox,'allow-scripts');
   assert.equal(initial.opaque,true);
+  assert.equal(await evaluate('document.querySelector("#lab-parameters")?.parentElement.id'),'fcg5-result-parameters');
   console.log('FCG5 actual GPU texture, nine readPixels, independent CPU and opaque sandbox: PASS');
   // The only running observation is the source-linked learner JS sandbox.
   // Crop to its actual GPU canvas, not an independent reference simulation.
@@ -168,14 +169,43 @@ try {
   // Live step/reset must act inside the same running sandbox, not re-run a static snapshot.
   const liveFrame=await evaluate('document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")');
   await click('fcg5-live-reset');
-  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("step 0/32") && document.querySelector("#fcg5-live-state")?.textContent.includes("一時停止中")');
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("step 0、") && document.querySelector("#fcg5-live-state")?.textContent.includes("一時停止中")');
   assert.equal(await evaluate('document.querySelector("#fcg5-live-step").disabled'),false);
   await click('fcg5-live-step');
-  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("step 1/32") && document.querySelector("#fcg5-live-state")?.textContent.includes("一時停止中")');
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("step 1、") && document.querySelector("#fcg5-live-state")?.textContent.includes("一時停止中")');
   await click('fcg5-live-reset');
-  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("step 0/32")');
+  await waitFor('document.querySelector("#fcg5-live-state")?.textContent.includes("step 0、")');
   assert.equal(await evaluate('document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")'),liveFrame);
   console.log('FCG5 authenticated in-place GPU step/reset: PASS');
+  // Real pointer events on the opaque GPU iframe while physical time is frozen.
+  await evaluate('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"center"})');
+  const paintBox=await evaluate('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.left,y:r.top,width:r.width,height:r.height};})()');
+  assert.ok(Math.abs(paintBox.width-paintBox.height)<5,'FCG5 live view is square and uses the full stage');
+  // Capture an interior region, not the iframe border/focus outline. A
+  // full-frame capture beyond the viewport may change the viewport/scroll.
+  const paintClip={x:paintBox.x+await evaluate('scrollX')+paintBox.width*.18,
+    y:paintBox.y+await evaluate('scrollY')+paintBox.height*.30,
+    width:paintBox.width*.45,height:paintBox.height*.35,scale:1};
+  const beforePaint=await cdp('Page.captureScreenshot',{format:'png',clip:paintClip,captureBeyondViewport:true});
+  await evaluate('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"center",behavior:"instant"})');
+  await new Promise(ok=>setTimeout(ok,100));
+  const points=await evaluate('(()=>{const f=document.querySelector("#canvas-slot iframe"),r=f.getBoundingClientRect(),x=r.left+r.width*.33,y=r.top+r.height*.45,X=x+r.width*.12,Y=y+r.height*.08;return {x,y,X,Y,hit:document.elementFromPoint(x,y)===f,endHit:document.elementFromPoint(X,Y)===f};})()');
+  assert.ok(points.hit&&points.endHit,'pointer must hit the visible GPU iframe: '+JSON.stringify(points));
+  await cdp('Input.dispatchMouseEvent',{type:'mouseMoved',x:points.x,y:points.y,button:'none',buttons:0});
+  await cdp('Input.dispatchMouseEvent',{type:'mousePressed',x:points.x,y:points.y,button:'left',buttons:1,clickCount:1});
+  await cdp('Input.dispatchMouseEvent',{type:'mouseMoved',x:points.X,y:points.Y,button:'left',buttons:1});
+  await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:points.X,y:points.Y,button:'left',buttons:0,clickCount:1});
+  // CDP input dispatch and compositing are asynchronous on CI SwiftShader.
+  let changed=false;
+  for(let i=0;i<10&&!changed;i++){
+    await new Promise(ok=>setTimeout(ok,150));
+    const afterPaint=await cdp('Page.captureScreenshot',{format:'png',clip:paintClip,captureBeyondViewport:true});
+    changed=afterPaint.data!==beforePaint.data;
+  }
+  assert.ok(changed,'actual drag must change paused GPU ink image');
+  assert.match(await evaluate('document.querySelector("#fcg5-live-state").textContent'),/step 0、/);
+  await click('fcg5-live-reset');
+  console.log('FCG5 direct drag paints the actual paused GPU simulation: PASS');
 
   await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="1ステップ")).click()');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格") && document.querySelector("#fcg5-cpu-prediction")?.textContent.includes("steps=9")',25000);
@@ -201,6 +231,7 @@ try {
   // G2: GUI parameters, the animation and the independent CPU oracle all
   // target the same editable N×N MAC source.
   await click('tab-conditions');
+  assert.equal(await evaluate('document.querySelector("#lab-parameters")?.parentElement.id'),'panel-conditions');
   const gui=await evaluate('(()=>{const g=document.querySelector("#parameter-grid"),n=document.querySelector("#parameter-nu"),f=document.querySelector("#parameter-force");return {grid:g?.value,nu:n?.value,force:f?.value,gridDisabled:g?.disabled,nuDisabled:n?.disabled,forceDisabled:f?.disabled,labels:[...document.querySelectorAll("#lab-parameters .lab-parameter-row small")].map(x=>x.textContent)}})()');
   assert.equal(gui.grid,'48');assert.equal(gui.nu,'0.002');assert.equal(gui.force,'0.08');
   assert.equal(await evaluate('document.querySelector("#parameter-dt")?.value'),'0.04');
