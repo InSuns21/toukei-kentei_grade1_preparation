@@ -2,7 +2,7 @@ id: "AFR10"
 title: "Tateの学位論文：`GL_1`のゼータ積分"
 volume: "foundations"
 status: supplementary
-prerequisites: [AFR9, CA11]
+prerequisites: [AFR9, CA11, ANT3, NT8]
 official_scope: []
 learning_objectives:
   - 乗法測度の規格化と有限位数Hecke指標の構成を説明できる
