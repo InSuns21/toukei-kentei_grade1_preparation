@@ -24,7 +24,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep12-weyl -->
-**定義の確認。** $Q(ST)=((ST)^\dagger)^{-1}=(T^\dagger S^\dagger)^{-1}=Q(S)Q(T)$、$Q(I)=I$ です。左作用も行列積を保ちます。両行列は行列式1で可逆です。
+**定義の確認**。 $Q(ST)=((ST)^\dagger)^{-1}=(T^\dagger S^\dagger)^{-1}=Q(S)Q(T)$、$Q(I)=I$ です。左作用も行列積を保ちます。両行列は行列式1で可逆です。
 
 例えば実数 $t=\log 4$ を用いた $z$ 方向のboostの持ち上げは
 
@@ -128,7 +128,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep12-index-convention -->
-**定義の確認。** $u=(2,3i)^{\mathsf T}$ なら $Ju=(3i,-2)^{\mathsf T}$、$-J(Ju)=(2,3i)^{\mathsf T}$ です。共役列 $z=(2,-3i)^{\mathsf T}$ なら $Jz=(-3i,-2)^{\mathsf T}$、$-J(Jz)=(2,-3i)^{\mathsf T}$ です。どちらも元へ戻りました。行列の成分は $\epsilon_{12}=1$、$\epsilon^{12}=-1$ であり、同じ符号ではありません。
+**定義の確認**。 $u=(2,3i)^{\mathsf T}$ なら $Ju=(3i,-2)^{\mathsf T}$、$-J(Ju)=(2,3i)^{\mathsf T}$ です。共役列 $z=(2,-3i)^{\mathsf T}$ なら $Jz=(-3i,-2)^{\mathsf T}$、$-J(Jz)=(2,-3i)^{\mathsf T}$ です。どちらも元へ戻りました。行列の成分は $\epsilon_{12}=1$、$\epsilon^{12}=-1$ であり、同じ符号ではありません。
 
 さらに前節の三角行列 $S$ について $Ju' = J S u$ を計算すると、$Su=(-1,3i)^{\mathsf T}$ なので $Ju'=(3i,1)^{\mathsf T}$ です。$S^{-\mathsf T}Ju=(3i,-i(3i)-2)^{\mathsf T}=(3i,1)^{\mathsf T}$ と一致し、下添字が双対の作用を受けることも確認できます。
 <!-- definition-example-end -->
