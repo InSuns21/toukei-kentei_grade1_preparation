@@ -131,7 +131,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-afr3-energy-realization -->
-**定義の確認**。 $u\in D_0$ なら $\Delta u\in H$ です。[エネルギー恒等式](#thm-afr3-green)をまず $v\in D_0$ に適用し、エネルギーノルムでの近似によって
+**定義の確認**。 $u\in D_0$ なら $\Delta u\in H$ です。[エネルギー恒等式](#thm-afr3-green)をまず $v\in D_0$ に適用し、第3節で定めた $\|\cdot\|_V$ での近似によって
 
 $$
 a(u,v)=(\Delta u,v)\qquad(v\in V)
