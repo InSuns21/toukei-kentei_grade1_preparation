@@ -25,7 +25,7 @@ test('actual learner JS uploads independent analytic positions for edited parame
   const gl=new Proxy({uniform4fv:(_,a)=>{buffer=Array.from(a);},uniform1i:(_,n)=>{count=n;},
     getShaderParameter:()=>true,getProgramParameter:()=>true,getUniformLocation:(_,n)=>n},
     {get:(target,key)=>target[key]??(()=>({}))});
-  vm.runInNewContext(js,{gl,canvas:{width:960,height:360},vertexSource:'',fragmentSource:'',report:()=>{}});
+  vm.runInNewContext('(function(){\n'+js+'\n})()',{gl,canvas:{width:960,height:360},vertexSource:'',fragmentSource:'',report:()=>{}});
   const state=fcg11State(o);
   assert.equal(count,state.particles.length);
   state.particles.forEach((p,i)=>[p.x,p.z,p.r,p.kind].forEach((v,k)=>assert.ok(Math.abs(v-buffer[4*i+k])<1e-6)));
