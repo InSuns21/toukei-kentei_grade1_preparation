@@ -95,7 +95,7 @@ chapters:
     title: "質量・スピンと不変量"
   - id: LREP23
     path: textbook/volumes/dream_thater/代数系/LREP/LREP23
-    status: planned
+    status: completed
     title: "正質量little group"
   - id: LREP24
     path: textbook/volumes/dream_thater/代数系/LREP/LREP24
