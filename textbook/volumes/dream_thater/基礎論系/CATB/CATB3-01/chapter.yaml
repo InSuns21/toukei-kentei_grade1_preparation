@@ -1,0 +1,23 @@
+id: "CATB3-01"
+title: "フィルター圏とフィルター余極限"
+volume: "foundations"
+status: supplementary
+prerequisites: [CATB1-08, CAT2-07]
+official_scope: []
+learning_objectives:
+  - フィルター圏の三条件と有限図式の余錐による特徴付けを証明できる
+  - 集合のフィルター余極限で代表と等式を共通段階に移せる
+  - フィルター余極限と有限極限の比較写像の全単射性を証明できる
+  - 非空性、平行射の等化、有限性を外したときの失敗を説明できる
+definitions:
+  - { id: CATB3-01-DEF-01, name: "フィルター圏" }
+  - { id: CATB3-01-DEF-02, name: "フィルター余極限" }
+theorems:
+  - { id: CATB3-01-THM-01, name: "フィルター性の有限図式による特徴付け" }
+  - { id: CATB3-01-THM-02, name: "集合におけるフィルター余極限と有限極限の交換" }
+canonical_examples: [有限初期区間の包含図式, 冪等射の一対象圏, 偶奇による引き戻し, 無限積の反例]
+problem_patterns: [CATB3-01-A01, CATB3-01-A02, CATB3-01-A03, CATB3-01-A04, CATB3-01-B01, CATB3-01-B02, CATB3-01-B03, CATB3-01-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
