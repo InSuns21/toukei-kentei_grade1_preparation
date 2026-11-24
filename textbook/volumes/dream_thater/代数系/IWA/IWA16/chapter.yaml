@@ -1,0 +1,38 @@
+id: "IWA16"
+title: "円分岩澤主予想：正確な定式化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IWA15
+  - IWA9
+official_scope: []
+learning_objectives:
+  - 無分岐岩澤加群の指標成分と解析側の反射指標を対応させる
+  - 円分座標の反転置換を導出し環自己同型と不変量保存を証明する
+  - 円分岩澤主予想の仮定と特徴イデアルの等式を正確に述べる
+  - 自明成分の極と奇数番号の枝の消失を区別する
+  - 補間値から成分の有限性と岩澤不変量を判定する
+  - 特徴イデアルの限界と両方向の整除の必要性を説明する
+definitions: []
+theorems:
+  - { id: IWA16-PROP-01, name: "円分座標の反転置換" }
+  - { id: IWA16-THM-01, name: "円分岩澤主予想、Mazur–Wiles" }
+  - { id: IWA16-COR-01, name: "主予想からの不変量比較" }
+canonical_examples:
+  - p=7の反射指標
+  - p=5の反転置換
+  - p=5の補間値による有限性判定
+problem_patterns:
+  - IWA16-CHARACTER
+  - IWA16-COORDINATE
+  - IWA16-UNIT
+  - IWA16-DIVISIBILITY
+  - IWA16-SUBSTITUTION
+  - IWA16-POLE
+  - IWA16-FINITENESS
+  - IWA16-FINITE-ERROR
+  - IWA16-BERNOULLI
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 2 }
