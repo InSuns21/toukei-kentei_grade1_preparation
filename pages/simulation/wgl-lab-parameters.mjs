@@ -637,7 +637,7 @@ export function mountLabParameters(lesson, container,
     const display = document.createElement('output');
     display.htmlFor = id;
     display.textContent = String(spec.default);
-    if (['FCG8','FCG9','FCG10','FCG11','FCG12','FCG13'].includes(lesson)) {
+    if (/^FCG(?:[2-9]|1[0-3])$/.test(lesson)) {
       // Keep the compact output readable while detailed bounds and source
       // locations remain available via the inspector's disclosure button.
       display.title = spec.unit;
