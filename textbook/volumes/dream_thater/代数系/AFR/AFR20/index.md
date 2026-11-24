@@ -156,7 +156,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（ユニタリ型の相互中心化）**
-> $W=\mathbb C^2$ を実空間とみなし、$h(z,w)=z^*Dw$（$D=\mathrm{diag}(1,-1)$）と $\Omega=\operatorname{Im}h$ を入れる。$U(1)$ を絶対値1の複素スカラーによる作用、$U(1,1)$ を $h$ の複素線形保存群とする。この二群は $\mathrm{Sp}(W,\Omega)$ 内で [双対対](#def-afr20-dual-pair) となる。
+> $W=\mathbb C^2$ を実空間とみなす。次の Hermitian 形式と交代形式を入れる。
+
+$$
+D=\mathrm{diag}(1,-1),\qquad h(z,w)=z^*Dw,
+\qquad \Omega=\operatorname{Im}h.
+$$
+
+> $U(1)$ を絶対値1の複素スカラーによる作用とする。$U(1,1)$ を $h$ の複素線形保存群とする。
+> この二群は $\mathrm{Sp}(W,\Omega)$ 内で [双対対](#def-afr20-dual-pair) となる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
