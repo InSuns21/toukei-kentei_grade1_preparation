@@ -167,7 +167,15 @@ $$
 
 一成分の状態で $E_0=2$ とすると $K e^{-2it}K^{-1}=e^{2it}$ です。単に過去向きの四元運動量を粒子の運動量として採用したのではなく、複素位相も反転しています。非負条件を外せば、$E_0=\operatorname{diag}(1,-1)$ を二成分の交換行列で共役して $-E_0$ にする線形な反転も可能です。正エネルギー条件が排除したのはこの機構です。
 
-空間並進についても確認しましょう。空間方向 $i$（$i=1,2,3$）の距離 $s\in\mathbb R$ の並進は、[並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum)の自己共役生成作用素 $P^i$ を用いて $e^{isP^i}$ と書きます。指数中の $i$ は虚数単位で、上付きの $i$ は空間方向の添字です。時間反転の時空行列 $T_x$ は空間並進を変えないため、時空の並進を実装する対称作用素には
+空間並進についても確認しましょう。[並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum)の自己共役生成作用素を $P^i$ とします。空間方向 $i=1,2,3$ の距離 $s\in\mathbb R$ の並進は
+
+$$
+e^{isP^i}
+$$
+
+です。指数中の $i$ は虚数単位で、上付きの $i$ は空間方向の添字です。
+
+時間反転の時空行列 $T_x$ は空間並進を変えないため、時空の並進を実装する対称作用素には
 
 $$
 \Theta e^{isP^i}\Theta^{-1}=e^{isP^i}
@@ -254,7 +262,27 @@ $$
 最後の等号は $h$ が実数であることを使っています。$\square$
 <!-- proof-end -->
 
-例えば $j=1/2$ の内部空間では $J_i=\sigma_i/2$ と取れます。[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)の行列を使い、$J=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ とすると $J\sigma_i^*=-\sigma_i J$ が三行列の積で確かめられます。$J$ は実行列で $J^{\mathsf T}J=I_2$ なのでユニタリです。$K$ は第2節の反ユニタリ作用素であるため、その合成 $\Theta=JK$ は反線形全射かつ $\langle JKz,JKw\rangle=\langle z,w\rangle^*$ を満たします。従って $\Theta$ は反ユニタリで、$\Theta J_i\Theta^{-1}=-J_i$。$\Theta^2=JJ^*=-I_2$ なので時間反転を二回行うと状態ベクトルの符号が変わりますが、物理状態の位相は同値です。
+例えば $j=1/2$ の内部空間では $J_i=\sigma_i/2$ と取れます。[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)の行列を使い、
+
+$$
+J=\begin{pmatrix}0&1\\-1&0\end{pmatrix}
+$$
+
+とすると、$J\sigma_i^*=-\sigma_i J$ が三行列の積で確かめられます（演習B01）。$J$ は実行列で $J^{\mathsf T}J=I_2$ なのでユニタリです。
+
+$K$ は第2節の反ユニタリ作用素であるため、その合成 $\Theta=JK$ は反線形全射で、
+
+$$
+\langle JKz,JKw\rangle=\langle Kz,Kw\rangle=\langle z,w\rangle^*
+$$
+
+を満たします。従って $\Theta$ は反ユニタリであり、
+
+$$
+\Theta J_i\Theta^{-1}=\frac12 J\sigma_i^*J^{-1}=-J_i.
+$$
+
+また $\Theta^2=JJ^*=-I_2$ なので時間反転を二回行うと状態ベクトルの符号が変わりますが、物理状態の位相は同値です。
 
 質量零の一粒子表現では、[ヘリシティの内部表現](../LREP24/index.md#def-lrep24-helicity-rep)で回転の位相を $e^{-ih\theta}$ と選びました。進行方向を反転したときは回転軸も反転するため、空間反転は角度を $-\theta$ に読み替えます。回転を $R_{\boldsymbol n}(\theta)$ とし、$\boldsymbol n=\boldsymbol p/|\boldsymbol p|$ とします。$R_{-\boldsymbol n}(\theta)=R_{\boldsymbol n}(-\theta)$ であり、反転作用素 $F$ は時空回転と可換です。従って
 
