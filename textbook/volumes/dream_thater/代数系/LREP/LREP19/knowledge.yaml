@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - LREP18
+  - QFT1
 forward_references: []
 concepts:
   - id: representation.dirac-operator
@@ -19,7 +20,7 @@ concepts:
     name: Dirac作用素による波動作用素の因数分解
     kind: proposition
     introduction: formal
-    requires: [representation.dirac-operator, representation.gamma-matrices]
+    requires: [representation.dirac-operator, representation.gamma-matrices, qft.klein-gordon]
   - id: representation.dirac-adjoint-equation
     name: 自由Dirac方程式の随伴方程式
     kind: proposition
