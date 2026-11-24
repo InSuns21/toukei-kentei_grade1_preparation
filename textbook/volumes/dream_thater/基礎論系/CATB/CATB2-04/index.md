@@ -139,7 +139,7 @@ $$
 <!-- formal-statement-start -->
 > **命題（表現可能関手の関手律）**
 >
-> 局所小な右閉モノイダル圏 $\mathcal V$ 上の豊穣圏 $\mathcal A$ と対象 $a$ に対し、上記の $H_a$ は豊穣関手である。
+> 局所小な右閉モノイダル圏 $\mathcal V$ 上の豊穣圏 $\mathcal A$ と対象 $a$ に対し、[豊穣表現可能関手](#def-catb2-04-representable)で指定した $H_a$ の構造射は合成と単位を保存する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -240,7 +240,7 @@ $$
 <!-- formal-statement-start -->
 > **命題（自然変換のHom対象の普遍性）**
 >
-> 上記の仮定で任意の $P\in\mathcal V$ に対し、射 $P\to N(F,G)$ と $P$ をパラメータとする自然性を満たす族 $t_x:P\otimes Fx\to Gx$ は自然に一対一に対応する。
+> 局所小な対称右閉・完備モノイダル圏 $\mathcal V$ 上の小さい対象集合を持つ豊穣圏 $\mathcal A$ と豊穣関手 $F,G:\mathcal A\to\underline{\mathcal V}$ を取る。任意の $P\in\mathcal V$ に対し、[Hom対象](#def-catb2-04-natural-hom)への射 $P\to N(F,G)$ と、[パラメータ付き自然性](#def-catb2-04-natural-family)を満たす族 $t_x:P\otimes Fx\to Gx$ は、パラメータ $P$ について自然に一対一に対応する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -390,7 +390,7 @@ $$
 <!-- formal-statement-start -->
 > **命題（豊穣Yoneda同型の自然性）**
 >
-> 豊穣Yonedaの補題の仮定の下で、同型 $E_{a,F}:N(H_a,F)\to Fa$ は台となる圏の射 $u:a\to b$ と豊穣自然変換 $\beta:F\Rightarrow G$ に関して自然である。すなわち $u$ による $H_b\to H_a$ の前合成、および $\beta$ による後合成で誘導される射をそれぞれ $u^*,\beta_*$ とすると
+> [豊穣Yonedaの補題](#thm-catb2-04-enriched-yoneda)の仮定の下で、同型 $E_{a,F}:N(H_a,F)\to Fa$ は台となる圏の射 $u:a\to b$ と豊穣自然変換 $\beta:F\Rightarrow G$（$G:\mathcal A\to\underline{\mathcal V}$）に関して自然である。すなわち $u$ による $H_b\to H_a$ の前合成、および $\beta$ による後合成で誘導される射をそれぞれ $u^*,\beta_*$ とすると
 
 $$
 E_{b,F}u^*=F_0(u)E_{a,F},\qquad
@@ -503,7 +503,7 @@ $S=N(F,G)$、$P=N(H_a,F)$、$q=1_S,p=1_P$ とすれば、後合成のHom対象�
 
 反変形も得られる。対称基底の上で $\mathcal A^{\mathrm{op}}(x,y)=\mathcal A(y,x)$ と置き、合成は二つのHom因子を対称性で交換してから $\mathcal A$ で合成する。三入力では二通りの括弧付けとも因子を逆順にする同じ置換になる（六角形条件と対称性）。その後の合成は $\mathcal A$ の結合律で一致する。単位は同じ $j_x$ を使い、左右単位律が入れ替わる。従って豊穣圏である。
 
-豊穣関手 $F:\mathcal A^{\mathrm{op}}\to\underline{\mathcal V}$ に定理を適用すると、$\mathcal A^{\mathrm{op}}(a,x)=\mathcal A(x,a)$ なので
+[豊穣Yonedaの補題](#thm-catb2-04-enriched-yoneda)で、対象圏を $\mathcal A^{\mathrm{op}}$、豊穣関手を $F:\mathcal A^{\mathrm{op}}\to\underline{\mathcal V}$ とする。このとき表現可能関手の値は $\mathcal A^{\mathrm{op}}(a,x)=\mathcal A(x,a)$ なので
 
 $$
 N(\mathcal A(-,a),F)\cong Fa
