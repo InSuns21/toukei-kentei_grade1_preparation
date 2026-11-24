@@ -4,9 +4,54 @@
 
 通常の[随伴](../../CAT/CAT2-08/index.md#def-cat2-08-adjunction)は二つのHom集合の自然な全単射を与える。しかし線形写像の空間や距離をHomに持つ場合、射の集合だけでなく、その構造も対応させたい。前講で得た重み付きの普遍性は、まさにHom対象の同型を要求していた。本講ではこの二つを結び、図式の定義域を広げる操作を構成する。
 
-基底 $\mathcal V$ は局所小な対称右閉・完備モノイダル圏とする。単位は $I$、内部Homは $[U,Z]$ とする。[自己豊穣化](../CATB2-04/index.md#thm-catb2-04-self-enrichment)により基底自身も豊穣圏とみなせる。すべての圏・関手・自然変換は、特に断らない限りこの基底上の豊穣なものとする。合成は $m$ と書き、通常の射の順序と同じく後に作用する因子を左に置く。括弧や単位子は [Mac Laneの整合性定理](../../CAT/CAT4-02/index.md#thm-cat4-02-coherence) により省略する。因子を交換するときは対称性を使う。
+基底 $\mathcal V$ は局所小な対称右閉・完備モノイダル圏とする。単位は $I$、内部Homは $[U,Z]$ とする。
 
-以下の $N(S,T)$ は小さい対象集合を持つ定義域上の関手間の[豊穣自然変換のHom対象](../CATB2-04/index.md#def-catb2-04-natural-hom)である。任意のパラメータ対象 $P$ からこれへの射は、各対象での $P$ を入力に含む成分が豊穣自然性を満たすことと同値である。以下の証明では、一般化された元を実際の元と混同しないよう、テンソル積を定義域とする射の等式として計算する。
+右閉性とは $-\otimes U$ と $[U,-]$ の随伴があること、完備性とは小さい図式の極限が存在することである（[右閉性](../../CAT/CAT4-05/index.md#def-cat4-05-right-closed)、[完備圏](../../CAT/CAT2-04/index.md#def-cat2-04-complete)）。
+
+[自己豊穣化](../CATB2-04/index.md#thm-catb2-04-self-enrichment)により基底自身も豊穣圏とみなせる。この自己豊穣化を $\underline{\mathcal V}$ と書く。
+
+すべての圏・関手・自然変換は、特に断らない限りこの基底上の豊穣なものとする。
+
+合成は $m$ と書き、通常の射の順序と同じく後に作用する因子を左に置く。括弧や単位子は [Mac Laneの整合性定理](../../CAT/CAT4-02/index.md#thm-cat4-02-coherence) により省略する。因子を交換するときは対称性 $\sigma_{U,Z}:U\otimes Z\to Z\otimes U$ を使う。
+
+[豊穣圏の定義](../CATB2-01/index.md#def-catb2-01-enriched-category)の単位射を $u_x:I\to\mathcal A(x,x)$ と書く（圏が異なる場合も同じ記号を用いる）。
+
+[豊穣関手の定義](../CATB2-03/index.md#def-catb2-03-enriched-functor)に従い、$F_{x,y}$ は対象 $x,y$ に対応するHom対象間の構造射を表す。射の合成 $gf$ は $f$ の後に $g$ を作用させる。
+
+<a id="catb2-06-general-natural-hom"></a>
+
+以下では [豊穣自然変換のHom対象](../CATB2-04/index.md#def-catb2-04-natural-hom) を、基底の自己豊穣化だけでなく一般の豊穣圏を値域とする場合にも使う。なぜ同じ構成ができるかを確かめよう。
+
+小さい対象集合を持つ豊穣圏 $\mathcal X$ から豊穣圏 $\mathcal Y$ への関手 $S,T$ を取る。成分候補を集めた積と、自然性の二経路を比較する積を
+
+$$
+Q=\prod_x\mathcal Y(Sx,Tx),\qquad
+B=\prod_{x,y}[\mathcal X(x,y),\mathcal Y(Sx,Ty)]
+$$
+
+と置く。$\pi_x:Q\to\mathcal Y(Sx,Tx)$ を射影とする。$Q$ から $B$ への二射は、各 $(x,y)$ 成分の逆転置（定義域 $Q\otimes\mathcal X(x,y)$）がそれぞれ
+
+$$
+m(\pi_y\otimes S_{x,y}),\qquad
+m(T_{x,y}\otimes\pi_x)\sigma_{Q,\mathcal X(x,y)}
+$$
+
+となるように定める。[評価とカリー化](../../CAT/CAT4-05/index.md#thm-cat4-05-evaluation-curry)と積の普遍性によりこの二射が存在する。その等化子を $N(S,T)$ と書く。添字 $x,y$ は $\mathcal X$ の対象を走るので、完備性によって両積と等化子が存在する。
+
+任意のパラメータ対象 $P$ に対し、[小さい積](../../CAT/CAT2-04/index.md#def-cat2-04-small-product)と[等化子](../../CAT/CAT2-03/index.md#def-cat2-03-equalizer)の普遍性を使うと、$P\to N(S,T)$ は成分族 $t_x:P\to\mathcal Y(Sx,Tx)$ で次を満たすものと一対一に対応する。
+
+$$
+m(t_y\otimes S_{x,y})
+=m(T_{x,y}\otimes t_x)\sigma_{P,\mathcal X(x,y)}.
+$$
+
+実際、成分族から積への射を作り、二射の各成分を逆転置するとこの等式になる。等式が成り立つときに限り、積への射が等化子を一意に経由する。
+
+対応は $P$ に関する前合成と両立する。
+
+$P=I$ の場合は [豊穣自然変換](../CATB2-03/index.md#def-catb2-03-enriched-natural) の条件である。
+
+$\mathcal Y=\underline{\mathcal V}$ の場合は $\mathcal Y(Sx,Tx)=[Sx,Tx]$ となり、二経路をさらに逆転置すれば前講の [Hom対象の普遍性](../CATB2-04/index.md#prop-catb2-04-natural-hom-universal) と一致する。以下ではこの一般の値域の場合も含めて使う。一般化された元を通常の元と混同しないよう、テンソル積を定義域とする射の等式で計算する。
 
 ## 2. 豊穣随伴
 
@@ -37,7 +82,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb2-06-enriched-adjunction -->
-**定義の確認**。 集合を基底とし、$F(X)=X\times S$、$G(Y)=Y^S$ とする。射 $u:X'\to X$ は $u\times1_S$ へ、射 $v:Y\to Y'$ は $h\mapsto v h$ へ送る。いずれも恒等射と合成を保つ。転置と逆転置は
+**定義の確認**。 集合を基底とし、$F(X)=X\times S$、$G(Y)=Y^S$ とする。ここで $S$ は固定集合、$Y^S$ は $S$ から $Y$ への写像全体の集合である。
+
+射 $u:X'\to X$ は $u\times1_S$ へ、射 $v:Y\to Y'$ は $h\mapsto v h$ へ送る。
+
+例えば $u':X''\to X'$ なら $(u u')\times1_S=(u\times1_S)(u'\times1_S)$ であり、$v':Y'\to Y''$ なら $G(v'v)(h)=v'vh=G(v')(G(v)(h))$ となる。
+
+恒等射はどちらも恒等写像へ移るので豊穣関手である。
+
+写像 $f:X\times S\to Y$ の転置とは、第一引数を固定した写像を値にする操作である。転置と逆転置は
 
 $$
 \theta(f)(x)(s)=f(x,s),\qquad
@@ -64,7 +117,7 @@ $$
 
 ## 3. 随伴は重み付きの普遍性を運ぶ
 
-左随伴が余極限を保つという通常の性質には、Hom対象の同型を使った強い形がある。重み付きの脚の構造も保たれる。
+左随伴が余極限を保つという通常の性質には、Hom対象の同型を使った強い形がある。[重み付き余極限](../CATB2-05/index.md#def-catb2-05-weighted-colimit)を $W\star D$、[重み付き極限](../CATB2-05/index.md#def-catb2-05-weighted-limit)を $\{U,E\}$ と書く。ここで $W$ は反変の重み、$U$ は共変の重みである。重み付きの脚の構造も保たれる。
 
 <a id="thm-catb2-06-preservation"></a>
 
@@ -134,7 +187,7 @@ $$
 
 豊穣関手 $K:\mathcal J\to\mathcal D$ と $T:\mathcal J\to\mathcal C$ が与えられたとする。$\mathcal D$ 上の関手を作り、その $K$ に沿う制限を $T$ と比較したい。ここでは $\mathcal J,\mathcal D$ の対象集合を小さいと仮定する。これにより両方の定義域上で $N$ が存在する。
 
-通常の [左Kan拡張](../../CAT/CAT3-06/index.md#def-cat3-06-left-kan) と [右Kan拡張](../../CAT/CAT3-06/index.md#def-cat3-06-right-kan) では、比較自然変換の向きが異なる。豊穣な場合は対応する変換のHom対象全体の同型を求める。
+以下、$LK$ は関手 $L\circ K$ の合成を表し、$HK,RK$ も同様とする。通常の [左Kan拡張](../../CAT/CAT3-06/index.md#def-cat3-06-left-kan) と [右Kan拡張](../../CAT/CAT3-06/index.md#def-cat3-06-right-kan) では、比較自然変換の向きが異なる。豊穣な場合は対応する変換のHom対象全体の同型を求める。
 
 <a id="def-catb2-06-left-kan"></a>
 
@@ -153,7 +206,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb2-06-left-kan -->
-**定義の確認**。 集合を基底とし、$\mathcal J$ を一対象・恒等射のみの圏、$\mathcal D$ を矢印 $0\to1$ の圏とする。$K$ は対象を $0$ に送る。$T$ の値を集合 $A$ とする。$L$ を $A\xrightarrow{1_A}A$、$\eta$ を $1_A$ と置く。任意の関手 $H=(B\xrightarrow{h}C)$ に対する変換 $L\Rightarrow H$ は二写像 $f:A\to B$, $g:A\to C$ で $g=hf$ を満たすものとなる。従って誘導射は $(f,hf)\mapsto f$、逆は $f\mapsto(f,hf)$ である。互いに逆なので集合のHom対象の同型になる。
+**定義の確認**。 集合を基底とし、$\mathcal J$ を一対象・恒等射のみの圏、$\mathcal D$ を矢印 $0\to1$ の圏とする。$K$ は対象を $0$ に送る。$T$ の値を集合 $A$ とする。
+
+$L$ を $A\xrightarrow{1_A}A$、$\eta$ を $1_A$ と置く。
+
+任意の関手 $H=(B\xrightarrow{h}C)$ に対する変換 $L\Rightarrow H$ は二写像 $f:A\to B$, $g:A\to C$ で、矢印 $0\to1$ に対する自然性が
+
+$$
+g1_A=hf
+$$
+
+となるものに限られる。恒等射に対する自然性は自動的に成立する。$\eta$ の定義域は一対象・恒等射だけなのでその自然性も成立する。従って誘導射は $(f,hf)\mapsto f$、逆は $f\mapsto(f,hf)$ である。互いに逆なので集合のHom対象の同型になる。
 <!-- definition-example-end -->
 
 右向きでは比較射が制限から $T$ へ向かうため、普遍性の試験関手も逆向きになる。
@@ -175,8 +238,25 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb2-06-right-kan -->
-**定義の確認**。 同じ $\mathcal J,\mathcal D,K,T$ で $R=(A\to\{*\})$、$\epsilon=1_A$ とする。$H=(B\xrightarrow{h}C)$ から $R$ への変換は $f:B\to A$ と $g:C\to\{*\}$ である。$g$ は唯一であり、両経路 $B\to\{*\}$ も唯一なので自然性が成立する。従って誘導射 $(f,g)\mapsto f$ は全単射である。
+**定義の確認**。 同じ $\mathcal J,\mathcal D,K,T$ で $R=(A\to\{*\})$、$\epsilon=1_A$ とする。$H=(B\xrightarrow{h}C)$ から $R$ への変換は $f:B\to A$ と $g:C\to\{*\}$ である。
+
+$g$ は唯一であり、両経路 $B\to\{*\}$ も唯一なので自然性が成立する。
+
+$R$ は恒等射を恒等写像に送ることで関手となり、$\epsilon$ の自然性は添字圏の唯一の恒等射について成立する。従って誘導射 $(f,g)\mapsto f$ は全単射である。
 <!-- definition-example-end -->
+
+これらの定義の誘導射は、パラメータ付きの成分を $K$ に沿って制限して $\eta$ または $\epsilon$ と合成する操作から、第1節の [Hom対象の普遍性](#catb2-06-general-natural-hom) によって定まる。例えば左側では $s_d:P\to\mathcal C(Ld,Hd)$ の族を
+
+$$
+P\cong P\otimes I
+\xrightarrow{s_{Kj}\otimes\eta_j}
+\mathcal C(LKj,HKj)\otimes\mathcal C(Tj,LKj)
+\xrightarrow{m}\mathcal C(Tj,HKj)
+$$
+
+へ移す。右側は比較射を後合成する。比較射の豊穣自然性と合成の結合律が、この成分族の自然性を保証する。
+
+集合を基底とする場合には $N$ は通常の自然変換の集合なので、左右の定義は通常のKan拡張の普遍性と一致する。一般の基底で $\mathcal V(I,-)$ を同型に適用して得るのは、豊穣関手間の豊穣自然変換についての全単射である。台となる圏の任意の関手や任意の通常の自然変換まで含めたKan拡張の普遍性は、これだけでは保証されない。
 
 ここまでの普遍性は関手全体を比較するものである。次に、各対象 $d$ で必要な重みを作り、そこから関手と比較射を構成する。
 
@@ -237,7 +317,7 @@ $$
 
 **比較射。** $u_{Kj}:I\to\mathcal D(Kj,Kj)$ を単位とし、$\eta_j=i_{Kj,j}u_{Kj}$ とする。$\mathcal J(j,k)$ 上で $L_{Kj,Kk}K_{jk}$ を $\eta_j$ に後合成すると、$(\ast)$ と単位律により $i_{Kk,j}K_{jk}$ となる。一方 $\eta_k$ を $T_{jk}$ に前合成しても $i_{Kk}$ の反変自然性により同じ射になる。従って $\eta$ は豊穣自然変換である。
 
-**拡張と逆操作。** 任意の豊穣関手 $H:\mathcal D\to\mathcal C$ とパラメータ $P$ に対し、自然な族 $t_j:P\to\mathcal C(Tj,HKj)$ を取る。各 $d,j$ で
+**拡張と逆操作。** 第1節で構成した[一般の値域に対するHom対象の普遍性](#catb2-06-general-natural-hom)を用いる。任意の豊穣関手 $H:\mathcal D\to\mathcal C$ とパラメータ $P$ に対し、自然な族 $t_j:P\to\mathcal C(Tj,HKj)$ を取る。各 $d,j$ で
 
 $$
 P\otimes W_dj\xrightarrow{\sigma}
@@ -266,7 +346,7 @@ $$
 
 を得る。従って $m(s_e\otimes i_{e,j})$ は $s$ の自然性により $(\dagger)$ の右辺となり、[重み付き余極限の定義](../CATB2-05/index.md#def-catb2-05-weighted-colimit)で与えられた同型に $\mathcal V(P,-)$ を適用した写像は単射である。従って脚との合成がすべて一致する二つのパラメータ付き射は等しく、元の $s_e$ が復元される。
 
-両操作はパラメータ $P$ の射による前合成と両立する。ゆえに [Hom対象の普遍性](../CATB2-04/index.md#prop-catb2-04-natural-hom-universal) によって、誘導射 $N(L,H)\to N(T,HK)$ に逆射が得られる（$P=N(T,HK)$ の恒等射を逆操作に入れればよい）。二つの復元式を恒等射に適用すれば両合成は恒等射になる。よって [豊穣左Kan拡張の定義](#def-catb2-06-left-kan) を満たす。
+両操作はパラメータ $P$ の射による前合成と両立する。ゆえに[一般の値域に対するHom対象の普遍性](#catb2-06-general-natural-hom)によって、誘導射 $N(L,H)\to N(T,HK)$ に逆射が得られる（$P=N(T,HK)$ の恒等射を逆操作に入れればよい）。二つの復元式を恒等射に適用すれば両合成は恒等射になる。よって [豊穣左Kan拡張の定義](#def-catb2-06-left-kan) を満たす。
 <!-- proof-end -->
 
 例えば集合で第4節の包含を考える。$d=0,1$ ともに $W_d$ は一元集合である。[一対象図式の重み付き余極限](../CATB2-05/index.md#thm-catb2-05-single-object) によって両方の値は $A$ となり、唯一の矢印は恒等写像に移る。
@@ -326,7 +406,7 @@ $$
 
 を満たす。これは左構成の $(\ast)$ を反転した式である。単位・合成の保存も反対圏を二回取ることで保存される。比較射は $\epsilon_j=\lambda_{Kj,j}u_{Kj}$ となる。
 
-最後に変換のHom対象を比較する。反対を取ると $H\Rightarrow R$ の成分 $\mathcal C(Hd,Rd)$ は $\mathcal C^{\mathrm{op}}(Rd,Hd)$ となる。パラメータ付き自然性の二経路は合成順序と因子の交換により互いに入れ替わるので、成分が同じ自然な族を表す。 [Hom対象の普遍性](../CATB2-04/index.md#prop-catb2-04-natural-hom-universal) から両Hom対象は同型である。左拡張の同型をこの同型で挟むと
+最後に変換のHom対象を比較する。反対を取ると $H\Rightarrow R$ の成分 $\mathcal C(Hd,Rd)$ は $\mathcal C^{\mathrm{op}}(Rd,Hd)$ となる。パラメータ付き自然性の二経路は合成順序と因子の交換により互いに入れ替わるので、成分が同じ自然な族を表す。 [一般の値域に対するHom対象の普遍性](#catb2-06-general-natural-hom)から両Hom対象は同型である。左拡張の同型をこの同型で挟むと
 
 $$
 \begin{aligned}
@@ -346,7 +426,13 @@ $$
 
 両公式は、必要な重み付き余極限・極限が対象圏 $\mathcal C$ に存在することを仮定している。基底の完備性は $N$ を構成するための条件であり、それだけでは $\mathcal C$ に普遍対象は生まれない。例えば集合を基底とし、空の $\mathcal J$ から一対象の $\mathcal D$ へ拡張するなら、左には始対象、右には終対象が必要である。対象圏が空でない有限集合だけの圏なら始対象はない。仮に始対象 $A$ があると、二元集合への写像が唯一でなければならないが、二種類の定値写像が存在するため矛盾する。
 
-一対象の添字豊穣圏でHom対象が $I$ の場合には、対象圏を基底自身とする。[一対象図式の重み付き極限・余極限](../CATB2-05/index.md#thm-catb2-05-single-object)により、左は $\mathcal D(K*,d)\otimes T*$、右は $[\mathcal D(d,K*),T*]$ となる。例えばベクトル空間を基底とし、これらのHom対象がそれぞれ2次元と3次元で $T*$ が4次元なら、左の次元は8、右の次元は12である。左は基底テンソルの係数、右は線形写像の行列成分を自由に選ぶことからこの差が出る。
+一対象の添字豊穣圏でHom対象が $I$ の場合には、対象圏を基底自身とする。[一対象図式の重み付き極限・余極限](../CATB2-05/index.md#thm-catb2-05-single-object)により、左は $\mathcal D(K*,d)\otimes T*$、右は $[\mathcal D(d,K*),T*]$ となる。
+
+例えばベクトル空間を基底とし、これらのHom対象がそれぞれ2次元と3次元で $T*$ が4次元なら、左の次元は $2\cdot4=8$、右の次元は $4\cdot3=12$ である。
+
+左では [有限次元テンソル積の基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis) により二つの基底から作る基底テンソルを数える。
+
+右では [ベクトル空間の閉構造](../../CAT/CAT4-05/index.md#thm-cat4-05-vector-spaces) によって内部Homが線形写像の空間なので、定義域の3本の基底ベクトルの像を4次元空間内で自由に選ぶ。各像の4個の係数が行列の1列となる。
 
 ## 8. 演習
 
@@ -421,7 +507,7 @@ $$
 集合の随伴 $-\times S\dashv(-)^S$ が二集合 $A,B$ の余積を保つことを、具体的な同型と任意の試験集合への写像で確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** [保存定理](#thm-catb2-06-preservation) を一元集合の重みに適用すれば余積を保つことが分かる。余積を具体的に互いに交わらない二つのコピーの集合 $(\{0\}\times A)\cup(\{1\}\times B)$ と定める。次の写像を考える。
+**詳細解答。** [保存定理](#thm-catb2-06-preservation) を、二対象・恒等射のみの離散圏上の図式 $(A,B)$ と各対象で一元集合を値とする反変重みに適用すれば余積を保つことが分かる。自然性の追加条件がないので、この重み付き余極限は[集合における錐・余錐と重み付き極限・余極限の対応](../CATB2-05/index.md#thm-catb2-05-conical-set)により通常の余積である。余積を具体的に互いに交わらない二つのコピーの集合 $(\{0\}\times A)\cup(\{1\}\times B)$ と定める。次の写像を考える。
 
 $$
 \phi: (A\sqcup B)\times S\to(A\times S)\sqcup(B\times S)
@@ -443,7 +529,15 @@ $$
 Ld=\mathbb R^3\otimes\mathbb R^2.
 $$
 
-脚は $w\mapsto(x\mapsto w\otimes x)$ で、標準基底のテンソル $e_i\otimes f_j$ が6本の基底を与える。任意の線形な脚の族は双線形写像 $(w,x)\mapsto g(w)(x)$ を与えるのでテンソル積の普遍性で一意に因子分解される。
+脚は $w\mapsto(x\mapsto w\otimes x)$ である。$\mathbb R^3$ の標準基底を $e_i$（$1\le i\le3$）、$\mathbb R^2$ の標準基底を $f_j$（$1\le j\le2$）とする。[有限次元テンソル積の基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis) により $e_i\otimes f_j$ が6本の基底を与える。
+
+任意の試験空間 $X$ とパラメータ空間 $P$ を取る。パラメータ付きの脚 $g:P\otimes\mathbb R^3\to[\mathbb R^2,X]$ から、三重線形な写像 $(p,w,x)\mapsto g(p\otimes w)(x)$ を作る。[テンソル積の普遍性](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product) と [評価とカリー化](../../CAT/CAT4-05/index.md#thm-cat4-05-evaluation-curry) によって唯一の線形写像
+
+$$
+b:P\to[Ld,X],\qquad b(p)(w\otimes x)=g(p\otimes w)(x)
+$$
+
+が定まる。逆に $b$ をこの脚で評価すれば $g$ に戻る。純テンソルがテンソル積を張るので逆方向でも元の $b$ に戻る。
 
 [右公式](#thm-catb2-06-right-formula) では
 
@@ -451,7 +545,19 @@ $$
 Rd=[\mathbb R^4,\mathbb R^2].
 $$
 
-脚は $w\mapsto(M\mapsto Mw)$ である。行列は2行4列なので次元は8。任意の線形な脚の族 $g:\mathbb R^4\to[X,\mathbb R^2]$ から、$x$ を $w\mapsto g(w)(x)$ へ送る線形写像が一意に定まる。評価すれば元の族に戻る。任意のパラメータでもテンソル積の転置によって同じ復元ができるため、Hom対象の普遍性が成立する。
+脚は $w\mapsto(M\mapsto M(w))$ である。
+
+$M$ は $\mathbb R^4\to\mathbb R^2$ の線形写像を表し、両空間の標準基底について $M(e_i)$ の二つの成分を第 $i$ 列とする。
+
+従って $M(w)$ は行列と列ベクトルの積 $Mw$ で計算できる。行列は2行4列で、各成分を独立に指定できるため次元は8である。
+
+任意の試験空間 $X$ とパラメータ $P$ に対し、脚の族 $g:P\otimes\mathbb R^4\to[X,\mathbb R^2]$ から
+
+$$
+b:P\to[X,Rd],\qquad b(p)(x)(w)=g(p\otimes w)(x)
+$$
+
+を作る。右辺は $p,x,w$ の各変数について線形なので、閉構造の転置によって $b$ が一意に定まる。逆操作は $b(p)(x)$ を $w$ で評価することであり、両操作が互いに逆となる。左側でも右側でも全ての $P$ で対応が成立し、脚から誘導されるHom対象間の射が同型である（[一対象図式の普遍性の証明](../CATB2-05/index.md#thm-catb2-05-single-object) と同じ同型判定）。
 <!-- solution-end -->
 
 ### CATB2-06-B03 比較射の自然性
