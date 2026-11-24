@@ -1,0 +1,25 @@
+chapter: IWA20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - IWA7
+  - IWA18
+  - IWA19
+  - MF5
+forward_references: []
+concepts:
+  - id: number-theory.iwa20-integral-projectors
+    name: "二固有値の整数格子射影"
+    kind: proposition
+    introduction: formal
+    requires: [modular-forms.eigenforms, number-theory.iwa19-split]
+  - id: number-theory.iwa20-upper-triangular-extension
+    name: "上三角表現の分裂とコサイクル"
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa18-h1]
+  - id: number-theory.iwa20-local-count
+    name: "局所像を含めた有限層の位数公式"
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.iwa18-poitou-tate, number-theory.iwa18-pontryagin, number-theory.iwa18-h2]
