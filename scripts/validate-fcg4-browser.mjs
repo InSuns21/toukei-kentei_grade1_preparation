@@ -116,10 +116,20 @@ try {
   console.log('FCG4 same Jacobi iteration source changes live three-panel GPU pixels: PASS');
 
 
-  await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="1反復")).click()');
-  await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格") && document.querySelector("#fcg4-cpu-prediction")?.textContent.includes("反復129")',25000);
+  await click('fcg4-reset');
+  await waitFor('document.querySelector("#fcg4-live-state")?.dataset.iter==="0"');
+  const frameAtZero=await evaluate('document.querySelector("#canvas-slot iframe").srcdoc.length');
+  const zero=await evaluate('Number(document.querySelector("#fcg4-live-state").dataset.divergence)');
+  assert.ok(zero>0);
+  await click('fcg4-step');
+  await waitFor('document.querySelector("#fcg4-live-state")?.dataset.iter==="1"');
+  await evaluate('(()=>{const e=document.querySelector("#fcg4-iterations");e.value="160";e.dispatchEvent(new Event("input",{bubbles:true}));})()');
+  await waitFor('document.querySelector("#fcg4-live-state")?.dataset.iter==="160"');
+  const final=await evaluate('Number(document.querySelector("#fcg4-live-state").dataset.divergence)');
+  assert.ok(final<zero/10,JSON.stringify({zero,final}));
+  assert.equal(await evaluate('document.querySelector("#canvas-slot iframe").srcdoc.length'),frameAtZero);
   assert.equal(await evaluate('document.querySelectorAll("#results-table tbody tr").length'),9);
-  console.log('FCG4 Poisson iteration and GPU readback: PASS');
+  console.log('FCG4 same-sandbox seek, one iteration and divergence decrease: PASS');
 
   await click('tab-code');
   const modified=await evaluate('(()=>{const e=document.querySelector("#fragment-source");e.value=e.value.replace("outColor=vec4(q,0.15,1.0-q,1.0);","outColor=vec4(0.0,q,0.0,1.0);");e.dispatchEvent(new Event("input",{bubbles:true}));return e.value.includes("vec4(0.0,q,0.0,1.0)")})()');
