@@ -259,7 +259,7 @@ $$
 py=k_cste_1-piw=k_cxee_1.
 $$
 
-$by=0$ より $y=k_bz_1$ と分解でき、$k_c\beta z_1=py=k_cxee_1$。$k_c$ を消去すると $\beta z_1=xee_1$。合成 $ee_1$ はエピ射なので[完全性の判定](#prop-catb1-06-local-exactness)が使える。
+$by=0$ より $y=k_bz_1$ と分解でき、$k_c\beta z_1=py=k_cxee_1$。$k_c$ を消去すると $\beta z_1=xee_1$。合成 $ee_1$ はエピ射なので[持ち上げによる完全性の判定](#prop-catb1-06-local-exactness)が使える。
 
 **$Q_a$ での完全性。** $\gamma\delta s=\gamma q_av=q_bi'v=q_bbu=0$ なので $s$ を消去して $\gamma\delta=0$。
 
@@ -287,7 +287,7 @@ $$
 \delta t=\delta sr=q_avr=q_awe_1=xee_1.
 $$
 
-合成 $ee_1$ はエピ射なので[完全性の判定](#prop-catb1-06-local-exactness)により完全である。
+合成 $ee_1$ はエピ射なので[持ち上げによる完全性の判定](#prop-catb1-06-local-exactness)により完全である。
 
 **$Q_b$ での完全性。** 第2節で $\eta\gamma=0$ を示した。$x:T\to Q_b$ が $\eta x=0$ を満たすとする。[持ち上げの補題](#lem-catb1-06-epi-lift)をエピ射 $q_b$ に適用し、$e:S\to T$, $y:S\to B'$ で $q_by=xe$ とする。
 
@@ -315,7 +315,7 @@ $$
 \gamma q_aw=q_bi'w=q_bye_1e_2-q_bbv_0=xee_1e_2.
 $$
 
-合成 $ee_1e_2$ はエピ射なので[完全性の判定](#prop-catb1-06-local-exactness)が使える。以上で四つの中間対象で完全性が成立し、端点と合わせて結論を得る。
+合成 $ee_1e_2$ はエピ射なので[持ち上げによる完全性の判定](#prop-catb1-06-local-exactness)が使える。以上で四つの中間対象で完全性が成立し、端点と合わせて結論を得る。
 <!-- proof-end -->
 
 ## 6. 何を測っているか
