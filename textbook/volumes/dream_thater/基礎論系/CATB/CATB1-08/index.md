@@ -322,7 +322,9 @@ $$
 &=\mu_B^U U(\alpha_B)Uu\,\alpha_A\\
 &=(\alpha_Bu)^\sharp_U\alpha_A.
 \end{aligned}
-$$逆にこの持ち上げの条件を $u=1_{TX}$ に適用すれば乗法条件を得る。
+$$
+
+逆にこの持ち上げの条件を $u=1_{TX}$ に適用すれば乗法条件を得る。
 
 <a id="thm-catb1-08-correspondence"></a>
 
