@@ -6,7 +6,9 @@
 
 ## 1. 横方向の振動と高さ方向の方程式
 
-$z=x+iy$（$y>0$）とし、[重さ0のMaass形式](../AFR2/index.md#def-afr2-maass) $u$ の固有値を $\lambda$ とします。記号 $a_n(y)$ は整数 $n$ に対する横方向のFourier係数です。$a_n''(y)=d^2a_n(y)/dy^2$ と書きます。Maass形式の不変性を平行移動 $z\mapsto z+1$ に適用すると、$u$ は $x$ について周期1です。[周期方向のFourier展開と係数方程式](../AFR2/index.md#thm-afr2-fourier-equation)から
+$z=x+iy$（$y>0$）とし、[重さ0のMaass形式](../AFR2/index.md#def-afr2-maass) $u$ の固有値を $\lambda$ とします。記号 $a_n(y)$ は整数 $n$ に対する横方向のFourier係数です。
+
+$a_n''(y)=d^2a_n(y)/dy^2$ と書きます。Maass形式の不変性を平行移動 $z\mapsto z+1$ に適用すると、$u$ は $x$ について周期1です。[周期方向のFourier展開と係数方程式](../AFR2/index.md#thm-afr2-fourier-equation)から
 
 $$
 a_n(y)=\int_0^1 u(x+iy)e^{-2\pi inx}\,dx,\qquad
@@ -95,7 +97,16 @@ ODE6の[指標根の差とFrobenius解の分岐](../../../解析系/ODE/ODE6/ind
 
 方程式だけでは解は一意に定まりません。高さが大きくなると消える解を、次の収束積分で規格化します。$\cosh v=(e^v+e^{-v})/2$、$\sinh v=(e^v-e^{-v})/2$ とします。複素引数でも同じ指数関数の式を使います。
 
-固定した $\nu\in\mathbb C$ と $t>0$ に対し、これから使う積分が存在することを先に確かめます。$v\ge0$ では $\cosh v\ge e^v/2$ であり、$A=|\operatorname{Re}\nu|$ と書くと三角不等式から $|\cosh(\nu v)|\le e^{Av}$ です。従って
+固定した $\nu\in\mathbb C$ と $t>0$ に対し、これから使う積分が存在することを先に確かめます。$v\ge0$ では $\cosh v\ge e^v/2$ です。$A=|\operatorname{Re}\nu|$ と書きます。複素指数関数の絶対値と和の三角不等式を使うと、
+
+$$
+|\cosh(\nu v)|
+\le \frac{|e^{\nu v}|+|e^{-\nu v}|}{2}
+=\frac{e^{v\operatorname{Re}\nu}+e^{-v\operatorname{Re}\nu}}2
+\le e^{Av}.
+$$
+
+従って
 
 $$
 \int_0^\infty |e^{-t\cosh v}\cosh(\nu v)|\,dv
@@ -394,7 +405,9 @@ $$
 
 第二式は有限幾何和を微分するか、$\sum_{k\ge1}\sum_{j\ge k}q^j$ を順に足すことで得られます。どちらも $q$ の定数倍以下です。これらの評価は $y\ge Y+1$ で一様なので、級数と二つの一階微分級数が絶対かつ一様に収束します。[微分と極限の交換定理](../../../基礎科目/RA/RA5/index.md#thm-ra5-derivative)を任意の有限閉区間で、他方の変数を固定した有限部分和の実部・虚部に適用します。部分和は一点で収束し、導関数列は一様収束するので、和の一階微分は表示した微分級数に等しくなります。従って主張した評価が成立します。
 
-[標準基本領域](../../MF/MF1/index.md#def-mf1-standard-domain)を $F$ とし、$\Gamma=SL_2(\mathbb Z)$、$\mathbb H=\{x+iy:x\in\mathbb R,\ y>0\}$ として、商空間を $X=\Gamma\backslash\mathbb H$ と書きます。$a_0\equiv0$ なら $F$ の有限高さ部分では滑らかさから $u$ とその微分は有界です。高さ $Y+1$ 以上では指数減衰を用いて、$|u|^2y^{-2}$ および $|u_x|^2+|u_y|^2$ の積分が有限になります。
+[標準基本領域](../../MF/MF1/index.md#def-mf1-standard-domain)を $F$ とし、$\Gamma=SL_2(\mathbb Z)$、$\mathbb H=\{x+iy:x\in\mathbb R,\ y>0\}$ として、商空間を $X=\Gamma\backslash\mathbb H$ と書きます。
+
+$a_0\equiv0$ なら $F$ の有限高さ部分では滑らかさから $u$ とその微分は有界です。高さ $Y+1$ 以上では指数減衰を用いて、$|u|^2y^{-2}$ および $|u_x|^2+|u_y|^2$ の積分が有限になります。
 
 [双曲Laplace作用素のエネルギー実現](../AFR3/index.md#def-afr3-energy-realization)の空間 $V$ への所属も確認します。$R>Y+1$ とし、高さ $R$ 以下は1、高さ $2R$ 以上は0となる滑らかな切断を用います。
 
@@ -413,7 +426,21 @@ $$
 J(w_R)=\int_F (|w_R|^2y^{-2}+|\partial_xw_R|^2+|\partial_yw_R|^2)\,dx\,dy.
 $$
 
-右辺のうち $1-\chi_R$ が掛かる項は $y\ge R$ の可積分な尾部で抑えられます。$\partial_yw_R=(1-\chi_R)u_y-u\chi'(y/R)/R$ の二項の和の二乗は各二乗の和の2倍以下なので、先ほどの評価と合わせて右辺は0へ近づきます。従って $J(w_R)\to0$ です。$u_R-u_S=w_S-w_R$ は $V$ の元であり、各二乗の和を評価すると $\|u_R-u_S\|_V^2\le 2J(w_R)+2J(w_S)$ です。整数 $R\to\infty$ を取れば $u_R$ は $V$ のノルムでCauchy列となり、その $H$ での極限は $u$ です。$V$ は滑らかなコンパクト台の不変関数の完備化なので $u\in V$ です。
+右辺のうち $1-\chi_R$ が掛かる項は $y\ge R$ の可積分な尾部で抑えられます。高さ方向の微分は
+
+$$
+\partial_yw_R=(1-\chi_R)u_y-u\chi'(y/R)/R
+$$
+
+です。二項の和の二乗は各二乗の和の2倍以下なので、先ほどの評価と合わせて $J(w_R)\to0$ です。
+
+$u_R-u_S=w_S-w_R$ は $V$ の元であり、各二乗の和を評価すると
+
+$$
+\|u_R-u_S\|_V^2\le 2J(w_R)+2J(w_S).
+$$
+
+整数 $R\to\infty$ を取れば $u_R$ は $V$ のノルムでCauchy列となり、その $H$ での極限は $u$ です。$V$ は滑らかなコンパクト台の不変関数の完備化なので $u\in V$ です。
 
 コンパクト台の滑らかな試験関数 $v$ に対して、十分大きな $R$ では $u_R=u$ が $v$ の台上で成立します。[エネルギー恒等式](../AFR3/index.md#thm-afr3-green)を $u_R,v$ に適用すると
 
@@ -444,7 +471,17 @@ N(v)\cdot z=\frac{z+v}{1}=z+v,\qquad
 A_y\cdot z=\frac{\sqrt y\,z}{1/\sqrt y}=yz.
 $$
 
-このため $N(v)A_y\cdot i=v+iy$ となり、群の行列で横方向と高さを指定できます。行列積から $N(v)N(w)=N(v+w)$、さらに整数 $m$ では全成分が整数なので $N(m)\in\Gamma$ です。$v\mapsto e^{2\pi inv}$ は和を積に移す絶対値1の関数で、整数を足しても変わりません。このように和を積に移し、絶対値1を取る関数を加法指標と呼びます。連続な関数 $\Phi:G\to\mathbb C$ に対し、左不変性とは全ての $\gamma\in\Gamma$ と $g\in G$ で $\Phi(\gamma g)=\Phi(g)$ となることです。従って $\Phi(N(v)g)$ は $v$ について周期1となります。この一変数の周期関数から、古典的Fourier係数と同じ積分で非零周波数の成分を取り出します。
+このため $N(v)A_y\cdot i=v+iy$ となり、群の行列で横方向と高さを指定できます。行列積から $N(v)N(w)=N(v+w)$、さらに整数 $m$ では全成分が整数なので $N(m)\in\Gamma$ です。
+
+整数 $n$ に対し $v\mapsto e^{2\pi inv}$ は和を積に移す絶対値1の関数で、整数を足しても変わりません。このように和を積に移し、絶対値1を取る関数を加法指標と呼びます。
+
+連続な関数 $\Phi:G\to\mathbb C$ に対し、左不変性とは全ての $\gamma\in\Gamma$ と $g\in G$ で
+
+$$
+\Phi(\gamma g)=\Phi(g)
+$$
+
+となることです。従って $\Phi(N(v)g)$ は $v$ について周期1となります。この一変数の周期関数から、古典的Fourier係数と同じ積分で非零周波数の成分を取り出します。
 
 <a id="def-afr4-whittaker"></a>
 <!-- formal-statement-start -->
