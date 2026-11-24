@@ -1,0 +1,29 @@
+chapter: ACOMP1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG1-01
+  - CPLX18
+  - FLD3
+forward_references: []
+concepts:
+  - id: algebraic-complexity.polynomial-function
+    name: 多項式関数と評価写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多項式関数と評価写像）"]
+    requires: [algebraic-geometry.multivariate-polynomial-ring, algebra.field]
+
+  - id: algebraic-complexity.grid-uniqueness
+    name: 直積上の多項式の一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（直積上の多項式の一意性）"]
+    requires: [algebraic-complexity.polynomial-function, algebra.polynomial-division-algorithm, algebra.polynomial-degree-product]
+
+  - id: algebraic-complexity.grid-representation
+    name: 有限直積上の関数の多項式表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限直積上の関数の多項式表示）"]
+    requires: [algebraic-complexity.grid-uniqueness]
