@@ -1,8 +1,8 @@
 # DREAM THEATER 代数的計算複雑性理論 I・II 計画
 
 構成確定日: 2026-11-24 JST
-状態: planned（設計確定・本文未着手）
-系列予約ID: ACOMP（実装時にmanifest/章ID衝突を再点検）
+状態: in progress（ACOMP1実装、残講義・横断監査あり）
+系列ID: ACOMP（[系列manifest](../dream-theater-series/ACOMP.yaml)）
 講数: **全24講**
 
 ## 1. 目的・前提・停止線
@@ -44,11 +44,11 @@ I=ACOMP1–12、II=ACOMP13–24。既存AGの環・体・射影幾何は引用�
 
 Bürgisser–Clausen–Shokrollahi, [Algebraic Complexity Theory](https://link.springer.com/book/10.1007/978-3-662-03338-8)；Bürgisser, [Completeness and Reduction in Algebraic Complexity Theory](https://link.springer.com/book/10.1007/978-3-662-04179-6)；Shpilka–Yehudayoff, [Arithmetic Circuits](https://doi.org/10.1561/0400000039)；[IISc lecture outline](https://www.csa.iisc.ac.in/~chandan/courses/act25/home.html)；[Valiant 1979](https://sites.math.washington.edu/~billey/colombia/references/valiant.completeness.1979.pdf)。
 
-関連: [VP/VNP横断履修ルート](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md)。各書の目次と公開された研究資料を設計基準にし、本文を転載しない。
+関連: [VP/VNP横断履修ルート](../plans/DREAM_THEATER_VP_VNP_ROUTE_PLAN.md)。各書の目次と公開された研究資料を設計基準にし、本文を転載しない。
 
 ## 4. 完成条件
 
-- [ ] 初回実装時に本PLANを plans_progress に移し、系列manifestを全24講の予定IDで整備する。未実装章の公開目次先行登録はしない。
+- [x] 初回実装時に本PLANを plans_progress に移し、系列manifestを全24講の予定IDで整備する。未実装章の公開目次先行登録はしない。
 - [ ] 各講で主要定義を使用前に導入し、定理の仮定・定義域・量化・中間計算を明示。直接例と反例を含め、主要証明を再構成可能にする。
 - [ ] 原則 Level A 4題・B 3題・C 1題以上と詳細解答。単なる題数合わせはしない。
 - [ ] chapter.yaml・knowledge.yaml・prerequisite・stable anchor・KaTeX・concept/knowledge/exercise/Pages検証を完了する。
