@@ -6,7 +6,9 @@
 
 ## 1. 定理名ではなく、欲しい結論から探す
 
-自然数の使用数 used、予約枠 reserved、容量 cap があり、used ≤ reserved と reserved ≤ cap が分かっているとします。目標は used ≤ cap です。欲しい補題は、三つの自然数 a、b、c に対する仮定 a ≤ b、b ≤ c と結論 a ≤ c を持つものです。名前を知らなくても、この形から候補を探せます。
+Lean の `Nat` は 0 を含む非負整数の型です。自然数の使用数 used、予約枠 reserved、容量 cap があり、used ≤ reserved と reserved ≤ cap が分かっているとします。目標は used ≤ cap です。欲しい補題は、三つの自然数 a、b、c に対する仮定 a ≤ b、b ≤ c と結論 a ≤ c を持つものです。名前を知らなくても、この形から候補を探せます。
+
+[証明状態](../LVT2-04/index.md#def-lvt2-04-state) の局所文脈 Γ は、型付きの変数と現在使える仮定を記録したものです。ここでは G を目標の命題と書き、`h : P` は命題 P の証明項 h を表します（[命題型](../LVT2-01/index.md#def-lvt2-01-prop)）。環境とは、読み込んだモジュールなどから利用できる名前付きの定義・定理等の宣言の集まりです。目標 G を得るため、宣言の型を調べ、必要な証明を文脈から供給するのが定理探索です。
 
 <a id="def-lvt2-08-search"></a>
 
@@ -17,10 +19,16 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt2-08-search -->
-**定義の確認**　Γ に h₁ : 2 ≤ 4、h₂ : 4 ≤ 5 があり、G を 2 ≤ 5 とする。候補 Nat.le_trans は a ≤ b と b ≤ c から a ≤ c を得る。a = 2、b = 4、c = 5 を代入すると結論は G に一致し、残る二条件は h₁ と h₂ で充足する。片方しかなければ候補が見つかっても適用は完了しない。
+**定義の確認**　Γ に h₁ : 2 ≤ 4、h₂ : 4 ≤ 5 があり、G を 2 ≤ 5 とする。候補 Nat.le_trans は a ≤ b と b ≤ c から a ≤ c を得る。a = 2、b = 4、c = 5 を代入すると、候補の型は次のようになる。
+
+```text
+(2 ≤ 4) → (4 ≤ 5) → (2 ≤ 5)
+```
+
+結論が G に一致することを確認した後、[含意の除去規則](../LVT2-02/index.md#def-lvt2-02-imp) により、h₁ を渡して `(4 ≤ 5) → (2 ≤ 5)` を得、h₂ を渡して G の証明を得る。片方の仮定しかなければ、この候補の適用には残る条件の別の証明が必要である。
 <!-- definition-example-end -->
 
-まず固定環境で `#check Nat.le_trans` を実行し、引数の順序と型を読みます。`exact?` は現在の目標を閉じる証明を探索し、成功すれば候補を提案します。`apply?` は適用できる補題を探すためにも使えます。探索は万能ではなく、探索範囲や時間の制限もあります。提案された式を `exact` などで再実行し、必要な仮定を確認します。
+まず固定環境で `#check Nat.le_trans` を実行し、引数の順序と型を読みます。`#check` は項の型を表示する命令です。Lean の `f x y` は関数 f に x、次に y を渡す記法で、`Nat.le_trans` の自然数の引数は二つの証明の型から推論されます。`exact?` は現在の目標を閉じる証明を探索し、成功すれば候補を提案します。`apply?` は適用できる補題を探すためにも使えます。探索は万能ではなく、探索範囲や時間の制限もあります。提案された式を `exact` などで再実行し、必要な仮定を確認します。
 
 ```lean
 import Lean
@@ -78,7 +86,9 @@ theorem withinChain (used reserved cap : Nat)
 
 ## 2. 自動化に任せる範囲を決める
 
-予約枠が一つ空いているとき、使用数を一つ増やしても容量を超えないことを証明しましょう。手動で不等式を変形することも、自然数の線形算術を扱う `omega` に証明探索を任せることもできます。
+予約枠が一つ空いているとき、使用数を一つ増やしても容量を超えないことを証明しましょう。手動で不等式を変形することも、自然数の線形算術を扱う `omega` に証明探索を任せることもできます。ここで線形算術とは、変数の加算、定数による整数倍、比較などを扱う計算です。変数同士の積はこの範囲に入りません。
+
+[基本タクティク](../LVT2-04/index.md#def-lvt2-04-tactic) は証明状態を更新し、証明項を組み立てる指示でした。[簡約操作](../LVT2-03/index.md#def-lvt2-03-simp) は定義や等式によって式を簡単にする操作で、[決定可能性](../LVT2-01/index.md#def-lvt2-01-decidable) に基づく判定手続きは命題またはその否定の証明を持つ結果を計算します。これらを自動で組み合わせるのが証明自動化です。カーネルとは、組み立てられた項が要求された型を持つかを検査する Lean の中核部分です。
 
 <a id="def-lvt2-08-automation"></a>
 
@@ -89,7 +99,7 @@ Leanの証明自動化とは、[証明状態](../LVT2-04/index.md#def-lvt2-04-st
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt2-08-automation -->
-**定義の確認**　仮定 h : used < cap、目標 used + 1 ≤ cap とする。omega は自然数上の整数係数による線形算術を処理する。自然数の厳密不等式 h は used + 1 ≤ cap と同値なので、この目標を閉じられる。具体値 used = 2、cap = 3 なら h は 2 < 3 であり、結論は 3 ≤ 3。証明項が目標の型を持つことまで検査される。
+**定義の確認**　used、cap を任意の自然数、仮定を h : used < cap、目標を used + 1 ≤ cap とする。`<` は厳密な比較、`≤` は等号を許す比較である。自然数の `<` は後者（1を加えた数）を用いて定義され、used < cap の証明は used + 1 ≤ cap の証明として使える。omega の処理対象はこの線形算術である。具体値 used = 2、cap = 3 なら h は 2 < 3 であり、結論は 3 ≤ 3。タクティクで生成した項を目標の型としてカーネルが検査するところまでが証明であり、数値例で成功したことだけを根拠にはしない。
 <!-- definition-example-end -->
 
 | タクティク | この講での用途 | 適用の注意 |
@@ -114,7 +124,23 @@ Leanの証明自動化とは、[証明状態](../LVT2-04/index.md#def-lvt2-04-st
 <!-- proof-start -->
 ### 証明
 
-自然数の比較において used < cap は Nat.succ used ≤ cap と同値であり、Nat.succ used = used + 1 である。従って h から used + 1 ≤ cap を得る。別の主張では cap + 1 ≤ cap と仮定すると、両辺から cap を整数として引いた不等式 1 ≤ 0 を得る。自然数の整数への埋込みは順序と加算を保つため、この移項は矛盾を与える。自然数の切り捨て減算を機械的に使ったわけではない。
+自然数の比較において used < cap は Nat.succ used ≤ cap を表す。`Nat.succ` は自然数の後者を返す関数である。[定義的等しさ](../LVT2-03/index.md#def-lvt2-03-defeq) により Nat.succ used と used + 1 は同じ式に簡約される。
+
+```text
+h : used < cap
+  : Nat.succ used ≤ cap
+  : used + 1 ≤ cap
+```
+
+同じ証明項 h が三つの表示に共通する。別の主張では cap + 1 ≤ cap と仮定する。cap + 1 は cap の直後の自然数であり、cap より厳密に大きい。この二つの数について同時に逆向きの非厳密比較が成立することはない。整数として比較すれば、順序と加算が保たれるため、次の矛盾としても確認できる。
+
+```text
+cap + 1 ≤ cap
+(cap + 1) - cap ≤ cap - cap
+1 ≤ 0
+```
+
+この引き算は整数の演算であって、Lean の Nat の切り捨て減算ではない。
 
 ```lean
 theorem nextWithin (used cap : Nat) (h : used < cap) :
@@ -139,7 +165,7 @@ theorem noRoom (cap : Nat) : ¬ (cap + 1 ≤ cap) := by
 
 ## 3. 受理された証明の前提を調べる
 
-Leanの宣言には、証明を構成して検査する theorem と、証明を要求せず命題を前提として追加する axiom があります。証明を途中で埋める `sorry` も、未解決の目標を一時的に受理させる機能です。仮定の追加が必要な数学理論もありますが、根拠なく偽の命題を追加すると、その後の論証が意味を失います。
+Leanの宣言には、証明を構成して検査する `theorem` と、型だけを与えて値を要求しない `axiom` があります。本講の公理は特に、命題の証明を前提として追加するものを指します。宣言の「型」は何を主張するか、「値」は定義の右辺や定理の証明項です。ある宣言が別の名前を型や値に含むとき、参照先がさらに使う公理も含めて調べるのが公理依存の検査です。証明を途中で埋める `sorry` も、未解決の目標を一時的に受理させる機能です。仮定の追加が必要な数学理論もありますが、根拠なく偽の命題を追加すると、その後の論証が意味を失います。
 
 <a id="def-lvt2-08-axioms"></a>
 
@@ -150,7 +176,7 @@ Leanの宣言 D の公理依存とは、D の型または値から参照され�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt2-08-axioms -->
-**定義の確認**　claimedFits という追加公理があり、それを用いて宣言 bogusViaAxiom を作ると、後者の証明本体に axiom という単語がなくても claimedFits が依存に含まれる。さらに別の宣言が bogusViaAxiom を利用すれば、その依存にも claimedFits が含まれる。通常の反射律だけによる証明にはこの追加公理は不要である。
+**定義の確認**　claimedFits という追加公理があり、それを用いて宣言 bogusViaAxiom を作ると、後者の証明本体に axiom という単語がなくても claimedFits が依存に含まれる。さらに別の宣言が bogusViaAxiom を利用すれば、その依存にも claimedFits が含まれる。例えば `bogusViaAxiom` が `claimedFits` を参照する経路は1段であり、別の宣言が `bogusViaAxiom` を参照する経路は2段になる。型・値の参照をたどるため、直接 axiom と書いた箇所だけを検索する方法とは異なる。通常の反射律だけによる証明にはこの追加公理は不要である。
 <!-- definition-example-end -->
 
 次は**悪い証明を受理させる隔離実験**です。通常のライブラリや正当性証明には取り込まないでください。
@@ -173,13 +199,13 @@ theorem inheritedHole : False :=
 end LvtUntrustedDemo
 ```
 
-自然数3は2より大きいので、3 ≤ 2 の否定には具体的な判定で証明を構成できます。しかし同時に 3 ≤ 2 を追加公理または未完成の証明から得てしまうと、否定の証明にその証明項を渡して False を得ます。Lean の否定 ¬ P は P → False という関数型であるためです。上の二つの宣言の依存は、それぞれ claimedFits と sorryAx を含みます。後者は直接 sorry を書いていない inheritedHole にも伝わります。
+自然数3は2より大きいので、3 ≤ 2 の否定には具体的な判定で証明を構成できます。しかし同時に 3 ≤ 2 を追加公理または未完成の証明から得てしまうと、否定の証明にその証明項を渡して False を得ます。Lean の否定 `¬ P` は `P → False` という関数型であるためです（[含意と否定](../LVT2-01/index.md#def-lvt2-01-curry-howard)）。上の二つの宣言の依存は、それぞれ claimedFits と sorryAx を含みます。後者は直接 sorry を書いていない inheritedHole にも伝わります。
 
 通常の Lean では命題の外延性 `propext`、古典的選択 `Classical.choice`、商型に関する `Quot.sound` などを用いる証明があります。ここでは各公理の構成理論へは立ち入らず、採用する理論の前提として認めるかを区別します。公理の一覧が空でなければすべて不正という意味ではありません。逆に一覧が空でも、要求と命題が異なれば製品の正当性は保証されません。詳細は [公式の公理依存解説](https://lean-lang.org/doc/reference/latest/Axioms) と [証明の検証](https://lean-lang.org/doc/reference/latest/ValidatingProofs/) を参照してください。
 
 ## 4. 信頼境界：外部の答えを命題と混同しない
 
-外部のプログラムが「容量内である」と応答した場合、何をもってその答えを信じればよいのでしょうか。真偽値を受け取るだけなら、誤った判定器でも true を返せます。判定値と命題の関係そのものを証明する必要があります。
+外部のプログラムが「容量内である」と応答した場合、何をもってその答えを信じればよいのでしょうか。真偽値を受け取るだけなら、誤った判定器でも true を返せます。判定値と命題の関係そのものを証明する必要があります。[真偽値型](../LVT2-01/index.md#def-lvt2-01-bool) の true、false は計算結果であり、[命題型](../LVT2-01/index.md#def-lvt2-01-prop) の項は証明です。どちらを検査し、どちらを外部の前提とするかという区切りを信頼境界と呼びます。
 
 <a id="def-lvt2-08-trust"></a>
 
@@ -193,7 +219,7 @@ end LvtUntrustedDemo
 **定義の確認**　容量2、使用数3について、外部プログラムが true を出したとする。true は Bool の値であり、3 ≤ 2 の証明項ではない。実際に 3 ≤ 2 は偽である。一方、カーネルが ¬ (3 ≤ 2) の証明を検査できる。さらに実際の使用数が3かどうかは入力の取得方法にも依存する。この三者がそれぞれ異なる証拠と前提を必要とする。
 <!-- definition-example-end -->
 
-次の関数は誤った外部判定器の最小モデルです。入力に関係なく true を返します。
+次の関数は誤った外部判定器の最小モデルです。入力に関係なく true を返します。`_used`、`_cap` は使用数・容量の引数名で、関数本体では使いません。判定値 true が命題の成立を意味する性質を健全性と呼びます（[証明付き判定の健全性と完全性](../LVT2-01/index.md#prop-lvt2-01-decision-bridge)）。
 
 ```lean
 def alwaysAccept (_used _cap : Nat) : Bool := true
@@ -212,7 +238,7 @@ alwaysAccept を任意の自然数の組に対して true を返す関数とす�
 <!-- proof-start -->
 ### 証明
 
-全称命題の証明 h があると仮定する。[全称量化の除去規則](../LVT2-02/index.md#def-lvt2-02-forall) に従って used = 3、cap = 2 を代入すると、h 3 2 は alwaysAccept 3 2 = true → 3 ≤ 2 の証明となる。alwaysAccept 3 2 は定義により true に簡約されるので、前件は rfl で構成できる。その証明を渡すと bad : 3 ≤ 2 を得る。しかし ¬ (3 ≤ 2) は具体的な自然数の比較を decide で証明できる。これを bad に適用すると False となる。よって元の全称命題は否定される。
+全称命題の証明 h があると仮定する。[全称量化の除去規則](../LVT2-02/index.md#def-lvt2-02-forall) に従って used = 3、cap = 2 を代入すると、h 3 2 は alwaysAccept 3 2 = true → 3 ≤ 2 の証明となる。alwaysAccept 3 2 は定義により true に簡約されるので、前件は [定義的等しさ](../LVT2-03/index.md#def-lvt2-03-defeq) により rfl で構成できる。その証明を渡すと bad : 3 ≤ 2 を得る。しかし ¬ (3 ≤ 2) は具体的な自然数の比較を [決定可能性](../LVT2-01/index.md#def-lvt2-01-decidable) に基づく decide で証明できる。この否定は関数 `3 ≤ 2 → False` なので、[含意の除去規則](../LVT2-02/index.md#def-lvt2-02-imp) により bad を渡すと False を得る。よって元の全称命題は否定される。
 
 ```lean
 theorem externalNotSound :
@@ -385,7 +411,7 @@ TrustDemo の inheritedHole の本体には sorry が書かれていない。な
 #print axioms LvtUntrustedDemo.bogusViaAxiom
 ```
 
-警告を見落としても依存の検査で発見できる。通常のライブラリにこの実験を import しない。
+この宣言を指定して依存を検査すれば、直接の sorry 警告を見落としても sorryAx を発見できる。通常のライブラリにこの実験を import しない。
 <!-- solution-end -->
 
 ### LVT2-08-B04 判定器の交換
@@ -397,7 +423,7 @@ TrustDemo の inheritedHole の本体には sorry が書かれていない。な
 <!-- solution-start -->
 #### 詳細解答
 
-alwaysAccept 3 2 は定義により true となる。3 ≤ 2 は偽なので goodCheck 3 2 は false となる。一般の入力では [証明付き判定の健全性と完全性](../LVT2-01/index.md#prop-lvt2-01-decision-bridge) により、決定可能命題 P = (n ≤ cap) について decide P = true の証明 h から P の証明を得る。goodCheck の定義を展開した h に of_decide_eq_true を適用する。
+alwaysAccept 3 2 は定義により true となる。3 ≤ 2 は偽なので goodCheck 3 2 は false となる。一般の入力では [証明付き判定の健全性と完全性](../LVT2-01/index.md#prop-lvt2-01-decision-bridge) により、決定可能命題 P = (n ≤ cap) について decide P = true の証明 h から P の証明を得る。goodCheck の定義を展開した h に of_decide_eq_true を適用する。`change ... at h` は [定義的等しさ](../LVT2-03/index.md#def-lvt2-03-defeq) に基づき、仮定 h の型を同じ意味の式で書き直す指示である。判定値そのものを命題の証明に置き換える操作ではない。
 
 ```lean
 def goodCheck (n cap : Nat) : Bool := decide (n ≤ cap)
@@ -425,7 +451,13 @@ example (n cap : Nat) (h : goodCheck n cap = true) :
 
 判定が true のとき、定義展開で decide (used < cap) = true を得る。[証明付き判定の健全性と完全性](../LVT2-01/index.md#prop-lvt2-01-decision-bridge) において P を used < cap に選び、of_decide_eq_true で used < cap の証明を得る。[一枠予約の算術保証](#prop-lvt2-08-next) にこれを適用すると used + 1 ≤ cap が成り立つ。
 
-false のときは used < cap と仮定すると、同じ判定器の完全性により decide (used < cap) = true となり、false と true が一致する矛盾になる。従って ¬ (used < cap) である。自然数を比較すると、used < cap、used = cap、cap < used のいずれか一つが成立する。最初の場合は ¬ (used < cap) に反し、最後の場合は仮定 used ≤ cap に反する。残る used = cap が結論である。Leanでは of_decide_eq_false を h に適用して否定を得る。omega は hn と h₀ を用いて等式の目標を閉じる。
+false のときは h₀ : used ≤ cap を容量内という仮定、h : checkRoom used cap = false を判定結果の証明とする。h を定義展開して `decide (used < cap) = false` を得る。もし used < cap が成立するなら、[証明付き判定の完全性](../LVT2-01/index.md#prop-lvt2-01-decision-bridge) により `decide (used < cap) = true` となる。二つの等式の左辺は同じなので、[等式の対称律と推移律](../LVT2-03/index.md#prop-lvt2-03-chain) を使うと次の矛盾になる。
+
+```text
+false = decide (used < cap) = true
+```
+
+[Boolの異なる構成子から生じる矛盾](../LVT2-01/index.md#lvt2-01-bool-distinct) により、hn : ¬ (used < cap) を得る。自然数を比較すると、used < cap、used = cap、cap < used のいずれか一つが成立する。最初の場合は hn に反し、最後の場合は仮定 h₀ に反する。残る used = cap が結論である。Leanでは of_decide_eq_false を h に適用して否定 hn を直接得る。omega は hn と h₀ を用いて等式の目標を閉じる。
 
 ```lean
 def checkRoom (used cap : Nat) : Bool := decide (used < cap)
@@ -452,7 +484,7 @@ used = cap = 2 では外部サービスが常に true を返すとしても、�
 | 外部サービスの具体的な出力テスト | テストした入力における出力 |
 | 実サービスの容量保証 | 実際の容量・使用数を正しく取得し、操作がモデルと対応することなど別の証拠が必要 |
 
-Leanの定理が受理されたという事実に、外部サービスとの対応や同時実行時の振る舞いまで含めない。これは [信頼境界](#def-lvt2-08-trust) の具体的な適用である。
+[有限な例示テストと全入力一致](../LVT1-01/index.md#prop-lvt1-01-test-boundary) の区別に注意する。Leanの定理が受理されたという事実に、外部サービスとの対応や同時実行時の振る舞いまで含めない。これは [信頼境界](#def-lvt2-08-trust) の具体的な適用である。
 <!-- solution-end -->
 
 ## 7. 次の学習へ
