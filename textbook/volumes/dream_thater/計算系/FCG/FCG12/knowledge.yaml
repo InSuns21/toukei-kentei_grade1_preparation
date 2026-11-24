@@ -1,0 +1,17 @@
+chapter: FCG12
+scope: dream-theater
+coverage: complete
+prerequisites: [FCG5, FCG11, FLUID29, FLUID45, FLUID46, FDM3]
+concepts:
+  - id: graphics.fcg12-rusanov
+    name: 浅水の Rusanov 流束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（浅水の Rusanov 流束）"]
+    requires: [fluid.shallow-water-equations, fluid.shallow-water-characteristics, fluid.finite-volume-face-flux]
+  - id: graphics.fcg12-positive
+    name: 二次元浅水更新の正値性と水量保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二次元浅水更新の正値性と水量保存）"]
+    requires: [graphics.fcg12-rusanov, fluid.finite-volume-global-conservation, fluid.courant-number, fluid.shallow-lake-at-rest]
