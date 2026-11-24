@@ -23,7 +23,7 @@ chapters:
     title: "パターン照合・再帰・停止性"
   - id: LVT1-05
     path: textbook/volumes/dream_thater/計算系/LVT/LVT1-05
-    status: planned
+    status: completed
     title: "List・Array・Finと安全な添字"
   - id: LVT1-06
     path: textbook/volumes/dream_thater/計算系/LVT/LVT1-06

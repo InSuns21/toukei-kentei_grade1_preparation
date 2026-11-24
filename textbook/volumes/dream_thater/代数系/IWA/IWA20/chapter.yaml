@@ -1,0 +1,40 @@
+id: IWA20
+title: "保型形式・円分塔・形式的RH/Dirichlet GRH証明への接続"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IWA7
+  - IWA18
+  - IWA19
+  - MF5
+official_scope: []
+learning_objectives:
+  - 二固有値の射影を計算し整数格子の分解と分母の関係を証明する
+  - CM係数分解の単数条件と合同による非分裂を区別する
+  - 上三角表現の分裂をコサイクルとコバウンダリで判定する
+  - 円分塔のμ消失の範囲と局所像を含めた大域2次群の位数評価を区別する
+  - RHとDirichlet GRHの形式検証の範囲と人間可読な再構成の課題を説明する
+definitions: []
+theorems:
+  - { id: IWA20-PROP-01, name: "二固有値の整数格子射影" }
+  - { id: IWA20-PROP-02, name: "上三角表現の分裂とコサイクル" }
+  - { id: IWA20-PROP-03, name: "局所像を含めた有限層の位数公式" }
+canonical_examples:
+  - 二固有値が合同な二次元整数格子と対角行列の対照
+  - CM係数の単数分母
+  - 有限巡回群の非分裂表現
+  - 局所像と大域群の位数
+problem_patterns:
+  - IWA20-A1
+  - IWA20-A2
+  - IWA20-A3
+  - IWA20-A4
+  - IWA20-B1
+  - IWA20-B2
+  - IWA20-B3
+  - IWA20-B4
+  - IWA20-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 5, review: 2 }
