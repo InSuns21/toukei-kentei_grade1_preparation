@@ -8,9 +8,9 @@
 
 型は式がどの種類の値を表すかを指定します。Nat は0を含む自然数、Bool は true と false の型です。関数は受け取る値の型と返す値の型を持ちます。例えば Nat → Nat は自然数を受け取って自然数を返します。
 
-引数が二つの関数の型 A → B → C は A → (B → C) の意味です。最初にA型の値を渡すと、残りの引数Bを受け取る関数が得られます。前講の #check で式の型、#eval で具体値を調べられます。
+型 `A`, `B`, `C` を考えます。`A → B` は A 型の値を受け取り B 型の値を返す関数の型で、[写像・定義域・終域](../../../基礎科目/F0/F0-00A/index.md#def-f0-00a-map) の矢印に対応します。引数が二つの関数の型 `A → B → C` は `A → (B → C)` の意味です。最初に A 型の値を渡すと、残りの B 型の引数を受け取る関数が得られます。これを部分適用と呼びます。Lean では数学の $f(a)$ を `f a` と書き、`f a b` は `(f a) b` の意味です。前講の #check で式の型、#eval で具体値を調べられます。
 
-ゲームのプレイヤーにNatを使う代わりに、二人の候補 x と o だけを用意します。
+ゲームのプレイヤーにNatを使う代わりに、二人の候補 x と o だけを用意します。値を作る方法を構成子（constructor）と呼び、その方法から値を生成する型を帰納型と呼びます。Lean の `inductive` はこの型を宣言する命令です。`where` 以下の `|` が構成子の宣言を区切り、`(p : Player)` は Player 型の引数 p を要求することを示します。`deriving Repr, BEq` は値を表示する機能と、同じ型の値を比較して Bool を返す機能を生成する指定です。
 
 ```lean
 inductive Player where
@@ -24,7 +24,7 @@ inductive Cell where
   deriving Repr, BEq
 ```
 
-inductive は、値を作る方法を列挙して新しい型を宣言する命令です。値を作るそれぞれの記号を構成子（constructor）と呼びます。ここで Player.x と Player.o は引数のない構成子、Cell.occupied はPlayer型の値を一つ受け取ってCell型の値を作る構成子です。deriving Repr, BEq は値の表示と真偽値による比較を生成する指定です。比較の正当性を一般に証明する方法は後の講で扱います。
+ここで `Player.x` と `Player.o` は引数のない構成子、`Cell.occupied` は Player 型の値を一つ受け取って Cell 型の値を作る構成子です。ドットの左は構成子が属する型の名前、右は構成子の名前です。説明文では型が明らかなとき `Player.x` を `x`、`Cell.occupied Player.x` を `occupied x` と略記します。これは説明用の略記であり、そのまま Lean に入力できるとは限りません。比較の正当性を一般に証明する方法は後の講で扱います。
 
 <a id="def-lvt1-03-inductive-type"></a>
 
@@ -35,7 +35,7 @@ inductive は、値を作る方法を列挙して新しい型を宣言する命�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt1-03-inductive-type -->
-**定義の確認**　Playerの構成子は x と o の二つで、どちらにも引数はありません。Cellには引数なしの empty と Player を一つ要求する occupied があるので、Cellの具体値は empty、occupied x、occupied o の三つです。occupied true は必要な型Playerと実際の型Boolが違うため、Cellを作れません。
+**定義の確認**　Playerの構成子は x と o の二つで、どちらにも引数はありません。Cellには引数なしの empty と Player を一つ要求する occupied があるので、構成子の宣言から `Cell.empty : Cell`、`Cell.occupied : Player → Cell` と読めます。Player の二つの値をそれぞれ渡すと `Cell.occupied Player.x : Cell` と `Cell.occupied Player.o : Cell` が得られます。したがって Cell の値は empty、occupied x、occupied o の三つで尽きます。どの構成子も自身の型を引数に取らず、再帰的な生成はありません。`Cell.occupied true` は必要な型 Player と実際の型 Bool が違うため、Cellを作れません。次の `#check` は、この構成子の宣言から読んだ型を Lean に検査させるものです。
 <!-- definition-example-end -->
 
 ```lean
@@ -48,7 +48,7 @@ inductive は、値を作る方法を列挙して新しい型を宣言する命�
 
 ## 2. 値の形に応じて計算する
 
-次の手番のプレイヤーを返す other を作ります。match は入力がどの構成子で作られたかによって計算を選ぶ記法です。構成子の引数がある場合はその値にも名前を付けられます。型から構成子が分かる箇所では Player.x を .x と省略できます。
+次の手番のプレイヤーを返す other を作ります。`match p with` は入力 p がどの構成子で作られたかによって計算を選ぶ記法です。`| パターン => 式` の左側で値の形を指定し、右側でその場合の戻り値を指定します。構成子の引数がある場合はその値にも名前を付けられ、`_` と書けば中身に名前を付けずに照合できます。型から構成子が分かる箇所では `Player.x` を `.x` と省略できます。
 
 ```lean
 def other (p : Player) : Player :=
@@ -59,7 +59,7 @@ def other (p : Player) : Player :=
 
 x を渡すと一つ目の枝に入り o を返します。o を渡すと二つ目の枝に入り x を返します。Player の二つの形をすべて扱うので、どちらを入力しても結果が決まります。一つの枝を消して残りを補わなければ未処理の入力が生じ、Leanはこの定義を拒否します。
 
-二回手番を変えると元に戻ることを確かめます。
+二回手番を変えると元に戻ることを確かめます。`other (other p)` は内側の `other p` の結果を外側の other に渡す式です。前講と同様に `=` は二つの値が等しいという命題を表します。
 
 <a id="prop-lvt1-03-other-twice"></a>
 
@@ -76,23 +76,28 @@ Playerを x と o の二つの構成子を持つ型とする。関数 other は 
 
 [帰納型](#def-lvt1-03-inductive-type) Player の値の形から、p が x の場合と o の場合に分ける。
 
-p が x のとき、内側の other x は o である。外側は other o なので x に戻る。
+p が x のときと o のときの計算を分ける。
 
-p が o のとき、内側の other o は x である。外側は other x なので o に戻る。
+```text
+other (other x) = other o = x
+other (other o) = other x = o
+```
+
+それぞれ内側の関数適用を先に簡約し、次に外側の枝を選んだ。
 
 いずれも結果が入力 p に一致する。二つ以外の構成子はないため、全入力について成立する。
+
+Lean では `by` から証明手順を記述する。`cases p` は p の構成子に応じて二つの証明目標を作る。`<;>` は左の手順が作ったすべての目標に右の手順を適用する記法である。両目標は上の計算で x = x、o = o に簡約されるため、前講の `rfl` がそれぞれを証明する。
 
 ```lean
 theorem other_twice (p : Player) : other (other p) = p := by
   cases p <;> rfl
 ```
-
-by は証明手順を記述する入口である。cases p は p の構成子に応じて二つの証明目標を作る。<;> は左の手順が作ったすべての目標に右の手順を適用する記法である。両目標は上の計算で x = x、o = o に簡約されるため、前講で使った rfl がそれぞれを証明する。
 <!-- proof-end -->
 
 ## 3. 値が存在しない場合を型で表す
 
-空きマスに所有者は存在しません。しかし occupied p なら p が所有者です。Player型だけを返す関数にすると、空きマスに対して x か o のどちらかを返さなければならず、仕様と合いません。そこで値がない場合も返せる型を使います。型を引数に取る Option は、Player だけでなく Nat などにも適用できます。
+空きマスに所有者は存在しません。しかし occupied p なら p が所有者です。Player型だけを返す関数にすると、空きマスに対して x か o のどちらかを返さなければならず、仕様と合いません。そこで値がない場合も返せる型を使います。型を引数に取る Option は、Player だけでなく Nat などにも適用できます。`Option A` の A は値ではなく型を指定する引数です。値なしを `none`、値ありを `some a` で表す二つの構成子を持つ[帰納型](#def-lvt1-03-inductive-type)です。
 
 <a id="def-lvt1-03-option"></a>
 
@@ -103,7 +108,7 @@ by は証明手順を記述する入口である。cases p は p の構成子に
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt1-03-option -->
-**定義の確認**　Option Player では none が所有者なし、some Player.x と some Player.o が所有者ありの二例です。some true は Bool の値を包むので Option Player にはなりません。none は中身を持たないため、単独で書く場合は (none : Option Player) のように結果の型を指定できます。
+**定義の確認**　Option Player では none が所有者なし、some Player.x と some Player.o が所有者ありの二例です。`some` は Player 型の値を一つ受け取って Option Player 型の値を作ります。`some true` は Bool の値を包むので Option Bool 型となり、Option Player にはなりません。`(式 : 型)` は式に期待する型を明示する記法です。none は中身を持たないため、単独で書く場合は `(none : Option Player)` と型を指定できます。
 <!-- definition-example-end -->
 
 ```lean
@@ -133,7 +138,7 @@ def play (p : Player) (c : Cell) : Result :=
 
 play の型は Player → Cell → Result です。play Player.x Cell.empty では空きマスの枝に入り、played (occupied x) を返します。play Player.x (Cell.occupied Player.o) では既存の所有者 q に o が入り、blocked o を返します。p と q を混同すると、誰が先に置いていたかの情報が失われます。
 
-成功型とエラー型を引数として指定できる汎用の型 Except もあります。ここではエラーの種類を PlayError として分離します。既存プレイヤーを受け取る occupied という構成子を一つ持たせます。
+成功値の型とエラー値の型を引数として指定できる汎用の[帰納型](#def-lvt1-03-inductive-type) Except もあります。`Except E A` はエラーの型 E を先に、成功値の型 A を後に指定します。成功には `ok`、失敗には `error` という別々の構成子を使います。ここではエラーの種類を PlayError として分離します。既存プレイヤーを受け取る occupied という構成子を一つ持たせます。
 
 ```lean
 inductive PlayError where
@@ -150,7 +155,7 @@ inductive PlayError where
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt1-03-except -->
-**定義の確認**　E を既存プレイヤーを保持する PlayError、A を Cell とすれば、ok (Cell.occupied Player.x) は成功値、error (PlayError.occupied Player.o) は失敗値です。ok Player.x は成功値の型Cellに合わず、error Cell.empty はエラー値の型PlayErrorに合いません。Option型と違って失敗した理由を保持できます。
+**定義の確認**　E を既存プレイヤーを保持する PlayError、A を Cell とすれば、ok (Cell.occupied Player.x) は成功値、error (PlayError.occupied Player.o) は失敗値です。`Cell.occupied Player.x` は Cell 型、`PlayError.occupied Player.o` は PlayError 型です。二つの `occupied` は名前が同じでも生成する型が異なります。期待する結果型が Except PlayError Cell のとき、`ok Player.x` は成功値の型 Cell に、`error Cell.empty` はエラー値の型 PlayError に合いません。[Option型](#def-lvt1-03-option) の none と違い、失敗した理由を保持できます。
 <!-- definition-example-end -->
 
 ```lean
@@ -167,7 +172,7 @@ playExcept は Result の二つの形を [Except型](#def-lvt1-03-except) の二
 <!-- formal-statement-start -->
 ### 命題（空きマスと占有マスの着手結果）
 
-Player は x と o を持ち、Cell は empty または occupied q（q は Player）、PlayError は occupied q を持つとする。play は空きマスで played (occupied p)、占有マスで blocked q を返す。playExcept は前者を ok、後者を error (PlayError.occupied q) へ変換する関数である。任意の Player 型の値 p, q について次が成立する。
+Player は x と o を持ち、Cell は empty または occupied q（q は Player）、PlayError は occupied q を持つとする。着手者 p と既存所有者 q はともに Player 型の値とする。play は空きマスで played (Cell.occupied p)、占有マスで blocked q を返す。playExcept は Result の played d（d は Cell）を Except.ok d に、blocked q を Except.error (PlayError.occupied q) に変換する関数である。任意の p, q について次が成立する。
 
 - playExcept p Cell.empty = Except.ok (Cell.occupied p)
 - playExcept p (Cell.occupied q) = Except.error (PlayError.occupied q)
@@ -182,7 +187,7 @@ Player は x と o を持ち、Cell は empty または occupied q（q は Playe
 
 占有マスでは play p (Cell.occupied q) が blocked q に簡約される。playExcept の match は blocked の枝を選ぶので、Except.error (PlayError.occupied q) を得る。
 
-いずれも p, q の具体値を選ぶ必要はなく、関数の定義だけで成立する。
+いずれも p, q の具体値を選ぶ必要はなく、関数の定義だけで成立する。前講の `rfl` と同じく、左右が定義による計算で一致することを使う。
 
 ```lean
 theorem play_empty (p : Player) :
@@ -209,7 +214,7 @@ lake env lean ExerciseSolutions.lean
 
 lake test は Main.lean の実行入口を起動し、LVT1-03 OK を表示します。Mainの #guard はビルド中に具体例の比較を確認します。Inspectでは owner empty が none、owner (occupied x) が some x、占有されたマスへの着手が error (occupied o) になることを確認します。表示の修飾名は環境によって異なることがあります。
 
-Lean 4.35.0 の Except にはこの比較に必要な BEq が用意されていないため、二つの結果が一致するかを真偽値で返す sameOutcome を自作します。二つの結果を同時に match し、成功同士では Cell、失敗同士では PlayError の値を比較します。残る二通り（成功と失敗、失敗と成功）は false です。これはテストで使う関数であり、上の等式の証明には使いません。
+Lean 4.35.0 の Except にはこの比較に必要な BEq が用意されていないため、二つの結果が一致するかを真偽値で返す sameOutcome を自作します。`match a, b with` は二つの値の形を組にして調べる記法です。成功同士では Cell、失敗同士では PlayError の値を比較します。前講と同じく `==` は BEq の比較で Bool を返し、証明する命題 `=` とは別物です。`| _, _ => false` は先の二つの枝に当てはまらない残り二通り（成功と失敗、失敗と成功）を扱います。これはテストで使う関数であり、上の等式の証明には使いません。
 
 ```lean
 def sameOutcome (a b : Except PlayError Cell) : Bool :=
@@ -235,7 +240,7 @@ lake env lean Failure.lean
 
 Failure.lean は Cell.occupied true を検査するので、Playerを要求する構成子にBoolを渡した型不一致で失敗するのが期待結果です。import失敗など別の原因で失敗した場合は型の制約を確認したことにはなりません。
 
-具体例の検査と [手番交換の二回適用](#prop-lvt1-03-other-twice)、[空きマスと占有マスの着手結果](#prop-lvt1-03-play-branches) の証明は区別してください。後者は指定した型の全入力について成り立ちます。
+[有限な例示テストと全入力一致](../LVT1-01/index.md#prop-lvt1-01-test-boundary) で学んだように、未検査の入力が残るとき、検査した例の一致だけでは全入力の一致は一般に結論できません。具体例の検査と [手番交換の二回適用](#prop-lvt1-03-other-twice)、[空きマスと占有マスの着手結果](#prop-lvt1-03-play-branches) の証明は区別してください。後者は指定した型の全入力について成り立ちます。
 
 ## 6. 演習
 
@@ -328,7 +333,19 @@ def forgetError (r : Except PlayError Cell) : Option Cell :=
   | .error _ => none
 ```
 
-[空きマスと占有マスの着手結果](#prop-lvt1-03-play-branches) より、空きマスでは playExcept x empty = ok (occupied x) です。変換後は some (occupied x) です。占有マスでは playExcept x (occupied o) = error (occupied o) です。変換後は none となります。error (occupied x) も none へ写るため、none だけを見ても元のエラー値を復元できません。
+[空きマスと占有マスの着手結果](#prop-lvt1-03-play-branches) を p = x、占有の場合は q = o として適用します。得られた結果を forgetError の分岐へ渡します。
+
+```text
+forgetError (playExcept x empty)
+= forgetError (ok (Cell.occupied x))
+= some (Cell.occupied x)
+
+forgetError (playExcept x (Cell.occupied o))
+= forgetError (error (PlayError.occupied o))
+= none
+```
+
+`error (PlayError.occupied x)` も none へ写るため、none だけを見ても元のエラー値を復元できません。
 <!-- solution-end -->
 
 ### LVT1-03-B03 所有者の保存を示す
@@ -361,12 +378,14 @@ playExcept と同じ型を持つが占有マスへの着手を誤って許す関
 <!-- solution-start -->
 #### 詳細解答
 
+使わない引数にも型を与え、ここでは `_c` と名前を付けます。
+
 ```lean
 def badPlay (p : Player) (_c : Cell) : Except PlayError Cell :=
   .ok (.occupied p)
 ```
 
-入力 _c を使わず、常に成功を返す関数です。戻り値の occupied p は Cell 型で、ok は成功値 Cell を受け取るので、型は正しいです。
+入力 `_c` は Cell 型の引数に付けた名前であり、ワイルドカード `_` とは異なります。この関数ではその引数を使わず、常に成功を返します。戻り値の occupied p は Cell 型で、ok は成功値 Cell を受け取るので、型は正しいです。
 
 x と empty を渡すと badPlay は ok (occupied x) を返し、正しい playExcept も play の empty の枝から同じ結果を返します。x と occupied o を渡すと badPlay は ok (occupied x) を返します。しかし正しい play は blocked o を返し、playExcept はこれを error (occupied o) に変換します。
 
