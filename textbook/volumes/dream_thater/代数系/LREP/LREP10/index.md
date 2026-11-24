@@ -80,7 +80,15 @@ $$
 
 となります。$S$ はエルミートなので[複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)により正規直交固有基底を持ちます。固有値 $\lambda$ は $\lambda^2=|\boldsymbol x|^2$ を満たし、跡零なので $|\boldsymbol x|>0$ なら正負が一つずつ、$|\boldsymbol x|=0$ なら両方が零です。同じ基底において $H(x)=x^0I_2+S$ の固有値は $x^0\pm|\boldsymbol x|$ となります。
 
-エルミート行列 $X$ が**正半定値**とは、すべての $\xi\in\mathbb C^2$ に対して $\xi^\dagger X\xi\ge0$ であることです。非零の $\xi$ に対して厳密に正なら**正定値**といいます。これはMinkowski計量の不定符号とは別の条件です。正規直交固有基底 $v_1,v_2$ における $\xi=c_1v_1+c_2v_2$ を代入すると
+[Hermitian半正定値作用素](../../../基礎科目/LA/LA6/index.md#def-la6-psd)の条件を標準正規直交基底で書けば、エルミート行列 $X$ に対する
+
+$$
+\xi^\dagger X\xi\ge0\qquad(\xi\in\mathbb C^2)
+$$
+
+です。本章ではこれを正半定値と表記します。[LA6での正定値性の判定](../../../基礎科目/LA/LA6/index.md#ex-la6-b03)と同様、正定値の場合は非零の $\xi$ に対して厳密な不等号を要求します。これはMinkowski計量の不定符号とは別の条件です。
+
+正規直交固有基底 $v_1,v_2$ における $\xi=c_1v_1+c_2v_2$ を代入すると
 
 $$
 \xi^\dagger X\xi=\lambda_1|c_1|^2+\lambda_2|c_2|^2.
@@ -211,7 +219,7 @@ $$
 
 です。[スペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)を適用し、固有値 $\lambda_1,\lambda_2>0$ と正規直交固有基底を取ります。固有値をそれぞれ $\sqrt{\lambda_i}$ に置き換えた正定値行列を $P=(AA^\dagger)^{1/2}$ と定めます。
 
-この正の平方根は一意です。別の正定値平方根 $P_1$ があれば、
+[Hermitian半正定値平方根定理](../../../基礎科目/LA/LA6/index.md#thm-la6-psd-square-root)から、この正の平方根は一意です。ここでもその根拠を確認します。別の正定値平方根 $P_1$ があれば、
 
 $$
 P_1^2=AA^\dagger,\qquad P_1(AA^\dagger)=(AA^\dagger)P_1
