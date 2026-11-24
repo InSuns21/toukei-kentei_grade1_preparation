@@ -14,7 +14,7 @@ concepts:
     name: "連続1次群コホモロジー"
     kind: definition
     introduction: formal
-    requires: []
+    requires: [number-theory.additive-first-cocycle, number-theory.group-first-cohomology]
   - id: number-theory.iwa18-kummer
     name: "楕円曲線のKummer写像"
     kind: definition
