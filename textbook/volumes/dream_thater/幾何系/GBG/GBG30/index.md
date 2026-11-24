@@ -8,7 +8,7 @@
 
 ## 1. スピン構造から場の束へ
 
-スピン構造 $(Q,\lambda)$ を一つ固定する（[定義](../GBG29/index.md#def-gbg29-spin-structure)）。ここで $\lambda$ は向き付き直交枠束への写像、$\pi_s:\operatorname{Spin}(n)\to SO(n)$ は群の二重被覆である。単に任意の群表現を使うだけでは、接ベクトルと場の積を定められない。そこで複素内積空間 $\Delta$ に、実ベクトル $v$ を線形作用素 $c(v)$ に送る実線形写像を用意する。必要な関係は
+スピン構造 $(Q,\lambda)$ を一つ固定する（[定義](../GBG29/index.md#def-gbg29-spin-structure)）。ここで $\lambda$ は向き付き直交枠束への写像、$\pi_s:\operatorname{Spin}(n)\to SO(n)$ は群の二重被覆である。単に任意の群表現を使うだけでは、接ベクトルと場の積を定められない。そこで複素内積空間 $\Delta$ に、実ベクトル $v$ を線形作用素 $c(v)$ に送る実線形写像を用意する。$c(v)$ は $\Delta$ 上の複素線形写像であり、$*$ はエルミート内積に関する随伴（正規直交基底では共役転置）、$I$ は作用する空間の恒等写像、$i$ は虚数単位である。必要な関係は
 
 $$
 c(v)c(w)+c(w)c(v)=-2\langle v,w\rangle I,
@@ -23,7 +23,7 @@ $$
 
 を満たす。本講ではこの標準表現を入力とする。一般次元の Clifford 代数と表現の分類は行わない。
 
-具体的には二次元で $\Delta=\mathbb C^2$ とし、
+具体的には二次元で $\Delta=\mathbb C^2$ とし、接ベクトル側の標準正規直交基底を $e_1,e_2$、表現空間側を標準複素基底とする。$v=v_1e_1+v_2e_2$ の実線形作用は $c(e_1),c(e_2)$ を指定すれば決まる。その行列を $c_1,c_2$ と書き、
 
 $$
 c_1=\begin{pmatrix}0&-1\\1&0\end{pmatrix},
@@ -37,7 +37,13 @@ c_1c_2=\begin{pmatrix}-i&0\\0&i\end{pmatrix},
 \qquad c_2c_1=-c_1c_2.
 $$
 
-従って $c(v)=v_1c_1+v_2c_2$ は上の関係を満たす。$\operatorname{Spin}(2)$ の元 $e^{it}$ に対して $\sigma(e^{it})=\cos t\, I+\sin t\,c_1c_2$ と置けば、$(c_1c_2)^2=-I$ から積は角の加法に従い、ユニタリである。$c_1c_2c_1=c_2$ と $c_1c_1c_2=-c_2$ を使うと
+実線形性から $c(v)=v_1c_1+v_2c_2$ である。任意の実座標 $v_a,w_a$ に対して
+$$
+c(v)c(w)+c(w)c(v)
+=\sum_{a,b=1}^2v_aw_b(c_ac_b+c_bc_a)
+=-2(v_1w_1+v_2w_2)I.
+$$
+また $c(v)^*=\sum_a v_ac_a^*=-c(v)$。これで基底上の計算から任意のベクトルに対する二条件が確認できた。$\operatorname{Spin}(2)$ の元 $e^{it}$ に対して $\sigma(e^{it})=\cos t\, I+\sin t\,c_1c_2$ と置けば、$(c_1c_2)^2=-I$ から積は角の加法に従い、ユニタリである。$c_1c_2c_1=c_2$ と $c_1c_1c_2=-c_2$ を使うと
 
 $$
 \sigma(e^{it})c_1\sigma(e^{it})^{-1}
@@ -46,7 +52,7 @@ $$
 
 $c_2$ については $c_1c_2c_2=-c_1$、$c_2c_1c_2=c_1$ から $-\sin(2t)c_1+\cos(2t)c_2$ となる。従って $\pi_s(e^{it})=R(2t)$ の回転に対応する。$t=\pi$ では枠の回転が恒等でも $\sigma=-I$ である。
 
-ゲージ場にも独自の主束 $P\to M$ とユニタリ表現 $\tau:G\to U(V)$ を用意する。$V$ は有限次元複素内積空間である。二つの場を一緒に運ぶため、各点でテンソル積（双線形な積 $a\otimes v$ から生成される複素ベクトル空間）を取る。
+ゲージ場にも独自の主束 $P\to M$ とユニタリ表現 $\tau:G\to U(V)$ を用意する。$V$ は有限次元複素内積空間である。まず [結合ベクトル束の構成](../GBG4/index.md#def-gbg4-associated-bundle) をそれぞれの表現に適用する。束の切断とは各点 $x$ にそのファイバーの元を一つずつ割り当てる滑らかな写像である。二つの場を一緒に運ぶため、同じ基底点のファイバーごとにテンソル積（双線形な積 $a\otimes v$ から生成される複素ベクトル空間）を取る。
 
 <a id="def-gbg30-twisted-spinor"></a>
 
@@ -62,7 +68,7 @@ $$
 > と置く。$S$ がスピノル束、$W$ がゲージ結合スピノル束であり、場はそれぞれの滑らかな切断である。
 <!-- formal-statement-end -->
 
-[結合束の構成](../GBG4/index.md#def-gbg4-associated-bundle)では $(qh,a)\sim(q,\sigma(h)a)$ とする。局所枠 $q_i,p_i$ を選び、$q_j=q_i h_{ij}$、$p_j=p_i g_{ij}$ とすると、テンソル積の局所成分は
+[結合束の構成](../GBG4/index.md#def-gbg4-associated-bundle)では $(qh,a)\sim(q,\sigma(h)a)$ とする。局所枠 $q_i,p_i$ を選び、$q_j=q_i h_{ij}$、$p_j=p_i g_{ij}$ とすると、[切断の局所成分の変換則](../GBG4/index.md#thm-gbg4-component-transformation) により、テンソル積の局所成分は
 
 $$
 \psi_j=T_{ij}^{-1}\psi_i,\qquad
@@ -72,7 +78,7 @@ $$
 実際、$[q_j,a_j]\otimes[p_j,v_j]$ は $[q_i,\sigma(h_{ij})a_j]\otimes[p_i,\tau(g_{ij})v_j]$ と同じ元だからである。三重重なりでは $T_{ij}T_{jk}=T_{ik}$ が両表現の積保存性から従う。従って局所積を貼り合わせた束の階数は $2^m\dim V$ であり、積内積も保存される。
 
 <!-- definition-example-start: def-gbg30-twisted-spinor -->
-**定義の確認**。例えば標準枠を持つ平面に自明スピン構造と自明な $U(1)$ 束を入れ、$\tau(z)=z$ とする。遷移関数は両方とも $1$ なので $S=\mathbb R^2\times\mathbb C^2$、$W=\mathbb R^2\times\mathbb C^2$ である。局所枠を $e^{it}$ と $e^{i\alpha}$ で変えても、成分を $\sigma(e^{it})^{-1}e^{-i\alpha}$ 倍すれば束の同じ点を表す。
+**定義の確認**。例えば標準枠を持つ平面に自明スピン構造と自明な $U(1)$ 束を入れ、$V=\mathbb C$、$\tau(z)v=zv$ とする。両表現は滑らかで内積を保ち、標準枠の遷移関数は両方とも $1$ である。従って $S=\mathbb R^2\times\mathbb C^2$、$E=\mathbb R^2\times\mathbb C$ であり、各点で $a\otimes v\mapsto va$ により $W$ を $\mathbb R^2\times\mathbb C^2$ と同一視する。階数は $2\cdot1=2$ である。局所枠を $e^{it}$ と $e^{i\alpha}$ で変えても、成分を $\sigma(e^{it})^{-1}e^{-i\alpha}$ 倍すれば束の同じ点を表す。
 <!-- definition-example-end -->
 
 接ベクトル $X=q_i^{\rm fr}v$（$q_i^{\rm fr}=\lambda(q_i)$）に対する作用を局所的に $c(v)\otimes I$ と置ける。枠を変更すると $v_j=\pi_s(h_{ij})^{-1}v_i$ だから
@@ -85,9 +91,9 @@ $$
 
 ## 2. 接続を足し合わせて Dirac 作用素を作る
 
-直交枠束の Levi–Civita 接続を $\omega$ とする。二重被覆の微分 $d\pi_s$ は Lie 環の同型である。局所的に $\lambda^*\omega$ に $(d\pi_s)^{-1}$ を作用させれば $Q$ の接続が得られる。実際、基本垂直ベクトル $\xi_Q$ は $d\lambda$ で $(d\pi_s\xi)_{F}$ に移るため接続形式は $\xi$ を返す。右作用に関する同変性も $\lambda(qh)=\lambda(q)\pi_s(h)$ と $d\pi_s$ の随伴作用との可換性から従う。
+[Levi–Civita 接続](../../GEO/GEO13/index.md#def-geo13-levi-civita) は計量を保つので、正規直交枠でその接続行列は実交代行列となる。これに対応する直交枠束の主接続形式を $\omega$ とする。[主束の接続形式](../GBG7/index.md#def-gbg7-connection-form) の再生条件と右同変条件を使ってスピン束へ持ち上げる。二重被覆の微分 $d\pi_s$ は Lie 環の同型である。ここで $d\pi_s$ は群の単位元における微分である。$Q$ 上の Lie 環値1形式を $\omega_Q=(d\pi_s)^{-1}\lambda^*\omega$ と定めれば、$Q$ の接続が得られる。実際、基本垂直ベクトル $\xi_Q$ は $d\lambda$ で $(d\pi_s\xi)_{F}$ に移るため接続形式は $\xi$ を返す。右作用に関する同変性も $\lambda(qh)=\lambda(q)\pi_s(h)$ と $d\pi_s$ の随伴作用との可換性から従う。
 
-この接続の局所表現行列を $B_i$、$P$ の接続を表現 $\tau$ に移した行列を $A_i$ とする。[結合束の共変微分の局所公式](../GBG9/index.md#thm-gbg9-local-formula)を各因子に用い、積に Leibniz 則を適用すると
+局所枠 $q_i,p_i$ と $P$ の主接続形式 $\omega_P$ に対し、表現の微分を施した行列値1形式を $B_i=\sigma_*(q_i^*\omega_Q)$、$A_i=\tau_*(p_i^*\omega_P)$ とする。ここで $\sigma_*,\tau_*$ は [表現の無限小作用](../GBG9/index.md#def-gbg9-infinitesimal-representation) であり、ユニタリ表現なので値は反自己共役行列である。[結合束の共変微分の局所公式](../GBG9/index.md#thm-gbg9-local-formula)を各因子に用い、積に Leibniz 則を適用すると
 
 $$
 \nabla^W_X(a\otimes v)
@@ -101,7 +107,7 @@ C_i=B_i\otimes I_V+I_\Delta\otimes A_i,\qquad
 \nabla^W_X\psi_i=X\psi_i+C_i(X)\psi_i.
 $$
 
-微分の向きは $X$ に依存する。すべての方向の微分を一つの場へ戻すには、正規直交枠の各方向を Clifford 行列で作用させて足せばよい。
+$X\psi_i=d\psi_i(X)$ は局所成分を方向 $X$ に沿って微分する意味である。座標 $(x,y)$ なら $X=X^x\partial_x+X^y\partial_y$ に対して $X\psi_i=X^x\partial_x\psi_i+X^y\partial_y\psi_i$ であり、$\partial_x=\partial/\partial x$ は $y$ を固定した偏微分、$\partial_y=\partial/\partial y$ は $x$ を固定した偏微分である。添字 $i,j$ は局所枠を、$a,b$ は正規直交枠の方向を表す。すべての方向の微分を一つの場へ戻すには、正規直交枠の各方向を Clifford 行列で作用させて足せばよい。
 
 <a id="def-gbg30-dirac"></a>
 
@@ -118,7 +124,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg30-dirac -->
-**定義の確認**。平面の標準枠と自明接続では $D=c_1\partial_x+c_2\partial_y$。例えば $\psi=(x+iy,0)^t$ には
+**定義の確認**。平面の標準枠では $e_1=\partial_x,e_2=\partial_y$ であり、自明接続では $B_i=A_i=0$ となる。従って $\nabla^W_{e_a}\psi$ は対応する成分の偏微分であり、$D=c_1\partial_x+c_2\partial_y$ と書ける（この平面模型では添字 $E$ を省く）。列ベクトルの上付き $t$ は転置である。例えば $\psi=(x+iy,0)^t$ には
 
 $$
 D\psi=c_1(1,0)^t+c_2(i,0)^t
@@ -175,11 +181,31 @@ $$
 \sigma_D(x,\xi)=i\sum_a \xi(e_a)c(e_a).
 $$
 
-Clifford 関係で交差項が消え、二乗は $|\xi|^2I$ となる。従って $\xi\ne0$ なら逆行列は $\sigma_D/|\xi|^2$。非零余接方向ですべて可逆という性質が楕円性である。
+$\xi_a=\xi(e_a)$ と置く。正規直交枠なので余接ベクトルの長さは $|\xi|^2=\sum_a\xi_a^2$ である。$c_a=c(e_a)$ と略記すると、Clifford 関係から
+$$
+\sigma_D(x,\xi)^2
+=-\sum_a \xi_a^2c_a^2
+-\sum_{a<b}\xi_a\xi_b(c_ac_b+c_bc_a)
+=|\xi|^2I.
+$$従って $\xi\ne0$ なら逆行列は $\sigma_D/|\xi|^2$。非零余接方向ですべて可逆という性質が楕円性である。
 
-偶数次元ではもう一つの行列が重要になる。$\chi=i^m c_1\cdots c_{2m}$ と置く。積を逆順に並べるには $m(2m-1)$ 回交換が必要なので $(c_1\cdots c_{2m})^2=(-1)^{m(2m-1)}(-1)^{2m}I=(-1)^mI$。従って $\chi^2=I$。共役転置でも同じ交換符号が現れ $\chi^*=\chi$ となる。さらに $c_a$ は残りの $2m-1$ 個と反交換するので $\chi c_a=-c_a\chi$。
+偶数次元ではもう一つの行列が重要になる。$\chi=i^m c_1\cdots c_{2m}$ と置く。積を逆順に並べるには $m(2m-1)$ 回交換が必要なので $(c_1\cdots c_{2m})^2=(-1)^{m(2m-1)}(-1)^{2m}I=(-1)^mI$。従って $\chi^2=I$。共役転置では積の順序が反転し、各 $c_a^*=-c_a$ と $\overline{i^m}=(-i)^m$ を用いるので
+$$
+\chi^*=(-i)^m(-1)^{2m}(-1)^{m(2m-1)}c_1\cdots c_{2m}
+=\chi.
+$$
+自分自身が随伴であることを自己共役、二乗が恒等写像であることを対合という。さらに $c_a$ は残りの $2m-1$ 個と反交換するので $\chi c_a=-c_a\chi$。
 
-正の向きの枠で積は不変である。実際、Clifford 積の完全交代化は外積と同様に行列式を掛ける。互いに直交する枠では異なる因子が反交換するため完全交代化は元の積そのものになる。$R\in SO(2m)$ では $\det R=1$。従って $\chi$ は大域的に定まる。二次元の例では $\chi=i c_1c_2=\operatorname{diag}(1,-1)$ である。
+正の向きの枠で積が不変であることを確かめる。$n=2m$ とし、$n$ 個のベクトルに対して
+$$
+L(v_1,\ldots,v_n)=\frac1{n!}\sum_{\pi}\operatorname{sgn}(\pi)c(v_{\pi(1)})\cdots c(v_{\pi(n)})
+$$
+と置く。和は $1,\ldots,n$ の全置換を動き、$\operatorname{sgn}(\pi)$ はその符号である。これは各変数に線形で、二変数の交換で符号が反転する。正規直交枠の異なる因子は反交換するので、並べ替えの符号と置換の符号が相殺し $L(e_1,\ldots,e_n)=c_1\cdots c_n$ となる。新しい枠 $e'_a=\sum_b e_bR_{ba}$ に対して多重線形性で展開すると、添字の重複する項は零、残る置換の係数の和が $\det R$ である。従って
+$$
+c(e'_1)\cdots c(e'_n)=L(e'_1,\ldots,e'_n)
+=(\det R)c_1\cdots c_n.
+$$
+$R\in SO(n)$ なら $\det R=1$ で、$\chi$ は大域的に定まる。二次元の例では $\chi=i c_1c_2=\operatorname{diag}(1,-1)$ である。
 
 <a id="def-gbg30-chirality"></a>
 
@@ -201,7 +227,11 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg30-chirality -->
-**定義の確認**。射影は $(I\pm\chi)/2$。二乗すると自身になり、積は零、和は $I$ だからこの分解が得られる。可逆な $c(e_1)$ は二つの固有空間を互いに交換するので階数は等しい。二次元では $(z,0)^t$ と $(0,z)^t$ がそれぞれの固有空間である。
+**定義の確認**。$P_\pm=(I\pm\chi)/2$ と書く。$\chi^2=I$ から
+$$
+P_\pm^2=P_\pm,\quad P_+P_-=0,\quad P_++P_-=I,\quad \chi P_\pm=\pm P_\pm.
+$$
+逆に $\chi u=\pm u$ なら $P_\pm u=u$ だから、$P_\pm$ の像は対応する固有空間そのものである。可逆な $c(e_1)$ は反交換関係から二つの固有空間を互いに交換し、階数はともに $\operatorname{rank}(W)/2$ で一定である。滑らかな射影の像は、局所的に独立な列を選べば近傍でも独立性が保たれるため滑らかな部分束になる。二次元の自明な線束との結合では $\chi(z,w)^t=(z,-w)^t$ なので、正は $(z,0)^t$、負は $(0,w)^t$。任意の列はこの二つの和として一意に分解できる。
 <!-- definition-example-end -->
 
 <a id="thm-gbg30-dirac-odd"></a>
@@ -223,7 +253,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-スピン表現は正の向きの回転と Clifford 作用を両立させるので、上の積の枠独立性により $\sigma(h)\chi=\chi\sigma(h)$。これを群の一パラメータ曲線に沿って微分すると、表現の接続行列 $B_i$ も $\chi$ と可換になる。ゲージ行列は別因子に作用するから可換である。スピン枠で $\chi$ は定数行列なので
+スピン表現は正の向きの回転と Clifford 作用を両立させるので、上の積の枠独立性により $\sigma(h)\chi=\chi\sigma(h)$。任意の Lie 環の元 $\zeta$ に対し $h(t)=\exp(t\zeta)$ と置いて $t=0$ で微分すると $\sigma_*(\zeta)\chi=\chi\sigma_*(\zeta)$。特に $\zeta=(q_i^*\omega_Q)(X)$ と選べば $B_i(X)$ も $\chi$ と可換になる。ゲージ行列は別因子に作用するから可換である。スピン枠で $\chi$ は定数行列なので
 
 $$
 \nabla^W_X(\chi\psi)=\chi X\psi+C_i(X)\chi\psi
@@ -250,23 +280,23 @@ $$
 =\dim\ker D_E^+-\dim\ker D_E^-.
 $$
 
-> 各核の元は Dirac 方程式の零モード（固有値零の解）である。
+> 各核の元は全 Dirac 方程式 $D_E\psi=0$ の解（零モード）である。$D_E^+$ 自体は異なる部分束の間の写像である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg30-index -->
-**定義の確認**。例えば標準平坦トーラス $\mathbb R^2/(2\pi\mathbb Z)^2$ に周期的スピン構造と自明接続を入れる。$D^2=-(\partial_x^2+\partial_y^2)I$ だから $D\psi=0$ なら $D^2\psi=0$。一周期の積分で境界項が相殺し、
+**定義の確認**。例えば標準平坦トーラス $\mathbb R^2/(2\pi\mathbb Z)^2$ に [周期的スピン構造](../GBG29/index.md#ex-gbg29-c01) と自明な複素線束の接続を入れる。これはコンパクトで境界がなく、上の Fredholm 性の仮定を満たす。$D^2$ を展開すると $c_1^2\partial_x^2+c_2^2\partial_y^2+(c_1c_2+c_2c_1)\partial_x\partial_y$ となる（滑らかさにより混合偏微分を交換できる）。従って $D^2=-(\partial_x^2+\partial_y^2)I$ であり、 $D\psi=0$ なら $D^2\psi=0$。一周期の積分で境界項が相殺し、
 
 $$
 0=\int \langle\psi,D^2\psi\rangle
 =\int (|\partial_x\psi|^2+|\partial_y\psi|^2).
 $$
 
-従って両微分が零となり、連結性から $\psi$ は定数。逆に定数は解である。正負それぞれ一次元なので指数は $1-1=0$。指数零は零モードが存在しないという意味ではない。
+従って両微分が零となり、連結性から $\psi$ は定数。逆に定数は解である。[カイラリティ分解](#def-gbg30-chirality) で正負は各一つの複素成分だから $\dim_{\mathbb C}\ker D^+=\dim_{\mathbb C}\ker D^-=1$、指数は $1-1=0$。指数零は零モードが存在しないという意味ではない。
 <!-- definition-example-end -->
 
 ## 4. 曲率の積分との橋
 
-[Chern 指標形式](../GBG23/index.md#def-gbg23-chern-character) $\operatorname{ch}(E)=\operatorname{tr}\exp(iF/2\pi)$ と、[第一 Pontryagin 形式](../GBG24/index.md#prop-gbg24-first-pontryagin) $p_1(TM)$ を用意する。$\widehat A$ は接束の Pontryagin 類から作る特性類であり、本講では次数4までの部分 $1-p_1/24$ を入力として使う。記号 $[\ ]_{2m}$ は積のうち形式次数が $2m$ の成分だけを取る意味である。
+[Chern 指標形式](../GBG23/index.md#def-gbg23-chern-character) $\operatorname{ch}(E)=\operatorname{tr}\exp(iF/2\pi)$ と、[第一 Pontryagin 形式](../GBG24/index.md#prop-gbg24-first-pontryagin) $p_1(TM)$ を用意する。$F$ はゲージ束 $E$ の曲率、$p_1(TM)$ は接束の Levi–Civita 接続の曲率から作る4形式であり、両者は別の束のデータである。$\widehat A$ は接束の Pontryagin 類から作る特性類であり、本講では次数4までの部分 $1-p_1/24$ を入力として使う。記号 $[\ ]_{2m}$ は積のうち形式次数が $2m$ の成分だけを取る意味である。
 
 <a id="thm-gbg30-index-bridge"></a>
 
@@ -296,7 +326,16 @@ $$
 
 被覆から最初の $d$ 列を取る写像は射影を保ち、右作用を $SO(d)$ の作用へ移すので、[スピン構造の条件](../GBG29/index.md#def-gbg29-spin-structure)を満たす。
 
-[Dirac monopole の第一 Chern 数の計算](../GBG19/index.md#thm-gbg19-curvature-flux)の線束では $F=-in\sin\vartheta\,d\vartheta\wedge d\varphi/2$。外向きの向きで積分すると $i(-in)/(4\pi)\cdot2\cdot2\pi=n$。従って指数は $n$ である。
+[Dirac monopole の第一 Chern 数の計算](../GBG19/index.md#thm-gbg19-curvature-flux) の線束では、整数の貼り合わせ番号を $k$（同講の $n$）と書く。次元 $n=2m$ とは別の整数である。極角 $\vartheta\in[0,\pi]$、方位角 $\varphi\in[0,2\pi]$ での曲率は
+$$
+F=-\frac{ik}{2}\sin\vartheta\,d\vartheta\wedge d\varphi.
+$$
+球面はコンパクトかつ境界がなく、先のスピン構造を持つ。外向きの向きで [指数定理](#thm-gbg30-index-bridge) を適用すると
+$$
+\operatorname{ind}D_E^+
+=\frac{i}{2\pi}\frac{-ik}{2}\int_0^\pi\sin\vartheta\,d\vartheta\int_0^{2\pi}d\varphi
+=\frac{k}{4\pi}\cdot2\cdot2\pi=k.
+$$
 
 四次元で $r=\operatorname{rank}E$ と書く。[Chern 指標と低次 Chern 形式の関係](../GBG23/index.md#prop-gbg23-chern-character-degrees)より、次数0、2、4の部分を掛けると
 
@@ -305,7 +344,7 @@ $$
 =\tfrac12(c_1^2-2c_2)-\tfrac r{24}p_1(TM).
 $$
 
-ここで $c_1^2$ は外積である。SU(2) の複素基本表現では $r=2$、曲率の跡が零なので $c_1=0$ となり、
+ここで $c_1^2$ は外積である（この節の $c_1,c_2$ は Clifford 行列ではなく Chern 形式）。SU(2) の複素基本表現では $r=2$、曲率は反自己共役かつ跡零の Lie 環に値を取る。[低次 Chern 形式の跡表示](../GBG23/index.md#prop-gbg23-low-chern) により $c_1=(i/2\pi)\operatorname{tr}F=0$ となり、
 
 $$
 \operatorname{ind}D_E^+
@@ -316,7 +355,10 @@ $$
 
 丸い球面の曲率行列は正規直交余枠 $\theta^a$ で $R_{ab}=K\theta^a\wedge\theta^b$（$K$ は一定断面曲率、全体符号を逆にしても以下は同じ）。
 
-各 $R_{ab}\wedge R_{ab}=0$ だから [第一 Pontryagin 形式の跡公式](../GBG24/index.md#prop-gbg24-first-pontryagin)より $p_1(TM)=0$。
+各 $R_{ab}$ の外積平方では $\theta^a,\theta^b$ が二度ずつ現れるため $R_{ab}\wedge R_{ab}=0$ である。実交代曲率行列の条件を満たすので [第一 Pontryagin 形式の跡公式](../GBG24/index.md#prop-gbg24-first-pontryagin) に代入すると
+$$
+p_1(TM)=\frac1{4\pi^2}\sum_{a<b}R_{ab}\wedge R_{ab}=0.
+$$
 
 従って [BPST 束の第二 Chern 数](../GBG28/index.md#thm-gbg28-nontrivial) $-1$ を代入すると指数は $+1$ となる。
 
@@ -326,7 +368,7 @@ $$
 
 [Dirac 作用素の枠独立性とゲージ共変性](#thm-gbg30-dirac-covariance)は古典方程式の性質である。量子化では場を積分する測度や行列式も対称性を保つかという別の問いが生じる。
 
-零モードに限定した有限次元模型を考えよう。正負の零モード数を $N_+,N_-$ とし、各モードの独立な反交換変数（Grassmann 変数、$\eta_i\eta_j=-\eta_j\eta_i$）を $\eta_j^\pm$ とする。一変数の積分は $\int d\eta\,1=0,\ \int d\eta\,\eta=1$ で決める。$\eta'=a\eta$、$a\ne0$ のとき $\int d\eta'\eta'=1$ とするため $d\eta'=a^{-1}d\eta$。これは通常の実積分とは逆の変換則である。
+零モードに限定した有限次元模型を考えよう。[指数の定義](#def-gbg30-index) に従い正負の零モード数を $N_\pm=\dim_{\mathbb C}\ker D_E^\pm$ とし、各モードの独立な反交換変数（Grassmann 変数、$\eta_i\eta_j=-\eta_j\eta_i$）を $\eta_j^\pm$ とする。一変数の積分は $\int d\eta\,1=0,\ \int d\eta\,\eta=1$ で決める。$\eta'=a\eta$、$a\ne0$ のとき $\int d\eta'\eta'=1$ とするため $d\eta'=a^{-1}d\eta$。これは通常の実積分とは逆の変換則である。
 
 全変数へ $\eta_j^\pm\mapsto e^{\pm i\alpha}\eta_j^\pm$ を作用させると、積分測度は
 
@@ -379,10 +421,10 @@ $$
 #### GBG30-A04 第一Chern数と指数
 - Level: A
 
-外向きの球面上の monopole 線束で $n=-3$ とする。曲率から指数を求め、核の次元に何が言えるか答えよ。
+外向きの球面上の monopole 線束で 貼り合わせ番号 $k=-3$ とする。曲率から指数を求め、核の次元に何が言えるか答えよ。
 
 <!-- solution-start -->
-**詳細解答**。[第一 Chern 数の定理](../GBG19/index.md#thm-gbg19-curvature-flux)の曲率に $n=-3$ を入れると $F=3i\sin\vartheta\,d\vartheta\wedge d\varphi/2$。積分は $6\pi i$。球面はコンパクト・境界なしで前述のスピン構造を持つので [指数定理のスピン Dirac 型](#thm-gbg30-index-bridge) を適用でき、指数は $(i/2\pi)6\pi i=-3$。従って $\dim\ker D^-=\dim\ker D^++3$、負側は少なくとも3次元である。正側が零とはまだ結論できない。
+**詳細解答**。[第一 Chern 数の定理](../GBG19/index.md#thm-gbg19-curvature-flux)の曲率に $k=-3$（GBG19 の $n=-3$）を入れると $F=3i\sin\vartheta\,d\vartheta\wedge d\varphi/2$。積分は $6\pi i$。球面はコンパクト・境界なしで前述のスピン構造を持つので [指数定理のスピン Dirac 型](#thm-gbg30-index-bridge) を適用でき、指数は $(i/2\pi)6\pi i=-3$。従って $\dim\ker D^-=\dim\ker D^++3$、負側は少なくとも3次元である。正側が零とはまだ結論できない。
 <!-- solution-end -->
 
 <a id="ex-gbg30-b01"></a>
@@ -393,7 +435,11 @@ $$
 平面で初期接続 $A=0$、ゲージ枠変更 $U=e^{if(x,y)}$（$f$ は実滑らか関数）を行う。新しい接続と $D'$ を求め、任意の滑らかな $\psi$ について $D'(U^{-1}\psi)=U^{-1}D\psi$ を直接示せ。
 
 <!-- solution-start -->
-**詳細解答**。[局所ゲージ変換則](../GBG8/index.md#thm-gbg8-local-transform)から $A'=U^{-1}dU=i\,df$。従って $D'=c_1(\partial_x+if_x)+c_2(\partial_y+if_y)$。$a=x,y$ について
+**詳細解答**。[局所ゲージ変換則](../GBG8/index.md#thm-gbg8-local-transform)から $A'=U^{-1}dU=i\,df$。$df=f_x\,dx+f_y\,dy$ と書く。ここで $f_x=\partial f/\partial x$、$f_y=\partial f/\partial y$ は他方の座標を固定する偏微分である。[$D_E$ の局所式](#def-gbg30-dirac) に代入して
+$$
+D'=c_1(\partial_x+if_x)+c_2(\partial_y+if_y).
+$$
+ここでプライムは微分ではなく枠変更後を示す。$a=x,y$ について連鎖律と積の微分から
 
 $$
 \partial_a(e^{-if}\psi)
@@ -426,7 +472,7 @@ $$
 平坦二次元トーラスで自明なゲージ接続を取る。スピン構造の符号を第一周期方向で $-1$、第二方向で $+1$ とし、場を $\mathbb R^2$ 上の $\psi(x+2\pi,y)=-\psi(x,y)$、$\psi(x,y+2\pi)=\psi(x,y)$ を満たす関数として表す。零モードを求め、周期的スピン構造と比較せよ。
 
 <!-- solution-start -->
-**詳細解答**。[トーラスのスピン構造の構成](../GBG29/index.md#ex-gbg29-c01)に対応する符号である。各パッチでの微分式は $D=c_1\partial_x+c_2\partial_y$ のままで $D^2=-\Delta I$。$D\psi=0$ なら $D^2\psi=0$。一周期矩形で部分積分すると、第一方向の両端で $\psi$ と $\partial_x\psi$ は両方とも符号が反転するので境界積は一致し相殺する。第二方向も周期性から相殺する。従って
+**詳細解答**。[トーラスのスピン構造の構成](../GBG29/index.md#ex-gbg29-c01)に対応する符号である。各パッチでの微分式は $D=c_1\partial_x+c_2\partial_y$ のままで $D^2=-(\partial_x^2+\partial_y^2)I$。$D\psi=0$ なら $D^2\psi=0$。一周期矩形で部分積分すると、第一方向の両端で $\psi$ と $\partial_x\psi$ は両方とも符号が反転するので境界積は一致し相殺する。第二方向も周期性から相殺する。従って
 
 $$
 0=\int (|\partial_x\psi|^2+|\partial_y\psi|^2).
@@ -440,7 +486,7 @@ $$
 #### GBG30-C01 Monopole・instanton・スピン構造・量子測度
 - Level: C
 
-外向き $S^2$ の $n=2$ monopole 線束と、GBG28 の向きでの丸い $S^4$ の BPST 基本表現束を比較する。各々について (i) スピン構造の存在をどう確保するか、(ii) 指数、(iii) 片側の零モード変数だけの測度の $\alpha=\pi/2$ における変換因子を求めよ。(iv) これだけではゲージ異常を証明できない理由を述べよ。
+外向き $S^2$ の貼り合わせ番号 $k=2$ の monopole 線束と、GBG28 の向きでの丸い $S^4$ の BPST 基本表現束を比較する。各々について (i) スピン構造の存在をどう確保するか、(ii) 指数、(iii) 片側の零モード変数だけの測度の $\alpha=\pi/2$ における変換因子を求めよ。(iv) これだけではゲージ異常を証明できない理由を述べよ。
 
 <!-- solution-start -->
 **詳細解答**。(i) 4節の球面の構成で $d=2,4$ を選ぶ。外向き法線を最後の列に持つ枠をスピン被覆で持ち上げると、各ファイバーは Spin($d$) の右作用で自由かつ推移的であり、被覆は枠束への同変写像を与える。従って [スピン構造の条件](../GBG29/index.md#def-gbg29-spin-structure) を満たす。どちらもゲージ束とは別の構造である。
