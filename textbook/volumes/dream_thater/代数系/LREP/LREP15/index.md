@@ -537,7 +537,7 @@ $$
 > ここで $m$ は非負整数、各 $v_k$ は $V$ の元とし、空積も含める。
 <!-- formal-statement-end -->
 
-**証明の見取り図。** 一方の包含は逆順に掛ければ得られます。逆は[SL(2,C)の左極分解](../LREP10/index.md#lem-lrep10-polar-connectivity)を使い、回転とboostをそれぞれ二本の単位空間的ベクトル（計量による二乗が1のベクトル）の積として構成します。
+**証明の見取り図。** 一方の包含は逆順に掛ければ得られます。逆は[極分解](../../../基礎科目/LA/LA6/index.md#thm-la6-polar)を随伴行列に適用して左から正定値因子を取り出し、回転とboostをそれぞれ二本の単位空間的ベクトル（計量による二乗が1のベクトル）の積として構成します。
 
 <!-- proof-start -->
 ### 証明
@@ -550,7 +550,13 @@ $$
 
 これが1なら偶部分の元であり、Spin群に入ります。
 
-逆に任意のSpin群の元の上側ブロック $A\in SL(2,\mathbb C)$ を取ります。[SL(2,C)の極分解](../LREP10/index.md#lem-lrep10-polar-connectivity)より $A=PU$、$P$ は正定値エルミートで行列式1、$U\in SU(2)$ です。
+逆に任意のSpin群の元の上側ブロック $A\in SL(2,\mathbb C)$ を取ります。可逆行列 $A^\dagger$ に[極分解](../../../基礎科目/LA/LA6/index.md#thm-la6-polar)を適用すると、ユニタリ行列 $V_1$ と正定値エルミート行列 $P$ によって $A^\dagger=V_1P$ と書けます。随伴を取ると
+
+$$
+A=PV_1^\dagger=PU,\qquad U=V_1^\dagger
+$$
+
+です。ユニタリ性から $|\det U|=1$、正定値性から $\det P>0$ です。$\det A=1$ の絶対値を取れば $\det P=1$、さらに $\det U=1$ となります。従って $U\in SU(2)$ です。これは[LREP10の道連結性の補題](../LREP10/index.md#lem-lrep10-polar-connectivity)で用いた左からの分解と同じものです。
 
 [スペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)で二次のエルミート行列を対角化すれば、$P$ の固有値は正で積1なので $e^t,e^{-t}$ と書けます。
 
