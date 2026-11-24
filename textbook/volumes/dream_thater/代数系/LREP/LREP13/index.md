@@ -6,11 +6,15 @@
 
 [四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action)の群 $G=SL(2,\mathbb C)$（行列式1の複素二次正方行列の群）を使います。能動変換、すなわち座標系を固定してベクトルを動かす規約です。[Minkowski計量](../../../物理系/SREL/SREL2/index.md#def-srel2-minkowski-metric)の標準座標での行列を $\eta=\operatorname{diag}(-1,1,1,1)$ とし、二引数の値を $\eta(x,y)=x^{\mathsf T}\eta y$ と書きます。
 
-[左右Weylスピノル](../LREP12/index.md#def-lrep12-weyl)の標準基底で、左列 $u,v\in L=\mathbb C^2$ は $S\in G$、右列 $r,s\in R=\mathbb C^2$ は $Q(S)=(S^\dagger)^{-1}$ で変換します。$L,R$ は別々の空間ですが、どちらも同じ形の成分列で表示します。$\mathsf T$ は転置、$\dagger$ は共役転置、上線は成分ごとの複素共役です。プライムは変換後の量を表し、微分ではありません。成分は通常の可換な複素数です。
+[左右Weylスピノル](../LREP12/index.md#def-lrep12-weyl)の標準基底で、左列 $u,v\in L=\mathbb C^2$ は $S\in G$、右列 $r,s\in R=\mathbb C^2$ は $Q(S)=(S^\dagger)^{-1}$ で変換します。
+
+$L,R$ は別々の空間ですが、どちらも同じ形の成分列で表示します。$\mathsf T$ は転置、$\dagger$ は共役転置、上線は成分ごとの複素共役です。プライムは変換後の量を表し、微分ではありません。成分は通常の可換な複素数です。
 
 ## 1. どの二成分の積が不変か
 
-回転では $S^\dagger S=I_2$ なので $u^\dagger v$ は保存されますが、[正の $z$ 方向のboost](../LREP10/index.md#def-lrep10-sl2c-action)に対応する $S=\operatorname{diag}(2,1/2)$ に対して $u=v=(1,0)^{\mathsf T}$ とすると、$u^\dagger v=1$ が $4$ に変わります。そこで内積の代わりに二本の列が作る符号付き面積に相当する量を使います。
+回転では $S^\dagger S=I_2$ なので $u^\dagger v$ は保存されますが、[正の $z$ 方向のboost](../LREP10/index.md#def-lrep10-sl2c-action)に対応する $S=\operatorname{diag}(2,1/2)$ に対して $u=v=(1,0)^{\mathsf T}$ とすると、$u^\dagger v=1$ が $4$ に変わります。
+
+そこで内積の代わりに二本の列が作る符号付き面積に相当する量を使います。
 
 [LREP4の二次元交代形式と行列式](../LREP4/index.md#prop-lrep4-epsilon)で得た行列を
 
@@ -18,7 +22,9 @@ $$
 J=\begin{pmatrix}0&1\\-1&0\end{pmatrix}
 $$
 
-とします。標準基底 $e_1,e_2$ で $u=u^1e_1+u^2e_2$ と書き、上付きの $1,2$ は成分番号（べき乗ではない）とします。[双線形形式の行列表示](../../../基礎科目/LA/LA3E/index.md#prop-la3e-bilinear-nondegenerate-matrix)では $J_{ab}=B(e_a,e_b)$ を並べれば、双線形性により
+とします。標準基底 $e_1,e_2$ で $u=u^1e_1+u^2e_2$ と書き、上付きの $1,2$ は成分番号（べき乗ではない）とします。
+
+[双線形形式の行列表示](../../../基礎科目/LA/LA3E/index.md#prop-la3e-bilinear-nondegenerate-matrix)では $J_{ab}=B(e_a,e_b)$ を並べれば、双線形性により
 
 $$
 B(u,v)=\sum_{a,b=1}^2 u^aJ_{ab}v^b
@@ -49,7 +55,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep13-contraction -->
-**定義の確認**。 $u=(1,2)^{\mathsf T}$、$v=(3,i)^{\mathsf T}$ なら $Jv=(i,-3)^{\mathsf T}$ なので $B_L(u,v)=i-6$。逆順では $B_L(v,u)=6-i$、同じ列なら $B_L(u,u)=2-2=0$ です。双線形性は一組の値だけでなく、任意の複素数 $\lambda,\kappa$ と列 $w$ に対して
+**定義の確認**。 $u=(1,2)^{\mathsf T}$、$v=(3,i)^{\mathsf T}$ なら $Jv=(i,-3)^{\mathsf T}$ なので $B_L(u,v)=i-6$。逆順では $B_L(v,u)=6-i$、同じ列なら $B_L(u,u)=2-2=0$ です。
+
+双線形性は一組の値だけでなく、任意の複素数 $\lambda,\kappa$ と列 $w$ に対して
 
 $$
 \begin{aligned}
@@ -60,9 +68,25 @@ B_L(u,\lambda v+\kappa w)
 \end{aligned}
 $$
 
-が行列積の分配法則から成立することで確認できます。右側も同じ成分式です。任意の列 $w$ について $w^1w^2-w^2w^1=0$ なので交代性も成立します。
+が成立します。行列積を各項に分配した等式です。右側も同じ成分式です。任意の列 $w$ について $w^1w^2-w^2w^1=0$ なので交代性も成立します。
 
-boost $D=\operatorname{diag}(2,1/2)$ では $Du=(2,1)^{\mathsf T}$、$Dv=(6,i/2)^{\mathsf T}$ となり、収縮は $2(i/2)-6=i-6$ です。同じ入力を右列とすると $Q(D)u=(1/2,4)^{\mathsf T}$、$Q(D)v=(3/2,2i)^{\mathsf T}$ なので $(1/2)(2i)-4(3/2)=i-6$。左右とも値を保存します。さらに [二次元交代形式と行列式](../LREP4/index.md#prop-lrep4-epsilon)より $A^{\mathsf T}JA=(\det A)J$ であり、任意の $S\in G$ に対して $\det S=\det Q(S)=1$ なので両作用とも $J$ を保存します。これが任意の二入力に対する不変性の判定根拠です。次の命題で一意性も含めて確認します。
+boost $D=\operatorname{diag}(2,1/2)$ による左の列と収縮値は
+
+$$
+Du=(2,1)^{\mathsf T},\quad Dv=(6,i/2)^{\mathsf T},\qquad
+B_L(Du,Dv)=2(i/2)-6=i-6
+$$
+
+です。同じ成分を右列として入力すると、
+
+$$
+Q(D)u=(1/2,4)^{\mathsf T},\quad Q(D)v=(3/2,2i)^{\mathsf T},
+\qquad B_R(Q(D)u,Q(D)v)=(1/2)(2i)-4(3/2)=i-6
+$$
+
+となり、左右とも値を保存します。
+
+さらに [二次元交代形式と行列式](../LREP4/index.md#prop-lrep4-epsilon)より $A^{\mathsf T}JA=(\det A)J$ です。任意の $S\in G$ で $\det S=\det Q(S)=1$ なので両作用とも $J$ を保存します。これが任意の二入力に対する不変性の判定根拠です。次の命題で一意性も含めて確認します。
 <!-- definition-example-end -->
 
 <a id="prop-lrep13-scalar"></a>
@@ -129,7 +153,11 @@ $$
 
 ## 2. 四元ベクトルを収縮する
 
-数を作るだけでなく、成分を残して変換則を持つ量も作れます。[二添字Weyl表示と四元ベクトル](../LREP12/index.md#prop-lrep12-bispinor-vector)では $X=uz^{\mathsf T}$ に対する作用が $X'=SXS^\dagger$ でした。ここでは $z=\overline v$ として $X=uv^\dagger$ と書きます。ここで $v$ は左列であり、$z$ は右列そのものではなく共役空間の列です。実際、変換後は $(Su)(Sv)^\dagger=Suv^\dagger S^\dagger$ です。
+数を作るだけでなく、成分を残して変換則を持つ量も作れます。[二添字Weyl表示と四元ベクトル](../LREP12/index.md#prop-lrep12-bispinor-vector)では $X=uz^{\mathsf T}$ に対する作用が $X'=SXS^\dagger$ でした。
+
+ここでは $z=\overline v$ として $X=uv^\dagger$ と書きます。ここで $v$ は左列であり、$z$ は右列そのものではなく共役空間の列です。
+
+実際、変換後は $(Su)(Sv)^\dagger=Suv^\dagger S^\dagger$ です。
 
 [エルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model)の基底 $I_2,\sigma_1,\sigma_2,\sigma_3$（$\sigma_i$ は [Pauli行列](../LREP5/index.md#def-lrep5-pauli-model)）を使うと、一般の行列を
 
@@ -191,7 +219,9 @@ $$
 
 ## 3. 二階テンソルを作る
 
-四元ベクトル二本を組み合わせ、時空添字を二つ残した量を考えます。[四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action)で $\Phi(S)$ と書いたLorentz変換を、本講では行列 $\Lambda(S)$（群元を固定した場合は $\Lambda$）と書きます。$\Lambda^\mu{}_\alpha$ は行 $\mu$、列 $\alpha$ の成分であり、四元ベクトルは
+四元ベクトル二本を組み合わせ、時空添字を二つ残した量を考えます。[四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action)で $\Phi(S)$ と書いたLorentz変換を、本講では行列 $\Lambda(S)$（群元を固定した場合は $\Lambda$）と書きます。
+
+$\Lambda^\mu{}_\alpha$ は行 $\mu$、列 $\alpha$ の成分であり、四元ベクトルは
 
 $$
 (x')^\mu=\sum_{\alpha=0}^3\Lambda^\mu{}_\alpha x^\alpha
@@ -275,7 +305,9 @@ F^{\mu\nu}F_{\mu\nu}
 \end{aligned}
 $$
 
-任意の列 $w$ に対して $(uu^\dagger)w=u(u^\dagger w)$ なので像は $u$ の張る空間に含まれます。$vv^\dagger$ も同様に像が $v$ の張る空間に含まれます。従ってどちらも二次正方行列で階数が高々1、行列式は0です。[行列式とMinkowski二乗](../LREP10/index.md#thm-lrep10-determinant-cone)から $\eta(x,x)=\eta(y,y)=0$（零ベクトルも含む）。よって所定の式を得ます。$\square$
+任意の列 $w$ に対して $(uu^\dagger)w=u(u^\dagger w)$ なので像は $u$ の張る空間に含まれます。$vv^\dagger$ も同様に像が $v$ の張る空間に含まれます。従ってどちらも二次正方行列で階数が高々1、行列式は0です。
+
+[行列式とMinkowski二乗](../LREP10/index.md#thm-lrep10-determinant-cone)から $\eta(x,x)=\eta(y,y)=0$（零ベクトルも含む）。よって所定の式を得ます。$\square$
 <!-- proof-end -->
 
 $u=(\sqrt2,0)^{\mathsf T}$、$v=(0,\sqrt2)^{\mathsf T}$ なら $x=(1,0,0,1)$、$y=(1,0,0,-1)$ です。$F^{03}=-2,F^{30}=2$ が唯一の非零成分であり、添字を下げると $F_{03}=2,F_{30}=-2$ です。完全収縮は $-4-4=-8$。$\eta(x,y)=-2$ を代入した式と一致します。
@@ -381,10 +413,14 @@ $$
 =(Q(S)u,Sr).
 $$
 
-$Q(Q(S))=S$ なので右辺は $\rho(Q(S))(u,r)$ です。単独の左空間上に可逆な複素線形写像 $A$ が存在すると仮定すれば $ASA^{-1}=Q(S)$、すなわち $AS=Q(S)A$ がすべての $S$ で成立します。しかし[左右Weyl表現の非同値性](../LREP12/index.md#prop-lrep12-inequivalent)がこれを否定します。右の場合も $S$ を $Q(S)$ に置き換えれば同じ矛盾になります。$\square$
+$Q(Q(S))=S$ なので右辺は $\rho(Q(S))(u,r)$ です。
+
+単独の左空間上に可逆な複素線形写像 $A$ が存在すると仮定すれば $ASA^{-1}=Q(S)$、すなわち $AS=Q(S)A$ がすべての $S$ で成立します。しかし[左右Weyl表現の非同値性](../LREP12/index.md#prop-lrep12-inequivalent)がこれを否定します。右の場合も $S$ を $Q(S)$ に置き換えれば同じ矛盾になります。$\square$
 <!-- proof-end -->
 
-たとえば $D=\operatorname{diag}(2,1/2)$ とすれば $Q(D)=D^{-1}$ です。正の $z$ 方向のboostが空間反転で逆方向のboostへ移り、直和では左右の伸縮が交換されます。回転 $U\in SU(2)$ では $Q(U)=U$ のため変わりません。なお[前講の反線形な左右対応](../LREP12/index.md#prop-lrep12-conjugate-right)は複素線形な空間反転の代用ではありません。
+たとえば $D=\operatorname{diag}(2,1/2)$ とすれば $Q(D)=D^{-1}$ です。正の $z$ 方向のboostが空間反転で逆方向のboostへ移り、直和では左右の伸縮が交換されます。
+
+回転 $U\in SU(2)$ では $Q(U)=U$ のため変わりません。なお[前講の反線形な左右対応](../LREP12/index.md#prop-lrep12-conjugate-right)は複素線形な空間反転の代用ではありません。
 
 ## 5. 演習
 
@@ -432,7 +468,16 @@ $$
 $X=\operatorname{diag}(3,1)$、$Y=\begin{pmatrix}2&1\\1&4\end{pmatrix}$ の実四元ベクトル間のMinkowski内積を行列式の差と成分の両方から求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $X+Y=\begin{pmatrix}5&1\\1&5\end{pmatrix}$ なので、行列式は $\det X=3$、$\det Y=2\cdot4-1=7$、$\det(X+Y)=25-1=24$ です。 [四元ベクトルの行列収縮](#prop-lrep13-vector-pairing)の証明の差を使えば $-(24-3-7)/2=-7$ です。[二添字Weyl表示と四元ベクトル](../LREP12/index.md#prop-lrep12-bispinor-vector)で与えられた逆算を使うと $x=(2,0,0,1),y=(3,1,0,-1)$ なので $-6-1=-7$ です。
+**詳細解答。** $X+Y=\begin{pmatrix}5&1\\1&5\end{pmatrix}$ なので、行列式は
+
+$$
+\det X=3,\quad \det Y=2\cdot4-1=7,\quad
+\det(X+Y)=25-1=24
+$$
+
+です。[四元ベクトルの行列収縮](#prop-lrep13-vector-pairing)の証明の差を使えば $-(24-3-7)/2=-7$ です。
+
+[二添字Weyl表示と四元ベクトル](../LREP12/index.md#prop-lrep12-bispinor-vector)で与えられた逆算を使うと $x=(2,0,0,1),y=(3,1,0,-1)$ なので $-6-1=-7$ です。
 <!-- solution-end -->
 
 <a id="ex-lrep13-a04"></a>
@@ -444,7 +489,16 @@ $X=\operatorname{diag}(3,1)$、$Y=\begin{pmatrix}2&1\\1&4\end{pmatrix}$ の実�
 $X=\begin{pmatrix}4&1+i\\1-i&2\end{pmatrix}$ の空間反転後の行列と四元成分を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [二添字Weyl表示](../LREP12/index.md#prop-lrep12-bispinor-vector)の逆公式より $x^0=(4+2)/2=3$、$x^3=(4-2)/2=1$、$x^1=1$、$x^2=((1-i)-(1+i))/(2i)=-1$。従って $x=(3,1,-1,1)$。[空間反転](#def-lrep13-parity)により $Px=(3,-1,1,-1)$ です。行列へ戻せば
+**詳細解答。** [二添字Weyl表示と四元ベクトル](../LREP12/index.md#prop-lrep12-bispinor-vector)で与えられた成分の逆算を使います。
+
+$$
+\begin{aligned}
+x^0&=(4+2)/2=3,&x^3&=(4-2)/2=1,\\
+x^1&=1,&x^2&=((1-i)-(1+i))/(2i)=-1.
+\end{aligned}
+$$
+
+従って $x=(3,1,-1,1)$。[空間反転](#def-lrep13-parity)により $Px=(3,-1,1,-1)$ です。行列へ戻せば
 
 $$
 \mathcal P(X)=\begin{pmatrix}2&-1-i\\-1+i&4\end{pmatrix}
@@ -544,7 +598,9 @@ $$
 C_\pm'=B_L(r,s)\pm B_R(u,v).
 $$
 
-ここで $B_L(r,s)$ は右列の成分を左空間の標準基底で読み直した値、$B_R(u,v)$ はその逆の読み直しです。両側の成分公式は同じ $J$ なので $C_+'=C_+$、$C_-'=-C_-$ となります。空間反転を含めると、和は不変、差は符号を変えます。この性質は選んだ直和上の反転作用に対するものです。
+ここで $B_L(r,s)$ は右列の成分を左空間の標準基底で読み直した値、$B_R(u,v)$ はその逆の読み直しです。
+
+両側の成分公式は同じ $J$ なので $C_+'=C_+$、$C_-'=-C_-$ となります。空間反転を含めると、和は不変、差は符号を変えます。この性質は選んだ直和上の反転作用に対するものです。
 <!-- solution-end -->
 
 ### Level C
@@ -565,7 +621,19 @@ X=\begin{pmatrix}2&0\\0&0\end{pmatrix},
 \quad Y=\begin{pmatrix}1&1\\1&1\end{pmatrix}
 $$
 
-だから $x=(1,0,0,1),y=(1,1,0,0)$。内積は $-1$。反対称性から $\mu<\nu$ の成分のみ計算すると $F^{01}=1,F^{03}=-1,F^{13}=-1$、残りは0です。添字を下げる際に $\eta$ の対角成分を各添字に掛けるので、$F_{01}=-F^{01}$、$F_{03}=-F^{03}$、$F_{13}=F^{13}$ です。完全収縮では反対称な二成分の積が等しく、各独立成分が二回現れるため
+だから $x=(1,0,0,1),y=(1,1,0,0)$。内積は $-1$。反対称性から $\mu<\nu$ の成分のみ計算すると、
+
+$$
+F^{01}=1,\quad F^{03}=-1,\quad F^{13}=-1
+$$
+
+で、残りは0です。添字を下げる際に $\eta$ の対角成分を各添字に掛けるので、
+
+$$
+F_{01}=-F^{01},\quad F_{03}=-F^{03},\quad F_{13}=F^{13}
+$$
+
+です。完全収縮では反対称な二成分の積が等しく、各独立成分が二回現れるため
 
 $$
 F^{\mu\nu}F_{\mu\nu}=2(-1-1+1)=-2.
@@ -578,7 +646,16 @@ X'=\begin{pmatrix}8&0\\0&0\end{pmatrix},
 \quad Y'=\begin{pmatrix}4&1\\1&1/4\end{pmatrix}.
 $$
 
-[四元成分の逆公式](../LREP12/index.md#prop-lrep12-bispinor-vector)により $x'=(4,0,0,4)$。$Y'$ の対角成分の半和は $(4+1/4)/2=17/8$、半差は $(4-1/4)/2=15/8$ で、非対角成分はともに1なので $y'=(17/8,1,0,15/8)$。内積は $-68/8+60/8=-1$ です。独立非零成分は
+[二添字Weyl表示と四元ベクトル](../LREP12/index.md#prop-lrep12-bispinor-vector)で得た成分の逆算を使うと $x'=(4,0,0,4)$ です。$Y'$ の対角成分の半和と半差は
+
+$$
+(y')^0=(4+1/4)/2=17/8,\qquad
+(y')^3=(4-1/4)/2=15/8
+$$
+
+で、非対角成分はともに1なので $y'=(17/8,1,0,15/8)$。内積は $-68/8+60/8=-1$ です。
+
+独立非零成分は
 
 $$
 \begin{aligned}
