@@ -30,7 +30,7 @@ test('WGL7 samples the same editable texture with moving UV and independent filt
   const frag=await file('WGL/WGL7/sampling.frag');
   assert.match(js,/gl\.uniform2f\(offsetLoc,offset\[0\],offset\[1\]\+shift\)/);
   assert.match(js,/gl\.uniform1f\(repeatsLoc,density\)/);
-  assert.match(js,/gl\.texParameteri\(gl\.TEXTURE_2D, gl\.TEXTURE_MIN_FILTER,filters\[filter\]\)/);
+  assert.match(js,/gl\.texParameteri\(gl\.TEXTURE_2D, gl\.TEXTURE_MIN_FILTER,\s*filters\[filter\]\)/);
   assert.match(js,/gl\.enableVertexAttribArray\(2\)/);
   assert.match(js,/leftMinFilter/);
   assert.match(js,/rightMinFilter/);
