@@ -40,7 +40,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb2-09-distributor-map -->
-**定義の確認。** $A$ は一対象・恒等射のみの圏、$B$ は $0\xrightarrow{v}1$ とする。第二引数を省略し、二つの反変関手を次で定める。
+**定義の確認**。 $A$ は一対象・恒等射のみの圏、$B$ は $0\xrightarrow{v}1$ とする。第二引数を省略し、二つの反変関手を次で定める。
 
 $$
 \begin{array}{c|cc}
@@ -566,20 +566,18 @@ $$
 
 後半では各中間圏の非恒等射が存在しないので、各商に残る元は括弧付きの組ただ一つである。[二重coendのFubini型交換](#thm-catb2-09-fubini)の結合子を2回用いると
 
-$
+$$
 [[[t,r],q],p]\mapsto[[t,r],[q,p]]\mapsto[t,[r,[q,p]]].
-$
-
+$$
 長い経路では左の三因子を先に組み直し、次いで外側、最後に右の三因子を組み直す。
 
-$
+$$
 \begin{aligned}
 [[[t,r],q],p]&\mapsto[[t,[r,q]],p]\\
 &\mapsto[t,[[r,q],p]]\\
 &\mapsto[t,[r,[q,p]]].
 \end{aligned}
-$
-
+$$
 両写像は一元集合の唯一の元を同じ元へ送るから等しい。一般の場合の五角形もこの代表元計算を各同値類に適用したものである。
 <!-- solution-end -->
 
