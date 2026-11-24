@@ -1,0 +1,45 @@
+id: "GCT1"
+title: "有限グラフ・辺重み・隣接行列：同型と歩道の計数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - COMB1
+  - SGT1
+  - CPLX3
+  - F0-00F
+official_scope: []
+learning_objectives:
+  - 有限単純有向・無向グラフの頂点と辺を区別し、零重みの辺を含む辺重みを扱える
+  - 通常と重み付きの隣接行列を構成し、行列から辺の存在を判定できる条件を説明できる
+  - グラフ同型の条件を置換による行列表示へ変換し、両方向を証明できる
+  - 歩道の個数と重みの総和を行列冪から計算し、最終辺による帰納法で証明できる
+  - 閉歩道の計数と同型による不変性を証明し、逆の反例を作れる
+definitions:
+  - { id: GCT1-DEF-01, name: "有限単純有向・無向グラフ" }
+  - { id: GCT1-DEF-02, name: "辺重み" }
+  - { id: GCT1-DEF-03, name: "隣接行列" }
+  - { id: GCT1-DEF-04, name: "グラフ同型" }
+  - { id: GCT1-DEF-05, name: "歩道とその重み" }
+theorems:
+  - { id: GCT1-THM-01, name: "グラフ同型と置換による行列表示" }
+  - { id: GCT1-THM-02, name: "隣接行列の冪による歩道計数" }
+  - { id: GCT1-COR-03, name: "閉歩道の総数" }
+canonical_examples:
+  - 有向辺と無向辺の違い
+  - 零重みの辺と不存在の区別
+  - 三頂点の置換による同型
+  - 三頂点の往復歩道と行列冪
+  - 負重みの相殺
+problem_patterns:
+  - GCT1-DIRECTION
+  - GCT1-ZERO-WEIGHT
+  - GCT1-WALK
+  - GCT1-POWER
+  - GCT1-PERMUTATION
+  - GCT1-CANCELLATION
+  - GCT1-CLOSED-WALK
+  - GCT1-ISOMORPHISM-INVARIANCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }

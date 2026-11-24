@@ -1,0 +1,66 @@
+chapter: GCT1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - COMB1
+  - SGT1
+  - CPLX3
+  - F0-00F
+forward_references: []
+
+concepts:
+  - id: graph-counting.finite-simple-graph
+    name: 有限単純有向・無向グラフ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限単純有向・無向グラフ）"]
+    requires: [combinatorics.finite-cardinality]
+
+  - id: graph-counting.edge-weight
+    name: 辺重み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（辺重み）"]
+    requires: [graph-counting.finite-simple-graph]
+
+  - id: graph-counting.adjacency-matrix
+    name: 隣接行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（隣接行列）"]
+    requires: [graph-counting.finite-simple-graph, graph-counting.edge-weight]
+
+  - id: graph-counting.graph-isomorphism
+    name: グラフ同型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（グラフ同型）"]
+    requires: [graph-counting.finite-simple-graph, graph-counting.edge-weight, set.bijection]
+
+  - id: graph-counting.permutation-matrix-isomorphism
+    name: グラフ同型と置換による行列表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（グラフ同型と置換による行列表示）"]
+    requires: [graph-counting.graph-isomorphism, graph-counting.adjacency-matrix, linear.similarity]
+
+  - id: graph-counting.weighted-walk
+    name: 歩道とその重み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（歩道とその重み）"]
+    requires: [graph-counting.finite-simple-graph, graph-counting.edge-weight]
+
+  - id: graph-counting.walk-matrix-power
+    name: 隣接行列の冪による歩道計数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（隣接行列の冪による歩道計数）"]
+    requires: [graph-counting.weighted-walk, graph-counting.adjacency-matrix, combinatorics.addition-principle]
+
+  - id: graph-counting.closed-walk-trace
+    name: 閉歩道の総数
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（閉歩道の総数）"]
+    requires: [graph-counting.walk-matrix-power, combinatorics.addition-principle]
