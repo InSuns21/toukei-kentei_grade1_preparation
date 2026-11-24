@@ -1,0 +1,32 @@
+id: "AFR10"
+title: "Tateの学位論文：`GL_1`のゼータ積分"
+volume: "foundations"
+status: supplementary
+prerequisites: [AFR9, CA11]
+official_scope: []
+learning_objectives:
+  - 乗法測度の規格化と有限位数Hecke指標の構成を説明できる
+  - 不分岐および分岐の局所ゼータ積分と実Gamma因子を計算できる
+  - 絶対収束性を確かめて大域積分をEuler積に分解できる
+  - Poisson和と非零有理数和の減衰から解析接続・関数等式・留数を導ける
+  - 導手に対応するFourier変換とGauss和から完成Hecke L関数の関数等式を導ける
+definitions:
+  - { id: AFR10-DEF-01, name: "局所乗法測度" }
+  - { id: AFR10-DEF-02, name: "有限位数Hecke指標" }
+  - { id: AFR10-DEF-03, name: "Tateゼータ積分" }
+  - { id: AFR10-DEF-04, name: "有限位数Hecke L関数" }
+theorems:
+  - { id: AFR10-THM-01, name: "不分岐局所ゼータ因子" }
+  - { id: AFR10-PROP-01, name: "分岐指標に適合する試験関数" }
+  - { id: AFR10-PROP-02, name: "実局所ゼータ因子" }
+  - { id: AFR10-THM-02, name: "大域ゼータ積分のEuler分解" }
+  - { id: AFR10-LEM-01, name: "非零有理数和の一様減衰" }
+  - { id: AFR10-THM-03, name: "Tateの大域関数等式" }
+  - { id: AFR10-THM-04, name: "分岐試験関数のFourier変換" }
+  - { id: AFR10-THM-05, name: "完成Hecke L関数の関数等式" }
+canonical_examples: [法5の二次指標, 不分岐局所因子, Gaussianによる完成Riemannゼータ関数, 法3のGauss和]
+problem_patterns: [AFR10-A1, AFR10-A2, AFR10-A3, AFR10-A4, AFR10-B1, AFR10-B2, AFR10-B3, AFR10-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 5, review: 3 }
