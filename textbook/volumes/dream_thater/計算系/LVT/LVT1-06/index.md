@@ -6,7 +6,7 @@
 
 ## 1. 盤面を値として扱う
 
-今回は三目並べの準備として、3 行 3 列の盤面に印があるかどうかだけを扱います。手番、勝敗、終了判定はまだ導入しません。各マスの値は Bool で、false は空、true は印があることを表します。前講の[Fin型](../LVT1-05/index.md#def-lvt1-05-fin-index)により有効な番号は 0 から 8 です。
+今回は三目並べの準備として、3 行 3 列の盤面に印があるかどうかだけを扱います。手番、勝敗、終了判定はまだ導入しません。各マスの値は Bool で、false は空、true は印があることを表します。Lean の `Nat` は 0 を含む非負整数の型です。本講で番号を自然数と呼ぶときも 0 を含めます。前講の[Fin型](../LVT1-05/index.md#def-lvt1-05-fin-index)により有効な番号は 0 から 8 です。
 
 外部のファイルや時刻を参照する関数では、見かけ上同じ引数を与えても結果が変わるかもしれません。必要な情報をすべて引数として渡し、結果を値として返す関数なら、盤面を変えずに何度でも同じ計算を試せます。結果が引数だけから決まることと、計算が外部に影響しないことを一つの性質として捉えます。
 
@@ -22,6 +22,8 @@
 **定義の確認**　自然数 n を受け取って n + 1 を返す関数を考える。n = 2 なら 3、同じ n = 2 を再度渡しても 3 となる。計算は自然数の加算だけであり、時刻、ファイル、画面を読み書きしない。結果の決定と外部状態を操作しないという両条件を満たす。一方、ファイルに 3 を書き込んでから 3 を返す処理は、結果が同じでも後者の条件を満たさない。
 <!-- definition-example-end -->
 
+[固定長盤面の関数表現](../LVT1-05/index.md#def-lvt1-05-fixed-board) でマスの個数を 9、値の型を Bool とします。`b i` は数学の関数適用 $b(i)$ に対応します。`i` は着手位置、`j` は新しい盤面の値を調べる位置です。[Fin型](../LVT1-05/index.md#def-lvt1-05-fin-index) の `i.val` と `j.val` はそれぞれの自然数の番号であり、同じ番号なら同じマスです。`fun j => ...` は j を引数に取る関数を作る記法、`fun _ => false` は引数を使わず常に false を返す関数です。
+
 ```lean
 abbrev Board := Fin 9 → Bool
 
@@ -33,25 +35,25 @@ def writeMark (b : Board) (i : Fin 9) : Board :=
 
 abbrev は型の別名を導入する記法です。writeMark は b を変更する操作ではなく、新しい盤面を表す関数を返します。新しい盤面の番号 j の値を決めるため、j の自然数としての値と着手位置 i の値を比べます。例えば空盤面に番号 2 の印を置くと、j = 2 では true、j = 0 では元の b 0 = false です。元の emptyBoard 2 は依然 false です。
 
-しかし既に印のあるマスへの着手は拒否したいので、前々講までに学んだ[Option型](../LVT1-03/index.md#def-lvt1-03-option)を使います。
+しかし既に印のあるマスへの着手は拒否したいので、第3講で学んだ[Option型](../LVT1-03/index.md#def-lvt1-03-option)を使います。
 
 ```lean
 def place (b : Board) (i : Fin 9) : Option Board :=
   if b i then none else some (writeMark b i)
 ```
 
-ここで if b i は Bool が true のとき第一枝、false のとき第二枝を選びます。仕様は「占有マスを拒否し、空きマスならその位置だけに印を付ける」です。place は盤面と位置を引数として受け取り、成功時の新しい盤面または失敗を返すので、仕様を実行して結果を調べられます。このような実行可能な仕様を、別の実装との比較の基準にするとき、参照モデルと呼びます。
+ここで if b i は Bool が true のとき第一枝、false のとき第二枝を選びます。仕様は「占有マスを拒否し、空きマスならその位置だけに印を付ける」です。place は盤面と位置を引数として受け取り、成功時の新しい盤面または失敗を返すので、仕様を実行して結果を調べられます。第1講の[実行可能仕様](../LVT1-01/index.md#def-lvt1-01-executable-spec) と同じく、すべての対象入力で結果を計算して停止することが必要です。ここでは空きかどうかの一回の判定と、各マスを求める有限の計算で実現できます。このような仕様を別の実装との比較の基準にするとき、参照モデルと呼びます。
 
 <a id="def-lvt1-06-reference-model"></a>
 
 <!-- formal-statement-start -->
 ### 定義（実行可能な参照モデル）
 
-対象の処理について、仕様が定める入力と結果を計算するプログラムを作り、その結果を別の実装の比較基準として用いるとき、そのプログラムを実行可能な参照モデルという。
+対象の処理について、仕様が定める各入力に対して停止して期待結果を返す [実行可能仕様](../LVT1-01/index.md#def-lvt1-01-executable-spec) を実装し、その結果を同じ入力と出力の規約を持つ別の実装の比較基準として用いるとき、その実装を実行可能な参照モデルという。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt1-06-reference-model -->
-**定義の確認**　place に emptyBoard と番号 2 を渡すと、空きマスなので some (writeMark emptyBoard 2) が計算される。比較対象の実装が番号 2 のみを true にすれば結果は一致し、番号 1 を true にすれば不一致である。入力と結果が計算でき、比較基準にもなっている。ただしここでの仕様は着手の一部であり、勝敗の判定は比較の対象ではない。
+**定義の確認**　place に emptyBoard と番号 2 を渡すと、空きマスなので some (writeMark emptyBoard 2) が計算される。任意の入力盤面でも place は一回の条件分岐で結果を返し、成功盤面の各値は一回の番号比較と必要なら元の盤面の参照で求まる。両実装が成功したときは、盤面を表す関数の値を全 9 マスで比較する。番号 0 から 8 の順に false, false, true, false, false, false, false, false, false となるので、比較対象が同じ九つの値を返せば、この入力の結果は一致する。番号 1 だけを true にする実装なら番号 2 で true と false が異なるため不一致である。成功と失敗も区別し、失敗同士ならどちらも none である。こうして計算結果を比較基準にできる。ただしここでの仕様は着手の一部であり、勝敗の判定は比較の対象ではない。
 <!-- definition-example-end -->
 
 ## 2. 盤面更新の規則を確認する
@@ -63,7 +65,7 @@ def place (b : Board) (i : Fin 9) : Option Board :=
 <!-- formal-statement-start -->
 ### 命題（着手の分岐と更新位置）
 
-b : Fin 9 → Bool、i : Fin 9 を任意に取る。writeMark b i は番号 j の値を、j.val = i.val なら true、それ以外なら b j とする盤面とする。place b i は b i が true なら none、false なら some (writeMark b i) を返す関数とする。
+b : Fin 9 → Bool、i : Fin 9 を任意に取る。writeMark b i は任意の番号 j : Fin 9 の値を、j.val = i.val なら true、それ以外なら b j とする盤面とする。place b i は b i が true なら none、false なら some (writeMark b i) を返す関数とする。
 
 - b i = true なら place b i = none である。
 - b i = false なら place b i = some (writeMark b i) であり、新しい盤面の i の値は true である。
@@ -77,9 +79,11 @@ b : Fin 9 → Bool、i : Fin 9 を任意に取る。writeMark b i は番号 j �
 
 b i = true と仮定する。place の if の条件が true なので第一枝を選び、none を得る。
 
-b i = false と仮定する。第二枝を選ぶので some (writeMark b i) を得る。その中の盤面を b' と書く。j = i を代入すれば i.val = i.val が真であるから b' i = true である。
+着手の可否にかかわらず、b' = writeMark b i と定める。
 
-任意の j で j.val ≠ i.val と仮定する。writeMark の条件 j.val = i.val は偽であり、else の値 b j が選ばれる。従って b' j = b j である。二つの位置の場合分けは全有効番号を覆う。b は関数の引数であり、どの枝も b 自体を書き換えていない。
+b i = false と仮定する。第二枝を選ぶので some b' を得る。j = i を代入すれば i.val = i.val が真であるから b' i = true である。
+
+任意の j で j.val ≠ i.val と仮定する。writeMark の条件 j.val = i.val は偽であり、else の値 b j が選ばれる。従って b' j = b j である。Fin 9 の各番号は 0 から 8 のいずれかであり、同じ番号なら同じマスである。従って二つの位置の場合分けは全有効番号を覆う。b は関数の引数であり、どの枝も b 自体を書き換えていない。
 
 ```lean
 theorem place_occupied (b : Board) (i : Fin 9) (h : b i = true) :
@@ -106,7 +110,7 @@ simp はここでは定義を展開し、仮定 h を使って if の条件を�
 
 外部のデータには有効な番号だけでなく、数字に読めない文字列や範囲外の数字もあります。文字列を内部の型へ変換する処理を復号、内部の値を外部へ送る文字列へ変換する処理を符号化と呼びます。ここでは簡単な通信形式として、入力文字列には 0 始まりの自然数の番号を一つ書く約束とします。Lean の String.toNat? で自然数に読めるかを調べます。
 
-エラーには「数字に読めない」「番号が範囲外」「占有済み」の三種類があります。[Except型](../LVT1-03/index.md#def-lvt1-03-except)なら失敗の原因も値にできます。前講の[有効な添字](../LVT1-05/index.md#def-lvt1-05-index-range)の条件 n < 9 を確認してから Fin 9 を作ります。
+エラーには「数字に読めない」「番号が範囲外」「占有済み」の三種類があります。[Except型](../LVT1-03/index.md#def-lvt1-03-except)なら失敗の原因も値にできます。三種類の原因は [帰納型](../LVT1-03/index.md#def-lvt1-03-inductive-type) の構成子として表します。`raw` は入力文字列で、`raw.toNat?` は自然数に読めれば `some n`、読めなければ `none` を返します。`if h : n < 9 then ...` の真の枝では条件の証明 h を利用できます。[有効な添字](../LVT1-05/index.md#def-lvt1-05-index-range) の条件を確認してから [Fin型](../LVT1-05/index.md#def-lvt1-05-fin-index) の `⟨n, h⟩` を作ります。先頭にドットを付けた `.ok`、`.error` などは期待される型から構成子の所属を補う記法です。
 
 ```lean
 inductive RequestError where
@@ -130,7 +134,7 @@ Repr は値の確認用表示、BEq は値を真偽値で比較するための�
 | "9" | some 9 | 9 < 9 は偽 | error outOfRange |
 | "abc" | none | 行わない | error malformed |
 
-次に復号の結果を内部の着手につなぎます。
+次に復号の結果を内部の着手につなぎます。`e` は失敗原因、`i` は復号した番号、`next` は着手に成功した新しい盤面です。
 
 ```lean
 def runRequest (b : Board) (raw : String) : Except RequestError Board :=
@@ -147,7 +151,7 @@ def runRequest (b : Board) (raw : String) : Except RequestError Board :=
 <!-- formal-statement-start -->
 ### 命題（復号失敗の伝播）
 
-b : Fin 9 → Bool、raw : String、e : RequestError を任意に取る。runRequest は decode raw が error e なら error e をそのまま返し、ok i なら place b i の結果を Except に変換する関数とする。decode raw = error e ならば runRequest b raw = error e であり、着手関数は評価されない。
+b : Fin 9 → Bool、raw : String、e : RequestError を任意に取る。runRequest は decode raw が error e なら error e をそのまま返し、ok i なら place b i の結果を Except に変換する関数とする。decode raw = error e ならば runRequest b raw = error e である。このとき runRequest の定義を場合分けに従って簡約すると、着手関数を含む枝を選ばずに結果が得られる。
 <!-- formal-statement-end -->
 
 **証明の見取り図**　復号の結果が失敗なら、盤面操作へ進む枝が選ばれません。
@@ -155,7 +159,7 @@ b : Fin 9 → Bool、raw : String、e : RequestError を任意に取る。runReq
 <!-- proof-start -->
 ### 証明
 
-仮定 decode raw = error e を runRequest の定義中の match の対象に代入する。すると対象は error e という構成子を持つ値である。従って第一枝だけが選ばれ、結果は error e となる。place b i が現れるのは第二枝だけであり、第一枝の結果には含まれない。b の各マスの値に関する仮定は不要である。
+仮定 decode raw = error e を runRequest の定義中の match の対象に代入する。すると対象は error e という構成子を持つ値である。従って第一枝だけが選ばれ、結果は error e となる。place b i が現れるのは第二枝だけであり、第一枝の結果には含まれない。b の各マスの値に関する仮定は不要である。この命題の等式は返り値についての主張であり、実行時間やコンパイラの命令列についての主張ではない。
 
 ```lean
 theorem rejected_before_place (b : Board) (raw : String) (e : RequestError)
@@ -169,7 +173,7 @@ theorem rejected_before_place (b : Board) (raw : String) (e : RequestError)
 
 ## 4. 値の計算と入出力を分離する
 
-ファイルへの書込み、端末への表示、ネットワークからの入力のように、計算の外側の世界を読み書きする操作を入出力（IO）と呼びます。Lean では IO Unit 型の処理として、例えば IO.println で文字列を表示できます。Unit は意味のある結果値を必要としないときに使う型です。値を返すだけの String 型の関数と、実際に表示する IO Unit 型の処理を区別しましょう。
+ファイルへの書込み、端末への表示、ネットワークからの入力のように、計算の外側の世界を読み書きする操作を入出力（IO）と呼びます。Lean では IO Unit 型の処理として、例えば IO.println で文字列を表示できます。Unit は意味のある結果値を必要としないときに使う型です。String 型の値を返すだけの関数と、実際に表示する IO Unit 型の処理を区別しましょう。ここで内部モデルとは番号を受け取って着手を計算する place の部分です。文字列への変換と外部との読み書きがこのモデルと外の世界をつなぎます。
 
 <a id="def-lvt1-06-io-boundary"></a>
 
@@ -180,8 +184,12 @@ theorem rejected_before_place (b : Board) (raw : String) (e : RequestError)
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt1-06-io-boundary -->
-**定義の確認**　端末から文字列 "2" を受け取り、decode で Fin 9 の番号 2 に変換し、place で盤面を計算する。その盤面を "001000000" に符号化して端末へ表示する。文字列の受取り・復号・符号化・表示が境界であり、Fin 9 を受け取って盤面を計算する place は内部モデルに当たる。decode や符号化は純粋関数として実装でき、実際の読み書きだけを IO にできる。
+**定義の確認**　空盤面を使い、端末から文字列 "2" を受け取る。decode は 2 < 9 を確認して番号 2 の Fin 9 を作る。[着手の分岐と更新位置](#prop-lvt1-06-place-branches) により空盤面の番号 2 だけが true になる。番号 0 から 8 の値を順に false なら "0"、true なら "1" に変換して連結すると "001000000" になり、成功を示す "ok " を先頭に付けて "ok 001000000" を表示する。文字列の受取り・復号・符号化・表示が境界であり、Fin 9 を受け取って盤面を計算する place は内部モデルに当たる。decode や符号化は [純粋関数](#def-lvt1-06-pure-function) として実装でき、実際の読み書きだけを IO にできる。
 <!-- definition-example-end -->
+
+List.map は各要素に関数を適用して同じ順序のリストを作ります。String.intercalate "" は空文字列を区切りとして連結します。0 から 8 の順に各マスを 0 または 1 に変換するので、番号 2 だけが true なら 001000000 です。++ は左の文字列の後ろに右の文字列を順に付ける Lean の演算です。例えば "ab" ++ "c" は "abc" になります。
+
+列挙する番号はすべて 9 未満なので、Fin 9 の数値リテラルとして書いても番号が変わりません（[Fin型](../LVT1-05/index.md#def-lvt1-05-fin-index)）。外部から来た番号の範囲検査は省略できません。
 
 ```lean
 def boardText (b : Board) : String :=
@@ -196,9 +204,9 @@ def reply (res : Except RequestError Board) : String :=
   | .ok next => "ok " ++ boardText next
 ```
 
-List.map は各要素に関数を適用して同じ順序のリストを作ります。String.intercalate "" は空文字列を区切りとして連結します。0 から 8 の順に各マスを 0 または 1 に変換するので、番号 2 だけが true なら 001000000 です。++ は左の文字列の後ろに右の文字列を順に付ける Lean の演算です。例えば "ab" ++ "c" は "abc" になります。
+`boardText` は盤面を文字列へ変換し、`reply` は成功・失敗に応じた返答を作ります。
 
-端末コマンドの引数を文字列として受け取るプログラムでは、純粋部分の結果を最後に表示します。
+端末コマンドの引数を文字列として受け取るプログラムでは、純粋部分の結果を最後に表示します。`args` は引数の文字列のリストで、`[raw]` は要素がちょうど一つの場合にだけ一致し、`_` は残りの場合を受け持ちます。
 
 ```lean
 def main (args : List String) : IO Unit :=
@@ -211,7 +219,7 @@ def main (args : List String) : IO Unit :=
 
 ## 5. 境界の誤りを見つける
 
-仕様が 0 始まりであるにもかかわらず、正の入力を 1 始まりの番号だと解釈する復号関数を考えます。自然数が 0 なら拒否し、Nat.succ n なら一つ小さい n を使う実装です。
+仕様が 0 始まりであるにもかかわらず、正の入力を 1 始まりの番号だと解釈する復号関数を考えます。自然数が 0 なら拒否し、Nat.succ n なら一つ小さい n を使う実装です。Nat.succ n は n + 1 を表すため、例えば 2 を照合すると n = 1 が得られます。
 
 ```lean
 def wrongDecode (raw : String) : Except RequestError (Fin 9) :=
@@ -251,13 +259,13 @@ error occupied
 ok 010000000
 ```
 
-最後の行は wrongDecode で番号 1 を得て着手した結果です。端末の Boundary.lean は最初の 3 行をそれぞれのコマンドで表示します。独立した Python の参照用スクリプトは同じ三種類の入力と全 9 番号を検査します。
+最後の行は wrongDecode で番号 1 を得て着手した結果です。端末の Boundary.lean は最初の 3 行をそれぞれのコマンドで表示します。独立した Python の参照用スクリプトは 0 から 9 までの数字文字列、abc、x、空文字列について、空盤面からの Lean CLI の出力と比較します。占有済みのケースや誤復号関数そのものはこの Python 検査の対象ではありません。
 
 ```bash
 python3 check_boundary.py
 ```
 
-同じ規約で正しい結果と照合し、誤変換の差を確認します。有限個の入力で一致したことと、上の命題の全入力での成立は区別してください。
+同じ規約で正しい結果と照合します。誤変換の差は Inspect.lean の最後の出力で確認できます。[有限な例示テストと全入力一致](../LVT1-01/index.md#prop-lvt1-01-test-boundary) により、有限個の入力で一致したことと、上の命題の全入力での成立は区別してください。
 
 ## 7. 演習
 
@@ -322,7 +330,7 @@ decode に "0"、"8"、"9"、"x" を渡した結果をそれぞれ答えよ。
 <!-- solution-start -->
 #### 詳細解答
 
-decode "2" は番号 2。emptyBoard 2 = false なので [着手の分岐と更新位置](#prop-lvt1-06-place-branches)により番号 2 だけ true となり、返答は "ok 001000000"。その盤面を b とする。decode "5" は番号 5 で b 5 = false。新しい盤面では番号 5 が true となり、5 ≠ 2 なので番号 2 の値も保存される。返答は "ok 001001000"。さらに "2" を復号すると番号 2、現在の盤面では true のため place は none。runRequest は error occupied に変換し、返答は "error occupied" となる。エラー時は新しい盤面を得ていないので、呼出し側は直前の盤面を保持する。
+decode "2" は番号 2。emptyBoard 2 = false なので [着手の分岐と更新位置](#prop-lvt1-06-place-branches)により番号 2 だけ true となり、返答は "ok 001000000"。その盤面を b とする。decode "5" は番号 5 で b 5 = false。[着手の分岐と更新位置](#prop-lvt1-06-place-branches) の i に 5、j に 2 を取る。番号 5 は true となり、2 ≠ 5 なので新しい盤面の番号 2 の値は b 2 = true のままである。返答は "ok 001001000"。さらに "2" を復号すると番号 2、現在の盤面では true のため place は none。runRequest は error occupied に変換し、返答は "error occupied" となる。エラー時は新しい盤面を得ていないので、呼出し側は直前の盤面を保持する。
 <!-- solution-end -->
 
 ### LVT1-06-B02 復号失敗と盤面の関係
@@ -364,7 +372,7 @@ wrongDecode を使った場合、"0"、"2"、"9" がそれぞれどう処理さ�
 
 wrongDecode "0" は 0 の枝で error outOfRange。wrongDecode "2" は 2 = Nat.succ 1 で 1 < 9 なので番号 1 を返し、空盤面の更新結果は "ok 010000000"。wrongDecode "9" は 9 = Nat.succ 8 で 8 < 9 を満たし、番号 8 を更新して "ok 000000001" になる。三つとも正しい規約と不一致である。
 
-着手命題の入力 i は復号後の Fin 9 であり、外部文字列を自然数としてどう読むかは仮定に含まれない。したがって内部で i の位置が正しく更新されても、通信の規約に違反しうる。次は正しい実装に対する検査であり、wrongDecode に置換した実装なら三つとも失敗する。
+着手命題の入力 i は復号後の Fin 9 であり、外部文字列を自然数としてどう読むかは仮定に含まれない。したがって内部で i の位置が正しく更新されても、通信の規約に違反しうる。次は正しい実装に対する検査であり、runRequest の中の decode を wrongDecode に置換した実装なら三つとも失敗する。`#guard` は具体的な真偽値を検査する命令で、`==` は二つの文字列を比較して Bool を返す演算である。証明する等式 `=` とは区別する。
 
 ```lean
 #guard reply (runRequest emptyBoard "0") == "ok 100000000"

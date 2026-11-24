@@ -1,0 +1,33 @@
+id: "AFR1"
+title: "古典的モジュラー形式から保型形式へ"
+volume: "foundations"
+status: supplementary
+prerequisites: [MF1, MF2]
+official_scope: []
+learning_objectives:
+  - 実特殊線形群の上半平面への作用と変換因子の積法則を導出できる
+  - 点と回転の座標による実行列の表示を両方向に証明できる
+  - 古典的な重さ付き変換則と群上の左不変性・右回転条件の対応を構成できる
+  - 中心の作用と固定点における消滅条件を区別できる
+  - 正則性・カスプ条件と重さ付き変換則の違いを説明し、無限遠での増大を評価できる
+definitions:
+  - { id: AFR1-DEF-01, name: "実特殊線形群の上半平面への作用" }
+  - { id: AFR1-DEF-02, name: "右回転に用いる部分群" }
+  - { id: AFR1-DEF-03, name: "群上の重さ付き不変関数" }
+theorems:
+  - { id: AFR1-PROP-01, name: "変換因子の積法則" }
+  - { id: AFR1-THM-02, name: "上半平面と回転による実行列の表示" }
+  - { id: AFR1-THM-03, name: "重さ付き変換則と群上の持ち上げの対応" }
+  - { id: AFR1-PROP-04, name: "中心と重さの偶奇" }
+  - { id: AFR1-PROP-05, name: "正則形式とカスプ条件の群上での読み替え" }
+canonical_examples:
+  - 実行列による点と変換因子の計算
+  - 点4iを与える行列から回転角を復元
+  - 重さ4のEisenstein級数の右回転
+  - 中心と固定点における重さの制約
+  - 正則形式とカスプ形式の高さ方向の評価
+problem_patterns: [AFR1-A1, AFR1-A2, AFR1-A3, AFR1-A4, AFR1-B1, AFR1-B2, AFR1-B3, AFR1-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
