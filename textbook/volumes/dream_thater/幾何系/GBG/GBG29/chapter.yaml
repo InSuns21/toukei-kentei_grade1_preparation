@@ -2,7 +2,7 @@ id: "GBG29"
 title: "なぜ任意の多様体にspin構造があるとは限らないか"
 volume: "foundations"
 status: supplementary
-prerequisites: [GBG2, GEO12, LREP5]
+prerequisites: [GBG3, GEO14, LA6, LREP5]
 official_scope: []
 learning_objectives:
   - 向き付き直交枠束とスピン構造の同変条件を確認できる
