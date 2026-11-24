@@ -46,7 +46,7 @@ $$
 
 対してラピディティ $\chi\ne0$ の $z$ 方向boostは $k$ を $(m\cosh\chi,0,0,m\sinh\chi)$ へ移すので $G_k$ の元ではありません。
 
-被覆側では $A=\operatorname{diag}(e^{-i\theta/2},e^{i\theta/2})$ は行列式1、$AA^\dagger=I_2$ です。[四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action)で $H(k)=mI_2$ へ作用させると $A(mI_2)A^\dagger=mI_2$ となり、$\widetilde G_k$ に属します。
+被覆側では $A=\operatorname{diag}(e^{-i\theta/2},e^{i\theta/2})$ は行列式1、$AA^\dagger=I_2$ です。[SL(2,C)の四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action)で $H(k)=mI_2$ へ作用させると $A(mI_2)A^\dagger=mI_2$ となり、$\widetilde G_k$ に属します。
 <!-- definition-example-end -->
 
 回転以外の変換が静止点を固定できないことも示しましょう。時間軸を固定すれば、その軸と計量に関して直交する空間全体が保存されます。被覆側では静止点が単位行列の定数倍であることが決め手になります。
@@ -84,7 +84,7 @@ $\Lambda^{\mathsf T}\eta\Lambda=\eta$ にこの形を代入すると $R^{\mathsf
 
 逆に任意の $R\in SO(3)$ の埋め込みは計量・行列式・未来方向を保ち、$k$ を固定します。
 
-被覆側では [エルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model) により $H(k)=mI_2$ です。[四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action) と $H$ の単射性から
+被覆側では [エルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model) により $H(k)=mI_2$ です。[SL(2,C)の四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action) と $H$ の単射性から
 
 $$
 \pi(A)k=k
@@ -181,7 +181,7 @@ $$
 
 $|\boldsymbol q|^2=E^2-m^2$ により単位行列の係数の分子は $2E(E+m)$ です。従って $mb(p)^2=EI_2+S=H(p)$ となります。
 
-$b(p)^\dagger=b(p)$、$H(k)=mI_2$ なので合同条件が成立します。[四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action) の定義から $H(L(p)k)=H(p)$。単射性により $L(p)k=p$ です。
+$b(p)^\dagger=b(p)$、$H(k)=mI_2$ なので合同条件が成立します。[SL(2,C)の四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action) の定義から $H(L(p)k)=H(p)$。単射性により $L(p)k=p$ です。
 
 別の正定値エルミート行列 $T$ が同じ合同条件を満たすなら $T^2=H(p)/m$ です。$T$ は $T^2$ と可換なので $H(p)$ の各固有空間を保存します。
 
@@ -215,7 +215,7 @@ $$
 <a id="def-lrep23-wigner-rotation"></a>
 
 <!-- formal-statement-start -->
-> **定義（Wigner回転）**
+> **定義（正質量のWigner回転）**
 > $m>0$、$p\in\mathcal O_m$、$\Lambda\in G$、$A\in SL(2,\mathbb C)$ とする。標準boostを用いて
 
 $$
@@ -242,8 +242,8 @@ $b(k)=I_2$ だから $w(A,k)=A$、四次元側では $W(\pi(A),k)=\operatorname{
 <a id="thm-lrep23-wigner-cocycle"></a>
 
 <!-- formal-statement-start -->
-> **定理（Wigner回転の合成則）**
-> $m>0$、$p\in\mathcal O_m$、$A,A_1,A_2\in SL(2,\mathbb C)$ とする。[Wigner回転](#def-lrep23-wigner-rotation) は $w(A,p)\in SU(2)$ を満たし、
+> **定理（正質量のWigner回転の合成則）**
+> $m>0$、$p\in\mathcal O_m$、$A,A_1,A_2\in SL(2,\mathbb C)$ とする。[正質量のWigner回転](#def-lrep23-wigner-rotation) は $w(A,p)\in SU(2)$ を満たし、
 
 $$
 \pi(w(A,p))=W(\pi(A),p),
@@ -278,7 +278,7 @@ $$
 
 $w(A,p)$ は行列式1の行列の積なので $SL(2,\mathbb C)$ の元です。[正質量の静止安定化群](#thm-lrep23-rest-group) から $SU(2)$ に属します。また $\pi$ の準同型性により $\pi(w(A,p))=W(\pi(A),p)$ です。
 
-$p_1=\pi(A_1)p$、$p_2=\pi(A_2)p_1$ と置きます。[Wigner回転](#def-lrep23-wigner-rotation) において中間点の $b(p_1)b(p_1)^{-1}=I_2$ を挿入すると
+$p_1=\pi(A_1)p$、$p_2=\pi(A_2)p_1$ と置きます。[正質量のWigner回転](#def-lrep23-wigner-rotation) において中間点の $b(p_1)b(p_1)^{-1}=I_2$ を挿入すると
 
 $$
 \begin{aligned}
@@ -367,7 +367,7 @@ $$
 
 [回転群への降下と次元の偶奇](../LREP6/index.md#thm-lrep6-descent) により $D_n(-I_2)=(-1)^nI$ で、降下の必要十分条件は $n$ が偶数です。同値な表現でも定数倍の恒等作用は変わらないため、同じ結論が成り立ちます。
 
-[Wigner回転の合成則](#thm-lrep23-wigner-cocycle) によれば $w(A,p)\in SU(2)$ です。$D$ がユニタリ表現なので $D(w(A,p))$ は内積を保存し、$D(UV)=D(U)D(V)$ を合成則の両辺に適用すると
+[正質量のWigner回転の合成則](#thm-lrep23-wigner-cocycle) によれば $w(A,p)\in SU(2)$ です。$D$ がユニタリ表現なので $D(w(A,p))$ は内積を保存し、$D(UV)=D(U)D(V)$ を合成則の両辺に適用すると
 
 $$
 D(w(A_2A_1,p))
@@ -443,7 +443,7 @@ $A_\chi=\operatorname{diag}(e^{\chi/2},e^{-\chi/2})$ とし、$p=\pi(A_\alpha)k$
 <!-- solution-start -->
 **詳細解答。** $A_\alpha$ は正定値エルミートで行列式1だから [標準boostの存在と一意性](#thm-lrep23-boost-section) により $b(p)=A_\alpha$。
 
-対角成分の積から $A_\beta A_\alpha=A_{\alpha+\beta}$ であり、$\pi(A_\beta)p=\pi(A_{\alpha+\beta})k$。同じ一意性により $b(\pi(A_\beta)p)=A_{\alpha+\beta}$ となる。[Wigner回転](#def-lrep23-wigner-rotation) は
+対角成分の積から $A_\beta A_\alpha=A_{\alpha+\beta}$ であり、$\pi(A_\beta)p=\pi(A_{\alpha+\beta})k$。同じ一意性により $b(\pi(A_\beta)p)=A_{\alpha+\beta}$ となる。[正質量のWigner回転](#def-lrep23-wigner-rotation) は
 
 $$
 w(A_\beta,p)=A_{\alpha+\beta}^{-1}A_\beta A_\alpha=I_2.
@@ -497,7 +497,7 @@ $$
 b(\pi(U)p)=U b(p)U^{-1}.
 $$
 
-この式を [Wigner回転](#def-lrep23-wigner-rotation) に代入する。
+この式を [正質量のWigner回転](#def-lrep23-wigner-rotation) に代入する。
 
 $$
 w(U,p)=U b(p)^{-1}U^{-1}U b(p)=U.
@@ -528,7 +528,7 @@ AH(p)=\begin{pmatrix}0&4i\\4i&0\end{pmatrix},
 \qquad AH(p)A^\dagger=\operatorname{diag}(8,2)=H(p).
 $$
 
-従って $\pi(A)p=p$。しかし $AA^\dagger=\operatorname{diag}(4,1/4)\ne I_2$ なので [正質量の静止安定化群](#thm-lrep23-rest-group) には属さない。[Wigner回転](#def-lrep23-wigner-rotation) は $w(A,p)=b(p)^{-1}Ab(p)=U$ となる。
+従って $\pi(A)p=p$。しかし $AA^\dagger=\operatorname{diag}(4,1/4)\ne I_2$ なので [正質量の静止安定化群](#thm-lrep23-rest-group) には属さない。[正質量のWigner回転](#def-lrep23-wigner-rotation) は $w(A,p)=b(p)^{-1}Ab(p)=U$ となる。
 <!-- solution-end -->
 
 <a id="ex-lrep23-b03"></a>
@@ -540,7 +540,7 @@ $$
 $q=\pi(A)p$ とする。$w(A^{-1},q)=w(A,p)^{-1}$ を導け。また別の選択 $b'(p)=b(p)r(p)$ の下でもこの関係が成立することを確かめよ。
 
 <!-- solution-start -->
-**詳細解答。** [Wigner回転の合成則](#thm-lrep23-wigner-cocycle) で $A_1=A,A_2=A^{-1}$ とすると
+**詳細解答。** [正質量のWigner回転の合成則](#thm-lrep23-wigner-cocycle) で $A_1=A,A_2=A^{-1}$ とすると
 
 $$
 I_2=w(I_2,p)=w(A^{-1},q)w(A,p).
@@ -619,13 +619,13 @@ ZXV^\dagger
 \end{aligned}
 $$
 
-二行目では $\sigma_1\sigma_2=i\sigma_3$、$\sigma_3\sigma_2=-i\sigma_1$ を使った。従って $ZX=b(q)V$ で、[Wigner回転](#def-lrep23-wigner-rotation) により
+二行目では $\sigma_1\sigma_2=i\sigma_3$、$\sigma_3\sigma_2=-i\sigma_1$ を使った。従って $ZX=b(q)V$ で、[正質量のWigner回転](#def-lrep23-wigner-rotation) により
 
 $$
 w(Z,p)=V=\frac1{\sqrt{17}}\begin{pmatrix}4&1\\-1&4\end{pmatrix}.
 $$
 
-最初のWigner回転は $w(X,k)=I_2$ だから [合成則](#thm-lrep23-wigner-cocycle) でも $w(ZX,k)=V$ となる。$V=\exp(-i\theta\sigma_2/2)$ と比べると $\cos(\theta/2)=4/\sqrt{17}$、$\sin(\theta/2)=-1/\sqrt{17}$ であり、回転角の一つの選択は $\theta=-2\arctan(1/4)$ である。
+最初のWigner回転は $w(X,k)=I_2$ だから [正質量のWigner回転の合成則](#thm-lrep23-wigner-cocycle) でも $w(ZX,k)=V$ となる。$V=\exp(-i\theta\sigma_2/2)$ と比べると $\cos(\theta/2)=4/\sqrt{17}$、$\sin(\theta/2)=-1/\sqrt{17}$ であり、回転角の一つの選択は $\theta=-2\arctan(1/4)$ である。
 
 スピン $1/2$ の標準表現では $D(U)=U$。従って
 
