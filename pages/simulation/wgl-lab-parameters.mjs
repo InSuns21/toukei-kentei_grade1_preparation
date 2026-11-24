@@ -3,6 +3,11 @@
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
 
 export const LAB_PARAMETERS = Object.freeze({
+  FCG17: Object.freeze([
+    Object.freeze({id:'grid',type:'number',label:'格子数',default:24,min:16,max:32,step:8,unit:'セル/辺',meaning:'数値格子の大きさ',sourceLocation:'vortex.js / const N',sourceFile:'js',index:null,matcher:/^([ \t]*const N=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'epsilon',type:'number',label:'渦度強調係数',default:12,min:0,max:24,step:2,unit:'s⁻¹',meaning:'右側に加える加速度の強さ',sourceLocation:'vortex.js / const epsilon',sourceFile:'js',index:null,matcher:/^([ \t]*const epsilon=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'mode',type:'number',label:'表示量',default:0,min:0,max:2,step:1,unit:'0/1/2',meaning:'0:染料 1:渦度 2:速度',sourceLocation:'vortex.js / const mode',sourceFile:'js',index:null,matcher:/^([ \t]*const mode=)([^;\n]+)(;)/gm}),
+  ]),
   FCG16: Object.freeze([
     Object.freeze({id:'reaction',type:'number',label:'反応割合',default:0.18,min:0,max:0.4,step:0.02,unit:'無次元/刻み',meaning:'燃料の消費割合',sourceLocation:'fire.js / const reaction',sourceFile:'js',index:null,matcher:/^([ \t]*const reaction=)([^;\n]+)(;)/gm}),
     Object.freeze({id:'cooling',type:'number',label:'冷却割合',default:0.28,min:0,max:0.6,step:0.02,unit:'無次元/刻み',meaning:'熱の減少割合',sourceLocation:'fire.js / const cooling',sourceFile:'js',index:null,matcher:/^([ \t]*const cooling=)([^;\n]+)(;)/gm}),

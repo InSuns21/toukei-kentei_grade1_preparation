@@ -104,6 +104,12 @@ jobs:
           node --check pages/simulation/fcg1-model.mjs
           node --test pages/simulation/fcg1-model.test.mjs
 
+      - name: Test FCG17 confinement and actual editable GPU rendering
+        if: steps.scope.outputs.full == 'true'
+        run: |
+          node --test pages/simulation/fcg17-lab.test.mjs
+          node scripts/validate-fcg17-browser.mjs
+
       - name: Test FCG16 reactive transport and actual editable GPU rendering
         if: steps.scope.outputs.full == 'true'
         run: |
