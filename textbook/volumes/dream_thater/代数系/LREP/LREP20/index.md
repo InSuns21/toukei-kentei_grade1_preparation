@@ -6,13 +6,39 @@
 
 ## 1. 時空の振動を四成分の代数方程式へ移す
 
-計量は [共通規約](../../../../../dream-theater-lorentz-conventions.md) の $\eta=\operatorname{diag}(-1,1,1,1)$、$c=\hbar=1$ とします。$I=I_2$、$I_4$ は四次単位行列、$m\ge0$ は実質量、$\boldsymbol p\in\mathbb R^3$ は空間運動量です。$k=|\boldsymbol p|$、$E=\sqrt{k^2+m^2}$ とし、$E>0$ の場合を扱います。四元運動量の反変成分は $p=(p^\mu)=(E,\boldsymbol p)$、計量で添字を下げた成分は $(p_\mu)=(-E,\boldsymbol p)$ です。$E>0$ を未来向きと呼びます。質量殻の条件は
+計量は [共通規約](../../../../../dream-theater-lorentz-conventions.md) の $\eta=\operatorname{diag}(-1,1,1,1)$、$c=\hbar=1$ とします。
+
+$I=I_2$、$I_4$ は四次単位行列、$m\ge0$ は実質量、$\boldsymbol p\in\mathbb R^3$ は空間運動量です。次の記号を用います。
+
+$$
+k=|\boldsymbol p|,\qquad E=\sqrt{k^2+m^2}>0.
+$$
+
+四元運動量の反変成分と、計量で添字を下げた成分はそれぞれ
+
+$$
+p=(p^\mu)=(E,\boldsymbol p),\qquad
+(p_\mu)=(-E,\boldsymbol p)
+$$
+
+です。$E>0$ を未来向きと呼びます。質量殻の条件は
 
 $$
 \sum_{\mu=0}^3p_\mu p^\mu=-E^2+k^2=-m^2.
 $$
 
-時空点を $x=(t,\boldsymbol x)$、$\boldsymbol x=(x^1,x^2,x^3)$ と書きます。空間添字 $j$ は $1,2,3$、時空添字 $\mu,\nu$ は $0,1,2,3$ を走り、$\eta^{\mu\nu}$ は逆計量の成分です。偏微分 $\partial_\mu$ は他の時空座標を固定して $x^\mu$（$x^0=t$）で微分する操作で、$\partial_0=\partial_t$ です。空間部分の計量は単位行列なので $p_j=p^j$ です。列は [Diracスピノル](../LREP16/index.md#def-lrep16-dirac) の Weyl 基底（上二成分が左、下二成分が右）で表し、$e_j$ は四成分の標準基底（この添字だけは $j=1,2,3,4$）、$\dagger$ は複素共役転置、$\mathsf T$ は転置です。
+時空点を $x=(t,\boldsymbol x)$ と書きます。座標と添字の範囲は
+
+$$
+\boldsymbol x=(x^1,x^2,x^3),\qquad
+j=1,2,3,\quad \mu,\nu=0,1,2,3.
+$$
+
+$\eta^{\mu\nu}$ は逆計量の成分です。空間部分の計量は単位行列なので $p_j=p^j$ です。
+
+偏微分 $\partial_\mu$ は他の時空座標を固定して $x^\mu$ で微分する操作です。$x^0=t$ なので $\partial_0=\partial_t$ と書きます。
+
+列は [Diracスピノル](../LREP16/index.md#def-lrep16-dirac) の Weyl 基底（上二成分が左、下二成分が右）で表します。四成分の標準基底を $e_1,e_2,e_3,e_4$ と書きます。$\dagger$ は複素共役転置、$\mathsf T$ は転置です。
 
 [ベクトル成分用行列](../LREP17/index.md#prop-lrep17-vector-matrices) と [Dirac随伴](../LREP17/index.md#def-lrep17-dirac-adjoint) は前講と同じものを使います。[Pauli行列](../LREP5/index.md#def-lrep5-pauli-model) を $\sigma_j$ として
 
@@ -26,7 +52,11 @@ $$
 G^\mu G^\nu+G^\nu G^\mu=-2\eta^{\mu\nu}I_4.
 $$
 
-時空に依存しない列を、時刻と位置に依存する複素指数で振動させます。空間運動量が非零なら固定時刻で等位相の面が平面になるため平面波と呼ばれます。空間運動量が零の空間一定の波も含めます。時間因子 $e^{-i\omega t}$ の実数 $\omega$ を周波数（角周波数）とし、空間因子 $e^{i\boldsymbol q\cdot\boldsymbol x}$ の実ベクトル $\boldsymbol q$ を空間Fourier波数とします。時間の指数の符号を反転した二種類を区別すると、粒子と反粒子のモード係数を後で構成できます。ここでの自由Dirac方程式は [自由Dirac作用素](../LREP19/index.md#def-lrep19-dirac-operator) $D_m=i\sum_\mu G^\mu\partial_\mu-mI_4$ に対する $D_m\psi=0$ です。
+時空に依存しない列を、時刻と位置に依存する複素指数で振動させます。空間運動量が非零なら固定時刻で等位相の面が平面になるため平面波と呼ばれます。空間運動量が零の空間一定の波も含めます。
+
+時間因子 $e^{-i\omega t}$ の実数 $\omega$ を周波数（角周波数）とし、空間因子 $e^{i\boldsymbol q\cdot\boldsymbol x}$ の実ベクトル $\boldsymbol q$ を空間Fourier波数とします。時間の指数の符号を反転した二種類を区別すると、粒子と反粒子のモード係数を後で構成できます。
+
+ここでの自由Dirac方程式は [自由Dirac作用素](../LREP19/index.md#def-lrep19-dirac-operator) $D_m=i\sum_\mu G^\mu\partial_\mu-mI_4$ に対する $D_m\psi=0$ です。
 
 <a id="def-lrep20-plane-wave"></a>
 
@@ -131,7 +161,9 @@ $$
 
 従って $A=\cosh(\rho/2)I+\sinh(\rho/2)N$ です。$N$ は Hermitian で $N^2=I$、跡が零なので二つの固有値は $+1,-1$。その固有ベクトルに $A$ を作用させると固有値は $e^{\rho/2},e^{-\rho/2}$ で、ともに正、積は1です。従って $\det A=1$ です。$k=0$ なら $A=I$ です。
 
-[四元ベクトルのエルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model) では $(E,\boldsymbol p)$ を $EI+P$ で表します（LREP10 の模型の記号 $H(x)$ と、本講の四次行列 $H$ は別物です）。[SL(2,C)の四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action) において、静止運動量を表す $mI$ の像は $A(mI)A^\dagger=mA^2=EI+P$ となるため、これが目的のboostです。四成分の作用は [Diracスピノル](../LREP16/index.md#def-lrep16-dirac) の表現に従って
+[四元ベクトルのエルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model) では $(E,\boldsymbol p)$ を $EI+P$ で表します（LREP10 の模型の記号 $H(x)$ と、本講の四次行列 $H$ は別物です）。[SL(2,C)の四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action) において、静止運動量を表す $mI$ の像は $A(mI)A^\dagger=mA^2=EI+P$ となるため、これが目的のboostです。
+
+四成分の作用は [Diracスピノル](../LREP16/index.md#def-lrep16-dirac) の表現に従って
 
 $$
 S=\begin{pmatrix}A&0\\0&A^{-1}\end{pmatrix}
@@ -315,7 +347,27 @@ $$
 \Pi_+\Pi_-=\tfrac14(I_4-T^2/E^2)=0.
 $$
 
-さらに $\Pi_++\Pi_-=I_4$、$\Pi_\pm^\dagger=\Pi_\pm$ です。$T\Pi_\pm=(T\pm EI_4)/2=\pm E\Pi_\pm$ なので像は対応する固有空間に入り、$Tw=\pm Ew$ なら $\Pi_\pm w=w$ なので逆も成り立ちます。異なる像の内積は $(\Pi_+a)^\dagger\Pi_-b=a^\dagger\Pi_+\Pi_-b=0$ です。ここで用いた条件は $T^\dagger=T$、$T^2=E^2I_4$、$E>0$ だけなので $m=0$、$\boldsymbol p\ne0$ の場合にも成立します。$\operatorname{tr}T=0$ から $\operatorname{tr}\Pi_\pm=2$ です。各射影の像の基底と核の基底を合わせた基底では、射影行列の対角成分は像で1、核で0になるため、跡は像の次元に等しく、固有空間は各二次元です。$\square$
+さらに
+
+$$
+\Pi_++\Pi_-=I_4,\qquad \Pi_\pm^\dagger=\Pi_\pm.
+$$
+
+像と固有空間の関係は次の式で分かります。
+
+$$
+T\Pi_\pm=(T\pm EI_4)/2=\pm E\Pi_\pm.
+$$
+
+従って像は対応する固有空間に入り、$Tw=\pm Ew$ なら $\Pi_\pm w=w$ なので逆も成り立ちます。異なる像の内積は
+
+$$
+(\Pi_+a)^\dagger\Pi_-b=a^\dagger\Pi_+\Pi_-b=0.
+$$
+
+ここで用いた条件は $T^\dagger=T$、$T^2=E^2I_4$、$E>0$ だけなので質量零で運動量が非零の場合にも成立します。
+
+$\operatorname{tr}T=0$ から $\operatorname{tr}\Pi_\pm=2$ です。各射影の像の基底と核の基底を合わせた基底では、射影行列の対角成分は像で1、核で0になるため、跡は像の次元に等しく、固有空間は各二次元です。$\square$
 <!-- proof-end -->
 
 次に運動方向に沿ったスピンを測ります。$\boldsymbol p\ne0$ とし、[helicity演算子](../LREP16/index.md#def-lrep16-helicity) を
@@ -402,7 +454,9 @@ $$
 
 よって $JP^*=-PJ$ となり、上下の非対角ブロックを比較して $h_{\boldsymbol p} B=-B h_{\boldsymbol p}^*$ です。また実対角行列 $\gamma^5$ と $B$ は反交換するので、共役はchiralityとラベル方向の係数helicityの双方を反転させます。
 
-正エネルギーの反粒子として解釈するときは、負周波数モードそのもののFourier波数を反粒子の運動量と同一視しません。$v$ に付けたラベル $p$ は未来向きの運動量で、共役された係数の回転位相は元の係数と逆です。例えばラベル方向の回転角 $\varphi$ に対し、helicity固有値 $h$ の係数 $u$ が位相 $e^{-ih\varphi}$ を受けるなら、[電荷共役のLorentz共変性](../LREP18/index.md#prop-lrep18-real-structure) と反線形性により共役列は $e^{ih\varphi}$ を受けます。反粒子状態のスピンラベルを共役係数の固有値と同一視しない理由です。状態空間での厳密な作用は後の講義で構成します。
+正エネルギーの反粒子として解釈するときは、負周波数モードそのもののFourier波数を反粒子の運動量と同一視しません。$v$ に付けたラベル $p$ は未来向きの運動量で、共役された係数の回転位相は元の係数と逆です。
+
+例えばラベル方向の回転角 $\varphi$ に対し、helicity固有値 $h$ の係数 $u$ が位相 $e^{-ih\varphi}$ を受けるなら、[電荷共役のLorentz共変性](../LREP18/index.md#prop-lrep18-real-structure) と反線形性により共役列は $e^{ih\varphi}$ を受けます。反粒子状態のスピンラベルを共役係数の固有値と同一視しない理由です。状態空間での厳密な作用は後の講義で構成します。
 
 なお $m=0$ でも $k>0$ で固定Fourier波数の時間発展の二乗は $k^2I_4$ となりますが、$m$ で割る第3節の完全性の式は使えません。$\boldsymbol p=0$ の質量零の場合は $E=0$ であり、運動方向も周波数の区別も失われます。
 
@@ -553,7 +607,20 @@ $$
 i\frac{dw}{dt}=5e^{-5it}a_+-5e^{5it}a_-=Tw(t).
 $$
 
-$t=0$ で和は $e_1$ です。元の場では空間指数を固定して $\partial_t\psi=e^{i3z}dw/dt$ と偏微分します。定数列の通常の内積も $a_+^\dagger a_-=4/25-4/25=0$ です。指数の絶対値は1なので二項は直交し、それぞれの長さの二乗は $16/25+4/25=4/5$ と $1/25+4/25=1/5$。全密度 $\psi^\dagger\psi=w^\dagger w$ は1のままです。
+$t=0$ で和は $e_1$ です。元の場では空間指数を固定して $\partial_t\psi=e^{i3z}dw/dt$ と偏微分します。
+
+定数列の通常の内積と長さの二乗は
+
+$$
+a_+^\dagger a_-=4/25-4/25=0,
+$$
+
+$$
+a_+^\dagger a_+=16/25+4/25=4/5,
+\qquad a_-^\dagger a_-=1/25+4/25=1/5.
+$$
+
+指数の絶対値は1なので二項は直交し、全密度 $\psi^\dagger\psi=w^\dagger w$ は1のままです。
 <!-- solution-end -->
 
 <a id="ex-lrep20-b04"></a>
