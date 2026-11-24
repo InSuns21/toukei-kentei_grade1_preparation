@@ -24,7 +24,15 @@ $\ell\nmid s$ のとき $\phi_\ell$ を $F_s$ 上で $F$ を固定し、各 $\ze
 
 <!-- formal-statement-start -->
 > **定義（円分単数のEuler系）**
-> 上記の奇素数冪 $m$ と補助素数の積 $r$ に対する体 $F_r$ を考える。次の元の族を円分単数のEuler系と呼ぶ。
+> 奇素数 $p$、整数 $k\ge1$ に対し $m=p^k$ とする。$r$ は $\ell\equiv1\pmod m$ を満たす相異なる素数の積とし、空積1も許す。
+> $\zeta_m,\zeta_\ell$ はそれぞれ原始根、$F=\mathbb Q(\zeta_m+\zeta_m^{-1})$ とする。
+>
+$$
+F_r=F(\zeta_\ell:\ell\mid r),\qquad
+z_r=\prod_{\ell\mid r}\zeta_\ell.
+$$
+>
+> 次の元の族を円分単数のEuler系と呼ぶ。
 >
 $$
 c_r=(1-\zeta_m z_r)(1-\zeta_m^{-1}z_r).
@@ -39,7 +47,8 @@ $$
 c_r\equiv c_s\pmod{\mathfrak L}
 $$
 >
-> ただし $\mathfrak L$ は $F_r$ の $\ell$ の上の任意の素イデアルである。$r>1$ では $c_r$ は整数環の単数である。
+> ただし $\phi_\ell$ は $F$ を固定し、$\zeta_q$ を $\zeta_q^\ell$ に移す $F_s$ の自己同型である（$q\mid s$）。
+> $\mathfrak L$ は $F_r$ の $\ell$ の上の任意の素イデアルである。$r>1$ では $c_r$ は整数環の単数である。
 <!-- formal-statement-end -->
 
 この講ではこの特定の族を扱います。一般のGalois表現に対するEuler系の定義では、表現に応じたEuler因子がノルム関係に現れます。
@@ -124,7 +133,11 @@ $$
 > を取る。補助素数の積 $r$ に対して $D_r=\prod_{\ell\mid r}D_\ell$ とする。$D_1=1$ とする。
 <!-- formal-statement-end -->
 
-ここでの微分は変数の微分ではなく、巡回群の作用に重みをつけた和です。例えば $d=4$ なら $D_\ell=\sigma_\ell+2\sigma_\ell^2+3\sigma_\ell^3$。$N_\ell=1+\sigma_\ell+\sigma_\ell^2+\sigma_\ell^3$ となり、定義の全係数が具体的に決まります。
+ここでの微分は変数の微分ではなく、巡回群の作用に重みをつけた和です。
+
+<!-- definition-example-start: def-iwa17-derivative -->
+**定義の確認。** 例えば $d=4$ なら $D_\ell=\sigma_\ell+2\sigma_\ell^2+3\sigma_\ell^3$。$N_\ell=1+\sigma_\ell+\sigma_\ell^2+\sigma_\ell^3$ となり、定義の全係数が具体的に決まります。空積なら $D_1=1$、例えば位数4と6の二つの成分なら $D_{5\cdot7}=D_5D_7$ と各成分の作用を順に適用します（これは群環の例であり、特定の $m,M$ に対する補助素数条件とは別です）。
+<!-- definition-example-end -->
 
 <a id="lem-iwa17-derivative-identity"></a>
 
@@ -211,7 +224,7 @@ $M\mid d$ の条件を失えば第1因子が $M$ 乗だと結論できません�
 
 <!-- formal-statement-start -->
 > **命題（冪剰余類の降下）**
-> $L/K$ を有限Galois拡大、$M\ge2$ を整数とし、$L$ に1以外の $M$ 乗根の単位根が存在しないと仮定する。このとき自然写像
+> $L/K$ を有限Galois拡大、$M\ge2$ を整数とし、$L$ に1以外の $M$ 乗単位根が存在しないと仮定する。このとき自然写像
 >
 $$
 K^\times/K^{\times M}\longrightarrow
@@ -238,7 +251,28 @@ $$
 =\frac{\sigma\tau(x)}x.
 $$
 
-一意性から $b_{\sigma\tau}=b_\sigma\sigma(b_\tau)$ です。ここで乗法的Hilbert 90の有限Galois版を使います。この整合式を満たす族について、ある $u\in L^\times$ が存在して $b_\sigma=\sigma(u)/u$ となるという定理です（[Sharifi, Chapter 6, Lemma 6.4.4 の直後](https://www.math.ucla.edu/~sharifi/notes/iwasawa-ch06.html) の降下に対応）。
+一意性から $b_{\sigma\tau}=b_\sigma\sigma(b_\tau)$ です。ここで整合式から実際に $u$ を構成します。$G=\operatorname{Gal}(L/K)$ とし、$t\in L$ に対して
+
+$$
+u(t)=\sum_{\tau\in G}b_\tau^{-1}\tau(t)
+$$
+
+と置きます。異なる体の自己同型は $L$ 上で線形独立な写像なので、ある $t$ では $u(t)\ne0$ です。この独立性も短く確認できます。非零係数の個数が最小の関係 $\sum_j a_j\sigma_j(t)=0$ が全ての $t$ で成立すると仮定します。1項だけなら $t=1$ で矛盾です。2項以上なら $\sigma_1(v)\ne\sigma_2(v)$ となる $v$ を取り、$t$ を $vt$ に替えた関係から元の関係の $\sigma_1(v)$ 倍を引きます。
+
+$$
+\sum_{j\ge2}a_j(\sigma_j(v)-\sigma_1(v))\sigma_j(t)=0.
+$$
+
+第2項の係数は非零で、項数が減るため最小性に矛盾します。
+
+非零となる $t$ を固定し $u=u(t)$ とします。整合式 $b_{\sigma\tau}=b_\sigma\sigma(b_\tau)$ を用いると
+
+$$
+\sigma(u)=\sum_{\tau\in G}\frac{b_\sigma}{b_{\sigma\tau}}\sigma\tau(t)
+=b_\sigma u.
+$$
+
+最後の等号は $\tau\mapsto\sigma\tau$ が $G$ の置換だからです。従って $b_\sigma=\sigma(u)/u$。これは乗法的Hilbert 90の証明にもなっています。
 
 従って
 
@@ -253,6 +287,14 @@ $x/u^M\in K^\times$ であり、その類は $[x]$ に写ります。全射性�
 この講の $F_r$ には非自明な $p$ 冪乗根の単位根がありません。実際 $\mathbb Q(\zeta_{mr})$ の自己同型で $\zeta_m\mapsto\zeta_m^{-1}$、全 $\zeta_\ell\mapsto\zeta_\ell$ とするものは中国剰余定理で存在し、$F_r$ を点ごとに固定しますが $\zeta_p$ を固定しません。$p$ が奇素数なので $\zeta_p^{-1}\ne\zeta_p$。非自明な $p$ 冪位数の根を含めばその冪として原始 $p$ 乗根を含むため、矛盾します。
 
 従って [微分後の冪剰余類の不変性](#thm-iwa17-invariant-derivative) と [降下命題](#prop-iwa17-descent) を順に適用し、$F^\times/F^{\times M}$ の一意な類 $\kappa_r$ を得ます。これを Kolyvagin 微分と呼びます。
+
+最小例として $K=\mathbb Q$、$L=\mathbb Q(\sqrt2)$、$M=3$ を考えます。$x=2(1+\sqrt2)^3$ に対し非自明な共役を $\sigma$ とすると
+
+$$
+\frac{\sigma(x)}x=\left(\frac{1-\sqrt2}{1+\sqrt2}\right)^3.
+$$
+
+従って $[x]$ は固定されます。$L$ は実数体の部分体なので3乗単位根は1だけです。降下の代表元は $x/(1+\sqrt2)^3=2$ で、$K$ の冪剰余類 $[2]$ に降下します。
 
 ## 3. 類群の大きさをどのように抑えるか
 
@@ -428,7 +470,9 @@ $$
 
 有限層の等式から無限層の指数比較に移る際には [一様有界なcontrol](../IWA12/index.md#def-iwa12-uniform-control) が必要です。非自明偶指標での単数比較写像と類群比較写像について、Sharifi 第6章 6.5.1–6.5.2 は必要な有限誤差の制御を与えます。円分単数は [ノルムが全射](../IWA10/index.md#thm-iwa10-surjective-norm) なので、単数の比較写像を円分単数で割った写像でも有限誤差が一様に抑えられます。具体的に、円分単数の下層の元を上から持ち上げれば、商の比較写像の核は元の核の像となり、余核は変わりません。
 
-自明指標に対応する類群の $p$ 部分は零です。これは有理数体の円分 $\mathbb Z_p$ 拡大で $p$ が唯一の完全分岐素数であり、底体の類数が1であることから従うIwasawaの定理（[Greenberg, Iwasawa Theory—Past and Present, Chapter 2](https://sites.math.washington.edu/~greenber/book.pdf)）を使います。次数が $p-1$ に素な固定体への類群のノルムと延長により、自明指標成分をこの塔の類群と同一視できます。
+自明指標に対応する類群の $p$ 部分は零です。これは有理数体の円分 $\mathbb Z_p$ 拡大で $p$ が唯一の完全分岐素数であり、底体の類数が1であることから従うIwasawaの定理（[Greenberg, Iwasawa Theory—Past and Present, Chapter 2](https://sites.math.washington.edu/~greenber/book.pdf)）を使います。自明指標の固定体への拡大次数は $p-1$ で $p$ と互いに素です。類群の延長 $j$ とノルム $N$ について $Nj=p-1$、$jN=\sum_{\delta\in\Delta}\delta$ が加法表記で成立します（[イデアルのノルムと延長](../IWA4/index.md#prop-iwa4-conjugate-product)）。$p$ 部分では $p-1$ の掛け算が可逆で、右の和は自明成分上で $p-1$ 倍です。従って $j$ は固定体の $p$ 部分類群と自明指標成分との同型を与えます。
+
+実部分体への拡大次数は2であり、奇素数 $p$ に対して可逆です。単数と類群のノルム・延長にも上と同じ二つの合成式（次数倍と共役の和）が成り立つので、実部分体の $p$ 部分を複素共役で固定される成分と同一視できます。円分単数についても [実単数と群の生成](../IWA10/index.md#prop-iwa10-realness) によって実円分単数と単位根の積であり、単位根の $p$ 部分は奇成分にあるため偶成分の商に影響しません。
 
 そこで各非自明偶成分の有限層の指数を足すと、単数商の合計は全単数商の指数以下、全単数商の指数は類群の非自明偶成分の合計に等しくなります。
 
@@ -436,7 +480,7 @@ $$
 \sum_i v_p(|B_{i,n}|)\le \sum_i v_p(|A_{i,n}|).
 $$
 
-ここで $B_{i,n},A_{i,n}$ はそれぞれ有限層での単数商・類群の成分です。有限誤差を除けば各位数の指数は $\mu p^n+\lambda n+O(1)$ です。これは [構造定理](../IWA5/index.md#thm-iwa5-structure) と [初等加群の成長公式](../IWA7/index.md#prop-iwa7-elementary-growth) を組み合わせた標準的な成長比較です。有限な核・余核は指数に一様有界な差しか生じません。また有限層とのcontrolでcoinvariantsが有限となるため、初等因子に $(1+T)^{p^n}-1$ と共通する因子はありません。
+ここで $B_{i,n},A_{i,n}$ はそれぞれ有限層での単数商・類群の成分です。有限誤差を除けば各位数の指数は $\mu p^n+\lambda n+O(1)$ です。これは [構造定理](../IWA5/index.md#thm-iwa5-structure) と [初等加群の成長公式](../IWA7/index.md#prop-iwa7-elementary-growth) を組み合わせた標準的な成長比較です。有限な核・余核は指数に一様有界な差しか生じません。実際、有限誤差を持つ写像 $L_1\to L_2$ をその像を挟んだ二つの短完全列に分けます。各列に $(1+T)^{p^n}-1$ の掛け算を作用させると、商の比較で新たに現れる核・余核は元の有限誤差群の部分群または商群です。従って位数は元の有限群の位数で抑えられ、対数の差は $n$ に依存しない定数で抑えられます。また有限層とのcontrolでcoinvariantsが有限となるため、初等因子に $(1+T)^{p^n}-1$ と共通する因子はありません。
 
 [円分単数比較とEuler系による整除](#thm-iwa17-arithmetic-inputs) で $a_i\mid b_i$（$a_i,b_i$ は $A_i,B_i$ の特徴イデアルの生成元）を得ています。従って全成分について
 
@@ -597,7 +641,7 @@ $$
 (T^2)\operatorname{char}Y=(T^2(T+p)^4).
 $$
 
-両辺の生成元は単元倍まで一致します。$T^2$ は非零なので整域で消去して $\operatorname{char}Y=((T+p)^4)$ です。この例では $\operatorname{char}B\subseteq\operatorname{char}A$ とは限りません。完全列自体とEuler系による整除は別の入力です。
+両辺の生成元は単元倍まで一致します。$T^2$ は非零なので整域で消去して $\operatorname{char}Y=((T+p)^4)$ です。この例では $T+p$ は $T^2$ を割らないため（$T=-p$ で評価すると $T^2=p^2\ne0$）、$\operatorname{char}B\subseteq\operatorname{char}A$ は成立しません。完全列自体とEuler系による整除は別の入力です。
 <!-- solution-end -->
 
 <a id="ex-iwa17-b4"></a>
@@ -610,6 +654,26 @@ $p=5$、$a=T-5$、$b=(T-5)(T-10)$ とする。両方の $\mu,\lambda$ とイデ�
 
 <!-- solution-start -->
 **詳細解答。** [係数付値とWeierstrass次数](../IWA6/index.md#def-iwa6-orders) により、法5の還元は $a\equiv T$、$b\equiv T^2$。いずれも非零なので $\mu(a)=\mu(b)=0$、最低非零次数から $\lambda(a)=1,\lambda(b)=2$。$b=a(T-10)$ なので $(b)\subseteq(a)$ です。しかし $T-10$ の定数項は5の倍数なので単元ではなく、包含は真です。$\mu=0$ だけでは余分な正次数の因子を取り除けません。
+<!-- solution-end -->
+
+<a id="ex-iwa17-b5"></a>
+
+**B5. 冪剰余類の降下の条件**
+- Level: B
+- ID: IWA17-B5
+
+$K=\mathbb Q$、$L=\mathbb Q(\sqrt3)$、$M=3$ とする。$x=5(2+\sqrt3)^3$ の剰余類が固定されることを確かめ、$K$ に降下した類を求めよ。さらに $M=2$ に変更したとき、自然写像の単射性が壊れる例を示せ。
+
+<!-- solution-start -->
+**詳細解答。** 非自明な自己同型 $\sigma$ は $\sqrt3$ を $-\sqrt3$ に移します。従って
+
+$$
+\sigma(x)/x=\left(\frac{2-\sqrt3}{2+\sqrt3}\right)^3.
+$$
+
+商は $L$ の3乗元なので $[x]$ は固定されます。$L\subseteq\mathbb R$ には1以外の3乗単位根はありません。[冪剰余類の降下](#prop-iwa17-descent) が適用でき、$x/(2+\sqrt3)^3=5$ から降下した類は $[5]\in\mathbb Q^\times/\mathbb Q^{\times3}$ です。
+
+一方 $M=2$ では $-1$ が非自明な2乗単位根です。有理数3は $\mathbb Q$ では平方でないので $[3]\ne[1]$ ですが、$L$ では $3=(\sqrt3)^2$ であり $[3]=[1]$ になります。自然写像は単射ではありません。降下命題で用いた「冪根の一意性」が失われたことが原因です。
 <!-- solution-end -->
 
 ### Level C

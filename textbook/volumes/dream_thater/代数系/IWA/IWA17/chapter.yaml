@@ -38,8 +38,9 @@ problem_patterns:
   - IWA17-CLASS-BOUND
   - IWA17-EXACT
   - IWA17-MU
+  - IWA17-DESCENT
   - IWA17-BALANCE
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 5, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 9, exercises: 7, review: 2 }
