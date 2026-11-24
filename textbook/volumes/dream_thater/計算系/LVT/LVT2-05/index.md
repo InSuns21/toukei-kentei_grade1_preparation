@@ -268,7 +268,7 @@ lake env lean ExerciseSolutions.lean
 lake env lean Failure.lean
 ```
 
-最後のコマンドだけが失敗することが期待結果です。[定義と証明のソース](lab/LvtInduction.lean) を編集するとき、基底とステップがどちらも成立しているかを確認してください。例えば誤った主張 flipL xs = xs は xs = [1,2] のとき反転が [2,1] になるため成り立ちません。基底が成立するだけでは全入力の性質にはなりません。
+最後のコマンドだけが失敗することが期待結果です。[LvtInduction.lean](lab/LvtInduction.lean) を編集するとき、基底とステップがどちらも成立しているかを確認してください。例えば誤った主張 flipL xs = xs は xs = [1,2] のとき反転が [2,1] になるため成り立ちません。基底が成立するだけでは全入力の性質にはなりません。
 
 ## 7. 演習と詳細解答
 
@@ -406,7 +406,7 @@ example {α : Type} (xs : List α) (a : α) :
 
 ### LVT2-05-C01 二度反転する証明を組み直す
 
-任意の α : Type と xs : List α について flipL (flipL xs) = xs をリストの帰納法で証明せよ。flip_twice は使わず、反転と連結の交換則を使う。
+任意の α : Type と xs : List α について flipL (flipL xs) = xs をリストの帰納法で証明せよ。flip_twice は使わず、[反転と連結の交換則](#prop-lvt2-05-flip-join) を使う。
 
 - Level: C
 
