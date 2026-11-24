@@ -102,48 +102,48 @@ export function expectedFCG8Samples(width,height,steps=8,options={}){
   if(!Number.isInteger(width)||!Number.isInteger(height)||width<64||height<64)
     throw RangeError('render size');
   const state=fcg8State(steps,options);
-  // All legacy probes remain away from the uncertain pixelized zero contour.
-  // except the Lagrangian marker at theta=0 in the analytic/particle panel.
-  function point(panel,x,y,label,rgba){
-    return {x:Math.floor(width*(panel+x)/3),y:Math.floor(height*y),label,rgba};
+  // Sample at pixel centers, including the same overlays as the GPU.
+  const {N,shear}=state;
+  const fract=x=>x-Math.floor(x);
+  const rgba=(r,g,b)=>[r,g,b,1].map(v=>Math.round(v*255));
+  function pixel(panel,x,y){
+    const u=3*(x+0.5)/width-panel,v=(y+0.5)/height;
+    const bx=u-0.5-shear*state.time*(v-0.5),by=v-0.5;
+    const exact=Math.hypot(bx,by)-R;
+    let phi=exact;
+    if(panel<2){
+      const cx=clip(u*N-0.5,0,N-1),cy=clip(v*N-0.5,0,N-1);
+      const i=Math.floor(cx),j=Math.floor(cy),a=cx-i,b=cy-j;
+      const i1=Math.min(N-1,i+1),j1=Math.min(N-1,j+1);
+      const values=panel===0?state.raw:state.reinit;
+      const q=(ii,jj)=>Math.round(255*clip(0.5+2*values[ii+N*jj],0,1))/255;
+      phi=((1-b)*((1-a)*q(i,j)+a*q(i1,j))+b*((1-a)*q(i,j1)+a*q(i1,j1))-0.5)*0.5;
+    }
+    let color=phi<0?rgbInside:rgbOutside;
+    const band=Math.abs(fract(Math.abs(phi)/0.04+0.5)-0.5)*0.04;
+    if(panel<2&&Math.abs(phi)>0.014&&Math.abs(phi)<0.115&&band<0.0025)
+      color=phi<0?rgba(.50,.80,.90):rgba(.32,.43,.50);
+    if(Math.abs(phi)<=0.014)color=phi<0?rgba(.16,.42,.49):rgba(.20,.24,.23);
+    if(panel<2&&(phi<0)!==(exact<0))color=rgba(.83,.24,.49);
+    if(Math.abs(phi)<0.0035)color=rgba(.98,.74,.20);
+    if(panel<2&&Math.abs(exact)<0.0025&&fract((Math.atan2(by,bx)+Math.PI)*3.81971863)<.55)
+      color=rgba(.96,.96,.96);
+    if(panel===2&&state.particles.some(([px,py])=>Math.hypot(u-px,v-py)<.010))color=rgbMarker;
+    return color;
+  }
+  function point(panel,u,v,label){
+    const x=Math.floor(width*(panel+u)/3),y=Math.floor(height*v);
+    return {x,y,label,rgba:pixel(panel,x,y)};
   }
   const legacy=[
-    point(0,0.5,0.5,'raw interior',rgbInside),
-    point(0,0.10,0.10,'raw exterior',rgbOutside),
-    point(1,0.5,0.5,'redistanced interior',rgbInside),
-    point(1,0.10,0.10,'redistanced exterior',rgbOutside),
-    point(2,0.5,0.5,'analytic interior',rgbInside),
-    point(2,0.68,0.5,'particle θ=0',rgbMarker),
-    point(2,0.10,0.10,'analytic exterior',rgbOutside)
+    point(0,.5,.5,'raw interior'),point(0,.10,.10,'raw exterior'),
+    point(1,.5,.5,'redistanced interior'),point(1,.10,.10,'redistanced exterior'),
+    point(2,.5,.5,'analytic interior'),point(2,.68,.5,'particle θ=0'),
+    point(2,.10,.10,'analytic exterior')
   ];
-  // New pixel probes sample the actual grid after R8 encoding and bilinear
-  // display interpolation, independently of editable JS and fragment GLSL.
-  const {N,shear}=state;
-  function numericPixel(panel,x,y){
-    const uvx=3*(x+0.5)/width-panel, uvy=(y+0.5)/height;
-    if(panel===2){
-      const backward=uvx-shear*state.time*(uvy-0.5);
-      const phi=Math.hypot(backward-0.5,uvy-0.5)-R;
-      return phi< -0.014?rgbInside:phi>0.014?rgbOutside:[250,189,51,255];
-    }
-    const cx=clip(uvx*N-0.5,0,N-1),cy=clip(uvy*N-0.5,0,N-1),
-      i=Math.floor(cx),j=Math.floor(cy),a=cx-i,b=cy-j,
-      i1=Math.min(N-1,i+1),j1=Math.min(N-1,j+1);
-    const values=panel===0?state.raw:state.reinit;
-    const quantized=(ii,jj)=>Math.round(255*clip(0.5+2*values[ii+N*jj],0,1))/255;
-    const q=(1-b)*((1-a)*quantized(i,j)+a*quantized(i1,j))+
-      b*((1-a)*quantized(i,j1)+a*quantized(i1,j1));
-    const phi=(q-0.5)*0.5;
-    return phi< -0.014?rgbInside:phi>0.014?rgbOutside:[250,189,51,255];
-  }
   const extra=[];
-  for(const panel of [0,1]){
-    for(const [u,v] of [[0.62,0.50],[0.72,0.58],[0.39,0.59]]){
-      const x=Math.floor(width*(panel+u)/3),y=Math.floor(height*v);
-      extra.push({x,y,label:(panel===0?'raw':'redistanced')+
-        ' numeric grid probe '+u+','+v,rgba:numericPixel(panel,x,y)});
-    }
-  }
+  for(const panel of [0,1])for(const [u,v] of [[.62,.50],[.72,.58],[.39,.59]])
+    extra.push(point(panel,u,v,(panel===0?'raw':'redistanced')+' numeric grid probe '+u+','+v));
   return [...legacy,...extra];
 }
 export function compareFCG8Readback(samples,width,height,steps=8,tolerance=2,options={}){

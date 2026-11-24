@@ -363,28 +363,23 @@ try {
     console.log('FCG5 '+width+'px GPU canvas, inline legend and live control fit: PASS');
   }
 
-  // FCG8: square field views must move through rAF while retaining the exact
-  // CPU-vs-GPU baseline in the original source-editing laboratory.
+  // FCG8 uses one editable GPU solver, not an independent CPU animation.
   await cdp('Emulation.setDeviceMetricsOverride',
     {width:1000,height:900,deviceScaleFactor:1,mobile:false});
   await cdp('Page.navigate',{url:url.replace('lesson=FCG5','lesson=FCG8')});
   await waitFor('document.querySelector("#status")?.textContent==="実行できます"');
-  const f8=await evaluate('(()=>{const cs=[...document.querySelectorAll(".visual-observation-grid canvas")];return {count:cs.length,rects:cs.map(c=>{const r=c.getBoundingClientRect();return [r.width,r.height]}),clock:document.querySelector(".visual-clock")?.textContent}})()');
-  assert.equal(f8.count,3);
-  assert.ok(f8.rects.every(([w,h])=>w>160&&Math.abs(w-h)<2),JSON.stringify(f8));
-  // FCG8 advances a CPU-derived three-canvas field on each rAF. Its first
-  // rendered frames can take longer than a fixed wall-clock sleep on CI GPUs.
-  // Poll the *actual physical clock*, rather than assuming 330 ms is enough.
-  await waitFor('document.querySelector(".visual-clock")?.textContent!=='+JSON.stringify(f8.clock),25000);
-  const f8clock=await evaluate('document.querySelector(".visual-clock").textContent');
-  assert.notEqual(f8clock,f8.clock,'FCG8 should animate physical interpolation with rAF');
-  await evaluate('document.querySelector(".visual-observation [data-action=play]").click()');
-  await evaluate('(()=>{const s=document.querySelector(".visual-observation [data-action=seek]");s.value="500";s.dispatchEvent(new Event("input",{bubbles:true}));})()');
-  assert.match(await evaluate('document.querySelector(".visual-clock").textContent'),/1\.92 s/);
-  assert.match(await evaluate('document.querySelector(".visual-stats").textContent'),/解析的面積/);
+  assert.equal(await evaluate('document.querySelectorAll(".visual-observation-grid canvas").length'),0);
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
-  console.log('FCG8 rAF smooth Level Set, correct-aspect triple view and reference GPU validation: PASS');
+  const f8=await evaluate('(()=>{const frames=document.querySelectorAll("#canvas-slot iframe");const r=frames[0].getBoundingClientRect();return {count:frames.length,width:r.width,height:r.height,clock:document.querySelector("#lab-actions output").textContent}})()');
+  assert.equal(f8.count,1);
+  assert.ok(f8.width>480&&Math.abs(f8.width/3-f8.height)<3,JSON.stringify(f8));
+  await evaluate('Array.from(document.querySelectorAll("#lab-actions button")).find(b=>b.textContent.trim()==="再生").click()');
+  await waitFor('document.querySelector("#lab-actions output").textContent!=='+JSON.stringify(f8.clock),25000);
+  await waitFor('document.querySelector("#fcg8-live-metrics").textContent.includes("%")',25000);
+  assert.match(await evaluate('document.querySelector("#fcg8-live-metrics").textContent'),/面積誤差.*距離勾配誤差/);
+  assert.equal(await evaluate('document.querySelectorAll("#canvas-slot iframe").length'),1);
+  console.log('FCG8 single editable GPU solver, correct-aspect triple view, live metrics and playback: PASS');
 } finally {
   try {ws?.close();}catch{}
   browser.kill('SIGTERM');

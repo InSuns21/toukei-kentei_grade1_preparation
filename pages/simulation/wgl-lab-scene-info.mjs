@@ -127,7 +127,7 @@ const descriptions = Object.freeze({
         n+'×'+n+'のR8 GPUテクスチャ2枚を3列へ表示' :
         '編集ソースの格子数は未検証。初期モデルは48×48セル中心・R8テクスチャ2枚';
     },
-    color: '左: 移流のみ、中央: 毎step再初期化6反復、右: 解析輪郭＋64粒子。内側は青、界面帯|φ|≤0.014 mは黄、外側は暗色、解析粒子は橙',
+    color: '青＝液体、黄実線＝零等位線付近、白破線＝厳密輪郭、桃＝符号の不一致、細線＝0.04 m間隔の等値線、橙点＝厳密軌道の粒子。左・中央・右は同一座標。',
     clock: step => '物理step '+step+'、t='+(step*0.04).toFixed(2)+' s（dt=0.04 s）',
     mode: 'R8はclamp(0.5+2φ,0,1)に丸め、表示時は双線形補間してφ=(q−0.5)/2へ復元。補間は物理格子の細分化ではない。連続再生・step操作は初期GPU照合後の同じ編集ソースを更新',
     source: 'levelset.js（N, dt, shear, redistanceIterations, advanceOne）/ levelset.frag（u_raw, u_reinit, u_time, u_particles）'

@@ -137,7 +137,8 @@ const initialParticles=()=>Array.from({length:particlesCount},(_,k)=>{
 });
 function progress(){
   canvas.dispatchEvent(new CustomEvent('fcg8-progress',{
-    detail:{steps:currentStep,playing,time:currentStep*dt,maxSteps}
+    detail:{steps:currentStep,playing,time:currentStep*dt,maxSteps,
+      raw:metrics(raw),reinit:metrics(reinit),exactArea}
   }));
 }
 function liveDraw(){

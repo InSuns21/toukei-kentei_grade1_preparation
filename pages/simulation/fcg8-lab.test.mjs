@@ -59,7 +59,10 @@ test('FCG8 editable solver is updated in place rather than rerunning an iframe p
   assert.match(frag,/Bilinear DISPLAY reconstruction/);
   assert.match(host,/type:'fcg8-control'/);
   assert.match(host,/active\.completed=!!data\.ok&&!!data\.liveHooks/);
-  assert.match(host,/fcg8-live-v2/);
+  assert.match(host,/fcg8-interface-v3/);
+  assert.match(frag,/float exact=length\(back\)-0\.18/);
+  assert.match(frag,/\(phi<0\.0\)!==?\(exact<0\.0\)/);
+  assert.match(host,/fcg8-live-metrics/);
   assert.match(host,/このJSには連続再生フックがありません/);
   assert.match(host,/control\('play'\)/);
   assert.match(host,/\[1536,512\]/);
