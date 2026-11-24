@@ -1,0 +1,41 @@
+chapter: GBG28
+scope: dream-theater
+coverage: complete
+prerequisites: [GBG27, GBG25, GBG8, GBG10]
+forward_references: []
+concepts:
+  - id: gauge.self-dual-t-hooft-symbol
+    name: "自己双対 't Hooft 記号"
+    kind: definition
+    introduction: formal
+    requires: [gauge.hodge-star-two-form-four-dimensional]
+  - id: gauge.t-hooft-product-identity
+    name: "'t Hooft 記号の積恒等式"
+    kind: lemma
+    introduction: formal
+    requires: [gauge.self-dual-t-hooft-symbol]
+  - id: gauge.bpst-regular-connection
+    name: 正則ゲージのBPST接続
+    kind: definition
+    introduction: formal
+    requires: [gauge.self-dual-t-hooft-symbol, gauge.local-curvature-form]
+  - id: gauge.bpst-curvature
+    name: BPST曲率の明示式と自己双対性
+    kind: theorem
+    introduction: formal
+    requires: [gauge.bpst-regular-connection, gauge.t-hooft-product-identity, gauge.self-dual-yang-mills-solution]
+  - id: gauge.bpst-finite-action
+    name: BPSTの有限作用と単位第二Chern数
+    kind: theorem
+    introduction: formal
+    requires: [gauge.bpst-curvature, gauge.yang-mills-topological-bound, gauge.su2-second-chern-number]
+  - id: gauge.bpst-infinity-patching
+    name: 正則ゲージから無限遠ゲージへの貼り合わせ
+    kind: proposition
+    introduction: formal
+    requires: [gauge.bpst-regular-connection, gauge.smooth-gluing-theorem]
+  - id: gauge.bpst-bundle-nontriviality
+    name: BPST束の第二Chern数と非自明性
+    kind: theorem
+    introduction: formal
+    requires: [gauge.bpst-infinity-patching, gauge.bpst-finite-action, gauge.s4-chern-clutching]

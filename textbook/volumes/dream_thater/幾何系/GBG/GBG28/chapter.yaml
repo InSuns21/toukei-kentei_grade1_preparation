@@ -1,0 +1,30 @@
+id: "GBG28"
+title: "BPST instantonは実際に何を満たすか"
+volume: "foundations"
+status: supplementary
+prerequisites: [GBG27, GBG25, GBG8, GBG10]
+official_scope: []
+learning_objectives:
+  - 自己双対の 't Hooft 記号を成分で検算できる
+  - BPST接続の曲率を偏微分とLie括弧から導ける
+  - 自己双対性とYang–Mills方程式を確認できる
+  - 有限作用と第二Chern数を正規化込みで計算できる
+  - 無限遠ゲージとS4上の滑らかな非自明束を構成できる
+definitions:
+  - { id: GBG28-DEF-01, name: "自己双対 't Hooft 記号" }
+  - { id: GBG28-DEF-02, name: 正則ゲージのBPST接続 }
+theorems:
+  - { id: GBG28-LEM-01, name: "'t Hooft 記号の積恒等式" }
+  - { id: GBG28-THM-01, name: BPST曲率の明示式と自己双対性 }
+  - { id: GBG28-THM-02, name: BPSTの有限作用と単位第二Chern数 }
+  - { id: GBG28-PROP-01, name: 正則ゲージから無限遠ゲージへの貼り合わせ }
+  - { id: GBG28-THM-03, name: BPST束の第二Chern数と非自明性 }
+canonical_examples:
+  - 原点での非零曲率
+  - スケールに依存しない作用
+  - 無限遠の滑らかな接続
+problem_patterns: [GBG28-ETA, GBG28-CURVATURE, GBG28-ACTION, GBG28-PATCHING]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 10, review: 4 }
