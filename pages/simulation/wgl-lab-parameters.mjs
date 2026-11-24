@@ -3,6 +3,13 @@
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
 
 export const LAB_PARAMETERS = Object.freeze({
+  FCG16: Object.freeze([
+    Object.freeze({id:'reaction',type:'number',label:'反応割合',default:0.18,min:0,max:0.4,step:0.02,unit:'無次元/刻み',meaning:'燃料の消費割合',sourceLocation:'fire.js / const reaction',sourceFile:'js',index:null,matcher:/^([ \t]*const reaction=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'cooling',type:'number',label:'冷却割合',default:0.28,min:0,max:0.6,step:0.02,unit:'無次元/刻み',meaning:'熱の減少割合',sourceLocation:'fire.js / const cooling',sourceFile:'js',index:null,matcher:/^([ \t]*const cooling=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'decay',type:'number',label:'煙消滅割合',default:0.04,min:0,max:0.2,step:0.01,unit:'無次元/刻み',meaning:'煙の減少割合',sourceLocation:'fire.js / const decay',sourceFile:'js',index:null,matcher:/^([ \t]*const decay=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'emission',type:'number',label:'発光係数',default:3,min:0,max:5,step:0.25,unit:'光強度/m',meaning:'熱指標から光への変換',sourceLocation:'fire.js / const emission',sourceFile:'js',index:null,matcher:/^([ \t]*const emission=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'extinction',type:'number',label:'消散係数',default:5,min:0,max:10,step:0.5,unit:'m⁻¹',meaning:'煙による背景の減衰',sourceLocation:'fire.js / const extinction',sourceFile:'js',index:null,matcher:/^([ \t]*const extinction=)([^;\n]+)(;)/gm}),
+  ]),
   FCG15: Object.freeze([
     Object.freeze({id:'N',type:'integer',label:'一辺の格子数',default:48,min:32,max:64,step:16,unit:'セル',meaning:'3D濃度標本',sourceLocation:'volume.js / const N',sourceFile:'js',index:null,matcher:/^([ \t]*const N=)([^;\n]+)(;)/gm}),
     Object.freeze({id:'extinction',type:'number',label:'消散係数',default:6,min:0,max:12,step:1,unit:'m⁻¹',meaning:'濃度に比例する光の消散',sourceLocation:'volume.js / const extinction',sourceFile:'js',index:null,matcher:/^([ \t]*const extinction=)([^;\n]+)(;)/gm}),

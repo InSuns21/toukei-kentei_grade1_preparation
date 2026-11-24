@@ -119,6 +119,14 @@ const descriptions = Object.freeze({
     mode: '初期設定はpicMix=0、flipMix=1。格子と粒子の位置を物理stepごとに更新し、右列は24×24節点値の最近傍表示。時刻は開始時の検算時刻',
     source: 'particle.js（N, count, dt, damp, force, picMix, flipMix, transfer）/ particle.frag（u_pic, u_flip, u_speed）'
   }),
+  FCG16: Object.freeze({
+    requiresSteps:false,
+    grid:'1 m四方48×48、RGBA8の燃料・熱・煙',
+    color:'左：合成、中央：発光のみ、右：煙のみ。背景格子の見え方で吸収を比較',
+    clock:()=> '時刻0から0.05 sずつ4 sまで。描画間隔とは別',
+    mode:'1セル/刻みの指定上昇速度と局所反応。均質1 m層の発光吸収',
+    source:'fire.js（reaction, cooling, decay, emission, extinction） / fire.frag（発光・消散）'
+  }),
   FCG15: Object.freeze({
     requiresSteps:false,
     grid:'1 m立方体、初期48³セル中心の濃度。右は z=0.5 m の断面',
