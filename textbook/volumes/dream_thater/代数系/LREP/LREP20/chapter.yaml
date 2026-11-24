@@ -1,0 +1,38 @@
+id: LREP20
+title: "平面波解・スピン和・helicity"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP19
+official_scope: []
+learning_objectives:
+  - 正負周波数の平面波を係数の代数方程式に帰着できる
+  - 静止系の係数をboostして正質量の全モードを構成できる
+  - 随伴規格化とスピン和および完全性を計算できる
+  - 固定Fourier波数でエネルギー射影を構成できる
+  - 質量零のchiralityとhelicityの関係を周波数と運動量の符号を区別して説明できる
+definitions:
+  - { id: LREP20-DEF-01, name: Dirac平面波モード }
+theorems:
+  - { id: LREP20-PROP-01, name: 正質量のDiracモードの構成 }
+  - { id: LREP20-THM-02, name: Diracモードの規格化とスピン和 }
+  - { id: LREP20-PROP-03, name: 固定Fourier波数でのエネルギー射影 }
+  - { id: LREP20-THM-04, name: 質量零モードのchiralityとhelicity }
+canonical_examples:
+  - 静止系の正負周波数モード
+  - 正質量のz方向boost
+  - 質量零の左右モード
+problem_patterns:
+  - LREP20-FREQUENCY
+  - LREP20-MASS-SHELL
+  - LREP20-ADJOINT
+  - LREP20-DIRECTION
+  - LREP20-BOOST
+  - LREP20-SPIN-SUM
+  - LREP20-ENERGY-PROJECTION
+  - LREP20-CHARGE-CONJUGATION
+  - LREP20-MASSLESS-LIMIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }
