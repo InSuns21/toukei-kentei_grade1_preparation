@@ -36,7 +36,7 @@ $$
 第一式の二経路の始域は $\mathcal A(y,z)\otimes\mathcal A(x,y)$、終域は $\mathcal B(Fx,Fz)$ である。先に合成してから移す経路と、各Hom対象を移してから合成する経路を比較している。第二式は $I$ から $\mathcal B(Fx,Fx)$ への二経路を比較する。
 
 <!-- definition-example-start: def-catb2-03-enriched-functor -->
-**定義の確認。** 基底を[集合の直積によるモノイダル圏](../../CAT/CAT4-01/index.md#thm-cat4-01-cartesian-monoidal)とし、通常の圏を[集合値の豊穣圏](../CATB2-01/index.md#prop-catb2-01-set-enrichment)として読む。対象は $S=\{0,1\}$ 一つだけとし、Hom集合を $S$ から $S$ への全写像の集合とする。合成は写像の合成である。$s:S\to S$ を $s(0)=1,s(1)=0$ と置く。対象を変えず、Homの写像を
+**定義の確認**。 基底を[集合の直積によるモノイダル圏](../../CAT/CAT4-01/index.md#thm-cat4-01-cartesian-monoidal)とし、通常の圏を[集合値の豊穣圏](../CATB2-01/index.md#prop-catb2-01-set-enrichment)として読む。対象は $S=\{0,1\}$ 一つだけとし、Hom集合を $S$ から $S$ への全写像の集合とする。合成は写像の合成である。$s:S\to S$ を $s(0)=1,s(1)=0$ と置く。対象を変えず、Homの写像を
 
 $$
 F(f)=s\circ f\circ s
@@ -191,7 +191,7 @@ $$
 左辺は $P\to I\otimes P\to\mathcal B(Fy,Gy)\otimes\mathcal B(Fx,Fy)\to\mathcal B(Fx,Gy)$。右辺は $P\to P\otimes I\to\mathcal B(Gx,Gy)\otimes\mathcal B(Fx,Gx)\to\mathcal B(Fx,Gy)$。どちらも $P\to\mathcal B(Fx,Gy)$ という同じ型である。因子を交換する必要はなく、基底の対称性も要求しない。
 
 <!-- definition-example-start: def-catb2-03-enriched-natural -->
-**定義の確認。** 第1節の一対象の例で $E$ を恒等関手、$F$ を $F(f)=sfs$ とする関手とする。集合の基底では成分を指定することは一元集合からの写像を指定することなので、唯一の対象の成分を $s$ とする。左単位子の逆は $f\mapsto(*,f)$、右単位子の逆は $f\mapsto(f,*)$ である。左経路は $s\circ f$、右経路は $F(f)\circ s$ であり、
+**定義の確認**。 第1節の一対象の例で $E$ を恒等関手、$F$ を $F(f)=sfs$ とする関手とする。集合の基底では成分を指定することは一元集合からの写像を指定することなので、唯一の対象の成分を $s$ とする。左単位子の逆は $f\mapsto(*,f)$、右単位子の逆は $f\mapsto(f,*)$ である。左経路は $s\circ f$、右経路は $F(f)\circ s$ であり、
 
 $$
 F(f)\circ s=s\circ f\circ s\circ s=s\circ f.
