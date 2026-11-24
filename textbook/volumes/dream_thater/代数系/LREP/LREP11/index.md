@@ -4,7 +4,7 @@
 
 [前講の二重被覆](../LREP10/index.md#thm-lrep10-double-cover)によって、Lorentz変換を行列 $S\in SL(2,\mathbb C)$ で持ち上げられました。しかし二成分ベクトル以外にも、四元ベクトルやより多くの成分を持つ場があります。どのような有限次元の変換則があり得るのでしょうか。
 
-[LREP6の分類](../LREP6/index.md#thm-lrep6-classification)では一つの $\mathfrak{sl}_2(\mathbb C)$ に対し非負整数一つが既約表現を決めました。今回は [LREP9の二因子分解](../LREP9/index.md#thm-lrep9-two-sl2)を利用し、非負整数の組で分類します。計量は $\eta=\operatorname{diag}(-1,1,1,1)$、作用は能動変換とします。対象は非零の有限次元複素ベクトル空間上の滑らかな表現です。
+[LREP6の分類](../LREP6/index.md#thm-lrep6-classification)では一つの $\mathfrak{sl}_2(\mathbb C)$ に対し非負整数一つが既約表現を決めました。今回は [LREP9の二因子分解](../LREP9/index.md#thm-lrep9-two-sl2)を利用し、非負整数の組で分類します。計量は $\eta=\operatorname{diag}(-1,1,1,1)$、作用は能動変換とします。対象は非零の有限次元複素ベクトル空間上の滑らかな[線形群表現](../LREP1/index.md#def-lrep1-linear-representation)です。[既約性](../LREP1/index.md#def-lrep1-irreducible)は零空間と全空間以外に不変複素部分空間がないこと、[同値性](../LREP1/index.md#def-lrep1-equivalence)は作用を絡める複素線形同型があることを指します。
 
 ## 1. 実Lie環から二つの独立な作用へ
 
@@ -14,7 +14,13 @@ $$
 dD_{\mathbb C}(X+iY)=dD(X)+i\,dD(Y)
 $$
 
-と延長できます。括弧が保たれるのは、括弧を四項に展開し、それぞれに実Lie環表現の交換子保存性を適用できるからです。
+と延長できます。$X,Y$ は実Lie環の元で、$dD$ は単位元での微分 $\left.\frac{d}{dt}D(\exp(tX))\right|_{t=0}$ を表します（$t$ は実変数）。括弧は複素双線形に延長するので
+
+$$
+[X+iY,X'+iY']=[X,X']-[Y,Y']+i([X,Y']+[Y,X']).
+$$
+
+各項に交換子保存性を使うと、右辺の $dD_{\mathbb C}$ による像は $[dD(X)+i dD(Y),dD(X')+i dD(Y')]$ となります。
 
 [LREP9の分解](../LREP9/index.md#thm-lrep9-two-sl2)では回転・boost の実生成子 $R_i,B_i$ から
 
@@ -32,11 +38,19 @@ $$
 [H,E]=2E,\quad [H,F]=-2F,\quad [E,F]=H.
 $$
 
-左右のすべての混合括弧は零です。したがって右の作用をしても左のウェイト（$H_L$ の固有値）は変わりません。
+左右のすべての混合括弧は零です。したがって左のウェイト（[ウェイトの定義](../LREP6/index.md#def-lrep6-highest-weight)での $H_L$ の固有値）を持つベクトルに右の作用をすると、結果は零か、同じ左ウェイトを持つベクトルになります。
 
 ## 2. 二つの整数から表現を組み立てる
 
-[LREP6の斉次多項式表現](../LREP6/index.md#def-lrep6-symmetric-power)の空間 $V_m$ を再利用します。$m$ は非負整数で、基底は $x^{m-a}y^a$（$0\le a\le m$）です。今度はもう一組の変数 $u,v$ を使う次数 $n$ の空間も用意します。二組を [テンソル積表現](../LREP4/index.md#def-lrep4-tensor-product)で合わせると、左右の作用を別々に指定できます。
+[LREP6の斉次多項式表現](../LREP6/index.md#def-lrep6-symmetric-power)の空間 $V_m$ を再利用します。$m$ は非負整数で、基底は $x^{m-a}y^a$（$0\le a\le m$）です。今度はもう一組の変数 $u,v$ を使う次数 $n$ の空間も用意します。二組を [テンソル積表現](../LREP4/index.md#def-lrep4-tensor-product)で合わせると、左右の作用を別々に指定できます。テンソル積基底 $x^{m-a}y^a\otimes u^{n-b}v^b$ を四変数の積 $x^{m-a}y^a u^{n-b}v^b$ と同一視します。$\rho_m$ は [多項式模型の微分](../LREP6/index.md#thm-lrep6-polynomial-model)で、左では次の三作用です。
+
+$$
+\rho_m(H)=x\partial_x-y\partial_y,\quad
+\rho_m(E)=x\partial_y,\quad
+\rho_m(F)=y\partial_x.
+$$
+
+$\partial_y$ は $x,u,v$ を固定して $y$ で偏微分する作用素です。他の偏微分も同じ約束で、右では $x,y$ を $u,v$ に取り替えます。添字 $L,R$ は作用させる因子を示し、微分変数の添字ではありません。$I$ はその場所の因子の恒等作用素です。単純テンソルに対する作用は、[テンソル積表現の微分](../LREP4/index.md#prop-lrep4-tensor-differential)と同じ和の形になります。
 
 <a id="def-lrep11-pair"></a>
 
@@ -58,14 +72,36 @@ $$
 E_L(yu)=xu,\qquad F_R(xu)=xv.
 $$
 
-逆順でも $F_R(yu)=yv$、$E_L(yv)=xv$ です。一般に異なる因子の作用は $(M\otimes I)(I\otimes N)=M\otimes N=(I\otimes N)(M\otimes I)$ により可換です。同じ因子内では、例えば $[E_L,F_L](xu)=xu=H_L(xu)$ となります。一般の $X,X',Y,Y'$ について混合項が消えるので
+逆順でも $F_R(yu)=yv$、$E_L(yv)=xv$ です。例えば同じ左因子の交換子は
 
 $$
+E_LF_L(xu)=E_L(yu)=xu,\qquad F_LE_L(xu)=0
+$$
+
+なので $[E_L,F_L](xu)=xu=H_L(xu)$ です。一般には
+
+$$
+\rho(X,Y)(p\otimes q)=\rho_m(X)p\otimes q+p\otimes\rho_n(Y)q.
+$$
+
+各因子の微分表現が複素線形なので、この式は $(X,Y)$ に関して複素線形です。異なる因子の作用は
+
+$$
+(M\otimes I)(I\otimes N)=M\otimes N=(I\otimes N)(M\otimes I)
+$$
+
+により可換です。したがって交換子の混合項が消え、
+
+$$
+\begin{aligned}
 [\rho(X,Y),\rho(X',Y')]
-=\rho([X,X'],[Y,Y']).
+&=[\rho_m(X),\rho_m(X')]\otimes I\\
+&\quad+ I\otimes[\rho_n(Y),\rho_n(Y')]\\
+&=\rho([X,X'],[Y,Y'])
+\end{aligned}
 $$
 
-これで複素線形性と括弧保存性を確認できました。四つの単項式は独立であり、次元は $4$ です。
+となります。最後の等号は各因子の括弧保存性によります。これで複素線形性と括弧保存性を確認できました。四つの単項式は独立であり、次元は $4$ です。
 <!-- definition-example-end -->
 
 基底を $w_{a,b}=x^{m-a}y^a u^{n-b}v^b$ と書くと、[多項式模型の既約性と群への積分](../LREP6/index.md#thm-lrep6-polynomial-model)から
@@ -101,7 +137,7 @@ $$
 
 <!-- formal-statement-end -->
 
-**証明の見取り図。** まず左右のウェイトを同時に上げられなくなるベクトルを探します。二方向の下降作用で長方形の基底を作り、既約性によりそれが空間全体となることを示します。逆に多項式模型では二つのウェイトから任意の基底を取り出せるため、途中だけを残す不変部分空間はありません。
+**証明の見取り図。** まず左右のウェイトを同時に上げられなくなる[最高ウェイトベクトル](../LREP6/index.md#def-lrep6-highest-weight)を探します。二方向の下降作用で長方形の基底を作り、既約性によりそれが空間全体となることを示します。逆に多項式模型では二つのウェイトから任意の基底を取り出せるため、途中だけを残す不変部分空間はありません。
 
 <!-- proof-start -->
 ### 証明
@@ -136,7 +172,13 @@ $$
 
 より $\mu=q$ です。以下 $m=p,n=q$ とします。
 
-$0\le a\le m,0\le b\le n$ に対して $f_{a,b}=F_L^aF_R^bw$ と置きます。左右の可換性と昇降公式を繰り返すと
+$0\le a\le m,0\le b\le n$ に対して $f_{a,b}=F_L^aF_R^bw$ と置きます。左右の可換性と[昇降公式](../LREP6/index.md#lem-lrep6-ladder)を繰り返すと、左では $a!m!/(m-a)!$、右では $b!n!/(n-b)!$ が掛かります。例えば左の係数は
+
+$$
+\prod_{k=1}^{a} k(m-k+1)=\frac{a!m!}{(m-a)!}
+$$
+
+です（空積は1）。したがって
 
 $$
 E_L^aE_R^b f_{a,b}
@@ -191,7 +233,7 @@ $$
 
 ## 3. 群の有限変換を構成する
 
-Lie環だけの分類では、有限の変換や被覆の核の作用はまだ分かりません。そこで多項式の変数代入を $SL(2,\mathbb C)$ 全体へ拡張します。$P_k(M)$ は行ベクトル $z$ を $zM$ に置き換える次数 $k$ の作用です。[LREP6の多項式模型](../LREP6/index.md#thm-lrep6-polynomial-model)と同じ結合律が任意の行列式1の複素行列にも成立します。
+Lie環だけの分類では、有限の変換や被覆の核の作用はまだ分かりません。そこで多項式の変数代入を $SL(2,\mathbb C)$ 全体へ拡張します。$P_k(M)$ は行ベクトル $z=(x,y)$ を $zM$ に置き換える次数 $k$ の作用で、$p\in V_k$ に対し $(P_k(M)p)(z)=p(zM)$ と書きます。ここで $M\in SL(2,\mathbb C)$ です。$P_k$ は先ほどのウェイト射影多項式とは別の記号です。共役転置を $S^\dagger=\overline S^{\mathsf T}$ と書き、右因子に使う行列を $Q(S)=(S^\dagger)^{-1}$ と置きます。[LREP6の多項式模型](../LREP6/index.md#thm-lrep6-polynomial-model)と同じ結合律が任意の行列式1の複素行列にも成立します。
 
 <a id="thm-lrep11-group"></a>
 
@@ -218,9 +260,22 @@ Q(ST)=(T^\dagger S^\dagger)^{-1}
 =(S^\dagger)^{-1}(T^\dagger)^{-1}=Q(S)Q(T).
 $$
 
-$P_k(ST)=P_k(S)P_k(T)$ は代入の結合律から得られます。従って $D$ は群法則と単位元を保ち、逆元の作用も存在します。成分は行列要素とその共役の滑らかな関数です。
+任意の $p\in V_k$ に対して
 
-[LREP10の合同作用](../LREP10/index.md#def-lrep10-sl2c-action)を微分すると $X\mapsto MX+XM^\dagger$ となります。回転とboostに対応する二種類の行列を取ります。
+$$
+(P_k(S)P_k(T)p)(z)=p((zS)T)=p(z(ST)).
+$$
+
+したがって $P_k(ST)=P_k(S)P_k(T)$ です。[テンソル積表現の群法則](../LREP4/index.md#thm-lrep4-tensor-representation)により $D$ は群法則と単位元を保ち、逆元の作用も存在します。成分は行列要素とその共役の滑らかな関数です。
+
+[LREP10の合同作用](../LREP10/index.md#def-lrep10-sl2c-action)で $M$ を跡零の複素行列、$X$ を固定したエルミート行列とします。実変数 $t$ で微分すると
+
+$$
+\left.\frac{d}{dt}\left(e^{tM}Xe^{tM^\dagger}\right)\right|_{t=0}
+=MX+XM^\dagger.
+$$
+
+積の微分で左右の指数をそれぞれ微分した式です。回転とboostに対応する二種類の行列を取ります。
 
 $$
 T_i=-i\sigma_i/2,\qquad U_i=\sigma_i/2.
@@ -241,7 +296,7 @@ $$
 
 これは [回転・boostの定義](../LREP9/index.md#def-lrep9-rotation-boost)の作用に一致するため、$T_i$ は $R_i$、$U_i$ は $B_i$ を誘導します。
 
-$Q(\exp(tM))=\exp(-tM^\dagger)$ なので右因子の微分は $M\mapsto -M^\dagger$ を経由します。$T_i^\dagger=-T_i$、$U_i^\dagger=U_i=iT_i$ です。従って
+$Q(\exp(tM))=\exp(-tM^\dagger)$ なので右因子の微分は $M\mapsto -M^\dagger$ を経由します。$T_i^\dagger=-T_i$、$U_i^\dagger=U_i=iT_i$ です。[テンソル積表現の微分](../LREP4/index.md#prop-lrep4-tensor-differential)を左の $P_m$ と右の $P_n\circ Q$ に適用すると
 
 $$
 \begin{aligned}
@@ -266,7 +321,7 @@ $$
 
 ## 4. どの表現がLorentz群そのものに降りるか
 
-被覆群では $S$ と $-S$ は別の元ですが、同じLorentz変換になります。[被覆核による降下判定](../LREP3/index.md#thm-lrep3-descent-criterion)により、この二つの作用が一致することが必要です。
+被覆群では $S$ と $-S$ は別の元ですが、同じLorentz変換になります。[被覆核による降下判定](../LREP3/index.md#thm-lrep3-descent-criterion)の証明で使った剰余類への作用を考えます。今回は被覆群の表現が既に構成されているので、単連結群への積分を改めて仮定せずに降下を直接判定できます。
 
 <a id="thm-lrep11-descent"></a>
 
@@ -286,7 +341,13 @@ $$
 D_{m,n}(-I_2)=(-1)^{m+n}I_{(m+1)(n+1)}.
 $$
 
-[二重被覆](../LREP10/index.md#thm-lrep10-double-cover)の核は $\{I_2,-I_2\}$ です。[被覆核による降下判定](../LREP3/index.md#thm-lrep3-descent-criterion)をこの核へ適用すると、核が自明に作用するための必要十分条件は $(-1)^{m+n}=1$ です。$\square$
+[被覆写像の核](../LREP10/index.md#prop-lrep10-kernel)は $\{I_2,-I_2\}$ です。被覆写像を $\pi$ と書きます。降下した表現 $\widetilde D$ があれば $D=\widetilde D\circ\pi$ なので $D(-I_2)=I$ が必要です。逆に $D(-I_2)=I$ なら、$\pi(S)=\pi(T)$ のとき $S^{-1}T\in\ker\pi$ で
+
+$$
+D(T)=D(S)D(S^{-1}T)=D(S).
+$$
+
+そこで $\widetilde D(\pi(S))=D(S)$ と定めれば、持ち上げの選択によらず群法則を保ちます。[二重被覆定理](../LREP10/index.md#thm-lrep10-double-cover)の滑らかな局所逆枝と $D$ の合成として局所的に書けるので滑らかです。必要十分条件は $(-1)^{m+n}=1$ です。$\square$
 <!-- proof-end -->
 
 | $(j_L,j_R)$ | 次元 | $-I_2$ の作用 | 降下 |
@@ -321,7 +382,13 @@ M\epsilon M^{\mathsf T}
 =\epsilon.
 $$
 
-特に $M=\overline S$ とすると $\overline S^{-1}\epsilon=\epsilon S^\dagger$ です。次数1の多項式模型を列ベクトルと同一視し、$\Phi(v\otimes w)=vw^{\mathsf T}\epsilon$ と定めます。$e_i e_j^{\mathsf T}$ は全行列の基底であり、右からの $\epsilon$ は可逆なので $\Phi$ は線形同型です。また
+特に $M=\overline S$ とすると $\overline S^{-1}\epsilon=\epsilon S^\dagger$ です。次数1の多項式模型では列ベクトル $v=(v_1,v_2)^{\mathsf T}$ を多項式 $p_v(z)=zv$ と同一視します。代入の定義から
+
+$$
+(P_1(S)p_v)(z)=p_v(zS)=zSv=p_{Sv}(z)
+$$
+
+となるので、列ベクトルへの作用は $S$ そのものです。右因子にも同じ対応を用います。ここで $\Phi$ は本節のテンソル積から行列への写像（前講の被覆写像とは別）とし、$\Phi(v\otimes w)=vw^{\mathsf T}\epsilon$ と定めます。右辺は $v,w$ に複素双線形で、共役転置でなく転置を用いるためテンソル積上の複素線形写像になります。$e_i e_j^{\mathsf T}$ は全行列の基底であり、右からの $\epsilon$ は可逆なので $\Phi$ は線形同型です。また
 
 $$
 \begin{aligned}
@@ -334,11 +401,11 @@ $$
 従って二つの作用を絡めます。$\square$
 <!-- proof-end -->
 
-回転だけに制限すると $S\in SU(2)$ では $Q(S)=S$ なので左右の表現を同時に回転させることになります。[Clebsch–Gordan分解](../LREP8/index.md#thm-lrep8-clebsch-gordan)を適用すると回転スピンは $|j_L-j_R|$ から $j_L+j_R$ まで1ずつ現れます。例えば $(1/2,1/2)$ は回転だけならスピン0と1に分かれます。時間成分と空間三成分に対応しますが、boost は両者を混ぜるのでLorentz群としては既約です。
+回転だけに制限すると $S\in SU(2)$ では $Q(S)=S$ なので左右の表現を同時に回転させることになります。各因子は [LREP6の多項式模型](../LREP6/index.md#thm-lrep6-polynomial-model)による既約な滑らかな $SU(2)$ 表現です。コンパクト群 $SU(2)$ の[不変内積の平均化](../LREP2/index.md#thm-lrep2-compact-averaging)により各因子に正定値不変内積を取れるので、[Clebsch–Gordan分解](../LREP8/index.md#thm-lrep8-clebsch-gordan)の仮定を満たします。回転スピンは $|j_L-j_R|$ から $j_L+j_R$ まで1ずつ現れます。例えば $(1/2,1/2)$ は回転だけならスピン0と1に分かれます。時間成分と空間三成分に対応しますが、boost は両者を混ぜるのでLorentz群としては既約です。
 
 ## 5. なぜ有限次元の非自明な作用はユニタリではないか
 
-回転の有限次元表現では正定値内積を保存できました。しかし boost は指数的な拡大と縮小を含みます。内積の選び方を変えても、この性質は消えません。
+回転の有限次元表現では[正定値不変内積](../LREP2/index.md#def-lrep2-invariant-inner-product)を保存できました。そのような内積を保存する表現をユニタリ表現と呼びます。しかし boost は指数的な拡大と縮小を含みます。内積の選び方を変えても、この性質は消えません。
 
 <a id="thm-lrep11-nonunitary"></a>
 
@@ -352,7 +419,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-実数 $t$ に対し $S_t=\operatorname{diag}(e^{t/2},e^{-t/2})$ とすると $Q(S_t)=S_t^{-1}$ です。[被覆群の表現](#thm-lrep11-group)の基底で
+実数 $t$ に対し $S_t=\operatorname{diag}(e^{t/2},e^{-t/2})$ とすると $Q(S_t)=S_t^{-1}$ です。[被覆群の表現](#thm-lrep11-group)の基底で、左の代入は $(x,y)\mapsto(e^{t/2}x,e^{-t/2}y)$、右の代入は $(u,v)\mapsto(e^{-t/2}u,e^{t/2}v)$ です。各変数のべきに指数係数を掛けると
+
+$$
+e^{((m-a)-a)t/2}e^{(-(n-b)+b)t/2}
+=e^{(m-2a-n+2b)t/2}.
+$$
+
+したがって
 
 $$
 D_{m,n}(S_t)w_{a,b}
@@ -367,7 +441,7 @@ $$
 
 より $|\lambda|=1$ が必要なので矛盾します。従って正定値内積を保存する既約表現は $m=n=0$ に限られます。
 
-一般の有限次元表現でも不変部分空間 $U$ に対し直交補空間 $U^\perp$ は不変です。実際 $v\in U^\perp,u\in U$ なら
+一般の有限次元ユニタリ表現でも [不変直交補空間の命題](../LREP2/index.md#prop-lrep2-orthogonal-complement)により、不変部分空間 $U$ に対し直交補空間 $U^\perp$ は不変です。実際 $v\in U^\perp,u\in U$ なら
 
 $$
 \langle D(S)v,u\rangle=\langle v,D(S^{-1})u\rangle=0.
@@ -420,7 +494,7 @@ F_R(xyv)&=v\partial_u(xyv)=0.
 \end{aligned}
 $$
 
-最後の零は右側がすでに下降端にいるためです。
+最後の零は $u$ の指数が0で、$x,y,v$ を固定して $u$ で微分すると零になるためです。右側はすでに下降端にいます。
 <!-- solution-end -->
 
 <a id="ex-lrep11-a03"></a>
@@ -439,7 +513,15 @@ S^\dagger=\begin{pmatrix}1&0\\\overline z&1\end{pmatrix},
 \quad Q(S)=\begin{pmatrix}1&0\\-\overline z&1\end{pmatrix}.
 $$
 
-両方の積は非対角成分が $\overline z-\overline z=0$ で単位行列です。三角行列の対角積より $\det Q(S)=1$ です。
+逆行列の判定は $S^\dagger Q(S)=Q(S)S^\dagger=I_2$ です。実際、
+
+$$
+\begin{pmatrix}1&0\\\overline z&1\end{pmatrix}
+\begin{pmatrix}1&0\\-\overline z&1\end{pmatrix}
+=\begin{pmatrix}1&0\\\overline z-\overline z&1\end{pmatrix}=I_2.
+$$
+
+逆順でも非対角成分は $-\overline z+\overline z=0$ です。三角行列の対角積より $\det Q(S)=1$ です。
 <!-- solution-end -->
 
 <a id="ex-lrep11-a04"></a>
@@ -512,7 +594,7 @@ $$
 $D_{2,1}$ を $SU(2)$ に制限したときに現れる回転スピンと次元を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $S\in SU(2)$ なら $Q(S)=S$ なので、第1因子はスピン1、第2因子はスピン $1/2$ の回転表現です。[Clebsch–Gordan分解](../LREP8/index.md#thm-lrep8-clebsch-gordan)の範囲は
+**詳細解答。** [被覆群の表現](#thm-lrep11-group)で $S\in SU(2)$ なら $S^\dagger=S^{-1}$、従って $Q(S)=S$ です。第1因子はスピン1、第2因子はスピン $1/2$ の回転表現です。第4節と同様に両因子は既約で不変正定値内積を持ちます。[Clebsch–Gordan分解](../LREP8/index.md#thm-lrep8-clebsch-gordan)の範囲は
 
 $$
 |1-1/2|=1/2,\qquad 1+1/2=3/2.
@@ -563,7 +645,7 @@ $D_{1,2}$ の共通ウェイト、被覆核の作用、$z$ 軸方向boost の固
 
 次元は6です。[降下条件](#thm-lrep11-descent)に $m+n=3$ を代入すると $D(-I_2)=-I_6$ となり、Lorentz群そのものには降下しません。
 
-回転では右因子も $S$ が作用します。[Clebsch–Gordan分解](../LREP8/index.md#thm-lrep8-clebsch-gordan)に $j_L=1/2,j_R=1$ を代入するとスピン $1/2,3/2$ が現れ、次元は $2+4=6$ です。
+回転では [群表現](#thm-lrep11-group)の右因子も $Q(S)=S$ が作用します。第4節で確認したとおり両因子は既約で不変正定値内積を持ちます。[Clebsch–Gordan分解](../LREP8/index.md#thm-lrep8-clebsch-gordan)に $j_L=1/2,j_R=1$ を代入するとスピン $1/2,3/2$ が現れ、次元は $2+4=6$ です。
 
 $t>0$ で $w_{0,2}=xv^2$ の固有値は $e^{3t/2}>1$ なので、そのノルムの二乗は $e^{3t}$ 倍になります。正定値なら元のノルムは非零であり保存できません。回転のユニタリ性をLorentz群全体へ拡張できない理由です。
 <!-- solution-end -->
