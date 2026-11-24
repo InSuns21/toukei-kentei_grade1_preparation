@@ -8,7 +8,15 @@ MFでは、上半平面の関数が整数行列による変換で決まった係
 
 ## 1. 点を動かす実行列と向きを表す回転
 
-[整数モジュラー群](../../MF/MF1/index.md#def-mf1-modular-group) $\Gamma=SL_2(\mathbb Z)$ の整数成分という条件を実数成分へ広げます。行列式1を保てば、[一次分数変換](../../MF/MF1/index.md#def-mf1-fractional-action)と同じ式を使えます。群全体で上半平面を動かし、整数行列だけを後で同一視するための準備です。[上半平面](../../MF/MF1/index.md#def-mf1-upper-half-plane) $\mathbb H$ の点を $z=x+iy$（$x,y\in\mathbb R$、$y>0$）と書きます。MF1の $\tau$ と本章の $z$ は同じ種類の点を表します。$i$ は虚数単位、$I$ は2次単位行列です。
+[整数モジュラー群](../../MF/MF1/index.md#def-mf1-modular-group) $\Gamma=SL_2(\mathbb Z)$ の整数成分という条件を実数成分へ広げます。行列式1を保てば、[一次分数変換](../../MF/MF1/index.md#def-mf1-fractional-action)と同じ式を使えます。群全体で上半平面を動かし、整数行列だけを後で同一視するための準備です。
+
+[上半平面](../../MF/MF1/index.md#def-mf1-upper-half-plane) の点は
+
+$$
+z=x+iy\in\mathbb H,\qquad x,y\in\mathbb R,\quad y>0
+$$
+
+と書きます。MF1の $\tau$ と本章の $z$ は同じ種類の点を表します。$i$ は虚数単位、$I$ は2次単位行列です。
 
 実2次正方行列 $\begin{pmatrix}a&b\\c&d\end{pmatrix}$（$a,b,c,d\in\mathbb R$）の行列式は $ad-bc$ です。行列式1の行列は逆行列 $\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$ を持ち、その行列式も1です。積の行列式は行列式の積なので1であり、$I$ も含まれます。従って実行列に広げても行列の積について群になります。
 
@@ -309,7 +317,17 @@ $$
 
 ## 4. 正則性とカスプ条件はどこへ行くか
 
-変換則だけの関数空間は大きすぎます。群上の関数から復元した $y^{-k/2}\Phi(s(x+iy))$ が正則かどうかを別途調べなければ、古典的なモジュラー形式にはなりません。また無限遠での条件も必要です。[モジュラー形式の定義](../../MF/MF2/index.md#def-mf2-modular-form)で $M_k(SL_2(\mathbb Z))$ は上半平面で正則、重さ $k$ の変換則を満たし、$q=e^{2\pi iz}$ による表示が $q=0$ まで正則に延長できる関数全体でした。[q展開とカスプ形式](../../MF/MF2/index.md#def-mf2-q-expansion)ではこの延長の冪級数の係数を $a_n$（$n$ は非負整数）と書き、定数項 $a_0=0$ をカスプ形式の条件としました。
+変換則だけの関数空間は大きすぎます。群上の関数から復元した $y^{-k/2}\Phi(s(x+iy))$ が正則かどうかを別途調べなければ、古典的なモジュラー形式にはなりません。また無限遠での条件も必要です。
+
+[モジュラー形式の定義](../../MF/MF2/index.md#def-mf2-modular-form)で $M_k(SL_2(\mathbb Z))$ は上半平面で正則、重さ $k$ の変換則を満たし、$q=e^{2\pi iz}$ による表示が $q=0$ まで正則に延長できる関数全体でした。
+
+[q展開とカスプ形式](../../MF/MF2/index.md#def-mf2-q-expansion)ではこの延長を
+
+$$
+F(q)=\sum_{n=0}^\infty a_n q^n
+$$
+
+と書き、定数項 $a_0=0$ をカスプ形式の条件としました。
 
 <a id="prop-afr1-cusp-growth"></a>
 <!-- formal-statement-start -->
