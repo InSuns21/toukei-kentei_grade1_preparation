@@ -56,7 +56,7 @@ chapters:
     title: "無限素点の`GL_2(R)`表現"
   - id: AFR13
     path: textbook/volumes/dream_thater/代数系/AFR/AFR13
-    status: planned
+    status: completed
     title: "p進`GL_2`表現の入門"
   - id: AFR14
     path: textbook/volumes/dream_thater/代数系/AFR/AFR14

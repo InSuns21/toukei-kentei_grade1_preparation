@@ -1,0 +1,46 @@
+chapter: AFR13
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR12, ANF9]
+forward_references: []
+concepts:
+  - id: automorphic-forms.congruence-subgroups
+    name: "主合同部分群"
+    kind: definition
+    introduction: formal
+    requires: [number-theory.p-adic-integers, number-theory.p-adic-dvr]
+  - id: automorphic-forms.padic-smooth
+    name: "p進群の滑らかな表現"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.congruence-subgroups]
+  - id: automorphic-forms.padic-admissibility
+    name: "p進表現の許容性"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.padic-smooth]
+  - id: automorphic-forms.local-triangular-decomposition
+    name: "局所三角分解"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.congruence-subgroups, number-theory.p-adic-dvr]
+  - id: automorphic-forms.padic-principal-series
+    name: "p進正規化主系列"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.padic-smooth, automorphic-forms.local-triangular-decomposition]
+  - id: automorphic-forms.principal-congruence-invariants
+    name: "主系列の合同固定空間"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.padic-principal-series, automorphic-forms.padic-admissibility]
+  - id: automorphic-forms.spherical-vector
+    name: "球ベクトルと不分岐表現"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.padic-smooth, automorphic-forms.congruence-subgroups]
+  - id: automorphic-forms.principal-spherical-invariants
+    name: "主系列の球固定空間"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.spherical-vector, automorphic-forms.padic-principal-series, automorphic-forms.local-triangular-decomposition]

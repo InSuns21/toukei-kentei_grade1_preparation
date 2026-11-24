@@ -1,0 +1,28 @@
+id: "AFR13"
+title: "p進 GL_2 表現の入門"
+volume: "foundations"
+status: supplementary
+prerequisites: [AFR12, ANF9]
+official_scope: []
+learning_objectives:
+  - 主合同部分群を用いて滑らかさと許容性を判定できる
+  - 第二行の付値から局所三角分解を構成できる
+  - p進正規化主系列と中心の作用を計算できる
+  - 有限剰余環の左剰余類を数えて固定空間の次元を証明できる
+  - 球ベクトルの有無から不分岐と分岐を区別できる
+definitions:
+  - { id: AFR13-DEF-01, name: "主合同部分群" }
+  - { id: AFR13-DEF-02, name: "p進群の滑らかな表現" }
+  - { id: AFR13-DEF-03, name: "p進表現の許容性" }
+  - { id: AFR13-DEF-04, name: "p進正規化主系列" }
+  - { id: AFR13-DEF-05, name: "球ベクトルと不分岐表現" }
+theorems:
+  - { id: AFR13-THM-01, name: "局所三角分解" }
+  - { id: AFR13-THM-02, name: "主系列の合同固定空間" }
+  - { id: AFR13-THM-03, name: "主系列の球固定空間" }
+canonical_examples: [主合同部分群, 行列式指標, 原始行の剰余類, 正規化球ベクトル]
+problem_patterns: [AFR13-A1, AFR13-A2, AFR13-A3, AFR13-A4, AFR13-B1, AFR13-B2, AFR13-B3, AFR13-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 4, review: 2 }
