@@ -15,7 +15,9 @@ S(A)=\begin{pmatrix}A&0\\0&Q\end{pmatrix},
 \quad A\in SL(2,\mathbb C).
 $$
 
-$u,r$ は二成分複素列です。単純な複素共役では $u$ は $A^*$ で変換され、一般に $A$ では変換されません。例えば $A=\operatorname{diag}(i,-i)$ なら $A^*=-A$ です。そこで [二次元交代形式と行列式](../LREP4/index.md#prop-lrep4-epsilon)に現れた実行列
+$u,r$ は二成分複素列です。$SL(2,\mathbb C)$ は行列式が1の複素二次正方行列の群なので、$A$ と $A^\dagger$ は可逆です。以下では $S=S(A)$ と略記し、四成分列の標準基底を $e_k$（$k=1,2,3,4$）と書きます。[Spin群とLorentz二重被覆](../LREP15/index.md#thm-lrep15-spin-cover)により、ここでの群作用は適正・時間向き保存Lorentz変換の Spin 持ち上げを表します。
+
+単純な複素共役では $u$ は $A^*$ で変換され、一般に $A$ では変換されません。例えば $A=\operatorname{diag}(i,-i)$ なら $A^*=-A$ です。そこで [二次元交代形式と行列式](../LREP4/index.md#prop-lrep4-epsilon)に現れた実行列
 
 $$
 J=\begin{pmatrix}0&1\\-1&0\end{pmatrix},
@@ -58,7 +60,7 @@ $$
 従って反線形です。特に $(i\psi)^c=-i\psi^c$ であり、複素線形写像とは異なります。
 <!-- definition-example-end -->
 
-この操作が表現と両立するか、また二回作用させると何が起きるかを確認しましょう。
+群作用の前後どちらで電荷共役しても同じ列になることを、ここでは共変性と呼びます。また二回作用させると恒等写像に戻る写像を対合と呼びます。$\mathcal K^2$ は行列の二乗ではなく、写像 $\mathcal K$ を二回合成する記号です。この二条件を確かめましょう。
 
 <a id="prop-lrep18-real-structure"></a>
 
@@ -79,7 +81,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[二次元交代形式と行列式](../LREP4/index.md#prop-lrep4-epsilon)を $A^{\mathsf T}$ に適用します。$\det A^{\mathsf T}=1$ なので $AJA^{\mathsf T}=J$ です。右から $(A^{\mathsf T})^{-1}$ を掛けると
+[二次元交代形式と行列式](../LREP4/index.md#prop-lrep4-epsilon)を $A^{\mathsf T}$ に適用します。$\det A^{\mathsf T}=1$ なので $AJA^{\mathsf T}=J$ です。$Q=(A^\dagger)^{-1}$ と $A^\dagger=(A^*)^{\mathsf T}$ から $Q^*=(A^{\mathsf T})^{-1}$ です。右から $(A^{\mathsf T})^{-1}$ を掛けると
 
 $$
 AJ=J(A^{\mathsf T})^{-1}=JQ^*.
@@ -90,6 +92,13 @@ $$
 $$
 BS^*=\begin{pmatrix}0&JQ^*\\-JA^*&0\end{pmatrix}
 =\begin{pmatrix}0&AJ\\-QJ&0\end{pmatrix}=SB.
+$$
+
+任意の列 $\psi$ について、この行列恒等式を使うと
+
+$$
+\mathcal K(S\psi)=B(S\psi)^*=BS^*\psi^*
+=SB\psi^*=S\mathcal K\psi.
 $$
 
 $B$ は実行列であり、その二乗の対角ブロックは $-J^2=I$ です。従って
@@ -113,7 +122,26 @@ H=-i\gamma^0=\begin{pmatrix}0&-iI\\iI&0\end{pmatrix},
 \qquad \bar\psi=\psi^\dagger H
 $$
 
-を用います。$\bar\psi^{\mathsf T}=H^{\mathsf T}\psi^*$ であり、$(H^{\mathsf T})^2=I_4$ です。この式を元の定義に代入して、随伴から共役列へ戻す行列を取り出します。
+を用います。随伴は行ですが、電荷共役は列を返すので転置します。積の順序が逆になることと $(\psi^\dagger)^{\mathsf T}=\psi^*$ により
+
+$$
+\bar\psi^{\mathsf T}=H^{\mathsf T}\psi^*.
+$$
+
+[Dirac随伴の変換則](../LREP17/index.md#prop-lrep17-adjoint-covariance)の $H^2=I_4$ を転置すると $(H^{\mathsf T})^2=I_4$ です。従って $\psi^*=(H^{\mathsf T})^{-1}\bar\psi^{\mathsf T}$ と解けます。[電荷共役](#def-lrep18-charge-conjugation)へ代入すると
+
+$$
+\mathcal K\psi=B(H^{\mathsf T})^{-1}\bar\psi^{\mathsf T}.
+$$
+
+この行列積を $C$ と名付けます。実際に $(H^{\mathsf T})^{-1}=H^{\mathsf T}$ を用いると
+
+$$
+BH^{\mathsf T}=
+\begin{pmatrix}0&J\\-J&0\end{pmatrix}
+\begin{pmatrix}0&iI\\-iI&0\end{pmatrix}
+=\begin{pmatrix}-iJ&0\\0&-iJ\end{pmatrix}.
+$$
 
 <a id="def-lrep18-charge-matrix"></a>
 
@@ -141,7 +169,7 @@ $$
 \qquad G^0=-i\gamma^0,\quad G^j=i\gamma^j.
 $$
 
-ここで $j=1,2,3$ であり、$\sigma_j$ は [Pauli行列](../LREP5/index.md#def-lrep5-pauli-model)です。電荷共役行列の転置に関する恒等式は、後でスピノルの方程式を変換するときに役立ちます。
+ここで $\mu=0,1,2,3$、$j=1,2,3$ は行列を区別する添字であってべき指数ではありません。$\sigma_j$ は [Pauli行列](../LREP5/index.md#def-lrep5-pauli-model)です。電荷共役行列の転置に関する恒等式は、後でスピノルの方程式を変換するときに役立ちます。
 
 <a id="prop-lrep18-gamma-transpose"></a>
 
@@ -213,7 +241,7 @@ $$
 
 ## 3. 基底と位相を変える
 
-同じ写像でも、基底を変えれば成分行列は変わります。また共役操作全体に絶対値1の複素数を掛けても、二回の作用でその係数と共役が打ち消し合います。
+同じ写像でも、基底を変えれば成分行列は変わります。ここでプライムは新しい基底での成分を表し、微分ではありません。$T$ は旧成分から新成分への可逆な線形変換で、$T^{-1}$ はその逆です。また共役操作全体に絶対値1の複素数を掛けても、二回の作用でその係数と共役が打ち消し合います。
 
 <a id="prop-lrep18-basis-phase"></a>
 
@@ -249,7 +277,12 @@ T\mathcal K\psi=TB(T^{-1}\psi')^*
 =TB(T^*)^{-1}(\psi')^*.
 $$
 
-また $\bar\psi'=(\psi')^\dagger H'=\bar\psi T^{-1}$ です。転置して $\bar\psi^{\mathsf T}=T^{\mathsf T}(\bar\psi')^{\mathsf T}$ を得ます。[電荷共役行列](#def-lrep18-charge-matrix)の式へ代入すると
+また [Dirac随伴](../LREP17/index.md#def-lrep17-dirac-adjoint)を新成分で書くと
+
+$$
+\bar\psi'=(T\psi)^\dagger(T^{-1})^\dagger HT^{-1}
+=\psi^\dagger HT^{-1}=\bar\psi T^{-1}.
+$$転置して $\bar\psi^{\mathsf T}=T^{\mathsf T}(\bar\psi')^{\mathsf T}$ を得ます。[電荷共役行列](#def-lrep18-charge-matrix)の式へ代入すると
 
 $$
 T\psi^c=TC\bar\psi^{\mathsf T}
@@ -270,7 +303,7 @@ $$
 
 ## 4. Majorana条件と左右の関係
 
-[chirality演算子](../LREP16/index.md#def-lrep16-chirality)は $\gamma^5=\operatorname{diag}(-I,I)$ です。左成分だけの列は電荷共役で右成分だけの列に移ります。実際、
+[chirality演算子](../LREP16/index.md#def-lrep16-chirality)は $\gamma^5=\operatorname{diag}(-I,I)$ です。上付きの $5$ も演算子の名前であり、五乗ではありません。固有値 $-1$ が左、$+1$ が右を表します。左成分だけの列は電荷共役で右成分だけの列に移ります。実際、
 
 $$
 \mathcal K\binom{u}{0}=\binom{0}{-Ju^*},
@@ -278,7 +311,7 @@ $$
 \mathcal K\binom{0}{r}=\binom{Jr^*}{0}.
 $$
 
-一般の Dirac スピノルは左右を独立に選べます。一方、左右がこの操作で結び付いている列なら、電荷共役をしても自分自身に戻れます。この固定点条件を次のように定義します。
+一般の Dirac スピノルは左右を独立に選べます。一方、左右がこの操作で結び付いている列なら、電荷共役をしても自分自身に戻れます。写像を作用させても変わらない元を固定点と呼びます。[電荷共役](#def-lrep18-charge-conjugation)の固定点条件を次のように定義します。
 
 <a id="def-lrep18-majorana"></a>
 
@@ -408,7 +441,14 @@ $$
 
 を考えると、$\widehat C(i|+\rangle)=i|-\rangle$ です。これはスピノルの $\mathcal K$ の反線形性とは異なります。量子論での対称性の実現には状態空間と力学の指定が必要で、この成分計算だけからその存在は結論できません。
 
-同じ理由で、古典的な可換成分の双線形量に量子化した反交換成分の符号をそのまま持ち込むことはできません。例えば前講の[Dirac双線形量の実数値性](../LREP17/index.md#prop-lrep17-real-bilinears)から $v^0=\psi^\dagger\psi$ です。$B^\dagger B=I_4$ なので $(\psi^c)^\dagger\psi^c=\psi^\dagger\psi$ となります。電荷位相の重みが反転することと、この非負の量の符号とは別問題です。
+同じ理由で、古典的な可換成分の双線形量に量子化した反交換成分の符号をそのまま持ち込むことはできません。例えば前講の[Dirac双線形量の実数値性](../LREP17/index.md#prop-lrep17-real-bilinears)から $v^0=\psi^\dagger\psi$ です。$J^{\mathsf T}=-J$ と $B^*=B$ から $B^\dagger=B$ です。[電荷共役の共変性と対合性](#prop-lrep18-real-structure)の $B^2=I_4$ により
+
+$$
+(\psi^c)^\dagger\psi^c
+=(\psi^*)^\dagger B^\dagger B\psi^*
+=\sum_{k=1}^4|\psi_k|^2
+=\psi^\dagger\psi.
+$$電荷位相の重みが反転することと、この非負の量の符号とは別問題です。
 
 ## 6. 演習
 
@@ -478,7 +518,7 @@ $$
 $\psi=(1,0,0,1)^{\mathsf T}$ は Majorana 条件を満たす。$q=2$ の位相作用において $\alpha=\pi/4,\pi/2$ の各変換後に条件を保つか判定せよ。
 
 <!-- solution-start -->
-**詳細解答。** $u=(1,0)^{\mathsf T}$ から $-Ju^*=(0,1)^{\mathsf T}=r$ です。[電荷反転とMajorana条件の制約](#prop-lrep18-charge-reversal)により変換後の共役は $e^{-2i\alpha}\psi$。$\alpha=\pi/4$ では変換後が $i\psi$、共役は $-i\psi$ で一致しません。$\alpha=\pi/2$ では両方が $-\psi$ で一致します。一部の角度での保存と全角度での保存は異なります。
+**詳細解答。** [Majorana条件の自由度とchirality](#prop-lrep18-majorana-structure)により $u=(1,0)^{\mathsf T}$ から $-Ju^*=(0,1)^{\mathsf T}=r$ です。[電荷反転とMajorana条件の制約](#prop-lrep18-charge-reversal)により変換後の共役は $e^{-2i\alpha}\psi$。$\alpha=\pi/4$ では変換後が $i\psi$、共役は $-i\psi$ で一致しません。$\alpha=\pi/2$ では両方が $-\psi$ で一致します。一部の角度での保存と全角度での保存は異なります。
 <!-- solution-end -->
 
 ### Level B
@@ -537,7 +577,7 @@ $$
 $\gamma^5=\operatorname{diag}(-I,I)$ とする。$\mathcal K\gamma^5=-\gamma^5\mathcal K$ を示し、左射影子 $P_L=(I_4-\gamma^5)/2$ に対し $\mathcal KP_L=P_R\mathcal K$ を導け。$P_R=(I_4+\gamma^5)/2$ とする。
 
 <!-- solution-start -->
-**詳細解答。** $\gamma^5$ は実行列であり、
+**詳細解答。** [chirality演算子](../LREP16/index.md#def-lrep16-chirality)の表示から $\gamma^5$ は実行列であり、[電荷共役](#def-lrep18-charge-conjugation)の $B$ と掛け合わせると
 
 $$
 B\gamma^5=\begin{pmatrix}0&J\\J&0\end{pmatrix},
@@ -564,7 +604,7 @@ $$
 $\gamma^2$ と $G^2=i\gamma^2$ について $C(G^2)^{\mathsf T}C^{-1}$ と $B(G^2)^*B^{-1}$ を直接計算せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\sigma_2=-iJ$ なので
+**詳細解答。** [Pauli行列](../LREP5/index.md#def-lrep5-pauli-model)の $\sigma_2=-iJ$ と [ベクトル成分用行列](../LREP17/index.md#prop-lrep17-vector-matrices)の $G^2=i\gamma^2$ を使うと
 
 $$
 G^2=\begin{pmatrix}0&J\\J&0\end{pmatrix}.
