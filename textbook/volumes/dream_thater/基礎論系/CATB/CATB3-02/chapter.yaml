@@ -1,0 +1,26 @@
+id: "CATB3-02"
+title: "有限表示対象"
+volume: "foundations"
+status: supplementary
+prerequisites: [CATB3-01, CATB1-04, MOD2]
+official_scope: []
+learning_objectives:
+  - Homの比較写像を構成し、有限表示性を段階表示と等号の段階判定で説明できる
+  - 集合が有限表示対象となる条件を証明できる
+  - 加群のフィルター余極限を台集合から構成できる
+  - 加群の有限表示性と有限個の生成元・関係式による表示の同値性を証明できる
+  - 有限生成でも有限表示でない加群の反例を検証できる
+definitions:
+  - { id: CATB3-02-DEF-01, name: "有限表示対象" }
+theorems:
+  - { id: CATB3-02-PROP-02, name: "有限関係式による加群の有限表示の判定" }
+  - { id: CATB3-02-PROP-01, name: "有限表示性の段階判定" }
+  - { id: CATB3-02-THM-01, name: "集合の有限表示性" }
+  - { id: CATB3-02-LEM-01, name: "加群のフィルター余極限の集合構成" }
+  - { id: CATB3-02-THM-02, name: "加群の有限表示性の特徴付け" }
+canonical_examples: [一元集合の比較写像, 巡回加群の有限関係式, 二元体の可算直積環の有限台イデアル]
+problem_patterns: [CATB3-02-A01, CATB3-02-A02, CATB3-02-A03, CATB3-02-A04, CATB3-02-B01, CATB3-02-B02, CATB3-02-B03, CATB3-02-B04, CATB3-02-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 2 }

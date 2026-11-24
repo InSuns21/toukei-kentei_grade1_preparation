@@ -1,0 +1,41 @@
+chapter: CATB3-02
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB3-01, CATB1-04, MOD2]
+concepts:
+  - id: category.finitely-presentable-object
+    name: 有限表示対象
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限表示対象）"]
+    requires: [category.filtered-colimit, category.locally-small-category]
+  - id: category.finitely-presentable-stage-test
+    name: 有限表示性の段階判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限表示性の段階判定）"]
+    requires: [category.finitely-presentable-object, category.finite-stage-witness]
+  - id: category.set-finitely-presentable
+    name: 集合の有限表示性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（集合の有限表示性）"]
+    requires: [category.finitely-presentable-stage-test, category.filtered-colimit-finite-limit-commutation]
+  - id: category.module-finite-presentation-criterion
+    name: 有限関係式による加群の有限表示の判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限関係式による加群の有限表示の判定）"]
+    requires: [algebra.finite-presentation-module, algebra.finitely-generated-module, algebra.free-module-universal-property, algebra.first-isomorphism-theorem-module]
+  - id: category.module-filtered-colimit
+    name: 加群のフィルター余極限の集合構成
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（加群のフィルター余極限の集合構成）"]
+    requires: [category.filtered-colimit, category.finite-stage-witness, category.module-category-abelian]
+  - id: category.module-finitely-presentable
+    name: 加群の有限表示性の特徴付け
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（加群の有限表示性の特徴付け）"]
+    requires: [category.module-finite-presentation-criterion, category.module-filtered-colimit, category.finitely-presentable-stage-test]
