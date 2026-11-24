@@ -2,7 +2,7 @@ id: "CATB2-08"
 title: "双圏と弱い結合律"
 volume: "foundations"
 status: supplementary
-prerequisites: [CATB2-07, CAT1-08, CAT2-03, CAT4-01]
+prerequisites: [CATB2-07, CAT1-08, CAT2-03, CAT2-06, CAT4-01]
 official_scope: []
 learning_objectives:
   - 1-射と2-射の型および二種類の合成を区別できる
@@ -13,7 +13,7 @@ learning_objectives:
 definitions:
   - { id: CATB2-08-DEF-01, name: "双圏" }
   - { id: CATB2-08-DEF-02, name: "厳密2-圏" }
-  - { id: CATB2-08-DEF-03, name: "スパンとその射" }
+  - { id: CATB2-08-DEF-03, name: "スパンの射" }
 theorems:
   - { id: CATB2-08-THM-01, name: "小圏の厳密2-圏 Cat" }
   - { id: CATB2-08-THM-02, name: "集合のスパンの双圏 Span" }

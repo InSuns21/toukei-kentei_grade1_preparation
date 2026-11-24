@@ -1,7 +1,7 @@
 chapter: CATB2-08
 scope: dream-theater
 coverage: complete
-prerequisites: [CATB2-07, CAT1-08, CAT2-03, CAT4-01]
+prerequisites: [CATB2-07, CAT1-08, CAT2-03, CAT2-06, CAT4-01]
 concepts:
   - id: category.bicategory
     name: 双圏
@@ -21,18 +21,18 @@ concepts:
     introduction: formal
     introduction_aliases: ["定理（小圏の厳密2-圏 Cat）"]
     requires: [category.strict-two-category, category.functor-category, category.horizontal-composition, category.interchange-law]
-  - id: category.span
-    name: スパンとその射
+  - id: category.span-morphism
+    name: スパンの射
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（スパンとその射）"]
-    requires: []
+    introduction_aliases: ["定義（スパンの射）"]
+    requires: [category.span]
   - id: category.span-bicategory
     name: 集合のスパンの双圏 Span
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（集合のスパンの双圏 Span）"]
-    requires: [category.bicategory, category.span, category.pullback]
+    requires: [category.bicategory, category.span-morphism, category.pullback]
   - id: category.one-object-bicategory
     name: 一対象双圏とモノイダル圏
     kind: proposition
