@@ -38,12 +38,15 @@ function executeLearner(source,steps){
   const canvas={
     width:1024,height:512,addEventListener(){},setAttribute(){},tabIndex:0,title:''
   };
-  runInNewContext(source,{
+  // The isolated browser runner uses new Function and returns live hooks.
+  const hooks=runInNewContext('(function(){\n'+source+'\n})()',{
     gl,canvas,vertexSource:vertex,fragmentSource:fragment,
     settings:{steps},report:(name,message)=>logs.push([name,message]),
     window:{matchMedia:()=>({matches:true})},
     document:{hidden:false},requestAnimationFrame:()=>{}
   },{timeout:15000});
+  assert.equal(typeof hooks.showObservation,'function');
+  assert.equal(typeof hooks.rawPick,'function');
   return {uploads,logs};
 }
 
@@ -82,6 +85,6 @@ test('FCG3 shader selects cells from the actual uploaded texture, not a hard-cod
   assert.match(fragment,/textureSize\(u_numeric,0\)/);
   assert.match(fragment,/floor\(cellUv\*vec2\(gridSize\)\)/);
   assert.doesNotMatch(fragment,/cellUv\*32\.0/);
-  assert.match(fragment,/texelFetch\(u_numeric,cell,0\)/);
-  assert.match(fragment,/texelFetch\(u_exact,cell,0\)/);
+  assert.match(fragment,/texelFetch\(u_numeric,p,0\)/);
+  assert.match(fragment,/texelFetch\(u_exact,p,0\)/);
 });
