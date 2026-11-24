@@ -1,7 +1,7 @@
 chapter: FCG12
 scope: dream-theater
 coverage: complete
-prerequisites: [FCG5, FCG11, FLUID29, FLUID45, FLUID46]
+prerequisites: [FCG5, FCG11, FLUID29, FLUID45, FLUID46, FDM3]
 concepts:
   - id: graphics.fcg12-rusanov
     name: 浅水の Rusanov 流束
