@@ -52,7 +52,7 @@ $$
 となります。負周波数の式は代入直後には $(-K-mI_4)v=0$ であり、全体を負倍しました。$K=-p_\mu G^\mu$ である点にも注意します。
 
 <!-- definition-example-start: def-lrep20-plane-wave -->
-**定義の確認。** $m=2$、$\boldsymbol p=0$ とし、$\chi=(1,0)^{\mathsf T}$ を取ります。$u=(\chi,i\chi)^{\mathsf T}$、$v=(\chi,-i\chi)^{\mathsf T}$ は $Hu=u$、$Hv=-v$ を満たします。$K=2H$ なので $(K-2I_4)u=0$、$(K+2I_4)v=0$ です。従って空間に一定の $ue^{-2it}$ と $ve^{2it}$ は、非零の定数列と指定された周波数を持ち、全時空で自由Dirac方程式を満たします。
+**定義の確認**。 $m=2$、$\boldsymbol p=0$ とし、$\chi=(1,0)^{\mathsf T}$ を取ります。$u=(\chi,i\chi)^{\mathsf T}$、$v=(\chi,-i\chi)^{\mathsf T}$ は $Hu=u$、$Hv=-v$ を満たします。$K=2H$ なので $(K-2I_4)u=0$、$(K+2I_4)v=0$ です。従って空間に一定の $ue^{-2it}$ と $ve^{2it}$ は、非零の定数列と指定された周波数を持ち、全時空で自由Dirac方程式を満たします。
 <!-- definition-example-end -->
 
 平面波は全空間で絶対値が一定なので、ここでいう規格化は空間積分でなく有限次元の係数の規格化です。また負周波数の空間指数は $-i\boldsymbol p\cdot\boldsymbol x$ であり、Fourier波数は $-\boldsymbol p$ です。
