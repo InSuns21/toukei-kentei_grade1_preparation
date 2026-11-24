@@ -190,7 +190,7 @@ theorem reserve_out {cap : Nat} (s : UsedL cap) (h : ¬ (s.val + 1 ≤ cap)) :
 | 3 | 3 | 4 | none |
 | 0 | 0 | 1 | none |
 
-some の中身からは .property によって容量条件を取り出せます。一方、常に0へ戻す関数も同じ状態型を返せます。`Nat.zero_le cap : 0 ≤ cap` は任意の自然数 cap について0が下界であるという標準補題です。
+some の中身からは .property によって容量条件を取り出せます。一方、常に0へ戻す関数も同じ状態型を返せます。`Nat.zero_le cap : 0 ≤ cap` は任意の自然数 cap が0以上であることを証明する標準補題です。
 
 ```lean
 def resetL {cap : Nat} (_ : UsedL cap) : UsedL cap :=
