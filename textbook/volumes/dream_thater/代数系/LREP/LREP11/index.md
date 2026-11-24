@@ -52,7 +52,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep11-pair -->
-**定義の確認。** $m=n=1$ では基底は $xu,xv,yu,yv$ です。$E_L=x\partial_y$、$F_R=v\partial_u$ なので
+**定義の確認**。 $m=n=1$ では基底は $xu,xv,yu,yv$ です。$E_L=x\partial_y$、$F_R=v\partial_u$ なので
 
 $$
 E_L(yu)=xu,\qquad F_R(xu)=xv.
