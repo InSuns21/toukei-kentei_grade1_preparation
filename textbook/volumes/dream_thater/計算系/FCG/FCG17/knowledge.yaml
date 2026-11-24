@@ -1,0 +1,17 @@
+chapter: FCG17
+scope: dream-theater
+coverage: complete
+prerequisites: [FCG5]
+concepts:
+  - id: graphics.fcg17-confinement
+    name: 渦度強調力
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（渦度強調力）"]
+    requires: [graphics.fcg5-viscous-force]
+  - id: graphics.fcg17-energy-kick
+    name: 追加力による離散運動エネルギー変化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（追加力による離散運動エネルギー変化）"]
+    requires: [graphics.fcg17-confinement]
