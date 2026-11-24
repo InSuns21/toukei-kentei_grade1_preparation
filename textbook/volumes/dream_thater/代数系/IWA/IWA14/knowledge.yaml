@@ -1,0 +1,44 @@
+chapter: IWA14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - IWA13
+  - NT2
+  - CA12
+forward_references: []
+concepts:
+  - id: number-theory.iwa14-bernoulli
+    name: Bernoulli数
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: number-theory.iwa14-bernoulli-polynomial
+    name: Bernoulli多項式
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa14-bernoulli]
+  - id: number-theory.iwa14-multiplication
+    name: Bernoulli多項式の分布公式
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa14-bernoulli-polynomial]
+  - id: number-theory.iwa14-regularized-measure
+    name: Bernoulli分布の正則化
+    kind: definition
+    introduction: formal
+    requires: [number-theory.iwa14-multiplication, number-theory.iwa13-distribution]
+  - id: number-theory.iwa14-measure
+    name: 正則化分布の有界性
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa14-regularized-measure]
+  - id: number-theory.iwa14-moments
+    name: 正則化測度の積分公式
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa14-measure, number-theory.iwa13-extension]
+  - id: number-theory.iwa14-kummer
+    name: Kummer合同
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.iwa14-moments, number-theory.finite-field-subgroup-cyclic]

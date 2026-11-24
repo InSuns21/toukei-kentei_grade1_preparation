@@ -59,7 +59,7 @@ chapters:
     title: "p進測度・積分とIwasawa代数"
   - id: IWA14
     path: textbook/volumes/dream_thater/代数系/IWA/IWA14
-    status: planned
+    status: completed
     title: "Kummer合同とBernoulli数"
   - id: IWA15
     path: textbook/volumes/dream_thater/代数系/IWA/IWA15
