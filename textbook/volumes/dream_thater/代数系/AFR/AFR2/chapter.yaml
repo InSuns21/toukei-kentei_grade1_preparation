@@ -1,0 +1,32 @@
+id: "AFR2"
+title: "Maass形式・双曲Laplace作用素"
+volume: "foundations"
+status: supplementary
+prerequisites: [AFR1, GEO12, FOU2, CA1]
+official_scope: []
+learning_objectives:
+  - 上半平面の双曲計量と面積要素を計算し実特殊線形群による保存を証明できる
+  - 双曲Laplace作用素の符号を固定して導出し群作用との可換性を証明できる
+  - 重さ0のMaass形式の不変性・固有方程式・増大条件を区別し直接検証できる
+  - 周期方向のFourier展開と係数方程式を部分積分から導出できる
+  - 定数項の一般解を重根の場合まで求め増大条件を非零周波数に適用できる
+definitions:
+  - { id: AFR2-DEF-01, name: "上半平面の双曲計量" }
+  - { id: AFR2-DEF-02, name: "双曲Laplace作用素" }
+  - { id: AFR2-DEF-03, name: "重さ0のMaass形式" }
+theorems:
+  - { id: AFR2-PROP-01, name: "双曲計量と面積要素の群不変性" }
+  - { id: AFR2-THM-01, name: "双曲Laplace作用素の群作用との可換性" }
+  - { id: AFR2-THM-02, name: "周期方向のFourier展開と係数方程式" }
+  - { id: AFR2-PROP-02, name: "定数項の一般解" }
+canonical_examples:
+  - 反転と拡大における双曲長さの保存
+  - 定数関数と高さのべき乗の固有方程式
+  - 周期指数関数の係数方程式
+  - 重根の対数項
+  - 絶対収束する格子和による非定数Maass形式の構成
+problem_patterns: [AFR2-A1, AFR2-A2, AFR2-A3, AFR2-A4, AFR2-B1, AFR2-B2, AFR2-B3, AFR2-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 2 }
