@@ -312,6 +312,8 @@ $$
 
 <a id="ref-afr19-complex-gaussian"></a>
 
+### 複素Gauss関数の変換と位相
+
 実際、$z$ が上半平面にあるとき $f_z(x)=e^{\pi izx^2}$ と置くと $N_1f_z=f_{z+1}$ です。Fourier変換は
 
 $$
