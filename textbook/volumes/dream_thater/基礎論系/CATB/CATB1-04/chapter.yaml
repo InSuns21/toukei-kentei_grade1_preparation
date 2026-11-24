@@ -1,0 +1,45 @@
+id: "CATB1-04"
+title: "核・余核とアーベル圏"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CATB1-03
+  - RNG1
+official_scope: []
+learning_objectives:
+  - 核と余核の普遍性を任意の射に対して検証できる
+  - 核・余核の消去性と同型一意性を証明できる
+  - 零射条件からモノ射・エピ射を判定できる
+  - 正規モノ射・正規エピ射を核・余核から復元できる
+  - 加群の圏のアーベル圏の公理を構成によって検証できる
+  - 加法圏とアーベル圏の差を反例で説明できる
+definitions:
+  - { id: CATB1-04-DEF-01, name: "圏論的な核" }
+  - { id: CATB1-04-DEF-02, name: "圏論的な余核" }
+  - { id: CATB1-04-DEF-03, name: "正規モノ射・正規エピ射" }
+  - { id: CATB1-04-DEF-04, name: "アーベル圏" }
+theorems:
+  - { id: CATB1-04-PROP-01, name: "核・余核の消去性と同型一意性" }
+  - { id: CATB1-04-PROP-02, name: "零射によるモノ射・エピ射の判定" }
+  - { id: CATB1-04-PROP-03, name: "正規射の核・余核による復元" }
+  - { id: CATB1-04-THM-01, name: "加群の圏はアーベル圏" }
+  - { id: CATB1-04-PROP-04, name: "アーベル圏における同型射の判定" }
+canonical_examples:
+  - 整数座標の核と偶奇への余核
+  - 可換群の倍写像と商射の正規性
+  - 任意の左加群の核と余核の構成
+  - 整数座標に対象を限定した圏の反例
+problem_patterns:
+  - CATB1-04-KERNEL-UNIVERSALITY
+  - CATB1-04-COKERNEL-QUOTIENT
+  - CATB1-04-ZERO-IDENTITY
+  - CATB1-04-MONO-EPI
+  - CATB1-04-KERNEL-ISOMORPHISM
+  - CATB1-04-COKERNEL-UNIVERSALITY
+  - CATB1-04-NORMAL-RECOVERY
+  - CATB1-04-NORMAL-VS-SPLIT
+  - CATB1-04-RESTRICTED-CATEGORY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 6, review: 2 }

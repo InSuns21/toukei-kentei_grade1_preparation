@@ -1,0 +1,68 @@
+chapter: CATB1-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CATB1-03
+  - RNG1
+
+concepts:
+  - id: category.kernel
+    name: 圏論的な核
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（圏論的な核）"]
+    requires: [category.additive-category, category.equalizer, category.zero-composition]
+  - id: category.cokernel
+    name: 圏論的な余核
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（圏論的な余核）"]
+    requires: [category.additive-category, category.coequalizer, category.zero-composition]
+  - id: category.kernel-cokernel-uniqueness
+    name: 核・余核の消去性と同型一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（核・余核の消去性と同型一意性）"]
+    requires: [category.kernel, category.cokernel, category.monomorphism, category.epimorphism, category.isomorphism]
+  - id: category.zero-morphism-test
+    name: 零射によるモノ射・エピ射の判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（零射によるモノ射・エピ射の判定）"]
+    requires: [category.kernel-cokernel-uniqueness, category.zero-object-criterion, category.preadditive-category]
+  - id: category.normal-monomorphism
+    name: 正規モノ射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正規モノ射・正規エピ射）"]
+    requires: [category.kernel, category.monomorphism]
+  - id: category.normal-epimorphism
+    name: 正規エピ射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正規モノ射・正規エピ射）"]
+    requires: [category.cokernel, category.epimorphism]
+  - id: category.normal-morphism-recovery
+    name: 正規射の核・余核による復元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正規射の核・余核による復元）"]
+    requires: [category.normal-monomorphism, category.normal-epimorphism]
+  - id: category.abelian-category
+    name: アーベル圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（アーベル圏）"]
+    requires: [category.additive-category, category.kernel, category.cokernel, category.normal-monomorphism, category.normal-epimorphism]
+  - id: category.module-category-abelian
+    name: 加群の圏はアーベル圏
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（加群の圏はアーベル圏）"]
+    requires: [category.abelian-category, category.zero-morphism-test, algebra.unital-ring, category.finite-biproduct]
+  - id: category.abelian-category-balanced
+    name: アーベル圏における同型射の判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（アーベル圏における同型射の判定）"]
+    requires: [category.abelian-category, category.kernel, category.isomorphism]
