@@ -1,0 +1,25 @@
+chapter: LVT1-06
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT1-05]
+concepts:
+  - id: lean-verification.pure-function
+    name: 純粋関数
+    kind: definition
+    introduction: formal
+  - id: lean-verification.reference-model
+    name: 実行可能な参照モデル
+    kind: definition
+    introduction: formal
+  - id: lean-verification.io-boundary
+    name: 入出力境界
+    kind: definition
+    introduction: formal
+  - id: lean-verification.place-update
+    name: 着手の分岐と更新位置
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.decode-rejection
+    name: 復号失敗の伝播
+    kind: proposition
+    introduction: formal

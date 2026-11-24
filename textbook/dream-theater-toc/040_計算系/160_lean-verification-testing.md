@@ -6,3 +6,4 @@
 3. [LVT1-03 型・関数・帰納型・Option/Except](textbook/volumes/dream_thater/計算系/LVT/LVT1-03/index.md)
 4. [LVT1-04 パターン照合・再帰・停止性](textbook/volumes/dream_thater/計算系/LVT/LVT1-04/index.md)
 5. [LVT1-05 List・Array・Finと安全な添字](textbook/volumes/dream_thater/計算系/LVT/LVT1-05/index.md)
+6. [LVT1-06 純粋な参照モデルと入出力境界](textbook/volumes/dream_thater/計算系/LVT/LVT1-06/index.md)
