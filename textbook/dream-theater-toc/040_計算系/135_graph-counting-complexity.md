@@ -8,3 +8,4 @@
 5. [GCT5 木・森・カット・separator：木上の動的計画](textbook/volumes/dream_thater/計算系/GCT/GCT5/index.md)
 6. [GCT6 木分解とtreewidth：境界状態による計数](textbook/volumes/dream_thater/計算系/GCT/GCT6/index.md)
 7. [GCT7 グラフ準同型・制約充足問題と因子グラフ](textbook/volumes/dream_thater/計算系/GCT/GCT7/index.md)
+8. [GCT8 格子状制約・局所表・重み付き分配和](textbook/volumes/dream_thater/計算系/GCT/GCT8/index.md)

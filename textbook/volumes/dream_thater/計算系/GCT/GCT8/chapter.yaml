@@ -1,0 +1,37 @@
+id: "GCT8"
+title: "格子状制約・局所表・重み付き分配和"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GCT7
+official_scope: []
+learning_objectives:
+  - 格子上の局所表と重みを定めて全割当の積和を書ける
+  - 小格子の分配和を直接列挙し計数と重み付き総和を区別できる
+  - 行状態による分配和漸化式を導出して適用できる
+  - 転送行列を作り行状態の集計と計算量を説明できる
+  - 隣接二行の仮定を外したときの状態不足を説明できる
+definitions:
+  - { id: GCT8-DEF-01, name: "格子状局所因子系" }
+  - { id: GCT8-DEF-02, name: "重み付き分配和" }
+theorems:
+  - { id: GCT8-THM-01, name: "行状態による分配和漸化式" }
+  - { id: GCT8-THM-02, name: "転送行列表示" }
+canonical_examples:
+  - 二行二列の独立選択の重み付き計数
+  - 四隅を参照する局所表
+  - 行状態の集計と遠隔制約の反例
+problem_patterns:
+  - GCT8-LOCAL
+  - GCT8-WEIGHT
+  - GCT8-PLAQUETTE
+  - GCT8-DUPLICATION
+  - GCT8-ROW-DP
+  - GCT8-TRANSFER
+  - GCT8-LONG-RANGE
+  - GCT8-COST
+  - GCT8-POLYNOMIAL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }
