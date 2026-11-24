@@ -447,7 +447,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Selmer双対の有限生成判定）**
-> 素数 $p$、連続な $\Gamma\simeq\mathbb Z_p$ 作用を持つ離散 $p$ べきねじれAbel群 $D$ を取る。$X=D^\vee$ に [Pontryagin双対](#def-iwa18-pontryagin) の左作用を入れ、位相的生成元 $\gamma$ に対し $\Lambda=\mathbb Z_p[[T]]$、$T=\gamma-1$ とする。$D[p]^\Gamma=\{a\in D:pa=0,\ \gamma a=a\}$ が有限であることと $X$ が有限生成 $\Lambda$ 加群であることは同値である。
+> 素数 $p$ を固定する。離散 $p$ べきねじれAbel群 $D$ が $\Gamma\simeq\mathbb Z_p$ の連続作用を持つとする。
+>
+> $X=D^\vee$ に [Pontryagin双対](#def-iwa18-pontryagin) の左作用を入れる。位相的生成元 $\gamma$ を選び、$\Lambda=\mathbb Z_p[[T]]$、$T=\gamma-1$ とする。
+>
+$$
+D[p]^\Gamma=\{a\in D:pa=0,\ \gamma a=a\}
+$$
+>
+> が有限であることと、$X$ が有限生成 $\Lambda$ 加群であることは同値である。
 <!-- formal-statement-end -->
 
 ここで $D[p]^\Gamma$ は $p$ 倍で消え、かつ $\Gamma$ に固定される元です。最も小さい商 $X/(pX+TX)$ の生成元を持ち上げるだけで全体を生成できることを示します。
