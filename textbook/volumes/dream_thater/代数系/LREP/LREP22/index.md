@@ -172,7 +172,18 @@ $\eta(Qv,e_0)=\eta(v,Q^{-1}e_0)=0$ が時間成分0の全ての $v$ に成り立
 
 ## 3. 第一の不変量：質量の二乗
 
-群表現の運動量が一つの質量を持つとは、すべての状態が同じ運動量を持つという意味ではありません。[被覆Poincare群](../LREP21/index.md#def-lrep21-covered-poincare) の [強連続ユニタリ表現](../LREP21/index.md#def-lrep21-unitary-representation) を $U$ とし、$T(a)=U(a,I)$、$V(A)=U(0,A)$、$\Lambda=\rho(A)$ と書きます。$\rho$ は [Lorentz群の二重被覆](../LREP10/index.md#thm-lrep10-double-cover) の写像です。[並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum) の共同PVM $F$ を質量の二乗へ移して考えます。$D(C_m)$ は作用素の定義域、$d\langle\psi,F(p)\psi\rangle$ は集合 $B$ に $\langle\psi,F(B)\psi\rangle$ を割り当てる有限正測度による積分です。
+群表現の運動量が一つの質量を持つとは、すべての状態が同じ運動量を持つという意味ではありません。
+
+[被覆Poincare群](../LREP21/index.md#def-lrep21-covered-poincare) の [強連続ユニタリ表現](../LREP21/index.md#def-lrep21-unitary-representation) を $U$ とします。並進とLorentz部分の作用を
+
+$$
+T(a)=U(a,I),\qquad V(A)=U(0,A),
+\qquad \Lambda=\rho(A)
+$$
+
+と書きます。$\rho$ は [Lorentz群の二重被覆](../LREP10/index.md#thm-lrep10-double-cover) の写像です。
+
+[並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum) の共同PVM $F$ を質量の二乗へ移して考えます。$D(C_m)$ は作用素の定義域です。積分記号 $d\langle\psi,F(p)\psi\rangle$ は集合 $B$ に $\langle\psi,F(B)\psi\rangle$ を割り当てる有限正測度による積分です。
 
 <a id="thm-lrep22-mass-casimir"></a>
 
@@ -200,7 +211,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[正エネルギー表現](../LREP21/index.md#def-lrep21-positive-energy)では $p^0\ge|\boldsymbol p|$ がPVMの意味で成立するので $h(p)=-\eta(p,p)$ は $F$ の意味でほとんど至る所で非負です。[並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum)の $F$ に対して、実関数 $h(p)$ による像測度を $F_h(D)=F(h^{-1}(D))$ と定めます。逆像は交わり・可算和を保ち、$F_h(\mathbb R)=I$ なので $F_h$ もPVMです。[実座標のスペクトル積分の自己共役性](../../../解析系/QM/QM6/index.md#thm-qm6-spectral-integral-self-adjoint) と [非有界スペクトル積分の定義域](../../../解析系/QM/QM6/index.md#prop-qm6-unbounded-integral-domain) をこの一次元のPVMに適用すると、
+[正エネルギー表現](../LREP21/index.md#def-lrep21-positive-energy)では $p^0\ge|\boldsymbol p|$ がPVMの意味で成立します。したがって $h(p)=-\eta(p,p)$ は $F$ の意味でほとんど至る所で非負です。
+
+[並進の共同スペクトル表示](../LREP21/index.md#thm-lrep21-translation-spectrum)の $F$ に対して、実関数 $h$ による像測度を
+
+$$
+F_h(D)=F(h^{-1}(D))
+$$
+
+と定めます。逆像は交わり・可算和を保ち、$F_h(\mathbb R)=I$ なので $F_h$ もPVMです。
+
+[実座標のスペクトル積分の自己共役性](../../../解析系/QM/QM6/index.md#thm-qm6-spectral-integral-self-adjoint) と [非有界スペクトル積分の定義域](../../../解析系/QM/QM6/index.md#prop-qm6-unbounded-integral-domain) をこの一次元のPVMに適用すると、
 
 $$
 C_m=\int_{\mathbb R}\lambda\,dF_h(\lambda),
@@ -243,7 +264,22 @@ $m=0$ の場合は原点と非零光的軌道の区別が質量だけではで�
 
 角運動量の三成分は空間回転には自然ですが、boostを施すと回転生成子も混ざります。[LREP9の回転・boost生成子](../LREP9/index.md#def-lrep9-rotation-boost)を反対称な二添字にまとめ、運動量と組み合わせます。
 
-ここからは正エネルギー条件を課さず、被覆Poincare群の任意の強連続ユニタリ表現 $U$ を扱います。Lie環元 $Y$ に対する微分生成作用素は $dU(Y)\psi=\left.\frac{d}{dt}U(\exp(tY))\psi\right|_{t=0}$ と書きます。$t$ は実数であり、微分はHilbert空間のノルムで取ります。$U$ の滑らかなベクトルの空間 $\mathcal D$、すなわち $g\mapsto U(g)\psi$ がノルムで無限回微分可能な $\psi$ の全体で計算します。これは群の作用で不変で、微分生成作用素を適用しても滑らかです。後者は $U(g)dU(Y)\psi$ が $(g,t)\mapsto U(g\exp(tY))\psi$ の $t=0$ での微分であることから従います。
+ここからは正エネルギー条件を課さず、被覆Poincare群の任意の強連続ユニタリ表現 $U$ を扱います。Lie環元 $Y$ に対する微分生成作用素を
+
+$$
+dU(Y)\psi=\left.\frac{d}{dt}U(\exp(tY))\psi\right|_{t=0}
+$$
+
+と書きます。$t$ は実数であり、微分はHilbert空間のノルムで取ります。
+
+$U$ の滑らかなベクトルの空間 $\mathcal D$、すなわち $g\mapsto U(g)\psi$ がノルムで無限回微分可能な $\psi$ の全体で計算します。これは群の作用で不変で、微分生成作用素を適用しても滑らかです。後者は
+
+$$
+U(g)dU(Y)\psi
+=\left.\frac{d}{dt}U(g\exp(tY))\psi\right|_{t=0}
+$$
+
+が滑らかな二変数の写像の偏微分であることから従います。
 
 この空間は稠密です。単位元近傍に台を持つ滑らかな非負関数 $\phi_n$ を左不変体積に関して積分1に規格化し、その台を単位元へ縮めます。左不変体積は単位元の体積形式を左移動して作れます。任意の $\psi$ に対して $\psi_n=\int\phi_n(g)U(g)\psi\,dg$ と置くと、
 
@@ -450,7 +486,17 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（正質量の静止系スピン不変量）**
-> $m>0$ の質量殻上で、滑らかな有限次元内部空間を持ち、質量殻測度 $\mu_m$ で内部ノルムの二乗を積分したHilbert空間を考える。並進が位相乗算、Lorentz作用が $(V(A)f)(p)=D(A,p)f(\rho(A)^{-1}p)$ で与えられる強連続ユニタリ表現を考える。$D(A,p)$ は $\rho(A)^{-1}p$ から $p$ の内部空間への可逆線形写像で、$(A,p)$ に関して滑らかとする。滑らかなコンパクト台の切断を共通領域 $\mathcal D$ に含むとする。静止運動量における回転がスピン $s$ の有限次元既約ユニタリ $SU(2)$ 表現であるとする。この内部空間上のPauli–Lubanski成分は
+> $m>0$ の質量殻上で、滑らかな有限次元内部空間を持ち、質量殻測度 $\mu_m$ で内部ノルムの二乗を積分したHilbert空間を考える。
+>
+> 並進が位相乗算、Lorentz作用が次式で与えられる強連続ユニタリ表現を考える。
+>
+> $$
+> (V(A)f)(p)=D(A,p)f(\rho(A)^{-1}p).
+> $$
+>
+> $D(A,p)$ は $\rho(A)^{-1}p$ から $p$ の内部空間への可逆線形写像で、$(A,p)$ に関して滑らかとする。
+>
+> 滑らかなコンパクト台の切断を共通領域 $\mathcal D$ に含むとする。静止運動量における回転がスピン $s$ の有限次元既約ユニタリ $SU(2)$ 表現であるとする。この内部空間上のPauli–Lubanski成分は
 
 $$
 W^0(k_m)=0,\qquad W^i(k_m)=mJ_i .
