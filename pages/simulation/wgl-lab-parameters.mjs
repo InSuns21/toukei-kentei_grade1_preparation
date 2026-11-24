@@ -3,6 +3,12 @@
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
 
 export const LAB_PARAMETERS = Object.freeze({
+  FCG19: Object.freeze([
+    Object.freeze({id:'modelIndex',type:'number',label:'モデル（0染料・1浅水・2煙）',default:0,min:0,max:2,step:1,unit:'番号',meaning:'FCG5・FCG12・FCG14から選択',sourceLocation:'performance.js / const modelIndex',sourceFile:'js',index:null,matcher:/^([ \t]*const modelIndex=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'renderScale',type:'number',label:'描画倍率',default:1,min:0.125,max:1,step:0.125,unit:'無次元',meaning:'FBOの各辺の倍率。物理格子は固定',sourceLocation:'performance.js / const renderScale',sourceFile:'js',index:null,matcher:/^([ \t]*const renderScale=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'formatIndex',type:'number',label:'転送（0 R32F・1 R8）',default:0,min:0,max:1,step:1,unit:'番号',meaning:'物理場の表示用コピーの格納形式',sourceLocation:'performance.js / const formatIndex',sourceFile:'js',index:null,matcher:/^([ \t]*const formatIndex=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'playbackMs',type:'number',label:'更新の最小間隔',default:100,min:50,max:250,step:50,unit:'ms',meaning:'実時間の更新間隔。物理刻みではない',sourceLocation:'performance.js / const playbackMs',sourceFile:'js',index:null,matcher:/^([ \t]*const playbackMs=)([^;\n]+)(;)/gm}),
+  ]),
   FCG18: Object.freeze([
     Object.freeze({id:'mass',type:'number',label:'浮体質量',default:0.4,min:0.2,max:1,step:0.2,unit:'kg',meaning:'右の浮体の質量',sourceLocation:'coupling.js / const mass',sourceFile:'js',index:null,matcher:/^([ \t]*const mass=)([^;\n]+)(;)/gm}),
     Object.freeze({id:'restitution',type:'number',label:'反発係数',default:1,min:0,max:1,step:0.25,unit:'無次元',meaning:'接触後の法線相対速度の割合',sourceLocation:'coupling.js / const restitution',sourceFile:'js',index:null,matcher:/^([ \t]*const restitution=)([^;\n]+)(;)/gm}),

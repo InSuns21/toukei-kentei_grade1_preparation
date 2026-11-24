@@ -119,6 +119,14 @@ const descriptions = Object.freeze({
     mode: '初期設定はpicMix=0、flipMix=1。格子と粒子の位置を物理stepごとに更新し、右列は24×24節点値の最近傍表示。時刻は開始時の検算時刻',
     source: 'particle.js（N, count, dt, damp, force, picMix, flipMix, transfer）/ particle.frag（u_pic, u_flip, u_speed）'
   }),
+  FCG19: Object.freeze({
+    requiresSteps:false,
+    grid:'FCG5/14：48×48、FCG12：40×40。表示用FBOは描画倍率で変更',
+    color:'暗い青→明るい水色。染料0〜1、水深0〜1 m、煙0〜1.1',
+    clock:()=> '物理時刻0〜1.2 s。FCG5は0.04 s、FCG14は0.025 s、FCG12は0.05 s区間内をCFLで分割',
+    mode:'CPU更新、GPU時間（拡張対応時）、FPS、転送誤差、物理診断を別々に測定',
+    source:'performance.js（modelIndex, renderScale, formatIndex, playbackMs） / performance.frag（色と格子参照）'
+  }),
   FCG18: Object.freeze({
     requiresSteps:false,
     grid:'1 m四方を左右に表示。各24点粒子、半径0.12 mの円形浮体',
