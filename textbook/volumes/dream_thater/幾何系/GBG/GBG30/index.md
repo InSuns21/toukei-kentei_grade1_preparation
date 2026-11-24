@@ -227,7 +227,11 @@ $$
 これと $c(e_a)\chi=-\chi c(e_a)$ を合わせると $D_E\chi=-\chi D_E$。主シンボルも両部分束を交換し、$\sigma_D^-\sigma_D^+=|\xi|^2 I_{W^+}$ および $\sigma_D^+\sigma_D^-=|\xi|^2 I_{W^-}$。従って非零 $\xi$ でそれぞれ可逆である。
 <!-- proof-end -->
 
-ここから $M$ をコンパクトかつ境界なしと仮定する。$L^2$ は二乗可積分な切断の Hilbert 空間、$H^1$ は弱い意味での一階微分も二乗可積分な切断の空間である。これらの解析的構成は本講の証明範囲外だが、定義域を明示して使う。一般の楕円作用素の解析から $D_E^+:H^1(W^+)\to L^2(W^-)$ は Fredholm（核・余核が有限次元で像が閉じている）で、核の元は滑らかである。またユニタリ接続・Clifford 作用の反自己共役性・境界なしの部分積分により $D_E$ は形式的自己共役、$D_E^+$ の形式随伴は $D_E^-$ となる。楕円正則性により余核は $D_E^-$ の滑らかな核と同一視される。これらの一般解析定理はここでは入力とする。
+ここから $M$ をコンパクトかつ境界なしと仮定する。$L^2$ は二乗可積分な切断の Hilbert 空間、$H^1$ は弱い意味での一階微分も二乗可積分な切断の空間である。これらの解析的構成は本講の証明範囲外だが、定義域を明示して使う。
+
+一般の楕円作用素の解析から $D_E^+:H^1(W^+)\to L^2(W^-)$ は Fredholm（核・余核が有限次元で像が閉じている）で、核の元は滑らかである。
+
+またユニタリ接続・Clifford 作用の反自己共役性・境界なしの部分積分により $D_E$ は形式的自己共役、$D_E^+$ の形式随伴は $D_E^-$ となる。楕円正則性により余核は $D_E^-$ の滑らかな核と同一視される。これらの一般解析定理はここでは入力とする。
 
 <a id="def-gbg30-index"></a>
 
@@ -272,7 +276,19 @@ $$
 
 この定理は微分方程式の解の差を、既習の曲率から計算できることを意味する。適用を二次元と四次元に絞って自力で展開する。
 
-二次元では $\widehat A$ の正次数部分は4以上なので、積の2形式は $c_1(E)$ だけである。$E$ が線束なら $\operatorname{ind}D_E^+=(i/2\pi)\int F$。球面にスピン構造が存在することも確認しよう。単位球面 $S^d$（ここでは $d=2,4$）では $T_xS^d=x^\perp\subset\mathbb R^{d+1}$ である。正の直交接枠に法線 $x$ を最後に加えると正の直交枠 $(e_1,\ldots,e_d,x)$ を得る（$d$ は偶数）。従って直交枠束は $SO(d+1)$ の最終列を $x$ とする部分に対応する。標準スピン被覆では、最後の座標を固定する $SO(d)$ の逆像は $\operatorname{Spin}(d)$ である。この群の性質を入力として、$Q=\operatorname{Spin}(d+1)$ を $S^d$ 上の束と見る。射影は被覆写像で得た行列の最終列である。二つの元が同じ $x$ に写ればその比は $\operatorname{Spin}(d)$ に入り、右作用は自由で推移的である。局所的な直交接枠を小さな座標近傍で被覆へ持ち上げれば局所自明化を得る。被覆から最初の $d$ 列を取る写像は射影を保ち、右作用を $SO(d)$ の作用へ移すので、[スピン構造の条件](../GBG29/index.md#def-gbg29-spin-structure)を満たす。[Dirac monopole の磁束計算](../GBG19/index.md#thm-gbg19-curvature-flux)の線束では $F=-in\sin\vartheta\,d\vartheta\wedge d\varphi/2$。外向きの向きで積分すると $i(-in)/(4\pi)\cdot2\cdot2\pi=n$。従って指数は $n$ である。
+二次元では $\widehat A$ の正次数部分は4以上なので、積の2形式は $c_1(E)$ だけである。$E$ が線束なら $\operatorname{ind}D_E^+=(i/2\pi)\int F$。
+
+球面にスピン構造が存在することも確認しよう。単位球面 $S^d$（ここでは $d=2,4$）では $T_xS^d=x^\perp\subset\mathbb R^{d+1}$ である。
+
+正の直交接枠に法線 $x$ を最後に加えると正の直交枠 $(e_1,\ldots,e_d,x)$ を得る（$d$ は偶数）。従って直交枠束は $SO(d+1)$ の最終列を $x$ とする部分に対応する。
+
+標準スピン被覆では、最後の座標を固定する $SO(d)$ の逆像は $\operatorname{Spin}(d)$ である。この群の性質を入力として、$Q=\operatorname{Spin}(d+1)$ を $S^d$ 上の束と見る。射影は被覆写像で得た行列の最終列である。
+
+二つの元が同じ $x$ に写ればその比は $\operatorname{Spin}(d)$ に入り、右作用は自由で推移的である。局所的な直交接枠を小さな座標近傍で被覆へ持ち上げれば局所自明化を得る。
+
+被覆から最初の $d$ 列を取る写像は射影を保ち、右作用を $SO(d)$ の作用へ移すので、[スピン構造の条件](../GBG29/index.md#def-gbg29-spin-structure)を満たす。
+
+[Dirac monopole の第一 Chern 数の計算](../GBG19/index.md#thm-gbg19-curvature-flux)の線束では $F=-in\sin\vartheta\,d\vartheta\wedge d\varphi/2$。外向きの向きで積分すると $i(-in)/(4\pi)\cdot2\cdot2\pi=n$。従って指数は $n$ である。
 
 四次元で $r=\operatorname{rank}E$ と書く。[Chern 指標と低次 Chern 形式の関係](../GBG23/index.md#prop-gbg23-chern-character-degrees)より、次数0、2、4の部分を掛けると
 
@@ -290,7 +306,13 @@ $$
 
 丸い $S^4$ のスピン構造には直前の $d=4$ の構成を使う。
 
-丸い球面の曲率行列は正規直交余枠 $\theta^a$ で $R_{ab}=K\theta^a\wedge\theta^b$（$K$ は一定断面曲率、全体符号を逆にしても以下は同じ）。各 $R_{ab}\wedge R_{ab}=0$ だから [第一 Pontryagin 形式の跡公式](../GBG24/index.md#prop-gbg24-first-pontryagin)より $p_1(TM)=0$。従って [BPST 束の第二 Chern 数](../GBG28/index.md#thm-gbg28-nontrivial) $-1$ を代入すると指数は $+1$ となる。この計算は $S^4$ 上に滑らかに貼り合わせた接続に対して行った。非コンパクトな $\mathbb R^4$ 上に同じ Fredholm の結論を条件なしで適用してはいけない。また指数だけでは二つの核の個別次元は分からない。
+丸い球面の曲率行列は正規直交余枠 $\theta^a$ で $R_{ab}=K\theta^a\wedge\theta^b$（$K$ は一定断面曲率、全体符号を逆にしても以下は同じ）。
+
+各 $R_{ab}\wedge R_{ab}=0$ だから [第一 Pontryagin 形式の跡公式](../GBG24/index.md#prop-gbg24-first-pontryagin)より $p_1(TM)=0$。
+
+従って [BPST 束の第二 Chern 数](../GBG28/index.md#thm-gbg28-nontrivial) $-1$ を代入すると指数は $+1$ となる。
+
+この計算は $S^4$ 上に滑らかに貼り合わせた接続に対して行った。非コンパクトな $\mathbb R^4$ 上に同じ Fredholm の結論を条件なしで適用してはいけない。また指数だけでは二つの核の個別次元は分からない。
 
 ## 5. 古典的な共変性から量子異常へ
 
@@ -352,7 +374,7 @@ $$
 外向きの球面上の monopole 線束で $n=-3$ とする。曲率から指数を求め、核の次元に何が言えるか答えよ。
 
 <!-- solution-start -->
-**詳細解答**。[磁束の定理](../GBG19/index.md#thm-gbg19-curvature-flux)の曲率に $n=-3$ を入れると $F=3i\sin\vartheta\,d\vartheta\wedge d\varphi/2$。積分は $6\pi i$。球面はコンパクト・境界なしで前述のスピン構造を持つので [指数定理のスピン Dirac 型](#thm-gbg30-index-bridge) を適用でき、指数は $(i/2\pi)6\pi i=-3$。従って $\dim\ker D^-=\dim\ker D^++3$、負側は少なくとも3次元である。正側が零とはまだ結論できない。
+**詳細解答**。[第一 Chern 数の定理](../GBG19/index.md#thm-gbg19-curvature-flux)の曲率に $n=-3$ を入れると $F=3i\sin\vartheta\,d\vartheta\wedge d\varphi/2$。積分は $6\pi i$。球面はコンパクト・境界なしで前述のスピン構造を持つので [指数定理のスピン Dirac 型](#thm-gbg30-index-bridge) を適用でき、指数は $(i/2\pi)6\pi i=-3$。従って $\dim\ker D^-=\dim\ker D^++3$、負側は少なくとも3次元である。正側が零とはまだ結論できない。
 <!-- solution-end -->
 
 <a id="ex-gbg30-b01"></a>
@@ -415,7 +437,11 @@ $$
 <!-- solution-start -->
 **詳細解答**。(i) 4節の球面の構成で $d=2,4$ を選ぶ。外向き法線を最後の列に持つ枠をスピン被覆で持ち上げると、各ファイバーは Spin($d$) の右作用で自由かつ推移的であり、被覆は枠束への同変写像を与える。従って [スピン構造の条件](../GBG29/index.md#def-gbg29-spin-structure) を満たす。どちらもゲージ束とは別の構造である。
 
-(ii) $S^2$ は [monopole の曲率と第一 Chern 数](../GBG19/index.md#thm-gbg19-curvature-flux)より $(i/2\pi)\int F=2$。コンパクト・境界なしでスピン構造を固定したから [指数定理](#thm-gbg30-index-bridge)の次数2部分を使って $N_+-N_-=2$。$S^4$ では [BPST 束の第二 Chern 数](../GBG28/index.md#thm-gbg28-nontrivial) が $-1$。丸い計量の $R_{ab}$ は単純2形式なので各平方が零、[Pontryagin の跡公式](../GBG24/index.md#prop-gbg24-first-pontryagin)で $p_1=0$。基本表現の跡零から次数4部分は $-c_2-p_1/12$、従って $N_+-N_-=1$。
+(ii) $S^2$ は [monopole の曲率と第一 Chern 数](../GBG19/index.md#thm-gbg19-curvature-flux)より $(i/2\pi)\int F=2$。コンパクト・境界なしでスピン構造を固定したから [指数定理](#thm-gbg30-index-bridge)の次数2部分を使って $N_+-N_-=2$。
+
+$S^4$ では [BPST 束の第二 Chern 数](../GBG28/index.md#thm-gbg28-nontrivial) が $-1$。丸い計量の $R_{ab}$ は単純2形式なので各平方が零、[Pontryagin の跡公式](../GBG24/index.md#prop-gbg24-first-pontryagin)で $p_1=0$。
+
+基本表現の跡零から次数4部分は $-c_2-p_1/12$、従って $N_+-N_-=1$。
 
 (iii) 各変数の積分測度は逆位相を得るから $J_0=e^{-i\alpha(N_+-N_-)}$。球面では $e^{-i\pi}=-1$、四次元球面では $e^{-i\pi/2}=-i$。これは指定した一組の変数の変換である。
 
@@ -424,6 +450,6 @@ $$
 
 ## 7. まとめ
 
-主束の遷移関数から場を作り、接続で微分し、Clifford 作用で Dirac 方程式を大域化した。楕円性・コンパクト性を足すと零モードの差を数えられ、指数定理を通して Chern–Weil 形式の積分に到達する。これまで計算した磁束や第二 Chern 数はその具体的な入力である。量子測度の問題はこの古典幾何を土台とする次の理論である。
+主束の遷移関数から場を作り、接続で微分し、Clifford 作用で Dirac 方程式を大域化した。楕円性・コンパクト性を足すと零モードの差を数えられ、指数定理を通して Chern–Weil 形式の積分に到達する。これまで計算した第一 Chern 数や第二 Chern 数はその具体的な入力である。量子測度の問題はこの古典幾何を土台とする次の理論である。
 
 参考文献：Lawson–Michelsohn, [Spin Geometry](https://press.princeton.edu/books/hardcover/9780691085425/spin-geometry)（スピン Dirac 作用素・指数定理）；Nakahara, [Geometry, Topology and Physics](https://www.routledge.com/Geometry-Topology-and-Physics-2nd-Edition/Nakahara/p/book/9780750306065)（特性類・指数・異常）。
