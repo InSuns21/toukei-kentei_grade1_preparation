@@ -67,7 +67,25 @@ $$
 $$
 <!-- formal-statement-end -->
 
-ここで $\lambda_j:Wj\to\mathcal C(L,Dj)$ は自然変換の成分を評価で表した射である。誘導族の自然性を確認するには、$\mathcal J(i,j)$ の作用と $\lambda_i$ の脚、$\mathcal C(X,L)$ の射を順に合成する。$\lambda$ の自然性によって先に $\mathcal J(i,j)$ を $Wi$ に作用させても同じ脚になり、豊穣圏の結合律によって $X$ からの射をどちらの段階で前合成しても結果は一致する。従って [パラメータ付き自然性](../CATB2-04/index.md#def-catb2-04-natural-family)を満たし、上の $\Phi_X$ が確かに存在する。
+ここで $\lambda_j:Wj\to\mathcal C(L,Dj)$ は自然変換の成分を評価で表した射である。
+
+誘導族の自然性を確認するには、まず入力を $\mathcal J(i,j)\otimes Wi\otimes\mathcal C(X,L)$ の順に並べる。重みの作用を $d^W_{ij}$、図式の構造射を $D_{ij}$ とすると、脚の自然性は
+
+$$
+\lambda_j d^W_{ij}=m(D_{ij}\otimes\lambda_i)
+$$
+
+である。この等式の両辺を $X$ からの射で前合成する。豊穣圏の結合律により
+
+$$
+\begin{aligned}
+m((\lambda_j d^W_{ij})\otimes1)
+&=m(m(D_{ij}\otimes\lambda_i)\otimes1)\\
+&=m(D_{ij}\otimes m(\lambda_i\otimes1)).
+\end{aligned}
+$$
+
+最終行は先に脚を作り、図式の射で後合成する経路である。対称性でパラメータを先頭に戻せば [パラメータ付き自然性](../CATB2-04/index.md#def-catb2-04-natural-family) の二経路が一致する。従って $\Phi_X$ が存在する。
 
 <!-- definition-example-start: def-catb2-05-weighted-limit -->
 **定義の確認。** 基底を集合、添字圏を対象一つ・恒等射だけの圏、図式の値を $A=\{0,1,2\}$、重みの値を $S=\{p,q\}$ とする。どちらの関手も恒等射を恒等射へ送るので自然性の追加条件はない。$L=A^S$ を $S$ から $A$ への写像の集合とし、$\lambda_p,\lambda_q:L\to A$ はそれぞれ $p,q$ での評価とする。
@@ -181,7 +199,35 @@ $$
 余極限候補 $(Q,\iota),(Q',\iota')$ には $h:Q\to Q'$ と $k:Q'\to Q$ が一意に存在し、$h\circ\iota_j=\iota'_j$、$k\circ\iota'_j=\iota_j$ を満たす。$(kh)\circ\iota_j=k\circ\iota'_j=\iota_j$ より $kh=1_Q$、$(hk)\circ\iota'_j=h\circ\iota_j=\iota'_j$ より $hk=1_{Q'}$ である。いずれも脚を保つ射そのものが一意なので、求める同型も一意である。
 <!-- proof-end -->
 
-この表現同型の自然性も、前合成・後合成から直接確認できる。極限側で $v:X'\to X$ を取る。$f:X\to L$ を先に $v$ と合成してから脚を作ると各成分は $\lambda_j\circ(fv)$ となる。一方、先に脚を作ると $(\lambda_j\circ f)\circ v$ となる。豊穣圏の結合律で一致する。単に台の射でなく、$\mathcal C(X',X)\otimes\mathcal C(X,L)\otimes Wj$ 全体を入力とした二つの構造射についても、対称性で $Wj$ を先頭に移せば同じ結合律で一致する。第2節のHom対象の普遍性で成分が全て一致することから、同型は $X$ について豊穣自然である。余極限側で $v:X\to X'$ とすれば $v\circ(f\circ\iota_j)=(vf)\circ\iota_j$ であり、$\mathcal C(X,X')\otimes\mathcal C(Q,X)\otimes Wj$ を入力とする構造射も同じ結合律で一致する。
+この表現同型の自然性も、前合成・後合成から直接確認できる。極限側で $v:X'\to X$ と $f:X\to L$ を取る。先に二射を合成する経路と、先に脚を作る経路の一致は
+
+$$
+\lambda_j\circ(fv)=(\lambda_j\circ f)\circ v
+$$
+
+という結合律で表される。
+
+豊穣自然性を確認するためには、単に台の射でなく次のHom対象全体を入力とする。
+
+$$
+\mathcal C(X',X)\otimes\mathcal C(X,L)\otimes Wj.
+$$
+
+対称性で重みの因子を先頭へ移すと、二つの構造射は脚の構造射を適用した後の三射の合成になる。豊穣圏の結合律で両者は一致する。[Hom対象の普遍性](../CATB2-04/index.md#prop-catb2-04-natural-hom-universal)により全成分での一致は誘導射の一致を意味するので、同型は試験対象について豊穣自然である。
+
+余極限側では $v:X\to X'$ に対して
+
+$$
+v\circ(f\circ\iota_j)=(vf)\circ\iota_j
+$$
+
+となる。ここでも台の射だけでなく
+
+$$
+\mathcal C(X,X')\otimes\mathcal C(Q,X)\otimes Wj
+$$
+
+を入力とする二つの構造射を比較する。余極限の脚を適用した後、三射を合成する順序だけが異なるため、豊穣圏の結合律で一致する。
 
 ## 6. 一元集合の重みで通常の極限を取り戻す
 
