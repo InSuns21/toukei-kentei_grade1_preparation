@@ -1,0 +1,28 @@
+id: "AFR15"
+title: "分岐局所表現・newvector"
+volume: "foundations"
+status: supplementary
+prerequisites: [AFR14]
+official_scope: []
+learning_objectives:
+  - レベル部分群と主合同部分群を区別し中心指標との関係を証明できる
+  - 指標と表現の導手指数および新ベクトルを定義できる
+  - レベル二重剰余類と安定化条件から主系列の固定空間の次元を計算できる
+  - Whittaker汎関数の変換則と既約表現の模型への単射性を証明できる
+  - 主系列の安定Whittaker積分を構成し分岐した具体例で新ベクトルを規格化できる
+definitions:
+  - { id: AFR15-DEF-01, name: "レベル部分群" }
+  - { id: AFR15-DEF-02, name: "導手指数と新ベクトル" }
+  - { id: AFR15-DEF-03, name: "Whittaker汎関数と模型" }
+theorems:
+  - { id: AFR15-THM-01, name: "レベルと中心指標" }
+  - { id: AFR15-THM-02, name: "レベル二重剰余類" }
+  - { id: AFR15-THM-03, name: "主系列の導手と固定空間" }
+  - { id: AFR15-THM-04, name: "Whittaker関数の変換則" }
+  - { id: AFR15-THM-05, name: "主系列の安定Whittaker積分" }
+canonical_examples: [法3の符号指標, 分岐主系列の新ベクトル, 分岐した一次元表現]
+problem_patterns: [AFR15-A1, AFR15-A2, AFR15-A3, AFR15-A4, AFR15-B1, AFR15-B2, AFR15-B3, AFR15-C1, AFR15-C2]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 5, review: 2 }
