@@ -1,0 +1,27 @@
+id: "AFR16"
+title: "制限テンソル積・局所大域L因子"
+volume: "foundations"
+status: supplementary
+prerequisites: [AFR15, MF6]
+official_scope: []
+learning_objectives:
+  - 基準ベクトルを使って制限テンソル積を構成し群作用の整合性と滑らかさを証明できる
+  - 局所新ベクトルの固定条件から大域的な有限レベルを計算できる
+  - 局所因子から絶対収束するEuler積とDirichlet係数を構成できる
+  - 分岐主系列のWhittaker積分から一次因子を計算できる
+  - 古典Hecke作用と球Hecke作用の正規化を導出し古典Euler積と照合できる
+definitions:
+  - { id: AFR16-DEF-01, name: "制限テンソル積" }
+  - { id: AFR16-DEF-02, name: "有限素点のL積" }
+theorems:
+  - { id: AFR16-THM-01, name: "制限テンソル積上の群作用" }
+  - { id: AFR16-THM-02, name: "局所レベルの積" }
+  - { id: AFR16-THM-03, name: "局所因子の積の絶対収束" }
+  - { id: AFR16-THM-04, name: "古典Hecke作用と球Hecke作用の正規化" }
+  - { id: AFR16-THM-05, name: "古典Euler積との一致" }
+canonical_examples: [有限段の基底, 局所レベル12, 分岐主系列の一次因子, モジュラー判別式の正規化]
+problem_patterns: [AFR16-A1, AFR16-A2, AFR16-A3, AFR16-A4, AFR16-B1, AFR16-B2, AFR16-B3, AFR16-C1, AFR16-C2]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 5, review: 2 }
