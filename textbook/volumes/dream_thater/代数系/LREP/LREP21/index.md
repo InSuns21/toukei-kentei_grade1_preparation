@@ -284,13 +284,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[被覆Poincare群](#def-lrep21-covered-poincare)の積の定義から $V(A)T(a)V(A)^{-1}=T(\Lambda a)$。左辺は [共同スペクトル表示](#thm-lrep21-translation-spectrum) によってPVM $B\mapsto V(A)F(B)V(A)^{-1}$ の位相積分になります。右辺は[Minkowski内積の保存](../LREP9/index.md#def-lrep9-lorentz-group) $p\cdot\Lambda a=(\Lambda^{-1}p)\cdot a$ から
+[被覆Poincare群](#def-lrep21-covered-poincare) の積を三元に適用します。この積の計算は $V(A)T(a)V(A)^{-1}=T(\Lambda a)$ となります。左辺は [共同スペクトル表示](#thm-lrep21-translation-spectrum) によってPVM $B\mapsto V(A)F(B)V(A)^{-1}$ の位相積分になります。右辺は[Minkowski内積の保存](../LREP9/index.md#def-lrep9-lorentz-group) $p\cdot\Lambda a=(\Lambda^{-1}p)\cdot a$ から
 
 $$
 T(\Lambda a)=\int e^{i(\Lambda^{-1}p)\cdot a}\,dF(p).
 $$
 
-$p\mapsto\Lambda^{-1}p$ の像測度測度は $B\mapsto F(\Lambda B)$ です。共同PVMの一意性から主張の式が成立します。$\Lambda$ は同相であり、ユニタリ共役は射影が零かどうかを変えないため、$\Sigma$ の各点の開近傍の条件も保存されます。
+$p\mapsto\Lambda^{-1}p$ の像測度は $B\mapsto F(\Lambda B)$ です。共同PVMの一意性から主張の式が成立します。$\Lambda$ は同相であり、ユニタリ共役は射影が零かどうかを変えないため、$\Sigma$ の各点の開近傍の条件も保存されます。
 
 座標関数のスペクトル積分を共役すると、まず有界な切断関数 $p^\mu\mathbf1_{|p^\mu|\le n}$ について像測度の式が成り立ちます。切断を外すと [非有界スペクトル積分の定義域とノルム](../../../解析系/QM/QM6/index.md#prop-qm6-unbounded-integral-domain)により、共役作用素の定義域は
 
