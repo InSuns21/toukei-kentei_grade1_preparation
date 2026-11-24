@@ -6,6 +6,7 @@ prerequisites:
   - CATB2-06
   - CAT3-09
   - CAT4-05
+  - CAT2-11
 official_scope: []
 learning_objectives:
   - 分配子の二変数の型と作用の可換性を説明できる
