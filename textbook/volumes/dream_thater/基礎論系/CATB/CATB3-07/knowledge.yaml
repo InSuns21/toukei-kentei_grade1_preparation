@@ -1,0 +1,41 @@
+chapter: CATB3-07
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB3-06, CATB1-07]
+concepts:
+  - id: category.finite-limit-sketch
+    name: 有限極限スケッチ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限極限スケッチ）"]
+    requires: [category.small-category, category.small-diagram, category.constant-diagram-cone]
+  - id: category.sketch-set-model
+    name: スケッチの集合値モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（スケッチの集合値モデル）"]
+    requires: [category.finite-limit-sketch, category.limit, category.functor-category, category.natural-transformation]
+  - id: category.pullback-sketch-model-morphisms
+    name: 引き戻しスケッチのモデル間の射
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（引き戻しスケッチのモデル間の射）"]
+    requires: [category.sketch-set-model, category.pullback, category.natural-transformation]
+  - id: category.lawvere-sketch-presentation
+    name: Lawvere理論のスケッチ表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Lawvere理論のスケッチ表示）"]
+    requires: [category.sketch-set-model, category.lawvere-theory, category.lawvere-set-model, category.finite-product]
+  - id: category.sketch-model-pointwise-limits
+    name: スケッチのモデルの点ごとの極限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（スケッチのモデルの点ごとの極限）"]
+    requires: [category.sketch-set-model, category.functor-pointwise-limits]
+  - id: category.sketch-model-filtered-colimits
+    name: スケッチのモデルの点ごとのフィルター余極限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（スケッチのモデルの点ごとのフィルター余極限）"]
+    requires: [category.sketch-set-model, category.functor-pointwise-colimits, category.filtered-colimit-finite-limit-commutation]
