@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
+import {fcg4State,fcg4MaxIterations} from './fcg4-lab-core.mjs';
 
 const root=new URL('../../textbook/volumes/dream_thater/計算系/',import.meta.url);
 const file=path=>readFile(new URL(path,root),'utf8');
@@ -9,8 +10,13 @@ test('FCG4 animated convergence uses EXACT initial numerical Jacobi update',asyn
   const js=await file('FCG/FCG4/projection.js');
   assert.match(js,/function jacobiIteration\(\)/);
   assert.match(js,/for\(let k=0;k<iterations;k\+\+\)jacobiIteration\(\)/);
-  assert.match(js,/if\(iter>=160\)restart\(\)/);
-  assert.match(js,/if\(firstCycle\)\{firstCycle=false;restart\(\);refreshProjectedState\(\);\}/);
+  assert.match(js,/if\(iter===maxIterations\)playing=false/);
+  assert.match(js,/resetPressure\(\);playing=!motion.matches;redraw\(\)/);
+  assert.match(js,/function seek\(target\)/);
+  assert.match(js,/if\(target<iter\)resetPressure\(\)/);
+  assert.match(js,/function projectVelocity\(\)/);
+  assert.equal((js.match(/u\.set\(uStar\);v\.set\(vStar\)/g)||[]).length,1);
+  assert.match(js,/function redraw\(\)\{\s*if\(!visible\)return;\s*projectVelocity\(\)/);
   assert.match(js,/jacobiIteration\(\);iter\+\+;/);
   assert.match(js,/u\.set\(uStar\);v\.set\(vStar\)/);
   assert.match(js,/Math\.abs\(div\+dt\/rho\*residual\)/);
@@ -18,12 +24,35 @@ test('FCG4 animated convergence uses EXACT initial numerical Jacobi update',asyn
   assert.match(js,/requestAnimationFrame\(frame\)/);
   assert.match(js,/prefers-reduced-motion: reduce/);
   assert.match(js,/window\.addEventListener\('pagehide',\(\)=>cancelAnimationFrame\(raf\)/);
-  // Shader remains the same deterministic three physical fields.
+  // Keep the original diagnostic probes AND the actual live signed fields.
   const frag=await file('FCG/FCG4/projection.frag');
   assert.match(frag,/texelFetch\(u_pressure,cell,0\)/);
   assert.match(frag,/texelFetch\(u_div,cell,0\)/);
   assert.match(frag,/texelFetch\(u_speed,cell,0\)/);
+  assert.match(frag,/texelFetch\(u_before,index,0\)/);
+  assert.match(frag,/texelFetch\(u_after,index,0\)/);
+  assert.match(frag,/signedColor\(field.b\/u_divScale\)/);
+  assert.match(frag,/flowArrow\(/);
   assert.doesNotThrow(()=>new Function('gl','canvas','settings','vertexSource','fragmentSource','report',js));
+});
+test('FCG4 actual editable MAC arrays match independent reference at three resolutions',async()=>{
+  const js=await file('FCG/FCG4/projection.js');
+  const numerical=js.split('function texture(values,unit)')[0];
+  for(const N of [8,32,48]){
+    const run=new Function('settings',numerical.replace('const N=32;','const N='+N+';')+
+      '\nreturn {p,u,v,divBefore,divAfter,residualIdentityError,wallMax};');
+    const iterations=fcg4MaxIterations(N), actual=run({steps:iterations});
+    const expected=fcg4State(iterations,{N});
+    for(const [got,want] of [[actual.p,expected.pressure],[actual.u,expected.u],[actual.v,expected.v]]){
+      assert.equal(got.length,want.length);
+      assert.ok(got.every((value,k)=>Math.abs(value-want[k])<1e-12));
+    }
+    assert.equal(actual.wallMax,0);
+    assert.ok(actual.residualIdentityError<1e-10);
+    assert.ok(actual.divAfter<actual.divBefore/1000);
+    const zero=run({steps:0});
+    assert.equal(zero.divAfter,zero.divBefore);
+  }
 });
 test('WGL7 samples the same editable texture with moving UV and independent filters',async()=>{
   const js=await file('WGL/WGL7/sampling.js');
@@ -66,8 +95,12 @@ test('changed chapters explain animation versus the static oracle',async()=>{
   }
   const host=await readFile(new URL('./wgl-lab-host.mjs',import.meta.url),'utf8');
   const note=host.slice(host.indexOf("if (['FCG3'"),host.indexOf('mountVisualGuide('));
-  for(const id of ['FCG4','WGL13'])
-    assert.ok(note.includes("'"+id+"'"),id+' must retain its static-oracle label');
+  assert.ok(note.includes("'WGL13'"),'WGL13 must retain its static-oracle label');
+  assert.match(host,/独立CPUの.*R8診断9画素と比較。ライブ操作中の画素検査とは別/);
+  assert.ok(host.indexOf('hooks.showObservation();')>host.indexOf('const samples = positions.map'),
+    'FCG4 observation must start after static probes');
+  assert.match(host,/type:'fcg4-control',action,iter/);
+  assert.doesNotMatch(host,/fcg4Timer\s*=\s*setInterval/);
   const sceneInfo=await readFile(new URL('./wgl-lab-scene-info.mjs',import.meta.url),'utf8');
   const wgl7=sceneInfo.slice(sceneInfo.indexOf('WGL7: Object.freeze'),sceneInfo.indexOf('WGL11: Object.freeze'));
   assert.match(wgl7,/平面8画素の検算/);

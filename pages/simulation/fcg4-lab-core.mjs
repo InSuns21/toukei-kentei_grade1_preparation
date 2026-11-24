@@ -1,28 +1,34 @@
 // FCG4 CPU oracle: independent of the learner-editable JS and GL shader.
 export const FCG4_N=8, FCG4_DT=0.1, FCG4_RHO=1, FCG4_OMEGA=2/3;
-const N=FCG4_N, H=1/N;
-const ix=(i,j)=>i+N*j, horiz=(i,j)=>i+(N+1)*j, vert=(i,j)=>i+N*j;
-export function fcg4ExactPressure(i,j){
+export const FCG4_GRIDS=Object.freeze([8,16,24,32,40,48]);
+export function fcg4MaxIterations(N=FCG4_N){
+  if(!FCG4_GRIDS.includes(N))throw new RangeError('grid N');
+  return 160*(N/8)**2;
+}
+export function fcg4ExactPressure(i,j,N=FCG4_N){
   if(!Number.isInteger(i)||!Number.isInteger(j)||i<0||i>=N||j<0||j>=N)
     throw new RangeError('cell coordinates');
   return Math.cos(Math.PI*(i+0.5)/N)*Math.cos(Math.PI*(j+0.5)/N);
 }
-function stream(i,j){return 0.05*Math.sin(Math.PI*i/N)*Math.sin(Math.PI*j/N);}
-function buildInitial(){
+function stream(i,j,N){return 0.05*Math.sin(Math.PI*i/N)*Math.sin(Math.PI*j/N);}
+function buildInitial(N){
+  const H=1/N,horiz=(i,j)=>i+(N+1)*j,vert=(i,j)=>i+N*j;
   const a=new Float64Array(N*(N+1)),c=new Float64Array((N+1)*N);
   for(let j=0;j<N;j++)for(let i=1;i<N;i++)
-    c[horiz(i,j)]=(stream(i,j+1)-stream(i,j))/H+
-      FCG4_DT/FCG4_RHO*(fcg4ExactPressure(i,j)-fcg4ExactPressure(i-1,j))/H;
+    c[horiz(i,j)]=(stream(i,j+1,N)-stream(i,j,N))/H+
+      FCG4_DT/FCG4_RHO*(fcg4ExactPressure(i,j,N)-fcg4ExactPressure(i-1,j,N))/H;
   for(let j=1;j<N;j++)for(let i=0;i<N;i++)
-    a[vert(i,j)]=-(stream(i+1,j)-stream(i,j))/H+
-      FCG4_DT/FCG4_RHO*(fcg4ExactPressure(i,j)-fcg4ExactPressure(i,j-1))/H;
+    a[vert(i,j)]=-(stream(i+1,j,N)-stream(i,j,N))/H+
+      FCG4_DT/FCG4_RHO*(fcg4ExactPressure(i,j,N)-fcg4ExactPressure(i,j-1,N))/H;
   return {u:c,v:a};
 }
-const divergence=(u,v,i,j)=>(u[horiz(i+1,j)]-u[horiz(i,j)]+v[vert(i,j+1)]-v[vert(i,j)])/H;
-export function fcg4State(iterations=128){
-  if(!Number.isInteger(iterations)||iterations<0||iterations>160)
-    throw new RangeError('iterations must be 0..160');
-  const {u:initialU,v:initialV}=buildInitial();
+export function fcg4State(iterations=128,{N=FCG4_N}={}){
+  const maxIterations=fcg4MaxIterations(N);
+  if(!Number.isInteger(iterations)||iterations<0||iterations>maxIterations)
+    throw new RangeError('iterations must be 0..'+maxIterations);
+  const H=1/N,ix=(i,j)=>i+N*j,horiz=(i,j)=>i+(N+1)*j,vert=(i,j)=>i+N*j;
+  const divergence=(u,v,i,j)=>(u[horiz(i+1,j)]-u[horiz(i,j)]+v[vert(i,j+1)]-v[vert(i,j)])/H;
+  const {u:initialU,v:initialV}=buildInitial(N);
   const source=new Float64Array(N*N);
   for(let j=0;j<N;j++)for(let i=0;i<N;i++)
     source[ix(i,j)]=FCG4_RHO/FCG4_DT*divergence(initialU,initialV,i,j);
@@ -72,18 +78,19 @@ export function fcg4State(iterations=128){
     divAfter=Math.max(divAfter,Math.abs(post));
     poissonMax=Math.max(poissonMax,Math.abs(residual));
     identityError=Math.max(identityError,Math.abs(post+FCG4_DT/FCG4_RHO*residual));
-    pressureError=Math.max(pressureError,Math.abs(pressure[k]-fcg4ExactPressure(i,j)));
+    pressureError=Math.max(pressureError,Math.abs(pressure[k]-fcg4ExactPressure(i,j,N)));
     sourceSum+=source[k];pressureSum+=pressure[k];
   }
   for(let j=0;j<N;j++)wallMax=Math.max(wallMax,
     Math.abs(u[horiz(0,j)]),Math.abs(u[horiz(N,j)]));
   for(let i=0;i<N;i++)wallMax=Math.max(wallMax,
     Math.abs(v[vert(i,0)]),Math.abs(v[vert(i,N)]));
-  return {pressure,div,speed,source,u,v,initialU,initialV,
+  return {N,pressure,div,speed,source,u,v,initialU,initialV,
     poissonMax,divBefore,divAfter,identityError,pressureError,wallMax,
     sourceSum,pressureMean:pressureSum/(N*N)};
 }
-export function fcg4PixelCell(x,y,width,height){
+export function fcg4PixelCell(x,y,width,height,N=FCG4_N){
+  fcg4MaxIterations(N);
   if(!Number.isInteger(width)||!Number.isInteger(height)||width<64||height<64||
      width>2048||height>2048||width*height>2097152||
      !Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||x>=width||y>=height)
@@ -95,14 +102,14 @@ export function fcg4PixelCell(x,y,width,height){
   return {panel:['pressure','divergence','speed'][panel],i,j};
 }
 const quantize=q=>Math.round(255*Math.max(0,Math.min(1,q)));
-export function expectedFCG4Samples(width,height,iterations=128){
-  const state=fcg4State(iterations);
-  const probes=[[1,1],[4,3],[6,6]];
+export function expectedFCG4Samples(width,height,iterations=128,options={}){
+  const state=fcg4State(iterations,options),N=state.N;
+  const probes=[[1,1],[4,3],[6,6]].map(([i,j])=>[Math.floor((i+0.5)*N/8),Math.floor((j+0.5)*N/8)]);
   return ['pressure','divergence','speed'].flatMap((panel,panelIndex)=>
     probes.map(([i,j])=>{
       const x=Math.floor((panelIndex+(i+0.5)/N)*width/3);
       const y=Math.floor((j+0.5)*height/N);
-      const mapped=fcg4PixelCell(x,y,width,height),k=ix(mapped.i,mapped.j);
+      const mapped=fcg4PixelCell(x,y,width,height,N),k=mapped.i+N*mapped.j;
       const val=panel==='pressure'?state.pressure[k]:panel==='divergence'?state.div[k]:state.speed[k];
       const encoded=panel==='pressure'?quantize(0.5+0.35*val):
         panel==='divergence'?quantize(Math.abs(val)/20):quantize(val/0.25);
@@ -113,9 +120,9 @@ export function expectedFCG4Samples(width,height,iterations=128){
         value:val,rgba};
     }));
 }
-export function compareFCG4Readback(actual,width,height,iterations=128,tolerance=2){
+export function compareFCG4Readback(actual,width,height,iterations=128,tolerance=2,options={}){
   if(!Number.isFinite(tolerance)||tolerance<0)throw new RangeError('tolerance');
-  return expectedFCG4Samples(width,height,iterations).map((p,k)=>{
+  return expectedFCG4Samples(width,height,iterations,options).map((p,k)=>{
     const a=actual[k],valid=!!a&&a.x===p.x&&a.y===p.y&&
       Array.isArray(a.rgba)&&a.rgba.length===4&&
       a.rgba.every(c=>Number.isInteger(c)&&c>=0&&c<=255);
