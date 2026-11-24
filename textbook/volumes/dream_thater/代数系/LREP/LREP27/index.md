@@ -6,19 +6,33 @@
 
 直接の前提講座：[LREP26 有限次元場表現と1粒子表現](../LREP26/index.md)、[QFT15 Maxwell場のゲージ自由度](../../../物理系/QFT/QFT15/index.md)。
 
-[共通符号規約](../../../../../dream-theater-lorentz-conventions.md)に従い、$c=\hbar=1$、$\eta=\operatorname{diag}(-1,1,1,1)$ とします。四元ベクトル $u=(u^0,u^1,u^2,u^3)$ の上付き数字は成分番号です。$u\cdot v=\eta(u,v)$ は
+[共通符号規約](../../../../../dream-theater-lorentz-conventions.md)に従い、$c=\hbar=1$、$\eta=\operatorname{diag}(-1,1,1,1)$ とします。
+
+四元ベクトル $u=(u^0,u^1,u^2,u^3)$ の上付き数字は成分番号です。$u\cdot v=\eta(u,v)$ は
 
 $$
 u\cdot v=-u^0v^0+\sum_{j=1}^3u^jv^j
 $$
 
-であり、複素ベクトルにも双線形に拡張します。$\bar u$ は成分ごとの複素共役です。双線形形式と、第一変数を共役した $\bar u\cdot v$ は区別します。$\Lambda\in SO^+(1,3)$ は [Lorentz群の単位元成分](../LREP9/index.md#def-lrep9-lorentz-group) の実 $4\times4$ 行列です。
+であり、複素ベクトルにも双線形に拡張します。$\bar u$ は成分ごとの複素共役です。双線形形式と、第一変数を共役した $\bar u\cdot v$ は区別します。
+
+$\Lambda\in SO^+(1,3)$ は [Lorentz群の単位元成分](../LREP9/index.md#def-lrep9-lorentz-group) の実 $4\times4$ 行列です。
 
 ## 1. 四成分と物理偏極の違い
 
-正質量 $m>0$ のスピン1を選ぶと、[正質量の既約内部スピン空間](../LREP23/index.md#prop-lrep23-spin-multiplicity)で $j=1$ として次元 $2j+1=3$ を得ます。ベクトル模型では静止運動量 $p=(m,0,0,0)$ に直交する列は $\epsilon=(0,x,y,z)$ であり、三成分を空間回転が混ぜます。一般の正質量運動量へはLorentz変換で運べます。
+正質量 $m>0$ のスピン1を選ぶと、[正質量の既約内部スピン空間](../LREP23/index.md#prop-lrep23-spin-multiplicity)で $j=1$ として次元 $2j+1=3$ を得ます。
 
-ところが[未来質量殻](../LREP22/index.md#def-lrep22-mass-shell)で質量零を選ぶと、運動量は $p\cdot p=0$ を満たします。このような非零の運動量を光的と呼び、未来向きとは時間成分 $p^0=E>0$ であることです。光的運動量は自身に直交します。[真空Maxwell平面波の二つの物理偏極](../../../物理系/QFT/QFT15/index.md#thm-qft15-two-polarizations)によれば、非零の未来光的運動量 $p=(E,\boldsymbol p)$ における平面波の複素振幅 $\epsilon$ は $p\cdot\epsilon=0$ を満たし、$\epsilon+\alpha p$ は同じ物理偏極です。$E=|\boldsymbol p|>0$、$\alpha\in\mathbb C$ です。
+ベクトル模型では静止運動量 $p=(m,0,0,0)$ に直交する列は $\epsilon=(0,x,y,z)$ であり、三成分を空間回転が混ぜます。一般の正質量運動量へはLorentz変換で運べます。
+
+ところが[未来質量殻](../LREP22/index.md#def-lrep22-mass-shell)で質量零を選ぶと、運動量は $p\cdot p=0$ を満たします。このような非零の運動量を光的と呼び、未来向きとは時間成分 $p^0=E>0$ であることです。光的運動量は自身に直交します。
+
+[真空Maxwell平面波の二つの物理偏極](../../../物理系/QFT/QFT15/index.md#thm-qft15-two-polarizations)によれば、非零の未来光的運動量 $p=(E,\boldsymbol p)$ における平面波の複素振幅 $\epsilon$ は、直交条件
+
+$$
+p\cdot\epsilon=0
+$$
+
+を満たします。$E=|\boldsymbol p|>0$ です。任意の $\alpha\in\mathbb C$ に対して $\epsilon+\alpha p$ は同じ物理偏極を表します。
 
 そこで、直交条件を満たす空間の中で、同じ偏極を表す列を一つにまとめます。$\epsilon=(t,x,y,z)$ と書けば $t=\epsilon^0$ であり、$x,y,z$ は空間成分（いずれも複素数）です。$p=(E,p^1,p^2,p^3)$ に対して直交条件は
 
@@ -26,7 +40,9 @@ $$
 -Et+p^1x+p^2y+p^3z=0
 $$
 
-です。$E>0$ なので $x,y,z$ を自由に選ぶと $t$ が一意に決まり、解空間の複素次元は3です。$\mathbb Cp$ は $p$ の複素数倍全体で、$p\cdot p=0$ だから直交条件を満たす部分空間です。[商空間](../../../基礎科目/LA/LA2/index.md#def-la2-quotient)では、その部分空間の元だけ異なる列を同じ元とする線形空間を作ります。
+です。$E>0$ なので $x,y,z$ を自由に選ぶと $t$ が一意に決まり、解空間の複素次元は3です。
+
+$\mathbb Cp$ は $p$ の複素数倍全体で、$p\cdot p=0$ だから直交条件を満たす部分空間です。[商空間](../../../基礎科目/LA/LA2/index.md#def-la2-quotient)では、その部分空間の元だけ異なる列を同じ元とする線形空間を作ります。
 
 <a id="def-lrep27-polarization-quotient"></a>
 
@@ -48,7 +64,22 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep27-polarization-quotient -->
-**定義の確認**。 $k=(1,0,0,1)$ は時間成分が1で $k\cdot k=-1+1=0$ を満たすため、実非零未来光的運動量です。$W_k$ の条件は $-t+z=0$、すなわち $z=t$ です。$e_1=(0,1,0,0)$ とすると $k\cdot e_1=0$ です。$e_1+2k=(2,1,0,2)$ も $-2+2=0$ を満たし、差が $2k$ なので同じ類です。$e_1$ は $k$ の倍数ではないので零類ではありません。二つの代表元をそれぞれ $\alpha k,\beta k$ だけ変えても和は $(\alpha+\beta)k$ だけ、複素数倍はその係数倍だけ変わるので演算は代表元に依存しません。
+**定義の確認**。 $k=(1,0,0,1)$ は時間成分が1で $k\cdot k=-1+1=0$ を満たすため、実非零未来光的運動量です。$W_k$ の条件は
+
+$$
+-t+z=0,\qquad z=t
+$$
+
+です。$e_1=(0,1,0,0)$ とし、二つの代表元を比べます。
+
+$$
+k\cdot e_1=0,\qquad
+k\cdot(e_1+2k)=-2+2=0.
+$$
+
+よって両方とも直交条件を満たします。差が $2k$ なので同じ類です。$e_1$ は $k$ の倍数ではないので零類ではありません。
+
+二つの代表元をそれぞれ $\alpha k,\beta k$ だけ変えても和は $(\alpha+\beta)k$ だけ、複素数倍はその係数倍だけ変わるので演算は代表元に依存しません。
 <!-- definition-example-end -->
 
 ![e₁ と e₁+ak は k 方向の差だけを持つ](assets/gauge-classes.svg)
@@ -120,7 +151,16 @@ $$
 
 となり、残り二成分を自由に選べます（ここで $v_i$ は空間ベクトルの成分番号です）。代表元の選択は線形かつ一意なので、商空間も複素二次元です。
 
-[未来円錐のLorentz軌道](../LREP22/index.md#thm-lrep22-orbits)により $\Lambda p$ も実非零未来光的運動量です。[Lorentz群の計量保存条件](../LREP9/index.md#def-lrep9-lorentz-group)より $(\Lambda p)\cdot(\Lambda\epsilon)=p\cdot\epsilon=0$ であり、$\Lambda(\epsilon+\alpha p)=\Lambda\epsilon+\alpha\Lambda p$ なので商への写像が定まります。$\Lambda$ は実行列だから
+[未来円錐のLorentz軌道](../LREP22/index.md#thm-lrep22-orbits)により $\Lambda p$ も実非零未来光的運動量です。
+
+[Lorentz群の計量保存条件](../LREP9/index.md#def-lrep9-lorentz-group)より
+
+$$
+(\Lambda p)\cdot(\Lambda\epsilon)=p\cdot\epsilon=0,\qquad
+\Lambda(\epsilon+\alpha p)=\Lambda\epsilon+\alpha\Lambda p.
+$$
+
+従って商への写像が定まります。$\Lambda$ は実行列だから
 
 $$
 \overline{\Lambda\epsilon}\cdot\Lambda\zeta
@@ -135,14 +175,24 @@ $k=(1,0,0,1)$ なら $e_2=(0,0,1,0)$ として $\epsilon=tk+xe_1+ye_2$ と分解
 
 ## 3. 固定群の並進はどの成分を変えるか
 
-[光的標準運動量の被覆固定群](../LREP24/index.md#thm-lrep24-null-stabilizer)では、$k$ を固定する被覆群の元が $N(w)R(\theta)$ と書けました。ここで固定群は標準運動量を動かさない変換の集まりです。$w=a-ib$、$a,b\in\mathbb R$、$\theta\in\mathbb R$（角度は被覆群では $4\pi$ 周期）とすると
+[光的標準運動量の被覆固定群](../LREP24/index.md#thm-lrep24-null-stabilizer)では、$k$ を固定する被覆群の元が $N(w)R(\theta)$ と書けました。ここで固定群は標準運動量を動かさない変換の集まりです。
+
+$w=a-ib$、$a,b\in\mathbb R$、$\theta\in\mathbb R$（角度は被覆群では $4\pi$ 周期）とすると
 
 $$
 N(w)=\begin{pmatrix}1&w\\0&1\end{pmatrix},\qquad
 R(\theta)=\operatorname{diag}(e^{-i\theta/2},e^{i\theta/2}).
 $$
 
-これらは $SL(2,\mathbb C)$ の $2\times2$ 行列です。[四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action)の実Lorentz像 $\Phi(A)$ を複素線形に拡張し、四元ベクトル $\epsilon$ に対しては $A\epsilon=\Phi(A)\epsilon$ と略記します。$N(w)$ の作用は時空並進ではなく、この意味での線形変換です。
+これらは $SL(2,\mathbb C)$ の $2\times2$ 行列です。
+
+[四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action)の実Lorentz像 $\Phi(A)$ を複素線形に拡張し、四元ベクトル $\epsilon$ に対しては
+
+$$
+A\epsilon=\Phi(A)\epsilon
+$$
+
+と略記します。$N(w)$ の作用は時空並進ではなく、この意味での線形変換です。
 
 <a id="thm-lrep27-little-action"></a>
 
@@ -175,7 +225,13 @@ $$
 H(\epsilon)=\begin{pmatrix}2t&x-iy\\x+iy&0\end{pmatrix}.
 $$
 
-[SL(2,C)の四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action)で、$\dagger$ は共役転置です。$A$ の作用後の四元ベクトルは $H(A\epsilon)=AH(\epsilon)A^\dagger$ の各成分を読み戻して得ます。$N(w)$ を左から、$N(w)^\dagger$ を右から掛けると
+[SL(2,C)の四元ベクトル作用](../LREP10/index.md#def-lrep10-sl2c-action)で、$\dagger$ は共役転置です。$A$ の作用後の四元ベクトルは
+
+$$
+H(A\epsilon)=AH(\epsilon)A^\dagger
+$$
+
+の各成分を読み戻して得ます。$N(w)$ を左から、$N(w)^\dagger$ を右から掛けると
 
 $$
 \begin{aligned}
@@ -244,12 +300,37 @@ Q_\theta(1,-i)^{\mathsf T}
 \end{aligned}
 $$
 
-[偏極商空間の正定値内積](#thm-lrep27-positive-quotient)で $[e_1],[e_2]$ は正規直交なので各ノルム二乗は $(1+1)/2=1$、互いの内積は $(1+(-i)(-i))/2=0$ です。二つは基底をなし、並進は恒等です。[ヘリシティの内部表現](../LREP24/index.md#def-lrep24-helicity-rep)と位相を比較するとそれぞれ $h=+1,-1$ になります。一次元の非零表現は真の非零部分空間を持たず[既約](../LREP1/index.md#def-lrep1-irreducible)です。また[表現の同値](../LREP1/index.md#def-lrep1-equivalence)を与える可逆線形写像は一次元では非零スカラー倍なので、位相が全ての群元で等しい場合にしか存在しません。例えば $\theta=\pi/2$ で位相が $-i,i$ と異なるため同値ではありません。$\square$
+[偏極商空間の正定値内積](#thm-lrep27-positive-quotient)で $[e_1],[e_2]$ は正規直交なので、
+
+$$
+\langle v_\pm,v_\pm\rangle_k=\frac{1+1}{2}=1,\qquad
+\langle v_+,v_-\rangle_k=\frac{1+(-i)(-i)}2=0.
+$$
+
+二つは基底をなし、並進は恒等です。
+
+[ヘリシティの内部表現](../LREP24/index.md#def-lrep24-helicity-rep)と位相を比較するとそれぞれ $h=+1,-1$ になります。
+
+一次元の非零表現は真の非零部分空間を持たず[既約](../LREP1/index.md#def-lrep1-irreducible)です。また[表現の同値](../LREP1/index.md#def-lrep1-equivalence)を与える可逆線形写像は一次元では非零スカラー倍なので、位相が全ての群元で等しい場合にしか存在しません。例えば $\theta=\pi/2$ で位相が $-i,i$ と異なるため同値ではありません。$\square$
 <!-- proof-end -->
 
 正質量スピン1では三成分が一つの既約内部表現を作ります。光子の二成分は異なるヘリシティの直和です。一般の質量零表現が必ずこの二つになるのではなく、ここでは四元ベクトルの偏極商空間によって実現される表現を選んでいます。
 
-[運動量断面](../LREP25/index.md#def-lrep25-section) $s(p)$ を使い、標準点の代表元 $u_\pm=(e_1\pm i e_2)/\sqrt2$ を $s(p)$ で運べば、$P_p$ の基底が得られます。$s(p)$ は $s(p)k=p$ を満たす被覆行列です。四元ベクトルには第3節の略記でそのLorentz像を作用させます。[偏極商空間の正定値内積](#thm-lrep27-positive-quotient)によりこの基底も正規直交です。固定群の複素並進パラメータ $w$ と区別して、補正には添字 $s$ を付けます。[断面の固定群補正](../LREP25/index.md#def-lrep25-little-cocycle) $w_s(A,p)=s(Ap)^{-1}As(p)$ を用いると
+[運動量断面](../LREP25/index.md#def-lrep25-section) $s(p)$ は標準点を運ぶ被覆行列であり、$s(p)k=p$ を満たします。四元ベクトルには第3節の略記でそのLorentz像を作用させます。標準点の代表元を
+
+$$
+u_\pm=\frac{e_1\pm i e_2}{\sqrt2}
+$$
+
+とすると、$[s(p)u_\pm]$ が $P_p$ の基底になります。[偏極商空間の正定値内積](#thm-lrep27-positive-quotient)によりこの基底も正規直交です。
+
+固定群の複素並進パラメータ $w$ と区別して、補正には添字 $s$ を付けます。[断面の固定群補正](../LREP25/index.md#def-lrep25-little-cocycle)
+
+$$
+w_s(A,p)=s(Ap)^{-1}As(p)
+$$
+
+を用いると
 
 $$
 As(p)u_\pm=s(Ap)w_s(A,p)u_\pm.
@@ -362,7 +443,9 @@ $W_k$ に通常の成分の正定値内積を入れる。$N(1)$ がその内積�
 <!-- solution-start -->
 **詳細解答**
 
-[光的偏極への固定群作用](#thm-lrep27-little-action)で $e_1$ は $e_1+k=(1,1,0,1)$ に移ります。通常の成分ノルム二乗は1から3に変化します。一方Lorentz形式では $-1+1+1=1$。ただし $k$ のLorentzノルム二乗は0なので $W_k$ 全体で正定値ではありません。商では $[k]=0$ となり、[偏極商空間の正定値内積](#thm-lrep27-positive-quotient)により正定値かつ固定群で保存されます。
+[光的偏極への固定群作用](#thm-lrep27-little-action)で $e_1$ は $e_1+k=(1,1,0,1)$ に移ります。通常の成分ノルム二乗は1から3に変化します。
+
+一方Lorentz形式では $-1+1+1=1$。ただし $k$ のLorentzノルム二乗は0なので $W_k$ 全体で正定値ではありません。商では $[k]=0$ となり、[偏極商空間の正定値内積](#thm-lrep27-positive-quotient)により正定値かつ固定群で保存されます。
 <!-- solution-end -->
 
 <a id="ex-lrep27-b03"></a>
