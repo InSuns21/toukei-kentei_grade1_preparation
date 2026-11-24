@@ -3,6 +3,22 @@
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
 
 export const LAB_PARAMETERS = Object.freeze({
+  FCG7: Object.freeze([
+    Object.freeze({
+      id:'flip-mix',type:'number',label:'右側のFLIP混合係数',default:1,
+      min:0,max:1,step:0.1,unit:'無次元',
+      meaning:'0はPICと一致、1は純FLIP。凸結合なので0〜1',
+      sourceLocation:'particle.js / const flipMix → transfer',
+      sourceFile:'js',index:null,matcher:/^([ \t]*const flipMix=)([^;\n]+)(;)/gm
+    }),
+    Object.freeze({
+      id:'velocity-noise',type:'number',label:'初期交互速度の振幅',default:0.18,
+      min:0,max:0.3,step:0.03,unit:'m/s（各成分）',
+      meaning:'格子内の反対向き速度差を変える。0は滑らかな回転のみ',
+      sourceLocation:'particle.js / const noise → initial',
+      sourceFile:'js',index:null,matcher:/^([ \t]*const noise=)([^;\n]+)(;)/gm
+    })
+  ]),
   WGL20: Object.freeze([
     Object.freeze({
       id:'water-level',type:'number',label:'仮想水面の標高',default:32,

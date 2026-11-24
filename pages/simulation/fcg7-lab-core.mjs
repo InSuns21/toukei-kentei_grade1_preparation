@@ -1,5 +1,5 @@
 // Independent CPU oracle for the FCG7 default sources. Does not run editable student JS.
-const Q=8,H=1/Q,DT=0.08,M=16;
+const Q=24,DT=0.08,M=2304;
 const rem=x=>((x%1)+1)%1;
 const node=(i,j)=>((i%Q)+Q)%Q+Q*(((j%Q)+Q)%Q);
 function corners(x,y){
@@ -9,10 +9,11 @@ function corners(x,y){
 }
 function start(){
   return Array.from({length:M},(_,k)=>{
-    const i=k%4,j=Math.floor(k/4),x=0.24+i*0.24,y=0.16+j*0.24,
-      sign=(i+j)%2?1:-1;
-    return [x,y,0.35+0.06*Math.sin(2*Math.PI*y)+0.13*sign,
-      0.06*Math.cos(2*Math.PI*x)+0.09*sign];
+    const i=k%48,j=Math.floor(k/48),r=0.36*Math.sqrt((j+0.5)/48),
+      theta=Math.PI*(2*i+(j%2))/48;
+    const x=0.5+r*Math.cos(theta),y=0.5+r*Math.sin(theta),sign=k%48%2===j%2?-1:1;
+    return [x,y,-0.65*(y-0.5)+0.18*sign,0.65*(x-0.5)-0.18*sign,
+      1+Math.floor(((i+3*Math.floor(j/8))%48)/12)];
   });
 }
 function deposit(pts){
@@ -24,12 +25,7 @@ function deposit(pts){
   return {w,v};
 }
 function evolve(pts,blend){
-  const base=deposit(pts),modified=base.v.map((v,k)=>{
-    if(base.w[k]===0)return [0,0];
-    const i=k%Q,j=Math.floor(k/Q);
-    return [0.995*v[0]+DT*0.08*Math.sin(2*Math.PI*(j+0.5)/Q),
-      0.995*v[1]-DT*0.08*Math.cos(2*Math.PI*(i+0.5)/Q)];
-  });
+  const base=deposit(pts),modified=base.v.map(v=>v.slice());
   let wrapped=0;
   const moved=pts.map(p=>{
     let px=0,py=0,fx=p[2],fy=p[3];
@@ -41,7 +37,7 @@ function evolve(pts,blend){
     const vx=(1-blend)*px+blend*fx,vy=(1-blend)*py+blend*fy;
     const x=p[0]+DT*vx,y=p[1]+DT*vy;
     if(x<0||x>=1||y<0||y>=1)wrapped++;
-    return [rem(x),rem(y),vx,vy];
+    return [rem(x),rem(y),vx,vy,p[4]];
   });
   return {moved,wrapped};
 }
@@ -65,20 +61,30 @@ export function expectedFCG7Samples(width,height,steps=8){
   if(!Number.isInteger(width)||!Number.isInteger(height)||width<64||height<64)
     throw RangeError('dimensions');
   const s=fcg7State(steps);
-  const point=(panel,p,n)=>({
-    x:Math.min(width-1,Math.max(0,Math.floor(width*(panel+p[0])/3))),
-    y:Math.min(height-1,Math.max(0,Math.floor(height*p[1]))),
-    label:'particle '+n+' / '+(panel?'FLIP':'PIC'),
-    rgba:panel?[245,145,38,255]:[26,204,240,255]
-  });
-  const grid=(i,j)=>{
-    const x=Math.floor(width*(2+(i+0.5)/Q)/3),
-      y=Math.floor(height*(j+0.5)/Q);
-    const v=byte(s.speed[node(i,j)]/0.7);
-    return {x,y,label:'grid ('+i+','+j+')',rgba:[v,51,255-v,255]};
+  // Independent point queries: no learner raster or shader is executed.
+  const palette=[[15,20,31],[80,148,255],[38,222,193],[255,220,104],[248,125,81]];
+  const probe=(panel,u,v,label)=>{
+    const x=Math.min(width-1,Math.max(0,Math.floor(width*(panel+u)/3)));
+    const y=Math.min(height-1,Math.max(0,Math.floor(height*v)));
+    const X=3*(x+0.5)/width-panel,Y=(y+0.5)/height;
+    if(panel===2){
+      const i=Math.min(Q-1,Math.max(0,Math.floor(X*Q))),j=Math.min(Q-1,Math.max(0,Math.floor(Y*Q)));
+      const b=byte(s.speed[node(i,j)]/0.7);
+      return {x,y,label,rgba:[b,51,255-b,255]};
+    }
+    const a=Math.min(255,Math.max(0,Math.floor(X*256))),b=Math.min(255,Math.max(0,Math.floor(Y*256)));
+    let dye=0;
+    for(const p of panel===0?s.pic:s.flip){
+      const dx=Math.abs(Math.floor(p[0]*256)-a),dy=Math.abs(Math.floor(p[1]*256)-b);
+      if(Math.min(dx,256-dx)<=1&&Math.min(dy,256-dy)<=1)dye=Math.max(dye,p[4]);
+    }
+    return {x,y,label,rgba:[...palette[dye],255]};
   };
-  return [point(0,s.pic[0],0),point(1,s.flip[0],0),
-    point(0,s.pic[10],10),point(1,s.flip[10],10),grid(2,3),grid(5,5)];
+  return [probe(0,s.pic[600][0],s.pic[600][1],'PIC tracer 600'),
+    probe(1,s.flip[600][0],s.flip[600][1],'FLIP tracer 600'),
+    probe(0,s.pic[1800][0],s.pic[1800][1],'PIC tracer 1800'),
+    probe(1,s.flip[1800][0],s.flip[1800][1],'FLIP tracer 1800'),
+    probe(2,10.5/Q,12.5/Q,'PIC grid (10,12)'),probe(2,15.5/Q,14.5/Q,'PIC grid (15,14)')];
 }
 export function compareFCG7Readback(got,width,height,steps=8,tolerance=2){
   return expectedFCG7Samples(width,height,steps).map((ref,k)=>{

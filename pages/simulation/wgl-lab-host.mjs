@@ -65,7 +65,7 @@ const requestedCase = new URL(location.href).searchParams.get('case');
 const labCase = isWGL20 && ['CS1','CS2','CS3'].includes(requestedCase) ? requestedCase : 'BASE';
 // FCG8's old saved JS predates the live playback hooks. Keep the old key
 // intact for recovery, but never silently restore it into the new live runner.
-const STORAGE_KEY = 'toukei-' + (isFCG4?'fcg4-projection-v2':isFCG8?'fcg8-live-v2':isWGL14?'wgl14-visual-v2':isWGL19?'wgl19-replay-v2':VERSION) + '-' + lesson +
+const STORAGE_KEY = 'toukei-' + (isFCG4?'fcg4-projection-v2':isFCG7?'fcg7-vortex-v2':isFCG8?'fcg8-live-v2':isWGL14?'wgl14-visual-v2':isWGL19?'wgl19-replay-v2':VERSION) + '-' + lesson +
   (isWGL20 ? '-' + labCase : '');
 
 const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/' + ((isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6 || isFCG7 || isFCG8) ? 'FCG' : 'WGL') + '/' + lesson + '/', import.meta.url);
@@ -158,6 +158,12 @@ let fcg6Steps = 8;
 let fcg6Timer = null;
 let fcg7Steps = 8;
 let fcg7Timer = null;
+let fcg7Playing=false,fcg7Pending=null,fcg7Mark=()=>{};
+function fcg7Control(action){
+  if(!active?.completed||active.contextLost)return false;
+  active.frame.contentWindow.postMessage({type:'fcg7-control',action,requestId:active.id,generation:active.generation,session:active.session},'*');
+  return true;
+}
 let fcg8Steps = 8;
 let fcg8Timer = null; // legacy slot; FCG8 playback now runs inside the sandbox
 let fcg8Playing=false,fcg8Pending=null,fcg8Mark=null;
@@ -226,8 +232,8 @@ const refreshSourceHighlights = initializeHighlightedEditors();
 function selectTab(name, focus = false) {
   // FCG5 keeps the single source-linked parameter panel next to the
   // observation when running, and returns it to Conditions on other tabs.
-  if(isFCG5){
-    const parameters=byId('lab-parameters'),result=byId('fcg5-result-parameters');
+  if(isFCG5||isFCG7){
+    const parameters=byId('lab-parameters'),result=byId(isFCG7?'fcg7-result-parameters':'fcg5-result-parameters');
     const parent=name==='result'&&result?result:byId('panel-conditions');
     if(parameters&&parameters.parentElement!==parent)parent.append(parameters);
   }
@@ -401,6 +407,7 @@ function stop(message = '停止しました。実行 iframe を破棄しまし�
     active = null;
   }
   byId('canvas-slot').replaceChildren();
+  if(isFCG7){fcg7Playing=false;fcg7Mark();const e=byId('fcg7-energy');if(e)e.textContent='初期運動エネルギーに対する割合（実行後に表示）';for(const id of ['fcg7-pic-energy','fcg7-flip-energy'])if(byId(id))byId(id).value=0;}
   if(isWGL19){
     const view=byId('wgl19-live-state');
     if(view)view.textContent='実行停止。再生するには「実行（結果へ）」を押してください。';
@@ -528,6 +535,29 @@ function isolatedRunner() {
           try{if(m.action==='seek')hooks.seek(m.iter);else hooks[m.action]();}
           catch(error){send({...scope,type:'fcg4-control-error',message:String(error?.message||error).slice(0,300)});}
         });
+      }
+      const fcg7Hooks=request.lesson==='FCG7'&&!!hooks&&
+        ['play','pause','step','reset','snapshot'].every(key=>typeof hooks[key]==='function');
+      if(fcg7Hooks){
+        const emit=d=>{
+          if(!d||!Number.isInteger(d.steps)||d.steps<0||d.steps>24||
+             ![d.time,d.initialEnergy,d.energyPic,d.energyFlip,d.flipMix,d.noise].every(Number.isFinite))return;
+          send({...scope,type:'fcg7-progress',steps:d.steps,time:d.time,playing:!!d.playing,
+            initialEnergy:d.initialEnergy,energyPic:d.energyPic,energyFlip:d.energyFlip,flipMix:d.flipMix,noise:d.noise});
+        };
+        canvas.addEventListener('fcg7-progress',event=>emit(event.detail));
+        canvas.addEventListener('fcg7-error',event=>send({...scope,type:'fcg7-error',message:String(event.detail).slice(0,300)}));
+        window.addEventListener('message',event=>{
+          const m=event.data;
+          if(event.source!==parent||!m||m.type!=='fcg7-control'||m.session!==scope.session||
+             m.requestId!==scope.requestId||m.generation!==scope.generation||
+             !['play','pause','step','reset'].includes(m.action))return;
+          try{hooks[m.action]();}catch(error){send({...scope,type:'fcg7-error',message:String(error.message||error).slice(0,300)});}
+        });
+        canvas.addEventListener('keydown',event=>{
+          if(event.key===' '){event.preventDefault();hooks.snapshot().playing?hooks.pause():hooks.play();}
+        });
+        emit(hooks.snapshot());
       }
       const fcg8Hooks=request.lesson==='FCG8'&&!!hooks&&
         ['play','pause','step','reset'].every(key=>typeof hooks[key]==='function');
@@ -727,7 +757,7 @@ function isolatedRunner() {
         {rate:Number(hooks.floatParameters.rate),steps:Number(hooks.floatParameters.steps)} : null;
       const frameAudit = request.lesson === 'WGL19' && hooks ? hooks.frameAudit : null;
       send({...scope, type: 'result', ok: glError === gl.NO_ERROR, samples, floatReadback, floatParameters, frameAudit,
-        liveHooks:request.lesson==='FCG8'?!!fcg8Hooks:request.lesson==='FCG2'?!!fcg2Hooks:undefined,
+        liveHooks:request.lesson==='FCG7'?!!fcg7Hooks:request.lesson==='FCG8'?!!fcg8Hooks:request.lesson==='FCG2'?!!fcg2Hooks:undefined,
         checkpoints: request.lesson === 'WGL20' && hooks ? hooks.checkpoints : null,
         width: canvas.width, height: canvas.height,
         logs, glError: '0x' + glError.toString(16)});
@@ -1006,6 +1036,21 @@ window.addEventListener('message', event => {
       '（CPUは開始時step '+active.payload.steps+'の初期基準。再生中の画素を保証しません）';
     return;
   }
+  if(isFCG7&&data.type==='fcg7-progress'){
+    if(active.contextLost||!Number.isInteger(data.steps)||data.steps<0||data.steps>24||
+       ![data.time,data.initialEnergy,data.energyPic,data.energyFlip,data.flipMix,data.noise].every(Number.isFinite)||
+       data.initialEnergy<0||data.energyPic<0||data.energyFlip<0)return;
+    fcg7Steps=data.steps;fcg7Playing=!!data.playing;fcg7Mark();
+    const percent=e=>data.initialEnergy>0?100*e/data.initialEnergy:0;
+    const output=byId('fcg7-energy');
+    output.textContent='PIC '+percent(data.energyPic).toFixed(1)+'% ('+data.energyPic.toFixed(2)+' J) ｜ 右側 α='+data.flipMix+'：'+percent(data.energyFlip).toFixed(1)+'% ('+data.energyFlip.toFixed(2)+' J)';
+    for(const [id,e] of [['fcg7-pic-energy',data.energyPic],['fcg7-flip-energy',data.energyFlip]]){
+      const bar=byId(id);bar.max=Math.max(1,percent(data.energyPic),percent(data.energyFlip),100);bar.value=percent(e);
+    }
+    byId('fcg7-right-label').textContent='FLIP / 混合 (α='+data.flipMix+')';
+    return;
+  }
+  if(isFCG7&&data.type==='fcg7-error'){fcg7Playing=false;fcg7Mark();setStatus('FCG7 再生エラー: '+String(data.message).slice(0,300),true);return;}
   if (isFCG7 && data.type === 'fcg7-cursor') {
     if(Number.isInteger(data.x)&&Number.isInteger(data.y)&&data.x>=0&&data.y>=0&&
       data.x<active.payload.width&&data.y<active.payload.height)
@@ -1017,7 +1062,7 @@ window.addEventListener('message', event => {
     if(!Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||x>=width||y>=height||
       !Array.isArray(rgba)||rgba.length!==4||!rgba.every(v=>Number.isInteger(v)&&v>=0&&v<=255))return;
     const panel=Math.min(2,Math.floor(3*(x+0.5)/width)),
-      X=3*(x+0.5)/width-panel,Y=(y+0.5)/height,s=fcg7State(steps);
+      X=3*(x+0.5)/width-panel,Y=(y+0.5)/height,s=fcg7State(fcg7Steps);
     const cohort=panel===0?s.pic:s.flip;
     let nearest=null;
     if(panel!==2){
@@ -1031,7 +1076,7 @@ window.addEventListener('message', event => {
       (panel===2?'node speed view':('nearest particle '+nearest.k+
       ' distance='+nearest.distance.toFixed(4)+' velocity=('+
       nearest.p[2].toFixed(4)+','+nearest.p[3].toFixed(4)+')'))+
-      ' / GPU '+rgba.join('/')+(changed?' / 編集コードではCPU値は初期基準':'');
+      ' / GPU '+rgba.join('/')+(changed?' / 編集コードではCPU値は既定設定の参考値':'');
     return;
   }
   if(isFCG6&&data.type==='fcg6-live-cell'){
@@ -1394,6 +1439,12 @@ window.addEventListener('message', event => {
         if(action==='play')fcg2Control('play');
       }
     }else fcg2Pending=null;
+  }
+  if(isFCG7){
+    active.completed=!!data.ok&&!!data.liveHooks;
+    if(data.ok&&!data.liveHooks)setStatus('FCG7の再生フックがありません。初期ソースを確認してください',true);
+    if(active.completed&&fcg7Pending){const action=fcg7Pending;fcg7Pending=null;fcg7Control(action);}
+    else if(!active.completed){fcg7Pending=null;fcg7Playing=false;fcg7Mark();}
   }
   if(isFCG5 && data.ok)forwardFcg5MotionPreference();
   if(isFCG8){
@@ -1775,51 +1826,53 @@ if (isFCG8) {
   fcg8Mark();
 }
 if (isFCG7) {
-  document.title='FCG7 PIC/FLIP：編集・検算ラボ';
-  document.querySelector('h1').textContent='FCG7 粒子と格子のPIC/FLIP転送';
+  document.title='FCG7 PIC/FLIP：渦の比較';
+  document.querySelector('h1').textContent='FCG7 同じ渦がどう変わるか：PICとFLIP';
   document.querySelector('#panel-conditions > p').textContent=
-    '16粒子、8×8周期節点格子。P2G→格子加速度と減衰→PIC/FLIP G2P→位置更新を各群で実行。左PIC粒子（水色）、中央FLIP粒子（橙色）、右PIC群節点速度R8。圧力射影や自由表面は含まない。';
+    '同じ色模様・初速の2304粒子を左右で動かす。PICは格子平均で速度を更新、FLIPは粒子速度に格子の増分を加える。初期条件を同じにしたまま、色模様の崩れ方と運動エネルギーの違いを観察する。';
   document.querySelector('#panel-conditions ol').innerHTML=
-    '<li>step0/1/8/24で粒子位置、境界折返し回数、PICとFLIPの運動エネルギーを比較する。</li>'+
-    '<li>1ステップ、再生、一時停止、step0復帰を試し、描画間隔と物理時刻を区別する。</li>'+
-    '<li>particle.jsのpicMix/flipMix、damp、forceを変更し、独立CPU基準との差を説明する。</li>'+
-    '<li>particle.fragの円の半径・色を編集し、物理速度とGPU画素の差を切り分ける。</li>'+
-    '<li>shader構文エラーと非対応GPU時の独立CPU診断を確認する。</li>';
-  byId('preset').options[0].textContent='PIC群・FLIP群・格子速度の3表示';
+    '<li>実行して左PICと中央FLIPの渦を見比べる。</li>'+
+    '<li>step 0へ戻して1ステップずつ進める。粒子の細かな速度差がどうなるか、エネルギーの割合と一緒に見る。</li>'+
+    '<li>混合係数を0.9、0.5、0へ変更して再実行。0では同じPICになる。</li>'+
+    '<li>初期摂動を0にして再実行。滑らかな渦の場合との違いを考える。</li>';
+  byId('preset').options[0].textContent='色付き渦の比較';
   byId('preset').options[1].textContent='fragment構文エラー';
   const controls=document.createElement('div');controls.className='controls';
   const step=document.createElement('button'),play=document.createElement('button'),
-    pause=document.createElement('button'),back=document.createElement('button'),
-    marker=document.createElement('output');
-  for(const [button,label] of [[step,'1ステップ'],[play,'再生'],[pause,'一時停止'],[back,'step 0へ戻す']]){
-    button.type='button';button.className='action';button.textContent=label;controls.append(button);
+    pause=document.createElement('button'),back=document.createElement('button'),marker=document.createElement('output');
+  for(const [button,label,id] of [[step,'1ステップ','fcg7-step'],[play,'再生','fcg7-play'],[pause,'一時停止','fcg7-pause'],[back,'step 0へ戻す','fcg7-reset']]){
+    button.type='button';button.id=id;button.className='action';button.textContent=label;controls.append(button);
   }
   controls.append(marker);byId('run').parentElement.before(controls);
+  const labels=document.createElement('div');
+  labels.style.cssText='display:grid;grid-template-columns:repeat(3,minmax(0,1fr));text-align:center;gap:4px;font-weight:600;margin:8px 0';
+  labels.innerHTML='<span>PIC (α=0)</span><span id="fcg7-right-label">FLIP (α=1)</span><span>PIC 格子速度</span>';
+  byId('canvas-slot').before(labels);
+  const energy=document.createElement('div');energy.style.cssText='margin:8px 0';
+  energy.innerHTML='<p id="fcg7-energy">初期運動エネルギーに対する割合（実行後に表示）</p>'+
+    '<label style="display:block">PIC <meter id="fcg7-pic-energy" min="0" max="100" value="0" style="width:60%"></meter></label>'+
+    '<label style="display:block">FLIP / 混合 <meter id="fcg7-flip-energy" min="0" max="100" value="0" style="width:60%"></meter></label>'+
+    '<small>色は初期位置の目印（両群共通）。右の速さ：青 0 → 赤 0.7 m/s。圧力・壁のない周期領域。</small>';
+  byId('canvas-slot').after(energy);
+  const resultParameters=document.createElement('div');resultParameters.id='fcg7-result-parameters';energy.after(resultParameters);
   const preview=document.createElement('p');preview.id='fcg7-cpu-prediction';
-  preview.setAttribute('aria-live','polite');
-  preview.textContent='WebGL2非対応の場合も独立CPUの粒子エネルギーと境界折返しを表示します。';
-  byId('panel-result').append(preview);
-  function mark(){
-    marker.textContent='物理step '+fcg7Steps+'/24、時刻 '+(fcg7Steps*0.08).toFixed(2)+'s（描画fpsとは独立）';
-    pause.disabled=fcg7Timer===null;play.disabled=fcg7Timer!==null;
+  preview.textContent='独立CPU基準（初回の検算）';
+  byId('numeric-details').append(preview);
+  fcg7Mark=()=>{
+    marker.textContent='物理step '+fcg7Steps+'/24、時刻 '+(fcg7Steps*0.08).toFixed(2)+' s';
+    pause.disabled=!fcg7Playing;play.disabled=fcg7Playing;
+  };
+  function control(action){
+    if(!ready){setStatus('教材ソースの読み込みを確認してください',true);return;}
+    if(!fcg7Control(action)){fcg7Pending=action;run();}
   }
-  function pausePlay(){if(fcg7Timer!==null){clearInterval(fcg7Timer);fcg7Timer=null;}mark();}
-  step.addEventListener('click',()=>{
-    pausePlay();if(fcg7Steps>=24){setStatus('24 stepで上限。step0へ戻してください');return;}
-    fcg7Steps++;mark();run();
-  });
-  play.addEventListener('click',()=>{
-    if(fcg7Timer!==null)return;
-    fcg7Timer=setInterval(()=>{
-      if(fcg7Steps>=24){pausePlay();return;}
-      fcg7Steps++;mark();run();if(fcg7Steps>=24)pausePlay();
-    },1000);mark();
-  });
-  pause.addEventListener('click',pausePlay);
-  back.addEventListener('click',()=>{pausePlay();fcg7Steps=0;mark();run();});
-  byId('reset').addEventListener('click',mark);
-  byId('stop').addEventListener('click',mark);
-  mark();
+  step.addEventListener('click',()=>control('step'));
+  play.addEventListener('click',()=>control('play'));
+  pause.addEventListener('click',()=>control('pause'));
+  back.addEventListener('click',()=>control('reset'));
+  byId('reset').addEventListener('click',()=>{fcg7Steps=8;fcg7Playing=false;fcg7Pending=null;fcg7Mark();});
+  byId('stop').addEventListener('click',()=>{fcg7Playing=false;fcg7Pending=null;fcg7Mark();});
+  fcg7Mark();
 }
 if (isFCG6) {
   document.title='FCG6 固体マスク付き流体：編集・検算ラボ';

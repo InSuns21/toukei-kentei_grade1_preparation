@@ -347,29 +347,26 @@ $$
 
 ## 6. JS・GLSLを編集してPIC/FLIPを比較する
 
-<iframe src="simulation/wgl-lab.html?lesson=FCG7" title="FCG7 PIC/FLIPの粒子・格子転送、JavaScriptとGLSL編集、CPU・GPU照合ラボ" loading="lazy" style="width:100%;height:1050px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
+同じ渦を二つ用意し、粒子の速度を格子へ移して戻す操作を繰り返そう。PICは格子の平均速度で粒子を更新する。FLIPは粒子が持っていた速度に格子の変化分だけを加える。この違いが、渦の色模様と粒子の運動エネルギーに現れる。
 
-この**3タブラボ**は「実験条件・課題／ソース編集／結果」の順に利用する。実際の時間更新は [particle.js](particle.js)、頂点shaderは [particle.vert](particle.vert)、断片shaderは [particle.frag](particle.frag) にある。初期ソースのままなら、独立に計算するCPU基準値とWebGL2の実画素を照合できる。GLSLだけを編集すれば物理的な粒子速度は変わらず、JSの $0\le\alpha\le1$、減衰率、加速度を変更すればCPU基準との不一致は**教材を壊した証拠ではなく**、基準条件を変更した結果として再解釈する必要がある。
+<iframe src="simulation/wgl-lab.html?lesson=FCG7" title="FCG7 同じ渦のPICとFLIPの比較・JavaScriptとGLSL編集ラボ" loading="lazy" style="width:100%;height:1050px;border:1px solid #64748b;" allow="fullscreen"></iframe>
 
-計算の標準設定は $N=8$、16粒子を各1 kg、$\Delta t=0.08$ sである。粒子初期位置は $x=0.24+0.24r,\ y=0.16+0.24s$（粒子の初期配置番号 $r,s=0,1,2,3$）[m] で、速度には滑らかな成分と格子では平均化されやすい交互符号の摂動を加えている。ここで $r,s$ は節点番号 $i,j$ とは別の番号である。ラボではPIC群とFLIP群をそれぞれ**独立のP2G→格子更新→G2P→位置更新**で計算するので、最初は同じ粒子配置でも時間が進むと格子上の速度も異なり得る。
+**観察する順序**
 
-格子速度更新は節点 $I=(i,j)$（$i,j=0,\ldots,7$）ごとに行う。$g_{I,x}$ と $g_{I,y}$ はその節点速度の水平・鉛直成分である。
+1. 実行して、左のPICと中央のFLIPの色模様を見比べる。色は初期位置に付けた4種類の目印であり、両群で共通である。右はPICの格子速度（青が0、赤が0.7 m/s以上）。
+2. step 0へ戻し、1ステップずつ進める。PICの局所平均で交互符号の速度が弱まり、FLIPでは細かな速度差が残る。粒子群の変形と、初期エネルギーに対する割合を一緒に観察する。
+3. 再生して24ステップまで進める。右側の混合係数を1から0.9、0.5、0へ変えて実行し直す。0なら左右は同じPICになる。初期速度の摂動を0にして、滑らかな渦だけの場合とも比較する。
 
-$$
-g_{I,x}^{\mathrm{new}}=0.995\,g_{I,x}^{\mathrm{old}}
-+\Delta t\,(0.08)\sin(2\pi(j+1/2)/8),
-$$
+実計算は1 m四方の周期領域、24×24の節点格子、各群2304粒子（各1 kg）、時間刻み0.08 sで行う。初期粒子は半径0.36 mの円内に48の動径層×48方向で置き、中心からの相対位置に比例する回転速度と、交互符号の摂動を与える。標準設定では格子加速度0、格子減衰1なので、外力や圧力の影響と転送の影響を分離できる。純FLIPでは[格子増分ゼロ時の速度保持](#prop-fcg7-flip-hold)により粒子の速度を保持し、純PICでは[運動エネルギー非増大](#prop-fcg7-energy)により各転送でエネルギーが増えない。
 
-$$
-g_{I,y}^{\mathrm{new}}=0.995\,g_{I,y}^{\mathrm{old}}
--\Delta t\,(0.08)\cos(2\pi(i+1/2)/8)
-$$
+| 操作 | 初期値 | 設定範囲・刻み | 編集位置 |
+| --- | --- | --- | --- |
+| 右側のFLIP混合係数 | 1 | 0〜1、0.1（無次元） | [particle.js](particle.js) の flipMix |
+| 初期交互速度の各成分の振幅 | 0.18 m/s | 0〜0.30 m/s、0.03 m/s | [particle.js](particle.js) の noise |
 
-とする（質量0の節点では旧・新とも零に設定）。ここで0.08の単位は m/s²。これは学習用の**既知加速度と人工的な格子減衰**であってNavier–Stokes方程式の物理的圧力解ではない。PIC/FLIPの運動エネルギーを比べても、第4節の[純転送PICの運動エネルギー非増大命題](#prop-fcg7-energy)をこの全更新へそのまま適用してはいけない。
+混合係数を0〜1にすると、[混合速度の定義](#def-fcg7-mixing)の二つの重みは非負で和が1になる。摂動の範囲はこの観察用の速度尺度に合わせている。再生間隔160 msは物理時間刻みとは別である。粒子の色は256×256の表示用テクスチャへ書き込むが、転送を計算する格子は24×24のままである。色を変えるには [particle.frag](particle.frag)、頂点処理を変えるには [particle.vert](particle.vert) を編集する。GLSLの配色だけを変えても粒子エネルギーは変化しない。
 
-表示は左がPIC粒子位置（水色の円）、中央がFLIP粒子位置（橙色の円）、右がPIC群のP2G後の節点速度の大きさを0.7 m/sで割ってR8テクスチャにした格子値である。円はGLSL内の距離判定で描く**表示記号**であり、物理的な水滴半径ではない。粒子質量、運動量、両群の運動エネルギー、周期境界を越えた粒子数、定数速度の転送誤差はJSと独立CPU診断で確認する。
-
-**試すべき変更。** まずstep0、step1、step8、step24を比較し、PIC群の模様の平滑化、FLIP群の速度差保持、周期境界での座標折返しを観察する。次に [particle.js](particle.js) の混合係数を変えて再実行する。最後に [particle.frag](particle.frag) の背景色または円半径を変え、画素基準との差だけが変わることを確かめる。GLSLに構文エラーを入れた場合はコンパイル失敗を検出できる。
+この実験は圧力射影や固体壁を持たない周期領域の転送実験である。本格的な水槽でのFLIPの挙動は、Matthias Müllerの [Ten Minute Physics: FLIP Water Simulator](https://matthias-research.github.io/pages/tenMinutePhysics/18-flip.html) や [WebGL PIC/FLIP Fluid](https://github.com/austinEng/WebGL-PIC-FLIP-Fluid) で比較できる。水槽では格子で圧力を解き、粒子へその変化を戻す。ここではその一部分を取り出し、速度の平均化と保持の差を直接観察する。
 
 ## 7. 演習と詳細解答
 
