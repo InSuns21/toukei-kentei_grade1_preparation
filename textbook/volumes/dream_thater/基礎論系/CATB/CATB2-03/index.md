@@ -6,7 +6,15 @@
 
 通常の[共変関手](../../CAT/CAT1-06/index.md#def-cat1-06-functor)では対象を移し、各Hom集合の写像で合成と恒等射を保存する。ここではHom集合の写像を基底の圏の射に置き換える。
 
-基底を[局所小な](../../CAT/CAT1-02/index.md#def-cat1-02-size)（二対象間の射が集合をなす）[モノイダル圏](../../CAT/CAT4-01/index.md#def-cat4-01-monoidal) $(\mathcal V,\otimes,I,\alpha,\lambda,\rho)$ とする。本講の豊穣圏はすべてこの同じ基底上にあり、対象の集まりは集合とする。[豊穣圏の定義](../CATB2-01/index.md#def-catb2-01-enriched-category)に従い、合成と単位を $m^{\mathcal A}_{xyz},j^{\mathcal A}_x$ と書く。ここで $I$ は単位対象、$\alpha$ は結合子、$\lambda,\rho$ は左・右単位子である。上添字はどの豊穣圏の構造射かを区別し、$xyz$ は出発点・中間点・到着点、$x$ は単位射の対象を表す。$\mathcal A(x,y)$ は基底の対象、$1_{\mathcal A(x,y)}$ はその基底での恒等射であり、$j_x^{\mathcal A}$ とは異なる。射の並置は右から先に作用する合成を表し、通常の写像の合成では $\circ$ とも書く。対象の像 $F(x)$ は $Fx$ と略記する。
+基底を[モノイダル圏](../../CAT/CAT4-01/index.md#def-cat4-01-monoidal) $(\mathcal V,\otimes,I,\alpha,\lambda,\rho)$ とする。ここで $I$ は単位対象、$\alpha$ は結合子、$\lambda,\rho$ は左・右単位子である。
+
+基底は[局所小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)、すなわち任意の二対象間の射が集合をなす圏と仮定する。本講の豊穣圏はすべてこの同じ基底上にあり、対象の集まりは集合とする。
+
+[豊穣圏の定義](../CATB2-01/index.md#def-catb2-01-enriched-category)に従い、合成と単位を $m^{\mathcal A}_{xyz},j^{\mathcal A}_x$ と書く。上添字はどの豊穣圏の構造射かを区別し、$xyz$ は出発点・中間点・到着点、$x$ は単位射の対象を表す。
+
+$\mathcal A(x,y)$ は基底の対象、$1_{\mathcal A(x,y)}$ はその基底での恒等射であり、$j_x^{\mathcal A}$ とは異なる。
+
+射の並置は右から先に作用する合成を表し、通常の写像の合成では $\circ$ とも書く。対象の像 $F(x)$ は $Fx$ と略記する。
 
 <a id="def-catb2-03-enriched-functor"></a>
 
@@ -119,7 +127,21 @@ $$
 
 ## 3. 二値と費用の場合の判定
 
-前講の[二値豊穣圏と前順序](../CATB2-02/index.md#prop-catb2-02-preorder-enrichment)を用いる。前順序集合 $X$ のHom対象を $h_X(x,y)$ と書き、$x\preceq_X y$ なら $1$、そうでなければ $0$ とする。基底は $0\le1$ に対応する二値の圏で、単位対象は $1$ である。費用の場合は [Lawvere型拡張距離](../CATB2-02/index.md#def-catb2-02-lawvere-metric) $d_X$ を [豊穣圏のHom対象](../CATB2-02/index.md#thm-catb2-02-lawvere-enrichment)として用いる。いずれの基底でも同じ始域・終域を持つ射は高々一本なので、構造射の存在条件から関手を判定できる。
+前講の[二値豊穣圏と前順序](../CATB2-02/index.md#prop-catb2-02-preorder-enrichment)を用いる。前順序集合 $X$ のHom対象を $h_X(x,y)$ と書く。
+
+$$
+h_X(x,y)=
+\begin{cases}
+1 & (x\preceq_X y),\\
+0 & (\text{それ以外}).
+\end{cases}
+$$
+
+基底は $0\le1$ に対応する二値の圏で、単位対象は $1$ である。
+
+費用の場合は [Lawvere型拡張距離](../CATB2-02/index.md#def-catb2-02-lawvere-metric) $d_X$ を [豊穣圏のHom対象](../CATB2-02/index.md#thm-catb2-02-lawvere-enrichment)として用いる。
+
+いずれの基底でも同じ始域・終域を持つ射は高々一本なので、構造射の存在条件から関手を判定できる。
 
 <a id="prop-catb2-03-thin-functors"></a>
 
@@ -417,7 +439,11 @@ $$
 
 第二、第四、第六行への変形は上で得た結合性、第三、第五行への変形はそれぞれ $a,b$ の自然性である。全て $P\to\mathcal B(Fx,Hy)$ の射なので、$c$ の自然性が成立する。
 
-恒等変換の自然性は[豊穣圏の左右単位律](../CATB2-01/index.md#def-catb2-01-enriched-category)と[単位子の自然性](../../CAT/CAT4-01/index.md#def-cat4-01-monoidal)から確認できる。例えば $t=F_{xy}$、$R=\mathcal B(Fx,Fy)$ とし、以下の $1$ は $1_R$、$j$ は $\mathcal B$ の単位射とする。左の合成では $m=m^\mathcal B_{Fx,Fy,Fy}$、右の合成では $m=m^\mathcal B_{Fx,Fx,Fy}$ である。すると
+恒等変換の自然性は[豊穣圏の左右単位律](../CATB2-01/index.md#def-catb2-01-enriched-category)と[単位子の自然性](../../CAT/CAT4-01/index.md#def-cat4-01-monoidal)から確認できる。
+
+例えば $t=F_{xy}$、$R=\mathcal B(Fx,Fy)$ とし、以下の $1$ は $1_R$、$j$ は $\mathcal B$ の単位射とする。
+
+左の合成では $m=m^\mathcal B_{Fx,Fy,Fy}$、右の合成では $m=m^\mathcal B_{Fx,Fx,Fy}$ である。すると
 
 $$
 j_{Fy}*t
@@ -506,10 +532,12 @@ $$
 **詳細解答。** [費用による判定](#prop-catb2-03-thin-functors)により全ての実数 $x,y$ で
 
 $$
+\begin{aligned}
 |F(y)-F(x)|
-=|(ay+b)-(ax+b)|
-=|a|\,|y-x|
-\le|y-x|
+&=|(ay+b)-(ax+b)|\\
+&=|a|\,|y-x|\\
+&\le|y-x|.
+\end{aligned}
 $$
 
 が必要である。$x=0,y=1$ を代入すると $|a|\le1$ が必要となる。逆にこの条件なら $|y-x|\ge0$ を掛けて全点対の不等式を得る。従って $-1\le a\le1$ が必要十分であり、平行移動の量 $b$ は任意である。
@@ -587,7 +615,20 @@ $$
 c+kn=\ell n+c
 $$
 
-が全ての非負整数 $n$ で必要となる。$n=1$ として $c+k=\ell+c$。有限の整数の加法の消去律から $k=\ell$。逆に $k=\ell$ なら加法の可換性で任意の $c,n$ について等式が成立する。基底は集合なので、全入力 $n$ における等式は二本のHom集合上の写像そのものの等式を意味し、豊穣自然性も成立する。したがって $k\ne\ell$ なら変換は存在せず、$k=\ell$ なら全ての非負整数 $c$ が成分の候補となる。二変換の合成は成分の和であり、恒等変換は成分 $0$ であることも[成分ごとの合成](#prop-catb2-03-vertical)から従う。
+が全ての非負整数 $n$ で必要となる。$n=1$ とすると
+
+$$
+c+k=\ell+c
+\quad\Longrightarrow\quad k=\ell
+$$
+
+である。ここでは有限の整数の加法の消去律を使った。
+
+逆に $k=\ell$ なら加法の可換性で任意の $c,n$ について等式が成立する。基底は集合なので、全入力 $n$ における等式は二本のHom集合上の写像そのものの等式を意味し、豊穣自然性も成立する。
+
+したがって $k\ne\ell$ なら変換は存在せず、$k=\ell$ なら全ての非負整数 $c$ が成分の候補となる。
+
+二変換の合成は成分の和であり、恒等変換は成分 $0$ であることも[成分ごとの合成](#prop-catb2-03-vertical)から従う。
 <!-- solution-end -->
 
 ### CATB2-03-C01 方向付き費用と台の圏
