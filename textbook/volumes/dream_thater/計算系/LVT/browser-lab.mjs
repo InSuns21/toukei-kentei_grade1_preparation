@@ -107,6 +107,12 @@ export const lessons = {
     ['Main.lean','境界と誤実装のテスト','LVT3-04 OK を表示。','\n#eval main\n'],
     ['ExerciseSolutions.lean','演習解答の検査','全8題の証明を検査。'],
     ['Failure.lean','整列性だけでは足りない','型不一致で拒否される。']
+  ] },
+  'LVT3-05': { module:'LvtTransitions', modes:[
+    ['Inspect.lean','成功・拒否・到達不能な入力','some 2、none、none、some 1 と定理の型・公理依存を確認。'],
+    ['Main.lean','境界と成功した遷移','LVT3-05 OK を表示。','\n#eval main\n'],
+    ['ExerciseSolutions.lean','演習解答の検査','全8題の証明を検査。'],
+    ['Failure.lean','拒否された遷移の証明','容量4で up を選ぶと none なので Step 4 6 の証明が拒否される。']
   ] }
 };
 export function combine(module, definitions, experiment, suffix='') {

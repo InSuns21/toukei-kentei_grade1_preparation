@@ -1,0 +1,28 @@
+id: "LVT3-05"
+title: "状態遷移系・到達可能性・不変量"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT3-04, LVT2-06]
+official_scope: []
+learning_objectives:
+  - 初期状態と一回の遷移を区別してモデル化する
+  - 実行可能な関数と遷移関係を結び付ける
+  - 既習の到達証明の帰納法を適用して全到達状態の性質を証明する
+  - 到達状態で真となる性質と帰納的不変量の違いを反例で説明する
+definitions:
+  - { id: LVT3-05-DEF-01, name: "単一初期状態の遷移モデル" }
+  - { id: LVT3-05-DEF-02, name: "二単位カウンタの実行規則" }
+  - { id: LVT3-05-DEF-03, name: "二単位カウンタの遷移関係" }
+  - { id: LVT3-05-DEF-04, name: "帰納的不変量" }
+propositions:
+  - { id: LVT3-05-PROP-01, name: "二単位カウンタの保存条件" }
+  - { id: LVT3-05-PROP-02, name: "二単位カウンタの到達範囲" }
+  - { id: LVT3-05-PROP-03, name: "二単位カウンタの上限保証" }
+  - { id: LVT3-05-PROP-04, name: "到達状態の性質と保存条件の相違" }
+theorems: []
+canonical_examples: ["二単位カウンタの増減と拒否", "到達不能な奇数状態", "到達状態の性質が全遷移で保存されない例"]
+problem_patterns: [LVT3-05-A01, LVT3-05-A02, LVT3-05-A03, LVT3-05-A04, LVT3-05-B01, LVT3-05-B02, LVT3-05-B03, LVT3-05-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 3, review: 0.5 }
