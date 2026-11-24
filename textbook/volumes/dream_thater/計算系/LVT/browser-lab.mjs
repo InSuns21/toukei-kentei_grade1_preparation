@@ -46,6 +46,12 @@ export const lessons = {
     ['Main.lean','複合仕様の証明','二つの証明が通り、LVT2-02 OK を表示。','\n#eval main\n'],
     ['ExerciseSolutions.lean','演習解答の検査','全9題の証明項を検査。'],
     ['Failure.lean','意図した型エラー','選言を連言として返すと型不一致になる。']
+  ] },
+  'LVT2-03': { module:'LvtEquality', modes:[
+    ['Inspect.lean','等式と書換えの型','Eq.refl、Eq.subst、congrArg と加算の等式の型、normalize 7 の値 7 を確認。'],
+    ['Main.lean','正規化と仕様保存','等式と仕様保存の証明が通り、LVT2-03 OK を表示。','\n#eval main\n'],
+    ['ExerciseSolutions.lean','演習解答の検査','全9題の証明を検査。'],
+    ['Failure.lean','意図した等式エラー','根拠のない rfl と逆向きの証明が拒否される。']
   ] }
 };
 export function combine(module, definitions, experiment, suffix='') {
