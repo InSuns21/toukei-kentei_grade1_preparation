@@ -39,6 +39,12 @@ def playExcept (p : Player) (c : Cell) : Except PlayError Cell :=
   | .played d => .ok d
   | .blocked q => .error (.occupied q)
 
+def sameOutcome (a b : Except PlayError Cell) : Bool :=
+  match a, b with
+  | .ok c, .ok d => c == d
+  | .error e, .error f => e == f
+  | _, _ => false
+
 theorem other_twice (p : Player) : other (other p) = p := by
   cases p <;> rfl
 

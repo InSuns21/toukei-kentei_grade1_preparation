@@ -5,7 +5,7 @@ open LvtTypes
 #guard owner Cell.empty == (none : Option Player)
 #guard owner (Cell.occupied Player.o) == some Player.o
 #guard play Player.x (Cell.occupied Player.o) == Result.blocked Player.o
-#guard playExcept Player.o Cell.empty == Except.ok (Cell.occupied Player.o)
+#guard sameOutcome (playExcept Player.o Cell.empty) (Except.ok (Cell.occupied Player.o))
 
 def isEmpty (c : Cell) : Bool :=
   match c with
@@ -29,5 +29,5 @@ theorem owner_after_play (p : Player) :
 def badPlay (p : Player) (_c : Cell) : Except PlayError Cell :=
   .ok (.occupied p)
 
-#guard badPlay .x (.occupied .o) == Except.ok (Cell.occupied Player.x)
-#guard playExcept .x (.occupied .o) == Except.error (PlayError.occupied Player.o)
+#guard sameOutcome (badPlay .x (.occupied .o)) (Except.ok (Cell.occupied Player.x))
+#guard sameOutcome (playExcept .x (.occupied .o)) (Except.error (PlayError.occupied Player.o))
