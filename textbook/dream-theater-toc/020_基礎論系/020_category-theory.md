@@ -55,3 +55,4 @@
 52. [CATB2-04 豊穣Yonedaの補題](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-04/index.md)
 53. [CATB2-05 重み付き極限と余極限](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-05/index.md)
 54. [CATB2-06 豊穣随伴と豊穣Kan拡張](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-06/index.md)
+55. [CATB2-07 分配子とcoendによる合成](textbook/volumes/dream_thater/基礎論系/CATB/CATB2-07/index.md)
