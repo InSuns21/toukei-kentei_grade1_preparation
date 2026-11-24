@@ -1,0 +1,12 @@
+chapter: LVT1-02
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT1-01]
+concepts:
+  - id: lean-verification.fixed-project-environment
+    name: 固定されたLeanプロジェクト
+    kind: definition
+    introduction: formal
+  - id: lean-verification.bump-zero
+    name: 零入力での加算関数の値
+    kind: proposition
