@@ -29,7 +29,11 @@ $$
 Dz=pz,\qquad B_bz=\frac{z+b}{p}.
 $$
 
-この点移動の先で関数を評価し、足し合わせる線形作用をHecke作用素と呼びます。$\Gamma$ 不変とは、任意の $\gamma\in\Gamma$ と $z\in\mathbb H$ で $u(\gamma z)=u(z)$ が成立することです。ここでは正則性を課しません。MF5の[レベル1のHecke作用素](../../MF/MF5/index.md#def-mf5-hecke-level-one)を重さ0とした場合の正規化は $1/p$ でした。本講ではその $\sqrt p$ 倍を用います。後で非零Fourier係数の漸化式が簡単になります。
+MF5の[レベル1のHecke作用素](../../MF/MF5/index.md#def-mf5-hecke-level-one)を参考に、各点移動の先で関数を評価し、その値を足し合わせる線形作用を構成します。
+
+$\Gamma$ 不変とは、任意の $\gamma\in\Gamma$ と $z\in\mathbb H$ で $u(\gamma z)=u(z)$ が成立することです。ここでは正則性を課しません。
+
+MF5の式で重さを0とした場合の正規化は $1/p$ でした。本講ではその $\sqrt p$ 倍を用います。後で非零Fourier係数の漸化式が簡単になります。
 
 
 <a id="def-afr6-hecke"></a>
@@ -158,9 +162,40 @@ J=\Gamma\cap D^{-1}\Gamma D,\qquad
 J'=\Gamma\cap D\Gamma D^{-1}=DJD^{-1}
 $$
 
-と置きます。$\Gamma D\gamma=\Gamma D\delta$ と $D\gamma\delta^{-1}D^{-1}\in\Gamma$ は同値であり、これは $\gamma\delta^{-1}\in J$、すなわち $J\gamma=J\delta$ と同値です。従って $J\backslash\Gamma$ の代表 $\gamma_j$ は $p+1$ 個で、$D\gamma_j$ は二重剰余類の左代表です。$pD^{-1}=\operatorname{diag}(1,p)=SDS^{-1}$ なので、逆向きの二重剰余類にも同数の左代表があり、$J'$ の指数も $p+1$ です。
+と置きます。左剰余類の一致条件を順に書くと、
 
-境界の零測度部分を除けば $F_J=\bigcup_j\gamma_j F$ は $J$ の基本領域です。実際、任意の点を $\gamma z$（$z\in F$）と書き、$\gamma=h\gamma_j$（$h\in J$）と分解すればこの領域で代表できます。内部での重複を調べます。$z,z'\in F^\circ$ と $h\in J$ について $h\gamma_j z=\gamma_k z'$ なら、[基本領域の存在と内部での一意性](../../MF/MF1/index.md#thm-mf1-fundamental-domain)より $\gamma_k^{-1}h\gamma_j=\pm I$ です。$\pm I\in J$ なので $J\gamma_j=J\gamma_k$、従って $j=k$ です。$DF_J$ は共役部分群 $J'$ の基本領域です。
+$$
+\begin{aligned}
+\Gamma D\gamma=\Gamma D\delta
+&\iff D\gamma\delta^{-1}D^{-1}\in\Gamma\\
+&\iff \gamma\delta^{-1}\in J\\
+&\iff J\gamma=J\delta
+\end{aligned}
+$$
+
+となります。従って $J\backslash\Gamma$ の代表 $\gamma_j$ は $p+1$ 個で、$D\gamma_j$ は二重剰余類の左代表です。
+
+$pD^{-1}=\operatorname{diag}(1,p)=SDS^{-1}$ なので、逆向きの二重剰余類にも同数の左代表があり、$J'$ の指数も $p+1$ です。
+
+境界の零測度部分を除けば $F_J=\bigcup_j\gamma_j F$ は $J$ の基本領域です。実際、任意の点を $\gamma z$（$z\in F$）と書き、$\gamma=h\gamma_j$（$h\in J$）と分解すればこの領域で代表できます。
+
+内部での重複を調べます。$z,z'\in F^\circ$ と $h\in J$ について、次の等式が成り立つと仮定します。
+
+$$
+h\gamma_j z=\gamma_k z'
+\quad\Longrightarrow\quad
+z'=(\gamma_k^{-1}h\gamma_j)z.
+$$
+
+括弧内の行列は $\Gamma$ に属します。[基本領域の存在と内部での一意性](../../MF/MF1/index.md#thm-mf1-fundamental-domain)より $z=z'$ であり、$\gamma_k^{-1}h\gamma_j=\pm I$ です。$\pm I\in J$ なので
+
+$$
+J\gamma_j=J\gamma_k
+$$
+
+となり、代表の一意性から $j=k$ です。
+
+$DF_J$ は共役部分群 $J'$ の基本領域です。
 
 [面積要素の不変性](../AFR2/index.md#prop-afr2-metric-invariance)を $\gamma_j$ と $D/\sqrt p$ に適用して、
 
@@ -390,7 +425,17 @@ $$
 
 よって $(h,k)$ が $D$ の行格子に入る条件は $p\mid h$ です。このとき逆像は $(h/p,k)$ です。$B_b$ の行格子に入る条件は $k\equiv bh\pmod p$ で、逆像は $(h,(k-bh)/p)$ です。これで各条件の必要性と十分性が確認できました。
 
-非零の整数組 $(h,k)$ が両成分とも $p$ で割れれば、$p+1$ 個全ての行格子に入ります。それ以外で $p\mid h$ なら $p\nmid k$ なので $D$ の格子だけに入り、$p\nmid h$ なら $h$ は法 $p$ で逆元を持ち、$b\equiv kh^{-1}\pmod p$ の代表 $0\le b<p$ が一意なので一つだけに入ります。各行列の行ベクトルへの作用は単射です。
+非零の整数組 $(h,k)$ が両成分とも $p$ で割れれば、$p+1$ 個全ての行格子に入ります。
+
+それ以外で $p\mid h$ なら $p\nmid k$ なので $D$ の格子だけに入ります。
+
+$p\nmid h$ なら $h$ は法 $p$ で逆元を持ちます。合同式
+
+$$
+b\equiv kh^{-1}\pmod p
+$$
+
+を満たす代表 $0\le b<p$ は一意なので、ちょうど一つの行格子に入ります。各行列の行ベクトルへの作用は単射です。
 
 従って絶対収束する和を並べ替えると、
 
