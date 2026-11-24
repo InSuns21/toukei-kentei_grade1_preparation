@@ -1,0 +1,26 @@
+chapter: LVT4-02
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT4-01]
+concepts:
+  - id: lean-verification.property-based-testing
+    name: 性質ベーステスト
+    aliases: ["Property-Based Testing"]
+    kind: definition
+    introduction: formal
+    requires: [lean-verification.unit-test-success]
+  - id: lean-verification.generated-input-pass
+    name: 生成入力列の全件成功条件
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.property-based-testing]
+  - id: lean-verification.uniform-miss
+    name: 独立一様抽出での反例の見逃し
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.property-based-testing]
+  - id: lean-verification.range-check-correct
+    name: 範囲判定の全入力正当性
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.property-based-testing]
