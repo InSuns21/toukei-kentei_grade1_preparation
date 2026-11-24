@@ -4,6 +4,8 @@
 
 前講では自然数の関数を実行し、型が合わない式をLeanが拒否することを確認しました。ゲームの盤面を自然数だけで記録すると、0と1がプレイヤーなのか空きマスなのか、2以上をどう扱うかを別途決めなければなりません。今回は値の候補そのものを型で表し、空きマスへの着手と着手拒否を異なる結果として返す小さなモデルを作ります。盤面全体の規則ではなく、1マスへの着手を対象とします。
 
+**ブラウザで実行：** [本講の実行ラボを開く](../browser-lab.html?chapter=LVT1-03)。Lean Web では教材の定義・証明・具体例を編集し、実行結果やエラーを確認できます。Lake や複数ファイルの実行は同じラボから GitHub Codespaces（ブラウザ版VS Code）を開いて行います。ローカルへのインストールは不要です。
+
 ## 1. 値の候補と関数の型
 
 型は式がどの種類の値を表すかを指定します。Nat は0を含む自然数、Bool は true と false の型です。関数は受け取る値の型と返す値の型を持ちます。例えば Nat → Nat は自然数を受け取って自然数を返します。
@@ -202,7 +204,7 @@ theorem play_occupied (p q : Player) :
 
 ## 5. Leanで実験する
 
-[固定されたLeanプロジェクト](../LVT1-02/index.md#def-lvt1-02-fixed-environment) の作り方に従い、lab にLean v4.35.0、Lake設定、外部依存なしのmanifest、ソースを用意しました。LvtTypes.lean に上の型・関数・証明をまとめています。リポジトリのルートから実行します。
+[固定されたLeanプロジェクト](../LVT1-02/index.md#def-lvt1-02-fixed-environment) の作り方に従い、lab にLean v4.35.0、Lake設定、外部依存なしのmanifest、ソースを用意しました。LvtTypes.lean に上の型・関数・証明をまとめています。Codespaces の端末で、リポジトリのルートから実行します。
 
 ```bash
 cd "textbook/volumes/dream_thater/計算系/LVT/LVT1-03/lab"

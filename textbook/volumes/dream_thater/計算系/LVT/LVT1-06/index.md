@@ -4,6 +4,8 @@
 
 前提：[LVT1-05](../LVT1-05/index.md)。到達点は、純粋な盤面更新を定義し、失敗と成功の結果を説明し、入出力層とモデルを分離して誤変換の反例を実行することです。
 
+**ブラウザで実行：** [本講の実行ラボを開く](../browser-lab.html?chapter=LVT1-06)。Lean Web では教材の定義・証明・具体例を編集し、実行結果やエラーを確認できます。Lake や複数ファイルの実行は同じラボから GitHub Codespaces（ブラウザ版VS Code）を開いて行います。ローカルへのインストールは不要です。
+
 ## 1. 盤面を値として扱う
 
 今回は三目並べの準備として、3 行 3 列の盤面に印があるかどうかだけを扱います。手番、勝敗、終了判定はまだ導入しません。各マスの値は Bool で、false は空、true は印があることを表します。Lean の `Nat` は 0 を含む非負整数の型です。本講で番号を自然数と呼ぶときも 0 を含めます。前講の[Fin型](../LVT1-05/index.md#def-lvt1-05-fin-index)により有効な番号は 0 から 8 です。
@@ -236,7 +238,7 @@ JSON は文字列で構造化データを伝える形式です。例えば {"ind
 
 ## 6. Leanで実験する
 
-[固定されたLeanプロジェクト](../LVT1-02/index.md#def-lvt1-02-fixed-environment)に沿い、Lean v4.35.0 の lab を用います。リポジトリのルートから実行します。
+[固定されたLeanプロジェクト](../LVT1-02/index.md#def-lvt1-02-fixed-environment)に沿い、Lean v4.35.0 の lab を用います。Codespaces の端末で、リポジトリのルートから実行します。
 
 ```bash
 cd "textbook/volumes/dream_thater/計算系/LVT/LVT1-06/lab"
