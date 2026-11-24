@@ -83,7 +83,7 @@ result family は成果群識別子であって講数ではない。268 は Open
 
 内訳：**導入1 + Kakeya(074)3 + local smoothing(079)4 + $\pi$1 + H10(Q)2 + NS計算普遍性2 + スピングラス2 + Haldane–Tasaki(268)6 + ETH3 + YM/QCD6 + Euler-BU4 + NS-BU3 + RH/GRH横断1 + 総括1 = 39講**。
 
-橋渡し11講（従来8講 + 268A/B/E）は、既存の HA/GMT/HPDE、CMP、QFT/AQFT・SM等の学習内容と、専門的な研究原論文の間にある未導入概念を埋めるためのもの。未修の全科目をEOMへ再掲するのではなく、各講で必要な直接例・主要中間式と、到達可能な正本リンクに絞る。特に079と074の重複したKakeya基礎、EOMYMとEOMQCDの共通格子構成を二度証明しない。
+従来の橋渡し11講（079A/B・378A/B・YMA/B/C・QCDA・268A/B/E）と新規Euler/NSの前段5講（EOMEULERA–C・EOMNSBUA/B）は、既存の HA/GMT/HPDE、CMP、QFT/AQFT・SM等の学習内容と、専門的な研究原論文の間にある未導入概念を埋めるためのもの。未修の全科目をEOMへ再掲するのではなく、各講で必要な直接例・主要中間式と、到達可能な正本リンクに絞る。特に079と074の重複したKakeya基礎、EOMYMとEOMQCDの共通格子構成を二度証明しない。
 
 ## 2. 現在の依存関係と着手可否（2026-11-24再設計）
 
@@ -100,7 +100,6 @@ result family は成果群識別子であって講数ではない。268 は Open
 | **268/Haldane–Tasaki** | 有限次元量子論・QFT/SM/作用素論・AQFTの既存正本 → EOM268A/B/E（概念橋渡し）→ EOM268C/D/268（論文読解） | **11月19日に正式採択**。量子スピン鎖・SPTの専門概念と計算機援用評価の独立再実行は未完了であり、別途proof ledgerが必要 |
 | 378 | CMP1–8（計算可能性）→ EOM378A–B | **橋渡し2講が必要**。CMP修了をfine-grained complexity修了と取り違えない |
 | YM/QCD | QFT1–64、AQFT1–34 + LIE等 → EOMYMA–C、EOMQCDA | **橋渡し4講が必要**。摂動QFT・自由場AQFTから非摂動4D構成を飛躍させない |
-
 | Euler-BU | 現行NS1–8A・NPDE1–7はcompleted。NS/FOU/GPDEの既出結果 → EOMEULERA–C → EOMEULER | 新規の波の増幅・endpoint inverse・多重尺度展開は橋渡しが必要。原論文とLeanの対応は著者報告、独立再検証は別途 |
 | NS-BU | NS5–8A、NPDE4/6 → EOMNSBUA/B → EOMNSBU | 基礎は着手可能。原論文の数値証明書と区間演算が未公開で無条件の主張の確定は不可 |
 | RH/GRH | ANT7/8 → EOMRH → RHPへの参照（詳細は独立PLANのANF/IWA/AFR等） | 横断導入はRHP全講の完成待ちにしない。実装時にANT正本を確認 |
@@ -309,4 +308,4 @@ EOM268Aの線形代数・量子スピン行列の直接計算を出発点とし�
 
 今回行うのは**PLANへの正式採択・章割り・前提設計**までである。EOMの章本文・章別chapter.yaml/knowledge.yaml・manifest・公開導線は未着手として扱い、最初の実装単位で plans_progress に移してEOM系列を当時の31講で登録する設計だった（現行は第1節の39講を登録する）。講義内では定理・証明の全依存、有限計算の再現条件、場合分けされた基底状態の一意性の量化を検査する。原論文の評価に疑義が残る場合は明記し、教材で無条件の既知定理にしない。
 
-資料確認基準日: **2026-11-19**。268はOpenAIカタログの結果IDであり、講数ではない。
+この採択時点の資料確認基準日: **2026-11-19**。268はOpenAIカタログの結果IDであり、講数ではない。
