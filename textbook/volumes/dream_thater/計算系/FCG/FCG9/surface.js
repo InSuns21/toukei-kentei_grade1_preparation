@@ -148,4 +148,22 @@ report('TOPOLOGY','degree != 2: '+mesh.degree.filter(v=>v!==2).length+'; saddle 
 report('GEOMETRY','perimeter='+mesh.perimeter.toFixed(6)+' m; side area='+(heightM*mesh.perimeter).toFixed(6)+' m²; triangles='+2*mesh.segments.length);
 report('ERROR','max inverse-shear radial residual='+residual.toExponential(4)+' m (not physical distance after shear)');
 report('DISPLAY','grid/contour then extruded side; '+mode+'; H='+heightM+' m; open top/bottom');
-return {mesh,field,extract};
+
+ // Advance the same editable computation; the first frame remains the audit snapshot.
+let liveValue=steps,playing=false,timer=null;
+function emit(){canvas.dispatchEvent(new CustomEvent('fcg-time-progress',{detail:{value:liveValue,playing}}));}
+function cancel(){if(timer!==null)clearTimeout(timer);timer=null;playing=false;}
+function advanceLive(value){if(value<current){field=initial();current=0;}for(;current<value;current++)field=advect(field);render();liveValue=value;}
+function pause(){cancel();emit();}
+function next(){return Math.min(24,Math.round((liveValue+1)*1e8)/1e8);}
+function tick(){
+ timer=null;if(!playing)return;
+ try{advanceLive(next());if(liveValue>=24)cancel();emit();if(playing)timer=setTimeout(tick,40);}
+ catch(error){cancel();canvas.dispatchEvent(new CustomEvent('fcg-time-failure',{detail:String(error?.message||error)}));}
+}
+function play(){if(playing)return;if(liveValue>=24)advanceLive(0);playing=true;emit();timer=setTimeout(tick,40);}
+function step(){cancel();advanceLive(next());emit();}
+function reset(){cancel();advanceLive(0);emit();}
+canvas.addEventListener?.('webglcontextlost',cancel);
+return {play,pause,step,reset,mesh,field,extract};
+
