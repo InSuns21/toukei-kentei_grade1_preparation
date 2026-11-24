@@ -478,6 +478,8 @@ $i$ が奇数なら $2B_{k,\psi_k}=0$、従って零です。$\psi_k=1$ の場�
 
 例えば $p=5,i=1,k=3$ では $\psi_3=\omega^2$ は偶指標ですが $k$ は奇数なのでBernoulli特殊値が零です。$k=1$ では $\psi_1=1$、$L(0,1)=-1/2$ は非零でもEuler因子が零になります。いずれも奇数番号の枝は恒等的に零です。
 
+<a id="ref-iwa15-general-interpolation"></a>
+
 一般のDirichlet文字 $\chi$ では、$\chi\omega^{-k}$ は導手が $p$ 以外の素因数を持つことがあります。この場合にも同じ正規化の補間公式
 
 $$
@@ -628,12 +630,12 @@ A1で求めた $e=\ell(2)\equiv2\bmod3$ を使います。[冪級数表示](#thm
 - Level: B
 - ID: IWA15-B4
 
-$p=13$、導手3の奇指標 $\eta$ を $\eta(1)=1,\eta(2)=-1$ とし、$\chi=\eta\omega$ とする。一般形のKubota–Leopoldt補間公式を用いて $L_p(0,\chi)$ を求めよ。$\chi$ の偶奇と、複素特殊値が零でないことも確認せよ。
+$p=13$、導手3の奇指標 $\eta$ を $\eta(1)=1,\eta(2)=-1$ とし、$\chi=\eta\omega$ とする。[第6節の一般形の補間式](#ref-iwa15-general-interpolation) を用いて $L_p(0,\chi)$ を求めよ。$\chi$ の偶奇と、複素特殊値が零でないことも確認せよ。
 
 <!-- solution-start -->
 **詳細解答。** $\eta(-1)=-1$、$\omega(-1)=-1$ なので $\chi(-1)=1$。法3と法13の非自明な指標の積であり、導手は39です。
 
-$k=1$ で $\chi\omega^{-1}=\eta$。$13\equiv1\bmod3$ から $\eta(13)=1$。第6節で引用した一般補間公式の因子は $1-\eta(13)13^0=0$ です。
+$k=1$ で $\chi\omega^{-1}=\eta$。$13\equiv1\bmod3$ から $\eta(13)=1$。[第6節の一般形の補間式](#ref-iwa15-general-interpolation) の因子は $1-\eta(13)13^0=0$ です。
 
 [一般化Bernoulli数](#def-iwa15-generalized-bernoulli) の有限和を法3で計算すると $B_{1,\eta}=-1/3$ となります。[Dirichlet L関数のBernoulli特殊値](#thm-iwa15-complex-values) を $k=1$ に適用して次の値を得ます。
 $$
