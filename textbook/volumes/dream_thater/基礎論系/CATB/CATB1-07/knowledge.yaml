@@ -3,7 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - CAT2-02
-  - CAT1-07
+  - CAT1-09
 
 concepts:
   - id: category.lawvere-theory
@@ -29,4 +29,4 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（集合値モデルと代数の対応）"]
-    requires: [category.lawvere-term-theory, category.lawvere-set-model, category.natural-inverse]
+    requires: [category.lawvere-term-theory, category.lawvere-set-model, category.natural-inverse, category.equivalence-of-categories]

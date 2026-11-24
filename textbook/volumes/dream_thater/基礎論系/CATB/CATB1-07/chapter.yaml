@@ -4,7 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - CAT2-02
-  - CAT1-07
+  - CAT1-09
 official_scope: []
 learning_objectives:
   - 有限積と射影によってLawvere理論の射を演算の組として理解できる
