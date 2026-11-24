@@ -119,6 +119,14 @@ const descriptions = Object.freeze({
     mode: '初期設定はpicMix=0、flipMix=1。格子と粒子の位置を物理stepごとに更新し、右列は24×24節点値の最近傍表示。時刻は開始時の検算時刻',
     source: 'particle.js（N, count, dt, damp, force, picMix, flipMix, transfer）/ particle.frag（u_pic, u_flip, u_speed）'
   }),
+  FCG11: Object.freeze({
+    requiresSteps:false,
+    grid:'解析水面の横断面4 m×3 m。最大12候補・36粒子、流体格子なし',
+    color:'白い円：飛沫／横長楕円：表面泡／水中の輪：気泡',
+    clock:()=> 'foam.js の time が物理年齢を決める観察時刻（s）',
+    mode:'解析軌道の静止比較。生成時刻と寿命は秒、描画半径はm',
+    source:'foam.js（発生と運動） / foam.frag（スプライト形状）'
+  }),
   FCG10: Object.freeze({
     requiresSteps:false,
     grid:'解析波の高さ・法線を描画画素ごとに計算。流体格子なし',
