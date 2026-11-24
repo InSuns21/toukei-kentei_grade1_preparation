@@ -63,3 +63,20 @@ test('WGL7 lesson sources and sandbox host hooks',async()=>{
   assert.match(host,/iframe\.setAttribute\('sandbox', 'allow-scripts'\)/);
   assert.match(md,/lesson=WGL7/);
 });
+
+test('WGL7 floor observation starts after independent readback',async()=>{
+  const dir=new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL7/',import.meta.url);
+  const [js,vs,host]=await Promise.all([
+    readFile(new URL('sampling.js',dir),'utf8'),
+    readFile(new URL('sampling.vert',dir),'utf8'),
+    readFile(new URL('./wgl-lab-host.mjs',import.meta.url),'utf8')
+  ]);
+  assert.match(js,/return \{showObservation\}/);
+  assert.match(vs,/vec4\(a_position \* a_w, 0\.0, a_w\)/);
+  assert.match(js,/mode==='floor' \? 6 : 1/);
+  assert.match(js,/gl\.uniform1f\(repeatsLoc,density\)/);
+  assert.match(js,/gl\.NEAREST_MIPMAP_NEAREST/);
+  assert.match(js,/gl\.LINEAR_MIPMAP_NEAREST/);
+  assert.match(js,/gl\.NEAREST_MIPMAP_LINEAR/);
+  assert.ok(host.indexOf('hooks.showObservation();')>host.indexOf('const samples = positions.map'));
+});
