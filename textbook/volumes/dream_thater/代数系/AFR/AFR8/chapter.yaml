@@ -1,0 +1,26 @@
+id: "AFR8"
+title: "アデール・イデールの保型的利用"
+volume: "foundations"
+status: supplementary
+prerequisites: [AFR7, ANF19]
+official_scope: []
+learning_objectives:
+  - 有理数体の制限付き直積と加法・乗法の有限性条件を区別できる
+  - アデールの加法商の標準代表元を構成しコンパクト性を説明できる
+  - 積公式を確認しイデール類群の標準代表元を求められる
+  - 絶対値と有限単数の合同情報から大域不変な指標を構成できる
+definitions: []
+theorems:
+  - { id: AFR8-THM-01, name: "有理数体のアデール加法商の標準代表元" }
+  - { id: AFR8-THM-02, name: "有理数体のアデール加法商のコンパクト性" }
+  - { id: AFR8-THM-03, name: "有理数体のイデール類群の標準代表元" }
+  - { id: AFR8-PROP-01, name: "イデール絶対値の冪による指標" }
+canonical_examples:
+  - 複数の非整成分から加法商の代表元を構成する
+  - 有限付値と実成分の符号によるイデールの正規化
+  - 5を法とする平方剰余指標と絶対値の冪
+problem_patterns: [AFR8-A1, AFR8-A2, AFR8-A3, AFR8-A4, AFR8-B1, AFR8-B2, AFR8-B3, AFR8-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 2 }
