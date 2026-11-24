@@ -1541,9 +1541,9 @@ byId('preset').addEventListener('change', event => {
          'outColor=vec4(q,0.08,0.08,1.0);',
          'outColor=vec4(q,0.08,0.08,1.0)');
      } else if (isFCG3) {
-       inputs.fragment.value=defaults.fragment.replace(
-         'else outColor=vec4(min(1.0,5.0*abs(q-exact)),0.08,0.1,1.0);',
-         'else outColor=vec4(min(1.0,5.0*abs(q-exact)),0.08,0.1,1.0)');
+       // Append an invalid token to the actual default shader: this preset
+       // must still trigger a compile error if its drawing code is revised.
+       inputs.fragment.value=defaults.fragment+'\nINVALID_FCG3_SHADER_PRESET\n';
      } else if (isFCG2) {
        inputs.fragment.value=defaults.fragment.replace(
         'outColor=vec4(mix(water,dye,q),1.0);',
