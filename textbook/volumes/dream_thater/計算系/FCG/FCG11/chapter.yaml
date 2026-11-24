@@ -2,7 +2,7 @@ id: FCG11
 title: "泡と飛沫はどこまで物理モデルか"
 volume: foundations
 status: supplementary
-prerequisites: [FCG10]
+prerequisites: [FCG10, GEO10]
 official_scope: []
 learning_objectives:
   - "曲率と速さの閾値で二次粒子の発生を判定できる"

@@ -1,14 +1,14 @@
 chapter: FCG11
 scope: dream-theater
 coverage: complete
-prerequisites: [FCG10]
+prerequisites: [FCG10, GEO10]
 concepts:
   - id: graphics.fcg11-emission
     name: 二次粒子の発生規則
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（二次粒子の発生規則）"]
-    requires: []
+    requires: [geometry.curve-curvature]
   - id: graphics.fcg11-ballistic
     name: 飛沫の放物運動
     kind: proposition
