@@ -8,7 +8,7 @@
 
 ## 1. 有限分割の重みを整合させる
 
-$p$ 進整数の各元 $x$ は、法 $p^n$ の剰余類 $a+p^n\mathbb Z_p$ の中に一意に入ります（整数代表元は $0\le a<p^n$）。以下、$\sum_{a\bmod p^n}$ はこの代表元を全て動かす有限和です。$\bigsqcup$ は互いに素な集合の合併を表します。この集合は開かつ閉であり、$n$ を増すと次の $p$ 個の集合へ分かれます。
+[p進整数の有限商](../IWA1/index.md#prop-iwa1-residue-quotients)により、$p$ 進整数の各元 $x$ は、法 $p^n$ の剰余類 $a+p^n\mathbb Z_p$ の中に一意に入ります（整数代表元は $0\le a<p^n$）。以下、$\sum_{a\bmod p^n}$ はこの代表元を全て動かす有限和です。$\bigsqcup$ は互いに素な集合の合併を表します。この集合は開かつ閉であり、$n$ を増すと次の $p$ 個の集合へ分かれます。
 
 $$
 a+p^n\mathbb Z_p
@@ -89,7 +89,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa13-integral -->
-**定義の確認**（関数を代入する）。まず任意の $c\in\mathbb Z_p$ について、その第 $n$ 層の整数代表元を $c_n$ と書くと、[点質量の定義](#def-iwa13-distribution)から有限和は $f(c_n)$ です。$|c_n-c|_p\le p^{-n}$ と連続性により $f(c_n)\to f(c)$。従って $\int f(x)\,d\delta_c(x)=f(c)$ です。測度の有限和は各係数について線形なので、点質量の有限線形結合でも極限が存在します。 $\mu=\delta_0+2\delta_1-\delta_3$、$f(x)=x^2$ とします。$n\ge2$ なら三点 $0,1,3$ は異なる剰余類に入るので、有限和は $0^2+2\cdot1^2-3^2=-7$ に一致します。したがって積分は $-7\in\mathbb Z_p$ です。有限和で実際に極限値が安定することまで確認できました。
+**定義の確認**（関数を代入する）。まず任意の $c\in\mathbb Z_p$ について、その第 $n$ 層の整数代表元を $c_n$ と書くと、[点質量の定義](#def-iwa13-distribution)から有限和は $f(c_n)$ です。$|c_n-c|_p\le p^{-n}$ と連続性により $f(c_n)\to f(c)$。従って $\int f(x)\,d\delta_c(x)=f(c)$ です。測度の有限和は各係数について線形なので、点質量の有限線形結合でも極限が存在します。 $\mu=\delta_0+2\delta_1-\delta_3$、$f(x)=x^2$ とします。$n\ge2$ なら三点 $0,1,3$ は異なる剰余類に入り、いずれも整数代表元そのものなので、有限和は $0^2+2\cdot1^2-3^2=-7$ に一致します。したがって積分は $-7\in\mathbb Z_p$ です。有限和で実際に極限値が安定することまで確認できました。
 <!-- definition-example-end -->
 
 <a id="thm-iwa13-extension"></a>
@@ -113,7 +113,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\mathbb Z_p$ はコンパクトで、連続な $f$ は一様連続です。従って任意の整数 $r\ge1$ に対し、ある $N$ が存在して $x\equiv y\pmod{p^N}$ なら $|f(x)-f(y)|_p\le p^{-r}$ です。$n\ge N$ なら $\|f-f_n\|_\infty\le p^{-r}$ であり、$\|f-f_n\|_\infty\to0$ が従います。
+$\mathbb Z_p$ はコンパクトです。実際、[剰余類による逆極限表示](../../ANF/ANF9/index.md#thm-anf9-inverse-limit-isomorphism)から、任意の精度 $p^{-n}$ で有限個の剰余類に覆われ、完備でもあるためです。従って連続な $f$ は一様連続です。従って任意の整数 $r\ge1$ に対し、ある $N$ が存在して $x\equiv y\pmod{p^N}$ なら $|f(x)-f(y)|_p\le p^{-r}$ です。$n\ge N$ なら $\|f-f_n\|_\infty\le p^{-r}$ であり、$\|f-f_n\|_\infty\to0$ が従います。
 
 局所定数関数 $g$ が法 $p^n$ で一定のとき、分布関係から上位層でも
 
@@ -124,7 +124,7 @@ $$
 =\sum_{a\bmod p^n}g(a)\mu_n(a).
 $$
 
-従って $I_\mu(g)$ は定義に依存しません。非 Archimedes 的三角不等式と $|\mu_n(a)|_p\le1$ により
+従って $I_\mu(g)$ は定義に依存しません。[非 Archimedes 的三角不等式](../../ANF/ANF9/index.md#prop-anf9-ultrametric)と $|\mu_n(a)|_p\le1$ により
 
 $$
 |I_\mu(g)|_p
@@ -140,7 +140,7 @@ $$
 \le\max(\|f_n-f\|_\infty,\|f_m-f\|_\infty).
 $$
 
-右辺は $n,m\to\infty$ で零へ行きます。$\mathbb Z_p$ は完備なので有限和の値は収束します。線形性は有限和から極限へ移り、評価式は $f_n\to f$ と $|I_\mu(f_n)|_p\le\|f_n\|_\infty\le\|f\|_\infty$ から従います。剰余類の指示関数 $\mathbf1_{a+p^n\mathbb Z_p}$ は局所定数であり、その積分は定義上 $\mu_n(a)$ です。
+右辺は $n,m\to\infty$ で零へ行きます。[p進整数の完備性](../../ANF/ANF9/index.md#thm-anf9-inverse-limit-isomorphism)により有限和の値は収束します。線形性は有限和から極限へ移り、評価式は $f_n\to f$ と $|I_\mu(f_n)|_p\le\|f_n\|_\infty\le\|f\|_\infty$ から従います。剰余類の指示関数 $\mathbf1_{a+p^n\mathbb Z_p}$ は局所定数であり、その積分は定義上 $\mu_n(a)$ です。
 
 最後に、局所定数関数上で同じ積分を持つ連続線形写像 $J$ について $J(f_n)=I_\mu(f_n)$ です。$f_n\to f$ と両者の連続性から $J(f)=I_\mu(f)$ となり、一意です。
 <!-- proof-end -->
@@ -447,13 +447,13 @@ $\delta_a$ の場合、$a$ を法 $p^n$ で代表する非負整数列 $a_n$ は
 
 冪級数の $T$ に具体的な $p$ 進数を代入して値を読みます。$K$ を $\mathbb Q_p$ の $p$ 進絶対値を延長した完備な拡大体とし、$\mathcal O_K=\{z\in K:|z|_p\le1\}$ をその整数環とします。これは閉集合なので完備です。$\mathcal O_K^\times$ はその単元群、すなわち $|z|_p=1$ の元全体です。例えば $\mathbb C_p$ は $\mathbb Q_p$ の代数閉包を完備化した体です。連続な群準同型 $\kappa:(\mathbb Z_p,+)\to\mathcal O_K^\times$ は、加法を乗法へ写すので **連続指標** です。$u=\kappa(1)$ とすれば、非負整数 $a$ では $\kappa(a)=u^a$ です。$x$ の整数代表元 $x_n\to x$ を使うと、連続性から $\kappa(x)=\lim_n u^{x_n}$ となります。この極限を $u^x$ と書きます。
 
-さらに $p^n\to0$ より $u^{p^n}=\kappa(p^n)\to1$ です。$\mathfrak m_K=\{z\in\mathcal O_K:|z|_p<1\}$ と置くと、剰余体 $\mathcal O_K/\mathfrak m_K$ は標数 $p$ です。十分大きな $n$ で $u^{p^n}-1\in\mathfrak m_K$ なので、剰余体で
+さらに $p^n\to0$ より $u^{p^n}=\kappa(p^n)\to1$ です。$|u|_p=1$ なので $|u-1|_p\le1$ です。仮に $|u-1|_p=1$ として、$w=u-1$ と置きます。
 
 $$
-(\bar u-1)^{p^n}=\bar u^{p^n}-1=0.
+(1+w)^p-1=w^p+\sum_{j=1}^{p-1}\binom pj w^j.
 $$
 
-体には零でない冪零元がないため $\bar u=1$、すなわち $|u-1|_p<1$ です。同じ計算は $p$ 冪根にも適用できます。
+$1\le j<p$ の二項係数は $p$ の倍数です。和の各項は絶対値が $p^{-1}$ 以下ですが、$w^p$ の絶対値は $1$ です。強三角不等式により $|u^p-1|_p=1$ となります。同じ議論を繰り返せば全ての $n$ で $|u^{p^n}-1|_p=1$ となり、先ほどの収束に矛盾します。従って $|u-1|_p<1$ です。同じ計算は $p$ 冪根にも適用できます。
 
 第2節の積分を $\mathcal O_K$ 値連続関数にも拡張します。局所定数関数の有限和は同じ分布関係を満たし、$|\mu_n(a)|_p\le1$ なので、[積分への一意的延長](#thm-iwa13-extension)の Cauchy 評価がそのまま成立します。$\mathcal O_K$ の完備性により極限が存在し、有限和から $\mathcal O_K$ 線形性も従います。さらに第3節の [畳み込みの積分公式](#prop-iwa13-convolution)の証明は同じ評価と完備性だけを使うため、$\mathcal O_K$ 値連続関数にも成立します。
 
@@ -519,7 +519,7 @@ $|u-1|_p<1$ より、係数が $\mathbb Z_p$ にある $\mathcal A_\mu(T)=\sum_j
 最後に [畳み込みの整合性と積分公式](#prop-iwa13-convolution)を $f(z)=\kappa(z)$ へ適用すると、内側は $\int\kappa(x)\kappa(y)d\nu(y)=\kappa(x)\mathscr M_\nu(\kappa)$、外側はその定数をくくり出して $\mathscr M_\mu(\kappa)\mathscr M_\nu(\kappa)$ になります。
 <!-- proof-end -->
 
-**具体的な指標。** $p=3$ なら $u=4^k$（$k\in\mathbb Z_3$、$4^k=\sum_{j\ge0}\binom kj3^j$）を選べます。$\kappa_k(x)=4^{kx}$ は連続指標です。例えば $\mu=\delta_0+2\delta_1$ の変換は $1+2\cdot4^k$、二項式変換は $1+2(1+T)=3+2T$ なので $T=4^k-1$ の代入は同じ値を与えます。
+**具体的な指標。** $p=3$ なら $u=4^k$（$k\in\mathbb Z_3$、$4^k=\sum_{j\ge0}\binom kj3^j$）を選べます。$\kappa_k(x)=4^{kx}$ は連続指標です。実際、各 $\binom{x}{j}$ は連続で、$3^j$ を掛けた項は絶対値が $3^{-j}$ 以下なので、$4^x$ の二項級数は一様収束します。整数で成立する $4^{a+b}=4^a4^b$ は非負整数の稠密性と連続性から全ての $a,b\in\mathbb Z_3$ に成立します。従って $x\mapsto kx$ と合成した $\kappa_k$ も連続な群準同型です。例えば $\mu=\delta_0+2\delta_1$ の変換は $1+2\cdot4^k$、二項式変換は $1+2(1+T)=3+2T$ なので $T=4^k-1$ の代入は同じ値を与えます。
 
 この講義で構成したのは **指標を評価する仕組み** です。次の IWA14 では特定の値を複数の $k$ について一つの連続な関数に補間できる条件を調べ、IWA15 で算術的な $p$ 進 $L$ 関数へ進みます。一般の任意の値列がここで自動的に補間できるわけではありません。
 
@@ -767,7 +767,7 @@ $p=3$、$\mu=\delta_0-\delta_1$、$\nu=\delta_0+\delta_1$ とする。次の四�
 1. 第1層の畳み込みを直接求める。
 2. $\mu*\nu$ の全質量と $\int x^2\,d(\mu*\nu)$ を求める。
 3. 二項式変換を三つ計算し、乗法性を確かめる。
-4. $\zeta^3=1$ のもと $\kappa(x)=\zeta^{x\bmod3}$ としたとき、Mellin 変換の乗法性を有限和から確かめる。
+4. $\mathbb C_3$ の元 $\zeta$ が $\zeta^3=1$ を満たすとき、$\kappa(x)=\zeta^{x\bmod3}$ としたとき、Mellin 変換の乗法性を有限和から確かめる。
 
 <!-- solution-start -->
 **詳細解答。**
