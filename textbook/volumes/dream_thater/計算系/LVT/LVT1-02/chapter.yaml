@@ -1,0 +1,24 @@
+id: "LVT1-02"
+title: "Lean環境・Lake・再現可能なプロジェクト"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT1-01]
+official_scope: []
+learning_objectives:
+  - elan・Lean・Lakeの役割を区別し、固定版を選択する
+  - ソース・ビルド設定・解決済み依存を保存して検査を再現する
+  - "#check と #eval を実行し、型・具体値・定理を区別する"
+  - 型不一致とソース変更の影響をInfoView・CLIで診断する
+definitions:
+  - { id: LVT1-02-DEF-01, name: "固定されたLeanプロジェクト" }
+propositions:
+  - { id: LVT1-02-PROP-01, name: "零入力での加算関数の値" }
+theorems: []
+canonical_examples:
+  - "外部依存のないLakeプロジェクト"
+  - "自然数加算と型不一致の診断"
+problem_patterns: [LVT1-02-A01, LVT1-02-A02, LVT1-02-A03, LVT1-02-A04, LVT1-02-B01, LVT1-02-B02, LVT1-02-B03, LVT1-02-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 1.5, exercises: 1.5, review: 0.5 }

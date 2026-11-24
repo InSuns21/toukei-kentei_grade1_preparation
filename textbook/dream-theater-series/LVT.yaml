@@ -11,7 +11,7 @@ chapters:
     title: "テストと形式証明は何を保証するか"
   - id: LVT1-02
     path: textbook/volumes/dream_thater/計算系/LVT/LVT1-02
-    status: planned
+    status: completed
     title: "Lean環境・Lake・再現可能なプロジェクト"
   - id: LVT1-03
     path: textbook/volumes/dream_thater/計算系/LVT/LVT1-03
