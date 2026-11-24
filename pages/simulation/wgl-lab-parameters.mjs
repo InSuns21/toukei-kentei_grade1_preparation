@@ -3,6 +3,11 @@
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
 
 export const LAB_PARAMETERS = Object.freeze({
+  FCG18: Object.freeze([
+    Object.freeze({id:'mass',type:'number',label:'浮体質量',default:0.4,min:0.2,max:1,step:0.2,unit:'kg',meaning:'右の浮体の質量',sourceLocation:'coupling.js / const mass',sourceFile:'js',index:null,matcher:/^([ \t]*const mass=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'restitution',type:'number',label:'反発係数',default:1,min:0,max:1,step:0.25,unit:'無次元',meaning:'接触後の法線相対速度の割合',sourceLocation:'coupling.js / const restitution',sourceFile:'js',index:null,matcher:/^([ \t]*const restitution=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'dt',type:'number',label:'物理刻み',default:0.05,min:0.025,max:0.1,step:0.025,unit:'s',meaning:'接触を探索する時間区間',sourceLocation:'coupling.js / const dt',sourceFile:'js',index:null,matcher:/^([ \t]*const dt=)([^;\n]+)(;)/gm}),
+  ]),
   FCG17: Object.freeze([
     Object.freeze({id:'grid',type:'number',label:'格子数',default:24,min:16,max:32,step:8,unit:'セル/辺',meaning:'数値格子の大きさ',sourceLocation:'vortex.js / const N',sourceFile:'js',index:null,matcher:/^([ \t]*const N=)([^;\n]+)(;)/gm}),
     Object.freeze({id:'epsilon',type:'number',label:'渦度強調係数',default:12,min:0,max:24,step:2,unit:'s⁻¹',meaning:'右側に加える加速度の強さ',sourceLocation:'vortex.js / const epsilon',sourceFile:'js',index:null,matcher:/^([ \t]*const epsilon=)([^;\n]+)(;)/gm}),

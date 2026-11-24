@@ -1,0 +1,22 @@
+id: FCG18
+title: "流体と動く物体の作用をどう表示するか"
+volume: foundations
+status: supplementary
+prerequisites: [FCG6]
+official_scope: []
+learning_objectives:
+  - "一方向・二方向連成と接触時の法線力積を区別できる"
+  - "反発係数から両物体の速度更新を導出し、外力積を含む運動量収支を検算できる"
+  - "刻み内の最初の衝突時刻を求め、壁貫通の原因と防止法を説明できる"
+  - "固定浮体と自由浮体のアニメーションを比較し、模型の限界を説明できる"
+definitions:
+  - { id: FCG18-DEF-01, name: "粒子・浮体間の法線力積" }
+theorems:
+  - { id: FCG18-PROP-01, name: "二方向連成の力積と運動量保存" }
+  - { id: FCG18-PROP-02, name: "直線移動区間の最初の接触時刻" }
+canonical_examples: ["固定浮体と自由浮体の正面衝突", "接触時刻の小さい根", "壁反射の外力積"]
+problem_patterns: [FCG18-IMPULSE, FCG18-MOMENTUM, FCG18-CONTACT, FCG18-COMPARISON]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 5, review: 2 }
