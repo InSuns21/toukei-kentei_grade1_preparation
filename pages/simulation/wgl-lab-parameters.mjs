@@ -141,6 +141,15 @@ export const LAB_PARAMETERS = Object.freeze({
 
 
 
+  FCG4: Object.freeze([
+    Object.freeze({
+      id:'grid',type:'integer',label:'実計算格子 N×N',default:32,
+      min:8,max:48,step:8,unit:'セル/辺',
+      meaning:'8は手計算用。32・48では同じMAC射影を細かい格子で計算する。色は全セル、矢印は8×8の代表位置',
+      sourceLocation:'projection.js / const N → h, uStar, vStar, Jacobi, GPUテクスチャ',
+      sourceFile:'js',index:null,matcher:/^([ \t]*const N=)([^;\n]+)(;)/gm
+    })
+  ]),
   FCG2: Object.freeze([
     Object.freeze({
       id:'omega',type:'number',label:'中心の基本角速度',default:1,
