@@ -84,8 +84,8 @@ try {
   await cdp('Page.navigate',{url});
   await waitFor('document.getElementById("status")?.textContent==="実行できます"');
   assert.deepEqual(await evaluate('([Number(document.querySelector("#width").value),Number(document.querySelector("#height").value)])'),[1536,512]);
-  assert.ok(await evaluate('document.querySelector(".visual-observation-grid canvas")?.width>=320'));
-  await evaluate('document.querySelector(".visual-observation [data-action=play]").click()'); // observer can be paused independently
+  assert.equal(await evaluate('document.querySelectorAll(".visual-observation-grid canvas").length'),0,
+    "FCG8 must not mount a second simulation separate from the editable GPU state");
   await evaluate('document.getElementById("run").click()');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")');
   const initial=await evaluate('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(c=>c.textContent)),iframe:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
@@ -94,7 +94,7 @@ try {
   assert.equal(initial.iframe,'allow-scripts');
   const scene8levelset=await evaluate('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,color:document.querySelector("#scene-info .scene-info-list > div:nth-child(3) dd")?.textContent,clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
   assert.match(scene8levelset.grid,/48×48.*Float64.*R8/);
-  assert.match(scene8levelset.color,/再初期化6反復.*64粒子.*0.014 m/);
+  assert.match(scene8levelset.color,/黄実線.*白破線.*符号の不一致.*等値線/);
   assert.match(scene8levelset.clock,/物理step 8、t=0.32 s/);
   assert.match(scene8levelset.mode,/R8.*双線形補間.*初期GPU照合後/);
   assert.match(scene8levelset.source,/levelset.js.*levelset.frag/);
@@ -109,6 +109,7 @@ try {
   await action('一時停止');
   const now=await step();
   assert.ok(now>15&&now<=96,'editable physical state must progress: '+now);
+  assert.match(await evaluate('document.querySelector("#fcg8-live-metrics").textContent'),/面積誤差.*距離勾配誤差.*移流.*%.*再初期化.*%/);
   const after=(await cdp('Page.captureScreenshot',{format:'png',clip,captureBeyondViewport:true})).data;
   assert.notEqual(first,after,'the same sandbox GPU canvas must visibly change under Play');
   await action('step 0へ戻す');
@@ -140,6 +141,7 @@ try {
   const narrow=await evaluate('({contentWidth:document.documentElement.scrollWidth,windowWidth:window.innerWidth,canvasWidth:document.querySelector("#canvas-slot iframe")?.getBoundingClientRect().width,controls:[...document.querySelectorAll(".lab-parameter-row input")].map(e=>e.getBoundingClientRect().width)})');
   assert.ok(narrow.canvasWidth>50 && narrow.canvasWidth<=360,JSON.stringify(narrow));
   assert.ok(narrow.contentWidth<=narrow.windowWidth+2,JSON.stringify(narrow));
+  assert.ok(await evaluate('document.querySelector("#fcg8-live-metrics").textContent.length>0'));
   const narrowImage=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
   assert.notEqual(highGrid.data,narrowImage.data);
   console.log('FCG8 actual edited grids, CPU/GPU, playback and Chromium 360px screenshot/layout: PASS');
