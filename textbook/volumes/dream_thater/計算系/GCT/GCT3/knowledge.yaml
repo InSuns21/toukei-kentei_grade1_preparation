@@ -1,0 +1,37 @@
+chapter: GCT3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GCT2
+  - COMB2
+forward_references: []
+
+concepts:
+  - id: graph-counting.perfect-matching-generating-function
+    name: 完全マッチングの重み付き母関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（完全マッチングの重み付き母関数）"]
+    requires: [optimization.perfect-matching, graph-counting.edge-weight]
+
+  - id: graph-counting.permanent
+    name: パーマネント
+    kind: definition
+    aliases: [permanent]
+    introduction: formal
+    introduction_aliases: ["定義（パーマネント）"]
+    requires: [set.bijection, combinatorics.ordered-selection]
+
+  - id: graph-counting.matching-permanent-identity
+    name: 完全マッチングの重み付き母関数とパーマネントの一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（完全マッチングの重み付き母関数とパーマネントの一致）"]
+    requires: [graph-counting.perfect-matching-generating-function, graph-counting.permanent, optimization.bipartite-graph]
+
+  - id: graph-counting.permanent-row-expansion
+    name: パーマネントの行展開
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（パーマネントの行展開）"]
+    requires: [graph-counting.permanent, combinatorics.disjoint-partition]
