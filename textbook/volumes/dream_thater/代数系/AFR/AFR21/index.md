@@ -284,7 +284,21 @@ $|\beta(k)|=1$ なので $\overline{\beta(k)}=1/\beta(k)$ です。従って $1-
 
 乗法群 $H=G=\mathbb G_m$ では $[H]=\mathbb Q^\times\backslash\mathbb A^\times$ です。[有理数体のイデール類群の標準代表元](../AFR8/index.md#thm-afr8-idele-normal-form) により $(t,v)\in\mathbb R_{>0}\times\prod_p\mathbb Z_p^\times$ で表せます。測度を $dt/t$ と各単数群の確率 Haar 測度の積とします。前者は $t\mapsto at$ で不変、後者は単数の積による移動で不変です。
 
-[有限位数Hecke指標](../AFR10/index.md#def-afr10-hecke-character) の具体例として $v_5\bmod5$ が $1,4$ なら1、$2,3$ なら $-1$ となる $\chi(v)$ を取ります。標準代表元の単数成分 $v=(v_p)_p$ のうち $v_5$ だけに依存します。[有限位数Hecke指標の定義例](../AFR10/index.md#def-afr10-hecke-character) と同じく、還元写像は乗法を保ち、$\{1,4\}$ は非零剰余類群の指数2の部分群なので、この符号は連続な準同型です。標準代表元同士の積は再び標準代表元であり、有理数倍で代表元は変わりません。従って商のHecke指標になります。他の素点の単数上で自明という意味であり、イデールの非単数成分上まで自明とは限りません。$F(t,v)=\mathbf1_{[1,e]}(t)(2+3\chi(v))$ とし、$f=\chi$ または $1$ を選びます。$dt/t$ は $t>0$ 上で密度 $1/t$ を持つ測度です。$v$ を固定した $t$ の積分では、原始関数 $\log t$ により $\int_1^e dt/t=\log e-\log1=1$。また $|F(t,v)|\le5\mathbf1_{[1,e]}(t)$ なので絶対可積分です。
+[有限位数Hecke指標](../AFR10/index.md#def-afr10-hecke-character) の具体例として $v_5\bmod5$ が $1,4$ なら1、$2,3$ なら $-1$ となる $\chi(v)$ を取ります。標準代表元の単数成分 $v=(v_p)_p$ のうち $v_5$ だけに依存します。[有限位数Hecke指標の定義例](../AFR10/index.md#def-afr10-hecke-character) と同じく、還元写像は乗法を保ち、$\{1,4\}$ は非零剰余類群の指数2の部分群なので、この符号は連続な準同型です。標準代表元同士の積は再び標準代表元であり、有理数倍で代表元は変わりません。従って商のHecke指標になります。他の素点の単数上で自明という意味であり、イデールの非単数成分上まで自明とは限りません。
+
+指示関数 $\mathbf1_{[1,e]}$（区間内で1、外で0）を用いて
+
+$$
+F(t,v)=\mathbf1_{[1,e]}(t)(2+3\chi(v))
+$$
+
+とし、$f=\chi$ または $1$ を選びます。$dt/t$ は $t>0$ 上で密度 $1/t$ を持つ測度です。$v$ を固定した $t$ の積分では、原始関数 $\log t$ により
+
+$$
+\int_1^e\frac{dt}{t}=\log e-\log1=1.
+$$
+
+また $|F(t,v)|\le5\mathbf1_{[1,e]}(t)$ なので絶対可積分です。
 
 法5の各非零剰余類の測度は、単数による移動で互いに移るため $1/4$ です。従って $\int\chi(v)dv=(1-1-1+1)/4=0$、$\int|\chi(v)|^2dv=1$ です。結果は
 
@@ -345,7 +359,15 @@ $\det S=1$ なので $g'\in G'$ です。二つの積はどちらも $\operatorn
 <!-- solution-start -->
 **詳細解答**
 
-入力の共役は $(1,-i)$ です。持ち上げは $((1+2i(-i))/2,3(-i)/2)=(3/2,-3i/2)$ です。$u$ は一定1なので周期は $(3-3i)/4$ です。
+入力の共役は $(1,-i)$ です。[大域theta持ち上げ](../AFR20/index.md#def-afr20-global-theta-lift) の有限和模型で、各行をこの共役で重み付けして平均すると
+
+$$
+\tfrac12 K\overline f
+=\tfrac12\begin{pmatrix}1+2i(-i)\\0+3(-i)\end{pmatrix}
+=\tfrac12\begin{pmatrix}3\\-3i\end{pmatrix}.
+$$
+
+$u$ は一定1なので [周期積分](#def-afr21-period) は $(3-3i)/4$ です。
 <!-- solution-end -->
 
 <a id="ex-afr21-a4"></a>
@@ -375,7 +397,7 @@ A3と同じ核・入力で右方向の持ち上げとその周期を求め、左
 <!-- solution-start -->
 **詳細解答**
 
-行を平均して列ごとの値を求めます。$\overline u=(1,1)$ なので右方向の持ち上げは $(1/2,(2i+3)/2)$ です。これに $\overline f=(1,-i)$ を掛けて平均すると
+第3節と同じく $K^T$ を使い、行を平均して列ごとの値を求めます。$\overline u=(1,1)$ なので右方向の持ち上げは $(1/2,(2i+3)/2)$ です。これに $\overline f=(1,-i)$ を掛けて平均すると
 
 $$
 \tfrac14(1+(2i+3)(-i))=\tfrac14(3-3i).
@@ -396,7 +418,21 @@ A3の結果に一致します。これは [seesaw identity](#thm-afr21-seesaw-id
 <!-- solution-start -->
 **詳細解答**
 
-非負関数 $a(g)|u(g)|b(h)|f(h)|$ に [Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli) を用いると積分は $2\cdot3=6$ です。比較により核の絶対積分は6以下です。固定した $g$ について $\int |K(g,h)f(h)|dh\le3a(g)$、固定した $h$ では $\int |K(g,h)u(g)|dg\le2b(h)$ なので両持ち上げも絶対収束します。従って整合する seesaw 核なら [seesaw identity](#thm-afr21-seesaw-identity) が使えます。
+非負関数 $a(g)|u(g)|b(h)|f(h)|$ に [Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli) を用いると積分は $2\cdot3=6$ です。比較により核の絶対積分は6以下です。さらに固定した $g$ について
+
+$$
+\int |K(g,h)f(h)|dh
+\le a(g)\int b(h)|f(h)|dh=3a(g),
+$$
+
+固定した $h$ について
+
+$$
+\int |K(g,h)u(g)|dg
+\le b(h)\int a(g)|u(g)|dg=2b(h).
+$$
+
+$a,b$ が各点で有限なら両持ち上げも絶対収束します。従って整合する seesaw 核なら [seesaw identity](#thm-afr21-seesaw-identity) が使えます。
 <!-- solution-end -->
 
 <a id="ex-afr21-b3"></a>
