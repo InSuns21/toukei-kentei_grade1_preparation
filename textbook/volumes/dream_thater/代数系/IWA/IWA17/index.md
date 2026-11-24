@@ -472,11 +472,11 @@ $$
 
 自明指標に対応する類群の $p$ 部分は零です。これは有理数体の円分 $\mathbb Z_p$ 拡大で $p$ が唯一の完全分岐素数であり、底体の類数が1であることから従うIwasawaの定理（[Greenberg, Iwasawa Theory—Past and Present, Chapter 2](https://sites.math.washington.edu/~greenber/book.pdf)）を使います。
 
-自明指標の固定体への拡大次数は $p-1$ で $p$ と互いに素です。類群の延長 $j$ とノルム $N$ について 次の二式が加法表記で成立します。
+自明指標の固定体への拡大次数は $p-1$ で $p$ と互いに素です。類群の延長 $j$ とノルム $N$ について次の二式が加法表記で成立します。
 
-$
+$$
 Nj=p-1,\qquad jN=\sum_{\delta\in\Delta}\delta.
-$
+$$
 
 これらは [イデアルのノルムと延長](../IWA4/index.md#prop-iwa4-conjugate-product) の公式です。
 
