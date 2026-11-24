@@ -4,13 +4,15 @@
 
 目標は、局所接続から曲率を計算し、自己双対方程式・Yang–Mills方程式・作用の有限性・第二Chern数を順に確かめ、最後に無限遠を一点加えた $S^4$ 上の非自明な主束を作ることである。
 
-**規約**。座標 $x=(x^1,x^2,x^3,x^4)$ を持つ $\mathbb R^4$ に標準Euclid計量と向き $dx^{1234}>0$ を与える。大きさの母数は $\rho>0$ とし、重複添字は和を取る。
+**規約**。座標 $x=(x^1,x^2,x^3,x^4)$ を持つ $\mathbb R^4$ に標準Euclid計量と向き $dx^{1234}>0$ を与える。大きさの母数は $\rho>0$ とし、重複添字は和を取る。ギリシャ文字の添字は $1,\ldots,4$、Lie環の基底添字 $a,b,c$ は $1,2,3$ を動く。$dx^{\mu\nu}$ は $dx^\mu\wedge dx^\nu$ の略記で、$dx^{1234}$ も同様に四つの外積を表す。
+
+$d$ は座標に関する外微分、$\partial_\mu=\partial/\partial x^\mu$ は他の座標と $\rho$ を固定した偏微分である。行列値形式の外積は行列積と外積を合わせる。[局所曲率の公式](../GBG10/index.md#thm-gbg10-local-formula)を用いる。
 
 $$
 r^2=\sum_{\mu=1}^4(x^\mu)^2,\qquad F=dA+A\wedge A.
 $$
 
-$SU(2)$ の基本表現で反Hermite行列を用いる。作用と第二Chern数は次の規約に従う。
+[特殊ユニタリ群 $SU(2)$ の行列表示](../GBG25/index.md#def-gbg25-su2-s3)を用いる。$X^\dagger$ は共役転置で、反Hermiteとは $X^\dagger=-X$ をいう。形式部分に作用する [Hodge星](../GBG27/index.md#def-gbg27-hodge-star) を $*$ と書く。作用と第二Chern数は[前講の規約](../GBG27/index.md#def-gbg27-yang-mills-action)に従う。
 
 $$
 \operatorname{YM}(A)=-\int\operatorname{tr}(F\wedge*F),
@@ -31,14 +33,33 @@ $$
 \qquad T_a=-\frac{i}{2}\sigma_a
 $$
 
-と置く。直接の行列積から $\sigma_a\sigma_b=\delta_{ab}I_2+i\varepsilon_{abc}\sigma_c$ となり、
+と置く。$I_2$ は単位行列、$\delta_{ab}$ は添字が等しいとき1、それ以外で0のKronecker記号である。$\varepsilon_{abc}$ は $\varepsilon_{123}=1$ の完全交代記号（同じ添字があれば0、異なる添字では置換の符号）である。
+
+直接の行列積から $\sigma_a^2=I_2$ および
+
+$$
+\sigma_1\sigma_2=i\sigma_3,\quad
+\sigma_2\sigma_3=i\sigma_1,\quad
+\sigma_3\sigma_1=i\sigma_2
+$$
+
+を得る。逆順の積では符号が反転するので $\sigma_a\sigma_b=\delta_{ab}I_2+i\varepsilon_{abc}\sigma_c$ となる。$[X,Y]=XY-YX$ と $\operatorname{tr}(\sigma_a)=0$ を用いると、
 
 $$
 [T_a,T_b]=\varepsilon_{abc}T_c,\qquad
 -\operatorname{tr}(T_aT_b)=\frac12\delta_{ab}
 $$
 
-を得る。ここで $\varepsilon_{123}=1$ の完全交代記号を使う。$T_a$ は跡零・反Hermiteであり、$SU(2)$ のLie環の実基底である。
+を得る。実際、$T_aT_b=-\sigma_a\sigma_b/4$ の差を取れば括弧、跡を取れば内積の公式になる。
+
+$SU(2)$ の条件 $U^\dagger U=I_2$、$\det U=1$ を単位元で微分すると、接ベクトル $X$ は $X^\dagger+X=0$、$\operatorname{tr}X=0$ を満たす。逆にこの条件を満たす $X$ は $\exp(tX)\in SU(2)$ の $t=0$ での接ベクトルである。その全体は実数 $u,v,w$ を用いて
+
+$$
+X=\begin{pmatrix}iu&v+iw\\-v+iw&-iu\end{pmatrix}
+=-2wT_1-2vT_2-2uT_3
+$$
+
+と一意に書ける。これが $T_a$ がLie環の実基底となる理由である。
 
 曲率を自己双対にするため、座標添字 $(\mu,\nu)$ を反対称に持つ三組の定数を用意する。$i,j\in\{1,2,3\}$ とし、$\varepsilon_{aij}$ は上と同じ記号である。
 
@@ -98,7 +119,7 @@ $$
 -s\varepsilon_{aic}x^c.
 $$
 
-ここでは次の縮約公式を使った。
+ここでは次の縮約公式を使った。固定した $a,c,i,k$ について $b$ だけを和に取る。$a=c$ または $i=k$ なら両辺は零であり、それ以外では組 $(a,c)$ と $(i,k)$ が同じ二つの添字を持つときだけ非零になる。同順なら $-1$、逆順なら $+1$ である。
 
 $$
 \varepsilon_{abc}\varepsilon_{bik}
@@ -122,15 +143,29 @@ $$
 (\varepsilon_{cj\ell}x^\ell+\delta_{cj}s)
 $$
 
-と展開する。$s^2$ 項は $s^2\varepsilon_{aij}$、$s$ の一次項は $s(\delta_{aj}x^i-\delta_{ai}x^j)$ である。空間成分同士の積は、同じ $\varepsilon\varepsilon$ の縮約から
+と展開する。$s^2$ 項は $s^2\varepsilon_{aij}$、$s$ の一次項は $s(\delta_{aj}x^i-\delta_{ai}x^j)$ である。空間成分同士の積は、先ほどの縮約で
 
 $$
-|\mathbf x|^2\varepsilon_{aij}
+\begin{aligned}
+\varepsilon_{abc}\varepsilon_{bik}\varepsilon_{cj\ell}x^kx^\ell
+&=(\delta_{ak}\delta_{ci}-\delta_{ai}\delta_{ck})
+  \varepsilon_{cj\ell}x^kx^\ell\\
+&=x^a\varepsilon_{ij\ell}x^\ell
+-\delta_{ai}\varepsilon_{kj\ell}x^kx^\ell\\
+&=x^a\varepsilon_{ij\ell}x^\ell
+\end{aligned}
+$$
+
+となる。最後の項は $k,\ell$ の交換で符号が反転するため零である。$i\ne j$ として残りの空間添字を $m$ とする。$a=i,j,m$ の三場合で次式の右辺はそれぞれ $\varepsilon_{ijm}x^ix^m$、$\varepsilon_{ijm}x^jx^m$、$\varepsilon_{ijm}(|\mathbf x|^2-(x^i)^2-(x^j)^2)$ となる。いずれも左辺に一致するので、
+
+$$
+x^a\varepsilon_{ij\ell}x^\ell
+=|\mathbf x|^2\varepsilon_{aij}
 +x^i\varepsilon_{ajk}x^k
--x^j\varepsilon_{aik}x^k
+-x^j\varepsilon_{aik}x^k.
 $$
 
-となる。三つを足すと
+三つを足すと
 
 $$
 r^2\varepsilon_{aij}
@@ -143,7 +178,7 @@ $$
 
 ## 2. BPST接続の曲率を全部計算する
 
-前講の定数曲率の例は自己双対でも作用が無限だった。そこで分母に $r^2+\rho^2$ を置き、原点では滑らか、遠方では曲率が速く減衰する接続を探す。以下の $A$ は $\mathbb R^4\times SU(2)$ の標準sectionで書いた局所（ここでは大域）接続1形式である。
+前講の定数曲率の例は自己双対でも作用が無限だった。そこで分母に $r^2+\rho^2$ を置き、原点では滑らか、遠方では曲率が速く減衰する接続を探す。以下の $A$ は $\mathbb R^4\times SU(2)$ の標準section $s_0(x)=(x,I_2)$ で書いた局所（ここでは基底全域の）[ゲージポテンシャル](../GBG8/index.md#def-gbg8-local-potential)である。座標接ベクトルに対する値を $A_\mu=A(\partial/\partial x^\mu)=A_\mu^aT_a$ と書く。$F_{\mu\nu}=F_{\mu\nu}^aT_a$ も同様に曲率を二つの座標接ベクトルへ代入した値である。
 
 <a id="def-gbg28-bpst"></a>
 
@@ -160,8 +195,23 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gbg28-bpst -->
-**定義の確認**。$r=0$ でも分母は $\rho^2>0$ なので全成分は滑らかな実関数である。$A_\mu=A_\mu^aT_a$ は常に反Hermite・跡零の行列で、[局所接続の行列表示](../GBG8/index.md#def-gbg8-local-potential)に適合する。例えば $x=(t,0,0,0)$ では $A_4^1=-2t/(t^2+\rho^2)$、$A_1^1=0$、$A_3^2=2t/(t^2+\rho^2)$ のように、係数は実である。$\rho>0$ を外すと原点で分母が零になり、この「全空間で滑らか」という確認が壊れる。
+**定義の確認**。$r=0$ でも分母は $\rho^2>0$ なので全成分は滑らかな実関数である。$A_\mu=A_\mu^aT_a$ は常に反Hermite・跡零の行列で、[局所接続の行列表示](../GBG8/index.md#def-gbg8-local-potential)に適合する。例えば $x=(t,0,0,0)$（$t$ は実数）では $\eta^1_{41}=-1$、$\eta^2_{31}=1$、$\eta^1_{11}=0$ だから
+
+$$
+A_4^1=-\frac{2t}{t^2+\rho^2},\quad
+A_1^1=0,\quad A_3^2=\frac{2t}{t^2+\rho^2}.
+$$
+
+任意の実接ベクトル $v=v^\mu\partial/\partial x^\mu$ について $A_x(v)=v^\mu A_\mu^a(x)T_a$ はLie環に属する。[積主束の接続構成](../GBG7/index.md#prop-gbg7-product-form)にこの滑らかなLie環値1形式を代入すれば、ファイバー座標 $K\in SU(2)$ における接続は
+
+$$
+\omega_{(x,K)}(v,W)=K^{-1}A_x(v)K+K^{-1}W.
+$$
+
+標準sectionでは $K=I_2$、$W=0$ となるため $s_0^*\omega=A$ である。$\rho>0$ を外すと原点で分母が零になり、この「全空間で滑らか」という確認が壊れる。
 <!-- definition-example-end -->
+
+接続による[共変外微分](../GBG11/index.md#def-gbg11-local-covariant-exterior)を $d_A$ と書く。曲率に対する $d_A*F=0$ がYang–Mills方程式である。
 
 <a id="thm-gbg28-curvature"></a>
 
@@ -183,7 +233,7 @@ $$
 > を満たす。$F$ はどの点でも零でない。
 <!-- formal-statement-end -->
 
-**証明の見取り図**。[曲率の局所式](../GBG10/index.md#def-gbg10-local-curvature)に接続成分を代入する。偏微分とLie括弧から $x^\mu x^\nu$ の項が現れるが、['t Hooft記号の積恒等式](#lem-gbg28-eta-identity)によって相殺され、$\eta$ の定数倍だけが残る。
+**証明の見取り図**。[曲率の局所式](../GBG10/index.md#thm-gbg10-local-formula)に接続成分を代入する。偏微分とLie括弧から $x^\mu x^\nu$ の項が現れるが、['t Hooft記号の積恒等式](#lem-gbg28-eta-identity)によって相殺され、$\eta$ の定数倍だけが残る。
 
 <!-- proof-start -->
 ### 証明
@@ -196,7 +246,7 @@ $$
 -\frac{4x^\mu\eta^a_{\nu\lambda}x^\lambda}{D^2}.
 $$
 
-[曲率の局所式](../GBG10/index.md#def-gbg10-local-curvature)と $[T_b,T_c]=\varepsilon_{bca}T_a$ より、
+[曲率の局所式](../GBG10/index.md#thm-gbg10-local-formula)と $[T_b,T_c]=\varepsilon_{bca}T_a$ より、
 
 $$
 \begin{aligned}
@@ -280,7 +330,13 @@ $$
 \end{aligned}
 $$
 
-これは原点近傍で有界、無限遠で $O(r^{-8})$ なので、4次元の体積要素 $r^3dr\,d\Omega_3$ に対して可積分である。$S^3$ の面積が $2\pi^2$ であることは[GBG25の積分次数の例](../GBG25/index.md#def-gbg25-degree)で確かめた。そこで $u=r^2/\rho^2$ と変数変換すると
+これは原点近傍で有界、無限遠で $O(r^{-8})$ なので、4次元の体積要素 $r^3dr\,d\Omega_3$ に対して可積分である。$S^3$ の面積は $2\pi^2$ である（[GBG25の積分次数](../GBG25/index.md#def-gbg25-degree)で用いた正規化）。$r>0$ で $u=r^2/\rho^2$ と変数変換する。$du/dr=2r/\rho^2>0$ なので、有限の正の端点間で置換積分を適用できる。
+
+$$
+r^3dr=\frac{\rho^4}{2}u\,du,\qquad D^4=\rho^8(1+u)^4.
+$$
+
+既に両端の収束を確認したので端点を $0,\infty$ へ移して
 
 $$
 \begin{aligned}
@@ -324,7 +380,39 @@ $$
 g(x)=\frac{x^4I_2-i\sum_{a=1}^3x^a\sigma_a}{r}.
 $$
 
-分子とその共役転置の積が $r^2I_2$、行列式が $r^2$ なので、$g^\dagger g=I_2$、$\det g=1$ となる。微分すると
+まず $SU(2)$ の条件を確認する。$s=x^4$、$X=x^a\sigma_a$、$q=sI_2-iX$ と置くと $g=q/r$ である。第1節で直接掛け算した $\sigma_a\sigma_b=\delta_{ab}I_2+i\varepsilon_{abc}\sigma_c$ を代入すると
+
+$$
+X^2=x^ax^b(\delta_{ab}I_2+i\varepsilon_{abc}\sigma_c)
+=|\mathbf x|^2I_2,\qquad q^\dagger q=r^2I_2.
+$$
+
+また
+
+$$
+q=\begin{pmatrix}s-ix^3&-x^2-ix^1\\x^2-ix^1&s+ix^3\end{pmatrix}
+$$
+
+なので $\det q=s^2+(x^1)^2+(x^2)^2+(x^3)^2=r^2$。$r>0$ だから $g^\dagger g=I_2$、$\det g=1$ となる。
+
+次に [Maurer–Cartan 形式](../../../代数系/LIE/LIE4/index.md#def-lie4-maurer-cartan-form) $g^{-1}dg$ を計算する。$d$ は全座標 $x^\mu$ に作用し、$dr=x^\mu dx^\mu/r$ である。$g^{-1}=q^\dagger/r$ と積の微分より
+
+$$
+g^{-1}dg=\frac{q^\dagger dq}{r^2}-\frac{dr}{r}I_2.
+$$
+
+$XdX=x^a dx^a I_2+i\varepsilon_{abc}x^b dx^c\sigma_a$ を使うと
+
+$$
+\begin{aligned}
+q^\dagger dq
+&=(sI_2+iX)(ds\,I_2-i\,dX)\\
+&=r\,dr\,I_2\\
+&\quad-i\sigma_a(s\,dx^a-x^a ds-\varepsilon_{abc}x^b dx^c).
+\end{aligned}
+$$
+
+スカラー項は相殺し、
 
 $$
 g^{-1}dg
@@ -332,13 +420,13 @@ g^{-1}dg
 \left(x^4dx^a-x^a dx^4-\varepsilon_{abc}x^b dx^c\right).
 $$
 
-[前節のBPST接続](#def-gbg28-bpst)と比較すれば
+[前節のBPST接続](#def-gbg28-bpst)と比較する。空間添字を展開すると $\eta^a_{\mu\nu}x^\nu dx^\mu=s\,dx^a-x^a ds-\varepsilon_{abc}x^b dx^c$ となり、$2T_a=-i\sigma_a$ なので
 
 $$
 A=\frac{r^2}{r^2+\rho^2}\,g^{-1}dg.
 $$
 
-特に $r\to\infty$ では、接続は曲率零の純ゲージ形 $g^{-1}dg$ に近づく。ここで「近づく」は係数の漸近形を意味し、無限遠で非自明な遷移関数が消えることを意味しない。
+特に $r\to\infty$ では、接続は曲率零の[純ゲージ形](../GBG26/index.md#def-gbg26-pure-gauge) $g^{-1}dg$ に近づく。両者の差は $-\rho^2g^{-1}dg/D$ で、座標係数は $O(r^{-3})$ である。ここで「近づく」は係数の漸近形を意味し、無限遠で非自明な遷移関数が消えることを意味しない。
 
 <a id="prop-gbg28-patching"></a>
 
@@ -373,7 +461,18 @@ $$
 
 ここで $d(gg^{-1})=0$ より $g\,dg^{-1}=-dg\,g^{-1}$ を使った。
 
-$y=x/r^2$ なら $r^2=1/|y|^2$ であり、$g(x)=g(y)$ が成立する（正の実数倍に対する零次同次性）。また行列積から
+$y=x/r^2$ なら $r^2=1/|y|^2$ であり、$g(x)=g(y)$ が成立する（正の実数倍に対する零次同次性）。ここからは $d$ を $y$ 座標に関する外微分として読む（同じ1形式の座標変換である）。$R=|y|>0$、$q_y=y^4I_2-iy^a\sigma_a$ と置く。逆順の行列積を計算すると
+
+$$
+\begin{aligned}
+dg\,g^{-1}&=\frac{dq_y\,q_y^\dagger}{R^2}-\frac{dR}{R}I_2,\\
+dq_y\,q_y^\dagger
+&=R\,dR\,I_2\\
+&\quad-i\sigma_a(y^4dy^a-y^ady^4+\varepsilon_{abc}y^bdy^c).
+\end{aligned}
+$$
+
+行列積の順序が逆なので $\sigma_b\sigma_c-\sigma_c\sigma_b=2i\varepsilon_{bca}\sigma_a$ に対応する項だけ符号が変わる。従って
 
 $$
 dg(y)\,g(y)^{-1}
@@ -389,7 +488,7 @@ A_\infty
 \left(y^4dy^a-y^a dy^4+\varepsilon_{abc}y^bdy^c\right).
 $$
 
-分母は $y=0$ でも正、分子は $y$ に線形なので、そこで滑らかに $A_\infty(0)=0$ と延長できる。$g^{-1}:U_0\cap U_\infty\to SU(2)$ は滑らかで、[主束のcocycle貼り合わせ](../GBG1/index.md#thm-gbg1-gluing)の二パッチの場合を満たす。局所接続の変換が一致するため、二つの局所形式は一つの大域主束接続を定める。
+分母は $y=0$ でも正、分子は $y$ に線形なので、そこで滑らかに $A_\infty(0)=0$ と延長できる。$g^{-1}:U_0\cap U_\infty\to SU(2)$ は滑らかで、[主束のcocycle貼り合わせ](../GBG1/index.md#thm-gbg1-gluing)の二パッチの場合を満たす。逆方向の遷移は $g$、同じパッチへの遷移は単位元としてcocycle条件が成立する。両局所形式は滑らかで、重なりで変換則を満たすから、[局所ポテンシャルからの大域接続の再構成](../GBG8/index.md#thm-gbg8-local-reconstruction)により一つの大域主束接続が存在する。
 <!-- proof-end -->
 
 <a id="thm-gbg28-nontrivial"></a>
@@ -418,7 +517,15 @@ $$
 =-8\pi^2.
 $$
 
-もし $P$ が自明なら大域的に $A=0$ という平坦接続が存在し、その第二Chern数は零である。[GBG22の接続非依存性](../GBG22/index.md#cor-gbg22-class-independence)を同じ閉多様体 $S^4$ と同じ束 $P$ に適用すれば矛盾する。
+もし $P$ が自明なら大域的に $A=0$ という平坦接続が存在し、その第二Chern数は零である。[GBG22の接続非依存性](../GBG22/index.md#cor-gbg22-class-independence)を同じ閉多様体 $S^4$ と同じ束 $P$ に適用する。[対称Ad不変多重線形形式](../GBG20/index.md#def-gbg20-invariant-polynomial)の条件を2変数で確認する。$p(X,Y)=\operatorname{tr}(XY)/(8\pi^2)$ は双線形で、跡の巡回性から $p(X,Y)=p(Y,X)$。共役変換に対しても
+
+$$
+p(hXh^{-1},hYh^{-1})
+=\frac{\operatorname{tr}(hXYh^{-1})}{8\pi^2}
+=p(X,Y)
+$$
+
+なので適用条件を満たす。二接続のChern–Weil形式の差は完全4形式であり、閉多様体上でその積分は零なので矛盾する。
 
 遷移関数の次数も確かめる。[GBG25の標準同一視](../GBG25/index.md#def-gbg25-su2-s3)の $Q(x)$ と比較すると、$\lvert x\rvert=1$ で $Q^{-1}\circ g$ は実4次元座標に
 
@@ -427,7 +534,15 @@ $$
 (x^4,-x^3,x^2,-x^1)
 $$
 
-を対応させる。これは行列式 $+1$ の直交変換だから、[GBG25の次数規約](../GBG25/index.md#def-gbg25-degree)で $\deg g=+1$。群の逆元写像は同講の計算で次数 $-1$ なので $\deg(g^{-1})=-1$。$\mathbb R^4$ 側の4球を基準に境界の向きを選べば、この $g^{-1}$ が貼り合わせ写像となり、[GBG26の境界次数と第二Chern数の関係](../GBG26/index.md#thm-gbg26-clutching-number)とも整合する。
+を対応させる。これは $z=x^4-ix^3$、$w=x^2-ix^1$ を実部・虚部の順に並べたものである。逆順置換の符号は $(-1)^6=1$、二つの負符号の積も正である。
+
+従ってこの直交変換は向きを保つ。[GBG25の次数規約](../GBG25/index.md#def-gbg25-degree)で $\deg g=+1$ となる。群の逆元写像は同講の計算で次数 $-1$ なので
+
+$$
+\deg(g^{-1})=-1.
+$$
+
+$\mathbb R^4$ 側の4球を基準に境界の向きを選べば、この $g^{-1}$ が貼り合わせ写像となり、[GBG26の境界次数と第二Chern数の関係](../GBG26/index.md#thm-gbg26-clutching-number)とも整合する。
 <!-- proof-end -->
 
 
@@ -437,7 +552,22 @@ $$
 g_{S^4}=\frac{4}{(1+r^2)^2}\sum_{\mu=1}^4(dx^\mu)^2
 $$
 
-となる（立体射影の逆写像は $(2x/(1+r^2),(1-r^2)/(1+r^2))$ であり、その微分の内積を取ると上式を得る）。4次元で計量を $\lambda^2g$ に変えると、2形式の内積は $\lambda^{-4}$ 倍、体積形式は $\lambda^4$ 倍になる。[Hodge星の定義](../GBG27/index.md#def-gbg27-hodge-star)の右辺では両者が相殺されるので、2形式上の星は変わらない。したがってこの丸い計量で $F=*F$ が成り立ち、滑らかさにより無限遠でも成立する。作用密度4形式も同じであり、球面上での作用は $8\pi^2$ である。任意の計量で自己双対になるという主張ではない。
+となる。実際、$H=1+r^2$ とすると立体射影の逆写像は $(2x/H,(1-r^2)/H)$ である。接ベクトル $v$ に対する微分は
+
+$$
+\left(\frac{2v}{H}-\frac{4x(x\cdot v)}{H^2},-\frac{4(x\cdot v)}{H^2}\right).
+$$
+
+その長さの二乗を展開すると
+
+$$
+\frac{4|v|^2}{H^2}
+-\frac{16(x\cdot v)^2}{H^3}
++\frac{16(r^2+1)(x\cdot v)^2}{H^4}
+=\frac{4|v|^2}{H^2}.
+$$
+
+4次元で計量を $\lambda^2g$ に変えると、2形式の内積は $\lambda^{-4}$ 倍、体積形式は $\lambda^4$ 倍になる。[Hodge星の定義](../GBG27/index.md#def-gbg27-hodge-star)の右辺では両者が相殺されるので、2形式上の星は変わらない。したがってこの丸い計量で $F=*F$ が成り立ち、滑らかさにより無限遠でも成立する。作用密度4形式も同じであり、球面上での作用は $8\pi^2$ である。任意の計量で自己双対になるという主張ではない。
 
 **正則と特異は何が違うか**。$A$ は $x=0$ で滑らかだが無限遠の座標には直接延長できない。$A_\infty$ は $y=0$（無限遠）で滑らかだが、同じ式を $x=0$ まで使おうとすると $g$ が定義されない。この後者が *特異ゲージ* と呼ばれる理由である。**特異なのは局所表示であり、主束の接続や曲率そのものではない**。非零の第二Chern数こそ、大域の単一ゲージで全てを書けないことの証拠となる。
 
@@ -486,7 +616,7 @@ $$
 正則ゲージのBPST接続で $A_\mu^a(0)=0$ である。それでも $F_{14}^1(0)\ne0$ となる値を、$F=dA+A\wedge A$ から直接求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$A_\nu^a=2\eta^a_{\nu\lambda}x^\lambda/D$ なので、原点で $A_\nu^a=0$、$\partial_\mu A_\nu^a(0)=2\eta^a_{\nu\mu}/\rho^2$。従って $[A_1,A_4](0)=0$ だが、
+**詳細解答**。[BPST接続の定義](#def-gbg28-bpst)で $D=r^2+\rho^2$ と置く。商の微分を使うと、原点で $A_\nu^a=0$、$\partial_\mu A_\nu^a(0)=2\eta^a_{\nu\mu}/\rho^2$。従って $[A_1,A_4](0)=0$ だが、
 
 $$
 F^1_{14}(0)
@@ -524,7 +654,7 @@ $\int_1^\infty r^{-5}dr=1/4<\infty$ である。両端が収束するから、�
 $x=(t,0,0,0)$ とし、$F_{14}^1$ を接続係数の偏微分とLie括弧から直接計算して、曲率の一般式と照合せよ。
 
 <!-- solution-start -->
-**詳細解答**。全空間の式を**先に**微分し、最後に $x=(t,0,0,0)$ を代入する。$D=t^2+\rho^2$ とすると
+**詳細解答**。全空間の式を**先に**微分し、最後に $x=(t,0,0,0)$ を代入する。全空間で $A_4^1=-2x^1/(r^2+\rho^2)$、$A_1^1=2x^4/(r^2+\rho^2)$ である。$x^4$ で微分するときは $x^1$ も固定する。微分した後で直線上の分母を $D=t^2+\rho^2$ と書けば
 
 $$
 \partial_1A_4^1
@@ -550,7 +680,7 @@ $$
 $\rho$ を $2\rho$ へ変えると $|F(0)|^2$ は何倍になるか。一方で作用が同じであることを、$u=r^2/\rho^2$ の置換と積分で示せ。
 
 <!-- solution-start -->
-**詳細解答**。原点では $|F(0)|^2=48/\rho^4$ なので $\rho\mapsto2\rho$ により $1/16$ 倍になる。しかし
+**詳細解答**。[曲率ノルムの式](#thm-gbg28-action)より原点では $|F(0)|^2=48/\rho^4$ なので $\rho\mapsto2\rho$ により $1/16$ 倍になる。しかし
 
 $$
 \operatorname{YM}
@@ -558,12 +688,13 @@ $$
 \frac{r^3}{(r^2+\rho^2)^4}\,dr.
 $$
 
-$u=r^2/\rho^2$ なら $r^3dr=\rho^4u\,du/2$、$(r^2+\rho^2)^4=\rho^8(1+u)^4$ である。よって
+$u=r^2/\rho^2$ なら $du/dr=2r/\rho^2>0$（$r>0$）であり、$r^3dr=\rho^4u\,du/2$、$(r^2+\rho^2)^4=\rho^8(1+u)^4$ である。よって
 
 $$
 \operatorname{YM}
 =48\pi^2\int_0^\infty\frac{u}{(1+u)^4}du
-=48\pi^2\cdot\frac16=8\pi^2.
+=48\pi^2\left[-\frac{1}{2(1+u)^2}+\frac{1}{3(1+u)^3}\right]_0^\infty
+=8\pi^2.
 $$
 
 高さは変わっても、4次元の積分領域の広がりがその変化を補う。
@@ -628,15 +759,23 @@ $\rho>0$、標準向きの $\mathbb R^4$、$T_a=-i\sigma_a/2$、$\eta^a_{i4}=\de
 <!-- solution-start -->
 **詳細解答**。
 
-**1.** $D=r^2+\rho^2$ とすると $\partial_\mu A_\nu^a=2\eta^a_{\nu\mu}/D-4x^\mu\eta^a_{\nu\lambda}x^\lambda/D^2$。これを $F_{\mu\nu}^a=\partial_\mu A_\nu^a-\partial_\nu A_\mu^a+\varepsilon_{abc}A_\mu^bA_\nu^c$ に代入し、[積恒等式](#lem-gbg28-eta-identity)を使うと
+**1.** $D=r^2+\rho^2$ とすると $\partial_\mu A_\nu^a=2\eta^a_{\nu\mu}/D-4x^\mu\eta^a_{\nu\lambda}x^\lambda/D^2$。これを $F_{\mu\nu}^a=\partial_\mu A_\nu^a-\partial_\nu A_\mu^a+\varepsilon_{abc}A_\mu^bA_\nu^c$ という[局所曲率の公式](../GBG10/index.md#thm-gbg10-local-formula)に代入する。$B=x^\mu\eta^a_{\nu\lambda}x^\lambda-x^\nu\eta^a_{\mu\lambda}x^\lambda$ と略記すると、偏微分項は $-4\eta^a_{\mu\nu}/D-4B/D^2$、[積恒等式](#lem-gbg28-eta-identity)による括弧項は $4(r^2\eta^a_{\mu\nu}+B)/D^2$ である。よって
 
 $$
-F_{\mu\nu}^a=-\frac{4\rho^2}{D^2}\eta^a_{\mu\nu}.
+F_{\mu\nu}^a=-\frac{4\eta^a_{\mu\nu}}D+\frac{4r^2\eta^a_{\mu\nu}}{D^2}
+=-\frac{4\rho^2}{D^2}\eta^a_{\mu\nu}.
 $$
 
 $E^1=dx^{14}+dx^{23}$、$E^2=dx^{24}-dx^{13}$、$E^3=dx^{34}+dx^{12}$ はすべて星で不変だから $F=*F$ となる。
 
-**2.** $\sum_{a,\mu<\nu}(\eta^a_{\mu\nu})^2=6$ と $-\operatorname{tr}(T_aT_b)=\delta_{ab}/2$ より、$|F|^2=48\rho^4/D^4$。4次元極座標で
+**2.** $\sum_{a,\mu<\nu}(\eta^a_{\mu\nu})^2=6$ と $-\operatorname{tr}(T_aT_b)=\delta_{ab}/2$ より
+
+$$
+|F|^2=\frac{16\rho^4}{D^4}\frac12\sum_{a,\mu<\nu}(\eta^a_{\mu\nu})^2
+=\frac{48\rho^4}{D^4}.
+$$
+
+原点近傍は有界、遠方は $r^3|F|^2=O(r^{-5})$ なので収束する。[作用の計算](#thm-gbg28-action)と同じく $u=r^2/\rho^2$ を用い、$r^3dr=\rho^4u\,du/2$、$D^4=\rho^8(1+u)^4$ を代入する。4次元極座標で
 
 $$
 \operatorname{YM}
@@ -648,14 +787,23 @@ $$
 
 $F=*F$ なので $\operatorname{tr}(F\wedge F)=-|F|^2dx^{1234}$。ゆえに $k=-\operatorname{YM}/(8\pi^2)=-1$。
 
-**3.** $g^{-1}dg=(-i\sigma_a/r^2)(x^4dx^a-x^adx^4-\varepsilon_{abc}x^bdx^c)$ であり、$A=r^2g^{-1}dg/D$ と一致する。$h=g^{-1}$ として [局所ゲージ変換則](../GBG8/index.md#thm-gbg8-local-transform)を使うと
+**3.** 第4節の[貼り合わせの計算](#prop-gbg28-patching)に従い、$q=x^4I_2-ix^a\sigma_a$ と置く。$q^\dagger q=r^2I_2$、$\det q=r^2$ なので $g=q/r$ は $x\ne0$ で滑らかな $SU(2)$ 値関数である。積の微分から
+
+$$
+\begin{aligned}
+g^{-1}dg&=r^{-2}q^\dagger dq-r^{-1}dr\,I_2\\
+&=-\frac{i\sigma_a}{r^2}(x^4dx^a-x^adx^4-\varepsilon_{abc}x^bdx^c).
+\end{aligned}
+$$
+
+$2T_a=-i\sigma_a$ と[自己双対 't Hooft 記号](#def-gbg28-eta)の成分を代入すると $A=r^2g^{-1}dg/D$ と一致する。$h=g^{-1}$ として [局所ゲージ変換則](../GBG8/index.md#thm-gbg8-local-transform)を使うと
 
 $$
 A_\infty=gAg^{-1}+g\,dg^{-1}
 =-\frac{\rho^2}{r^2+\rho^2}dg\,g^{-1}.
 $$
 
-$y=x/r^2$ に直すと
+$y=x/r^2$ に直す。$g(x)=g(y)$、$r^2=|y|^{-2}$ だから、$-\rho^2/D=-\rho^2|y|^2/(1+\rho^2|y|^2)$ となる。$dg\,g^{-1}$ の分母 $|y|^2$ と相殺し、
 
 $$
 A_\infty
@@ -663,7 +811,7 @@ A_\infty
 (y^4dy^a-y^ady^4+\varepsilon_{abc}y^bdy^c),
 $$
 
-なので $y=0$ でも滑らかである。$x\ne0$ では二つの接続がゲージ変換で一致するから、滑らかな大域接続になる。
+なので $y=0$ でも分母は1で、全係数は滑らかである。$x\ne0$ で変換則が成立するため、[局所ポテンシャルからの大域接続の再構成](../GBG8/index.md#thm-gbg8-local-reconstruction)を適用して大域接続が得られる。
 
 **4.** [第二Chern形式の接続非依存性](../GBG22/index.md#cor-gbg22-class-independence)を閉多様体 $S^4$ に適用する。もし主束が自明なら大域接続 $A=0$ を選べるので $k=0$ になる。しかし上の接続は $k=-1$ だから矛盾する。$g$ が原点で未定義であること自体は、二つの局所sectionの重なりで $g$ だけを定義すればよいという主束の原則と矛盾せず、非自明性の根拠にはならない。
 <!-- solution-end -->
