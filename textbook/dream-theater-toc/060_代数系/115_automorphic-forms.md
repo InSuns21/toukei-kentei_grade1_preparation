@@ -17,3 +17,4 @@
 14. [AFR14 球Hecke代数とSatakeパラメータ](textbook/volumes/dream_thater/代数系/AFR/AFR14/index.md)
 15. [AFR15 分岐局所表現・newvector](textbook/volumes/dream_thater/代数系/AFR/AFR15/index.md)
 16. [AFR16 制限テンソル積・局所大域L因子](textbook/volumes/dream_thater/代数系/AFR/AFR16/index.md)
+17. [AFR17 GL_2の保型表現と古典形式](textbook/volumes/dream_thater/代数系/AFR/AFR17/index.md)

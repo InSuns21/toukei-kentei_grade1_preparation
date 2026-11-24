@@ -1,0 +1,25 @@
+id: "AFR17"
+title: "GL_2の保型表現と古典形式"
+volume: "foundations"
+status: supplementary
+prerequisites: [AFR16, AFR12, AFR11, MF5]
+official_scope: []
+learning_objectives:
+  - 最低重さ条件をCauchy–Riemann方程式に翻訳し古典カスプ形式を復元できる
+  - 素数Hecke固有値と第一係数から古典形式の全Fourier係数を決定できる
+  - カスプ形式の生成加群の既約性を離散分解の射影を用いて証明できる
+  - 局所の球固定直線と実側の最低重さ直線から古典形式および局所L因子を読み取れる
+  - 離散分解とFlathの定理の外部入力の範囲を区別できる
+definitions:
+  - { id: AFR17-DEF-01, name: "カスプ保型表現" }
+theorems:
+  - { id: AFR17-THM-01, name: "最低重さ条件による古典カスプ形式の復元" }
+  - { id: AFR17-THM-02, name: "素数Hecke固有値による直線の決定" }
+  - { id: AFR17-THM-03, name: "固有形式の生成加群の既約性" }
+  - { id: AFR17-THM-04, name: "レベル1固有形式の局所データ" }
+canonical_examples: [モジュラー判別式の復元, 素数固有値と係数, 重さ12のカスプ保型表現, 局所L因子]
+problem_patterns: [AFR17-A1, AFR17-A2, AFR17-A3, AFR17-A4, AFR17-B1, AFR17-B2, AFR17-B3, AFR17-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 5, review: 2 }
