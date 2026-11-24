@@ -14,7 +14,14 @@ x=(x^0,x^1,x^2,x^3)^{\mathsf T}=(ct,x,y,z)^{\mathsf T},
 g(u,v)=u^{\mathsf T}\eta v.
 $$
 
-$\dagger$ は複素共役転置（[LA5の随伴](../../../基礎科目/LA/LA5/index.md#def-la5-adjoint)の $*$ と標準正規直交基底では同じ）、$I_n$ は $n$ 次単位行列、$M_n(\mathbb C)$ は複素 $n$ 次正方行列全体、$\operatorname{tr}$ は跡を表します。$e_\mu$ は時空の標準基底、$\mu=0,1,2,3$、空間添字 $i,j,k=1,2,3$ とし、総和は明記します。$\delta_{ij}$ はKroneckerのデルタ、$\varepsilon_{ijk}$ は $\varepsilon_{123}=1$ の完全反対称記号です。添字 $i$ と虚数単位 $i$ は文脈で区別します。変換は列ベクトルへの**能動作用**です。[Lorentz群と単位元成分](../LREP9/index.md#def-lrep9-lorentz-group)の記法 $O(1,3),SO^+(1,3)$ を引き継ぎます。
+本章の記号を整理します。
+
+- $\dagger$ は複素共役転置です。[LA5の随伴](../../../基礎科目/LA/LA5/index.md#def-la5-adjoint)の $*$ と標準正規直交基底では同じです。
+- $I_n$ は $n$ 次単位行列、$M_n(\mathbb C)$ は複素 $n$ 次正方行列全体、$\operatorname{tr}$ は跡です。
+- $e_\mu$ は時空の標準基底です。時空添字は $\mu=0,1,2,3$、空間添字は $i,j,k=1,2,3$ とし、総和は明記します。
+- $\delta_{ij}$ はKroneckerのデルタ、$\varepsilon_{ijk}$ は $\varepsilon_{123}=1$ の完全反対称記号です。添字と虚数単位の $i$ は文脈で区別します。
+
+変換は列ベクトルへの**能動作用**です。[Lorentz群と単位元成分](../LREP9/index.md#def-lrep9-lorentz-group)の記法 $O(1,3),SO^+(1,3)$ を引き継ぎます。
 
 Pauli行列は[既出の定義](../LREP5/index.md#def-lrep5-pauli-model)に従い、[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product)を用います。具体的には
 
@@ -196,7 +203,23 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$A$ は可逆なので $AA^\dagger$ はエルミートで、非零の $v$ に対して $v^\dagger AA^\dagger v=\|A^\dagger v\|^2>0$ です。[スペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)を適用します。固有値 $\lambda_1,\lambda_2>0$ と正規直交固有基底を取って、それぞれを $\sqrt{\lambda_i}$ に置き換えた正定値行列を $P=(AA^\dagger)^{1/2}$ と定めます。この正の平方根は一意です。別の正定値平方根 $P_1$ があれば $P_1^2=AA^\dagger$ なので $P_1$ は $AA^\dagger$ と可換です。各固有空間を保ち、その上で正定値かつ平方が $\lambda I$ であるため、固有値はすべて $\sqrt{\lambda}$ に限られます。よって各固有空間上で $\sqrt{\lambda}I$ となり $P_1=P$ です。$U=P^{-1}A$ と置くと
+$A$ は可逆なので $AA^\dagger$ はエルミートで、非零の $v$ に対して
+
+$$
+v^\dagger AA^\dagger v=\|A^\dagger v\|^2>0
+$$
+
+です。[スペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)を適用し、固有値 $\lambda_1,\lambda_2>0$ と正規直交固有基底を取ります。固有値をそれぞれ $\sqrt{\lambda_i}$ に置き換えた正定値行列を $P=(AA^\dagger)^{1/2}$ と定めます。
+
+この正の平方根は一意です。別の正定値平方根 $P_1$ があれば、
+
+$$
+P_1^2=AA^\dagger,\qquad P_1(AA^\dagger)=(AA^\dagger)P_1
+$$
+
+なので $P_1$ は各固有空間を保ちます。固有値 $\lambda$ に対応する空間上では正定値かつ平方が $\lambda I$ であるため、固有値はすべて $\sqrt{\lambda}$ に限られます。よって各固有空間上で $\sqrt{\lambda}I$ となり、$P_1=P$ です。
+
+$U=P^{-1}A$ と置くと
 
 $$
 UU^\dagger=P^{-1}AA^\dagger P^{-1}
@@ -217,7 +240,15 @@ $$
 U(t)=V_0\operatorname{diag}(e^{it\theta},e^{-it\theta})V_0^\dagger
 $$
 
-とすればユニタリかつ行列式1で、$U(0)=I_2,\ U(1)=U$ です。[LREP5の軸角表示](../LREP5/index.md#prop-lrep5-rodrigues)でも同じ道を記述できます。$U$ の固有基底で $\operatorname{diag}(-1,1)$ を表した行列 $N$ は跡零エルミートで $N^2=I_2$ ですから、Pauli模型で $N=\boldsymbol n\cdot\boldsymbol\sigma$ と置けば $|\boldsymbol n|=1$ です。上の道は $U(t)=\exp(-it\theta N)$ という軸角表示（回転角 $2t\theta$）になっています。そこで
+とすればユニタリかつ行列式1で、$U(0)=I_2,\ U(1)=U$ です。
+
+[LREP5の軸角表示](../LREP5/index.md#prop-lrep5-rodrigues)でも同じ道を記述できます。$U$ の固有基底で $\operatorname{diag}(-1,1)$ を表した行列 $N$ は跡零エルミートで $N^2=I_2$ です。Pauli模型で $N=\boldsymbol n\cdot\boldsymbol\sigma$ と置けば $|\boldsymbol n|=1$ となります。上の道は
+
+$$
+U(t)=\exp(-it\theta N)
+$$
+
+という軸角表示（回転角 $2t\theta$）になっています。そこで
 
 $$
 A(t)=e^{tT}U(t)\quad(0\le t\le1)
@@ -265,7 +296,19 @@ $$
 =\det H(x).
 $$
 
-[行列式と計量の同一性](#thm-lrep10-determinant-cone)から $g(\Phi(A)x,\Phi(A)x)=g(x,x)$。$q(x)=g(x,x)$ と書くと、対称双線形性から $2g(x,y)=q(x+y)-q(x)-q(y)$ です。$\Phi(A)$ の実線形性と $q$ の保存をこの式に代入すれば $g(\Phi(A)x,\Phi(A)y)=g(x,y)$ となり、$\Phi(A)\in O(1,3)$ です。
+[行列式と計量の同一性](#thm-lrep10-determinant-cone)から $g(\Phi(A)x,\Phi(A)x)=g(x,x)$。$q(x)=g(x,x)$ と書くと、対称双線形性から
+
+$$
+2g(x,y)=q(x+y)-q(x)-q(y)
+$$
+
+です。$\Phi(A)$ の実線形性と $q$ の保存をこの式に代入すれば
+
+$$
+g(\Phi(A)x,\Phi(A)y)=g(x,y)
+$$
+
+となり、$\Phi(A)\in O(1,3)$ です。
 
 未来向き因果的な $x$ では $H(x)$ は正半定値であり、任意の $v\in\mathbb C^2$ に対し
 
