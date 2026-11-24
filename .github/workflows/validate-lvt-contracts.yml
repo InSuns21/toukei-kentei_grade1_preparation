@@ -38,7 +38,7 @@ jobs:
           import re
           from pathlib import Path
           allowed = {'propext', 'Classical.choice', 'Quot.sound'}
-          for name, count in [('inspect.log', 6), ('exercises.log', 9)]:
+          for name, count in [('inspect.log', 6), ('exercises.log', 10)]:
               output = Path(name).read_text()
               entries = re.findall(r"depends on axioms:\s*\[([^\]]*)\]", output)
               empty = len(re.findall(r"does not depend on any axioms", output))
