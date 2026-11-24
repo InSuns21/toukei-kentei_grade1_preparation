@@ -10,7 +10,7 @@ concepts:
     introduction: formal
     requires: []
   - id: automorphic-forms.integral-period-map
-    name: "周期写像の整数化"
+    name: "周期積分による線形写像の整数化"
     kind: proposition
     introduction: formal
     requires: [automorphic-forms.period]
