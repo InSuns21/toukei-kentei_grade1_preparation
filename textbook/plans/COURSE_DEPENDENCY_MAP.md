@@ -69,4 +69,4 @@
 | [FML 7講](DREAM_THEATER_FORMAL_MATHEMATICS_LEAN_PLAN.md) | [LVT第I・II部（14講）](../plans_progress/DREAM_THEATER_LEAN4_SOFTWARE_TESTING_FORMAL_VERIFICATION_PLAN.md) → FML。LA・基礎代数・MT/TOP・ACOMPの対応箇所を参照。LVT第III〜VI部は必修でない。 |
 | [VNP 24講](DREAM_THEATER_VP_VNP_PROOF_STUDY_PLAN.md) | GCT1–16、ACOMP1–24、TSP1–16、NPCG1–12、FML1–7の対応箇所（下表の順で選択履修） |
 
-[横断ルート](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md) → [EOMのVP/VNP横断3講](DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md)（EOM全42講・13 family）。既存CPLX/COMB/AG/SGT/LVT等の正本を重複させない。GCTは着手済み、各系列の進捗はmanifestを参照する。、研究claimの数学的独立検証済みとはしない。
+[横断ルート](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md) → [EOMのVP/VNP横断3講](DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md)（EOM全42講・13 family）。既存CPLX/COMB/AG/SGT/LVT等の正本を重複させない。GCTは着手済み、各系列の進捗はmanifestを参照する。研究claimの数学的独立検証済みとはしない。
