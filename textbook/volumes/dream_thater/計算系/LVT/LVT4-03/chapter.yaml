@@ -1,0 +1,22 @@
+id: "LVT4-03"
+title: "Plausibleによる反例探索"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT4-02, MC2]
+official_scope: []
+learning_objectives:
+  - PlausibleでLean命題の反例を探索する
+  - 生成と判定の責務および探索の結果を区別する
+  - 自然数の反例縮小列を確認し縮小回数の上界を証明する
+  - 反例の再現と全称命題の証明を区別する
+definitions:
+  - { id: LVT4-03-DEF-01, name: "反例縮小列" }
+propositions:
+  - { id: LVT4-03-PROP-01, name: "反例縮小列の長さの上界" }
+theorems: []
+canonical_examples: ["自然数の境界", "反例縮小列", "候補制限による局所停止"]
+problem_patterns: [LVT4-03-A01, LVT4-03-A02, LVT4-03-A03, LVT4-03-A04, LVT4-03-B01, LVT4-03-B02, LVT4-03-B03, LVT4-03-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2, review: 0.5 }

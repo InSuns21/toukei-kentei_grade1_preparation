@@ -1,0 +1,61 @@
+name: Validate LVT Plausible
+on:
+  pull_request:
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT4-03/**'
+      - '.github/workflows/validate-lvt-plausible.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT4-03/**'
+      - '.github/workflows/validate-lvt-plausible.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lean-plausible:
+    name: Lean Plausible counterexample search
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          lake-package-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT4-03/lab'
+          auto-config: 'false'
+          build: 'true'
+          test: 'true'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - name: Verify proof, exploration and diagnostic
+        working-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT4-03/lab'
+        shell: bash
+        run: |
+          set -euo pipefail
+          lean --version | grep -F 'version 4.35.0'
+          lake build Plausible
+          git -C .lake/packages/plausible rev-parse HEAD | grep -Fx 'dfa4f38190d07c37e315953e08b90fe2d95b3c24'
+          lake exe lvtPlausibleDemo | grep -Fx 'LVT4-03 OK'
+          lake env lean Inspect.lean | tee inspect.log
+          lake env lean ExerciseSolutions.lean | tee exercises.log
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          for name, count in [('inspect.log', 4), ('exercises.log', 8)]:
+              output = Path(name).read_text()
+              entries = re.findall(r"depends on axioms:\s*\[([^\]]*)\]", output)
+              empty = len(re.findall(r"does not depend on any axioms", output))
+              assert len(entries) + empty == count, (name, output)
+              for entry in entries:
+                  assert set(x.strip() for x in entry.split(',') if x.strip()) <= {'propext', 'Classical.choice', 'Quot.sound'}, entry
+          PY
+          lake env lean SearchPass.lean | tee pass.log
+          grep -F 'Unable to find a counter-example' pass.log
+          if lake env lean Failure.lean > guard.log 2>&1; then exit 1; fi
+          cat guard.log
+          grep -Ei 'did not evaluate to `true`' guard.log
+          for experiment in SearchFail SearchShrink; do
+            if lake env lean "$experiment.lean" > "$experiment.log" 2>&1; then exit 1; fi
+            cat "$experiment.log"
+            grep -F 'Found a counter-example!' "$experiment.log"
+          done
+          git diff --exit-code -- lake-manifest.json

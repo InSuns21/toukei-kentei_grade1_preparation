@@ -103,7 +103,7 @@ chapters:
     title: "Property-Based Testingの原理"
   - id: LVT4-03
     path: textbook/volumes/dream_thater/計算系/LVT/LVT4-03
-    status: planned
+    status: completed
     title: "Plausibleによる反例探索"
   - id: LVT4-04
     path: textbook/volumes/dream_thater/計算系/LVT/LVT4-04
