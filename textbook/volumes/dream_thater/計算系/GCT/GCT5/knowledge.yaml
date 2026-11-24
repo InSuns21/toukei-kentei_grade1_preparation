@@ -1,0 +1,63 @@
+chapter: GCT5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GCT4
+  - GCT1
+  - SGT1
+forward_references: []
+concepts:
+  - id: graph-counting.tree-forest
+    name: 木と森
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（木と森）"]
+    requires: [spectral-graph.components]
+  - id: graph-counting.unique-path
+    name: 木の一意な道による特徴付け
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（木の一意な道による特徴付け）"]
+    requires: [graph-counting.tree-forest]
+  - id: graph-counting.forest-edge-count
+    name: 森の辺数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（森の辺数）"]
+    requires: [graph-counting.tree-forest]
+  - id: graph-counting.edge-cut
+    name: 辺カット
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（辺カット）"]
+    requires: [graph-counting.finite-simple-graph]
+  - id: graph-counting.vertex-separator
+    name: 頂点分離集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（頂点分離集合）"]
+    requires: [graph-counting.finite-simple-graph]
+  - id: graph-counting.rooted-tree
+    name: 根付き木と部分木
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（根付き木と部分木）"]
+    requires: [graph-counting.tree-forest, graph-counting.unique-path]
+  - id: graph-counting.child-separation
+    name: 子部分木の分離
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（子部分木の分離）"]
+    requires: [graph-counting.rooted-tree, graph-counting.unique-path, graph-counting.vertex-separator]
+  - id: graph-counting.independent-set
+    name: 独立集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（独立集合）"]
+    requires: [graph-counting.finite-simple-graph]
+  - id: graph-counting.independent-set-dp
+    name: 木上の独立集合の二状態漸化式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（木上の独立集合の二状態漸化式）"]
+    requires: [graph-counting.child-separation, graph-counting.independent-set]
