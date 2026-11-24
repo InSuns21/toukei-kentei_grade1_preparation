@@ -92,6 +92,9 @@ try {
     return s;
   };
   const capture=async(name)=>{
+    await evaluate('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"start",inline:"nearest"})');
+    await evaluate('new Promise(ok=>requestAnimationFrame(()=>requestAnimationFrame(ok)))');
+    await new Promise(ok=>setTimeout(ok,400));
     const position=await evaluate('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.x+window.scrollX,y:r.y+window.scrollY,width:r.width,height:r.height}})()');
     assert.ok(position.width>50&&position.height>50,JSON.stringify(position));
     const data=(await cdp('Page.captureScreenshot',{format:'png',clip:{...position,scale:1},captureBeyondViewport:true})).data;
@@ -100,6 +103,13 @@ try {
     return data;
   };
 
+  const captureChanged=async(name,previous)=>{
+    for(let attempt=0;attempt<5;attempt++){
+      const current=await capture(name);
+      if(current!==previous)return;
+    }
+    assert.fail('FCG19 compositor never produced a changed screenshot: '+name);
+  };
   const pass='document.querySelector("#status")?.textContent.includes("独立画素検算に合格")';
   const state='document.getElementById("fcg-time-state")';
   const click=id=>evaluate('document.getElementById('+JSON.stringify(id)+').click()');
@@ -108,7 +118,7 @@ try {
   await waitFor(state+'.dataset.playing==="false"');
   const first=await capture('initial');
   await click('fcg-time-step');await waitFor('Number('+state+'.dataset.value)>=0.04');
-  assert.notEqual(first,await capture('step'));
+  await captureChanged('step',first);
   await click('fcg-time-play');await waitFor('Number('+state+'.dataset.value)>=0.12');
   await click('fcg-time-pause');await waitFor(state+'.dataset.playing==="false"');
   const stopped=await evaluate(state+'.dataset.value');
@@ -139,7 +149,7 @@ try {
   await control('modelIndex','0',/const modelIndex=0;/);
   await evaluate('(()=>{const input=document.getElementById("fragment-source");input.value=input.value.replace("vec3(.35,.86,1.)","vec3(1.,.35,.15)");input.dispatchEvent(new Event("input",{bubbles:true}));})()');
   await click('run');await waitFor('document.querySelector("#status")?.textContent.includes("編集コードを実行しました")');
-  assert.notEqual(first,await capture('edited-shader'));
+  await captureChanged('edited-shader',first);
   await cdp('Emulation.setDeviceMetricsOverride',{width:360,height:760,deviceScaleFactor:1,mobile:true});
   await evaluate('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"start"})');
   await new Promise(ok=>setTimeout(ok,500));
