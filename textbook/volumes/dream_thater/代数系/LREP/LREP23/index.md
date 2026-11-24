@@ -47,7 +47,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep23-little-group -->
-**定義の確認**。 恒等変換は $p$ を固定し、$\Lambda_1p=\Lambda_2p=p$ なら $\Lambda_1\Lambda_2p=p$ です。また $\Lambda p=p$ の両辺に逆変換を作用させると $\Lambda^{-1}p=p$。従って固定群は部分群です。被覆側でも [合同作用によるLorentz群準同型](../LREP10/index.md#thm-lrep10-lorentz-action) により $\pi(I_2)=I_4$、$\pi(A_1A_2)=\pi(A_1)\pi(A_2)$、$\pi(A^{-1})=\pi(A)^{-1}$ なので、恒等元・積・逆元の三条件が成立します。
+**定義の確認**。 恒等変換は $p$ を固定し、$\Lambda_1p=\Lambda_2p=p$ なら $\Lambda_1\Lambda_2p=p$ です。また $\Lambda p=p$ の両辺に逆変換を作用させると $\Lambda^{-1}p=p$。従って固定群は部分群です。被覆側でも [合同作用によるLorentz群準同型](../LREP10/index.md#thm-lrep10-lorentz-action) により
+
+$$
+\pi(I_2)=I_4,\qquad
+\pi(A_1A_2)=\pi(A_1)\pi(A_2),\qquad
+\pi(A^{-1})=\pi(A)^{-1}
+$$
+
+なので、恒等元・積・逆元の三条件が成立します。
 
 静止点 $k$ について、時間座標を変えず空間の標準基底で $z$ 軸まわりに角度 $\theta\in\mathbb R$ だけ回転する変換を考えます。空間部分の行列
 
@@ -244,11 +252,33 @@ $$
 
 よって $b(p)=\cosh(\chi/2)I_2+\sinh(\chi/2)\boldsymbol n\cdot\boldsymbol\sigma$ です。$\boldsymbol n\cdot\boldsymbol\sigma$ の二乗が $I_2$ なので指数級数の偶数次と奇数次を分けると、これは $\exp(\chi\boldsymbol n\cdot\boldsymbol\sigma/2)$ に等しくなります。
 
-実際、$H(x)=x^0I_2+x_\parallel N+X_\perp$（$N=\boldsymbol n\cdot\boldsymbol\sigma$、$x_\parallel=\boldsymbol n\cdot\boldsymbol x$、$X_\perp=(\boldsymbol x-x_\parallel\boldsymbol n)\cdot\boldsymbol\sigma$）と分解すれば、[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product) より $NX_\perp+X_\perp N=0$。$N^2=I_2$ なので $NX_\perp N=-X_\perp$ です。ここだけ $b=b(p)=aI_2+dN$、$a=\cosh(\chi/2)$、$d=\sinh(\chi/2)$ と略記すると
+実際、四元ベクトル $x=(x^0,\boldsymbol x)$ の空間成分を軸に平行な成分と垂直な成分に分けます。
 
 $$
-bX_\perp b=a^2X_\perp+ad(NX_\perp+X_\perp N)+d^2NX_\perp N
-=(a^2-d^2)X_\perp=X_\perp.
+N=\boldsymbol n\cdot\boldsymbol\sigma,\qquad
+x_\parallel=\boldsymbol n\cdot\boldsymbol x,
+$$
+
+$$
+X_\perp=(\boldsymbol x-x_\parallel\boldsymbol n)\cdot\boldsymbol\sigma,
+\qquad H(x)=x^0I_2+x_\parallel N+X_\perp.
+$$
+
+[Pauli行列の積公式](../LREP5/index.md#lem-lrep5-pauli-product) より $NX_\perp+X_\perp N=0$。$N^2=I_2$ なので $NX_\perp N=-X_\perp$ です。ここだけ次の略記を使います。
+
+$$
+b=b(p)=aI_2+dN,\qquad
+a=\cosh(\chi/2),\quad d=\sinh(\chi/2).
+$$
+
+積を展開すると
+
+$$
+\begin{aligned}
+bX_\perp b
+&=a^2X_\perp+ad(NX_\perp+X_\perp N)+d^2NX_\perp N\\
+&=(a^2-d^2)X_\perp=X_\perp.
+\end{aligned}
 $$
 
 また $bI_2b=(a^2+d^2)I_2+2adN$、$bNb=2adI_2+(a^2+d^2)N$ なので、
@@ -262,7 +292,18 @@ $$
 
 ## 3. 動いている系の回転を静止系へ戻す
 
-変換 $\Lambda$ を運動量 $p$ へ作用させると $\Lambda p$ になります。静止点から $p$ へ移し、$\Lambda$ を掛け、最後に新しい静止系へ戻すと、出発点と到着点はともに $k$ です。この三段階の積は静止系の回転になるはずです。[未来円錐のLorentz軌道](../LREP22/index.md#thm-lrep22-orbits) により変換後の運動量も $\mathcal O_m$ に属し、[標準boostの存在と一意性](#thm-lrep23-boost-section) により各boostは可逆です。従って次の積は定義できます。本講の $W(\Lambda,p)$ は変換の積であり、前講のPauli–Lubanskiベクトル $W^\mu$ とは別の対象です。
+変換 $\Lambda$ を運動量 $p$ へ作用させると $\Lambda p$ になります。静止点から出発する三段階を並べると、
+
+$$
+k\xrightarrow{L(p)}p\xrightarrow{\Lambda}\Lambda p
+\xrightarrow{L(\Lambda p)^{-1}}k
+$$
+
+です。出発点と到着点はともに静止点なので、この三段階の積は静止系の回転になるはずです。
+
+[未来円錐のLorentz軌道](../LREP22/index.md#thm-lrep22-orbits) により変換後の運動量も $\mathcal O_m$ に属し、[標準boostの存在と一意性](#thm-lrep23-boost-section) により各boostは可逆です。従って次の積は定義できます。
+
+本講の $W(\Lambda,p)$ は変換の積であり、前講のPauli–Lubanskiベクトル $W^\mu$ とは別の対象です。
 
 <a id="def-lrep23-wigner-rotation"></a>
 
@@ -458,7 +499,20 @@ $$
 AA^\dagger=I_2,\qquad BB^\dagger=\operatorname{diag}(4,1/4).
 $$
 
-従って $A H(k) A^\dagger=mI_2$、$B H(k) B^\dagger=m\operatorname{diag}(4,1/4)\ne mI_2$。$A$ のみが固定群に属する。後者について [エルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model) の対角成分を比較すると $x^0+x^3=4m$、$x^0-x^3=m/4$ なので $x^0=17m/8$、$x^3=15m/8$ となり、静止していない。
+従って
+
+$$
+AH(k)A^\dagger=mI_2,\qquad
+BH(k)B^\dagger=m\operatorname{diag}(4,1/4)\ne mI_2.
+$$
+
+$A$ のみが固定群に属する。後者について [エルミート行列模型](../LREP10/index.md#def-lrep10-hermitian-model) の対角成分を比較すると
+
+$$
+x^0+x^3=4m,\qquad x^0-x^3=m/4
+$$
+
+なので、$x^0=17m/8$、$x^3=15m/8$ となり、静止していない。
 <!-- solution-end -->
 
 <a id="ex-lrep23-a02"></a>
