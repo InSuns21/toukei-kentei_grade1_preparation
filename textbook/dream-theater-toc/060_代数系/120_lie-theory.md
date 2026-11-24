@@ -15,3 +15,4 @@
 12. [LREP8 二つのスピンの合成](textbook/volumes/dream_thater/代数系/LREP/LREP8/index.md)
 13. [LREP9 Lorentz Lie環の回転とboost](textbook/volumes/dream_thater/代数系/LREP/LREP9/index.md)
 14. [LREP10 SL(2,C)によるLorentz群の被覆](textbook/volumes/dream_thater/代数系/LREP/LREP10/index.md)
+15. [LREP11 有限次元Lorentz既約表現](textbook/volumes/dream_thater/代数系/LREP/LREP11/index.md)
