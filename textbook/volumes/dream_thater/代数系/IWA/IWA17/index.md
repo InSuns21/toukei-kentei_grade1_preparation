@@ -136,7 +136,7 @@ $$
 ここでの微分は変数の微分ではなく、巡回群の作用に重みをつけた和です。
 
 <!-- definition-example-start: def-iwa17-derivative -->
-**定義の確認。** 例えば $d=4$ なら $D_\ell=\sigma_\ell+2\sigma_\ell^2+3\sigma_\ell^3$。$N_\ell=1+\sigma_\ell+\sigma_\ell^2+\sigma_\ell^3$ となり、定義の全係数が具体的に決まります。空積なら $D_1=1$、例えば位数4と6の二つの成分なら $D_{5\cdot7}=D_5D_7$ と各成分の作用を順に適用します（これは群環の例であり、特定の $m,M$ に対する補助素数条件とは別です）。
+**定義の確認。** 例えば $d=4$ なら $D_\ell=\sigma_\ell+2\sigma_\ell^2+3\sigma_\ell^3$。$N_\ell=1+\sigma_\ell+\sigma_\ell^2+\sigma_\ell^3$ となり、定義の全係数が具体的に決まります。空積なら $D_1=1$、例えば位数4と6の二つの成分なら $D_{5\cdot7}=D_5D_7$ と各成分の作用を順に適用します（群環の計算だけを示す例です。ここでは $m,M$ を指定しておらず、5と7が第1節の仮定を満たすとは主張していません）。
 <!-- definition-example-end -->
 
 <a id="lem-iwa17-derivative-identity"></a>
@@ -496,7 +496,7 @@ p^n\sum_i(\mu(b_i)-\mu(a_i))
 +n\sum_i(\lambda(b_i)-\lambda(a_i))\le O(1).
 $$
 
-両係数は非負なので、一方でも正なら左辺は発散します。従って両方0です。[全成分の指数比較補題](#lem-iwa17-total-balance) により $\operatorname{char}A_i=\operatorname{char}B_i$ が成り立ちます。
+両係数は非負なので、一方でも正なら左辺は発散します。従って両方0です。[整除と全成分の指数比較](#lem-iwa17-total-balance) により $\operatorname{char}A_i=\operatorname{char}B_i$ が成り立ちます。
 
 最後に [完全列による特徴イデアルの比較](#prop-iwa17-exact-comparison) を使って $\operatorname{char}Y_i=\operatorname{char}V_i=(F_i)$ を得ます。反射定理と [円分座標の反転置換](../IWA16/index.md#prop-iwa16-reflection-substitution)（Sharifi Proposition 6.3.2）を適用すると
 
@@ -700,7 +700,7 @@ $$
 +n\bigl(\lambda(q_2)+\lambda(q_4)\bigr)+O(1).
 $$
 
-この差が一様有界で、各係数が非負であるため、両方の和が0です。[全成分の指数比較補題](#lem-iwa17-total-balance) により両 $q_i$ は単元。従って
+この差が一様有界で、各係数が非負であるため、両方の和が0です。[整除と全成分の指数比較](#lem-iwa17-total-balance) により両 $q_i$ は単元。従って
 
 $$
 (b_2)=(T-7),\qquad (b_4)=((T+7)^2).
