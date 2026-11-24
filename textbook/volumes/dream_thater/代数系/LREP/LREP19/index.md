@@ -42,11 +42,7 @@ G^0=-i\gamma^0=\begin{pmatrix}0&-iI\\iI&0\end{pmatrix},
 \quad G^j=i\gamma^j=\begin{pmatrix}0&i\sigma_j\\i\sigma_j&0\end{pmatrix}.
 $$
 
-$$
-G^\mu G^\nu+G^\nu G^\mu=-2\eta^{\mu\nu}I_4.
-$$
-
-ここで $G^\mu=i\sum_\nu\eta^{\mu\nu}\gamma^\nu$ です。[ガンマ行列の反交換関係](../LREP15/index.md#def-lrep15-gamma)にこの表示を代入すると、時刻方向・空間方向をまとめて
+ここで $G^\mu=i\sum_\nu\eta^{\mu\nu}\gamma^\nu$ です。[ガンマ行列の反交換関係](../LREP15/index.md#def-lrep15-gamma)にこの表示を代入すると、時刻方向・空間方向をまとめて（和の添字 $a,b$ も $0,1,2,3$ を走ります）
 
 $$
 G^\mu G^\nu+G^\nu G^\mu
@@ -326,7 +322,7 @@ $$
 です。和は零です。$\square$
 <!-- proof-end -->
 
-これは局所的な連続の式です。$R>0$ を固定し、有限の箱 $[-R,R]^3$ の密度の積分を $Q_R(t)$ とします。積分領域が固定され、時間偏微分がコンパクトな箱と有限の時間区間で連続なので、微分を積分内に移せます。[自由Dirac電流の保存](#thm-lrep19-current-conservation) を代入すると
+これは局所的な連続の式です。$R>0$ を固定し、有限の箱 $[-R,R]^3$ の密度の積分を $Q_R(t)=\int_{[-R,R]^3}\rho(t,\boldsymbol x)\,d^3x$ とします。ここで $d^3x=dx^1dx^2dx^3$ です。積分領域が固定され、時間偏微分がコンパクトな箱と有限の時間区間で連続なので、微分を積分内に移せます。[自由Dirac電流の保存](#thm-lrep19-current-conservation) を代入すると
 
 $$
 \begin{aligned}
@@ -336,7 +332,7 @@ $$
 \end{aligned}
 $$
 
-ここで $d^3x=dx^1dx^2dx^3$ で、$Q_R$ は時間だけの関数なので通常の微分 $d/dt$ を用います。各空間方向を一変数の微積分の基本定理で積分すると、その方向の両面の流出の差が現れます。例えば第一方向からの寄与は
+$Q_R$ は時間だけの関数なので通常の微分 $d/dt$ を用います。各空間方向を一変数の微積分の基本定理で積分すると、その方向の両面の流出の差が現れます。例えば第一方向からの寄与は
 
 $$
 -\int_{-R}^R\int_{-R}^R
