@@ -1,0 +1,41 @@
+id: LREP26
+title: "有限次元場表現と1粒子表現"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP20
+  - LREP25
+official_scope: []
+learning_objectives:
+  - 場の成分の変換と粒子波束のユニタリ変換を区別できる
+  - 静止系の絡作用条件から一般運動量での共変モード係数を構成できる
+  - 質量殻積分による波束写像の共変性を証明できる
+  - 正質量Diracモードの二次元の像と規格化を検算できる
+  - 運動量断面の変更に対して場と波束ノルムが不変であることを示せる
+definitions:
+  - { id: LREP26-DEF-01, name: 有限成分場の共変作用 }
+  - { id: LREP26-DEF-02, name: 共変モード係数 }
+  - { id: LREP26-DEF-03, name: 正周波数波束の場への写像 }
+theorems:
+  - { id: LREP26-THM-01, name: 静止系からの共変モード係数の構成 }
+  - { id: LREP26-THM-02, name: 波束写像の共変性 }
+  - { id: LREP26-THM-03, name: 正質量Diracモードによる内部空間の埋め込み }
+canonical_examples:
+  - スカラー場の並進
+  - 自明な共変モード係数
+  - コンパクト台波束の場への写像
+  - 正質量Diracモードの規格化
+problem_patterns:
+  - LREP26-FIELD-NONUNITARITY
+  - LREP26-REST-ROTATION
+  - LREP26-SCALAR-TRANSLATION
+  - LREP26-BOOST-NORM
+  - LREP26-SCALAR-OBSTRUCTION
+  - LREP26-COLLINEAR-BOOST
+  - LREP26-INTERNAL-RECOVERY
+  - LREP26-NONTRIVIAL-ROTATION
+  - LREP26-SECTION-CHANGE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }
