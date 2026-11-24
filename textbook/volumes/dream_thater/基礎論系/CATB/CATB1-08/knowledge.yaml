@@ -1,0 +1,39 @@
+chapter: CATB1-08
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CATB1-07
+  - CAT3-03
+  - CAT2-05
+
+concepts:
+  - id: category.finitary-monad
+    name: 有限項モナド
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限項モナド）"]
+    requires: [category.monad, category.colimit]
+  - id: category.finite-stage-witness
+    name: 有限データの段階表示
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有限データの段階表示）"]
+    requires: [category.colimit, category.colimit-construction]
+  - id: category.monad-lawvere-theory
+    name: モナドからのLawvere理論
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（モナドからのLawvere理論）"]
+    requires: [category.monad, category.kleisli-extension-laws, category.lawvere-theory]
+  - id: category.lawvere-finitary-monad
+    name: Lawvere理論からの有限項モナド
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Lawvere理論からの有限項モナド）"]
+    requires: [category.finitary-monad, category.lawvere-theory, category.finite-stage-witness]
+  - id: category.finitary-monad-lawvere-correspondence
+    name: 有限項モナドとLawvere理論の対応
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限項モナドとLawvere理論の対応）"]
+    requires: [category.monad-lawvere-theory, category.lawvere-finitary-monad, category.equivalence-of-categories]
