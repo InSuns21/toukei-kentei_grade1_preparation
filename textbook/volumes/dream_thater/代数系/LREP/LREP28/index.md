@@ -89,8 +89,6 @@ $$
 
 量子状態は複素Hilbert空間の単位ベクトルで、全体の絶対値1の位相を変えても同じ物理状態を表します。二つの単位ベクトル $\phi,\psi$ の遷移確率は $|\langle\phi,\psi\rangle|^2$ です。内積は第二引数について線形とします。
 
-この確率を保存する全単射な状態の対称変換は、Wignerの定理によりユニタリまたは反ユニタリな作用素で実現できます。ここではこの量子力学上の定理を証明せず、その二種類の作用素のどちらかが存在すると仮定して時間反転の必要条件を求めます。
-
 [LREP18の電荷共役](../LREP18/index.md#def-lrep18-charge-conjugation)で反線形写像を使いました。反線形とは係数を複素共役することです。Hilbert空間では、さらに遷移確率を保つ条件を課します。
 
 <a id="def-lrep28-antiunitary"></a>
@@ -111,7 +109,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep28-antiunitary -->
-**定義の確認**。 例えば $\mathbb C^2$ の通常の内積では $Kz=z^*$ がその条件を満たします。実際 $K^2=I_2$、$K(\alpha z+\beta w)=\alpha^*Kz+\beta^*Kw$ であり、
+**定義の確認**。 $\mathbb C^2$ の通常の内積では $Kz=z^*$ がその条件を満たします。実際 $K^2=I_2$、$K(\alpha z+\beta w)=\alpha^*Kz+\beta^*Kw$ であり、
 
 $$
 \langle Kz,Kw\rangle=z^{\mathsf T}w^*
@@ -120,6 +118,8 @@ $$
 
 従ってノルムと遷移確率が保たれます。全射性は二回作用させると任意の列が元に戻ることから従います。
 <!-- definition-example-end -->
+
+この確率を保存する全単射な状態の対称変換は、[Wignerの定理（Weinberg 第2章）](https://www.cambridge.org/core/books/quantum-theory-of-fields/relativistic-quantum-mechanics/3F963D187A0ABBB757DA00B3A98E3439)によりユニタリまたは反ユニタリな作用素で実現できます。ここではこの量子力学上の定理を証明せず、その二種類の作用素のどちらかが存在すると仮定して時間反転の必要条件を求めます。
 
 <a id="prop-lrep28-time-reversal-energy"></a>
 
