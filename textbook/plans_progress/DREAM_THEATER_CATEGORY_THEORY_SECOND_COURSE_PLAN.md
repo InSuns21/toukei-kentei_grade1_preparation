@@ -1,7 +1,7 @@
 # DREAM THEATER：圏論・第2課程（発展圏論）PLAN
 
 設計確定日：2026-11-15  
-状態：**planned（計画設計のみ・未着手）**  
+状態：**in progress（実装開始・全52講のうち第1講を実装）**  
 講義数：**全52講に確定**（CATB1：8講、CATB2：10講、CATB3：8講、CATB4：8講、CATB5：10講、CATB6：8講）
 
 ## 1. 中心問いと既存CATとの境界
@@ -33,8 +33,8 @@
 
 - 新しい**系列ID：`CATB`**（Category Theory, second course）。既存の`CAT`系列、完成PLAN、40講のID・statusは変更しない。「CAT2」は既存第2部の章IDと衝突するため採用しない。
 - 章IDは`CATB1-01`〜`CATB1-08`、`CATB2-01`〜`CATB2-10`、`CATB3-01`〜`CATB3-08`、`CATB4-01`〜`CATB4-08`、`CATB5-01`〜`CATB5-10`、`CATB6-01`〜`CATB6-08`の**全52個**。このPLANの章IDを本課程での確定候補とし、実装着手時に実在ID・validatorの許容形式・参照衝突を再照合する。
-- 予定配置：`textbook/volumes/dream_thater/基礎論系/CATB/<章ID>/`。新シリーズの`textbook/dream-theater-series/CATB.yaml`は**最初の章を実装する時点**で生成し、`plan`が`plans_progress/`の移動後パスを指すようにする。設計のみの現段階ではmanifestや空の章は作らない。
-- 状態：現時点では`textbook/plans/`。実装・検証・監査の開始時に`plans_progress/`へ移動し、全講と全PLANの監査・公開導線を終えた後のみ`plan_done/`へ移す。共有`dream-theater-work.yaml`の個別進捗は変更しない。
+- 予定配置：`textbook/volumes/dream_thater/基礎論系/CATB/<章ID>/`。新シリーズの`textbook/dream-theater-series/CATB.yaml`は**最初の章を実装する時点**で生成し、`plan`が`plans_progress/`の移動後パスを指すようにする。manifestは実装開始時に新設し、未実装章の空ディレクトリは作らない。
+- 状態：実装開始に伴い`textbook/plans_progress/`へ移動済み。全講と全PLANの監査・公開導線を終えた後のみ`plan_done/`へ移す。共有`dream-theater-work.yaml`の個別進捗は変更しない。
 - 部分的な前提：CATB1ではCAT2の極限とCAT3のモナド、CATB2ではCAT3のend/coendとCAT4のモノイダル閉構造、CATB3ではCAT2の随伴関手定理、CATB4ではCAT2の引き戻しとCATB1の正則性、CATB5ではCAT1のYoneda・CAT2の前層とCATB4の基底変換、CATB6ではCATB1/4/5とCAT4-06を使用する。具体的なprerequisitesは章着手時に`chapter.yaml`とknowledge DAG上の到達可能性を照合する。
 - 標準的な執筆順はCATB1→2→3→4→5→6だが、CATB2とCATB3の一部は独立に学修できる。先の章の定理を前の章の核心証明へ逆輸入しない。
 

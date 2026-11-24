@@ -1,0 +1,59 @@
+version: 1
+id: CATB
+title: "圏論・第2課程（発展圏論）"
+plan: textbook/plans_progress/DREAM_THEATER_CATEGORY_THEORY_SECOND_COURSE_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+chapters:
+  - { id: CATB1-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-01, status: completed, title: "像と正則エピ射" }
+  - { id: CATB1-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-02, status: planned, title: "正則圏と有効同値関係" }
+  - { id: CATB1-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-03, status: planned, title: "加法圏と双積" }
+  - { id: CATB1-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-04, status: planned, title: "核・余核とアーベル圏" }
+  - { id: CATB1-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-05, status: planned, title: "像・余像・完全列" }
+  - { id: CATB1-06, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-06, status: planned, title: "Snakeの補題と図式追跡" }
+  - { id: CATB1-07, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-07, status: planned, title: "Lawvere理論とモデル" }
+  - { id: CATB1-08, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB1-08, status: planned, title: "有限項モナドとLawvere理論" }
+  - { id: CATB2-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-01, status: planned, title: "モノイダル圏でHomを値付けする" }
+  - { id: CATB2-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-02, status: planned, title: "前順序・距離空間と豊穣" }
+  - { id: CATB2-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-03, status: planned, title: "豊穣関手と豊穣自然変換" }
+  - { id: CATB2-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-04, status: planned, title: "豊穣Yonedaの補題" }
+  - { id: CATB2-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-05, status: planned, title: "重み付き極限と余極限" }
+  - { id: CATB2-06, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-06, status: planned, title: "豊穣随伴と豊穣Kan拡張" }
+  - { id: CATB2-07, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-07, status: planned, title: "分配子とcoendによる合成" }
+  - { id: CATB2-08, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-08, status: planned, title: "双圏と弱い結合律" }
+  - { id: CATB2-09, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-09, status: planned, title: "Profの双圏" }
+  - { id: CATB2-10, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB2-10, status: planned, title: "冪等分裂とCauchy完備化" }
+  - { id: CATB3-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-01, status: planned, title: "フィルター圏とフィルター余極限" }
+  - { id: CATB3-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-02, status: planned, title: "有限表示対象" }
+  - { id: CATB3-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-03, status: planned, title: "局所有限表示圏" }
+  - { id: CATB3-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-04, status: planned, title: "正則基数とλ-表示対象" }
+  - { id: CATB3-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-05, status: planned, title: "可到達圏と可到達関手" }
+  - { id: CATB3-06, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-06, status: planned, title: "前層圏の表示対象" }
+  - { id: CATB3-07, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-07, status: planned, title: "スケッチとモデル圏" }
+  - { id: CATB3-08, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-08, status: planned, title: "局所可呈示圏の随伴判定" }
+  - { id: CATB4-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-01, status: planned, title: "Cartesian射とファイブレーション" }
+  - { id: CATB4-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-02, status: planned, title: "Cleavageとsplitファイブレーション" }
+  - { id: CATB4-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-03, status: planned, title: "添字付き圏と擬関手" }
+  - { id: CATB4-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-04, status: planned, title: "Grothendieck構成" }
+  - { id: CATB4-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-05, status: planned, title: "余ファイブレーションと双対" }
+  - { id: CATB4-06, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-06, status: planned, title: "基底変換とファイバーごとの構造" }
+  - { id: CATB4-07, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-07, status: planned, title: "部分対象ファイブレーション" }
+  - { id: CATB4-08, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-08, status: planned, title: "降下データと有効降下" }
+  - { id: CATB5-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-01, status: planned, title: "前層の局所データと貼り合わせ" }
+  - { id: CATB5-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-02, status: planned, title: "篩とGrothendieck位相" }
+  - { id: CATB5-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-03, status: planned, title: "site上の層条件" }
+  - { id: CATB5-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-04, status: planned, title: "層化のplus構成" }
+  - { id: CATB5-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-05, status: planned, title: "層化の随伴と左完全性" }
+  - { id: CATB5-06, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-06, status: planned, title: "初等トポスと部分対象分類子" }
+  - { id: CATB5-07, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-07, status: planned, title: "層の圏のトポス構造" }
+  - { id: CATB5-08, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-08, status: planned, title: "トポスでの像と正確性" }
+  - { id: CATB5-09, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-09, status: planned, title: "幾何学的射" }
+  - { id: CATB5-10, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-10, status: planned, title: "siteの比較と層の幾何" }
+  - { id: CATB6-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-01, status: planned, title: "部分対象のHeyting演算" }
+  - { id: CATB6-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-02, status: planned, title: "量化子の随伴表示" }
+  - { id: CATB6-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-03, status: planned, title: "Beck–ChevalleyとFrobenius" }
+  - { id: CATB6-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-04, status: planned, title: "正則論理と整合論理" }
+  - { id: CATB6-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-05, status: planned, title: "トポスの内部言語" }
+  - { id: CATB6-06, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-06, status: planned, title: "Kripke–Joyal意味論" }
+  - { id: CATB6-07, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-07, status: planned, title: "幾何的理論と分類トポスへの入口" }
+  - { id: CATB6-08, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-08, status: planned, title: "依存型の圏論的意味" }
