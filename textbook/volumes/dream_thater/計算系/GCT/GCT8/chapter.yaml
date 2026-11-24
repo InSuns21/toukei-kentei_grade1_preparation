@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - GCT7
+  - COMB18
 official_scope: []
 learning_objectives:
   - 格子上の局所表と重みを定めて全割当の積和を書ける

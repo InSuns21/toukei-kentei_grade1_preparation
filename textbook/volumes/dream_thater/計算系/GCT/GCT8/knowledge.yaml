@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - GCT7
+  - COMB18
 forward_references: []
 concepts:
   - id: graph-counting.grid-local-factors
@@ -28,4 +29,4 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（転送行列表示）"]
-    requires: [graph-counting.grid-row-dp]
+    requires: [graph-counting.grid-row-dp, combinatorics.transfer-matrix]
