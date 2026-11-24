@@ -55,7 +55,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa15-generalized-bernoulli -->
-**定義の確認。** $p=3$ で非自明な文字 $\psi=\omega$ を選ぶと、値は法3の $1,2,0$ に対して $1,-1,0$。単元群の位数2の生成元2を $-1$ に送るので乗法性があり、導手は3です。$B_1(x)=x-1/2$ を代入すると
+**定義の確認**。 $p=3$ で非自明な文字 $\psi=\omega$ を選ぶと、値は法3の $1,2,0$ に対して $1,-1,0$。単元群の位数2の生成元2を $-1$ に送るので乗法性があり、導手は3です。$B_1(x)=x-1/2$ を代入すると
 
 $$
 B_{1,\psi}=B_1(1/3)-B_1(2/3)=-1/3.
@@ -270,7 +270,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-iwa15-kl-function -->
-**定義の確認。** $p=5,c=2,i=2,s=-1$ を取ります。$2$ の法5での位数は4、$2^4=16\not\equiv1\bmod25$。被積分関数は $\omega(x)\langle x\rangle=x$ なので連続であり、[IWA14の積分公式](../IWA14/index.md#thm-iwa14-moments) に $k=2$ を代入すると
+**定義の確認**。 $p=5,c=2,i=2,s=-1$ を取ります。$2$ の法5での位数は4、$2^4=16\not\equiv1\bmod25$。被積分関数は $\omega(x)\langle x\rangle=x$ なので連続であり、[IWA14の積分公式](../IWA14/index.md#thm-iwa14-moments) に $k=2$ を代入すると
 
 $$
 H_{2,2}(-1)=(1-4)(1-5)\frac{1/6}{2}=1.
