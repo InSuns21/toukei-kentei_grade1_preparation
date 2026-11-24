@@ -483,7 +483,7 @@ function isolatedRunner() {
       if(request.lesson==='FCG5'){
         canvas.addEventListener('fcg5-physics-progress',event=>{
           const d=event.detail;
-          if(!d||!Number.isInteger(d.step)||d.step<0||d.step>32||
+          if(!d||!Number.isInteger(d.step)||d.step<0||d.step>10000||
              typeof d.playing!=='boolean')return;
           send({...scope,type:'fcg5-physics-progress',step:d.step,playing:d.playing});
         });
@@ -829,7 +829,7 @@ window.addEventListener('message', event => {
     return;
   }
   if(isFCG5 && data.type==='fcg5-physics-progress'){
-    if(active.contextLost||!Number.isInteger(data.step)||data.step<0||data.step>32||
+    if(active.contextLost||!Number.isInteger(data.step)||data.step<0||data.step>10000||
        typeof data.playing!=='boolean')return;
     for(const id of ['fcg5-live-toggle','fcg5-live-step','fcg5-live-reset']){
       const button=byId(id);
@@ -843,7 +843,7 @@ window.addEventListener('message', event => {
     const view=byId('fcg5-live-state');
     if(view){
       const timestep=readLabParameter(active.payload.js,parametersFor('FCG5')[3]);
-      view.textContent='実行中の物理step '+data.step+'/32、時刻 '+
+      view.textContent='実行中の物理step '+data.step+'、時刻 '+
         (timestep.ok ? (data.step*timestep.value).toFixed(3)+' s' : '編集JSを確認')+
         '（'+(data.playing?'再生中':'一時停止中')+'）';
     }
@@ -1839,16 +1839,15 @@ if (isFCG6) {
 if (isFCG5) {
   document.title='FCG5 流体・染料更新：編集・検算ラボ';
   document.querySelector('h1').textContent='FCG5 2D染料流体の時間分割ソルバー';
+  document.querySelector('h1').textContent='FCG5 インクを流して、渦をつくる';
   document.querySelector('#panel-conditions > p').textContent=
-    '48×48（12/24/36/48へ変更可）のMAC格子で半Lagrange速度移流、陽的粘性、外力、残差収束付きPoisson射影、染料移流を実行。左=染料、中央=絶対発散、右=速度。';
+    '水で満たされた正方形の箱に染料を入れ、流体の動きを見ます。ドラッグすると染料と速度が変化し、Shift+ドラッグでは染料だけが加わります。';
   document.querySelector('#panel-conditions ol').innerHTML=
-    '<li>静止初期場の性質、step0/1/8/24の染料積分・最大発散・Poisson残差を比較する。</li>'+
-    '<li>結果画面で実GPUソルバーを停止・1物理step・時刻0へ戻し、物理時刻と再生間隔を比べる。</li>'+
-    '<li>染料ブラシの半径・強さを実fluid.jsで調整し、Shift+ドラッグで染料を追加する。Spaceで再生／停止する。</li>'+
-    '<li>結果canvasで画素をクリック、または矢印キーとEnterで物理格子値を検査する。</li>'+
-    '<li>fluid.jsのdt・nuまたはforceAmplitudeを変更し、物理時刻と初期CPU予測・ライブ画面の差を観察する。</li>'+
-    '<li>fluid.fragの中央色の倍率・構文エラーを試してCPU残差とGPU表示を区別する。</li>';
-  byId('preset').options[0].textContent='2D流体・染料／発散／速度の3表示';
+    '<li>「描画して観察」で流れを開始し、画面をドラッグして渦をつくる。</li>'+
+    '<li>一時停止し、1物理stepずつ染料が運ばれる様子を見る。</li>'+
+    '<li>外力なし・強い外力の条件を切り替え、同じ編集コードで流れの違いを比べる。</li>'+
+    '<li>fluid.js の nu、forceAmplitude、dt と fluid.frag の染料色を編集して再実行する。</li>';
+  byId('preset').options[0].textContent='染料を流す・かき混ぜる';
   byId('preset').options[1].textContent='fragment構文エラー';
   const controls=document.createElement('div');controls.className='controls';
   const step=document.createElement('button'),play=document.createElement('button'),
@@ -1857,7 +1856,12 @@ if (isFCG5) {
   for(const [button,label] of [[step,'1ステップ'],[play,'再生'],[pause,'一時停止'],[back,'step 0へ戻す']]){
     button.type='button';button.className='action';button.textContent=label;controls.append(button);
   }
-  controls.append(marker);byId('run').parentElement.before(controls);
+  controls.append(marker);
+  const snapshotControls=document.createElement('details');
+  const snapshotSummary=document.createElement('summary');
+  snapshotSummary.textContent='初期数値検算のステップを指定（0〜32）';
+  snapshotControls.append(snapshotSummary,controls);
+  byId('run').parentElement.before(snapshotControls);
   const preview=document.createElement('p');preview.id='fcg5-cpu-prediction';
   preview.setAttribute('aria-live','polite');
   preview.textContent='WebGL2非対応でも独立CPUによる物理診断を利用できます。';
@@ -1884,6 +1888,9 @@ if (isFCG5) {
   liveReset.id='fcg5-live-reset';liveReset.type='button';liveReset.className='action';
   liveReset.textContent='GPUの時刻0へ戻す';liveReset.disabled=true;
   liveControls.append(liveToggle,liveStep,liveReset);
+  const interaction=document.createElement('p');
+  interaction.textContent='ドラッグ：かき混ぜる＋染料を入れる ／ Shift+ドラッグ：染料だけ ／ Space：再生・停止。暗い部分は染料が少なく、明るい部分は濃い染料です。';
+  byId('canvas-slot').before(interaction);
   function sendFcg5Live(action){
     if(!active?.started||active.contextLost)return;
     active.frame.contentWindow.postMessage({
@@ -2483,7 +2490,7 @@ if (isWGL3) {
 if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-conditions')});
 // Three physical panels must have square pixel footprints: avoid stretching a
 // 1x1 metre domain into ~100x240 strips at the original 320x240 default.
-const sizeHint=(isFCG4||isFCG5||isFCG6||isFCG7||isFCG8)?[1536,512]:
+const sizeHint=isFCG5?[768,768]:(isFCG4||isFCG6||isFCG7||isFCG8)?[1536,512]:
   isFCG3?[1024,512]:isFCG2?[512,512]:isWGL14?[704,704]:
   (lesson==='WGL1'||isWGL2)?[960,960]:isWGL3?[960,480]:
   isWGL19?[640,640]:isWGL7?[800,400]:isWGL10?[960,480]:legacyViewport?[800,600]:[960,720];
