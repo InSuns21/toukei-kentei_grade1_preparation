@@ -1,0 +1,39 @@
+id: "GCT4"
+title: "サイクル被覆・Hamilton閉路と順列の巡回分解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GCT3
+  - GRP1
+  - COMB9
+official_scope: []
+learning_objectives:
+  - 出次数と入次数からサイクル被覆を判定できる
+  - 許容置換との全単射と巡回分解から被覆を構成できる
+  - 重み付き被覆総和とパーマネントの一致を証明できる
+  - 閉路数別の係数からHamilton閉路を抽出し閉歩道計数と区別できる
+  - 零重み・負重みと普通の個数を区別して計算できる
+definitions:
+  - { id: GCT4-DEF-01, name: "有向グラフのサイクル被覆" }
+  - { id: GCT4-DEF-02, name: "閉路数別の被覆多項式" }
+theorems:
+  - { id: GCT4-THM-01, name: "サイクル被覆と許容置換の全単射" }
+  - { id: GCT4-THM-02, name: "サイクル被覆の重み付き総和とパーマネント" }
+  - { id: GCT4-THM-03, name: "有向Hamilton閉路の係数抽出" }
+canonical_examples:
+  - 四頂点の二つの輪と一つの輪
+  - 重み付き被覆と一次係数
+  - 完全な有向接続での閉路数別計数
+problem_patterns:
+  - GCT4-DECOMPOSITION
+  - GCT4-DEGREE
+  - GCT4-COUNT
+  - GCT4-ZERO
+  - GCT4-ENUMERATION
+  - GCT4-CYCLE-TYPES
+  - GCT4-TRACE
+  - GCT4-WEIGHTED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }

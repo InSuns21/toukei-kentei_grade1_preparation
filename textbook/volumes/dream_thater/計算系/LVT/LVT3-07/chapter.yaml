@@ -1,0 +1,27 @@
+id: "LVT3-07"
+title: "抽象仕様・詳細化・モデルとの対応"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT3-06]
+official_scope: []
+learning_objectives:
+  - 抽象状態と具体状態を区別し対応写像を定義する
+  - 成功と拒否を含む一操作の対応を全分岐で証明する
+  - 操作列に関する帰納法で任意の有限な実行の状態と応答を対応させる
+  - 最終状態だけを比較する弱い仕様の反例を説明する
+definitions:
+  - { id: LVT3-07-DEF-01, name: "抽象状態と具体状態の対応" }
+  - { id: LVT3-07-DEF-02, name: "抽象仕様と具体実行の操作規則" }
+  - { id: LVT3-07-DEF-03, name: "操作結果の詳細化条件" }
+  - { id: LVT3-07-DEF-04, name: "拒否を含む有限操作列の観測" }
+propositions:
+  - { id: LVT3-07-PROP-01, name: "一操作の対応保存" }
+  - { id: LVT3-07-PROP-02, name: "次状態と応答の対応保存" }
+  - { id: LVT3-07-PROP-03, name: "有限操作列の対応保存" }
+theorems: []
+canonical_examples: ["二枠の記憶装置", "拒否を含む有限操作列", "満杯時に成功を返す変異"]
+problem_patterns: [LVT3-07-A01, LVT3-07-A02, LVT3-07-A03, LVT3-07-A04, LVT3-07-B01, LVT3-07-B02, LVT3-07-B03, LVT3-07-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 3, review: 0.5 }

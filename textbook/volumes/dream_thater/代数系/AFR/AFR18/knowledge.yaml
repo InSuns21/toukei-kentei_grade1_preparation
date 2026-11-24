@@ -1,0 +1,41 @@
+chapter: AFR18
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR17, AFR7]
+forward_references: []
+concepts:
+  - id: automorphic-forms.holomorphic-rankin-unfolding
+    name: "正則カスプ形式のRankin–Selberg展開"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.maass-rankin-integral, automorphic-forms.eisenstein-series, modular-forms.cusp-coefficient-bound, complex-analysis.gamma-function]
+  - id: automorphic-forms.unramified-pair-l-factor
+    name: "不分岐積L因子"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.gl2-satake-parameter, automorphic-forms.classical-local-data]
+  - id: automorphic-forms.rankin-coefficient-generating-function
+    name: "積係数の母関数"
+    kind: theorem
+    introduction: formal
+    requires: []
+  - id: automorphic-forms.rankin-finite-l-product
+    name: "Rankin–Selbergの有限積L関数"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.holomorphic-rankin-unfolding, automorphic-forms.unramified-pair-l-factor, automorphic-forms.rankin-coefficient-generating-function, modular-forms.level-hecke-coefficient, modular-forms.eigenforms]
+  - id: automorphic-forms.spherical-whittaker-values
+    name: "球Whittaker関数の素数冪表示"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.local-whittaker-transformation, automorphic-forms.index-p-double-coset, automorphic-forms.local-triangular-decomposition, automorphic-forms.gl2-satake-parameter, automorphic-forms.rankin-coefficient-generating-function]
+  - id: automorphic-forms.spherical-rankin-local-integral
+    name: "球Whittaker関数による局所積分"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.spherical-whittaker-values, automorphic-forms.unramified-pair-l-factor, automorphic-forms.rankin-coefficient-generating-function, automorphic-forms.local-additive-measure]
+  - id: automorphic-forms.completed-rankin-pair
+    name: "同重さレベル1の完成積L関数"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.rankin-finite-l-product, automorphic-forms.completed-eisenstein, automorphic-forms.eisenstein-fourier, automorphic-forms.eisenstein-functional-equation]
