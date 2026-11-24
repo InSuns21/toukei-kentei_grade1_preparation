@@ -1,0 +1,27 @@
+id: "LVT1-05"
+title: "List・Array・Finと安全な添字"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT1-04]
+official_scope: []
+learning_objectives:
+  - ListとArrayの長さと有効な添字を説明する
+  - Optionによって範囲外と存在する値を区別する
+  - Finと範囲の証明を用いて安全な読み出しを定義する
+  - 固定長盤面の座標変換と範囲の検査を行う
+definitions:
+  - { id: LVT1-05-DEF-01, name: "有効な添字" }
+  - { id: LVT1-05-DEF-02, name: "Fin型" }
+  - { id: LVT1-05-DEF-03, name: "固定長盤面の関数表現" }
+propositions:
+  - { id: LVT1-05-PROP-01, name: "検査付き配列読み出しの二分岐" }
+  - { id: LVT1-05-PROP-02, name: "3行3列の添字の有効性" }
+theorems: []
+canonical_examples:
+  - "空列・最後の要素・範囲外の読み出し"
+  - "固定長盤面と行優先の添字"
+problem_patterns: [LVT1-05-A01, LVT1-05-A02, LVT1-05-A03, LVT1-05-A04, LVT1-05-B01, LVT1-05-B02, LVT1-05-B03, LVT1-05-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2, review: 0.5 }
