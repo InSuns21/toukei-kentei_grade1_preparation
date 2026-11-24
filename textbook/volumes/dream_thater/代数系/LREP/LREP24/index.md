@@ -103,10 +103,10 @@ $$
 
 これで向きを保つ等長変換をすべて記述できる理由も確かめます。任意のそのような等長変換 $F$ に対し、$T(\boldsymbol x)=F(\boldsymbol x)-F(0)$ とすれば $T(0)=0$ で距離を保存します。内積は
 
-$
+$$
 2\langle\boldsymbol x,\boldsymbol y\rangle
 =|\boldsymbol x|^2+|\boldsymbol y|^2-|\boldsymbol x-\boldsymbol y|^2
-$
+$$
 
 から距離だけで決まるので、$T$ は内積を保存します。標準基底 $\boldsymbol e_1,\boldsymbol e_2$ の像は正規直交基底となり、$T(\boldsymbol x)$ のこの基底での成分は $\langle T(\boldsymbol x),T(\boldsymbol e_j)\rangle=x_j$ です。従って $T(\boldsymbol x)=x_1T(\boldsymbol e_1)+x_2T(\boldsymbol e_2)$ となり、$T$ は線形直交変換です。向きを保つ条件から行列式は1、第1列が $(\cos\theta,\sin\theta)^{\mathsf T}$ なら第2列は $(-\sin\theta,\cos\theta)^{\mathsf T}$ です。よって $F$ は先の回転と並進の形になります。
 
