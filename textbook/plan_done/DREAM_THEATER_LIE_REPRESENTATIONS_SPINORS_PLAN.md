@@ -2,7 +2,7 @@
 
 設計: 2026-10-13  
 再設計: 2026-11-11（標準教科書・公開講義ノートによる範囲校正、全28講を確定）  
-状態: in_progress（全28講の実装。系列横断の最終査読ゲート・完了確認が残る）
+状態: done（2026-11-24、全28講実装・章別査読・系列横断検算・完了判定）
 
 ## 1. 中心問いと到達点
 
@@ -14,7 +14,7 @@
 
 - **数学の正本**：有限次元Lie群・Lie環表現の基礎、SU(2)の既約表現とテンソル積、Lorentz群の有限次元表現、平坦Minkowski時空のSpin被覆・Clifford表現、Poincaré群の物理的な正エネルギー1粒子表現の構成。
 - **適用の正本**：既存[QFT7](../volumes/dream_thater/物理系/QFT/QFT7/index.md)は自由Dirac場の具体計算、[QFT15](../volumes/dream_thater/物理系/QFT/QFT15/index.md)はMaxwell場のゲージ自由度、[QFT32](../volumes/dream_thater/物理系/QFT/QFT32/index.md)はPoincaré粒子・Weyl／Majorana場のQFT内での適用。LREPはこれらを既存の完成章として扱い、量子化・散乱・場の統計を再執筆しない。既存章のprerequisiteを遡ってLREP全体へ付け替えない。
-- **大域幾何の正本**：一般Lorentz多様体上のspin構造・spinor束・存在障害は[主束・ゲージ幾何](../plans_progress/DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md)および[LORG](../plan_done/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)の必要箇所と分担する。平坦時空でSpin被覆があることから任意の多様体のspin構造の存在を結論しない。
+- **大域幾何の正本**：一般Lorentz多様体上のspin構造・spinor束・存在障害は[主束・ゲージ幾何](../plan_done/DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md)および[LORG](../plan_done/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)の必要箇所と分担する。平坦時空でSpin被覆があることから任意の多様体のspin構造の存在を結論しない。
 
 ## 2. 前提・記法・理論的な停止線
 
@@ -158,3 +158,12 @@ spin–statisticsおよびCPTは局所量子場理論の追加仮定を要する
 
 - 2026-11-23: LREP1「表現とは何か――作用、表現、部分表現、同値」の本文・章メタデータ・系列manifest・公開導線を実装。残りの講義を進行管理するためPLANは `plans_progress/` に置く。
 - 2026-11-24: LREP28「離散対称性と総合演習」を実装し、全28講の予定講義を登録。第4節・第7節の系列横断の最終査読・公開確認は別途完了判定する。
+
+## 9. 系列横断の完了判定（2026-11-24）
+
+- 全28講の manifest が completed。本文・chapter.yaml・knowledge.yaml の計84ファイルの実在、全章の題名と公開科目別目次の順序、全245題（A112／B105／C28）と対応する245詳細解答、各講A4/B3/C1以上、formal statement 208ブロックを実本文から照合した。
+- 章別査読記録（全28講マージ済み）：LREP1 [#4142](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4142)、LREP2 [#4156](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4156)、LREP3 [#4162](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4162)、LREP4 [#4183](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4183)、LREP5 [#4189](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4189)、LREP6 [#4200](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4200)、LREP7 [#4208](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4208)、LREP8 [#4211](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4211)、LREP9 [#4221](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4221)、LREP10 [#4229](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4229)、LREP11 [#4237](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4237)、LREP12 [#4236](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4236)、LREP13 [#4265](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4265)、LREP14 [#4273](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4273)、LREP15 [#4282](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4282)、LREP16 [#4288](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4288)、LREP17 [#4300](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4300)、LREP18 [#4309](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4309)、LREP19 [#4316](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4316)、LREP20 [#4331](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4331)、LREP21 [#4333](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4333)、LREP22 [#4350](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4350)、LREP23 [#4354](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4354)、LREP24 [#4367](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4367)、LREP25 [#4376](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4376)、LREP26 [#4386](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4386)、LREP27 [#4396](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4396)、LREP28 [#4408](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4408)。LREP12・21は実装PRに追跡査読記録を含む。過去の全件再計算は当該記録を再利用し、今回新たに全28講の全証明を再計算したとは称さない。LREP28は主要命題3件・演習8題・初出・記法・使用リンクを全件再確認し、区分B修正、5系統CI成功後、`99a69d070035b1aa6811703893a643855c6ad75b` にマージした。
+- 系列横断の代表検算：LREP1〜8では SU(2) の被覆核 {±I} と次数 n の中心作用 (-1)^n、二つのスピン1/2の次元 2×2=3+1、交代形式 A^T J A=(det A)J を照合。LREP9〜13では det(x⁰I+xⁱσᵢ)=(x⁰)²−|x|² と det(AXA†)=det X、Q(A)=(A†)⁻¹、Q(Q(A))=A、boost の非ユニタリ性を区別。
+- LREP14〜20では計量(-+++)・(γ⁰)²=−I・H=−iγ⁰ の整合と、J²=−I から電荷共役のブロック行列 B²=I となることを照合。LREP21〜25では正エネルギー、質量殻測度 d³p/(2E)、Wigner cocycle の中間断面の相殺、massive little group と massless ISO(2) の並進自明性の仮定を区別。LREP26〜28では共変モードとゲージ商、P/T のヘリシティ、反ユニタリ時間反転とStone生成子の符号、CPT・スピン統計の証明範囲の境界を確認。
+- 図は LREP25 の断面ループ図・LREP27 のゲージ同値類図の2点。実SVGを480px・320px幅で静的レンダリングし、矢印・ラベル・破線・配置を確認した。ほかは数式・表を優先。実サイトの手動ブラウザ視認ではなく、公開組立はCIで検証する。
+- 実施主体：同一担当AIによる章別査読記録の確認・系列横断検算。第三者独立査読ではない。今回の章別PRに数学上の未解決重大指摘なし。ローカルcheckoutのDNS制約によりnpmの手元再実行はせずGitHub Actionsを使用。共通router・章status・依存関係は変更せず、PLAN移動・manifest plan・直接参照を同期する。移動PRのCI成功をマージ条件とする。
