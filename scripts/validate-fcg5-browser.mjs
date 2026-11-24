@@ -99,6 +99,7 @@ try {
   const initialRunStart=Date.now();
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
+  assert.ok(await evaluate('document.querySelector("#panel-result #fcg-output-parameters #lab-parameters") && document.querySelectorAll("#lab-parameters").length===1 && document.querySelector("#lab-parameters input[type=range]").getBoundingClientRect().width>40'), 'FCG5 controls visible on output');
   const initialRunMs=Date.now()-initialRunStart;
   assert.ok(initialRunMs>0,'GPU and independent CPU run must complete');
   const initial=await evaluate('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(x=>x.textContent)),log:document.querySelector("#diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox"),opaque:(()=>{try{return !!document.querySelector("#canvas-slot iframe").contentWindow.document.body}catch{return true}})()})');
@@ -230,8 +231,7 @@ try {
 
   // G2: GUI parameters, the animation and the independent CPU oracle all
   // target the same editable N×N MAC source.
-  await click('tab-conditions');
-  assert.equal(await evaluate('document.querySelector("#lab-parameters")?.parentElement.id'),'panel-conditions');
+  assert.equal(await evaluate('document.querySelector("#lab-parameters")?.parentElement.id'),'fcg5-result-parameters');
   const gui=await evaluate('(()=>{const g=document.querySelector("#parameter-grid"),n=document.querySelector("#parameter-nu"),f=document.querySelector("#parameter-force");return {grid:g?.value,nu:n?.value,force:f?.value,gridDisabled:g?.disabled,nuDisabled:n?.disabled,forceDisabled:f?.disabled,labels:[...document.querySelectorAll("#lab-parameters .lab-parameter-row small")].map(x=>x.textContent)}})()');
   assert.equal(gui.grid,'48');assert.equal(gui.nu,'0.002');assert.equal(gui.force,'0.08');
   assert.equal(await evaluate('document.querySelector("#parameter-dt")?.value'),'0.04');
