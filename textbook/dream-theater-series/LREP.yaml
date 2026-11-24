@@ -71,7 +71,7 @@ chapters:
     title: "Diracスピノルとchirality"
   - id: LREP17
     path: textbook/volumes/dream_thater/代数系/LREP/LREP17
-    status: planned
+    status: completed
     title: "Dirac双線形量"
   - id: LREP18
     path: textbook/volumes/dream_thater/代数系/LREP/LREP18
