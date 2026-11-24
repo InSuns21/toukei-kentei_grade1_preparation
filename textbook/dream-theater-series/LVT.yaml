@@ -63,7 +63,7 @@ chapters:
     title: "定理探索・自動化・信頼境界"
   - id: LVT3-01
     path: textbook/volumes/dream_thater/計算系/LVT/LVT3-01
-    status: planned
+    status: completed
     title: "要求を事前条件・事後条件へ"
   - id: LVT3-02
     path: textbook/volumes/dream_thater/計算系/LVT/LVT3-02
