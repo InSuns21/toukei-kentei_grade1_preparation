@@ -119,6 +119,14 @@ const descriptions = Object.freeze({
     mode: '初期設定はpicMix=0、flipMix=1。格子と粒子の位置を物理stepごとに更新し、右列は24×24節点値の最近傍表示。時刻は開始時の検算時刻',
     source: 'particle.js（N, count, dt, damp, force, picMix, flipMix, transfer）/ particle.frag（u_pic, u_flip, u_speed）'
   }),
+  FCG17: Object.freeze({
+    requiresSteps:false,
+    grid:'1 m四方、初期24×24のMAC格子を左右で独立に更新',
+    color:'左：強調なし、右：強調あり。下：E 0〜0.5 m⁴/s²、白実線／橙点線',
+    clock:()=> '0〜4 s、0.05 s刻み。描画間隔とは別',
+    mode:'染料0〜1、渦度−10〜10 s⁻¹、速度0〜1 m/s',
+    source:'vortex.js（N, epsilon, mode） / vortex.frag（表示色）'
+  }),
   FCG16: Object.freeze({
     requiresSteps:false,
     grid:'1 m四方48×48、RGBA8の燃料・熱・煙',
