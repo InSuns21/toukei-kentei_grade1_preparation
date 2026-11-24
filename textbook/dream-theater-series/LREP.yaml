@@ -107,7 +107,7 @@ chapters:
     title: "1粒子Hilbert空間の誘導表現"
   - id: LREP26
     path: textbook/volumes/dream_thater/代数系/LREP/LREP26
-    status: planned
+    status: completed
     title: "有限次元場表現と1粒子表現"
   - id: LREP27
     path: textbook/volumes/dream_thater/代数系/LREP/LREP27
