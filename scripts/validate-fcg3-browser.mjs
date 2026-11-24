@@ -108,27 +108,34 @@ try {
   console.log('FCG3 actual GPU texture, six readPixels, independent CPU and opaque sandbox: PASS');
   // Freeze the real edited field through the normal inspector, then toggle
   // reconstruction without changing the step. Crop to the sandbox canvas.
-  const frameRect=await evaluate(`(()=>{
-    const f=document.querySelector('#canvas-slot iframe');
-    f.scrollIntoView({block:'center'});
-    const b=f.getBoundingClientRect();
-    return {x:b.x,y:b.y,width:b.width,height:b.height,sx:scrollX,sy:scrollY};
+  // The opaque child has a separate document. Use CDP's frame execution
+  // world to exercise its real event listeners, not guessed iframe geometry
+  // or a parent-window synthetic event (neither reaches the GPU canvas).
+  const tree=(await cdp('Page.getFrameTree')).frameTree;
+  const frame=tree.childFrames?.find(f=>f.frame.url==='about:srcdoc');
+  assert.ok(frame,'FCG3 opaque GPU frame exists');
+  const {executionContextId}=await cdp('Page.createIsolatedWorld',{
+    frameId:frame.frame.id,worldName:'fcg3-browser-test'});
+  const inFrame=async expression=>{
+    const result=await cdp('Runtime.evaluate',{contextId:executionContextId,expression,
+      returnByValue:true,awaitPromise:true});
+    assert.ok(!result.exceptionDetails,JSON.stringify(result.exceptionDetails));
+    return result.result.value;
+  };
+  await inFrame(`(()=>{
+    const c=document.getElementById('gpu-canvas');
+    c.focus();
+    c.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));
   })()`);
-  const px=frameRect.x+frameRect.width*.36,py=frameRect.y+frameRect.height*.45;
-  await cdp('Input.dispatchMouseEvent',{type:'mousePressed',x:px,y:py,button:'left',clickCount:1});
-  await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:px,y:py,button:'left',clickCount:1});
   await waitFor('document.querySelector("#result-note")?.textContent.includes("CPUセル色との差=")');
   assert.match(await evaluate('document.querySelector("#result-note").textContent'),/CPUセル色との差=[012]階調/);
-  const clip={x:frameRect.x+frameRect.sx,y:frameRect.y+frameRect.sy,width:frameRect.width,height:frameRect.height,scale:1};
-  const shot=()=>cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip});
-  const toggleGrid=async()=>{
-    await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:'g',code:'KeyG',text:'g'});
-    await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:'g',code:'KeyG'});
-  };
+  const shot=()=>inFrame("document.getElementById('gpu-canvas').toDataURL()");
+  const toggleGrid=()=>inFrame(`document.getElementById('gpu-canvas').dispatchEvent(
+    new KeyboardEvent('keydown',{key:'g',bubbles:true,cancelable:true}))`);
   const smooth=await shot();await toggleGrid();const cells=await shot();
-  assert.notEqual(smooth.data,cells.data,'smooth reconstruction must visibly differ from raw cells');
+  assert.notEqual(smooth,cells,'smooth reconstruction must visibly differ from raw cells');
   await toggleGrid();const restored=await shot();
-  assert.equal(restored.data,smooth.data,'G toggle returns to same frozen actual data');
+  assert.equal(restored,smooth,'G toggle returns to same frozen actual data');
   console.log('FCG3 GPU smooth/cell toggle and live raw-cell oracle: PASS');
 
 
