@@ -75,7 +75,7 @@ chapters:
     title: "主予想の証明戦略とEuler systems"
   - id: IWA18
     path: textbook/volumes/dream_thater/代数系/IWA/IWA18
-    status: planned
+    status: completed
     title: "Selmer群とPontryagin双対"
   - id: IWA19
     path: textbook/volumes/dream_thater/代数系/IWA/IWA19

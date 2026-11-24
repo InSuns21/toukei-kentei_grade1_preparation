@@ -1,0 +1,53 @@
+id: IWA18
+title: "Selmer群とPontryagin双対"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IWA6
+  - IWA9
+  - IWA12
+  - EC4
+  - EC6
+  - EC9
+official_scope: []
+learning_objectives:
+  - 連続コサイクルとコバウンダリを計算して制限写像を作る
+  - Kummer完全列と局所条件から有限係数Selmer完全列を証明する
+  - 係数方向の包含と塔の制限を区別しp無限Selmer群を構成する
+  - Pontryagin双対の完全性と反変作用を証明する
+  - 不変元とT商の対応から有限生成性とねじれ性を区別する
+  - 有限係数Poitou–Tate双対の局所核を識別して適用する
+definitions:
+  - { id: IWA18-DEF-01, name: "連続1次群コホモロジー" }
+  - { id: IWA18-DEF-02, name: "楕円曲線のKummer写像" }
+  - { id: IWA18-DEF-03, name: "局所条件付きSelmer群" }
+  - { id: IWA18-DEF-04, name: "楕円曲線の有限係数Selmer群とTate–Shafarevich群" }
+  - { id: IWA18-DEF-05, name: "円分塔のp無限Selmer群" }
+  - { id: IWA18-DEF-06, name: "離散pべきねじれ群のPontryagin双対" }
+  - { id: IWA18-DEF-07, name: "連続2次群コホモロジー" }
+theorems:
+  - { id: IWA18-THM-01, name: "楕円曲線のKummer完全列" }
+  - { id: IWA18-THM-02, name: "有限係数Selmer完全列" }
+  - { id: IWA18-THM-03, name: "離散pべきねじれ群の双対完全性" }
+  - { id: IWA18-PROP-04, name: "Selmer双対の不変元と商の対応" }
+  - { id: IWA18-THM-05, name: "Selmer双対の有限生成判定" }
+  - { id: IWA18-THM-06, name: "Poitou–Tate双対の核の対応" }
+canonical_examples:
+  - 位数3の群と法9のコサイクル
+  - 楕円曲線y^2=x^3-xの2等分点と非零Kummer類
+  - 円分体の次数3部分体と局所制限
+  - 有限巡回群の双対作用と不変元
+problem_patterns:
+  - IWA18-COCYCLE
+  - IWA18-KUMMER
+  - IWA18-LOCAL
+  - IWA18-DUAL-ACTION
+  - IWA18-DIRECT-LIMIT
+  - IWA18-DUAL-EXACT
+  - IWA18-H2
+  - IWA18-POITOU-TATE
+  - IWA18-FG-TORSION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 6, review: 2 }
