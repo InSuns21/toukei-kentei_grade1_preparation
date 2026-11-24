@@ -1,0 +1,24 @@
+id: FCG12
+title: "浅水を三次元の水面として描けるか"
+volume: foundations
+status: supplementary
+prerequisites: [FCG5, FCG11, FLUID29, FLUID45, FLUID46]
+official_scope: []
+learning_objectives:
+  - "水深と二方向の流量から浅水保存形の面流束を計算できる"
+  - "閉じた格子の水量保存と正値性の刻み条件を導出できる"
+  - "静水釣合と地形上の水深・水面標高を区別できる"
+  - "水深・流速・断面・三次元メッシュを同じ数値状態から比較できる"
+definitions:
+  - { id: FCG12-DEF-01, name: "浅水の Rusanov 流束" }
+theorems:
+  - { id: FCG12-PROP-01, name: "二次元浅水更新の正値性と水量保存" }
+canonical_examples:
+  - "閉じた水槽の中央水柱"
+  - "反射壁の面流束"
+  - "平坦底での静水"
+problem_patterns: [FCG12-FLUX, FCG12-POSITIVITY, FCG12-MASS, FCG12-MESH, FCG12-CFL]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
