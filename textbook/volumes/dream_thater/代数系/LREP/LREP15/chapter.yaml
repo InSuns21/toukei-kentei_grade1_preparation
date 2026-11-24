@@ -1,0 +1,41 @@
+id: LREP15
+title: "Spin群とガンマ行列"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP14
+official_scope: []
+learning_objectives:
+  - Weyl基底のガンマ行列の全反交換関係を検算できる
+  - 実偶Clifford代数と逆順写像を二次ブロックで表現できる
+  - Spin群の条件とSL(2,C)の二重被覆との関係を証明できる
+  - 回転とboostの持ち上げを構成しガンマ行列の共役を計算できる
+definitions:
+  - { id: LREP15-DEF-01, name: ガンマ行列 }
+  - { id: LREP15-DEF-02, name: 偶Clifford代数 }
+  - { id: LREP15-DEF-03, name: Clifford逆順写像 }
+  - { id: LREP15-DEF-04, name: Spin群 }
+theorems:
+  - { id: LREP15-THM-01, name: 実偶Clifford代数の行列模型 }
+  - { id: LREP15-THM-02, name: Spin群とLorentz二重被覆 }
+  - { id: LREP15-PROP-01, name: ガンマ行列の共変変換則 }
+  - { id: LREP15-PROP-02, name: 回転とboostのSpin持ち上げ }
+  - { id: LREP15-PROP-03, name: 単位ベクトル積によるSpin群の構成 }
+canonical_examples:
+  - Weyl基底の反交換関係
+  - 実偶代数の二次ブロック復元
+  - z軸回転とz方向boost
+problem_patterns:
+  - LREP15-GAMMA-SQUARE
+  - LREP15-REVERSION
+  - LREP15-BLOCK
+  - LREP15-HALF-ANGLE
+  - LREP15-EVEN-MODEL
+  - LREP15-BOOST
+  - LREP15-NULL-CONJUGATION
+  - LREP15-UNIT-PRODUCT
+  - LREP15-COMPOSITION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }

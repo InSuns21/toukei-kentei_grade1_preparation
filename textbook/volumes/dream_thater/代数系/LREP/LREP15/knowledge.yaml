@@ -1,0 +1,52 @@
+chapter: LREP15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LREP14
+forward_references: []
+concepts:
+  - id: representation.gamma-matrices
+    name: ガンマ行列
+    kind: definition
+    introduction: formal
+    requires: [representation.clifford-complex-matrix-model]
+  - id: representation.even-clifford-algebra
+    name: 偶Clifford代数
+    kind: definition
+    introduction: formal
+    requires: [representation.clifford-algebra]
+  - id: representation.clifford-reversion
+    name: Clifford逆順写像
+    kind: definition
+    introduction: formal
+    requires: [representation.clifford-algebra]
+  - id: representation.even-clifford-matrix-model
+    name: 実偶Clifford代数の行列模型
+    kind: theorem
+    introduction: formal
+    requires: [representation.even-clifford-algebra, representation.clifford-reversion, representation.gamma-matrices, representation.clifford-complex-matrix-model]
+  - id: representation.spin-group
+    name: Spin群
+    kind: definition
+    introduction: formal
+    requires: [representation.even-clifford-algebra, representation.clifford-reversion]
+  - id: representation.spin-lorentz-cover
+    name: Spin群とLorentz二重被覆
+    kind: theorem
+    introduction: formal
+    requires: [representation.spin-group, representation.even-clifford-matrix-model, representation.sl2c-double-cover]
+  - id: representation.gamma-covariance
+    name: ガンマ行列の共変変換則
+    kind: proposition
+    introduction: formal
+    requires: [representation.gamma-matrices, representation.spin-lorentz-cover]
+  - id: representation.spin-rotation-boost
+    name: 回転とboostのSpin持ち上げ
+    kind: proposition
+    introduction: formal
+    requires: [representation.spin-group, representation.clifford-anticommutator]
+  - id: representation.spin-even-products
+    name: 単位ベクトル積によるSpin群の構成
+    kind: proposition
+    introduction: formal
+    requires: [representation.spin-lorentz-cover, representation.spin-rotation-boost, representation.sl2c-polar-connectivity, representation.pauli-product]
