@@ -1,0 +1,66 @@
+chapter: AFR10
+scope: dream-theater
+coverage: complete
+prerequisites: [AFR9, CA11, ANT3, NT8]
+forward_references: []
+concepts:
+  - id: automorphic-forms.multiplicative-measure
+    name: "局所乗法測度"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.local-additive-measure, number-theory.idele-group]
+  - id: automorphic-forms.finite-order-hecke-character
+    name: "有限位数Hecke指標"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.rational-idele-class-normal-form]
+  - id: automorphic-forms.tate-zeta-integral
+    name: "Tateゼータ積分"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.multiplicative-measure, automorphic-forms.finite-order-hecke-character, automorphic-forms.schwartz-bruhat, number-theory.idele-modulus]
+  - id: automorphic-forms.unramified-zeta-factor
+    name: "不分岐局所ゼータ因子"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.tate-zeta-integral]
+  - id: automorphic-forms.ramified-zeta-test
+    name: "分岐指標に適合する試験関数"
+    kind: proposition
+    introduction: formal
+    requires: [automorphic-forms.tate-zeta-integral]
+  - id: automorphic-forms.archimedean-zeta-factor
+    name: "実局所ゼータ因子"
+    kind: proposition
+    introduction: formal
+    requires: [automorphic-forms.tate-zeta-integral, complex-analysis.gamma-function]
+  - id: automorphic-forms.finite-order-hecke-l
+    name: "有限位数Hecke L関数"
+    kind: definition
+    introduction: formal
+    requires: [automorphic-forms.unramified-zeta-factor, number-theory.dirichlet-series]
+  - id: automorphic-forms.tate-euler-factorization
+    name: "大域ゼータ積分のEuler分解"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.unramified-zeta-factor, automorphic-forms.finite-coset-decomposition]
+  - id: automorphic-forms.tate-theta-decay
+    name: "非零有理数和の一様減衰"
+    kind: lemma
+    introduction: formal
+    requires: [automorphic-forms.schwartz-bruhat, automorphic-forms.finite-coset-decomposition]
+  - id: automorphic-forms.tate-global-functional-equation
+    name: "Tateの大域関数等式"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.tate-euler-factorization, automorphic-forms.tate-theta-decay, automorphic-forms.adelic-poisson-summation, automorphic-forms.adelic-fourier-inversion, automorphic-forms.idele-modulus-power-character]
+  - id: automorphic-forms.tate-ramified-transform
+    name: "分岐試験関数のFourier変換"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.ramified-zeta-test, automorphic-forms.p-adic-ball-transform, analytic-number-theory.gauss-sum]
+  - id: automorphic-forms.completed-hecke-l-functional-equation
+    name: "完成Hecke L関数の関数等式"
+    kind: theorem
+    introduction: formal
+    requires: [automorphic-forms.finite-order-hecke-l, automorphic-forms.tate-global-functional-equation, automorphic-forms.tate-ramified-transform, automorphic-forms.archimedean-zeta-factor]
