@@ -4,7 +4,7 @@
 
 前提：[LVT1-06](../LVT1-06/index.md)。到達点は、命題と証明の型を読み、決定手続きの二つの分岐から判定の正しさを示し、誤った判定器の反例を作ることです。
 
-**ブラウザで実行：** [本講の実行ラボを開く](../browser-lab.html?chapter=LVT2-01)。Lean Web で命題・証明・判定器を編集し、型、評価値、反例を確認できます。Python との照合や Lake の実行は同じラボから GitHub Codespaces（ブラウザ版VS Code）を開いて行います。ローカルへのインストールは不要です。
+**ブラウザで実行：** [本講の実行ラボを開く](../browser-lab.html?chapter=LVT2-01)。Lean Web で命題・証明・判定器を編集し、型、評価値、反例を確認できます。Python との照合や Lake の実行は同じラボから GitHub Codespaces（ブラウザ版VS Code）を開いて行います（GitHub ログインと利用枠が必要）。ローカルへのインストールは不要です。
 
 ## 1. 計算と論理の二つの役割
 
@@ -22,7 +22,7 @@ Lean の Bool は二つの構成子 true と false を持つデータ型であ�
 **定義の確認**　if true then 10 else 20 は 10、if false then 10 else 20 は 20 を返す。`true : Bool` と `false : Bool` はいずれも引数を必要としない構成子であり、条件に使うと分岐を一つ選ぶ。false も正当なデータである。
 <!-- definition-example-end -->
 
-Lean の等式は、左右の項が等しいという主張を表します。Bool の二つの値とは異なり、Prop は個々の命題を分類する型であり、等式ごとに異なる命題が得られます。命題そのものが Prop の項です。式 `h : p` は、h が型 p の項（その型に属する式）であることを表し、p が命題なら h をその証明として読みます。`True` は成立する命題で、証明の構成子 `True.intro` を持ちます。`False` は矛盾を表す命題で、証明を作る構成子を持ちません。自然数の等式 `=` は命題を作り、比較演算 `==` は真偽値を返します（[第2講の零入力での加算関数の値](../LVT1-02/index.md#prop-lvt1-02-bump-zero)とその後の比較例）。同じ講で使った `rfl` は、等式の両辺が定義による計算で同じ式に簡約されるときに使える証明項です。
+Lean の等式は、左右の項が等しいという主張を表します。以下の説明で「p を 2 = 2 とする」と書くときは、命題に名前 p を付けるという意味であり、Lean の等式をもう一つ作るという意味ではありません。Bool の二つの値とは異なり、Prop は個々の命題を分類する型であり、等式ごとに異なる命題が得られます。命題そのものが Prop の項です。式 `h : p` は、h が型 p の項（その型に属する式）であることを表し、p が命題なら h をその証明として読みます。`True` は成立する命題で、証明の構成子 `True.intro` を持ちます。`False` は矛盾を表す命題で、証明を作る構成子を持ちません。自然数の等式 `=` は命題を作り、比較演算 `==` は真偽値を返します（[第2講の零入力での加算関数の値](../LVT1-02/index.md#prop-lvt1-02-bump-zero)とその後の比較例）。同じ講で使った `rfl` は、等式の両辺が定義による計算で同じ式に簡約されるときに使える証明項です。
 
 <a id="def-lvt2-01-prop"></a>
 
@@ -56,7 +56,7 @@ Lean で p : Prop は p が命題であることを表す。h : p である項 h
 
 ## 2. 証明を関数として組み立てる
 
-「p ならば q」を証明したい場合、p の証明を受け取り、そこから q の証明を作ればよいと考えます。これは既習の関数と同じ形です。`p → q` はこの含意を表し、`p → False` は p の否定を表します。Lean では後者を `¬ p` と書きます。`fun h : p => h` のコロンは引数の型、矢印の右側（`=>` の後）は返す項です。関数を型として見ると、入力型 p、出力型 p の `p → p` になります。`fun h => h` は期待する関数型から引数の型が分かる場合の省略形です。
+「p ならば q」を証明したい場合、p の証明を受け取り、そこから q の証明を作ればよいと考えます。これは既習の関数と同じ形です（[関数適用の記法](../LVT1-06/index.md#def-lvt1-06-pure-function)を参照）。`p → q` はこの含意を表し、`p → False` は p の否定を表します。Lean では後者を `¬ p` と書きます。`fun h : p => h` のコロンは引数の型、矢印の右側（`=>` の後）は返す項です。関数を型として見ると、入力型 p、出力型 p の `p → p` になります。`fun h => h` は期待する関数型から引数の型が分かる場合の省略形です。
 
 <a id="def-lvt2-01-curry-howard"></a>
 
@@ -117,7 +117,7 @@ def decisionBool (p : Prop) (d : Decidable p) : Bool :=
 
 `decisionBool p d` は、命題 p とその[証明付き判定](#def-lvt2-01-decidable) d を受け取り、真偽値だけを取り出します。`match` は構成子で場合分けし、`.isTrue` と `.isFalse` の先頭のドットは期待する型から `Decidable` を補う記法です。`_` は枝の結果でその証明項を直接参照しないことを示します。例えば `yesExample` は `.isTrue rfl` に展開されるため true の枝を選び、`noExample` は `.isFalse (fun h => h)` に展開されるため false の枝を選びます。
 
-通常は Lean の decide を使います。decide p は型クラス（必要な型の項を自動探索する仕組み）によって Decidable p を探し、成立なら true、不成立なら false を返します。例えば自然数の等式については標準の計算可能な判定が用意されています。
+通常は Lean の `decide` を使います。decide p は型クラス（必要な型の項を自動探索する仕組み）によって Decidable p を探し、成立なら true、不成立なら false を返します。例えば自然数の等式については標準の計算可能な判定が用意されています。
 
 ```lean
 #eval decide ((2 : Nat) = 2) -- true
@@ -130,7 +130,16 @@ def decisionBool (p : Prop) (d : Decidable p) : Bool :=
 
 ## 4. 判定結果と仕様を結ぶ
 
-証明で使う Bool の二つの構成子が異なることを確認します。Bool の値 b に対して、b が true なら True、false なら False という命題を対応させます（この対応を Q と呼びます）。仮に `false = true` が成立すれば、等しい値を置き換えて `Q true` の証明 `True.intro` を `Q false` の証明としても使えることになります。しかし `Q false` は False なので矛盾です。`true = false` も等式の左右を逆にすれば同じ矛盾を得ます。Lean の `cases bad` は、bad がこのような異なる構成子の等式の証明であるとき、成立する場合がないことを利用します。
+証明で使う [Leanの真偽値型](#def-lvt2-01-bool) の二つの構成子が異なることを確認します。
+
+<a id="lvt2-01-bool-distinct"></a>
+
+Bool の値 b に対して、b が true なら True、false なら False という命題を対応させる関数 Q を考えます。Q の型は `Bool → Prop` です。
+
+- `Q true` は True なので `True.intro : Q true` が得られます。
+- `Q false` は False です。
+
+仮に `e : false = true` があれば、等式の対称性により `true = false` が得られます。等しい入力における命題を置き換えると、`True.intro : Q true` から `Q false` の証明が得られ、すなわち False になります。仮定が `true = false` なら対称性の一手は不要です。このようにどちらの等式からも矛盾を導けます。Lean の `cases bad` は、bad が異なる構成子の等式の証明であるとき、成立する場合がないことを利用します。
 
 テストで true になったときに証明を得られるでしょうか。証明を持つ判定から値を取り出した場合は、任意の入力について対応を示せます。true のとき必ず命題が成立する性質を健全性、命題が成立すると必ず true になる性質を完全性と呼びます。
 
@@ -150,7 +159,7 @@ def decisionBool (p : Prop) (d : Decidable p) : Bool :=
 <!-- proof-start -->
 ### 証明
 
-健全性について、h : decisionBool p d = true とする。d が isTrue hp なら hp : p をそのまま返せる。d が isFalse hn なら、decisionBool の定義を展開して `decisionBool p (.isFalse hn) = false` を得る。したがって仮定 h の型は `false = true` に簡約される。節の冒頭で確認した構成子の相違から False を得て、`False.elim` で p を導く。
+健全性について、h : decisionBool p d = true とする。d が isTrue hp なら hp : p をそのまま返せる。d が isFalse hn なら、decisionBool の定義を展開して `decisionBool p (.isFalse hn) = false` を得る。したがって仮定 h の型は `false = true` に簡約される。[Boolの異なる構成子から生じる矛盾](#lvt2-01-bool-distinct)から False を得て、`False.elim` で p を導く。
 
 完全性について、hp : p とする。d が isTrue の場合は定義により true = true なので反射性で成立する。d が isFalse hn なら hn : p → False である。hp を hn に渡すと `hn hp : False` を得る。ここで目標は定義により `false = true` に簡約されている。この矛盾を `False.elim` に渡せばその目標を満たす証明が得られる。二つの構成子を尽くしたので、任意の d について両方向が成立する。
 
@@ -305,7 +314,7 @@ p : Prop、d : Decidable p とし、decisionBool p d = false と仮定する。�
 <!-- solution-start -->
 #### 詳細解答
 
-p の証明 hp があると仮定し、False を導く。[Leanの決定可能性](#def-lvt2-01-decidable)で d が isFalse hn なら `hn : p → False` なので `hn hp : False` が得られる。isTrue h の場合、decisionBool の値は true であり、仮定は true = false となる。異なる構成子の等式は成立しないため、矛盾を得る。どちらの枝でも hp から False を導けるので ¬ p が成立する。
+p の証明 hp があると仮定し、False を導く。[Leanの決定可能性](#def-lvt2-01-decidable)で d が isFalse hn なら `hn : p → False` なので `hn hp : False` が得られる。isTrue h の場合、decisionBool の値は true であり、仮定は true = false となる。[Boolの異なる構成子から生じる矛盾](#lvt2-01-bool-distinct)により False を得る。どちらの枝でも hp から False を導けるので ¬ p が成立する。
 
 ```lean
 example (p : Prop) (d : Decidable p)
@@ -350,7 +359,7 @@ example (p : Prop) (d : Decidable p)
 <!-- solution-start -->
 #### 詳細解答
 
-健全性の仮定 reject n k = true を展開すると false = true になり、矛盾から n = k を導ける。よって健全性は成立する。完全性について n = k = 0 を選ぶと、仕様は 0 = 0 なので成立するが、reject 0 0 = false である。必要な true が得られないので完全性は成立しない。[証明付き判定の健全性と完全性](#prop-lvt2-01-decision-bridge)のように証明付き判定を取り出すという前提が reject にはない。`!` は Bool の否定（true と false を交換する演算）であり、命題の否定 `¬` とは作用対象が異なる。`#guard` は具体的な真偽値が true か検査するので、`#guard !(reject 0 0)` は拒否されたことの検査となる。
+健全性の仮定 `reject n k = true` を展開すると `false = true` になる。[Boolの異なる構成子から生じる矛盾](#lvt2-01-bool-distinct)で False を得て、`False.elim` から `n = k` を導ける。よって健全性は成立する。完全性について n = k = 0 を選ぶと、仕様は 0 = 0 なので成立するが、reject 0 0 = false である。必要な true が得られないので完全性は成立しない。[証明付き判定の健全性と完全性](#prop-lvt2-01-decision-bridge)のように証明付き判定を取り出すという前提が reject にはない。`!` は Bool の否定（true と false を交換する演算）であり、命題の否定 `¬` とは作用対象が異なる。`#guard` は具体的な真偽値が true か検査するので、`#guard !(reject 0 0)` は拒否されたことの検査となる。
 
 ```lean
 def reject (n k : Nat) : Bool := false

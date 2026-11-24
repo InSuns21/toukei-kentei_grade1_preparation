@@ -1,0 +1,33 @@
+id: "AFR4"
+title: "Whittaker係数・Bessel関数"
+volume: "foundations"
+status: supplementary
+prerequisites: [AFR3, ODE2, ODE6, F0-00D2B, RA5]
+official_scope: []
+learning_objectives:
+  - 非零Fourier係数の方程式を変形Bessel方程式に変換できる
+  - Kの積分表示から微分方程式と無限遠の漸近形を証明できる
+  - 多項式増大条件が減衰解を一意に選ぶ理由を説明できる
+  - Maass形式の展開と定数項を除いた指数減衰を導き平均0からエネルギー実現への所属を証明できる
+  - 群上のWhittaker係数と平行移動則を古典的Fourier係数に結び付けられる
+definitions:
+  - { id: AFR4-DEF-01, name: "変形Bessel関数 K" }
+  - { id: AFR4-DEF-02, name: "実群上のWhittaker係数" }
+theorems:
+  - { id: AFR4-THM-01, name: "非零周波数の係数方程式の変換" }
+  - { id: AFR4-THM-02, name: "Kの微分方程式" }
+  - { id: AFR4-THM-03, name: "Kの無限遠での漸近形" }
+  - { id: AFR4-THM-04, name: "多項式増大条件による解の選択" }
+  - { id: AFR4-THM-05, name: "Maass形式の非零周波数展開" }
+  - { id: AFR4-THM-06, name: "定数項を除いたカスプでの指数減衰" }
+  - { id: AFR4-THM-07, name: "Whittaker係数の平行移動則と高さ表示" }
+canonical_examples:
+  - 半整数次数のKの積分の評価
+  - 増大解と減衰解の選択
+  - 定数関数のWhittaker係数
+  - 負の周波数と反射
+problem_patterns: [AFR4-A1, AFR4-A2, AFR4-A3, AFR4-A4, AFR4-B1, AFR4-B2, AFR4-B3, AFR4-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 5, review: 2 }

@@ -1,0 +1,37 @@
+chapter: LVT2-03
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT2-02]
+concepts:
+  - id: lean-verification.equality
+    name: Leanの等式と反射律
+    kind: definition
+    introduction: formal
+  - id: lean-verification.definitional-equality
+    name: Leanの定義的等しさ
+    kind: definition
+    introduction: formal
+  - id: lean-verification.equality-substitution
+    name: Leanの等式による置換
+    kind: definition
+    introduction: formal
+  - id: lean-verification.rewriting
+    name: Leanの書換え操作
+    kind: definition
+    introduction: formal
+  - id: lean-verification.simplification
+    name: Leanの簡約操作
+    kind: definition
+    introduction: formal
+  - id: lean-verification.equality-chain
+    name: Leanの等式の対称律と推移律
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.equality-congruence
+    name: Leanの関数適用に関する等式の合同性
+    kind: proposition
+    introduction: formal
+  - id: lean-verification.nat-normalization
+    name: Leanの自然数入力の正規化保存
+    kind: proposition
+    introduction: formal

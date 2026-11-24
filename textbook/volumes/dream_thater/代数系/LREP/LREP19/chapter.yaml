@@ -1,0 +1,40 @@
+id: LREP19
+title: "Dirac方程式の共変性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP18
+  - QFT1
+official_scope: []
+learning_objectives:
+  - 自由Dirac作用素を計量と成分用行列の規約から構成できる
+  - 連鎖律とSpin行列の変換からLorentz共変性を導ける
+  - 反交換関係からKlein–Gordon作用素への因数分解を計算できる
+  - 随伴方程式と電流の保存・時間成分の非負性を導ける
+  - 質量項による左右成分の結合と電荷共役された解を説明できる
+definitions:
+  - { id: LREP19-DEF-01, name: 自由Dirac作用素 }
+  - { id: LREP19-DEF-02, name: 自由Dirac場の電流 }
+theorems:
+  - { id: LREP19-THM-01, name: 自由Dirac方程式のLorentz共変性 }
+  - { id: LREP19-PROP-02, name: Dirac作用素による波動作用素の因数分解 }
+  - { id: LREP19-PROP-03, name: 自由Dirac方程式の随伴方程式 }
+  - { id: LREP19-THM-04, name: 自由Dirac電流の保存 }
+canonical_examples:
+  - 空間一定の自由Dirac解と保存電流
+  - Klein–Gordon方程式の解がDirac方程式を満たさない例
+problem_patterns:
+  - LREP19-REST
+  - LREP19-FACTOR
+  - LREP19-ADJOINT
+  - LREP19-CURRENT
+  - LREP19-ROTATION
+  - LREP19-MASSLESS
+  - LREP19-CONSTRUCT
+  - LREP19-CONJUGATE
+  - LREP19-MASS-COUPLING
+  - LREP19-MIXED-CURRENT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }

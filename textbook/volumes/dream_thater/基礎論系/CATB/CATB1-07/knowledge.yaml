@@ -1,0 +1,34 @@
+chapter: CATB1-07
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT2-02
+  - CAT1-09
+  - GRP2
+  - NSA2
+
+concepts:
+  - id: category.lawvere-theory
+    name: Lawvere理論
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lawvere理論）"]
+    requires: [category.small-category, category.finite-product]
+  - id: category.lawvere-term-theory
+    name: 項からのLawvere理論の構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（項からのLawvere理論の構成）"]
+    requires: [category.lawvere-theory, logic.term, logic.term-evaluation]
+  - id: category.lawvere-set-model
+    name: Lawvere理論の集合値モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lawvere理論の集合値モデル）"]
+    requires: [category.lawvere-theory, category.covariant-functor, category.natural-transformation]
+  - id: category.lawvere-model-algebra
+    name: 集合値モデルと代数の対応
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（集合値モデルと代数の対応）"]
+    requires: [category.lawvere-term-theory, category.lawvere-set-model, category.natural-inverse, category.equivalence-of-categories]

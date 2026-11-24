@@ -154,8 +154,8 @@ test('G3 legends derive their initial step and GPU buffer dimensions from the ru
   assert.match(obstacle.source,/wallAmplitude.*advanceObstacleStep.*solid.frag/);
   assert.equal(obstacle.pixels,'960×320 px（GPU描画バッファ）');
   const particles=sceneDescription('FCG7',{width:960,height:320,steps:8});
-  assert.match(particles.grid,/8×8.*各16個.*3列/);
-  assert.match(particles.color,/水色.*橙.*R8/);
+  assert.match(particles.grid,/24×24.*各2304個.*3列/);
+  assert.match(particles.color,/PIC粒子.*FLIP粒子.*4色.*R8/);
   assert.equal(particles.clock,'物理step 8、t=0.64 s（dt=0.08 s）');
   assert.match(particles.mode,/picMix=0.*flipMix=1.*最近傍/);
   assert.match(particles.source,/particle.js.*particle.frag/);

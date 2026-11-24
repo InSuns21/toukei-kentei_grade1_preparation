@@ -79,7 +79,7 @@ chapters:
     title: "電荷共役とMajorana条件"
   - id: LREP19
     path: textbook/volumes/dream_thater/代数系/LREP/LREP19
-    status: planned
+    status: completed
     title: "Dirac方程式の共変性"
   - id: LREP20
     path: textbook/volumes/dream_thater/代数系/LREP/LREP20
