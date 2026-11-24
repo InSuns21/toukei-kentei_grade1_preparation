@@ -1,0 +1,40 @@
+id: LREP11
+title: "有限次元Lorentz既約表現"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LREP10
+official_scope: []
+learning_objectives:
+  - 複素化した二因子の同時最高ウェイトから有限次元複素既約表現を分類できる
+  - 左右の多項式表現を有限の被覆群作用として構成し微分を検算できる
+  - 次元と被覆核の符号からLorentz群への降下を判定できる
+  - 四元ベクトルの複素化と二因子表現の同値性および回転制限を確認できる
+  - 対角boostの固有値と直交分解から有限次元正定値ユニタリ表現の自明性を証明できる
+definitions:
+  - { id: LREP11-DEF-01, name: 左右次数による表現 }
+theorems:
+  - { id: LREP11-THM-01, name: 二因子の有限次元複素既約表現の分類 }
+  - { id: LREP11-THM-02, name: 被覆群の有限次元既約表現 }
+  - { id: LREP11-THM-03, name: Lorentz群への降下条件 }
+  - { id: LREP11-PROP-01, name: 四元ベクトルの複素化 }
+  - { id: LREP11-THM-04, name: 有限次元正定値ユニタリ表現の自明性 }
+canonical_examples:
+  - 二つの一次多項式空間上の可換作用
+  - スカラー・二成分・四元ベクトル表現の次元と降下
+  - 四元行列への絡作用と回転スピン分解
+  - 対角boostの固有値による非ユニタリ性
+problem_patterns:
+  - LREP11-DIMENSION-DESCENT
+  - LREP11-PAIR-LADDER
+  - LREP11-INVERSE-ADJOINT
+  - LREP11-BOOST-EIGENVALUES
+  - LREP11-JOINT-HIGHEST-WEIGHT
+  - LREP11-WEIGHT-PROJECTION
+  - LREP11-ROTATION-RESTRICTION
+  - LREP11-VECTOR-INTERTWINER
+  - LREP11-SIX-DIMENSIONAL-REPRESENTATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 3 }

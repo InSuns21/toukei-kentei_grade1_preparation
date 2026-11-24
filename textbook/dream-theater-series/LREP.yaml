@@ -47,7 +47,7 @@ chapters:
     title: "SL(2,C)によるLorentz群の被覆"
   - id: LREP11
     path: textbook/volumes/dream_thater/代数系/LREP/LREP11
-    status: planned
+    status: completed
     title: "有限次元Lorentz既約表現"
   - id: LREP12
     path: textbook/volumes/dream_thater/代数系/LREP/LREP12

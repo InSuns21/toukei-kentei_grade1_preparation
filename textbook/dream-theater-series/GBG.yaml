@@ -120,7 +120,7 @@ chapters:
     title: "BPST instantonは実際に何を満たすか"
   - id: GBG29
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG29
-    status: planned
+    status: completed
     title: "なぜ任意の多様体にspin構造があるとは限らないか"
   - id: GBG30
     path: textbook/volumes/dream_thater/幾何系/GBG/GBG30

@@ -8,6 +8,7 @@ prerequisites:
   - PML2-05
   - PML2-11
   - PML2-17
+  - FLUID45
 official_scope: []
 learning_objectives:
   - PDE・評価領域・参照解・同一資源条件を固定した科学計算の評価仕様を定義できる
