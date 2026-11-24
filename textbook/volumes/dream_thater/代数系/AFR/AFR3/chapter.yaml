@@ -2,7 +2,7 @@ id: "AFR3"
 title: "保型スペクトルとカスプ形式"
 volume: "foundations"
 status: supplementary
-prerequisites: [AFR2, FA7, F0-02C2]
+prerequisites: [AFR2, FA7, F0-02C2, PDE6, QM5, GPDE5]
 official_scope: []
 learning_objectives:
   - 基本領域の有限面積と重さ0の内積を計算できる
