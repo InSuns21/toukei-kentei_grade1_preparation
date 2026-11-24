@@ -41,7 +41,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（一般化Bernoulli数）**
-> $\psi$ を導手 $f=1$ または $p$ の原始Dirichlet文字とする。整数 $k\ge1$ に対し
+> $\psi$ を導手 $f\ge1$ の原始Dirichlet文字とする。整数 $k\ge1$ に対し
 >
 $$
 B_{k,\psi}=f^{k-1}\sum_{a=1}^f\psi(a)B_k(a/f)
@@ -66,7 +66,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Dirichlet L関数のBernoulli特殊値）**
-> $\psi$ を導手 $f=1$ または $p$ の原始Dirichlet文字とし、$k\ge1$ を整数とする。複素側のDirichlet L関数を解析接続した値は
+> $\psi$ を導手 $f\ge1$ の原始Dirichlet文字とし、$k\ge1$ を整数とする。複素側のDirichlet L関数を解析接続した値は
 >
 $$
 L(1-k,\psi)=-\frac{B_{k,\psi}}{k}
@@ -97,7 +97,7 @@ $$
 \Gamma(z)L(z,\psi)=\int_0^\infty t^{z-1}h_\psi(t)\,dt.
 $$
 
-和と積分の交換は、$\sigma=\operatorname{Re}z>1$ として絶対積分の和が $\Gamma(\sigma)\sum_{n\ge1}n^{-\sigma}<\infty$ であることから正当化できます。各項で $u=nt$ と置けば $\Gamma(z)n^{-z}$ が得られます。
+[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) による和と積分の交換は、$\sigma=\operatorname{Re}z>1$ として絶対積分の和が $\Gamma(\sigma)\sum_{n\ge1}n^{-\sigma}<\infty$ であることから正当化できます。各項で $u=nt$ と置けば $\Gamma(z)n^{-z}$ が得られます。
 
 $IWA14$ の [Bernoulli多項式の生成関数](../IWA14/index.md#def-iwa14-bernoulli-polynomial) に変数 $-ft$ を入れると
 
@@ -243,7 +243,15 @@ $t\bmod p$ の係数は法 $p$ で非零なので、除くべき $t$ はちょ�
 
 <!-- formal-statement-start -->
 > **定義（Kubota–Leopoldt p進L関数）**
-> $p$ を奇素数、$i\in\{0,\ldots,p-2\}$ とし、上記の条件を満たす整数 $c>1$ を選ぶ。$s\in\mathbb Z_p$ に対し
+> $p$ を奇素数、$i\in\{0,\ldots,p-2\}$ とする。
+> 整数 $c>1$ は法 $p$ で位数 $p-1$ を持ち、
+>
+$$
+c^{p-1}\not\equiv1\pmod{p^2}
+$$
+>
+> を満たす。$\mu_c$ は [正則化測度](../IWA14/index.md#def-iwa14-regularized-measure)、$\langle x\rangle=x/\omega(x)$ とする。
+> $s\in\mathbb Z_p$ に対し
 >
 $$
 H_{i,c}(s)=\int_{\mathbb Z_p^\times}\omega(x)^{i-1}\langle x\rangle^{-s}\,d\mu_c(x),
@@ -402,7 +410,13 @@ g^u-1=uV(u),\qquad
 V(u)=\sum_{j\ge1}\frac{p^j}{j!}\prod_{h=1}^{j-1}(u-h).
 $$
 
-$j=1$ の空積は1です。多項式の各係数の付値は $j-v_p(j!)$ 以上。$v_p(j!)=\sum_{r\ge1}\lfloor j/p^r\rfloor\le(j-1)/(p-1)$ なのでこれは無限に増え、$j\ge2$ なら2以上です。従って係数ごとに収束する冪級数で、$V(0)\equiv p\bmod p^2$。$T$ は $u=0$ で単純零点を持ち、$TF_0$ の定数項は非零なので $s=1$ の極も単純です。
+$j=1$ の空積は1です。多項式の各係数の付値は $j-v_p(j!)$ 以上。$j=\sum_{r=0}^{m}a_rp^r$ を $p$ 進法で表すと、階乗中の $p$ の因子を数えて
+$$
+v_p(j!)=\sum_{r\ge1}\lfloor j/p^r\rfloor
+=\frac{j-\sum_{r=0}^m a_r}{p-1}
+\le\frac{j-1}{p-1}
+$$
+となります。真ん中の等号は各桁 $a_r$ の寄与が $a_r(1+p+\cdots+p^{r-1})$ であることから得られます。従って $j-v_p(j!)$ は無限に増え、$j\ge2$ なら2以上です。従って係数ごとに収束する冪級数で、$V(0)\equiv p\bmod p^2$。$T$ は $u=0$ で単純零点を持ち、$TF_0$ の定数項は非零なので $s=1$ の極も単純です。
 
 最後に $c$ の違いは関数の値に影響しないことを [補間公式](#thm-iwa15-interpolation) で示しました。冪級数の一意性も確認します。二つの級数の差を取り、$i=0$ の場合だけ $T$ を掛けると、整数係数級数 $Q(T)$ が得られます。$T=g^{p^n}-1\ne0$ は $0$ に収束し、$Q(T)=0$ です。もし $Q$ が非零で最低次の非零係数が $q_m$ なら、$Q(T)/T^m=q_m+\sum_{j>m}q_jT^{j-m}$ は $T\to0$ で $q_m\ne0$ へ収束します。これは矛盾なので $Q=0$。従って冪級数の表示も一意です。
 <!-- proof-end -->
@@ -466,7 +480,7 @@ $$
 L_p(0,\chi)=(1-\eta(7))L(0,\eta)=0.
 $$
 
-第2節のBernoulli計算と同じ有限和（法3）で $B_{1,\eta}=-1/3$、複素側では $L(0,\eta)=1/3$ です。複素側の値そのものではなくEuler因子が消える、このような現象を自明零点と呼びます。この例では $p$ が $\eta$ の導手を割らないことが重要です。導手が1または $p$ の非自明偶成分ではこの機構による零点はありません。実際 $\psi_k(p)=0$ なら因子は1、$\psi_k=1,k\ge2$ なら $1-p^{k-1}\ne0$、$k=1,\psi_k=1$ なら $i=1$ で奇成分だからです。
+[一般化Bernoulli数](#def-iwa15-generalized-bernoulli) に $f=3,k=1$ を代入すると $B_{1,\eta}=-1/3$、[特殊値公式](#thm-iwa15-complex-values) から複素側では $L(0,\eta)=1/3$ です。複素側の値そのものではなくEuler因子が消える、このような現象を自明零点と呼びます。この例では $p$ が $\eta$ の導手を割らないことが重要です。導手が1または $p$ の非自明偶成分ではこの機構による零点はありません。実際 $\psi_k(p)=0$ なら因子は1、$\psi_k=1,k\ge2$ なら $1-p^{k-1}\ne0$、$k=1,\psi_k=1$ なら $i=1$ で奇成分だからです。
 
 ## 7. 演習と詳細解答
 
@@ -580,7 +594,7 @@ A1で求めた $e=\ell(2)\equiv2\bmod3$ を使います。[冪級数表示](#thm
 $p=13$、導手3の奇指標 $\eta$ を $\eta(1)=1,\eta(2)=-1$ とし、$\chi=\eta\omega$ とする。一般形のKubota–Leopoldt補間公式を用いて $L_p(0,\chi)$ を求めよ。$\chi$ の偶奇と、複素特殊値が零でないことも確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\eta(-1)=-1$、$\omega(-1)=-1$ なので $\chi(-1)=1$。法3と法13の非自明な指標の積であり、導手は39です。$k=1$ で $\chi\omega^{-1}=\eta$。$13\equiv1\bmod3$ から $\eta(13)=1$。第6節で引用した一般補間公式の因子は $1-\eta(13)13^0=0$。
+**詳細解答。** $\eta(-1)=-1$、$\omega(-1)=-1$ なので $\chi(-1)=1$。法3と法13の非自明な指標の積であり、導手は39です。$k=1$ で $\chi\omega^{-1}=\eta$。$13\equiv1\bmod3$ から $\eta(13)=1$。第6節で引用した一般補間公式の因子は $1-\eta(13)13^0=0$。[一般化Bernoulli数](#def-iwa15-generalized-bernoulli) と [特殊値公式](#thm-iwa15-complex-values) を使うと次の値を得ます。
 $$
 B_{1,\eta}=(1/3-1/2)-(2/3-1/2)=-1/3,
 \qquad L(0,\eta)=1/3.
