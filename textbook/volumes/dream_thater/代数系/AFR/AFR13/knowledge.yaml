@@ -23,12 +23,12 @@ concepts:
     name: "局所三角分解"
     kind: theorem
     introduction: formal
-    requires: [automorphic-forms.congruence-subgroups, number-theory.p-adic-dvr]
+    requires: [automorphic-forms.congruence-subgroups, number-theory.p-adic-dvr, number-theory.p-adic-valuation]
   - id: automorphic-forms.padic-principal-series
     name: "p進正規化主系列"
     kind: definition
     introduction: formal
-    requires: [automorphic-forms.padic-smooth, automorphic-forms.local-triangular-decomposition]
+    requires: [automorphic-forms.padic-smooth, automorphic-forms.local-triangular-decomposition, automorphic-forms.real-principal-circle, automorphic-forms.local-additive-measure]
   - id: automorphic-forms.principal-congruence-invariants
     name: "主系列の合同固定空間"
     kind: theorem
@@ -38,7 +38,7 @@ concepts:
     name: "球ベクトルと不分岐表現"
     kind: definition
     introduction: formal
-    requires: [automorphic-forms.padic-smooth, automorphic-forms.congruence-subgroups]
+    requires: [automorphic-forms.padic-smooth, automorphic-forms.congruence-subgroups, automorphic-forms.unramified-zeta-factor]
   - id: automorphic-forms.principal-spherical-invariants
     name: "主系列の球固定空間"
     kind: theorem
