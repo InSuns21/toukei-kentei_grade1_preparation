@@ -46,6 +46,6 @@ concepts:
     name: Diracスピノルのヘリシティ
     kind: definition
     introduction: formal
-    aliases: [ヘリシティ, helicity]
+    aliases: [Diracスピノルのhelicity]
     introduction_aliases: [helicity演算子とDiracスピノルのヘリシティ]
     requires: [representation.helicity-operator]
