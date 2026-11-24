@@ -140,7 +140,7 @@ $$
 \le\max(\|f_n-f\|_\infty,\|f_m-f\|_\infty).
 $$
 
-右辺は $n,m\to\infty$ で零へ行きます。$\mathbb Z_p$ は完備なので有限和の値は収束します。線形性は有限和から極限へ移り、評価式は $f_n\to f$ と $|I_\mu(f_n)|_p\le\|f_n\|_\infty\le\|f\|_\infty$ から従います。[指示関数](../../../../解析系/F0/F0-00P1/index.md#def-f0-00p1-random-variable) $\mathbf1_{a+p^n\mathbb Z_p}$ は局所定数であり、その積分は定義上 $\mu_n(a)$ です。
+右辺は $n,m\to\infty$ で零へ行きます。$\mathbb Z_p$ は完備なので有限和の値は収束します。線形性は有限和から極限へ移り、評価式は $f_n\to f$ と $|I_\mu(f_n)|_p\le\|f_n\|_\infty\le\|f\|_\infty$ から従います。[指示関数](../../../解析系/F0/F0-00P1/index.md#def-f0-00p1-random-variable) $\mathbf1_{a+p^n\mathbb Z_p}$ は局所定数であり、その積分は定義上 $\mu_n(a)$ です。
 
 最後に、局所定数関数上で同じ積分を持つ連続線形写像 $J$ について $J(f_n)=I_\mu(f_n)$ です。$f_n\to f$ と両者の連続性から $J(f)=I_\mu(f)$ となり、一意です。
 <!-- proof-end -->
@@ -620,7 +620,7 @@ $$
 - Level: B
 - ID: IWA13-B1
 
-二つの [連続線形汎関数](../../../../解析系/F0/F0-02C2/index.md#def-f0-02c2-continuous-linear-functional) $L_1,L_2:C(\mathbb Z_p,\mathbb Z_p)\to\mathbb Z_p$ が、全ての剰余類の指示関数で一致するとき、全ての連続関数で一致することを証明せよ。
+二つの [連続線形汎関数](../../../解析系/F0/F0-02C2/index.md#def-f0-02c2-continuous-linear-functional) $L_1,L_2:C(\mathbb Z_p,\mathbb Z_p)\to\mathbb Z_p$ が、全ての剰余類の指示関数で一致するとき、全ての連続関数で一致することを証明せよ。
 
 <!-- solution-start -->
 **詳細解答。** 任意の局所定数関数 $g$ はある $n$ について
@@ -672,7 +672,7 @@ $$
 $\mu_n(a)=p^{-n}\in\mathbb Q_p$ とする。これが分布関係を満たすことを確かめ、対応する有限和が $C(\mathbb Z_p,\mathbb Q_p)$ 上の連続線形汎関数にならないことを証明せよ。
 
 <!-- solution-start -->
-**詳細解答。** 各親剰余類の $p$ 個の子の値の和は $p\cdot p^{-(n+1)}=p^{-n}=\mu_n(a)$ なので分布です。$g_n=\mathbf1_{p^n\mathbb Z_p}$ とすると $\|g_n\|_\infty=1$ ですが、その有限和の値は $I(g_n)=\mu_n(0)=p^{-n}$ で、$|I(g_n)|_p=p^n$ は有界ではありません。[連続線形汎関数の有界性](../../../../解析系/F0/F0-02C2/index.md#thm-f0-02c2-continuity-boundedness)と同様に、連続線形汎関数なら作用素の値は $\|g\|_\infty$ の定数倍で抑えられなければならず、この列はその条件に反します。したがって本講の積分へは延長できません。
+**詳細解答。** 各親剰余類の $p$ 個の子の値の和は $p\cdot p^{-(n+1)}=p^{-n}=\mu_n(a)$ なので分布です。$g_n=\mathbf1_{p^n\mathbb Z_p}$ とすると $\|g_n\|_\infty=1$ ですが、その有限和の値は $I(g_n)=\mu_n(0)=p^{-n}$ で、$|I(g_n)|_p=p^n$ は有界ではありません。[連続線形汎関数の有界性](../../../解析系/F0/F0-02C2/index.md#thm-f0-02c2-continuity-boundedness)と同様に、連続線形汎関数なら作用素の値は $\|g\|_\infty$ の定数倍で抑えられなければならず、この列はその条件に反します。したがって本講の積分へは延長できません。
 <!-- solution-end -->
 
 <a id="ex-iwa13-b4"></a>
