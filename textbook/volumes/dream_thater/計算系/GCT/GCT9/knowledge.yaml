@@ -1,0 +1,56 @@
+chapter: GCT9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GCT8
+  - CPLX4
+forward_references: []
+concepts:
+  - id: graph-counting.sharp-p
+    name: "クラス #P"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（クラス #P）"]
+    requires: [theoretical-computer-science.polynomial-certificate, theoretical-computer-science.polynomial-verifier]
+  - id: graph-counting.accepting-path-count
+    name: "受理経路数による特徴付け"
+    kind: theorem
+    introduction_aliases: ["定理（受理経路数による特徴付け）"]
+    requires: [graph-counting.sharp-p, theoretical-computer-science.nondeterministic-polynomial-time]
+  - id: graph-counting.fp
+    name: "関数クラス FP"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（関数クラス FP）"]
+    requires: [theoretical-computer-science.polynomial-time-machine]
+  - id: graph-counting.fp-in-sharp-p
+    name: "非負整数値 FP の包含"
+    kind: theorem
+    introduction_aliases: ["定理（非負整数値 FP の包含）"]
+    requires: [graph-counting.fp, graph-counting.sharp-p]
+  - id: graph-counting.counting-np-support
+    name: "正の計数と NP の対応"
+    kind: theorem
+    introduction_aliases: ["定理（正の計数と NP の対応）"]
+    requires: [graph-counting.accepting-path-count, graph-counting.fp, theoretical-computer-science.np-ntm-equivalence, theoretical-computer-science.p-in-np]
+  - id: graph-counting.sharp-p-closure
+    name: "#P の和と積の閉性"
+    kind: theorem
+    introduction_aliases: ["定理（#P の和と積の閉性）"]
+    requires: [graph-counting.sharp-p]
+  - id: graph-counting.gap-p
+    name: "クラス GapP"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（クラス GapP）"]
+    requires: [graph-counting.sharp-p]
+  - id: graph-counting.gap-path-count
+    name: "GapP の経路差による特徴付け"
+    kind: theorem
+    introduction_aliases: ["定理（GapP の経路差による特徴付け）"]
+    requires: [graph-counting.gap-p, graph-counting.accepting-path-count]
+  - id: graph-counting.gap-p-closure
+    name: "GapP の和・差・積の閉性"
+    kind: theorem
+    introduction_aliases: ["定理（GapP の和・差・積の閉性）"]
+    requires: [graph-counting.gap-p, graph-counting.sharp-p-closure]
