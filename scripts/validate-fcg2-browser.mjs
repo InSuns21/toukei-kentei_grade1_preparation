@@ -111,9 +111,9 @@ try {
   console.log('FCG2 time checkpoint advances physically, on the same GPU scene: PASS');
   await evaluate('(()=>{const e=document.getElementById("parameter-shear");e.value="0";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));})()');
   await waitFor('document.querySelector("#status")?.textContent.includes("検算に合格") && document.getElementById("js-source").value.includes("const shear=0;")');
-  await click('reset');await click('run');
-  await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
-  await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="次の節目へ")).click()');
+  // Restore the original physical parameter without resetting the chosen time.
+  await evaluate('(()=>{const e=document.getElementById("parameter-shear");e.value="3";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格") && document.getElementById("js-source").value.includes("const shear=3;")',25000);
   await waitFor('document.querySelector("#fcg2-time-display")?.textContent.includes("t=3.14")',10000);
 
   // Editing fragment color changes GPU pixels; keep q live to prevent the
