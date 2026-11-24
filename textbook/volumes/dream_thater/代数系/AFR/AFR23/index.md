@@ -14,7 +14,11 @@ $x\ge1$ は実数、$s=\sigma+it$ は複素数とします。自然対数を用�
 
 [von Mangoldt関数](../../NT/NT8/index.md#def-nt8-von-mangoldt) $\Lambda(n)$ は素数冪 $n=p^h$ に $\log p$、それ以外に0を与えます。
 
-[Dirichlet文字](../../ANT/ANT3/index.md#def-ant3-character) $\chi$ は既約剰余類の乗法的な文字を非単元で0とした関数です。ここでは[原始Dirichlet文字](../../ANT/ANT3/index.md#def-ant3-primitive)を使います。[Dirichlet L関数](../../ANT/ANT3/index.md#def-ant3-l-function) $L(s,\chi)$ は実部 $\sigma>1$ で $\sum_{n\ge1}\chi(n)n^{-s}$ と表され、法1の定数文字 $1$ に対しては $L(s,1)=\zeta(s)$ です。$L'(s,\chi)=dL(s,\chi)/ds$ は文字 $\chi$ を固定した複素変数 $s$ の微分を表します。
+[Dirichlet文字](../../ANT/ANT3/index.md#def-ant3-character) $\chi$ は既約剰余類の乗法的な文字を非単元で0とした関数です。ここでは[原始Dirichlet文字](../../ANT/ANT3/index.md#def-ant3-primitive)を使います。
+
+[Dirichlet L関数](../../ANT/ANT3/index.md#def-ant3-l-function) $L(s,\chi)$ は実部 $\sigma>1$ で $\sum_{n\ge1}\chi(n)n^{-s}$ と表され、法1の定数文字 $1$ に対しては $L(s,1)=\zeta(s)$ です。
+
+$L'(s,\chi)=dL(s,\chi)/ds$ は文字 $\chi$ を固定した複素変数 $s$ の微分を表します。
 
 [一次平滑化したChebyshev和](../../ANT/ANT7/index.md#def-ant7-smoothed-psi)で使った重み $1-n/x$ を今回は $x/n$ 倍します。これは積分変換に $s-1$ という分母を作ります。例えば $x=3$ では $n=2$ の項に $1/2$、$n=3$ の項に0を掛けます。$v_+=\max(v,0)$ と書きます。
 
@@ -379,7 +383,9 @@ $t\in H$ は列を移すための元、$[r]$ は符号を同一視した剰余�
 
 各素数冪の係数は $c(r)=(1-\chi_d(r))\log p$ です。$p=d$ でも $\chi_d(d^h)=0$ なので係数は $\log d$。他方 $p=2,q$ では $\chi_d(p)=1$ となり、係数が0なので除外できます。
 
-ここで [2の補充法則](../../NT/NT3/index.md#thm-nt3-supplement-two)より $\chi_d(2)=(-1)^{(d^2-1)/8}=1$ です。また $q,d$ はともに4を法として3と合同なので、[二次相互法則](../../NT/NT3/index.md#thm-nt3-quadratic-reciprocity)と [−1の補充法則](../../NT/NT3/index.md#thm-nt3-supplement-minus-one)より
+ここで [第二補充法則](../../NT/NT3/index.md#thm-nt3-supplement-two)より $\chi_d(2)=(-1)^{(d^2-1)/8}=1$ です。
+
+また $q,d$ はともに4を法として3と合同なので、[平方剰余の相互法則](../../NT/NT3/index.md#thm-nt3-quadratic-reciprocity)より $\chi_d(q)=-\chi_q(d)$ です。さらに [第一補充法則](../../NT/NT3/index.md#thm-nt3-supplement-minus-one)より $\chi_q(-1)=-1$ です。これらを合わせると
 
 $$
 \chi_d(q)=-\chi_q(d)=-\chi_q(-1)=1.
@@ -522,7 +528,13 @@ $$
 
 (B)は平均二乗評価などを用いた補助素数の選択であり、固定した任意の文字のGRHを仮定してはいません。(C)は大きい打切り上限で使う一様評価です。R Part IIIでは文献の零点密度評価・素数定理等からこれらを導いています。本講はそれらの外部定理の証明を再構成せず、(B),(C)から先を確認します。
 
-各セルの係数は二つの符号条件と有限群の文字による列の指示関数の積です。[Dirichlet文字の直交関係](../../ANT/ANT3/index.md#thm-ant3-orthogonality)を法 $N$ の単元群に適用します。$\widehat H$ を $H$ の複素文字全体とします。その元は、法 $N$ の文字のうち $\xi(-1)=1$ を満たすものに対応します。法 $N$ の単元 $a_0,b_0$ を固定します。$\mathbf 1$ は条件が成立すると1、それ以外で0となる指示関数です。全文字の直交和に $(1+\xi(-1))/2$ を掛けて足すと、符号同一視後の列の指示関数が得られます。すなわち
+各セルの係数は二つの符号条件と有限群の文字による列の指示関数の積です。[Dirichlet文字の直交関係](../../ANT/ANT3/index.md#thm-ant3-orthogonality)を法 $N$ の単元群に適用します。
+
+$\widehat H$ を $H$ の複素文字全体とします。その元は、法 $N$ の文字のうち $\xi(-1)=1$ を満たすものに対応します。
+
+法 $N$ の単元 $a_0,b_0$ を固定します。$\mathbf 1$ は条件が成立すると1、それ以外で0となる指示関数です。
+
+全文字の直交和に $(1+\xi(-1))/2$ を掛けて足すと、符号同一視後の列の指示関数が得られます。すなわち
 
 $$
 \begin{aligned}
