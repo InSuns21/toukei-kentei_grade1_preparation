@@ -26,7 +26,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep15-gamma -->
-**定義の確認。** 本講では前講と同じ模型を選びます。
+**定義の確認**。 本講では前講と同じ模型を選びます。
 
 $$
 \gamma^0=\begin{pmatrix}0&I\\-I&0\end{pmatrix},
@@ -77,7 +77,7 @@ $j=k$ なら $2I_4$、$j\ne k$ なら零です。時間同士は $-2I_4$、時�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep15-even -->
-**定義の確認。** $b=e_0e_3$ は二因子の積です。[Clifford反交換関係](../LREP14/index.md#prop-lrep14-anticommutator)から $b^2=-e_0^2e_3^2=1$。よって任意の実数 $a,c$ に対し $a+cb$ は偶部分に属します。二つの偶長の語を連結すれば偶長であり、有限和に分配律を適用すると積について閉じます。単位元も含むので部分代数です。
+**定義の確認**。 $b=e_0e_3$ は二因子の積です。[Clifford反交換関係](../LREP14/index.md#prop-lrep14-anticommutator)から $b^2=-e_0^2e_3^2=1$。よって任意の実数 $a,c$ に対し $a+cb$ は偶部分に属します。二つの偶長の語を連結すれば偶長であり、有限和に分配律を適用すると積について閉じます。単位元も含むので部分代数です。
 <!-- definition-example-end -->
 
 積を逆順にする操作を導入します。これは逆元そのものではなく、語の順番を反対にする操作です。
@@ -96,7 +96,7 @@ $$
 テンソル代数上で逆順にすると、積の順序が反転します。商を定める生成関係 $v^2-\eta(v,v)1$ 自体は不変で、左右から掛けた語は左右を入れ替えた同じ種類の語になります。従ってイデアルが保たれ、商でこの写像が定まります。二回逆順にすれば元に戻り、$\widetilde{st}=\widetilde t\,\widetilde s$ です。
 
 <!-- definition-example-start: def-lrep15-reversion -->
-**定義の確認。** $\widetilde{e_0e_3}=e_3e_0=-e_0e_3$ です。$s=2+e_0e_3$ なら $\widetilde s=2-e_0e_3$、再度逆順にすると $s$ に戻ります。$s\widetilde s=4-(e_0e_3)^2=3$ であり、一般には $\widetilde s$ は $s^{-1}$ ではありません。
+**定義の確認**。 $\widetilde{e_0e_3}=e_3e_0=-e_0e_3$ です。$s=2+e_0e_3$ なら $\widetilde s=2-e_0e_3$、再度逆順にすると $s$ に戻ります。$s\widetilde s=4-(e_0e_3)^2=3$ であり、一般には $\widetilde s$ は $s^{-1}$ ではありません。
 <!-- definition-example-end -->
 
 ## 3. 偶部分を二次行列で読む
@@ -159,7 +159,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lrep15-spin -->
-**定義の確認。** $b=e_0e_3$ とし $s=\cosh u+b\sinh u$（$u\in\mathbb R$）を取ります。偶部分に属し、$\widetilde b=-b$、$b^2=1$ なので
+**定義の確認**。 $b=e_0e_3$ とし $s=\cosh u+b\sinh u$（$u\in\mathbb R$）を取ります。偶部分に属し、$\widetilde b=-b$、$b^2=1$ なので
 
 $$
 s\widetilde s=(\cosh u+b\sinh u)(\cosh u-b\sinh u)
@@ -198,15 +198,19 @@ $$
 
 [実偶Clifford代数の行列模型](#thm-lrep15-even-model)により上側ブロックが $B$ のとき、$s\widetilde s$ の上側は
 
-$
+$$
+
 B\operatorname{adj}B=(\det B)I
-$
+
+$$
 
 です。上側ブロックが元を一意に決めるので、
 
-$
+$$
+
 s\widetilde s=1\quad\Longleftrightarrow\quad\det B=1.
-$
+
+$$
 
 この場合 $\operatorname{adj} B=B^{-1}$ です。上側ブロックは積で通常の行列積を取り、単位元の上側は $I$、逆元は上側 $B^{-1}$ の元です。
 
@@ -378,11 +382,13 @@ $$
 > **命題（単位ベクトル積によるSpin群の構成）**  
 > $V=\mathbb R^4$、$\eta=\operatorname{diag}(-1,1,1,1)$ とする。$\operatorname{Spin}^+(1,3)$ は、次の条件を満たす偶数個のベクトルの積全体に等しい。
 
-$
+$$
+
 s=v_1\cdots v_{2m},\qquad
 \eta(v_k,v_k)\in\{-1,1\},\qquad
 \prod_{k=1}^{2m}\eta(v_k,v_k)=1.
-$
+
+$$
 
 > ここで $m$ は非負整数、各 $v_k$ は $V$ の元とし、空積も含める。
 <!-- formal-statement-end -->
@@ -594,11 +600,13 @@ $$
 
 第二因子の二乗は $(1+1-e_2e_3-e_3e_2)/2=1$。第一因子の二乗も1です。上側は [実偶Clifford代数の行列模型](#thm-lrep15-even-model)により $(I-i\sigma_1)/\sqrt2$ です。$p=e_2e_3$ とすると $pe_2=-e_3$、$e_2p=e_3$、$pe_2p=e_2$ です。従って
 
-$
+$$
+
 s e_2s^{-1}
 =\frac{e_2+e_2p-pe_2-pe_2p}{2}
 =\frac{2e_3}{2}=e_3.
-$
+
+$$
 
 $p$ は $e_0,e_1$ と可換なのでこれらの方向は固定され、正の $x$ 軸回転です。
 <!-- solution-end -->
