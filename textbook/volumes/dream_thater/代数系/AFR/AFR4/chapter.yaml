@@ -2,7 +2,7 @@ id: "AFR4"
 title: "Whittaker係数・Bessel関数"
 volume: "foundations"
 status: supplementary
-prerequisites: [AFR3, ODE2, ODE6]
+prerequisites: [AFR3, ODE2, ODE6, F0-00D2B, RA5]
 official_scope: []
 learning_objectives:
   - 非零Fourier係数の方程式を変形Bessel方程式に変換できる
