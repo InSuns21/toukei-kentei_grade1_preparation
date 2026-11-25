@@ -428,7 +428,28 @@ $$
 =\int_0^1g(\eta,f)dt.
 $$
 
-弱微分の定義から $(-J\zeta)'=-f$、すなわち $\zeta'=-J f\in L^2$。従って $\zeta\in H^1$ であり $J\zeta'=f$。改めて部分積分すると全ての $\eta$ で $[g(J\eta,\zeta)]_0^1=0$。一方の端を零、他方を任意の $w\in W_j$ とする一次関数を選べるので、各端で $\omega(w,\zeta(j))=0$ が全ての $w\in W_j$ に対し成立する。[Lagrange部分空間と計量直交補](../../SYM/SYM8/index.md#prop-sym8-lagrangian-orthogonal)から $(JW_j)^\perp=W_j$ であり、この条件は $\zeta(j)\in W_j$ に等しい。よって随伴の定義域は元の定義域に含まれ、対称性による逆の包含も成立する。作用は $f=J\zeta'$ で一致する。
+弱微分の定義から $(-J\zeta)'=-f$ となる。両辺に $J$ を作用させると
+
+$$
+\zeta'=-Jf\in L^2,\qquad J\zeta'=f.
+$$
+
+従って $\zeta\in H^1$ である。改めて部分積分すると全ての $\eta$ について
+
+$$
+[g(J\eta,\zeta)]_0^1=0.
+$$
+
+一方の端を零、他方を任意の $w\in W_j$ とする一次関数を選べる。例えば $j=0$ では $\eta(t)=(1-t)w$、$j=1$ では $\eta(t)=tw$ を選ぶ。それぞれの端で
+
+$$
+\omega(w,\zeta(j))=g(Jw,\zeta(j))=0
+\qquad(w\in W_j)
+$$
+
+が成立する。[Lagrange部分空間と計量直交補](../../SYM/SYM8/index.md#prop-sym8-lagrangian-orthogonal)から $(JW_j)^\perp=W_j$ であり、この条件は $\zeta(j)\in W_j$ に等しい。
+
+よって随伴の定義域は元の定義域に含まれ、対称性による逆の包含も成立する。作用は $f=J\zeta'$ で一致する。
 
 核について、$A\eta=0$ なら $J$ は可逆なので $\eta'=0$、従って $\eta$ は定数。端の条件はその定数が $W_0\cap W_1$ に属することに等しい。
 
