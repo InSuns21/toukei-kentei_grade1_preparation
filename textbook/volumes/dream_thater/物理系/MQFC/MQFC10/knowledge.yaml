@@ -1,0 +1,31 @@
+chapter: MQFC10
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC3, MQFC4, MQFC7, MQFC8, MQFC9]
+forward_references: []
+concepts:
+  - id: mqfc.os-conditions
+    name: "Euclid相関階層のOS条件 E0–E4"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.schwinger-moments, mqfc.positive-time-reflection-form, mqfc.schwartz]
+  - id: mqfc.os-linear-growth
+    name: "OSの線形増大条件"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.os-conditions, mqfc.tempered]
+  - id: mqfc.os-reconstruction
+    name: "1975年のOS再構成：十分条件"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.os-linear-growth, mqfc.os-conditions, mqfc.wightman-reconstruction, mqfc.os-nonnegative-generator]
+  - id: mqfc.complex-time-semigroup
+    name: "非負生成作用素の複素時間境界値"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.os-nonnegative-generator, quantum.self-adjoint-borel-functional-calculus]
+  - id: mqfc.free-wightman-boundary
+    name: "自由二点相関の実時間境界値"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.complex-time-semigroup, mqfc.time-exponential-kernel, mqfc.free-kernels, mqfc.fourier]
