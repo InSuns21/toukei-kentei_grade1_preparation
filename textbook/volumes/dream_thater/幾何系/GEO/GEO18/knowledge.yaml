@@ -5,7 +5,8 @@ prerequisites:
   - GEO15
   - GEO17
   - ATOP4
-forward_references: []
+forward_references:
+  - topology.euler-characteristic
 
 concepts:
   - id: geometry.constant-curvature-model-space
