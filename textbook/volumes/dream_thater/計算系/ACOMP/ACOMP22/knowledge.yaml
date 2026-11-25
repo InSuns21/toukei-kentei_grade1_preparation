@@ -2,7 +2,7 @@ chapter: ACOMP22
 scope: dream-theater
 coverage: complete
 prerequisites: [ACOMP21, AG1-01]
-forward_references: []
+forward_references: [algebraic-geometry.curve-uniformizer]
 concepts:
   - id: algebraic-complexity.degeneration
     name: "回路の形式的退化"
