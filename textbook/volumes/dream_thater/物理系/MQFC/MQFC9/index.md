@@ -6,7 +6,7 @@
 
 ## 1. 長さが零の観測量を取り除く
 
-実 Schwartz 試験関数 $f$ による測定を $X_f(\omega)=\omega(f)$ とします。前講と同じく円筒確率測度 $\mu$ は全測定の全絶対モーメントを持ち、時間反転 $\theta$ で不変とします。$\mathcal P_+$ は台が $t>0$ に含まれる実試験関数の測定から作る複素係数多項式の空間です。
+実 Schwartz 試験関数 $f$ による測定を $X_f(\omega)=\omega(f)$ とします。[Schwartz空間](../MQFC1/index.md#def-mqfc1-schwartz) とその連続実線形双対を前講と同じく使い、円筒確率測度 $\mu$ は全測定の全絶対モーメントを持ち、時間反転 $\theta$ で不変とします。$\mathcal P_+$ は台が $t>0$ に含まれる実試験関数の測定から作る複素係数多項式の空間です。
 
 [正時間多項式の反射形式](../MQFC8/index.md#def-mqfc8-reflection-positivity) を
 
@@ -32,7 +32,7 @@ $$
 > とし、$[F]=F+N$ と書く。内積 $\langle[F],[G]\rangle=q(F,G)$ による $D$ の完備化 $\mathcal H_{\rm OS}$ を OS Hilbert空間と呼ぶ。定数多項式の類を $\Omega=[1]$ とする。
 <!-- formal-statement-end -->
 
-この定義が成立することを、[正値形式による商空間の構成](../MQFC4/index.md#thm-mqfc4-quotient) の証明で用いた Cauchy–Schwarz 評価から確認します。$q(G,G)>0$ なら $F-\lambda G$ に $\lambda=q(G,F)/q(G,G)$ を代入して
+この構成が成立することを、[正値形式による商空間の構成](../MQFC4/index.md#thm-mqfc4-quotient) の証明で用いた Cauchy–Schwarz 評価から確認します。$q(G,G)>0$ なら $F-\lambda G$ に $\lambda=q(G,F)/q(G,G)$ を代入して
 
 $$
 0\le q(F-\lambda G,F-\lambda G)
@@ -99,7 +99,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（反射陽性からの時間並進半群）**
-> 反転不変・反射陽性で全測定の全絶対モーメントを持つ円筒確率測度 $\mu$ が全実数の時間並進で不変とする。正時間多項式 $F$ について、$U_sX_f=X_{\tau_s f}$ で定める並進が次の連続性を満たすと仮定する。
+> 反転不変・反射陽性で全測定の全絶対モーメントを持つ円筒確率測度 $\mu$ が全実数の時間並進で不変とする。正時間多項式 $F$ に対する並進 $U_sF$ は各測定 $X_f$ を $X_{\tau_s f}$ に置き換える操作で、$(\tau_s f)(t,x)=f(t-s,x)$ とする。次の連続性を仮定する。
 >
 $$
 \lim_{s\downarrow0}\|U_sF-F\|_{L^2(\mu)}=0.
@@ -196,7 +196,7 @@ $w$ を十分近く選んでから $s\downarrow0$ とすれば強連続性が従
 
 ### 自由 Gaussian 場で仮定を確認する
 
-[Gaussian場の多項式反射陽性](../MQFC8/index.md#thm-mqfc8-gaussian-extension) と [自由場の反射共分散の因子分解](../MQFC8/index.md#thm-mqfc8-reflected-covariance) により、質量 $m>0$ の自由場は反射陽性を持ちます。共分散は前講で使った Fourier 乗数による積分
+[Gaussian場の多項式反射陽性](../MQFC8/index.md#thm-mqfc8-gaussian-extension) と [自由場の反射共分散の因子分解](../MQFC8/index.md#thm-mqfc8-reflected-covariance) により、質量 $m>0$ の自由場は反射陽性を持ちます。[Euclid自由場の試験関数共分散](../MQFC5/index.md#def-mqfc5-covariance-form) は Fourier 乗数による積分
 
 $$
 B_m(f,g)=\int_{\mathbb R^d}
@@ -204,7 +204,7 @@ B_m(f,g)=\int_{\mathbb R^d}
 \frac{d^dp}{(2\pi)^d}
 $$
 
-です。$\widehat{\tau_sf}(p)=e^{-ip_0s}\hat f(p)$ なので $B_m(\tau_sf,\tau_sg)=B_m(f,g)$ です。中心化 Gaussian の有限次元分布は共分散で決まり、円筒集合の分布が一致するため測度は並進不変です。
+です。$\widehat{\tau_sf}(p)=e^{-ip_0s}\hat f(p)$ なので $B_m(\tau_sf,\tau_sg)=B_m(f,g)$ です。中心化 Gaussian の有限次元分布は共分散で決まり、円筒集合の分布が一致します。円筒集合は有限交叉で閉じ、全空間を含むので [π–λ定理](../../../解析系/F0/F0-00D3A/index.md#thm-f0-00d3a-pi-lambda) から測度は並進不変です。
 
 さらに差 $Z_s=X_{\tau_sf}-X_f$ は中心化 Gaussian であり、その分散は
 
@@ -214,7 +214,7 @@ E[Z_s^2]=\int
 \frac{d^dp}{(2\pi)^d}\to0.
 $$
 
-積分被積分関数は $4|\hat f(p)|^2/m^2$ で抑えられ、Schwartz 減衰により可積分なので優収束定理を適用できます。任意の整数 $k\ge1$ に対して [Gaussian Schwinger関数のWick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) を同じ変数 $Z_s$ の $2k$ 個の積に適用すると
+積分被積分関数は $4|\hat f(p)|^2/m^2$ で抑えられ、Schwartz 減衰により可積分なので[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)を適用できます。任意の整数 $k\ge1$ に対して [Gaussian Schwinger関数のWick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) を同じ変数 $Z_s$ の $2k$ 個の積に適用すると
 
 $$
 E[|Z_s|^{2k}]=(2k-1)!!(E[Z_s^2])^k\longrightarrow0.
@@ -258,7 +258,7 @@ $$
 
 ### 証明の見取り図
 
-時刻1の作用素 $A=T_1$ を取り出します。半群則から $A$ は非負で、時刻 $1/n$ の作用素はその非負な $n$ 乗根になります。強連続性により $A$ に零固有値はなく、スペクトル値 $a\in(0,1]$ を $-\log a$ に写せば非負エネルギーが得られます。零が連続スペクトルに含まれる可能性はあり、その場合 $H$ は非有界です。
+時間単位を固定し、時刻1の作用素 $A=T_1$ を取り出します。半群則から $A$ は非負で、時刻 $1/n$ の作用素はその非負な $n$ 乗根になります。強連続性により $A$ に零固有値はなく、スペクトル値 $a\in(0,1]$ を $-\log a$ に写せば非負エネルギーが得られます。零が連続スペクトルに含まれる可能性はあり、その場合 $H$ は非有界です。
 
 <!-- proof-start -->
 ### 証明
@@ -303,7 +303,7 @@ $$
 \,d\mu_v(\lambda)
 $$
 
-と書けます。ここで $\mu_v(B)=\langle v,E_H(B)v\rangle$ です。被積分関数は各点で零へ収束し、定数4で抑えられます。$\mu_v$ は全質量 $\|v\|^2$ の有限測度なので優収束定理から極限は零です。これで全 $s$ の表示が得られました。
+と書けます。ここで $\mu_v(B)=\langle v,E_H(B)v\rangle$ です。被積分関数は各点で零へ収束し、定数4で抑えられます。$\mu_v$ は全質量 $\|v\|^2$ の有限測度なので[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)から極限は零です。これで全 $s$ の表示が得られました。
 
 生成作用素の定義域を確認します。$\lambda\ge0$ で
 
@@ -319,7 +319,7 @@ $$
 \to0.
 $$
 
-逆に差商がノルム収束するなら、$s_j=1/j$ の差商のノルムはある有限定数 $M$ で抑えられます。Fatou の補題により
+逆に差商がノルム収束するなら、$s_j=1/j$ の差商のノルムはある有限定数 $M$ で抑えられます。[Fatouの補題](../../../解析系/F0/F0-00D2B/index.md#lem-f0-00d2b-01)により
 
 $$
 \int\lambda^2d\mu_v
@@ -380,7 +380,7 @@ $$
 
 従って [反射陽性からの時間並進半群](#thm-mqfc9-time-semigroup) は一次観測量の類の閉包上で $e^{-sa(k)}$ の掛け算として表されます。この閉包は半群で不変です。作用素は自己共役なので直交補空間も不変になります。
 
-実際この一次空間は重み付き $L^2$ 全体と等長です。任意の非負非零な $h\in C_c^\infty((0,\infty))$ を固定し、$f(t,x)=h(t)g(x)$ とすると $L_m f(k)=b(k)\hat g(k)$、$b(k)=\int e^{-a(k)t}h(t)dt>0$ です。$b$ は滑らかで、コンパクト集合上では正の下限を持ちます。任意のコンパクト台滑らかな複素関数 $\varphi(k)$ に対し $\hat g=\varphi/b$ と取れば Schwartz 関数です。逆 Fourier 変換した $g$ も Schwartz であり、その実部・虚部の測定の複素線形結合で $\varphi$ が得られます。重み $1/(2a(k)(2\pi)^{d-1})$ は連続かつ正であり、コンパクト集合上で上下から正定数で抑えられるため、切断とコンパクト台滑らかな関数の $L^2$ 近似でこの関数族は稠密です。
+実際この一次空間は重み付き $L^2$ 全体と等長です。任意の非負非零な $h\in C_c^\infty((0,\infty))$ を固定し、$f(t,x)=h(t)g(x)$ とすると $L_m f(k)=b(k)\hat g(k)$、$b(k)=\int e^{-a(k)t}h(t)dt>0$ です。$b$ は滑らかで、コンパクト集合上では正の下限を持ちます。任意のコンパクト台滑らかな複素関数 $\varphi(k)$ に対し $\hat g=\varphi/b$ と取れば Schwartz 関数です。[Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier) の全単射性により逆 Fourier 変換した $g$ も Schwartz であり、その実部・虚部の測定の複素線形結合で $\varphi$ が得られます。重み $1/(2a(k)(2\pi)^{d-1})$ は連続かつ正であり、コンパクト集合上で上下から正定数で抑えられるため、切断とコンパクト台滑らかな関数の $L^2$ 近似でこの関数族は稠密です。
 
 [自己共役縮小半群の非負生成作用素](#thm-mqfc9-hamiltonian) をこの一次空間に適用すると、生成作用素は $a(k)$ の掛け算で、定義域は $a(k)L_m f(k)$ に対応する関数が重み付き $L^2$ に入るという条件です。これは一次空間全体で $\|H v\|^2=\int a(k)^2 |v(k)|^2d^{d-1}k/((2\pi)^{d-1}2a(k))<\infty$ と表されます。$a(k)\ge m$ より
 
