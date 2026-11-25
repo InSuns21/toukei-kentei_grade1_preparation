@@ -1,0 +1,51 @@
+name: Validate LVT limits
+on:
+  pull_request:
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-08/**'
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-06/lab/**'
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT3-01/lab/**'
+      - '.github/workflows/validate-lvt-limits.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-08/**'
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-06/lab/**'
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT3-01/lab/**'
+      - '.github/workflows/validate-lvt-limits.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          lake-package-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT5-06/lab'
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - name: Check proof and expected rejection
+        working-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT5-06/lab'
+        run: |
+          lake build
+          lean --version | grep -F 'version 4.35.0'
+          lake env lean ../../LVT5-08/lab/LvtLimits.lean
+          if lake env lean ../../LVT5-08/lab/Failure.lean > failure.log 2>&1; then
+            exit 1
+          fi
+          grep -i 'type mismatch' failure.log
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit exact finite distribution
+        working-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT5-08/lab'
+        run: python3 limits.py

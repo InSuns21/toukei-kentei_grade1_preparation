@@ -36,3 +36,4 @@
 33. [LVT5-05 TypeScript：fast-check差分テスト](textbook/volumes/dream_thater/計算系/LVT/LVT5-05/index.md)
 34. [LVT5-06 Stateful DRTと遷移列](textbook/volumes/dream_thater/計算系/LVT/LVT5-06/index.md)
 35. [LVT5-07 再現可能性・CI・失敗時診断](textbook/volumes/dream_thater/計算系/LVT/LVT5-07/index.md)
+36. [LVT5-08 差分検査の保証範囲と弱点](textbook/volumes/dream_thater/計算系/LVT/LVT5-08/index.md)

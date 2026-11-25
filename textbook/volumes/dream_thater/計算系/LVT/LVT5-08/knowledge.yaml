@@ -1,0 +1,20 @@
+chapter: LVT5-08
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT5-07, LVT5-03, LVT5-01, LVT4-02]
+concepts:
+  - id: lean-verification.detection-set
+    name: 差分検出集合
+    kind: definition
+    introduction: formal
+    requires: [lean-verification.observed-differential]
+  - id: lean-verification.detection-equality
+    name: 正しい基準と情報保存による検出集合の一致
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.detection-set, lean-verification.reference-agreement]
+  - id: lean-verification.weighted-miss
+    name: 偏りのある独立抽出での見逃し確率
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.detection-set]

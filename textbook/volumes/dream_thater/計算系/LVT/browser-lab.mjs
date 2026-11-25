@@ -190,7 +190,11 @@ export const lessons = {
   'LVT5-07': { module:'LvtContracts', sourcePath:'../../LVT3-01/lab/LvtContracts.lean', modes:[
     ['LvtReplay.lean','固定入力の不一致再現','同じ入力なら不一致が再現されることを確認。'],
     ['Failure.lean','誤った等式の拒否','型不一致で証明が拒否される。']
-  ], commands:"(cd ../../LVT5-06/lab && lake build && lake test)\n(cd ../../LVT5-06/lab && lake env lean ../../LVT5-07/lab/LvtReplay.lean)\nnpm ci --ignore-scripts\nnode replay.mjs test /tmp/lvt35-test.json\nnode replay.mjs discover /tmp/lvt35-counterexample.json\nnode replay.mjs replay /tmp/lvt35-counterexample.json" }
+  ], commands:"(cd ../../LVT5-06/lab && lake build && lake test)\n(cd ../../LVT5-06/lab && lake env lean ../../LVT5-07/lab/LvtReplay.lean)\nnpm ci --ignore-scripts\nnode replay.mjs test /tmp/lvt35-test.json\nnode replay.mjs discover /tmp/lvt35-counterexample.json\nnode replay.mjs replay /tmp/lvt35-counterexample.json" },
+  'LVT5-08': { module:'LvtContracts', sourcePath:'../../LVT3-01/lab/LvtContracts.lean', modes:[
+    ['LvtLimits.lean','検出集合と観測の情報保存','単射な観測と正しい基準の条件、成功ビットの衝突を確認。'],
+    ['Failure.lean','観測の一致と生の値の違い','型不一致で誤った証明が拒否される。']
+  ], commands:"(cd ../../LVT5-06/lab && lake build)\n(cd ../../LVT5-06/lab && lake env lean ../../LVT5-08/lab/LvtLimits.lean)\npython3 limits.py" }
 };
 export function combine(module, definitions, experiment, suffix='') {
   // Only the exact local module import is replaced by its source.

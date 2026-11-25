@@ -147,7 +147,7 @@ chapters:
     title: "再現可能性・CI・失敗時診断"
   - id: LVT5-08
     path: textbook/volumes/dream_thater/計算系/LVT/LVT5-08
-    status: planned
+    status: completed
     title: "差分検査の保証範囲と弱点"
   - id: LVT6-01
     path: textbook/volumes/dream_thater/計算系/LVT/LVT6-01
