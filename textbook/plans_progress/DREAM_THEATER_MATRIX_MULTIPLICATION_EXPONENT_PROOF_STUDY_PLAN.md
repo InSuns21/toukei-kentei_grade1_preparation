@@ -1,7 +1,7 @@
 # DREAM THEATER 行列乗算指数とテンソル幾何学 証明研究講読 計画
 
 構成確定日: 2026-11-25 JST
-状態: in progress（第2講まで実装、残り30講）
+状態: in progress（第3講まで実装、残り29講）
 系列ID: MMX（series manifest 登録済み）
 講数: **全32講**（既存基礎科目・EOM横断4講を含まない）
 
@@ -23,7 +23,7 @@
 | --- | --- | --- |
 | MMX1 | 行列積の算術モデル・指数のinfimum、出力サイズ、Strassenの7積を全展開、再帰・paddingとビット計算との差 | LA、ACOMP1–4、TSP7–9、TSP14（指数の正本と回路モデルの比較） |
 | MMX2 | 双線形分解と行列積テンソル、冪と漸近rank、通常rankの定数倍下界と指数下界の違い | MMX1、TSP2–9,14 |
-| MMX3 | 上下界の古典史：Biniの補間、Schönhage漸近和不等式、laser法・手法限定障壁の量化 | MMX2、ACOMP21–22 |
+| MMX3 | 上下界の古典史：Biniの補間、Schönhage漸近和不等式、laser法・手法限定障壁の量化 | MMX2、ACOMP21–22、TSP11–12,14 |
 | MMX4 | 多項式乗算テンソルと次数profile・補間、スペクトル点への評価 | MMX3、TSP10–14 |
 | MMX5 | 共有脚をもつ独立ブロックの分離・退化、複素数上の9/4上界の中心不等式 | MMX4 |
 | MMX6 | 任意標数の分離補題、任意の体への9/4上界、Amanov–van den Berg–Zuiddamの証明とShpilka解説の照合 | MMX5、ACOMP4,21–22 |
