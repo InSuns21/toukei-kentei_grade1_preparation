@@ -200,7 +200,27 @@ $\varepsilon=0$ に制限して最初の項 $\nabla_s\xi$ を加えると主張�
 
 ## 3. 反射で境界を越える
 
-まず境界を含む半平面 $H=\{(s,t):t\ge0\}$ で、複素ベクトル値関数 $v=a+ib$（$a,b$ は実 $n$ 成分）を考える。$t=0$ では $b=0$ とする。微分作用素 $P=\partial_s+i\partial_t$ を使い、$L^2$ ノルムは面積 $ds\,dt$ と標準Euclidノルムで測る。$\partial_s,\partial_t$ は各変数についての偏微分作用素であり、ベクトル値関数にも成分ごとに作用する。滑らかな関数では $v_s=\partial_s v$、$v_t=\partial_t v$ と略記する。[Sobolev空間](../../../解析系/GPDE/GPDE3/index.md#def-gpde3-hk)の記法に従い、$H^1$ ノルムを
+まず境界を含む半平面で、複素ベクトル値関数を考える。
+
+$$
+H=\{(s,t):t\ge0\},\qquad v=a+ib.
+$$
+
+ここで $a,b$ は実 $n$ 成分であり、境界 $t=0$ では $b=0$ とする。
+
+$\partial_s,\partial_t$ は各変数についての偏微分作用素であり、ベクトル値関数にも成分ごとに作用する。次の微分作用素を使う。
+
+$$
+P=\partial_s+i\partial_t.
+$$
+
+滑らかな関数では次の略記を用いる。
+
+$$
+v_s=\partial_s v,\qquad v_t=\partial_t v.
+$$
+
+$L^2$ ノルムは面積 $ds\,dt$ と標準Euclidノルムで測る。[Sobolev空間](../../../解析系/GPDE/GPDE3/index.md#def-gpde3-hk)の記法に従い、$H^1$ ノルムを
 
 $$
 \|v\|_{H^1}^2=\|v\|_2^2+\|\partial_sv\|_2^2+\|\partial_tv\|_2^2
@@ -455,7 +475,17 @@ $$
 =h^{\mathsf T}(A-A^{\mathsf T})k=0.
 $$
 
-よってLagrange。共通点は $Aq=0$。$\det A=6-1=5$ なので $q=0$。任意の $(x,y)$ に対して $k=A^{-1}y$、$h=x-k$ と置くと $(x,y)=(h,0)+(k,Ak)$ となるので横断的である。新しい対角行列でも対称性は保たれるが、$Aq=0$ は $q_1=0$ のみを要求する。共通点は $(0,q_2,0,0)$ 全体となり、和の $p_2$ 成分は常に零なので横断性は失われる。
+よってLagrangeである。共通点は $Aq=0$ を満たす。$\det A=6-1=5$ なので $q=0$ である。
+
+任意の $(x,y)$ に対して $k=A^{-1}y$、$h=x-k$ と置くと、
+
+$$
+(x,y)=(h,0)+(k,Ak)
+$$
+
+となるので横断的である。
+
+新しい対角行列でも対称性は保たれるが、$Aq=0$ は $q_1=0$ のみを要求する。共通点は $(0,q_2,0,0)$ 全体となり、接空間の和の $p_2$ 成分は常に零なので横断性は失われる。
 <!-- solution-end -->
 
 <a id="ex-floer1-01-b02"></a>
@@ -500,7 +530,24 @@ $$
 \int_{\mathbb R} 2i\chi(s)\psi(s,0)\,ds
 $$
 
-が加わる。この項は $2i\chi(s)\delta_0(t)$ であって $L^2$ 関数ではない。実際、$\psi_\varepsilon(s,t)=\chi(s)\rho(t/\varepsilon)$、$\rho$ は滑らかなコンパクト台で $\rho(0)=1$ と取ると $\|\psi_\varepsilon\|_2^2=\varepsilon\|\chi\|_2^2\|\rho\|_2^2\to0$ だが境界項は $2i\|\chi\|_2^2$ のままである。もしこの境界項が $L^2$ 関数 $g$ で表されるなら、[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を $g$ と $\overline{\psi_\varepsilon}$ の $L^2$ 内積に適用して
+が加わる。この項は $2i\chi(s)\delta_0(t)$ であって $L^2$ 関数ではない。
+
+実際、滑らかなコンパクト台関数 $\rho$ を $\rho(0)=1$ となるように取り、$\varepsilon>0$ に対して試験関数を
+
+$$
+\psi_\varepsilon(s,t)=\chi(s)\rho(t/\varepsilon)
+$$
+
+と定める。$t=\varepsilon\tau$ と変数変換すると
+
+$$
+\|\psi_\varepsilon\|_2^2=\varepsilon\|\chi\|_2^2\|\rho\|_2^2\longrightarrow0
+\quad(\varepsilon\downarrow0).
+$$
+
+しかし境界項は $2i\|\chi\|_2^2$ のままである。
+
+もしこの境界項が $L^2$ 関数 $g$ で表されるなら、[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を $g$ と $\overline{\psi_\varepsilon}$ の $L^2$ 内積に適用して
 
 $$
 \left|\int_{\mathbb R^2}g\psi_\varepsilon\right|
@@ -538,7 +585,21 @@ $$
 $$
 u_s=((s+2)^{-1},0),\qquad u_t=(0,1).
 $$
-$J(u)u_t=(-(s+2)^{-1},0)$ となり $u_s+J(u)u_t=0$。変分の境界条件は $k(s,0)=k(s,1)=0$ である。[stripの境界条件の線形化](#prop-floer1-01-linearization)で、平坦接続の共変微分は成分偏微分になる。$\xi=(h,k)$ は標的座標の $q,p$ 方向の速度であるから $\nabla_\xi J=h\partial_qJ+k\partial_pJ$ となる。$J$ は $p$ に依存しないので $\partial_pJ=0$。従って
+これらを代入すると、
+
+$$
+J(u)u_t=(-(s+2)^{-1},0),\qquad u_s+J(u)u_t=0.
+$$
+
+変分の境界条件は $k(s,0)=k(s,1)=0$ である。
+
+[stripの境界条件の線形化](#prop-floer1-01-linearization)で、平坦接続の共変微分は成分偏微分になる。$\xi=(h,k)$ は標的座標の $q,p$ 方向の速度であるから
+
+$$
+\nabla_\xi J=h\partial_qJ+k\partial_pJ.
+$$
+
+$J$ は $p$ に依存しないので $\partial_pJ=0$。従って
 $$
 (\nabla_\xi J)u_t
 =h\begin{pmatrix}0&e^{-q}\\ e^q&0\end{pmatrix}_{q=\log(s+2)}
