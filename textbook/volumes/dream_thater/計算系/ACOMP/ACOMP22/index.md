@@ -160,7 +160,7 @@ $H$ は任意なので $b\in V_K(I_K(\Phi(K^m)))$ です。これは上で示し
 
 **引用する結果（多項式写像の近似解定理）**：代数閉体 $K$ 上で $\Phi:K^m\to K^N$ が多項式写像、$b\in\overline{\Phi(K^m)}^{\,Z}$ なら、有限 Laurent 多項式の組 $a(t)\in K[t,t^{-1}]^m$ が存在し、$\Phi(a(t))-b\in tK[t]^N$ となります。$K[t,t^{-1}]$ は有限個の正負の冪だけを持つ級数です。
 
-出典は Guo–Saxena–Sinhababu, [Algebraic Dependencies and PSPACE Algorithms in Approximative Complexity over Any Field](https://theoryofcomputing.org/articles/v015a016/), Theorem 4.2 です。同定理の原点版を $\Phi-b$ に適用します。一般の逆向きには像の閉包を通る代数曲線、曲線の正規化、局所パラメータを用いる代数幾何の理論が必要なので、本講ではこの存在定理を引用し、回路への適用を以下で証明します。複素数体の通常の距離による閉包との一致も、代数閉体一般の定義とは別の結果です。
+出典は Guo–Saxena–Sinhababu, [Algebraic Dependencies and PSPACE Algorithms in Approximative Complexity over Any Field](https://theoryofcomputing.org/articles/v015a016/), Theorem 4.2 です。同定理の原点版を $\Phi-b$ に適用します。一般の逆向きには像の閉包を通る代数曲線、曲線の正規化や、別講で扱う[局所パラメータ](../../../代数系/AG/AG2-07/index.md#def-ag2-07-local-parameter)を用いる代数幾何の理論が必要なので、本講ではこの存在定理を引用し、回路への適用を以下で証明します。複素数体の通常の距離による閉包との一致も、代数閉体一般の定義とは別の結果です。
 
 <a id="thm-acomp22-border-closure"></a>
 
@@ -216,9 +216,23 @@ $$
 
 これは零多項式ではありません。有限体では点上の消滅から形式恒等式を導く証明が壊れます。
 
-逆に無限体であっても代数閉体でないと、閉包から体内の退化を得られない場合があります。実数体上の $\Phi(u)=u^2$ の像は非負実数全体です。[無限体上のアフィン直線の閉集合](../../../代数系/AG/AG1-01/index.md#prop-ag1-01-affine-line-closed)によりその Zariski 閉包は $\mathbb R$ 全体です。しかし $a(t)^2$ が正則で定数項 $-1$ になる実 Laurent 級数はありません。$a(t)\ne0$ とすると [付値の積の演算則](../ACOMP21/index.md#thm-acomp21-valuation-rules)から $v_t(a^2)=2v_t(a)$ です。定数項が非零で正則なら付値0なので $v_t(a)=0$、その定数項を $c$ とすると $c^2=-1$ が必要です。実数では不可能です。複素数体へ拡張すれば $a=i$ という厳密な解が存在します。
+逆に無限体であっても代数閉体でないと、閉包から体内の退化を得られない場合があります。実数体上の $\Phi(u)=u^2$ の像は非負実数全体です。[無限体上のアフィン直線の閉集合](../../../代数系/AG/AG1-01/index.md#prop-ag1-01-affine-line-closed)によりその Zariski 閉包は $\mathbb R$ 全体です。
 
-この例では通常の実数の距離に関する閉包は非負実数のままです。Zariski 閉包、解析的な閉包、定数体を指定した形式的退化は、仮定を確認して使い分けます。
+しかし $a(t)^2$ が正則で定数項 $-1$ になる実 Laurent 級数はありません。もし存在するとすれば $a(t)\ne0$ であり、[付値の積の演算則](../ACOMP21/index.md#thm-acomp21-valuation-rules)により
+
+$$
+0=v_t(a^2)=2v_t(a)
+$$
+
+です。最初の等号は二乗が正則で定数項が非零であることによります。従って $v_t(a)=0$ です。その定数項を $c$ とすると、[定数項への特殊化](../ACOMP21/index.md#thm-acomp21-specialization)は積を保つので、
+
+$$
+c^2=[t^0](a^2)=-1
+$$
+
+が必要です。実数では不可能です。複素数体へ拡張すれば $a=i$ という厳密な解が存在します。
+
+この例では通常の実数の距離に関する閉包は非負実数のままです。Zariski 閉包、通常の距離による閉包、定数体を指定した形式的退化は、仮定を確認して使い分けます。
 
 ## 5. 閉包に対する下界を設計する
 
