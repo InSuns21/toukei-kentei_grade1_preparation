@@ -1,0 +1,35 @@
+chapter: CATB7-01
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB1-05]
+concepts:
+  - id: category.cochain-complex
+    name: 余鎖複体
+    kind: definition
+    introduction: formal
+    requires: [category.additive-category, category.zero-composition]
+  - id: category.cochain-map
+    name: 余鎖写像
+    kind: definition
+    introduction: formal
+    requires: [category.cochain-complex]
+  - id: category.cochain-complex-category
+    name: 余鎖複体の加法圏
+    kind: theorem
+    introduction: formal
+    requires: [category.cochain-map, category.finite-biproduct]
+  - id: category.cochain-cohomology
+    name: 余鎖複体のコホモロジー
+    kind: definition
+    introduction: formal
+    requires: [category.cochain-complex, category.abelian-category, category.image-coimage, category.kernel, category.cokernel]
+  - id: category.cohomology-exactness
+    name: 完全性とコホモロジーの消滅
+    kind: theorem
+    introduction: formal
+    requires: [category.cochain-cohomology, category.exact-sequence, category.abelian-category-balanced]
+  - id: category.cohomology-functor
+    name: コホモロジーの関手性
+    kind: theorem
+    introduction: formal
+    requires: [category.cochain-complex-category, category.cochain-cohomology]
