@@ -1,0 +1,24 @@
+id: "TSP16"
+title: "被覆・劣乗法的gauge・極限の準備：順序と凸性、一般スペクトルとの境界"
+volume: foundations
+status: supplementary
+prerequisites: [TSP15]
+official_scope: []
+learning_objectives:
+  - 前順序付き半環上の有限被覆を定義し費用の下限を計算できる
+  - 被覆gaugeの単調性・劣加法性・劣乗法性を証明できる
+  - Fekete補題の仮定を確認して冪の費用の極限を導ける
+  - 分数被覆の凸性と価格による下界を示しスペクトル点との差を説明できる
+definitions:
+  - { id: TSP16-DEF-01, name: "有限被覆と被覆gauge" }
+  - { id: TSP16-DEF-02, name: "有限座標の分数被覆" }
+theorems:
+  - { id: TSP16-THM-01, name: "被覆gaugeの基本不等式" }
+  - { id: TSP16-THM-02, name: "被覆gaugeの漸近化" }
+  - { id: TSP16-THM-03, name: "分数被覆の凸性と価格下界" }
+canonical_examples: [座標別の被覆, 三角形の分数被覆, 最大座標gauge]
+problem_patterns: [TSP16-A01, TSP16-A02, TSP16-A03, TSP16-A04, TSP16-B01, TSP16-B02, TSP16-B03, TSP16-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
