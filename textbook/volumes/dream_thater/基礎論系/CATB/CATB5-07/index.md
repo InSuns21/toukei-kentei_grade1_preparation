@@ -8,7 +8,7 @@
 
 以下、小site $(\mathcal C,J)$ を固定する。[Grothendieck位相とsite](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)の三公理（最大篩・引き戻し安定性・推移律）を用いる。$J(U)$ は対象 $U$ の被覆篩の集合とする。
 
-$yU=\mathcal C(-,U)$ は[表現可能前層](../../CAT/CAT1-12/index.md#def-cat1-12-yoneda-embedding)である。前層の圏を $\widehat{\mathcal C}$、層とその自然変換からなる充満部分圏を $\operatorname{Sh}(\mathcal C,J)$ と書く。
+$yU=\mathcal C(-,U)$ は[表現可能前層](../../CAT/CAT1-12/index.md#def-cat1-12-yoneda-embedding)である。[集合値前層と前層圏](../../CAT/CAT1-12/index.md#def-cat1-12-presheaf)の記法を用い、前層の圏を $\widehat{\mathcal C}$、層とその自然変換からなる充満部分圏を $\operatorname{Sh}(\mathcal C,J)$ と書く。以下、$\widehat{\mathcal C}(P,Q)$ は前層 $P,Q$ の間の自然変換の集合、$\operatorname{Sh}(P,Q)$ は層 $P,Q$ の間の射の集合を表す。
 
 射 $f:V\to U$ に沿う前層の制限写像は
 
@@ -20,7 +20,7 @@ $$
 
 [site上の層](../CATB5-03/index.md#def-catb5-03-site-sheaf)では、被覆篩 $R$ 上の整合族 $x_r\in F(\operatorname{dom}r)$ に対し、それらを制限として持つ元 $x\in F(U)$ が唯一存在する。
 
-ここで $\operatorname{dom}r$ は射 $r$ の始域である。
+ここで $\operatorname{dom}r$ は射 $r$ の始域である。[整合族の定義](../CATB5-03/index.md#def-catb5-03-sieve-matching)により、$r:V\to U$ が被覆篩に属し $k:W\to V$ なら $F(k)(x_r)=x_{rk}$ である。
 
 特に二つの元が被覆篩上で一致すれば等しい。この存在・一意性を以下の構成で繰り返し使う。空篩が被覆になる場合も含め、表現可能前層が層であるとは仮定しない。
 
@@ -53,7 +53,7 @@ $$
 S=\{\varnothing,\{p\}\}
 $$
 
-は $X$ 上の篩である。任意の開集合 $V\subseteq X$ に対する引き戻しは、$V$ の開部分集合のうち $S$ に入るものの族である。その合併は $V\cap\{p\}$ になる。従って
+は $X$ 上の篩である。実際、始域が $\varnothing$ または $\{p\}$ の包含射に前合成すると、その始域もこの二つのいずれかになる。任意の開集合 $V\subseteq X$ に対する引き戻しは、$V$ の開部分集合のうち $S$ に入るものの族である。その合併は $V\cap\{p\}$ になる。[開集合圏のGrothendieck位相](../CATB5-02/index.md#thm-catb5-02-open-site)では、引き戻し篩が被覆であることと始域の合併が $V$ に等しいことが同値である。従って
 
 $$
 V\cap\{p\}=V
@@ -181,7 +181,7 @@ $$
 
 $f\in S$ なら全てのこの $g$ について $fg\in S$、従って $1_W\in(fg)^*Q$ となる。
 
-よって $f^*R\subseteq f^*Q$。被覆篩の上方閉性と $Q$ の閉条件から $f\in Q$。
+よって $f^*R\subseteq f^*Q$。[被覆篩の上方閉性](../CATB5-02/index.md#prop-catb5-02-cover-closure)と $Q$ の[J閉篩の条件](#def-catb5-07-closed-sieve)から $f\in Q$。
 
 $Q,S$ を交換して逆の包含も得る。ゆえに $Q=S$ である。被覆篩が空の場合も上方閉性と閉条件で同じ論証が成立する。
 <!-- proof-end -->
@@ -221,12 +221,20 @@ $$
 \cong H(U)
 $$
 
-を得る。$x,x'\in G(U)$ が $m_U(x)=m_U(x')$ を満たすとする。対応する射を $b,b':a(yU)\to G$ とすると、全単射の $H$ に関する自然性から $mb,mb'$ は等しい元 $m_U(x)=m_U(x')$ に対応する。従って $mb=mb'$。モノ射性で $b=b'$ となり、全単射を逆にたどると $x=x'$ となる。
+を得る。$x,x'\in G(U)$ が $m_U(x)=m_U(x')$ を満たすとする。対応する射を $b,b':a(yU)\to G$ とすると、この対応を $\theta_H$ と書くと、[層化と包含の随伴](../CATB5-05/index.md#thm-catb5-05-adjunction)の自然性および[Yoneda対応の二変数自然性](../../CAT/CAT1-11/index.md#prop-cat1-11-bivariable-naturality)から
+
+$$
+\theta_F(mb)=m_U(\theta_G(b))=m_U(x).
+$$
+
+同様に $\theta_F(mb')=m_U(x')$ だから、$mb,mb'$ は等しい元に対応する。従って $mb=mb'$。モノ射性で $b=b'$ となり、全単射を逆にたどると $x=x'$ となる。
 <!-- proof-end -->
 
 この命題により各成分の像を取れば、任意のモノ射は部分前層の包含 $S\subseteq F$ に同型である（[前層のモノ射の成分判定](../CATB5-06/index.md#prop-catb5-06-pointwise-mono)の直後の構成を適用する）。
 
-$G$ と $S$ の成分全単射は自然であるため、$G$ の層条件が $S$ に移り、$S$ も層となる。このような部分前層を部分層という。
+$G$ と $S$ の成分全単射は自然であるため、$S$ 上の整合族を逆写像で $G$ 上の整合族へ戻し、そこで唯一の貼り合わせを取って $S$ に写せる。逆写像で戻せば一意性も従うので、$S$ も層となる。このような部分前層を部分層という。
+
+[部分対象分類子の定義](../CATB5-06/index.md#def-catb5-06-classifier)に従い、分類射の存在と一意性を示す。
 
 <a id="thm-catb5-07-sheaf-classifier"></a>
 
@@ -270,7 +278,18 @@ $$
 
 となる。ここで貼り合わせを包含によって $F(V)$ の元とみなした。
 
-従って $f\in Q$ であり、$Q$ は閉篩である。ゆえに分類射の値は $\Omega_J$ に入り、その自然性も前層での自然性を制限して得られる。
+従って $f\in Q$ であり、$Q$ は閉篩である。ゆえに分類射の値は $\Omega_J$ に入る。自然性は、$u:W\to U$、$v:Z\to W$ に対して
+
+$$
+\begin{aligned}
+v\in u^*\chi_{S,U}(x)
+&\iff F(uv)x\in S(Z)\\
+&\iff F(v)F(u)x\in S(Z)\\
+&\iff v\in\chi_{S,W}(F(u)x)
+\end{aligned}
+$$
+
+となることから従う。ここでは反変性により合成順序が逆になる。
 
 [層の極限の点ごとの構成](../CATB5-05/index.md#thm-catb5-05-sheaf-limits)より、$\chi_S$ と $t$ の引き戻しは成分ごとに最大篩を取る元の集合である。
 
@@ -312,12 +331,19 @@ $$
 > は層であり、前層圏の評価射とともに層の圏での指数対象をなす。
 <!-- formal-statement-end -->
 
-$H$ の元は各射 $f:V\to U$ と各 $x\in F(V)$ に対し $G(V)$ の元を指定する。局所的に与えられた写像を一つにするには、この値ごとに $G$ の層条件を使う。
+$H(U)$ の元 $h$ は自然変換であり、その $V$ 成分を $h_V(f,x)$ と書く。各射 $f:V\to U$ と各 $x\in F(V)$ に対し $G(V)$ の元を指定する。ここで $V$ は任意の対象を動く。[前層圏における指数対象](../CATB5-06/index.md#thm-catb5-06-presheaf-exponential)によると、$r:W\to U$ に沿う制限は
+
+$$
+(H(r)h)_V(f,x)=h_V(rf,x)
+\qquad(f:V\to W)
+$$
+
+である。局所的に与えられた写像を一つにするには、この値ごとに $G$ の層条件を使う。
 
 <!-- proof-start -->
 ### 証明
 
-被覆篩 $R\in J(U)$ 上の整合族 $h_r\in H(\operatorname{dom}r)$ を取る。各 $h_r:y(\operatorname{dom}r)\times F\to G$ は自然変換であり、$k:W\to\operatorname{dom}r$ に沿う制限が $h_{rk}$ になる。従って任意の $l:Z\to W$ と $x\in F(Z)$ について
+被覆篩 $R\in J(U)$ 上の整合族 $h_r\in H(\operatorname{dom}r)$ を取る。各 $h_r:y(\operatorname{dom}r)\times F\to G$ は自然変換であり、[整合族の条件](../CATB5-03/index.md#def-catb5-03-sieve-matching)より $k:W\to\operatorname{dom}r$ に沿う制限 $H(k)h_r$ が $h_{rk}$ になる。従って任意の $l:Z\to W$ と $x\in F(Z)$ について
 
 $$
 (h_{rk})_Z(l,x)=(h_r)_Z(kl,x).
@@ -340,7 +366,7 @@ G(k)b_g
 \end{aligned}
 $$
 
-よって整合族である。$G$ の層条件から全ての $g\in f^*R$ について $G(g)b=b_g$ となる唯一の $b\in G(V)$ が存在する。これを $h_V(f,x)$ とする。
+よって整合族である。[site上の層条件](../CATB5-03/index.md#def-catb5-03-site-sheaf)を $G$ と被覆篩 $f^*R$ に適用すると、全ての $g\in f^*R$ について $G(g)b=b_g$ となる唯一の $b\in G(V)$ が存在する。これを $h_V(f,x)$ とする。
 
 この写像族の自然性を確かめる。$l:Z\to V$ に対し $k:W\to Z$ が $(fl)^*R$ に入るなら $lk\in f^*R$ だから
 
@@ -395,7 +421,7 @@ $$
 
 実際、$yU(V)$ は $V\subseteq U$ のとき一元集合、そうでないとき空集合である。自然変換 $yU\times F\to G$ を一点開集合で評価すると各点の写像が得られる。任意の開部分集合において自然性により各座標はその写像の値に強制され、逆に座標ごとの写像は全ての制限と可換になる。
 
-各点の写像は $3^2=9$ 通りある。従って全体上の指数対象の元の個数は
+ここで $A^U$ は $U$ から $A$ への集合の写像全体を表し、$G^F$ は層の指数対象を表す。各点の写像は $3^2=9$ 通りある。従って全体上の指数対象の元の個数は
 
 $$
 |H(X)|=9^2=81.
@@ -436,7 +462,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb5-07-grothendieck-topos -->
-**定義の確認**。対象一つ、射は恒等射だけの小圏に最大篩だけを被覆とする位相を入れる。最大篩の引き戻しは最大篩で、推移律は恒等射に対する条件に帰着するのでGrothendieck位相である。前層は一つの集合 $A$ と恒等写像で決まり、最大篩上の整合族は一つの元 $a\in A$ である。唯一の貼り合わせは $a$ 自身であり、全ての前層が層になる。
+**定義の確認**。対象一つ $*$、射は恒等射 $1_*$ だけの小圏に最大篩だけを被覆とする位相を入れる。[Grothendieck位相の三公理](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)を確認すると、最大篩は指定により被覆であり、その引き戻しは恒等射に沿うものだけなので変わらない。推移律では被覆篩 $R=\{1_*\}$ 上の全ての射 $r$ に対し $r^*S$ が被覆という仮定を $r=1_*$ に適用すれば $S$ 自身が被覆となる。従って三公理を満たす。前層は一つの集合 $A$ と恒等写像で決まり、最大篩上の整合族は一つの元 $a\in A$ である。唯一の貼り合わせは $a$ 自身であり、全ての前層が層になる。
 
 層をその集合に送る関手と、集合をこの層に送る関手を取る。自然変換は一つの写像だけで決まり、合成・恒等射は集合の写像のものと一致する。二方向の合成は対象と射の両方で恒等関手になるため、集合の圏はこの小siteの層圏と同値である。従って $\mathbf{Set}$ はGrothendieckトポスである。
 <!-- definition-example-end -->
@@ -454,7 +480,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-最大篩公理は定義から成立し、最大篩の引き戻しも最大篩である。
+[Grothendieck位相の三公理](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)を確認する。最大篩公理は指定から成立し、[篩の引き戻しの合成則](../CATB5-02/index.md#prop-catb5-02-sieve-pullback-laws)により最大篩の引き戻しも最大篩である。
 
 推移律で被覆篩 $R$ は最大篩なので $1_U\in R$。全ての $r\in R$ に対し $r^*S$ が被覆という仮定を $r=1_U$ に適用すれば $S$ が被覆になる。従って三公理を満たす。
 
@@ -530,7 +556,7 @@ $$
 
 制限先が真部分開集合なら値は一元集合であり、$X$ での制限は空写像なので部分前層になる。
 
-一方、$\{p\},\{q\}$ 上の唯一の元は共通部分 $\varnothing$ でも一致する。これらは被覆篩上の整合族になるが $P(X)=\varnothing$ のため貼り合わせがない。従って層ではない。
+一方、$\{p\},\{q\}$ 上の唯一の元は共通部分 $\varnothing$ でも一致する。[開集合圏の層条件との同値性](../CATB5-03/index.md#thm-catb5-03-open-equivalence)により、これらは被覆篩上の整合族に対応するが $P(X)=\varnothing$ のため貼り合わせがない。従って層ではない。
 
 [前層圏の部分対象分類子](../CATB5-06/index.md#thm-catb5-06-presheaf-classifier)から、唯一の元 $*\in1(X)$ の分類篩は $P(V)$ が空でない始域を集めた
 
@@ -544,7 +570,7 @@ $$
 1_X^*T=T\in J(X),\qquad 1_X\notin T
 $$
 
-である。従って閉条件を満たさず、[層圏の部分対象分類子](#thm-catb5-07-sheaf-classifier)で分類できない。部分対象を分類する証明で部分層の貼り合わせの存在を使う理由が分かる。
+である。従って閉条件を満たさず、この分類篩は $\Omega_J(X)$ の元ではない。$P$ 自体が層でないので、包含 $P\subseteq1$ は層の圏でのモノ射ではなく、[層圏の部分対象分類子](#thm-catb5-07-sheaf-classifier)の分類対象外である。部分対象を分類する証明で部分層の貼り合わせの存在を使う理由が分かる。
 <!-- solution-end -->
 
 ### CATB5-07-B02 開集合の和と閉包
@@ -600,7 +626,7 @@ $V\subseteq U$ に対して $b$ を適用してから $V$ に制限しても、�
 <!-- solution-start -->
 **詳細解答**
 
-$P$ の二射影を $p_1,p_2:P\to G$ とする。$m1_G=m1_G$ だから引き戻しの普遍性により $p_1\delta=p_2\delta=1_G$ を満たす唯一の $\delta$ がある。
+$P$ の二射影を $p_1,p_2:P\to G$ とする。$m1_G=m1_G$ だから[引き戻しの普遍性](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)により $p_1\delta=p_2\delta=1_G$ を満たす唯一の $\delta$ がある。
 
 $m$ がモノ射なら $mp_1=mp_2$ から $p_1=p_2$。従って
 
@@ -651,7 +677,11 @@ $$
 
 となる。逆に任意の $k$ から評価で $\chi$ を作り、真の射 $t$ の引き戻しを取ると部分対象が得られる。分類射と転置の一意性から、二つの操作は終域を固定した同型による部分対象の同値類と射との間で互いに逆である。
 
-$S'=(u\times1_F)^*S$ とする。[分類射と部分対象の自然な対応](../CATB5-06/index.md#thm-catb5-06-classifier-bijection)を層の圏で使えるのは有限極限と分類子が存在するためである。従って $\chi_{S'}=\chi_S(u\times1_F)$。[積への射とその合成則](../../CAT/CAT2-02/index.md#prop-cat2-02-product-map)より
+$S'=(u\times1_F)^*S$ とする。ここで $(-)^*$ は篩の引き戻しではなく、部分層の包含の[引き戻し](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)を表す。具体的には各対象 $V$ で
+
+$$
+S'(V)=\{(y,x)\in Y(V)\times F(V)\mid(u_V(y),x)\in S(V)\}.
+$$[分類射と部分対象の自然な対応](../CATB5-06/index.md#thm-catb5-06-classifier-bijection)を層の圏で使えるのは有限極限と分類子が存在するためである。従って $\chi_{S'}=\chi_S(u\times1_F)$。[積への射とその合成則](../../CAT/CAT2-02/index.md#prop-cat2-02-product-map)より
 
 $$
 \begin{aligned}
