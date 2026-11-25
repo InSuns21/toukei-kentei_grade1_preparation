@@ -16,6 +16,7 @@ definitions:
   - { id: ATOP10-DEF-03, name: 幾何学的単体複体 }
   - { id: ATOP10-DEF-04, name: 位相空間の三角形分割 }
   - { id: ATOP10-DEF-05, name: 単体のリンク }
+  - { id: ATOP10-DEF-06, name: 位相曲面の局所模型 }
 theorems:
   - { id: ATOP10-PROP-01, name: 実現の共通面性 }
   - { id: ATOP10-THM-01, name: 幾何学的単体複体の座標実現 }

@@ -44,8 +44,13 @@ concepts:
     kind: theorem
     introduction: formal
     requires: [atop.simplex-link, atop.realization-intersection, topology.homeomorphism]
+  - id: atop.surface-local-model
+    name: 位相曲面の局所模型
+    kind: definition
+    introduction: formal
+    requires: [geometry.topological-manifold, topology.hausdorff-space, topology.second-countable]
   - id: atop.surface-link-test
     name: 頂点リンクによる曲面の十分条件
     kind: theorem
     introduction: formal
-    requires: [atop.vertex-link-neighborhood, atop.realization-intersection]
+    requires: [atop.vertex-link-neighborhood, atop.realization-intersection, atop.surface-local-model]
