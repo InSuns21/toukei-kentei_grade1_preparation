@@ -33,8 +33,9 @@ problem_patterns:
   - GCT11-VARIABLE
   - GCT11-PATH
   - GCT11-RESIDUE
+  - GCT11-UNIQUE-TABLEAU
   - GCT11-REDUCTION
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 5, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 4, exercises: 3, review: 1 }
