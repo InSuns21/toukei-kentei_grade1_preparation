@@ -1,0 +1,31 @@
+chapter: FML3
+scope: dream-theater
+coverage: complete
+prerequisites: [FML2, AG1-01, AG1-02, AG1-03, ACOMP1, ACOMP2, ACOMP3, ACOMP4]
+forward_references: []
+concepts:
+  - id: formal-math.mv-polynomial
+    name: Leanでの多変数多項式表示
+    kind: definition
+    introduction: formal
+    requires: [algebraic-geometry.multivariate-polynomial-ring, formal-math.algebra-instance]
+  - id: formal-math.eval-generators
+    name: 係数と変数の同時評価
+    kind: proposition
+    introduction: formal
+    requires: [formal-math.mv-polynomial, algebraic-complexity.polynomial-evaluation-map, algebra.ring-homomorphism]
+  - id: formal-math.finite-field-evaluation-gap
+    name: 二元体での形式多項式と評価の不一致
+    kind: proposition
+    introduction: formal
+    requires: [formal-math.eval-generators, formal-math.charp]
+  - id: formal-math.typed-program
+    name: 型付き算術命令列
+    kind: definition
+    introduction: formal
+    requires: [algebraic-complexity.straight-line-program, algebraic-complexity.arithmetic-circuit-size]
+  - id: formal-math.program-map-eval
+    name: 型付き算術命令列の評価と準同型の交換
+    kind: theorem
+    introduction: formal
+    requires: [formal-math.typed-program, formal-math.eval-generators]
