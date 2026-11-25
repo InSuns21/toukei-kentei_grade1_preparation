@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+<title id="title">正方形を持ち上げる順序</title><desc id="desc">下辺を既知として、三列三段のセルを下段左から右、次の段左から右の順に番号1から9で示す。</desc>
+<rect x="1" y="1" width="398" height="348" fill="#fff" stroke="#cbd5e1"/>
+<g stroke="#475569" stroke-width="1.5" fill="none"><path d="M75 40 H315 V280 H75 Z M155 40 V280 M235 40 V280 M75 120 H315 M75 200 H315"/></g>
+<path d="M75 280 H315" fill="none" stroke="#172554" stroke-width="5"/>
+<g font-family="sans-serif" font-size="20" fill="#1e293b" text-anchor="middle"><text x="115" y="247" text-anchor="middle">1</text><text x="195" y="247" text-anchor="middle">2</text><text x="275" y="247" text-anchor="middle">3</text><text x="115" y="167" text-anchor="middle">4</text><text x="195" y="167" text-anchor="middle">5</text><text x="275" y="167" text-anchor="middle">6</text><text x="115" y="87" text-anchor="middle">7</text><text x="195" y="87" text-anchor="middle">8</text><text x="275" y="87" text-anchor="middle">9</text></g>
+<g font-family="sans-serif" font-size="15" fill="#1e293b" text-anchor="middle"><text x="55" y="44" text-anchor="middle">1</text><text x="55" y="284" text-anchor="middle">0</text><text x="315" y="316" text-anchor="middle">1</text><text x="75" y="316" text-anchor="middle">0</text><text x="52" y="159" text-anchor="middle">t</text><text x="350" y="316" text-anchor="middle">s</text><text x="195" y="329" text-anchor="middle">g(s)</text></g>
+</svg>
