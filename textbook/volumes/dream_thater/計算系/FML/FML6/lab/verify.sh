@@ -40,9 +40,9 @@ PY
     else
       test "$status" -eq 1
       case "$variant" in
-        Mismatch) grep -Ei 'error:.*(addZeroLeft|mismatch)' "$logdir/$variant.log" ;;
-        ChangedDefinition) grep -Ei 'error:.*(step|mismatch)' "$logdir/$variant.log" ;;
-        ForbiddenAxiom) grep -Ei 'error:.*(externalProof|axiom)' "$logdir/$variant.log" ;;
+        Mismatch) grep -F "Challenge and solution theorem statement do not match: 'FML6.addZeroLeft'" "$logdir/$variant.log" ;;
+        ChangedDefinition) grep -F "Const does not match between challenge and target 'FML6.step'" "$logdir/$variant.log" ;;
+        ForbiddenAxiom) grep -F "Illegal axiom detected: 'FML6.externalProof'" "$logdir/$variant.log" ;;
       esac
       ! grep -F 'Your solution is okay!' "$logdir/$variant.log"
     fi
