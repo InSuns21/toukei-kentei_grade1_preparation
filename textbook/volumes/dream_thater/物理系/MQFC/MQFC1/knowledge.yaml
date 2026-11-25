@@ -1,19 +1,19 @@
 chapter: MQFC1
 scope: dream-theater
 coverage: complete
-prerequisites: [GPDE2, FOU3]
+prerequisites: [GPDE2, FOU3, QFT3]
 forward_references: []
 concepts:
   - id: mqfc.schwartz
     name: "Schwartz空間"
     kind: definition
     introduction: formal
-    requires: [distribution.multi-index]
+    requires: [distribution.multi-index, qft.schwartz-function]
   - id: mqfc.tempered
     name: "緩増加分布"
     kind: definition
     introduction: formal
-    requires: [mqfc.schwartz]
+    requires: [mqfc.schwartz, qft.tempered-distribution]
   - id: mqfc.polynomial
     name: "多項式増大関数による緩増加分布"
     kind: proposition
