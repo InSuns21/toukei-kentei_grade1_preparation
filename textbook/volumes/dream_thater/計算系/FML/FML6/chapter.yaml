@@ -1,0 +1,23 @@
+id: "FML6"
+title: "Comparator・独立kernel・再現検証"
+volume: foundations
+status: supplementary
+prerequisites: [FML5, LVT1-02]
+official_scope: []
+learning_objectives:
+  - 固定環境から定理の検証を再現する
+  - 宣言の型と参照する定義を比較する
+  - 独立カーネルによる検証の保証と限界を説明する
+  - 意図的な不一致と追加公理を負のテストで区別する
+definitions:
+  - { id: FML6-DEF-01, name: "定理ステートメント照合" }
+  - { id: FML6-DEF-02, name: "複数カーネルによる受入条件" }
+theorems: []
+propositions:
+  - { id: FML6-PROP-01, name: "全検査の受入と健全な検査器" }
+canonical_examples: ["自然数の左零元", "参照定義の変更", "余分な仮定", "独自公理"]
+problem_patterns: [FML6-A01, FML6-A02, FML6-A03, FML6-A04, FML6-B01, FML6-B02, FML6-B03, FML6-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 3, review: 1 }
