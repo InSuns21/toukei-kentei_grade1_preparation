@@ -81,7 +81,17 @@ $$
 
 **定義の確認**
 
-標準正規変数 $Y$ により $\omega(f)=Y\int f$ とします。[前講の反射形式の直接例](../MQFC8/index.md#def-mqfc8-reflection-positivity) の通り、積分は Schwartz 半ノルムで抑えられる連続実線形汎関数です。$X_f=Y\int f$ の全絶対モーメントは有限であり、$\int\theta f=\int f$ なので各標本が反転不変です。従って $q(F,F)=E[|F|^2]\ge0$ であり、全多項式について反射陽性が成り立ちます。正時間に台を持つ滑らかなコンパクト台関数 $f,g$ を、積分がともに1で $f\ne g$ となるよう取ります。$X_f=X_g=Y$ であり、
+標準正規変数 $Y$ により $\omega(f)=Y\int f$ とします。[前講の反射形式の直接例](../MQFC8/index.md#def-mqfc8-reflection-positivity) の通り、積分は Schwartz 半ノルムで抑えられる連続実線形汎関数です。
+
+$X_f=Y\int f$ の全絶対モーメントは有限であり、$\int\theta f=\int f$ なので各標本が反転不変です。従って
+
+$$
+q(F,F)=E[|F|^2]\ge0
+$$
+
+であり、全多項式について反射陽性が成り立ちます。
+
+正時間に台を持つ滑らかなコンパクト台関数 $f,g$ を、積分がともに1で $f\ne g$ となるよう取ります。$X_f=X_g=Y$ であり、
 
 $$
 q(X_f-X_g,X_f-X_g)=0.
@@ -289,7 +299,7 @@ E[Z_s^2]=\int
 \frac{d^dp}{(2\pi)^d}\to0.
 $$
 
-積分被積分関数は $4|\hat f(p)|^2/m^2$ で抑えられ、Schwartz 減衰により可積分なので[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)を適用できます。任意の整数 $k\ge1$ に対して [Gaussian Schwinger関数のWick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) を同じ変数 $Z_s$ の $2k$ 個の積に適用すると
+被積分関数は $4|\hat f(p)|^2/m^2$ で抑えられ、Schwartz 減衰により可積分なので[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)を適用できます。任意の整数 $k\ge1$ に対して [Gaussian Schwinger関数のWick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) を同じ変数 $Z_s$ の $2k$ 個の積に適用すると
 
 $$
 E[|Z_s|^{2k}]=(2k-1)!!(E[Z_s^2])^k\longrightarrow0.
@@ -452,7 +462,9 @@ $$
 \le M^2.
 $$
 
-従って $v\in D(H)$ です。別の非負自己共役作用素 $K$ が同じ半群を $T_s=e^{-sK}$ と表す場合も、そのスペクトル測度で上と同じ優収束・Fatou の評価を適用できます。従って差商が収束するベクトル全体は $D(K)=D(H)$ であり、各ベクトル上で $Kv=Hv$ です。定義域と作用が一致するので一意性が従います。最後に $T_s\Omega=\Omega$ なら差商が恒等的に零なので $\Omega\in D(H)$、$H\Omega=0$ です。
+従って $v\in D(H)$ です。別の非負自己共役作用素 $K$ が同じ半群を $T_s=e^{-sK}$ と表す場合も、そのスペクトル測度で上と同じ優収束・Fatou の評価を適用できます。従って差商が収束するベクトル全体は $D(K)=D(H)$ であり、各ベクトル上で $Kv=Hv$ です。定義域と作用が一致するので一意性が従います。
+
+最後に $T_s\Omega=\Omega$ なら差商が恒等的に零なので $\Omega\in D(H)$、$H\Omega=0$ です。
 <!-- proof-end -->
 
 ### 具体例：有限のエネルギーと非有界なエネルギー
@@ -681,7 +693,15 @@ $$
 $d=1,m>0$ の中心化自由 Gaussian 場を考える。実正時間試験関数 $f$ について $a=E[X_f^2]$、$c=(L_m f)^2/(2m)>0$ とし、$F=X_f^2-a$ とする。$q(F,U_sF)$ を求めよ。
 
 <!-- solution-start -->
-$Y=X_{\theta f}$、$X_s=X_{\tau_s f}$ と置きます。反転不変性と時間並進不変性から $E[Y^2]=E[X_s^2]=a$ です。[自由場の反射共分散の因子分解](../MQFC8/index.md#thm-mqfc8-reflected-covariance) に $L_m(\tau_s f)=e^{-ms}L_m f$ を代入すると $E[YX_s]=ce^{-ms}$ です。[Wick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) を $Y,Y,X_s,X_s$ に適用します。四つの位置の対分割は $(12)(34),(13)(24),(14)(23)$ なので、最初は $a^2$、残り二つはそれぞれ $(ce^{-ms})^2$ を与えます。従って
+$Y=X_{\theta f}$、$X_s=X_{\tau_s f}$ と置きます。反転不変性と時間並進不変性から $E[Y^2]=E[X_s^2]=a$ です。
+
+[自由場の反射共分散の因子分解](../MQFC8/index.md#thm-mqfc8-reflected-covariance) に $L_m(\tau_s f)=e^{-ms}L_m f$ を代入すると
+
+$$
+E[YX_s]=ce^{-ms}
+$$
+
+です。[Wick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) を $Y,Y,X_s,X_s$ に適用します。四つの位置の対分割は $(12)(34),(13)(24),(14)(23)$ なので、最初は $a^2$、残り二つはそれぞれ $(ce^{-ms})^2$ を与えます。従って
 
 $$
 E[Y^2X_s^2]=a^2+2c^2e^{-2ms}.
