@@ -1,0 +1,56 @@
+name: Validate LVT upstream game audit
+on:
+  pull_request:
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT6-01/**'
+      - '.github/workflows/validate-lvt-upstream-game.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT6-01/**'
+      - '.github/workflows/validate-lvt-upstream-game.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  upstream:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: kazunori279/lean4-tictactoe-test
+          ref: c332ba3e2d2bf78edb993ae6acadcd83f927073e
+          path: upstream
+          persist-credentials: false
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          lake-package-directory: upstream/lean_spec
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - name: Check upstream proof and additional reachability proof
+        working-directory: upstream/lean_spec
+        run: |
+          lean --version | grep -F 'version 4.22.0'
+          lake test
+          lake build
+          lake env lean "$GITHUB_WORKSPACE/textbook/volumes/dream_thater/計算系/LVT/LVT6-01/lab/UpstreamAudit.lean"
+          test -x .lake/build/bin/tictactoe_oracle
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: astral-sh/setup-uv@v6
+      - name: Reproduce upstream tests without skips
+        working-directory: upstream
+        run: |
+          uv sync --locked
+          uv run --locked pytest -v -rs --junitxml=results.xml
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          cases = ET.parse("results.xml").findall(".//testcase")
+          assert len(cases) == 7, len(cases)
+          assert all(c.find("skipped") is None for c in cases), "Unexpected skip"
+          PY

@@ -151,7 +151,7 @@ chapters:
     title: "差分検査の保証範囲と弱点"
   - id: LVT6-01
     path: textbook/volumes/dream_thater/計算系/LVT/LVT6-01
-    status: planned
+    status: completed
     title: "三目並べ教材の証明範囲を査読する"
   - id: LVT6-02
     path: textbook/volumes/dream_thater/計算系/LVT/LVT6-02

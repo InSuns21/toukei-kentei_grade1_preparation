@@ -1,0 +1,22 @@
+id: "LVT6-01"
+title: "三目並べ教材の証明範囲を査読する"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT3-06, LVT5-08, LVT2-08, LVT5-04]
+official_scope: []
+learning_objectives:
+  - 外部教材の実行仕様・定理・具体例・差分検査を区別する
+  - リスト盤面の長さ保存と初期状態からの到達不変量を区別し証明する
+  - 短い盤面と不整合な終局状態で定理の射程を検査する
+  - 固定版の証明とpytestを再現し入力領域・観測・skipの限界を台帳に記録する
+definitions:
+  - { id: LVT6-01-DEF-01, name: "リスト盤面の成功到達状態" }
+propositions:
+  - { id: LVT6-01-PROP-01, name: "成功到達状態の九マス保証" }
+theorems: []
+canonical_examples: ["空リストからの着手", "終局と範囲外の優先順位", "差分検査の入力領域"]
+problem_patterns: [LVT6-01-A01, LVT6-01-A02, LVT6-01-A03, LVT6-01-A04, LVT6-01-B01, LVT6-01-B02, LVT6-01-B03, LVT6-01-B04, LVT6-01-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2, review: 0.5 }
