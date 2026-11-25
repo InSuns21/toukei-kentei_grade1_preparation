@@ -26,6 +26,11 @@ alias_matching:
   # 真の別称ではあるが、分野横断では多義的で自由文の部分一致だけでは意味を確定できない語。
   # formal label、完全一致の強調・リンク文字列・引用など、明示的な概念参照だけを高信頼使用とする。
   contextual_aliases:
+    # 凸解析の支持関数とテンソルのsupport functionalは別の不変量。
+    # 一般の出現回数をLeanのリスト検証の定義に誤帰属させない。
+    - support function
+    - support functional
+    - 出現回数
     # 距離空間の分割和による曲線長と複素解析の区分的滑らかな曲線の積分表示は、
     # 各導入章の定義・明示参照で区別し、裸の語から分野外の prerequisite を作らない。
     - 曲線長

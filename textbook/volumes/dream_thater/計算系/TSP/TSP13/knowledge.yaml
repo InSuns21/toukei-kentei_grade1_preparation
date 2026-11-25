@@ -1,0 +1,54 @@
+chapter: TSP13
+scope: dream-theater
+coverage: complete
+prerequisites: [TSP12, INFO2, RA3]
+forward_references: []
+concepts:
+  - id: tensor.coordinate-support
+    name: テンソルの台
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（テンソルの台）"]
+    requires: [tensor.multifactor-basis]
+  - id: tensor.weighted-support-entropy
+    name: 重み付き台エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重み付き台エントロピー）"]
+    requires: [tensor.coordinate-support, information.shannon-entropy]
+  - id: tensor.upper-support-functional
+    name: 上側support functional
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（上側support functional）"]
+    requires: [tensor.weighted-support-entropy]
+  - id: tensor.upper-support-monotonicity
+    name: 上側support functionalの単調性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（上側support functionalの単調性）"]
+    requires: [tensor.upper-support-functional, tensor.restriction, information.gibbs-inequality, analysis.derivative]
+  - id: tensor.upper-support-product-sum
+    name: 上側support functionalの劣乗法性・劣加法性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（上側support functionalの劣乗法性・劣加法性）"]
+    requires: [tensor.upper-support-functional, tensor.kronecker-product, tensor.direct-sum, information.mutual-as-divergence, information.entropy-chain-rule, information.gibbs-inequality]
+  - id: tensor.diagonal-fixed-factor-bound
+    name: 対角テンソルの一因子固定項の下界
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（対角テンソルの一因子固定項の下界）"]
+    requires: [tensor.coordinate-support]
+  - id: tensor.upper-support-normalization
+    name: 上側support functionalの対角正規化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（上側support functionalの対角正規化）"]
+    requires: [tensor.upper-support-functional, tensor.diagonal-fixed-factor-bound, information.discrete-entropy-bounds]
+  - id: tensor.upper-support-subrank-bound
+    name: 台エントロピーによる漸近劣階数の上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（台エントロピーによる漸近劣階数の上界）"]
+    requires: [tensor.upper-support-monotonicity, tensor.upper-support-normalization, tensor.upper-support-product-sum, tensor.asymptotic-subrank, tensor.rank-restriction-characterization]
