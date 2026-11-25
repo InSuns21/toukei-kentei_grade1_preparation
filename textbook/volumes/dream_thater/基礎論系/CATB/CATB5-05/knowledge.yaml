@@ -1,0 +1,53 @@
+chapter: CATB5-05
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB5-04, CAT2-07, CAT2-08, CAT2-11]
+concepts:
+  - id: category.plus-functoriality
+    name: "plus構成の関手性"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（plus構成の関手性）"]
+    requires: [category.presheaf-plus-construction, category.plus-presheaf-unit, category.natural-transformation]
+  - id: category.plus-sheaf-extension
+    name: "plusから層への一意延長"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（plusから層への一意延長）"]
+    requires: [category.plus-local-representation, category.site-sheaf, category.matching-family-local-equivalence]
+  - id: category.sheafification-functor
+    name: "層化関手"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（層化関手）"]
+    requires: [category.double-plus-sheaf, category.plus-functoriality]
+  - id: category.sheafification-adjunction
+    name: "層化と包含の随伴"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（層化と包含の随伴）"]
+    requires: [category.sheafification-functor, category.plus-sheaf-extension, category.adjunction-hom]
+  - id: category.sheaf-pointwise-limits
+    name: "層の極限の点ごとの構成"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（層の極限の点ごとの構成）"]
+    requires: [category.site-sheaf, category.functor-pointwise-limits, category.limit]
+  - id: category.plus-finite-limit-preservation
+    name: "plus構成の有限極限保存"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（plus構成の有限極限保存）"]
+    requires: [category.plus-functoriality, category.covering-sieve-closure, category.functor-pointwise-limits, category.limit-comparison-isomorphism]
+  - id: category.left-exact-functor
+    name: "左完全関手"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（左完全関手）"]
+    requires: [category.limit-preservation, category.complete-category]
+  - id: category.sheafification-left-exactness
+    name: "層化の左完全性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（層化の左完全性）"]
+    requires: [category.sheafification-functor, category.plus-finite-limit-preservation, category.sheaf-pointwise-limits, category.left-exact-functor]

@@ -79,3 +79,4 @@
 76. [CATB5-02 篩とGrothendieck位相](textbook/volumes/dream_thater/基礎論系/CATB/CATB5-02/index.md)
 77. [CATB5-03 site上の層条件](textbook/volumes/dream_thater/基礎論系/CATB/CATB5-03/index.md)
 78. [CATB5-04 層化のplus構成](textbook/volumes/dream_thater/基礎論系/CATB/CATB5-04/index.md)
+79. [CATB5-05 層化の随伴と左完全性](textbook/volumes/dream_thater/基礎論系/CATB/CATB5-05/index.md)
