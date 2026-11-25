@@ -70,7 +70,7 @@ chapters:
     title: "単調回路下界：打消しを許すモデルとの差"
   - id: ACOMP17
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP17
-    status: planned
+    status: completed
     title: "非可換ABPとNisan型ランク下界"
   - id: ACOMP18
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP18
