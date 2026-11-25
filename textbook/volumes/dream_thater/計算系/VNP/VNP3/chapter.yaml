@@ -2,7 +2,7 @@ id: VNP3
 title: "A：スペクトル点から擬距離とprice、回路を評価するLemma A.3"
 volume: foundations
 status: supplementary
-prerequisites: [VNP2, TSP11, NPCG1]
+prerequisites: [VNP2, TSP11, NPCG1, TOP5]
 official_scope: []
 learning_objectives:
   - 被覆型スペクトル点を既習の加法型と区別し定義を検証できる
