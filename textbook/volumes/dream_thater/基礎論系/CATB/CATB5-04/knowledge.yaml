@@ -1,0 +1,53 @@
+chapter: CATB5-04
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB5-03, CATB5-02]
+concepts:
+  - id: category.matching-family-local-equivalence
+    name: "整合族の局所同値"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（整合族の局所同値）"]
+    requires: [category.sieve-matching-family, category.grothendieck-topology]
+  - id: category.matching-family-equivalence-relation
+    name: "局所同値の同値関係性"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所同値の同値関係性）"]
+    requires: [category.matching-family-local-equivalence, category.covering-sieve-closure]
+  - id: category.presheaf-plus-construction
+    name: "plus構成"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（plus構成）"]
+    requires: [category.matching-family-equivalence-relation, category.sieve-pullback]
+  - id: category.plus-presheaf-unit
+    name: "plus構成の前層性と標準写像"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（plus構成の前層性と標準写像）"]
+    requires: [category.presheaf-plus-construction, category.sieve-pullback-laws, category.natural-transformation]
+  - id: category.plus-local-representation
+    name: "標準写像の局所一致と局所表示"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（標準写像の局所一致と局所表示）"]
+    requires: [category.plus-presheaf-unit, category.matching-family-local-equivalence]
+  - id: category.plus-separated
+    name: "plus構成の分離性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（plus構成の分離性）"]
+    requires: [category.plus-presheaf-unit, category.covering-sieve-closure, category.site-sheaf]
+  - id: category.separated-plus-sheaf
+    name: "分離前層のplus構成は層"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（分離前層のplus構成は層）"]
+    requires: [category.plus-separated, category.plus-local-representation, category.site-sheaf]
+  - id: category.double-plus-sheaf
+    name: "二重plusによる層の構成"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二重plusによる層の構成）"]
+    requires: [category.separated-plus-sheaf, category.plus-separated]

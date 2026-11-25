@@ -1,0 +1,28 @@
+id: "CATB5-04"
+title: "層化のplus構成"
+volume: "foundations"
+status: supplementary
+prerequisites: [CATB5-03, CATB5-02]
+official_scope: []
+learning_objectives:
+  - 局所同値の同値関係性とplus構成の小ささを証明できる
+  - plus構成の前層性と標準写像の自然性を確認できる
+  - 標準写像の局所一致と局所表示を使って分離性を証明できる
+  - 分離前層のplus構成が層になることを証明できる
+  - 二重plusの必要性を離散空間の例で説明できる
+definitions:
+  - { id: CATB5-04-DEF-01, name: "整合族の局所同値" }
+  - { id: CATB5-04-DEF-02, name: "plus構成" }
+theorems:
+  - { id: CATB5-04-THM-01, name: "局所同値の同値関係性" }
+  - { id: CATB5-04-THM-02, name: "plus構成の前層性と標準写像" }
+  - { id: CATB5-04-THM-03, name: "標準写像の局所一致と局所表示" }
+  - { id: CATB5-04-THM-04, name: "plus構成の分離性" }
+  - { id: CATB5-04-THM-05, name: "分離前層のplus構成は層" }
+  - { id: CATB5-04-THM-06, name: "二重plusによる層の構成" }
+canonical_examples: [離散二点空間, 二対象の矢印圏, 離散三点空間]
+problem_patterns: [CATB5-04-A01, CATB5-04-A02, CATB5-04-A03, CATB5-04-A04, CATB5-04-B01, CATB5-04-B02, CATB5-04-B03, CATB5-04-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
