@@ -1,0 +1,15 @@
+chapter: LVT5-04
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT5-03, LVT5-02, LVT4-05, LVT3-01]
+concepts:
+  - id: lean-verification.generated-domain
+    name: 生成領域と実行集合
+    kind: definition
+    introduction: formal
+    requires: [lean-verification.observed-differential]
+  - id: lean-verification.boundary-mutant
+    name: 等号境界変異の検出条件
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.observed-differential, lean-verification.failure-signature]

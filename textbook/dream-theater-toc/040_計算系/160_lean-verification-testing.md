@@ -32,3 +32,4 @@
 29. [LVT5-01 Differential Testing・オラクルの設計](textbook/volumes/dream_thater/計算系/LVT/LVT5-01/index.md)
 30. [LVT5-02 Lean実行可能仕様のJSON Linesオラクル化](textbook/volumes/dream_thater/計算系/LVT/LVT5-02/index.md)
 31. [LVT5-03 直列化・正規化・一致判定の監査](textbook/volumes/dream_thater/計算系/LVT/LVT5-03/index.md)
+32. [LVT5-04 Python：pytest + Hypothesis差分テスト](textbook/volumes/dream_thater/計算系/LVT/LVT5-04/index.md)

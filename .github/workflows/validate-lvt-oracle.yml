@@ -4,6 +4,7 @@ on:
     paths:
       - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-02/**'
       - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-03/**'
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-04/**'
       - 'textbook/volumes/dream_thater/計算系/LVT/LVT3-01/lab/**'
       - '.github/workflows/validate-lvt-oracle.yml'
   push:
@@ -11,6 +12,7 @@ on:
     paths:
       - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-02/**'
       - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-03/**'
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-04/**'
       - 'textbook/volumes/dream_thater/計算系/LVT/LVT3-01/lab/**'
       - '.github/workflows/validate-lvt-oracle.yml'
   workflow_dispatch:
@@ -80,3 +82,21 @@ jobs:
           fi
           cat failure.log
           grep -Ei 'type mismatch|rfl.*failed|not definitionally equal' failure.log
+      - name: Check Python Hypothesis differential tests and boundary proof
+        working-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT5-04/lab'
+        shell: bash
+        run: |
+          lake build
+          lake test
+          lake env lean LvtPythonDrt.lean
+          if lake env lean Failure.lean > failure.log 2>&1; then
+            echo 'Invalid proof unexpectedly accepted'
+            exit 1
+          fi
+          grep -i 'type mismatch' failure.log
+          python3 -m venv .venv
+          source .venv/bin/activate
+          python -m pip install -r requirements.txt
+          python -m pytest -q
+          python differential.py discover /tmp/lvt-counterexample.json
+          python differential.py replay /tmp/lvt-counterexample.json
