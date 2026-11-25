@@ -64,8 +64,3 @@ chapters:
   - { id: CATB7-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB7-05, status: planned, title: "分解・導来関手・Ext" }
   - { id: CATB8-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB8-01, status: planned, title: "次数付きテンソル積とKoszul符号" }
   - { id: CATB8-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB8-02, status: planned, title: "微分付き次数付き代数と懸垂" }
-  - { id: CATB9-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB9-01, status: planned, title: "Lagrange横断交叉と境界値問題" }
-  - { id: CATB9-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB9-02, status: planned, title: "stripの端と作用・エネルギー" }
-  - { id: CATB9-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB9-03, status: planned, title: "重み付きSobolev空間とFredholm指数" }
-  - { id: CATB9-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB9-04, status: planned, title: "Floer理論の横断性・コンパクト性・境界" }
-  - { id: CATB9-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB9-05, status: planned, title: "Floer理論の貼り合わせと向き" }

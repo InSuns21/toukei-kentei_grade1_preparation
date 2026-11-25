@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11
 設計改訂: 2026-11-08
-状態: planned（設計のみ、講義数は18章に確定。CATB7〜9の実装・検証待ち）
+状態: planned（設計のみ、講義数は18章に確定。CATB7〜8・FLOERの実装・検証待ち）
 
 ## 中心問いと責務境界
 
@@ -12,7 +12,7 @@ Fukaya $A_\infty$-圏と連接層の導来圏を比較するとは何か。最�
 
 ## 着手前の依存確認（2026-11-25）
 
-MIR2・AG3・SYM・CATの完了、およびCATB1-03〜06の完了をmainの系列manifestで確認した。第1講の局所的な圏論前提は揃っているが、上位ルート台帳の前提整備条件は別のゲートである。AG3-08は層の入射分解と層コホモロジーを扱うが一般の導来圏の局所化を構成する講ではなく、GW1-03は閉曲面のFredholm理論、GW1-21はFloerを後続の独立論証とする。従って [前提整備ルート](DREAM_THEATER_HMS_FOUNDATIONS_PLAN.md) を設計し、12設計単位を[圏論・第2課程CATB7〜9](../plans_progress/DREAM_THEATER_CATEGORY_THEORY_SECOND_COURSE_PLAN.md)へ統合した。CATB7〜9の必要な成果物・査読・検証が揃うまでHM1の着手条件は未達とし、本PLAN・講義数18は維持する。
+MIR2・AG3・SYM・CATの完了、およびCATB1-03〜06の完了をmainの系列manifestで確認した。第1講の局所的な圏論前提は揃っているが、上位ルート台帳の前提整備条件は別のゲートである。AG3-08は層の入射分解と層コホモロジーを扱うが一般の導来圏の局所化を構成する講ではなく、GW1-03は閉曲面のFredholm理論、GW1-21はFloerを後続の独立論証とする。従って [前提整備ルート](DREAM_THEATER_HMS_FOUNDATIONS_PLAN.md) を設計し、代数側7講を[圏論・第2課程CATB7〜8](../plans_progress/DREAM_THEATER_CATEGORY_THEORY_SECOND_COURSE_PLAN.md)へ統合し、解析側5講を[独立FLOER PLAN](DREAM_THEATER_FLOER_ANALYTIC_FOUNDATIONS_PLAN.md)に分離した。両系列の必要な成果物・査読・検証が揃うまでHM1の着手条件は未達とし、本PLAN・講義数18は維持する。
 
 ## 講義構成（確定18章）
 
