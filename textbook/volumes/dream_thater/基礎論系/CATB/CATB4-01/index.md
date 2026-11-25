@@ -25,7 +25,7 @@ $\mathcal B$ を基底圏、$\mathcal E$ を全圏と呼ぶ。$p(x)=a$ なら $x
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb4-01-fiber -->
-**定義の確認。** [積圏](../../CAT/CAT1-05/index.md#def-cat1-05-product) $\mathbf{Set}\times\mathbf{Set}$ から第二成分を取る関手 $p$ を考える。対象と射の対応は
+**定義の確認**。 [積圏](../../CAT/CAT1-05/index.md#def-cat1-05-product) $\mathbf{Set}\times\mathbf{Set}$ から第二成分を取る関手 $p$ を考える。対象と射の対応は
 
 $$
 p(X,B)=B,\qquad p(h,u)=u
@@ -65,7 +65,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb4-01-cartesian -->
-**定義の確認。** $p=1_{\mathcal B}$ とする。任意の $u:a\to b$ に対して $f=u$ と取る。
+**定義の確認**。 $p=1_{\mathcal B}$ とする。任意の $u:a\to b$ に対して $f=u$ と取る。
 
 任意の $g:z\to b$ と $v:z\to a$ が $g=uv$ を満たすなら、$h=v$ が二条件を満たす。$p(h)=v$ はここでは $h=v$ そのものなので一意である。従って恒等関手に対してはすべての射がCartesian射である。
 <!-- definition-example-end -->
@@ -85,7 +85,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb4-01-fibration -->
-**定義の確認。** 恒等関手では任意の $y=b$ と $u:a\to b$ に対し、$x=a,f=u$ を取れる。[Cartesian射の定義と恒等関手での検証](#def-catb4-01-cartesian)は任意の $u$ に適用でき、必要な持ち上げの存在が確かめられた。
+**定義の確認**。 恒等関手では任意の $y=b$ と $u:a\to b$ に対し、$x=a,f=u$ を取れる。[Cartesian射の定義と恒等関手での検証](#def-catb4-01-cartesian)は任意の $u$ に適用でき、必要な持ち上げの存在が確かめられた。
 <!-- definition-example-end -->
 
 この定義は存在を要求するが、全持ち上げの選び方を指定しない。選択と合成との整合性は次講で扱う。
