@@ -10,7 +10,7 @@ learning_objectives:
   - 自由共分散の正時間支持を使い反射形式を重み付き絶対値二乗へ因子分解できる
   - Gaussian共通成分の分解を使い線形測定から多項式へ反射陽性を拡張できる
 definitions:
-  - { id: MQFC8-DEF-01, name: "反射陽性" }
+  - { id: MQFC8-DEF-01, name: "正時間多項式の反射形式" }
 theorems:
   - { id: MQFC8-THM-01, name: "自由共分散の時間指数核" }
   - { id: MQFC8-THM-02, name: "自由場の反射共分散の因子分解" }
