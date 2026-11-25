@@ -463,12 +463,12 @@ $$
 
 $P_0:V\to W_0$ をこの直和の射影とし、その有限な作用素ノルムを $M$ とする。$J$ の等長性と[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から $|q|\le\|f\|_{L^2}$、$|a|\le M\|f\|_{L^2}$。各 $t\in[0,1]$ で積分のノルムを評価すると
 
-$
+$$
 \left|\int_0^t Jf(r)dr\right|
 \le \int_0^t |f(r)|dr
 \le \sqrt{t}\,\|f\|_{L^2}
 \le \|f\|_{L^2}.
-$
+$$
 
 区間の長さが1であることを用い、二乗積分して
 
