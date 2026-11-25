@@ -1,0 +1,59 @@
+chapter: CATB5-10
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB5-09, CATB5-07, CATB5-03, CATB5-02]
+concepts:
+  - id: category.cover-dense-subcategory
+    name: "被覆に関する稠密部分圏"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（被覆に関する稠密部分圏）"]
+    requires: [category.site, category.generated-sieve]
+  - id: category.dense-cover-detection
+    name: "稠密部分圏による被覆判定"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（稠密部分圏による被覆判定）"]
+    requires: [category.cover-dense-subcategory, category.covering-sieve-closure]
+  - id: category.dense-induced-cover
+    name: "稠密部分圏の誘導被覆"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（稠密部分圏の誘導被覆）"]
+    requires: [category.cover-dense-subcategory, category.generated-sieve]
+  - id: category.dense-induced-topology
+    name: "誘導被覆のGrothendieck位相性"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（誘導被覆のGrothendieck位相性）"]
+    requires: [category.dense-induced-cover, category.dense-cover-detection, category.grothendieck-topology]
+  - id: category.dense-sheaf-extension
+    name: "部分siteからの整合族による延長"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（部分siteからの整合族による延長）"]
+    requires: [category.dense-induced-cover, category.site-sheaf]
+  - id: category.dense-sheaf-restriction
+    name: "稠密部分siteへの制限"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（稠密部分siteへの制限）"]
+    requires: [category.dense-induced-topology, category.site-sheaf]
+  - id: category.dense-extension-sheaf
+    name: "整合族による延長の層性"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（整合族による延長の層性）"]
+    requires: [category.dense-sheaf-extension, category.dense-cover-detection, category.dense-induced-topology]
+  - id: category.dense-site-comparison
+    name: "稠密充満部分siteの比較定理"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（稠密充満部分siteの比較定理）"]
+    requires: [category.dense-sheaf-restriction, category.dense-extension-sheaf, category.equivalence-of-categories]
+  - id: category.basis-site-comparison
+    name: "開集合の基底による層圏の表示"
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（開集合の基底による層圏の表示）"]
+    requires: [category.dense-site-comparison, category.basis-grothendieck-topology, category.open-site-sheaf-equivalence]

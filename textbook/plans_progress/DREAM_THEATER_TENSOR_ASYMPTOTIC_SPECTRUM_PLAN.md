@@ -1,7 +1,7 @@
 # DREAM THEATER テンソル理論・漸近スペクトル 計画
 
 構成確定日: 2026-11-24 JST
-状態: planned（設計確定・本文未着手）
+状態: in progress（TSP1実装、TSP2〜16予定）
 系列予約ID: TSP（実装時にmanifest/章ID衝突を再点検）
 講数: **全16講**
 
@@ -36,11 +36,11 @@
 
 Landsberg, [Tensors: Geometry and Applications](https://doi.org/10.1090/gsm/128)；[Geometry and Complexity Theory](https://www.cambridge.org/core/books/abs/geometry-and-complexity-theory/preface/13EB68870E2064973FE4805B496B6DF3)；Wigderson–Zuiddam, [Asymptotic spectra survey](https://doi.org/10.1090/bull/1880)；Christandl–Vrana–Zuiddam, [Universal points in the asymptotic spectrum of tensors](https://arxiv.org/abs/1709.07851)。
 
-関連: [VP/VNP横断履修ルート](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md)。各書の目次と公開された研究資料を設計基準にし、本文を転載しない。
+関連: [VP/VNP横断履修ルート](../plans/DREAM_THEATER_VP_VNP_ROUTE_PLAN.md)。各書の目次と公開された研究資料を設計基準にし、本文を転載しない。
 
 ## 4. 完成条件
 
-- [ ] 初回実装時に本PLANを plans_progress に移し、系列manifestを全16講の予定IDで整備する。未実装章の公開目次先行登録はしない。
+- [x] 初回実装時に本PLANを plans_progress に移し、系列manifestを全16講の予定IDで整備する。未実装章の公開目次先行登録はしない。
 - [ ] 各講で主要定義を使用前に導入し、定理の仮定・定義域・量化・中間計算を明示。直接例と反例を含め、主要証明を再構成可能にする。
 - [ ] 原則 Level A 4題・B 3題・C 1題以上と詳細解答。単なる題数合わせはしない。
 - [ ] chapter.yaml・knowledge.yaml・prerequisite・stable anchor・KaTeX・concept/knowledge/exercise/Pages検証を完了する。

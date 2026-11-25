@@ -1,0 +1,70 @@
+version: 1
+id: TSP
+title: "テンソル理論・漸近スペクトル"
+plan: textbook/plans_progress/DREAM_THEATER_TENSOR_ASYMPTOTIC_SPECTRUM_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+chapters:
+  - id: TSP1
+    path: textbook/volumes/dream_thater/計算系/TSP/TSP1
+    status: completed
+    title: "多重線形写像・テンソル積・基底表示と普遍性"
+  - id: TSP2
+    path: textbook/volumes/dream_thater/計算系/TSP/TSP2
+    status: planned
+    title: "rank-one分解とテンソル階数：行列階数との差"
+  - id: TSP3
+    path: textbook/volumes/dream_thater/計算系/TSP/TSP3
+    status: planned
+    title: "平坦化と部分空間の階数下界"
+  - id: TSP4
+    path: textbook/volumes/dream_thater/計算系/TSP/TSP4
+    status: planned
+    title: "制限・劣階数・対角テンソルと局所線形写像"
+  - id: TSP5
+    path: textbook/volumes/dream_thater/計算系/TSP/TSP5
+    status: planned
+    title: "直和・Kronecker積・制限の前順序"
+  - id: TSP6
+    path: textbook/volumes/dream_thater/計算系/TSP/TSP6
+    status: planned
+    title: "テンソルネットワーク・縮約・wire：グラフの境界テンソル"
+  - id: TSP7
+    path: textbook/volumes/dream_thater/計算系/TSP/TSP7
+    status: planned
+    title: "行列積テンソルと双線形複雑性"
+  - id: TSP8
+    path: textbook/volumes/dream_thater/計算系/TSP/TSP8
+    status: planned
+    title: "境界階数・Segre写像とsecant：退化の具体計算"
+  - id: TSP9
+    path: textbook/volumes/dream_thater/計算系/TSP/TSP9
+    status: planned
+    title: "漸近階数・漸近劣階数・Fekete補題と指数"
+  - id: TSP10
+    path: textbook/volumes/dream_thater/計算系/TSP/TSP10
+    status: planned
+    title: "前順序付き可換半環と自然数の埋込み"
+  - id: TSP11
+    path: textbook/volumes/dream_thater/計算系/TSP/TSP11
+    status: planned
+    title: "スペクトル点：加法性・乗法性・単調性・正規化"
+  - id: TSP12
+    path: textbook/volumes/dream_thater/計算系/TSP/TSP12
+    status: planned
+    title: "Strassen漸近スペクトル双対性：仮定・証明の骨格と例"
+  - id: TSP13
+    path: textbook/volumes/dream_thater/計算系/TSP/TSP13
+    status: planned
+    title: "support functionals・エントロピーによるスペクトル評価"
+  - id: TSP14
+    path: textbook/volumes/dream_thater/計算系/TSP/TSP14
+    status: planned
+    title: "行列積指数と漸近スペクトル：既知の上下界の意味"
+  - id: TSP15
+    path: textbook/volumes/dream_thater/計算系/TSP/TSP15
+    status: planned
+    title: "多partyテンソル・partyの併合とpush-forward：標準制限との比較"
+  - id: TSP16
+    path: textbook/volumes/dream_thater/計算系/TSP/TSP16
+    status: planned
+    title: "被覆・劣乗法的gauge・極限の準備：順序と凸性、一般スペクトルとの境界"

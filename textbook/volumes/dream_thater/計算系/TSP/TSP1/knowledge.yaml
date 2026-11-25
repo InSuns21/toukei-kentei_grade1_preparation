@@ -1,0 +1,33 @@
+chapter: TSP1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA3E
+  - FLD0
+  - ACOMP4
+forward_references: []
+concepts:
+  - id: tensor.multilinear-map
+    name: 多重線形写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多重線形写像）"]
+    requires: [linear.linear-map-over-field]
+  - id: tensor.multifactor-product
+    name: 多因子のテンソル積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多因子のテンソル積）"]
+    requires: [tensor.multilinear-map, linear.tensor-product]
+  - id: tensor.multifactor-basis
+    name: 多因子テンソル積の存在・基底・一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（多因子テンソル積の存在・基底・一意性）"]
+    requires: [tensor.multifactor-product, linear.basis-over-field, linear.dimension-over-field, linear.tensor-product-basis, linear.tensor-product-uniqueness]
+  - id: tensor.multifactor-coordinate-change
+    name: 多因子テンソルの基底変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（多因子テンソルの基底変換）"]
+    requires: [tensor.multifactor-basis, linear.coordinate-isomorphism-over-field]
