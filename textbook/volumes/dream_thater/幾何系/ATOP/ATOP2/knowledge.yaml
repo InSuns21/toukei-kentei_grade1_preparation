@@ -1,0 +1,41 @@
+chapter: ATOP2
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP1, TOP1, TOP3]
+forward_references: []
+concepts:
+  - id: atop.homotopy
+    name: ホモトピー
+    kind: definition
+    introduction: formal
+    requires: [topology.product-topology, topology.topological-continuous-map]
+  - id: atop.relative-homotopy
+    name: 相対ホモトピー
+    kind: definition
+    introduction: formal
+    requires: [atop.homotopy]
+  - id: atop.linear-homotopy
+    name: 直線ホモトピー
+    kind: proposition
+    introduction: formal
+    requires: [atop.relative-homotopy, topology.product-universal-property]
+  - id: atop.homotopy-equivalence-relation
+    name: ホモトピー関係の同値関係性
+    kind: theorem
+    introduction: formal
+    requires: [atop.relative-homotopy, topology.product-universal-property]
+  - id: atop.homotopy-composition
+    name: ホモトピーと合成の両立
+    kind: proposition
+    introduction: formal
+    requires: [atop.relative-homotopy, topology.product-universal-property]
+  - id: atop.homotopy-equivalence
+    name: ホモトピー同値
+    kind: definition
+    introduction: formal
+    requires: [atop.homotopy]
+  - id: atop.space-homotopy-equivalence-relation
+    name: ホモトピー同値の同値関係性
+    kind: theorem
+    introduction: formal
+    requires: [atop.homotopy-equivalence, atop.homotopy-composition, atop.homotopy-equivalence-relation, topology.homeomorphism]

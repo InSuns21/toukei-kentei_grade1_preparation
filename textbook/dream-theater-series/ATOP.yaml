@@ -5,7 +5,7 @@ plan: textbook/plans_progress/DREAM_THEATER_ALGEBRAIC_TOPOLOGY_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 chapters:
   - { id: ATOP1, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP1, status: completed, title: "図形を位相的に見る：同相・商・局所模型" }
-  - { id: ATOP2, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP2, status: planned, title: "ホモトピー：写像を連続的に変形する" }
+  - { id: ATOP2, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP2, status: completed, title: "ホモトピー：写像を連続的に変形する" }
   - { id: ATOP3, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP3, status: planned, title: "レトラクト・変形レトラクト・可縮性" }
   - { id: ATOP4, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP4, status: planned, title: "道・ループ・基本群" }
   - { id: ATOP5, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP5, status: planned, title: "被覆空間・道とホモトピーの持上げ" }
