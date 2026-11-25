@@ -26,16 +26,25 @@ cases = [(request("a", 5, 2), expected("a", 5, 2)),
          (request("d", 4, 0), expected("d", 4, 0)),
          (request("e", -1, 1), ERROR),
          ('{"id":"e","stock":1}', ERROR),
-         (request('引用"\n', 3, 1), expected('引用"\n', 3, 1))]
+         (request('引用"\n\u2028', 3, 1), expected('引用"\n\u2028', 3, 1))]
 cases += [(request(f"{s}:{k}", s, k), expected(f"{s}:{k}", s, k))
           for s in range(4) for k in range(4)]
+
+def matches_response(got, want):
+    # Preserve the JSON type of each field (Python True == 1).
+    return json.dumps(got, sort_keys=True) == json.dumps(want, sort_keys=True)
 
 def run_batch(rows):
     proc = subprocess.run([EXE, "--batch"], input="".join(s + "\n" for s, _ in rows),
                           text=True, encoding="utf-8", capture_output=True,
                           timeout=15, check=True)
     assert proc.stderr == "", proc.stderr
-    return [json.loads(line) for line in proc.stdout.splitlines()]
+    # JSON Lines uses LF, not all Unicode line separators.
+    assert not proc.stdout or proc.stdout.endswith("\n"), "missing LF"
+    lines = proc.stdout.split("\n")[:-1]
+    outputs = [json.loads(line) for line in lines]
+    assert matches_response(outputs, [v for _, v in rows]), outputs
+    return outputs
 
 def run_stream(rows):
     messages = queue.Queue()
@@ -58,8 +67,9 @@ def run_stream(rows):
                     proc.stdin.flush()
                     line = messages.get(timeout=10)
                     assert line is not None, "unexpected EOF"
+                    assert line.endswith("\n"), "missing LF"
                     got = json.loads(line)
-                    assert got == want, (raw, got, want)
+                    assert matches_response(got, want), (raw, got, want)
                     outputs.append(got)
                 proc.stdin.close()
                 assert messages.get(timeout=10) is None, "extra stdout line"
@@ -74,6 +84,9 @@ def run_stream(rows):
                 worker.join(timeout=10)
 
 if __name__ == "__main__":
+    assert matches_response({"status": "ok", "rest": 1}, {"rest": 1, "status": "ok"})
+    assert not matches_response({"rest": True}, {"rest": 1})
+    assert not matches_response({"rest": 1.0}, {"rest": 1})
     want = [v for _, v in cases]
     assert run_batch(cases) == want
     assert run_stream(cases) == want
@@ -83,5 +96,5 @@ if __name__ == "__main__":
     # EOF after a nonempty final line without LF is accepted by this adapter.
     last = subprocess.run([EXE, "--batch"], input=cases[0][0], text=True,
                           encoding="utf-8", capture_output=True, check=True, timeout=10)
-    assert json.loads(last.stdout) == cases[0][1]
+    assert matches_response(json.loads(last.stdout), cases[0][1])
     print(f"LVT5-02: {len(cases)} ordered responses in each mode; EOF and CLI checks OK")
