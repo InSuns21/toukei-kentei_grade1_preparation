@@ -1,0 +1,21 @@
+id: "LVT6-02"
+title: "三目並べの変異バグを発見する"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT6-01, LVT4-06, LVT4-05, LVT5-08]
+official_scope: []
+learning_objectives:
+  - 反対角線だけを除く変異を作り、固定したLean仕様と比較する
+  - 既存単体テストが変異を検出しない理由を各入力で説明する
+  - 接頭列から反例を縮小し最短検出長を証明する
+  - 実際の差分実験で観測の範囲と共通バグの限界を区別する
+definitions: []
+propositions:
+  - { id: LVT6-02-PROP-01, name: "反対角線欠落の最短検出長" }
+theorems: []
+canonical_examples: ["反対角線の五手勝利", "既存五単体テスト", "六手列からの接頭列縮小"]
+problem_patterns: [LVT6-02-A01, LVT6-02-A02, LVT6-02-A03, LVT6-02-A04, LVT6-02-B01, LVT6-02-B02, LVT6-02-B03, LVT6-02-B04, LVT6-02-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 1.5, exercises: 2, review: 0.5 }
