@@ -117,10 +117,10 @@ Leanが出力した9組すべてが G の結果と一致するとき、[全有�
 
 ブラウザの実行ラボでは [Inspect.lean](lab/Inspect.lean) の具体例と定理の型を確認し、[Failure.lean](lab/Failure.lean) では下書きから公開を受理する誤った等式が拒否されることを確認してください。Lean Webと固定ツールチェーンの版が異なる場合は端末で再確認します。
 
-GitHub Codespaces（ログインと利用枠が必要）またはLean 4.35.0とPython 3.12のある端末で次を実行します。
+GitHub Codespaces（ログインと利用枠が必要）またはLean 4.35.0とPython 3.12のある端末で、リポジトリのルートから次を実行します。
 
 ~~~bash
-cd "$(git rev-parse --show-toplevel)/textbook/volumes/dream_thater/計算系/LVT/LVT6-07/lab"
+cd "textbook/volumes/dream_thater/計算系/LVT/LVT6-07/lab"
 python3 harness.py
 python3 harness.py --mutate
 python3 harness.py --mutate --replay p
