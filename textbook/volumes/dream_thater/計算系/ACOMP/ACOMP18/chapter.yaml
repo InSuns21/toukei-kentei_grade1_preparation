@@ -1,0 +1,41 @@
+id: "ACOMP18"
+title: "制限付き可換回路：multilinear・bounded-depthの下界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ACOMP17
+official_scope: []
+learning_objectives:
+  - 意味的・構文的多重線形性と出力のみの多重線形性を区別できる
+  - 変数分割係数行列を作り分離積数の最小値を階数から導出できる
+  - 深さ2と斉次深さ3の演算モデルを区別し項数下界を計算できる
+  - 形式偏微分の線形包の次元から斉次深さ3回路の指数下界を証明できる
+  - 下界のモデル制約と小さい一般回路の存在を比較できる
+definitions:
+  - { id: ACOMP18-DEF-01, name: "多重線形多項式と構文的多重線形回路" }
+  - { id: ACOMP18-DEF-02, name: "変数分割係数行列" }
+  - { id: ACOMP18-DEF-03, name: "深さ2の単項式和と斉次深さ3回路" }
+  - { id: ACOMP18-DEF-04, name: "定次数偏微分空間" }
+theorems:
+  - { id: ACOMP18-THM-01, name: "構文的条件による多重線形性" }
+  - { id: ACOMP18-THM-02, name: "変数分割による分離積数の下界" }
+  - { id: ACOMP18-THM-03, name: "斉次深さ3の偏微分次元上界" }
+  - { id: ACOMP18-THM-04, name: "斉次深さ3回路の指数下界" }
+canonical_examples:
+  - 打消しと配線上の変数集合
+  - 変数分割と係数体による階数の変化
+  - 分離積数の指数下界と小さい構文的多重線形回路
+  - ブロック二次式の積の偏微分次元
+problem_patterns:
+  - ACOMP18-A1
+  - ACOMP18-A2
+  - ACOMP18-A3
+  - ACOMP18-A4
+  - ACOMP18-B1
+  - ACOMP18-B2
+  - ACOMP18-B3
+  - ACOMP18-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
