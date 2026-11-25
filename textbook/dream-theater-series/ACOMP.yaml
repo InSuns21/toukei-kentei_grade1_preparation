@@ -58,7 +58,7 @@ chapters:
     title: "VF・VBP・VP・VNP：determinantの正しい完全性範囲"
   - id: ACOMP14
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP14
-    status: planned
+    status: completed
     title: "部分微分法・Baur–Strassen：回路微分のコスト"
   - id: ACOMP15
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP15
