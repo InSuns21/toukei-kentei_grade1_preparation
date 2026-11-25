@@ -2,7 +2,7 @@ id: MQFC17
 title: "熱力学極限・クラスター展開・低次元ギャップ"
 volume: foundations
 status: supplementary
-prerequisites: [MQFC12, MQFC15, MQFC16]
+prerequisites: [MQFC12, MQFC15, MQFC16, SM3, COMB9, ATOP8, RA5]
 official_scope: []
 learning_objectives:
   - 局所観測の熱力学極限と有限領域の正規化を区別できる
@@ -19,7 +19,7 @@ theorems:
   - { id: MQFC17-THM-02, name: "小活動度での体積一様な展開" }
   - { id: MQFC17-THM-03, name: "小活動度での局所極限" }
   - { id: MQFC17-THM-04, name: "小活動度模型の二点相関減衰" }
-canonical_examples: [独立占有の局所極限, 三点の排除模型, 三頂点の符号和, 混合状態の相関]
+canonical_examples: [独立占有の局所極限, 三点の排除模型, 三頂点の符号和, 混合分布の相関]
 problem_patterns: [MQFC17-CONNECTED, MQFC17-TREE, MQFC17-LIMIT, MQFC17-DECAY, MQFC17-GAP]
 past_exam_alignment: []
 integrated_exam_problems: []
