@@ -1,0 +1,27 @@
+id: MQFC6
+title: "Gaussian測度をどう作るか"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC1, MQFC5, F0-00P6, STO3, GCT1]
+official_scope: []
+learning_objectives:
+  - 有限次元のGaussian積分を正規化し格子作用から分散共分散行列と特性関数を導ける
+  - 特性汎関数の正値型条件と有限次元分布の線形整合性を証明できる
+  - Schwartz空間の核性の判定をHermite基底の二乗和で確認できる
+  - Bochner–Minlosの定理の仮定を照合し自由場測度を構成できる
+  - Gaussianの具体的構成から連続双対上への着地と測定の二乗平均収束を説明できる
+definitions:
+  - { id: MQFC6-DEF-01, name: "場の特性汎関数" }
+  - { id: MQFC6-DEF-02, name: "特性汎関数の正値型条件" }
+theorems:
+  - { id: MQFC6-THM-01, name: "有限次元Gaussian積分と特性関数" }
+  - { id: MQFC6-THM-02, name: "Gaussian型特性汎関数の有限次元整合性" }
+  - { id: MQFC6-PROP-01, name: "Schwartz空間の核性の確認" }
+  - { id: MQFC6-THM-03, name: "Bochner–Minlosの定理：実Schwartz空間の場合" }
+  - { id: MQFC6-THM-04, name: "質量付きEuclid自由場のGaussian測度の構成" }
+canonical_examples: [2頂点格子, デルタ分布のGaussian係数, 線形従属な測定, Hermite基底による構成]
+problem_patterns: [MQFC6-NORMALIZATION, MQFC6-LATTICE, MQFC6-POSITIVE-TYPE, MQFC6-NUCLEAR, MQFC6-MEASURE]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 4, review: 2 }

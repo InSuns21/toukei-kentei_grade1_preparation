@@ -1,0 +1,41 @@
+chapter: MQFC6
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC1, MQFC5, F0-00P6, STO3, GCT1]
+forward_references: []
+concepts:
+  - id: mqfc.finite-gaussian
+    name: "有限次元Gaussian積分と特性関数"
+    kind: theorem
+    introduction: formal
+    requires: [prob.vector-characteristic-function, linear.spectral-theorem]
+  - id: mqfc.characteristic-functional
+    name: "場の特性汎関数"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.tempered, stochastic.canonical-trajectory-space]
+  - id: mqfc.characteristic-positive-type
+    name: "特性汎関数の正値型条件"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.characteristic-functional]
+  - id: mqfc.gaussian-consistency
+    name: "Gaussian型特性汎関数の有限次元整合性"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.finite-gaussian, mqfc.characteristic-positive-type, mqfc.gram, stochastic.finite-dimensional-distribution-consistency, prob.levy-continuity-theorem-finite-dimensional]
+  - id: mqfc.schwartz-nuclear
+    name: "Schwartz空間の核性の確認"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.schwartz]
+  - id: mqfc.bochner-minlos
+    name: "Bochner–Minlosの定理：実Schwartz空間の場合"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.schwartz-nuclear, mqfc.characteristic-functional, mqfc.characteristic-positive-type]
+  - id: mqfc.free-gaussian-measure
+    name: "質量付きEuclid自由場のGaussian測度の構成"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.euclidean-covariance-form, mqfc.euclidean-covariance-positivity, mqfc.gaussian-consistency, mqfc.bochner-minlos, stochastic.kolmogorov-extension]

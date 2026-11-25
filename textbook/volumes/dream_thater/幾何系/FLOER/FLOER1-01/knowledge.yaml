@@ -1,0 +1,58 @@
+chapter: FLOER1-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SYM6
+  - SYM8
+  - GW1-02
+  - GW1-03
+  - GA2
+concepts:
+  - id: floer.transverse-intersection
+    name: "Lagrange横断交叉"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lagrange横断交叉）"]
+    requires: [symplectic.lagrangian-submanifold]
+  - id: floer.totally-real-subspace
+    name: "完全実部分空間"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（完全実部分空間）"]
+    requires: [symplectic.linear-complex-structure]
+  - id: floer.lagrangian-totally-real
+    name: "適合構造に対するLagrange境界の完全実性"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（適合構造に対するLagrange境界の完全実性）"]
+    requires: [floer.totally-real-subspace, symplectic.lagrangian-metric-orthogonality]
+  - id: floer.isolated-intersection
+    name: "横断交叉点の孤立性"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（横断交叉点の孤立性）"]
+    requires: [floer.transverse-intersection]
+  - id: floer.lagrangian-boundary-strip
+    name: "Lagrange境界条件付きstrip"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lagrange境界条件付きstrip）"]
+    requires: [symplectic.lagrangian-submanifold, gromov-witten.j-holomorphic-map]
+  - id: floer.boundary-linearization
+    name: "stripの境界条件の線形化"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（stripの境界条件の線形化）"]
+    requires: [floer.lagrangian-boundary-strip, gromov-witten.local-linearization-formula]
+  - id: floer.flat-reflection-estimate
+    name: "平坦実境界での反射と一階評価"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平坦実境界での反射と一階評価）"]
+    requires: [floer.totally-real-subspace, gromov-witten.first-order-elliptic-estimate]
+  - id: floer.finite-strip-estimate
+    name: "有限stripの境界付き一階楕円型評価"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限stripの境界付き一階楕円型評価）"]
+    requires: [floer.flat-reflection-estimate, floer.boundary-linearization, floer.lagrangian-totally-real]

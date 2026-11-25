@@ -1,7 +1,7 @@
 # DREAM THEATER Floer理論の解析基盤（FLOER）
 
 設計確定日：2026-11-25  
-状態：planned（独立幾何系講義の設計のみ。本文・系列manifestは未作成）  
+状態：in progress（FLOER1-01実装、残り4講）  
 講義数：5講（FLOER1-01〜05）。核心証明の粒度により再審議できる。
 
 ## 1. 中心問いと依存
@@ -10,8 +10,8 @@ Lagrange交叉から生成元を作り、境界条件付きの擬正則stripを�
 
 - 入口：完成済みの [SYM6](../volumes/dream_thater/幾何系/SYM/SYM6/index.md)、[SYM8](../volumes/dream_thater/幾何系/SYM/SYM8/index.md#def-sym8-almost-complex)、[GW1-03](../volumes/dream_thater/幾何系/GW/GW1-03/index.md#thm-gw1-03-fredholm)、[GW1-06](../volumes/dream_thater/幾何系/GW/GW1-06/index.md#thm-gw1-06-compactness)、[GW1-12](../volumes/dream_thater/幾何系/GW/GW1-12/index.md#prop-gw1-12-gluing-local)、[GW1-21](../volumes/dream_thater/幾何系/GW/GW1-21/index.md#prop-gw1-21-lyapunov-schmidt) の該当結果。各講で実際に使う前提を章metadataに記す。
 - 代数側は [CATB7〜8](../plans_progress/DREAM_THEATER_CATEGORY_THEORY_SECOND_COURSE_PLAN.md) が担当する。解析講義の証明に不要な圏論全課程の完了は要求しない。
-- 後続：[HM1](DREAM_THEATER_HOMOLOGICAL_MIRROR_SYMMETRY_PLAN.md)。一般のFukaya圏、整合的多角形摂動、障害理論、鏡像同値はHM1の責務とする。
-- 予定配置：`textbook/volumes/dream_thater/幾何系/FLOER/<章ID>/`。初章の実装開始時に系列manifest FLOER.yaml を作成し、PLANをplans_progressへ移す。ID・既存概念ownerの衝突を再確認する。
+- 後続：[HM1](../plans/DREAM_THEATER_HOMOLOGICAL_MIRROR_SYMMETRY_PLAN.md)。一般のFukaya圏、整合的多角形摂動、障害理論、鏡像同値はHM1の責務とする。
+- 予定配置：`textbook/volumes/dream_thater/幾何系/FLOER/<章ID>/`。進捗は [FLOER系列manifest](../dream-theater-series/FLOER.yaml) を参照する。
 
 ## 2. 講義構成
 
@@ -30,7 +30,7 @@ SYM6/8とGW1-03/06/12/21の必要な解析・幾何の結果を入力とし、�
 - 各章で定義の直接例、主要結果の証明、A4/B3/C1以上の演習と全詳細解答を整備し、区分Cの全件再計算・別観点再読とCIを完了する。
 - まず正則・無泡のモデルを明示して証明を閉じる。非コンパクトなstrip上のFredholm性、指数・減衰、コンパクト性と貼り合わせの仮定を別々に確認する。整数係数の場合は向き付けの条件を明記する。
 - HM1の楕円曲線上のLagrange曲線に限定モデルの仮定が成立するかを別途確認する。閉シンプレクティック多様体をexactと仮定せず、必要な無泡条件とNovikov係数を明示する。一般論を証明済みとは扱わない。
-- [HMS前提整備ルート](DREAM_THEATER_HMS_FOUNDATIONS_PLAN.md)でCATB7〜8・FLOERの両方を照合し、必要成果物・査読・検証が揃ってからHM1に進む。
+- [HMS前提整備ルート](../plans/DREAM_THEATER_HMS_FOUNDATIONS_PLAN.md)でCATB7〜8・FLOERの両方を照合し、必要成果物・査読・検証が揃ってからHM1に進む。
 
 ## 4. 参考文献
 
