@@ -45,9 +45,15 @@ $$
 対して $\forall y\,P_0(y)$ や $\neg P_0(y)$ はこの構文に含まれない。
 <!-- definition-example-end -->
 
-解釈は[正則式の圏論的解釈](../CATB6-04/index.md#def-catb6-04-regular-semantics)を拡張する。ソートを対象、関数を射、関係を部分対象とし、文脈 $\Gamma$ のソート対象の有限積を $G$ とする。空文脈では空積である終対象 $1$ を取る。式 $\varphi$ の解釈を表す部分対象を $[\![\varphi]\!]_G$ と書く。部分対象の順序 $\le$ は代表モノ射が他方を経由すること、等号は同じ部分対象を表すことを意味する。等号は対角の引き戻し、関係式は入力項の組に沿う引き戻し、連言は共通部分、存在量化は射影に沿う像である。
+解釈は[正則式の圏論的解釈](../CATB6-04/index.md#def-catb6-04-regular-semantics)を拡張する。ソートを対象、関数を射、関係を部分対象とし、文脈 $\Gamma$ のソート対象の有限積を $G$ とする。空文脈では空積である終対象 $1$ を取る。
 
-任意選言のため、集合 $I$ で添字付けられた部分対象 $m_i:P_i\hookrightarrow G$ の族を考える。$\operatorname{im}$ は射の像を表し、余積からの射は各余積包含との合成が $m_i$ となる唯一の射である。層の余積は[関手圏の余極限の点ごとの構成](../../CAT/CAT2-07/index.md#thm-cat2-07-pointwise-colimit)により前層で点ごとに余積を取り、[層化と包含の随伴](../CATB5-05/index.md#thm-catb5-05-adjunction)で層化すれば得られる。実際、層への射は前層余積からの射、すなわち各成分からの射の族と自然に対応する。これを使い、選言の意味を
+式 $\varphi$ の解釈を表す部分対象を $[\![\varphi]\!]_G$ と書く。部分対象の順序 $\le$ は代表モノ射が他方を経由すること、等号は同じ部分対象を表すことを意味する。
+
+等号は対角の引き戻し、関係式は入力項の組に沿う引き戻し、連言は共通部分、存在量化は射影に沿う像である。
+
+任意選言のため、集合 $I$ で添字付けられた部分対象 $m_i:P_i\hookrightarrow G$ の族を考える。$\operatorname{im}$ は射の像を表し、余積からの射は各余積包含との合成が $m_i$ となる唯一の射である。
+
+層の余積は[関手圏の余極限の点ごとの構成](../../CAT/CAT2-07/index.md#thm-cat2-07-pointwise-colimit)により前層で点ごとに余積を取り、[層化と包含の随伴](../CATB5-05/index.md#thm-catb5-05-adjunction)で層化すれば得られる。実際、層への射は前層余積からの射、すなわち各成分からの射の族と自然に対応する。これを使い、選言の意味を
 
 $$
 [\![\bigvee_{i\in I}\varphi_i]\!]_G
@@ -56,7 +62,7 @@ $$
 
 とする。この像は各 $m_i$ を含む。
 
-逆に全ての $m_i$ が部分対象 $N$ を経由すれば、余積からの射も $N$ を経由し、[初等トポスの像分解](../CATB5-08/index.md#thm-catb5-08-image)の最小性から像は $N$ に含まれる。
+逆に全ての $m_i$ が部分対象 $N$ を経由すれば、余積からの射も $N$ を経由する。[初等トポスの像分解](../CATB5-08/index.md#thm-catb5-08-image)の最小性から像は $N$ に含まれる。
 
 よってこれは部分対象の上限である。空族も扱え、像は最小部分対象となる。
 
@@ -134,7 +140,15 @@ $$
 
 変数の項は射影なのでこの同型で対応する。
 
-関数記号の解釈を $v:\prod_{i=1}^k A_i\to B$、入力項の解釈を $t_i:G\to A_i$ と書く。適用した項の解釈は組射 $\langle t_i\rangle:G\to\prod_{i=1}^k A_i$ との合成 $v\langle t_i\rangle$ である。帰納仮定と[積の普遍性](../../CAT/CAT2-04/index.md#def-cat2-04-small-product)により
+関数記号の解釈を $v:\prod_{i=1}^k A_i\to B$、入力項の解釈を $t_i:G\to A_i$ と書く。
+
+適用した項の解釈は組射との合成
+
+$$
+G\xrightarrow{\langle t_i\rangle}\prod_{i=1}^k A_i\xrightarrow{v}B
+$$
+
+である。帰納仮定と[積の普遍性](../../CAT/CAT2-04/index.md#def-cat2-04-small-product)により
 
 $$
 f^*(v\langle t_i\rangle)
@@ -159,7 +173,9 @@ $$
 
 これが移した選言の意味であり、空族の場合も成立する。
 
-存在量化では、量化される変数のソート対象を $A$、量化前の式の部分対象を $D\hookrightarrow G\times A$ とし、射影を $\pi:G\times A\to G$ とする。$\pi|_D$ は包含との合成である。[像保存](../CATB5-09/index.md#thm-catb5-09-image-preservation)を合成 $D\to G\times A\to G$ に適用すれば
+存在量化では、量化される変数のソート対象を $A$、量化前の式の部分対象を $D\hookrightarrow G\times A$ とし、射影を $\pi:G\times A\to G$ とする。
+
+$\pi|_D$ は包含との合成である。[像保存](../CATB5-09/index.md#thm-catb5-09-image-preservation)を合成 $D\to G\times A\to G$ に適用すれば
 
 $$
 f^*\operatorname{im}(\pi|_D)
@@ -177,7 +193,9 @@ $$
 
 終対象の部分層 $P$ を、開集合 $V$ が $U$ に含まれる場合に限って唯一の切断を持つものとする。
 
-[強制条件](../CATB6-06/index.md#thm-catb6-06-forcing-clauses)の含意節から、$S$ では $U$ へ制限すると $P$ が真で偽は真でないので、$\neg P$ は真でない。$U$ では恒等制限 $U\to U$ 自体が $P$ を強制し、偽を強制しないため、やはり $\neg P$ は真でない。
+[強制条件](../CATB6-06/index.md#thm-catb6-06-forcing-clauses)の含意節から、$S$ では $U$ へ制限すると $P$ が真で偽は真でないので、$\neg P$ は真でない。
+
+$U$ では恒等制限 $U\to U$ 自体が $P$ を強制し、偽を強制しないため、やはり $\neg P$ は真でない。
 
 空集合でだけ真となるため $\neg P$ は最小部分対象である。
 
@@ -270,7 +288,13 @@ $$
 
 比較射の各成分は同じ端の有限極限間の標準同型で、切替時にも極限射影と可換である。従って比較射は自然同型となり、$H_Q$ は有限極限を保存する。
 
-ここから層化関手を $a_{\mathrm{sh}}$ と書き、四角形の成分 $a$ と区別する。$F_Q=a_{\mathrm{sh}}H_Q$ と置く。[層化の左完全性](../CATB5-05/index.md#thm-catb5-05-sheafification-left-exact)で $F_Q$ は有限極限を保存する。
+ここから層化関手を $a_{\mathrm{sh}}$ と書き、四角形の成分 $a$ と区別する。
+
+$$
+F_Q=a_{\mathrm{sh}}H_Q.
+$$
+
+[層化の左完全性](../CATB5-05/index.md#thm-catb5-05-sheafification-left-exact)で $F_Q$ は有限極限を保存する。
 
 右随伴を作る。層 $K$ に対し、写像
 
@@ -309,7 +333,19 @@ $$
 \operatorname{Hom}_{\operatorname{Sh}(S)}(d,R_Q(K))
 $$
 
-が自然に得られる。右辺の $R_Q$ は層の射 $K\to K'$ に対し両端で後合成する関手である。よって[随伴と転置](../../CAT/CAT2-08/index.md#def-cat2-08-adjunction)の条件が成立し、$F_Q$ は左完全な左随伴で、[幾何学的射](../CATB5-09/index.md#def-catb5-09-geometric-morphism) $f_Q$ の逆像となる。$H_Q(1\to1)$ は終前層、$H_Q(L)$ は部分層 $Q$ そのものだから、層化後も $F_Q(1\to1)\cong1$、$F_Q(L)\cong Q$ であり、$L\to I$ は $Q\to1$ に移る。
+が自然に得られる。右辺の $R_Q$ は層の射 $K\to K'$ に対し両端で後合成する関手である。
+
+よって[随伴と転置](../../CAT/CAT2-08/index.md#def-cat2-08-adjunction)の条件が成立し、$F_Q$ は左完全な左随伴である。[幾何学的射](../CATB5-09/index.md#def-catb5-09-geometric-morphism) $f_Q$ の逆像となる。
+
+$H_Q(I)$ はどの段階でも一点集合を取る終前層である。$H_Q(L)$ は $Q$ が真の段階で一点、偽の段階で空集合を取るので、部分層 $Q$ と標準同型である。
+
+これらはすでに層であり、層化後も
+
+$$
+F_Q(I)\cong1,\qquad F_Q(L)\cong Q.
+$$
+
+従って $L\to I$ は $Q\to1$ に移る。
 
 次に全ての逆像を尽くすことを示す。対象 $d:A\to B$ は写像の圏において、次の押し出しとして書ける。$I=(1\to1)$ とし、$A\cdot L$ は $A$ 個の $L$ の余積を表す。
 
