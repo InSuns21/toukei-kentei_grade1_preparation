@@ -1,0 +1,37 @@
+chapter: ACOMP8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ACOMP7
+forward_references: []
+concepts:
+  - id: algebraic-complexity.p-projection
+    name: "p-projection"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（p-projection）"]
+    requires: [algebraic-complexity.polynomial-family]
+  - id: algebraic-complexity.projection-closure
+    name: "p-projection に対する VP と VNP の閉性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（p-projection に対する VP と VNP の閉性）"]
+    requires: [algebraic-complexity.p-projection, algebraic-complexity.vp, algebraic-complexity.vnp, algebraic-complexity.arithmetic-circuit-semantics]
+  - id: algebraic-complexity.c-reduction
+    name: "c-reduction"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（c-reduction）"]
+    requires: [algebraic-complexity.polynomial-family, algebraic-complexity.arithmetic-circuit]
+  - id: algebraic-complexity.reduction-laws
+    name: "帰着の推移性と包含"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（帰着の推移性と包含）"]
+    requires: [algebraic-complexity.p-projection, algebraic-complexity.c-reduction]
+  - id: algebraic-complexity.c-reduction-vp-closure
+    name: "c-reduction に対する VP の閉性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（c-reduction に対する VP の閉性）"]
+    requires: [algebraic-complexity.c-reduction, algebraic-complexity.reduction-laws, algebraic-complexity.vp]

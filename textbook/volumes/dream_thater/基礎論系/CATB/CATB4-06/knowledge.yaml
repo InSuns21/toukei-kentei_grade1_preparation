@@ -1,0 +1,36 @@
+chapter: CATB4-06
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB4-05, CATB4-04, CATB4-02, CATB4-01, CAT2-08, CAT2-11]
+concepts:
+  - id: category.fibration-base-change
+    name: "ファイブレーションの基底変換"
+    aliases: ["基底変換"]
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ファイブレーションの基底変換）"]
+    requires: [category.fibration, category.covariant-functor, category.pullback]
+  - id: category.base-change-fibration
+    name: "基底変換によるファイブレーション"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（基底変換によるファイブレーション）"]
+    requires: [category.fibration-base-change, category.cartesian-morphism]
+  - id: category.base-change-reindexing
+    name: "基底変換後の再添字付け"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（基底変換後の再添字付け）"]
+    requires: [category.base-change-fibration, category.reindexing-functor, category.fiber-category]
+  - id: category.family-reindexing-adjoints
+    name: "集合族の再添字付けの両随伴"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（集合族の再添字付けの両随伴）"]
+    requires: [category.family-fibration, category.reindexing-functor, category.adjunction-hom, category.family-opfibration]
+  - id: category.opfibration-reindexing-adjunction
+    name: "前向き持ち上げと左随伴の対応"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（前向き持ち上げと左随伴の対応）"]
+    requires: [category.reindexing-functor, category.opfibration, category.adjunction-hom, category.cocartesian-morphism]
