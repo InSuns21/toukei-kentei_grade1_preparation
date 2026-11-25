@@ -2,7 +2,7 @@
 
 [ATOP3](../ATOP3/index.md) では空間全体を変形しました。今回は空間を固定し、その中を通る道を変形します。穴の周囲を回る道と、その場で静止する道を同じものとして扱えるでしょうか。端点を固定した変形を使って道を分類し、道を順につなぐ操作から群を作ります。
 
-前提は ATOP2、ATOP3、TOP3、GRP2・GRP3 です。$I=[0,1]$ とし、直積には積位相を入れます。道の積は左から右へ進む順序で書きます。
+$I=[0,1]$ とし、直積には積位相を入れます。道の積は左から右へ進む順序で書きます。
 
 <!-- definition-example-audit: strict -->
 
@@ -16,9 +16,9 @@
 > **定義（ループと基点）**
 > 位相空間 $X$ と指定した点 $x\in X$ に対し、連続写像 $\alpha:I\to X$ が次を満たすとき、$\alpha$ を $x$ を基点とするループという。
 
-$
+$$
 \alpha(0)=\alpha(1)=x.
-$
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-atop4-loop -->
@@ -100,7 +100,11 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（道の再パラメータ化）**
-> 位相空間 $X$ の道 $\alpha:I\to X$ と、$\varphi(0)=0,\ \varphi(1)=1$ を満たす連続写像 $\varphi:I\to I$ に対し、$\alpha\circ\varphi\simeq_p\alpha$ が成立する。
+> 位相空間 $X$ の道 $\alpha:I\to X$ と連続写像 $\varphi:I\to I$ を取る。$\varphi(0)=0$、$\varphi(1)=1$ なら、次が成立する。
+
+$$
+\alpha\circ\varphi\simeq_p\alpha.
+$$
 <!-- formal-statement-end -->
 
 時間変換が単調である必要さえありません。区間内に値を保ちながら恒等写像に変形できれば十分です。
@@ -135,7 +139,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（道の連結と道ホモトピーの両立）**
-> 位相空間 $X$ の点 $x,y,z$ について、道 $\alpha,\alpha':x\to y$ と $\beta,\beta':y\to z$ が $\alpha\simeq_p\alpha'$、$\beta\simeq_p\beta'$ を満たすなら、次が成立する。
+> 位相空間 $X$ の点 $x,y,z$ について、道 $\alpha,\alpha':x\to y$ と $\beta,\beta':y\to z$ を取る。
+
+$$
+\alpha\simeq_p\alpha',\qquad\beta\simeq_p\beta'
+$$
+
+> ならば次が成立する。
 
 $$
 \alpha*\beta\simeq_p\alpha'*\beta'.
