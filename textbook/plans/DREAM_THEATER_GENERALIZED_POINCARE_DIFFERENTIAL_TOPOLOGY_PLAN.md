@@ -1,7 +1,7 @@
 # DREAM THEATER — 一般化Poincaré予想・微分トポロジー（全96講）
 
 設計日: 2026-11-25 JST。監査基準 main: `ed61aa3bba8cdcf4b8dc955a8da6fce104c85315`。
-状態: 設計済・未実装。新設6系列96講。FOUR FRONTIERSの144講とは独立した追加計画で、そこで計画済みのATOP14・M3T12を重複計上しない。前者はPR #4706（設計時点でopen）を参照し、実装前にマージ・実装状況と正本パスを確認する。96講は講義の粒度・証明責務に基づく設計値。変更時は理由と件数を記録する。
+状態: 設計済・未実装。新設6系列96講。FOUR FRONTIERSの172講とは独立した追加計画で、そこで計上済みの[独立ATOP42講](DREAM_THEATER_ALGEBRAIC_TOPOLOGY_PLAN.md)・M3T12講を重複計上しない。2026-11-26改訂：ATOP旧14講は独立42講へ置換済み。96講は講義の粒度・証明責務に基づく設計値。変更時は理由と件数を記録する。
 
 ## 0. 中心問いと到達点
 
@@ -23,7 +23,7 @@
 | 既存／計画済 | 再利用 | 新系列が所有する残差 |
 |---|---|---|
 | TOP1–7、GEO1–9 | 位相、多様体、接束、微分形式、de Rham | ATOP（別PLAN）で基本群・特異鎖・双対、HTOPで高次理論 |
-| ATOP1–14、M3T1–12（PR #4706） | van Kampen・CW・特異コホモロジー・Poincare双対、3次元ハンドル体・Dehn手術 | 本PLANで再新設しない。MORSの一般次元ハンドルとTOP4DのKirby計算のみ追加 |
+| ATOP1–42、M3T1–12（計画済） | van Kampen・CW・特異コホモロジー・Poincare双対、3次元ハンドル体・Dehn手術 | 本PLANで再新設しない。MORSの一般次元ハンドルとTOP4DのKirby計算のみ追加 |
 | CATB7-01〜05（既存計画）、CATB8必要箇所 | 複体、導来関手、符号 | HTOP10のフィルトレーション・スペクトル系列、CBOの幾何的鎖複体 |
 | VAR11–12（completed） | minimax・Morse指数 | Morse補題、ハンドル付着、MorseホモロジーはMORSが担当 |
 | GBG1–30（completed） | 主束・接続・Chern–Weil・特性類・ASD・BPST・spin | DIFF4DはASD/SWの変形複体、モジュライ、指数、4次元不変量。GBG27–30を根拠に指数定理やUhlenbeck compactnessが証明済みとはしない |
@@ -49,21 +49,21 @@
 
 | 系列 | 内容 | 講数 | 主な入口 |
 |---|---|---:|---|
-| HTOP | 高次ホモトピー理論 | 14 | ATOP1–14（別PLAN、未実装）、CATB7必要部分 |
-| MORS | 微分トポロジー・Morse理論・ハンドル | 14 | GEO1–9、ATOP1–8、VAR11–12（変分法の既習部分） |
-| CBO | コボルディズムとh/s-cobordism | 12 | MORS、HTOP1–6、ATOP9–14 |
+| HTOP | 高次ホモトピー理論 | 14 | ATOP1–42（独立PLAN、必要箇所のみ）、CATB7必要部分 |
+| MORS | 微分トポロジー・Morse理論・ハンドル | 14 | GEO1–9、ATOP1–3,10–22,26（必要箇所）、VAR11–12（変分法の既習部分） |
+| CBO | コボルディズムとh/s-cobordism | 12 | MORS、HTOP1–6、ATOP16–22,28–37,42（必要箇所） |
 | SURG | 高次元手術理論・エキゾチック球面 | 16 | CBO、HTOP7–14、GBG20–24（特性類） |
 | TOP4D | 4次元位相トポロジーとFreedman理論 | 20 | MORS、ATOP、M3T（Dehn surgery等）、CBOの定理境界、SURG1–4（高次元との比較） |
 | DIFF4D | 滑らかな4次元多様体とゲージ理論 | 20 | TOP4D1–8,17–20、GEO/GA、GBG20–30、VAR、関数解析・GPDE、LREP必要部分 |
 | | **合計** | **96** | ATOP/M3T等の既存計画を除く |
 
-暫定80講案から96講へ変更。高次ホモトピー+2、微分トポロジー/Morse+4、手術+2、TOP4D+4、DIFF4D+4。4次元のKirby計算・円板埋め込み、ゲージ理論の解析を一括の紹介講で済ませず、横断性・次元条件・n=5の独立責務を置いた。FOUR FRONTIERS144講と合算240新設講。既存RHP34を含め274、既存CATB7の5講をさらに含め279（先行PLANと同じ計数条件）。
+暫定80講案から96講へ変更。高次ホモトピー+2、微分トポロジー/Morse+4、手術+2、TOP4D+4、DIFF4D+4。4次元のKirby計算・円板埋め込み、ゲージ理論の解析を一括の紹介講で済ませず、横断性・次元条件・n=5の独立責務を置いた。FOUR FRONTIERS172講と合算268新設講。既存RHP34を含め302、既存CATB7の5講をさらに含め307（先行PLANと同じ計数条件）。
 
 ## 4. 個別講義の中心問い・証明責務
 
 ### HTOP — 高次ホモトピー理論（14講）
 
-入口候補: ATOP1–14（別PLAN、未実装）、CATB7必要部分。
+入口候補: ATOP1–42（独立PLAN、必要箇所のみ）、CATB7必要部分。
 
 | 講義ID | 中心問い・証明責務 |
 |---|---|
@@ -84,7 +84,7 @@
 
 ### MORS — 微分トポロジー・Morse理論・ハンドル（14講）
 
-入口候補: GEO1–9、ATOP1–8、VAR11–12（変分法の既習部分）。
+入口候補: GEO1–9、ATOP1–3,10–22,26（必要箇所）、VAR11–12（変分法の既習部分）。
 
 | 講義ID | 中心問い・証明責務 |
 |---|---|
@@ -105,7 +105,7 @@
 
 ### CBO — コボルディズムとh/s-cobordism（12講）
 
-入口候補: MORS、HTOP1–6、ATOP9–14。
+入口候補: MORS、HTOP1–6、ATOP16–22,28–37,42（必要箇所）。
 
 | 講義ID | 中心問い・証明責務 |
 |---|---|
@@ -209,7 +209,7 @@ MORS/CBO/SURGの必要箇所 ───────────────→ TO
 GBG/GA/GPDE/LREP + TOP4D基礎 ─────────→ DIFF4D1–20
 ```
 
-- MORS1はGEO3等の完成済み前提から着手可能（ATOP全体を待たない）。MORSの交叉・Morse複体はATOPの対応章完成後。HTOP1はATOPの相対鎖・基本群等が揃ってから。
+- MORS1はGEO3等の完成済み前提から着手可能（ATOP全体を待たない）。MORSの交叉・Morse複体はATOPの対応章完成後。HTOP1はATOP2–9,18等の必要前提が揃ってから。次数1のHurewiczはATOP26、高次のHurewiczはHTOP6。M3T11への入力はHTOP6。
 - HTOPとMORSは並行可能。CBOの証明はMORS14の次元制約を参照。SURG1–4はCBO全講を待たず、framingとハンドルの必要章から先行できる。SURG12はn=5の証明を既存CBO12から形式的に推論しない。
 - TOP4D1–6とDIFF4D1–3は前提が揃った時点で先行できる。TOP4D13–18は高次元手術が4次元で失敗する位置を明記。DIFF4D9/17/19に必要なTOP4D分類、交叉形式は実装済み箇所へリンク。
 - M3TのDehn手術とTOP4DのKirby calculus、PCPのRicci手術とSURGの位相的手術を区別する。
@@ -230,4 +230,4 @@ GBG/GA/GPDE/LREP + TOP4D基礎 ─────────→ DIFF4D1–20
 
 ## 7. 状態管理
 
-設計のみなのでplans/に置く。新規章・manifest・目次・global DAGの先行登録はしない。初回実装で本PLANをplans_progress/へ移動し、対象系列manifestを作り、既存参照を同時に整合させる。全96講と横断証明監査、公開・CIが完了してからplan_done/へ移動。優先着手候補はMORS1（GEOの直接前提を確認）。HTOP1はATOPの必要講の完成後。別PLANの144講やRHP34の内容・件数は変更しない。
+設計のみなのでplans/に置く。新規章・manifest・目次・global DAGの先行登録はしない。初回実装で本PLANをplans_progress/へ移動し、対象系列manifestを作り、既存参照を同時に整合させる。全96講と横断証明監査、公開・CIが完了してからplan_done/へ移動。優先着手候補はMORS1（GEOの直接前提を確認）。HTOP1はATOPの必要講の完成後。本96講とRHP34の内容・件数は変更しない。Four FrontiersのATOP改訂に伴う集計のみ反映。
