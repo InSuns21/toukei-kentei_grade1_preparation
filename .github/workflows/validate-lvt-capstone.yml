@@ -1,0 +1,59 @@
+name: Validate LVT capstone
+on:
+  pull_request:
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT6-07/**'
+      - '.github/workflows/validate-lvt-capstone.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT6-07/**'
+      - '.github/workflows/validate-lvt-capstone.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  capstone:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          lake-package-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT6-07/lab'
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - name: Proof, independent implementation and replay
+        working-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT6-07/lab'
+        run: |
+          set -euo pipefail
+          python harness.py
+          cp evidence.json normal.json
+          lake env lean Inspect.lean
+          if lake env lean Failure.lean; then exit 1; fi
+          if python harness.py --mutate; then exit 1; fi
+          cp evidence.json mutant.json
+          if python harness.py --mutate --replay p; then exit 1; fi
+          cp evidence.json replay.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          normal, mutant, replay = [json.loads(Path(n + ".json").read_text()) for n in ("normal","mutant","replay")]
+          assert set(normal["gates"].values()) == {"pass"}
+          assert (normal["allowed"], normal["rejected"]) == (5, 4)
+          assert len(normal["words"]) == 205
+          assert mutant["gates"] == dict(proof="pass", examples="fail", differential="fail", property="fail", mutation="pass")
+          assert mutant["transition_diffs"] == [["D","p",["D",0],["P",1]]]
+          assert mutant["shrunk"] == "p"
+          assert replay["replayed"] == dict(word="p", reference=[["D",0]], product=[["P",1]])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lvt-capstone-evidence
+          path: 'textbook/volumes/dream_thater/計算系/LVT/LVT6-07/lab/*.json'

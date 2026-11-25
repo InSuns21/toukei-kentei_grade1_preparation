@@ -43,3 +43,4 @@
 40. [LVT6-04 Cedarに学ぶ認可ポリシーのモデル](textbook/volumes/dream_thater/計算系/LVT/LVT6-04/index.md)
 41. [LVT6-05 サーバーサイドTypeScript認可の完全性の証明：API・テナント境界](textbook/volumes/dream_thater/計算系/LVT/LVT6-05/index.md)
 42. [LVT6-06 証明・差分テスト・CIを統合する](textbook/volumes/dream_thater/計算系/LVT/LVT6-06/index.md)
+43. [LVT6-07 最終課題：保証台帳を伴うソフトウェア検証](textbook/volumes/dream_thater/計算系/LVT/LVT6-07/index.md)
