@@ -84,7 +84,11 @@ $$
 
 ## 3. 対象を完全な列で置換する
 
-自由加群から $M$ への全射を選ぶだけでは、その核の情報を失う。核にも新たな全射を作り、その操作を反復すると、元の対象を次数0のコホモロジーに持つ複体ができる。ここでは射影側を非正次数、入射側を非負次数に置き、[余鎖複体](../CATB7-01/index.md#def-catb7-01-cochain-complex)の記法を統一する。$d_C^i:C^i\to C^{i+1}$ は複体 $C$ の次数 $i$ の微分であり、微積分の微分ではない。$M[0]$ は対象 $M$ を次数0にだけ置いた複体である。以下でいう完全性は[完全列](../CATB1-05/index.md#def-catb1-05-exact)の意味で、各対象で直前の像が直後の核に一致することを指す。分解では、複体本体と対象 $M$ まで含めた完全列を区別する。
+自由加群から $M$ への全射を選ぶだけでは、その核の情報を失う。核にも新たな全射を作り、その操作を反復すると、元の対象を次数0のコホモロジーに持つ複体ができる。ここでは射影側を非正次数、入射側を非負次数に置き、[余鎖複体](../CATB7-01/index.md#def-catb7-01-cochain-complex)の記法を統一する。
+
+$d_C^i:C^i\to C^{i+1}$ は複体 $C$ の次数 $i$ の微分であり、微積分の微分ではない。$M[0]$ は対象 $M$ を次数0にだけ置いた複体である。
+
+以下でいう完全性は[完全列](../CATB1-05/index.md#def-catb1-05-exact)の意味で、各対象で直前の像が直後の核に一致することを指す。分解では、複体本体と対象 $M$ まで含めた完全列を区別する。
 
 <a id="def-catb7-05-projective-resolution"></a>
 
@@ -133,7 +137,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$K_0=M$ とし、射影対象 $P^0$ からのエピ射 $q_0:P^0\to K_0$ を選ぶ。$K_1=\ker q_0$ と包含 $j_1:K_1\to P^0$ を取り、エピ射 $q_1:P^{-1}\to K_1$ を選ぶ。$d^{-1}=j_1 q_1$ とすると、[像と余像の比較同型](../CATB1-05/index.md#thm-catb1-05-image-coimage)によって $q_1$ は像へのエピ射、$j_1$ は像の包含として扱える。また $j_1$ はモノなので、任意の射 $v$ について $j_1q_1v=0$ と $q_1v=0$ は同値である。従って
+$K_0=M$ とし、射影対象 $P^0$ からのエピ射 $q_0:P^0\to K_0$ を選ぶ。
+
+$K_1=\ker q_0$ と包含 $j_1:K_1\to P^0$ を取り、エピ射 $q_1:P^{-1}\to K_1$ を選ぶ。$d^{-1}=j_1 q_1$ とすると、[像と余像の比較同型](../CATB1-05/index.md#thm-catb1-05-image-coimage)によって $q_1$ は像へのエピ射、$j_1$ は像の包含として扱える。 
+
+また $j_1$ はモノなので、任意の射 $v$ について $j_1q_1v=0$ と $q_1v=0$ は同値である。従って
 
 $$
 \operatorname{im}d^{-1}=K_1=\ker q_0,\qquad
@@ -266,9 +274,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb7-05-derived-functor -->
-**定義の確認**。整数加群で $F(M)=M/mM$ ($m\ge2$) とする。射は剰余類に誘導され、加法性を持つ。右完全性を確認する。短完全列を $A\subset B$、$C=B/A$ と表すと、$B/mB\to C/mC$ は全射。その核は $(A+mB)/mB$ であり、これは $A/mA\to B/mB$ の像に一致する。実際、$b+A$ が $mC$ に入れば $b-mb'\in A$ となる $b'\in B$ が取れ、逆も成立する。
+**定義の確認**。整数加群で $F(M)=M/mM$ ($m\ge2$) とする。射は剰余類に誘導され、加法性を持つ。右完全性を確認する。
 
-$M=\mathbb Z/m\mathbb Z$ に[射影分解](#def-catb7-05-projective-resolution)の例を用いると、$F(P)$ は次数 $-1,0$ の $\mathbb Z/m\mathbb Z$ を零写像で結ぶ。よって $L_1F(M)=\mathbb Z/m\mathbb Z$ である。右導来側の例として、体上のベクトル空間で恒等関手 $G$ を取る。左完全かつ加法的で、各空間は入射対象なので次数0の入射分解が使える。$R^0G(V)=V$、$n>0$ で $R^nG(V)=0$ となる。
+短完全列を $A\subset B$、$C=B/A$ と表すと、$B/mB\to C/mC$ は全射。その核は $(A+mB)/mB$ であり、これは $A/mA\to B/mB$ の像に一致する。
+
+実際、$b+A$ が $mC$ に入れば $b-mb'\in A$ となる $b'\in B$ が取れ、逆も成立する。
+
+$M=\mathbb Z/m\mathbb Z$ に[射影分解](#def-catb7-05-projective-resolution)の例を用いると、$F(P)$ は次数 $-1,0$ の $\mathbb Z/m\mathbb Z$ を零写像で結ぶ。よって $L_1F(M)=\mathbb Z/m\mathbb Z$ である。
+
+右導来側の例として、体上のベクトル空間で恒等関手 $G$ を取る。左完全かつ加法的で、各空間は入射対象なので次数0の入射分解が使える。$R^0G(V)=V$、$n>0$ で $R^nG(V)=0$ となる。
 <!-- definition-example-end -->
 
 <a id="thm-catb7-05-derived-well-defined"></a>
@@ -334,7 +348,15 @@ $$
 
 二つの比較写像 $u,v:P\to Q$ の差が[余鎖ホモトピー](../CATB7-02/index.md#def-catb7-02-cochain-homotopy) $h^i:P^i\to Q^{i-1}$ で表されるとする。ここでは $C_Q^n=\operatorname{Hom}(Q^{-n},N)$、$C_P^n=\operatorname{Hom}(P^{-n},N)$ と書く。前合成は次数 $n$ の射 $a\mapsto au^{-n}$ を与える。実際 $a u^{-n}d_P^{-n-1}=a d_Q^{-n-1}u^{-n-1}$ なので微分と可換する。
 
-誘導された写像のホモトピーを $k^n:C_Q^n\to C_P^{n-1}$、$k^n(a)=a h^{1-n}$ と定める。$h^{1-n}:P^{1-n}\to Q^{-n}$ なので合成の型が一致する。$n=0$ では $P^1=0$ により $k^0=0$ である。ホモトピー式 $\partial_P^{n-1}k^n(a)+k^{n+1}\partial_Q^n(a)$ の二項を展開すると
+誘導された写像のホモトピーを
+
+$$
+k^n:C_Q^n\to C_P^{n-1},\qquad k^n(a)=a h^{1-n}
+$$
+
+と定める。$h^{1-n}:P^{1-n}\to Q^{-n}$ なので合成の型が一致する。$n=0$ では $P^1=0$ により $k^0=0$ である。
+
+ホモトピー式 $\partial_P^{n-1}k^n(a)+k^{n+1}\partial_Q^n(a)$ の二項を展開すると
 
 $$
 a h^{1-n}d_P^{-n}+a d_Q^{-n-1}h^{-n}
@@ -346,7 +368,9 @@ $$
 次数0では $\ker\partial^0$ は $ad_P^{-1}=0$ を満たす射 $a:P^0\to N$ 全体であり、[余核の普遍性](../CATB1-04/index.md#def-catb1-04-cokernel)により $\epsilon:P^0\to M$ を一意に経由する。次数 $-1$ の成分は零なので余境界も零である。従って $\operatorname{Ext}^0(M,N)\cong\operatorname{Hom}(M,N)$。
 
 <!-- definition-example-start: def-catb7-05-ext -->
-**定義の確認**。$M=\mathbb Z/m\mathbb Z$、$N=\mathbb Z$ とする。既に完全性と射影性を検証した[射影分解](#def-catb7-05-projective-resolution)を使う。$\operatorname{Hom}_{\mathbb Z}(\mathbb Z,\mathbb Z)\cong\mathbb Z$ は1の像を取る同型であり、$a(1)=t$ なら $a(m)=mt$。従って $C^0=C^1=\mathbb Z$、$\partial^0=m$、$C^n=0$ ($n\ne0,1$)。微分の二乗零は次の微分が零なので成立する。
+**定義の確認**。$M=\mathbb Z/m\mathbb Z$、$N=\mathbb Z$ とする。既に完全性と射影性を検証した[射影分解](#def-catb7-05-projective-resolution)を使う。$\operatorname{Hom}_{\mathbb Z}(\mathbb Z,\mathbb Z)\cong\mathbb Z$ は1の像を取る同型であり、$a(1)=t$ なら $a(m)=mt$。
+
+従って $C^0=C^1=\mathbb Z$、$\partial^0=m$、$C^n=0$ ($n\ne0,1$)。微分の二乗零は次の微分が零なので成立する。
 
 $$
 \operatorname{Ext}_{\mathbb Z}^0(M,\mathbb Z)=0,
@@ -441,7 +465,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-擬同型 $s:U\to V$ を取り、$f:P\to V$ を余鎖写像とする。[写像錐による擬同型判定](../CATB7-03/index.md#thm-catb7-03-cone-test)で $E=\operatorname{Cone}(s)$ は全次数でコホモロジーが零である。$V\to E$ を標準包含とする。[上に有界な射影複体からの写像](#lem-catb7-05-projective-acyclic)で $(f,0):P\to E$ は零とホモトピーになる。[双積の射の表示](../CATB1-03/index.md#thm-catb1-03-matrix)に従い、ホモトピー $P^n\to E^{n-1}=V^{n-1}\oplus U^n$ の二つの成分射を $a^n:P^n\to V^{n-1}$、$b^n:P^n\to U^n$ と置く。$(a^n,b^n)$ はこの二射によって決まる双積への射であり、一般のアーベル圏の元を表してはいない。[写像錐](../CATB7-02/index.md#def-catb7-02-cone)の微分を代入すると
+擬同型 $s:U\to V$ を取り、$f:P\to V$ を余鎖写像とする。[写像錐による擬同型判定](../CATB7-03/index.md#thm-catb7-03-cone-test)で $E=\operatorname{Cone}(s)$ は全次数でコホモロジーが零である。
+
+$V\to E$ を標準包含とする。[上に有界な射影複体からの写像](#lem-catb7-05-projective-acyclic)で $(f,0):P\to E$ は零とホモトピーになる。
+
+[双積の射の表示](../CATB1-03/index.md#thm-catb1-03-matrix)に従い、ホモトピー $P^n\to E^{n-1}=V^{n-1}\oplus U^n$ の二つの成分射を
+
+$$
+a^n:P^n\to V^{n-1},\qquad b^n:P^n\to U^n
+$$
+
+と置く。$(a^n,b^n)$ はこの二射によって決まる双積への射であり、一般のアーベル圏の元を表してはいない。[写像錐](../CATB7-02/index.md#def-catb7-02-cone)の微分を代入すると
 
 $$
 f^n=d_V^{n-1}a^n+s^nb^n+a^{n+1}d_P^n,
@@ -488,7 +522,15 @@ $$
 
 上の全射性を $f=1_P$ に適用して、ホモトピー類として $sb=1_P$ となる $b:P\to U$ を得る。局所化では $Q(b)=Q(s)^{-1}$ なので roof は $Q(gb)$ となる。
 
-逆に余鎖写像 $f:P\to X$ が局所化で零なら、[roofと共通細分](../CATB7-03/index.md#def-catb7-03-roof)で $(1_P,f)$ と $(1_P,0)$ を比較する。共通細分の二射は分母がともに $1_P$ なので同じ擬同型 $s:U\to P$ になり、ホモトピー圏で $fs=0$ が成立する。$sb=1_P$ を使えば $f=fsb=0$。局所化関手の[加法性](../CATB7-04/index.md#prop-catb7-04-additive-shift)から一般の二射の等しさも差が零かどうかで判定できる。
+逆に余鎖写像 $f:P\to X$ が局所化で零なら、[roofと共通細分](../CATB7-03/index.md#def-catb7-03-roof)で $(1_P,f)$ と $(1_P,0)$ を比較する。
+
+共通細分の二射は分母がともに $1_P$ なので同じ擬同型 $s:U\to P$ になり、ホモトピー圏で $fs=0$ が成立する。$sb=1_P$ を使えば
+
+$$
+f=fsb=0.
+$$
+
+局所化関手の[加法性](../CATB7-04/index.md#prop-catb7-04-additive-shift)から一般の二射の等しさも差が零かどうかで判定できる。
 
 $M$ の射影分解 $P\to M[0]$ は[分解の存在と擬同型](#thm-catb7-05-resolution-existence)により導来圏の同型である。[余鎖複体のシフト](../CATB7-02/index.md#def-catb7-02-shift)の定義により $N[n]$ は次数 $-n$ だけに $N$ がある。
 
@@ -633,7 +675,15 @@ $\operatorname{Ext}^n_{\mathbb Z}(\mathbb Z/6\mathbb Z,\mathbb Z/9\mathbb Z)$ �
 $\mathbb Z/5\mathbb Z$ の二項射影分解からそれ自身への、恒等射を持ち上げる余鎖写像を全て求め、互いにホモトピーになることを成分で示せ。
 
 <!-- solution-start -->
-次数0の写像は整数 $a$ 倍、次数 $-1$ は整数 $b$ 倍である。増大射との可換性から $a\equiv1\bmod5$。余鎖写像条件は $5b=5a$ なので $b=a$。従って両成分が $1+5k$ 倍 ($k\in\mathbb Z$) であるもの全てが持ち上げである。$k,\ell$ の差は両成分で $5(k-\ell)$ 倍。$h^0:P^0\to P^{-1}$ を $k-\ell$ 倍とすると、次数0では $d^{-1}h^0=5(k-\ell)$、次数 $-1$ では $h^0d^{-1}=5(k-\ell)$。他の成分は零である。従って[分解の比較定理](#thm-catb7-05-comparison)の一意性を具体的に確認できた。
+次数0の写像は整数 $a$ 倍、次数 $-1$ は整数 $b$ 倍である。増大射との可換性から $a\equiv1\bmod5$。余鎖写像条件は $5b=5a$ なので $b=a$。従って両成分が $1+5k$ 倍 ($k\in\mathbb Z$) であるもの全てが持ち上げである。
+
+$k,\ell$ の差は両成分で $5(k-\ell)$ 倍。$h^0:P^0\to P^{-1}$ を $k-\ell$ 倍とすると、次数0と次数 $-1$ ではそれぞれ
+
+$$
+d^{-1}h^0=5(k-\ell),\qquad h^0d^{-1}=5(k-\ell).
+$$
+
+他の成分は零である。従って[分解の比較定理](#thm-catb7-05-comparison)の一意性を具体的に確認できた。
 <!-- solution-end -->
 
 ### CATB7-05-B02 左導来関手と完全性
@@ -643,7 +693,16 @@ $\mathbb Z/5\mathbb Z$ の二項射影分解からそれ自身への、恒等射
 $F(A)=A/4A$ とし、$\mathbb Z/6\mathbb Z$ での $L_0F,L_1F$ を計算せよ。$n\ge2$ についても答えよ。
 
 <!-- solution-start -->
-[左右導来関手の定義例](#def-catb7-05-derived-functor)で確認した右完全性は $m=4$ の場合にも成立する。[左右導来関手](#def-catb7-05-derived-functor)の定義に従い、[射影分解の定義例](#def-catb7-05-projective-resolution)で $m=6$ とした二項射影分解へ $F$ を適用する。次数 $-1,0$ に $\mathbb Z/4\mathbb Z$ があり、微分は6倍、すなわち2倍となる。核は $\{0,2\}$ なので $L_1F\cong\mathbb Z/2\mathbb Z$。像も $\{0,2\}$ なので $L_0F\cong\mathbb Z/2\mathbb Z$。実際 $(\mathbb Z/6\mathbb Z)/4(\mathbb Z/6\mathbb Z)$ では4の生成する部分群が $\{0,2,4\}$ であり、商は位数2である。他の負次数は零なので $n\ge2$ の値は零。
+[左右導来関手の定義例](#def-catb7-05-derived-functor)で確認した右完全性は $m=4$ の場合にも成立する。[左右導来関手](#def-catb7-05-derived-functor)の定義に従い、[射影分解の定義例](#def-catb7-05-projective-resolution)で $m=6$ とした二項射影分解へ $F$ を適用する。
+
+次数 $-1,0$ に $\mathbb Z/4\mathbb Z$ があり、微分は6倍、すなわち2倍となる。核と像はともに $\{0,2\}$ なので
+
+$$
+L_1F\cong\mathbb Z/2\mathbb Z,\qquad
+L_0F\cong\mathbb Z/2\mathbb Z.
+$$
+
+実際 $(\mathbb Z/6\mathbb Z)/4(\mathbb Z/6\mathbb Z)$ では4の生成する部分群が $\{0,2,4\}$ であり、商は位数2である。他の負次数は零なので $n\ge2$ の値は零。
 <!-- solution-end -->
 
 ### CATB7-05-B03 入射分解での計算
@@ -653,7 +712,14 @@ $F(A)=A/4A$ とし、$\mathbb Z/6\mathbb Z$ での $L_0F,L_1F$ を計算せよ�
 体 $k$ 上のベクトル空間の圏で固定した空間 $U$ に対する $G(V)=\operatorname{Hom}_k(U,V)$ の右導来関手を求めよ。値は $k$ ベクトル空間とする。
 
 <!-- solution-start -->
-$G$ は加法的であり、単射との後合成は単射、像が次の射の核に一致することは核の普遍性から従うので左完全である。全てのベクトル空間は[入射対象](#def-catb7-05-injective)の例で確認した通り入射対象である。従って $V\to V$ を恒等射とし、次数0に $V$ だけを置いた入射分解が使える。[左右導来関手](#def-catb7-05-derived-functor)の定義により、$G(I)$ は次数0に $\operatorname{Hom}_k(U,V)$ がある複体で、微分は全て零。よって $R^0G(V)=\operatorname{Hom}_k(U,V)$、$n>0$ では $R^nG(V)=0$ となる。
+$G$ は加法的であり、単射との後合成は単射、像が次の射の核に一致することは核の普遍性から従うので左完全である。全てのベクトル空間は[入射対象](#def-catb7-05-injective)の例で確認した通り入射対象である。
+
+従って $V\to V$ を恒等射とし、次数0に $V$ だけを置いた入射分解が使える。[左右導来関手](#def-catb7-05-derived-functor)の定義により、$G(I)$ は次数0に $\operatorname{Hom}_k(U,V)$ がある複体で、微分は全て零。よって
+
+$$
+R^0G(V)=\operatorname{Hom}_k(U,V),\qquad
+R^nG(V)=0\quad(n>0).
+$$
 <!-- solution-end -->
 
 ### CATB7-05-B04 第一変数の反変性
