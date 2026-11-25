@@ -1,0 +1,24 @@
+chapter: MMX3
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX2, ACOMP21, ACOMP22, TSP11, TSP12, TSP14]
+forward_references: []
+concepts:
+  - id: matrix-exponent.common-square-spectral-point
+    name: 全正方サイズを同時に評価するスペクトル点
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（全正方サイズを同時に評価するスペクトル点）"]
+    requires: [tensor.matrix-multiplication-exponent-spectrum, tensor.matrix-multiplication-product, tensor.restriction, tensor.spectral-point]
+  - id: matrix-exponent.schonhage-asymptotic-sum
+    name: Schönhage漸近和不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Schönhage漸近和不等式）"]
+    requires: [matrix-exponent.common-square-spectral-point, tensor.three-tensor-spectral-extrema, tensor.direct-sum, tensor.matrix-multiplication-product]
+  - id: matrix-exponent.fixed-cost-dimension-barrier
+    name: 固定した費用上界と次元による取り出しの限界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定した費用上界と次元による取り出しの限界）"]
+    requires: [tensor.matrix-multiplication-tensor, tensor.direct-sum, tensor.restriction, tensor.asymptotic-monotonicity, matrix-exponent.schonhage-asymptotic-sum]
