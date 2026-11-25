@@ -16,3 +16,4 @@
 13. [TSP13 support functionals・エントロピーによるスペクトル評価](textbook/volumes/dream_thater/計算系/TSP/TSP13/index.md)
 14. [TSP14 行列積指数と漸近スペクトル：既知の上下界の意味](textbook/volumes/dream_thater/計算系/TSP/TSP14/index.md)
 15. [TSP15 多partyテンソル・partyの併合とpush-forward：標準制限との比較](textbook/volumes/dream_thater/計算系/TSP/TSP15/index.md)
+16. [TSP16 被覆・劣乗法的gauge・極限の準備：順序と凸性、一般スペクトルとの境界](textbook/volumes/dream_thater/計算系/TSP/TSP16/index.md)

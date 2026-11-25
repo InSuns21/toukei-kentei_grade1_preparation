@@ -66,5 +66,5 @@ chapters:
     title: "多partyテンソル・partyの併合とpush-forward：標準制限との比較"
   - id: TSP16
     path: textbook/volumes/dream_thater/計算系/TSP/TSP16
-    status: planned
+    status: completed
     title: "被覆・劣乗法的gauge・極限の準備：順序と凸性、一般スペクトルとの境界"

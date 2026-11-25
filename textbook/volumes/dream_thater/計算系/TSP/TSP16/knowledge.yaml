@@ -1,0 +1,36 @@
+chapter: TSP16
+scope: dream-theater
+coverage: complete
+prerequisites: [TSP15, OPT1]
+forward_references: []
+concepts:
+  - id: tensor.cover
+    name: 有限被覆と被覆gauge
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限被覆と被覆gauge）"]
+    requires: [tensor.preordered-semiring]
+  - id: tensor.cover-properties
+    name: 被覆gaugeの基本不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（被覆gaugeの基本不等式）"]
+    requires: [tensor.cover]
+  - id: tensor.cover-limit
+    name: 被覆gaugeの漸近化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（被覆gaugeの漸近化）"]
+    requires: [tensor.cover-properties, tensor.asymptotic-fekete-lemma]
+  - id: tensor.fractional-cover
+    name: 有限座標の分数被覆
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限座標の分数被覆）"]
+    requires: []
+  - id: tensor.fractional-bound
+    name: 分数被覆の凸性と価格下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（分数被覆の凸性と価格下界）"]
+    requires: [tensor.fractional-cover, convex.convex-combination, convex.convex-set]
