@@ -6,7 +6,11 @@
 
 ## 1. 漸近比較：補助資源を許す
 
-以下、$S$ は集合である可換半環、$\preceq$ は [Strassen前順序](../TSP10/index.md#def-tsp10-strassen-preorder) とします。自然数は標準写像で半環の中に入れ、同じ記号で書きます。任意の元 $x$ について $0\preceq x$（$0\preceq1$ に $x$ を掛ける）です。また任意の $x\ne0$ について有界性から正整数 $u,v$ が存在して $1\preceq ux,\ x\preceq v$ となります。特に $x,y\ne0$ なら $1\preceq uvxy$ となる正整数 $u,v$ を選べるので $xy\ne0$ です。
+以下、$S$ は集合である可換半環、$\preceq$ は [Strassen前順序](../TSP10/index.md#def-tsp10-strassen-preorder) とします。自然数は標準写像で半環の中に入れ、同じ記号で書きます。
+
+任意の元 $x$ について $0\preceq x$（$0\preceq1$ に $x$ を掛ける）です。また任意の $x\ne0$ について有界性から正整数 $u,v$ が存在して $1\preceq ux,\ x\preceq v$ となります。
+
+特に $x,y\ne0$ なら $1\preceq uvxy$ となる正整数 $u,v$ を選べるので $xy\ne0$ です。
 
 $n$ 回の比較で正整数 $c_n$ 個の補助資源を許すとします。$c_n^{1/n}\to1$ なら、補助資源は指数的な増加率を変えません。このような増加を劣指数的と呼びます。例えば $c_n=n+1$ は $\log(n+1)/n\to0$ から劣指数的ですが、$c_n=2^n$ はそうではありません。
 
@@ -261,7 +265,11 @@ $$
 
 全て非負なので $n$ 乗根を取り、$c_n^{1/n}\to1$ を使うと $\phi(a)\le\phi(b)$ です。$\phi(b)=0$ の場合にも同じ不等式で $\phi(a)=0$ となります。
 
-逆向きの対偶を示します。$a\not\precsim b$ とします。[漸近前順序の閉包性](#thm-tsp12-closure) により $P=\precsim$ は閉じています。[全前順序への拡張](#thm-tsp12-total-extension) から $P$ を含む閉じた全Strassen前順序 $H$ と正整数 $m$ を取り、$mb+1\le_H ma$ とします。[全前順序から得るスペクトル点](#thm-tsp12-total-valuation) の $\lambda$ は $H$ で単調であり、$\preceq$ は $H$ に含まれるので $\lambda\in\Delta$ です。従って
+逆向きの対偶を示します。$a\not\precsim b$ とします。[漸近前順序の閉包性](#thm-tsp12-closure) により $P=\precsim$ は閉じています。
+
+[全前順序への拡張](#thm-tsp12-total-extension) から $P$ を含む閉じた全Strassen前順序 $H$ と正整数 $m$ を取り、$mb+1\le_H ma$ とします。
+
+[全前順序から得るスペクトル点](#thm-tsp12-total-valuation) の $\lambda$ は $H$ で単調であり、$\preceq$ は $H$ に含まれるので $\lambda\in\Delta$ です。従って
 
 $$
 m\lambda(b)+1\le m\lambda(a),\qquad
@@ -275,7 +283,11 @@ $$
 
 ## 5. 漸近階数と漸近劣階数の極値公式
 
-[自然数による上下の評価](../TSP10/index.md#thm-tsp10-order-rank) の $R_S,Q_S$ を用い、$\widetilde R_S(a)=\lim_n R_S(a^n)^{1/n}$ と書きます。$R_S(0)=0$ です。$a\ne0$ では各冪が零でないため $R_S(a^n)\ge1$、また $a^n\preceq R_S(a^n),\ a^m\preceq R_S(a^m)$ を掛ければ $R_S(a^{n+m})\le R_S(a^n)R_S(a^m)$。対数を取って [Fekete補題](../TSP9/index.md#lem-tsp9-fekete) を $u_n=\log R_S(a^n)$ に適用します。$0\le u_n\le n\log R_S(a)$ なので必要な下限は有限です。従って $\lim_n u_n/n=\inf_n u_n/n$、指数を取れば $\widetilde R_S(a)=\inf_n R_S(a^n)^{1/n}$ です。
+[自然数による上下の評価](../TSP10/index.md#thm-tsp10-order-rank) の $R_S,Q_S$ を用い、$\widetilde R_S(a)=\lim_n R_S(a^n)^{1/n}$ と書きます。$R_S(0)=0$ です。
+
+$a\ne0$ では各冪が零でないため $R_S(a^n)\ge1$、また $a^n\preceq R_S(a^n),\ a^m\preceq R_S(a^m)$ を掛ければ $R_S(a^{n+m})\le R_S(a^n)R_S(a^m)$。
+
+対数を取って [Fekete補題](../TSP9/index.md#lem-tsp9-fekete) を $u_n=\log R_S(a^n)$ に適用します。$0\le u_n\le n\log R_S(a)$ なので必要な下限は有限です。従って $\lim_n u_n/n=\inf_n u_n/n$、指数を取れば $\widetilde R_S(a)=\inf_n R_S(a^n)^{1/n}$ です。
 
 $1\preceq a$ の場合は $Q_S(a^n)\ge1$ であり、同じ積の議論で $Q_S(a^{n+m})\ge Q_S(a^n)Q_S(a^m)$、かつ $Q_S(a^n)\le R_S(a^n)\le R_S(a)^n$ です。$v_n=\log Q_S(a^n)$ は優加法的で $0\le v_n\le n\log R_S(a)$。従って [Fekete補題](../TSP9/index.md#lem-tsp9-fekete) の優加法版により $\widetilde Q_S(a)=\lim_n Q_S(a^n)^{1/n}=\sup_n Q_S(a^n)^{1/n}$ です。零の場合は $\widetilde Q_S(0)=0$ とします。
 
@@ -317,7 +329,11 @@ $0\le p/q<M$ の任意の有理数に対し、十分大きい $j$ で $p/q<M-1/j
 
 最小値の場合は $E_j'=\{\phi\in\Delta:\phi(a)<L+1/j\}$ を使います。各集合は非空で減少するので同じ手順でスペクトル点 $\mu$ を作れます。$p/q>L$ を固定し $L+1/j<p/q$ となる $j$ を選べば、全ての $\phi\in E'_j$ で $q\phi(a)<p$、従って拡張された順序で $qa\le p$。$\mu(a)\le p/q$ となり、有理数を上から $L$ に近づけると $\mu(a)\le L$。下限の定義と合わせて $\mu(a)=L$ です。
 
-**階数の公式**。単調性により各 $\phi$ について $\phi(a)^n\le R_S(a^n)$ なので $M\le\widetilde R_S(a)$。$a=0$ なら両辺0です。残る場合 $a\ne0$ かつ $1\preceq a$ なので $M\ge1$（[スペクトル点による上下界](../TSP11/index.md#thm-tsp11-order-bounds)）。任意の正整数 $k$ に対し $p_k=\lceil M^k\rceil\ge1$ と置くと全ての $\phi$ で $\phi(a^k)\le p_k=\phi(p_k)$。 [Strassen漸近スペクトル双対性](#thm-tsp12-duality) から $a^k\precsim p_k$ なので
+**階数の公式**。単調性により各 $\phi$ について $\phi(a)^n\le R_S(a^n)$ なので $M\le\widetilde R_S(a)$。$a=0$ なら両辺0です。
+
+残る場合 $a\ne0$ かつ $1\preceq a$ なので $M\ge1$（[スペクトル点による上下界](../TSP11/index.md#thm-tsp11-order-bounds)）。
+
+任意の正整数 $k$ に対し $p_k=\lceil M^k\rceil\ge1$ と置くと全ての $\phi$ で $\phi(a^k)\le p_k=\phi(p_k)$。 [Strassen漸近スペクトル双対性](#thm-tsp12-duality) から $a^k\precsim p_k$ なので
 
 $$
 a^{km}\preceq c_m p_k^m,\qquad c_m^{1/m}\to1.
@@ -369,7 +385,7 @@ $$
 > さらに $t\ne0$ なら、ある平坦化階数が1、または $D_2\preceq t^{\boxtimes2}$ が成立する。
 <!-- formal-statement-end -->
 
-三因子を $U,V,W$ とします。例えば $W$ に線形汎関数（$W$ から $K$ への線形写像）を作用させると、$U,V$ の二因子テンソルになります。この二因子テンソルを行列とみなし、階数2以上の行列が得られるかを調べます。階数2の二因子テンソルを $U,V$ 間と $U,W$ 間に一つずつ作れれば、それを組み合わせて三因子の対角テンソル $D_2$ を作れます。
+三因子を $U,V,W$ とします。例えば第3因子 $W$ の基底ごとに係数を取り出すと、$U,V$ の二因子テンソルが得られます。これらの任意の線形結合も、第3因子から一次元空間への局所線形写像を作用させて作れます。この二因子テンソルを行列とみなし、階数2以上の行列が得られるかを調べます。階数2の二因子テンソルを $U,V$ 間と $U,W$ 間に一つずつ作れれば、それを組み合わせて三因子の対角テンソル $D_2$ を作れます。
 
 <!-- proof-start -->
 ### 証明
@@ -378,17 +394,42 @@ $$
 
 三つの一因子対二因子の平坦化階数のいずれかが1なら、[平坦化階数によるスペクトル点](../TSP11/index.md#thm-tsp11-flattening-spectral-point) が値1を与え、劣階数公式も成立します。以下、三つとも2以上とします。
 
-$W$ の双対空間 $W^*$ から $U\otimes V$ への線形写像 $f\mapsto(\mathrm{id}\otimes\mathrm{id}\otimes f)t$ を考えます。その像を $A$ とします。$t\ne0$ なので $A$ は零でなく、もし全ての行列の階数が1以下なら非零の $u\otimes v\in A$ を固定できます（行列階数1は非零列とその比例係数の積です）。他の非零の $u'\otimes v'\in A$ を取ったとき、$u,u'$ と $v,v'$ がともに独立なら、和をこれらを先頭とする基底で表示すると左上に $2\times2$ 単位行列が現れ階数2です。和も $A$ に属するので矛盾します。
+第3因子の基底を $w_1,\ldots,w_s$ とし、[多因子テンソル積の存在・基底・一意性](../TSP1/index.md#thm-tsp1-multifactor-basis) に従って
 
-従って各非零元は $u$ と比例する第1因子か、$v$ と比例する第2因子を持ちます。もし $u\otimes v'$（$v'$ は $v$ と独立）と $u'\otimes v$（$u'$ は $u$ と独立）がともに存在すれば、その和の行列は基底 $(u,u',\ldots)$ と $(v,v',\ldots)$ で左上のブロックが $\begin{pmatrix}0&1\\1&0\end{pmatrix}$ となります。行列式が $-1\ne0$ なので、標数2の体も含めて階数2です。従って全ての元が $Ku\otimes V$ に入るか、全ての元が $U\otimes Kv$ に入るかのどちらかです。$W$ の基底と双対基底で $t$ を展開すると各切片は $A$ に属するので、前者なら $t=u\otimes z$ ($z\in V\otimes W$)、後者なら $t$ の第2因子が固定されます。対応する平坦化階数は1となって仮定に反します。
+$$
+t=\sum_{k=1}^s M_k\otimes w_k,\qquad M_k\in U\otimes V
+$$
 
-よってある $f$ で階数2以上の二因子行列が得られます。その行列の像の基底と、像の基底を写す定義域の元を選べば、基底を変えた行列は階数 $r\ge2$ の対角単位ブロックを持ちます。最初の二つの基底成分を残す線形写像で
+と展開します。$M_k$ は第3添字を $k$ に固定した係数行列です。その線形結合全体を $A=\operatorname{span}_K\{M_1,\ldots,M_s\}$ とします。任意の係数 $c_1,\ldots,c_s\in K$ に対し、第3因子の線形写像を $w_k\mapsto c_k$ と基底上で指定すれば、[テンソルの制限](../TSP4/index.md#def-tsp4-restriction) で
+
+$$
+\sum_{k=1}^s c_k M_k
+$$
+
+が得られます。$t\ne0$ なので少なくとも一つの切片 $M_k$ は零でなく、$A$ は零でありません。ここでもし全ての行列の階数が1以下なら非零の $u\otimes v\in A$ を固定できます（行列階数1は非零列とその比例係数の積です）。他の非零の $u'\otimes v'\in A$ を取ったとき、$u,u'$ と $v,v'$ がともに独立なら、和をこれらを先頭とする基底で表示すると左上に $2\times2$ 単位行列が現れ階数2です。和も $A$ に属するので矛盾します。
+
+従って各非零元は $u$ と比例する第1因子か、$v$ と比例する第2因子を持ちます。
+
+もし $u\otimes v'$（$v'$ は $v$ と独立）と $u'\otimes v$（$u'$ は $u$ と独立）がともに存在すれば、その和の行列は基底 $(u,u',\ldots)$ と $(v,v',\ldots)$ で左上のブロックが $\begin{pmatrix}0&1\\1&0\end{pmatrix}$ となります。
+
+行列式が $-1\ne0$ なので、標数2の体も含めて階数2です。
+
+従って全ての元が $Ku\otimes V$ に入るか、全ての元が $U\otimes Kv$ に入るかのどちらかです。各 $M_k$ は $A$ に属します。前者の場合は $M_k=u\otimes v_k$ と書けるので
+
+$$
+t=\sum_{k=1}^s (u\otimes v_k)\otimes w_k
+=u\otimes\left(\sum_{k=1}^s v_k\otimes w_k\right).
+$$
+
+後者の場合は各 $M_k=u_k\otimes v$ と書けるので、第2因子が $v$ に固定された展開を得ます。対応する平坦化階数は1となって仮定に反します。
+
+よってある係数の組 $(c_1,\ldots,c_s)$ で階数2以上の二因子行列が得られます。その行列の像の基底と、像の基底を写す定義域の元を選べば、基底を変えた行列は階数 $r\ge2$ の対角単位ブロックを持ちます。最初の二つの基底成分を残す線形写像で
 
 $$
 E_{UV}=\sum_{i=1}^2 e_i\otimes e_i\otimes1
 $$
 
-が得られます。$V$ の線形汎関数を使う場合も、像 $A'\subseteq U\otimes W$ の全行列が階数1以下だと、今の階数1の和の議論により $U$ または $W$ の平坦化階数が1となります。従って $E_{UW}=\sum_{j=1}^2 e_j\otimes1\otimes e_j$ も制限で得られます。
+が得られます。第2因子 $V$ の基底で展開する場合も、得られる切片の線形結合全体 $A'\subseteq U\otimes W$ の全行列が階数1以下だと、今の階数1の和の議論により $U$ または $W$ の平坦化階数が1となります。従って $E_{UW}=\sum_{j=1}^2 e_j\otimes1\otimes e_j$ も制限で得られます。
 
 [直和・Kronecker積と制限の両立性](../TSP5/index.md#thm-tsp5-operation-monotonicity) により $E_{UV}\boxtimes E_{UW}\preceq t^{\boxtimes2}$。一次元因子を同一視すると左辺は
 
@@ -513,10 +554,16 @@ $1\preceq a,\ 2\preceq a^3$ とする。全スペクトル点が $\phi(a)\ge2$ �
 
 - Level: B
 
-三因子テンソル $W=e_2\otimes e_1\otimes e_1+e_1\otimes e_2\otimes e_1+e_1\otimes e_1\otimes e_2$ を考える。第3因子、第2因子をそれぞれ一つの線形汎関数で縮約し、$D_2\preceq W^{\boxtimes2}$ を直接示せ。漸近劣階数の下界を求めよ。
+三因子テンソル $W=e_2\otimes e_1\otimes e_1+e_1\otimes e_2\otimes e_1+e_1\otimes e_1\otimes e_2$ を考える。第3因子、第2因子をそれぞれ一次元への線形写像で縮約し、$D_2\preceq W^{\boxtimes2}$ を直接示せ。漸近劣階数の下界を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。第3因子に $e_1\mapsto1,e_2\mapsto0$ を作用させると $e_2\otimes e_1+e_1\otimes e_2$ です。第1因子の基底を交換すると $e_1\otimes e_1+e_2\otimes e_2$ になります。第2因子を同じ線形汎関数で縮約すると、第1・第3因子に $e_2\otimes e_1+e_1\otimes e_2$ が得られ、同じ基底交換で二項の対角になります。二つの制限を別々の $W$ に施してKronecker積を取れば $\sum_{i,j=1}^2(e_i\otimes e_j)\otimes e_i\otimes e_j$。第1因子で $i=j$ の基底を $e_i$ に、残りを零に送ると $D_2$ です。従って $Q(W^{\boxtimes2})\ge2$、さらに $Q(W^{\boxtimes2m})\ge2^m$（対角テンソルの積）なので $2m$ 乗根の極限から $\widetilde Q(W)\ge\sqrt2$ です。これは下界であり、厳密値とは限りません。
+**詳細解答**。第3因子に $e_1\mapsto1,e_2\mapsto0$ を作用させると $e_2\otimes e_1+e_1\otimes e_2$ です。第1因子の基底を交換すると $e_1\otimes e_1+e_2\otimes e_2$ になります。
+
+第2因子を同じ基底上の指定で縮約すると、第1・第3因子に $e_2\otimes e_1+e_1\otimes e_2$ が得られ、同じ基底交換で二項の対角になります。
+
+二つの制限を別々の $W$ に施してKronecker積を取れば $\sum_{i,j=1}^2(e_i\otimes e_j)\otimes e_i\otimes e_j$。第1因子で $i=j$ の基底を $e_i$ に、残りを零に送ると $D_2$ です。
+
+従って $Q(W^{\boxtimes2})\ge2$、さらに $Q(W^{\boxtimes2m})\ge2^m$（対角テンソルの積）なので $2m$ 乗根の極限から $\widetilde Q(W)\ge\sqrt2$ です。これは下界であり、厳密値とは限りません。
 <!-- solution-end -->
 
 <a id="ex-tsp12-b05"></a>
@@ -528,7 +575,13 @@ $1\preceq a,\ 2\preceq a^3$ とする。全スペクトル点が $\phi(a)\ge2$ �
 閉じたStrassen前順序 $P$ で $x\not\le_P y$ とする。$mx\not\le_P my+1$ を満たす正整数 $m$ があることを説明し、$P$ を拡張する全前順序 $H$ から得たスペクトル点で $\phi(x)-\phi(y)\ge1/m$ とできる理由を示せ。
 
 <!-- solution-start -->
-**詳細解答**。もし全ての正整数 $m$ について $mx\le_P my+1$ なら、[閉じた前順序の消去則と間隔](#thm-tsp12-cancellation) の間隔の主張に $a=x,b=y$ を代入して $x\le_P y$ が従い、矛盾します。よってそのような $m$ を一つ取れます。$u=mx,v=my+1$ と置きます。[全前順序への拡張](#thm-tsp12-total-extension) の構成で $u\not\le_P v$ なので $v\le_H u$ を追加できます。実際、新しい関係の定義に補助元 $s=1$ を入れると $v+u\le_P u+v$ は反射律と加法の交換律から成立します。この関係を全前順序まで拡張した $H$ に [全前順序から得るスペクトル点](#thm-tsp12-total-valuation) を適用し、$\phi$ を取ります。$my+1\le_H mx$ の両辺に $\phi$ を作用させれば $m\phi(y)+1\le m\phi(x)$。正の整数 $m$ で割って $\phi(x)-\phi(y)\ge1/m>0$ です。元の順序の失敗が、単なる非厳密不等式でなく実数上の正の差となります。
+**詳細解答**。もし全ての正整数 $m$ について $mx\le_P my+1$ なら、[閉じた前順序の消去則と間隔](#thm-tsp12-cancellation) の間隔の主張に $a=x,b=y$ を代入して $x\le_P y$ が従い、矛盾します。
+
+よってそのような $m$ を一つ取れます。$u=mx,v=my+1$ と置きます。[全前順序への拡張](#thm-tsp12-total-extension) の構成で $u\not\le_P v$ なので $v\le_H u$ を追加できます。
+
+実際、新しい関係の定義に補助元 $s=1$ を入れると $v+u\le_P u+v$ は反射律と加法の交換律から成立します。この関係を全前順序まで拡張した $H$ に [全前順序から得るスペクトル点](#thm-tsp12-total-valuation) を適用し、$\phi$ を取ります。
+
+$my+1\le_H mx$ の両辺に $\phi$ を作用させれば $m\phi(y)+1\le m\phi(x)$。正の整数 $m$ で割って $\phi(x)-\phi(y)\ge1/m>0$ です。元の順序の失敗が、単なる非厳密不等式でなく実数上の正の差となります。
 <!-- solution-end -->
 
 ### Level C
@@ -546,7 +599,11 @@ $1\preceq a,\ 2\preceq a^3$ とする。全スペクトル点が $\phi(a)\ge2$ �
 <!-- solution-start -->
 **詳細解答**。評価値は非負であり、$p(2)=0$ となるのは零多項式だけです。反射律は定義から成立します。$p\preceq q\preceq r$ のとき評価値の推移律が成立します。$r=X^j$ なら $q=0$ または $q=X^i$。前者なら $p(2)\le0$ から $p=0$、後者なら $p=0$ または $p$ も $X$ の冪です。従って推移律が成立します。
 
-同じ $z$ を加えたり掛けたりすると評価値の不等式は保存されます。$q+z=X^j$ なら非負整数係数で係数1の単項式となるため、$q,z$ の一方は零で他方がその冪です。$q=0$ の場合は $p=0$ で $p+z=q+z$、$z=0$ の場合は $p+z=p$ が条件を満たします。$qz=X^j$ の場合、$q,z$ はともに係数1の $X$ の冪でなければなりません。複数の非零項があれば積も複数項を持ち、係数が2以上なら積の対応する係数も2以上になるためです。そこで $p=0$ または $p$ が $X$ の冪となり、$pz$ も条件を満たします。これで演算との両立性を確認できました。
+同じ $z$ を加えたり掛けたりすると評価値の不等式は保存されます。
+
+$q+z=X^j$ なら非負整数係数で係数1の単項式となるため、$q,z$ の一方は零で他方がその冪です。$q=0$ の場合は $p=0$ で $p+z=q+z$、$z=0$ の場合は $p+z=p$ が条件を満たします。
+
+$qz=X^j$ の場合、$q,z$ はともに係数1の $X$ の冪でなければなりません。複数の非零項があれば積も複数項を持ち、係数が2以上なら積の対応する係数も2以上になるためです。そこで $p=0$ または $p$ が $X$ の冪となり、$pz$ も条件を満たします。これで演算との両立性を確認できました。
 
 自然数は定数多項式です。評価値はその数自身であり、右辺が $X^j$ となる定数は1だけです。その場合にも左辺の自然数は0か1なので通常の大小と一致します。$q\ne0$ なら $q(2)>0$。整数 $r\ge2$ を $rq(2)\ge p(2)$ となるように取れば $rq$ は係数1の冪ではないため $p\preceq rq$ が成立します。有界性も確認できました。
 
