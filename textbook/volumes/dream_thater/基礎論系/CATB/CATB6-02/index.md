@@ -16,7 +16,7 @@ $$
 
 変数が値を取る対象を型といい、値の指定が残る変数を自由変数、量化によって値の指定が不要になる変数を束縛変数という。ここでは $y$ が束縛され、$x$ が自由なままである。存在量化と全称量化を、単なる論理記号ではなく部分対象間の操作として表そう。
 
-以下、局所小な[初等トポス](../CATB5-06/index.md#def-catb5-06-elementary-topos) $\mathcal E$ を固定する。[分類射と部分対象の自然な対応](../CATB5-06/index.md#thm-catb5-06-classifier-bijection)により、対象 $X$ の部分対象順序 $\operatorname{Sub}(X)$ は集合である。部分対象 $A=[m:M\to X]$ はモノ射の同型類であり、$A\le B$ は $A$ の代表が $B$ の代表を経由することを表す。合成は右から左に書く。
+以下、局所小な[初等トポス](../CATB5-06/index.md#def-catb5-06-elementary-topos) $\mathcal E$ を固定する。[分類射と部分対象の自然な対応](../CATB5-06/index.md#thm-catb5-06-classifier-bijection)により、対象 $X$ の部分対象順序 $\operatorname{Sub}(X)$ は集合である。[部分対象](../CATB4-07/index.md#def-catb4-07-subobject) $A=[m:M\to X]$ はモノ射の同型類であり、$A\le B$ は $A$ の代表が $B$ の代表を経由することを表す。合成は右から左に書く。
 
 ## 2. 変数を増やす操作と減らす操作
 
@@ -41,7 +41,7 @@ $$
 \operatorname{Sub}(U)\longrightarrow\operatorname{Sub}(V).
 $$
 
-> 任意の $A\in\operatorname{Sub}(U)$ と $B\in\operatorname{Sub}(V)$ について、存在量化子は左の同値、全称量化子は右の同値で特徴付けられる。
+> 任意の $A\in\operatorname{Sub}(U)$ と $B\in\operatorname{Sub}(V)$ について、存在量化子は第一の同値、全称量化子は第二の同値で特徴付けられる。
 
 $$
 \exists_f A\le B\iff A\le f^*B,
@@ -158,7 +158,7 @@ $$
 
 と書く。右辺はいずれも $\operatorname{Sub}(X)$ の元である。逆像 $\pi^*B$ は、$x$ だけに依存する述語 $B$ を $X\times Y$ 上に戻したものである。従って $R$ と $B$ を直接比較するのではなく、同じ型の部分対象同士を比較する。
 
-<a id="thm-catb6-02-projection-quantification"></a>
+<a id="prop-catb6-02-projection-quantification"></a>
 
 <!-- formal-statement-start -->
 > **命題（集合の射影量化）**
@@ -311,8 +311,8 @@ $Y=Z=\{0,1\}$ で $R(y,z)$ を $y=z$ とする。各 $y$ に対して $z=y$ を�
 [射に沿う量化子の集合例](#def-catb6-02-quantifiers)に従い、三つのファイバーを列挙する。
 
 $$
-f^{-1}(a)=\{1,2\},\quad f^{-1}(b)=\{3,4\},
-\quad f^{-1}(c)=\varnothing.
+f^{-1}(\{a\})=\{1,2\},\quad f^{-1}(\{b\})=\{3,4\},
+\quad f^{-1}(\{c\})=\varnothing.
 $$
 
 $A$ との共通部分は順に $\{1\},\{3,4\},\varnothing$。全体が $A$ に含まれるのは第二と第三だけである。従って
@@ -345,7 +345,7 @@ $X=\{a,b\}$、$Y=\{0,1,2\}$ とし、$R=\{(a,0),(a,1),(b,0),(b,1),(b,2)\}$ と�
 <!-- solution-start -->
 **詳細解答**
 
-[集合の射影量化](#thm-catb6-02-projection-quantification)によれば、$y$ は束縛変数で $x$ が自由変数として残る。従って型はどちらも $X$ 上の部分対象である。$a$ には二つの証人、$b$ には三つの証人がある。全ての $y$ で成立するのは $b$ だけなので
+[集合の射影量化](#prop-catb6-02-projection-quantification)によれば、$y$ は束縛変数で $x$ が自由変数として残る。従って型はどちらも $X$ 上の部分対象である。$a$ には二つの証人、$b$ には三つの証人がある。全ての $y$ で成立するのは $b$ だけなので
 
 $$
 \exists_\pi R=\{a,b\},\qquad \forall_\pi R=\{b\}.
@@ -470,6 +470,37 @@ $$
 この同値に $B=\forall_f(A\wedge A')$ を代入すれば左の部分対象が右以下、$B=\forall_f A\wedge\forall_f A'$ を代入すれば右が左以下である。反対称性から等式が従う。
 <!-- solution-end -->
 
+### CATB6-02-B04 合成量化を二通りで計算する
+
+- Level: B
+
+集合 $U=\{1,2,3\}$、$V=\{a,b,c\}$、$W=\{p,q,r\}$ とする。写像 $f:U\to V$ は $f(1)=f(2)=a$、$f(3)=b$、写像 $g:V\to W$ は $g(a)=g(c)=p$、$g(b)=q$ で定める。$A=\{1,2\}$ とする。両量化子について、合成射に沿う一段の計算と二段の計算が一致することを確かめよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+[射に沿う量化子](#def-catb6-02-quantifiers)の集合例に従う。$f$ のファイバーは $\{1,2\},\{3\},\varnothing$ である。$A$ と交わるのは $a$ のファイバーだけであり、$A$ に含まれるのは $a,c$ のファイバーである。
+
+$$
+\exists_f A=\{a\},\qquad\forall_f A=\{a,c\}.
+$$
+
+次に $g$ のファイバーを $p,q,r$ の順に並べると $\{a,c\},\{b\},\varnothing$ となる。$\{a\}$ と交わるのは第一のファイバーだけであり、$\{a,c\}$ に含まれるのは第一と第三である。従って
+
+$$
+\exists_g\exists_f A=\{p\},\qquad
+\forall_g\forall_f A=\{p,r\}.
+$$
+
+一段の計算では $gf(1)=gf(2)=p$、$gf(3)=q$ なので、合成射のファイバーは $\{1,2\},\{3\},\varnothing$ である。$A$ と交わるのは第一だけ、$A$ に含まれるのは第一と第三である。
+
+$$
+\exists_{gf}A=\{p\},\qquad\forall_{gf}A=\{p,r\}.
+$$
+
+よって[量化子の合成](#thm-catb6-02-quantifier-composition)の二つの等式を確認した。途中の $c$ の空ファイバーを全称量化で除外してしまうと、第二段で $p$ が誤って除外される。
+<!-- solution-end -->
+
 ### CATB6-02-C01 量化の順序と証人の依存
 
 - Level: C
@@ -491,7 +522,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-(1) $z$ を忘れる射影に[集合の射影量化](#thm-catb6-02-projection-quantification)を適用する。$(x,y)=(0,0),(0,1),(1,0),(1,1)$ の証人は順に $0,1,1,0$ である。全ての組に証人があるため、最初の量化結果は $X\times Y$ 上の全体である。
+(1) $z$ を忘れる射影に[集合の射影量化](#prop-catb6-02-projection-quantification)を適用する。$(x,y)=(0,0),(0,1),(1,0),(1,1)$ の証人は順に $0,1,1,0$ である。全ての組に証人があるため、最初の量化結果は $X\times Y$ 上の全体である。
 
 次に $X\times Y\to X$ に沿う全称量化を取る。$x=0$ の場合も $x=1$ の場合も、二つの $y$ が両方ともその全体部分対象に入る。従って
 
