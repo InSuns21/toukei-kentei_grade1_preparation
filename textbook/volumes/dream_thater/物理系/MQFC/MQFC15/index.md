@@ -142,7 +142,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-引用した定理の証明から $(X,Y)$ と同分布の組を $(Z+U,Z+W)$ と書ける。$Z,U,W$ は独立な中心化 Gaussian ベクトルで $U,W$ は同分布である。$Z$ の分布を $\nu$、$U,W$ の分布を $\sigma$ とする。$B(x)=F(x)h(x)$ と置く。有界性から $E_0|B(X)|^2<\infty$、$Y$ も同分布なので積は Cauchy–Schwarz により絶対可積分である。[Fubini の定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) により
+引用した定理の証明から $(X,Y)$ と同分布の組を $(Z+U,Z+W)$ と書ける。$Z,U,W$ は独立な中心化 Gaussian ベクトルで $U,W$ は同分布である。$Z$ の分布を $\nu$、$U,W$ の分布を $\sigma$ とする。
+
+$B(x)=F(x)h(x)$ と置く。有界性から $E_0|B(X)|^2<\infty$、$Y$ も同分布なので積は Cauchy–Schwarz により絶対可積分である。
+
+[Fubini の定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) により
 
 $$
 \begin{aligned}
