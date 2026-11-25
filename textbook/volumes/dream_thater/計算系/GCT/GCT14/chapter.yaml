@@ -1,0 +1,39 @@
+id: "GCT14"
+title: "有限群とCayleyグラフ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GCT13
+  - GRP1
+  - GCT1
+official_scope: []
+learning_objectives:
+  - 有限群の右乗法からCayleyグラフを構成し左移動と生成条件を証明できる
+  - ラベル列の積と歩道を対応させ計数の漸化式を使用できる
+  - F₂上の上三角単位行列の群構造と逆元を計算できる
+  - 列操作と行列積によって隣接生成元が全群を生成することを示せる
+definitions:
+  - { id: GCT14-DEF-01, name: Cayleyグラフ }
+  - { id: GCT14-DEF-02, name: 上三角単位行列群の対象集合 }
+theorems:
+  - { id: GCT14-THM-01, name: Cayleyグラフの左移動と到達可能性 }
+  - { id: GCT14-THM-02, name: Cayleyグラフの積による歩道計数 }
+  - { id: GCT14-THM-03, name: 上三角単位行列の群構造 }
+  - { id: GCT14-THM-04, name: 上三角単位行列群の隣接生成元 }
+canonical_examples:
+  - 法4の加法群のCayleyグラフ
+  - 法6の加法群の非連結例
+  - F₂上の3次上三角単位行列群の積・逆元・八頂点グラフ
+problem_patterns:
+  - GCT14-A1
+  - GCT14-A2
+  - GCT14-A3
+  - GCT14-A4
+  - GCT14-B1
+  - GCT14-B2
+  - GCT14-B3
+  - GCT14-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }

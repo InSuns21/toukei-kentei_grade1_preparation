@@ -1,0 +1,45 @@
+chapter: GCT14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GCT13
+  - GRP1
+  - GCT1
+forward_references: []
+concepts:
+  - id: graph-counting.cayley-graph
+    name: Cayleyグラフ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Cayleyグラフ）"]
+    requires: [algebra.group, graph-counting.finite-simple-graph]
+  - id: graph-counting.unitriangular-matrix-set
+    name: 上三角単位行列群の対象集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（上三角単位行列群の対象集合）"]
+    requires: [algebra.field]
+  - id: graph-counting.cayley-translation-connectivity
+    name: Cayleyグラフの左移動と到達可能性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Cayleyグラフの左移動と到達可能性）"]
+    requires: [graph-counting.cayley-graph, algebra.generated-subgroup, graph-counting.graph-isomorphism]
+  - id: graph-counting.cayley-word-count
+    name: Cayleyグラフの積による歩道計数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Cayleyグラフの積による歩道計数）"]
+    requires: [graph-counting.cayley-graph, graph-counting.walk-matrix-power]
+  - id: graph-counting.unitriangular-group
+    name: 上三角単位行列の群構造
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（上三角単位行列の群構造）"]
+    requires: [graph-counting.unitriangular-matrix-set, algebra.group]
+  - id: graph-counting.unitriangular-adjacent-generators
+    name: 上三角単位行列群の隣接生成元
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（上三角単位行列群の隣接生成元）"]
+    requires: [graph-counting.unitriangular-group, algebra.generated-subgroup]
