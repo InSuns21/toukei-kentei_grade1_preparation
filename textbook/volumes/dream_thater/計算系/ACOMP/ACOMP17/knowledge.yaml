@@ -1,0 +1,55 @@
+chapter: ACOMP17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ACOMP16
+forward_references: []
+concepts:
+  - id: algebraic-complexity.word-polynomial
+    name: "非可換形式多項式"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非可換形式多項式）"]
+    requires: [algebra.field]
+  - id: algebraic-complexity.homogeneous-noncommutative-abp
+    name: "斉次非可換ABP"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（斉次非可換ABP）"]
+    requires: [algebraic-complexity.word-polynomial, algebraic-complexity.algebraic-branching-program]
+  - id: algebraic-complexity.noncommutative-coefficient-matrix
+    name: "非可換係数行列"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非可換係数行列）"]
+    requires: [algebraic-complexity.word-polynomial]
+  - id: algebraic-complexity.abp-layer-rank
+    name: "ABPの層幅下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["補題（ABPの層幅下界）"]
+    requires: [algebraic-complexity.homogeneous-noncommutative-abp, algebraic-complexity.noncommutative-coefficient-matrix]
+  - id: algebraic-complexity.prefix-residual
+    name: "接頭語残余"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接頭語残余）"]
+    requires: [algebraic-complexity.word-polynomial]
+  - id: algebraic-complexity.nisan-rank-formula
+    name: "Nisan型ランク公式"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Nisan型ランク公式）"]
+    requires: [algebraic-complexity.abp-layer-rank, algebraic-complexity.prefix-residual]
+  - id: algebraic-complexity.palindrome-abp-bound
+    name: "回文多項式の非可換ABP下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（回文多項式の非可換ABP下界）"]
+    requires: [algebraic-complexity.abp-layer-rank, algebraic-complexity.arithmetic-circuit]
+  - id: algebraic-complexity.affine-noncommutative-abp-rank
+    name: "定数項付き非可換ABPの中間係数下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["補題（定数項付き非可換ABPの中間係数下界）"]
+    requires: [algebraic-complexity.abp-layer-rank, algebraic-complexity.algebraic-branching-program]

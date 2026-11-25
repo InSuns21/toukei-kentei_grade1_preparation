@@ -1,0 +1,41 @@
+id: "ACOMP17"
+title: "非可換ABPとNisan型ランク下界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ACOMP16
+official_scope: []
+learning_objectives:
+  - 非可換形式多項式と斉次非可換ABPの積の順序を説明できる
+  - 語の分割によって係数行列を作り指定した体で階数を計算できる
+  - 経路の切断と残余基底構成からNisan型ランク公式を証明できる
+  - 回文多項式の指数下界と一般回路の線形上界を導出できる
+  - 定数付き非可換ABPへの下界の拡張と可換モデルとの違いを説明できる
+definitions:
+  - { id: ACOMP17-DEF-01, name: "非可換形式多項式" }
+  - { id: ACOMP17-DEF-02, name: "斉次非可換ABP" }
+  - { id: ACOMP17-DEF-03, name: "非可換係数行列" }
+  - { id: ACOMP17-DEF-04, name: "接頭語残余" }
+theorems:
+  - { id: ACOMP17-THM-01, name: "ABPの層幅下界" }
+  - { id: ACOMP17-THM-02, name: "Nisan型ランク公式" }
+  - { id: ACOMP17-THM-03, name: "回文多項式の非可換ABP下界" }
+  - { id: ACOMP17-THM-04, name: "定数項付き非可換ABPの中間係数下界" }
+canonical_examples:
+  - 非可換形式多項式の積と係数
+  - 二文字の係数行列と係数体の違い
+  - 残余基底からの最小ABP構成
+  - 回文多項式の中央層下界
+problem_patterns:
+  - ACOMP17-A1
+  - ACOMP17-A2
+  - ACOMP17-A3
+  - ACOMP17-A4
+  - ACOMP17-B1
+  - ACOMP17-B2
+  - ACOMP17-B3
+  - ACOMP17-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
