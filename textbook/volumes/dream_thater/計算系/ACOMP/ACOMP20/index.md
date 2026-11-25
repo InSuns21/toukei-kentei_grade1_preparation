@@ -213,6 +213,8 @@ $$
 
 <a id="ref-acomp20-permanent-verification"></a>
 
+### 候補回路の検証
+
 そこで候補回路 $C_1,\ldots,C_M$ の正しさを調べるには、まず $C_1(x_{11})-x_{11}$ の恒等性を調べ、次に $2\le m\le M$ で
 
 $$
