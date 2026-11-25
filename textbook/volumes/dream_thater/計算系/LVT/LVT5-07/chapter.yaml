@@ -1,0 +1,22 @@
+id: "LVT5-07"
+title: "再現可能性・CI・失敗時診断"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT5-06, LVT1-02]
+official_scope: []
+learning_objectives:
+  - シードと具体的な入力を区別して再実行記録を構成する
+  - 固定入力の不一致再現を仮定とともに証明する
+  - 依存関係と実行成果物を固定し失敗の種類を区別する
+  - 証明・例示・差分検査を独立したCI判定として運用する
+definitions:
+  - { id: LVT5-07-DEF-01, name: "再実行記録" }
+propositions:
+  - { id: LVT5-07-PROP-01, name: "固定入力の不一致再現" }
+theorems: []
+canonical_examples: ["容量付きカウンタの再実行", "三つのCI判定", "タイムアウトと不一致"]
+problem_patterns: [LVT5-07-A01, LVT5-07-A02, LVT5-07-A03, LVT5-07-A04, LVT5-07-B01, LVT5-07-B02, LVT5-07-B03, LVT5-07-B04, LVT5-07-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2, review: 0.5 }

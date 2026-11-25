@@ -186,7 +186,11 @@ export const lessons = {
   'LVT5-06': { module:'LvtContracts', sourcePath:'../../LVT3-01/lab/LvtContracts.lean', modes:[
     ['LvtStateful.lean','操作列と中間観測','連結則・長さと拒否・停止の観測を確認。'],
     ['Failure.lean','空と一個は同じではない','誤った等式の証明は型不一致。']
-  ], commands:"lake build\nlake test\nlake env lean LvtStateful.lean\nnpm install --ignore-scripts\nnpm test\nnpm run discover -- /tmp/lvt-stateful.json\nnpm run replay -- /tmp/lvt-stateful.json\n# 以下は意図的な失敗\nlake env lean Failure.lean" }
+  ], commands:"lake build\nlake test\nlake env lean LvtStateful.lean\nnpm install --ignore-scripts\nnpm test\nnpm run discover -- /tmp/lvt-stateful.json\nnpm run replay -- /tmp/lvt-stateful.json\n# 以下は意図的な失敗\nlake env lean Failure.lean" },
+  'LVT5-07': { module:'LvtContracts', sourcePath:'../../LVT3-01/lab/LvtContracts.lean', modes:[
+    ['LvtReplay.lean','固定入力の不一致再現','同じ入力なら不一致が再現されることを確認。'],
+    ['Failure.lean','誤った等式の拒否','型不一致で証明が拒否される。']
+  ], commands:"(cd ../../LVT5-06/lab && lake build && lake test)\n(cd ../../LVT5-06/lab && lake env lean ../../LVT5-07/lab/LvtReplay.lean)\nnpm ci --ignore-scripts\nnode replay.mjs test /tmp/lvt35-test.json\nnode replay.mjs discover /tmp/lvt35-counterexample.json\nnode replay.mjs replay /tmp/lvt35-counterexample.json" }
 };
 export function combine(module, definitions, experiment, suffix='') {
   // Only the exact local module import is replaced by its source.
