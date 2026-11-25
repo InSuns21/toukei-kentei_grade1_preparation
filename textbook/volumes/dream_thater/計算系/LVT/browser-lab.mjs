@@ -198,7 +198,11 @@ export const lessons = {
   'LVT6-01': { module:'LvtAudit', modes:[
     ['Inspect.lean','到達可能性と長さ保存','長さ0の更新と初期長9の保存を区別し、帰納法の定理を確認。'],
     ['Failure.lean','任意の盤面が9という誤った主張','型不一致で拒否される。']
-  ], commands:"lean -o LvtAudit.olean LvtAudit.lean\nLEAN_PATH=. lean Inspect.lean\n# 意図的失敗\nLEAN_PATH=. lean Failure.lean\n# 外部教材の再現は本文の固定コミットと手順を参照" }
+  ], commands:"lean -o LvtAudit.olean LvtAudit.lean\nLEAN_PATH=. lean Inspect.lean\n# 意図的失敗\nLEAN_PATH=. lean Failure.lean\n# 外部教材の再現は本文の固定コミットと手順を参照" },
+  'LVT6-02': { module:'LvtAntiDiagonal', modes:[
+    ['Inspect.lean','反対角線の有無と勝利判定','反対角線で true, false。上段の勝利は両方 true。印が二つなら両方 false。'],
+    ['Failure.lean','欠落した勝利線の誤った等式','反対角線が変異後も勝利するという誤った証明は型不一致で拒否される。']
+  ], commands:"lean -o LvtAntiDiagonal.olean LvtAntiDiagonal.lean\nLEAN_PATH=. lean Inspect.lean\n# 意図的失敗\nLEAN_PATH=. lean Failure.lean\n# Pythonと固定版Leanの差分実験は本文第5節を参照" }
 };
 export function combine(module, definitions, experiment, suffix='') {
   // Only the exact local module import is replaced by its source.
