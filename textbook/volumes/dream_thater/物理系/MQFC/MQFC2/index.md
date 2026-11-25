@@ -87,7 +87,15 @@ $$
 これで随伴条件も確認できました。第 $n$ 単位ベクトルで $\|Te_n\|=n$ となるため、$f(0)\ne0$ なら作用素ノルムは有限ではありません。
 <!-- definition-example-end -->
 
-稠密であるだけでは積は保証されません。例えば同じ $D$ で $B\psi=\psi_1 v$、$v_n=1/n$ とすれば $\|v\|^2=\sum_{n\ge1}n^{-2}<\infty$ であり、$\|B\psi\|=|\psi_1|\|v\|\le\|\psi\|\|v\|$ なので $B:D\to\ell^2$ は有界です。しかし $Be_1=v\notin D$ なので上の $TBe_1$ は定義されません。さらに成分式で延長しようとしても $(nv_n)_n=(1,1,\dots)$ は二乗可積分ではありません。不変性が積の定義を保証していたことが分かります。
+稠密であるだけでは積は保証されません。例えば同じ $D$ で $B\psi=\psi_1 v$、$v_n=1/n$ とします。
+
+$$
+\|v\|^2=\sum_{n\ge1}n^{-2}<\infty,
+\qquad
+\|B\psi\|=|\psi_1|\|v\|\le\|\psi\|\|v\|.
+$$
+
+従って $B:D\to\ell^2$ は有界です。しかし $Be_1=v\notin D$ なので上の $TBe_1$ は定義されません。さらに成分式で延長しようとしても $(nv_n)_n=(1,1,\dots)$ は二乗可積分ではありません。不変性が積の定義を保証していたことが分かります。
 
 ## 2. 随伴条件が保証すること
 
@@ -146,9 +154,23 @@ $$
 \Omega=(1,0,0,\dots).
 $$
 
-状態は粒子数別の列 $\psi=(\psi_0,\psi_1,\ldots)$ で、ノルムは $\|\psi\|^2=\sum_{n\ge0}\|\psi_n\|^2$ です。$\Omega$ はノルム1の真空ベクトルです。$D_{\mathcal S}$ は有限個の成分だけが非零で、各成分が対称Schwartz関数（零粒子では複素数）である状態の空間です。QFT4での $\mathcal D_{\mathcal S}$ と同じ領域です。各粒子数でのSchwartz関数による近似を置換の平均で対称化しても、対称な目標への誤差は元の誤差以下です。これと直和の末尾切捨てにより稠密です。以下、$D_{\le L}$ は $D_{\mathcal S}$ のうち $L$ 粒子以下の状態の部分空間です。
+状態は粒子数別の列であり、そのノルムは各成分のノルム二乗の和で定まります。
 
-[生成・消滅演算子](../../QFT/QFT4/index.md#def-qft4-ladder-operators)をそれぞれ $a^\dagger(u),a(u)$ と書きます。波束 $u\in\mathcal S(\mathbb R^3)$ に対して生成は $u$ に線形、消滅は共役線形で、両者は状態 $\psi$ に線形です。QFT4の定義と同じく、両者は $D_{\mathcal S}$ を保ちます。$\dagger$ はここでの共通領域上の内積による随伴関係を表します。例えば消滅で $n+1$ 粒子から $n$ 粒子へ移る成分は
+$$
+\psi=(\psi_0,\psi_1,\ldots),
+\qquad
+\|\psi\|^2=\sum_{n\ge0}\|\psi_n\|^2.
+$$
+
+$\Omega$ はノルム1の真空ベクトルです。$D_{\mathcal S}$ は有限個の成分だけが非零で、各成分が対称Schwartz関数（零粒子では複素数）である状態の空間です。QFT4での $\mathcal D_{\mathcal S}$ と同じ領域です。
+
+各粒子数でのSchwartz関数による近似を置換の平均で対称化しても、対称な目標への誤差は元の誤差以下です。これと直和の末尾切捨てにより稠密です。以下、$D_{\le L}$ は $D_{\mathcal S}$ のうち $L$ 粒子以下の状態の部分空間です。
+
+[生成・消滅演算子](../../QFT/QFT4/index.md#def-qft4-ladder-operators)をそれぞれ $a^\dagger(u),a(u)$ と書きます。波束 $u\in\mathcal S(\mathbb R^3)$ に対して生成は $u$ に線形、消滅は共役線形です。
+
+両者は状態 $\psi$ に線形であり、QFT4の定義と同じく $D_{\mathcal S}$ を保ちます。$\dagger$ はここでの共通領域上の内積による随伴関係を表します。
+
+例えば消滅で $n+1$ 粒子から $n$ 粒子へ移る成分は
 
 $$
 (a(u)\psi)_n(\boldsymbol p_1,\ldots,\boldsymbol p_n)
@@ -188,7 +210,7 @@ $$
 \le(n+1)\|u\|^2\int|\psi_{n+1}(\boldsymbol q,\boldsymbol p_1,\ldots,\boldsymbol p_n)|^2d\mu(\boldsymbol q).
 $$
 
-残る粒子変数について積測度で積分し、直和ノルムを取ります。被積分関数は非負で二乗可積分なので積分の順序を変えられます。
+残る粒子変数について積測度で積分し、直和ノルムを取ります。波動関数は二乗可積分であり、その絶対値二乗は非負かつ可積分なので積分の順序を変えられます。
 
 $$
 \begin{aligned}
@@ -233,7 +255,9 @@ u_f(\boldsymbol p)=
 {\sqrt{2\omega_{\boldsymbol p}}}
 $$
 
-とします。これは[Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier)で時間周波数だけ符号を反転した変換です。$E$ は時間周波数、$\boldsymbol p$ は空間周波数です。$\partial_{p_j}$ は運動量の第 $j$ 成分での微分ですが、質量殻へ制限した後には $E$ も $\boldsymbol p$ に依存します。$F=\widetilde f$、$g(\boldsymbol p)=F(\omega_{\boldsymbol p},\boldsymbol p)$ と一時的に書けば、連鎖律により
+とします。これは[Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier)で時間周波数だけ符号を反転した変換です。$E$ は時間周波数、$\boldsymbol p$ は空間周波数です。
+
+$\partial_{p_j}$ は運動量の第 $j$ 成分での微分ですが、質量殻へ制限した後には $E$ も $\boldsymbol p$ に依存します。$F=\widetilde f$、$g(\boldsymbol p)=F(\omega_{\boldsymbol p},\boldsymbol p)$ と一時的に書けば、連鎖律により
 
 $$
 \partial_{p_j}g
@@ -251,7 +275,22 @@ $$
 (2\omega_{\boldsymbol p})^{-1/2}g.
 $$
 
-$m>0$ のため $\omega_{\boldsymbol p}\ge m$ であり、$\omega_{\boldsymbol p}$ と $(2\omega_{\boldsymbol p})^{-1/2}$ の任意階の導関数は高々多項式増大です。実際、$\omega_{\boldsymbol p}^{b}$ の微分は $b p_j\omega_{\boldsymbol p}^{b-2}$ であり、これと積の微分を繰り返すと多項式と $\omega_{\boldsymbol p}$ の冪の積の有限和になります。負の冪には下界 $m$ を使えます。高階の $\partial^\alpha u_f$ も $F$ の導関数を質量殻へ制限した値と多項式増大因子の積の有限和です。質量殻上のEuclidノルムは $|\boldsymbol p|$ 以上なので、各因子の増大次数より十分大きなSchwartz減衰次数を選べば、任意の $N,\alpha$ に対して $(1+|\boldsymbol p|)^N|\partial^\alpha u_f|$ は有界です。従って $u_f$ はSchwartz級です。
+$m>0$ のため $\omega_{\boldsymbol p}\ge m$ であり、$\omega_{\boldsymbol p}$ と $(2\omega_{\boldsymbol p})^{-1/2}$ の任意階の導関数は高々多項式増大です。実際、実数 $b$ に対する微分は
+
+$$
+\partial_{p_j}(\omega_{\boldsymbol p}^{b})
+=b p_j\omega_{\boldsymbol p}^{b-2}
+$$
+
+です。これと積の微分を繰り返すと多項式とエネルギーの冪の積の有限和になります。負の冪には下界 $m$ を使えます。
+
+高階の $\partial^\alpha u_f$ も $F$ の導関数を質量殻へ制限した値と多項式増大因子の積の有限和です。質量殻上のEuclidノルムは $|\boldsymbol p|$ 以上なので、各因子の増大次数より十分大きなSchwartz減衰次数を選べます。従って任意の非負整数 $N$ と多重指数 $\alpha$ について
+
+$$
+\sup_{\boldsymbol p}(1+|\boldsymbol p|)^N|\partial^\alpha u_f(\boldsymbol p)|<\infty
+$$
+
+が成立し、$u_f$ はSchwartz級です。
 
 場の式は
 
@@ -376,7 +415,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-右から $k$ 個作用させた状態を $\psi^{[k]}$ とし、$\psi^{[0]}=\psi$、$\psi^{[k+1]}=\Phi(f_{n-k})\psi^{[k]}$ とします。$k=0,\dots,n-1$ について $\psi^{[k]}\in D_{\le L+k}$ です。[自由場のSchwartz評価](#thm-mqfc2-free-field-estimate)を次の因子 $f_{n-k}$ に適用すると、
+右から $k$ 個作用させた状態を $\psi^{[k]}$ とします。
+
+$$
+\psi^{[0]}=\psi,\qquad
+\psi^{[k+1]}=\Phi(f_{n-k})\psi^{[k]}
+\quad(k=0,\dots,n-1).
+$$
+
+各段階で $\psi^{[k]}\in D_{\le L+k}$ です。[自由場のSchwartz評価](#thm-mqfc2-free-field-estimate)を次の因子 $f_{n-k}$ に適用すると、
 
 $$
 \|\psi^{[k+1]}\|
@@ -517,7 +564,13 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[稠密定義作用素の随伴](../../../解析系/QM/QM5/index.md#def-qm5-unbounded-adjoint)の定義から、$\chi\in\operatorname{Dom}T^*$ であるには、ある $z\in\ell^2$ が全ての有限列 $\psi$ について $\langle T\psi,\chi\rangle=\langle\psi,z\rangle$ を満たす必要があります。$\psi=e_n$ とすれば $n\bar\chi_n=\bar z_n$、すなわち $z_n=n\chi_n$ です。
+[稠密定義作用素の随伴](../../../解析系/QM/QM5/index.md#def-qm5-unbounded-adjoint)の定義から、$\chi\in\operatorname{Dom}T^*$ であるには、ある $z\in\ell^2$ が全ての有限列 $\psi$ について内積等式を満たす必要があります。
+
+$$
+\langle T\psi,\chi\rangle=\langle\psi,z\rangle.
+$$
+
+$\psi=e_n$ とすれば $n\bar\chi_n=\bar z_n$、すなわち $z_n=n\chi_n$ です。
 
 逆に $(n\chi_n)_n\in\ell^2$ ならこの列を $z$ に選ぶと、有限和で内積等式が成立します。よって
 
@@ -575,7 +628,9 @@ $E=\omega_{\boldsymbol p}$ を代入すると係数が零です。従って $u_f
 <!-- solution-start -->
 #### 詳細解答
 
-有限族を $f_1,\ldots,f_n$ とし、$c=(c_1,\ldots,c_n)^{\mathsf T}\in\mathbb C^n$ を列ベクトル、$c^*$ を共役転置とします。[自由場の随伴条件](#thm-mqfc2-free-field-estimate)と真空への作用から $G_{ij}=\langle u_{f_j},u_{f_i}\rangle$ です。したがって $G_{ji}=\overline{G_{ij}}$ でHermite行列です。[有限族による正値性判定](../MQFC1/index.md#prop-mqfc1-gram)と同じ二次形式を調べます。内積の第1引数が線形であるため
+有限族を $f_1,\ldots,f_n$ とし、$c=(c_1,\ldots,c_n)^{\mathsf T}\in\mathbb C^n$ を列ベクトル、$c^*$ を共役転置とします。
+
+[自由場の随伴条件](#thm-mqfc2-free-field-estimate)と真空への作用から $G_{ij}=\langle u_{f_j},u_{f_i}\rangle$ です。したがって $G_{ji}=\overline{G_{ij}}$ でHermite行列です。[有限族による正値性判定](../MQFC1/index.md#prop-mqfc1-gram)と同じ二次形式を調べます。内積の第1引数が線形であるため
 
 $$
 \begin{aligned}
