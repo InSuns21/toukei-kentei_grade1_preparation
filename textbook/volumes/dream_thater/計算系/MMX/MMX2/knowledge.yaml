@@ -1,0 +1,18 @@
+chapter: MMX2
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX1, TSP3, TSP7, TSP9, TSP14]
+forward_references: []
+concepts:
+  - id: matrix-exponent.square-slice-rank-lower-bound
+    name: 正方行列積の切片による階数下界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正方行列積の切片による階数下界）"]
+    requires: [tensor.matrix-multiplication-tensor, tensor.slice-space-minimum-rank-bound]
+  - id: matrix-exponent.power-exponent-lower-criterion
+    name: 冪に沿った指数下界の判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（冪に沿った指数下界の判定）"]
+    requires: [tensor.matrix-multiplication-exponent-rank, tensor.asymptotic-fekete-lemma]
