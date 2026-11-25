@@ -27,7 +27,7 @@ $$
 a_m(p)=|p|^2+m^2.
 $$
 
-したがって $A_mu=f$ を解くには周波数ごとに $a_m$ で割ればよいことになります。周波数側で関数に掛ける係数をFourier乗数といいます。ここでは逆の乗数から共分散を作ります。[MQFC1の二点分布核](../MQFC1/index.md#def-mqfc1-kernel)と同じく、第1引数を共役線形、第2引数を線形にする半双線形形式を考えます。これは複素数上の双線形形式とは異なります。実の重みに対しては実数値の双線形形式になることを後で証明します。
+したがって $A_mu=f$ を解くには周波数ごとに $a_m$ で割ればよいことになります。周波数側で関数に掛ける係数をFourier乗数といいます。ここでは逆の乗数から共分散を作ります。[MQFC1の二点分布核](../MQFC1/index.md#def-mqfc1-kernel)と同じく、第1引数を共役線形、第2引数を線形にする半双線形形式を考えます。複素数の係数を第1引数から外に出すときだけ共役する点が重要です。実の重みに対して値も実数になることを後で証明します。
 
 <a id="def-mqfc5-covariance-form"></a>
 
@@ -155,7 +155,14 @@ $$
 \int(1+|y|)^N|g(y)|\,dy.
 $$
 
-右辺は有限です。積分下の微分は $z$ について行い、$\partial_z^\alpha\overline{f(y+z)}=\overline{(\partial_x^\alpha f)(y+z)}$ です。各階で差分商は平均値の評価により次の階の有界な微分と $|g|$ の積で支配されるので、[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)で微分と積分を交換できます。[分布のFourier変換の定義](../MQFC1/index.md#def-mqfc1-duality)では共役を取らないので、逆変換は試験関数に通常の逆変換を作用させます。$\mathcal F^{-1}h(p)=(2\pi)^{-d}\widehat h(-p)$ より
+右辺は有限です。積分下の微分は $z$ について行い、$\partial_z^\alpha\overline{f(y+z)}=\overline{(\partial_x^\alpha f)(y+z)}$ です。各階の微分を $v=\partial_x^\alpha\overline f$ と書き、第 $j$ 座標の単位ベクトルを $e_j$ とします。実数 $t\ne0$ について微積分の基本定理から
+
+$$
+\frac{v(y+z+te_j)-v(y+z)}{t}
+=\int_0^1 \partial_j v(y+z+\theta te_j)\,d\theta.
+$$
+
+絶対値は $\sup_x|\partial_j v(x)|$ 以下です。$|g(y)|$ を掛けた支配関数は可積分なので、$t\to0$ に対する[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)で微分と積分を交換できます。[分布のFourier変換の定義](../MQFC1/index.md#def-mqfc1-duality)では共役を取らないので、逆変換は試験関数に通常の逆変換を作用させます。$\mathcal F^{-1}h(p)=(2\pi)^{-d}\widehat h(-p)$ より
 
 $$
 \langle G_m,h\rangle=(2\pi)^{-d}\int w_m(p)\widehat h(-p)\,dp.
