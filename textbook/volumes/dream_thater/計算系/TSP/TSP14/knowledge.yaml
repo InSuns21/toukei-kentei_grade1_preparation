@@ -1,0 +1,24 @@
+chapter: TSP14
+scope: dream-theater
+coverage: complete
+prerequisites: [TSP13]
+forward_references: []
+concepts:
+  - id: tensor.matrix-multiplication-exponent
+    name: 行列積指数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（行列積指数）"]
+    requires: [tensor.matrix-multiplication-tensor, tensor.rank-bilinear-complexity, order.infimum]
+  - id: tensor.matrix-multiplication-exponent-rank
+    name: 行列積指数と漸近階数の一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（行列積指数と漸近階数の一致）"]
+    requires: [tensor.matrix-multiplication-exponent, tensor.matrix-multiplication-product, tensor.asymptotic-rank, tensor.power-growth-limits, tensor.restriction-rank-monotonicity, tensor.rank-subrank-operations]
+  - id: tensor.matrix-multiplication-exponent-spectrum
+    name: 行列積指数のスペクトル表示と基本上下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（行列積指数のスペクトル表示と基本上下界）"]
+    requires: [tensor.matrix-multiplication-exponent-rank, tensor.three-tensor-spectral-extrema, tensor.flattening-spectral-point, tensor.strassen-seven-product]

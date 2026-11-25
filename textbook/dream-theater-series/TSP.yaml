@@ -58,7 +58,7 @@ chapters:
     title: "support functionals・エントロピーによるスペクトル評価"
   - id: TSP14
     path: textbook/volumes/dream_thater/計算系/TSP/TSP14
-    status: planned
+    status: completed
     title: "行列積指数と漸近スペクトル：既知の上下界の意味"
   - id: TSP15
     path: textbook/volumes/dream_thater/計算系/TSP/TSP15
