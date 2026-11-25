@@ -605,7 +605,7 @@ R_S(a^n)\le R_S(a^{n-1})R_S(a)
 \le\cdots\le R_S(a)^n.
 $$
 
-中央の $Q_S(a^n)\le R_S(a^n)$ は自然数による上下の評価から成立します。テンソルの場合は [テンソルのStrassen前順序](#thm-tsp10-tensor-strassen) の証明で示した非零成分の回収によって $1\preceq[t]$ が得られるため、非零という条件だけで後半も成立します。
+中央の $Q_S(a^n)\le R_S(a^n)$ は [自然数による上下の評価](#thm-tsp10-order-rank) から成立します。テンソルの場合は [テンソルのStrassen前順序](#thm-tsp10-tensor-strassen) の証明で示した非零成分の回収によって $1\preceq[t]$ が得られるため、非零という条件だけで後半も成立します。
 <!-- solution-end -->
 
 ## 9. 次講への接続
