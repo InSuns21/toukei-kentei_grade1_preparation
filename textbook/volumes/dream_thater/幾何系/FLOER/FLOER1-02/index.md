@@ -171,7 +171,9 @@ $$
 \int_\gamma\lambda=\int_0^1-y(t)\dot x(t)\,dt
 =\int_0^1 t\,dt=\frac12,
 \qquad \mathcal A(\gamma)=-\frac12.
-$$作用自体は負でもよい。
+$$
+
+作用自体は負でもよい。
 <!-- definition-example-end -->
 
 交点 $p$ の定数道では線積分は零なので、以下では $\mathcal A(p)=f_1(p)-f_0(p)$ と略記する。$f_j$ に定数を加えると作用値は移動するが、同じ選択の下での作用差は変わらない。
