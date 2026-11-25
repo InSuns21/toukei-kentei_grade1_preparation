@@ -1,0 +1,15 @@
+chapter: LVT6-01
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT3-06, LVT5-08, LVT2-08, LVT5-04]
+concepts:
+  - id: lean-verification.list-game-reachable
+    name: リスト盤面の成功到達状態
+    kind: definition
+    introduction: formal
+    requires: [lean-verification.game-reachable]
+  - id: lean-verification.list-game-nine
+    name: 成功到達状態の九マス保証
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.list-game-reachable]
