@@ -4,7 +4,9 @@
 
 ## 1. 独立した座標領域に並べる
 
-以下では任意の体 $K$ と因子数 $d\ge2$ を固定します。各位置の空間は有限次元です。添字 $a=1,\ldots,d$ は因子の位置を表し、$\bigotimes_a$ はその順序で全因子を取る [多因子のテンソル積](../TSP1/index.md#def-tsp1-multifactor-product) の略記です。入力を
+以下では任意の体 $K$ と因子数 $d\ge2$ を固定します。各位置の空間は有限次元です。
+
+添字 $a=1,\ldots,d$ は因子の位置を表し、$\bigotimes_a$ はその順序で全因子を取る [多因子のテンソル積](../TSP1/index.md#def-tsp1-multifactor-product) の略記です。入力を
 
 $$
 t\in\bigotimes_{a=1}^d V_a,\qquad s\in\bigotimes_{a=1}^d W_a
@@ -12,7 +14,11 @@ $$
 
 とします。[テンソル階数](../TSP2/index.md#def-tsp2-tensor-rank) と [テンソル劣階数](../TSP4/index.md#def-tsp4-subrank) には記号 $R_K,Q_K$ を用います。
 
-二つの材料を混ぜずに並べるには、位置 $a$ ごとに空間を $V_a\oplus W_a$ に広げます。ここで空間の直和とは組 $(v,w)$ を成分ごとに加算・スカラー倍する空間です。既習の [部分空間の和・直和](../../../基礎科目/F0/F0-00E/index.md#def-f0-00e-sum-direct-sum) は同じ実ベクトル空間内の部分空間を扱いました。今回は任意の体上で別々の空間から作る外部直和です。二つの部分空間 $V_a\times\{0\}$ と $\{0\}\times W_a$ の交わりは零だけであり、任意の組には一意な分解
+二つの材料を混ぜずに並べるには、位置 $a$ ごとに空間を $V_a\oplus W_a$ に広げます。ここで空間の直和とは組 $(v,w)$ を成分ごとに加算・スカラー倍する空間です。
+
+既習の [部分空間の和・直和](../../../基礎科目/F0/F0-00E/index.md#def-f0-00e-sum-direct-sum) は同じ実ベクトル空間内の部分空間を扱いました。今回は任意の体上で別々の空間から作る外部直和です。
+
+二つの部分空間 $V_a\times\{0\}$ と $\{0\}\times W_a$ の交わりは零だけであり、任意の組には一意な分解
 
 $$
 (v,w)=(v,0)+(0,w)
@@ -64,7 +70,17 @@ j_a(f_{a,k-n_a}) & (n_a<k\le n_a+m_a)
 \end{cases}
 $$
 
-とします。一意な成分分解と各空間の基底展開により、この連結は基底になります。[多因子テンソル積の存在・基底・一意性](../TSP1/index.md#thm-tsp1-multifactor-basis) に従い $t,s$ の元の基底係数をそれぞれ $t_{i_1\ldots i_d},s_{j_1\ldots j_d}$ と書きます。後半の添字 $j_a$ は連結後には $k_a=n_a+j_a$ です。全位置で前半を選ぶ項には $t$ の係数、全位置で後半を選ぶ項には $s$ の係数が入ります。従って $1\le k_a\le n_a+m_a$ に対して直和の係数は
+とします。一意な成分分解と各空間の基底展開により、この連結は基底になります。
+
+[多因子テンソル積の存在・基底・一意性](../TSP1/index.md#thm-tsp1-multifactor-basis) に従い $t,s$ の元の基底係数をそれぞれ $t_{i_1\ldots i_d},s_{j_1\ldots j_d}$ と書きます。後半の基底番号（包含写像の記号とは区別します）は連結後に
+
+$$
+k_a=n_a+j_a
+$$
+
+となります。全位置で前半を選ぶ項には $t$ の係数、全位置で後半を選ぶ項には $s$ の係数が入ります。
+
+従って $1\le k_a\le n_a+m_a$ に対して直和の係数は
 
 $$
 (t\oplus s)_{k_1\ldots k_d}=
@@ -105,7 +121,16 @@ $$
 > と作用する線形写像とする。Kronecker積は $t\boxtimes s=\Phi(t\otimes s)$ と定める。
 <!-- formal-statement-end -->
 
-この写像が存在し一意であることを確認します。両辺の空間の基底は [多因子テンソル積の存在・基底・一意性](../TSP1/index.md#thm-tsp1-multifactor-basis) により、左辺では二組の添字 $(i_1,\ldots,i_d;j_1,\ldots,j_d)$、右辺では組の列 $((i_1,j_1),\ldots,(i_d,j_d))$ で番号付けできます。添字の並べ替えは全単射なので、この基底対応を線形に延長すると逆写像を持つ線形写像が得られます。任意の $v_a,w_a$ を $v_a=\sum_i x_{ai}e_{ai}$、$w_a=\sum_j y_{aj}f_{aj}$ と展開します。左辺の基底の係数は
+この写像が存在し一意であることを確認します。両辺の空間の基底は [多因子テンソル積の存在・基底・一意性](../TSP1/index.md#thm-tsp1-multifactor-basis) により、左辺では二組の添字 $(i_1,\ldots,i_d;j_1,\ldots,j_d)$、右辺では組の列 $((i_1,j_1),\ldots,(i_d,j_d))$ で番号付けできます。添字の並べ替えは全単射なので、この基底対応を線形に延長すると逆写像を持つ線形写像が得られます。
+
+任意のベクトルをそれぞれの基底で展開します。
+
+$$
+v_a=\sum_i x_{ai}e_{ai},\qquad
+w_a=\sum_j y_{aj}f_{aj}.
+$$
+
+左辺の基底の係数は
 
 $$
 \left(\prod_a x_{ai_a}\right)\left(\prod_a y_{aj_a}\right)
@@ -124,7 +149,9 @@ $$
 位置 $a$ の新しい次元は $n_am_a$ です。全体の基底の個数は $\prod_a n_am_a=(\prod_a n_a)(\prod_a m_a)$ であり、元の二つのテンソル積空間を掛け合わせた次元と一致します。
 
 <!-- definition-example-start: def-tsp5-kronecker -->
-**定義の確認**。二因子では [テンソルの平坦化](../TSP3/index.md#def-tsp3-flattening) を位置1と位置2に分けると、第1因子の基底番号が行、第2因子の基底番号が列になります。各空間を $\mathbb Q^2$ とし、基底をそれぞれ $e_{1i},e_{2k}$ と $f_{1j},f_{2l}$ とします。行列 $T,S$ は線形写像の指定ではなく、次のテンソルの係数を並べたものです。
+**定義の確認**。二因子では [テンソルの平坦化](../TSP3/index.md#def-tsp3-flattening) を位置1と位置2に分けると、第1因子の基底番号が行、第2因子の基底番号が列になります。
+
+各空間を $\mathbb Q^2$ とし、基底をそれぞれ $e_{1i},e_{2k}$ と $f_{1j},f_{2l}$ とします。行列 $T,S$ は線形写像の指定ではなく、次のテンソルの係数を並べたものです。
 
 $$
 t=\sum_{i,k=1}^2 T_{ik}e_{1i}\otimes e_{2k},\qquad
@@ -420,7 +447,13 @@ $$
 
 階数の特徴付けで左辺を生成する候補の番号数がそれぞれ $r+q,rq$ と分かったので、二つの上界が従います。
 
-次に $p=Q_K(t)$、$h=Q_K(s)$ とします。[テンソル劣階数](../TSP4/index.md#def-tsp4-subrank) により $D_p\preceq t$、$D_h\preceq s$ です。同じ両立性と対角テンソルの結果を、今度は対角テンソルを取り出す向きに使うと
+次に $p=Q_K(t)$、$h=Q_K(s)$ とします。[テンソル劣階数](../TSP4/index.md#def-tsp4-subrank) により
+
+$$
+D_p\preceq t,\qquad D_h\preceq s
+$$
+
+です。同じ両立性と対角テンソルの結果を、今度は対角テンソルを取り出す向きに使うと
 
 $$
 D_{p+h}\preceq D_p\oplus D_h\preceq t\oplus s,
@@ -591,7 +624,24 @@ $$
 t\boxtimes D_1\preceq t\boxtimes s.
 $$
 
-各位置の空間 $V_a\otimes K$ から $V_a$ へ $v\otimes c\mapsto cv$ と送る線形写像を取ります。基底 $e_i\otimes1$ が基底 $e_i$ に対応するため可逆です。[テンソルのKronecker積](#def-tsp5-kronecker) の定義を基底上で展開すれば、各係数に $D_1$ の唯一の係数1を掛けるだけなので、$t\boxtimes D_1$ の像は $t$ です。[制限の前順序性](#thm-tsp5-restriction-preorder) の推移性で $t\preceq t\boxtimes s$ を得ます。
+各位置の空間から次の線形写像を取ります。
+
+$$
+V_a\otimes K\longrightarrow V_a,\qquad
+v\otimes c\longmapsto cv.
+$$
+
+基底 $e_i\otimes1$ が基底 $e_i$ に対応するため可逆です。
+
+[テンソルのKronecker積](#def-tsp5-kronecker) の定義を基底上で展開すれば、各係数に $D_1$ の唯一の係数1を掛けるだけなので、$t\boxtimes D_1$ の像は $t$ です。
+
+[制限の前順序性](#thm-tsp5-restriction-preorder) の推移性で
+
+$$
+t\preceq t\boxtimes D_1\preceq t\boxtimes s
+$$
+
+を得ます。
 
 $s=0$ なら全ての積の係数が0なので $t\boxtimes s=0$ です。線形写像は零を零に送るため非零 $t$ を取り出せません。
 <!-- solution-end -->
@@ -679,7 +729,9 @@ $$
 
 中間の不等式も各テンソルに基本評価を適用すれば従います。帰納法により成立します。
 
-$w$ については [三因子の階数3の例](../TSP2/index.md#thm-tsp2-three-factor-rank) から $R_K(w)=3$ です。また $w$ は非零なので [劣階数の基本評価](../TSP4/index.md#thm-tsp4-subrank-bounds) により $Q_K(w)\ge1$ です。
+$w$ については [三因子の階数3の例](../TSP2/index.md#thm-tsp2-three-factor-rank) から $R_K(w)=3$ です。
+
+また $w$ は非零なので [劣階数の基本評価](../TSP4/index.md#thm-tsp4-subrank-bounds) により $Q_K(w)\ge1$ です。
 
 従って最初の評価は
 
@@ -695,7 +747,15 @@ $$
 M=\begin{pmatrix}0&1&1&0\\1&0&0&0\end{pmatrix}
 $$
 
-と書きます。[テンソルのKronecker積](#def-tsp5-kronecker) を基底で展開すると、$w^{\boxtimes2}$ の平坦化は、列の並べ替えを除いて $M\boxtimes M$ です。実際、行は元の行番号の組 $(i,i')$、列は元の列番号の組 $((j,k),(j',k'))$ であり、成分は $M_{i,(j,k)}M_{i',(j',k')}$ となります。
+と書きます。[テンソルのKronecker積](#def-tsp5-kronecker) を基底で展開すると、$w^{\boxtimes2}$ の平坦化は、列の並べ替えを除いて $M\boxtimes M$ です。
+
+実際、行は元の行番号の組 $(i,i')$、列は元の列番号の組 $((j,k),(j',k'))$ です。この行・列に対応する成分は
+
+$$
+M_{i,(j,k)}M_{i',(j',k')}
+$$
+
+となります。
 
 $M$ の第1列を $c_1=(0,1)^{\mathsf T}$、第2列を $c_2=(1,0)^{\mathsf T}$ とします。上付きの $\mathsf T$ は行を列にする転置です。行の組を $(1,1),(1,2),(2,1),(2,2)$ の順に固定すると、四つの列の組から得られる列は
 
