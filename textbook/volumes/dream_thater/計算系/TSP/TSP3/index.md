@@ -113,43 +113,42 @@ $$
  M_i=\sum_{j,k}t_{ijk} f_j\otimes g_k
 $$
 
-と書きます。ここでは $V\otimes W$ の元と、その係数行列を同じ記号で表します。$U$ 上の線形汎関数とは $U$ から $K$ への線形写像です。その全体を $U^*$ と書きます。$e_i$ の座標を読み取る線形汎関数を $\epsilon_i$ とすれば、$\epsilon_i(e_h)$ は $i=h$ のとき1、そうでなければ0です。任意の $\lambda\in U^*$ は $\lambda=\sum_i\lambda(e_i)\epsilon_i$ と表せます。
-
-第1因子を $\lambda$ で評価する操作とは、単純テンソルの第1因子をスカラー $\lambda(u)$ に置き換えることです。得られる行列全体は、各 $M_i$ の線形結合の集合になります。行列を単独でなく、この集合全体として調べましょう。
+と書きます。ここでは $V\otimes W$ の元と、その係数行列を同じ記号で表します。各切片 $M_i$ の線形結合全体、つまり[線形包](../../../代数系/FLD/FLD0/index.md#def-fld0-span-over-field)を考えます。第1因子の基底を変更すると切片自体は変わりますが、その線形包は変わらないことを示します。
 
 <a id="def-tsp3-slice-space"></a>
 
 <!-- formal-statement-start -->
 > **定義（切片部分空間）**
 >
-> 体 $K$ 上の有限次元空間 $U,V,W$ と $t\in U\otimes V\otimes W$ を取る。線形汎関数 $\lambda:U\to K$ による第1因子の評価を $L_\lambda$ とし、単純テンソル上で
+> 体 $K$ 上の有限次元空間 $U,V,W$ と $t\in U\otimes V\otimes W$ を取る。$U$ の基底 $e_1,\ldots,e_m$ に対し、$t=\sum_{i=1}^m e_i\otimes M_i$ と一意に展開する。ただし $M_i\in V\otimes W$ とする。切片部分空間 $S_U(t)$ を
 >
 $$
- L_\lambda(u\otimes v\otimes w)=\lambda(u)v\otimes w
-$$
->
-> と定める。切片部分空間 $S_U(t)$ を
->
-$$
- S_U(t)=\{L_\lambda(t):\lambda\in U^*\}\subseteq V\otimes W
+ S_U(t)=\operatorname{span}_K\{M_1,\ldots,M_m\}\subseteq V\otimes W
 $$
 >
 > とする。
 <!-- formal-statement-end -->
 
-右辺の写像は各入力で線形なので、[多因子のテンソル積の普遍性](../TSP1/index.md#def-tsp1-multifactor-product)から $L_\lambda$ が一意な線形写像として定まります。$t=\sum_i e_i\otimes M_i$ を評価すると
+[多因子テンソルの基底展開](../TSP1/index.md#thm-tsp1-multifactor-basis)で $V,W$ の基底も選べば、各 $M_i$ の係数は $t_{ijk}$ そのものです。従って展開は存在して一意です。
+
+$U$ の別の基底を $h_1,\ldots,h_m$ として、旧基底を
 
 $$
- L_\lambda(t)=\sum_i\lambda(e_i)M_i.
+ e_i=\sum_{l=1}^m p_{li}h_l
 $$
 
-任意の係数列 $(c_i)$ は $\lambda=\sum_i c_i\epsilon_i$ で実現できるので、
+と展開します。[多因子テンソル積の線形性](../TSP1/index.md#def-tsp1-multifactor-product)により、
 
 $$
- S_U(t)=\operatorname{span}_K\{M_1,\ldots,M_m\}.
+\begin{aligned}
+ t&=\sum_i\sum_l p_{li}h_l\otimes M_i\\
+  &=\sum_l h_l\otimes\left(\sum_i p_{li}M_i\right).
+\end{aligned}
 $$
 
-よって線形部分空間であり、定義は $U$ の基底に依存しません。$F_{1|23}(t)$ の各行は $M_i$ の全成分を並べたものです。その行空間の次元は $\dim_K S_U(t)$ です。行空間と列空間の次元が等しいことは、[二因子テンソル階数と行列階数の一致](../TSP2/index.md#thm-tsp2-matrix-rank)を二因子の両順序に適用しても分かります。因子交換は分解の項数を保存するからです。
+新しい切片は $M'_l=\sum_i p_{li}M_i$ なので、新しい線形包は旧線形包に含まれます。逆に $h_l$ を $e_i$ の線形結合として展開して同じ式を逆向きに適用すれば、旧線形包も新線形包に含まれます。従って両者は一致し、定義は $U$ の基底に依存しません。$V,W$ の基底変更は、同じ $V\otimes W$ の元の行列表示を変えるだけです。
+
+$F_{1|23}(t)$ の各行は $M_i$ の全成分を並べたものです。その行空間の次元は $\dim_K S_U(t)$ です。行空間と列空間の次元が等しいことは、[二因子テンソル階数と行列階数の一致](../TSP2/index.md#thm-tsp2-matrix-rank)を二因子の両順序に適用しても分かります。因子交換は分解の項数を保存するからです。
 
 <!-- definition-example-start: def-tsp3-slice-space -->
 **定義の確認**。$t=E_{111}+E_{122}+E_{212}$ とします。第1因子の基底に沿って切り出すと
@@ -159,13 +158,13 @@ $$
  \quad M_2=\begin{pmatrix}0&1\\0&0\end{pmatrix}.
 $$
 
-$\lambda(e_1)=a,\lambda(e_2)=b$ と指定すれば、評価は
+二枚の切片の任意の線形結合は
 
 $$
  aM_1+bM_2=\begin{pmatrix}a&b\\0&a\end{pmatrix}.
 $$
 
-任意の $a,b\in K$ に対してそのような $\lambda$ が存在します。したがってこの形の行列全体がちょうど切片部分空間です。$(1,1)$ と $(1,2)$ 成分を読めば $M_1,M_2$ は独立で、次元は2です。
+$a,b\in K$ は任意なので、この形の行列全体がちょうど切片部分空間です。$(1,1)$ と $(1,2)$ 成分を読めば $M_1,M_2$ は独立で、次元は2です。
 <!-- definition-example-end -->
 
 ### 3.1 階数1の行列による被覆
@@ -199,13 +198,13 @@ $$
  t=\sum_{s=1}^r u_s\otimes v_s\otimes w_s
 $$
 
-を取ります。各因子は非零であり、$N_s=v_s\otimes w_s$ の係数行列は[二因子テンソル階数と行列階数の一致](../TSP2/index.md#thm-tsp2-matrix-rank)により階数1です。[切片部分空間の定義](#def-tsp3-slice-space)から任意の $\lambda$ に対して
+を取ります。各因子は非零であり、$N_s=v_s\otimes w_s$ の係数行列は[二因子テンソル階数と行列階数の一致](../TSP2/index.md#thm-tsp2-matrix-rank)により階数1です。$u_s=\sum_i c_{is}e_i$ と基底展開すると
 
 $$
- L_\lambda(t)=\sum_{s=1}^r\lambda(u_s)N_s.
+ t=\sum_i e_i\otimes\left(\sum_{s=1}^r c_{is}N_s\right).
 $$
 
-したがって被覆に必要な最小個数は $R_K(t)$ 以下です。
+係数の一意性により $M_i=\sum_s c_{is}N_s$ です。[切片部分空間の定義](#def-tsp3-slice-space)から各 $M_i$ の線形包も $N_s$ の線形包に含まれます。したがって被覆に必要な最小個数は $R_K(t)$ 以下です。
 
 逆に $S_U(t)$ を含む $r$ 枚の階数1行列があると仮定します。[二因子テンソル階数と行列階数の一致](../TSP2/index.md#thm-tsp2-matrix-rank)から $N_s=v_s\otimes w_s$ と書けます。各切片 $M_i$ は $S_U(t)$ に属するので、係数 $c_{is}\in K$ を選んで
 
@@ -374,7 +373,7 @@ $$
  \qquad M_3=\begin{pmatrix}0&0\\0&1\end{pmatrix}.
 $$
 
-評価は $(c_1+c_2)M_1+c_3M_3$ になります。任意の係数 $a,b$ は $c_1=a,c_2=0,c_3=b$ で実現でき、$aM_1+bM_3=0$ なら対角成分から $a=b=0$ です。従って基底は $M_1,M_3$、次元は2です。
+切片の一般の線形結合は $(c_1+c_2)M_1+c_3M_3$ になります。任意の係数 $a,b$ は $c_1=a,c_2=0,c_3=b$ で実現でき、$aM_1+bM_3=0$ なら対角成分から $a=b=0$ です。従って基底は $M_1,M_3$、次元は2です。
 <!-- solution-end -->
 
 <a id="ex-tsp3-a04"></a>
