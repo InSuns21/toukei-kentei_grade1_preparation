@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 250" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+  <title id="title">円環の動径変形</title>
+  <desc id="desc">中心を共通にする半径比1対2対4の三円。内外の破線境界から単位円周の実線に向けた二つの矢印。原点は円環に含まれない。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#333"/></marker>
+  </defs>
+  <g>
+    <circle cx="122" cy="122" r="96" fill="#e4edf4" stroke="#555" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <circle cx="122" cy="122" r="24" fill="#fff" stroke="#555" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <circle cx="122" cy="122" r="48" fill="none" stroke="#245b83" stroke-width="3"/>
+    <path d="M122 26V74 M146 122H170" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <circle cx="122" cy="26" r="3" fill="#333"/>
+    <circle cx="146" cy="122" r="3" fill="#333"/>
+    <circle cx="122" cy="74" r="3" fill="#245b83"/>
+    <circle cx="170" cy="122" r="3" fill="#245b83"/>
+  </g>
+  <g font-family="sans-serif" font-size="13" fill="#222">
+    <path d="M234 52H254" stroke="#555" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="262" y="56">外境界 r=2</text>
+    <path d="M234 86H254" stroke="#245b83" stroke-width="3"/>
+    <text x="262" y="90">固定 r=1</text>
+    <path d="M234 120H254" stroke="#555" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="262" y="124">内境界 r=1/2</text>
+    <text x="122" y="236" text-anchor="middle">半径だけが変わる</text>
+  </g>
+</svg>
