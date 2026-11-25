@@ -1,8 +1,8 @@
 # DREAM THEATER 行列乗算指数とテンソル幾何学 証明研究講読 計画
 
 構成確定日: 2026-11-25 JST
-状態: planned（設計確定・本文未着手）
-系列予約ID: MMX（初回実装時に章ID・manifestとの衝突を再検査）
+状態: in progress（第1講実装、残り31講）
+系列ID: MMX（series manifest 登録済み）
 講数: **全32講**（既存基礎科目・EOM横断4講を含まない）
 
 ## 1. 中心問いと停止線
@@ -13,7 +13,7 @@
 
 ## 2. 前提・再利用・実装順序
 
-[VP/VNP横断ルート](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md)で計画済みの基礎5系列（GCT16、ACOMP24、TSP16、NPCG12、FML7、計75講）から直接必要な章だけを選択履修する。VNP24講の完成をMMX全体の必修とせず、MMXにもVNPを依存させない。既存LA・AG（体、局所化、Zariski閉包）、COMB・INFO（条件付きentropy）、FOU、QFT（外積・フェルミオンの符号）、LREP等は対応する章とanchorを実装時に確認する。特に有限生成環の有限体への特殊化、非Archimedes付値、ultralimit、球面テンソル、sorting network、tagged permutation、符号付き計数は未導入なら下表の担当講で具体例・補題から導入する。新規一般基礎系列を増やさず、必要な橋渡しはMMX内で完結させる。
+[VP/VNP横断ルート](../plans/DREAM_THEATER_VP_VNP_ROUTE_PLAN.md)で計画済みの基礎5系列（GCT16、ACOMP24、TSP16、NPCG12、FML7、計75講）から直接必要な章だけを選択履修する。VNP24講の完成をMMX全体の必修とせず、MMXにもVNPを依存させない。既存LA・AG（体、局所化、Zariski閉包）、COMB・INFO（条件付きentropy）、FOU、QFT（外積・フェルミオンの符号）、LREP等は対応する章とanchorを実装時に確認する。特に有限生成環の有限体への特殊化、非Archimedes付値、ultralimit、球面テンソル、sorting network、tagged permutation、符号付き計数は未導入なら下表の担当講で具体例・補題から導入する。新規一般基礎系列を増やさず、必要な橋渡しはMMX内で完結させる。
 
 各行の前提に科目内の直接依存だけを挙げる（推移的依存は重複しない）。関連正本の未完成章はplannedのままとし、名称だけで前提充足と判定しない。
 
@@ -21,7 +21,7 @@
 
 | ID | 中心問い・証明責務 | 直接前提／既存正本 |
 | --- | --- | --- |
-| MMX1 | 行列積の算術モデル・指数のinfimum、出力サイズ、Strassenの7積を全展開、再帰・paddingとビット計算との差 | LA、ACOMP1–4、TSP7–9 |
+| MMX1 | 行列積の算術モデル・指数のinfimum、出力サイズ、Strassenの7積を全展開、再帰・paddingとビット計算との差 | LA、ACOMP1–4、TSP7–9、TSP14（指数の正本と回路モデルの比較） |
 | MMX2 | 双線形分解と行列積テンソル、冪と漸近rank、通常rankの定数倍下界と指数下界の違い | MMX1、TSP2–9,14 |
 | MMX3 | 上下界の古典史：Biniの補間、Schönhage漸近和不等式、laser法・手法限定障壁の量化 | MMX2、ACOMP21–22 |
 | MMX4 | 多項式乗算テンソルと次数profile・補間、スペクトル点への評価 | MMX3、TSP10–14 |
@@ -81,11 +81,11 @@
 - OpenAI, [Euclidean geometry in the asymptotic spectrum of tensors](https://github.com/openai/math/tree/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026)、[Circuit lower bounds for Hamiltonian cycle and the permanent](https://github.com/openai/math/tree/main/preprints/Circuit-lower-bounds-for-Hamiltonian-cycle-and-the-permanent-November-24-2026)（ともに2026-11-24）。
 - OpenAI, [An Upper Bound of 9/4 for the Matrix Multiplication Exponent](https://github.com/openai/math/tree/main/preprints/Matrix-Multiplication-Nine-Fourths-October-2-2026)；Amanov, van den Berg, Zuiddam, [Multiplying matrices via polynomials: exposition and barriers](https://arxiv.org/abs/2610.30054v1)；Lü, [Polynomial separation of a shared tensor leg and matrix multiplication in arbitrary characteristic](https://arxiv.org/abs/2610.18914)；Shpilka, [exposition and explicit algorithm](https://eccc.weizmann.ac.il/report/2026/281/)（下界論文のbibliographyに基づく関連資料）。
 - [Lean scope 107](https://github.com/openai/math/blob/main/lean/docs/107.md)、[ExactExponent.lean](https://github.com/openai/math/blob/main/lean/OAI/LinearAlgebra/SpectralBooks/ExactExponent.lean)、[Comparator statement](https://github.com/openai/math/blob/main/lean/ComparatorChallenges/MatrixExponent.lean)。論文の版とLeanのimport tree、実行環境、statement一致を実装時に固定する。
-- [EOM横断4講](DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md)、[TSP基礎16講](../plans_progress/DREAM_THEATER_TENSOR_ASYMPTOTIC_SPECTRUM_PLAN.md)。
+- [EOM横断4講](../plans/DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md)、[TSP基礎16講](../plans_progress/DREAM_THEATER_TENSOR_ASYMPTOTIC_SPECTRUM_PLAN.md)。
 
 ## 7. 完成条件
 
-- [ ] 初回実装時のみplans_progressへ移し、MMX manifestを32講のplannedで登録。未実装章は公開目次に先行登録しない。
+- [x] 初回実装としてplans_progressへ移し、MMX manifestに全32講を登録。未実装章は公開目次に先行登録しない。
 - [ ] 全主要定義は使用前に導入、主定理・中間補題の仮定、添字、標数、次数、指数、定数依存、極限を検算。各講原則A4/B3/C1以上の独自演習と詳細解答（計算・反例・証明の再構成）。
 - [ ] 研究依存台帳を上界・geometry・circuit companion・下界・Leanに分け、閉じた証明と未検証・外部依存を明示。証明全体を独立再構成できない箇所を「明らか」としない。
 - [ ] 既存正本・章ID・chapter.yaml・knowledge.yaml・prerequisite・anchor、KaTeX、concept/knowledge/exercise/Pages検証、横断査読を完了してからplan_doneへ移す。
