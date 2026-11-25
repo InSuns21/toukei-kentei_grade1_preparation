@@ -1589,154 +1589,9 @@ $$
 
 を示せ。
 
-<a id="ex-ca11-a2"></a>
-#### CA11-A02 極と留数
-- Level: A
+<a id="_11-詳細解答"></a>
 
-$m\ge0$ に対して
-
-$$
-\operatorname{Res}(\Gamma,-m)
-=
-\frac{(-1)^m}{m!}
-$$
-
-を関数等式から導け。
-
-<a id="ex-ca11-a3"></a>
-#### CA11-A03 逆 Gamma 積の特殊化
-- Level: A
-
-逆 Gamma 関数の積表示へ $z=1$ を代入して
-
-$$
-1
-=
-e^\gamma
-\prod_{n=1}^{\infty}
-\left(1+\frac1n\right)e^{-1/n}
-$$
-
-を示せ。
-
-<a id="ex-ca11-a4"></a>
-#### CA11-A04 反射公式の特殊値
-- Level: A
-
-反射公式から
-
-$$
-\Gamma(1/3)\Gamma(2/3)
-=
-\frac{2\pi}{\sqrt3}
-$$
-
-を導け。
-
-### Level B
-
-<a id="ex-ca11-b1"></a>
-#### CA11-B01 積表示から反射公式を再構成
-- Level: B
-
-$1/\Gamma(z)$ と $1/\Gamma(-z)$ の積を取り、CA10 の正弦関数の Euler 積を使って反射公式を最初から導け。
-
-<a id="ex-ca11-b2"></a>
-#### CA11-B02 Legendre の倍角公式
-- Level: B
-
-$$
-R(z)
-=
-\frac{
-\Gamma(z)\Gamma(z+1/2)
-}{
-2^{1-2z}\sqrt\pi\,\Gamma(2z)
-}
-$$
-
-と置き、
-
-1. $R(z+1)=R(z)$、
-2. $x\to+\infty$ で $R(x)\to1$、
-3. [恒等定理](../CA3/index.md#thm-ca3-isolated-zeros-identity)
-
-を用いて $R\equiv1$ を示せ。
-
-<a id="ex-ca11-b3"></a>
-#### CA11-B03 Beta--Gamma 関係式を1変数積分から導く
-- Level: B
-
-$\Re z>0$, $\Re w>0$ とする。
-
-1. 部分積分を用いて
-   $$
-   B(z,w+1)=\frac{w}{z+w}B(z,w)
-   $$
-   を示せ。
-2. $t=u/n$ と置き、
-   $$
-   n^zB(z,w+n)\to\Gamma(z)
-   $$
-   を示せ。
-3. [Euler の極限公式](#thm-ca11-euler-limit)から
-   $$
-   n^z
-   \prod_{k=0}^{n-1}
-   \frac{w+k}{z+w+k}
-   \to
-   \frac{\Gamma(z+w)}{\Gamma(w)}
-   $$
-   を導き、
-   $$
-   B(z,w)=\frac{\Gamma(z)\Gamma(w)}{\Gamma(z+w)}
-   $$
-   を結論せよ。
-
-### Level C
-
-<a id="ex-ca11-c1"></a>
-#### CA11-C01 Stirling 公式を定数まで再構成
-- Level: C
-
-$$
-S_n
-=
-\log n!
--
-\left(n+\frac12\right)\log n
-+
-n
-$$
-
-と
-
-$$
-I_m
-=
-\int_0^{\pi/2}\sin^m\theta\,d\theta
-$$
-
-を用いて、
-
-1. $S_n$ が収束すること、
-2. $\binom{2n}{n}/4^n\sim1/\sqrt{\pi n}$、
-3. 未定定数が $\sqrt{2\pi}$ であること
-
-を順に示し、
-
-$$
-n!
-\sim
-\sqrt{2\pi n}(n/e)^n
-$$
-
-を導け。
-
----
-
-## 11. 詳細解答
-
+<!-- solution-start -->
 ### A1 解答
 
 関数等式は
@@ -1764,7 +1619,23 @@ $\Gamma(1)=1$ だから
 $$
 \Gamma(n+1)=n!.
 $$
+<!-- solution-end -->
 
+<a id="ex-ca11-a2"></a>
+#### CA11-A02 極と留数
+- Level: A
+
+$m\ge0$ に対して
+
+$$
+\operatorname{Res}(\Gamma,-m)
+=
+\frac{(-1)^m}{m!}
+$$
+
+を関数等式から導け。
+
+<!-- solution-start -->
 ### A2 解答
 
 $m\ge0$ とする。関数等式を $m+1$ 回使えば、$z=-m$ の近くで
@@ -1802,7 +1673,25 @@ $$
 =
 \frac{(-1)^m}{m!}.
 $$
+<!-- solution-end -->
 
+<a id="ex-ca11-a3"></a>
+#### CA11-A03 逆 Gamma 積の特殊化
+- Level: A
+
+逆 Gamma 関数の積表示へ $z=1$ を代入して
+
+$$
+1
+=
+e^\gamma
+\prod_{n=1}^{\infty}
+\left(1+\frac1n\right)e^{-1/n}
+$$
+
+を示せ。
+
+<!-- solution-start -->
 ### A3 解答
 
 逆 Gamma 関数の積表示
@@ -1842,7 +1731,23 @@ e^\gamma (N+1)e^{-H_N}.
 $$
 
 $H_N-\log N\to\gamma$ と $(N+1)/N\to1$ から、確かに1へ収束することも確認できる。
+<!-- solution-end -->
 
+<a id="ex-ca11-a4"></a>
+#### CA11-A04 反射公式の特殊値
+- Level: A
+
+反射公式から
+
+$$
+\Gamma(1/3)\Gamma(2/3)
+=
+\frac{2\pi}{\sqrt3}
+$$
+
+を導け。
+
+<!-- solution-start -->
 ### A4 解答
 
 反射公式へ $z=1/3$ を代入すると
@@ -1860,7 +1765,17 @@ $$
 =
 \frac{2\pi}{\sqrt3}.
 $$
+<!-- solution-end -->
 
+### Level B
+
+<a id="ex-ca11-b1"></a>
+#### CA11-B01 積表示から反射公式を再構成
+- Level: B
+
+$1/\Gamma(z)$ と $1/\Gamma(-z)$ の積を取り、CA10 の正弦関数の Euler 積を使って反射公式を最初から導け。
+
+<!-- solution-start -->
 ### B1 解答
 
 まず
@@ -1934,7 +1849,31 @@ $$
 =
 \frac{\pi}{\sin\pi z}.
 $$
+<!-- solution-end -->
 
+<a id="ex-ca11-b2"></a>
+#### CA11-B02 Legendre の倍角公式
+- Level: B
+
+$$
+R(z)
+=
+\frac{
+\Gamma(z)\Gamma(z+1/2)
+}{
+2^{1-2z}\sqrt\pi\,\Gamma(2z)
+}
+$$
+
+と置き、
+
+1. $R(z+1)=R(z)$、
+2. $x\to+\infty$ で $R(x)\to1$、
+3. [恒等定理](../CA3/index.md#thm-ca3-isolated-zeros-identity)
+
+を用いて $R\equiv1$ を示せ。
+
+<!-- solution-start -->
 ### B2 解答
 
 右半平面で
@@ -2025,7 +1964,39 @@ $$
 =
 2^{1-2z}\sqrt\pi\,\Gamma(2z).
 $$
+<!-- solution-end -->
 
+<a id="ex-ca11-b3"></a>
+#### CA11-B03 Beta--Gamma 関係式を1変数積分から導く
+- Level: B
+
+$\Re z>0$, $\Re w>0$ とする。
+
+1. 部分積分を用いて
+   $$
+   B(z,w+1)=\frac{w}{z+w}B(z,w)
+   $$
+   を示せ。
+2. $t=u/n$ と置き、
+   $$
+   n^zB(z,w+n)\to\Gamma(z)
+   $$
+   を示せ。
+3. [Euler の極限公式](#thm-ca11-euler-limit)から
+   $$
+   n^z
+   \prod_{k=0}^{n-1}
+   \frac{w+k}{z+w+k}
+   \to
+   \frac{\Gamma(z+w)}{\Gamma(w)}
+   $$
+   を導き、
+   $$
+   B(z,w)=\frac{\Gamma(z)\Gamma(w)}{\Gamma(z+w)}
+   $$
+   を結論せよ。
+
+<!-- solution-start -->
 ### B3 解答
 
 まず
@@ -2173,7 +2144,49 @@ B(z,w)
 {\Gamma(z+w)}
 }.
 $$
+<!-- solution-end -->
 
+### Level C
+
+<a id="ex-ca11-c1"></a>
+#### CA11-C01 Stirling 公式を定数まで再構成
+- Level: C
+
+$$
+S_n
+=
+\log n!
+-
+\left(n+\frac12\right)\log n
++
+n
+$$
+
+と
+
+$$
+I_m
+=
+\int_0^{\pi/2}\sin^m\theta\,d\theta
+$$
+
+を用いて、
+
+1. $S_n$ が収束すること、
+2. $\binom{2n}{n}/4^n\sim1/\sqrt{\pi n}$、
+3. 未定定数が $\sqrt{2\pi}$ であること
+
+を順に示し、
+
+$$
+n!
+\sim
+\sqrt{2\pi n}(n/e)^n
+$$
+
+を導け。
+
+<!-- solution-start -->
 ### C1 解答
 
 まず
@@ -2374,6 +2387,7 @@ n^{n+1/2}e^{-n}
 $$
 
 定数を未決定のままにせず、Wallis 積が正確に $\sqrt{2\pi}$ を固定していることが核心である。
+<!-- solution-end -->
 
 ---
 
