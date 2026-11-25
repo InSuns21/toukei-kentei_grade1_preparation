@@ -1,0 +1,41 @@
+id: "GCT12"
+title: "Ryserの包除公式と部分集合DP"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GCT11
+  - COMB3
+  - COMB18
+official_scope: []
+learning_objectives:
+  - 使用されない列を包除してRyser公式を導出できる
+  - 一列変更による部分集合列挙を構成し行和を更新できる
+  - 部分集合状態を定義し重み付き漸化式を証明できる
+  - 算術演算回数と補助記憶を比較できる
+  - 整数の中間値とビット長を評価できる
+definitions:
+  - { id: GCT12-DEF-01, name: パーマネントの部分集合状態 }
+theorems:
+  - { id: GCT12-THM-01, name: Ryserの包除公式 }
+  - { id: GCT12-THM-02, name: 一列変更による部分集合列挙 }
+  - { id: GCT12-THM-03, name: Ryser公式の逐次更新による算術計算量 }
+  - { id: GCT12-THM-04, name: パーマネントの部分集合DP }
+  - { id: GCT12-THM-05, name: 整数パーマネント計算の中間値上界 }
+canonical_examples:
+  - 三次0–1行列の二手法による計算
+  - 一列変更による行和の更新
+  - 負重みと零行和
+problem_patterns:
+  - GCT12-A1
+  - GCT12-A2
+  - GCT12-A3
+  - GCT12-A4
+  - GCT12-B1
+  - GCT12-B2
+  - GCT12-B3
+  - GCT12-B4
+  - GCT12-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }

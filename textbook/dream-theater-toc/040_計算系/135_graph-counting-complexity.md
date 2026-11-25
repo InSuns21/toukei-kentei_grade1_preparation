@@ -12,3 +12,4 @@
 9. [GCT9 計数複雑性クラス：#P・FP・GapP](textbook/volumes/dream_thater/計算系/GCT/GCT9/index.md)
 10. [GCT10 parsimonious帰着・計数Turing帰着](textbook/volumes/dream_thater/計算系/GCT/GCT10/index.md)
 11. [GCT11 計数完全性と0–1 permanent：Valiantの帰着](textbook/volumes/dream_thater/計算系/GCT/GCT11/index.md)
+12. [GCT12 Ryserの包除公式と部分集合DP](textbook/volumes/dream_thater/計算系/GCT/GCT12/index.md)
