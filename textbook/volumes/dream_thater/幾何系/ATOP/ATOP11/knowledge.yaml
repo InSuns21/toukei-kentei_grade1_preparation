@@ -1,0 +1,46 @@
+chapter: ATOP11
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP8, ATOP10]
+forward_references: []
+concepts:
+  - id: atop.polygon-word
+    name: 辺対付き多角形表示
+    kind: definition
+    introduction: formal
+    requires: [atop.surface-local-model, topology.homeomorphism]
+  - id: atop.surface-polygon-existence
+    name: 閉曲面の多角形表示
+    kind: theorem
+    introduction: formal
+    requires: [atop.polygon-word, atop.rado-triangulation, atop.spanning-tree-existence]
+  - id: atop.polygon-word-moves
+    name: 多角形の切断・再接着
+    kind: proposition
+    introduction: formal
+    requires: [atop.polygon-word, atop.surface-polygon-existence]
+  - id: atop.polygon-handle-extraction
+    name: 交互に現れる逆符号辺対の分離
+    kind: lemma
+    introduction: formal
+    requires: [atop.polygon-word-moves]
+  - id: atop.polygon-three-squares
+    name: ハンドルと交叉帽の交換
+    kind: proposition
+    introduction: formal
+    requires: [atop.polygon-word-moves]
+  - id: atop.polygon-block-slide
+    name: 標準ブロックの移動
+    kind: lemma
+    introduction: formal
+    requires: [atop.polygon-word, atop.surface-local-model, atop.vertex-link-neighborhood]
+  - id: atop.surface-classification-existence
+    name: コンパクト閉曲面の分類・存在部分
+    kind: theorem
+    introduction: formal
+    requires: [atop.surface-polygon-existence, atop.polygon-word-moves, atop.polygon-handle-extraction, atop.polygon-three-squares, atop.polygon-block-slide]
+  - id: atop.surface-boundary-capping
+    name: 境界成分の円板による充填
+    kind: proposition
+    introduction: formal
+    requires: [atop.rado-triangulation, atop.vertex-link-neighborhood, atop.surface-link-test]
