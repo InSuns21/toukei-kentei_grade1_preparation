@@ -103,7 +103,7 @@ applyMove s pos の戻り値 Except String GameState は error（理由文字列
 
 外部教材の [README](https://github.com/kazunori279/lean4-tictactoe-test/blob/c332ba3e2d2bf78edb993ae6acadcd83f927073e/README.md) は Lean 4 v4.22.0 の toolchain を使います。本教材のブラウザ実験は別の固定版 v4.35.0 です。以下は elan、uv、Git が使える端末（Codespaces でも可）で実行します。Codespaces は GitHub ログインと利用枠が必要です。
 
-~~~bash
+```bash
 # 本教材リポジトリのルートから
 lab="$(pwd)/textbook/volumes/dream_thater/計算系/LVT/LVT6-01/lab"
 git clone https://github.com/kazunori279/lean4-tictactoe-test.git /tmp/lvt-upstream
@@ -123,7 +123,7 @@ lake env lean "$lab/UpstreamAudit.lean"
 cd ..
 uv sync --locked
 uv run --locked pytest -v -rs
-~~~
+```
 
 指定版4.22.0で原版の lake test を実行すると、Proofs.lean の二つの拒否証明で未解決のゴール、長さ保存の証明で split の失敗、二つの拒否例で BEq (Except String GameState) の不足が生じます。したがって原版の六つの宣言をすべて検証済みとは扱えません。
 
@@ -155,12 +155,12 @@ Proofs.lean の #guard は上段勝利、引分、占有マス拒否、勝利後
 
 ブラウザの [LvtAudit.lean](lab/LvtAudit.lean) は外部コードの複製ではなく、初期長と成功遷移の保存条件を抽象化した小モデルです。write はルール検査を省きリスト更新だけを行います。[Inspect.lean](lab/Inspect.lean) で長さ0の更新と初期長9を比較し、[Failure.lean](lab/Failure.lean) で長さ0=9という誤りを拒否させます。端末では本講の lab 内で次を実行します。
 
-~~~bash
+```bash
 lean -o LvtAudit.olean LvtAudit.lean
 LEAN_PATH=. lean Inspect.lean
 # 意図的な type mismatch
 LEAN_PATH=. lean Failure.lean
-~~~
+```
 
 期待値は初期長9と空リスト長0です。Lean Web のバージョンは端末の固定版と異なる場合があるため、固定版の結果と区別してください。
 
