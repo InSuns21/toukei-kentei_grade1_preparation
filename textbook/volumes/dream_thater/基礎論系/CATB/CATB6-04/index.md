@@ -44,7 +44,9 @@ $$
 
 [積の普遍性](../../CAT/CAT2-04/index.md#def-cat2-04-small-product)により、文脈の変数は射影、関数を適用した項は入力項を成分とする射と関数射の合成になる。項の意味は文脈対象 $G$ からその項のソート対象への射である。式の意味は $G$ の[部分対象](../CATB4-07/index.md#def-catb4-07-subobject)として表す。
 
-部分対象全体を $\operatorname{Sub}(G)$、代表モノ射 $m:M\to G$ の同型類を $[m]$ と書く。$A\le B$ は代表射がもう一方を経由するという部分対象の順序であり、集合の場合は部分集合の包含 $A\subseteq B$ に対応する。射 $f:X\to Y$ に対する[逆像](../CATB4-07/index.md#thm-catb4-07-inverse-image)は $f^*:\operatorname{Sub}(Y)\to\operatorname{Sub}(X)$ と書く。集合での $f^{-1}(B)$ と同じ役割を果たし、逆射の存在は要求しない。
+部分対象全体を $\operatorname{Sub}(G)$、代表モノ射 $m:M\to G$ の同型類を $[m]$ と書く。$A\le B$ は代表射がもう一方を経由するという部分対象の順序であり、集合の場合は部分集合の包含 $A\subseteq B$ に対応する。
+
+射 $f:X\to Y$ に対する[逆像](../CATB4-07/index.md#thm-catb4-07-inverse-image)は $f^*:\operatorname{Sub}(Y)\to\operatorname{Sub}(X)$ と書く。集合での $f^{-1}(B)$ と同じ役割を果たし、逆射の存在は要求しない。
 
 ## 3. 正則圏での解釈
 
@@ -52,7 +54,17 @@ $$
 
 等号を解釈するため、対角射 $\Delta_S:S\to S\times S$ を使う。二つの射影との合成がともに $1_S$ なので、$\Delta_S u=\Delta_S v$ なら第一射影を合成して $u=v$ となり、対角射はモノ射である。
 
-言語の解釈全体を $M$ と書き、関係記号 $R$ の解釈を入力対象の積の部分対象 $R_M$ とする。各項とその解釈射には同じ記号を使い、$t_i:G\to S_i$ と書く。$\langle t_1,\ldots,t_n\rangle$ はこれらを成分に持つ積への射である。関係式はこの射に沿う逆像、等号 $t=u$ は同じソート $S$ の項の解釈射 $t,u:G\to S$ の組に沿う対角の逆像で与える。[対角射の引き戻しによる等化子](../../CAT/CAT2-03/index.md#prop-cat2-03-equalizer-as-pullback)により、等号部分を経由する射 $v:T\to G$ はちょうど $tv=uv$ を満たす射である。
+言語の解釈全体を $M$ と書き、関係記号 $R$ の解釈を入力対象の積の部分対象 $R_M$ とする。各項とその解釈射には同じ記号を使い、$t_i:G\to S_i$ と書く。
+
+関係式は成分を集めた射
+
+$$
+\langle t_1,\ldots,t_n\rangle:G\to S_1\times\cdots\times S_n
+$$
+
+に沿う逆像で与える。等号 $t=u$ は同じソート $S$ の項の解釈射 $t,u:G\to S$ の組に沿う対角の逆像で与える。
+
+[対角射の引き戻しによる等化子](../../CAT/CAT2-03/index.md#prop-cat2-03-equalizer-as-pullback)により、等号部分を経由する射 $v:T\to G$ はちょうど $tv=uv$ を満たす射である。
 
 有限連言には部分対象の最大下界（共通部分）$A\wedge B$ を使う。文脈に変数 $y:S$ を加えたときの射影を $\pi:G\times S\to G$ とし、射影に沿う像を $\exists_\pi A$ と書く。これは[部分対象の像と逆像の随伴](../CATB4-07/index.md#thm-catb4-07-image-adjoint)の左随伴である。式の $\exists y$ は変数を束縛する記号、部分対象の $\exists_\pi$ は射に沿う操作であり、以下の規則で両者を結び付ける。
 
@@ -219,7 +231,11 @@ $$
 e^*p^*T=(pe)^*T=(qe)^*T=e^*q^*T.
 $$
 
-共通部分 $[e]\wedge p^*T$ の代表モノ射を $d:D\to G$ とする。$d$ は $e$ を経由するので $d=ek$ と書ける。$d$ が $p^*T$ を経由することは、引き戻しの普遍性により $k$ が $e^*p^*T$ を経由することと同値である。上の等式から $k$ は $e^*q^*T$ を経由し、従って $d$ は $q^*T$ を経由する。よって
+共通部分 $[e]\wedge p^*T$ の代表モノ射を $d:D\to G$ とする。$d$ は $e$ を経由するので $d=ek$ と書ける。
+
+$d$ が $p^*T$ を経由することは、引き戻しの普遍性により $k$ が $e^*p^*T$ を経由することと同値である。
+
+上の等式から $k$ は $e^*q^*T$ を経由し、従って $d$ は $q^*T$ を経由する。よって
 
 $$
 [e]\wedge p^*T\le q^*T.
@@ -240,7 +256,17 @@ s^*A\le s^*\pi^*\exists_\pi A
 =(\pi s)^*\exists_\pi A=\exists_\pi A.
 $$
 
-次に定理の最後の主張（Frobenius相互法則）を示す。前講の[初等トポスでのFrobenius相互法則](../CATB6-03/index.md#thm-catb6-03-frobenius)と同じ形だが、ここでは正則性だけを仮定して証明する。一般の射 $f:X\to Y$ と部分対象 $A\in\operatorname{Sub}(X)$、$B\in\operatorname{Sub}(Y)$ を取る。$A$ の代表を $m:M\to X$、$B$ の代表を $n:N\to Y$ とし、$fm=ie$ を[正則エピ・モノ分解](../CATB1-02/index.md#thm-catb1-02-regular-factorization)とする。ここで $e:M\to I$ は正則エピ射、$i:I\to Y$ はモノ射である。
+次に定理の最後の主張（Frobenius相互法則）を示す。前講の[初等トポスでのFrobenius相互法則](../CATB6-03/index.md#thm-catb6-03-frobenius)と同じ形だが、ここでは正則性だけを仮定して証明する。
+
+一般の射 $f:X\to Y$ と部分対象 $A\in\operatorname{Sub}(X)$、$B\in\operatorname{Sub}(Y)$ を取る。代表モノ射をそれぞれ $m:M\to X$、$n:N\to Y$ とする。
+
+合成 $fm$ の[正則エピ・モノ分解](../CATB1-02/index.md#thm-catb1-02-regular-factorization)を
+
+$$
+fm=ie,\qquad e:M\to I,\qquad i:I\to Y
+$$
+
+と書く。ここで $e$ は正則エピ射、$i$ はモノ射である。
 
 二つの引き戻しを取る。
 
@@ -433,7 +459,9 @@ $$
 (a\wedge b)\vee(a\wedge c)=0\vee0=0.
 $$
 
-$a\ne0$ なので有限上限の保存が失敗する。式の代入としても失敗を確認しよう。ソート $U,V$ をそれぞれ対象 $1,a$ に解釈し、関数記号 $j:V\to U$ を唯一の射 $a\to1$ に解釈する。$U$ 上の一項関係 $P,Q$ をそれぞれ部分対象 $b,c$ に解釈する。文脈 $u:U$ での選言の意味は $b\vee c=1$ である。一方、文脈 $v:V$ で $u$ を $j(v)$ に代入すると
+$a\ne0$ なので有限上限の保存が失敗する。式の代入としても失敗を確認しよう。ソート $U,V$ をそれぞれ対象 $1,a$ に解釈し、関数記号 $j:V\to U$ を唯一の射 $a\to1$ に解釈する。$U$ 上の一項関係 $P,Q$ をそれぞれ部分対象 $b,c$ に解釈する。文脈 $u:U$ での選言の意味は $b\vee c=1$ である。
+
+一方、文脈 $v:V$ で $u$ を $j(v)$ に代入すると
 
 $$
 [\![P(j(v))\vee Q(j(v))]\!]_a=0,
