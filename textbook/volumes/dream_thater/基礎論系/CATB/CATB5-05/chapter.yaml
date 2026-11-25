@@ -1,0 +1,28 @@
+id: "CATB5-05"
+title: "層化の随伴と左完全性"
+volume: "foundations"
+status: supplementary
+prerequisites: [CATB5-04, CAT2-07, CAT2-08, CAT2-11]
+official_scope: []
+learning_objectives:
+  - plus構成の関手性と層への一意延長を証明できる
+  - 二重plusから層化と包含の随伴を構成できる
+  - 層の極限を点ごとに構成できる
+  - 有限個の被覆篩の交差を使って層化の左完全性を証明できる
+  - 無限積の保存が失敗する例を説明できる
+definitions:
+  - { id: CATB5-05-DEF-01, name: "層化関手" }
+  - { id: CATB5-05-DEF-02, name: "左完全関手" }
+theorems:
+  - { id: CATB5-05-THM-01, name: "plus構成の関手性" }
+  - { id: CATB5-05-THM-02, name: "plusから層への一意延長" }
+  - { id: CATB5-05-THM-03, name: "層化と包含の随伴" }
+  - { id: CATB5-05-THM-04, name: "層の極限の点ごとの構成" }
+  - { id: CATB5-05-THM-05, name: "plus構成の有限極限保存" }
+  - { id: CATB5-05-THM-06, name: "層化の左完全性" }
+canonical_examples: [離散二点空間, 集合の冪関手, 自然数の尾部site]
+problem_patterns: [CATB5-05-A01, CATB5-05-A02, CATB5-05-A03, CATB5-05-A04, CATB5-05-B01, CATB5-05-B02, CATB5-05-B03, CATB5-05-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
