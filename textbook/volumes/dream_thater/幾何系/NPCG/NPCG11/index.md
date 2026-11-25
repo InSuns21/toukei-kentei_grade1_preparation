@@ -239,10 +239,10 @@ $$
 
 の下限です。対称な生成集合では $s\mapsto s^{-1}$ と $g\mapsto gs$ による添字の置換から $\langle a,Pc\rangle_G=\langle Pa,c\rangle_G$ となります。平均0の関数の部分空間は $P$ で保たれます。その部分空間上の $I-P$ は対称です。[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral) を直交単位基底による表現行列に適用すると、直交単位固有ベクトル $u_j$ と実固有値 $\mu_j$（$1\le j\le n-1$）が得られます。非零の中心化関数 $c=\sum_j t_j u_j$ では
 
-$
+$$
 \frac{\langle c,c-Pc\rangle_G}{\langle c,c\rangle_G}
 =\frac{\sum_j \mu_j t_j^2}{\sum_j t_j^2}.
-$
+$$
 
 この比は最小固有値以上で、その固有ベクトルだけを選ぶと等号になります。従って $\lambda=\min_j\mu_j$ です。定数関数に対応する固有値0は除いています。$\lambda>0$ なので定数方向以外に固有値0はありません。本講の評価はこの固有値計算をしなくても、上の比から直接求められます。
 
