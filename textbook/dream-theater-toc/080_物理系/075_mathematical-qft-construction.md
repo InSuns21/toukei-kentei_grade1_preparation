@@ -6,3 +6,4 @@
 3. [MQFC3 Wightman公理とスペクトル条件](textbook/volumes/dream_thater/物理系/MQFC/MQFC3/index.md)
 4. [MQFC4 Wightman再構成と解析性](textbook/volumes/dream_thater/物理系/MQFC/MQFC4/index.md)
 5. [MQFC5 Euclid自由場の共分散](textbook/volumes/dream_thater/物理系/MQFC/MQFC5/index.md)
+6. [MQFC6 Gaussian測度をどう作るか](textbook/volumes/dream_thater/物理系/MQFC/MQFC6/index.md)
