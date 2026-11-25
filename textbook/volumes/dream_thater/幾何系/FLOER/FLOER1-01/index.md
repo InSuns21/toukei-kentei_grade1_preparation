@@ -423,7 +423,15 @@ $$
 \int_{\mathbb R} 2i\chi(s)\psi(s,0)\,ds
 $$
 
-が加わる。この項は $2i\chi(s)\delta_0(t)$ であって $L^2$ 関数ではない。実際、$\psi_\varepsilon(s,t)=\chi(s)\rho(t/\varepsilon)$、$\rho$ は滑らかなコンパクト台で $\rho(0)=1$ と取ると $\|\psi_\varepsilon\|_2^2=\varepsilon\|\chi\|_2^2\|\rho\|_2^2\to0$ だが境界項は $2i\|\chi\|_2^2$ のままである。もし $L^2$ 関数ならCauchy–Schwarz不等式により作用は零へ収束するはずで、矛盾する。
+が加わる。この項は $2i\chi(s)\delta_0(t)$ であって $L^2$ 関数ではない。実際、$\psi_\varepsilon(s,t)=\chi(s)\rho(t/\varepsilon)$、$\rho$ は滑らかなコンパクト台で $\rho(0)=1$ と取ると $\|\psi_\varepsilon\|_2^2=\varepsilon\|\chi\|_2^2\|\rho\|_2^2\to0$ だが境界項は $2i\|\chi\|_2^2$ のままである。もしこの境界項が $L^2$ 関数 $g$ で表されるなら、[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を $g$ と $\overline{\psi_\varepsilon}$ の $L^2$ 内積に適用して
+
+$$
+\left|\int_{\mathbb R^2}g\psi_\varepsilon\right|
+\le \|g\|_2\|\psi_\varepsilon\|_2
+\longrightarrow 0
+$$
+
+となるはずである。境界項の非零の値と矛盾する。
 <!-- solution-end -->
 
 <a id="ex-floer1-01-b04"></a>
