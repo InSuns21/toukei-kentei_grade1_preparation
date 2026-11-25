@@ -227,7 +227,9 @@ $$
 $$
 s_i|_W=(s_i|_{U_i\cap U_j})|_W
 =(s_j|_{U_i\cap U_j})|_W=s_j|_W.
-$$従って整合族は通常の[開被覆上の整合族](../CATB5-01/index.md#def-catb5-01-matching-family)に一致する。[siteの層条件](#def-catb5-03-site-sheaf)をこの被覆篩に適用すると、一意な大域切断が得られる。
+$$
+
+従って整合族は通常の[開被覆上の整合族](../CATB5-01/index.md#def-catb5-01-matching-family)に一致する。[siteの層条件](#def-catb5-03-site-sheaf)をこの被覆篩に適用すると、一意な大域切断が得られる。
 
 逆に[通常の開被覆による層条件](../CATB5-01/index.md#def-catb5-01-topological-sheaf)を仮定する。被覆篩 $S$ を任意に取れば、全始域の族 $(V)_{V\to U\in S}$ は開被覆である。$S$ の整合族 $(s_V)$ に対し、$V,W$ の交差への包含を前合成すると $V\cap W\to U$ も篩に属する。従って
 
