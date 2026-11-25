@@ -14,7 +14,7 @@ chapters:
     title: "A：多party tensor・wire・restriction・cover・push-forward"
   - id: VNP3
     path: textbook/volumes/dream_thater/計算系/VNP/VNP3
-    status: planned
+    status: completed
     title: "A：スペクトル点から擬距離とprice、回路を評価するLemma A.3"
   - id: VNP4
     path: textbook/volumes/dream_thater/計算系/VNP/VNP4

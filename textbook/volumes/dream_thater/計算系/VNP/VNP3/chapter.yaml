@@ -1,0 +1,29 @@
+id: VNP3
+title: "A：スペクトル点から擬距離とprice、回路を評価するLemma A.3"
+volume: foundations
+status: supplementary
+prerequisites: [VNP2, TSP11, NPCG1]
+official_scope: []
+learning_objectives:
+  - 被覆型スペクトル点を既習の加法型と区別し定義を検証できる
+  - 対角資源の冪評価と擬距離および木の不等式を導ける
+  - 二ハブの局所行列を構成し階数を長さへ変換できる
+  - priceの極限と引き戻しを説明し評価のスケールを区別できる
+  - 均衡分割の回路分解を証明してゲート数の不等式を得られる
+definitions:
+  - { id: VNP3-DEF-01, name: "被覆型スペクトル点" }
+  - { id: VNP3-DEF-02, name: "部分集合上の対角テンソル" }
+  - { id: VNP3-DEF-03, name: "wire単価の極限price" }
+theorems:
+  - { id: VNP3-THM-01, name: "対角資源の指数と擬距離" }
+  - { id: VNP3-THM-02, name: "二ハブによる配列の実現" }
+  - { id: VNP3-THM-03, name: "二ハブの長さ評価" }
+  - { id: VNP3-THM-04, name: "priceの保存則" }
+  - { id: VNP3-THM-05, name: "均衡分割による回路の分解" }
+  - { id: VNP3-THM-06, name: "回路サイズの長さ評価" }
+canonical_examples: [非零指示関数, 三点の平坦化階数, 二ハブの外積, priceの引き戻し, 均衡成分]
+problem_patterns: [VNP3-A1, VNP3-A2, VNP3-A3, VNP3-A4, VNP3-B1, VNP3-B2, VNP3-B3, VNP3-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 1 }
