@@ -2,7 +2,7 @@ id: MQFC1
 title: "場のsmearing・Schwartz空間・緩増加分布と核"
 volume: foundations
 status: supplementary
-prerequisites: [GPDE2, FOU3]
+prerequisites: [GPDE2, FOU3, QFT3]
 official_scope: []
 learning_objectives:
   - Schwartz半ノルムによる急減少と連続性を判定できる
