@@ -98,3 +98,4 @@
 95. [CATB7-03 擬同型と局所化](textbook/volumes/dream_thater/基礎論系/CATB/CATB7-03/index.md)
 96. [CATB7-04 導来圏と完全三角形](textbook/volumes/dream_thater/基礎論系/CATB/CATB7-04/index.md)
 97. [CATB7-05 分解・導来関手・Ext](textbook/volumes/dream_thater/基礎論系/CATB/CATB7-05/index.md)
+98. [CATB8-01 次数付きテンソル積とKoszul符号](textbook/volumes/dream_thater/基礎論系/CATB/CATB8-01/index.md)

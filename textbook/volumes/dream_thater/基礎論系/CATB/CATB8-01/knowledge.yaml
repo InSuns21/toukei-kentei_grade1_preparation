@@ -1,0 +1,50 @@
+chapter: CATB8-01
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB7-01, CAT4-03, LA3E, MOD1]
+concepts:
+  - id: category.graded-module
+    name: 次数付き加群
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: category.graded-tensor-product
+    name: 次数付きテンソル積
+    kind: definition
+    introduction: formal
+    requires: [category.graded-module, linear.tensor-product]
+  - id: category.graded-map
+    name: 次数付き写像
+    kind: definition
+    introduction: formal
+    requires: [category.graded-module]
+  - id: category.koszul-tensor-map
+    name: Koszul符号付きテンソル写像
+    kind: definition
+    introduction: formal
+    requires: [category.graded-map, category.graded-tensor-product]
+  - id: category.graded-interchange
+    name: 符号付き交換則
+    kind: theorem
+    introduction: formal
+    requires: [category.koszul-tensor-map]
+  - id: category.tensor-complex-differential
+    name: テンソル積複体の微分
+    kind: theorem
+    introduction: formal
+    requires: [category.cochain-complex, category.koszul-tensor-map, category.graded-interchange]
+  - id: category.tensor-cochain-map
+    name: 余鎖写像のテンソル積
+    kind: proposition
+    introduction: formal
+    requires: [category.cochain-map, category.tensor-complex-differential]
+  - id: category.graded-flip
+    name: 次数付き交換写像
+    kind: definition
+    introduction: formal
+    requires: [category.graded-tensor-product]
+  - id: category.graded-flip-cochain
+    name: 次数付き交換の対称性と微分との両立
+    kind: theorem
+    introduction: formal
+    requires: [category.graded-flip, category.tensor-complex-differential]
