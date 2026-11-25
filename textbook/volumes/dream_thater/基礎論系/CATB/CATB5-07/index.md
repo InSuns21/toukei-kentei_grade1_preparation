@@ -8,7 +8,11 @@
 
 以下、小site $(\mathcal C,J)$ を固定する。[Grothendieck位相とsite](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)の三公理（最大篩・引き戻し安定性・推移律）を用いる。$J(U)$ は対象 $U$ の被覆篩の集合とする。
 
-$yU=\mathcal C(-,U)$ は[表現可能前層](../../CAT/CAT1-12/index.md#def-cat1-12-yoneda-embedding)である。[集合値前層と前層圏](../../CAT/CAT1-12/index.md#def-cat1-12-presheaf)の記法を用い、前層の圏を $\widehat{\mathcal C}$、層とその自然変換からなる充満部分圏を $\operatorname{Sh}(\mathcal C,J)$ と書く。以下、$\widehat{\mathcal C}(P,Q)$ は前層 $P,Q$ の間の自然変換の集合、$\operatorname{Sh}(P,Q)$ は層 $P,Q$ の間の射の集合を表す。
+$yU=\mathcal C(-,U)$ は[表現可能前層](../../CAT/CAT1-12/index.md#def-cat1-12-yoneda-embedding)である。
+
+[集合値前層と前層圏](../../CAT/CAT1-12/index.md#def-cat1-12-presheaf)の記法を用い、前層の圏を $\widehat{\mathcal C}$、層とその自然変換からなる充満部分圏を $\operatorname{Sh}(\mathcal C,J)$ と書く。
+
+以下、$\widehat{\mathcal C}(P,Q)$ は前層 $P,Q$ の間の自然変換の集合、$\operatorname{Sh}(P,Q)$ は層 $P,Q$ の間の射の集合を表す。
 
 射 $f:V\to U$ に沿う前層の制限写像は
 
@@ -53,7 +57,11 @@ $$
 S=\{\varnothing,\{p\}\}
 $$
 
-は $X$ 上の篩である。実際、始域が $\varnothing$ または $\{p\}$ の包含射に前合成すると、その始域もこの二つのいずれかになる。任意の開集合 $V\subseteq X$ に対する引き戻しは、$V$ の開部分集合のうち $S$ に入るものの族である。その合併は $V\cap\{p\}$ になる。[開集合圏のGrothendieck位相](../CATB5-02/index.md#thm-catb5-02-open-site)では、引き戻し篩が被覆であることと始域の合併が $V$ に等しいことが同値である。従って
+は $X$ 上の篩である。実際、始域が $\varnothing$ または $\{p\}$ の包含射に前合成すると、その始域もこの二つのいずれかになる。
+
+任意の開集合 $V\subseteq X$ に対する引き戻しは、$V$ の開部分集合のうち $S$ に入るものの族である。その合併は $V\cap\{p\}$ になる。
+
+[開集合圏のGrothendieck位相](../CATB5-02/index.md#thm-catb5-02-open-site)では、引き戻し篩が被覆であることと始域の合併が $V$ に等しいことが同値である。従って
 
 $$
 V\cap\{p\}=V
@@ -221,7 +229,9 @@ $$
 \cong H(U)
 $$
 
-を得る。$x,x'\in G(U)$ が $m_U(x)=m_U(x')$ を満たすとする。対応する射を $b,b':a(yU)\to G$ とすると、この対応を $\theta_H$ と書くと、[層化と包含の随伴](../CATB5-05/index.md#thm-catb5-05-adjunction)の自然性および[Yoneda対応の二変数自然性](../../CAT/CAT1-11/index.md#prop-cat1-11-bivariable-naturality)から
+を得る。$x,x'\in G(U)$ が $m_U(x)=m_U(x')$ を満たすとする。この全単射を $\theta_H$ と書き、$x,x'$ に対応する射を $b,b':a(yU)\to G$ とする。
+
+[層化と包含の随伴](../CATB5-05/index.md#thm-catb5-05-adjunction)の自然性および[Yoneda対応の二変数自然性](../../CAT/CAT1-11/index.md#prop-cat1-11-bivariable-naturality)から
 
 $$
 \theta_F(mb)=m_U(\theta_G(b))=m_U(x).
@@ -309,7 +319,9 @@ $$
 よって $\psi=\chi_S$。一般のモノ射は[層のモノ射の成分判定](#prop-catb5-07-sheaf-mono)で得た部分層の包含に終域を固定して同型なので、その引き戻しも同じ分類射で表せる。
 <!-- proof-end -->
 
-集合 $A$ と開集合 $U$ に対し $A^U$ は集合としての写像 $U\to A$ の全体を表すことにする。例えば離散二点空間で $F(U)=\{0,1\}^{U}$ とし、$S(U)$ を値が全て1である関数の集合とする。いずれも点ごとの貼り合わせが存在し唯一なので層である。
+集合 $A$ と開集合 $U$ に対し $A^U$ は集合としての写像 $U\to A$ の全体を表すことにする。
+
+例えば離散二点空間で $F(U)=\{0,1\}^{U}$ とし、$S(U)$ を値が全て1である関数の集合とする。いずれも点ごとの貼り合わせが存在し唯一なので層である。
 
 $x(p)=1,x(q)=0$ なら $\chi_{S,X}(x)$ は開部分集合 $\{p\}$ に対応する閉篩になる。真偽値が真になる領域そのものを表す。
 
@@ -331,7 +343,9 @@ $$
 > は層であり、前層圏の評価射とともに層の圏での指数対象をなす。
 <!-- formal-statement-end -->
 
-$H(U)$ の元 $h$ は自然変換であり、その $V$ 成分を $h_V(f,x)$ と書く。各射 $f:V\to U$ と各 $x\in F(V)$ に対し $G(V)$ の元を指定する。ここで $V$ は任意の対象を動く。[前層圏における指数対象](../CATB5-06/index.md#thm-catb5-06-presheaf-exponential)によると、$r:W\to U$ に沿う制限は
+$H(U)$ の元 $h$ は自然変換であり、その $V$ 成分を $h_V(f,x)$ と書く。各射 $f:V\to U$ と各 $x\in F(V)$ に対し $G(V)$ の元を指定する。ここで $V$ は任意の対象を動く。
+
+[前層圏における指数対象](../CATB5-06/index.md#thm-catb5-06-presheaf-exponential)によると、$r:W\to U$ に沿う制限は
 
 $$
 (H(r)h)_V(f,x)=h_V(rf,x)
@@ -343,7 +357,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-被覆篩 $R\in J(U)$ 上の整合族 $h_r\in H(\operatorname{dom}r)$ を取る。各 $h_r:y(\operatorname{dom}r)\times F\to G$ は自然変換であり、[整合族の条件](../CATB5-03/index.md#def-catb5-03-sieve-matching)より $k:W\to\operatorname{dom}r$ に沿う制限 $H(k)h_r$ が $h_{rk}$ になる。従って任意の $l:Z\to W$ と $x\in F(Z)$ について
+被覆篩 $R\in J(U)$ 上の整合族 $h_r\in H(\operatorname{dom}r)$ を取る。各 $h_r:y(\operatorname{dom}r)\times F\to G$ は自然変換である。
+
+[整合族の条件](../CATB5-03/index.md#def-catb5-03-sieve-matching)より $k:W\to\operatorname{dom}r$ に沿う制限 $H(k)h_r$ が $h_{rk}$ になる。
+
+従って任意の $l:Z\to W$ と $x\in F(Z)$ について
 
 $$
 (h_{rk})_Z(l,x)=(h_r)_Z(kl,x).
@@ -462,7 +480,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb5-07-grothendieck-topos -->
-**定義の確認**。対象一つ $*$、射は恒等射 $1_*$ だけの小圏に最大篩だけを被覆とする位相を入れる。[Grothendieck位相の三公理](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)を確認すると、最大篩は指定により被覆であり、その引き戻しは恒等射に沿うものだけなので変わらない。推移律では被覆篩 $R=\{1_*\}$ 上の全ての射 $r$ に対し $r^*S$ が被覆という仮定を $r=1_*$ に適用すれば $S$ 自身が被覆となる。従って三公理を満たす。前層は一つの集合 $A$ と恒等写像で決まり、最大篩上の整合族は一つの元 $a\in A$ である。唯一の貼り合わせは $a$ 自身であり、全ての前層が層になる。
+**定義の確認**。対象一つ $*$、射は恒等射 $1_*$ だけの小圏に最大篩だけを被覆とする位相を入れる。
+
+[Grothendieck位相の三公理](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)を確認すると、最大篩は指定により被覆であり、その引き戻しは恒等射に沿うものだけなので変わらない。
+
+推移律では被覆篩 $R=\{1_*\}$ 上の全ての射 $r$ に対し $r^*S$ が被覆という仮定を $r=1_*$ に適用すれば $S$ 自身が被覆となる。従って三公理を満たす。
+
+前層は一つの集合 $A$ と恒等写像で決まり、最大篩上の整合族は一つの元 $a\in A$ である。唯一の貼り合わせは $a$ 自身であり、全ての前層が層になる。
 
 層をその集合に送る関手と、集合をこの層に送る関手を取る。自然変換は一つの写像だけで決まり、合成・恒等射は集合の写像のものと一致する。二方向の合成は対象と射の両方で恒等関手になるため、集合の圏はこの小siteの層圏と同値である。従って $\mathbf{Set}$ はGrothendieckトポスである。
 <!-- definition-example-end -->
