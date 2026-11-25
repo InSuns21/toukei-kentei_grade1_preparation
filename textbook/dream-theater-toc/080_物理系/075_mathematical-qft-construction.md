@@ -13,3 +13,4 @@
 10. [MQFC10 OS公理から相対論的場へ](textbook/volumes/dream_thater/物理系/MQFC/MQFC10/index.md)
 11. [MQFC11 粒子質量とスペクトル測度](textbook/volumes/dream_thater/物理系/MQFC/MQFC11/index.md)
 12. [MQFC12 質量ギャップと指数的相関減衰](textbook/volumes/dream_thater/物理系/MQFC/MQFC12/index.md)
+13. [MQFC13 cutoff・体積・極限の構成](textbook/volumes/dream_thater/物理系/MQFC/MQFC13/index.md)

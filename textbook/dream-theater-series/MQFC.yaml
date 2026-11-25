@@ -16,7 +16,7 @@ chapters:
   - { id: MQFC10, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC10, status: completed, title: "OS公理から相対論的場へ" }
   - { id: MQFC11, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC11, status: completed, title: "粒子質量とスペクトル測度" }
   - { id: MQFC12, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC12, status: completed, title: "質量ギャップと指数的相関減衰" }
-  - { id: MQFC13, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC13, status: planned, title: "cutoff・体積・極限の構成" }
+  - { id: MQFC13, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC13, status: completed, title: "cutoff・体積・極限の構成" }
   - { id: MQFC14, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC14, status: planned, title: "Wick積と発散する自己収縮" }
   - { id: MQFC15, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC15, status: planned, title: "相互作用測度を作る：P(φ)₂" }
   - { id: MQFC16, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC16, status: planned, title: "P(φ)₂のUV除去を支える評価" }

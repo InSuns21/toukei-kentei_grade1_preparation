@@ -1,0 +1,25 @@
+id: MQFC13
+title: "cutoff・体積・極限の構成"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC5, MQFC6, MQFC7, F0-00P4A, OTR3]
+official_scope: []
+learning_objectives:
+  - 有限体積とUV切断を区別し有限モードのGaussian自由場を構成できる
+  - 格子和の一様尾部評価から試験関数共分散の二重極限を証明できる
+  - 二次モーメント評価から測定法則の一様緊密性と部分列存在を導ける
+  - 可算座標の整合性と分布としての実現を区別できる
+  - 狭義収束と一様可積分性から多点相関を極限へ移せる
+definitions:
+  - { id: MQFC13-DEF-01, name: "有限体積・周波数切断" }
+theorems:
+  - { id: MQFC13-PROP-01, name: "有限モード自由場の共分散" }
+  - { id: MQFC13-THM-01, name: "有限モード共分散の二重極限" }
+  - { id: MQFC13-THM-02, name: "測定ベクトルの二次評価による部分列抽出" }
+  - { id: MQFC13-THM-03, name: "狭義極限への非有界観測量の移行" }
+canonical_examples: [周期箱の実Gaussian自由場, 二次モーメントが消えない希少事象, 周波数切断した点分散]
+problem_patterns: [MQFC13-MODES, MQFC13-COVARIANCE, MQFC13-TIGHTNESS, MQFC13-UI, MQFC13-LIMIT]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
