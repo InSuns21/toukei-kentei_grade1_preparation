@@ -46,7 +46,7 @@ chapters:
     title: "determinantの多項式サイズ回路：除算不要のBerkowitz型構成"
   - id: ACOMP11
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP11
-    status: planned
+    status: completed
     title: "permanentのVNP完全性：標数2以外のgadgetの符号検算"
   - id: ACOMP12
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP12

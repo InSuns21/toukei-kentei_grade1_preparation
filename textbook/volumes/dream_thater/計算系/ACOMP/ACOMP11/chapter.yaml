@@ -1,0 +1,40 @@
+id: "ACOMP11"
+title: "permanentのVNP完全性：標数2以外のgadgetの符号検算"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ACOMP10
+  - GCT3
+official_scope: []
+learning_objectives:
+  - パーマネントの Boolean 和による VNP 所属を証明できる
+  - 次数別回路から多項式長の展開証人を構成できる
+  - 算術式をパーマネントで表し二位置消去の六通りの係数を検算できる
+  - 一致ブロックと消去を組み合わせ p-projection と次元上界を示せる
+  - 標数2における行列式との一致と証明の停止点を説明できる
+definitions: []
+theorems:
+  - { id: ACOMP11-THM-01, name: "パーマネント族の VNP 所属" }
+  - { id: ACOMP11-THM-02, name: "VNP の算術式による証人表示" }
+  - { id: ACOMP11-THM-03, name: "算術式のパーマネント表示" }
+  - { id: ACOMP11-THM-04, name: "二位置の Boolean 和の局所消去" }
+  - { id: ACOMP11-THM-05, name: "全ビット一致を表すパーマネント" }
+  - { id: ACOMP11-THM-06, name: "Valiant のパーマネント VNP 完全性" }
+canonical_examples:
+  - 二次パーマネントの交代和
+  - 局所行列の六通りの係数
+  - 二位置の Boolean 和
+problem_patterns:
+  - ACOMP11-A1
+  - ACOMP11-A2
+  - ACOMP11-A3
+  - ACOMP11-A4
+  - ACOMP11-B1
+  - ACOMP11-B2
+  - ACOMP11-B3
+  - ACOMP11-B4
+  - ACOMP11-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 4, review: 2 }
