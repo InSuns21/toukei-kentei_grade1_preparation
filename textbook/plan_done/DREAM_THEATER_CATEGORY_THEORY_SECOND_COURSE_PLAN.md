@@ -1,7 +1,7 @@
 # DREAM THEATER：圏論・第2課程（発展圏論）PLAN
 
 設計確定日：2026-11-15  
-状態：**in progress（実装済み章・次章の正本はCATB系列manifest）**  
+状態：**done（全59講・追跡監査・公開導線）**  
 設計改訂日：2026-11-25（HM1の代数的前提を統合）  
 講義数：**全59講に確定**（CATB1：8講、CATB2：10講、CATB3：8講、CATB4：8講、CATB5：10講、CATB6：8講、CATB7：5講、CATB8：2講）
 
@@ -14,7 +14,7 @@
 - 入口の必修は既存 [CAT系列manifest](../dream-theater-series/CAT.yaml) で **completed** のCAT1〜CAT4の必要箇所（特にCAT1-10〜12、CAT2-01〜12、CAT3-01〜10、CAT4-01〜05）。CAT4-06の単純型付きラムダ計算はCATB6の有用な接続例とする。
 - 具体例では集合、有限順序、群・加群、位相空間、前層を繰り返す。加群の実例には既存代数系、構造層の実例には **AG2-05 / AG3-02 / AG3-06〜08** の実在する完成章を必要に応じて参照する。ただしそれらの詳細を本PLANの新しい必修前提に一律追加せず、使う講義で直接必要な仮定と定義を確認する。
 - 各定義のサイズ条件（小圏、局所小、基底の局所小性、宇宙、基数、関手圏の大きさ）を明示する。全ての圏を小さいとみなさず、対象が集合か類か、構成の添字が小さいかを証明前に区別する。
-- **正本の分担**：圏論的一般定理はCATB、スキーム・準連接層・Čech計算などの分野固有の構成はAG、一般の導来圏・導来関手・ExtはCATB7、次数付き代数・符号はCATB8、Fukaya圏の入力となる境界付きFloer解析は独立幾何系[FLOER PLAN](../plans/DREAM_THEATER_FLOER_ANALYTIC_FOUNDATIONS_PLAN.md)、層コホモロジーの具体的構成・計算はAGを正本とする。Torの一般論は本拡張の必修外とする。定理の援用時には実在するcanonical stable anchorと使用仮定を確認する。古い完了PLANを規約として復活させない。
+- **正本の分担**：圏論的一般定理はCATB、スキーム・準連接層・Čech計算などの分野固有の構成はAG、一般の導来圏・導来関手・ExtはCATB7、次数付き代数・符号はCATB8、Fukaya圏の入力となる境界付きFloer解析は独立幾何系[FLOER PLAN](../plans_progress/DREAM_THEATER_FLOER_ANALYTIC_FOUNDATIONS_PLAN.md)、層コホモロジーの具体的構成・計算はAGを正本とする。Torの一般論は本拡張の必修外とする。定理の援用時には実在するcanonical stable anchorと使用仮定を確認する。古い完了PLANを規約として復活させない。
 - **停止線**：モデル圏のQuillen同値、$(\infty,1)$-圏、完全な高次トポス、導来代数幾何、$A_\infty$-圏、一般的なHoTT、Giraudの特徴づけの全証明、Freyd–Mitchell埋め込みの全証明、任意の幾何的理論の分類トポス存在定理の全証明は、この59講の必修学修成果に含めない。一般双圏は扱うが無限高次の整合性には進まない。
 - これら停止線の項目を紹介するときは、未証明の内容を既習結果として後続講義に使わない。
 
@@ -39,7 +39,7 @@
 - 新しい**系列ID：`CATB`**（Category Theory, second course）。既存の`CAT`系列、完成PLAN、40講のID・statusは変更しない。「CAT2」は既存第2部の章IDと衝突するため採用しない。
 - 章IDは`CATB1-01`〜`CATB1-08`、`CATB2-01`〜`CATB2-10`、`CATB3-01`〜`CATB3-08`、`CATB4-01`〜`CATB4-08`、`CATB5-01`〜`CATB5-10`、`CATB6-01`〜`CATB6-08`、`CATB7-01`〜`CATB7-05`、`CATB8-01`〜`CATB8-02`の**全59個**。このPLANの章IDを本課程での確定候補とし、実装着手時に実在ID・validatorの許容形式・参照衝突を再照合する。
 - 予定配置：`textbook/volumes/dream_thater/基礎論系/CATB/<章ID>/`。新シリーズの`textbook/dream-theater-series/CATB.yaml`は**最初の章を実装する時点**で生成し、`plan`が`plans_progress/`の移動後パスを指すようにする。manifestは実装開始時に新設し、未実装章の空ディレクトリは作らない。
-- 状態：実装開始に伴い`textbook/plans_progress/`へ移動済み。全講と全PLANの監査・公開導線を終えた後のみ`plan_done/`へ移す。共有`dream-theater-work.yaml`の個別進捗は変更しない。
+- 状態：全59講の完了に伴い `textbook/plan_done/` へ移動。系列の正本は CATB manifest。共有 `dream-theater-work.yaml` は変更しない。
 - 部分的な前提：CATB1ではCAT2の極限とCAT3のモナド、CATB2ではCAT3のend/coendとCAT4のモノイダル閉構造、CATB3ではCAT2の随伴関手定理、CATB4ではCAT2の引き戻しとCATB1の正則性、CATB5ではCAT1のYoneda・CAT2の前層とCATB4の基底変換、CATB6ではCATB1/4/5とCAT4-06を使用する。具体的なprerequisitesは章着手時に`chapter.yaml`とknowledge DAG上の到達可能性を照合する。
 - 標準的な執筆順はCATB1→2→3→4→5→6→7→8。既存52講の通算番号を変更しない。CATB2とCATB3の一部、CATB7と独立FLOERの準備には独立に学修できる部分があるが、系列manifestの既定順序は維持する。先の章の定理を前の章の核心証明へ逆輸入しない。
 
@@ -167,3 +167,19 @@ CATB7〜8は、[HMS前提整備ルート](../plans/DREAM_THEATER_HMS_FOUNDATIONS
 ## 6. 完成判定
 
 59個の章が存在するだけでは完成としない。最終監査で（a）章ID・manifest・PLAN参照の一致、（b）定義の初出と依存の到達可能性、（c）主要結果の証明の閉包、（d）全演習と詳細解答の検算、（e）サイズ・仮定・自然性・論理の型の整合、（f）SVGの実表示、（g）公開リンクとCI、を確認する。必要な図は各講義の実装と同時に完成させ、最後の横断監査ではその講義で完了した個別図の制作作業を繰り返さない。重大な未証明依存や証明負債でこの分割が不適切と判明した場合は、黙って章を水増し／圧縮せずPLANの変更理由と講義数の再審議を記録する。
+
+
+## 7. 完了記録（2026-11-26）
+
+- PLAN の59行と系列 manifest の59件（全 completed）、章ディレクトリ59件、本文・chapter.yaml・knowledge.yaml 各59件、圏論の公開目次の59件を照合。次講なし。CATB 内に SVG ファイルはなく、最終講も図変更なし。
+- 既存58講の追跡監査は下記のマージ済みPRの個別再計算・初出・依存・証明・演習の記録を再利用する。今回58講の全証明を再度解き直したという意味ではない。最終講 CATB8-02 の全件再計算と局所補強は本移動のPRに記録する。独立第三者査読ではない。
+- 区分別の追跡監査PR（各部の章順）：
+  - CATB1: [#4258](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4258)、[#4266](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4266)、[#4280](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4280)、[#4290](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4290)、[#4294](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4294)、[#4307](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4307)、[#4323](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4323)、[#4326](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4326)
+  - CATB2: [#4336](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4336)、[#4349](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4349)、[#4358](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4358)、[#4363](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4363)、[#4374](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4374)、[#4382](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4382)、[#4397](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4397)、[#4402](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4402)、[#4413](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4413)、[#4422](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4422)
+  - CATB3: [#4428](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4428)、[#4441](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4441)、[#4450](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4450)、[#4454](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4454)、[#4481](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4481)、[#4477](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4477)、[#4485](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4485)、[#4499](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4499)
+  - CATB4: [#4506](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4506)、[#4516](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4516)、[#4528](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4528)、[#4534](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4534)、[#4545](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4545)、[#4556](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4556)、[#4559](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4559)、[#4568](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4568)
+  - CATB5: [#4576](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4576)、[#4583](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4583)、[#4593](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4593)、[#4601](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4601)、[#4609](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4609)、[#4622](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4622)、[#4630](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4630)、[#4636](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4636)、[#4645](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4645)、[#4665](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4665)
+  - CATB6: [#4668](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4668)、[#4680](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4680)、[#4684](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4684)、[#4697](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4697)、[#4700](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4700)、[#4707](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4707)、[#4724](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4724)、[#4732](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4732)
+  - CATB7: [#4741](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4741)、[#4748](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4748)、[#4754](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4754)、[#4765](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4765)、[#4775](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4775)
+  - CATB8: [#4780](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4780)、CATB8-02 は本移動PR
+- PLAN と manifest の参照、HMS 前提整備ルートと FLOER PLAN からの直接参照を同時更新。FLOER/HM1 は別計画であり、その完了を宣言しない。最終の教材・概念・演習・用語・Pages CI は本移動PRの必須ゲートで確認する。

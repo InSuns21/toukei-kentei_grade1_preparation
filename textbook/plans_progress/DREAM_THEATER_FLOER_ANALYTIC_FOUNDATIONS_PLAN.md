@@ -9,7 +9,7 @@
 Lagrange交叉から生成元を作り、境界条件付きの擬正則stripを数えるとき、なぜ有限次元の正則モジュライと境界の記述が得られるのか。閉曲面のGromov–Witten理論と境界付きFloer理論の解析を区別する。圏論CATBとは別の幾何系講義とし、HM1のFukaya圏構成に入力を渡す。
 
 - 入口：完成済みの [SYM6](../volumes/dream_thater/幾何系/SYM/SYM6/index.md)、[SYM8](../volumes/dream_thater/幾何系/SYM/SYM8/index.md#def-sym8-almost-complex)、[GW1-03](../volumes/dream_thater/幾何系/GW/GW1-03/index.md#thm-gw1-03-fredholm)、[GW1-06](../volumes/dream_thater/幾何系/GW/GW1-06/index.md#thm-gw1-06-compactness)、[GW1-12](../volumes/dream_thater/幾何系/GW/GW1-12/index.md#prop-gw1-12-gluing-local)、[GW1-21](../volumes/dream_thater/幾何系/GW/GW1-21/index.md#prop-gw1-21-lyapunov-schmidt) の該当結果。各講で実際に使う前提を章metadataに記す。
-- 代数側は [CATB7〜8](../plans_progress/DREAM_THEATER_CATEGORY_THEORY_SECOND_COURSE_PLAN.md) が担当する。解析講義の証明に不要な圏論全課程の完了は要求しない。
+- 代数側は [CATB7〜8](../plan_done/DREAM_THEATER_CATEGORY_THEORY_SECOND_COURSE_PLAN.md) が担当する。解析講義の証明に不要な圏論全課程の完了は要求しない。
 - 後続：[HM1](../plans/DREAM_THEATER_HOMOLOGICAL_MIRROR_SYMMETRY_PLAN.md)。一般のFukaya圏、整合的多角形摂動、障害理論、鏡像同値はHM1の責務とする。
 - 予定配置：`textbook/volumes/dream_thater/幾何系/FLOER/<章ID>/`。進捗は [FLOER系列manifest](../dream-theater-series/FLOER.yaml) を参照する。
 
