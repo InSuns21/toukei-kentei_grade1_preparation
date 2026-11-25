@@ -1,0 +1,26 @@
+chapter: MQFC4
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC1, MQFC2, MQFC3, AQFT3]
+forward_references: []
+concepts:
+  - id: mqfc.test-word-algebra
+    name: "試験関数の語の代数"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.schwartz]
+  - id: mqfc.positive-quotient
+    name: "正値形式による商空間の構成"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.test-word-algebra, mqfc.hierarchy-positivity]
+  - id: mqfc.wightman-reconstruction
+    name: "実スカラー場のWightman再構成"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.positive-quotient, mqfc.wightman-axioms, mqfc.field-domain, aqft.translation-spectrum-condition]
+  - id: mqfc.tube-analyticity
+    name: "正エネルギーと管状領域の解析性"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.positive-frequency, aqft.translation-spectrum-condition]

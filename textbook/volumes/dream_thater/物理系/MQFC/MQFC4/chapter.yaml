@@ -1,0 +1,23 @@
+id: MQFC4
+title: "Wightman再構成と解析性"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC1, MQFC2, MQFC3, AQFT3]
+official_scope: []
+learning_objectives:
+  - 試験関数の語の代数と対合を構成できる
+  - 正値形式から零空間商を作り共通不変領域を導ける
+  - 相関から場と共変表現を構成しスペクトル条件と真空一意性を検証できる
+  - 円錐の支持条件から並進相関の管状領域での解析性と境界値を導ける
+definitions:
+  - { id: MQFC4-DEF-01, name: "試験関数の語の代数" }
+theorems:
+  - { id: MQFC4-THM-01, name: "正値形式による商空間の構成" }
+  - { id: MQFC4-THM-02, name: "実スカラー場のWightman再構成" }
+  - { id: MQFC4-PROP-01, name: "正エネルギーと管状領域の解析性" }
+canonical_examples: [定数相関の一次元再構成, 二つの評価の混合, 単一運動量の指数関数]
+problem_patterns: [MQFC4-ALGEBRA, MQFC4-QUOTIENT, MQFC4-RECONSTRUCTION, MQFC4-TUBE]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 4, review: 2 }
