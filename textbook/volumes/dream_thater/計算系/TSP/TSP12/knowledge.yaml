@@ -1,0 +1,56 @@
+chapter: TSP12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TSP11
+  - F0-00A3
+forward_references: []
+concepts:
+  - id: tensor.asymptotic-preorder
+    name: 漸近前順序
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（漸近前順序）"]
+    requires: [tensor.strassen-preorder]
+  - id: tensor.asymptotic-preorder-closure
+    name: 漸近前順序の閉包性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（漸近前順序の閉包性）"]
+    requires: [tensor.asymptotic-preorder]
+  - id: tensor.asymptotic-cancellation
+    name: 閉じた前順序の消去則と間隔
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（閉じた前順序の消去則と間隔）"]
+    requires: [tensor.asymptotic-preorder-closure]
+  - id: tensor.total-strassen-extension
+    name: 全前順序への拡張
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全前順序への拡張）"]
+    requires: [tensor.asymptotic-cancellation, set.zorn-lemma]
+  - id: tensor.total-strassen-valuation
+    name: 全前順序から得るスペクトル点
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全前順序から得るスペクトル点）"]
+    requires: [tensor.spectral-point, tensor.strassen-preorder]
+  - id: tensor.strassen-duality
+    name: Strassen漸近スペクトル双対性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Strassen漸近スペクトル双対性）"]
+    requires: [tensor.total-strassen-extension, tensor.total-strassen-valuation, tensor.spectral-point-powers, tensor.asymptotic-spectrum]
+  - id: tensor.spectral-extrema
+    name: スペクトル極値と漸近階数・漸近劣階数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（スペクトル極値と漸近階数・漸近劣階数）"]
+    requires: [tensor.strassen-duality, tensor.semiring-rank-subrank, tensor.spectral-point-order-bounds, tensor.asymptotic-rank, tensor.asymptotic-subrank, tensor.asymptotic-fekete-lemma]
+  - id: tensor.three-tensor-spectral-extrema
+    name: 三因子テンソルのスペクトル極値公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（三因子テンソルのスペクトル極値公式）"]
+    requires: [tensor.spectral-extrema, tensor.tensor-strassen-preorder, tensor.flattening-spectral-point, tensor.rank-restriction-characterization, tensor.subrank, tensor.operation-monotonicity]
