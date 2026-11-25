@@ -13,7 +13,7 @@ learning_objectives:
 definitions:
   - { id: CATB7-03-DEF-01, name: "余鎖複体のホモトピー圏" }
   - { id: CATB7-03-DEF-02, name: "余鎖複体のホモトピー同値" }
-  - { id: CATB7-03-DEF-03, name: "擬同型" }
+  - { id: CATB7-03-DEF-03, name: "余鎖複体の擬同型" }
   - { id: CATB7-03-DEF-04, name: "roofと共通細分" }
   - { id: CATB7-03-DEF-05, name: "圏の局所化" }
 theorems:
