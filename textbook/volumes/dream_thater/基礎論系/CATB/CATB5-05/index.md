@@ -12,11 +12,21 @@
 
 $\operatorname{PSh}(\mathcal C)$ は前層圏、$\operatorname{Sh}(\mathcal C,J)$ は[site上の層](../CATB5-03/index.md#def-catb5-03-site-sheaf)を対象とし、層の間の全ての自然変換を射とする圏である。包含関手を $i:\operatorname{Sh}(\mathcal C,J)\to\operatorname{PSh}(\mathcal C)$ と書く。層を前層として扱うときは $iH$ を単に $H$ と略すことがある。射についても同様で、層の間の自然変換は前層の間の自然変換と同じである。
 
-合成 $fg$ は $f\circ g$ を表し、$M_U$ は最大篩である。射 $f:V\to U$ に対して $\operatorname{dom}f=V$ は始域を表し、前層の制限は逆向きの写像 $F(f):F(U)\to F(V)$ である。[自然変換](../../CAT/CAT1-07/index.md#def-cat1-07-natural-transformation) $\alpha:F\Rightarrow G$ の成分は $\alpha_V:F(V)\to G(V)$ であり、制限と交換する。
+合成 $fg$ は $f\circ g$ を表し、$M_U$ は最大篩である。
+
+射 $f:V\to U$ に対して $\operatorname{dom}f=V$ は始域を表す。前層の制限は逆向きの写像
+
+$$
+F(f):F(U)\to F(V)
+$$
+
+である。[自然変換](../../CAT/CAT1-07/index.md#def-cat1-07-natural-transformation) $\alpha:F\Rightarrow G$ の成分は $\alpha_V:F(V)\to G(V)$ であり、制限と交換する。
 
 ## 2. 前層の写像をplusに延長する
 
-前講の[plus構成](../CATB5-04/index.md#def-catb5-04-plus)では $F^+(U)$ の元は被覆篩 $S$ と[整合族](../CATB5-03/index.md#def-catb5-03-sieve-matching) $s$ の[局所同値](../CATB5-04/index.md#def-catb5-04-local-equivalence)類 $[S,s]$ であった。$s_f\in F(V)$ は射 $f:V\to U$ に対応する成分である。[標準写像](../CATB5-04/index.md#prop-catb5-04-plus-presheaf)を $\eta_F:F\Rightarrow F^+$ と書き、その $U$ での成分を $\eta_{F,U}$ とする。自然変換 $\alpha:F\Rightarrow G$ が与えられると、各局所切断に $\alpha$ を作用させれば、新しい整合族が得られる。
+前講の[plus構成](../CATB5-04/index.md#def-catb5-04-plus)では $F^+(U)$ の元は被覆篩 $S$ と[整合族](../CATB5-03/index.md#def-catb5-03-sieve-matching) $s$ の[局所同値](../CATB5-04/index.md#def-catb5-04-local-equivalence)類 $[S,s]$ であった。$s_f\in F(V)$ は射 $f:V\to U$ に対応する成分である。
+
+[標準写像](../CATB5-04/index.md#prop-catb5-04-plus-presheaf)を $\eta_F:F\Rightarrow F^+$ と書き、その $U$ での成分を $\eta_{F,U}$ とする。自然変換 $\alpha:F\Rightarrow G$ が与えられると、各局所切断に $\alpha$ を作用させれば、新しい整合族が得られる。
 
 <a id="prop-catb5-05-plus-functor"></a>
 
@@ -514,7 +524,28 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-前層の余積の包含射を $u:iH\Rightarrow P,\ v:iK\Rightarrow P$ とする。前層の射 $j_Pu:iH\Rightarrow i(aP)$ と $j_Pv:iK\Rightarrow i(aP)$ を考える。始域・終域がいずれも層の包含像なので、それぞれを層の射 $u_a:H\Rightarrow aP$、$v_a:K\Rightarrow aP$ と見なせる。すなわち $i(u_a)=j_Pu$、$i(v_a)=j_Pv$ である。任意の層 $L$ と射 $h:H\Rightarrow L,\ k:K\Rightarrow L$ に対し、前層圏の[点ごとの余極限の構成](../../CAT/CAT2-07/index.md#thm-cat2-07-pointwise-colimit)で得られる余積の普遍性から唯一の $\phi:P\Rightarrow iL$ が存在して $\phi u=i(h),\ \phi v=i(k)$ となる。
+前層の余積の包含射を $u:iH\Rightarrow P,\ v:iK\Rightarrow P$ とする。これらに標準写像を合成して、前層の射
+
+$$
+j_Pu:iH\Rightarrow i(aP),\qquad
+j_Pv:iK\Rightarrow i(aP)
+$$
+
+を得る。始域・終域がいずれも層の包含像なので、それぞれを層の射 $u_a:H\Rightarrow aP$、$v_a:K\Rightarrow aP$ と見なせる。すなわち
+
+$$
+i(u_a)=j_Pu,\qquad i(v_a)=j_Pv
+$$
+
+である。
+
+任意の層 $L$ と射 $h:H\Rightarrow L,\ k:K\Rightarrow L$ に対し、前層圏の[点ごとの余極限の構成](../../CAT/CAT2-07/index.md#thm-cat2-07-pointwise-colimit)で得られる余積の普遍性から唯一の $\phi:P\Rightarrow iL$ が存在して
+
+$$
+\phi u=i(h),\qquad \phi v=i(k)
+$$
+
+となる。
 
 [層化と包含の随伴](#thm-catb5-05-adjunction)から唯一の $\bar\phi:aP\Rightarrow L$ が $i(\bar\phi)j_P=\phi$ を満たす。従って
 
@@ -523,7 +554,15 @@ i(\bar\phi)j_Pu=i(h),\qquad
 i(\bar\phi)j_Pv=i(k).
 $$
 
-包含は層の射をその自然変換に送るので、これは $\bar\phi u_a=h$、$\bar\phi v_a=k$ を意味する。別の層の射 $\psi:aP\Rightarrow L$ が同じ二条件を満たせば、$i(\psi)j_P$ は $u,v$ との合成がそれぞれ $i(h),i(k)$ となる。前層の余積の一意性で $i(\psi)j_P=\phi$、随伴の一意性で $\psi=\bar\phi$ である。従って $(aP,u_a,v_a)$ は求める余積である。層の極限とは異なり、前層としての余積の後に層化が必要になる場合がある。
+包含は層の射をその自然変換に送るので、これは
+
+$$
+\bar\phi u_a=h,\qquad \bar\phi v_a=k
+$$
+
+を意味する。
+
+別の層の射 $\psi:aP\Rightarrow L$ が同じ二条件を満たせば、$i(\psi)j_P$ は $u,v$ との合成がそれぞれ $i(h),i(k)$ となる。前層の余積の一意性で $i(\psi)j_P=\phi$ となる。随伴の一意性で $\psi=\bar\phi$ である。従って $(aP,u_a,v_a)$ は求める余積である。層の極限とは異なり、前層としての余積の後に層化が必要になる場合がある。
 <!-- solution-end -->
 
 ### CATB5-05-C01 無限積では何が壊れるか
