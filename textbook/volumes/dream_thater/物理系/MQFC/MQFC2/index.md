@@ -8,7 +8,7 @@
 
 Hilbert空間 $\mathcal H$ の線形部分空間 $D$ が稠密であるとは、その閉包が $\mathcal H$ であることです。各場が $D$ の元を再び $D$ へ送る（不変性）なら、有限回の積が同じ領域上で意味を持ちます。[共通不変領域上の交換関係](../../../解析系/QM/QM8/index.md#def-qm8-ccr-common-domain)と同じ要請です。
 
-[Schwartz空間と半ノルム](../MQFC1/index.md#def-mqfc1-schwartz)を試験関数の空間とし、数値分布の連続性を使うには、入力試験関数を変え、二つの状態を固定して複素数の変化を測ります。共通領域上の線形自己写像全体を $\operatorname{End}(D)$ と書きます。ここではノルム有界性を要求しません。
+[Schwartz空間と半ノルム](../MQFC1/index.md#def-mqfc1-schwartz)を試験関数の空間とし、数値分布の連続性を使うには、入力試験関数を変え、二つの状態を固定して複素数の変化を測ります。共通領域上の線形自己写像全体を $\operatorname{End}(D)$ と書きます。ここではノルム有界性を要求しません。$\bar f$ は試験関数の各点での複素共役です。実数値の試験関数では場を内積の反対側へ移しても同じ作用素になるよう、複素試験関数では共役を伴う随伴条件を課します。これは[対称作用素](../../../解析系/QM/QM5/index.md#def-qm5-symmetric)の条件を複素線形な場へ広げたものです。
 
 <a id="def-mqfc2-field-domain"></a>
 
@@ -41,21 +41,57 @@ $$
 
 **定義の確認**。領域の稠密性・不変性・複素線形性・連続性と随伴条件を順に調べます。
 
-$\mathcal H=\ell^2(\mathbb N)$、$D$ を有限個の成分しか非零でない列全体とします。列の末尾を切り捨てればノルム収束するため稠密です。$T\psi=(n\psi_n)_{n\ge1}$ とし $\Phi(f)=f(0)T$ と置きます。有限列は有限列へ写り、点評価の線形性から $\Phi$ も複素線形です。固定した二状態について
+$\mathcal H=\ell^2(\mathbb N)$、$D$ を有限個の成分しか非零でない列全体とします。$e_n$ は第 $n$ 成分だけが $1$ の標準単位ベクトルです。内積は $\langle\psi,\chi\rangle=\sum_{n\ge1}\psi_n\bar\chi_n$ です。任意の $\psi\in\mathcal H$ の第 $N$ 成分までを残した有限列を $\psi^{[N]}$ とすると
+
+$$
+\|\psi-\psi^{[N]}\|^2=\sum_{n>N}|\psi_n|^2\longrightarrow0
+$$
+
+なので $D$ は稠密です。[QM5の最小対角作用素](../../../解析系/QM/QM5/index.md#prop-qm5-minimal-diagonal-adjoint)と同じ $T:D\to D$ を、各成分を $n$ 倍する式で定めます。
+
+$$
+T\psi=(n\psi_n)_{n\ge1},
+\qquad
+\Phi(f)=f(0)T.
+$$
+
+ここで $0$ は時空原点です。有限列 $\psi=\sum_{n=1}^N\psi_n e_n$ は $T\psi=\sum_{n=1}^N n\psi_n e_n$ へ写るため、不変性が確認できます。$f,g$ を試験関数、$\alpha,\beta$ を複素数とすると点評価の線形性により $\Phi(\alpha f+\beta g)=\alpha\Phi(f)+\beta\Phi(g)$ です。固定した二状態について
 
 $$
 |\langle\Phi(f)\psi,\chi\rangle|
 \le p_{0,0}(f)\|T\psi\|\|\chi\|
 $$
 
-となるので[緩増加分布](../MQFC1/index.md#def-mqfc1-tempered)の条件を満たします。実対角成分を持つため $\langle T\psi,\chi\rangle=\langle\psi,T\chi\rangle$ です。第2引数の共役線形性により $\langle\psi,\overline{f(0)}T\chi\rangle=f(0)\langle\psi,T\chi\rangle$ となり、随伴条件も成立します。第 $n$ 単位ベクトルで $\|Te_n\|=n$ となるため、$f(0)\ne0$ なら作用素ノルムは有限ではありません。
+となるので[緩増加分布](../MQFC1/index.md#def-mqfc1-tempered)の条件を満たします。対角表示で随伴条件を確かめられるのは、基底 $e_n$ が正規直交し、固有値 $n$ が実数だからです。実際、有限和で
+
+$$
+\begin{aligned}
+\langle T\psi,\chi\rangle
+&=\sum_{n\ge1}n\psi_n\bar\chi_n\\
+&=\sum_{n\ge1}\psi_n\overline{n\chi_n}
+=\langle\psi,T\chi\rangle.
+\end{aligned}
+$$
+
+第2引数の共役線形性により
+
+$$
+\begin{aligned}
+\langle\psi,\Phi(\bar f)\chi\rangle
+&=\langle\psi,\overline{f(0)}T\chi\rangle\\
+&=f(0)\langle\psi,T\chi\rangle
+=\langle\Phi(f)\psi,\chi\rangle.
+\end{aligned}
+$$
+
+これで随伴条件も確認できました。第 $n$ 単位ベクトルで $\|Te_n\|=n$ となるため、$f(0)\ne0$ なら作用素ノルムは有限ではありません。
 <!-- definition-example-end -->
 
-稠密であるだけでは積は保証されません。例えば同じ $D$ で $B\psi=\psi_1 v$、$v_n=1/n$ とすれば $B:D\to\ell^2$ は有界ですが、$Be_1=v\notin D$ なので上の $TBe_1$ は定義されません。さらに成分式で延長しようとしても $(nv_n)_n=(1,1,\dots)$ は二乗可積分ではありません。不変性が積の定義を保証していたことが分かります。
+稠密であるだけでは積は保証されません。例えば同じ $D$ で $B\psi=\psi_1 v$、$v_n=1/n$ とすれば $\|v\|^2=\sum_{n\ge1}n^{-2}<\infty$ であり、$\|B\psi\|=|\psi_1|\|v\|\le\|\psi\|\|v\|$ なので $B:D\to\ell^2$ は有界です。しかし$Be_1=v\notin D$ なので上の $TBe_1$ は定義されません。さらに成分式で延長しようとしても $(nv_n)_n=(1,1,\dots)$ は二乗可積分ではありません。不変性が積の定義を保証していたことが分かります。
 
 ## 2. 随伴条件が保証すること
 
-作用素の随伴は、内積を移せる最大の定義域を持ちます。ここでは[稠密定義作用素の随伴](../../../解析系/QM/QM5/index.md#def-qm5-unbounded-adjoint)を使い、共通領域での等式と作用素全体の等式を区別します。グラフの閉包が再び作用素のグラフになる性質を可閉性といい、実試験関数では[対称作用素](../../../解析系/QM/QM5/index.md#def-qm5-symmetric)になることも確認します。
+作用素の随伴は、内積を移せる最大の定義域を持ちます。作用素 $A$ の定義域を $\operatorname{Dom}A$（QM5での $D(A)$）、随伴を $A^*$ と書きます。ここでは[稠密定義作用素の随伴](../../../解析系/QM/QM5/index.md#def-qm5-unbounded-adjoint)を使い、共通領域での等式と作用素全体の等式を区別します。グラフの閉包が再び作用素のグラフになる性質を可閉性といい、実試験関数では[対称作用素](../../../解析系/QM/QM5/index.md#def-qm5-symmetric)になることも確認します。
 
 <a id="prop-mqfc2-closable-field"></a>
 
@@ -90,7 +126,7 @@ $$
 $D$ は稠密なので $y=0$ です。従ってグラフの閉包には $(0,y)$ で $y\ne0$ の点が存在しません。閉包は線形部分空間なので、同じ入力に二つの出力があれば差がそのような点になります。よってグラフの閉包は作用素のグラフであり、可閉です。実 $f$ なら $\bar f=f$ なので[対称作用素の条件](../../../解析系/QM/QM5/index.md#def-qm5-symmetric)を満たします。
 <!-- proof-end -->
 
-[自己共役作用素](../../../解析系/QM/QM5/index.md#def-qm5-self-adjoint)では定義域も随伴と一致する必要があります。上の包含から自己共役性や閉包の自己共役性を結論してはいけません。例えば第1節の対角作用素は随伴が有限列より広い領域を持ちます。
+[自己共役作用素](../../../解析系/QM/QM5/index.md#def-qm5-self-adjoint)では定義域も随伴と一致する必要があります。上の包含から自己共役性や閉包の自己共役性を結論してはいけません。例えば第1節の対角作用素は、[最小対角作用素の随伴](../../../解析系/QM/QM5/index.md#prop-qm5-minimal-diagonal-adjoint)により随伴が有限列より広い領域を持ちます（演習B1で再計算します）。ただしこの例の閉包は[最大実対角作用素](../../../解析系/QM/QM5/index.md#thm-qm5-real-diagonal-self-adjoint)として自己共役です。元の作用素の自己共役性と閉包の自己共役性は区別します。
 
 ## 3. 自由場を粒子数で制御する
 
@@ -102,7 +138,7 @@ d\mu(\boldsymbol p)=\frac{d^3p}{(2\pi)^3},\quad
 \mathfrak h=L^2(\mathbb R^3,d\mu)
 $$
 
-と置きます。対称な $n$ 粒子波動関数のHilbert空間を $\mathfrak h^{\otimes_s n}$ と書き、零粒子成分は $\mathbb C$ とします。
+と置きます。対称な $n$ 粒子波動関数のHilbert空間を $\mathfrak h^{\otimes_s n}$ と書きます。添字 $s$ は粒子変数の任意の置換に不変な部分空間を表し、零粒子成分は $\mathbb C$ とします。
 
 $$
 \mathcal F=\bigoplus_{n=0}^{\infty}\mathfrak h^{\otimes_s n},
@@ -110,9 +146,9 @@ $$
 \Omega=(1,0,0,\dots).
 $$
 
-$D_{\mathcal S}$ は有限個の成分だけが非零で、各成分が対称Schwartz関数である状態の空間です。各粒子数でのSchwartz関数による近似を置換の平均で対称化しても、対称な目標への誤差は元の誤差以下です。これと直和の末尾切捨てにより稠密です。以下、$D_{\le L}$ は $D_{\mathcal S}$ のうち $L$ 粒子以下の状態の部分空間です。
+状態は粒子数別の列 $\psi=(\psi_0,\psi_1,\ldots)$ で、ノルムは $\|\psi\|^2=\sum_{n\ge0}\|\psi_n\|^2$ です。$\Omega$ はノルム1の真空ベクトルです。$D_{\mathcal S}$ は有限個の成分だけが非零で、各成分が対称Schwartz関数（零粒子では複素数）である状態の空間です。QFT4での $\mathcal D_{\mathcal S}$ と同じ領域です。各粒子数でのSchwartz関数による近似を置換の平均で対称化しても、対称な目標への誤差は元の誤差以下です。これと直和の末尾切捨てにより稠密です。以下、$D_{\le L}$ は $D_{\mathcal S}$ のうち $L$ 粒子以下の状態の部分空間です。
 
-[生成・消滅演算子](../../QFT/QFT4/index.md#def-qft4-ladder-operators)をそれぞれ $a^\dagger(u),a(u)$ と書きます。生成は $u$ に線形、消滅は共役線形で、両者は $D_{\mathcal S}$ を保ちます。例えば消滅で $n+1$ 粒子から $n$ 粒子へ移る成分は
+[生成・消滅演算子](../../QFT/QFT4/index.md#def-qft4-ladder-operators)をそれぞれ $a^\dagger(u),a(u)$ と書きます。波束 $u\in\mathcal S(\mathbb R^3)$ に対して生成は $u$ に線形、消滅は共役線形で、両者は状態 $\psi$ に線形です。QFT4の定義と同じく、両者は $D_{\mathcal S}$ を保ちます。$\dagger$ はここでの共通領域上の内積による随伴関係を表します。例えば消滅で $n+1$ 粒子から $n$ 粒子へ移る成分は
 
 $$
 (a(u)\psi)_n(\boldsymbol p_1,\ldots,\boldsymbol p_n)
@@ -157,7 +193,7 @@ $$
 \end{aligned}
 $$
 
-次に[生成・消滅演算子の交換関係](../../QFT/QFT4/index.md#thm-qft4-fock-ccr)を同じ波束 $u$ に適用します。共通領域上で $a(u)a^\dagger(u)=a^\dagger(u)a(u)+\|u\|^2 I$ です。随伴関係を使うと
+次に[生成・消滅演算子の交換関係](../../QFT/QFT4/index.md#thm-qft4-fock-ccr)を同じ波束 $u$ に適用します。共通領域上で $a(u)a^\dagger(u)=a^\dagger(u)a(u)+\|u\|^2 I$ です。[生成・消滅演算子の随伴関係](../../QFT/QFT4/index.md#def-qft4-ladder-operators)を使うと
 
 $$
 \begin{aligned}
@@ -190,7 +226,25 @@ u_f(\boldsymbol p)=
 {\sqrt{2\omega_{\boldsymbol p}}}
 $$
 
-とします。これは[Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier)で時間周波数だけ符号を反転した変換です。$m>0$ のため $\omega_{\boldsymbol p}$ は滑らかで、全階導関数は高々多項式増大です。連鎖律の各項は $\widetilde f$ の導関数とこのような増大因子との積になります。質量殻上のEuclidノルムは $|\boldsymbol p|$ 以上であり、任意次数の減衰を選べるので $u_f$ はSchwartz級です。
+とします。これは[Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier)で時間周波数だけ符号を反転した変換です。$E$ は時間周波数、$\boldsymbol p$ は空間周波数です。$\partial_{p_j}$ は運動量の第 $j$ 成分での微分ですが、質量殻へ制限した後には $E$ も $\boldsymbol p$ に依存します。$F=\widetilde f$、$g(\boldsymbol p)=F(\omega_{\boldsymbol p},\boldsymbol p)$ と一時的に書けば、連鎖律により
+
+$$
+\partial_{p_j}g
+=(\partial_E F)(\omega_{\boldsymbol p},\boldsymbol p)
+\frac{p_j}{\omega_{\boldsymbol p}}
++(\partial_{p_j}F)(\omega_{\boldsymbol p},\boldsymbol p).
+$$
+
+右辺の $F$ の偏微分は独立な四変数で微分してから質量殻へ制限した値です。さらに積の微分により
+
+$$
+\partial_{p_j}u_f
+=(2\omega_{\boldsymbol p})^{-1/2}\partial_{p_j}g
+-\frac{p_j}{2\omega_{\boldsymbol p}^{2}}
+(2\omega_{\boldsymbol p})^{-1/2}g.
+$$
+
+$m>0$ のため $\omega_{\boldsymbol p}\ge m$ であり、$\omega_{\boldsymbol p}$ と $(2\omega_{\boldsymbol p})^{-1/2}$ の任意階の導関数は高々多項式増大です。実際、$\omega_{\boldsymbol p}^{b}$ の微分は $b p_j\omega_{\boldsymbol p}^{b-2}$ であり、これと積の微分を繰り返すと多項式と $\omega_{\boldsymbol p}$ の冪の積の有限和になります。負の冪には下界 $m$ を使えます。高階の $\partial^\alpha u_f$ も $F$ の導関数を質量殻へ制限した値と多項式増大因子の積の有限和です。質量殻上のEuclidノルムは $|\boldsymbol p|$ 以上なので、各因子の増大次数より十分大きなSchwartz減衰次数を選べば、任意の $N,\alpha$ に対して $(1+|\boldsymbol p|)^N|\partial^\alpha u_f|$ は有界です。従って $u_f$ はSchwartz級です。
 
 場の式は
 
@@ -199,13 +253,13 @@ $$
 \quad\text{on }D_{\mathcal S}.
 $$
 
-消滅演算子が共役線形なので、第一項に $u_{\bar f}$ が入って初めて全体が $f$ に複素線形になります。
+消滅演算子が共役線形なので、第一項に $u_{\bar f}$ が入って初めて全体が $f$ に複素線形になります。例えば $u_{\overline{\alpha f+\beta g}}=\bar\alpha u_{\bar f}+\bar\beta u_{\bar g}$ であり、消滅側でもう一度係数を共役にするため $\Phi(\alpha f+\beta g)=\alpha\Phi(f)+\beta\Phi(g)$ です。
 
 <a id="thm-mqfc2-free-field-estimate"></a>
 
 <!-- formal-statement-start -->
 > **定理（自由場の共通領域とSchwartz評価）**  
-> $m>0$ の実自由スカラー場を上の質量殻写像と生成・消滅演算子で構成する。任意の非負整数 $L$ と $\psi\in D_{\le L}$ に対して、全ての試験関数 $f$ に共通で、$L$ や状態にも依存しない定数 $C_m>0$ が存在し、
+> $m>0$ の実自由スカラー場を上の質量殻写像と生成・消滅演算子で構成する。定数 $C_m>0$ と非負整数 $N,M$ を、試験関数・状態・粒子数上限によらず固定して選べる。任意の非負整数 $L$、$\psi\in D_{\le L}$、$f\in\mathcal S(\mathbb R^4)$ に対して
 
 $$
 \begin{aligned}
@@ -214,7 +268,7 @@ $$
 \end{aligned}
 $$
 
-> が成り立つ。ここで $N,M$ は固定した非負整数として選べる。従って $\Phi$ は $D_{\mathcal S}$ 上の作用素値緩増加分布であり、実スカラー場の随伴条件を満たす。
+> が成り立つ。ここで $p_{N,M}$ はSchwartz半ノルムである。従って $\Phi$ は $D_{\mathcal S}$ 上の作用素値緩増加分布であり、実スカラー場の随伴条件を満たす。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -315,7 +369,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-右から $k$ 個作用させた状態を $\psi^{[k]}$ とし、$\psi^{[0]}=\psi$ とします。$k=0,\dots,n-1$ について $\psi^{[k]}\in D_{\le L+k}$ です。[自由場のSchwartz評価](#thm-mqfc2-free-field-estimate)を次の因子 $f_{n-k}$ に適用すると、
+右から $k$ 個作用させた状態を $\psi^{[k]}$ とし、$\psi^{[0]}=\psi$、$\psi^{[k+1]}=\Phi(f_{n-k})\psi^{[k]}$ とします。$k=0,\dots,n-1$ について $\psi^{[k]}\in D_{\le L+k}$ です。[自由場のSchwartz評価](#thm-mqfc2-free-field-estimate)を次の因子 $f_{n-k}$ に適用すると、
 
 $$
 \|\psi^{[k+1]}\|
@@ -335,7 +389,23 @@ $$
 \le (2C_m)^n\sqrt{n!}\prod_{j=1}^{n}p(f_j).
 $$
 
-複素線形性は各場の複素線形性と内積の規約から従います。同時連続性は、任意の収束する有限族 $f_j^{(k)}\to f_j$ について差を一引数ずつ置き換える $n$ 個の差の和に分ければよいです。各項には $p(f_j^{(k)}-f_j)\to0$ が一つ現れ、残りの半ノルムは収束列なので有界です。より一般に各引数を有限半ノルム近傍に制限して同じ差の評価を使えば任意の点で連続です。
+複素線形性は各場の複素線形性と内積の規約から従います。同時連続性は、引数を一つずつ置き換えることで示します。$g_1,\ldots,g_n$ を別の試験関数の組とすると、多重線形性から
+
+$$
+\begin{aligned}
+&W_n(g_1,\ldots,g_n)-W_n(f_1,\ldots,f_n)\\
+&=\sum_{j=1}^n
+W_n(g_1,\ldots,g_{j-1},g_j-f_j,f_{j+1},\ldots,f_n).
+\end{aligned}
+$$
+
+固定した組 $(f_1,\ldots,f_n)$ に対し $p(g_j-f_j)<\delta\le1$ を全ての $j$ で課します。$R=1+\max_j p(f_j)$ と置くと $p(g_j)\le R$ かつ $p(f_j)\le R$ です。先ほどの期待値評価を各項に使うと差の絶対値は
+
+$$
+n(2C_m)^n\sqrt{n!}\,R^{n-1}\delta
+$$
+
+以下です。任意の正の誤差に対して $\delta$ を十分小さくすれば、その誤差未満にできます。[Schwartz半ノルムによる近傍](../MQFC1/index.md#def-mqfc1-schwartz)の定義から任意の点で同時連続です。
 <!-- proof-end -->
 
 この結果は分離した試験関数に対する期待値の連続性です。一般の多変数試験関数へ分布として延長するためには別途核定理などが必要であり、本章ではその一般定理を証明していません。
@@ -462,7 +532,23 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-原点では $\partial_t^2h=-2$、空間3方向の二階微分の和は $-6$ なので $f(0)=4+m^2>0$ です。微分と線形結合はSchwartz空間を保ちます。部分積分で境界項は零となり、
+$\partial_t$ は空間位置を固定した時間微分、$\Delta=\sum_{j=1}^3\partial_{x_j}^2$ は時間を固定した空間Laplacianです。実際、
+
+$$
+\partial_t^2h=(4t^2-2)h,
+\qquad
+\partial_{x_j}^2h=(4x_j^2-2)h.
+$$
+
+原点では時間の二階微分は $-2$、空間3方向の和は $-6$ なので $f(0)=4+m^2>0$ です。各微分は多項式とGaussianの積であり、$f$ は実Schwartz関数です。第4節のFourier変換では、時間と空間で指数の符号が逆です。Schwartz減衰で境界項が零になるため、時間または空間の各変数について部分積分すると
+
+$$
+\widetilde{\partial_t h}=-iE\widetilde h,
+\qquad
+\widetilde{\partial_{x_j} h}=ip_j\widetilde h.
+$$
+
+同じ操作をもう一度行えば時間側は $(-iE)^2=-E^2$、空間側は $(ip_j)^2=-p_j^2$ です。従って
 
 $$
 \widetilde f(E,\boldsymbol p)
@@ -482,7 +568,7 @@ $E=\omega_{\boldsymbol p}$ を代入すると係数が零です。従って $u_f
 <!-- solution-start -->
 #### 詳細解答
 
-[自由場の随伴条件](#thm-mqfc2-free-field-estimate)から $G_{ij}=\langle u_{f_j},u_{f_i}\rangle$ です。内積の第1引数が線形であるため
+有限族を $f_1,\ldots,f_n$ とし、$c=(c_1,\ldots,c_n)^{\mathsf T}\in\mathbb C^n$ を列ベクトル、$c^*$ を共役転置とします。[自由場の随伴条件](#thm-mqfc2-free-field-estimate)と真空への作用から $G_{ij}=\langle u_{f_j},u_{f_i}\rangle$ です。したがって $G_{ji}=\overline{G_{ij}}$ でHermite行列です。[有限族による正値性判定](../MQFC1/index.md#prop-mqfc1-gram)と同じ二次形式を調べます。内積の第1引数が線形であるため
 
 $$
 \begin{aligned}
