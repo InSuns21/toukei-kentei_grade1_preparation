@@ -40,7 +40,7 @@ jobs:
           output = Path('inspect.log').read_text()
           entries = re.findall(r"depends on axioms:\s*\[([^\]]*)\]", output)
           empty = len(re.findall(r"does not depend on any axioms", output))
-          assert len(entries) + empty == 9, output
+          assert len(entries) + empty == 10, output
           allowed = {'propext', 'Classical.choice', 'Quot.sound'}
           for entry in entries:
               assert set(x.strip() for x in entry.split(',') if x.strip()) <= allowed, entry

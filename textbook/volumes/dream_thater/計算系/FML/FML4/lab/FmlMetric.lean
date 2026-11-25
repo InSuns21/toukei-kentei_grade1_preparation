@@ -28,6 +28,15 @@ theorem complete_limit {X : Type*} [MetricSpace X]
     (h : CauchySeq u) : ∃ a, Tendsto u atTop (𝓝 a) :=
   cauchySeq_tendsto_of_complete h
 
+theorem complete_characterization {X : Type*} [MetricSpace X] :
+    CompleteSpace X ↔
+      ∀ u : Nat → X, CauchySeq u → ∃ a, Tendsto u atTop (𝓝 a) := by
+  constructor
+  · intro h u hu
+    letI : CompleteSpace X := h
+    exact cauchySeq_tendsto_of_complete hu
+  · exact Metric.complete_of_cauchySeq_tendsto
+
 theorem complete_limit_unique {X : Type*} [MetricSpace X]
     [CompleteSpace X] {u : Nat → X}
     (h : CauchySeq u) : ∃! a, Tendsto u atTop (𝓝 a) := by

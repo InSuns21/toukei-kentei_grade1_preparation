@@ -105,6 +105,23 @@ rw は結論を距離条件へ置き換えます。obtain で N と、その N �
 **定義の確認**：X を通常の距離を持つ実数全体とする。任意の CauchySeq u に対して距離条件に直し、[実数の完備性](../../../基礎科目/RA/RA1/index.md#thm-ra1-real-completeness)を適用すると実数 a が存在し、任意の ε>0 に対し十分大きい n で $|u_n-a|<\varepsilon$ となる。距離収束を位相収束へ戻せば Tendsto u atTop (𝓝 a) となる。この全称量化された性質を利用できる実数の CompleteSpace インスタンスがMathlibにある。
 <!-- definition-example-end -->
 
+点列による条件から一様構造の完備性へ戻す理由を確認します。[Cauchy filter](../../../基礎科目/TOP/TOP7/index.md#def-top7-cauchy-filter)を一つ取ります。各自然数 j についてその filter に属する集合 $A_j$ で、$x,y\in A_j$ なら $d(x,y)<2^{-j}$ となるものを選びます。有限交差
+
+$
+B_n=A_0\cap\cdots\cap A_n
+$
+
+は filter に属し、空でないので $x_n\in B_n$ を選べます。$m,n\ge N$ なら $x_m,x_n\in B_N\subset A_N$ なので $d(x_m,x_n)<2^{-N}$。任意の ε>0 に対し $2^{-N}<\varepsilon$ とできるため、この列はCauchy列です。
+
+点列の完備性を仮定すれば、ある a に $x_n$ が収束します。任意の ε>0 に対して、$2^{-n}<\varepsilon/2$ かつ $d(x_n,a)<\varepsilon/2$ となる n を取ります。任意の $y\in B_n$ について $x_n,y\in A_n$ なので
+
+$
+d(y,a)\le d(y,x_n)+d(x_n,a)
+<2^{-n}+\varepsilon/2<\varepsilon.
+$
+
+したがって a の ε 近傍は $B_n$ を含むため filter に属します。[filter の収束](../../../基礎科目/TOP/TOP6/index.md#def-top6-filter-convergence)の定義から a に収束します。逆向きは点列の tail が作る Cauchy filter に完備性を適用し、[距離Cauchy列とCauchy filter](../../../基礎科目/TOP/TOP7/index.md#prop-top7-sequence-cauchy-filter)および [netとfilterの収束対応](../../../基礎科目/TOP/TOP6/index.md#thm-top6-net-filter-correspondence)を使えば従います。ラボの complete_characterization は Mathlib の両方向の定理を使って、この同値を証明します。
+
 <a id="thm-fml4-complete-limit"></a>
 
 <!-- formal-statement-start -->
@@ -198,6 +215,21 @@ $$
 
 Leanでは LaurentSeries.valuation_le_iff_coeff_lt_eq_zero で差の付値条件を係数の条件へ置き換え、HahnSeries.coeff_sub と sub_eq_zero で係数の一致へ進みます。
 
+~~~lean
+theorem coeff_agreement {K : Type*} [Field K]
+    (f g : LaurentSeries K) (D : ℤ) :
+    Valued.v (f - g) ≤ exp (-D : ℤ) ↔
+      ∀ i : ℤ, i < D → f.coeff i = g.coeff i := by
+  rw [LaurentSeries.valuation_le_iff_coeff_lt_eq_zero K]
+  constructor
+  · intro h i hi
+    exact sub_eq_zero.mp (by simpa only [HahnSeries.coeff_sub] using h i hi)
+  · intro h i hi
+    rw [HahnSeries.coeff_sub, h i hi, sub_self]
+~~~
+
+constructor で同値の二方向を分けます。第一の h は差の係数が零という条件、第二の h は係数が等しいという条件です。どちらも hi が i<D の証明なので、その指数についてだけ条件を使っています。
+
 ## 6. Laurent級数の完備性
 
 $t$ 進距離が本当に距離であることも確認できます。非零の差の付値は整数なので距離は正です。符号を反転しても非零係数の添字は変わらないため対称性が成立します。[付値の和の演算則](../../ACOMP/ACOMP21/index.md#thm-acomp21-valuation-rules)により
@@ -238,7 +270,7 @@ $$
 
 例えば $f_n=1+t+\cdots+t^n$ では、任意の固定した指数以下の係数が十分後ろで固定されます。負の係数は常に零なので極限は $1+t+t^2+\cdots$ です。逆に $g_n=1+t^{-1}+\cdots+t^{-n}$ も個々の係数は最終的に一定ですが、m>n なら差の最小非零指数は -m で、距離は $2^m$ になります。Cauchy列ではなく、係数の最終値には下限がありません。
 
-Mathlibの LaurentSeries.instLaurentSeriesComplete は、この種の議論を点列だけでなくフィルターに対して行う完備性のインスタンスです。係数体 K に通常の実数距離や完備性を別途要求しません。Laurent級数上の一様構造に対する CompleteSpace を使うと、CauchySeq u から Tendsto u atTop (𝓝 a) の存在を得られます。単なる係数ごとの一致の列と、付値に関するCauchy列とを混同しないようにしましょう。
+Mathlibの LaurentSeries.instLaurentSeriesComplete は、この種の議論を点列だけでなくフィルターに対して行う完備性のインスタンスです。係数体 K に通常の実数距離や完備性を別途要求しません。非零の差に対して Mathlib の乗法的付値が exp(-D) 未満という近さは、ここでの距離が $2^{-D}$ 未満という近さに対応し、零の差では両方の不等式が成立します。これらの近さが整数 D を増やすごとに狭まるため、同じ一様構造を定めます。Laurent級数上の一様構造に対する CompleteSpace を使うと、CauchySeq u から Tendsto u atTop (𝓝 a) の存在を得られます。単なる係数ごとの一致の列と、付値に関するCauchy列とを混同しないようにしましょう。
 
 ## 7. 定数項への特殊化と極の打消し
 
@@ -285,7 +317,7 @@ lake env lean Inspect.lean
 lake env lean Failure.lean
 ~~~
 
-[FmlMetric.lean](lab/FmlMetric.lean) では距離による収束からCauchy条件、完備性から極限の存在、Laurent級数の係数一致と完備性、特殊化の積と反例を検査します。[Inspect.lean](lab/Inspect.lean) では命題の依存公理を表示します。[Failure.lean](lab/Failure.lean) は Laurent級数全体の定数項抽出を乗法的と誤認した場合の失敗例です。最後のコマンドは失敗することが期待されます。定理の型、仮定、結論とエラーの箇所を読み比べてください。
+[FmlMetric.lean](lab/FmlMetric.lean) では距離による収束からCauchy条件、完備性から極限の存在、Laurent級数の係数一致と完備性、特殊化の積と反例を検査します。[Inspect.lean](lab/Inspect.lean) では命題の依存公理を表示します。[Failure.lean](lab/Failure.lean) は Laurent級数全体の定数項抽出を乗法的と誤認した場合の失敗例です。最後のコマンドは失敗することが期待されます。定理の型、仮定、結論とエラーの箇所を読み比べてください。ソースの complete_characterization は完備性の同値を、complete_limit_unique は一意性を含む極限の存在を検査します。
 
 ## 9. 演習と詳細解答
 
