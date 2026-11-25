@@ -70,6 +70,10 @@ def mismatch (accept : State → Nat → Bool) (xs : List (State × Nat)) : Nat 
 def rangeOnly (_ : State) (n : Nat) : Bool := decide (n < 9)
 def unfinishedOnly (s : State) (_ : Nat) : Bool := decide (¬ Finished s)
 
+-- One representative of each disjoint input class (exercise C01).
+def fourCases : List (State × Nat) :=
+  [(initial, 0), (after [0], 0), (initial, 9), (after [2,0,4,1,6], 8)]
+
 def checks : Bool :=
   (states histories).length == 3 &&
   counts cases30 == [17,1,2,10] &&
@@ -82,7 +86,9 @@ def checks : Bool :=
   !(replayFrom initial [1,1]).isSome &&
   !(replayFrom initial [0,3,1,4,2,5]).isSome &&
   legalMoves (after [4]) == [0,1,2,3,5,6,7,8] &&
-  counts (candidates [[],[4]] 12) == [17,1,6,0]
+  counts (candidates [[],[4]] 12) == [17,1,6,0] &&
+  counts fourCases == [1,1,1,1] &&
+  mismatch unfinishedOnly fourCases == 2
 
 #guard checks
 #guard classify (after [2,0,4,1,6]) 10 == .finished
