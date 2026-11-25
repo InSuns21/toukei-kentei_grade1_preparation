@@ -1,0 +1,56 @@
+chapter: TSP4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TSP3
+forward_references: []
+concepts:
+  - id: tensor.local-linear-map
+    name: 局所線形写像のテンソル積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所線形写像のテンソル積）"]
+    requires: [tensor.multifactor-product, linear.linear-map-over-field]
+  - id: tensor.restriction
+    name: テンソルの制限
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（テンソルの制限）"]
+    requires: [tensor.local-linear-map]
+  - id: tensor.restriction-rank-monotonicity
+    name: 制限による階数の単調性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（制限による階数の単調性）"]
+    requires: [tensor.restriction, tensor.tensor-rank, tensor.flattening]
+  - id: tensor.diagonal-tensor
+    name: 対角テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対角テンソル）"]
+    requires: [tensor.multifactor-basis]
+  - id: tensor.rank-restriction-characterization
+    name: 対角テンソルによる階数の特徴付け
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（対角テンソルによる階数の特徴付け）"]
+    requires: [tensor.diagonal-tensor, tensor.restriction-rank-monotonicity, tensor.flattening-rank-bound]
+  - id: tensor.subrank
+    name: テンソル劣階数
+    aliases: [劣階数, subrank]
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（テンソル劣階数）"]
+    requires: [tensor.diagonal-tensor, tensor.restriction, tensor.rank-restriction-characterization]
+  - id: tensor.subrank-bounds
+    name: 劣階数の基本評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（劣階数の基本評価）"]
+    requires: [tensor.subrank, tensor.restriction-rank-monotonicity, tensor.flattening-rank-bound]
+  - id: tensor.two-factor-subrank-equivalence
+    name: 二因子の階数と劣階数の一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二因子の階数と劣階数の一致）"]
+    requires: [tensor.subrank-bounds, tensor.tensor-rank, linear.basis-over-field]
