@@ -91,3 +91,4 @@
 88. [CATB6-04 正則論理と整合論理](textbook/volumes/dream_thater/基礎論系/CATB/CATB6-04/index.md)
 89. [CATB6-05 トポスの内部言語](textbook/volumes/dream_thater/基礎論系/CATB/CATB6-05/index.md)
 90. [CATB6-06 Kripke–Joyal意味論](textbook/volumes/dream_thater/基礎論系/CATB/CATB6-06/index.md)
+91. [CATB6-07 幾何的理論と分類トポスへの入口](textbook/volumes/dream_thater/基礎論系/CATB/CATB6-07/index.md)
