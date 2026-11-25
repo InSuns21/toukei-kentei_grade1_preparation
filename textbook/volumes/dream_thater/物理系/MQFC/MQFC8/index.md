@@ -337,7 +337,7 @@ $$
 
 となり、$A-K$ は正半定値です。$K$ も仮定で正半定値です。
 
-[有限次元Gaussian積分と特性関数](../MQFC6/index.md#thm-mqfc6-finite-gaussian) および [Gaussian型特性汎関数の有限次元整合性](../MQFC6/index.md#thm-mqfc6-gaussian-characteristic) の構成を用います。$D$ を実対称正半定値な $n\times n$ 行列とし、$\xi$ を独立な標準正規成分を持つ $n$ 次元列ベクトルとします。MQFC6で用いた非負平方根 $D^{1/2}$ は実対称で、$(D^{1/2})^2=D$ です。従って $E[\xi]=0$、$E[\xi\xi^{\mathsf T}]=I_n$（$n$ 次の単位行列）から
+[有限次元Gaussian積分と特性関数](../MQFC6/index.md#thm-mqfc6-finite-gaussian) および [Gaussian型特性汎関数の有限次元整合性](../MQFC6/index.md#thm-mqfc6-gaussian-characteristic) の構成を用います。$D$ を実対称正半定値な $n\times n$ 行列とし、$\xi$ を独立な標準正規成分を持つ $n$ 次元列ベクトルとします。MQFC6で用いた [半正定値行列の平方根](../../../基礎科目/F0/F0-00F1/index.md#thm-f0-00f1-psd-square-root) $D^{1/2}$ は実対称で、$(D^{1/2})^2=D$ です。従って $E[\xi]=0$、$E[\xi\xi^{\mathsf T}]=I_n$（$n$ 次の単位行列）から
 
 $$
 E[D^{1/2}\xi]=0,\qquad
