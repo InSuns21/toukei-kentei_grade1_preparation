@@ -1,0 +1,25 @@
+id: MQFC12
+title: "質量ギャップと指数的相関減衰"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC9, MQFC10, MQFC11, QM6]
+official_scope: []
+learning_objectives:
+  - 真空直交補空間のスペクトルでギャップを定義できる
+  - 連結Euclid時間相関を有限正測度のLaplace積分として表せる
+  - ギャップから指数評価を導き稠密な観測族で逆向きを証明できる
+  - 個別観測の減衰率と全空間のギャップを区別できる
+  - 真空一意性と有限系のギャップが極限の正の下界を保証しない理由を説明できる
+definitions:
+  - { id: MQFC12-DEF-01, name: "真空直交補空間の質量ギャップ" }
+theorems:
+  - { id: MQFC12-THM-01, name: "連結相関のLaplace表示" }
+  - { id: MQFC12-THM-02, name: "ギャップによる連結相関の指数評価" }
+  - { id: MQFC12-THM-03, name: "稠密な観測ベクトル族からのギャップ判定" }
+  - { id: MQFC12-THM-04, name: "自己相関の対数減衰率" }
+canonical_examples: [三準位系, 一意真空と零への固有値集積, 連続スペクトルの下端]
+problem_patterns: [MQFC12-PROJECTION, MQFC12-LAPLACE, MQFC12-DENSITY, MQFC12-UNIFORM-GAP, MQFC12-RATE]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }

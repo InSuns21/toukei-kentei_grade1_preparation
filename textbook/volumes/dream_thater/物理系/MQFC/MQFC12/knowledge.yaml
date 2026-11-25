@@ -1,0 +1,31 @@
+chapter: MQFC12
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC9, MQFC10, MQFC11, QM6]
+forward_references: []
+concepts:
+  - id: mqfc.vacuum-complement-gap
+    name: "真空直交補空間の質量ギャップ"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.os-nonnegative-generator, quantum.unbounded-self-adjoint-spectral-theorem]
+  - id: mqfc.connected-laplace
+    name: "連結相関のLaplace表示"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.os-nonnegative-generator, quantum.self-adjoint-borel-functional-calculus]
+  - id: mqfc.gap-exponential-bound
+    name: "ギャップによる連結相関の指数評価"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.vacuum-complement-gap, mqfc.connected-laplace]
+  - id: mqfc.dense-correlation-gap
+    name: "稠密な観測ベクトル族からのギャップ判定"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.connected-laplace, mqfc.gap-exponential-bound]
+  - id: mqfc.correlation-log-rate
+    name: "自己相関の対数減衰率"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.connected-laplace]
