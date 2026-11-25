@@ -160,6 +160,14 @@ $$
 $$
 
 従って所属式 $0\in S(z)$ の意味は $\{a\}$ である。
+
+この所属式から $P(z)$ への判断は、次の包含によって成立する。
+
+$$
+\{a\}\subseteq\{a,b\}.
+$$
+
+逆向きの包含は $b$ が左辺の集合に属さないため成立せず、逆向きの判断は成立しない。
 <!-- definition-example-end -->
 
 これらの解釈が存在する根拠を整理する。[初等トポスの部分対象のHeyting代数性](../CATB6-01/index.md#thm-catb6-01-subobject-heyting)は各文脈で論理結合の演算を与え、[初等トポスの量化子の存在](../CATB6-02/index.md#thm-catb6-02-quantifier-existence)は射影に沿う両随伴を与える。[分類射と部分対象の自然な対応](../CATB5-06/index.md#thm-catb5-06-classifier-bijection)によって各式は真理値型への射でも表せる。内包はこの射を指数対象の普遍性でカリー化するので一意に定まる。
