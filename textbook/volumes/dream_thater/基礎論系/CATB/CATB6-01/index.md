@@ -172,13 +172,13 @@ $$
 
 連言、選言、偽、真に加え、含意が順序の普遍性で定まる構造をまとめて扱う。ここで有界束とは第3節の四つの演算を持つ順序集合である。有界分配束は、さらに任意の三元について次の二つの分配律を満たす。
 
-$
+$$
 a\wedge(b\vee c)=(a\wedge b)\vee(a\wedge c),
-$
+$$
 
-$
+$$
 a\vee(b\wedge c)=(a\vee b)\wedge(a\vee c).
-$
+$$
 
 <a id="def-catb6-01-heyting-algebra"></a>
 
