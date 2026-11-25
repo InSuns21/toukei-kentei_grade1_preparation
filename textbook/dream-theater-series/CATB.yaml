@@ -48,7 +48,7 @@ chapters:
   - { id: CATB5-07, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-07, status: completed, title: "層の圏のトポス構造" }
   - { id: CATB5-08, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-08, status: completed, title: "トポスでの像と正確性" }
   - { id: CATB5-09, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-09, status: completed, title: "幾何学的射" }
-  - { id: CATB5-10, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-10, status: planned, title: "siteの比較と層の幾何" }
+  - { id: CATB5-10, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-10, status: completed, title: "siteの比較と層の幾何" }
   - { id: CATB6-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-01, status: planned, title: "部分対象のHeyting演算" }
   - { id: CATB6-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-02, status: planned, title: "量化子の随伴表示" }
   - { id: CATB6-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-03, status: planned, title: "Beck–ChevalleyとFrobenius" }
