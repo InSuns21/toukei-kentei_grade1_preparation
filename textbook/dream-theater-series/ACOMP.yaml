@@ -78,7 +78,7 @@ chapters:
     title: "制限付き可換回路：multilinear・bounded-depthの下界"
   - id: ACOMP19
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP19
-    status: planned
+    status: completed
     title: "shifted partial derivatives：小さな多項式でランクを計算"
   - id: ACOMP20
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP20

@@ -1,0 +1,37 @@
+id: "ACOMP19"
+title: "shifted partial derivatives：小さな多項式でランクを計算"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ACOMP18
+official_scope: []
+learning_objectives:
+  - シフト付き偏微分空間を生成元から構成できる
+  - 係数行列の階数と係数体の影響を計算できる
+  - 劣加法性と等次数因子の積の上界を証明できる
+  - 制限付き積和表示の項数下界を導き測度の限界を説明できる
+definitions:
+  - { id: ACOMP19-DEF-01, name: "シフト付き偏微分空間" }
+theorems:
+  - { id: ACOMP19-THM-01, name: "シフト付き偏微分の係数行列による次元計算" }
+  - { id: ACOMP19-THM-02, name: "シフト付き偏微分次元の劣加法性" }
+  - { id: ACOMP19-THM-03, name: "等次数因子の積のシフト付き偏微分次元上界" }
+  - { id: ACOMP19-THM-04, name: "等次数因子の積の和の項数下界" }
+canonical_examples:
+  - 二変数単項式のシフト
+  - 同じ偏微分次元と異なるシフト付き偏微分次元
+  - 等次数因子の積の上界と実際の次元
+  - 立方和の項数下界
+problem_patterns:
+  - ACOMP19-A1
+  - ACOMP19-A2
+  - ACOMP19-A3
+  - ACOMP19-A4
+  - ACOMP19-B1
+  - ACOMP19-B2
+  - ACOMP19-B3
+  - ACOMP19-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
