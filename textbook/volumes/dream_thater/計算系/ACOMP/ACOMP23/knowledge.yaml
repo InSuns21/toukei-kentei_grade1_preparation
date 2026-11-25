@@ -19,15 +19,14 @@ concepts:
   - id: algebraic-complexity.zariski-orbit-closure
     name: "Zariski軌道閉包"
     kind: definition
-    aliases: ["軌道閉包"]
     introduction: formal
     introduction_aliases: ["定義（斉次多項式の線形置換軌道とZariski軌道閉包）"]
     requires: [algebraic-complexity.substitution-orbit, algebraic-geometry.zariski-topology]
   - id: algebraic-complexity.end-orbit-closure
-    name: "全線形置換の像と軌道閉包"
+    name: "全線形置換の像とZariski軌道閉包"
     kind: theorem
     introduction: formal
-    introduction_aliases: ["定理（全線形置換の像と軌道閉包）"]
+    introduction_aliases: ["定理（全線形置換の像とZariski軌道閉包）"]
     requires: [algebraic-complexity.zariski-orbit-closure, algebraic-geometry.vanishing-ideal]
   - id: algebraic-complexity.determinantal-substitution
     name: "行列式表示と斉次線形置換"
@@ -36,10 +35,10 @@ concepts:
     introduction_aliases: ["定理（行列式表示と斉次線形置換）"]
     requires: [algebraic-complexity.determinantal-complexity, algebraic-complexity.target-homogenization]
   - id: algebraic-complexity.determinantal-border-closure
-    name: "行列式表示の閉包と行列式軌道閉包"
+    name: "行列式表示の閉包と行列式のZariski軌道閉包"
     kind: theorem
     introduction: formal
-    introduction_aliases: ["定理（行列式表示の閉包と行列式軌道閉包）"]
+    introduction_aliases: ["定理（行列式表示の閉包と行列式のZariski軌道閉包）"]
     requires: [algebraic-complexity.determinantal-substitution, algebraic-complexity.end-orbit-closure, algebraic-complexity.degeneration-closure]
   - id: algebraic-complexity.equivariant-restriction
     name: "不変閉集合の座標環の制限"
