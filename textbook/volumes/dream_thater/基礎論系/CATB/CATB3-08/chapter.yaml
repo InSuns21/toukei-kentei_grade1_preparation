@@ -1,0 +1,22 @@
+id: "CATB3-08"
+title: "局所可呈示圏の随伴判定"
+volume: "foundations"
+status: supplementary
+prerequisites: [CATB3-05, CAT2-12]
+official_scope: []
+learning_objectives:
+  - 余極限保存関手に対する双対の解集合条件を射の向きから説明できる
+  - 表示対象の集合から小さい候補圏を構成して弱終対象を得られる
+  - Freydの一般随伴関手定理の双対を適用し右随伴の存在を証明できる
+  - 具体的な関手の右随伴を計算し余極限保存が欠ける反例を説明できる
+definitions:
+  - { id: CATB3-08-DEF-01, name: "双対の解集合条件" }
+theorems:
+  - { id: CATB3-08-THM-01, name: "表示対象からの弱終対象の構成" }
+  - { id: CATB3-08-THM-02, name: "局所可呈示圏からの左随伴の判定" }
+canonical_examples: [集合の積関手, 集合の対角関手, 冪集合の包含順序圏]
+problem_patterns: [CATB3-08-A01, CATB3-08-A02, CATB3-08-A03, CATB3-08-A04, CATB3-08-B01, CATB3-08-B02, CATB3-08-B03, CATB3-08-B04, CATB3-08-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 2 }

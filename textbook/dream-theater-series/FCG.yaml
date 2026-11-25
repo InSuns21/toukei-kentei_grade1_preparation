@@ -1,7 +1,7 @@
 version: 1
 id: FCG
 title: "流体コンピュータグラフィックス"
-plan: textbook/plans_progress/DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 # 実装済み講義だけを公開目次へ追加する。残りのPLAN講義は予定として保持する。
 chapters:
@@ -24,4 +24,4 @@ chapters:
   - { id: FCG17, path: textbook/volumes/dream_thater/計算系/FCG/FCG17, status: completed, title: "渦の細部を増やすと何が壊れるか" }
   - { id: FCG18, path: textbook/volumes/dream_thater/計算系/FCG/FCG18, status: completed, title: "流体と動く物体の作用をどう表示するか" }
   - { id: FCG19, path: textbook/volumes/dream_thater/計算系/FCG/FCG19, status: completed, title: "計算性能と物理的精度を両立できるか" }
-  - { id: FCG20, path: textbook/volumes/dream_thater/計算系/FCG/FCG20, status: planned, title: "地形上の浸水を誤解なく可視化できるか" }
+  - { id: FCG20, path: textbook/volumes/dream_thater/計算系/FCG/FCG20, status: completed, title: "地形上の浸水を誤解なく可視化できるか" }

@@ -3,6 +3,11 @@
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
 
 export const LAB_PARAMETERS = Object.freeze({
+  FCG20: Object.freeze([
+    Object.freeze({id:'N',type:'number',label:'格子数',default:48,min:24,max:72,step:24,unit:'セル/辺',meaning:'物理格子数。領域の48 mは固定',sourceLocation:'inundation.js / const N',sourceFile:'js',index:null,matcher:/^([ \t]*const N=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'pulse',type:'number',label:'左側の追加水深',default:1,min:0,max:2,step:0.25,unit:'m',meaning:'0は湖面静止、正値は左側から水が広がる',sourceLocation:'inundation.js / const pulse',sourceFile:'js',index:null,matcher:/^([ \t]*const pulse=)([^;\n]+)(;)/gm}),
+    Object.freeze({id:'ridge',type:'number',label:'尾根の高さ',default:1.5,min:0,max:3,step:0.25,unit:'m',meaning:'中央の鞍部を持つ尾根の振幅',sourceLocation:'inundation.js / const ridge',sourceFile:'js',index:null,matcher:/^([ \t]*const ridge=)([^;\n]+)(;)/gm}),
+  ]),
   FCG19: Object.freeze([
     Object.freeze({id:'modelIndex',type:'number',label:'モデル（0染料・1浅水・2煙）',default:0,min:0,max:2,step:1,unit:'番号',meaning:'FCG5・FCG12・FCG14から選択',sourceLocation:'performance.js / const modelIndex',sourceFile:'js',index:null,matcher:/^([ \t]*const modelIndex=)([^;\n]+)(;)/gm}),
     Object.freeze({id:'renderScale',type:'number',label:'描画倍率',default:1,min:0.125,max:1,step:0.125,unit:'無次元',meaning:'FBOの各辺の倍率。物理格子は固定',sourceLocation:'performance.js / const renderScale',sourceFile:'js',index:null,matcher:/^([ \t]*const renderScale=)([^;\n]+)(;)/gm}),

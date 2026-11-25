@@ -1,0 +1,22 @@
+id: "AFR24"
+title: "Alpöge–Claudeの形式的RH/Dirichlet GRH証明の依存地図・再現可能な検証"
+volume: "foundations"
+status: supplementary
+prerequisites: [AFR23, IWA20, ANF5, ANF20, IWA9]
+official_scope: []
+learning_objectives:
+  - 整除性から重み付き素数冪和の上界を得る模型を証明できる
+  - 周期積分による線形写像の整数化と独立な像の共体積評価を導出できる
+  - 固有射影の分母と局所制限を有限模型で計算し主不等式の依存地図を読める
+  - RHとDirichlet GRHの形式命題の範囲と検証の各段階を説明できる
+definitions: []
+theorems:
+  - { id: AFR24-PROP-01, name: "整除性からの素数重み評価" }
+  - { id: AFR24-PROP-02, name: "周期積分による線形写像の整数化" }
+  - { id: AFR24-PROP-03, name: "独立な整数像による共体積評価" }
+canonical_examples: ["素数冪の整除性", "周期積分による線形写像の整数化", "独立な格子像", "有限群の局所制限", "Leanの公理依存"]
+problem_patterns: [AFR24-A1, AFR24-A2, AFR24-A3, AFR24-A4, AFR24-A5, AFR24-B1, AFR24-B2, AFR24-B3, AFR24-B4, AFR24-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 4, review: 3 }

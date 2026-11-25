@@ -1,0 +1,23 @@
+chapter: FCG20
+scope: dream-theater
+coverage: complete
+prerequisites: [FCG12, FCG19, WGL20]
+concepts:
+  - id: graphics.fcg20-hydrostatic-reconstruction
+    name: 静水圧再構成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（静水圧再構成）"]
+    requires: [graphics.fcg12-rusanov, graphics.gis-hypothetical-depth]
+  - id: graphics.fcg20-mass-positivity
+    name: 静水圧再構成による水量保存と非負水深
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静水圧再構成による水量保存と非負水深）"]
+    requires: [graphics.fcg20-hydrostatic-reconstruction, graphics.fcg12-positive]
+  - id: graphics.fcg20-lake-rest
+    name: 静水圧再構成による湖面静止の保持
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静水圧再構成による湖面静止の保持）"]
+    requires: [graphics.fcg20-hydrostatic-reconstruction, graphics.fcg20-mass-positivity]

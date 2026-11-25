@@ -1,0 +1,102 @@
+version: 1
+id: ACOMP
+title: "代数的計算複雑性理論 I・II"
+plan: textbook/plans_progress/DREAM_THEATER_ALGEBRAIC_COMPLEXITY_I_II_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+chapters:
+  - id: ACOMP1
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP1
+    status: completed
+    title: "形式多項式と多項式関数：有限体とBoolean立方体"
+  - id: ACOMP2
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP2
+    status: planned
+    title: "算術回路・straight-line program：加法・乗法・定数ゲート"
+  - id: ACOMP3
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP3
+    status: planned
+    title: "回路とformula・ABP：共有部分式とサイズ／深さ"
+  - id: ACOMP4
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP4
+    status: planned
+    title: "体の標数・拡大・定数モデル：単位コストとビット計算"
+  - id: ACOMP5
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP5
+    status: planned
+    title: "斉次化・次数切断・形式次数と実次数"
+  - id: ACOMP6
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP6
+    status: planned
+    title: "多項式族・VP・非一様性：量化順序とサイズ"
+  - id: ACOMP7
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP7
+    status: planned
+    title: "VNP・Boolean和：VP包含と変数数・次数境界"
+  - id: ACOMP8
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP8
+    status: planned
+    title: "p-projectionとc-reduction：閉性と帰着の方向"
+  - id: ACOMP9
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP9
+    status: planned
+    title: "VNP完全性の証明枠組み：局所制約から多項式へ"
+  - id: ACOMP10
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP10
+    status: planned
+    title: "determinantの多項式サイズ回路：除算不要のBerkowitz型構成"
+  - id: ACOMP11
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP11
+    status: planned
+    title: "permanentのVNP完全性：標数2以外のgadgetの符号検算"
+  - id: ACOMP12
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP12
+    status: planned
+    title: "Hamilton閉路多項式のVNP完全性：任意標数と特性2"
+  - id: ACOMP13
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP13
+    status: planned
+    title: "VF・VBP・VP・VNP：determinantの正しい完全性範囲"
+  - id: ACOMP14
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP14
+    status: planned
+    title: "部分微分法・Baur–Strassen：回路微分のコスト"
+  - id: ACOMP15
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP15
+    status: planned
+    title: "深さ削減：VSBR型分割と次数・サイズのトレードオフ"
+  - id: ACOMP16
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP16
+    status: planned
+    title: "単調回路下界：打消しを許すモデルとの差"
+  - id: ACOMP17
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP17
+    status: planned
+    title: "非可換ABPとNisan型ランク下界"
+  - id: ACOMP18
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP18
+    status: planned
+    title: "制限付き可換回路：multilinear・bounded-depthの下界"
+  - id: ACOMP19
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP19
+    status: planned
+    title: "shifted partial derivatives：小さな多項式でランクを計算"
+  - id: ACOMP20
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP20
+    status: planned
+    title: "PIT・Schwartz–Zippel・derandomizationと下界の関係"
+  - id: ACOMP21
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP21
+    status: planned
+    title: "形式冪級数・Laurent級数・付値：定数の極と係数の極限"
+  - id: ACOMP22
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP22
+    status: planned
+    title: "border complexity・退化・Zariski閉包：体と同値条件を区別"
+  - id: ACOMP23
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP23
+    status: planned
+    title: "GCTへの入口：軌道閉包・determinantal complexity・表現論の役割"
+  - id: ACOMP24
+    path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP24
+    status: planned
+    title: "Boolean P vs NP・P/poly・#Pとの条件付き含意、既知の証明障壁と総合演習"

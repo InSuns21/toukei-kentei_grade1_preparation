@@ -7,7 +7,7 @@
 | 系列 | 正本 | 講数 |
 | --- | --- | ---: |
 | GCT | [組合せグラフ理論・計数計算量](../plans_progress/DREAM_THEATER_GRAPH_COUNTING_COMPLEXITY_PLAN.md) | 16 |
-| ACOMP | [代数的計算複雑性理論 I・II](DREAM_THEATER_ALGEBRAIC_COMPLEXITY_I_II_PLAN.md) | 24 |
+| ACOMP | [代数的計算複雑性理論 I・II](../plans_progress/DREAM_THEATER_ALGEBRAIC_COMPLEXITY_I_II_PLAN.md) | 24 |
 | TSP | [テンソル理論・漸近スペクトル](DREAM_THEATER_TENSOR_ASYMPTOTIC_SPECTRUM_PLAN.md) | 16 |
 | NPCG | [距離幾何学・非正曲率空間](DREAM_THEATER_NONPOSITIVE_CURVATURE_METRIC_GEOMETRY_PLAN.md) | 12 |
 | FML | [形式数学・Lean 4](DREAM_THEATER_FORMAL_MATHEMATICS_LEAN_PLAN.md) | 7 |

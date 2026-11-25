@@ -24,3 +24,4 @@
 21. [AFR21 周期積分・seesaw identity](textbook/volumes/dream_thater/代数系/AFR/AFR21/index.md)
 22. [AFR22 Rallis内積公式・相対跡公式への入口](textbook/volumes/dream_thater/代数系/AFR/AFR22/index.md)
 23. [AFR23 RH・Dirichlet GRH：零点から平滑化素数冪和、主不等式(M)への解析的還元](textbook/volumes/dream_thater/代数系/AFR/AFR23/index.md)
+24. [AFR24 Alpöge–Claudeの形式的RH/Dirichlet GRH証明の依存地図・再現可能な検証](textbook/volumes/dream_thater/代数系/AFR/AFR24/index.md)
