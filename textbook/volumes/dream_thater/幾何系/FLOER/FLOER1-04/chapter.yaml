@@ -1,0 +1,47 @@
+id: "FLOER1-04"
+title: "Floer理論の横断性・コンパクト性・境界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLOER1-03
+  - GW1-04
+  - GW1-05
+  - GW1-06
+official_scope: []
+learning_objectives:
+  - 正則性とFredholm指数を区別し局所解空間の次元を導ける
+  - 適合概複素構造の局所摂動による余核の排除を説明できる
+  - 作用断面で平行移動を除いた解空間を構成できる
+  - 完全性とコンパクト像から球面・円板の泡を排除できる
+  - 作用値を使って折れ曲がり極限と接続点を特定できる
+  - 無泡正則かつ整数次数を持つ場合の低次元極限を分類できる
+definitions:
+  - { id: FLOER1-04-DEF-01, name: "平行移動を除いたstripのモジュライ" }
+  - { id: FLOER1-04-DEF-02, name: "折れ曲がったstripと折れ曲がり収束" }
+theorems:
+  - { id: FLOER1-04-PROP-01, name: "正則stripの局所解空間" }
+  - { id: FLOER1-04-THM-02, name: "単射な内部点を持つstripの普遍横断性" }
+  - { id: FLOER1-04-PROP-03, name: "作用断面による商の次元" }
+  - { id: FLOER1-04-PROP-04, name: "完全境界での球面泡・円板泡の排除" }
+  - { id: FLOER1-04-THM-05, name: "完全境界でのstripの一様勾配評価" }
+  - { id: FLOER1-04-LEM-06, name: "コンパクト像を持つ無泡stripの収束端" }
+  - { id: FLOER1-04-THM-07, name: "完全境界での折れ曲がりコンパクト性" }
+  - { id: FLOER1-04-THM-08, name: "無泡かつ正則な次数付きstripの低次元極限" }
+canonical_examples:
+  - 横断する直線の定数解と可逆な線形化
+  - 半円stripの移動と作用断面
+  - 円周での非完全境界
+  - 半円stripの積の折れ曲がり極限
+problem_patterns:
+  - FLOER1-04-A01
+  - FLOER1-04-A02
+  - FLOER1-04-A03
+  - FLOER1-04-A04
+  - FLOER1-04-B01
+  - FLOER1-04-B02
+  - FLOER1-04-B03
+  - FLOER1-04-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 14, exercises: 9, review: 5 }
