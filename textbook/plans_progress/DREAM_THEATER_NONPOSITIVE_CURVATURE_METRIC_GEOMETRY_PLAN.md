@@ -1,7 +1,7 @@
 # DREAM THEATER 距離幾何学・非正曲率空間 計画
 
 構成確定日: 2026-11-24 JST
-状態: in progress（NPCG1–5実装、NPCG6以降未着手）
+状態: in progress（NPCG1–6実装、NPCG7以降未着手）
 系列ID: NPCG（[系列manifest](../dream-theater-series/NPCG.yaml)）
 講数: **全12講**
 
@@ -20,7 +20,7 @@
 | NPCG3 | CAT(0)条件：木・Euclid空間・反例 | NPCG2および必要な既存前提 |
 | NPCG4 | Bruhat–Tits CN不等式と中点一意性 | NPCG3および必要な既存前提 |
 | NPCG5 | 測地線凸性と距離の凸性：中点から任意比へ | NPCG4および必要な既存前提 |
-| NPCG6 | 四辺形不等式・等号・平坦な部分集合 | NPCG5および必要な既存前提 |
+| NPCG6 | 四辺形不等式・等号・平坦な部分集合 | NPCG5、F0-00E（一次独立・一次従属）、OPT1（凸結合・凸集合・有限集合の凸包） |
 | NPCG7 | 閉凸集合への射影とPythagoras型評価 | NPCG6および必要な既存前提 |
 | NPCG8 | 重心・二乗距離の最小化・分散不等式 | NPCG7および必要な既存前提 |
 | NPCG9 | 等長群作用・有限群固定点・不変凸集合 | NPCG8および必要な既存前提 |
