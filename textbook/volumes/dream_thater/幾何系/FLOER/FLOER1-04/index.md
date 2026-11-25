@@ -12,7 +12,18 @@
 - 曲線の移動と変形を区別し、平行移動を除いて次元を求める。
 - エネルギーを使って解列の極限を取り、どのような退化が一次元の解空間の端に現れ得るかを分類する。
 
-固定した滑らかな[適合概複素構造](../../SYM/SYM8/index.md#def-sym8-almost-complex) $J$ を持つシンプレクティック多様体 $(X,\omega)$ を考え、境界なしの閉じた埋め込みLagrange部分多様体 $L_0,L_1$ は横断的に交わるとする。「閉じた」はここでは $X$ の閉集合という意味であり、コンパクトとは限らない。計量は $g(v,w)=\omega(v,Jw)$、帯は $S=\mathbb R\times[0,1]$ とする。[stripの境界条件](../FLOER1-01/index.md#def-floer1-01-strip)と[収束端](../FLOER1-02/index.md#def-floer1-02-ends)を引き継ぐ。以下、$u_s=\partial_su=du(\partial/\partial s)$、$u_t=\partial_tu=du(\partial/\partial t)$ は他方の変数を固定した偏微分を表し、$\nabla_s,\nabla_t$ は対応する方向の共変微分である。
+固定した滑らかな[適合概複素構造](../../SYM/SYM8/index.md#def-sym8-almost-complex) $J$ を持つシンプレクティック多様体 $(X,\omega)$ を考え、境界なしの閉じた埋め込みLagrange部分多様体 $L_0,L_1$ は横断的に交わるとする。「閉じた」はここでは $X$ の閉集合という意味であり、コンパクトとは限らない。
+
+計量は $g(v,w)=\omega(v,Jw)$、帯は $S=\mathbb R\times[0,1]$ とする。[stripの境界条件](../FLOER1-01/index.md#def-floer1-01-strip)と[収束端](../FLOER1-02/index.md#def-floer1-02-ends)を引き継ぐ。
+
+以下、他方の変数を固定した偏微分を
+
+$
+u_s=\partial_su=du(\partial/\partial s),\qquad
+u_t=\partial_tu=du(\partial/\partial t)
+$
+
+と書く。$\nabla_s,\nabla_t$ は対応する方向の共変微分である。
 
 $$
 u_s+J(u)u_t=0,\qquad u(s,j)\in L_j\quad(j=0,1).
@@ -471,7 +482,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-floer1-04-broken -->
-**定義の確認**。先ほどの半円strip $v$ を二つ組み合わせる。標的は平面から上半円を含む開弧 $L_1$ の二端点を除いた開集合の二重積、境界は実軸の二重積と開弧の二重積とする。各開弧を閉集合にするために、その二端点を標的から除いた。上半閉円板は除いた点を含まないのでコンパクトな像の制約を満たす。各因子の $\lambda=-y\,dx$ の和を取れば完全性が成り立つ。具体的には $0<\alpha<\pi/2$ として開弧を $-\alpha<\theta<\pi+\alpha$ の単位円周とし、二端点だけを平面から除く。実軸とこの開弧は除いた平面の中で閉じた一次元部分多様体であり、交点 $\pm1$ では実軸の水平接線と円の垂直接線が横断する。実軸では $\lambda=0$、開弧では $\lambda=\sin^2\theta\,d\theta=d(\theta/2-\sin(2\theta)/4)$ である。積でも原始関数の和が原始関数となり、各因子での横断性から積の交点も横断的である。
+**定義の確認**。先ほどの半円strip $v$ を二つ組み合わせる。標的は平面から上半円を含む開弧 $L_1$ の二端点を除いた開集合の二重積、境界は実軸の二重積と開弧の二重積とする。各開弧を閉集合にするために、その二端点を標的から除いた。上半閉円板は除いた点を含まないのでコンパクトな像の制約を満たす。各因子の $\lambda=-y\,dx$ の和を取れば完全性が成り立つ。
+
+具体的には $0<\alpha<\pi/2$ として開弧を $-\alpha<\theta<\pi+\alpha$ の単位円周とし、二端点だけを平面から除く。実軸とこの開弧は除いた平面の中で閉じた一次元部分多様体であり、交点 $\pm1$ では実軸の水平接線と円の垂直接線が横断する。
+
+実軸では $\lambda=0$、開弧では次の等式が成り立つ。
+
+$
+\lambda=\sin^2\theta\,d\theta
+=d\left(\frac{\theta}{2}-\frac{\sin(2\theta)}{4}\right).
+$
+
+積でも原始関数の和が原始関数となり、各因子での横断性から積の交点も横断的である。
 
 $$
 u_m(s,t)=(v(s,t),v(s-m,t)).
@@ -619,7 +641,11 @@ $$
 滑らかな非定数完全境界strip $u$ の線形化が全射で指数3とする。$u(s+c,t)$ を $c$ で微分して核の元を求め、商の局所次元を答えよ。
 
 <!-- solution-start -->
-**詳細解答**。$u_c(s,t)=u(s+c,t)$ だから $\partial_cu_c|_{c=0}=u_s$。全ての $u_c$ が方程式を満たすので、$c$ で微分すると $D_uu_s=0$。$u_s=0$ がいたる所で成立すると方程式で $u_t=0$ となり定数なので、$u_s$ は非零。[Fredholm指数](../../GW/GW1-03/index.md#def-gw1-03-fredholm)の定義で、全射なら余核が零だから核は3次元。[作用断面による商の次元](#prop-floer1-04-quotient)でこの移動方向を一つ除き、$3-1=2$ 次元となる。
+**詳細解答**。$u_c(s,t)=u(s+c,t)$ だから $\partial_cu_c|_{c=0}=u_s$。
+
+全ての $u_c$ が方程式を満たすので、$c$ で微分すると $D_uu_s=0$。$u_s=0$ がいたる所で成立すると方程式で $u_t=0$ となり定数なので、$u_s$ は非零。
+
+[Fredholm指数](../../GW/GW1-03/index.md#def-gw1-03-fredholm)の定義で、全射なら余核が零だから核は3次元。[作用断面による商の次元](#prop-floer1-04-quotient)でこの移動方向を一つ除き、$3-1=2$ 次元となる。
 <!-- solution-end -->
 
 <a id="ex-floer1-04-a03"></a>
