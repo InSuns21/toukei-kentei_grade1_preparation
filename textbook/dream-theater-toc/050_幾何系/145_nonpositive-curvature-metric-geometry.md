@@ -5,3 +5,4 @@
 2. [NPCG2 長さ空間・測地線・比較三角形](textbook/volumes/dream_thater/幾何系/NPCG/NPCG2/index.md)
 3. [NPCG3 CAT(0)条件：木・Euclid空間・反例](textbook/volumes/dream_thater/幾何系/NPCG/NPCG3/index.md)
 4. [NPCG4 Bruhat–Tits CN不等式と中点一意性](textbook/volumes/dream_thater/幾何系/NPCG/NPCG4/index.md)
+5. [NPCG5 測地線凸性と距離の凸性：中点から任意比へ](textbook/volumes/dream_thater/幾何系/NPCG/NPCG5/index.md)

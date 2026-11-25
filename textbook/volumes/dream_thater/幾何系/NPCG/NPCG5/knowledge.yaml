@@ -1,0 +1,49 @@
+chapter: NPCG5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NPCG4
+forward_references: []
+concepts:
+  - id: metric-geometry.geodesically-convex-set
+    name: 測地線凸集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（測地線凸集合）"]
+    requires: [metric-geometry.geodesic-space, metric-geometry.geodesic-segment]
+  - id: metric-geometry.geodesically-convex-function
+    name: 測地線凸関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（測地線凸関数）"]
+    requires: [metric-geometry.geodesically-convex-set, metric-geometry.geodesic-segment]
+  - id: metric-geometry.continuous-midpoint-convexity
+    name: 連続な中点凸関数の凸性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（連続な中点凸関数の凸性）"]
+    requires: [topology.continuous-map]
+  - id: metric-geometry.common-endpoint-distance-bound
+    name: 共通始点からの距離評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（共通始点からの距離評価）"]
+    requires: [metric-geometry.cat-zero-space, metric-geometry.comparison-triangle]
+  - id: metric-geometry.cat-zero-distance-convexity
+    name: "CAT(0)空間の距離の凸性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（CAT(0)空間の距離の凸性）"]
+    requires: [metric-geometry.common-endpoint-distance-bound, metric-geometry.continuous-midpoint-convexity]
+  - id: metric-geometry.distance-ball-convexity
+    name: 距離関数と閉球の測地線凸性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（距離関数と閉球の測地線凸性）"]
+    requires: [metric-geometry.cat-zero-distance-convexity, metric-geometry.geodesically-convex-function, metric-geometry.geodesically-convex-set]
+  - id: metric-geometry.distance-convexity-not-cat-zero
+    name: "距離の凸性だけではCAT(0)性は従わない"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（距離の凸性だけではCAT(0)性は従わない）"]
+    requires: [metric-geometry.cat-zero-distance-convexity, metric-geometry.cn-inequality]

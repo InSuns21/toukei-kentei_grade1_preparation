@@ -1,0 +1,28 @@
+id: "NPCG5"
+title: "測地線凸性と距離の凸性：中点から任意比へ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NPCG4
+official_scope: []
+learning_objectives:
+  - 測地線凸集合と測地線凸関数を定義から判定できる
+  - 連続な中点評価を二進分割から任意比に拡張できる
+  - CAT(0)空間における二本の測地線分の距離の凸性を証明できる
+  - 距離と二乗距離の評価を凸集合および最小化に適用できる
+  - 距離の凸性とCAT(0)条件の違いを反例で説明できる
+definitions:
+  - { id: NPCG5-DEF-01, name: "測地線凸集合" }
+  - { id: NPCG5-DEF-02, name: "測地線凸関数" }
+theorems:
+  - { id: NPCG5-THM-01, name: "連続な中点凸関数の凸性" }
+  - { id: NPCG5-THM-02, name: "共通始点からの距離評価" }
+  - { id: NPCG5-THM-03, name: "CAT(0)空間の距離の凸性" }
+  - { id: NPCG5-THM-04, name: "距離関数と閉球の測地線凸性" }
+  - { id: NPCG5-PROP-01, name: "距離の凸性だけではCAT(0)性は従わない" }
+canonical_examples: [半平面, 実直線の平方, Euclid平面, 通常距離に座標差を加えた平面]
+problem_patterns: [NPCG5-A01, NPCG5-A02, NPCG5-A03, NPCG5-A04, NPCG5-B01, NPCG5-B02, NPCG5-B03, NPCG5-B04, NPCG5-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
