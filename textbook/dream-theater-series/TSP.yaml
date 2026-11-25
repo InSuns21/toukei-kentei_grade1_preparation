@@ -18,7 +18,7 @@ chapters:
     title: "平坦化と部分空間の階数下界"
   - id: TSP4
     path: textbook/volumes/dream_thater/計算系/TSP/TSP4
-    status: planned
+    status: completed
     title: "制限・劣階数・対角テンソルと局所線形写像"
   - id: TSP5
     path: textbook/volumes/dream_thater/計算系/TSP/TSP5
