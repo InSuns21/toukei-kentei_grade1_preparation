@@ -65,7 +65,7 @@ $$
 
 ## 2. 指数重みの正規化
 
-自由場の確率に $e^{-V_{\epsilon,g}}$ を掛けて相互作用を入れる。総質量が1になるように重みの期待値で割る必要がある。この期待値は分配関数とも呼ばれる。
+自由場の確率に $e^{-V_{\epsilon,g}}$ を掛けて相互作用を入れる。総質量が1になるように重みの期待値で割る必要がある。
 
 <a id="thm-mqfc15-gibbs"></a>
 
@@ -276,7 +276,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$Y_n=e^{-V_n}$、$Y=e^{-V}$ と置く。確率収束から $Y_n\to Y$ も確率収束する。実際 $|V|\le R$、$|V_n-V|\le\delta\le1$ 上で平均値の定理より $|Y_n-Y|\le e^{R+1}\delta$。$R$ を大きくして $P(|V|>R)$ を小さくし、所定の誤差以下になる $\delta$ を選べば、残る例外確率 $P(|V_n-V|>\delta)$ は0へ行く。
+$Y_n=e^{-V_n}$、$Y=e^{-V}$ と置く。確率収束から $Y_n\to Y$ も確率収束する。実際 $|V|\le R$、$|V_n-V|\le\delta\le1$ の事象では、指数の差を因数分解して
+
+$
+|Y_n-Y|=e^{-V}|e^{-(V_n-V)}-1|
+\le e^R(e^\delta-1).
+$
+
+右辺は $\delta\downarrow0$ で0に近づく。$R$ を大きくして $P(|V|>R)$ を小さくし、所定の誤差以下になる $\delta$ を選べば、残る例外確率 $P(|V_n-V|>\delta)$ は0へ行く。
 
 $Y_n\wedge T$ は $Y_n$ と $T>0$ の小さい方である。任意の $\eta>0$ で二つの事象に分けると
 
@@ -285,7 +292,7 @@ E|Y_n\wedge T-Y\wedge T|
 \le\eta+T P(|Y_n-Y|>\eta).
 $$
 
-$n\to\infty$、次に $\eta\downarrow0$ とすれば左辺は0へ行く。関数 $v\mapsto e^{-qv}$ についても先ほどと同じ平均値の定理の評価 $q e^{q(R+1)}\delta$ を使える。従って $Y_n^q\wedge T\to Y^q\wedge T$ も期待絶対差で収束し、$E[Y^q\wedge T]\le K$。単調収束で $E[Y^q]\le K$ である。
+$n\to\infty$、次に $\eta\downarrow0$ とすれば左辺は0へ行く。関数 $v\mapsto e^{-qv}$ についても同じ因数分解により $|Y_n^q-Y^q|\le e^{qR}(e^{q\delta}-1)$ を得る。従って $Y_n^q\wedge T\to Y^q\wedge T$ も期待絶対差で収束し、$E[Y^q\wedge T]\le K$。単調収束で $E[Y^q]\le K$ である。
 
 $y>T$ なら $y\le y^q/T^{q-1}$ なので
 
