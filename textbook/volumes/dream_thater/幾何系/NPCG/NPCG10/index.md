@@ -82,7 +82,7 @@ $$
 > 特に $Tx=x$ と $x\in K$ は同値である。
 <!-- formal-statement-end -->
 
-各射影で [Pythagoras型不等式](../NPCG7/index.md#thm-npcg7-pythagorean) を使い、射影先の集まりを [分散不等式](../NPCG8/index.md#thm-npcg8-variance-inequality) で一つの重心へ置き換えます。二種類の距離の二乗が残る点が重要です。
+[射影のPythagoras型不等式](../NPCG7/index.md#thm-npcg7-pythagorean) は、各射影の移動距離を評価する道具です。[分散不等式](../NPCG8/index.md#thm-npcg8-variance-inequality) は、射影先の集まりを一つの重心へ置き換える道具です。二種類の距離の二乗が残る点が重要です。
 
 <!-- proof-start -->
 ### 証明
@@ -179,7 +179,7 @@ $$
 d(x_n,y_n)^2+d(y_n,z)^2\le d(x_n,z)^2.
 $$
 
-$z\in C$ なので、$y_n$ の $C$ への射影 $x_{n+1}$ に同じ定理を適用すると
+$z\in C$ です。[射影のPythagoras型不等式](../NPCG7/index.md#thm-npcg7-pythagorean) の入力を $(y_n,x_{n+1},z)$ とすれば
 
 $$
 d(y_n,x_{n+1})^2+d(x_{n+1},z)^2\le d(y_n,z)^2.
@@ -205,7 +205,7 @@ $a_n\ge0$ で部分和が有界なので、部分和は有限の極限を持ち�
 
 ## 4. 凸集合の離れ方と収束率
 
-平面上の二直線が小さな角度で交わる場合、片方に沿って交点から遠く進んでも、他方の直線からはあまり離れません。この場合、交互射影一回での移動量も小さくなります。一般の距離空間には内積がないので、ここでは角度そのものを定義する代わりに、集合までの距離を比較する条件を導入します。
+平面上の二直線が小さな角度で交わる場合、片方に沿って交点から遠く進んでも、他方の直線からはあまり離れません。この場合、交互射影一回での移動量も小さくなります。一般の距離空間には内積がないので、ここでは角度そのものを定義する代わりに、[集合への距離](../NPCG7/index.md#def-npcg7-metric-projection) を使い、共通部分と他方の集合への距離を比較する条件を導入します。
 
 <a id="def-npcg10-metric-separation"></a>
 
@@ -291,7 +291,13 @@ $$
 d(x_j,x_n)\le d(x_j,z_n)+d(z_n,x_n)\le 2r_n.
 $$
 
-$r_n\to0$ なので $(x_n)$ はCauchy列です。完備性により $x_n\to x_*$ となる点が $X$ に存在します。$d(x_n,y_n)=d(x_n,D)\le r_n$ なので三角不等式から $y_n\to x_*$ です。各 $x_n\in C$、各 $y_n\in D$ で両集合は閉なので $x_*\in K$ です。
+$r_n\to0$ なので $(x_n)$ はCauchy列です。完備性により $x_n\to x_*$ となる点が $X$ に存在します。$d(x_n,y_n)=d(x_n,D)\le r_n$ です。さらに
+
+$$
+0\le d(y_n,x_*)\le d(y_n,x_n)+d(x_n,x_*)\le r_n+d(x_n,x_*)\to0.
+$$
+
+従って $y_n\to x_*$ です。各 $x_n\in C$、各 $y_n\in D$ で両集合は閉です。[距離空間における閉集合の点列特徴付け](../../../基礎科目/F0/F0-00B/index.md#thm-f0-00b-01) を各列に適用すると $x_*\in C$ と $x_*\in D$ が得られ、従って $x_*\in K$ です。
 
 上の $d(x_j,x_n)\le2r_n$ で $j\to\infty$ とすれば $d(x_n,x_*)\le2r_n$ です。また [距離射影の非拡大性](../NPCG7/index.md#thm-npcg7-projection-nonexpansive) と $P_Dx_*=x_*$ により
 
@@ -429,7 +435,7 @@ $$
 d(x_3,x_*)\le2r_3\le256/25=10.24.
 $$
 
-前者は集合までの距離、後者は選ばれた一点までの距離の上界です。
+前者は共通部分への距離、後者は選ばれた一点までの距離の上界です。
 <!-- solution-end -->
 
 <a id="ex-npcg10-b01"></a>
