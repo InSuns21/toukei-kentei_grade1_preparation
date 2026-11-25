@@ -171,7 +171,13 @@ $$
 
 が定義できます。ノルムの斉次性から $\|r(z)\|=\|z\|/\|z\|=1$ なので球面に値を取ります。
 
-$z=(z_1,\ldots,z_n)$ の第 $j$ 座標を $z_j$（$1\le j\le n$）とすると、$r$ の第 $j$ 成分は $z_j/\|z\|$ です。分子・分母は連続、分母は正なので各成分は連続です。[積位相の普遍性](../../../基礎科目/TOP/TOP1/index.md#thm-top1-product-universal) により $\mathbb R^n$ への写像として連続です。[部分空間位相の連続性判定](../../../基礎科目/TOP/TOP1/index.md#prop-top1-subspace-universal) により球面への連続写像です。
+$z=(z_1,\ldots,z_n)$ と書き、第 $j$ 座標を $z_j$（$1\le j\le n$）とします。このときレトラクションの各成分は
+
+$$
+r(z)_j=\frac{z_j}{\|z\|}
+$$
+
+です。分子・分母は連続、分母は正なので各成分は連続です。[積位相の普遍性](../../../基礎科目/TOP/TOP1/index.md#thm-top1-product-universal) により $\mathbb R^n$ への写像として連続です。[部分空間位相の連続性判定](../../../基礎科目/TOP/TOP1/index.md#prop-top1-subspace-universal) により球面への連続写像です。
 
 $\|a\|=1$ なら $r(a)=a$ です。
 
