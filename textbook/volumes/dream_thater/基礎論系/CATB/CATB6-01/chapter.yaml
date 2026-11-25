@@ -1,0 +1,27 @@
+id: "CATB6-01"
+title: "部分対象のHeyting演算"
+volume: "foundations"
+status: supplementary
+prerequisites: [CATB5-08, CATB5-06, CATB4-07, CAT4-05, CAT2-03]
+official_scope: []
+learning_objectives:
+  - 部分対象の最大元と共通部分を引き戻しで構成できる
+  - 冪対象と等化子を用いて有限和と最小元を構成できる
+  - ファイバー包含条件から部分対象の含意を構成できる
+  - 含意の普遍性から分配律と否定の性質を導ける
+  - 部分対象のHeyting演算が逆像で保存されることを証明できる
+  - 前層圏で排中律と二重否定の除去が成立しない例を計算できる
+definitions:
+  - { id: CATB6-01-DEF-01, name: "Heyting代数" }
+theorems:
+  - { id: CATB6-01-THM-01, name: "部分対象の最大元と共通部分" }
+  - { id: CATB6-01-THM-02, name: "部分対象の最小元と有限和" }
+  - { id: CATB6-01-THM-03, name: "部分対象の含意" }
+  - { id: CATB6-01-THM-04, name: "初等トポスの部分対象のHeyting代数性" }
+  - { id: CATB6-01-THM-05, name: "部分対象のHeyting演算の逆像保存" }
+canonical_examples: [集合の冪集合, 二対象の前層圏の三元鎖, 三対象の前層圏の分岐]
+problem_patterns: [CATB6-01-A01, CATB6-01-A02, CATB6-01-A03, CATB6-01-A04, CATB6-01-B01, CATB6-01-B02, CATB6-01-B03, CATB6-01-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 2 }
