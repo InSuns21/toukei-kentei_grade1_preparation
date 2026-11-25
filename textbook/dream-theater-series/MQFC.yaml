@@ -6,7 +6,7 @@ chapter_root: textbook/volumes/dream_thater
 chapters:
   - { id: MQFC1, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC1, status: completed, title: "場のsmearing・Schwartz空間・緩増加分布と核" }
   - { id: MQFC2, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC2, status: completed, title: "作用素値分布と共通稠密定義域" }
-  - { id: MQFC3, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC3, status: planned, title: "Wightman公理とスペクトル条件" }
+  - { id: MQFC3, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC3, status: completed, title: "Wightman公理とスペクトル条件" }
   - { id: MQFC4, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC4, status: planned, title: "Wightman再構成と解析性" }
   - { id: MQFC5, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC5, status: planned, title: "Euclid自由場の共分散" }
   - { id: MQFC6, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC6, status: planned, title: "Gaussian測度をどう作るか" }
