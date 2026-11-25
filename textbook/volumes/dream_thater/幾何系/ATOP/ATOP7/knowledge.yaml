@@ -1,0 +1,31 @@
+chapter: ATOP7
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP4, ATOP5, ATOP6]
+forward_references: []
+concepts:
+  - id: atop.group-presentation
+    name: 群の表示
+    kind: definition
+    introduction: formal
+    requires: [algebra.group]
+  - id: atop.presentation-homomorphism
+    name: 群の表示からの準同型
+    kind: proposition
+    introduction: formal
+    requires: [atop.group-presentation, algebra.group-homomorphism]
+  - id: atop.free-product
+    name: 自由積
+    kind: definition
+    introduction: formal
+    requires: [atop.group-presentation, algebra.group]
+  - id: atop.free-product-universal-property
+    name: 自由積の普遍性
+    kind: proposition
+    introduction: formal
+    requires: [atop.free-product, atop.presentation-homomorphism, algebra.group-homomorphism]
+  - id: atop.van-kampen
+    name: van Kampen定理
+    kind: theorem
+    introduction: formal
+    requires: [atop.free-product-universal-property, atop.induced-fundamental-group-homomorphism, atop.lebesgue-number, atop.path-class-laws, atop.path-reparametrization, algebra.quotient-group, topology.path-connected-space]
