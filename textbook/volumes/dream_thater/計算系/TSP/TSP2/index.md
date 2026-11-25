@@ -123,7 +123,7 @@ $$
 
 なので、写像 $x\mapsto Mx$ の像は全列の[線形包](../../../代数系/FLD/FLD0/index.md#def-fld0-span-over-field)です。その[体上の次元](../../../代数系/FLD/FLD0/index.md#def-fld0-dimension-over-field)を行列階数 $\operatorname{rank}_K M$ と書き、体が明らかなときは $\operatorname{rank}M$ と略します。
 
-単純テンソル $u\otimes v$ に対し、$u=\sum_i a_i e_i$、$v=\sum_j b_j f_j$ と展開します。[多因子テンソル積の存在・基底・一意性](../TSP1/index.md#thm-tsp1-multifactor-basis)の成分公式により係数は $a_i b_j$ です。座標列 $a\in K^m,b\in K^n$ からこの係数を並べた行列を外積行列 $ab^{\mathsf T}$ といいます。$\mathsf T$ は転置を表し、複素共役は取りません。
+単純テンソル $u\otimes v$ に対し、$u=\sum_i a_i e_i$、$v=\sum_j b_j f_j$ と展開します。[多因子テンソル積の存在・基底・一意性](../TSP1/index.md#thm-tsp1-multifactor-basis)を適用すると、係数は $a_i b_j$ です。座標列 $a\in K^m,b\in K^n$ からこの係数を並べた行列を外積行列 $ab^{\mathsf T}$ といいます。$\mathsf T$ は転置を表し、複素共役は取りません。
 
 $$
 (ab^{\mathsf T})_{ij}=a_i b_j.
