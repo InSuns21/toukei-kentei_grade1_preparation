@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 250" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+<title id="title">均等被覆近傍と二枚のシート</title><desc id="desc">二つの互いに素な開区間の中心から基底の開区間の中心へ矢印が向く。</desc>
+<defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 Z" fill="#475569"/></marker></defs>
+<rect x="1" y="1" width="478" height="248" fill="#fff" stroke="#cbd5e1"/>
+<g stroke="#334155" stroke-width="3" fill="none"><path d="M65 68 H195 M285 68 H415 M175 202 H305"/><g fill="#fff"><circle cx="65" cy="68" r="5"/><circle cx="195" cy="68" r="5"/><circle cx="285" cy="68" r="5"/><circle cx="415" cy="68" r="5"/><circle cx="175" cy="202" r="5"/><circle cx="305" cy="202" r="5"/></g></g>
+<g fill="#1e293b"><circle cx="130" cy="68" r="5"/><circle cx="350" cy="68" r="5"/><circle cx="240" cy="202" r="5"/></g>
+<g stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"><path d="M130 82 L232 190"/><path d="M350 82 L248 190"/></g>
+<g font-family="sans-serif" font-size="16" fill="#1e293b" text-anchor="middle"><text x="130" y="43" text-anchor="middle">V₀</text><text x="350" y="43" text-anchor="middle">V₁</text><text x="96" y="132" text-anchor="middle">p</text><text x="384" y="132" text-anchor="middle">p</text><text x="240" y="232" text-anchor="middle">U</text><text x="240" y="22" text-anchor="middle">E</text><text x="55" y="207" text-anchor="middle">B</text></g>
+</svg>
