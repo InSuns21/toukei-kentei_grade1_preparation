@@ -2,7 +2,16 @@
 
 [ATOP2](../ATOP2/index.md) では二空間の間に [ホモトピー同値](../ATOP2/index.md#def-atop2-homotopy-equivalence) を与える二つの写像を作りました。今回は一方がもう一方の部分空間であるとき、元の図形をその部分だけで代表させる方法を考えます。例えば原点を除いた平面には原点に向かって縮められないという制約がありますが、円周までは動径方向に縮められます。
 
-前提は ATOP2、[TOP1](../../../基礎科目/TOP/TOP1/index.md) の部分空間・積位相、[TOP3](../../../基礎科目/TOP/TOP3/index.md) の連結性です。$I=[0,1]$ とし、変形の時刻を $t\in I$ で表します。部分空間と直積にはそれぞれ [部分空間位相](../../../基礎科目/F0/F0-00B1/index.md#def-f0-00b1-subspace) と [積位相](../../../基礎科目/TOP/TOP1/index.md#def-top1-product-topology) を入れます。$\|z\|$ は Euclid ノルム（原点からの距離）、$\mathrm{id}_X(x)=x$ は恒等写像です。$f\circ g$ は先に $g$、次に $f$ を適用する合成を表します。$S^1=\{z\in\mathbb R^2:\|z\|=1\}$、$D^2=\{z\in\mathbb R^2:\|z\|\le1\}$ と書きます。
+前提は ATOP2、[TOP1](../../../基礎科目/TOP/TOP1/index.md) の部分空間・積位相、[TOP3](../../../基礎科目/TOP/TOP3/index.md) の連結性です。$I=[0,1]$ とし、変形の時刻を $t\in I$ で表します。部分空間と直積にはそれぞれ [部分空間位相](../../../基礎科目/F0/F0-00B1/index.md#def-f0-00b1-subspace) と [積位相](../../../基礎科目/TOP/TOP1/index.md#def-top1-product-topology) を入れます。
+
+$\|z\|$ は Euclid ノルム（原点からの距離）、$\mathrm{id}_X(x)=x$ は恒等写像です。$f\circ g$ は先に $g$、次に $f$ を適用する合成を表します。円周と閉円板をそれぞれ
+
+$$
+S^1=\{z\in\mathbb R^2:\|z\|=1\},
+\qquad D^2=\{z\in\mathbb R^2:\|z\|\le1\}
+$$
+
+と書きます。
 
 <!-- definition-example-audit: strict -->
 
@@ -152,13 +161,19 @@ $$
 r(z)=\frac{z}{\|z\|}
 $$
 
-が定義できます。ノルムの斉次性から $\|r(z)\|=\|z\|/\|z\|=1$ なので球面に値を取ります。$z=(z_1,\ldots,z_n)$ の第 $j$ 座標を $z_j$ とすると、$r$ の第 $j$ 成分は $z_j/\|z\|$ です。分子・分母は連続、分母は正なので各成分は連続です。[積位相の普遍性](../../../基礎科目/TOP/TOP1/index.md#thm-top1-product-universal) により $\mathbb R^n$ への写像として連続です。[部分空間位相の連続性判定](../../../基礎科目/TOP/TOP1/index.md#prop-top1-subspace-universal) により球面への連続写像です。$\|a\|=1$ なら $r(a)=a$ です。
+が定義できます。ノルムの斉次性から $\|r(z)\|=\|z\|/\|z\|=1$ なので球面に値を取ります。$z=(z_1,\ldots,z_n)$ の第 $j$ 座標を $z_j$（$1\le j\le n$）とすると、$r$ の第 $j$ 成分は $z_j/\|z\|$ です。分子・分母は連続、分母は正なので各成分は連続です。[積位相の普遍性](../../../基礎科目/TOP/TOP1/index.md#thm-top1-product-universal) により $\mathbb R^n$ への写像として連続です。[部分空間位相の連続性判定](../../../基礎科目/TOP/TOP1/index.md#prop-top1-subspace-universal) により球面への連続写像です。$\|a\|=1$ なら $r(a)=a$ です。
 
 $$
 H(z,t)=(1-t)z+t\frac{z}{\|z\|}
 $$
 
-と置きます。第 $j$ 成分は $(1-t)z_j+t z_j/\|z\|$ で、積空間上の連続関数の積・和なので [積位相の普遍性](../../../基礎科目/TOP/TOP1/index.md#thm-top1-product-universal) により $\mathbb R^n$ への写像として連続です。$s=\|z\|$、$u=z/s$ と書けば
+と置きます。第 $j$ 成分は
+
+$$
+(1-t)z_j+t\frac{z_j}{\|z\|}
+$$
+
+で、積空間上の連続関数の積・和なので [積位相の普遍性](../../../基礎科目/TOP/TOP1/index.md#thm-top1-product-universal) により $\mathbb R^n$ への写像として連続です。$s=\|z\|$、$u=z/s$ と書けば
 
 $$
 H(z,t)=((1-t)s+t)u.
@@ -223,7 +238,7 @@ f\circ g=\mathrm{id}_{\{*\}},\qquad
 g\circ f=c_p\simeq\mathrm{id}_X.
 $$
 
-後者は [ホモトピー関係の対称律](../ATOP2/index.md#thm-atop2-homotopy-equivalence-relation) で向きを変えました。[ホモトピー同値の定義](../ATOP2/index.md#def-atop2-homotopy-equivalence) より結論を得ます。
+前者については [ホモトピー関係の反射律](../ATOP2/index.md#thm-atop2-homotopy-equivalence-relation) により恒等写像から恒等写像へのホモトピーが存在します。後者は [ホモトピー関係の対称律](../ATOP2/index.md#thm-atop2-homotopy-equivalence-relation) で向きを変えました。[ホモトピー同値の定義](../ATOP2/index.md#def-atop2-homotopy-equivalence) より結論を得ます。
 
 逆に一点空間とホモトピー同値なら、その二写像を $f,g$ とします。$p=g(*)$ が $X$ の点として存在し、全ての $x\in X$ に対し
 
@@ -231,10 +246,10 @@ $$
 (g\circ f)(x)=g(*)=p.
 $$
 
-同値の条件より $c_p=g\circ f\simeq\mathrm{id}_X$ です。向きを反転して [可縮性の定義](#def-atop3-contractible) を満たします。
+同値の条件より $c_p=g\circ f\simeq\mathrm{id}_X$ です。[ホモトピー関係の対称律](../ATOP2/index.md#thm-atop2-homotopy-equivalence-relation) で向きを反転して [可縮性の定義](#def-atop3-contractible) を満たします。
 <!-- proof-end -->
 
-[直線ホモトピー](../ATOP2/index.md#prop-atop2-linear-homotopy) で扱った凸集合とは、二点を結ぶ線分を全て含む集合でした。凸な非空集合 $C\subseteq\mathbb R^n$ は可縮です。点 $p\in C$ を選び、[直線ホモトピー](../ATOP2/index.md#prop-atop2-linear-homotopy) を $\mathrm{id}_C$ と $c_p$ に適用します。両写像は連続で値が $C$ に入り、$H(x,t)=(1-t)x+tp$ は凸性から $C$ に入ります。$H(p,t)=p$ なので一点 $\{p\}$ は強変形レトラクトです。
+[直線ホモトピー](../ATOP2/index.md#prop-atop2-linear-homotopy) で扱った凸集合とは、二点を結ぶ線分を全て含む集合でした。凸な非空集合 $C\subseteq\mathbb R^n$ は可縮です。点 $p\in C$ を選び、[直線ホモトピー](../ATOP2/index.md#prop-atop2-linear-homotopy) を $\mathrm{id}_C$ と $c_p$ に適用します。両写像は連続で値が $C$ に入り、$H(x,t)=(1-t)x+tp$ は凸性から $C$ に入ります。$r:C\to\{p\}$ を定数写像とすれば $r(p)=p$ でレトラクションです。$H(p,t)=p$ なので $\{p\}$ は [強変形レトラクト](#def-atop3-strong-deformation-retract) です。
 
 <a id="prop-atop3-retract-contractible"></a>
 
@@ -261,7 +276,7 @@ K(a,0)=r(i(a))=a,\qquad
 K(a,1)=r(p).
 $$
 
-$r(p)\in A$ は $a$ に依存しないので、$K$ は $\mathrm{id}_A$ から定数写像へのホモトピーです。
+$r(p)\in A$ は $a$ に依存しないので、$K$ は $\mathrm{id}_A$ から点 $r(p)$ への定数写像へのホモトピーです。[可縮性の定義](#def-atop3-contractible) により $A$ は可縮です。
 <!-- proof-end -->
 
 ## 5. 円板とその境界は同じではない
@@ -270,7 +285,7 @@ $r(p)\in A$ は $a$ に依存しないので、$K$ は $\mathrm{id}_A$ から定
 
 円周から円板への包含は定義できますが、円板全体から円周へ戻す連続なレトラクションが存在するかは別問題です。[図を拡大](assets/disk-boundary.svg)
 
-動径方向の式 $r(z)=z/\|z\|$ を円板全体へ使おうとすると、原点で分母が0になります。仮に原点に何か値を割り当てても、$z=(1/k,0)$ と $z=(-1/k,0)$ はともに原点へ近づくのに、像はそれぞれ $(1,0)$ と $(-1,0)$ で異なるため連続にできません。
+動径方向の式 $r(z)=z/\|z\|$ を円板全体へ使おうとすると、原点で分母が0になります。仮に原点に何か値を割り当てても、正整数 $k$ を大きくすると $(1/k,0)$ と $(-1/k,0)$ はともに原点へ近づきます。ところが像はそれぞれ $(1,0)$ と $(-1,0)$ の定数列です。[連続写像は収束列を収束列へ送る](../../../基礎科目/F0/F0-00B1/index.md#prop-f0-00b1-continuity-sequences) ので、両方が原点に割り当てた同じ値へ収束する必要があります。Euclid 距離では極限が一意なので矛盾します。
 
 この計算は動径方向の式が延長できないことを示すだけです。あらゆる連続レトラクションが存在しないことは ATOP24 で証明します。[可縮空間のレトラクト](#prop-atop3-retract-contractible) によれば、もし円板から円周へのレトラクションが存在すれば、円周も可縮でなければなりません。この条件が実際には成立しないことを後続講義で明らかにします。
 
@@ -350,6 +365,7 @@ $w$ のノルムは $\sqrt{9/100+4/25}=1/2$ です。従って $r(w)=(3/5,4/5)$ 
 $$
 H(w,3/4)=\frac14(3/10,2/5)+
 \frac34(3/5,4/5)
+=(3/40+9/20,1/10+3/5)
 =(21/40,7/10).
 $$
 
