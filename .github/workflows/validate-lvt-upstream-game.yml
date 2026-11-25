@@ -3,11 +3,13 @@ on:
   pull_request:
     paths:
       - 'textbook/volumes/dream_thater/計算系/LVT/LVT6-01/**'
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT6-02/**'
       - '.github/workflows/validate-lvt-upstream-game.yml'
   push:
     branches: [main]
     paths:
       - 'textbook/volumes/dream_thater/計算系/LVT/LVT6-01/**'
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT6-02/**'
       - '.github/workflows/validate-lvt-upstream-game.yml'
   workflow_dispatch:
 permissions:
@@ -64,3 +66,7 @@ jobs:
           assert len(cases) == 7, len(cases)
           assert all(c.find("skipped") is None for c in cases), "Unexpected skip"
           PY
+      - name: Reproduce anti-diagonal mutant and find a counterexample
+        working-directory: upstream
+        run: |
+          uv run --locked python "$GITHUB_WORKSPACE/textbook/volumes/dream_thater/計算系/LVT/LVT6-02/lab/mutation_lab.py" "$PWD"
