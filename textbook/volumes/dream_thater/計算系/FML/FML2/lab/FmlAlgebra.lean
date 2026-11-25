@@ -20,7 +20,7 @@ theorem map_square_add (R : Type u) (S : Type v)
 theorem scalar_assoc (K : Type u) (L : Type v)
     [Field K] [Field L] [Algebra K L] (a b : K) (x : L) :
     (a * b) • x = a • (b • x) := by
-  rw [Algebra.smul_def, map_mul, Algebra.smul_def, Algebra.smul_def, mul_assoc]
+  simp only [Algebra.smul_def, map_mul, mul_assoc]
 
 example : (2 : ZMod 2) = 0 := by decide
 example : (1 : ZMod 2) ≠ 0 := by decide
@@ -36,6 +36,6 @@ theorem char_two_square (R : Type u) [CommRing R] (h : (2 : R) = 0)
 theorem restrict_add (K : Type u) (L : Type v)
     [Field K] [Field L] [Algebra K L] (a : K) (x y : L) :
     a • (x + y) = a • x + a • y := by
-  rw [Algebra.smul_def, mul_add, Algebra.smul_def, Algebra.smul_def]
+  simp only [Algebra.smul_def, mul_add]
 
 end FmlAlgebra

@@ -19,6 +19,11 @@ concepts:
     kind: definition
     introduction: formal
     requires: [formal-math.algebra-instance]
+  - id: formal-math.charp
+    name: Leanの標数の型クラス
+    kind: definition
+    introduction: formal
+    requires: [formal-math.nat-cast]
   - id: formal-math.char-two-square
     name: 標数2での二乗の形式化
     kind: theorem

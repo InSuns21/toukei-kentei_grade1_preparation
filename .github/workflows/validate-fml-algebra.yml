@@ -40,7 +40,7 @@ jobs:
           allowed = {'propext', 'Classical.choice', 'Quot.sound'}
           output = Path('inspect.log').read_text()
           assert output.splitlines()[:3] == ['20', '0', '1'], output
-          for name, count in [('inspect.log', 6), ('exercises.log', 9)]:
+          for name, count in [('inspect.log', 6), ('exercises.log', 11)]:
               output = Path(name).read_text()
               entries = re.findall(r"depends on axioms:\s*\[([^\]]*)\]", output)
               empty = len(re.findall(r"does not depend on any axioms", output))
