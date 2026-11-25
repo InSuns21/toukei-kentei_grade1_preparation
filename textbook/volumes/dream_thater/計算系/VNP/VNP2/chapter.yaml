@@ -1,0 +1,29 @@
+id: VNP2
+title: "A：多party tensor・wire・restriction・cover・push-forward"
+volume: foundations
+status: supplementary
+prerequisites: [VNP1, TSP15, TSP16, TSP6]
+official_scope: []
+learning_objectives:
+  - 有限party集合上の係数配列と局所制限を座標で計算できる
+  - 被覆を局所制限の和として構成し直和からの制限との同値を証明できる
+  - 任意のparty写像のpush-forwardを計算し積・合成・被覆の保存を証明できる
+  - wireの基本比較と中央のpartyでの縮約を再現できる
+definitions:
+  - { id: VNP2-DEF-01, name: "party添字付き係数配列" }
+  - { id: VNP2-DEF-02, name: "局所制限の和による被覆" }
+  - { id: VNP2-DEF-03, name: "任意のparty写像によるpush-forward" }
+  - { id: VNP2-DEF-04, name: "party間のwire資源" }
+theorems:
+  - { id: VNP2-THM-01, name: "非零配列から単位テンソルを得る" }
+  - { id: VNP2-THM-02, name: "被覆と直和からの制限の同値" }
+  - { id: VNP2-THM-03, name: "単位テンソルによる有限被覆" }
+  - { id: VNP2-THM-04, name: "push-forwardの演算と合成" }
+  - { id: VNP2-THM-05, name: "push-forwardによる被覆の保存" }
+  - { id: VNP2-THM-06, name: "wire資源の基本比較" }
+canonical_examples: [三partyの係数配列, 単位テンソルによる被覆, 非全射のpush-forward, 自己wire]
+problem_patterns: [VNP2-A1, VNP2-A2, VNP2-A3, VNP2-A4, VNP2-B1, VNP2-B2, VNP2-B3, VNP2-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
