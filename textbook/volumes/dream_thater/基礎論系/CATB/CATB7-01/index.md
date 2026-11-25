@@ -141,7 +141,25 @@ $$
 <!-- formal-statement-start -->
 > **定義（余鎖複体のコホモロジー）**
 >
-> アーベル圏の余鎖複体 $C^\bullet$ と整数 $n$ を取る。$k_C^n$ を $d_C^n$ の核、$i_C^n$ を $d_C^{n-1}$ の像とし、$k_C^nj_C^n=i_C^n$ を満たす射 $j_C^n$ を上のように定める。$j_C^n$ の[余核](../CATB1-04/index.md#def-catb1-04-cokernel)を $q_C^n:Z_C^n\to H^n(C^\bullet)$ とする。終域 $H^n(C^\bullet)$ を次数 $n$ のコホモロジー対象という。
+> アーベル圏の余鎖複体 $C^\bullet$ と整数 $n$ を取る。核射と像の包含をそれぞれ
+
+$$
+k_C^n:Z_C^n\to C^n,\qquad i_C^n:B_C^n\to C^n
+$$
+
+> とする。前者は $d_C^n$ の核、後者は $d_C^{n-1}$ の像である。核の普遍性により定まる射 $j_C^n:B_C^n\to Z_C^n$ は次の等式を満たす。
+
+$$
+k_C^nj_C^n=i_C^n.
+$$
+
+> この射の[余核](../CATB1-04/index.md#def-catb1-04-cokernel)を次のように表す。
+
+$$
+q_C^n:Z_C^n\to H^n(C^\bullet).
+$$
+
+> 終域 $H^n(C^\bullet)$ を次数 $n$ のコホモロジー対象という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb7-01-cohomology -->
@@ -187,7 +205,21 @@ $j_C^n$ が同型なら任意の $t:Z_C^n\to T$ で $tj_C^n=0$ を満たすも�
 <!-- formal-statement-start -->
 > **定理（コホモロジーの関手性）**
 >
-> 局所小なアーベル圏 $\mathcal A$ と整数 $n$ を固定し、各複体について核・像・余核の選択が与えられているとする。余鎖写像 $f:C^\bullet\to D^\bullet$ は一意に射 $H^n(f):H^n(C^\bullet)\to H^n(D^\bullet)$ を誘導する。ここで $k_C^n,k_D^n$ は核射、$q_C^n,q_D^n$ はコホモロジーへの余核射とする。核上の射 $z_f:Z_C^n\to Z_D^n$ は $k_D^nz_f=f^nk_C^n$ で一意に定まり、誘導射は次の等式で特徴づけられる。
+> 局所小なアーベル圏 $\mathcal A$ と整数 $n$ を固定し、各複体について核・像・余核の選択が与えられているとする。
+>
+> 余鎖写像 $f:C^\bullet\to D^\bullet$ は一意に次の射を誘導する。
+
+$$
+H^n(f):H^n(C^\bullet)\to H^n(D^\bullet).
+$$
+
+> ここで $k_C^n,k_D^n$ は核射、$q_C^n,q_D^n$ はコホモロジーへの余核射とする。核上の射 $z_f:Z_C^n\to Z_D^n$ は次の条件で一意に定まる。
+
+$$
+k_D^nz_f=f^nk_C^n.
+$$
+
+> 誘導射は次の等式で特徴づけられる。
 
 $$
 H^n(f)q_C^n=q_D^nz_f.
