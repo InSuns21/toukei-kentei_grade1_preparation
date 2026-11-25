@@ -1,0 +1,65 @@
+chapter: CATB5-02
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB5-01, CAT1-02, CAT1-06, CAT1-12]
+concepts:
+  - id: category.sieve
+    name: "篩"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（篩）"]
+    requires: [category.small-category]
+  - id: category.generated-sieve
+    name: "生成篩"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（生成篩）"]
+    requires: [category.sieve]
+  - id: category.generated-sieve-minimality
+    name: "生成篩の最小性"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（生成篩の最小性）"]
+    requires: [category.generated-sieve]
+  - id: category.sieve-pullback
+    name: "篩の引き戻し"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（篩の引き戻し）"]
+    requires: [category.sieve]
+  - id: category.sieve-pullback-laws
+    name: "篩の引き戻しの合成則"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（篩の引き戻しの合成則）"]
+    requires: [category.sieve-pullback]
+  - id: category.grothendieck-topology
+    name: "Grothendieck位相"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Grothendieck位相とsite）"]
+    requires: [category.sieve, category.sieve-pullback]
+  - id: category.site
+    name: "site（サイト）"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Grothendieck位相とsite）"]
+    requires: [category.grothendieck-topology]
+  - id: category.covering-sieve-closure
+    name: "被覆篩の上方閉性と有限交差"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（被覆篩の上方閉性と有限交差）"]
+    requires: [category.grothendieck-topology]
+  - id: category.open-set-grothendieck-topology
+    name: "開集合圏のGrothendieck位相"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（開集合圏のGrothendieck位相）"]
+    requires: [category.grothendieck-topology, category.generated-sieve]
+  - id: category.basis-grothendieck-topology
+    name: "位相の基底上の被覆篩"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（位相の基底上の被覆篩）"]
+    requires: [category.grothendieck-topology, category.generated-sieve]
