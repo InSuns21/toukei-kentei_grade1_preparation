@@ -3,20 +3,22 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - ACOMP9
-forward_references: []
+  - LA3B
+forward_references:
+  - graph-counting.permanent
 concepts:
   - id: algebraic-complexity.reversed-characteristic-polynomial
     name: "逆順固有多項式"
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（逆順固有多項式）"]
-    requires: [algebraic-geometry.multivariate-polynomial-ring]
+    requires: [algebraic-geometry.multivariate-polynomial-ring, linear.matrix-determinant]
   - id: algebraic-complexity.berkowitz-recurrence
     name: "Berkowitz型係数再帰"
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（Berkowitz型係数再帰）"]
-    requires: [algebraic-complexity.reversed-characteristic-polynomial]
+    requires: [algebraic-complexity.reversed-characteristic-polynomial, linear.permutation-sign-product]
   - id: algebraic-complexity.determinant-vp
     name: "行列式族の VP 所属"
     kind: theorem
