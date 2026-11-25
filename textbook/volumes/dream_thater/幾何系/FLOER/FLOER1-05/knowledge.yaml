@@ -1,0 +1,54 @@
+chapter: FLOER1-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLOER1-04
+concepts:
+  - id: floer.pregluing
+    name: "stripの予備貼り合わせ"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（stripの予備貼り合わせ）"]
+    requires: [floer.broken]
+  - id: floer.pregluing-error
+    name: "予備貼り合わせの指数的誤差"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（予備貼り合わせの指数的誤差）"]
+    requires: [floer.pregluing]
+  - id: floer.uniform-gluing-inverse
+    name: "二断面付き線形化の一様逆"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二断面付き線形化の一様逆）"]
+    requires: [floer.pregluing-error, floer.quotient-dimension, floer.local-moduli]
+  - id: floer.gluing-correction
+    name: "正則な二段stripの局所補正"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則な二段stripの局所補正）"]
+    requires: [floer.uniform-gluing-inverse]
+  - id: floer.gluing-collar
+    name: "折れ曲がり点の局所半区間"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（折れ曲がり点の局所半区間）"]
+    requires: [floer.gluing-correction, floer.broken-compactness, floer.low-dimensional-limits]
+  - id: floer.square-zero
+    name: "完全境界のFloer微分の二乗零"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（完全境界のFloer微分の二乗零）"]
+    requires: [floer.gluing-collar]
+  - id: floer.determinant-line
+    name: "Fredholm作用素の行列式線"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Fredholm作用素の行列式線）"]
+    requires: [floer.fredholm]
+  - id: floer.signed-square-zero
+    name: "整合的な境界符号による二乗零"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（整合的な境界符号による二乗零）"]
+    requires: [floer.square-zero, floer.determinant-line]
