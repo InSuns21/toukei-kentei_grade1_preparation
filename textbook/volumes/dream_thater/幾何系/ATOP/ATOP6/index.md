@@ -400,7 +400,7 @@ $$
 [道ホモトピーの定義](../ATOP4/index.md#def-atop4-path-homotopy) により所望の変形です。
 <!-- solution-end -->
 
-### 演習 ATOP6-B2：変形できないことの証明
+### 演習 ATOP6-B2：正逆一周の区別
 
 - Level: B
 
