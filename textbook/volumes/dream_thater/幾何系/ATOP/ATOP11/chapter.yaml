@@ -1,0 +1,28 @@
+id: ATOP11
+title: "コンパクト曲面の分類定理"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP8, ATOP10]
+official_scope: []
+learning_objectives:
+  - 閉曲面の三角形分割から全域木を使って多角形表示を構成できる
+  - 辺対の符号と商空間の同一視を対応させられる
+  - 切断と再接着で標準ブロックを取り出し分類の存在部分を証明できる
+  - 標準語の頂点類と辺対からEuler標数の交代和を計算できる
+  - 境界成分を円板で充填し交代和の変化を追跡できる
+definitions:
+  - { id: ATOP11-DEF-01, name: 辺対付き多角形表示 }
+theorems:
+  - { id: ATOP11-THM-01, name: 閉曲面の多角形表示 }
+  - { id: ATOP11-PROP-01, name: 多角形の切断・再接着 }
+  - { id: ATOP11-LEM-01, name: 交互に現れる逆符号辺対の分離 }
+  - { id: ATOP11-PROP-02, name: ハンドルと交叉帽の交換 }
+  - { id: ATOP11-LEM-02, name: 標準ブロックの移動 }
+  - { id: ATOP11-THM-02, name: コンパクト閉曲面の分類・存在部分 }
+  - { id: ATOP11-PROP-03, name: 境界成分の円板による充填 }
+canonical_examples: [トーラスの正方形表示, Kleinの壺, 実射影平面の二辺形, 円板充填]
+problem_patterns: [ATOP11-A1, ATOP11-A2, ATOP11-A3, ATOP11-A4, ATOP11-B1, ATOP11-B2, ATOP11-B3, ATOP11-B4, ATOP11-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
