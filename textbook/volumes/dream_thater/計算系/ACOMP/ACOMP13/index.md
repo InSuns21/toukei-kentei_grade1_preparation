@@ -8,7 +8,11 @@
 
 [算術formula](../ACOMP3/index.md#def-acomp3-formula) は演算を二分木に配置し、途中結果を共有しないモデルです。[代数的分岐プログラム](../ACOMP3/index.md#def-acomp3-abp)（ABP）は有向非巡回グラフの始点から終点までの経路の重みの和を計算します。辺標識は一次以下の多項式で、サイズは辺数です。
 
-[VP](../ACOMP6/index.md#def-acomp6-vp) では一般の除算なし算術回路の演算サイズを多項式で抑えました。今度は回路の代わりに上の二モデルを採用します。変数数・次数の条件を共通にすることが重要です。[多項式族](../ACOMP6/index.md#def-acomp6-polynomial-family)では、各正整数 $n$ に指定変数数 $m(n)\ge1$ と $f_n\in K[x_1,\ldots,x_{m(n)}]$ が対応します。使わない変数も数え、零多項式は任意の非負の次数上界を満たすとします。多項式有界とは、全 $n\ge1$ で共通の定数 $C>0$ と非負整数 $d$ による上界 $Cn^d$ があることです。式の木を使うクラスを VF、経路和を使うクラスを VBP と呼びます。
+[VP](../ACOMP6/index.md#def-acomp6-vp) では一般の除算なし算術回路の演算サイズを多項式で抑えました。今度は回路の代わりに上の二モデルを採用します。変数数・次数の条件を共通にすることが重要です。
+
+[多項式族](../ACOMP6/index.md#def-acomp6-polynomial-family)では、各正整数 $n$ に指定変数数 $m(n)\ge1$ と $f_n\in K[x_1,\ldots,x_{m(n)}]$ が対応します。使わない変数も数え、零多項式は任意の非負の次数上界を満たすとします。
+
+多項式有界とは、全 $n\ge1$ で共通の定数 $C>0$ と非負整数 $d$ による上界 $Cn^d$ があることです。式の木を使うクラスを VF、経路和を使うクラスを VBP と呼びます。
 
 <a id="def-acomp13-vf"></a>
 
@@ -130,7 +134,25 @@ $$
 
 このグラフに $t\to s$ の標識1の辺を追加し、$s$ 以外の全頂点に標識1の自己ループを置きます。行列 $L$ は行を辺の出発点、列を到着点に対応させ、辺がなければ0、あればその標識を成分とします。平行辺がなく、追加辺も既存の辺と重複しません（終点にはもともと出辺がなく、閉路もありません）。全成分は変数または定数です。
 
-[行列式](../../../基礎科目/LA/LA3B/index.md#def-la3b-matrix-determinant)の置換展開を用います。ここで成分は可換環 $K[x_1,\ldots,x_m]$ の元です（[逆順固有多項式](../ACOMP10/index.md#def-acomp10-reversed-characteristic) と同じく、この環上でも有限の置換和で行列式を定めます）。頂点を $1,\ldots,N$ と番号付けし、置換 $\sigma$ が各出発頂点 $i$ を到着頂点 $\sigma(i)$ に送るとします。既習の列を固定した式から行を固定した式への書き換えは $\rho=\sigma^{-1}$ によるものです。[置換の符号の積](../../../基礎科目/LA/LA3B/index.md#lem-la3b-permutation-sign-product) から $\operatorname{sgn}(\rho)=\operatorname{sgn}(\sigma)$ なので、
+[行列式](../../../基礎科目/LA/LA3B/index.md#def-la3b-matrix-determinant)の置換展開を用います。ここで成分は可換環 $K[x_1,\ldots,x_m]$ の元です（[逆順固有多項式](../ACOMP10/index.md#def-acomp10-reversed-characteristic) と同じく、この環上でも有限の置換和で行列式を定めます）。
+
+頂点を $1,\ldots,N$ と番号付けし、その集合の置換全体を $S_N$ とします。置換 $\sigma$ が各出発頂点 $i$ を到着頂点 $\sigma(i)$ に送るとします。
+
+既習の列を固定した式で行から列への対応の逆置換 $\rho=\sigma^{-1}$ を選ぶと、添字 $i=\rho(j)$ による積の並べ替えで
+
+$$
+\prod_{j=1}^N L_{\rho(j),j}
+=\prod_{i=1}^N L_{i,\sigma(i)}.
+$$
+
+また、[置換の符号の積](../../../基礎科目/LA/LA3B/index.md#lem-la3b-permutation-sign-product) により
+
+$$
+1=\operatorname{sgn}(\rho\sigma)
+=\operatorname{sgn}(\rho)\operatorname{sgn}(\sigma)
+$$
+
+なので、両置換の符号は等しくなります。逆置換も全置換を一度ずつ走るため、行を固定した式が得られます。
 
 $$
 \det L=\sum_{\sigma\in S_N}\operatorname{sgn}(\sigma)
@@ -197,7 +219,9 @@ ACOMP10 の [Berkowitz型係数再帰](../ACOMP10/index.md#thm-acomp10-berkowitz
 <!-- proof-start -->
 ### 証明
 
-$X_n$ の右下 $h$ 次部分行列を $A_h$ とし、$h=0$ では空行列とします。$d_j^{(h)}$ は [逆順固有多項式](../ACOMP10/index.md#def-acomp10-reversed-characteristic) $\det(I_h-zA_h)$ の $z^j$ の係数です。$d_0^{(0)}=1$、範囲外の係数は0と約束します。
+$X_n$ の右下 $h$ 次部分行列を $A_h$ とし、$h=0$ では空行列とします。行列成分の全変数の多項式環を $K[x]$ と書き、係数を取り出すための別の不定元を $z$ とします。
+
+$d_j^{(h)}$ は [逆順固有多項式](../ACOMP10/index.md#def-acomp10-reversed-characteristic) $\det(I_h-zA_h)$ の $z^j$ の係数です。$d_0^{(0)}=1$、範囲外の係数は0と約束します。
 
 $h\ge2$ では $m=h-1$ とし、
 
@@ -212,7 +236,7 @@ $$
 r\in K[x]^{1\times m},\quad s\in K[x]^{m\times1},\quad M\in K[x]^{m\times m}
 $$
 
-です。ここで $K[x]$ は行列成分の全変数の多項式環を表し、$s$ は前節の始点ではなく列ベクトルです。$k$ は $M$ を掛ける回数で、$M^0=I_m$ とします。
+です。ここで $s$ は前節の始点ではなく列ベクトルです。$k$ は $M$ を掛ける回数で、$M^0=I_m$ とします。
 
 [Berkowitz型係数再帰](../ACOMP10/index.md#thm-acomp10-berkowitz) により
 
@@ -396,7 +420,15 @@ $$
 
 [パーマネントの VNP 完全性](../ACOMP11/index.md#thm-acomp11-permanent-complete) が成り立つ標数2以外の体では、パーマネント族が行列式族の p-projection であることは VBP と VNP の等号に同値です。実際、任意の VNP の族はパーマネントへ帰着するので、[帰着の推移性](../ACOMP8/index.md#thm-acomp8-reduction-laws) により行列式へ帰着します。逆に等号ならパーマネントは VBP に属するので行列式へ帰着します。
 
-標数2ではパーマネントと行列式は置換項ごとの符号が等しくなるため一致します。しかし、この一致から VNP と VBP の等号は出ません。この標数ではパーマネントの VNP 完全性を前提にできないからです。任意標数で同じ論理を使うなら [Hamilton閉路多項式の VNP 完全性](../ACOMP12/index.md#thm-acomp12-hamilton-complete) を用います。その族を $\mathrm{HC}$ と書きます。
+標数2では $1+1=0$ から $-1=1$ です。[パーマネント](../../GCT/GCT3/index.md#def-gct3-permanent) の有限置換和は、実係数に限らず任意の体上で定められます。ここでは [行列式の Leibniz 公式](../../../基礎科目/LA/LA3B/index.md#def-la3b-matrix-determinant) を第2節の行基準の記法で用いると、全ての置換について符号が1になるので、
+
+$$
+\det X_n
+=\sum_{\sigma\in S_n}\prod_{i=1}^n x_{i,\sigma(i)}
+=\operatorname{per}(X_n).
+$$
+
+従ってパーマネント族と行列式族は一致します。しかし、この一致から VNP と VBP の等号は出ません。この標数ではパーマネントの VNP 完全性を前提にできないからです。任意標数で同じ論理を使うなら [Hamilton閉路多項式の VNP 完全性](../ACOMP12/index.md#thm-acomp12-hamilton-complete) を用います。[Hamilton閉路多項式](../ACOMP12/index.md#def-acomp12-hamilton-polynomial) の族を $\mathrm{HC}$ と書きます。
 
 ## 5. 演習
 
@@ -561,7 +593,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-置換の符号 $1,-1$ は標数2ではともに1です。よって行列式の置換展開とパーマネントの置換和が項ごとに一致します。[行列式族の VBP 所属](#thm-acomp13-det-vbp) は任意標数に適用できるのでパーマネントも VBP に属します。
+置換の符号 $1,-1$ は標数2ではともに1です。よって第4節で確認したように、[行列式の Leibniz 公式](../../../基礎科目/LA/LA3B/index.md#def-la3b-matrix-determinant) の行基準表示と [パーマネント](../../GCT/GCT3/index.md#def-gct3-permanent) の置換和が項ごとに一致します。[行列式族の VBP 所属](#thm-acomp13-det-vbp) は任意標数に適用できるのでパーマネントも VBP に属します。
 
 しかし [パーマネントの VNP 完全性](../ACOMP11/index.md#thm-acomp11-permanent-complete) の仮定は標数2以外であり、この場面では使えません。全 VNP の族からパーマネントへの p-projection が示されていないので、所属だけからクラス全体の包含を導くことはできません。
 <!-- solution-end -->
