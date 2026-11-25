@@ -1,0 +1,48 @@
+chapter: CATB4-04
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB4-03, CATB4-02, CATB4-01]
+concepts:
+  - id: category.grothendieck-construction
+    name: "Grothendieck構成"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Grothendieck構成）"]
+    requires: [category.indexed-category]
+  - id: category.grothendieck-category
+    name: "Grothendieck構成の圏構造"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Grothendieck構成の圏構造）"]
+    requires: [category.grothendieck-construction, category.indexed-category]
+  - id: category.grothendieck-fibration
+    name: "Grothendieck構成のファイブレーション"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Grothendieck構成のファイブレーション）"]
+    requires: [category.grothendieck-category, category.fibration, category.cleavage, category.cartesian-lift-uniqueness]
+  - id: category.grothendieck-reconstruction
+    name: "全圏と添字付き圏の復元"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全圏と添字付き圏の復元）"]
+    requires: [category.grothendieck-fibration, category.fibration-indexed-category, category.reindexing-functor, category.cleavage-comparison]
+  - id: category.pseudonatural-transformation
+    name: "擬自然変換"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（擬自然変換）"]
+    requires: [category.indexed-category, category.natural-isomorphism]
+  - id: category.modification
+    name: "修正"
+    aliases: ["modification"]
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（修正）"]
+    requires: [category.pseudonatural-transformation]
+  - id: category.grothendieck-biequivalence
+    name: "Grothendieck構成の2圏的対応"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Grothendieck構成の2圏的対応）"]
+    requires: [category.grothendieck-reconstruction, category.pseudonatural-transformation, category.modification, category.grothendieck-fibration]

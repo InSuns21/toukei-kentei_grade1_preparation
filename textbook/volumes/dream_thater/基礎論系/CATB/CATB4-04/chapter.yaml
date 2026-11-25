@@ -1,0 +1,26 @@
+id: "CATB4-04"
+title: "Grothendieck構成"
+volume: "foundations"
+status: supplementary
+prerequisites: [CATB4-03, CATB4-02, CATB4-01]
+official_scope: []
+learning_objectives:
+  - 反変擬関手から全圏の対象・射・合成・恒等射を構成し圏公理を証明できる
+  - 射影のCartesian持ち上げと一般のCartesian射の判定を導出できる
+  - 全圏と再添字付けの双方向の復元を証明できる
+  - 擬自然変換と修正から基底上の関手と自然変換を構成し2圏的対応を説明できる
+definitions:
+  - { id: CATB4-04-DEF-01, name: "Grothendieck構成" }
+  - { id: CATB4-04-DEF-02, name: "擬自然変換" }
+  - { id: CATB4-04-DEF-03, name: "修正" }
+theorems:
+  - { id: CATB4-04-THM-01, name: "Grothendieck構成の圏構造" }
+  - { id: CATB4-04-THM-02, name: "Grothendieck構成のファイブレーション" }
+  - { id: CATB4-04-THM-03, name: "全圏と添字付き圏の復元" }
+  - { id: CATB4-04-THM-04, name: "Grothendieck構成の2圏的対応" }
+canonical_examples: [有限集合族, 非正規化単位, 剰余加法の復元]
+problem_patterns: [CATB4-04-A01, CATB4-04-A02, CATB4-04-A03, CATB4-04-A04, CATB4-04-B01, CATB4-04-B02, CATB4-04-B03, CATB4-04-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
