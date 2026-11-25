@@ -154,7 +154,7 @@ $\tau_0$ を設けたのは、点時刻での二点量が $\tau=0$ で有限と�
 
 <!-- formal-statement-start -->
 > **定理（稠密な観測ベクトル族からのギャップ判定）**
-> $H$ は非負自己共役作用素、$\Omega$ は単位真空、$\mathcal K=\Omega^\perp\ne\{0\}$ とする。ベクトル族 $\mathcal V\subset\mathcal H$ が $\overline{\operatorname{span}(Q\mathcal V)}=\mathcal K$ を満たすとする。
+> $H$ は非負自己共役作用素、$\Omega\in D(H)$ は $H\Omega=0$ を満たす単位真空、$\mathcal K=\Omega^\perp\ne\{0\}$ とする。ベクトル族 $\mathcal V\subset\mathcal H$ が $\overline{\operatorname{span}(Q\mathcal V)}=\mathcal K$ を満たすとする。
 >
 > ある共通の $\Delta>0$ が存在し、各 $v\in\mathcal V$ に有限な $M_v\ge0$、$t_v\ge0$ があって全ての $t\ge t_v$ で
 >
