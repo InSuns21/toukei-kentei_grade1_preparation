@@ -1,0 +1,30 @@
+chapter: LVT4-06
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT4-05, LVT3-06]
+concepts:
+  - id: lean-verification.metamorphic-relation
+    name: メタモルフィック関係
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: lean-verification.rotation-equivariance
+    name: 着手の180度回転との可換性
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.metamorphic-relation, lean-verification.game-play, lean-verification.game-win]
+  - id: lean-verification.mutation-score
+    name: 変異テストと変異スコア
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: lean-verification.mutation-monotone
+    name: テスト追加による変異検出の単調性
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.mutation-score]
+  - id: lean-verification.path-coverage
+    name: 経路カバレッジ
+    kind: definition
+    introduction: formal
+    requires: []

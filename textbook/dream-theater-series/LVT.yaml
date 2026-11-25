@@ -115,7 +115,7 @@ chapters:
     title: "Shrinkingと最小反例"
   - id: LVT4-06
     path: textbook/volumes/dream_thater/計算系/LVT/LVT4-06
-    status: planned
+    status: completed
     title: "メタモルフィック・変異・カバレッジ"
   - id: LVT5-01
     path: textbook/volumes/dream_thater/計算系/LVT/LVT5-01
