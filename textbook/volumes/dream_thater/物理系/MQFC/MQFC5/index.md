@@ -262,7 +262,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-非負の $e^{-m^2s}H_s(x)$ に [Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-01)を適用すると
+非負の $e^{-m^2s}H_s(x)$ に [Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli)を適用すると
 
 $$
 \int_{\mathbb R^d}\int_0^\infty e^{-m^2s}H_s(x)\,ds\,dx
