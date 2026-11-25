@@ -29,3 +29,4 @@
 26. [LVT4-04 有効・無効入力の生成と仮定](textbook/volumes/dream_thater/計算系/LVT/LVT4-04/index.md)
 27. [LVT4-05 Shrinkingと最小反例](textbook/volumes/dream_thater/計算系/LVT/LVT4-05/index.md)
 28. [LVT4-06 メタモルフィック・変異・カバレッジ](textbook/volumes/dream_thater/計算系/LVT/LVT4-06/index.md)
+29. [LVT5-01 Differential Testing・オラクルの設計](textbook/volumes/dream_thater/計算系/LVT/LVT5-01/index.md)
