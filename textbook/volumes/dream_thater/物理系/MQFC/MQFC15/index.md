@@ -238,7 +238,9 @@ $$
 $$
 A(\theta\Phi)=\int g_+(z)P_{a_\epsilon}(X_\epsilon(\theta z))\,dz
 =\int g_+(\theta z')P_{a_\epsilon}(X_\epsilon(z'))\,dz'.
-$$よって $V_{\epsilon,g}=A+A\circ\theta$ である。$\theta^2$ は恒等写像なので $V_{\epsilon,g}(\theta\Phi)=V_{\epsilon,g}(\Phi)$ となる。[自由場の反射陽性の証明](../MQFC8/index.md#thm-mqfc8-gaussian-extension) で確認した自由場の反転不変性とこの式により、任意の可測集合 $D$ に対して
+$$
+
+よって $V_{\epsilon,g}=A+A\circ\theta$ である。$\theta^2$ は恒等写像なので $V_{\epsilon,g}(\theta\Phi)=V_{\epsilon,g}(\Phi)$ となる。[自由場の反射陽性の証明](../MQFC8/index.md#thm-mqfc8-gaussian-extension) で確認した自由場の反転不変性とこの式により、任意の可測集合 $D$ に対して
 
 $$
 \begin{aligned}
