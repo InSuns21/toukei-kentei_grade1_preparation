@@ -1,0 +1,30 @@
+chapter: VNP1
+scope: dream-theater
+coverage: complete
+prerequisites: [ACOMP24, ACOMP22, ACOMP12]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.total-gate-count
+    name: 全ゲート数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（全ゲート数）"]
+    requires: [algebraic-complexity.arithmetic-circuit-size, algebraic-complexity.straight-line-program]
+  - id: vp-vnp-study.size-comparison
+    name: 二つの回路サイズの比較
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二つの回路サイズの比較）"]
+    requires: [vp-vnp-study.total-gate-count, algebraic-complexity.arithmetic-circuit-size]
+  - id: vp-vnp-study.bound-growth
+    name: 提示された下界の超多項式性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（提示された下界の超多項式性）"]
+    requires: []
+  - id: vp-vnp-study.conditional-separation
+    name: 回路下界からクラス分離への含意
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（回路下界からクラス分離への含意）"]
+    requires: [vp-vnp-study.size-comparison, vp-vnp-study.bound-growth, algebraic-complexity.vp-in-vnp]
