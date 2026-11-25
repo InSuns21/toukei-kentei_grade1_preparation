@@ -2,7 +2,7 @@
 
 [MQFC10](../MQFC10/index.md) では自由場の二点相関を実時間へ移すと、運動量が一枚の質量殻に載ることを確かめました。相互作用がある場合、真空に場を一度作用させただけでも、質量の異なる成分が重なり得ます。本講では二点相関からその重みを正の測度として取り出します。次講で Hilbert 空間全体の質量ギャップを議論する準備です。
 
-直接の前提は [MQFC3](../MQFC3/index.md)、[MQFC9](../MQFC9/index.md)、[MQFC10](../MQFC10/index.md)、[LREP22](../../../代数系/LREP/LREP22/index.md) です。四次元時空、自然単位系、計量 $(-,+,+,+)$、内積は第2引数線形とします。MQFC3の内積式は引数を交換して用います。
+直接の前提は [MQFC3](../MQFC3/index.md)、[MQFC9](../MQFC9/index.md)、[MQFC10](../MQFC10/index.md)、[LREP22](../../../代数系/LREP/LREP22/index.md) です。四次元時空、自然単位系、計量 $(-,+,+,+)$、内積は第2引数線形とします。本講でいう Lorentz 変換は固有時向き Lorentz 群の元、すなわち計量・向き・未来方向を保存する変換です。MQFC3の内積式は引数を交換して用います。
 
 ## 1. エネルギーと質量を分ける
 
@@ -23,7 +23,13 @@ E_s(k)=\sqrt{s+|k|^2},\qquad
 d\eta_s(k)=\frac{d^3k}{(2\pi)^3\,2E_s(k)}.
 $$
 
-$s=0$ では $k=0$ を除いて積分します。半径 $r$ の球で密度の動径部分は $r\,dr$ の定数倍なので、零の近くで可積分です。この測度を $k\mapsto(E_s(k),k)$ で運動量空間へ移したものを $\sigma_s$ と書きます。[質量殻測度のLorentz不変性](../../../代数系/LREP/LREP22/index.md#thm-lrep22-measure-invariance) により $\sigma_s$ は不変です。
+$s=0$ では $k=0$ を除いて積分します。半径 $r$ の球で密度の動径部分は $r\,dr$ の定数倍なので、零の近くで可積分です。この測度を座標写像 $k\mapsto(E_s(k),k)$ で運動量空間へ移した像測度を $\sigma_s$ と書きます。すなわち Borel 集合 $B$ に対して
+
+$$
+\sigma_s(B)=\int \mathbf1_B(E_s(k),k)\,d\eta_s(k)
+$$
+
+です。$\mathbf1_B$ は $B$ の指示関数です。座標写像は連続で、逆写像は空間運動量への射影なので、この積分は殻上の集合の測度を与えます。[質量殻測度のLorentz不変性](../../../代数系/LREP/LREP22/index.md#thm-lrep22-measure-invariance) により $\sigma_s$ は不変です。
 
 ## 2. 真空二点相関から正の運動量測度を取り出す
 
@@ -41,7 +47,7 @@ $$
 W(g)=L\left(p\mapsto\int e^{-ib(p,x)}g(x)d^4x\right)
 $$
 
-となるように [Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier) の逆写像で定めます。中心化した二点量を真空から作るベクトルの内積として読むと、運動量の重みの正値性が現れます。
+となるように [Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier) の逆写像で定めます。中心化した二点量を真空から作るベクトルの内積として読むと、運動量の重みの正値性が現れます。ここでいう局所有限とは任意のコンパクト集合の測度が有限であること、多項式増大とはある定数 $C,N$ に対して半径 $R\ge1$ の Euclid 球の測度が $C(1+R)^N$ 以下となることです。未来閉光円錐は $E\ge |k|$ を満たす運動量の集合です。
 
 <a id="thm-mqfc11-positive-measure"></a>
 
@@ -81,7 +87,14 @@ $$
 \end{aligned}
 $$
 
-随伴条件から $W(g)=\langle A(f)\Omega,A(f)\Omega\rangle$ です。従って Fourier 変換の全射性により、任意の Schwartz 関数 $h$ に対して $L(|h|^2)\ge0$ です。
+Wightman 公理の随伴条件と並進不変性から、二点分布核を試験関数で評価すると
+
+$$
+W(g)=\int W(x-y)\overline{f(x)}f(y)\,d^4x\,d^4y
+=\langle A(f)\Omega,A(f)\Omega\rangle
+$$
+
+です。左の二重積分は分布の作用を表す記法です。従って [Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier) の全射性により、任意の Schwartz 関数 $h$ に対して $L(|h|^2)\ge0$ です。
 
 非負のコンパクト台滑らかな関数 $u$ を取り、$u$ の台の近傍で1、非負でコンパクト台の滑らかな関数 $\chi$ を選びます。$\epsilon>0$ について $h_\epsilon=\sqrt{u+\epsilon\chi^2}$ は滑らかです。$u$ の台の近傍では平方根の中が正で、その外では $\sqrt\epsilon\chi$ だからです。
 
@@ -95,9 +108,9 @@ $$
 |L(v)|\le L(\chi)\|v\|_\infty.
 $$
 
-従って一様ノルムでの近似により正の汎関数はコンパクト台連続関数へ一意に延長します。正の汎関数と局所有限測度を対応させる Riesz–Markov 表現定理をここで用いると $L(u)=\int u\,d\nu$ となります。複素関数は実部と虚部に分けます。
+従って台を共通のコンパクト集合に保つ滑らかな近似（非負関数には非負の平滑化核を使う）により、正の実線形汎関数はコンパクト台連続関数へ一意に延長します。$\mathbb R^4$ は局所コンパクト Hausdorff 空間なので、[Riesz–Markov表現定理の正汎関数版](../../../解析系/MT/MT5/index.md#thm-mt5-riesz-markov-positive) が適用でき、局所有限の非負 Borel 測度 $\nu$ による表示 $L(u)=\int u\,d\nu$ が得られます。複素関数は実部と虚部に分けます。
 
-$L$ の緩増加性はある有限次数の Schwartz 半ノルムによる上界を与えます。単位球で1となる非負の滑らかな cutoff を $\chi_1$ とし、$\chi_R(p)=\chi_1(p/R)$、$R\ge1$ と置けば各微分は $R^{-|\alpha|}$ 倍、台は半径の定数倍の球です。従ってある $C,N$ により
+[緩増加分布の定義](../MQFC1/index.md#def-mqfc1-tempered) により、$L$ はある有限次数の Schwartz 半ノルムで上から抑えられます。単位球で1となる非負の滑らかな cutoff を $\chi_1$ とし、$\chi_R(p)=\chi_1(p/R)$、$R\ge1$ と置けば各微分は $R^{-|\alpha|}$ 倍、台は半径の定数倍の球です。従ってある $C,N$ により
 
 $$
 \nu(\{|p|\le R\})\le L(\chi_R)\le C(1+R)^N.
@@ -206,7 +219,16 @@ k'_i=k_i\cosh a+E_s(k)\sinh a,\qquad
 k'_j=k_j\ (j\ne i).
 $$
 
-従って $a=0$ で $dk'_i/da=E_s(k)$ です。$s$ は不変です。$s$ のコンパクト台連続関数 $h$、$k\ne0$ に台を持つ滑らかなコンパクト台関数 $\psi$ に対して $\int h(s)\psi(k')dM=\int h(s)\psi(k)dM$ を微分します。小さい $|a|$ の範囲では逆 boost で移した台が原点を避けた共通コンパクト集合に含まれ、導関数が有界なので微分と積分を交換できます。
+ここでは $s,k$ を固定して boost パラメータ $a$ だけを動かします。$s$ は不変であり、
+
+$$
+\left.\frac{dk'_i}{da}\right|_{a=0}=E_s(k),
+\qquad
+\left.\frac{d}{da}\psi(k'(a))\right|_{a=0}
+=E_s(k)\partial_i\psi(k)
+$$
+
+です。$\partial_i$ は空間運動量 $k_i$ での偏微分であり、2番目の式は連鎖律です。$s$ のコンパクト台連続関数 $h$、$k\ne0$ に台を持つ滑らかなコンパクト台関数 $\psi$ に対して $\int h(s)\psi(k')dM=\int h(s)\psi(k)dM$ を微分します。小さい $|a|$ の範囲では逆 boost で移した台が原点を避けた共通コンパクト集合に含まれ、導関数が有界なので微分と積分を交換できます。
 
 $$
 \int h(s)\partial_i\psi(k)dN(s,k)=0.
@@ -218,7 +240,14 @@ $$
 n_\epsilon(k)=\int\omega_\epsilon(k-y)dN_h(y)
 $$
 
-を定めると、$k$ 微分は $y$ 微分の符号反転なので全偏導関数が零です。この領域は連結だから $n_\epsilon$ は定数 $c_\epsilon$。コンパクト台の滑らかな関数に対する積分は $\epsilon\downarrow0$ で $N_h$ による積分に収束します。実際、畳み込みによる一様近似と、台の共通コンパクト集合での有限性を使えます。積分1の固定試験関数 $\psi_0\ge0$ を原点から離して取ると
+を定めると、$k$ 微分は $y$ 微分の符号反転です。固定した $k$ に対し $y\mapsto\omega_\epsilon(k-y)$ は原点を避ける台を持つので、直前に得た分布の微分の等式を使うと
+
+$$
+\partial_{k_i}n_\epsilon(k)
+=-\int\partial_{y_i}\omega_\epsilon(k-y)dN_h(y)=0.
+$$
+
+ここでは局所有限測度上の共通コンパクト台と滑らかな核の有界導関数により微分と積分を交換できます。この領域は連結だから $n_\epsilon$ は定数 $c_\epsilon$。コンパクト台の滑らかな関数に対する積分は $\epsilon\downarrow0$ で $N_h$ による積分に収束します。実際、畳み込みによる一様近似と、台の共通コンパクト集合での有限性を使えます。積分1の固定試験関数 $\psi_0\ge0$ を原点から離して取ると
 
 $$
 c_\epsilon\longrightarrow c_h=\int\psi_0(k)dN_h(k).
@@ -251,7 +280,19 @@ $$
 
 このような区間で正の質量二乗の全範囲を可算被覆すれば静止点全体の測度は零です。原点は既に除かれました。従って上の [積測度](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-01) から $2(2\pi)^3 E_s(k)$ で割り戻した式が全円錐で成立します。これが [質量二乗スペクトル測度](#def-mqfc11-mass-measure) の等式です。
 
-一意性は同じ $\psi_0$ による重み付き積分から $\rho$ が復元されることで従います。$\rho([0,R])$ を評価する際は、$\psi_0$ の固定された台において $E_s(k)$ と $|p|$ が定数倍の $1+\sqrt R$ 以下となることを使います。$\nu$ の多項式増大から $\rho([0,R])$ も $R$ の多項式で上から抑えられます。
+一意性は同じ $\psi_0$ による重み付き積分から $\rho$ が復元されることで従います。$\psi_0$ の台が $|k|\le K$ に含まれるとすると、$s\le R$ では $E_s(k)\le\sqrt{R+K^2}$、$|p|\le\sqrt{R+2K^2}$ です。復元式と $\nu$ の増大評価から、適当な正定数 $C_1,C_2,C_3$ に対し
+
+$$
+\begin{aligned}
+\rho([0,R])
+&=\int_{s(p)\le R}2(2\pi)^3E\psi_0(k)d\nu(p)\\
+&\le C_1(1+\sqrt R)\nu(\{|p|\le C_2(1+\sqrt R)\})\\
+&\le C_3(1+R)^{N+1}
+\qquad(R\ge1)
+\end{aligned}
+$$
+
+となります。従って $\rho$ も多項式増大です。
 
 最後に、任意の Schwartz 試験関数 $g$ に対し、$u(p)=\int e^{-ib(p,x)}g(x)d^4x$ は Schwartz 関数であり $\int |u|d\nu$ は有限です。測度の分解を $|u|$ に適用すると殻ごとの積分と外側積分の絶対収束が従い、実部・虚部に分けて分解を $u$ に適用できます。これを二点分布の Fourier 表示へ戻せば定理の式になります。
 <!-- proof-end -->
@@ -260,7 +301,17 @@ Lorentz 不変性を外すと、正の運動量測度であってもこの分解
 
 ## 4. 質量の原子と連続部分
 
-[Källén–Lehmann表示](#thm-mqfc11-kl) の $\rho$ において $\rho(\{m^2\})=Z>0$ なら、二点分布のその成分は $Z\Delta_+(\cdot;m^2)$ です。質量二乗の射影値測度でこの集合を選ぶと、場から作ったベクトルの一部が質量 $m$ に厳密に集中します。
+[Källén–Lehmann表示](#thm-mqfc11-kl) の $\rho$ において $\rho(\{m^2\})=Z>0$ なら、二点分布のその成分は $Z\Delta_+(\cdot;m^2)$ です。この原子が状態の質量にどう対応するかを確認します。[質量二乗の不変性](../../../代数系/LREP/LREP22/index.md#thm-lrep22-mass-casimir) で構成した質量二乗作用素の射影値測度を $P_s$ と書くと、Borel 集合 $B\subset[0,\infty)$ について $P_s(B)=E_U(s^{-1}(B))$ です。第2節の [中心化二点分布の正運動量測度](#thm-mqfc11-positive-measure) の証明と第3節の分解を組み合わせると、$v=A(f)\Omega$ に対し
+
+$$
+\begin{aligned}
+\|P_s(B)v\|^2
+&=\int_{s(p)\in B}|\mathcal F_+ f(p)|^2d\nu(p)\\
+&=\int_B\int|\mathcal F_+ f(E_s(k),k)|^2d\eta_s(k)d\rho(s).
+\end{aligned}
+$$
+
+$B=\{m^2\}$ では右辺が $Z$ 倍の殻積分になります。Fourier 変換が全点で正の Gaussian 試験関数を選べば殻積分は正なので、非零の質量 $m$ 成分が存在します。任意の $f$ がこの成分を検出するとは限りません。
 
 原子が他の台から離れている場合、その殻を近傍の質量と区別できます。これが安定な一粒子成分を識別する出発点です。ただし原子だけでは粒子の多重度や散乱理論の成立までは決まりません。
 
@@ -271,7 +322,7 @@ W=4\Delta_+(\cdot;1)+\Delta_+(\cdot;4),
 \qquad \rho=4\delta_1+\delta_4.
 $$
 
-一方 $\rho$ の一部が $w(s)ds$（$w\ge0$）であれば、質量二乗が区間に分布します。特に二粒子の全運動量 $p_1+p_2$ は同じ質量の粒子から作っても、相対運動量に応じて不変質量が変わります。
+一方 $\rho$ の一部が $w(s)ds$（$w\ge0$）であれば、質量二乗が区間に分布します。特に二粒子の全運動量 $p_1+p_2$ は同じ質量の粒子から作っても、相対運動量に応じて不変質量が変わります。正質量 $m$ の粒子の四元速度は $p/m$ です。次の命題ではこれが一致するときに全不変質量が最小になります。
 
 <a id="prop-mqfc11-two-particle-threshold"></a>
 
@@ -334,7 +385,18 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[Källén–Lehmann表示](#thm-mqfc11-kl) の実時間の位相を $z=\tau+it$ へ移して $e^{-zE_s(k)}$ とします。空間差の試験関数を $h(x)=\int\overline{g(y+x)}g(y)d^3y$ とすると、$e^{ik\cdot x}$ との積分は $|\hat g(k)|^2$ になります。
+[Källén–Lehmann表示](#thm-mqfc11-kl) の実時間の位相を $z=\tau+it$ へ移して $e^{-zE_s(k)}$ とします。空間差の試験関数を $h(x)=\int\overline{g(y+x)}g(y)d^3y$ とします。$u=y+x$ の変数変換と絶対可積分性から [Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) を使うと、
+
+$$
+\begin{aligned}
+\int e^{ik\cdot x}h(x)d^3x
+&=\left(\int e^{ik\cdot u}\overline{g(u)}d^3u\right)
+  \left(\int e^{-ik\cdot y}g(y)d^3y\right)\\
+&=\overline{\hat g(k)}\hat g(k)=|\hat g(k)|^2.
+\end{aligned}
+$$
+
+従って $C_g(\tau)$ はこの自己相関で平滑化した正時間の量です。
 
 $E_s(k)\ge\sqrt s$ かつ $E_s(k)\ge|k|$ です。$\operatorname{Re}z\ge\delta>0$ なら
 
@@ -349,7 +411,13 @@ $$
 実時間境界値は全時空の Schwartz 試験関数で評価すると、運動量側の Schwartz 関数に $e^{-\epsilon E_s(k)}$ を掛けた積分になります。絶対値は元の Schwartz 関数で抑えられ、$\nu$ に関して可積分なので [優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01) で $W$ に戻ります。正の実軸 $z=\tau$ を取れば主張の積分であり、全因子が非負です。
 <!-- proof-end -->
 
-例えば $\rho=4\delta_1+\delta_4$ のとき空間 Fourier 表示の時間因子は
+空間 Fourier 表示では、$d^3k/(2\pi)^3$ に対する核を
+
+$$
+K(\tau,k)=\int_{[0,\infty)}\frac{e^{-\tau E_s(k)}}{2E_s(k)}\,d\rho(s)
+$$
+
+と書きます。質量零の原子がある場合など $k=0$ で値が有限とは限りませんが、波束との積分は命題の評価により有限です。例えば $\rho=4\delta_1+\delta_4$ のとき空間 Fourier 表示の時間因子は
 
 $$
 \frac{4e^{-\tau\sqrt{1+|k|^2}}}{2\sqrt{1+|k|^2}}
@@ -358,7 +426,7 @@ $$
 
 $k=0$ では $2e^{-\tau}+\tfrac14e^{-2\tau}$。これは運動量核の値で、正規化された静止運動量固有ベクトルの内積ではありません。大きい時間では軽い成分が優勢になります。
 
-ただし二点量に見える質量は、場を真空に一度作用させたベクトルが持つ質量に限られます。例えば $\mathbb C^3$ の正規直交基底 $e_0,e_1,e_2$ に対し、真空を $e_0$、ハミルトニアンを $H=\operatorname{diag}(0,1,3)$ とします。観測後のベクトル $v=e_2$ に対して
+ただし二点量に見える質量は、場を真空に一度作用させたベクトルが持つ質量に限られます。例えば $\mathbb C^3$ の正規直交基底 $e_0,e_1,e_2$ に対し、真空を $e_0$、ハミルトニアンを $H=\operatorname{diag}(0,1,3)$ とします。この対角表示は $He_j=\lambda_j e_j$（$\lambda_0=0,\lambda_1=1,\lambda_2=3$）を表します。[非負生成作用素の複素時間境界値](../MQFC10/index.md#thm-mqfc10-complex-semigroup) のスペクトル積分では $e^{-\tau H}e_j=e^{-\tau\lambda_j}e_j$ です。観測後のベクトル $v=e_2$ に対して
 
 $$
 \langle v,e^{-\tau H}v\rangle=e^{-3\tau}
@@ -487,7 +555,9 @@ $$
 $M(0)=5$、$r>0$ で
 
 $$
-M'(r)=\frac r{\sqrt{4+r^2}}+\frac r{\sqrt{9+r^2}}>0.
+M'(r)=\frac{dM}{dr}
+=\frac{2r}{2\sqrt{4+r^2}}+\frac{2r}{2\sqrt{9+r^2}}
+=\frac r{\sqrt{4+r^2}}+\frac r{\sqrt{9+r^2}}>0.
 $$
 
 連続で、$M(r)\ge2r$ だから無限遠で発散します。中間値の性質と単調性から範囲は $[5,\infty)$、質量二乗の範囲は $[25,\infty)$ です。下端は [二粒子の不変質量の下限](#prop-mqfc11-two-particle-threshold) と一致します。この範囲の全てに実際の場の重みがあるという主張ではありません。
@@ -500,7 +570,7 @@ $$
 $\rho(ds)=\mathbf1_{[1,4]}(s)ds$ とする。正の Euclid 時間 $\tau$ の空間運動量核を $k=0$ で計算せよ。さらに、正定数 $A,m$ に対してこの核を $Ae^{-m\tau}$ と表せないことを示せ。
 
 <!-- solution-start -->
-[質量測度からのEuclid二点量](#prop-mqfc11-euclidean-spectrum) の核を $k=0$ で評価します。$u=\sqrt s$ と置けば $ds=2u\,du$ であり、積分端点は1と2です。
+[質量測度からのEuclid二点量](#prop-mqfc11-euclidean-spectrum) の核を $k=0$ で評価します。$u=\sqrt s$ と置きます。$s=u^2$ は $1\le u\le2$ で狭義増加し、$ds/du=2u>0$ です。置換積分で $ds=2u\,du$ と書けるので、分母 $2\sqrt s=2u$ と打ち消し合い、積分端点は1と2です。
 
 $$
 \begin{aligned}
@@ -510,7 +580,17 @@ K(\tau,0)&=\int_1^4\frac{e^{-\tau\sqrt s}}{2\sqrt s}ds\\
 \end{aligned}
 $$
 
-$\tau\downarrow0$ では積分表示から極限は1です。$\tau\to\infty$ では $e^\tau K(\tau,0)=(1-e^{-\tau})/\tau\to0$ ですが、$-\log K(\tau,0)/\tau\to1$ です。一定係数の単一指数ならこの対数の極限から指数率は1となり、$e^\tau K$ は正の一定値のはずです。従って単一指数では表せません。
+$\tau\downarrow0$ では $0\le e^{-\tau u}\le1$ なので、[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01) から極限は1です。$\tau\to\infty$ では
+
+$$
+e^\tau K(\tau,0)=\frac{1-e^{-\tau}}{\tau}\longrightarrow0,
+\qquad
+-\frac{\log K(\tau,0)}{\tau}
+=1+\frac{\log\tau-\log(1-e^{-\tau})}{\tau}
+\longrightarrow1.
+$$
+
+ここで $\log\tau/\tau\to0$、$\log(1-e^{-\tau})\to0$ を使いました。一定係数の単一指数ならこの対数の極限から指数率は1となり、$e^\tau K$ は正の一定値のはずです。従って単一指数では表せません。
 <!-- solution-end -->
 
 ### 演習 MQFC11-C1：一つの観測量が見落とす固有空間
