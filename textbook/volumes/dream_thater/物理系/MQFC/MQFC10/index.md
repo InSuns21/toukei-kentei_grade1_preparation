@@ -199,7 +199,17 @@ $$
 
 ## 3. 半群の複素時間への延長
 
-[自己共役縮小半群の非負生成作用素](../MQFC9/index.md#thm-mqfc9-hamiltonian) により $H\ge0$ と $T_s=e^{-sH}$ が得られました。以下では $E_H$ をそのスペクトル射影値測度とし、任意の Borel 集合 $B\subset[0,\infty)$ に対し $E_H(B)$ はそのエネルギー範囲への直交射影です。[自己共役作用素のBorel関数計算](../../../解析系/QM/QM6/index.md#def-qm6-borel-functional-calculus) により $e^{-zH}$ は $\lambda\mapsto e^{-z\lambda}$ を作用素に移したものです。$u,v$ に対して $\nu_{u,v}(B)=\langle u,E_H(B)v\rangle$ と置きます。これは有限複素測度です。実際互いに素な $B_j$ に対して
+[自己共役縮小半群の非負生成作用素](../MQFC9/index.md#thm-mqfc9-hamiltonian) により $H\ge0$ と $T_s=e^{-sH}$ が得られました。
+
+以下では $E_H$ をそのスペクトル射影値測度とし、任意の Borel 集合 $B\subset[0,\infty)$ に対し $E_H(B)$ はそのエネルギー範囲への直交射影です。[自己共役作用素のBorel関数計算](../../../解析系/QM/QM6/index.md#def-qm6-borel-functional-calculus) により $e^{-zH}$ は $\lambda\mapsto e^{-z\lambda}$ を作用素に移したものです。
+
+$u,v$ に対して
+
+$$
+\nu_{u,v}(B)=\langle u,E_H(B)v\rangle
+$$
+
+と置きます。これは有限複素測度です。実際互いに素な $B_j$ に対して
 
 $$
 \sum_j|\langle E_H(B_j)u,E_H(B_j)v\rangle|
@@ -570,7 +580,15 @@ $e_n$ は $e_0$ と直交し、$\|e^{-sH}e_n\|=e^{-s/n}$。もし全真空直交
 
 - Level: C
 
-自由場の質量 $m>0$ と上の測度 $d\eta$ を使い、$g\in\mathcal S(\mathbb R^3)$ を非零とする。$v(k)=\hat g(k)$ として $L^2(d\eta)$ 上で $H$ を $E_k$ の掛け算作用素とする。定義域は $D(H)=\{w\in L^2(d\eta): E_kw(k)\in L^2(d\eta)\}$ とする。この作用素は $E_k$ が非負実数値なので非負自己共役である（[スペクトル積分の自己共役性](../../../解析系/QM/QM6/index.md#thm-qm6-spectral-integral-self-adjoint) において $E_H(B)$ を $\mathbf 1_{\{k:E_k\in B\}}$ の掛け算作用素とすればよい）。
+自由場の質量 $m>0$ と上の測度 $d\eta$ を使い、$g\in\mathcal S(\mathbb R^3)$ を非零とする。$v(k)=\hat g(k)$ として $L^2(d\eta)$ 上で $H$ を $E_k$ の掛け算作用素とする。
+
+定義域は
+
+$$
+D(H)=\{w\in L^2(d\eta): E_kw(k)\in L^2(d\eta)\}
+$$
+
+とする。この作用素は $E_k$ が非負実数値なので非負自己共役である（[スペクトル積分の自己共役性](../../../解析系/QM/QM6/index.md#thm-qm6-spectral-integral-self-adjoint) において $E_H(B)$ を $\mathbf 1_{\{k:E_k\in B\}}$ の掛け算作用素とすればよい）。
 
 (1) $v$ が $D(H)$ に属すことを示せ。(2) $F(z)=\int e^{-zE_k}|v(k)|^2d\eta(k)$ の境界値と $F'(s)$（$s>0$）を求めよ。(3) 任意の $t_j\in\mathbb R$ と $c_j\in\mathbb C$（$j=1,\ldots,N$）に対し $\sum_{j,l}\bar c_j c_l F(i(t_l-t_j))\ge0$ を示せ。
 
