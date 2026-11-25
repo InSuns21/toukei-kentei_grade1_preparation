@@ -1,0 +1,49 @@
+chapter: ACOMP21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ACOMP20
+forward_references: []
+concepts:
+  - id: algebraic-complexity.power-series
+    name: "形式冪級数"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（形式冪級数）"]
+    requires: [algebra.field]
+  - id: algebraic-complexity.series-inverse
+    name: "形式冪級数の逆元判定"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（形式冪級数の逆元判定）"]
+    requires: [algebraic-complexity.power-series]
+  - id: algebraic-complexity.formal-laurent
+    name: "形式 Laurent 級数"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（形式 Laurent 級数）"]
+    requires: [algebraic-complexity.power-series]
+  - id: algebraic-complexity.laurent-field
+    name: "形式 Laurent 級数体"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（形式 Laurent 級数体）"]
+    requires: [algebraic-complexity.formal-laurent, algebraic-complexity.series-inverse]
+  - id: algebraic-complexity.t-adic-order
+    name: "t 進付値"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（$t$ 進付値）"]
+    requires: [algebraic-complexity.formal-laurent]
+  - id: algebraic-complexity.valuation-rules
+    name: "t 進付値の演算則"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（$t$ 進付値の演算則）"]
+    requires: [algebraic-complexity.t-adic-order, algebraic-complexity.laurent-field]
+  - id: algebraic-complexity.specialization
+    name: "定数項への特殊化"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（定数項への特殊化）"]
+    requires: [algebraic-complexity.t-adic-order, algebraic-complexity.power-series]

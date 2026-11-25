@@ -1,0 +1,39 @@
+id: "ACOMP21"
+title: "形式冪級数・Laurent級数・付値：定数の極と係数の極限"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ACOMP20
+official_scope: []
+learning_objectives:
+  - 形式冪級数の積を有限個の係数から計算し逆元の漸化式を導ける
+  - 形式 Laurent 級数の指数の下限と体になる理由を説明できる
+  - t 進付値の積と和の法則を証明し極の打消しを判定できる
+  - 算術回路の定数の極と出力の係数の特殊化を区別できる
+definitions:
+  - { id: ACOMP21-DEF-01, name: "形式冪級数" }
+  - { id: ACOMP21-DEF-02, name: "形式 Laurent 級数" }
+  - { id: ACOMP21-DEF-03, name: "t 進付値" }
+theorems:
+  - { id: ACOMP21-THM-01, name: "形式冪級数の逆元判定" }
+  - { id: ACOMP21-THM-02, name: "形式 Laurent 級数体" }
+  - { id: ACOMP21-THM-03, name: "t 進付値の演算則" }
+  - { id: ACOMP21-THM-04, name: "定数項への特殊化" }
+canonical_examples:
+  - 幾何級数の形式的な積
+  - 逆元の係数漸化式
+  - 負の指数の相殺
+  - 二乗差の特殊化
+problem_patterns:
+  - ACOMP21-A1
+  - ACOMP21-A2
+  - ACOMP21-A3
+  - ACOMP21-A4
+  - ACOMP21-B1
+  - ACOMP21-B2
+  - ACOMP21-B3
+  - ACOMP21-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
