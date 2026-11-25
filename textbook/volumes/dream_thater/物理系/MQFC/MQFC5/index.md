@@ -6,14 +6,14 @@
 
 ## 1. 二次形式の逆を周波数ごとに求める
 
-[Schwartz空間](../MQFC1/index.md#def-mqfc1-schwartz) $S=\mathcal S(\mathbb R^d)$ の元を測定の重みとします。実数値の重みは実の測定に、複素数値の重みは計算に使います。$dx$ はLebesgue測度です。$S$ 上のFourier規約は [MQFC1のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier) と同じです。
+[Schwartz空間](../MQFC1/index.md#def-mqfc1-schwartz) $S=\mathcal S(\mathbb R^d)$ の元を測定の重みとします。実数値の重みは実の測定に、複素数値の重みは計算に使います。$x=(x_1,\ldots,x_d)$ は位置、$p=(p_1,\ldots,p_d)$ は周波数で、$p\cdot x=\sum_{j=1}^d p_jx_j$ です。$dx,dp$ はそれぞれのLebesgue測度です。複素共役は上線で表します。$S$ 上のFourier規約は [MQFC1のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier) と同じです。
 
 $$
 \widehat f(p)=\int e^{-ip\cdot x}f(x)\,dx,\qquad
 f(x)=(2\pi)^{-d}\int e^{ip\cdot x}\widehat f(p)\,dp.
 $$
 
-$\Delta=\sum_j\partial_j^2$ と置きます。[自由スカラー場のEuclid作用](../../QFT/QFT20/index.md#def-qft20-euclidean-action)の二次形式を一般次元で見ると、実の $u\in S$ に対して部分積分（境界項は急減少性で消える）により
+位置変数について $\partial_j=\partial/\partial x_j$ と書き、勾配を $\nabla u=(\partial_1u,\ldots,\partial_du)$、Laplacianを $\Delta=\sum_{j=1}^d\partial_j^2$ とします。[自由スカラー場のEuclid作用](../../QFT/QFT20/index.md#def-qft20-euclidean-action)の二次形式を一般次元で見ると、実の $u\in S$ に対して部分積分（境界項は急減少性で消える）により
 
 $$
 \int (|\nabla u|^2+m^2u^2)\,dx
@@ -27,7 +27,7 @@ $$
 a_m(p)=|p|^2+m^2.
 $$
 
-したがって $A_mu=f$ を解くには周波数ごとに $a_m$ で割ればよいことになります。周波数側で関数に掛ける係数をFourier乗数といいます。有限次元で正の二次形式を表す行列の逆が共分散になることに対応して、ここでは逆の乗数から共分散を作ります。
+したがって $A_mu=f$ を解くには周波数ごとに $a_m$ で割ればよいことになります。周波数側で関数に掛ける係数をFourier乗数といいます。有限次元の自由Gaussianモデルで精度行列の逆が共分散になることに対応して、ここでは逆の乗数から共分散を作ります。[MQFC1の二点分布核](../MQFC1/index.md#def-mqfc1-kernel)と同じく、第1引数を共役線形、第2引数を線形にする半双線形形式を考えます。これは複素数上の双線形形式とは異なります。実の重みに対しては実数値の双線形形式になることを後で証明します。
 
 <a id="def-mqfc5-covariance-form"></a>
 
@@ -59,12 +59,21 @@ B_2(f,g)=\frac1{2\pi}\int_{\mathbb R}
 \frac{2e^{-2p^2}}{p^2+4}\,dp.
 $$
 
-被積分関数は正で $e^{-2p^2}/2$ 以下だから有限な正の実数です。任意の複素数 $a,b$ についてFourier変換の線形性と積分の線形性を使うと、第1引数の $af+bg$ は $\bar a\overline{\widehat f}+\bar b\overline{\widehat g}$ を、第2引数の $af+bg$ は $a\widehat f+b\widehat g$ を生みます。これで両引数の線形性の条件を確認できます。
+被積分関数は正で $e^{-2p^2}/2$ 以下だから有限な正の実数です。一般の $f,g\in S$ についても $w_m\le m^{-2}$ かつ Fourier変換は急減少するので積分は絶対収束します。任意の $h\in S$ と複素数 $a,b$ に対し、[Fourier変換の線形性](../MQFC1/index.md#thm-mqfc1-fourier)と積分の線形性から
+
+$$
+\begin{aligned}
+B_m(af+bg,h)&=\bar a B_m(f,h)+\bar b B_m(g,h),\\
+B_m(h,af+bg)&=a B_m(h,f)+b B_m(h,g).
+\end{aligned}
+$$
+
+ここで第1式だけ係数も共役されるのは、定義の被積分関数で第1引数の変換に上線が付くからです。実係数に限定すれば共役は係数を変えず、両引数について実線形になります。
 <!-- definition-example-end -->
 
 ## 2. 逆作用素と二点分布核
 
-共分散が単なる形式的積分でないことを示します。$w_m$ の逆Fourier積分は点ごとに絶対収束するとは限らないため、$G_m=\mathcal F^{-1}w_m$ を[緩増加分布](../MQFC1/index.md#def-mqfc1-tempered)として定義します。$\langle G_m,h\rangle$ は分布の線形作用であって内積ではありません。
+共分散が単なる形式的積分でないことを示します。$w_m$ の逆Fourier積分は点ごとに絶対収束するとは限らないため、$\mathcal F^{-1}$ を逆Fourier変換の記号として、$G_m=\mathcal F^{-1}w_m$ を[緩増加分布](../MQFC1/index.md#def-mqfc1-tempered)として定義します。$\langle G_m,h\rangle$ は分布の線形作用であって内積ではありません。
 
 <a id="thm-mqfc5-inverse"></a>
 
@@ -94,26 +103,40 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$w_m$ の任意の階数の微分は、多項式を $a_m$ の正整数冪で割った有限和です。実際、$P/a_m^k$ の $p_j$ 微分は
+$w_m$ の任意の階数の周波数微分は、多項式を $a_m$ の正整数冪で割った有限和です。実際、$P$ を $p$ の多項式、$k\ge1$ を整数とし、この段落では $\partial_{p_j}=\partial/\partial p_j$ と書くと、$P/a_m^k$ の $p_j$ 微分は
 
 $$
-\frac{\partial_jP}{a_m^k}
+\frac{\partial_{p_j}P}{a_m^k}
 -\frac{2kp_jP}{a_m^{k+1}}
 $$
 
 となるので帰納できます。$a_m\ge m^2$ により各微分は高々多項式増大です。
 
-積の微分則から、各半ノルム $p_{N,r}(w_m v)$ は有限個の $p_{N+q,r}(v)$ の定数倍で抑えられます（$q$ は現れる単項式の指数の和の最大値）。よって $w_m v\in S$ です。
+[Schwartz半ノルム](../MQFC1/index.md#def-mqfc1-schwartz)を $p_{N,r}$ と書きます。添字 $r$ は微分階数の上限であり、質量 $m$ とは別です。多重指数 $\alpha$ について積の微分則を使うと
+
+$$
+\partial_p^\alpha(w_m v)
+=\sum_{\beta\le\alpha}\binom{\alpha}{\beta}
+(\partial_p^\beta w_m)(\partial_p^{\alpha-\beta}v).
+$$
+
+ここで $\beta\le\alpha$ は成分ごとの不等式です。$|\alpha|\le r$ で現れる全ての $\partial_p^\beta w_m$ が $C(1+|p|)^q$ 以下となる共通の非負整数 $q$ と定数 $C$ を選べます。各項に $(1+|p|)^N$ を掛けて上限を取れば
+
+$$
+p_{N,r}(w_m v)\le C_r p_{N+q,r}(v)
+$$
+
+となるので、乗算は $S$ を保ち、連続でもあります。
 
 多項式 $a_m$ の乗算も同様に $S$ を保ちます。両乗算の積が1であり、[Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier)が全単射だから $C_mA_m=A_mC_m=I$ です。
 
-$w_m$ は有界なので[多項式増大関数による緩増加分布](../MQFC1/index.md#prop-mqfc1-polynomial)として定まり、逆Fourier変換も[分布のFourier変換](../MQFC1/index.md#def-mqfc1-duality)により緩増加分布です。[分布微分のFourier表示](../MQFC1/index.md#prop-mqfc1-derivative)と $\widehat{\delta_0}=1$ から
+$w_m$ は有界なので[多項式増大関数による緩増加分布](../MQFC1/index.md#prop-mqfc1-polynomial)として定まり、逆Fourier変換も[分布のFourier変換](../MQFC1/index.md#def-mqfc1-duality)により緩増加分布です。[分布微分のFourier表示](../MQFC1/index.md#prop-mqfc1-derivative)と、[分布のFourier変換の定義](../MQFC1/index.md#def-mqfc1-duality)による $\widehat{\delta_0}=1$（$\langle\delta_0,h\rangle=h(0)$）から
 
 $$
 \widehat{A_mG_m}=a_mw_m=1=\widehat{\delta_0}.
 $$
 
-Fourier変換の単射性で $A_mG_m=\delta_0$ です。別の解との差 $T$ は $a_m\widehat T=0$ を満たします。任意の $\psi\in S$ に対し $w_m\psi\in S$ なので
+Fourier変換の単射性で $A_mG_m=\delta_0$ です。別の解との差 $T$ は $a_m\widehat T=0$ を満たします。ここで分布への滑らかな乗数の作用は $\langle a_m\widehat T,\psi\rangle=\langle\widehat T,a_m\psi\rangle$ で定められ、上の半ノルム評価により試験関数の空間を保ちます。任意の $\psi\in S$ に対し $w_m\psi\in S$ なので
 
 $$
 \langle\widehat T,\psi\rangle
@@ -132,13 +155,13 @@ $$
 \int(1+|y|)^N|g(y)|\,dy.
 $$
 
-右辺は有限です。積分下の微分も $f$ の有界な各階微分と $|g|$ で支配できます。分布の逆変換の定義では
+右辺は有限です。積分下の微分も $f$ の有界な各階微分と $|g|$ で支配できます。[分布のFourier変換の定義](../MQFC1/index.md#def-mqfc1-duality)では共役を取らないので、逆変換は試験関数に通常の逆変換を作用させます。$\mathcal F^{-1}h(p)=(2\pi)^{-d}\widehat h(-p)$ より
 
 $$
 \langle G_m,h\rangle=(2\pi)^{-d}\int w_m(p)\widehat h(-p)\,dp.
 $$
 
-変数 $x=y+z$ への置換とFubini（絶対積分は $\|f\|_1\|g\|_1$）で
+変数 $x=y+z$ への置換と[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02)（絶対積分は $\|f\|_1\|g\|_1$）で
 
 $$
 \begin{aligned}
@@ -157,7 +180,16 @@ $$
 
 ## 3. 正値性と連続性
 
-確率測度を作るとき、実の線形測定の分散は負になってはいけません。また重みを少し変えたら共分散も少ししか変わらない必要があります。
+確率測度を作るとき、実の線形測定の分散は負になってはいけません。また重みを少し変えたら共分散も少ししか変わらない必要があります。ここでは $B_m(g,f)=\overline{B_m(f,g)}$ をHermite対称と呼び、連続性は第1節のSchwartz半ノルムによる位相で考えます。$\|f\|_2=(\int|f(x)|^2dx)^{1/2}$ は二乗積分ノルムです。
+
+[有限個の試験関数による正値性判定](../MQFC1/index.md#prop-mqfc1-gram)に従い、$n\ge1$ 個の試験関数 $f_1,\ldots,f_n$ を選んで共分散行列 $M$ の成分を $M_{ij}=B_m(f_i,f_j)$ と置きます。係数列 $c=(c_1,\ldots,c_n)^T$ に対し $c^*=\bar c^T$ と書くと、半双線形性により
+
+$$
+c^*Mc=\sum_{i,j=1}^n\bar c_ic_jB_m(f_i,f_j)
+=B_m\left(\sum_{i=1}^n c_if_i,\sum_{j=1}^n c_jf_j\right).
+$$
+
+したがって形式の正値性は、この行列の二次形式の非負性を保証します。Hermite対称性 $M^*=M$ と合わせた条件をHermite正半定値といいます。試験関数は一次独立でなくてもよいので、係数列は必ずしも基底座標ではありません。
 
 <a id="thm-mqfc5-positivity"></a>
 
@@ -179,7 +211,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$w_m$ が実かつ正なので、積分の複素共役を取れば $\overline{B_m(f,g)}=B_m(g,f)$ です。また
+[試験関数共分散](#def-mqfc5-covariance-form)の $w_m$ が実かつ正なので、積分の複素共役を取れば $\overline{B_m(f,g)}=B_m(g,f)$ です。また
 
 $$
 B_m(f,f)=(2\pi)^{-d}\int w_m(p)|\widehat f(p)|^2\,dp.
@@ -201,7 +233,7 @@ $$
 \int |f(x)|^2\,dx=(2\pi)^{-d}\int|\widehat f(p)|^2\,dp.
 $$
 
-$g$ も同様です。よって目的の評価が従います。整数 $N>d/2$ を取ると
+$g$ についても同じ逆変換の計算を適用すれば二乗積分の関係が得られ、目的の評価が従います。整数 $N>d/2$ を取ると
 
 $$
 \|f\|_2\le p_{N,0}(f)
@@ -282,7 +314,7 @@ $$
 \end{aligned}
 $$
 
-分布のFourier変換と通常の変換の一致、および単射性（[MQFC1](../MQFC1/index.md#def-mqfc1-duality)）により先に構成した分布と一致します。$h$ を掛けた二重積分は $\|h\|_\infty m^{-2}$ で支配されるので表示式もFubiniで成立します。
+[分布のFourier変換と通常の変換の一致](../MQFC1/index.md#def-mqfc1-duality)、およびFourier変換の単射性により先に構成した分布と一致します。$h$ を掛けた二重積分は $\|h\|_\infty m^{-2}$ で支配されるので表示式もFubiniで成立します。
 <!-- proof-end -->
 
 同一点 $x=0$ では事情が違います。$s\downarrow0$ で $H_s(0)=(4\pi s)^{-d/2}$ となるため、$d\ge2$ では $\int_0^1s^{-d/2}ds$ が発散します。これは高周波側の発散に対応します。核全体は可積分であっても、同一点で有限な値を持つとは限りません。試験関数で測定する理由がここにもあります。
@@ -394,7 +426,7 @@ $$
 =\int_0^\infty e^{-u}\,du=1.
 $$
 
-[熱核積分表示](#thm-mqfc5-heat-resolvent)で $m=2$ を代入します。非負なので積分順序を交換でき、全積分は $\int_0^\infty e^{-4s}ds=1/4$ です。
+[熱核積分表示](#thm-mqfc5-heat-resolvent)で $m=2$ を代入します。非負なので [Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli)により積分順序を交換でき、全積分は $\int_0^\infty e^{-4s}ds=1/4$ です。
 <!-- solution-end -->
 
 ### 演習 MQFC5-A3：共分散行列の零方向
@@ -406,7 +438,7 @@ $m>0$、非零の実の $f\in S$ に対し、$f_1=f,f_2=-3f$ の共分散行列�
 <!-- solution-start -->
 **詳細解答**
 
-[試験関数共分散](#def-mqfc5-covariance-form)の線形性より $b=B_m(f,f)>0$ と置くと
+[試験関数共分散](#def-mqfc5-covariance-form)の線形性と[正値性](#thm-mqfc5-positivity)より $b=B_m(f,f)>0$ と置きます。第3節で導入した $M_{ij}=B_m(f_i,f_j)$ に $f_1=f,\ f_2=-3f$ を代入すると
 
 $$
 M=b\begin{pmatrix}1&-3\\-3&9\end{pmatrix}.
@@ -471,7 +503,7 @@ $a\in\mathbb R^d$、$R^TR=I$ の実 $d\times d$ 行列について、$f_{a,R}(x)
 <!-- solution-start -->
 **詳細解答**
 
-$R$ は直交行列なので $|\det R|=1$ です。$x=Ry+a$ と置くと
+$R^TR=I$ より $R^{-1}=R^T$ です。また $\det(R^TR)=(\det R)^2=1$ なので $|\det R|=1$ です。$y=R^T(x-a)$、すなわち $x=Ry+a$ と置けば、Jacobianの絶対値は1で $dx=dy$ です。さらに $p\cdot Ry=(R^Tp)\cdot y$ なので
 
 $$
 \widehat{f_{a,R}}(p)
@@ -479,7 +511,7 @@ $$
 =e^{-ip\cdot a}\widehat f(R^Tp).
 $$
 
-$g$ も同じ変換式です。[共分散の定義](#def-mqfc5-covariance-form)では第1引数が共役なので位相 $e^{ip\cdot a}$ と $e^{-ip\cdot a}$ が相殺されます。$q=R^Tp$ と置けば $dp=dq$、$|p|=|q|$ だから
+$g$ も同じ変換式です。[共分散の定義](#def-mqfc5-covariance-form)では第1引数が共役なので位相 $e^{ip\cdot a}$ と $e^{-ip\cdot a}$ が相殺されます。$q=R^Tp$ と置けばJacobianの絶対値は再び1で $dp=dq$ です。また $p=Rq$ と $R^TR=I$ より $|p|^2=q^TR^TRq=|q|^2$ だから
 
 $$
 B_m(f_{a,R},g_{a,R})
@@ -600,13 +632,13 @@ $$
 \boldsymbol 1_{\{|p|\ge\varepsilon\}}\le e^{-|p|^2}.
 $$
 
-右辺は可積分で、$p\ne0$ ならどの順序・経路で $m,\varepsilon$ が零へ近づいても $\cos^2\theta\, e^{-r^2}$ に収束します。任意のそのような列に優収束定理を適用し、$\int_0^{2\pi}\cos^2\theta\,d\theta=\pi$、$u=r^2$ より $\int_0^\infty re^{-r^2}dr=1/2$ を使うと極限は
+右辺は可積分で、$p\ne0$ ならどの順序・経路で $m,\varepsilon$ が零へ近づいても $\cos^2\theta\, e^{-r^2}$ に収束します。任意のそのような列に[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)を適用し、$\int_0^{2\pi}\cos^2\theta\,d\theta=\pi$、$u=r^2$ より $\int_0^\infty re^{-r^2}dr=1/2$ を使うと極限は
 
 $$
 (2\pi)^{-2}\pi\cdot\frac12=\frac1{8\pi}.
 $$
 
-$g$ は $f$ の第1座標微分で積分零なので、原点の特異性を打ち消せたことになります。
+[微分のFourier表示](../MQFC1/index.md#prop-mqfc1-derivative)とFourier変換の単射性から $g=\partial_1 f$ です。$\widehat g(0)=0$、すなわち $\int g(x)\,dx=0$ なので、原点の特異性を打ち消せたことになります。
 <!-- solution-end -->
 
 ## 7. 次の講義
