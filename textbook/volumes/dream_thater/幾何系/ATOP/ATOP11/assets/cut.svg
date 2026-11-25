@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 190" data-layout-lint="strict" role="img">
+<title>同符号辺対の切断・再接着</title><desc>左の六角形の境界語 auvawx を二つの a の始点を結ぶ破線 d で切る。右は一片を裏返して a 同士を太い中央の辺で貼った円板。下辺を右から左へ読み始めると dd、続いて v の逆、u の逆、w、x の順になる。</desc>
+<g fill="#edf2f5" stroke="#293d49" stroke-width="1.6" stroke-linejoin="round"><path d="M24 52 L72 24 L120 52 L120 108 L72 136 L24 108 Z"/><rect x="246" y="44" width="124" height="76"/></g>
+<g stroke="#293d49" fill="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M24 52 L120 108" stroke-dasharray="5 4"/><path d="M308 44 V120" stroke-width="3"/><path d="M158 80 H185 M179 74 L185 80 L179 86"/><path d="M281 114 L270 120 L281 126 M343 114 L332 120 L343 126"/></g>
+<g font-family="sans-serif" font-size="13" fill="#293d49" text-anchor="middle"><text x="39" y="15">a</text><text x="106" y="15">u</text><text x="135" y="84">v</text><text x="107" y="162">a</text><text x="38" y="162">w</text><text x="11" y="84">x</text><text x="70" y="57">d</text><text x="277" y="29">u⁻¹</text><text x="339" y="29">w</text><text x="224" y="86">v⁻¹</text><text x="385" y="86">x</text><text x="277" y="154">d</text><text x="339" y="154">d</text><text x="308" y="175">a</text></g>
+</svg>
