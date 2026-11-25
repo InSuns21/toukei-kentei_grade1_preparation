@@ -1,0 +1,37 @@
+chapter: ACOMP7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ACOMP6
+forward_references: []
+concepts:
+  - id: algebraic-complexity.boolean-sum
+    name: "Boolean和"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Boolean和）"]
+    requires: [algebraic-complexity.polynomial-evaluation-map]
+  - id: algebraic-complexity.boolean-sum-bounds
+    name: "Boolean和の係数・次数・演算サイズの上界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Boolean和の係数・次数・演算サイズの上界）"]
+    requires: [algebraic-complexity.boolean-sum, algebraic-complexity.arithmetic-circuit-semantics, algebraic-complexity.arithmetic-circuit-size]
+  - id: algebraic-complexity.vnp
+    name: "VNP"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（VNP）"]
+    requires: [algebraic-complexity.boolean-sum, algebraic-complexity.vp, algebraic-complexity.polynomial-family]
+  - id: algebraic-complexity.vnp-bounds
+    name: "VNP の変数数・次数境界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（VNP の変数数・次数境界）"]
+    requires: [algebraic-complexity.vnp, algebraic-complexity.boolean-sum-bounds]
+  - id: algebraic-complexity.vp-in-vnp
+    name: "VP の VNP への包含"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（VP の VNP への包含）"]
+    requires: [algebraic-complexity.vnp, algebraic-complexity.vp]
