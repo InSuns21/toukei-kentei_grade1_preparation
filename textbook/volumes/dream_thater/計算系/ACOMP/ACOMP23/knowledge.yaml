@@ -1,7 +1,7 @@
 chapter: ACOMP23
 scope: dream-theater
 coverage: complete
-prerequisites: [ACOMP22, AG1-03]
+prerequisites: [ACOMP22, AG1-03, LREP1]
 forward_references: []
 concepts:
   - id: algebraic-complexity.determinantal-complexity
@@ -14,14 +14,21 @@ concepts:
     name: "斉次多項式の線形置換軌道"
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（斉次多項式の線形置換軌道）"]
-    requires: [algebraic-complexity.target-homogenization, algebraic-geometry.zariski-topology]
+    introduction_aliases: ["定義（斉次多項式の線形置換軌道とZariski軌道閉包）"]
+    requires: [algebra.group-action, algebraic-complexity.target-homogenization]
+  - id: algebraic-complexity.zariski-orbit-closure
+    name: "Zariski軌道閉包"
+    kind: definition
+    aliases: ["軌道閉包"]
+    introduction: formal
+    introduction_aliases: ["定義（斉次多項式の線形置換軌道とZariski軌道閉包）"]
+    requires: [algebraic-complexity.substitution-orbit, algebraic-geometry.zariski-topology]
   - id: algebraic-complexity.end-orbit-closure
     name: "全線形置換の像と軌道閉包"
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（全線形置換の像と軌道閉包）"]
-    requires: [algebraic-complexity.substitution-orbit, algebraic-geometry.vanishing-ideal]
+    requires: [algebraic-complexity.zariski-orbit-closure, algebraic-geometry.vanishing-ideal]
   - id: algebraic-complexity.determinantal-substitution
     name: "行列式表示と斉次線形置換"
     kind: theorem
@@ -39,4 +46,4 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（不変閉集合の座標環の制限）"]
-    requires: [algebraic-complexity.substitution-orbit, algebraic-geometry.coordinate-ring, algebraic-geometry.coordinate-polynomial-functions]
+    requires: [algebraic-complexity.substitution-orbit, algebraic-geometry.coordinate-ring, algebraic-geometry.coordinate-polynomial-functions, representation.finite-dimensional-complex]
