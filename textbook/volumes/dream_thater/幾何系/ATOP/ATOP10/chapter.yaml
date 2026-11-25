@@ -1,0 +1,31 @@
+id: ATOP10
+title: "単体複体と三角形分割"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP1, ATOP4, FIX1]
+official_scope: []
+learning_objectives:
+  - 抽象単体複体の面に関する閉性を確認できる
+  - 幾何学的実現の支持集合と共通面を計算できる
+  - 幾何学的単体複体と位相空間の三角形分割を区別できる
+  - リンクを列挙し頂点近傍を極座標で構成できる
+  - 曲面の局所条件と辺の所属数を検証できる
+definitions:
+  - { id: ATOP10-DEF-01, name: 抽象単体複体 }
+  - { id: ATOP10-DEF-02, name: 幾何学的実現 }
+  - { id: ATOP10-DEF-03, name: 幾何学的単体複体 }
+  - { id: ATOP10-DEF-04, name: 位相空間の三角形分割 }
+  - { id: ATOP10-DEF-05, name: 単体のリンク }
+  - { id: ATOP10-DEF-06, name: 位相曲面の局所模型 }
+theorems:
+  - { id: ATOP10-PROP-01, name: 実現の共通面性 }
+  - { id: ATOP10-THM-01, name: 幾何学的単体複体の座標実現 }
+  - { id: ATOP10-THM-02, name: 頂点リンクと局所模型 }
+  - { id: ATOP10-THM-03, name: 頂点リンクによる曲面の十分条件 }
+  - { id: ATOP10-THM-04, name: Radó の三角形分割定理 }
+canonical_examples: [対角線で分割した正方形, 交差する線分, 四面体の表面の頂点リンク, 頂点だけで接する二三角形]
+problem_patterns: [ATOP10-A1, ATOP10-A2, ATOP10-A3, ATOP10-A4, ATOP10-B1, ATOP10-B2, ATOP10-B3, ATOP10-B4, ATOP10-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
