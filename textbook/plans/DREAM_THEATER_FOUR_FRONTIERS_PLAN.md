@@ -73,7 +73,7 @@ ANT+ANF+EC+MF+AFR+IWA+AG+CM+CAG+KAH1+HOD1+GA=207 completed chapters（12系列�
 
 - 新設必修本線160講（ATOP42 + GCO8 + BSD20 + CYC12 + HCP12 + RCG8 + M3T12 + RFL16 + PCP30）と共有発展ETO12講＝172講。
 - 既存の未実装RHP34を含め206講。CATB7の既存planned 5を含めた残作業は211講（この5講が未実装の基準コミットにおいて）。CATB8の2講、RMT30、一般Langlands/モチーフ、全幾何化は別枠。
-- 系列IDは現行manifest一覧と衝突なし。実際の章ID・パスは初回実装時に再チェック。講番号の一意性と件数はこの表と下のシラバスで一致させる。
+- 系列IDは現行manifest一覧と衝突なし。実際の章ID・パスは初回実装時に再チェック。講番号の一意性と件数はこの表、下の9系列のシラバス、独立ATOP PLANで一致させる。
 
 ## 4. 正式シラバス：各講の中心問い・証明責務
 
@@ -310,7 +310,7 @@ ANT/ANF/MF/EC/AFR/IWA → RHP（既存34）
 
 ## 7. 状態管理・次作業
 
-本作業は設計のみなので plans/ に置き、既存planを移動せず、未実装章・系列manifest・公開目次・global knowledge DAGを先行登録しない。初回実装時に系列manifestを作る。複数系列が並行する横断planは初回実装時に共通planをplans_progressへ移動し、直接参照する全manifestを同時更新。既存RHP/数論planは独立に維持し、重複章やID変更は作らない。新規10系列全講（ATOPは独立PLANで完成判定）と横断証明責務・索引・CI完了後だけdoneへ移動する。
+本作業は設計のみなので plans/ に置き、既存planを移動せず、未実装章・系列manifest・公開目次・global knowledge DAGを先行登録しない。初回実装時に系列manifestを作る。ATOP単独の着手では独立PLANのみをplans_progressへ移動し、本横断planと一般化Poincaré planの直接リンクを更新する。他の9系列の初回実装時に本横断planをplans_progressへ移動し、直接参照するmanifestと独立ATOP PLANへの相対リンクを同時更新。既存RHP/数論planは独立に維持し、重複章やID変更は作らない。新規10系列全講（ATOPは独立PLANで完成判定）と横断証明責務・索引・CI完了後だけdoneへ移動する。
 
 優先順: ATOP1、RCG1、BSD1を独立先行 → GCO（CATB7の必要講完了後）→ CYC/HCP、M3T/RFL/PCP、BSD後半 → ETO共有発展を並行。RHPの研究講読は現在の34講の正本に従う。
 
