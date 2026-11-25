@@ -1,0 +1,25 @@
+id: "CATB6-07"
+title: "幾何的理論と分類トポスへの入口"
+volume: foundations
+status: supplementary
+prerequisites: [CATB6-06, CATB6-04, CATB5-09, CATB5-08, CATB5-07, CATB5-05, CAT2-11]
+official_scope: []
+learning_objectives:
+  - 幾何的式と幾何的判断を構文から判定しモデルを解釈できる
+  - 任意選言を余積の像として構成できる
+  - 逆像による幾何的式とモデルの保存を証明できる
+  - 否定と全称量化が逆像で保存されない例を計算できる
+  - 一命題の分類トポスの普遍性を随伴と自然変換から証明できる
+definitions:
+  - { id: CATB6-07-DEF-01, name: "幾何的論理と幾何的理論" }
+  - { id: CATB6-07-DEF-02, name: "幾何的理論のモデル" }
+  - { id: CATB6-07-DEF-03, name: "分類トポス" }
+theorems:
+  - { id: CATB6-07-THM-01, name: "逆像による幾何的式とモデルの保存" }
+  - { id: CATB6-07-THM-02, name: "一命題の分類トポス" }
+canonical_examples: [全射の幾何的公理, 二点空間の否定, 一命題の分類トポス]
+problem_patterns: [CATB6-07-A01, CATB6-07-A02, CATB6-07-A03, CATB6-07-A04, CATB6-07-B01, CATB6-07-B02, CATB6-07-B03, CATB6-07-B04, CATB6-07-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 4, review: 2 }

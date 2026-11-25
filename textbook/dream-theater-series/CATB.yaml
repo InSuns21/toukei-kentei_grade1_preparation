@@ -55,7 +55,7 @@ chapters:
   - { id: CATB6-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-04, status: completed, title: "正則論理と整合論理" }
   - { id: CATB6-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-05, status: completed, title: "トポスの内部言語" }
   - { id: CATB6-06, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-06, status: completed, title: "Kripke–Joyal意味論" }
-  - { id: CATB6-07, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-07, status: planned, title: "幾何的理論と分類トポスへの入口" }
+  - { id: CATB6-07, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-07, status: completed, title: "幾何的理論と分類トポスへの入口" }
   - { id: CATB6-08, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-08, status: planned, title: "依存型の圏論的意味" }
   - { id: CATB7-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB7-01, status: planned, title: "複体と鎖写像" }
   - { id: CATB7-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB7-02, status: planned, title: "鎖ホモトピー・シフト・写像錐" }

@@ -1,0 +1,37 @@
+chapter: CATB6-07
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB6-06, CATB6-04, CATB5-09, CATB5-08, CATB5-07, CATB5-05, CAT2-11]
+concepts:
+  - id: category.geometric-logic
+    name: "幾何的論理"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（幾何的論理と幾何的理論）"]
+    requires: [category.coherent-logic]
+  - id: category.geometric-theory
+    name: "幾何的理論"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（幾何的論理と幾何的理論）"]
+    requires: [category.geometric-logic]
+  - id: category.geometric-model
+    name: "幾何的理論のモデル"
+    kind: definition
+    introduction: formal
+    requires: [category.geometric-theory, category.regular-semantics, category.grothendieck-topos, category.topos-image-factorization]
+  - id: category.geometric-formula-preservation
+    name: "逆像による幾何的式とモデルの保存"
+    kind: theorem
+    introduction: formal
+    requires: [category.geometric-model, category.geometric-morphism-image-preservation, category.left-adjoint-preserves-colimits]
+  - id: category.classifying-topos
+    name: "分類トポス"
+    kind: definition
+    introduction: formal
+    requires: [category.geometric-model, category.geometric-formula-preservation, category.geometric-morphism, category.equivalence-of-categories]
+  - id: category.proposition-classifying-topos
+    name: "一命題の分類トポス"
+    kind: theorem
+    introduction: formal
+    requires: [category.classifying-topos, category.sheafification-adjunction, category.sheafification-left-exactness, category.sheaf-pointwise-mono, category.geometric-morphism-composition]
