@@ -1,0 +1,45 @@
+name: Validate FML paper reconstruction
+on:
+  pull_request:
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/FML/FML7/**'
+      - '.github/workflows/validate-fml-paper.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/FML/FML7/**'
+      - '.github/workflows/validate-fml-paper.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  comparator:
+    name: Lean paper reconstruction and nanoda
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          lake-package-directory: 'textbook/volumes/dream_thater/計算系/FML/FML7/lab'
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - name: Install sandbox
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y bubblewrap
+      - name: Compare from clean environments
+        working-directory: 'textbook/volumes/dream_thater/計算系/FML/FML7/lab'
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/fml7-logs"
+          TMPDIR="$RUNNER_TEMP/fml7-logs" bash verify.sh
+          git diff --exit-code -- lean-toolchain lake-manifest.json
+      - name: Preserve execution logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fml7-comparator-logs
+          path: ${{ runner.temp }}/fml7-logs/**/*.log
