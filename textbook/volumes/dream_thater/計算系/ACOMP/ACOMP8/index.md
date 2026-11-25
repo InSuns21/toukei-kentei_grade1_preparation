@@ -357,7 +357,7 @@ $$
 
 ### B3. 特別なゲートの展開
 
-指定変数数と全次数が $5n^3$ 以下の族 $f$ が $g_{n^2}$ ゲートを使うサイズ $2n^3$ 以下の回路で計算される。$g_j$ にサイズ $3j^2$ 以下の通常回路があるとする。$f$ の VP 所属を具体的な上界で示せ。
+指定変数数と全次数が多項式有界な族 $g$ を取る。指定変数数と全次数が $5n^3$ 以下の族 $f$ が $g_{n^2}$ ゲートを使うサイズ $2n^3$ 以下の回路で計算される。$g_j$ にサイズ $3j^2$ 以下の通常回路があるとする。$f$ の VP 所属を具体的な上界で示せ。
 
 - Level: B
 - ID: ACOMP8-B3
@@ -453,4 +453,4 @@ $$
 
 次講では、この方向を使って VNP の任意の多項式族を一つの族へ帰着するための証明枠組みを学びます。
 
-参考文献：Bürgisser, [Completeness and Reduction in Algebraic Complexity Theory](https://link.springer.com/book/10.1007/978-3-662-04179-6)；Bürgisser, [On the relative power of reduction notions in arithmetic circuit complexity](https://arxiv.org/abs/1609.05942)。
+参考文献：Bürgisser, [Completeness and Reduction in Algebraic Complexity Theory](https://link.springer.com/book/10.1007/978-3-662-04179-6)；[On the relative power of reduction notions in arithmetic circuit complexity](https://arxiv.org/abs/1609.05942)。
