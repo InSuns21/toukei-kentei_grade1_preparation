@@ -1,44 +1,49 @@
 # DREAM THEATER：圏論・第2課程（発展圏論）PLAN
 
 設計確定日：2026-11-15  
-状態：**in progress（実装開始・全52講のうち第3講まで実装）**  
-講義数：**全52講に確定**（CATB1：8講、CATB2：10講、CATB3：8講、CATB4：8講、CATB5：10講、CATB6：8講）
+状態：**in progress（実装済み章・次章の正本はCATB系列manifest）**  
+設計改訂日：2026-11-25（HM1の代数的前提を統合）  
+講義数：**全59講に確定**（CATB1：8講、CATB2：10講、CATB3：8講、CATB4：8講、CATB5：10講、CATB6：8講、CATB7：5講、CATB8：2講）
 
 ## 1. 中心問いと既存CATとの境界
 
 **既存の圏論 I〜IV（CAT1-01〜CAT4-06、全40講・完成済み）の後に、対象の構造・基底の変化・論理の意味を圏として記述するには、何を増やせばよいか。**
 
-本課程は「圏論II（既存CAT2-01〜CAT2-12）」の作り直しではない。第1課程の続編として、正則・アーベル圏、豊穣圏と双圏、可到達・局所可呈示圏、ファイバー圏、層・トポス、圏論的論理を段階的に学ぶ。共通した導線は「既存CATでできること → そのままでは扱えない例 → 新構成の普遍性 → 条件の直接検証 → 証明と演習」である。
+本課程は「圏論II（既存CAT2-01〜CAT2-12）」の作り直しではない。第1課程の続編として、正則・アーベル圏、豊穣圏と双圏、可到達・局所可呈示圏、ファイバー圏、層・トポス、圏論的論理を段階的に学ぶ。第7〜8部はホモロジー代数・導来圏、次数付き代数を扱う拡張である。共通した導線は「既存CATでできること → そのままでは扱えない例 → 新構成の普遍性 → 条件の直接検証 → 証明と演習」である。
 
 - 入口の必修は既存 [CAT系列manifest](../dream-theater-series/CAT.yaml) で **completed** のCAT1〜CAT4の必要箇所（特にCAT1-10〜12、CAT2-01〜12、CAT3-01〜10、CAT4-01〜05）。CAT4-06の単純型付きラムダ計算はCATB6の有用な接続例とする。
 - 具体例では集合、有限順序、群・加群、位相空間、前層を繰り返す。加群の実例には既存代数系、構造層の実例には **AG2-05 / AG3-02 / AG3-06〜08** の実在する完成章を必要に応じて参照する。ただしそれらの詳細を本PLANの新しい必修前提に一律追加せず、使う講義で直接必要な仮定と定義を確認する。
 - 各定義のサイズ条件（小圏、局所小、基底の局所小性、宇宙、基数、関手圏の大きさ）を明示する。全ての圏を小さいとみなさず、対象が集合か類か、構成の添字が小さいかを証明前に区別する。
-- **正本の分担**：圏論的一般定理はCATB、スキーム・準連接層・Čech計算などの分野固有の構成はAG、導来圏・Ext/Tor・層コホモロジーは別の既存教材／後続計画に委ねる。定理の援用時には実在するcanonical stable anchorと使用仮定を確認する。古い完了PLANを規約として復活させない。
-- **停止線**：モデル圏のQuillen同値、$(\infty,1)$-圏、完全な高次トポス、導来代数幾何、$A_\infty$-圏、一般的なHoTT、Giraudの特徴づけの全証明、Freyd–Mitchell埋め込みの全証明、任意の幾何的理論の分類トポス存在定理の全証明は、この52講の必修学修成果に含めない。一般双圏は扱うが無限高次の整合性には進まない。
+- **正本の分担**：圏論的一般定理はCATB、スキーム・準連接層・Čech計算などの分野固有の構成はAG、一般の導来圏・導来関手・ExtはCATB7、次数付き代数・符号はCATB8、Fukaya圏の入力となる境界付きFloer解析は独立幾何系[FLOER PLAN](../plans/DREAM_THEATER_FLOER_ANALYTIC_FOUNDATIONS_PLAN.md)、層コホモロジーの具体的構成・計算はAGを正本とする。Torの一般論は本拡張の必修外とする。定理の援用時には実在するcanonical stable anchorと使用仮定を確認する。古い完了PLANを規約として復活させない。
+- **停止線**：モデル圏のQuillen同値、$(\infty,1)$-圏、完全な高次トポス、導来代数幾何、$A_\infty$-圏、一般的なHoTT、Giraudの特徴づけの全証明、Freyd–Mitchell埋め込みの全証明、任意の幾何的理論の分類トポス存在定理の全証明は、この59講の必修学修成果に含めない。一般双圏は扱うが無限高次の整合性には進まない。
 - これら停止線の項目を紹介するときは、未証明の内容を既習結果として後続講義に使わない。
 
 ## 2. 標準文献との照合（内容の根拠）
 
 | 文献・確認先 | 実際に照合する章題・主題 | 本PLANでの採用範囲 |
 | --- | --- | --- |
-| [Francis Borceux, *Handbook of Categorical Algebra*, Vol. 1–3（Cambridge University Press, 1994）](https://ncatlab.org/nlab/show/Handbook+of+Categorical+Algebra) / [Vol. 2 出版社目次](https://www.cambridge.org/core/books/abs/handbook-of-categorical-algebra/preface-to-volume-2/BFFE0689B893BEEC303DCD6D63C648DE) | Vol.1：局所化・双圏・分配子、Vol.2：Abel圏・正則圏・代数的理論・可到達圏・豊穣圏・ファイバー圏、Vol.3：層圏・トポス・内部論理 | 全6部の分野の配置、類似概念の定義・停止線の基準 |
+| [Francis Borceux, *Handbook of Categorical Algebra*, Vol. 1–3（Cambridge University Press, 1994）](https://ncatlab.org/nlab/show/Handbook+of+Categorical+Algebra) / [Vol. 2 出版社目次](https://www.cambridge.org/core/books/abs/handbook-of-categorical-algebra/preface-to-volume-2/BFFE0689B893BEEC303DCD6D63C648DE) | Vol.1：局所化・双圏・分配子、Vol.2：Abel圏・正則圏・代数的理論・可到達圏・豊穣圏・ファイバー圏、Vol.3：層圏・トポス・内部論理 | 既存6部の分野の配置、類似概念の定義・停止線の基準 |
 | [G. M. Kelly, *Basic Concepts of Enriched Category Theory*（1982／TAC再刊2005）](https://www.tac.mta.ca/tac/reprints/articles/10/tr10abs.html) | 豊穣圏・豊穣関手、豊穣Yoneda、加重（余）極限、豊穣随伴 | CATB2のHom対象の型・仮定・証明責務 |
 | [J. Adámek / J. Rosický, *Locally Presentable and Accessible Categories*（Cambridge, 1994）](https://www.cambridge.org/core/books/abs/locally-presentable-and-accessible-categories/introduction/7F726C19BA30E5C10AE394741B80813D) | Locally Presentable Categories、Accessible Categories、Algebraic Categories、Categories of Models | CATB3の表示対象、可到達性、随伴判定 |
 | [Bart Jacobs, *Categorical Logic and Type Theory*（Elsevier, 1999）](https://books.google.co.jp/books?hl=ja&id=f4_Bd3Y8ZEcC) | Introduction to fibred category theory、first/higher-order predicate logic、internal category theory、dependent type theory | CATB4の再添字付けと降下、CATB6の論理・依存型への橋 |
 | [Saunders Mac Lane / Ieke Moerdijk, *Sheaves in Geometry and Logic*（Springer）](https://link.springer.com/book/10.1007/978-1-4612-0927-0) | Grothendieck Topologies and Sheaves、Elementary Topoi、Topoi and Logic、Geometric Morphisms、Classifying Topoi | CATB5–6の層化・トポス・内部意味論 |
 
-いずれも構成・定理の射程を照合する参照文献であり、原文・図・演習の翻案や転載はしない。52という数は教科書の章数を転記したものではなく、独習者が新しい条件を直接例で検証し、中心定理を中間計算から証明できる単位へ分割した**本教材固有の確定講数**である。例示や証明の未完成を隠して講義数だけ満たさない。
+| [The Stacks Project, Derived Categories](https://stacks.math.columbia.edu/tag/05RR) | ホモトピー圏・局所化・導来圏 | CATB7の一般論 |
+| [B. Keller, Introduction to A-infinity algebras and modules](https://arxiv.org/abs/math/9910179) | 次数付き演算、符号、懸垂 | CATB8の代数的入力。一般の$A_\infty$圏はHM1 |
+| [P. Seidel, Fukaya Categories and Picard–Lefschetz Theory](https://ems.press/books/zlam/2/contents) | Floer理論・Fukaya圏 | 独立FLOERとHM1との責務境界 |
+
+いずれも構成・定理の射程を照合する参照文献であり、原文・図・演習の翻案や転載はしない。59という数は教科書の章数を転記したものではなく、独習者が新しい条件を直接例で検証し、中心定理を中間計算から証明できる単位へ分割した**本教材固有の確定講数**である。例示や証明の未完成を隠して講義数だけ満たさない。
 
 ## 3. 系列管理・章ID・依存の導線
 
 - 新しい**系列ID：`CATB`**（Category Theory, second course）。既存の`CAT`系列、完成PLAN、40講のID・statusは変更しない。「CAT2」は既存第2部の章IDと衝突するため採用しない。
-- 章IDは`CATB1-01`〜`CATB1-08`、`CATB2-01`〜`CATB2-10`、`CATB3-01`〜`CATB3-08`、`CATB4-01`〜`CATB4-08`、`CATB5-01`〜`CATB5-10`、`CATB6-01`〜`CATB6-08`の**全52個**。このPLANの章IDを本課程での確定候補とし、実装着手時に実在ID・validatorの許容形式・参照衝突を再照合する。
+- 章IDは`CATB1-01`〜`CATB1-08`、`CATB2-01`〜`CATB2-10`、`CATB3-01`〜`CATB3-08`、`CATB4-01`〜`CATB4-08`、`CATB5-01`〜`CATB5-10`、`CATB6-01`〜`CATB6-08`、`CATB7-01`〜`CATB7-05`、`CATB8-01`〜`CATB8-02`の**全59個**。このPLANの章IDを本課程での確定候補とし、実装着手時に実在ID・validatorの許容形式・参照衝突を再照合する。
 - 予定配置：`textbook/volumes/dream_thater/基礎論系/CATB/<章ID>/`。新シリーズの`textbook/dream-theater-series/CATB.yaml`は**最初の章を実装する時点**で生成し、`plan`が`plans_progress/`の移動後パスを指すようにする。manifestは実装開始時に新設し、未実装章の空ディレクトリは作らない。
 - 状態：実装開始に伴い`textbook/plans_progress/`へ移動済み。全講と全PLANの監査・公開導線を終えた後のみ`plan_done/`へ移す。共有`dream-theater-work.yaml`の個別進捗は変更しない。
 - 部分的な前提：CATB1ではCAT2の極限とCAT3のモナド、CATB2ではCAT3のend/coendとCAT4のモノイダル閉構造、CATB3ではCAT2の随伴関手定理、CATB4ではCAT2の引き戻しとCATB1の正則性、CATB5ではCAT1のYoneda・CAT2の前層とCATB4の基底変換、CATB6ではCATB1/4/5とCAT4-06を使用する。具体的なprerequisitesは章着手時に`chapter.yaml`とknowledge DAG上の到達可能性を照合する。
-- 標準的な執筆順はCATB1→2→3→4→5→6だが、CATB2とCATB3の一部は独立に学修できる。先の章の定理を前の章の核心証明へ逆輸入しない。
+- 標準的な執筆順はCATB1→2→3→4→5→6→7→8。既存52講の通算番号を変更しない。CATB2とCATB3の一部、CATB7と独立FLOERの準備には独立に学修できる部分があるが、系列manifestの既定順序は維持する。先の章の定理を前の章の核心証明へ逆輸入しない。
 
-## 4. 52講の確定講義構成
+## 4. 59講の確定講義構成
 
 ### CATB1：正則圏・アーベル圏・代数的理論（8講）
 
@@ -122,7 +127,32 @@
 | **CATB6-07** | 幾何的理論と分類トポスへの入口 | 幾何的論理で保存される式を調べ、分類トポスの普遍性を定義して検証可能な小さな理論・siteの例を扱う。一般の存在定理は射程外と明記する。 |
 | **CATB6-08** | 依存型の圏論的意味 | ファイバー圏・理解圏の基本例を作り、文脈・置換・Σ/Π型の意味と必要なBeck–Chevalley条件を接続する。高次同一視・HoTTは扱わない。 |
 
-**計：8 + 10 + 8 + 8 + 10 + 8 = 52講。** 既存40講と合わせた累計は**92講**（第1課程40講＋第2課程52講）。これは時間割の「1週＝1講」ではなく、証明・直接例・演習を閉じる教材の章数である。
+### CATB7：ホモロジー代数・導来圏（5講）
+
+CATB1-03〜06（加法圏・アーベル圏・完全列・Snakeの補題）を入力とし、CAT1-06/07の関手・自然変換を再利用する。AG3-07/08は層の具体例であり、一般論の証明を代替しない。
+
+| 章ID | 講義題名 | 中心問い・証明責務 |
+| --- | --- | --- |
+| **CATB7-01** | 複体と鎖写像 | 加法圏上の余鎖複体、射の合成と加法、アーベル圏でのコホモロジー。二項・三項複体の計算と、完全性の必要性。 |
+| **CATB7-02** | 鎖ホモトピー・シフト・写像錐 | ホモトピーが誘導写像を変えないこと、シフトの符号、写像錐の微分の二乗零、短完全列から長完全列への接続射。非零な可縮複体と、全次数のコホモロジーが零でも可縮ではない複体の例を区別する。 |
+| **CATB7-03** | 擬同型と局所化 | アーベル圏のホモトピー圏、擬同型の二つから三つ目が従う性質（2-out-of-3）、roofとその同値関係、局所化の普遍性。複体の同型・ホモトピー同値・擬同型を比較し、擬同型がホモトピー同値でない例を検算する。 |
+| **CATB7-04** | 導来圏と完全三角形 | 小ささまたは宇宙の仮定を宣言し、$K(\mathcal A)$ から $D(\mathcal A)$ を構成する。シフト、錐、完全三角形の標準モデルとコホモロジーの長完全列。三角圏公理と証明責務のうち本ルートで使う部分を明示する。 |
+| **CATB7-05** | 分解・導来関手・Ext | 十分な射影対象／入射対象の仮定を分け、比較写像と選択独立性を確認する。例えば整数加群の射影分解から $\operatorname{Ext}^1_{\mathbb Z}(\mathbb Z/n,\mathbb Z)$ を計算する。連接層の圏そのものに十分な入射対象があるとは仮定せず、周囲の加群の層の導来圏との比較は必要な条件を確認する。 |
+
+### CATB8：次数付き代数・Koszul符号（2講）
+
+CATB7-01/02と既習の線形代数・テンソル積、CAT4の対称モノイダル構造、CATB2-03の豊穣関手を入力とする。係数体／環の仮定と符号規約を明記する。
+
+| 章ID | 講義題名 | 中心問い・証明責務 |
+| --- | --- | --- |
+| **CATB8-01** | 次数付きテンソル積とKoszul符号 | 係数体／環、余鎖次数、テンソル積の微分、次数付き写像の合成・交換符号を明示する。テンソル積の微分の二乗零と符号の相殺を手計算する。 |
+| **CATB8-02** | 微分付き次数付き代数と懸垂 | Leibniz則とシフト、通常の結合的な代数から次数付き代数へ。懸垂したテンソル余代数と余導分の構成を有限長の例から導き、二乗零が低次の恒等式を生む仕組みを示す。HM1-04〜06で圏の対象・多入力演算・関手へ適用する。 |
+
+#### HM1への接続と責務境界
+
+CATB7〜8は、[HMS前提整備ルート](../plans/DREAM_THEATER_HMS_FOUNDATIONS_PLAN.md)の代数側の実装正本となる。HM1-01〜03はCATB7の一般論を連接層・楕円曲線へ、HM1-04〜06はCATB8を高次演算・関手へ、HM1-07〜13は独立FLOERをFloer演算・Fukaya圏へ適用する。一般のFukaya圏の構成やKontsevich予想の証明は本課程の達成事項としない。独立FLOERの限定モデルの無泡・横断性・向きなどの仮定がHM1の具体的対象で成立するかは別途検査する。
+
+**計：8 + 10 + 8 + 8 + 10 + 8 + 5 + 2 = 59講。** 既存40講と合わせた累計は**99講**（第1課程40講＋第2課程59講）。これは時間割の「1週＝1講」ではなく、証明・直接例・演習を閉じる教材の章数である。
 
 ## 5. 章単位の教育品質・検証ゲート
 
@@ -136,4 +166,4 @@
 
 ## 6. 完成判定
 
-52個の章が存在するだけでは完成としない。最終監査で（a）章ID・manifest・PLAN参照の一致、（b）定義の初出と依存の到達可能性、（c）主要結果の証明の閉包、（d）全演習と詳細解答の検算、（e）サイズ・仮定・自然性・論理の型の整合、（f）SVGの実表示、（g）公開リンクとCI、を確認する。必要な図は各講義の実装と同時に完成させ、最後の横断監査ではその講義で完了した個別図の制作作業を繰り返さない。重大な未証明依存や証明負債でこの分割が不適切と判明した場合は、黙って章を水増し／圧縮せずPLANの変更理由と講義数の再審議を記録する。
+59個の章が存在するだけでは完成としない。最終監査で（a）章ID・manifest・PLAN参照の一致、（b）定義の初出と依存の到達可能性、（c）主要結果の証明の閉包、（d）全演習と詳細解答の検算、（e）サイズ・仮定・自然性・論理の型の整合、（f）SVGの実表示、（g）公開リンクとCI、を確認する。必要な図は各講義の実装と同時に完成させ、最後の横断監査ではその講義で完了した個別図の制作作業を繰り返さない。重大な未証明依存や証明負債でこの分割が不適切と判明した場合は、黙って章を水増し／圧縮せずPLANの変更理由と講義数の再審議を記録する。

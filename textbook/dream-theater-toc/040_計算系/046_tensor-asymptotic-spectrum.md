@@ -5,3 +5,4 @@
 2. [TSP2 rank-one分解とテンソル階数：行列階数との差](textbook/volumes/dream_thater/計算系/TSP/TSP2/index.md)
 3. [TSP3 平坦化と部分空間の階数下界](textbook/volumes/dream_thater/計算系/TSP/TSP3/index.md)
 4. [TSP4 制限・劣階数・対角テンソルと局所線形写像](textbook/volumes/dream_thater/計算系/TSP/TSP4/index.md)
+5. [TSP5 直和・Kronecker積・制限の前順序](textbook/volumes/dream_thater/計算系/TSP/TSP5/index.md)
