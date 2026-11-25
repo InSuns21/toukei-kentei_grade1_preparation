@@ -12,12 +12,12 @@
 
 [Cedarの認可仕様](https://docs.cedarpolicy.com/auth/authorization.html) は、要求と各ポリシー（許可・拒否を指定する規則）を照合してから判断を合成します。主体、操作、資源、追加の状況情報（それぞれ Cedar の `principal`、`action`、`resource`、`context`）を要求に含められます。満たされた forbid があれば拒否し、それがなく満たされた permit があれば許可し、どちらもなければ拒否します。実際のCedarには評価エラーを診断に記録し、その規則を判断から除く仕組みもあります。本講はエラーを生じない三種類の規則と八種類の正規化済み要求に限定します。Cedarの構文解析、型検証、エンティティ階層や評価器を再実装するわけではありません。
 
-要求を r=(role,action,blocked) と書きます。規則名 R は閲覧許可、W は編集者の書込許可、S は利用停止者の拒否です。規則が要求を満たすかどうかは次の表で決めます。
+要求を `r=(role,action,blocked)` と書きます。規則名 R は閲覧許可、W は編集者の書込許可、S は利用停止者の拒否です。規則が要求を満たすかどうかは次の表で決めます。
 
 | 規則 | 種別 | 満たす条件 |
 |---|---|---|
-| R | permit | action が read |
-| W | permit | role が editor かつ action が write |
+| R | permit | `action` が read |
+| W | permit | role が editor かつ `action` が write |
 | S | forbid | blocked が true |
 
 規則の有限列を L とします。空列も認め、規則の重複も許します。P(r,L) は L 内に要求を満たす permit が一つ以上あるとき true、F(r,L) は要求を満たす forbid が一つ以上あるとき true、それ以外は false です。ここで一つ以上あるかの判定は先頭から順に真偽値を論理和で集約できます。空列の論理和は false です。
@@ -27,13 +27,13 @@
 <!-- formal-statement-start -->
 ### 定義（有限認可ポリシーモデル）
 
-要求 r は role が viewer または editor、action が read または write、blocked が真偽値である三つ組とする。規則列 L は次の三種類からなる任意の有限列とする。R は read を許可する規則、W は editor の write を許可する規則、S は blocked=true の要求を拒否する規則である。P(r,L) は L に含まれる R または W の条件が少なくとも一つ成立するか、F(r,L) は L に含まれる S の条件が少なくとも一つ成立するかを表す真偽値とする。
+要求 r は role が viewer または editor、`action` が read または write、blocked が真偽値である三つ組とする。規則列 L は次の三種類からなる任意の有限列とする。R は read を許可する規則、W は editor の write を許可する規則、S は blocked=true の要求を拒否する規則である。P(r,L) は L に含まれる R または W の条件が少なくとも一つ成立するか、F(r,L) は L に含まれる S の条件が少なくとも一つ成立するかを表す真偽値とする。
 
 判断 A(r,L) は F が true なら false、そうでなければ P とする。A が true の場合を許可、false の場合を拒否とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt6-04-policy -->
-**定義の確認**　L=[R,W,S] とし、r=(editor,write,true) を取ります。role は二種類のうち editor、action は write、blocked は真偽値なので定義域に属します。列の三要素は規定の三規則です。R の read 条件は偽、W の editor かつ write は真、S の blocked は真です。したがって P=true、F=true。F が true なので A=false となります。同じ要求の blocked を false に変えると R は偽、W は真、S は偽なので P=true、F=false、A=true です。空列なら P=F=false で A=false になります。許可、拒否、競合、空列のいずれも同じ定義で計算できます。
+**定義の確認**　L=[R,W,S] とし、r=(editor,write,true) を取ります。role は二種類のうち editor、`action` は write、blocked は真偽値なので定義域に属します。列の三要素は規定の三規則です。R の read 条件は偽、W の editor かつ write は真、S の blocked は真です。したがって P=true、F=true。F が true なので A=false となります。同じ要求の blocked を false に変えると R は偽、W は真、S は偽なので P=true、F=false、A=true です。空列なら P=F=false で A=false になります。許可、拒否、競合、空列のいずれも同じ定義で計算できます。
 <!-- definition-example-end -->
 
 ## 2. 判断の性質を証明する
@@ -97,7 +97,7 @@ Leanの判断を参照モデルとして、[観測付き差分検査](../LVT5-01
 
 [TypeScriptの比較ハーネス](lab/differential.ts) は規則列を Set（重複を取り除く集合）に変換してから判定する別実装を用意します。R があり read、または W があり editor/write なら許可候補、S があり blocked なら拒否候補です。まず八種類の要求と三規則の全ての部分集合（8通り）を組み合わせて64件を検査します。例えば L=[R,W,S] の八件は次の通りです。
 
-| role | action | blocked=false | blocked=true |
+| role | `action` | blocked=false | blocked=true |
 |---|---|---|---|
 | viewer | read | 許可 | 拒否 |
 | viewer | write | 拒否 | 拒否 |
@@ -226,7 +226,7 @@ r=(viewer,read,true)、L=[R] とする。R は read なので P=true、S が存�
 <!-- solution-start -->
 #### 詳細解答
 
-role、action、blocked の各成分は2通りで要求は 2×2×2=8 通り。R,W,S を含むか否かも各2通りなので部分集合は 2×2×2=8 通り。各要求と各集合を一度ずつ組み合わせれば64件となる。例えば editor/write/true と [W,S] を比較すると W の条件が真で P=true、S の条件も真で F=true。正常の第一分岐は 0、許可優先の変異は 1 なので固定反例になる。
+role、`action`、blocked の各成分は2通りで要求は 2×2×2=8 通り。R,W,S を含むか否かも各2通りなので部分集合は 2×2×2=8 通り。各要求と各集合を一度ずつ組み合わせれば64件となる。例えば editor/write/true と [W,S] を比較すると W の条件が真で P=true、S の条件も真で F=true。正常の第一分岐は 0、許可優先の変異は 1 なので固定反例になる。
 
 部分集合としての八列だけでは [S,W] や [W,S,W] を別入力として実行しない。理論上はどの規則が存在して条件を満たすかだけで P,F が決まるので、順序と重複は判断を変えない。しかしTypeScript側の入力処理が誤って先頭規則だけを調べる可能性はある。生成比較では順序・重複も含め、固定反例と併せて確認する。第4節のコマンドを実行して出力の一行形式と終了コードを検査し、失敗時は seed、縮小パス、具体入力を記録する。
 
