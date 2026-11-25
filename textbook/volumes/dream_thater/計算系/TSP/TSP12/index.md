@@ -6,7 +6,11 @@
 
 ## 1. 漸近比較：補助資源を許す
 
-以下、$S$ は集合である可換半環、$\preceq$ は [Strassen前順序](../TSP10/index.md#def-tsp10-strassen-preorder) とします。[自然数からの標準写像](../TSP10/index.md#thm-tsp10-natural-map) で非負整数を半環の中に入れ、同じ記号で書きます。$\mathbb N=\{1,2,\ldots\}$、$\mathbb N_0=\{0,1,2,\ldots\}$ とし、$a^0=1$ とします。例えば $c_nb^n$ は半環の一を $c_n$ 個足した元と $b^n$ の積、すなわち $b^n$ の $c_n$ 個の和です。体のスカラー倍とは区別します。
+以下、$S$ は集合である可換半環、$\preceq$ は [Strassen前順序](../TSP10/index.md#def-tsp10-strassen-preorder) とします。[自然数からの標準写像](../TSP10/index.md#thm-tsp10-natural-map) で非負整数を半環の中に入れ、同じ記号で書きます。
+
+$\mathbb N=\{1,2,\ldots\}$、$\mathbb N_0=\{0,1,2,\ldots\}$ とし、$a^0=1$ とします。
+
+例えば $c_nb^n$ は半環の一を $c_n$ 個足した元と $b^n$ の積、すなわち $b^n$ の $c_n$ 個の和です。体のスカラー倍とは区別します。
 
 任意の元 $x$ について $0\preceq x$（$0\preceq1$ に $x$ を掛ける）です。また任意の $x\ne0$ について有界性から正整数 $u,v$ が存在して $1\preceq ux,\ x\preceq v$ となります。
 
@@ -30,7 +34,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-tsp12-asymptotic-preorder -->
-**定義の確認**。非負有理数の半環に通常の大小を入れます。通常の大小は反射的・推移的で、非負有理数を加えたり掛けたりしても不等号の向きは保たれます。[Strassen前順序の二条件](../TSP10/index.md#def-tsp10-strassen-preorder) のうち自然数の大小の忠実性は標準写像が包含写像なので成立し、有界性も $b>0$ なら $r=\max(1,\lceil a/b\rceil)$ で $a\le rb$ となるのでStrassen前順序です。$a=3/2,\ b=2$ とすると各 $n\ge1$ で $(3/2)^n\le2^n$ なので $c_n=1$ が条件を満たします。逆向きには $2^n\le c_n(3/2)^n$ なら $c_n^{1/n}\ge4/3$ であり、極限が1という条件に反します。
+**定義の確認**。非負有理数の半環に通常の大小を入れます。通常の大小は反射的・推移的で、非負有理数を加えたり掛けたりしても不等号の向きは保たれます。[Strassen前順序の二条件](../TSP10/index.md#def-tsp10-strassen-preorder) のうち自然数の大小の忠実性は標準写像が包含写像なので成立し、有界性も $b>0$ なら $r=\max(1,\lceil a/b\rceil)$ で $a\le rb$ となるのでStrassen前順序です。
+
+$a=3/2,\ b=2$ とすると各 $n\ge1$ で $(3/2)^n\le2^n$ なので $c_n=1$ が条件を満たします。
+
+逆向きには
+
+$$
+2^n\le c_n(3/2)^n
+\quad\Longrightarrow\quad c_n^{1/n}\ge4/3
+$$
+
+となり、極限が1という条件に反します。
 <!-- definition-example-end -->
 
 $\preceq$ から $\precsim$ は従いますが、逆は一般に成立しません。比較を緩めても、それが新しい半環の順序として使えるかをまず調べます。
