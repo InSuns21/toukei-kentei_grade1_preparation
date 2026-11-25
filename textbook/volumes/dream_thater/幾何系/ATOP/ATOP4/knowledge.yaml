@@ -65,3 +65,8 @@ concepts:
     kind: proposition
     introduction: formal
     requires: [atop.strong-deformation-retract, atop.induced-fundamental-group-homomorphism, algebra.group-isomorphism]
+  - id: atop.contractible-simply-connected
+    name: 可縮空間は単連結
+    kind: proposition
+    introduction: formal
+    requires: [atop.contractibility, atop.simply-connected, atop.path-class-laws]
