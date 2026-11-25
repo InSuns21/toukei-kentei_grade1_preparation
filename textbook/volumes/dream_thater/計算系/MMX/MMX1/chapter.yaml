@@ -1,0 +1,21 @@
+id: "MMX1"
+title: "行列積の算術モデル・指数の下限・Strassenの7積と再帰"
+volume: foundations
+status: supplementary
+prerequisites: [ACOMP4, TSP14]
+official_scope: []
+learning_objectives:
+  - 形式的な多出力算術回路で行列積のサイズを定義し出力下界を証明できる
+  - 指数の下限と達成を区別しStrassenの七積の全成分を展開できる
+  - ブロック再帰の演算数と零埋めによる全サイズの上界を導出できる
+  - 算術演算数とビット計算及び実測性能を区別できる
+definitions:
+  - { id: MMX1-DEF-01, name: "行列積の多出力算術サイズ" }
+theorems:
+  - { id: MMX1-THM-01, name: "行列積の異なる出力による演算下界" }
+canonical_examples: [七積の数値計算, ブロック再帰, 零埋め]
+problem_patterns: [MMX1-A01, MMX1-A02, MMX1-A03, MMX1-A04, MMX1-B01, MMX1-B02, MMX1-B03, MMX1-B04, MMX1-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 3, review: 1 }
