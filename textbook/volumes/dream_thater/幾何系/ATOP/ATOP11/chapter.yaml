@@ -2,7 +2,7 @@ id: ATOP11
 title: "コンパクト曲面の分類定理"
 volume: foundations
 status: supplementary
-prerequisites: [ATOP8, ATOP10]
+prerequisites: [ATOP8, ATOP10, GEO19]
 official_scope: []
 learning_objectives:
   - 閉曲面の三角形分割から全域木を使って多角形表示を構成できる
