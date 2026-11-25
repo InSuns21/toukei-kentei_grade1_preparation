@@ -1,7 +1,7 @@
 chapter: TSP16
 scope: dream-theater
 coverage: complete
-prerequisites: [TSP15]
+prerequisites: [TSP15, OPT1]
 forward_references: []
 concepts:
   - id: tensor.cover
@@ -33,4 +33,4 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（分数被覆の凸性と価格下界）"]
-    requires: [tensor.fractional-cover]
+    requires: [tensor.fractional-cover, convex.convex-combination, convex.convex-set]
