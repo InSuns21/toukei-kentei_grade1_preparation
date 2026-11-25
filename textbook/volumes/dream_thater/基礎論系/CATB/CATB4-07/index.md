@@ -39,7 +39,7 @@ $$
 さらに包含写像 $k:\{a\}\to X$ も単射なのでモノ射である。$h:\{a\}\to\{a,c\}$ を $h(a)=a$ と定めれば $nh=k$ なので $[k]\le[n]$ である。逆向きには $kh'=n$ を満たす $h':\{a,c\}\to\{a\}$ が必要だが、$h'(c)=a$ しかなく $kh'(c)=a\ne c=n(c)$ となる。順序は真の包含を識別する。
 <!-- definition-example-end -->
 
-同一視が同値関係になることも確認する。$m1_M=m$ なので反射的である。$ni=m$ なら $mi^{-1}=n$ なので対称的である。さらに $oj=n$ を満たす同型射 $j$ があれば $o(ji)=ni=m$ となり、[同型射の合成](../../CAT/CAT1-03/index.md#prop-cat1-03-composition)も同型なので推移的である。順序の定義も代表元に依存しない。実際 $m=m'i$、$n=n'j$ で $i,j$ が同型なら、$nh=m$ から
+同一視が同値関係になることも確認する。$m1_M=m$ なので反射的である。$ni=m$ なら $mi^{-1}=n$ なので対称的である。さらにモノ射 $o:O\to X$ と同型射 $j:N\to O$ が $oj=n$ を満たせば $o(ji)=ni=m$ となり、[同型射の合成](../../CAT/CAT1-03/index.md#prop-cat1-03-composition)も同型なので推移的である。順序の定義も代表元に依存しない。実際 $m=m'i$、$n=n'j$ で $i,j$ が同型なら、$nh=m$ から
 
 $$
 n'(jhi^{-1})=m'
@@ -178,7 +178,7 @@ $$
 M\xrightarrow{e}I\xrightarrow{i}Y,\qquad fm=ie
 $$
 
-と分解できる。$e$ は[正則エピ射](../CATB1-01/index.md#def-catb1-01-regular-epi)、$i$ はモノ射である。$\exists_f[m]=[i]$ と書く。記号 $\exists$ は、集合の場合に $y=f(x)$ となる $x\in A$ が存在することを表す（$A$ を部分集合として表している）。
+と分解できる。$e$ は[正則エピ射](../CATB1-01/index.md#def-catb1-01-regular-epi)、$i$ はモノ射である。$\exists_f[m]=[i]$ と書く。記号 $\exists_f$ の添字 $f$ は像を取る基底射を表す。$\exists$ は、集合の場合に $y=f(x)$ となる $x\in A$ が存在することを表す（$A=[m]$ を部分集合として表している）。
 
 <a id="thm-catb4-07-image-adjoint"></a>
 
