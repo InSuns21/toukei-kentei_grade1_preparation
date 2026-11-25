@@ -23,7 +23,7 @@ chapters:
     title: "距離・完備性・極限・Laurent級数の形式化"
   - id: FML5
     path: textbook/volumes/dream_thater/計算系/FML/FML5
-    status: planned
+    status: completed
     title: "数学的定理の依存関係と公理監査"
   - id: FML6
     path: textbook/volumes/dream_thater/計算系/FML/FML6

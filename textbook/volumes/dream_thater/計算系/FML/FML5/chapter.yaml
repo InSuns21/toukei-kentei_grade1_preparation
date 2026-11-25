@@ -1,0 +1,24 @@
+id: "FML5"
+title: "数学的定理の依存関係と公理監査"
+volume: foundations
+status: supplementary
+prerequisites: [FML1, FML2, FML3, FML4, LVT2-08]
+official_scope: []
+learning_objectives:
+  - 型と値から間接的な公理依存を調べる
+  - 標準公理と未完成証明・独自公理・unsafeを区別する
+  - 定理の条件と公理依存を分離して検査する
+  - 矛盾した条件と空の定義域からの主張を判別する
+definitions:
+  - { id: FML5-DEF-01, name: "数学的証明の許容公理集合" }
+  - { id: FML5-DEF-02, name: "数学的主張の条件と適用範囲" }
+theorems: []
+propositions:
+  - { id: FML5-PROP-01, name: "矛盾した体の仮定からの等式" }
+  - { id: FML5-PROP-02, name: "空の定義域での全称命題" }
+canonical_examples: ["三標準公理", "型に現れる独自公理", "矛盾した体の条件", "空型"]
+problem_patterns: [FML5-A01, FML5-A02, FML5-A03, FML5-A04, FML5-A05, FML5-B01, FML5-B02, FML5-B03, FML5-B04, FML5-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 3, review: 1 }
