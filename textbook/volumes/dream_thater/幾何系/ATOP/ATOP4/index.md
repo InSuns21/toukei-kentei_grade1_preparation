@@ -327,7 +327,7 @@ $$
 <a id="thm-atop4-basepoint-change"></a>
 
 <!-- formal-statement-start -->
-> **定理（基点変更）**
+> **定理（基本群の基点変更）**
 > 位相空間 $X$ で道 $u:x\to y$ が存在するなら、次の写像は群同型である。
 
 $$
@@ -596,7 +596,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[基点変更](#thm-atop4-basepoint-change) により
+[基本群の基点変更](#thm-atop4-basepoint-change) により
 
 $$
 T_v(T_u([\alpha]))=[\bar v*\bar u*\alpha*u*v].
@@ -705,7 +705,7 @@ $$
 =[g\circ\alpha].
 $$
 
-最後の等号は [演算律の単位の式](#thm-atop4-path-laws) です。左辺は [基点変更](#thm-atop4-basepoint-change) による $T_u(f_*([\alpha]))$、右辺は [誘導準同型](#thm-atop4-induced-homomorphism) による $g_*([\alpha])$ です。
+最後の等号は [演算律の単位の式](#thm-atop4-path-laws) です。左辺は [基本群の基点変更](#thm-atop4-basepoint-change) による $T_u(f_*([\alpha]))$、右辺は [誘導準同型](#thm-atop4-induced-homomorphism) による $g_*([\alpha])$ です。
 <!-- solution-end -->
 
 ## 8. 次の講義へ
