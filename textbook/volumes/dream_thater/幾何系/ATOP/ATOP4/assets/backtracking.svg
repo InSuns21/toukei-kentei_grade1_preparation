@@ -5,14 +5,14 @@
 <g font-family="sans-serif" font-size="19" fill="#182532">
 <rect x="55" y="40" width="240" height="240" fill="#f1f5f8" stroke="#182532" stroke-width="2"/>
 <path d="M175 40 V280 M55 160 H295" stroke="#7b8792" stroke-width="1.5" stroke-dasharray="5 5"/>
-<path d="M55 280 H295" stroke="#255e99" stroke-width="4"/>
-<path d="M55 160 H295" stroke="#963c28" stroke-width="4" stroke-dasharray="10 5"/>
-<path d="M55 40 H295" stroke="#182532" stroke-width="4" stroke-dasharray="2 5"/>
+<path data-series-group="square" data-series-label="t0" d="M55 280 H295" stroke="#255e99" stroke-width="4"/>
+<path data-series-group="square" data-series-label="tHalf" d="M55 160 H295" stroke="#963c28" stroke-width="4" stroke-dasharray="10 5"/>
+<path data-series-group="square" data-series-label="t1" d="M55 40 H295" stroke="#182532" stroke-width="4" stroke-dasharray="2 5"/>
 <g text-anchor="middle"><text x="55" y="304">0</text><text x="175" y="304">1/2</text><text x="295" y="304">1</text><text x="175" y="337">s</text><text x="29" y="286">0</text><text x="29" y="166">1/2</text><text x="29" y="46">1</text><text x="20" y="21">t</text></g>
 <text x="350" y="24">内部時間 (1−t)q(s)</text>
 <g stroke="#7b8792" stroke-width="1.5" fill="none"><path d="M350 78 H600 M350 180 H600 M350 282 H600"/></g>
-<path d="M350 78 H600" stroke="#182532" stroke-width="4" stroke-dasharray="2 5"/>
-<path d="M350 180 L475 145 L600 180" stroke="#963c28" stroke-width="4" stroke-dasharray="10 5" fill="none"/>
-<path d="M350 282 L475 212 L600 282" stroke="#255e99" stroke-width="4" fill="none"/>
-<g text-anchor="middle"><text x="475" y="65">最大 0</text><text x="475" y="134">最大 1/2</text><text x="475" y="198">最大 1</text><text x="350" y="304">0</text><text x="600" y="304">1</text></g>
+<path data-series-group="profile" data-series-label="t1" d="M350 78 H600" stroke="#182532" stroke-width="4" stroke-dasharray="2 5"/>
+<path data-series-group="profile" data-series-label="tHalf" d="M350 180 L475 145 L600 180" stroke="#963c28" stroke-width="4" stroke-dasharray="10 5" fill="none"/>
+<path data-series-group="profile" data-series-label="t0" d="M350 282 L475 212 L600 282" stroke="#255e99" stroke-width="4" fill="none"/>
+<g text-anchor="middle"><text x="475" y="58">最大 0</text><text x="475" y="130">最大 1/2</text><text x="475" y="198">最大 1</text><text x="350" y="304">0</text><text x="600" y="304">1</text></g>
 </g></svg>
