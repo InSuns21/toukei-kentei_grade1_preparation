@@ -82,7 +82,7 @@ $$
 
 出題側 [Challenge.lean](lab/Challenge.lean) と解答側 [Solution.lean](lab/Solution.lean) の中心部分は以下です。
 
-~~~lean
+```lean
 namespace FML6
 
 def step (n : Nat) : Nat := n + 1
@@ -91,31 +91,31 @@ theorem addZeroLeft (n : Nat) : 0 + n = n := Nat.zero_add n
 theorem stepRefl (n : Nat) : step n = step n := rfl
 
 end FML6
-~~~
+```
 
 addZeroLeft では自然数の加法の左零元の既存 Lean 補題 Nat.zero_add を n に適用します。加法が第2引数について再帰することから、n=0 では 0+0=0 です。n=k で 0+k=k と仮定すると、n=k+1 で 0+(k+1)=(0+k)+1=k+1 となります。帰納法で全自然数について成立します。stepRefl では両辺の step n が同一の式なので反射律で閉じます。出題側では二定理の型をそのまま保存し、証明項だけを sorry にしています。
 
 [comparator.json](lab/comparator.json) は出題・解答のモジュール名、検査対象の二定理、許容公理名を指定します。theorem_names は完全修飾名（名前空間を含む名前）の配列です。
 
-~~~json
+```json
 {
   "challenge_module": "Challenge",
   "solution_module": "Solution",
   "theorem_names": ["FML6.addZeroLeft", "FML6.stepRefl"],
   "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
 }
-~~~
+```
 
 Linux の非特権ユーザー環境で bubblewrap（bwrap）を利用できるようにし、固定版の Lean を用意します。未信頼ソースを扱うときには、出題者側の設定と依存を自分で確保し、機密情報のない隔離環境で検証します。出題側を信頼できないソースによって上書きさせないことも大切です。
 
 リポジトリのルートから以下を実行します。
 
-~~~bash
+```bash
 cd "textbook/volumes/dream_thater/計算系/FML/FML6/lab"
 lean --version
 lake --version
 bash verify.sh
-~~~
+```
 
 [verify.sh](lab/verify.sh) は検査ごとに一時ディレクトリへソースと設定を複製し、生成物 .lake がない状態から開始します。正例では lake comparator --paranoid を実行し、Lean 本体に加えて同梱の外部検査器（nanoda など）を実行します。Lean 4.35.0 の [CLI実装](https://github.com/leanprover/lean4/blob/v4.35.0/src/lake/Lake/CLI/Check.lean) と [ヘルプ](https://github.com/leanprover/lean4/blob/v4.35.0/src/lake/Lake/CLI/Help.lean) で対象版の動作を確認できます。旧 comparator の導入手順とは異なります。
 
