@@ -1,0 +1,46 @@
+chapter: FML4
+scope: dream-theater
+coverage: complete
+prerequisites: [FML2, FML3, F0-00B, F0-00B1, RA1, ACOMP21, ACOMP22]
+forward_references: []
+concepts:
+  - id: formal-math.metric-cauchy-interface
+    name: Leanでの距離とCauchy条件の記述
+    kind: definition
+    introduction: formal
+    requires: [topology.metric-space, topology.metric-topological-convergence-equivalence, analysis.real-cauchy-sequence]
+  - id: formal-math.convergence-cauchy
+    name: 収束からCauchy条件への形式化
+    kind: theorem
+    introduction: formal
+    requires: [formal-math.metric-cauchy-interface]
+  - id: formal-math.completeness-interface
+    name: Leanでの完備性の指定
+    kind: definition
+    introduction: formal
+    requires: [formal-math.metric-cauchy-interface, analysis.real-completeness]
+  - id: formal-math.complete-limit
+    name: 完備性を仮定した極限の存在
+    kind: theorem
+    introduction: formal
+    requires: [formal-math.completeness-interface, topology.limit-uniqueness]
+  - id: formal-math.laurent-interface
+    name: LeanでのLaurent級数の係数表示
+    kind: definition
+    introduction: formal
+    requires: [algebraic-complexity.formal-laurent, formal-math.algebra-instance]
+  - id: formal-math.coeff-agreement
+    name: 付値による係数一致の形式化
+    kind: theorem
+    introduction: formal
+    requires: [formal-math.laurent-interface, algebraic-complexity.t-adic-order]
+  - id: formal-math.laurent-complete
+    name: Laurent級数の完備性と係数安定化
+    kind: theorem
+    introduction: formal
+    requires: [formal-math.coeff-agreement, formal-math.completeness-interface, algebraic-complexity.valuation-rules]
+  - id: formal-math.constant-coeff-domain
+    name: 定数項抽出の定義域による乗法保存の差
+    kind: proposition
+    introduction: formal
+    requires: [formal-math.laurent-interface, algebraic-complexity.specialization]
