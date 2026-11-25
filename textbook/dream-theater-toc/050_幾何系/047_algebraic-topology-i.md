@@ -7,3 +7,4 @@
 1. [ATOP4 道・ループ・基本群](textbook/volumes/dream_thater/幾何系/ATOP/ATOP4/index.md)
 1. [ATOP5 被覆空間・道とホモトピーの持上げ](textbook/volumes/dream_thater/幾何系/ATOP/ATOP5/index.md)
 1. [ATOP6 円周の基本群と巻き数](textbook/volumes/dream_thater/幾何系/ATOP/ATOP6/index.md)
+1. [ATOP7 van Kampen定理と群の表示](textbook/volumes/dream_thater/幾何系/ATOP/ATOP7/index.md)
