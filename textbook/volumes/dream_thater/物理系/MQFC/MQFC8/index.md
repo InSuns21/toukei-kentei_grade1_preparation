@@ -23,11 +23,36 @@ $$
 
 従って反転は $S$ 上で連続です。連続実線形写像の合成なので $\theta\omega$ も連続実線形汎関数です。測定 $X_f(\omega)=\omega(f)$ に対して $X_f(\theta\omega)=X_{\theta f}(\omega)$ となります。
 
-[場の特性汎関数](../MQFC6/index.md#def-mqfc6-characteristic-functional) で用いた円筒 $\sigma$ 加法族上の確率測度 $\mu$ を考えます。これは有限個の測定ベクトルがBorel集合に入るという事象から生成される $\sigma$ 加法族上の測度です。各実試験関数 $f$ に対し、全絶対モーメント、すなわち各整数 $r\ge1$ について $E_\mu[|X_f|^r]<\infty$ を仮定します。ここで $E_\mu$ は測度 $\mu$ による期待値です。
+[場の特性汎関数](../MQFC6/index.md#def-mqfc6-characteristic-functional) で用いた円筒 $\sigma$ 加法族上の確率測度 $\mu$ を考えます。これは有限個の測定ベクトルがBorel集合に入るという事象から生成される $\sigma$ 加法族上の測度です。
+
+各実試験関数 $f$ に対し全絶対モーメントが有限であると仮定します。つまり各整数 $r\ge1$ について
+
+$$
+E_\mu[|X_f|^r]<\infty
+$$
+
+です。ここで $E_\mu$ は測度 $\mu$ による期待値です。
 
 反転写像は、測定 $X_f$ との合成が測定 $X_{\theta f}$ になるので円筒可測です。反転で分布が変わらないことを $\theta_*\mu=\mu$ と書きます。左辺は反転後の標本の分布で、各可測集合 $D$ に対し $(\theta_*\mu)(D)=\mu(\theta^{-1}(D))$ です。
 
-正時間の有限個の測定を変数とする複素係数多項式全体を $\mathcal P_+$ とします。つまり $F=P(X_{f_1},\ldots,X_{f_n})$（$f_j\in S_+$、$P$ は複素係数多項式）と表せる確率変数です。定数も含め、二つの多項式に異なる測定が現れるときはその有限族を合わせればよいので、和と積に閉じています。測定の実数値は変えず、上線 $\overline{\phantom{F}}$ で複素共役を表します。普通の期待値 $E|F|^2$ の代わりに、反転した多項式と元の多項式を掛けます。この値は正時間と負時間をつなぐ相関であり、非負性は自動ではありません。[QFT20の反射陽性の定義](../../QFT/QFT20/index.md#def-qft20-reflection-positivity) では反転と共役を合わせて $\Theta F$ と書きました。本章の記法では $\Theta F(\omega)=\overline{F(\theta\omega)}$ です。ここでは測度と試験関数を明示して、その積の平均を二引数の形式として扱います。
+正時間の有限個の測定を変数とする複素係数多項式全体を $\mathcal P_+$ とします。つまり
+
+$$
+F=P(X_{f_1},\ldots,X_{f_n})
+\qquad(f_j\in S_+)
+$$
+
+と表せる確率変数です。$P$ は複素係数多項式です。定数も含め、二つの多項式に異なる測定が現れるときはその有限族を合わせればよいので、和と積に閉じています。
+
+測定の実数値は変えず、上線 $\overline{\phantom{F}}$ で複素共役を表します。普通の期待値 $E|F|^2$ の代わりに、反転した多項式と元の多項式を掛けます。この値は正時間と負時間をつなぐ相関であり、非負性は自動ではありません。
+
+[QFT20の反射陽性の定義](../../QFT/QFT20/index.md#def-qft20-reflection-positivity) では反転と共役を合わせて $\Theta F$ と書きました。本章の記法では
+
+$$
+(\Theta F)(\omega)=\overline{F(\theta\omega)}
+$$
+
+です。ここでは測度と試験関数を明示して、その積の平均を二引数の形式として扱います。
 
 <a id="def-mqfc8-reflection-positivity"></a>
 
@@ -139,7 +164,9 @@ $$
 \end{aligned}
 $$
 
-ここで実部 $a>0$ のため無限遠の指数項は零です。$\widehat h$ も可積分です（無限遠で $p^{-2}$ のオーダーであり、原点付近では $a^{-2}$ 以下です）。ただし $h$ 自体は原点で滑らかでないため、Schwartz 関数に対する逆変換の定理をそのまま $h$ に適用しません。Schwartz 関数 $\psi$ に対し [Fourier逆変換](../MQFC1/index.md#thm-mqfc1-fourier) を $\psi$ に適用します。$h$ と $\widehat\psi$ が可積分なので、[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) を実部と虚部に適用して積分順序を交換できます。
+ここで実部 $a>0$ のため無限遠の指数項は零です。$\widehat h$ も可積分です（無限遠で $p^{-2}$ のオーダーであり、原点付近では $a^{-2}$ 以下です）。ただし $h$ 自体は原点で滑らかでないため、Schwartz 関数に対する逆変換の定理をそのまま適用しません。
+
+Schwartz 関数 $\psi$ に対し [Fourier逆変換](../MQFC1/index.md#thm-mqfc1-fourier) を $\psi$ に適用します。$h$ と $\widehat\psi$ が可積分なので、[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) を実部と虚部に適用して積分順序を交換できます。
 
 $$
 \begin{aligned}
@@ -337,7 +364,15 @@ $$
 
 となり、$A-K$ は正半定値です。$K$ も仮定で正半定値です。
 
-[有限次元Gaussian積分と特性関数](../MQFC6/index.md#thm-mqfc6-finite-gaussian) および [Gaussian型特性汎関数の有限次元整合性](../MQFC6/index.md#thm-mqfc6-gaussian-characteristic) の構成を用います。$D$ を実対称正半定値な $n\times n$ 行列とし、$\xi$ を独立な標準正規成分を持つ $n$ 次元列ベクトルとします。MQFC6で用いた [半正定値行列の平方根](../../../基礎科目/F0/F0-00F1/index.md#thm-f0-00f1-psd-square-root) $D^{1/2}$ は実対称で、$(D^{1/2})^2=D$ です。従って $E[\xi]=0$、$E[\xi\xi^{\mathsf T}]=I_n$（$n$ 次の単位行列）から
+[有限次元Gaussian積分と特性関数](../MQFC6/index.md#thm-mqfc6-finite-gaussian) および [Gaussian型特性汎関数の有限次元整合性](../MQFC6/index.md#thm-mqfc6-gaussian-characteristic) の構成を用います。$D$ を実対称正半定値な $n\times n$ 行列とし、$\xi$ を独立な標準正規成分を持つ $n$ 次元列ベクトルとします。
+
+MQFC6で用いた [半正定値行列の平方根](../../../基礎科目/F0/F0-00F1/index.md#thm-f0-00f1-psd-square-root) $D^{1/2}$ は実対称で、$(D^{1/2})^2=D$ です。$I_n$ を $n$ 次の単位行列とすれば
+
+$$
+E[\xi]=0,\qquad E[\xi\xi^{\mathsf T}]=I_n
+$$
+
+です。従って
 
 $$
 E[D^{1/2}\xi]=0,\qquad
@@ -404,7 +439,7 @@ $$
 E_U[(Z+U)^2-a]=Z^2+2ZE_U[U]+(a-k)-a=Z^2-k.
 $$
 
-その二乗平均は、[Wick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) により $E[Z^4]=3k^2$ なので
+その二乗平均は、[Gaussian Schwinger関数のWick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) により $E[Z^4]=3k^2$ なので
 
 $$
 E[(Z^2-k)^2]=3k^2-2kE[Z^2]+k^2=2k^2
