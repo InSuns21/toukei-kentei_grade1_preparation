@@ -1,0 +1,25 @@
+id: MQFC11
+title: "粒子質量とスペクトル測度"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC3, MQFC9, MQFC10, LREP22]
+official_scope: []
+learning_objectives:
+  - 質量二乗とエネルギーを区別し未来質量殻の測度を扱える
+  - 二点分布の正値性から正運動量測度を導ける
+  - Lorentz不変性からKällén–Lehmann表示を導出できる
+  - 質量の原子と連続成分を区別し二粒子の運動学的下限を計算できる
+  - Euclid二点量のスペクトル表示を計算し観測量の検出範囲を説明できる
+definitions:
+  - { id: MQFC11-DEF-01, name: "質量二乗スペクトル測度" }
+theorems:
+  - { id: MQFC11-THM-01, name: "中心化二点分布の正運動量測度" }
+  - { id: MQFC11-THM-02, name: "Källén–Lehmann表示" }
+  - { id: MQFC11-THM-03, name: "二粒子の不変質量の下限" }
+  - { id: MQFC11-THM-04, name: "質量測度からのEuclid二点量" }
+canonical_examples: [自由質量殻, 二つの独立自由場, 二粒子の相対運動, 有限対角ハミルトニアン]
+problem_patterns: [MQFC11-POSITIVITY, MQFC11-SHELL, MQFC11-THRESHOLD, MQFC11-EUCLID, MQFC11-VISIBILITY]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 4, review: 2 }

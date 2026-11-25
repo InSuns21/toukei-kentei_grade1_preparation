@@ -1,0 +1,31 @@
+chapter: MQFC11
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC3, MQFC9, MQFC10, LREP22]
+forward_references: []
+concepts:
+  - id: mqfc.positive-momentum-measure
+    name: "中心化二点分布の正運動量測度"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.wightman-axioms, mqfc.positive-frequency, mqfc.fourier]
+  - id: mqfc.mass-squared-spectral-measure
+    name: "質量二乗スペクトル測度"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.positive-momentum-measure, representation.mass-shell-measure]
+  - id: mqfc.kallen-lehmann
+    name: "Källén–Lehmann表示"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.mass-squared-spectral-measure, representation.mass-shell-measure-invariance, mqfc.positive-momentum-measure]
+  - id: mqfc.two-particle-mass-threshold
+    name: "二粒子の不変質量の下限"
+    kind: proposition
+    introduction: formal
+    requires: [representation.future-mass-shell, representation.future-cone-orbits]
+  - id: mqfc.euclidean-mass-spectrum
+    name: "質量測度からのEuclid二点量"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.kallen-lehmann, mqfc.complex-time-semigroup, mqfc.free-wightman-boundary]
