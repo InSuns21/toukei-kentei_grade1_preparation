@@ -1,0 +1,49 @@
+chapter: ACOMP4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ACOMP3
+forward_references: []
+concepts:
+  - id: algebraic-complexity.mod-prime-reduction
+    name: 整数定数回路の法素数還元
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（整数定数回路の法素数還元）"]
+    requires: [algebra.field-characteristic, algebraic-complexity.arithmetic-circuit-semantics]
+  - id: algebraic-complexity.field-extension-transfer
+    name: 体拡大による算術回路の移行
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（体拡大による算術回路の移行）"]
+    requires: [algebra.field-extension, algebraic-complexity.arithmetic-circuit-semantics]
+  - id: algebraic-complexity.coordinate-simulation
+    name: 有限体拡大上の回路の座標シミュレーション
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限体拡大上の回路の座標シミュレーション）"]
+    requires: [algebra.extension-degree, algebraic-complexity.arithmetic-circuit-size]
+  - id: algebraic-complexity.constant-model
+    name: 算術回路の定数モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（算術回路の定数モデル）"]
+    requires: [algebraic-complexity.arithmetic-circuit-size]
+  - id: algebraic-complexity.restricted-constant-coefficients
+    name: 定数制限回路の出力係数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（定数制限回路の出力係数）"]
+    requires: [algebraic-complexity.constant-model, algebra.prime-field]
+  - id: algebraic-complexity.unit-bit-cost
+    name: 単位コストとビット長
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単位コストとビット長）"]
+    requires: [algebraic-complexity.arithmetic-circuit-size]
+  - id: algebraic-complexity.repeated-squaring-bit-growth
+    name: 反復二乗によるビット長の増大
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（反復二乗によるビット長の増大）"]
+    requires: [algebraic-complexity.unit-bit-cost, algebraic-complexity.repeated-squaring-formula-gap, algebraic-complexity.constant-model]
