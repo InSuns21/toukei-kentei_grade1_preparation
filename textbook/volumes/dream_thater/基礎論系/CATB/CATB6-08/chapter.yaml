@@ -1,0 +1,25 @@
+id: "CATB6-08"
+title: "依存型の圏論的意味"
+volume: foundations
+status: supplementary
+prerequisites: [CATB4-01, CATB4-06, CATB6-03]
+official_scope: []
+learning_objectives:
+  - 集合族による文脈・依存型・項と文脈拡張を構成できる
+  - 置換と引き戻しの普遍性および理解圏の条件を説明できる
+  - 依存和と依存積を計算し項の抽象と評価を実行できる
+  - 依存和と依存積を射影に沿う再添字付けの両随伴として説明できる
+  - Beck–Chevalley同型を証明し可換四角形だけでは足りない理由を説明できる
+definitions:
+  - { id: CATB6-08-DEF-01, name: "集合族による依存型と項" }
+  - { id: CATB6-08-DEF-02, name: "理解圏" }
+  - { id: CATB6-08-DEF-03, name: "依存和と依存積" }
+theorems:
+  - { id: CATB6-08-THM-01, name: "集合族の置換と文脈拡張" }
+  - { id: CATB6-08-THM-02, name: "集合族の依存和・依存積のBeck–Chevalley同型" }
+canonical_examples: [道路ごとの速度集合, 集合族の理解圏, 空ファイバーの依存和と依存積]
+problem_patterns: [CATB6-08-A01, CATB6-08-A02, CATB6-08-A03, CATB6-08-A04, CATB6-08-B01, CATB6-08-B02, CATB6-08-B03, CATB6-08-B04, CATB6-08-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 4, review: 2 }
