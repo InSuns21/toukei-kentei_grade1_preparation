@@ -1,0 +1,27 @@
+id: MQFC17
+title: "熱力学極限・クラスター展開・低次元ギャップ"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC12, MQFC15, MQFC16, SM3, COMB9, ATOP8, RA5]
+official_scope: []
+learning_objectives:
+  - 局所観測の熱力学極限と有限領域の正規化を区別できる
+  - 排除模型の分配関数の対数を連結グラフで展開できる
+  - 木による評価から小活動度での絶対収束を証明できる
+  - 体積一様な尾の評価から局所極限と二点相関の指数減衰を導ける
+  - 連続場の弱結合構成の証明責務と真空選択・質量ギャップの条件を説明できる
+definitions:
+  - { id: MQFC17-DEF-01, name: "局所観測の熱力学極限" }
+  - { id: MQFC17-DEF-02, name: "最近接排除模型" }
+theorems:
+  - { id: MQFC17-THM-01, name: "分配関数の連結グラフ展開" }
+  - { id: MQFC17-LEM-01, name: "排除グラフの木による評価" }
+  - { id: MQFC17-THM-02, name: "小活動度での体積一様な展開" }
+  - { id: MQFC17-THM-03, name: "小活動度での局所極限" }
+  - { id: MQFC17-THM-04, name: "小活動度模型の二点相関減衰" }
+canonical_examples: [独立占有の局所極限, 三点の排除模型, 三頂点の符号和, 混合分布の相関]
+problem_patterns: [MQFC17-CONNECTED, MQFC17-TREE, MQFC17-LIMIT, MQFC17-DECAY, MQFC17-GAP]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
