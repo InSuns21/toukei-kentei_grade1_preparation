@@ -1,0 +1,15 @@
+chapter: LVT5-06
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT5-05, LVT3-05, LVT4-05]
+concepts:
+  - id: lean-verification.stateful-trace
+    name: 状態付き観測列
+    kind: definition
+    introduction: formal
+    requires: [lean-verification.transitions-system, lean-verification.paired-observation]
+  - id: lean-verification.trace-prefix
+    name: 観測列の連結則
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.stateful-trace]

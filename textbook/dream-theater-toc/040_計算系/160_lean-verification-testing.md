@@ -34,3 +34,4 @@
 31. [LVT5-03 直列化・正規化・一致判定の監査](textbook/volumes/dream_thater/計算系/LVT/LVT5-03/index.md)
 32. [LVT5-04 Python：pytest + Hypothesis差分テスト](textbook/volumes/dream_thater/計算系/LVT/LVT5-04/index.md)
 33. [LVT5-05 TypeScript：fast-check差分テスト](textbook/volumes/dream_thater/計算系/LVT/LVT5-05/index.md)
+34. [LVT5-06 Stateful DRTと遷移列](textbook/volumes/dream_thater/計算系/LVT/LVT5-06/index.md)

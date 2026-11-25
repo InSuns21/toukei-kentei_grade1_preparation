@@ -1,0 +1,22 @@
+id: "LVT5-06"
+title: "Stateful DRTと遷移列"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT5-05, LVT3-05, LVT4-05]
+official_scope: []
+learning_objectives:
+  - 状態と応答の全観測を操作列から構成する
+  - 観測列の連結則と長さを証明する
+  - 独立実装で無効操作と停止後の遷移を検査する
+  - 接頭列と縮小候補を再実行して反例を保存する
+definitions:
+  - { id: LVT5-06-DEF-01, name: "状態付き観測列" }
+propositions:
+  - { id: LVT5-06-PROP-01, name: "観測列の連結則" }
+theorems: []
+canonical_examples: ["容量付きカウンタ", "拒否時の状態破壊", "停止後の操作"]
+problem_patterns: [LVT5-06-A01, LVT5-06-A02, LVT5-06-A03, LVT5-06-A04, LVT5-06-B01, LVT5-06-B02, LVT5-06-B03, LVT5-06-B04, LVT5-06-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2, review: 0.5 }
