@@ -1,8 +1,8 @@
 # MQFC9 OS Hilbert空間と時間並進半群
 
-[MQFC8](../MQFC8/index.md) では、正の Euclid 時間にある観測量を反転した観測量と組み合わせると、非負の長さの二乗が得られました。今回はそこから量子状態の空間を作り、Euclid 時間を進める操作がエネルギーの非負性を生むところまで追います。
+[MQFC8](../MQFC8/index.md) では、正の Euclid 時間にある観測量を反転した観測量と組み合わせると、非負の長さの二乗が得られました。今回はそこから量子力学の Hilbert 空間を作り、Euclid 時間を進める操作がエネルギーの非負性を生むところまで追います。
 
-直接の前提は [MQFC8](../MQFC8/index.md)、[MQFC4](../MQFC4/index.md)、[QM6](../../../解析系/QM/QM6/index.md) です。内積は第2引数線形とします。MQFC4 の第1引数線形の規約を利用するときは引数を交換します。
+直接の前提は [MQFC8](../MQFC8/index.md)、[MQFC4](../MQFC4/index.md)、[QM6](../../../解析系/QM/QM6/index.md)、[EVOL2](../../../解析系/EVOL/EVOL2/index.md) です。内積は第2引数線形とします。MQFC4 の第1引数線形の規約を利用するときは引数を交換します。
 
 ## 1. 長さが零の観測量を取り除く
 
@@ -16,7 +16,7 @@ $$
 
 と書き、[反射陽性](../../QFT/QFT20/index.md#def-qft20-reflection-positivity) を仮定します。前講で示した通り $q$ は有限な Hermitian 半正定値形式です。
 
-通常の確率変数として異なる二つの観測量でも、反射形式で測った差の長さが零なら量子状態として区別できません。[正値形式による商空間の構成](../MQFC4/index.md#thm-mqfc4-quotient) の内積部分の論法を利用し、零方向を同一視します。今回は零方向が多項式の積について閉じるとは仮定しません。
+通常の確率変数として異なる二つの観測量でも、反射形式で測った差の長さが零ならHilbert 空間のベクトルとして区別できません。[正値形式による商空間の構成](../MQFC4/index.md#thm-mqfc4-quotient) の内積部分の論法を利用し、零方向を同一視します。今回は零方向が多項式の積について閉じるとは仮定しません。
 
 <a id="def-mqfc9-os-hilbert"></a>
 
@@ -72,7 +72,7 @@ q(X_f,X_g)=\frac{\overline{L_m f}L_m g}{2m},
 \qquad L_m f=\int_0^\infty e^{-mt}f(t)\,dt
 $$
 
-です。従って $L_m f=0$ なら $[X_f]=0$ です。量子状態として必要な情報は $X_f$ の通常の分散ではなく $L_m f$ に集約されています。
+です。従って $L_m f=0$ なら $[X_f]=0$ です。Hilbert 空間のベクトルとして必要な情報は $X_f$ の通常の分散ではなく $L_m f$ に集約されています。
 
 ## 2. 時間を進める操作を商空間に移す
 
@@ -91,9 +91,9 @@ $$
 =E_\mu[|F(\omega)|^2].
 $$
 
-しかし OS 内積では $U_s$ が等長である必要はありません。例えば一粒子の自由場で $L_m(\tau_s f)=e^{-ms}L_m f$ となります。時間が進むほど状態の長さは縮みます。
+しかし OS 内積では $U_s$ が等長である必要はありません。例えば一粒子の自由場で $L_m(\tau_s f)=e^{-ms}L_m f$ となります。時間が進むほどベクトルの長さは縮みます。
 
-ここで目指すのは、$T_0=I$、$T_{s+t}=T_sT_t$ を満たす有界作用素族です。非負時刻だけで加法に対応するので半群であり、$\|T_s v\|\le\|v\|$ のとき縮小、$\langle T_s v,w\rangle=\langle v,T_s w\rangle$ のとき対称といいます。全空間上の有界対称作用素は [自己共役作用素の定義](../../../解析系/QM/QM5/index.md#def-qm5-self-adjoint) により自己共役です。さらに各 $v$ で $\|T_sv-v\|\to0$（$s\downarrow0$）なら原点で強連続です。
+ここで目指すのは、[縮小半群](../../../解析系/EVOL/EVOL2/index.md#def-evol2-contraction-semigroup) の条件を満たす作用素族です。具体的には、$T_0=I$、$T_{s+t}=T_sT_t$ を満たす有界作用素族です。非負時刻だけで加法に対応するので半群であり、$\|T_s v\|\le\|v\|$ のとき縮小、$\langle T_s v,w\rangle=\langle v,T_s w\rangle$ のとき対称といいます。全空間上の有界対称作用素は [自己共役作用素の定義](../../../解析系/QM/QM5/index.md#def-qm5-self-adjoint) により自己共役です。さらに各 $v$ で $\|T_sv-v\|\to0$（$s\downarrow0$）なら原点で強連続です。
 
 <a id="thm-mqfc9-time-semigroup"></a>
 
@@ -169,7 +169,7 @@ $$
 
 既に扱った $p(F)=0$ の場合と合わせて、$D$ 上の作用素は縮小です。任意の $v\in\mathcal H_{\rm OS}$ を $D$ の列 $v_n$ で近似すると $T_sv_n$ は Cauchy 列であり、その極限は近似列に依存しません。この極限で全空間上への一意な縮小延長を得ます。
 
-試験関数の並進は $\tau_s\tau_t=\tau_{s+t}$ を満たすので、$D$ 上で半群則が成立し、有界性と稠密性から全空間に延びます。対称性も最初に示した $q$ の恒等式から稠密近似で延びます。全空間上の有界作用素なので自己共役です。半群則と自己共役性から
+試験関数の並進は $\tau_s\tau_t=\tau_{s+t}$ を満たすので、$D$ 上で半群則が成立し、有界性と稠密性から全空間に延びます。$q(U_sF,G)=q(F,U_sG)$ を稠密部分空間で確認済みなので対称性も稠密近似で延びます。全空間上の有界作用素なので自己共役です。半群則と自己共役性から
 
 $$
 \langle v,T_sv\rangle
@@ -234,6 +234,8 @@ $$
 
 量子力学では自己共役作用素がエネルギーを表します。Euclid 時間の縮小半群が $T_s=e^{-sH}$ と書けるなら、エネルギー $\lambda$ の成分は $e^{-s\lambda}$ 倍になります。$\lambda<0$ の成分は増幅されるはずなので、縮小性は負のエネルギーを排除します。
 
+[強連続半群の生成作用素](../../../解析系/EVOL/EVOL2/index.md#def-evol2-generator) の通常の符号は $Av=\lim_{s\downarrow0}(T_sv-v)/s$ です。本章ではエネルギーを表す $H=-A$ を構成します。
+
 ここで [自己共役作用素の Borel 関数計算](../../../解析系/QM/QM6/index.md#def-qm6-borel-functional-calculus) を使います。自己共役作用素 $A$ のスペクトル射影を $E_A(B)$ と書き、ベクトル $v$ に対する有限非負測度を $\nu_v(B)=\langle v,E_A(B)v\rangle$ とします。$g(A)$ はスペクトル値 $\lambda$ を関数 $g(\lambda)$ に取り替える操作です。非有界な場合は $\int|g|^2d\nu_v<\infty$ となる $v$ が定義域です。
 
 <a id="thm-mqfc9-hamiltonian"></a>
@@ -280,9 +282,9 @@ H=g(A),\qquad
 D(H)=\{v:\int_{(0,1]}|\log a|^2d\nu_v(a)<\infty\}
 $$
 
-と置きます。$E_A$ を $g$ で押し出した射影値測度を $E_H$ とすれば $H=\int\lambda\,dE_H(\lambda)$ です。[実座標のスペクトル積分の自己共役性](../../../解析系/QM/QM6/index.md#thm-qm6-spectral-integral-self-adjoint) より $H$ は自己共役で、$g\ge0$ が測度の台で成立するので非負です。
+と置きます。Borel 集合 $J\subset\mathbb R$ に対し $E_H(J)=E_A(g^{-1}(J))$ と定めると、逆像が集合演算を保つので $E_H$ は射影値測度です。すると $H=\int\lambda\,dE_H(\lambda)$ です。[実座標のスペクトル積分の自己共役性](../../../解析系/QM/QM6/index.md#thm-qm6-spectral-integral-self-adjoint) より $H$ は自己共役で、$g\ge0$ が測度の台で成立するので非負です。
 
-正整数 $n$ について $B=T_{1/n}$ は非負自己共役縮小作用素で $B^n=A$ です。$E_B$ を $b\mapsto b^n$ で押し出した射影値測度は $A$ のスペクトル表示を与えます。スペクトル測度の一意性からそれは $E_A$ に一致します。従って
+正整数 $n$ について $B=T_{1/n}$ は非負自己共役縮小作用素で $B^n=A$ です。Borel 集合 $J$ に $E_B(\{b:b^n\in J\})$ を対応させる射影値測度は、積の規則から $B^n=A$ のスペクトル表示を与えます。スペクトル測度の一意性からそれは $E_A$ に一致します。従って
 
 $$
 A^{1/n}=\int_{[0,1]}a^{1/n}dE_A(a)
@@ -350,7 +352,7 @@ $$
 
 この作用素は $\|He_n\|=n$ なので非有界です。半群がすべて有界でも生成作用素が全空間で定義されるとは限りません。
 
-## 4. 自由場の一粒子状態で時間減衰を読む
+## 4. 自由場の一粒子ベクトルで時間減衰を読む
 
 $m>0$、空間次元 $d-1$ とし、$a(k)=\sqrt{|k|^2+m^2}$ とします。[自由場の反射共分散の因子分解](../MQFC8/index.md#thm-mqfc8-reflected-covariance) から、一次観測量の類は
 
@@ -388,7 +390,7 @@ $$
 \|T_s v\|\le e^{-ms}\|v\|
 $$
 
-が一次空間で従います。中心化された一次状態は $\Omega$ と直交します。ただし一次空間だけの評価から全真空直交空間の質量ギャップを結論してはいけません。
+が一次空間で従います。中心化された一次観測量の類は $\Omega$ と直交します。ただし一次空間だけの評価から全真空直交空間の質量ギャップを結論してはいけません。
 
 ## 5. 演習
 
@@ -419,14 +421,14 @@ $(\theta f)(t)=f(-t)$、$(\tau_sf)(t)=f(t-s)$ とする。$\theta\tau_s=\tau_{-s
 $\mathbb C^3$ 上で $T_s=\operatorname{diag}(1,e^{-s},e^{-4s})$ とする。半群則、自己共役縮小性、生成作用素を確認し、$v=(1,2,1)$ に対して $\|T_s v\|^2$ を求めよ。
 
 <!-- solution-start -->
-対角成分を掛けると $e^{-as}e^{-at}=e^{-a(s+t)}$（$a=0,1,4$）なので半群則が成立します。各成分は実数で絶対値が1以下なので自己共役縮小です。指数関数の連続性から強連続です。[非負生成作用素の定理](#thm-mqfc9-hamiltonian) で時刻1の対角成分の負の対数を取ると $H=\operatorname{diag}(0,1,4)$ です。
+対角成分を掛けると $e^{-as}e^{-at}=e^{-a(s+t)}$（$a=0,1,4$）なので半群則が成立します。各成分は実数で絶対値が1以下なので自己共役縮小です。指数関数の連続性から強連続です。[自己共役縮小半群の非負生成作用素](#thm-mqfc9-hamiltonian) で時刻1の対角成分の負の対数を取ると $H=\operatorname{diag}(0,1,4)$ です。
 
 $$
 \|T_sv\|^2=1+4e^{-2s}+e^{-8s}.
 $$
 <!-- solution-end -->
 
-### 演習 MQFC9-A4：一次状態の時間減衰
+### 演習 MQFC9-A4：一次観測量の類の時間減衰
 
 - Level: A
 
@@ -466,7 +468,7 @@ $$
 |q(F,K)|^2\le q(F,F)q(K,K)=0
 $$
 
-です。正時間並進は $\mathcal P_+$ を保つので $U_{s+t}G$ も $\mathcal P_+$ に属します。第2節の反転と並進の恒等式により
+です。正時間並進は $\mathcal P_+$ を保つので $U_{s+t}G$ も $\mathcal P_+$ に属します。反転と並進の関係 $RU_s=U_{-s}R$ と並進不変性から $q(U_sF,K)=q(F,U_sK)$ です。$K=U_tG$ を代入すると
 
 $$
 q(U_sF,U_tG)=q(F,U_sU_tG)=q(F,U_{s+t}G)=0.
@@ -482,7 +484,7 @@ $$
 $\ell^2(\mathbb N)$ 上で $T_s e_n=e^{-sn}e_n$ とする。$v_n=1/n$ のベクトルは $T_s$ の定義域に入るが $H$ の定義域に入らないことを示せ。差商のノルムが発散することも示せ。
 
 <!-- solution-start -->
-$\sum_n n^{-2}<\infty$ より $v\in\ell^2$ です。$\sum_n e^{-2sn}/n^2\le\sum_n n^{-2}$ なので全 $T_s$ が $v$ に作用します。[非負生成作用素の定理](#thm-mqfc9-hamiltonian) により $H$ は対角成分 $n$ を持ち、$\sum_n n^2|v_n|^2=\sum_n1=\infty$ のため $v\notin D(H)$ です。
+$\sum_n n^{-2}<\infty$ より $v\in\ell^2$ です。$\sum_n e^{-2sn}/n^2\le\sum_n n^{-2}$ なので全 $T_s$ が $v$ に作用します。[自己共役縮小半群の非負生成作用素](#thm-mqfc9-hamiltonian) により $H$ は対角成分 $n$ を持ち、$\sum_n n^2|v_n|^2=\sum_n1=\infty$ のため $v\notin D(H)$ です。
 
 さらに任意の正整数 $M$ で
 
@@ -501,7 +503,7 @@ $$
 $d=1,m>0$ の中心化自由 Gaussian 場を考える。実正時間試験関数 $f$ について $a=E[X_f^2]$、$c=(L_m f)^2/(2m)>0$ とし、$F=X_f^2-a$ とする。$q(F,U_sF)$ を求めよ。
 
 <!-- solution-start -->
-$Y=X_{\theta f}$、$X_s=X_{\tau_s f}$ と置きます。反転不変性と時間並進不変性から $E[Y^2]=E[X_s^2]=a$ です。[自由場の反射共分散の因子分解](../MQFC8/index.md#thm-mqfc8-reflected-covariance) と第4節の並進公式から $E[YX_s]=ce^{-ms}$ です。[Wick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) を $Y,Y,X_s,X_s$ に適用すると
+$Y=X_{\theta f}$、$X_s=X_{\tau_s f}$ と置きます。反転不変性と時間並進不変性から $E[Y^2]=E[X_s^2]=a$ です。[自由場の反射共分散の因子分解](../MQFC8/index.md#thm-mqfc8-reflected-covariance) に $L_m(\tau_s f)=e^{-ms}L_m f$ を代入すると $E[YX_s]=ce^{-ms}$ です。[Wick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) を $Y,Y,X_s,X_s$ に適用すると
 
 $$
 E[Y^2X_s^2]=a^2+2c^2e^{-2ms}.
@@ -521,7 +523,7 @@ $$
 一次観測量とは異なる指数 $2m$ が現れました。
 <!-- solution-end -->
 
-### 演習 MQFC9-C1：二次状態は本当に固有ベクトルか
+### 演習 MQFC9-C1：二次観測量の類は本当に固有ベクトルか
 
 - Level: C
 
@@ -553,7 +555,7 @@ $$
 \end{aligned}
 $$
 
-OS Hilbert空間の内積は正定値なので $T_sv=\alpha v$ です。[非負生成作用素の定理](#thm-mqfc9-hamiltonian) の差商に代入すると
+OS Hilbert空間の内積は正定値なので $T_sv=\alpha v$ です。[自己共役縮小半群の非負生成作用素](#thm-mqfc9-hamiltonian) の差商に代入すると
 
 $$
 \lim_{s\downarrow0}\frac{v-T_sv}{s}
@@ -566,11 +568,11 @@ $$
 \langle\Omega,v\rangle=q(1,F)=E[X_f^2-a]=0.
 $$
 
-$c>0$ なので $v$ は非零です。中心化された二次状態は零エネルギーの定数状態とは直交し、エネルギー $2m$ を持つと分かりました。
+$c>0$ なので $v$ は非零です。中心化された二次観測量の類は零エネルギーの定数多項式の類とは直交し、エネルギー $2m$ を持つと分かりました。
 <!-- solution-end -->
 
 ## 6. 次の講義
 
-反射陽性から量子状態の空間を作り、時間並進不変性と連続性を用いて非負の Hamiltonian を得ました。この段階で実時間のユニタリ作用 $e^{-itH}$ は [スペクトル位相作用素のユニタリ性](../../../解析系/QM/QM6/index.md#prop-qm6-spectral-phase-unitary) から定義できます。ただし相対論的な局所場、時空共変性、Wightman 分布の再構成には追加条件が必要です。次講では OS 公理と再構成の残りの道筋を学びます。
+反射陽性から量子力学の Hilbert 空間を作り、時間並進不変性と連続性を用いて非負の Hamiltonian を得ました。この段階で実時間のユニタリ作用 $e^{-itH}$ は [スペクトル位相作用素のユニタリ性](../../../解析系/QM/QM6/index.md#prop-qm6-spectral-phase-unitary) から定義できます。ただし相対論的な局所場、時空共変性、Wightman 分布の再構成には追加条件が必要です。次講では OS 公理と再構成の残りの道筋を学びます。
 
 参考文献：K. Osterwalder and R. Schrader, [Axioms for Euclidean Green's Functions](https://doi.org/10.1007/BF01645738) (1973) および [II](https://doi.org/10.1007/BF01608978) (1975)。J. Glimm and A. Jaffe, [Quantum Physics: A Functional Integral Point of View](https://link.springer.com/book/10.1007/978-1-4612-4728-9), 2nd ed.
