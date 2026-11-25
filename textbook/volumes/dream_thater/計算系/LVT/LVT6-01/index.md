@@ -105,7 +105,8 @@ applyMove s pos の戻り値 Except String GameState は error（理由文字列
 
 ```bash
 # 本教材リポジトリのルートから
-lab="$(pwd)/textbook/volumes/dream_thater/計算系/LVT/LVT6-01/lab"
+cp 'textbook/volumes/dream_thater/計算系/LVT/LVT6-01/lab/repair_upstream_proofs.py' /tmp/lvt-repair.py
+cp 'textbook/volumes/dream_thater/計算系/LVT/LVT6-01/lab/UpstreamAudit.lean' /tmp/lvt-audit.lean
 git clone https://github.com/kazunori279/lean4-tictactoe-test.git /tmp/lvt-upstream
 cd /tmp/lvt-upstream
 git checkout --detach c332ba3e2d2bf78edb993ae6acadcd83f927073e
@@ -115,11 +116,11 @@ lake update
 # 原版の失敗を観察する
 lake test
 # 以下は原版の証明スクリプトだけを補修して再実行
-python3 "$lab/repair_upstream_proofs.py" ..
+python3 /tmp/lvt-repair.py ..
 git diff --exit-code -- TicTacToe/Spec.lean Main.lean
 lake test
 lake build
-lake env lean "$lab/UpstreamAudit.lean"
+lake env lean /tmp/lvt-audit.lean
 cd ..
 uv sync --locked
 uv run --locked pytest -v -rs
