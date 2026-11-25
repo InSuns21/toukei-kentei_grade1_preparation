@@ -198,12 +198,12 @@ $$
 
 ### 証明の見取り図
 
-消滅では各粒子数成分の積分をCauchy–Schwarzの不等式で抑え、生成では交換関係の残り一項が上限を一つ増やします。
+消滅では各粒子数成分の積分を[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)で抑え、生成では交換関係の残り一項が上限を一つ増やします。
 
 <!-- proof-start -->
 ### 証明
 
-消滅の成分式で残る粒子変数 $\boldsymbol p_1,\ldots,\boldsymbol p_n$ を固定し、積分変数 $\boldsymbol q$ についてCauchy–Schwarzの不等式を使うと
+消滅の成分式で残る粒子変数 $\boldsymbol p_1,\ldots,\boldsymbol p_n$ を固定し、積分変数 $\boldsymbol q$ について[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を使うと
 
 $$
 |(a(u)\psi)_n(\boldsymbol p_1,\ldots,\boldsymbol p_n)|^2
