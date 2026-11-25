@@ -117,7 +117,6 @@ result family は成果群識別子であって講数ではない。268 は Open
 | NS-BU | NS5–8A、NPDE4/6 → EOMNSBUA/B → EOMNSBU | 基礎は着手可能。原論文の数値証明書と区間演算が未公開で無条件の主張の確定は不可 |
 | RH/GRH | ANT7/8 → EOMRH → RHPへの参照（詳細は独立PLANのANF/IWA/AFR等） | 横断導入はRHP全講の完成待ちにしない。実装時にANT正本を確認 |
 | VP/VNP | GCT・ACOMP・TSP・NPCG、LVT第I・II部 → FML（7講） → VNP研究講読 → EOMVPA/B/VP | 既存CPLX・COMB・AGは再利用。新規正本99講はplanned（既存LVT共通14講は別計上）。対応章完成・anchor確認後にEOMを執筆する。 |
-
 | 107/MMX | GCT・ACOMP・TSP・NPCG・FMLの既存計75講（選択履修）→ MMX1–32 → EOM107A/B/C/107 | **新規研究講読32講・横断4講が必要**。VNP全24講を必修にせず、類似のprice/圧縮は別著者の証明として照合する。対応章完成後に横断講を執筆。 |
 
 **実装推奨順**：EOM0 → 074系 → 079A–079 → 017/004/376/221（各独立）→ 268A–268 → 378A–378 → YMA–YM・QCDA–QCD → EOMEULERA–EOMEULER → EOMNSBUA–EOMNSBU → EOMRH → EOMVPA–EOMVP → EOM107A–EOM107 → EOM6。上の表の順序は学修の依存を表示するもので、別々のfamilyは独立に着手してよい。YM/QCD の論文が非公開・検証中の場合でも**基礎橋渡しは執筆可能**。未公開の主定理を教材として既証明扱いにしない。
