@@ -227,7 +227,7 @@ $$
 D_{m,q}\preceq G_p(t)\preceq D_{m,r}.
 $$
 
-再び階数と劣階数の定義を使えば主張の最初の二式を得ます。
+左の制限は対角テンソルの大きさ $q$ が取り出せることを表し、右の制限は大きさ $r$ の対角テンソルから作れることを表します。従って [テンソル劣階数](../TSP4/index.md#def-tsp4-subrank) は $q$ 以上、[対角テンソルによる階数の特徴付け](../TSP4/index.md#thm-tsp4-rank-restriction) で階数は $r$ 以下です。
 
 [併合と半環演算の両立性](#thm-tsp15-grouping-semiring) を繰り返すと任意の正整数 $n$ について $G_p(t^{\boxtimes n})\sim G_p(t)^{\boxtimes n}$ です。制限同値なら階数と劣階数は一致するため、最初の二式を $t^{\boxtimes n}$ に適用して
 
@@ -393,7 +393,7 @@ $v=(e_1\otimes e_1+e_2\otimes e_2)\otimes e_1$ を最初の二因子で併合す
 <!-- solution-start -->
 ##### 詳細解答
 
-[テンソルのKronecker積](../TSP5/index.md#def-tsp5-kronecker) の係数公式から、長さ $n$ の添字列 $\alpha\in\{1,2\}^n$ を用いると
+[テンソルのKronecker積](../TSP5/index.md#def-tsp5-kronecker) では各因子の添字が組になり、各項の係数は入力の係数の積になる。長さ $n$ の添字列 $\alpha\in\{1,2\}^n$ を用いると
 
 $$
 v^{\boxtimes n}=\sum_\alpha e_\alpha\otimes e_\alpha\otimes e_{(1,\ldots,1)}.
