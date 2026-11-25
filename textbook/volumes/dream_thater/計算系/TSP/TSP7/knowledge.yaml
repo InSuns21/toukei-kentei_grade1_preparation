@@ -36,10 +36,10 @@ concepts:
     introduction_aliases: ["定理（行列積テンソルの基本上下界）"]
     requires: [tensor.matrix-multiplication-tensor, tensor.flattening-rank-bound, tensor.tensor-rank]
   - id: tensor.strassen-seven-product
-    name: Strassenの7乗算法による上界
+    name: Strassenの7回乗算による上界
     kind: theorem
     introduction: formal
-    introduction_aliases: ["定理（Strassenの7乗算法による上界）"]
+    introduction_aliases: ["定理（Strassenの7回乗算による上界）"]
     requires: [tensor.matrix-multiplication-tensor, tensor.rank-bilinear-complexity]
   - id: tensor.matrix-multiplication-product
     name: 行列積テンソルの積と階数評価
