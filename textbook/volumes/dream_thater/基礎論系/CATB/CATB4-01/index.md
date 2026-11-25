@@ -8,7 +8,9 @@
 
 一般の圏では元ごとの式が使えない。そこで「添字に沿って移した対象から元の対象へ向かう射」を、その射を通る因子分解の存在と一意性で特徴づける。これは[引き戻し](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)の普遍性を、関手の上で考える方法である。
 
-以下、$\mathcal E,\mathcal B$ は[局所小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)、$p:\mathcal E\to\mathcal B$ は[共変関手](../../CAT/CAT1-06/index.md#def-cat1-06-functor)とする。合成は右から左に書き、$gf$ は $g\circ f$ の略記とする。$1_x$ は対象 $x$ の恒等射を表す。
+以下、$\mathcal E,\mathcal B$ は[局所小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)、$p:\mathcal E\to\mathcal B$ は[共変関手](../../CAT/CAT1-06/index.md#def-cat1-06-functor)とする。
+
+合成は右から左に書き、$gf$ は $g\circ f$ の略記とする。$1_x$ は対象 $x$ の恒等射を表す。
 
 $\mathcal B$ を基底圏、$\mathcal E$ を全圏と呼ぶ。$p(x)=a$ なら $x$ は $a$ の上にあり、$p(f)=u$ なら $f$ は $u$ の上にあるという。対象や射の等号は同型でなく厳密な等号とする。
 
@@ -249,7 +251,15 @@ $$
 
 となり、合成は再び可換である。単位律・結合律も各成分から従う。終域を取る関手 $p(q)=B,p(s,u)=u$ は、恒等射を $1_B$ に、合成を $wu$ に送るので関手である。
 
-[ファイバー圏の定義](#def-catb4-01-fiber)に従い基底 $B$ を固定する。対象は $q:X\to B$ と $r:Y\to B$ などで、これらの間の射は $(s,1_B):q\to r$ であり、可換条件は $rs=1_Bq=q$ となる。これは [スライス圏](../../CAT/CAT1-05/index.md#def-cat1-05-slice) $\mathcal C/B$ の射 $s$ の条件そのものである。対応 $(s,1_B)\mapsto s$ とその逆 $s\mapsto(s,1_B)$ は恒等射・合成を保つので、両圏はこの対応で同型である。
+[ファイバー圏の定義](#def-catb4-01-fiber)に従い基底 $B$ を固定する。対象は $q:X\to B$ と $r:Y\to B$ などで、これらの間の射は $(s,1_B):q\to r$ である。可換条件は
+
+$$
+rs=1_Bq=q
+$$
+
+となる。これは [スライス圏](../../CAT/CAT1-05/index.md#def-cat1-05-slice) $\mathcal C/B$ の射 $s$ の条件そのものである。
+
+対応 $(s,1_B)\mapsto s$ とその逆 $s\mapsto(s,1_B)$ は恒等射・合成を保つので、両圏はこの対応で同型である。
 
 <a id="thm-catb4-01-codomain"></a>
 
@@ -434,7 +444,15 @@ $$
 
 別の候補 $h'$ は第一成分が $k(z)$、第二成分が $g(z)$ に強制されるので $h'(z)=h(z)$ が全元で成立する。空集合でも空写像は一意である。
 
-従って [引き戻しの普遍性](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)を満たし、[終域関手と引き戻し](#thm-catb4-01-codomain)からCartesian持ち上げである。より一般に全圏の対象 $e:T\to C$ と $v:C\to A$ に対して $r_0g=uve$ なら、上の式の $k$ を $ve$ に置き換える。すると $h(z)=(v(e(z)),g(z))$ が一意に定まり、$qh=ve$、$s_0h=g$ から $(h,v)$ が求める媒介射となる。
+従って [引き戻しの普遍性](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)を満たし、[終域関手と引き戻し](#thm-catb4-01-codomain)からCartesian持ち上げである。
+
+より一般に全圏の対象 $e:T\to C$ と $v:C\to A$ に対して $r_0g=uve$ なら、上の式の $k$ を $ve$ に置き換える。すると
+
+$$
+h(z)=(v(e(z)),g(z))
+$$
+
+が一意に定まる。$qh=ve$、$s_0h=g$ から $(h,v)$ が求める媒介射となる。
 
 添字ごとに見ると $a,b$ の上にはそれぞれ $r$ に対応する元一つ、$c$ の上には $s,t$ に対応する元二つがある。集合族を移す構成と同じ結果が得られた。
 <!-- solution-end -->
