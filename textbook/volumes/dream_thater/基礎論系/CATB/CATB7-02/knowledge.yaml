@@ -1,0 +1,40 @@
+chapter: CATB7-02
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB7-01, CATB1-06]
+concepts:
+  - id: category.cochain-homotopy
+    name: 余鎖ホモトピー
+    kind: definition
+    introduction: formal
+    requires: [category.cochain-map]
+  - id: category.contractible-cochain-complex
+    name: 可縮余鎖複体
+    kind: definition
+    introduction: formal
+    requires: [category.cochain-homotopy]
+  - id: category.cochain-shift
+    name: 余鎖複体のシフト
+    kind: definition
+    introduction: formal
+    requires: [category.cochain-complex, category.cochain-map]
+  - id: category.mapping-cone
+    name: 写像錐
+    kind: definition
+    introduction: formal
+    requires: [category.cochain-shift, category.finite-biproduct]
+  - id: category.cochain-homotopy-invariance
+    name: 余鎖ホモトピーの同値性とコホモロジー不変性
+    kind: theorem
+    introduction: formal
+    requires: [category.cochain-homotopy, category.cohomology-functor]
+  - id: category.mapping-cone-short-exact
+    name: 写像錐の複体条件と短完全列
+    kind: proposition
+    introduction: formal
+    requires: [category.mapping-cone, category.short-exact-test]
+  - id: category.cochain-long-exact-sequence
+    name: 余鎖複体のコホモロジー長完全列
+    kind: theorem
+    introduction: formal
+    requires: [category.cochain-cohomology, category.cohomology-functor, category.epimorphism-local-lift, category.local-exactness-test, category.normal-morphism-recovery]

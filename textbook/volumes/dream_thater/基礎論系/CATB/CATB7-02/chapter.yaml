@@ -1,0 +1,27 @@
+id: "CATB7-02"
+title: "鎖ホモトピー・シフト・写像錐"
+volume: foundations
+status: supplementary
+prerequisites: [CATB7-01, CATB1-06]
+official_scope: []
+learning_objectives:
+  - 余鎖ホモトピーの等式を検証し誘導射の不変性を証明できる
+  - 可縮な複体と全コホモロジーが零である複体を区別できる
+  - シフトの符号と写像錐の微分の二乗零を検算できる
+  - 各次数で短完全な複体の列から接続射を構成し長完全性を証明できる
+  - 写像錐の列の接続射を元の写像の誘導射と比較できる
+definitions:
+  - { id: CATB7-02-DEF-01, name: "余鎖ホモトピー" }
+  - { id: CATB7-02-DEF-02, name: "可縮余鎖複体" }
+  - { id: CATB7-02-DEF-03, name: "余鎖複体のシフト" }
+  - { id: CATB7-02-DEF-04, name: "写像錐" }
+theorems:
+  - { id: CATB7-02-THM-01, name: "余鎖ホモトピーの同値性とコホモロジー不変性" }
+  - { id: CATB7-02-THM-02, name: "写像錐の複体条件と短完全列" }
+  - { id: CATB7-02-THM-03, name: "余鎖複体のコホモロジー長完全列" }
+canonical_examples: [整数の二項複体のホモトピー, 非可縮な完全複体, 写像錐と接続射]
+problem_patterns: [CATB7-02-A01, CATB7-02-A02, CATB7-02-A03, CATB7-02-A04, CATB7-02-B01, CATB7-02-B02, CATB7-02-B03, CATB7-02-B04, CATB7-02-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 2 }
