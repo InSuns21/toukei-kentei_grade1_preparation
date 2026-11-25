@@ -1,0 +1,51 @@
+chapter: MQFC1
+scope: dream-theater
+coverage: complete
+prerequisites: [GPDE2, FOU3, QFT3]
+forward_references: []
+concepts:
+  - id: mqfc.schwartz
+    name: "Schwartz空間"
+    kind: definition
+    introduction: formal
+    requires: [distribution.multi-index, qft.schwartz-function]
+  - id: mqfc.tempered
+    name: "緩増加分布"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.schwartz, qft.tempered-distribution]
+  - id: mqfc.polynomial
+    name: "多項式増大関数による緩増加分布"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.tempered]
+  - id: mqfc.fourier
+    name: "Schwartz空間のFourier変換"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.schwartz, fourier.fou3-inversion]
+  - id: mqfc.duality
+    name: "緩増加分布の微分とFourier変換"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.tempered, mqfc.fourier, distribution.distributional-derivative]
+  - id: mqfc.derivative
+    name: "分布微分のFourier表示"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.duality]
+  - id: mqfc.product-failure
+    name: "点評価と積の連続拡張の障害"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.tempered]
+  - id: mqfc.kernel
+    name: "二点分布核と正値性"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.tempered]
+  - id: mqfc.gram
+    name: "有限個の試験関数による正値性判定"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.kernel]
