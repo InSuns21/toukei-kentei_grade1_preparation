@@ -10,3 +10,4 @@
 7. [ACOMP7 VNP・Boolean和：VP包含と変数数・次数境界](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP7/index.md)
 8. [ACOMP8 p-projectionとc-reduction：閉性と帰着の方向](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP8/index.md)
 9. [ACOMP9 VNP完全性の証明枠組み：局所制約から多項式へ](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP9/index.md)
+10. [ACOMP10 determinantの多項式サイズ回路：除算不要のBerkowitz型構成](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP10/index.md)

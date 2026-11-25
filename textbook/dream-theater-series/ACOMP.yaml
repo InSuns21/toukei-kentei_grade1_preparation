@@ -42,7 +42,7 @@ chapters:
     title: "VNP完全性の証明枠組み：局所制約から多項式へ"
   - id: ACOMP10
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP10
-    status: planned
+    status: completed
     title: "determinantの多項式サイズ回路：除算不要のBerkowitz型構成"
   - id: ACOMP11
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP11
