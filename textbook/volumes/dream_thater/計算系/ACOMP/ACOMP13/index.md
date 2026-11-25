@@ -164,7 +164,7 @@ L=\begin{pmatrix}
 \end{pmatrix}.
 $$
 
-第1行で展開すれば
+[Leibniz 公式](../../../基礎科目/LA/LA3B/index.md#def-la3b-matrix-determinant) を行基準で使うと、第1行では第2列だけを選べます。残りの2行に第1列と第3列を割り当てる二つの置換は符号がそれぞれ $-1,1$ なので、
 
 $$
 \det L=-x(0\cdot1-1\cdot1)=x.
@@ -206,7 +206,15 @@ A_h=\begin{pmatrix}a&r\\s&M\end{pmatrix},
 \qquad M=A_{h-1}
 $$
 
-と分けます。$r$ は $1\times m$ の行ベクトル、$s$ は $m\times1$ の列ベクトル、$M$ は $m\times m$ 行列です。$a$ は左上成分で、ここでの $s$ は前節の始点ではなく列ベクトルを表します。$k$ は $M$ を掛ける回数で、$M^0=I_m$ とします。[Berkowitz型係数再帰](../ACOMP10/index.md#thm-acomp10-berkowitz) により
+と分けます。$a$ は左上成分で、各ブロックの大きさは
+
+$$
+r\in K[x]^{1\times m},\quad s\in K[x]^{m\times1},\quad M\in K[x]^{m\times m}
+$$
+
+です。ここで $K[x]$ は行列成分の全変数の多項式環を表し、$s$ は前節の始点ではなく列ベクトルです。$k$ は $M$ を掛ける回数で、$M^0=I_m$ とします。
+
+[Berkowitz型係数再帰](../ACOMP10/index.md#thm-acomp10-berkowitz) により
 
 $$
 d_j^{(h)}
@@ -296,7 +304,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-acomp13-vbp-complete -->
-**定義の確認**：$g=\mathrm{DET}$ を取ります。[行列式族の VBP 所属](#thm-acomp13-det-vbp) は所属条件です。任意の $f\in\mathrm{VBP}_K$ について、各 $f_n$ の ABP に [ABPの行列式表示](#thm-acomp13-abp-det) を適用します。指定変数数を $m(n)$、辺数を $E(n)$ とすれば、サイズは高々 $2+(3m(n)+3)E(n)$ です。$m(n)\le Cn^a$、$E(n)\le Dn^b$（$a,b$ は非負整数）と上から抑えると、構成した行列 $L_n$ のサイズ $t(n)$ は
+**定義の確認**：$g=\mathrm{DET}$ を取ります。[行列式族の VBP 所属](#thm-acomp13-det-vbp) は所属条件を満たすことを示しています。
+
+困難性を確かめるため、任意の $f\in\mathrm{VBP}_K$ を取り、各 $f_n$ の ABP に [ABPの行列式表示](#thm-acomp13-abp-det) を適用します。指定変数数を $m(n)$、辺数を $E(n)$ とすれば、構成した行列 $L_n$ のサイズ $t(n)$ は
+
+$$
+t(n)\le 2+(3m(n)+3)E(n).
+$$
+
+ここで VBP の指定変数数と辺数の条件により、ある正定数 $C,D$ と非負整数 $a,b$ を全添字に共通に選んで
+
+$$
+m(n)\le Cn^a,\qquad E(n)\le Dn^b
+$$
+
+と上から抑えられます。これらの不等式と $n\ge1$ を使うと
 
 $$
 t(n)\le 2+3(C+1)D n^{a+b}.
@@ -409,7 +431,13 @@ $$
 L=\begin{pmatrix}x&y\\-1&1\end{pmatrix}
 $$
 
-なら各成分が条件を満たし、$\det L=x\cdot1-y(-1)=x+y$ です。標数2では $-1=1$ ですが、減法と加法も一致するので等式は保たれます。
+なら各成分が条件を満たします。[Leibniz 公式](../../../基礎科目/LA/LA3B/index.md#def-la3b-matrix-determinant) の二項から
+
+$$
+\det L=x\cdot1-y(-1)=x+y
+$$
+
+です。標数2では $-1=1$ ですが、減法と加法も一致するので等式は保たれます。
 <!-- solution-end -->
 
 ### A3. 経路長と符号
@@ -459,25 +487,28 @@ L=\begin{pmatrix}
 \end{pmatrix}.
 $$
 
-第1列は最終行だけが非零なので、行列式は
+[Leibniz 公式](../../../基礎科目/LA/LA3B/index.md#def-la3b-matrix-determinant) を行基準で使います。第4行は第1列を選ぶ必要があります（第1列の他成分が0だからです）。第1行が第2列を選ぶ場合、第2行は第4列、第3行は第3列を選びます。第1行が第3列を選ぶ場合、第3行は第4列、第2行は第2列を選びます。
+
+従って生き残る置換の行から列への対応は、巡回記法で $(1\ 2\ 4)(3)$ と $(1\ 3\ 4)(2)$ です。どちらも3巡回と固定点からなり、[置換の符号の積](../../../基礎科目/LA/LA3B/index.md#lem-la3b-permutation-sign-product) により符号は $(-1)^2=1$ です。
 
 $$
-(-1)^{4+1}
-\det\begin{pmatrix}x&y&0\\1&0&1\\0&1&1\end{pmatrix}.
+\det L=x\cdot1\cdot1\cdot1+y\cdot1\cdot1\cdot1=x+y.
 $$
 
-残った三次行列の第1行で展開すると
-
-$$
-x(0-1)-y(1-0)=-x-y.
-$$
-
-外側の符号 $-1$ を掛けて $x+y$ となり、経路和と一致します。
+これは平行辺二本の経路和と一致します。
 <!-- solution-end -->
 
 ### B2. 係数接続の構成
 
-$r=(a,b)$、$M=\begin{pmatrix}c&d\\e&f\end{pmatrix}$、$s=(g,h)^{\mathsf T}$ とする。$-rMs$ を経路和で表し、[行列式族の VBP 所属](#thm-acomp13-det-vbp) の構成で必要な辺数を求めよ。
+行ベクトル $r$、二次行列 $M$、列ベクトル $s$ を
+
+$$
+r=(a,b),\qquad
+M=\begin{pmatrix}c&d\\e&f\end{pmatrix},\qquad
+s=(g,h)^{\mathsf T}
+$$
+
+とする。上付き $\mathsf T$ は転置を表す。$-rMs$ を経路和で表し、[行列式族の VBP 所属](#thm-acomp13-det-vbp) の構成で必要な辺数を求めよ。
 
 - Level: B
 - ID: ACOMP13-B2
@@ -597,10 +628,10 @@ $$
 -P_{3,3}=abc-awx-uvc.
 $$
 
-第1行で直接展開しても
+[Leibniz 公式](../../../基礎科目/LA/LA3B/index.md#def-la3b-matrix-determinant) を行基準で直接適用しても、恒等置換の項 $abc$ と二つの互換 $(2\ 3),(1\ 2)$ の項だけが残ります。
 
 $$
-\det X=a(bc-wx)-u(vc)=abc-awx-uvc
+\det X=abc-awx-uvc
 $$
 
 となり一致します。
