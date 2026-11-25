@@ -1,0 +1,47 @@
+chapter: CATB5-06
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB5-05, CATB4-07, CATB5-02, CAT4-05, CAT2-07, CAT1-11, CAT1-12]
+concepts:
+  - id: category.subobject-classifier
+    name: "部分対象分類子"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（部分対象分類子）"]
+    requires: [category.subobject, category.pullback, category.complete-category]
+  - id: category.classifier-bijection
+    name: "分類射と部分対象の自然な対応"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（分類射と部分対象の自然な対応）"]
+    requires: [category.subobject-classifier, category.subobject-inverse-image]
+  - id: category.elementary-topos
+    name: "初等トポス"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（初等トポス）"]
+    requires: [category.subobject-classifier, category.complete-category, category.exponential-object]
+  - id: category.presheaf-pointwise-mono
+    name: "前層のモノ射の成分判定"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（前層のモノ射の成分判定）"]
+    requires: [category.monomorphism, category.set-valued-presheaf, category.contravariant-yoneda-lemma]
+  - id: category.presheaf-classifier
+    name: "前層圏の部分対象分類子"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（前層圏の部分対象分類子）"]
+    requires: [category.subobject-classifier, category.presheaf-pointwise-mono, category.sieve, category.sieve-pullback-laws, category.functor-pointwise-limits]
+  - id: category.presheaf-exponential
+    name: "前層圏の指数対象"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（前層圏の指数対象）"]
+    requires: [category.exponential-object, category.yoneda-embedding, category.functor-pointwise-limits]
+  - id: category.presheaf-topos
+    name: "前層圏の初等トポス性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（前層圏の初等トポス性）"]
+    requires: [category.elementary-topos, category.presheaf-bicompleteness, category.presheaf-classifier, category.presheaf-exponential]
