@@ -198,7 +198,7 @@ $$
 
 $iea=nb$ なので $ct=ea,dt=b$ を満たす $t:P\to Q$ が一意に定まる。この $t$ は $e$ の $c$ に沿う引き戻しである。実際 $ev=cq$ を満たす $v:T\to M,q:T\to Q$ について $fmv=ndq$ となるので、$ak=v,bk=dq$ を満たす唯一の $k:T\to P$ が存在する。$ctk=ev=cq$、$dtk=dq$ だから $tk=q$ であり、$ak=v,tk=q$ から逆に $bk=dq$ が強制される。
 
-[正則圏の像分解とその引き戻し安定性](../CATB1-02/index.md#thm-catb1-02-regular-factorization)より $t$ は正則エピ射、$c$ はモノ射である。$fma=ict$ の像は $ic$ であり、$ic$ は $[i]\wedge[n]$ を表す。従って
+[正則圏の像分解とその引き戻し安定性](../CATB1-02/index.md#thm-catb1-02-regular-factorization)より $t$ は正則エピ射、$c$ はモノ射である。$fma=ict$ の像は [正則エピ・モノ分解は像を与える](../CATB1-01/index.md#thm-catb1-01-regular-epi-mono-image) により $ic$ であり、$ic$ は $[i]\wedge[n]$ を表す。従って
 
 $$
 \exists_f(A\wedge f^*B)=\exists_f A\wedge B.
@@ -277,7 +277,7 @@ $$
 
 空選言からの推論は最小元の性質、選言導入は $A\le A\vee B$ と $B\le A\vee B$、場合分けは $A\vee B\le D$ と $A\le D$ かつ $B\le D$ の同値である。
 
-分配について $m:M\to X$ を $C$ の代表モノ射とする。任意の部分対象 $D$ に対し、$m^*D$ の代表と $m$ の合成はモノ射で、$C\wedge D$ を表す。従ってその像は $C\wedge D$ である。[部分対象の像と逆像の随伴](../CATB4-07/index.md#thm-catb4-07-image-adjoint)から任意の $E\in\operatorname{Sub}(M)$ について
+分配について $m:M\to X$ を $C$ の代表モノ射とする。任意の部分対象 $D$ に対し、$m^*D$ の代表と $m$ の合成はモノ射で、$C\wedge D$ を表す。従ってその像は $C\wedge D$ である。[部分対象の像と逆像の随伴](../CATB4-07/index.md#thm-catb4-07-image-adjoint)から任意の $E_1,E_2\in\operatorname{Sub}(M)$ と $D\in\operatorname{Sub}(X)$ について
 
 $$
 \begin{aligned}
@@ -393,7 +393,7 @@ $A\vee B=\{a,c\}$ であり、$f$ の値が $a$ または $c$ になる入力は
 
 - Level: B
 
-正則圏で $G,S$、$\pi:G\times S\to G$、$t:G\to S$、$A\in\operatorname{Sub}(G\times S)$ を取る。$s=\langle1_G,t\rangle$ とし、$D\in\operatorname{Sub}(G)$ が $D\le s^*A$ を満たすなら $D\le\exists_\pi A$ を示せ。逆が一般に成立しない集合の例を与えよ。
+各部分対象全体が集合となる局所小な正則圏で $G,S$、$\pi:G\times S\to G$、$t:G\to S$、$A\in\operatorname{Sub}(G\times S)$ を取る。$s=\langle1_G,t\rangle$ とし、$D\in\operatorname{Sub}(G)$ が $D\le s^*A$ を満たすなら $D\le\exists_\pi A$ を示せ。逆が一般に成立しない集合の例を与えよ。
 
 <!-- solution-start -->
 **詳細解答**
