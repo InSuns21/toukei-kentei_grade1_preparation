@@ -1,0 +1,41 @@
+id: "GCT11"
+title: "計数完全性と0–1 permanent：Valiantの帰着"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GCT10
+official_scope: []
+learning_objectives:
+  - "計数Turing帰着の下での #P 困難性と完全性を区別できる"
+  - "証明書と受理計算表の一意対応による #3SAT の計数完全性を証明できる"
+  - "0–1行列のパーマネントが #P に属することを証明できる"
+  - XOR部品の境界重みを計算し変数と節の整合を説明できる
+  - 符号付きパーマネントから0–1パーマネントへの帰着とビット長を評価できる
+definitions:
+  - { id: GCT11-DEF-01, name: "計数完全性" }
+theorems:
+  - { id: GCT11-THM-01, name: "#3SATの計数完全性" }
+  - { id: GCT11-THM-02, name: "0–1パーマネントの #P 所属" }
+  - { id: GCT11-LEM-01, name: "XORガジェットの境界重み" }
+  - { id: GCT11-THM-03, name: "充足割当数の符号付きパーマネント表現" }
+  - { id: GCT11-THM-04, name: "Valiantの0–1パーマネント計数完全性" }
+canonical_examples:
+  - 受理計算表と証明書の全単射
+  - XOR境界の正負相殺
+  - 真のリテラルの選択と節の重み
+  - 剰余と経路数による重み除去
+problem_patterns:
+  - GCT11-CERTIFICATE
+  - GCT11-COMPLETE
+  - GCT11-CLAUSE
+  - GCT11-MODULUS
+  - GCT11-XOR
+  - GCT11-VARIABLE
+  - GCT11-PATH
+  - GCT11-RESIDUE
+  - GCT11-UNIQUE-TABLEAU
+  - GCT11-REDUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }

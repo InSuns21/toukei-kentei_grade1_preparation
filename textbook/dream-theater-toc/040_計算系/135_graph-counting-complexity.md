@@ -11,3 +11,4 @@
 8. [GCT8 格子状制約・局所表・重み付き分配和](textbook/volumes/dream_thater/計算系/GCT/GCT8/index.md)
 9. [GCT9 計数複雑性クラス：#P・FP・GapP](textbook/volumes/dream_thater/計算系/GCT/GCT9/index.md)
 10. [GCT10 parsimonious帰着・計数Turing帰着](textbook/volumes/dream_thater/計算系/GCT/GCT10/index.md)
+11. [GCT11 計数完全性と0–1 permanent：Valiantの帰着](textbook/volumes/dream_thater/計算系/GCT/GCT11/index.md)
