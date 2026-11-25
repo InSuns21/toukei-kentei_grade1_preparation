@@ -1,0 +1,54 @@
+chapter: MMX4
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX3, TSP10, TSP11, TSP12, TSP13, TSP14]
+forward_references: []
+concepts:
+  - id: matrix-exponent.convolution
+    name: 多項式乗算テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多項式乗算テンソル）"]
+    requires: [tensor.bilinear-map-tensor]
+  - id: matrix-exponent.convolution-rank
+    name: 多項式乗算テンソルの階数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（多項式乗算テンソルの階数）"]
+    requires: [matrix-exponent.convolution, tensor.polynomial-coefficient-recovery, tensor.flattening-rank-bound]
+  - id: matrix-exponent.spectral-degeneration
+    name: 多項式退化のスペクトル単調性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（多項式退化のスペクトル単調性）"]
+    requires: [tensor.spectral-point, tensor.polynomial-coefficient-recovery, tensor.operation-monotonicity]
+  - id: matrix-exponent.dot-product
+    name: 内積型テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（内積型テンソル）"]
+    requires: [tensor.bilinear-map-tensor]
+  - id: matrix-exponent.dot-exponents
+    name: 内積型テンソルのスペクトル指数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（内積型テンソルのスペクトル指数）"]
+    requires: [matrix-exponent.dot-product, tensor.spectral-point, tensor.matrix-multiplication-tensor]
+  - id: matrix-exponent.degree-profile
+    name: 対称化次数プロファイル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対称化次数プロファイル）"]
+    requires: [matrix-exponent.dot-exponents, matrix-exponent.convolution]
+  - id: matrix-exponent.profile-basic
+    name: 対称化次数プロファイルの基本評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（対称化次数プロファイルの基本評価）"]
+    requires: [matrix-exponent.degree-profile, matrix-exponent.convolution-rank, tensor.spectral-point-order-bounds]
+  - id: matrix-exponent.determinant-filtration
+    name: 行列式による次数の分離
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（行列式による次数の分離）"]
+    requires: [matrix-exponent.convolution]

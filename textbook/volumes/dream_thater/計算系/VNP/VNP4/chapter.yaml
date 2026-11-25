@@ -1,0 +1,27 @@
+id: VNP4
+title: "A：gaugeの最小化・冪の極限・双対性"
+volume: foundations
+status: supplementary
+prerequisites: [VNP3, TSP12, TSP16]
+official_scope: []
+learning_objectives:
+  - 被覆型上評価関数と文脈付き比較条件を定義し直接例と反例を説明できる
+  - 鎖の下限が評価条件を保存することを示して極小元を得られる
+  - 冪極限と固定材料による正規化の二操作から乗法性を証明できる
+  - 交換被覆証明書を構成し重みとレベルを追跡できる
+  - スペクトル点の比較から劣指数個の被覆を導き逆向きも説明できる
+definitions:
+  - { id: VNP4-DEF-01, name: "被覆型上評価関数" }
+  - { id: VNP4-DEF-02, name: "文脈付き比較条件" }
+  - { id: VNP4-DEF-03, name: "交換被覆証明書" }
+theorems:
+  - { id: VNP4-THM-01, name: "比較を保存する極小評価" }
+  - { id: VNP4-THM-02, name: "被覆型評価の冪極限" }
+  - { id: VNP4-THM-03, name: "上評価関数以下のスペクトル点" }
+  - { id: VNP4-THM-04, name: "被覆型スペクトル双対性" }
+canonical_examples: [二平坦化階数の最大, 文脈付き比較の反例, 固定材料による選別, wireの交換証明書]
+problem_patterns: [VNP4-A1, VNP4-A2, VNP4-A3, VNP4-A4, VNP4-B1, VNP4-B2, VNP4-B3, VNP4-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 1 }
