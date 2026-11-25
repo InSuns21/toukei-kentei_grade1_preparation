@@ -7,7 +7,7 @@
 
 ## 1. 目的・前提・停止線
 
-**必修共通基盤は [LVT第I・II部（14講）](../plans_progress/DREAM_THEATER_LEAN4_SOFTWARE_TESTING_FORMAL_VERIFICATION_PLAN.md)**（LVT1-01〜06、LVT2-01〜08）。進捗は [LVT manifest](../dream-theater-series/LVT.yaml) を正本とする。LVT第III〜VI部（29講）はソフトウェア仕様・テスト・差分検査の発展であり、FMLの一律必修ではない。集合・論理・証明、LA・基礎代数、MT/TOP、CMPの必要箇所も再利用する。着手時に直接参照する章の本文・knowledge.yaml・定理anchorを照合する。
+**必修共通基盤は [LVT第I・II部（14講）](DREAM_THEATER_LEAN4_SOFTWARE_TESTING_FORMAL_VERIFICATION_PLAN.md)**（LVT1-01〜06、LVT2-01〜08）。進捗は [LVT manifest](../dream-theater-series/LVT.yaml) を正本とする。LVT第III〜VI部（29講）はソフトウェア仕様・テスト・差分検査の発展であり、FMLの一律必修ではない。集合・論理・証明、LA・基礎代数、MT/TOP、CMPの必要箇所も再利用する。着手時に直接参照する章の本文・knowledge.yaml・定理anchorを照合する。
 
 LVTがLean環境・Lake、型・再帰・停止性、論理・タクティク・帰納法・依存型・定理探索・一般的な信頼境界の正本を所有する。FMLはMathlib上の数学的対象、研究定理のstatement matching・公理監査・独立kernelによる証明artifactの評価を所有する。基本操作の再講義はせず、必要な章への参照と直接の数学例のみを置く。初回の旧案FML1〜3は削除し、旧FML4〜10を新FML1〜7へ再編した（本文未着手・manifest未作成のため実装済みIDの変更はない）。
 
