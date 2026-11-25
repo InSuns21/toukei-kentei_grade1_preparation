@@ -298,7 +298,7 @@ $$
 > とする。
 <!-- formal-statement-end -->
 
-$\partial^{n+1}\partial^n(a)=a d_P^{-n-1}d_P^{-n-2}=0$。比較写像 $u:P\to Q$ は前合成で反対向きの余鎖写像を誘導する。差が $d_Qh+hd_P$ なら、次数 $n$ のホモトピーを $a\mapsto a h^{1-n}$（値は $\operatorname{Hom}(P^{1-n},N)$）とすれば、二項の和が $a(u^{-n}-v^{-n})$ になる。従って[分解の比較定理](#thm-catb7-05-comparison)により選択独立性と第一変数での反変関手性が得られる。第二変数は後合成で共変であり、前合成と後合成は結合律によって可換する。次数0では $\ker\partial^0$ は $d_P^{-1}$ 上零になる射全体だから、余核 $M$ を経由する。従って $\operatorname{Ext}^0(M,N)\cong\operatorname{Hom}(M,N)$。
+$\partial^{n+1}\partial^n(a)=a d_P^{-n-1}d_P^{-n-2}=0$。比較写像 $u:P\to Q$ は前合成で反対向きの余鎖写像を誘導する。差が $d_Qh+hd_P$ なら、次数 $n$ のホモトピーを $a\mapsto a h^{1-n}$（値は $\operatorname{Hom}(P^{1-n},N)$）とする。次数 $n$ の元 $a$ に対し、ホモトピー式の二項はそれぞれ $a h^{1-n}d_P^{-n}$ と $a d_Q^{-n-1}h^{-n}$ なので、和は $a(u^{-n}-v^{-n})$ になる。従って[分解の比較定理](#thm-catb7-05-comparison)により選択独立性と第一変数での反変関手性が得られる。第二変数は後合成で共変であり、前合成と後合成は結合律によって可換する。次数0では $\ker\partial^0$ は $d_P^{-1}$ 上零になる射全体だから、余核 $M$ を経由する。従って $\operatorname{Ext}^0(M,N)\cong\operatorname{Hom}(M,N)$。
 
 <!-- definition-example-start: def-catb7-05-ext -->
 **定義の確認**。$M=\mathbb Z/m\mathbb Z$、$N=\mathbb Z$ とする。既に完全性と射影性を検証した[射影分解](#def-catb7-05-projective-resolution)を使う。$\operatorname{Hom}_{\mathbb Z}(\mathbb Z,\mathbb Z)\cong\mathbb Z$ は1の像を取る同型であり、$a(1)=t$ なら $a(m)=mt$。従って $C^0=C^1=\mathbb Z$、$\partial^0=m$、$C^n=0$ ($n\ne0,1$)。微分の二乗零は次の微分が零なので成立する。
@@ -440,6 +440,49 @@ $$
 
 この講の導来関手は対象の分解を用いる古典的な構成である。任意の非有界複体への導来関手の構成や、連接層（局所的に有限表示などの有限性条件を持つ加群の層）の圏に十分な入射対象があるという主張はしていない。層に応用するときは、まず周囲の加群の層の圏で入射分解の存在を確認し、連接層の複体からの包含が完全性・擬同型を保つか、導来圏間の比較が充満忠実か、必要なコホモロジーの有限性を保つかを別途検証する。対象の有限性が分解の各項に自動的に引き継がれるわけではない。
 
+
+入射分解で非零の Ext が得られる例も見よう。整数加群 $D$ が任意の整数 $m>0$ に対し $mD=D$ を満たすとき、どんな元も $m$ 倍の逆像を持つ。この条件から $D$ の入射性を証明できる。
+
+<a id="prop-catb7-05-divisible-injective"></a>
+
+<!-- formal-statement-start -->
+> **命題（整数加群の可除性と入射性）**
+>
+> 整数加群 $D$ は、全ての正整数 $m$ で $mD=D$ となることと、入射対象であることが同値である。
+<!-- formal-statement-end -->
+
+見取り図：一つの元を付け加えるとき、既に定義されている部分との整数倍の整合性が問題となる。可除性がその整合条件を解く。
+
+<!-- proof-start -->
+### 証明
+
+入射対象なら、任意の $d\in D$ に対して $m\mathbb Z\to D$ を $mk\mapsto kd$ と置く。$\mathbb Z$ へ延長した写像の1での値 $x$ は $mx=d$ を満たす。従って $mD=D$。
+
+逆に $mD=D$ が全正整数で成立するとする。部分群 $A\subset B$ からの準同型 $a:A\to D$ を延長する。$a$ の延長 $(C,c)$（$A\subset C\subset B$）全体を定義域の包含と写像の一致で順序付ける。全順序部分集合に対して、定義域の和集合は部分群であり、写像は各定義域上で一致するため和集合上の準同型を定める。従って Zorn の補題（全ての鎖に上界がある空でない半順序集合は極大元を持つ）から極大の延長 $(C,c)$ がある。
+
+もし $b\in B\setminus C$ があれば、$J=\{n\in\mathbb Z:nb\in C\}$ は整数の部分群なので $J=m\mathbb Z$ ($m\ge0$) と書ける。$m=0$ なら $x=0$ とし、$m>0$ なら可除性により $mx=c(mb)$ となる $x\in D$ を選ぶ。$C+\mathbb Zb$ 上で
+
+$$
+\widetilde c(y+nb)=c(y)+nx
+$$
+
+と置く。もし $y+nb=y'+n'b$ なら $(n-n')b=y'-y\in C$。$m=0$ では $n=n'$ かつ $y=y'$。$m>0$ では $n-n'=km$ となり、
+
+$$
+c(y'-y)=k c(mb)=kmx=(n-n')x.
+$$
+
+従ってどちらの場合も定義した値は一致する。加法性は右辺の加法性から従い、$n=0$ で元の $c$ に一致する。これは極大性に反する。よって $C=B$ である。一般の単射は像への同型と部分群の包含に分解できるので、任意の単射に沿って延長できる。
+<!-- proof-end -->
+
+$\mathbb Q$ と $\mathbb Q/\mathbb Z$ は可除である。実際 $q$ の $m$ 倍の逆像は $q/m$、剰余類 $q+\mathbb Z$ の逆像は $q/m+\mathbb Z$ を選べる。従って上の命題により両方とも入射対象である。包含と剰余射による列
+
+$$
+0\to\mathbb Z\to\mathbb Q\to\mathbb Q/\mathbb Z\to0
+$$
+
+は短完全なので、$\mathbb Q$ を次数0、$\mathbb Q/\mathbb Z$ を次数1に置けば $\mathbb Z$ の入射分解になる。一般に十分な入射対象があるという仮定と、この個別の分解を実際に構成したことを区別しよう。
+
 ## 8. 演習
 
 ### CATB7-05-A01 射影性の確認
@@ -529,6 +572,25 @@ $$
 代表元を $t+3j$ に変えると像は $2t+6j$ となり同じ剰余類である。第一変数の射と逆向きであることに注意する。
 <!-- solution-end -->
 
+### CATB7-05-B05 非自明な入射分解
+
+- Level: B
+
+整数加群 $\mathbb Z$ の入射分解 $\mathbb Q\to\mathbb Q/\mathbb Z$ を用いて、固定した $M=\mathbb Z/8\mathbb Z$ に対する $\operatorname{Hom}_{\mathbb Z}(M,-)$ の右導来関手の値を計算し、射影分解での Ext と一致することを確かめよ（この個別の計算では他の対象の入射分解の存在を用いなくてよい）。
+
+<!-- solution-start -->
+[整数加群の可除性と入射性](#prop-catb7-05-divisible-injective)により両項は入射対象であり、分解の完全性も包含と剰余射から確認した。$\operatorname{Hom}_{\mathbb Z}(M,\mathbb Q)=0$ は $\mathbb Q$ で $8q=0$ なら $q=0$ であるため。$\operatorname{Hom}_{\mathbb Z}(M,\mathbb Q/\mathbb Z)$ は $[1]_8$ の像によって
+
+$$
+\{q+\mathbb Z:8q\in\mathbb Z\}
+=\{j/8+\mathbb Z:0\le j<8\}
+$$
+
+と同一視できる。この群は $[j]_8\mapsto j/8+\mathbb Z$ により $\mathbb Z/8\mathbb Z$ と同型である。従って Hom 複体は次数0が零、次数1が $\mathbb Z/8\mathbb Z$、他の次数が零であり、次数1のコホモロジーだけが非零となる。
+
+[巡回整数加群のExt](#thm-catb7-05-cyclic-ext)に $m=8,N=\mathbb Z$ を代入しても、0次は $\mathbb Z[8]=0$、1次は $\mathbb Z/8\mathbb Z$、2次以上は零である。両計算が一致する。ここで $\mathbb Z[8]$ は8倍で零になる整数の集合を表す。
+<!-- solution-end -->
+
 ### CATB7-05-C01 完全三角形の第3射とExt
 
 - Level: C
@@ -542,7 +604,7 @@ $$
 M[0]\xleftarrow{\epsilon}P\xrightarrow{p}\mathbb Z[1].
 $$
 
-[分解による導来圏のHom計算](#thm-catb7-05-derived-hom)で $P$ を使うと、対応する Ext の元は $p^{-1}=1_{\mathbb Z}$ の類である。微分は $\operatorname{Hom}(\mathbb Z,\mathbb Z)$ 上の $m$ 倍だから、その類は $[1]_m\in\mathbb Z/m\mathbb Z$。$m\ge2$ より零でなく、位数 $m$ の生成元となる。
+[分解による導来圏のHom計算](#thm-catb7-05-derived-hom)で $P$ を使うと、対応する Ext の元は $p$ の次数 $-1$ の成分 $1_{\mathbb Z}$ の類である。微分は $\operatorname{Hom}(\mathbb Z,\mathbb Z)$ 上の $m$ 倍だから、その類は $[1]_m\in\mathbb Z/m\mathbb Z$。$m\ge2$ より零でなく、位数 $m$ の生成元となる。
 
 独立に、短完全列が分裂すると剰余射の右逆 $s:M\to\mathbb Z$ が存在する。$s([1]_m)=t$ と置けば $mt=s(m[1]_m)=0$ なので $t=0$。しかし剰余射との合成が恒等射なら $[t]_m=[1]_m$ となるはずで矛盾する。従って分裂しない。ここでは個別の短完全列について非零の類と非分裂を確認したのであり、任意の拡大の分類定理を仮定したわけではない。
 <!-- solution-end -->
