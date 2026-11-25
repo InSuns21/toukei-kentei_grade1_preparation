@@ -1,7 +1,7 @@
 chapter: MQFC17
 scope: dream-theater
 coverage: complete
-prerequisites: [MQFC12, MQFC15, MQFC16]
+prerequisites: [MQFC12, MQFC15, MQFC16, SM3, COMB9, ATOP8, RA5]
 forward_references: []
 concepts:
   - id: mqfc.local-thermodynamic-limit
@@ -13,17 +13,17 @@ concepts:
     name: "最近接排除模型"
     kind: definition
     introduction: formal
-    requires: []
+    requires: [statistical-mechanics.partition-function]
   - id: mqfc.connected-graph-expansion
     name: "分配関数の連結グラフ展開"
     kind: theorem
     introduction: formal
-    requires: [mqfc.nearest-neighbor-exclusion]
+    requires: [mqfc.nearest-neighbor-exclusion, combinatorics.formal-power-series]
   - id: mqfc.exclusion-tree-bound
     name: "排除グラフの木による評価"
     kind: lemma
     introduction: formal
-    requires: [mqfc.connected-graph-expansion]
+    requires: [mqfc.connected-graph-expansion, atop.spanning-tree, atop.spanning-tree-existence]
   - id: mqfc.small-activity-expansion
     name: "小活動度での体積一様な展開"
     kind: theorem
@@ -38,4 +38,4 @@ concepts:
     name: "小活動度模型の二点相関減衰"
     kind: theorem
     introduction: formal
-    requires: [mqfc.small-activity-expansion, mqfc.small-activity-local-limit]
+    requires: [mqfc.small-activity-expansion, mqfc.small-activity-local-limit, analysis.weierstrass-m-test, analysis.derivative-limit-interchange]
