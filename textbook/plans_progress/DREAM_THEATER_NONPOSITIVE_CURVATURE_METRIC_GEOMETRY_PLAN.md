@@ -1,8 +1,8 @@
 # DREAM THEATER 距離幾何学・非正曲率空間 計画
 
 構成確定日: 2026-11-24 JST
-状態: planned（設計確定・本文未着手）
-系列予約ID: NPCG（実装時にmanifest/章ID衝突を再点検）
+状態: in progress（NPCG1実装、NPCG2以降未着手）
+系列ID: NPCG（[系列manifest](../dream-theater-series/NPCG.yaml)）
 講数: **全12講**
 
 ## 1. 目的・前提・停止線
@@ -32,11 +32,11 @@
 
 Burago–Burago–Ivanov, [A Course in Metric Geometry](https://doi.org/10.1090/gsm/033)；Bridson–Haefliger, [Metric Spaces of Non-Positive Curvature](https://link.springer.com/book/10.1007/978-3-662-12494-9)（Part II のCAT(0)・凸性・群作用）；原論文Appendix OはVNPの証明照合に用いる。
 
-関連: [VP/VNP横断履修ルート](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md)。各書の目次と公開された研究資料を設計基準にし、本文を転載しない。
+関連: [VP/VNP横断履修ルート](../plans/DREAM_THEATER_VP_VNP_ROUTE_PLAN.md)。各書の目次と公開された研究資料を設計基準にし、本文を転載しない。
 
 ## 4. 完成条件
 
-- [ ] 初回実装時に本PLANを plans_progress に移し、系列manifestを全12講の予定IDで整備する。未実装章の公開目次先行登録はしない。
+- [x] 初回実装時に本PLANを plans_progress に移し、系列manifestを全12講の予定IDで整備する。未実装章の公開目次先行登録はしない。
 - [ ] 各講で主要定義を使用前に導入し、定理の仮定・定義域・量化・中間計算を明示。直接例と反例を含め、主要証明を再構成可能にする。
 - [ ] 原則 Level A 4題・B 3題・C 1題以上と詳細解答。単なる題数合わせはしない。
 - [ ] chapter.yaml・knowledge.yaml・prerequisite・stable anchor・KaTeX・concept/knowledge/exercise/Pages検証を完了する。

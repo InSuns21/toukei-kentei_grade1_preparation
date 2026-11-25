@@ -1,0 +1,26 @@
+id: "NPCG1"
+title: "距離・擬距離・商・完備化：Cauchy列から構成"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SET-U1
+  - F0-00D
+  - F0-00D0A
+official_scope: []
+learning_objectives:
+  - 擬距離の条件と距離との相違を具体例で確認できる
+  - 四点評価と零距離商の距離の代表元非依存性を証明できる
+  - 擬距離のCauchy列による完備化と零距離商の完備化を対応させられる
+  - 完備性と距離を増やさない写像の延長を論証できる
+definitions:
+  - { id: NPCG1-DEF-01, name: 擬距離 }
+theorems:
+  - { id: NPCG1-LEM-01, name: 擬距離の四点評価 }
+  - { id: NPCG1-THM-01, name: 零距離商 }
+  - { id: NPCG1-THM-02, name: 擬距離のCauchy列による完備化 }
+canonical_examples: [横座標の擬距離, 零距離商と境界点, arctanによる距離]
+problem_patterns: [NPCG1-PSEUDOMETRIC, NPCG1-QUOTIENT, NPCG1-FOUR-POINT, NPCG1-CAUCHY, NPCG1-COMPLETION, NPCG1-EXTENSION]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }

@@ -1,0 +1,34 @@
+chapter: NPCG1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SET-U1
+  - F0-00D
+  - F0-00D0A
+forward_references: []
+concepts:
+  - id: metric-geometry.pseudometric
+    name: 擬距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（擬距離）"]
+    aliases: [擬距離, pseudometric]
+    requires: [topology.metric-space]
+  - id: metric-geometry.pseudometric-four-point-bound
+    name: 擬距離の四点評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（擬距離の四点評価）"]
+    requires: [metric-geometry.pseudometric]
+  - id: metric-geometry.zero-distance-quotient
+    name: 零距離商
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（零距離商）"]
+    requires: [metric-geometry.pseudometric-four-point-bound, set.equivalence-relation-class, set.quotient-set, set.canonical-projection]
+  - id: metric-geometry.pseudometric-completion
+    name: 擬距離のCauchy列による完備化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（擬距離のCauchy列による完備化）"]
+    requires: [metric-geometry.zero-distance-quotient, completion.metric-distance-well-defined, completion.metric-completion-complete, completion.canonical-image-dense]
