@@ -15,7 +15,13 @@
 <!-- formal-statement-start -->
 > **定義（距離による曲線長）**
 >
-> 距離空間 $(X,d)$ と連続写像 $\gamma:[a,b]\to X$（$a<b$）に対し、分割 $P$ は有限列 $a=t_0<t_1<\cdots<t_n=b$ とする。曲線長は
+> 距離空間 $(X,d)$ と連続写像 $\gamma:[a,b]\to X$（$a<b$）に対し、分割 $P$ は有限列
+
+$$
+a=t_0<t_1<\cdots<t_n=b
+$$
+
+> とする。曲線長は
 
 $$
 L_d(\gamma)=\sup_P\sum_{i=1}^n d(\gamma(t_{i-1}),\gamma(t_i))
@@ -215,7 +221,19 @@ $$
 L_d(\gamma|_{[s,t]})=d(\gamma(s),\gamma(t)).
 $$
 
-> さらに、任意の $u\in[0,1]$ で $L_d(\gamma|_{[0,u]})=uD$ なら、任意の $s,t$ について $d(\gamma(s),\gamma(t))=D|s-t|$ が成り立つ。逆にこの距離条件を満たす曲線は長さ $D$ を持つ。特にすべての測地空間は長さ空間である。
+> さらに、任意の $u\in[0,1]$ で
+
+$$
+L_d(\gamma|_{[0,u]})=uD
+$$
+
+> なら、任意の $s,t\in[0,1]$ について
+
+$$
+d(\gamma(s),\gamma(t))=D|s-t|
+$$
+
+> が成り立つ。逆にこの距離条件を満たす曲線は長さ $D$ を持つ。特にすべての測地空間は長さ空間である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -287,7 +305,7 @@ $$
 <!-- formal-statement-start -->
 > **定義（Euclid 比較三角形）**
 >
-> 距離空間 $(X,d)$ における三点 $x,y,z$ を取る。Euclid 平面の三点 $\bar x,\bar y,\bar z$ が
+> 距離空間 $(X,d)$ における三点 $x,y,z$ を取る。Euclid 平面の通常距離を $d_2$ とする。三点 $\bar x,\bar y,\bar z$ が
 
 $$
 \begin{aligned}
@@ -533,7 +551,7 @@ $$
 
 連続曲線 $\gamma:[0,1]\to X$ が存在すると仮定し、$f(t)=d(p,\gamma(t))$ と置きます。[四点評価](../NPCG1/index.md#lem-npcg1-four-point-bound)を距離 $d$ と四点 $p,\gamma(s),p,\gamma(t)$ に適用すると
 
-$
+$$
 |f(s)-f(t)|\le d(\gamma(s),\gamma(t)).
 $$
 
