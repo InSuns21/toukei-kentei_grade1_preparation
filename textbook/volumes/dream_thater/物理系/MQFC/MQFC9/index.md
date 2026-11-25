@@ -100,7 +100,7 @@ $$
 $\Omega$ は定数1に対応し、$[X_f]$ と直交します。
 <!-- definition-example-end -->
 
-自由場では確率変数そのものが非零でも零方向になり得ます。[自由場の反射共分散の因子分解](../MQFC8/index.md#thm-mqfc8-reflected-covariance) の $d=1$ の場合、
+質量 $m>0$ の自由場では確率変数そのものが非零でも零方向になり得ます。[自由場の反射共分散の因子分解](../MQFC8/index.md#thm-mqfc8-reflected-covariance) の $d=1$ の場合、
 
 $$
 q(X_f,X_g)=\frac{\overline{L_m f}L_m g}{2m},
@@ -113,7 +113,7 @@ $$
 L_m f=\int_0^\infty e^{-mt}(h'(t)-mh(t))\,dt=0.
 $$
 
-$f=0$ なら $(e^{-mt}h(t))'=0$ となり、コンパクト台により $h=0$ となって矛盾します。[Euclid自由場の試験関数共分散](../MQFC5/index.md#def-mqfc5-covariance-form) の Fourier 重みは厳密に正なので、非零の $f$ に対し $E[X_f^2]=B_m(f,f)>0$ です。従って通常の確率変数として非零であっても、OS Hilbert 空間では零類になります。
+$f=0$ なら $(e^{-mt}h(t))'=0$ となり、コンパクト台により $h=0$ となって矛盾します。[自由共分散の正値性](../MQFC5/index.md#thm-mqfc5-positivity) により Fourier 重みは厳密に正なので、非零の $f$ に対し $E[X_f^2]=B_m(f,f)>0$ です。従って通常の確率変数として非零であっても、OS Hilbert 空間では零類になります。
 
 ## 2. 時間を進める操作を商空間に移す
 
@@ -303,7 +303,14 @@ $$
 (A_i-B_i)\left(\prod_{j>i}B_j\right).
 $$
 
-各項の $L^2$ ノルムは Hölder 不等式（各因子の指数を $k$ として二乗の積へ適用）により $k$ 個の $L^{2k}$ ノルムの積で抑えられます。
+各項を $k$ 個の因子 $V_1,\ldots,V_k$ の積と書きます。$k=1$ はそのままで、$k\ge2$ では [Hölderの不等式](../../../解析系/F0/F0-00D2D/index.md#thm-f0-00d2d-01) を指数 $k$ と $k/(k-1)$ で第1因子と残りの積に適用し、残りにも順次適用すると
+
+$$
+E\left[\prod_{j=1}^k|V_j|^2\right]
+\le\prod_{j=1}^k(E|V_j|^{2k})^{1/k}.
+$$
+
+両辺の平方根を取れば、$k$ 個の $L^{2k}$ ノルムの積で抑えられます。
 
 $A_j,B_j$ のノルムは並進不変性で一定、差 $A_i-B_i$ のノルムは上のモーメント評価で零へ収束します。
 
@@ -420,7 +427,7 @@ $$
 \,d\mu_v(\lambda)
 $$
 
-と書けます。ここで $\mu_v(B)=\langle v,E_H(B)v\rangle$ です。被積分関数は各点で零へ収束し、定数4で抑えられます。$\mu_v$ は全質量 $\|v\|^2$ の有限測度なので[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)から極限は零です。これで全 $s$ の表示が得られました。
+と書けます。これは [スペクトル積分の定義域とノルム](../../../解析系/QM/QM6/index.md#prop-qm6-unbounded-integral-domain) を二つの指数関数の差に適用した式です。ここで $\mu_v(B)=\langle v,E_H(B)v\rangle$ です。被積分関数は各点で零へ収束し、定数4で抑えられます。$\mu_v$ は全質量 $\|v\|^2$ の有限測度なので[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)から極限は零です。これで全 $s$ の表示が得られました。
 
 生成作用素の定義域を確認します。$\lambda\ge0$ で
 
@@ -428,7 +435,7 @@ $$
 0\le\frac{1-e^{-s\lambda}}s\le\lambda
 $$
 
-であり、$s\downarrow0$ の点ごとの極限は $\lambda$ です。$v\in D(H)$ なら $\lambda^2$ は $\mu_v$ 可積分なので
+であり、$s\downarrow0$ の点ごとの極限は $\lambda$ です。$v\in D(H)$ なら $\lambda^2$ は $\mu_v$ 可積分です。差の絶対値の二乗は $\lambda^2$ 以下なので、[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01) により
 
 $$
 \left\|\frac{v-T_sv}{s}-Hv\right\|^2
@@ -470,7 +477,7 @@ $e_n$ は第 $n$ 座標だけが1の単位ベクトルで、$n\in\mathbb N=\{1,2
 
 対角成分の積から半群則、実数性と $0<e^{-sn}\le1$ から自己共役縮小性が従います。
 
-$v=(v_n)$ に対し $\sum_n|e^{-sn}-1|^2|v_n|^2\to0$ は $\sum_n|v_n|^2<\infty$ による優収束で従います。
+$v=(v_n)$ に対し $\sum_n|e^{-sn}-1|^2|v_n|^2\to0$ は $|e^{-sn}-1|^2\le1$ と $\sum_n|v_n|^2<\infty$ を用いた [優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01) で従います。
 
 時刻1のスペクトル値 $e^{-n}$ は0に近づきますが零固有値はありません。
 
@@ -590,7 +597,7 @@ $$
 $d=1,m=2$ の自由場で $L_m f=3$ となる実正時間試験関数を取る。$v=[X_f]$ として $\langle v,T_sv\rangle$ と $\|T_sv\|^2$ を求めよ。
 
 <!-- solution-start -->
-[自由場の反射共分散の因子分解](../MQFC8/index.md#thm-mqfc8-reflected-covariance) の一次元の式に代入すると $\|v\|^2=3^2/(2\cdot2)=9/4$ です。第4節の時間並進計算から $L_m(\tau_s f)=3e^{-2s}$、従って $T_sv=e^{-2s}v$ です。ゆえに
+[自由場の反射共分散の因子分解](../MQFC8/index.md#thm-mqfc8-reflected-covariance) の一次元の式に代入すると $\|v\|^2=3^2/(2\cdot2)=9/4$ です。第4節の時間並進計算（[時間並進半群](#thm-mqfc9-time-semigroup) の一次空間での表示）から $L_m(\tau_s f)=3e^{-2s}$、従って $T_sv=e^{-2s}v$ です。ゆえに
 
 $$
 \langle v,T_sv\rangle=\frac94 e^{-2s},\qquad
@@ -629,7 +636,7 @@ $e^{s+t}=e^se^t$、$e^0=1$ なので半群則が成立します。
 反転不変・並進不変・反射陽性な測度で $F,G\in\mathcal P_+$ とする。$q(F,F)=0$ なら $q(U_sF,U_tG)=0$ が全 $s,t\ge0$ で成立することを、縮小半群の定理を結論として使わず示せ。
 
 <!-- solution-start -->
-第1節の Cauchy–Schwarz 評価から全 $K\in\mathcal P_+$ で
+[OS Hilbert空間の構成](#def-mqfc9-os-hilbert) で確認した半正定値形式の Cauchy–Schwarz 評価から全 $K\in\mathcal P_+$ で
 
 $$
 |q(F,K)|^2\le q(F,F)q(K,K)=0
