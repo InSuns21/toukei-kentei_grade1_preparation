@@ -2,7 +2,7 @@ id: "CATB7-05"
 title: "分解・導来関手・Ext"
 volume: foundations
 status: supplementary
-prerequisites: [CATB7-04, CATB7-03, CATB7-02, CATB7-01, CATB1-05, CATB1-04]
+prerequisites: [CATB7-04, CATB7-03, CATB7-02, CATB7-01, CATB1-05, CATB1-04, MOD1, FLD0, F0-00F, F0-00A1, F0-00A3, CATB5-05]
 official_scope: []
 learning_objectives:
   - 射影対象と入射対象の持ち上げ条件を具体例で検証できる
