@@ -6,7 +6,15 @@
 
 ## 1. 有限次元の正規化
 
-まず $n$ 個の場の値を $x\in\mathbb R^n$ で表します。作用が $x^TAx/2$ であるとき、重み $e^{-x^TAx/2}$ の積分が有限なら、その逆数を掛けて確率密度にできます。実対称行列 $A$ が正定値とは、すべての非零実ベクトル $v$ について $v^TAv>0$ となることです。[確率ベクトルの特性関数](../../../解析系/F0/F0-00P6/index.md#def-f0-00p6-vector-characteristic-function) は $X$ に対する $t\mapsto E[e^{it^TX}]$ です。
+まず $n$ 個の場の値を $x\in\mathbb R^n$ で表します。作用を $x^TAx/2$ とし、その指数重みの積分が有限なら、積分の逆数を掛けて確率密度にできます。
+
+実対称行列 $A$ が正定値とは、すべての非零実ベクトル $v$ について $v^TAv>0$ となることです。
+
+[確率ベクトルの特性関数](../../../解析系/F0/F0-00P6/index.md#def-f0-00p6-vector-characteristic-function) は $X$ に対する次の写像です。
+
+$$
+t\mapsto E[e^{it^TX}].
+$$
 
 <a id="thm-mqfc6-finite-gaussian"></a>
 
@@ -132,7 +140,23 @@ $$
 <!-- definition-example-start: def-mqfc6-characteristic-functional -->
 ### 直接例
 
-**定義の確認**。原点のデルタ分布 $\delta_0$ は $f\mapsto f(0)$ であり、$|f(0)|\le p_{0,0}(f)$ なので連続線形です。標準正規変数 $Y$ に対し $\omega=Y\delta_0$ とすると、有限族の観測は $Y(f_1(0),\ldots,f_n(0))$ で連続な写像です。したがって $Y\mapsto Y\delta_0$ は円筒 $\sigma$ 加法族に関して可測で、その像の確率測度 $\mu$ が定まります。[有限次元Gaussian積分と特性関数](#thm-mqfc6-finite-gaussian) の一次元の場合に $t=f(0)$ を入れれば $\chi_\mu(f)=e^{-f(0)^2/2}$ です。特に $\chi_\mu(0)=1$ です。
+**定義の確認**。原点のデルタ分布 $\delta_0$ は $f\mapsto f(0)$ であり、$|f(0)|\le p_{0,0}(f)$ なので連続線形です。
+
+標準正規変数 $Y$ に対し $\omega=Y\delta_0$ とすると、有限族の観測は次の連続な写像で与えられます。
+
+$$
+Y\mapsto Y(f_1(0),\ldots,f_n(0)).
+$$
+
+したがって $Y\mapsto Y\delta_0$ は円筒 $\sigma$ 加法族に関して可測で、その像の確率測度 $\mu$ が定まります。
+
+[有限次元Gaussian積分と特性関数](#thm-mqfc6-finite-gaussian) の一次元の場合に $t=f(0)$ を入れれば
+
+$$
+\chi_\mu(f)=e^{-f(0)^2/2}.
+$$
+
+特に $\chi_\mu(0)=1$ です。
 <!-- definition-example-end -->
 
 特性汎関数には、単に非負の実数値であることより強い制約があります。有限個の位相因子の線形結合の絶対値二乗を積分すると、必ず非負になるからです。
@@ -222,7 +246,23 @@ B(g_a,g_b)=\sum_{j,k}M_{aj}K_{jk}M_{bk}
 =(MKM^T)_{ab}.
 $$
 
-また $s\in\mathbb R^r$ に対して $E[e^{is^TMX}]=e^{-s^TMKM^Ts/2}$ です。有限次元の特性関数の一意性を次のように使います。特性関数が等しい二つの確率ベクトル $V,W$ に対し、[確率ベクトルの特性関数収束定理](../../../解析系/F0/F0-00P6/index.md#thm-f0-00p6-levy-continuity-vector) に定数列 $V_\ell=V$ と極限候補 $W$ を代入すると、すべての有界Lipschitz関数の期待値が一致します。空でない閉集合 $F$ に対して $h_\ell(x)=\max(0,1-\ell\operatorname{dist}(x,F))$ を取ると、これは有界Lipschitzで $1_F$ へ点ごとに収束します。[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01) により両分布は閉集合上で一致し、閉集合は有限交叉で閉じBorel集合を生成するので分布全体も一致します。従って $MX$ の分布が新しい族のGaussian分布と一致します。
+また $s\in\mathbb R^r$ に対して
+
+$$
+E[e^{is^TMX}]=e^{-s^TMKM^Ts/2}.
+$$
+
+有限次元の特性関数の一意性を次のように使います。特性関数が等しい二つの確率ベクトル $V,W$ に対し、[確率ベクトルの特性関数収束定理](../../../解析系/F0/F0-00P6/index.md#thm-f0-00p6-levy-continuity-vector) に定数列 $V_\ell=V$ と極限候補 $W$ を代入すると、すべての有界Lipschitz関数の期待値が一致します。
+
+空でない閉集合 $F$ に対して次の関数を取ります。
+
+$$
+h_\ell(x)=\max(0,1-\ell\operatorname{dist}(x,F)).
+$$
+
+これは有界Lipschitzで $1_F$ へ点ごとに収束します。[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01) により両分布は閉集合上で一致します。閉集合は有限交叉で閉じBorel集合を生成するので、測度の一意性から分布全体も一致します。
+
+従って $MX$ の分布が新しい族のGaussian分布と一致します。
 <!-- proof-end -->
 
 例えば $(f,2f)$ では $b=B(f,f)>0$ として
