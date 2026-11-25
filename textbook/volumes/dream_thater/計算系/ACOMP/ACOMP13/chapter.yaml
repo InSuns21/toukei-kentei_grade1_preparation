@@ -1,0 +1,40 @@
+id: "ACOMP13"
+title: "VF・VBP・VP・VNP：determinantの正しい完全性範囲"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ACOMP12
+official_scope: []
+learning_objectives:
+  - VF と VBP の三条件を確認し包含列を証明できる
+  - ABP の一次辺標識を変数と定数に分けて行列式表示を構成できる
+  - 係数再帰の行列積を経路和で表し行列式族の VBP 所属を証明できる
+  - p-projection に関する行列式族の完全性範囲と標数条件を区別できる
+definitions:
+  - { id: ACOMP13-DEF-01, name: "VF" }
+  - { id: ACOMP13-DEF-02, name: "VBP" }
+  - { id: ACOMP13-DEF-03, name: "VBP 完全性" }
+theorems:
+  - { id: ACOMP13-THM-01, name: "代数的計算クラスの包含" }
+  - { id: ACOMP13-THM-02, name: "ABPの行列式表示" }
+  - { id: ACOMP13-THM-03, name: "行列式族の VBP 所属" }
+  - { id: ACOMP13-THM-04, name: "行列式族の VBP 完全性" }
+  - { id: ACOMP13-THM-05, name: "行列式の完全性とクラスの等号" }
+canonical_examples:
+  - 積の族の式と経路和
+  - 一辺から三次行列への変換
+  - 二次行列の係数接続
+problem_patterns:
+  - ACOMP13-A1
+  - ACOMP13-A2
+  - ACOMP13-A3
+  - ACOMP13-A4
+  - ACOMP13-B1
+  - ACOMP13-B2
+  - ACOMP13-B3
+  - ACOMP13-B4
+  - ACOMP13-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 2 }

@@ -1,0 +1,55 @@
+chapter: ACOMP13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ACOMP12
+forward_references: []
+concepts:
+  - id: algebraic-complexity.vf
+    name: "VF"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（VF）"]
+    requires: [algebraic-complexity.polynomial-family, algebraic-complexity.arithmetic-formula]
+  - id: algebraic-complexity.vbp
+    name: "VBP"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（VBP）"]
+    requires: [algebraic-complexity.polynomial-family, algebraic-complexity.algebraic-branching-program]
+  - id: algebraic-complexity.class-inclusions
+    name: "代数的計算クラスの包含"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（代数的計算クラスの包含）"]
+    requires: [algebraic-complexity.vf, algebraic-complexity.vbp, algebraic-complexity.formula-to-abp, algebraic-complexity.abp-to-circuit, algebraic-complexity.vp-in-vnp]
+  - id: algebraic-complexity.abp-determinant
+    name: "ABPの行列式表示"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ABPの行列式表示）"]
+    requires: [algebraic-complexity.algebraic-branching-program, linear.permutation-sign-product]
+  - id: algebraic-complexity.determinant-vbp
+    name: "行列式族の VBP 所属"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（行列式族の VBP 所属）"]
+    requires: [algebraic-complexity.vbp, algebraic-complexity.berkowitz-recurrence, algebraic-complexity.algebraic-branching-program]
+  - id: algebraic-complexity.vbp-completeness
+    name: "VBP 完全性"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（VBP 完全性）"]
+    requires: [algebraic-complexity.vbp, algebraic-complexity.p-projection]
+  - id: algebraic-complexity.determinant-vbp-complete
+    name: "行列式族の VBP 完全性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（行列式族の VBP 完全性）"]
+    requires: [algebraic-complexity.vbp-completeness, algebraic-complexity.abp-determinant, algebraic-complexity.determinant-vbp]
+  - id: algebraic-complexity.determinant-class-equivalence
+    name: "行列式の完全性とクラスの等号"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（行列式の完全性とクラスの等号）"]
+    requires: [algebraic-complexity.determinant-vbp-complete, algebraic-complexity.class-inclusions, algebraic-complexity.vp, algebraic-complexity.vnp]
