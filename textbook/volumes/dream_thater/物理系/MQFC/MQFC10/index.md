@@ -236,7 +236,7 @@ $$
 
 ## 4. 自由場でSchwingerからWightmanへ
 
-質量 $m>0$ とし、$E_k=\sqrt{|k|^2+m^2}$、$d\eta(k)=d^3k/((2\pi)^3 2E_k)$ と置きます。[自由共分散の時間指数核](../MQFC8/index.md#thm-mqfc8-time-exponential-kernel) により、二点の Euclid 相関の空間 Fourier 表示は、時間差 $\tau$ に対して $e^{-E_k|\tau|}/(2E_k)$ です。$\tau>0$ の側を選び、その変数を $z=\epsilon+it$ に拡張します。空間差 $x$ の平滑化に使う Schwartz 関数 $g(x)$ の Fourier 変換は $\hat g(k)=\int e^{-ik\cdot x}g(x)d^3x$ とします。
+質量 $m>0$ とし、$E_k=\sqrt{|k|^2+m^2}$、$d\eta(k)=d^3k/((2\pi)^3 2E_k)$ と置きます。[自由共分散の時間指数核](../MQFC8/index.md#thm-mqfc8-time-kernel) により、二点の Euclid 相関の空間 Fourier 表示は、時間差 $\tau$ に対して $e^{-E_k|\tau|}/(2E_k)$ です。$\tau>0$ の側を選び、その変数を $z=\epsilon+it$ に拡張します。空間差 $x$ の平滑化に使う Schwartz 関数 $g(x)$ の Fourier 変換は $\hat g(k)=\int e^{-ik\cdot x}g(x)d^3x$ とします。
 
 <a id="thm-mqfc10-free-boundary"></a>
 
