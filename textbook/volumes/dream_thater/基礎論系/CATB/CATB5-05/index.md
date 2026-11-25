@@ -133,7 +133,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb5-05-sheafification -->
-**定義の確認**。離散二点空間 $X=\{p,q\}$ で全開集合に $E=\{0,1\}$ を置き、制限を恒等写像とする前層 $K$ を取る。前講の[二重plusによる層の構成](../CATB5-04/index.md#thm-catb5-04-double-plus)と同じ計算で、一度目は空集合上だけ一元集合となり、二度目は $aK(V)=E^V$ となる。任意の被覆の整合する写像は点ごとの値を貼り合わせられ、一意なので層である。
+**定義の確認**。離散二点空間 $X=\{p,q\}$ で全開集合に $E=\{0,1\}$ を置き、制限を恒等写像とする前層 $K$ を取る。[plus構成](../CATB5-04/index.md#def-catb5-04-plus)を二度使って計算する。空でない $V$ 上の最小被覆篩は一点集合と空集合の包含からなる。整合族の各点の値は空集合への恒等制限によって全て同じ値でなければならない。従って一度目は $K^+(V)\cong E$ である。空集合上は空篩が被覆なので空族が全ての代表元と局所同値となり、$K^+(\varnothing)$ は一元集合となる。二度目は空集合への制限が唯一であるため、各点の値を独立に選べる。従って $aK(V)\cong E^V$ となる。任意の被覆の整合する写像は点ごとの値を貼り合わせられ、一意なので層である。
 
 写像 $b:E\to E$ を $b(0)=1,\ b(1)=0$ とする。全開集合で $b$ を成分とする自然変換 $\alpha:K\Rightarrow K$ は制限が恒等なので自然である。plusの成分への作用を二度使うと $a\alpha_V(x)=b\circ x$ となる。制限との交換、恒等写像と合成の保存は点ごとの写像の合成から確認できる。$j_{K,V}(e)$ は値 $e$ の定数写像であり、空集合上では空写像である。各包含で定数写像を制限すると同じ定数写像になるため自然である。また $a\alpha$ と $j_K$ の交換はどちらの経路も値 $b(e)$ の定数写像を与えることで確かめられる。
 <!-- definition-example-end -->
@@ -438,7 +438,7 @@ $$
 \alpha_V(s_f)=\beta_V(s_f)
 $$
 
-となる。点ごとの等化子は $E(V)=\{x\in F(V)\mid\alpha_V(x)=\beta_V(x)\}$ である。$g:W\to V$ に対して
+となる。[点ごとの極限の構成](../../CAT/CAT2-07/index.md#thm-cat2-07-pointwise-limit)により等化子は $E(V)=\{x\in F(V)\mid\alpha_V(x)=\beta_V(x)\}$ である。$g:W\to V$ に対して
 
 $$
 \alpha_W(F(g)s_f)=G(g)\alpha_V(s_f)
@@ -457,7 +457,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-前層の余積の包含射を $u:iH\Rightarrow P,\ v:iK\Rightarrow P$ とする。層への射 $j_Pu,j_Pv$ を考える。任意の層 $L$ と射 $h:H\Rightarrow L,\ k:K\Rightarrow L$ に対し、前層圏の余積の普遍性から唯一の $\phi:P\Rightarrow iL$ が存在して $\phi u=i(h),\ \phi v=i(k)$ となる。
+前層の余積の包含射を $u:iH\Rightarrow P,\ v:iK\Rightarrow P$ とする。層への射 $j_Pu,j_Pv$ を考える。任意の層 $L$ と射 $h:H\Rightarrow L,\ k:K\Rightarrow L$ に対し、前層圏の[点ごとの余極限の構成](../../CAT/CAT2-07/index.md#thm-cat2-07-pointwise-colimit)で得られる余積の普遍性から唯一の $\phi:P\Rightarrow iL$ が存在して $\phi u=i(h),\ \phi v=i(k)$ となる。
 
 [層化と包含の随伴](#thm-catb5-05-adjunction)から唯一の $\bar\phi:aP\Rightarrow L$ が $i(\bar\phi)j_P=\phi$ を満たす。従って
 
