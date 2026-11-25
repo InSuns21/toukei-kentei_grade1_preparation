@@ -14,7 +14,11 @@
 
 前提講座：[CATB4-03 添字付き圏と擬関手](../CATB4-03/index.md)、[CATB4-02 Cleavageとsplitファイブレーション](../CATB4-02/index.md)、[CATB4-01 Cartesian射とファイブレーション](../CATB4-01/index.md)。
 
-以下、基底圏 $\mathcal B$ は[局所小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)とし、値の圏は固定したサイズの小圏とする。合成は右から左に書く。反変擬関手 $F$ の $b$ における値を $\mathcal F_b$、$u:a\to b$ に沿う再添字付け関手を $u^*:\mathcal F_b\to\mathcal F_a$ と書く。星印は逆射ではなく関手の作用を表す。$v:c\to a$ に対し $uv=u\circ v$ とする。[反変擬関手の構造](../CATB4-03/index.md#def-catb4-03-indexed)と同じく比較と単位の向きは
+以下、基底圏 $\mathcal B$ は[局所小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)とし、値の圏は固定したサイズの小圏とする。合成は右から左に書く。
+
+反変擬関手 $F$ の $b$ における値を $\mathcal F_b$、$u:a\to b$ に沿う再添字付け関手を $u^*:\mathcal F_b\to\mathcal F_a$ と書く。星印は逆射ではなく関手の作用を表す。
+
+$v:c\to a$ に対し $uv=u\circ v$ とする。[反変擬関手の構造](../CATB4-03/index.md#def-catb4-03-indexed)と同じく比較と単位の向きは
 
 $$
 \alpha_{v,u}:v^*u^*\Rightarrow(uv)^*,
