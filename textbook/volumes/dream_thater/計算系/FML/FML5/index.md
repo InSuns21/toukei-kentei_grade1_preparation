@@ -31,7 +31,7 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fml5-policy -->
-**定義の確認**　S を propext、Classical.choice、Quot.sound の三つからなる集合とします。Ax(T) が propext のみなら、その唯一の元は S に属するので条件を満たします。Ax(T) が propext と sorryAx の二つなら、sorryAx は S に属さないので条件を満たしません。Ax(T) が空なら反例となる元がなく、条件を満たします。
+**定義の確認**　S を propext、Classical.choice、Quot.sound の三つからなる集合とします。Ax(T) が propext のみなら、その唯一の元は S に属するので条件を満たします。既習の [未完成証明の公理依存](../../LVT/LVT2-08/index.md#def-lvt2-08-axioms) で登場した `sorryAx`（`sorry` による未完成証明の依存先）も考えます。Ax(T) が propext と sorryAx の二つなら、sorryAx は S に属さないので条件を満たしません。Ax(T) が空なら反例となる元がなく、条件を満たします。
 <!-- definition-example-end -->
 
 実際に次の宣言を用意します。
@@ -213,7 +213,7 @@ P,Q を命題とする。双方向の含意 h から P = Q を証明する場合
 <!-- solution-start -->
 #### 詳細解答
 
-前者の h は双方向含意の証明なので `propext h` である。`h : P ↔ Q` は propext の引数の型と一致し、結果の型は P = Q である。後者では存在の証明を別の名前 `hα : Nonempty α` とすると、`Classical.choice hα : α` が得られる。命題の等しさと元の選択は異なる操作である。いずれも本講の [許容公理集合](#def-fml5-policy) に属する。
+前者の h は双方向含意の証明なので `propext h` である。`h : P ↔ Q` は propext の引数の型と一致し、結果の型は P = Q である。後者では存在の証明を別の名前 `hα : Nonempty α` とすると、`Classical.choice hα : α` が得られる。命題の等しさと元の選択は異なる操作である。いずれの公理名も本講の [許容公理集合](#def-fml5-policy) の元である。
 <!-- solution-end -->
 
 ### FML5-A03 仮定の有無
@@ -341,7 +341,7 @@ theorem vacuous (n : Nat) (h : n + 1 = 0) : n + n = n :=
 
 conditional は仮定 n = 0 を用いる [等式による置換](../../LVT/LVT2-03/index.md#def-lvt2-03-subst) `subst n` で目標を `0 + 0 = 0` に変える。左辺 `0 + 0` は0に簡約され、右辺も0なので [定義的等しさ](../../LVT/LVT2-03/index.md#def-lvt2-03-defeq) により反射律で閉じる。仮定は n = 0 で実現するが n = 1 には適用できない。vacuous は n + 1 = 0 と Nat.succ_ne_zero n を組み合わせて `Nat.succ_ne_zero n h : False` を得てから `False.elim` で目標 `n + n = n` の証明を得る。[矛盾した体の仮定からの等式](#prop-fml5-field) と同じ仕組みであり、n + 1 はどの自然数でも正なので適用可能な n はない。
 
-最初の二つは標準公理以外を追加していない。したがって [許容公理集合](#def-fml5-policy) の条件は満たすが、[数学的主張の条件と適用範囲](#def-fml5-claim) の条件付き主張であり、報告とは型が違う。第三の宣言は型だけなら報告と一致するものの、値は globalClaim を参照するため独自公理が依存に現れる。標準三公理だけを許すなら拒否される。
+最初の二つでは、型と値をたどっても追加公理を参照しない（局所仮定 h は公理宣言ではない）。したがって [許容公理集合](#def-fml5-policy) の条件は満たすが、[数学的主張の条件と適用範囲](#def-fml5-claim) の条件付き主張であり、報告とは型が違う。第三の宣言は型だけなら報告と一致するものの、値は globalClaim を参照するため独自公理が依存に現れる。標準三公理だけを許すなら拒否される。
 
 無条件の全称主張を h と仮定し、[全称量化の除去規則](../../LVT/LVT2-02/index.md#def-lvt2-02-forall) により n = 1 を代入すると、`h 1 : 1 + 1 = 1` を得る。左辺の加算が2に簡約されるので、[定義的等しさ](../../LVT/LVT2-03/index.md#def-lvt2-03-defeq) により `h 1` を `2 = 1` の証明として使える。自然数2と1は異なるので矛盾する。
 
