@@ -68,7 +68,7 @@ jobs:
             exit 1
           fi
           cat unsafe.log
-          grep -Ei 'unsafe' unsafe.log
+          grep -Ei 'error:.*(unsafeZero|unsafe declaration|unsafe constant)' unsafe.log
           git diff --exit-code -- lake-manifest.json lean-toolchain
       - name: Preserve execution logs
         if: always()

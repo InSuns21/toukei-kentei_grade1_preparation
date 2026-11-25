@@ -15,9 +15,9 @@ theorem carrierRefl (x : carrier) : x = x := rfl
 axiom globalClaim : ∀ n : Nat, n + n = n
 theorem fromGlobal (n : Nat) : n + n = n := globalClaim n
 
-#print axioms contradiction
-#print axioms inherited
-#print axioms carrierRefl
-#print axioms fromGlobal
-
 end FML5TrustDemo
+
+#print axioms FML5TrustDemo.contradiction
+#print axioms FML5TrustDemo.inherited
+#print axioms FML5TrustDemo.carrierRefl
+#print axioms FML5TrustDemo.fromGlobal
