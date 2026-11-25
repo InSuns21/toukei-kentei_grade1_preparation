@@ -1,0 +1,23 @@
+chapter: CATB6-06
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB6-05, CATB5-02, CATB5-03, CATB5-05, CATB5-07, CATB5-08, CATB6-01, CATB6-02]
+concepts:
+  - id: category.kripke-joyal-forcing
+    name: "Kripke–Joyal意味論の強制関係"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kripke–Joyal意味論の強制関係）"]
+    requires: [category.topos-internal-formulas, category.sheaf-topos, category.sheaf-pointwise-mono, category.site]
+  - id: category.kripke-joyal-locality
+    name: "強制関係の制限安定性と局所性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（強制関係の制限安定性と局所性）"]
+    requires: [category.kripke-joyal-forcing, category.site-sheaf]
+  - id: category.kripke-joyal-clauses
+    name: "Kripke–Joyal意味論の強制条件"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kripke–Joyal意味論の強制条件）"]
+    requires: [category.kripke-joyal-locality, category.sheaf-pointwise-limits, category.grothendieck-topology, category.covering-sieve-closure, category.sheaf-local-image, category.subobject-implication, category.subobject-quantifiers]
