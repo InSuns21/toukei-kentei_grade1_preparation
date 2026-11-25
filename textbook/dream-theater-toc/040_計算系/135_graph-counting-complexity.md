@@ -14,3 +14,4 @@
 11. [GCT11 計数完全性と0–1 permanent：Valiantの帰着](textbook/volumes/dream_thater/計算系/GCT/GCT11/index.md)
 12. [GCT12 Ryserの包除公式と部分集合DP](textbook/volumes/dream_thater/計算系/GCT/GCT12/index.md)
 13. [GCT13 多項式補間と重みの除去](textbook/volumes/dream_thater/計算系/GCT/GCT13/index.md)
+14. [GCT14 有限群とCayleyグラフ](textbook/volumes/dream_thater/計算系/GCT/GCT14/index.md)
