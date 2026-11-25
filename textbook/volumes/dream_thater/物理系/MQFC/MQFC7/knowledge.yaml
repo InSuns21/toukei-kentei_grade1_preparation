@@ -5,7 +5,7 @@ prerequisites: [MQFC6]
 forward_references: []
 concepts:
   - id: mqfc.schwinger-moments
-    name: "試験関数で測ったSchwinger関数"
+    name: "Schwinger関数"
     kind: definition
     introduction: formal
     requires: [mqfc.characteristic-functional]

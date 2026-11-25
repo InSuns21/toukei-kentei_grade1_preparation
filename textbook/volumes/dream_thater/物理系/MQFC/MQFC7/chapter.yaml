@@ -10,7 +10,7 @@ learning_objectives:
   - 自由場の多点分布の構成と対角値の問題を区別できる
   - 連結Schwinger関数を対数から導入し集合分割表示とGaussianでの消失を証明できる
 definitions:
-  - { id: MQFC7-DEF-01, name: "試験関数で測ったSchwinger関数" }
+  - { id: MQFC7-DEF-01, name: "Schwinger関数" }
   - { id: MQFC7-DEF-02, name: "連結Schwinger関数" }
 theorems:
   - { id: MQFC7-THM-01, name: "Schwinger関数の特性汎関数微分表示" }
@@ -18,7 +18,7 @@ theorems:
   - { id: MQFC7-PROP-01, name: "Gaussian Schwinger多点分布の構成" }
   - { id: MQFC7-THM-03, name: "Schwingerモーメントの連結分割表示" }
   - { id: MQFC7-THM-04, name: "中心化Gaussian場の連結相関の消失" }
-canonical_examples: [点評価型Gaussian場, 四次と六次の対分割, 二次元の対角発散, 二点分布が一致する非Gaussian場]
+canonical_examples: [点評価型Gaussian場, 四次と六次の対分割, 二次元の対角発散, 二点共分散が一致する非Gaussian場]
 problem_patterns: [MQFC7-DERIVATIVE, MQFC7-PAIRINGS, MQFC7-DISTRIBUTION, MQFC7-CONNECTED]
 past_exam_alignment: []
 integrated_exam_problems: []

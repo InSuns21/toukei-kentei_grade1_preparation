@@ -2,23 +2,31 @@
 
 [MQFC6](../MQFC6/index.md) では、すべての試験関数による測定を同時に実現する確率測度を構成しました。二点の共分散が分かると、四点や六点の相関まで決まるでしょうか。自由場では答えは肯定的です。今回は特性汎関数を有限個の方向に微分し、何通りの二点相関の積が現れるかを数えます。さらに、二点相関の積だけでは説明できない相関を取り出す方法を学びます。
 
-直接の前提は [MQFC6](../MQFC6/index.md) です。以下 $d\ge1$、$m>0$ とし、[Schwartz空間](../MQFC1/index.md#def-mqfc1-schwartz) の実数値部分を $S$、連続実線形双対を $S'$ とします。[質量付きEuclid自由場のGaussian測度の構成](../MQFC6/index.md#thm-mqfc6-free-measure) による測度を $\mu_m$、その期待値を $E$ と書きます。場の測定は $X_f(\omega)=\omega(f)$ です。測度は [場の特性汎関数](../MQFC6/index.md#def-mqfc6-characteristic-functional) で用いた円筒 $\sigma$ 加法族上に定義します。[Euclid自由場の試験関数共分散](../MQFC5/index.md#def-mqfc5-covariance-form) の実制限を $B_m$ とします。
+直接の前提は [MQFC6](../MQFC6/index.md) です。
+
+以下 $d\ge1$、$m>0$ とし、[Schwartz空間](../MQFC1/index.md#def-mqfc1-schwartz) の実数値部分を $S$、連続実線形双対を $S'$ とします。
+
+[質量付きEuclid自由場のGaussian測度の構成](../MQFC6/index.md#thm-mqfc6-free-measure) による測度を $\mu_m$、その期待値を $E$ と書きます。
+
+場の測定は $X_f(\omega)=\omega(f)$ です。測度は [場の特性汎関数](../MQFC6/index.md#def-mqfc6-characteristic-functional) で用いた円筒 $\sigma$ 加法族上に定義します。
+
+[Euclid自由場の試験関数共分散](../MQFC5/index.md#def-mqfc5-covariance-form) の実制限を $B_m$ とします。
 
 ## 1. 測定の積の平均
 
-四点の相関を調べるには、四つの重みで同じ場を測り、その積の平均を取ります。異なる測定結果は同じ標本点 $\omega$ に依存するので、独立とは限りません。Euclid場のこのモーメントをSchwinger関数と呼びます。まず点の値を必要としない形で扱います。
+四点の相関を調べるには、四つの重みで同じ場を測り、その積の平均を取ります。異なる測定結果は同じ標本点 $\omega$ に依存するので、独立とは限りません。このモーメントを、試験関数の族に対する一つの写像としてまとめます。まず点の値を必要としない形で扱います。
 
 <a id="def-mqfc7-schwinger"></a>
 
 <!-- formal-statement-start -->
-> **定義（試験関数で測ったSchwinger関数）**
+> **定義（Schwinger関数）**
 > $S'$ の円筒 $\sigma$ 加法族上の確率測度 $\mu$ について、各 $f\in S$ の測定 $X_f$ が全ての正整数次数の絶対モーメントを持つとする。$n\ge1$ に対して
 
 $$
 S_n(f_1,\ldots,f_n)=E_\mu\left[\prod_{j=1}^n X_{f_j}\right]
 $$
 
-> と定める。空積の期待値は $S_0=1$ とする。
+> と定める。ここでは試験関数で測った形を扱う。空積の期待値は $S_0=1$ とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mqfc7-schwinger -->
@@ -246,7 +254,7 @@ $$
 
 四次モーメントには三通りの二点相関の積が含まれています。この部分を取り除けば、二点だけでは表せない四次の情報を抽出できます。一般次数でその引き算を自動化するのが対数です。
 
-有限族 $Z_j=X_{f_j}$ を固定し、実パラメータ $s$ で $M(s)=E[e^{\sum_j s_j Z_j}]$ を考えます。原点の近傍で $M$ が有限なら正の値を取り、$M(0)=1$ です。$\log M$ の混合微分で定まる量を、ここでは連結Schwinger関数（測定の同時キュムラント）として扱います。一般の実確率変数の族でも同じ混合微分を同時キュムラントとして用います。
+有限族 $Z_j=X_{f_j}$ を固定し、実パラメータ $s$ で $M(s)=E[e^{\sum_j s_j Z_j}]$ を考えます。原点の近傍で $M$ が有限なら正の値を取り、$M(0)=1$ です。$\log M$ の混合微分で定まる量を考えると、低次の相関の積を差し引く操作を一つの微分で実行できます。
 
 <a id="def-mqfc7-connected"></a>
 
@@ -262,6 +270,8 @@ $$
 
 > と定める。
 <!-- formal-statement-end -->
+
+一般の実確率変数の族でも、同じ対数の混合微分を同時キュムラントとして用います。場の測定に適用したものが連結Schwinger関数です。
 
 <!-- definition-example-start: def-mqfc7-connected -->
 ### 直接例
