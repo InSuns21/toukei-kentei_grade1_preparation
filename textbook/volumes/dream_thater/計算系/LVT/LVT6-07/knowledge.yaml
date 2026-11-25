@@ -1,0 +1,20 @@
+chapter: LVT6-07
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT6-06, LVT6-03]
+concepts:
+  - id: lean-verification.capstone-publish-condition
+    name: 最終課題の公開受理条件
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.document-workflow]
+  - id: lean-verification.capstone-reject-preservation
+    name: 最終課題の拒否時状態保存
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.document-workflow]
+  - id: lean-verification.assurance-ledger
+    name: 保証台帳
+    kind: definition
+    introduction: formal
+    requires: [lean-verification.gate-vector]

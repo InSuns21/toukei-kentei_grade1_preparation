@@ -1,0 +1,23 @@
+id: "LVT6-07"
+title: "最終課題：保証台帳を伴うソフトウェア検証"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT6-06, LVT6-03]
+official_scope: []
+learning_objectives:
+  - ワークフローの要求を有限遷移表にして公開受理条件と拒否時状態保存を証明する
+  - 独立実装・性質ベーステスト・操作列の差分検査を組み合わせる
+  - 変異の反例を縮小して具体列から再実行する
+  - 保証台帳でモデル・実装・未形式化の境界を区別する
+definitions:
+  - { id: LVT6-07-DEF-01, name: "保証台帳" }
+propositions:
+  - { id: LVT6-07-PROP-01, name: "最終課題の公開受理条件" }
+  - { id: LVT6-07-PROP-02, name: "最終課題の拒否時状態保存" }
+theorems: []
+canonical_examples: ["文書公開サービス", "操作列rzpの縮小", "保証台帳"]
+problem_patterns: [LVT6-07-A01, LVT6-07-A02, LVT6-07-A03, LVT6-07-A04, LVT6-07-B01, LVT6-07-B02, LVT6-07-B03, LVT6-07-B04, LVT6-07-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 3, review: 1 }
