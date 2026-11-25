@@ -64,6 +64,8 @@ DREAM THEATER の演習で必要なのは、学習者が導出・計算・証明
 
 通常の統計検定1級対策章、統計数理100大問、理工80など試験答案訓練を目的とする教材には、この免除を適用しない。
 
+公開ページでは原則として各問題の直下に `<!-- solution-start -->` と `<!-- solution-end -->` を一組置き、対応する詳細解答だけを囲む。問題の見出し・Level 表記・次の演習 anchor は囲まない。既存の Level 別解答形式は、各 Level の解答が独立した折りたたみになっている場合に限り許容する。
+
 ## 4. 自動検証
 
 変更対象だけを検証する通常コマンド:
@@ -78,4 +80,4 @@ npm run validate:dream-theater-exercise-counts
 npm run validate:dream-theater-exercise-counts -- --all
 ```
 
-GitHub Actions では PR の base SHA または main push 前の SHA を `DREAM_THEATER_BASE_SHA` として渡し、変更された `index.md` のみをブロッキング対象にする。
+GitHub Actions では PR の base SHA または main push 前の SHA を `DREAM_THEATER_BASE_SHA` として渡し、変更された `index.md` のみをブロッキング対象にする。演習量だけでなく、番号付き演習節、折りたたまれていない詳細解答、各問題の解答ブロック欠落・重複、入れ子・対応不良、次の問題の巻き込みも検査する。`--all` では既存章も含め同じ検査を実施する。validator の回帰テストは通常コマンドの冒頭で実行され、単独では `npm run validate:dream-theater-exercise-counts -- --self-test` で実行できる。
