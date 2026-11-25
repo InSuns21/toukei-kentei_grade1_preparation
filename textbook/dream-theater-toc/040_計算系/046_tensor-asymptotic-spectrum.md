@@ -10,3 +10,4 @@
 7. [TSP7 行列積テンソルと双線形複雑性](textbook/volumes/dream_thater/計算系/TSP/TSP7/index.md)
 8. [TSP8 境界階数・Segre写像とsecant：退化の具体計算](textbook/volumes/dream_thater/計算系/TSP/TSP8/index.md)
 9. [TSP9 漸近階数・漸近劣階数・Fekete補題と指数](textbook/volumes/dream_thater/計算系/TSP/TSP9/index.md)
+10. [TSP10 前順序付き可換半環と自然数の埋込み](textbook/volumes/dream_thater/計算系/TSP/TSP10/index.md)
