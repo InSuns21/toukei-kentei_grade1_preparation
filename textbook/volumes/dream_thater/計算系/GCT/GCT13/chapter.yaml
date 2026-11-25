@@ -1,0 +1,37 @@
+id: "GCT13"
+title: "多項式補間と重みの除去"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GCT12
+  - NA4
+  - RNG4
+official_scope: []
+learning_objectives:
+  - 符号付き整数行列から次数高々nの評価多項式を構成できる
+  - 体と相異なる評価点の役割を説明し、連続整数点から負の評価点の値を復元できる
+  - 二進表記の重みを経路数で表し、0–1行列に変換できる
+  - 質問回数、質問のサイズ、回答と中間値のビット長を評価できる
+definitions: []
+theorems:
+  - { id: GCT13-THM-01, name: 符号付き重みの評価多項式 }
+  - { id: GCT13-THM-02, name: 連続整数点からの外挿公式 }
+  - { id: GCT13-THM-03, name: 二進重みの0–1行列への変換 }
+  - { id: GCT13-THM-04, name: 符号付き整数パーマネントの補間によるオラクル計算 }
+canonical_examples:
+  - 二次パーマネントの評価多項式
+  - 三評価点からの補間と有限体での失敗
+  - 二進重み5の経路数による表現
+problem_patterns:
+  - GCT13-A1
+  - GCT13-A2
+  - GCT13-A3
+  - GCT13-A4
+  - GCT13-B1
+  - GCT13-B2
+  - GCT13-B3
+  - GCT13-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }
