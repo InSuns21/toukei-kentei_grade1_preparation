@@ -1,0 +1,23 @@
+id: MQFC9
+title: "OS Hilbert空間と時間並進半群"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC8, MQFC4, QM6]
+official_scope: []
+learning_objectives:
+  - 反射形式から零空間商と完備化を構成し状態の同値性を説明できる
+  - 反転と時間並進の関係および時間倍増評価から自己共役縮小半群を導ける
+  - 自由Gaussian場で時間並進不変性と強連続性の仮定を検証できる
+  - 半群のスペクトル表示と差商から非負生成作用素およびその定義域を求められる
+  - 自由場の一次および二次状態の時間減衰とエネルギーを計算できる
+definitions:
+  - { id: MQFC9-DEF-01, name: "OS Hilbert空間" }
+theorems:
+  - { id: MQFC9-THM-01, name: "反射陽性からの時間並進半群" }
+  - { id: MQFC9-THM-02, name: "自己共役縮小半群の非負生成作用素" }
+canonical_examples: [定数場の商, 自由場の一次空間, 有限対角半群, 非有界対角生成作用素]
+problem_patterns: [MQFC9-QUOTIENT, MQFC9-SEMIGROUP, MQFC9-GENERATOR, MQFC9-DECAY]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 4, review: 2 }
