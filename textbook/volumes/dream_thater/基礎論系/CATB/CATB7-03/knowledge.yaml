@@ -14,7 +14,8 @@ concepts:
     introduction: formal
     requires: [category.homotopy-category]
   - id: category.quasi-isomorphism
-    name: 擬同型
+    name: 余鎖複体の擬同型
+    aliases: [quasi-isomorphism]
     kind: definition
     introduction: formal
     requires: [category.cohomology-functor, category.cochain-homotopy-invariance]
