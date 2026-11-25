@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-前講では [CN不等式](../NPCG4/index.md#thm-npcg4-cn) によって測地線分の中点を調べ、[測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) と任意の比率での二乗距離評価を得ました。今回は二人が別々の最短経路を同じ割合だけ進んだとき、二人の距離がどのように変わるかを調べます。
+前講では [CN不等式](../NPCG4/index.md#thm-npcg4-cn) によって測地線分の中点を調べ、[測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) と [任意比の二乗距離評価](../NPCG4/index.md#thm-npcg4-cn-interpolation) を得ました。今回は二人が別々の最短経路を同じ割合だけ進んだとき、二人の距離がどのように変わるかを調べます。
 
 例えば平面で一人が $(0,0)$ から $(4,0)$ へ、もう一人が $(0,2)$ から $(4,4)$ へ進むなら、比率 $t$ における距離は $2+2t$ です。出発時の距離2と到着時の距離4を一次式で結んだ値になっています。一般の CAT(0) 空間ではこの一次式が距離の上界になります。
 
@@ -37,6 +37,8 @@ $$
 <!-- definition-example-start: def-npcg5-geodesically-convex-set -->
 ### 例：平面の半平面
 
+**定義の確認**
+
 通常距離の Euclid 平面で $C=\{(a,b):b\ge0\}$ を考えます。[Euclid空間のCAT(0)性](../NPCG3/index.md#thm-npcg3-euclidean) と [測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) から、二点 $x=(a,b),y=(c,e)$ を結ぶ直線分だけを確認すれば十分です。実際に
 
 $$
@@ -67,6 +69,8 @@ $$
 
 <!-- definition-example-start: def-npcg5-geodesically-convex-function -->
 ### 例：実直線の平方
+
+**定義の確認**
 
 通常距離の実直線全体を $C$ とします。直線分は全時刻で $C$ に含まれます。[Euclid空間のCAT(0)性](../NPCG3/index.md#thm-npcg3-euclidean) と [測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) により直線分以外の経路を調べる必要はありません。$f(a)=a^2$ とすると、任意の実数 $a,b$ と $t\in[0,1]$ について
 
