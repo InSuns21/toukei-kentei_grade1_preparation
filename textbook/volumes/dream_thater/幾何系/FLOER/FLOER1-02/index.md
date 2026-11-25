@@ -422,7 +422,7 @@ D_p\xi=\partial_s\xi+J_p\partial_t\xi,\qquad
 \xi(s,j)\in W_j=T_pL_j.
 $$
 
-横断方向の関数を作用素の定義域にする。$J_p=J(p)$ は固定接空間 $V$ 上の線形写像、$g_p$ はその点の内積である。$L^2([0,1],V)$ は $g_p$ によるノルムの二乗が可積分な関数の a.e. 同値類からなる実Hilbert空間である。$H^1([0,1],V)$ は区間内部で関数と一階弱微分が $L^2$ に属する空間である（[Sobolev空間](../../../解析系/GPDE/GPDE3/index.md#def-gpde3-sobolev-space)を $V$ の実基底の各成分に適用する）。$\eta'$ は $t$ に関する弱微分で、滑らかな $\eta$ なら $d\eta/dt$ と一致する。
+横断方向の関数を作用素の定義域にする。$J_p=J(p)$ は固定接空間 $V$ 上の線形写像、$g_p$ はその点の内積である。$L^2([0,1],V)$ は $g_p$ によるノルムの二乗が可積分な関数を、ほとんど至る所で一致するもの同士で同一視した同値類からなる実Hilbert空間である。$H^1([0,1],V)$ は区間内部で関数と一階弱微分が $L^2$ に属する空間である（[Sobolev空間](../../../解析系/GPDE/GPDE3/index.md#def-gpde3-sobolev-space)を $V$ の実基底の各成分に適用する）。$\eta'$ は $t$ に関する弱微分で、滑らかな $\eta$ なら $d\eta/dt$ と一致する。
 
 区間の長さが1なので、[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)で各成分とその弱微分は $L^1$ にも属する。[一変数 W^{1,1} の基本定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-w11-ac)を成分ごとに使うと、絶対連続な代表元について
 
@@ -430,7 +430,7 @@ $$
 \eta(t)-\eta(0)=\int_0^t\eta'(r)\,dr.
 $$
 
-連続な代表元が a.e. 一致すれば全点で一致するため、その代表元で端の値を測れる（[区間上のトレース定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-trace-interval)）。以下、同じ記号 $\eta$ でこの代表元を表す。漸近作用素とは、定数解で線形化した方程式のうち横断変数 $t$ に作用する部分である。
+連続な代表元が ほとんど至る所で一致すれば全点で一致するため、その代表元で端の値を測れる（[区間上のトレース定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-trace-interval)）。以下、同じ記号 $\eta$ でこの代表元を表す。漸近作用素とは、定数解で線形化した方程式のうち横断変数 $t$ に作用する部分である。
 
 <a id="def-floer1-02-asymptotic-operator"></a>
 
@@ -487,7 +487,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[適合性と正定値内積の同値](../../SYM/SYM8/index.md#thm-sym8-compatible-metric)と $J^2=-I$ より $g(Ja,b)=\omega(a,b)=-g(a,Jb)$ である。$\langle\eta,\zeta\rangle=\int_0^1g(\eta(t),\zeta(t))dt$ と書く。定義域内の $\eta,\zeta$ は絶対連続代表元を持ち、積の微分は a.e. で
+[適合性と正定値内積の同値](../../SYM/SYM8/index.md#thm-sym8-compatible-metric)と $J^2=-I$ より $g(Ja,b)=\omega(a,b)=-g(a,Jb)$ である。$\langle\eta,\zeta\rangle=\int_0^1g(\eta(t),\zeta(t))dt$ と書く。定義域内の $\eta,\zeta$ は絶対連続代表元を持ち、積の微分は ほとんど至る所で
 
 $$
 \frac{d}{dt}g(J\eta,\zeta)
