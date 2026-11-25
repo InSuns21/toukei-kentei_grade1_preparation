@@ -1,0 +1,18 @@
+name = "fmlComparator"
+version = "0.1.0"
+defaultTargets = ["Solution"]
+
+[[lean_lib]]
+name = "Challenge"
+
+[[lean_lib]]
+name = "Solution"
+
+[[lean_lib]]
+name = "Mismatch"
+
+[[lean_lib]]
+name = "ChangedDefinition"
+
+[[lean_lib]]
+name = "ForbiddenAxiom"
