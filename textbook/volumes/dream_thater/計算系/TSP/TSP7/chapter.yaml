@@ -19,7 +19,7 @@ definitions:
 theorems:
   - { id: TSP7-THM-01, name: テンソル階数と双線形複雑性の一致 }
   - { id: TSP7-THM-02, name: 行列積テンソルの基本上下界 }
-  - { id: TSP7-THM-03, name: Strassenの7乗算法による上界 }
+  - { id: TSP7-THM-03, name: Strassenの7回乗算による上界 }
   - { id: TSP7-THM-04, name: 行列積テンソルの積と階数評価 }
 canonical_examples:
   - 二入力の係数テンソルと評価
