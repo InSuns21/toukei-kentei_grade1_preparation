@@ -8,9 +8,9 @@ $$
 \mathbb Z\xrightarrow{4}\mathbb Z\xrightarrow{\bmod 2}\mathbb Z/2\mathbb Z
 $$
 
-では合成は零でも、中央の核は $2\mathbb Z$、前の像は $4\mathbb Z$ である。両者の違いは偶数を4の倍数だけずらして同一視した二つの類で表せる。完全でないことを単なる真偽ではなく対象として記録し、その記録を射で移せるようにするのが本講の目的である。
+では左の矢印は $x\mapsto4x$、右の矢印は整数を2で割った剰余類への射影を表す。合成は零でも、中央の核は $2\mathbb Z$、前の像は $4\mathbb Z$ である。両者の違いは偶数を4の倍数だけずらして同一視した二つの類で表せる。完全でないことを単なる真偽ではなく対象として記録し、その記録を射で移せるようにするのが本講の目的である。
 
-以下、合成を $gf=g\circ f$ と書く。$O$ は零対象、$0$ は型に応じた零射、$1_X$ は恒等射とする。可換群と加法を保つ写像の圏は整数加群の圏なので、[加群の圏はアーベル圏](../CATB1-04/index.md#thm-catb1-04-module-category)を適用できる。整数の剰余類を $[x]_m$ と書く。
+以下、合成を $gf=g\circ f$ と書く。$O$ は零対象、$0$ は型に応じた零射、$1_X$ は恒等射とする。可換群と加法を保つ写像の圏は整数加群の圏なので、[加群の圏はアーベル圏](../CATB1-04/index.md#thm-catb1-04-module-category)を適用できる。正整数 $m$ に対し $m\mathbb Z=\{mt:t\in\mathbb Z\}$ とし、商群 $\mathbb Z/m\mathbb Z$ の剰余類を $[x]_m$ と書く。$[x]_m=[y]_m$ は $x-y\in m\mathbb Z$ を意味する。倍写像と剰余類への射影は加法を保つ。
 
 ## 2. 連続する二射の合成を零にする
 
@@ -21,7 +21,7 @@ $$
 <!-- formal-statement-start -->
 > **定義（余鎖複体）**
 >
-> 局所小な[加法圏](../CATB1-03/index.md#def-catb1-03-additive-category) $\mathcal A$ において、各整数 $n$ に対象 $C^n$ と射 $d_C^n:C^n\to C^{n+1}$ が指定され、すべての整数 $n$ で
+> [局所小な圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)（各二対象間の射が集合をなす）のうち、[加法圏](../CATB1-03/index.md#def-catb1-03-additive-category) $\mathcal A$ において、各整数 $n$ に対象 $C^n$ と射 $d_C^n:C^n\to C^{n+1}$ が指定され、すべての整数 $n$ で
 
 $$
 d_C^{n+1}d_C^n=0
@@ -49,7 +49,7 @@ $$
 <!-- formal-statement-start -->
 > **定義（余鎖写像）**
 >
-> 加法圏の余鎖複体 $C^\bullet,D^\bullet$ の間の余鎖写像 $f:C^\bullet\to D^\bullet$ は、射 $f^n:C^n\to D^n$ の族であって、すべての整数 $n$ で
+> 加法圏の余鎖複体 $C^\bullet,D^\bullet$（同じ加法圏に属する）の間の余鎖写像 $f:C^\bullet\to D^\bullet$ は、射 $f^n:C^n\to D^n$ の族であって、すべての整数 $n$ で
 
 $$
 d_D^nf^n=f^{n+1}d_C^n
@@ -71,7 +71,7 @@ $$
 <!-- formal-statement-start -->
 > **定理（余鎖複体の加法圏）**
 >
-> 局所小な加法圏 $\mathcal A$ の余鎖複体を対象、余鎖写像を射とすると、局所小な加法圏 $\operatorname{Ch}(\mathcal A)$ が得られる。合成・恒等射・和・零射・加法逆元は成分ごとに定め、有限双積も次数ごとに取れる。
+> 局所小な加法圏 $\mathcal A$ の余鎖複体を対象、余鎖写像を射とすると、局所小な加法圏 $\operatorname{Ch}(\mathcal A)$ が得られる。合成・恒等射・和・零射・加法逆元は成分ごとに定め、[有限双積](../CATB1-03/index.md#def-catb1-03-biproduct)も次数ごとに取れる。
 <!-- formal-statement-end -->
 
 見取り図：可換条件が合成と和の両方で保存されることを調べる。双積には二つの微分を対角成分として入れれば、それぞれの微分が二乗零であることを別々に使える。
@@ -117,7 +117,20 @@ d_S^{n+1}d_S^n
 i_D^{n+2}d_D^{n+1}d_D^np_D^n=0.
 $$
 
-同じ双積の関係から $p_C^{n+1}d_S^n=d_C^np_C^n$、$d_S^ni_C^n=i_C^{n+1}d_C^n$ が成立する。$D$ 成分についても実際に展開すると $p_D^{n+1}d_S^n=d_D^np_D^n$、$d_S^ni_D^n=i_D^{n+1}d_D^n$ となる。従って包含と射影の族は余鎖写像である。
+同じ[双積の条件](../CATB1-03/index.md#def-catb1-03-biproduct)から $p_C^{n+1}d_S^n=d_C^np_C^n$、$d_S^ni_C^n=i_C^{n+1}d_C^n$ が成立する。例えば $D$ 成分では、交差項が零になるため
+
+$$
+\begin{aligned}
+p_D^{n+1}d_S^n
+&=0\cdot d_C^np_C^n+1_{D^{n+1}}d_D^np_D^n\\
+&=d_D^np_D^n,\\
+d_S^ni_D^n
+&=i_C^{n+1}d_C^n0+i_D^{n+1}d_D^n1_{D^n}\\
+&=i_D^{n+1}d_D^n.
+\end{aligned}
+$$
+
+従って包含と射影の族は余鎖写像である。
 
 成分で $i_Cp_C+i_Dp_D=1_S$ および上述の四つの合成条件を満たすから、複体の圏でも[双積の普遍性](../CATB1-03/index.md#thm-catb1-03-biproduct-universality)を適用できる。零対象と二項双積を反復すれば有限双積があるので加法圏である。
 <!-- proof-end -->
@@ -134,7 +147,7 @@ $$
 d_C^ni_C^ne_C^{n-1}=0.
 $$
 
-エピ射を右から消去すると $d_C^ni_C^n=0$。核の普遍性により $k_C^nj_C^n=i_C^n$ となる唯一の射 $j_C^n:B_C^n\to Z_C^n$ がある。$i_C^n$ はモノ射なので、$j_C^na=j_C^nb$ なら $i_C^na=i_C^nb$、従って $a=b$。この $j_C^n$ はモノ射である。こうして像を核の内部に置けた。
+[エピ射の右消去性](../../CAT/CAT1-03/index.md#def-cat1-03-epimorphism)を使うと $d_C^ni_C^n=0$。[核の普遍性](../CATB1-04/index.md#def-catb1-04-kernel)により $k_C^nj_C^n=i_C^n$ となる唯一の射 $j_C^n:B_C^n\to Z_C^n$ がある。$i_C^n$ はモノ射なので、$j_C^na=j_C^nb$ なら $i_C^na=i_C^nb$、従って $a=b$。この $j_C^n$ はモノ射である。こうして像を核の内部に置けた。
 
 <a id="def-catb7-01-cohomology"></a>
 
@@ -163,13 +176,27 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb7-01-cohomology -->
-**定義の確認**。[加群の核・余核の構成](../CATB1-04/index.md#thm-catb1-04-module-category)によれば、可換群では圏論的な核射および像の射は部分群への包含で、余核は商群への射で表せる。その場合は
+**定義の確認**。[加群の核・余核の構成](../CATB1-04/index.md#thm-catb1-04-module-category)によれば、可換群では核射は微分で零になる元全体の包含、余核は値全体による商への射影である。[像と余像の比較同型](../CATB1-05/index.md#thm-catb1-05-image-coimage)によれば像の射は余核の核であり、商への射影で零になる元は元の射の値全体に一致する。したがって像の射も部分群の包含で表せる。複体条件で $B_C^n\subseteq Z_C^n$ なので、$j_C^n$ の余核は核の部分群を像の部分群で割った商群となる。ここから
 
 $$
 H^n(C^\bullet)=\ker d_C^n/\operatorname{im} d_C^{n-1}.
 $$
 
-第2節の三項複体では次数0で $Z_C^0=2\mathbb Z$、$B_C^0=4\mathbb Z$。$j_C^0$ は包含、$q_C^0$ は剰余類への商射となる。$2t$ を $[t]_2$ に送る写像は、$2t-2s$ が4の倍数であることと $t-s$ が2の倍数であることが同値なので、商から $\mathbb Z/2\mathbb Z$ への同型を与える。
+第2節の三項複体では次数0で $Z_C^0=2\mathbb Z$、$B_C^0=4\mathbb Z$。$j_C^0$ は包含、$q_C^0$ は剰余類への商射となる。商の元は $2t+4\mathbb Z$（$t\in\mathbb Z$）と書ける。写像を
+
+$$
+2t+4\mathbb Z\longmapsto[t]_2
+$$
+
+と定める。代表元を $2s$ に替えても同じ類になる条件は
+
+$$
+2t-2s\in4\mathbb Z
+\quad\Longleftrightarrow\quad
+t-s\in2\mathbb Z.
+$$
+
+よって代表元によらず、異なる類が同じ値に移ることもない。加法を保つのは $2t+2s=2(t+s)$ から分かり、任意の $[t]_2$ は $2t+4\mathbb Z$ の像である。従って商から $\mathbb Z/2\mathbb Z$ への同型を与える。
 
 次数 $-1$ では4倍が単射なので核も像も零、次数1では微分が零で核は $\mathbb Z/2\mathbb Z$ 全体、前の微分が全射なので像も全体。従ってこの二次数のコホモロジーは零となる。他の次数は対象自体が零である。
 <!-- definition-example-end -->
@@ -261,7 +288,7 @@ $$
 
 を満たす。
 
-恒等射について $k_C^nz_{1_C}=k_C^n$ から $z_{1_C}=1_{Z_C^n}$。従って $H^n(1_C)q_C^n=q_C^n$ であり、余核はエピ射なので $H^n(1_C)=1_{H^n(C)}$ である。
+恒等射について $k_C^nz_{1_C}=k_C^n$ から $z_{1_C}=1_{Z_C^n}$。従って $H^n(1_C)q_C^n=q_C^n$ であり、[余核のエピ射性](../CATB1-04/index.md#prop-catb1-04-kernel-cokernel-uniqueness)により $H^n(1_C)=1_{H^n(C)}$ である。
 
 $g:D^\bullet\to E^\bullet$ に対して $k_E^nz_gz_f=g^nk_D^nz_f=g^nf^nk_C^n$。核の一意性から $z_{gf}=z_gz_f$。さらに
 
@@ -282,7 +309,7 @@ $$
 
 よって和を保存する。零射の保存は $H^n(0)=H^n(0)+H^n(0)$ の両辺から $H^n(0)$ を引いて従う。
 
-[核の同型一意性](../CATB1-04/index.md#prop-catb1-04-kernel-cokernel-uniqueness)と[像の普遍性](../CATB1-01/index.md#def-catb1-01-image)から、異なる核・像の選択には一意な可換同型がある。別の選択をプライム付きの記号で表し、核射および像の包含に対応する同型を $u_C:Z_C^n\to Z_C^{\prime n}$、$v_C:B_C^n\to B_C^{\prime n}$ とする。$k'_Cu_C=k_C$、$i'_Cv_C=i_C$ だから
+[核の同型一意性](../CATB1-04/index.md#prop-catb1-04-kernel-cokernel-uniqueness)と[像の普遍性](../CATB1-01/index.md#def-catb1-01-image)から、異なる核・像の選択には一意な可換同型がある。以下では次数を $n$ に固定し、核射・像の包含・余核射などの上付き次数を省略する。別の選択をプライム付きの記号で表し、核射および像の包含に対応する同型を $u_C:Z_C^n\to Z_C^{\prime n}$、$v_C:B_C^n\to B_C^{\prime n}$ とする。$k'_Cu_C=k_C$、$i'_Cv_C=i_C$ だから
 
 $$
 k'_Cu_Cj_C=i_C=k'_Cj'_Cv_C.
@@ -297,12 +324,20 @@ w_DH^n(f)q_C=q'_Du_Dz_f
 =q'_Dz'_fu_C=H^{\prime n}(f)w_Cq_C.
 $$
 
-$q_C$ を消去すれば、$w_DH^n(f)=H^{\prime n}(f)w_C$ を得る。したがって選択による違いは自然な同型に限られる。ここで次数 $n$ は固定し、最後の計算では各射の次数添字を省略した。
+$q_C$ を消去すれば、$w_DH^n(f)=H^{\prime n}(f)w_C$ を得る。したがって選択による違いは自然な同型に限られる。
 <!-- proof-end -->
 
-可換群ではこの構成は $H^n(f)([x])=[f^n(x)]$ と書ける。実際、$d_C^nx=0$ なら $d_D^nf^nx=f^{n+1}0=0$。また $x-x'=d_C^{n-1}y$ なら $f^n(x)-f^n(x')=d_D^{n-1}f^{n-1}(y)$ なので同じ類へ移る。第3節の3倍写像は次数0の $\mathbb Z/2\mathbb Z$ 上で $[t]_2\mapsto[3t]_2=[t]_2$ を誘導する。複体上の異なる射が同じコホモロジーの射になることもある。
+可換群では、ここから再び次数を明記する。$[x]$ はコサイクル $x\in Z_C^n$ の $B_C^n$ による剰余類（右辺では $B_D^n$ による剰余類）を表す。この構成は
+
+$$
+H^n(f)([x])=[f^n(x)]
+$$
+
+と書ける。実際、$d_C^nx=0$ なら $d_D^nf^nx=f^{n+1}0=0$。また $x-x'=d_C^{n-1}y$ なら $f^n(x)-f^n(x')=d_D^{n-1}f^{n-1}(y)$ なので同じ類へ移る。第3節の3倍写像は次数0の $\mathbb Z/2\mathbb Z$ 上で $[t]_2\mapsto[3t]_2=[t]_2$ を誘導する。複体上の異なる射が同じコホモロジーの射になることもある。
 
 ## 6. 演習
+
+以下の整数・商群の例は可換群の圏で考え、表示していない次数の対象と微分は零とする。コホモロジーの計算は第4節の商群表示を用いる。
 
 ### CATB7-01-A01 複体条件
 
@@ -359,7 +394,7 @@ $$
 m\mathbb Z\to\mathbb Z/t\mathbb Z,\qquad mx\mapsto[x]_t.
 $$
 
-任意の剰余類には代表元 $x$ があるため全射である。零に移るのは $x$ が $t$ の倍数の場合なので、この射の核は $mt\mathbb Z$。従って
+任意の剰余類には代表元 $x$ があるため全射である。零に移るのは $x$ が $t$ の倍数の場合なので、この射の核は $mt\mathbb Z$。従って[群の準同型定理](../../../代数系/GRP/GRP2/index.md#thm-grp2-first-isomorphism)により
 
 $$
 H^0=m\mathbb Z/mt\mathbb Z\simeq\mathbb Z/t\mathbb Z.
@@ -393,9 +428,18 @@ $$
 次数0,1の二項複体 $\mathbb Z\xrightarrow{2}\mathbb Z$ と $\mathbb Z\xrightarrow{3}\mathbb Z$ の双積の微分と、全コホモロジーを求めよ。
 
 <!-- solution-start -->
-[余鎖複体の加法圏](#thm-catb7-01-complex-category)より各次数は $\mathbb Z^2$ で、微分は $(x,y)\mapsto(2x,3y)$。この射の核は $2x=3y=0$ を満たす $(0,0)$ のみであり、像は $2\mathbb Z\oplus3\mathbb Z$ である。
+[余鎖複体の加法圏](#thm-catb7-01-complex-category)より次数0,1の双積は $\mathbb Z^2$ である。挿入射は $i_C(x)=(x,0)$、$i_D(y)=(0,y)$、射影は $p_C(x,y)=x$、$p_D(x,y)=y$ なので、定理の微分の式に代入すると
 
-従って $H^0=0$。次数1の核は $\mathbb Z^2$ 全体。$(x,y)\mapsto([x]_2,[y]_3)$ は各剰余類から代表元を取れば全射、核は $2\mathbb Z\oplus3\mathbb Z$。よって商との同型は
+$$
+\begin{aligned}
+d^0(x,y)&=i_C(2p_C(x,y))+i_D(3p_D(x,y))\\
+&=(2x,0)+(0,3y)=(2x,3y).
+\end{aligned}
+$$
+
+この射の核は $2x=3y=0$ を満たす $(0,0)$ のみであり、像は $2\mathbb Z\oplus3\mathbb Z$ である。
+
+従って $H^0=0$。次数1の核は $\mathbb Z^2$ 全体。$(x,y)\mapsto([x]_2,[y]_3)$ は各剰余類から代表元を取れば全射、核は $2\mathbb Z\oplus3\mathbb Z$。よって[群の準同型定理](../../../代数系/GRP/GRP2/index.md#thm-grp2-first-isomorphism)から商との同型は
 
 $$
 H^1\simeq\mathbb Z/2\mathbb Z\oplus\mathbb Z/3\mathbb Z.
@@ -408,7 +452,7 @@ $$
 
 - Level: B
 
-余鎖写像 $f:C^\bullet\to D^\bullet$ のすべての成分が同型であるとする。成分の逆射が余鎖写像を与えることを示し、コホモロジーの誘導射について結論を述べよ。
+局所小なアーベル圏の余鎖写像 $f:C^\bullet\to D^\bullet$ のすべての成分が同型であるとする。成分の逆射が余鎖写像を与えることを示し、コホモロジーの誘導射について結論を述べよ。
 
 <!-- solution-start -->
 $d_D^nf^n=f^{n+1}d_C^n$ の左から $(f^{n+1})^{-1}$、右から $(f^n)^{-1}$ を合成すると
@@ -431,7 +475,7 @@ $$
 3. 中央で誘導される射の具体式を求め、同型か判定せよ。複体自体の同型と区別せよ。
 
 <!-- solution-start -->
-第1問。$[12x]_3=0$、$[8x]_2=0$ なので合成は零。他は零射との合成である。[余鎖複体のコホモロジー](#def-catb7-01-cohomology)より中央の核・像はそれぞれ $3\mathbb Z,12\mathbb Z$ および $2\mathbb Z,8\mathbb Z$。$3t\mapsto[t]_4$ と $2s\mapsto[s]_4$ は双方とも全射で核がそれぞれ前の像だから
+第1問。$[12x]_3=0$、$[8x]_2=0$ なので合成は零。他は零射との合成である。[余鎖複体のコホモロジー](#def-catb7-01-cohomology)より中央の核・像はそれぞれ $3\mathbb Z,12\mathbb Z$ および $2\mathbb Z,8\mathbb Z$。$3t\mapsto[t]_4$ と $2s\mapsto[s]_4$ は双方とも全射で核がそれぞれ前の像だから、[群の準同型定理](../../../代数系/GRP/GRP2/index.md#thm-grp2-first-isomorphism)により
 
 $$
 H^0(C)\simeq\mathbb Z/4\mathbb Z,\qquad H^0(D)\simeq\mathbb Z/4\mathbb Z.
@@ -447,7 +491,7 @@ $$
 H^0(f)([t]_4)=[3t]_4.
 $$
 
-$3\cdot3=9$ は4で割った余りが1なので、3倍をもう一度適用すれば恒等射になる。従って同型である。他の次数でも零対象間の唯一の射は同型である。しかし $f^0$ は2倍であり、整数1を値に取らないため逆射を持たない。もし複体として逆射があれば次数0の成分がその逆射になるので矛盾する。コホモロジー上の同型と複体そのものの同型は異なる条件である。
+$3\cdot3=9$ は4で割った余りが1なので、3倍をもう一度適用すれば恒等射になる。従って同型である。他の次数でも零対象間の唯一の射は同型である。しかし $f^0$ は2倍であり、整数1を値に取らないため逆射を持たない。もし複体として逆射があれば次数0の成分がその逆射になるので矛盾する。さらにこの例では、別の射によっても二複体は同型にならない。複体の同型の次数1の成分には $\mathbb Z/3\mathbb Z$ と $\mathbb Z/2\mathbb Z$ の同型が必要だが、元の個数が3と2で異なるので不可能である。全次数のコホモロジーが同型であることと複体そのものが同型であることは異なる条件である。
 <!-- solution-end -->
 
 ## 7. まとめ
