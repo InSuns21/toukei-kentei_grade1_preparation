@@ -21,7 +21,7 @@ $$
 <!-- formal-statement-start -->
 > **定義（余鎖複体）**
 >
-> [局所小な圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)（各二対象間の射が集合をなす）のうち、[加法圏](../CATB1-03/index.md#def-catb1-03-additive-category) $\mathcal A$ において、各整数 $n$ に対象 $C^n$ と射 $d_C^n:C^n\to C^{n+1}$ が指定され、すべての整数 $n$ で
+> [局所小](../../CAT/CAT1-02/index.md#def-cat1-02-size)（各二対象間の射が集合をなす）な[加法圏](../CATB1-03/index.md#def-catb1-03-additive-category) $\mathcal A$ において、各整数 $n$ に対象 $C^n$ と射 $d_C^n:C^n\to C^{n+1}$ が指定され、すべての整数 $n$ で
 
 $$
 d_C^{n+1}d_C^n=0
@@ -130,7 +130,7 @@ d_S^ni_D^n
 \end{aligned}
 $$
 
-従って包含と射影の族は余鎖写像である。
+従って挿入射と射影の族は[余鎖写像](#def-catb7-01-cochain-map)である。
 
 成分で $i_Cp_C+i_Dp_D=1_S$ および上述の四つの合成条件を満たすから、複体の圏でも[双積の普遍性](../CATB1-03/index.md#thm-catb1-03-biproduct-universality)を適用できる。零対象と二項双積を反復すれば有限双積があるので加法圏である。
 <!-- proof-end -->
@@ -240,7 +240,7 @@ $$
 H^n(f):H^n(C^\bullet)\to H^n(D^\bullet).
 $$
 
-> ここで $k_C^n,k_D^n$ は核射、$q_C^n,q_D^n$ はコホモロジーへの余核射とする。核上の射 $z_f:Z_C^n\to Z_D^n$ は次の条件で一意に定まる。
+> ここで $k_C^n,k_D^n$ は核射、$q_C^n,q_D^n$ はコホモロジーへの余核射とする。核上の射 $z_f:Z_C^n\to Z_D^n$（添字 $f$ はもとの余鎖写像を表す）は次の条件で一意に定まる。
 
 $$
 k_D^nz_f=f^nk_C^n.
@@ -300,7 +300,7 @@ $$
 
 $q_C^n$ を消去して合成の保存を得る。
 
-平行な $f,h$ について $k_D^n(z_f+z_h)=(f^n+h^n)k_C^n$ なので $z_{f+h}=z_f+z_h$。余核への式は
+平行な $f,h$ について[合成の双加法性](../CATB1-03/index.md#def-catb1-03-preadditive)から $k_D^n(z_f+z_h)=(f^n+h^n)k_C^n$ なので $z_{f+h}=z_f+z_h$。余核への式は
 
 $$
 (H^n(f)+H^n(h))q_C^n
@@ -327,7 +327,7 @@ $$
 $q_C$ を消去すれば、$w_DH^n(f)=H^{\prime n}(f)w_C$ を得る。したがって選択による違いは自然な同型に限られる。
 <!-- proof-end -->
 
-可換群では、ここから再び次数を明記する。$[x]$ はコサイクル $x\in Z_C^n$ の $B_C^n$ による剰余類（右辺では $B_D^n$ による剰余類）を表す。この構成は
+可換群では、ここから再び次数を明記する。$[x]$ はコサイクル $x\in Z_C^n$ の $B_C^n$ による剰余類を表し、$[f^n(x)]$ は $B_D^n$ による剰余類を表す。この構成は
 
 $$
 H^n(f)([x])=[f^n(x)]
@@ -394,7 +394,7 @@ $$
 m\mathbb Z\to\mathbb Z/t\mathbb Z,\qquad mx\mapsto[x]_t.
 $$
 
-任意の剰余類には代表元 $x$ があるため全射である。零に移るのは $x$ が $t$ の倍数の場合なので、この射の核は $mt\mathbb Z$。従って[群の準同型定理](../../../代数系/GRP/GRP2/index.md#thm-grp2-first-isomorphism)により
+$m(x+y)\mapsto[x+y]_t=[x]_t+[y]_t$ だから加法を保つ。任意の剰余類には代表元 $x$ があるため全射である。零に移るのは $x$ が $t$ の倍数の場合なので、この射の核は $mt\mathbb Z$。従って[群の準同型定理](../../../代数系/GRP/GRP2/index.md#thm-grp2-first-isomorphism)により
 
 $$
 H^0=m\mathbb Z/mt\mathbb Z\simeq\mathbb Z/t\mathbb Z.
@@ -439,7 +439,7 @@ $$
 
 この射の核は $2x=3y=0$ を満たす $(0,0)$ のみであり、像は $2\mathbb Z\oplus3\mathbb Z$ である。
 
-従って $H^0=0$。次数1の核は $\mathbb Z^2$ 全体。$(x,y)\mapsto([x]_2,[y]_3)$ は各剰余類から代表元を取れば全射、核は $2\mathbb Z\oplus3\mathbb Z$。よって[群の準同型定理](../../../代数系/GRP/GRP2/index.md#thm-grp2-first-isomorphism)から商との同型は
+従って $H^0=0$。次数1の核は $\mathbb Z^2$ 全体。$(x,y)\mapsto([x]_2,[y]_3)$ は各剰余類から代表元を取れば全射、加法も各成分で保ち、核は $2\mathbb Z\oplus3\mathbb Z$。よって[群の準同型定理](../../../代数系/GRP/GRP2/index.md#thm-grp2-first-isomorphism)から商との同型は
 
 $$
 H^1\simeq\mathbb Z/2\mathbb Z\oplus\mathbb Z/3\mathbb Z.
@@ -475,7 +475,7 @@ $$
 3. 中央で誘導される射の具体式を求め、同型か判定せよ。複体自体の同型と区別せよ。
 
 <!-- solution-start -->
-第1問。$[12x]_3=0$、$[8x]_2=0$ なので合成は零。他は零射との合成である。[余鎖複体のコホモロジー](#def-catb7-01-cohomology)より中央の核・像はそれぞれ $3\mathbb Z,12\mathbb Z$ および $2\mathbb Z,8\mathbb Z$。$3t\mapsto[t]_4$ と $2s\mapsto[s]_4$ は双方とも全射で核がそれぞれ前の像だから、[群の準同型定理](../../../代数系/GRP/GRP2/index.md#thm-grp2-first-isomorphism)により
+第1問。$[12x]_3=0$、$[8x]_2=0$ なので合成は零。他は零射との合成である。[余鎖複体のコホモロジー](#def-catb7-01-cohomology)より中央の核・像はそれぞれ $3\mathbb Z,12\mathbb Z$ および $2\mathbb Z,8\mathbb Z$。$3t\mapsto[t]_4$ と $2s\mapsto[s]_4$ は双方とも加法を保ち、全射で核がそれぞれ前の像だから、[群の準同型定理](../../../代数系/GRP/GRP2/index.md#thm-grp2-first-isomorphism)により
 
 $$
 H^0(C)\simeq\mathbb Z/4\mathbb Z,\qquad H^0(D)\simeq\mathbb Z/4\mathbb Z.
