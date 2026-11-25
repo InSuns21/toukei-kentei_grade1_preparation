@@ -1,0 +1,29 @@
+id: "CATB8-01"
+title: "次数付きテンソル積とKoszul符号"
+volume: foundations
+status: supplementary
+prerequisites: [CATB7-01, CAT4-03, LA3E, MOD1]
+official_scope: []
+learning_objectives:
+  - 整数次数付き加群とテンソル積の次数別成分を計算できる
+  - Koszul符号付きテンソル写像を構成し交換則を導出できる
+  - テンソル積複体の微分の二乗零を交差項の相殺から証明できる
+  - 余鎖写像のテンソル積と次数付き交換が微分を保つことを証明できる
+  - 三因子のテンソル積の微分と結び直しの整合性を確認できる
+definitions:
+  - { id: CATB8-01-DEF-01, name: "次数付き加群" }
+  - { id: CATB8-01-DEF-02, name: "次数付きテンソル積" }
+  - { id: CATB8-01-DEF-03, name: "次数付き写像" }
+  - { id: CATB8-01-DEF-04, name: "Koszul符号付きテンソル写像" }
+  - { id: CATB8-01-DEF-05, name: "次数付き交換写像" }
+theorems:
+  - { id: CATB8-01-THM-01, name: "符号付き交換則" }
+  - { id: CATB8-01-THM-02, name: "テンソル積複体の微分" }
+  - { id: CATB8-01-THM-03, name: "余鎖写像のテンソル積" }
+  - { id: CATB8-01-THM-04, name: "次数付き交換の対称性と微分との両立" }
+canonical_examples: [負次数を含む直和, 二項整数複体のテンソル積, 符号を省いた微分の反例, 三因子の交差項相殺]
+problem_patterns: [CATB8-01-A01, CATB8-01-A02, CATB8-01-A03, CATB8-01-A04, CATB8-01-B01, CATB8-01-B02, CATB8-01-B03, CATB8-01-B04, CATB8-01-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
