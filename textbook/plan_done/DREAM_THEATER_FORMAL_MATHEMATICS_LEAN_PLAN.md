@@ -1,7 +1,7 @@
 # DREAM THEATER 形式数学・Lean 4 計画
 
 構成再確定日: 2026-11-24 JST（LVT共通基盤との重複3講を除去）
-状態: in progress（FML1から講義実装に着手）
+状態: done（2026-11-25 JST、全7講実装・追跡監査・系列横断確認）
 系列ID: FML（進捗は [系列manifest](../dream-theater-series/FML.yaml) を正本とする）
 講数: **全7講**
 
@@ -33,11 +33,15 @@ FMLはLVT共通基盤から分岐する数学研究向けの発展科目。特�
 
 ## 4. 完成条件
 
-- [ ] LVT共通14講の定義・タクティク・再現環境を参照し、LVT第III〜VI部と一般Lean基礎を再執筆しない。数学固有の形式化・監査に7講を集中させる。
+- [x] LVT共通14講の定義・タクティク・再現環境を参照し、LVT第III〜VI部と一般Lean基礎を再執筆しない。数学固有の形式化・監査に7講を集中させる。
 
 - [x] 初回実装時に本PLANを plans_progress に移し、系列manifestを全7講の予定IDで整備する。未実装章の公開目次先行登録はしない。
-- [ ] 各講で主要定義を使用前に導入し、定理の仮定・定義域・量化・中間計算を明示。直接例と反例を含め、主要証明を再構成可能にする。
-- [ ] 原則 Level A 4題・B 3題・C 1題以上と詳細解答。単なる題数合わせはしない。
-- [ ] chapter.yaml・knowledge.yaml・prerequisite・stable anchor・KaTeX・concept/knowledge/exercise/Pages検証を完了する。
-- [ ] 研究claimは証明artifact・statement matching・kernel・独立人間検証・出版を分離し、未確認のものを無条件の正本定理にしない。
-- [ ] 横断監査・公開導線完了後に plan_done に移す。
+- [x] 各講で主要定義を使用前に導入し、定理の仮定・定義域・量化・中間計算を明示。直接例と反例を含め、主要証明を再構成可能にする。
+- [x] 原則 Level A 4題・B 3題・C 1題以上と詳細解答。単なる題数合わせはしない。
+- [x] chapter.yaml・knowledge.yaml・prerequisite・stable anchor・KaTeX・concept/knowledge/exercise/Pages検証を完了する。
+- [x] 研究claimは証明artifact・statement matching・kernel・独立人間検証・出版を分離し、未確認のものを無条件の正本定理にしない。
+- [x] 横断監査・公開導線完了後に plan_done に移す。
+
+## 5. 完了記録（2026-11-25 JST）
+
+全7講 completed。公開目次7件、chapter/knowledge の前提、実本文の全63演習・詳細解答（A32/B24/C7）を照合。LVT共通14講は completed、LVT第III〜VI部の完成を条件にしていない。既存の追跡監査 PR [FML1 #4521](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4521)、[FML2 #4522](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4522)、[FML3 #4532](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4532)、[FML4 #4651](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4651)、[FML5 #4657](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4657)、[FML6 #4671](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4671) と今回の FML7 追跡監査で、各章の数学・導入・演習の査読証拠を確認。FML7 の固定版実行ログ（run 45575621765）は三宣言の許容公理依存、nanoda 受理、型不一致・許容外公理の拒否を示す。第三者の独立人間査読・出版はこれらの検証と区別し、外部研究主張の成立を宣言しない。系列 manifest と直接参照を同時に移行する。

@@ -40,8 +40,8 @@ PY
     else
       test "$status" -eq 1
       case "$variant" in
-        Mismatch) grep -Ei 'error:.*(family|mismatch)' "$logdir/$variant.log" ;;
-        ForbiddenAxiom) grep -Ei 'error:.*(externalProof|axiom)' "$logdir/$variant.log" ;;
+        Mismatch) grep -F "Challenge and solution theorem statement do not match: 'FML7.family'" "$logdir/$variant.log" ;;
+        ForbiddenAxiom) grep -F "Illegal axiom detected: 'FML7.externalProof'" "$logdir/$variant.log" ;;
       esac
       ! grep -F 'Your solution is okay!' "$logdir/$variant.log"
     fi
