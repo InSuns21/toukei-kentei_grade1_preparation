@@ -127,7 +127,9 @@ $$
 $$
 N_{22}=(0\cdot2+1\cdot1)\cdot1
 +(0\cdot0+1\cdot1)\cdot2=3.
-$$境界テンソルは
+$$
+
+境界テンソルは
 
 $$
 N=\begin{pmatrix}4&8\\1&3\end{pmatrix}.
