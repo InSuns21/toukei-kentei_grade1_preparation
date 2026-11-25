@@ -402,7 +402,7 @@ $$
 
 ## 6. 整数で数えるには何が増えるか
 
-[Fredholm作用素と実指数](../../GW/GW1-03/index.md#def-gw1-03-fredholm)の定義により、実Banach空間 $E,F$ の間の実Fredholm作用素 $D:E\to F$ では有限次元の核と余核が存在する。余核は $F/\operatorname{im}D$、すなわち像で割った商ベクトル空間である。[外積冪の基底と次元](../../../基礎科目/LA/LA3E/index.md#thm-la3e-exterior-basis-dimension)を実 $m$ 次元空間 $V$ に適用すると、最高次外積 $\bigwedge^m V$ は、基底 $v_1,\ldots,v_m$ の外積 $v_1\wedge\cdots\wedge v_m$ を基底とする一次元空間である。[最高次外積と基底変換](../../../基礎科目/LA/LA3E/index.md#thm-la3e-top-form-change-of-basis)により、基底の交換で外積の符号が反転する。零次外積は $\mathbb R$ と約束する。$V^*$ は実数値線形汎関数の空間（双対空間）、$\otimes$ はテンソル積を表す。[テンソル積の基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)により、一次元空間二つのテンソル積も、二つの基底元のテンソルを基底とする一次元空間である。
+[Fredholm作用素と実指数](../../GW/GW1-03/index.md#def-gw1-03-fredholm)の定義により、実Banach空間 $E,F$ の間の実Fredholm作用素 $D:E\to F$ では有限次元の核と余核が存在する。余核は $F/\operatorname{im}D$、すなわち像で割った商ベクトル空間である。$V^*$ は実数値線形汎関数の空間（双対空間）、$\otimes$ はテンソル積を表す。実 $m$ 次元空間 $V$ の基底を $v_1,\ldots,v_m$ とする。有限次元では $V$ の各元 $v$ を評価写像 $\alpha\mapsto\alpha(v)$ によって二重双対 $V^{**}$ の元と同一視できる。この同一視では $v_i$ は $V^*$ の双対基底に対する双対基底になる。従って [外冪の標準基底と次元](../../../基礎科目/LA/LA3E/index.md#thm-la3e-exterior-basis-dimension)を $V^*$ に適用すると、最高次外積 $\bigwedge^m V$ は $v_1\wedge\cdots\wedge v_m$ を基底とする一次元空間である。[最高次外積と基底変換](../../../基礎科目/LA/LA3E/index.md#thm-la3e-top-form-change-of-basis)も同じ同一視で使え、基底の二元の交換で外積の符号が反転する。零次外積は $\mathbb R$ と約束する。[テンソル積の基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)により、一次元空間二つのテンソル積も、二つの基底元のテンソルを基底とする一次元空間である。
 
 核の最高次外積と余核の最高次外積の双対をテンソル積にすると、核だけでなく余核の向きの情報も保持できる。これは通常の正方行列の行列式という実数ではなく、[ベクトル空間の向き](../../GEO/GEO8/index.md#def-geo8-vector-space-orientation)を選ぶための実一次元空間である。
 
