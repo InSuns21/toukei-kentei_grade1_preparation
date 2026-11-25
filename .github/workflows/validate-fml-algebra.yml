@@ -1,0 +1,63 @@
+name: Validate FML abstract algebra
+on:
+  pull_request:
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/FML/FML2/**'
+      - '.github/workflows/validate-fml-algebra.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/FML/FML2/**'
+      - '.github/workflows/validate-fml-algebra.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lean-algebra:
+    name: Lean abstract algebra
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          lake-package-directory: 'textbook/volumes/dream_thater/計算系/FML/FML2/lab'
+          auto-config: 'false'
+          build: 'true'
+          test: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Check proofs, axiom dependencies and expected failure
+        working-directory: 'textbook/volumes/dream_thater/計算系/FML/FML2/lab'
+        shell: bash
+        run: |
+          lean --version | tee lean-version.log
+          grep -F 'version 4.35.0' lean-version.log
+          lake env lean Inspect.lean | tee inspect.log
+          lake env lean ExerciseSolutions.lean | tee exercises.log
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          allowed = {'propext', 'Classical.choice', 'Quot.sound'}
+          output = Path('inspect.log').read_text()
+          assert output.splitlines()[:3] == ['20', '0', '1'], output
+          for name, count in [('inspect.log', 6), ('exercises.log', 9)]:
+              output = Path(name).read_text()
+              entries = re.findall(r"depends on axioms:\s*\[([^\]]*)\]", output)
+              empty = len(re.findall(r"does not depend on any axioms", output))
+              assert len(entries) + empty == count, (name, output)
+              for entry in entries:
+                  assert set(x.strip() for x in entry.split(',') if x.strip()) <= allowed, entry
+          PY
+          if lake env lean Failure.lean > failure.log 2>&1; then
+            echo 'False rational identity unexpectedly accepted'
+            exit 1
+          fi
+          cat failure.log
+          grep -Ei 'unsolved goals|decide.*failed|false proposition' failure.log
+          git diff --exit-code -- lake-manifest.json lean-toolchain
+      - name: Preserve execution logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fml2-lean-logs
+          path: 'textbook/volumes/dream_thater/計算系/FML/FML2/lab/*.log'

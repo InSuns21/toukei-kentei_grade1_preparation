@@ -1,0 +1,29 @@
+id: "FML2"
+title: "抽象代数学の形式化"
+volume: foundations
+status: supplementary
+prerequisites: [FML1, RNG1, FLD0, FLD1]
+official_scope: []
+learning_objectives:
+  - RingとCommRingとFieldの仮定を区別する
+  - 非零係数の消去を数学とLeanで証明する
+  - 自然数の型変換と標数による等式の違いを確認する
+  - 環準同型と独立したuniverseを指定する
+  - 体の写像に沿ったスカラー作用を証明する
+  - 固定したMathlib環境で正常系と反例を再現する
+definitions:
+  - { id: FML2-DEF-01, name: "Leanの代数構造インスタンス" }
+  - { id: FML2-DEF-02, name: "Leanの自然数の環への型変換" }
+  - { id: FML2-DEF-03, name: "Leanでの体のスカラー構造" }
+theorems:
+  - { id: FML2-THM-01, name: "標数2での二乗の形式化" }
+propositions:
+  - { id: FML2-PROP-01, name: "Leanでの非零係数の消去" }
+  - { id: FML2-PROP-02, name: "環準同型による和の二乗の移送" }
+  - { id: FML2-PROP-03, name: "写像に沿うスカラー作用の整合性" }
+canonical_examples: ["整数と有理数の型クラス", "ZMod 2の自然数の像", "有理数のスカラー作用"]
+problem_patterns: [FML2-A01, FML2-A02, FML2-A03, FML2-A04, FML2-B01, FML2-B02, FML2-B03, FML2-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }

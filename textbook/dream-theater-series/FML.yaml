@@ -11,7 +11,7 @@ chapters:
     title: "Mathlib・有限集合・Fin・順列・有限和の形式化"
   - id: FML2
     path: textbook/volumes/dream_thater/計算系/FML/FML2
-    status: planned
+    status: completed
     title: "抽象代数学の形式化"
   - id: FML3
     path: textbook/volumes/dream_thater/計算系/FML/FML3
