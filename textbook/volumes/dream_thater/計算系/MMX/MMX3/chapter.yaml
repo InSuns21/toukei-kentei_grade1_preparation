@@ -1,0 +1,22 @@
+id: "MMX3"
+title: "上下界の古典史：Biniの補間、Schönhage漸近和不等式、laser法・手法限定障壁の量化"
+volume: foundations
+status: supplementary
+prerequisites: [MMX2, ACOMP21, ACOMP22, TSP11, TSP12, TSP14]
+official_scope: []
+learning_objectives:
+  - 多項式退化の誤差を補間で取り除き漸近階数を評価できる
+  - 全正方サイズを評価するスペクトル点を使い漸近和不等式を導ける
+  - テンソル冪の座標を選び独立な行列積の直和を取り出せる
+  - 固定した費用上界での手法限定障壁と一般の指数下界を区別できる
+definitions: []
+theorems:
+  - { id: MMX3-THM-01, name: "全正方サイズを同時に評価するスペクトル点" }
+  - { id: MMX3-THM-02, name: "Schönhage漸近和不等式" }
+  - { id: MMX3-THM-03, name: "固定した費用上界と次元による取り出しの限界" }
+canonical_examples: [多項式近似の定数項, 長方形行列積の巡回, 添字列による制限, 固定費用の障壁]
+problem_patterns: [MMX3-A01, MMX3-A02, MMX3-A03, MMX3-A04, MMX3-B01, MMX3-B02, MMX3-B03, MMX3-B04, MMX3-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 1 }
