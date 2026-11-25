@@ -7,7 +7,9 @@ theorem a01_mem7 : 7 ∈ ({4, 7, 4} : Finset Nat) := by decide
 theorem a01_not8 : 8 ∉ ({4, 7, 4} : Finset Nat) := by decide
 theorem a01_card : ({4, 7, 4} : Finset Nat).card = 2 := by decide
 theorem a02_card : (Finset.univ : Finset (Fin 4)).card = 4 := by decide
-theorem a02_bound (i : Fin 4) : i.val ≠ 4 := by omega
+theorem a02_bound (i : Fin 4) : i.val ≠ 4 := by
+  have hi := i.isLt
+  omega
 theorem a02_empty : (Finset.univ : Finset (Fin 0)).card = 0 := by decide
 
 def q : Equiv.Perm (Fin 3) := Equiv.swap 0 1
@@ -25,8 +27,10 @@ theorem b01 {α β : Type*} [Fintype α] [Fintype β]
 def repeated (i : Fin 3) : Nat := if i = 2 then 7 else 4
 theorem b02_sum : (∑ i : Fin 3, repeated i) = 15 := by decide
 theorem b02_reindex : (∑ i : Fin 3, repeated (FmlFinite.swap02 i)) = 15 := by
-  rw [FmlFinite.sum_reindex FmlFinite.swap02 repeated]
-  exact b02_sum
+  calc
+    (∑ i : Fin 3, repeated (FmlFinite.swap02 i)) = ∑ i : Fin 3, repeated i :=
+      FmlFinite.sum_reindex FmlFinite.swap02 repeated
+    _ = 15 := b02_sum
 
 theorem b03 : (∑ _i : Fin 3, (1 : Nat)) ≠
     ∑ i : Fin 3, (i.val + 1) := by decide
