@@ -251,6 +251,8 @@ $\varepsilon\ne0$ なら左辺を $\varepsilon^m$ で割ったテンソルは、
 <a id="ex-tsp8-a01"></a>
 
 #### TSP8-A01 行列では階数が下がらない
+- Level: A
+- ID: TSP8-A01
 
 $e_1\otimes f_1+2e_2\otimes f_2$ の境界階数を求めよ。各因子は $\mathbb C^2$ とする。
 
@@ -263,6 +265,8 @@ $e_1\otimes f_1+2e_2\otimes f_2$ の境界階数を求めよ。各因子は $\ma
 <a id="ex-tsp8-a02"></a>
 
 #### TSP8-A02 Segre座標
+- Level: A
+- ID: TSP8-A02
 
 各因子を $\mathbb C^2$ とし、$e_i,f_i,g_i$ をそれぞれの標準基底とする。$(e_1+2e_2)\otimes(f_1-f_2)\otimes(g_1+g_2)$ の8座標を辞書式順序で求めよ。添字は各因子で1,2の順とする。
 
@@ -275,6 +279,8 @@ $e_1\otimes f_1+2e_2\otimes f_2$ の境界階数を求めよ。各因子は $\ma
 <a id="ex-tsp8-a03"></a>
 
 #### TSP8-A03 差の一次係数
+- Level: A
+- ID: TSP8-A03
 
 第3節の $P(\varepsilon)$ について $q(\varepsilon)$ の $221$、$222$、$211$ 座標を求め、極限を調べよ。
 
@@ -287,6 +293,8 @@ $221$ は第1、第2因子だけから $\varepsilon$ が現れるため $P(\vare
 <a id="ex-tsp8-a04"></a>
 
 #### TSP8-A04 射影点と線形結合
+- Level: A
+- ID: TSP8-A04
 
 各因子を $\mathbb C^2$ とし、$X$ をその Segre 像とする。二つの基底単純テンソル $e_1\otimes f_1,e_2\otimes f_2$ の射影線形包に $[e_1\otimes f_1-e_2\otimes f_2]$ が入るか。第1割線多様体にも入るか。
 
@@ -301,6 +309,8 @@ $221$ は第1、第2因子だけから $\varepsilon$ が現れるため $P(\vare
 <a id="ex-tsp8-b01"></a>
 
 #### TSP8-B01 重み付きの退化
+- Level: B
+- ID: TSP8-B01
 
 $w'=2e_2\otimes f_1\otimes g_1-3e_1\otimes f_2\otimes g_1+5e_1\otimes f_1\otimes g_2$ の境界階数を求めよ。
 
@@ -329,6 +339,8 @@ $$
 <a id="ex-tsp8-b02"></a>
 
 #### TSP8-B02 退化できない候補
+- Level: B
+- ID: TSP8-B02
 
 各因子を $\mathbb C^3$ とし、$D=\sum_{i=1}^3 e_i\otimes f_i\otimes g_i$ とする。境界階数2以下の族の座標収束極限として $D$ を得られるか。
 
@@ -341,6 +353,8 @@ $$
 <a id="ex-tsp8-b03"></a>
 
 #### TSP8-B03 斉次成分を分離する理由
+- Level: B
+- ID: TSP8-B03
 
 零倍も含めた全てのスカラー倍で閉じた集合 $S\subset\mathbb C^N$ 上で $p=p_0+p_1+p_2$ が零とする。各 $p_j$ は次数 $j$ の斉次多項式である。$p_j$ がそれぞれ $S$ 上で零になることを $\lambda=0,1,-1$ を使って確かめよ。
 
@@ -363,6 +377,8 @@ $$
 <a id="ex-tsp8-c01"></a>
 
 #### TSP8-C01 退化を二回掛ける
+- Level: C
+- ID: TSP8-C01
 
 第3節の $P(\varepsilon)-P(0)=\varepsilon w+\varepsilon^2h+\varepsilon^3k$ を使い、同じ三因子の位置ごとに組にする Kronecker 積 $w\boxtimes w$ の境界階数が4であることを証明せよ。
 
