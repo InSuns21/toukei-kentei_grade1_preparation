@@ -1,0 +1,53 @@
+chapter: CATB5-07
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB5-06, CATB5-05, CATB5-03, CATB5-02]
+concepts:
+  - id: category.j-closed-sieve
+    name: "J閉篩"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（J閉篩）"]
+    requires: [category.sieve-pullback, category.grothendieck-topology]
+  - id: category.j-sieve-closure
+    name: "篩のJ閉包"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（篩のJ閉包）"]
+    requires: [category.j-closed-sieve, category.covering-sieve-closure, category.sieve-pullback-laws]
+  - id: category.closed-sieves-sheaf
+    name: "J閉篩の層"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（J閉篩の層）"]
+    requires: [category.j-sieve-closure, category.site-sheaf]
+  - id: category.sheaf-pointwise-mono
+    name: "層のモノ射の成分判定"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（層のモノ射の成分判定）"]
+    requires: [category.sheafification-adjunction, category.contravariant-yoneda-lemma, category.monomorphism]
+  - id: category.sheaf-classifier
+    name: "層圏の部分対象分類子"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（層圏の部分対象分類子）"]
+    requires: [category.closed-sieves-sheaf, category.sheaf-pointwise-mono, category.presheaf-classifier, category.sheaf-pointwise-limits]
+  - id: category.sheaf-exponential
+    name: "層圏の指数対象"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（層圏の指数対象）"]
+    requires: [category.presheaf-exponential, category.site-sheaf, category.sheaf-pointwise-limits]
+  - id: category.sheaf-topos
+    name: "層圏の初等トポス性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（層圏の初等トポス性）"]
+    requires: [category.elementary-topos, category.sheaf-pointwise-limits, category.sheaf-exponential, category.sheaf-classifier]
+  - id: category.grothendieck-topos
+    name: "Grothendieckトポス"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Grothendieckトポス）"]
+    requires: [category.site-sheaf, category.site, category.equivalence-of-categories]
