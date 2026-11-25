@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - GEO15
   - GEO17
+  - ATOP4
 forward_references: []
 
 concepts:
@@ -71,13 +72,12 @@ concepts:
       - geometry.ricci-curvature
       - geometry.hopf-rinow-theorem
 
-  - id: topology.simply-connected
-    name: 単連結
+  - id: geometry.simply-connected-recap
+    name: 単連結性の再掲
     kind: definition
-    aliases: [単連結, simply connected]
     introduction: formal
     requires:
-      - topology.path-connected-space
+      - topology.simply-connected
 
   - id: geometry.covering-map-recap
     name: 比較幾何で使う被覆写像の再掲
