@@ -1,0 +1,60 @@
+name: Validate LVT integration harness
+on:
+  pull_request:
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT6-06/**'
+      - '.github/workflows/validate-lvt-integration.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT6-06/**'
+      - '.github/workflows/validate-lvt-integration.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  integration:
+    name: Independent gates and replay
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          lake-package-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT6-06/lab'
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - name: Normal, mutant and replay
+        working-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT6-06/lab'
+        run: |
+          set -euo pipefail
+          python harness.py
+          cp evidence.json normal.json
+          if python harness.py --mutate; then exit 1; fi
+          cp evidence.json mutant.json
+          if python harness.py --replay 1000; then exit 1; fi
+          cp evidence.json replay.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          normal, mutant, replay = [json.loads(Path(n + ".json").read_text()) for n in ("normal","mutant","replay")]
+          assert set(normal["gates"].values()) == {"pass"}
+          assert (normal["allowed"], normal["rejected"]) == (3, 13)
+          assert mutant["gates"] == dict(proof="pass", examples="fail", differential="fail", mutation="pass")
+          assert [r["input"] for r in mutant["differences"]] == ["1000","1001","1011"]
+          assert replay["replayed"] == dict(input="1000", reference=0, product=1)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lvt-integration-evidence
+          path: |
+            textbook/volumes/dream_thater/計算系/LVT/LVT6-06/lab/*evidence.json
+            textbook/volumes/dream_thater/計算系/LVT/LVT6-06/lab/normal.json
+            textbook/volumes/dream_thater/計算系/LVT/LVT6-06/lab/mutant.json
+            textbook/volumes/dream_thater/計算系/LVT/LVT6-06/lab/replay.json

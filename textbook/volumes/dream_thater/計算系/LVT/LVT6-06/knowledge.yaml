@@ -1,0 +1,14 @@
+chapter: LVT6-06
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT5-07, LVT5-08, LVT6-05]
+concepts:
+  - id: lean-verification.gate-vector
+    name: 検証判定の組
+    kind: definition
+    introduction: formal
+  - id: lean-verification.finite-requirement-transfer
+    name: 全有限入力照合による要求の伝達
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.detection-equality]

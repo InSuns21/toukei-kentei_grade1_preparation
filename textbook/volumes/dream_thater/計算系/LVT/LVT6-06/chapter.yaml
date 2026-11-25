@@ -1,0 +1,22 @@
+id: "LVT6-06"
+title: "証明・差分テスト・CIを統合する"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT5-07, LVT5-08, LVT6-05]
+official_scope: []
+learning_objectives:
+  - 証明・例示・差分・変異の判定を独立に記録する
+  - 全有限入力照合による要求の伝達を証明する
+  - 失敗入力と実行条件を保存し再実行する
+  - 仕様の共通誤りと未証明の実行境界を区別する
+definitions:
+  - { id: LVT6-06-DEF-01, name: "検証判定の組" }
+propositions:
+  - { id: LVT6-06-PROP-01, name: "全有限入力照合による要求の伝達" }
+theorems: []
+canonical_examples: ["16入力の所有者制認可", "独立した四判定", "共通誤り"]
+problem_patterns: [LVT6-06-A01, LVT6-06-A02, LVT6-06-A03, LVT6-06-A04, LVT6-06-B01, LVT6-06-B02, LVT6-06-B03, LVT6-06-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2, review: 0.5 }
