@@ -21,7 +21,7 @@ theorems:
   - { id: ATOP4-PROP-02, name: 道の連結と道ホモトピーの両立 }
   - { id: ATOP4-THM-01, name: 道ホモトピー類の演算律 }
   - { id: ATOP4-THM-02, name: 基本群の群構造 }
-  - { id: ATOP4-THM-03, name: 基点変更 }
+  - { id: ATOP4-THM-03, name: 基本群の基点変更 }
   - { id: ATOP4-THM-04, name: 基本群の誘導準同型 }
   - { id: ATOP4-PROP-03, name: 強変形レトラクトと基本群 }
   - { id: ATOP4-PROP-04, name: 可縮空間は単連結 }
