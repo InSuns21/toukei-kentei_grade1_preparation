@@ -1,0 +1,26 @@
+id: "NPCG3"
+title: "CAT(0)条件：木・Euclid空間・反例"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NPCG2
+official_scope: []
+learning_objectives:
+  - CAT(0)条件の全称量化と比較点の選び方を説明できる
+  - Euclid空間の測地線分の一意性と比較距離の等号を平方和から証明できる
+  - 有限距離木の三枝構造と比較不等式を導ける
+  - 格子型距離の反例と完備性の独立性を説明できる
+definitions:
+  - { id: NPCG3-DEF-01, name: "CAT(0)空間" }
+  - { id: NPCG3-DEF-02, name: 有限距離木 }
+theorems:
+  - { id: NPCG3-THM-01, name: "Euclid空間のCAT(0)性" }
+  - { id: NPCG3-THM-02, name: 有限距離木の三枝構造 }
+  - { id: NPCG3-THM-03, name: "有限距離木のCAT(0)性" }
+  - { id: NPCG3-PROP-01, name: 格子型距離の反例 }
+canonical_examples: [通常距離の実直線, Euclid空間, 三方向に分かれる道, 格子型距離, 開区間]
+problem_patterns: [NPCG3-A01, NPCG3-A02, NPCG3-A03, NPCG3-A04, NPCG3-B01, NPCG3-B02, NPCG3-B03, NPCG3-B04, NPCG3-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }

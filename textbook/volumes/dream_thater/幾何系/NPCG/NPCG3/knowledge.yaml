@@ -1,0 +1,43 @@
+chapter: NPCG3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NPCG2
+forward_references: []
+concepts:
+  - id: metric-geometry.cat-zero-space
+    name: "CAT(0)空間"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（CAT(0)空間）"]
+    requires: [metric-geometry.geodesic-space, metric-geometry.geodesic-triangle, metric-geometry.comparison-triangle, metric-geometry.comparison-triangle-existence]
+  - id: metric-geometry.euclidean-cat-zero
+    name: "Euclid空間のCAT(0)性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Euclid空間のCAT(0)性）"]
+    requires: [metric-geometry.cat-zero-space, metric-geometry.comparison-point-distance]
+  - id: metric-geometry.finite-metric-tree
+    name: 有限距離木
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限距離木）"]
+    requires: [topology.metric-space]
+  - id: metric-geometry.finite-tree-tripod
+    name: 有限距離木の三枝構造
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限距離木の三枝構造）"]
+    requires: [metric-geometry.finite-metric-tree, metric-geometry.geodesic-space]
+  - id: metric-geometry.finite-tree-cat-zero
+    name: "有限距離木のCAT(0)性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限距離木のCAT(0)性）"]
+    requires: [metric-geometry.finite-tree-tripod, metric-geometry.euclidean-cat-zero, metric-geometry.cat-zero-space]
+  - id: metric-geometry.l1-cat-zero-counterexample
+    name: 格子型距離の反例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（格子型距離の反例）"]
+    requires: [metric-geometry.cat-zero-space, metric-geometry.geodesic-segment]
