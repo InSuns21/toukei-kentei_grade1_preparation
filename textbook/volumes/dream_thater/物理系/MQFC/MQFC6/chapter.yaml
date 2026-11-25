@@ -2,7 +2,7 @@ id: MQFC6
 title: "Gaussian測度をどう作るか"
 volume: foundations
 status: supplementary
-prerequisites: [MQFC1, MQFC5]
+prerequisites: [MQFC1, MQFC5, F0-00P6, STO3, GCT1]
 official_scope: []
 learning_objectives:
   - 有限次元のGaussian積分を正規化し格子作用から分散共分散行列と特性関数を導ける
