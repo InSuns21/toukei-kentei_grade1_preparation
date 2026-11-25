@@ -1,0 +1,53 @@
+chapter: ATOP3
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP2, TOP1, TOP3]
+forward_references: []
+concepts:
+  - id: atop.retraction
+    name: レトラクション
+    kind: definition
+    introduction: formal
+    introduction_aliases: [レトラクションとレトラクト]
+    requires: [topology.topological-continuous-map]
+  - id: atop.retract
+    name: レトラクト
+    kind: definition
+    introduction: formal
+    introduction_aliases: [レトラクションとレトラクト]
+    requires: [atop.retraction]
+  - id: atop.deformation-retract
+    name: 変形レトラクト
+    kind: definition
+    introduction: formal
+    requires: [atop.retract, atop.homotopy]
+  - id: atop.strong-deformation-retract
+    name: 強変形レトラクト
+    kind: definition
+    introduction: formal
+    requires: [atop.deformation-retract, atop.relative-homotopy]
+  - id: atop.deformation-retract-equivalence
+    name: 変形レトラクトによるホモトピー同値
+    kind: theorem
+    introduction: formal
+    requires: [atop.deformation-retract, atop.homotopy-equivalence, atop.homotopy-equivalence-relation]
+  - id: atop.radial-deformation
+    name: 動径方向の強変形レトラクト
+    kind: proposition
+    introduction: formal
+    requires: [atop.strong-deformation-retract]
+  - id: atop.contractibility
+    name: 可縮性
+    kind: definition
+    introduction: formal
+    requires: [atop.homotopy]
+  - id: atop.contractibility-point-equivalence
+    name: 可縮性と一点空間
+    kind: theorem
+    introduction: formal
+    requires: [atop.contractibility, atop.homotopy-equivalence, atop.homotopy-equivalence-relation]
+  - id: atop.retract-contractibility
+    name: 可縮空間のレトラクト
+    kind: proposition
+    introduction: formal
+    requires: [atop.contractibility, atop.retract, atop.homotopy-composition]
