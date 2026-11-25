@@ -28,7 +28,7 @@ $$
 存在と一意性は [多因子のテンソル積の普遍性](../TSP1/index.md#def-tsp1-multifactor-product) から従います。右辺で第 $a$ 入力だけを $\lambda x+\mu y$ に替えると、まず $A_a(\lambda x+\mu y)=\lambda A_ax+\mu A_ay$ となり、さらに積のその位置での線形性によって二項に分かれます。したがって右辺は多重線形であり、普遍性の仮定を満たします。
 
 <!-- definition-example-start: def-tsp4-local-map -->
-**定義の確認**。$V_1=V_2=K^2$、$W_1=W_2=K$ とし、$A_1(x,y)=x$、$A_2(x,y)=y$ とします。どちらも座標の取り出しなので線形です。標準基底を $e_i$ とすると、$A_1e_1=A_2e_2=1$ で、$A_1e_2=A_2e_1=0$ です。[多因子テンソル積の基底](../TSP1/index.md#thm-tsp1-multifactor-basis) により入力は四つの積の和として一意に書けます。各積の出力は
+**定義の確認**。$V_1=V_2=K^2$、$W_1=W_2=K$ とし、$A_1(x,y)=x$、$A_2(x,y)=y$ とします。どちらも座標の取り出しなので線形です。標準基底を $e_i$ とすると、$A_1e_1=A_2e_2=1$ で、$A_1e_2=A_2e_1=0$ です。[多因子テンソル積の存在・基底・一意性](../TSP1/index.md#thm-tsp1-multifactor-basis) により入力は四つの積の和として一意に書けます。各積の出力は
 
 $$
 (A_1\otimes A_2)(e_i\otimes e_j)
@@ -170,7 +170,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-tsp4-diagonal -->
-**定義の確認**。$d=3,r=2$ では $D_2=E_{111}+E_{222}$ です。[多因子テンソル積の基底](../TSP1/index.md#thm-tsp1-multifactor-basis) に従って展開すると、8成分のうち添字が全て1または全て2の二成分だけが1です。分割 $1|23$ の平坦化は
+**定義の確認**。$d=3,r=2$ では $D_2=E_{111}+E_{222}$ です。[多因子テンソル積の存在・基底・一意性](../TSP1/index.md#thm-tsp1-multifactor-basis) に従って展開すると、8成分のうち添字が全て1または全て2の二成分だけが1です。分割 $1|23$ の平坦化は
 
 $$
 \begin{pmatrix}1&0&0&0\\0&0&0&1\end{pmatrix}.
@@ -244,7 +244,7 @@ $$
 > とする。
 <!-- formal-statement-end -->
 
-最大値は存在します。各因子から零空間への写像で $D_0$ を得られます。また [制限による階数の単調性](#thm-tsp4-restriction-bounds) と [対角テンソルの階数](#thm-tsp4-rank-restriction) から、候補は全て $r\le R_K(t)$ を満たすので有限集合です。
+最大値は存在します。各因子から零空間への写像で $D_0$ を得られます。また [制限による階数の単調性](#thm-tsp4-restriction-bounds) と [対角テンソルによる階数の特徴付け](#thm-tsp4-rank-restriction) から、候補は全て $r\le R_K(t)$ を満たすので有限集合です。
 
 <!-- definition-example-start: def-tsp4-subrank -->
 **定義の確認**。$t=E_{111}+2E_{222}$ を $K=\mathbb Q$ 上で考えます。第1因子の写像を $e_1\mapsto e_1,\ e_2\mapsto e_2/2$ とし、残り二因子は恒等写像とすると
@@ -285,7 +285,7 @@ $$
 (\bigotimes_a v_a)=\bigotimes_a (B_aA_av_a).
 $$
 
-[多因子テンソル積の基底](../TSP1/index.md#thm-tsp1-multifactor-basis) は単純テンソルからなるので、線形写像としても合成は $\bigotimes_a(B_aA_a)$ に等しくなります。従って $D_q\preceq t$ であり、最大値の定義から $q\le Q_K(t)$ です。
+[多因子テンソル積の存在・基底・一意性](../TSP1/index.md#thm-tsp1-multifactor-basis) は単純テンソルからなるので、線形写像としても合成は $\bigotimes_a(B_aA_a)$ に等しくなります。従って $D_q\preceq t$ であり、最大値の定義から $q\le Q_K(t)$ です。
 
 $p=Q_K(t)$ とすれば $D_p\preceq t$ です。第3節で確認した平坦化の階数と [制限による階数の単調性](#thm-tsp4-restriction-bounds) から
 
@@ -390,16 +390,15 @@ $$
 
 ## 6. 演習
 
-以下、特に指定しない限り体 $K$ は任意、$E_{ijk}=e_i\otimes e_j\otimes e_k$ とします。
+以下、特に指定しない限り体 $K$ は任意、各 $K^n$ には標準基底を取り、$E_{ijk}=e_i\otimes e_j\otimes e_k$ とします。
 
 ### Level A
 
 <a id="ex-tsp4-a01"></a>
 
 #### TSP4-A01 局所写像の座標計算
-
 - Level: A
-- パターン: TSP4-LOCAL-MAP
+- ID: TSP4-A01
 
 $K^2$ の三因子で $t=E_{111}+E_{212}+E_{222}$ とします。第1写像は $e_1\mapsto e_1,\ e_2\mapsto e_1+e_2$、第2写像は $e_1\mapsto0,\ e_2\mapsto e_2$、第3写像は恒等写像です。出力を基底展開してください。
 
@@ -419,9 +418,8 @@ $$
 <a id="ex-tsp4-a02"></a>
 
 #### TSP4-A02 対角テンソルを小さくする
-
 - Level: A
-- パターン: TSP4-DIAGONAL
+- ID: TSP4-A02
 
 $d=3$ とします。$D_2\preceq D_3$ を実現する三つの線形写像を作り、逆向きの制限が不可能である理由を述べてください。
 
@@ -435,15 +433,14 @@ $$
 =e_1^{\otimes3}+e_2^{\otimes3}+0=D_2.
 $$
 
-逆向きなら [制限による階数の単調性](#thm-tsp4-restriction-bounds) と [対角テンソルの階数](#thm-tsp4-rank-restriction) により $3\le2$ が必要となるので不可能です。
+逆向きなら [制限による階数の単調性](#thm-tsp4-restriction-bounds) と [対角テンソルによる階数の特徴付け](#thm-tsp4-rank-restriction) により $3\le2$ が必要となるので不可能です。
 <!-- solution-end -->
 
 <a id="ex-tsp4-a03"></a>
 
 #### TSP4-A03 一つの非零成分を取り出す
-
 - Level: A
-- パターン: TSP4-NONZERO
+- ID: TSP4-A03
 
 実数体上で $t=3E_{121}-2E_{222}$ とします。$D_1\preceq t$ を実現する線形写像を三つ書いてください。
 
@@ -463,9 +460,8 @@ $$
 <a id="ex-tsp4-a04"></a>
 
 #### TSP4-A04 階数と劣階数の向き
-
 - Level: A
-- パターン: TSP4-ORIENTATION
+- ID: TSP4-A04
 
 $K^2$ の三因子上の $t=E_{111}+E_{122}$ の階数と劣階数を求めてください。
 
@@ -494,9 +490,8 @@ $$
 <a id="ex-tsp4-b01"></a>
 
 #### TSP4-B01 対角テンソルから作る
-
 - Level: B
-- パターン: TSP4-RANK-REALIZATION
+- ID: TSP4-B01
 
 $K^2$ の三因子上で $t=E_{112}+(e_1+e_2)\otimes e_2\otimes e_1$ とします。$t\preceq D_2$ を明示し、$t\preceq D_1$ が不可能であることを示してください。
 
@@ -512,15 +507,14 @@ F_{1|23}(t)=
 \begin{pmatrix}0&1&1&0\\0&0&1&0\end{pmatrix}.
 $$
 
-第2列と第3列の差を取ると二つの標準基底が得られ、行列階数は2です。[制限による階数の単調性](#thm-tsp4-restriction-bounds) を仮に $t\preceq D_1$ に適用すれば、この階数は $D_1$ の平坦化の階数1以下となるはずです。矛盾なので $D_1$ からは作れません。
+第2列は第1標準基底で、第3列から第2列を引くと第2標準基底が得られ、行列階数は2です。[制限による階数の単調性](#thm-tsp4-restriction-bounds) を仮に $t\preceq D_1$ に適用すれば、この階数は $D_1$ の平坦化の階数1以下となるはずです。矛盾なので $D_1$ からは作れません。
 <!-- solution-end -->
 
 <a id="ex-tsp4-b02"></a>
 
 #### TSP4-B02 二因子の取り出し
-
 - Level: B
-- パターン: TSP4-MATRIX-SUBRANK
+- ID: TSP4-B02
 
 二因子テンソルの係数行列が
 
@@ -539,7 +533,7 @@ $$
 B=\begin{pmatrix}1&0&0\\0&1&0\end{pmatrix}
 $$
 
-とすれば、[平坦化に対する局所写像の作用](#thm-tsp4-restriction-bounds) により
+とすれば、[制限による階数の単調性](#thm-tsp4-restriction-bounds) により
 
 $$
 MB^{\mathsf T}=\begin{pmatrix}1&2\\0&1\end{pmatrix}.
@@ -557,9 +551,8 @@ $$
 <a id="ex-tsp4-b03"></a>
 
 #### TSP4-B03 逆写像で戻す
-
 - Level: B
-- パターン: TSP4-INVERTIBLE
+- ID: TSP4-B03
 
 $K^2$ の三因子上で $t=E_{111}+(e_1+e_2)\otimes e_2\otimes(e_1+e_2)$ とします。$D_2\preceq t$ を実現し、階数と劣階数を求めてください。
 
@@ -584,9 +577,8 @@ $$
 <a id="ex-tsp4-b04"></a>
 
 #### TSP4-B04 因子を一つ減らさずに合成する
-
 - Level: B
-- パターン: TSP4-COMPOSITION
+- ID: TSP4-B04
 
 三因子テンソル $t$ から $s$ への制限が写像 $A_a$ で、$s$ から $u$ への制限が写像 $B_a$ で実現されているとします。各写像の合成が定義されることを確認し、$u\preceq t$ を示してください。
 
@@ -616,9 +608,8 @@ $$
 <a id="ex-tsp4-c01"></a>
 
 #### TSP4-C01 平坦化の上界だけでは取り出せない
-
 - Level: C
-- パターン: TSP4-STRICT-GAP
+- ID: TSP4-C01
 
 四つの $K^2$ のテンソル積で $E_{ijkl}=e_i\otimes e_j\otimes e_k\otimes e_l$ とし、
 
@@ -633,7 +624,7 @@ $$
 
 各位置を行とする平坦化では、行1に残り三位置のうち一つだけが2である三列に1が入り、行2には残り三位置が全て1である列だけに1が入ります。後者の列は $(0,1)^{\mathsf T}$、前者のいずれかは $(1,0)^{\mathsf T}$ です。行数2なので階数は2です。
 
-[劣階数の基本評価](#thm-tsp4-subrank-bounds) から非零の $t$ に対し $1\le Q_K(t)\le2$。もし $D_2\preceq t$ なら各写像 $A_a:K^2\to K^2$ が存在します。第 $a$ 位置を行とする平坦化に [局所写像の作用公式](#thm-tsp4-restriction-bounds) を適用すると、出力の列は全て $A_a$ の像に属します。出力 $D_2$ の平坦化は階数2なので、その像は二次元全体です。従って四つの $A_a$ は全て可逆で、逆向きの制限も得られます。すると $R_K(t)=R_K(D_2)=2$ です。
+[劣階数の基本評価](#thm-tsp4-subrank-bounds) から非零の $t$ に対し $1\le Q_K(t)\le2$。もし $D_2\preceq t$ なら各写像 $A_a:K^2\to K^2$ が存在します。第 $a$ 位置を行とする平坦化に [制限による階数の単調性](#thm-tsp4-restriction-bounds) を適用すると、出力の列は全て $A_a$ の像に属します。出力 $D_2$ の平坦化は階数2なので、その像は二次元全体です。従って四つの $A_a$ は全て可逆で、逆向きの制限も得られます。すると $R_K(t)=R_K(D_2)=2$ です。
 
 ここで第4因子だけを $e_1\mapsto1,\ e_2\mapsto0$ で $K$ へ写し、他は恒等写像とします。第四因子が1の三項だけ残り、出力は
 
