@@ -44,7 +44,7 @@ $$
 <!-- formal-statement-start -->
 > **定理（平坦化による境界階数下界）**
 >
-> 複素数体上の有限次元テンソル $t$ と、因子位置の任意の非空な二分割 $I,J$ に対し、その平坦化行列を $F_{I,J}(t)$ とする。このとき
+> 複素数体上の正の有限次元空間 $V_a$（$1\le a\le d$、$d\ge2$）のテンソル積の元 $t$ を取る。因子位置の任意の非空な二分割 $I,J$ に対し、その平坦化行列を $F_{I,J}(t)$ とする。このとき
 >
 $$
 \operatorname{rank}F_{I,J}(t)\le\underline R(t)\le R(t).
@@ -114,7 +114,7 @@ $$
 q(\varepsilon)=\frac{P(\varepsilon)-P(0)}{\varepsilon}
 $$
 
-は二項の単純テンソルの和（スカラー係数を一因子に吸収）であり、$R(q(\varepsilon))\le2$ です。多重線形性で展開すると
+は二項の単純テンソルの和（スカラー係数を一因子に吸収）であり、$R(q(\varepsilon))\le2$ です。[多因子テンソル積の基底展開](../TSP1/index.md#thm-tsp1-multifactor-basis)と各因子の線形性に従って展開すると
 
 $$
 P(\varepsilon)=P(0)+\varepsilon w+
@@ -156,7 +156,7 @@ $$
 [v_1\otimes\cdots\otimes v_d]
 $$
 
-とします。各 $v_a$ を非零スカラー $\lambda_a$ 倍すると積全体は $\prod_a\lambda_a$ 倍になるので射影点は変わりません。また各 $v_a$ に少なくとも一つ非零座標があり、その組の積も非零です。従って写像は全点で定義されます。像を $X$ とします。
+とします。各 $v_a$ を非零スカラー $\lambda_a$ 倍すると積全体は $\prod_a\lambda_a$ 倍になるので射影点は変わりません。また各 $v_a$ に少なくとも一つ非零座標があり、その組の積も非零です。従って写像は全点で定義されます。像を $X$ とします。これは射影代数的集合です。実際、全ての一因子対残りの平坦化について $2\times2$ 小行列式を零とする条件を考えます。単純テンソルなら全条件を満たします。逆に非零テンソルがこれらを満たすと、第1因子の平坦化は階数1なので、[二因子テンソル階数と行列階数の一致](../TSP2/index.md#thm-tsp2-matrix-rank)から $t=v_1\otimes u$ と書けます。$v_1$ の非零座標を一つ選び、その座標で第1因子を固定すると、残りの一因子平坦化の部分行列は $u$ の平坦化の非零定数倍になります。従って $u$ も同じ条件を満たします。この操作を因子が一つになるまで繰り返せば $t=v_1\otimes\cdots\otimes v_d$ となります。小行列式は斉次二次式なので、その共通零点は射影代数的集合です。
 
 例えば三因子で $v_1=e_1+2e_2$、$v_2=f_1+3f_2$、$v_3=g_1$ なら、非零座標は $111,121,211,221$ の順に $1,3,2,6$ です。射影点はこれらを同時に非零倍しても同じです。
 
@@ -167,7 +167,7 @@ $X$ の $r$ 個以下の点の代表ベクトルを線形結合すると、$r$ �
 <!-- formal-statement-start -->
 > **定義（割線多様体）**
 >
-> 複素数体上の有限次元空間 $E$ の射影空間に含まれる非空集合 $X$ と正整数 $r$ を取る。$X$ の高々 $r$ 個の点の射影線形包の和集合を $L_r(X)$ とし、
+> 複素数体上の正の有限次元空間 $E$ の射影空間に含まれる非空の射影代数的集合 $X$ と正整数 $r$ を取る。$X$ の高々 $r$ 個の点の射影線形包の和集合を $L_r(X)$ とし、
 >
 $$
 \sigma_r(X)=\overline{L_r(X)}^{Z}
@@ -264,7 +264,7 @@ $e_1\otimes f_1+2e_2\otimes f_2$ の境界階数を求めよ。各因子は $\ma
 
 #### TSP8-A02 Segre座標
 
-$(e_1+2e_2)\otimes(f_1-f_2)\otimes(g_1+g_2)$ の8座標を辞書式順序で求めよ。
+各因子を $\mathbb C^2$ とし、$e_i,f_i,g_i$ をそれぞれの標準基底とする。$(e_1+2e_2)\otimes(f_1-f_2)\otimes(g_1+g_2)$ の8座標を辞書式順序で求めよ。添字は各因子で1,2の順とする。
 
 <!-- solution-start -->
 ##### 詳細解答
@@ -288,7 +288,7 @@ $221$ は第1、第2因子だけから $\varepsilon$ が現れるため $P(\vare
 
 #### TSP8-A04 射影点と線形結合
 
-二つの基底単純テンソル $e_1\otimes f_1,e_2\otimes f_2$ の射影線形包に $[e_1\otimes f_1-e_2\otimes f_2]$ が入るか。第1割線多様体にも入るか。
+各因子を $\mathbb C^2$ とし、$X$ をその Segre 像とする。二つの基底単純テンソル $e_1\otimes f_1,e_2\otimes f_2$ の射影線形包に $[e_1\otimes f_1-e_2\otimes f_2]$ が入るか。第1割線多様体にも入るか。
 
 <!-- solution-start -->
 ##### 詳細解答
@@ -330,7 +330,7 @@ $$
 
 #### TSP8-B02 退化できない候補
 
-各因子を $\mathbb C^3$ とし、$D=\sum_{i=1}^3 e_i\otimes f_i\otimes g_i$ とする。境界階数2以下の族で $D$ を近似できるか。
+各因子を $\mathbb C^3$ とし、$D=\sum_{i=1}^3 e_i\otimes f_i\otimes g_i$ とする。境界階数2以下の族の座標収束極限として $D$ を得られるか。
 
 <!-- solution-start -->
 ##### 詳細解答
@@ -342,7 +342,7 @@ $$
 
 #### TSP8-B03 斉次成分を分離する理由
 
-スカラー倍で閉じた集合 $S\subset\mathbb C^N$ 上で $p=p_0+p_1+p_2$ が零とする。各 $p_j$ は次数 $j$ の斉次多項式である。$p_j$ がそれぞれ $S$ 上で零になることを $\lambda=0,1,-1$ を使って確かめよ。
+零倍も含めた全てのスカラー倍で閉じた集合 $S\subset\mathbb C^N$ 上で $p=p_0+p_1+p_2$ が零とする。各 $p_j$ は次数 $j$ の斉次多項式である。$p_j$ がそれぞれ $S$ 上で零になることを $\lambda=0,1,-1$ を使って確かめよ。
 
 <!-- solution-start -->
 ##### 詳細解答
@@ -379,13 +379,25 @@ P(\varepsilon)\boxtimes P(\varepsilon)
 +P(0)\boxtimes P(0).
 $$
 
-これは多項式因子を持つ四項です。一方、次数ごとに展開すると
+これは多項式因子を持つ四項です。一方、各次数の係数を $C_j$ と置き、次数ごとに展開すると
 
 $$
 A(\varepsilon)\boxtimes A(\varepsilon)
-=\varepsilon^2(w\boxtimes w)+\varepsilon^3(w\boxtimes h+h\boxtimes w)
-+\varepsilon^4(w\boxtimes k+h\boxtimes h+k\boxtimes w)
-+\varepsilon^5(h\boxtimes k+k\boxtimes h)+\varepsilon^6(k\boxtimes k).
+=\sum_{j=2}^{6}\varepsilon^j C_j.
+$$
+
+各係数は次の通りです。
+
+$$
+C_2=w\boxtimes w,\qquad C_3=w\boxtimes h+h\boxtimes w,
+$$
+
+$$
+C_4=w\boxtimes k+h\boxtimes h+k\boxtimes w,
+$$
+
+$$
+C_5=h\boxtimes k+k\boxtimes h,\qquad C_6=k\boxtimes k.
 $$
 
 [多項式パラメータによる境界階数上界](#prop-tsp8-polynomial-degeneration)を $r=4,m=2,L=4$ で適用して上界4です。
