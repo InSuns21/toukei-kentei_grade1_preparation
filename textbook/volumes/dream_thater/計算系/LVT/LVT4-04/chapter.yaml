@@ -1,0 +1,25 @@
+id: "LVT4-04"
+title: "有効・無効入力の生成と仮定"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT4-03, LVT3-06]
+official_scope: []
+learning_objectives:
+  - 合法履歴から到達可能な盤面を生成する
+  - 合法着手、重複着手、範囲外、終局後を区別して生成する
+  - 入力除外と条件付き検査の関係を証明する
+  - 除外件数と誤実装の不一致を比較する
+definitions:
+  - { id: LVT4-04-DEF-01, name: "合法履歴の再生" }
+  - { id: LVT4-04-DEF-02, name: "着手入力の優先分類" }
+propositions:
+  - { id: LVT4-04-PROP-01, name: "合法履歴の再生による到達可能性" }
+  - { id: LVT4-04-PROP-02, name: "着手入力の分類と受理の同値性" }
+  - { id: LVT4-04-PROP-03, name: "入力除外と条件付き検査の同値性" }
+theorems: []
+canonical_examples: ["厳密な履歴再生", "四分類の件数", "合法手限定で見逃す誤実装"]
+problem_patterns: [LVT4-04-A01, LVT4-04-A02, LVT4-04-A03, LVT4-04-A04, LVT4-04-B01, LVT4-04-B02, LVT4-04-B03, LVT4-04-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2, review: 0.5 }
