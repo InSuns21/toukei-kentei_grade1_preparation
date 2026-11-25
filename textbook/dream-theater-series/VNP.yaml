@@ -18,7 +18,7 @@ chapters:
     title: "A：スペクトル点から擬距離とprice、回路を評価するLemma A.3"
   - id: VNP4
     path: textbook/volumes/dream_thater/計算系/VNP/VNP4
-    status: planned
+    status: completed
     title: "A：gaugeの最小化・冪の極限・双対性"
   - id: VNP5
     path: textbook/volumes/dream_thater/計算系/VNP/VNP5
