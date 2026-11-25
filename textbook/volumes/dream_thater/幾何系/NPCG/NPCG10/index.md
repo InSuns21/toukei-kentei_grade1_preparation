@@ -8,7 +8,7 @@
 
 以下では空でない完備 [CAT(0)空間](../NPCG3/index.md#def-npcg3-cat-zero) $(X,d)$ を扱います。集合 $C$ は空でない閉 [測地線凸集合](../NPCG5/index.md#def-npcg5-geodesically-convex-set) とします。すなわち集合内の二点を結ぶ測地線分は集合内にあり、集合内の収束列の極限も集合内にあります。[距離射影の存在と一意性](../NPCG7/index.md#thm-npcg7-projection-existence) により、各点 $x$ の $C$ 内での唯一の最近点 $P_Cx$ が存在します。
 
-複数の集合 $C_i$ が指定されたとき、同じ出発点から各集合へ射影し、その射影先を [有限加重重心](../NPCG8/index.md#def-npcg8-weighted-barycenter) でまとめる方法を考えます。もう一つは、一つの集合への射影先を次の射影の入力にする方法です。
+複数の集合 $C_i$ が指定されたとき、同じ出発点から各集合へ射影し、その射影先を [有限加重重心](../NPCG8/index.md#def-npcg8-weighted-barycenter) でまとめる方法を考えます。重みが正で総和1なら、[有限加重重心の存在と一意性](../NPCG8/index.md#thm-npcg8-barycenter-existence) により平均の点が一意に定まります。もう一つは、一つの集合への射影先を次の射影の入力にする方法です。
 
 <a id="def-npcg10-averaged-projection"></a>
 
@@ -18,7 +18,7 @@
 > 空でない完備CAT(0)空間 $(X,d)$ の空でない閉測地線凸集合 $C_1,\ldots,C_m$ を取り、整数 $m\ge1$ と正の重み $w_i$ を用い、重みの総和を1とする。写像 $T:X\to X$ を、各 $x\in X$ に対して
 
 $$
-Tx=\mathop{\rm argmin}_{u\in X}
+Tx=\operatorname*{argmin}_{u\in X}
 \sum_{i=1}^m w_i d(u,P_{C_i}x)^2
 $$
 
@@ -566,6 +566,51 @@ d(Tx,K)^2\le d(x,K)^2-\eta d(x,K)^2
 $$
 
 交互射影の場合と異なり、$T$ の出力は一般にはどの $C_i$ にも属さないため、この問題の仮定は全 $X$ で課しています。
+<!-- solution-end -->
+
+<a id="ex-npcg10-b05"></a>
+
+### NPCG10-B05 二つの平均反復のずれ
+
+- Level: B
+- 目安時間: 12分
+- 主題: 非拡大性と計算誤差
+
+完備CAT(0)空間の非空閉凸集合から、正で総和1の重みを用いて射影平均 $T$ を作る。正確な反復を $u_{n+1}=Tu_n$ とし、近似反復 $(v_n)$ は各段階で $d(v_{n+1},Tv_n)\le\varepsilon_n$ を満たすとする。ただし $\varepsilon_n\ge0$ とする。任意の整数 $N\ge1$ に対して
+
+$$
+d(u_N,v_N)\le d(u_0,v_0)+\sum_{n=0}^{N-1}\varepsilon_n
+$$
+
+を示せ。さらに初期点が一致し、最初の3段階の誤差上界が順に $1/10,1/20,1/40$ の場合の上界を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+三角不等式と [射影平均の非拡大性](#thm-npcg10-average-nonexpansive) を用います。任意の $n\ge0$ について
+
+$$
+\begin{aligned}
+d(u_{n+1},v_{n+1})
+&=d(Tu_n,v_{n+1})\\
+&\le d(Tu_n,Tv_n)+d(Tv_n,v_{n+1})\\
+&\le d(u_n,v_n)+\varepsilon_n.
+\end{aligned}
+$$
+
+両辺の差を取って $n=0,\ldots,N-1$ について足すと
+
+$$
+d(u_N,v_N)-d(u_0,v_0)\le\sum_{n=0}^{N-1}\varepsilon_n.
+$$
+
+移項して結論を得ます。$u_0=v_0$、$N=3$ の場合は
+
+$$
+d(u_3,v_3)\le\tfrac1{10}+\tfrac1{20}+\tfrac1{40}=\tfrac7{40}.
+$$
+
+各段階で誤差は加わり得ますが、既存のずれが射影平均によって拡大することはありません。
 <!-- solution-end -->
 
 <a id="ex-npcg10-c01"></a>
