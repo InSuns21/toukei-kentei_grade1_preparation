@@ -1,0 +1,15 @@
+chapter: LVT5-02
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT5-01, LVT1-06, LVT3-01]
+concepts:
+  - id: lean-verification.line-oracle-contract
+    name: 行単位オラクル契約
+    kind: definition
+    introduction: formal
+    requires: [lean-verification.observed-differential]
+  - id: lean-verification.batch-stream-agreement
+    name: バッチと逐次応答列の一致
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.line-oracle-contract]
