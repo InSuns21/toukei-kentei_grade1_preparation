@@ -1,0 +1,20 @@
+chapter: FML6
+scope: dream-theater
+coverage: complete
+prerequisites: [FML5, LVT1-02]
+concepts:
+  - id: formal-math.statement-matching
+    name: 定理ステートメント照合
+    kind: definition
+    introduction: formal
+    requires: [formal-math.conditional-claim]
+  - id: formal-math.multikernel-acceptance
+    name: 複数カーネルによる受入条件
+    kind: definition
+    introduction: formal
+    requires: [formal-math.axiom-policy, formal-math.statement-matching]
+  - id: formal-math.sound-checker-acceptance
+    name: 全検査の受入と健全な検査器
+    kind: proposition
+    introduction: formal
+    requires: [formal-math.multikernel-acceptance]
