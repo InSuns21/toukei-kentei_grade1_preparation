@@ -15,7 +15,7 @@ definitions:
   - { id: GCT11-DEF-01, name: "計数完全性" }
 theorems:
   - { id: GCT11-THM-01, name: "#3SATの計数完全性" }
-  - "{ id: GCT11-THM-02, name: "0–1パーマネントの #P 所属" }"
+  - { id: GCT11-THM-02, name: "0–1パーマネントの #P 所属" }
   - { id: GCT11-LEM-01, name: "XORガジェットの境界重み" }
   - { id: GCT11-THM-03, name: "充足割当数の符号付きパーマネント表現" }
   - { id: GCT11-THM-04, name: "Valiantの0–1パーマネント計数完全性" }
