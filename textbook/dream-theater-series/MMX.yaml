@@ -18,7 +18,7 @@ chapters:
     title: "上下界の古典史：Biniの補間、Schönhage漸近和不等式、laser法・手法限定障壁の量化"
   - id: MMX4
     path: textbook/volumes/dream_thater/計算系/MMX/MMX4
-    status: planned
+    status: completed
     title: "多項式乗算テンソルと次数profile・補間、スペクトル点への評価"
   - id: MMX5
     path: textbook/volumes/dream_thater/計算系/MMX/MMX5
