@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - GCT12
+  - NA4
 official_scope: []
 learning_objectives:
   - 符号付き整数行列から次数高々nの評価多項式を構成できる
