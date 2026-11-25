@@ -82,3 +82,4 @@
 79. [CATB5-05 層化の随伴と左完全性](textbook/volumes/dream_thater/基礎論系/CATB/CATB5-05/index.md)
 80. [CATB5-06 初等トポスと部分対象分類子](textbook/volumes/dream_thater/基礎論系/CATB/CATB5-06/index.md)
 81. [CATB5-07 層の圏のトポス構造](textbook/volumes/dream_thater/基礎論系/CATB/CATB5-07/index.md)
+82. [CATB5-08 トポスでの像と正確性](textbook/volumes/dream_thater/基礎論系/CATB/CATB5-08/index.md)
