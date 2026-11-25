@@ -1,0 +1,46 @@
+id: "FLOER1-01"
+title: "Lagrange横断交叉と境界値問題"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYM6
+  - SYM8
+  - GW1-02
+  - GW1-03
+  - GA2
+official_scope: []
+learning_objectives:
+  - Lagrange横断交叉の接空間条件から交点の孤立性を示せる
+  - 完全実性を定義し適合構造のもとでLagrange方向が完全実になる理由を証明できる
+  - 有限stripの方程式と境界条件を具体例で検算し線形化を導ける
+  - 実境界での共役反射の弱微分と一階評価を証明できる
+  - 境界に適合する局所枠と零階項を用いて有限stripの評価を導ける
+definitions:
+  - { id: FLOER1-01-DEF-01, name: "Lagrange横断交叉" }
+  - { id: FLOER1-01-DEF-02, name: "完全実部分空間" }
+  - { id: FLOER1-01-DEF-03, name: "Lagrange境界条件付きstrip" }
+theorems:
+  - { id: FLOER1-01-PROP-01, name: "適合構造に対するLagrange境界の完全実性" }
+  - { id: FLOER1-01-PROP-02, name: "横断交叉点の孤立性" }
+  - { id: FLOER1-01-PROP-03, name: "stripの境界条件の線形化" }
+  - { id: FLOER1-01-THM-01, name: "平坦実境界での反射と一階評価" }
+  - { id: FLOER1-01-THM-02, name: "有限stripの境界付き一階楕円型評価" }
+canonical_examples:
+  - 平面の実軸と虚軸の横断交叉
+  - 完全実平面と複素直線の対比
+  - 指数関数による有限strip
+  - 実境界での反射と動く枠
+problem_patterns:
+  - FLOER1-01-A01
+  - FLOER1-01-A02
+  - FLOER1-01-A03
+  - FLOER1-01-A04
+  - FLOER1-01-B01
+  - FLOER1-01-B02
+  - FLOER1-01-B03
+  - FLOER1-01-B04
+  - FLOER1-01-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 3 }

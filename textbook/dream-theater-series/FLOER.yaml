@@ -1,0 +1,27 @@
+version: 1
+id: FLOER
+title: "Floer理論の解析基盤"
+plan: textbook/plans_progress/DREAM_THEATER_FLOER_ANALYTIC_FOUNDATIONS_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+chapters:
+  - id: FLOER1-01
+    path: textbook/volumes/dream_thater/幾何系/FLOER/FLOER1-01
+    status: completed
+    title: "Lagrange横断交叉と境界値問題"
+  - id: FLOER1-02
+    path: textbook/volumes/dream_thater/幾何系/FLOER/FLOER1-02
+    status: planned
+    title: "stripの端と作用・エネルギー"
+  - id: FLOER1-03
+    path: textbook/volumes/dream_thater/幾何系/FLOER/FLOER1-03
+    status: planned
+    title: "重み付きSobolev空間とFredholm指数"
+  - id: FLOER1-04
+    path: textbook/volumes/dream_thater/幾何系/FLOER/FLOER1-04
+    status: planned
+    title: "Floer理論の横断性・コンパクト性・境界"
+  - id: FLOER1-05
+    path: textbook/volumes/dream_thater/幾何系/FLOER/FLOER1-05
+    status: planned
+    title: "Floer理論の貼り合わせと向き"
