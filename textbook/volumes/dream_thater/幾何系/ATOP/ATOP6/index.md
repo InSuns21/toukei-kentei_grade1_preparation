@@ -8,7 +8,7 @@ $I=[0,1]$、$S^1=\{(x,y)\in\mathbb R^2:x^2+y^2=1\}$ とします。円周には�
 
 ## 1. 円周をほどいて回転を記録する
 
-[円周の実直線による被覆](../ATOP5/index.md#prop-atop5-circle-cover) は次の写像です。
+[円周の実直線による被覆](../ATOP5/index.md#prop-atop5-circle-cover) は次の写像です。これは[被覆写像](../ATOP5/index.md#def-atop5-covering-map) なので、円周上の各点には逆像が存在します。
 
 $$
 p(u)=(\cos(2\pi u),\sin(2\pi u)).
@@ -94,7 +94,7 @@ $$
 
 時計回りに二周しました。
 
-始点の別の逆像 $a'=5/4$ を選び、$L_2(s)=5/4-2s$ と置きます。$L_2$ は連続で $L_2(0)=a'$、また $L_2(s)=L(s)+1$ なので $p(L_2(s))=p(L(s))=\alpha(s)$ です。道の持上げの一意性から $L_2=\widetilde\alpha_{a'}$ です。
+始点の別の逆像 $a'=5/4$ を選び、$L_2(s)=5/4-2s$ と置きます。$L_2$ は連続で $L_2(0)=a'$、また $L_2(s)=L(s)+1$ なので $p(L_2(s))=p(L(s))=\alpha(s)$ です。[道の持上げ](../ATOP5/index.md#thm-atop5-path-lifting) の一意性から $L_2=\widetilde\alpha_{a'}$ です。
 
 $$
 L_2(1)-a'=-3/4-5/4=-2.
@@ -220,7 +220,7 @@ $$
 p(R(s))=p(A(1-s))=\alpha(1-s)=\bar\alpha(s).
 $$
 
-従って道の持上げの一意性から $R$ が逆走の持上げです。
+従って[道の持上げ](../ATOP5/index.md#thm-atop5-path-lifting) の一意性から $R$ が逆走の持上げです。
 
 $$
 R(1)-a=A(0)-m-a=-m.
@@ -271,7 +271,7 @@ $$
 \gamma_n(s)=p(a+ns).
 $$
 
-これは連続で、両端の投影は $x$ です。
+これは連続で、始点は $p(a)=x$、終点は整数周期性より $p(a+n)=p(a)=x$ です。
 
 $a+ns$ は連続で初期値 $a$、投影は $\gamma_n$ なので [道の持上げ](../ATOP5/index.md#thm-atop5-path-lifting) の一意性からその持上げです。
 
@@ -533,7 +533,7 @@ $$
 w(F_d\circ\alpha)=dA(1)=d\,w(\alpha).
 $$
 
-[基本群の誘導準同型](../ATOP4/index.md#thm-atop4-induced-homomorphism) は $[\alpha]\mapsto[F_d\circ\alpha]$ で定まります。[円周の基本群](#thm-atop6-fundamental-group-circle) の同型 $W$ で整数に移します。$(F_d)_*$ は $F_d$ が誘導する、ループの類に作用する写像です。$W^{-1}(n)=[\gamma_n]$ を代入すれば
+[基本群の誘導準同型](../ATOP4/index.md#thm-atop4-induced-homomorphism) は $[\alpha]\mapsto[F_d\circ\alpha]$ で定まります。[円周の基本群](#thm-atop6-fundamental-group-circle) の同型 $W$ で整数に移します。$(F_d)_*$ は $F_d$ が誘導する、ループの類に作用する写像です。$W^{-1}(n)=[\gamma_n]$（ここでは基点が $b$ なので $\gamma_n(s)=p(ns)$）を代入すれば
 
 $$
 (W\circ(F_d)_*\circ W^{-1})(n)
