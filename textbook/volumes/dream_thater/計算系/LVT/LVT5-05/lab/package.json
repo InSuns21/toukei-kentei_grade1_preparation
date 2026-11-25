@@ -1,0 +1,20 @@
+{
+  "name": "lvt-typescript-drt",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.16.0"
+  },
+  "scripts": {
+    "test": "node --experimental-strip-types differential.ts test",
+    "discover": "node --experimental-strip-types differential.ts discover",
+    "replay": "node --experimental-strip-types differential.ts replay"
+  },
+  "dependencies": {
+    "fast-check": "3.23.2",
+    "pure-rand": "6.1.0"
+  },
+  "overrides": {
+    "pure-rand": "6.1.0"
+  }
+}

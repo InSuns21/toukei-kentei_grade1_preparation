@@ -1,0 +1,15 @@
+chapter: LVT5-05
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT5-04, LVT5-03, LVT5-02]
+concepts:
+  - id: lean-verification.paired-observation
+    name: 要求順の応答照合
+    kind: definition
+    introduction: formal
+    requires: [lean-verification.line-oracle-contract, lean-verification.roundtrip-agreement]
+  - id: lean-verification.swap-detection
+    name: 応答交換の検出条件
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.paired-observation]

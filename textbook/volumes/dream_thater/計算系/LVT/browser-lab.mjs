@@ -178,7 +178,11 @@ export const lessons = {
   'LVT5-04': { module:'LvtContracts', sourcePath:'../../LVT3-01/lab/LvtContracts.lean', modes:[
     ['LvtPythonDrt.lean','等号境界の検出条件','some 0、false、境界命題の公理依存を確認。'],
     ['Failure.lean','等号境界は拒否ではない','誤った拒否の証明は型不一致。']
-  ], commands:'lake build\nlake test\nlake env lean LvtPythonDrt.lean\n(cd ../../LVT5-02/lab && lake build)\npython3 -m venv .venv\nsource .venv/bin/activate\npython -m pip install -r requirements.txt\npython -m pytest -q\npython differential.py discover /tmp/lvt-counterexample.json\npython differential.py replay /tmp/lvt-counterexample.json\n# 以下は意図的な失敗\nlake env lean Failure.lean' }
+  ], commands:'lake build\nlake test\nlake env lean LvtPythonDrt.lean\n(cd ../../LVT5-02/lab && lake build)\npython3 -m venv .venv\nsource .venv/bin/activate\npython -m pip install -r requirements.txt\npython -m pytest -q\npython differential.py discover /tmp/lvt-counterexample.json\npython differential.py replay /tmp/lvt-counterexample.json\n# 以下は意図的な失敗\nlake env lean Failure.lean' },
+  'LVT5-05': { module:'LvtContracts', sourcePath:'../../LVT3-01/lab/LvtContracts.lean', modes:[
+    ['LvtTypeScriptDrt.lean','応答交換の検出条件','異なる応答の交換と同一応答の交換を比較。'],
+    ['Failure.lean','異なる応答は交換できない','誤った等式の証明は型不一致。']
+  ], commands:"lake build\nlake test\nlake env lean LvtTypeScriptDrt.lean\n(cd ../../LVT5-02/lab && lake build)\nnpm install --ignore-scripts\nnpm test\nnpm run discover -- /tmp/lvt-ts-counterexample.json\nnpm run replay -- /tmp/lvt-ts-counterexample.json\n# 以下は意図的な失敗\nlake env lean Failure.lean" }
 };
 export function combine(module, definitions, experiment, suffix='') {
   // Only the exact local module import is replaced by its source.
