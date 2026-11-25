@@ -1,0 +1,43 @@
+chapter: ACOMP9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ACOMP8
+forward_references: []
+concepts:
+  - id: algebraic-complexity.local-indicator
+    name: "局所制約の指示多項式"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所制約の指示多項式）"]
+    requires: [algebraic-complexity.boolean-sum]
+  - id: algebraic-complexity.local-sum
+    name: "局所制約付き重み和の VNP 所属"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所制約付き重み和の VNP 所属）"]
+    requires: [algebraic-complexity.local-indicator, algebraic-complexity.vnp, algebraic-complexity.vp]
+  - id: algebraic-complexity.universal-components
+    name: "次数別普遍回路の構成"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（次数別普遍回路の構成）"]
+    requires: [algebraic-complexity.vp, algebraic-complexity.component-rules]
+  - id: algebraic-complexity.universal-sum
+    name: "普遍 Boolean 和への帰着"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（普遍 Boolean 和への帰着）"]
+    requires: [algebraic-complexity.universal-components, algebraic-complexity.local-indicator, algebraic-complexity.vnp, algebraic-complexity.p-projection]
+  - id: algebraic-complexity.vnp-completeness
+    name: "p-projection に関する VNP 困難性と VNP 完全性"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（p-projection に関する VNP 困難性と VNP 完全性）"]
+    requires: [algebraic-complexity.vnp, algebraic-complexity.p-projection]
+  - id: algebraic-complexity.completeness-transfer
+    name: "VNP 完全性の移送と VP 所属"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（VNP 完全性の移送と VP 所属）"]
+    requires: [algebraic-complexity.vnp-completeness, algebraic-complexity.reduction-laws, algebraic-complexity.projection-closure, algebraic-complexity.vp-in-vnp]

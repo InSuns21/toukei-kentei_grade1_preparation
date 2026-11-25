@@ -1,0 +1,38 @@
+id: "ACOMP9"
+title: "VNP完全性の証明枠組み：局所制約から多項式へ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ACOMP8
+official_scope: []
+learning_objectives:
+  - 局所制約の指示多項式と重み付きの Boolean 和を構成できる
+  - 次数別普遍回路の接続係数と全次数上界を証明できる
+  - 余剰補助入力を固定して普遍和への p-projection を構成できる
+  - VNP 困難性と VNP 完全性および帰着の方向を区別できる
+definitions:
+  - { id: ACOMP9-DEF-01, name: "局所制約の指示多項式" }
+  - { id: ACOMP9-DEF-02, name: "p-projection に関する VNP 困難性と VNP 完全性" }
+theorems:
+  - { id: ACOMP9-THM-01, name: "局所制約付き重み和の VNP 所属" }
+  - { id: ACOMP9-THM-02, name: "次数別普遍回路の構成" }
+  - { id: ACOMP9-THM-03, name: "普遍 Boolean 和への帰着" }
+  - { id: ACOMP9-THM-04, name: "VNP 完全性の移送と VP 所属" }
+canonical_examples:
+  - 論理積の許容組と重み和
+  - 定数項を持つ積の次数別構成
+  - 余剰ビットの固定と標数2での重複
+problem_patterns:
+  - ACOMP9-A1
+  - ACOMP9-A2
+  - ACOMP9-A3
+  - ACOMP9-A4
+  - ACOMP9-B1
+  - ACOMP9-B2
+  - ACOMP9-B3
+  - ACOMP9-B4
+  - ACOMP9-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 1 }
