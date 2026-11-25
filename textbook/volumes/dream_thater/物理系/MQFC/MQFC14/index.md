@@ -6,7 +6,7 @@
 
 ## 1. 自分自身との対を取り除く
 
-中心化正規確率変数 $X$ の分散を $a$ とする。[Gaussian Schwinger関数のWick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) によれば $E[X^4]=3a^2$。分散が大きくなると平均だけでも発散する。さらに二つの測定の積を平均したとき、同じ測定内で組を作る寄与もある。これを自己収縮と呼ぶ。四乗から単に平均を引くだけでは二本分の自己収縮が残る。そこで指数関数から自己収縮を打ち消す係数を組織的に作る。期待値を $E$ と書く。母関数とはここでは多項式の列を一つの冪級数にまとめた関数である。補助変数 $t$ の係数を取り出すとき、引数 $u$ と分散パラメータ $a$ は固定する。
+中心化正規確率変数 $X$ の分散を $a$ とし、期待値を $E$ と書く。[Gaussian Schwinger関数のWick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) によれば $E[X^4]=3a^2$。分散が大きくなると平均だけでも発散する。さらに二つの測定の積を平均したとき、同じ測定内で組を作る寄与もある。これを自己収縮と呼ぶ。四乗から単に平均を引くだけでは二本分の自己収縮が残る。そこで指数関数から自己収縮を打ち消す係数を組織的に作る。母関数とはここでは多項式の列を一つの冪級数にまとめた関数である。補助変数 $t$ の係数を取り出すとき、引数 $u$ と分散パラメータ $a$ は固定する。
 
 <a id="def-mqfc14-wick"></a>
 
@@ -126,7 +126,7 @@ $$
 右辺では $j=n=k$ の項だけが残り、$n!k!c^n/n!=n!c^n$。次数が違うと残る項がない。
 <!-- proof-end -->
 
-$Y=X$ とすれば $E[W_n(X;a)^2]=n!a^n$。従って自己収縮を除いても、分散 $a$ が発散する一点で二乗平均が有限になるわけではない。$k=0$ とすれば $n\ge1$ の平均は0。例えば $a=b=1,c=1/2$ のとき、二次の混合二次モーメントは $2c^2=1/2$ になる。
+$Y=X$ とすれば $E[W_n(X;a)^2]=n!a^n$。従って自己収縮を除いても、分散 $a$ が発散する一点で正の次数のWick多項式の二乗平均が有限になるわけではない。$k=0$ とすれば $n\ge1$ の平均は0。例えば $a=b=1,c=1/2$ のとき、二次の混合二次モーメントは $2c^2=1/2$ になる。
 
 ## 3. 切断の発散と共分散核の短距離特異性
 
@@ -234,7 +234,16 @@ $$
 
 ## 4. 同じ自由場から滑らかな近似を作る
 
-[質量付きEuclid自由場のGaussian測度の構成](../MQFC6/index.md#thm-mqfc6-free-measure) の確率測度 $\mu_m$ を固定する。確率空間の標本 $\omega$ は実の [緩増加分布](../MQFC1/index.md#def-mqfc1-tempered) であり、$\Phi(\omega)=\omega$ とする。試験関数 $h$ に対する $\Phi(h)$ は $\langle\omega,h\rangle$ を値とする確率変数である。標本一つを固定するのではなく、全ての近似で同じ確率空間と場を使う。滑らかな非負偶関数 $\rho$ を単位球内に支持を持つように選び、積分を1にする。$\epsilon>0$ とし、$\rho_\epsilon(z)=\epsilon^{-d}\rho(z/\epsilon)$ と置く。$z=\epsilon w$ の変数変換の体積要素は $dz=\epsilon^d dw$ なので積分は1のまま、支持は半径 $\epsilon$ の球に縮む。コンパクト支持の滑らかな関数は [Schwartz関数](../MQFC1/index.md#def-mqfc1-schwartz) だから、その平行移動も場に作用させられる。場の平均
+[質量付きEuclid自由場のGaussian測度の構成](../MQFC6/index.md#thm-mqfc6-free-measure) の確率測度 $\mu_m$ を固定する。確率空間の標本 $\omega$ は実の [緩増加分布](../MQFC1/index.md#def-mqfc1-tempered) であり、$\Phi(\omega)=\omega$ とする。試験関数 $h$ に対する $\Phi(h)$ は $\langle\omega,h\rangle$ を値とする確率変数である。標本一つを固定するのではなく、全ての近似で同じ確率空間と場を使う。
+
+滑らかな非負偶関数 $\rho$ を単位球内に支持を持つように選び、積分を1にする。$\epsilon>0$ とし、$\rho_\epsilon(z)=\epsilon^{-d}\rho(z/\epsilon)$ と置く。$z=\epsilon w$ の変数変換の体積要素は $dz=\epsilon^d dw$ なので
+
+$$
+\int\rho_\epsilon(z)\,dz
+=\int\epsilon^{-d}\rho(w)\epsilon^d\,dw=1.
+$$
+
+支持は半径 $\epsilon$ の球に縮む。コンパクト支持の滑らかな関数は [Schwartz関数](../MQFC1/index.md#def-mqfc1-schwartz) だから、その平行移動も場に作用させられる。場の平均
 
 $$
 X_\epsilon(x)=\Phi(\rho_\epsilon(x-\cdot))
@@ -247,7 +256,7 @@ $$
 =\Phi((\partial_j\rho_\epsilon)(x-\cdot)).
 $$
 
-$\partial_j\rho_\epsilon$ は核の第 $j$ 座標の偏微分である。差商の収束は、局所的に全ての平行移動の支持を一つのコンパクト集合に含め、各階微分に平均値の定理を適用すれば得られる。繰り返せば各標本で滑らかになる。
+この式の $\partial_j\rho_\epsilon$ は核の第 $j$ 座標の偏微分である。差商の収束は、局所的に全ての平行移動の支持を一つのコンパクト集合に含め、各階微分に平均値の定理を適用すれば得られる。繰り返せば各標本で滑らかになる。
 
 [質量付きEuclid作用素の逆と共分散核](../MQFC5/index.md#thm-mqfc5-inverse) を実試験関数 $\rho_\epsilon(x-\cdot),\rho_\eta(y-\cdot)$ に適用すると
 
@@ -268,7 +277,7 @@ C_{\epsilon,\eta}(x-y)
 \end{aligned}
 $$
 
-[熱核積分表示](../MQFC5/index.md#thm-mqfc5-heat-resolvent) による $\|C_d\|_1=m^{-2}$ と平均核の有界性から積分は有限である。点分散 $a_\epsilon=C_{\epsilon,\epsilon}(0)$ は有限で $x$ に依存しない。添字の二つの正則化幅は別々に動かせる。ここから空間で平均したWick多項式を作る。$C_c^\infty(\mathbb R^d)$ は滑らかなコンパクト支持関数の空間を表す。
+[熱核積分表示](../MQFC5/index.md#thm-mqfc5-heat-resolvent) による $\|C_d\|_1=m^{-2}$ と平均核の有界性から積分は有限である。点分散 $a_\epsilon=C_{\epsilon,\epsilon}(0)$ は非負で有限であり、$x$ に依存しない。添字の二つの正則化幅は別々に動かせる。ここから空間で平均したWick多項式を作る。$C_c^\infty(\mathbb R^d)$ は滑らかなコンパクト支持関数の空間を表す。
 
 <a id="def-mqfc14-smeared-wick"></a>
 
@@ -323,7 +332,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Wick積の二乗平均極限）**
-> $m>0$ とし、同じ自由場 $\Phi$ に対する [正則化したWick積の試験関数測定](#def-mqfc14-smeared-wick) を考える。$d=2$ で任意の整数 $n\ge1$、または $d=3$ で $n=1,2$ とする。実コンパクト支持の滑らかな $f$ に対し $V_{\epsilon,n}(f)$ は $\epsilon\downarrow0$ で $L^2$ に収束する。極限を $V_n(f)$ と書く。異なる許容平均核を選んでも同じ極限となり、実 $f,g$ について
+> $m>0$ とし、同じ自由場 $\Phi$ に対する [正則化したWick積の試験関数測定](#def-mqfc14-smeared-wick) を考える。$d=2$ で任意の整数 $n\ge1$、または $d=3$ で $n=1,2$ とする。実コンパクト支持の滑らかな $f$ に対し $V_{\epsilon,n}(f)$ は $\epsilon\downarrow0$ で $L^2$ に収束する。極限を $V_n(f)$ と書く。異なる許容平均核を選んでも同じ極限となり、実 $f,g\in C_c^\infty(\mathbb R^d)$ について
 
 $$
 E[V_n(f)V_n(g)]
@@ -444,10 +453,16 @@ $$
 
 - Level: A
 
-$X$ は平均0、分散3の正規変数とする。$W_2(X;3),W_4(X;3)$ の内積とそれぞれの二乗平均を求めよ。
+$X$ は平均0、分散3の正規変数とする。$W_2(X;3),W_4(X;3)$ の内積（積の期待値）とそれぞれの二乗平均を求めよ。
 
 <!-- solution-start -->
-[混合二次モーメント](#thm-mqfc14-wick-covariance) に $Y=X$、$a=b=c=3$ を代入する。次数2と4は異なるので内積は0。二乗平均はそれぞれ $2!3^2=18$、$4!3^4=1944$。平均も次数0との内積により0である。
+[混合二次モーメント](#thm-mqfc14-wick-covariance) に $Y=X$、$a=b=c=3$ を代入する。次数2と4は異なるので内積は0。二乗平均はそれぞれ
+
+$$
+2!\cdot3^2=18,\qquad 4!\cdot3^4=1944.
+$$
+
+平均も次数0との内積により0である。
 <!-- solution-end -->
 
 ### 演習 MQFC14-A3：三次元の点分散
@@ -490,7 +505,7 @@ $$
 X^4-3a^2=W_4(X;a)+6aW_2(X;a).
 $$
 
-$Y$ 側は $W_4(Y;b)+6bW_2(Y;b)$。掛けると四項になるが、[混合二次モーメント](#thm-mqfc14-wick-covariance) で異なる次数の二項は0、四次同士は $24c^4$、二次同士は $36ab\cdot2c^2$ となる。合計は $24c^4+72abc^2$。Wick多項式同士なら $24c^4$ のみである。$c\ne0$ を固定して $a,b$ が増えると残った自己収縮による第二項は発散する。
+$Y$ 側は $W_4(Y;b)+6bW_2(Y;b)$。掛けると四項になるが、[混合二次モーメント](#thm-mqfc14-wick-covariance) で異なる次数の二項は0、四次同士は $24c^4$、二次同士は $36ab\cdot2c^2$ となる。合計は $24c^4+72abc^2$。Wick多項式同士なら $24c^4$ のみである。$c\ne0$ を固定し、$ab\to\infty$ とすると残った自己収縮による第二項は発散する。
 <!-- solution-end -->
 
 ### 演習 MQFC14-B2：平均核の選択と二乗平均
@@ -500,7 +515,17 @@ $Y$ 側は $W_4(Y;b)+6bW_2(Y;b)$。掛けると四項になるが、[混合二�
 同じ二次元自由場（質量 $m>0$）を二種類の許容平均核 $\rho_\epsilon,\sigma_\eta$ で測定し、実滑らかなコンパクト支持関数 $f$ に対する三次のWick積を作る。両者の差の二乗平均を共分散で表し、0への収束を示せ。
 
 <!-- solution-start -->
-$C_{\rho\rho}=C_2*\rho_\epsilon*\rho_\epsilon$、$C_{\sigma\sigma}=C_2*\sigma_\eta*\sigma_\eta$、$C_{\rho\sigma}=C_2*\rho_\epsilon*\sigma_\eta$ と置く。全ての平均核は非負偶関数、積分1で支持が縮むとする。[混合二次モーメント](#thm-mqfc14-wick-covariance) を各組に使い差の二乗を展開すると
+[正則化したWick積の試験関数測定](#def-mqfc14-smeared-wick) に対応する三種の共分散核を
+
+$$
+\begin{aligned}
+C_{\rho\rho}&=C_2*\rho_\epsilon*\rho_\epsilon,\\
+C_{\sigma\sigma}&=C_2*\sigma_\eta*\sigma_\eta,\\
+C_{\rho\sigma}&=C_2*\rho_\epsilon*\sigma_\eta
+\end{aligned}
+$$
+
+と置く。全ての平均核は非負偶関数、積分1で支持が縮むとする。[混合二次モーメント](#thm-mqfc14-wick-covariance) を各組に使い差の二乗を展開すると
 
 $$
 6\int f(x)f(y)
