@@ -24,7 +24,7 @@ $$
 <!-- definition-example-start: def-mqfc14-wick -->
 ### 直接例
 
-$a=2$、$X$ を平均0、分散2の正規確率変数とする。$e^{tu}$ と $e^{-t^2}$ の級数を掛けると、$t^2$ の係数は $u^2/2-1$、$t^4$ の係数は $u^4/24-u^2/2+1/2$。従って $W_2(u;2)=u^2-2$、$W_4(u;2)=u^4-12u^2+12$。これらは実多項式であり、母関数の指定係数にそれぞれ $2!,4!$ を掛けた値である。$EX^2=2$、$EX^4=12$ を代入すれば両者の期待値は0になる。
+$a=2$、$X$ を平均0、分散2の正規確率変数とする。$e^{tu}$ と $e^{-t^2}$ の級数を掛けると、$t^2$ の係数は $u^2/2-1$、$t^4$ の係数は $u^4/24-u^2/2+1/2$。従って $W_2(u;2)=u^2-2$、$W_4(u;2)=u^4-12u^2+12$。**定義の確認**：これらは実多項式であり、母関数の指定係数にそれぞれ $2!,4!$ を掛けた値である。$EX^2=2$、$EX^4=12$ を代入すれば両者の期待値は0になる。
 <!-- definition-example-end -->
 
 一般に、指数の二因子を展開して $t^{n-2k}t^{2k}$ を集めると
@@ -204,7 +204,7 @@ $$
 <!-- definition-example-start: def-mqfc14-smeared-wick -->
 ### 直接例
 
-$d=2,n=2$、$f=\rho$ とする。$X_\epsilon(x)$ は実滑らかな関数なので、コンパクト支持上の $f(x)(X_\epsilon(x)^2-a_\epsilon)$ は各実現で可積分。点ごとの分散が $a_\epsilon$ であることから [Wick多項式](#def-mqfc14-wick) の二次式を正しく使っている。$f$ の積分は1なので測定は $\int\rho(x)X_\epsilon(x)^2dx-a_\epsilon$。平均は0である。実際 $E|W_2|\le\sqrt2 a_\epsilon$ で積分可能な一様上界を持つから、期待値と空間積分を交換できる。
+$d=2,n=2$、$f=\rho$ とする。$X_\epsilon(x)$ は実滑らかな関数なので、コンパクト支持上の $f(x)(X_\epsilon(x)^2-a_\epsilon)$ は各実現で可積分。**定義の確認**：点ごとの分散が $a_\epsilon$ であることから [Wick多項式](#def-mqfc14-wick) の二次式を正しく使っている。$f$ の積分は1なので測定は $\int\rho(x)X_\epsilon(x)^2dx-a_\epsilon$。平均は0である。実際 $E|W_2|\le\sqrt2 a_\epsilon$ で積分可能な一様上界を持つから、期待値と空間積分を交換できる。
 <!-- definition-example-end -->
 
 ## 5. 二乗平均で積の極限を構成する
@@ -239,7 +239,7 @@ E[V_{\epsilon,n}(f)V_{\eta,n}(g)]
 =n!\int f(x)g(y)C_{\epsilon,\eta}(x-y)^n\,dx\,dy.
 $$
 
-次に任意の有界球 $B_R$ 上で $C_{\epsilon,\eta}\to C_d$ が $L^n$ で成り立つことを示す。[短距離評価](#prop-mqfc14-singularity) に続く動径積分から $C_d^n$ は有界球で可積分である。$\kappa=\rho_\epsilon*\rho_\eta$ は非負で積分1、支持半径 $h=\epsilon+\eta$ の平均核である。$h<\delta$ とし、Jensenの不等式を使うと
+次に任意の有界球 $B_R$ 上で $C_{\epsilon,\eta}\to C_d$ が $L^n$ で成り立つことを示す。[短距離評価](#prop-mqfc14-singularity) に続く動径積分から $C_d^n$ は有界球で可積分である。$\kappa=\rho_\epsilon*\rho_\eta$ は非負で積分1、支持半径 $h=\epsilon+\eta$ の平均核である。$h<\delta$ とし、確率測度 $\kappa(w)dw$ に関して $n>1$ なら Hölder の不等式を関数 $|C_d(z-w)|$ と定数1に適用する。後者の $n/(n-1)$ ノルムは1なので、平均の絶対値の $n$ 乗は絶対値の $n$ 乗の平均以下になる。$n=1$ なら積分の三角不等式である。これを積分して
 
 $$
 \begin{aligned}
