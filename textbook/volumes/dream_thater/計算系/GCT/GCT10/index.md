@@ -44,7 +44,16 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（個数保存から存在判定への帰着）**  
-> 非負整数値の全域関数 $f,g$ が $f\le_{\mathrm{par}}g$ を満たすとする。正値を取る入力の集合をそれぞれ $S_f=\{x\in\Sigma^*:f(x)>0\}$、$S_g=\{x\in\Sigma^*:g(x)>0\}$ とすると、$S_f$ は $S_g$ に多項式時間 many-one 帰着可能である。
+> 非負整数値の全域関数 $f,g$ が $f\le_{\mathrm{par}}g$ を満たすとする。正値を取る入力の集合を
+
+$$
+\begin{aligned}
+S_f&=\{x\in\Sigma^*:f(x)>0\},\\
+S_g&=\{x\in\Sigma^*:g(x)>0\}
+\end{aligned}
+$$
+
+> とすると、$S_f$ は $S_g$ に多項式時間 many-one 帰着可能である。
 <!-- formal-statement-end -->
 
 **証明の見取り図**　個数の等式の両辺を0と比較するだけで、判定の同値が得られます。逆に、正かどうかだけでは正の値同士の違いを復元できません。
