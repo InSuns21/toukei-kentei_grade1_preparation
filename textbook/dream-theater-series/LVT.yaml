@@ -123,7 +123,7 @@ chapters:
     title: "Differential Testing・オラクルの設計"
   - id: LVT5-02
     path: textbook/volumes/dream_thater/計算系/LVT/LVT5-02
-    status: planned
+    status: completed
     title: "Lean実行可能仕様のJSON Linesオラクル化"
   - id: LVT5-03
     path: textbook/volumes/dream_thater/計算系/LVT/LVT5-03

@@ -1,0 +1,22 @@
+id: "LVT5-02"
+title: "Lean実行可能仕様のJSON Linesオラクル化"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT5-01, LVT1-06, LVT3-01]
+official_scope: []
+learning_objectives:
+  - JSON Linesで共通入力と応答の契約を定義する
+  - バッチと持続プロセスの応答列一致と件数を証明する
+  - stdoutの純度とエラー・EOF・順序・プロセス寿命を検査する
+  - Leanの純粋なモデルの証明と外部プロセスの検査を区別する
+definitions:
+  - { id: LVT5-02-DEF-01, name: "行単位オラクル契約" }
+propositions:
+  - { id: LVT5-02-PROP-01, name: "バッチと逐次応答列の一致" }
+theorems: []
+canonical_examples: ["在庫引当JSON応答", "不正行を含む応答列", "Pythonからの持続プロセス検査"]
+problem_patterns: [LVT5-02-A01, LVT5-02-A02, LVT5-02-A03, LVT5-02-A04, LVT5-02-B01, LVT5-02-B02, LVT5-02-B03, LVT5-02-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2, review: 0.5 }
