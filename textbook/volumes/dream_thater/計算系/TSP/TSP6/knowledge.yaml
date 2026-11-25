@@ -1,0 +1,43 @@
+chapter: TSP6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TSP5
+forward_references: []
+concepts:
+  - id: tensor.contraction
+    name: 添字の縮約
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（添字の縮約）"]
+    requires: [tensor.multifactor-basis]
+  - id: tensor.network-boundary
+    name: テンソルネットワークと境界テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（テンソルネットワークと境界テンソル）"]
+    requires: [tensor.contraction]
+  - id: tensor.identity-wire
+    name: 恒等wire
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（恒等wire）"]
+    requires: [tensor.contraction]
+  - id: tensor.contraction-order
+    name: 縮約順序の独立性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（縮約順序の独立性）"]
+    requires: [tensor.network-boundary, tensor.contraction]
+  - id: tensor.wire-invariance
+    name: 恒等wireの挿入と除去
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（恒等wireの挿入と除去）"]
+    requires: [tensor.identity-wire, tensor.contraction-order]
+  - id: tensor.network-cut-rank-bound
+    name: 切断による平坦化階数の上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（切断による平坦化階数の上界）"]
+    requires: [tensor.network-boundary, tensor.flattening]

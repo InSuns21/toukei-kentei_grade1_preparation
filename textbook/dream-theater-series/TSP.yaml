@@ -26,7 +26,7 @@ chapters:
     title: "直和・Kronecker積・制限の前順序"
   - id: TSP6
     path: textbook/volumes/dream_thater/計算系/TSP/TSP6
-    status: planned
+    status: completed
     title: "テンソルネットワーク・縮約・wire：グラフの境界テンソル"
   - id: TSP7
     path: textbook/volumes/dream_thater/計算系/TSP/TSP7
