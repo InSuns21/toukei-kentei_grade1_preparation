@@ -94,7 +94,9 @@ $$
 
 ## 2. 論文の主張を量化して読む
 
-正整数 $m$ に対し、行列 $X=(x_{ij})_{1\le i,j\le m}$ の成分を独立な形式変数とします。行番号 $i$ と列番号 $j$ はそれぞれ $1,\ldots,m$ を動くので、変数は $m^2$ 個です。[パーマネント族のVNP所属](../../ACOMP/ACOMP11/index.md#thm-acomp11-permanent-vnp)を証明した際の任意の体上のパーマネントと[Hamilton閉路多項式の定義](../../ACOMP/ACOMP12/index.md#def-acomp12-hamilton-polynomial)を用います。$S_m$ を $m$ 個の番号の全置換、$C_m$ を全番号を一つの巡回で訪問する置換の集合とし、
+正整数 $m$ に対し、行列 $X=(x_{ij})_{1\le i,j\le m}$ の成分を独立な形式変数とします。行番号 $i$ と列番号 $j$ はそれぞれ $1,\ldots,m$ を動くので、変数は $m^2$ 個です。
+
+[パーマネント族のVNP所属](../../ACOMP/ACOMP11/index.md#thm-acomp11-permanent-vnp)を証明した際の任意の体上のパーマネントと[Hamilton閉路多項式の定義](../../ACOMP/ACOMP12/index.md#def-acomp12-hamilton-polynomial)を用います。$S_m$ を $m$ 個の番号の全置換、$C_m$ を全番号を一つの巡回で訪問する置換の集合とし、
 
 $$
 \operatorname{PER}_m=\sum_{\sigma\in S_m}\prod_{i=1}^m x_{i,\sigma(i)},
@@ -213,27 +215,39 @@ $$
 
 ## 4. 近似する回路に対しても下界を示す意味
 
-[形式 Laurent 級数体](../../ACOMP/ACOMP21/index.md#thm-acomp21-laurent-field)では級数の変数を $t$ と書きました。本講では論文に合わせて $t=\varepsilon$ と書き、$\varepsilon$ は回路の入力変数とは別の形式記号とします。$K[[\varepsilon]]$ は[形式冪級数](../../ACOMP/ACOMP21/index.md#def-acomp21-power-series)の環、$K((\varepsilon))$ はそれに有限個の負のべきも許した級数の体です。
+[形式 Laurent 級数体](../../ACOMP/ACOMP21/index.md#thm-acomp21-laurent-field)では級数の変数を $t$ と書きました。本講では論文に合わせて $t=\varepsilon$ と書き、$\varepsilon$ は回路の入力変数とは別の形式記号とします。
 
-[回路の形式的退化](../../ACOMP/ACOMP22/index.md#def-acomp22-degeneration)では、定数を後者の体から取ります。出力の各係数について、負のべきがなく、$\varepsilon^0$ の係数が目的の多項式の対応する係数に一致することを要求します。元の変数全体を $x=(x_1,\ldots,x_n)$、回路の出力を $q$ とし、$f\in K[x]$ の各係数を定数級数と見なします。論文 Definition 1.3 は同じ条件を
+$K[[\varepsilon]]$ は[形式冪級数](../../ACOMP/ACOMP21/index.md#def-acomp21-power-series)の環、$K((\varepsilon))$ はそれに有限個の負のべきも許した級数の体です。
+
+[回路の形式的退化](../../ACOMP/ACOMP22/index.md#def-acomp22-degeneration)では、定数を後者の体から取ります。出力の各係数について、負のべきがなく、$\varepsilon^0$ の係数が目的の多項式の対応する係数に一致することを要求します。
+
+元の変数全体を $x=(x_1,\ldots,x_n)$、回路の出力を $q$ とし、$f\in K[x]$ の各係数を定数級数と見なします。論文 Definition 1.3 は同じ条件を
 
 $$
 q=f+\varepsilon g,\qquad g\in K[[\varepsilon]][x]
 $$
 
-と表現します。出力の各単項式について $q-f$ の係数に負のべきも定数項もなければ、その係数は $\varepsilon$ で割っても冪級数です。したがって $g=(q-f)/\varepsilon$ を取れます。逆に上の式から各係数の条件が従います。例えば二変数の場合は $x=x_1,\ y=x_2$ と書き、目的を $f=x$ とすると
+と表現します。出力の各単項式について $q-f$ の係数に負のべきも定数項もなければ、その係数は $\varepsilon$ で割っても冪級数です。したがって $g=(q-f)/\varepsilon$ を取れます。逆に上の式から各係数の条件が従います。
+
+例えば二変数の場合は $x=x_1,\ y=x_2$ と書き、目的を $f=x$ とすると
 
 $$
 q=\varepsilon(\varepsilon^{-1}x+y)=x+\varepsilon y
 $$
 
-です。途中の定数 $\varepsilon^{-1}$ には負のべき（極）がありますが、出力の $x$ の係数は1、$y$ の係数は $\varepsilon$、その他の係数は0です。いずれも冪級数で、$\varepsilon^0$ の係数は順に1、0、0なので目的 $f=x$ と一致します。反対に $\varepsilon^{-1}x+y$ では $x$ の係数に負のべきが残るので近似になりません。
+です。途中の定数 $\varepsilon^{-1}$ には負のべき（極）があります。しかし、出力の $x$ の係数は1、$y$ の係数は $\varepsilon$、その他の係数は0です。
+
+いずれも冪級数で、$\varepsilon^0$ の係数は順に1、0、0なので目的 $f=x$ と一致します。
+
+反対に $\varepsilon^{-1}x+y$ では $x$ の係数に負のべきが残るので近似になりません。
 
 [形式的 border complexity](../../ACOMP/ACOMP22/index.md#def-acomp22-border-size)の回路サイズも、入力を含めた数え方へ変更できます。下線は近似を許す最小値を表すものとし、$f$ を近似するすべての回路の最小演算サイズを $\underline L(f)$、最小全ゲート数を $\underline T(f)$ とします。厳密回路も定数体を広げれば近似回路なので、最小化する集合は空ではありません。サイズは非負整数なので両最小値は存在します。
 
 $\underline T(f)$ を達成する回路の演算数は全ゲート数以下ですから、$\underline L(f)\le\underline T(f)$ です。
 
-逆方向は、$\underline L(f)$ を達成する回路の出力を $q$ とします。$q$ 自体を厳密に計算する最小演算サイズ $L(q)$（定数体は $K((\varepsilon))$）は $\underline L(f)$ 以下です。[二つの回路サイズの比較](#thm-vnp1-size-comparison) をこの $q$ に適用すると、$q$ を出力する全ゲート数が高々 $3L(q)+1$ の回路が存在します。出力が同じなので近似条件も保存され、最小全ゲート数について
+逆方向は、$\underline L(f)$ を達成する回路の出力を $q$ とします。$q$ 自体を厳密に計算する最小演算サイズ $L(q)$（定数体は $K((\varepsilon))$）は $\underline L(f)$ 以下です。
+
+[二つの回路サイズの比較](#thm-vnp1-size-comparison) をこの $q$ に適用すると、$q$ を出力する全ゲート数が高々 $3L(q)+1$ の回路が存在します。出力が同じなので近似条件も保存され、最小全ゲート数について
 
 $$
 \underline T(f)\le3L(q)+1\le3\underline L(f)+1
@@ -253,7 +267,9 @@ $$
 
 変数数・目的多項式の次数・最小近似サイズを多項式で抑えた族のクラスを $\overline{\mathrm{VP}}$ と書きます。これは ACOMP22 の $\underline{\mathrm{VP}}_K$ と同じ形式的近似のクラスであり、ここでは論文に合わせた上線を使います。上の不等式から $\mathrm{VP}\subseteq\overline{\mathrm{VP}}$ です。これは任意の体での形式的な定義であり、数値的な収束や一般の体上の Zariski 閉包との同一視は必要ありません。
 
-論文 Theorem 1.4（thm_approx）は、Theorem 1.1 と同型の量化で近似全ゲート数にも下界を主張します。もしこの下界が成立すれば、Hamilton閉路多項式族 $(f_m)=(\operatorname{HC}_m)$ が $\overline{\mathrm{VP}}$ に属すると仮定して矛盾を導けます。所属から $\underline L(f_m)\le Am^d$ を満たす定数 $A>0,d\ge0$ が存在します。直前の比較と[提示された下界の超多項式性](#thm-vnp1-growth)から、標数別閾値以上の十分大きな $m$ に対して
+論文 Theorem 1.4（thm_approx）は、Theorem 1.1 と同型の量化で近似全ゲート数にも下界を主張します。もしこの下界が成立すれば、Hamilton閉路多項式族 $(f_m)=(\operatorname{HC}_m)$ が $\overline{\mathrm{VP}}$ に属すると仮定して矛盾を導けます。所属から $\underline L(f_m)\le Am^d$ を満たす定数 $A>0,d\ge0$ が存在します。
+
+直前の比較と[提示された下界の超多項式性](#thm-vnp1-growth)から、標数別閾値以上の十分大きな $m$ に対して
 
 $$
 \underline T(f_m)\le3Am^d+1<B_c(m)
@@ -279,7 +295,9 @@ VNP2–9 で共通部分、VNP10–12 で前者、VNP13–21 で後者、VNP22�
 | 公理 | propext, Classical.choice, Quot.sound | §3の著者報告、独立な公理抽出は未実施 |
 | 人間の審査 | 専門家による証明検討、出版 | v1では人間の数学者による確認未実施と明記 |
 
-声明中の Computes は「高々指定したゲート数の回路が存在する」という述語です。Lean の $\mathbb N$ は0を含みます。本講の記法では非負整数 $s\in\mathbb N_0$ を使います。ここでの $s$ は節1の演算サイズ $s(C)$ ではなく全ゲート数の上限です。長さが $s$ 未満の列は未使用の定数0の項で長さ $s$ まで延長できるので、長さ $s$ の列を要求する声明でも「高々 $s$」と同じ意味です。従ってすべての非負整数 $s$ に対する
+声明中の Computes は「高々指定したゲート数の回路が存在する」という述語です。Lean の $\mathbb N$ は0を含みます。本講の記法では非負整数 $s\in\mathbb N_0$ を使います。ここでの $s$ は節1の演算サイズ $s(C)$ ではなく全ゲート数の上限です。
+
+長さが $s$ 未満の列は未使用の定数0の項で長さ $s$ まで延長できるので、長さ $s$ の列を要求する声明でも「高々 $s$」と同じ意味です。従ってすべての非負整数 $s$ に対する
 
 $$
 \operatorname{Computes}(f,s)\ \Longrightarrow\ B_c(m)<s
@@ -287,7 +305,11 @@ $$
 
 は、すべての実際の回路に対する下界と同値です。実際、回路があればその長さを $s$ と取れます。逆に高々 $s$ の回路があればその実際の長さは $s$ 以下なので、不等式を推移させられます。近似版の Approximates も同じ読み方です。声明の照合は証明プログラムの検証とは異なる作業です。
 
-また、Lean の行列添字は $0,\ldots,m-1$ ですが、本講の番号から1を引けば対応します。Lean の perm は列 $i$ に対して行 $\sigma(i)$ を選ぶ積であり、本講では行 $i$ に対して列 $\sigma(i)$ を選びました。$\tau=\sigma^{-1}$、$j=\sigma(i)$ と置くと
+また、Lean の行列添字は $0,\ldots,m-1$ ですが、本講の番号から1を引けば対応します。
+
+Lean の perm は列 $i$ に対して行 $\sigma(i)$ を選ぶ積であり、本講では行 $i$ に対して列 $\sigma(i)$ を選びました。
+
+$\tau=\sigma^{-1}$、$j=\sigma(i)$ と置くと
 
 $$
 \prod_{i=1}^m x_{\sigma(i),i}
@@ -343,7 +365,11 @@ $$
 $q=x+\varepsilon^2 y$ と $q'=x+\varepsilon^{-1}y$ のどちらが $x$ への形式的な近似か。
 
 <!-- solution-start -->
-**詳細解答**：[回路の形式的退化](../../ACOMP/ACOMP22/index.md#def-acomp22-degeneration)の出力条件を確認します。$q-x=\varepsilon(\varepsilon y)$ で括弧内の係数は冪級数です。一方 $q'$ では $y$ の係数に負の指数があり、差を $\varepsilon$ で割ると $\varepsilon^{-2}y$ となります。従って前者だけが条件を満たします。前者は $\varepsilon^2\in K((\varepsilon))$ を一つの定数入力とし、$y$ との積、$x$ との和の順で二演算で計算できます。
+**詳細解答**：[回路の形式的退化](../../ACOMP/ACOMP22/index.md#def-acomp22-degeneration)の出力条件を確認します。$q-x=\varepsilon(\varepsilon y)$ で括弧内の係数は冪級数です。
+
+一方 $q'$ では $y$ の係数に負の指数があり、差を $\varepsilon$ で割ると $\varepsilon^{-2}y$ となります。従って前者だけが条件を満たします。
+
+前者は $\varepsilon^2\in K((\varepsilon))$ を一つの定数入力とし、$y$ との積、$x$ との和の順で二演算で計算できます。
 <!-- solution-end -->
 
 ### B1. 定数倍を含めた指数の比較
@@ -382,7 +408,11 @@ $u>512=8^3$ なら括弧内は1より大きく、右辺は $u-3>0$ より大き�
 有理数体上で $h(x)=x^2-x$ を考える。Boolean入力の検査で零と判定できるか。全体上の形式多項式として零か。回路モデルの違いを説明せよ。
 
 <!-- solution-start -->
-**詳細解答**：[多項式関数と評価写像](../../ACOMP/ACOMP1/index.md#def-acomp1-polynomial-function)に従い、入力集合を $\{0,1\}$ に限定します。$h(0)=0$、$h(1)=1-1=0$ なので Boolean入力上では零関数です。しかし $h(2)=4-2=2$ で零ではありません。形式多項式としても二次の係数は1なので零とは異なります。Boolean入力だけで正しさを要求する回路なら零の出力でよい一方、形式多項式を出力する回路では定数0で置き換えられません。従って形式多項式に対する回路下界を Boolean入力だけの計算へ移すには別の論証が必要です。
+**詳細解答**：[多項式関数と評価写像](../../ACOMP/ACOMP1/index.md#def-acomp1-polynomial-function)に従い、入力集合を $\{0,1\}$ に限定します。$h(0)=0$、$h(1)=1-1=0$ なので Boolean入力上では零関数です。
+
+しかし $h(2)=4-2=2$ で零ではありません。形式多項式としても二次の係数は1なので零とは異なります。
+
+Boolean入力だけで正しさを要求する回路なら零の出力でよい一方、形式多項式を出力する回路では定数0で置き換えられません。従って形式多項式に対する回路下界を Boolean入力だけの計算へ移すには別の論証が必要です。
 <!-- solution-end -->
 
 ### B4. 形式的声明の含意
