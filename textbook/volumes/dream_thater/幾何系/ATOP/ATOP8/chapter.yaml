@@ -22,8 +22,8 @@ theorems:
   - { id: ATOP8-THM-03, name: 花束の基本群 }
   - { id: ATOP8-THM-04, name: 連結グラフの基本群と階数 }
 canonical_examples: [三本の平行辺, 円周の花束, 全域木の変更, 四頂点完全グラフ]
-problem_patterns: [ATOP8-A1, ATOP8-A2, ATOP8-A3, ATOP8-A4, ATOP8-B1, ATOP8-B2, ATOP8-B3, ATOP8-C1]
+problem_patterns: [ATOP8-A1, ATOP8-A2, ATOP8-A3, ATOP8-A4, ATOP8-B1, ATOP8-B2, ATOP8-B3, ATOP8-B4, ATOP8-C1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 5, exercises: 4, review: 1 }
