@@ -14,7 +14,15 @@
 
 ## 2. 部分対象をまとめて扱う
 
-部分対象を分類する射 $X\to\Omega$ が多数あるなら、それらを一つの対象に収納したい。集合ではこれは $X$ の冪集合に相当する。トポスでは指数対象を用いる。
+部分対象を分類する射 $X\to\Omega$ が多数あるなら、それらを一つの対象に収納したい。集合ではこれは $X$ の冪集合に相当する。トポスでは[指数対象](../../CAT/CAT4-05/index.md#def-cat4-05-exponential)を用いる。
+
+指数対象 $B^A$ の評価射を $\operatorname{ev}:B^A\times A\to B$ とする。任意の射 $h:T\times A\to B$ に対して、射 $\widehat h:T\to B^A$ で
+
+$$
+\operatorname{ev}(\widehat h\times1_A)=h
+$$
+
+を満たすものが一意に存在する。この射を $h$ の転置と呼ぶ。
 
 <a id="def-catb5-08-power-object"></a>
 
@@ -31,10 +39,10 @@
 
 順に $a,b$ での値を並べると $(0,0),(1,0),(0,1),(1,1)$ となり、対応する部分集合は $\varnothing,\{a\},\{b\},X$ である。評価は写像と元を受け取ってその値を返す。
 
-任意の集合 $T$ と写像 $h:T\times X\to\{0,1\}$ に対し、$\widehat h(s)(x)=h(s,x)$ と定める。これは各 $s$ を四写像のいずれかへ送る写像であり、評価により元の $h$ を復元する。他の写像が同じ評価を持てば各 $s,x$ で値が一致するので等しい。従って指数対象の存在・一意性を直接確認できた。
+任意の集合 $T$ と写像 $h:T\times X\to\{0,1\}$ に対し、$\widehat h(s)(x)=h(s,x)$ と定める。これは各 $s$ を四写像のいずれかへ送る写像であり、評価により元の $h$ を復元する。他の写像が同じ評価を持てば各 $s,x$ で値が一致するので等しい。従ってこの四写像の集合と評価が指数対象の普遍性を満たすことを確認できた。四つの値の組は、固定した順序 $a,b$ での評価値であり、各写像を一意に決める。
 <!-- definition-example-end -->
 
-一般の $\mathcal E$ でも[指数対象の普遍性](../../CAT/CAT4-05/index.md#def-cat4-05-exponential)と[分類射と部分対象の自然な対応](../CATB5-06/index.md#thm-catb5-06-classifier-bijection)を組み合わせると
+ここで $\operatorname{Hom}(T,Z)$ は $T$ から $Z$ への射の集合、$\operatorname{Sub}(Z)$ は $Z$ の部分対象の集合と書く。一般の $\mathcal E$ でも[指数対象の普遍性](../../CAT/CAT4-05/index.md#def-cat4-05-exponential)と[分類射と部分対象の自然な対応](../CATB5-06/index.md#thm-catb5-06-classifier-bijection)を組み合わせると
 
 $$
 \operatorname{Hom}(T,P(X))
@@ -42,7 +50,7 @@ $$
 \cong\operatorname{Sub}(T\times X).
 $$
 
-従って $T\to P(X)$ は、$T$ をパラメータとする部分対象の族を表す。特に $T=1$ なら $X$ の部分対象一つを表す。以下では指数対象への転置を $\widehat h$ と書く。
+従って $T\to P(X)$ は、$T$ をパラメータとする部分対象の族を表す。特に $T=1$ なら $X$ の部分対象一つを表す。
 
 まず分類射から得られる消去性を確認する。モノ射 $m:M\to Y$ の分類射を $\chi_m$ とすれば、任意の $u:T\to Y$ について
 
@@ -142,7 +150,15 @@ $$
 \chi_m i=t_I.
 $$
 
-よって分類子の引き戻しの普遍性から $i$ は $m$ を経由する。これは[圏論的な像](../CATB1-01/index.md#def-catb1-01-image)の最小性である。
+よって分類子の引き戻しの普遍性から $i$ は $m$ を経由する。すなわち $mw=i$ となる射 $w:I\to M$ が存在する。
+
+$f=ie=mg$ と書けば
+
+$$
+mwe=ie=mg.
+$$
+
+$m$ のモノ射性から $we=g$ が従う。また $mw'=i=mw$ なら $w'=w$ である。これで[圏論的な像](../CATB1-01/index.md#def-catb1-01-image)の普遍性（分解を保つ媒介射の存在と一意性）を確認した。
 
 最後に $e$ のエピ射性を示す。$u,v:I\to Z$ が $ue=ve$ を満たすとし、$n:N\to I$ を両者の等化子とする。$e$ は $n$ を経由し、$f$ はモノ射 $in$ を経由する。$i$ の最小性により $i=inw$ となる $w:I\to N$ が存在する。
 
@@ -161,7 +177,9 @@ $$
 
 エピ射は「射を右から消去できる」という性質であり、集合の全射のように各元の原像を持つとは限らない。しかし像分解に用いるには、観察対象を引き戻しで変えてもエピ射であることが必要になる。
 
-準備として $g:C\to B$ と部分対象 $m:S\to C$ を取る。$b\in B$ に相当する一般化された元について、$g$ のファイバーが丸ごと $S$ に入るという条件を考える。
+準備として $g:C\to B$ と部分対象 $m:S\to C$ を取る。集合では $b\in B$ のファイバーは $g^{-1}(\{b\})$ である。
+
+一般の圏では試験対象 $T$ からの射 $u:T\to B$ に対し、[引き戻し](../../CAT/CAT2-03/index.md#def-cat2-03-pullback) $T\times_B C$ とその $C$ への射影でファイバーの族を表す。この射影が $m$ を経由することを、ファイバー全体が $S$ に入る条件とする。
 
 $B\times C$ 上の部分対象 $D$ を、二射 $\pi_B$ と $g\pi_C$ の等化子とする。ここで $\pi_B,\pi_C$ は積の射影である。さらに $D'$ を $D$ と $B\times S$ の共通部分とする。
 
@@ -231,7 +249,7 @@ $p$ を右から合成して等しくなる二射 $v,v':C\to Z$ を取る。等�
 
 ## 5. エピ射はちょうど核対による商である
 
-集合の全射 $e:A\to B$ で、同じ $e$ の値を持つ入力に同じ値を与える写像 $h:A\to Z$ は $B$ 上の写像として一意に定まる。一般のトポスで同じ主張を示すには、値を代表元から選ぶ代わりにグラフを作る。
+集合の全射 $e:A\to B$ で、同じ $e$ の値を持つ入力に同じ値を与える写像 $h:A\to Z$ は $B$ 上の写像として一意に定まる。一般のトポスで同じ主張を示すには、値を代表元から選ぶ代わりにグラフを作る。[核対](../CATB1-01/index.md#def-catb1-01-kernel-pair)は同じ値を持つ二入力を表す引き戻しであり、[正則エピ射](../CATB1-01/index.md#def-catb1-01-regular-epi)は平行二射の余等化子となる射である。
 
 <a id="thm-catb5-08-epi-regular"></a>
 
@@ -248,7 +266,7 @@ $p$ を右から合成して等しくなる二射 $v,v':C\to Z$ を取る。等�
 <!-- proof-start -->
 ### 証明
 
-[核対](../CATB1-01/index.md#def-catb1-01-kernel-pair)の二射影を $r_1,r_2:A\times_B A\to A$ とする。射 $h:A\to Z$ が $hr_1=hr_2$ を満たすと仮定する。
+[核対](../CATB1-01/index.md#def-catb1-01-kernel-pair)の二射影を $r_1,r_2:A\times_B A\to A$ とする。核対の可換条件は $er_1=er_2$ である。射 $h:A\to Z$ が $hr_1=hr_2$ を満たすと仮定する。
 
 [初等トポスの像分解](#thm-catb5-08-image)を $\langle e,h\rangle$ に適用する。
 
@@ -365,13 +383,25 @@ $$
 
 [Grothendieckトポス](../CATB5-07/index.md#def-catb5-07-grothendieck-topos)は小site上の層圏に同値な圏であり、前講の[層圏の初等トポス性](../CATB5-07/index.md#thm-catb5-07-sheaf-topos)から上の定理を適用できる。では層の像を各対象の集合として具体的に求めるにはどうすればよいだろうか。
 
-小site $(\mathcal C,J)$ 上の層の射 $f:F\to G$ を取る。$U$ 上の元 $y\in G(U)$ に対して、制限すると $f$ の値になる射を集める。
+[小site](../CATB5-02/index.md#def-catb5-02-grothendieck-topology) $(\mathcal C,J)$ 上の[層](../CATB5-03/index.md#def-catb5-03-site-sheaf)の射 $f:F\to G$ を取る。$J(U)$ は対象 $U$ 上の被覆篩の集合である。
+
+射 $f$ の各対象での成分と、射 $r:V\to U$ による制限を、それぞれ次のように書く。
+
+$$
+\begin{aligned}
+f_U&:F(U)\to G(U),\\
+F(r)&:F(U)\to F(V),\\
+G(r)&:G(U)\to G(V).
+\end{aligned}
+$$
+
+$U$ 上の元 $y\in G(U)$ に対して、制限すると $f$ の値になる射を集める。
 
 $$
 L_y=\{r:V\to U\mid G(r)y\in f_V(F(V))\}.
 $$
 
-これは篩である。$G(r)y=f_V(x)$ なら、任意の $s:W\to V$ について自然性から
+これが[篩](../CATB5-02/index.md#def-catb5-02-sieve)であることを、任意の射との前合成で閉じることから確認する。$G(r)y=f_V(x)$ なら、任意の $s:W\to V$ について自然性から
 
 $$
 G(rs)y=G(s)f_V(x)=f_W(F(s)x).
@@ -443,7 +473,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の射 $s:W\to U$ について、制限された元の篩は $s^*L_y$ に一致する。実際、$r:V\to W$ がそこに入る条件は $G(sr)y$ が $f_V$ の値であることだからである。[Grothendieck位相の引き戻し安定性](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)より $I$ は制限で閉じる。
+任意の射 $s:W\to U$ について、[篩の引き戻し](../CATB5-02/index.md#def-catb5-02-sieve-pullback)を $s^*L_y=\{r:V\to W\mid sr\in L_y\}$ と書く。前層の反変性 $G(r)G(s)=G(sr)$ より
+
+$$
+\begin{aligned}
+r\in L_{G(s)y}
+&\iff G(r)G(s)y\in f_V(F(V))\\
+&\iff G(sr)y\in f_V(F(V))\\
+&\iff sr\in L_y\\
+&\iff r\in s^*L_y.
+\end{aligned}
+$$
+
+従って $L_{G(s)y}=s^*L_y$ である。[Grothendieck位相の引き戻し安定性](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)より $I$ は制限で閉じる。
 
 被覆篩 $R\in J(U)$ 上の $I$ の整合族 $(y_r)$ を取る。$G$ の[層条件](../CATB5-03/index.md#def-catb5-03-site-sheaf)により $G$ 内の唯一の貼り合わせ $y\in G(U)$ がある。各 $r:V\to U$ が $R$ に入るとき
 
@@ -477,7 +519,7 @@ $f$ がエピ射なら $i$ もエピ射であり、[初等トポスのモノ・�
 
 ## 8. 層の商は成分商を層化して作る
 
-層の像が点ごとの像とずれるように、商も点ごとの商だけでは層になるとは限らない。しかし層化は前層を層に直し、同時に有限極限を保つ。この二つの性質によって商の普遍性と核対を一緒に制御できる。
+層の像が点ごとの像とずれるように、商も点ごとの商だけでは層になるとは限らない。しかし[層化関手](../CATB5-05/index.md#def-catb5-05-sheafification) $a$ は前層を層に直し、[層化の左完全性](../CATB5-05/index.md#thm-catb5-05-sheafification-left-exact)により同時に有限極限を保つ。この二つの性質によって商の普遍性と核対を一緒に制御できる。
 
 <a id="thm-catb5-08-sheaf-quotient"></a>
 
@@ -498,7 +540,7 @@ $f$ がエピ射なら $i$ もエピ射であり、[初等トポスのモノ・�
 
 推移射の始域は引き戻し $R\times_F R$ なので、成分では $((x,y),(y,z))$ という組である。その像は $(x,z)$ となる。よって $R(U)$ は集合の同値関係である。
 
-$r:V\to U$ に沿う制限は $R$ の自然性によって関係を保存する。従って
+$r:V\to U$ に沿う制限は包含 $R\to F\times F$ の自然性によって関係を保存する。具体的には $(x,x')\in R(U)$ なら $(F(r)x,F(r)x')\in R(V)$ である。$[x]$ を $x$ の $R(U)$ による同値類と書く。従って
 
 $$
 Q_0(r)([x])=[F(r)x]
@@ -514,7 +556,13 @@ Q_0(s)Q_0(r)([x])&=[F(s)F(r)x]\\
 \end{aligned}
 $$
 
-従って $Q_0$ は前層である。成分商写像 $q_0:F\to Q_0$ は制限と可換する。
+従って $Q_0$ は前層である。成分商写像 $(q_0)_U(x)=[x]$ について
+
+$$
+Q_0(r)(q_0)_U(x)=[F(r)x]=(q_0)_V F(r)x.
+$$
+
+従って $q_0:F\to Q_0$ は自然変換である。
 
 前層の射 $h:F\to H$ が $R$ の二射影を余等化するとき、各成分で $k_U([x])=h_U(x)$ と定められる。関係の二成分で値が等しいので代表元によらない。任意の $r:V\to U$ に対して
 
@@ -629,7 +677,7 @@ $X=\{a,b,c\}$ の開集合を $\varnothing,W=\{b\},U=\{a,b\},V=\{b,c\},X$ とし
 
 制限が定義できるのは $O\subseteq U$ ならその部分開集合も $U$ に含まれるためである。被覆上に整合族が存在すれば全ての被覆開集合が $U$ に含まれ、その合併 $O$ も $U$ に含まれる。貼り合わせは一元集合の唯一の元である。よって $H$ は層である。
 
-$X$ 上の原像篩は $\varnothing,W,U$ からの包含射である。始域の合併は $U$ であり $X$ でないので被覆ではない。
+[局所全射の原像篩](#def-catb5-08-local-surjective)の定義では、$1(X)$ の唯一の元が制限先で原像を持つのは $H(O)$ が非空の場合である。従って $X$ 上の原像篩は $\varnothing,W,U$ からの包含射である。始域の合併は $U$ であり $X$ でないので被覆ではない。
 
 一般の $O$ では原像篩の始域の合併は $O\cap U$。これは $O\subseteq U$ のときだけ $O$ に一致する。[層の局所像とエピ射の判定](#thm-catb5-08-sheaf-image)から像は $H$ 自身の包含であり、成分は $\varnothing,W,U$ で一元集合、$V,X$ で空集合である。
 <!-- solution-end -->
@@ -645,7 +693,7 @@ $X$ 上の原像篩は $\varnothing,W,U$ からの包含射である。始域の
 
 $g$ がモノ射 $m:M\to C$ を経由すれば $gd$ もそれを経由する。
 
-逆に $gd$ が $m$ を経由するとする。$m$ の分類射を $\chi_m:C\to\Omega$ とすれば
+逆に $gd$ が $m$ を経由するとする。[部分対象分類子](../CATB5-06/index.md#def-catb5-06-classifier)による $m$ の分類射を $\chi_m:C\to\Omega$ とすれば
 
 $$
 \chi_m gd=t_A=t_Bd.
@@ -691,13 +739,29 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-像分解のエピ射を $d:A\to G$、もう一つの射影を $q:G\to Z$ とする。$pd=e$、$qd=h$ である。
+[初等トポスの像分解](#thm-catb5-08-image)によるエピ射を $d:A\to G$、像の包含を $i:G\to B\times Z$、もう一つの射影を $q=\pi_Zi:G\to Z$ とする。$pd=e$、$qd=h$ である。
 
 $T=G\times_B G$ の射影を $u,v:T\to G$ とする。$d$ を $u$ に沿って引き戻し、$s:T_1\to T$ と $a:T_1\to A$ を得る。次に $d$ を $vs$ に沿って引き戻し、$w:T_2\to T_1$ と $b:T_2\to A$ を得る。
 
-[初等トポスのエピ射の引き戻し安定性](#thm-catb5-08-epi-pullback)より $sw$ はエピ射であり、引き戻しの等式は $daw=usw$ と $db=vsw$ である。
+[初等トポスのエピ射の引き戻し安定性](#thm-catb5-08-epi-pullback)より $s,w$ はエピ射であり、[エピ射の合成閉性](../../CAT/CAT1-03/index.md#prop-cat1-03-composition)より $sw$ もエピ射である。引き戻しの等式は
 
-$pu=pv$ より $eaw=eb$ であるから、核対の普遍性で $aw,b$ は $r_1,r_2$ を通る。従って $haw=hb$ となり $qusw=qvsw$。第一成分も等しいので、像の包含のモノ射性から $usw=vsw$。
+$$
+daw=usw,\qquad db=vsw.
+$$
+
+$pu=pv$ と $pd=e$ より
+
+$$
+eaw=pdaw=pusw=pvsw=pdb=eb.
+$$
+
+[核対](../CATB1-01/index.md#def-catb1-01-kernel-pair)の普遍性で $r_1z=aw,\ r_2z=b$ となる $z:T_2\to A\times_B A$ が存在する。仮定 $hr_1=hr_2$ と $qd=h$ より
+
+$$
+qusw=haw=hr_1z=hr_2z=hb=qvsw.
+$$
+
+第一成分 $pusw=pvsw$ も等しいので、積の普遍性より $iusw=ivsw$。$i$ のモノ射性から $usw=vsw$。
 
 $sw$ を右消去すれば $u=v$ である。任意の二射 $x,y:L\to G$ が $px=py$ を満たすとき、引き戻しの普遍性から $u\ell=x,\ v\ell=y$ となる $\ell:L\to T$ が存在する。$u=v$ より $x=y$。これが $p$ のモノ射性である。
 <!-- solution-end -->
@@ -706,7 +770,7 @@ $sw$ を右消去すれば $u=v$ である。任意の二射 $x,y:L\to G$ が $p
 
 - Level: B
 
-第7節と同じく $X=\{a,b,c\}$ の開集合を $\varnothing,W=\{b\},U=\{a,b\},V=\{b,c\},X$ とする。各開集合 $O$ に、値0の領域が $U$ に、値1の領域が $V$ に含まれる局所定数写像 $O\to\{0,1\}$ の集合 $F(O)$ を割り当てる層 $F$ を取る。$F(O)$ の全関係による成分商 $Q_0(O)$ を求めよ。$Q_0$ が層でないことと、その層化が終対象の層になることを示せ。
+第7節と同じく $X=\{a,b,c\}$ の開集合を $\varnothing,W=\{b\},U=\{a,b\},V=\{b,c\},X$ とする。各開集合 $O$ に、値0の領域が $U$ に、値1の領域が $V$ に含まれる局所定数写像 $O\to\{0,1\}$ の集合 $F(O)$ を割り当てる層 $F$ を取る。$F(O)$ の全関係（全ての二元の組が関係する同値関係）による成分商 $Q_0(O)$ を求めよ。$Q_0$ が層でないことと、その層化が終対象の層になることを示せ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -747,7 +811,7 @@ $$
 qx=qav=upv=uw=upv'=qav'=qx'.
 $$
 
-$R$ は $q$ の核対なので $r_1z=x$、$r_2z=x'$ となる $z:T\to R$ が一意に存在する。$qr_1z=uw$ だから $(z,w)$ は $R\times_Q W$ への射を一意に定める。
+[初等トポスのBarr-正確性](#thm-catb5-08-exact)より $R$ は $q$ の核対なので $r_1z=x$、$r_2z=x'$ となる $z:T\to R$ が一意に存在する。$qr_1z=uw$ だから $(z,w)$ は $R\times_Q W$ への射を一意に定める。
 
 逆に $z:T\to R,\ w:T\to W$ が $qr_1z=uw$ を満たすとする。$qr_2z=qr_1z$ なので二つの組 $(r_1z,w),(r_2z,w)$ がそれぞれ $P$ への射 $v,v'$ を定める。両者の $W$ 成分は $w$ なので $pv=pv'$。
 
