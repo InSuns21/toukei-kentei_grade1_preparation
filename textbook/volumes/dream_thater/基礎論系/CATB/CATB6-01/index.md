@@ -69,7 +69,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-ここで転置とは、[指数対象の普遍性](../../CAT/CAT4-05/index.md#def-cat4-05-exponential)によるカリー化である。射 $w:T\times Z\to\Omega$ の転置 $\widehat w:T\to\Omega^Z$ は、評価射 $e_Z:\Omega^Z\times Z\to\Omega$ に対し $e_Z(\widehat w\times1_Z)=w$ を満たす一意な射である。積の射に現れる $1_Z$ は $Z$ の恒等射を表す。
+ここで転置とは、[指数対象の普遍性](../../CAT/CAT4-05/index.md#def-cat4-05-exponential)によるカリー化である。射 $w:T\times Z\to\Omega$ の転置を $\widehat w:T\to\Omega^Z$ と書く。評価射 $e_Z:\Omega^Z\times Z\to\Omega$ に対し、転置は次の等式を満たす一意な射である。
+
+$$
+e_Z(\widehat w\times1_Z)=w.
+$$
+
+積の射に現れる $1_Z$ は $Z$ の恒等射を表す。
 
 まず $a:A_0\to X$ に沿う制限射 $r_a:P(X)\to\Omega^{A_0}$ を、次の合成の転置として定める。
 
@@ -80,7 +86,18 @@ $$
 
 $1\times A_0\cong A_0$ を通して $t_{A_0}$ を転置した射を $\tau_a:1\to\Omega^{A_0}$ とする。$r_b,\tau_b$ も $b:B_0\to X$ に対し同じ構成で定める。
 
-[等化子](../../CAT/CAT2-03/index.md#def-cat2-03-equalizer) $k_a:K_a\to P(X)$ を $r_a$ と $\tau_a!_{P(X)}$ の等化子とし、$k_b:K_b\to P(X)$ を $r_b$ と $\tau_b!_{P(X)}$ の等化子とする。[等化子のモノ射性](../../CAT/CAT2-03/index.md#prop-cat2-03-equalizer-unique-mono)により、$k_a,k_b$ は部分対象を表す。$k:K\to P(X)$ を二つの等化子の共通部分として[前節の命題](#prop-catb6-01-subobject-meet)で作る。これは両方の部分対象を含む候補を表す。
+[等化子](../../CAT/CAT2-03/index.md#def-cat2-03-equalizer)を用いて、次の二組の平行射をそれぞれ等化する。
+
+$$
+\begin{array}{ll}
+k_a:K_a\to P(X), & r_a,\ \tau_a!_{P(X)},\\
+k_b:K_b\to P(X), & r_b,\ \tau_b!_{P(X)}.
+\end{array}
+$$
+
+[等化子のモノ射性](../../CAT/CAT2-03/index.md#prop-cat2-03-equalizer-unique-mono)により、$k_a,k_b$ は部分対象を表す。
+
+$k:K\to P(X)$ を二つの等化子の共通部分として[前節の命題](#prop-catb6-01-subobject-meet)で作る。これは両方の部分対象を含む候補を表す。
 
 $$
 v=e_X(k\times1_X):K\times X\to\Omega.
@@ -103,7 +120,9 @@ v(1_K\times a)=t_{K\times A_0},
 \qquad v(1_K\times b)=t_{K\times B_0}.
 $$
 
-次に因子を交換して $v$ を $X\times K\to\Omega$ とみなし、その転置を $h:X\to\Omega^K$ とする。$t_K$ の転置を $\tau:1\to\Omega^K$ と書く。$h$ と $\tau!_X$ の等化子を $j:J\to X$ とする。これは[等化子のモノ射性](../../CAT/CAT2-03/index.md#prop-cat2-03-equalizer-unique-mono)により部分対象を表す。任意の $u:T\to X$ について
+次に因子を交換して $v$ を $X\times K\to\Omega$ とみなし、その転置を $h:X\to\Omega^K$ とする。$t_K$ の転置を $\tau:1\to\Omega^K$ と書く。
+
+$h$ と $\tau!_X$ の等化子を $j:J\to X$ とする。これは[等化子のモノ射性](../../CAT/CAT2-03/index.md#prop-cat2-03-equalizer-unique-mono)により部分対象を表す。任意の $u:T\to X$ について
 
 $$
 u\text{ が }j\text{ を経由する}
