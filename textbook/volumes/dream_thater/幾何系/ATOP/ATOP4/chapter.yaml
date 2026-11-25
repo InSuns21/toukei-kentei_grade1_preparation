@@ -1,0 +1,33 @@
+id: ATOP4
+title: "道・ループ・基本群"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP2, ATOP3, TOP3, GRP2, GRP3]
+official_scope: []
+learning_objectives:
+  - 道の連結と逆走の式を構成し連続性を検証できる
+  - 道ホモトピーと再パラメータ化を使い演算の代表元独立性を証明できる
+  - 結合律と単位元と逆元を明示的ホモトピーから導ける
+  - 基点変更による群同型と道の選択による共役を説明できる
+  - 誘導準同型と強変形レトラクトによる基本群の比較を証明できる
+definitions:
+  - { id: ATOP4-DEF-01, name: ループと基点 }
+  - { id: ATOP4-DEF-02, name: 道の連結・逆走・定値道 }
+  - { id: ATOP4-DEF-03, name: 道ホモトピー }
+  - { id: ATOP4-DEF-04, name: 基本群 }
+  - { id: ATOP4-DEF-05, name: 単連結性 }
+theorems:
+  - { id: ATOP4-PROP-01, name: 道の再パラメータ化 }
+  - { id: ATOP4-PROP-02, name: 道の連結と道ホモトピーの両立 }
+  - { id: ATOP4-THM-01, name: 道ホモトピー類の演算律 }
+  - { id: ATOP4-THM-02, name: 基本群の群構造 }
+  - { id: ATOP4-THM-03, name: 基本群の基点変更 }
+  - { id: ATOP4-THM-04, name: 基本群の誘導準同型 }
+  - { id: ATOP4-PROP-03, name: 強変形レトラクトと基本群 }
+  - { id: ATOP4-PROP-04, name: 可縮空間は単連結 }
+canonical_examples: [実直線上の道の連結, 一点空間の基本群, Euclid 空間と円板のループの縮約, 穴あき平面の基本群の比較]
+problem_patterns: [ATOP4-A1, ATOP4-A2, ATOP4-A3, ATOP4-A4, ATOP4-B1, ATOP4-B2, ATOP4-B3, ATOP4-B4, ATOP4-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }

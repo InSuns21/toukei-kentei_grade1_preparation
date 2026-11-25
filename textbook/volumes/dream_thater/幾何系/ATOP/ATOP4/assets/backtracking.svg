@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+<title id="title">逆走の縮約を表すホモトピーの正方形</title>
+<desc id="desc">横方向は道の時間s、縦方向は変形時刻t。各水平線の中央で内部時間が最大となり、下辺の1から上辺の0に減少する。左右は常に0。</desc>
+<rect width="640" height="400" fill="#fff"/>
+<g font-family="sans-serif" font-size="19" fill="#182532">
+<rect x="75" y="40" width="240" height="240" fill="#f1f5f8" stroke="#182532" stroke-width="2"/>
+<path d="M195 40 V280 M75 160 H315" stroke="#7b8792" stroke-width="1.5" stroke-dasharray="5 5"/>
+<path data-series-group="square" data-series-label="t0" d="M75 280 H315" stroke="#255e99" stroke-width="4"/>
+<path data-series-group="square" data-series-label="tHalf" d="M75 160 H315" stroke="#963c28" stroke-width="4" stroke-dasharray="10 5"/>
+<path data-series-group="square" data-series-label="t1" d="M75 40 H315" stroke="#182532" stroke-width="4" stroke-dasharray="2 5"/>
+<g text-anchor="middle"><text text-anchor="middle" font-size="19" x="75" y="330">0</text><text text-anchor="middle" font-size="19" x="195" y="330">1/2</text><text text-anchor="middle" font-size="19" x="315" y="330">1</text><text text-anchor="middle" font-size="19" x="195" y="370">s</text><text text-anchor="middle" font-size="19" x="27" y="286">0</text><text text-anchor="middle" font-size="19" x="27" y="166">1/2</text><text text-anchor="middle" font-size="19" x="27" y="46">1</text><text text-anchor="middle" font-size="19" x="20" y="21">t</text></g>
+<text x="350" y="24">内部時間 (1−t)q(s)</text>
+<g stroke="#7b8792" stroke-width="1.5" fill="none"><path d="M350 78 H600 M350 180 H600 M350 300 H600"/></g>
+<path data-series-group="profile" data-series-label="t1" d="M350 78 H600" stroke="#182532" stroke-width="4" stroke-dasharray="2 5"/>
+<path data-series-group="profile" data-series-label="tHalf" d="M350 180 L475 145 L600 180" stroke="#963c28" stroke-width="4" stroke-dasharray="10 5" fill="none"/>
+<path data-series-group="profile" data-series-label="t0" d="M350 300 L475 230 L600 300" stroke="#255e99" stroke-width="4" fill="none"/>
+<g text-anchor="middle"><text text-anchor="middle" font-size="19" x="475" y="58">最大 0</text><text text-anchor="middle" font-size="19" x="475" y="130">最大 1/2</text><text text-anchor="middle" font-size="19" x="475" y="215">最大 1</text><text text-anchor="middle" font-size="19" x="350" y="350">0</text><text text-anchor="middle" font-size="19" x="600" y="350">1</text></g>
+</g></svg>
