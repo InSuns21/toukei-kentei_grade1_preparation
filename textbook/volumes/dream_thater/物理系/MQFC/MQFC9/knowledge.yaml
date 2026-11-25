@@ -1,7 +1,7 @@
 chapter: MQFC9
 scope: dream-theater
 coverage: complete
-prerequisites: [MQFC8, MQFC4, QM6]
+prerequisites: [MQFC8, MQFC4, QM6, EVOL2]
 forward_references: []
 concepts:
   - id: mqfc.os-hilbert-space
@@ -13,9 +13,9 @@ concepts:
     name: "反射陽性からの時間並進半群"
     kind: theorem
     introduction: formal
-    requires: [mqfc.os-hilbert-space, mqfc.gaussian-reflection-positivity]
+    requires: [mqfc.os-hilbert-space, mqfc.gaussian-reflection-positivity, evolution.contraction-semigroup]
   - id: mqfc.os-nonnegative-generator
     name: "自己共役縮小半群の非負生成作用素"
     kind: theorem
     introduction: formal
-    requires: [mqfc.os-time-semigroup, quantum.unbounded-self-adjoint-spectral-theorem, quantum.self-adjoint-borel-functional-calculus]
+    requires: [mqfc.os-time-semigroup, quantum.unbounded-self-adjoint-spectral-theorem, quantum.self-adjoint-borel-functional-calculus, evolution.infinitesimal-generator]
