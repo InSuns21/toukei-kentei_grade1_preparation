@@ -21,7 +21,7 @@
 | GW1：擬正則曲線・Gromov–Witten | **21** | planned、分冊の独立21論証単位を章に確定 | MIR2 |
 | MIR1：周期・Picard–Fuchs | **16** | planned、文献照合により16論証単位へ再編（2026-11-14） | MIR2 |
 | MIR2：GWとミラー曲線計数 | **16** | planned、量子微分方程式・I/J関数・局所化・古典的検算を分離（2026-11-14） | HM1 |
-| HM1：ホモロジカル・ミラー | **18** | planned、分冊の18章を確定（[前提整備補講](DREAM_THEATER_HMS_FOUNDATIONS_PLAN.md)の実装・検証待ち） | 発展 |
+| HM1：ホモロジカル・ミラー | **18** | planned、分冊の18章を確定（[CATB7〜8・FLOERの前提整備](DREAM_THEATER_HMS_FOUNDATIONS_PLAN.md)の実装・検証待ち） | 発展 |
 | SYZ1：特殊Lagrange・双対トーラス | **14** | planned、分冊の14章を確定 | 発展 |
 | **総計** | **232章（2026-11-08時点の既完了120、当時点残112）** | **13系列の設計講数を合算。進捗の現在値は系列manifestを参照** | ※このルート専用の講義数。他系列の一般基礎講座は含まない |
 
@@ -32,7 +32,7 @@
 - **GW1：着手可能（解析・モジュライ基盤の初期棚卸しが必須）。** SYM1〜8、AG3、CM2、GPDE1〜10などの先行教材が存在し、基本概念から着手できる。ただしFredholm・Gromovコンパクト性・スタックの厳密な所有先と証明不足を早期に決める。既存章があることはこれらの一般結果が証明済みである証拠ではない。
 - **MIR1：DEF1完了後。** GW1やYAU1は直接必須にしない。MIR2はMIR1とGW1の完了後。
 - **SYZ1：YAU1の必要な存在結果が確立した後。** 特殊Lagrangeの変形論には追加解析の確認が要る。
-- **HM1：MIR2以後、かつ導来圏・Floer・$A_\infty$圏の前提整備後。** GW計数とFukaya圏の構成は別の論証。2026-11-25に[独立補講PLAN](DREAM_THEATER_HMS_FOUNDATIONS_PLAN.md)を設計した。設計のみで前提整備完了とはしない。
+- **HM1：MIR2以後、かつ導来圏・Floer・$A_\infty$圏の前提整備後。** GW計数とFukaya圏の構成は別の論証。2026-11-25に[前提整備ルート](DREAM_THEATER_HMS_FOUNDATIONS_PLAN.md)を設計し、[CATB7〜8](../plans_progress/DREAM_THEATER_CATEGORY_THEORY_SECOND_COURSE_PLAN.md)に7講を統合し、[独立FLOER](DREAM_THEATER_FLOER_ANALYTIC_FOUNDATIONS_PLAN.md)へ5講を分離した。設計のみで前提整備完了とはしない。
 - **本ルートPLAN自身**は科目別実装のための設計台帳であり、今回の文献照合・講義数確定だけでは計画固有の講義実装を始めていない。従ってplannedのまま、plans/から移動しない。未着手系列のmanifestや章IDを設計だけで実装済みとして作成しない。
 
 ### 標準的な教科書・講義ノートとの対応
@@ -65,7 +65,7 @@
 - [ミラー対称性I・II](DREAM_THEATER_MIRROR_SYMMETRY_I_II_PLAN.md)
 - [Gromov–Witten](../plans_progress/DREAM_THEATER_GROMOV_WITTEN_GEOMETRY_PLAN.md)
 - [ホモロジカルミラー](DREAM_THEATER_HOMOLOGICAL_MIRROR_SYMMETRY_PLAN.md)
-- [ホモロジカル・ミラー対称性の前提整備（独立補講）](DREAM_THEATER_HMS_FOUNDATIONS_PLAN.md)
+- [ホモロジカル・ミラー対称性の前提整備（CATB7〜8・FLOERへの依存ルート）](DREAM_THEATER_HMS_FOUNDATIONS_PLAN.md)
 - [SYZ](DREAM_THEATER_SYZ_SPECIAL_LAGRANGIAN_PLAN.md)
 
 ## 直接依存DAG
@@ -75,7 +75,7 @@ RNG/MOD/FLD → AG1→AG2→AG3 ───────────→ CAG1 → CY
 CA8/GEO → CM1→CM2 ─→ KAH1→HOD1 ────────┘              └→ DEF1 → MIR1
 GEO/GPDE → GA2/3 ────────────────────────────────→ YAU1
 SYM＋AG3＋CM1＋GPDE → GW1 → MIR2 ← MIR1
-MIR2＋Floer/圏論補講 → HM1
+MIR2＋CATB7〜8＋FLOER → HM1
 CYG1＋SYM6＋YAU1必要結果 → SYZ1
 ~~~
 

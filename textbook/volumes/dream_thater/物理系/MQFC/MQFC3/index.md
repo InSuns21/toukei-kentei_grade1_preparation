@@ -6,15 +6,29 @@
 
 ## 1. 場に要求する時空と状態の条件
 
-時空点を $x=(t,\boldsymbol x)$、四元運動量を $p=(E,\boldsymbol p)$ と書き、位相の符号を固定します。
+時空点を $x=(t,\boldsymbol x)$、四元運動量を $p=(E,\boldsymbol p)$ と書き、$p^0=E$ はエネルギー、$|\boldsymbol p|$ は空間3成分のEuclidノルム、$\eta$ はMinkowski内積です。位相の符号を固定します。
 
 $$
 b(p,x)=Et-\boldsymbol p\cdot\boldsymbol x=-\eta(p,x).
 $$
 
-未来と過去を入れ替えず、空間の向きも保つLorentz変換 $\Lambda$ と平行移動 $a$ を組み合わせた変換を $h:x\mapsto \Lambda x+a$ とします。この変換全体が固有時向きPoincaré群 $G$ です。積は $(a,\Lambda)(c,L)=(a+\Lambda c,\Lambda L)$ です。スカラーの試験関数は座標の引き戻し $f_h(x)=f(h^{-1}x)$ で移します。$h$ のJacobian絶対値は1です。
+未来と過去を入れ替えず、空間の向きも保つLorentz変換 $\Lambda$ と平行移動 $a$ を組み合わせた変換を $h:x\mapsto \Lambda x+a$ とします。この変換全体が[固有時向きPoincaré群](../../../代数系/LREP/LREP21/index.md#def-lrep21-poincare) $G$ です。群の積は
 
-[ユニタリ表現](../../../代数系/LREP/LREP2/index.md#def-lrep2-invariant-inner-product)をHilbert空間に拡張して考えます。表現 $U$ は群の積を作用素の積に写し、内積を保存します。[強連続ユニタリ表現](../../../代数系/LREP/LREP21/index.md#def-lrep21-unitary-representation)において強連続であるとは各固定状態 $\psi$ について $h\to e$ で $\|U(h)\psi-\psi\|\to0$ となることです。並進に制限すると、[平行移動のスペクトル条件](../../../解析系/AQFT/AQFT3/index.md#def-aqft3-spectrum)で用いた共同スペクトル測度 $E_U$ により
+$$
+(a,\Lambda)(c,L)=(a+\Lambda c,\Lambda L)
+$$
+
+です。スカラーの試験関数は座標の引き戻し $f_h(x)=f(h^{-1}x)$ で移します。
+
+$\Lambda$ はMinkowski内積を保存します。$\eta$ を標準座標での計量行列としても用いると、その条件は
+
+$$
+\Lambda^{\mathsf T}\eta\Lambda=\eta
+$$
+
+です。変換 $x=\Lambda y+a$ のJacobian行列は $\Lambda$ であり、$\det\eta\ne0$ なので両辺の行列式から $(\det\Lambda)^2=1$ を得ます。従ってJacobian絶対値は1です。
+
+[ユニタリ表現](../../../代数系/LREP/LREP2/index.md#def-lrep2-invariant-inner-product)をHilbert空間に拡張して考えます。表現 $U$ は群の積を作用素の積に写し、内積を保存する全射です。[強連続ユニタリ表現](../../../代数系/LREP/LREP21/index.md#def-lrep21-unitary-representation)において強連続であるとは各固定状態 $\psi$ について $h\to e$ で $\|U(h)\psi-\psi\|\to0$ となることです。並進に制限すると、[平行移動のスペクトル条件](../../../解析系/AQFT/AQFT3/index.md#def-aqft3-spectrum)で用いた共同スペクトル測度 $E_U$ により
 
 $$
 U(a)=\int_{\mathbb R^4}e^{ib(p,a)}\,dE_U(p)
@@ -31,6 +45,8 @@ $$
 真空は単位ベクトルで全群に不変な状態を選びます。さらに真空へ有限回場を作用させたベクトルの線形包が稠密なら、場だけで全状態へ近似できることになります。この性質を場に関する巡回性といいます。真空の一意性は別の要請で、並進に不変なベクトルの空間が真空の一次元空間に限られることです。
 
 最後に、離れた観測の順序を変えても結果が変わらないことを、[空間的分離した試験関数の支持](../../QFT/QFT5/index.md#def-qft5-spacelike-support)と[局所的可換性](../../QFT/QFT5/index.md#def-qft5-locality)で述べます。支持の全点対で空間的に分離するコンパクト台の試験関数を用います。
+
+場の定義域には前講の[作用素値緩増加分布](../MQFC2/index.md#def-mqfc2-field-domain)を用います。$\mathcal S$ はSchwartz試験関数の空間、$\operatorname{End}(D)$ は共通領域 $D$ から自身への線形写像全体です。各固定した二状態の行列要素が試験関数の連続線形汎関数であることを要求します。$\bar f$ は点ごとの複素共役で、随伴条件は内積の中で場を反対側へ移す規則です。スカラー共変性とは、状態を $U(h)$ で変換した場が試験関数を $f_h$ へ変えた場と一致することです。
 
 <a id="def-mqfc3-wightman-axioms"></a>
 
@@ -84,14 +100,24 @@ $$
 
 **定義の確認**。全ての公理を具体的に検証します。
 
-$\mathcal H=D=\mathbb C$、$\Omega=1$、$U(h)=I$、$\Phi(f)=(\int f(x)d^4x)I$ とします。積分の線形性と、整数 $N>4$ に対する
+$\mathcal H=D=\mathbb C$、$\Omega=1$、$U(h)=I$、$\Phi(f)=(\int f(x)d^4x)I$ とします。各場は複素数を複素数へ写すので $D$ を保ちます。固定した $z,w\in D$ について行列要素は $z\bar w\int f$ です。積分の線形性と、[Schwartz半ノルム](../MQFC1/index.md#def-mqfc1-schwartz) $p_{N,0}(f)=\sup_x(1+|x|)^N|f(x)|$ を使った整数 $N>4$ に対する
 
 $$
 \left|\int f(x)d^4x\right|
 \le p_{N,0}(f)\int(1+|x|)^{-N}d^4x
 $$
 
-により行列要素は緩増加分布です。積分と共役は交換するので随伴条件が成立します。Jacobianが1の変数変換で $\int f_h=\int f$ となり共変性が成立します。$U$ は定数で強連続、スペクトルは $\{0\}$ です。真空は不変で、空間そのものが $\mathbb C\Omega$ なので真空一意性と巡回性が成立します。全作用素は数の倍数なので交換子は零です。内積は $z\bar w$ で正定値です。全条件を満たしますが、励起状態は存在しません。公理に加えて非自明性を問う理由です。
+により行列要素は緩増加分布です。積分と共役は交換するので随伴条件が成立します。Jacobianが1の変数変換で $\int f_h=\int f$ となり共変性が成立します。
+
+$U$ は恒等作用素だけからなる強連続ユニタリ表現です。Borel集合 $B$ の指示関数を $\mathbf1_B$ と書き、共同スペクトル測度を
+
+$$
+E_U(B)=\mathbf1_B(0)I
+$$
+
+とすると、スペクトル積分は $e^{ib(0,a)}I=I=U(a)$ です。従ってスペクトルは $\{0\}$ で円錐内にあります。
+
+真空は不変で、空間そのものが $\mathbb C\Omega$ なので真空一意性と巡回性が成立します。全作用素は数の倍数なので交換子は零です。内積は $z\bar w$ で正定値です。全条件を満たしますが、励起状態は存在しません。公理に加えて非自明性を問う理由です。
 <!-- definition-example-end -->
 
 ## 2. 真空期待値はどのような正値性を持つか
@@ -168,7 +194,9 @@ $$
 u_f(\boldsymbol p)=\frac{\widetilde f(p)}{\sqrt{2\omega_{\boldsymbol p}}}.
 $$
 
-Fock空間の有限粒子Schwartz領域 $D_{\mathcal S}$ で
+ここで $\widetilde f(E,\boldsymbol p)$ は4変数のFourier変換で、$u_f$ では $E=\omega_{\boldsymbol p}$ に制限しています。[Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier)の記法とは $\widetilde f(E,\boldsymbol p)=\widehat f(-E,\boldsymbol p)$ の関係にあります。
+
+[対称Fock空間](../../QFT/QFT4/index.md#def-qft4-fock-space)は $\mathcal F=\bigoplus_{n\ge0}\mathfrak h^{\otimes_s n}$ です。$\otimes_s$ は粒子の置換に対して対称なテンソル部分空間を表し、零粒子空間は $\mathbb C$ です。有限個の粒子数だけが非零で各波束がSchwartz級である領域を $D_{\mathcal S}$ とします。[生成・消滅演算子](../../QFT/QFT4/index.md#def-qft4-ladder-operators) $a^\dagger(v),a(v)$ はそれぞれ粒子数を一つ増減し、$v$ に関し線形、共役線形です。この領域で
 
 $$
 \Phi(f)=a(u_{\bar f})+a^\dagger(u_f)
@@ -225,7 +253,19 @@ $$
 \end{aligned}
 $$
 
-二回作用させると平方根の重みは中間のエネルギーが打ち消され、位相は $b(p,a)+b(\Lambda^{-1}p,c)=b(p,a+\Lambda c)$ になります。従って $T(a,\Lambda)T(c,L)=T(a+\Lambda c,\Lambda L)$、特に $T(h^{-1})$ が逆写像です。内積を保存し全射なのでユニタリです。
+二回作用させる場合、$q=\Lambda^{-1}p$、$r=L^{-1}q$ を四元運動量として、その空間成分を $\boldsymbol q,\boldsymbol r$ と書きます。
+
+$$
+\begin{aligned}
+(T(a,\Lambda)T(c,L)v)(\boldsymbol p)
+&=e^{i[b(p,a)+b(q,c)]}
+\sqrt{\frac{q^0}{p^0}}\sqrt{\frac{r^0}{q^0}}v(\boldsymbol r)\\
+&=e^{ib(p,a+\Lambda c)}
+\sqrt{\frac{r^0}{p^0}}v(\boldsymbol r).
+\end{aligned}
+$$
+
+ここで $b(q,c)=b(p,\Lambda c)$、$r=(\Lambda L)^{-1}p$ であり、全エネルギー成分は正です。従って $T(a,\Lambda)T(c,L)=T(a+\Lambda c,\Lambda L)$、特に $T(h^{-1})$ が逆写像です。内積を保存し全射なのでユニタリです。
 
 コンパクト台の滑らかな波束 $v$ では $h\to e$ のとき点ごとに $T(h)v\to v$ です。恒等元近傍で支持は共通の有界集合に入り、重みも有界なので二乗差に優収束定理を適用できます。一般の $v$ をそのような波束 $v_k$ で近似すると
 
@@ -233,7 +273,16 @@ $$
 \|T(h)v-v\|\le2\|v-v_k\|+\|T(h)v_k-v_k\|.
 $$
 
-先に $k$ を大きくし、次に $h\to e$ として強連続性を得ます。テンソル積上では各因子を一つずつ置換する差の和とユニタリ性から強連続であり、有限和の対称単純テンソルの稠密性で全 $n$ 粒子空間へ延長できます。最後に任意のFockベクトルを有限粒子切断で近似します。ユニタリ性で切断の誤差を両端から評価すると $U$ も強連続です。
+先に $k$ を大きくし、次に $h\to e$ として強連続性を得ます。単純テンソル $v_1\otimes\cdots\otimes v_n$ では各因子を一つずつ置換する差の和から
+
+$$
+\left\|\bigotimes_{j=1}^n T(h)v_j-\bigotimes_{j=1}^n v_j\right\|
+\le \sum_{j=1}^n\|T(h)v_j-v_j\|
+\prod_{\ell\ne j}\|v_\ell\|
+\longrightarrow0.
+$$
+
+対称化はノルム1以下の射影で $T(h)^{\otimes n}$ と可換なので、対称単純テンソルでも強連続であり、有限和の対称単純テンソルの稠密性で全 $n$ 粒子空間へ延長できます。最後に任意のFockベクトルを有限粒子切断で近似します。ユニタリ性で切断の誤差を両端から評価すると $U$ も強連続です。
 
 **(2) 共通領域と場の共変性。** $\boldsymbol p\mapsto\boldsymbol q$ は滑らかで、各階導関数は高々多項式増大です。実際 $\boldsymbol q$ は $\omega_{\boldsymbol p}$ と $\boldsymbol p$ の線形結合であり、$m>0$ により分母の $\omega$ は零になりません。逆変換も同じ形であるため、ある定数 $C$ に対し
 
@@ -294,15 +343,34 @@ F(E,\boldsymbol p)
 \chi(E-\omega_{\boldsymbol p})
 $$
 
-と置きます。$F$ の支持上では $|E|\le\omega_{\boldsymbol p}+R$（$R$ は $\chi$ の支持半径）なので $1+|E|+|\boldsymbol p|\le C(1+|\boldsymbol p|)$ です。導関数は $v$ の導関数と $\chi$ の導関数に多項式増大因子を掛けた有限和になります。$v$ は任意次数の減衰を持つので $F$ はSchwartz級です。[Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier)の逆変換で $\widetilde f=F$ となる $f$ を選べば $u_f=v$ です。
+と置きます。$R$ を $\chi$ の支持半径とすると、$F$ の支持上では
 
-場の積の線形包を $M$ とします。$\Omega\in M$ で、$\Phi(f)M\subset M$ です。任意の $v$ に対し一粒子状態 $\Phi(f)\Omega=v$ も $M$ に入ります。$n$ 以下の対称単純テンソルがすべて $M$ に入ると仮定し、そのうち純粋な $n$ 粒子状態 $\psi$ を取ります。$u_f=v$ となる $f$ に対し
+$$
+|E|\le\omega_{\boldsymbol p}+R,\qquad
+1+|E|+|\boldsymbol p|\le C(1+|\boldsymbol p|)
+$$
+
+です。導関数は $v$ の導関数と $\chi$ の導関数に多項式増大因子を掛けた有限和になります。$v$ は任意次数の減衰を持つので $F$ はSchwartz級です。[Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier)の逆変換で $\widetilde f=F$ となる $f$ を選べば $u_f=v$ です。
+
+場の積の線形包を $M$ とします。$\Omega\in M$ で、$\Phi(f)M\subset M$ です。任意のSchwartz波束 $v$ に対し一粒子状態 $\Phi(f)\Omega=v$ も $M$ に入ります。
+
+$n$ 以下の対称単純テンソルがすべて $M$ に入ると仮定し、そのうち純粋な $n$ 粒子状態 $\psi$ を取ります。$u_f=v$ となる $f$ に対し
 
 $$
 a^\dagger(v)\psi=\Phi(f)\psi-a(u_{\bar f})\psi.
 $$
 
-右辺第一項は $M$ に入り、第二項は $n-1$ 粒子の対称単純テンソルの有限和です。実際消滅の積分は一つの因子を内積の係数に変え、残りを対称化します。帰納仮定から第二項も $M$ に入ります。従って生成した $\sqrt{n+1}$ 倍の対称テンソルも $M$ に入ります。係数を割れば任意の $n+1$ 因子の対称単純テンソルが得られます。
+右辺第一項は $M$ に入り、第二項は $n-1$ 粒子の対称単純テンソルの有限和です。実際、$S_n$ を $n$ 因子の対称化射影とし、$\psi=S_n(v_1\otimes\cdots\otimes v_n)$ と書くと、[消滅演算子の成分式](../../QFT/QFT4/index.md#def-qft4-ladder-operators)より $n\ge1$ で
+
+$$
+a(w)\psi=\frac1{\sqrt n}\sum_{j=1}^n
+\langle v_j,w\rangle
+S_{n-1}(v_1\otimes\cdots\otimes\widehat v_j\otimes\cdots\otimes v_n).
+$$
+
+帽子はその因子を除くことを表し、$S_0$ は零粒子成分の恒等作用です。$n$ 通りの位置のうち各因子が消滅される割合は $1/n$ で、成分式の $\sqrt n$ を掛けて係数 $1/\sqrt n$ が得られます。ここでは $w=u_{\bar f}$ です。
+
+帰納仮定から第二項も $M$ に入ります。従って生成した $\sqrt{n+1}$ 倍の対称テンソルも $M$ に入ります。係数を割れば任意の $n+1$ 因子の対称単純テンソルが得られます。
 
 Schwartz波束が一粒子空間で稠密であるため、それらの単純テンソルの線形包は各粒子空間で稠密です。対称化は連続な直交射影なので対称部分空間でも稠密となり、有限粒子の切捨てでFock空間全体に稠密です。よって巡回性が成立します。
 
@@ -401,7 +469,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-左端の生成演算子から来る項は真空との内積で零です。左端の消滅演算子を右へ一つ移すと、交換子
+左端の生成演算子から来る項は真空との内積で零です。左端の消滅演算子を右へ一つ移すには $AB=BA+[A,B]$ を使います。[Fock生成・消滅演算子の交換関係](../../QFT/QFT4/index.md#thm-qft4-fock-ccr)により、交換子
 
 $$
 [a(u_{\bar f_1}),\Phi(f_j)]
@@ -480,7 +548,7 @@ $$
 \end{aligned}
 $$
 
-第3節の波束変換式の $\Lambda=I$ の場合です。
+[自由場の共変作用](#thm-mqfc3-free-wightman)を導く際に得た波束変換式の $\Lambda=I$ の場合です。
 <!-- solution-end -->
 
 ### 演習 MQFC3-A3：零運動量射影
@@ -535,7 +603,14 @@ $\mathbb C^2$ 上で $U(a)=\operatorname{diag}(1,e^{i(t-2x^1)})$ とする。共
 <!-- solution-start -->
 #### 詳細解答
 
-指数の係数と $b(p,a)$ を比較すると、標準基底に対応する運動量は $p_1=0,p_2=(1,2,0,0)$ です。共同スペクトル測度は集合が $p_1,p_2$ を含むかどうかで対応する座標への射影を選びます。従ってスペクトルは $\{0,(1,2,0,0)\}$ です。時間成分は0と1で非負ですが $1<2$ なので円錐条件は失敗します。並進に不変な空間は第1座標のみです。
+標準正規直交基底を $e_1,e_2$ とします。$U(a)e_1=e_1$、$U(a)e_2=e^{i(t-2x^1)}e_2$ なので、指数の係数と $b(p,a)=p^0t-\boldsymbol p\cdot\boldsymbol x$ を比較すると運動量は $p_1=0,p_2=(1,2,0,0)$ です。[共同スペクトル測度とスペクトル条件](../../../解析系/AQFT/AQFT3/index.md#def-aqft3-spectrum)の積分表示に対応する射影は
+
+$$
+E_U(B)(z_1e_1+z_2e_2)
+=\mathbf1_B(p_1)z_1e_1+\mathbf1_B(p_2)z_2e_2.
+$$
+
+指数関数をこの測度で積分すると与えられた $U(a)$ を復元します。各成分の指数関数は連続で絶対値1、位相は加法的なので、これは強連続ユニタリ表現です。従ってスペクトルは $\{0,(1,2,0,0)\}$ です。時間成分は0と1で非負ですが $1<2$ なので円錐条件は失敗します。並進に不変な空間は第1座標のみです。
 
 さらにこの表現が全Poincaré群へ延長できると仮定すると、[Lorentz共変性とエネルギー正値性](../../../解析系/AQFT/AQFT3/index.md#prop-aqft3-lorentz-positive)により $H\ge0$ から円錐条件が従ってしまいます。よってそのような共変延長は存在しません。
 <!-- solution-end -->
@@ -550,7 +625,7 @@ $\mathbb C^2$ 上で $U(a)=\operatorname{diag}(1,e^{i(t-2x^1)})$ とする。共
 <!-- solution-start -->
 #### 詳細解答
 
-第3節の質量殻測度の変数変換から $d^3p=(\omega_{\boldsymbol p}/\omega_{\boldsymbol q})d^3q$ です。そのため
+[質量殻測度のLorentz不変性](../../../代数系/LREP/LREP22/index.md#thm-lrep22-measure-invariance)を第3節と同じ規格化で使うと $d^3p=(\omega_{\boldsymbol p}/\omega_{\boldsymbol q})d^3q$ です。そのため
 
 $$
 \|Sv\|^2=\int |v(\boldsymbol q)|^2
@@ -587,7 +662,7 @@ $$
 \ge5-|\boldsymbol x|-|\boldsymbol y-5\boldsymbol e_1|\ge3.
 $$
 
-従って空間差が時間差より大きく、[局所的可換性](../../QFT/QFT5/index.md#def-qft5-locality)を適用できます。共通不変領域上で
+従って空間差が時間差より大きく、[Wightman公理の局所性条件](#def-mqfc3-wightman-axioms)を適用できます。共通不変領域上で
 
 $$
 \begin{aligned}
@@ -610,7 +685,14 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[真空二点量の並進スペクトル](#prop-mqfc3-positive-frequency)で $E_U(B)$ は対応する固有ベクトルだけを残します。直交性で交差項は消え、
+[真空二点量の並進スペクトル](#prop-mqfc3-positive-frequency)で $E_U(B)$ は対応する固有ベクトルだけを残します。二つの運動量を $p_1,p_2$ と書けば、$E_U(B)v_j=\mathbf1_B(p_j)v_j$ です。直交性から
+
+$$
+\langle E_U(B)(v_1+v_2),v_1+v_2\rangle
+=2\mathbf1_B(p_1)+\mathbf1_B(p_2).
+$$
+
+点質量 $\delta_p$ は $\delta_p(B)=\mathbf1_B(p)$ の意味なので、
 
 $$
 \nu_{f,f}=2\delta_{(2,0,0,0)}+\delta_{(3,1,0,0)}
