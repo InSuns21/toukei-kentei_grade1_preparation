@@ -1,0 +1,67 @@
+chapter: ATOP4
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP2, ATOP3, TOP3, GRP2]
+forward_references: []
+concepts:
+  - id: atop.loop
+    name: ループ
+    kind: definition
+    introduction: formal
+    introduction_aliases: [ループと基点]
+    requires: [topology.path-connected-space]
+  - id: atop.path-operations
+    name: 道の連結・逆走・定値道
+    kind: definition
+    introduction: formal
+    requires: [topology.path-connected-space]
+  - id: atop.path-homotopy
+    name: 道ホモトピー
+    kind: definition
+    introduction: formal
+    requires: [topology.path-connected-space, atop.relative-homotopy]
+  - id: atop.path-reparametrization
+    name: 道の再パラメータ化
+    kind: proposition
+    introduction: formal
+    requires: [atop.path-homotopy]
+  - id: atop.path-concatenation-compatibility
+    name: 道の連結と道ホモトピーの両立
+    kind: proposition
+    introduction: formal
+    requires: [atop.path-operations, atop.path-homotopy]
+  - id: atop.path-class-laws
+    name: 道ホモトピー類の演算律
+    kind: theorem
+    introduction: formal
+    requires: [atop.path-concatenation-compatibility, atop.path-reparametrization]
+  - id: atop.fundamental-group
+    name: 基本群
+    kind: definition
+    introduction: formal
+    requires: [atop.loop, atop.path-homotopy, atop.path-operations, algebra.group]
+  - id: atop.fundamental-group-structure
+    name: 基本群の群構造
+    kind: theorem
+    introduction: formal
+    requires: [atop.fundamental-group, atop.path-class-laws, algebra.group]
+  - id: atop.simply-connected
+    name: 単連結性
+    kind: definition
+    introduction: formal
+    requires: [topology.path-connected-space, atop.fundamental-group]
+  - id: atop.basepoint-change
+    name: 基点変更
+    kind: theorem
+    introduction: formal
+    requires: [atop.fundamental-group-structure, atop.path-class-laws, algebra.group-isomorphism]
+  - id: atop.induced-fundamental-group-homomorphism
+    name: 基本群の誘導準同型
+    kind: theorem
+    introduction: formal
+    requires: [atop.fundamental-group-structure, atop.homotopy-composition, algebra.group-homomorphism]
+  - id: atop.deformation-fundamental-group
+    name: 強変形レトラクトと基本群
+    kind: proposition
+    introduction: formal
+    requires: [atop.strong-deformation-retract, atop.induced-fundamental-group-homomorphism, algebra.group-isomorphism]
