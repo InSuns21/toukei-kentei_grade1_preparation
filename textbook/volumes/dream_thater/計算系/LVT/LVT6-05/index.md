@@ -2,13 +2,13 @@
 
 **前提講義：** [LVT3-05](../LVT3-05/index.md)、[LVT3-07](../LVT3-07/index.md)、[LVT5-05](../LVT5-05/index.md)、[LVT5-06](../LVT5-06/index.md)、[LVT6-04](../LVT6-04/index.md)。
 
-前講では規則から許可と拒否を合成しました。今回は「正しい利用者を許可する」ことと「許可されていない利用者を拒否する」ことを別々に調べます。さらに、判定関数が正しくても、あるAPIだけ判定を呼ばなければ保護は成立しません。
+前講の[有限認可ポリシーモデル](../LVT6-04/index.md#def-lvt6-04-policy)では規則から許可と拒否を合成しました。今回は「正しい利用者を許可する」ことと「許可されていない利用者を拒否する」ことを別々に調べます。さらに、判定関数が正しくても、あるAPIだけ判定を呼ばなければ保護は成立しません。
 
 **ブラウザで実行：** [本講の実行ラボ](../browser-lab.html?chapter=LVT6-05)。Lean の判断・証明・意図的な失敗を試せます。TypeScript のサーバー側ルート関数と差分検査は第5節の端末で実行します。
 
 ## 1. 業務仕様を先に決める
 
-API は外部からプログラムの操作を要求する窓口です。ここでは project（作業用資源）の取得 GET、更新 PATCH、削除 DELETE を考えます。テナントとは利用者と資源を所属させる組織単位です。認証は利用者の身元の確認、認可は操作の許可判断です。主体 principal は認証結果に含まれる利用者ID、所属テナントID、役割（viewer、editor、admin）を持ちます。資源 resource はサーバー側で取得した project ID、テナントID、所有者IDを持ちます。操作 `action` は read、update、delete の三種類です。
+API は外部からプログラムの操作を要求する窓口です。ここでは project（作業用資源）の取得 GET、更新 PATCH、削除 DELETE を考えます。テナントとは利用者と資源を所属させる組織単位です。認証は利用者の身元の確認、認可は操作の許可判断です。主体 principal は認証結果に含まれる利用者ID、所属テナントID、役割（viewer＝閲覧者、editor＝編集者、admin＝管理者）を持ちます。資源 resource はサーバー側で取得した project ID、テナントID、所有者IDを持ちます。操作 `action` は read、update、delete の三種類です。
 
 IDは空でない英数字・ハイフンの文字列とします。要求に含まれる project ID からサーバー内の資源を検索し、認証済みの主体の情報もサーバーから得ます。クライアントが主張する役割・所有者・テナントは採用しません。未知の操作、未知の役割、未認証、IDの形式不良、存在しない資源は拒否します。認証と検索の結果が真正であることは本講の仮定であり、認証プロトコルそのものは扱いません。
 
@@ -20,7 +20,7 @@ IDは空でない英数字・ハイフンの文字列とします。要求に含
 | editor | 許可 | 自分が所有するときのみ許可 | 拒否 |
 | admin | 許可 | 許可 | 許可 |
 
-別テナントの場合は、adminでも、所有者IDが偶然一致していても全操作を拒否します。正規化とは、ここでは具体的な入力を検査し、既知の役割と操作、認証の有無、テナント一致、所有者一致という五つの成分に変換することです。役割や操作の型が不明な入力は正規化に失敗します。
+別テナントの場合は、adminでも、所有者IDが偶然一致していても全操作を拒否します。正規化とは、ここでは具体的な入力を検査し、既知の役割と操作、認証の有無、テナント一致、所有者一致という五つの成分に変換することです。未知の役割・操作や検索失敗により五成分を確定できない具体入力は、そのまま拒否します。以下の抽象領域 T は、具体的なセッションの存在とは別に、役割・操作を仮に与えた未認証の場合も含めた有限集合です。真偽値は true（真）、false（偽）の二値です。許可述語 P(r) は五つ組 r を受け取って許可条件が成立するかを表す命題であり、実行関数の返す真偽値とは区別します。
 
 <a id="def-lvt6-05-permission"></a>
 
@@ -35,16 +35,16 @@ IDは空でない英数字・ハイフンの文字列とします。要求に含
 - a=read
 - v=editor、a=update、o=true
 
-型の不明な入力、資源検索失敗などは T に入れず拒否する。
+型の不明な入力、資源検索失敗など、五成分を確定できない具体入力は T に写さず拒否する。未認証でも五成分を仮定した抽象要求は T に含める。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt6-05-permission -->
-**定義の確認**： 認証済み editor のIDが u1、所属が t1、project の所有者が u1、所属が t1 なら update に対して b=t=o=true、v=editor、a=update です。三番目の条件を満たすため P は成立します。project の所属だけ t2 に変えると t=false で、所有者の一致が残っていても P は不成立です。未認証なら b=false であり、admin/read でも P は不成立です。
+**定義の確認**： 認証済み editor のIDが u1、所属が t1、project の所有者が u1、所属が t1 なら update に対して b=t=o=true、v=editor、a=update です。主体と資源の所属の等式 t1=t1 から t=true、主体IDと所有者IDの等式 u1=u1 から o=true を得ます。認証済みなので b=true です。admin 条件と read 条件は偽ですが、editor/update/所有者一致の三条件がすべて真なので P(r) は成立します。project の所属だけ t2 に変えると t=false で、所有者の一致が残っていても P は不成立です。未認証なら b=false であり、admin/read でも P は不成立です。逆に認証・テナント一致の下では、非所有者でも admin/delete なら第一条件、viewer/read なら第二条件で許可されます。editor/delete は三条件がすべて偽なので拒否です。
 <!-- definition-example-end -->
 
 ## 2. 判定関数の両方向を証明する
 
-実行できる判断 D は Bool を返す関数です。まず b が偽なら拒否し、次に t が偽なら拒否します。残りでは役割と操作の表を使い、editor/update のときだけ o を返します。判定が真なのに仕様が不成立なら不正許可、仕様が成立するのに判定が偽なら許可漏れです。この二つをそれぞれ安全性、完全性の失敗として区別します。
+実行できる判断 D は T の各要求 r に対して Bool（真偽値型）の値 D(r) を返す関数です。D(r)=true を許可、D(r)=false を拒否と読みます。まず b が偽なら拒否し、次に t が偽なら拒否します。残りでは役割と操作の表を使い、editor/update のときだけ o を返します。判定が真なのに仕様が不成立なら不正許可、仕様が成立するのに判定が偽なら許可漏れです。この二つをそれぞれ安全性、完全性の失敗として区別します。
 
 <a id="prop-lvt6-05-sound"></a>
 
@@ -77,7 +77,7 @@ T の任意の要求 r に対し、[テナント付き要求の許可仕様](#de
 <!-- proof-start -->
 ### 証明
 
-P(r) より b=t=true なので入口検査は通過する。第一条件 v=admin が成立するなら、操作によらず D=true。第二条件 a=read が成立するなら、admin、viewer、editor の各 read 分岐はすべて true である。第三条件 v=editor、a=update、o=true が成立するなら、editor/update 分岐で D=o=true。論理和の少なくとも一つが真であるから D=true を得る。
+[テナント付き要求の許可仕様](#def-lvt6-05-permission) の P(r) より b=t=true なので入口検査は通過する。第一条件 v=admin が成立するなら、操作によらず D=true。第二条件 a=read が成立するなら、admin、viewer、editor の各 read 分岐はすべて true である。第三条件 v=editor、a=update、o=true が成立するなら、editor/update 分岐で D=o=true。論理和の少なくとも一つが真であるから D=true を得る。
 <!-- proof-end -->
 
 二命題を合わせると D(r)=true と P(r) が同値になります。特に R 上でも成立します。T の外の入力には D を直接適用せず、正規化失敗として拒否します。未認証は b=false の場合として扱えるため、T 内に保持して拒否することもできます。
@@ -88,18 +88,18 @@ P(r) より b=t=true なので入口検査は通過する。第一条件 v=admin
 
 判定関数の証明をAPIへ接続します。保護対象ルートを GET、PATCH、DELETE と固定します。副作用とは、ここでは資源データを返すことも含め、保護された情報の読出し・更新・削除を実行することです。認可の前には、要求の形式検査、認証の確認、資源の検索と一致判定だけを行います。検索結果は許可前にクライアントへ返しません。
 
-各要求は raw（受信）、normalized（形式確認）、authenticated（認証確認）、checked（認可済み）、effect（保護操作実行）を順に進みます。拒否の場合はそれ以上進みません。形式確認に失敗した要求は raw で終了し、認証が偽なら normalized で、D が偽なら authenticated で終了します。資源検索と一致判定は認可までに済ませます。この有限列を実行経路として観察します。
+各要求は raw（受信）、normalized（形式確認と資源検索成功）、authenticated（有効な主体情報の確認）、checked（認可済み）、effect（保護操作実行）を順に進みます。拒否の場合はそれ以上進みません。形式と資源検索の入口検査の成否を真偽値 valid で表し、認証の成否は抽象要求の b で表します。具体実装ではセッション検索失敗や不明な役割も normalized で終了し、五つ組を作りません。抽象モデルでは入口で終了する場合にも r を引数として与えますが、その未使用成分は仮の値で構いません。資源と主体が揃った場合だけ実際の一致判定から五成分を作ります。この有限列を実行経路として観察します。角括弧は左から右へのイベント列を表します。
 
 <a id="def-lvt6-05-route"></a>
 
 <!-- formal-statement-start -->
 ### 定義（保護操作の実行経路モデル）
 
-入力は形式検査結果 valid と、T に属する要求 r とする。valid=false のとき経路は [raw]、valid=true かつ b=false のとき [raw, normalized]、valid=true かつ b=true かつ D(r)=false のとき [raw, normalized, authenticated] とする。それ以外では [raw, normalized, authenticated, checked, effect] とする。effect は保護操作の実行を表す。
+入力は形式・資源検索の入口検査結果 valid（真偽値）と、[テナント付き要求の許可仕様](#def-lvt6-05-permission) の T に属する抽象要求 r とする。D は [認可判定の安全性](#prop-lvt6-05-sound) で定めた判定関数とする。valid=false のとき経路は [raw]、valid=true かつ b=false のとき [raw, normalized]、valid=true かつ b=true かつ D(r)=false のとき [raw, normalized, authenticated] とする。それ以外では [raw, normalized, authenticated, checked, effect] とする。effect は保護操作の実行を表す。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt6-05-route -->
-**定義の確認**： 形式が正しく、認証済みの editor が同一テナントの他人の資源を更新すると、valid=true、b=t=true、o=false なので D=false。経路は authenticated で止まる三要素の列です。同じ要求の所有者だけ本人に変えると D=true になり、checked、effect がこの順で追加されます。
+**定義の確認**： 形式が正しく資源検索に成功し、認証済みの editor が同一テナントの他人の資源を更新すると、valid=true、b=t=true、o=false です。[認可判定の安全性](#prop-lvt6-05-sound) で定めた D の入口検査を通り、editor/update 分岐で D(r)=o=false となります。経路は authenticated で止まる三要素の列です。同じ要求の所有者だけ本人に変えると D=true になり、checked、effect がこの順で追加されます。資源検索に失敗すれば valid=false なので raw だけになり、入口を通っても認証が失敗すれば b=false なので raw、normalized だけになります。
 <!-- definition-example-end -->
 
 <a id="prop-lvt6-05-route-safe"></a>
@@ -107,7 +107,7 @@ P(r) より b=t=true なので入口検査は通過する。第一条件 v=admin
 <!-- formal-statement-start -->
 ### 命題（保護操作の認可先行性）
 
-[保護操作の実行経路モデル](#def-lvt6-05-route) に従う任意の valid と要求 r について、経路に effect が含まれるなら valid=true、b=true、D(r)=true であり、effect より前に checked が含まれる。また P(r) が成立する。
+[保護操作の実行経路モデル](#def-lvt6-05-route) に従う任意の valid と要求 r について、経路に effect が含まれるなら valid=true、b=true、D(r)=true であり、effect より前に checked が含まれる。また [テナント付き要求の許可仕様](#def-lvt6-05-permission) の P(r) が成立する。
 <!-- formal-statement-end -->
 
 見取り図：可能な経路は四種類だけです。保護操作に到達できる経路を絞れば、認可前の実行がないことを確認できます。
@@ -118,7 +118,7 @@ P(r) より b=t=true なので入口検査は通過する。第一条件 v=admin
 valid=false なら経路は raw だけで effect はない。従って valid=true。b=false なら normalized までで effect はない。従って b=true。D(r)=false なら authenticated までで effect はない。従って D(r)=true。残る経路は raw、normalized、authenticated、checked、effect の順の五要素列で、checked は4番目、effect は5番目である。[認可判定の安全性](#prop-lvt6-05-sound) をこの r と D(r)=true に適用して P(r) を得る。
 <!-- proof-end -->
 
-これは [単一初期状態の遷移モデル](../LVT3-05/index.md#def-lvt3-05-system) の有限経路に特化した場合です。実装側でこの経路以外が存在しないかは別に調べます。例えば PATCH だけ checked を飛ばすと、他人の資源を更新できてしまいます。認可関数が正しいことはその反例を排除しません。
+[単一初期状態の遷移モデル](../LVT3-05/index.md#def-lvt3-05-system) と同じ考え方で、固定した valid と r ごとに raw、normalized、authenticated、checked、effect を順に自然数 0、1、2、3、4 に対応させれば、初期状態は 0 です。入口条件を満たす場合だけ次の番号への遷移を許すと、拒否された段階から先の状態へは移れません。本講の有限列はこの経路の各状態を受信時から停止時まで記録したものです。実装側でこの経路以外が存在しないかは別に調べます。例えば PATCH だけ checked を飛ばすと、他人の資源を更新できてしまいます。認可関数が正しいことはその反例を排除しません。
 
 ## 4. TypeScript のルートとサービス境界
 
@@ -145,7 +145,7 @@ dispatch → 入力検査 → セッション・資源検索
 
 [Leanモデル](lab/LvtTenant.lean) では Permitted を論理和と論理積で記し、decideAccess を役割・操作の分岐で記します。allowIff は役割3、操作3、残る真偽値3個の全72場合を場合分けして簡約します。soundness と completeness は同値の両方向です。traceSafe は effect を含む場合に入口条件と許可が成立することを示します。Leanの型にない文字列は [CLI](lab/Main.lean) が別に拒否します。
 
-[比較ハーネス](lab/differential.ts) は 3×3×2×2×2=72 通りの抽象要求について Lean の判断と独立した TypeScript 判定を照合します。さらに全抽象要求を実際のルートへ具体化し、保護操作の有無と順序を確認します。[要求順の応答照合](../LVT5-05/index.md#def-lvt5-05-paired-observation) と [状態付き観測列](../LVT5-06/index.md#def-lvt5-06-stateful-trace) の観測を使い、許可値だけでなく経路のイベント列を比較します。固定例のほか、fast-check でIDや不正要求を生成します。
+[比較ハーネス](lab/differential.ts) は 3×3×2×2×2=72 通りの抽象要求について Lean の判断と独立した TypeScript 判定を照合します。Lean の Request の role、action、sameTenant、isOwner、authenticated は順に v、a、t、o、b に対応し、Permitted は P、decideAccess は D です。CLI の引数では真偽値を文字列 `1` と `0` に符号化し、出力 `1` を許可と読みます。さらに全抽象要求を実際のルートへ具体化し、保護操作の有無と順序を確認します。[要求順の応答照合](../LVT5-05/index.md#def-lvt5-05-paired-observation) と [状態付き観測列](../LVT5-06/index.md#def-lvt5-06-stateful-trace) の観測を使い、許可値だけでなく経路のイベント列を比較します。固定例のほか、fast-check でIDや不正要求を生成します。
 
 次の変異では、どの保証が破れるかを分けて観察します。
 
@@ -194,7 +194,7 @@ lake env lean Failure.lean
 <!-- solution-start -->
 #### 詳細解答
 
-b=t=true、o=false なので入口を通る。viewer/read は true、update と delete は false。editor/read は true、update は o=false、delete は false。仕様の第二条件 a=read だけが成立するため、両役割とも read のみ許可となる。
+[判定関数 D](#prop-lvt6-05-sound) の入口は b=t=true なので通る。o=false である。viewer/read は true、update と delete は false。editor/read は true、update は o=false、delete は false。仕様の第二条件 a=read だけが成立するため、両役割とも read のみ許可となる。
 <!-- solution-end -->
 
 ### LVT6-05-A02 テナント優先
@@ -206,7 +206,7 @@ b=t=true、o=false なので入口を通る。viewer/read は true、update と 
 <!-- solution-start -->
 #### 詳細解答
 
-b=true、t=false、o=true である。第一検査を通るが第二検査で D=false。仕様は t=true を必要とするので admin 条件が真でも P は偽である。所有者の一致とテナントの一致は別条件である。
+[許可仕様](#def-lvt6-05-permission) の記号で b=true、t=false、o=true である。第一検査を通るが第二検査で D=false。仕様は t=true を必要とするので admin 条件が真でも P は偽である。所有者の一致とテナントの一致は別条件である。
 <!-- solution-end -->
 
 ### LVT6-05-A03 正規化失敗
@@ -218,19 +218,19 @@ b=true、t=false、o=true である。第一検査を通るが第二検査で D=
 <!-- solution-start -->
 #### 詳細解答
 
-未知メソッドは操作の三種類に属さず、存在しない資源は一致判定の対象がないため正規化できず T の外で拒否する。未認証については他の抽象成分が与えられていれば b=false として T 内に表現でき、D の第一検査で拒否される。実際のセッション検索失敗時には抽象成分を作らず拒否してもよい。
+[許可仕様](#def-lvt6-05-permission) の T に照らすと、未知メソッドは操作の三種類に属さず、存在しない資源は一致判定の対象がないため正規化できず T の外で拒否する。未認証については他の抽象成分が与えられていれば b=false として T 内に表現でき、D の第一検査で拒否される。実際のセッション検索失敗時には抽象成分を作らず拒否してもよい。
 <!-- solution-end -->
 
 ### LVT6-05-A04 経路の比較
 
-形式が正しい同一テナントの認証済み editor の update で、所有者一致が真と偽の場合の経路を求めよ。
+形式が正しく資源検索に成功した同一テナントの認証済み editor の update で、所有者一致が真と偽の場合の経路を求めよ。
 
 - Level: A
 
 <!-- solution-start -->
 #### 詳細解答
 
-入口条件は valid=b=t=true。o=true なら editor/update の D=o=true なので raw、normalized、authenticated、checked、effect の五要素。o=false なら D=false で raw、normalized、authenticated の三要素。checked 以降が存在しないので保護操作は起きない。
+[実行経路モデル](#def-lvt6-05-route) の入口条件は valid=b=t=true（資源検索成功も仮定する）。o=true なら editor/update の D=o=true なので raw、normalized、authenticated、checked、effect の五要素。o=false なら D=false で raw、normalized、authenticated の三要素。checked 以降が存在しないので保護操作は起きない。
 <!-- solution-end -->
 
 ### Level B
@@ -244,7 +244,7 @@ b=true、t=false、o=true である。第一検査を通るが第二検査で D=
 <!-- solution-start -->
 #### 詳細解答
 
-常時拒否は D=true の要求がなく、含意 D=true なら P はすべて真なので安全。同一テナントの認証済み viewer/read は P が真だが D=false なので完全ではない。常時許可は P が真なら必ず D=true なので完全。しかし b=true、t=false の admin/read でも D=true、P は偽なので安全ではない。従って二方向は互いに代用できない。
+[安全性](#prop-lvt6-05-sound) と [完全性](#prop-lvt6-05-complete) の二つの含意を判定する。常時拒否は D=true の要求がなく、含意 D=true なら P はすべて真なので安全。同一テナントの認証済み viewer/read は P が真だが D=false なので完全ではない。常時許可は P が真なら必ず D=true なので完全。しかし b=true、t=false の admin/read でも D=true、P は偽なので安全ではない。従って二方向は互いに代用できない。
 <!-- solution-end -->
 
 ### LVT6-05-B02 有限照合の数
@@ -256,7 +256,7 @@ b=true、t=false、o=true である。第一検査を通るが第二検査で D=
 <!-- solution-start -->
 #### 詳細解答
 
-許可には b=t=true が必要なのでこの二成分は各1通り。残りの役割・操作・所有者一致は 3×3×2=18 通り。admin は三操作それぞれ o が2通りなので6件。viewer は read の o が2通りなので2件。editor は read が2件、update の o=true が1件、delete は0件なので3件。合計 6+2+3=11 件。拒否は72−11=61件。
+[許可仕様](#def-lvt6-05-permission) では許可に b=t=true が必要なのでこの二成分は各1通り。残りの役割・操作・所有者一致は 3×3×2=18 通り。admin は三操作それぞれ o が2通りなので6件。viewer は read の o が2通りなので2件。editor は read が2件、update の o=true が1件、delete は0件なので3件。合計 6+2+3=11 件。拒否は72−11=61件。
 <!-- solution-end -->
 
 ### LVT6-05-B03 所有者の取り違え
@@ -268,7 +268,7 @@ editor/update の所有者判定を常に t と置き換えた変異の反例を
 <!-- solution-start -->
 #### 詳細解答
 
-主体 u1 と資源所有者 u2 を同じテナント t1 に置く。b=t=true、o=false である。元の D は editor/update で o=false を返す。変異は t=true を返すため不正許可になる。P の第一条件 admin は偽、第二条件 read も偽、第三条件は o=false で偽。従って P は不成立であり、[認可判定の安全性](#prop-lvt6-05-sound) が破れる。
+主体 u1 と資源所有者 u2 を同じテナント t1 に置き、認証済みとする。b=t=true、o=false である。元の D は editor/update で o=false を返す。変異は t=true を返すため不正許可になる。P の第一条件 admin は偽、第二条件 read も偽、第三条件は o=false で偽。従って P は不成立であり、[認可判定の安全性](#prop-lvt6-05-sound) が破れる。
 <!-- solution-end -->
 
 ### LVT6-05-B04 入口を省くルート
@@ -280,7 +280,7 @@ PATCH だけ認可を行わずに effect へ進む実装について、判定関
 <!-- solution-start -->
 #### 詳細解答
 
-形式が正しく認証済み、同一テナントの viewer/update を選ぶ。D=false、P は偽である。正しい経路は authenticated で止まる。変異経路は raw、normalized、authenticated、effect となり effect を含むが checked がない。[保護操作の認可先行性](#prop-lvt6-05-route-safe) の経路モデルに従うという仮定が失われている。判定関数の安全性・完全性自体は変わらない。
+形式が正しく資源検索に成功した認証済み、同一テナントの viewer/update を選ぶ。D=false、P は偽である。正しい経路は authenticated で止まる。変異経路は raw、normalized、authenticated、effect となり effect を含むが checked がない。[保護操作の認可先行性](#prop-lvt6-05-route-safe) の経路モデルに従うという仮定が失われている。判定関数の安全性・完全性自体は変わらない。
 <!-- solution-end -->
 
 ### Level C
@@ -294,11 +294,11 @@ PATCH だけ認可を行わずに effect へ進む実装について、判定関
 <!-- solution-start -->
 #### 詳細解答
 
-まず三役割、三操作、三つの真偽値を独立に列挙するため 3×3×2×2×2=72 件である。B02 の数え方により許可11件、拒否61件が期待される。正常な比較で全件一致することを確認する。未知役割は T に属さないので、文字列を admin に変換する変異を不正入力として検出する。別テナントの admin/read は t=false で P が偽なのにテナント検査省略では真になる。これらは分類と判定の失敗である。
+まず三役割、三操作、三つの真偽値を独立に列挙するため 3×3×2×2×2=72 件である。[許可仕様](#def-lvt6-05-permission) の b=t=true の下で admin は6件、viewer は2件、editor は3件なので、許可11件、拒否61件が期待される。正常な比較で全件一致することを確認する。未知役割は T に属さないので、文字列を admin に変換する変異を不正入力として検出する。別テナントの admin/read は t=false で P が偽なのにテナント検査省略では真になる。これらは分類と判定の失敗である。
 
-PATCH の反例は B04 と同じ viewer/update。D は偽でも保護操作が観測されるため経路の失敗である。内部サービス迂回では raw から effect へ進む列を考えると checked がないため経路モデルと一致しない。実験出力で各変異が検出されることを確認し、生成失敗なら seed と path を保存する。
+PATCH の反例は B04 と同じ viewer/update（valid=b=t=true）。D は偽でも保護操作が観測されるため経路の失敗である。内部サービス迂回では raw から effect へ進む列を考えると checked がないため経路モデルと一致しない。実験出力で各変異が検出されることを確認し、生成失敗なら seed と path を保存する。
 
-[認可判定の完全性](#prop-lvt6-05-complete) と安全性は T の全要求の論証だが、72件の実行は一般の具体入力に対する TypeScript の定理ではない。残る条件は次の通り。
+[認可判定の完全性](#prop-lvt6-05-complete) と [安全性](#prop-lvt6-05-sound) は T の全要求の論証だが、72件の実行は一般の具体入力に対する TypeScript の定理ではない。残る条件は次の通り。
 
 1. 認証・資源検索が正確であること。
 2. 具体IDの分類が全許容入力で正しいこと。
