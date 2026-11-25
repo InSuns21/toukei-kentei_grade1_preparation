@@ -225,7 +225,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（質量付き逆核の熱核積分表示）**
-> $d\ge1$、$m>0$ とする。$H_s(x)=(4\pi s)^{-d/2}e^{-|x|^2/(4s)}$ に対し、$G_m=\mathcal F^{-1}[(|p|^2+m^2)^{-1}]$ は
+> $d\ge1$、$m>0$、$s>0$ とする。熱核と逆核を
+
+$$
+H_s(x)=(4\pi s)^{-d/2}e^{-|x|^2/(4s)},\qquad
+G_m=\mathcal F^{-1}[(|p|^2+m^2)^{-1}]
+$$
+
+> とすると、任意の $h\in\mathcal S(\mathbb R^d)$ に対して
 
 $$
 \langle G_m,h\rangle=
