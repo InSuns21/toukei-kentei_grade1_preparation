@@ -89,7 +89,7 @@ $$
 これは[LA3Eのテンソル積の定義](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)の拡張です。
 
 <!-- definition-example-start: def-tsp1-multifactor-product -->
-**定義の確認**。$d=3$、$V_1=V_2=V_3=K$ とします。候補 $T=K$、$\tau(x,y,z)=xyz$ は各位置の分配法則と結合法則により多重線形です。任意の $W$ と多重線形写像 $b:K^3\to W$ に対し
+**定義の確認**。$d=3$、$V_1=V_2=V_3=K$ とします。候補 $T=K$、$\tau(x,y,z)=xyz$ を取ります。第1位置では $(\lambda x+\mu x')yz=\lambda xyz+\mu x'yz$ です。第2位置では $x(\lambda y+\mu y')z=\lambda xyz+\mu xy'z$ となり、第3位置でも $xy(\lambda z+\mu z')=\lambda xyz+\mu xyz'$ です。従って多重線形です。任意の $W$ と多重線形写像 $b:K^3\to W$ に対し
 
 $$
 b(x,y,z)=x b(1,y,z)=xy b(1,1,z)=xyz b(1,1,1).
@@ -107,7 +107,7 @@ $V_a$ の基底の添字を集めた組を $I=(i_1,\ldots,i_d)$ と書き、各 
 <!-- formal-statement-start -->
 > **定理（多因子テンソル積の存在・基底・一意性）**
 >
-> 体 $K$ 上の有限次元空間 $V_a$（$1\le a\le d$、$d\ge1$）の基底を $(e_i^{(a)})_{i=1}^{n_a}$ とする。[多因子のテンソル積](#def-tsp1-multifactor-product)は存在し、
+> 体 $K$ 上の有限次元空間 $V_a$（$1\le a\le d$、$d\ge1$）の基底を $(e_i^{(a)})_{i=1}^{n_a}$ とし、$\mathcal I=\{1,\ldots,n_1\}\times\cdots\times\{1,\ldots,n_d\}$ とする。[多因子のテンソル積](#def-tsp1-multifactor-product)は存在し、
 >
 $$
 E_I=e^{(1)}_{i_1}\otimes\cdots\otimes e^{(d)}_{i_d},
@@ -216,7 +216,7 @@ $$
 なので $\Phi\circ\Psi=\operatorname{id}_{T'}$ です。よって $\Phi$ は同型であり、条件を満たす線形写像自体が一意なので同型も一意です。
 <!-- proof-end -->
 
-$d=2$、$K=\mathbb R$ または $\mathbb C$ なら[LA3Eの存在と基底の定理](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)および[一意性の定理](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-uniqueness)の内容に戻ります。今回の構成は内積、共役、標数ゼロを必要としません。
+$d=2$、$K=\mathbb R$ または $\mathbb C$ なら[LA3Eの存在と基底の定理](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)および[一意性の定理](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-uniqueness)の内容に戻ります。今回の構成で使ったのは体の四則演算と各位置の線形性だけなので、正の標数でも成立します。
 
 ### 手で計算する
 
@@ -227,9 +227,21 @@ $$
 =3E_{11}+4E_{12}+6E_{21}+8E_{22}.
 $$
 
-$b:K^2\times K^2\to K$ を $b((x,y),(s,t))=xs+yt$ とすれば、基底上の値は $1,0,0,1$ です。[存在・基底の定理](#thm-tsp1-multifactor-basis)により $L$ は $3+8=11$ を返し、元の計算 $1\cdot3+2\cdot4=11$ と一致します。
+$b:K^2\times K^2\to K$ を $b((x,y),(s,t))=xs+yt$ とすれば、基底上の値は $1,0,0,1$ です。[多因子テンソル積の存在・基底・一意性](#thm-tsp1-multifactor-basis)により $L$ は $3+8=11$ を返し、元の計算 $1\cdot3+2\cdot4=11$ と一致します。
 
-[LA3Eの単純テンソル](../../../基礎科目/LA/LA3E/index.md#def-la3e-simple-tensor)にならい、一般の $d$ でも $v_1\otimes\cdots\otimes v_d$ と一組の入力から得られる元を単純テンソルと呼びます。すべてのテンソルはこの形の有限和ですが、一組の入力で書けるとは限りません。例えば $E_{11}+E_{22}$ が $(ae_1+be_2)\otimes(cf_1+df_2)$ なら、係数比較により $ac=1,ad=0,bc=0,bd=1$ が必要です。$a\ne0$ と $ad=0$ から $d=0$ となり $bd=1$ に矛盾します。ここでの $d$ はスカラーです。何項の単純テンソルで表せるかが次講の主題です。
+[LA3Eの単純テンソル](../../../基礎科目/LA/LA3E/index.md#def-la3e-simple-tensor)にならい、一般の $d$ でも $v_1\otimes\cdots\otimes v_d$ と一組の入力から得られる元を単純テンソルと呼びます。すべてのテンソルはこの形の有限和ですが、一組の入力で書けるとは限りません。例えば $E_{11}+E_{22}$ が
+
+$
+(ae_1+be_2)\otimes(cf_1+qf_2)
+$
+
+と書けると仮定します。基底上の係数を比較すると
+
+$
+ac=1,\quad aq=0,\quad bc=0,\quad bq=1
+$
+
+が必要です。最初の等式から $a\ne0$ なので、第2式に $a^{-1}$ を掛ければ $q=0$ です。最後の等式に反します。何項の単純テンソルで表せるかが次講の主題です。
 
 ## 4. 基底を替えると座標はどう変わるか
 
@@ -268,7 +280,7 @@ $$
 t=\sum_J h_J(g_{j_1}^{(1)}\otimes\cdots\otimes g_{j_d}^{(d)})
 $$
 
-です。各 $g_{j_a}^{(a)}$ にその旧座標を代入し、同定理の単純テンソルの展開公式を使うと
+です。各 $g_{j_a}^{(a)}$ にその旧座標を代入し、[多因子テンソル積の存在・基底・一意性](#thm-tsp1-multifactor-basis)で得た展開を使うと
 
 $$
 g_{j_1}^{(1)}\otimes\cdots\otimes g_{j_d}^{(d)}
@@ -284,7 +296,7 @@ t&=\sum_J h_J\sum_I\left(\prod_a P_{i_a j_a}^{(a)}\right)E_I\\
 \end{aligned}
 $$
 
-旧基底展開の一意性によって括弧内が $c_I$ です。二組の基底の[座標写像](../../../代数系/FLD/FLD0/index.md#thm-fld0-coordinate-isomorphism-over-field)はいずれも線形同型なので、各 $P^{(a)}$ は可逆です。$Q^{(a)}=(P^{(a)})^{-1}$ とすれば $e_i^{(a)}=\sum_j Q^{(a)}_{ji}g_j^{(a)}$ となります。同じ展開をこの向きに行うと
+旧基底展開の一意性によって括弧内が $c_I$ です。二組の基底に関して[FLD0の座標による線形同型](../../../代数系/FLD/FLD0/index.md#thm-fld0-coordinate-isomorphism-over-field)を使うと、座標を相互に変換できるので、各 $P^{(a)}$ は可逆です。$Q^{(a)}=(P^{(a)})^{-1}$ とすれば $e_i^{(a)}=\sum_j Q^{(a)}_{ji}g_j^{(a)}$ となります。同じ展開をこの向きに行うと
 
 $$
 h_J=\sum_I c_I\prod_a Q_{j_a i_a}^{(a)}.
@@ -349,7 +361,7 @@ $\mathbb Q^2$、$\mathbb Q^2$、$\mathbb Q$ の標準基底を $e_i,f_j,g_1$ と
 <!-- solution-start -->
 ##### 詳細解答
 
-[存在・基底の定理](#thm-tsp1-multifactor-basis)の積の式を使います。添字は $(1,1,1),(1,2,1),(2,1,1),(2,2,1)$ で、
+[多因子テンソル積の存在・基底・一意性](#thm-tsp1-multifactor-basis)の積の式を使います。添字は $(1,1,1),(1,2,1),(2,1,1),(2,2,1)$ で、
 
 $$
 (1\cdot3\cdot2,\ 1\cdot1\cdot2,\ (-2)\cdot3\cdot2,\ (-2)\cdot1\cdot2)
@@ -394,7 +406,7 @@ $K=\mathbb F_2$（$0,1$ の加算・乗算を法2で行う体）とし、$K^2$ �
 <!-- solution-start -->
 ##### 詳細解答
 
-[存在・基底の定理](#thm-tsp1-multifactor-basis)の展開によれば第1項の座標は $(1,1,1,1)$、第2項は $(0,1,0,0)$ です。法2では $1+1=0$ なので和は $(1,0,1,1)$、すなわち
+[多因子テンソル積の存在・基底・一意性](#thm-tsp1-multifactor-basis)の展開によれば第1項の座標は $(1,1,1,1)$、第2項は $(0,1,0,0)$ です。法2では $1+1=0$ なので和は $(1,0,1,1)$、すなわち
 
 $$
 E_{11}+E_{21}+E_{22}
@@ -417,7 +429,7 @@ $\mathbb Q^2\times\mathbb Q^2\times\mathbb Q^2\to\mathbb Q$ の写像 $b((x_1,x_
 
 第1位置を固定された $y,z$ の下で見ると $b=(2y_2z_1)x_1-(y_1z_2)x_2$、第2位置では $b=-(x_2z_2)y_1+(2x_1z_1)y_2$、第3位置では $b=(2x_1y_2)z_1-(x_2y_1)z_2$ です。いずれも座標の一次結合なので[多重線形写像の定義](#def-tsp1-multilinear-map)を満たします。
 
-標準基底の組のうち $(1,2,1)$ の値が $2$、$(2,1,2)$ の値が $-1$、他は全て零です。[存在・基底の定理](#thm-tsp1-multifactor-basis)の構成に従って
+標準基底の組のうち $(1,2,1)$ の値が $2$、$(2,1,2)$ の値が $-1$、他は全て零です。[多因子テンソル積の存在・基底・一意性](#thm-tsp1-multifactor-basis)の構成に従って
 
 $$
 L(t)=2t_{121}-t_{212}.
@@ -436,7 +448,7 @@ $$
 <!-- solution-start -->
 ##### 詳細解答
 
-$t=(ae_1+be_2)\otimes(cf_1+df_2)\otimes sg_1$ と仮定します。[存在・基底の定理](#thm-tsp1-multifactor-basis)の座標式から
+$t=(ae_1+be_2)\otimes(cf_1+df_2)\otimes sg_1$ と仮定します。[多因子テンソル積の存在・基底・一意性](#thm-tsp1-multifactor-basis)の座標式から
 
 $$
 acs=1,\quad ads=0,\quad bcs=0,\quad bds=1.
@@ -509,7 +521,7 @@ QP(u\otimes v\otimes w)=u\otimes v\otimes w,
 PQ(w\otimes u\otimes v)=w\otimes u\otimes v.
 $$
 
-[存在・基底の定理](#thm-tsp1-multifactor-basis)により単純テンソルの中には基底が含まれます。従って両合成は各基底上で恒等写像と一致し、線形性により全空間でも恒等写像です。よって $P$ は同型で逆写像は $Q$ です。
+[多因子テンソル積の存在・基底・一意性](#thm-tsp1-multifactor-basis)により単純テンソルの中には基底が含まれます。従って両合成は各基底上で恒等写像と一致し、線形性により全空間でも恒等写像です。よって $P$ は同型で逆写像は $Q$ です。
 
 基底を $e_i,f_j,g_k$ とすれば $P(e_i\otimes f_j\otimes g_k)=g_k\otimes e_i\otimes f_j$ です。線形性から
 
