@@ -1,0 +1,18 @@
+chapter: CATB4-03
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB4-02, CAT1-07, CATB2-08]
+concepts:
+  - id: category.indexed-category
+    name: "反変擬関手"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（反変擬関手）"]
+    aliases: ["添字付き圏"]
+    requires: [category.contravariant-functor, category.natural-isomorphism, category.cat-two-category]
+  - id: category.fibration-indexed-category
+    name: "ファイブレーションからの添字付き圏"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ファイブレーションからの添字付き圏）"]
+    requires: [category.indexed-category, category.reindexing-functor, category.cleavage-comparison, category.natural-inverse]
