@@ -46,7 +46,7 @@ chapters:
     title: "前順序付き可換半環と自然数の埋込み"
   - id: TSP11
     path: textbook/volumes/dream_thater/計算系/TSP/TSP11
-    status: planned
+    status: completed
     title: "スペクトル点：加法性・乗法性・単調性・正規化"
   - id: TSP12
     path: textbook/volumes/dream_thater/計算系/TSP/TSP12

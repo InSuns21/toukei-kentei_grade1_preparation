@@ -1,0 +1,37 @@
+id: "TSP11"
+title: "スペクトル点：加法性・乗法性・単調性・正規化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TSP10
+official_scope: []
+learning_objectives:
+  - スペクトル点の四条件を説明し具体的な写像と反例を判定できる
+  - 自然数値・冪の公式および費用と取り出し能力の上下界を証明できる
+  - 平坦化階数が代表元によらず加法性・乗法性・単調性・正規化を満たすことを基底と成分から証明できる
+  - スペクトル点による漸近階数・漸近劣階数の評価と反復制限の不可能性を導ける
+definitions:
+  - { id: TSP11-DEF-01, name: "スペクトル点" }
+theorems:
+  - { id: TSP11-THM-01, name: "スペクトル点の自然数値と冪" }
+  - { id: TSP11-THM-02, name: "スペクトル点による上下界" }
+  - { id: TSP11-THM-03, name: "平坦化階数によるスペクトル点" }
+  - { id: TSP11-THM-04, name: "漸近階数・漸近劣階数のスペクトル評価" }
+canonical_examples:
+  - 自然数の組の成分射影
+  - 非負有理数の包含写像
+  - 三因子テンソルの二種類の平坦化階数
+problem_patterns:
+  - TSP11-A01
+  - TSP11-A02
+  - TSP11-A03
+  - TSP11-A04
+  - TSP11-B01
+  - TSP11-B02
+  - TSP11-B03
+  - TSP11-B04
+  - TSP11-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 1 }
