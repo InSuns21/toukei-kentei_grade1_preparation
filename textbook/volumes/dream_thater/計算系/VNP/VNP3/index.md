@@ -4,7 +4,7 @@
 
 一次資料は Claude (Anthropic), [VP ≠ VNP over every field, v1](https://hexagonmath.org/2611.00954v1) の Definition A.1、Lemmas A.2–A.3、Definition A.4、式(2.3)–(2.4)、Lemma E.4（pp. 19–20, 7–8, 33）です。本講の代数的議論は任意の体 $K$ 上で行います。原論文全体の研究主張と、本講で証明する補助結果は区別します。対数は底2です。
 
-直接前提：[VNP2](../VNP2/index.md)、[TSP11](../../TSP/TSP11/index.md)。
+直接前提：[VNP2](../VNP2/index.md)、[TSP11](../../TSP/TSP11/index.md)、[NPCG1](../../../幾何系/NPCG/NPCG1/index.md)。
 
 ## 1. 材料を測る関数
 
@@ -60,7 +60,7 @@ $$
 
 二つの次元 $m,n$ を掛けると各位置の組 $(i,j)$ が全位置で一致するときだけ係数1です。番号 $(i-1)n+j$ による基底の付け替えから $\langle m\rangle_P\langle n\rangle_P\sim\langle mn\rangle_P$ となります。$m\le n$ なら番号 $m$ を超える基底を零に写すことで小さい配列を得ます。
 
-二点の距離が零でも同じ点とは限らない距離を考えます。以下の擬距離とは、非負・対称・対角零・三角不等式を満たす二変数関数です。
+二点の距離が零でも同じ点とは限らない距離を考えます。既習の[擬距離](../../../幾何系/NPCG/NPCG1/index.md#def-npcg1-pseudometric)とは、非負・対称・対角零・三角不等式を満たす二変数関数です。
 
 <a id="lem-vnp3-exponents"></a>
 

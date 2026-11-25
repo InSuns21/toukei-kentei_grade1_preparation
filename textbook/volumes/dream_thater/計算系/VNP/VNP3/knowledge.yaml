@@ -1,7 +1,7 @@
 chapter: VNP3
 scope: dream-theater
 coverage: complete
-prerequisites: [VNP2, TSP11]
+prerequisites: [VNP2, TSP11, NPCG1]
 forward_references: []
 concepts:
   - id: vp-vnp-study.cover-spectral
@@ -21,7 +21,7 @@ concepts:
     kind: lemma
     introduction: formal
     introduction_aliases: ["補題（対角資源の指数と擬距離）"]
-    requires: [vp-vnp-study.cover-spectral, vp-vnp-study.diagonal, vp-vnp-study.wire-laws]
+    requires: [vp-vnp-study.cover-spectral, vp-vnp-study.diagonal, vp-vnp-study.wire-laws, metric-geometry.pseudometric]
   - id: vp-vnp-study.hubs
     name: "二ハブによる配列の実現"
     kind: lemma
