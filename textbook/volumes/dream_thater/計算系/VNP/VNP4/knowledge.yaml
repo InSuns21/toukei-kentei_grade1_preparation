@@ -1,0 +1,48 @@
+chapter: VNP4
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP3, TSP12, TSP16]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.upper-functional
+    name: "被覆型上評価関数"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（被覆型上評価関数）"]
+    requires: [vp-vnp-study.sum-restrictions, tensor.cover]
+  - id: vp-vnp-study.context-triple
+    name: "文脈付き比較条件"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（文脈付き比較条件）"]
+    requires: [vp-vnp-study.upper-functional]
+  - id: vp-vnp-study.minimal-upper
+    name: "比較を保存する極小評価"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（比較を保存する極小評価）"]
+    requires: [vp-vnp-study.context-triple, set.zorn-lemma]
+  - id: vp-vnp-study.power-regularization
+    name: "被覆型評価の冪極限"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（被覆型評価の冪極限）"]
+    requires: [vp-vnp-study.minimal-upper, tensor.asymptotic-fekete-lemma]
+  - id: vp-vnp-study.gauge
+    name: "上評価関数以下のスペクトル点"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（上評価関数以下のスペクトル点）"]
+    requires: [vp-vnp-study.power-regularization, vp-vnp-study.cover-spectral]
+  - id: vp-vnp-study.exchange-certificate
+    name: "交換被覆証明書"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（交換被覆証明書）"]
+    requires: [vp-vnp-study.sum-restrictions]
+  - id: vp-vnp-study.cover-duality
+    name: "被覆型スペクトル双対性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（被覆型スペクトル双対性）"]
+    requires: [vp-vnp-study.gauge, vp-vnp-study.exchange-certificate, vp-vnp-study.finite-cover, vp-vnp-study.one-restriction]
