@@ -1,0 +1,28 @@
+id: "CATB5-07"
+title: "層の圏のトポス構造"
+volume: "foundations"
+status: supplementary
+prerequisites: [CATB5-06, CATB5-05, CATB5-03, CATB5-02]
+official_scope: []
+learning_objectives:
+  - J閉篩の条件と閉包の構成を説明できる
+  - 閉篩の層条件を証明できる
+  - 層のモノ射の成分判定と分類射の構成を証明できる
+  - 層の指数対象の貼り合わせと普遍性を証明できる
+  - 小siteの層圏が初等トポスであることとGrothendieckトポスの意味を説明できる
+definitions:
+  - { id: CATB5-07-DEF-01, name: "J閉篩" }
+  - { id: CATB5-07-DEF-02, name: "Grothendieckトポス" }
+theorems:
+  - { id: CATB5-07-THM-01, name: "篩のJ閉包" }
+  - { id: CATB5-07-THM-02, name: "J閉篩の層" }
+  - { id: CATB5-07-THM-03, name: "層のモノ射の成分判定" }
+  - { id: CATB5-07-THM-04, name: "層圏の部分対象分類子" }
+  - { id: CATB5-07-THM-05, name: "層圏の指数対象" }
+  - { id: CATB5-07-THM-06, name: "層圏の初等トポス性" }
+canonical_examples: [離散二点空間の閉篩, 局所的な特性写像, 一対象のsite]
+problem_patterns: [CATB5-07-A01, CATB5-07-A02, CATB5-07-A03, CATB5-07-A04, CATB5-07-B01, CATB5-07-B02, CATB5-07-B03, CATB5-07-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 2 }
