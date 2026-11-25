@@ -1,0 +1,45 @@
+chapter: CATB7-04
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB7-03, CATB7-02]
+concepts:
+  - id: category.derived-category
+    name: 導来圏
+    kind: definition
+    introduction: formal
+    requires: [category.quasi-isomorphism-localization, category.homotopy-category]
+  - id: category.derived-category-additive-shift
+    name: 導来圏の加法構造とシフト
+    kind: proposition
+    introduction: formal
+    requires: [category.derived-category, category.quasi-isomorphism-fraction-calculus, category.cochain-shift, category.finite-biproduct]
+  - id: category.distinguished-triangle
+    name: 完全三角形
+    kind: definition
+    introduction: formal
+    requires: [category.derived-category, category.derived-category-additive-shift, category.mapping-cone, category.mapping-cone-short-exact]
+  - id: category.derived-triangle-completion
+    name: 導来圏の射の三角形への拡張
+    kind: theorem
+    introduction: formal
+    requires: [category.distinguished-triangle, category.contractible-cochain-complex, category.cochain-homotopy]
+  - id: category.derived-triangle-long-exact
+    name: 完全三角形のコホモロジー長完全列
+    kind: theorem
+    introduction: formal
+    requires: [category.distinguished-triangle, category.cochain-long-exact-sequence, category.derived-category-additive-shift]
+  - id: category.derived-triangle-rotation
+    name: 完全三角形の回転
+    kind: theorem
+    introduction: formal
+    requires: [category.distinguished-triangle, category.derived-triangle-completion, category.cochain-long-exact-sequence]
+  - id: category.homotopy-commutative-cone-square
+    name: ホモトピー可換な四角形の錐の射
+    kind: proposition
+    introduction: formal
+    requires: [category.distinguished-triangle, category.cochain-homotopy, category.mapping-cone]
+  - id: category.short-exact-derived-triangle
+    name: 短完全な複体の列からの完全三角形
+    kind: theorem
+    introduction: formal
+    requires: [category.distinguished-triangle, category.derived-triangle-completion, category.cochain-long-exact-sequence]
