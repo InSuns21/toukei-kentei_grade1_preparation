@@ -15,7 +15,7 @@ chapters:
     title: "stripの端と作用・エネルギー"
   - id: FLOER1-03
     path: textbook/volumes/dream_thater/幾何系/FLOER/FLOER1-03
-    status: planned
+    status: completed
     title: "重み付きSobolev空間とFredholm指数"
   - id: FLOER1-04
     path: textbook/volumes/dream_thater/幾何系/FLOER/FLOER1-04

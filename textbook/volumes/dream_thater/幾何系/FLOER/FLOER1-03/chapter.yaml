@@ -1,0 +1,44 @@
+id: "FLOER1-03"
+title: "重み付きSobolev空間とFredholm指数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLOER1-02
+  - GW1-03
+  - FOU2
+  - GPDE5
+official_scope: []
+learning_objectives:
+  - 重み付きSobolev空間と共役作用素の端の符号を計算できる
+  - 横断Lagrange対の固有関数展開と全帯の逆を構成できる
+  - 有界重みの吸収評価から収束端の指数減衰を導ける
+  - 端の逆と局所コンパクト性からFredholm性を証明できる
+  - 一階実方程式と回転境界の実指数を求め相対Maslov指数の符号を照合できる
+definitions:
+  - { id: FLOER1-03-DEF-01, name: "無限stripの重み付きSobolev空間" }
+  - { id: FLOER1-03-DEF-02, name: "正則交叉での相対Maslov指数" }
+theorems:
+  - { id: FLOER1-03-THM-01, name: "横断Lagrange対の固有関数展開" }
+  - { id: FLOER1-03-THM-02, name: "可逆な端作用素から全帯の逆" }
+  - { id: FLOER1-03-THM-03, name: "横断収束端での重み付き一階減衰" }
+  - { id: FLOER1-03-THM-04, name: "可逆な両端を持つ無限stripのFredholm性" }
+  - { id: FLOER1-03-PROP-05, name: "符号が変化する一階実方程式の指数" }
+  - { id: FLOER1-03-THM-06, name: "stripの相対Maslov指数公式" }
+canonical_examples:
+  - 指数関数と重みの可積分条件
+  - 横断対の角度と固有値
+  - 符号が変化する一階実方程式
+  - 回転Lagrange直線の交叉形式
+problem_patterns:
+  - FLOER1-03-A01
+  - FLOER1-03-A02
+  - FLOER1-03-A03
+  - FLOER1-03-A04
+  - FLOER1-03-B01
+  - FLOER1-03-B02
+  - FLOER1-03-B03
+  - FLOER1-03-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 4 }
