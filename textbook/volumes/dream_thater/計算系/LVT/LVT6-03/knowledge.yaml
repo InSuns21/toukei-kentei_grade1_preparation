@@ -1,0 +1,20 @@
+chapter: LVT6-03
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT3-05, LVT5-05, LVT5-06, LVT6-02]
+concepts:
+  - id: lean-verification.document-workflow
+    name: 文書公開ワークフロー
+    kind: definition
+    introduction: formal
+    requires: [lean-verification.transitions-system]
+  - id: lean-verification.workflow-preservation
+    name: 公開ワークフローの整合条件の保存
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.document-workflow, lean-verification.transitions-inductive]
+  - id: lean-verification.workflow-publish-source
+    name: 公開の受理条件と拒否時の状態保持
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.document-workflow]

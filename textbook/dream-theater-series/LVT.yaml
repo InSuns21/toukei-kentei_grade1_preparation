@@ -159,7 +159,7 @@ chapters:
     title: "三目並べの変異バグを発見する"
   - id: LVT6-03
     path: textbook/volumes/dream_thater/計算系/LVT/LVT6-03
-    status: planned
+    status: completed
     title: "TypeScriptワークフローの仕様と照合"
   - id: LVT6-04
     path: textbook/volumes/dream_thater/計算系/LVT/LVT6-04
