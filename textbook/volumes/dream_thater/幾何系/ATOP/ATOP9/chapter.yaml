@@ -1,0 +1,33 @@
+id: ATOP9
+title: "被覆空間の分類と普遍被覆"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP4, ATOP5, ATOP6, ATOP8]
+official_scope: []
+learning_objectives:
+  - 局所弧状連結性と半局所単連結性の違いを説明できる
+  - 道類から任意の部分群に対応する連結被覆を構成できる
+  - 基点付き分類と基点なしの共役による分類を証明できる
+  - 被覆の枚数を部分群の指数から計算できる
+  - 普遍被覆の存在と因子化を証明し八の字の木を説明できる
+  - デッキ変換群を正規化群の商として計算できる
+definitions:
+  - { id: ATOP9-DEF-01, name: 局所弧状連結性 }
+  - { id: ATOP9-DEF-02, name: 半局所単連結性 }
+  - { id: ATOP9-DEF-03, name: 被覆の同値 }
+  - { id: ATOP9-DEF-04, name: 普遍被覆 }
+  - { id: ATOP9-DEF-05, name: デッキ変換 }
+theorems:
+  - { id: ATOP9-THM-01, name: 閉じた持上げの判定 }
+  - { id: ATOP9-THM-02, name: 道類による被覆の構成 }
+  - { id: ATOP9-THM-03, name: 連結被覆の基点付き分類 }
+  - { id: ATOP9-THM-04, name: 被覆の枚数と指数 }
+  - { id: ATOP9-THM-05, name: 基点なしの連結被覆の分類 }
+  - { id: ATOP9-THM-06, name: 普遍被覆の存在と因子化 }
+  - { id: ATOP9-THM-07, name: デッキ変換群と正規化群 }
+canonical_examples: [円周の三枚被覆, 八の字の普遍被覆, 非正規な三枚被覆]
+problem_patterns: [ATOP9-A1, ATOP9-A2, ATOP9-A3, ATOP9-A4, ATOP9-B1, ATOP9-B2, ATOP9-B3, ATOP9-B4, ATOP9-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 4, review: 1 }

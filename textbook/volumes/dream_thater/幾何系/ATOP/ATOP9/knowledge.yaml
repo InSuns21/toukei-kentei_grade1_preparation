@@ -1,0 +1,66 @@
+chapter: ATOP9
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP4, ATOP5, ATOP6, ATOP8]
+forward_references: []
+concepts:
+  - id: atop.locally-path-connected
+    name: 局所弧状連結性
+    kind: definition
+    introduction: formal
+    requires: [topology.path-connected-space]
+  - id: atop.semilocally-simply-connected
+    name: 半局所単連結性
+    kind: definition
+    introduction: formal
+    requires: [atop.path-homotopy, atop.loop]
+  - id: atop.closed-lift-criterion
+    name: 閉じた持上げの判定
+    kind: theorem
+    introduction: formal
+    requires: [atop.path-lifting, atop.lift-endpoint-invariance, atop.induced-fundamental-group-homomorphism]
+  - id: atop.covering-path-construction
+    name: 道類による被覆の構成
+    kind: theorem
+    introduction: formal
+    requires: [atop.locally-path-connected, atop.semilocally-simply-connected, atop.closed-lift-criterion, atop.path-class-laws]
+  - id: atop.covering-equivalence
+    name: 被覆の同値
+    kind: definition
+    introduction: formal
+    requires: [topology.covering-map, topology.homeomorphism]
+  - id: atop.based-covering-classification
+    name: 連結被覆の基点付き分類
+    kind: theorem
+    introduction: formal
+    requires: [atop.covering-path-construction, atop.covering-equivalence, atop.path-lifting, atop.closed-lift-criterion]
+  - id: atop.covering-fiber-index
+    name: 被覆の枚数と指数
+    kind: theorem
+    introduction: formal
+    requires: [atop.based-covering-classification, algebra.right-coset, algebra.subgroup-index]
+  - id: atop.unbased-covering-classification
+    name: 基点なしの連結被覆の分類
+    kind: theorem
+    introduction: formal
+    requires: [atop.based-covering-classification, atop.covering-fiber-index]
+  - id: atop.universal-cover
+    name: 普遍被覆
+    kind: definition
+    introduction: formal
+    requires: [topology.covering-map, topology.simply-connected]
+  - id: atop.universal-cover-existence
+    name: 普遍被覆の存在と因子化
+    kind: theorem
+    introduction: formal
+    requires: [atop.universal-cover, atop.based-covering-classification, atop.covering-induced-injective, atop.lift-uniqueness]
+  - id: atop.deck-transformation
+    name: デッキ変換
+    kind: definition
+    introduction: formal
+    requires: [atop.covering-equivalence, algebra.group]
+  - id: atop.deck-normalizer
+    name: デッキ変換群と正規化群
+    kind: theorem
+    introduction: formal
+    requires: [atop.deck-transformation, atop.unbased-covering-classification, atop.lift-uniqueness, algebra.normal-subgroup]
