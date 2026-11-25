@@ -1,0 +1,65 @@
+chapter: FLOER1-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLOER1-01
+  - SYM6
+  - SYM8
+  - GW1-02
+  - GEO8
+  - GA2
+concepts:
+  - id: floer.finite-energy
+    name: "有限エネルギーstrip"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限エネルギーstrip）"]
+    requires: [floer.lagrangian-boundary-strip, gromov-witten.energy-identity]
+  - id: floer.ends
+    name: "stripの収束端"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（stripの収束端）"]
+    requires: [floer.lagrangian-boundary-strip]
+  - id: floer.small-slices
+    name: "有限エネルギーstripの小さい横断曲線"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限エネルギーstripの小さい横断曲線）"]
+    requires: [floer.finite-energy]
+  - id: floer.exact-action
+    name: "完全Lagrange境界と作用汎関数"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（完全Lagrange境界と作用汎関数）"]
+    requires: [symplectic.lagrangian-submanifold]
+  - id: floer.variation
+    name: "完全Lagrange境界での作用の第一変分"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（完全Lagrange境界での作用の第一変分）"]
+    requires: [floer.exact-action, symplectic.compatible-metric-criterion]
+  - id: floer.action-energy
+    name: "完全境界での作用差とエネルギー"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（完全境界での作用差とエネルギー）"]
+    requires: [floer.variation, floer.ends, floer.finite-energy]
+  - id: floer.relative-area
+    name: "境界を保つ変形の面積と作用の周期"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（境界を保つ変形の面積と作用の周期）"]
+    requires: [geometry.general-stokes-theorem, floer.exact-action]
+  - id: floer.asymptotic-operator
+    name: "交点の漸近作用素"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（交点の漸近作用素）"]
+    requires: [floer.boundary-linearization, floer.transverse-intersection]
+  - id: floer.asymptotic-invertible
+    name: "漸近作用素の対称性と横断性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（漸近作用素の対称性と横断性）"]
+    requires: [floer.asymptotic-operator, symplectic.lagrangian-metric-orthogonality, floer.transverse-intersection]

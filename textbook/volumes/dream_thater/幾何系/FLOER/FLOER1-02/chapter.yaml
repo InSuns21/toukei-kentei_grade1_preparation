@@ -1,0 +1,49 @@
+id: "FLOER1-02"
+title: "stripの端と作用・エネルギー"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLOER1-01
+  - SYM6
+  - SYM8
+  - GW1-02
+  - GEO8
+  - GA2
+official_scope: []
+learning_objectives:
+  - 有限エネルギーと収束端の条件を区別し小さい横断曲線を選べる
+  - 完全境界の作用を構成し第一変分と作用差の符号を導ける
+  - 非定数stripのエネルギーを作用差で計算できる
+  - 一般の境界の相対面積と非零の作用周期を説明できる
+  - 漸近作用素の定義域と自己共役性および横断性による可逆性を証明できる
+  - 平面モデルの固有値と減衰方向を計算できる
+definitions:
+  - { id: FLOER1-02-DEF-01, name: "有限エネルギーstrip" }
+  - { id: FLOER1-02-DEF-02, name: "stripの収束端" }
+  - { id: FLOER1-02-DEF-03, name: "完全Lagrange境界と作用汎関数" }
+  - { id: FLOER1-02-DEF-04, name: "交点の漸近作用素" }
+theorems:
+  - { id: FLOER1-02-PROP-01, name: "有限エネルギーstripの小さい横断曲線" }
+  - { id: FLOER1-02-PROP-02, name: "完全Lagrange境界での作用の第一変分" }
+  - { id: FLOER1-02-THM-01, name: "完全境界での作用差とエネルギー" }
+  - { id: FLOER1-02-PROP-03, name: "境界を保つ変形の面積と作用の周期" }
+  - { id: FLOER1-02-THM-02, name: "漸近作用素の対称性と横断性" }
+canonical_examples:
+  - 有限帯の指数関数と無限帯での発散
+  - 半円stripの作用差と面積
+  - 円周を動く境界の非零周期
+  - 二直線の漸近作用素の固有値と逆
+problem_patterns:
+  - FLOER1-02-A01
+  - FLOER1-02-A02
+  - FLOER1-02-A03
+  - FLOER1-02-A04
+  - FLOER1-02-B01
+  - FLOER1-02-B02
+  - FLOER1-02-B03
+  - FLOER1-02-B04
+  - FLOER1-02-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 3 }
