@@ -1,0 +1,53 @@
+chapter: CATB4-05
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB4-04, CATB4-03, CATB4-02, CATB4-01, CAT1-04]
+concepts:
+  - id: category.cocartesian-morphism
+    name: "coCartesian射"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（coCartesian射）"]
+    requires: [category.covariant-functor]
+  - id: category.opfibration
+    name: "余ファイブレーション"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（余ファイブレーション）"]
+    requires: [category.cocartesian-morphism]
+  - id: category.opfibration-duality
+    name: "余ファイブレーションの双対性"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（余ファイブレーションの双対性）"]
+    requires: [category.opfibration, category.opposite-category, category.fibration]
+  - id: category.family-opfibration
+    name: "集合族の余ファイブレーション"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（集合族の余ファイブレーション）"]
+    requires: [category.opfibration, category.family-fibration]
+  - id: category.covariant-pseudofunctor
+    name: "共変擬関手"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共変擬関手）"]
+    requires: [category.covariant-functor, category.natural-isomorphism]
+  - id: category.opfibration-indexed-category
+    name: "余ファイブレーションからの共変擬関手"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（余ファイブレーションからの共変擬関手）"]
+    requires: [category.covariant-pseudofunctor, category.opfibration-duality, category.cartesian-lift-uniqueness]
+  - id: category.covariant-grothendieck-construction
+    name: "共変Grothendieck構成"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共変Grothendieck構成）"]
+    requires: [category.covariant-pseudofunctor]
+  - id: category.grothendieck-opfibration
+    name: "共変構成と余ファイブレーション"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（共変構成と余ファイブレーション）"]
+    requires: [category.covariant-grothendieck-construction, category.grothendieck-fibration, category.opfibration-duality]
