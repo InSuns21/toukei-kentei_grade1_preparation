@@ -68,3 +68,4 @@
 65. [CATB3-07 スケッチとモデル圏](textbook/volumes/dream_thater/基礎論系/CATB/CATB3-07/index.md)
 66. [CATB3-08 局所可呈示圏の随伴判定](textbook/volumes/dream_thater/基礎論系/CATB/CATB3-08/index.md)
 67. [CATB4-01 Cartesian射とファイブレーション](textbook/volumes/dream_thater/基礎論系/CATB/CATB4-01/index.md)
+68. [CATB4-02 Cleavageとsplitファイブレーション](textbook/volumes/dream_thater/基礎論系/CATB/CATB4-02/index.md)
