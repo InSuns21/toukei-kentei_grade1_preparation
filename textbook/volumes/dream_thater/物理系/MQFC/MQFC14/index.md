@@ -44,7 +44,7 @@ W_4(u;2)&=4!\left(\frac{u^4}{4!}-\frac{u^2}{2!}+\frac12\right)\\
 \end{aligned}
 $$
 
-**定義の確認**：分散パラメータは非負、次数は非負整数で、指定係数に階乗を掛けた実多項式である。$u=X$ と代入する。分散と [Wick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) から $E[X^2]=2$、$E[X^4]=3\cdot2^2$ なので
+**定義の確認**：分散パラメータは非負、次数は非負整数で、指定係数に階乗を掛けた実多項式である。$u=X$ と代入する。分散は2である。[Gaussian Schwinger関数のWick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) を同じ確率変数4個に適用する。対分割は3通りなので $E[X^4]=3\cdot2^2$ となる。従って
 
 $$
 E[W_2(X;2)]=2-2=0,\qquad E[W_4(X;2)]=12-12\cdot2+12=0.
@@ -115,7 +115,7 @@ $$
 
 原点近傍で任意の有限回微分を期待値内に移せる。実際、微分の絶対値はある定数と多項式で重み付けた $e^{R(|X|+|Y|)}$ で抑えられる。[Cauchy–Schwarzの不等式](../../../解析系/F0/F0-00D2D/index.md#cor-f0-00d2d-01)と正規密度の二次減衰からその期待値は有限である（退化した周辺変数は0）。
 
-$t$ で微分するときは $s$ を、$s$ で微分するときは $t$ を固定する。[母関数による定義](#def-mqfc14-wick) により
+$t$ で微分するときは $s$ を、$s$ で微分するときは $t$ を固定する。[Gaussian Wick多項式](#def-mqfc14-wick) の母関数を微分すると
 
 $$
 \left.\frac{\partial^{n+k}}{\partial t^n\partial s^k}
