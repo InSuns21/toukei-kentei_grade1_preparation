@@ -13,13 +13,14 @@
 <!-- formal-statement-start -->
 > **定義（partyの併合）**
 >
-> 体 $K$ 上の有限次元空間 $V_1,\ldots,V_d$ と上記の全射 $p$ に対して、各 $j=1,\ldots,m$ の空間を
+> 体 $K$ 上の有限次元空間 $V_1,\ldots,V_d$ と整数 $2\le m\le d$ を取る。全射 $p:\{1,\ldots,d\}\to\{1,\ldots,m\}$ に対して、第 $j$ 組の空間を
 >
 $$
 U_j=\bigotimes_{i\in p^{-1}(j)}V_i
 $$
+
 >
-> とする。各積の内部では添字を昇順に並べる。partyの併合（push-forward）$G_p$ は次の作用を持つ線形写像である。
+> とする。各積の内部では添字を昇順に並べる。partyの併合（push-forward）$G_p$ は、任意の $v_i\in V_i$ に対して次の作用を持つ線形写像である。
 >
 $$
 G_p:\bigotimes_{i=1}^d V_i\longrightarrow\bigotimes_{j=1}^m U_j,
@@ -29,28 +30,35 @@ $$
 G_p(\bigotimes_i v_i)
 =\bigotimes_j\left(\bigotimes_{i\in p^{-1}(j)}v_i\right).
 $$
+
 <!-- formal-statement-end -->
 
 [多因子テンソル積の存在・基底・一意性](../TSP1/index.md#thm-tsp1-multifactor-basis) によって、各因子から基底を選んだとき、入力側の基底は全添字の組で番号付けされます。出力側の基底は同じ添字を組ごとに並べたものです。組が互いに素で全添字を覆うため、元の添字の組と併合後の添字の組は一対一に対応します。その対応を基底上で定めて線形に延長すれば写像が存在し、一意です。逆順に並べ直す基底の対応も線形に延長できるので可逆です。任意の $v_i$ を基底展開して両辺に代入すると係数の積は同一であり、上の作用式は選んだ基底に依存しません。
 
 <!-- definition-example-start: def-tsp15-grouping -->
 **定義の確認**。$d=3,m=2$、$p(1)=p(3)=1,p(2)=2$ とし、各 $V_i=K^2$ の基底を $e_1,e_2$ とします。両出力番号に入力があるため全射です。入力
+
 $$
 t=e_1\otimes e_2\otimes e_1+e_2\otimes e_1\otimes e_2
 $$
+
 は
+
 $$
 G_p(t)=(e_1\otimes e_1)\otimes e_2
 +(e_2\otimes e_2)\otimes e_1
 $$
+
 となります。第1出力の次元は4、第2出力の次元は2です。8個の係数を4行2列に並べ直し、消去も加算もしていません。第1出力の基底を $(11,12,21,22)$ の順にすると行列は
+
 $$
 \begin{pmatrix}0&1\\0&0\\0&0\\1&0\end{pmatrix}
 $$
+
 です。第1行第2列の係数1は元の添字 $(1,2,1)$ に対応します。逆に各行・列の組から元の三添字が復元できます。
 <!-- definition-example-end -->
 
-さらに全射 $q:\{1,\ldots,m\}\to\{1,\ldots,l\}$ で組をまとめる場合、各単純テンソルの因子は最終的に $(q\circ p)^{-1}(k)$ ごとに並びます。組の内部の順序を揃える基底の対応を施せば、二段階の併合は一段階の併合 $G_{q\circ p}$ と一致します。併合は係数の情報を消しませんが、局所性の区別は変えます。
+さらに $2\le l\le m$ とし、全射 $q:\{1,\ldots,m\}\to\{1,\ldots,l\}$ で組をまとめる場合、各単純テンソルの因子は最終的に $(q\circ p)^{-1}(k)$ ごとに並びます。組の内部の順序を揃える基底の対応を施せば、二段階の併合は一段階の併合 $G_{q\circ p}$ と一致します。併合は係数の情報を消しませんが、局所性の区別は変えます。
 
 ## 2. 許される変換が増える
 
@@ -66,6 +74,7 @@ $$
 $$
 s\preceq t\ \Longrightarrow\ G_p(s)\preceq G_p(t).
 $$
+
 <!-- formal-statement-end -->
 
 元の各位置で行う変換を、まとめた組の中で一括して行えばよいことが核心です。
@@ -74,28 +83,36 @@ $$
 ### 証明
 
 $t\in\bigotimes_i V_i$、$s\in\bigotimes_i W_i$ とし、制限を実現する $A_i:V_i\to W_i$ を取ります。出力の組の空間を $U'_j=\bigotimes_{i\in p^{-1}(j)}W_i$ とします。[局所線形写像のテンソル積](../TSP4/index.md#def-tsp4-local-map) を各組に適用し
+
 $$
 B_j=\bigotimes_{i\in p^{-1}(j)}A_i:U_j\to U'_j
 $$
+
 と置きます。任意の単純テンソル $v=\bigotimes_i v_i$ について、
+
 $$
 G_p((\bigotimes_i A_i)v)
 =\bigotimes_j\left(\bigotimes_{i\in p^{-1}(j)} A_iv_i\right)
 $$
+
 であり、
+
 $$
 (\bigotimes_j B_j)G_p(v)
 =\bigotimes_j B_j\left(\bigotimes_{i\in p^{-1}(j)}v_i\right)
 =\bigotimes_j\left(\bigotimes_{i\in p^{-1}(j)}A_iv_i\right)
 $$
+
 です。単純テンソルが全体を張るので線形写像として一致します。$v$ の代わりに $t$ を代入すれば $G_p(s)=(\bigotimes_j B_j)G_p(t)$ となり、併合後の制限を実現します。
 <!-- proof-end -->
 
 逆は一般には成立しません。三因子を考え、$p(1)=p(2)=1,p(3)=2$ とします。
+
 $$
 t=e_1\otimes e_1\otimes e_1,\qquad
 s=(e_1\otimes e_1+e_2\otimes e_2)\otimes e_1.
 $$
+
 両者は $(K^2)^{\otimes3}$ の元です。併合後に第1組の基底 $e_i\otimes e_j$ のうち $e_1\otimes e_1$ を $e_1\otimes e_1+e_2\otimes e_2$ に写し、残りを零にする線形写像を取り、第2組は恒等写像とします。これにより $G_p(s)\preceq G_p(t)$ です。
 
 一方で元の各因子に別々の線形写像を施しても、単純テンソルは単純テンソルまたは零にしかなりません。$s$ の第1因子を行にした [テンソルの平坦化](../TSP3/index.md#def-tsp3-flattening) は、列 $(1,1)$ と $(2,1)$ に独立な二つの標準基底列を持ちます。階数2なので [平坦化による階数下界](../TSP3/index.md#thm-tsp3-flattening-bound) から $s$ は単純テンソルではありません。従って $s\not\preceq t$ です。
@@ -116,6 +133,7 @@ $$
 $$
 g_p:S_{K,d}\to S_{K,m},\qquad [t]\mapsto[G_p(t)]
 $$
+
 >
 > は代表元によらず定まり、制限の順序、零、一、和および積を保つ。
 <!-- formal-statement-end -->
@@ -128,12 +146,15 @@ $$
 [併合による制限の保存](#thm-tsp15-grouping-monotone) を相互に制限できる代表元に両方向から適用すれば、併合後も制限同値です。また同じ結果から単調性が成立します。零テンソルは零テンソルへ、全因子が1次元で係数1の単位テンソルは同じ形の単位テンソルへ写ります。
 
 和を考え、$t,s$ の因子空間を $V_i,W_i$ とします。[テンソルの直和](../TSP5/index.md#def-tsp5-direct-sum) の併合後の第 $j$ 因子は
+
 $$
 X_j=\bigotimes_{i\in p^{-1}(j)}(V_i\oplus W_i).
 $$
+
 各 $V_i,W_i$ の基底を使うと、$X_j$ の基底は各位置で $V_i$ 側か $W_i$ 側かを選んで作られます。すべて $V_i$ 側の基底は $U_j$ の基底に、すべて $W_i$ 側の基底は $Z_j=\bigotimes_{i\in p^{-1}(j)}W_i$ の基底に対応します。
 
 この二群は組が非空なので重なりません。$U_j\oplus Z_j$ を $X_j$ の対応する二群に入れる写像を $I_j$ とし、二群を元に戻し混合基底を零にする写像を $P_j$ とします。基底上で $P_jI_j$ は恒等写像です。元の直和の非零係数は全位置が $V_i$ 側の項と全位置が $W_i$ 側の項だけです。従って
+
 $$
 G_p(t\oplus s)=(\bigotimes_j I_j)(G_p(t)\oplus G_p(s)),
 $$
@@ -141,20 +162,25 @@ $$
 $$
 G_p(t)\oplus G_p(s)=(\bigotimes_j P_j)G_p(t\oplus s).
 $$
+
 双方の制限が成立し、同値類で和を保ちます。
 
 積について [テンソルのKronecker積](../TSP5/index.md#def-tsp5-kronecker) を用いると、併合後の第 $j$ 因子は $\bigotimes_{i\in p^{-1}(j)}(V_i\otimes W_i)$ です。これを $U_j\otimes Z_j$ に送る線形写像 $L_j$ を基底上で
+
 $$
 \bigotimes_{i\in p^{-1}(j)}(v_i\otimes w_i)
 \mapsto
 (\bigotimes_{i\in p^{-1}(j)}v_i)\otimes
 (\bigotimes_{i\in p^{-1}(j)}w_i)
 $$
+
 と定めます。添字の組の対応は全単射なので $L_j$ は可逆です。入力の係数を $t_{\boldsymbol a},s_{\boldsymbol b}$ とすると、両辺で同じ積 $t_{\boldsymbol a}s_{\boldsymbol b}$ が対応する位置に現れます。よって
+
 $$
 (\bigotimes_j L_j)G_p(t\boxtimes s)
 =G_p(t)\boxtimes G_p(s).
 $$
+
 逆写像も各組で使えるため制限同値です。以上から半環演算を保ちます。
 <!-- proof-end -->
 
@@ -181,6 +207,7 @@ $$
 \widetilde R_K(G_p(t))\le\widetilde R_K(t),\qquad
 \widetilde Q_K(t)\le\widetilde Q_K(G_p(t)).
 $$
+
 <!-- formal-statement-end -->
 
 作るための費用は減る方向、取り出せる資源量は増える方向です。
@@ -189,16 +216,21 @@ $$
 ### 証明
 
 $r=R_K(t)$ と $q=Q_K(t)$ を取ります。[対角テンソルによる階数の特徴付け](../TSP4/index.md#thm-tsp4-rank-restriction) と [テンソル劣階数](../TSP4/index.md#def-tsp4-subrank) の定義から
+
 $$
 D_{d,q}\preceq t\preceq D_{d,r}.
 $$
+
 [併合による制限の保存](#thm-tsp15-grouping-monotone) と直前の対角テンソルの制限同値を適用すると
+
 $$
 D_{m,q}\preceq G_p(t)\preceq D_{m,r}.
 $$
+
 再び階数と劣階数の定義を使えば主張の最初の二式を得ます。
 
 [併合と半環演算の両立性](#thm-tsp15-grouping-semiring) を繰り返すと任意の正整数 $n$ について $G_p(t^{\boxtimes n})\sim G_p(t)^{\boxtimes n}$ です。制限同値なら階数と劣階数は一致するため、最初の二式を $t^{\boxtimes n}$ に適用して
+
 $$
 R_K(G_p(t)^{\boxtimes n})\le R_K(t^{\boxtimes n}),
 $$
@@ -206,6 +238,7 @@ $$
 $$
 Q_K(t^{\boxtimes n})\le Q_K(G_p(t)^{\boxtimes n})
 $$
+
 を得ます。値は非負なので $n$ 乗根を取っても不等号の向きは保たれます。[テンソル冪の階数と劣階数の増大率](../TSP9/index.md#thm-tsp9-limit-existence) により両辺の極限が存在し、[漸近階数と漸近劣階数](../TSP9/index.md#def-tsp9-asymptotic-rank) の定義で残りの二式を得ます。零テンソルについてもすべての冪の値は0です。
 <!-- proof-end -->
 
@@ -227,6 +260,7 @@ $$
 $$
 g_p^*(\phi)=\phi\circ g_p:S_{K,d}\to\mathbb R_{\ge0}
 $$
+
 >
 > は $S_{K,d}$ のスペクトル点である。
 <!-- formal-statement-end -->
@@ -235,6 +269,7 @@ $$
 ### 証明
 
 $\psi=\phi\circ g_p$ とします。[併合と半環演算の両立性](#thm-tsp15-grouping-semiring) から $g_p(0)=0,g_p(1)=1$ なので $\psi(0)=0,\psi(1)=1$ です。任意の $a,b\in S_{K,d}$ に対して
+
 $$
 \psi(a+b)=\phi(g_p(a)+g_p(b))=\psi(a)+\psi(b),
 $$
@@ -242,6 +277,7 @@ $$
 $$
 \psi(ab)=\phi(g_p(a)g_p(b))=\psi(a)\psi(b).
 $$
+
 $a\preceq b$ なら $g_p(a)\preceq g_p(b)$ であり、$\phi$ の単調性により $\psi(a)\le\psi(b)$ です。値域も非負実数なのでスペクトル点の全条件が成立します。
 <!-- proof-end -->
 
@@ -250,6 +286,8 @@ $a\preceq b$ なら $g_p(a)\preceq g_p(b)$ であり、$\phi$ の単調性によ
 しかし第2節の $s,t$ の併合後はどちらも非零の単純テンソルなので、相互に制限できます。引き戻しで得られる任意の点は両者で等しい値を取ります。一方、第1因子と残りを分けた平坦化階数は $s$ で2、$t$ で1です。これは元の半環のスペクトル点ですが、今回の併合から引き戻すことはできません。従って引き戻しで得た点だけを元のスペクトル全体として扱うことはできません。
 
 ## 6. 演習
+
+以下、体 $K$ は任意とし、$e_a$ は各因子の標準基底ベクトルを表します。特に断らない限り各因子は $K^2$ とします。
 
 ### Level A
 
@@ -265,10 +303,12 @@ $d=4$、各因子を $K^2$ とする。$p(1)=p(4)=1,p(2)=p(3)=2$ とし、$e_2\o
 ##### 詳細解答
 
 [partyの併合](#def-tsp15-grouping) に従い組内を昇順にする。
+
 $$
 G_p(e_2\otimes e_1\otimes e_2\otimes e_1)
 =(e_2\otimes e_1)\otimes(e_1\otimes e_2).
 $$
+
 各組は二因子なので次元は $2\cdot2=4$。基底順を $11,12,21,22$ とすれば行3、列2に1が立ち、残り15成分は0である。
 <!-- solution-end -->
 
@@ -284,9 +324,11 @@ $$
 ##### 詳細解答
 
 元の作用では
+
 $$
 (A_1\otimes A_2\otimes A_3)t=e_2\otimes e_1\otimes e_1.
 $$
+
 併合後の入力は $(e_1\otimes e_1)\otimes e_2$。第1組の写像 $B_1=A_1\otimes A_2$ は $e_1\otimes e_1$ を $e_2\otimes e_1$ に送り、第2組の $B_2=A_3$ は $e_2$ を $e_1$ に送る。よって出力は $(e_2\otimes e_1)\otimes e_1$ であり、元の出力を併合した結果と一致する。
 <!-- solution-end -->
 
@@ -316,9 +358,11 @@ $v=e_1^{\otimes3}+e_2^{\otimes3}$ を最初の二因子で併合したテンソ�
 ##### 詳細解答
 
 併合後は $(e_1\otimes e_1)\otimes e_1+(e_2\otimes e_2)\otimes e_2$ である。行順を $11,12,21,22$、列順を $1,2$ とすると
+
 $$
 \begin{pmatrix}1&0\\0&0\\0&0\\0&1\end{pmatrix}
 $$
+
 である。独立な二列を持つので行列階数は2。[二因子テンソル階数と行列階数の一致](../TSP2/index.md#thm-tsp2-matrix-rank) および [二因子の階数と劣階数の一致](../TSP4/index.md#thm-tsp4-two-factor-subrank) から両方2である。
 <!-- solution-end -->
 
@@ -350,9 +394,11 @@ $v=(e_1\otimes e_1+e_2\otimes e_2)\otimes e_1$ を最初の二因子で併合す
 ##### 詳細解答
 
 [テンソルのKronecker積](../TSP5/index.md#def-tsp5-kronecker) の係数公式から、長さ $n$ の添字列 $\alpha\in\{1,2\}^n$ を用いると
+
 $$
 v^{\boxtimes n}=\sum_\alpha e_\alpha\otimes e_\alpha\otimes e_{(1,\ldots,1)}.
 $$
+
 ここで $e_\alpha=e_{\alpha_1}\otimes\cdots\otimes e_{\alpha_n}$ である。$2^n$ 個の単純項が上界を与える。第1因子の平坦化で列 $(\alpha,(1,\ldots,1))$ は行 $\alpha$ に1を持ち他の行が零なので独立な $2^n$ 列がある。[平坦化による階数下界](../TSP3/index.md#thm-tsp3-flattening-bound) から階数は $2^n$。併合後は非零単純テンソルで、どの冪も非零単純テンソルだから階数1。[漸近階数](../TSP9/index.md#def-tsp9-asymptotic-rank) はそれぞれ $(2^n)^{1/n}=2$ と $1^{1/n}=1$ の極限、すなわち2と1である。
 <!-- solution-end -->
 
@@ -379,24 +425,30 @@ $s=(e_1\otimes e_1+e_2\otimes e_2)\otimes e_1$ と $t=e_1^{\otimes3}$ を考え�
 - ID: TSP15-C01
 
 四因子が $K^2$ のとき
+
 $$
 w=\sum_{a,b=1}^2 e_a\otimes e_a\otimes e_b\otimes e_b
 $$
+
 を考える。組分け $12|34$ と $13|24$ でそれぞれ二因子へ併合した階数・劣階数を求めよ。元の階数と劣階数も確定せよ。さらに二つの組分けで得られた値が違うことと併合の可逆性が矛盾しない理由を述べよ。
 
 <!-- solution-start -->
 ##### 詳細解答
 
 $12|34$ では
+
 $$
 G_p(w)=(e_1\otimes e_1+e_2\otimes e_2)
 \otimes(e_1\otimes e_1+e_2\otimes e_2)
 $$
+
 であり、非零単純テンソルなので階数1。[二因子の階数と劣階数の一致](../TSP4/index.md#thm-tsp4-two-factor-subrank) から劣階数も1。
 $13|24$ では
+
 $$
 G_q(w)=\sum_{a,b=1}^2(e_a\otimes e_b)\otimes(e_a\otimes e_b).
 $$
+
 基底順を両組とも $11,12,21,22$ とすれば係数行列は4次単位行列である。階数と劣階数はともに4。
 元のテンソルは4個の単純項で書かれているので階数は4以下。[併合による階数と劣階数の比較](#thm-tsp15-grouping-ranks) を $q$ に適用して $4\le R_K(w)$ を得るため、階数4である。同じ定理を $p$ に適用すると $Q_K(w)\le1$。各因子で $e_1\mapsto1,e_2\mapsto0$ とすれば係数1の対角テンソルを取り出せるので $Q_K(w)\ge1$。従って劣階数1である。
 併合はベクトル空間として可逆だが、許される局所線形写像の範囲が組分けによって異なる。したがって同じ係数から異なる階数が出ても矛盾しない。
