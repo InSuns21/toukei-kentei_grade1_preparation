@@ -1,0 +1,49 @@
+chapter: ACOMP15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ACOMP14
+forward_references: []
+concepts:
+  - id: algebraic-complexity.graded-homogeneous-circuit
+    name: "次数付き斉次回路"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（次数付き斉次回路）"]
+    requires: [algebraic-complexity.arithmetic-circuit, algebraic-complexity.degree-components]
+  - id: algebraic-complexity.graded-circuit-conversion
+    name: "次数付き斉次回路への変換"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（次数付き斉次回路への変換）"]
+    requires: [algebraic-complexity.graded-homogeneous-circuit, algebraic-complexity.circuit-truncation]
+  - id: algebraic-complexity.heavy-path-coefficient
+    name: "重い側の経路係数"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重い側の経路係数）"]
+    requires: [algebraic-complexity.graded-homogeneous-circuit, algebraic-complexity.reverse-weight]
+  - id: algebraic-complexity.heavy-path-degree
+    name: "経路係数の次数"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["補題（経路係数の次数）"]
+    requires: [algebraic-complexity.heavy-path-coefficient]
+  - id: algebraic-complexity.gate-frontier-split
+    name: "節点多項式の境界分割"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["補題（節点多項式の境界分割）"]
+    requires: [algebraic-complexity.heavy-path-degree]
+  - id: algebraic-complexity.path-frontier-split
+    name: "経路係数の境界分割"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["補題（経路係数の境界分割）"]
+    requires: [algebraic-complexity.heavy-path-coefficient]
+  - id: algebraic-complexity.vsbr-depth-reduction
+    name: "VSBR型深さ削減"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（VSBR型深さ削減）"]
+    requires: [algebraic-complexity.graded-circuit-conversion, algebraic-complexity.gate-frontier-split, algebraic-complexity.path-frontier-split, algebraic-complexity.arithmetic-circuit-depth, algebraic-complexity.arithmetic-circuit-size]

@@ -15,3 +15,4 @@
 12. [ACOMP12 Hamilton閉路多項式のVNP完全性：任意標数と特性2](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP12/index.md)
 13. [ACOMP13 VF・VBP・VP・VNP：determinantの正しい完全性範囲](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP13/index.md)
 14. [ACOMP14 部分微分法・Baur–Strassen：回路微分のコスト](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP14/index.md)
+15. [ACOMP15 深さ削減：VSBR型分割と次数・サイズのトレードオフ](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP15/index.md)
