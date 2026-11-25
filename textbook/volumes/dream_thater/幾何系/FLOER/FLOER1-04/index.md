@@ -349,7 +349,22 @@ $|du_m(z_m)|\to\infty$ となる点列を取る。$z_m$ を中心とする半径
 
 二次元では縮尺変換でエネルギーが不変である。微分は $M_m^{-1}$ 倍、面積要素は $M_m^2$ 倍になるから、各拡大領域上のエネルギーは $E_0$ 以下。前節の局所評価と対角部分列により、全平面または閉半平面上の滑らかな極限 $v$ を得る。値は $K$ 内、境界値は閉性から $L_j$ 内、微分の正規化から $v$ は非定数。任意の有限領域上でエネルギーは $E_0$ 以下なので、領域を増やしても $E(v)\le E_0$ である。
 
-全平面では円周、半平面では半円周を $C_R$ と書く。原点は半平面の境界上に取る。極座標でのエネルギーの有限性から、$b(R)=\int_{C_R}|dv|^2\,d\ell$ は $R\ge1$ で可積分である。もし大きいすべての $R$ で $Rb(R)\ge\varepsilon>0$ なら $\int^\infty b(R)dR\ge\int^\infty\varepsilon/R\,dR=\infty$ となる。従って $R_k\to\infty$ で $R_k b(R_k)\to0$ となる列を選べる。曲線 $v(C_R)$ の長さ $\ell_v(R)$ は[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により
+全平面では円周、半平面では半円周を $C_R$ と書く。原点は半平面の境界上に取る。極座標でのエネルギーの有限性から、
+
+$$
+b(R)=\int_{C_R}|dv|^2\,d\ell,\qquad
+\int_1^\infty b(R)\,dR<\infty
+$$
+
+である。もし十分大きいすべての半径で $Rb(R)\ge\varepsilon>0$ なら、
+
+$$
+\int^\infty b(R)\,dR\ge\int^\infty\frac{\varepsilon}{R}\,dR=\infty
+$$
+
+となって矛盾する。従って $R_k\to\infty$ で $R_k b(R_k)\to0$ となる列を選べる。
+
+曲線 $v(C_R)$ の長さ $\ell_v(R)$ は[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により
 
 $$
 \ell_v(R)^2\le (2\pi R)b(R).
