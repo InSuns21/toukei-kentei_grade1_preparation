@@ -16,6 +16,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（Bruhat–Tits CN不等式）"]
+    aliases: [CN不等式, "Bruhat–Tits の CN 不等式"]
     requires: [metric-geometry.midpoint, metric-geometry.cat-zero-space, metric-geometry.comparison-point-distance]
   - id: metric-geometry.cn-unique-midpoint
     name: "CN条件による中点一意性"
