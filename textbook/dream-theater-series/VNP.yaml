@@ -10,7 +10,7 @@ chapters:
     title: "主定理の量化・回路ゲート数・厳密分離と近似分離"
   - id: VNP2
     path: textbook/volumes/dream_thater/計算系/VNP/VNP2
-    status: planned
+    status: completed
     title: "A：多party tensor・wire・restriction・cover・push-forward"
   - id: VNP3
     path: textbook/volumes/dream_thater/計算系/VNP/VNP3
