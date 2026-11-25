@@ -1,0 +1,49 @@
+chapter: ACOMP3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ACOMP2
+forward_references: []
+concepts:
+  - id: algebraic-complexity.arithmetic-formula
+    name: 算術formula
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（算術formula）"]
+    requires: [algebraic-complexity.arithmetic-circuit, algebraic-complexity.arithmetic-circuit-size]
+  - id: algebraic-complexity.arithmetic-circuit-depth
+    name: 算術回路の深さ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（算術回路の深さ）"]
+    requires: [algebraic-complexity.arithmetic-circuit]
+  - id: algebraic-complexity.circuit-formula-unfolding
+    name: 回路のformulaへの展開
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（回路のformulaへの展開）"]
+    requires: [algebraic-complexity.arithmetic-formula, algebraic-complexity.arithmetic-circuit-depth, algebraic-complexity.arithmetic-circuit-semantics]
+  - id: algebraic-complexity.repeated-squaring-formula-gap
+    name: 反復二乗とformulaのサイズ差
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（反復二乗とformulaのサイズ差）"]
+    requires: [algebraic-complexity.circuit-formula-unfolding]
+  - id: algebraic-complexity.algebraic-branching-program
+    name: 代数的分岐プログラム
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（代数的分岐プログラム）"]
+    requires: [algebraic-geometry.multivariate-polynomial-ring, algebra.field]
+  - id: algebraic-complexity.formula-to-abp
+    name: formulaからABPへの変換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（formulaからABPへの変換）"]
+    requires: [algebraic-complexity.arithmetic-formula, algebraic-complexity.algebraic-branching-program, algebraic-complexity.repeated-squaring-formula-gap]
+  - id: algebraic-complexity.abp-to-circuit
+    name: ABPの回路による計算
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ABPの回路による計算）"]
+    requires: [algebraic-complexity.algebraic-branching-program, algebraic-complexity.arithmetic-circuit-semantics, algebraic-complexity.arithmetic-circuit-size]
