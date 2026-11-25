@@ -39,14 +39,14 @@ $$
 
 ## 2. 訪問順を証人にする
 
-VNP 所属を示すには、閉路の全列挙を小さい回路で行う必要はありません。各閉路を一度ずつ表す Boolean 入力を用意し、不適切な入力の重みを0にします。始点を1に固定するのは一つの閉路を $n$ 回数えないためです。
+[VNP](../ACOMP7/index.md#def-acomp7-vnp) 所属を示すには、閉路の全列挙を小さい回路で行う必要はありません。各閉路を一度ずつ表す Boolean 入力を用意し、不適切な入力の重みを0にします。始点を1に固定するのは一つの閉路を $n$ 回数えないためです。
 
 <a id="thm-acomp12-hamilton-vnp"></a>
 
 <!-- formal-statement-start -->
 > **定理（Hamilton閉路多項式族の VNP 所属）**
 >
-> 任意の固定体 $K$ 上で、多項式族 $(\operatorname{HC}_n)_{n\ge1}$ は VNP に属する。
+> 任意の体 $K$ を固定する。この体上で、多項式族 $(\operatorname{HC}_n)_{n\ge1}$ は VNP に属する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -98,7 +98,7 @@ $$
 
 ## 3. 算術式を小さな重み表へ変える
 
-困難性は逆に、任意の VNP の族を Hamilton閉路多項式の入力置換だけで表すことです。前講の [VNP の算術式による証人表示](../ACOMP11/index.md#thm-acomp11-formula-witness) は任意標数で成立していました。これにより小さい算術formulaの Boolean 和から始められます。
+困難性では逆に、任意の VNP の族を [p-projection](../ACOMP8/index.md#def-acomp8-p-projection) により Hamilton閉路多項式から得ることを示します。前講の [VNP の算術式による証人表示](../ACOMP11/index.md#thm-acomp11-formula-witness) は任意標数で成立していました。これにより小さい[算術formula](../ACOMP3/index.md#def-acomp3-formula) の Boolean 和から始められます。
 
 算術式の木で、加法では片方の子を選び、乗法では両方を選びます。選ばれた葉の重みの積を全選択について足せば元の式です。各節点に活動中か否かを示すビットを付けると、許容選択は親と二つの子の三ビットだけで検査できます。以下、局所重み表とは高々三つのビットの値の組ごとに一個の定数または通常入力変数を与える表を指します。表の値0はその組を禁止する役割を持ちます。
 
@@ -254,7 +254,7 @@ $$
 <!-- formal-statement-start -->
 > **定理（Valiant の Hamilton閉路多項式の VNP 完全性）**
 >
-> 任意の固定体 $K$ 上で、Hamilton閉路多項式族は p-projection に関して VNP 完全である。
+> 任意の体 $K$ を固定する。この体上で、Hamilton閉路多項式族は p-projection に関して VNP 完全である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -436,7 +436,7 @@ $$
 
 2. 根と積の表により $a_o=a_v=a_{u_y}=1$ です。左の和の表で $(a_{u_x},a_{u_b})=(1,0)$ または $(0,1)$ となります。前者の積は $x\cdot1\cdot y=xy$、後者は $1\cdot b\cdot y=by$ です。$b=0$ の和は $xy$、$b=1$ の和は $xy+y$ なので合計 $2xy+y$ です。
 
-3. $h=6,m=6$ です。全ビットがどれかの表に現れるため追加表は不要で、[局所重み表の Hamilton閉路表示](#thm-acomp12-tables-hamilton) の証明から $M\le6+81\cdot6+2=494$ となります。さらに表の arity に従って数えると、一変数表は根・二葉の計3個、二変数表は一葉の1個、三変数表は積・和の2個です。各 arity の区間数は $4,7,12$、条件数は $4,10,23$ です。従って
+3. $h=6,m=6$ です。全ビットがどれかの表に現れるため追加表は不要で、[局所重み表の Hamilton閉路表示](#thm-acomp12-tables-hamilton) の証明から $M\le6+81\cdot6+2=494$ となります。さらに表の 参照ビット数 に従って数えると、一変数表は根・二葉の計3個、二変数表は一葉の1個、三変数表は積・和の2個です。各 参照ビット数 の区間数は $4,7,12$、条件数は $4,10,23$ です。従って
 
 $$
 L=6+3\cdot4+7+2\cdot12+2=51,
@@ -463,4 +463,4 @@ $$
 - 頂点数は元の式と証人長の多項式で抑えられ、行列成分は変数または定数のままである。
 - 除算を必要としない完全性証明は標数2でも有効である。完全性と下界は別の主張である。
 
-参考文献：L. G. Valiant, Completeness Classes in Algebra (1979)。H. Fournier, S. Perifel, R. de Verclos, [On fixed-polynomial size circuit lower bounds for uniform polynomials in the sense of Valiant](https://arxiv.org/abs/1304.5910), Lemma 4。三頂点による排他的選択と環状区間の構成については [VP ≠ VNP over every field, Appendix M.2](https://hexagonmath.org/pdf/2611.00954v1) の局所表の構成を参照し、高々三ビットの表に拡張した。ここではその完全性構成のみを扱い、同文献の下界主張には依存しない。
+参考文献：L. G. Valiant, Completeness Classes in Algebra (1979)。H. Fournier, S. Perifel, R. de Verclos, [算術回路のサイズ下界に関する論文](https://arxiv.org/abs/1304.5910), Lemma 4。三頂点による排他的選択と環状区間の構成については [VP ≠ VNP over every field, Appendix M.2](https://hexagonmath.org/pdf/2611.00954v1) の局所表の構成を参照し、高々三ビットの表に拡張した。ここではその完全性構成のみを扱い、同文献の下界主張には依存しない。
