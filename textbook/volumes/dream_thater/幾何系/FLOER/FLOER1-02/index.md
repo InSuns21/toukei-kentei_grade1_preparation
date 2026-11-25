@@ -165,7 +165,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-floer1-02-exact-action -->
-**定義の確認**。標準平面で $\lambda=-y\,dx$、$L_0=\mathbb R$、$L_1=i\mathbb R$ とする。$d(-y\,dx)=-dy\wedge dx=dx\wedge dy$。実軸では $y=0$、虚軸では接方向に $dx=0$ だから制限は双方とも零で、$f_0=f_1=0$ と取れる。道 $\gamma(t)=1-t+it$ は下端が実軸、上端が虚軸で、$\dot x=-1,y=t$ である。線積分は $\int_0^1 t\,dt=1/2$、作用は $-1/2$ となる。作用自体は負でもよい。
+**定義の確認**。標準平面で $\lambda=-y\,dx$、$L_0=\mathbb R$、$L_1=i\mathbb R$ とする。$d(-y\,dx)=-dy\wedge dx=dx\wedge dy$。実軸では $y=0$、虚軸では接方向に $dx=0$ だから制限は双方とも零で、$f_0=f_1=0$ と取れる。道 $\gamma(t)=1-t+it$ は下端が実軸、上端が虚軸で、$x(t)=1-t$、$y(t)=t$ である。$\dot x=dx/dt=-1$ を用いると、線積分と作用は
+
+$$
+\int_\gamma\lambda=\int_0^1-y(t)\dot x(t)\,dt
+=\int_0^1 t\,dt=\frac12,
+\qquad \mathcal A(\gamma)=-\frac12.
+$$作用自体は負でもよい。
 <!-- definition-example-end -->
 
 交点 $p$ の定数道では線積分は零なので、以下では $\mathcal A(p)=f_1(p)-f_0(p)$ と略記する。$f_j$ に定数を加えると作用値は移動するが、同じ選択の下での作用差は変わらない。
@@ -174,7 +180,14 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（完全Lagrange境界での作用の第一変分）**
-> $d\lambda=\omega$ と $\iota_j^*\lambda=df_j$ を満たす完全Lagrange境界を持つ滑らかな道 $\gamma$ を取る。境界を保つ滑らかな変分 $\Gamma(\varepsilon,t)$（$\Gamma(0,t)=\gamma(t)$、$\Gamma(\varepsilon,j)\in L_j$）の速度を $\xi=\partial_\varepsilon\Gamma(0,t)$ とすると、作用の方向微分を $d\mathcal A_\gamma(\xi)=\left.\frac{d}{d\varepsilon}\mathcal A(\Gamma(\varepsilon,\cdot))\right|_{\varepsilon=0}$ と書き、その値は
+> $d\lambda=\omega$ と $\iota_j^*\lambda=df_j$ を満たす完全Lagrange境界を持つ滑らかな道 $\gamma$ を取る。境界を保つ滑らかな変分 $\Gamma(\varepsilon,t)$（$\Gamma(0,t)=\gamma(t)$、$\Gamma(\varepsilon,j)\in L_j$）の速度を $\xi=\partial_\varepsilon\Gamma(0,t)$ とする。作用の方向微分を次のように書く。
+
+$$
+d\mathcal A_\gamma(\xi)
+=\left.\frac{d}{d\varepsilon}\mathcal A(\Gamma(\varepsilon,\cdot))\right|_{\varepsilon=0}.
+$$
+
+> その値は
 
 $$
 d\mathcal A_\gamma(\xi)
@@ -272,7 +285,7 @@ $$
 $E=0$ の場合、連続な非負関数 $|u_s|^2$ の積分が零であるから各点で $u_s=0$。方程式と $J$ の可逆性から $u_t=0$。帯は連結なので $u$ は定数。逆は微分が零であることから従う。
 <!-- proof-end -->
 
-有限帯での符号は境界積分でも検算できる。[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)（矩形では辺ごとの基本定理でも導ける）で向き $ds\wedge dt$ の下辺は $s$ 増加、右辺は $t$ 増加、上辺は $s$ 減少、左辺は $t$ 減少。従って
+有限帯での符号は境界積分でも検算できる（$\int_\gamma\lambda=\int_0^1\lambda_{\gamma(t)}(\dot\gamma(t))dt$ と略記する）。[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)（矩形では辺ごとの基本定理でも導ける）で向き $ds\wedge dt$ の下辺は $s$ 増加、右辺は $t$ 増加、上辺は $s$ 減少、左辺は $t$ 減少。従って
 
 $$
 \begin{aligned}
@@ -338,7 +351,14 @@ $$
 \operatorname{Im}w=\frac{2\operatorname{Im}u}{|1-u|^2}>0.
 $$
 
-両逆式は滑らかで、実座標の微分は列ベクトル $u_s,u_t=iu_s$ を持つので行列式は $|u_s|^2>0$（$w\ne0$）。従って上半単位円板への向きを保つ微分同相であり、面積は $\pi/2$。作用差の符号と係数が一致する。
+両逆式は滑らかで、実座標の微分は列ベクトル $u_s,u_t=iu_s$ を持つ。$u_s=a+ib$ とすれば、向きを判定するJacobi行列式は
+
+$$
+\det\begin{pmatrix}a&-b\\b&a\end{pmatrix}
+=a^2+b^2=|u_s|^2>0
+$$
+
+である（$w\ne0$）。従って上半単位円板への向きを保つ微分同相であり、面積は $\pi/2$。作用差の符号と係数が一致する。
 
 ## 3. 一般の境界ではなぜ作用が多価になるか
 
@@ -402,7 +422,7 @@ $$
 
 横断方向の関数を作用素の定義域にする。$J_p=J(p)$ は固定接空間 $V$ 上の線形写像、$g_p$ はその点の内積である。$L^2([0,1],V)$ は $g_p$ によるノルムの二乗が可積分な関数の a.e. 同値類からなる実Hilbert空間である。$H^1([0,1],V)$ は区間内部で関数と一階弱微分が $L^2$ に属する空間である（[Sobolev空間](../../../解析系/GPDE/GPDE3/index.md#def-gpde3-sobolev-space)を $V$ の実基底の各成分に適用する）。$\eta'$ は $t$ に関する弱微分で、滑らかな $\eta$ なら $d\eta/dt$ と一致する。
 
-区間の長さが1なので、Cauchy--Schwarz不等式で各成分とその弱微分は $L^1$ にも属する。[一変数 W^{1,1} の基本定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-w11-ac)を成分ごとに使うと、絶対連続な代表元について
+区間の長さが1なので、[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)で各成分とその弱微分は $L^1$ にも属する。[一変数 W^{1,1} の基本定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-w11-ac)を成分ごとに使うと、絶対連続な代表元について
 
 $$
 \eta(t)-\eta(0)=\int_0^t\eta'(r)\,dr.
@@ -663,7 +683,14 @@ $$
 $L_0=\{|z|=\rho\}$（$\rho>0$）、$L_1=\{|z-\rho|=\rho\}$、$p=2\rho$ とする。$V(r,t)=(1-t)\rho e^{2\pi ir}+tp$ の面積と作用の周期を求め、$\lambda=-y\,dx$ の $L_0$ 上の原始関数が存在しない理由を示せ。
 
 <!-- solution-start -->
-**詳細解答**。二円は埋め込まれた一次元部分多様体で、交点 $(\rho/2,\pm\sqrt3\rho/2)$ での半径ベクトルは $(\rho/2,\pm\sqrt3\rho/2)$ と $(-\rho/2,\pm\sqrt3\rho/2)$。その行列式は $\pm\sqrt3\rho^2/2\ne0$ なので非平行である。接方向は両者を90度回転した方向であり、[Lagrange横断交叉](../FLOER1-01/index.md#def-floer1-01-transverse)の接空間の和の条件を満たす。$V$ は下端を $L_0$ 上、上端を $p\in L_1$ に送り、$r=0,1$ の道は一致する。$ds$ ではなく $dr\wedge dt$ の向きを取ると下辺は $r$ 増加方向。[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)で左右の辺が消え、上辺は定数なので、下辺の $\phi=2\pi r$ に沿う $x=\rho\cos\phi$、$y=\rho\sin\phi$ を用いる。$dx=-\rho\sin\phi\,d\phi$ より $-y\,dx=\rho^2\sin^2\phi\,d\phi$ であり、
+**詳細解答**。二円は埋め込まれた一次元部分多様体で、2形式の制限が零だからLagrangeである。交点では $x^2+y^2=(x-\rho)^2+y^2=\rho^2$ より $x=\rho/2$、$y=\pm\sqrt3\rho/2$。半径ベクトルはそれぞれ $(x,y),(x-\rho,y)$ であり、
+
+$$
+\det\begin{pmatrix}x&x-\rho\\y&y\end{pmatrix}
+=\rho y=\pm\frac{\sqrt3}{2}\rho^2\ne0.
+$$
+
+従って非平行である。接方向は両者を90度回転した方向であり、この回転は可逆だから接方向も一次独立である。従って[Lagrange横断交叉](../FLOER1-01/index.md#def-floer1-01-transverse)の接空間の和の条件を満たす。$V$ は下端を $L_0$ 上、上端を $p\in L_1$ に送り、$r=0,1$ の道は一致する。$ds$ ではなく $dr\wedge dt$ の向きを取ると下辺は $r$ 増加方向。[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)で左右の辺が消え、上辺は定数なので、下辺の $\phi=2\pi r$ に沿う $x=\rho\cos\phi$、$y=\rho\sin\phi$ を用いる。$dx=-\rho\sin\phi\,d\phi$ より $-y\,dx=\rho^2\sin^2\phi\,d\phi$ であり、
 
 $$
 \int V^*\omega=\int_0^{2\pi}\rho^2\sin^2\phi\,d\phi
