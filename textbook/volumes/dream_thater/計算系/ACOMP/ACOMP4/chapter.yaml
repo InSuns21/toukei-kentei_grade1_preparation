@@ -1,0 +1,41 @@
+id: "ACOMP4"
+title: "体の標数・拡大・定数モデル：単位コストとビット計算"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ACOMP3
+official_scope: []
+learning_objectives:
+  - 体の標数による係数の変化と法素数還元の条件を説明できる
+  - 体拡大による回路の移行と形式多項式の非零性保存を証明できる
+  - 有限拡大上の回路を基礎体の座標計算に変換し演算サイズ上界を導ける
+  - 任意定数モデルと定数制限モデルを区別して計算可能な係数を判定できる
+  - 単位コストとビット長を区別し反復二乗による出力長の下界を導ける
+definitions:
+  - { id: ACOMP4-DEF-01, name: 算術回路の定数モデル }
+  - { id: ACOMP4-DEF-02, name: 単位コストとビット長 }
+theorems:
+  - { id: ACOMP4-THM-01, name: 整数定数回路の法素数還元 }
+  - { id: ACOMP4-THM-02, name: 体拡大による算術回路の移行 }
+  - { id: ACOMP4-THM-03, name: 有限体拡大上の回路の座標シミュレーション }
+  - { id: ACOMP4-THM-04, name: 定数制限回路の出力係数 }
+  - { id: ACOMP4-THM-05, name: 反復二乗によるビット長の増大 }
+canonical_examples:
+  - 二元体と有理数体の二乗の係数
+  - 二次拡大における積の座標
+  - 定数制限モデルでの整数生成
+  - 反復二乗と指数的な出力ビット長
+problem_patterns:
+  - ACOMP4-CHARACTERISTIC
+  - ACOMP4-EXTENSION-EVALUATION
+  - ACOMP4-CONSTANT-CONSTRUCTION
+  - ACOMP4-BIT-LENGTH
+  - ACOMP4-REDUCTION-LIMIT
+  - ACOMP4-COORDINATE-PRODUCT
+  - ACOMP4-RESTRICTED-COEFFICIENTS
+  - ACOMP4-BINARY-CONSTRUCTION
+  - ACOMP4-SIMULATION-COST
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 1 }
