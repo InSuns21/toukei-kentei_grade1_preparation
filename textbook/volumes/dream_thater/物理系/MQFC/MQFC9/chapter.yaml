@@ -2,7 +2,7 @@ id: MQFC9
 title: "OS Hilbert空間と時間並進半群"
 volume: foundations
 status: supplementary
-prerequisites: [MQFC8, MQFC4, QM6]
+prerequisites: [MQFC8, MQFC4, QM6, EVOL2]
 official_scope: []
 learning_objectives:
   - 反射形式から零空間商と完備化を構成し状態の同値性を説明できる
