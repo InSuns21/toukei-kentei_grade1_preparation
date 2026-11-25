@@ -25,7 +25,7 @@
 
 ## 3. 圏論・第2課程への統合（2026-11-25）
 
-当初の12設計単位のうち代数側7講は[圏論・第2課程（CATB）PLAN](../plans_progress/DREAM_THEATER_CATEGORY_THEORY_SECOND_COURSE_PLAN.md)の第7〜8部へ移管し、解析側5講は[独立幾何系FLOER PLAN](../plans_progress/DREAM_THEATER_FLOER_ANALYTIC_FOUNDATIONS_PLAN.md)へ分離した。本ファイルはHM1の前提整備を照合する依存ルート台帳であり、独立した重複講義・manifestは作らない。講義内容の正本はCATB PLANとFLOER PLANであり、CATBの完了状態は[CATB系列manifest](../dream-theater-series/CATB.yaml)を参照する。FLOERの完了状態は[FLOER系列manifest](../dream-theater-series/FLOER.yaml)を参照する。
+当初の12設計単位のうち代数側7講は[圏論・第2課程（CATB）PLAN](../plan_done/DREAM_THEATER_CATEGORY_THEORY_SECOND_COURSE_PLAN.md)の第7〜8部へ移管し、解析側5講は[独立幾何系FLOER PLAN](../plans_progress/DREAM_THEATER_FLOER_ANALYTIC_FOUNDATIONS_PLAN.md)へ分離した。本ファイルはHM1の前提整備を照合する依存ルート台帳であり、独立した重複講義・manifestは作らない。講義内容の正本はCATB PLANとFLOER PLANであり、CATBの完了状態は[CATB系列manifest](../dream-theater-series/CATB.yaml)を参照する。FLOERの完了状態は[FLOER系列manifest](../dream-theater-series/FLOER.yaml)を参照する。
 
 | 旧設計 | 統合先 | 講数 |
 | --- | --- | ---: |
