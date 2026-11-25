@@ -24,7 +24,9 @@ def shortState : GameState :=
   | .ok s => s.board == [some .O] && s.status == .draw && s.turn == .O
   | .error _ => false
 
-#guard applyMove {initialState with status := .draw} 9 == .error "game_over"
+#guard match applyMove {initialState with status := .draw} 9 with
+  | .error e => e == "game_over"
+  | .ok _ => false
 
 def inconsistent : GameState :=
   {board := [some .X, some .X, some .X, none, none, none, none, none, none],
