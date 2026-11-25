@@ -17,20 +17,22 @@ $$
 
 [場の特性汎関数](../MQFC6/index.md#def-mqfc6-characteristic-functional) で用いた円筒 $\sigma$ 加法族上の確率測度 $\mu$ を考え、各測定が全絶対モーメントを持つとします。反転写像は測定との合成が再び測定になるので円筒可測です。反転で分布が変わらないことを $\theta_*\mu=\mu$ と書きます。ここで左辺は反転後の標本の分布です。
 
-正時間の有限個の測定を変数とする複素係数多項式全体を $\mathcal P_+$ とします。定数も含め、二つの多項式に異なる測定が現れるときはその有限族を合わせればよいので、和と積に閉じています。普通の期待値 $E|F|^2$ の代わりに、反転した多項式と元の多項式を掛けます。この値は正時間と負時間をつなぐ相関であり、非負性は自動ではありません。
+正時間の有限個の測定を変数とする複素係数多項式全体を $\mathcal P_+$ とします。定数も含め、二つの多項式に異なる測定が現れるときはその有限族を合わせればよいので、和と積に閉じています。普通の期待値 $E|F|^2$ の代わりに、反転した多項式と元の多項式を掛けます。この値は正時間と負時間をつなぐ相関であり、非負性は自動ではありません。[QFT20の反射陽性の定義](../../QFT/QFT20/index.md#def-qft20-reflection-positivity) では反転と共役を合わせて $\Theta F$ と書きました。ここでは測度と試験関数を明示して、その積の平均を二引数の形式として扱います。
 
 <a id="def-mqfc8-reflection-positivity"></a>
 
 <!-- formal-statement-start -->
-> **定義（反射陽性）**
+> **定義（正時間多項式の反射形式）**
 > 実 Schwartz 空間の連続実線形双対上の円筒確率測度 $\mu$ が時間反転 $\theta$ で不変であり、各実試験関数による測定が全絶対モーメントを持つとする。$\mathcal P_+$ を正時間に台を持つ実試験関数の有限個の測定による複素係数多項式全体とする。$F,G\in\mathcal P_+$ に対して反射形式を
 
 $$
 (F,G)_\theta=E_\mu[\overline{F(\theta\omega)}G(\omega)]
 $$
 
-> とする。任意の $F\in\mathcal P_+$ に対し $(F,F)_\theta\ge0$ が成り立つとき、$\mu$ は多項式に関して反射陽性を持つという。
+> と定める。
 <!-- formal-statement-end -->
+
+[反射陽性](../../QFT/QFT20/index.md#def-qft20-reflection-positivity) の条件は、この形式について全ての $F\in\mathcal P_+$ で $(F,F)_\theta\ge0$ となることです。
 
 <!-- definition-example-start: def-mqfc8-reflection-positivity -->
 ### 直接例
@@ -65,6 +67,8 @@ $$
 
 ### 普通の共分散の正値性では足りない
 
+[QFT20の共分散に関する反例](../../QFT/QFT20/index.md#prop-qft20-positive-not-reflection) では平行移動不変な共分散でも反射陽性が破れる例を見ました。ここではさらに簡単な場で符号を直接確認します。
+
 $d=1$ として $\omega(f)=Y\int t f(t)\,dt$ と置きます。積分は先ほどより一つ高い次数の Schwartz 半ノルムで抑えられ、測定は Gaussian です。反転は $Y$ を $-Y$ に変えるだけなので分布は不変です。$a=\int t f(t)\,dt$ とすれば $E[X_f^2]=a^2\ge0$ ですが、$f\in S_+$ を非零の非負の滑らかなコンパクト台関数とすると $a>0$ かつ
 
 $$
@@ -85,7 +89,7 @@ $$
 
 と書きます。全 Fourier 変換は $\widehat f(p,k)=\int e^{-ipt}\widetilde f(t,k)\,dt$ です。規格化は [Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier) と一致します。
 
-周波数の分母は $p^2+\varepsilon_k^2$ です。空間周波数を一つ固定すると時間方向だけの一次元計算になります。
+周波数の分母は $p^2+\varepsilon_k^2$ です。空間周波数を一つ固定すると時間方向だけの一次元計算になります。[QFT20のEuclid自由共分散](../../QFT/QFT20/index.md#thm-qft20-euclidean-kernel) の時間核を、ここでは逆変換の積分として直接求めます。
 
 <a id="thm-mqfc8-time-kernel"></a>
 
@@ -128,7 +132,7 @@ $$
 一方、左辺の候補である逆 Fourier 積分を $q(\tau)$ とすると、$\widehat h$ と $\psi$ が可積分なので $\int q\psi$ も右辺に一致します。$q$ は優収束定理で連続です。連続関数 $h-q$ が全ての Schwartz 関数との積分で零なら、非零となる点の近傍に台を持つ非負試験関数を選んで矛盾を得るため $h=q$ です。
 <!-- proof-end -->
 
-$a=\varepsilon_k$ とすると、時間差 $\tau=t-s$ での共分散は $e^{-\varepsilon_k|t-s|}/(2\varepsilon_k)$ です。反射した側の時間は $-t$ なので差の絶対値は $|-t-s|=t+s$ になります。ここで指数が二つの因子に分かれます。
+$a=\varepsilon_k$ とすると、時間差 $\tau=t-s$ での共分散は $e^{-\varepsilon_k|t-s|}/(2\varepsilon_k)$ です。反射した側の時間は $-t$ なので差の絶対値は $|-t-s|=t+s$ になります。ここで指数が二つの因子に分かれます。[QFT20の自由スカラー二点核の反射二次形式](../../QFT/QFT20/index.md#thm-qft20-free-reflection) を、一般次元の Schwartz 関数について積分交換まで含めて確かめます。
 
 <a id="thm-mqfc8-reflected-covariance"></a>
 
@@ -372,7 +376,7 @@ $$
 中心化結合 Gaussian 変数 $X,Y$ の分散をともに $3$、共分散を $1$ とする。$F=X$ と $F=X^2-3$ の反射形式をそれぞれ求めよ。
 
 <!-- solution-start -->
-一次では $E[YX]=1$ です。二次では [Wick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) により $E[Y^2X^2]=3\cdot3+2\cdot1^2=11$ です。よって
+一次では $E[YX]=1$ です。二次の場合を求めます。[Gaussian Schwinger関数のWick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) により $E[Y^2X^2]=3\cdot3+2\cdot1^2=11$ です。よって
 
 $$
 E[(Y^2-3)(X^2-3)]=11-9-9+9=2.
@@ -410,7 +414,7 @@ $$
 =1-\lambda^2 a^2.
 $$
 
-$|\lambda|>1/a$ を取れば負となります。[反射陽性の定義](#def-mqfc8-reflection-positivity) は全多項式に非負性を要求するので条件を満たしません。
+$|\lambda|>1/a$ を取れば負となります。[反射陽性の定義](../../QFT/QFT20/index.md#def-qft20-reflection-positivity) は全多項式に非負性を要求するので条件を満たしません。
 <!-- solution-end -->
 
 ### 演習 MQFC8-B3：二成分の共通 Gaussian 分解
