@@ -9,7 +9,7 @@ chapters:
   - { id: MQFC3, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC3, status: completed, title: "Wightman公理とスペクトル条件" }
   - { id: MQFC4, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC4, status: completed, title: "Wightman再構成と解析性" }
   - { id: MQFC5, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC5, status: completed, title: "Euclid自由場の共分散" }
-  - { id: MQFC6, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC6, status: planned, title: "Gaussian測度をどう作るか" }
+  - { id: MQFC6, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC6, status: completed, title: "Gaussian測度をどう作るか" }
   - { id: MQFC7, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC7, status: planned, title: "Schwinger関数とGaussianの全モーメント" }
   - { id: MQFC8, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC8, status: planned, title: "反射陽性はなぜ成り立つか" }
   - { id: MQFC9, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC9, status: planned, title: "OS Hilbert空間と時間並進半群" }
