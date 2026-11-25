@@ -26,7 +26,7 @@ chapters:
     title: "斉次化・次数切断・形式次数と実次数"
   - id: ACOMP6
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP6
-    status: planned
+    status: completed
     title: "多項式族・VP・非一様性：量化順序とサイズ"
   - id: ACOMP7
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP7

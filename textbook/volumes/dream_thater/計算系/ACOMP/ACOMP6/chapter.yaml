@@ -1,0 +1,40 @@
+id: "ACOMP6"
+title: "多項式族・VP・非一様性：量化順序とサイズ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ACOMP5
+official_scope: []
+learning_objectives:
+  - 多項式族の指定変数数・実次数・演算サイズを区別しVPの量化順序を説明できる
+  - 明示的な回路構成と使用変数数による下界でサイズを評価できる
+  - 非一様な回路の存在と有効な回路生成を区別し対角的な反例を説明できる
+  - 和と積の閉性および次数切断によるVPの特徴付けを証明できる
+definitions:
+  - { id: ACOMP6-DEF-01, name: "多項式族" }
+  - { id: ACOMP6-DEF-02, name: "VP" }
+  - { id: ACOMP6-DEF-03, name: "有効な回路生成" }
+theorems:
+  - { id: ACOMP6-THM-01, name: "使用変数数による演算サイズ下界" }
+  - { id: ACOMP6-THM-02, name: "非一様な VP と有効な回路生成の分離" }
+  - { id: ACOMP6-THM-03, name: "VP の和と積に関する閉性" }
+  - { id: ACOMP6-THM-04, name: "VP の形式次数による特徴付け" }
+canonical_examples:
+  - 二乗和のVP所属
+  - 反復二乗の指数的次数
+  - 指定変数数と使用変数数の区別
+  - 定数多項式族による非一様性の分離
+problem_patterns:
+  - ACOMP6-MEMBERSHIP
+  - ACOMP6-COMMON-BOUND
+  - ACOMP6-DEGREE
+  - ACOMP6-PADDING
+  - ACOMP6-VARIABLE-BOUND
+  - ACOMP6-GENERATION
+  - ACOMP6-CLOSURE
+  - ACOMP6-QUANTIFIERS
+  - ACOMP6-NORMALIZATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 1 }

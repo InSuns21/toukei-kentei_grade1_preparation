@@ -6,3 +6,4 @@
 3. [ACOMP3 回路とformula・ABP：共有部分式とサイズ／深さ](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP3/index.md)
 4. [ACOMP4 体の標数・拡大・定数モデル：単位コストとビット計算](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP4/index.md)
 5. [ACOMP5 斉次化・次数切断・形式次数と実次数](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP5/index.md)
+6. [ACOMP6 多項式族・VP・非一様性：量化順序とサイズ](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP6/index.md)
