@@ -6,7 +6,32 @@
 
 ## 1. 無限遠まで制御する試験関数
 
-$x\in\mathbb R^d$、$d\ge1$ とし、$|x|$ をEuclidノルムとします。[多重指数](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-multi-index) $\alpha=(\alpha_1,\dots,\alpha_d)$ は非負整数の組で、$|\alpha|=\sum_j\alpha_j$、$\partial^\alpha=\prod_j\partial_{x_j}^{\alpha_j}$ です。コンパクト支持の試験関数は局所問題に便利ですが、Fourier変換すると一般にコンパクト支持ではなくなります。そこで無限遠での減衰を全階微分にも要求します。関数の大きさを測る非負の量 $p$ が $p(f+g)\le p(f)+p(g)$ と $p(cf)=|c|p(f)$ を満たすとき半ノルムと呼びます。零でない関数に対して零となることも許します。以下では各 $p_{N,m}$ が実際には $p_{0,0}$ 以上なので、零となるのは零関数だけです。$\partial_j$ は他の座標を固定した $x_j$ による偏微分、一次元の $f',f''$ はそれぞれ $df/dx,d^2f/dx^2$ を表します。
+$x\in\mathbb R^d$、$d\ge1$ とし、$|x|$ をEuclidノルムとします。
+
+[多重指数](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-multi-index) $\alpha=(\alpha_1,\dots,\alpha_d)$ は非負整数の組で、
+
+$$
+|\alpha|=\sum_j\alpha_j,\qquad
+\partial^\alpha=\prod_j\partial_{x_j}^{\alpha_j}
+$$
+
+と書きます。コンパクト支持の試験関数は局所問題に便利ですが、Fourier変換すると一般にコンパクト支持ではなくなります。そこで無限遠での減衰を全階微分にも要求します。
+
+関数の大きさを測る非負の量 $p$ が
+
+$$
+p(f+g)\le p(f)+p(g),\qquad p(cf)=|c|p(f)
+$$
+
+を満たすとき半ノルムと呼びます。零でない関数に対して零となることも許します。以下では各 $p_{N,m}$ が実際には $p_{0,0}$ 以上なので、零となるのは零関数だけです。
+
+$\partial_j$ は他の座標を固定した $x_j$ による偏微分です。一次元の微分記法は
+
+$$
+f'=\frac{df}{dx},\qquad f''=\frac{d^2f}{dx^2}
+$$
+
+とします。
 
 <a id="def-mqfc1-schwartz"></a>
 
@@ -24,7 +49,23 @@ $$
 <!-- definition-example-start: def-mqfc1-schwartz -->
 ### 直接例
 
-**定義の確認**。$f(x)=e^{-|x|^2}$ は、微分するごとに多項式と同じ指数関数の積になります。実際 $\partial_j(Pe^{-|x|^2})=(\partial_j P-2x_jP)e^{-|x|^2}$ です。初めの多項式を $P=1$ としてこの式を繰り返せば、全階微分が多項式とGaussianの積になります。多項式の次数を $k$ とすると $|P(x)|\le C(1+|x|)^k$ であり、$(1+r)^{N+k}e^{-r^2}$ は $r\to\infty$ で零に近づく連続関数なので有界です。有限個の微分について最大を取っても有限です。一方 $f(x)=(1+|x|^2)^{-1}$ は $p_{3,0}$ が無限となるため属しません。[コンパクト支持の滑らかな試験関数](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-test-function)も、各微分が同じコンパクト集合の外で零となり、集合上で重み付き微分が連続かつ有界なので属します。
+**定義の確認**。$f(x)=e^{-|x|^2}$ は、微分するごとに多項式と同じ指数関数の積になります。実際、
+
+$$
+\partial_j(Pe^{-|x|^2})=(\partial_j P-2x_jP)e^{-|x|^2}
+$$
+
+です。初めの多項式を $P=1$ としてこの式を繰り返せば、全階微分が多項式とGaussianの積になります。
+
+多項式は有限個の単項式の和です。各単項式の指数の和の最大値を $k$ とすると、各項の絶対値を足して
+
+$$
+|P(x)|\le C(1+|x|)^k
+$$
+
+と評価できます。$(1+r)^{N+k}e^{-r^2}$ は $r\to\infty$ で零に近づく連続関数なので有界です。有限個の微分について最大を取っても有限です。
+
+一方 $f(x)=(1+|x|^2)^{-1}$ は $p_{3,0}$ が無限となるため属しません。[コンパクト支持の滑らかな試験関数](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-test-function)も、各微分が同じコンパクト集合の外で零となり、集合上で重み付き微分が連続かつ有界なので属します。
 <!-- definition-example-end -->
 
 通常の点ごとの収束だけでは足りません。例えば一次元の $f_k(x)=e^{-(x-k)^2}$ は各点で零に近づきますが $p_{0,0}(f_k)=1$ です。
@@ -275,7 +316,7 @@ $$
 =(\partial^\alpha f)(x)(\partial^\beta g)(y).
 $$
 
-$1+|(x,y)|\le(1+|x|)(1+|y|)$ なので $p_{N,m}(f\otimes g)\le p_{N,m}(f)p_{N,m}(g)$ です。従って直積空間のSchwartz関数です。複素共役 $\overline f$ も同じ半ノルムを持ちます。[複素内積](../../../解析系/FOU/FOU4/index.md#def-fou4-complex-l2)と似た二変数の形式を考えますが、ここでは共役を第1引数に付けます（FOU4の規約とは逆です）。第1引数で共役線形、第2引数で線形な形式を半双線形形式と呼びます。
+$1+|(x,y)|\le(1+|x|)(1+|y|)$ なので $p_{N,m}(f\otimes g)\le p_{N,m}(f)p_{N,m}(g)$ です。従って直積空間のSchwartz関数です。複素共役 $\overline f$ も同じ半ノルムを持ちます。[FOU4の複素L2内積](../../../解析系/FOU/FOU4/index.md#def-fou4-complex-l2)の積分式 $\int f\overline g$ を思い出してください。ここではその式とは逆に、第1引数の関数を共役する二変数の形式を考えます。第1引数で共役線形、第2引数で線形な形式を半双線形形式と呼びます。
 
 <a id="def-mqfc1-kernel"></a>
 
@@ -385,14 +426,14 @@ $P_0=x^2$ とし $P_{k+1}=P_k'-2xP_k$ とおくと第 $k$ 階微分は $P_k e^{-
 <!-- solution-start -->
 #### 詳細解答
 
-[Fourier変換の双対定義](#def-mqfc1-duality)から
+[緩増加分布の微分とFourier変換](#def-mqfc1-duality)の定義から
 
 $$
 \langle\widehat{\delta_a},f\rangle=\widehat f(a)
 =\int e^{-ia\xi}f(\xi)\,d\xi.
 $$
 
-従って $\widehat{\delta_a}(\xi)=e^{-ia\xi}$ です。絶対値が1なので[多項式増大関数の命題](#prop-mqfc1-polynomial)も適用できます。
+従って $\widehat{\delta_a}(\xi)=e^{-ia\xi}$ です。絶対値が1なので[多項式増大関数による緩増加分布](#prop-mqfc1-polynomial)も適用できます。
 <!-- solution-end -->
 
 ### 演習 MQFC1-A4：非正値の核
@@ -465,7 +506,7 @@ $h\in\mathcal S$ とし $K(x,y)=h(x)\overline{h(y)}$ とする。緩増加分布
 <!-- solution-start -->
 #### 詳細解答
 
-$h$ は有界なので $K$ も有界で、[多項式増大関数の命題](#prop-mqfc1-polynomial)により緩増加分布です。$z_j=\int\overline{h(y)}f_j(y)\,dy$ とおきます。$|h f_j|$ は可積分なので[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02)で
+$h$ は有界なので $K$ も有界で、[多項式増大関数による緩増加分布](#prop-mqfc1-polynomial)により緩増加分布です。$z_j=\int\overline{h(y)}f_j(y)\,dy$ とおきます。$|h f_j|$ は可積分なので[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02)で
 
 $$
 \begin{aligned}
