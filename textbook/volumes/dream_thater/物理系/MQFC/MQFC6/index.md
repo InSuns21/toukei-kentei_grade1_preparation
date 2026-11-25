@@ -250,7 +250,7 @@ $$
 
 このHermite展開によるSchwartz空間の特徴付けは外部の標準定理として用います（下記文献1）。特に $q_0(f)=\|f\|_2$ です。核性の判定自体は次で計算できます。
 
-<a id="thm-mqfc6-schwartz-nuclear"></a>
+<a id="prop-mqfc6-schwartz-nuclear"></a>
 
 <!-- formal-statement-start -->
 > **命題（Schwartz空間の核性の確認）**
@@ -285,6 +285,8 @@ $$
 一般の核空間版は文献2の定理を使います。本講の目標は一般定理の証明ではなく、自由場への適用とそのGaussianの場合の構成です。定理の入力は有限次元の正値型条件と試験関数位相での連続性、出力は連続双対上の測度です。円筒集合に対応する有限次元特性関数が全て一致すれば、有限次元の一意性と円筒集合が生成する $\sigma$ 加法族上の確率測度の一意性により測度も一致します。次節ではGaussianの場合について存在の具体的な仕組みも示します。
 
 ## 6. Euclid自由場のGaussian測度
+
+有限次元分布が整合するだけでなく、核空間上の連続性を確かめれば、自由場の全観測が一つの確率測度から得られます。
 
 <a id="thm-mqfc6-free-measure"></a>
 
@@ -328,7 +330,7 @@ $$
 \le m^{-2}\|f_\ell-f\|_2(\|f_\ell\|_2+\|f\|_2)\to0.
 $$
 
-この評価は近傍による連続性も直接与え、指数関数の連続性で $\chi$ は連続です。[Schwartz空間の核性の確認](#thm-mqfc6-schwartz-nuclear) と [Bochner–Minlosの定理](#thm-mqfc6-minlos) の全条件が揃い、$\mu_m$ が存在します。有限族について線形性を使えば
+この評価は近傍による連続性も直接与え、指数関数の連続性で $\chi$ は連続です。[Schwartz空間の核性の確認](#prop-mqfc6-schwartz-nuclear) と [Bochner–Minlosの定理](#thm-mqfc6-minlos) の全条件が揃い、$\mu_m$ が存在します。有限族について線形性を使えば
 
 $$
 E_{\mu_m}[e^{i\sum_jt_jX_{f_j}}]
@@ -436,7 +438,7 @@ $$
 
 - Level: A
 
-実Schwartz空間上の確率測度の特性汎関数について、$f_1=0,f_2=f$ とした正値型条件から $|\chi(f)|\le1$ を示せ。
+実Schwartz空間の $S'$ 上の確率測度の特性汎関数について、$f_1=0,f_2=f$ とした正値型条件から $|\chi(f)|\le1$ を示せ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -528,7 +530,7 @@ $d=2$ で $H_{s+1}\to H_s$ と $H_{s+2}\to H_s$ のHilbert–Schmidt条件を比
 <!-- solution-start -->
 **詳細解答**
 
-[Schwartz空間の核性の確認](#thm-mqfc6-schwartz-nuclear) で、$|\alpha|=k$ の組は $(0,k),\ldots,(k,0)$ の $k+1$ 個です。$r=1$ のとき二乗和は
+[Schwartz空間の核性の確認](#prop-mqfc6-schwartz-nuclear) で、$|\alpha|=k$ の組は $(0,k),\ldots,(k,0)$ の $k+1$ 個です。$r=1$ のとき二乗和は
 
 $$
 \sum_{k=0}^\infty(k+1)(k+1)^{-2}
