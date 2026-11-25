@@ -21,8 +21,8 @@ theorems:
   - { id: ATOP11-THM-02, name: コンパクト閉曲面の分類・存在部分 }
   - { id: ATOP11-PROP-03, name: 境界成分の円板による充填 }
 canonical_examples: [トーラスの正方形表示, Kleinの壺, 実射影平面の二辺形, 円板充填]
-problem_patterns: [ATOP11-A1, ATOP11-A2, ATOP11-A3, ATOP11-A4, ATOP11-B1, ATOP11-B2, ATOP11-B3, ATOP11-B4, ATOP11-C1]
+problem_patterns: [ATOP11-A1, ATOP11-A2, ATOP11-A3, ATOP11-A4, ATOP11-B1, ATOP11-B2, ATOP11-B3, ATOP11-B4, ATOP11-C1, ATOP11-C2]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
 estimated_hours: { reading: 5, exercises: 4, review: 2 }
