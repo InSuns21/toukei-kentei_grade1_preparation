@@ -1,0 +1,44 @@
+chapter: NPCG4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NPCG3
+forward_references: []
+concepts:
+  - id: metric-geometry.midpoint
+    name: "距離空間の中点"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（距離空間の中点）"]
+    requires: [topology.metric-space]
+  - id: metric-geometry.cn-inequality
+    name: "Bruhat–Tits CN不等式"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Bruhat–Tits CN不等式）"]
+    aliases: [CN不等式, "Bruhat–Tits の CN 不等式"]
+    requires: [metric-geometry.midpoint, metric-geometry.cat-zero-space, metric-geometry.comparison-point-distance]
+  - id: metric-geometry.cn-unique-midpoint
+    name: "CN条件による中点一意性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（CN条件による中点一意性）"]
+    requires: [metric-geometry.midpoint, metric-geometry.cn-inequality]
+  - id: metric-geometry.unique-geodesic-from-midpoints
+    name: "中点一意性から測地線分一意性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（中点一意性から測地線分一意性）"]
+    requires: [metric-geometry.cn-unique-midpoint, metric-geometry.geodesic-space, metric-geometry.geodesic-segment]
+  - id: metric-geometry.cn-interpolation
+    name: "CN条件から任意比の二乗距離評価"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（CN条件から任意比の二乗距離評価）"]
+    requires: [metric-geometry.cn-inequality, metric-geometry.geodesic-segment]
+  - id: metric-geometry.cn-cat-zero-equivalence
+    name: "CAT(0)条件とCN条件の同値性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（CAT(0)条件とCN条件の同値性）"]
+    requires: [metric-geometry.cn-interpolation, metric-geometry.cn-inequality, metric-geometry.cat-zero-space, metric-geometry.euclidean-cat-zero]

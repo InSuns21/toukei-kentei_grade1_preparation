@@ -1,0 +1,26 @@
+id: "NPCG4"
+title: "Bruhat–Tits CN不等式と中点一意性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NPCG3
+official_scope: []
+learning_objectives:
+  - 距離空間の中点を距離条件で判定できる
+  - 比較点への二乗距離公式からCN不等式を導き適用できる
+  - CN条件から中点と測地線分の一意性を証明できる
+  - 二進分割から任意比の評価を導きCAT(0)条件との同値性を証明できる
+definitions:
+  - { id: NPCG4-DEF-01, name: "距離空間の中点" }
+theorems:
+  - { id: NPCG4-THM-01, name: "Bruhat–Tits CN不等式" }
+  - { id: NPCG4-THM-02, name: "CN条件による中点一意性" }
+  - { id: NPCG4-THM-03, name: "中点一意性から測地線分一意性" }
+  - { id: NPCG4-THM-04, name: "CN条件から任意比の二乗距離評価" }
+  - { id: NPCG4-THM-05, name: "CAT(0)条件とCN条件の同値性" }
+canonical_examples: [Euclid平面, 三枝の有限距離木, 格子型距離, 二点距離空間]
+problem_patterns: [NPCG4-A01, NPCG4-A02, NPCG4-A03, NPCG4-A04, NPCG4-B01, NPCG4-B02, NPCG4-B03, NPCG4-B04, NPCG4-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
