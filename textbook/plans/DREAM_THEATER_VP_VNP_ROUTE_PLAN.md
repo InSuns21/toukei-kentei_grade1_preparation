@@ -8,7 +8,7 @@
 | --- | --- | ---: |
 | GCT | [組合せグラフ理論・計数計算量](../plan_done/DREAM_THEATER_GRAPH_COUNTING_COMPLEXITY_PLAN.md) | 16 |
 | ACOMP | [代数的計算複雑性理論 I・II](../plan_done/DREAM_THEATER_ALGEBRAIC_COMPLEXITY_I_II_PLAN.md) | 24 |
-| TSP | [テンソル理論・漸近スペクトル](../plans_progress/DREAM_THEATER_TENSOR_ASYMPTOTIC_SPECTRUM_PLAN.md) | 16 |
+| TSP | [テンソル理論・漸近スペクトル](../plan_done/DREAM_THEATER_TENSOR_ASYMPTOTIC_SPECTRUM_PLAN.md) | 16 |
 | NPCG | [距離幾何学・非正曲率空間](../plan_done/DREAM_THEATER_NONPOSITIVE_CURVATURE_METRIC_GEOMETRY_PLAN.md) | 12 |
 | FML | [形式数学・Lean 4](../plan_done/DREAM_THEATER_FORMAL_MATHEMATICS_LEAN_PLAN.md) | 7 |
 | VNP | [VP ≠ VNP 証明研究講読](../plans_progress/DREAM_THEATER_VP_VNP_PROOF_STUDY_PLAN.md) | 24 |
