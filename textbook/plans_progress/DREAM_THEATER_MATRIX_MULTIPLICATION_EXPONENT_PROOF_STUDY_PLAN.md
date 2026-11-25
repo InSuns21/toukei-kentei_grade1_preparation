@@ -1,7 +1,7 @@
 # DREAM THEATER 行列乗算指数とテンソル幾何学 証明研究講読 計画
 
 構成確定日: 2026-11-25 JST
-状態: in progress（第1講実装、残り31講）
+状態: in progress（第2講まで実装、残り30講）
 系列ID: MMX（series manifest 登録済み）
 講数: **全32講**（既存基礎科目・EOM横断4講を含まない）
 
