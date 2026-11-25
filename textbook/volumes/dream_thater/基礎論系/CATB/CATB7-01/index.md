@@ -22,9 +22,11 @@ $$
 > **定義（余鎖複体）**
 >
 > 局所小な[加法圏](../CATB1-03/index.md#def-catb1-03-additive-category) $\mathcal A$ において、各整数 $n$ に対象 $C^n$ と射 $d_C^n:C^n\to C^{n+1}$ が指定され、すべての整数 $n$ で
+
 $$
 d_C^{n+1}d_C^n=0
-$$
+$
+
 > が成り立つとき、$(C^n,d_C^n)_{n\in\mathbb Z}$ を余鎖複体と呼ぶ。$C^\bullet$ と略記する。
 <!-- formal-statement-end -->
 
@@ -48,9 +50,11 @@ $$
 > **定義（余鎖写像）**
 >
 > 加法圏の余鎖複体 $C^\bullet,D^\bullet$ の間の余鎖写像 $f:C^\bullet\to D^\bullet$ は、射 $f^n:C^n\to D^n$ の族であって、すべての整数 $n$ で
+
 $$
 d_D^nf^n=f^{n+1}d_C^n
-$$
+$
+
 > を満たすものとする。
 <!-- formal-statement-end -->
 
@@ -183,7 +187,13 @@ $j_C^n$ が同型なら任意の $t:Z_C^n\to T$ で $tj_C^n=0$ を満たすも�
 <!-- formal-statement-start -->
 > **定理（コホモロジーの関手性）**
 >
-> 局所小なアーベル圏 $\mathcal A$ と整数 $n$ を固定し、各複体について核・像・余核を選ぶ。余鎖写像 $f:C^\bullet\to D^\bullet$ は一意に射 $H^n(f):H^n(C^\bullet)\to H^n(D^\bullet)$ を誘導する。ただし一意性は核上に誘導される射との可換条件による。これらは恒等射・合成・和を保存し、加法的な関手 $H^n:\operatorname{Ch}(\mathcal A)\to\mathcal A$ を与える。
+> 局所小なアーベル圏 $\mathcal A$ と整数 $n$ を固定し、各複体について核・像・余核の選択が与えられているとする。余鎖写像 $f:C^\bullet\to D^\bullet$ は一意に射 $H^n(f):H^n(C^\bullet)\to H^n(D^\bullet)$ を誘導する。ここで $k_C^n,k_D^n$ は核射、$q_C^n,q_D^n$ はコホモロジーへの余核射とする。核上の射 $z_f:Z_C^n\to Z_D^n$ は $k_D^nz_f=f^nk_C^n$ で一意に定まり、誘導射は次の等式で特徴づけられる。
+
+$
+H^n(f)q_C^n=q_D^nz_f.
+$
+
+> これらは恒等射・合成・和を保存し、加法的な関手 $H^n:\operatorname{Ch}(\mathcal A)\to\mathcal A$ を与える。
 <!-- formal-statement-end -->
 
 見取り図：核への射を作り、前の微分の像を保つことを示す。その後、余核の普遍性により商への射を作る。抽象的な圏でも元を選ぶ必要はない。
@@ -193,7 +203,7 @@ $j_C^n$ が同型なら任意の $t:Z_C^n\to T$ で $tj_C^n=0$ を満たすも�
 
 まず $d_D^nf^nk_C^n=f^{n+1}d_C^nk_C^n=0$ なので、[核の普遍性](../CATB1-04/index.md#def-catb1-04-kernel)から唯一の $z_f:Z_C^n\to Z_D^n$ が存在して $k_D^nz_f=f^nk_C^n$ を満たす。
 
-第4節の像分解を両複体で用いると、
+[コホモロジーの構成](#def-catb7-01-cohomology)の直前で用いた像分解を両複体で適用すると、
 
 $$
 \begin{aligned}
@@ -240,7 +250,22 @@ $$
 
 よって和を保存する。零射の保存は $H^n(0)=H^n(0)+H^n(0)$ の両辺から $H^n(0)$ を引いて従う。
 
-異なる核・像の選択には一意な可換同型がある。核と像の同型は $k_C^nj_C^n=i_C^n$ の一意性により包含の射 $j_C^n$ も対応させる。余核の普遍性を両方向に使えば商の間の同型が得られ、その合成が恒等射になることは余核射の消去性から従う。誘導射との可換性も上の余核への式の一意性から従う。したがって選択による違いは自然な同型に限られる。
+[核の同型一意性](../CATB1-04/index.md#prop-catb1-04-kernel-cokernel-uniqueness)と[像の普遍性](../CATB1-01/index.md#def-catb1-01-image)から、異なる核・像の選択には一意な可換同型がある。別の選択をプライム付きの記号で表し、核と像の同型を $u_C:Z_C^n\to Z_C^{\prime n}$、$v_C:B_C^n\to B_C^{\prime n}$ とする。$k'_Cu_C=k_C$、$i'_Cv_C=i_C$ だから
+
+$
+k'_Cu_Cj_C=i_C=k'_Cj'_Cv_C.
+$
+
+核射を消去して $u_Cj_C=j'_Cv_C$。従って $q'_Cu_Cj_C=0$ であり、余核の普遍性から $w_Cq_C=q'_Cu_C$ を満たす唯一の $w_C:H^n(C)\to H^{\prime n}(C)$ がある。逆方向にも $u_C^{-1}$ から同様に $w'_Cq'_C=q_Cu_C^{-1}$ を得る。すると $w'_Cw_Cq_C=q_C$ および $w_Cw'_Cq'_C=q'_C$ となるので、余核射を消去して両者が互いに逆であることが分かる。
+
+また $k'_Du_Dz_f=f^nk_C=k'_Dz'_fu_C$ なので $u_Dz_f=z'_fu_C$。従って
+
+$
+w_DH^n(f)q_C=q'_Du_Dz_f
+=q'_Dz'_fu_C=H^{\prime n}(f)w_Cq_C.
+$
+
+$q_C$ を消去すれば、$w_DH^n(f)=H^{\prime n}(f)w_C$ を得る。したがって選択による違いは自然な同型に限られる。ここで次数 $n$ は固定し、最後の計算では各射の次数添字を省略した。
 <!-- proof-end -->
 
 可換群ではこの構成は $H^n(f)([x])=[f^n(x)]$ と書ける。実際、$d_C^nx=0$ なら $d_D^nf^nx=f^{n+1}0=0$。また $x-x'=d_C^{n-1}y$ なら $f^n(x)-f^n(x')=d_D^{n-1}f^{n-1}(y)$ なので同じ類へ移る。第3節の3倍写像は次数0の $\mathbb Z/2\mathbb Z$ 上で $[t]_2\mapsto[3t]_2=[t]_2$ を誘導する。複体上の異なる射が同じコホモロジーの射になることもある。
@@ -370,7 +395,7 @@ $$
 
 第2問。[余鎖写像](#def-catb7-01-cochain-map)の条件を調べる。次数 $-1$ では $8(3x)=24x=2(12x)$。次数0では $[2x]_2=0=f^1([x]_3)$。他の次数は零射を含み両辺が零となる。よって余鎖写像である。
 
-第3問。中央の核の元 $3t$ は $f^0$ により $6t=2(3t)$ に移る。[コホモロジーの関手性](#thm-catb7-01-cohomology-functor)で得られる商の射は、第1問の座標では
+第3問。中央の核の元 $3t$ は $f^0$ により $6t=2(3t)$ に移る。[コホモロジーの関手性](#thm-catb7-01-cohomology-functor)で得られる商の射は、第1問で得た商群の同型を使うと
 
 $$
 H^0(f)([t]_4)=[3t]_4.
