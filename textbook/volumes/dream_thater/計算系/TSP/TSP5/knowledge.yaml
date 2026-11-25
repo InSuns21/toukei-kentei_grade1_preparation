@@ -1,0 +1,50 @@
+chapter: TSP5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TSP4
+  - CAT1-02
+forward_references: []
+concepts:
+  - id: tensor.direct-sum
+    name: テンソルの直和
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（テンソルの直和）"]
+    requires: [tensor.local-linear-map, tensor.multifactor-basis]
+  - id: tensor.kronecker-product
+    name: テンソルのKronecker積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（テンソルのKronecker積）"]
+    requires: [tensor.multifactor-basis, tensor.multifactor-product]
+  - id: tensor.restriction-preorder
+    name: 制限の前順序性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（制限の前順序性）"]
+    requires: [tensor.restriction, order.preorder]
+  - id: tensor.restriction-equivalence
+    name: 制限同値
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（制限同値）"]
+    requires: [tensor.restriction, tensor.restriction-preorder]
+  - id: tensor.operation-monotonicity
+    name: 直和・Kronecker積と制限の両立性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（直和・Kronecker積と制限の両立性）"]
+    requires: [tensor.direct-sum, tensor.kronecker-product, tensor.restriction]
+  - id: tensor.diagonal-operations
+    name: 対角テンソルの直和とKronecker積
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（対角テンソルの直和とKronecker積）"]
+    requires: [tensor.direct-sum, tensor.kronecker-product, tensor.restriction-equivalence, tensor.diagonal-tensor]
+  - id: tensor.rank-subrank-operations
+    name: 直和・Kronecker積の階数と劣階数の評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（直和・Kronecker積の階数と劣階数の評価）"]
+    requires: [tensor.operation-monotonicity, tensor.diagonal-operations, tensor.rank-restriction-characterization, tensor.subrank, tensor.restriction-preorder]

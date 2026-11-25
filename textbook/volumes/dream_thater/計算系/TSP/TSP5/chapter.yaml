@@ -1,0 +1,42 @@
+id: "TSP5"
+title: "直和・Kronecker積・制限の前順序"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TSP4
+  - CAT1-02
+official_scope: []
+learning_objectives:
+  - 直和とKronecker積を各因子の空間と基底表示から構成できる
+  - 制限の反射律と推移律を証明し制限同値と半順序を説明できる
+  - 直和とKronecker積が制限と両立することを局所写像の構成で証明できる
+  - 対角テンソルの直和とKronecker積を標準基底の対応で計算できる
+  - 階数・劣階数の加法評価と乗法評価を証明し繰り返し使用の評価に適用できる
+definitions:
+  - { id: TSP5-DEF-01, name: テンソルの直和 }
+  - { id: TSP5-DEF-02, name: テンソルのKronecker積 }
+  - { id: TSP5-DEF-03, name: 制限同値 }
+theorems:
+  - { id: TSP5-THM-01, name: 制限の前順序性 }
+  - { id: TSP5-THM-02, name: 直和・Kronecker積と制限の両立性 }
+  - { id: TSP5-THM-03, name: 対角テンソルの直和とKronecker積 }
+  - { id: TSP5-THM-04, name: 直和・Kronecker積の階数と劣階数の評価 }
+canonical_examples:
+  - 独立した座標領域の直和
+  - 二因子のKronecker積の行列表示
+  - 未使用座標の追加による制限同値
+  - 対角テンソルの番号の連結と組の番号付け
+problem_patterns:
+  - TSP5-A01
+  - TSP5-A02
+  - TSP5-A03
+  - TSP5-A04
+  - TSP5-B01
+  - TSP5-B02
+  - TSP5-B03
+  - TSP5-B04
+  - TSP5-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 1 }
