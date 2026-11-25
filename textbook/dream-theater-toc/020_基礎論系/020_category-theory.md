@@ -72,3 +72,4 @@
 69. [CATB4-03 添字付き圏と擬関手](textbook/volumes/dream_thater/基礎論系/CATB/CATB4-03/index.md)
 70. [CATB4-04 Grothendieck構成](textbook/volumes/dream_thater/基礎論系/CATB/CATB4-04/index.md)
 71. [CATB4-05 余ファイブレーションと双対](textbook/volumes/dream_thater/基礎論系/CATB/CATB4-05/index.md)
+72. [CATB4-06 基底変換とファイバーごとの構造](textbook/volumes/dream_thater/基礎論系/CATB/CATB4-06/index.md)
