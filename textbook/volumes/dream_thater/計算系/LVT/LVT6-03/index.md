@@ -120,7 +120,7 @@ publish の列を遷移表で読む。draft、submitted、published には受理
 
 Codespacesを開き（GitHubへのログインと利用枠が必要）、以下を端末で実行します。Lean 4.35.0、Node.js 22.16.0、fast-check 3.23.2を使います。Nodeの型注釈除去による実行であり、静的型検査とは別です。
 
-~~~bash
+```bash
 cd "$(git rev-parse --show-toplevel)/textbook/volumes/dream_thater/計算系/LVT/LVT6-03/lab"
 lake build
 lake test
@@ -129,7 +129,7 @@ npm install --ignore-scripts
 npm test
 # 意図的な失敗
 lake env lean Failure.lean
-~~~
+```
 
 npm test は固定例・100回の生成比較・変異探索を実行します。seed は20261125です。変異探索の出力には seed、縮小パスと反例列が出ます。固定反例 submit, publish は生成結果と独立して必ず検査します。実験欄から Lean Web に送るソースは実ファイルを連結したものです。外部サービスのLeanの版は固定CLIと異なる場合があります。
 
