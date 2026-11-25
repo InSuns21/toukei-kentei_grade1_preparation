@@ -27,7 +27,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（併合による階数と劣階数の比較）"]
-    requires: [tensor.party-grouping-semiring, tensor.rank-restriction-characterization, tensor.subrank, tensor.asymptotic-rank, tensor.asymptotic-subrank]
+    requires: [tensor.party-grouping-semiring, tensor.rank-restriction-characterization, tensor.subrank, tensor.asymptotic-rank, tensor.asymptotic-subrank, tensor.asymptotic-fekete-lemma, tensor.rank-subrank-operations, tensor.subrank-bounds]
   - id: tensor.party-grouping-pullback
     name: 併合によるスペクトル点の引き戻し
     kind: theorem

@@ -194,6 +194,34 @@ $d$ 因子の [対角テンソル](../TSP4/index.md#def-tsp4-diagonal) を $D_{d
 
 この事実により、対角テンソルを単位資源とする階数や劣階数を比較できます。
 
+第9講の [漸近階数と漸近劣階数](../TSP9/index.md#def-tsp9-asymptotic-rank) は複素数体上で導入しました。ここでは任意の体 $K$ について同じ極限を使います。正整数 $n$ に対し $t^{\boxtimes n}$ を $n$ 回のKronecker積とし、
+
+$$
+\widetilde R_K(t)=\lim_{n\to\infty}R_K(t^{\boxtimes n})^{1/n},
+$$
+
+$$
+\widetilde Q_K(t)=\lim_{n\to\infty}Q_K(t^{\boxtimes n})^{1/n}
+$$
+
+と書きます。極限の存在に複素数体は必要ありません。非零テンソルの冪には非零係数の冪が残ります。[劣階数の基本評価](../TSP4/index.md#thm-tsp4-subrank-bounds) と [直和・Kronecker積の階数と劣階数の評価](../TSP5/index.md#thm-tsp5-rank-subrank-operations) を任意の体上で適用すると、
+
+$$
+1\le Q_K(t^{\boxtimes n})\le R_K(t^{\boxtimes n})\le R_K(t)^n.
+$$
+
+対数を取って $a_n=\log R_K(t^{\boxtimes n})$、$b_n=\log Q_K(t^{\boxtimes n})$ と置くと
+
+$$
+a_{n+k}\le a_n+a_k,\qquad b_{n+k}\ge b_n+b_k,
+$$
+
+$$
+0\le b_n/n\le a_n/n\le\log R_K(t).
+$$
+
+実数列に対する [Fekete補題](../TSP9/index.md#lem-tsp9-fekete) の有限性と加法不等式の条件が満たされます。従って $a_n/n,b_n/n$ はそれぞれ有限な極限を持ち、指数関数の連続性から上の二つの極限が存在します。零テンソルでは各冪も零なので両極限は0です。
+
 <a id="thm-tsp15-grouping-ranks"></a>
 
 <!-- formal-statement-start -->
@@ -241,7 +269,7 @@ $$
 Q_K(t^{\boxtimes n})\le Q_K(G_p(t)^{\boxtimes n})
 $$
 
-を得ます。値は非負なので $n$ 乗根を取っても不等号の向きは保たれます。[テンソル冪の階数と劣階数の増大率](../TSP9/index.md#thm-tsp9-limit-existence) により両辺の極限が存在し、[漸近階数と漸近劣階数](../TSP9/index.md#def-tsp9-asymptotic-rank) の定義で残りの二式を得ます。零テンソルについてもすべての冪の値は0です。
+を得ます。値は非負なので $n$ 乗根を取っても不等号の向きは保たれます。直前に任意の体について両極限の存在を示したので、各辺の極限を取れば残りの二式を得ます。零テンソルについてもすべての冪の値は0です。
 <!-- proof-end -->
 
 第2節の $s$ は二つの単純テンソルの和であり、第1因子の平坦化階数は2です。従って元の階数は2ですが、併合後は非零の単純テンソルなので階数1です。階数の不等号は厳密になり得ます。
