@@ -7,3 +7,4 @@
 4. [FML4 距離・完備性・極限・Laurent級数の形式化](textbook/volumes/dream_thater/計算系/FML/FML4/index.md)
 5. [FML5 数学的定理の依存関係と公理監査](textbook/volumes/dream_thater/計算系/FML/FML5/index.md)
 6. [FML6 Comparator・独立kernel・再現検証](textbook/volumes/dream_thater/計算系/FML/FML6/index.md)
+7. [FML7 研究論文の形式化・自然言語との照合・証明監査](textbook/volumes/dream_thater/計算系/FML/FML7/index.md)

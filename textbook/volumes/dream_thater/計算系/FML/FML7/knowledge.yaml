@@ -1,0 +1,25 @@
+chapter: FML7
+scope: dream-theater
+coverage: complete
+prerequisites: [FML3, FML4, FML5, FML6, ACOMP6, ACOMP7, ACOMP8]
+concepts:
+  - id: formal-math.doubling-circuit
+    name: 反復加算回路
+    kind: definition
+    introduction: formal
+    requires: [formal-math.typed-program]
+  - id: formal-math.doubling-evaluation
+    name: 反復加算回路の評価と演算数
+    kind: theorem
+    introduction: formal
+    requires: [formal-math.doubling-circuit]
+  - id: formal-math.doubling-family
+    name: 指定長の反復加算回路の存在
+    kind: proposition
+    introduction: formal
+    requires: [formal-math.doubling-evaluation]
+  - id: formal-math.proof-ledger
+    name: 証拠台帳
+    kind: definition
+    introduction: formal
+    requires: [formal-math.conditional-claim, formal-math.statement-matching, formal-math.multikernel-acceptance]
