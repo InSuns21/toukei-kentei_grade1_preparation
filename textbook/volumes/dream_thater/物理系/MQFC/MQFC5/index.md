@@ -46,7 +46,7 @@ B_m(f,g)=(2\pi)^{-d}\int
 \overline{\widehat f(p)}w_m(p)\widehat g(p)\,dp
 $$
 
-> と定める。第1引数は共役線形、第2引数は線形である。実の試験関数に制限して実の双線形形式として用いる。
+> と定める。第1引数は共役線形、第2引数は線形である。実の試験関数に制限して両引数について実線形な写像として用いる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mqfc5-covariance-form -->
@@ -64,7 +64,7 @@ $$
 
 ## 2. 逆作用素と二点分布核
 
-共分散が単なる形式的積分でないことを示します。$G_m=\mathcal F^{-1}w_m$ は通常の関数とは限らないため、[緩増加分布](../MQFC1/index.md#def-mqfc1-tempered)として定義します。$\langle G_m,h\rangle$ は分布の線形作用であって内積ではありません。
+共分散が単なる形式的積分でないことを示します。$w_m$ の逆Fourier積分は点ごとに絶対収束するとは限らないため、$G_m=\mathcal F^{-1}w_m$ を[緩増加分布](../MQFC1/index.md#def-mqfc1-tempered)として定義します。$\langle G_m,h\rangle$ は分布の線形作用であって内積ではありません。
 
 <a id="thm-mqfc5-inverse"></a>
 
@@ -101,7 +101,7 @@ $$
 -\frac{2kp_jP}{a_m^{k+1}}
 $$
 
-となるので帰納できます。$a_m\ge m^2$ により各微分は高々多項式増大です。積の微分則から、各半ノルム $p_{N,r}(w_m v)$ は有限個の $p_{N+q,r}(v)$ の定数倍で抑えられます（$q$ は現れる多項式の次数の最大値）。よって $w_m v\in S$ です。多項式 $a_m$ の乗算も同様に $S$ を保ちます。両乗算の積が1であり、[Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier)が全単射だから $C_mA_m=A_mC_m=I$ です。
+となるので帰納できます。$a_m\ge m^2$ により各微分は高々多項式増大です。積の微分則から、各半ノルム $p_{N,r}(w_m v)$ は有限個の $p_{N+q,r}(v)$ の定数倍で抑えられます（$q$ は現れる単項式の指数の和の最大値）。よって $w_m v\in S$ です。多項式 $a_m$ の乗算も同様に $S$ を保ちます。両乗算の積が1であり、[Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier)が全単射だから $C_mA_m=A_mC_m=I$ です。
 
 $w_m$ は有界なので[多項式増大関数による緩増加分布](../MQFC1/index.md#prop-mqfc1-polynomial)として定まり、逆Fourier変換も[分布のFourier変換](../MQFC1/index.md#def-mqfc1-duality)により緩増加分布です。[分布微分のFourier表示](../MQFC1/index.md#prop-mqfc1-derivative)と $\widehat{\delta_0}=1$ から
 
