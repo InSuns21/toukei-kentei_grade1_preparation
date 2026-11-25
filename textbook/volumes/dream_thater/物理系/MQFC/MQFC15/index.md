@@ -106,7 +106,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$G=\int g(z)dz$ と置く。非負でコンパクト支持だから $0\le G<\infty$ である。$P_{a_\epsilon}\ge-M_{a_\epsilon}$ と $g\ge0$ から
+$G=\int g(z)dz$ と置く。非負でコンパクト支持だから $0\le G<\infty$ である。第1節の多項式の下界 $P_{a_\epsilon}\ge-M_{a_\epsilon}$ と $g\ge0$ から
 
 $$
 V_{\epsilon,g}\ge-M_{a_\epsilon}G,
@@ -122,7 +122,7 @@ E_{\epsilon,g}|F|
 \le Z_{\epsilon,g}^{-1}e^{M_{a_\epsilon}G}E_0|F|<\infty.
 $$
 
-従って有限個の測定の多項式も可積分で、各測定の全絶対モーメントは有限である。
+従って自由場で全絶対モーメントを持つ各測定は新しい測度でも全絶対モーメントを持つ。有限個の測定の多項式も可積分である。例えば次数 $r\ge1$ の積 $Z_1\cdots Z_r$ の絶対値は $\sum_{j=1}^r|Z_j|^r$ 以下であり、各項が可積分である（[正時間多項式の反射形式](../MQFC8/index.md#def-mqfc8-reflection-positivity) の有限性の確認と同じ評価）。
 <!-- proof-end -->
 
 一変数の模型で計算しよう。平均0、分散 $a>0$ の正規変数 $U$ に $V=b(U^2-a)$、$b\ge0$ を加えると
@@ -139,13 +139,26 @@ $a'=(a^{-1}+2b)^{-1}$ と置けば $1/(2a)+b=1/(2a')$ である。正規密度�
 
 ## 3. 反射陽性を保存する
 
-[正時間多項式の反射形式](../MQFC8/index.md#def-mqfc8-reflection-positivity) では正時間（支持が $t>0$ に含まれる実試験関数）の有限測定から作る複素係数多項式 $F$ に対して $E_0[\overline{F(\theta\Phi)}F(\Phi)]\ge0$ が成立した。正時間の情報だけで決まる重みと負時間側の反転した重みを掛ければ、両方の因子に重みを吸収できそうである。ただし指数を掛けた関数は多項式ではない。まず有限個の測定についてこの問題を解く。MQFC8の反転記法は、試験関数について $(\theta f)(z)=f(\theta z)$、標本について $(\theta\Phi)(f)=\Phi(\theta f)$ である。$X_i=\Phi(f_i)$、$Y_i=\Phi(\theta f_i)$ と並べると、$F(\Phi)=F(X)$、$F(\theta\Phi)=F(Y)$ となる。右辺の $F$ は有限ベクトルを引数とする同じ多項式を表す。多項式の値の複素共役を上線で表す。$h$ は有限ベクトル上の非負有界Borel関数（Borel集合に関して可測な関数）として、重みを表す。
+[正時間多項式の反射形式](../MQFC8/index.md#def-mqfc8-reflection-positivity) の記法を確認する。正時間の実試験関数とは、支持が $t>0$ に含まれる実試験関数である。試験関数と標本に対する時間反転はそれぞれ
+
+$$
+(\theta f)(z)=f(\theta z),\qquad
+(\theta\Phi)(f)=\Phi(\theta f)
+$$
+
+である。正時間の実試験関数 $f_1,\ldots,f_N$ を固定する。$X_i=\Phi(f_i)$、$Y_i=\Phi(\theta f_i)$ を並べた実ベクトルを $X,Y$ とする。$F$ を $\mathbb R^N$ 上の複素係数多項式とすると、$F(\Phi)$ は $F(X)$、$F(\theta\Phi)$ は $F(Y)$ の意味である。上線は複素共役を表す。自由場の反射陽性から
+
+$$
+E_0[\overline{F(\theta\Phi)}F(\Phi)]\ge0
+$$
+
+が成立する。正時間の情報だけで決まる重みと負時間側の反転した重みを掛ければ、両方の因子に重みを吸収できそうである。ただし指数を掛けた関数は多項式ではない。まず有限個の測定についてこの問題を解く。$h$ は $\mathbb R^N$ 上の非負有界Borel関数（Borel集合に関して可測な関数）として、重みを表す。
 
 <a id="lem-mqfc15-weighted-reflection"></a>
 
 <!-- formal-statement-start -->
 > **補題（正時間の有界重みによる反射形式）**
-> 二次元の質量付き Euclid 自由場で、正時間支持の有限個の実試験関数の測定ベクトルを $X$、対応する反転測定ベクトルを $Y$ とする。$F$ は複素係数多項式、$h$ は非負有界 Borel 関数とする。このとき
+> 二次元の質量付き Euclid 自由場で、正時間支持の有限個の実試験関数の測定ベクトルを $X$、対応する反転測定ベクトルを $Y$ とする。測定が $N$ 個なら、$F:\mathbb R^N\to\mathbb C$ は複素係数多項式、$h:\mathbb R^N\to[0,\infty)$ は有界 Borel 関数とする。このとき
 
 $$
 E_0[\overline{F(Y)}h(Y)F(X)h(X)]\ge0.
@@ -159,9 +172,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[Gaussian場の多項式反射陽性](../MQFC8/index.md#thm-mqfc8-gaussian-extension) の証明で、周辺共分散 $A$、反射共分散 $K$ を用いる。自由場では [反射共分散の因子分解](../MQFC8/index.md#thm-mqfc8-reflected-covariance) により $K$ が正半定値で、差 $X-Y$ の共分散は $2(A-K)$ だから $A-K$ も正半定値である。従って共通成分 $Z$ の共分散を $K$、残りの成分 $U,W$ の共分散を $A-K$ とする同定理の構成を適用できる。周辺共分散は $K+(A-K)=A$、相互共分散は $K$ であり、中心化Gaussianの分布が共分散で決まるので $(X,Y)$ と同分布の組を $(Z+U,Z+W)$ と書ける。ここでの $Z$ は正規化定数ではなくGaussianベクトルである。$Z,U,W$ は独立な中心化 Gaussian ベクトルで $U,W$ は同分布である。$Z$ の分布を $\nu$、$U,W$ の分布を $\sigma$ とする。
+[Gaussian場の多項式反射陽性](../MQFC8/index.md#thm-mqfc8-gaussian-extension) の証明で、$N\times N$ の周辺共分散行列 $A_{ij}=E_0[X_iX_j]=E_0[Y_iY_j]$ と反射共分散行列 $K_{ij}=E_0[Y_iX_j]$ を用いる。自由場では [反射共分散の因子分解](../MQFC8/index.md#thm-mqfc8-reflected-covariance) により $K$ が正半定値で、差 $X-Y$ の共分散は $2(A-K)$ だから、任意の実列ベクトル $v\in\mathbb R^N$ に対し
 
-$B(x)=F(x)h(x)$ と置く。有界性から $E_0|B(X)|^2<\infty$、$Y$ も同分布なので積は [Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) により絶対可積分である。
+$$
+2v^{\mathsf T}(A-K)v=E_0[(v^{\mathsf T}(X-Y))^2]\ge0
+$$
+
+となり、$A-K$ も正半定値である。従って共通成分 $Z$ の共分散を $K$、残りの成分 $U,W$ の共分散を $A-K$ とする同定理の構成を適用できる。周辺共分散は $K+(A-K)=A$、相互共分散は $K$ であり、中心化Gaussianの分布が共分散で決まるので $(X,Y)$ と同分布の組を $(Z+U,Z+W)$ と書ける。ここでの $Z$ は正規化定数ではなくGaussianベクトルである。$Z,U,W$ は独立な中心化 Gaussian ベクトルで $U,W$ は同分布である。$Z$ の分布を $\nu$、$U,W$ の分布を $\sigma$ とする。
+
+$B(\xi)=F(\xi)h(\xi)$ と置く。ここで $\xi\in\mathbb R^N$ は測定ベクトルの値であり、空間座標 $x$ とは異なる。$h$ の有界性とGaussian多項式の二乗可積分性から $E_0|B(X)|^2<\infty$、$Y$ も同分布なので積は [Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) により絶対可積分である。
 
 [Fubini の定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) により
 
@@ -175,7 +194,7 @@ E_0[\overline{B(Y)}B(X)]
 \end{aligned}
 $$
 
-内側の平均は $\nu$ のほとんど至る所で有限である。これは $E|B(Z+U)|^2<\infty$ から従う。
+この積分の $z,u,w$ はそれぞれ $Z,U,W$ のベクトル値を表す。内側の平均は $\nu$ のほとんど至る所で有限である。実際、$E|B(Z+U)|^2<\infty$ なので $\int|B(z+u)|^2\sigma(du)$ は $\nu$ のほとんど至る所で有限となり、確率測度 $\sigma$ 上の [Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) で $\int |B(z+u)|\sigma(du)$ も有限である。
 <!-- proof-end -->
 
 平均核の支持半径は $\epsilon$ なので、$t>\epsilon$ の点で $X_\epsilon(t,x)$ を測る試験関数は正時間に支持を持つ。一方 $0<t\le\epsilon$ の測定は負時間側にも入り得る。そこで $g_+$ の支持を $t>\epsilon$ に制限し、反転した関数を足す。これは有限切断で反射陽性を示すための十分条件である。
@@ -244,7 +263,7 @@ $$
 E_0[\overline{F(\theta\Phi)}F(\Phi)e^{-A_n(\theta\Phi)}e^{-A_n(\Phi)}]\ge0.
 $$
 
-絶対値は $e^{2M_{a_\epsilon}L}|F(\theta\Phi)F(\Phi)|$ 以下であり、自由場の全絶対モーメントと [Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) により可積分である。$A_n(\Phi)\to A(\Phi)$、$A_n(\theta\Phi)\to A(\theta\Phi)$ だから支配収束により左辺は
+絶対値は $e^{2M_{a_\epsilon}L}|F(\theta\Phi)F(\Phi)|$ 以下であり、自由場の全絶対モーメントと [Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) により可積分である。$A_n(\Phi)\to A(\Phi)$、$A_n(\theta\Phi)\to A(\theta\Phi)$ だから [優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)（実部と虚部に適用）により左辺は
 
 $$
 E_0[\overline{F(\theta\Phi)}F(\Phi)e^{-V_{\epsilon,g}}]
@@ -285,7 +304,7 @@ $$
 \le\sum_{j=1}^{2k}|p_j|\|V_{\epsilon,j}(g)-V_j(g)\|_2\to0.
 $$
 
-有限個の項なので各項の収束で十分である。しかし指数重みの平均の収束は別問題である。四次の場合の上界 $e^{6\lambda a_\epsilon^2G}$ は点分散が増えると発散する（$G>0$ の場合）。
+有限個の項なので各項の収束で十分である。しかし指数重みの平均の収束は別問題である。四次の場合の上界 $e^{6\lambda a_\epsilon^2G}$ は $a_\epsilon\to\infty$ なら発散する（$G>0$ の場合）。したがって固定幅の下界だけから切断幅に一様な指数重みの評価は得られない。
 
 次の条件付き定理は、指数重みに必要な追加評価を具体化する。一般の確率空間で確率を $\mathbb P$、期待値を $E$ と書き、多項式 $P$ と区別する。確率収束とは任意の $\delta>0$ について $\mathbb P(|V_n-V|>\delta)\to0$ となること、$L^1$ 収束とは期待絶対差が0へ行くことである。二乗平均収束なら $\mathbb P(|V_n-V|>\delta)\le E|V_n-V|^2/\delta^2$ より確率収束する。以下の $n$ は近似列の番号であり、例えば $\epsilon_n\downarrow0$ とした切断幅の列を指定できる。
 
@@ -315,7 +334,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$Y_n=e^{-V_n}$、$Y=e^{-V}$ と置く。確率収束から $Y_n\to Y$ も確率収束する。実際 $|V|\le R$、$|V_n-V|\le\delta\le1$ の事象では、指数の差を因数分解して
+$Y_n=e^{-V_n}$、$Y=e^{-V}$ と置く。いずれも正で有限であり、$Y_n\le1+Y_n^q$ と仮定から $0<Z_n=E[Y_n]\le1+K$ である。確率収束から $Y_n\to Y$ も確率収束する。実際 $|V|\le R$、$|V_n-V|\le\delta\le1$ の事象では、指数の差を因数分解して
 
 $$
 |Y_n-Y|=e^{-V}|e^{-(V_n-V)}-1|
@@ -331,7 +350,14 @@ E|Y_n\wedge T-Y\wedge T|
 \le\eta+T\mathbb P(|Y_n-Y|>\eta).
 $$
 
-$n\to\infty$、次に $\eta\downarrow0$ とすれば左辺は0へ行く。関数 $v\mapsto e^{-qv}$ についても同じ因数分解により $|Y_n^q-Y^q|\le e^{qR}(e^{q\delta}-1)$ を得る。従って $Y_n^q\wedge T\to Y^q\wedge T$ も期待絶対差で収束し、$E[Y^q\wedge T]\le K$。[単調収束定理](../../../解析系/F0/F0-00D2B/index.md#ref-limit-integral-exchange)で $E[Y^q]\le K$ である。
+$n\to\infty$、次に $\eta\downarrow0$ とすれば左辺は0へ行く。関数 $v\mapsto e^{-qv}$ についても、同じ事象 $|V|\le R$、$|V_n-V|\le\delta$ 上で因数分解すると
+
+$$
+|Y_n^q-Y^q|=e^{-qV}|e^{-q(V_n-V)}-1|
+\le e^{qR}(e^{q\delta}-1)
+$$
+
+を得る。従って $Y_n^q\wedge T\to Y^q\wedge T$ も期待絶対差で収束し、$E[Y^q\wedge T]\le K$。[単調収束定理](../../../解析系/F0/F0-00D2B/index.md#ref-limit-integral-exchange)で $E[Y^q]\le K$ である。
 
 $y>T$ なら $y\le y^q/T^{q-1}$ なので
 
@@ -426,7 +452,7 @@ $$
 平均核の支持半径は $\epsilon=1/2$ とする。$g_+$ の支持の時間座標の最小値が $3/4$ の場合と $1/4$ の場合、第3節の定理の支持条件を判定せよ。
 
 <!-- solution-start -->
-[分離された切断での反射陽性の保存](#thm-mqfc15-rp) では支持の全点で $t>\epsilon$ が必要である。前者では測定関数の支持の時間座標は $3/4-1/2=1/4>0$ 以上なので条件を満たす。後者では $1/4<1/2$ なので条件を満たさない。これは定理が適用できないという判定であり、反射陽性が必ず破れるという判定ではない。
+[分離された切断での反射陽性の保存](#thm-mqfc15-rp) では支持の全点で $t>\epsilon$ が必要である。前者では $t\ge3/4$ の点を中心とする測定関数の支持の時間座標は $3/4-1/2=1/4>0$ 以上なので条件を満たす。後者では $1/4<1/2$ なので条件を満たさない。これは定理が適用できないという判定であり、反射陽性が必ず破れるという判定ではない。
 <!-- solution-end -->
 
 ### 演習 MQFC15-B1：下界が失われる場合
