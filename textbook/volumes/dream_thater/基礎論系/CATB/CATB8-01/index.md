@@ -4,7 +4,15 @@
 
 [余鎖複体](../CATB7-01/index.md#def-catb7-01-cochain-complex)では微分を二回施すと零になる。二つの複体をテンソル積で組み合わせ、それぞれの微分を使って新しい複体を作りたい。しかし単純に二つの微分を足すと、異なる側を一回ずつ微分する項が二重に現れる。本講では、その相殺に必要な符号を導く。次講で多入力の演算や微分付き代数を扱うための準備でもある。
 
-係数は単位元を持つ可換環 $R$ とする。体 $k$ もこの場合に含まれる。全て[左加群](../../../代数系/MOD/MOD1/index.md#def-mod1-module)で、可換性により右作用も $xr=rx$ として使う。テンソル積は $R$ 上で取り、添字 $R$ を省く。次数は整数、合成は右から左とする。線形写像とは、加法とスカラー作用を保つ[加群準同型](../../../代数系/MOD/MOD1/index.md#def-mod1-homomorphism)を指す。余鎖複体 $C$ の微分は $d_C^p:C^p\to C^{p+1}$ であり、$x\in C^p$ について $d_Cx=d_C^p(x)$ と略す。以下では直和全体に作用する写像を $d_C$ とし、$d_C^2$ はその自己合成を表す。斉次元 $x\in C^p$ では $(d_C)^2(x)=d_C^{p+1}(d_C^p(x))$ であり、第2成分の微分 $d_C^2:C^2\to C^3$ を指すのではない。実変数についての微分でもない。
+係数は単位元を持つ可換環 $R$ とする。体 $k$ もこの場合に含まれる。全て[左加群](../../../代数系/MOD/MOD1/index.md#def-mod1-module)で、可換性により右作用も $xr=rx$ として使う。テンソル積は $R$ 上で取り、添字 $R$ を省く。次数は整数、合成は右から左とする。
+
+線形写像とは、加法とスカラー作用を保つ[加群準同型](../../../代数系/MOD/MOD1/index.md#def-mod1-homomorphism)を指す。余鎖複体 $C$ の微分は $d_C^p:C^p\to C^{p+1}$ であり、$x\in C^p$ について $d_Cx=d_C^p(x)$ と略す。以下では直和全体に作用する写像を $d_C$ とし、$(d_C)^2$ はその自己合成を表す。成分 $C^p$ の元 $x$ について
+
+$$
+(d_C)^2(x)=d_C^{p+1}(d_C^p(x)).
+$$
+
+第2成分の微分 $d_C^2:C^2\to C^3$ との区別のため、自己合成には括弧を付ける。実変数についての微分ではない。
 
 体の場合の[テンソル積の定義](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)を環へ拡張するには、対 $(x,y)$ を基底記号とする[自由加群](../../../代数系/MOD/MOD1/index.md#def-mod1-free-module-basis)を、次の関係で生成される[部分加群](../../../代数系/MOD/MOD1/index.md#def-mod1-submodule)で割る。
 
@@ -20,7 +28,9 @@ $$
 [rx,y]-r[x,y],\qquad [x,ry]-r[x,y].
 $$
 
-[商加群](../../../代数系/MOD/MOD1/index.md#def-mod1-quotient-module)での像を $x\otimes y$ と書き、純テンソル（[単純テンソル](../../../基礎科目/LA/LA3E/index.md#def-la3e-simple-tensor)の加群版）と呼ぶ。双線形とは各変数について他方を固定すると $R$ 線形であることをいう。任意の双線形写像は基底記号の像を指定して[自由加群の普遍性](../../../代数系/MOD/MOD1/index.md#thm-mod1-free-universal-property)により線形写像を作り、上の関係を零に送るので商へ降りる。商は純テンソルの有限和で生成されるため、この延長は一意である。以下ではこの普遍性を利用して純テンソル上の式から線形写像を作る。自由加群 $R^a,R^b$ の場合は基底の組のテンソルが基底になる。体上の[テンソル積の基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)と同じ構成で、基底を $e_i,v_j$ とすると $x=\sum_i x_i e_i$、$y=\sum_j y_j v_j$ に対し
+[商加群](../../../代数系/MOD/MOD1/index.md#def-mod1-quotient-module)での像を $x\otimes y$ と書き、純テンソル（[単純テンソル](../../../基礎科目/LA/LA3E/index.md#def-la3e-simple-tensor)の加群版）と呼ぶ。双線形とは各変数について他方を固定すると $R$ 線形であることをいう。任意の双線形写像は基底記号の像を指定して[自由加群の普遍性](../../../代数系/MOD/MOD1/index.md#thm-mod1-free-universal-property)により線形写像を作り、上の関係を零に送るので商へ降りる。商は純テンソルの有限和で生成されるため、この延長は一意である。以下ではこの普遍性を利用して純テンソル上の式から線形写像を作る。
+
+自由加群 $R^a,R^b$ の場合は基底の組のテンソルが基底になる。体上の[テンソル積の基底](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)と同じ構成で、基底を $e_i,v_j$ とすると $x=\sum_i x_i e_i$、$y=\sum_j y_j v_j$ に対し
 
 $$
 x\otimes y=\sum_{i,j}x_i y_j(e_i\otimes v_j).
@@ -67,7 +77,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb8-01-graded-tensor -->
-**定義の確認**。$V^{-1}=Re,V^2=Ru,W^0=Rv,W^3=Rw$ とし他を零とする。各成分のテンソル積は自由階数1で、次数 $-1,2,5$ の基底は順に $e\otimes v$、$(e\otimes w,u\otimes v)$、$u\otimes w$ になる。同じ次数2に由来の異なる二つの直和成分がある。どの元もこれらの有限線形結合で、次数別の分解は一意である。
+**定義の確認**。非零の係数環 $R$ 上で $V^{-1}=Re,V^2=Ru,W^0=Rv,W^3=Rw$ とし他を零とする。各成分のテンソル積は自由階数1で、次数 $-1,2,5$ の基底は順に $e\otimes v$、$(e\otimes w,u\otimes v)$、$u\otimes w$ になる。同じ次数2に由来の異なる二つの直和成分がある。どの元もこれらの有限線形結合で、次数別の分解は一意である。
 <!-- definition-example-end -->
 
 一般の無限個の非零成分がある場合でも、直和を取るため各元の計算は有限回で終わる。微分も有限和を有限和へ送る。直積を用いる別の全複体と混同しない。
@@ -198,7 +208,7 @@ $$
 [符号付きテンソル写像](#def-catb8-01-koszul-tensor-map)により $\partial=d_C\otimes1+1\otimes d_D$ は線形である。各項は次数 $p+q+1$ に属する。第1項へ再び微分を作用させると
 
 $$
-\partial(d_Cx\otimes y)=d_C^2x\otimes y
+\partial(d_Cx\otimes y)=(d_C)^2x\otimes y
 +(-1)^{p+1}d_Cx\otimes d_Dy.
 $$
 
@@ -207,10 +217,10 @@ $$
 $$
 \partial((-1)^p x\otimes d_Dy)
 =(-1)^p d_Cx\otimes d_Dy
-+(-1)^{2p}x\otimes d_D^2y.
++(-1)^{2p}x\otimes (d_D)^2y.
 $$
 
-$d_C^2=d_D^2=0$ であり、残りの係数は $(-1)^{p+1}+(-1)^p=0$ になる。純テンソル上で二乗が零になったため全体でも零である。
+$(d_C)^2=(d_D)^2=0$ であり、残りの係数は $(-1)^{p+1}+(-1)^p=0$ になる。純テンソル上で二乗が零になったため全体でも零である。
 <!-- proof-end -->
 
 具体例として整数上で $C^0=\mathbb Ze,C^1=\mathbb Zu,d_Ce=2u$、$D^0=\mathbb Zv,D^1=\mathbb Zw,d_Dv=3w$ とする。その他の次数と微分は零である。次数0,1,2の基底はそれぞれ $e\otimes v$、$(u\otimes v,e\otimes w)$、$u\otimes w$ である。
