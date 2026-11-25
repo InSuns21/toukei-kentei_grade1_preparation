@@ -1,0 +1,18 @@
+chapter: MMX1
+scope: dream-theater
+coverage: complete
+prerequisites: [ACOMP4, TSP14]
+forward_references: []
+concepts:
+  - id: matrix-exponent.multioutput-arithmetic-size
+    name: 行列積の多出力算術サイズ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（行列積の多出力算術サイズ）"]
+    requires: [algebraic-complexity.arithmetic-circuit-size, tensor.matrix-multiplication-tensor]
+  - id: matrix-exponent.distinct-output-lower-bound
+    name: 行列積の異なる出力による演算下界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（行列積の異なる出力による演算下界）"]
+    requires: [matrix-exponent.multioutput-arithmetic-size, algebraic-complexity.arithmetic-circuit-semantics]

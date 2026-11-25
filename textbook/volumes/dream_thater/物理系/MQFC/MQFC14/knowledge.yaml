@@ -1,0 +1,31 @@
+chapter: MQFC14
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC5, MQFC6, MQFC7, MQFC13]
+forward_references: []
+concepts:
+  - id: mqfc.wick-polynomial
+    name: "Gaussian Wick多項式"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.gaussian-pairing]
+  - id: mqfc.wick-cross-moment
+    name: "Wick多項式の混合二次モーメント"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.wick-polynomial, mqfc.finite-gaussian]
+  - id: mqfc.covariance-short-distance
+    name: "自由共分散核の短距離評価"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.heat-resolvent]
+  - id: mqfc.smeared-wick
+    name: "正則化したWick積の試験関数測定"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.wick-polynomial, mqfc.free-gaussian-measure, mqfc.euclidean-covariance-form]
+  - id: mqfc.wick-l2-limit
+    name: "Wick積の二乗平均極限"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.smeared-wick, mqfc.wick-cross-moment, mqfc.covariance-short-distance]

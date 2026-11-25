@@ -14,3 +14,4 @@
 11. [MQFC11 粒子質量とスペクトル測度](textbook/volumes/dream_thater/物理系/MQFC/MQFC11/index.md)
 12. [MQFC12 質量ギャップと指数的相関減衰](textbook/volumes/dream_thater/物理系/MQFC/MQFC12/index.md)
 13. [MQFC13 cutoff・体積・極限の構成](textbook/volumes/dream_thater/物理系/MQFC/MQFC13/index.md)
+14. [MQFC14 Wick積と発散する自己収縮](textbook/volumes/dream_thater/物理系/MQFC/MQFC14/index.md)
