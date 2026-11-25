@@ -7,3 +7,4 @@
 4. [TSP4 制限・劣階数・対角テンソルと局所線形写像](textbook/volumes/dream_thater/計算系/TSP/TSP4/index.md)
 5. [TSP5 直和・Kronecker積・制限の前順序](textbook/volumes/dream_thater/計算系/TSP/TSP5/index.md)
 6. [TSP6 テンソルネットワーク・縮約・wire：グラフの境界テンソル](textbook/volumes/dream_thater/計算系/TSP/TSP6/index.md)
+7. [TSP7 行列積テンソルと双線形複雑性](textbook/volumes/dream_thater/計算系/TSP/TSP7/index.md)
