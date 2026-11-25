@@ -1,0 +1,78 @@
+name: Validate FML axiom audit
+on:
+  pull_request:
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/FML/FML5/**'
+      - '.github/workflows/validate-fml-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/FML/FML5/**'
+      - '.github/workflows/validate-fml-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lean-audit:
+    name: Lean axiom audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          lake-package-directory: 'textbook/volumes/dream_thater/計算系/FML/FML5/lab'
+          auto-config: 'false'
+          build: 'true'
+          test: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Check positive and negative examples
+        working-directory: 'textbook/volumes/dream_thater/計算系/FML/FML5/lab'
+        shell: bash
+        run: |
+          set -euo pipefail
+          lean --version | tee lean-version.log
+          grep -F 'version 4.35.0' lean-version.log
+          lake env lean Inspect.lean | tee inspect.log
+          lake env lean TrustDemo.lean | tee trust.log
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          def read(file):
+              result = {}
+              for name, deps in re.findall(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]", Path(file).read_text()):
+                  result[name] = {x.strip() for x in deps.split(',') if x.strip()}
+              for name in re.findall(r"'([^']+)' does not depend on any axioms", Path(file).read_text()):
+                  result[name] = set()
+              return result
+          good = read('inspect.log')
+          allowed = {'propext', 'Classical.choice', 'Quot.sound'}
+          assert set(good) == {'FML5.' + n for n in 'reflNat propEq pick quotientEq assumedZero fieldVacuous fieldNonzero emptyAll emptyNotNonempty natVacuous notNatAll conditional vacuous notGlobal'.split()}, good
+          assert all(v <= allowed for v in good.values()), good
+          for n, expected in {'reflNat': set(), 'propEq': {'propext'}, 'pick': {'Classical.choice'}, 'quotientEq': {'Quot.sound'}}.items():
+              assert good['FML5.' + n] == expected, good
+          bad = read('trust.log')
+          expected = {'contradiction': 'FML5TrustDemo.bad', 'inherited': 'sorryAx', 'carrierRefl': 'FML5TrustDemo.carrier', 'fromGlobal': 'FML5TrustDemo.globalClaim'}
+          assert set(bad) == {'FML5TrustDemo.' + n for n in expected}, bad
+          for n, axiom in expected.items():
+              assert axiom in bad['FML5TrustDemo.' + n], bad
+          PY
+          if lake env lean Failure.lean > failure.log 2>&1; then
+            echo 'Incorrect unconditional statement accepted'
+            exit 1
+          fi
+          cat failure.log
+          grep -Ei 'type mismatch|application type mismatch' failure.log
+          if lake env lean UnsafeFailure.lean > unsafe.log 2>&1; then
+            echo 'Unsafe definition accepted in safe declaration'
+            exit 1
+          fi
+          cat unsafe.log
+          grep -Ei 'unsafe' unsafe.log
+          git diff --exit-code -- lake-manifest.json lean-toolchain
+      - name: Preserve execution logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fml5-lean-logs
+          path: 'textbook/volumes/dream_thater/計算系/FML/FML5/lab/*.log'

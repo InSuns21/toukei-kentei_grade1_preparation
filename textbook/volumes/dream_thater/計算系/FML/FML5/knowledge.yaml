@@ -1,0 +1,24 @@
+chapter: FML5
+scope: dream-theater
+coverage: complete
+prerequisites: [FML1, FML2, FML3, FML4, LVT2-08]
+concepts:
+  - id: formal-math.axiom-policy
+    name: 数学的証明の許容公理集合
+    kind: definition
+    introduction: formal
+    requires: [lean-verification.automation-axioms]
+  - id: formal-math.conditional-claim
+    name: 数学的主張の条件と適用範囲
+    kind: definition
+    introduction: formal
+  - id: formal-math.vacuous-field
+    name: 矛盾した体の仮定からの等式
+    kind: proposition
+    introduction: formal
+    requires: [formal-math.conditional-claim, formal-math.algebra-instance]
+  - id: formal-math.statement-nonempty
+    name: 空の定義域での全称命題
+    kind: proposition
+    introduction: formal
+    requires: [formal-math.conditional-claim]
