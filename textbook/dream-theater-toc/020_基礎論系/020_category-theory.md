@@ -75,3 +75,4 @@
 72. [CATB4-06 基底変換とファイバーごとの構造](textbook/volumes/dream_thater/基礎論系/CATB/CATB4-06/index.md)
 73. [CATB4-07 部分対象ファイブレーション](textbook/volumes/dream_thater/基礎論系/CATB/CATB4-07/index.md)
 74. [CATB4-08 降下データと有効降下](textbook/volumes/dream_thater/基礎論系/CATB/CATB4-08/index.md)
+75. [CATB5-01 前層の局所データと貼り合わせ](textbook/volumes/dream_thater/基礎論系/CATB/CATB5-01/index.md)
