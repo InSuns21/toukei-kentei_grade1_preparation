@@ -1,0 +1,31 @@
+chapter: MQFC15
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC8, MQFC13, MQFC14]
+forward_references: []
+concepts:
+  - id: mqfc.cutoff-wick-interaction
+    name: "有限切断Wick相互作用"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.smeared-wick, mqfc.wick-polynomial]
+  - id: mqfc.cutoff-gibbs-normalization
+    name: "有限切断Gibbs測度の正規化"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.cutoff-wick-interaction, mqfc.free-gaussian-measure]
+  - id: mqfc.bounded-weight-reflection
+    name: "正時間の有界重みによる反射形式"
+    kind: lemma
+    introduction: formal
+    requires: [mqfc.gaussian-reflection-positivity, mqfc.positive-time-reflection-form]
+  - id: mqfc.separated-cutoff-reflection
+    name: "分離された切断での反射陽性の保存"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.cutoff-gibbs-normalization, mqfc.bounded-weight-reflection]
+  - id: mqfc.exponential-density-limit
+    name: "指数重みの一様評価と密度の極限"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.wick-l2-limit, mqfc.cutoff-gibbs-normalization, mqfc.unbounded-observable-limit]
