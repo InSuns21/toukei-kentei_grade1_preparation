@@ -1,0 +1,75 @@
+chapter: NPCG2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NPCG1
+  - F0-00C
+  - RA2
+forward_references: []
+concepts:
+  - id: metric-geometry.curve-length
+    name: 距離による曲線長
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（距離による曲線長）"]
+    aliases: [距離による曲線長, 曲線長, curve length]
+    requires: [topology.metric-space, topology.continuous-map, analysis.least-upper-bound-property]
+  - id: metric-geometry.curve-length-additivity
+    name: 曲線長の加法性と端点評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（曲線長の加法性と端点評価）"]
+    requires: [metric-geometry.curve-length]
+  - id: metric-geometry.length-space
+    name: 長さ空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（長さ空間）"]
+    aliases: [長さ空間, length space]
+    requires: [metric-geometry.curve-length]
+  - id: metric-geometry.geodesic-segment
+    name: 距離空間の測地線分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（距離空間の測地線分）"]
+    aliases: [距離空間の測地線分]
+    requires: [topology.metric-space]
+  - id: metric-geometry.geodesic-space
+    name: 測地空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（測地空間）"]
+    aliases: [測地空間, geodesic space]
+    requires: [metric-geometry.geodesic-segment]
+  - id: metric-geometry.minimizer-subsegments
+    name: 最短曲線の部分区間と測地空間
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（最短曲線の部分区間と測地空間）"]
+    requires: [metric-geometry.curve-length-additivity, metric-geometry.length-space, metric-geometry.geodesic-space]
+  - id: metric-geometry.geodesic-triangle
+    name: 測地三角形
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Euclid 比較三角形）"]
+    aliases: [測地三角形]
+    requires: [metric-geometry.geodesic-segment]
+  - id: metric-geometry.comparison-triangle
+    name: Euclid 比較三角形
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Euclid 比較三角形）"]
+    aliases: [Euclid 比較三角形, Euclid比較三角形]
+    requires: [topology.metric-space, metric-geometry.geodesic-segment]
+  - id: metric-geometry.comparison-triangle-existence
+    name: 比較三角形の存在と合同性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（比較三角形の存在と合同性）"]
+    requires: [metric-geometry.comparison-triangle]
+  - id: metric-geometry.comparison-point-distance
+    name: 比較点への二乗距離公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（比較点への二乗距離公式）"]
+    requires: [metric-geometry.comparison-triangle]
