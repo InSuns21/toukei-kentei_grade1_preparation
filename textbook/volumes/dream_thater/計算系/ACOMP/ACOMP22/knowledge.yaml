@@ -1,0 +1,36 @@
+chapter: ACOMP22
+scope: dream-theater
+coverage: complete
+prerequisites: [ACOMP21, AG1-01]
+forward_references: []
+concepts:
+  - id: algebraic-complexity.degeneration
+    name: "回路の形式的退化"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（回路の形式的退化）"]
+    requires: [algebraic-complexity.arithmetic-circuit, algebraic-complexity.specialization]
+  - id: algebraic-complexity.border-size
+    name: "形式的 border complexity"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（形式的 border complexity）"]
+    requires: [algebraic-complexity.degeneration, algebraic-complexity.arithmetic-circuit-size]
+  - id: algebraic-complexity.parameter-map
+    name: "有界サイズ回路の係数写像"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有界サイズ回路の係数写像）"]
+    requires: [algebraic-complexity.circuit-slp-equivalence, algebraic-geometry.multivariate-polynomial-ring]
+  - id: algebraic-complexity.degeneration-closure
+    name: "形式的退化から Zariski 閉包への含意"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（形式的退化から Zariski 閉包への含意）"]
+    requires: [algebraic-complexity.degeneration, algebraic-geometry.zariski-topology, algebraic-geometry.vanishing-ideal]
+  - id: algebraic-complexity.border-closure
+    name: "代数閉体上の border complexity と閉包"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（代数閉体上の border complexity と閉包）"]
+    requires: [algebraic-complexity.border-size, algebraic-complexity.parameter-map, algebraic-complexity.degeneration-closure]
