@@ -2,7 +2,7 @@ id: "TSP16"
 title: "被覆・劣乗法的gauge・極限の準備：順序と凸性、一般スペクトルとの境界"
 volume: foundations
 status: supplementary
-prerequisites: [TSP15]
+prerequisites: [TSP15, OPT1]
 official_scope: []
 learning_objectives:
   - 前順序付き半環上の有限被覆を定義し費用の下限を計算できる
