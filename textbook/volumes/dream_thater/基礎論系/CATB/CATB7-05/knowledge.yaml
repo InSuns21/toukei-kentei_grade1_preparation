@@ -1,0 +1,65 @@
+chapter: CATB7-05
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB7-04, CATB7-03, CATB7-02, CATB7-01, CATB1-05, CATB1-04]
+concepts:
+  - id: category.projective
+    name: 射影対象
+    kind: definition
+    introduction: formal
+    requires: [category.abelian-category]
+  - id: category.injective
+    name: 入射対象
+    kind: definition
+    introduction: formal
+    requires: [category.abelian-category]
+  - id: category.projective-resolution
+    name: 射影分解
+    kind: definition
+    introduction: formal
+    requires: [category.projective, category.exact-sequence, category.cochain-complex]
+  - id: category.injective-resolution
+    name: 入射分解
+    kind: definition
+    introduction: formal
+    requires: [category.injective, category.exact-sequence, category.cochain-complex]
+  - id: category.resolution-existence
+    name: 分解の存在と擬同型
+    kind: theorem
+    introduction: formal
+    requires: [category.projective-resolution, category.injective-resolution, category.quasi-isomorphism]
+  - id: category.comparison-of-resolutions
+    name: 分解の比較定理
+    kind: theorem
+    introduction: formal
+    requires: [category.projective-resolution, category.injective-resolution, category.cochain-homotopy]
+  - id: category.derived-functor
+    name: 左右導来関手
+    kind: definition
+    introduction: formal
+    requires: [category.projective-resolution, category.injective-resolution, category.cochain-cohomology]
+  - id: category.derived-well-defined
+    name: 導来関手の選択独立性と0次
+    kind: theorem
+    introduction: formal
+    requires: [category.derived-functor, category.comparison-of-resolutions, category.cochain-homotopy-invariance]
+  - id: category.ext
+    name: Ext
+    kind: definition
+    introduction: formal
+    requires: [category.projective-resolution, category.cochain-cohomology, category.comparison-of-resolutions]
+  - id: category.cyclic-ext
+    name: 巡回整数加群のExt
+    kind: theorem
+    introduction: formal
+    requires: [category.ext]
+  - id: category.projective-acyclic
+    name: 上に有界な射影複体からの写像
+    kind: lemma
+    introduction: formal
+    requires: [category.projective, category.cochain-homotopy, category.cochain-cohomology]
+  - id: category.derived-hom
+    name: 分解による導来圏のHom計算
+    kind: theorem
+    introduction: formal
+    requires: [category.ext, category.derived-category, category.projective-acyclic, category.quasi-isomorphism-cone-test]
