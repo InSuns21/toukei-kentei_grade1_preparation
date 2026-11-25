@@ -12,7 +12,7 @@ chapters:
   - { id: ATOP6, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP6, status: completed, title: "円周の基本群と巻き数" }
   - { id: ATOP7, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP7, status: completed, title: "van Kampen定理と群の表示" }
   - { id: ATOP8, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP8, status: completed, title: "グラフと自由群" }
-  - { id: ATOP9, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP9, status: planned, title: "被覆空間の分類と普遍被覆" }
+  - { id: ATOP9, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP9, status: completed, title: "被覆空間の分類と普遍被覆" }
   - { id: ATOP10, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP10, status: planned, title: "単体複体と三角形分割" }
   - { id: ATOP11, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP11, status: planned, title: "コンパクト曲面の分類定理" }
   - { id: ATOP12, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP12, status: planned, title: "曲面の基本群と具体的分類" }
