@@ -1,0 +1,27 @@
+id: "NPCG6"
+title: "四辺形不等式・等号・平坦な部分集合"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NPCG5
+official_scope: []
+learning_objectives:
+  - CN不等式から四辺形不等式と対角線の中点間距離評価を証明できる
+  - 等号条件を非負の余りに分解し、中点一致だけでは不十分なことを説明できる
+  - 二乗距離評価の等号を線分全体へ伝播させられる
+  - 四点の平方差評価を線分の分割と相殺で証明できる
+  - 等号から平坦な部分集合を構成し、空間全体の平坦性と区別できる
+definitions:
+  - { id: NPCG6-DEF-01, name: "平坦な部分集合" }
+theorems:
+  - { id: NPCG6-THM-01, name: "四辺形不等式と中点の差" }
+  - { id: NPCG6-THM-02, name: "四辺形不等式の等号条件" }
+  - { id: NPCG6-LEM-01, name: "二乗距離評価の等号の伝播" }
+  - { id: NPCG6-THM-03, name: "四点の平方差評価" }
+  - { id: NPCG6-THM-04, name: "四辺形の等号から平坦な領域" }
+canonical_examples: [長方形, 四枝の距離木, 木の測地線分, ひし形]
+problem_patterns: [NPCG6-A01, NPCG6-A02, NPCG6-A03, NPCG6-A04, NPCG6-B01, NPCG6-B02, NPCG6-B03, NPCG6-B04, NPCG6-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 1 }

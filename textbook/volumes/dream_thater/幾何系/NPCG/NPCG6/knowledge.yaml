@@ -1,0 +1,43 @@
+chapter: NPCG6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NPCG5
+forward_references: []
+concepts:
+  - id: metric-geometry.quadrilateral-midpoint-bound
+    name: "四辺形不等式と中点の差"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（四辺形不等式と中点の差）"]
+    requires: [metric-geometry.cn-inequality]
+  - id: metric-geometry.quadrilateral-equality
+    name: "四辺形不等式の等号条件"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（四辺形不等式の等号条件）"]
+    requires: [metric-geometry.quadrilateral-midpoint-bound, metric-geometry.cn-inequality]
+  - id: metric-geometry.cn-equality-propagation
+    name: "二乗距離評価の等号の伝播"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（二乗距離評価の等号の伝播）"]
+    requires: [metric-geometry.cn-interpolation]
+  - id: metric-geometry.four-point-squared-difference
+    name: "四点の平方差評価"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（四点の平方差評価）"]
+    requires: [metric-geometry.quadrilateral-midpoint-bound, metric-geometry.geodesic-segment]
+  - id: metric-geometry.flat-subset
+    name: "平坦な部分集合"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平坦な部分集合）"]
+    requires: [metric-geometry.cat-zero-space]
+  - id: metric-geometry.flat-quadrilateral-equality
+    name: "四辺形の等号から平坦な領域"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（四辺形の等号から平坦な領域）"]
+    requires: [metric-geometry.quadrilateral-equality, metric-geometry.cn-equality-propagation, metric-geometry.four-point-squared-difference, metric-geometry.flat-subset, metric-geometry.geodesically-convex-set, metric-geometry.comparison-triangle-existence]
