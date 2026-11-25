@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" data-layout-lint="strict" role="img">
+  <title>開被覆の中でのループ分割</title>
+  <desc>左の実線枠Uと右の破線枠Vの重なりに基点bと切替点pがある。左側の曲線はbからUの内部を通ってpへ進み、右側の曲線はpからVの内部を通ってbへ戻る。点bとpを結ぶ補助の道は重なりの中にある。</desc>
+  <defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 Z" fill="#172b38"/></marker></defs>
+  <rect x="0" y="0" width="600" height="300" fill="#fff"/>
+  <rect x="36" y="15" width="354" height="270" rx="25" fill="#e2effa" stroke="#35678e" stroke-width="2"/>
+  <rect x="210" y="15" width="354" height="270" rx="25" fill="#f6e5d0" fill-opacity="0.62" stroke="#925d20" stroke-width="2" stroke-dasharray="8 5"/>
+  <g font-family="sans-serif" font-size="23" fill="#172b38"><text x="58" y="55">U</text><text x="533" y="55">V</text><text x="300" y="55" text-anchor="middle">W</text></g>
+  <path d="M300 106 C114 106 103 205 300 205" fill="none" stroke="#172b38" stroke-width="3.5" marker-end="url(#arrow)"/>
+  <path d="M300 205 C480 205 496 106 300 106" fill="none" stroke="#172b38" stroke-width="3.5" marker-end="url(#arrow)"/>
+  <path d="M300 106 L300 205" fill="none" stroke="#526b78" stroke-width="2.5" stroke-dasharray="5 5"/>
+  <g fill="#172b38"><circle cx="300" cy="106" r="5"/><circle cx="300" cy="205" r="5"/></g>
+  <g font-family="sans-serif" font-size="22" fill="#172b38"><text x="300" y="86" text-anchor="middle">b</text><text x="300" y="238" text-anchor="middle">p</text><text x="313" y="159">c</text><text x="110" y="146">α₁</text><text x="466" y="158">α₂</text></g>
+</svg>

@@ -1,0 +1,25 @@
+id: ATOP7
+title: "van Kampen定理と群の表示"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP4, ATOP5, ATOP6]
+official_scope: []
+learning_objectives:
+  - 生成元と関係式から群を構成し準同型を定められる
+  - 自由積の構成と普遍性を証明し直積群との違いを説明できる
+  - 開被覆によるループの細分と補助の道を使って基本群の生成性を証明できる
+  - ホモトピー正方形の細分から評価の不変性を示しvan Kampen定理を証明できる
+  - 交わりの条件を確認して自由積と関係式から基本群を計算できる
+definitions:
+  - { id: ATOP7-DEF-01, name: 群の表示 }
+  - { id: ATOP7-DEF-02, name: 自由積 }
+theorems:
+  - { id: ATOP7-PROP-01, name: 群の表示からの準同型 }
+  - { id: ATOP7-PROP-02, name: 自由積の普遍性 }
+  - { id: ATOP7-THM-01, name: van Kampen定理 }
+canonical_examples: [巡回群の表示, 二つの整数加法群の自由積, 二つの円周の貼り合わせ, 重なる円環, 二点を除いた平面]
+problem_patterns: [ATOP7-A1, ATOP7-A2, ATOP7-A3, ATOP7-A4, ATOP7-B1, ATOP7-B2, ATOP7-B3, ATOP7-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 1 }
