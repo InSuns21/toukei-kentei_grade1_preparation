@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - TSP8
+  - RA1
 official_scope: []
 learning_objectives:
   - テンソル冪の階数と劣階数の乗法評価を対数の加法評価へ移せる
