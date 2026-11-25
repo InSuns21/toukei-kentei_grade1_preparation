@@ -1,0 +1,31 @@
+chapter: GCT13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GCT12
+forward_references: []
+concepts:
+  - id: graph-counting.signed-weight-evaluation-polynomial
+    name: 符号付き重みの評価多項式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（符号付き重みの評価多項式）]
+    requires: [graph-counting.permanent]
+  - id: graph-counting.consecutive-integer-extrapolation
+    name: 連続整数点からの外挿公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（連続整数点からの外挿公式）]
+    requires: [combinatorics.binomial-count]
+  - id: graph-counting.binary-weight-removal
+    name: 二進重みの0–1行列への変換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二進重みの0–1行列への変換）]
+    requires: [graph-counting.permanent, graph-counting.valiant-permanent-completeness]
+  - id: graph-counting.signed-permanent-interpolation-oracle
+    name: 符号付き整数パーマネントの補間によるオラクル計算
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（符号付き整数パーマネントの補間によるオラクル計算）]
+    requires: [graph-counting.signed-weight-evaluation-polynomial, graph-counting.consecutive-integer-extrapolation, graph-counting.binary-weight-removal, graph-counting.counting-turing-reduction]
