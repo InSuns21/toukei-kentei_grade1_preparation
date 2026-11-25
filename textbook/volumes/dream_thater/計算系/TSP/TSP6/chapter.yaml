@@ -1,0 +1,42 @@
+id: "TSP6"
+title: "テンソルネットワーク・縮約・wire：グラフの境界テンソル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TSP5
+official_scope: []
+learning_objectives:
+  - 添字の縮約を計算し固定座標での規約と線形汎関数による評価を区別できる
+  - 接続関係と境界順序から境界テンソルの係数式を構成できる
+  - 縮約順序の独立性を有限和から証明し計算量の違いを評価できる
+  - 恒等wireの挿入と除去が境界テンソルを保存することを証明できる
+  - 切断の接続長から平坦化階数の上界を導き実現不可能性を判定できる
+  - 三角形の接続の境界テンソルを基底展開できる
+definitions:
+  - { id: TSP6-DEF-01, name: 添字の縮約 }
+  - { id: TSP6-DEF-02, name: テンソルネットワークと境界テンソル }
+  - { id: TSP6-DEF-03, name: 恒等wire }
+theorems:
+  - { id: TSP6-THM-01, name: 縮約順序の独立性 }
+  - { id: TSP6-THM-02, name: 恒等wireの挿入と除去 }
+  - { id: TSP6-THM-03, name: 切断による平坦化階数の上界 }
+canonical_examples:
+  - 行列積と同一頂点の縮約
+  - 三行列の連鎖
+  - 恒等wire
+  - 切断による平坦化階数の制約
+  - 三角形の境界テンソル
+problem_patterns:
+  - TSP6-A01
+  - TSP6-A02
+  - TSP6-A03
+  - TSP6-A04
+  - TSP6-B01
+  - TSP6-B02
+  - TSP6-B03
+  - TSP6-B04
+  - TSP6-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 1 }
