@@ -15,3 +15,4 @@
 12. [TSP12 Strassen漸近スペクトル双対性：仮定・証明の骨格と例](textbook/volumes/dream_thater/計算系/TSP/TSP12/index.md)
 13. [TSP13 support functionals・エントロピーによるスペクトル評価](textbook/volumes/dream_thater/計算系/TSP/TSP13/index.md)
 14. [TSP14 行列積指数と漸近スペクトル：既知の上下界の意味](textbook/volumes/dream_thater/計算系/TSP/TSP14/index.md)
+15. [TSP15 多partyテンソル・partyの併合とpush-forward：標準制限との比較](textbook/volumes/dream_thater/計算系/TSP/TSP15/index.md)

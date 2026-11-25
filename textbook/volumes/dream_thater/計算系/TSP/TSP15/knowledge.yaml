@@ -1,0 +1,36 @@
+chapter: TSP15
+scope: dream-theater
+coverage: complete
+prerequisites: [TSP14]
+forward_references: []
+concepts:
+  - id: tensor.party-grouping
+    name: partyの併合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（partyの併合）"]
+    requires: [tensor.multifactor-basis]
+  - id: tensor.party-grouping-monotone
+    name: 併合による制限の保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（併合による制限の保存）"]
+    requires: [tensor.party-grouping, tensor.restriction, tensor.local-linear-map]
+  - id: tensor.party-grouping-semiring
+    name: 併合と半環演算の両立性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（併合と半環演算の両立性）"]
+    requires: [tensor.party-grouping-monotone, tensor.tensor-semiring, tensor.direct-sum, tensor.kronecker-product]
+  - id: tensor.party-grouping-ranks
+    name: 併合による階数と劣階数の比較
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（併合による階数と劣階数の比較）"]
+    requires: [tensor.party-grouping-semiring, tensor.rank-restriction-characterization, tensor.subrank, tensor.asymptotic-rank, tensor.asymptotic-subrank, tensor.asymptotic-fekete-lemma, tensor.rank-subrank-operations, tensor.subrank-bounds]
+  - id: tensor.party-grouping-pullback
+    name: 併合によるスペクトル点の引き戻し
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（併合によるスペクトル点の引き戻し）"]
+    requires: [tensor.party-grouping-semiring, tensor.spectral-point, tensor.flattening-spectral-point]
