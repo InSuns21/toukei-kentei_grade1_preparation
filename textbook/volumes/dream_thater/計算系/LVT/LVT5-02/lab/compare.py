@@ -26,7 +26,7 @@ cases = [(request("a", 5, 2), expected("a", 5, 2)),
          (request("d", 4, 0), expected("d", 4, 0)),
          (request("e", -1, 1), ERROR),
          ('{"id":"e","stock":1}', ERROR),
-         (request('引用"\n', 3, 1), expected('引用"\n', 3, 1))]
+         (request('引用"\n\u2028', 3, 1), expected('引用"\n\u2028', 3, 1))]
 cases += [(request(f"{s}:{k}", s, k), expected(f"{s}:{k}", s, k))
           for s in range(4) for k in range(4)]
 
@@ -39,7 +39,10 @@ def run_batch(rows):
                           text=True, encoding="utf-8", capture_output=True,
                           timeout=15, check=True)
     assert proc.stderr == "", proc.stderr
-    outputs = [json.loads(line) for line in proc.stdout.splitlines()]
+    # JSON Lines uses LF, not all Unicode line separators.
+    assert not proc.stdout or proc.stdout.endswith("\n"), "missing LF"
+    lines = proc.stdout.split("\n")[:-1]
+    outputs = [json.loads(line) for line in lines]
     assert matches_response(outputs, [v for _, v in rows]), outputs
     return outputs
 
@@ -64,6 +67,7 @@ def run_stream(rows):
                     proc.stdin.flush()
                     line = messages.get(timeout=10)
                     assert line is not None, "unexpected EOF"
+                    assert line.endswith("\n"), "missing LF"
                     got = json.loads(line)
                     assert matches_response(got, want), (raw, got, want)
                     outputs.append(got)
