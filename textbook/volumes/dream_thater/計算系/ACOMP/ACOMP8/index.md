@@ -352,7 +352,15 @@ $$
 f_n(x)=\sum_{e\in\{0,1\}^{2n}}H_n(x,e).
 $$
 
-補助変数数も $2n$ と多項式有界なので [VNP](../ACOMP7/index.md#def-acomp7-vnp) に属します。これは [p-projection に対する VP と VNP の閉性](#thm-acomp8-projection-closure) の VNP 側の具体例です。標数によらず成り立ちます。
+補助変数数も $2n$ と多項式有界なので [VNP](../ACOMP7/index.md#def-acomp7-vnp) に属します。これは [p-projection に対する VP と VNP の閉性](#thm-acomp8-projection-closure) の VNP 側の具体例です。
+
+実際、各奇数番目の補助入力を足すと $(x+0)+(x+1)=2x+1$、偶数番目では $(1+0)+(1+1)=3$ です。有限和の分配則を全 $n$ 組に適用すると
+
+$
+f_n(x)=3^n(2x+1)^n.
+$
+
+標数2では1、標数3では零になります（$n\ge1$）。どちらの場合も上の VP による和の表示は有効であり、標数による除算を必要としません。
 <!-- solution-end -->
 
 ### B3. 特別なゲートの展開
