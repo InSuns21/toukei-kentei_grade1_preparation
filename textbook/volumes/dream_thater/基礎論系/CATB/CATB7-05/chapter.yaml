@@ -1,0 +1,33 @@
+id: "CATB7-05"
+title: "分解・導来関手・Ext"
+volume: foundations
+status: supplementary
+prerequisites: [CATB7-04, CATB7-03, CATB7-02, CATB7-01, CATB1-05, CATB1-04]
+official_scope: []
+learning_objectives:
+  - 射影対象と入射対象の持ち上げ条件を具体例で検証できる
+  - 十分な射影対象または入射対象の仮定から分解を構成し擬同型を検証できる
+  - 分解の比較写像を構成しホモトピーを除く一意性を証明できる
+  - 左右導来関手の選択独立性と0次を導出できる
+  - 巡回整数加群のExtと第一変数の反変性を計算できる
+  - 導来圏のHomとExtの対応および入射分解による計算の仮定を説明できる
+definitions:
+  - { id: CATB7-05-DEF-01, name: "射影対象" }
+  - { id: CATB7-05-DEF-02, name: "入射対象" }
+  - { id: CATB7-05-DEF-03, name: "射影分解" }
+  - { id: CATB7-05-DEF-04, name: "入射分解" }
+  - { id: CATB7-05-DEF-05, name: "左右導来関手" }
+  - { id: CATB7-05-DEF-06, name: "Ext" }
+theorems:
+  - { id: CATB7-05-THM-01, name: "分解の存在と擬同型" }
+  - { id: CATB7-05-THM-02, name: "分解の比較定理" }
+  - { id: CATB7-05-THM-03, name: "導来関手の選択独立性と0次" }
+  - { id: CATB7-05-THM-04, name: "巡回整数加群のExt" }
+  - { id: CATB7-05-THM-05, name: "上に有界な射影複体からの写像" }
+  - { id: CATB7-05-THM-06, name: "分解による導来圏のHom計算" }
+canonical_examples: [自由加群の射影性, ベクトル空間の入射性, 巡回整数加群の分解, 巡回整数加群のExt, 完全三角形の第3射]
+problem_patterns: [CATB7-05-A01, CATB7-05-A02, CATB7-05-A03, CATB7-05-A04, CATB7-05-B01, CATB7-05-B02, CATB7-05-B03, CATB7-05-B04, CATB7-05-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 5, review: 2 }
