@@ -14,7 +14,7 @@
 
 ## 2. 連言を引き戻しで作る
 
-二つの部分集合の共通部分は、それら両方に含まれる最大の部分集合である。順序集合でも、二元の共通の下界の中で最大のものを最大下界といい、$A\wedge B$ と書く。最小上界は $A\vee B$ と書く。
+二つの部分集合の共通部分は、それら両方に含まれる最大の部分集合である。順序集合でも、二元の共通の下界の中で最大のものを最大下界といい、$A\wedge B$ と書く。共通の上界の中で最小のものを最小上界といい、$A\vee B$ と書く。順序全体の最大元を $\top_X$、最小元を $\bot_X$ と書く。$1_X:X\to X$ は恒等射である。
 
 <a id="prop-catb6-01-subobject-meet"></a>
 
@@ -69,6 +69,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
+ここで転置とは、[指数対象の普遍性](../../CAT/CAT4-05/index.md#def-cat4-05-exponential)によるカリー化である。射 $w:T\times Z\to\Omega$ の転置を $\widehat w:T\to\Omega^Z$ と書く。評価射 $e_Z:\Omega^Z\times Z\to\Omega$ に対し、転置は次の等式を満たす一意な射である。
+
+$$
+e_Z(\widehat w\times1_Z)=w.
+$$
+
+積の射に現れる $1_Z$ は $Z$ の恒等射を表す。
+
 まず $a:A_0\to X$ に沿う制限射 $r_a:P(X)\to\Omega^{A_0}$ を、次の合成の転置として定める。
 
 $$
@@ -78,20 +86,43 @@ $$
 
 $1\times A_0\cong A_0$ を通して $t_{A_0}$ を転置した射を $\tau_a:1\to\Omega^{A_0}$ とする。$r_b,\tau_b$ も $b:B_0\to X$ に対し同じ構成で定める。
 
-[等化子](../../CAT/CAT2-03/index.md#def-cat2-03-equalizer) $k_a:K_a\to P(X)$ を $r_a$ と $\tau_a!_{P(X)}$ の等化子とし、$k_b:K_b\to P(X)$ を $r_b$ と $\tau_b!_{P(X)}$ の等化子とする。$k:K\to P(X)$ を二つの等化子の共通部分として[前節の命題](#prop-catb6-01-subobject-meet)で作る。これは両方の部分対象を含む候補を表す。
+[等化子](../../CAT/CAT2-03/index.md#def-cat2-03-equalizer)を用いて、次の二組の平行射をそれぞれ等化する。
+
+$$
+\begin{array}{ll}
+k_a:K_a\to P(X), & r_a,\ \tau_a!_{P(X)},\\
+k_b:K_b\to P(X), & r_b,\ \tau_b!_{P(X)}.
+\end{array}
+$$
+
+[等化子のモノ射性](../../CAT/CAT2-03/index.md#prop-cat2-03-equalizer-unique-mono)により、$k_a,k_b$ は部分対象を表す。
+
+$k:K\to P(X)$ を二つの等化子の共通部分として[前節の命題](#prop-catb6-01-subobject-meet)で作る。これは両方の部分対象を含む候補を表す。
 
 $$
 v=e_X(k\times1_X):K\times X\to\Omega.
 $$
 
-$K$ の定義および[指数対象](../../CAT/CAT4-05/index.md#def-cat4-05-exponential)の評価と転置の普遍性から
+$k$ は $k_a$ を経由するので $r_a k=\tau_a!_K$ である。これを $K\times A_0$ 上で評価すると
+
+$$
+\begin{aligned}
+v(1_K\times a)&=e_{A_0}((r_a k)\times1_{A_0})\\
+&=e_{A_0}((\tau_a!_K)\times1_{A_0})\\
+&=t_{K\times A_0}.
+\end{aligned}
+$$
+
+$b$ についても $r_b k=\tau_b!_K$ を評価する。したがって
 
 $$
 v(1_K\times a)=t_{K\times A_0},
 \qquad v(1_K\times b)=t_{K\times B_0}.
 $$
 
-次に因子を交換して $v$ を $X\times K\to\Omega$ とみなし、その転置を $h:X\to\Omega^K$ とする。$t_K$ の転置を $\tau:1\to\Omega^K$ と書く。$h$ と $\tau!_X$ の等化子を $j:J\to X$ とすると、任意の $u:T\to X$ について
+次に因子を交換して $v$ を $X\times K\to\Omega$ とみなし、その転置を $h:X\to\Omega^K$ とする。$t_K$ の転置を $\tau:1\to\Omega^K$ と書く。
+
+$h$ と $\tau!_X$ の等化子を $j:J\to X$ とする。これは[等化子のモノ射性](../../CAT/CAT2-03/index.md#prop-cat2-03-equalizer-unique-mono)により部分対象を表す。任意の $u:T\to X$ について
 
 $$
 u\text{ が }j\text{ を経由する}
@@ -108,7 +139,13 @@ $$
 
 よって $s$ は $k_a,k_b$ を経由し、引き戻しの普遍性から $s=k\bar s$ となる $\bar s:1\to K$ が得られる。
 
-$j$ の等化子条件に $\bar s\times1_J$ を前合成すると、評価によって
+$j$ の等化子条件を評価した式 $v(1_K\times j)=t_{K\times J}$ に、$1\times J\cong J$ と $\bar s\times1_J$ を前合成する。$k\bar s=s$ なので左辺は
+
+$$
+e_X((k\bar s)\times j)=e_X(s\times j)=\chi_m j
+$$
+
+となり、右辺は $t_J$ となる。従って
 
 $$
 \chi_m j=t_J
@@ -116,12 +153,12 @@ $$
 
 となる。[部分対象分類子](../CATB5-06/index.md#def-catb5-06-classifier)の引き戻しの普遍性により $j$ は $m$ を経由する。従って $[j]\le[m]$ であり、$[j]$ が最小上界である。
 
-最小元は同じ構成で $K=P(X), k=1_{P(X)}$ として得る。$A,B$ による制限条件を課さないので、任意の部分対象 $m$ の分類射の転置 $s$ がそのまま $K$ への射になる。$j$ の等化子条件に $s\times1_J$ を前合成すれば $\chi_m j=t_J$ となり、$[j]\le[m]$ が従う。任意の $m$ に対して成立するので、これが $\bot_X$ である。
+最小元は同じ構成で $K=P(X), k=1_{P(X)}$ として得る。$A,B$ による制限条件を課さないので、任意の部分対象 $m$ の分類射の転置 $s$ がそのまま $K$ への射になる。$j$ の等化子条件を評価した式に $s\times1_J$ を前合成すれば $\chi_m j=t_J$ となり、$[j]\le[m]$ が従う。任意の $m$ に対して成立するので、これが $\bot_X$ である。
 <!-- proof-end -->
 
 集合 $X=\{1,2,3\}$ で $A=\{1\}, B=\{2\}$ なら候補上界は $\{1,2\}$ と $X$ だけであり、共通部分は $\{1,2\}$ である。制限なしの候補には空集合も含まれるので、最小元は空集合である。
 
-最大元・最小元があり、二元ごとの最大下界と最小上界がある順序を有界束という。ここまでで部分対象順序は有界束になった。ただし一般には補元を用いて含意を作ることはできない。
+最大元・最小元があり、二元ごとの最大下界と最小上界がある順序を有界束という。ここまでで部分対象順序は有界束になった。元 $A$ の補元とは、$A\wedge B=\bot_X$ かつ $A\vee B=\top_X$ を満たす元 $B$ のことである。一般には補元が存在するとは限らないので、補元を用いて含意を作ることはできない。
 
 ## 4. 含意は「連言すると結論に入る」最大の領域
 
@@ -166,7 +203,14 @@ $$
 これで存在を示した。別の $N'$ が同じ性質を満たすなら $C=[n]$ と $C=N'$ をそれぞれ代入すると双方が互いに以下となる。反対称性により等しい。
 <!-- proof-end -->
 
-集合では $A\Rightarrow B=(X\setminus A)\cup B$ である。実際、$x\in C\cap A$ なら含意領域に属する $x$ は $A$ の外に出られないため $B$ に入る。逆に $C\cap A\subseteq B$ なら $x\in C$ は $A$ の外か、$A$ に入りかつ $B$ に入るかのいずれかなので、含意領域に入る。この両方向が一般の普遍性に対応している。
+集合では $A\Rightarrow B=(X\setminus A)\cup B$ である。実際、任意の部分集合 $C\subseteq X$ について、$C\subseteq (X\setminus A)\cup B$ と仮定する。$x\in C\cap A$ なら $x\notin X\setminus A$ なので $x\in B$ である。逆に $C\cap A\subseteq B$ と仮定し、$x\in C$ を取る。$x\notin A$ なら $x\in X\setminus A$、$x\in A$ なら $x\in C\cap A\subseteq B$ である。従って
+
+$$
+C\subseteq(X\setminus A)\cup B
+\iff C\cap A\subseteq B.
+$$
+
+この両方向が含意の普遍性に対応している。
 
 ## 5. Heyting代数と否定
 
@@ -254,7 +298,7 @@ $A\wedge\neg A=\bot_X$ は成立するが、$A\vee\neg A=\top_X$ という排中
 
 ## 6. 観察対象を変えても論理演算が一致する
 
-述語を別の対象上へ移す操作は引き戻しである。論理演算を先に行ってから逆像を取るのか、逆像を取ってから演算するのかで結果が変わるなら、述語の置換として扱うことは難しい。
+述語を別の対象上へ移す操作は引き戻しである。射 $f:Y\to X$ に沿う[部分対象の逆像](../CATB4-07/index.md#thm-catb4-07-inverse-image)を $f^*:\operatorname{Sub}(X)\to\operatorname{Sub}(Y)$ と書く。論理演算を先に行ってから逆像を取るのか、逆像を取ってから演算するのかで結果が変わるなら、述語の置換として扱うことは難しい。
 
 <a id="thm-catb6-01-heyting-reindexing"></a>
 
@@ -297,7 +341,7 @@ f^*(A\vee B)\le D
 \end{aligned}
 $$
 
-任意の $D$ で成立するので選言が保存される。また $\bot_X\le N$ は任意の $N$ について成立するので $f^*\bot_X\le D$ は任意の $D$ について成立する。従って $f^*\bot_X=\bot_Y$ である。
+任意の $D$ で成立するので、$D=f^*(A\vee B)$ と $D=f^*A\vee f^*B$ をそれぞれ選べば相互の不等式が得られ、選言が保存される。また $\bot_X\le N$ は任意の $N$ について成立するので $f^*\bot_X\le D$ は任意の $D$ について成立する。従って $f^*\bot_X=\bot_Y$ である。
 
 含意については[部分対象の含意](#thm-catb6-01-subobject-implication)の構成で用いたモノ射
 
@@ -307,7 +351,7 @@ $$
 
 を再利用する。任意の試験射 $u:T\to Y$ を取る。引き戻しの普遍性により、$u$ が含意の逆像を経由することは、合成 $fu$ が元の含意を経由することと同値である。
 
-さらに第4節の構成により、これは $T\times_X A_0$ から $A_0$ への射影が $s$ を経由する条件と同値になる。
+さらに[含意の構成](#thm-catb6-01-subobject-implication)により、これは $T\times_X A_0$ から $A_0$ への射影が $s$ を経由する条件と同値になる。
 
 一方、$f^*A$ の代表の始域は $Y\times_X A_0$ である。その $u$ による引き戻しについて
 
@@ -317,7 +361,13 @@ $$
 
 が成立する。実際、任意の試験対象から $T$ と $A_0$ への二射が $X$ 上で一致すれば、前者と $u$ の合成を $Y$ への成分として、引き戻しの普遍性から左辺への射が一意に定まる。逆方向は $T$ と $A_0$ への射影を取ればよい。二つの構成が射影を変えないため互いに逆である。
 
-さらに $f^*B$ への因子分解条件は、右辺の対象から $X$ への合成が $b$ を経由することである。これは右辺から $A_0$ への射影が $s$ を経由する条件に帰着する。
+この同型の右辺を $L=T\times_X A_0$ と置き、射影を $p_T:L\to T$、$p_A:L\to A_0$ とする。$fu p_T=a p_A$ が成り立つ。$f^*B$ の代表 $Y\times_X B_0\to Y$ へ $u p_T$ が因子分解する条件は、引き戻しの普遍性により、ある $q:L\to B_0$ が存在して
+
+$$
+bq=fu p_T=a p_A
+$$
+
+となることである。一方、$s:S\to A_0$ は $b$ の $a$ に沿う引き戻しだから、この等式は $p_A=sw$ となる射 $w:L\to S$ が存在することと同値である。これは $f^*A,f^*B$ に対する[含意の構成](#thm-catb6-01-subobject-implication)のファイバー包含条件そのものである。
 
 よって $u$ が $f^*(A\Rightarrow B)$ を経由することと、$u$ が $f^*A\Rightarrow f^*B$ を経由することは同値である。各部分対象の包含射自身を試験射にすれば互いに以下となり、
 
@@ -415,7 +465,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[含意の普遍性](#thm-catb6-01-subobject-implication)では $c\wedge a\le b$ を満たす最大の $c$ を選ぶ。$a=1,b=p$ のとき $c\wedge1=c$ だから $0,p$ が条件を満たし、$1$ は満たさない。最大は $p$ である。
+[Heyting代数の定義](#def-catb6-01-heyting-algebra)の含意条件では $c\wedge a\le b$ を満たす最大の $c$ を選ぶ。$a=1,b=p$ のとき $c\wedge1=c$ だから $0,p$ が条件を満たし、$1$ は満たさない。最大は $p$ である。
 
 $a=p,b=0$ の場合、$0\wedge p=0$、$p\wedge p=p$、$1\wedge p=p$。従って $0$ だけが条件を満たす。
 
@@ -529,7 +579,7 @@ $f:\{x,y,z\}\to\{1,2,3\}$ を $f(x)=f(y)=1,\ f(z)=3$ とする。$A=\{1,2\}$、$
 <!-- solution-start -->
 **詳細解答**
 
-終域で $A$ の外は $\{3\}$ なので
+第4節の[集合における含意の計算](#thm-catb6-01-subobject-implication)を使う。終域で $A$ の外は $\{3\}$ なので
 
 $$
 A\Rightarrow B=\{2,3\},\qquad \neg A=\{3\}.
