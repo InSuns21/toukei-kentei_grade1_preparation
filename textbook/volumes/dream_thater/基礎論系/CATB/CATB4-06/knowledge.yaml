@@ -5,6 +5,7 @@ prerequisites: [CATB4-05, CATB4-04, CATB4-02, CATB4-01, CAT2-08, CAT2-11]
 concepts:
   - id: category.fibration-base-change
     name: "ファイブレーションの基底変換"
+    aliases: ["基底変換"]
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（ファイブレーションの基底変換）"]
