@@ -260,7 +260,7 @@ $$
 =\frac1{4\pi}\log(1+\Lambda^2/m^2)
 $$
 
-である。極座標では $r=|p|$ は半径、$\theta$ は角度で、面積要素は $dp=r\,dr\,d\theta$ である。角度積分は $2\pi$。動径積分では $v=r^2+m^2$ と置く。$dv/dr=2r$ から置換積分により
+である。極座標では $r=|p|$ は半径、$\theta$ は角度で、面積要素は $dp=r\,dr\,d\theta$ である。角度積分は $2\pi$。動径積分では $v=r^2+m^2$ と置く。$dv/dr=2r$ から[置換積分](../../../基礎科目/RA/RA4/index.md#thm-ra4-substitution)により
 
 $$
 \int_0^\Lambda\frac{r}{r^2+m^2}\,dr
@@ -502,9 +502,9 @@ $$
 =\frac1{\pi m}\arctan(\Lambda/m).
 $$
 
-ここで積分変数を $u=p/m$ に変える。$m>0$ は固定して $dp/du=m$ だから、置換積分で $dp=m\,du$ と書ける。積分区間は $[-\Lambda/m,\Lambda/m]$ となり、$\int du/(1+u^2)=\arctan u$。極限は $1/(2m)$。
+ここで積分変数を $u=p/m$ に変える。$m>0$ は固定して $dp/du=m$ だから、[置換積分](../../../基礎科目/RA/RA4/index.md#thm-ra4-substitution)で $dp=m\,du$ と書ける。積分区間は $[-\Lambda/m,\Lambda/m]$ となり、$\int du/(1+u^2)=\arctan u$。極限は $1/(2m)$。
 
-$d=2$ では極座標の面積要素は $r\,dr\,d\theta$。角度 $\theta$ を $0$ から $2\pi$ まで積分する。動径変数 $r$ について $u=r^2+m^2$ と置けば $du/dr=2r$。$0\le r\le\Lambda$ で単調に増加するので、置換積分で $2r\,dr=du$ と書ける。$m>0$ より $u>0$ であり、
+$d=2$ では極座標の面積要素は $r\,dr\,d\theta$。角度 $\theta$ を $0$ から $2\pi$ まで積分する。動径変数 $r$ について $u=r^2+m^2$ と置けば $du/dr=2r$。$0\le r\le\Lambda$ で単調に増加するので、[置換積分](../../../基礎科目/RA/RA4/index.md#thm-ra4-substitution)で $2r\,dr=du$ と書ける。$m>0$ より $u>0$ であり、
 
 $$
 \frac1{2\pi}\int_0^\Lambda\frac{r\,dr}{r^2+m^2}
