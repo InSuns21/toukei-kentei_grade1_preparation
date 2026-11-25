@@ -202,7 +202,11 @@ export const lessons = {
   'LVT6-02': { module:'LvtAntiDiagonal', modes:[
     ['Inspect.lean','反対角線の有無と勝利判定','反対角線で true, false。上段の勝利は両方 true。印が二つなら両方 false。'],
     ['Failure.lean','欠落した勝利線の誤った等式','反対角線が変異後も勝利するという誤った証明は型不一致で拒否される。']
-  ], commands:"lean -o LvtAntiDiagonal.olean LvtAntiDiagonal.lean\nLEAN_PATH=. lean Inspect.lean\n# 意図的失敗\nLEAN_PATH=. lean Failure.lean\n# Pythonと固定版Leanの差分実験は本文第5節を参照" }
+  ], commands:"lean -o LvtAntiDiagonal.olean LvtAntiDiagonal.lean\nLEAN_PATH=. lean Inspect.lean\n# 意図的失敗\nLEAN_PATH=. lean Failure.lean\n# Pythonと固定版Leanの差分実験は本文第5節を参照" },
+  'LVT6-03': { module:'LvtWorkflow', modes:[
+    ['Inspect.lean','承認と公開の遷移・安全性','正常公開と承認前の拒否、差し戻し後の拒否、定理の公理を確認。'],
+    ['Failure.lean','初期状態で公開する誤った等式','型不一致で拒否される。']
+  ], commands:"lake build\nlake test\nlake env lean Inspect.lean\nnpm install --ignore-scripts\nnpm test\n# 意図的な失敗\nlake env lean Failure.lean" }
 };
 export function combine(module, definitions, experiment, suffix='') {
   // Only the exact local module import is replaced by its source.

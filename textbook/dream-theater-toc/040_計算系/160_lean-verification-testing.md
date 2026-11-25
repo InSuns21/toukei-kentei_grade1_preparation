@@ -39,3 +39,4 @@
 36. [LVT5-08 差分検査の保証範囲と弱点](textbook/volumes/dream_thater/計算系/LVT/LVT5-08/index.md)
 37. [LVT6-01 三目並べ教材の証明範囲を査読する](textbook/volumes/dream_thater/計算系/LVT/LVT6-01/index.md)
 38. [LVT6-02 三目並べの変異バグを発見する](textbook/volumes/dream_thater/計算系/LVT/LVT6-02/index.md)
+39. [LVT6-03 TypeScriptワークフローの仕様と照合](textbook/volumes/dream_thater/計算系/LVT/LVT6-03/index.md)
