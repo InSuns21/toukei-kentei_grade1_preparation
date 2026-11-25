@@ -1,0 +1,15 @@
+chapter: LVT5-07
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT5-06, LVT1-02]
+concepts:
+  - id: lean-verification.replay-record
+    name: 再実行記録
+    kind: definition
+    introduction: formal
+    requires: [lean-verification.stateful-trace]
+  - id: lean-verification.fixed-replay
+    name: 固定入力の不一致再現
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.replay-record]

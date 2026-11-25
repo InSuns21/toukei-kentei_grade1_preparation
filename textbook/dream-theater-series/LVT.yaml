@@ -143,7 +143,7 @@ chapters:
     title: "Stateful DRTと遷移列"
   - id: LVT5-07
     path: textbook/volumes/dream_thater/計算系/LVT/LVT5-07
-    status: planned
+    status: completed
     title: "再現可能性・CI・失敗時診断"
   - id: LVT5-08
     path: textbook/volumes/dream_thater/計算系/LVT/LVT5-08

@@ -1,0 +1,72 @@
+name: Validate LVT replay
+on:
+  pull_request:
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-07/**'
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-06/lab/**'
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT3-01/lab/**'
+      - '.github/workflows/validate-lvt-replay.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-07/**'
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-06/lab/**'
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT3-01/lab/**'
+      - '.github/workflows/validate-lvt-replay.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  checks:
+    name: LVT replay ${{ matrix.check }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        check: [proof, examples, drt]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22.16.0'
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          lake-package-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT5-06/lab'
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - name: Build oracle
+        working-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT5-06/lab'
+        run: lake build
+      - name: Proof check
+        if: matrix.check == 'proof'
+        working-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT5-06/lab'
+        run: |
+          lean --version | grep -F 'version 4.35.0'
+          lake env lean ../../LVT5-07/lab/LvtReplay.lean
+          if lake env lean ../../LVT5-07/lab/Failure.lean > failure.log 2>&1; then
+            exit 1
+          fi
+          grep -i 'type mismatch' failure.log
+      - name: Fixed examples
+        if: matrix.check == 'examples'
+        working-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT5-06/lab'
+        run: lake test
+      - name: Differential test and replay
+        if: matrix.check == 'drt'
+        working-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT5-07/lab'
+        run: |
+          test "$(node --version)" = v22.16.0
+          npm ci --ignore-scripts
+          mkdir -p reports
+          node replay.mjs test reports/test.json
+          node replay.mjs discover reports/counterexample.json
+          node replay.mjs replay reports/counterexample.json
+      - uses: actions/upload-artifact@v4
+        if: always() && matrix.check == 'drt'
+        with:
+          name: lvt-replay-diagnostics
+          path: 'textbook/volumes/dream_thater/計算系/LVT/LVT5-07/lab/reports/*.json'
+          if-no-files-found: warn
