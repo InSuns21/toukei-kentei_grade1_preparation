@@ -1,0 +1,30 @@
+id: "CATB7-03"
+title: "擬同型と局所化"
+volume: foundations
+status: supplementary
+prerequisites: [CATB7-02, CATB7-01]
+official_scope: []
+learning_objectives:
+  - ホモトピー圏の射と複体の同型・ホモトピー同値・擬同型を区別できる
+  - 擬同型の2-out-of-3性質と写像錐による判定を証明できる
+  - 写像錐による擬同型の分母調整と消去を構成できる
+  - roofの共通細分と合成を定義し選択独立性を証明できる
+  - 擬同型を逆にする局所化の普遍性を証明しコホモロジーへの因子化を計算できる
+definitions:
+  - { id: CATB7-03-DEF-01, name: "余鎖複体のホモトピー圏" }
+  - { id: CATB7-03-DEF-02, name: "余鎖複体のホモトピー同値" }
+  - { id: CATB7-03-DEF-03, name: "余鎖複体の擬同型" }
+  - { id: CATB7-03-DEF-04, name: "roofと共通細分" }
+  - { id: CATB7-03-DEF-05, name: "圏の局所化" }
+theorems:
+  - { id: CATB7-03-THM-01, name: "擬同型の2-out-of-3性質" }
+  - { id: CATB7-03-THM-02, name: "写像錐による擬同型判定" }
+  - { id: CATB7-03-THM-03, name: "擬同型の分母調整と消去" }
+  - { id: CATB7-03-THM-04, name: "roofの合成" }
+  - { id: CATB7-03-THM-05, name: "擬同型を逆にする局所化" }
+canonical_examples: [剰余群への擬同型, 非可縮な完全複体, roofの共通細分]
+problem_patterns: [CATB7-03-A01, CATB7-03-A02, CATB7-03-A03, CATB7-03-A04, CATB7-03-B01, CATB7-03-B02, CATB7-03-B03, CATB7-03-B04, CATB7-03-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 5, review: 2 }

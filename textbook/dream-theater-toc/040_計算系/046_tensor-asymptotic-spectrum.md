@@ -12,3 +12,4 @@
 9. [TSP9 漸近階数・漸近劣階数・Fekete補題と指数](textbook/volumes/dream_thater/計算系/TSP/TSP9/index.md)
 10. [TSP10 前順序付き可換半環と自然数の埋込み](textbook/volumes/dream_thater/計算系/TSP/TSP10/index.md)
 11. [TSP11 スペクトル点：加法性・乗法性・単調性・正規化](textbook/volumes/dream_thater/計算系/TSP/TSP11/index.md)
+12. [TSP12 Strassen漸近スペクトル双対性：仮定・証明の骨格と例](textbook/volumes/dream_thater/計算系/TSP/TSP12/index.md)

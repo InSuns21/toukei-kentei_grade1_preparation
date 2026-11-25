@@ -23,5 +23,5 @@ chapters:
     title: "Floer理論の横断性・コンパクト性・境界"
   - id: FLOER1-05
     path: textbook/volumes/dream_thater/幾何系/FLOER/FLOER1-05
-    status: planned
+    status: completed
     title: "Floer理論の貼り合わせと向き"

@@ -18,10 +18,10 @@
 
 以下、他方の変数を固定した偏微分を
 
-$
+$$
 u_s=\partial_su=du(\partial/\partial s),\qquad
 u_t=\partial_tu=du(\partial/\partial t)
-$
+$$
 
 と書く。$\nabla_s,\nabla_t$ は対応する方向の共変微分である。
 
@@ -488,10 +488,10 @@ $$
 
 実軸では $\lambda=0$、開弧では次の等式が成り立つ。
 
-$
+$$
 \lambda=\sin^2\theta\,d\theta
 =d\left(\frac{\theta}{2}-\frac{\sin(2\theta)}{4}\right).
-$
+$$
 
 積でも原始関数の和が原始関数となり、各因子での横断性から積の交点も横断的である。
 

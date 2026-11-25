@@ -1,0 +1,56 @@
+chapter: CATB7-03
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB7-02, CATB7-01]
+concepts:
+  - id: category.homotopy-category
+    name: 余鎖複体のホモトピー圏
+    kind: definition
+    introduction: formal
+    requires: [category.cochain-homotopy, category.cochain-homotopy-invariance, category.cochain-complex-category]
+  - id: category.cochain-homotopy-equivalence
+    name: 余鎖複体のホモトピー同値
+    kind: definition
+    introduction: formal
+    requires: [category.homotopy-category]
+  - id: category.quasi-isomorphism
+    name: 余鎖複体の擬同型
+    aliases: [quasi-isomorphism]
+    kind: definition
+    introduction: formal
+    requires: [category.cohomology-functor, category.cochain-homotopy-invariance]
+  - id: category.quasi-isomorphism-roof
+    name: roofと共通細分
+    kind: definition
+    introduction: formal
+    requires: [category.homotopy-category, category.quasi-isomorphism]
+  - id: category.category-localization
+    name: 圏の局所化
+    kind: definition
+    introduction: formal
+    requires: [category.homotopy-category]
+  - id: category.quasi-isomorphism-two-of-three
+    name: 擬同型の2-out-of-3性質
+    kind: theorem
+    introduction: formal
+    requires: [category.quasi-isomorphism, category.cohomology-functor]
+  - id: category.quasi-isomorphism-cone-test
+    name: 写像錐による擬同型判定
+    kind: theorem
+    introduction: formal
+    requires: [category.quasi-isomorphism, category.mapping-cone, category.cochain-long-exact-sequence]
+  - id: category.quasi-isomorphism-fraction-calculus
+    name: 擬同型の分母調整と消去
+    kind: lemma
+    introduction: formal
+    requires: [category.quasi-isomorphism-cone-test, category.cochain-shift, category.cochain-homotopy, category.mapping-cone]
+  - id: category.quasi-isomorphism-roof-category
+    name: roofの合成
+    kind: theorem
+    introduction: formal
+    requires: [category.quasi-isomorphism-roof, category.quasi-isomorphism-fraction-calculus, category.quasi-isomorphism-two-of-three]
+  - id: category.quasi-isomorphism-localization
+    name: 擬同型を逆にする局所化
+    kind: theorem
+    introduction: formal
+    requires: [category.category-localization, category.quasi-isomorphism-roof-category]
