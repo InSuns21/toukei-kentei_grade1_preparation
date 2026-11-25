@@ -39,7 +39,21 @@
 それ以外の段階と操作の組では受理フラグ false と元の状態を返す。有限の操作列はこの遷移を左から順に適用し、拒否の場合にも次の操作へ進む。
 <!-- formal-statement-end -->
 
-例えば submit, approve, return, submit, publish を順に与えると、申請、承認、差し戻し、再申請までは受理されます。最後の公開は submitted からなので拒否され、状態は (submitted, false) のままです。拒否後も実行を続ける契約なので、その後の approve, publish はともに受理されます。
+<!-- definition-example-start: def-lvt6-03-workflow -->
+**定義の確認**　初期状態 (draft,false) から submit, approve, return, submit, publish, approve, publish を順に実行します。
+
+| 直前の状態 | 操作 | 受理フラグ | 次状態 |
+|---|---|---|---|
+| (draft,false) | submit | true | (submitted,false) |
+| (submitted,false) | approve | true | (approved,true) |
+| (approved,true) | return | true | (draft,false) |
+| (draft,false) | submit | true | (submitted,false) |
+| (submitted,false) | publish | false | (submitted,false) |
+| (submitted,false) | approve | true | (approved,true) |
+| (approved,true) | publish | true | (published,true) |
+
+初期段階は draft、記録は false で定義の初期条件を満たします。すべての操作が四種類のいずれかで、各行の次状態も四段階と真偽値の組です。受理された行は定義の表にある組に対応します。例えば3行目では approved から return するため記録を false に戻し、7行目では approved から publish するため記録 true を保持します。5行目の (submitted,publish) は表にないので、受理フラグは false で状態の両成分を保持します。拒否でも列の処理を続ける定義なので、6・7行目も実行します。最終状態は (published,true) です。
+<!-- definition-example-end -->
 
 ## 2. 安全性を証明する
 
