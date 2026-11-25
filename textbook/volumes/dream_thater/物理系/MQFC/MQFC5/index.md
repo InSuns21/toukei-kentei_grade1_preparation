@@ -101,7 +101,11 @@ $$
 -\frac{2kp_jP}{a_m^{k+1}}
 $$
 
-となるので帰納できます。$a_m\ge m^2$ により各微分は高々多項式増大です。積の微分則から、各半ノルム $p_{N,r}(w_m v)$ は有限個の $p_{N+q,r}(v)$ の定数倍で抑えられます（$q$ は現れる単項式の指数の和の最大値）。よって $w_m v\in S$ です。多項式 $a_m$ の乗算も同様に $S$ を保ちます。両乗算の積が1であり、[Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier)が全単射だから $C_mA_m=A_mC_m=I$ です。
+となるので帰納できます。$a_m\ge m^2$ により各微分は高々多項式増大です。
+
+積の微分則から、各半ノルム $p_{N,r}(w_m v)$ は有限個の $p_{N+q,r}(v)$ の定数倍で抑えられます（$q$ は現れる単項式の指数の和の最大値）。よって $w_m v\in S$ です。
+
+多項式 $a_m$ の乗算も同様に $S$ を保ちます。両乗算の積が1であり、[Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier)が全単射だから $C_mA_m=A_mC_m=I$ です。
 
 $w_m$ は有界なので[多項式増大関数による緩増加分布](../MQFC1/index.md#prop-mqfc1-polynomial)として定まり、逆Fourier変換も[分布のFourier変換](../MQFC1/index.md#def-mqfc1-duality)により緩増加分布です。[分布微分のFourier表示](../MQFC1/index.md#prop-mqfc1-derivative)と $\widehat{\delta_0}=1$ から
 
@@ -552,7 +556,15 @@ b_{m,\varepsilon}=(2\pi)^{-2}
 \int_{|p|\ge\varepsilon}\frac{|\widehat f(p)|^2}{|p|^2+m^2}\,dp
 $$
 
-と置く。(1) 半径による積分に直せ。(2) $\varepsilon$ 固定での $m\downarrow0$ 極限が有限であることを示せ。(3) 続いて $\varepsilon\downarrow0$ で発散することを下界から示せ。(4) $\widehat g(p)=ip_1\widehat f(p)$ と取り替えると両切断を同時に外せることを示し、極限を求めよ。
+と置く。
+
+(1) 半径による積分に直せ。
+
+(2) $\varepsilon$ 固定での $m\downarrow0$ 極限が有限であることを示せ。
+
+(3) 続いて $\varepsilon\downarrow0$ で発散することを下界から示せ。
+
+(4) $\widehat g(p)=ip_1\widehat f(p)$ と取り替えると両切断を同時に外せることを示し、極限を求めよ。
 
 <!-- solution-start -->
 **詳細解答**
