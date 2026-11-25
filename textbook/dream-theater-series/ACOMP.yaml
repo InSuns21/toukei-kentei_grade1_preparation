@@ -82,7 +82,7 @@ chapters:
     title: "shifted partial derivatives：小さな多項式でランクを計算"
   - id: ACOMP20
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP20
-    status: planned
+    status: completed
     title: "PIT・Schwartz–Zippel・derandomizationと下界の関係"
   - id: ACOMP21
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP21
