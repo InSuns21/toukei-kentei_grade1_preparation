@@ -1,0 +1,35 @@
+chapter: CATB5-01
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB4-08, CAT1-12, CAT2-04, AG2-05, F0-00B1]
+concepts:
+  - id: category.open-cover-matching-family
+    name: "開被覆上の整合族"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（開被覆上の整合族）"]
+    requires: [category.set-valued-presheaf]
+  - id: category.topological-set-sheaf
+    name: "位相空間上の集合値の層"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（位相空間上の集合値の層）"]
+    requires: [category.open-cover-matching-family]
+  - id: category.separated-presheaf
+    name: "分離前層"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（分離前層）"]
+    requires: [category.set-valued-presheaf]
+  - id: category.open-cover-sheaf-equalizer
+    name: "開被覆の等化子による層条件"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（開被覆の等化子による層条件）"]
+    requires: [category.topological-set-sheaf, category.equalizer]
+  - id: category.continuous-map-sheaf
+    name: "連続写像の層"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（連続写像の層）"]
+    requires: [category.topological-set-sheaf]
