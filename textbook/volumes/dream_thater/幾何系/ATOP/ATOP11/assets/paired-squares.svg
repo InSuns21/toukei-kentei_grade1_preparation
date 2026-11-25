@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 182" data-layout-lint="strict" role="img">
+<title>トーラスと Klein の壺の辺の向き</title><desc>左の正方形は上下辺が右向き、左右辺が上向き。右の正方形では右辺だけ下向きであり、左右の高さが反転して貼られる。</desc>
+<g fill="#f0f4f7" stroke="#263c4a" stroke-width="1.5"><rect x="35" y="35" width="100" height="100"/><rect x="225" y="35" width="100" height="100"/></g>
+<g fill="none" stroke="#263c4a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M80 29 L91 35 L80 41 M80 129 L91 135 L80 141 M29 90 L35 79 L41 90 M129 90 L135 79 L141 90"/><path d="M270 29 L281 35 L270 41 M270 129 L281 135 L270 141 M219 90 L225 79 L231 90 M319 79 L325 90 L331 79"/></g>
+<g fill="#263c4a" font-family="sans-serif" font-size="15" text-anchor="middle"><text x="85" y="19">a</text><text x="85" y="156">a</text><text x="15" y="90">b</text><text x="155" y="90">b</text><text x="275" y="19">a</text><text x="275" y="156">a</text><text x="205" y="90">b</text><text x="345" y="90">b</text><text x="85" y="176">T²</text><text x="275" y="176">K</text></g>
+</svg>
