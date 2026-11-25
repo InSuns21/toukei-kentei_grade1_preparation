@@ -5,12 +5,13 @@
 前回構成確定日: 2026-11-18（8 family・25講）
 構成再確定日: 2026-11-19（9 family・31講：268/Haldane–Tasakiを正式採択）
 前回構成確定日: 2026-11-24（12 family・39講：Euler/無外力NS/RH・GRHを採択）
-現行構成確定日: 2026-11-24（13 family・42講：VP/VNP採択）
+前回構成確定日: 2026-11-24（13 family・42講：VP/VNP採択）
+現行構成確定日: 2026-11-25（14 family・46講：107 行列乗算指数採択）
 状態: planned（講義設計確定・EOM固有の章本文は未着手）
 
 ## 0. 目的と研究上の留保
 
-2026年の数学・理論計算機科学・数理物理の研究主張を、基礎科目から原論文へつなぐ**研究読解科目**として扱う。対象は以下の **13 research family（12群の研究講読＋RH/GRHの横断導入）** とする。268 は OpenAI/math のカタログ上の結果群であり、田崎晴明の研究は別著者の関連論文として同じ教材 family に接続する（田崎論文を268の公式構成論文とはしない）。
+2026年の数学・理論計算機科学・数理物理の研究主張を、基礎科目から原論文へつなぐ**研究読解科目**として扱う。対象は以下の **14 research family（13群の研究講読＋RH/GRHの横断導入）** とする。268 は OpenAI/math のカタログ上の結果群であり、田崎晴明の研究は別著者の関連論文として同じ教材 family に接続する（田崎論文を268の公式構成論文とはしない）。
 
 - **074**: 3次元 Kakeya 最大作用素・4次元 Kakeya 集合の次元（従来）
 - **079**: 全次元の波動方程式の local smoothing と Kakeya・restriction 等への帰結（追加）
@@ -28,6 +29,8 @@
 
 - **VP/VNP**: Claude (Anthropic) の任意の体上の算術回路下界・VP/VNP分離・border complexity分離の主張。詳細は [VP/VNP横断ルート（99講）](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md) と [VNP研究講読（24講）](DREAM_THEATER_VP_VNP_PROOF_STUDY_PLAN.md) が所有。
 
+- **107/MMX**: OpenAI 2026-11-24の正方行列乗算指数 $\omega_F=9/4$（任意の体）の主張。上限と下限、有限サイズのrank・border rank、長方形指数の形式化範囲を分ける。詳細は [MMX研究講読（32講）](DREAM_THEATER_MATRIX_MULTIPLICATION_EXPONENT_PROOF_STUDY_PLAN.md) が所有し、VP/VNPの既存基礎5系列75講を共有する。107はLean scopeの番号であり、MMXは教材の予約系列ID。
+
 Euler-BU、NS-BU、RH/GRH、VP/VNPは本PLAN内の便宜的な群名で、OpenAI/mathの数値IDではない。376の計算普遍性、9月の外力付き特異点、11月の無外力特異点を別の命題として扱う。
 
 2026-11-18に追加した3件の起点は [OpenAI の2026年10月26日発表](https://openai.com/index/building-scientific-understanding-with-academic-communities/) と [関連記事](https://finance.biggo.com/news/9dcf4c0c-13a2-40b6-8870-10c6c38e8b49)。**「3件＝研究テーマ3群」であり、「3講追加」ではない。** 079 は 074 と数学的帰結が重なるが、074 の3D/4D幾何的議論と 079 の波動方程式・調和解析からの多次元的含意は異なる中心問いとして扱い、説明・演習を重複させない。
@@ -38,13 +41,13 @@ result family は成果群識別子であって講数ではない。268 は Open
 
 とくにYM/QCDでは2026年11月10日の [Yang–Mills group の第一評価](https://github.com/yang-mills-group/YM) が、2026年10月28日提出の pure Yang–Mills の Wightman 型存在構成を肯定的に評価した一方、**無限体積極限の一意性および正の質量ギャップは示していない**。同グループが審査した pure YM と、QCD・統一模型の非公開または別審査の主張を混ぜない。評価はその提出版と日付に限定する。11月24日確認時点で同グループの一覧には OpenAI の11月4日提出版と Alpöge–Sussman の11月15日提出版が掲載されるが、どちらも審査中（work in progress）である。EOMYMでは3提出版を別の記録にし、新たな肯定的評価が公開されるまで10月28日版の査定を外挿しない。
 
-## 1. 講義数の再確定：全42講
+## 1. 講義数の再確定：全46講
 
-**全42講とする（従来39講 + VP/VNP横断3講）。** 従来38講のIDと順序は維持し、VP/VNPの3講を総括の前に置く。RH/GRHの詳細研究講読23講とVP/VNP横断ルート99講は別PLANであり42講には含めない。 旧25講の8講の橋渡し（079A/B、378A/B、YMA/B/C、QCDA）を維持し、新たに268A/B/Eの3講へ有限スピン・転送作用素・作用素代数/SPTの基礎橋渡しを埋め込む。268C/Dと268の3講は研究論文の異なる証明責務に対応する。講数は証明のまとまりと未習概念の量から決め、1講1論文・15週の時間割には従わない。EOM0 と EOM6、従来の章ID・中心問いを保つ。
+**全46講とする（従来42講 + 行列乗算横断4講）。** 従来第1–41講のIDと順序は維持し、107/MMXの4講を総括の前に置く。RH/GRHの詳細研究講読23講、VP/VNP横断ルート99講、MMX研究講読32講は別PLANであり46講には含めない。MMXとEOMの今回の純増は36講で、共有基礎75講は重複加算しない。 旧25講の8講の橋渡し（079A/B、378A/B、YMA/B/C、QCDA）を維持し、新たに268A/B/Eの3講へ有限スピン・転送作用素・作用素代数/SPTの基礎橋渡しを埋め込む。268C/Dと268の3講は研究論文の異なる証明責務に対応する。講数は証明のまとまりと未習概念の量から決め、1講1論文・15週の時間割には従わない。EOM0 と EOM6、従来の章ID・中心問いを保つ。
 
 | 講 | 予定章ID | 中心問い・到達目標 | prerequisite / 接続 |
 | --- | --- | --- | --- |
-| 1 | **EOM0** | 問題・予想・主張・形式化・独立検証・出版をどう区別するか。13 family の証拠台帳。 | CMP、数学的証明の基礎 |
+| 1 | **EOM0** | 問題・予想・主張・形式化・独立検証・出版をどう区別するか。14 family の証拠台帳。 | CMP、数学的証明の基礎 |
 | 2 | **EOM074A** | Kakeya set を tube 最大作用素へ翻訳し、方向分離・体積・次元・ノルム指数を計算。 | MT8、HA11、GMT1–8・GMT31–36 |
 | 3 | **EOM074B** | 3D Kakeya maximal の評価と多重尺度補題の入力・出力。 | EOM074A |
 | 4 | **EOM074** | 4D Kakeya の Hausdorff 次元4への幾何的入力。 | EOM074B、GMT35–36 |
@@ -85,13 +88,17 @@ result family は成果群識別子であって講数ではない。268 は Open
 | 39 | **EOMVPA** | 算術回路とBoolean回路、VP/VNPと#P、permanent/HCの標数差、exact/border下界の量化を比較。 | EOM0、ACOMP6–12・21–24、VNP1・22–23 |
 | 40 | **EOMVPB** | price・CAT(0)・flat/contractingの二経路が証明する内容を比較し、代表的中間式と証明台帳を読解。 | EOMVPA、VNP2–21（詳細証明は正本参照） |
 | 41 | **EOMVP** | 5主要Lean定理のstatementと検証範囲、紙面のみで完結しない箇所、ETH・P vs NPへの非含意を監査。 | EOMVPB、VNP22–24、FML5–7、EOM378 |
-| 42 | **EOM6** | 定理生成・形式化・独立検証・理論構築・教育の役割分担を13 family で総括。 | EOM0 と全13 family |
+| 42 | **EOM107A** | 高校・大学初年から行列積、Strassenの7積、指数のinfimum、上限の歴史と9/4の意味へ。指数と実測速度を区別する。 | EOM0、MMX1–7、ACOMP/TSP対応章 |
+| 43 | **EOM107B** | 行列積テンソル、漸近スペクトル、Euclidとtripodのprice、球面テンソルと同期の論理を代表計算で比較。 | EOM107A、MMX8–14・19–23、NPCG対応章 |
+| 44 | **EOM107C** | 独立リストの重複判定下界と反復network圧縮の矛盾、有限体への特殊化、算術回路下界の量化を追う。 | EOM107B、MMX15–18・24–30 |
+| 45 | **EOM107** | 正方・長方形の論文とLean scope、tight tensor予想、実用・AI研究への非含意、独立検証の証拠台帳。 | EOM107C、MMX30–32、FML5–7、EOMVP（比較のみ） |
+| 46 | **EOM6** | 定理生成・形式化・独立検証・理論構築・教育の役割分担を14 family で総括。 | EOM0 と全14 family |
 
-内訳：**導入1 + Kakeya(074)3 + local smoothing(079)4 + $\pi$1 + H10(Q)2 + NS計算普遍性2 + スピングラス2 + Haldane–Tasaki(268)6 + ETH3 + YM/QCD6 + Euler-BU4 + NS-BU3 + RH/GRH横断1 + VP/VNP横断3 + 総括1 = 42講**。
+内訳：**導入1 + Kakeya(074)3 + local smoothing(079)4 + $\pi$1 + H10(Q)2 + NS計算普遍性2 + スピングラス2 + Haldane–Tasaki(268)6 + ETH3 + YM/QCD6 + Euler-BU4 + NS-BU3 + RH/GRH横断1 + VP/VNP横断3 + 107/MMX横断4 + 総括1 = 46講**。
 
 従来の橋渡し11講（079A/B・378A/B・YMA/B/C・QCDA・268A/B/E）と新規Euler/NSの前段5講（EOMEULERA–C・EOMNSBUA/B）は、既存の HA/GMT/HPDE、CMP、QFT/AQFT・SM等の学習内容と、専門的な研究原論文の間にある未導入概念を埋めるためのもの。未修の全科目をEOMへ再掲するのではなく、各講で必要な直接例・主要中間式と、到達可能な正本リンクに絞る。特に079と074の重複したKakeya基礎、EOMYMとEOMQCDの共通格子構成を二度証明しない。
 
-## 2. 現在の依存関係と着手可否（2026-11-24再設計）
+## 2. 現在の依存関係と着手可否（2026-11-25再設計）
 
 既存8 familyに関する GitHub の系列 manifest は2026-11-18に再確認した。268系の既存canonical接続は執筆前に章本文・manifestの語義まで追加照合する。**GMT1–36、HA1–11、CMP1–8、QFT1–64、AQFT1–34 は completed**。従来の「GMT2–36進行中・074は続講待ち」は旧スナップショットであり、現在の前提充足判定に使わない。既存正本で実際にどの命題まで証明したかは執筆時に章本文・knowledge.yaml・stable anchor を点検する。
 
@@ -111,9 +118,11 @@ result family は成果群識別子であって講数ではない。268 は Open
 | RH/GRH | ANT7/8 → EOMRH → RHPへの参照（詳細は独立PLANのANF/IWA/AFR等） | 横断導入はRHP全講の完成待ちにしない。実装時にANT正本を確認 |
 | VP/VNP | GCT・ACOMP・TSP・NPCG、LVT第I・II部 → FML（7講） → VNP研究講読 → EOMVPA/B/VP | 既存CPLX・COMB・AGは再利用。新規正本99講はplanned（既存LVT共通14講は別計上）。対応章完成・anchor確認後にEOMを執筆する。 |
 
-**実装推奨順**：EOM0 → 074系 → 079A–079 → 017/004/376/221（各独立）→ 268A–268 → 378A–378 → YMA–YM・QCDA–QCD → EOMEULERA–EOMEULER → EOMNSBUA–EOMNSBU → EOMRH → EOMVPA–EOMVP → EOM6。上の表の順序は学修の依存を表示するもので、別々のfamilyは独立に着手してよい。YM/QCD の論文が非公開・検証中の場合でも**基礎橋渡しは執筆可能**。未公開の主定理を教材として既証明扱いにしない。
+| 107/MMX | GCT・ACOMP・TSP・NPCG・FMLの既存計75講（選択履修）→ MMX1–32 → EOM107A/B/C/107 | **新規研究講読32講・横断4講が必要**。VNP全24講を必修にせず、類似のprice/圧縮は別著者の証明として照合する。対応章完成後に横断講を執筆。 |
 
-**PLAN状態**：EOM固有の本文・検証・監査は未着手のため引き続き plans に置き、今回の変更では EOM.yaml を作成しない。最初の実装を始めた作業単位で plans_progress に移し、EOM系列manifest（全42講・plannedから開始）と path を整合させる。全章・公開導線・検証が揃ってから plan_done に移す。
+**実装推奨順**：EOM0 → 074系 → 079A–079 → 017/004/376/221（各独立）→ 268A–268 → 378A–378 → YMA–YM・QCDA–QCD → EOMEULERA–EOMEULER → EOMNSBUA–EOMNSBU → EOMRH → EOMVPA–EOMVP → EOM107A–EOM107 → EOM6。上の表の順序は学修の依存を表示するもので、別々のfamilyは独立に着手してよい。YM/QCD の論文が非公開・検証中の場合でも**基礎橋渡しは執筆可能**。未公開の主定理を教材として既証明扱いにしない。
+
+**PLAN状態**：EOM固有の本文・検証・監査は未着手のため引き続き plans に置き、今回の変更では EOM.yaml を作成しない。最初の実装を始めた作業単位で plans_progress に移し、EOM系列manifest（全46講・plannedから開始）と path を整合させる。全章・公開導線・検証が揃ってから plan_done に移す。
 
 ## 3. 各 family の正確な論点と証明責務
 
@@ -221,6 +230,15 @@ result family は成果群識別子であって講数ではない。268 は Open
 - EOMVPAでは定義と下界の意味、EOMVPBではpriceからCAT(0)、flat/contracting分岐と両下界の結合、EOMVPではexact/border・全標数・5 theoremのstatement matchingとP vs NPの非含意を扱う。flatとcontractingは排他的と証明されていない。詳しい補題・演習は[VNP24講](DREAM_THEATER_VP_VNP_PROOF_STUDY_PLAN.md) と [99講ルート](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md) を正本にし重複しない。
 - 原論文はH.2(d,e)、I.1、J.3、N.4の完全な正しさについてLeanに依存する旨を明記。READMEは公開時点で数学者の確認がないと記載。著者報告の形式化・比較器の設定、独立再ビルド、数学者の検証、出版は別欄にする。本PLAN設計では再ビルド未実施。EOM378のETH反証の主張とVP/VNPおよびP/NPは別命題。
 
+### 3.14 107/MMX：行列乗算指数の確定とテンソル幾何学
+
+- 原論文の主張は任意の体上の形式的算術回路で $\omega_F=9/4$。上界（10月2日版と任意標数への拡張）と下界（11月24日版）を分離し、任意の $\varepsilon>0$ で $O_{F,\varepsilon}(n^{9/4+\varepsilon})$ と厳密な $O(n^{9/4})$ の存在を混同しない。
+- EOM107Aでは2×2行列積と7積の恒等式を計算し、通常法の$n^3$、再帰指数$\log_2 7$、理論上限/下限を同じモデルで比較する。古典的な二次の定数倍rank下界は指数が2を超えることを意味しない。
+- EOM107B–Cでは独立した3辺と共有ラベルのpriceを計算し、Euclidの比2とtripodの臨界比$6/(8/3)$の差を確認する。これだけで下界を証明したことにはならない。球面テンソル、同期、sorting/lookup、arity集中と圧縮、独立リスト下界の依存をMMXで追う。論文のbit tensor network下界を通常RAMの重複判定下界と混同しない。
+- MMXでは同日版のEuclidean geometry・Circuit lower boundsの関連補題を明示して再構成する。VNPの既存基礎を共有するが、AnthropicのVP/VNP論文とOpenAIの関連論文を同一証明としない。既存TSP等を重複講義しない。
+- EOM107は有限サイズの非スカラー乗算/除算ゲート下界$\lceil n^{9/4}/2\rceil$、幾何的border rank下界$n^{9/4}$、漸近rankの等式、tight tensor予想への反例を区別する。原論文の長方形の帰結 $1/2\le\alpha_F\le2/3$ とLean scope 107のより強い $\alpha_F=1/2$・長方形指数公式は別に照合する。論文の除算ありモデルとLeanの除算なしモデルを分ける。
+- 著者の形式化公開は独立検証完了とは別。Lean再実行・全公理監査・専門家による独立検証は本設計では未実施。定数、メモリ、数値安定性、GPU実測、一般のbit complexity、P vs NP、RSIをこの定理から直接結論しない。
+
 ## 4. EOM各章の統一フォーマットと検証状態
 
 各講は次を基本形とする。family の前段講と後段講で不要に重複させない。
@@ -261,6 +279,8 @@ result family は成果群識別子であって講数ではない。268 は Open
 - James Glimm and Arthur Jaffe, [Quantum Physics: A Functional Integral Point of View](https://link.springer.com/book/10.1007/978-1-4612-4728-9): 構成的量子場理論、反射陽性、極限と相関関数。EOMYMB/C の基礎（4D YM の完成証明書と混同しない）。
 - Arthur Jaffe and Edward Witten, [Yang–Mills Existence and Mass Gap: Official Problem Description](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf): 存在と正の質量ギャップの同時要請、証拠水準の比較。
 
+- 107/MMXの標準書は[MMX計画第5節](DREAM_THEATER_MATRIX_MULTIPLICATION_EXPONENT_PROOF_STUDY_PLAN.md#5-市販教科書公開テキストによる校正基準)に集約。Bürgisser–Clausen–Shokrollahi、Landsberg、Wigderson–Zuiddam、Bridson–Haefliger、Knuthの公開目次・テキストを章割りの基準にした。新規定理の証拠は2026年一次資料に分ける。
+
 ### 2026年原資料
 
 - Euler-BU: [arXiv原論文](https://arxiv.org/abs/2611.26772)、[著者のLean・spine対応](https://github.com/mcoiculescu/EulerBlowupPublic)、[Tao 11月23日解説](https://terrytao.wordpress.com/2026/11/23/finite-time-singularity-formation-for-the-three-dimensional-euler-equations/)。
@@ -278,25 +298,29 @@ result family は成果群識別子であって講数ではない。268 は Open
 - 378: [ETH反証 原論文](https://github.com/openai/math/tree/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026) / [Lean scope](https://github.com/openai/math/blob/main/lean/docs/378.md) / [10月26日公式説明](https://openai.com/index/building-scientific-understanding-with-academic-communities/)。
 - YM/QCD: [OpenAI 10月26日発表](https://openai.com/index/building-scientific-understanding-with-academic-communities/) / [Yang–Mills group 現行資料](https://github.com/yang-mills-group/YM)（10月28日提出版に対する11月10日付 first assessment、改訂提出版は別扱い） / [Clay 公式問題](https://www.claymath.org/millennium/yang-mills-the-maths-gap/)。QCDと統一模型はpure YM査定から外挿しない。
 
-追加3群とYM再照合の資料確認基準日は **2026-11-24 JST**（既存群の前回確認は2026-11-19、従来5 familyの記述の起点は2026-11-09、追加3件の前回構成は2026-11-18）。この一覧は全13 family の査読付き出版・証明完了認定ではない。Yang–Mills group の2026-11-10 assessment は明示した版の**限定的な独立評価**であり、他の family やQCDの検証完了を意味しない。本文執筆時は原論文・提出版のSHA・対象 theorem と形式化・評価範囲を再点検する。
+追加3群とYM再照合の資料確認基準日は **2026-11-24 JST**（既存群の前回確認は2026-11-19、従来5 familyの記述の起点は2026-11-09、追加3件の前回構成は2026-11-18）。この一覧は全14 family の査読付き出版・証明完了認定ではない。Yang–Mills group の2026-11-10 assessment は明示した版の**限定的な独立評価**であり、他の family やQCDの検証完了を意味しない。本文執筆時は原論文・提出版のSHA・対象 theorem と形式化・評価範囲を再点検する。
 
 - VP/VNP: [Claude v1](https://hexagonmath.org/2611.00954v1) / [paper・Lean](https://github.com/anthropics/formal-math/tree/main/vp-vnp) / [Statement](https://github.com/anthropics/formal-math/blob/main/vp-vnp/Statement.lean) / [Comparator](https://github.com/anthropics/formal-math/blob/main/vp-vnp/comparator.json)。標準書は[関連6系列](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md)に集約。
 
+- 107/MMX: [11月24日下界論文](https://github.com/openai/math/tree/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026) / [同日Euclidean geometry](https://github.com/openai/math/tree/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026) / [同日Circuit lower bounds](https://github.com/openai/math/tree/main/preprints/Circuit-lower-bounds-for-Hamiltonian-cycle-and-the-permanent-November-24-2026) / [Lean scope 107](https://github.com/openai/math/blob/main/lean/docs/107.md) / [形式化](https://github.com/openai/math/blob/main/lean/OAI/LinearAlgebra/SpectralBooks/ExactExponent.lean)。2026-11-25に主論文のLaTeX構成・導入・下界の論理・帰結・参考文献、関連論文の構成とLean statementを確認。独立再ビルド・全証明監査は未実施。
+
 ## 6. 完成条件
+
+- [ ] EOM107A/B/C/107の4講はMMX32講の正本を参照し、指数のinfimum、上界/下界、price、独立リスト下界、全体への特殊化、rankの種類、正方論文と長方形Lean scopeの差、実用上の停止線を検査する。
 
 - [ ] EOMVPA/B/VPの3講はVNP系列の対応正本を参照し、算術回路下界とBoolean回路、特性2、形式的近似、Lean依存箇所、未検証範囲を区別する。
 
-- [ ] EOM manifest に**42講**を順序・ID・prerequisite付きで登録し、実際に完成した章のみ completed とする。
+- [ ] EOM manifest に**46講**を順序・ID・prerequisite付きで登録し、実際に完成した章のみ completed とする。
 - [ ] 各章の本文・chapter.yaml・knowledge.yaml と prerequisite・stable anchor が対応する。
 - [ ] 全主要定義、主定理、核心の中間補題、演習と詳細解答が独習者に再構成可能な粒度にある。
-- [ ] **13 family** で主張・証明 artifact・形式化・独立査読・出版・賞を混同せず、基準日と未確認事項を示す。
+- [ ] **14 family** で主張・証明 artifact・形式化・独立査読・出版・賞を混同せず、基準日と未確認事項を示す。
 - [ ] 079A–B・378A–B・YMA–C・QCDA・268A/B/E の**橋渡し11講**で不足する基礎概念を導入し、QFT/AQFT・CMP・HA/GMT・SM等の既存成果は参照・重複抑制する。
 - [ ] 079 と074のKakeya重複を解消し、restriction・Bochner–Riesz 等の指数・端点の差を原論文/Leanで照合する。
 - [ ] 268A–E・268 の6講で周期鎖と境界場付き開放鎖のギャップ、田崎氏の条件付きSPT/指数同値性、無限鎖の**並進不変**一意性を区別し、証明書の再計算・解析的証明・第三者検証の証拠台帳を付ける。
 - [ ] 378 の原論文とLeanで異なる時間指数を照合し、ETH反証とP vs NPを混同しない。
 - [ ] 4D pure YMの存在・無限体積極限の一意性・正の質量ギャップ・QCD/統一模型を分離し、2026-11-10 assessmentを過大評価しない。
 - [ ] GMT からの canonical prerequisite を満たし、Kakeya の集合版・次元版・最大作用素版とlocal smoothingの論理的帰結を混同しない。
-- [ ] 今回確定した13 family の外へEOMを無制限に増やさず、独立した基礎科目は正規PLANで扱う。
+- [ ] 今回確定した14 family の外へEOMを無制限に増やさず、独立した基礎科目は正規PLANで扱う。
 - [ ] Euler-BUの4講で波の増幅、endpoint問題、残差・多重尺度、極限と特異点を分離し、紙面とLeanの対応・差を記録する。
 - [ ] NS-BUの3講でprofileからbreakdownへの条件付き推論を追い、数値証明書本体・区間演算・patched版ビルドの確認状況を分ける。未公開入力を既証明扱いしない。
 - [ ] RH/GRHの横断1講で形式認証と自然言語証明の射程を比較し、RHPへの導線を維持する。RHPの23講を重複実装しない。
@@ -325,6 +349,6 @@ EOM268Aの線形代数・量子スピン行列の直接計算を出発点とし�
 
 ### 7.2 着手・完成の判定
 
-今回行うのは**PLANへの正式採択・章割り・前提設計**までである。EOMの章本文・章別chapter.yaml/knowledge.yaml・manifest・公開導線は未着手として扱い、最初の実装単位で plans_progress に移してEOM系列を当時の31講で登録する設計だった（現行は第1節の42講を登録する）。講義内では定理・証明の全依存、有限計算の再現条件、場合分けされた基底状態の一意性の量化を検査する。原論文の評価に疑義が残る場合は明記し、教材で無条件の既知定理にしない。
+今回行うのは**PLANへの正式採択・章割り・前提設計**までである。EOMの章本文・章別chapter.yaml/knowledge.yaml・manifest・公開導線は未着手として扱い、最初の実装単位で plans_progress に移してEOM系列を当時の31講で登録する設計だった（現行は第1節の46講を登録する）。講義内では定理・証明の全依存、有限計算の再現条件、場合分けされた基底状態の一意性の量化を検査する。原論文の評価に疑義が残る場合は明記し、教材で無条件の既知定理にしない。
 
 この採択時点の資料確認基準日: **2026-11-19**。268はOpenAIカタログの結果IDであり、講数ではない。
