@@ -580,7 +580,7 @@ $$
 
 以下です。極座標で最後の積分は $2\pi\int_0^\infty r(1+r)^{-4}dr$ です。$u=1+r$ と置くと $du/dr=1$、$r=u-1$ です。[置換積分](../../../基礎科目/RA/RA4/index.md#thm-ra4-substitution) を有限区間 $0\le r\le R$ に適用し、上端 $1+R$ を無限大に送ると
 
-$
+$$
 \int_0^\infty r(1+r)^{-4}\,dr
 =\int_1^\infty(u^{-3}-u^{-4})\,du
 =\frac12-\frac13=\frac16.
