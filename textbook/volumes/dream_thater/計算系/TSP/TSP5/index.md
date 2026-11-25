@@ -4,9 +4,17 @@
 
 ## 1. 独立した座標領域に並べる
 
-以下では任意の体 $K$ と因子数 $d\ge2$ を固定します。各位置の空間は有限次元です。$t\in\bigotimes_{a=1}^d V_a$、$s\in\bigotimes_{a=1}^d W_a$ とします。[テンソル階数](../TSP2/index.md#def-tsp2-tensor-rank) と [テンソル劣階数](../TSP4/index.md#def-tsp4-subrank) には記号 $R_K,Q_K$ を用います。
+以下では任意の体 $K$ と因子数 $d\ge2$ を固定します。各位置の空間は有限次元です。入力を
 
-二つの材料を混ぜずに並べるには、位置 $a$ ごとに空間を $V_a\oplus W_a$ に広げます。ここで空間の直和とは組 $(v,w)$ を成分ごとに加算・スカラー倍する空間です。包含写像 $i_a(v)=(v,0)$、$j_a(w)=(0,w)$ により、それぞれの材料を別の座標に置けます。
+$$
+t\in\bigotimes_{a=1}^d V_a,\qquad s\in\bigotimes_{a=1}^d W_a
+$$
+
+とします。[テンソル階数](../TSP2/index.md#def-tsp2-tensor-rank) と [テンソル劣階数](../TSP4/index.md#def-tsp4-subrank) には記号 $R_K,Q_K$ を用います。
+
+二つの材料を混ぜずに並べるには、位置 $a$ ごとに空間を $V_a\oplus W_a$ に広げます。ここで空間の直和とは組 $(v,w)$ を成分ごとに加算・スカラー倍する空間です。
+
+包含写像 $i_a(v)=(v,0)$、$j_a(w)=(0,w)$ により、それぞれの材料を別の座標に置けます。
 
 <a id="def-tsp5-direct-sum"></a>
 
@@ -23,7 +31,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-tsp5-direct-sum -->
-**定義の確認**。$d=3$ として全ての $V_a=W_a=K$ を取り、$t=1\otimes1\otimes1$、$s=1\otimes1\otimes1$ とします。直和空間 $K\oplus K$ の基底を $e_1=(1,0),e_2=(0,1)$ とすると、各包含写像は $1$ をそれぞれ $e_1,e_2$ へ送ります。[局所線形写像のテンソル積](../TSP4/index.md#def-tsp4-local-map) の作用から
+**定義の確認**。$d=3$ として全ての $V_a=W_a=K$ を取り、二つの入力を
+
+$$
+t=1\otimes1\otimes1,\qquad s=1\otimes1\otimes1
+$$
+
+とします。直和空間 $K\oplus K$ の基底を $e_1=(1,0),e_2=(0,1)$ とすると、各包含写像は $1$ をそれぞれ $e_1,e_2$ へ送ります。
+
+[局所線形写像のテンソル積](../TSP4/index.md#def-tsp4-local-map) の作用から
 
 $$
 t\oplus s=e_1^{\otimes3}+e_2^{\otimes3}.
@@ -47,7 +63,9 @@ $$
 
 ## 2. 各位置で座標を組にする
 
-二つの材料を同時に使用して、位置 $a$ が二つの入力を保持する操作を考えます。空間を $V_a\otimes W_a$ に替え、元のテンソル積の因子を位置ごとに並べ替えます。これがKronecker積です。単なる $2d$ 因子のテンソル積と異なり、組にした後は $d$ 因子として扱います。
+二つの材料を同時に使用して、位置 $a$ が二つの入力を保持する操作を考えます。空間を $V_a\otimes W_a$ に替え、元のテンソル積の因子を位置ごとに並べ替えます。これがKronecker積です。
+
+単なる $2d$ 因子のテンソル積と異なり、組にした後は $d$ 因子として扱います。
 
 <a id="def-tsp5-kronecker"></a>
 
@@ -105,7 +123,15 @@ $$
 
 [前順序](../../../基礎論系/CAT/CAT1-02/index.md#def-cat1-02-preorder) の条件を振り返ります。集合上の二項関係が、自分自身との関係が常に成立するという反射律と、$x\preceq y$ と $y\preceq z$ から $x\preceq z$ が従うという推移律を満たすとき、前順序です。
 
-例えば $X=\{a,b,c\}$ とし、$a,b$ に値0、$c$ に値1を対応させる関数 $f$ を取ります。$x\preceq y$ を $f(x)\le f(y)$ で定めます。任意の $x$ について $f(x)\le f(x)$ なので反射律があり、$f(x)\le f(y)\le f(z)$ なら $f(x)\le f(z)$ なので推移律もあります。しかし $a\preceq b$ かつ $b\preceq a$ でも $a\ne b$ です。
+例えば $X=\{a,b,c\}$ とし、$a,b$ に値0、$c$ に値1を対応させる関数 $f$ を取ります。$x\preceq y$ を $f(x)\le f(y)$ で定めます。
+
+任意の $x$ について $f(x)\le f(x)$ なので反射律があり、次の含意が成立するので推移律もあります。
+
+$$
+f(x)\le f(y)\le f(z)\ \Longrightarrow\ f(x)\le f(z).
+$$
+
+しかし $a\preceq b$ かつ $b\preceq a$ でも $a\ne b$ です。
 
 [半順序](../../../基礎科目/F0/F0-00A1D/index.md#def-f0-00a1d-partial-order) では、さらに両方向の関係が成立すれば元が等しいという反対称律を要求します。制限で比較する対象は、集合として扱うため各有限次元空間の標準座標表示を使います。すなわち次元の組 $(n_1,\ldots,n_d)$ と係数配列を一つのデータとします。基底変更は可逆な局所線形写像で実現されるため、比較結果は基底の選択に依存しません。
 
@@ -141,7 +167,16 @@ $$
 [多因子テンソル積の存在・基底・一意性](../TSP1/index.md#thm-tsp1-multifactor-basis) により単純テンソルは空間全体を張るので、二つの線形写像は全体で一致します。従って $u=(\bigotimes_a B_aA_a)t$ です。各 $B_aA_a:V_a\to U_a$ は線形写像であり、$u\preceq t$ が成立します。
 <!-- proof-end -->
 
-反対称性は一般には成立しません。$d=3$ として $t=1^{\otimes3}\in K^{\otimes3}$、$s=e_1^{\otimes3}\in(K^2)^{\otimes3}$ を取ります。各位置で $1\mapsto e_1$ とすれば $s\preceq t$、逆に $e_1\mapsto1,e_2\mapsto0$ とすれば $t\preceq s$ です。次元の組が異なるため元のデータは等しくありません。使われない座標を付け足すだけでは変換能力は変わらないのです。
+反対称性は一般には成立しません。$d=3$ として
+
+$$
+t=1^{\otimes3}\in K^{\otimes3},\qquad
+s=e_1^{\otimes3}\in(K^2)^{\otimes3}
+$$
+
+を取ります。各位置で $1\mapsto e_1$ とすれば $s\preceq t$ です。逆に $e_1\mapsto1,e_2\mapsto0$ とすれば $t\preceq s$ です。
+
+次元の組が異なるため元のデータは等しくありません。使われない座標を付け足すだけでは変換能力は変わらないのです。
 
 <a id="def-tsp5-restriction-equivalence"></a>
 
@@ -155,7 +190,25 @@ $$
 **定義の確認**。上の $t=1^{\otimes3}$、$s=e_1^{\otimes3}$ では、各位置の包含と射影がそれぞれの変換を実現します。双方の制限が成立しているため $t\sim s$ です。空間の次元が一致することは条件ではありません。
 <!-- definition-example-end -->
 
-この関係は反射性・対称性・推移性を持つ同値関係です。反射性は制限の反射性から、対称性は定義の両方向性から従います。$r\sim s$、$s\sim t$ なら $r\preceq s\preceq t$ と $t\preceq s\preceq r$ が成立し、[制限の前順序性](#thm-tsp5-restriction-preorder) により $r\sim t$ となります。同値なテンソルをまとめた集合を $[t]$ と書けば、$[s]\preceq[t]$ を $s\preceq t$ で定められます。代表元 $s'\sim s$、$t'\sim t$ に替えても $s'\preceq s\preceq t\preceq t'$ となり、逆方向の代表元変更も成立します。両方向に比較できれば同じ同値類なので、この集合上では半順序になります。
+この関係は反射性・対称性・推移性を持つ同値関係です。反射性は制限の反射性から、対称性は定義の両方向性から従います。
+
+$r\sim s$、$s\sim t$ なら
+
+$$
+r\preceq s\preceq t,\qquad t\preceq s\preceq r
+$$
+
+が成立し、[制限の前順序性](#thm-tsp5-restriction-preorder) により $r\sim t$ となります。
+
+同値なテンソルをまとめた集合を $[t]$ と書けば、$[s]\preceq[t]$ を $s\preceq t$ で定められます。代表元 $s'\sim s$、$t'\sim t$ に替えても
+
+$$
+s'\preceq s\preceq t\preceq t'
+$$
+
+となり、逆方向の代表元変更も成立します。
+
+両方向に比較できれば同じ同値類なので、この集合上では半順序になります。
 
 ## 4. 変換を並行して行う
 
@@ -187,7 +240,13 @@ $$
 C_a(v,w)=(A_av,B_aw)
 $$
 
-と定めます。成分ごとの線形性により線形写像です。入力側の包含を $i_a,j_a$、出力側の包含を $i'_a,j'_a$ とすると、各 $v,w$ について $C_ai_a(v)=i'_aA_a(v)$、$C_aj_a(w)=j'_aB_a(w)$ です。従って [局所線形写像のテンソル積](../TSP4/index.md#def-tsp4-local-map) の作用を用いて
+と定めます。成分ごとの線形性により線形写像です。入力側の包含を $i_a,j_a$、出力側の包含を $i'_a,j'_a$ とすると、各 $v,w$ について
+
+$$
+C_ai_a(v)=i'_aA_a(v),\qquad C_aj_a(w)=j'_aB_a(w)
+$$
+
+です。従って [局所線形写像のテンソル積](../TSP4/index.md#def-tsp4-local-map) の作用を用いて
 
 $$
 \begin{aligned}
@@ -198,7 +257,19 @@ $$
 \end{aligned}
 $$
 
-Kronecker積では $L_a=A_a\otimes B_a:V_a\otimes W_a\to V'_a\otimes W'_a$ を使います。$t,s$ を積の基底によって $t=\sum_i t_i\bigotimes_a v_{ai}$、$s=\sum_j s_j\bigotimes_a w_{aj}$ と表示します。ここで $i,j$ はそれぞれの基底添字の組です。[テンソルのKronecker積](#def-tsp5-kronecker) を展開して
+Kronecker積では次の局所線形写像を使います。
+
+$$
+L_a=A_a\otimes B_a:V_a\otimes W_a\to V'_a\otimes W'_a.
+$$
+
+$t,s$ を積の基底によって
+
+$$
+t=\sum_i t_i\bigotimes_a v_{ai},\qquad s=\sum_j s_j\bigotimes_a w_{aj}
+$$
+
+と表示します。ここで $i,j$ はそれぞれの基底添字の組です。[テンソルのKronecker積](#def-tsp5-kronecker) を展開して
 
 $$
 \begin{aligned}
@@ -243,7 +314,13 @@ $$
 
 各位置の逆写像も線形であるため双方の制限が得られます。
 
-次に $r,q>0$ とします。$K^r\otimes K^q\to K^{rq}$ を基底の組 $e_i\otimes f_j$ から $g_{(i-1)q+j}$ への線形写像とします。番号は1から $rq$ まで重複なく現れます。[テンソルのKronecker積](#def-tsp5-kronecker) の作用式から
+次に $r,q>0$ とします。$K^r\otimes K^q\to K^{rq}$ の線形写像を、基底の対応
+
+$$
+e_i\otimes f_j\longmapsto g_{(i-1)q+j}
+$$
+
+で定めます。番号は1から $rq$ まで重複なく現れます。[テンソルのKronecker積](#def-tsp5-kronecker) の作用式から
 
 $$
 D_r\boxtimes D_q=
@@ -281,7 +358,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$r=R_K(t)$、$q=R_K(s)$ と置きます。[対角テンソルによる階数の特徴付け](../TSP4/index.md#thm-tsp4-rank-restriction) から $t\preceq D_r$、$s\preceq D_q$ です。[直和・Kronecker積と制限の両立性](#thm-tsp5-operation-monotonicity) を適用し、[対角テンソルの直和とKronecker積](#thm-tsp5-diagonal-operations) と推移性を用いると
+$r=R_K(t)$、$q=R_K(s)$ と置きます。[対角テンソルによる階数の特徴付け](../TSP4/index.md#thm-tsp4-rank-restriction) から
+
+$$
+t\preceq D_r,\qquad s\preceq D_q
+$$
+
+です。[直和・Kronecker積と制限の両立性](#thm-tsp5-operation-monotonicity) を適用し、[対角テンソルの直和とKronecker積](#thm-tsp5-diagonal-operations) と推移性を用いると
 
 $$
 t\oplus s\preceq D_r\oplus D_q\preceq D_{r+q},
@@ -345,7 +428,9 @@ $$
 <!-- solution-start -->
 ##### 詳細解答
 
-$T$ の行の次元は2、列の次元は2です。$S$ の行は1、列は2なので、新しい行は2、列は4です。[テンソルのKronecker積](#def-tsp5-kronecker) の係数公式で、行 $(i,1)$、列 $(k,j)$ の成分は $T_{ik}S_{1j}$ となります。列順を $(1,1),(1,2),(2,1),(2,2)$ とすれば
+$T$ の行の次元は2、列の次元は2です。$S$ の行は1、列は2なので、新しい行は2、列は4です。
+
+[テンソルのKronecker積](#def-tsp5-kronecker) を基底で展開すると、行 $(i,1)$、列 $(k,j)$ の成分は $T_{ik}S_{1j}$ となります。列順を $(1,1),(1,2),(2,1),(2,2)$ とすれば
 
 $$
 T\boxtimes S=
@@ -370,7 +455,13 @@ $D_2\oplus D_3$ と $D_2\boxtimes D_3$ はそれぞれどの対角テンソル�
 
 直和では前半の二基底を $g_1,g_2$、後半の三基底を $g_3,g_4,g_5$ へ送ります。像は $\sum_{i=1}^5 g_i^{\otimes3}=D_5$ です。
 
-Kronecker積では $e_i\otimes f_j$ を $g_{3(i-1)+j}$ へ送ります。$i=1$ のとき番号1〜3、$i=2$ のとき番号4〜6です。像は $\sum_{k=1}^6 g_k^{\otimes3}=D_6$ です。双方とも基底の全単射なので逆写像が存在し、[制限同値](#def-tsp5-restriction-equivalence) の条件を満たします。
+Kronecker積では $e_i\otimes f_j$ を $g_{3(i-1)+j}$ へ送ります。$i=1$ のとき番号1〜3、$i=2$ のとき番号4〜6です。像は
+
+$$
+\sum_{k=1}^6 g_k^{\otimes3}=D_6
+$$
+
+です。双方とも基底の全単射なので逆写像が存在し、[制限同値](#def-tsp5-restriction-equivalence) の条件を満たします。
 <!-- solution-end -->
 
 <a id="ex-tsp5-a04"></a>
@@ -456,7 +547,7 @@ $$
 t\boxtimes D_1\preceq t\boxtimes s.
 $$
 
-各位置の空間 $V_a\otimes K$ から $V_a$ へ $v\otimes c\mapsto cv$ と送る線形写像を取ります。基底 $e_i\otimes1$ が基底 $e_i$ に対応するため可逆です。Kronecker積の係数公式により $t\boxtimes D_1$ の像は $t$ です。推移性で $t\preceq t\boxtimes s$ を得ます。
+各位置の空間 $V_a\otimes K$ から $V_a$ へ $v\otimes c\mapsto cv$ と送る線形写像を取ります。基底 $e_i\otimes1$ が基底 $e_i$ に対応するため可逆です。[テンソルのKronecker積](#def-tsp5-kronecker) の定義を基底上で展開すれば、各係数に $D_1$ の唯一の係数1を掛けるだけなので、$t\boxtimes D_1$ の像は $t$ です。推移性で $t\preceq t\boxtimes s$ を得ます。
 
 $s=0$ なら全ての積の係数が0なので $t\boxtimes s=0$ です。線形写像は零を零に送るため非零 $t$ を取り出せません。
 <!-- solution-end -->
@@ -481,7 +572,17 @@ $$
 
 を考えます。各基底を $e_i,f_j,h_k$ とし、基底 $(e_i,0)\otimes h_k$ を $(e_i\otimes h_k,0)$ に、$(0,f_j)\otimes h_k$ を $(0,f_j\otimes h_k)$ に送ります。左右の基底が一対一に対応するので線形に延長して可逆な写像を得ます。
 
-[テンソルの直和](#def-tsp5-direct-sum) には全位置が $V$ 側の項と全位置が $W$ 側の項しかありません。[テンソルのKronecker積](#def-tsp5-kronecker) で $u$ の各項と組にした後、前者は全位置で第1領域 $(V_a\otimes U_a,0)$ に入り、後者は第2領域 $(0,W_a\otimes U_a)$ に入ります。係数はそれぞれ元の $t$ と $u$、$s$ と $u$ の係数の積です。ゆえに像は $(t\boxtimes u)\oplus(s\boxtimes u)$ です。逆写像も各位置に作用するので制限同値です。
+[テンソルの直和](#def-tsp5-direct-sum) には全位置が $V$ 側の項と全位置が $W$ 側の項しかありません。
+
+[テンソルのKronecker積](#def-tsp5-kronecker) で $u$ の各項と組にした後、前者は全位置で第1領域 $(V_a\otimes U_a,0)$ に入り、後者は第2領域 $(0,W_a\otimes U_a)$ に入ります。
+
+係数はそれぞれ元の $t$ と $u$、$s$ と $u$ の係数の積です。ゆえに像は
+
+$$
+(t\boxtimes u)\oplus(s\boxtimes u)
+$$
+
+です。逆写像も各位置に作用するので制限同値です。
 <!-- solution-end -->
 
 ### Level C
@@ -515,7 +616,15 @@ $$
 
 中間の不等式も各テンソルに基本評価を適用すれば従います。帰納法により成立します。
 
-$w$ については [三因子の階数3の例](../TSP2/index.md#thm-tsp2-three-factor-rank) から $R_K(w)=3$ です。また $w$ は非零なので [劣階数の基本評価](../TSP4/index.md#thm-tsp4-subrank-bounds) により $Q_K(w)\ge1$ です。従って最初の評価は $1\le Q_K(w^{\boxtimes2})\le R_K(w^{\boxtimes2})\le9$ となります。
+$w$ については [三因子の階数3の例](../TSP2/index.md#thm-tsp2-three-factor-rank) から $R_K(w)=3$ です。また $w$ は非零なので [劣階数の基本評価](../TSP4/index.md#thm-tsp4-subrank-bounds) により $Q_K(w)\ge1$ です。
+
+従って最初の評価は
+
+$$
+1\le Q_K(w^{\boxtimes2})\le R_K(w^{\boxtimes2})\le9
+$$
+
+となります。
 
 位置1を行、位置2と3を列にまとめる [テンソルの平坦化](../TSP3/index.md#def-tsp3-flattening) を行います。元の行列を
 
@@ -523,7 +632,7 @@ $$
 M=\begin{pmatrix}0&1&1&0\\1&0&0&0\end{pmatrix}
 $$
 
-と書きます。Kronecker積の係数公式から、$w^{\boxtimes2}$ の平坦化は、列の並べ替えを除いて $M\boxtimes M$ です。実際、行は元の行番号の組 $(i,i')$、列は元の列番号の組 $((j,k),(j',k'))$ であり、成分は $M_{i,(j,k)}M_{i',(j',k')}$ となります。
+と書きます。[テンソルのKronecker積](#def-tsp5-kronecker) を基底で展開すると、$w^{\boxtimes2}$ の平坦化は、列の並べ替えを除いて $M\boxtimes M$ です。実際、行は元の行番号の組 $(i,i')$、列は元の列番号の組 $((j,k),(j',k'))$ であり、成分は $M_{i,(j,k)}M_{i',(j',k')}$ となります。
 
 $M$ の第1列は $(0,1)^{\mathsf T}$、第2列は $(1,0)^{\mathsf T}$ です。これらの列の四つの組 $(1,1),(1,2),(2,1),(2,2)$ から、$M\boxtimes M$ の4次元の標準基底が全て得られます。行数も4なので行列階数はちょうど4です。この計算は任意の体で成立します。
 
