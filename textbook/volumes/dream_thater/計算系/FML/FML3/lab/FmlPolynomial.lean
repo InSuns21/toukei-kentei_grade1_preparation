@@ -12,8 +12,8 @@ theorem eval_generators {σ R S : Type*} [CommSemiring R] [CommSemiring S]
 theorem finite_field_same_values (a : Unit → ZMod 2) :
     eval a ((X () : MvPolynomial Unit (ZMod 2)) ^ 2) = eval a (X ()) := by
   simp only [map_pow, eval_X]
-  generalize h : a () = z
-  fin_cases z <;> decide
+  letI : Fact (Nat.Prime 2) := ⟨by decide⟩
+  exact ZMod.pow_card (a ())
 
 theorem finite_field_distinct :
     (X () : MvPolynomial Unit (ZMod 2)) ^ 2 ≠ X () := by
@@ -22,7 +22,8 @@ theorem finite_field_distinct :
     intro he
     have hv := congrArg (fun s : Unit →₀ ℕ => s ()) he
     simp at hv
-  have hc := congrArg (coeff (Finsupp.single () 2)) h
+  have hc := congrArg (fun p : MvPolynomial Unit (ZMod 2) =>
+    p.coeff (Finsupp.single () 2)) h
   simp [coeff_X_pow, coeff_X, hne] at hc
 
 -- Register 0 is the newest value; old register i becomes i.succ.
