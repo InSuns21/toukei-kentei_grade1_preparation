@@ -213,6 +213,17 @@ function validateChangedSolutionFolding(source, relPath) {
       }
       continue;
     }
+    // A problem heading must remain visible even in older chapters without
+    // an explicit exercise anchor. Do not confuse A1 解答 with a question.
+    if (seen && heading && heading[1].length >= 3 &&
+      /^(?:[A-Z0-9_-]+-)?[A-D]\d+(?:[.．:：\s]|$)/u.test(title) &&
+      !/^(?:[A-Z0-9_-]+-)?[A-D]\d+\s*(?:詳細)?解答(?:\s|$)/u.test(title)) {
+      if (anchor === null) anchor = i;
+      if (start !== null) issue(i, '次の演習見出しが解答ブロック内にあります。');
+    }
+    if (seen && heading && heading[1].length <= 2 && start !== null) {
+      issue(i, '後続の節見出しが解答ブロック内にあります。');
+    }
     if (/^<a\s+id=["']ex-[^"']+["']\s*><\/a>$/u.test(line)) {
       anchor = i;
       if (start !== null) issue(i, '次の演習 anchor が解答ブロック内にあります。');
@@ -270,6 +281,9 @@ function selfTestSolutionFolding() {
   check('## 演習\n- Level: A\n問題\n## 詳細解答\n### Level A\n' + first, true, 'explicit Level-grouped legacy format');
   check(good + '\n~~~md\n' + start + '\n- Level: A\n~~~', true, 'fenced example');
   check(good.replace(first, start + '\n' + end), false, 'empty fold');
+  check(good.replace(end + '\n<a id="ex-test-a2"></a>\n#### TEST-A02 問題', '#### TEST-A02 問題\n' + end), false, 'hidden question heading without anchor');
+  check(good.replace(end + '\n## 11. まとめ', '## 11. まとめ\n' + end), false, 'hidden following section');
+
   console.log('DREAM THEATER solution folding self-test passed');
 }
 
