@@ -57,7 +57,7 @@ $$
 また $a\preceq b$ なら第1成分で $a_1\le b_1$ なので単調性も成立します。第2成分を取り出す $\phi_2(a)=a_2$ についても、和と積の第2成分がそれぞれ $a_2+b_2$ と $a_2b_2$ であり、零・一の第2成分は0と1、比較は $a_2\le b_2$ を含みます。従って両方がスペクトル点です。
 <!-- definition-example-end -->
 
-例えば $(2,5)$ に対して $\phi_1$ は2、$\phi_2$ は5を返します。一つの資源にも複数の測り方があり得ます。この例はスペクトル点の定義を確認するためのもので、前講で見たように $\mathbb N_0^2$ の成分順序は[Strassen前順序](../TSP10/index.md#def-tsp10-strassen-preorder)の有界性を満たしません。実際、$a=(1,0)$、$b=(0,1)\ne(0,0)$ とすると、どの正整数 $r$ についても $\iota(r)b=(0,r)$ の第1成分は0なので $a\preceq\iota(r)b$ は成立しません。ここで $\iota(r)=(r,r)$ は一 $(1,1)$ を $r$ 個足した元です。
+例えば $(2,5)$ に対して $\phi_1$ は2、$\phi_2$ は5を返します。一つの資源にも複数の測り方があり得ます。この例はスペクトル点の定義を確認するためのもので、前講で見たように $\mathbb N_0^2$ の成分順序は[Strassen前順序](../TSP10/index.md#def-tsp10-strassen-preorder)の有界性を満たしません。ここで[自然数からの標準写像](../TSP10/index.md#thm-tsp10-natural-map) $\iota$ による $\iota(r)=(r,r)$ は一 $(1,1)$ を $r$ 個足した元です。実際、$a=(1,0)$、$b=(0,1)\ne(0,0)$ とすると、どの正整数 $r$ についても $\iota(r)b=(0,r)$ の第1成分は0なので $a\preceq\iota(r)b$ は成立しません。
 
 条件の違いも重要です。$S=\mathbb N_0$ に通常の演算と大小を入れ、$f(n)=n^2$ とすると、正規化・単調性・乗法性は満たします。しかし
 
@@ -371,7 +371,7 @@ $$
 となります。非負実数の $n$ 乗根を取れば $\phi([s])\le\phi([t])$ です。仮定の厳密不等式と矛盾します。
 <!-- proof-end -->
 
-第4節の $t$ では、明示した二項の分解から $R(t)\le2$ です。$\phi_{2|13}([t])=2$ を用いると $\widetilde R(t)\ge2$。一方 $R(t^{\boxtimes n})\le R(t)^n$ が[直和・Kronecker積の階数と劣階数の評価](../TSP5/index.md#thm-tsp5-rank-subrank-operations)の反復で従うので $\widetilde R(t)\le2$ です。従って $\widetilde R(t)=2$ です。
+第4節の $t$ を複素数体上で考えます。[テンソル階数の定義](../TSP2/index.md#def-tsp2-tensor-rank)により、明示した二項の分解から $R(t)\le2$ です。$\phi_{2|13}([t])=2$ を用いると $\widetilde R(t)\ge2$。一方 $R(t^{\boxtimes n})\le R(t)^n$ が[直和・Kronecker積の階数と劣階数の評価](../TSP5/index.md#thm-tsp5-rank-subrank-operations)の反復で従うので $\widetilde R(t)\le2$ です。従って $\widetilde R(t)=2$ です。
 
 また $\phi_{1|23}([t])=1$ なので $\widetilde Q(t)\le1$ です。各因子で次の線形写像を作用させると一次元の係数1を得ます。
 
@@ -379,7 +379,7 @@ $$
 e_1\mapsto1,\qquad e_2\mapsto0.
 $$
 
-第1項だけが残り、$1\otimes1\otimes1=D_1$ となるので、[劣階数の定義](../TSP4/index.md#def-tsp4-subrank)から $Q(t)\ge1$ です。さらに[直和・Kronecker積の階数と劣階数の評価](../TSP5/index.md#thm-tsp5-rank-subrank-operations)を繰り返せば $Q(t^{\boxtimes n})\ge Q(t)^n\ge1$ となります。$n$ 乗根の極限で $\widetilde Q(t)\ge1$、先の上界と合わせて $\widetilde Q(t)=1$ です。異なるスペクトル点を使うことで、同じテンソルの漸近階数と漸近劣階数をそれぞれ決定できました。
+第1項だけが残り、$1\otimes1\otimes1$ は1次元の[対角テンソル](../TSP4/index.md#def-tsp4-diagonal) $D_1$ となるので、[劣階数の定義](../TSP4/index.md#def-tsp4-subrank)から $Q(t)\ge1$ です。さらに[直和・Kronecker積の階数と劣階数の評価](../TSP5/index.md#thm-tsp5-rank-subrank-operations)を繰り返せば $Q(t^{\boxtimes n})\ge Q(t)^n\ge1$ となります。$n$ 乗根の極限で $\widetilde Q(t)\ge1$、先の上界と合わせて $\widetilde Q(t)=1$ です。異なるスペクトル点を使うことで、同じテンソルの漸近階数と漸近劣階数をそれぞれ決定できました。
 
 ## 6. 演習
 
@@ -414,7 +414,7 @@ $x\preceq y$ なら $b\le d$ なので単調性も成立します。$(2,3)^2=(4,
 通常の半環 $\mathbb N_0$ 上の $f(n)=2n$ はスペクトル点のどの条件を満たし、どの条件を満たさないか。
 
 <!-- solution-start -->
-**詳細解答**。$n\le m$ なら $2n\le2m$ で単調です。また $f(n+m)=2(n+m)=2n+2m$ で加法性を満たします。$f(0)=0$ ですが $f(1)=2\ne1$ で正規化に失敗します。乗法性について $n=m=1$ とすれば $f(nm)=2$ に対し $f(n)f(m)=4$ です。従って乗法性もありません。
+**詳細解答**。[スペクトル点の定義](#def-tsp11-spectral-point)に沿って判定します。$n\le m$ なら $2n\le2m$ で単調です。また $f(n+m)=2(n+m)=2n+2m$ で加法性を満たします。$f(0)=0$ ですが $f(1)=2\ne1$ で正規化に失敗します。乗法性について $n=m=1$ とすれば $f(nm)=2$ に対し $f(n)f(m)=4$ です。従って乗法性もありません。
 <!-- solution-end -->
 
 <a id="ex-tsp11-a03"></a>
@@ -470,7 +470,7 @@ $n>0$ で割れば $\phi(x)=m/n=x$ です。逆に包含写像は0と1、和、�
 $\mathbb N_0^2$ に成分ごとの演算と大小を入れる。$g(a,b)=(a+b)/2$ が正規化、加法性、単調性を満たす一方で乗法性を満たさないことを示せ。二つのスペクトル点の平均が必ずしもスペクトル点でない理由を説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。$g(0,0)=0$、$g(1,1)=1$。$x=(a,b),y=(c,d)$ について
+**詳細解答**。[スペクトル点の定義](#def-tsp11-spectral-point)に沿って判定します。$g(0,0)=0$、$g(1,1)=1$。$x=(a,b),y=(c,d)$ について
 
 $$
 g(x+y)=\frac{a+c+b+d}{2}=g(x)+g(y).
