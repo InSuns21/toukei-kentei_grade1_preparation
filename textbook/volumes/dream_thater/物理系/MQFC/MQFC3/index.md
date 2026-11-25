@@ -235,9 +235,9 @@ $$
 
 **(2) 共通領域と場の共変性。** $\boldsymbol p\mapsto\boldsymbol q$ は滑らかで、各階導関数は高々多項式増大です。実際 $\boldsymbol q$ は $\omega_{\boldsymbol p}$ と $\boldsymbol p$ の線形結合であり、$m>0$ により分母の $\omega$ は零になりません。逆変換も同じ形であるため、ある定数 $C$ に対し
 
-$
+$$
 1+|\boldsymbol p|\le C(1+|\boldsymbol q|)
-$
+$$
 
 が成立します。位相・重みの各階導関数も高々多項式増大なので、連鎖律と積の微分を使うと任意のSchwartz半ノルムを有限個の元の半ノルムで抑えられます。従って $T(h)$ と逆写像はSchwartz空間を保ちます。各粒子数でこの議論を適用すると $U(h)$ は $D_{\mathcal S}$ を保ちます。
 
