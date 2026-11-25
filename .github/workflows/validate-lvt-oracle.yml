@@ -5,6 +5,7 @@ on:
       - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-02/**'
       - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-03/**'
       - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-04/**'
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-05/**'
       - 'textbook/volumes/dream_thater/計算系/LVT/LVT3-01/lab/**'
       - '.github/workflows/validate-lvt-oracle.yml'
   push:
@@ -13,6 +14,7 @@ on:
       - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-02/**'
       - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-03/**'
       - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-04/**'
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT5-05/**'
       - 'textbook/volumes/dream_thater/計算系/LVT/LVT3-01/lab/**'
       - '.github/workflows/validate-lvt-oracle.yml'
   workflow_dispatch:
@@ -100,3 +102,22 @@ jobs:
           python -m pytest -q
           python differential.py discover /tmp/lvt-counterexample.json
           python differential.py replay /tmp/lvt-counterexample.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - name: Check TypeScript fast-check asynchronous differential tests
+        working-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT5-05/lab'
+        shell: bash
+        run: |
+          lake build
+          lake test
+          lake env lean LvtTypeScriptDrt.lean
+          if lake env lean Failure.lean > failure.log 2>&1; then
+            echo 'Invalid proof unexpectedly accepted'
+            exit 1
+          fi
+          grep -i 'type mismatch' failure.log
+          npm install --ignore-scripts
+          npm test
+          npm run discover -- /tmp/lvt-ts-counterexample.json
+          npm run replay -- /tmp/lvt-ts-counterexample.json

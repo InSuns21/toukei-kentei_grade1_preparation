@@ -1,0 +1,22 @@
+id: "LVT5-05"
+title: "TypeScript：fast-check差分テスト"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT5-04, LVT5-03, LVT5-02]
+official_scope: []
+learning_objectives:
+  - 安全整数範囲でTypeScriptの独立実装を構成する
+  - fast-checkで一般入力と境界入力を生成する
+  - 非同期応答を入力順に照合し交換変異の検出条件を証明する
+  - 失敗の縮小と保存・再実行を行いハーネス異常を区別する
+definitions:
+  - { id: LVT5-05-DEF-01, name: "要求順の応答照合" }
+propositions:
+  - { id: LVT5-05-PROP-01, name: "応答交換の検出条件" }
+theorems: []
+canonical_examples: ["安全整数の在庫引当", "二応答の交換", "Promiseの待機"]
+problem_patterns: [LVT5-05-A01, LVT5-05-A02, LVT5-05-A03, LVT5-05-A04, LVT5-05-B01, LVT5-05-B02, LVT5-05-B03, LVT5-05-B04, LVT5-05-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2, review: 0.5 }

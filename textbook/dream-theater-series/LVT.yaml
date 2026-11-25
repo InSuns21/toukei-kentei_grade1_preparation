@@ -135,7 +135,7 @@ chapters:
     title: "Python：pytest + Hypothesis差分テスト"
   - id: LVT5-05
     path: textbook/volumes/dream_thater/計算系/LVT/LVT5-05
-    status: planned
+    status: completed
     title: "TypeScript：fast-check差分テスト"
   - id: LVT5-06
     path: textbook/volumes/dream_thater/計算系/LVT/LVT5-06
