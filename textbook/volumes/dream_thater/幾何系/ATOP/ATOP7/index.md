@@ -2,7 +2,9 @@
 
 [ATOP6](../ATOP6/index.md) では円周の穴を整数で数えました。穴が二つある空間では、左の穴、右の穴を回る順序も重要になります。局所的なループを組み合わせ、どの関係を課せば全体の基本群になるかを明らかにします。
 
-直接の前提は [ATOP4](../ATOP4/index.md)、[ATOP5](../ATOP5/index.md)、[ATOP6](../ATOP6/index.md) です。$I=[0,1]$ とします。[道の連結・逆走・定値道](../ATOP4/index.md#def-atop4-path-operations) に従い、$\alpha*\beta$ は左の道から右の道へ進む連結、$\bar\alpha(s)=\alpha(1-s)$ は逆走を表します。$[\alpha]_A$ は空間 $A$ 内での基点付き道ホモトピー類です。[基本群](../ATOP4/index.md#def-atop4-fundamental-group) の積は $[\alpha][\beta]=[\alpha*\beta]$ です。記号 $G*H$ は第2節で自由積として別に定義します。
+直接の前提は [ATOP4](../ATOP4/index.md)、[ATOP5](../ATOP5/index.md)、[ATOP6](../ATOP6/index.md) です。$I=[0,1]$ とします。[道の連結・逆走・定値道](../ATOP4/index.md#def-atop4-path-operations) に従い、$\alpha*\beta$ は左の道から右の道へ進む連結、$\bar\alpha(s)=\alpha(1-s)$ は逆走を表します。
+
+$[\alpha]_A$ は空間 $A$ 内での基点付き道ホモトピー類です。[基本群](../ATOP4/index.md#def-atop4-fundamental-group) の積は $[\alpha][\beta]=[\alpha*\beta]$ です。
 
 <!-- definition-example-audit: strict -->
 
@@ -10,7 +12,13 @@
 
 円周を一周するループの類を $a$ とすると、[円周の基本群](../ATOP6/index.md#thm-atop6-fundamental-group-circle) の各元は $a^n$ と書けました。二つの円周から来る類 $a,b$ があるとき、$aba^{-1}$ や $ab^{-1}a$ のように有限個の記号を並べた列を考えます。$ab=ba$ は勝手には課しません。
 
-既習の [群](../../../代数系/GRP/GRP1/index.md#def-grp1-group) と [生成部分群](../../../代数系/GRP/GRP1/index.md#def-grp1-generated-subgroup) の考え方を、まだ群が与えられていない場合にも使えるようにします。文字集合 $S$ の各文字 $s$ に対し逆元を表す別の記号 $s^{-1}$ を用意します。この文字と逆文字からなる有限列を語とし、空の語を $1$ と書きます。語の逆は順序を逆転し、各文字の符号を反転して得ます。関係式 $u=v$ は語 $uv^{-1}$ を空の語と同一視することに対応します。語 $u$ の同値類を $[u]$ と書き、文脈が明らかなときは文字 $s$ とその類 $[s]$ を同じ記号で表します。
+既習の [群](../../../代数系/GRP/GRP1/index.md#def-grp1-group) と [生成部分群](../../../代数系/GRP/GRP1/index.md#def-grp1-generated-subgroup) の考え方を、まだ群が与えられていない場合にも使えるようにします。
+
+文字集合 $S$ の各文字 $s$ に対し逆元を表す別の記号 $s^{-1}$ を用意します。この文字と逆文字からなる有限列を語とし、空の語を $1$ と書きます。語の逆は順序を逆転し、各文字の符号を反転して得ます。
+
+関係式 $u=v$ は語 $uv^{-1}$ を空の語と同一視することに対応します。
+
+語 $u$ の同値類を $[u]$ と書き、文脈が明らかなときは文字 $s$ とその類 $[s]$ を同じ記号で表します。
 
 <a id="def-atop7-presentation"></a>
 
@@ -121,8 +129,18 @@ $$
 x_2x_{-1}y_3x_0=a b^3.
 $$
 
-逆に $a,b$ を任意に指定した群へ送るとき、その群の元 $A,B$ に対し $x_n\mapsto A^n$、$y_n\mapsto B^n$ はすべての内部関係を保存します。従って [群の表示からの準同型](#prop-atop7-presentation-maps) が適用できます。より具体的には $P=\langle a,b\mid\ \rangle$ と置きます。$P\to\mathbb Z*\mathbb Z$ では文字 $a,b$ を $x_1,y_1$ の類に送り、逆向きの写像では内部関係を保つ $x_n\mapsto a^n$、$y_n\mapsto b^n$ を使います。合成はそれぞれ $a,b$ と全ての $x_n,y_n$ を固定するので恒等写像です。従って二つの表示は同型で、$a,b$ に追加の関係式は必要ありません。
+逆に $a,b$ を任意に指定した群へ送るとき、その群の元 $A,B$ に対し $x_n\mapsto A^n$、$y_n\mapsto B^n$ はすべての内部関係を保存します。従って [群の表示からの準同型](#prop-atop7-presentation-maps) が適用できます。
+
+より具体的には $P=\langle a,b\mid\ \rangle$ と置きます。$P\to\mathbb Z*\mathbb Z$ では文字 $a,b$ を $x_1,y_1$ の類に送ります。逆向きの写像では内部関係を保つ次の代入を使います。
+
+$$
+x_n\mapsto a^n,\qquad y_n\mapsto b^n.
+$$
+
+合成はそれぞれ $a,b$ と全ての $x_n,y_n$ を固定するので恒等写像です。従って二つの表示は同型で、$a,b$ に追加の関係式は必要ありません。
 <!-- definition-example-end -->
+
+ここで群の間の記号 $G*H$ は自由積を表し、道の連結の記号とは対象が異なります。
 
 <a id="prop-atop7-free-product-property"></a>
 
