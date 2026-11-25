@@ -620,26 +620,26 @@ $$
 
 [テンソルのKronecker積](#def-tsp5-kronecker) で $u$ の各項と組にした後、前者は全位置で第1領域 $(V_a\otimes U_a,0)$ に入り、後者は第2領域 $(0,W_a\otimes U_a)$ に入ります。
 
-添字の組を $I,J,H$ とし、$t,s,u$ の基底係数をそれぞれ $t_I,s_J,u_H$ とします。例えば直和の前半から生じる項は各位置の写像を $L_a$ と書けば、
+添字の組を $I=(i_1,\ldots,i_d)$、$J=(j_1,\ldots,j_d)$、$H=(k_1,\ldots,k_d)$ とし、$t,s,u$ の基底係数をそれぞれ $t_I,s_J,u_H$ とします。各位置の写像を $L_a$ と書くと、直和の前半から生じる項は
 
 $$
 \begin{aligned}
 &(\bigotimes_a L_a)
 \left(\sum_{I,H}t_Iu_H
-\bigotimes_a((e_{i_a},0)\otimes h_{h_a})\right)\\
+\bigotimes_a((e_{i_a},0)\otimes h_{k_a})\right)\\
 &=\sum_{I,H}t_Iu_H
-\bigotimes_a(e_{i_a}\otimes h_{h_a},0).
+\bigotimes_a(e_{i_a}\otimes h_{k_a},0).
 \end{aligned}
 $$
 
-ここで $i_a,h_a$ はそれぞれ $I,H$ の第 $a$ 成分です。後半も同じ写像のもう一方の基底対応により
+後半も同じ写像のもう一方の基底対応により
 
 $$
 \sum_{J,H}s_Ju_H
-\bigotimes_a(0,f_{j_a}\otimes h_{h_a})
+\bigotimes_a(0,f_{j_a}\otimes h_{k_a})
 $$
 
-に移ります。$j_a$ は $J$ の第 $a$ 成分です。二つの和は混合しないので、像は
+に移ります。二つの和は混合しないので、像は
 
 $$
 (t\boxtimes u)\oplus(s\boxtimes u)
@@ -697,7 +697,7 @@ $$
 
 と書きます。[テンソルのKronecker積](#def-tsp5-kronecker) を基底で展開すると、$w^{\boxtimes2}$ の平坦化は、列の並べ替えを除いて $M\boxtimes M$ です。実際、行は元の行番号の組 $(i,i')$、列は元の列番号の組 $((j,k),(j',k'))$ であり、成分は $M_{i,(j,k)}M_{i',(j',k')}$ となります。
 
-$M$ の第1列は $(0,1)^{\mathsf T}$、第2列は $(1,0)^{\mathsf T}$ です。行の組を $(1,1),(1,2),(2,1),(2,2)$ の順に固定します。$M$ の第1・第2列を $c_1,c_2$ とすると、四つの列の組から得られる列は
+$M$ の第1列を $c_1=(0,1)^{\mathsf T}$、第2列を $c_2=(1,0)^{\mathsf T}$ とします。上付きの $\mathsf T$ は行を列にする転置です。行の組を $(1,1),(1,2),(2,1),(2,2)$ の順に固定すると、四つの列の組から得られる列は
 
 $$
 \begin{aligned}
