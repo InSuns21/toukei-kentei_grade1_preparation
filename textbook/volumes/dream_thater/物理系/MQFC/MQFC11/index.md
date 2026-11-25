@@ -313,7 +313,7 @@ Lorentz 不変性を外すと、正の運動量測度であってもこの分解
 
 [Källén–Lehmann表示](#thm-mqfc11-kl) の $\rho$ において $\rho(\{m^2\})=Z>0$ なら、二点分布のその成分は $Z\Delta_+(\cdot;m^2)$ です。
 
-この原子が状態の質量にどう対応するかを確認します。[質量二乗の不変性](../../../代数系/LREP/LREP22/index.md#thm-lrep22-mass-casimir) で構成した質量二乗作用素の射影値測度を $P_s$ と書きます。Borel 集合 $B\subset[0,\infty)$ について
+この原子が場から作ったベクトルの質量成分にどう対応するかを確認します。[質量二乗の不変性](../../../代数系/LREP/LREP22/index.md#thm-lrep22-mass-casimir) で構成した質量二乗作用素の射影値測度を $P_s$ と書きます。Borel 集合 $B\subset[0,\infty)$ について
 
 $$
 P_s(B)=E_U(s^{-1}(B))
