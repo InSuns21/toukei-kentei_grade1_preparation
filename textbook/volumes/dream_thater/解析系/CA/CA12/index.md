@@ -230,6 +230,8 @@ $$
 
 ## 3. 交代級数は $\Re s>0$ まで先に進める
 
+これまでの zeta 関数の級数は $\Re s>1$ で絶対収束した。項の符号を交互に変えて隣り合う項の差を取れば、より広い領域でも収束する可能性がある。まず次の補助級数を考えて、その収束を確かめる。
+
 <a id="def-ca12-dirichlet-eta"></a>
 <!-- formal-statement-start -->
 ### 定義（Dirichlet eta 関数）
@@ -353,6 +355,8 @@ eta 関数は解析接続の「入口」を見せるが、本章の主証明に�
 ---
 
 ## 4. Gauss 関数を周期化する
+
+前節の交代級数だけからは、変数 $s$ と $1-s$ を結び付ける関係はまだ得られていない。そこで Gauss 関数の整数点での値を足し合わせ、その幅を変えたときに和がどう変わるかを調べる。zeta 関数の積分表示につなげるため、正の実数 $t$ を引数とする次の和を導入する。
 
 <a id="def-ca12-jacobi-theta"></a>
 <!-- formal-statement-start -->
@@ -908,6 +912,8 @@ $$
 
 ## 7. 完成 zeta 因子の対称性
 
+直前の積分表示には Gamma 関数と $\pi^{-s/2}$ が自然に現れた。$s$ と $1-s$ を入れ替える対称性を読み取りやすくするため、これらの因子を zeta 関数に含めた関数を考える。また $s=0,1$ に現れる極を取り除くため、多項式因子を掛けた関数も定める。
+
 <a id="def-ca12-completed-zeta"></a>
 <!-- formal-statement-start -->
 ### 定義（完成 zeta 因子と Riemann xi 関数）
@@ -1284,126 +1290,9 @@ $$
 
 が $K$ 上一様絶対収束することを示せ。
 
-<a id="ex-ca12-a2"></a>
-#### CA12-A02 有限 Euler 積
-- Level: A
+<a id="_12-詳細解答"></a>
 
-$s=2$ とし、素数 $2,3,5,7$ までの有限 Euler 積
-
-$$
-\prod_{p\in\{2,3,5,7\}}
-(1-p^{-2})^{-1}
-$$
-
-を計算せよ。また、この積が $\zeta(2)$ より小さい理由を説明せよ。
-
-<a id="ex-ca12-a3"></a>
-#### CA12-A03 theta 変換の数値対応
-- Level: A
-
-[theta 変換](#thm-ca12-theta-transformation)から
-
-$$
-\theta(4)=\frac12\theta(1/4)
-$$
-
-を示せ。さらに、$t=1$ が自己双対点であることを確認せよ。
-
-<a id="ex-ca12-a4"></a>
-#### CA12-A04 三つの特殊値
-- Level: A
-
-本文の結果を使い、
-
-$$
-\zeta(0),\qquad
-\zeta(-2),\qquad
-\zeta(2)
-$$
-
-を求め、それぞれがどの定理から出るかを明記せよ。
-
-### Level B
-
-<a id="ex-ca12-b1"></a>
-#### CA12-B01 eta 関数の収束
-- Level: B
-
-$\Re s>0$ のコンパクト集合上で eta 級数が一様収束することを、隣り合う2項を組にした差分評価で示し、$\Re s>1$ で
-
-$$
-\eta(s)=(1-2^{1-s})\zeta(s)
-$$
-
-を導け。
-
-<a id="ex-ca12-b2"></a>
-#### CA12-B02 Gauss 関数の周期化から theta 変換まで
-- Level: B
-
-$$
-P_t(x)
-=
-\sum_{n\in\mathbb Z}e^{-\pi t(x+n)^2}
-$$
-
-の Fourier 係数を直接計算し、
-
-$$
-c_k=t^{-1/2}e^{-\pi k^2/t}
-$$
-
-を示せ。そこから $P_t(0)$ を二通りに表して [theta 変換](#thm-ca12-theta-transformation)を導け。
-
-<a id="ex-ca12-b3"></a>
-#### CA12-B03 対称形から古典的関数等式へ
-- Level: B
-
-$$
-\Lambda(s)=\Lambda(1-s)
-$$
-
-から始め、CA11 の [Euler の反射公式](../CA11/index.md#thm-ca11-reflection)と [Legendre の倍角公式](../CA11/index.md#thm-ca11-duplication)を用いて
-
-$$
-\zeta(s)
-=
-2^s\pi^{s-1}
-\sin(\pi s/2)
-\Gamma(1-s)\zeta(1-s)
-$$
-
-を導け。
-
-### Level C
-
-<a id="ex-ca12-c1"></a>
-#### CA12-C01 theta Mellin 法を一続きで再構成
-- Level: C
-
-次を順に示せ。
-
-1. $\Re s>1$ で
-   $$
-   \Lambda(s)
-   =
-   \frac12\int_0^\infty(\theta(t)-1)t^{s/2-1}\,dt.
-   $$
-2. 積分を $t=1$ で分け、[theta 変換](#thm-ca12-theta-transformation)と $u=1/t$ により
-   $$
-   \Lambda(s)
-   =
-   H(s)+\frac1{s-1}-\frac1s
-   $$
-   を得よ。
-3. $H$ が整関数であることを指数減衰から示せ。
-4. $\zeta$ が $s=1$ に留数1の単純極だけを持つことを示せ。
-5. $\Lambda(s)=\Lambda(1-s)$ と負の偶数での自明零点を導け。
-
----
-
-## 12. 詳細解答
-
+<!-- solution-start -->
 ### A1 解答
 
 $K$ は $\Re s>1$ のコンパクト部分集合なので
@@ -1432,7 +1321,22 @@ $$
 $$
 
 は $K$ 上一様絶対収束する。
+<!-- solution-end -->
 
+<a id="ex-ca12-a2"></a>
+#### CA12-A02 有限 Euler 積
+- Level: A
+
+$s=2$ とし、素数 $2,3,5,7$ までの有限 Euler 積
+
+$$
+\prod_{p\in\{2,3,5,7\}}
+(1-p^{-2})^{-1}
+$$
+
+を計算せよ。また、この積が $\zeta(2)$ より小さい理由を説明せよ。
+
+<!-- solution-start -->
 ### A2 解答
 
 各因子は
@@ -1459,7 +1363,21 @@ $$
 $$
 
 有限 Euler 積を展開すると、素因数が $2,3,5,7$ だけからなる正整数 $n$ の $n^{-2}$ を全て足したものになる。全正整数を足す $\zeta(2)$ からは、例えば素因数11を含む項が欠けている。全項が正なので有限積は $\zeta(2)$ より小さい。
+<!-- solution-end -->
 
+<a id="ex-ca12-a3"></a>
+#### CA12-A03 theta 変換の数値対応
+- Level: A
+
+[theta 変換](#thm-ca12-theta-transformation)から
+
+$$
+\theta(4)=\frac12\theta(1/4)
+$$
+
+を示せ。さらに、$t=1$ が自己双対点であることを確認せよ。
+
+<!-- solution-start -->
 ### A3 解答
 
 theta 変換
@@ -1489,7 +1407,23 @@ $$
 $$
 
 変換 $t\mapsto1/t$ の固定点が $t=1$ である。
+<!-- solution-end -->
 
+<a id="ex-ca12-a4"></a>
+#### CA12-A04 三つの特殊値
+- Level: A
+
+本文の結果を使い、
+
+$$
+\zeta(0),\qquad
+\zeta(-2),\qquad
+\zeta(2)
+$$
+
+を求め、それぞれがどの定理から出るかを明記せよ。
+
+<!-- solution-start -->
 ### A4 解答
 
 解析接続の式から
@@ -1511,7 +1445,23 @@ $$
 $$
 
 三つはそれぞれ「$s=0$ で Gamma の零点が $\Lambda$ の極を打ち消す機構」「関数等式の正弦因子」「正弦関数の無限積」という別の機構から現れる。
+<!-- solution-end -->
 
+### Level B
+
+<a id="ex-ca12-b1"></a>
+#### CA12-B01 eta 関数の収束
+- Level: B
+
+$\Re s>0$ のコンパクト集合上で eta 級数が一様収束することを、隣り合う2項を組にした差分評価で示し、$\Re s>1$ で
+
+$$
+\eta(s)=(1-2^{1-s})\zeta(s)
+$$
+
+を導け。
+
+<!-- solution-start -->
 ### B1 解答
 
 $K\subset\{\Re s>0\}$ をコンパクトとする。ある $\delta,M>0$ が存在して
@@ -1567,7 +1517,27 @@ $$
 (1-2^{1-s})\zeta(s).
 \end{aligned}
 $$
+<!-- solution-end -->
 
+<a id="ex-ca12-b2"></a>
+#### CA12-B02 Gauss 関数の周期化から theta 変換まで
+- Level: B
+
+$$
+P_t(x)
+=
+\sum_{n\in\mathbb Z}e^{-\pi t(x+n)^2}
+$$
+
+の Fourier 係数を直接計算し、
+
+$$
+c_k=t^{-1/2}e^{-\pi k^2/t}
+$$
+
+を示せ。そこから $P_t(0)$ を二通りに表して [theta 変換](#thm-ca12-theta-transformation)を導け。
+
+<!-- solution-start -->
 ### B2 解答
 
 $$
@@ -1627,7 +1597,29 @@ $$
 =
 t^{-1/2}\theta(1/t).
 $$
+<!-- solution-end -->
 
+<a id="ex-ca12-b3"></a>
+#### CA12-B03 対称形から古典的関数等式へ
+- Level: B
+
+$$
+\Lambda(s)=\Lambda(1-s)
+$$
+
+から始め、CA11 の [Euler の反射公式](../CA11/index.md#thm-ca11-reflection)と [Legendre の倍角公式](../CA11/index.md#thm-ca11-duplication)を用いて
+
+$$
+\zeta(s)
+=
+2^s\pi^{s-1}
+\sin(\pi s/2)
+\Gamma(1-s)\zeta(1-s)
+$$
+
+を導け。
+
+<!-- solution-start -->
 ### B3 解答
 
 対称形は
@@ -1685,7 +1677,34 @@ $$
 \sin(\pi s/2)
 \Gamma(1-s)\zeta(1-s).
 $$
+<!-- solution-end -->
 
+### Level C
+
+<a id="ex-ca12-c1"></a>
+#### CA12-C01 theta Mellin 法を一続きで再構成
+- Level: C
+
+次を順に示せ。
+
+1. $\Re s>1$ で
+   $$
+   \Lambda(s)
+   =
+   \frac12\int_0^\infty(\theta(t)-1)t^{s/2-1}\,dt.
+   $$
+2. 積分を $t=1$ で分け、[theta 変換](#thm-ca12-theta-transformation)と $u=1/t$ により
+   $$
+   \Lambda(s)
+   =
+   H(s)+\frac1{s-1}-\frac1s
+   $$
+   を得よ。
+3. $H$ が整関数であることを指数減衰から示せ。
+4. $\zeta$ が $s=1$ に留数1の単純極だけを持つことを示せ。
+5. $\Lambda(s)=\Lambda(1-s)$ と負の偶数での自明零点を導け。
+
+<!-- solution-start -->
 ### C1 解答
 
 **1. Mellin 表現。**
@@ -1907,6 +1926,7 @@ $$
 $$
 
 これで Mellin 表現、解析接続、関数等式、自明零点が一つの [theta 変換](#thm-ca12-theta-transformation)から連続して導かれた。
+<!-- solution-end -->
 
 ---
 

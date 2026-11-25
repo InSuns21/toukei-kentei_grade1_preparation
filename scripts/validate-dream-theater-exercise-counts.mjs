@@ -14,6 +14,9 @@ const minimums = new Map([
 const exceptionKey = 'dream_theater_exercise_count_exception';
 const auditAll = process.argv.includes('--all');
 
+selfTestSolutionFolding();
+if (process.argv.includes('--self-test')) process.exit(0);
+
 if(!auditAll && verifiedMassRelocation()) { console.log('Relocation-only PR: proof/exercises preserved byte-for-byte except URLs, existing baseline applies.'); process.exit(0); }
 
 const dreamPaths = loadDreamTheaterPaths();
@@ -40,9 +43,7 @@ for (const relPath of indexFiles) {
   const absolutePath = path.join(root, relPath);
   const source = fs.readFileSync(absolutePath, 'utf8');
   const counts = countExercises(source);
-  if (!auditAll) {
-    errors.push(...validateChangedSolutionFolding(source, relPath));
-  }
+  errors.push(...validateChangedSolutionFolding(source, relPath));
   const exception = readException(path.dirname(absolutePath), relPath);
 
   if (exception.error) {
@@ -176,36 +177,114 @@ function countExercises(source) {
 
 function validateChangedSolutionFolding(source, relPath) {
   const lines = source.split(/\r?\n/u);
-  let solutionDepth = 0;
-  let exerciseSectionSeen = false;
-  const issues = [];
-
-  for (let i = 0; i < lines.length; i += 1) {
-    const line = lines[i];
-    const trimmed = line.trim();
-
-    if (/^#{1,2}\s+演習\s*$/u.test(trimmed)) {
-      exerciseSectionSeen = true;
-    }
-    if (!exerciseSectionSeen) continue;
-
-    if (trimmed === '<!-- solution-start -->') {
-      solutionDepth += 1;
+  const issues = [], questions = [], blocks = [];
+  let seen = false, answerSection = false, start = null, fence = null;
+  let anchor = null, group = null, exerciseEnd = lines.length;
+  const issue = (i, message) => issues.push(relPath + ':' + (i + 1) + ': ' + message);
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    const code = /^ {0,3}(\x60{3,}|~{3,})(.*)$/u.exec(lines[i]);
+    if (fence) {
+      if (code && code[1][0] === fence[0] && code[1].length >= fence.length && !code[2].trim()) fence = null;
       continue;
     }
-    if (trimmed === '<!-- solution-end -->') {
-      solutionDepth = Math.max(0, solutionDepth - 1);
+    if (code) { fence = code[1]; continue; }
+    const heading = /^(#{1,6})\s+(.+?)\s*$/u.exec(line);
+    const title = heading?.[2].replace(/^\d+(?:\.\d+)*[.．、]?\s+/u, '');
+    if (heading && heading[1].length <= 2 && /^演習(?:\s|$)/u.test(title)) {
+      seen = true;
+      answerSection = false;
+    } else if (heading && heading[1].length <= 2 && seen && start === null) {
+      if (exerciseEnd === lines.length) exerciseEnd = i;
+      answerSection = /^(?:詳細)?解答(?:\s|$)/u.test(title);
+      group = null;
+    }
+    if (line === '<!-- solution-start -->') {
+      if (start !== null) issue(i, 'solution-start の入れ子は禁止です。');
+      else start = i;
       continue;
     }
+    if (line === '<!-- solution-end -->') {
+      if (start === null) issue(i, '対応する solution-start がありません。');
+      else {
+        if (!lines.slice(start + 1, i).some(s => s.trim() && !s.trim().startsWith('<!--'))) issue(start, '空の解答ブロックです。');
+        blocks.push({ start, end: i, group, answerSection });
+        start = null;
+      }
+      continue;
+    }
+    // A problem heading must remain visible even in older chapters without
+    // an explicit exercise anchor. Do not confuse A1 解答 with a question.
+    if (seen && heading && heading[1].length >= 3 &&
+      /^(?:[A-Z0-9_-]+-)?[A-D]\d+(?:[.．:：\s]|$)/u.test(title) &&
+      !/^(?:[A-Z0-9_-]+-)?[A-D]\d+\s*(?:詳細)?解答(?:\s|$)/u.test(title)) {
+      if (anchor === null) anchor = i;
+      if (start !== null) issue(i, '次の演習見出しが解答ブロック内にあります。');
+    }
+    if (seen && heading && heading[1].length <= 2 && start !== null) {
+      issue(i, '後続の節見出しが解答ブロック内にあります。');
+    }
+    if (/^<a\s+id=["']ex-[^"']+["']\s*><\/a>$/u.test(line)) {
+      anchor = i;
+      if (start !== null) issue(i, '次の演習 anchor が解答ブロック内にあります。');
+    }
+    const levelHeading = heading && /^Level\s+([A-D])\b/iu.exec(title);
+    if (levelHeading) group = levelHeading[1].toUpperCase();
+    const level = /^-\s*Level:\s*([A-D])\b/iu.exec(line);
+    if (level) {
+      seen = true;
+      if (start !== null) issue(i, '問題文の Level が解答ブロック内にあります。');
+      questions.push({ line: i, boundary: anchor ?? i, level: level[1].toUpperCase() });
+      anchor = null;
+    }
+    if (seen && start === null && (
+      (heading && heading[1].length >= 3 && /^(?:詳細解答|(?:[A-D]\d+|[A-Z0-9_-]+-[A-D]\d+)\s*(?:詳細)?解答)(?:\s|$)/u.test(title)) ||
+      /^\*\*(?:詳細)?解答(?:[:：]\*\*|\*\*[:：]?)\s*/u.test(line)
+    )) issue(i, '詳細解答が折りたたみ marker 外にあります。');
+  }
+  if (start !== null) issue(start, '対応する solution-end がありません。');
 
-    if (/^#{3,6}\s+詳細解答\s*$/u.test(trimmed) && solutionDepth === 0) {
-      issues.push(
-        `${relPath}:${i + 1}: DREAM THEATER の詳細解答が折りたたみ marker 外にあります。\`<!-- solution-start -->\` / \`<!-- solution-end -->\` で囲んでください。`,
-      );
+  // The documented legacy exception allows separately folded Level groups.
+  const levels = new Set(questions.map(q => q.level));
+  const grouped = levels.size > 0 && [...levels].every(level =>
+    blocks.some(b => b.answerSection && b.group === level));
+  if (!grouped) {
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const next = questions[i + 1]?.boundary ?? lines.length;
+      const limit = exerciseEnd > q.line ? Math.min(next, exerciseEnd) : next;
+      const matches = blocks.filter(b => !b.answerSection && b.start > q.line && b.end < limit);
+      if (matches.length !== 1) issue(q.line, '各演習の直下に一組の solution-start / solution-end が必要です。');
     }
   }
-
   return issues;
+}
+
+function selfTestSolutionFolding() {
+  const start = '<!-- solution-start -->', end = '<!-- solution-end -->';
+  const first = [start, '### A1 解答', '計算', end].join('\n');
+  const good = ['## 10. 演習', '### Level A', '<a id="ex-test-a1"></a>',
+    '#### TEST-A01 問題', '- Level: A', '問題文', first,
+    '<a id="ex-test-a2"></a>', '#### TEST-A02 問題', '- Level: A', '問題文',
+    start, '**解答**：', '計算', end, '## 11. まとめ'].join('\n');
+  const check = (src, expected, label) => {
+    const result = validateChangedSolutionFolding(src, 'fixture.md');
+    if ((result.length === 0) !== expected) throw new Error(label + ': ' + result.join('\n'));
+  };
+  check(good, true, 'per-exercise folds');
+  check(good.replace('## 10. 演習', '## 演習'), true, 'unnumbered section');
+  check(good.replace(first, ''), false, 'missing first fold');
+  check(good.replace(end + '\n<a id="ex-test-a2"></a>', '<a id="ex-test-a2"></a>\n' + end), false, 'hidden next anchor');
+  check(good.replace('### A1 解答', start + '\n### A1 解答'), false, 'nested fold');
+  check(good.replace(first, '### A1 解答\n計算'), false, 'visible numbered answer');
+  check('## 11. 演習\n- Level: A\n問題\n## 12. 詳細解答\n### A1 解答\n計算', false, 'CA11/CA12 regression');
+  check('## 演習\n- Level: A\n問題\n## 詳細解答\n### Level A\n' + first, true, 'explicit Level-grouped legacy format');
+  check(good + '\n~~~md\n' + start + '\n- Level: A\n~~~', true, 'fenced example');
+  check(good.replace(first, start + '\n' + end), false, 'empty fold');
+  check(good.replace(end + '\n<a id="ex-test-a2"></a>\n#### TEST-A02 問題', '#### TEST-A02 問題\n' + end), false, 'hidden question heading without anchor');
+  check(good.replace(end + '\n## 11. まとめ', '## 11. まとめ\n' + end), false, 'hidden following section');
+
+  console.log('DREAM THEATER solution folding self-test passed');
 }
 
 function readException(chapterDir, relPath) {

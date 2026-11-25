@@ -67,9 +67,49 @@ function presentationSignature(source) {
       .replace(/[ \t]+/g, ' ').trim();
   }).filter(Boolean).join('\n');
 }
+// Narrow exact transformation for legacy numbered exercise/answer sections.
+// Only move complete, uniquely matched answer blocks, keep their heading and
+// all bytes of their contents, and retain the old section's Docsify anchor.
+// Never accept arbitrary reorderings or changes of mathematical content.
+function relocateLegacySolutions(source) {
+  const exercise = /^## (\d+)\. 演習\s*$/m.exec(source);
+  const answer = /^## (\d+)\. 詳細解答\s*$/m.exec(source);
+  if (!exercise || !answer || exercise.index >= answer.index) return null;
+  const rest = answer.index + answer[0].length;
+  const following = /^## .+$/m.exec(source.slice(rest));
+  if (!following) return null;
+  const end = rest + following.index;
+  const questions = source.slice(exercise.index, answer.index).replace(/\n---\s*$/, '').trimEnd();
+  const answers = source.slice(rest, end).replace(/\n---\s*$/, '').trim();
+  if (questions.includes('<!-- solution-') || answers.includes('<!-- solution-')) return null;
+  const qs = [...questions.matchAll(/^<a id="ex-([a-z0-9_-]+)-([abc]\d+)"><\/a>\n#### ([A-Z0-9_-]+)-([ABC])0*(\d+) .+$/gm)];
+  const as = [...answers.matchAll(/^### ([ABC]\d+) 解答\s*$/gm)];
+  if (!qs.length || qs.length !== as.length || as[0].index !== 0) return null;
+  if ([...questions.matchAll(/^- Level: [ABC]$/gm)].length !== qs.length) return null;
+  const byId = new Map(as.map((m, i) => [m[1], answers.slice(m.index, as[i+1]?.index ?? answers.length).trim()]));
+  if (byId.size !== as.length) return null;
+  const used = new Set();
+  let out = questions;
+  for (let i = qs.length - 1; i >= 0; i--) {
+    const q = qs[i], key = q[4] + q[5];
+    if (q[1] !== q[3].toLowerCase() || q[2].toUpperCase() !== key || !byId.has(key) || used.has(key)) return null;
+    used.add(key);
+    let j = qs[i+1]?.index ?? questions.length;
+    const group = /^### Level [ABC]\s*$/m.exec(questions.slice(q.index + q[0].length, j));
+    if (group) j = q.index + q[0].length + group.index;
+    const before = questions.slice(0, j).trimEnd();
+    const tail = out.slice(j).trimStart();
+    const legacyAnchor = i === 0 ? '<a id="_' + answer[1] + '-詳細解答"></a>\n\n' : '';
+    out = before + '\n\n' + legacyAnchor + '<!-- solution-start -->\n' + byId.get(key)
+      + '\n<!-- solution-end -->' + (tail ? '\n\n' + tail : '');
+  }
+  return source.slice(0, exercise.index) + out + '\n\n---\n\n' + source.slice(end);
+}
+
 function isVerifiedFormatOnly(before, after) {
   if (before === null || before === after) return before !== null;
   if (!balancedSolutionMarkers(before) || !balancedSolutionMarkers(after)) return false;
+  if (relocateLegacySolutions(before) === after) return true;
   if (JSON.stringify(stableInventory(before)) !== JSON.stringify(stableInventory(after))) return false;
   return presentationSignature(before) === presentationSignature(after);
 }
@@ -140,6 +180,13 @@ function selfTest() {
   assert(!isVerifiedFormatOnly(exercise, folded.replace('計算結果', '別の結果')), 'text changes must still fail');
   assert(!isVerifiedFormatOnly(exercise, folded.replace('<!-- solution-end -->', '<!-- solution-start -->')), 'unbalanced solution markers must fail');
   assert(!isVerifiedFormatOnly(exercise, folded + '\n<!-- unrelated -->'), 'other comments are not exempt');
+  const legacy = '## 10. 演習\n\n### Level A\n\n<a id="ex-test-a1"></a>\n#### TEST-A01 問題\n- Level: A\n\n$x$\n\n<a id="ex-test-a2"></a>\n#### TEST-A02 問題\n- Level: A\n\n$y$\n\n---\n\n## 11. 詳細解答\n\n### A1 解答\n\n$x=1$\n\n### A2 解答\n\n$y=2$\n\n---\n\n## 12. まとめ\n';
+  const moved = relocateLegacySolutions(legacy);
+  assert(moved && moved.includes('$x=1$\n<!-- solution-end -->\n\n<a id="ex-test-a2"></a>'));
+  assert(isVerifiedFormatOnly(legacy, moved), 'exact ID-matched answer relocation is presentation only');
+  assert(!isVerifiedFormatOnly(legacy, moved.replace('$x=1$', '$x=2$')), 'changed answer math must fail');
+  assert(!isVerifiedFormatOnly(legacy, moved.replace('ex-test-a2', 'ex-test-a3')), 'changed exercise anchor must fail');
+  assert.equal(relocateLegacySolutions(legacy.replace('### A2 解答', '### A1 解答')), null, 'duplicate answer ID must fail');
   const substantive = '章のすべての主要証明と演習・詳細解答を出発点から検算。代表定理では双線形性を使い、各項の係数を展開して一致を確認した。代表演習は端点を代入し、境界条件を確認した。別観点で読み直し、未解消の問題はない。';
   assert.deepEqual(checkChapter('T1', {mode:'substantive', text:substantive}), []);
   assert.deepEqual(checkChapter('T1', {mode:'local-math', text:'変更した証明を最初から検算し、その定理を使う二つの演習解答も確認した。読者向けの途中式とリンクを確認し、未解決の問題はない。'}), []);

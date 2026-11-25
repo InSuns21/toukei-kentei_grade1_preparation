@@ -137,6 +137,12 @@ jobs:
         if: github.event_name != 'pull_request'
         run: npm run audit:math-layout
 
+      - name: Validate changed DREAM THEATER exercise solution folding and counts
+        if: github.event_name == 'pull_request' || github.event_name == 'push'
+        env:
+          DREAM_THEATER_BASE_SHA: ${{ env.PR_COMPARISON_SHA || github.event.before }}
+        run: npm run validate:dream-theater-exercise-counts
+
       - name: Validate changed textbook guardrails
         if: github.event_name == 'pull_request'
         env:
