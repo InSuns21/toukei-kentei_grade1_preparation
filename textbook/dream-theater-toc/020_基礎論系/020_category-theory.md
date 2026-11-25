@@ -89,3 +89,4 @@
 86. [CATB6-02 量化子の随伴表示](textbook/volumes/dream_thater/基礎論系/CATB/CATB6-02/index.md)
 87. [CATB6-03 Beck–ChevalleyとFrobenius](textbook/volumes/dream_thater/基礎論系/CATB/CATB6-03/index.md)
 88. [CATB6-04 正則論理と整合論理](textbook/volumes/dream_thater/基礎論系/CATB/CATB6-04/index.md)
+89. [CATB6-05 トポスの内部言語](textbook/volumes/dream_thater/基礎論系/CATB/CATB6-05/index.md)

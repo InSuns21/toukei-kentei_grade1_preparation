@@ -1,0 +1,27 @@
+id: "CATB6-05"
+title: "トポスの内部言語"
+volume: "foundations"
+status: supplementary
+prerequisites: [CATB6-04, CATB6-03, CATB6-02, CATB6-01, CATB5-08, CATB5-06, CATB4-07, CAT4-05, CAT2-04]
+official_scope: []
+learning_objectives:
+  - 型と文脈を対象で、項を射で解釈できる
+  - 内部の式を部分対象として解釈し、含意と両量化を計算できる
+  - 型の合う代入が合成と逆像になることを証明できる
+  - 含意と全称量化の推論を随伴から導ける
+  - 内包と所属の対応および射の内部言語による判定を証明できる
+  - 前層圏で排中律と二重否定除去が成立しない例を説明できる
+definitions:
+  - { id: CATB6-05-DEF-01, name: "内部言語の型と項" }
+  - { id: CATB6-05-DEF-02, name: "トポスの内部言語の式と判断" }
+theorems:
+  - { id: CATB6-05-THM-01, name: "内部言語の代入則" }
+  - { id: CATB6-05-THM-02, name: "内部言語の含意と全称量化の健全性" }
+  - { id: CATB6-05-THM-03, name: "内包と所属の対応" }
+  - { id: CATB6-05-THM-04, name: "モノ射・エピ射の内部言語による判定" }
+canonical_examples: [集合での関数抽象, 有限関係の量化と内包, 二対象前層圏の排中律]
+problem_patterns: [CATB6-05-A01, CATB6-05-A02, CATB6-05-A03, CATB6-05-A04, CATB6-05-B01, CATB6-05-B02, CATB6-05-B03, CATB6-05-B04, CATB6-05-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 4, review: 2 }
