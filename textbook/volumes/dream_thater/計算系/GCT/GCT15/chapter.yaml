@@ -1,0 +1,41 @@
+id: "GCT15"
+title: "重み付き有限オートマトン・テープ機械"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GCT14
+  - GCT1
+  - GCT9
+  - AUT2
+  - CMP2
+official_scope: []
+learning_objectives:
+  - 重み付き有限オートマトンの走行総和を定義し行列積と逐次更新で計算できる
+  - 長さ別の全入力語の重みを行列の分配法則で集計できる
+  - テープ機械の有界受理総和を時間層上で計算し停止後の一意な待機で計数を保存できる
+  - 固定非負整数重みを通常の非決定性分岐に変換し時間上界と受理枝数を説明できる
+definitions:
+  - { id: GCT15-DEF-01, name: 重み付き有限オートマトン }
+  - { id: GCT15-DEF-02, name: 重み付きテープ機械の有界受理総和 }
+theorems:
+  - { id: GCT15-THM-01, name: 走行総和の行列積表示 }
+  - { id: GCT15-THM-02, name: 全入力語の長さ別総和 }
+  - { id: GCT15-THM-03, name: テープ機械の時間層による受理総和 }
+  - { id: GCT15-THM-04, name: 非負整数重みの分岐による実現 }
+canonical_examples:
+  - 二状態二文字の整数重み行列と入力順序の比較
+  - 異なる停止時刻を持つ二つのテープ機械の受理枝
+  - 非負重みの三歩分岐模擬と負の重みの相殺
+problem_patterns:
+  - GCT15-A1
+  - GCT15-A2
+  - GCT15-A3
+  - GCT15-A4
+  - GCT15-B1
+  - GCT15-B2
+  - GCT15-B3
+  - GCT15-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }
