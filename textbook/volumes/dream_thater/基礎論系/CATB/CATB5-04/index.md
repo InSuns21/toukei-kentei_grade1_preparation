@@ -21,7 +21,7 @@
 <!-- formal-statement-start -->
 > **定義（整合族の局所同値）**
 >
-> 小site $(\mathcal C,J)$ 上の集合値前層 $F$ と対象 $U$ を取る。被覆篩 $S,T$ と整合族 $s\in\operatorname{Match}(S,F)$、$t\in\operatorname{Match}(T,F)$ の組が局所同値であるとは、ある被覆篩 $R\in J(U)$ が存在して
+> 小site $(\mathcal C,J)$ 上の集合値前層 $F$ と対象 $U$ を取る。被覆篩 $S,T$ 上の整合族をそれぞれ $s,t$ とする。組 $(S,s),(T,t)$ が局所同値であるとは、ある被覆篩 $R\in J(U)$ が存在して
 
 $$
 R\subseteq S\cap T,\qquad s_f=t_f\quad(f\in R)
@@ -53,7 +53,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-小圏の全射は集合をなし、$J(U)$ はその冪集合の部分集合である。固定した $S$ の整合族は集合の直積 $\prod_{f\in S}F(\operatorname{dom}f)$ の部分集合である。従って非交和 $E_U$ も集合である。空の篩に対応する直積は一元集合とする。
+小圏の射全体は集合をなし、$J(U)$ はその冪集合の部分集合である。固定した $S$ の整合族は集合の直積 $\prod_{f\in S}F(\operatorname{dom}f)$ の部分集合である。従って非交和 $E_U$ も集合である。空の篩に対応する直積は一元集合とする。
 
 反射性は $R=S$ を選べば成立する。対称性は同じ $R$ を用い等号の両辺を交換すれば成立する。
 
@@ -77,10 +77,10 @@ $$
 <!-- formal-statement-start -->
 > **定義（plus構成）**
 >
-> 小site $(\mathcal C,J)$ 上の集合値前層 $F$ に対し、各対象 $U$ で局所同値による商集合を取る。
+> 小site $(\mathcal C,J)$ 上の集合値前層 $F$ に対し、各対象 $U$ で、各被覆篩上の整合族を篩のラベル付きで集め、局所同値による商集合を取る。
 
 $$
-F^+(U)=E_U/{\sim}.
+F^+(U)=\left(\coprod_{S\in J(U)}\operatorname{Match}(S,F)\right)/{\sim}.
 $$
 
 > 元は代表元を使って $[S,s]$ と書く。射 $u:V\to U$ に対する制限は
@@ -151,7 +151,15 @@ plus構成には二つの重要な特徴がある。標準写像は局所的に�
 >
 > 小site上の集合値前層 $F$、対象 $U$ と $x,y\in F(U)$ を取る。
 >
-> 標準写像 $\eta_{F,U}$ の値が一致することと、ある被覆篩 $R\in J(U)$ の全ての射 $f$ について $F(f)(x)=F(f)(y)$ となることは同値である。
+> 標準写像 $\eta_{F,U}$ について、次の二条件は同値である。
+
+$
+\eta_{F,U}(x)=\eta_{F,U}(y),
+$
+
+$
+\exists R\in J(U)\quad\forall f\in R:\ F(f)(x)=F(f)(y).
+$
 >
 > また $a=[S,s]\in F^+(U)$ と任意の $f:V\to U$ ($f\in S$) について
 
@@ -176,11 +184,11 @@ $$
 この族は $\eta_{F,V}(s_f)$ の代表元に一致する。
 <!-- proof-end -->
 
-特に[分離条件](../CATB5-03/index.md#def-catb5-03-site-sheaf)を満たすことと、全ての $\eta_{F,U}$ が単射であることは同値である。第3節の例では異なる定数写像が区別されるので標準写像は単射だが、$X$ では全射ではない。
+特に[分離条件](../CATB5-03/index.md#def-catb5-03-site-sheaf)を満たすことと、全ての $\eta_{F,U}$ が単射であることは同値である。実際、局所一致から等しいと結論できることが、前講の制限写像の単射性そのものだからである。第3節の例では異なる定数写像が区別されるので標準写像は単射だが、$X$ では全射ではない。
 
 ### 局所的な一致を大域的な一致に変える
 
-$a,b\in F^+(U)$ が被覆篩 $R$ の全射に沿って一致したとする。このとき各 $f\in R$ で、さらに細かい被覆篩を取れば二つの代表元の成分が一致する。Grothendieck位相の推移律は、この二段の局所化を一段の被覆へまとめる公理である。
+$a,b\in F^+(U)$ が被覆篩 $R$ のすべての射に沿って一致したとする。このとき各 $f\in R$ で、さらに細かい被覆篩を取れば二つの代表元の成分が一致する。Grothendieck位相の推移律は、この二段の局所化を一段の被覆へまとめる公理である。
 
 <a id="thm-catb5-04-separated-plus"></a>
 
@@ -243,7 +251,7 @@ $$
 Q=\{fg\mid f\in R,\ g\in S_f\}.
 $$
 
-$h=fg$ と $k:Z\to\operatorname{dom}h$ に対し $hk=f(gk)$、かつ $gk\in S_f$ なので $Q$ は篩である。各 $f\in R$ で $S_f\subseteq f^*Q$。従って[被覆篩の上方閉性とGrothendieck位相の推移律](../CATB5-02/index.md#prop-catb5-02-cover-closure)（推移律は[位相の定義](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)）より $f^*Q$ は被覆、さらに $Q$ も被覆となる。$Q\subseteq R$ でもある。
+$h=fg$ と $k:Z\to\operatorname{dom}h$ に対し $hk=f(gk)$、かつ $gk\in S_f$ なので $Q$ は篩である。各 $f\in R$ で $S_f\subseteq f^*Q$。従って[被覆篩の上方閉性](../CATB5-02/index.md#prop-catb5-02-cover-closure)より $f^*Q$ は被覆である。[Grothendieck位相の推移律](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)を被覆篩 $R$ と篩 $Q$ に適用して、$Q$ も被覆となる。$Q\subseteq R$ でもある。
 
 $h:W\to U$ が $Q$ に属するとき、$h=fg$ と書いて $x_h=s^f_g\in F(W)$ と置きたい。ここで因子分解の選択に依存しないことが核心である。[標準写像の局所表示](#prop-catb5-04-local-representation)を $a_f$ と $g\in S_f$ に適用すると
 
@@ -381,7 +389,7 @@ $0$ ではA01と同じ最大篩の計算で $F^+(0)$ は $D$ と対応する。$
 $i^*\{i\}=M_0$ で引き戻した族の恒等射成分は $d$。従ってこれらの対応で $F^+(i)$ は $1_D$ になる。元の標準写像は対象 $1$ で $r$、対象 $0$ で $1_D$ に対応する。$r$ の単射性がないなら同じ像を持つ元が同一視され、全射性がないなら像にない $d$ が新たに加わる。新しい制限は全単射であるため、$F^+$ は層となる。
 <!-- solution-end -->
 
-### CATB5-04-B02 層への自然な写像
+### CATB5-04-B02 前層間の自然変換のplus
 
 - Level: B
 
