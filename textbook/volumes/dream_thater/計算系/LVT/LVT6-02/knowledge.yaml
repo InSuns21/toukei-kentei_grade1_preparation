@@ -1,0 +1,10 @@
+chapter: LVT6-02
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT6-01, LVT4-06, LVT4-05, LVT5-08]
+concepts:
+  - id: lean-verification.anti-diagonal-shortest
+    name: 反対角線欠落の最短検出長
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.game-win, lean-verification.mutation-score, lean-verification.detection-set]
