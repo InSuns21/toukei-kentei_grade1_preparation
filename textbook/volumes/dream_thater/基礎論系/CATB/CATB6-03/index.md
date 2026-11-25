@@ -14,6 +14,20 @@ $$
 
 が存在する。合成は右から左へ読む。
 
+ここで [部分対象の逆像](../CATB4-07/index.md#thm-catb4-07-inverse-image) は $f^*:\operatorname{Sub}(Y)\to\operatorname{Sub}(X)$ であり、二つの量化子は反対向きに作用する。部分対象 $A=[m:M\to X]$ は代表モノ射 $m$ の同値類を意味する。
+
+集合では部分対象を部分集合と同一視できる。$y\in Y$ に対するファイバー $f^{-1}(\{y\})$ は $f(x)=y$ を満たす $x\in X$ の集合である。[射に沿う量化子の定義と集合での確認](../CATB6-02/index.md#def-catb6-02-quantifiers) に従えば、$B\subseteq Y$、$A\subseteq X$ に対して
+
+$$
+\begin{aligned}
+f^*B&=\{x\in X\mid f(x)\in B\},\\
+\exists_f A&=f(A)=\{y\in Y\mid f^{-1}(\{y\})\cap A\ne\varnothing\},\\
+\forall_f A&=\{y\in Y\mid f^{-1}(\{y\})\subseteq A\}.
+\end{aligned}
+$$
+
+$f^*$ は逆関数ではなく部分集合を逆像に移す操作である。空ファイバーは $A$ と交わらないが、常に $A$ に含まれる。この違いを後の具体例で使う。
+
 ## 2. 基底変換と存在量化
 
 射 $f:X\to Y$ と $g:Y'\to Y$ を取り、その[引き戻し](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)を $X'$ とする。射影を $h:X'\to X$、$f':X'\to Y'$ と書く。
@@ -33,13 +47,19 @@ $$
 g^*\exists_f A=\exists_{f'}h^*A.
 $$
 
-適用条件を確認しよう。[初等トポスのBarr-正確性](../CATB5-08/index.md#thm-catb5-08-exact) によって初等トポスは正則圏であり、[分類射と部分対象の自然な対応](../CATB5-06/index.md#thm-catb5-06-classifier-bijection) により部分対象順序は集合である。よって引用した定理の仮定を満たす。$A=[m:M\to X]$ とすると、$\exists_f A$ は $fm$ の像である。$h$ に沿う $m$ の引き戻しを $\ell:L\to X'$、$d:L\to M$ とすれば、
+適用条件を確認しよう。[初等トポスのBarr-正確性](../CATB5-08/index.md#thm-catb5-08-exact) によって初等トポスは [Barr-正確圏](../CATB1-02/index.md#def-catb1-02-barr-exact) なので正則圏であり、[分類射と部分対象の自然な対応](../CATB5-06/index.md#thm-catb5-06-classifier-bijection) により部分対象順序は集合である。よって引用した定理の仮定を満たす。$A=[m:M\to X]$ とすると、$\exists_f A$ は $fm$ の像である。$h$ に沿う $m$ の引き戻しを $\ell:L\to X'$、$d:L\to M$ とすれば、
 
 $$
 fmd=fh\ell=gf'\ell.
 $$
 
-この二段の引き戻しは $fm$ と $g$ の引き戻しを与える。従って [正則圏の像分解とその引き戻し安定性](../CATB1-02/index.md#thm-catb1-02-regular-factorization) により、$f'\ell$ の像は $fm$ の像の $g$ による逆像と一致する。存在量化を基底変換の前後で交換できる理由は、この像の安定性にある。
+この二段の引き戻しが $fm$ と $g$ の引き戻しを与えることは、[引き戻しの普遍性](../../CAT/CAT2-03/index.md#def-cat2-03-pullback) を二回使うと分かる。$v:T\to M$、$w:T\to Y'$ が $fmv=gw$ を満たすとする。まず $mv,w$ から $hk=mv,\ f'k=w$ を満たす唯一の $k:T\to X'$ を得る。次に $mv=hk$ から $du=v,\ \ell u=k$ を満たす唯一の $u:T\to L$ を得る。すると
+
+$$
+du=v,\qquad f'\ell u=f'k=w.
+$$
+
+逆にこの二条件を満たす $u$ があれば $h\ell u=mdu=mv$ なので、第一の引き戻しの一意性から $\ell u=k$、第二の一意性から $u$ が一意に定まる。従って [正則圏の像分解とその引き戻し安定性](../CATB1-02/index.md#thm-catb1-02-regular-factorization) により、$f'\ell$ の像は $fm$ の像の $g$ による逆像と一致する。存在量化を基底変換の前後で交換できる理由は、この像の安定性にある。
 
 ## 3. 全称量化の基底変換
 
@@ -179,11 +199,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$A=[m:M\to X]$、$B=[n:N\to Y]$ とする。[初等トポスのBarr-正確性](../CATB5-08/index.md#thm-catb5-08-exact) により正則圏なので $fm=ie$ と正則エピ射 $e:M\to I$、モノ射 $i:I\to Y$ に分解できる。
+$A=[m:M\to X]$、$B=[n:N\to Y]$ とする。[初等トポスのBarr-正確性](../CATB5-08/index.md#thm-catb5-08-exact) により [Barr-正確圏](../CATB1-02/index.md#def-catb1-02-barr-exact)、従って正則圏である。[正則圏の像分解](../CATB1-02/index.md#thm-catb1-02-regular-factorization) により $fm=ie$ と正則エピ射 $e:M\to I$、モノ射 $i:I\to Y$ に分解できる。
 
 $P=M\times_Y N$ を $fm,n$ の引き戻しとして、射影を $a:P\to M$、$b:P\to N$ とする。$n$ の引き戻しである $a$ はモノ射である（[モノ射の引き戻し](../../CAT/CAT2-03/index.md#prop-cat2-03-pullback-mono)）。合成 $ma:P\to X$ は $A\wedge f^*B$ を表すことを確認する。
 
-任意の射 $u:T\to X$ が $m$ を経由し、かつ $fu$ が $n$ を経由すると仮定する。つまり $u=mv$、$fu=nw$ となる $v:T\to M$、$w:T\to N$ がある。このとき $fmv=nw$ だから [引き戻しの普遍性](../../CAT/CAT2-03/index.md#def-cat2-03-pullback) により $ak=v,bk=w$ を満たす唯一の $k:T\to P$ を得る。逆に $u=mak$ なら $u$ は $m$ を経由し、$fu=fmak=nbk$ も $n$ を経由する。これは共通部分の普遍性であり、$[ma]=A\wedge f^*B$ である。
+任意の射 $u:T\to X$ が $m$ を経由し、かつ $fu$ が $n$ を経由すると仮定する。つまり $u=mv$、$fu=nw$ となる $v:T\to M$、$w:T\to N$ がある。このとき $fmv=nw$ だから [引き戻しの普遍性](../../CAT/CAT2-03/index.md#def-cat2-03-pullback) により $ak=v,bk=w$ を満たす唯一の $k:T\to P$ を得る。逆に $u=mak$ なら $u$ は $m$ を経由し、$fu=fmak=nbk$ も $n$ を経由する。[部分対象の順序](../CATB4-07/index.md#def-catb4-07-subobject) では代表モノ射を経由することが包含に対応する。従って $[ma]$ は $A,f^*B$ の共通下界であり、任意の共通下界は $ma$ を経由する。よって $[ma]=A\wedge f^*B$ である。
 
 次に $Q=I\times_Y N$ を $i,n$ の引き戻しとし、射影を $c:Q\to I$、$d:Q\to N$ とする。$iea=fma=nb$ より $ct=ea,dt=b$ となる唯一の射 $t:P\to Q$ が存在する。
 
@@ -221,9 +241,9 @@ $$
 
 ## 6. 射影の場合の論理的な読み方
 
-$R$ を $X\times Z$ 上の部分対象、$B$ を $X$ 上の部分対象、$\pi:X\times Z\to X$ を射影とする。写像 $g:X'\to X$ による代入では $h=g\times 1_Z$、$\pi':X'\times Z\to X'$ を使う。
+$R$ を $X\times Z$ 上の部分対象、$B$ を $X$ 上の部分対象、$\pi:X\times Z\to X$ を第一射影とする。射 $g:X'\to X$ による代入では $h=g\times 1_Z:X'\times Z\to X\times Z$、$\pi':X'\times Z\to X'$ を使う。ここで $1_Z$ は恒等射であり、$h$ は第一成分だけに $g$ を作用させる積の射である。
 
-この四角形は引き戻しになる。実際、$u:T\to X\times Z$、$v:T\to X'$ が $\pi u=gv$ を満たせば、$u$ の第二成分を $z:T\to Z$ と書くと、[積の普遍性](../../CAT/CAT2-04/index.md#def-cat2-04-small-product) から成分 $(v,z)$ を持つ唯一の射 $T\to X'\times Z$ が得られる。この射を $h$ と合成した成分は $(gv,z)$ なので $u$ と一致する。
+この四角形は引き戻しになる。実際、$u:T\to X\times Z$、$v:T\to X'$ が $\pi u=gv$ を満たせば、$u$ の第二成分を $z:T\to Z$ と書くと、[積の普遍性](../../CAT/CAT2-04/index.md#def-cat2-04-small-product) から成分 $(v,z)$ を持つ唯一の射 $T\to X'\times Z$ が得られる。この射を $k:T\to X'\times Z$ とする。すると $\pi'k=v$ であり、$hk$ の成分は $(gv,z)$ なので $hk=u$ である。逆にこの二条件を満たす射は第一成分が $v$、第二成分が $z$ に強制されるため、積の普遍性から $k$ に一致する。
 
 [存在量化の基底変換](../CATB4-07/index.md#thm-catb4-07-beck-chevalley) と [全称量化の基底変換](#thm-catb6-03-universal-beck-chevalley) を適用する。
 
@@ -283,7 +303,7 @@ A02 の写像を全て明示し直すと、$f:\{1,2,3\}\to\{a,b,c\}$ は $1,2\ma
 <!-- solution-start -->
 **詳細解答**
 
-元のファイバーは $\{1,2\},\{3\},\varnothing$ で、第二と第三だけが $A$ に含まれる。従って $\forall_f A=\{b,c\}$、$g^*\forall_f A=\{q,r\}$。引き戻しは $\{(1,p),(2,p),(3,q)\}$ で、$h^*A=\{(2,p),(3,q)\}$ となる。$p$ のファイバーには $(1,p)$ があり失敗し、$q$ の唯一の組は含まれる。$r$ のファイバーは空なので含まれる。よって $\forall_{f'}h^*A=\{q,r\}$ となり、[全称量化の基底変換](#thm-catb6-03-universal-beck-chevalley) を確認した。
+[集合での全称量化](../CATB6-02/index.md#def-catb6-02-quantifiers) はファイバーの包含で判定する。元のファイバーは $\{1,2\},\{3\},\varnothing$ で、第二と第三だけが $A$ に含まれる。従って $\forall_f A=\{b,c\}$、$g^*\forall_f A=\{q,r\}$。引き戻しは $\{(1,p),(2,p),(3,q)\}$ で、$h^*A=\{(2,p),(3,q)\}$ となる。$p$ のファイバーには $(1,p)$ があり失敗し、$q$ の唯一の組は含まれる。$r$ のファイバーは空なので含まれる。よって $\forall_{f'}h^*A=\{q,r\}$ となり、[全称量化の基底変換](#thm-catb6-03-universal-beck-chevalley) を確認した。
 <!-- solution-end -->
 
 ### CATB6-03-A04 連言の型と計算
