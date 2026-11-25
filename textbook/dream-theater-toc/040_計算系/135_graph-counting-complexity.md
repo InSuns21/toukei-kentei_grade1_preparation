@@ -15,3 +15,4 @@
 12. [GCT12 Ryserの包除公式と部分集合DP](textbook/volumes/dream_thater/計算系/GCT/GCT12/index.md)
 13. [GCT13 多項式補間と重みの除去](textbook/volumes/dream_thater/計算系/GCT/GCT13/index.md)
 14. [GCT14 有限群とCayleyグラフ](textbook/volumes/dream_thater/計算系/GCT/GCT14/index.md)
+15. [GCT15 重み付き有限オートマトン・テープ機械](textbook/volumes/dream_thater/計算系/GCT/GCT15/index.md)
