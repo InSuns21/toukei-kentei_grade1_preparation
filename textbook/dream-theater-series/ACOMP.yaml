@@ -98,5 +98,5 @@ chapters:
     title: "GCTへの入口：Zariski軌道閉包・determinantal complexity・表現論の役割"
   - id: ACOMP24
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP24
-    status: planned
+    status: completed
     title: "Boolean P vs NP・P/poly・#Pとの条件付き含意、既知の証明障壁と総合演習"
