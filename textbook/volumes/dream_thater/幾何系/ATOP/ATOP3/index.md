@@ -267,13 +267,13 @@ $$
 同値の条件より $c_p=g\circ f\simeq\mathrm{id}_X$ です。[ホモトピー関係の対称律](../ATOP2/index.md#thm-atop2-homotopy-equivalence-relation) で向きを反転して [可縮性の定義](#def-atop3-contractible) を満たします。
 <!-- proof-end -->
 
-ここでは [直線ホモトピー](../ATOP2/index.md#prop-atop2-linear-homotopy) の仮定、すなわち任意の二点 $u,v\in C$ と時刻 $t\in I$ について
+非空集合 $C\subseteq\mathbb R^n$ を取ります。ここでは [直線ホモトピー](../ATOP2/index.md#prop-atop2-linear-homotopy) の仮定、すなわち任意の二点 $u,v\in C$ と時刻 $t\in I$ について
 
 $$
 (1-t)u+tv\in C
 $$
 
-となる凸性を使います。凸な非空集合 $C\subseteq\mathbb R^n$ は可縮です。
+となる凸性を使います。この条件が成立するなら $C$ は可縮です。
 
 点 $p\in C$ を選び、[直線ホモトピー](../ATOP2/index.md#prop-atop2-linear-homotopy) を $\mathrm{id}_C$ と $c_p$ に適用します。両写像は連続で値が $C$ に入り、$H(x,t)=(1-t)x+tp$ は凸性から $C$ に入ります。
 
