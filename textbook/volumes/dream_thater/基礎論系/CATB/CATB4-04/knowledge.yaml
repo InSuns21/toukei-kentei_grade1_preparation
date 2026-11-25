@@ -35,6 +35,7 @@ concepts:
     requires: [category.indexed-category, category.natural-isomorphism]
   - id: category.modification
     name: "修正"
+    aliases: ["modification"]
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（修正）"]
