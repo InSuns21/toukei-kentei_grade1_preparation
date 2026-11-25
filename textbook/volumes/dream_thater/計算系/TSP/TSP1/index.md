@@ -76,7 +76,7 @@ $$
 
 つまり基底の組における値だけを知れば任意の入力の値が出ます。積 $x^{(1)}_i x^{(2)}_j$ を新しい座標として並べれば、その座標に関しては線形な計算です。
 
-一般の $d$ についても、各位置を順に展開すれば係数は $d$ 個の座標の積になります。ここで新しい空間 $T$ と写像 $\tau$ に求めたい条件は、どんな多重線形写像 $b$ であっても、$\tau$ を通して一意な線形写像に変換できることです。合成 $L\circ\tau$ はまず $\tau$ を適用し、その出力に $L$ を適用することを表します。この性質を普遍性と呼びます。
+一般の $d$ についても、各位置を順に展開すれば係数は $d$ 個の座標の積になります。ここで新しい空間 $T$ と写像 $\tau$ に求めたい条件は、どんな多重線形写像 $b$ であっても、$\tau$ を通して一意な線形写像に変換できることです。線形写像を $L:T\to W$ と書くと、合成 $L\circ\tau$ はまず $\tau$ を適用し、その出力に $L$ を適用することを表します。この性質を普遍性と呼びます。
 
 <a id="def-tsp1-multifactor-product"></a>
 
@@ -249,7 +249,7 @@ $$
 なので $\Phi\circ\Psi=\operatorname{id}_{T'}$ です。よって $\Phi$ は同型であり、条件を満たす線形写像自体が一意なので同型も一意です。
 <!-- proof-end -->
 
-$d=2$、$K=\mathbb R$ または $\mathbb C$ なら[LA3Eの存在と基底の定理](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)および[一意性の定理](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-uniqueness)の内容に戻ります。今回の構成で使ったのは体の四則演算と各位置の線形性だけなので、[正の標数](../../../代数系/FLD/FLD3/index.md#def-fld3-characteristic-prime-field-finite-field)（単位元を有限回足すと零になる体）でも成立します。
+$d=2$、$K=\mathbb R$ または $\mathbb C$ なら[LA3Eの存在と基底の定理](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)および[一意性の定理](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-uniqueness)の内容に戻ります。今回の構成で使ったのは体の四則演算と各位置の線形性だけなので、[標数](../../../代数系/FLD/FLD3/index.md#def-fld3-characteristic-prime-field-finite-field)が正の体（単位元を正の有限回足すと零になる体）でも成立します。
 
 ### 手で計算する
 
@@ -297,7 +297,7 @@ $$
 g_j^{(a)}=\sum_i P^{(a)}_{ij}e_i^{(a)}
 $$
 >
-> とする。テンソル $t$ の旧基底での座標を $c_I$、新基底での座標を $h_J$ とすると、
+> とする。添字組 $I=(i_1,\ldots,i_d)$ と $J=(j_1,\ldots,j_d)$ は各位置で $1$ から $n_a=\dim_K V_a$ まで動く。テンソル積の元 $t$ の旧基底テンソルでの座標を $c_I$、新基底テンソルでの座標を $h_J$ とすると、
 >
 $$
 c_I=\sum_J h_J\prod_{a=1}^d P^{(a)}_{i_a j_a}.
@@ -597,7 +597,7 @@ h_{22}^{\mathrm{new}}&=-1+1=0.
 \end{aligned}
 $$
 
-ここで 元の新座標 $(0,1,2,0)$ に戻りました。
+元の新座標 $(0,1,2,0)$ に戻りました。
 <!-- solution-end -->
 
 ### Level C
@@ -629,7 +629,9 @@ b(u,\lambda v+\mu v',w)
 b(u,v,\lambda w+\mu w')
 &=\lambda(w\otimes u\otimes v)+\mu(w'\otimes u\otimes v).
 \end{aligned}
-$$よって $T$ の普遍性から一意な線形写像 $P:T\to S$ が存在し、指定された対応を満たします。
+$$
+
+よって $T$ の普遍性から一意な線形写像 $P:T\to S$ が存在し、指定された対応を満たします。
 
 逆向きには $c:W\times U\times V\to T$、$c(w,u,v)=u\otimes v\otimes w$ を取ります。各位置は $T$ の第3、第1、第2位置にそれぞれ対応するので多重線形であり、$S$ の普遍性から線形写像 $Q:S\to T$ を得ます。
 
