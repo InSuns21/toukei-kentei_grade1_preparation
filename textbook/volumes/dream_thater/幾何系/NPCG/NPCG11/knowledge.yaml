@@ -1,0 +1,42 @@
+chapter: NPCG11
+scope: dream-theater
+coverage: complete
+prerequisites: [NPCG10, GCT14, F0-02C1, F0-00F1]
+forward_references: []
+concepts:
+  - id: metric-geometry.nonlinear-poincare
+    name: "非線形Poincaré不等式"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非線形Poincaré不等式）"]
+    requires: [graph-counting.cayley-graph, topology.metric-space]
+  - id: metric-geometry.path-poincare-bound
+    name: "歩道によるPoincaré評価"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（歩道によるPoincaré評価）"]
+    requires: [metric-geometry.nonlinear-poincare, graph-counting.cayley-translation-connectivity]
+  - id: metric-geometry.scalar-poincare-gap
+    name: "実数値Poincaréギャップ"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（実数値Poincaréギャップ）"]
+    requires: [metric-geometry.nonlinear-poincare]
+  - id: metric-geometry.hilbert-poincare-bound
+    name: "Hilbert空間値Poincaré評価"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hilbert空間値Poincaré評価）"]
+    requires: [metric-geometry.scalar-poincare-gap, metric-geometry.path-poincare-bound, functional.hilbert-space]
+  - id: metric-geometry.pairwise-barycenter-comparison
+    name: "全対平均と重心分散の比較"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全対平均と重心分散の比較）"]
+    requires: [metric-geometry.barycenter-variance-inequality, metric-geometry.nonlinear-poincare]
+  - id: metric-geometry.orbit-poincare-bound
+    name: "生成元の移動量による固定点評価"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（生成元の移動量による固定点評価）"]
+    requires: [metric-geometry.pairwise-barycenter-comparison, metric-geometry.nonlinear-poincare, metric-geometry.isometric-group-action, metric-geometry.finite-group-fixed-point]

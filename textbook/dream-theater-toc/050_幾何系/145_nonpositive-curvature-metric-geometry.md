@@ -11,3 +11,4 @@
 8. [NPCG8 重心・二乗距離の最小化・分散不等式](textbook/volumes/dream_thater/幾何系/NPCG/NPCG8/index.md)
 9. [NPCG9 等長群作用・有限群固定点・不変凸集合](textbook/volumes/dream_thater/幾何系/NPCG/NPCG9/index.md)
 10. [NPCG10 射影の平均と交互射影：凸集合の角度](textbook/volumes/dream_thater/幾何系/NPCG/NPCG10/index.md)
+11. [NPCG11 非線形Poincaré不等式：CayleyグラフとHilbert版の比較](textbook/volumes/dream_thater/幾何系/NPCG/NPCG11/index.md)
