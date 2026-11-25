@@ -18,7 +18,7 @@ chapters:
     title: "回路とformula・ABP：共有部分式とサイズ／深さ"
   - id: ACOMP4
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP4
-    status: planned
+    status: completed
     title: "体の標数・拡大・定数モデル：単位コストとビット計算"
   - id: ACOMP5
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP5
