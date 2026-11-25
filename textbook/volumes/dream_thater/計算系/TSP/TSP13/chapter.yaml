@@ -2,7 +2,7 @@ id: "TSP13"
 title: "support functionals・エントロピーによるスペクトル評価"
 volume: foundations
 status: supplementary
-prerequisites: [TSP12, INFO2]
+prerequisites: [TSP12, INFO2, RA3]
 official_scope: []
 learning_objectives:
   - 台と周辺分布から重み付きエントロピーを計算できる

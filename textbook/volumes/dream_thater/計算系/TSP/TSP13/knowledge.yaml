@@ -1,7 +1,7 @@
 chapter: TSP13
 scope: dream-theater
 coverage: complete
-prerequisites: [TSP12, INFO2]
+prerequisites: [TSP12, INFO2, RA3]
 forward_references: []
 concepts:
   - id: tensor.coordinate-support
@@ -27,7 +27,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（上側support functionalの単調性）"]
-    requires: [tensor.upper-support-functional, tensor.restriction, information.gibbs-inequality]
+    requires: [tensor.upper-support-functional, tensor.restriction, information.gibbs-inequality, analysis.derivative]
   - id: tensor.upper-support-product-sum
     name: 上側support functionalの劣乗法性・劣加法性
     kind: theorem
