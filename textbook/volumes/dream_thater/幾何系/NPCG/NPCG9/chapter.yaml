@@ -1,0 +1,27 @@
+id: "NPCG9"
+title: "等長群作用・有限群固定点・不変凸集合"
+volume: "foundations"
+status: supplementary
+prerequisites: [NPCG8, GRP3]
+official_scope: []
+learning_objectives:
+  - 等長群作用の条件を確認し軌道と不変集合と共通固定点を区別できる
+  - 重心の等変性を証明し有限群の共通固定点を構成できる
+  - 共通固定点集合の閉性と測地線凸性を証明できる
+  - 不変閉凸集合への射影の等変性と固定点の存在を証明できる
+  - 分散不等式により操作による移動量から固定点までの距離を評価できる
+definitions:
+  - { id: NPCG9-DEF-01, name: "等長群作用" }
+  - { id: NPCG9-DEF-02, name: "共通固定点集合" }
+  - { id: NPCG9-DEF-03, name: "不変集合" }
+theorems:
+  - { id: NPCG9-THM-01, name: "重心の等変性" }
+  - { id: NPCG9-THM-02, name: "有限群の共通固定点定理" }
+  - { id: NPCG9-THM-03, name: "共通固定点集合の閉性と測地線凸性" }
+  - { id: NPCG9-THM-04, name: "不変閉凸集合への射影の等変性" }
+canonical_examples: [実直線の鏡映, 三枝の距離木の巡回作用, 平面の反転と不変閉凸集合]
+problem_patterns: [NPCG9-A01, NPCG9-A02, NPCG9-A03, NPCG9-A04, NPCG9-B01, NPCG9-B02, NPCG9-B03, NPCG9-B04, NPCG9-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
