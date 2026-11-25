@@ -1,7 +1,8 @@
 # DREAM THEATER：Lean 4によるソフトウェアテスト・形式証明 — 講義PLAN
 
 設計確定日：2026-11-24  
-状態：**in progress（講義実装に着手）**  
+状態：**done（全43講の実装・追跡監査・検証完了、外部サービス実操作は保証対象外として終了）**  
+完了判定日：2026-11-25  
 確定講義数：**43講**（LVT1：6講、LVT2：8講、LVT3：8講、LVT4：6講、LVT5：8講、LVT6：7講）  
 新規系列ID：**LVT**（Lean Verification and Testing）
 
@@ -65,14 +66,14 @@
 
 - 予定章ID：LVT1-01〜LVT1-06、LVT2-01〜LVT2-08、LVT3-01〜LVT3-08、LVT4-01〜LVT4-06、LVT5-01〜LVT5-08、LVT6-01〜LVT6-07（**全43章**）。
 - 予定配置：`textbook/volumes/dream_thater/計算系/LVT/<章ID>/`。講義の完成ごとに章ディレクトリを追加する。
-- 実装開始時に新設した `textbook/dream-theater-series/LVT.yaml` の実際の章リストで進捗を管理する。その `plan` は移動後の `textbook/plans_progress/DREAM_THEATER_LEAN4_SOFTWARE_TESTING_FORMAL_VERIFICATION_PLAN.md` を参照する。
+- 実装開始時に新設した `textbook/dream-theater-series/LVT.yaml` の実際の章リストで進捗を管理する。完了後の `plan` は `textbook/plan_done/DREAM_THEATER_LEAN4_SOFTWARE_TESTING_FORMAL_VERIFICATION_PLAN.md` を参照する。
 - 設計段階では `textbook/plans/` に置き、実装着手時に `textbook/plans_progress/` へ移す。共有routing、公開目次、knowledge DAGには未実装章を登録しない。実装着手から全章と横断監査の完了まではPLANのライフサイクル規約に従う。
 - 同じ系列の学修順はLVT1→2→3→4→5→6。LVT4のテスト概念はLVT3の仕様例を再利用する。LVT5/6はLVT3の形式モデルを参照し、後続の仕組みを先行の証明で暗黙利用しない。
 - 履修時は各章の教材本文に、Leanのコード断片・実行手順・期待出力・エラー例・紙上の論証・反例をそろえる。**証明をコンパイルした事実だけで数学・意味論の妥当性を代替しない。**
 
 ### 数学研究向け発展系列との正本分担（2026-11-24）
 
-LVT第I・II部（LVT1-01〜06、LVT2-01〜08の14講）はLean・型・論理・証明・再現環境の共通基盤を所有する。[FML（数学研究向け形式証明・全7講）](../plan_done/DREAM_THEATER_FORMAL_MATHEMATICS_LEAN_PLAN.md) はこの14講を前提とし、Mathlib上の数学的対象、研究論文とのstatement照合、公理・独立kernel監査を担当する。LVT第III〜VI部はソフトウェア仕様・実装検証・テスト工学の発展（29講）として独立に継続し、FMLの必修としない。本変更でLVTの43講、既存章ID、進捗、完成条件は変更しない。
+LVT第I・II部（LVT1-01〜06、LVT2-01〜08の14講）はLean・型・論理・証明・再現環境の共通基盤を所有する。[FML（数学研究向け形式証明・全7講）](DREAM_THEATER_FORMAL_MATHEMATICS_LEAN_PLAN.md) はこの14講を前提とし、Mathlib上の数学的対象、研究論文とのstatement照合、公理・独立kernel監査を担当する。LVT第III〜VI部はソフトウェア仕様・実装検証・テスト工学の発展（29講）として独立に継続し、FMLの必修としない。本変更でLVTの43講、既存章ID、進捗、完成条件は変更しない。
 
 ## 4. 確定43講の構成
 
@@ -203,3 +204,12 @@ LVT第I・II部（LVT1-01〜06、LVT2-01〜08の14講）はLean・型・論理�
 - 全43章について初出・依存・主要証明・例・全演習と詳細解答を査読し、実装・CI・公開導線との整合を確認する。
 
 **PLANの設計確定と教材の完成を区別する。** 設計段階で確定したのは43講の内容・ID・証明責務である。各講の完成は系列manifestと実際の証明・テストの検証結果で確認する。実装中に証明責務の過不足が判明した場合には、その根拠と影響する章・参照を明記してPLANを改訂する。
+
+
+## 7. 系列完了記録（2026-11-25）
+
+- 全43講（6+8+8+6+8+7）の manifest は completed。章本文・chapter.yaml・knowledge.yaml 計129ファイル、43章の lab、公開目次とブラウザラボ登録の一致を確認した。
+- 全43講の追跡監査はマージ済み。先行章は既存の査読記録を照合し、最終講は [PR #4681](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4681) で全主要証明・全9演習を再計算して区分Bの修正を実施した。第三者独立査読ではない。
+- #4681 の head `6ce1d596f1bcb1f689cac908b01b493b51eb4cfc` で textbook・Pages・concepts・exercises・terminology・LVT capstone・LVT browser labs の全7 workflow が成功し、main に `0102258f96858257b2cca4d89fddb674f13673c4` としてマージされた。最終課題では固定Leanの証明、独立Python実装、9入力の照合、205操作列、変異の最短反例 p と再実行、保証台帳を検証した。
+- 外部サービスの境界：第5.1節の外部Lean Web/Codespacesでの実操作は未確認。Chromiumによる全43講のランチャー・実ソース引渡し、固定Lean CLIによる生成ソースの正常・意図的失敗の検証、Codespaces設定の構文検査は成功したが、外部サービスそのものの稼働・ログイン・実行を証明しない。未確認を報告した後のユーザーの明示的な終了指示（2026-11-25）に基づき、本PLANに限って外部サービス実操作を終了ゲートから除外し、未確認のまま保証対象外として履歴に残す。一般規約、他系列の完了基準、既存章の数学的statusは変更しない。外部実行を検証済みとは記録しない。
+- PLANを移動し、LVT manifest と FML PLAN の直接参照を同期する。予定講義は終了し、次講なし。

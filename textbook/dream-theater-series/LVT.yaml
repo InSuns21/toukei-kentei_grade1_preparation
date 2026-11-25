@@ -1,7 +1,7 @@
 version: 1
 id: LVT
 title: "Lean 4によるソフトウェアテスト・形式証明"
-plan: textbook/plans_progress/DREAM_THEATER_LEAN4_SOFTWARE_TESTING_FORMAL_VERIFICATION_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_LEAN4_SOFTWARE_TESTING_FORMAL_VERIFICATION_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 chapters:
