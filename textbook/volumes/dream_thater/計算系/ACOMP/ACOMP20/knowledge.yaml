@@ -1,0 +1,43 @@
+chapter: ACOMP20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ACOMP19
+forward_references: []
+concepts:
+  - id: algebraic-complexity.pit
+    name: "多項式恒等性判定"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多項式恒等性判定）"]
+    requires: [algebraic-complexity.arithmetic-circuit, algebraic-complexity.arithmetic-circuit-semantics]
+  - id: algebraic-complexity.schwartz-zippel
+    name: "Schwartz–Zippel 補題"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Schwartz–Zippel 補題）"]
+    requires: [algebraic-complexity.grid-uniqueness]
+  - id: algebraic-complexity.pit-amplification
+    name: "乱択恒等性判定の片側誤りと反復"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（乱択恒等性判定の片側誤りと反復）"]
+    requires: [algebraic-complexity.pit, algebraic-complexity.schwartz-zippel]
+  - id: algebraic-complexity.hitting-set
+    name: "ヒッティング集合"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ヒッティング集合）"]
+    requires: [algebraic-complexity.polynomial-evaluation-map]
+  - id: algebraic-complexity.grid-hitting
+    name: "直積による決定的恒等性判定"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（直積による決定的恒等性判定）"]
+    requires: [algebraic-complexity.hitting-set, algebraic-complexity.schwartz-zippel]
+  - id: algebraic-complexity.hitting-lower-bound
+    name: "ヒッティング集合からの回路下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ヒッティング集合からの回路下界）"]
+    requires: [algebraic-complexity.hitting-set, algebraic-complexity.arithmetic-circuit-size]
