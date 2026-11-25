@@ -2,7 +2,7 @@ id: "FML2"
 title: "抽象代数学の形式化"
 volume: foundations
 status: supplementary
-prerequisites: [FML1, RNG1, FLD0, FLD1]
+prerequisites: [FML1, RNG1, FLD0, FLD1, FLD3]
 official_scope: []
 learning_objectives:
   - RingとCommRingとFieldの仮定を区別する

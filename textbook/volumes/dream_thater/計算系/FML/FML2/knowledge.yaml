@@ -1,7 +1,7 @@
 chapter: FML2
 scope: dream-theater
 coverage: complete
-prerequisites: [FML1, RNG1, FLD0, FLD1]
+prerequisites: [FML1, RNG1, FLD0, FLD1, FLD3]
 forward_references: []
 concepts:
   - id: formal-math.algebra-instance
@@ -23,7 +23,7 @@ concepts:
     name: Leanの標数の型クラス
     kind: definition
     introduction: formal
-    requires: [formal-math.nat-cast]
+    requires: [formal-math.nat-cast, algebra.field-characteristic]
   - id: formal-math.char-two-square
     name: 標数2での二乗の形式化
     kind: theorem
