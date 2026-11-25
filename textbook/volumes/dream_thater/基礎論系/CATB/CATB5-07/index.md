@@ -681,7 +681,9 @@ $S'=(u\times1_F)^*S$ とする。ここで $(-)^*$ は篩の引き戻しでは�
 
 $$
 S'(V)=\{(y,x)\in Y(V)\times F(V)\mid(u_V(y),x)\in S(V)\}.
-$$[分類射と部分対象の自然な対応](../CATB5-06/index.md#thm-catb5-06-classifier-bijection)を層の圏で使えるのは有限極限と分類子が存在するためである。従って $\chi_{S'}=\chi_S(u\times1_F)$。[積への射とその合成則](../../CAT/CAT2-02/index.md#prop-cat2-02-product-map)より
+$$
+
+[分類射と部分対象の自然な対応](../CATB5-06/index.md#thm-catb5-06-classifier-bijection)を層の圏で使えるのは有限極限と分類子が存在するためである。従って $\chi_{S'}=\chi_S(u\times1_F)$。[積への射とその合成則](../../CAT/CAT2-02/index.md#prop-cat2-02-product-map)より
 
 $$
 \begin{aligned}
