@@ -1,0 +1,28 @@
+id: "TSP13"
+title: "support functionals・エントロピーによるスペクトル評価"
+volume: foundations
+status: supplementary
+prerequisites: [TSP12, INFO2]
+official_scope: []
+learning_objectives:
+  - 台と周辺分布から重み付きエントロピーを計算できる
+  - 基底最小化の必要性と局所線形写像による単調性を証明できる
+  - 積と直和の評価を周辺分布と相対エントロピーから導出できる
+  - 対角正規化と漸近劣階数の上界を証明し三項テンソルで計算できる
+  - 劣乗法性とスペクトル点の乗法性を区別できる
+definitions:
+  - { id: TSP13-DEF-01, name: "テンソルの台" }
+  - { id: TSP13-DEF-02, name: "重み付き台エントロピー" }
+  - { id: TSP13-DEF-03, name: "上側support functional" }
+theorems:
+  - { id: TSP13-THM-01, name: "上側support functionalの単調性" }
+  - { id: TSP13-THM-02, name: "上側support functionalの劣乗法性・劣加法性" }
+  - { id: TSP13-THM-03, name: "対角テンソルの一因子固定項の下界" }
+  - { id: TSP13-THM-04, name: "上側support functionalの対角正規化" }
+  - { id: TSP13-THM-05, name: "台エントロピーによる漸近劣階数の上界" }
+canonical_examples: [非零単純テンソル, 対角テンソル, 三項テンソル]
+problem_patterns: [TSP13-A01, TSP13-A02, TSP13-A03, TSP13-A04, TSP13-B01, TSP13-B02, TSP13-B03, TSP13-B04, TSP13-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 4, review: 2 }

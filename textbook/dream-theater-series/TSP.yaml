@@ -54,7 +54,7 @@ chapters:
     title: "Strassen漸近スペクトル双対性：仮定・証明の骨格と例"
   - id: TSP13
     path: textbook/volumes/dream_thater/計算系/TSP/TSP13
-    status: planned
+    status: completed
     title: "support functionals・エントロピーによるスペクトル評価"
   - id: TSP14
     path: textbook/volumes/dream_thater/計算系/TSP/TSP14
