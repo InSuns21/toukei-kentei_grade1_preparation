@@ -1,0 +1,28 @@
+id: MQFC1
+title: "場のsmearing・Schwartz空間・緩増加分布と核"
+volume: foundations
+status: supplementary
+prerequisites: [GPDE2, FOU3]
+official_scope: []
+learning_objectives:
+  - Schwartz半ノルムによる急減少と連続性を判定できる
+  - 緩増加分布の微分とFourier変換を計算できる
+  - 点評価と積の連続拡張の障害を近似列で証明できる
+  - 二点分布核と正値性を区別し有限族で判定できる
+definitions:
+  - { id: MQFC1-DEF-01, name: "Schwartz空間" }
+  - { id: MQFC1-DEF-02, name: "緩増加分布" }
+  - { id: MQFC1-DEF-03, name: "緩増加分布の微分とFourier変換" }
+  - { id: MQFC1-DEF-04, name: "二点分布核と正値性" }
+theorems:
+  - { id: MQFC1-PROP-01, name: "多項式増大関数による緩増加分布" }
+  - { id: MQFC1-THM-02, name: "Schwartz空間のFourier変換" }
+  - { id: MQFC1-PROP-03, name: "分布微分のFourier表示" }
+  - { id: MQFC1-PROP-04, name: "点評価と積の連続拡張の障害" }
+  - { id: MQFC1-PROP-05, name: "有限個の試験関数による正値性判定" }
+canonical_examples: [Gaussian, Dirac分布, 対角核, デルタ近似の二乗]
+problem_patterns: [MQFC1-SCHWARTZ, MQFC1-FOURIER, MQFC1-PRODUCT, MQFC1-POSITIVITY]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 4, review: 2 }
