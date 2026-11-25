@@ -203,7 +203,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（正則な二段stripの局所補正）**
-> 二断面付き線形化の一様逆の仮定を満たす完全境界stripの組を取る。固定した小さい半径 $\rho>0$ と十分大きな $R_0$ が存在し、各 $R\ge R_0$ に対して $G_R(\xi)=0$ は $H^k$ の閉球 $\|\xi\|\le\rho$ にただ一つの解 $\xi_R$ を持つ。ある $C$ に対し
+> 二断面付き線形化の一様逆の仮定を満たす完全境界stripの組を取る。固定した小さい半径 $\rho>0$ と十分大きな $R_0$ が存在する。
+> 各 $R\ge R_0$ に対し、次の閉球内の方程式はただ一つの解 $\xi_R$ を持つ。
+
+$
+G_R(\xi)=0,\qquad \|\xi\|_{H^k}\le\rho.
+$
+
+> ある定数 $C$ に対し
 
 $$
 \|\xi_R\|_{H^k}\le Ce^{-\delta R}.
@@ -348,7 +355,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Fredholm作用素の行列式線）**
-> 実Fredholm作用素 $D:E\to F$ に対し、$a=\dim\ker D,\ b=\dim\operatorname{coker}D$ とする。行列式線は実一次元ベクトル空間
+> 実Fredholm作用素 $D:E\to F$ に対し、核と余核の実次元をそれぞれ
+
+$
+a=\dim\ker D,\qquad b=\dim\operatorname{coker}D
+$
+
+> とする。行列式線は実一次元ベクトル空間
 
 $$
 \det D=\bigwedge^a\ker D\ \otimes\
