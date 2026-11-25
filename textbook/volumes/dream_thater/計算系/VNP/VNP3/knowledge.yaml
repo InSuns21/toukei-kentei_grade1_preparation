@@ -1,0 +1,60 @@
+chapter: VNP3
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP2, TSP11]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.cover-spectral
+    name: "被覆型スペクトル点"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（被覆型スペクトル点）"]
+    requires: [vp-vnp-study.sum-restrictions, tensor.spectral-point]
+  - id: vp-vnp-study.diagonal
+    name: "部分集合上の対角テンソル"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（部分集合上の対角テンソル）"]
+    requires: [vp-vnp-study.party-array, vp-vnp-study.wire]
+  - id: vp-vnp-study.exponents
+    name: "対角資源の指数と擬距離"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（対角資源の指数と擬距離）"]
+    requires: [vp-vnp-study.cover-spectral, vp-vnp-study.diagonal, vp-vnp-study.wire-laws]
+  - id: vp-vnp-study.hubs
+    name: "二ハブによる配列の実現"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（二ハブによる配列の実現）"]
+    requires: [vp-vnp-study.wire, vp-vnp-study.push-covers]
+  - id: vp-vnp-study.hub-length
+    name: "二ハブの長さ評価"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二ハブの長さ評価）"]
+    requires: [vp-vnp-study.exponents, vp-vnp-study.hubs]
+  - id: vp-vnp-study.price
+    name: "wire単価の極限price"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（wire単価の極限price）"]
+    requires: [vp-vnp-study.exponents]
+  - id: vp-vnp-study.price-laws
+    name: "priceの保存則"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（priceの保存則）"]
+    requires: [vp-vnp-study.price, vp-vnp-study.push-laws, vp-vnp-study.push-covers]
+  - id: vp-vnp-study.balanced
+    name: "均衡分割による回路の分解"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（均衡分割による回路の分解）"]
+    requires: []
+  - id: vp-vnp-study.circuit-length
+    name: "回路サイズの長さ評価"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（回路サイズの長さ評価）"]
+    requires: [vp-vnp-study.balanced, vp-vnp-study.hub-length, vp-vnp-study.cover-spectral]
