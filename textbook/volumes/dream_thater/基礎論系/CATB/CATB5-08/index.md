@@ -14,7 +14,7 @@
 
 ## 2. 部分対象をまとめて扱う
 
-部分対象を分類する射 $X\to\Omega$ が多数あるなら、それらを一つの対象に収納したい。集合ではこれは $X$ の冪集合に相当する。トポスでは指数対象を用いる。
+部分対象を分類する射 $X\to\Omega$ が多数あるなら、それらを一つの対象に収納したい。集合ではこれは $X$ の冪集合に相当する。トポスでは[指数対象](../../CAT/CAT4-05/index.md#def-cat4-05-exponential)を用いる。指数対象 $B^A$ の評価射は $B^A\times A\to B$ であり、任意の $h:T\times A\to B$ に対して評価を通じて $h$ を復元する射 $\widehat h:T\to B^A$ が一意に存在する。この射を $h$ の転置と呼ぶ。
 
 <a id="def-catb5-08-power-object"></a>
 
@@ -31,7 +31,7 @@
 
 順に $a,b$ での値を並べると $(0,0),(1,0),(0,1),(1,1)$ となり、対応する部分集合は $\varnothing,\{a\},\{b\},X$ である。評価は写像と元を受け取ってその値を返す。
 
-任意の集合 $T$ と写像 $h:T\times X\to\{0,1\}$ に対し、$\widehat h(s)(x)=h(s,x)$ と定める。これは各 $s$ を四写像のいずれかへ送る写像であり、評価により元の $h$ を復元する。他の写像が同じ評価を持てば各 $s,x$ で値が一致するので等しい。従って指数対象の存在・一意性を直接確認できた。
+任意の集合 $T$ と写像 $h:T\times X\to\{0,1\}$ に対し、$\widehat h(s)(x)=h(s,x)$ と定める。これは各 $s$ を四写像のいずれかへ送る写像であり、評価により元の $h$ を復元する。他の写像が同じ評価を持てば各 $s,x$ で値が一致するので等しい。従ってこの四写像の集合と評価が指数対象の普遍性を満たすことを確認できた。四つの値の組は、固定した順序 $a,b$ での評価値であり、各写像を一意に決める。
 <!-- definition-example-end -->
 
 一般の $\mathcal E$ でも[指数対象の普遍性](../../CAT/CAT4-05/index.md#def-cat4-05-exponential)と[分類射と部分対象の自然な対応](../CATB5-06/index.md#thm-catb5-06-classifier-bijection)を組み合わせると
@@ -42,7 +42,7 @@ $$
 \cong\operatorname{Sub}(T\times X).
 $$
 
-従って $T\to P(X)$ は、$T$ をパラメータとする部分対象の族を表す。特に $T=1$ なら $X$ の部分対象一つを表す。以下では指数対象への転置を $\widehat h$ と書く。
+従って $T\to P(X)$ は、$T$ をパラメータとする部分対象の族を表す。特に $T=1$ なら $X$ の部分対象一つを表す。ここで $\operatorname{Hom}(T,P(X))$ は射の集合、$\operatorname{Sub}(T\times X)$ は部分対象の集合である。
 
 まず分類射から得られる消去性を確認する。モノ射 $m:M\to Y$ の分類射を $\chi_m$ とすれば、任意の $u:T\to Y$ について
 
@@ -142,7 +142,7 @@ $$
 \chi_m i=t_I.
 $$
 
-よって分類子の引き戻しの普遍性から $i$ は $m$ を経由する。これは[圏論的な像](../CATB1-01/index.md#def-catb1-01-image)の最小性である。
+よって分類子の引き戻しの普遍性から $i$ は $m$ を経由する。すなわち $mw=i$ となる射 $w:I\to M$ が存在する。$f=ie=mg$ と書けば $mwe=mg$ なので、$m$ のモノ射性から $we=g$ が従う。また $mw'=i=mw$ なら $w'=w$ である。これで[圏論的な像](../CATB1-01/index.md#def-catb1-01-image)の普遍性（分解を保つ媒介射の存在と一意性）を確認した。
 
 最後に $e$ のエピ射性を示す。$u,v:I\to Z$ が $ue=ve$ を満たすとし、$n:N\to I$ を両者の等化子とする。$e$ は $n$ を経由し、$f$ はモノ射 $in$ を経由する。$i$ の最小性により $i=inw$ となる $w:I\to N$ が存在する。
 
@@ -231,7 +231,7 @@ $p$ を右から合成して等しくなる二射 $v,v':C\to Z$ を取る。等�
 
 ## 5. エピ射はちょうど核対による商である
 
-集合の全射 $e:A\to B$ で、同じ $e$ の値を持つ入力に同じ値を与える写像 $h:A\to Z$ は $B$ 上の写像として一意に定まる。一般のトポスで同じ主張を示すには、値を代表元から選ぶ代わりにグラフを作る。
+集合の全射 $e:A\to B$ で、同じ $e$ の値を持つ入力に同じ値を与える写像 $h:A\to Z$ は $B$ 上の写像として一意に定まる。一般のトポスで同じ主張を示すには、値を代表元から選ぶ代わりにグラフを作る。[核対](../CATB1-01/index.md#def-catb1-01-kernel-pair)は同じ値を持つ二入力を表す引き戻しであり、[正則エピ射](../CATB1-01/index.md#def-catb1-01-regular-epi)は平行二射の余等化子となる射である。
 
 <a id="thm-catb5-08-epi-regular"></a>
 
@@ -248,7 +248,7 @@ $p$ を右から合成して等しくなる二射 $v,v':C\to Z$ を取る。等�
 <!-- proof-start -->
 ### 証明
 
-[核対](../CATB1-01/index.md#def-catb1-01-kernel-pair)の二射影を $r_1,r_2:A\times_B A\to A$ とする。射 $h:A\to Z$ が $hr_1=hr_2$ を満たすと仮定する。
+[核対](../CATB1-01/index.md#def-catb1-01-kernel-pair)の二射影を $r_1,r_2:A\times_B A\to A$ とする。核対の可換条件は $er_1=er_2$ である。射 $h:A\to Z$ が $hr_1=hr_2$ を満たすと仮定する。
 
 [初等トポスの像分解](#thm-catb5-08-image)を $\langle e,h\rangle$ に適用する。
 
@@ -365,13 +365,13 @@ $$
 
 [Grothendieckトポス](../CATB5-07/index.md#def-catb5-07-grothendieck-topos)は小site上の層圏に同値な圏であり、前講の[層圏の初等トポス性](../CATB5-07/index.md#thm-catb5-07-sheaf-topos)から上の定理を適用できる。では層の像を各対象の集合として具体的に求めるにはどうすればよいだろうか。
 
-小site $(\mathcal C,J)$ 上の層の射 $f:F\to G$ を取る。$U$ 上の元 $y\in G(U)$ に対して、制限すると $f$ の値になる射を集める。
+[小site](../CATB5-02/index.md#def-catb5-02-grothendieck-topology) $(\mathcal C,J)$ 上の[層](../CATB5-03/index.md#def-catb5-03-site-sheaf)の射 $f:F\to G$ を取る。$J(U)$ は対象 $U$ 上の被覆篩の集合である。射 $f$ の $U$ での成分を $f_U:F(U)\to G(U)$、射 $r:V\to U$ による制限を $F(r):F(U)\to F(V)$ と $G(r):G(U)\to G(V)$ と書く。$U$ 上の元 $y\in G(U)$ に対して、制限すると $f$ の値になる射を集める。
 
 $$
 L_y=\{r:V\to U\mid G(r)y\in f_V(F(V))\}.
 $$
 
-これは篩である。$G(r)y=f_V(x)$ なら、任意の $s:W\to V$ について自然性から
+これが[篩](../CATB5-02/index.md#def-catb5-02-sieve)であることを、任意の射との前合成で閉じることから確認する。$G(r)y=f_V(x)$ なら、任意の $s:W\to V$ について自然性から
 
 $$
 G(rs)y=G(s)f_V(x)=f_W(F(s)x).
@@ -443,7 +443,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の射 $s:W\to U$ について、制限された元の篩は $s^*L_y$ に一致する。実際、$r:V\to W$ がそこに入る条件は $G(sr)y$ が $f_V$ の値であることだからである。[Grothendieck位相の引き戻し安定性](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)より $I$ は制限で閉じる。
+任意の射 $s:W\to U$ について、[篩の引き戻し](../CATB5-02/index.md#def-catb5-02-sieve-pullback)を $s^*L_y=\{r:V\to W\mid sr\in L_y\}$ と書く。前層の反変性 $G(r)G(s)=G(sr)$ より
+
+$$
+\begin{aligned}
+r\in L_{G(s)y}
+&\iff G(r)G(s)y\in f_V(F(V))\\
+&\iff G(sr)y\in f_V(F(V))\\
+&\iff sr\in L_y\\
+&\iff r\in s^*L_y.
+\end{aligned}
+$$
+
+従って $L_{G(s)y}=s^*L_y$ である。[Grothendieck位相の引き戻し安定性](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)より $I$ は制限で閉じる。
 
 被覆篩 $R\in J(U)$ 上の $I$ の整合族 $(y_r)$ を取る。$G$ の[層条件](../CATB5-03/index.md#def-catb5-03-site-sheaf)により $G$ 内の唯一の貼り合わせ $y\in G(U)$ がある。各 $r:V\to U$ が $R$ に入るとき
 
@@ -477,7 +489,7 @@ $f$ がエピ射なら $i$ もエピ射であり、[初等トポスのモノ・�
 
 ## 8. 層の商は成分商を層化して作る
 
-層の像が点ごとの像とずれるように、商も点ごとの商だけでは層になるとは限らない。しかし層化は前層を層に直し、同時に有限極限を保つ。この二つの性質によって商の普遍性と核対を一緒に制御できる。
+層の像が点ごとの像とずれるように、商も点ごとの商だけでは層になるとは限らない。しかし[層化関手](../CATB5-05/index.md#def-catb5-05-sheafification) $a$ は前層を層に直し、[層化の左完全性](../CATB5-05/index.md#thm-catb5-05-sheafification-left-exact)により同時に有限極限を保つ。この二つの性質によって商の普遍性と核対を一緒に制御できる。
 
 <a id="thm-catb5-08-sheaf-quotient"></a>
 
@@ -498,7 +510,7 @@ $f$ がエピ射なら $i$ もエピ射であり、[初等トポスのモノ・�
 
 推移射の始域は引き戻し $R\times_F R$ なので、成分では $((x,y),(y,z))$ という組である。その像は $(x,z)$ となる。よって $R(U)$ は集合の同値関係である。
 
-$r:V\to U$ に沿う制限は $R$ の自然性によって関係を保存する。従って
+$r:V\to U$ に沿う制限は包含 $R\to F\times F$ の自然性によって関係を保存する。具体的には $(x,x')\in R(U)$ なら $(F(r)x,F(r)x')\in R(V)$ である。$[x]$ を $x$ の $R(U)$ による同値類と書く。従って
 
 $$
 Q_0(r)([x])=[F(r)x]
@@ -514,7 +526,13 @@ Q_0(s)Q_0(r)([x])&=[F(s)F(r)x]\\
 \end{aligned}
 $$
 
-従って $Q_0$ は前層である。成分商写像 $q_0:F\to Q_0$ は制限と可換する。
+従って $Q_0$ は前層である。成分商写像 $(q_0)_U(x)=[x]$ について
+
+$$
+Q_0(r)(q_0)_U(x)=[F(r)x]=(q_0)_V F(r)x.
+$$
+
+従って $q_0:F\to Q_0$ は自然変換である。
 
 前層の射 $h:F\to H$ が $R$ の二射影を余等化するとき、各成分で $k_U([x])=h_U(x)$ と定められる。関係の二成分で値が等しいので代表元によらない。任意の $r:V\to U$ に対して
 
@@ -691,13 +709,29 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-像分解のエピ射を $d:A\to G$、もう一つの射影を $q:G\to Z$ とする。$pd=e$、$qd=h$ である。
+[初等トポスの像分解](#thm-catb5-08-image)によるエピ射を $d:A\to G$、像の包含を $i:G\to B\times Z$、もう一つの射影を $q=\pi_Zi:G\to Z$ とする。$pd=e$、$qd=h$ である。
 
 $T=G\times_B G$ の射影を $u,v:T\to G$ とする。$d$ を $u$ に沿って引き戻し、$s:T_1\to T$ と $a:T_1\to A$ を得る。次に $d$ を $vs$ に沿って引き戻し、$w:T_2\to T_1$ と $b:T_2\to A$ を得る。
 
-[初等トポスのエピ射の引き戻し安定性](#thm-catb5-08-epi-pullback)より $sw$ はエピ射であり、引き戻しの等式は $daw=usw$ と $db=vsw$ である。
+[初等トポスのエピ射の引き戻し安定性](#thm-catb5-08-epi-pullback)より $s,w$ はエピ射であり、[エピ射の合成閉性](../../CAT/CAT1-03/index.md#prop-cat1-03-composition)より $sw$ もエピ射である。引き戻しの等式は
 
-$pu=pv$ より $eaw=eb$ であるから、核対の普遍性で $aw,b$ は $r_1,r_2$ を通る。従って $haw=hb$ となり $qusw=qvsw$。第一成分も等しいので、像の包含のモノ射性から $usw=vsw$。
+$$
+daw=usw,\qquad db=vsw.
+$$
+
+$pu=pv$ と $pd=e$ より
+
+$$
+eaw=pdaw=pusw=pvsw=pdb=eb.
+$$
+
+[核対](../CATB1-01/index.md#def-catb1-01-kernel-pair)の普遍性で $r_1z=aw,\ r_2z=b$ となる $z:T_2\to A\times_B A$ が存在する。仮定 $hr_1=hr_2$ と $qd=h$ より
+
+$$
+qusw=haw=hr_1z=hr_2z=hb=qvsw.
+$$
+
+第一成分 $pusw=pvsw$ も等しいので、積の普遍性より $iusw=ivsw$。$i$ のモノ射性から $usw=vsw$。
 
 $sw$ を右消去すれば $u=v$ である。任意の二射 $x,y:L\to G$ が $px=py$ を満たすとき、引き戻しの普遍性から $u\ell=x,\ v\ell=y$ となる $\ell:L\to T$ が存在する。$u=v$ より $x=y$。これが $p$ のモノ射性である。
 <!-- solution-end -->
