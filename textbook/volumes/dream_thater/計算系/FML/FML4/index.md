@@ -317,7 +317,7 @@ Mathlibの LaurentSeries.instLaurentSeriesComplete は、この種の議論を�
 <!-- proof-start -->
 ### 証明
 
-[形式冪級数の積の定義](../../ACOMP/ACOMP21/index.md#def-acomp21-power-series)により積の定数項は
+[任意の体上の形式冪級数](../../ACOMP/ACOMP21/index.md#def-acomp21-power-series)の積の定義で指数0を指定すると、積の定数項は
 
 $$
 [t^0](fg)=\sum_{i=0}^{0}[t^i]f\,[t^{0-i}]g=[t^0]f\,[t^0]g.
