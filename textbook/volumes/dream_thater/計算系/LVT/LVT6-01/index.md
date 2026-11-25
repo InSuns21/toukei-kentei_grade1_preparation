@@ -17,7 +17,7 @@
 | [game.py](https://github.com/kazunori279/lean4-tictactoe-test/blob/c332ba3e2d2bf78edb993ae6acadcd83f927073e/tictactoe/game.py) | Pythonの別実装 |
 | [test_unit.py](https://github.com/kazunori279/lean4-tictactoe-test/blob/c332ba3e2d2bf78edb993ae6acadcd83f927073e/tests/test_unit.py)、[test_differential.py](https://github.com/kazunori279/lean4-tictactoe-test/blob/c332ba3e2d2bf78edb993ae6acadcd83f927073e/tests/test_differential.py) | 例示・差分テスト |
 
-本系列の[三目並べの状態](../LVT3-06/index.md#def-lvt3-06-board) は Fin 9 からマスへの関数でした。外部仕様では `Board = List Cell`、`Cell = Option Player` です。[Option型](../LVT1-03/index.md#def-lvt1-03-option) を使い、空を `none`、X と O を `some X` と `some O` で表します。List は任意長を許します。`Fin 9` の番号は0〜8に限られますが、外部仕様の `Nat` は0を含む非負整数全体です。以下、`b` は盤面リスト、`i`、`pos`、`n` は0始まりの着手番号、`s` は更新前の状態、`t` は更新後の状態を表します。`s.board` のようなドット記法は状態の成分を取り出し、`b.length` はリストの要素数を表します。GameState は board、turn（手番）、status（ongoing、won p、draw のいずれか）の三成分を持ちます。初期状態 initialState の盤面は none を九個並べたリスト、手番 X、status は ongoing です。
+本系列の[三目並べの状態](../LVT3-06/index.md#def-lvt3-06-board) は Fin 9 からマスへの関数でした。外部仕様では `Board = List Cell`、`Cell = Option Player` です。[Option型](../LVT1-03/index.md#def-lvt1-03-option) を使い、空を `none`、X と O を `some X` と `some O` で表します。List は任意長を許します。[Fin型](../LVT1-05/index.md#def-lvt1-05-fin-index) の `Fin 9` の番号は0〜8に限られますが、外部仕様の `Nat` は0を含む非負整数全体です。以下、`b` は盤面リスト、`i`、`pos`、`n` は0始まりの着手番号、`s` は更新前の状態、`t` は更新後の状態を表します。`s.board` のようなドット記法は状態の成分を取り出し、`b.length` はリストの要素数を表します。GameState は board、turn（手番）、status（ongoing、won p、draw のいずれか）の三成分を持ちます。初期状態 initialState の盤面は none を九個並べたリスト、手番 X、status は ongoing です。
 
 `cellAt b i` は [有効な添字](../LVT1-05/index.md#def-lvt1-05-index-range) の条件 `i < b.length` が成立すれば i 番の値を返し、それ以外なら `none` を返します。従って空マスと範囲外を `cellAt` だけでは区別できません。`b.set i c` は `List.set` を盤面 b、番号 i、置換するマス値 c に適用した記法で、範囲内ならそのマスを置き換え、範囲外なら元リストを返します。例えば `[].set 0 (some X)` は `[]` です。
 
@@ -45,7 +45,7 @@
 
 拒否の二定理は applyMove の枝を開けば確認できます。status が終局なら第一枝で直ちに error となり、pos の値は問いません。ongoing かつ pos ≥ 9 なら第一枝を通過して第二枝で error になります。ongoing の仮定を削ると、終局で pos=9 の場合は game_over を返すので、同じ結論は成立しません。
 
-長さ保存の証明は、仮定が ok t であることから最初の三つの error 枝を除外します。残る勝利・満盤・継続の三枝はどれも t.board = s.board.set pos (some s.turn) です。`List.set` の長さが保存される理由も、リストの構造に沿って確認します。`a :: q` は先頭要素 a と残りのリスト q からなるリストです。置換値 c を固定し、任意の非負整数 i に対し `(b.set i c).length = b.length` を示します。
+長さ保存の証明は、仮定が ok t であることから最初の三つの error 枝を除外します。残る勝利・満盤・継続の三枝はどれも t.board = s.board.set pos (some s.turn) です。`List.set` の長さが保存される理由も、[Leanのリストの帰納法](../LVT2-05/index.md#principle-lvt2-05-list) に沿って確認します。`a :: q` は先頭要素 a と残りのリスト q からなるリストです。置換値 c を固定し、任意の非負整数 i に対し `(b.set i c).length = b.length` を示します。
 
 - `b = []` なら、任意の i で `[].set i c = []` なので両辺0です。
 - `b = a :: q`、`i = 0` なら、更新結果は `c :: q` で長さは更新前と同じ `1 + q.length` です。
@@ -246,7 +246,7 @@ p=X なら other(p)=O、other(other(p))=X=p、O≠X。p=O なら other(p)=X、ot
 <!-- solution-start -->
 #### 詳細解答
 
-初期長は initial_board_length から9。k 回後の状態 s の長さを9と仮定する。次の入力を n とする。applyMove s n=ok t なら applyMove_preserves_board_length から t.board.length=s.board.length=9。error e なら次状態は定義により s のままで長さ9。この二場合で Except を尽くした。従って操作回数 k の帰納法により任意の有限操作列で成立する。拒否を自己遷移にする API の保証であり、元の playMoves のエラーで終了する挙動とは区別する。
+初期長は initial_board_length から9。k 回後の状態 s の長さを9と仮定する。次の入力を n とする。applyMove s n=ok t なら applyMove_preserves_board_length から t.board.length=s.board.length=9。error e なら次状態は定義により s のままで長さ9。この二場合で Except を尽くした。従って操作回数 k に関する [Leanの自然数の帰納法](../LVT2-05/index.md#principle-lvt2-05-nat) により任意の有限操作列で成立する。拒否を自己遷移にする API の保証であり、元の playMoves のエラーで終了する挙動とは区別する。
 <!-- solution-end -->
 
 ### LVT6-01-B03 順列の検査範囲
