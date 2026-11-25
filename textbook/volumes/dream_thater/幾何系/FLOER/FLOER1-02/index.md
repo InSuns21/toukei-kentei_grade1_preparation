@@ -8,7 +8,14 @@
 
 滑らかな実 $2n$ 次元シンプレクティック多様体 $(X,\omega)$、[概複素構造と適合性](../../SYM/SYM8/index.md#def-sym8-almost-complex)の条件を満たす $J$、埋め込まれた境界なしの[Lagrange部分多様体](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold) $L_0,L_1$ を固定する。計量は $g(v,w)=\omega(v,Jw)$ である。[適合性と正定値内積の同値](../../SYM/SYM8/index.md#thm-sym8-compatible-metric)により $J$ はこの計量で等長、$J^2=-I$ である。
 
-帯 $S=\mathbb R\times[0,1]$ に座標 $(s,t)$、向き $ds\wedge dt$ を入れる。滑らかさは水平辺まで含む。前講と同じ方程式を採用する。
+帯 $S=\mathbb R\times[0,1]$ に座標 $(s,t)$、向き $ds\wedge dt$ を入れる。$R>0$ に対する有限帯を $S_R=[-R,R]\times[0,1]$ と書く。滑らかさは水平辺まで含む。写像 $u:S\to X$ の偏微分は、もう一方の変数を固定した接ベクトルである。
+
+$$
+u_s=du(\partial_s),\qquad u_t=du(\partial_t),
+\qquad |v|_g^2=g(v,v).
+$$
+
+前講と同じ方程式を採用する。
 
 $$
 u_s+J(u)u_t=0,\qquad
@@ -40,7 +47,19 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-floer1-02-finite-energy -->
-**定義の確認**。標準平面 $X=\mathbb C$、$J=i$、$L_0=\mathbb R$、$L_1=i\mathbb R$ とする。$u(s,t)=0$ なら両境界条件と方程式を満たし、両偏微分は零なので $E_R=E=0$。対して $v(s,t)=e^{\pi(s+it)/2}$ は下辺が実数、上辺が純虚数で、$v_s+i v_t=0$ だが
+**定義の確認**。標準平面 $X=\mathbb C$（$z=x+iy$、$\omega=dx\wedge dy$）、$J=i$、$L_0=\mathbb R$、$L_1=i\mathbb R$ とする。[Lagrange部分多様体の定義](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold)に照らすと、両直線は埋め込まれた実一次元部分多様体で、同じ接直線の二ベクトルに対する交代2形式は零である。実座標で $J(a,b)=(-b,a)$ だから $J^2=-I$ かつ
+
+$$
+\omega((a,b),J(c,d))=ac+bd.
+$$
+
+これは通常の実内積なので、[適合性と正定値内積の同値](../../SYM/SYM8/index.md#thm-sym8-compatible-metric)により $J$ は適合し、$g$ のノルムは複素数の絶対値に一致する。$u(s,t)=0$ なら両境界条件と方程式を満たし、両偏微分は零なので $E_R=E=0$。対して $v(s,t)=e^{\pi(s+it)/2}$ は下辺が実数、上辺が純虚数である。偏微分は
+
+$$
+v_s=\frac{\pi}{2}v,\qquad v_t=\frac{i\pi}{2}v.
+$$
+
+従って $v_s+i v_t=0$ で、両偏微分のノルムの二乗はともに $(\pi^2/4)e^{\pi s}$ だが
 
 $$
 E_R(v)=\frac{\pi^2}{4}\int_{-R}^R e^{\pi s}\,ds
@@ -50,18 +69,18 @@ $$
 従って有限エネルギーではない。方程式と境界条件だけではエネルギーの有限性を保証しない。
 <!-- definition-example-end -->
 
-擬正則方程式から $u_t=J(u)u_s$ である。[擬正則写像のエネルギー恒等式](../../GW/GW1-02/index.md#thm-gw1-02-energy-identity)を平坦な有限帯に適用すると、誤差項が零になる。局所的にも次の関係が確認できる。
+擬正則方程式から $u_t=J(u)u_s$ である。[擬正則写像のエネルギー恒等式](../../GW/GW1-02/index.md#thm-gw1-02-energy-identity)の点ごとの恒等式を平坦な帯の内部で使うと、誤差項が零になる（矩形の角に曲面全体の定理を適用する必要はない）。直接にも次の関係が確認できる。
 
 $$
 \frac12(|u_s|^2+|u_t|^2)=|u_s|^2
 =\omega(u_s,Ju_s)=\omega(u_s,u_t).
 $$
 
-ゆえに有限帯で $E_R(u)=\int_{S_R}u^*\omega$。右辺も非負であり、無限帯ではこの有限帯積分の極限を取ればよい。一般の写像で面積とエネルギーが一致するわけではない。
+[微分形式の引き戻しの定義](../../GEO/GEO7/index.md#def-geo7-pullback-form)より $(u^*\omega)(\partial_s,\partial_t)=\omega(u_s,u_t)$ である。ゆえに有限帯で $E_R(u)=\int_{S_R}u^*\omega$。右辺も非負であり、無限帯ではこの有限帯積分の極限を取ればよい。一般の写像で面積とエネルギーが一致するわけではない。
 
 ### 両端を固定する
 
-交点を曲線の始点・終点として使うには、$s$ を大きく正負に動かしたとき、横断方向の曲線 $t\mapsto u(s,t)$ が一点へ縮むことを指定したい。[Lagrange横断交叉](../FLOER1-01/index.md#def-floer1-01-transverse)では交点の接空間の和が全接空間になり、交点は孤立する。
+交点を曲線の始点・終点として使うには、$s$ を大きく正負に動かしたとき、横断方向の曲線 $t\mapsto u(s,t)$ が一点へ縮むことを指定したい。[Lagrange横断交叉](../FLOER1-01/index.md#def-floer1-01-transverse)では交点の接空間の和が全接空間になり、[横断交叉点の孤立性](../FLOER1-01/index.md#prop-floer1-01-isolated)により交点は孤立する。
 
 <a id="def-floer1-02-ends"></a>
 
@@ -125,7 +144,7 @@ $$
 
 ## 2. 完全な場合の作用汎関数
 
-横断曲線を一つの点とみなすと、stripはその点が $s$ とともに移動する軌道である。その軌道に沿って減少する実数値を構成したい。1形式 $\lambda$ が存在して $d\lambda=\omega$ と書けるとき、曲線に沿う線積分を候補にできる。ただし境界が動くので、線積分の変分には両端から項が現れる。この項を消すには両Lagrange部分多様体で原始関数（制限した1形式の外微分前の関数）を選ぶ必要がある。
+横断曲線を一つの点とみなすと、stripはその点が $s$ とともに移動する軌道である。その軌道に沿って減少する実数値を構成したい。1形式 $\lambda$ が存在して $d\lambda=\omega$ と書けるとき、曲線に沿う線積分を候補にできる。ただし境界が動くので、線積分の変分には両端から項が現れる。この項を消すには両Lagrange部分多様体で原始関数（制限した1形式の外微分前の関数）を選ぶ必要がある。制限とは、[引き戻しの定義](../../GEO/GEO7/index.md#def-geo7-pullback-form)に従い、包含写像の微分で部分多様体の接ベクトルを標的へ送って $\lambda$ に代入することである。道 $\gamma$ の速度を $\dot\gamma(t)=d\gamma/dt$ と書く。線積分の被積分関数 $\lambda_{\gamma(t)}(\dot\gamma(t))$ は、その点の1形式を速度に作用させた実数である。道全体を入力とし実数を返す関数をここでは汎関数と呼ぶ。
 
 <a id="def-floer1-02-exact-action"></a>
 
@@ -155,7 +174,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（完全Lagrange境界での作用の第一変分）**
-> $d\lambda=\omega$ と $\iota_j^*\lambda=df_j$ を満たす完全Lagrange境界を持つ滑らかな道 $\gamma$ を取る。境界を保つ滑らかな変分 $\Gamma(\varepsilon,t)$ の速度を $\xi=\partial_\varepsilon\Gamma(0,t)$ とすると、作用の微分は
+> $d\lambda=\omega$ と $\iota_j^*\lambda=df_j$ を満たす完全Lagrange境界を持つ滑らかな道 $\gamma$ を取る。境界を保つ滑らかな変分 $\Gamma(\varepsilon,t)$（$\Gamma(0,t)=\gamma(t)$、$\Gamma(\varepsilon,j)\in L_j$）の速度を $\xi=\partial_\varepsilon\Gamma(0,t)$ とすると、作用の方向微分を $d\mathcal A_\gamma(\xi)=\left.\frac{d}{d\varepsilon}\mathcal A(\Gamma(\varepsilon,\cdot))\right|_{\varepsilon=0}$ と書き、その値は
 
 $$
 d\mathcal A_\gamma(\xi)
@@ -178,7 +197,7 @@ d(F^*\lambda)=(\partial_\varepsilon b-\partial_t a)
 \,d\varepsilon\wedge dt.
 $$
 
-$F^*d\lambda=F^*\omega$ との比較で
+[外微分の自然性](../../GEO/GEO7/index.md#thm-geo7-pullback-commutes-d)より $d(F^*\lambda)=F^*d\lambda=F^*\omega$。両辺の $d\varepsilon\wedge dt$ の係数を比較して
 
 $$
 \partial_\varepsilon b=\omega(F_\varepsilon,F_t)+\partial_t a.
@@ -192,7 +211,19 @@ $$
 +\lambda(\xi(1))-\lambda(\xi(0)).
 $$
 
-境界速度は $TL_j$ に属するから、$df_j(\xi(j))=\lambda(\xi(j))$。作用の負の線積分と端の関数の微分を足すと、端の二項が相殺する。交代性により $-\omega(\xi,\dot\gamma)=\omega(\dot\gamma,\xi)$。さらに [適合性と正定値内積の同値](../../SYM/SYM8/index.md#thm-sym8-compatible-metric) から
+境界速度 $\xi(j)$ は $T_{\gamma(j)}L_j$ に属するから、$df_j(\xi(j))=\lambda(\xi(j))$。連鎖律で端の関数を微分し、負の線積分の微分に足すと
+
+$$
+\begin{aligned}
+d\mathcal A_\gamma(\xi)
+&=-\int_0^1\omega(\xi,\dot\gamma)\,dt
+-\lambda(\xi(1))+\lambda(\xi(0))\\
+&\quad+df_1(\xi(1))-df_0(\xi(0))\\
+&=-\int_0^1\omega(\xi,\dot\gamma)\,dt.
+\end{aligned}
+$$
+
+端の二項が相殺した。交代性により $-\omega(\xi,\dot\gamma)=\omega(\dot\gamma,\xi)$。さらに [適合性と正定値内積の同値](../../SYM/SYM8/index.md#thm-sym8-compatible-metric) から
 
 $$
 g(J\dot\gamma,\xi)=\omega(J\dot\gamma,J\xi)
@@ -293,7 +324,21 @@ $$
 E(u)=f_1(\pi)-f_1(0)=\frac{\pi}{2}.
 $$
 
-別の検算として、開帯は指数写像で開第一象限へ一対一に移り、逆式 $w=(1+u)/(1-u)$ は $|u|<1,\operatorname{Im}u>0$ で実部・虚部がともに正になる。従って $u$ は上半単位円板へ一対一の向きを保つ微分同相であり、面積は $\pi/2$。作用差の符号と係数が一致する。
+別の検算として、開帯は指数写像で開第一象限へ一対一に移る。逆式は $s=2\log|w|/\pi$、$t=2\arg(w)/\pi$（$0<\arg(w)<\pi/2$）である。分数変換は $\operatorname{Re}w>0,\operatorname{Im}w>0$ のとき
+
+$$
+1-|u|^2=\frac{4\operatorname{Re}w}{|w+1|^2}>0,\qquad
+\operatorname{Im}u=\frac{2\operatorname{Im}w}{|w+1|^2}>0.
+$$
+
+逆に $|u|<1,\operatorname{Im}u>0$ なら $w=(1+u)/(1-u)$ について
+
+$$
+\operatorname{Re}w=\frac{1-|u|^2}{|1-u|^2}>0,\qquad
+\operatorname{Im}w=\frac{2\operatorname{Im}u}{|1-u|^2}>0.
+$$
+
+両逆式は滑らかで、実座標の微分は列ベクトル $u_s,u_t=iu_s$ を持つので行列式は $|u_s|^2>0$（$w\ne0$）。従って上半単位円板への向きを保つ微分同相であり、面積は $\pi/2$。作用差の符号と係数が一致する。
 
 ## 3. 一般の境界ではなぜ作用が多価になるか
 
@@ -318,7 +363,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-変形族を $H(a,r,t)$ とし、箱 $[0,1]^3$ の向きを $da\wedge dr\wedge dt$ とする。$dH^*\omega=H^*(d\omega)=0$ なので、[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により六面の向き付き積分の和は零となる（箱の場合は各変数の基本定理でも得られる）。
+変形族を $H(a,r,t)$ とし、箱 $[0,1]^3$ の向きを $da\wedge dr\wedge dt$ とする。[外微分の自然性](../../GEO/GEO7/index.md#thm-geo7-pullback-commutes-d)より $d(H^*\omega)=H^*(d\omega)=0$ なので、[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により六面の向き付き積分の和は零となる（箱の場合は各変数の基本定理でも得られる）。
 
 $r=0,1$ 面では写像が $a$ に依存しないので二次元の引き戻しは零。$t=0,1$ 面は対応するLagrange部分多様体内にあるため二つの接方向に対する $\omega$ は零。残る $a=1$ と $a=0$ はそれぞれ $dr\wedge dt$ とその負の向きである。従って
 
@@ -355,7 +400,15 @@ D_p\xi=\partial_s\xi+J_p\partial_t\xi,\qquad
 \xi(s,j)\in W_j=T_pL_j.
 $$
 
-横断方向の関数を作用素の定義域にする。$H^1([0,1],V)$ は関数と一階弱微分が $L^2$ に属する空間である（[Sobolev空間](../../GA/GA2/index.md#def-ga2-sobolev)の一次元の場合）。一次元では弱微分を積分すると絶対連続な代表元を選べるので、端の値をその代表元で測る。
+横断方向の関数を作用素の定義域にする。$J_p=J(p)$ は固定接空間 $V$ 上の線形写像、$g_p$ はその点の内積である。$L^2([0,1],V)$ は $g_p$ によるノルムの二乗が可積分な関数の a.e. 同値類からなる実Hilbert空間である。$H^1([0,1],V)$ は区間内部で関数と一階弱微分が $L^2$ に属する空間である（[Sobolev空間](../../../解析系/GPDE/GPDE3/index.md#def-gpde3-sobolev-space)を $V$ の実基底の各成分に適用する）。$\eta'$ は $t$ に関する弱微分で、滑らかな $\eta$ なら $d\eta/dt$ と一致する。
+
+区間の長さが1なので、Cauchy--Schwarz不等式で各成分とその弱微分は $L^1$ にも属する。[一変数 W^{1,1} の基本定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-w11-ac)を成分ごとに使うと、絶対連続な代表元について
+
+$$
+\eta(t)-\eta(0)=\int_0^t\eta'(r)\,dr.
+$$
+
+連続な代表元が a.e. 一致すれば全点で一致するため、その代表元で端の値を測れる（[区間上のトレース定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-trace-interval)）。以下、同じ記号 $\eta$ でこの代表元を表す。漸近作用素とは、定数解で線形化した方程式のうち横断変数 $t$ に作用する部分である。
 
 <a id="def-floer1-02-asymptotic-operator"></a>
 
@@ -385,13 +438,13 @@ $$
 となる。定数関数 $\eta=1$ は微分が零でも上端の条件を満たさず、定義域には入らない。
 <!-- definition-example-end -->
 
-ここでは $D_p=\partial_s+A_p$ という符号を採用した。$A_p\eta=\mu\eta$ の非零解を固有関数、$\mu$ を固有値と呼ぶ。線形方程式に $\xi(s,t)=c(s)\eta(t)$ を代入すると
+ここでは $D_p=\partial_s+A_p$ という符号を採用した。$A_p\eta=\mu\eta$ の非零解を固有関数、実数 $\mu$ を固有値と呼ぶ。線形方程式に $\xi(s,t)=c(s)\eta(t)$ を代入すると、$c'=dc/ds$（$\eta'$ の微分変数 $t$ とは異なる）として
 
 $$
 D_p\xi=(c'+\mu c)\eta,\qquad c(s)=c(0)e^{-\mu s}.
 $$
 
-正の固有値は正端で減衰し、負の固有値は負端で減衰する。零固有値があれば、長手方向に変化しない非零成分が残る。横断交叉がこの成分を排除する。
+常微分方程式 $c'+\mu c=0$ は $(e^{\mu s}c(s))'=0$ と同値なので、上の解を得る。正の固有値は正端で減衰し、負の固有値は負端で減衰する。零固有値があれば、長手方向に変化しない非零成分が残る。横断交叉がこの成分を排除する。
 
 定義域を持つ作用素では、内積による移項が可能という対称性と、移項先の定義域まで一致する自己共役性を区別する。具体的には随伴の定義域とは、移項した結果を再び内積で表せるベクトル全体の集合である。自己共役であるとは元の作用素と随伴作用素の定義域・作用が一致することである。
 
@@ -412,7 +465,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$g(Ja,b)=\omega(a,b)=-g(a,Jb)$ である。定義域内の $\eta,\zeta$ について絶対連続代表元の部分積分から
+[適合性と正定値内積の同値](../../SYM/SYM8/index.md#thm-sym8-compatible-metric)と $J^2=-I$ より $g(Ja,b)=\omega(a,b)=-g(a,Jb)$ である。$\langle\eta,\zeta\rangle=\int_0^1g(\eta(t),\zeta(t))dt$ と書く。定義域内の $\eta,\zeta$ は絶対連続代表元を持ち、積の微分は a.e. で
+
+$$
+\frac{d}{dt}g(J\eta,\zeta)
+=g(J\eta',\zeta)+g(J\eta,\zeta')
+=g(J\eta',\zeta)-g(\eta,J\zeta').
+$$
+
+右辺は可積分である。両辺を積分して
 
 $$
 \langle A\eta,\zeta\rangle-\langle\eta,A\zeta\rangle
@@ -428,7 +489,7 @@ $$
 =\int_0^1g(\eta,f)dt.
 $$
 
-弱微分の定義から $(-J\zeta)'=-f$ となる。両辺に $J$ を作用させると
+[弱微分の定義](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-weak-derivative)から $(-J\zeta)'=-f$ となる。両辺に $J$ を作用させると
 
 $$
 \zeta'=-Jf\in L^2,\qquad J\zeta'=f.
@@ -453,7 +514,7 @@ $$
 
 核について、$A\eta=0$ なら $J$ は可逆なので $\eta'=0$、従って $\eta$ は定数。端の条件はその定数が $W_0\cap W_1$ に属することに等しい。
 
-横断性を仮定すると両空間は次元 $n$ なので $V=W_0\oplus W_1$。任意の $f\in L^2$ に対し $A\eta=f$ を解くには
+[Lagrange横断交叉](../FLOER1-01/index.md#def-floer1-01-transverse)の接空間条件 $W_0+W_1=V$ を仮定すると、両空間は次元 $n$ なので $\dim(W_0\cap W_1)=n+n-2n=0$。従って $V=W_0\oplus W_1$。任意の $f\in L^2$ に対し $A\eta=f$ を解くには
 
 $$
 \eta(t)=a-\int_0^t J f(r)dr
@@ -461,7 +522,7 @@ $$
 
 と置けばよい。$q=\int_0^1 J f(r)dr$ として直和分解 $q=a+b$（$a\in W_0,b\in W_1$）を取る。すると $\eta(0)=a\in W_0$、$\eta(1)=a-q=-b\in W_1$、弱微分は $-Jf$ なので方程式を満たす。核は零であるため一意である。
 
-$P_0:V\to W_0$ をこの直和の射影とし、その有限な作用素ノルムを $M$ とする。$J$ の等長性と[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から $|q|\le\|f\|_{L^2}$、$|a|\le M\|f\|_{L^2}$。各 $t\in[0,1]$ で積分のノルムを評価すると
+$P_0:V\to W_0$ をこの直和の射影（$a+b\mapsto a$。直交射影とは限らない）とし、その有限な作用素ノルムを $M$ とする。$J$ の等長性と[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から $|q|\le\|f\|_{L^2}$、$|a|\le M\|f\|_{L^2}$。各 $t\in[0,1]$ で積分のノルムを評価すると
 
 $$
 \left|\int_0^t Jf(r)dr\right|
@@ -478,14 +539,22 @@ $$
 \|\eta'\|_{L^2}=\|f\|_{L^2}.
 $$
 
-$H^1$ ノルムを二乗和で取れば $C=\sqrt{(M+1)^2+1}$ が使える。
+$H^1$ ノルムを二乗和で取れば
+
+$$
+\|\eta\|_{H^1}^2
+=\|\eta\|_{L^2}^2+\|\eta'\|_{L^2}^2
+\le ((M+1)^2+1)\|f\|_{L^2}^2.
+$$
+
+$f=A\eta$ として $C=\sqrt{(M+1)^2+1}$ が使える。
 <!-- proof-end -->
 
 横断性を外して $W_0=W_1=\mathbb R\subset\mathbb C$ とすれば $\eta=1$ は定義域に入り核の非零元になる。逆を作る際の直和分解が失われ、上の評価も成立しない。
 
 ### 平面の固有値を全て求める
 
-標準平面で $W_0=\mathbb R$、$W_1=e^{i\theta}\mathbb R$、$0<\theta<\pi$ とする。実Hilbert空間上の固有値は実数として扱う。ここで実数 $\mu$ に対し $i\eta'=\mu\eta$ を解く。$\eta'=-i\mu\eta$ より $\eta(t)=a e^{-i\mu t}$。$t=0$ の条件から $a$ は実数で、非零解を求めるので $a\ne0$。$t=1$ では $e^{-i(\mu+\theta)}$ が実数となる必要がある。従って
+標準平面で $W_0=\mathbb R$、$W_1=e^{i\theta}\mathbb R$、$0<\theta<\pi$ とする。実Hilbert空間上の固有値は実数として扱う。ここで実数 $\mu$ に対し $i\eta'=\mu\eta$ を解く。$\eta'=-i\mu\eta$ より $\eta(t)=a e^{-i\mu t}$。$t=0$ の条件から $a$ は実数で、非零解を求めるので $a\ne0$。$t=1$ の条件は $e^{-i\theta}\eta(1)=a e^{-i(\mu+\theta)}\in\mathbb R$ である。$a\ne0$ より $\sin(\mu+\theta)=0$ が必要十分。従って
 
 $$
 \mu=k\pi-\theta,\qquad k\in\mathbb Z.
@@ -559,7 +628,7 @@ $c'+(\pi/2)c=0$ の解 $c=e^{-\pi s/2}$ を選ぶと $\xi=c\eta$ は $D\xi=0$。
 有限エネルギーstripで $h(s)=\int_0^1|u_t|^2dt$ とする。各整数 $k\ge1$ について $s_k\in[k,k+1]$ を選び、$d_g(u(s_k,0),u(s_k,1))\to0$ を示せ。像がコンパクトで両Lagrange部分多様体が閉なら、交点が存在することも示せ。
 
 <!-- solution-start -->
-**詳細解答**。適合性と方程式から $\int_{\mathbb R}h=E<\infty$。$a_k=\int_k^{k+1}h$ は非負で和が有限だから $a_k\to0$。連続性から $h(s_k)\le a_k$ となる点がある。横断曲線の長さを使い
+**詳細解答**。[有限エネルギーstripの定義](#def-floer1-02-finite-energy)と適合性・方程式から $\int_{\mathbb R}h=E<\infty$。$a_k=\int_k^{k+1}h$ は非負で和が有限だから $a_k\to0$。連続性から $h(s_k)\le a_k$ となる点がある。横断曲線の長さと[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を使い
 
 $$
 d_g(u(s_k,0),u(s_k,1))
@@ -584,7 +653,7 @@ $$
 \frac{d}{da}\mathcal A=-a.
 $$
 
-変分速度は $\xi=(1,t)$、横断速度は $\dot\gamma=(0,a)$。従って $\omega(\dot\gamma,\xi)=0\cdot t-a\cdot1=-a$。積分すると $-a$ で[完全Lagrange境界での作用の第一変分](#prop-floer1-02-variation)と一致する。補正を落とすと $-2a$ になり、境界項が残る。
+変分速度は $\xi=\partial_a\gamma_a=(1,t)$（$t$ 固定）、横断速度は $\dot\gamma_a=\partial_t\gamma_a=(0,a)$（$a$ 固定）。従って $\omega(\dot\gamma,\xi)=0\cdot t-a\cdot1=-a$。積分すると $-a$ で[完全Lagrange境界での作用の第一変分](#prop-floer1-02-variation)と一致する。補正を落とすと $-2a$ になり、境界項が残る。
 <!-- solution-end -->
 
 <a id="ex-floer1-02-b03"></a>
@@ -594,10 +663,11 @@ $$
 $L_0=\{|z|=\rho\}$（$\rho>0$）、$L_1=\{|z-\rho|=\rho\}$、$p=2\rho$ とする。$V(r,t)=(1-t)\rho e^{2\pi ir}+tp$ の面積と作用の周期を求め、$\lambda=-y\,dx$ の $L_0$ 上の原始関数が存在しない理由を示せ。
 
 <!-- solution-start -->
-**詳細解答**。二円は埋め込まれた一次元部分多様体で、交点では半径ベクトルが非平行なので横断的である。$V$ は下端を $L_0$ 上、上端を $p\in L_1$ に送り、$r=0,1$ の道は一致する。$ds$ ではなく $dr\wedge dt$ の向きを取ると下辺は $r$ 増加方向。[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)で左右の辺が消え、上辺は定数なので
+**詳細解答**。二円は埋め込まれた一次元部分多様体で、交点 $(\rho/2,\pm\sqrt3\rho/2)$ での半径ベクトルは $(\rho/2,\pm\sqrt3\rho/2)$ と $(-\rho/2,\pm\sqrt3\rho/2)$。その行列式は $\pm\sqrt3\rho^2/2\ne0$ なので非平行である。接方向は両者を90度回転した方向であり、[Lagrange横断交叉](../FLOER1-01/index.md#def-floer1-01-transverse)の接空間の和の条件を満たす。$V$ は下端を $L_0$ 上、上端を $p\in L_1$ に送り、$r=0,1$ の道は一致する。$ds$ ではなく $dr\wedge dt$ の向きを取ると下辺は $r$ 増加方向。[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)で左右の辺が消え、上辺は定数なので、下辺の $\phi=2\pi r$ に沿う $x=\rho\cos\phi$、$y=\rho\sin\phi$ を用いる。$dx=-\rho\sin\phi\,d\phi$ より $-y\,dx=\rho^2\sin^2\phi\,d\phi$ であり、
 
 $$
 \int V^*\omega=\int_0^{2\pi}\rho^2\sin^2\phi\,d\phi
+=\frac{\rho^2}{2}\left[\phi-\frac{\sin 2\phi}{2}\right]_0^{2\pi}
 =\pi\rho^2.
 $$
 
@@ -666,7 +736,7 @@ $$
 f_1(\phi)=\rho^2(\phi/2-\sin(2\phi)/4).
 $$
 
-角度が開区間内で一価なので原始関数は正しく定義される。[完全境界での作用差とエネルギー](#thm-floer1-02-action-energy)により
+角度が開区間内で一価なので原始関数は正しく定義される。微分すると $df_1/d\phi=\rho^2(1-\cos 2\phi)/2=\rho^2\sin^2\phi$ となり、制限した1形式と一致する。[完全境界での作用差とエネルギー](#thm-floer1-02-action-energy)により
 
 $$
 E(u)=f_1(\pi)-f_1(0)=\pi\rho^2/2.
