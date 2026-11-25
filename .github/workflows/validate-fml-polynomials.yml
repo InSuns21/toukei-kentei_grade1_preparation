@@ -1,0 +1,67 @@
+name: Validate FML polynomial circuits
+on:
+  pull_request:
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/FML/FML3/**'
+      - '.github/workflows/validate-fml-polynomials.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/FML/FML3/**'
+      - '.github/workflows/validate-fml-polynomials.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lean-polynomial:
+    name: Lean polynomial circuits
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          lake-package-directory: 'textbook/volumes/dream_thater/計算系/FML/FML3/lab'
+          auto-config: 'false'
+          build: 'true'
+          test: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Check proofs, axiom dependencies and expected failures
+        working-directory: 'textbook/volumes/dream_thater/計算系/FML/FML3/lab'
+        shell: bash
+        run: |
+          set -euo pipefail
+          lean --version | tee lean-version.log
+          grep -F 'version 4.35.0' lean-version.log
+          lake env lean Inspect.lean | tee inspect.log
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          output = Path('inspect.log').read_text()
+          entries = re.findall(r"depends on axioms:\s*\[([^\]]*)\]", output)
+          empty = len(re.findall(r"does not depend on any axioms", output))
+          assert len(entries) + empty == 8, output
+          allowed = {'propext', 'Classical.choice', 'Quot.sound'}
+          for entry in entries:
+              assert set(x.strip() for x in entry.split(',') if x.strip()) <= allowed, entry
+          assert output.splitlines()[-2:] == ['3', '30'], output
+          PY
+          if lake env lean Failure.lean > failure.log 2>&1; then
+            echo 'False polynomial identity accepted'
+            exit 1
+          fi
+          cat failure.log
+          grep -Ei 'type mismatch|application type mismatch|unsolved goals' failure.log
+          if lake env lean BadIndex.lean > bad-index.log 2>&1; then
+            echo 'Invalid register index accepted'
+            exit 1
+          fi
+          cat bad-index.log
+          grep -Ei 'decide.*(false|failed)|false proposition' bad-index.log
+          git diff --exit-code -- lake-manifest.json lean-toolchain
+      - name: Preserve execution logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fml3-lean-logs
+          path: 'textbook/volumes/dream_thater/計算系/FML/FML3/lab/*.log'

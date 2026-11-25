@@ -15,7 +15,7 @@ chapters:
     title: "抽象代数学の形式化"
   - id: FML3
     path: textbook/volumes/dream_thater/計算系/FML/FML3
-    status: planned
+    status: completed
     title: "多変数多項式・環準同型・算術回路の形式化"
   - id: FML4
     path: textbook/volumes/dream_thater/計算系/FML/FML4

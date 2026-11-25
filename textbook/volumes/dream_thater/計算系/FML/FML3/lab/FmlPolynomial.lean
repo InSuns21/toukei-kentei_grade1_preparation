@@ -81,6 +81,6 @@ theorem shared_polynomial :
 theorem shared_numeric :
     shared.eval (fun i : Fin 2 => if i = 0 then (2 : ℤ) else 3) = 30 := by
   rw [shared_output]
-  norm_num
+  decide
 
 end FmlPolynomial

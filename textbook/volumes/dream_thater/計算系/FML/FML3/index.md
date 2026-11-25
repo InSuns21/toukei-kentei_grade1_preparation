@@ -121,7 +121,7 @@ Lean の finite_field_distinct では等しいと仮定し、congrArg で両辺�
 
 ## 4. 共有する算術計算を型で表す
 
-[算術回路とstraight-line programの対応](../../ACOMP/ACOMP2/index.md#thm-acomp2-circuit-slp)によって、回路を先行する値から順に計算する命令列として表せます。途中結果を何度も使えるように、計算済みの値をレジスタ（値を保持する番号付きの場所）として記録します。Fin n は 0 以上 n 未満の自然数を表す型です。未計算の値を参照できないように、命令の引数を Fin n に制限します。
+[算術回路とstraight-line programの対応](../../ACOMP/ACOMP2/index.md#thm-acomp2-circuit-slp)によって、回路を先行する値から順に計算する命令列として表せます。途中結果を何度も使えるように、計算済みの値をレジスタ（値を保持する番号付きの場所）として記録します。Fin n は 0 以上 n 未満の自然数を表す型です。Lean の Fin の数値リテラルは n が正のとき剰余へ変換されるので、範囲を意図通りに検査したい場合は自然数と不等式の証明を組にして渡します。未計算の値を参照できないように、命令の引数を Fin n に制限します。
 
 <a id="def-fml3-program"></a>
 
@@ -186,7 +186,7 @@ $$
 また、任意の旧添字 k について
 
 $$
-w'(k+1)=f(v(k))=f(w(k)).
+w'(k+1)=f(v(k))=f(w(k+1)).
 $$
 
 したがって全レジスタで $w'=f\circ w$ である。残りの命令列 p について任意の初期状態で成り立つという帰納法の仮定を w に適用して
@@ -234,9 +234,10 @@ lake exe cache get
 lake build
 lake env lean Inspect.lean
 lake env lean Failure.lean
+lake env lean BadIndex.lean
 ~~~
 
-[FmlPolynomial.lean](lab/FmlPolynomial.lean) に上記の定理と共有回路の検算があります。[Inspect.lean](lab/Inspect.lean) は各定理の依存公理を出力します。[Failure.lean](lab/Failure.lean) は型付き命令列の範囲外参照と、二元体の形式多項式を誤って等置した主張を拒否するための実験です。最後の実行は失敗することが期待されます。エラーの理由を読んで、偽の主張が拒否されたことと環境の不備を区別してください。
+[FmlPolynomial.lean](lab/FmlPolynomial.lean) に上記の定理と共有回路の検算があります。[Inspect.lean](lab/Inspect.lean) は各定理の依存公理を出力します。[Failure.lean](lab/Failure.lean) は型付き命令列の明示的に範囲条件を破る添字と、二元体の形式多項式を誤って等置した主張を拒否するための実験です。最後の二つの実行は失敗することが期待されます。エラーの理由を読んで、偽の主張が拒否されたことと環境の不備を区別してください。
 
 ## 7. 演習と詳細解答
 
@@ -292,14 +293,14 @@ lake env lean Failure.lean
 
 ### FML3-A05 終了命令
 
-Program 1 の halt 0 のサイズと、初期値 $v(0)=7$ の評価値を求めよ。halt 1 は許されるか。
+Program 1 の halt 0 のサイズと、初期値 $v(0)=7$ の評価値を求めよ。自然数1を値とする添字で halt できるか。
 
 - Level: A
 
 <!-- solution-start -->
 #### 詳細解答
 
-[型付き算術命令列](#def-fml3-program)の halt は演算を行わず、サイズ0、評価値7である。Fin 1 の唯一の添字は0なので添字1は存在せず、範囲外参照を型で排除する。
+[型付き算術命令列](#def-fml3-program)の halt は演算を行わず、サイズ0、評価値7である。Fin 1 の唯一の添字は0なので自然数1を値とする添字は存在せず、範囲外参照を型で排除する。ただし Lean の Fin の数値リテラルは剰余へ変換されるため、`(1 : Fin 1)` は0を表す。範囲を直接検査するには `⟨1, by decide⟩ : Fin 1` と書く。
 <!-- solution-end -->
 
 ### Level B
