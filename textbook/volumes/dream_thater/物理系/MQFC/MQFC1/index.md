@@ -191,7 +191,7 @@ $$
 > と定める。双対作用は複素線形であって複素共役を含まない。
 <!-- formal-statement-end -->
 
-[超関数の微分](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-distributional-derivative)と同じ符号規約です。$p_{N,m}(\partial^\alpha f)\le p_{N,m+|\alpha|}(f)$ であり、[Schwartz空間のFourier変換](#thm-mqfc1-fourier)も連続です。よって連続線形写像の合成として両者は再び緩増加分布です。$g\in L^1(\mathbb R^d)$ の場合、$\iint |g(x)f(\xi)|\,dx\,d\xi=\|g\|_1\|f\|_1<\infty$ なので[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02)により
+[超関数の微分](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-distributional-derivative)と同じ符号規約です。$p_{N,m}(\partial^\alpha f)\le p_{N,m+|\alpha|}(f)$ であり、[Schwartz空間のFourier変換](#thm-mqfc1-fourier)も連続です。よって連続線形写像の合成として両者は再び緩増加分布です。$g\in L^1(\mathbb R^d)$  の場合、$|\langle T_g,f\rangle|\le\|g\|_1p_{0,0}(f)$ なので $T_g$ は緩増加分布です。また $\iint |g(x)f(\xi)|\,dx\,d\xi=\|g\|_1\|f\|_1<\infty$ なので[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02)により
 
 $$
 \langle\widehat T_g,f\rangle
@@ -359,7 +359,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$P_0=x^2$ とし $P_{k+1}=P_k'-2xP_k$ とおくと第 $k$ 階微分は $P_k e^{-x^2}$ です。各 $P_k$ は多項式です。任意の $N$ に対し $(1+|x|)^N|P_k(x)|e^{-x^2}$ は連続で無限遠で零になるため有界です。有限個の微分の最大も有限なので[Schwartz空間の定義](#def-mqfc1-schwartz)を満たします。
+$P_0=x^2$ とし $P_{k+1}=P_k'-2xP_k$ とおくと第 $k$ 階微分は $P_k e^{-x^2}$ です。ここで $P_k'=dP_k/dx$ であり、積の微分から $(P_ke^{-x^2})'=(P_k'-2xP_k)e^{-x^2}$ となります。各 $P_k$ は多項式です。任意の $N$ に対し $(1+|x|)^N|P_k(x)|e^{-x^2}$ は連続で無限遠で零になるため有界です。有限個の微分の最大も有限なので[Schwartz空間の定義](#def-mqfc1-schwartz)を満たします。
 <!-- solution-end -->
 
 ### 演習 MQFC1-A2：デルタの微分
@@ -431,7 +431,7 @@ $$
 =(2\pi)^d(i\xi_j f)(0)=0.
 $$
 
-[分布微分](#def-mqfc1-duality)により定数の分布微分は $-\int\partial_j f$ です。絶対可積分なのでFubiniの定理で第 $j$ 座標を先に積分すると、急減少によって両端の境界値は零となります。従って $\partial_j1=0$ で、[分布微分のFourier表示](#prop-mqfc1-derivative)と一致します。
+[分布微分](#def-mqfc1-duality)により定数の分布微分は $-\int\partial_j f$ です。絶対可積分なので[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02)で第 $j$ 座標を先に積分すると、急減少によって両端の境界値は零となります。従って $\partial_j1=0$ で、[分布微分のFourier表示](#prop-mqfc1-derivative)と一致します。
 <!-- solution-end -->
 
 ### 演習 MQFC1-B2：正規化した二乗の極限
@@ -444,7 +444,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[第4節の変数変換](#prop-mqfc1-product-failure)と同じ $x=\varepsilon y$、$dx=\varepsilon\,dy$ から $\langle\varepsilon\rho_\varepsilon^2,f\rangle=\int\rho(y)^2 f(\varepsilon y)\,dy$ となります。$\rho^2\|f\|_\infty$ で支配されるので極限は $f(0)\int\rho^2$ です。従って $(\int\rho^2)\delta_0$ に収束します。別の正規化関数 $\widetilde\rho(y)=2\rho(2y)$ は積分1ですが、
+[第4節の変数変換](#prop-mqfc1-product-failure)と同じ $x=\varepsilon y$、$dx=\varepsilon\,dy$ から $\langle\varepsilon\rho_\varepsilon^2,f\rangle=\int\rho(y)^2 f(\varepsilon y)\,dy$ となります。$\rho^2\|f\|_\infty$ で支配されるので[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)による極限は $f(0)\int\rho^2$ です。従って $(\int\rho^2)\delta_0$ に収束します。別の正規化関数 $\widetilde\rho(y)=2\rho(2y)$ は積分1ですが、
 
 $$
 \int\widetilde\rho(y)^2\,dy
