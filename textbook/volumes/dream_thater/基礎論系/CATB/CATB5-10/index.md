@@ -136,7 +136,13 @@ $\langle R\rangle_{\mathcal C}$ が被覆なので、$\mathcal C$ における�
 
 ## 4. 制限と延長を組み立てる
 
-$\operatorname{Sh}(\mathcal C,J)$ は[site上の層](../CATB5-03/index.md#def-catb5-03-site-sheaf)を対象、前層の[自然変換](../../CAT/CAT1-07/index.md#def-cat1-07-natural-transformation)を射とする圏を表す。その対象 $F$ を $\mathcal D$ に制限する。ここから $R$ は第3節の局所的な篩の記号ではなく、制限関手の記号とする。逆向きには、$\mathcal D$ 上の層 $G$ から、各 $c$ へ向かう $\mathcal D$ の対象を始域とする射に沿う整合族を作る。[篩上の整合族](../CATB5-03/index.md#def-catb5-03-sieve-matching)と同じく、各成分は射の始域における切断であり、前合成と制限が一致することを要求する。ただしここでは始域が $\mathcal D$ にある射だけを添字とする。
+$\operatorname{Sh}(\mathcal C,J)$ は[site上の層](../CATB5-03/index.md#def-catb5-03-site-sheaf)を対象、前層の[自然変換](../../CAT/CAT1-07/index.md#def-cat1-07-natural-transformation)を射とする圏を表す。その対象 $F$ を $\mathcal D$ に制限する。
+
+ここから $R$ は第3節の局所的な篩の記号ではなく、制限関手の記号とする。
+
+逆向きには、$\mathcal D$ 上の層 $G$ から、各 $c$ へ向かう $\mathcal D$ の対象を始域とする射に沿う整合族を作る。
+
+[篩上の整合族](../CATB5-03/index.md#def-catb5-03-sieve-matching)と同じく、各成分は射の始域における切断であり、前合成と制限が一致することを要求する。ただしここでは始域が $\mathcal D$ にある射だけを添字とする。
 
 <a id="def-catb5-10-extension"></a>
 
@@ -311,7 +317,21 @@ $$
 x\mapsto x_{1_d}
 $$
 
-とする。逆向きには $s\in G(d)$ を族 $(G(f)s)_f$ に送る。充満性により添字 $f:b\to d$ はすべて $\mathcal D$ の射であり、反変関手の合成則からこの族は整合する。恒等射の成分は $s$ であり、整合族では $x_f=G(f)x_{1_d}$ だから互いに逆である。射 $h:b\to d$ に沿う制限の後で恒等射成分を取ると $x_h=G(h)x_{1_d}$ となる。さらに層の射 $\alpha:G\to G'$ に対して恒等射成分は $\alpha_d(x_{1_d})$ に写る。従って $RE\cong 1_{\operatorname{Sh}(\mathcal D,J_{\mathcal D})}$ は自然である。ここで圏を添字とする $1$ はその圏の恒等関手を表し、一元集合や対象の恒等射とは区別する。
+とする。逆向きには $s\in G(d)$ を族 $(G(f)s)_f$ に送る。
+
+充満性により添字 $f:b\to d$ はすべて $\mathcal D$ の射であり、反変関手の合成則からこの族は整合する。
+
+恒等射の成分は $s$ であり、整合族では $x_f=G(f)x_{1_d}$ だから互いに逆である。
+
+射 $h:b\to d$ に沿う制限の後で恒等射成分を取ると $x_h=G(h)x_{1_d}$ となる。
+
+さらに層の射 $\alpha:G\to G'$ に対して恒等射成分は $\alpha_d(x_{1_d})$ に写る。従って
+
+$$
+RE\cong 1_{\operatorname{Sh}(\mathcal D,J_{\mathcal D})}
+$$
+
+は自然である。ここで圏を添字とする $1$ はその圏の恒等関手を表し、一元集合や対象の恒等射とは区別する。
 
 次に $\mathcal C$ 上の層 $F$ に対して
 
