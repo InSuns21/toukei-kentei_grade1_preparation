@@ -17,6 +17,7 @@ concepts:
     requires: [category.quantifier-unit-counit, category.subobject-inverse-image, category.subobject-quantifiers]
   - id: category.existential-frobenius
     name: "存在量化のFrobenius相互法則"
+    aliases: ["Frobenius相互法則", "Frobeniusの相互法則"]
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（存在量化のFrobenius相互法則）"]
