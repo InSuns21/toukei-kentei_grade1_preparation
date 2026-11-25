@@ -1,0 +1,29 @@
+id: "CATB7-04"
+title: "導来圏と完全三角形"
+volume: foundations
+status: supplementary
+prerequisites: [CATB7-03, CATB7-02]
+official_scope: []
+learning_objectives:
+  - 擬同型の局所化として導来圏を構成しroofの和とシフトを計算できる
+  - 錐の標準モデルから完全三角形を定義し任意の射を完全三角形へ拡張できる
+  - 完全三角形のコホモロジー長完全列と接続射を導出できる
+  - 回転の符号を二重の錐で導出し逆回転も検証できる
+  - ホモトピー可換な四角形の錐の射と短完全列の完全三角形を構成できる
+  - 三角圏の公理の全体像と本講で証明した範囲を区別できる
+definitions:
+  - { id: CATB7-04-DEF-01, name: "導来圏" }
+  - { id: CATB7-04-DEF-02, name: "完全三角形" }
+theorems:
+  - { id: CATB7-04-THM-01, name: "導来圏の加法構造とシフト" }
+  - { id: CATB7-04-THM-02, name: "導来圏の射の三角形への拡張" }
+  - { id: CATB7-04-THM-03, name: "完全三角形のコホモロジー長完全列" }
+  - { id: CATB7-04-THM-04, name: "完全三角形の回転" }
+  - { id: CATB7-04-THM-05, name: "ホモトピー可換な四角形の錐の射" }
+  - { id: CATB7-04-THM-06, name: "短完全な複体の列からの完全三角形" }
+canonical_examples: [整数加群の剰余射の逆roof, 整数倍写像の錐の完全三角形, 二重の錐の回転, 短完全列の接続射]
+problem_patterns: [CATB7-04-A01, CATB7-04-A02, CATB7-04-A03, CATB7-04-A04, CATB7-04-B01, CATB7-04-B02, CATB7-04-B03, CATB7-04-B04, CATB7-04-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 5, review: 2 }
