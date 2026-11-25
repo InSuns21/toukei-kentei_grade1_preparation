@@ -119,7 +119,7 @@ chapters:
     title: "メタモルフィック・変異・カバレッジ"
   - id: LVT5-01
     path: textbook/volumes/dream_thater/計算系/LVT/LVT5-01
-    status: planned
+    status: completed
     title: "Differential Testing・オラクルの設計"
   - id: LVT5-02
     path: textbook/volumes/dream_thater/計算系/LVT/LVT5-02

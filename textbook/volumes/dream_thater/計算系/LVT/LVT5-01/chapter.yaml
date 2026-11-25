@@ -1,0 +1,23 @@
+id: "LVT5-01"
+title: "Differential Testing・オラクルの設計"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT4-06, LVT3-01, LVT1-01]
+official_scope: []
+learning_objectives:
+  - 独立した実装を共通の入力で照合する
+  - 観測と要求の対応を定め全結果と受理の検査を区別する
+  - 正しい基準との一致と不一致の論理を証明する
+  - 共通誤りと有限テストの限界を具体例と実行で説明する
+definitions:
+  - { id: LVT5-01-DEF-01, name: "観測付き差分検査" }
+propositions:
+  - { id: LVT5-01-PROP-01, name: "正しい基準との一致による適合性" }
+  - { id: LVT5-01-PROP-02, name: "不一致が示す少なくとも一方の誤り" }
+theorems: []
+canonical_examples: ["在庫引当の独立実装", "境界比較と残数の変異", "有限16組の差分検査"]
+problem_patterns: [LVT5-01-A01, LVT5-01-A02, LVT5-01-A03, LVT5-01-A04, LVT5-01-B01, LVT5-01-B02, LVT5-01-B03, LVT5-01-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2, review: 0.5 }

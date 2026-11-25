@@ -162,7 +162,11 @@ export const lessons = {
   'LVT4-06': { module:'LvtGame', sourcePath:'../../LVT3-06/lab/LvtGame.lean', modes:[
     ['LvtStrength.lean','回転・変異の検出・経路','4件の受理値の行列、検出数3、訪問経路数4と入力回転の公理依存を確認。'],
     ['Failure.lean','範囲外の回転は範囲外','範囲外の9を0へ写す誤った等式は型不一致。']
-  ], commands:'lake build\nlake test\nlake env lean LvtStrength.lean\n# 以下は意図的な失敗\nlake env lean Failure.lean' }
+  ], commands:'lake build\nlake test\nlake env lean LvtStrength.lean\n# 以下は意図的な失敗\nlake env lean Failure.lean' },
+  'LVT5-01': { module:'LvtContracts', sourcePath:'../../LVT3-01/lab/LvtContracts.lean', modes:[
+    ['LvtDifferential.lean','独立実装・観測・不一致','[0,3,6,0] と二命題の公理依存を確認。'],
+    ['Failure.lean','在庫と数量が等しいときは成功','誤った拒否の証明は型不一致。']
+  ], commands:'lake build\nlake test\nlake env lean LvtDifferential.lean\npython3 compare.py\n# 以下は意図的な失敗\nlake env lean Failure.lean' }
 };
 export function combine(module, definitions, experiment, suffix='') {
   // Only the exact local module import is replaced by its source.

@@ -1,0 +1,20 @@
+chapter: LVT5-01
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT4-06, LVT3-01, LVT1-01]
+concepts:
+  - id: lean-verification.observed-differential
+    name: 観測付き差分検査
+    kind: definition
+    introduction: formal
+    requires: [lean-verification.differential-testing]
+  - id: lean-verification.reference-agreement
+    name: 正しい基準との一致による適合性
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.observed-differential]
+  - id: lean-verification.disagreement
+    name: 不一致が示す少なくとも一方の誤り
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.observed-differential]
