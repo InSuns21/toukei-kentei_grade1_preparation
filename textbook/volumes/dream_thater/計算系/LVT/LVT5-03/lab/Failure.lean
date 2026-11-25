@@ -6,4 +6,4 @@ def lossy : Option Nat → Nat
 
 -- Equal codes do not imply equal semantic values.
 example : (none : Option Nat) = some 0 := by
-  rfl
+  exact (rfl : lossy none = lossy (some 0))
