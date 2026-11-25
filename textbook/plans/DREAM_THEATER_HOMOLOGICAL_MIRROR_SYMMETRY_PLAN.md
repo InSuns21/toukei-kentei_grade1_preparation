@@ -2,13 +2,17 @@
 
 分冊: 2026-10-11
 設計改訂: 2026-11-08
-状態: planned（設計のみ、講義数は18章に確定）
+状態: planned（設計のみ、講義数は18章に確定。前提補講の実装・検証待ち）
 
 ## 中心問いと責務境界
 
 Fukaya $A_\infty$-圏と連接層の導来圏を比較するとは何か。最初の厳密なモデルとして楕円曲線を扱い、一般のCalabi–Yau三次元多様体に対するKontsevichの予想を証明済みと混同しない。
 
-直接参照：[MIR2](DREAM_THEATER_MIRROR_SYMMETRY_I_II_PLAN.md)、[AG3](../plan_done/DREAM_THEATER_ALGEBRAIC_GEOMETRY_I_III_PLAN.md)、[SYM1〜8](../plan_done/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)。導来圏・ホモロジー代数・Floer理論の既存canonical ownerを着手前に調べ、不足が実在するときは**HM1前の独立補講**を設計する。MIR2のGW数値計算から$A_\infty$圏の構成が直ちに従うわけではない。
+直接参照：[MIR2](../plan_done/DREAM_THEATER_MIRROR_SYMMETRY_I_II_PLAN.md)、[AG3](../plan_done/DREAM_THEATER_ALGEBRAIC_GEOMETRY_I_III_PLAN.md)、[SYM1〜8](../plan_done/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)。導来圏・ホモロジー代数・Floer理論の既存canonical ownerを着手前に調べ、不足が実在するときは**HM1前の独立補講**を設計する。MIR2のGW数値計算から$A_\infty$圏の構成が直ちに従うわけではない。
+
+## 着手前の依存確認（2026-11-25）
+
+MIR2・AG3・SYM・CATの完了、およびCATB1-03〜06の完了をmainの系列manifestで確認した。第1講の局所的な圏論前提は揃っているが、上位ルート台帳の前提整備条件は別のゲートである。AG3-08は層の入射分解と層コホモロジーを扱うが一般の導来圏の局所化を構成する講ではなく、GW1-03は閉曲面のFredholm理論、GW1-21はFloerを後続の独立論証とする。従って [前提整備の独立補講PLAN](DREAM_THEATER_HMS_FOUNDATIONS_PLAN.md) を設計した。補講の必要な成果物・査読・検証が揃うまでHM1の着手条件は未達とし、本PLAN・講義数18は維持する。
 
 ## 講義構成（確定18章）
 
