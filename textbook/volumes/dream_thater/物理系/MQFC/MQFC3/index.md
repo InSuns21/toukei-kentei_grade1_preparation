@@ -12,7 +12,21 @@ $$
 b(p,x)=Et-\boldsymbol p\cdot\boldsymbol x=-\eta(p,x).
 $$
 
-未来と過去を入れ替えず、空間の向きも保つLorentz変換 $\Lambda$ と平行移動 $a$ を組み合わせた変換を $h:x\mapsto \Lambda x+a$ とします。この変換全体が[固有時向きPoincaré群](../../../代数系/LREP/LREP21/index.md#def-lrep21-poincare) $G$ です。積は $(a,\Lambda)(c,L)=(a+\Lambda c,\Lambda L)$ です。スカラーの試験関数は座標の引き戻し $f_h(x)=f(h^{-1}x)$ で移します。$\Lambda$ はMinkowski内積を保存し、座標表示では $\Lambda^{\mathsf T}\eta\Lambda=\eta$ です。Jacobian行列は $\Lambda$ であり、行列式を取ると $(\det\Lambda)^2=1$ なのでJacobian絶対値は1です。
+未来と過去を入れ替えず、空間の向きも保つLorentz変換 $\Lambda$ と平行移動 $a$ を組み合わせた変換を $h:x\mapsto \Lambda x+a$ とします。この変換全体が[固有時向きPoincaré群](../../../代数系/LREP/LREP21/index.md#def-lrep21-poincare) $G$ です。群の積は
+
+$$
+(a,\Lambda)(c,L)=(a+\Lambda c,\Lambda L)
+$$
+
+です。スカラーの試験関数は座標の引き戻し $f_h(x)=f(h^{-1}x)$ で移します。
+
+$\Lambda$ はMinkowski内積を保存します。$\eta$ を標準座標での計量行列としても用いると、その条件は
+
+$$
+\Lambda^{\mathsf T}\eta\Lambda=\eta
+$$
+
+です。変換 $x=\Lambda y+a$ のJacobian行列は $\Lambda$ であり、$\det\eta\ne0$ なので両辺の行列式から $(\det\Lambda)^2=1$ を得ます。従ってJacobian絶対値は1です。
 
 [ユニタリ表現](../../../代数系/LREP/LREP2/index.md#def-lrep2-invariant-inner-product)をHilbert空間に拡張して考えます。表現 $U$ は群の積を作用素の積に写し、内積を保存する全射です。[強連続ユニタリ表現](../../../代数系/LREP/LREP21/index.md#def-lrep21-unitary-representation)において強連続であるとは各固定状態 $\psi$ について $h\to e$ で $\|U(h)\psi-\psi\|\to0$ となることです。並進に制限すると、[平行移動のスペクトル条件](../../../解析系/AQFT/AQFT3/index.md#def-aqft3-spectrum)で用いた共同スペクトル測度 $E_U$ により
 
@@ -93,7 +107,17 @@ $$
 \le p_{N,0}(f)\int(1+|x|)^{-N}d^4x
 $$
 
-により行列要素は緩増加分布です。積分と共役は交換するので随伴条件が成立します。Jacobianが1の変数変換で $\int f_h=\int f$ となり共変性が成立します。$U$ は恒等作用素だけからなる強連続ユニタリ表現です。Borel集合 $B$ に対し $E_U(B)=\mathbf1_B(0)I$ とすると、スペクトル積分は $e^{ib(0,a)}I=I=U(a)$ です。ここで $\mathbf1_B$ は集合 $B$ の指示関数です。従ってスペクトルは $\{0\}$ で円錐内にあります。真空は不変で、空間そのものが $\mathbb C\Omega$ なので真空一意性と巡回性が成立します。全作用素は数の倍数なので交換子は零です。内積は $z\bar w$ で正定値です。全条件を満たしますが、励起状態は存在しません。公理に加えて非自明性を問う理由です。
+により行列要素は緩増加分布です。積分と共役は交換するので随伴条件が成立します。Jacobianが1の変数変換で $\int f_h=\int f$ となり共変性が成立します。
+
+$U$ は恒等作用素だけからなる強連続ユニタリ表現です。Borel集合 $B$ の指示関数を $\mathbf1_B$ と書き、共同スペクトル測度を
+
+$$
+E_U(B)=\mathbf1_B(0)I
+$$
+
+とすると、スペクトル積分は $e^{ib(0,a)}I=I=U(a)$ です。従ってスペクトルは $\{0\}$ で円錐内にあります。
+
+真空は不変で、空間そのものが $\mathbb C\Omega$ なので真空一意性と巡回性が成立します。全作用素は数の倍数なので交換子は零です。内積は $z\bar w$ で正定値です。全条件を満たしますが、励起状態は存在しません。公理に加えて非自明性を問う理由です。
 <!-- definition-example-end -->
 
 ## 2. 真空期待値はどのような正値性を持つか
@@ -319,9 +343,18 @@ F(E,\boldsymbol p)
 \chi(E-\omega_{\boldsymbol p})
 $$
 
-と置きます。$F$ の支持上では $|E|\le\omega_{\boldsymbol p}+R$（$R$ は $\chi$ の支持半径）なので $1+|E|+|\boldsymbol p|\le C(1+|\boldsymbol p|)$ です。導関数は $v$ の導関数と $\chi$ の導関数に多項式増大因子を掛けた有限和になります。$v$ は任意次数の減衰を持つので $F$ はSchwartz級です。[Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier)の逆変換で $\widetilde f=F$ となる $f$ を選べば $u_f=v$ です。
+と置きます。$R$ を $\chi$ の支持半径とすると、$F$ の支持上では
 
-場の積の線形包を $M$ とします。$\Omega\in M$ で、$\Phi(f)M\subset M$ です。任意の $v$ に対し一粒子状態 $\Phi(f)\Omega=v$ も $M$ に入ります。$n$ 以下の対称単純テンソルがすべて $M$ に入ると仮定し、そのうち純粋な $n$ 粒子状態 $\psi$ を取ります。$u_f=v$ となる $f$ に対し
+$$
+|E|\le\omega_{\boldsymbol p}+R,\qquad
+1+|E|+|\boldsymbol p|\le C(1+|\boldsymbol p|)
+$$
+
+です。導関数は $v$ の導関数と $\chi$ の導関数に多項式増大因子を掛けた有限和になります。$v$ は任意次数の減衰を持つので $F$ はSchwartz級です。[Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier)の逆変換で $\widetilde f=F$ となる $f$ を選べば $u_f=v$ です。
+
+場の積の線形包を $M$ とします。$\Omega\in M$ で、$\Phi(f)M\subset M$ です。任意のSchwartz波束 $v$ に対し一粒子状態 $\Phi(f)\Omega=v$ も $M$ に入ります。
+
+$n$ 以下の対称単純テンソルがすべて $M$ に入ると仮定し、そのうち純粋な $n$ 粒子状態 $\psi$ を取ります。$u_f=v$ となる $f$ に対し
 
 $$
 a^\dagger(v)\psi=\Phi(f)\psi-a(u_{\bar f})\psi.
@@ -335,7 +368,9 @@ a(w)\psi=\frac1{\sqrt n}\sum_{j=1}^n
 S_{n-1}(v_1\otimes\cdots\otimes\widehat v_j\otimes\cdots\otimes v_n).
 $$
 
-帽子はその因子を除くことを表し、$S_0$ は零粒子成分の恒等作用です。$n$ 通りの位置のうち各因子が消滅される割合は $1/n$ で、成分式の $\sqrt n$ を掛けて係数 $1/\sqrt n$ が得られます。ここでは $w=u_{\bar f}$ です。帰納仮定から第二項も $M$ に入ります。従って生成した $\sqrt{n+1}$ 倍の対称テンソルも $M$ に入ります。係数を割れば任意の $n+1$ 因子の対称単純テンソルが得られます。
+帽子はその因子を除くことを表し、$S_0$ は零粒子成分の恒等作用です。$n$ 通りの位置のうち各因子が消滅される割合は $1/n$ で、成分式の $\sqrt n$ を掛けて係数 $1/\sqrt n$ が得られます。ここでは $w=u_{\bar f}$ です。
+
+帰納仮定から第二項も $M$ に入ります。従って生成した $\sqrt{n+1}$ 倍の対称テンソルも $M$ に入ります。係数を割れば任意の $n+1$ 因子の対称単純テンソルが得られます。
 
 Schwartz波束が一粒子空間で稠密であるため、それらの単純テンソルの線形包は各粒子空間で稠密です。対称化は連続な直交射影なので対称部分空間でも稠密となり、有限粒子の切捨てでFock空間全体に稠密です。よって巡回性が成立します。
 
