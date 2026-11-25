@@ -1,0 +1,29 @@
+id: ATOP5
+title: "被覆空間・道とホモトピーの持上げ"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP4, TOP2, TOP5, F0-00C1]
+official_scope: []
+learning_objectives:
+  - 均等被覆近傍とシートの条件を具体例で確認できる
+  - 円周を覆う写像の逆写像を明示し被覆条件を証明できる
+  - Lebesgue数補題を有限部分被覆から証明し区間と正方形の分割に適用できる
+  - 道と正方形上のホモトピーの持上げの存在一意性を証明できる
+  - 持上げの終点不変性と基本群の誘導準同型の単射性を説明できる
+definitions:
+  - { id: ATOP5-DEF-01, name: 被覆写像の再掲 }
+  - { id: ATOP5-DEF-02, name: 持上げ }
+theorems:
+  - { id: ATOP5-PROP-01, name: 円周の実直線による被覆 }
+  - { id: ATOP5-LEM-01, name: Lebesgue数補題 }
+  - { id: ATOP5-LEM-02, name: 連結空間上の持上げの一意性 }
+  - { id: ATOP5-THM-01, name: 道の持上げ }
+  - { id: ATOP5-THM-02, name: 正方形上のホモトピーの持上げ }
+  - { id: ATOP5-COR-01, name: 道ホモトピーによる持上げの終点不変性 }
+  - { id: ATOP5-THM-03, name: 被覆写像が誘導する基本群準同型 }
+canonical_examples: [離散集合との積の射影, 円周の実直線による被覆, 局所的同相だが被覆でない制限写像]
+problem_patterns: [ATOP5-A1, ATOP5-A2, ATOP5-A3, ATOP5-A4, ATOP5-B1, ATOP5-B2, ATOP5-B3, ATOP5-B4, ATOP5-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 1 }
