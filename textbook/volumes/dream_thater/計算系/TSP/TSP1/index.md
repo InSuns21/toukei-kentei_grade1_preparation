@@ -89,7 +89,17 @@ $$
 これは[LA3Eのテンソル積の定義](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)の拡張です。
 
 <!-- definition-example-start: def-tsp1-multifactor-product -->
-**定義の確認**。$d=3$、$V_1=V_2=V_3=K$ とします。候補 $T=K$、$\tau(x,y,z)=xyz$ を取ります。第1位置では $(\lambda x+\mu x')yz=\lambda xyz+\mu x'yz$ です。第2位置では $x(\lambda y+\mu y')z=\lambda xyz+\mu xy'z$ となり、第3位置でも $xy(\lambda z+\mu z')=\lambda xyz+\mu xyz'$ です。従って多重線形です。任意の $W$ と多重線形写像 $b:K^3\to W$ に対し
+**定義の確認**。$d=3$、$V_1=V_2=V_3=K$ とします。候補 $T=K$、$\tau(x,y,z)=xyz$ を取ります。各位置での線形性は次の三式で確認できます。
+
+$$
+\begin{aligned}
+(\lambda x+\mu x')yz&=\lambda xyz+\mu x'yz,\\
+x(\lambda y+\mu y')z&=\lambda xyz+\mu xy'z,\\
+xy(\lambda z+\mu z')&=\lambda xyz+\mu xyz'.
+\end{aligned}
+$$
+
+従って多重線形です。任意の $W$ と多重線形写像 $b:K^3\to W$ に対し
 
 $$
 b(x,y,z)=x b(1,y,z)=xy b(1,1,z)=xyz b(1,1,1).
@@ -231,15 +241,15 @@ $b:K^2\times K^2\to K$ を $b((x,y),(s,t))=xs+yt$ とすれば、基底上の値
 
 [LA3Eの単純テンソル](../../../基礎科目/LA/LA3E/index.md#def-la3e-simple-tensor)にならい、一般の $d$ でも $v_1\otimes\cdots\otimes v_d$ と一組の入力から得られる元を単純テンソルと呼びます。すべてのテンソルはこの形の有限和ですが、一組の入力で書けるとは限りません。例えば $E_{11}+E_{22}$ が
 
-$
+$$
 (ae_1+be_2)\otimes(cf_1+qf_2)
-$
+$$
 
 と書けると仮定します。基底上の係数を比較すると
 
-$
+$$
 ac=1,\quad aq=0,\quad bc=0,\quad bq=1
-$
+$$
 
 が必要です。最初の等式から $a\ne0$ なので、第2式に $a^{-1}$ を掛ければ $q=0$ です。最後の等式に反します。何項の単純テンソルで表せるかが次講の主題です。
 
@@ -322,6 +332,7 @@ $$
 
 #### TSP1-A01 各位置での線形性
 - Level: A
+- ID: TSP1-A01
 
 任意の体 $K$ で $b:K^2\times K^2\to K$、$b((x,y),(s,t))=xt-ys$ が双線形であることを示し、直積上の線形写像ではないことを示してください。
 
@@ -355,6 +366,7 @@ $$
 
 #### TSP1-A02 三因子の座標
 - Level: A
+- ID: TSP1-A02
 
 $\mathbb Q^2$、$\mathbb Q^2$、$\mathbb Q$ の標準基底を $e_i,f_j,g_1$ とします。$(e_1-2e_2)\otimes(3f_1+f_2)\otimes2g_1$ の全座標と空間の次元を求めてください。
 
@@ -375,6 +387,7 @@ $$
 
 #### TSP1-A03 零とスカラー倍
 - Level: A
+- ID: TSP1-A03
 
 任意の体 $K$ 上の有限次元空間 $V,W$ と $v\in V,w\in W,\lambda\in K$ について、$0\otimes w=0$ と $(\lambda v)\otimes w=v\otimes(\lambda w)$ を示してください。
 
@@ -400,6 +413,7 @@ $$
 
 #### TSP1-A04 有限体でも成立する
 - Level: A
+- ID: TSP1-A04
 
 $K=\mathbb F_2$（$0,1$ の加算・乗算を法2で行う体）とし、$K^2$ の標準基底を $e_1,e_2$ とします。$(e_1+e_2)\otimes(e_1+e_2)+e_1\otimes e_2$ の座標を求めてください。
 
@@ -421,6 +435,7 @@ $$
 
 #### TSP1-B01 多重線形写像の線形化
 - Level: B
+- ID: TSP1-B01
 
 $\mathbb Q^2\times\mathbb Q^2\times\mathbb Q^2\to\mathbb Q$ の写像 $b((x_1,x_2),(y_1,y_2),(z_1,z_2))=2x_1y_2z_1-x_2y_1z_2$ が多重線形であることを示し、対応する線形写像 $L$ を全座標 $t_{ijk}$ で表してください。入力 $(1,2),(3,4),(5,6)$ で両方の計算を照合してください。
 
@@ -442,6 +457,7 @@ $$
 
 #### TSP1-B02 単純テンソルかどうか
 - Level: B
+- ID: TSP1-B02
 
 任意の体 $K$ 上の $K^2\otimes K^2\otimes K$ で、標準基底に関して $t=E_{111}+E_{221}$ が一つの単純テンソルではないことを示してください。
 
@@ -461,6 +477,7 @@ $acs=1$ より $a,c,s$ は非零です。$ads=0$ に $a^{-1}s^{-1}$ を掛ける
 
 #### TSP1-B03 二因子の基底変換
 - Level: B
+- ID: TSP1-B03
 
 $\mathbb Q^2\otimes\mathbb Q^2$ の旧基底 $e_i,f_j$ に対し、新基底を $g_1=e_1+e_2,g_2=e_2$、$h_1=f_1,h_2=f_1+f_2$ とします。$g_1\otimes h_2+2g_2\otimes h_1$ を旧座標に直し、逆変換も行ってください。
 
@@ -496,6 +513,7 @@ $g_1\otimes h_1$ は $1-1=0$、$g_2\otimes h_1$ は $-1+1+3-1=2$、$g_2\otimes h
 
 #### TSP1-C01 因子の並べ替えを線形写像として構成する
 - Level: C
+- ID: TSP1-C01
 
 任意の体 $K$ 上の有限次元空間 $U,V,W$ について、$U\otimes V\otimes W$ から $W\otimes U\otimes V$ への、$u\otimes v\otimes w$ を $w\otimes u\otimes v$ に送る線形同型を構成し、一意性を示してください。各空間の基底を用いた座標表示も求めてください。
 
