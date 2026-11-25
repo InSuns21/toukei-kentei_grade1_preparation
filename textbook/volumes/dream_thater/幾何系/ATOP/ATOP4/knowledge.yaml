@@ -52,7 +52,7 @@ concepts:
     introduction: formal
     requires: [topology.path-connected-space, atop.fundamental-group]
   - id: atop.basepoint-change
-    name: 基点変更
+    name: 基本群の基点変更
     kind: theorem
     introduction: formal
     requires: [atop.fundamental-group-structure, atop.path-class-laws, algebra.group-isomorphism, algebra.conjugation-action]
