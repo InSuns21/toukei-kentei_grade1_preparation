@@ -310,7 +310,7 @@ $$
 
 こうして各充足割当に一意の証明書が対応するため、充足割当数を返す関数 $\#\mathrm{SAT}$ は [計数クラス #P](#def-gct9-sharp-p) に属します。例えば式 $a\lor b$ では $01,10,11$ の三割当が真なので値は3です。
 
-[GCT3のパーマネント](../GCT3/index.md#def-gct3-permanent) を0–1行列 $B=(b_{ij})$ に適用します。各置換 $\sigma$ の項は
+[GCT3のパーマネント](../GCT3/index.md#def-gct3-permanent) を $m\times m$ の0–1行列 $B=(b_{ij})$（$m\ge1$）に適用します。各置換 $\sigma$（$1,\ldots,m$ の並べ替え）の項は
 
 $$
 \prod_{i=1}^{m} b_{i,\sigma(i)}
