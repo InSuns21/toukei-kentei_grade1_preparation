@@ -1,0 +1,41 @@
+chapter: CATB6-01
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB5-08, CATB5-06, CATB4-07, CAT4-05, CAT2-03]
+concepts:
+  - id: category.subobject-meet
+    name: "部分対象の最大元と共通部分"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（部分対象の最大元と共通部分）"]
+    requires: [category.subobject, category.pullback, category.pullback-mono]
+  - id: category.subobject-join
+    name: "部分対象の最小元と有限和"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（部分対象の最小元と有限和）"]
+    requires: [category.subobject-meet, category.power-object, category.subobject-classifier]
+  - id: category.subobject-implication
+    name: "部分対象の含意"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（部分対象の含意）"]
+    requires: [category.subobject-meet, category.subobject-inverse-image, category.topos-fiber-inclusion]
+  - id: category.heyting-algebra
+    name: "Heyting代数"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Heyting代数）"]
+    requires: []
+  - id: category.subobject-heyting
+    name: "初等トポスの部分対象のHeyting代数性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（初等トポスの部分対象のHeyting代数性）"]
+    requires: [category.heyting-algebra, category.subobject-meet, category.subobject-join, category.subobject-implication]
+  - id: category.heyting-reindexing
+    name: "部分対象のHeyting演算の逆像保存"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（部分対象のHeyting演算の逆像保存）"]
+    requires: [category.subobject-heyting, category.subobject-inverse-image, category.topos-fiber-inclusion]
