@@ -4,6 +4,8 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - NPCG5
+  - F0-00E
+  - OPT1
 official_scope: []
 learning_objectives:
   - CN不等式から四辺形不等式と対角線の中点間距離評価を証明できる

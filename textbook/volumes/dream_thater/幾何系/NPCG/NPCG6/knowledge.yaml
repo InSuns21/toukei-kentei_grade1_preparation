@@ -3,6 +3,8 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - NPCG5
+  - F0-00E
+  - OPT1
 forward_references: []
 concepts:
   - id: metric-geometry.quadrilateral-midpoint-bound
@@ -34,10 +36,10 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（平坦な部分集合）"]
-    requires: [metric-geometry.cat-zero-space]
+    requires: [metric-geometry.cat-zero-space, convex.convex-set]
   - id: metric-geometry.flat-quadrilateral-equality
     name: "四辺形の等号から平坦な領域"
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（四辺形の等号から平坦な領域）"]
-    requires: [metric-geometry.quadrilateral-equality, metric-geometry.cn-equality-propagation, metric-geometry.four-point-squared-difference, metric-geometry.flat-subset, metric-geometry.geodesically-convex-set, metric-geometry.comparison-triangle-existence]
+    requires: [metric-geometry.quadrilateral-equality, metric-geometry.cn-equality-propagation, metric-geometry.four-point-squared-difference, metric-geometry.flat-subset, metric-geometry.geodesically-convex-set, metric-geometry.comparison-triangle-existence, convex.convex-combination, convex.finite-convex-hull-representation, linear.linear-independence]
