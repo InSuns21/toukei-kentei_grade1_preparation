@@ -81,7 +81,7 @@
 - OpenAI, [Euclidean geometry in the asymptotic spectrum of tensors](https://github.com/openai/math/tree/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026)、[Circuit lower bounds for Hamiltonian cycle and the permanent](https://github.com/openai/math/tree/main/preprints/Circuit-lower-bounds-for-Hamiltonian-cycle-and-the-permanent-November-24-2026)（ともに2026-11-24）。
 - OpenAI, [An Upper Bound of 9/4 for the Matrix Multiplication Exponent](https://github.com/openai/math/tree/main/preprints/Matrix-Multiplication-Nine-Fourths-October-2-2026)；Amanov, van den Berg, Zuiddam, [Multiplying matrices via polynomials: exposition and barriers](https://arxiv.org/abs/2610.30054v1)；Lü, [Polynomial separation of a shared tensor leg and matrix multiplication in arbitrary characteristic](https://arxiv.org/abs/2610.18914)；Shpilka, [exposition and explicit algorithm](https://eccc.weizmann.ac.il/report/2026/281/)（下界論文のbibliographyに基づく関連資料）。
 - [Lean scope 107](https://github.com/openai/math/blob/main/lean/docs/107.md)、[ExactExponent.lean](https://github.com/openai/math/blob/main/lean/OAI/LinearAlgebra/SpectralBooks/ExactExponent.lean)、[Comparator statement](https://github.com/openai/math/blob/main/lean/ComparatorChallenges/MatrixExponent.lean)。論文の版とLeanのimport tree、実行環境、statement一致を実装時に固定する。
-- [EOM横断4講](DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md)、[TSP基礎16講](../plans_progress/DREAM_THEATER_TENSOR_ASYMPTOTIC_SPECTRUM_PLAN.md)。
+- [EOM横断4講](DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md)、[TSP基礎16講](../plan_done/DREAM_THEATER_TENSOR_ASYMPTOTIC_SPECTRUM_PLAN.md)。
 
 ## 7. 完成条件
 

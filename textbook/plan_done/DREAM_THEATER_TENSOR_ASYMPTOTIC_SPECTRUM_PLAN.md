@@ -1,7 +1,7 @@
 # DREAM THEATER テンソル理論・漸近スペクトル 計画
 
 構成確定日: 2026-11-24 JST
-状態: in progress（TSP1〜16実装、横断監査・公開導線確認が残る）
+状態: done（全16講実装・追跡監査・横断照合・公開目次整合）
 系列予約ID: TSP（実装時にmanifest/章ID衝突を再点検）
 講数: **全16講**
 
@@ -41,8 +41,14 @@ Landsberg, [Tensors: Geometry and Applications](https://doi.org/10.1090/gsm/128)
 ## 4. 完成条件
 
 - [x] 初回実装時に本PLANを plans_progress に移し、系列manifestを全16講の予定IDで整備する。未実装章の公開目次先行登録はしない。
-- [ ] 各講で主要定義を使用前に導入し、定理の仮定・定義域・量化・中間計算を明示。直接例と反例を含め、主要証明を再構成可能にする。
-- [ ] 原則 Level A 4題・B 3題・C 1題以上と詳細解答。単なる題数合わせはしない。
-- [ ] chapter.yaml・knowledge.yaml・prerequisite・stable anchor・KaTeX・concept/knowledge/exercise/Pages検証を完了する。
-- [ ] 研究claimは証明artifact・statement matching・kernel・独立人間検証・出版を分離し、未確認のものを無条件の正本定理にしない。
-- [ ] 横断監査・公開導線完了後に plan_done に移す。
+- [x] 各講で主要定義を使用前に導入し、定理の仮定・定義域・量化・中間計算を明示。直接例と反例を含め、主要証明を再構成可能にする。
+- [x] 原則 Level A 4題・B 3題・C 1題以上と詳細解答。単なる題数合わせはしない。
+- [x] chapter.yaml・knowledge.yaml・prerequisite・stable anchor・KaTeX・concept/knowledge/exercise/Pages検証を完了する。
+- [x] 研究claimは証明artifact・statement matching・kernel・独立人間検証・出版を分離し、未確認のものを無条件の正本定理にしない。
+- [x] 横断監査・公開導線完了後に plan_done に移す。
+
+## 5. 完了記録（2026-11-26 JST）
+
+- TSP1〜16 の manifest は全件 completed、科目別公開目次は同じ順序で全16章を掲載。実本文に A64/B59/C16 の全139問と139詳細解答を確認。
+- TSP1〜15 の追跡監査は PR #4669, #4675, #4685, #4692, #4702, #4709, #4715, #4718, #4727, #4736, #4746, #4755, #4763, #4774, #4781 の merged 記録を確認。TSP16 の全件再計算と局所修正は本完了PRに記録する。第三者独立査読ではない。
+- 半環・制限・漸近順序からスペクトル双対性、エントロピー、行列積指数、併合、被覆への接続を既存の各講の査読記録と直接前提・使用箇所により照合。任意被覆の価格双対性を Strassen 双対性と同一視せず、VNP研究講読へ残す。公開導線は科目別目次と必須 Pages assembly 検証で確認し、実ブラウザ目視は別途未実施。
