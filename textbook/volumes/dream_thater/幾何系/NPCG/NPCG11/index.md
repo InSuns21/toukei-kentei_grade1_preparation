@@ -6,9 +6,9 @@
 
 ## 1. 局所と全体の二乗距離
 
-有限[群](../../../代数系/GRP/GRP1/index.md#def-grp1-group) $G$ の単位元を $e$ とし、$n=|G|\ge2$ とします。$S$ は単位元を含まない非空の部分集合で、逆元について閉じ、$G$ を生成するものとします。生成するとは、$S$ の元の有限積（空積は $e$）で全元を表せることです。$m=|S|$ と書きます。
+有限[群](../../../代数系/GRP/GRP1/index.md#def-grp1-group) $G$ の単位元を $e$ とし、$n=|G|\ge2$ とします。$S$ は単位元を含まない非空の部分集合で、逆元について閉じ、$G$ を生成するものとします。生成するとは、$S$ の元を有限個順に掛けて全元を表せることです。空積は $e$ とします。$m=|S|$ と書きます。
 
-[GCT14のCayleyグラフ](../../../計算系/GCT/GCT14/index.md#def-gct14-cayley-graph) の右乗法を使い、頂点 $g$ と $gs$ を辺で結びます。[到達可能性の定理](../../../計算系/GCT/GCT14/index.md#thm-gct14-translation-connectivity) により、任意の二頂点の間に歩道があります。辺の両向きを数えるため、分母は無向辺の本数ではなく $nm$ とします。
+[GCT14のCayleyグラフ](../../../計算系/GCT/GCT14/index.md#def-gct14-cayley-graph) の右乗法を使い、頂点 $g$ と $gs$ を辺で結びます。[Cayleyグラフの左移動と到達可能性](../../../計算系/GCT/GCT14/index.md#thm-gct14-translation-connectivity) により、任意の二頂点の間に歩道があります。辺の両向きを数えるため、分母は無向辺の本数ではなく $nm$ とします。
 
 [距離空間](../../../基礎科目/F0/F0-00B/index.md#def-f0-00b-01) $(X,d)$ への写像 $f:G\to X$ を取り、隣接する二つの状態に対応する像の二乗距離と、全順序付き頂点対の二乗距離を比較します。同じ頂点の対も後者の分母に含みます。
 
@@ -17,7 +17,7 @@
 <!-- formal-statement-start -->
 > **定義（非線形Poincaré不等式）**
 >
-> $G$ を位数 $n\ge2$ の有限群、$S$ を単位元を除いた逆元閉かつ非空の生成集合、$m=|S|$ とする。距離空間 $(X,d)$ への写像 $f:G\to X$ について全対平均と辺平均をそれぞれ
+> $G$ を位数 $n\ge2$ の有限群、$S$ を単位元を除いた逆元閉かつ非空の生成集合、$m=|S|$ とする。空でない距離空間 $(X,d)$ への写像 $f:G\to X$ について全対平均と辺平均をそれぞれ
 
 $$
 A(f)=\frac1{n^2}\sum_{g,h\in G}d(f(g),f(h))^2,
@@ -185,7 +185,21 @@ A(a)&=\frac1{n^2}\sum_{g,h}(c_g-c_h)^2\\
 \end{aligned}
 $$
 
-非定数関数で $A(a)>0$ です。[歩道によるPoincaré評価](#thm-npcg11-path-bound) から $E(a)/A(a)\ge1/(mD^2)>0$ なので $\lambda>0$ です。非定数実数値関数が存在するので $\lambda$ は有限です。下限の定義から全ての非定数関数に $E(a)\ge\lambda A(a)$ が成立し、定数関数にも成立します。また正の比を逆数にすると上限と下限が入れ替わるため最良定数は $1/\lambda$ です。具体的には任意の $\epsilon>0$ に対し $E(a)/A(a)<\lambda+\epsilon$ の非定数関数があり、比 $A(a)/E(a)$ は $1/(\lambda+\epsilon)$ を超えます。
+非定数関数で $A(a)>0$ です。[歩道によるPoincaré評価](#thm-npcg11-path-bound) から
+
+$$
+\frac{E(a)}{A(a)}\ge\frac1{mD^2}>0.
+$$
+
+従って $\lambda>0$ です。非定数実数値関数が存在するので $\lambda$ は有限です。下限の定義から全ての非定数関数に $E(a)\ge\lambda A(a)$ が成立し、定数関数にも成立します。
+
+また正の比を逆数にすると上限と下限が入れ替わるため最良定数は $1/\lambda$ です。具体的には任意の $\epsilon>0$ に対し
+
+$$
+\frac{E(a)}{A(a)}<\lambda+\epsilon
+$$
+
+となる非定数関数があり、比 $A(a)/E(a)$ は $1/(\lambda+\epsilon)$ を超えます。
 
 次に $H$ で $v_g=f(g)-b$ とおくと $\sum_g v_g=0$ です。実内積の双線形性により
 
@@ -237,7 +251,22 @@ $$
 \frac{\langle c,c-Pc\rangle_G}{\langle c,c\rangle_G}
 $$
 
-の下限です。対称な生成集合では $s\mapsto s^{-1}$ と $g\mapsto gs$ による添字の置換から $\langle a,Pc\rangle_G=\langle Pa,c\rangle_G$ となります。平均0の関数の部分空間は $P$ で保たれます。その部分空間上の $I-P$ は対称です。[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral) を直交単位基底による表現行列に適用すると、直交単位固有ベクトル $u_j$ と実固有値 $\mu_j$（$1\le j\le n-1$）が得られます。非零の中心化関数 $c=\sum_j t_j u_j$ では
+の下限です。対称な生成集合では $h=gs$、$t=s^{-1}$ と置くと
+
+$$
+\begin{aligned}
+\langle a,Pc\rangle_G
+&=\frac1{nm}\sum_{g,s}a(g)c(gs)\\
+&=\frac1{nm}\sum_{h,t}a(ht)c(h)\\
+&=\langle Pa,c\rangle_G.
+\end{aligned}
+$$
+
+平均0の関数の部分空間は $P$ で保たれます。その部分空間上の $I-P$ は対称です。
+
+[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral) を直交単位基底による表現行列に適用すると、直交単位固有ベクトル $u_j$ と実固有値 $\mu_j$（$1\le j\le n-1$）が得られます。
+
+非零の中心化関数 $c=\sum_j t_j u_j$ では
 
 $$
 \frac{\langle c,c-Pc\rangle_G}{\langle c,c\rangle_G}
@@ -272,7 +301,7 @@ $$
 
 ## 4. CAT(0)空間での重心と群作用への接続
 
-完備 [CAT(0)空間](../NPCG3/index.md#def-npcg3-cat-zero) では足し算がなくても [有限加重重心](../NPCG8/index.md#def-npcg8-weighted-barycenter) が使えます。全対平均を重心からの二乗距離と比較して、Poincaré不等式が何を制御しているかを見ます。
+完備 [CAT(0)空間](../NPCG3/index.md#def-npcg3-cat-zero) では足し算がなくても [有限加重重心](../NPCG8/index.md#def-npcg8-weighted-barycenter) が使えます。全対平均を重心からの二乗距離と比較して、非線形Poincaré不等式が何を制御しているかを見ます。
 
 <a id="thm-npcg11-barycenter-comparison"></a>
 
@@ -291,7 +320,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[重心の存在と一意性](../NPCG8/index.md#thm-npcg8-barycenter-existence) により等重み $1/n$ の重心が存在します。目的関数を $F(z)=n^{-1}\sum_g d(f(g),z)^2$ とします。各 $h$ について [分散不等式](../NPCG8/index.md#thm-npcg8-variance-inequality) を候補点 $z=f(h)$ に適用すると
+[有限加重重心の存在と一意性](../NPCG8/index.md#thm-npcg8-barycenter-existence) により等重み $1/n$ の重心が存在します。目的関数を $F(z)=n^{-1}\sum_g d(f(g),z)^2$ とします。各 $h$ について [分散不等式](../NPCG8/index.md#thm-npcg8-variance-inequality) を候補点 $z=f(h)$ に適用すると
 
 $$
 F(f(h))\ge F(b)+d(f(h),b)^2.
@@ -310,7 +339,7 @@ $g,h$ で平均すると右辺の各項は $2V$ になるので $A(f)\le4V$ で�
 
 例えば中心から長さ1の三枝が伸びる [有限距離木](../NPCG3/index.md#def-npcg3-finite-metric-tree) の先端三つを、法3の群の三元の像に選びます。[有限距離木のCAT(0)性](../NPCG3/index.md#thm-npcg3-tree-cat-zero) が成立します。中心から距離 $r$ の点での目的関数は $((1-r)^2+2(1+r)^2)/3=1+2r/3+r^2$ なので中心が重心で $V=1$ です。異なる先端の距離は2なので $A=6\cdot4/9=8/3>2V$ です。
 
-[等長群作用](../NPCG9/index.md#def-npcg9-isometric-action) による軌道写像では、辺に沿う移動距離は始点 $g$ に依存しません。重心は群の全ての操作で固定されるので、生成元による小さな移動量から共通固定点までの距離を評価できます。
+[等長群作用](../NPCG9/index.md#def-npcg9-isometric-action) による写像 $g\mapsto g\cdot x$ では、辺に沿う移動距離は始点 $g$ に依存しません。重心は群の全ての操作で固定されるので、生成元による小さな移動量から共通固定点までの距離を評価できます。
 
 <a id="thm-npcg11-orbit-bound"></a>
 
@@ -335,7 +364,7 @@ $$
 
 従って $E(f)=m^{-1}\sum_s d(x,s\cdot x)^2$ です。また $g\cdot b=b$ なので $d(f(g),b)=d(g\cdot x,g\cdot b)=d(x,b)$ です。よって $V=d(x,b)^2$ となります。
 
-[全対平均と重心分散の比較](#thm-npcg11-barycenter-comparison) と仮定したPoincaré不等式を組み合わせると
+[全対平均と重心分散の比較](#thm-npcg11-barycenter-comparison) と仮定した[非線形Poincaré不等式](#def-npcg11-poincare) を組み合わせると
 
 $$
 2d(x,b)^2=2V\le A(f)\le C E(f)
@@ -549,7 +578,7 @@ $$
 
 <a id="ex-npcg11-c01"></a>
 
-### NPCG11-C01 三枝の木への軌道写像
+### NPCG11-C01 三枝の木での巡回作用
 
 - Level: C
 - 目安時間: 20分
@@ -559,7 +588,7 @@ $$
 
 (1) 作用が等長であることを確認し、軌道重心を求めよ。
 
-(2) 軌道写像の $E,A,V$ を求め、全対平均と重心分散の比較を確認せよ。
+(2) 写像 $f(g)=g\cdot x$ の $E,A,V$ を求め、全対平均と重心分散の比較を確認せよ。
 
 (3) 最良Poincaré定数を求め、固定点までの二乗距離の上界を計算せよ。実際の距離の二乗と比較せよ。
 
@@ -594,7 +623,7 @@ $$
 d(x,b)^2\le \frac{2/3}{4}(16+16)=\frac{16}3.
 $$
 
-実際には $d(x,b)^2=2^2=4$ です。最良Poincaré定数を使っても、分散との比較で厳密な不等号が入るため固定点の上界は等号になりません。
+実際には $d(x,b)^2=2^2=4$ です。最良Poincaré定数を使っても、重心からの二乗距離との比較で厳密な不等号が入るため固定点の上界は等号になりません。
 <!-- solution-end -->
 
 ## 6. まとめ
