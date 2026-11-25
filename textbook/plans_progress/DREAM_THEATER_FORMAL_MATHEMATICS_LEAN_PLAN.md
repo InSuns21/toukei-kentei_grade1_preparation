@@ -1,8 +1,8 @@
 # DREAM THEATER 形式数学・Lean 4 計画
 
 構成再確定日: 2026-11-24 JST（LVT共通基盤との重複3講を除去）
-状態: planned（設計確定・本文未着手）
-系列予約ID: FML（実装時にmanifest/章ID衝突を再点検）
+状態: in progress（FML1から講義実装に着手）
+系列ID: FML（進捗は [系列manifest](../dream-theater-series/FML.yaml) を正本とする）
 講数: **全7講**
 
 ## 1. 目的・前提・停止線
@@ -29,13 +29,13 @@ FMLはLVT共通基盤から分岐する数学研究向けの発展科目。特�
 
 [Theorem Proving in Lean 4](https://leanprover.github.io/theorem_proving_in_lean4/)；[Mathematics in Lean](https://leanprover-community.github.io/mathematics_in_lean/)；[Mathlib](https://github.com/leanprover-community/mathlib4)。
 
-関連: [VP/VNP横断履修ルート](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md)。各書の目次と公開された研究資料を設計基準にし、本文を転載しない。
+関連: [VP/VNP横断履修ルート](../plans/DREAM_THEATER_VP_VNP_ROUTE_PLAN.md)。各書の目次と公開された研究資料を設計基準にし、本文を転載しない。
 
 ## 4. 完成条件
 
 - [ ] LVT共通14講の定義・タクティク・再現環境を参照し、LVT第III〜VI部と一般Lean基礎を再執筆しない。数学固有の形式化・監査に7講を集中させる。
 
-- [ ] 初回実装時に本PLANを plans_progress に移し、系列manifestを全7講の予定IDで整備する。未実装章の公開目次先行登録はしない。
+- [x] 初回実装時に本PLANを plans_progress に移し、系列manifestを全7講の予定IDで整備する。未実装章の公開目次先行登録はしない。
 - [ ] 各講で主要定義を使用前に導入し、定理の仮定・定義域・量化・中間計算を明示。直接例と反例を含め、主要証明を再構成可能にする。
 - [ ] 原則 Level A 4題・B 3題・C 1題以上と詳細解答。単なる題数合わせはしない。
 - [ ] chapter.yaml・knowledge.yaml・prerequisite・stable anchor・KaTeX・concept/knowledge/exercise/Pages検証を完了する。
