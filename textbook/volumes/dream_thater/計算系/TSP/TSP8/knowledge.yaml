@@ -1,0 +1,44 @@
+chapter: TSP8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TSP7
+  - AG2-03
+forward_references: []
+concepts:
+  - id: tensor.border-rank
+    name: 境界階数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（境界階数）"]
+    requires: [tensor.tensor-rank, algebraic-geometry.zariski-topology]
+  - id: tensor.border-rank-flattening-bound
+    name: 平坦化による境界階数下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平坦化による境界階数下界）"]
+    requires: [tensor.border-rank, tensor.flattening-rank-bound]
+  - id: tensor.rank-border-rank-gap
+    name: 三因子の階数と境界階数が異なる例
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（三因子の階数と境界階数が異なる例）"]
+    requires: [tensor.border-rank-flattening-bound, tensor.three-factor-rank-example]
+  - id: tensor.secant-variety
+    name: 割線多様体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（割線多様体）"]
+    requires: [algebraic-geometry.projective-space, algebraic-geometry.projective-zero-set, linear.span-over-field]
+  - id: tensor.segre-secant-border-rank
+    name: Segre像の割線多様体と境界階数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Segre像の割線多様体と境界階数）"]
+    requires: [tensor.secant-variety, tensor.border-rank, algebraic-geometry.segre-map, algebraic-geometry.homogeneous-polynomial]
+  - id: tensor.polynomial-degeneration-bound
+    name: 多項式パラメータによる境界階数上界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（多項式パラメータによる境界階数上界）"]
+    requires: [tensor.border-rank, tensor.multifactor-basis]
