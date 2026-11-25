@@ -18,5 +18,5 @@ chapters:
   - { id: GCT12, path: textbook/volumes/dream_thater/計算系/GCT/GCT12, status: completed, title: "Ryserの包除公式と部分集合DP" }
   - { id: GCT13, path: textbook/volumes/dream_thater/計算系/GCT/GCT13, status: completed, title: "多項式補間と重みの除去" }
   - { id: GCT14, path: textbook/volumes/dream_thater/計算系/GCT/GCT14, status: completed, title: "有限群とCayleyグラフ" }
-  - { id: GCT15, path: textbook/volumes/dream_thater/計算系/GCT/GCT15, status: planned, title: "重み付き有限オートマトン・テープ機械" }
+  - { id: GCT15, path: textbook/volumes/dream_thater/計算系/GCT/GCT15, status: completed, title: "重み付き有限オートマトン・テープ機械" }
   - { id: GCT16, path: textbook/volumes/dream_thater/計算系/GCT/GCT16, status: planned, title: "木プログラムの符号化と計算ネットワーク" }
