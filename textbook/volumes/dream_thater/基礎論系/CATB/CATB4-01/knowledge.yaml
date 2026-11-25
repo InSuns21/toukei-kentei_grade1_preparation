@@ -1,0 +1,53 @@
+chapter: CATB4-01
+scope: dream-theater
+coverage: complete
+prerequisites: [CAT1-06, CAT2-03]
+concepts:
+  - id: category.fiber-category
+    name: ファイバー圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ファイバー圏）"]
+    requires: [category.covariant-functor]
+  - id: category.cartesian-morphism
+    name: Cartesian射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Cartesian射）"]
+    requires: [category.covariant-functor]
+  - id: category.fibration
+    name: ファイブレーション
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ファイブレーション）"]
+    requires: [category.cartesian-morphism]
+  - id: category.cartesian-lift-uniqueness
+    name: Cartesian持ち上げの同型一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Cartesian持ち上げの同型一意性）"]
+    requires: [category.cartesian-morphism, category.fiber-category, category.isomorphism]
+  - id: category.cartesian-composition
+    name: Cartesian射の恒等射と合成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Cartesian射の恒等射と合成）"]
+    requires: [category.cartesian-morphism]
+  - id: category.vertical-cartesian-isomorphism
+    name: 垂直Cartesian射と同型射
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（垂直Cartesian射と同型射）"]
+    requires: [category.cartesian-morphism, category.fiber-category, category.isomorphism]
+  - id: category.family-fibration
+    name: 集合族のファイブレーション
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（集合族のファイブレーション）"]
+    requires: [category.fibration, category.set-category]
+  - id: category.codomain-fibration
+    name: 終域関手と引き戻し
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（終域関手と引き戻し）"]
+    requires: [category.fibration, category.pullback, category.slice-category]
