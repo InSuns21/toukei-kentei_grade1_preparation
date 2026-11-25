@@ -123,7 +123,7 @@ $$
 
 なので、写像 $x\mapsto Mx$ の像は全列の[線形包](../../../代数系/FLD/FLD0/index.md#def-fld0-span-over-field)です。その[体上の次元](../../../代数系/FLD/FLD0/index.md#def-fld0-dimension-over-field)を行列階数 $\operatorname{rank}_K M$ と書き、体が明らかなときは $\operatorname{rank}M$ と略します。
 
-単純テンソル $u\otimes v$ に対し、$u=\sum_i a_i e_i$、$v=\sum_j b_j f_j$ と展開します。[基底展開の成分公式](../TSP1/index.md#thm-tsp1-multifactor-basis)により係数は $a_i b_j$ です。座標列 $a\in K^m,b\in K^n$ からこの係数を並べた行列を外積行列 $ab^{\mathsf T}$ といいます。$\mathsf T$ は転置を表し、複素共役は取りません。
+単純テンソル $u\otimes v$ に対し、$u=\sum_i a_i e_i$、$v=\sum_j b_j f_j$ と展開します。[多因子テンソル積の存在・基底・一意性](../TSP1/index.md#thm-tsp1-multifactor-basis)の成分公式により係数は $a_i b_j$ です。座標列 $a\in K^m,b\in K^n$ からこの係数を並べた行列を外積行列 $ab^{\mathsf T}$ といいます。$\mathsf T$ は転置を表し、複素共役は取りません。
 
 $$
 (ab^{\mathsf T})_{ij}=a_i b_j.
@@ -259,7 +259,15 @@ $$
 A=p_1N_1+p_2N_2,\qquad B=q_1N_1+q_2N_2.
 $$
 
-$A,B$ が一次独立なのは、$\alpha A+\beta B=0$ の $(1,2)$ 成分から $\alpha=0$、$(1,1)$ 成分から $\beta=0$ が従うためです。従って $N_1,N_2$ の線形包は次元2以上です。[Steinitz の交換補題](../../../代数系/FLD/FLD0/index.md#thm-fld0-steinitz-basis-extension-over-field)により、生成元が二つなので次元は2以下でもあり、ちょうど2です。この線形包の中に一次独立な二枚 $A,B$ があるので、それらも基底です。特に各 $N_s$ は $\alpha A+\beta B$ の形であり、$N_1,N_2$ 自身も一次独立で非零です。
+まず二枚の一次独立性を確かめます。
+
+$$
+\alpha A+\beta B=0
+$$
+
+の $(1,2)$ 成分から $\alpha=0$、$(1,1)$ 成分から $\beta=0$ が従います。
+
+従って $N_1,N_2$ の線形包は次元2以上です。[Steinitz の交換補題](../../../代数系/FLD/FLD0/index.md#thm-fld0-steinitz-basis-extension-over-field)により、生成元が二つなので次元は2以下でもあり、ちょうど2です。この線形包の中に一次独立な二枚 $A,B$ があるので、それらも基底です。特に各 $N_s$ は $\alpha A+\beta B$ の形であり、$N_1,N_2$ 自身も一次独立で非零です。
 
 ところが任意の $\alpha,\beta\in K$ について
 
