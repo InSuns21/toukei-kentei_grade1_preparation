@@ -1,0 +1,46 @@
+chapter: FML2
+scope: dream-theater
+coverage: complete
+prerequisites: [FML1, RNG1, FLD0, FLD1, FLD3]
+forward_references: []
+concepts:
+  - id: formal-math.algebra-instance
+    name: Leanの代数構造インスタンス
+    kind: definition
+    introduction: formal
+    requires: [algebra.ring, algebra.commutative-ring, algebra.field]
+  - id: formal-math.nonzero-cancel
+    name: Leanでの非零係数の消去
+    kind: proposition
+    introduction: formal
+    requires: [formal-math.algebra-instance]
+  - id: formal-math.nat-cast
+    name: Leanの自然数の環への型変換
+    kind: definition
+    introduction: formal
+    requires: [formal-math.algebra-instance]
+  - id: formal-math.charp
+    name: Leanの標数の型クラス
+    kind: definition
+    introduction: formal
+    requires: [formal-math.nat-cast, algebra.field-characteristic]
+  - id: formal-math.char-two-square
+    name: 標数2での二乗の形式化
+    kind: theorem
+    introduction: formal
+    requires: [formal-math.nat-cast]
+  - id: formal-math.map-square-add
+    name: 環準同型による和の二乗の移送
+    kind: proposition
+    introduction: formal
+    requires: [algebra.ring-homomorphism, formal-math.algebra-instance]
+  - id: formal-math.scalar-structure
+    name: Leanでの体のスカラー構造
+    kind: definition
+    introduction: formal
+    requires: [algebra.field-extension, algebra.ring-homomorphism, linear.vector-space-over-field]
+  - id: formal-math.scalar-consistency
+    name: 写像に沿うスカラー作用の整合性
+    kind: proposition
+    introduction: formal
+    requires: [formal-math.scalar-structure]
