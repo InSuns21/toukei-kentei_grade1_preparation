@@ -4,7 +4,7 @@
 
 前講の[導来圏](../CATB7-04/index.md#def-catb7-04-derived-category)では、コホモロジーを変えない複体の置換を許した。今回は、置換先を計算しやすい対象で作る方法を学ぶ。
 
-整数加群は整数倍を作用とする左 $\mathbb Z$ 加群である。[加群の圏](../CATB1-04/index.md#thm-catb1-04-module-category)ではモノ射・エピ射は単射・全射に一致する。$\operatorname{Hom}_R(M,N)$ は左 $R$ 加群の準同型全体の加法群を表す。
+整数加群は整数倍を作用とする左 $\mathbb Z$ 加群である。[加群の圏](../CATB1-04/index.md#thm-catb1-04-module-category)ではモノ射・エピ射は単射・全射に一致する。単位元を持つ環 $R$ と左 $R$ 加群 $M,N$ に対し、$\operatorname{Hom}_R(M,N)$ は準同型全体の加法群を表す。
 
 整数 $m\ge2$ に対して[短完全列](../CATB1-05/index.md#def-catb1-05-short-exact)
 
@@ -12,7 +12,7 @@ $$
 0\to\mathbb Z\xrightarrow{m}\mathbb Z\to\mathbb Z/m\mathbb Z\to0
 $$
 
-を考える。整数加群から整数加群への準同型は1の像で決まり、有限巡回群から整数加群への準同型は零である。従って $\operatorname{Hom}_{\mathbb Z}(-,\mathbb Z)$ を適用し、矢印を反転すると
+を考える。整数加群 $\mathbb Z$ から $\mathbb Z$ への準同型は1の像で決まり、有限巡回群から整数加群への準同型は零である。従って $\operatorname{Hom}_{\mathbb Z}(-,\mathbb Z)$ を適用し、矢印を反転すると
 
 $$
 0\to0\to\mathbb Z\xrightarrow{m}\mathbb Z
@@ -151,7 +151,7 @@ $$
 
 従って全次数で完全性を得る。
 
-[余鎖複体のコホモロジー](../CATB7-01/index.md#def-catb7-01-cohomology)に戻る。射影分解では $H^0(P)=P^0/\ker\epsilon\cong M$、負次数のコホモロジーは完全性から零、正次数も零である。入射分解では $H^0(I)=\ker d^0\cong M$、正次数は完全性から零、負次数も零である。次数0の同型はそれぞれ $\epsilon,\eta$ が誘導する。従って両射は[余鎖複体の擬同型](../CATB7-03/index.md#def-catb7-03-quasi-isomorphism)である。
+[余鎖複体のコホモロジー](../CATB7-01/index.md#def-catb7-01-cohomology)に戻る。射影分解では $H^0(P)=P^0/\operatorname{im}d^{-1}=P^0/\ker\epsilon\cong M$、負次数のコホモロジーは完全性から零、正次数も零である。入射分解では $H^0(I)=\ker d^0/0\cong M$、正次数は完全性から零、負次数も零である。次数0の同型はそれぞれ $\epsilon,\eta$ が誘導する。従って両射は[余鎖複体の擬同型](../CATB7-03/index.md#def-catb7-03-quasi-isomorphism)である。
 <!-- proof-end -->
 
 ## 4. 分解の選び方に依存しない理由
@@ -224,7 +224,7 @@ $$
 =d_J^{n-1}w^{n-1}-d_J^{n-1}h^nd_I^{n-1}=0.
 $$
 
-最後の等号は $w^{n-1}=d_J^{n-2}h^{n-1}+h^nd_I^{n-1}$ と微分の二乗零から従う。従って残差は $\operatorname{im}d_I^n$ を経由し、$J^n$ の入射性による延長 $h^{n+1}$ で残差を $h^{n+1}d_I^n$ と表せる。全次数のホモトピー式が成立する。
+最後の等号は $w^{n-1}=d_J^{n-2}h^{n-1}+h^nd_I^{n-1}$ と微分の二乗零から従う。従って残差は $\operatorname{coker}d_I^{n-1}$ を経由する。[像と余像の比較同型](../CATB1-05/index.md#thm-catb1-05-image-coimage)と分解の完全性によって、この余核を $\operatorname{im}d_I^n$ と同一視できるので、$J^n$ の入射性による延長 $h^{n+1}$ で残差を $h^{n+1}d_I^n$ と表せる。全次数のホモトピー式が成立する。
 <!-- proof-end -->
 
 同じ $M$ の二つの分解を取って $f=1_M$ とすると、両方向の比較写像を作れる。その合成と恒等射はいずれも $1_M$ を持ち上げるため、比較定理の一意性でホモトピーになる。従って二つの分解は[余鎖複体のホモトピー同値](../CATB7-03/index.md#def-catb7-03-homotopy-equivalence)である。任意の $f,g$ に対して比較写像の合成は $gf$ を持ち上げるので、これも選択によらずホモトピー類として合成を保つ。
@@ -343,7 +343,7 @@ $$
 
 となる。従って[余鎖ホモトピーのコホモロジー不変性](../CATB7-02/index.md#thm-catb7-02-homotopy-invariance)と[分解の比較定理](#thm-catb7-05-comparison)により選択独立性と第一変数での反変関手性が得られる。第二変数は後合成で共変であり、前合成と後合成は結合律によって可換する。
 
-次数0では $\ker\partial^0$ は $d_P^{-1}$ 上零になる射全体だから、余核 $M$ を経由する。従って $\operatorname{Ext}^0(M,N)\cong\operatorname{Hom}(M,N)$。
+次数0では $\ker\partial^0$ は $ad_P^{-1}=0$ を満たす射 $a:P^0\to N$ 全体であり、[余核の普遍性](../CATB1-04/index.md#def-catb1-04-cokernel)により $\epsilon:P^0\to M$ を一意に経由する。次数 $-1$ の成分は零なので余境界も零である。従って $\operatorname{Ext}^0(M,N)\cong\operatorname{Hom}(M,N)$。
 
 <!-- definition-example-start: def-catb7-05-ext -->
 **定義の確認**。$M=\mathbb Z/m\mathbb Z$、$N=\mathbb Z$ とする。既に完全性と射影性を検証した[射影分解](#def-catb7-05-projective-resolution)を使う。$\operatorname{Hom}_{\mathbb Z}(\mathbb Z,\mathbb Z)\cong\mathbb Z$ は1の像を取る同型であり、$a(1)=t$ なら $a(m)=mt$。従って $C^0=C^1=\mathbb Z$、$\partial^0=m$、$C^n=0$ ($n\ne0,1$)。微分の二乗零は次の微分が零なので成立する。
@@ -441,7 +441,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-擬同型 $s:U\to V$ を取り、$f:P\to V$ を余鎖写像とする。[写像錐による擬同型判定](../CATB7-03/index.md#thm-catb7-03-cone-test)で $E=\operatorname{Cone}(s)$ は全次数でコホモロジーが零である。$V\to E$ を標準包含とする。上の補題で $(f,0):P\to E$ は零とホモトピーになる。[双積の射の表示](../CATB1-03/index.md#thm-catb1-03-matrix)に従い、ホモトピー $P^n\to E^{n-1}=V^{n-1}\oplus U^n$ の二つの成分射を $a^n:P^n\to V^{n-1}$、$b^n:P^n\to U^n$ と置く。$(a^n,b^n)$ はこの二射によって決まる双積への射であり、一般のアーベル圏の元を表してはいない。[写像錐](../CATB7-02/index.md#def-catb7-02-cone)の微分を代入すると
+擬同型 $s:U\to V$ を取り、$f:P\to V$ を余鎖写像とする。[写像錐による擬同型判定](../CATB7-03/index.md#thm-catb7-03-cone-test)で $E=\operatorname{Cone}(s)$ は全次数でコホモロジーが零である。$V\to E$ を標準包含とする。[上に有界な射影複体からの写像](#lem-catb7-05-projective-acyclic)で $(f,0):P\to E$ は零とホモトピーになる。[双積の射の表示](../CATB1-03/index.md#thm-catb1-03-matrix)に従い、ホモトピー $P^n\to E^{n-1}=V^{n-1}\oplus U^n$ の二つの成分射を $a^n:P^n\to V^{n-1}$、$b^n:P^n\to U^n$ と置く。$(a^n,b^n)$ はこの二射によって決まる双積への射であり、一般のアーベル圏の元を表してはいない。[写像錐](../CATB7-02/index.md#def-catb7-02-cone)の微分を代入すると
 
 $$
 f^n=d_V^{n-1}a^n+s^nb^n+a^{n+1}d_P^n,
@@ -511,7 +511,7 @@ $$
 
 入射対象の下に有界な複体 $I$ について、コホモロジーが全て零の複体 $A$ からの余鎖写像 $A\to I$ は零とホモトピーになる。これは[上に有界な射影複体からの写像](#lem-catb7-05-projective-acyclic)を反対圏で、次数 $n$ を $-n$ に反転して適用した結果である。実際、微分は元の $d^{-n-1}$ の反対射となり、ホモトピー成分 $h^{-n+1}$ の反対射が次数を1下げる。核と余核、モノとエピが交換され、下に有界という条件は上に有界という条件に変わる。
 
-同じ反対圏への変換を[分解による導来圏のHom計算](#thm-catb7-05-derived-hom)の第一の同型へ適用できる。局所化の普遍性によって反対圏で擬同型を逆にした圏は元の導来圏の反対圏と同値である（反対を取る操作は擬同型を逆にする関手同士を対応させる）。従って $\operatorname{Hom}_K(X,I)\to\operatorname{Hom}_D(X,I)$ も同型となる。
+同じ反対圏への変換を[分解による導来圏のHom計算](#thm-catb7-05-derived-hom)の第一の同型へ適用できる。[局所化の普遍性](../CATB7-03/index.md#thm-catb7-03-localization)によって反対圏で擬同型を逆にした圏は元の導来圏の反対圏と同値である（反対を取る操作は擬同型を逆にする関手同士を対応させる）。従って $\operatorname{Hom}_K(X,I)\to\operatorname{Hom}_D(X,I)$ も同型となる。
 
 十分な射影対象と十分な入射対象をともに持つとき、$N[0]\to I$ は導来圏の同型であり、$I[n]$ は下に有界な入射複体である。従って
 
@@ -521,7 +521,7 @@ $$
 \cong\operatorname{Hom}_K(M[0],I[n]).
 $$
 
-最後の群では余鎖写像は $a:M\to I^n$ で $(-1)^nd_I^na=0$ となるもの、ホモトピー差は $(-1)^nd_I^{n-1}h$ となるものに対応する。符号は核と像を変えないので
+最後の群では[余鎖複体のシフト](../CATB7-02/index.md#def-catb7-02-shift)により $I[n]^0=I^n$、$I[n]^{-1}=I^{n-1}$ である。余鎖写像は $a:M\to I^n$ で $(-1)^nd_I^na=0$ となるもの、ホモトピー差は $h:M\to I^{n-1}$ を用いた $(-1)^nd_I^{n-1}h$ に対応する。符号は核と像を変えないので
 
 $$
 \operatorname{Ext}^n(M,N)\cong
@@ -596,7 +596,7 @@ $$
 $\mathbb Z/2\mathbb Z$ は整数加群の圏で入射対象でないことを、包含 $2\mathbb Z\subset\mathbb Z$ を用いて示せ。
 
 <!-- solution-start -->
-$2k\mapsto[k]_2$ は $2\mathbb Z$ 上の加法的写像である。もし[入射対象](#def-catb7-05-injective)の条件により $\mathbb Z$ 全体へ延長 $b$ があれば、$b(2)=2b(1)=0$ である。しかしもとの写像は2を $[1]_2$ に送る。これは矛盾である。失われるのはモノ射に沿う延長の存在であり、単に延長の一意性ではない。
+$[k]_m$ は $\mathbb Z/m\mathbb Z$ における整数 $k$ の剰余類とする。$2k\mapsto[k]_2$ は $2\mathbb Z$ 上の加法的写像である。もし[入射対象](#def-catb7-05-injective)の条件により $\mathbb Z$ 全体へ延長 $b$ があれば、$b(2)=2b(1)=0$ である。しかしもとの写像は2を $[1]_2$ に送る。これは矛盾である。失われるのはモノ射に沿う延長の存在であり、単に延長の一意性ではない。
 <!-- solution-end -->
 
 ### CATB7-05-A03 分解と次数
@@ -606,7 +606,14 @@ $2k\mapsto[k]_2$ は $2\mathbb Z$ 上の加法的写像である。もし[入射
 $P^{-1}=P^0=\mathbb Z$、微分を7倍とした複体が $\mathbb Z/7\mathbb Z$ の射影分解になることを確認し、$H^{-1}(P),H^0(P)$ を求めよ。
 
 <!-- solution-start -->
-両成分は自由加群なので[射影対象](#def-catb7-05-projective)。7倍は単射で、像 $7\mathbb Z$ は剰余射の核であり、剰余射は全射である。他の成分は零なので増大列の完全性も成立する。[射影分解](#def-catb7-05-projective-resolution)の条件を満たす。$H^{-1}(P)=\ker(7)/0=0$、$H^0(P)=\mathbb Z/7\mathbb Z$。増大列は完全だが、増大先を除いた複体の次数0のコホモロジーは元の対象である。
+両成分は自由加群なので[射影対象](#def-catb7-05-projective)。7倍は単射で、像 $7\mathbb Z$ は剰余射の核であり、剰余射は全射である。他の成分は零なので増大列の完全性も成立する。[射影分解](#def-catb7-05-projective-resolution)の条件を満たす。[コホモロジーの定義](../CATB7-01/index.md#def-catb7-01-cohomology)より
+
+$$
+H^{-1}(P)=\ker(7)/0=0,\qquad
+H^0(P)=\mathbb Z/7\mathbb Z.
+$$
+
+増大列は完全だが、増大先を除いた複体の次数0のコホモロジーは元の対象である。
 <!-- solution-end -->
 
 ### CATB7-05-A04 巡回群のExt
@@ -646,7 +653,7 @@ $F(A)=A/4A$ とし、$\mathbb Z/6\mathbb Z$ での $L_0F,L_1F$ を計算せよ�
 体 $k$ 上のベクトル空間の圏で固定した空間 $U$ に対する $G(V)=\operatorname{Hom}_k(U,V)$ の右導来関手を求めよ。値は $k$ ベクトル空間とする。
 
 <!-- solution-start -->
-$G$ は加法的であり、単射との後合成は単射、像が次の射の核に一致することは核の普遍性から従うので左完全である。全てのベクトル空間は[入射対象](#def-catb7-05-injective)の例で確認した通り入射対象である。従って $V\to V$ を恒等射とし、次数0に $V$ だけを置いた入射分解が使える。$G(I)$ は次数0に $\operatorname{Hom}_k(U,V)$ がある複体で、微分は全て零。よって $R^0G(V)=\operatorname{Hom}_k(U,V)$、$n>0$ では $R^nG(V)=0$ となる。
+$G$ は加法的であり、単射との後合成は単射、像が次の射の核に一致することは核の普遍性から従うので左完全である。全てのベクトル空間は[入射対象](#def-catb7-05-injective)の例で確認した通り入射対象である。従って $V\to V$ を恒等射とし、次数0に $V$ だけを置いた入射分解が使える。[左右導来関手](#def-catb7-05-derived-functor)の定義により、$G(I)$ は次数0に $\operatorname{Hom}_k(U,V)$ がある複体で、微分は全て零。よって $R^0G(V)=\operatorname{Hom}_k(U,V)$、$n>0$ では $R^nG(V)=0$ となる。
 <!-- solution-end -->
 
 ### CATB7-05-B04 第一変数の反変性
@@ -656,7 +663,7 @@ $G$ は加法的であり、単射との後合成は単射、像が次の射の�
 剰余射 $f:\mathbb Z/6\mathbb Z\to\mathbb Z/3\mathbb Z$ が誘導する $\operatorname{Ext}^1_{\mathbb Z}(-,\mathbb Z)$ の射を求めよ。
 
 <!-- solution-start -->
-6倍の分解 $P$ から3倍の分解 $Q$ へ比較写像を作る。次数0を恒等射、次数 $-1$ を2倍とすれば $3\cdot2=1\cdot6$ で余鎖写像条件を満たす。次数0で剰余射との可換性も成立する。Ext の複体では次数1の写像は前合成で $a\mapsto a\circ2$ であり、整数で表せば2倍である。従って [Ext](#def-catb7-05-ext)の誘導射は
+[射影分解の定義例](#def-catb7-05-projective-resolution)の6倍の分解 $P$ から3倍の分解 $Q$ へ比較写像を作る。次数0を恒等射、次数 $-1$ を2倍とすれば $3\cdot2=1\cdot6$ で余鎖写像条件を満たす。次数0で剰余射との可換性も成立する。Ext の複体では次数1の写像は前合成で $a\mapsto a\circ2$ であり、整数で表せば2倍である。従って [Ext](#def-catb7-05-ext)の誘導射は
 
 $$
 \mathbb Z/3\mathbb Z\longrightarrow\mathbb Z/6\mathbb Z,
@@ -708,7 +715,7 @@ $$
 
 [分解による導来圏のHom計算](#thm-catb7-05-derived-hom)で $P$ を使うと、対応する Ext の元は $p$ の次数 $-1$ の成分 $1_{\mathbb Z}$ の類である。微分は $\operatorname{Hom}(\mathbb Z,\mathbb Z)$ 上の $m$ 倍だから、その類は $[1]_m\in\mathbb Z/m\mathbb Z$。$m\ge2$ より零でなく、位数 $m$ の生成元となる。
 
-独立に、短完全列が分裂すると剰余射の右逆 $s:M\to\mathbb Z$ が存在する。$s([1]_m)=t$ と置けば $mt=s(m[1]_m)=0$ なので $t=0$。しかし剰余射との合成が恒等射なら $[t]_m=[1]_m$ となるはずで矛盾する。従って分裂しない。ここでは個別の短完全列について非零の類と非分裂を確認したのであり、任意の拡大の分類定理を仮定したわけではない。
+独立に、短完全列が分裂すると剰余射の[右逆](../../CAT/CAT1-03/index.md#def-cat1-03-split) $s:M\to\mathbb Z$ が存在する。$s([1]_m)=t$ と置けば $mt=s(m[1]_m)=0$ なので $t=0$。しかし剰余射との合成が恒等射なら $[t]_m=[1]_m$ となるはずで矛盾する。従って分裂しない。ここでは個別の短完全列について非零の類と非分裂を確認したのであり、任意の拡大の分類定理を仮定したわけではない。
 <!-- solution-end -->
 
 ## 9. まとめ
