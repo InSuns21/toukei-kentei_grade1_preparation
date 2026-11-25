@@ -1,0 +1,22 @@
+id: "LVT5-03"
+title: "直列化・正規化・一致判定の監査"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT5-02, LVT5-01, LVT3-01]
+official_scope: []
+learning_objectives:
+  - 直列化と復号の往復条件から意味の保存を証明する
+  - 数値境界・欠損・型・エラー・順序・符号化の契約を設計する
+  - 比較ハーネスの変異を独立した期待結果で検出する
+  - 抽象模型の証明と実際の比較器の有限検査を区別する
+definitions:
+  - { id: LVT5-03-DEF-01, name: "意味保存往復条件" }
+propositions:
+  - { id: LVT5-03-PROP-01, name: "意味保存往復条件による一致判定" }
+theorems: []
+canonical_examples: ["成功と拒否の符号化", "JSON整数境界", "比較器の変異"]
+problem_patterns: [LVT5-03-A01, LVT5-03-A02, LVT5-03-A03, LVT5-03-A04, LVT5-03-B01, LVT5-03-B02, LVT5-03-B03, LVT5-03-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2, review: 0.5 }

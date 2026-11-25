@@ -1,0 +1,15 @@
+chapter: LVT5-03
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT5-02, LVT5-01, LVT3-01]
+concepts:
+  - id: lean-verification.semantic-roundtrip
+    name: 意味保存往復条件
+    kind: definition
+    introduction: formal
+    requires: [lean-verification.line-oracle-contract]
+  - id: lean-verification.roundtrip-agreement
+    name: 意味保存往復条件による一致判定
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.semantic-roundtrip]
