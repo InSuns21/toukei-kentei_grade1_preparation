@@ -1,0 +1,49 @@
+chapter: TSP9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TSP8
+forward_references: []
+concepts:
+  - id: tensor.asymptotic-fekete-lemma
+    name: Fekete補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Fekete補題）"]
+    requires: []
+  - id: tensor.power-growth-limits
+    name: テンソル冪の階数と劣階数の増大率
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（テンソル冪の階数と劣階数の増大率）"]
+    requires: [tensor.rank-subrank-operations, tensor.asymptotic-fekete-lemma, tensor.subrank-bounds]
+  - id: tensor.asymptotic-rank
+    name: 漸近階数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（漸近階数と漸近劣階数）"]
+    requires: [tensor.power-growth-limits, tensor.tensor-rank]
+  - id: tensor.asymptotic-subrank
+    name: 漸近劣階数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（漸近階数と漸近劣階数）"]
+    requires: [tensor.power-growth-limits, tensor.subrank]
+  - id: tensor.asymptotic-monotonicity
+    name: 漸近階数と漸近劣階数の単調性・冪の公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（漸近階数と漸近劣階数の単調性・冪の公式）"]
+    requires: [tensor.asymptotic-rank, tensor.asymptotic-subrank, tensor.operation-monotonicity, tensor.restriction-rank-monotonicity, tensor.subrank-bounds]
+  - id: tensor.polynomial-coefficient-recovery
+    name: 多項式の係数回収
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（多項式の係数回収）"]
+    requires: []
+  - id: tensor.degeneration-asymptotic-rank-bound
+    name: 多項式退化による漸近階数上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（多項式退化による漸近階数上界）"]
+    requires: [tensor.polynomial-coefficient-recovery, tensor.asymptotic-rank, tensor.polynomial-degeneration-bound, tensor.kronecker-product]

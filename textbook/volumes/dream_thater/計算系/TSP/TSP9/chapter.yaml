@@ -1,0 +1,39 @@
+id: "TSP9"
+title: "漸近階数・漸近劣階数・Fekete補題と指数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TSP8
+official_scope: []
+learning_objectives:
+  - テンソル冪の階数と劣階数の乗法評価を対数の加法評価へ移せる
+  - Fekete補題を商と余りによる分割から証明できる
+  - 漸近階数と漸近劣階数の極限・有限回の評価・単調性を説明できる
+  - 多項式の係数回収から退化による漸近階数上界を証明できる
+  - 三因子テンソルの漸近階数と漸近劣階数の評価を具体的に計算できる
+definitions:
+  - { id: TSP9-DEF-01, name: 漸近階数と漸近劣階数 }
+theorems:
+  - { id: TSP9-LEM-01, name: Fekete補題 }
+  - { id: TSP9-THM-01, name: テンソル冪の階数と劣階数の増大率 }
+  - { id: TSP9-THM-02, name: 漸近階数と漸近劣階数の単調性・冪の公式 }
+  - { id: TSP9-LEM-02, name: 多項式の係数回収 }
+  - { id: TSP9-THM-03, name: 多項式退化による漸近階数上界 }
+canonical_examples:
+  - 対角テンソルの増大率
+  - 三因子テンソルの多項式退化
+  - 三因子テンソルの二回のKronecker積からの対角制限
+problem_patterns:
+  - TSP9-A01
+  - TSP9-A02
+  - TSP9-A03
+  - TSP9-A04
+  - TSP9-B01
+  - TSP9-B02
+  - TSP9-B03
+  - TSP9-B04
+  - TSP9-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 1 }
