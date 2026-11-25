@@ -1,7 +1,7 @@
 # DREAM THEATER Floer理論の解析基盤（FLOER）
 
 設計確定日：2026-11-25  
-状態：in progress（FLOER1-01〜02実装、残り3講）  
+状態：in progress（FLOER1-01〜03実装、残り2講）  
 講義数：5講（FLOER1-01〜05）。核心証明の粒度により再審議できる。
 
 ## 1. 中心問いと依存
