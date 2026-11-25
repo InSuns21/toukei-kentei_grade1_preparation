@@ -177,7 +177,7 @@ $$
 \end{aligned}
 $$
 
-両辺の非負平方根を取り、Cauchy–Schwarz の不等式を $\langle Qv,T(t)z\rangle$ に適用すれば結論を得る。
+両辺の非負平方根を取り、[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) を $\langle Qv,T(t)z\rangle$ に適用すれば結論を得る。
 <!-- proof-end -->
 
 単一場についての [質量測度からのEuclid二点量](../MQFC11/index.md#prop-mqfc11-euclidean-spectrum) もこの機構を具体化する。$s$ は質量二乗、$k\in\mathbb R^3$ は空間運動量、$g$ は空間 Schwartz 波束、$\hat g$ はその Fourier 変換、$\rho$ は質量二乗測度、$d\eta_s(k)=d^3k/((2\pi)^3 2E_s(k))$ は質量殻上の測度である。$C_g(\tau)$ は正の Euclid 時間 $\tau$ の波束二点量を表し、上のベクトル相関と区別する。$m\ge0$ として $\rho$ が $[m^2,\infty)$ に支持されるなら、
