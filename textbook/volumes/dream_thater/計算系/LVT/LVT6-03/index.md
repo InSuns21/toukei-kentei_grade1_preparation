@@ -118,10 +118,10 @@ publish の列を遷移表で読む。draft、submitted、published には受理
 
 故意の変異は submitted から publish する経路を一つ追加することです。入力 submit, publish では、1行目は両者とも 1,submitted,0。2行目は仕様が 0,submitted,0、変異が 1,published,0 になります。最初の相違は2行目。変異は承認なしに公開するので安全性も破ります。長さ1以下の操作列は初期段階 draft からしか動かず、変異経路に到達できません。従ってこの入力は最短です。生成器の縮小結果が常に全体最短になると仮定せず、ここでは遷移表から最短性を別に確認しました。
 
-Codespacesを開き（GitHubへのログインと利用枠が必要）、以下を端末で実行します。Lean 4.35.0、Node.js 22.16.0、fast-check 3.23.2を使います。Nodeの型注釈除去による実行であり、静的型検査とは別です。
+Codespacesを開き（GitHubへのログインと利用枠が必要）、リポジトリのルートをカレントディレクトリとして、以下を端末で実行します。Lean 4.35.0、Node.js 22.16.0、fast-check 3.23.2を使います。Nodeの型注釈除去による実行であり、静的型検査とは別です。
 
 ```bash
-cd "$(git rev-parse --show-toplevel)/textbook/volumes/dream_thater/計算系/LVT/LVT6-03/lab"
+cd "textbook/volumes/dream_thater/計算系/LVT/LVT6-03/lab"
 lake build
 lake test
 lake env lean Inspect.lean
