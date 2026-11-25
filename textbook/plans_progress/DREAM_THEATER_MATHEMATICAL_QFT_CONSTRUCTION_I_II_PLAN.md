@@ -1,7 +1,7 @@
 # DREAM THEATER 量子場の数学的構成 I・II（MQFC1–48・全48講）
 
 設計: 2026-10-13／講義数確定・文献校正: 2026-11-24  
-状態: planned（任意発展ルート。本文・series manifest・公開は未着手）
+状態: in progress（MQFC1実装、MQFC2–48予定。進捗正本は[MQFC manifest](../dream-theater-series/MQFC.yaml)）
 
 ## 1. 中心問いと到達目標
 
@@ -97,7 +97,7 @@ Iの最終目標は、任意のコンパクト単純Lie群に対する非自明�
 
 ## 5. EOMおよびミレニアム問題との役割分担
 
-[THE END OF MATHEMATICS?](DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md) のEOMYMA/B/C・EOMYM・EOMQCDA/QCDは研究論文・評価・形式化の比較を担当する。MQFCは標準理論と代表模型を担当し、研究成果の査定はEOMに集約する。EOMの39講・既存橋渡しを維持し、EOM着手をMQFC全講の完成待ちにしない。MQFCが完成した部分はEOMから実在するanchorを参照し、一般理論の二重証明を避ける。
+[THE END OF MATHEMATICS?](../plans/DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md) のEOMYMA/B/C・EOMYM・EOMQCDA/QCDは研究論文・評価・形式化の比較を担当する。MQFCは標準理論と代表模型を担当し、研究成果の査定はEOMに集約する。EOMの39講・既存橋渡しを維持し、EOM着手をMQFC全講の完成待ちにしない。MQFCが完成した部分はEOMから実在するanchorを参照し、一般理論の二重証明を避ける。
 
 | EOM講義 | MQFCで体系的に補う内容 |
 |---|---|
@@ -137,6 +137,6 @@ MQFC30では次の推論を別々に点検する：有限格子の定義 → 一
 
 ## 7. 実装・完成条件
 
-- 現在は設計改訂のみのため plans に留める。本文実装・前提監査等の開始時に plans_progress へ移し、全48講の系列manifest・直接参照・公開導線を規約に従って整合させる。未実装章を公開しない。
+- MQFC1の実装に伴い plans_progress へ移動し、全48講の系列manifestを初期化した。未実装章を公開しない。
 - 全章で主要定義の前置きと直接例、主要定理の対象・位相・仮定・定義域、核心証明、A4/B3/C1以上の演習と詳細解答を揃える。既習結果を実際に使う位置にstable anchorを付す。
 - 外部研究定理は証明済み範囲・教材で再現する補題・未再構成範囲を明確にする。研究未解決問題を完了条件に課さない。I/IIの各検証ゲート、EOMとの横断整合、全件数理査読・別観点再読・規約に沿うCI・公開を終えてからPLAN完了とする。

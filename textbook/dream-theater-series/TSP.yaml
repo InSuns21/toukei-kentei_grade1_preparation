@@ -10,7 +10,7 @@ chapters:
     title: "多重線形写像・テンソル積・基底表示と普遍性"
   - id: TSP2
     path: textbook/volumes/dream_thater/計算系/TSP/TSP2
-    status: planned
+    status: completed
     title: "rank-one分解とテンソル階数：行列階数との差"
   - id: TSP3
     path: textbook/volumes/dream_thater/計算系/TSP/TSP3
