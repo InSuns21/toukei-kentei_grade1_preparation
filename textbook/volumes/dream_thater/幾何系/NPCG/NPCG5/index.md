@@ -72,7 +72,7 @@ $$
 
 **定義の確認**
 
-通常距離の実直線全体を $C$ とします。直線分は全時刻で $C$ に含まれます。[Euclid空間のCAT(0)性](../NPCG3/index.md#thm-npcg3-euclidean) と [測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) により直線分以外の測地線分を調べる必要はありません。比率 $t$ での点は $\gamma(t)=(1-t)a+tb$ なので、定義の左辺は $f(\gamma(t))$ です。$f(a)=a^2$ とすると、任意の実数 $a,b$ と $t\in[0,1]$ について
+通常距離の実直線全体を $C$ とします。直線分は全時刻で $C$ に含まれます。[Euclid空間のCAT(0)性](../NPCG3/index.md#thm-npcg3-euclidean) と [測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) により直線分以外の測地線分を調べる必要はありません。$f:C\to\mathbb R$ を $f(q)=q^2$ と定めます。任意の実数 $a,b$ を端点とし、$t\in[0,1]$ とします。比率 $t$ での点は $\gamma(t)=(1-t)a+tb$ なので、定義の左辺は $f(\gamma(t))$ です。従って
 
 $$
 \begin{aligned}
@@ -134,7 +134,7 @@ g((u+v)/2)\le\frac{g(u)+g(v)}2
 \le\frac{L(u)+L(v)}2=L((u+v)/2).
 $$
 
-古い時刻も残るので、帰納法で全二進分割点について成立します。任意の $t$ に対し $t_j=\lfloor2^jt\rfloor/2^j$ とします。$\lfloor q\rfloor$ は $q$ 以下の最大整数（床関数）です。$\lfloor2^jt\rfloor\le2^jt<\lfloor2^jt\rfloor+1$ を $2^j$ で割ると $0\le t-t_j<2^{-j}$ です。連続性から $g(t_j)\to g(t), L(t_j)\to L(t)$ であり、不等式を極限に移して $g(t)\le L(t)$ です。定義を戻すと目的の評価になります。
+古い時刻も残るので、帰納法で全二進分割点について成立します。$\lfloor q\rfloor$ は実数 $q$ 以下の最大整数（床関数）を表します。任意の $t\in[0,1]$ に対し $t_j=\lfloor2^jt\rfloor/2^j$ とします。$\lfloor2^jt\rfloor\le2^jt<\lfloor2^jt\rfloor+1$ を $2^j$ で割ると $0\le t-t_j<2^{-j}$ です。連続性から $g(t_j)\to g(t), L(t_j)\to L(t)$ であり、不等式を極限に移して $g(t)\le L(t)$ です。定義を戻すと目的の評価になります。
 <!-- proof-end -->
 
 
@@ -441,7 +441,7 @@ CAT(0)空間で二本の測地線分の始点間距離が3、終点間距離が9
 <!-- solution-start -->
 #### 詳細解答
 
-[距離の凸性](#thm-npcg5-distance-convexity) に $t=2/3$ と両端の距離を代入します。
+[距離の凸性](#thm-npcg5-distance-convexity) を、問題の二本の測地線分 $\gamma,\eta$ に適用し、$t=2/3$ と両端の距離を代入します。
 
 $$
 d(\gamma(2/3),\eta(2/3))\le(1/3)3+(2/3)9=7.
@@ -561,12 +561,12 @@ $$
 - 目安時間: 18分
 - 主題: 二本の経路の評価
 
-CAT(0)空間で $x,y,x',y'$ を取り、$d(x,x')\le\varepsilon,d(y,y')\le\delta$（$\varepsilon,\delta\ge0$）とする。比率 $t$ の内分点間距離を評価せよ。さらに $s,t\in[0,1]$ が異なる場合の上界を求めよ。
+CAT(0)空間で二組の端点 $x,y$ と $x',y'$ を取る（プライムは別の端点を区別する印）。$d(x,x')\le\varepsilon,d(y,y')\le\delta$（$\varepsilon,\delta\ge0$）とする。比率 $t$ の内分点間距離を評価せよ。さらに $s,t\in[0,1]$ が異なる場合の上界を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-[測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) により $x$ から $y$ への測地線分を $\gamma$、$x'$ から $y'$ への測地線分を $\eta$ と一意に選べます。ここでプライムは別の端点を区別する印です。[距離の凸性](#thm-npcg5-distance-convexity) より
+[測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) により $x$ から $y$ への測地線分を $\gamma$、$x'$ から $y'$ への測地線分を $\eta$ と一意に選べます。[距離の凸性](#thm-npcg5-distance-convexity) より
 
 $$
 d(\gamma(t),\eta(t))\le(1-t)\varepsilon+t\delta.
@@ -624,7 +624,7 @@ $$
 - 目安時間: 35分
 - 主題: 測地線凸集合と二乗距離評価の統合
 
-CAT(0)空間で空でない測地線凸集合 $C$ と点 $z_1,\ldots,z_n\in X$（整数 $n\ge1$）、実数 $w_i\ge0$（$\sum_{i=1}^n w_i=1$）を取る。$F(x)=\sum_{i=1}^n w_i d(x,z_i)^2$ とする。(1) $x,y\in C$ を結ぶ測地線分 $\gamma$ に対して $F(\gamma(t))$ を両端の値と距離で評価せよ。(2) $F$ の最小点が存在すれば一意であることを示せ。(3) 二点 $x,y\in C$ が下限（最大の下界）$I=\inf_{q\in C}F(q)$ からそれぞれ $\varepsilon,\delta\ge0$ 以内にあるなら、$d(x,y)$ の上界を求めよ。
+CAT(0)空間で空でない測地線凸集合 $C$ と点 $z_1,\ldots,z_n\in X$（整数 $n\ge1$）、実数 $w_i\ge0$（$\sum_{i=1}^n w_i=1$）を取る。$F(x)=\sum_{i=1}^n w_i d(x,z_i)^2$ とする。(1) $x,y\in C$ を結ぶ測地線分 $\gamma$ に対して $F(\gamma(t))$ を両端の値と距離で評価せよ。(2) $F$ の最小点が存在すれば一意であることを示せ。(3) 二点 $x,y\in C$ が下限（最大の下界）$I=\inf_{q\in C}F(q)$ に近く、$F(x)\le I+\varepsilon$、$F(y)\le I+\delta$（$\varepsilon,\delta\ge0$）を満たすなら、$d(x,y)$ の上界を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
