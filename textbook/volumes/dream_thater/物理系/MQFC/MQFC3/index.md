@@ -2,7 +2,7 @@
 
 前講の[共通不変領域上の作用素値緩増加分布](../MQFC2/index.md#def-mqfc2-field-domain)によって、場を有限回掛けた状態が定義できました。しかし任意の作用素値分布が相対論的量子場になるわけではありません。観測者を変えても同じ物理を記述でき、光より速く信号を伝えず、エネルギーが下から安定していることを、同じHilbert空間上の条件として組み合わせます。今回は質量正の自由実スカラー場で全条件を確認し、次講で相関から場を逆に構成する準備をします。
 
-直接の前提は [MQFC2](../MQFC2/index.md)、[QFT5](../../QFT/QFT5/index.md)、[AQFT3](../../../解析系/AQFT/AQFT3/index.md)、[AQFT8](../../../解析系/AQFT/AQFT8/index.md) です。計量は $(-,+,+,+)$、自然単位を使い、内積は第1引数線形です。
+直接の前提は [MQFC2](../MQFC2/index.md)、[QFT5](../../QFT/QFT5/index.md)、[AQFT3](../../../解析系/AQFT/AQFT3/index.md)、[AQFT8](../../../解析系/AQFT/AQFT8/index.md)、[LREP2](../../../代数系/LREP/LREP2/index.md)、[LREP22](../../../代数系/LREP/LREP22/index.md) です。計量は $(-,+,+,+)$、自然単位を使い、内積は第1引数線形です。
 
 ## 1. 場に要求する時空と状態の条件
 
@@ -14,7 +14,7 @@ $$
 
 未来と過去を入れ替えず、空間の向きも保つLorentz変換 $\Lambda$ と平行移動 $a$ を組み合わせた変換を $h:x\mapsto \Lambda x+a$ とします。この変換全体が固有時向きPoincaré群 $G$ です。積は $(a,\Lambda)(c,L)=(a+\Lambda c,\Lambda L)$ です。スカラーの試験関数は座標の引き戻し $f_h(x)=f(h^{-1}x)$ で移します。$h$ のJacobian絶対値は1です。
 
-ユニタリ表現 $U$ は群の積を作用素の積に写し、内積を保存します。強連続とは各固定状態 $\psi$ について $h\to e$ で $\|U(h)\psi-\psi\|\to0$ となることです。並進に制限すると、[平行移動のスペクトル条件](../../../解析系/AQFT/AQFT3/index.md#def-aqft3-spectrum)で用いた共同スペクトル測度 $E_U$ により
+[ユニタリ表現](../../../代数系/LREP/LREP2/index.md#def-lrep2-invariant-inner-product)をHilbert空間に拡張して考えます。表現 $U$ は群の積を作用素の積に写し、内積を保存します。[強連続ユニタリ表現](../../../代数系/LREP/LREP21/index.md#def-lrep21-unitary-representation)の強連続性とは各固定状態 $\psi$ について $h\to e$ で $\|U(h)\psi-\psi\|\to0$ となることです。並進に制限すると、[平行移動のスペクトル条件](../../../解析系/AQFT/AQFT3/index.md#def-aqft3-spectrum)で用いた共同スペクトル測度 $E_U$ により
 
 $$
 U(a)=\int_{\mathbb R^4}e^{ib(p,a)}\,dE_U(p)
@@ -38,7 +38,7 @@ $$
 > **定義（実スカラー場のWightman公理）**
 > 四次元Minkowski時空において、複素Hilbert空間 $\mathcal H$、稠密線形部分空間 $D$、単位ベクトル $\Omega\in D$、固有時向きPoincaré群の強連続ユニタリ表現 $U$、複素線形な作用素値緩増加分布 $\Phi:\mathcal S(\mathbb R^4)\to\operatorname{End}(D)$ を取る。以下を要求する。
 >
-> 1. 共通領域 $D$ は全 $U(h)$ で不変で、場の随伴条件を満たす。
+> **条件1：** 共通領域 $D$ は全 $U(h)$ で不変で、場の随伴条件を満たす。
 
 $$
 \langle\Phi(f)\psi,\chi\rangle
@@ -46,20 +46,20 @@ $$
 \quad(\psi,\chi\in D).
 $$
 
-> 2. スカラー共変性が $D$ 上で成立する。
+> **条件2：** スカラー共変性が $D$ 上で成立する。
 
 $$
 U(h)\Phi(f)U(h)^{-1}=\Phi(f_h).
 $$
 
-> 3. 並進の共同スペクトル測度は未来閉光円錐に支持される。
+> **条件3：** 並進の共同スペクトル測度は未来閉光円錐に支持される。
 
 $$
 E_U(\mathbb R^4\setminus\overline V_+)=0.
 $$
 
-> 4. 真空は全群で不変であり、並進不変ベクトルの空間は $\mathbb C\Omega$ である。
-> 5. 真空は場に関して巡回的である。
+> **条件4：** 真空は全群で不変であり、並進不変ベクトルの空間は $\mathbb C\Omega$ である。
+> **条件5：** 真空は場に関して巡回的である。
 
 $$
 \overline{\operatorname{span}
@@ -68,7 +68,7 @@ $$
 $$
 
 > ここで $n=0$ の積は恒等作用素である。
-> 6. 空間的に分離した支持を持つ任意の $f,g\in C_c^\infty(\mathbb R^4)$ について、$D$ 上で
+> **条件6：** 空間的に分離した支持を持つ任意の $f,g\in C_c^\infty(\mathbb R^4)$ について、$D$ 上で
 
 $$
 [\Phi(f),\Phi(g)]=0.
@@ -193,7 +193,7 @@ $$
 
 ### 証明の見取り図
 
-質量殻測度の不変性がユニタリ性を、波束の変換式が場の共変性を与えます。各粒子の未来向き運動量を足すと全運動量も未来向きであり、質量正なら励起状態に零運動量はありません。任意の一粒子Schwartz波束を時空試験関数から作り、最高粒子数成分を取り出す帰納法で巡回性を確認します。局所性は既習の因果核の支持を用います。
+[質量殻測度のLorentz不変性](../../../代数系/LREP/LREP22/index.md#thm-lrep22-measure-invariance)がユニタリ性を、波束の変換式が場の共変性を与えます。各粒子の未来向き運動量を足すと全運動量も未来向きであり、質量正なら励起状態に零運動量はありません。任意の一粒子Schwartz波束を時空試験関数から作り、最高粒子数成分を取り出す帰納法で巡回性を確認します。局所性は既習の因果核の支持を用います。
 
 <!-- proof-start -->
 ### 証明
@@ -211,7 +211,7 @@ $$
 \qquad u_{f_h}=T(h)u_f.
 $$
 
-[正エネルギー質量殻の測度表示](../../QFT/QFT5/index.md#prop-qft5-spectrum-kg)で用いた不変測度 $d^3p/(2\omega_{\boldsymbol p})$ は、$d^4p\,\mathbf1_{p^0>0}\delta(\eta(p,p)+m^2)$ の $p^0$ 積分から得られます。根は $p^0=\omega_{\boldsymbol p}$、微分の絶対値は $2\omega_{\boldsymbol p}$ なので係数も一致します。従って $d^3p/\omega_{\boldsymbol p}=d^3q/\omega_{\boldsymbol q}$ で、
+[質量殻測度](../../../代数系/LREP/LREP22/index.md#def-lrep22-shell-measure)と[正エネルギー質量殻の測度表示](../../QFT/QFT5/index.md#prop-qft5-spectrum-kg)で用いた不変測度 $d^3p/(2\omega_{\boldsymbol p})$ は、$d^4p\,\mathbf1_{p^0>0}\delta(\eta(p,p)+m^2)$ の $p^0$ 積分から得られます。根は $p^0=\omega_{\boldsymbol p}$、微分の絶対値は $2\omega_{\boldsymbol p}$ なので係数も一致します。従って $d^3p/\omega_{\boldsymbol p}=d^3q/\omega_{\boldsymbol q}$ で、
 
 $$
 \begin{aligned}
@@ -231,9 +231,15 @@ $$
 \|T(h)v-v\|\le2\|v-v_k\|+\|T(h)v_k-v_k\|.
 $$
 
-先に $k$ を大きくし、次に $h\to e$ として強連続性を得ます。テンソル積上では各因子を一つずつ置換する差の和とユニタリ性から強連続であり、有限和の対称単純テンソルの稠密性で全 $n$ 粒子空間へ延長できます。最後に粒子数の末尾切捨てと同じ三角不等式を使えば $U$ も強連続です。
+先に $k$ を大きくし、次に $h\to e$ として強連続性を得ます。テンソル積上では各因子を一つずつ置換する差の和とユニタリ性から強連続であり、有限和の対称単純テンソルの稠密性で全 $n$ 粒子空間へ延長できます。最後に任意のFockベクトルを有限粒子切断で近似します。ユニタリ性で切断の誤差を両端から評価すると $U$ も強連続です。
 
-**(2) 共通領域と場の共変性。** $\boldsymbol p\mapsto\boldsymbol q$ は滑らかで、各階導関数は高々多項式増大です。実際 $\boldsymbol q$ は $\omega_{\boldsymbol p}$ と $\boldsymbol p$ の線形結合であり、$m>0$ により分母の $\omega$ は零になりません。逆変換も同じ形であるため $1+|\boldsymbol p|\le C(1+|\boldsymbol q|)$ が成立します。位相・重みの各階導関数も高々多項式増大なので、連鎖律と積の微分を使うと任意のSchwartz半ノルムを有限個の元の半ノルムで抑えられます。従って $T(h)$ と逆写像はSchwartz空間を保ち、$U(h)$ は $D_{\mathcal S}$ を保ちます。
+**(2) 共通領域と場の共変性。** $\boldsymbol p\mapsto\boldsymbol q$ は滑らかで、各階導関数は高々多項式増大です。実際 $\boldsymbol q$ は $\omega_{\boldsymbol p}$ と $\boldsymbol p$ の線形結合であり、$m>0$ により分母の $\omega$ は零になりません。逆変換も同じ形であるため、ある定数 $C$ に対し
+
+$
+1+|\boldsymbol p|\le C(1+|\boldsymbol q|)
+$
+
+が成立します。位相・重みの各階導関数も高々多項式増大なので、連鎖律と積の微分を使うと任意のSchwartz半ノルムを有限個の元の半ノルムで抑えられます。従って $T(h)$ と逆写像はSchwartz空間を保ちます。各粒子数でこの議論を適用すると $U(h)$ は $D_{\mathcal S}$ を保ちます。
 
 [生成・消滅演算子](../../QFT/QFT4/index.md#def-qft4-ladder-operators)の生成の成分式は $\sqrt{n+1}$ 倍の対称化です。$T(h)^{\otimes(n+1)}$ は置換と可換なので、共通領域上で
 
