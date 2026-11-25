@@ -1,0 +1,41 @@
+chapter: MQFC17
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC12, MQFC15, MQFC16]
+forward_references: []
+concepts:
+  - id: mqfc.local-thermodynamic-limit
+    name: "局所観測の熱力学極限"
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: mqfc.nearest-neighbor-exclusion
+    name: "最近接排除模型"
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: mqfc.connected-graph-expansion
+    name: "分配関数の連結グラフ展開"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.nearest-neighbor-exclusion]
+  - id: mqfc.exclusion-tree-bound
+    name: "排除グラフの木による評価"
+    kind: lemma
+    introduction: formal
+    requires: [mqfc.connected-graph-expansion]
+  - id: mqfc.small-activity-expansion
+    name: "小活動度での体積一様な展開"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.connected-graph-expansion, mqfc.exclusion-tree-bound]
+  - id: mqfc.small-activity-local-limit
+    name: "小活動度での局所極限"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.local-thermodynamic-limit, mqfc.small-activity-expansion]
+  - id: mqfc.small-activity-correlation-decay
+    name: "小活動度模型の二点相関減衰"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.small-activity-expansion, mqfc.small-activity-local-limit]
