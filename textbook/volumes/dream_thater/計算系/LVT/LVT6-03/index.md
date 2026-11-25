@@ -93,7 +93,7 @@ $$
 publish の列を遷移表で読む。draft、submitted、published には受理行がなく、approved だけに受理行がある。よって受理なら approved であり、approved なら受理する。記録 b の値は判定を変えない。拒否は受理する五組の補集合であり、各組の規則は元の状態を返すことなので、記録も段階も変化しない。
 <!-- proof-end -->
 
-[整合条件の保存](#prop-lvt6-03-preservation)より、初期状態からの操作列の中で publish を受理する直前は (approved,true) です。この true は、それ以前の受理された approve で作られ、以降に return や submit があれば false に戻ります。従って最後の申請以後に受理された承認があります。approved,false という到達不能な状態から始めれば publish は受理されるので、初期状態の仮定を外してこの保証を主張してはいけません。
+[整合条件の保存](#prop-lvt6-03-preservation)より、初期状態からの操作列の中で publish を受理する直前は (approved,true) です。初期記録は false で、false から true に変わるのは受理された approve だけです。公開直前までの有限列の中で記録を最後に false から true に変えた操作を取れます。それは approve です。その後に受理された return や submit があれば記録は false に戻り、公開直前の true を得るにはさらに approve が必要になるため、最後の変化だったことに反します。従って最後の申請以後に受理された承認があります。approved,false という到達不能な状態から始めれば publish は受理されるので、初期状態の仮定を外してこの保証を主張してはいけません。
 
 ## 3. Leanでどの命題を検査するか
 
