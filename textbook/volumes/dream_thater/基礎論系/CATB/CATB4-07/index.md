@@ -6,11 +6,11 @@
 
 この二つの操作は別々に見えるが、「$A$ のすべての点が $B$ に送られる」という一つの条件を異なる側から書いている。前講の[前向き持ち上げと左随伴の対応](../CATB4-06/index.md#thm-catb4-06-opfibration-adjoint)を、今度は部分集合に相当する対象に適用したい。一般の圏には元がないことがあるので、逆像は引き戻しで、像は正則エピ・モノ分解で表す。
 
-以下、合成は右から左に書く。圏は局所小とし、各対象を終域とするモノ射の、終域を固定した同型による同値類が集合をなすと仮定する。この小ささの仮定は、後で定める順序集合を通常の集合として扱うためであり、個々の普遍性の計算には不要である。
+以下、合成は右から左に書く。圏は[局所小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)（二対象を固定したとき射の集まりが集合になる圏）とする。さらに各対象について、第2節で定める部分対象の全体が集合になると仮定する。この小ささの仮定は、後で定める順序集合を通常の集合として扱うためであり、個々の普遍性の計算には不要である。
 
 ## 2. 部分集合をモノ射の同型類に置き換える
 
-集合の部分集合はその包含写像で表せる。一方、単射 $m:M\to X$ の始域 $M$ 自体は $X$ の部分集合でなくてもよい。始域の名前だけを変えても、$X$ 内で表す部分は変わらない。そこで [モノ射](../../CAT/CAT1-03/index.md#def-cat1-03-monomorphism) を、終域を固定した同型で同一視する。
+集合の部分集合はその包含写像で表せる。一方、単射 $m:M\to X$ の始域 $M$ 自体は $X$ の部分集合でなくてもよい。始域の名前だけを変えても、$X$ 内で表す部分は変わらない。そこで [モノ射](../../CAT/CAT1-03/index.md#def-cat1-03-monomorphism) を、終域を固定した[同型射](../../CAT/CAT1-03/index.md#def-cat1-03-isomorphism)で同一視する。
 
 <a id="def-catb4-07-subobject"></a>
 
@@ -19,39 +19,52 @@
 >
 > 局所小圏の対象 $X$ へのモノ射 $m:M\to X$ と $n:N\to X$ に対し、同型射 $i:M\to N$ で $ni=m$ を満たすものが存在するとき、両者を同一視する。その同値類 $[m]$ を $X$ の部分対象とし、全体を $\operatorname{Sub}(X)$ と書く。
 >
-> 順序は、射 $h:M\to N$ が存在することによって定める。
+> 順序は、次の条件を満たす射 $h:M\to N$ が存在することによって定める。
 
 $$
-[m]\le [n]\quad\Longleftrightarrow\quad nh=m.
+[m]\le [n]\quad\Longleftrightarrow\quad
+\exists h:M\to N,\quad nh=m.
 $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb4-07-subobject -->
-**定義の確認**。$X=\{a,b,c\}$ に対し、$m:\{0,1\}\to X$ を $m(0)=a,m(1)=c$、$n:\{a,c\}\to X$ を包含写像とする。どちらも単射なので[集合における三つの特徴づけ](../../CAT/CAT1-03/index.md#prop-cat1-03-set-characterization)によりモノ射である。$i(0)=a,i(1)=c$ とすれば全単射であり、$ni=m$ が両元で成立する。従って同じ部分対象を表す。
+**定義の確認**。$X=\{a,b,c\}$ に対し、$m:\{0,1\}\to X$ を $m(0)=a,m(1)=c$、$n:\{a,c\}\to X$ を包含写像とする。どちらも単射なので[集合における三つの特徴づけ](../../CAT/CAT1-03/index.md#prop-cat1-03-set-characterization)によりモノ射である。$i(0)=a,i(1)=c$ と定めると、逆写像は $a\mapsto0,\ c\mapsto1$ である。従って同じ[集合における特徴づけ](../../CAT/CAT1-03/index.md#prop-cat1-03-set-characterization)から同型射である。二つの合成値を確認すると
 
-さらに $k:\{a\}\to X$ を包含写像とすると、$h:\{a\}\to\{a,c\}$ を $h(a)=a$ と定めれば $nh=k$ なので $[k]\le[n]$ である。逆向きには $c$ を送る先がなく、$kh'=n$ となる射 $h'$ は存在しない。順序は真の包含を識別する。
+$$
+ni(0)=a=m(0),\qquad ni(1)=c=m(1).
+$$
+
+よって $ni=m$ である。従って同じ部分対象を表す。
+
+さらに包含写像 $k:\{a\}\to X$ も単射なのでモノ射である。$h:\{a\}\to\{a,c\}$ を $h(a)=a$ と定めれば $nh=k$ なので $[k]\le[n]$ である。逆向きには $kh'=n$ を満たす $h':\{a,c\}\to\{a\}$ が必要だが、$h'(c)=a$ しかなく $kh'(c)=a\ne c=n(c)$ となる。順序は真の包含を識別する。
 <!-- definition-example-end -->
 
-同一視が同値関係となるのは、恒等射、同型の逆射、同型の合成が使えるためである。順序の定義も代表元に依存しない。実際 $m=m'i$、$n=n'j$ で $i,j$ が同型なら、$nh=m$ から
+同一視が同値関係になることも確認する。$m1_M=m$ なので反射的である。$ni=m$ なら $mi^{-1}=n$ なので対称的である。さらに $oj=n$ を満たす同型射 $j$ があれば $o(ji)=ni=m$ となり、[同型射の合成](../../CAT/CAT1-03/index.md#prop-cat1-03-composition)も同型なので推移的である。順序の定義も代表元に依存しない。実際 $m=m'i$、$n=n'j$ で $i,j$ が同型なら、$nh=m$ から
 
 $$
 n'(jhi^{-1})=m'
 $$
 
-を得る。逆は $i,j$ の逆射を用いる。反射律は恒等射、推移律は因子射の合成による。反対称性について、$nh=m$、$mk=n$ なら $mkh=m$、$nhk=n$ であり、モノ射性から $kh=1_M$、$hk=1_N$ となる。従って $h$ は同型で $[m]=[n]$ となる。また $nh=m=nh'$ なら $h=h'$ なので、順序を射とみなしたとき各 Hom 集合は空または一元集合である。
+を得る。逆は $i,j$ の逆射を用いる。反射律は恒等射、推移律は因子射の合成による。反対称性について、$nh=m$、$mk=n$ なら $mkh=m$、$nhk=n$ であり、$m,n$ の[モノ射の左消去律](../../CAT/CAT1-03/index.md#def-cat1-03-monomorphism)から $kh=1_M$、$hk=1_N$ となる。従って $h$ は同型で $[m]=[n]$ となる。また $nh=m=nh'$ なら $h=h'$ なので、順序を射とみなしたとき各 Hom 集合は空または一元集合である。
 
-集合では任意の単射はその像への全単射と包含写像に分かれるので、この順序集合は部分集合の包含順序と同型である。
+集合では任意の単射 $m:M\to X$ に対し、値の集合 $S=\{m(x)\mid x\in M\}$ を取る。$M\to S,\ x\mapsto m(x)$ は全単射で、$S\to X$ を包含写像とするとその合成は $m$ である。よって $[m]$ は $S$ の包含写像の同型類に等しい。二つの包含写像については、因子射が存在することと一方の部分集合が他方に含まれることが同値である。実際 $S\subseteq T$ なら包含写像 $S\to T$ を使え、逆に因子射があれば $S$ の各点は $T$ に属する。従って $\operatorname{Sub}(X)$ は部分集合の包含順序と同型である。以降、集合の場合は包含写像の同型類を部分集合そのもので表す。一般の圏では $A,B,D$ などの大文字で部分対象の同型類を表し、代表射とは区別する。
 
 ## 3. 逆像の普遍性
 
-$f:X\to Y$ とモノ射 $n:N\to Y$ を取る。$X$ 内で $f$ によって $N$ に入る部分を作るには、$f$ と $n$ の[引き戻し](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)を用いる。射影を $p:P\to X$、$q:P\to N$ と書けば $fp=nq$ である。引き戻したモノ射 $p$ の同型類を逆像 $f^*[n]$ と書く。
+$f:X\to Y$ とモノ射 $n:N\to Y$ を取る。$X$ 内で $f$ によって $N$ に入る部分を作るには、$f$ と $n$ の[引き戻し](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)を用いる。射影を $p:P\to X$、$q:P\to N$ と書けば $fp=nq$ である。引き戻したモノ射 $p$ の同型類を逆像 $f^*[n]$ と書く。上付きの $*$ は射 $f$ に沿う逆像操作を表し、$f$ の逆射が存在するという意味ではない。集合で $B\subseteq Y$ の場合は
+
+$$
+f^*B=f^{-1}(B)=\{x\in X\mid f(x)\in B\}
+$$
+
+という通常の集合の逆像に対応する。
 
 <a id="thm-catb4-07-inverse-image"></a>
 
 <!-- formal-statement-start -->
 > **定理（部分対象の逆像）**
 >
-> 引き戻しを持つ局所小圏で、射 $f:X\to Y$ に沿う部分対象の逆像は順序を保つ写像
+> 引き戻しを持ち各対象の部分対象全体が集合になる局所小圏で、射 $f:X\to Y$ に沿う部分対象の逆像は順序を保つ写像
 
 $$
 f^*:\operatorname{Sub}(Y)\to\operatorname{Sub}(X)
@@ -88,24 +101,33 @@ $$
 
 ## 4. すべての部分対象を一つの圏に集める
 
-一つの $X$ の上では包含だけを比較した。異なる $X,Y$ の上の部分対象も、基底の射 $f:X\to Y$ を指定すれば比較できる。$[m]\le f^*[n]$ とは、$X$ 内の部分 $m$ が、$n$ に入る部分に含まれることを意味する。これを全圏の射として記録する。
+一つの $X$ の上では包含だけを比較した。異なる $X,Y$ の上の部分対象も、基底の射 $f:X\to Y$ を指定すれば比較できる。$[m]\le f^*[n]$ とは、$X$ 内の部分 $m$ が、$n$ に入る部分に含まれることを意味する。これを全圏の射として記録する。第3節の逆像の合成則を使えば圏を作ることができ、さらに[ファイブレーション](../CATB4-01/index.md#def-catb4-01-fibration)の条件、すなわち任意の基底射とその終点上の対象に対する[Cartesian持ち上げ](../CATB4-01/index.md#def-catb4-01-cartesian)の存在も調べられる。ここで基底射を指定すると全圏の射は存在するか否かのいずれかで、存在すれば一つに決まる。
 
 <a id="def-catb4-07-subobject-fibration"></a>
 
 <!-- formal-statement-start -->
 > **定義（部分対象ファイブレーション）**
 >
-> 引き戻しを持つ局所小圏 $\mathcal C$ について、部分対象の全圏の対象を $(X,A)$（$A\in\operatorname{Sub}(X)$）とする。$(X,A)$ から $(Y,B)$ への射は、次を満たす基底射 $f:X\to Y$ とする。
+> 引き戻しを持ち各対象の部分対象全体が集合になる局所小圏 $\mathcal C$ について、部分対象の全圏の対象を $(X,A)$（$A\in\operatorname{Sub}(X)$）とする。$(X,A)$ から $(Y,B)$ への射は、次を満たす基底射 $f:X\to Y$ とする。
 
 $$
 A\le f^*B.
 $$
 
-> 合成と恒等射は基底圏のものを使い、射影 $p$ は対象 $(X,A)$ を $X$ に、射をその基底射に送る。この射影を部分対象ファイブレーションとする。
+> 合成と恒等射は基底圏のものを使い、射影 $p$ は対象 $(X,A)$ を $X$ に、射をその基底射に送る。この射影を部分対象ファイブレーションと呼ぶ（ファイブレーションであることは直後の定理で証明する）。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb4-07-subobject-fibration -->
-**定義の確認**。第1節の写像 $f$ に対し、$A=\{0,1\}$、$B=\{a\}$ なら $A=f^*B$ なので射がある。$A'=\{0,2\}$ では $2\notin f^*B$ なので同じ基底射の上に射はない。恒等写像の上では $A\subseteq A$ によって恒等射がある。$g:Y\to\{z\}$ を定値写像とすると、$B\subseteq g^*\{z\}=Y$ だから $g$ の上に射があり、合成でも $A\subseteq(gf)^*\{z\}=X$ が成立する。
+**定義の確認**。第1節の写像 $f$ に対し、$A=\{0,1\}$、$B=\{a\}$ なら $A=f^*B$ なので射がある。$A'=\{0,2\}$ では $2\notin f^*B$ なので同じ基底射の上に射はない。恒等写像の上では $A\subseteq A$ によって恒等射がある。$g:Y\to\{z\}$ を定値写像とすると、$B\subseteq g^*\{z\}=Y$ だから $g$ の上に射があり、合成でも $A\subseteq(gf)^*\{z\}=X$ が成立する。射影は、この合成を $gf$ に、恒等射を $1_X$ に送る。
+
+さらに $B=\{a\}$ の持ち上げとして $(X,\{0,1\})\to(Y,B)$ を取る。任意の写像 $u:W\to X$ と部分集合 $D\subseteq W$ に対し、$fu$ 上の射が存在するとは
+
+$$
+D\subseteq\{w\in W\mid f(u(w))=a\}
+=\{w\in W\mid u(w)\in\{0,1\}\}
+$$
+
+ということである。従って $u$ 上の射 $(W,D)\to(X,\{0,1\})$ が存在する。基底射 $u$ が指定されているので一意であり、合成は元の $fu$ 上の射になる。この例でもCartesian射の存在と一意性を直接確認できた。
 <!-- definition-example-end -->
 
 一般にも[部分対象の逆像](#thm-catb4-07-inverse-image)によって $1_X^*A=A$ であり、$A\le f^*B$、$B\le g^*D$ から
@@ -121,7 +143,7 @@ $$
 <!-- formal-statement-start -->
 > **定理（部分対象のCartesian持ち上げ）**
 >
-> 引き戻しを持つ局所小圏に対し、部分対象の全圏から基底圏への射影はファイブレーションである。基底射 $f:X\to Y$ と部分対象 $B$ に対し、$f$ 上の射
+> 引き戻しを持ち各対象の部分対象全体が集合になる局所小圏に対し、部分対象の全圏から基底圏への射影はファイブレーションである。基底射 $f:X\to Y$ と部分対象 $B$ に対し、$f$ 上の射
 
 $$
 (X,f^*B)\longrightarrow(Y,B)
@@ -135,7 +157,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-持ち上げの射は $f^*B\le f^*B$ によって存在する。[Cartesian射の定義](../CATB4-01/index.md#def-catb4-01-cartesian)に従い、対象 $(W,D)$、射 $u:W\to X$、$fu$ 上の射 $(W,D)\to(Y,B)$ を任意に取る。後者の存在条件は
+持ち上げの射は $f^*B\le f^*B$ によって存在する。[Cartesian射の定義](../CATB4-01/index.md#def-catb4-01-cartesian)に従い、対象 $(W,D)$、射 $u:W\to X$、$fu$ 上の射 $(W,D)\to(Y,B)$ を任意に取る。後者の存在条件を[部分対象の逆像の合成則](#thm-catb4-07-inverse-image)で書き直すと
 
 $$
 D\le (fu)^*B=u^*(f^*B)
@@ -156,14 +178,14 @@ $$
 M\xrightarrow{e}I\xrightarrow{i}Y,\qquad fm=ie
 $$
 
-と分解できる。$e$ は正則エピ射、$i$ はモノ射である。$\exists_f[m]=[i]$ と書く。記号 $\exists$ は、集合の場合に $y=f(x)$ となる $x\in M$ が存在することを表す。
+と分解できる。$e$ は[正則エピ射](../CATB1-01/index.md#def-catb1-01-regular-epi)、$i$ はモノ射である。$\exists_f[m]=[i]$ と書く。記号 $\exists$ は、集合の場合に $y=f(x)$ となる $x\in A$ が存在することを表す（$A$ を部分集合として表している）。
 
 <a id="thm-catb4-07-image-adjoint"></a>
 
 <!-- formal-statement-start -->
 > **定理（部分対象の像と逆像の随伴）**
 >
-> 正則圏の射 $f:X\to Y$ に沿う像は順序を保つ写像 $\exists_f:\operatorname{Sub}(X)\to\operatorname{Sub}(Y)$ を定める。任意の部分対象 $A,B$ について
+> 各対象の部分対象全体が集合になる正則圏の射 $f:X\to Y$ に沿う像は順序を保つ写像 $\exists_f:\operatorname{Sub}(X)\to\operatorname{Sub}(Y)$ を定める。任意の $A\in\operatorname{Sub}(X)$、$B\in\operatorname{Sub}(Y)$ について
 
 $$
 \exists_f A\le B\quad\Longleftrightarrow\quad A\le f^*B.
@@ -211,7 +233,7 @@ $$
 <!-- formal-statement-start -->
 > **定理（部分対象のBeck–Chevalley等式）**
 >
-> 正則圏において $f:X\to Y$ と $g:Y'\to Y$ の引き戻しを $X'$、その射影を $h:X'\to X$ と $f':X'\to Y'$ とする。このとき次の二つの順序関手は等しい。
+> 各対象の部分対象全体が集合になる正則圏において $f:X\to Y$ と $g:Y'\to Y$ の引き戻しを $X'$、その射影を $h:X'\to X$ と $f':X'\to Y'$ とする。このとき次の二つの順序関手は等しい。
 
 $$
 g^*\exists_f=\exists_{f'}h^*:
@@ -230,9 +252,9 @@ $$
 ij=gn,\qquad ea=jb.
 $$
 
-$n$ は[モノ射の引き戻し](../../CAT/CAT2-03/index.md#prop-cat2-03-pullback-mono)によりモノ射で、$b$ は[正則圏の定義](../CATB1-02/index.md#def-catb1-02-regular-category)の引き戻し安定性により正則エピ射である。従って $nb$ の像は $n$ であり、$[n]=g^*[i]$ である。
+$n$ は[モノ射の引き戻し](../../CAT/CAT2-03/index.md#prop-cat2-03-pullback-mono)によりモノ射で、$b$ は[正則圏の定義](../CATB1-02/index.md#def-catb1-02-regular-category)の引き戻し安定性により正則エピ射である。従って[正則エピ・モノ分解は像を与える](../CATB1-01/index.md#thm-catb1-01-regular-epi-mono-image)により $nb$ の像は $n$ であり、$[n]=g^*[i]$ である。
 
-次に $h,m$ の引き戻しを $L$、射影を $\ell:L\to X',\ d:L\to M$ と置く。$\ell$ はモノ射で $h^*A=[\ell]$ である。$L$ と $P$ を比較する。
+次に $h,m$ の引き戻しを $L$、射影を $\ell:L\to X',\ d:L\to M$ と置く。$\ell$ は[モノ射の引き戻し](../../CAT/CAT2-03/index.md#prop-cat2-03-pullback-mono)によりモノ射で $h^*A=[\ell]$ である。$L$ と $P$ を比較する。
 
 まず $P$ について
 
@@ -256,7 +278,7 @@ $$
 f'\ell=nb\theta.
 $$
 
-$b\theta$ は正則エピ射である。実際 $b$ を二射 $r,s:R\to P$ の余等化子とすれば、$b\theta$ は $\theta^{-1}r,\theta^{-1}s$ の余等化子になる。両射を等化する $L$ からの射 $k$ に対し、$k\theta^{-1}$ が $r,s$ を等化するので $b$ を経由する唯一の射が得られ、$\theta$ を合成すれば $k$ の因子分解となる。
+$b\theta$ は[正則エピ射の定義](../CATB1-01/index.md#def-catb1-01-regular-epi)を満たす。実際 $b$ を二射 $r,s:R\to P$ の余等化子とすれば、$b\theta$ は $\theta^{-1}r,\theta^{-1}s$ の余等化子になる。両射を等化する $L$ からの射 $k$ に対し、$k\theta^{-1}$ が $r,s$ を等化するので $b$ を経由する唯一の射が得られ、$\theta$ を合成すれば $k$ の因子分解となる。
 
 従って $f'\ell=n(b\theta)$ は正則エピ・モノ分解であり、[正則エピ・モノ分解は像を与える](../CATB1-01/index.md#thm-catb1-01-regular-epi-mono-image)により
 
@@ -447,7 +469,7 @@ $$
 
 となるので $[k]\le[mr]$。従って $[mr]$ は最大下界である。
 
-次に $f,n$ の引き戻しを $X'$、射影を $h:X'\to X,\ f':X'\to N$ とする。$h$ はモノ射で $[h]=f^*B$ である。$h,m$ の引き戻しを $L$、射影を $\ell:L\to X',d_L:L\to M$ とすれば、$h^*A=[\ell]$、先ほどの最大下界の構成から $A\wedge f^*B=[h\ell]$ である。
+次に $f,n$ の引き戻しを $X'$、射影を $h:X'\to X,\ f':X'\to N$ とする。$h$ は[モノ射の引き戻し](../../CAT/CAT2-03/index.md#prop-cat2-03-pullback-mono)によりモノ射で $[h]=f^*B$ である。$h,m$ の引き戻しを $L$、射影を $\ell:L\to X',d_L:L\to M$ とすれば、$h^*A=[\ell]$、先ほどの最大下界の構成から $A\wedge f^*B=[h\ell]$ である。
 
 $f'\ell$ の正則エピ・モノ分解を $f'\ell=ie$（$i:I\to N$）とする。[部分対象のBeck–Chevalley等式](#thm-catb4-07-beck-chevalley)を $g=n$ の引き戻しに適用すると
 
@@ -455,7 +477,7 @@ $$
 [i]=\exists_{f'}h^*A=n^*\exists_f A.
 $$
 
-$ni$ はモノ射の合成なのでモノ射である。また $fh\ell=nf'\ell=nie$ であり、$e$ は正則エピ射だから[正則エピ・モノ分解は像を与える](../CATB1-01/index.md#thm-catb1-01-regular-epi-mono-image)より
+$ni$ は[モノ射の合成](../../CAT/CAT1-03/index.md#prop-cat1-03-composition)によりモノ射である。また $fh\ell=nf'\ell=nie$ であり、$e$ は正則エピ射だから[正則エピ・モノ分解は像を与える](../CATB1-01/index.md#thm-catb1-01-regular-epi-mono-image)より
 
 $$
 \exists_f(A\wedge f^*B)=[ni].
