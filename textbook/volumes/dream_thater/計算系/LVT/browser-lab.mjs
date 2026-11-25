@@ -150,7 +150,11 @@ export const lessons = {
     ['Main.lean','境界の再現テスト','LVT4-03 OK を表示。','\n#eval main\n'],
     ['ExerciseSolutions.lean','演習解答の検査','全8題の命題を検査。'],
     ['Failure.lean','意図したguardの失敗','8は反例ではないためguardが失敗する。']
-  ], commands:'lake build\nlake build Plausible\nlake test\nlake env lean Inspect.lean\nlake env lean ExerciseSolutions.lean\nlake env lean SearchPass.lean\n# 以下は意図した失敗を個別に実行\nlake env lean Failure.lean\nlake env lean SearchFail.lean\nlake env lean SearchShrink.lean' }
+  ], commands:'lake build\nlake build Plausible\nlake test\nlake env lean Inspect.lean\nlake env lean ExerciseSolutions.lean\nlake env lean SearchPass.lean\n# 以下は意図した失敗を個別に実行\nlake env lean Failure.lean\nlake env lean SearchFail.lean\nlake env lean SearchShrink.lean' },
+  'LVT4-04': { module:'LvtGame', sourcePath:'../../LVT3-06/lab/LvtGame.lean', modes:[
+    ['LvtInputs.lean','分類・除外・誤実装の比較','[17,1,2,10]、[30,17,0,10]、生成失敗0件と三命題の公理依存を確認。'],
+    ['Failure.lean','範囲外の着手は成功しない','拒否を受理とする等式は型不一致。']
+  ], commands:'lake build\nlake test\nlake env lean LvtInputs.lean\n# 以下は意図的な失敗\nlake env lean Failure.lean' }
 };
 export function combine(module, definitions, experiment, suffix='') {
   // Only the exact local module import is replaced by its source.

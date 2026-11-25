@@ -1,0 +1,40 @@
+id: "GCT10"
+title: "parsimonious帰着・計数Turing帰着"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GCT9
+  - CPLX8
+official_scope: []
+learning_objectives:
+  - 個数保存帰着と存在判定の帰着の違いを説明できる
+  - 部分式変数の一意拡張を証明し充足割当数を保存できる
+  - 補助変数による多重計数の反例を計算できる
+  - 計数Turing帰着を構成し質問長・回答長・時間を評価できる
+  - 計数帰着を通じた FP 所属の移送を証明できる
+definitions:
+  - { id: GCT10-DEF-01, name: "parsimonious帰着" }
+  - { id: GCT10-DEF-02, name: "計数Turing帰着" }
+theorems:
+  - { id: GCT10-THM-01, name: "個数保存から存在判定への帰着" }
+  - { id: GCT10-THM-02, name: "部分式変数の一意拡張と計数保存" }
+  - { id: GCT10-THM-03, name: "計数帰着による多項式時間計算の移送" }
+canonical_examples:
+  - ビット反転と位置数の保存
+  - 論理和の一意拡張
+  - 自由変数と四文字節分割の多重計数
+  - 非充足割当数の復元
+problem_patterns:
+  - GCT10-FREE-VARIABLE
+  - GCT10-COMPLEMENT
+  - GCT10-BIT-LENGTH
+  - GCT10-RANGE
+  - GCT10-CLAUSE-SPLIT
+  - GCT10-UNIQUE
+  - GCT10-COMPOSITION
+  - GCT10-QUERIES
+  - GCT10-ADAPTIVE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }

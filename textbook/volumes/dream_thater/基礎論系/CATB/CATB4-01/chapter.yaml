@@ -1,0 +1,27 @@
+id: "CATB4-01"
+title: "Cartesian射とファイブレーション"
+volume: "foundations"
+status: supplementary
+prerequisites: [CAT1-06, CAT2-03]
+official_scope: []
+learning_objectives:
+  - ファイバー圏と垂直射を基底の恒等射から構成できる
+  - Cartesian射の普遍性とファイブレーションの存在条件を区別できる
+  - 持ち上げの同型一意性・合成則・垂直射の判定を証明できる
+  - 集合族および終域関手の持ち上げを構成し普遍性を検証できる
+definitions:
+  - { id: CATB4-01-DEF-01, name: "ファイバー圏" }
+  - { id: CATB4-01-DEF-02, name: "Cartesian射" }
+  - { id: CATB4-01-DEF-03, name: "ファイブレーション" }
+theorems:
+  - { id: CATB4-01-THM-01, name: "Cartesian持ち上げの同型一意性" }
+  - { id: CATB4-01-THM-02, name: "Cartesian射の恒等射と合成" }
+  - { id: CATB4-01-THM-03, name: "垂直Cartesian射と同型射" }
+  - { id: CATB4-01-THM-04, name: "集合族のファイブレーション" }
+  - { id: CATB4-01-THM-05, name: "終域関手と引き戻し" }
+canonical_examples: [恒等関手, 集合族, 終域関手]
+problem_patterns: [CATB4-01-A01, CATB4-01-A02, CATB4-01-A03, CATB4-01-A04, CATB4-01-B01, CATB4-01-B02, CATB4-01-B03, CATB4-01-B04, CATB4-01-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }

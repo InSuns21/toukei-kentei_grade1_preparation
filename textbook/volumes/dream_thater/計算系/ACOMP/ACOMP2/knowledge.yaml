@@ -1,0 +1,44 @@
+chapter: ACOMP2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ACOMP1
+forward_references: []
+concepts:
+  - id: algebraic-complexity.arithmetic-circuit
+    name: 算術回路
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（算術回路）"]
+    requires: [algebraic-geometry.multivariate-polynomial-ring, theoretical-computer-science.boolean-circuit, algebra.field]
+  - id: algebraic-complexity.arithmetic-circuit-semantics
+    name: 算術回路の形式多項式の一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（算術回路の形式多項式の一意性）"]
+    requires: [algebraic-complexity.arithmetic-circuit, algebraic-complexity.polynomial-evaluation-map]
+  - id: algebraic-complexity.arithmetic-circuit-size
+    name: 算術回路の演算サイズ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（算術回路の演算サイズ）"]
+    requires: [algebraic-complexity.arithmetic-circuit]
+  - id: algebraic-complexity.straight-line-program
+    name: straight-line program
+    kind: definition
+    aliases: ["直線型プログラム", "SLP"]
+    introduction: formal
+    introduction_aliases: ["定義（straight-line program）"]
+    requires: [algebraic-complexity.arithmetic-circuit-size]
+  - id: algebraic-complexity.circuit-slp-equivalence
+    name: 算術回路とstraight-line programの対応
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（算術回路とstraight-line programの対応）"]
+    requires: [algebraic-complexity.arithmetic-circuit-semantics, algebraic-complexity.straight-line-program]
+  - id: algebraic-complexity.polynomial-computability
+    name: 任意の多項式の算術回路による計算
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（任意の多項式の算術回路による計算）"]
+    requires: [algebraic-complexity.circuit-slp-equivalence]

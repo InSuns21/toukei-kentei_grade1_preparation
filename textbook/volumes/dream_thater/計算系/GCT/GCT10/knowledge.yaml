@@ -1,0 +1,36 @@
+chapter: GCT10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GCT9
+  - CPLX8
+forward_references: []
+concepts:
+  - id: graph-counting.parsimonious-reduction
+    name: parsimonious帰着
+    kind: definition
+    introduction: formal
+    aliases: [個数保存帰着]
+    introduction_aliases: ["定義（parsimonious帰着）"]
+    requires: [theoretical-computer-science.polynomial-many-one-reduction]
+  - id: graph-counting.support-reduction
+    name: 個数保存から存在判定への帰着
+    kind: theorem
+    introduction_aliases: ["定理（個数保存から存在判定への帰着）"]
+    requires: [graph-counting.parsimonious-reduction, theoretical-computer-science.polynomial-many-one-reduction]
+  - id: graph-counting.unique-extension
+    name: 部分式変数の一意拡張と計数保存
+    kind: theorem
+    introduction_aliases: ["定理（部分式変数の一意拡張と計数保存）"]
+    requires: [graph-counting.parsimonious-reduction, theoretical-computer-science.tseitin-cnf, theoretical-computer-science.three-sat]
+  - id: graph-counting.counting-turing-reduction
+    name: 計数Turing帰着
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（計数Turing帰着）"]
+    requires: [graph-counting.fp]
+  - id: graph-counting.reduction-fp-transfer
+    name: 計数帰着による多項式時間計算の移送
+    kind: theorem
+    introduction_aliases: ["定理（計数帰着による多項式時間計算の移送）"]
+    requires: [graph-counting.parsimonious-reduction, graph-counting.counting-turing-reduction, graph-counting.fp]

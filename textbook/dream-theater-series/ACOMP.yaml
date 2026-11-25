@@ -10,7 +10,7 @@ chapters:
     title: "形式多項式と多項式関数：有限体とBoolean立方体"
   - id: ACOMP2
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP2
-    status: planned
+    status: completed
     title: "算術回路・straight-line program：加法・乗法・定数ゲート"
   - id: ACOMP3
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP3

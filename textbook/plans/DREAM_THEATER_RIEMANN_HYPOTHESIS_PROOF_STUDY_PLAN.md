@@ -1,13 +1,15 @@
-# DREAM THEATER Riemann予想・Dirichlet GRH形式証明の数学的再構成（RHP1〜RHP23）
+# DREAM THEATER Riemann予想・Dirichlet GRH形式証明の数学的再構成（RHP1〜RHP34）
 
-設計初版: 2026-11-23 JST / 文献更新: 2026-11-23 JST（Rubinstein解説 v2、2026-11-22）  
-状態: **未着手・計画上23講**（独立研究講読）。章本文・`chapter.yaml`・`knowledge.yaml`・系列manifestは未作成。証明の自然言語化の進展で講義数を変更してよい。  
+設計初版: 2026-11-23 JST / 文献更新: 2026-11-25 JST（Adriazola 11/24版、Rubinstein v2、MIT 11/24更新）  
+状態: **未着手・計画上34講**（独立研究講読）。章本文・`chapter.yaml`・`knowledge.yaml`・系列manifestは未作成。証明の自然言語化の進展で講義数を変更してよい。  
 系列ID: `RHP`。分類: 代数系／解析系を横断する数学研究講読。  
 履修ルート: [岩澤理論・保型表現・RH研究ルート](DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)。
 
-## 1. 新規独立23講が必要な理由
+## 1. 独立34講が必要な理由
 
 2026年11月20日、Levent AlpögeはClaudeと発見したRH・Dirichlet L関数のGRHのLean形式証明を公開した。11月21日、Lean/Mathlib共同声明はRHの命題と形式証明を認証した。Michael Rubinstein（Waterloo）・Andrew Sutherland（MIT）の第三者検証もRHとDirichlet GRHを含む5つのLean定理の型・標準公理のみへの依存・kernel検査を報告する。一方、Rubinstein主導の解説は11月21日のv1（164頁）から11月22日のv2（265頁）へ拡充したが、主要不等式(M)の証明にはLeanから引用した入力が残り、人間が追える完全な数学的論文にはまだなっていない。v2は(M)を13個の仮定(H0)〜(H12)に還元し、構成対象・レムニスケートの具体例・外部定理の棚卸しを追加した。
+
+11月24日版のJimmie Adriazolaによる287頁の再構成は、論理の骨組みを精密化し、Hecke非退化性・Bessel級数・共体積・Selmer窓の具体的な論証と未証明仮定を開示した。これらを独立の学修単位へ分割し、従来の23講を34講へ改訂する。自然言語論文を独立検証済みとはしない。
 
 既存完成`ANT7/8`・`MF1〜8`・`EC`と、新規`ANF`（数体・類体論）・`IWA`（円分塔）・`AFR`（保型表現）を基盤として使う。`AFR23/24`は**解析的還元／検証状況の短い横断導入**に留め、長大な証明を二講で済ませたことにしない。本PLANは形式的正しさの事実を認めたうえで、数学的機構を**定義・仮定・核心計算・外部入力まで区別して紙上で再構成する**独立の研究講読である。
 
@@ -20,7 +22,9 @@
 | Levent Alpöge, 4-page `remark.pdf`（2026-11-20） | 発見過程・Stepanovの発想、CM、theta lift、Iwasawa塔の原著者説明 | 証明全文・詳細な補題の提示ではない |
 | Lean・Mathlib共同声明（2026-11-21 13:55） | RHの正規Mathlib命題・形式証明の一致、複数kernelによる認証 | **形式的正しさを強く支持** |
 | M. Rubinstein独立検証（2026-11-21） | 175,187 module、標準3公理、Lean replay・nanoda、5最終命題 | 形式的検証の再現可能な根拠 |
-| A. Sutherland独立検証（2026-11-22更新） | 隔離ビルド、export比較、con-leche・con-ron、lean4lean等 | 完了済み検査と未完了の重複検査を分ける |
+| A. Sutherland独立検証（2026-11-24 05:25 UTC更新） | 隔離ビルド、exportのバイト一致、nanoda・con-leche、lean4lean、con-ron等、Lean通常／paranoid kernel、Comparator v4.33.0 | v4.36.0のlake comparatorはこの時点で実行中。完了済検査と区別 |
+| J. Adriazola, *The Alpöge Proof of the Riemann Hypothesis*（11/24版、287頁） | §2–18の解析的還元・算術的Stepanov法・7条件・theta鎖・Hecke損失・Bessel周期・高さ・twisted placesと最終組立て | §18.7に未閉鎖の内部仮定・外部文献適用が明記される。§17.4.3のK1代替論証はLean未形式化・独立査読待ち |
+| *An Arakelov-theoretic perspective on the Alpöge–Claude argument on RH*（11/22付） | §2の平均傾き不等式、§3のCM点・Shimura集合上の評価写像、§4の局所利得・零点評価・算術的Hilbert–Samuel型評価 | 傾き法の補足解説。未証明の部分は概略的な仮定として記載されており、全証明の独立確認ではない |
 | M. Rubinstein主導（Claude/Codex/Gemini協力）, *The Alpöge–Claude proof ... for the Riemann zeta function*（v1:164頁、11/21／**v2:265頁、11/22**） | RHへの解析的還元、補助評価(B)/(C)の証明、Part III §§III.10〜III.13の構成対象・13仮定への還元・レムニスケート例・外部結果の一覧 | **v2でも(M)と(H0)〜(H12)は自然言語では全証明されていない**。資料の版と節を固定 |
 | R. Zhang, *A Preliminary Note ...*（11/21） | prime powers→保型周期→分母とGalois cohomology→パラメータの論理地図 | AI支援の予備的解説。Leanとの逐語・項目一致を断言しない |
 | S. Slijepčević, *Outline ...*（11/21） | window positivity／Hermitian格子／Tate twist群／局所大域の概要 | 著者自身が未理解の部分を明示するアウトライン |
@@ -50,76 +54,119 @@
 - **外部結果（§III.13）:** Lean開発が「published results」として束ねた**195件の形式的エントリ**を列挙する。重複・未使用枠・弱形式の定理が含まれるため「195個の独立に適用済みの定理」ではない。v2の文献対応は著者自身が記憶に基づく暫定案と記しており、原典と仮定の照合が必要。
 - **検証の階層:** Leanの最終定理・使用公理・kernel再検証による形式的検証と、v2の各補題の**自然言語での証明済／条件付き／引用／未立証**を別の記録にする。定理の形式的認証を「v2のすべての論証が紙上で証明された」と読み替えない。
 
-## 3. 全23講の中心問いと証明責務
 
-**第I部：解析的な出口――なぜ算術的不等式からRHが導かれるか（RHP1〜RHP5）**
+### Adriazola 11/24版：固定版と読み方
 
-| 講 | 学習者の中心問い | 再現・証明ゲート |
+参照先は [11/24版のREADME](https://github.com/jimjamzola/RH-Alpoge-Reconstruction/blob/aa9c86bf2a7d29b08575641fecea19a2a603e87c/README.md)、[287頁原稿](https://github.com/jimjamzola/RH-Alpoge-Reconstruction/blob/aa9c86bf2a7d29b08575641fecea19a2a603e87c/manuscript/main.pdf)、[STATUS](https://github.com/jimjamzola/RH-Alpoge-Reconstruction/blob/aa9c86bf2a7d29b08575641fecea19a2a603e87c/docs/STATUS.md)。参照コミット `aa9c86bf2a7d29b08575641fecea19a2a603e87c`（2026-11-24 16:27:32 UTC）。数学の参照には変更されるmainの頁番号だけでなく、固定コミットのTeXファイル、節名・ラベルを併記する。
+
+- 11/22の66頁・依存グラフの残差0は、766,788宣言を依存同定・既存パッケージ・外部境界に分類した結果であり、自然言語での全証明完了を意味しない。11/23の225頁への増補と同日夕方の訂正では未列挙のGSp4の議論、RegDet、異なる点をまたぐpatching、AdjointLiftingTheorem、未登録の外部理論が指摘された。11/24の287頁版はこの進展を受けて§14の体積・旗・減衰・近軌道評価、§17の基底変換と古典的保型点・コホモロジー一様評価を追加した。
+- [依存地図](https://github.com/jimjamzola/RH-Alpoge-Reconstruction/blob/aa9c86bf2a7d29b08575641fecea19a2a603e87c/docs/PROOF_DEPENDENCY_MAP.md)と[外部定理一覧](https://github.com/jimjamzola/RH-Alpoge-Reconstruction/blob/aa9c86bf2a7d29b08575641fecea19a2a603e87c/docs/EXTERNAL_THEOREMS.md)は11/21時点の状態・旧66頁版の節番号を含む。11/24の現行証明責務にはそのまま転用せず、[§18.7のTeX](https://github.com/jimjamzola/RH-Alpoge-Reconstruction/blob/aa9c86bf2a7d29b08575641fecea19a2a603e87c/manuscript/sec18_assembly.tex)の `sec:frontier` と本文の実際の仮定を優先。
+- §18.7の責務は、鎖／Hecke損失（奇数位置・核の規格化・share・比較レベル・補助素数での余長）、周期／重複度（seesaw・非零性・有理性・pre-trace・kernel expansion・main/loop rows・退化項）、高さ／局所項（Weber値・分岐写像・深いレベルの共体積・局所次数）、twisted places／統合（OneChar・Count・rank-fourの保型性とrigidity・Wach lifting・整数theta比較）、外部定理の規格化である。各責務には以下の講義担当と証明の状況を対応させる。
+- [§17.4.3のTeX](https://github.com/jimjamzola/RH-Alpoge-Reconstruction/blob/aa9c86bf2a7d29b08575641fecea19a2a603e87c/manuscript/sec17_twisted.tex)の `tw:effectiveK` は、総虚数体L、d=[L:Q]、D=|Δ_L|、p上の素点集合S、e≥1、奇pならμ_p⊂L、p=2ならμ_4⊂Lのもと、log #H²(G_{L,S},Z_p(e+1))≤exp((2ed)^{C_K}log(2D))（絶対定数C_K、草稿では150）を目指す。Kummer理論から生成元数、偶数次K群との比較・well-rounded retract・セル計数・整数ホモロジーの捩れ・transfer・安定性・Hurewicz核の指数から位数を抑える**代替証明**である。原著者の21段階のLean経路とは別。とくにp=2,3・有限係数からの逆極限・比較定理の仮定・安定範囲・transferの指数・定数の一様性を監査し、代替案の成立やVandiver予想そのものの証明を既定事実にしない。
+- Arakelov補足資料（https://hexagonmath.org/pdf/2611.00833v1 、取得表示はv3、本文日付11/22）ではCMアーベル多様体上のtheta関数のjetによる評価、平均傾き不等式、零点評価と算術的Hilbert–Samuel型の定量評価を対比する。個別の仮定をAdriazolaのA1〜A7やRubinsteinのH0〜H12と番号だけで同一視しない。概略的仮定の定数やLeanへの忠実性は別途照合する。
+
+## 3. 全34講の中心問いと証明責務
+
+初版の1〜5講の解析的出口を保ち、旧6〜23講を再配置・分割する。RHPは未着手でmanifestが未作成なので、実装済み章のIDは改名しない。以下の節番号はAdriazola 11/24固定版、H番号はRubinstein v2である。
+
+**第I部：解析的還元（RHP1〜5）**
+
+| 講 | 中心問い | 再現・証明ゲート |
 |---|---|---|
-| RHP1 | RH・Dirichlet GRHの正確な零点主張は何か | Dirichlet文字の原始化、極・自明零点・`s=1`の例外、一般／Abel数体への帰結の範囲 |
-| RHP2 | 零点情報はどの重み付き素数冪和に現れるか | `-L'/L`・Mellin／Perron型逆変換、収束域、留数を中間式から導く |
-| RHP3 | なぜ片側上界と正係数が零点を排除できるか | Riesz重み、区間`[Y,Y^(3/2)]`、正係数線形結合、量化順と非相殺の証明 |
-| RHP4 | 主不等式(M)と補助評価(B)/(C)は何を主張するか | **v2 Parts I–II**の仮定・結論・量化順を固定し、**(M)+(B)+(C)⇒RH**を段階的に再構成。B/Cの証明（§§III.1–III.2）と(M)の引用を混同しない |
-| RHP5 | Chebyshev–Erdősの階乗の整除性はどう変形されるか | `binom(2n,n)`の素数因子評価とStepanovの補助関数・重複度の最小模型を比較 |
+| RHP1 | RH・Dirichlet GRHの正確な零点主張は何か | 原始・非原始指標、極・自明零点・関数等式、Abel数体への帰結と一般数体との差 |
+| RHP2 | 零点はどう重み付き素数冪和に現れるか | 対数微分とMellin／Perron型逆変換、収束・留数。ζと非主指標の補正を分離 |
+| RHP3 | 片側上界はなぜ零点を排除するか | Landauの符号定理、任意に大きな窓、正係数の非相殺と離散サンプル化（§2,4） |
+| RHP4 | (M)と(B)/(C)は何を主張するか | Rubinstein v2 Parts I–IIの量化を固定し、B/Cの証明と(M)の仮定からRHを再導出 |
+| RHP5 | 算術的Stepanov法の利得と損失は何か | 二項係数の付値・有限体での消失度のモデル、§3の会計原理の小例。A1〜A7の完全統合はRHP31 |
 
-**第II部：CM・theta・周期――整数の整除性がどこから現れるか（RHP6〜RHP11）**
+**第II部：CM・局所利得・theta鎖（RHP6〜12）**
 
-| 講 | 学習者の中心問い | 再現・証明ゲート |
+| 講 | 中心問い | 再現・証明ゲート |
 |---|---|---|
-| RHP6 | 補助CM数体と惰性素数はなぜ有用か | Frobenius・分岐・分裂の条件、具体的二次CM体の素点判定 |
-| RHP7 | 保型周期の整除性は素数冪をどう数えるか | 正整数格子の周期と付値、有限群でのtrace/average・分母の直接計算 |
-| RHP8 | 惰性素数で局所的な高次消失をどう得るか | v2 §III.5の長さ2の軌道の導出と高さ2の形式群を追い、theta kernelの整数性という引用仮定(B)、長い軌道の双対性入力を区別 |
-| RHP9 | Weil表現とtheta kernelの整数構造とは何か | Schwartz関数・局所積分・Poisson変換、格子の正規化と局所収束 |
-| RHP10 | 反復theta liftはなぜ重複度に似た利得を作るか | dual pair、unitary群の低ランク実例、反復回数と期待する利得の式の所在 |
-| RHP11 | seesaw・Rallis内積・保型周期はどう接続するか | 群の包含・積分順序、ノルム・周期・局所積因子の適用条件 |
+| RHP6 | 補助CM数体と惰性素数はなぜ必要か | 二次CM体の分解・Frobenius・指標、惰性素数冪の重み付き恒等式 |
+| RHP7 | 算術的対象と評価写像をどう組み立てるか | §7、Rubinstein §III.10、Arakelov §3：Hermitian空間・自己双対格子・Shimura集合・重み・レベル・周期の対応。実在の仮定を区別 |
+| RHP8 | レムニスケートでどこまで具体計算できるか | Rubinstein §III.12：CM曲線・係数・格子・サイズ・整除性。全(M)の証明ではない |
+| RHP9 | 高さ2の形式群は局所消失をどう生むか | §8–9、Lubin–Tate型の対数・CM sigma関数・Frobenius半線形性、奇数シフトと付値の級数。局所一般化の条件 |
+| RHP10 | Weil表現とtheta核の整数構造は何か | 核の法則・積分・格子と測度、正規化した核の整数性を仮定する箇所、低ランクのPoisson計算 |
+| RHP11 | 奇数位置と反復theta liftは利得をどう蓄積するか | §10–11、奇数位置格子、odd-transfer、step characterと行列式規格化、鎖長mの役割 |
+| RHP12 | 局所鎖から周期写像の整除性へ何を移すか | 局所モデル、重みの軌道、gainと列写像、周期の付値を条件付きで合成。格子上の小例 |
 
-**第III部：格子のサイズと分母――上界を閉じる算術幾何（RHP12〜RHP17）**
+**第III部：Hecke損失・Bessel周期・階数（RHP13〜17）**
 
-| 講 | 学習者の中心問い | 再現・証明ゲート |
+| 講 | 中心問い | 再現・証明ゲート |
 |---|---|---|
-| RHP12 | Hermitian格子の共体積と傾きは何を制御するか | determinant・局所ノルム・体埋め込み、行列での簡単なBost型上界 |
-| RHP13 | Harder–Narasimhan・Bost傾き不等式はどこに効くか | 傾きフィルトレーションの例、算術的Bost定理の対象・仮定、現行自然言語稿での引用箇所 |
-| RHP14 | theta kernelのサイズをどう上から評価するか | v2 §§III.4, III.7の解析的部分と11個の算術入力を分離し、各不等式のnorm・誤差・条件付きの4つの通路を照合 |
-| RHP15 | 相対跡公式と一般位置条件で次元をどう制御するか | v2 §III.8のtrace／rank／pairingの3引用入力とCorollary T2のサイズ・部分空間条件を照合し、導出済みの次元上界と未証明入力を分離 |
-| RHP16 | Hecke固有空間への射影になぜ分母が発生するか | 整数格子での有理固有射影・分母の直接例、固有値合同・Galois表現の必要条件 |
-| RHP17 | GaloisコホモロジーとTate twistの局所大域問題は何か | `H^1/H^2`・制限写像・Selmer型局所条件、Tate–PoitouとTate–Shafarevich型群の仮定 |
+| RHP13 | Hecke作用素の非退化性がなぜ余長を支配するか | §12の局所Hecke作用、格子と双対格子、Witt環・軌道とLP/LPprime、標準単項式・分岐則の入口 |
+| RHP14 | 非退化性の3つのエンジンは何を評価するか | §12のA/B/C：symbol spaceのrank、twisted Fock形式・等型射影、Smith指数と窓のshare。各補題とテスト系の未証明部分を分離 |
+| RHP15 | Heckeの損失から格子の余長へどう進むか | Smith標準形、有限DVR加群の長さ、軌道別の損失と局所から大域の評価。L2/Z1・補助素数の余長条件 |
+| RHP16 | Bessel–Poincaré級数は周期写像をどう表すか | §14のunfolding・seesaw・double-step identity、非零pairing、有理性とBesselId。商積分の絶対収束を検算 |
+| RHP17 | ほぼ直交性はどのように次元を与えるか | §14のGram行列、pre-trace、重複度、体積・旗・近／遠軌道の計数、main/loop rows・退化項、LinkS→PuNZ→MIstar2→BesselIdという依存順 |
 
-**第IV部：塔・構成・仮定の統合と形式検証（RHP18〜RHP23）**
+**第IV部：Arakelov傾き・高さ・局所項（RHP18〜22）**
 
-| 講 | 学習者の中心問い | 再現・証明ゲート |
+| 講 | 中心問い | 再現・証明ゲート |
 |---|---|---|
-| RHP18 | 岩澤理論のμ不変量と円分塔が分母にどう関わるか | Ferrero–Washingtonの適用範囲、局所・大域コホモロジーの次数、条件付きの増大評価と限界 |
-| RHP19 | (M)を成立させる算術的・幾何的な対象は何か | **v2 §III.10**の体E、Hermitian空間・格子、theta kernel・写像・レベル・重み・平行移動の定義と対象の対応表を作り、証明済の小補題と実在／整数性の引用仮定を区別 |
-| RHP20 | どの13仮定を満たせば(M)、さらにRHへ届くか | **v2 §III.11**の(H0)〜(H11)→(M)（Theorem M, Cor. M9）、(H12)→RH（Cor. M11）を定数・量化順・平均操作まで再導出。13仮定の各々を証明済／引用／未立証・Lean対応に分類 |
-| RHP21 | レムニスケートの例で整数性とサイズをどこまで計算できるか | **v2 §III.12**のCM曲線・関連格子・thetaの係数・整除性・評価を古典的結果から紙上で再現し、一般構成に必要な未成立条件を特定。モデルが全(M)の証明ではないことを検算 |
-| RHP22 | Leanが使うとされる外部結果はどの仮定まで追跡できるか | **v2 §III.13**の195形式エントリを分類し、重複・未使用枠・弱形式を除いた依存と原典の仮定・正規化の対照表を作る。未照合文献の主張を確定済みにしない |
-| RHP23 | 形式的な認証と自然言語の再構成をどう照合するか | Mathlib標準RHとの同値、5最終宣言・3公理・独立検証ログを確認し、各(H0)〜(H12)・195エントリとLean宣言の関係／証明済度を明記した最終証明責務表を作る |
+| RHP18 | Hermitian格子のArakelov次数と傾きは何か | 埋め込みごとの共体積、局所長さ、次数の加法性、Harder–Narasimhanの小例 |
+| RHP19 | 平均傾き不等式は素数の利得をどう評価するか | §13とArakelov §2：frame条件、階数比較から積分、Bost型不等式・零点評価の役割。frameの成立とは分ける |
+| RHP20 | theta核と周期写像の無限素点の高さはどう抑えるか | §15：写像のnorm・合成、CM周期とChowla–Selberg、Rallis、Weber値・分岐因子の仮定 |
+| RHP21 | 深いレベルに一様な共体積評価はなぜ必要か | §15の(I1)〜(I17)、descent・flat twist・格子比較、成分傾き・spread、算術的Hilbert–Samuel型の評価。レベル一様性を独立の証明責務にする |
+| RHP22 | 局所次数と補助素点の誤差をどう合算するか | §16、慣性／補助素数／twistedの分離、A5の度数・軌道条件、normや分母の付値。有限素点と無限素点の符号を照合 |
 
-**RHP19〜RHP23を「全巨大証明の完成」と扱わない。** v2で条件付きの節を完成と判定せず、Lean引用・仮定・原典に残る証明責務を可視化する。新しい自然言語による証明で(H0)〜(H12)の個々の立証が進んだときは、その部分の独立した証明サイクル・演習が必要かを再評価し、講数を増減する。23講は現在の論証単位からの設計値であって上限ではない。
+**第V部：合同・保型性・コホモロジー（RHP23〜29）**
 
-## 4. 学習上の直接依存
+| 講 | 中心問い | 再現・証明ゲート |
+|---|---|---|
+| RHP23 | 固有空間への射影でなぜ整数格子に合同欠陥が生じるか | §17.1,17.5、合同イデアル・上側／下側格子・長さ上界の直接証明、Fittingイデアル・局所比較 |
+| RHP24 | Tate twistの局所大域問題とGalois表現はどうつながるか | H¹/H²、制限写像、Tate–Poitou、Selmer・Tate–Shafarevich型群、変形環・局所大域対応を仮定別に導入 |
+| RHP25 | 円分塔とSelmer窓は分母をどう制御するか | §17.2–4、Ferrero–Washingtonの適用範囲、±分解・p=2・OneChar/Count・窓上の一様性。弱いVandiver方向の評価と予想そのものを区別 |
+| RHP26 | 階数4の例外的Galois表現にはなぜ別の議論が必要か | §17.4.1、GSp4・残余可約の場合・保型性の伝播・rigidity、patchingの点の移動とRegDet・AdjointLiftingTheoremの仮定照合。未解決を通常のGL2で代用しない |
+| RHP27 | 基底変換はどう古典的保型点を供給するか | §17.4.2、Hilbertモジュラー形式の局所比較、weight/levelと基底変換の適用条件、rank-twoとrank-fourの区別 |
+| RHP28 | H²の位数を生成元数と指数に分けると何が得られるか | §17.4.3 K1代替案の前半、Kummer完全列・Pic/Brauer・類数評価、偶数次K群・étale比較、逆極限と小素数の条件を精査 |
+| RHP29 | 整数ホモロジーとK理論から指数をどう制御するか | §17.4.3後半：well-rounded retract・旗のセル計数、Hadamard・transfer・安定ホモロジー・Hurewicz核・絶対定数C_K。代替証明の独立検算と原Lean経路の比較、未照合仮定の隔離 |
 
-- RHP1〜5: `ANT3,5,7,8`、`CA12`、初等整数論`NT4/5/8`の必要箇所。RHP5のfunction field比較は導入で有限体の最小例から説明。
-- RHP6〜8: `ANF4,9〜13,22`、`EC3,4,7`および局所可除性。未習のCM一般定理を無条件使用しない。
-- RHP9〜11: `AFR8〜22`の必要部分。表現論・絶対収束・unitaryの表記とHecke指標は使用前に導入。
-- RHP12〜15: `ANF2,5,6`、`AFR19〜22`、`AG`の必要な既出部分。Hermitian算術格子・Bost不等式は本系列で初出なら十分な中間補題を構築する。すでにある`KAH`のHermitian計量と数体のHermitian格子を混同しない。
-- RHP16〜18: `ANF14〜21`、`IWA5〜19`のうち実際の結果、`AFR14〜18`。一般Galois表現の証明が必要ならRHP内に小模型・確立した外部定理の範囲を定義する。
-- RHP19〜20: RHP1〜18の検証済み内容、v2 §§III.10〜III.11と対応するLeanの定理／仮定。
-- RHP21: RHP6〜14のCM・形式群・theta／格子の具体計算とv2 §III.12。例示の成立と一般命題を混同しない。
-- RHP22〜23: RHP1〜21の証明責務、v2 §III.13の外部結果目録、Leanの公式宣言・独立検証ログ。
-- 章の`prerequisites`と使用箇所のstable anchorは本文執筆時に現行の実在章を調べて確定。未実装のANF/IWA/AFR章を既習の正本にしない。IWA20はRHP研究講読への接続を説明するので、RHPの定理証明の前提には採らず依存の循環を防ぐ。完了済み既存章の追跡監査はユーザー指定がある場合のみ。
+**第VI部：統合・原典・形式的検証（RHP30〜34）**
 
-## 5. 数学的・形式的品質の完了ゲート
+| 講 | 中心問い | 再現・証明ゲート |
+|---|---|---|
+| RHP30 | 必要な体・素数・重み・節点を窓ごとにどう選ぶか | §5,18.1–3、host field、補助素数・例外零点・合同条件・Selmer窓、Gallagher等の適用範囲と選択順 |
+| RHP31 | 7つの会計条件はTheorem Aをどう与えるか | §3,18.4–6、A1〜A7・m≈√xの釣合い、誤差と定数の一様性、Theorem Aからζ/Dirichlet Lの零点排除を条件付きで再導出 |
+| RHP32 | Rubinsteinの13仮定とAdriazolaの最終責務はどう対応するか | v2 §III.11のH0〜H11→M、H12→RHと§18.7を対象・結論・量化で対応付ける。対応未確定の辺を明記し、番号の一致で同値としない |
+| RHP33 | 外部定理は原典の仮定を本当に満たすか | Rubinstein §III.13の195形式エントリとAdriazolaの外部境界・未登録領域を照合。局所大域対応、Siegel–Weil、測度、Wach/Hodge–Tate、K理論等の原典と適用を監査 |
+| RHP34 | 形式証明と人間向けの証明責務をどう照合するか | 5最終宣言・3公理・独立kernel・statement matching、§18.7の残件とK1代替論証を版付きで整理し、条件付き証明と無条件の認証を区別 |
 
-1. **人間向け証明:** 読者が定義・仮定・結論・中間式・可換図式／代入値を自力で追えること。主要結果の立証がLeanからの引用のままなら「Leanで検証済み、自然言語未再構成」として未完了範囲を明示する。
-2. **研究資料の確度:** Rubinstein v2（11/22）は(B)/(C)を引用文献の定理から証明し、(H0)〜(H12)⇒RHへの還元を与えるが、13仮定そのものはどれも無条件には証明していない。(M)の自然言語による全証明も未完。Robin Zhang・Slijepčevićのoutlineを検証済みの定理証明と同一視しない。改訂が出たら引用版・節・日付・仮定を再照合する。
-3. **Lean:** 固定対象は原著者の14分割アーカイブ、結合tar.gz SHA-256 `9631b4f020199e580ba86178cb56c6e9b09f690c2369a80dc4334aa93f49c7fc`、Lean `v4.33.1`、Mathlib `0df444a3`。標準公理 `propext`・`Classical.choice`・`Quot.sound`のみ。局所の全17M行再ビルドは学生に義務づけず、第三者ログ＋数十行のLean例でkernel・statement matching・`sorry`の検証を体験させる。
-4. **一般化の区別:** Dirichlet GRHを全Hecke／全保型Lへ勝手に拡大しない。Abel数体のDedekind ζは既知の指標分解に依拠する**系**として導出可能、一般数体には適用不可。
-5. **演習:** 新章は内容に応じたLevel A4・B3・C1以上を基本とし全問詳細解答を付ける。解析系RHP2〜4にはMellin・逆変換、算術系RHP6〜8には局所体、表現論RHP9〜16には低ランク実例を置く。RHP20には(H12)の量化順と定数の一様性、RHP21にはレムニスケートの計算、RHP22には外部定理の仮定照合、RHP23には形式文の同値・不適切公理使用の検出例を含める。既存の`ANT/MF/EC`演習をコピーしない。
-6. **査読:** 変更章の区分C全件再計算と別観点再読。高次保型表現等の一般結果を外部大定理として掲げる場合、その厳密な仮定・実証済みの証明範囲・未証明の箇所を明示する。人間向け完全証明が閉じないのに`completed`へ変更しない。
+## 4. 直接依存と導入順
 
-## 6. 状態と設計の更新
+- RHP1〜5: ANT3,5,7,8・CA12・NTの必要結果。RHP3の窓定理の仮定・証明を確定してからRHP31で使用する。
+- RHP6〜12: ANF4,9〜13,19,22・ECのCM／形式群の実在する必要結果・AFR8〜22。形式群・CMアーベル多様体・Weil表現・Shimura集合・jetが未習なら定義例と補題から導入する。
+- RHP13〜17: ANFのDVR・LAの行列論・AFR13〜22・必要な既存表現論。Wittベクトル・Fock形式・標準単項式・Pieri則・Bessel変換・pre-trace等を暗黙前提にしない。高度な一般定理を引用するなら正確な版・仮定と小模型を与える。
+- RHP18〜22: ANF2,5,6・RHP7,12〜17・AGの必要な既出概念。Hermitian格子、Arakelov次数・高さの定義を先に閉じる。§15の一般定理の証明責務をRHP19の傾き不等式だけで消さない。
+- RHP23〜29: ANF14〜21、IWA5〜19、AFR14〜22、RHP15。Galois変形・p進Hodge・代数的K理論・群ホモロジー・安定範囲・Hurewiczの不足分は先行講／章内補題で補う。K1代替証明を元のLean証明の必要前提にしない。
+- RHP30〜34: RHP1〜29の必要な既証明結果、固定版の文献・Lean宣言・検証ログ。RHP31はA1〜A7の条件付き帰結を示す講であり、未証明条件の解消なしに自然言語全証明を完了としない。
+- IWA20とAFR23/24はRHPへの導入・展望であってRHP後続結果を先取りしない。個別のprerequisitesとstable anchorは着手時に実在章・knowledge DAGで確定する。完成済み他系列の追跡監査は本PLAN改訂の範囲外。
 
-このPLANは設計のみのため`textbook/plans/`に置く。着手時は`textbook/plans_progress/`へ**移動**し、新設`textbook/dream-theater-series/RHP.yaml`を本計画の実在パスで初期化、RHP1〜RHP23を`planned`へ登録する。本文・`chapter.yaml`・`knowledge.yaml`・各章の正式査読・CIが揃ったときのみ`completed`とする。完了講だけ公開目次へ配置し、全講・横断監査完了後に`plan_done/`へ移動。共有ルーターや既存完了`ANT/MF/EC`のステータスは変更しない。
+## 5. 証明責務表と完了ゲート
 
-**講数は23を現行の設計値として明示するが、証明の自然言語化を優先し固定枠としては扱わない。** 一つの大定理を満たすのに必要な主要証明・演習が独立した学習サイクルを要する場合、PLAN・横断ルート・依存マップを同じ作業単位で改訂して増減する。
+### 5.1 現行§18.7に対する担当と判定
+
+| 責務 | 担当 | 11/24版で残るチェック |
+|---|---|---|
+| 鎖とHecke | RHP10〜15 | odd-position/normalized kernel、share・レベル比較・テスト系、Z1・補助素数の余長 |
+| 周期と重複度 | RHP16〜17 | seesawと非零性・period同定、pre-trace・ラベル、kernel展開・各行と退化項 |
+| 高さ・局所項 | RHP18〜22 | Weber値・分岐写像、(I1)〜(I17)と深いレベルの整数構造、一様性 |
+| twisted places | RHP23〜29 | OneChar/Count、rank-four保型性・rigidity、Wach lifting、合同欠陥と局所比較、K1代替案 |
+| 組立てと外部入力 | RHP30〜34 | 素数定理・例外零点、RallisのPetersson norm、mass/formal degreeの測度、定数・量化・原典一致 |
+
+各講で「固定版の節・定理番号またはTeXラベル／Lean宣言／対象・仮定・結論／依存する定理／実際の証明／原典適用の状況」を対応表に記録する。状態は、紙上で再現・外部定理適用照合済・条件付き導出・引用のみ・未立証・対応不明を分離する。11/22の依存分類の残差0や11/24の原稿の増頁から未立証を自動的に消さない。文献の改版で定理の強さや規格化が変われば実際の使用箇所まで再検算する。
+
+### 5.2 教材品質と形式検証
+
+1. **数学の再構成:** 定義を使用前に導入し、各主要定義の条件を直接例で確認し、仮定・結論と中間式を閉じる。§18.7やK1の未証明入力は明確に残す。主要証明を完了扱いするために「Leanが証明した」を人間向けの証明の代わりにしない。
+2. **形式検証:** 原著者14分割アーカイブ、結合tar.gz SHA-256 `9631b4f020199e580ba86178cb56c6e9b09f690c2369a80dc4334aa93f49c7fc`、Lean v4.33.1、Mathlib 0df444a3、標準公理 propext・Classical.choice・Quot.sound。MIT 11/24更新ではLean通常/paranoid kernel、Comparator v4.33.0、独立kernel・statement matching・sandbox exportの一致を確認済み、v4.36.0のlake comparatorは当時実行中。受講者に17M行の全再ビルドを課さず小規模例を用いる。
+3. **K1:** §17.4.3は認証済み元Lean証明とは別経路。引用されるK理論・étale比較・安定性・Hurewiczの原典を実際に照合し、逆極限とp=2,3、定数の絶対性を再計算する。成功するまで代替案を定理として教材に採用しない。原Lean経路と独立の責務表を持つ。
+4. **演習:** A4/B3/C1は下限。Mellin・付値・Fock形式・Smith余長・Gram行列・Arakelov次数・合同イデアル・Kummer列・有限アーベルp群の位数・セル境界行列の捩れ・誤差の釣合いなど、各講の主要論証を自力再現できる問題と詳細解答を設計する。既存章の問題を転載しない。
+5. **査読:** 新規講義は区分C。全主要証明・全演習の再計算、別観点からの再読、初出語・参照の検証を実施。第三者独立査読をしていないなら称さない。一般Hecke/保型L関数や非Abel数体のGRHへの無条件拡張を避ける。
+
+## 6. 状態と今後の更新
+
+RHPは設計改訂のみで未着手のためplansに保持。着手時にplans_progressへ移動し、RHP.yamlにRHP1〜34をplannedとして登録し、本文・メタデータ・査読・CI完了時のみcompletedにする。全講と横断監査完了時にplan_doneへ移す。講数は数学的証明のまとまりを基準に再評価してよく、実装後は既存IDを保護しつつ必要な追加・分割と参照同期を行う。
+
+**現行34講（旧23講から11講追加）**。Adriazolaの次版、Rubinsteinの次版、専門家の原典照合・K1の検証結果が出れば、§18.7と責務表を版ごとに差分比較し、確かめられた論証だけを確定へ昇格させる。全体講数はANF22+IWA20+AFR24+RHP34=100講。
