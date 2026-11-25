@@ -1,4 +1,4 @@
-import LvtPythonDrt
+import LvtContracts
 open LvtContracts
 
 example : takeStock ⟨1, 1⟩ = none := by
