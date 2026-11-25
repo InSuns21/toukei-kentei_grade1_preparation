@@ -53,7 +53,7 @@ chapters:
   - { id: CATB6-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-02, status: completed, title: "量化子の随伴表示" }
   - { id: CATB6-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-03, status: completed, title: "Beck–ChevalleyとFrobenius" }
   - { id: CATB6-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-04, status: completed, title: "正則論理と整合論理" }
-  - { id: CATB6-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-05, status: planned, title: "トポスの内部言語" }
+  - { id: CATB6-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-05, status: completed, title: "トポスの内部言語" }
   - { id: CATB6-06, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-06, status: planned, title: "Kripke–Joyal意味論" }
   - { id: CATB6-07, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-07, status: planned, title: "幾何的理論と分類トポスへの入口" }
   - { id: CATB6-08, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB6-08, status: planned, title: "依存型の圏論的意味" }

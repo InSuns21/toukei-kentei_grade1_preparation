@@ -1,0 +1,41 @@
+chapter: CATB6-05
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB6-04, CATB6-03, CATB6-02, CATB6-01, CATB5-08, CATB5-06, CATB4-07, CAT4-05, CAT2-04]
+concepts:
+  - id: category.topos-internal-terms
+    name: "内部言語の型と項"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（内部言語の型と項）"]
+    requires: [category.elementary-topos, category.exponential-object, category.power-object]
+  - id: category.topos-internal-formulas
+    name: "トポスの内部言語の式と判断"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（トポスの内部言語の式と判断）"]
+    requires: [category.topos-internal-terms, category.regular-semantics, category.subobject-heyting, category.topos-quantifier-existence, category.classifier-bijection]
+  - id: category.topos-internal-substitution
+    name: "内部言語の代入則"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（内部言語の代入則）"]
+    requires: [category.topos-internal-formulas, category.heyting-reindexing, category.subobject-beck-chevalley, category.universal-beck-chevalley, category.classifier-bijection]
+  - id: category.topos-internal-intuitionistic-rules
+    name: "内部言語の含意と全称量化の健全性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（内部言語の含意と全称量化の健全性）"]
+    requires: [category.topos-internal-substitution, category.subobject-implication, category.subobject-quantifiers]
+  - id: category.topos-comprehension
+    name: "内包と所属の対応"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（内包と所属の対応）"]
+    requires: [category.topos-internal-formulas, category.classifier-bijection, category.exponential-object]
+  - id: category.topos-map-internal-logic
+    name: "モノ射・エピ射の内部言語による判定"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（モノ射・エピ射の内部言語による判定）"]
+    requires: [category.topos-internal-formulas, category.topos-image-factorization, category.topos-bimorphism]
