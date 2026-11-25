@@ -50,7 +50,7 @@ chapters:
     title: "permanentのVNP完全性：標数2以外のgadgetの符号検算"
   - id: ACOMP12
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP12
-    status: planned
+    status: completed
     title: "Hamilton閉路多項式のVNP完全性：任意標数と特性2"
   - id: ACOMP13
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP13

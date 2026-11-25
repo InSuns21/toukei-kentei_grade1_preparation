@@ -12,3 +12,4 @@
 9. [ACOMP9 VNP完全性の証明枠組み：局所制約から多項式へ](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP9/index.md)
 10. [ACOMP10 determinantの多項式サイズ回路：除算不要のBerkowitz型構成](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP10/index.md)
 11. [ACOMP11 permanentのVNP完全性：標数2以外のgadgetの符号検算](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP11/index.md)
+12. [ACOMP12 Hamilton閉路多項式のVNP完全性：任意標数と特性2](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP12/index.md)
