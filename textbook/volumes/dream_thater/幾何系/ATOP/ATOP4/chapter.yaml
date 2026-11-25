@@ -2,7 +2,7 @@ id: ATOP4
 title: "道・ループ・基本群"
 volume: foundations
 status: supplementary
-prerequisites: [ATOP2, ATOP3, TOP3, GRP2]
+prerequisites: [ATOP2, ATOP3, TOP3, GRP2, GRP3]
 official_scope: []
 learning_objectives:
   - 道の連結と逆走の式を構成し連続性を検証できる
