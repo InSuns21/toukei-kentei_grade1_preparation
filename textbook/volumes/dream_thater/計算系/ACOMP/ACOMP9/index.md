@@ -248,7 +248,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[次数別普遍回路の構成](#thm-acomp9-universal-components) により $G$ は VP です。$D_N$ は各因子を高々四演算で作り、$N-1$ 回の乗法で掛け合わせられます。次数は高々 $2N$ です。従って $D_NG_N$ の演算数と変数数は多項式有界、全次数は高々 $2N^2+2N$ です。補助入力は $N$ 個なので、[VNP](../ACOMP7/index.md#def-acomp7-vnp) の定義により $U\in\mathrm{VNP}_K$ です。
+[次数別普遍回路の構成](#thm-acomp9-universal-components) により $G$ は VP です。$D_N$ は各因子を高々四演算で作り、$N-1$ 回の乗法で掛け合わせられます。次数は高々 $2N$ です。
+
+従って $D_NG_N$ の演算数と変数数は多項式有界、全次数は高々 $2N^2+2N$ です。
+
+補助入力は $N$ 個なので、[VNP](../ACOMP7/index.md#def-acomp7-vnp) の定義により $U\in\mathrm{VNP}_K$ です。
 
 逆に $f\in\mathrm{VNP}_K$ を任意に固定します。定義から VP の族 $h$ と多項式有界な非負整数値 $r(n)$ が存在して
 
