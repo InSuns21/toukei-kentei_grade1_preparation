@@ -1,0 +1,37 @@
+id: "ACOMP14"
+title: "部分微分法・Baur–Strassen：回路微分のコスト"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ACOMP13
+official_scope: []
+learning_objectives:
+  - 任意標数の体で形式偏微分を定義し和と積の規則を証明できる
+  - 回路の局所係数と経路和を逆向きの再帰で計算できる
+  - Baur–Strassenの定理の正当性と演算サイズ上界を証明できる
+  - VPの閉性および形式多項式と数値評価の違いを説明できる
+definitions:
+  - { id: ACOMP14-DEF-01, name: "形式偏微分" }
+  - { id: ACOMP14-DEF-02, name: "逆向き伝播係数" }
+theorems:
+  - { id: ACOMP14-THM-01, name: "形式偏微分の和と積の規則" }
+  - { id: ACOMP14-THM-02, name: "逆向き伝播の再帰と形式勾配" }
+  - { id: ACOMP14-THM-03, name: "Baur–Strassenの定理：除算なしの場合" }
+  - { id: ACOMP14-THM-04, name: "VPの形式偏微分に関する閉性" }
+canonical_examples:
+  - 標数2での形式偏微分
+  - 共有部分を含む三演算の逆向き伝播
+problem_patterns:
+  - ACOMP14-A1
+  - ACOMP14-A2
+  - ACOMP14-A3
+  - ACOMP14-A4
+  - ACOMP14-B1
+  - ACOMP14-B2
+  - ACOMP14-B3
+  - ACOMP14-B4
+  - ACOMP14-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 3, review: 1 }

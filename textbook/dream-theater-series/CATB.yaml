@@ -41,7 +41,7 @@ chapters:
   - { id: CATB4-08, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-08, status: completed, title: "降下データと有効降下" }
   - { id: CATB5-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-01, status: completed, title: "前層の局所データと貼り合わせ" }
   - { id: CATB5-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-02, status: completed, title: "篩とGrothendieck位相" }
-  - { id: CATB5-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-03, status: planned, title: "site上の層条件" }
+  - { id: CATB5-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-03, status: completed, title: "site上の層条件" }
   - { id: CATB5-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-04, status: planned, title: "層化のplus構成" }
   - { id: CATB5-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-05, status: planned, title: "層化の随伴と左完全性" }
   - { id: CATB5-06, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB5-06, status: planned, title: "初等トポスと部分対象分類子" }

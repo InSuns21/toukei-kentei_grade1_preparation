@@ -1,0 +1,41 @@
+chapter: CATB5-03
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB5-02, CATB5-01, CAT1-07, CAT1-11, CAT1-12]
+concepts:
+  - id: category.sieve-matching-family
+    name: "篩上の整合族"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（篩上の整合族）"]
+    requires: [category.sieve, category.set-valued-presheaf]
+  - id: category.sieve-matching-naturality
+    name: "整合族と自然変換の対応"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（整合族と自然変換の対応）"]
+    requires: [category.sieve-matching-family, category.natural-transformation]
+  - id: category.site-sheaf
+    name: "site上の層"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（site上の層）"]
+    requires: [category.site, category.sieve-matching-family]
+  - id: category.covering-sieve-extension
+    name: "被覆篩からの自然変換の延長"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（被覆篩からの自然変換の延長）"]
+    requires: [category.site-sheaf, category.sieve-matching-naturality, category.contravariant-yoneda-lemma]
+  - id: category.generated-sieve-matching-test
+    name: "生成篩上の整合族の判定"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（生成篩上の整合族の判定）"]
+    requires: [category.sieve-matching-family, category.generated-sieve]
+  - id: category.open-site-sheaf-equivalence
+    name: "開集合圏の層条件との同値性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（開集合圏の層条件との同値性）"]
+    requires: [category.site-sheaf, category.generated-sieve-matching-test, category.open-set-grothendieck-topology, category.topological-set-sheaf]
