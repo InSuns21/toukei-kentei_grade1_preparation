@@ -1,0 +1,37 @@
+id: "ACOMP16"
+title: "単調回路下界：打消しを許すモデルとの差"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ACOMP15
+official_scope: []
+learning_objectives:
+  - 単調算術回路と一般算術回路の仮定の差を説明できる
+  - 単項式の台の演算則と出力への寄与を証明できる
+  - パーマネントの中間節点の行列添字制約を導出できる
+  - 中間次数の選択と置換の数え上げから指数的下界を証明し適用範囲を説明できる
+definitions:
+  - { id: ACOMP16-DEF-01, name: "単調算術回路" }
+  - { id: ACOMP16-DEF-02, name: "単項式の台" }
+theorems:
+  - { id: ACOMP16-THM-01, name: "非負係数多項式の台の演算則" }
+  - { id: ACOMP16-THM-02, name: "単調回路の出力への寄与" }
+  - { id: ACOMP16-THM-03, name: "パーマネントを計算する単調回路の行列添字制約" }
+  - { id: ACOMP16-THM-04, name: "パーマネントの単調回路下界" }
+canonical_examples:
+  - 非負係数の台の和と積
+  - 共有節点と零定数を含む展開項の選択
+  - 行集合と列集合を固定した置換の数え上げ
+problem_patterns:
+  - ACOMP16-A1
+  - ACOMP16-A2
+  - ACOMP16-A3
+  - ACOMP16-A4
+  - ACOMP16-B1
+  - ACOMP16-B2
+  - ACOMP16-B3
+  - ACOMP16-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 3, review: 1 }
