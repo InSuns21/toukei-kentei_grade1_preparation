@@ -1,0 +1,24 @@
+chapter: CATB6-03
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB6-02, CATB6-01, CATB4-07, CATB5-08, CATB1-02, CAT2-03, CAT2-04]
+concepts:
+  - id: category.universal-beck-chevalley
+    name: "全称量化のBeck–Chevalley等式"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全称量化のBeck–Chevalley等式）"]
+    requires: [category.topos-quantifier-existence, category.subobject-beck-chevalley, category.subobject-quantifiers]
+  - id: category.quantifier-comparison
+    name: "可換四角形の量化子比較"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（可換四角形の量化子比較）"]
+    requires: [category.quantifier-unit-counit, category.subobject-inverse-image, category.subobject-quantifiers]
+  - id: category.existential-frobenius
+    name: "存在量化のFrobenius相互法則"
+    aliases: ["Frobenius相互法則", "Frobeniusの相互法則"]
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（存在量化のFrobenius相互法則）"]
+    requires: [category.topos-quantifier-existence, category.subobject-meet, category.regular-factorization-base-change, category.topos-barr-exactness]
