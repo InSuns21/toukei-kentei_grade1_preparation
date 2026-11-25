@@ -394,7 +394,7 @@ $$
 m\mathbb Z\to\mathbb Z/t\mathbb Z,\qquad mx\mapsto[x]_t.
 $$
 
-$m(x+y)\mapsto[x+y]_t=[x]_t+[y]_t$ だから加法を保つ。任意の剰余類には代表元 $x$ があるため全射である。零に移るのは $x$ が $t$ の倍数の場合なので、この射の核は $mt\mathbb Z$。従って[群の準同型定理](../../../代数系/GRP/GRP2/index.md#thm-grp2-first-isomorphism)により
+$m(x+y)\mapsto[x+y]_t=[x]_t+[y]_t$ だから加法を保つ。任意の剰余類には代表元 $x$ があるため全射である。零に移るのは $x$ が $t$ の倍数の場合なので、この射の核は $mt\mathbb Z$。従って[群の第一同型定理](../../../代数系/GRP/GRP2/index.md#thm-grp2-first-isomorphism)により
 
 $$
 H^0=m\mathbb Z/mt\mathbb Z\simeq\mathbb Z/t\mathbb Z.
@@ -439,7 +439,7 @@ $$
 
 この射の核は $2x=3y=0$ を満たす $(0,0)$ のみであり、像は $2\mathbb Z\oplus3\mathbb Z$ である。
 
-従って $H^0=0$。次数1の核は $\mathbb Z^2$ 全体。$(x,y)\mapsto([x]_2,[y]_3)$ は各剰余類から代表元を取れば全射、加法も各成分で保ち、核は $2\mathbb Z\oplus3\mathbb Z$。よって[群の準同型定理](../../../代数系/GRP/GRP2/index.md#thm-grp2-first-isomorphism)から商との同型は
+従って $H^0=0$。次数1の核は $\mathbb Z^2$ 全体。$(x,y)\mapsto([x]_2,[y]_3)$ は各剰余類から代表元を取れば全射、加法も各成分で保ち、核は $2\mathbb Z\oplus3\mathbb Z$。よって[群の第一同型定理](../../../代数系/GRP/GRP2/index.md#thm-grp2-first-isomorphism)から商との同型は
 
 $$
 H^1\simeq\mathbb Z/2\mathbb Z\oplus\mathbb Z/3\mathbb Z.
@@ -475,7 +475,7 @@ $$
 3. 中央で誘導される射の具体式を求め、同型か判定せよ。複体自体の同型と区別せよ。
 
 <!-- solution-start -->
-第1問。$[12x]_3=0$、$[8x]_2=0$ なので合成は零。他は零射との合成である。[余鎖複体のコホモロジー](#def-catb7-01-cohomology)より中央の核・像はそれぞれ $3\mathbb Z,12\mathbb Z$ および $2\mathbb Z,8\mathbb Z$。$3t\mapsto[t]_4$ と $2s\mapsto[s]_4$ は双方とも加法を保ち、全射で核がそれぞれ前の像だから、[群の準同型定理](../../../代数系/GRP/GRP2/index.md#thm-grp2-first-isomorphism)により
+第1問。$[12x]_3=0$、$[8x]_2=0$ なので合成は零。他は零射との合成である。[余鎖複体のコホモロジー](#def-catb7-01-cohomology)より中央の核・像はそれぞれ $3\mathbb Z,12\mathbb Z$ および $2\mathbb Z,8\mathbb Z$。$3t\mapsto[t]_4$ と $2s\mapsto[s]_4$ は双方とも加法を保ち、全射で核がそれぞれ前の像だから、[群の第一同型定理](../../../代数系/GRP/GRP2/index.md#thm-grp2-first-isomorphism)により
 
 $$
 H^0(C)\simeq\mathbb Z/4\mathbb Z,\qquad H^0(D)\simeq\mathbb Z/4\mathbb Z.
