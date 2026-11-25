@@ -12,7 +12,7 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（距離による曲線長）"]
-    aliases: [距離による曲線長]
+    aliases: [距離による曲線長, 曲線長, curve length]
     requires: [topology.metric-space, topology.continuous-map, analysis.least-upper-bound-property]
   - id: metric-geometry.curve-length-additivity
     name: 曲線長の加法性と端点評価
