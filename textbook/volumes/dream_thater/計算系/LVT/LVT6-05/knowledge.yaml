@@ -1,0 +1,28 @@
+chapter: LVT6-05
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT3-05, LVT3-07, LVT5-05, LVT5-06, LVT6-04]
+concepts:
+  - id: lean-verification.tenant-permission-spec
+    name: テナント付き要求の許可仕様
+    kind: definition
+    introduction: formal
+  - id: lean-verification.tenant-authorization-soundness
+    name: 認可判定の安全性
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.tenant-permission-spec]
+  - id: lean-verification.tenant-authorization-completeness
+    name: 認可判定の完全性
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.tenant-permission-spec]
+  - id: lean-verification.protected-route-trace
+    name: 保護操作の実行経路モデル
+    kind: definition
+    introduction: formal
+  - id: lean-verification.authorization-before-effect
+    name: 保護操作の認可先行性
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.protected-route-trace, lean-verification.tenant-authorization-soundness]

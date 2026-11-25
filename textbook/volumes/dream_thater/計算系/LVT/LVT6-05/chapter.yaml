@@ -1,0 +1,25 @@
+id: "LVT6-05"
+title: "サーバーサイドTypeScript認可の完全性の証明：API・テナント境界"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT3-05, LVT3-07, LVT5-05, LVT5-06, LVT6-04]
+official_scope: []
+learning_objectives:
+  - 独立した業務仕様と正規化領域を定める
+  - 認可判断の安全性と完全性を別々に証明する
+  - 保護操作の認可先行性を経路モデルで証明する
+  - TypeScriptの全抽象入力とルートを照合し変異と信頼境界を区別する
+definitions:
+  - { id: LVT6-05-DEF-01, name: "テナント付き要求の許可仕様" }
+  - { id: LVT6-05-DEF-02, name: "保護操作の実行経路モデル" }
+propositions:
+  - { id: LVT6-05-PROP-01, name: "認可判定の安全性" }
+  - { id: LVT6-05-PROP-02, name: "認可判定の完全性" }
+  - { id: LVT6-05-PROP-03, name: "保護操作の認可先行性" }
+theorems: []
+canonical_examples: ["別テナントのadmin拒否", "所有者一致による更新許可", "PATCH経路の迂回反例"]
+problem_patterns: [LVT6-05-A01, LVT6-05-A02, LVT6-05-A03, LVT6-05-A04, LVT6-05-B01, LVT6-05-B02, LVT6-05-B03, LVT6-05-B04, LVT6-05-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 3, review: 0.5 }

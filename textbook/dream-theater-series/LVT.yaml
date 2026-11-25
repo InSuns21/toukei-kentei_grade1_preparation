@@ -167,7 +167,7 @@ chapters:
     title: "Cedarに学ぶ認可ポリシーのモデル"
   - id: LVT6-05
     path: textbook/volumes/dream_thater/計算系/LVT/LVT6-05
-    status: planned
+    status: completed
     title: "サーバーサイドTypeScript認可の完全性の証明：API・テナント境界"
   - id: LVT6-06
     path: textbook/volumes/dream_thater/計算系/LVT/LVT6-06
