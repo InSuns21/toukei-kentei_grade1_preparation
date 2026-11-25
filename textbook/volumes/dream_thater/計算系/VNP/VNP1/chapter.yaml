@@ -1,0 +1,23 @@
+id: VNP1
+title: "主定理の量化・回路ゲート数・厳密分離と近似分離"
+volume: foundations
+status: supplementary
+prerequisites: [ACOMP24, ACOMP22, ACOMP12]
+official_scope: []
+learning_objectives:
+  - 論文の全ゲート数と既習の演算サイズの最小値を比較できる
+  - 全標数共通の定数と標数別閾値の量化順序を区別できる
+  - 超多項式下界から厳密版および近似版のクラス分離を導ける
+  - 研究声明と形式化・検証・人間の審査を区別できる
+definitions:
+  - { id: VNP1-DEF-01, name: "全ゲート数" }
+theorems:
+  - { id: VNP1-THM-01, name: "二つの回路サイズの比較" }
+  - { id: VNP1-THM-02, name: "提示された下界の超多項式性" }
+  - { id: VNP1-THM-03, name: "回路下界からクラス分離への含意" }
+canonical_examples: [入力を含む命令列, 標数2のパーマネント, 形式的近似の係数判定]
+problem_patterns: [VNP1-A1, VNP1-A2, VNP1-A3, VNP1-A4, VNP1-B1, VNP1-B2, VNP1-B3, VNP1-B4, VNP1-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 3, review: 1 }

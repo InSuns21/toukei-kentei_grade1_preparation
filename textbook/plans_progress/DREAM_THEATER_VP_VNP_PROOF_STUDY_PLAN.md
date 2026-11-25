@@ -1,7 +1,7 @@
 # DREAM THEATER VP ≠ VNP 証明研究講読 計画
 
 構成確定日: 2026-11-24 JST
-状態: planned（設計確定・本文未着手）
+状態: in progress（VNP1実装、VNP2–24予定）
 系列予約ID: VNP（実装時にmanifest/章ID衝突を再点検）
 講数: **全24講**
 
@@ -44,11 +44,11 @@ GCT1–16、ACOMP1–24、TSP1–16、NPCG1–12、LVT第I・II部を前提と�
 
 Claude (Anthropic), [VP ≠ VNP over every field, v1](https://hexagonmath.org/2611.00954v1)（2026-11-23）、[paper・Lean](https://github.com/anthropics/formal-math/tree/main/vp-vnp)、[Statement.lean](https://github.com/anthropics/formal-math/blob/main/vp-vnp/Statement.lean)、[Solution.lean](https://github.com/anthropics/formal-math/blob/main/vp-vnp/Solution.lean)、[comparator.json](https://github.com/anthropics/formal-math/blob/main/vp-vnp/comparator.json)。標準書はGCT/ACOMP/TSP/NPCG/FMLの各PLANを参照。
 
-関連: [VP/VNP横断履修ルート](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md)。各書の目次と公開された研究資料を設計基準にし、本文を転載しない。
+関連: [VP/VNP横断履修ルート](../plans/DREAM_THEATER_VP_VNP_ROUTE_PLAN.md)。各書の目次と公開された研究資料を設計基準にし、本文を転載しない。
 
 ## 4. 完成条件
 
-- [ ] 初回実装時に本PLANを plans_progress に移し、系列manifestを全24講の予定IDで整備する。未実装章の公開目次先行登録はしない。
+- [x] 初回実装時に本PLANを plans_progress に移し、系列manifestを全24講の予定IDで整備する。未実装章の公開目次先行登録はしない。
 - [ ] 各講で主要定義を使用前に導入し、定理の仮定・定義域・量化・中間計算を明示。直接例と反例を含め、主要証明を再構成可能にする。
 - [ ] 原則 Level A 4題・B 3題・C 1題以上と詳細解答。単なる題数合わせはしない。
 - [ ] chapter.yaml・knowledge.yaml・prerequisite・stable anchor・KaTeX・concept/knowledge/exercise/Pages検証を完了する。

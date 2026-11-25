@@ -1,0 +1,102 @@
+version: 1
+id: VNP
+title: "VP ≠ VNP 証明研究講読"
+plan: textbook/plans_progress/DREAM_THEATER_VP_VNP_PROOF_STUDY_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+chapters:
+  - id: VNP1
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP1
+    status: completed
+    title: "主定理の量化・回路ゲート数・厳密分離と近似分離"
+  - id: VNP2
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP2
+    status: planned
+    title: "A：多party tensor・wire・restriction・cover・push-forward"
+  - id: VNP3
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP3
+    status: planned
+    title: "A：スペクトル点から擬距離とprice、回路を評価するLemma A.3"
+  - id: VNP4
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP4
+    status: planned
+    title: "A：gaugeの最小化・冪の極限・双対性"
+  - id: VNP5
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP5
+    status: planned
+    title: "A：priceの拡張・混合・fan"
+  - id: VNP6
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP6
+    status: planned
+    title: "B：crossing identity、二つの分割に対する項数、crossing inequality"
+  - id: VNP7
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP7
+    status: planned
+    title: "C/O：CN不等式、priceのCAT(0)完備化"
+  - id: VNP8
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP8
+    status: planned
+    title: "D：F₂行列rank、transversal pair、平均D(r)の劣加法性"
+  - id: VNP9
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP9
+    status: planned
+    title: "D：等号解析とEuclid cube、flatまたはcontracting"
+  - id: VNP10
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP10
+    status: planned
+    title: "E：grid sums・clause sumsからpermanentへの射影"
+  - id: VNP11
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP11
+    status: planned
+    title: "E：完全ネットワーク・二つのhub・few-term lemmaとcut"
+  - id: VNP12
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP12
+    status: planned
+    title: "E/L：Euclid hub長の節約、k・ℓの最適化とlog指数4/3"
+  - id: VNP13
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP13
+    status: planned
+    title: "F：unitriangular群のランク方向収縮と弱いPoincaré"
+  - id: VNP14
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP14
+    status: planned
+    title: "F：overlapping windows・固定点集合の角度・一様Poincaré F.6"
+  - id: VNP15
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP15
+    status: planned
+    title: "G：Poincaréからrerouting laws、有限生成係数環、loadの評価"
+  - id: VNP16
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP16
+    status: planned
+    title: "H：F₂[s]/(s^{n+1})上SL群のtower・辺タイプ・coset"
+  - id: VNP17
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP17
+    status: planned
+    title: "H：networkをthin treeの和へ、depth・packet・straight-line program"
+  - id: VNP18
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP18
+    status: planned
+    title: "I：重み付き木プログラム・universal tape automatonとnetwork化"
+  - id: VNP19
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP19
+    status: planned
+    title: "J：computationの一回のcut、piece evaluatorと正しさ"
+  - id: VNP20
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP20
+    status: planned
+    title: "J：反復cut、時間・入力・piece数の指数台帳"
+  - id: VNP21
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP21
+    status: planned
+    title: "K：small circuitからaccelerator、定数名・低次数化・scale transferと対角線論法"
+  - id: VNP22
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP22
+    status: planned
+    title: "L/M：両caseの結合、全標数へのtransfer、HC grid gadget、VP≠VNP"
+  - id: VNP23
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP23
+    status: planned
+    title: "N：Laurent切断、近似few-term lemma・近似accelerator、VNP not⊆ closure(VP)"
+  - id: VNP24
+    path: textbook/volumes/dream_thater/計算系/VNP/VNP24
+    status: planned
+    title: "P/Q：用語・全主要定理とLean対応、I.1/H.2(d,e)/J.3/N.4の監査、P vs NPへの限界"
