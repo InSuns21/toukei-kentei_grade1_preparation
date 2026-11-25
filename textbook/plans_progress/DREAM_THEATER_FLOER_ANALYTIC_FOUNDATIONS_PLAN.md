@@ -1,7 +1,7 @@
 # DREAM THEATER Floer理論の解析基盤（FLOER）
 
 設計確定日：2026-11-25  
-状態：in progress（FLOER1-01〜04実装、残り1講）  
+状態：in progress（FLOER1-01〜05の講義実装、残り0講。HMS前提整備ルートでのCATB7〜8との接続照合が残る）  
 講義数：5講（FLOER1-01〜05）。核心証明の粒度により再審議できる。
 
 ## 1. 中心問いと依存
@@ -32,7 +32,13 @@ SYM6/8とGW1-03/06/12/21の必要な解析・幾何の結果を入力とし、�
 - HM1の楕円曲線上のLagrange曲線に限定モデルの仮定が成立するかを別途確認する。閉シンプレクティック多様体をexactと仮定せず、必要な無泡条件とNovikov係数を明示する。一般論を証明済みとは扱わない。
 - [HMS前提整備ルート](../plans/DREAM_THEATER_HMS_FOUNDATIONS_PLAN.md)でCATB7〜8・FLOERの両方を照合し、必要成果物・査読・検証が揃ってからHM1に進む。
 
-## 4. 参考文献
+## 4. 講義実装の出口（2026-11-26）
+
+- FLOER1-05は完全境界・正則・無泡のモデルで二断面付き一様逆、非線形補正と局所一意性、折れ曲がり境界の半区間、係数体上の二乗零を扱う。整数係数の向き付け定理そのものは仮定と区別し、符号付き計数の代数的帰結を示す。
+- 楕円曲線の非平行な原始整数方向の直線対について球面・円板の泡排除とstripの面積零を持ち上げで確認した。一般の摂動・曲線・多角形とNovikov係数はHM1で条件を再確認する。
+- 予定5講は実装済み。CATB7〜8との依存照合・HM1への接続ゲートは未完了なのでPLANは進行中に置く。
+
+## 5. 参考文献
 
 - [P. Seidel, Fukaya Categories and Picard–Lefschetz Theory](https://ems.press/books/zlam/2/contents)：Floer解析とFukaya圏への接続。
 - [D. McDuff / D. Salamon, J-holomorphic Curves and Symplectic Topology](https://doi.org/10.1090/coll/052)：擬正則曲線の解析・コンパクト性の基礎。閉曲面の結果とLagrange境界付きの追加論証を区別する。
