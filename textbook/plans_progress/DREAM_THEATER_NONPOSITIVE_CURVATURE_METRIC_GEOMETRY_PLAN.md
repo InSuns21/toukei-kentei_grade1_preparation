@@ -1,7 +1,7 @@
 # DREAM THEATER 距離幾何学・非正曲率空間 計画
 
 構成確定日: 2026-11-24 JST
-状態: in progress（NPCG1–4実装、NPCG5以降未着手）
+状態: in progress（NPCG1–5実装、NPCG6以降未着手）
 系列ID: NPCG（[系列manifest](../dream-theater-series/NPCG.yaml)）
 講数: **全12講**
 
