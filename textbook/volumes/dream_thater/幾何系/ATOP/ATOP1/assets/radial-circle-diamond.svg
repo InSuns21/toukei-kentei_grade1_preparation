@@ -1,7 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" data-layout-lint="strict" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" data-layout-lint="strict" role="img">
 <title>Radial correspondence of circle and diamond</title><desc>The ray from the common center meets the dashed diamond at Q and the solid circle at P. The four vertices of the diamond lie on the circle.</desc>
-<rect width="360" height="260" fill="white"/>
+<rect width="360" height="280" fill="white"/>
 <g fill="none" stroke="#222" stroke-width="2"><circle cx="155" cy="130" r="100" data-series-group="boundaries" data-series-label="circle"/><path d="M155 30 L255 130 L155 230 L55 130 Z" stroke-dasharray="6 4" data-series-group="boundaries" data-series-label="diamond"/><path d="M155 130 L215 50" stroke="#777"/></g>
 <g fill="#222"><circle cx="155" cy="130" r="3"/><circle cx="215" cy="50" r="4"/><rect x="194.86" y="69.86" width="6" height="6"/></g>
-<g font-family="sans-serif" font-size="14" fill="#222"><text x="144" y="147">O</text><text x="224" y="47">P</text><text x="174" y="76">Q</text><text x="266" y="129">circle</text><text x="20" y="247">dashed: diamond</text></g>
+<path d="M200 77 L203 94" fill="none" stroke="#555" stroke-width="1"/>
+<g font-family="sans-serif" font-size="14" fill="#222"><text x="132" y="155">O</text><text x="236" y="43">P</text><text x="196" y="118">Q</text><text x="266" y="129">circle</text><text x="20" y="264">dashed: diamond</text></g>
 </svg>
