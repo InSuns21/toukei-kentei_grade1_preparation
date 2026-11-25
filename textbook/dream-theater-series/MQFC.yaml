@@ -12,7 +12,7 @@ chapters:
   - { id: MQFC6, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC6, status: completed, title: "Gaussian測度をどう作るか" }
   - { id: MQFC7, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC7, status: completed, title: "Schwinger関数とGaussianの全モーメント" }
   - { id: MQFC8, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC8, status: completed, title: "反射陽性はなぜ成り立つか" }
-  - { id: MQFC9, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC9, status: planned, title: "OS Hilbert空間と時間並進半群" }
+  - { id: MQFC9, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC9, status: completed, title: "OS Hilbert空間と時間並進半群" }
   - { id: MQFC10, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC10, status: planned, title: "OS公理から相対論的場へ" }
   - { id: MQFC11, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC11, status: planned, title: "粒子質量とスペクトル測度" }
   - { id: MQFC12, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC12, status: planned, title: "質量ギャップと指数的相関減衰" }
