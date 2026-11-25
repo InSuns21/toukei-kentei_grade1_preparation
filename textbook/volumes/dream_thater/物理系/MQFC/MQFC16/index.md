@@ -589,7 +589,9 @@ $$
 
 この測度は有限領域での相互作用を記述する。例えば $\theta(t,x)=(-t,x)$ を時間反転、$(\theta\Phi)(f)=\Phi(f\circ\theta)$ とする（[正時間多項式の反射形式](../MQFC8/index.md#def-mqfc8-reflection-positivity)）。
 
-平均核 $\rho$ が時間反転に不変で（偶性と合わせると二次元では空間反転にも不変）、$g=g_++g_+\circ\theta$ かつ非負 $g_+\in C_c^\infty(\mathbb R^2)$ の支持が正時間の内部にコンパクトに含まれるなら、十分小さい幅で [分離された切断での反射陽性の保存](../MQFC15/index.md#thm-mqfc15-rp) が成立する。
+平均核 $\rho$ が時間反転に不変なら、偶性と合わせて各座標の符号を個別に変えても不変となる。実際、$\rho(t,-x)=\rho(-t,x)=\rho(t,x)$ である。
+
+さらに、$g=g_++g_+\circ\theta$ かつ非負 $g_+\in C_c^\infty(\mathbb R^2)$ の支持が正時間の内部にコンパクトに含まれるなら、十分小さい幅で [分離された切断での反射陽性の保存](../MQFC15/index.md#thm-mqfc15-rp) が成立する。
 
 反射形式の観測量 $\overline{F(\theta\Phi)}F(\Phi)$ は有限測定の多項式なので、今の定理で非負性が極限へ移る。
 
