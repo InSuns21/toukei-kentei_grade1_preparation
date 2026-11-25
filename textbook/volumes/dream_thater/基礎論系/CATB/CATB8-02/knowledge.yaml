@@ -1,0 +1,45 @@
+chapter: CATB8-02
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB8-01, CATB7-02]
+concepts:
+  - id: category.graded-algebra
+    name: 次数付き代数
+    kind: definition
+    introduction: formal
+    requires: [category.graded-module, category.graded-tensor-product]
+  - id: category.dg-algebra
+    name: 微分付き次数付き代数
+    kind: definition
+    introduction: formal
+    requires: [category.graded-algebra, category.cochain-complex]
+  - id: category.dg-product-cochain-map
+    name: 積と余鎖写像条件
+    kind: proposition
+    introduction: formal
+    requires: [category.dg-algebra, category.tensor-complex-differential, category.cochain-map]
+  - id: category.reduced-tensor-coalgebra
+    name: 被約テンソル余代数
+    kind: definition
+    introduction: formal
+    requires: [category.graded-tensor-product]
+  - id: category.coderivation
+    name: 余導分
+    kind: definition
+    introduction: formal
+    requires: [category.reduced-tensor-coalgebra, category.koszul-tensor-map]
+  - id: category.coderivation-extension
+    name: 余導分の延長と一意性
+    kind: theorem
+    introduction: formal
+    requires: [category.coderivation]
+  - id: category.coderivation-square
+    name: 奇数次数余導分の二乗
+    kind: proposition
+    introduction: formal
+    requires: [category.coderivation-extension, category.graded-interchange]
+  - id: category.dg-square-zero
+    name: 二乗零と微分付き代数の恒等式
+    kind: theorem
+    introduction: formal
+    requires: [category.dg-algebra, category.cochain-shift, category.coderivation-square]
