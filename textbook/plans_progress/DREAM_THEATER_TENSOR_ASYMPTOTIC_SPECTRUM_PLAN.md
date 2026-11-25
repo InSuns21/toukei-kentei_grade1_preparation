@@ -1,7 +1,7 @@
 # DREAM THEATER テンソル理論・漸近スペクトル 計画
 
 構成確定日: 2026-11-24 JST
-状態: in progress（TSP1〜2実装、TSP3〜16予定）
+状態: in progress（TSP1〜3実装、TSP4〜16予定）
 系列予約ID: TSP（実装時にmanifest/章ID衝突を再点検）
 講数: **全16講**
 
