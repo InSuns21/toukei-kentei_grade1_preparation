@@ -33,7 +33,7 @@ $$
 A(f)\le C E(f)
 $$
 
-> を満たすとき、非線形Poincaré不等式が定数 $C$ で成立するという。最良定数 $\gamma(G,S;X)$ は非定数写像についての比 $A(f)/E(f)$ の上限とする。$X$ が一点なら最良定数を0とする。
+> を満たすとき、非線形Poincaré不等式が定数 $C$ で成立するという。最良定数 $\gamma(G,S;X)$ は非定数写像についての比 $A(f)/E(f)$ の上限とする（有限上界がなければ $+\infty$ とする）。$X$ が一点なら最良定数を0とする。
 <!-- formal-statement-end -->
 
 連結性により $E(f)=0$ なら全辺で像が一致し、歩道をたどれば $f$ は定数です。従って非定数写像では分母が正です。定数写像では両辺とも0です。最良定数が有限ならそれ自身が全写像に使える上界になります。
@@ -150,12 +150,14 @@ $$
 比 $E(a)/(2V_{\mathbb R}(a))$ は全ての $p\ne q$ に対し2なので、下限は2です。ここでの正規化ではギャップは1より大きくても構いません。
 <!-- definition-example-end -->
 
+[Hilbert空間](../../../解析系/F0/F0-02C1/index.md#def-f0-02c1-hilbert-space) は内積から定まるノルムについて完備な空間です。
+
 <a id="thm-npcg11-hilbert"></a>
 
 <!-- formal-statement-start -->
 > **定理（Hilbert空間値Poincaré評価）**
 >
-> 上の有限群と生成集合について、実数値Poincaréギャップ $\lambda$ は正である。零空間でない実Hilbert空間 $H$ に対し
+> 位数 $n\ge2$ の有限群 $G$ と、単位元を除いた逆元閉かつ非空の生成集合 $S$ について、実数値Poincaréギャップ $\lambda$ は正である。零空間でない実Hilbert空間 $H$ に対し
 
 $$
 \gamma(G,S;H)=\gamma(G,S;\mathbb R)=\frac1\lambda.
@@ -198,7 +200,7 @@ $$
 
 $n^2$ で割れば主張の等式です。
 
-ここで有限個の $v_g$ の張る部分空間を考えます。直交する長さ1のベクトルを順に作るには、まだ選んだベクトルで表せない $v_g$ を一つ選び、既選択の $e_j$ について
+ここで有限個の $v_g$ の張る部分空間を考えます。[Gram–Schmidt直交化法](../../../基礎科目/F0/F0-00E1/index.md#thm-f0-00e1-gram-schmidt) により直交する長さ1のベクトルを順に作るには、まだ選んだベクトルで表せない $v_g$ を一つ選び、既選択の $e_j$ について
 
 $$
 w=v_g-\sum_j\langle v_g,e_j\rangle e_j
@@ -235,7 +237,14 @@ $$
 \frac{\langle c,c-Pc\rangle_G}{\langle c,c\rangle_G}
 $$
 
-の下限です。対称な生成集合では $s\mapsto s^{-1}$ と $g\mapsto gs$ による添字の置換から $\langle a,Pc\rangle_G=\langle Pa,c\rangle_G$ となります。このため $\lambda$ は有限対称行列 $I-P$ の定数方向を除いた最小固有値に対応します。本講の評価は固有値計算を前提とせず、上の比から直接求められます。
+の下限です。対称な生成集合では $s\mapsto s^{-1}$ と $g\mapsto gs$ による添字の置換から $\langle a,Pc\rangle_G=\langle Pa,c\rangle_G$ となります。平均0の関数の部分空間は $P$ で保たれます。その部分空間上の $I-P$ は対称です。[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral) を直交単位基底による表現行列に適用すると、直交単位固有ベクトル $u_j$ と実固有値 $\mu_j$（$1\le j\le n-1$）が得られます。非零の中心化関数 $c=\sum_j t_j u_j$ では
+
+$
+\frac{\langle c,c-Pc\rangle_G}{\langle c,c\rangle_G}
+=\frac{\sum_j \mu_j t_j^2}{\sum_j t_j^2}.
+$
+
+この比は最小固有値以上で、その固有ベクトルだけを選ぶと等号になります。従って $\lambda=\min_j\mu_j$ です。定数関数に対応する固有値0は除いています。$\lambda>0$ なので定数方向以外に固有値0はありません。本講の評価はこの固有値計算をしなくても、上の比から直接求められます。
 
 ### 四頂点で値域による違いを見る
 
@@ -263,7 +272,7 @@ $$
 
 ## 4. CAT(0)空間での重心と群作用への接続
 
-完備CAT(0)空間では足し算がなくても [有限加重重心](../NPCG8/index.md#def-npcg8-weighted-barycenter) が使えます。全対平均を重心からの二乗距離と比較して、Poincaré不等式が何を制御しているかを見ます。
+完備 [CAT(0)空間](../NPCG3/index.md#def-npcg3-cat-zero) では足し算がなくても [有限加重重心](../NPCG8/index.md#def-npcg8-weighted-barycenter) が使えます。全対平均を重心からの二乗距離と比較して、Poincaré不等式が何を制御しているかを見ます。
 
 <a id="thm-npcg11-barycenter-comparison"></a>
 
@@ -301,6 +310,8 @@ $g,h$ で平均すると右辺の各項は $2V$ になるので $A(f)\le4V$ で�
 
 例えば中心から長さ1の三枝が伸びる [有限距離木](../NPCG3/index.md#def-npcg3-finite-metric-tree) の先端三つを、法3の群の三元の像に選びます。[有限距離木のCAT(0)性](../NPCG3/index.md#thm-npcg3-tree-cat-zero) が成立します。中心から距離 $r$ の点での目的関数は $((1-r)^2+2(1+r)^2)/3=1+2r/3+r^2$ なので中心が重心で $V=1$ です。異なる先端の距離は2なので $A=6\cdot4/9=8/3>2V$ です。
 
+[等長群作用](../NPCG9/index.md#def-npcg9-isometric-action) による軌道写像では、辺に沿う移動距離は始点 $g$ に依存しません。重心は群の全ての操作で固定されるので、生成元による小さな移動量から共通固定点までの距離を評価できます。
+
 <a id="thm-npcg11-orbit-bound"></a>
 
 <!-- formal-statement-start -->
@@ -312,8 +323,6 @@ $$
 d(x,b)^2\le\frac{C}{2m}\sum_{s\in S}d(x,s\cdot x)^2.
 $$
 <!-- formal-statement-end -->
-
-[等長群作用](../NPCG9/index.md#def-npcg9-isometric-action) による軌道写像では、辺に沿う移動距離は始点 $g$ に依存しません。重心は群の全ての操作で固定されるので、生成元による小さな移動量から共通固定点までの距離を評価できます。
 
 <!-- proof-start -->
 ### 証明
@@ -445,7 +454,7 @@ $$
 \end{aligned}
 $$
 
-平均0より $a+c=-(b+d)$ なのでこれは $-(a+c)^2/4\le0$ です。非零の平均0関数について第3節の比は
+平均0より $a+c=-(b+d)$ なのでこれは $-(a+c)^2/4\le0$ です。非零の平均0関数について[実数値Poincaréギャップ](#def-npcg11-scalar-gap) に現れる比は
 
 $$
 \frac{\langle v,v-Pv\rangle_G}{\langle v,v\rangle_G}
@@ -496,7 +505,7 @@ $$
 F(z)=\tfrac12(z-7)^2+\tfrac12(z+1)^2=(z-3)^2+16.
 $$
 
-最小点は3で、鏡映で固定されます。移動距離は8、重心までの距離は4です。二頂点のギャップは2で、[Hilbert空間値Poincaré評価](#thm-npcg11-hilbert) により実直線で $C=1/2$ が使えます。[生成元の移動量による固定点評価](#thm-npcg11-orbit-bound) の右辺は
+最小点は3で、鏡映で固定されます。移動距離は8、重心までの距離は4です。[実数値Poincaréギャップ](#def-npcg11-scalar-gap) の二頂点の例によりギャップは2で、[Hilbert空間値Poincaré評価](#thm-npcg11-hilbert) により実直線で $C=1/2$ が使えます。[生成元の移動量による固定点評価](#thm-npcg11-orbit-bound) の右辺は
 
 $$
 \frac{1/2}{2\cdot1}\,8^2=16=d(7,3)^2.
@@ -529,7 +538,7 @@ $$
 =k^2+\frac{(k-1)k(2k-1)}3=\frac{2k^3+k}3.
 $$
 
-最後の和の公式は $(i+1)^3-i^3=3i^2+3i+1$ を足しても導けます。平均は $k/2$、二乗平均は $(2k^2+1)/6$ です。第3節の全対平均の恒等式により
+最後の和の公式は $(i+1)^3-i^3=3i^2+3i+1$ を足しても導けます。平均は $k/2$、二乗平均は $(2k^2+1)/6$ です。[Hilbert空間値Poincaré評価](#thm-npcg11-hilbert) の全対平均の恒等式を実直線に適用して
 
 $$
 A=2\left(\frac{2k^2+1}6-\frac{k^2}4\right)=\frac{k^2+2}6.

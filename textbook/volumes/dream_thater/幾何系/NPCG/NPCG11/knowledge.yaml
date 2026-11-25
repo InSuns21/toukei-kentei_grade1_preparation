@@ -1,7 +1,7 @@
 chapter: NPCG11
 scope: dream-theater
 coverage: complete
-prerequisites: [NPCG10, GCT14, F0-02C1]
+prerequisites: [NPCG10, GCT14, F0-02C1, F0-00F1]
 forward_references: []
 concepts:
   - id: metric-geometry.nonlinear-poincare
@@ -39,4 +39,4 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（生成元の移動量による固定点評価）"]
-    requires: [metric-geometry.pairwise-barycenter-comparison, metric-geometry.nonlinear-poincare, metric-geometry.isometric-group-action]
+    requires: [metric-geometry.pairwise-barycenter-comparison, metric-geometry.nonlinear-poincare, metric-geometry.isometric-group-action, metric-geometry.finite-group-fixed-point]

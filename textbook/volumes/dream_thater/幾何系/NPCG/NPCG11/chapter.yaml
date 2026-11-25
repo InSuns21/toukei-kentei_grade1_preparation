@@ -2,7 +2,7 @@ id: "NPCG11"
 title: "非線形Poincaré不等式：CayleyグラフとHilbert版の比較"
 volume: "foundations"
 status: supplementary
-prerequisites: [NPCG10, GCT14, F0-02C1]
+prerequisites: [NPCG10, GCT14, F0-02C1, F0-00F1]
 official_scope: []
 learning_objectives:
   - Cayleyグラフの全対平均と辺平均を区別し非線形Poincaré不等式を定義できる
