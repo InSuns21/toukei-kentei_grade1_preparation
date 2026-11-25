@@ -49,7 +49,7 @@ $$
 
 $T=\langle S_{\mathcal D}\rangle_{\mathcal C}$ と置く。$S$ は篩だから $T\subseteq S$ であり、$T$ が被覆なら[被覆篩の上方閉性](../CATB5-02/index.md#prop-catb5-02-cover-closure)から $S$ も被覆である。
 
-逆に $S\in J(c)$ とする。任意の $f:e\to c$ in $S$ に対し、任意の $h:d\to e$ with $d\in\mathcal D$ について $fh\in S_{\mathcal D}$ である。従って[篩の引き戻し](../CATB5-02/index.md#def-catb5-02-sieve-pullback) $f^*T$ は $H_e$ を含む。稠密性により $H_e\in J(e)$ なので、上方閉性から $f^*T\in J(e)$ となる。$S$ は被覆であり、そのすべての射に沿う $T$ の引き戻しが被覆なので、[Grothendieck位相の推移性](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)を $S,T$ に適用して $T\in J(c)$ を得る。
+逆に $S\in J(c)$ とする。任意の $S$ に属する $f:e\to c$ に対し、任意の $d\in\mathcal D$ を満たす $h:d\to e$ について $fh\in S_{\mathcal D}$ である。従って[篩の引き戻し](../CATB5-02/index.md#def-catb5-02-sieve-pullback) $f^*T$ は $H_e$ を含む。稠密性により $H_e\in J(e)$ なので、上方閉性から $f^*T\in J(e)$ となる。$S$ は被覆であり、そのすべての射に沿う $T$ の引き戻しが被覆なので、[Grothendieck位相の推移性](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)を $S,T$ に適用して $T\in J(c)$ を得る。
 <!-- proof-end -->
 
 ## 3. 部分圏にも被覆を入れる
@@ -93,7 +93,7 @@ $\mathcal D$ の篩 $R$ について、$\langle R\rangle_{\mathcal C}$ のうち
 
 最大篩は恒等射を含むから $\mathcal C$ の最大篩を生成し、被覆となる。
 
-次に $R\in J_{\mathcal D}(d)$ と $a:b\to d$ in $\mathcal D$ を取る。$T=\langle R\rangle_{\mathcal C}$ とすると、$a^*T\in J(b)$ である。始域が $\mathcal D$ の射 $k$ に対して
+次に $R\in J_{\mathcal D}(d)$ と $\mathcal D$ に属する $a:b\to d$ を取る。$T=\langle R\rangle_{\mathcal C}$ とすると、$a^*T\in J(b)$ である。始域が $\mathcal D$ の射 $k$ に対して
 
 $$
 k\in a^*T \iff ak\in T \iff ak\in R
@@ -102,7 +102,7 @@ $$
 
 最後の篩は $\mathcal D$ 内で取る。[被覆判定補題](#lem-catb5-10-cover-detection)を $a^*T$ に適用すると、$\langle a^*R\rangle_{\mathcal C}\in J(b)$ となり、引き戻し安定性が従う。
 
-推移性について、$R\in J_{\mathcal D}(d)$ と $d$ 上の篩 $Q$ を取り、すべての $r:b\to d$ in $R$ について $r^*Q\in J_{\mathcal D}(b)$ と仮定する。$\langle r^*Q\rangle_{\mathcal C}$ は $r^*\langle Q\rangle_{\mathcal C}$ に含まれるため、後者も被覆である。任意の $f:e\to d$ in $\langle R\rangle_{\mathcal C}$ は $f=ru$ と分解する。引き戻しの合成則から
+推移性について、$R\in J_{\mathcal D}(d)$ と $d$ 上の篩 $Q$ を取り、すべての $R$ に属する $r:b\to d$ について $r^*Q\in J_{\mathcal D}(b)$ と仮定する。$\langle r^*Q\rangle_{\mathcal C}$ は $r^*\langle Q\rangle_{\mathcal C}$ に含まれるため、後者も被覆である。任意の $\langle R\rangle_{\mathcal C}$ に属する $f:e\to d$ は $f=ru$ と分解する。[篩の引き戻しの合成則](../CATB5-02/index.md#prop-catb5-02-sieve-pullback-laws)から
 
 $$
 f^*\langle Q\rangle_{\mathcal C}
@@ -122,7 +122,7 @@ $\operatorname{Sh}(\mathcal C,J)$ の対象 $F$ を $\mathcal D$ に制限する
 <!-- formal-statement-start -->
 > **定義（部分siteからの整合族による延長）**
 >
-> 小さいsite $(\mathcal C,J)$ の稠密充満部分圏 $\mathcal D$ とその誘導位相上の集合値層 $G$ に対し、前層 $EG$ の $c$ での値を、各射 $f:d\to c$ with $d\in\mathcal D$ に対する元 $x_f\in G(d)$ の族で、すべての $\mathcal D$ の射 $h:b\to d$ について
+> 小さいsite $(\mathcal C,J)$ の稠密充満部分圏 $\mathcal D$ とその誘導位相上の集合値層 $G$ に対し、前層 $EG$ の $c$ での値を、各射 $d\in\mathcal D$ を満たす $f:d\to c$ に対する元 $x_f\in G(d)$ の族で、すべての $\mathcal D$ の射 $h:b\to d$ について
 
 $$
 G(h)x_f=x_{fh}
@@ -167,9 +167,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$F$ を $\mathcal C$ 上の層、$T\in J_{\mathcal D}(d)$、$(s_t)_{t\in T}$ を $RF$ の整合族とする。$v:e\to d$ in $\langle T\rangle_{\mathcal C}$ を $v=tu$ と分解し、候補を $s_v=F(u)s_t$ と置く。
+$F$ を $\mathcal C$ 上の層、$T\in J_{\mathcal D}(d)$、$(s_t)_{t\in T}$ を $RF$ の整合族とする。$\langle T\rangle_{\mathcal C}$ に属する $v:e\to d$ を $v=tu$ と分解し、候補を $s_v=F(u)s_t$ と置く。
 
-別の分解 $v=t'u'$ があるとする。任意の $h:b\to e$ with $b\in\mathcal D$ に対し、充満性から $uh,u'h$ は $\mathcal D$ の射なので
+別の分解 $v=t'u'$ があるとする。任意の $b\in\mathcal D$ を満たす $h:b\to e$ に対し、充満性から $uh,u'h$ は $\mathcal D$ の射なので
 
 $$
 F(h)F(u)s_t=s_{tuh}=s_{t'u'h}
@@ -192,7 +192,7 @@ $$
 <!-- formal-statement-start -->
 > **命題（整合族による延長の層性）**
 >
-> 小さいsite $(\mathcal C,J)$ の稠密充満部分圏 $\mathcal D$ 上の集合値層 $G$ に対し、整合族による延長 $EG$ は $\mathcal C$ 上の層である。
+> 小さいsite $(\mathcal C,J)$ の稠密充満部分圏 $\mathcal D$ の誘導位相上の集合値層 $G$ に対し、整合族による延長 $EG$ は $\mathcal C$ 上の層である。
 <!-- formal-statement-end -->
 
 被覆上の $EG$ の局所切断を貼るため、まず任意の $f:d\to c$ に沿って $G(d)$ の元を復元する。$f$ 自身が被覆篩に含まれなくても、$f$ を十分細かい射で前合成すれば被覆篩に入る。
@@ -202,7 +202,7 @@ $$
 
 $S\in J(c)$ と $EG$ の整合族 $(z_v)_{v\in S}$ を取る。$v:e\to c$ なら $z_v\in EG(e)$ であり、$z_v$ の成分を $(z_v)_g$ と書く。
 
-各 $f:d\to c$ with $d\in\mathcal D$ について $\mathcal D$ の篩
+各 $d\in\mathcal D$ を満たす $f:d\to c$ について $\mathcal D$ の篩
 
 $$
 T_f=\{h:b\to d\text{ in }\mathcal D\mid fh\in S\}
@@ -210,22 +210,22 @@ $$
 
 を取る。前合成で閉じている。$f^*S\in J(d)$ であり、$T_f$ はその $\mathcal D$ に属する始域の射の族だから、[被覆判定補題](#lem-catb5-10-cover-detection)より $T_f\in J_{\mathcal D}(d)$ となる。
 
-$h:b\to d$ in $T_f$ に対し
+$T_f$ に属する $h:b\to d$ に対し
 
 $$
 y_h=(z_{fh})_{1_b}\in G(b)
 $$
 
-と定める。$k:a\to b$ in $\mathcal D$ に対し、$z_{fh}$ 自身の成分の整合性と $(z_v)$ の整合性を順に使うと
+と定める。$\mathcal D$ に属する $k:a\to b$ に対し、$z_{fh}$ 自身の成分の整合性と $(z_v)$ の整合性を順に使うと
 
 $$
 G(k)y_h=(z_{fh})_k
 =(z_{fhk})_{1_a}=y_{hk}.
 $$
 
-従って $G$ の[層条件](../CATB5-03/index.md#def-catb5-03-site-sheaf)で $x_f\in G(d)$ が一意に存在し、$G(h)x_f=y_h$ for $h\in T_f$ となる。
+従って $G$ の[層条件](../CATB5-03/index.md#def-catb5-03-site-sheaf)で $x_f\in G(d)$ が一意に存在し、すべての $h\in T_f$ について $G(h)x_f=y_h$ となる。
 
-次に $l:b\to d$ in $\mathcal D$ を取る。$k:a\to b$ in $T_{fl}$ なら $lk\in T_f$ だから
+次に $\mathcal D$ に属する $l:b\to d$ を取る。$T_{fl}$ に属する $k:a\to b$ なら $lk\in T_f$ だから
 
 $$
 G(k)G(l)x_f=G(lk)x_f=(z_{flk})_{1_a}.
@@ -233,7 +233,7 @@ $$
 
 右辺は $G(k)x_{fl}$ にも等しい。$T_{fl}$ が被覆であることによる一意性から $G(l)x_f=x_{fl}$ となり、$x=(x_f)_f\in EG(c)$ が得られる。
 
-$v:e\to c$ in $S$ と $g:b\to e$ with $b\in\mathcal D$ に対して $vg\in S$ なので、$1_b\in T_{vg}$ である。よって
+$S$ に属する $v:e\to c$ と $b\in\mathcal D$ を満たす $g:b\to e$ に対して $vg\in S$ なので、$1_b\in T_{vg}$ である。よって
 
 $$
 x_{vg}=(z_{vg})_{1_b}=(z_v)_g.
@@ -289,9 +289,9 @@ $$
 s\mapsto(F(f)s)_f
 $$
 
-と定める。制限の合成則により整合族になる。単射性は、二つの切断が $\mathcal D$ の始域の全射で一致すれば生成篩 $H_c$ 全体で一致し、稠密性による層の一意性から等しいことによる。
+と定める。制限の合成則により整合族になる。単射性は、二つの切断が $\mathcal D$ の対象を始域とするすべての射で一致すれば生成篩 $H_c$ 全体で一致し、稠密性による層の一意性から等しいことによる。
 
-全射性を示す。$x\in ERF(c)$ を取り、$v:e\to c$ in $H_c$ を $v=fu$ と分解する。ただし $f:d\to c$ with $d\in\mathcal D$ とする。$s_v=F(u)x_f$ と置く。別分解 $v=f'u'$ について任意の $h:b\to e$ with $b\in\mathcal D$ に制限すれば
+全射性を示す。$x\in ERF(c)$ を取り、$H_c$ に属する $v:e\to c$ を $v=fu$ と分解する。ただし $d\in\mathcal D$ を満たす $f:d\to c$ とする。$s_v=F(u)x_f$ と置く。別分解 $v=f'u'$ について任意の $b\in\mathcal D$ を満たす $h:b\to e$ に制限すれば
 
 $$
 F(h)s_v=x_{fuh}=x_{f'u'h}.
@@ -335,11 +335,11 @@ $\mathcal C=\mathcal O(X)$ とする。[開集合圏のGrothendieck位相](../CA
 $\mathcal B$ の篩 $T$ が $\mathcal C$ で生成する篩の始域は、$T$ に属する基底開集合の部分開集合すべてである。従ってその合併は $T$ の始域の合併と等しい。誘導位相の被覆条件は上記の合併条件と一致する。[稠密充満部分siteの比較定理](#thm-catb5-10-comparison)を適用し、[開集合圏の層条件との同値性](../CATB5-03/index.md#thm-catb5-03-open-equivalence)を使えば結論を得る。
 <!-- proof-end -->
 
-例えば離散三点空間では全開集合の圏は八対象、単点基底の圏は三対象であり、これらの圏自体は同値でない。包含の圏では異なる対象は同型でないので、対象の同型類の数が異なるからである。しかし層圏はいずれも三つの集合の対ならぬ三つ組の圏に同値であり、任意の開集合 $U$ の切断は単点の切断の直積になる。
+例えば離散三点空間では全開集合の圏は八対象、単点基底の圏は三対象であり、これらの圏自体は同値でない。包含の圏では異なる対象は同型でないので、対象の同型類の数が異なるからである。しかし層圏はいずれも集合の三つ組の圏に同値であり、任意の開集合 $U$ の切断は単点の切断の直積になる。
 
 稠密性を落とすと、離散二点空間から $\{p\}$ だけを残した場合のように、$q$ の情報が消える。$p$ で一元集合、$q$ で一元集合または二元集合を取る二つの層は同型でないが、制限先では同じ層となる。$q$ への射が残らず $H_{\{q\}}$ が被覆でないため、比較定理の一意復元が破れる。
 
-[Grothendieckトポス](../CATB5-07/index.md#def-catb5-07-grothendieck-topos)はあるsiteの層圏と同値な圏である。今講の比較定理は、siteがそのトポスの表示の一つであり、表示自体は一意とは限らないことを示す。圏同値は有限極限を保存する。実際、極限錐に向かう射の普遍性は、同値関手がHom集合の全単射を与え、すべての対象が像と同型であることから移送される。また上で構成した二つの自然同型により逆関手は右随伴にもなる。従って $E$ を逆像、$R$ を直像とする[幾何学的射](../CATB5-09/index.md#def-catb5-09-geometric-morphism)は圏同値を与える。これがsiteの変更を層の幾何の変更と区別する理由である。
+[Grothendieckトポス](../CATB5-07/index.md#def-catb5-07-grothendieck-topos)はあるsiteの層圏と同値な圏である。今講の比較定理は、siteがそのトポスの表示の一つであり、表示自体は一意とは限らないことを示す。圏同値は有限極限を保存する。実際、極限錐に向かう射の普遍性は、同値関手がHom集合の全単射を与え、すべての対象が像と同型であることから移送される。また $EG$ から $F$ への層の射 $\phi$ に $R\phi$ と $G\cong REG$ の合成を対応させると、$G\to RF$ への自然な全単射が得られる。逆対応は $\psi:G\to RF$ に $E\psi$ と $ERF\cong F$ の合成を取ることである。恒等射成分と制限成分の復元式から二つの対応は互いに逆となる。従って $E$ を逆像、$R$ を直像とする[幾何学的射](../CATB5-09/index.md#def-catb5-09-geometric-morphism)は圏同値を与える。これがsiteの変更を層の幾何の変更と区別する理由である。
 
 ## 7. 演習と詳細解答
 
@@ -429,12 +429,12 @@ $$
 
 - Level: B
 
-小さいsiteの稠密充満部分圏を $\mathcal D$ とする。対象 $c$ 上の任意の被覆篩 $S$ と任意の $v:e\to c$ in $S$ に対し、$\mathcal D$ の対象から $e$ への射を使って $v^*\langle S_{\mathcal D}\rangle_{\mathcal C}$ が被覆であることを示せ。
+小さいsiteの稠密充満部分圏を $\mathcal D$ とする。対象 $c$ 上の任意の被覆篩 $S$ と任意の $S$ に属する $v:e\to c$ に対し、$\mathcal D$ の対象から $e$ への射を使って $v^*\langle S_{\mathcal D}\rangle_{\mathcal C}$ が被覆であることを示せ。
 
 <!-- solution-start -->
 **詳細解答**
 
-任意の $h:d\to e$ with $d\in\mathcal D$ を取る。$S$ は篩だから $vh\in S$ であり、始域 $d$ が $\mathcal D$ にあるため $vh\in S_{\mathcal D}$ となる。[篩の引き戻し](../CATB5-02/index.md#def-catb5-02-sieve-pullback)の定義から
+任意の $d\in\mathcal D$ を満たす $h:d\to e$ を取る。$S$ は篩だから $vh\in S$ であり、始域 $d$ が $\mathcal D$ にあるため $vh\in S_{\mathcal D}$ となる。[篩の引き戻し](../CATB5-02/index.md#def-catb5-02-sieve-pullback)の定義から
 
 $$
 h\in v^*\langle S_{\mathcal D}\rangle_{\mathcal C}.
@@ -452,7 +452,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-任意の $h:b\to e$ with $b\in\mathcal D$ を取る。$uh,u'h$ は始域と終域が $\mathcal D$ に属し、充満性からその射である。$x$ の[整合条件](#def-catb5-10-extension)と反変関手の合成則により
+任意の $b\in\mathcal D$ を満たす $h:b\to e$ を取る。$uh,u'h$ は始域と終域が $\mathcal D$ に属し、充満性からその射である。$x$ の[整合条件](#def-catb5-10-extension)と反変関手の合成則により
 
 $$
 F(h)F(u)x_f=F(uh)x_f=x_{fuh},
