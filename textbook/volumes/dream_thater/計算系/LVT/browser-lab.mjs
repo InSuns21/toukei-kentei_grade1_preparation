@@ -214,7 +214,11 @@ export const lessons = {
   'LVT6-05': { module:'LvtTenant', modes:[
     ['Inspect.lean','テナント境界・安全性・完全性・実行経路','別テナントの拒否、所有者の許可、経路、定理の公理を確認。'],
     ['Failure.lean','別テナントを許可する誤った等式','型不一致で拒否される。']
-  ], commands:"lake build\nlake test\nlake env lean Inspect.lean\nnpm install --ignore-scripts\nnpm test\n# 意図的な失敗\nlake env lean Failure.lean" }
+  ], commands:"lake build\nlake test\nlake env lean Inspect.lean\nnpm install --ignore-scripts\nnpm test\n# 意図的な失敗\nlake env lean Failure.lean" },
+  'LVT6-06': { module:'LvtIntegration', modes:[
+    ['Inspect.lean','四ビット認可の証明と具体例','別テナント・非所有者の拒否、本人の許可、定理の公理を確認。'],
+    ['Failure.lean','別テナントを許可する誤った等式','型不一致で拒否される。']
+  ], commands:"python3 harness.py\n# 意図的な不一致\npython3 harness.py --mutate\npython3 harness.py --replay 1000" }
 };
 export function combine(module, definitions, experiment, suffix='') {
   // Only the exact local module import is replaced by its source.
