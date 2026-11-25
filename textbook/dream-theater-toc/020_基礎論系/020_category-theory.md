@@ -96,3 +96,4 @@
 93. [CATB7-01 複体と鎖写像](textbook/volumes/dream_thater/基礎論系/CATB/CATB7-01/index.md)
 94. [CATB7-02 鎖ホモトピー・シフト・写像錐](textbook/volumes/dream_thater/基礎論系/CATB/CATB7-02/index.md)
 95. [CATB7-03 擬同型と局所化](textbook/volumes/dream_thater/基礎論系/CATB/CATB7-03/index.md)
+96. [CATB7-04 導来圏と完全三角形](textbook/volumes/dream_thater/基礎論系/CATB/CATB7-04/index.md)
