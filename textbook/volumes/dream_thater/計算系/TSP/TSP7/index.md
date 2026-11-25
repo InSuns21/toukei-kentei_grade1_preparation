@@ -12,7 +12,7 @@ $$
 x=\sum_i x_i u_i,\qquad y=\sum_j y_j v_j
 $$
 
-です。[代数的双対](../../../基礎科目/LA/LA3A/index.md#def-la3a-dual-space) $U^*,V^*$ はそれぞれ $U,V$ から $K$ への線形写像の空間です。[双対基底](../../../基礎科目/LA/LA3A/index.md#def-la3a-dual-basis)を $u^i,v^j$ と書きます。上付き添字はべきではなく座標番号です。座標を取り出す写像 $u^i,v^j$ は $u^i(u_a)=\delta_{ia}$、$v^j(v_b)=\delta_{jb}$ で定まります。ここで $\delta$ は等しい添字なら1、それ以外なら0です。[双対基底定理](../../../基礎科目/LA/LA3A/index.md#thm-la3a-dual-basis)により、これらはそれぞれの双対空間の基底です。実際、任意の線形写像 $\ell:U\to K$ は $\ell(x)=\sum_i x_i\ell(u_i)$ と展開できるため、$\ell=\sum_i\ell(u_i)u^i$ です。一意性は各 $u_i$ で評価すれば従います。
+です。[代数的双対](../../../基礎科目/LA/LA3A/index.md#def-la3a-dual-space) $U^*,V^*$ はそれぞれ $U,V$ から $K$ への線形写像の空間です。[双対基底](../../../基礎科目/LA/LA3A/index.md#def-la3a-dual-basis)を $u^i,v^j$ と書きます。上付き添字はべきではなく座標番号です。座標を取り出す写像 $u^i,v^j$ は $u^i(u_a)=\delta_{ia}$、$v^j(v_b)=\delta_{jb}$ で定まります。ここで $\delta$ は等しい添字なら1、それ以外なら0です。[双対基底定理](../../../基礎科目/LA/LA3A/index.md#thm-la3a-dual-basis)により、これらはそれぞれ代数的双対 $U^*,V^*$ の基底です。実際、任意の線形写像 $\ell:U\to K$ は $\ell(x)=\sum_i x_i\ell(u_i)$ と展開できるため、$\ell=\sum_i\ell(u_i)u^i$ です。一意性は各 $u_i$ で評価すれば従います。
 
 双線形性によって $B$ の値は基底の組に対する値だけで決まります。$B(u_i,v_j)=\sum_k b_{ijk}w_k$ とおけば、
 
