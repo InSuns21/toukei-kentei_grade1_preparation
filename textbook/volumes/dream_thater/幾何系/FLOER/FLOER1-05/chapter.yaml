@@ -4,6 +4,8 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - FLOER1-04
+  - GEO18
+  - GBG29
 official_scope: []
 learning_objectives:
   - 境界を保つ予備貼り合わせを作り指数的誤差を評価できる
