@@ -559,7 +559,7 @@ $$
 \mathrm{VBP}_K=\mathrm{VP}_K=\mathrm{VNP}_K.
 $$
 
-逆にこの等号が成立するなら、Hamilton閉路多項式族は VNP に属するので VBP に属します。行列式族の VBP 完全性により $\mathrm{HC}\le_p\mathrm{DET}$ です。ここで使ったのは仮定付きの同値であり、帰着そのものを構成したわけではありません。
+逆にこの等号が成立するなら、Hamilton閉路多項式族は VNP に属するので VBP に属します。[行列式族の VBP 完全性](#thm-acomp13-det-complete)により $\mathrm{HC}\le_p\mathrm{DET}$ です。ここで使ったのは仮定付きの同値であり、帰着そのものを構成したわけではありません。
 <!-- solution-end -->
 
 ## 6. まとめ
