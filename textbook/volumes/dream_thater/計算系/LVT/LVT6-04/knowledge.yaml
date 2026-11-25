@@ -1,0 +1,19 @@
+chapter: LVT6-04
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT6-03, LVT5-05, LVT5-08, LVT2-03]
+concepts:
+  - id: lean-verification.finite-authorization-policy
+    name: 有限認可ポリシーモデル
+    kind: definition
+    introduction: formal
+  - id: lean-verification.authorization-allow-iff
+    name: 認可判断の許可条件
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.finite-authorization-policy]
+  - id: lean-verification.authorization-suspension
+    name: 利用停止規則の拒否保存
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.authorization-allow-iff]
