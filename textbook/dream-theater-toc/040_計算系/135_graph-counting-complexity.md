@@ -10,3 +10,4 @@
 7. [GCT7 グラフ準同型・制約充足問題と因子グラフ](textbook/volumes/dream_thater/計算系/GCT/GCT7/index.md)
 8. [GCT8 格子状制約・局所表・重み付き分配和](textbook/volumes/dream_thater/計算系/GCT/GCT8/index.md)
 9. [GCT9 計数複雑性クラス：#P・FP・GapP](textbook/volumes/dream_thater/計算系/GCT/GCT9/index.md)
+10. [GCT10 parsimonious帰着・計数Turing帰着](textbook/volumes/dream_thater/計算系/GCT/GCT10/index.md)
