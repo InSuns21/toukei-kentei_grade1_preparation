@@ -1,0 +1,55 @@
+chapter: ACOMP18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ACOMP17
+forward_references: []
+concepts:
+  - id: algebraic-complexity.multilinearity
+    name: "多重線形多項式と構文的多重線形回路"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多重線形多項式と構文的多重線形回路）"]
+    requires: [algebraic-complexity.arithmetic-circuit]
+  - id: algebraic-complexity.syntactic-multilinearity
+    name: "構文的条件による多重線形性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（構文的条件による多重線形性）"]
+    requires: [algebraic-complexity.multilinearity]
+  - id: algebraic-complexity.partition-coefficient-matrix
+    name: "変数分割係数行列"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（変数分割係数行列）"]
+    requires: [algebraic-complexity.multilinearity]
+  - id: algebraic-complexity.partition-separation-rank
+    name: "変数分割による分離積数の下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（変数分割による分離積数の下界）"]
+    requires: [algebraic-complexity.partition-coefficient-matrix]
+  - id: algebraic-complexity.shallow-circuit-model
+    name: "深さ2の単項式和と斉次深さ3回路"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（深さ2の単項式和と斉次深さ3回路）"]
+    requires: [algebraic-complexity.arithmetic-circuit-depth]
+  - id: algebraic-complexity.fixed-order-derivative-space
+    name: "定次数偏微分空間"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（定次数偏微分空間）"]
+    requires: [algebraic-complexity.formal-partial-derivative]
+  - id: algebraic-complexity.shallow-derivative-dimension
+    name: "斉次深さ3の偏微分次元上界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["補題（斉次深さ3の偏微分次元上界）"]
+    requires: [algebraic-complexity.shallow-circuit-model, algebraic-complexity.fixed-order-derivative-space, algebraic-complexity.formal-partial-rules]
+  - id: algebraic-complexity.homogeneous-depth-three-bound
+    name: "斉次深さ3回路の指数下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（斉次深さ3回路の指数下界）"]
+    requires: [algebraic-complexity.shallow-derivative-dimension, algebraic-complexity.syntactic-multilinearity]

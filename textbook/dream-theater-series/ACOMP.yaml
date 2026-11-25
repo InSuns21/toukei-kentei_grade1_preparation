@@ -74,7 +74,7 @@ chapters:
     title: "非可換ABPとNisan型ランク下界"
   - id: ACOMP18
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP18
-    status: planned
+    status: completed
     title: "制限付き可換回路：multilinear・bounded-depthの下界"
   - id: ACOMP19
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP19
