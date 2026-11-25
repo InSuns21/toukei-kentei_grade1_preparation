@@ -239,7 +239,13 @@ E[V_{\epsilon,n}(f)V_{\eta,n}(g)]
 =n!\int f(x)g(y)C_{\epsilon,\eta}(x-y)^n\,dx\,dy.
 $$
 
-次に任意の有界球 $B_R$ 上で $C_{\epsilon,\eta}\to C_d$ が $L^n$ で成り立つことを示す。[短距離評価](#prop-mqfc14-singularity) に続く動径積分から $C_d^n$ は有界球で可積分である。$\kappa=\rho_\epsilon*\rho_\eta$ は非負で積分1、支持半径 $h=\epsilon+\eta$ の平均核である。$h<\delta$ とし、確率測度 $\kappa(w)dw$ に関して $n>1$ なら Hölder の不等式を関数 $|C_d(z-w)|$ と定数1に適用する。後者の $n/(n-1)$ ノルムは1なので、平均の絶対値の $n$ 乗は絶対値の $n$ 乗の平均以下になる。$n=1$ なら積分の三角不等式である。これを積分して
+次に任意の有界球 $B_R$ 上で $C_{\epsilon,\eta}\to C_d$ が $L^n$ で成り立つことを示す。[短距離評価](#prop-mqfc14-singularity) に続く動径積分から $C_d^n$ は有界球で可積分である。
+
+$\kappa=\rho_\epsilon*\rho_\eta$ は非負で積分1、支持半径 $h=\epsilon+\eta$ の平均核である。
+
+$h<\delta$ とし、確率測度 $\kappa(w)dw$ に関して $n>1$ なら Hölder の不等式を関数 $|C_d(z-w)|$ と定数1に適用する。後者の $n/(n-1)$ ノルムは1なので、平均の絶対値の $n$ 乗は絶対値の $n$ 乗の平均以下になる。
+
+$n=1$ なら積分の三角不等式である。これを積分して
 
 $$
 \begin{aligned}
