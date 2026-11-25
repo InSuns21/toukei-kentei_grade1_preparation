@@ -1,0 +1,28 @@
+id: "CATB8-02"
+title: "微分付き次数付き代数と懸垂"
+volume: foundations
+status: supplementary
+prerequisites: [CATB8-01, CATB7-02]
+official_scope: []
+learning_objectives:
+  - 次数付き代数と微分付き次数付き代数の条件を具体例で確認できる
+  - 余鎖次数のシフトによる微分と積の符号を計算できる
+  - 被約テンソル余代数の余積と余導分の延長を構成できる
+  - 余導分の二乗零と微分付き代数の恒等式の同値性を証明できる
+  - 三入力演算を加えた場合の低次の恒等式を導出できる
+definitions:
+  - { id: CATB8-02-DEF-01, name: "次数付き代数" }
+  - { id: CATB8-02-DEF-02, name: "微分付き次数付き代数" }
+  - { id: CATB8-02-DEF-03, name: "被約テンソル余代数" }
+  - { id: CATB8-02-DEF-04, name: "余導分" }
+theorems:
+  - { id: CATB8-02-PROP-01, name: "積と余鎖写像条件" }
+  - { id: CATB8-02-THM-01, name: "余導分の延長と一意性" }
+  - { id: CATB8-02-PROP-02, name: "奇数次数余導分の二乗" }
+  - { id: CATB8-02-THM-02, name: "二乗零と微分付き代数の恒等式" }
+canonical_examples: [二乗零イデアルを持つ代数, 懸垂の符号, 三文字の切断, 非結合的な積]
+problem_patterns: [CATB8-02-A01, CATB8-02-A02, CATB8-02-A03, CATB8-02-A04, CATB8-02-B01, CATB8-02-B02, CATB8-02-B03, CATB8-02-B04, CATB8-02-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 1 }
