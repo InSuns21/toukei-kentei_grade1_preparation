@@ -397,7 +397,7 @@ $$
 (u^{\mathsf T}Au+2u^{\mathsf T}Kv+v^{\mathsf T}Av)\right]
 $$
 
-となります。[Gaussian型特性汎関数の有限次元整合性](../MQFC6/index.md#thm-mqfc6-gaussian-characteristic) の証明で用いた特性関数の一意性から $(X,Y)$ と $(Z+U,Z+V)$ は同じ分布になります。
+となります。[Gaussian型特性汎関数の有限次元整合性](../MQFC6/index.md#thm-mqfc6-gaussian-characteristic) の証明で用いた [特性関数の一意性](../../../解析系/F0/F0-00P6/index.md#thm-f0-00p6-uniqueness) から $(X,Y)$ と $(Z+U,Z+V)$ は同じ分布になります。
 
 $F=P(X)$ とします。$Z$ の分布を $\nu$、$U,V$ に共通の分布を $\rho$ とすれば
 
