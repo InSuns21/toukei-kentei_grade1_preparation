@@ -67,9 +67,49 @@ function presentationSignature(source) {
       .replace(/[ \t]+/g, ' ').trim();
   }).filter(Boolean).join('\n');
 }
+// Narrow exact transformation for legacy numbered exercise/answer sections.
+// Only move complete, uniquely matched answer blocks, keep their heading and
+// all bytes of their contents, and retain the old section's Docsify anchor.
+// Never accept arbitrary reorderings or changes of mathematical content.
+function relocateLegacySolutions(source) {
+  const exercise = /^## (\d+)\. 演習\s*$/m.exec(source);
+  const answer = /^## (\d+)\. 詳細解答\s*$/m.exec(source);
+  if (!exercise || !answer || exercise.index >= answer.index) return null;
+  const rest = answer.index + answer[0].length;
+  const following = /^## .+$/m.exec(source.slice(rest));
+  if (!following) return null;
+  const end = rest + following.index;
+  const questions = source.slice(exercise.index, answer.index).replace(/\n---\s*$/, '').trimEnd();
+  const answers = source.slice(rest, end).replace(/\n---\s*$/, '').trim();
+  if (questions.includes('<!-- solution-') || answers.includes('<!-- solution-')) return null;
+  const qs = [...questions.matchAll(/^<a id="ex-([a-z0-9_-]+)-([abc]\d+)"><\/a>\n#### ([A-Z0-9_-]+)-([ABC])0*(\d+) .+$/gm)];
+  const as = [...answers.matchAll(/^### ([ABC]\d+) 解答\s*$/gm)];
+  if (!qs.length || qs.length !== as.length || as[0].index !== 0) return null;
+  if ([...questions.matchAll(/^- Level: [ABC]$/gm)].length !== qs.length) return null;
+  const byId = new Map(as.map((m, i) => [m[1], answers.slice(m.index, as[i+1]?.index ?? answers.length).trim()]));
+  if (byId.size !== as.length) return null;
+  const used = new Set();
+  let out = questions;
+  for (let i = qs.length - 1; i >= 0; i--) {
+    const q = qs[i], key = q[4] + q[5];
+    if (q[1] !== q[3].toLowerCase() || q[2].toUpperCase() !== key || !byId.has(key) || used.has(key)) return null;
+    used.add(key);
+    let j = qs[i+1]?.index ?? questions.length;
+    const group = /^### Level [ABC]\s*$/m.exec(questions.slice(q.index + q[0].length, j));
+    if (group) j = q.index + q[0].length + group.index;
+    const before = questions.slice(0, j).trimEnd();
+    const tail = out.slice(j).trimStart();
+    const legacyAnchor = i === 0 ? '<a id="_' + answer[1] + '-詳細解答"></a>\n\n' : '';
+    out = before + '\n\n' + legacyAnchor + '<!-- solution-start -->\n' + byId.get(key)
+      + '\n<!-- solution-end -->' + (tail ? '\n\n' + tail : '');
+  }
+  return source.slice(0, exercise.index) + out + '\n\n---\n\n' + source.slice(end);
+}
+
 function isVerifiedFormatOnly(before, after) {
   if (before === null || before === after) return before !== null;
   if (!balancedSolutionMarkers(before) || !balancedSolutionMarkers(after)) return false;
+  if (relocateLegacySolutions(before) === after) return true;
   if (JSON.stringify(stableInventory(before)) !== JSON.stringify(stableInventory(after))) return false;
   return presentationSignature(before) === presentationSignature(after);
 }
@@ -140,6 +180,163 @@ function selfTest() {
   assert(!isVerifiedFormatOnly(exercise, folded.replace('計算結果', '別の結果')), 'text changes must still fail');
   assert(!isVerifiedFormatOnly(exercise, folded.replace('<!-- solution-end -->', '<!-- solution-start -->')), 'unbalanced solution markers must fail');
   assert(!isVerifiedFormatOnly(exercise, folded + '\n<!-- unrelated -->'), 'other comments are not exempt');
+  const legacy = '## 10. 演習\n\n### Level A\n\n<a id="ex-test-a1"></a>\n#### TEST-A01 問題\n- Level: A\n\n$x$\n\n<a id="ex-test-a2"></a>\n#### TEST-A02 問題\n- Level: A\n\n$y$\n\n---\n\n## 11. 詳細解答\n\n### A1 解答\n\n$x=1$\n\n### A2 解答\n\n$y=2$\n\n---\n\n## 12. まとめ\n';
+  const moved = relocateLegacySolutions(legacy);
+  assert(moved && moved.includes('$x=1$\n<!-- solution-end -->\n\n<a id="ex-test-a2"></a>'));
+  assert(isVerifiedFormatOnly(legacy, moved), 'exact ID-matched answer relocation is presentation only');
+  assert(!isVerifiedFormatOnly(legacy, moved.replace('$x=1 '章のすべての主要証明と演習・詳細解答を出発点から検算。代表定理では双線形性を使い、各項の係数を展開して一致を確認した。代表演習は端点を代入し、境界条件を確認した。別観点で読み直し、未解消の問題はない。';
+  assert.deepEqual(checkChapter('T1', {mode:'substantive', text:substantive}), []);
+  assert.deepEqual(checkChapter('T1', {mode:'local-math', text:'変更した証明を最初から検算し、その定理を使う二つの演習解答も確認した。読者向けの途中式とリンクを確認し、未解決の問題はない。'}), []);
+  assert(checkChapter('T1', {mode:'substantive', text:'確認済み'}).length > 0);
+  assert(checkChapter('T1', {mode:'substantive', text:'<記入欄>'}).length > 0);
+  assert(checkChapter('T1', null).length > 0);
+  assert(recordLength('<!-- memo -->\n**確認**：<内容>') < minimumRecordLengths.format);
+  console.log('DREAM THEATER review evidence self-test passed');
+}
+
+function readReviewBody() {
+  // Large multi-chapter PRs can exceed the kernel's per-argument/env-string
+  // limit when GitHub expands pull_request.body into a step environment var.
+  // The runner's event JSON is already on disk and has no such limit.
+  if (process.env.GITHUB_EVENT_PATH) {
+    const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
+    if (typeof event.pull_request?.body === 'string') return event.pull_request.body;
+  }
+  return process.env.DREAM_THEATER_PR_BODY || '';
+}
+
+const args = process.argv.slice(2);
+if (args.includes('--self-test')) {
+  selfTest();
+} else {
+  const i = args.indexOf('--base');
+  const base = i >= 0 ? args[i + 1] : process.env.TEXTBOOK_BASE_SHA;
+  if (!/^[0-9a-f]{40}$/i.test(base || '')) {
+    console.error('Specify base commit SHA using --base or TEXTBOOK_BASE_SHA');
+    process.exit(2);
+  }
+  const names = execFileSync('git', ['-c', 'core.quotePath=false', 'diff', '--name-only', '--diff-filter=ACMR', base, 'HEAD', '--', 'textbook/volumes/dream_thater'], { encoding: 'utf8' })
+    .split('\n')
+    .filter(s => /^textbook\/volumes\/dream_thater\/[^/]+\/[^/]+\/[^/]+\/index\.md$/.test(s));
+  if (names.length === 0) {
+    console.log('No changed DREAM THEATER chapter index.md: review evidence not required');
+    process.exit(0);
+  }
+  const body = readReviewBody();
+  const sections = sectionsFrom(body);
+  const problems = [];
+  const formatOnly = [];
+  for (const name of names) {
+    const id = path.posix.basename(path.posix.dirname(name));
+    const after = fs.readFileSync(name, 'utf8');
+    let before = null;
+    try { before = execFileSync('git', ['show', base + ':' + name], {encoding:'utf8'}); }
+    catch { /* Added chapter or unavailable base content: never auto-classify as A. */ }
+    if (isVerifiedFormatOnly(before, after)) {
+      if (sections.has(id)) problems.push(id + ': unnecessary DT-REVIEW marker for verified format-only chapter');
+      formatOnly.push(id);
+      continue;
+    }
+    const targets = inventory(after);
+    const section = sections.get(id);
+    if (before === null && section?.mode === 'local-math')
+      problems.push(id + ': newly added chapter requires substantive (C) review evidence');
+    const violations = checkChapter(id, section);
+    problems.push(...violations.map(v => id + ': ' + v));
+    if (!violations.length) console.log(id + ': ' + section.mode + ' review evidence recorded; ' + targets.anchors.length + ' primary results and ' + targets.exercises.length + ' exercises present');
+  }
+  if (formatOnly.length) {
+    const record = formatReview(body);
+    if (!record) problems.push('format-only chapters require a shared <!-- DT-FORMAT-REVIEW --> record');
+    else if (recordLength(record) < minimumRecordLengths.format)
+      problems.push('format-only review: provide a short rendering/diff verification summary (no fixed field names required)');
+    console.log('Format-only text/math/anchors/headings/links/code/exercises unchanged in ' + formatOnly.length + ' chapters: ' + formatOnly.join(', '));
+  }
+  if (problems.length) {
+    console.error('DREAM THEATER review evidence gate failed:\n- ' + problems.join('\n- '));
+    console.error('See textbook/prompts/dream-theater-review-evidence.md; field names and full ID lists are not required by CI. This check cannot prove mathematical validity.');
+    process.exit(1);
+  }
+  console.log('Risk-based review evidence gate passed (automated format equivalence does not replace rendered-layout verification or mathematical review when applicable)');
+}
+, '$x=2 '章のすべての主要証明と演習・詳細解答を出発点から検算。代表定理では双線形性を使い、各項の係数を展開して一致を確認した。代表演習は端点を代入し、境界条件を確認した。別観点で読み直し、未解消の問題はない。';
+  assert.deepEqual(checkChapter('T1', {mode:'substantive', text:substantive}), []);
+  assert.deepEqual(checkChapter('T1', {mode:'local-math', text:'変更した証明を最初から検算し、その定理を使う二つの演習解答も確認した。読者向けの途中式とリンクを確認し、未解決の問題はない。'}), []);
+  assert(checkChapter('T1', {mode:'substantive', text:'確認済み'}).length > 0);
+  assert(checkChapter('T1', {mode:'substantive', text:'<記入欄>'}).length > 0);
+  assert(checkChapter('T1', null).length > 0);
+  assert(recordLength('<!-- memo -->\n**確認**：<内容>') < minimumRecordLengths.format);
+  console.log('DREAM THEATER review evidence self-test passed');
+}
+
+function readReviewBody() {
+  // Large multi-chapter PRs can exceed the kernel's per-argument/env-string
+  // limit when GitHub expands pull_request.body into a step environment var.
+  // The runner's event JSON is already on disk and has no such limit.
+  if (process.env.GITHUB_EVENT_PATH) {
+    const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
+    if (typeof event.pull_request?.body === 'string') return event.pull_request.body;
+  }
+  return process.env.DREAM_THEATER_PR_BODY || '';
+}
+
+const args = process.argv.slice(2);
+if (args.includes('--self-test')) {
+  selfTest();
+} else {
+  const i = args.indexOf('--base');
+  const base = i >= 0 ? args[i + 1] : process.env.TEXTBOOK_BASE_SHA;
+  if (!/^[0-9a-f]{40}$/i.test(base || '')) {
+    console.error('Specify base commit SHA using --base or TEXTBOOK_BASE_SHA');
+    process.exit(2);
+  }
+  const names = execFileSync('git', ['-c', 'core.quotePath=false', 'diff', '--name-only', '--diff-filter=ACMR', base, 'HEAD', '--', 'textbook/volumes/dream_thater'], { encoding: 'utf8' })
+    .split('\n')
+    .filter(s => /^textbook\/volumes\/dream_thater\/[^/]+\/[^/]+\/[^/]+\/index\.md$/.test(s));
+  if (names.length === 0) {
+    console.log('No changed DREAM THEATER chapter index.md: review evidence not required');
+    process.exit(0);
+  }
+  const body = readReviewBody();
+  const sections = sectionsFrom(body);
+  const problems = [];
+  const formatOnly = [];
+  for (const name of names) {
+    const id = path.posix.basename(path.posix.dirname(name));
+    const after = fs.readFileSync(name, 'utf8');
+    let before = null;
+    try { before = execFileSync('git', ['show', base + ':' + name], {encoding:'utf8'}); }
+    catch { /* Added chapter or unavailable base content: never auto-classify as A. */ }
+    if (isVerifiedFormatOnly(before, after)) {
+      if (sections.has(id)) problems.push(id + ': unnecessary DT-REVIEW marker for verified format-only chapter');
+      formatOnly.push(id);
+      continue;
+    }
+    const targets = inventory(after);
+    const section = sections.get(id);
+    if (before === null && section?.mode === 'local-math')
+      problems.push(id + ': newly added chapter requires substantive (C) review evidence');
+    const violations = checkChapter(id, section);
+    problems.push(...violations.map(v => id + ': ' + v));
+    if (!violations.length) console.log(id + ': ' + section.mode + ' review evidence recorded; ' + targets.anchors.length + ' primary results and ' + targets.exercises.length + ' exercises present');
+  }
+  if (formatOnly.length) {
+    const record = formatReview(body);
+    if (!record) problems.push('format-only chapters require a shared <!-- DT-FORMAT-REVIEW --> record');
+    else if (recordLength(record) < minimumRecordLengths.format)
+      problems.push('format-only review: provide a short rendering/diff verification summary (no fixed field names required)');
+    console.log('Format-only text/math/anchors/headings/links/code/exercises unchanged in ' + formatOnly.length + ' chapters: ' + formatOnly.join(', '));
+  }
+  if (problems.length) {
+    console.error('DREAM THEATER review evidence gate failed:\n- ' + problems.join('\n- '));
+    console.error('See textbook/prompts/dream-theater-review-evidence.md; field names and full ID lists are not required by CI. This check cannot prove mathematical validity.');
+    process.exit(1);
+  }
+  console.log('Risk-based review evidence gate passed (automated format equivalence does not replace rendered-layout verification or mathematical review when applicable)');
+}
+)), 'changed answer math must fail');
+  assert(!isVerifiedFormatOnly(legacy, moved.replace('ex-test-a2', 'ex-test-a3')), 'changed exercise anchor must fail');
+  assert.equal(relocateLegacySolutions(legacy.replace('### A2 解答', '### A1 解答')), null, 'duplicate answer ID must fail');
   const substantive = '章のすべての主要証明と演習・詳細解答を出発点から検算。代表定理では双線形性を使い、各項の係数を展開して一致を確認した。代表演習は端点を代入し、境界条件を確認した。別観点で読み直し、未解消の問題はない。';
   assert.deepEqual(checkChapter('T1', {mode:'substantive', text:substantive}), []);
   assert.deepEqual(checkChapter('T1', {mode:'local-math', text:'変更した証明を最初から検算し、その定理を使う二つの演習解答も確認した。読者向けの途中式とリンクを確認し、未解決の問題はない。'}), []);
