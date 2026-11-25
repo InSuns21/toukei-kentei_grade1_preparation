@@ -3,6 +3,8 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - FLOER1-04
+  - GEO18
+  - GBG29
 concepts:
   - id: floer.pregluing
     name: "stripの予備貼り合わせ"
