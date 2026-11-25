@@ -1,0 +1,24 @@
+id: "LVT4-05"
+title: "Shrinkingと最小反例"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT4-04]
+official_scope: []
+learning_objectives:
+  - 失敗理由を固定して操作列を再実行する
+  - 一手削除によって失敗を保存したまま縮小する
+  - 停止性と局所最小性を証明し大域最小性と区別する
+  - 具体的な反例と実行条件を記録する
+definitions:
+  - { id: LVT4-05-DEF-01, name: "失敗の識別条件" }
+  - { id: LVT4-05-DEF-02, name: "一手削除候補" }
+  - { id: LVT4-05-DEF-03, name: "一手削除に関する最小反例" }
+propositions:
+  - { id: LVT4-05-PROP-01, name: "一手削除縮小器の停止と失敗保存" }
+theorems: []
+canonical_examples: ["重複着手の縮小", "局所最小と大域最小", "具体列の再実行"]
+problem_patterns: [LVT4-05-A01, LVT4-05-A02, LVT4-05-A03, LVT4-05-A04, LVT4-05-B01, LVT4-05-B02, LVT4-05-B03, LVT4-05-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2, review: 0.5 }

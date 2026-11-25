@@ -111,7 +111,7 @@ chapters:
     title: "有効・無効入力の生成と仮定"
   - id: LVT4-05
     path: textbook/volumes/dream_thater/計算系/LVT/LVT4-05
-    status: planned
+    status: completed
     title: "Shrinkingと最小反例"
   - id: LVT4-06
     path: textbook/volumes/dream_thater/計算系/LVT/LVT4-06

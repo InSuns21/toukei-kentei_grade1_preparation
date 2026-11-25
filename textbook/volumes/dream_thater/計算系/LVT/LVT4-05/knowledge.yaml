@@ -1,0 +1,25 @@
+chapter: LVT4-05
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT4-04]
+concepts:
+  - id: lean-verification.failure-signature
+    name: 失敗の識別条件
+    kind: definition
+    introduction: formal
+    requires: [lean-verification.strict-replay, lean-verification.input-classification]
+  - id: lean-verification.deletion-neighbor
+    name: 一手削除候補
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: lean-verification.deletion-minimal
+    name: 一手削除に関する最小反例
+    kind: definition
+    introduction: formal
+    requires: [lean-verification.deletion-neighbor]
+  - id: lean-verification.shrink-correct
+    name: 一手削除縮小器の停止と失敗保存
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.deletion-minimal, lean-verification.counterexample-shrink-bound]
