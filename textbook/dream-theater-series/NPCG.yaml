@@ -5,7 +5,7 @@ plan: textbook/plans_progress/DREAM_THEATER_NONPOSITIVE_CURVATURE_METRIC_GEOMETR
 chapter_root: textbook/volumes/dream_thater
 chapters:
   - { id: NPCG1, path: textbook/volumes/dream_thater/幾何系/NPCG/NPCG1, status: completed, title: "距離・擬距離・商・完備化：Cauchy列から構成" }
-  - { id: NPCG2, path: textbook/volumes/dream_thater/幾何系/NPCG/NPCG2, status: planned, title: "長さ空間・測地線・比較三角形" }
+  - { id: NPCG2, path: textbook/volumes/dream_thater/幾何系/NPCG/NPCG2, status: completed, title: "長さ空間・測地線・比較三角形" }
   - { id: NPCG3, path: textbook/volumes/dream_thater/幾何系/NPCG/NPCG3, status: planned, title: "CAT(0)条件：木・Euclid空間・反例" }
   - { id: NPCG4, path: textbook/volumes/dream_thater/幾何系/NPCG/NPCG4, status: planned, title: "Bruhat–Tits CN不等式と中点一意性" }
   - { id: NPCG5, path: textbook/volumes/dream_thater/幾何系/NPCG/NPCG5, status: planned, title: "測地線凸性と距離の凸性：中点から任意比へ" }
