@@ -1,7 +1,7 @@
 # DREAM THEATER テンソル理論・漸近スペクトル 計画
 
 構成確定日: 2026-11-24 JST
-状態: in progress（TSP1〜4実装、TSP5〜16予定）
+状態: in progress（TSP1〜5実装、TSP6〜16予定）
 系列予約ID: TSP（実装時にmanifest/章ID衝突を再点検）
 講数: **全16講**
 
@@ -19,7 +19,7 @@
 | TSP2 | rank-one分解とtensor rank：行列rankとの差 | TSP1および必要な既存前提 |
 | TSP3 | flatteningと部分空間のrank下界 | TSP2および必要な既存前提 |
 | TSP4 | restriction・subrank・対角テンソルと局所線形写像 | TSP3および必要な既存前提 |
-| TSP5 | 直和・Kronecker積・restriction preorder | TSP4および必要な既存前提 |
+| TSP5 | 直和・Kronecker積・restriction preorder | TSP4、CAT1-02（前順序の定義） |
 | TSP6 | テンソルネットワーク・縮約・wire：グラフの境界テンソル | TSP5および必要な既存前提 |
 | TSP7 | 行列積テンソルと双線形複雑性 | TSP6および必要な既存前提 |
 | TSP8 | border rank・Segre/secant：退化の具体計算 | TSP7および必要な既存前提 |
