@@ -1,0 +1,37 @@
+chapter: ACOMP19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ACOMP18
+forward_references: []
+concepts:
+  - id: algebraic-complexity.shifted-partial-space
+    name: "シフト付き偏微分空間"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（シフト付き偏微分空間）"]
+    requires: [algebraic-complexity.fixed-order-derivative-space]
+  - id: algebraic-complexity.shifted-coefficient-rank
+    name: "シフト付き偏微分の係数行列による次元計算"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（シフト付き偏微分の係数行列による次元計算）"]
+    requires: [algebraic-complexity.shifted-partial-space]
+  - id: algebraic-complexity.shifted-subadditivity
+    name: "シフト付き偏微分次元の劣加法性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（シフト付き偏微分次元の劣加法性）"]
+    requires: [algebraic-complexity.shifted-partial-space, algebraic-complexity.formal-partial-rules]
+  - id: algebraic-complexity.shifted-product-bound
+    name: "等次数因子の積のシフト付き偏微分次元上界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["補題（等次数因子の積のシフト付き偏微分次元上界）"]
+    requires: [algebraic-complexity.shifted-partial-space, algebraic-complexity.formal-partial-rules]
+  - id: algebraic-complexity.shifted-top-fanin-bound
+    name: "等次数因子の積の和の項数下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（等次数因子の積の和の項数下界）"]
+    requires: [algebraic-complexity.shifted-subadditivity, algebraic-complexity.shifted-product-bound]
