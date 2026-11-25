@@ -45,8 +45,9 @@ concepts:
     kind: theorem
     introduction: formal
     requires: [atop.fundamental-group, atop.path-class-laws, algebra.group]
-  - id: atop.simply-connected
+  - id: topology.simply-connected
     name: 単連結性
+    aliases: [単連結, simply connected]
     kind: definition
     introduction: formal
     requires: [topology.path-connected-space, atop.fundamental-group]
@@ -69,4 +70,4 @@ concepts:
     name: 可縮空間は単連結
     kind: proposition
     introduction: formal
-    requires: [atop.contractibility, atop.simply-connected, atop.path-class-laws]
+    requires: [atop.contractibility, topology.simply-connected, atop.path-class-laws]
