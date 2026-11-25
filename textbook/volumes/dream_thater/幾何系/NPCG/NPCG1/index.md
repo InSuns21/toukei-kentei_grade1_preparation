@@ -31,7 +31,11 @@ $$
 <!-- definition-example-start: def-npcg1-pseudometric -->
 ### 1.1 横座標しか測らない例
 
-$X=\mathbb R^2$ で $x=(a,b)$、$y=(c,e)$ とし、$p(x,y)=|a-c|$ と置きます。絶対値は非負で、$p(x,x)=|a-a|=0$、$|a-c|=|c-a|$ です。さらに $z=(u,v)$ に対し
+$X=\mathbb R^2$ で $x=(a,b)$、$y=(c,e)$ とし、$p(x,y)=|a-c|$ と置きます。
+
+**定義の確認**
+
+絶対値は非負で、$p(x,x)=|a-a|=0$、$|a-c|=|c-a|$ です。さらに $z=(u,v)$ に対し
 
 $$
 \begin{aligned}
@@ -192,7 +196,7 @@ $$
 m,n\ge N\Longrightarrow p(x_m,x_n)<\varepsilon
 $$
 
-となる点列を考えます。零距離商の公式によって、これは $(q(x_n))$ が $Q$ のCauchy列であることと同値です。
+となる点列を考えます。[零距離商](#thm-npcg1-zero-distance-quotient)を適用すると、これは $(q(x_n))$ が $Q$ のCauchy列であることと同値です。
 
 既習の[一般距離空間の完備化](../../../基礎科目/F0/F0-00D0A/index.md#def-f0-00d0a-completion)では、Cauchy列を、対応する項の距離が0に近づくときに同一視します。擬距離でも同じ式を直接使えます。
 
@@ -230,7 +234,7 @@ $$
 
 ### 見取り図
 
-先に零距離商 $Q$ を作り、既習の完備化を適用します。各項を $q$ で写すとCauchy条件も列間の距離も変わりません。このため、$p$ を使って直接作る点の集合と、$Q$ の完備化は同じ距離構造になります。
+先に[零距離商](#thm-npcg1-zero-distance-quotient) $Q$ を作り、既習の完備化を適用します。各項を $q$ で写すとCauchy条件も列間の距離も変わりません。このため、$p$ を使って直接作る点の集合と、$Q$ の完備化は同じ距離構造になります。
 
 <!-- proof-start -->
 ### 証明
@@ -499,7 +503,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-まず $Q$ が完備とします。[零距離商](#thm-npcg1-zero-distance-quotient)の距離公式により
+まず $Q$ が完備とします。[零距離商](#thm-npcg1-zero-distance-quotient)を適用すると
 
 $$
 d_Q(q(x_m),q(x_n))=p(x_m,x_n).
@@ -560,7 +564,7 @@ $$
 g(x)=\frac{t/(1-t)}{1+t/(1-t)}=t
 $$
 
-となるので全射でもあります。[零距離商](#thm-npcg1-zero-distance-quotient)の公式から
+となるので全射でもあります。[零距離商](#thm-npcg1-zero-distance-quotient)を適用すると
 
 $$
 |T([x])-T([y])|=d_Q([x],[y]).
