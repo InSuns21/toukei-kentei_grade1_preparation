@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 310" data-layout-lint="strict" role="img">
+  <title>隣接する小正方形の内部辺の相殺</title>
+  <desc>二つの隣接セルを表示する。底辺h0,h1と上辺k0,k1は右向き、縦辺v0,v1,v2は上向き。中央の共有辺v1は、一方のセルの右辺と他方のセルの左辺に現れる。</desc>
+  <defs><marker id="edge" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 Z" fill="#17364c"/></marker></defs>
+  <rect x="0" y="0" width="600" height="310" fill="#fff"/>
+  <rect x="100" y="65" width="200" height="180" fill="#e5f0f8"/><rect x="300" y="65" width="200" height="180" fill="#f3e9d8"/>
+  <g fill="none" stroke="#17364c" stroke-width="2.5" marker-end="url(#edge)">
+    <path d="M100 245 H300"/><path d="M300 245 H500"/><path d="M100 65 H300"/><path d="M300 65 H500"/>
+    <path d="M100 245 V65"/><path d="M500 245 V65"/>
+  </g>
+  <path d="M300 245 V65" fill="none" stroke="#17364c" stroke-width="4" stroke-dasharray="8 4" marker-end="url(#edge)"/>
+  <g fill="#17364c"><circle cx="100" cy="245" r="4"/><circle cx="300" cy="245" r="4"/><circle cx="500" cy="245" r="4"/><circle cx="100" cy="65" r="4"/><circle cx="300" cy="65" r="4"/><circle cx="500" cy="65" r="4"/></g>
+  <g font-family="sans-serif" font-size="23" fill="#172b38" text-anchor="middle"><text x="200" y="44">k₀</text><text x="400" y="44">k₁</text><text x="200" y="280">h₀</text><text x="400" y="280">h₁</text><text x="66" y="159">v₀</text><text x="326" y="159">v₁</text><text x="535" y="159">v₂</text></g>
+</svg>
