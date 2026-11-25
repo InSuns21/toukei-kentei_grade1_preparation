@@ -72,7 +72,15 @@ $$
 
 **定義の確認**
 
-通常距離の実直線全体を $C$ とします。直線分は全時刻で $C$ に含まれます。[Euclid空間のCAT(0)性](../NPCG3/index.md#thm-npcg3-euclidean) と [測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) により直線分以外の測地線分を調べる必要はありません。$f:C\to\mathbb R$ を $f(q)=q^2$ と定めます。任意の実数 $a,b$ を端点とし、$t\in[0,1]$ とします。比率 $t$ での点は $\gamma(t)=(1-t)a+tb$ なので、定義の左辺は $f(\gamma(t))$ です。従って
+通常距離の実直線全体を $C$ とします。直線分は全時刻で $C$ に含まれます。[Euclid空間のCAT(0)性](../NPCG3/index.md#thm-npcg3-euclidean) と [測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) により直線分以外の測地線分を調べる必要はありません。
+
+$f:C\to\mathbb R$ を $f(q)=q^2$ と定めます。任意の実数 $a,b$ を端点とし、$t\in[0,1]$ とします。比率 $t$ での点は
+
+$$
+\gamma(t)=(1-t)a+tb
+$$
+
+なので、定義の左辺は $f(\gamma(t))$ です。従って
 
 $$
 \begin{aligned}
@@ -134,7 +142,13 @@ g((u+v)/2)\le\frac{g(u)+g(v)}2
 \le\frac{L(u)+L(v)}2=L((u+v)/2).
 $$
 
-古い時刻も残るので、帰納法で全二進分割点について成立します。$\lfloor q\rfloor$ は実数 $q$ 以下の最大整数（床関数）を表します。任意の $t\in[0,1]$ に対し $t_j=\lfloor2^jt\rfloor/2^j$ とします。$\lfloor2^jt\rfloor\le2^jt<\lfloor2^jt\rfloor+1$ を $2^j$ で割ると $0\le t-t_j<2^{-j}$ です。連続性から $g(t_j)\to g(t), L(t_j)\to L(t)$ であり、不等式を極限に移して $g(t)\le L(t)$ です。定義を戻すと目的の評価になります。
+古い時刻も残るので、帰納法で全二進分割点について成立します。$\lfloor q\rfloor$ は実数 $q$ 以下の最大整数（床関数）を表します。任意の $t\in[0,1]$ に対し $t_j=\lfloor2^jt\rfloor/2^j$ とします。$\lfloor2^jt\rfloor\le2^jt<\lfloor2^jt\rfloor+1$ を $2^j$ で割ると
+
+$$
+0\le t-t_j<2^{-j}.
+$$
+
+連続性から $g(t_j)\to g(t), L(t_j)\to L(t)$ であり、不等式を極限に移して $g(t)\le L(t)$ です。定義を戻すと目的の評価になります。
 <!-- proof-end -->
 
 
@@ -171,7 +185,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-三頂点 $a,x,y$ の測地三角形を取り、辺 $ax,ay$ にはそれぞれ $\gamma,\eta$ を選びます。[比較三角形の存在](../NPCG2/index.md#thm-npcg2-comparison-existence) により、その [Euclid比較三角形](../NPCG2/index.md#def-npcg2-comparison-triangle) の頂点を $\bar a,\bar x,\bar y$ とします。対応点は $\bar p=(1-t)\bar a+t\bar x$、$\bar q=(1-t)\bar a+t\bar y$ です。差は $\bar p-\bar q=t(\bar x-\bar y)$ なので、通常距離を $d_2$ と書けば
+三頂点 $a,x,y$ の測地三角形を取り、辺 $ax,ay$ にはそれぞれ $\gamma,\eta$ を選びます。[比較三角形の存在](../NPCG2/index.md#thm-npcg2-comparison-existence) により、その [Euclid比較三角形](../NPCG2/index.md#def-npcg2-comparison-triangle) の頂点を $\bar a,\bar x,\bar y$ とします。対応点とその差は
+
+$$
+\begin{aligned}
+\bar p&=(1-t)\bar a+t\bar x,\\
+\bar q&=(1-t)\bar a+t\bar y,\\
+\bar p-\bar q&=t(\bar x-\bar y).
+\end{aligned}
+$$
+
+通常距離を $d_2$ と書けば
 
 $$
 d_2(\bar p,\bar q)=t d_2(\bar x,\bar y)=t d(x,y).
@@ -206,7 +230,9 @@ $$
 
 $\gamma(0)=a,\gamma(1)=b,\eta(0)=c,\eta(1)=e$ とします。[測地空間の条件](../NPCG2/index.md#def-npcg2-geodesic-space) により $a,e$ を結ぶ測地線分 $\xi$ を選び、$m=\gamma(1/2),n=\eta(1/2),p=\xi(1/2)$ とします。
 
-$\gamma,\xi$ は始点 $a$ が共通なので [共通始点からの距離評価](#thm-npcg5-common-endpoint) により $d(m,p)\le d(b,e)/2$ です。$\xi,\eta$ は終点 $e$ が共通です。$\widetilde\xi(t)=\xi(1-t)$、$\widetilde\eta(t)=\eta(1-t)$ と置くと、始点はともに $e$、終点はそれぞれ $a,c$ です。反転後も、例えば
+$\gamma,\xi$ は始点 $a$ が共通なので [共通始点からの距離評価](#thm-npcg5-common-endpoint) により $d(m,p)\le d(b,e)/2$ です。
+
+$\xi,\eta$ は終点 $e$ が共通です。$\widetilde\xi(t)=\xi(1-t)$、$\widetilde\eta(t)=\eta(1-t)$ と置くと、始点はともに $e$、終点はそれぞれ $a,c$ です。反転後も、例えば
 
 $$
 d(\widetilde\xi(u),\widetilde\xi(v))
@@ -339,7 +365,19 @@ Euclid 距離と絶対値の三角不等式を足せば距離の三角不等式�
 <!-- proof-start -->
 ### 証明
 
-ここでは $|v|$ をベクトルの Euclid 長さ $\sqrt{v_1^2+v_2^2}$、実数に対する $|\cdot|$ を絶対値とします。$U\cdot V=U_1V_1+U_2V_2$ は通常の内積です。$N(v)=|v|+|v_1|$ は非負で、0になるのは $v=0$ のときだけです。また $N(-v)=N(v)$、任意の実数 $\lambda$ について $N(\lambda v)=|\lambda|N(v)$ です。Euclid の三角不等式と実数の絶対値の三角不等式を足すと $N(v+w)\le N(v)+N(w)$ です。従って $d(x,y)$ は非負で、$d(x,y)=0$ と $x=y$ は同値です。$N(-v)=N(v)$ から対称性を、$x-z=(x-y)+(y-z)$ から
+ここでは $|v|$ をベクトルの Euclid 長さ $\sqrt{v_1^2+v_2^2}$、実数に対する $|\cdot|$ を絶対値とします。$N(v)=|v|+|v_1|$ は非負で、0になるのは $v=0$ のときだけです。また任意の実数 $\lambda$ に対して
+
+$$
+N(-v)=N(v),\qquad N(\lambda v)=|\lambda|N(v).
+$$
+
+Euclid の三角不等式と実数の絶対値の三角不等式を足すと
+
+$$
+N(v+w)\le N(v)+N(w)
+$$
+
+です。従って $d$ は非負で、$d(x,y)=0$ と $x=y$ は同値です。$N(-v)=N(v)$ から対称性を、$x-z=(x-y)+(y-z)$ から
 
 $$
 d(x,z)=N(x-z)\le N(x-y)+N(y-z)=d(x,y)+d(y,z)
@@ -356,21 +394,34 @@ $$
 
 従って [測地線分の定義](../NPCG2/index.md#def-npcg2-geodesic-segment) を満たします。逆に任意の測地線分上の時刻 $t$ の点を $p$ とすれば $N(p-x)+N(y-p)=N(y-x)$ です。左辺から右辺を引いた差は Euclid 側の三角不等式の差と第一座標の絶対値の三角不等式の差の和です。各差は非負なので Euclid 側の差も0です。
 
-$U=p-x,V=y-p$ と置くと、Euclid 長さで $|U+V|=|U|+|V|$ です。両辺を平方すると
+$U=p-x,V=y-p$ と置くと、Euclid 長さで $|U+V|=|U|+|V|$ です。成分を $U=(U_1,U_2),V=(V_1,V_2)$ とし、両辺を平方します。
 
 $$
-|U|^2+2U\cdot V+|V|^2
-=|U|^2+2|U||V|+|V|^2
+\begin{aligned}
+(U_1+V_1)^2+(U_2+V_2)^2
+&=(|U|+|V|)^2,\\
+|U|^2+2(U_1V_1+U_2V_2)+|V|^2
+&=|U|^2+2|U||V|+|V|^2.
+\end{aligned}
 $$
 
-なので $U\cdot V=|U||V|$ を得ます。両ベクトルが非零なら
+従って $U_1V_1+U_2V_2=|U||V|$ です。両ベクトルが非零なら、成分ごとに平方して足すことで
 
 $$
+\begin{aligned}
 \left|\frac U{|U|}-\frac V{|V|}\right|^2
-=2-2\frac{U\cdot V}{|U||V|}=0.
+&=\left(\frac{U_1}{|U|}-\frac{V_1}{|V|}\right)^2\\
+&\quad+\left(\frac{U_2}{|U|}-\frac{V_2}{|V|}\right)^2\\
+&=2-2\frac{U_1V_1+U_2V_2}{|U||V|}\\
+&=0.
+\end{aligned}
 $$
 
-従って $U/|U|=V/|V|$ で、$U,V$ は同じ向きです。この場合、$y-x=U+V$ から $p-x=U=s(y-x)$、$s=|U|/(|U|+|V|)\in(0,1)$ となります。$U=0$ または $V=0$ なら $p$ は端点です。$x=y$ なら全経路は定値です。$x\ne y$ の場合はいずれも $p=x+s(y-x)$ と $s\in[0,1]$ を使って書けます。測地線分の距離条件から $sN(y-x)=tN(y-x)$ であり、$N(y-x)>0$ なので $s=t$ です。これで全測地線分が直線分であると分かりました。
+従って $U/|U|=V/|V|$ で、$U,V$ は同じ向きです。この場合、$y-x=U+V$ から $p-x=U=s(y-x)$、$s=|U|/(|U|+|V|)\in(0,1)$ となります。
+
+$U=0$ または $V=0$ なら $p$ は端点です。$x=y$ なら全経路は定値です。$x\ne y$ の場合はいずれも $p=x+s(y-x)$ と $s\in[0,1]$ を使って書けます。
+
+測地線分の距離条件から $sN(y-x)=tN(y-x)$ であり、$N(y-x)>0$ なので $s=t$ です。これで全測地線分が直線分であると分かりました。
 
 任意の二本の測地線分 $\gamma$（端点 $a,b$）と $\eta$（端点 $c,e$）について、先ほど確認した $N(v+w)\le N(v)+N(w)$ を $v=(1-t)(a-c),w=t(b-e)$ に適用し、$N(\lambda v)=|\lambda|N(v)$ で係数を外へ出します。
 
@@ -624,7 +675,19 @@ $$
 - 目安時間: 35分
 - 主題: 測地線凸集合と二乗距離評価の統合
 
-CAT(0)空間で空でない測地線凸集合 $C$ と点 $z_1,\ldots,z_n\in X$（整数 $n\ge1$）、実数 $w_i\ge0$（$\sum_{i=1}^n w_i=1$）を取る。$F(x)=\sum_{i=1}^n w_i d(x,z_i)^2$ とする。(1) $x,y\in C$ を結ぶ測地線分 $\gamma$ に対して $F(\gamma(t))$ を両端の値と距離で評価せよ。(2) $F$ の最小点が存在すれば一意であることを示せ。(3) 二点 $x,y\in C$ が下限（最大の下界）$I=\inf_{q\in C}F(q)$ に近く、$F(x)\le I+\varepsilon$、$F(y)\le I+\delta$（$\varepsilon,\delta\ge0$）を満たすなら、$d(x,y)$ の上界を求めよ。
+CAT(0)空間で空でない測地線凸集合 $C$ と点 $z_1,\ldots,z_n\in X$（整数 $n\ge1$）、実数 $w_i\ge0$（$\sum_{i=1}^n w_i=1$）を取る。目的関数を
+
+$$
+F(x)=\sum_{i=1}^n w_i d(x,z_i)^2
+$$
+
+とする。
+
+(1) $x,y\in C$ を結ぶ測地線分 $\gamma$ に対して $F(\gamma(t))$ を両端の値と距離で評価せよ。
+
+(2) $F$ の最小点が存在すれば一意であることを示せ。
+
+(3) 二点 $x,y\in C$ が下限（最大の下界）$I=\inf_{q\in C}F(q)$ に近く、$F(x)\le I+\varepsilon$、$F(y)\le I+\delta$（$\varepsilon,\delta\ge0$）を満たすなら、$d(x,y)$ の上界を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
