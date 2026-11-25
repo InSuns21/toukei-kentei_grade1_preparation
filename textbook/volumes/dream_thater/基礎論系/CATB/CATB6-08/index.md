@@ -290,7 +290,7 @@ B'_{(\delta,x)}
 =B_{(\sigma(\delta),x)}.
 $$
 
-[依存和](#def-catb6-08-dependent-sum-product)と[依存積](#def-catb6-08-dependent-sum-product)の定義 にこの二式を代入する。和について左側の成分は
+[依存和](#def-catb6-08-dependent-sum-product)と[依存積](#def-catb6-08-dependent-sum-product)の構成式 にこの二式を代入する。和について左側の成分は
 
 $$
 ((\Sigma_A B)[\sigma])_\delta
@@ -405,7 +405,7 @@ $$
 文脈を一点とする。型 $A$ が空の場合と、$A=\{0\}$ で $B_0=\varnothing$ の場合について、依存和と依存積を求めよ。
 
 <!-- solution-start -->
-[依存和](#def-catb6-08-dependent-sum-product)と[依存積](#def-catb6-08-dependent-sum-product)の定義 を使う。前者では対の第一成分が存在しないので和は空集合である。積は空集合を定義域とする空関数のみを持つため一元集合である。
+[依存和](#def-catb6-08-dependent-sum-product)と[依存積](#def-catb6-08-dependent-sum-product)の構成式 を使う。前者では対の第一成分が存在しないので和は空集合である。積は空集合を定義域とする空関数のみを持つため一元集合である。
 
 後者では第一成分0はあるが第二成分がないので和は空集合である。積の関数には0での値が必要だが $B_0$ は空なので積も空集合である。従って二場合の結果は順に $(\varnothing,\{()\})$ と $(\varnothing,\varnothing)$ である。
 <!-- solution-end -->
