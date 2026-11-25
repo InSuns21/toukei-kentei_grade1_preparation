@@ -32,7 +32,7 @@ chapters:
   - { id: CATB3-07, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-07, status: completed, title: "スケッチとモデル圏" }
   - { id: CATB3-08, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB3-08, status: completed, title: "局所可呈示圏の随伴判定" }
   - { id: CATB4-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-01, status: completed, title: "Cartesian射とファイブレーション" }
-  - { id: CATB4-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-02, status: planned, title: "Cleavageとsplitファイブレーション" }
+  - { id: CATB4-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-02, status: completed, title: "Cleavageとsplitファイブレーション" }
   - { id: CATB4-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-03, status: planned, title: "添字付き圏と擬関手" }
   - { id: CATB4-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-04, status: planned, title: "Grothendieck構成" }
   - { id: CATB4-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-05, status: planned, title: "余ファイブレーションと双対" }
