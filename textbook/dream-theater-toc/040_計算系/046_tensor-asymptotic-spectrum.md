@@ -14,3 +14,4 @@
 11. [TSP11 スペクトル点：加法性・乗法性・単調性・正規化](textbook/volumes/dream_thater/計算系/TSP/TSP11/index.md)
 12. [TSP12 Strassen漸近スペクトル双対性：仮定・証明の骨格と例](textbook/volumes/dream_thater/計算系/TSP/TSP12/index.md)
 13. [TSP13 support functionals・エントロピーによるスペクトル評価](textbook/volumes/dream_thater/計算系/TSP/TSP13/index.md)
+14. [TSP14 行列積指数と漸近スペクトル：既知の上下界の意味](textbook/volumes/dream_thater/計算系/TSP/TSP14/index.md)
