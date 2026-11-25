@@ -1,0 +1,29 @@
+id: "CATB5-02"
+title: "篩とGrothendieck位相"
+volume: "foundations"
+status: supplementary
+prerequisites: [CATB5-01, CAT1-02, CAT1-06, CAT1-12]
+official_scope: []
+learning_objectives:
+  - 篩と生成篩を定義し具体的な圏で列挙できる
+  - 篩の引き戻しを計算し合成則と最大篩の判定を証明できる
+  - Grothendieck位相の三公理を確認し上方閉性と有限交差を導ける
+  - 開集合圏と位相の基底で被覆篩の公理を証明できる
+  - 基底変換や有限交差の仮定の重要性を反例で説明できる
+definitions:
+  - { id: CATB5-02-DEF-01, name: "篩" }
+  - { id: CATB5-02-DEF-02, name: "生成篩" }
+  - { id: CATB5-02-DEF-03, name: "篩の引き戻し" }
+  - { id: CATB5-02-DEF-04, name: "Grothendieck位相とsite" }
+theorems:
+  - { id: CATB5-02-THM-01, name: "生成篩の最小性" }
+  - { id: CATB5-02-THM-02, name: "篩の引き戻しの合成則" }
+  - { id: CATB5-02-THM-03, name: "被覆篩の上方閉性と有限交差" }
+  - { id: CATB5-02-THM-04, name: "開集合圏のGrothendieck位相" }
+  - { id: CATB5-02-THM-05, name: "位相の基底上の被覆篩" }
+canonical_examples: [離散二点空間, 開区間の基底, 加法モノイド, 全変換モノイド]
+problem_patterns: [CATB5-02-A01, CATB5-02-A02, CATB5-02-A03, CATB5-02-A04, CATB5-02-B01, CATB5-02-B02, CATB5-02-B03, CATB5-02-B04, CATB5-02-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
