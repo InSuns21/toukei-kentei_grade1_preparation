@@ -328,7 +328,11 @@ $$
 V_{1,2}(\rho)=\int \rho(x)X_1(x)^2\,dx-a_1.
 $$
 
-各 $x$ で $X_1(x)$ は可測で、各標本で $x$ に連続なので同時可測である（例えば $x$ を細かい格子の代表点に置き換えた可測関数列の各点での極限を取る）。[混合二次モーメント](#thm-mqfc14-wick-covariance) から $E[W_2^2]=2a_1^2$ なので、[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) を確率空間の $L^2$ で $|W_2|$ と定数 $1$ に適用すると $E|W_2|\le\sqrt2 a_1$。この上界は $\rho$ を掛けて積分できるから、[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) で期待値を交換して
+各 $x$ で $X_1(x)$ は可測で、各標本で $x$ に連続なので同時可測である（例えば $x$ を細かい格子の代表点に置き換えた可測関数列の各点での極限を取る）。[混合二次モーメント](#thm-mqfc14-wick-covariance) から $E[W_2^2]=2a_1^2$ なので、
+
+[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) を確率空間の $L^2$ で $|W_2|$ と定数 $1$ に適用すると $E|W_2|\le\sqrt2 a_1$。
+
+この上界は $\rho$ を掛けて積分できるから、[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) で期待値を交換して
 
 $$
 E[V_{1,2}(\rho)]
@@ -361,7 +365,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず正の $\epsilon,\eta$ を固定する。各標本で連続、各点で可測なので、直接例と同じ格子近似で被積分関数は同時可測である。[混合二次モーメント](#thm-mqfc14-wick-covariance) により点ごとの二乗平均は $n!a_\epsilon^n$ と $n!a_\eta^n$ である。[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) を確率空間の $L^2$ で二つの Wick 多項式の絶対値に適用すると、積の絶対期待値は $n!(a_\epsilon a_\eta)^{n/2}$ 以下である。これに $|f(x)g(y)|$ を掛けた積分は有限なので、[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) で積分と期待値を交換できる。[混合二次モーメント](#thm-mqfc14-wick-covariance) に $X=X_\epsilon(x),Y=X_\eta(y)$ を入れれば
+まず正の $\epsilon,\eta$ を固定する。各標本で連続、各点で可測なので、直接例と同じ格子近似で被積分関数は同時可測である。[混合二次モーメント](#thm-mqfc14-wick-covariance) により点ごとの二乗平均は $n!a_\epsilon^n$ と $n!a_\eta^n$ である。
+
+[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) を確率空間の $L^2$ で二つの Wick 多項式の絶対値に適用すると、積の絶対期待値は $n!(a_\epsilon a_\eta)^{n/2}$ 以下である。
+
+これに $|f(x)g(y)|$ を掛けた積分は有限なので、[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) で積分と期待値を交換できる。[混合二次モーメント](#thm-mqfc14-wick-covariance) に $X=X_\epsilon(x),Y=X_\eta(y)$ を入れれば
 
 $$
 E[V_{\epsilon,n}(f)V_{\eta,n}(g)]
