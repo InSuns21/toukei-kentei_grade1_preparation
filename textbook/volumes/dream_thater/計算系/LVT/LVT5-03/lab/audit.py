@@ -76,6 +76,24 @@ def ok(rest, id="a"):
                       ensure_ascii=False).encode("utf-8")
 
 
+def check_oracle(executable):
+    import subprocess
+    inputs = [
+        {"id": "a", "stock": 2, "qty": 2},
+        {"id": "日本\n", "stock": MAX_INT, "qty": 1},
+        {"id": "b", "stock": 1, "qty": 2},
+    ]
+    request = b"\n".join(json.dumps(x, ensure_ascii=False).encode("utf-8") for x in inputs) + b"\n{\n"
+    expected = [ok(0), ok(MAX_INT - 1, "日本\n"),
+                b'{"id":"b","status":"rejected"}',
+                b'{"id":null,"status":"error","code":"invalid_request"}']
+    result = subprocess.run([executable, "--batch"], input=request, capture_output=True,
+                            check=True, timeout=10)
+    assert not result.stderr, result.stderr
+    assert compare_rows(expected, result.stdout.splitlines()) == "equal", result.stdout
+    print("LVT5-03: Lean oracle boundary responses OK")
+
+
 def run():
     zero = ok(0)
     rejected = b'{"status":"rejected","id":"a"}'
@@ -115,7 +133,8 @@ def run():
         return json.loads(raw).get("rest", 0)
 
     def ignore_status(raw):
-        return json.loads(raw).get("rest", 0)
+        value = normalize(raw)
+        return (value[1], value[2] if value[0] == "ok" else 0)
 
     def ignore_id(raw):
         return normalize(raw)[0], normalize(raw)[2]
@@ -138,4 +157,9 @@ def run():
 
 
 if __name__ == "__main__":
+    import sys
     run()
+    if len(sys.argv) == 2:
+        check_oracle(sys.argv[1])
+    elif len(sys.argv) != 1:
+        raise SystemExit("usage: audit.py [oracle executable]")
