@@ -180,7 +180,13 @@ $u>((d+1)/c)^3$ なら括弧の中は1より大きいです。さらに $u>\log_
 >
 > 体 $K$ を固定し、[多項式族](../../ACOMP/ACOMP6/index.md#def-acomp6-polynomial-family) $(f_m)_{m\ge1}$ が [VNP](../../ACOMP/ACOMP7/index.md#def-acomp7-vnp) に属するとする。
 >
-> ある実数 $c>0$ と正整数 $m_0$ が存在し、すべての整数 $m\ge m_0$ に対して $f_m$ を計算する[全ゲート数の定義](#def-vnp1-total-gates)の回路の全ゲート数が $B_c(m)=2^{c(\log_2 m)^{4/3}}$ を真に超えるなら、この体上で VP は VNP の真部分集合である。
+> ある実数 $c>0$ と正整数 $m_0$ が存在し、すべての整数 $m\ge m_0$ に対して、$f_m$ を計算する[全ゲート数の定義](#def-vnp1-total-gates)のすべての回路 $C$ が
+
+$$
+G(C)>B_c(m)=2^{c(\log_2 m)^{4/3}}
+$$
+
+> を満たすなら、この体上で VP は VNP の真部分集合である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
