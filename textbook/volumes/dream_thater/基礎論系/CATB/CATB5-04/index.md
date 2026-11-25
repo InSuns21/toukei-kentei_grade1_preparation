@@ -10,7 +10,11 @@
 
 以下、$(\mathcal C,J)$ は[小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)上の[Grothendieck位相とsite](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)、$F$ は[集合値前層](../../CAT/CAT1-12/index.md#def-cat1-12-presheaf)とする。
 
-射 $f:V\to U$ の始域を $\operatorname{dom}f=V$ と書く。合成 $fg$ は $f\circ g$（先に $g$ を適用する）を表す。[篩と最大篩](../CATB5-02/index.md#def-catb5-02-sieve)の記法に従い、$U$ を終域とするすべての射の集合である最大篩を $M_U$ と書く。$J(U)$ は対象 $U$ の被覆篩の集合である。[被覆篩の上方閉性と有限交差](../CATB5-02/index.md#prop-catb5-02-cover-closure)より、
+射 $f:V\to U$ の始域を $\operatorname{dom}f=V$ と書く。合成 $fg$ は $f\circ g$（先に $g$ を適用する）を表す。
+
+[篩と最大篩](../CATB5-02/index.md#def-catb5-02-sieve)の記法に従い、$U$ を終域とするすべての射の集合である最大篩を $M_U$ と書く。$J(U)$ は対象 $U$ の被覆篩の集合である。
+
+[被覆篩の上方閉性と有限交差](../CATB5-02/index.md#prop-catb5-02-cover-closure)より、
 
 $$
 S,T\in J(U)\ \Longrightarrow\ S\cap T\in J(U).
@@ -88,7 +92,13 @@ $$
 
 ## 3. plus構成と元の前層からの写像
 
-射 $u:V\to U$ について、[篩の引き戻し](../CATB5-02/index.md#def-catb5-02-sieve-pullback) $u^*S$ は $ug\in S$ となる射 $g:W\to V$ の篩である。$S$ が被覆なら [Grothendieck位相の基底変換安定性](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)により $u^*S$ も被覆である。新しい局所データの $g$ 成分には、元の $ug$ 成分を使えばよい。
+射 $u:V\to U$ に沿う[篩の引き戻し](../CATB5-02/index.md#def-catb5-02-sieve-pullback)は、次の篩である。
+
+$$
+u^*S=\{g:W\to V\mid ug\in S\}.
+$$
+
+$S$ が被覆なら [Grothendieck位相の基底変換安定性](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)により $u^*S$ も被覆である。新しい局所データの $g$ 成分には、元の $ug$ 成分を使えばよい。
 
 <a id="def-catb5-04-plus"></a>
 
@@ -337,7 +347,15 @@ $$
 
 [plus構成の分離性](#thm-catb5-04-separated-plus)を $F$ に適用して $F^+$ の分離性を得る。次に[分離前層のplus構成は層](#thm-catb5-04-separated-sheaf)を前層 $F^+$ に適用すると、そのplusである $F^{++}$ が層となる。
 
-$F$ が層であると仮定する。分離性から[標準写像の局所一致](#prop-catb5-04-local-representation)により各 $\eta_{F,U}$ は単射である。任意の $[S,s]\in F^+(U)$ に対し、[層条件](../CATB5-03/index.md#def-catb5-03-site-sheaf)から $s$ を貼り合わせる $x\in F(U)$ が存在し、全ての $f\in S$ で $F(f)(x)=s_f$。従って $S$ が局所同値の証人となり $\eta_{F,U}(x)=[S,s]$ なので全射でもある。
+$F$ が層であると仮定する。分離性から[標準写像の局所一致](#prop-catb5-04-local-representation)により各 $\eta_{F,U}$ は単射である。
+
+任意の $[S,s]\in F^+(U)$ に対し、[層条件](../CATB5-03/index.md#def-catb5-03-site-sheaf)から $s$ を貼り合わせる $x\in F(U)$ が存在する。これは
+
+$$
+F(f)(x)=s_f\qquad(f\in S)
+$$
+
+を満たす。従って $S$ が局所同値の証人となり $\eta_{F,U}(x)=[S,s]$ なので全射でもある。
 
 [標準写像の自然性](#prop-catb5-04-plus-presheaf)の等式の両側に成分の逆写像を合成すれば
 
@@ -393,7 +411,23 @@ $X$ 上の二点被覆の整合族では、空集合への二つの制限が恒�
 <!-- solution-start -->
 **詳細解答**
 
-まずこの被覆指定が [Grothendieck位相の三公理](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)を満たすことを確かめる。最大篩は指定通り被覆であり、非恒等射 $i$ による引き戻しは $i^*\{i\}=M_0=i^*M_1$ となる。恒等射による引き戻しは篩を変えない。推移律で最初の被覆が最大篩なら恒等射で結論が出る。最初の被覆が $\{i\}$ なら、候補の篩 $Q$ が $i^*Q=M_0$ を満たすことから $i\in Q$ となり、$Q$ は $\{i\}$ または $M_1$ である。従って推移律も成立する。
+まずこの被覆指定が [Grothendieck位相の三公理](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)を満たすことを確かめる。
+
+最大篩は指定通り被覆である。非恒等射 $i$ による引き戻しは
+
+$$
+i^*\{i\}=M_0=i^*M_1
+$$
+
+となる。恒等射による引き戻しは篩を変えない。
+
+推移律で最初の被覆が最大篩なら恒等射で結論が出る。最初の被覆が $\{i\}$ なら、候補の篩 $Q$ について
+
+$$
+i^*Q=M_0\Longrightarrow i\in Q
+$$
+
+となり、$Q$ は $\{i\}$ または $M_1$ である。従って推移律も成立する。
 
 $1$ の最小の被覆篩は $\{i\}$ である。二つの最大篩上の族の $i$ 成分はそれぞれ $F(i)(x)=r(x)$ と $F(i)(y)=r(y)$。[標準写像の局所一致](#prop-catb5-04-local-representation)により、何らかの被覆篩上で一致することは最小の被覆篩で一致することと同値だから
 
@@ -434,7 +468,13 @@ $0$ ではA01と同じ最大篩の計算で $F^+(0)$ は $D$ と対応する。$
 
 [局所同値](#def-catb5-04-local-equivalence)の判定は最小被覆篩上での一致に等しいため、各代表元をその $i$ 成分に送ると $F^+(1)$ と $D$ の間の全単射が得られる。全射性は $\{i\}$ 上の族で任意の $d$ を実現できること、単射性は同じ $i$ 成分なら同値であることによる。
 
-$i^*\{i\}=M_0$ で引き戻した族の恒等射成分は $d$。従ってこれらの対応で $F^+(i)$ は $1_D$ になる。元の標準写像は対象 $1$ で $r$、対象 $0$ で $1_D$ に対応する。$r$ の単射性がないなら同じ像を持つ元が同一視され、全射性がないなら像にない $d$ が新たに加わる。[層条件](../CATB5-03/index.md#def-catb5-03-site-sheaf)を各被覆で確認する。最大篩ではA01の恒等射成分による対応が全単射を与える。対象 $1$ の残る被覆 $\{i\}$ では整合族は $F^+(0)$ の元一つで決まり、制限写像は上で求めた $1_D$ に対応するので全単射である。従って $F^+$ は層となる。
+$i^*\{i\}=M_0$ で引き戻した族の恒等射成分は $d$。従ってこれらの対応で $F^+(i)$ は $1_D$ になる。
+
+元の標準写像は対象 $1$ で $r$、対象 $0$ で $1_D$ に対応する。$r$ が単射でないなら同じ像を持つ元が同一視され、全射でないなら像にない $d$ が新たに加わる。
+
+[層条件](../CATB5-03/index.md#def-catb5-03-site-sheaf)を各被覆で確認する。最大篩ではA01の恒等射成分による対応が全単射を与える。
+
+対象 $1$ の残る被覆 $\{i\}$ では整合族は $F^+(0)$ の元一つで決まる。制限写像は上で求めた $1_D$ に対応するので全単射である。従って $F^+$ は層となる。
 <!-- solution-end -->
 
 ### CATB5-04-B02 前層間の自然変換のplus
@@ -461,7 +501,21 @@ $$
 
 従って右辺の族は $G$ の整合族である。二つの代表元が被覆篩 $R$ 上で一致すれば各成分に同じ写像 $\alpha_{\operatorname{dom}f}$ を適用した値も一致する。よって商上に写像が定まる。
 
-$u:V\to U$ に沿って制限すると、先に $\alpha_U^+$ を適用してから $G^+(u)$ で制限した場合も、先に $F^+(u)$ で制限してから $\alpha_V^+$ を適用した場合も、篩は $u^*S$ である。$g:W\to V$ の成分はどちらも $\alpha_W(s_{ug})$ なので二つの自然性の経路が一致する。さらに最大篩上で比較すると、$\alpha_U^+\eta_{F,U}(x)$ の $f:V\to U$ 成分は $\alpha_V(F(f)(x))=G(f)(\alpha_U(x))$ だから $\alpha_U^+\eta_{F,U}=\eta_{G,U}\alpha_U$ も成立する。
+射 $u:V\to U$ に沿う自然性の二経路
+
+$$
+G^+(u)\alpha_U^+,\qquad \alpha_V^+F^+(u)
+$$
+
+を比較する。どちらの代表も篩は $u^*S$ であり、$g:W\to V$ の成分は $\alpha_W(s_{ug})$ なので一致する。
+
+さらに最大篩上で比較すると、$\alpha_U^+\eta_{F,U}(x)$ の $f:V\to U$ 成分は
+
+$$
+\alpha_V(F(f)(x))=G(f)(\alpha_U(x))
+$$
+
+だから $\alpha_U^+\eta_{F,U}=\eta_{G,U}\alpha_U$ も成立する。
 <!-- solution-end -->
 
 ### CATB5-04-B03 局所表示の貼り合わせ
