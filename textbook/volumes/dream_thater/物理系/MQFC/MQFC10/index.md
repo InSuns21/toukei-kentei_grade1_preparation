@@ -56,6 +56,8 @@ $$
 <!-- definition-example-start: def-mqfc10-os-conditions -->
 ### 直接例：確定した定数場
 
+**定義の確認**
+
 実数 $c$ を固定し、場が全時空で $c$ である場合を考えます。$S_n(f_n)=c^n\int f_n$、$S_0=1$ と置きます。Schwartz 減衰により積分は絶対収束し、十分大きい次数の Schwartz 半ノルムで積分の絶対値を抑えられるため E0 です。回転・並進の変数変換の Jacobian の絶対値は1なので E1、変数交換でも積分が不変なので E3 です。
 
 $A(f)=\sum_n c^n\int f_n$（零次積分は $f_0$）と置くと、反転の Jacobian の絶対値は1、$c$ は実数なので
@@ -108,6 +110,8 @@ $$
 
 <!-- definition-example-start: def-mqfc10-linear-growth -->
 ### 直接例：質量正の自由Gaussian場の増大評価
+
+**定義の確認**
 
 質量 $m>0$ とします。[Euclid自由場の試験関数共分散](../MQFC5/index.md#def-mqfc5-covariance-form) の Fourier 乗数は $(|p|^2+m^2)^{-1}$ です。複素線形に延長した二点のモーメントを $C(f,g)$ と書けば、Cauchy–Schwarz と Fourier の $L^2$ 等長性（測度 $d^4p/(2\pi)^4$）で
 
