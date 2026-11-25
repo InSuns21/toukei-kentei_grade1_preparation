@@ -84,3 +84,4 @@
 81. [CATB5-07 層の圏のトポス構造](textbook/volumes/dream_thater/基礎論系/CATB/CATB5-07/index.md)
 82. [CATB5-08 トポスでの像と正確性](textbook/volumes/dream_thater/基礎論系/CATB/CATB5-08/index.md)
 83. [CATB5-09 幾何学的射](textbook/volumes/dream_thater/基礎論系/CATB/CATB5-09/index.md)
+84. [CATB5-10 siteの比較と層の幾何](textbook/volumes/dream_thater/基礎論系/CATB/CATB5-10/index.md)
