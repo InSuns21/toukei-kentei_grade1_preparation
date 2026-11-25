@@ -111,6 +111,7 @@ cd /tmp/lvt-upstream
 git checkout --detach c332ba3e2d2bf78edb993ae6acadcd83f927073e
 cd lean_spec
 lean --version
+lake update
 lake test
 lake build
 lake env lean "$audit"
