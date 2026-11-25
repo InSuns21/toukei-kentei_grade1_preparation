@@ -1,0 +1,31 @@
+chapter: MQFC5
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC1, QFT20, PDE3]
+forward_references: []
+concepts:
+  - id: mqfc.euclidean-covariance-form
+    name: "Euclid自由場の試験関数共分散"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.fourier, qft.euclidean-free-covariance]
+  - id: mqfc.euclidean-inverse
+    name: "質量付きEuclid作用素の逆と共分散核"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.euclidean-covariance-form, mqfc.derivative, mqfc.kernel]
+  - id: mqfc.euclidean-covariance-positivity
+    name: "試験関数共分散の正値性と連続性"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.euclidean-covariance-form, mqfc.gram]
+  - id: mqfc.heat-resolvent
+    name: "質量付き逆核の熱核積分表示"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.euclidean-inverse, pde.pde3-heat-kernel, fourier.fou3-gaussian-transform]
+  - id: mqfc.massless-infrared
+    name: "質量ゼロ極限の赤外条件"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.euclidean-covariance-positivity]
