@@ -182,7 +182,11 @@ export const lessons = {
   'LVT5-05': { module:'LvtContracts', sourcePath:'../../LVT3-01/lab/LvtContracts.lean', modes:[
     ['LvtTypeScriptDrt.lean','応答交換の検出条件','異なる応答の交換と同一応答の交換を比較。'],
     ['Failure.lean','異なる応答は交換できない','誤った等式の証明は型不一致。']
-  ], commands:"lake build\nlake test\nlake env lean LvtTypeScriptDrt.lean\n(cd ../../LVT5-02/lab && lake build)\nnpm install --ignore-scripts\nnpm test\nnpm run discover -- /tmp/lvt-ts-counterexample.json\nnpm run replay -- /tmp/lvt-ts-counterexample.json\n# 以下は意図的な失敗\nlake env lean Failure.lean" }
+  ], commands:"lake build\nlake test\nlake env lean LvtTypeScriptDrt.lean\n(cd ../../LVT5-02/lab && lake build)\nnpm install --ignore-scripts\nnpm test\nnpm run discover -- /tmp/lvt-ts-counterexample.json\nnpm run replay -- /tmp/lvt-ts-counterexample.json\n# 以下は意図的な失敗\nlake env lean Failure.lean" },
+  'LVT5-06': { module:'LvtContracts', sourcePath:'../../LVT3-01/lab/LvtContracts.lean', modes:[
+    ['LvtStateful.lean','操作列と中間観測','連結則・長さと拒否・停止の観測を確認。'],
+    ['Failure.lean','空と一個は同じではない','誤った等式の証明は型不一致。']
+  ], commands:"lake build\nlake test\nlake env lean LvtStateful.lean\nnpm install --ignore-scripts\nnpm test\nnpm run discover -- /tmp/lvt-stateful.json\nnpm run replay -- /tmp/lvt-stateful.json\n# 以下は意図的な失敗\nlake env lean Failure.lean" }
 };
 export function combine(module, definitions, experiment, suffix='') {
   // Only the exact local module import is replaced by its source.

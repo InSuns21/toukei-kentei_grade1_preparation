@@ -139,7 +139,7 @@ chapters:
     title: "TypeScript：fast-check差分テスト"
   - id: LVT5-06
     path: textbook/volumes/dream_thater/計算系/LVT/LVT5-06
-    status: planned
+    status: completed
     title: "Stateful DRTと遷移列"
   - id: LVT5-07
     path: textbook/volumes/dream_thater/計算系/LVT/LVT5-07
