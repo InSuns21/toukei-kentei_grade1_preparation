@@ -86,3 +86,4 @@
 83. [CATB5-09 幾何学的射](textbook/volumes/dream_thater/基礎論系/CATB/CATB5-09/index.md)
 84. [CATB5-10 siteの比較と層の幾何](textbook/volumes/dream_thater/基礎論系/CATB/CATB5-10/index.md)
 85. [CATB6-01 部分対象のHeyting演算](textbook/volumes/dream_thater/基礎論系/CATB/CATB6-01/index.md)
+86. [CATB6-02 量化子の随伴表示](textbook/volumes/dream_thater/基礎論系/CATB/CATB6-02/index.md)

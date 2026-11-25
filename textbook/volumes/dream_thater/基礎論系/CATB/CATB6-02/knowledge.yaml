@@ -1,0 +1,35 @@
+chapter: CATB6-02
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB6-01, CATB5-08, CATB4-07, CATB5-06, CAT2-08, CAT2-03]
+concepts:
+  - id: category.subobject-quantifiers
+    name: "射に沿う量化子"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射に沿う量化子）"]
+    requires: [category.subobject-inverse-image, category.poset-adjunction]
+  - id: category.topos-quantifier-existence
+    name: "初等トポスの量化子の存在"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（初等トポスの量化子の存在）"]
+    requires: [category.subobject-quantifiers, category.subobject-image-adjunction, category.topos-barr-exactness, category.topos-fiber-inclusion]
+  - id: category.set-projection-quantification
+    name: "集合の射影量化"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（集合の射影量化）"]
+    requires: [category.subobject-quantifiers]
+  - id: category.quantifier-unit-counit
+    name: "量化子の単位と余単位"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（量化子の単位と余単位）"]
+    requires: [category.topos-quantifier-existence]
+  - id: category.quantifier-composition
+    name: "量化子の合成"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（量化子の合成）"]
+    requires: [category.topos-quantifier-existence, category.pullback, category.poset-adjunction]
