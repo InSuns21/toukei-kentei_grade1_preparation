@@ -9,7 +9,7 @@ lake --version | tee "$logdir/lake-version.log"
 # Each variant starts with no generated artifacts, in a separate temporary directory.
 for variant in Solution Mismatch ForbiddenAxiom; do
   work="$(mktemp -d)"
-  cp lean-toolchain lakefile.toml lake-manifest.json Challenge.lean Solution.lean Mismatch.lean.lean ForbiddenAxiom.lean comparator.json "$work/"
+  cp lean-toolchain lakefile.toml lake-manifest.json Challenge.lean Solution.lean Mismatch.lean ForbiddenAxiom.lean comparator.json "$work/"
   (
     cd "$work"
     python3 - "$variant" <<'PY'
@@ -41,7 +41,6 @@ PY
       test "$status" -eq 1
       case "$variant" in
         Mismatch) grep -Ei 'error:.*(family|mismatch)' "$logdir/$variant.log" ;;
-       ) grep -Ei 'error:.*(step|mismatch)' "$logdir/$variant.log" ;;
         ForbiddenAxiom) grep -Ei 'error:.*(externalProof|axiom)' "$logdir/$variant.log" ;;
       esac
       ! grep -F 'Your solution is okay!' "$logdir/$variant.log"
