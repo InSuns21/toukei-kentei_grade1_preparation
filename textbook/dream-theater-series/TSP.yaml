@@ -50,7 +50,7 @@ chapters:
     title: "スペクトル点：加法性・乗法性・単調性・正規化"
   - id: TSP12
     path: textbook/volumes/dream_thater/計算系/TSP/TSP12
-    status: planned
+    status: completed
     title: "Strassen漸近スペクトル双対性：仮定・証明の骨格と例"
   - id: TSP13
     path: textbook/volumes/dream_thater/計算系/TSP/TSP13
