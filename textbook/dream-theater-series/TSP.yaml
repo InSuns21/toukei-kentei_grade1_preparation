@@ -42,7 +42,7 @@ chapters:
     title: "漸近階数・漸近劣階数・Fekete補題と指数"
   - id: TSP10
     path: textbook/volumes/dream_thater/計算系/TSP/TSP10
-    status: planned
+    status: completed
     title: "前順序付き可換半環と自然数の埋込み"
   - id: TSP11
     path: textbook/volumes/dream_thater/計算系/TSP/TSP11

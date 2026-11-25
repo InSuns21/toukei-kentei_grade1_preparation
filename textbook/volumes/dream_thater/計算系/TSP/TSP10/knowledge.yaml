@@ -1,0 +1,49 @@
+chapter: TSP10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TSP9
+forward_references: []
+concepts:
+  - id: tensor.commutative-semiring
+    name: 可換半環
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（可換半環）"]
+    requires: []
+  - id: tensor.preordered-semiring
+    name: 前順序付き可換半環
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（前順序付き可換半環）"]
+    requires: [tensor.commutative-semiring, order.preorder]
+  - id: tensor.semiring-natural-map
+    name: 自然数からの標準写像
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（自然数からの標準写像）"]
+    requires: [tensor.commutative-semiring]
+  - id: tensor.strassen-preorder
+    name: Strassen前順序
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Strassen前順序）"]
+    requires: [tensor.preordered-semiring, tensor.semiring-natural-map]
+  - id: tensor.tensor-semiring
+    name: テンソルの半環構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（テンソルの半環構成）"]
+    requires: [tensor.preordered-semiring, tensor.restriction-equivalence, tensor.operation-monotonicity, tensor.diagonal-tensor]
+  - id: tensor.tensor-strassen-preorder
+    name: テンソルのStrassen前順序
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（テンソルのStrassen前順序）"]
+    requires: [tensor.strassen-preorder, tensor.tensor-semiring, tensor.diagonal-operations, tensor.rank-restriction-characterization]
+  - id: tensor.semiring-rank-subrank
+    name: 自然数による上下の評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（自然数による上下の評価）"]
+    requires: [tensor.strassen-preorder]
