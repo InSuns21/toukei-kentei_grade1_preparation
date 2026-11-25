@@ -1,0 +1,47 @@
+chapter: CATB6-04
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB6-03, CATB6-02, CATB6-01, CATB4-07, CATB1-02, CAT2-04]
+concepts:
+  - id: category.regular-logic
+    name: "正則論理"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則論理）"]
+    requires: []
+  - id: category.regular-semantics
+    name: "正則式の圏論的解釈"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則式の圏論的解釈）"]
+    requires: [category.regular-logic, category.regular-category, category.subobject-image-adjunction, category.subobject-inverse-image]
+  - id: category.regular-substitution
+    name: "正則式の代入則"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則式の代入則）"]
+    requires: [category.regular-semantics, category.subobject-beck-chevalley]
+  - id: category.regular-rules
+    name: "正則論理の基本推論の健全性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則論理の基本推論の健全性）"]
+    requires: [category.regular-substitution, category.subobject-image-adjunction, category.regular-factorization-base-change]
+  - id: category.coherent-logic
+    name: "整合論理"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（整合論理）"]
+    requires: [category.regular-logic]
+  - id: category.coherent-category
+    name: "整合圏"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（整合圏）"]
+    requires: [category.regular-category, category.subobject-inverse-image]
+  - id: category.coherent-rules
+    name: "整合論理の選言と代入の健全性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（整合論理の選言と代入の健全性）"]
+    requires: [category.coherent-logic, category.coherent-category, category.regular-substitution, category.subobject-image-adjunction]

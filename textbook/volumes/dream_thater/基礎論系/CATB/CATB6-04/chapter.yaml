@@ -1,0 +1,27 @@
+id: "CATB6-04"
+title: "正則論理と整合論理"
+volume: "foundations"
+status: supplementary
+prerequisites: [CATB6-03, CATB6-02, CATB6-01, CATB4-07, CATB1-02, CAT2-04]
+official_scope: []
+learning_objectives:
+  - 正則式と整合式の構成規則を区別できる
+  - 等号と関係を逆像、連言を共通部分、存在量化を像で解釈できる
+  - 正則式の代入則と基本推論を証明できる
+  - 整合圏の有限上限の安定性から選言の推論と代入を導ける
+  - 正則性だけでは選言の安定性が従わない反例を説明できる
+definitions:
+  - { id: CATB6-04-DEF-01, name: "正則論理" }
+  - { id: CATB6-04-DEF-02, name: "正則式の圏論的解釈" }
+  - { id: CATB6-04-DEF-03, name: "整合論理" }
+  - { id: CATB6-04-DEF-04, name: "整合圏" }
+theorems:
+  - { id: CATB6-04-THM-01, name: "正則式の代入則" }
+  - { id: CATB6-04-THM-02, name: "正則論理の基本推論の健全性" }
+  - { id: CATB6-04-THM-03, name: "整合論理の選言と代入の健全性" }
+canonical_examples: [施設の所属と存在, 対角の逆像, 集合の有限和, 五元順序圏]
+problem_patterns: [CATB6-04-A01, CATB6-04-A02, CATB6-04-A03, CATB6-04-A04, CATB6-04-B01, CATB6-04-B02, CATB6-04-B03, CATB6-04-B04, CATB6-04-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
