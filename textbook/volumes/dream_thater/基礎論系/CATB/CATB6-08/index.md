@@ -8,7 +8,7 @@
 
 ## 2. 文脈・型・項
 
-文脈とは既に選んだ変数の値の組が走る対象である。型は各値の組に対して次に選べる値を指定する。項はその選択を全ての文脈の値に対して実際に行う。
+文脈とは既に選んだ変数の値の組が走る対象である。型は各値の組に対して次に選べる値を指定する。項はその選択を全ての文脈の値に対して実際に行う。文脈拡張は元の文脈に型の値を一つ付け加える操作、置換は新しい文脈の値から古い文脈の値を指定する写像である。空文脈には変数を一つも選ばない空の組が一つだけある。以下、写像の合成は右から左に読み、$fg=f\circ g$ と略記する。記号 $\Gamma.A$ の点は文脈拡張を表す。
 
 <a id="def-catb6-08-family-types"></a>
 
@@ -17,7 +17,7 @@
 >
 > 集合 $\Gamma$ を文脈とし、各 $\gamma\in\Gamma$ に集合 $A_\gamma$ を対応させた族を $\Gamma$ 上の依存型 $A$ とする。記号 $\Gamma\vdash A\ \mathrm{type}$ で表す。
 >
-> 項 $\Gamma\vdash a:A$ は、各 $\gamma\in\Gamma$ に元 $a_\gamma\in A_\gamma$ を指定する族である。
+> $\vdash$ は左側の文脈のもとで右側を解釈することを表す。項 $\Gamma\vdash a:A$ は、各 $\gamma\in\Gamma$ に元 $a_\gamma\in A_\gamma$ を指定する族である。
 >
 > 文脈拡張 $\Gamma.A$ とその射影 $p_A$ は次で与える。
 
@@ -45,21 +45,26 @@ $$
 
 ## 3. 置換は引き戻しで表す
 
-例えば道路を地図上の地点から指定する写像 $\sigma:\Delta\to\Gamma$ があれば、地点ごとに利用できる速度の集合が決まる。型と項を一緒に移すには次の規則を使う。
+例えば道路を地図上の地点から指定する写像 $\sigma:\Delta\to\Gamma$ があれば、地点ごとに利用できる速度の集合が決まる。型と項を移す操作を添字の読み替えとして定め、文脈拡張が[引き戻し](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)になることを確かめる。型に項が存在しない場合にも、型の読み替えと文脈拡張はできる。
 
 <a id="thm-catb6-08-substitution"></a>
 
 <!-- formal-statement-start -->
 > **定理（集合族の置換と文脈拡張）**
 >
-> 集合の文脈 $\Gamma$ 上の型 $A$、その項 $a$、置換 $\sigma:\Delta\to\Gamma$ を取る。置換後の型と項は
+> 集合の文脈 $\Gamma$ 上の型 $A$ と置換 $\sigma:\Delta\to\Gamma$ を取る。置換後の型 $A[\sigma]$ は各 $\delta\in\Delta$ で
 
 $$
-(A[\sigma])_\delta=A_{\sigma(\delta)},
-\qquad (a[\sigma])_\delta=a_{\sigma(\delta)}
+(A[\sigma])_\delta=A_{\sigma(\delta)}
 $$
 
-> である。写像
+> と定める。さらに項 $a:A$ が与えられた場合、その置換後の項 $a[\sigma]$ は
+
+$$
+(a[\sigma])_\delta=a_{\sigma(\delta)}
+$$
+
+> と定める。写像
 
 $$
 \sigma^+:\Delta.A[\sigma]\to\Gamma.A,\qquad
@@ -80,7 +85,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-各 $\delta$ について $a_{\sigma(\delta)}\in A_{\sigma(\delta)}$ なので置換後も型が合う。二つの射影の可換性は
+型の成分 $A_{\sigma(\delta)}$ は集合なので、項の有無にかかわらず置換後の集合族が定まる。項 $a$ が与えられた場合には、各 $\delta$ について $a_{\sigma(\delta)}\in A_{\sigma(\delta)}$ なので置換後も型が合う。二つの射影の可換性は
 
 $$
 p_A\sigma^+(\delta,x)=\sigma(\delta)
@@ -108,7 +113,15 @@ $$
 =(A[\sigma\tau])_\theta.
 $$
 
-項についても同じ計算を $a$ に適用する。恒等置換は各成分をそのまま返す。したがって二つの置換律は族の等号として成り立つ。
+項 $a$ が存在する場合には
+
+$$
+(a[\sigma][\tau])_\theta
+=a_{\sigma(\tau(\theta))}
+=(a[\sigma\tau])_\theta.
+$$
+
+恒等置換については $(A[1_\Gamma])_\gamma=A_\gamma$、項が与えられれば $(a[1_\Gamma])_\gamma=a_\gamma$ である。したがって二つの置換律は族の等号として成り立つ。
 <!-- proof-end -->
 
 例えば $\Delta=\{u,v,w\}$ とし $\sigma(u)=\sigma(w)=r$、$\sigma(v)=s$ とすると、置換された拡張の元は
@@ -123,7 +136,7 @@ $$
 
 集合でなくても文脈を対象、置換を射とし、文脈ごとの型を圏にまとめられる。[ファイブレーション](../CATB4-01/index.md#def-catb4-01-fibration) は置換ごとの型の持ち上げを保証する。しかし、それだけでは型から拡張文脈を取り出す方法は指定されていない。
 
-基底圏 $\mathcal C$ の射を対象、可換四角形を射とする圏を $\mathcal C^\to$ とする。この圏と終域関手は [終域関手と引き戻し](../CATB4-01/index.md#thm-catb4-01-codomain) で扱った。型をこの圏の対象に対応させれば、型の射が文脈拡張の間の可換四角形になる。
+基底圏を引き戻しを持つ[局所小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size) $\mathcal C$ とする。その射を対象、可換四角形を射とする圏を $\mathcal C^\to$ と書く。終域関手 $\operatorname{cod}$ は対象である射から終域を、四角形から下辺を取り出す。この圏と終域関手は [終域関手と引き戻し](../CATB4-01/index.md#thm-catb4-01-codomain) で扱った。型をこの圏の対象に対応させれば、型の射が文脈拡張の間の可換四角形になる。特に[Cartesian射](../CATB4-01/index.md#def-catb4-01-cartesian)は型を置換するための普遍的な射なので、その像を引き戻し四角形にすることを要求する。
 
 <a id="def-catb6-08-comprehension"></a>
 
@@ -132,7 +145,7 @@ $$
 >
 > 引き戻しを持つ局所小圏 $\mathcal C$ とファイブレーション $p:\mathcal E\to\mathcal C$ を取る。関手 $\chi:\mathcal E\to\mathcal C^\to$ が次を満たすとき、この組を理解圏（comprehension category）とする。
 >
-> 1. $\operatorname{cod}\chi=p$ が成立する。
+> 1. $\operatorname{cod}\circ\chi=p$ が関手の等号として成立する（対象と射の両方で一致する）。
 > 2. $\chi$ は $p$ に関するCartesian射を引き戻し四角形に送る。
 >
 > ここで $p(A)=\Gamma$ である型 $A$ の像を、射 $p_A:\Gamma.A\to\Gamma$ と書く。$\Gamma.A$ は文脈拡張であり、項の解釈は $p_A$ の切断である。
@@ -148,9 +161,9 @@ $$
 (\delta,y)\mapsto(\sigma(\delta),\phi_\delta(y))
 $$
 
-と下辺の $\sigma$ からなる四角形である。両経路とも $(\delta,y)$ を $\sigma(\delta)$ に送るので可換である。終域は $\Gamma$ であり、条件1が成立する。
+と下辺の $\sigma$ からなる四角形である。両経路とも $(\delta,y)$ を $\sigma(\delta)$ に送るので可換である。対象 $A$ の像の終域は $\Gamma=p(A)$ であり、この族の射の像の下辺は $\sigma$ である。下辺はもとの族の射を $p$ で送った基底写像に等しい。よって対象・射の双方で条件1が成立する。
 
-恒等射では上辺は恒等写像となる。もう一つの族の射 $(\tau,\psi)$ を前から合成すると上辺の値は
+恒等射では基底も上辺も恒等写像となる。もう一つの族の射 $(\tau,\psi)$（$\tau:\Theta\to\Delta$、$\psi_\theta:D_\theta\to B_{\tau(\theta)}$）を前から合成すると上辺の値は
 
 $$
 (\theta,z)\mapsto
@@ -159,24 +172,41 @@ $$
 
 これは合成された族の射の像に等しいので $\chi$ は関手である。
 
-[集合族のCartesian射の判定](../CATB4-01/index.md#thm-catb4-01-families) より、Cartesian射では全ての $\phi_\delta$ が全単射である。そこで引き戻しの任意の入力 $h:T\to\Delta$ と $k(t)=(\sigma(h(t)),x_t)$ に対して
+[集合族のCartesian射の判定](../CATB4-01/index.md#thm-catb4-01-families) より、Cartesian射では全ての $\phi_\delta$ が全単射である。これを[引き戻しの普遍性](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)に結び付ける。任意の集合 $T$ と写像 $h:T\to\Delta$、$k:T\to\Gamma.A$ が $p_Ak=\sigma h$ を満たすなら、
+
+$$
+k(t)=(\sigma(h(t)),x_t),\qquad
+x_t\in A_{\sigma(h(t))}
+$$
+
+と書ける。全単射の逆写像でこの第二成分を $B_{h(t)}$ に戻せるので、
 
 $$
 m(t)=(h(t),\phi_{h(t)}^{-1}(x_t))
 $$
 
-を取る。射影と上辺との合成はそれぞれ $h,k$ になる。第一成分が $h(t)$ に固定され、第二成分が全単射で一意に決まるので唯一の媒介射である。よって条件2も成立する。
+を取る。この写像は $\Delta.B$ に値を取る。上辺を $F$ と略記すると、二つの合成は
+
+$$
+\begin{aligned}
+p_Bm(t)&=h(t),\\
+Fm(t)&=(\sigma(h(t)),\phi_{h(t)}(\phi_{h(t)}^{-1}(x_t)))\\
+&=k(t).
+\end{aligned}
+$$
+
+となる。第一成分が $h(t)$ に固定され、第二成分が全単射で一意に決まるので唯一の媒介射である。よって条件2も成立する。
 <!-- definition-example-end -->
 
-この例では $\chi$ は充満忠実である。可換四角形の上辺は、射影との可換性によって必ず $(\delta,y)\mapsto(\sigma(\delta),z)$ の形を持つ。その第二成分 $z$ が一意の成分写像 $\phi_\delta$ を定めるからである。理解圏の定義そのものには充満忠実性を要求していない。これを要求する場合を充満な理解圏という。
+この例では $\chi$ は射の集合ごとに全単射を与える、すなわち充満忠実である。可換四角形の上辺は、射影との可換性によって必ず $(\delta,y)\mapsto(\sigma(\delta),z)$ の形を持つ。その第二成分 $z$ が一意の成分写像 $\phi_\delta$ を定めるからである。理解圏の定義そのものには充満忠実性を要求していない。これを要求する場合を充満な理解圏という。
 
-一般の理解圏では型を移すCartesian持ち上げを選ぶ。移された項は引き戻しの普遍性を使って得る。具体的に $s:\Gamma\to\Gamma.A$ が切断なら、$\sigma$ と $s\sigma$ は
+一般の理解圏では型を移すCartesian持ち上げを[cleavage](../CATB4-02/index.md#def-catb4-02-cleavage)として選び、$\sigma$ に沿う持ち上げの始域を $A[\sigma]=\sigma^*A$ と書く。ここで上付きの $*$ は再添字付けを表す。移された項は引き戻しの普遍性を使って得る。具体的に $s:\Gamma\to\Gamma.A$ が切断なら、$\sigma$ と $s\sigma$ は
 
 $$
 p_A s\sigma=\sigma
 $$
 
-を満たすので、引き戻し四角形に対する唯一の媒介射 $\Delta\to\Delta.A[\sigma]$ がある。第一射影との合成が $1_\Delta$ だから切断である。持ち上げを任意に選ぶ場合、合成置換との整合は一般に標準同型を通じて成立する。集合族では添字を直接読み替える選択をしているので前節の厳密な等式が得られる。
+を満たすので、引き戻し四角形に対する唯一の媒介射 $\Delta\to\Delta.A[\sigma]$ がある。第一射影との合成が $1_\Delta$ だから切断である。持ち上げを任意に選ぶ場合、[選んだ持ち上げの比較同型](../CATB4-02/index.md#thm-catb4-02-comparison)により合成置換との整合は一般に標準同型を通じて成立する。集合族では添字を直接読み替える選択をしているので前節の厳密な等式が得られる。
 
 ## 5. 依存和と依存積
 
@@ -225,7 +255,7 @@ $$
 
 文脈 $\Gamma$ で $a:A$ があり、各 $\gamma$ に対し $b_\gamma\in B_{(\gamma,a_\gamma)}$ が指定されていれば、$(a_\gamma,b_\gamma)$ は依存和の項である。逆に依存和の項 $c_\gamma=(x_\gamma,y_\gamma)$ から第一成分 $x_\gamma\in A_\gamma$ を得ると、第二成分は $B_{(\gamma,x_\gamma)}$ の元である。第二成分の型は第一成分に依存する。
 
-拡張文脈上の項 $b$ は、全ての $(\gamma,x)$ で値 $b_{(\gamma,x)}$ を持つ。そこで $\lambda b$ を
+拡張文脈上の項 $b$ は、全ての $(\gamma,x)$ で値 $b_{(\gamma,x)}$ を持つ。そこで各 $\gamma$ で関数を作る操作（関数抽象）を $\lambda b$ と書き、
 
 $$
 (\lambda b)_\gamma(x)=b_{(\gamma,x)}
@@ -235,7 +265,7 @@ $$
 
 ### 随伴として読む
 
-$\Gamma$ 上の集合族の圏を $\mathcal F_\Gamma$ とする。射は同一添字上の成分写像の族である。[集合族の再添字付けの両随伴](../CATB4-06/index.md#thm-catb4-06-family-adjoints) を射影 $p_A:\Gamma.A\to\Gamma$ に適用する。$\gamma$ の逆像は $\{(\gamma,x)\mid x\in A_\gamma\}$ であるから、左随伴の非交和の添字 $(\gamma,x)$ を $x$ に読み替えると依存和、右随伴の積の添字を $x$ に読み替えると依存積になる。
+$\Gamma$ 上の集合族の[ファイバー圏](../CATB4-01/index.md#def-catb4-01-fiber)を $\mathcal F_\Gamma$ とする。射は同一添字上の成分写像の族である。射影に沿う再添字付け $p_A^*:\mathcal F_\Gamma\to\mathcal F_{\Gamma.A}$ は $(p_A^*C)_{(\gamma,x)}=C_\gamma$ と定める。依存和・依存積は逆向きの関手で、成分写像 $v:B\to D$ に対し、それぞれ対の第二成分と関数の各値に $v_{(\gamma,x)}$ を適用する。[集合族の再添字付けの両随伴](../CATB4-06/index.md#thm-catb4-06-family-adjoints) を射影 $p_A:\Gamma.A\to\Gamma$ に適用する。$\gamma$ の逆像は $\{(\gamma,x)\mid x\in A_\gamma\}$ であるから、左随伴の非交和の添字 $(\gamma,x)$ を $x$ に読み替えると依存和、右随伴の積の添字を $x$ に読み替えると依存積になる。
 
 $$
 \Sigma_A\dashv p_A^*\dashv\Pi_A.
@@ -266,7 +296,7 @@ $$
 <!-- formal-statement-start -->
 > **定理（集合族の依存和・依存積のBeck–Chevalley同型）**
 >
-> 集合の文脈 $\Gamma$ 上の型 $A$、$\Gamma.A$ 上の型 $B$、置換 $\sigma:\Delta\to\Gamma$ を取る。$A'=A[\sigma]$、$\sigma^+:\Delta.A'\to\Gamma.A$ を第3節の写像とし、$B'=B[\sigma^+]$ とする。このとき集合族の自然な同型
+> 集合の文脈 $\Gamma$ 上の型 $A$、$\Gamma.A$ 上の型 $B$、置換 $\sigma:\Delta\to\Gamma$ を取る。$A'=A[\sigma]$、$\sigma^+:\Delta.A'\to\Gamma.A$ を[集合族の置換と文脈拡張](#thm-catb6-08-substitution)の写像とし、$B'=B[\sigma^+]$ とする。このとき集合族の自然な同型
 
 $$
 (\Sigma_A B)[\sigma]\cong\Sigma_{A'}B',
@@ -290,7 +320,7 @@ B'_{(\delta,x)}
 =B_{(\sigma(\delta),x)}.
 $$
 
-[依存和](#def-catb6-08-dependent-sum-product)と[依存積](#def-catb6-08-dependent-sum-product)の構成式 にこの二式を代入する。和について左側の成分は
+[依存和](#def-catb6-08-dependent-sum-product)と[依存積](#def-catb6-08-dependent-sum-product)の構成式にこの二式を代入する。和について左側の成分は
 
 $$
 ((\Sigma_A B)[\sigma])_\delta
@@ -325,20 +355,37 @@ $$
 今回の集合族の表示では成分を同じ集合として構成しているため、同型を等号で実現できる。別の引き戻しの表示を選ぶ場合は添字の標準全単射を通じた同型になる。
 <!-- proof-end -->
 
-一般の理解圏でも、Cartesian持ち上げから生じる引き戻し四角形を考える。$q=p_{A'}$、$p=p_A$、$v=\sigma^+$ と書けば $pv=\sigma q$ であり、再添字付けの比較 $v^*p^*\cong q^*\sigma^*$ が得られる。随伴を選んでいるとき、左随伴については単位 $B\to p^*\Sigma_p B$ を $v^*$ で移して
+<a id="ref-catb6-08-type-comparisons"></a>
+
+一般の理解圏でも、選んだCartesian持ち上げから生じる引き戻し四角形を考える。ここでは $p$ をファイブレーション関手ではなく表示射 $p_A$ の略記とし、$q=p_{A'}$、$v=\sigma^+$ と置く。
+
+$$
+p:\Gamma.A\to\Gamma,\quad q:\Delta.A'\to\Delta,\quad
+v:\Delta.A'\to\Gamma.A,\quad pv=\sigma q.
+$$
+
+[選んだ持ち上げの比較同型](../CATB4-02/index.md#thm-catb4-02-comparison)により、二つの再添字付けは共通の合成射に沿う再添字付けとそれぞれ同型になる。
+
+$$
+v^*p^*\cong(pv)^*=(\sigma q)^*\cong q^*\sigma^*.
+$$
+
+これらは $\Gamma$ 上のファイバーから $\Delta.A'$ 上のファイバーへの関手である。表示射 $p,q$ に沿う再添字付けに左右の随伴が選ばれているとする。添字 $p,q$ は随伴を取る基底射を表し、集合族では $\Sigma_p=\Sigma_A$、$\Pi_p=\Pi_A$ と上の添字の読み替えで同一視できる。
+
+左随伴については[随伴の単位](../../CAT/CAT2-09/index.md#def-cat2-09-unit) $B\to p^*\Sigma_p B$ を $v^*$ で移して
 
 $$
 v^*B\to v^*p^*\Sigma_p B
 \cong q^*\sigma^*\Sigma_p B
 $$
 
-とし、$\Sigma_q\dashv q^*$ で転置すれば $\Sigma_qv^*B\to\sigma^*\Sigma_p B$ を得る。右随伴については余単位 $p^*\Pi_p B\to B$ を移して
+とし、[$\Sigma_q\dashv q^*$ の逆転置](../../CAT/CAT2-09/index.md#prop-cat2-09-transpose)を取れば $\Sigma_qv^*B\to\sigma^*\Sigma_p B$ を得る。右随伴については[随伴の余単位](../../CAT/CAT2-09/index.md#def-cat2-09-counit) $p^*\Pi_p B\to B$ を移して
 
 $$
 q^*\sigma^*\Pi_p B\cong v^*p^*\Pi_p B\to v^*B
 $$
 
-とし、$q^*\dashv\Pi_q$ で転置すれば $\sigma^*\Pi_p B\to\Pi_qv^*B$ を得る。これらの比較が同型であるという要請が、型に対するBeck–Chevalley条件である。集合族では上の定理の対と関数の対応がこれらの転置に一致する。実際、和の単位は $y\mapsto(x,y)$、積の余単位は関数の $x$ での評価である。
+とし、[$q^*\dashv\Pi_q$ の転置](../../CAT/CAT2-09/index.md#prop-cat2-09-transpose)を取れば $\sigma^*\Pi_p B\to\Pi_qv^*B$ を得る。これらの比較が同型であるという要請が、型に対するBeck–Chevalley条件である。集合族では上の定理の対と関数の対応がこれらの転置に一致する。実際、集合族の随伴対応で和の恒等射を転置すると単位の成分は $y\mapsto(x,y)$ となり、積の恒等射を逆転置すると余単位の成分は $f\mapsto f(x)$ となる。置換後に再び転置すれば、和では対の恒等対応（右側から左側へ）、積では各 $x$ で同じ値を返す関数の恒等対応（左側から右側へ）となる。
 
 四角形が単に可換なだけでは足りない。$\Gamma=\Delta=\{*\}$、$p:\{0,1\}\to\Gamma$、$q:\{0\}\to\Delta$ とし、$\sigma$ は恒等写像、$v:\{0\}\to\{0,1\}$ は包含とする。可換だが、$1$ が欠けているので引き戻しではない。$B_0=B_1=\{*\}$ なら、和の比較は一元集合から二元集合への写像であり全射でない。$B_0=\{*\}$、$B_1=\{a,b\}$ なら積の比較は二元集合から一元集合への写像であり単射でない。失われた添字が和の証人と積の関数の情報を失わせる。
 
@@ -381,8 +428,8 @@ $\Gamma=\{u,v\}$、$A_u=\{1,2\}$、$A_v=\{3\}$ とし、$\Delta=\{d,e,f\}$、$\s
 [集合族の置換と文脈拡張](#thm-catb6-08-substitution) に代入すると
 
 $$
-A[\sigma]_d=A[\sigma]_f=\{1,2\},\qquad
-A[\sigma]_e=\{3\}.
+(A[\sigma])_d=(A[\sigma])_f=\{1,2\},\qquad
+(A[\sigma])_e=\{3\}.
 $$
 
 項の成分は $d,f$ で2、$e$ で3である。拡張文脈の五つの元の像は次の通り。
@@ -405,7 +452,7 @@ $$
 文脈を一点とする。型 $A$ が空の場合と、$A=\{0\}$ で $B_0=\varnothing$ の場合について、依存和と依存積を求めよ。
 
 <!-- solution-start -->
-[依存和](#def-catb6-08-dependent-sum-product)と[依存積](#def-catb6-08-dependent-sum-product)の構成式 を使う。前者では対の第一成分が存在しないので和は空集合である。積は空集合を定義域とする空関数のみを持つため一元集合である。
+[依存和](#def-catb6-08-dependent-sum-product)と[依存積](#def-catb6-08-dependent-sum-product)の構成式を使う。前者では対の第一成分が存在しないので和は空集合である。積は空集合を定義域とする空関数のみを持つため一元集合である。
 
 後者では第一成分0はあるが第二成分がないので和は空集合である。積の関数には0での値が必要だが $B_0$ は空なので積も空集合である。従って二場合の結果は順に $(\varnothing,\{()\})$ と $(\varnothing,\varnothing)$ である。
 <!-- solution-end -->
@@ -469,9 +516,9 @@ $$
 一点集合への写像 $p:\{0\}\to\{*\}$、$q:\{0,1\}\to\{*\}$ と恒等置換を取る。$v:\{0,1\}\to\{0\}$ は定値とする。$B_0=\{a,b\}$ のとき和と積の比較射が同型か調べよ。
 
 <!-- solution-start -->
-可換四角形ではあるが、$q$ の二つの元は $v$ で同じ元になるので引き戻しではない。実際、恒等置換に沿う $p$ の引き戻しには元が一つしかない。
+[引き戻しの定義](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)に照らすと、可換四角形ではあるが、$q$ の二つの元は $v$ で同じ元になるので引き戻しではない。実際、恒等置換に沿う $p$ の引き戻しには元が一つしかない。
 
-$v^*B$ は二成分とも $\{a,b\}$ である。[依存和と依存積](#def-catb6-08-dependent-sum-product) から和の比較の始域は
+第6節の[比較射の構成](#ref-catb6-08-type-comparisons)を使う。$v^*B$ は二成分とも $\{a,b\}$ である。[依存和と依存積](#def-catb6-08-dependent-sum-product) から和の比較の始域は
 
 $$
 \{(0,a),(0,b),(1,a),(1,b)\}
@@ -510,7 +557,7 @@ $\Gamma=\{r,s\}$、$A_r=\{0,1\}$、$A_s=\varnothing$ とする。$B_{(r,0)}=\{a\
 3. 置換後の依存積の項を全て列挙し、元の依存積の項の置換だけで全てが得られるか判定せよ。
 
 <!-- solution-start -->
-第1問。[集合族の置換と文脈拡張](#thm-catb6-08-substitution) により
+第1問。$A_s$ が空なので元の型 $A$ に項は存在しないが、[集合族の置換と文脈拡張](#thm-catb6-08-substitution)は項の存在を仮定しない。各添字に $\sigma$ を代入すると
 
 $$
 A'_u=A'_w=\{0,1\},\qquad A'_v=\varnothing.
