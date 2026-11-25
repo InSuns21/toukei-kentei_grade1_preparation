@@ -1,0 +1,65 @@
+chapter: CATB5-09
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB5-08, CATB5-07, CATB5-05, CATB5-03, CATB3-01, CAT2-08, CAT2-11, CAT2-07]
+concepts:
+  - id: category.geometric-morphism
+    name: "幾何学的射"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（幾何学的射）"]
+    requires: [category.elementary-topos, category.adjunction-hom, category.left-exact-functor]
+  - id: category.geometric-morphism-composition
+    name: "幾何学的射の合成"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（幾何学的射の合成）"]
+    requires: [category.geometric-morphism]
+  - id: category.sheaf-direct-image
+    name: "層の直像関手"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（層の直像関手）"]
+    requires: [category.site-sheaf, category.open-set-grothendieck-topology]
+  - id: category.sheaf-direct-image-sheaf
+    name: "直像の層性"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（直像の層性）"]
+    requires: [category.sheaf-direct-image, category.site-sheaf]
+  - id: category.sheaf-inverse-presheaf
+    name: "逆像前層"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（逆像前層）"]
+    requires: [category.filtered-colimit, category.open-set-grothendieck-topology]
+  - id: category.sheaf-inverse-image
+    name: "層の逆像関手"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（層の逆像関手）"]
+    requires: [category.sheaf-inverse-presheaf, category.sheafification-functor]
+  - id: category.sheaf-image-adjunction
+    name: "層の逆像と直像の随伴"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（層の逆像と直像の随伴）"]
+    requires: [category.sheaf-inverse-image, category.sheaf-direct-image-sheaf, category.sheafification-adjunction]
+  - id: category.sheaf-inverse-image-left-exact
+    name: "層の逆像の左完全性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（層の逆像の左完全性）"]
+    requires: [category.sheaf-inverse-image, category.filtered-colimit-finite-limit-commutation, category.sheaf-pointwise-limits, category.sheafification-left-exactness]
+  - id: category.continuous-map-geometric-morphism
+    name: "連続写像が誘導する幾何学的射"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（連続写像が誘導する幾何学的射）"]
+    requires: [category.geometric-morphism-composition, category.sheaf-image-adjunction, category.sheaf-inverse-image-left-exact, category.sheaf-topos]
+  - id: category.geometric-morphism-image-preservation
+    name: "幾何学的射の逆像による像と有効商の保存"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（幾何学的射の逆像による像と有効商の保存）"]
+    requires: [category.geometric-morphism, category.topos-image-factorization, category.topos-epi-regularity, category.topos-barr-exactness, category.left-adjoint-preserves-colimits]
