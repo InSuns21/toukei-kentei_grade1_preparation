@@ -194,7 +194,11 @@ export const lessons = {
   'LVT5-08': { module:'LvtContracts', sourcePath:'../../LVT3-01/lab/LvtContracts.lean', modes:[
     ['LvtLimits.lean','検出集合と観測の情報保存','単射な観測と正しい基準の条件、成功ビットの衝突を確認。'],
     ['Failure.lean','観測の一致と生の値の違い','型不一致で誤った証明が拒否される。']
-  ], commands:"(cd ../../LVT5-06/lab && lake build)\n(cd ../../LVT5-06/lab && lake env lean ../../LVT5-08/lab/LvtLimits.lean)\npython3 limits.py" }
+  ], commands:"(cd ../../LVT5-06/lab && lake build)\n(cd ../../LVT5-06/lab && lake env lean ../../LVT5-08/lab/LvtLimits.lean)\npython3 limits.py" },
+  'LVT6-01': { module:'LvtAudit', modes:[
+    ['Inspect.lean','到達可能性と長さ保存','長さ0の更新と初期長9の保存を区別し、帰納法の定理を確認。'],
+    ['Failure.lean','任意の盤面が9という誤った主張','型不一致で拒否される。']
+  ], commands:"lean -o LvtAudit.olean LvtAudit.lean\nLEAN_PATH=. lean Inspect.lean\n# 意図的失敗\nLEAN_PATH=. lean Failure.lean\n# 外部教材の再現は本文の固定コミットと手順を参照" }
 };
 export function combine(module, definitions, experiment, suffix='') {
   // Only the exact local module import is replaced by its source.
