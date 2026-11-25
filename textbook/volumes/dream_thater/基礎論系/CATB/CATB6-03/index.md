@@ -33,7 +33,7 @@ $$
 g^*\exists_f A=\exists_{f'}h^*A.
 $$
 
-適用条件を確認しよう。[初等トポスのBarr-正確性](../CATB5-08/index.md#thm-catb5-08-exact) によって初等トポスは正則圏であり、部分対象順序は集合である。よって引用した定理の仮定を満たす。$A=[m:M\to X]$ とすると、$\exists_f A$ は $fm$ の像である。$h$ に沿う $m$ の引き戻しを $\ell:L\to X'$、$d:L\to M$ とすれば、
+適用条件を確認しよう。[初等トポスのBarr-正確性](../CATB5-08/index.md#thm-catb5-08-exact) によって初等トポスは正則圏であり、[分類射と部分対象の自然な対応](../CATB5-06/index.md#thm-catb5-06-classifier-bijection) により部分対象順序は集合である。よって引用した定理の仮定を満たす。$A=[m:M\to X]$ とすると、$\exists_f A$ は $fm$ の像である。$h$ に沿う $m$ の引き戻しを $\ell:L\to X'$、$d:L\to M$ とすれば、
 
 $$
 fmd=fh\ell=gf'\ell.
@@ -201,7 +201,7 @@ $$
 fma=iea=ict.
 $$
 
-従って $fma$ の正則エピ・モノ分解の像は $ic$ である。[部分対象の最大元と共通部分](../CATB6-01/index.md#prop-catb6-01-subobject-meet) によって $[ic]=[i]\wedge[n]$ である。存在量化が像を与えることを [量化子の存在定理](../CATB6-02/index.md#thm-catb6-02-quantifier-existence) から用いれば
+従って [正則エピ・モノ分解は像を与える](../CATB1-01/index.md#thm-catb1-01-regular-epi-mono-image) により $fma$ の像は $ic$ である。[部分対象の最大元と共通部分](../CATB6-01/index.md#prop-catb6-01-subobject-meet) によって $[ic]=[i]\wedge[n]$ である。存在量化が像を与えることを [量化子の存在定理](../CATB6-02/index.md#thm-catb6-02-quantifier-existence) から用いれば
 
 $$
 \exists_f(A\wedge f^*B)=[ic]=\exists_f A\wedge B.
@@ -223,7 +223,7 @@ $$
 
 $R$ を $X\times Z$ 上の部分対象、$B$ を $X$ 上の部分対象、$\pi:X\times Z\to X$ を射影とする。写像 $g:X'\to X$ による代入では $h=g\times 1_Z$、$\pi':X'\times Z\to X'$ を使う。
 
-この四角形は引き戻しになる。実際、$u:T\to X\times Z$、$v:T\to X'$ が $\pi u=gv$ を満たせば、$u$ の第二成分を $z:T\to Z$ と書くと、積の普遍性から成分 $(v,z)$ を持つ唯一の射 $T\to X'\times Z$ が得られる。この射を $h$ と合成した成分は $(gv,z)$ なので $u$ と一致する。
+この四角形は引き戻しになる。実際、$u:T\to X\times Z$、$v:T\to X'$ が $\pi u=gv$ を満たせば、$u$ の第二成分を $z:T\to Z$ と書くと、[積の普遍性](../../CAT/CAT2-04/index.md#def-cat2-04-small-product) から成分 $(v,z)$ を持つ唯一の射 $T\to X'\times Z$ が得られる。この射を $h$ と合成した成分は $(gv,z)$ なので $u$ と一致する。
 
 [存在量化の基底変換](../CATB4-07/index.md#thm-catb4-07-beck-chevalley) と [全称量化の基底変換](#thm-catb6-03-universal-beck-chevalley) を適用する。
 
