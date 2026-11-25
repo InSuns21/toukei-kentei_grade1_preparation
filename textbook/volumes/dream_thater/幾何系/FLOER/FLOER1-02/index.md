@@ -69,7 +69,7 @@ $$
 従って有限エネルギーではない。方程式と境界条件だけではエネルギーの有限性を保証しない。
 <!-- definition-example-end -->
 
-擬正則方程式から $u_t=J(u)u_s$ である。[擬正則写像のエネルギー恒等式](../../GW/GW1-02/index.md#thm-gw1-02-energy-identity)の点ごとの恒等式を平坦な帯の内部で使うと、誤差項が零になる（矩形の角に曲面全体の定理を適用する必要はない）。直接にも次の関係が確認できる。
+擬正則方程式から $u_t=J(u)u_s$ である。[擬正則写像のエネルギー恒等式](../../GW/GW1-02/index.md#thm-gw1-02-energy-identity)の点ごとの恒等式を平坦な帯の内部で使うと、誤差項が零になる。ここで必要なのは局所の等式だけである。直接にも次の関係が確認できる。
 
 $$
 \frac12(|u_s|^2+|u_t|^2)=|u_s|^2
@@ -422,7 +422,11 @@ D_p\xi=\partial_s\xi+J_p\partial_t\xi,\qquad
 \xi(s,j)\in W_j=T_pL_j.
 $$
 
-横断方向の関数を作用素の定義域にする。$J_p=J(p)$ は固定接空間 $V$ 上の線形写像、$g_p$ はその点の内積である。$L^2([0,1],V)$ は $g_p$ によるノルムの二乗が可積分な関数を、ほとんど至る所で一致するもの同士で同一視した同値類からなる実Hilbert空間である。$H^1([0,1],V)$ は区間内部で関数と一階弱微分が $L^2$ に属する空間である（[Sobolev空間](../../../解析系/GPDE/GPDE3/index.md#def-gpde3-sobolev-space)を $V$ の実基底の各成分に適用する）。$\eta'$ は $t$ に関する弱微分で、滑らかな $\eta$ なら $d\eta/dt$ と一致する。
+横断方向の関数を作用素の定義域にする。$J_p=J(p)$ は固定接空間 $V$ 上の線形写像、$g_p$ はその点の内積である。
+
+$L^2([0,1],V)$ は $g_p$ によるノルムの二乗が可積分な関数を、ほとんど至る所で一致するもの同士で同一視した同値類からなる実Hilbert空間である。
+
+$H^1([0,1],V)$ は区間内部で関数と一階弱微分が $L^2$ に属する空間である（[Sobolev空間](../../../解析系/GPDE/GPDE3/index.md#def-gpde3-sobolev-space)を $V$ の実基底の各成分に適用する）。$\eta'$ は $t$ に関する弱微分で、滑らかな $\eta$ なら $d\eta/dt$ と一致する。
 
 区間の長さが1なので、[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)で各成分とその弱微分は $L^1$ にも属する。[一変数 W^{1,1} の基本定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-w11-ac)を成分ごとに使うと、絶対連続な代表元について
 
@@ -430,7 +434,7 @@ $$
 \eta(t)-\eta(0)=\int_0^t\eta'(r)\,dr.
 $$
 
-連続な代表元が ほとんど至る所で一致すれば全点で一致するため、その代表元で端の値を測れる（[区間上のトレース定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-trace-interval)）。以下、同じ記号 $\eta$ でこの代表元を表す。漸近作用素とは、定数解で線形化した方程式のうち横断変数 $t$ に作用する部分である。
+連続な代表元がほとんど至る所で一致すれば全点で一致するため、その代表元で端の値を測れる（[区間上のトレース定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-trace-interval)）。以下、同じ記号 $\eta$ でこの代表元を表す。定数解で線形化した方程式のうち横断変数 $t$ に作用する部分を、次の定義で取り出す。
 
 <a id="def-floer1-02-asymptotic-operator"></a>
 
@@ -487,7 +491,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[適合性と正定値内積の同値](../../SYM/SYM8/index.md#thm-sym8-compatible-metric)と $J^2=-I$ より $g(Ja,b)=\omega(a,b)=-g(a,Jb)$ である。$\langle\eta,\zeta\rangle=\int_0^1g(\eta(t),\zeta(t))dt$ と書く。定義域内の $\eta,\zeta$ は絶対連続代表元を持ち、積の微分は ほとんど至る所で
+[適合性と正定値内積の同値](../../SYM/SYM8/index.md#thm-sym8-compatible-metric)と $J^2=-I$ より $g(Ja,b)=\omega(a,b)=-g(a,Jb)$ である。$\langle\eta,\zeta\rangle=\int_0^1g(\eta(t),\zeta(t))dt$ と書く。定義域内の $\eta,\zeta$ は絶対連続代表元を持ち、積の微分はほとんど至る所で
 
 $$
 \frac{d}{dt}g(J\eta,\zeta)
@@ -692,7 +696,18 @@ $$
 =\rho y=\pm\frac{\sqrt3}{2}\rho^2\ne0.
 $$
 
-従って非平行である。接方向は両者を90度回転した方向であり、この回転は可逆だから接方向も一次独立である。従って[Lagrange横断交叉](../FLOER1-01/index.md#def-floer1-01-transverse)の接空間の和の条件を満たす。$V$ は下端を $L_0$ 上、上端を $p\in L_1$ に送り、$r=0,1$ の道は一致する。$ds$ ではなく $dr\wedge dt$ の向きを取ると下辺は $r$ 増加方向。[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)で左右の辺が消え、上辺は定数なので、下辺の $\phi=2\pi r$ に沿う $x=\rho\cos\phi$、$y=\rho\sin\phi$ を用いる。$dx=-\rho\sin\phi\,d\phi$ より $-y\,dx=\rho^2\sin^2\phi\,d\phi$ であり、
+従って非平行である。接方向は両者を90度回転した方向であり、この回転は可逆だから接方向も一次独立である。従って[Lagrange横断交叉](../FLOER1-01/index.md#def-floer1-01-transverse)の接空間の和の条件を満たす。
+
+$V$ は下端を $L_0$ 上、上端を $p\in L_1$ に送り、$r=0,1$ の道は一致する。面の向きは $dr\wedge dt$ なので、下辺は $r$ 増加方向である。
+
+[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)で左右の辺が消え、上辺は定数なので、下辺だけを積分する。角度 $\phi=2\pi r$ で座標を表示すると
+
+$$
+x=\rho\cos\phi,\qquad y=\rho\sin\phi,\qquad
+dx=-\rho\sin\phi\,d\phi.
+$$
+
+従って $-y\,dx=\rho^2\sin^2\phi\,d\phi$ であり、
 
 $$
 \int V^*\omega=\int_0^{2\pi}\rho^2\sin^2\phi\,d\phi
