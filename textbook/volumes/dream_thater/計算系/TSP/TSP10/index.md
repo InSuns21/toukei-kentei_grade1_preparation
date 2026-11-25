@@ -67,7 +67,9 @@ $$
 
 ## 2. 比較も演算と両立させる
 
-[制限の前順序性](../TSP5/index.md#thm-tsp5-restriction-preorder)では、反射律（自身と比較できる）と推移律（比較をつなげられる）を確認しました。一般の [前順序](../../../基礎論系/CAT/CAT1-02/index.md#def-cat1-02-preorder) も、この反射律と推移律だけを要求する関係でした。今度は任意の可換半環に前順序を入れます。$a\preceq b$ は $b$ から $a$ を得られる、あるいは $a$ の資源要求が $b$ 以下である、という向きで使います。
+[制限の前順序性](../TSP5/index.md#thm-tsp5-restriction-preorder)では、反射律（自身と比較できる）と推移律（比較をつなげられる）を確認しました。一般の [前順序](../../../基礎論系/CAT/CAT1-02/index.md#def-cat1-02-preorder) も、この反射律と推移律だけを要求する関係でした。
+
+今度は任意の可換半環に前順序を入れます。$a\preceq b$ は $b$ から $a$ を得られる、あるいは $a$ の資源要求が $b$ 以下である、という向きで使います。
 
 比較可能な二つの資源に同じ材料を追加したり掛けたりしても、比較が保たれることを要求します。
 
@@ -87,7 +89,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-tsp10-preordered-semiring -->
-**定義の確認**。先ほどの $\mathbb N_0^2$ に成分ごとの大小関係を入れます。$(a_1,a_2)\preceq(b_1,b_2)$ は各 $i$ で $a_i\le b_i$ であることです。各成分の大小の反射律・推移律から、組でも反射律・推移律が成立します。$a_i\le b_i$ と $c_i\ge0$ から $a_i+c_i\le b_i+c_i$ と $a_ic_i\le b_ic_i$ が得られるので演算とも両立します。例えば $(1,4)\preceq(2,5)$ に $(3,2)$ を掛けると $(3,8)\preceq(6,10)$ です。
+**定義の確認**。先ほどの $\mathbb N_0^2$ に成分ごとの大小関係を入れます。$(a_1,a_2)\preceq(b_1,b_2)$ は各 $i=1,2$ で $a_i\le b_i$ であることです。各成分の大小の反射律・推移律から、組でも反射律・推移律が成立します。
+
+任意の成分で $a_i\le b_i$ と $c_i\ge0$ が成り立つとき、
+
+$$
+a_i+c_i\le b_i+c_i,\qquad a_ic_i\le b_ic_i
+$$
+
+が得られるので演算とも両立します。例えば $(1,4)\preceq(2,5)$ に $(3,2)$ を掛けると、
+
+$$
+(3,8)\preceq(6,10)
+$$
+
+です。
 <!-- definition-example-end -->
 
 [前順序付き可換半環](#def-tsp10-preordered-semiring) の条件から二つの比較を同時に使う場合は、$a\preceq b,\ c\preceq e$ に対して
@@ -164,7 +180,11 @@ $$
 \iota(n+1)=(n,n)+(1,1)=(n+1,n+1)
 $$
 
-です。帰納法で全ての $n$ について $\iota(n)=(n,n)$ となり、異なる自然数は異なる組へ写ります。一方、集合 $\{0,1\}$ に和を最大値、積を最小値として入れると、交換律・結合律は三つの値の最大・最小を取ることで成立し、単位元はそれぞれ0と1です。分配律は左因子が0なら両辺0、1なら両辺が残り二つの最大値です。零の吸収性も最小値から従います。この可換半環では $1+1=1$ なので $\iota(1)=\iota(2)=1$ です。標準写像が存在しても単射とは限りません。
+です。帰納法で全ての $n$ について $\iota(n)=(n,n)$ となり、異なる自然数は異なる組へ写ります。
+
+一方、集合 $\{0,1\}$ に和を最大値、積を最小値として入れると、交換律・結合律は三つの値の最大・最小を取ることで成立し、単位元はそれぞれ0と1です。分配律は左因子が0なら両辺0、1なら両辺が残り二つの最大値です。零の吸収性も最小値から従います。
+
+この可換半環では $1+1=1$ なので $\iota(1)=\iota(2)=1$ です。標準写像が存在しても単射とは限りません。
 
 ## 4. 自然数を尺度として使える条件
 
@@ -200,7 +220,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-tsp10-strassen-preorder -->
-**定義の確認**。$S=\mathbb N_0$ に通常の大小と加法・乗法を入れます。反射律・推移律があり、非負数を加える・掛ける操作は大小を保ちます。$\iota(n)=n$ なので忠実性は通常の大小そのものです。任意の $a\in\mathbb N_0$ と $b\ge1$ に対し $r=\max(1,a)$ とすれば $rb\ge r\ge a$ です。例えば $a=7,b=2$ なら $r=4$ でも $7\le8$ となります。
+**定義の確認**。$S=\mathbb N_0$ に通常の大小と加法・乗法を入れます。反射律・推移律があり、非負数を加える・掛ける操作は大小を保ちます。$\iota(n)=n$ なので忠実性は通常の大小そのものです。
+
+任意の $a\in\mathbb N_0$ と $b\ge1$ に対し、$r=\max(1,a)$ とすれば
+
+$$
+rb\ge r\ge a
+$$
+
+です。例えば $a=7,b=2$ なら $r=4$ でも $7\le8$ となります。
 <!-- definition-example-end -->
 
 順序の忠実性から $\iota$ は単射になります。実際 $\iota(m)=\iota(n)$ なら反射律によって双方の比較が成立し、忠実性で $m\le n$ と $n\le m$ が従うからです。このとき $\iota(n)$ を単に $n$ とも書きます。
@@ -217,9 +245,39 @@ $$
 
 ## 5. テンソルから半環を構成する
 
-体 $K$ と因子数 $d\ge2$ を固定します。有限次元の標準座標テンソルを対象とし、次元0も許します。第 $a$ 因子を $K^{n_a}$（$n_a\in\mathbb N_0$、$1\le a\le d$）とします。[多因子テンソル積の存在・基底・一意性](../TSP1/index.md#thm-tsp1-multifactor-basis) によって標準基底の組で係数が一意に定まります。全ての次元の組とその係数配列を集めたものが対象の集合です。[制限同値](../TSP5/index.md#def-tsp5-restriction-equivalence)で同値な全てのテンソルを一つの元 $[t]$ と見なします。具体的には $[t]=\{s:s\sim t\}$ であり、代表元はその同値類に属する一つのテンソルです。ここで $t\sim s$ は $t\preceq s$ と $s\preceq t$ の両方が成立すること、$t\preceq s$ は [テンソルの制限](../TSP4/index.md#def-tsp4-restriction) の向きで $s$ から $t$ が得られることを意味します。
+体 $K$ と因子数 $d\ge2$ を固定します。有限次元の標準座標テンソルを対象とし、次元0も許します。第 $a$ 因子を $K^{n_a}$ とし、添字の範囲は
 
-加法は [テンソルの直和](../TSP5/index.md#def-tsp5-direct-sum)、乗法は [テンソルのKronecker積](../TSP5/index.md#def-tsp5-kronecker) から作ります。加法の零には零テンソル、乗法の一には一次元の各空間で係数が1のテンソルを使います。直和を $t\oplus s$、Kronecker積を $t\boxtimes s$ と書きます。既習の [対角テンソル](../TSP4/index.md#def-tsp4-diagonal) を $D_r=\sum_{i=1}^r e_i^{\otimes d}$ と書けば、これらはそれぞれ $D_0,D_1$ です。$e_i^{\otimes d}$ は各位置で同じ番号の標準基底を選んだ $d$ 因子テンソルです。
+$$
+n_a\in\mathbb N_0,\qquad 1\le a\le d
+$$
+
+です。[多因子テンソル積の存在・基底・一意性](../TSP1/index.md#thm-tsp1-multifactor-basis) によって標準基底の組で係数が一意に定まります。全ての次元の組とその係数配列を集めたものが対象の集合です。
+
+[制限同値](../TSP5/index.md#def-tsp5-restriction-equivalence)で同値な全てのテンソルを一つの元と見なします。具体的には
+
+$$
+[t]=\{s:s\sim t\}
+$$
+
+であり、代表元はその同値類に属する一つのテンソルです。
+
+ここで同値とは
+
+$$
+t\sim s\quad\Longleftrightarrow\quad t\preceq s\ \text{かつ}\ s\preceq t
+$$
+
+のことです。$t\preceq s$ は [テンソルの制限](../TSP4/index.md#def-tsp4-restriction) の向きで $s$ から $t$ が得られることを意味します。
+
+加法は [テンソルの直和](../TSP5/index.md#def-tsp5-direct-sum)、乗法は [テンソルのKronecker積](../TSP5/index.md#def-tsp5-kronecker) から作ります。直和を $t\oplus s$、Kronecker積を $t\boxtimes s$ と書きます。
+
+加法の零には零テンソル、乗法の一には一次元の各空間で係数が1のテンソルを使います。既習の [対角テンソル](../TSP4/index.md#def-tsp4-diagonal)
+
+$$
+D_r=\sum_{i=1}^r e_i^{\otimes d}
+$$
+
+で書けば、これらはそれぞれ $D_0,D_1$ です。$e_i^{\otimes d}$ は各位置で同じ番号の標準基底を選んだ $d$ 因子テンソルです。
 
 <a id="thm-tsp10-tensor-semiring"></a>
 
@@ -249,7 +307,9 @@ $$
 
 となります。比較も代表元の変更 $t'\preceq t\preceq s\preceq s'$ によって保たれ、逆の変更でも同じ推移律が使えます。従って演算と比較は定まります。
 
-第 $a$ 因子での $t,s,u$ の空間をそれぞれ $V_a,W_a,U_a$、基底を $e_i^{(a)},f_j^{(a)},g_k^{(a)}$ とします。ここで $i,j,k$ はそれぞれの空間の基底番号を動きます。[多因子テンソル積の存在・基底・一意性](../TSP1/index.md#thm-tsp1-multifactor-basis) により、例えば $t$ の展開は
+第 $a$ 因子での $t,s,u$ の空間をそれぞれ $V_a,W_a,U_a$ とします。基底を $e_i^{(a)},f_j^{(a)},g_k^{(a)}$ とし、$i,j,k$ はそれぞれの空間の基底番号を動きます。
+
+[多因子テンソル積の存在・基底・一意性](../TSP1/index.md#thm-tsp1-multifactor-basis) により、例えば $t$ の展開は
 
 $$
 t=\sum_I t_I e_{i_1}^{(1)}\otimes\cdots\otimes e_{i_d}^{(d)},\qquad I=(i_1,\ldots,i_d)
@@ -289,7 +349,9 @@ $$
 e_i\otimes(0,g_k)\mapsto(0,e_i\otimes g_k).
 $$
 
-両側の基底を一対一に対応させるため可逆です。左辺の $t\boxtimes(s\oplus u)$ の係数を各位置の基底群で分類すると、全位置が $W$ 側なら $t_I s_J$、全位置が $U$ 側なら $t_I u_L$、両側の混合なら0です。この対応で移した右辺の係数は $(t\boxtimes s)\oplus(t\boxtimes u)$ の係数と一致します。よって両方向の制限が得られ、同値類で分配律が成立します。
+両側の基底を一対一に対応させるため可逆です。左辺の $t\boxtimes(s\oplus u)$ の係数を各位置の基底群で分類すると、全位置が $W$ 側なら $t_I s_J$、全位置が $U$ 側なら $t_I u_L$、両側の混合なら0です。
+
+この対応で移した右辺の係数は $(t\boxtimes s)\oplus(t\boxtimes u)$ の係数と一致します。よって両方向の制限が得られ、同値類で分配律が成立します。
 
 零の吸収性：$V_a\otimes\{0\}$ は零空間ですから $t\boxtimes D_0$ は零テンソルです。全ての零テンソルは零写像で互いに移り合うので $[t\boxtimes D_0]=0$ です。ここまでの基底対応は空の基底群も許すので次元0でも成立します。
 
@@ -319,7 +381,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\iota(0)=[D_0]$、$\iota(1)=[D_1]$ です。[対角テンソルの直和とKronecker積](../TSP5/index.md#thm-tsp5-diagonal-operations) より $[D_n]+[D_1]=[D_{n+1}]$ なので、[自然数からの標準写像](#thm-tsp10-natural-map) の漸化式から $\iota(n)=[D_n]$ です。
+$\iota(0)=[D_0]$、$\iota(1)=[D_1]$ です。[対角テンソルの直和とKronecker積](../TSP5/index.md#thm-tsp5-diagonal-operations) より
+
+$$
+[D_n]+[D_1]=[D_{n+1}]
+$$
+
+なので、[自然数からの標準写像](#thm-tsp10-natural-map) の漸化式から $\iota(n)=[D_n]$ です。
 
 $m\le n$ なら各因子で $K^n\to K^m$ を、第1から第 $m$ 基底ベクトルはそのまま、残りは零へ送る写像とします。$D_n$ の和のうち番号 $1,\ldots,m$ の項だけが残り $D_m$ になります。$m=0$ でも零への写像で成立します。よって $D_m\preceq D_n$ です。
 
@@ -370,7 +438,9 @@ $$
 
 となります。選んだ添字組以外の項には少なくとも一つ零の因子があるからです。従って $D_1\preceq s$ です。
 
-[テンソル階数](../TSP2/index.md#def-tsp2-tensor-rank) $R_K(t)$ は単純テンソルの和の最小項数であり、基底展開が有限なので有限です。$r=\max(1,R_K(t))$ とすれば [対角テンソルによる階数の特徴付け](../TSP4/index.md#thm-tsp4-rank-restriction) と自然数の比較から $t\preceq D_r$ です。[直和・Kronecker積と制限の両立性](../TSP5/index.md#thm-tsp5-operation-monotonicity) を $D_1\preceq s$ と $D_r\preceq D_r$ に適用すると
+[テンソル階数](../TSP2/index.md#def-tsp2-tensor-rank) $R_K(t)$ は単純テンソルの和の最小項数であり、基底展開が有限なので有限です。$r=\max(1,R_K(t))$ とすれば [対角テンソルによる階数の特徴付け](../TSP4/index.md#thm-tsp4-rank-restriction) と自然数の比較から $t\preceq D_r$ です。
+
+[直和・Kronecker積と制限の両立性](../TSP5/index.md#thm-tsp5-operation-monotonicity) を $D_1\preceq s$ と $D_r\preceq D_r$ に適用すると
 
 $$
 [D_r]=[D_r][D_1]\preceq [D_r][s]=\iota(r)b.
@@ -383,7 +453,9 @@ $$
 
 ## 7. 抽象的な比較から費用を取り出す
 
-資源 $a$ を作る自然数の最小値と、$a$ から取り出せる自然数の最大値を考えます。以下では [Strassen前順序](#def-tsp10-strassen-preorder) の忠実性によって非負整数とその標準写像の像を同一視します。比較式の中の $n$ は $\iota(n)\in S$、通常の大小 $\le$ や最小値・最大値の候補の $n$ は非負整数を表します。
+資源 $a$ を作る自然数の最小値と、$a$ から取り出せる自然数の最大値を考えます。
+
+以下では [Strassen前順序](#def-tsp10-strassen-preorder) の忠実性によって非負整数とその標準写像の像を同一視します。比較式の中の $n$ は $\iota(n)\in S$、通常の大小 $\le$ や最小値・最大値の候補の $n$ は非負整数を表します。
 
 <a id="thm-tsp10-order-rank"></a>
 
@@ -496,7 +568,13 @@ $$
 <!-- solution-start -->
 ##### 詳細解答
 
-[前順序付き可換半環](#def-tsp10-preordered-semiring) の乗法との両立性を最初の比較に $a$ を掛けて使うと $aa\preceq ba$。次に $b$ を掛けて $ab\preceq bb$ です。交換律で $ba=ab$ なので推移律から $a^2\preceq b^2$。
+[前順序付き可換半環](#def-tsp10-preordered-semiring) の乗法との両立性を最初の比較に使います。$a$ を掛け、次に $b$ を掛けた比較を交換律でつなげると
+
+$$
+aa\preceq ba=ab\preceq bb
+$$
+
+です。推移律から $a^2\preceq b^2$ が得られます。
 
 これに $c$ を加え、さらに $c\preceq e$ に $b^2$ を加えると
 
@@ -528,7 +606,15 @@ $$
 
 両成分の不等式から $a\preceq\iota(r)b$ です。
 
-$b=(2,0)$ は零でないにもかかわらず $a=(0,1)$ に対して $\iota(r)b=(2r,0)$ なので第2成分の $1\le0$ が成立しません。自然数の忠実性は $(m,m)\preceq(n,n)$ と $m\le n$ が同値なので成立しますが、有界性が全ての非零 $b$ に対して成立しないため [Strassen前順序](#def-tsp10-strassen-preorder) ではありません。
+$b=(2,0)$ は零でないにもかかわらず $a=(0,1)$ に対して $\iota(r)b=(2r,0)$ なので第2成分の $1\le0$ が成立しません。
+
+自然数の忠実性は
+
+$$
+(m,m)\preceq(n,n)\quad\Longleftrightarrow\quad m\le n
+$$
+
+なので成立しますが、有界性が全ての非零 $b$ に対して成立しないため [Strassen前順序](#def-tsp10-strassen-preorder) ではありません。
 <!-- solution-end -->
 
 <a id="ex-tsp10-b02"></a>
@@ -574,7 +660,19 @@ $$
 
 よって $D_1\preceq s$ です。
 
-$D_5\preceq D_5$ と合わせて [直和・Kronecker積と制限の両立性](../TSP5/index.md#thm-tsp5-operation-monotonicity) を積に適用すると $D_5\boxtimes D_1\preceq D_5\boxtimes s$ です。[テンソルの半環構成](#thm-tsp10-tensor-semiring) により左辺は $D_5$ と制限同値です。[テンソルのStrassen前順序](#thm-tsp10-tensor-strassen) から右辺の類は $[D_5][s]=\iota(5)[s]=5[s]$ です。従って求める比較が得られます。
+$D_5\preceq D_5$ と合わせて [直和・Kronecker積と制限の両立性](../TSP5/index.md#thm-tsp5-operation-monotonicity) を積に適用すると
+
+$$
+D_5\boxtimes D_1\preceq D_5\boxtimes s
+$$
+
+です。[テンソルの半環構成](#thm-tsp10-tensor-semiring) により左辺は $D_5$ と制限同値です。[テンソルのStrassen前順序](#thm-tsp10-tensor-strassen) から右辺の類は
+
+$$
+[D_5][s]=\iota(5)[s]=5[s]
+$$
+
+です。従って求める比較が得られます。
 <!-- solution-end -->
 
 <a id="ex-tsp10-b03"></a>
@@ -640,7 +738,19 @@ $$
 - Level: C
 - ID: TSP10-C01
 
-Strassen前順序を持つ前順序付き可換半環で $a,b\in S$ とする。$R_S,Q_S$ の積に関する劣乗法性・優乗法性、すなわち $R_S(ab)\le R_S(a)R_S(b)$ と $Q_S(ab)\ge Q_S(a)Q_S(b)$ を証明せよ。さらに $a\ne0$ なら全ての正整数 $n$ で $1\le Q_S(a^n)\le R_S(a^n)\le R_S(a)^n$ が成立するか判定し、必要なら追加仮定を与えよ。$a^n$ は $n$ 個の積である。
+Strassen前順序を持つ前順序付き可換半環で $a,b\in S$ とする。$R_S,Q_S$ の積に関する劣乗法性・優乗法性、すなわち
+
+$$
+R_S(ab)\le R_S(a)R_S(b),\qquad Q_S(ab)\ge Q_S(a)Q_S(b)
+$$
+
+を証明せよ。さらに $a\ne0$ なら全ての正整数 $n$ で
+
+$$
+1\le Q_S(a^n)\le R_S(a^n)\le R_S(a)^n
+$$
+
+が成立するか判定し、必要なら追加仮定を与えよ。$a^n$ は $n$ 個の積である。
 
 <!-- solution-start -->
 ##### 詳細解答
@@ -666,7 +776,9 @@ $$
 
 次に $a\ne0$ なら、有界性を左の資源1、右の資源 $a$ に使うと正整数 $r$ が存在して $1\preceq ra$ です。ただし一般の半環ではこれから $1\preceq a$ は従いません。従って後半の不等式を得るには、別の根拠が必要です。
 
-反例として $S=\mathbb Q_{\ge0}$（非負有理数全体）に通常の加法・乗法・大小を入れます。非負有理数なので演算は閉じ、通常の算術の全公理と順序の両立性が成立します。自然数の忠実性も成立し、$b>0$ なら正整数 $r\ge a/b$ を選べるので有界性も成立します。$a=1/2$ とすると $a\ne0$ ですが、正整数 $n$ に対して
+反例として $S=\mathbb Q_{\ge0}$（非負有理数全体）に通常の加法・乗法・大小を入れます。非負有理数なので演算は閉じ、通常の算術の全公理と順序の両立性が成立します。
+
+自然数の忠実性も成立し、$b>0$ なら正整数 $r\ge a/b$ を選べるので有界性も成立します。$a=1/2$ とすると $a\ne0$ ですが、正整数 $n$ に対して
 
 $$
 0<a^n=(1/2)^n=2^{-n}\le1/2<1
@@ -674,7 +786,13 @@ $$
 
 です。従って自然数の取り出し候補は0だけで $Q_S(a^n)=0$ です。一方、費用の最小値は $R_S(a^n)=1$ です。調べている最初の不等式は成立しません。
 
-全ての正整数 $n$ で後半の不等式が成立するための必要十分条件は $1\preceq a$ です。必要性は $n=1$ の場合に $1\le Q_S(a)$ なら忠実性と最大値の定義から $1\preceq Q_S(a)\preceq a$ となることから分かります。十分性を確認します。$1\preceq a$ と $1\preceq a^{n-1}$ が成り立つとき、[前順序付き可換半環](#def-tsp10-preordered-semiring) の積との両立性から
+全ての正整数 $n$ で後半の不等式が成立するための必要十分条件は $1\preceq a$ です。必要性は $n=1$ の場合に $1\le Q_S(a)$ なら忠実性と最大値の定義から
+
+$$
+1\preceq Q_S(a)\preceq a
+$$
+
+となることから分かります。十分性を確認します。$1\preceq a$ と $1\preceq a^{n-1}$ が成り立つとき、[前順序付き可換半環](#def-tsp10-preordered-semiring) の積との両立性から
 
 $$
 1=1\cdot1\preceq a^{n-1}\cdot1\preceq a^{n-1}a=a^n.
