@@ -1,0 +1,21 @@
+id: "MMX2"
+title: "双線形分解と行列積テンソル、冪と漸近rank、通常rankの定数倍下界と指数下界の違い"
+volume: foundations
+status: supplementary
+prerequisites: [MMX1, TSP3, TSP7, TSP9, TSP14]
+official_scope: []
+learning_objectives:
+  - 双線形算法を係数テンソルの単純テンソル分解として読み書きできる
+  - 左乗算写像の切片から正方および長方形の階数下界を導ける
+  - 合成添字によりテンソル冪と行列サイズを対応させ漸近階数を計算できる
+  - 有限サイズの下界と冪に沿う指数下界の量化を区別できる
+definitions: []
+theorems:
+  - { id: MMX2-THM-01, name: "正方行列積の切片による階数下界" }
+  - { id: MMX2-THM-02, name: "冪に沿った指数下界の判定" }
+canonical_examples: [左乗算写像, 合成添字, 劣乗法的な反例数列]
+problem_patterns: [MMX2-A01, MMX2-A02, MMX2-A03, MMX2-A04, MMX2-B01, MMX2-B02, MMX2-B03, MMX2-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 3, review: 1 }
