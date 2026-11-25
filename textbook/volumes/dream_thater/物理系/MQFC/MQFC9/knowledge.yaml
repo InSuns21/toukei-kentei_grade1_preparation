@@ -1,0 +1,21 @@
+chapter: MQFC9
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC8, MQFC4, QM6]
+forward_references: []
+concepts:
+  - id: mqfc.os-hilbert-space
+    name: "OS Hilbert空間"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.positive-time-reflection-form, mqfc.positive-quotient]
+  - id: mqfc.os-time-semigroup
+    name: "反射陽性からの時間並進半群"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.os-hilbert-space, mqfc.gaussian-reflection-positivity]
+  - id: mqfc.os-nonnegative-generator
+    name: "自己共役縮小半群の非負生成作用素"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.os-time-semigroup, quantum.unbounded-self-adjoint-spectral-theorem, quantum.self-adjoint-borel-functional-calculus]
