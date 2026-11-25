@@ -1,7 +1,7 @@
 # DREAM THEATER — FOUR FRONTIERS: RH・BSD・Hodge・Poincaré 統合到達計画
 
 設計確定日: 2026-11-25 JST。監査基準 main: `83966cbce09f7329c24d4e6c4d4c0160b3f8185d`。
-状態: 設計済・未実装。新規10系列144講（うち共有発展ETO12講）。既存RHP34講を加えた固有の今後の講義枠178講。既存CATB7の5講は前提として再利用し、新規数には含めない。RMT30講は既存の独立選択科目。講数は以下の中心問い・証明責務を満たす設計値であり、実装時の厳密な数学査読で分割が必要なら変更理由と差分を記録する。15回制などによる水増しはしない。
+状態: 設計済・未実装。2026-11-26改訂: 新規10系列172講（独立ATOP42講と共有発展ETO12講を含む）。既存RHP34講を加えた固有の今後の講義枠206講。既存CATB7の5講は前提として再利用し、新規数には含めない。RMT30講は既存の独立選択科目。講数は以下の中心問い・証明責務を満たす設計値であり、実装時の厳密な数学査読で分割が必要なら変更理由と差分を記録する。15回制などによる水増しはしない。
 
 ## 0. 射程と成功条件
 
@@ -35,7 +35,7 @@
 | 3次元位相・手術・Ricci flow | GEO/GA/VAR等の前提 | M3T/RFL/PCPで独立所有 |
 | エタール・有限体コホモロジー | EC7–8、AG3、ANF、CATB5 | ETO12。一般Deligne証明は停止線、RHの形式証明の前提と一律にしない |
 
-ANT+ANF+EC+MF+AFR+IWA+AG+CM+CAG+KAH1+HOD1+GA=207 completed chapters（12系列のみの重複なし集計）。他の既存科目を加算した総数ではない。比較の新規144講は「差分の設計」なので、207を全て必修にするわけではない。既存結果へのリンクは執筆時にchapter.yaml/knowledge.yaml/index.mdの実在アンカーを確認する。
+ANT+ANF+EC+MF+AFR+IWA+AG+CM+CAG+KAH1+HOD1+GA=207 completed chapters（12系列のみの重複なし集計）。他の既存科目を加算した総数ではない。比較の新規172講は「差分の設計」なので、207を全て必修にするわけではない。既存結果へのリンクは執筆時にchapter.yaml/knowledge.yaml/index.mdの実在アンカーを確認する。
 
 ## 2. 文献校正と設計判断
 
@@ -57,48 +57,31 @@ ANT+ANF+EC+MF+AFR+IWA+AG+CM+CAG+KAH1+HOD1+GA=207 completed chapters（12系列�
 
 | 系列 | 内容 | 講数 | 直接の入口候補 |
 |---|---|---:|---|
-| ATOP | 代数的トポロジー | 14 | TOP1–7、GEO1–9、抽象代数、CATB7（必要箇所） |
+| ATOP | [位相幾何学 I–III（独立PLAN）](DREAM_THEATER_ALGEBRAIC_TOPOLOGY_PLAN.md) | 42 | TOP1–7、抽象代数、FIX1、MOD2、CATB7/GEO（必要箇所） |
 | GCO | 算術コホモロジーと双対性 | 8 | ANF9–21、IWA18、CATB7-01〜05 |
-| ETO | エタールコホモロジー・有限体ゼータ（共有発展） | 12 | AG3、CATB5、CATB7、GCO1–4、ATOP9–14（比較の箇所） |
+| ETO | エタールコホモロジー・有限体ゼータ（共有発展） | 12 | AG3、CATB5、CATB7、GCO1–4、ATOP16–22,28–37,41–42（比較の箇所） |
 | BSD | 楕円曲線の算術とBSD予想 | 20 | EC1–11、MF4–8、AFR必要箇所、ANF、IWA18、GCO |
-| CYC | 交叉理論と代数的サイクル | 12 | AG2–3、CAG、ATOP9–14、GBG20–24 |
+| CYC | 交叉理論と代数的サイクル | 12 | AG2–3、CAG、ATOP28–37,41–42、GBG20–24 |
 | HCP | Hodge予想と発展Hodge理論 | 12 | HOD1、CAG1-05〜10、CYC、ATOP、DEF1-12〜13（変動のみ） |
 | RCG | Riemann幾何・幾何解析のコンパクト性 | 8 | GEO12–19、GA1–7、VAR4–8、GPDE、NPCGは必要箇所のみ |
 | M3T | 3次元多様体論 | 12 | ATOP、GEO1–9 |
 | RFL | HamiltonのRicciフロー | 16 | RCG、GA、EVOL、GPDE、NPDE4–7 |
 | PCP | PerelmanのRicciフローとPoincaré予想 | 30 | RFL、M3T、VAR、GA、RCG |
-| | **新設合計** | **144** | 共有発展ETO12を含む |
+| | **新設合計** | **172** | 共有発展ETO12を含む |
 
 ### 計数の区分
 
-- 新設必修本線132講（ATOP14 + GCO8 + BSD20 + CYC12 + HCP12 + RCG8 + M3T12 + RFL16 + PCP30）と共有発展ETO12講＝144講。
-- 既存の未実装RHP34を含め178講。CATB7の既存planned 5を含めた残作業は183講（この5講が未実装の基準コミットにおいて）。CATB8の2講、RMT30、一般Langlands/モチーフ、全幾何化は別枠。
+- 新設必修本線160講（ATOP42 + GCO8 + BSD20 + CYC12 + HCP12 + RCG8 + M3T12 + RFL16 + PCP30）と共有発展ETO12講＝172講。
+- 既存の未実装RHP34を含め206講。CATB7の既存planned 5を含めた残作業は211講（この5講が未実装の基準コミットにおいて）。CATB8の2講、RMT30、一般Langlands/モチーフ、全幾何化は別枠。
 - 系列IDは現行manifest一覧と衝突なし。実際の章ID・パスは初回実装時に再チェック。講番号の一意性と件数はこの表と下のシラバスで一致させる。
 
 ## 4. 正式シラバス：各講の中心問い・証明責務
 
 各行は独立の主要学習目標・証明責務を持つ。外部引用と本文で証明すべき結果を区別し、単一の講が過密であれば規約に従い分割理由を残す。
 
-### ATOP — 代数的トポロジー（14講）
+### ATOP — 位相幾何学 I–III（42講、独立PLAN）
 
-入口: TOP1–7、GEO1–9、抽象代数、CATB7（必要箇所）。実際の直接prerequisiteは章ごとに最小化する。
-
-| 講 | 内容・証明責務 |
-|---|---|
-| ATOP1 | ホモトピー・基本群・基点変更：連結と単連結の区別 |
-| ATOP2 | 被覆空間・道の持上げ・普遍被覆 |
-| ATOP3 | van Kampen定理と群の表示 |
-| ATOP4 | CW複体・接着・胞体鎖複体への入口 |
-| ATOP5 | 特異鎖・境界・ホモロジーとホモトピー不変性 |
-| ATOP6 | 相対ホモロジー・長完全列・切除 |
-| ATOP7 | Mayer–Vietorisと球面・トーラスの計算 |
-| ATOP8 | 胞体ホモロジーとEuler標数 |
-| ATOP9 | 双対鎖・特異コホモロジー・普遍係数定理（Ext） |
-| ATOP10 | 積空間とKünneth公式（Torを含む） |
-| ATOP11 | cup積・cap積・符号とコホモロジー環 |
-| ATOP12 | 向き・局所ホモロジー・基本類 |
-| ATOP13 | Poincaré双対性・境界付き多様体・交叉数 |
-| ATOP14 | de Rham比較・積・有理／整数格子・Hurewiczの低次結果 |
+2026-11-26改訂：旧14講を未実装の段階で大学標準の独立科目へ再編。全42講の題名・証明責務・85図題と旧ID対応、実装状態の正本は[独立ATOP PLAN](DREAM_THEATER_ALGEBRAIC_TOPOLOGY_PLAN.md)。本横断PLANの講数に一度だけ含める。I ATOP1–12（図形・基本群・曲面）、II ATOP13–27（ホモロジー・写像度・応用）、III ATOP28–42（コホモロジー・双対性・多様体）。独立PLANとして状態管理し、本文実装時に他の9系列を同時着手扱いしない。
 
 ### GCO — 算術コホモロジーと双対性（8講）
 
@@ -117,7 +100,7 @@ ANT+ANF+EC+MF+AFR+IWA+AG+CM+CAG+KAH1+HOD1+GA=207 completed chapters（12系列�
 
 ### ETO — エタールコホモロジー・有限体ゼータ（共有発展）（12講）
 
-入口: AG3、CATB5、CATB7、GCO1–4、ATOP9–14（比較の箇所）。実際の直接prerequisiteは章ごとに最小化する。
+入口: AG3、CATB5、CATB7、GCO1–4、ATOP16–22,28–37,41–42（比較の箇所）。実際の直接prerequisiteは章ごとに最小化する。
 
 | 講 | 内容・証明責務 |
 |---|---|
@@ -163,7 +146,7 @@ ANT+ANF+EC+MF+AFR+IWA+AG+CM+CAG+KAH1+HOD1+GA=207 completed chapters（12系列�
 
 ### CYC — 交叉理論と代数的サイクル（12講）
 
-入口: AG2–3、CAG、ATOP9–14、GBG20–24。実際の直接prerequisiteは章ごとに最小化する。
+入口: AG2–3、CAG、ATOP28–37,41–42、GBG20–24。実際の直接prerequisiteは章ごとに最小化する。
 
 | 講 | 内容・証明責務 |
 |---|---|
@@ -296,7 +279,7 @@ ANT+ANF+EC+MF+AFR+IWA+AG+CM+CAG+KAH1+HOD1+GA=207 completed chapters（12系列�
 ## 5. 依存順と独立着手可能性
 
 ```text
-TOP/GEO → ATOP1–8 → ATOP9–14 → CYC → HCP
+TOP → ATOP1–12 → ATOP13–27 → ATOP28–42 → CYC → HCP
                     ↘ M3T ──────────────────┐
 GEO/GA/GPDE/VAR → RCG → RFL → PCP1–23 ───────┼→ PCP24–30
                                               ┘
@@ -305,8 +288,8 @@ AG3/CATB5/CATB7/GCO1–4 → ETO (比較はATOP該当章)
 ANT/ANF/MF/EC/AFR/IWA → RHP（既存34）
 ```
 
-- ATOP1–8, RCG1, BSD1–7は必要な完成前提から先行着手できる。ATOP9でExt、ATOP10でTorを使う際はCATB7-05の完成を確認し、Torが不足するならATOP10で必要な分解・Torの定義と計算を所有する。GCO1–4とETO1–3は独立する範囲を切り、まだ存在しない章からの逆参照を禁止。
-- M3Tの早い講はATOP1–8で着手可。PCPの解析部分はM3T全講を待たなくてよい。消滅の結論だけM3T11–12を必須とする。RFL6の準線形放物系は既存半線形EVOL6と同一視せず、局所存在定理の具体的仮定と証明責務を別記。
+- ATOP1（以後は必要前提が揃い次第）, RCG1, BSD1–7は必要な完成前提から先行着手できる。ATOP29でExt/Torを使う際はCATB7-05の完成を確認し、Torが不足するならATOP29で必要な分解・Torの定義と計算を所有する。GCO1–4とETO1–3は独立する範囲を切り、まだ存在しない章からの逆参照を禁止。
+- M3Tの早い講はATOP1–12の該当講で着手可。M3T11のπ2≅H2にはHTOP6を参照し、ATOP26の次数1と混同しない。PCPの解析部分はM3T全講を待たなくてよい。消滅の結論だけM3T11–12を必須とする。RFL6の準線形放物系は既存半線形EVOL6と同一視せず、局所存在定理の具体的仮定と証明責務を別記。
 - GCOとBSDの早い実曲線・モデル講を並行実施可。BSD18/19はGCOの双対・局所条件とBSD12–17を必要とする。ETOはBSD階数0/1定理の必須全履修にしない。
 - RHP1–23は既存planの着手順維持。RHP24–25ではGCO1–7を補強参照、RHP28ではETO5/9等を必要に応じ参照。ただしこれらを根拠に高ランク局所大域対応や未解決の研究補題を証明済み扱いしない。RHPの今の34講を止めず、既存の直接前提・条件付き研究講読の境界を保持。実際に依存する章が完成した時点でRHP planの直接参照を最小差分で追記。
 - HCP9–10の周期写像はDEF1-12/13へリンク。HCP4の低次元証明はHCP9以降を必要としない。HCP12のモチーフ・Tate予想の一般理論は発展先で、全講義化は本planの外。
@@ -323,11 +306,11 @@ ANT/ANF/MF/EC/AFR/IWA → RHP（既存34）
 | PCP | W単調性、非崩壊、L長さ・reduced volume、kappa解・標準近傍、手術構成と非崩壊、幅の不等式・有限時間消滅・位相結論の依存鎖 | 標準近傍・手術付き存在・minimaxの核心を「既知」で省略しない。Morgan–Tian該当節を補助定理ごとに割付け、必要なら講数増加。幾何化の長時間解析は別。完了時に外部入力の一覧と再構成済み範囲を監査 |
 | RHP | 現行RHP PLANの証明責務表を維持 | Lean認証済と人間可読証明の未再構成箇所を区別 |
 
-各新講はA4/B3/C1以上、全問詳細解答、本文・chapter.yaml・knowledge.yaml・実在するstable anchor、読者粒度査読、独立数理査読、必要な公開索引・CIを満たす。講数の形式的最低演習数は144×8=1152題（A576/B432/C144、追加は必要に応じて）。定理引用は対象・仮定・結論・適用箇所・原典節と、どこを証明したかを記録する。数値実験（BSDの有理点・局所因子・L値、Hodge数、Ricciの定曲率モデル）は証明の代用にしない。
+各新講はA4/B3/C1以上、全問詳細解答、本文・chapter.yaml・knowledge.yaml・実在するstable anchor、読者粒度査読、独立数理査読、必要な公開索引・CIを満たす。講数の形式的最低演習数は172×8=1376題（A688/B516/C172、追加は必要に応じて）。定理引用は対象・仮定・結論・適用箇所・原典節と、どこを証明したかを記録する。数値実験（BSDの有理点・局所因子・L値、Hodge数、Ricciの定曲率モデル）は証明の代用にしない。
 
 ## 7. 状態管理・次作業
 
-本作業は設計のみなので plans/ に置き、既存planを移動せず、未実装章・系列manifest・公開目次・global knowledge DAGを先行登録しない。初回実装時に系列manifestを作る。複数系列が並行する横断planは初回実装時に共通planをplans_progressへ移動し、直接参照する全manifestを同時更新。既存RHP/数論planは独立に維持し、重複章やID変更は作らない。新規10系列全講と横断証明責務・索引・CI完了後だけdoneへ移動する。
+本作業は設計のみなので plans/ に置き、既存planを移動せず、未実装章・系列manifest・公開目次・global knowledge DAGを先行登録しない。初回実装時に系列manifestを作る。複数系列が並行する横断planは初回実装時に共通planをplans_progressへ移動し、直接参照する全manifestを同時更新。既存RHP/数論planは独立に維持し、重複章やID変更は作らない。新規10系列全講（ATOPは独立PLANで完成判定）と横断証明責務・索引・CI完了後だけdoneへ移動する。
 
 優先順: ATOP1、RCG1、BSD1を独立先行 → GCO（CATB7の必要講完了後）→ CYC/HCP、M3T/RFL/PCP、BSD後半 → ETO共有発展を並行。RHPの研究講読は現在の34講の正本に従う。
 
