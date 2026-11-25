@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - FLOER1-04
   - GEO18
+  - ATOP2
   - GBG29
 concepts:
   - id: floer.pregluing
