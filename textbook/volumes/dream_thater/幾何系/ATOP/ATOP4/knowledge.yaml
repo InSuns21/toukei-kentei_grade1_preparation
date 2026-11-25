@@ -1,7 +1,7 @@
 chapter: ATOP4
 scope: dream-theater
 coverage: complete
-prerequisites: [ATOP2, ATOP3, TOP3, GRP2]
+prerequisites: [ATOP2, ATOP3, TOP3, GRP2, GRP3]
 forward_references: []
 concepts:
   - id: atop.loop
@@ -54,7 +54,7 @@ concepts:
     name: 基点変更
     kind: theorem
     introduction: formal
-    requires: [atop.fundamental-group-structure, atop.path-class-laws, algebra.group-isomorphism]
+    requires: [atop.fundamental-group-structure, atop.path-class-laws, algebra.group-isomorphism, algebra.conjugation-action]
   - id: atop.induced-fundamental-group-homomorphism
     name: 基本群の誘導準同型
     kind: theorem
