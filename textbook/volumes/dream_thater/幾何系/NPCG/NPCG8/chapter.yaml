@@ -13,6 +13,7 @@ learning_objectives:
   - 閉凸集合への射影と二点間距離の平均から重心を評価できる
 definitions:
   - { id: NPCG8-DEF-01, name: "有限加重重心" }
+  - { id: NPCG8-DEF-02, name: "Fréchet 分散" }
 theorems:
   - { id: NPCG8-THM-01, name: "有限加重重心の存在と一意性" }
   - { id: NPCG8-THM-02, name: "分散不等式" }
