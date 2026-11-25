@@ -1,0 +1,31 @@
+chapter: TSP2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TSP1
+forward_references: []
+concepts:
+  - id: tensor.tensor-rank
+    name: テンソル階数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（テンソル階数）"]
+    requires: [tensor.multifactor-basis, linear.simple-tensor]
+  - id: tensor.rank-basic-bounds
+    name: テンソル階数の基本評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（テンソル階数の基本評価）"]
+    requires: [tensor.tensor-rank, tensor.multifactor-basis]
+  - id: tensor.matrix-rank-equivalence
+    name: 二因子テンソル階数と行列階数の一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二因子テンソル階数と行列階数の一致）"]
+    requires: [tensor.tensor-rank, linear.basis-over-field, linear.dimension-over-field]
+  - id: tensor.three-factor-rank-example
+    name: 三因子の階数3の例
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（三因子の階数3の例）"]
+    requires: [tensor.tensor-rank, tensor.multifactor-basis, linear.basis-over-field, linear.dimension-over-field]
