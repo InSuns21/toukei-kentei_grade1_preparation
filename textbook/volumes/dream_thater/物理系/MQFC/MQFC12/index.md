@@ -65,7 +65,7 @@ $$
 **定義の確認**：エネルギーの集合 $[0,2)$ に含まれる固有値は零だけなので、$E_H([0,2))=P_0$。$P_0Q=0$ から定義が満たされる。$\Delta>2$ なら $E_H([0,\Delta))Qe_1=e_1\ne0$。従って最大幅は2である。このように固有値の検査が定義の射影の条件に結び付くのは、正規直交固有基底が存在し、射影が該当する固有方向を選ぶためである。
 <!-- definition-example-end -->
 
-制限した射影値測度の台が $\sigma(H_{\mathcal K})$ と一致することも確認しておく。以下 $A=H_{\mathcal K}$、$E_A(B)=E_H(B)|_{\mathcal K}$ とする。[Borel関数計算](../../../解析系/QM/QM6/index.md#def-qm6-borel-functional-calculus) により、ある実数 $a$ の近傍 $(a-r,a+r)$ の射影が零なら、測度の台上で $|\lambda-a|\ge r$ である。従って $g(\lambda)=1/(\lambda-a)$ をその近傍の外で定め、近傍内では零とすれば $g$ は有界である。$\lambda g(\lambda)=1+ag(\lambda)$ が射影値測度に関して成り立つので、$\lambda g(\lambda)$ も有界であり、
+制限した射影値測度の台が $\sigma(H_{\mathcal K})$ と一致することも確認しておく。以下 $A=H_{\mathcal K}$、$E_A(B)=E_H(B)|_{\mathcal K}$ とする。[Borel関数計算](../../../解析系/QM/QM6/index.md#def-qm6-borel-functional-calculus) により、ある実数 $a$ の近傍 $(a-r,a+r)$（$r>0$）の射影が零なら、測度の台上で $|\lambda-a|\ge r$ である。従って $g(\lambda)=1/(\lambda-a)$ をその近傍の外で定め、近傍内では零とすれば $g$ は有界である。$\lambda g(\lambda)=1+ag(\lambda)$ が射影値測度に関して成り立つので、$\lambda g(\lambda)$ も有界であり、
 
 $$
 \int|\lambda g(\lambda)|^2\,d\mu_x(\lambda)
@@ -80,9 +80,11 @@ $$
 
 $$
 g(A)(A-aI)y=y\quad(y\in D(A)).
-$$従って $a$ はスペクトルに入らない。非実数 $a$ も $|\lambda-a|\ge|\operatorname{Im}a|>0$ を使って同じ逆を構成できる。
+$$
 
-逆に全ての近傍の射影が非零なら、$E_A((a-1/n,a+1/n))$ の像から単位ベクトル $x_n$ を取る。スペクトル積分の定義域とノルム公式から $x_n\in D(A)$ かつ
+従って $a$ はスペクトルに入らない。非実数 $a$ も $|\lambda-a|\ge|\operatorname{Im}a|>0$ を使って同じ逆を構成できる。
+
+逆に全ての近傍の射影が非零なら、$E_A((a-1/n,a+1/n))$ の像から単位ベクトル $x_n$ を取る。[スペクトル積分の定義域とノルム公式](../../../解析系/QM/QM6/index.md#prop-qm6-unbounded-integral-domain) から $x_n\in D(A)$ かつ
 
 $$
 \|(A-aI)x_n\|^2
