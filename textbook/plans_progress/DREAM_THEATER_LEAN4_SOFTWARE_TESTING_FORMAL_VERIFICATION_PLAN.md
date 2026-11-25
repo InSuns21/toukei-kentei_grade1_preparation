@@ -72,7 +72,7 @@
 
 ### 数学研究向け発展系列との正本分担（2026-11-24）
 
-LVT第I・II部（LVT1-01〜06、LVT2-01〜08の14講）はLean・型・論理・証明・再現環境の共通基盤を所有する。[FML（数学研究向け形式証明・全7講）](DREAM_THEATER_FORMAL_MATHEMATICS_LEAN_PLAN.md) はこの14講を前提とし、Mathlib上の数学的対象、研究論文とのstatement照合、公理・独立kernel監査を担当する。LVT第III〜VI部はソフトウェア仕様・実装検証・テスト工学の発展（29講）として独立に継続し、FMLの必修としない。本変更でLVTの43講、既存章ID、進捗、完成条件は変更しない。
+LVT第I・II部（LVT1-01〜06、LVT2-01〜08の14講）はLean・型・論理・証明・再現環境の共通基盤を所有する。[FML（数学研究向け形式証明・全7講）](../plan_done/DREAM_THEATER_FORMAL_MATHEMATICS_LEAN_PLAN.md) はこの14講を前提とし、Mathlib上の数学的対象、研究論文とのstatement照合、公理・独立kernel監査を担当する。LVT第III〜VI部はソフトウェア仕様・実装検証・テスト工学の発展（29講）として独立に継続し、FMLの必修としない。本変更でLVTの43講、既存章ID、進捗、完成条件は変更しない。
 
 ## 4. 確定43講の構成
 
