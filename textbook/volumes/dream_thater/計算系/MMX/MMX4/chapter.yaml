@@ -1,0 +1,27 @@
+id: "MMX4"
+title: "多項式乗算テンソルと次数profile・補間、スペクトル点への評価"
+volume: foundations
+status: supplementary
+prerequisites: [MMX3, TSP10, TSP11, TSP12, TSP13, TSP14]
+official_scope: []
+learning_objectives:
+  - 多項式積の係数テンソルを構成し補間と平坦化で階数を証明できる
+  - 多項式退化のスペクトル単調性を冪と係数回収から導ける
+  - 内積型テンソルの指数と対称化次数プロファイルの基本評価を導ける
+  - 行列式による核と商の分離を計算し対角増大率から指数上界への条件付き推論を説明できる
+definitions:
+  - { id: MMX4-DEF-01, name: "多項式乗算テンソル" }
+  - { id: MMX4-DEF-02, name: "内積型テンソル" }
+  - { id: MMX4-DEF-03, name: "対称化次数プロファイル" }
+theorems:
+  - { id: MMX4-THM-01, name: "多項式乗算テンソルの階数" }
+  - { id: MMX4-THM-02, name: "多項式退化のスペクトル単調性" }
+  - { id: MMX4-THM-03, name: "内積型テンソルのスペクトル指数" }
+  - { id: MMX4-THM-04, name: "対称化次数プロファイルの基本評価" }
+  - { id: MMX4-THM-05, name: "行列式による次数の分離" }
+canonical_examples: [二次多項式の三点補間, 平坦化による次数評価, 斉次多項式の核と商]
+problem_patterns: [MMX4-A01, MMX4-A02, MMX4-A03, MMX4-A04, MMX4-B01, MMX4-B02, MMX4-B03, MMX4-B04, MMX4-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 1 }
