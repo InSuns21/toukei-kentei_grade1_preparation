@@ -1,0 +1,37 @@
+chapter: CATB6-08
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB4-01, CATB4-06, CATB6-03]
+concepts:
+  - id: category.family-dependent-type
+    name: "集合族による依存型と項"
+    kind: definition
+    introduction: formal
+    requires: [category.family-fibration]
+  - id: category.dependent-type-substitution
+    name: "集合族の置換と文脈拡張"
+    kind: theorem
+    introduction: formal
+    requires: [category.family-dependent-type, category.pullback]
+  - id: category.comprehension-category
+    name: "理解圏"
+    kind: definition
+    introduction: formal
+    requires: [category.fibration, category.cartesian-morphism, category.codomain-fibration]
+  - id: category.dependent-sum
+    name: "依存和"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（依存和と依存積）"]
+    requires: [category.family-dependent-type, category.family-reindexing-adjoints]
+  - id: category.dependent-product
+    name: "依存積"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（依存和と依存積）"]
+    requires: [category.family-dependent-type, category.family-reindexing-adjoints]
+  - id: category.dependent-type-beck-chevalley
+    name: "集合族の依存和・依存積のBeck–Chevalley同型"
+    kind: theorem
+    introduction: formal
+    requires: [category.dependent-type-substitution, category.dependent-sum, category.dependent-product]
