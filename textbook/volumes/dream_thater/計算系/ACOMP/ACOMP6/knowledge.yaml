@@ -1,0 +1,49 @@
+chapter: ACOMP6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ACOMP5
+forward_references: []
+concepts:
+  - id: algebraic-complexity.polynomial-family
+    name: "多項式族"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多項式族）"]
+    requires: [algebraic-geometry.multivariate-polynomial-ring]
+  - id: algebraic-complexity.vp
+    name: "VP"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（VP）"]
+    requires: [algebraic-complexity.polynomial-family, algebraic-complexity.arithmetic-circuit-size, algebraic-complexity.constant-model]
+  - id: algebraic-complexity.variable-bound
+    name: "使用変数数による演算サイズ下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（使用変数数による演算サイズ下界）"]
+    requires: [algebraic-complexity.arithmetic-circuit-size, algebraic-complexity.arithmetic-circuit-semantics]
+  - id: algebraic-complexity.effective-uniformity
+    name: "有効な回路生成"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有効な回路生成）"]
+    requires: [algebraic-complexity.polynomial-family, algebraic-complexity.arithmetic-circuit]
+  - id: algebraic-complexity.nonuniform-separation
+    name: "非一様な VP と有効な回路生成の分離"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（非一様な VP と有効な回路生成の分離）"]
+    requires: [algebraic-complexity.vp, algebraic-complexity.effective-uniformity]
+  - id: algebraic-complexity.vp-closure
+    name: "VP の和と積に関する閉性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（VP の和と積に関する閉性）"]
+    requires: [algebraic-complexity.vp]
+  - id: algebraic-complexity.vp-degree-normalization
+    name: "VP の形式次数による特徴付け"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（VP の形式次数による特徴付け）"]
+    requires: [algebraic-complexity.vp, algebraic-complexity.circuit-truncation, algebraic-complexity.degree-bound]
