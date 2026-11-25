@@ -1,0 +1,30 @@
+chapter: LVT4-04
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT4-03, LVT3-06]
+concepts:
+  - id: lean-verification.strict-replay
+    name: 合法履歴の再生
+    kind: definition
+    introduction: formal
+    requires: [lean-verification.game-play]
+  - id: lean-verification.replay-reachable
+    name: 合法履歴の再生による到達可能性
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.strict-replay, lean-verification.game-reachable]
+  - id: lean-verification.input-classification
+    name: 着手入力の優先分類
+    kind: definition
+    introduction: formal
+    requires: [lean-verification.game-win]
+  - id: lean-verification.input-class-success
+    name: 着手入力の分類と受理の同値性
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.input-classification, lean-verification.game-success]
+  - id: lean-verification.filtered-implication
+    name: 入力除外と条件付き検査の同値性
+    kind: proposition
+    introduction: formal
+    requires: [lean-verification.property-based-testing]
