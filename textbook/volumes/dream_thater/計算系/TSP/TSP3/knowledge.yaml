@@ -1,0 +1,37 @@
+chapter: TSP3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TSP2
+forward_references: []
+concepts:
+  - id: tensor.flattening
+    name: テンソルの平坦化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（テンソルの平坦化）"]
+    requires: [tensor.multifactor-basis, linear.dimension-over-field]
+  - id: tensor.flattening-rank-bound
+    name: 平坦化による階数下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平坦化による階数下界）"]
+    requires: [tensor.flattening, tensor.matrix-rank-equivalence, tensor.tensor-rank, tensor.multifactor-product]
+  - id: tensor.slice-space
+    name: 切片部分空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（切片部分空間）"]
+    requires: [tensor.multifactor-product, linear.linear-map-over-field, linear.span-over-field]
+  - id: tensor.slice-space-rank-one-cover
+    name: 切片部分空間の階数1被覆による特徴付け
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（切片部分空間の階数1被覆による特徴付け）"]
+    requires: [tensor.slice-space, tensor.tensor-rank, tensor.matrix-rank-equivalence]
+  - id: tensor.slice-space-minimum-rank-bound
+    name: 部分空間の最小非零階数による下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（部分空間の最小非零階数による下界）"]
+    requires: [tensor.slice-space-rank-one-cover, linear.rank-nullity-over-field, linear.dimension-over-field]

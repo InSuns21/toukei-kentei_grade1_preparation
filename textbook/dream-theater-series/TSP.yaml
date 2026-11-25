@@ -14,7 +14,7 @@ chapters:
     title: "rank-one分解とテンソル階数：行列階数との差"
   - id: TSP3
     path: textbook/volumes/dream_thater/計算系/TSP/TSP3
-    status: planned
+    status: completed
     title: "平坦化と部分空間の階数下界"
   - id: TSP4
     path: textbook/volumes/dream_thater/計算系/TSP/TSP4
