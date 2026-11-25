@@ -2,7 +2,9 @@
 
 [MQFC6の自由場の構成](../MQFC6/index.md#thm-mqfc6-free-measure) では無限個の測定を同時に確率変数として実現し、[MQFC7のSchwinger関数](../MQFC7/index.md#def-mqfc7-schwinger) では測定の積の平均を扱った。相互作用を入れると、まず有限個の自由度で確率測度を作り、近似の制限を外す方法が有効になる。しかし各近似で積分が有限であることだけでは、極限の測度も相関も得られない。今回はこの二つの極限問題を分け、自由場で実際に計算する。
 
-直接の前提は [MQFC5](../MQFC5/index.md)、[MQFC6](../MQFC6/index.md)、[MQFC7](../MQFC7/index.md)、[F0-00P4A](../../../解析系/F0/F0-00P4A/index.md)、[OTR3](../../../解析系/OTR/OTR3/index.md) とする。以下 $d\ge1$ は整数、質量 $m>0$ とする。$S=\mathcal S(\mathbb R^d;\mathbb R)$ は [Schwartz空間](../MQFC1/index.md#def-mqfc1-schwartz) の実数値関数に限った空間であり、$f,g\in S$ を試験関数とする。測定の法則とは測定値が属する Euclid 空間上の Borel 確率測度のことである。その [狭義収束](../../../解析系/OTR/OTR3/index.md#def-otr3-narrow) とは、すべての有界連続実関数の積分が極限法則の積分へ収束することである。
+直接の前提は [MQFC5](../MQFC5/index.md)、[MQFC6](../MQFC6/index.md)、[MQFC7](../MQFC7/index.md)、[F0-00P4A](../../../解析系/F0/F0-00P4A/index.md)、[OTR3](../../../解析系/OTR/OTR3/index.md) とする。
+
+以下 $d\ge1$ は整数、質量 $m>0$ とする。$S=\mathcal S(\mathbb R^d;\mathbb R)$ は [Schwartz空間](../MQFC1/index.md#def-mqfc1-schwartz) の実数値関数に限った空間であり、$f,g\in S$ を試験関数とする。測定値が属する Euclid 空間上の Borel 確率測度を考える。確率測度の [狭義収束](../../../解析系/OTR/OTR3/index.md#def-otr3-narrow) とは、すべての有界連続実関数の積分が極限法則の積分へ収束することである。
 
 ## 1. 二種類の制限
 
@@ -180,9 +182,68 @@ e^{-t^{\mathsf T}\Sigma_n t/2}\longrightarrow
 e^{-t^{\mathsf T}\Sigma t/2}.
 $$
 
-右辺は [自由場のGaussian測度の構成](../MQFC6/index.md#thm-mqfc6-free-measure) による測定ベクトルの特性関数である。[確率ベクトルの特性関数収束定理](../../../解析系/F0/F0-00P6/index.md#thm-f0-00p6-levy-continuity-vector) をこの既知の極限法則に適用できる。従って有界Lipschitz関数の期待値が収束する。ここから一般の有界連続実関数 $u:\mathbb R^r\to\mathbb R$ へ移す。極限測定ベクトルを $V$ と書く。各ベクトルの平均は零なので $E|V_n|^2=\sum_j(\Sigma_n)_{jj}$、同様に $E|V|^2=\sum_j\Sigma_{jj}$ である。これらは有界なので、ある定数 $M_2$ で両者を上から抑えられる。$|V_n|>R$ 上で $|V_n|^2/R^2>1$ となることから $P(|V_n|>R)\le M_2/R^2$ であり、$V$ についても同じ上界を得る。
+右辺は [自由場のGaussian測度の構成](../MQFC6/index.md#thm-mqfc6-free-measure) による測定ベクトルの特性関数である。[確率ベクトルの特性関数収束定理](../../../解析系/F0/F0-00P6/index.md#thm-f0-00p6-levy-continuity-vector) をこの既知の極限法則に適用できる。従って有界Lipschitz関数の期待値が収束する。
 
-$B=\sup_{x\in\mathbb R^r}|u(x)|$ とし、整数 $l\ge1$ に対して $u_l(x)=\inf_{y\in\mathbb R^r}(u(y)+l|x-y|)$ と置く。$-B\le u_l\le u\le B$。任意の $y$ について $|x-y|\le |z-y|+|x-z|$ なので、$y$ について下限を取れば $u_l(x)\le u_l(z)+l|x-z|$ となる。$x,z$ を交換すると $|u_l(x)-u_l(z)|\le l|x-z|$ を得るから、$u_l$ は有界Lipschitz関数である。固定した閉球の少し外まで含めれば、$u$ はコンパクト集合上で一様連続である。詳しくは、任意の $\eta>0$ に対し $0<\delta<1$ を選び、$|x-y|<\delta$ なら $|u(x)-u(y)|<\eta$ とする（$x,y$ は半径 $R+1$ の閉球内）。$|x-y|\ge\delta$ なら $l\delta\ge2B$ と選べば $u(y)+l|x-y|\ge B\ge u(x)$。近い $y$ では $u(y)+l|x-y|\ge u(x)-\eta$ である。従って球内で $0\le u-u_l\le\eta$。
+ここから一般の有界連続実関数 $u:\mathbb R^r\to\mathbb R$ へ移す。極限測定ベクトルを $V$ と書く。各ベクトルの平均は零なので、二次モーメントは対角和に一致する。
+
+$$
+E|V_n|^2=\sum_j(\Sigma_n)_{jj},
+\qquad E|V|^2=\sum_j\Sigma_{jj}.
+$$
+
+これらは有界なので、ある定数 $M_2$ で両者を上から抑えられる。半径 $R>0$ に対して、指示関数を二乗ノルムで抑えると
+
+$$
+P(|V_n|>R)\le \frac{E|V_n|^2}{R^2}\le\frac{M_2}{R^2}.
+$$
+
+極限の $V$ に対しても同じ上界を得る。
+
+$B=\sup_{x\in\mathbb R^r}|u(x)|$ とし、整数 $l\ge1$ に対して
+
+$$
+u_l(x)=\inf_{y\in\mathbb R^r}(u(y)+l|x-y|)
+$$
+
+と置く。下限を取る式は $-B$ 以上で、$y=x$ を代入すれば
+
+$$
+-B\le u_l(x)\le u(x)\le B
+$$
+
+となる。任意の $y$ について三角不等式から
+
+$$
+u(y)+l|x-y|\le u(y)+l|z-y|+l|x-z|
+$$
+
+である。$y$ について下限を取り、さらに $x,z$ を交換すると
+
+$$
+|u_l(x)-u_l(z)|\le l|x-z|
+$$
+
+を得る。従って $u_l$ は有界Lipschitz関数である。
+
+固定した半径 $R+1$ の閉球上で $u$ は一様連続である。任意の $\eta>0$ に対し $0<\delta<1$ を選び、この閉球内の点について
+
+$$
+|x-y|<\delta\quad\Longrightarrow\quad |u(x)-u(y)|<\eta
+$$
+
+が成り立つようにする。半径 $R$ の閉球に $x$ を固定する。近い点（$|x-y|<\delta$）は半径 $R+1$ の閉球に入るので
+
+$$
+u(y)+l|x-y|\ge u(x)-\eta.
+$$
+
+遠い点（$|x-y|\ge\delta$）については、$l\delta\ge2B$ となる整数を選べば
+
+$$
+u(y)+l|x-y|\ge -B+2B=B\ge u(x).
+$$
+
+全ての点で下界が得られたため、下限を取ると半径 $R$ の球内では $0\le u-u_l\le\eta$ となる。
 
 $$
 |E[u(V_n)]-E[u(V)]|
@@ -253,7 +314,15 @@ $$
 
 ### 可算個の測定を同じ部分列で扱う
 
-試験関数列 $f_1,f_2,\ldots$ を固定する。各 $j$ について $E|\Phi_n(f_j)|^2\le M_j$ が一様に成り立つとする。[測定ベクトルの二次評価による部分列抽出](#thm-mqfc13-moment-tight) を用いて、第1座標の法則で収束部分列を取り、その中から最初の2座標の同時法則が収束する部分列を取り、以下繰り返す。第 $r$ 段階の部分列を昇順に並べ、その第 $r$ 要素を $n_r$ とすれば $n_{r+1}>n_r$ であり、固定した $k$ に対して $r\ge k$ の $n_r$ は第 $k$ 段階の部分列に含まれる。
+試験関数列 $f_1,f_2,\ldots$ を固定する。各 $j$ について $E|\Phi_n(f_j)|^2\le M_j$ が一様に成り立つとする。[測定ベクトルの二次評価による部分列抽出](#thm-mqfc13-moment-tight) を用いて、第1座標の法則で収束部分列を取り、その中から最初の2座標の同時法則が収束する部分列を取り、以下繰り返す。第 $r$ 段階の部分列を昇順に並べ、その第 $s$ 要素を $n^{(r)}_s$ と書く。入れ子の部分列なので $n^{(r+1)}_s\ge n^{(r)}_s$ である。
+
+そこで対角の添字を $n_r=n^{(r)}_r$ と選ぶと
+
+$$
+n_{r+1}=n^{(r+1)}_{r+1}\ge n^{(r)}_{r+1}>n^{(r)}_r=n_r.
+$$
+
+さらに固定した $k$ に対して $r\ge k$ なら、第 $r$ 段階は第 $k$ 段階の部分列なので $n_r$ も第 $k$ 段階に含まれる。
 
 従ってこの一つの列上で全ての有限先頭ブロックの法則が収束する。座標を忘れる射影 $\pi:\mathbb R^{k+1}\to\mathbb R^k$ と有界連続関数 $g$ に対し $g\circ\pi$ も有界連続だから、極限の射影は短いブロックの極限と一致する。任意の有限座標集合はある先頭ブロックに入るので、そこから必要な座標を残す射影で法則を定められる。先頭ブロックの選び方によらず、さらに座標を忘れても法則は一致する。従って [有限次元分布と整合性](../../../解析系/STO/STO3/index.md#def-sto3-fdd-consistency) の条件を満たす。[Kolmogorov拡張定理](../../../解析系/STO/STO3/index.md#thm-sto3-kolmogorov-extension) によって可算座標の確率法則を得る。
 
@@ -340,7 +409,19 @@ $$
 
 右辺は $K\to\infty$ で一様に零となる（[高次モーメントの一様有界性から一様可積分性](../../../解析系/F0/F0-00P4A/index.md#thm-f0-00p4a-lp-ui)）。従って多点相関を法則の極限へ移せる。
 
-自由場では各固定試験関数の分散が [有限モード共分散の二重極限](#thm-mqfc13-free-limit) により収束し、有界である。[Gaussian Schwinger関数のWick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) による $E|X|^{2s}=(2s-1)!!(EX^2)^s$ は、$2s$ 個の同一測定の対分割が $(2s-1)(2s-3)\cdots1$ 通りあることから得られる。$r$ 個の測定からなるベクトル $X=(X_1,\ldots,X_r)$ のノルムの $2r$ 乗は、凸関数 $v\mapsto v^r$ の等重み平均への不等式より
+自由場では各固定試験関数の分散が [有限モード共分散の二重極限](#thm-mqfc13-free-limit) により収束し、有界である。[Gaussian Schwinger関数のWick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) による $E|X|^{2s}=(2s-1)!!(EX^2)^s$ は、$2s$ 個の同一測定の対分割が $(2s-1)(2s-3)\cdots1$ 通りあることから得られる。$r$ 個の測定からなるベクトル $X=(X_1,\ldots,X_r)$ のノルムの $2r$ 乗を見積もる。$r=1$ では以下の不等式は等号で成立する。$r\ge2$ とし、非負の数 $a,b$ について恒等式
+
+$$
+a^r-b^r=(a-b)\sum_{k=0}^{r-1}a^{r-1-k}b^k
+$$
+
+を使う。$a\ge b$ のとき和は $rb^{r-1}$ 以上であり、$a\le b$ のとき和は $rb^{r-1}$ 以下だが $a-b\le0$ となる。従ってどちらの場合も
+
+$$
+a^r\ge b^r+rb^{r-1}(a-b).
+$$
+
+ここで $a=X_j^2$、$b=r^{-1}\sum_j X_j^2$ と選ぶ。全ての $j$ について加えると一次の項が相殺するので
 
 $$
 \left(\frac1r\sum_{j=1}^r X_j^2\right)^r
@@ -493,7 +574,15 @@ $$
 E[X_n^2Y_n^2]=a_nb_n+2c_n^2\to ab+2c^2.
 $$
 
-積分の尾からも同じ結論を得られる。$G(x,y)=x^2y^2$ と置き、$A=\sup_n a_n$、$B=\sup_n b_n$ は有限とする。[Wick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) で同じ測定を8回並べたとき、対分割の数は $7\cdot5\cdot3\cdot1=105$ だから $EX_n^8=105a_n^4$、$EY_n^8=105b_n^4$。両者の8次モーメントが有限なので $|X_n|^4,|Y_n|^4$ は $L^2$ に属する。内積を $\langle U,V\rangle=E[UV]$ とした [Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) にこれらを入れると
+積分の尾からも同じ結論を得られる。$G(x,y)=x^2y^2$ と置き、$A=\sup_n a_n$、$B=\sup_n b_n$ は有限とする。
+
+[Wick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) で同じ測定を8回並べたとき、対分割の数は $7\cdot5\cdot3\cdot1=105$ である。各対の寄与は同じ分散だから
+
+$$
+EX_n^8=105a_n^4,\qquad EY_n^8=105b_n^4.
+$$
+
+両者の8次モーメントが有限なので $|X_n|^4,|Y_n|^4$ は $L^2$ に属する。内積を $\langle U,V\rangle=E[UV]$ とした [Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) にこれらを入れると
 
 $$
 \begin{aligned}
