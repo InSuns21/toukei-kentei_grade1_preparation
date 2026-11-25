@@ -30,7 +30,7 @@ chapters:
     title: "テンソルネットワーク・縮約・wire：グラフの境界テンソル"
   - id: TSP7
     path: textbook/volumes/dream_thater/計算系/TSP/TSP7
-    status: planned
+    status: completed
     title: "行列積テンソルと双線形複雑性"
   - id: TSP8
     path: textbook/volumes/dream_thater/計算系/TSP/TSP8
