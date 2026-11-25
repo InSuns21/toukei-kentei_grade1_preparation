@@ -1,6 +1,6 @@
 # LVT5-08 差分検査の保証範囲と弱点
 
-前提講座：[LVT5-07 再現可能性・継続的インテグレーション（Continuous Integration; CI）・失敗時診断](../LVT5-07/index.md)、[LVT5-03 直列化・正規化・一致判定の監査](../LVT5-03/index.md)、[LVT5-01 Differential Testing・オラクルの設計](../LVT5-01/index.md)、[LVT4-02 Property-Based Testingの原理](../LVT4-02/index.md)。
+前提講座：[LVT5-07 再現可能性と失敗時診断](../LVT5-07/index.md)、[LVT5-03 直列化・正規化・一致判定の監査](../LVT5-03/index.md)、[LVT5-01 Differential Testing・オラクルの設計](../LVT5-01/index.md)、[LVT4-02 Property-Based Testingの原理](../LVT4-02/index.md)。
 
 前講で失敗入力を保存し、同じ条件で再実行できるようになりました。今度は逆に、何万回実行しても一度も失敗しなかった場合を考えます。正しい仕様を使ったか、誤りを観測できるか、反例を生成できるかは別の問いです。ここでは三つを切り分け、検査結果から主張できる範囲を保証台帳に記録します。
 
