@@ -34,11 +34,17 @@ concepts:
     introduction_aliases: ["命題（篩の引き戻しの合成則）"]
     requires: [category.sieve-pullback]
   - id: category.grothendieck-topology
-    name: "Grothendieck位相とsite"
+    name: "Grothendieck位相"
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（Grothendieck位相とsite）"]
     requires: [category.sieve, category.sieve-pullback]
+  - id: category.site
+    name: "site（サイト）"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Grothendieck位相とsite）"]
+    requires: [category.grothendieck-topology]
   - id: category.covering-sieve-closure
     name: "被覆篩の上方閉性と有限交差"
     kind: proposition
