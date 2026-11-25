@@ -31,5 +31,5 @@ chapters:
     title: "Comparator・独立kernel・再現検証"
   - id: FML7
     path: textbook/volumes/dream_thater/計算系/FML/FML7
-    status: planned
+    status: completed
     title: "研究論文の形式化・自然言語との照合・証明監査"

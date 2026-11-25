@@ -1,7 +1,7 @@
 # DREAM THEATER 量子場の数学的構成 I・II（MQFC1–48・全48講）
 
 設計: 2026-10-13／講義数確定・文献校正: 2026-11-24  
-状態: in progress（MQFC1実装、MQFC2–48予定。進捗正本は[MQFC manifest](../dream-theater-series/MQFC.yaml)）
+状態: in progress（章ごとの進捗正本は[MQFC manifest](../dream-theater-series/MQFC.yaml)）
 
 ## 1. 中心問いと到達目標
 

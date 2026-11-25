@@ -175,5 +175,5 @@ chapters:
     title: "証明・差分テスト・CIを統合する"
   - id: LVT6-07
     path: textbook/volumes/dream_thater/計算系/LVT/LVT6-07
-    status: planned
+    status: completed
     title: "最終課題：保証台帳を伴うソフトウェア検証"

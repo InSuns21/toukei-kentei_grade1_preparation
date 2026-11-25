@@ -1,0 +1,24 @@
+id: "FML7"
+title: "研究論文の形式化・自然言語との照合・証明監査"
+volume: foundations
+status: supplementary
+prerequisites: [FML3, FML4, FML5, FML6, ACOMP6, ACOMP7, ACOMP8]
+official_scope: []
+learning_objectives:
+  - 自然言語の主張から対象・量化・演算モデル・結論を抽出する
+  - 共有付き反復加算回路の演算数と評価を帰納法で再構成する
+  - 形式化した命題と元の主張の対応を確認し、追加仮定と定義域の違いを検出する
+  - 証拠台帳に形式検証・人間による照合・未検証事項を分けて記録する
+definitions:
+  - { id: FML7-DEF-01, name: "反復加算回路" }
+  - { id: FML7-DEF-02, name: "証拠台帳" }
+theorems:
+  - { id: FML7-THM-01, name: "反復加算回路の評価と演算数" }
+propositions:
+  - { id: FML7-PROP-01, name: "指定長の反復加算回路の存在" }
+canonical_examples: ["2段の共有回路", "自然数への制限", "追加仮定と独自公理"]
+problem_patterns: [FML7-A01, FML7-A02, FML7-A03, FML7-A04, FML7-B01, FML7-B02, FML7-B03, FML7-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 3, review: 1 }
