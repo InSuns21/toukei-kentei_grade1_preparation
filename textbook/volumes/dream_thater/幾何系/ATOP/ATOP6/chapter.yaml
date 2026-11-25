@@ -1,0 +1,24 @@
+id: ATOP6
+title: "円周の基本群と巻き数"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP4, ATOP5]
+official_scope: []
+learning_objectives:
+  - 円周のループを実直線に持ち上げ巻き数を整数として計算できる
+  - 持上げの初期値選択と道ホモトピーによる巻き数の不変性を証明できる
+  - 連結・逆走と巻き数の加法性を持上げから導ける
+  - 円周の基本群と整数の加法群の同型を全射性・単射性まで証明できる
+  - 円周の自己写像が誘導する基本群準同型を計算できる
+definitions:
+  - { id: ATOP6-DEF-01, name: 巻き数 }
+theorems:
+  - { id: ATOP6-PROP-01, name: 巻き数の不変性 }
+  - { id: ATOP6-PROP-02, name: 巻き数の加法性 }
+  - { id: ATOP6-THM-01, name: 円周の基本群 }
+canonical_examples: [反時計回りと時計回りのループ, 往復するループ, 持上げの線形補間]
+problem_patterns: [ATOP6-A1, ATOP6-A2, ATOP6-A3, ATOP6-A4, ATOP6-B1, ATOP6-B2, ATOP6-B3, ATOP6-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }

@@ -1,0 +1,26 @@
+chapter: ATOP6
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP4, ATOP5]
+forward_references: []
+concepts:
+  - id: atop.loop-winding-number
+    name: 巻き数
+    kind: definition
+    introduction: formal
+    requires: [atop.loop, atop.circle-cover, atop.path-lifting]
+  - id: atop.winding-invariance
+    name: 巻き数の不変性
+    kind: proposition
+    introduction: formal
+    requires: [atop.loop-winding-number, atop.lift-endpoint-invariance]
+  - id: atop.winding-additivity
+    name: 巻き数の加法性
+    kind: proposition
+    introduction: formal
+    requires: [atop.loop-winding-number, atop.path-operations, atop.path-lifting]
+  - id: atop.circle-fundamental-group
+    name: 円周の基本群
+    kind: theorem
+    introduction: formal
+    requires: [atop.winding-invariance, atop.winding-additivity, atop.fundamental-group-structure, algebra.group-isomorphism]
