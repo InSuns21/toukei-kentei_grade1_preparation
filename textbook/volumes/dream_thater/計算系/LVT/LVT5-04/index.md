@@ -88,7 +88,7 @@ find は指定した戦略の中から条件を満たす入力を探索し、そ
 
 ## 5. 実行と観察
 
-[Leanの境界命題](lab/LvtPythonDrt.lean) は前節の成功条件の差を証明します。[固定されたPython依存](lab/requirements.txt) と前講の Lean 4.35.0 を使い、次の手順で実行します。Codespaces ではログインと利用枠が必要です。
+[等号境界変異の検出条件](#prop-lvt5-04-boundary-mutant) の成功条件の差を [Leanソース](lab/LvtPythonDrt.lean) で証明します。[固定されたPython依存](lab/requirements.txt) と前講の Lean 4.35.0 を使い、次の手順で実行します。Codespaces ではログインと利用枠が必要です。
 
 ~~~bash
 cd "textbook/volumes/dream_thater/計算系/LVT/LVT5-04/lab"
