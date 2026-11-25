@@ -1,0 +1,44 @@
+chapter: ACOMP11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ACOMP10
+  - GCT3
+forward_references: []
+concepts:
+  - id: algebraic-complexity.permanent-vnp
+    name: "パーマネント族の VNP 所属"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（パーマネント族の VNP 所属）"]
+    requires: [graph-counting.permanent, algebraic-complexity.vnp]
+  - id: algebraic-complexity.formula-witness
+    name: "VNP の算術式による証人表示"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（VNP の算術式による証人表示）"]
+    requires: [algebraic-complexity.universal-components, algebraic-complexity.local-indicator, algebraic-complexity.vnp, algebraic-complexity.arithmetic-formula]
+  - id: algebraic-complexity.formula-permanent
+    name: "算術式のパーマネント表示"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（算術式のパーマネント表示）"]
+    requires: [algebraic-complexity.formula-to-abp, graph-counting.permanent]
+  - id: algebraic-complexity.paired-sum
+    name: "二位置の Boolean 和の局所消去"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二位置の Boolean 和の局所消去）"]
+    requires: [graph-counting.permanent, algebraic-complexity.boolean-sum, algebra.field-characteristic]
+  - id: algebraic-complexity.equality-block
+    name: "全ビット一致を表すパーマネント"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全ビット一致を表すパーマネント）"]
+    requires: [graph-counting.permanent, algebraic-complexity.local-indicator]
+  - id: algebraic-complexity.permanent-complete
+    name: "Valiant のパーマネント VNP 完全性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Valiant のパーマネント VNP 完全性）"]
+    requires: [algebraic-complexity.permanent-vnp, algebraic-complexity.formula-witness, algebraic-complexity.formula-permanent, algebraic-complexity.paired-sum, algebraic-complexity.equality-block, algebraic-complexity.vnp-completeness]
