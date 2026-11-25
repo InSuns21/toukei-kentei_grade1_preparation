@@ -1,0 +1,31 @@
+chapter: MQFC13
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC5, MQFC6, MQFC7, F0-00P4A, OTR3]
+forward_references: []
+concepts:
+  - id: mqfc.finite-volume-cutoff
+    name: "有限体積・周波数切断"
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: mqfc.finite-mode-covariance
+    name: "有限モード自由場の共分散"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.finite-volume-cutoff, mqfc.finite-gaussian, mqfc.fourier]
+  - id: mqfc.free-cutoff-limit
+    name: "有限モード共分散の二重極限"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.finite-mode-covariance, mqfc.euclidean-covariance-form, mqfc.free-gaussian-measure, prob.levy-continuity-theorem-finite-dimensional]
+  - id: mqfc.measurement-tightness
+    name: "測定ベクトルの二次評価による部分列抽出"
+    kind: theorem
+    introduction: formal
+    requires: [transport.uniform-tightness, transport.prokhorov]
+  - id: mqfc.unbounded-observable-limit
+    name: "狭義極限への非有界観測量の移行"
+    kind: theorem
+    introduction: formal
+    requires: [transport.narrow-convergence, prob.uniform-integrability]
