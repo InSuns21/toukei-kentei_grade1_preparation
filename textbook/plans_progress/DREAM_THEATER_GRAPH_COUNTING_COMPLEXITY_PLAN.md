@@ -1,7 +1,7 @@
 # DREAM THEATER 組合せグラフ理論・計数計算量 計画
 
 構成確定日: 2026-11-24 JST
-状態: in progress（GCT1–11実装、GCT12–16予定）
+状態: in progress（GCT1–16実装、系列横断監査・PLAN完了判定は残作業）
 系列予約ID: GCT（実装時にmanifest/章ID衝突を再点検）
 講数: **全16講**
 
