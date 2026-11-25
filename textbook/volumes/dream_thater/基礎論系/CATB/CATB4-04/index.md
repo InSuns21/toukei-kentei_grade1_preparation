@@ -274,7 +274,7 @@ $$
 
 今度はファイブレーション $p:\mathcal E\to\mathcal B$ に cleavage $\chi$ が与えられているとする。
 
-基底上の関手とは射影を保つ関手であり、例えば $K:\int F_p\to\mathcal E$ なら $pK=p_{F_p}$ を満たすことをいう。[ファイブレーションからの添字付き圏](../CATB4-03/index.md#thm-catb4-03-fibration)で得る擬関手を $F_p$ と書く。
+[ファイブレーションからの添字付き圏](../CATB4-03/index.md#thm-catb4-03-fibration)で得る擬関手を $F_p$ と書く。基底上の関手とは射影を保つ関手であり、例えば $K:\int F_p\to\mathcal E$ なら $pK=p_{F_p}$ を満たすことをいう。
 
 <a id="thm-catb4-04-reconstruction"></a>
 
@@ -742,7 +742,7 @@ $$
 (u,f)(v,g)=(u+v\bmod2,\ f+g+2uv\bmod4).
 $$
 
-写像 $K$ は四つの組 $(0,0),(1,0),(0,2),(1,2)$ を順に $0,1,2,3$ に写すので全単射。$u+v\bmod2=u+v-2uv$ だから
+写像 $K(u,f)=u+f\bmod4$ は四つの組 $(0,0),(1,0),(0,2),(1,2)$ を順に $0,1,2,3$ に写すので全単射。$u+v\bmod2=u+v-2uv$ だから
 
 $$
 K((u,f)(v,g))=u+v-2uv+f+g+2uv
