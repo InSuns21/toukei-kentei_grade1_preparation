@@ -2,7 +2,7 @@ id: "FML4"
 title: "距離・完備性・極限・Laurent級数の形式化"
 volume: foundations
 status: supplementary
-prerequisites: [FML2, FML3, F0-00B, F0-00B1, RA1, ACOMP21, ACOMP22]
+prerequisites: [FML2, FML3, F0-00B, F0-00B1, RA1, TOP6, TOP7, ACOMP21, ACOMP22]
 official_scope: []
 learning_objectives:
   - 距離による収束とCauchy条件をLeanの型と量化で記述する

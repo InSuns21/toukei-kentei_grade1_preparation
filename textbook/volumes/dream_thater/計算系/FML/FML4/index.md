@@ -1,16 +1,16 @@
 # FML4 距離・完備性・極限・Laurent級数の形式化
 
-前提：[FML2](../FML2/index.md)、[FML3](../FML3/index.md)、[距離空間](../../../基礎科目/F0/F0-00B/index.md)、[距離位相](../../../基礎科目/F0/F0-00B1/index.md)、[RA1](../../../基礎科目/RA/RA1/index.md)、[ACOMP21](../../ACOMP/ACOMP21/index.md)、[ACOMP22](../../ACOMP/ACOMP22/index.md)。
+前提：[FML2](../FML2/index.md)、[FML3](../FML3/index.md)、[距離空間](../../../基礎科目/F0/F0-00B/index.md)、[距離位相](../../../基礎科目/F0/F0-00B1/index.md)、[RA1](../../../基礎科目/RA/RA1/index.md)、[TOP6](../../../基礎科目/TOP/TOP6/index.md)、[TOP7](../../../基礎科目/TOP/TOP7/index.md)、[ACOMP21](../../ACOMP/ACOMP21/index.md)、[ACOMP22](../../ACOMP/ACOMP22/index.md)。
 
 前講では形式多項式の等式と、数値を代入して得る等式を区別しました。今回は近似に関する主張を型と量化で区別します。例えば実数列 $1/(n+1)$ は0に近づきます。一方、形式級数の $t^n$ が0に近づくという主張は、$t$ に数値を代入することではありません。どの空間で、どの近さを使い、何を極限とするのかをLeanの定理にも明示しましょう。
 
 ## 1. 距離と収束を型で指定する
 
-[距離空間の定義](../../../基礎科目/F0/F0-00B/index.md#def-f0-00b-01)では距離関数が非負性、零点の分離、対称性、三角不等式を満たします。Leanの MetricSpace X は型 X にその距離と整合する位相・一様構造（点同士の近さの情報）を与えます。実数の絶対値距離はその一例です。点列 u は自然数から X への関数です。
+[距離空間の定義](../../../基礎科目/F0/F0-00B/index.md#def-f0-00b-01)では距離関数が非負性、零点の分離、対称性、三角不等式を満たします。Leanの MetricSpace X は型 X にその距離と整合する位相と[一様構造](../../../基礎科目/TOP/TOP7/index.md#thm-top7-metric-uniformity)（点同士の近さの情報）を与えます。実数の絶対値距離はその一例です。点列 u は自然数から X への関数です。
 
-Leanで Filter.atTop は自然数の十分大きい添字を、𝓝 a は点 a の近傍を表します。Filter.Tendsto u atTop (𝓝 a) が意味することは、a の任意の近傍に u の十分後ろの項が入ることです。[距離収束と位相収束の一致](../../../基礎科目/F0/F0-00B1/index.md#thm-f0-00b1-metric-convergence)により、距離の不等式へ変換できます。Mathlib の Metric.tendsto_atTop がこの変換を担当します。
+Leanで Filter.atTop は自然数の十分大きい添字を含む集合族、𝓝 a は点 a の近傍からなる[filter](../../../基礎科目/TOP/TOP6/index.md#def-top6-filter)を表します。Lean の Filter 型は空集合を含む退化した場合も許しますが、この二つは空集合を含まない filter です。Filter.Tendsto u atTop (𝓝 a) が意味することは、a の任意の近傍に u の十分後ろの項が入ることです。[距離収束と位相収束の一致](../../../基礎科目/F0/F0-00B1/index.md#thm-f0-00b1-metric-convergence)により、距離の不等式へ変換できます。Mathlib の Metric.tendsto_atTop がこの変換を担当します。
 
-極限点を先に指定しなくても、列の後半同士が近いことを判定できます。[実数列の Cauchy 条件](../../../基礎科目/RA/RA1/index.md#def-ra1-cauchy)を任意の距離空間へ拡張したものを CauchySeq u で表します。
+極限点を先に指定しなくても、列の後半同士が近いことを判定できます。[実数列の Cauchy 条件](../../../基礎科目/RA/RA1/index.md#def-ra1-cauchy)を任意の距離空間へ拡張したものを CauchySeq u で表します。[距離Cauchy列とCauchy filter](../../../基礎科目/TOP/TOP7/index.md#prop-top7-sequence-cauchy-filter)の対応によって、一様構造の上でも同じ型の命題を使えます。
 
 <a id="def-fml4-cauchy-interface"></a>
 
@@ -91,7 +91,7 @@ rw は結論を距離条件へ置き換えます。obtain で N と、その N �
 
 ## 3. 完備性は極限の存在を保証する
 
-収束からCauchy条件への向きと、その逆向きでは必要な仮定が異なります。実数の完備性は[実数列のCauchy判定](../../../基礎科目/RA/RA1/index.md#thm-ra1-real-completeness)で学びました。一般の距離空間でも、すべてのCauchy列の極限がその空間に存在するという性質が重要です。
+収束からCauchy条件への向きと、その逆向きでは必要な仮定が異なります。実数の完備性は[実数列のCauchy判定](../../../基礎科目/RA/RA1/index.md#thm-ra1-real-completeness)で学びました。一般の距離空間でも、すべてのCauchy列の極限がその空間に存在するという性質が重要です。[完備一様空間](../../../基礎科目/TOP/TOP7/index.md#def-top7-complete-uniform-space)では点列に限らず Cauchy filter の収束を要求します。距離空間では両条件が一致し、Mathlib の Metric.complete_of_cauchySeq_tendsto は点列から完備性へ戻す向きの定理です。
 
 <a id="def-fml4-completeness-interface"></a>
 
@@ -128,7 +128,7 @@ theorem complete_limit {X : Type*} [MetricSpace X]
   cauchySeq_tendsto_of_complete h
 ~~~
 
-このコードの結論は存在だけです。一意性まで証明したい場合は別途、上の距離空間の一意性を適用します。完全な定理を読んだつもりで、コードの結論に存在しかないことを見落とさないようにします。
+このコードの結論は存在だけです。一意性まで含めるなら ExistsUnique を使い、complete_limit で得た a に対して、別の極限 b の収束証明 hb と a の収束証明 ha を tendsto_nhds_unique に渡します。ラボの complete_limit_unique はこの追加の主張を証明します。
 
 反例として X=(0,1) に通常の実数距離を制限し、$u_n=1/(n+2)$ とします。各項は正で1未満です。任意の ε>0 に対し $N+2>2/\varepsilon$ となる N を選ぶと
 
@@ -140,7 +140,7 @@ $$
 
 ## 4. Laurent級数を係数で読む
 
-[形式 Laurent 級数](../../ACOMP/ACOMP21/index.md#def-acomp21-formal-laurent)では係数の添字は整数で、非零係数の添字に下限があります。Mathlib の LaurentSeries K は HahnSeries ℤ K の略記です。Hahn級数は非零係数の添字集合が整礎な順序集合となる形式級数であり、整数添字の場合は下に有界という条件に対応します。ここで整礎とは非空部分集合が最小元を持つことです。整数の下に有界な集合の各非空部分集合は、下限を引いて自然数の部分集合へ移せば最小元を持ちます。逆に非空の整礎な整数集合はそれ自身が最小元を持ちます。空の台は下に有界です。
+[形式 Laurent 級数](../../ACOMP/ACOMP21/index.md#def-acomp21-formal-laurent)では係数の添字は整数で、非零係数の添字に下限があります。Mathlib の LaurentSeries K は HahnSeries ℤ K の略記です。Hahn級数は非零係数の添字集合が整礎な順序集合となる形式級数であり、整数添字の場合は下に有界という条件に対応します。ここで整礎とは非空部分集合が最小元を持つことです。複素解析で後に学ぶ[Laurent級数](../../../解析系/CA/CA4/index.md#def-ca4-laurent-series)とは異なり、ここでは負の指数に下限があり、数値を代入した級数の収束は要求しません。整数の下に有界な集合の各非空部分集合は、下限を引いて自然数の部分集合へ移せば最小元を持ちます。逆に非空の整礎な整数集合はそれ自身が最小元を持ちます。空の台は下に有界です。
 
 <a id="def-fml4-laurent-interface"></a>
 
@@ -352,7 +352,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-単項式の指数は -2+2=0、係数の積は6なので fg=6 であり定数項は6である。f と g の定数項は0なので積は0である。[定数項抽出の定義域による差](#prop-fml4-constant-coeff)より LaurentSeries K の一般の係数抽出には map_mul を適用できない。f が負の指数を持つため、PowerSeries K を二入力の型として使うこともできない。
+[形式 Laurent 級数の積](../../ACOMP/ACOMP21/index.md#def-acomp21-formal-laurent)より単項式の指数は -2+2=0、係数の積は6なので fg=6 であり定数項は6である。f と g の定数項は0なので積は0である。[定数項抽出の定義域による差](#prop-fml4-constant-coeff)より LaurentSeries K の一般の係数抽出には map_mul を適用できない。f が負の指数を持つため、PowerSeries K を二入力の型として使うこともできない。
 <!-- solution-end -->
 
 ### Level B
@@ -372,7 +372,7 @@ $$
 |u_m-u_n|\le 1/(m+1)+1/(n+1)\le 2/(N+1)<\varepsilon.
 $$
 
-従って Cauchy列である。実数直線では $|u_n-2|=1/(n+1)$ が零に収束するので極限は2である。もし X で極限 a が存在すれば、距離は同じなので実数直線でも極限 a を持つ。極限の一意性から a=2 となるが2は X の元ではない。従って [完備性を仮定した極限の存在](#thm-fml4-complete-limit)で使う CompleteSpace X は仮定できない。
+従って Cauchy列である。実数直線では $|u_n-2|=1/(n+1)$ が零に収束するので極限は2である。もし X で極限 a が存在すれば、距離は同じなので実数直線でも極限 a を持つ。[距離空間における極限の一意性](../../../基礎科目/F0/F0-00B/index.md#prop-f0-00b-01)から a=2 となるが2は X の元ではない。従って [完備性を仮定した極限の存在](#thm-fml4-complete-limit)で使う CompleteSpace X は仮定できない。
 <!-- solution-end -->
 
 ### FML4-B02 一様な精度と個別の係数
@@ -396,7 +396,7 @@ i を固定すると、$[t^i]f_n$ が1となるのは i=-n の場合だけであ
 <!-- solution-start -->
 #### 詳細解答
 
-m>n なら $s_m-s_n=\sum_{k=n+1}^{m}t^{2k}$ で、最小非零指数は2(n+1)である。距離は $2^{-2(n+1)}$。任意の ε>0 に対して $2^{-2(N+1)}<\varepsilon$ となる N を取れば m,n≥N の異なる添字の距離は ε 未満であり、同じ添字なら零である。従ってCauchy列となる。[Laurent級数の完備性と係数安定化](#thm-fml4-laurent-complete)より極限の偶数非負指数の係数は1、それ以外は0である。従って $s=\sum_{k\ge0}t^{2k}$ となる。積 $(1-t^2)s$ の指数 i の係数は $[t^i]s-[t^{i-2}]s$ である。i=0 では1-0=1、正の偶数では1-1=0、奇数と負の整数では0-0=0である。全係数が1の級数と一致するので $(1-t^2)s=1$ である。
+m>n なら $s_m-s_n=\sum_{k=n+1}^{m}t^{2k}$ で、最小非零指数は2(n+1)である。距離は $2^{-2(n+1)}$。任意の ε>0 に対して $2^{-2(N+1)}<\varepsilon$ となる N を取れば m,n≥N の異なる添字の距離は ε 未満であり、同じ添字なら零である。従ってCauchy列となる。[Laurent級数の完備性と係数安定化](#thm-fml4-laurent-complete)より極限の偶数非負指数の係数は1、それ以外は0である。従って $s=\sum_{k\ge0}t^{2k}$ となる。[形式 Laurent 級数の積](../../ACOMP/ACOMP21/index.md#def-acomp21-formal-laurent)から、積 $(1-t^2)s$ の指数 i の係数は $[t^i]s-[t^{i-2}]s$ である。i=0 では1-0=1、正の偶数では1-1=0、奇数と負の整数では0-0=0である。すべての指数で定数級数1の対応する係数と一致するので $(1-t^2)s=1$ である。
 <!-- solution-end -->
 
 ### FML4-B04 Leanの仮定と結論

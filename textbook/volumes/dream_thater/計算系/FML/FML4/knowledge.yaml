@@ -1,14 +1,14 @@
 chapter: FML4
 scope: dream-theater
 coverage: complete
-prerequisites: [FML2, FML3, F0-00B, F0-00B1, RA1, ACOMP21, ACOMP22]
-forward_references: []
+prerequisites: [FML2, FML3, F0-00B, F0-00B1, RA1, TOP6, TOP7, ACOMP21, ACOMP22]
+forward_references: [complex-analysis.laurent-series]
 concepts:
   - id: formal-math.metric-cauchy-interface
     name: Leanでの距離とCauchy条件の記述
     kind: definition
     introduction: formal
-    requires: [topology.metric-space, topology.metric-topological-convergence-equivalence, analysis.real-cauchy-sequence]
+    requires: [topology.metric-space, topology.metric-topological-convergence-equivalence, analysis.real-cauchy-sequence, topology.filter, topology.metric-cauchy-filter-equivalence]
   - id: formal-math.convergence-cauchy
     name: 収束からCauchy条件への形式化
     kind: theorem
@@ -18,7 +18,7 @@ concepts:
     name: Leanでの完備性の指定
     kind: definition
     introduction: formal
-    requires: [formal-math.metric-cauchy-interface, analysis.real-completeness]
+    requires: [formal-math.metric-cauchy-interface, analysis.real-completeness, topology.complete-uniform-space]
   - id: formal-math.complete-limit
     name: 完備性を仮定した極限の存在
     kind: theorem

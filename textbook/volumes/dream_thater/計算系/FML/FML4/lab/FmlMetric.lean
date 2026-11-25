@@ -28,6 +28,12 @@ theorem complete_limit {X : Type*} [MetricSpace X]
     (h : CauchySeq u) : ∃ a, Tendsto u atTop (𝓝 a) :=
   cauchySeq_tendsto_of_complete h
 
+theorem complete_limit_unique {X : Type*} [MetricSpace X]
+    [CompleteSpace X] {u : Nat → X}
+    (h : CauchySeq u) : ∃! a, Tendsto u atTop (𝓝 a) := by
+  obtain ⟨a, ha⟩ := complete_limit h
+  exact ⟨a, ha, fun b hb => tendsto_nhds_unique hb ha⟩
+
 theorem coeff_agreement {K : Type*} [Field K]
     (f g : LaurentSeries K) (D : ℤ) :
     Valued.v (f - g) ≤ exp (-D : ℤ) ↔
