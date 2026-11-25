@@ -1,0 +1,24 @@
+id: MQFC5
+title: "Euclid自由場の共分散"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC1, QFT20, PDE3]
+official_scope: []
+learning_objectives:
+  - 質量付きEuclid作用素のFourier乗数と逆作用素を導ける
+  - 試験関数共分散の正値性・連続性と分布核の関係を証明できる
+  - 熱核の積分表示を導出し同一点の特異性と全積分を区別できる
+  - 質量ゼロ極限の赤外条件を次元と試験関数の零平均から判定できる
+definitions:
+  - { id: MQFC5-DEF-01, name: "Euclid自由場の試験関数共分散" }
+theorems:
+  - { id: MQFC5-THM-01, name: "質量付きEuclid作用素の逆と共分散核" }
+  - { id: MQFC5-THM-02, name: "試験関数共分散の正値性と連続性" }
+  - { id: MQFC5-THM-03, name: "質量付き逆核の熱核積分表示" }
+  - { id: MQFC5-PROP-01, name: "質量ゼロ極限の赤外条件" }
+canonical_examples: [Gaussian試験関数, 一次元指数核, 零平均の微分試験関数]
+problem_patterns: [MQFC5-INVERSE, MQFC5-POSITIVITY, MQFC5-HEAT, MQFC5-IR]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 4, review: 2 }
