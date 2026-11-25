@@ -462,9 +462,14 @@ $a\lor b$ では前者は $(0,1)$ の1個、後者は $(1,0),(1,1)$ の2個な�
 
 正規な式 $\varphi$ とそこに現れる変数 $a$ が与えられる。元の充足割当のうち $a=1$ のものが存在すれば、それらの個数を返し、存在しなければ元の充足割当数を返す関数を考える。不正な入力には0を返す。$\#\mathrm{3SAT}$ への計数Turing帰着を構成し、質問長・回答長・停止時間を評価せよ。
 
-$\varphi=(a\lor b)\land(
-eg a\lor c)$ の場合と $\varphi=
-eg a\land b$ の場合を計算せよ。
+次の二つの場合を計算せよ。
+
+$$
+\begin{aligned}
+\varphi&=(a\lor b)\land(\neg a\lor c),\\
+\varphi&=\neg a\land b.
+\end{aligned}
+$$
 
 - Level: C
 - ID: GCT10-C1
