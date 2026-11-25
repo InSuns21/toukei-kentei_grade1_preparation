@@ -1,0 +1,48 @@
+chapter: NPCG10
+scope: dream-theater
+coverage: complete
+prerequisites: [NPCG9]
+forward_references: []
+concepts:
+  - id: metric-geometry.averaged-projection
+    name: "射影の加重重心平均"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影の加重重心平均）"]
+    requires: [metric-geometry.metric-projection, metric-geometry.finite-weighted-barycenter, metric-geometry.barycenter-existence-uniqueness]
+  - id: metric-geometry.alternating-projection
+    name: "交互射影"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（交互射影）"]
+    requires: [metric-geometry.projection-existence-uniqueness]
+  - id: metric-geometry.average-descent
+    name: "射影平均の二乗距離減少"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影平均の二乗距離減少）"]
+    requires: [metric-geometry.averaged-projection, metric-geometry.projection-pythagorean, metric-geometry.barycenter-variance-inequality]
+  - id: metric-geometry.average-nonexpansive
+    name: "射影平均の非拡大性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影平均の非拡大性）"]
+    requires: [metric-geometry.averaged-projection, metric-geometry.projection-nonexpansive, metric-geometry.barycenter-stability]
+  - id: metric-geometry.alternating-descent
+    name: "交互射影の二乗距離減少"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（交互射影の二乗距離減少）"]
+    requires: [metric-geometry.alternating-projection, metric-geometry.projection-pythagorean]
+  - id: metric-geometry.metric-separation
+    name: "交互射影の距離下界条件"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（交互射影の距離下界条件）"]
+    requires: [metric-geometry.alternating-projection, metric-geometry.metric-projection]
+  - id: metric-geometry.linear-rate
+    name: "距離下界条件による交互射影の収束率"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（距離下界条件による交互射影の収束率）"]
+    requires: [metric-geometry.metric-separation, metric-geometry.alternating-descent, metric-geometry.projection-nonexpansive, topology.complete-metric-space]
