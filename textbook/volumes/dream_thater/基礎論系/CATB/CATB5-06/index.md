@@ -33,7 +33,7 @@ $$
 $t$ 自体がモノ射である。実際、任意の二射 $u,v:Z\to1$ は終対象の一意性で等しいので、$tu=tv$ なら $u=v$ というモノ射の条件が成立する。
 
 <!-- definition-example-start: def-catb5-06-classifier -->
-**定義の確認：集合の圏。** $\Omega=\{0,1\}$ とし、$t(*)=1$ とする。任意の単射 $m:M\to X$ について、像 $S=m(M)$ を取る。集合でモノ射が単射と同値であることは[集合における特徴付け](../../CAT/CAT1-03/index.md#prop-cat1-03-set-characterization)による。写像を
+**定義の確認**：集合の圏。 $\Omega=\{0,1\}$ とし、$t(*)=1$ とする。任意の単射 $m:M\to X$ について、像 $S=m(M)$ を取る。集合でモノ射が単射と同値であることは[集合における特徴付け](../../CAT/CAT1-03/index.md#prop-cat1-03-set-characterization)による。写像を
 
 $$
 \chi_m(x)=
@@ -110,7 +110,7 @@ $q:Z\to Y$ が $\chi_m fq=t!_Z$ を満たすとき、$m$ の分類正方形に�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb5-06-elementary-topos -->
-**定義の確認：集合の圏。** 集合の圏 $\mathbf{Set}$ は局所小である。終対象は一元集合、二項積は順序対の集合である。射 $u,v:A\to B$ の等化子は $\{a\in A\mid u(a)=v(a)\}$ の包含写像であり、$uh=vh$ を満たす任意の $h:Z\to A$ はその部分集合に値を取り、包含への因子分解は唯一である。[有限極限の存在判定](../../CAT/CAT2-04/index.md#thm-cat2-04-finite-criterion)で第1条件が成立する。
+**定義の確認**：集合の圏。 集合の圏 $\mathbf{Set}$ は局所小である。終対象は一元集合、二項積は順序対の集合である。射 $u,v:A\to B$ の等化子は $\{a\in A\mid u(a)=v(a)\}$ の包含写像であり、$uh=vh$ を満たす任意の $h:Z\to A$ はその部分集合に値を取り、包含への因子分解は唯一である。[有限極限の存在判定](../../CAT/CAT2-04/index.md#thm-cat2-04-finite-criterion)で第1条件が成立する。
 
 第2条件について $B^A$ を全写像 $A\to B$ の集合とし、$\operatorname{ev}(h,a)=h(a)$ と置く。任意の写像 $g:Z\times A\to B$ に対して $\Lambda(g)(z)$ を $a\mapsto g(z,a)$ という写像と定めれば、
 
