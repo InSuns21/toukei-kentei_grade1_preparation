@@ -8,7 +8,7 @@
 
 一般の圏では元ごとの式が使えない。そこで「添字に沿って移した対象から元の対象へ向かう射」を、その射を通る因子分解の存在と一意性で特徴づける。これは[引き戻し](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)の普遍性を、関手の上で考える方法である。
 
-以下、$\mathcal E,\mathcal B$ は[局所小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)、$p:\mathcal E\to\mathcal B$ は[共変関手](../../CAT/CAT1-06/index.md#def-cat1-06-functor)とする。合成は右から左に書く。
+以下、$\mathcal E,\mathcal B$ は[局所小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)、$p:\mathcal E\to\mathcal B$ は[共変関手](../../CAT/CAT1-06/index.md#def-cat1-06-functor)とする。合成は右から左に書き、$gf$ は $g\circ f$ の略記とする。$1_x$ は対象 $x$ の恒等射を表す。
 
 $\mathcal B$ を基底圏、$\mathcal E$ を全圏と呼ぶ。$p(x)=a$ なら $x$ は $a$ の上にあり、$p(f)=u$ なら $f$ は $u$ の上にあるという。対象や射の等号は同型でなく厳密な等号とする。
 
@@ -21,17 +21,23 @@ $\mathcal B$ を基底圏、$\mathcal E$ を全圏と呼ぶ。$p(x)=a$ なら $x
 <!-- formal-statement-start -->
 > **定義（ファイバー圏）**
 >
-> 関手 $p:\mathcal E\to\mathcal B$ と $b\in\mathcal B$ に対し、ファイバー圏 $\mathcal E_b$ の対象は $p(x)=b$ を満たす $x$、射は $p(h)=1_b$ を満たす $h:x\to y$ とする。合成と恒等射は $\mathcal E$ のものを使う。
+> 関手 $p:\mathcal E\to\mathcal B$ と $b\in\mathcal B$ に対し、ファイバー圏 $\mathcal E_b$ の対象は $p(x)=b$ を満たす $x$、射はファイバーの対象 $x,y$ の間の射 $h:x\to y$ で $p(h)=1_b$ を満たすものとする。合成と恒等射は $\mathcal E$ のものを使う。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb4-01-fiber -->
-**定義の確認**。 [積圏](../../CAT/CAT1-05/index.md#def-cat1-05-product) $\mathbf{Set}\times\mathbf{Set}$ から第二成分を取る関手 $p$ を考える。対象と射の対応は
+**定義の確認**。 $\mathbf{Set}$ は[集合と写像の圏](../../CAT/CAT1-01/index.md#prop-cat1-01-set-category)とする。[積圏](../../CAT/CAT1-05/index.md#def-cat1-05-product) $\mathbf{Set}\times\mathbf{Set}$ から第二成分を取る関手 $p$ を考える。対象と射の対応は
 
 $$
 p(X,B)=B,\qquad p(h,u)=u
 $$
 
-である。ここで $(h,u):(X,B)\to(X',B')$ の第二成分は $u:B\to B'$ である。積圏では合成と恒等射が成分ごとに定まるので関手となる。
+である。ここで $(h,u):(X,B)\to(X',B')$ の第二成分は $u:B\to B'$ である。積圏では合成と恒等射が成分ごとに定まる。従って
+
+$$
+p(1_X,1_B)=1_B,\qquad p((k,v)(h,u))=vu=p(k,v)p(h,u)
+$$
+
+となり、[共変関手の二条件](../../CAT/CAT1-06/index.md#def-cat1-06-functor)を満たす。ここで $(k,v)$ は $(h,u)$ の終点を始点とする射である。
 
 $B=\{0,1\}$ を固定すると、ファイバーの対象はすべて $(X,B)$、射は $(h,1_B)$ である。例えば $X=\{s,t\},X'=\{r\}$ として $h(s)=h(t)=r$ と置けば
 
@@ -65,7 +71,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb4-01-cartesian -->
-**定義の確認**。 $p=1_{\mathcal B}$ とする。任意の $u:a\to b$ に対して $f=u$ と取る。
+**定義の確認**。 $p=1_{\mathcal B}$ を[恒等関手](../../CAT/CAT1-06/index.md#def-cat1-06-composition)とする。対象と射の双方をそのまま写すので、$p(a)=a$、$p(u)=u$ である。任意の $u:a\to b$ に対して $f=u$ と取る。
 
 任意の $g:z\to b$ と $v:z\to a$ が $g=uv$ を満たすなら、$h=v$ が二条件を満たす。$p(h)=v$ はここでは $h=v$ そのものなので一意である。従って恒等関手に対してはすべての射がCartesian射である。
 <!-- definition-example-end -->
@@ -95,7 +101,7 @@ $$
 <!-- formal-statement-start -->
 > **定理（Cartesian持ち上げの同型一意性）**
 >
-> 関手 $p$ に対し、同じ $u:a\to b$ と $y$（$p(y)=b$）のCartesian持ち上げ $f:x\to y$ と $f':x'\to y$ があれば、$f'i=f$ を満たす垂直射 $i:x\to x'$ がただ一つ存在し、それはファイバー圏 $\mathcal E_a$ の同型射である。
+> 関手 $p:\mathcal E\to\mathcal B$ に対し、同じ $u:a\to b$ と $y$（$p(y)=b$）のCartesian持ち上げ $f:x\to y$ と $f':x'\to y$ があれば、$f'i=f$ を満たす垂直射 $i:x\to x'$ がただ一つ存在し、それはファイバー圏 $\mathcal E_a$ の同型射である。
 <!-- formal-statement-end -->
 
 見取り図：二つの持ち上げを互いに因子分解し、その合成と恒等射を一意性で比較する。
@@ -119,7 +125,7 @@ $i,j$ はともに垂直射であり、互いに逆射なので [同型射の定
 <!-- formal-statement-start -->
 > **命題（Cartesian射の恒等射と合成）**
 >
-> 任意の関手 $p$ に対して全圏の恒等射はCartesian射である。また $f:x\to y$ と $k:y\to t$ がともにCartesian射なら、$kf:x\to t$ もCartesian射である。
+> 任意の関手 $p:\mathcal E\to\mathcal B$ に対して全圏の恒等射はCartesian射である。また $f:x\to y$ と $k:y\to t$ がともにCartesian射なら、$kf:x\to t$ もCartesian射である。
 <!-- formal-statement-end -->
 
 見取り図：合成を通る射を、まず $k$、次に $f$ で因子分解する。一意性も同じ順序で使う。
@@ -127,7 +133,7 @@ $i,j$ はともに垂直射であり、互いに逆射なので [同型射の定
 <!-- proof-start -->
 ### 証明
 
-恒等射 $1_x$ の場合、$g:z\to x$ と $v:p(z)\to p(x)$ が $p(g)=1_{p(x)}v=v$ を満たせば $h=g$ と取れる。$1_xh=g$ は $h=g$ を強制する。
+[Cartesian射の定義](#def-catb4-01-cartesian)を使う。恒等射 $1_x$ の場合、$g:z\to x$ と $v:p(z)\to p(x)$ が $p(g)=1_{p(x)}v=v$ を満たせば $h=g$ と取れる。$1_xh=g$ は $h=g$ を強制する。
 
 次に $p(f)=u:a\to b,p(k)=w:b\to d$ と置く。$v:p(z)\to a$ と $g:z\to t$ が $p(g)=(wu)v=w(uv)$ を満たすとする。
 
@@ -141,7 +147,7 @@ $k$ の普遍性に $uv$ と $g$ を入れると、唯一の $l:z\to y$ が存�
 <!-- formal-statement-start -->
 > **命題（垂直Cartesian射と同型射）**
 >
-> 任意の関手 $p$ に対し、垂直射 $f:x\to y$（$p(x)=p(y)=b,p(f)=1_b$）がCartesian射であることと、$\mathcal E_b$ の同型射であることは同値である。
+> 任意の関手 $p:\mathcal E\to\mathcal B$ に対し、垂直射 $f:x\to y$（$p(x)=p(y)=b,p(f)=1_b$）がCartesian射であることと、$\mathcal E_b$ の同型射であることは同値である。
 <!-- formal-statement-end -->
 
 見取り図：恒等射を持ち上げる場合、逆射が普遍性から得られる。逆射があれば任意の因子分解を作れる。
@@ -149,24 +155,24 @@ $k$ の普遍性に $uv$ と $g$ を入れると、唯一の $l:z\to y$ が存�
 <!-- proof-start -->
 ### 証明
 
-$f$ がCartesianなら、$z=y,v=1_b,g=1_y$ と置いて $h:y\to x$ を得る。$p(h)=1_b,fh=1_y$ である。今度は $z=x,v=1_b,g=f$ とする。$hf$ と $1_x$ はともに $1_b$ 上にあり、$f(hf)=(fh)f=f$ なので一意性により $hf=1_x$ である。
+$f$ がCartesianなら、[Cartesian射の定義](#def-catb4-01-cartesian)に $z=y,v=1_b,g=1_y$ を代入して $h:y\to x$ を得る。$p(h)=1_b,fh=1_y$ である。今度は $z=x,v=1_b,g=f$ とする。$hf$ と $1_x$ はともに $1_b$ 上にあり、$f(hf)=(fh)f=f$ なので一意性により $hf=1_x$ である。
 
 逆に垂直な逆射 $h$ が存在すれば、任意の $g:z\to y$ と $v:p(z)\to b$ で $p(g)=1_bv=v$ となるものについて $l=hg$ と取る。$p(l)=1_bv=v,fl=fhg=g$ である。$fl'=g$ なら左から $h$ を合成して $l'=hg=l$ となる。
 <!-- proof-end -->
 
 ## 5. 集合族を移す
 
-集合族の圏を具体的に作る。対象は $(B,(Y_b)_{b\in B})$、射は基底写像 $u:A\to B$ と成分写像 $\phi_a:X_a\to Y_{u(a)}$ の組 $(u,\phi)$ とする。
+集合族の圏 $\mathcal F$ を具体的に作る。対象は集合 $B$ と $B$ で添字付けられた集合族 $Y=(Y_b)_{b\in B}$ の組 $(B,Y)$ とする。射 $(A,X)\to(B,Y)$ は基底写像 $u:A\to B$ と、各 $a\in A$ の成分写像 $\phi_a:X_a\to Y_{u(a)}$ の族 $\phi=(\phi_a)_{a\in A}$ の組 $(u,\phi)$ とする。
 
 次の射 $(w,\psi):(B,Y)\to(D,Z)$ との合成は基底 $wu$ と成分 $\psi_{u(a)}\phi_a$ で与える。恒等射は $(1_A,(1_{X_a})_{a\in A})$ である。
 
-三つの射の合成成分は括弧の置き方によらず
+さらに射 $(l,\theta):(D,Z)\to(H,W)$ を取る。各 $d\in D$ で $\theta_d:Z_d\to W_{l(d)}$ である。三つの射の合成成分は括弧の置き方によらず
 
 $$
 \theta_{w(u(a))}\psi_{u(a)}\phi_a
 $$
 
-となり、単位律も成分ごとの写像の単位律から従う。従って圏をなす。基底だけを取る $p$ は、合成を $wu$ に、恒等射を $1_A$ に送るため関手である。
+となる。実際、どちらの括弧付けでも $X_a$ から $W_{l(w(u(a)))}$ への同じ三写像の合成になる。基底も $lwu$ で一致し、単位律も成分ごとの写像の単位律から従う。従って圏をなす。基底だけを取る $p$ は、合成を $wu$ に、恒等射を $1_A$ に送るため関手である。
 
 <a id="thm-catb4-01-families"></a>
 
@@ -210,7 +216,7 @@ $$
 
 となる。従って $\delta_c=\gamma_c$ であり、全成分と基底が一致して $h'=h$ となる。空添字でも空の成分族は一意であり、論証は変わらない。
 
-従って $f$ はCartesian射で、任意の $u$ と終点族に対して構成できる。
+従って [Cartesian射の定義](#def-catb4-01-cartesian)を満たす。任意の $u$ と終点族に対して構成できるので、[ファイブレーションの定義](#def-catb4-01-fibration)も満たす。
 <!-- proof-end -->
 
 例えば $B=\{0,1\}$、$Y_0=\{r,s\},Y_1=\varnothing$、$A=\{a,b,c\}$、$u(a)=u(c)=0,u(b)=1$ とする。移した族の成分は $\{r,s\},\varnothing,\{r,s\}$ になる。添字 $a,c$ が同じ基底を参照しても成分の所属添字は別である。
@@ -225,7 +231,7 @@ $$
 
 逆にすべて全単射なら成分の逆写像で $i$ の逆射を作れ、[垂直Cartesian射の判定](#prop-catb4-01-vertical) と [合成則](#prop-catb4-01-composition) から $fi$ はCartesianとなる。
 
-反例として一元添字上で $\{0,1\}\to\{*\}$ を考える。基底は恒等射である。終点の一元集合から自身への恒等写像を因子分解する候補は、元を $0$ に送るものと $1$ に送るものの二つある。一意性が壊れるのでCartesian射でない。単に基底に沿う射が存在するだけでは不十分である。
+反例として一元添字上で $\{0,1\}\to\{*\}$ を考える。基底は恒等射である。終点の一元集合から自身への恒等写像を因子分解する候補は、元を $0$ に送るものと $1$ に送るものの二つある。[Cartesian射の定義](#def-catb4-01-cartesian)の一意性が壊れるのでCartesian射でない。単に基底に沿う射が存在するだけでは不十分である。
 
 ## 6. 引き戻しによる別の構成
 
@@ -241,7 +247,9 @@ $$
 mts=wrs=wuq
 $$
 
-となり、合成は再び可換である。単位律・結合律も各成分から従う。終域を取る関手 $p(q)=B,p(s,u)=u$ のファイバーは [スライス圏](../../CAT/CAT1-05/index.md#def-cat1-05-slice) $\mathcal C/B$ である。
+となり、合成は再び可換である。単位律・結合律も各成分から従う。終域を取る関手 $p(q)=B,p(s,u)=u$ は、恒等射を $1_B$ に、合成を $wu$ に送るので関手である。
+
+基底 $B$ を固定したファイバーでは、対象は $q:X\to B$、射は $(s,1_B):q\to r$ であり、可換条件は $rs=1_Bq=q$ となる。これは [スライス圏](../../CAT/CAT1-05/index.md#def-cat1-05-slice) $\mathcal C/B$ の射 $s$ の条件そのものである。対応 $(s,1_B)\mapsto s$ とその逆 $s\mapsto(s,1_B)$ は恒等射・合成を保つので、両圏はこの対応で同型である。
 
 <a id="thm-catb4-01-codomain"></a>
 
@@ -266,7 +274,7 @@ $$
 
 となる。後者は $(h,v):e\to q$ が可換四角形である条件、前者は $(s,u)(h,v)=(g,uv)$ の第一成分である。基底成分は指定された $v$ なので、引き戻しでの $h$ の一意性がCartesian射の一意性を与える。
 
-逆に $(s,u)$ がCartesianとする。$g:T\to Y,k:T\to A$ が $rg=uk$ を満たすとき、全圏の対象 $e=1_T:T\to T$ と基底射 $v=k$ を取る。
+逆に $(s,u)$ がCartesianとする。[Cartesian射の定義](#def-catb4-01-cartesian)を引き戻しの任意の入力に適用する。$g:T\to Y,k:T\to A$ が $rg=uk$ を満たすとき、全圏の対象 $e=1_T:T\to T$ と基底射 $v=k$ を取る。
 
 $(g,uk):e\to r$ は $rg=uk1_T$ により射である。Cartesian性から唯一の $(h,k):e\to q$ が存在する。可換条件と因子分解式は
 
@@ -279,7 +287,7 @@ $$
 最後に任意の $r:Y\to B$ と $u:A\to B$ に対し、仮定からその引き戻し $q:X\to A,s:X\to Y$ が存在する。前半で $(s,u)$ はCartesianと示したから、任意の基底射に沿う持ち上げが存在する。
 <!-- proof-end -->
 
-集合では $X=\{(a,y)\in A\times Y\mid u(a)=r(y)\}$、$q(a,y)=a,s(a,y)=y$ と構成できる。$a$ の上にある元は $r(y)=u(a)$ の条件を満たすものに限られる。第5節の集合族の構成を、添字付きの集合の非交和を使って一つの写像として表したものに対応する。
+[集合における引き戻しの構成](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)を使うと、$X=\{(a,y)\in A\times Y\mid u(a)=r(y)\}$、$q(a,y)=a,s(a,y)=y$ と構成できる。$a$ の上にある元は $r(y)=u(a)$ の条件を満たすものに限られる。第5節の集合族の構成を、添字付きの集合の非交和を使って一つの写像として表したものに対応する。
 
 ## 7. 演習
 
@@ -307,10 +315,16 @@ $A=\{1,2,3\}, B=\{0,1\}$、$u(1)=u(2)=1,u(3)=0$ とする。$Y_0=\{r\},Y_1=\{s,t
 
 - Level: A
 
-A02 の $A,B,u,X,Y$ を使う。$C=\{c\},v(c)=2,T_c=\{z\}$ とし、基底 $uv$ 上の射 $g$ の成分が $z\mapsto t$ であるとする。Cartesian持ち上げ $f$ を通る媒介射を求めよ。
+A02 の $A,B,u,X,Y$ を使う。$C=\{c\}$、$v:C\to A$ を $v(c)=2$、$T_c=\{z\}$ とし、基底 $uv$ 上の射 $g$ の成分が $z\mapsto t$ であるとする。Cartesian持ち上げ $f$ を通る媒介射を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [Cartesian射の定義](#def-catb4-01-cartesian)では媒介射の基底は $v$ である。従って成分の終域は $X_{v(c)}=X_2=\{s,t\}$ となる。$f$ の第2成分は恒等写像なので、$h_c(z)=t$ だけが $f_2h_c(z)=t$ を満たす。基底成分も固定され、これが唯一の射である。
+**詳細解答。** [Cartesian射の定義](#def-catb4-01-cartesian)では媒介射の基底は $v$ である。従って成分の終域は $X_{v(c)}=X_2=\{s,t\}$ となる。$f=(u,(1_{X_i})_{i\in A})$ の添字 $2$ に対応する成分写像を $f_2=1_{X_2}$ と書く（組の第二成分全体ではない）。合成の成分は $f_{v(c)}h_c=f_2h_c$ であり、
+
+$$
+f_2(h_c(z))=h_c(z)=t
+$$
+
+から $h_c(z)=t$ に一意に決まる。基底成分も固定され、これが唯一の射である。
 <!-- solution-end -->
 
 ### CATB4-01-A04 垂直射の判定
@@ -374,7 +388,7 @@ $$
 一元添字上の $\phi:\{a\}\to\{r,s\}$ を $\phi(a)=r$ とする。基底は恒等射である。因子分解の存在が失敗する具体的な $g,v$ を与えよ。
 
 <!-- solution-start -->
-**詳細解答。** $z$ を一元添字上の族 $\{t\}$、$v$ を基底恒等射とし、$g(t)=s$ とする。$p(g)=1=1v$ なので [Cartesian射の定義](#def-catb4-01-cartesian) の入力条件を満たす。しかし唯一可能な成分写像 $h(t)=a$ では $\phi h(t)=r\ne s=g(t)$ である。従って因子分解が存在せず、Cartesianではない。本文の二元集合から一元集合への反例とは失敗する条件が異なる。
+**詳細解答。** $z$ を一元添字上の族 $\{t\}$、$v$ を基底恒等射とし、$g(t)=s$ とする。一元添字を $A$ と書けば $p(g)=1_A=1_Av$ なので [Cartesian射の定義](#def-catb4-01-cartesian) の入力条件を満たす。しかし唯一可能な成分写像 $h(t)=a$ では $\phi h(t)=r\ne s=g(t)$ である。従って因子分解が存在せず、Cartesianではない。本文の二元集合から一元集合への反例とは失敗する条件が異なる。
 <!-- solution-end -->
 
 ### CATB4-01-B04 関手でもファイブレーションとは限らない
@@ -391,7 +405,7 @@ $$
 
 - Level: C
 
-$A=\{a,b,c\},B=\{0,1\},Y=\{r,s,t\}$ とし、$u(a)=u(b)=0,u(c)=1$、$r_0(r)=0,r_0(s)=r_0(t)=1$ とする。$r_0:Y\to B$ の $u$ に沿うCartesian持ち上げを終域関手で構成せよ。さらに $T=\{m,n\}$、$k(m)=b,k(n)=c$、$g(m)=r,g(n)=t$ について媒介射を求め、任意の $T,k,g$ に対しても一意であることを証明せよ。
+$A=\{a,b,c\},B=\{0,1\},Y=\{r,s,t\}$ とし、$u(a)=u(b)=0,u(c)=1$、$r_0(r)=0,r_0(s)=r_0(t)=1$ とする。$r_0:Y\to B$ の $u$ に沿うCartesian持ち上げを終域関手で構成せよ。さらに $T=\{m,n\}$、$k(m)=b,k(n)=c$、$g(m)=r,g(n)=t$ について媒介射を求め、任意の集合 $T$ と写像 $k:T\to A$、$g:T\to Y$ で $r_0g=uk$ を満たすものに対しても媒介射が一意であることを証明せよ。
 
 <!-- solution-start -->
 **詳細解答。** [終域関手と引き戻し](#thm-catb4-01-codomain)により、まず $u$ と $r_0$ の引き戻しを作る。条件 $u(i)=r_0(y)$ を満たす対を列挙すると
@@ -420,7 +434,7 @@ $$
 
 別の候補 $h'$ は第一成分が $k(z)$、第二成分が $g(z)$ に強制されるので $h'(z)=h(z)$ が全元で成立する。空集合でも空写像は一意である。
 
-従って [引き戻しの普遍性](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)を満たし、前記定理からCartesian持ち上げである。
+従って [引き戻しの普遍性](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)を満たし、[終域関手と引き戻し](#thm-catb4-01-codomain)からCartesian持ち上げである。より一般に全圏の対象 $e:T\to C$ と $v:C\to A$ に対して $r_0g=uve$ なら、上の式の $k$ を $ve$ に置き換える。すると $h(z)=(v(e(z)),g(z))$ が一意に定まり、$qh=ve$、$s_0h=g$ から $(h,v)$ が求める媒介射となる。
 
 添字ごとに見ると $a,b$ の上にはそれぞれ $r$ に対応する元一つ、$c$ の上には $s,t$ に対応する元二つがある。集合族を移す構成と同じ結果が得られた。
 <!-- solution-end -->
