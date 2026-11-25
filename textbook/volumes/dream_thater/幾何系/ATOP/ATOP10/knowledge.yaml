@@ -1,7 +1,7 @@
 chapter: ATOP10
 scope: dream-theater
 coverage: complete
-prerequisites: [ATOP1, FIX1]
+prerequisites: [ATOP1, ATOP4, FIX1]
 forward_references: []
 concepts:
   - id: atop.abstract-simplicial-complex
@@ -54,3 +54,9 @@ concepts:
     kind: theorem
     introduction: formal
     requires: [atop.vertex-link-neighborhood, atop.realization-intersection, atop.surface-local-model]
+
+  - id: atop.rado-triangulation
+    name: Radó の三角形分割定理
+    kind: theorem
+    introduction: formal
+    requires: [atop.surface-local-model, atop.space-triangulation]
