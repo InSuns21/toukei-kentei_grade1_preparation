@@ -1,5 +1,7 @@
 # LVT6-07 最終課題：保証台帳を伴うソフトウェア検証
 
+<!-- acronym-first-use-ignore: CI -->
+
 前提講座：[LVT6-06 証明と差分テストの統合](../LVT6-06/index.md)、[LVT6-03 TypeScriptワークフローの仕様と照合](../LVT6-03/index.md)。
 
 **ブラウザで実行：** [本講の実行ラボ](../browser-lab.html?chapter=LVT6-07)。Lean の証明と意図的な失敗を確認できます。Pythonを含む実験は第4節の端末で実行します。
