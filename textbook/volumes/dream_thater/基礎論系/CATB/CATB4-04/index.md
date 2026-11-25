@@ -16,16 +16,6 @@
 
 以下、基底圏 $\mathcal B$ は[局所小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)とし、値の圏は固定したサイズの小圏とする。合成は右から左に書く。
 
-反変擬関手 $F$ の $b$ における値を $\mathcal F_b$ とする。基底射 $u:a\to b$ に沿う再添字付け関手は
-
-$$
-u^*:\mathcal F_b\to\mathcal F_a
-$$
-
-である。星印は逆射ではなく関手の作用を表す。$v:c\to a$ に対し $uv=u\circ v$ と書く。
-
-[反変擬関手の構造](../CATB4-03/index.md#def-catb4-03-indexed)と同じく比較と単位の向きは
-
 反変擬関手 $F$ の $b$ における値を $\mathcal F_b$、$u:a\to b$ に沿う再添字付け関手を $u^*:\mathcal F_b\to\mathcal F_a$ と書く。星印は逆射ではなく関手の作用を表す。
 
 $v:c\to a$ に対し $uv=u\circ v$ とする。[反変擬関手の構造](../CATB4-03/index.md#def-catb4-03-indexed)と同じく比較と単位の向きは
@@ -218,21 +208,9 @@ $$
 
 $$
 l=(v^*f)^{-1}\alpha_{v,u,y}^{-1}k
-逆に $(u,f)$ がCartesianなら、同じ終点と基底射を持つ $\chi_{u,y}$ との[Cartesian持ち上げの同型一意性](../CATB4-01/index.md#thm-catb4-01-unique-lift)を適用する。すると垂直同型
-
-$$
-i:(a,x)\to(a,u^*y),\qquad \chi_{u,y}i=(u,f)
 $$
 
-が得られる。
-
-[ファイバー圏](../CATB4-01/index.md#def-catb4-01-fiber)の垂直射 $(1_a,l):(a,x)\to(a,x')$ では $l:x\to(1_a)^*x'$ である。この射と対象を
-
-$$
-J_a(1_a,l)=\epsilon_{a,x'}l,\qquad J_a(a,x)=x
-$$
-
-と写す。恒等射の像は $\epsilon_{a,x}\epsilon_{a,x}^{-1}=1_x$ となる。垂直射 $(1_a,m):(a,x')\to(a,x'')$ との合成も
+である。
 
 逆に $(u,f)$ がCartesianなら、同じ終点と基底射を持つ $\chi_{u,y}$ との[Cartesian持ち上げの同型一意性](../CATB4-01/index.md#thm-catb4-01-unique-lift)から、垂直同型 $i:(a,x)\to(a,u^*y)$ が存在し、$\chi_{u,y}i=(u,f)$ となる。
 
@@ -256,13 +234,7 @@ $$
 特に $i$ の像は同型である。
 
 $\chi_{u,y}i$ の第二成分は $\alpha_{1_a,u,y}l=\epsilon_{a,u^*y}l$ であるから、その像は $f$ に等しい。
-例えば集合族で $f=(f_i)_{i\in a}$ が同型であるとは、逆の成分写像族 $r$ があり、全ての $i\in a$ で
 
-$$
-r_i f_i=1_{X_i},\qquad f_i r_i=1_{Y_{u(i)}}
-$$
-
-となることである。従って各 $f_i$ が全単射であることと同値である。このとき任意の $v:c\to a$ と $k$ に対し、媒介射は成分ごとに
 従って $f$ は同型である。
 <!-- proof-end -->
 
@@ -272,9 +244,7 @@ $$
 l_j=f_{v(j)}^{-1}k_j\qquad(j\in c)
 $$
 
-今度はファイブレーション $p:\mathcal E\to\mathcal B$ に cleavage $\chi$ が与えられているとする。[ファイブレーションからの添字付き圏](../CATB4-03/index.md#thm-catb4-03-fibration)で得る擬関手を $F_p$ と書く。
-
-基底上の関手とは射影を保つ関手である。例えば $K:\int F_p\to\mathcal E$ なら $pK=p_{F_p}$ を満たすことをいう。
+と一意に決まる。一成分でも全単射でなければ $f$ は同型でないので、上の[同型判定](#thm-catb4-04-fibration)によりCartesianではない。空の添字の場合も条件は空虚に成立する。
 
 ## 4. 元の圏を復元する
 
@@ -319,9 +289,7 @@ K(u,f)K(v,g)
 &=\chi_{uv,y}\alpha_{v,u,y}v^*f\,g\\
 &=K((u,f)(v,g)).
 \end{aligned}
-逆向きでは、[前節のファイバーの圏同型](#thm-catb4-04-fibration) $J_a$ を用い、垂直射の像を $q=\epsilon_{a,x'}l$ と表す。
-
-対象の再添字付けは選んだ持ち上げの始域から $u^*y$ そのものである。$q:y\to y'$ に対応する垂直射と $\chi_{u,y}$ の合成の第二成分は
+$$
 
 恒等射については $\chi_{1_a,x}=\epsilon_{a,x}$ だから $K(1_a,\epsilon_{a,x}^{-1})=1_x$。基底は $p(\chi_{u,y}f)=u1_a=u$。さらに $K(u,1_{u^*y})=\chi_{u,y}$ である。対象・射の全単射と合成・恒等射の保存から逆写像も関手となる。
 
@@ -342,13 +310,7 @@ $$
 
 次に二つの持ち上げの合成は
 
-である。[比較同型の定義式](../CATB4-02/index.md#thm-catb4-02-comparison)では、これを直接の持ち上げと垂直比較 $(1_c,l)$ との合成に等しくする。その第二成分は
-
 $$
-\alpha_{1_c,uv,y}l=\epsilon_{c,(uv)^*y}l=J_c(1_c,l)
-$$
-
-である。よって比較も $J_c$ の下で $\alpha_{v,u,y}$ に戻る。
 (u,1_{u^*y})(v,1_{v^*u^*y})=(uv,\alpha_{v,u,y})
 $$
 
@@ -371,9 +333,7 @@ $$
 
 ## 5. 圏の間の対応も復元する
 
-以下では $F,G$ の再添字付けをそれぞれ $u_F^*,u_G^*$ と書く。比較・単位も上付きの $F,G$ によって区別する。
-
-$\theta_u$ は[自然同型](../../CAT/CAT1-07/index.md#def-cat1-07-natural-isomorphism)であり、$\theta_{u,y}$ はその $y\in\mathcal F_b$ における成分である。二段の再添字付けと恒等基底射についても、比較を通る経路が一致することを要求する。
+二つの添字付き圏 $F,G$ の間で、各点の関手 $T_a:\mathcal F_a\to\mathcal G_a$ だけを与えても、基底射を移す操作との相性が分からない。
 
 そこで、先に移してから $T$ を適用する操作と、先に $T$ を適用してから移す操作を自然同型 $\theta_{u,y}$ で比較する。
 
@@ -405,9 +365,7 @@ $$
 =T_a(\epsilon^F_{a,x})
 $$
 
-**定義の確認**。有限集合族の添字付き圏を $F=G$ とする。成分集合には遺伝的有限集合（元もその元も有限集合で、有限段で空集合に達するもの）を用いる。これにより順序対による直積を含む小さいモデルを取れる。
-
-各点で各成分集合 $X_i$ に固定した遺伝的有限集合 $S$ との直積を取る関手 $T_a$ を考える。
+> を満たすものである。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb4-04-pseudonatural -->
@@ -427,9 +385,7 @@ $$
 $$
 
 は $(k_i h_i)\times1_S$ の作用に等しいので関手である。再添字付けの前後で得る集合はともに $X_{u(i)}\times S$、射の成分はともに $h_{u(i)}\times1_S$ である。
-変換同士を比較するため、ここからは $S$ を固定集合ではなく二つ目の擬自然変換の名前として使う。$T,S:F\to G$ の間に[自然変換](../../CAT/CAT1-07/index.md#def-cat1-07-natural-transformation)の族 $m_a:T_a\Rightarrow S_a$ を置く。
 
-$m_{a,x}$ は $x\in\mathcal F_a$ における成分である。移動とこの族を適用する順序が一致するものを次のように扱う。
 従って $\theta_u$ は恒等自然変換にできる。自然性は恒等射との合成律、二つの整合条件はすべての比較・単位・$\theta$ が恒等射であることから成立する。
 <!-- definition-example-end -->
 
@@ -512,13 +468,7 @@ $$
 $$
 \theta_{1_a,x}T_a(\epsilon^F_{a,x})^{-1}
 =(\epsilon^G_{a,T_ax})^{-1}
-逆に基底上のCartesian射保存関手 $H:\int F\to\int G$ があるとする。そのファイバーへの制限 $H_a$ を[第3節の圏同型](#thm-catb4-04-fibration)で移して
-
 $$
-T_a=J_a^G H_a(J_a^F)^{-1}
-$$
-
-とする。$J_a^F,J_a^G$ はそれぞれの全圏に対する $J_a$ である。
 
 なので恒等射も保つ。基底は変えない。さらに[Cartesian射の同型判定](#thm-catb4-04-fibration)で $f$ が同型なら $T_af$ と $\theta_{u,y}$ が同型であるため、その合成も同型となり、Cartesian射を保つ。
 
