@@ -1,0 +1,41 @@
+chapter: CATB4-08
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB4-07, CATB4-02, CATB4-01, CAT2-03, CAT1-09]
+concepts:
+  - id: category.family-descent-datum
+    name: "集合族の降下データ"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（集合族の降下データ）"]
+    requires: [category.family-fibration, category.pullback, category.isomorphism]
+  - id: category.family-descent-category
+    name: "集合族の降下データの圏"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（集合族の降下データの圏）"]
+    requires: [category.family-descent-datum]
+  - id: category.family-descent-comparison
+    name: "集合族の降下比較関手"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（集合族の降下比較関手）"]
+    requires: [category.family-descent-category, category.covariant-functor]
+  - id: category.family-surjective-descent
+    name: "全射に沿う集合族の有効降下"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全射に沿う集合族の有効降下）"]
+    requires: [category.family-descent-comparison, category.equivalence-of-categories]
+  - id: category.split-effective-descent
+    name: "splitファイブレーションにおける有効降下"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（splitファイブレーションにおける有効降下）"]
+    requires: [category.split-fibration, category.split-reindexing, category.pullback, category.equivalence-of-categories]
+  - id: category.family-effective-descent-criterion
+    name: "集合族の有効降下射の判定"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（集合族の有効降下射の判定）"]
+    requires: [category.split-effective-descent, category.family-surjective-descent, category.equivalence-criterion]

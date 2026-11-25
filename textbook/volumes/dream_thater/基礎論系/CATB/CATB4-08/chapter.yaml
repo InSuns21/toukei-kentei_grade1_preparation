@@ -1,0 +1,25 @@
+id: "CATB4-08"
+title: "降下データと有効降下"
+volume: "foundations"
+status: supplementary
+prerequisites: [CATB4-07, CATB4-02, CATB4-01, CAT2-03, CAT1-09]
+official_scope: []
+learning_objectives:
+  - 二重・三重の重なりを計算し集合族の降下データと射の条件を確認できる
+  - 降下比較関手を定義し関手性を証明できる
+  - 商集合と自然同型によって全射に沿う集合族の復元を証明できる
+  - 有効降下の意味と全射性が必要な理由を説明できる
+definitions:
+  - { id: CATB4-08-DEF-01, name: "集合族の降下データ" }
+  - { id: CATB4-08-DEF-02, name: "集合族の降下データの圏" }
+  - { id: CATB4-08-DEF-03, name: "splitファイブレーションにおける有効降下" }
+theorems:
+  - { id: CATB4-08-THM-01, name: "集合族の降下比較関手" }
+  - { id: CATB4-08-THM-02, name: "全射に沿う集合族の有効降下" }
+  - { id: CATB4-08-THM-03, name: "集合族の有効降下射の判定" }
+canonical_examples: [有限集合族の貼り合わせ, cocycle条件の反例, 全射でない写像による情報の欠落]
+problem_patterns: [CATB4-08-A01, CATB4-08-A02, CATB4-08-A03, CATB4-08-A04, CATB4-08-B01, CATB4-08-B02, CATB4-08-B03, CATB4-08-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }
