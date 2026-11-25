@@ -162,7 +162,7 @@ $$
 M=\sum_{s=1}^r a_s b_s^{\mathsf T}.
 $$
 
-第 $j$ 列は $\sum_{s=1}^r (b_s)_j a_s$ です。従って列空間は $a_1,\ldots,a_r$ の線形包に含まれます。[Steinitz の交換補題](../../../代数系/FLD/FLD0/index.md#thm-fld0-steinitz-basis-extension-over-field)により、その中の一次独立な列は高々 $r$ 本です。ゆえに $\operatorname{rank}M\le R_K(t)$ です。
+第 $j$ 列は $\sum_{s=1}^r (b_s)_j a_s$ です。従って列空間は $a_1,\ldots,a_r$ の線形包に含まれます。[一般の体上の Steinitz の交換補題と基底延長](../../../代数系/FLD/FLD0/index.md#thm-fld0-steinitz-basis-extension-over-field)により、その中の一次独立な列は高々 $r$ 本です。ゆえに $\operatorname{rank}M\le R_K(t)$ です。
 
 逆に $q=\operatorname{rank}M$ と置きます。$q=0$ なら全列が零、従って $t=0$ であり、空和により $R_K(t)=0=q$ です。これは零次元の因子がある場合も含みます。$q>0$ なら、列の集合から一次独立な極大部分集合 $a_1,\ldots,a_q$ を選べます。極大性により全列はこれらの線形結合であり、基底なので係数は一意です（[体上の一次独立・基底](../../../代数系/FLD/FLD0/index.md#def-fld0-basis-over-field)）。
 
@@ -267,7 +267,7 @@ $$
 
 の $(1,2)$ 成分から $\alpha=0$、$(1,1)$ 成分から $\beta=0$ が従います。
 
-従って $N_1,N_2$ の線形包は次元2以上です。[Steinitz の交換補題](../../../代数系/FLD/FLD0/index.md#thm-fld0-steinitz-basis-extension-over-field)により、生成元が二つなので次元は2以下でもあり、ちょうど2です。この線形包の中に一次独立な二枚 $A,B$ があるので、それらも基底です。特に各 $N_s$ は $\alpha A+\beta B$ の形であり、$N_1,N_2$ 自身も一次独立で非零です。
+従って $N_1,N_2$ の線形包は次元2以上です。[一般の体上の Steinitz の交換補題と基底延長](../../../代数系/FLD/FLD0/index.md#thm-fld0-steinitz-basis-extension-over-field)により、生成元が二つなので次元は2以下でもあり、ちょうど2です。この線形包の中に一次独立な二枚 $A,B$ があるので、それらも基底です。特に各 $N_s$ は $\alpha A+\beta B$ の形であり、$N_1,N_2$ 自身も一次独立で非零です。
 
 ところが任意の $\alpha,\beta\in K$ について
 
@@ -531,7 +531,7 @@ $r$ 枚の行列 $a_s b_s^{\mathsf T}$ が張る空間の中に、$n$ 枚の $M_
 
 $\sum_i c_iM_i=0$ の $(j,j)$ 成分は $c_j=0$ なので $M_1,\ldots,M_n$ は一次独立です。
 
-よって [Steinitz の交換補題](../../../代数系/FLD/FLD0/index.md#thm-fld0-steinitz-basis-extension-over-field)を、$r$ 枚の外積行列が張る空間とその中の一次独立な $n$ 枚の行列に適用できます。従って $r\ge n$ となります。
+よって [一般の体上の Steinitz の交換補題と基底延長](../../../代数系/FLD/FLD0/index.md#thm-fld0-steinitz-basis-extension-over-field)を、$r$ 枚の外積行列が張る空間とその中の一次独立な $n$ 枚の行列に適用できます。従って $r\ge n$ となります。
 
 これは任意の表示に成立し、上界と合わせて $R_K(D)=n$ です。
 <!-- solution-end -->
