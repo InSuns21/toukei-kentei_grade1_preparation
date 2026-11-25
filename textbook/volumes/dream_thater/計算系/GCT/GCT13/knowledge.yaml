@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - GCT12
   - NA4
+  - RNG4
 forward_references: []
 concepts:
   - id: graph-counting.signed-weight-evaluation-polynomial
@@ -11,13 +12,13 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: [定理（符号付き重みの評価多項式）]
-    requires: [graph-counting.permanent]
+    requires: [graph-counting.permanent, algebra.polynomial-degree]
   - id: graph-counting.consecutive-integer-extrapolation
     name: 連続整数点からの外挿公式
     kind: theorem
     introduction: formal
     introduction_aliases: [定理（連続整数点からの外挿公式）]
-    requires: [combinatorics.binomial-count, numerical.lagrange-interpolation]
+    requires: [combinatorics.binomial-count, numerical.lagrange-interpolation, algebra.field, algebra.polynomial-degree-product]
   - id: graph-counting.binary-weight-removal
     name: 二進重みの0–1行列への変換
     kind: theorem
