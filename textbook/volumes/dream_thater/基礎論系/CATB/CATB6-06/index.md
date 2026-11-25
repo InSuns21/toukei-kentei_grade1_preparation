@@ -154,7 +154,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[層の極限の点ごとの構成](../CATB5-05/index.md#thm-catb5-05-sheaf-limits)により、引き戻し、積、等化子を各段階の集合で計算できる。[部分対象の最大元と共通部分](../CATB6-01/index.md#prop-catb6-01-subobject-meet)より真は $G$ 全体である。項 $t,u$ が同じ型 $A$ を持つとき、その意味を射 $t_G,u_G:G\to A$ と書く。等号の意味は対角に沿う逆像なので
+[層の極限の点ごとの構成](../CATB5-05/index.md#thm-catb5-05-sheaf-limits)により、引き戻し、積、等化子を各段階の集合で計算できる。[部分対象の最大元と共通部分](../CATB6-01/index.md#prop-catb6-01-subobject-meet)より真は $G$ 全体である。項 $t,u$ が同じ型 $A$ を持つとき、その意味を射 $t_G,u_G:G\to A$ と書き、それぞれの $U$ 成分を $t_{G,U},u_{G,U}$ と書く。等号の意味は対角に沿う逆像なので
 
 $$
 a\in(\langle t_G,u_G\rangle^*\Delta_A)(U)
@@ -162,7 +162,7 @@ a\in(\langle t_G,u_G\rangle^*\Delta_A)(U)
 \iff t_{G,U}(a)=u_{G,U}(a).
 $$
 
-ここで $t_{G,U},u_{G,U}$ は射の $U$ 成分である。関係式も入力項の組に沿う逆像なので、その段階の関係部分層への所属で判定できる。所属式については[内部言語の式と判断](../CATB6-05/index.md#def-catb6-05-internal-formulas)で指定された評価射に沿って真を引き戻す。共通部分は各段階で $P(U)\cap Q(U)$ となるから連言の条件も従う。
+関係式も入力項の組に沿う逆像なので、その段階の関係部分層への所属で判定できる。所属式については[内部言語の式と判断](../CATB6-05/index.md#def-catb6-05-internal-formulas)で指定された評価射に沿って真を引き戻す。共通部分は各段階で $P(U)\cap Q(U)$ となるから連言の条件も従う。
 
 偽を計算するため、次の成分を持つ部分前層 $O$ を考える。
 
@@ -188,7 +188,7 @@ $$
 L_a=\{r:V\to U\mid a|_r\in P(V)\cup Q(V)\}
 $$
 
-と置く。制限で所属が保存されるので $L_a$ は篩である。$H(U)=\{a\mid L_a\in J(U)\}$ と定める。[篩の引き戻し](../CATB5-02/index.md#def-catb5-02-sieve-pullback)の定義を用いると、射 $s:W\to U$ と任意の $r:Z\to W$ に対し
+と置く。制限で所属が保存されるので $L_a$ は篩である。$H(U)=\{a\in G(U)\mid L_a\in J(U)\}$ と定める。[篩の引き戻し](../CATB5-02/index.md#def-catb5-02-sieve-pullback)の定義を用いると、射 $s:W\to U$ と任意の $r:Z\to W$ に対し
 
 $$
 r\in L_{a|_s}\iff sr\in L_a,\qquad
@@ -258,7 +258,7 @@ $$
 
 逆方向も $V\subseteq U\cap B$ から従う。従って否定に対応する開集合は補集合の内部 $\operatorname{int}(X\setminus B)$ である。$X=\mathbb R$、$B=(0,\infty)$ なら否定は $(-\infty,0)$、二重否定は $(0,\infty)$。$0$ の近傍では $P_B$ もその否定も強制されず、$P_B\vee\neg P_B$ は全体で強制されない。
 
-次に小圏 $0\to1$ に最大篩だけを被覆とする位相を入れる。このとき任意の前層は層である。最大篩上の整合族は恒等射における値で決まり、逆にその値の各制限で整合族を作れるためである。
+次に対象 $0,1$、二つの恒等射と非恒等射 $0\to1$ だけを持つ小圏に最大篩だけを被覆とする位相を入れる。このとき任意の前層は層である。[site上の層](../CATB5-03/index.md#def-catb5-03-site-sheaf)の条件を調べると、最大篩上の整合族は恒等射における値で決まり、逆にその値の各制限で整合族を作れるためである。
 
 $P(0)=\{*\},P(1)=\varnothing$ とする。$1$ で $P$ は強制されない。
 
@@ -448,14 +448,14 @@ $$
 V\Vdash(\theta\Rightarrow\psi)(a|_r,b_r).
 $$
 
-含意の条件に $1_V$ を代入すると、既に強制されている前件から $V\Vdash\psi(a|_r)$ が従う。$\psi$ は $x$ を自由変数に含まない。拡張文脈での $\psi$ の意味は[内部言語の代入則](../CATB6-05/index.md#thm-catb6-05-internal-substitution)により、射影 $\pi:G\times A\to G$ に沿った逆像 $\pi^*[\![\psi]\!]_G$ である。したがって
+含意の条件に恒等射 $1_V$ を代入すると、既に強制されている前件から拡張文脈での後件が強制される。$\psi$ は $x$ を自由変数に含まない。拡張文脈での $\psi$ の意味は[内部言語の代入則](../CATB6-05/index.md#thm-catb6-05-internal-substitution)により、射影 $\pi:G\times A\to G$ に沿った逆像 $\pi^*[\![\psi]\!]_G$ である。したがって
 
 $$
 (a|_r,b_r)\in(\pi^*[\![\psi]\!]_G)(V)
 \iff a|_r\in[\![\psi]\!]_G(V).
 $$
 
-証人 $b_r$ の違いはこの結論に影響しない。従って全ての $r\in S$ で $\psi$ が強制される。[強制関係の局所性](#thm-catb6-06-forcing-locality)を使って $U\Vdash\psi(a)$ を得る。証人の整合性も大域的な証人も必要ない。
+従って $V\Vdash\psi(a|_r)$ であり、証人 $b_r$ の違いはこの結論に影響しない。従って全ての $r\in S$ で $\psi$ が強制される。[強制関係の局所性](#thm-catb6-06-forcing-locality)を使って $U\Vdash\psi(a)$ を得る。証人の整合性も大域的な証人も必要ない。
 
 反例ではB02の $X$ と層 $A$ を使い、空文脈で $\theta=\top,\psi=\bot$ とする。B02で $X\Vdash\exists x:A\,\top$ を確認した。$A(X)=\varnothing$ のため、現在の段階の全入力について含意を確かめる条件は空虚に成立する。しかし空篩は非空の開集合 $X$ を覆わないから $X$ で偽は強制されない。
 
