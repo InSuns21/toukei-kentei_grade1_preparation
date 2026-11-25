@@ -1,0 +1,43 @@
+id: "FLOER1-05"
+title: "Floer理論の貼り合わせと向き"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLOER1-04
+official_scope: []
+learning_objectives:
+  - 境界を保つ予備貼り合わせを作り指数的誤差を評価できる
+  - 二断面で移動方向を固定し首の長さに一様な右逆を構成できる
+  - 縮小写像で非線形誤差を補正し一意性を示せる
+  - 折れ曲がり収束から作用時刻を復元し局所半区間を説明できる
+  - 境界点の偶数性からFloer微分の二乗零を導ける
+  - 行列式線と整数係数の整合的な向きの追加条件を区別できる
+  - 楕円曲線の直線モデルで泡排除と作用の限界を確認できる
+definitions:
+  - { id: FLOER1-05-DEF-01, name: "stripの予備貼り合わせ" }
+  - { id: FLOER1-05-DEF-07, name: "Fredholm作用素の行列式線" }
+theorems:
+  - { id: FLOER1-05-PROP-02, name: "予備貼り合わせの指数的誤差" }
+  - { id: FLOER1-05-THM-03, name: "二断面付き線形化の一様逆" }
+  - { id: FLOER1-05-THM-04, name: "正則な二段stripの局所補正" }
+  - { id: FLOER1-05-THM-05, name: "折れ曲がり点の局所半区間" }
+  - { id: FLOER1-05-THM-06, name: "完全境界のFloer微分の二乗零" }
+  - { id: FLOER1-05-PROP-08, name: "整合的な境界符号による二乗零" }
+canonical_examples:
+  - 半円stripの積の予備貼り合わせ
+  - 有限次元Fredholm作用素の行列式線
+  - トーラス上の原始整数方向の曲線
+problem_patterns:
+  - FLOER1-05-A01
+  - FLOER1-05-A02
+  - FLOER1-05-A03
+  - FLOER1-05-A04
+  - FLOER1-05-B01
+  - FLOER1-05-B02
+  - FLOER1-05-B03
+  - FLOER1-05-B04
+  - FLOER1-05-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 16, exercises: 9, review: 5 }
