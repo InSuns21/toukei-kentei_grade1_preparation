@@ -34,7 +34,7 @@ chapters:
     title: "行列積テンソルと双線形複雑性"
   - id: TSP8
     path: textbook/volumes/dream_thater/計算系/TSP/TSP8
-    status: planned
+    status: completed
     title: "境界階数・Segre写像とsecant：退化の具体計算"
   - id: TSP9
     path: textbook/volumes/dream_thater/計算系/TSP/TSP9
