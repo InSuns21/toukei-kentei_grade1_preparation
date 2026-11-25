@@ -12,3 +12,4 @@
 9. [NPCG9 等長群作用・有限群固定点・不変凸集合](textbook/volumes/dream_thater/幾何系/NPCG/NPCG9/index.md)
 10. [NPCG10 射影の平均と交互射影：凸集合の角度](textbook/volumes/dream_thater/幾何系/NPCG/NPCG10/index.md)
 11. [NPCG11 非線形Poincaré不等式：CayleyグラフとHilbert版の比較](textbook/volumes/dream_thater/幾何系/NPCG/NPCG11/index.md)
+12. [NPCG12 rank距離・有限行列空間・等号とコンパクト性：論文D/Fへの準備](textbook/volumes/dream_thater/幾何系/NPCG/NPCG12/index.md)

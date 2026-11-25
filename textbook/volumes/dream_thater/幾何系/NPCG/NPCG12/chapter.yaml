@@ -1,0 +1,25 @@
+id: "NPCG12"
+title: "rank距離・有限行列空間・等号とコンパクト性：論文D/Fへの準備"
+volume: "foundations"
+status: supplementary
+prerequisites: [NPCG11, FLD0, F0-00C1]
+official_scope: []
+learning_objectives:
+  - 体上の行列の階数を像の次元から求め階数距離の公理と不変性を証明できる
+  - 階数の劣加法性と等号の二条件を証明し反例を計算できる
+  - 有限行列空間の点数と完備性・コンパクト性を証明し距離の違いを説明できる
+  - 有限行列値Poincaré最良定数の達成と一様性の違いを説明し四頂点の例を計算できる
+definitions:
+  - { id: NPCG12-DEF-01, name: "階数距離" }
+theorems:
+  - { id: NPCG12-THM-01, name: "階数の劣加法性" }
+  - { id: NPCG12-THM-02, name: "階数距離の距離公理と不変性" }
+  - { id: NPCG12-THM-03, name: "階数和の等号条件" }
+  - { id: NPCG12-THM-04, name: "有限行列空間のコンパクト性" }
+  - { id: NPCG12-THM-05, name: "有限行列値Poincaré最良定数の達成" }
+canonical_examples: [二元体上の二次正方行列, 二方向の等号と失敗, 四頂点の行列値写像]
+problem_patterns: [NPCG12-A01, NPCG12-A02, NPCG12-A03, NPCG12-A04, NPCG12-B01, NPCG12-B02, NPCG12-B03, NPCG12-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }

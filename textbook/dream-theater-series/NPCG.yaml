@@ -15,4 +15,4 @@ chapters:
   - { id: NPCG9, path: textbook/volumes/dream_thater/幾何系/NPCG/NPCG9, status: completed, title: "等長群作用・有限群固定点・不変凸集合" }
   - { id: NPCG10, path: textbook/volumes/dream_thater/幾何系/NPCG/NPCG10, status: completed, title: "射影の平均と交互射影：凸集合の角度" }
   - { id: NPCG11, path: textbook/volumes/dream_thater/幾何系/NPCG/NPCG11, status: completed, title: "非線形Poincaré不等式：CayleyグラフとHilbert版の比較" }
-  - { id: NPCG12, path: textbook/volumes/dream_thater/幾何系/NPCG/NPCG12, status: planned, title: "rank距離・有限行列空間・等号とコンパクト性：論文D/Fへの準備" }
+  - { id: NPCG12, path: textbook/volumes/dream_thater/幾何系/NPCG/NPCG12, status: completed, title: "rank距離・有限行列空間・等号とコンパクト性：論文D/Fへの準備" }
