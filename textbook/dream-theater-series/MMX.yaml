@@ -1,0 +1,134 @@
+version: 1
+id: MMX
+title: "行列乗算指数とテンソル幾何学 証明研究講読"
+plan: textbook/plans_progress/DREAM_THEATER_MATRIX_MULTIPLICATION_EXPONENT_PROOF_STUDY_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+chapters:
+  - id: MMX1
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX1
+    status: completed
+    title: "行列積の算術モデル・指数の下限・Strassenの7積と再帰"
+  - id: MMX2
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX2
+    status: planned
+    title: "双線形分解と行列積テンソル、冪と漸近rank、通常rankの定数倍下界と指数下界の違い"
+  - id: MMX3
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX3
+    status: planned
+    title: "上下界の古典史：Biniの補間、Schönhage漸近和不等式、laser法・手法限定障壁の量化"
+  - id: MMX4
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX4
+    status: planned
+    title: "多項式乗算テンソルと次数profile・補間、スペクトル点への評価"
+  - id: MMX5
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX5
+    status: planned
+    title: "共有脚をもつ独立ブロックの分離・退化、複素数上の9/4上界の中心不等式"
+  - id: MMX6
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX6
+    status: planned
+    title: "任意標数の分離補題、任意の体への9/4上界、Amanov–van den Berg–Zuiddamの証明とShpilka解説の照合"
+  - id: MMX7
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX7
+    status: planned
+    title: "長方形乗算・dual exponentの定義、既知上界と平方の場合の関係、指数の正規化"
+  - id: MMX8
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX8
+    status: planned
+    title: "price・wire・共通ラベル・局所restriction：辺長の和とrank分解の不等式、Euclid三角形の比2"
+  - id: MMX9
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX9
+    status: planned
+    title: "Euclidean geometry companion：compatible spectral system、mean width、Gaussian表示、flat lawの証明と共有ラベルの増分"
+  - id: MMX10
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX10
+    status: planned
+    title: "spectral priceの曲率・完備化・ultralimit・積・合同と拡張条件、Euclid flatと非平坦空間の違い"
+  - id: MMX11
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX11
+    status: planned
+    title: "portsの定義、グラフの非線形Poincaré、catalyst・protocolと幅の評価、二分岐の論理"
+  - id: MMX12
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX12
+    status: planned
+    title: "companionのcompressor・exact・descent：タグ付き置換をoracleにしたネットワーク圧縮、サイズと複製数の台帳"
+  - id: MMX13
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX13
+    status: planned
+    title: "Circuit lower bounds companionの比較・entropy・product theorem：no-ports側のグラフentropy boundを導く"
+  - id: MMX14
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX14
+    status: planned
+    title: "同 companionのmodel/compress/gap/batch：ports側の符号付き普遍計数テンソルと厳密なbatch下界、その証明依存と対角線論法"
+  - id: MMX15
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX15
+    status: planned
+    title: "trivalent bit tensorの体積・境界、Batcher sorting network、比較・交換・fanout・隣接非一致で初期サイズを構成"
+  - id: MMX16
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX16
+    status: planned
+    title: "tagged permutationへの二つのdistinctness testによる帰着、signed selectorの恒等式（標数2も含む）"
+  - id: MMX17
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX17
+    status: planned
+    title: "no-ports側の一様宛先下界：距離表の凸性・minimax・条件付きentropy・平方根log評価"
+  - id: MMX18
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX18
+    status: planned
+    title: "ports側のリスト下界：oracle descentとbatch下界の合成、$1\\le t\\le2^w$ の一様性とパラメータ選択"
+  - id: MMX19
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX19
+    status: planned
+    title: "臨界tripodの腕とラベルrate、rectangular decoderと多項式乗算のrigidity、比 $6/(8/3)=9/4$ の位置づけ"
+  - id: MMX20
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX20
+    status: planned
+    title: "valued・motion：付値・衝突・極限、siteの動きからhomogeneous tripodへの帰着"
+  - id: MMX21
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX21
+    status: planned
+    title: "boundary・contact・sync：厳密saving仮定から動きを排除し、複数のtensorを同じprice拡張で評価する"
+  - id: MMX22
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX22
+    status: planned
+    title: "fermions・sphere：外積の縮約と符号、marked pointで定義される球面テンソル、衝突時の分解と脚幅"
+  - id: MMX23
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX23
+    status: planned
+    title: "sphere・incidence：最安の共通siteへの輸送コスト、脚幅を指定した漸近priceとincidence不等式"
+  - id: MMX24
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX24
+    status: planned
+    title: "sorting：stable sorting・batched table lookup、$2^u$ recordsで幅$O(u)$、$p<2$ の指数台帳"
+  - id: MMX25
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX25
+    status: planned
+    title: "sorting後半・local：wide recordのコスト、seamを跨ぐ挿入、stationの統合と二乗脚幅の制御"
+  - id: MMX26
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX26
+    status: planned
+    title: "rounds：局所arity集中を反復してnetwork volumeを削る、各roundの仮定・サイズ・誤差"
+  - id: MMX27
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX27
+    status: planned
+    title: "assembly・shaving：代替配線の符号化、routing・lookup・和の費用、複製数$d\\le n^{o(1)}$と圧縮定理の証明"
+  - id: MMX28
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX28
+    status: planned
+    title: "obstruction：圧縮を定数回反復、$x_{j+1}\\le h^{-\\gamma}x_j+h^\\eta$ とリスト下界の矛盾、有限体下界を閉じる"
+  - id: MMX29
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX29
+    status: planned
+    title: "formal circuitの双線形化：二重切断変数による積・商の係数式、有限生成係数環の有限体への特殊化、全体への移送"
+  - id: MMX30
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX30
+    status: planned
+    title: "有限サイズのgate/rank/border rank・漸近rank、Zariski閉包の冪と体拡大、tight tensor予想への反例の検算"
+  - id: MMX31
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX31
+    status: planned
+    title: "長方形指数：原論文の帰結とLean scopeのより強い公式を区別、dual exponent・正方極限・軸境界・rigidityの依存を追う"
+  - id: MMX32
+    path: textbook/volumes/dream_thater/計算系/MMX/MMX32
+    status: planned
+    title: "総合証明監査：全論文の依存台帳、Lean statement・公理・固定版・再ビルド・独立検証、数値性能とAI研究への非含意"
