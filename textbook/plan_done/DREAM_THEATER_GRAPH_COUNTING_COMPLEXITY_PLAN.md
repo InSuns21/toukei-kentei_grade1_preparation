@@ -1,7 +1,8 @@
 # DREAM THEATER 組合せグラフ理論・計数計算量 計画
 
 構成確定日: 2026-11-24 JST
-状態: in progress（GCT1–16実装、系列横断監査・PLAN完了判定は残作業）
+状態: done（GCT1–16実装・追跡監査・系列横断確認完了）
+完了日: 2026-11-25 JST
 系列予約ID: GCT（実装時にmanifest/章ID衝突を再点検）
 講数: **全16講**
 
@@ -41,10 +42,17 @@ Diestel, [Graph Theory, 6th ed.](https://link.springer.com/book/10.1007/978-3-66
 ## 4. 完成条件
 
 - [x] 初回実装時に本PLANを plans_progress に移し、系列manifestを全16講の予定IDで整備する。未実装章の公開目次先行登録はしない。
-- [ ] 各講で主要定義を使用前に導入し、定理の仮定・定義域・量化・中間計算を明示。直接例と反例を含め、主要証明を再構成可能にする。
-- [ ] 原則 Level A 4題・B 3題・C 1題以上と詳細解答。単なる題数合わせはしない。
-- [ ] chapter.yaml・knowledge.yaml・prerequisite・stable anchor・KaTeX・concept/knowledge/exercise/Pages検証を完了する。
-- [ ] 研究claimは証明artifact・statement matching・kernel・独立人間検証・出版を分離し、未確認のものを無条件の正本定理にしない。
-- [ ] 横断監査・公開導線完了後に plan_done に移す。
+- [x] 各講で主要定義を使用前に導入し、定理の仮定・定義域・量化・中間計算を明示。直接例と反例を含め、主要証明を再構成可能にする。
+- [x] 原則 Level A 4題・B 3題・C 1題以上と詳細解答。単なる題数合わせはしない。
+- [x] chapter.yaml・knowledge.yaml・prerequisite・stable anchor・KaTeX・concept/knowledge/exercise/Pages検証を完了する。
+- [x] 研究claimは証明artifact・statement matching・kernel・独立人間検証・出版を分離し、未確認のものを無条件の正本定理にしない。
+- [x] 横断監査・公開導線完了後に plan_done に移す。
 
 進捗の正本: [GCT系列manifest](../dream-theater-series/GCT.yaml)。
+
+## 5. 完了記録（2026-11-25 JST）
+
+- 全16講の本文・chapter.yaml・knowledge.yaml・manifest・科目別公開目次を照合。全章 completed、科目内 prerequisite は先行章のみ、chapter/knowledge の直接前提は一致。実本文の演習は A64/B58/C16（計138題）で全題に詳細解答がある。
+- GCT1–15 の追跡監査は順に [#4421](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4421)、[#4429](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4429)、[#4438](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4438)、[#4447](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4447)、[#4455](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4455)、[#4466](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4466)、[#4472](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4472)、[#4483](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4483)、[#4498](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4498)、[#4505](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4505)、[#4513](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4513)、[#4529](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4529)、[#4537](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4537)、[#4543](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4543)、[#4552](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4552) のマージ済み記録に基づく。現行の各本文blobが各監査PR最終headと一致することを確認。GCT16の全件追跡監査と最終検証は本移動PRに記録する。
+- 系列の範囲は有限グラフ・有限積和と計数計算量。GCT11の計数完全性の証明、GCT13の補間とビット計算量、GCT16の有限木・共有の保存を区別し、未検証の研究上の主張や一般計算モデルへの拡張は正本定理として扱わない。形式多項式のVP/VNP完全性や論文固有の構成は別系列の責務として残す。
+- 査読は担当AIによる再計算・別観点確認であり、第三者独立査読ではない。完了は本PRの必須CI合格とmainへの統合を条件とする。
