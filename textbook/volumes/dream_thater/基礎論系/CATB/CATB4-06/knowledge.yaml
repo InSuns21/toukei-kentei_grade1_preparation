@@ -32,4 +32,4 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（前向き持ち上げと左随伴の対応）"]
-    requires: [category.reindexing-functor, category.opfibration-indexed-category, category.adjunction-hom, category.cocartesian-morphism]
+    requires: [category.reindexing-functor, category.opfibration, category.adjunction-hom, category.cocartesian-morphism]
