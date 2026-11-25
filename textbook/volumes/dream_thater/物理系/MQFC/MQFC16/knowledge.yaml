@@ -1,0 +1,36 @@
+chapter: MQFC16
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC14, MQFC15]
+forward_references: []
+concepts:
+  - id: mqfc.wick-cutoff-rate
+    name: "Wick測定の切断収束速度"
+    kind: lemma
+    introduction: formal
+    requires: [mqfc.wick-l2-limit, mqfc.covariance-short-distance]
+  - id: mqfc.finite-gaussian-chaos
+    name: "有限次Gaussian chaos"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.wick-polynomial, mqfc.wick-cross-moment]
+  - id: mqfc.chaos-moment-bound
+    name: "固定次数chaosのモーメント評価"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.finite-gaussian-chaos]
+  - id: mqfc.log-cutoff-stability
+    name: "対数的な切断安定性"
+    kind: lemma
+    introduction: formal
+    requires: [mqfc.cutoff-wick-interaction, mqfc.covariance-short-distance]
+  - id: mqfc.wick-negative-tail
+    name: "Wick相互作用の負の尾の一様評価"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.wick-cutoff-rate, mqfc.chaos-moment-bound, mqfc.log-cutoff-stability]
+  - id: mqfc.finite-volume-polynomial-field
+    name: "P(φ)₂の有限領域相互作用測度"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.wick-negative-tail, mqfc.exponential-density-limit, mqfc.wick-l2-limit]
