@@ -1,0 +1,51 @@
+chapter: ATOP10
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP1, FIX1]
+forward_references: []
+concepts:
+  - id: atop.abstract-simplicial-complex
+    name: 抽象単体複体
+    kind: definition
+    introduction: formal
+    requires: [fixedpoint.simplex]
+  - id: atop.geometric-realization
+    name: 幾何学的実現
+    kind: definition
+    introduction: formal
+    requires: [atop.abstract-simplicial-complex, fixedpoint.standard-simplex]
+  - id: atop.realization-intersection
+    name: 実現の共通面性
+    kind: proposition
+    introduction: formal
+    requires: [atop.geometric-realization, topology.heine-borel]
+  - id: atop.geometric-simplicial-complex
+    name: 幾何学的単体複体
+    kind: definition
+    introduction: formal
+    requires: [fixedpoint.simplex]
+  - id: atop.coordinate-realization
+    name: 幾何学的単体複体の座標実現
+    kind: theorem
+    introduction: formal
+    requires: [atop.geometric-simplicial-complex, atop.realization-intersection, topology.homeomorphism]
+  - id: atop.space-triangulation
+    name: 位相空間の三角形分割
+    kind: definition
+    introduction: formal
+    requires: [atop.geometric-realization, fixedpoint.triangulation, topology.homeomorphism]
+  - id: atop.simplex-link
+    name: 単体のリンク
+    kind: definition
+    introduction: formal
+    requires: [atop.abstract-simplicial-complex]
+  - id: atop.vertex-link-neighborhood
+    name: 頂点リンクと局所模型
+    kind: theorem
+    introduction: formal
+    requires: [atop.simplex-link, atop.realization-intersection, topology.homeomorphism]
+  - id: atop.surface-link-test
+    name: 頂点リンクによる曲面の十分条件
+    kind: theorem
+    introduction: formal
+    requires: [atop.vertex-link-neighborhood, atop.realization-intersection]
