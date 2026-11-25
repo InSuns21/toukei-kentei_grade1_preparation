@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - ACOMP9
+  - LA3B
 official_scope: []
 learning_objectives:
   - 逆順固有多項式の最高次係数から行列式を取り出せる
