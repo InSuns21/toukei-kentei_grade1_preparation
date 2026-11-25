@@ -8,7 +8,7 @@
 
 例えば $U$ への二つの射が、別の対象 $W$ からの二通りの合成で同じ射になるとする。二つの経路から $W$ に引き戻した値は一致してほしい。一般の圏では交差に相当する対象が存在するとは限らないが、同じ合成射を比較することはできる。今回はこの方法で整合性を表す。
 
-以下 $(\mathcal C,J)$ は[小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)にGrothendieck位相 $J$ を入れたsiteとし、$F:\mathcal C^{\mathrm{op}}\to\mathbf{Set}$ は[集合値前層](../../CAT/CAT1-12/index.md#def-cat1-12-presheaf)とする。射 $f:V\to U$ に対して $F(f):F(U)\to F(V)$ であり、$s\in F(U)$ を $U$ 上の切断と呼ぶ。
+以下 $(\mathcal C,J)$ は[小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)に[Grothendieck位相](../CATB5-02/index.md#def-catb5-02-grothendieck-topology) $J$ を入れたsiteとし、$F:\mathcal C^{\mathrm{op}}\to\mathbf{Set}$ は[集合値前層](../../CAT/CAT1-12/index.md#def-cat1-12-presheaf)とする。射 $f:V\to U$ に対して $F(f):F(U)\to F(V)$ であり、$s\in F(U)$ を $U$ 上の切断と呼ぶ。
 
 ## 2. 篩の上で整合するデータ
 
@@ -69,7 +69,7 @@ $$
 
 ## 3. 被覆篩上の一意延長
 
-切断 $s\in F(U)$ は各 $f$ に沿って制限できる。これを $\rho_S(s)=(F(f)(s))_{f\in S}$ と置く。反変関手の合成則より $F(g)F(f)(s)=F(fg)(s)$ なので値は整合族である。異なる切断を区別できることと、すべての整合族を復元できることを分けて考える。
+切断 $s\in F(U)$ は各 $f$ に沿って制限できる。これを $\rho_S(s)=(F(f)(s))_{f\in S}$ と置く。[反変関手の合成則](../../CAT/CAT1-06/index.md#def-cat1-06-contravariant)より $F(g)F(f)(s)=F(fg)(s)$ なので値は整合族である。異なる切断を区別できることと、すべての整合族を復元できることを分けて考える。
 
 <a id="def-catb5-03-site-sheaf"></a>
 
@@ -183,6 +183,8 @@ $$
 > 位相空間 $X$ の開集合圏 $\mathcal O(X)$ に、開集合の合併によって被覆篩を指定するGrothendieck位相 $J$ を入れる。集合値前層 $F$ がsite $(\mathcal O(X),J)$ 上の層であることと、任意の開集合 $U$ と任意の開被覆 $(U_i)_{i\in I}$ について、交差上で一致する局所切断族が $F(U)$ の一意な切断から得られることは同値である。空集合の空被覆も含める。
 <!-- formal-statement-end -->
 
+開被覆からは生成篩を作り、逆に被覆篩からは全始域を集めて開被覆を作る。この二方向で整合族の対応を調べる。
+
 <!-- proof-start -->
 ### 証明
 
@@ -275,7 +277,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$h_0(0)=\{1_0\}$、$h_0(1)=\varnothing$。$h_1(0)=\{u\}$、$h_1(1)=\{1_1\}$。$1$ の非最大被覆上の整合族は $0$ 上の値一つで決まる。$h_0(u)$ は空集合から一元集合への写像で全射でない。$h_1(u)$ は $1_1\mapsto u$ という全単射である。最大篩はA01で常に全単射であるから、$h_1$ は層、$h_0$ は層でない。従ってsiteの公理だけから表現可能な前層が層になるとはいえない。
+$h_0(0)=\{1_0\}$、$h_0(1)=\varnothing$。$h_1(0)=\{u\}$、$h_1(1)=\{1_1\}$。$1$ の非最大被覆上の整合族は $0$ 上の値一つで決まる。$h_0(u)$ は空集合から一元集合への写像で全射でない。$h_1(u)$ は $1_1\mapsto u$ という全単射である。最大篩に関する制限は A01 の計算で常に全単射であるから、$h_1$ は層、$h_0$ は層でない。従ってsiteの公理だけから表現可能な前層が層になるとはいえない。
 <!-- solution-end -->
 
 ### CATB5-03-B02 同じ生成射の二つの因子分解
@@ -311,17 +313,19 @@ $S\subseteq T$ を同じ対象 $U$ 上の篩とし、$S$ が被覆であると�
 <!-- solution-start -->
 **詳細解答**
 
-[被覆篩の上方閉性](../CATB5-02/index.md#prop-catb5-02-cover-closure)により $T$ も被覆である。制限写像を $q:\operatorname{Match}(T,F)\to\operatorname{Match}(S,F)$ とすると、各 $f\in S$ で $q(\rho_T(s))_f=F(f)(s)=\rho_S(s)_f$。従って $q\circ\rho_T=\rho_S$。層条件で $\rho_S,\rho_T$ は全単射であるため、$q=\rho_S\circ\rho_T^{-1}$ も全単射である。特に $S$ 上の族は大きい篩にも一意に拡張される。
+[被覆篩の上方閉性](../CATB5-02/index.md#prop-catb5-02-cover-closure)により $T$ も被覆である。制限写像を $q:\operatorname{Match}(T,F)\to\operatorname{Match}(S,F)$ とすると、各 $f\in S$ で $q(\rho_T(s))_f=F(f)(s)=\rho_S(s)_f$。従って $q\circ\rho_T=\rho_S$。[層条件](#def-catb5-03-site-sheaf)で $\rho_S,\rho_T$ は全単射であるため、$q=\rho_S\circ\rho_T^{-1}$ も全単射である。特に $S$ 上の族は大きい篩にも一意に拡張される。
 <!-- solution-end -->
 
 ### CATB5-03-C01 加法モノイドでの層条件
 
 - Level: C
 
-一対象圏の射を非負整数、合成を加算、恒等射を $0$ とする。被覆篩を $S_a=\{n\in\mathbb N\mid n\ge a\}$ ($a\ge0$) 全体とする。この指定はGrothendieck位相を与える（前講C01）。集合 $E$ と写像 $t:E\to E$ から、前層の作用を $F(n)=t^n$ と定める。すべての被覆篩について層条件を具体化し、$F$ が層となるための必要十分条件を示せ。
+一対象圏の射を非負整数、合成を加算、恒等射を $0$ とする。被覆篩を $S_a=\{n\in\mathbb N\mid n\ge a\}$ ($a\ge0$) 全体とする。この指定がGrothendieck位相を与えることも確認せよ。集合 $E$ と写像 $t:E\to E$ から、前層の作用を $F(n)=t^n$ と定める。すべての被覆篩について層条件を具体化し、$F$ が層となるための必要十分条件を示せ。
 
 <!-- solution-start -->
 **詳細解答**
+
+まず[Grothendieck位相の三公理](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)を確認する。最大篩は $S_0$。任意の射 $m$ に沿う引き戻しは $m+k\ge a$ となる $k$ の篩、すなわち $S_{\max(0,a-m)}$ である。推移律では被覆篩 $S_a$ と篩 $R$ を取る。すべての $m\in S_a$ で $m^*R$ が被覆なら、特に $a^*R$ は非空なので、ある $k$ について $a+k\in R$。よって $R$ は非空である。加法モノイドの非空篩は最小元 $b$ を持ち、加算で閉じているため $S_b$ に等しい。従って $R$ も被覆であり三公理が成立する。
 
 $t^0=1_E$、$t^{m+n}=t^nt^m$ なので反変関手の合成則を満たす。$S_a$ の整合族は元 $s_n\in E$ ($n\ge a$) で、$s_{n+k}=t^k(s_n)$ を満たす族である。特に $n=a$ とすると全成分は $s_{a+k}=t^k(s_a)$ に強制される。逆に任意の $x\in E$ に対して $s_{a+k}=t^k(x)$ と置けば、
 
