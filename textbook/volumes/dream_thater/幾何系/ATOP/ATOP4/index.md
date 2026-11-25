@@ -116,7 +116,7 @@ $$
 H(s,t)=\alpha((1-t)\varphi(s)+ts)
 $$
 
-と置きます。内部の式は連続であり、$0\le (1-t)s+t\varphi(s)\le (1-t)+t=1$ なので $I$ に値を取ります。そのため $\alpha$ との合成も連続です。
+と置きます。内部の式は連続であり、$0\le (1-t)\varphi(s)+ts\le (1-t)+t=1$ なので $I$ に値を取ります。そのため $\alpha$ との合成も連続です。
 
 $$
 H(s,0)=\alpha(\varphi(s)),\quad H(s,1)=\alpha(s),
