@@ -2,7 +2,7 @@ chapter: VNP1
 scope: dream-theater
 coverage: complete
 prerequisites: [ACOMP24, ACOMP22, ACOMP12]
-forward_references: []
+forward_references: [tensor.restriction]
 concepts:
   - id: vp-vnp-study.total-gate-count
     name: 全ゲート数
