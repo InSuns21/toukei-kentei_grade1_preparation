@@ -1,0 +1,43 @@
+chapter: NPCG12
+scope: dream-theater
+coverage: complete
+prerequisites: [NPCG11, FLD0, FLD3, F0-00C1]
+forward_references: []
+concepts:
+  - id: metric-geometry.rank-subadditivity
+    name: 階数の劣加法性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（階数の劣加法性）"]
+    requires: [linear.dimension-over-field, linear.linear-map-over-field, linear.kernel-image]
+  - id: metric-geometry.rank-distance
+    name: 階数距離
+    kind: definition
+    introduction: formal
+    aliases: [rank距離]
+    introduction_aliases: ["定義（階数距離）"]
+    requires: [linear.dimension-over-field, topology.metric-space]
+  - id: metric-geometry.rank-distance-invariance
+    name: 階数距離の距離公理と不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（階数距離の距離公理と不変性）"]
+    requires: [metric-geometry.rank-distance, metric-geometry.rank-subadditivity]
+  - id: metric-geometry.rank-additivity-equality
+    name: 階数和の等号条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（階数和の等号条件）"]
+    requires: [metric-geometry.rank-subadditivity, linear.rank-nullity-over-field, linear.kernel-image]
+  - id: metric-geometry.finite-matrix-compactness
+    name: 有限行列空間のコンパクト性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限行列空間のコンパクト性）"]
+    requires: [metric-geometry.rank-distance-invariance, algebra.finite-field, topology.compact-set, topology.complete-metric-space]
+  - id: metric-geometry.finite-matrix-poincare-attainment
+    name: 有限行列値Poincaré最良定数の達成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限行列値Poincaré最良定数の達成）"]
+    requires: [metric-geometry.finite-matrix-compactness, metric-geometry.nonlinear-poincare]
