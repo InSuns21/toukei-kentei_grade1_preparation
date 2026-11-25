@@ -1,0 +1,43 @@
+chapter: TSP11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TSP10
+forward_references: []
+concepts:
+  - id: tensor.spectral-point
+    name: スペクトル点
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（スペクトル点）"]
+    requires: [tensor.preordered-semiring]
+  - id: tensor.asymptotic-spectrum
+    name: 漸近スペクトル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（スペクトル点）"]
+    requires: [tensor.spectral-point]
+  - id: tensor.spectral-point-powers
+    name: スペクトル点の自然数値と冪
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（スペクトル点の自然数値と冪）"]
+    requires: [tensor.spectral-point, tensor.semiring-natural-map]
+  - id: tensor.spectral-point-order-bounds
+    name: スペクトル点による上下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（スペクトル点による上下界）"]
+    requires: [tensor.spectral-point-powers, tensor.semiring-rank-subrank, tensor.strassen-preorder]
+  - id: tensor.flattening-spectral-point
+    name: 平坦化階数によるスペクトル点
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平坦化階数によるスペクトル点）"]
+    requires: [tensor.spectral-point, tensor.flattening, tensor.tensor-semiring, tensor.restriction, tensor.direct-sum, tensor.kronecker-product, tensor.multifactor-basis]
+  - id: tensor.asymptotic-spectral-bounds
+    name: 漸近階数・漸近劣階数のスペクトル評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（漸近階数・漸近劣階数のスペクトル評価）"]
+    requires: [tensor.spectral-point-powers, tensor.spectral-point-order-bounds, tensor.tensor-strassen-preorder, tensor.asymptotic-rank, tensor.asymptotic-subrank, tensor.rank-restriction-characterization, tensor.subrank]
