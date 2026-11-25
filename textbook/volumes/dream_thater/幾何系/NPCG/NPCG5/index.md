@@ -4,11 +4,11 @@
 
 前講では [CN不等式](../NPCG4/index.md#thm-npcg4-cn) によって測地線分の中点を調べ、[測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) と [任意比の二乗距離評価](../NPCG4/index.md#thm-npcg4-cn-interpolation) を得ました。今回は二人が別々の最短経路を同じ割合だけ進んだとき、二人の距離がどのように変わるかを調べます。
 
-例えば平面で一人が $(0,0)$ から $(4,0)$ へ、もう一人が $(0,2)$ から $(4,4)$ へ進むなら、比率 $t$ における距離は $2+2t$ です。出発時の距離2と到着時の距離4を一次式で結んだ値になっています。一般の CAT(0) 空間ではこの一次式が距離の上界になります。
+例えば平面で一人が $(0,0)$ から $(4,0)$ へ、もう一人が $(0,2)$ から $(4,4)$ へ進むなら、比率 $t$ における距離は $2+2t$ です。出発時の距離2と到着時の距離4を一次式で結んだ値になっています。一般の [CAT(0)空間](../NPCG3/index.md#def-npcg3-cat-zero) ではこの一次式が距離の上界になります。
 
 ## 1. 座標の平均を測地線分で置き換える
 
-[測地空間](../NPCG2/index.md#def-npcg2-geodesic-space) では任意の二点を結ぶ最短経路を定速で進めます。以下、[測地線分](../NPCG2/index.md#def-npcg2-geodesic-segment) を比率 $t\in[0,1]$ で表示します。端点 $x,y$ を結ぶ写像 $\gamma$ について
+[測地空間](../NPCG2/index.md#def-npcg2-geodesic-space) では任意の二点を結ぶ最短経路を定速で進めます。以下、[測地線分](../NPCG2/index.md#def-npcg2-geodesic-segment) を比率 $t\in[0,1]$ で表示します。長さによる表示 $\sigma:[0,D]\to X$（$D=d(x,y)$）との対応は $\gamma(t)=\sigma(Dt)$ です。$D=0$ では定値経路になります。端点 $x,y$ を結ぶ写像 $\gamma$ について
 
 $$
 \gamma(0)=x,\quad \gamma(1)=y,\quad
@@ -39,13 +39,13 @@ $$
 
 **定義の確認**
 
-通常距離の Euclid 平面で $C=\{(a,b):b\ge0\}$ を考えます。[Euclid空間のCAT(0)性](../NPCG3/index.md#thm-npcg3-euclidean) と [測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) から、二点 $x=(a,b),y=(c,e)$ を結ぶ直線分だけを確認すれば十分です。実際に
+通常距離の Euclid 平面で $C=\{(a,b):b\ge0\}$ を考えます。[Euclid空間のCAT(0)性](../NPCG3/index.md#thm-npcg3-euclidean) と [測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) から、二点 $x=(a,b),y=(c,e)\in C$ を結ぶ直線分だけを確認すれば十分です。直線分の比率表示は両端の座標を同じ比率で内分したものです。実際に
 
 $$
 \gamma(t)=((1-t)a+tc,(1-t)b+te).
 $$
 
-$b,e\ge0$ かつ $1-t,t\ge0$ なので第二座標は非負です。任意の二点、任意の比率について集合に残るため、測地線凸集合です。
+この式は $t=0,1$ でそれぞれ $x,y$ になり、通常距離で二時刻の距離は $|u-v|d(x,y)$ です。従って測地線分の距離条件を満たします。$b,e\ge0$ かつ $1-t,t\ge0$ なので第二座標は非負です。任意の二点、任意の比率について集合に残るため、測地線凸集合です。
 <!-- definition-example-end -->
 
 対照的に通常距離の実直線の集合 $\{-1,1\}$ は中点0を含まないため測地線凸ではありません。
@@ -72,7 +72,7 @@ $$
 
 **定義の確認**
 
-通常距離の実直線全体を $C$ とします。直線分は全時刻で $C$ に含まれます。[Euclid空間のCAT(0)性](../NPCG3/index.md#thm-npcg3-euclidean) と [測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) により直線分以外の経路を調べる必要はありません。$f(a)=a^2$ とすると、任意の実数 $a,b$ と $t\in[0,1]$ について
+通常距離の実直線全体を $C$ とします。直線分は全時刻で $C$ に含まれます。[Euclid空間のCAT(0)性](../NPCG3/index.md#thm-npcg3-euclidean) と [測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) により直線分以外の測地線分を調べる必要はありません。比率 $t$ での点は $\gamma(t)=(1-t)a+tb$ なので、定義の左辺は $f(\gamma(t))$ です。$f(a)=a^2$ とすると、任意の実数 $a,b$ と $t\in[0,1]$ について
 
 $$
 \begin{aligned}
@@ -88,7 +88,7 @@ $$
 
 ## 2. 中点での評価を任意比へ移す
 
-前講の二進分割は二乗距離だけの技法ではありません。連続な実数値関数なら、中点の値が両端値の平均以下になる性質（中点凸性）を繰り返して任意比へ拡張できます。ここで連続とは、時刻列がある時刻に近づけば関数値もその時刻の値に近づくことです。
+前講の [任意比の二乗距離評価](../NPCG4/index.md#thm-npcg4-cn-interpolation) で使った二進分割は二乗距離だけの技法ではありません。連続な実数値関数なら、中点の値が両端値の平均以下になる性質（中点凸性）を繰り返して任意比へ拡張できます。ここで連続とは、時刻列がある時刻に近づけば関数値もその時刻の値に近づくことです。
 
 <a id="thm-npcg5-midpoint-to-convex"></a>
 
@@ -116,20 +116,25 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の $a,b\in[0,1]$ を固定し、$g(t)=h((1-t)a+tb)$ と置きます。引数は $[0,1]$ に入り、$g$ は連続です。引数の一次性から
+任意の $a,b\in[0,1]$ を固定し、$g(t)=h((1-t)a+tb)$ と置きます。引数は $[0,1]$ に入り、$g$ は連続です。任意の $u,v\in[0,1]$ について $A=(1-u)a+ub$、$B=(1-v)a+vb$ と置きます。$A,B\in[0,1]$ であり、引数の一次性から
 
 $$
-g((u+v)/2)\le (g(u)+g(v))/2.
+\begin{aligned}
+(1-(u+v)/2)a+((u+v)/2)b&=(A+B)/2,\\
+g((u+v)/2)&=h((A+B)/2)\\
+&\le (h(A)+h(B))/2\\
+&=(g(u)+g(v))/2.
+\end{aligned}
 $$
 
-$L(t)=(1-t)g(0)+tg(1)$ とします。$g(0)=L(0)$、$g(1)=L(1)$ です。整数 $j\ge0$ に対し、すべての $k=0,\ldots,2^j$ で $g(k/2^j)\le L(k/2^j)$ が成立すると仮定します。次の段階で新しく現れる時刻は、隣接する $u=k/2^j,v=(k+1)/2^j$ の中点です。従って
+$L(t)=(1-t)g(0)+tg(1)$ とします。$g(0)=L(0)$、$g(1)=L(1)$ です。整数 $j\ge0$ に対し、すべての $k=0,\ldots,2^j$ で $g(k/2^j)\le L(k/2^j)$ が成立すると仮定します。次の段階で新しく現れる時刻は、隣接する $u=k/2^j,v=(k+1)/2^j$ の中点です。ここで $0\le k<2^j$ であり、新しい時刻は $(2k+1)/2^{j+1}$ になります。従って
 
 $$
 g((u+v)/2)\le\frac{g(u)+g(v)}2
 \le\frac{L(u)+L(v)}2=L((u+v)/2).
 $$
 
-古い時刻も残るので、帰納法で全二進分割点について成立します。任意の $t$ に対し $t_j=\lfloor2^jt\rfloor/2^j$ とすれば $0\le t-t_j<2^{-j}$ です。連続性から $g(t_j)\to g(t), L(t_j)\to L(t)$ であり、不等式を極限に移して $g(t)\le L(t)$ です。定義を戻すと目的の評価になります。
+古い時刻も残るので、帰納法で全二進分割点について成立します。任意の $t$ に対し $t_j=\lfloor2^jt\rfloor/2^j$ とします。$\lfloor q\rfloor$ は $q$ 以下の最大整数（床関数）です。$\lfloor2^jt\rfloor\le2^jt<\lfloor2^jt\rfloor+1$ を $2^j$ で割ると $0\le t-t_j<2^{-j}$ です。連続性から $g(t_j)\to g(t), L(t_j)\to L(t)$ であり、不等式を極限に移して $g(t)\le L(t)$ です。定義を戻すと目的の評価になります。
 <!-- proof-end -->
 
 
@@ -166,7 +171,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-三頂点 $a,x,y$ の測地三角形を取り、その [Euclid比較三角形](../NPCG2/index.md#def-npcg2-comparison-triangle) の頂点を $\bar a,\bar x,\bar y$ とします。対応点は $\bar p=(1-t)\bar a+t\bar x$、$\bar q=(1-t)\bar a+t\bar y$ です。差は $\bar p-\bar q=t(\bar x-\bar y)$ なので、通常距離を $d_2$ と書けば
+三頂点 $a,x,y$ の測地三角形を取り、辺 $ax,ay$ にはそれぞれ $\gamma,\eta$ を選びます。[比較三角形の存在](../NPCG2/index.md#thm-npcg2-comparison-existence) により、その [Euclid比較三角形](../NPCG2/index.md#def-npcg2-comparison-triangle) の頂点を $\bar a,\bar x,\bar y$ とします。対応点は $\bar p=(1-t)\bar a+t\bar x$、$\bar q=(1-t)\bar a+t\bar y$ です。差は $\bar p-\bar q=t(\bar x-\bar y)$ なので、通常距離を $d_2$ と書けば
 
 $$
 d_2(\bar p,\bar q)=t d_2(\bar x,\bar y)=t d(x,y).
@@ -199,9 +204,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\gamma(0)=a,\gamma(1)=b,\eta(0)=c,\eta(1)=e$ とします。$a,e$ を結ぶ測地線分 $\xi$ を選び、$m=\gamma(1/2),n=\eta(1/2),p=\xi(1/2)$ とします。
+$\gamma(0)=a,\gamma(1)=b,\eta(0)=c,\eta(1)=e$ とします。[測地空間の条件](../NPCG2/index.md#def-npcg2-geodesic-space) により $a,e$ を結ぶ測地線分 $\xi$ を選び、$m=\gamma(1/2),n=\eta(1/2),p=\xi(1/2)$ とします。
 
-$\gamma,\xi$ は始点 $a$ が共通なので [共通始点からの距離評価](#thm-npcg5-common-endpoint) により $d(m,p)\le d(b,e)/2$ です。$\xi,\eta$ は終点 $e$ が共通なので時刻を $1-t$ に反転して同じ定理を適用すると $d(p,n)\le d(a,c)/2$ です。三角不等式により
+$\gamma,\xi$ は始点 $a$ が共通なので [共通始点からの距離評価](#thm-npcg5-common-endpoint) により $d(m,p)\le d(b,e)/2$ です。$\xi,\eta$ は終点 $e$ が共通です。$\widetilde\xi(t)=\xi(1-t)$、$\widetilde\eta(t)=\eta(1-t)$ と置くと、始点はともに $e$、終点はそれぞれ $a,c$ です。反転後も、例えば
+
+$$
+d(\widetilde\xi(u),\widetilde\xi(v))
+=|(1-u)-(1-v)|d(a,e)=|u-v|d(a,e)
+$$
+
+なので測地線分です。反転しても時刻 $1/2$ の点は変わりません。[共通始点からの距離評価](#thm-npcg5-common-endpoint) を反転後の二本に適用すると $d(p,n)\le d(a,c)/2$ です。三角不等式により
 
 $$
 d(m,n)\le\frac{d(a,c)+d(b,e)}2.
@@ -220,7 +232,7 @@ $$
 H((u+v)/2)\le(H(u)+H(v))/2.
 $$
 
-逆向きの $u,v$ も交換すれば成立します。さらに三角不等式を二方向に使うと
+逆向きの $u,v$ も交換すれば成立します。さらに距離は擬距離でもあるので、[擬距離の四点評価](../NPCG1/index.md#lem-npcg1-four-point-bound) を四点 $\gamma(u),\eta(u),\gamma(v),\eta(v)$ に適用すると
 
 $$
 \begin{aligned}
@@ -276,11 +288,11 @@ $$
 <!-- proof-end -->
 
 
-閉球の共通部分も測地線凸です。なぜなら共通部分の二点を結ぶ経路が各閉球に残るからです。これは複数の距離制約を同時に満たす領域の構成に役立ちます。
+[閉球の測地線凸性](#thm-npcg5-distance-ball) により、閉球の共通部分も測地線凸です。なぜなら共通部分の二点を結ぶ経路が各閉球に残るからです。これは複数の距離制約を同時に満たす領域の構成に役立ちます。
 
 ### 4.1 二乗距離ではさらに小さくなる
 
-[CN不等式](../NPCG4/index.md#thm-npcg4-cn) と [CN条件から任意比の二乗距離評価](../NPCG4/index.md#thm-npcg4-cn-interpolation) を組み合わせると、$x,y$ を結ぶ経路 $\gamma$ に対し
+[CN不等式](../NPCG4/index.md#thm-npcg4-cn) と [CN条件から任意比の二乗距離評価](../NPCG4/index.md#thm-npcg4-cn-interpolation) を使うと、CAT(0)空間で $x,y$ を結ぶ測地線分 $\gamma$ と任意の $z\in X$ に対し
 
 $$
 d(z,\gamma(t))^2\le
@@ -295,7 +307,13 @@ $$
 d(z,\gamma(1/2))^2\le25-36/4=16
 $$
 
-なので4以下です。二乗距離を最小にする点が二つあると仮定した場合にも、中点で値が厳密に下がるという矛盾を作れます。最小値の存在については、閉性や完備性を別に調べる必要があります。
+なので4以下です。測地線凸集合 $C$ 上で二乗距離 $x\mapsto d(z,x)^2$ が異なる二点 $x,y$ において同じ最小値 $M$ を取ると仮定します。中点 $m=\gamma(1/2)$ は $C$ に残るため、最小性と二乗距離評価から
+
+$$
+M\le d(z,m)^2\le M-\frac14d(x,y)^2<M
+$$
+
+となり矛盾します。従って最小点が存在すれば一意です。最小値の存在については、閉性や完備性を別に調べる必要があります。
 
 ## 5. 距離の凸性はCAT(0)性より弱い
 
@@ -321,7 +339,13 @@ Euclid 距離と絶対値の三角不等式を足せば距離の三角不等式�
 <!-- proof-start -->
 ### 証明
 
-$N(v)$ は非負で、0になるのは $v=0$ のときだけです。また $N(-v)=N(v)$、任意の実数 $\lambda$ について $N(\lambda v)=|\lambda|N(v)$ です。Euclid の三角不等式と実数の絶対値の三角不等式を足すと $N(v+w)\le N(v)+N(w)$ です。従って $d$ は距離です。
+ここでは $|v|$ をベクトルの Euclid 長さ $\sqrt{v_1^2+v_2^2}$、実数に対する $|\cdot|$ を絶対値とします。$U\cdot V=U_1V_1+U_2V_2$ は通常の内積です。$N(v)=|v|+|v_1|$ は非負で、0になるのは $v=0$ のときだけです。また $N(-v)=N(v)$、任意の実数 $\lambda$ について $N(\lambda v)=|\lambda|N(v)$ です。Euclid の三角不等式と実数の絶対値の三角不等式を足すと $N(v+w)\le N(v)+N(w)$ です。従って $d(x,y)$ は非負で、$d(x,y)=0$ と $x=y$ は同値です。$N(-v)=N(v)$ から対称性を、$x-z=(x-y)+(y-z)$ から
+
+$$
+d(x,z)=N(x-z)\le N(x-y)+N(y-z)=d(x,y)+d(y,z)
+$$
+
+を得るので距離です。
 
 直線分 $\gamma(t)=(1-t)x+ty$ の二時刻の距離は
 
@@ -332,14 +356,21 @@ $$
 
 従って [測地線分の定義](../NPCG2/index.md#def-npcg2-geodesic-segment) を満たします。逆に任意の測地線分上の時刻 $t$ の点を $p$ とすれば $N(p-x)+N(y-p)=N(y-x)$ です。左辺から右辺を引いた差は Euclid 側の三角不等式の差と第一座標の絶対値の三角不等式の差の和です。各差は非負なので Euclid 側の差も0です。
 
-$U=p-x,V=y-p$ と置くと、Euclid 長さで $|U+V|=|U|+|V|$ です。両辺を平方して $U\cdot V=|U||V|$ を得ます。両ベクトルが非零なら
+$U=p-x,V=y-p$ と置くと、Euclid 長さで $|U+V|=|U|+|V|$ です。両辺を平方すると
+
+$$
+|U|^2+2U\cdot V+|V|^2
+=|U|^2+2|U||V|+|V|^2
+$$
+
+なので $U\cdot V=|U||V|$ を得ます。両ベクトルが非零なら
 
 $$
 \left|\frac U{|U|}-\frac V{|V|}\right|^2
 =2-2\frac{U\cdot V}{|U||V|}=0.
 $$
 
-従って同じ向きです。$U=0$ または $V=0$ なら $p$ は端点です。$x=y$ なら全経路は定値です。$x\ne y$ の場合はいずれも $p=x+s(y-x)$ と $s\in[0,1]$ を使って書けます。測地線分の距離条件から $sN(y-x)=tN(y-x)$ であり、$N(y-x)>0$ なので $s=t$ です。これで全測地線分が直線分であると分かりました。
+従って $U/|U|=V/|V|$ で、$U,V$ は同じ向きです。この場合、$y-x=U+V$ から $p-x=U=s(y-x)$、$s=|U|/(|U|+|V|)\in(0,1)$ となります。$U=0$ または $V=0$ なら $p$ は端点です。$x=y$ なら全経路は定値です。$x\ne y$ の場合はいずれも $p=x+s(y-x)$ と $s\in[0,1]$ を使って書けます。測地線分の距離条件から $sN(y-x)=tN(y-x)$ であり、$N(y-x)>0$ なので $s=t$ です。これで全測地線分が直線分であると分かりました。
 
 任意の二本の測地線分 $\gamma$（端点 $a,b$）と $\eta$（端点 $c,e$）について、先ほど確認した $N(v+w)\le N(v)+N(w)$ を $v=(1-t)(a-c),w=t(b-e)$ に適用し、$N(\lambda v)=|\lambda|N(v)$ で係数を外へ出します。
 
@@ -386,7 +417,14 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[Euclid空間のCAT(0)性](../NPCG3/index.md#thm-npcg3-euclidean) と [測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) により直線分のみを調べます。$x=(a,b),y=(c,e)\in C$ の途中の点の座標和は $(1-t)(a+b)+t(c+e)\le2$ です。任意の二点と時刻について成立し、[測地線凸集合の定義](#def-npcg5-geodesically-convex-set) を満たします。一方、$(1,0),(-1,0)\in S$ の中点は $(0,0)$ で円周外です。従って $S$ は測地線凸ではありません。
+[Euclid空間のCAT(0)性](../NPCG3/index.md#thm-npcg3-euclidean) と [測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) により直線分のみを調べます。$x=(a,b),y=(c,e)\in C$ に対し $a+b,c+e\le2$ です。途中の点の座標和は
+
+$$
+((1-t)a+tc)+((1-t)b+te)
+=(1-t)(a+b)+t(c+e)\le2
+$$
+
+です。任意の二点と時刻について成立し、[測地線凸集合の定義](#def-npcg5-geodesically-convex-set) を満たします。一方、$(1,0),(-1,0)\in S$ の中点は $(0,0)$ で円周外です。従って $S$ は測地線凸ではありません。
 <!-- solution-end -->
 
 
@@ -426,7 +464,7 @@ CAT(0)空間で $d(z,x)=d(z,y)=5,d(x,y)=8$ とする。中点までの距離を�
 <!-- solution-start -->
 #### 詳細解答
 
-[距離関数の凸性](#thm-npcg5-distance-ball) から $d(z,m)\le(5+5)/2=5$ です。一方 [CN不等式](../NPCG4/index.md#thm-npcg4-cn) から
+[距離関数の凸性](#thm-npcg5-distance-ball) から、$m=\gamma(1/2)$（$\gamma$ は $x,y$ を結ぶ測地線分）について $d(z,m)\le(5+5)/2=5$ です。一方 [CN不等式](../NPCG4/index.md#thm-npcg4-cn) から
 
 $$
 d(z,m)^2\le(25+25)/2-64/4=9.
@@ -528,7 +566,7 @@ CAT(0)空間で $x,y,x',y'$ を取り、$d(x,x')\le\varepsilon,d(y,y')\le\delta$
 <!-- solution-start -->
 #### 詳細解答
 
-[測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) により二本を $\gamma,\eta$ と一意に選べます。[距離の凸性](#thm-npcg5-distance-convexity) より
+[測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) により $x$ から $y$ への測地線分を $\gamma$、$x'$ から $y'$ への測地線分を $\eta$ と一意に選べます。ここでプライムは別の端点を区別する印です。[距離の凸性](#thm-npcg5-distance-convexity) より
 
 $$
 d(\gamma(t),\eta(t))\le(1-t)\varepsilon+t\delta.
@@ -568,7 +606,7 @@ d(z,m)=2K,\quad d(x,y)=4K,\quad
 d(z,x)=4,\quad d(z,y)=8.
 $$
 
-通常の凸性では $2K\le(4+8)/2=6$ です。実際 $\sqrt2\le2$ なので成立します。CN不等式の右辺は
+[距離の凸性だけではCAT(0)性は従わないという命題](#prop-npcg5-convex-not-cat) で得た距離の凸性では $2K\le(4+8)/2=6$ です。実際 $\sqrt2\le2$ なので成立します。[CN不等式](../NPCG4/index.md#thm-npcg4-cn) の右辺は
 
 $$
 (16+64)/2-(4K)^2/4=40-4K^2.
@@ -586,7 +624,7 @@ $$
 - 目安時間: 35分
 - 主題: 測地線凸集合と二乗距離評価の統合
 
-CAT(0)空間で空でない測地線凸集合 $C$ と点 $z_1,\ldots,z_n\in X$（整数 $n\ge1$）、実数 $w_i\ge0$（$\sum_{i=1}^n w_i=1$）を取る。$F(x)=\sum_{i=1}^n w_i d(x,z_i)^2$ とする。(1) $x,y\in C$ を結ぶ測地線分 $\gamma$ に対して $F(\gamma(t))$ を両端の値と距離で評価せよ。(2) $F$ の最小点が存在すれば一意であることを示せ。(3) 二点 $x,y\in C$ が最小値の下限 $I=\inf_{q\in C}F(q)$ からそれぞれ $\varepsilon,\delta\ge0$ 以内にあるなら、$d(x,y)$ の上界を求めよ。
+CAT(0)空間で空でない測地線凸集合 $C$ と点 $z_1,\ldots,z_n\in X$（整数 $n\ge1$）、実数 $w_i\ge0$（$\sum_{i=1}^n w_i=1$）を取る。$F(x)=\sum_{i=1}^n w_i d(x,z_i)^2$ とする。(1) $x,y\in C$ を結ぶ測地線分 $\gamma$ に対して $F(\gamma(t))$ を両端の値と距離で評価せよ。(2) $F$ の最小点が存在すれば一意であることを示せ。(3) 二点 $x,y\in C$ が下限（最大の下界）$I=\inf_{q\in C}F(q)$ からそれぞれ $\varepsilon,\delta\ge0$ 以内にあるなら、$d(x,y)$ の上界を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -609,15 +647,15 @@ F(\gamma(t))
 \end{aligned}
 $$
 
-(2) 二つの最小点 $x,y$ があれば $F(x)=F(y)=I$ です。$F$ は非負で有限値を取り、$C$ は空でないので $I$ は有限です。中点 $m=\gamma(1/2)$ は $C$ に残り、
+(2) 二つの最小点 $x,y$ があれば $F(x)=F(y)=I$ です。$F$ は非負で有限値を取ります。$C$ は空でないので、任意の $q_0\in C$ について $0\le I\le F(q_0)<\infty$ であり、$I$ は有限です。中点 $m=\gamma(1/2)$ は $C$ に残り、
 
 $$
 I\le F(m)\le I-d(x,y)^2/4.
 $$
 
-従って $d(x,y)^2\le0$ であり $x=y$ です。存在自体は仮定していることに注意します。
+従って $d(x,y)^2\le0$ です。距離は非負なので $d(x,y)=0$、分離条件から $x=y$ です。存在自体は仮定していることに注意します。
 
-(3) $F(x)\le I+\varepsilon,F(y)\le I+\delta$ から
+(3) $m=\gamma(1/2)\in C$ とし、$F(x)\le I+\varepsilon,F(y)\le I+\delta$ を (1) に代入すると
 
 $$
 I\le F(m)\le I+(\varepsilon+\delta)/2-d(x,y)^2/4.
