@@ -155,7 +155,7 @@ chapters:
     title: "三目並べ教材の証明範囲を査読する"
   - id: LVT6-02
     path: textbook/volumes/dream_thater/計算系/LVT/LVT6-02
-    status: planned
+    status: completed
     title: "三目並べの変異バグを発見する"
   - id: LVT6-03
     path: textbook/volumes/dream_thater/計算系/LVT/LVT6-03
