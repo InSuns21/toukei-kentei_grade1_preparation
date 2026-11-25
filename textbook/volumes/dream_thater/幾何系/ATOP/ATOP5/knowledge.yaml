@@ -1,0 +1,51 @@
+chapter: ATOP5
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP4, TOP2, TOP5, F0-00C1]
+forward_references: []
+concepts:
+  - id: atop.covering-map-recap
+    name: 被覆写像の再掲
+    kind: definition
+    introduction: formal
+    requires: [topology.covering-map]
+  - id: atop.circle-cover
+    name: 円周の実直線による被覆
+    kind: proposition
+    introduction: formal
+    requires: [topology.covering-map]
+  - id: atop.lift
+    name: 持上げ
+    kind: definition
+    introduction: formal
+    requires: [topology.topological-continuous-map]
+  - id: atop.lebesgue-number
+    name: Lebesgue数補題
+    kind: lemma
+    introduction: formal
+    requires: [topology.compact-space, topology.metric-space, topology.open-cover-finite-subcover]
+  - id: atop.lift-uniqueness
+    name: 連結空間上の持上げの一意性
+    kind: lemma
+    introduction: formal
+    requires: [atop.lift, topology.covering-map, topology.connected-clopen-criterion]
+  - id: atop.path-lifting
+    name: 道の持上げ
+    kind: theorem
+    introduction: formal
+    requires: [atop.lift-uniqueness, atop.lebesgue-number, topology.path-connected-space]
+  - id: atop.homotopy-lifting-square
+    name: 正方形上のホモトピーの持上げ
+    kind: theorem
+    introduction: formal
+    requires: [atop.lift-uniqueness, atop.lebesgue-number, topology.path-connected-implies-connected]
+  - id: atop.lift-endpoint-invariance
+    name: 道ホモトピーによる持上げの終点不変性
+    kind: corollary
+    introduction: formal
+    requires: [atop.path-lifting, atop.homotopy-lifting-square, atop.path-homotopy]
+  - id: atop.covering-induced-injective
+    name: 被覆写像が誘導する基本群準同型
+    kind: theorem
+    introduction: formal
+    requires: [atop.lift-endpoint-invariance, atop.induced-fundamental-group-homomorphism]
