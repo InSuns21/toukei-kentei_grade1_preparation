@@ -8,7 +8,7 @@
 
 体 $K$ と指定変数 $x_1,\ldots,x_n$（$n\ge1$）を固定します。[算術回路の定義](../../ACOMP/ACOMP2/index.md#def-acomp2-arithmetic-circuit)では、変数・定数を置く入力節点と、先行する結果の和・積を作る二入力演算節点があり、出力を一つ指定します。[算術回路と straight-line program の対応](../../ACOMP/ACOMP2/index.md#thm-acomp2-circuit-slp)で使った順序付けを利用し、今回は入力節点も番号を付けて列に並べます。各演算の参照元は必ず自分より小さい番号です。逆にこの列から参照関係を配線にすれば、番号が増える方向にしか進めないので閉路はありません。
 
-既習の[直線型プログラム（SLP）](../../ACOMP/ACOMP2/index.md#def-acomp2-slp)の長さと[算術回路の演算サイズ](../../ACOMP/ACOMP2/index.md#def-acomp2-arithmetic-size)は演算だけを数えます。論文 §1.3 の列の長さは変数・定数の入力節点も数えます。この違いに注意し、以下では入力も含めた長さを全ゲート数と呼びます。[任意定数モデル](../../ACOMP/ACOMP4/index.md#def-acomp4-constant-model)を使い、等号は入力点での値だけでなく形式多項式としての係数の一致を意味します。
+既習の[直線型プログラム（SLP）](../../ACOMP/ACOMP2/index.md#def-acomp2-slp)の長さと[算術回路の演算サイズ](../../ACOMP/ACOMP2/index.md#def-acomp2-arithmetic-size)は演算だけを数えます。論文 §1.3 の列の長さは変数・定数の入力節点も数えます。この違いに注意し、次の定義では入力も含めて数える方式を定めます。[任意定数モデル](../../ACOMP/ACOMP4/index.md#def-acomp4-constant-model)を使い、等号は入力点での値だけでなく形式多項式としての係数の一致を意味します。
 
 <a id="def-vnp1-total-gates"></a>
 
@@ -402,7 +402,7 @@ $u>512=8^3$ なら括弧内は1より大きく、右辺は $u-3>0$ より大き�
 任意標数の体上のHamilton閉路多項式族について、論文の近似回路下界を仮定する。近似演算サイズが $Am^d$ 以下であるという仮定から矛盾を導け。さらに厳密版の分離と Boolean側の結論を区別せよ。
 
 <!-- solution-start -->
-**詳細解答**：[Hamilton閉路多項式族のVNP所属](../../ACOMP/ACOMP12/index.md#thm-acomp12-hamilton-vnp)を適用できます。近似演算サイズが全 $m\ge1$ で $Am^d$ 以下なら、節4で [二つの回路サイズの比較](#thm-vnp1-size-comparison) を近似回路へ適用して得た不等式により
+**詳細解答**：[Hamilton閉路多項式族のVNP所属](../../ACOMP/ACOMP12/index.md#thm-acomp12-hamilton-vnp)を適用できます。節4では [二つの回路サイズの比較](#thm-vnp1-size-comparison) を近似回路へ適用しました。その評価を使うと、近似演算サイズが全 $m\ge1$ で $Am^d$ 以下なら
 
 $$
 \underline T(f_m)\le 3\underline L(f_m)+1
