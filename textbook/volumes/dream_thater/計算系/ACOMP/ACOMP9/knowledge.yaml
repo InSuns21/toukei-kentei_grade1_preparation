@@ -16,13 +16,13 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（局所制約付き重み和の VNP 所属）"]
-    requires: [algebraic-complexity.local-indicator, algebraic-complexity.vnp]
+    requires: [algebraic-complexity.local-indicator, algebraic-complexity.vnp, algebraic-complexity.vp]
   - id: algebraic-complexity.universal-components
     name: "次数別普遍回路の構成"
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（次数別普遍回路の構成）"]
-    requires: [algebraic-complexity.vp]
+    requires: [algebraic-complexity.vp, algebraic-complexity.component-rules]
   - id: algebraic-complexity.universal-sum
     name: "普遍 Boolean 和への帰着"
     kind: theorem
