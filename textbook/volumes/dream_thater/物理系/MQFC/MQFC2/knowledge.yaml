@@ -1,0 +1,31 @@
+chapter: MQFC2
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC1, QFT4, QM5]
+forward_references: []
+concepts:
+  - id: mqfc.field-domain
+    name: "共通不変領域上の作用素値緩増加分布"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.tempered, quantum.unbounded-adjoint]
+  - id: mqfc.closable-field
+    name: "場の随伴包含と可閉性"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.field-domain, quantum.unbounded-adjoint, quantum.symmetric-closable]
+  - id: mqfc.sector-bound
+    name: "有限粒子領域での作用素評価"
+    kind: proposition
+    introduction: formal
+    requires: [qft.bosonic-fock-space, qft.fock-ladder-operators, qft.fock-ccr]
+  - id: mqfc.free-field-estimate
+    name: "自由場の共通領域とSchwartz評価"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.field-domain, mqfc.sector-bound, mqfc.fourier, qft.quantum-smeared-scalar-field]
+  - id: mqfc.product-bound
+    name: "自由場の有限積と真空期待値の連続性"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.free-field-estimate, mqfc.gram]

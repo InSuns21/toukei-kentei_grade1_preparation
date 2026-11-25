@@ -1,0 +1,24 @@
+id: MQFC2
+title: "作用素値分布と共通稠密定義域"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC1, QFT4, QM5]
+official_scope: []
+learning_objectives:
+  - 共通稠密不変領域と作用素値緩増加分布の条件を区別して確認できる
+  - 随伴条件から随伴包含と可閉性を導き自己共役性との違いを説明できる
+  - 自由場の質量殻写像と有限粒子領域のノルム評価から連続性を示せる
+  - 有限積の粒子数上限と真空期待値の連続性・二点量の正値性を導ける
+definitions:
+  - { id: MQFC2-DEF-01, name: "共通不変領域上の作用素値緩増加分布" }
+theorems:
+  - { id: MQFC2-PROP-01, name: "場の随伴包含と可閉性" }
+  - { id: MQFC2-PROP-02, name: "有限粒子領域での作用素評価" }
+  - { id: MQFC2-THM-01, name: "自由場の共通領域とSchwartz評価" }
+  - { id: MQFC2-THM-02, name: "自由場の有限積と真空期待値の連続性" }
+canonical_examples: [有限列の対角作用素, Fock真空の一粒子成分, 自由場の三点期待値]
+problem_patterns: [MQFC2-DOMAIN, MQFC2-ADJOINT, MQFC2-FIELD-BOUND, MQFC2-VACUUM]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 3, review: 2 }

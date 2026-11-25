@@ -218,7 +218,12 @@ export const lessons = {
   'LVT6-06': { module:'LvtIntegration', modes:[
     ['Inspect.lean','四ビット認可の証明と具体例','別テナント・非所有者の拒否、本人の許可、定理の公理を確認。'],
     ['Failure.lean','別テナントを許可する誤った等式','型不一致で拒否される。']
-  ], commands:"python3 harness.py\n# 意図的な不一致\npython3 harness.py --mutate\npython3 harness.py --replay 1000" }
+  ], commands:"python3 harness.py\n# 意図的な不一致\npython3 harness.py --mutate\npython3 harness.py --replay 1000" },
+  'LVT6-07': { module:'LvtCapstone', modes:[
+    ['Inspect.lean','公開・拒否の証明と具体例','3つの具体例、公開受理・公開先・拒否時状態保存の定理を確認。'],
+    ['Main.lean','全9組の遷移表','状態・操作・次状態・受理ビットの9行。','\n#eval main\n'],
+    ['Failure.lean','意図した公開受理の誤り','下書きからの公開受理という誤った等式が拒否される。']
+  ], commands:"python3 harness.py\n# 意図的な不一致\npython3 harness.py --mutate\npython3 harness.py --mutate --replay p" }
 };
 export function combine(module, definitions, experiment, suffix='') {
   // Only the exact local module import is replaced by its source.

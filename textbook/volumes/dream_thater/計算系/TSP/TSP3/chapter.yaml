@@ -1,0 +1,37 @@
+id: "TSP3"
+title: "平坦化と部分空間の階数下界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TSP2
+official_scope: []
+learning_objectives:
+  - 任意の非空な二分割について平坦化を構成し階数を計算できる
+  - 平坦化による階数下界と基底不変性を証明できる
+  - 切片部分空間の階数1被覆から三因子テンソルの分解を復元できる
+  - 部分空間の最小非零階数による下界を証明し係数体による違いを説明できる
+definitions:
+  - { id: TSP3-DEF-01, name: テンソルの平坦化 }
+  - { id: TSP3-DEF-02, name: 切片部分空間 }
+theorems:
+  - { id: TSP3-THM-01, name: 平坦化による階数下界 }
+  - { id: TSP3-THM-02, name: 切片部分空間の階数1被覆による特徴付け }
+  - { id: TSP3-THM-03, name: 部分空間の最小非零階数による下界 }
+canonical_examples:
+  - 添字の二分割と係数行列
+  - 階数1の基底を持たない二次元切片部分空間
+  - 実数体上の最小非零階数2の部分空間
+problem_patterns:
+  - TSP3-REINDEX
+  - TSP3-OUTER-PRODUCT
+  - TSP3-SLICE-DIMENSION
+  - TSP3-COVER-RECONSTRUCTION
+  - TSP3-FOUR-FACTOR
+  - TSP3-RANK-ONE-BASIS
+  - TSP3-CHANGE-OF-BASIS
+  - TSP3-FIELD
+  - TSP3-MINIMUM-RANK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 1 }
