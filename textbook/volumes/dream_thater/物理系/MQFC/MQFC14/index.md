@@ -555,7 +555,27 @@ $$
 三次元（質量 $m>0$）で非負の滑らかなコンパクト支持関数 $f$ が原点付近の球で1であるとする。四次の正則化Wick積の二乗平均が発散することを示せ。
 
 <!-- solution-start -->
-[混合二次モーメント](#thm-mqfc14-wick-covariance) から二乗平均は $24\int f(x)f(y)C_{\epsilon,\epsilon}(x-y)^4dxdy$。非負なので [Fatouの補題](../../../解析系/F0/F0-00D2B/index.md#lem-f0-00d2b-01)が適用でき、下極限は $24\int f(x)f(y)C_3(x-y)^4dxdy$ 以上。$f=1$ の半径 $r_0$ の球内で $|x|<r_0/2$、$|z|=|x-y|<\delta=\min(r_0/2,1/2)$ を取ると $f(x)f(y)=1$。 [短距離評価](#prop-mqfc14-singularity) の下界 $A/|z|$ を使うと積分は
+[混合二次モーメント](#thm-mqfc14-wick-covariance) から二乗平均は
+
+$$
+E[V_{\epsilon,4}(f)^2]
+=24\int f(x)f(y)C_{\epsilon,\epsilon}(x-y)^4\,dx\,dy.
+$$
+
+被積分関数が非負で、対角集合の外では核が収束するので、[Fatouの補題](../../../解析系/F0/F0-00D2B/index.md#lem-f0-00d2b-01) により
+
+$$
+\liminf_{\epsilon\downarrow0}E[V_{\epsilon,4}(f)^2]
+\ge24\int f(x)f(y)C_3(x-y)^4\,dx\,dy.
+$$
+
+$f=1$ となる球の半径を $r_0>0$ とする。位置差を $z=x-y$ と書き、$\delta=\min(r_0/2,1/2)$ と置く。
+
+$$
+|x|<r_0/2,\qquad |z|<\delta.
+$$
+
+この範囲では $|y|\le |x|+|z|<r_0$ だから、$f(x)f(y)=1$ となる。[短距離評価](#prop-mqfc14-singularity) の下界 $A/|z|$ を使うと積分は
 
 $$
 24|B_{r_0/2}|\,4\pi A^4\int_0^\delta r^{-2}dr
