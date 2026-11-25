@@ -1,0 +1,39 @@
+id: "ACOMP15"
+title: "深さ削減：VSBR型分割と次数・サイズのトレードオフ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ACOMP14
+official_scope: []
+learning_objectives:
+  - 次数付き斉次回路を構成し出力次数と内部次数を区別できる
+  - 重い側の経路係数を定義し二種類の境界分割を導出できる
+  - VSBR型深さ削減の倍増構成とサイズ・深さ上界を証明できる
+  - VPの深さ上界とformulaへの展開の限界を説明できる
+definitions:
+  - { id: ACOMP15-DEF-01, name: "次数付き斉次回路" }
+  - { id: ACOMP15-DEF-02, name: "重い側の経路係数" }
+theorems:
+  - { id: ACOMP15-THM-01, name: "次数付き斉次回路への変換" }
+  - { id: ACOMP15-THM-02, name: "経路係数の次数" }
+  - { id: ACOMP15-THM-03, name: "節点多項式の境界分割" }
+  - { id: ACOMP15-THM-04, name: "経路係数の境界分割" }
+  - { id: ACOMP15-THM-05, name: "VSBR型深さ削減" }
+canonical_examples:
+  - 零入力を含む次数付き斉次回路
+  - 重複辺を含む経路係数
+  - 節点多項式と経路係数の境界分割
+problem_patterns:
+  - ACOMP15-A1
+  - ACOMP15-A2
+  - ACOMP15-A3
+  - ACOMP15-A4
+  - ACOMP15-B1
+  - ACOMP15-B2
+  - ACOMP15-B3
+  - ACOMP15-B4
+  - ACOMP15-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
