@@ -1,0 +1,23 @@
+id: "LVT5-08"
+title: "差分検査の保証範囲と弱点"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT5-07, LVT5-03, LVT5-01, LVT4-02]
+official_scope: []
+learning_objectives:
+  - 差分検出集合と要求に対する誤り集合を区別する
+  - 正しい基準と単射な観測の下で検出集合の一致を証明する
+  - 偏りのある独立抽出での見逃し確率を計算する
+  - 仕様の誤記・共通バグ・直列化・オラクル汚染を保証台帳で区別する
+definitions:
+  - { id: LVT5-08-DEF-01, name: "差分検出集合" }
+propositions:
+  - { id: LVT5-08-PROP-01, name: "正しい基準と情報保存による検出集合の一致" }
+  - { id: LVT5-08-PROP-02, name: "偏りのある独立抽出での見逃し確率" }
+theorems: []
+canonical_examples: ["在庫2の四入力", "成功ビットと完全観測", "偏りのある抽出"]
+problem_patterns: [LVT5-08-A01, LVT5-08-A02, LVT5-08-A03, LVT5-08-A04, LVT5-08-B01, LVT5-08-B02, LVT5-08-B03, LVT5-08-B04, LVT5-08-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2, review: 0.5 }
