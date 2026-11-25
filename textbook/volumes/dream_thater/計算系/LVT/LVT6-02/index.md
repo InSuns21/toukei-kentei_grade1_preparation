@@ -4,6 +4,8 @@
 
 前講では、Lean仕様の命題とPythonの動作比較を区別しました。今度は正しい仕様を固定したまま製品に故意のバグを入れます。既存の五つの単体テストが全部通っても、勝利判定が誤っている場合はあるでしょうか。実際の着手列を短くして、どの規則が失われたかを特定します。
 
+**ブラウザで実行：** [本講の実行ラボ](../browser-lab.html?chapter=LVT6-02)。勝利線の集合を変更すると、同じ印の集合でも判定が変わることを試します。完全な着手列の比較は第5節で行います。
+
 ## 1. 八本の勝利線から一本を取り除く
 
 [前講と同じ固定版](https://github.com/kazunori279/lean4-tictactoe-test/tree/c332ba3e2d2bf78edb993ae6acadcd83f927073e) の [Python実装](https://github.com/kazunori279/lean4-tictactoe-test/blob/c332ba3e2d2bf78edb993ae6acadcd83f927073e/tictactoe/game.py) を用います。マスの番号は次の通りです。
@@ -100,12 +102,21 @@
 以下は本教材リポジトリのルートから前講のチェックアウトとビルドが済んでいる場合のコマンドです。外部教材の固定版は /tmp/lvt-upstream に置いたものとします。
 
 ```bash
-lab="$PWD/textbook/volumes/dream_thater/計算系/LVT/LVT6-02/lab/mutation_lab.py"
+cp 'textbook/volumes/dream_thater/計算系/LVT/LVT6-02/lab/mutation_lab.py' /tmp/lvt-mutation.py
 cd /tmp/lvt-upstream
-uv run --locked python "$lab" "$PWD"
+uv run --locked python /tmp/lvt-mutation.py /tmp/lvt-upstream
 ```
 
 実験は、元の五テストと変異後の五テストがともに成功し、固定された二つの反例の仕様と変異の結果が異なることを確認します。Leanオラクルが存在しない、応答を返さない、あるいは探索で反例を得られない場合は失敗として終了します。Hypothesis は同じ環境での再現性を高めるため決定的な設定を使いますが、バージョンを変えれば探索結果も変わり得ます。具体的な生成結果は端末出力から読み取り、固定の五手列による再現と区別してください。
+
+[LvtAntiDiagonal.lean](lab/LvtAntiDiagonal.lean) は勝利判定だけを抽出した小モデルです。marks は一人の印の位置を表す自然数のリストであり、wins は各三番号がすべてそのリストに含まれるかを調べます。着手の合法性や手番を検査するものではありません。 [Inspect.lean](lab/Inspect.lean) の反対角線の二評価は true, false。上段の三印と二印の例もそれぞれ比較します。antiDiagonalWitness は二つの具体的な等式を Lean が計算で確かめます。[Failure.lean](lab/Failure.lean) の誤った等式は拒否されます。ブラウザの編集欄で印の位置を変え、残っている七本のうち別の一本を試してみましょう。固定版で端末実行する場合は本講の lab 内で次を実行します。
+
+```bash
+lean -o LvtAntiDiagonal.olean LvtAntiDiagonal.lean
+LEAN_PATH=. lean Inspect.lean
+# 意図的な型不一致
+LEAN_PATH=. lean Failure.lean
+```
 
 検査の分担は、仕様の証明、元の実装と仕様の比較、変異実装と仕様の比較です。変異を検出できたことはテストの有効性の一つの証拠であって、あらゆるバグを検出できるという保証ではありません。
 
