@@ -266,7 +266,7 @@ $$
 被積分関数は1以下で点ごとに零へ収束し、$\mu_v$ の全質量は $\|v\|^2$ なので [優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01) よりノルムは零へ収束します。位相の積 $e^{-it\lambda}e^{-is\lambda}=e^{-i(t+s)\lambda}$ と複素共役 $e^{it\lambda}$ に関数計算の積・随伴の規則を適用すると群則とユニタリ性が得られます。強連続性も $|e^{-ih\lambda}-1|^2\le4$ を用いた同じ優収束で従います。
 <!-- proof-end -->
 
-例えば $H=\operatorname{diag}(0,2)$、$v=(1,1)$ なら $F_{v,v}(z)=1+e^{-2z}$。正の実軸では減衰して1に近づき、虚軸では $1+e^{-2it}$ と振動します。
+例えば $H=\operatorname{diag}(0,2)$ は標準正規直交基底で固有値 $0,2$ を持つ作用素です。$v=(1,1)$ なら [Borel関数計算](../../../解析系/QM/QM6/index.md#def-qm6-borel-functional-calculus) は各固有値を指数関数に移すので、$e^{-zH}v=(1,e^{-2z})$、従って $F_{v,v}(z)=1+e^{-2z}$。正の実軸では減衰して1に近づき、虚軸では $1+e^{-2it}$ と振動します。
 
 ## 4. 自由場でSchwingerからWightmanへ
 
@@ -371,7 +371,23 @@ e^{-(\epsilon_2-\epsilon_4)E_l}
 e^{-i(t_1-t_3)E_k-i(t_2-t_4)E_l}.
 $$
 
-空間の位相は $e^{ik\cdot(x_1-x_3)+il\cdot(x_2-x_4)}$ です。全点で Schwartz 試験関数 $F$ を積分すると、その全 Fourier 変換を $\pm(E_k,k)$、$\pm(E_l,l)$ の組に制限した値（時間・空間の位相規約に応じた符号）が得られます。その絶対値は定数倍の $(1+|k|^2+|l|^2)^{-4}$ 以下であり、6次元で可積分です。測度 $d\eta(k)d\eta(l)$ の密度は有界、減衰因子は1以下なので優収束により $\epsilon_j\downarrow0$ の順序を保った極限が存在します。
+空間の位相は $e^{ik\cdot(x_1-x_3)+il\cdot(x_2-x_4)}$ です。全点で Schwartz 試験関数 $F$ を積分すると全 Fourier 変換が現れます。各点で $e^{-i(q_j^0t_j+\boldsymbol q_j\cdot x_j)}$ を用いる規約では、この対分割に対応する周波数は
+
+$$
+\begin{aligned}
+q_1&=(E_k,-k),&q_3&=-q_1,\\
+q_2&=(E_l,-l),&q_4&=-q_2.
+\end{aligned}
+$$
+
+従って全 Fourier 変換の値は $\widehat F(q_1,q_2,q_3,q_4)$ です。[Schwartz空間のFourier変換](../MQFC1/index.md#thm-mqfc1-fourier) によって、4点の周波数の Euclid ノルムの二乗の和が $2(E_k^2+|k|^2+E_l^2+|l|^2)$ であることから、絶対値は連続半ノルム $C_4(F)$ を用いて
+
+$$
+|\widehat F(q_1,q_2,q_3,q_4)|
+\le C_4(F)(1+|k|^2+|l|^2)^{-4}
+$$
+
+と評価できます。右辺は6次元で可積分です。測度 $d\eta(k)d\eta(l)$ の密度は有界、減衰因子は1以下なので優収束により $\epsilon_j\downarrow0$ の順序を保った極限が存在します。
 
 他の対分割でも点の添字を対応する対へ置き換えるだけで、この上界の積分次元と減衰次数は変わりません。従って四点の境界値は
 
@@ -444,7 +460,25 @@ $$
 $H=\operatorname{diag}(0,3)$、$v=(1,2)$ とする。$F_{v,v}(z)$ と $\lim_{\epsilon\downarrow0}F_{v,v}(\epsilon+it)$、さらに $\|e^{-itH}v\|$ を求めよ。
 
 <!-- solution-start -->
-関数計算は対角成分ごとに行うので $e^{-zH}v=(1,2e^{-3z})$。内積を取ると $F_{v,v}(z)=1+4e^{-3z}$ です。$e^{-3(\epsilon+it)}=e^{-3\epsilon}e^{-3it}$ で、$\epsilon\downarrow0$ の極限は $1+4e^{-3it}$。実時間では位相の絶対値は1なので $\|e^{-itH}v\|^2=1+4=5$、従ってノルムは $\sqrt5$ です。[非負生成作用素の複素時間境界値](#thm-mqfc10-complex-semigroup) の有限次元例です。
+[Borel関数計算](../../../解析系/QM/QM6/index.md#def-qm6-borel-functional-calculus) を標準正規直交基底の固有値 $0,3$ に適用するので $e^{-zH}v=(1,2e^{-3z})$ です。第2引数線形の内積を取ると
+
+$$
+F_{v,v}(z)=1+4e^{-3z}.
+$$
+
+$e^{-3(\epsilon+it)}=e^{-3\epsilon}e^{-3it}$ なので
+
+$$
+\lim_{\epsilon\downarrow0}F_{v,v}(\epsilon+it)=1+4e^{-3it}.
+$$
+
+実時間では位相の絶対値は1なので
+
+$$
+\|e^{-itH}v\|^2=1+4=5.
+$$
+
+従ってノルムは $\sqrt5$ です。[非負生成作用素の複素時間境界値](#thm-mqfc10-complex-semigroup) の有限次元例です。
 <!-- solution-end -->
 
 ### 演習 MQFC10-A4：質量殻と符号
@@ -534,7 +568,7 @@ $e_n$ は $e_0$ と直交し、$\|e^{-sH}e_n\|=e^{-s/n}$。もし全真空直交
 
 - Level: C
 
-自由場の質量 $m>0$ と上の測度 $d\eta$ を使い、$g\in\mathcal S(\mathbb R^3)$ を非零とする。$v(k)=\hat g(k)$ として $L^2(d\eta)$ 上で $H$ を $E_k$ の掛け算作用素とする。
+自由場の質量 $m>0$ と上の測度 $d\eta$ を使い、$g\in\mathcal S(\mathbb R^3)$ を非零とする。$v(k)=\hat g(k)$ として $L^2(d\eta)$ 上で $H$ を $E_k$ の掛け算作用素とする。定義域は $D(H)=\{w\in L^2(d\eta): E_kw(k)\in L^2(d\eta)\}$ とする。この作用素は $E_k$ が非負実数値なので非負自己共役である（[スペクトル積分の自己共役性](../../../解析系/QM/QM6/index.md#thm-qm6-spectral-integral-self-adjoint) において $E_H(B)$ を $\mathbf 1_{\{k:E_k\in B\}}$ の掛け算作用素とすればよい）。
 
 (1) $v$ が $D(H)$ に属すことを示せ。(2) $F(z)=\int e^{-zE_k}|v(k)|^2d\eta(k)$ の境界値と $F'(s)$（$s>0$）を求めよ。(3) 任意の $t_j\in\mathbb R$ と $c_j\in\mathbb C$（$j=1,\ldots,N$）に対し $\sum_{j,l}\bar c_j c_l F(i(t_l-t_j))\ge0$ を示せ。
 
@@ -554,7 +588,7 @@ $$
 F(it)=\int e^{-itE_k}|v(k)|^2d\eta(k).
 $$
 
-また $s>0$ の近傍では $E_ke^{-sE_k/2}\le2/(es)$ が一様上界を与えるので差商を積分へ入れて
+ここで $F(it)$ は右半平面からの境界値を表します。$F'(s)$ は実軸上で $s$ を動かす微分で、複素微分を正の実軸へ制限したものです。$k$ と $E_k$ は微分の際に固定します。また $s>0$ の近傍では $E_ke^{-sE_k/2}\le2/(es)$ が一様上界を与えるので差商を積分へ入れて
 
 $$
 F'(s)=-\int E_ke^{-sE_k}|v(k)|^2d\eta(k).
