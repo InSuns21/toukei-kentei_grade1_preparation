@@ -107,18 +107,18 @@ rw は結論を距離条件へ置き換えます。obtain で N と、その N �
 
 点列による条件から一様構造の完備性へ戻す理由を確認します。[Cauchy filter](../../../基礎科目/TOP/TOP7/index.md#def-top7-cauchy-filter)を一つ取ります。各自然数 j についてその filter に属する集合 $A_j$ で、$x,y\in A_j$ なら $d(x,y)<2^{-j}$ となるものを選びます。有限交差
 
-$
+$$
 B_n=A_0\cap\cdots\cap A_n
-$
+$$
 
 は filter に属し、空でないので $x_n\in B_n$ を選べます。$m,n\ge N$ なら $x_m,x_n\in B_N\subset A_N$ なので $d(x_m,x_n)<2^{-N}$。任意の ε>0 に対し $2^{-N}<\varepsilon$ とできるため、この列はCauchy列です。
 
 点列の完備性を仮定すれば、ある a に $x_n$ が収束します。任意の ε>0 に対して、$2^{-n}<\varepsilon/2$ かつ $d(x_n,a)<\varepsilon/2$ となる n を取ります。任意の $y\in B_n$ について $x_n,y\in A_n$ なので
 
-$
+$$
 d(y,a)\le d(y,x_n)+d(x_n,a)
 <2^{-n}+\varepsilon/2<\varepsilon.
-$
+$$
 
 したがって a の ε 近傍は $B_n$ を含むため filter に属します。[filter の収束](../../../基礎科目/TOP/TOP6/index.md#def-top6-filter-convergence)の定義から a に収束します。逆向きは点列の tail が作る Cauchy filter に完備性を適用し、[距離Cauchy列とCauchy filter](../../../基礎科目/TOP/TOP7/index.md#prop-top7-sequence-cauchy-filter)および [netとfilterの収束対応](../../../基礎科目/TOP/TOP6/index.md#thm-top6-net-filter-correspondence)を使えば従います。ラボの complete_characterization は Mathlib の両方向の定理を使って、この同値を証明します。
 
@@ -257,7 +257,21 @@ Cauchy列を $(f_n)$ とする。各整数 D に対して ε=$2^{-D}$ を選ぶ�
 
 整数 i を固定し D=i+1 とすれば、$n\ge N(i+1)$ に対して i 次の係数が一定である。その値を $a_i$ とする。
 
-次に D=0 の N(0) を取る。$f_{N(0)}$ の非零係数の添字には整数の下限 L がある。$i<\min(L,0)$ なら $[t^i]f_{N(0)}=0$ であり、$n\ge N(0)$ の全項で i 次係数はこの値に等しい。さらに $n\ge N(i+1)$ も満たす n を取れば $a_i=0$ である。よって $a_i$ の非零添字には下限 $\min(L,0)$ がある。[形式 Laurent 級数の定義](../../ACOMP/ACOMP21/index.md#def-acomp21-formal-laurent)を満たすので $f=\sum_i a_it^i$ が存在する。
+次に D=0 の N(0) を取る。$f_{N(0)}$ の非零係数の添字には整数の下限 L がある。$i<\min(L,0)$ なら
+
+$$
+[t^i]f_{N(0)}=0
+$$
+
+であり、$n\ge N(0)$ の全項で i 次係数はこの値に等しい。
+
+さらに $n\ge N(i+1)$ も満たす n を取れば、最終値は $a_i=0$ である。よって非零添字には下限 $\min(L,0)$ がある。[形式 Laurent 級数の定義](../../ACOMP/ACOMP21/index.md#def-acomp21-formal-laurent)を満たすので
+
+$$
+f=\sum_i a_it^i
+$$
+
+が存在する。
 
 任意の ε>0 に対し $2^{-D}<\varepsilon$ となる正整数 D を取る。$n\ge N(D)$ であれば各 $i<D$ について、$m\ge\max(N(D),N(i+1))$ と選べば
 
