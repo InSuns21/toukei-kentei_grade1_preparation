@@ -14,7 +14,7 @@ chapters:
   - { id: GCT8, path: textbook/volumes/dream_thater/計算系/GCT/GCT8, status: completed, title: "格子状制約・局所表・重み付き分配和" }
   - { id: GCT9, path: textbook/volumes/dream_thater/計算系/GCT/GCT9, status: completed, title: "計数複雑性クラス：#P・FP・GapP" }
   - { id: GCT10, path: textbook/volumes/dream_thater/計算系/GCT/GCT10, status: completed, title: "parsimonious帰着・計数Turing帰着" }
-  - { id: GCT11, path: textbook/volumes/dream_thater/計算系/GCT/GCT11, status: planned, title: "計数完全性と0–1 permanent：Valiantの帰着" }
+  - { id: GCT11, path: textbook/volumes/dream_thater/計算系/GCT/GCT11, status: completed, title: "計数完全性と0–1 permanent：Valiantの帰着" }
   - { id: GCT12, path: textbook/volumes/dream_thater/計算系/GCT/GCT12, status: planned, title: "Ryserの包除公式と部分集合DP" }
   - { id: GCT13, path: textbook/volumes/dream_thater/計算系/GCT/GCT13, status: planned, title: "多項式補間と重みの除去" }
   - { id: GCT14, path: textbook/volumes/dream_thater/計算系/GCT/GCT14, status: planned, title: "有限群とCayleyグラフ" }
