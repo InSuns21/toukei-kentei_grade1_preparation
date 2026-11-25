@@ -203,7 +203,29 @@ $A=[m:M\to X]$、$B=[n:N\to Y]$ とする。[初等トポスのBarr-正確性](.
 
 $P=M\times_Y N$ を $fm,n$ の引き戻しとして、射影を $a:P\to M$、$b:P\to N$ とする。$n$ の引き戻しである $a$ はモノ射である（[モノ射の引き戻し](../../CAT/CAT2-03/index.md#prop-cat2-03-pullback-mono)）。合成 $ma:P\to X$ は $A\wedge f^*B$ を表すことを確認する。
 
-任意の射 $u:T\to X$ が $m$ を経由し、かつ $fu$ が $n$ を経由すると仮定する。つまり $u=mv$、$fu=nw$ となる $v:T\to M$、$w:T\to N$ がある。このとき $fmv=nw$ だから [引き戻しの普遍性](../../CAT/CAT2-03/index.md#def-cat2-03-pullback) により $ak=v,bk=w$ を満たす唯一の $k:T\to P$ を得る。逆に $u=mak$ なら $u$ は $m$ を経由し、$fu=fmak=nbk$ も $n$ を経由する。[部分対象の順序](../CATB4-07/index.md#def-catb4-07-subobject) では代表モノ射を経由することが包含に対応する。従って $[ma]$ は $A,f^*B$ の共通下界であり、任意の共通下界は $ma$ を経由する。よって $[ma]=A\wedge f^*B$ である。
+任意の射 $u:T\to X$ が $m$ を経由し、かつ $fu$ が $n$ を経由すると仮定する。つまり、次の因子射がある。
+
+$$
+v:T\to M,\quad w:T\to N,\qquad u=mv,\quad fu=nw.
+$$
+
+このとき $fmv=nw$ だから、[引き戻しの普遍性](../../CAT/CAT2-03/index.md#def-cat2-03-pullback) により唯一の射 $k:T\to P$ が存在し、
+
+$$
+ak=v,\qquad bk=w,\qquad mak=mv=u
+$$
+
+を満たす。逆に $u=mak$ なら、次のように二つの因子分解が得られる。
+
+$$
+u=m(ak),\qquad fu=fmak=n(bk).
+$$
+
+[部分対象の順序](../CATB4-07/index.md#def-catb4-07-subobject) では代表モノ射を経由することが包含に対応する。従って $[ma]$ は $A,f^*B$ の共通下界であり、任意の共通下界は $ma$ を経由する。
+
+$$
+[ma]=A\wedge f^*B.
+$$
 
 次に $Q=I\times_Y N$ を $i,n$ の引き戻しとし、射影を $c:Q\to I$、$d:Q\to N$ とする。$iea=fma=nb$ より $ct=ea,dt=b$ となる唯一の射 $t:P\to Q$ が存在する。
 
@@ -243,7 +265,19 @@ $$
 
 $R$ を $X\times Z$ 上の部分対象、$B$ を $X$ 上の部分対象、$\pi:X\times Z\to X$ を第一射影とする。射 $g:X'\to X$ による代入では $h=g\times 1_Z:X'\times Z\to X\times Z$、$\pi':X'\times Z\to X'$ を使う。ここで $1_Z$ は恒等射であり、$h$ は第一成分だけに $g$ を作用させる積の射である。
 
-この四角形は引き戻しになる。実際、$u:T\to X\times Z$、$v:T\to X'$ が $\pi u=gv$ を満たせば、$u$ の第二成分を $z:T\to Z$ と書くと、[積の普遍性](../../CAT/CAT2-04/index.md#def-cat2-04-small-product) から成分 $(v,z)$ を持つ唯一の射 $T\to X'\times Z$ が得られる。この射を $k:T\to X'\times Z$ とする。すると $\pi'k=v$ であり、$hk$ の成分は $(gv,z)$ なので $hk=u$ である。逆にこの二条件を満たす射は第一成分が $v$、第二成分が $z$ に強制されるため、積の普遍性から $k$ に一致する。
+この四角形は引き戻しになる。実際、次の二射を取る。
+
+$$
+u:T\to X\times Z,\qquad v:T\to X',\qquad \pi u=gv.
+$$
+
+$u$ の第二成分を $z:T\to Z$ と書く。[積の普遍性](../../CAT/CAT2-04/index.md#def-cat2-04-small-product) から成分 $(v,z)$ を持つ唯一の射 $k:T\to X'\times Z$ が得られる。すると
+
+$$
+\pi'k=v,\qquad hk=(gv,z)=u.
+$$
+
+逆にこの二条件を満たす射は第一成分が $v$、第二成分が $z$ に強制されるため、積の普遍性から $k$ に一致する。
 
 [存在量化の基底変換](../CATB4-07/index.md#thm-catb4-07-beck-chevalley) と [全称量化の基底変換](#thm-catb6-03-universal-beck-chevalley) を適用する。
 
@@ -303,7 +337,31 @@ A02 の写像を全て明示し直すと、$f:\{1,2,3\}\to\{a,b,c\}$ は $1,2\ma
 <!-- solution-start -->
 **詳細解答**
 
-[集合での全称量化](../CATB6-02/index.md#def-catb6-02-quantifiers) はファイバーの包含で判定する。元のファイバーは $\{1,2\},\{3\},\varnothing$ で、第二と第三だけが $A$ に含まれる。従って $\forall_f A=\{b,c\}$、$g^*\forall_f A=\{q,r\}$。引き戻しは $\{(1,p),(2,p),(3,q)\}$ で、$h^*A=\{(2,p),(3,q)\}$ となる。$p$ のファイバーには $(1,p)$ があり失敗し、$q$ の唯一の組は含まれる。$r$ のファイバーは空なので含まれる。よって $\forall_{f'}h^*A=\{q,r\}$ となり、[全称量化の基底変換](#thm-catb6-03-universal-beck-chevalley) を確認した。
+[集合での全称量化](../CATB6-02/index.md#def-catb6-02-quantifiers) はファイバーの包含で判定する。元のファイバーは
+
+$$
+f^{-1}(\{a\})=\{1,2\},\quad f^{-1}(\{b\})=\{3\},\quad f^{-1}(\{c\})=\varnothing.
+$$
+
+第二と第三だけが $A$ に含まれる。従って
+
+$$
+\forall_f A=\{b,c\},\qquad g^*\forall_f A=\{q,r\}.
+$$
+
+引き戻しと逆像は次の通りである。
+
+$$
+X'=\{(1,p),(2,p),(3,q)\},\quad h^*A=\{(2,p),(3,q)\}.
+$$
+
+$p$ のファイバーには $(1,p)$ があり失敗し、$q$ の唯一の組は含まれる。$r$ のファイバーは空なので含まれる。よって
+
+$$
+\forall_{f'}h^*A=\{q,r\}.
+$$
+
+[全称量化の基底変換](#thm-catb6-03-universal-beck-chevalley) の両辺が一致する。
 <!-- solution-end -->
 
 ### CATB6-03-A04 連言の型と計算
