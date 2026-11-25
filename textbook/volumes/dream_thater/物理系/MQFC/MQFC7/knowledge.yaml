@@ -1,0 +1,41 @@
+chapter: MQFC7
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC6]
+forward_references: []
+concepts:
+  - id: mqfc.schwinger-moments
+    name: "Schwinger関数"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.characteristic-functional]
+  - id: mqfc.schwinger-derivatives
+    name: "Schwinger関数の特性汎関数微分表示"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.schwinger-moments, mqfc.characteristic-functional]
+  - id: mqfc.gaussian-pairing
+    name: "Gaussian Schwinger関数のWick対分割公式"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.schwinger-derivatives, mqfc.gaussian-consistency, mqfc.free-gaussian-measure]
+  - id: mqfc.schwinger-distribution
+    name: "Gaussian Schwinger多点分布の構成"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.gaussian-pairing, mqfc.fourier, mqfc.euclidean-covariance-form, mqfc.tempered]
+  - id: mqfc.connected-schwinger
+    name: "連結Schwinger関数"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.schwinger-moments]
+  - id: mqfc.connected-partitions
+    name: "Schwingerモーメントの連結分割表示"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.connected-schwinger]
+  - id: mqfc.gaussian-connected-vanishing
+    name: "中心化Gaussian場の連結相関の消失"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.connected-partitions, mqfc.gaussian-consistency]
