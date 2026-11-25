@@ -35,7 +35,7 @@ $$
 <!-- definition-example-start: def-mqfc8-reflection-positivity -->
 ### 直接例
 
-標準正規変数 $Y$ により $\omega(f)=Y\int f$ とします。積分は Schwartz 半ノルムで抑えられる連続実線形汎関数です。例えば $N>d$ に対し
+**定義の確認**。標準正規変数 $Y$ により $\omega(f)=Y\int f$ とします。積分は Schwartz 半ノルムで抑えられる連続実線形汎関数です。例えば $N>d$ に対し
 
 $$
 \left|\int f(z)\,dz\right|
