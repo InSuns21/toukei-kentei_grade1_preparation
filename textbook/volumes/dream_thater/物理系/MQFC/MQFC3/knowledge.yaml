@@ -1,0 +1,31 @@
+chapter: MQFC3
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC2, QFT5, AQFT3, AQFT8]
+forward_references: []
+concepts:
+  - id: mqfc.wightman-axioms
+    name: "実スカラー場のWightman公理"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.field-domain, aqft.translation-spectrum-condition, aqft.positive-energy-vacuum, qft.local-commutativity]
+  - id: mqfc.hierarchy-positivity
+    name: "真空期待値階層の正値性"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.wightman-axioms, mqfc.product-bound]
+  - id: mqfc.free-wightman
+    name: "質量正の自由実スカラー場のWightman公理"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.wightman-axioms, mqfc.free-field-estimate, aqft.minkowski-vacuum-spectrum, qft.free-field-locality, mqfc.fourier]
+  - id: mqfc.positive-frequency
+    name: "真空二点量の並進スペクトル"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.wightman-axioms, aqft.translation-spectrum-condition]
+  - id: mqfc.free-kernels
+    name: "自由場真空期待値の多点分布"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.free-field-estimate, qft.fock-ccr, qft.wightman-positivity, mqfc.fourier]
