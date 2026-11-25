@@ -37,7 +37,7 @@ $$
 [余鎖ホモトピーの同値性とコホモロジー不変性](../CATB7-02/index.md#thm-catb7-02-homotopy-invariance)により代表元を変えても合成と和は変わらない。結合律と単位律は余鎖写像のそれらから従う。各次数のコホモロジーも $[f]\mapsto H^n(f)$ と置くことでこの圏上の関手になる。
 
 <!-- definition-example-start: def-catb7-03-homotopy-category -->
-**定義の確認。** 次数0,1の複体 $C=(\mathbb Z\xrightarrow{3}\mathbb Z)$ では、4倍写像と恒等写像の差は3倍である。次数1から0への恒等射をホモトピーに取ると、次数0で $hd=3$、次数1で $dh=3$、他の次数で零となる。
+**定義の確認**。 次数0,1の複体 $C=(\mathbb Z\xrightarrow{3}\mathbb Z)$ では、4倍写像と恒等写像の差は3倍である。次数1から0への恒等射をホモトピーに取ると、次数0で $hd=3$、次数1で $dh=3$、他の次数で零となる。
 
 よってホモトピー圏では
 
@@ -65,7 +65,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb7-03-homotopy-equivalence -->
-**定義の確認。** 次数0,1に $\mathbb Z\xrightarrow{1}\mathbb Z$ を置いた複体 $C$ から零複体への写像を $f$、逆向きの零写像を $g$ とする。$fg=1_0$ である。
+**定義の確認**。 次数0,1に $\mathbb Z\xrightarrow{1}\mathbb Z$ を置いた複体 $C$ から零複体への写像を $f$、逆向きの零写像を $g$ とする。$fg=1_0$ である。
 
 $gf=0$ に対して、次数1から0への恒等射を縮約とすれば次数0では $hd=1$、次数1では $dh=1$、他では零対象の恒等射も零なので、
 
@@ -111,7 +111,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb7-03-quasi-isomorphism -->
-**定義の確認。** 整数 $m\ge2$ とする。次数 $-1,0$ の複体 $P=(\mathbb Z\xrightarrow{m}\mathbb Z)$ から次数0だけに $\mathbb Z/m\mathbb Z$ を持つ複体 $M$ へ、次数0で剰余射、他の次数で零射となる $s:P\to M$ を作る。$s^0d_P^{-1}(x)=[mx]_m=0$ なので余鎖写像である。
+**定義の確認**。 整数 $m\ge2$ とする。次数 $-1,0$ の複体 $P=(\mathbb Z\xrightarrow{m}\mathbb Z)$ から次数0だけに $\mathbb Z/m\mathbb Z$ を持つ複体 $M$ へ、次数0で剰余射、他の次数で零射となる $s:P\to M$ を作る。$s^0d_P^{-1}(x)=[mx]_m=0$ なので余鎖写像である。
 
 [コホモロジーの構成](../CATB7-01/index.md#def-catb7-01-cohomology)より、整数の $m$ 倍は単射で像は $m\mathbb Z$ だから、
 
@@ -352,7 +352,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb7-03-roof -->
-**定義の確認。** $s:P\to M$ を第3節の擬同型とすると、$M\xleftarrow{s}P\xrightarrow{s}M$ と $M\xleftarrow{1_M}M\xrightarrow{1_M}M$ は同値である。共通の複体を $P$ とし、$r=1_P$、$r'=s$ とすれば分母も分子も $s$ になり、分母は擬同型である。
+**定義の確認**。 $s:P\to M$ を第3節の擬同型とすると、$M\xleftarrow{s}P\xrightarrow{s}M$ と $M\xleftarrow{1_M}M\xrightarrow{1_M}M$ は同値である。共通の複体を $P$ とし、$r=1_P$、$r'=s$ とすれば分母も分子も $s$ になり、分母は擬同型である。
 <!-- definition-example-end -->
 
 roof の分母が擬同型だからといって、任意の圏でこの同値関係や合成が成立するわけではない。前節の補題がそのために必要となる。
@@ -466,7 +466,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb7-03-localization -->
-**定義の確認。** 恒等射だけを集めた $S$ なら $L=K,Q=1_K$ が局所化になる。恒等射は同型であり、どの $F$ についても $\bar F1_K=F$ は $\bar F=F$ を意味する。したがって存在と一意性の双方が成り立つ。
+**定義の確認**。 恒等射だけを集めた $S$ なら $L=K,Q=1_K$ が局所化になる。恒等射は同型であり、どの $F$ についても $\bar F1_K=F$ は $\bar F=F$ を意味する。したがって存在と一意性の双方が成り立つ。
 <!-- definition-example-end -->
 
 <a id="thm-catb7-03-localization"></a>
