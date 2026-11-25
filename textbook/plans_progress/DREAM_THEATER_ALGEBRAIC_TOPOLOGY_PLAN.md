@@ -129,4 +129,4 @@ ATOPはFour Frontiersの前提補講から大学標準の独立科目へ変更�
 
 ## 7. 実装・状態管理
 
-独立PLANはATOP1の実装に着手したためplans_progress/。Four Frontiersの集計にはATOP42を一度だけ含め、他の9系列130講との計172講。一般化Poincaré計画96講は変更なし、計268新設講。既存RHP34を含め302、既存CATB7の5を含め307（基準時点）。ATOPを開始するときに本独立PLANをplans_progress/へ移しATOP.yamlを新設し、直接参照するPLAN・READMEを同じ作業単位で更新する。章や公開目次・knowledge DAGは先行登録しない。I、II、IIIは同一ATOP系列の通し番号で公開科目を3区分とする。全42講と図・横断査読・公開・CIの完了後にのみplan_doneへ移動。進捗は系列 manifest ATOP.yaml を正本とする。ATOP1–4（同相と商、ホモトピー、レトラクトと可縮性、道と基本群）を実装。次の着手: ATOP5。
+独立PLANはATOP1の実装に着手したためplans_progress/。Four Frontiersの集計にはATOP42を一度だけ含め、他の9系列130講との計172講。一般化Poincaré計画96講は変更なし、計268新設講。既存RHP34を含め302、既存CATB7の5を含め307（基準時点）。ATOPを開始するときに本独立PLANをplans_progress/へ移しATOP.yamlを新設し、直接参照するPLAN・READMEを同じ作業単位で更新する。章や公開目次・knowledge DAGは先行登録しない。I、II、IIIは同一ATOP系列の通し番号で公開科目を3区分とする。全42講と図・横断査読・公開・CIの完了後にのみplan_doneへ移動。進捗は系列 manifest ATOP.yaml を正本とする。ATOP1–5（同相と商、ホモトピー、レトラクトと可縮性、道と基本群、被覆空間と持上げ）を実装。次の着手: ATOP6。
