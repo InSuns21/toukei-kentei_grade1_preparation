@@ -316,7 +316,7 @@ $$
 <!-- formal-statement-end -->
 
 
-Euclid 距離と絶対値の三角不等式を足せば距離の三角不等式が得られます。さらに等号なら Euclid 側でも等号になるので、最短経路の形が直線に限られます。ところが対角線の中点に CN 不等式を適用すると、補正項が大きすぎることが分かります。
+Euclid 距離と絶対値の三角不等式を足せば距離の三角不等式が得られます。さらに等号なら Euclid 側でも等号になるので、最短経路の形が直線に限られます。ところが対角線の中点に [CN不等式](../NPCG4/index.md#thm-npcg4-cn) を適用すると、補正項が大きすぎることが分かります。
 
 <!-- proof-start -->
 ### 証明
@@ -359,7 +359,7 @@ $$
 d(x,m)=d(y,m)=K,\qquad d(x,y)=2K.
 $$
 
-[中点の定義](../NPCG4/index.md#def-npcg4-midpoint) を満たします。さらに $d(z,m)=K,d(z,x)=2,d(z,y)=4$ です。CN不等式の右辺は
+[中点の定義](../NPCG4/index.md#def-npcg4-midpoint) を満たします。さらに $d(z,m)=K,d(z,x)=2,d(z,y)=4$ です。[CN不等式](../NPCG4/index.md#thm-npcg4-cn) の右辺は
 
 $$
 \frac{2^2+4^2}2-\frac{(2K)^2}4=10-K^2.
