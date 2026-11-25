@@ -353,7 +353,11 @@ d_L^na^n=
 =a^{n+1}d_X^n.
 $$
 
-従って $a$ は余鎖写像で、第2成分の射影 $b:L\to Y$ により $ba=v$。[写像錐による擬同型判定](#thm-catb7-03-cone-test)とシフトのコホモロジーの公式から、$H^n(L)\cong H^{n-1}(\operatorname{Cone}(s))=0$ が全次数で成立する。
+従って $a$ は余鎖写像で、第2成分の射影 $b:L\to Y$ により $ba=v$。[写像錐による擬同型判定](#thm-catb7-03-cone-test)より、$\operatorname{Cone}(s)$ のコホモロジーは全次数で零である。[余鎖複体のシフト](../CATB7-02/index.md#def-catb7-02-shift)では微分の符号だけが変わり核と像は変わらないので、
+
+$$
+H^n(L)\cong H^{n-1}(\operatorname{Cone}(s))=0.
+$$
 
 （1）を $a:X\to L$ と零複体からの擬同型 $0\to L$ に適用すると、擬同型 $p:W\to X$ で $ap=0$ となるものが得られる。よって $vp=bap=0$、すなわち $fp=gp$ が $K$ で成立する。
 <!-- proof-end -->
