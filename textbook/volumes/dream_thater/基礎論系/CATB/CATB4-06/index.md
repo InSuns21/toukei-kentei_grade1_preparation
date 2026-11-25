@@ -239,7 +239,20 @@ $3$ には出所がないが、左側では集める元がなく、右側では�
 <!-- proof-start -->
 ### 証明
 
-前向き持ち上げ $\lambda_{u,x}:x\to u_!x$ を指定したとする。前講の [余ファイブレーションからの共変擬関手](../CATB4-05/index.md#thm-catb4-05-indexed) により $u_!$ は関手となり、垂直射 $s:x'\to x$ に対して $(u_!s)\lambda_{u,x'}=\lambda_{u,x}s$ を満たす。
+前向き持ち上げ $\lambda_{u,x}:x\to u_!x$ を指定したとする。垂直射 $s:x'\to x$ に対して $\lambda_{u,x}s$ は $u$ 上にある。[coCartesian射の普遍性](../CATB4-05/index.md#def-catb4-05-cocartesian) を $\lambda_{u,x'}$ に媒介基底 $1_b$ で適用し、唯一の垂直射 $u_!s:u_!x'\to u_!x$ を
+
+$$
+(u_!s)\lambda_{u,x'}=\lambda_{u,x}s
+$$
+
+で定める。$s=1_x$ では恒等射がこの式を満たす。さらに $t:x''\to x'$ が垂直なら
+
+$$
+(u_!s)(u_!t)\lambda_{u,x''}
+=(u_!s)\lambda_{u,x'}t=\lambda_{u,x}st.
+$$
+
+一意性から $u_!(st)=(u_!s)(u_!t)$ であり、$u_!$ は関手である。ここでは個々の関手を作るだけなので、前講の共変擬関手の構成で仮定したファイバーの小ささは不要である。
 
 $x\in\mathcal E_a,y\in\mathcal E_b$ に対し $H_u(x,y)=\{k:x\to y\mid p(k)=u\}$ と置く。[coCartesian射](../CATB4-05/index.md#def-catb4-05-cocartesian) の普遍性を媒介基底 $1_b$ に適用することにより
 
