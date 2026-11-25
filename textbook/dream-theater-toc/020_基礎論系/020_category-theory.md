@@ -85,3 +85,4 @@
 82. [CATB5-08 トポスでの像と正確性](textbook/volumes/dream_thater/基礎論系/CATB/CATB5-08/index.md)
 83. [CATB5-09 幾何学的射](textbook/volumes/dream_thater/基礎論系/CATB/CATB5-09/index.md)
 84. [CATB5-10 siteの比較と層の幾何](textbook/volumes/dream_thater/基礎論系/CATB/CATB5-10/index.md)
+85. [CATB6-01 部分対象のHeyting演算](textbook/volumes/dream_thater/基礎論系/CATB/CATB6-01/index.md)
