@@ -16,3 +16,4 @@
 13. [MQFC13 cutoff・体積・極限の構成](textbook/volumes/dream_thater/物理系/MQFC/MQFC13/index.md)
 14. [MQFC14 Wick積と発散する自己収縮](textbook/volumes/dream_thater/物理系/MQFC/MQFC14/index.md)
 15. [MQFC15 相互作用測度を作る：P(φ)₂](textbook/volumes/dream_thater/物理系/MQFC/MQFC15/index.md)
+16. [MQFC16 P(φ)₂のUV除去を支える評価](textbook/volumes/dream_thater/物理系/MQFC/MQFC16/index.md)
