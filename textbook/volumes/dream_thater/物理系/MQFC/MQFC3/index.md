@@ -14,7 +14,7 @@ $$
 
 未来と過去を入れ替えず、空間の向きも保つLorentz変換 $\Lambda$ と平行移動 $a$ を組み合わせた変換を $h:x\mapsto \Lambda x+a$ とします。この変換全体が固有時向きPoincaré群 $G$ です。積は $(a,\Lambda)(c,L)=(a+\Lambda c,\Lambda L)$ です。スカラーの試験関数は座標の引き戻し $f_h(x)=f(h^{-1}x)$ で移します。$h$ のJacobian絶対値は1です。
 
-[ユニタリ表現](../../../代数系/LREP/LREP2/index.md#def-lrep2-invariant-inner-product)をHilbert空間に拡張して考えます。表現 $U$ は群の積を作用素の積に写し、内積を保存します。[強連続ユニタリ表現](../../../代数系/LREP/LREP21/index.md#def-lrep21-unitary-representation)の強連続性とは各固定状態 $\psi$ について $h\to e$ で $\|U(h)\psi-\psi\|\to0$ となることです。並進に制限すると、[平行移動のスペクトル条件](../../../解析系/AQFT/AQFT3/index.md#def-aqft3-spectrum)で用いた共同スペクトル測度 $E_U$ により
+[ユニタリ表現](../../../代数系/LREP/LREP2/index.md#def-lrep2-invariant-inner-product)をHilbert空間に拡張して考えます。表現 $U$ は群の積を作用素の積に写し、内積を保存します。[強連続ユニタリ表現](../../../代数系/LREP/LREP21/index.md#def-lrep21-unitary-representation)において強連続であるとは各固定状態 $\psi$ について $h\to e$ で $\|U(h)\psi-\psi\|\to0$ となることです。並進に制限すると、[平行移動のスペクトル条件](../../../解析系/AQFT/AQFT3/index.md#def-aqft3-spectrum)で用いた共同スペクトル測度 $E_U$ により
 
 $$
 U(a)=\int_{\mathbb R^4}e^{ib(p,a)}\,dE_U(p)
@@ -81,6 +81,8 @@ $$
 
 <!-- definition-example-start: def-mqfc3-wightman-axioms -->
 ### 直接例：最小の模型
+
+**定義の確認**。全ての公理を具体的に検証します。
 
 $\mathcal H=D=\mathbb C$、$\Omega=1$、$U(h)=I$、$\Phi(f)=(\int f(x)d^4x)I$ とします。積分の線形性と、整数 $N>4$ に対する
 
