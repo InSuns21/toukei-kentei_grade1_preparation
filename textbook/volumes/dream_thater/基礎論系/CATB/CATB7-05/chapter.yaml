@@ -25,9 +25,10 @@ theorems:
   - { id: CATB7-05-THM-04, name: "巡回整数加群のExt" }
   - { id: CATB7-05-THM-05, name: "上に有界な射影複体からの写像" }
   - { id: CATB7-05-THM-06, name: "分解による導来圏のHom計算" }
-canonical_examples: [自由加群の射影性, ベクトル空間の入射性, 巡回整数加群の分解, 巡回整数加群のExt, 完全三角形の第3射]
-problem_patterns: [CATB7-05-A01, CATB7-05-A02, CATB7-05-A03, CATB7-05-A04, CATB7-05-B01, CATB7-05-B02, CATB7-05-B03, CATB7-05-B04, CATB7-05-C01]
+  - { id: CATB7-05-THM-07, name: "整数加群の可除性と入射性" }
+canonical_examples: [自由加群の射影性, ベクトル空間の入射性, 巡回整数加群の分解, 巡回整数加群のExt, 完全三角形の第3射, 整数加群の非自明な入射分解]
+problem_patterns: [CATB7-05-A01, CATB7-05-A02, CATB7-05-A03, CATB7-05-A04, CATB7-05-B01, CATB7-05-B02, CATB7-05-B03, CATB7-05-B04, CATB7-05-B05, CATB7-05-C01]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 5, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 7, exercises: 5, review: 2 }
