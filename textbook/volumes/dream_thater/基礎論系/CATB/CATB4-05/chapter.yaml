@@ -1,0 +1,27 @@
+id: "CATB4-05"
+title: "余ファイブレーションと双対"
+volume: "foundations"
+status: supplementary
+prerequisites: [CATB4-04, CATB4-03, CATB4-02, CATB4-01, CAT1-04]
+official_scope: []
+learning_objectives:
+  - coCartesian射の普遍性を直接検証し反対圏でのCartesian射との対応を証明できる
+  - 集合族の非交和による持ち上げを構成し媒介射を計算できる
+  - 選んだ持ち上げから共変擬関手を構成し比較と単位の整合性を証明できる
+  - 共変Grothendieck構成の合成と同型判定を導出し全圏を復元できる
+definitions:
+  - { id: CATB4-05-DEF-01, name: "coCartesian射" }
+  - { id: CATB4-05-DEF-02, name: "余ファイブレーション" }
+  - { id: CATB4-05-DEF-03, name: "共変擬関手" }
+  - { id: CATB4-05-DEF-04, name: "共変Grothendieck構成" }
+theorems:
+  - { id: CATB4-05-THM-01, name: "余ファイブレーションの双対性" }
+  - { id: CATB4-05-THM-02, name: "集合族の余ファイブレーション" }
+  - { id: CATB4-05-THM-03, name: "余ファイブレーションからの共変擬関手" }
+  - { id: CATB4-05-THM-04, name: "共変構成と余ファイブレーション" }
+canonical_examples: [積圏の射影, 集合族の非交和, 非正規化単位]
+problem_patterns: [CATB4-05-A01, CATB4-05-A02, CATB4-05-A03, CATB4-05-A04, CATB4-05-B01, CATB4-05-B02, CATB4-05-B03, CATB4-05-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }
