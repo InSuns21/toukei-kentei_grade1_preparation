@@ -8,14 +8,18 @@
 
 ## 1. 二つの対角線を比較する
 
-以下 $(X,d)$ は [CAT(0)空間](../NPCG3/index.md#def-npcg3-cat-zero) とし、[測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) により端点 $x,y$ を結ぶ測地線分を $[x,y]$ と書きます。[測地線分の距離条件](../NPCG2/index.md#def-npcg2-geodesic-segment) を、以下では長さ $D=d(x,y)$ によらず比率 $t\in[0,1]$ で表した $\gamma(t)$ を使って記述します。
+以下 $(X,d)$ は [CAT(0)空間](../NPCG3/index.md#def-npcg3-cat-zero) とし、[測地線分の一意性](../NPCG4/index.md#thm-npcg4-unique-geodesic) により端点 $x,y$ を結ぶ測地線分を $[x,y]$ と書きます。
+
+[測地線分の距離条件](../NPCG2/index.md#def-npcg2-geodesic-segment) を、以下では長さ $D=d(x,y)$ によらず比率 $t\in[0,1]$ で表した $\gamma(t)$ を使って記述します。
 
 $$
 \gamma(0)=x,\quad \gamma(1)=y,\quad
 d(\gamma(s),\gamma(t))=D|s-t|.
 $$
 
-特に [中点](../NPCG4/index.md#def-npcg4-midpoint) は $\gamma(1/2)$ で、両端までの距離は $D/2$ です。$D=0$ なら定数写像です。点が重複してもよいものとします。四点を $a,b,c,e$ の順に並べ、$ac,be$ を対角線とします。平面の図形を仮定しているわけではありません。
+特に [中点](../NPCG4/index.md#def-npcg4-midpoint) は $\gamma(1/2)$ で、両端までの距離は $D/2$ です。$D=0$ なら定数写像です。
+
+点が重複してもよいものとします。四点を $a,b,c,e$ の順に並べ、$ac,be$ を対角線とします。平面の図形を仮定しているわけではありません。
 
 <a id="thm-npcg6-quadrilateral"></a>
 
@@ -161,7 +165,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$D=d(x,y)$、$f(t)=d(z,\gamma(t))^2$、$g(t)=f(t)-D^2t^2$ と置きます。[任意比の二乗距離評価](../NPCG4/index.md#thm-npcg4-cn-interpolation) を時刻 $u,v$ の間の部分線分に適用します。その長さは [測地線分の距離条件](../NPCG2/index.md#def-npcg2-geodesic-segment) から $D|v-u|$ です。$u,v\in[0,1]$ を固定し、部分線分上の比率 $s\in[0,1]$ に対応する元の時刻を $w=(1-s)u+sv$ とすれば
+線分の長さを $D$、第三点までの二乗距離を $f$ とし、二次項を引いた関数を $g$ とします。
+
+$$
+D=d(x,y),\qquad f(t)=d(z,\gamma(t))^2,\qquad
+g(t)=f(t)-D^2t^2.
+$$
+
+$u,v\in[0,1]$ を固定します。この二時刻の間の部分線分の長さは [測地線分の距離条件](../NPCG2/index.md#def-npcg2-geodesic-segment) から $D|v-u|$ です。
+
+部分線分上の比率を $s\in[0,1]$ とすると、対応する元の時刻は $w=(1-s)u+sv$ です。[任意比の二乗距離評価](../NPCG4/index.md#thm-npcg4-cn-interpolation) をこの部分線分に適用すれば
 
 $$
 f(w)\le (1-s)f(u)+sf(v)-s(1-s)D^2(v-u)^2.
@@ -290,7 +303,15 @@ $$
 
 **定義の確認**
 
-[有限距離木](../NPCG3/index.md#def-npcg3-finite-metric-tree) の異なる二先端 $x,y$ を取ります。[有限距離木のCAT(0)性](../NPCG3/index.md#thm-npcg3-tree-cat-zero) により母空間は定義の仮定を満たします。二先端を結ぶ長さ $D=d(x,y)>0$ の測地線分を $\gamma:[0,1]\to X$ とします。$P=[0,D]\subset\mathbb R$ は二数の間の全ての値を含むので凸です。$F(u)=\gamma(u/D)$ とすると、$u/D$ は $[0,1]$ 全体を動くので像は空でない $C=[x,y]$ 全体です。[測地線分の距離条件](../NPCG2/index.md#def-npcg2-geodesic-segment) により任意の $u,v\in[0,D]$ で
+[有限距離木](../NPCG3/index.md#def-npcg3-finite-metric-tree) の異なる二先端 $x,y$ を取ります。[有限距離木のCAT(0)性](../NPCG3/index.md#thm-npcg3-tree-cat-zero) により母空間は定義の仮定を満たします。二先端を結ぶ長さ $D=d(x,y)>0$ の測地線分を $\gamma:[0,1]\to X$ とします。
+
+$P=[0,D]\subset\mathbb R$ は二数の間の全ての値を含むので凸です。写像を次のように定めます。
+
+$$
+F(u)=\gamma(u/D),\qquad u\in P.
+$$
+
+$u/D$ は $[0,1]$ 全体を動くので像は空でない $C=[x,y]$ 全体です。[測地線分の距離条件](../NPCG2/index.md#def-npcg2-geodesic-segment) により任意の $u,v\in[0,D]$ で
 
 $$
 d(F(u),F(v))=D|u/D-v/D|=|u-v|.
@@ -393,9 +414,37 @@ $$
 
 なので $w$ はその長い方の対角線上にあります。逆に各対角線は $P$ に含まれるので $P=D$ です。両方が零のときも $P=D=\{0\}$ です。距離を保つ写像 $F_0$ をそのまま使えます。
 
-**(2) 平行四辺形を埋める。** 以下 $U,V$ は同一直線上にないとします。任意の $w=\alpha U+\beta V$、$|\alpha|+|\beta|\le1$ は $D_1$ 上の点 $p$ と $D_2$ 上の点 $q$ の凸結合で書けます。実際 $|\beta|\le t\le 1-|\alpha|$ を選び、$0<t<1$ なら $p=\alpha U/(1-t),q=\beta V/t$ とすれば $w=(1-t)p+tq$ です。$t=0$ なら $\beta=0$ なので $p=w,q=0$、$t=1$ なら $\alpha=0$ なので $p=0,q=w$ と選べます。従って端点比率も含めて同じ表示が使えます。
+**(2) 平行四辺形を埋める。** 以下 $U,V$ は同一直線上にないとします。任意の $w=\alpha U+\beta V$、$|\alpha|+|\beta|\le1$ は $D_1$ 上の点 $p$ と $D_2$ 上の点 $q$ の凸結合で書けます。実際、次の範囲から比率を選びます。
 
-この表示に対し、まだ写像が一意に定まったとは限らないので、$F_0(p),F_0(q)$ の線分上の比率 $t$ の点を候補 $x$ と呼びます。二つの候補を比べます。もう一つの座標を $z=(1-s)r+sk$（$r\in D_1,k\in D_2,0\le s\le1$）とし、対応する候補を $y$ と書きます。[任意比の二乗距離評価](../NPCG4/index.md#thm-npcg4-cn-interpolation) を端点 $F_0(p),F_0(q)$、第三点 $y$ に適用すると
+$$
+|\beta|\le t\le 1-|\alpha|.
+$$
+
+$0<t<1$ の場合は
+
+$$
+p=\frac{\alpha U}{1-t},\qquad q=\frac{\beta V}{t}
+$$
+
+とします。比率の範囲により $|\alpha|/(1-t)\le1$ と $|\beta|/t\le1$ なので、それぞれの対角線上にあります。
+
+$$
+(1-t)p+tq=\alpha U+\beta V=w.
+$$
+
+$t=0$ なら $\beta=0$ なので $p=w,q=0$ と選べます。
+
+$t=1$ なら $\alpha=0$ なので $p=0,q=w$ と選べます。従って端点比率も含めて同じ表示が使えます。
+
+この表示に対し、まだ写像が一意に定まったとは限らないので、$F_0(p),F_0(q)$ の線分上の比率 $t$ の点を候補 $x$ と呼びます。二つの候補を比べます。もう一つの座標を
+
+$$
+z=(1-s)r+sk,\qquad r\in D_1,\ k\in D_2,\ 0\le s\le1
+$$
+
+とし、対応する候補を $y$ と書きます。
+
+[任意比の二乗距離評価](../NPCG4/index.md#thm-npcg4-cn-interpolation) を端点 $F_0(p),F_0(q)$、第三点 $y$ に適用すると
 
 $$
 d(x,y)^2\le(1-t)d(F_0(p),y)^2+td(F_0(q),y)^2-t(1-t)|p-q|_2^2.
@@ -710,7 +759,21 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[有限距離木の三枝構造](../NPCG3/index.md#thm-npcg3-tree-tripod) により経路は長さ4の測地線分です。中心を時刻0とし、一方の枝を負の座標、他方を正の座標とする写像 $F:[-2,2]\to X$ を選びます。同じ枝上なら距離は中心からの距離の差の絶対値、異なる枝なら中心経由なので $|u|+|v|=|u-v|$ です。従って任意の二時刻で $d(F(u),F(v))=|u-v|$ で、分離条件から単射、経路全体が像なので全射です。区間は凸なので [平坦な部分集合](#def-npcg6-flat-subset) です。$a=F(-2),c=F(2),b=F(-1),e=F(1)$ とすれば $S=1+9+1+9=20,T=16+4=20$ です。
+[有限距離木の三枝構造](../NPCG3/index.md#thm-npcg3-tree-tripod) により経路は長さ4の測地線分です。
+
+中心を時刻0とし、一方の枝を負の座標、他方を正の座標とする写像 $F:[-2,2]\to X$ を選びます。同じ枝上なら距離は中心からの距離の差の絶対値、異なる枝なら中心経由なので $|u|+|v|=|u-v|$ です。従って任意の二時刻で $d(F(u),F(v))=|u-v|$ で、分離条件から単射、経路全体が像なので全射です。区間は凸なので [平坦な部分集合](#def-npcg6-flat-subset) です。
+
+四点を次のように選びます。
+
+$$
+a=F(-2),\quad b=F(-1),\quad c=F(2),\quad e=F(1).
+$$
+
+従って
+
+$$
+S=1+9+1+9=20,\qquad T=16+4=20.
+$$
 
 一方、木全体の三先端 $x,y,z$ は相互距離4で、中点 $o$ は各先端から距離2です。[有限距離木のCAT(0)性](../NPCG3/index.md#thm-npcg3-tree-cat-zero) により [CN不等式](../NPCG4/index.md#thm-npcg4-cn) が成立しますが、$d(z,o)^2=4$ に対し右辺は $(16+16)/2-16/4=12$ で厳密です。平坦な部分集合では座標平均の像が中点で、座標ごとの平方展開から二乗距離の中点評価が等号となるはずです。従って木全体は平坦ではありません。
 <!-- solution-end -->
