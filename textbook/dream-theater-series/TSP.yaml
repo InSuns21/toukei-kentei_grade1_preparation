@@ -62,7 +62,7 @@ chapters:
     title: "行列積指数と漸近スペクトル：既知の上下界の意味"
   - id: TSP15
     path: textbook/volumes/dream_thater/計算系/TSP/TSP15
-    status: planned
+    status: completed
     title: "多partyテンソル・partyの併合とpush-forward：標準制限との比較"
   - id: TSP16
     path: textbook/volumes/dream_thater/計算系/TSP/TSP16

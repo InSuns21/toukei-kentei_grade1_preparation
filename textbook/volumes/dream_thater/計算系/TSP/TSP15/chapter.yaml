@@ -1,0 +1,24 @@
+id: "TSP15"
+title: "多partyテンソル・partyの併合とpush-forward：標準制限との比較"
+volume: foundations
+status: supplementary
+prerequisites: [TSP14]
+official_scope: []
+learning_objectives:
+  - 全射による因子併合を基底表示から計算し係数の可逆な再配置を説明できる
+  - 制限の保存を証明し逆向きの反例を構成できる
+  - 直和とKronecker積の両立性を制限同値で証明できる
+  - 階数と劣階数および漸近版を比較しスペクトル点の引き戻しの限界を説明できる
+definitions:
+  - { id: TSP15-DEF-01, name: "partyの併合" }
+theorems:
+  - { id: TSP15-THM-01, name: "併合による制限の保存" }
+  - { id: TSP15-THM-02, name: "併合と半環演算の両立性" }
+  - { id: TSP15-THM-03, name: "併合による階数と劣階数の比較" }
+  - { id: TSP15-THM-04, name: "併合によるスペクトル点の引き戻し" }
+canonical_examples: [非連続因子の併合, 制限保存の逆の反例, 混合座標の射影, 異なる平坦化]
+problem_patterns: [TSP15-A01, TSP15-A02, TSP15-A03, TSP15-A04, TSP15-B01, TSP15-B02, TSP15-B03, TSP15-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
