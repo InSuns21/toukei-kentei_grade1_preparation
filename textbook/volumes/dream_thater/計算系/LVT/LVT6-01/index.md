@@ -2,7 +2,7 @@
 
 前提講座：[LVT3-06 ゲーム規則の安全性](../LVT3-06/index.md)、[LVT5-08 差分検査の保証範囲と弱点](../LVT5-08/index.md)、[LVT2-08 定理探索・自動化・信頼境界](../LVT2-08/index.md)、[LVT5-04 Python：pytest + Hypothesis差分テスト](../LVT5-04/index.md)。
 
-前講では証明の対象、比較で観測する値、生成する入力の範囲を分けました。今回は実際の公開教材を読み、その証拠を取り出します。正しい定理「盤面の長さを変えない」だけから「盤面は常に九マス」と言えるでしょうか。初期状態と遷移を結び付けると、正確な主張に直せます。
+前講では証明の対象、比較で観測する値、生成する入力の範囲を分けました。今回は実際の公開教材を読み、その証拠を取り出します。命題「盤面の長さを変えない」だけから「盤面は常に九マス」と言えるでしょうか。初期状態と遷移を結び付けると、正確な主張に直せます。
 
 **ブラウザで実行：** [本講の実行ラボ](../browser-lab.html?chapter=LVT6-01)。リスト更新と帰納法の関係を試します。外部教材そのものの再現は第5節です。
 
@@ -84,12 +84,12 @@ applyMove s pos の戻り値 Except String GameState は error（理由文字列
 <!-- proof-start -->
 ### 証明
 
-[リスト盤面の成功到達状態](#def-lvt6-01-list-reachable) の生成規則に関する帰納法を行う。基底では s=initialState であり、外部定理 initial_board_length により s.board.length=9。
+[リスト盤面の成功到達状態](#def-lvt6-01-list-reachable) の生成規則に関する帰納法を行う。基底では s=initialState であり、外部の命題 initial_board_length により s.board.length=9。
 
-帰納段階では R(s) と applyMove s pos = ok t があり、帰納仮定 s.board.length=9 を得ているとする。外部定理 applyMove_preserves_board_length に s,t,pos と成功の等式を代入すると t.board.length=s.board.length。帰納仮定を右辺に代入すると t.board.length=9 を得る。二規則を尽くしたので任意の R(s) に対して成立する。
+帰納段階では R(s) と applyMove s pos = ok t があり、帰納仮定 s.board.length=9 を得ているとする。外部の命題 applyMove_preserves_board_length に s,t,pos と成功の等式を代入すると t.board.length=s.board.length。帰納仮定を右辺に代入すると t.board.length=9 を得る。二規則を尽くしたので任意の R(s) に対して成立する。
 <!-- proof-end -->
 
-[UpstreamAudit.lean](lab/UpstreamAudit.lean) は外部の Proofs を import し、二つの既存定理を実際に使ってこの結論を証明します。元の Proofs.lean にこの到達性定理があるわけではなく、追加の証明です。
+[UpstreamAudit.lean](lab/UpstreamAudit.lean) は第5節の補修後の Proofs を import し、二つの既存の主張を実際に使ってこの結論を証明します。元の Proofs.lean にこの到達性定理があるわけではなく、追加の証明です。
 
 ## 4. 仮定を外して反例を作る
 
@@ -105,22 +105,31 @@ applyMove s pos の戻り値 Except String GameState は error（理由文字列
 
 ~~~bash
 # 本教材リポジトリのルートから
-audit="$(pwd)/textbook/volumes/dream_thater/計算系/LVT/LVT6-01/lab/UpstreamAudit.lean"
+lab="$(pwd)/textbook/volumes/dream_thater/計算系/LVT/LVT6-01/lab"
 git clone https://github.com/kazunori279/lean4-tictactoe-test.git /tmp/lvt-upstream
 cd /tmp/lvt-upstream
 git checkout --detach c332ba3e2d2bf78edb993ae6acadcd83f927073e
 cd lean_spec
 lean --version
 lake update
+# 原版の失敗を観察する
+lake test
+# 以下は原版の証明スクリプトだけを補修して再実行
+python3 "$lab/repair_upstream_proofs.py" ..
+git diff --exit-code -- TicTacToe/Spec.lean Main.lean
 lake test
 lake build
-lake env lean "$audit"
+lake env lean "$lab/UpstreamAudit.lean"
 cd ..
 uv sync --locked
 uv run --locked pytest -v -rs
 ~~~
 
-期待する観察は lean --version に4.22.0、lake test と lake build の成功、追加証明と短い盤面の #guard の成功、pytest の7テスト成功で skip が0であることです。追加ファイルの #print axioms で [Leanの公理依存](../LVT2-08/index.md#def-lvt2-08-axioms) も確認できます。
+指定版4.22.0で原版の lake test を実行すると、Proofs.lean の二つの拒否証明で未解決のゴール、長さ保存の証明で split の失敗、二つの拒否例で BEq (Except String GameState) の不足が生じます。したがって原版の六つの宣言をすべて検証済みとは扱えません。
+
+[補修スクリプト](lab/repair_upstream_proofs.py) は定理の仮定・結論と実行仕様を変えません。終了状態の証明では status の三構成子を場合分けして Bool の不等号が true になることを示し、継続状態では ongoing 同士の不等号が false と計算されることを示します。長さ保存の枝では let に束縛された盤面を展開してから split します。拒否例は Except を場合分けし、error の文字列だけを比較します。変更は一時チェックアウトの Proofs.lean に限定します。
+
+原版の失敗と補修後の検査は別の証拠です。補修後の期待値は lake test と lake build の成功、追加証明と短い盤面の #guard の成功、pytest の7テスト成功で skip が0であることです。追加ファイルの #print axioms で [Leanの公理依存](../LVT2-08/index.md#def-lvt2-08-axioms) も確認できます。
 
 Proofs.lean の #guard は上段勝利、引分、占有マス拒否、勝利後拒否の四具体例。Python の test_unit.py はこれらと範囲外拒否の五例です。具体例はすべての着手列に対する theorem ではありません。
 
@@ -139,7 +148,7 @@ Proofs.lean の #guard は上段勝利、引分、占有マス拒否、勝利後
 
 | 証拠 | 主張できる範囲 | 別途必要な確認 |
 |---|---|---|
-| 六つの外部 theorem | 外部仕様内、各仮定下 | 要求の整合性、到達範囲 |
+| 補修後の六つの theorem | 外部仕様内、各仮定下 | 要求の整合性、到達範囲 |
 | 追加の到達性定理 | 成功到達状態の長さ9 | 勝敗・手番の整合性 |
 | #guard、単体テスト | 明示した具体例 | 他の入力 |
 | pytest差分一致 | 実行された列と結果辞書 | 全入力、途中の副作用、共通バグ |
@@ -274,7 +283,7 @@ status が ongoing なので第一枝は偽。3<9 でマス3は空なので第�
 
 比較対象は初期状態からの着手列であり任意の GameState ではない。ランダム生成は0〜11、最大長12、順列生成は0〜8で、負整数も未比較である。Python は -1 を out_of_bounds とするが Lean の JSON 入力は Nat のため -1 を有効な着手列として受け取らない。この境界では仕様を揃えて別に試験する。最終結果の error だけでは途中の状態変化は分からないので、接頭列の結果を保存するか遷移ごとに観測する。
 
-最後に lake test で theorem と #guard を確認し、lake build 後の pytest で五単体・二差分テストが実際に成功し skip が0か確認する。短い盤面、盤面と status の矛盾、負整数を追試する。適切な主張は「Lean 仕様の六定理が各仮定で成立し、追加証明で成功到達状態の長さ9が保証される。Python は実行した着手列について結果辞書が一致した」である。全入力での Python の安全性を主張するには要求・入力対応・実装との対応を追加で証明する。
+最後に原版の lake test の失敗を記録し、第5節の補修後に theorem と #guard を確認し、lake build 後の pytest で五単体・二差分テストが実際に成功し skip が0か確認する。短い盤面、盤面と status の矛盾、負整数を追試する。適切な主張は「補修後の Lean 仕様の六定理が各仮定で成立し、追加証明で成功到達状態の長さ9が保証される。Python は実行した着手列について結果辞書が一致した」である。全入力での Python の安全性を主張するには要求・入力対応・実装との対応を追加で証明する。
 <!-- solution-end -->
 
 ## 7. 次の講義へ
