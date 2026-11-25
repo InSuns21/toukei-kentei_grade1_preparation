@@ -1,0 +1,26 @@
+id: "FML3"
+title: "多変数多項式・環準同型・算術回路の形式化"
+volume: foundations
+status: supplementary
+prerequisites: [FML2, AG1-01, AG1-02, AG1-03, ACOMP1, ACOMP2, ACOMP3, ACOMP4]
+official_scope: []
+learning_objectives:
+  - MvPolynomial の係数と評価値を区別する
+  - 有限体で異なる多項式が同じ関数を定めることを証明する
+  - 変数と係数の像を指定する評価準同型を使う
+  - 型付きのレジスタ列で共有を表し演算サイズを数える
+  - 回路の評価と準同型の交換を帰納法で証明する
+definitions:
+  - { id: FML3-DEF-01, name: "Leanでの多変数多項式表示" }
+  - { id: FML3-DEF-02, name: "型付き算術命令列" }
+propositions:
+  - { id: FML3-PROP-01, name: "係数と変数の同時評価" }
+  - { id: FML3-PROP-02, name: "二元体での形式多項式と評価の不一致" }
+theorems:
+  - { id: FML3-THM-01, name: "型付き算術命令列の評価と準同型の交換" }
+canonical_examples: ["二元体の二乗", "共有した和の二乗と加算"]
+problem_patterns: [FML3-A01, FML3-A02, FML3-A03, FML3-A04, FML3-A05, FML3-B01, FML3-B02, FML3-B03, FML3-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 1 }
