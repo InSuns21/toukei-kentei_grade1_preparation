@@ -1,0 +1,35 @@
+version: 1
+id: FML
+title: "形式数学・Lean 4"
+plan: textbook/plans_progress/DREAM_THEATER_FORMAL_MATHEMATICS_LEAN_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+chapters:
+  - id: FML1
+    path: textbook/volumes/dream_thater/計算系/FML/FML1
+    status: completed
+    title: "Mathlib・有限集合・Fin・順列・有限和の形式化"
+  - id: FML2
+    path: textbook/volumes/dream_thater/計算系/FML/FML2
+    status: planned
+    title: "抽象代数学の形式化"
+  - id: FML3
+    path: textbook/volumes/dream_thater/計算系/FML/FML3
+    status: planned
+    title: "多変数多項式・環準同型・算術回路の形式化"
+  - id: FML4
+    path: textbook/volumes/dream_thater/計算系/FML/FML4
+    status: planned
+    title: "距離・完備性・極限・Laurent級数の形式化"
+  - id: FML5
+    path: textbook/volumes/dream_thater/計算系/FML/FML5
+    status: planned
+    title: "数学的定理の依存関係と公理監査"
+  - id: FML6
+    path: textbook/volumes/dream_thater/計算系/FML/FML6
+    status: planned
+    title: "Comparator・独立kernel・再現検証"
+  - id: FML7
+    path: textbook/volumes/dream_thater/計算系/FML/FML7
+    status: planned
+    title: "研究論文の形式化・自然言語との照合・証明監査"

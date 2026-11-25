@@ -1,0 +1,31 @@
+chapter: FML1
+scope: dream-theater
+coverage: complete
+prerequisites: [LVT1-05, LVT2-08, COMB1, COMB2, COMB3]
+forward_references: []
+concepts:
+  - id: formal-math.finset-representation
+    name: Leanの有限集合表現
+    kind: definition
+    introduction: formal
+    requires: [combinatorics.finite-cardinality]
+  - id: formal-math.fintype-enumeration
+    name: Leanの有限型の全列挙
+    kind: definition
+    introduction: formal
+    requires: [formal-math.finset-representation, lean-verification.fin-index]
+  - id: formal-math.perm-representation
+    name: Leanの順列表現
+    kind: definition
+    introduction: formal
+    requires: [set.bijection, combinatorics.ordered-selection]
+  - id: formal-math.sum-reindex
+    name: 有限和の双射による添字交換
+    kind: theorem
+    introduction: formal
+    requires: [formal-math.fintype-enumeration, formal-math.perm-representation]
+  - id: formal-math.perm-inverse-fixed
+    name: 順列と逆写像の固定点一致
+    kind: proposition
+    introduction: formal
+    requires: [formal-math.perm-representation, combinatorics.derangement]
