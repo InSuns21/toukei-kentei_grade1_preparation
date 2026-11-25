@@ -185,7 +185,7 @@ $$
 0\le\mu_u([0,a])\le M_v e^{-(\Delta-a)t}.
 $$
 
-$\Delta-a>0$ だから $t\to\infty$ で右辺が零になり、$\mu_u([0,a])=0$。$a_n=\Delta(1-1/n)$、$n\ge1$ と選べば $[0,a_n]$ は増大して $[0,\Delta)$ を尽くす。測度の下からの連続性より $\mu_u([0,\Delta))=0$ となる。
+$\Delta-a>0$ だから $t\to\infty$ で右辺が零になり、$\mu_u([0,a])=0$。$a_n=\Delta(1-1/n)$、$n\ge1$ と選べば $[0,a_n]$ は増大して $[0,\Delta)$ を尽くす。測度の[下からの連続性](../../../解析系/F0/F0-00D2/index.md#thm-f0-00d2-01)より $\mu_u([0,\Delta))=0$ となる。
 
 $R=E_H([0,\Delta))$ と置くと $\|RQv\|^2=0$、すなわち $RQv=0$ である。線形性から $R$ は $\operatorname{span}(Q\mathcal V)$ を消す。任意の $z\in\mathcal K$ に対し $z_n$ をその線形包から選んで $\|z-z_n\|\to0$ とする。直交射影の作用素ノルムは1以下だから
 
