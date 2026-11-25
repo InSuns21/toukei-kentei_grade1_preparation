@@ -318,7 +318,7 @@ CAT(0)空間で非空測地線凸集合 $C$ と点 $x$ について $d(x,C)=5$ �
 <!-- solution-start -->
 #### 詳細解答
 
-中点 $m$ は [測地線凸集合の定義](../NPCG5/index.md#def-npcg5-geodesically-convex-set) により $C$ に属し、[集合への距離の定義](#def-npcg7-metric-projection) から $d(x,m)^2\ge25$ です。[CN不等式](../NPCG4/index.md#thm-npcg4-cn) を $a,b,x$ に適用すると
+中点 $m$ は [測地線凸集合の定義](../NPCG5/index.md#def-npcg5-geodesically-convex-set) により $C$ に属し、[距離射影の定義](#def-npcg7-metric-projection) にある集合への距離の下限表示から $d(x,m)^2\ge25$ です。[CN不等式](../NPCG4/index.md#thm-npcg4-cn) を $a,b,x$ に適用すると
 
 $$
 25\le(25.09+25.16)/2-d(a,b)^2/4.
