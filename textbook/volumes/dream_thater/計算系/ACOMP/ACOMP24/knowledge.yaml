@@ -1,0 +1,24 @@
+chapter: ACOMP24
+scope: dream-theater
+coverage: complete
+prerequisites: [ACOMP23, CPLX21, GCT11]
+forward_references: []
+concepts:
+  - id: algebraic-complexity.verifier-count-polynomial
+    name: "Boolean検証回路の低次数計数表現"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Boolean検証回路の低次数計数表現）"]
+    requires: [theoretical-computer-science.boolean-circuit, graph-counting.sharp-p, algebraic-complexity.vnp]
+  - id: algebraic-complexity.prime-field-count-circuit
+    name: "固定素体上の代数的クラス一致からの剰余計数回路"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定素体上の代数的クラス一致からの剰余計数回路）"]
+    requires: [algebraic-complexity.verifier-count-polynomial, algebraic-complexity.vp, theoretical-computer-science.class-p-poly, theoretical-computer-science.uniform-circuit-p]
+  - id: algebraic-complexity.integer-permanent-bit-simulation
+    name: "整数定数パーマネント回路からの厳密ビット計算"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（整数定数パーマネント回路からの厳密ビット計算）"]
+    requires: [algebraic-complexity.constant-model, graph-counting.valiant-permanent-completeness, graph-counting.reduction-fp-transfer, graph-counting.counting-np-support, theoretical-computer-science.p-poly-advice]

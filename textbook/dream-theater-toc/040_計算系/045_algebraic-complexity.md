@@ -24,3 +24,4 @@
 21. [ACOMP21 形式冪級数・Laurent級数・付値：定数の極と係数の極限](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP21/index.md)
 22. [ACOMP22 border complexity・退化・Zariski閉包：体と同値条件を区別](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP22/index.md)
 23. [ACOMP23 GCTへの入口：Zariski軌道閉包・determinantal complexity・表現論の役割](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP23/index.md)
+24. [ACOMP24 Boolean P vs NP・P/poly・#Pとの条件付き含意、既知の証明障壁と総合演習](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP24/index.md)

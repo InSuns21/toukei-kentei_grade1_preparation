@@ -1,0 +1,22 @@
+id: "ACOMP24"
+title: "Boolean P vs NP・P/poly・#Pとの条件付き含意、既知の証明障壁と総合演習"
+volume: "foundations"
+status: supplementary
+prerequisites: [ACOMP23, CPLX21, GCT11]
+official_scope: []
+learning_objectives:
+  - 判定・厳密計数・剰余計数と一様性の違いを説明できる
+  - Boolean検証回路を低次数のVNP族として構成し一意な候補列による計数を証明できる
+  - 固定素体での剰余計数と整数定数回路での厳密計数の条件付き含意を証明できる
+  - 制限回路下界とBoolean側の証明障壁の適用範囲を区別できる
+definitions: []
+theorems:
+  - { id: ACOMP24-THM-01, name: "Boolean検証回路の低次数計数表現" }
+  - { id: ACOMP24-THM-02, name: "固定素体上の代数的クラス一致からの剰余計数回路" }
+  - { id: ACOMP24-THM-03, name: "整数定数パーマネント回路からの厳密ビット計算" }
+canonical_examples: [OR検証回路の計数, 法2と法3での計数の差, 整数剰余による厳密復元]
+problem_patterns: [ACOMP24-A1, ACOMP24-A2, ACOMP24-A3, ACOMP24-A4, ACOMP24-B1, ACOMP24-B2, ACOMP24-B3, ACOMP24-B4, ACOMP24-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 1 }
