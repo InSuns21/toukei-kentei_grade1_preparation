@@ -1359,8 +1359,8 @@ $$
 
 <a id="def-geo18-simply-connected"></a>
 <!-- formal-statement-start -->
-> **定義（単連結）**  
-> 位相空間 $X$ が **単連結**であるとは、
+> **定義（単連結性の再掲）**  
+> [単連結性](../../ATOP/ATOP4/index.md#def-atop4-simply-connected) を閉曲線の言葉で述べ直す。非空な位相空間 $X$ が **単連結**であるとは、
 >
 > 1. $X$ が弧状連結であり、
 > 2. 任意の閉曲線
@@ -1373,7 +1373,7 @@ $$
 >
 > が、端点 $p$ を保ったまま定値曲線へホモトピーで縮められる
 >
-> ことをいう。
+> ことをいう。これは任意の基点で基本群が一元群であるという条件と同じである。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo18-simply-connected -->
