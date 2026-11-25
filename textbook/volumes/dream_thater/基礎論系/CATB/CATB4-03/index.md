@@ -10,7 +10,7 @@
 
 ## 2. 合成を同型で比較する
 
-各点 $b$ に圏 $\mathcal F_b$ を置き、各 $u:a\to b$ に関手 $u^*:\mathcal F_b\to\mathcal F_a$ を置く。関手の対象・射への作用はそれぞれ $u^*y=u^*(y)$、$u^*h=u^*(h)$ と略記する。これは[反変関手](../../CAT/CAT1-06/index.md#def-cat1-06-contravariant)と同じ向きである。すなわち基底の[反対圏](../../CAT/CAT1-04/index.md#def-cat1-04-opposite) $\mathcal B^{op}$ から $\mathbf{Cat}$ へ向かう。ここで $uv=u\circ v$ と書く。ただし普通の関手のように二段と直接の合成の等号を要求せず、[自然同型](../../CAT/CAT1-07/index.md#def-cat1-07-natural-isomorphism)で比較する。自然であるとは、対象ごとの比較だけでなく、対象間の射を移す操作とも可換であることをいう。
+各点 $b$ に圏 $\mathcal F_b$ を置き、各 $u:a\to b$ に関手 $u^*:\mathcal F_b\to\mathcal F_a$ を置く。$y\in\mathcal F_b$ と同じ圏の射 $h:y\to z$ に対して、関手の対象・射への作用はそれぞれ $u^*y=u^*(y)$、$u^*h=u^*(h)$ と略記する。これは[反変関手](../../CAT/CAT1-06/index.md#def-cat1-06-contravariant)と同じ向きである。すなわち基底の[反対圏](../../CAT/CAT1-04/index.md#def-cat1-04-opposite) $\mathcal B^{op}$ から $\mathbf{Cat}$ へ向かう。ここで $uv=u\circ v$ と書く。ただし普通の関手のように二段と直接の合成の等号を要求せず、[自然同型](../../CAT/CAT1-07/index.md#def-cat1-07-natural-isomorphism)で比較する。自然であるとは、対象ごとの比較だけでなく、対象間の射を移す操作とも可換であることをいう。
 
 $u:a\to b,v:c\to a,w:d\to c$ を取る。二段から直接への比較を $\alpha_{v,u}$、恒等基底射に沿う操作から何もしない操作への比較を $\epsilon_b$ と書く。自然変換の成分を表す最後の添字は対象である。$y\in\mathcal F_b$ に対して
 
@@ -61,7 +61,7 @@ $$
 左辺と右辺の三重合成はともに $w^*v^*u^*y\to(uvw)^*y$ である。左辺の中間点は $w^*(uv)^*y$、右辺の中間点は $(vw)^*u^*y$ になる。単位条件の第一式は $(1_a)^*u^*y\to u^*y$、第二式は $u^*(1_b)^*y\to u^*y$ の射の等号である。単位の向きを逆に選ぶ流儀もあるが、本講では上の向きを一貫して使う。
 
 <!-- definition-example-start: def-catb4-03-indexed -->
-**定義の確認**。基底を固定した無限集合 $U$ の有限部分集合とその間の写像の圏とする。各基底対象 $b$ に対し、値の圏 $\mathcal F_b$ の対象は $b$ で添字付けた有限集合の族、射 $h:Y\to Z$ は各成分の写像 $h_j:Y_j\to Z_j$ の族とする。恒等射と合成は成分ごとに定める。これは[集合族のファイブレーション](../CATB4-01/index.md#thm-catb4-01-families)のファイバーを、成分集合を $U$ の有限部分集合に限定して取り出したものである。対象と射の集まりは集合となるので各値は小圏になる。$b$ 上の族 $Y=(Y_j)_{j\in b}$ に対し、$u^*Y$ の $i$ 成分は $Y_{u(i)}$、成分写像 $h$ に対して $(u^*h)_i=h_{u(i)}$ とする。
+**定義の確認**。基底を固定した無限集合 $U$ の有限部分集合とその間の写像の圏とする。各基底対象 $b$ に対し、値の圏 $\mathcal F_b$ の対象は $b$ で添字付けた有限集合の族、射 $h:Y\to Z$ は各成分の写像 $h_j:Y_j\to Z_j$ の族とする。恒等射と合成は成分ごとに定める。これは[集合族のファイブレーション](../CATB4-01/index.md#thm-catb4-01-families)のファイバーを、成分集合を $U$ の有限部分集合に限定して取り出したものである。対象と射の集まりは集合となるので各値は小圏になる。$b$ 上の族 $Y=(Y_j)_{j\in b}$ に対し、$u:a\to b$ に対し、$u^*Y$ の $i\in a$ 成分は $Y_{u(i)}$、成分写像 $h$ に対して $(u^*h)_i=h_{u(i)}$ とする。
 
 [関手の二条件](../../CAT/CAT1-06/index.md#def-cat1-06-functor)を、任意の族 $Y$ と合成可能な成分写像族 $h:Y\to Z$、$k:Z\to T$ で確かめる。恒等写像の成分は
 
@@ -76,7 +76,17 @@ $$
 =(u^*k)_i(u^*h)_i
 $$
 
-となるから関手である。二段と直接では対象成分が $Y_{u(v(i))}$、射成分が $h_{u(v(i))}$ で一致し、恒等基底射では添字が変わらない。従って比較をすべて恒等射にできる。任意の射 $h:Y\to Z$ に対して、二段と直接の関手が一致するから、比較の[自然性](../../CAT/CAT1-07/index.md#def-cat1-07-natural-transformation)は
+となるから関手である。さらに $v:c\to a$ と $i\in c$ に対して、二段と直接を成分ごとに比べる。
+
+$$
+(v^*u^*Y)_i=Y_{u(v(i))}=((uv)^*Y)_i,
+$$
+
+$$
+(v^*u^*h)_i=h_{u(v(i))}=((uv)^*h)_i.
+$$
+
+従って対象と射の両方で一致する。恒等基底射では添字が変わらない。従って比較をすべて恒等射にできる。任意の射 $h:Y\to Z$ に対して、二段と直接の関手が一致するから、比較の[自然性](../../CAT/CAT1-07/index.md#def-cat1-07-natural-transformation)は
 
 $$
 (uv)^*h\,1_{(uv)^*Y}
@@ -91,7 +101,7 @@ $$
 
 ## 3. 持ち上げの一意性から整合条件を導く
 
-前講の[選んだ持ち上げの比較同型](../CATB4-02/index.md#thm-catb4-02-comparison)では、二段と直接の比較が垂直同型であることを証明した。[ファイブレーション](../CATB4-01/index.md#def-catb4-01-fibration)の[cleavage](../CATB4-02/index.md#def-catb4-02-cleavage)は、基底射 $u:a\to b$ と $p(y)=b$ に対して[Cartesian射](../CATB4-01/index.md#def-catb4-01-cartesian) $\chi_{u,y}:u^*y\to y$ を一つ選ぶデータである。ここでは、比較の自然性と三重合成の一致を、同じ終点への持ち上げを通した因子分解で証明する。
+前講の[選んだ持ち上げの比較同型](../CATB4-02/index.md#thm-catb4-02-comparison)では、二段と直接の比較が垂直同型であることを証明した。[ファイブレーション](../CATB4-01/index.md#def-catb4-01-fibration)の[cleavage](../CATB4-02/index.md#def-catb4-02-cleavage)は、基底射 $u:a\to b$ と $p(y)=b$ に対して[Cartesian射](../CATB4-01/index.md#def-catb4-01-cartesian) $\chi_{u,y}:u^*y\to y$ を一つ選ぶデータである。ここで[ファイバー圏](../CATB4-01/index.md#def-catb4-01-fiber) $\mathcal E_b$ は基底が $b$ の対象と基底が $1_b$ の射（垂直射）からなる。ここでは、比較の自然性と三重合成の一致を、同じ終点への持ち上げを通した因子分解で証明する。
 
 <a id="thm-catb4-03-fibration"></a>
 
@@ -234,7 +244,7 @@ $$
 
 - Level: A
 
-第2節の例で、$U$ は以下の元をすべて含むとし、添字集合を $b=\{0,1\},a=\{r,s\},c=\{t\}$ とし、写像と族を次で指定する。
+第2節の例で、$U$ は以下の元をすべて含むとし、添字集合を $b=\{0,1\},a=\{r,s\},c=\{t\}$ とする。写像と族を次で指定する。
 
 $$
 u(r)=1,\quad u(s)=0,\quad v(t)=s,
@@ -306,10 +316,18 @@ $u:a\to b$ と $y\in\mathcal F_b$ について、二つの単位条件の始域�
 
 - Level: B
 
-基底を $0\to1\to2$ とし、全圏を非負整数全体 $\mathbb N_0=\{0,1,2,\ldots\}$ の有限部分集合と写像の圏、および基底の[積圏](../../CAT/CAT1-05/index.md#def-cat1-05-product)とする。基底への関手 $p$ は第二成分を取る。$u:1\to2,v:0\to1$。通常は恒等写像で持ち上げ、終点の集合が $S=\{0,1\}$ で基底が $uv$ の場合だけ入替写像 $s:S\to S$（$s(0)=1,s(1)=0$）を選ぶ。$h:S\to T=\{0,1,2\}$ を $h(0)=0,h(1)=2$ とし、$\alpha$ の自然性を第一成分で確認せよ。
+基底を $0<1<2$ の順序圏とし、全圏を非負整数全体 $\mathbb N_0=\{0,1,2,\ldots\}$ の有限部分集合と写像の圏、および基底の[積圏](../../CAT/CAT1-05/index.md#def-cat1-05-product)とする。基底への関手 $p$ は第二成分を取る。$u:1\to2,v:0\to1$。通常は恒等写像で持ち上げ、終点の集合が $S=\{0,1\}$ で基底が $uv$ の場合だけ入替写像 $s:S\to S$（$s(0)=1,s(1)=0$）を選ぶ。$h:S\to T=\{0,1,2\}$ を $h(0)=0,h(1)=2$ とし、$\alpha$ の自然性を第一成分で確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** 基底射 $q:a\to b$ に沿う選んだ持ち上げを $(f,q):(X,a)\to(X,b)$ と書く。$f$ は恒等写像または入替写像なので全単射である。任意の $(g,qr):(Z,c)\to(X,b)$ と基底射 $r:c\to a$ に対し、媒介射 $(k,r)$ の条件は $fk=g$ であり、$k=f^{-1}g$ に一意に定まる。よって[Cartesian射の定義](../CATB4-01/index.md#def-catb4-01-cartesian)を満たす。$u,v$ では両集合の持ち上げが恒等だから $v^*u^*h=h$。直接の再添字付けでは終点 $T$ の持ち上げが恒等、始域 $S$ の持ち上げが $s$ なので、[再添字付け関手](../CATB4-02/index.md#thm-catb4-02-reindex)の式から $(uv)^*h=hs$。[比較同型の定義式](#thm-catb4-03-fibration)の第一成分は $s\alpha_S=1_S$、$1_T\alpha_T=1_T$ である。ここで $\alpha_S=\alpha_{v,u,S}$、$\alpha_T=\alpha_{v,u,T}$ と略記した。従って比較は $S$ で $s^{-1}=s$、$T$ で恒等である。従って
+**詳細解答。** 基底射 $q:a\to b$ に沿う選んだ持ち上げを $(f,q):(X,a)\to(X,b)$ と書く。$f$ は恒等写像または入替写像なので全単射である。任意の $(g,qr):(Z,c)\to(X,b)$ と基底射 $r:c\to a$ に対し、媒介射 $(k,r)$ の条件は $fk=g$ であり、$k=f^{-1}g$ に一意に定まる。よって[Cartesian射の定義](../CATB4-01/index.md#def-catb4-01-cartesian)を満たす。
+
+$u,v$ では両集合の持ち上げが恒等だから $v^*u^*h=h$。直接の再添字付けでは終点 $T$ の持ち上げが恒等、始域 $S$ の持ち上げが $s$ なので、[再添字付け関手](../CATB4-02/index.md#thm-catb4-02-reindex)の式から $(uv)^*h=hs$。[比較同型の定義式](#thm-catb4-03-fibration)を使う。ここで $\alpha_S=\alpha_{v,u,S}$、$\alpha_T=\alpha_{v,u,T}$ と略記する。比較の定義式の第一成分は
+
+$$
+s\alpha_S=1_S,\qquad 1_T\alpha_T=1_T.
+$$
+
+従って比較は $S$ で $s^{-1}=s$、$T$ で恒等である。自然性の両辺は
 
 $$
 (uv)^*h\,\alpha_S=hss=h,\qquad
@@ -415,7 +433,7 @@ $$
 \end{aligned}
 $$
 
-ここで $\widetilde v^*$ は $\theta_{u,y}:u^*y\to\widetilde u^*y$ を新しい選択で移している。三番目の等号はこの垂直射に対する[再添字付け関手](../CATB4-02/index.md#thm-catb4-02-reindex)の定義式を用いた。両媒介射の基底は $1_c$ であり、$\widetilde\chi_{uv,y}$ のCartesian性から等しい。単位についても $\widetilde\epsilon_{b,y}\theta_{1_b,y}=\epsilon_{b,y}$ が $\theta$ の定義そのものである。このように選択を変えても比較を含む整合した対応が得られる。
+ここで $\widetilde v^*$ は $\theta_{u,y}:u^*y\to\widetilde u^*y$ を新しい選択で移している。二番目の等号はこの垂直射に対する[再添字付け関手](../CATB4-02/index.md#thm-catb4-02-reindex)の定義式を用いた。両媒介射の基底は $1_c$ であり、$\widetilde\chi_{uv,y}$ のCartesian性から等しい。単位についても $\widetilde\epsilon_{b,y}\theta_{1_b,y}=\epsilon_{b,y}$ が $\theta$ の定義そのものである。このように選択を変えても比較を含む整合した対応が得られる。
 <!-- solution-end -->
 
 ## 6. まとめ
