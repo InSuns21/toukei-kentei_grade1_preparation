@@ -139,7 +139,7 @@ $$
 \end{aligned}
 $$
 
-ここで実部 $a>0$ のため無限遠の指数項は零です。$\widehat h$ も可積分です。ただし $h$ 自体は原点で滑らかでないため、Schwartz 関数に対する逆変換の定理をそのまま $h$ に適用しません。Schwartz 関数 $\psi$ に対し [Fourier逆変換](../MQFC1/index.md#thm-mqfc1-fourier) を $\psi$ に適用します。$h$ と $\widehat\psi$ が可積分なので、[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) を実部と虚部に適用して積分順序を交換できます。
+ここで実部 $a>0$ のため無限遠の指数項は零です。$\widehat h$ も可積分です（無限遠で $p^{-2}$ のオーダーであり、原点付近では $a^{-2}$ 以下です）。ただし $h$ 自体は原点で滑らかでないため、Schwartz 関数に対する逆変換の定理をそのまま $h$ に適用しません。Schwartz 関数 $\psi$ に対し [Fourier逆変換](../MQFC1/index.md#thm-mqfc1-fourier) を $\psi$ に適用します。$h$ と $\widehat\psi$ が可積分なので、[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) を実部と虚部に適用して積分順序を交換できます。
 
 $$
 \begin{aligned}
@@ -168,7 +168,14 @@ $a=\varepsilon_k$ とすると、時間差 $\tau=t-s$ での共分散は $e^{-\v
 
 <!-- formal-statement-start -->
 > **定理（自由場の反射共分散の因子分解）**
-> $d\ge1$、$m>0$ とし、$f,g\in\mathcal S(\mathbb R^d)$ は正時間に台を持つ複素試験関数とする。$\widetilde f(t,k)=\int_{\mathbb R^{d-1}}e^{-ik\cdot x}f(t,x)dx$ を空間 Fourier 変換、$B_m$ を [Euclid自由場の試験関数共分散](../MQFC5/index.md#def-mqfc5-covariance-form)、$\theta f(t,x)=f(-t,x)$ を時間反転とする。$\varepsilon_k=\sqrt{|k|^2+m^2}$ として
+> $d\ge1$、$m>0$ とし、$f,g\in\mathcal S(\mathbb R^d)$ は正時間に台を持つ複素試験関数とする。$B_m$ を [Euclid自由場の試験関数共分散](../MQFC5/index.md#def-mqfc5-covariance-form)、$(\theta f)(t,x)=f(-t,x)$ を時間反転とする。$k\in\mathbb R^{d-1}$ に対する空間 Fourier 変換とエネルギーを
+
+$$
+\widetilde f(t,k)=\int_{\mathbb R^{d-1}}e^{-ik\cdot x}f(t,x)dx,
+\qquad \varepsilon_k=\sqrt{|k|^2+m^2}
+$$
+
+> とし、$d=1$ では空間変数と空間積分を省く。さらに
 
 $$
 L_m f(k)=\int_0^\infty e^{-\varepsilon_k t}\widetilde f(t,k)\,dt
@@ -338,7 +345,15 @@ E[(D^{1/2}\xi)(D^{1/2}\xi)^{\mathsf T}]
 =D^{1/2}I_nD^{1/2}=D.
 $$
 
-線形結合の特性関数も $E[e^{it^{\mathsf T}D^{1/2}\xi}]=e^{-t^{\mathsf T}Dt/2}$ になります。ここで $t\in\mathbb R^n$ は特性関数の引数であり、Euclid 時間ではありません。零固有値があっても逆行列を使わないので構成できます。
+独立な標準正規成分の特性関数を掛け合わせれば、特性関数の引数 $\eta\in\mathbb R^n$ に対して
+
+$$
+E[e^{i\eta^{\mathsf T}D^{1/2}\xi}]
+=\prod_{j=1}^n e^{-(D^{1/2}\eta)_j^2/2}
+=e^{-\eta^{\mathsf T}D\eta/2}
+$$
+
+になります。零固有値があっても逆行列を使わないので構成できます。
 
 独立な中心化 Gaussian ベクトル $Z,U,V$ を用意し、それぞれの共分散を $K,A-K,A-K$ とします。$(Z+U,Z+V)$ の各周辺共分散は $K+(A-K)=A$、相互共分散は独立性と中心化により $K$ です。例えば $E[(Z_i+U_i)(Z_j+V_j)]=E[Z_iZ_j]$ です。両方の結合ベクトルは中心化 Gaussian で、共分散が同じです。実列ベクトル $u,v\in\mathbb R^n$ を特性関数の引数に取ると、いずれも
 
@@ -383,7 +398,11 @@ $$
 =a^2+2k^2-2a^2+a^2=2k^2.
 $$
 
-共通成分 $Z$ の共分散を $k$ とする上の分解でも、$E_U[(Z+U)^2-a]=Z^2-k$ です。その二乗平均は、[Wick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) により $E[Z^4]=3k^2$ なので
+[Gaussian場の多項式反射陽性](#thm-mqfc8-gaussian-extension) の証明と同じく、共通成分 $Z$ の分散を $k$、残差 $U$ の分散を $a-k$ とします。$E_U$ は $Z$ を固定して $U$ の分布だけで平均する記号です。中心化により $E_U[U]=0$ なので
+
+$$
+E_U[(Z+U)^2-a]=Z^2+2ZE_U[U]+(a-k)-a=Z^2-k.
+$$その二乗平均は、[Wick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) により $E[Z^4]=3k^2$ なので
 
 $$
 E[(Z^2-k)^2]=3k^2-2kE[Z^2]+k^2=2k^2
@@ -552,7 +571,16 @@ $$
 E[YVXT]=E[YV]E[XT]+E[YX]E[VT]+E[YT]E[VX]=a^2.
 $$
 
-従って $(F,F)_\theta=a^2-2a^2+a^2=0$ です。次に $Y,V,T,T$ に適用すると
+従って
+
+$$
+\begin{aligned}
+(F,F)_\theta
+&=E[(YV-a)(XT-a)]\\
+&=E[YVXT]-aE[YV]-aE[XT]+a^2\\
+&=a^2-2a^2+a^2=0.
+\end{aligned}
+$$次に $Y,V,T,T$ に適用すると
 
 $$
 E[YVT^2]=ab+2E[YT]E[VT]=ab.
@@ -575,7 +603,16 @@ $$
 E[V^2T^2]=b^2+2c^2
 $$
 
-なので $(G,G)_\theta=b^2+2c^2-2b^2+b^2=2c^2>0$ です。一次の零方向を含む積を中心化すると今回の $F$ は零方向になります。一方 $G$ は正の長さを持ちます。通常の確率変数として $F$ が零と結論することはできません。
+なので
+
+$$
+\begin{aligned}
+(G,G)_\theta
+&=E[(V^2-b)(T^2-b)]\\
+&=E[V^2T^2]-bE[V^2]-bE[T^2]+b^2\\
+&=b^2+2c^2-2b^2+b^2=2c^2>0.
+\end{aligned}
+$$一次の零方向を含む積を中心化すると今回の $F$ は零方向になります。一方 $G$ は正の長さを持ちます。通常の確率変数として $F$ が零と結論することはできません。
 <!-- solution-end -->
 
 ## 5. 次の講義
