@@ -1,0 +1,34 @@
+chapter: GCT16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GCT15
+  - GCT5
+  - GCT7
+  - GCT9
+forward_references: []
+concepts:
+  - id: graph-counting.tree-program
+    name: 有限木プログラム
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限木プログラム）"]
+    requires: [graph-counting.rooted-tree]
+  - id: graph-counting.tree-tally
+    name: 木プログラムの状態別集計
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（木プログラムの状態別集計）"]
+    requires: [graph-counting.tree-program, graph-counting.child-separation]
+  - id: graph-counting.network-encoding
+    name: 木プログラムの計数保存符号化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（木プログラムの計数保存符号化）"]
+    requires: [graph-counting.tree-program, graph-counting.factor-graph]
+  - id: graph-counting.copy-preservation
+    name: 共有変数の等値制約による保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（共有変数の等値制約による保存）"]
+    requires: [graph-counting.factor-graph]

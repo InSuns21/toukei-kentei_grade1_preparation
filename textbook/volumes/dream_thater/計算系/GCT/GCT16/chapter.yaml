@@ -1,0 +1,38 @@
+id: "GCT16"
+title: "木プログラムの符号化と計算ネットワーク"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GCT15
+  - GCT5
+  - GCT7
+  - GCT9
+official_scope: []
+learning_objectives:
+  - 有限木プログラムの状態・局所規則・実行・記録値を定義し具体例を検査できる
+  - 状態別および記録値別の積和漸化式を導出し算術演算回数を評価できる
+  - 規則番号と整合表による計数保存符号化を証明し非負重みを証明書の個数へ変換できる
+  - 共有変数の等値制約と重みの一回だけの配置によって計数を保存できる
+definitions:
+  - { id: GCT16-DEF-01, name: 有限木プログラム }
+theorems:
+  - { id: GCT16-THM-01, name: 木プログラムの状態別集計 }
+  - { id: GCT16-THM-02, name: 木プログラムの計数保存符号化 }
+  - { id: GCT16-THM-03, name: 共有変数の等値制約による保存 }
+canonical_examples:
+  - 二葉の排他的論理和と記録値別重み和
+  - 規則番号による局所整合表
+  - 共有された選択の等値制約
+problem_patterns:
+  - GCT16-A1
+  - GCT16-A2
+  - GCT16-A3
+  - GCT16-A4
+  - GCT16-B1
+  - GCT16-B2
+  - GCT16-B3
+  - GCT16-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }
