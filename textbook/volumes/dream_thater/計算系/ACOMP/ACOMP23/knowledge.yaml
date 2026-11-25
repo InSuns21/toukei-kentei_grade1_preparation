@@ -1,0 +1,48 @@
+chapter: ACOMP23
+scope: dream-theater
+coverage: complete
+prerequisites: [ACOMP22, AG1-03, LREP1]
+forward_references: []
+concepts:
+  - id: algebraic-complexity.determinantal-complexity
+    name: "行列式複雑性"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（行列式複雑性）"]
+    requires: [linear.matrix-determinant, algebraic-geometry.multivariate-polynomial-ring]
+  - id: algebraic-complexity.substitution-orbit
+    name: "斉次多項式の線形置換軌道"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（斉次多項式の線形置換軌道とZariski軌道閉包）"]
+    requires: [algebra.group-action, algebraic-complexity.target-homogenization]
+  - id: algebraic-complexity.zariski-orbit-closure
+    name: "Zariski軌道閉包"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（斉次多項式の線形置換軌道とZariski軌道閉包）"]
+    requires: [algebraic-complexity.substitution-orbit, algebraic-geometry.zariski-topology]
+  - id: algebraic-complexity.end-orbit-closure
+    name: "全線形置換の像とZariski軌道閉包"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全線形置換の像とZariski軌道閉包）"]
+    requires: [algebraic-complexity.zariski-orbit-closure, algebraic-geometry.vanishing-ideal]
+  - id: algebraic-complexity.determinantal-substitution
+    name: "行列式表示と斉次線形置換"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（行列式表示と斉次線形置換）"]
+    requires: [algebraic-complexity.determinantal-complexity, algebraic-complexity.target-homogenization]
+  - id: algebraic-complexity.determinantal-border-closure
+    name: "行列式表示の閉包と行列式のZariski軌道閉包"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（行列式表示の閉包と行列式のZariski軌道閉包）"]
+    requires: [algebraic-complexity.determinantal-substitution, algebraic-complexity.end-orbit-closure, algebraic-complexity.degeneration-closure]
+  - id: algebraic-complexity.equivariant-restriction
+    name: "不変閉集合の座標環の制限"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（不変閉集合の座標環の制限）"]
+    requires: [algebraic-complexity.substitution-orbit, algebraic-geometry.coordinate-ring, algebraic-geometry.coordinate-polynomial-functions, representation.finite-dimensional-complex]

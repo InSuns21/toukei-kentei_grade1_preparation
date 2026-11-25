@@ -94,8 +94,8 @@ chapters:
     title: "border complexity・退化・Zariski閉包：体と同値条件を区別"
   - id: ACOMP23
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP23
-    status: planned
-    title: "GCTへの入口：軌道閉包・determinantal complexity・表現論の役割"
+    status: completed
+    title: "GCTへの入口：Zariski軌道閉包・determinantal complexity・表現論の役割"
   - id: ACOMP24
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP24
     status: planned
