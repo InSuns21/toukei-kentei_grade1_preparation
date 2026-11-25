@@ -19,7 +19,7 @@
 | approved | return | draft | false |
 | published | なし | — | — |
 
-表にない組は拒否し、段階と reviewed の両方を保持します。操作の結果は受理フラグと次状態の組です。既習の[単一初期状態の遷移モデル](../LVT3-05/index.md#def-lvt3-05-system)に当てはめると、状態は四段階と二つの真偽値の直積（8通り）、操作は4通り、遷移は32組について全域的です。入力の文字列が四操作のどれでもないときは、モデルの外で入力エラーとします。
+表にない組は拒否し、段階と reviewed の両方を保持します。操作の結果は受理フラグ（受理なら true、拒否なら false）と次状態の組です。既習の[単一初期状態の遷移モデル](../LVT3-05/index.md#def-lvt3-05-system)では状態を自然数で表し、拒否を辺に含めませんでした。今回は[状態付き観測列](../LVT5-06/index.md#def-lvt5-06-stateful-trace)の一般の状態集合・応答付き関数を使い、拒否も状態を保持する一回の操作として数えます。段階を p、reviewed の値を b と書き、状態を (p,b) と表します。状態は四段階と二つの真偽値の直積（8通り）、操作は4通りなので、入力対は 8 × 4 = 32 通りです。表の五つの段階・操作の組はそれぞれ b の両方の値に適用され、残り11組は拒否規則で覆われます。このため各入力対にただ一つの結果が定まります。入力の文字列が四操作のどれでもないときは、モデルの外で入力エラーとします。
 
 <a id="def-lvt6-03-workflow"></a>
 
@@ -70,7 +70,7 @@ $$
 <!-- formal-statement-start -->
 ### 命題（公開ワークフローの整合条件の保存）
 
-文書公開ワークフローの状態が整合条件を満たすなら、四操作のいずれを適用した次状態も整合条件を満たす。初期状態から任意の有限操作列を実行した最終状態も整合条件を満たす。特に到達した published 状態の承認記録は true である。
+[文書公開ワークフロー](#def-lvt6-03-workflow)の状態が整合条件 I(p,b)（b = R(p)）を満たすなら、四操作のいずれを適用した次状態も整合条件を満たす。初期状態から任意の有限操作列を実行した最終状態も整合条件を満たす。特に到達した published 状態の承認記録は true である。
 <!-- formal-statement-end -->
 
 **証明の見取り図**　受理される五組だけ調べればよく、拒否では状態が変わりません。これを任意の有限列へ帰納法で延長します。
@@ -78,7 +78,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-整合する状態 (p,b) を取る。受理の五組を調べる。
+整合する状態 (p,b) を取る。[文書公開ワークフロー](#def-lvt6-03-workflow)の受理の五組を調べる。
 
 - draft から submit：次状態は (submitted,false)。R(submitted)=false なので整合する。
 - submitted から approve：(approved,true)。R(approved)=true。
@@ -88,7 +88,7 @@ $$
 
 残り11組の段階と操作では次状態が (p,b) のままであり、仮定がそのまま成り立つ。従って一回の保存が示された。
 
-有限列について、任意の整合する開始状態 s からの実行で整合性が保たれることを列の構造帰納法で示す。空列なら最終状態は s。先頭操作 a と残りの列 v からなるとき、s に a を適用した次状態 s' は一回の保存により整合する。帰納仮定を開始状態 s' と列 v に適用すると最終状態も整合する。初期状態 (draft,false) は R(draft)=false により整合するので結論が従う。任意の接頭列も有限列なので、途中の各状態についても同じ結論が成立する。published なら R(published)=true だから b=true。
+有限列について、任意の整合する開始状態 s からの実行で整合性が保たれることを[リストの帰納法](../LVT2-05/index.md#principle-lvt2-05-list)で示す。空列なら最終状態は s。先頭操作 a と残りの列 v からなるとき、帰納仮定は v について任意の整合する開始状態からの実行を保証する。s に a を適用した次状態を s' と書く。一回の保存により s' は整合する。先頭操作を実行した後は s' から v を実行するので、帰納仮定を s' に適用すると最終状態も整合する。初期状態 (draft,false) は R(draft)=false により整合するので結論が従う。任意の接頭列も有限列なので、途中の各状態についても同じ結論が成立する。published なら R(published)=true だから b=true。
 <!-- proof-end -->
 
 記録が真であるだけでは、いつ承認されたかが分からないモデルも考えられます。本モデルでは false から true へ変える唯一の操作が submitted からの approve で、差し戻しと申請では false に戻します。この更新規則と次の結果を合わせると、受理された公開に先立つ承認が必要であることを説明できます。
@@ -98,26 +98,26 @@ $$
 <!-- formal-statement-start -->
 ### 命題（公開の受理条件と拒否時の状態保持）
 
-文書公開ワークフローの任意の状態について、publish が受理されることと、操作前の段階が approved であることは同値である。任意の四操作が拒否されたなら次状態は操作前の状態に等しい。
+[文書公開ワークフロー](#def-lvt6-03-workflow)の任意の状態について、publish が受理されることと、操作前の段階が approved であることは同値である。任意の四操作が拒否されたなら次状態は操作前の状態に等しい。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-publish の列を遷移表で読む。draft、submitted、published には受理行がなく、approved だけに受理行がある。よって受理なら approved であり、approved なら受理する。記録 b の値は判定を変えない。拒否は受理する五組の補集合であり、各組の規則は元の状態を返すことなので、記録も段階も変化しない。
+[文書公開ワークフロー](#def-lvt6-03-workflow)の遷移表で publish に対応する行を読む。draft、submitted、published には受理行がなく、approved だけに受理行がある。よって受理なら approved であり、approved なら受理する。記録 b の値は判定を変えない。拒否は受理する五組の補集合であり、各組の規則は元の状態を返すことなので、記録も段階も変化しない。
 <!-- proof-end -->
 
-[整合条件の保存](#prop-lvt6-03-preservation)より、初期状態からの操作列の中で publish を受理する直前は (approved,true) です。初期記録は false で、false から true に変わるのは受理された approve だけです。公開直前までの有限列の中で記録を最後に false から true に変えた操作を取れます。それは approve です。その後に受理された return や submit があれば記録は false に戻り、公開直前の true を得るにはさらに approve が必要になるため、最後の変化だったことに反します。従って最後の申請以後に受理された承認があります。approved,false という到達不能な状態から始めれば publish は受理されるので、初期状態の仮定を外してこの保証を主張してはいけません。
+[公開の受理条件](#prop-lvt6-03-publish-source)により受理された publish の直前は approved であり、その時点までの接頭列に[整合条件の保存](#prop-lvt6-03-preservation)を適用すると記録も true です。初期記録は false で、false から true に変わるのは受理された approve だけです。公開直前までの有限列の中で記録を最後に false から true に変えた操作を取れます。それは approve です。その後に受理された return や submit があれば記録は false に戻り、公開直前の true を得るにはさらに approve が必要になるため、最後の変化だったことに反します。さらに、この approve の直前は submitted です。初期段階は draft で、submitted に入る受理操作は draft からの submit だけです。従ってこの approve に先立つ受理された申請が存在し、以後の受理された submit は上の議論で排除されるので、最後の申請以後に受理された承認があります。approved,false という到達不能な状態から始めれば publish は受理されるので、初期状態の仮定を外してこの保証を主張してはいけません。
 
 ## 3. Leanでどの命題を検査するか
 
-[Leanの実装](lab/LvtWorkflow.lean) では Phase、Action、State を型にし（return は Lean の予約語なので sendBack と表記し）、step が受理フラグと状態を返します。consistent は上の等式を命題として表す述語です。preserve は段階4種と操作4種に場合分けし、受理された公開では仮定の等式から記録を読み取ります。run は操作列を一つずつ消費する再帰関数で、runPreserve の帰納仮定は任意の開始状態に対して使えるようにしています。publishSource と rejectedUnchanged は第2節の二つの結論を個別に確認します。
+[Leanの実装](lab/LvtWorkflow.lean) では Phase、Action、State を型にし（return は Lean の予約語なので sendBack と表記し）、step が受理フラグと状態を返します。`State.phase` と `State.reviewed` がそれぞれ p と b、`reviewedPhase` が R、`consistent` が I に対応します。`step s a` の第1成分 `.1` は受理フラグ、第2成分 `.2` は次状態です。例えば `step` に (submitted,false) と publish を渡すと (false,(submitted,false)) が返るので、第2成分の整合条件は b = R(submitted) = false のままです。preserve は段階4種と操作4種に場合分けし、受理された公開では仮定の等式から記録を読み取ります。run は操作列を一つずつ消費する再帰関数で、runPreserve の帰納仮定は任意の開始状態に対して使えるようにしています。publishSource と rejectedUnchanged は第2節の二つの結論を個別に確認します。
 
 例えば初期状態から submit, approve, publish を実行すると (published,true) です。submit, publish では最後が拒否されるので (submitted,false) です。[Inspect.lean](lab/Inspect.lean) の #guard と #eval で確認し、#print axioms で定理の依存する公理を調べます。[Failure.lean](lab/Failure.lean) は初期状態からの publish が受理されるという誤った等式を証明しようとして拒否されます。具体例の計算と、全操作列についての帰納法を区別しましょう。
 
 ## 4. TypeScript実装を仕様と照合する
 
-[状態付き観測列](../LVT5-06/index.md#def-lvt5-06-stateful-trace)として、各操作の直後の受理フラグ、段階、承認記録を順に比較します。例えば submit, publish, approve, publish の観測は以下の通りです。
+[状態付き観測列](../LVT5-06/index.md#def-lvt5-06-stateful-trace)として、各操作の直後の受理フラグ、段階、承認記録を順に比較します。観測列の一要素は（受理フラグ、（段階、記録））ですが、CLIではこの組を三列に展開し、二つの真偽値を true なら 1、false なら 0 と表記します。例えば submit, publish, approve, publish の観測は以下の通りです。
 
 | 操作 | 受理 | 段階 | reviewed |
 |---|---|---|---|
@@ -130,7 +130,7 @@ publish の列を遷移表で読む。draft、submitted、published には受理
 
 [差分ハーネス](lab/differential.ts) の製品は TypeScript の遷移表を用いて段階を更新し、承認と差し戻しで記録を更新します。Leanからコード生成したものではありません。CLIの終了コード、標準エラー、応答行数、行形式を確認し、行を順序どおり比較します。fast-check は四操作を要素とする長さ0〜24の列を生成します。固定例では差し戻し、拒否、終局後操作、空列も確認します。未知操作はCLIで別に拒否を確認します。
 
-故意の変異は submitted から publish する経路を一つ追加することです。入力 submit, publish では、1行目は両者とも 1,submitted,0。2行目は仕様が 0,submitted,0、変異が 1,published,0 になります。最初の相違は2行目。変異は承認なしに公開するので安全性も破ります。長さ1以下の操作列は初期段階 draft からしか動かず、変異経路に到達できません。従ってこの入力は最短です。生成器の縮小結果が常に全体最短になると仮定せず、ここでは遷移表から最短性を別に確認しました。
+故意の変異は submitted から publish する経路を一つ追加することです。入力 submit, publish では、1行目は両者とも 1,submitted,0。2行目は仕様が 0,submitted,0、変異が 1,published,0 になります。最初の相違は2行目。変異は承認なしに公開するので安全性も破ります。長さ1以下の操作列は初期段階 draft からしか動かず、変異経路に到達できません。従ってこの入力は最短です。[観測列の連結則](../LVT5-06/index.md#prop-lvt5-06-trace-prefix)から、最初の不一致の直後までの接頭列でもその差を再現できます。ただし生成器の縮小結果が常に全体最短になると仮定せず、ここでは遷移表から最短性を別に確認しました。
 
 Codespacesを開き（GitHubへのログインと利用枠が必要）、リポジトリのルートをカレントディレクトリとして、以下を端末で実行します。Lean 4.35.0、Node.js 22.16.0、fast-check 3.23.2を使います。Nodeの型注釈除去による実行であり、静的型検査とは別です。
 
@@ -179,7 +179,7 @@ R は draft と submitted で false、approved と published で true。各段�
 
 ### LVT6-03-A03 空列と拒否
 
-空列、publish, approve、submit の三入力の最終状態と受理数を求めよ。
+空列、列 (publish, approve)、列 (submit) の三入力をそれぞれ初期状態から実行し、最終状態と受理数を求めよ。
 
 - Level: A
 
@@ -236,7 +236,7 @@ B01の変異に対して submit, approve, return, submit を入力する。全�
 <!-- solution-start -->
 #### 詳細解答
 
-(approved,false) は State の型に属する。publish の受理条件は approved であることだけなので受理し、記録を保持する結果は (published,false)。従って主張は偽。開始状態が整合条件を満たすことを仮定すれば、[整合条件の保存](#prop-lvt6-03-preservation)を任意の有限列に適用でき、published では R(published)=true だから記録は true になる。初期状態はその仮定を満たす。
+(approved,false) は State の型に属する。[公開の受理条件](#prop-lvt6-03-publish-source)は approved であることだけなので受理し、記録を保持する結果は (published,false)。従って主張は偽。開始状態が整合条件を満たすことを仮定すれば、[整合条件の保存](#prop-lvt6-03-preservation)を任意の有限列に適用でき、published では R(published)=true だから記録は true になる。初期状態はその仮定を満たす。
 <!-- solution-end -->
 
 ### Level C
