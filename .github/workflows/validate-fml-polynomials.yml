@@ -57,7 +57,12 @@ jobs:
             exit 1
           fi
           cat bad-index.log
-          grep -Ei 'decide.*(false|failed)|false proposition' bad-index.log
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          output = Path('bad-index.log').read_text()
+          assert re.search(r'Tactic `decide` proved that the proposition\s+1 < 1\s+is false', output), output
+          PY
           git diff --exit-code -- lake-manifest.json lean-toolchain
       - name: Preserve execution logs
         if: always()
