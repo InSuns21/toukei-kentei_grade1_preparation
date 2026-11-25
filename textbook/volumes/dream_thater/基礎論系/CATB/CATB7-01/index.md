@@ -184,7 +184,7 @@ $$
 > アーベル圏の余鎖複体 $C^\bullet$ が次数 $n$ で完全であることと、$H^n(C^\bullet)$ が零対象であることは同値である。
 <!-- formal-statement-end -->
 
-見取り図：核と像が一致するならその商は零になる。逆方向では商が零であることから、核の中の像の包含がエピ射でもあることを示す。
+見取り図：像の包含と核射が同じ部分対象を表すなら、その商は零になる。逆方向では商が零であることから、核の中の像の包含がエピ射でもあることを示す。
 
 <!-- proof-start -->
 ### 証明
@@ -282,7 +282,7 @@ $$
 
 よって和を保存する。零射の保存は $H^n(0)=H^n(0)+H^n(0)$ の両辺から $H^n(0)$ を引いて従う。
 
-[核の同型一意性](../CATB1-04/index.md#prop-catb1-04-kernel-cokernel-uniqueness)と[像の普遍性](../CATB1-01/index.md#def-catb1-01-image)から、異なる核・像の選択には一意な可換同型がある。別の選択をプライム付きの記号で表し、核と像の同型を $u_C:Z_C^n\to Z_C^{\prime n}$、$v_C:B_C^n\to B_C^{\prime n}$ とする。$k'_Cu_C=k_C$、$i'_Cv_C=i_C$ だから
+[核の同型一意性](../CATB1-04/index.md#prop-catb1-04-kernel-cokernel-uniqueness)と[像の普遍性](../CATB1-01/index.md#def-catb1-01-image)から、異なる核・像の選択には一意な可換同型がある。別の選択をプライム付きの記号で表し、核射および像の包含に対応する同型を $u_C:Z_C^n\to Z_C^{\prime n}$、$v_C:B_C^n\to B_C^{\prime n}$ とする。$k'_Cu_C=k_C$、$i'_Cv_C=i_C$ だから
 
 $$
 k'_Cu_Cj_C=i_C=k'_Cj'_Cv_C.
@@ -360,7 +360,7 @@ $4(2x)=2(4x)$、$4(3x)=3(4x)$ だから双方とも余鎖写像である。[余�
 
 - Level: B
 
-次数0,1の二項複体 $C=(\mathbb Z\xrightarrow{6}\mathbb Z)$、$D=(\mathbb Z\xrightarrow{4}\mathbb Z)$ に対し、$f^0(x)=3x$、$f^1(x)=2x$ とする。余鎖写像か判定し、誘導射 $H^1(f)$ の核と像を求めよ。
+次数0,1の二項複体 $C=(\mathbb Z\xrightarrow{6}\mathbb Z)$、$D=(\mathbb Z\xrightarrow{4}\mathbb Z)$ に対し、$f^0(x)=3x$、$f^1(x)=2x$ とする。余鎖写像か判定し、誘導射 $H^1(f)$ について、核および像を求めよ。
 
 <!-- solution-start -->
 $4(3x)=12x=2(6x)$ なので余鎖写像である。[コホモロジーの関手性](#thm-catb7-01-cohomology-functor)の商の式より
