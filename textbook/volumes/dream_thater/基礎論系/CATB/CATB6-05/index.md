@@ -152,7 +152,14 @@ $$
 \operatorname{ev}(S(z),x)=d(z,x).
 $$
 
-ここでは述語とその真の逆像である部分集合を識別している。定値項 $u:G\to A$ を $u(z)=0$ として所属式を評価すると、$\operatorname{ev}(S(z),u(z))$ は $a$ で $1$、$b,c$ で $0$ になる。従って所属式 $0\in S(z)$ の意味は $\{a\}$ である。従って $0\in S(z)$ から $P(z)$ への判断は $\{a\}\subseteq\{a,b\}$ によって成立するが、逆向きは成立しない。
+ここでは述語とその真の逆像である部分集合を識別している。定値項 $u:G\to A$ を $u(z)=0$ として所属式を評価すると
+
+$$
+\operatorname{ev}(S(a),0)=1,\qquad
+\operatorname{ev}(S(b),0)=\operatorname{ev}(S(c),0)=0.
+$$
+
+従って所属式 $0\in S(z)$ の意味は $\{a\}$ である。
 <!-- definition-example-end -->
 
 これらの解釈が存在する根拠を整理する。[初等トポスの部分対象のHeyting代数性](../CATB6-01/index.md#thm-catb6-01-subobject-heyting)は各文脈で論理結合の演算を与え、[初等トポスの量化子の存在](../CATB6-02/index.md#thm-catb6-02-quantifier-existence)は射影に沿う両随伴を与える。[分類射と部分対象の自然な対応](../CATB5-06/index.md#thm-catb5-06-classifier-bijection)によって各式は真理値型への射でも表せる。内包はこの射を指数対象の普遍性でカリー化するので一意に定まる。
@@ -423,7 +430,24 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[内部言語の式と判断](#def-catb6-05-internal-formulas)の等号の解釈を使う。$\Delta_A,\Delta_B$ はそれぞれ $A,B$ の[対角射](../../CAT/CAT2-02/index.md#def-cat2-02-diagonal)が表す部分対象である。文脈 $A\times A$ の変数の意味は二つの射影なので、$f(x),f(y)$ の意味は $f\pi_1,f\pi_2$ になる。その組は $f\times f$ である。従って $f(x)=f(y)$ の部分対象は $(f\times f)^*\Delta_B$、$x=y$ の部分対象は $\Delta_A$ である。判断は前者が後者に含まれることを表す。
+[内部言語の式と判断](#def-catb6-05-internal-formulas)の等号の解釈を使う。$\Delta_A,\Delta_B$ はそれぞれ $A,B$ の[対角射](../../CAT/CAT2-02/index.md#def-cat2-02-diagonal)が表す部分対象である。
+
+文脈 $A\times A$ の変数の意味は二つの射影なので、二つの関数項の意味は次の射になる。
+
+$$
+[\![f(x)]\!]=f\pi_1,\qquad
+[\![f(y)]\!]=f\pi_2.
+$$
+
+その組は $\langle f\pi_1,f\pi_2\rangle=f\times f$ である。従って二つの等号式の意味は次の部分対象になる。
+
+$$
+[\![f(x)=f(y)]\!]_{A\times A}=(f\times f)^*\Delta_B,
+\qquad
+[\![x=y]\!]_{A\times A}=\Delta_A.
+$$
+
+判断は前者が後者に含まれることを表す。
 
 まず $f$ がモノ射と仮定し、前者の代表モノ射を $k:K\to A\times A$ とする。[引き戻し](../../CAT/CAT2-03/index.md#def-cat2-03-pullback)の定義と[モノ射](../../CAT/CAT1-03/index.md#def-cat1-03-monomorphism)の条件から
 
