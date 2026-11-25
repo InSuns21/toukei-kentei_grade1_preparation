@@ -14,7 +14,7 @@ chapters:
     title: "算術回路・straight-line program：加法・乗法・定数ゲート"
   - id: ACOMP3
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP3
-    status: planned
+    status: completed
     title: "回路とformula・ABP：共有部分式とサイズ／深さ"
   - id: ACOMP4
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP4
