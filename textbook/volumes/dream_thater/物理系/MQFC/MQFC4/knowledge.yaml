@@ -1,7 +1,7 @@
 chapter: MQFC4
 scope: dream-theater
 coverage: complete
-prerequisites: [MQFC1, MQFC2, MQFC3, AQFT3]
+prerequisites: [MQFC1, MQFC2, MQFC3, AQFT3, FOU5]
 forward_references: []
 concepts:
   - id: mqfc.test-word-algebra
@@ -18,7 +18,7 @@ concepts:
     name: "実スカラー場のWightman再構成"
     kind: theorem
     introduction: formal
-    requires: [mqfc.positive-quotient, mqfc.wightman-axioms, mqfc.field-domain, aqft.translation-spectrum-condition]
+    requires: [mqfc.positive-quotient, mqfc.wightman-axioms, mqfc.field-domain, aqft.translation-spectrum-condition, fourier.fou5-measure-transform]
   - id: mqfc.tube-analyticity
     name: "正エネルギーと管状領域の解析性"
     kind: proposition

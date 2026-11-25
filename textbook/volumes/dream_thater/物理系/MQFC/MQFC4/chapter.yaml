@@ -2,7 +2,7 @@ id: MQFC4
 title: "Wightman再構成と解析性"
 volume: foundations
 status: supplementary
-prerequisites: [MQFC1, MQFC2, MQFC3, AQFT3]
+prerequisites: [MQFC1, MQFC2, MQFC3, AQFT3, FOU5]
 official_scope: []
 learning_objectives:
   - 試験関数の語の代数と対合を構成できる
