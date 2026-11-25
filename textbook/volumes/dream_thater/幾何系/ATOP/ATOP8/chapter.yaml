@@ -1,0 +1,29 @@
+id: ATOP8
+title: "グラフと自由群"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP2, ATOP3, ATOP4, ATOP5, ATOP6, ATOP7]
+official_scope: []
+learning_objectives:
+  - 有限グラフの幾何学的実現を商空間として構成できる
+  - 全域木の存在と辺数を証明できる
+  - 全域木の縮約が基点付きホモトピー同値であることを証明できる
+  - 自由群の既約語を計算し花束の基本群をvan Kampen定理で求められる
+  - 非木辺から自由生成元を構成し基本群の階数と最小性を説明できる
+definitions:
+  - { id: ATOP8-DEF-01, name: グラフの幾何学的実現 }
+  - { id: ATOP8-DEF-02, name: 全域木 }
+  - { id: ATOP8-DEF-03, name: 円周の花束 }
+  - { id: ATOP8-DEF-04, name: 自由群 }
+theorems:
+  - { id: ATOP8-THM-01, name: 全域木の存在と辺数 }
+  - { id: ATOP8-THM-02, name: 全域木の縮約 }
+  - { id: ATOP8-PROP-01, name: 自由群の既約語の一意性 }
+  - { id: ATOP8-THM-03, name: 花束の基本群 }
+  - { id: ATOP8-THM-04, name: 連結グラフの基本群と階数 }
+canonical_examples: [三本の平行辺, 円周の花束, 全域木の変更, 四頂点完全グラフ]
+problem_patterns: [ATOP8-A1, ATOP8-A2, ATOP8-A3, ATOP8-A4, ATOP8-B1, ATOP8-B2, ATOP8-B3, ATOP8-B4, ATOP8-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 1 }

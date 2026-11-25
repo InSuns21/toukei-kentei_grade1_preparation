@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+<title id="title">全域木の縮約</title><desc id="desc">二頂点間の三辺のうち実線の辺 t を一点 o に縮約すると、破線の a と点線の b が二つの円周となる。</desc>
+<g fill="none" stroke="#334155" stroke-width="3" stroke-linecap="round">
+<path d="M 30 100 H 135" data-series-group="before" data-series-label="t"/>
+<path d="M 30 100 Q 82.5 -15 135 100" stroke="#2563eb" stroke-dasharray="8 5" data-series-group="before" data-series-label="a"/>
+<path d="M 30 100 Q 82.5 215 135 100" stroke="#a14221" stroke-dasharray="2 5" data-series-group="before" data-series-label="b"/>
+<path d="M 166 100 H 199 M 191 93 L 199 100 L 191 107" stroke-width="2"/>
+<path d="M 281 100 H 315" stroke-width="1"/>
+<circle cx="272" cy="62" r="38" stroke="#2563eb" stroke-dasharray="8 5" data-series-group="after" data-series-label="a"/>
+<circle cx="272" cy="138" r="38" stroke="#a14221" stroke-dasharray="2 5" data-series-group="after" data-series-label="b"/>
+</g>
+<g fill="#334155"><circle cx="30" cy="100" r="4"/><circle cx="135" cy="100" r="4"/><circle cx="272" cy="100" r="5"/></g>
+<g font-family="sans-serif" font-size="15" fill="#263648" text-anchor="middle"><text x="12" y="105">u</text><text x="153" y="105">v</text><text x="82" y="79">t</text><text x="82" y="30">a</text><text x="82" y="193">b</text><text x="272" y="67">a</text><text x="272" y="143">b</text><text x="328" y="105">o</text></g>
+</svg>

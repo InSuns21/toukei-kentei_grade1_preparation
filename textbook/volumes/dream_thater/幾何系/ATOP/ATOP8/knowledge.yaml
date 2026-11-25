@@ -1,0 +1,51 @@
+chapter: ATOP8
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP2, ATOP3, ATOP4, ATOP5, ATOP6, ATOP7]
+forward_references: []
+concepts:
+  - id: atop.graph-realization
+    name: グラフの幾何学的実現
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: atop.spanning-tree
+    name: 全域木
+    kind: definition
+    introduction: formal
+    requires: [atop.graph-realization]
+  - id: atop.spanning-tree-existence
+    name: 全域木の存在と辺数
+    kind: theorem
+    introduction: formal
+    requires: [atop.spanning-tree]
+  - id: atop.tree-collapse
+    name: 全域木の縮約
+    kind: theorem
+    introduction: formal
+    requires: [atop.spanning-tree-existence, atop.homotopy-equivalence, atop.path-reparametrization, atop.induced-fundamental-group-homomorphism]
+  - id: atop.circle-bouquet
+    name: 円周の花束
+    kind: definition
+    introduction: formal
+    requires: [atop.graph-realization]
+  - id: atop.free-group
+    name: 自由群
+    kind: definition
+    introduction: formal
+    requires: [atop.group-presentation]
+  - id: atop.free-group-normal-form
+    name: 自由群の既約語の一意性
+    kind: proposition
+    introduction: formal
+    requires: [atop.free-group, atop.presentation-homomorphism]
+  - id: atop.bouquet-fundamental-group
+    name: 花束の基本群
+    kind: theorem
+    introduction: formal
+    requires: [atop.circle-bouquet, atop.free-group-normal-form, atop.van-kampen, atop.circle-fundamental-group, atop.deformation-fundamental-group, atop.contractible-simply-connected, atop.free-product-universal-property]
+  - id: atop.graph-fundamental-group
+    name: 連結グラフの基本群と階数
+    kind: theorem
+    introduction: formal
+    requires: [atop.tree-collapse, atop.bouquet-fundamental-group, atop.free-group-normal-form]
