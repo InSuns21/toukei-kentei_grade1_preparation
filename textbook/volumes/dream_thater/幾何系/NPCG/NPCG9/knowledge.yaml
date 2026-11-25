@@ -1,0 +1,48 @@
+chapter: NPCG9
+scope: dream-theater
+coverage: complete
+prerequisites: [NPCG8, GRP3]
+forward_references: []
+concepts:
+  - id: metric-geometry.isometric-group-action
+    name: "等長群作用"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（等長群作用）"]
+    requires: [algebra.group-action, topology.metric-space]
+  - id: metric-geometry.common-fixed-set
+    name: "共通固定点集合"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共通固定点集合と不変集合）"]
+    requires: [algebra.group-action]
+  - id: metric-geometry.action-invariant-set
+    name: "不変集合"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共通固定点集合と不変集合）"]
+    requires: [algebra.group-action]
+  - id: metric-geometry.barycenter-equivariance
+    name: "重心の等変性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（重心の等変性）"]
+    requires: [metric-geometry.isometric-group-action, metric-geometry.barycenter-existence-uniqueness]
+  - id: metric-geometry.finite-group-fixed-point
+    name: "有限群の共通固定点定理"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限群の共通固定点定理）"]
+    requires: [metric-geometry.barycenter-equivariance, metric-geometry.common-fixed-set]
+  - id: metric-geometry.fixed-set-closed-convex
+    name: "共通固定点集合の閉性と測地線凸性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（共通固定点集合の閉性と測地線凸性）"]
+    requires: [metric-geometry.isometric-group-action, metric-geometry.common-fixed-set, metric-geometry.geodesically-convex-set, metric-geometry.cat-zero-space]
+  - id: metric-geometry.invariant-projection-equivariance
+    name: "不変閉凸集合への射影の等変性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（不変閉凸集合への射影の等変性）"]
+    requires: [metric-geometry.action-invariant-set, metric-geometry.isometric-group-action, metric-geometry.projection-existence-uniqueness, metric-geometry.finite-group-fixed-point]
