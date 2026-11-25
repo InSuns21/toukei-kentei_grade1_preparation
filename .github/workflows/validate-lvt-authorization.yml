@@ -1,0 +1,45 @@
+name: Validate LVT authorization
+on:
+  pull_request:
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT6-04/**'
+      - '.github/workflows/validate-lvt-authorization.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'textbook/volumes/dream_thater/計算系/LVT/LVT6-04/**'
+      - '.github/workflows/validate-lvt-authorization.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  workflow:
+    name: Lean and TypeScript authorization differential checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22.16.0'
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          lake-package-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT6-04/lab'
+          auto-config: 'false'
+          build: 'true'
+          test: 'true'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - name: Proof and differential tests
+        working-directory: 'textbook/volumes/dream_thater/計算系/LVT/LVT6-04/lab'
+        shell: bash
+        run: |
+          set -euo pipefail
+          lean --version | grep -F 'version 4.35.0'
+          lake env lean Inspect.lean
+          npm install --ignore-scripts
+          npm test
+          if lake env lean Failure.lean > failure.log 2>&1; then
+            echo 'Invalid proof unexpectedly accepted'
+            exit 1
+          fi
+          grep -i 'type mismatch' failure.log
