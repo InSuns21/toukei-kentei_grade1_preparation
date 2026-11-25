@@ -2,7 +2,7 @@ id: MQFC3
 title: "Wightman公理とスペクトル条件"
 volume: foundations
 status: supplementary
-prerequisites: [MQFC2, QFT5, AQFT3, AQFT8]
+prerequisites: [MQFC2, QFT5, AQFT3, AQFT8, LREP2, LREP22]
 official_scope: []
 learning_objectives:
   - 実スカラー場のWightman公理の各条件を区別し真空一意性と巡回性を説明できる
