@@ -1,7 +1,7 @@
 # DREAM THEATER — 一般化Poincaré予想・微分トポロジー（全96講）
 
 設計日: 2026-11-25 JST。監査基準 main: `ed61aa3bba8cdcf4b8dc955a8da6fce104c85315`。
-状態: 設計済・未実装。新設6系列96講。FOUR FRONTIERSの172講とは独立した追加計画で、そこで計上済みの[独立ATOP42講](DREAM_THEATER_ALGEBRAIC_TOPOLOGY_PLAN.md)・M3T12講を重複計上しない。2026-11-26改訂：ATOP旧14講は独立42講へ置換済み。96講は講義の粒度・証明責務に基づく設計値。変更時は理由と件数を記録する。
+状態: 設計済・未実装。新設6系列96講。FOUR FRONTIERSの172講とは独立した追加計画で、そこで計上済みの[独立ATOP42講](../plans_progress/DREAM_THEATER_ALGEBRAIC_TOPOLOGY_PLAN.md)・M3T12講を重複計上しない。2026-11-26改訂：ATOP旧14講は独立42講へ置換済み。96講は講義の粒度・証明責務に基づく設計値。変更時は理由と件数を記録する。
 
 ## 0. 中心問いと到達点
 

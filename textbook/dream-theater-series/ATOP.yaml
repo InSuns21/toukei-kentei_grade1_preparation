@@ -1,0 +1,48 @@
+version: 1
+id: ATOP
+title: "位相幾何学 I–III"
+plan: textbook/plans_progress/DREAM_THEATER_ALGEBRAIC_TOPOLOGY_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+chapters:
+  - { id: ATOP1, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP1, status: completed, title: "図形を位相的に見る：同相・商・局所模型" }
+  - { id: ATOP2, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP2, status: planned, title: "ホモトピー：写像を連続的に変形する" }
+  - { id: ATOP3, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP3, status: planned, title: "レトラクト・変形レトラクト・可縮性" }
+  - { id: ATOP4, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP4, status: planned, title: "道・ループ・基本群" }
+  - { id: ATOP5, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP5, status: planned, title: "被覆空間・道とホモトピーの持上げ" }
+  - { id: ATOP6, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP6, status: planned, title: "円周の基本群と巻き数" }
+  - { id: ATOP7, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP7, status: planned, title: "van Kampen定理と群の表示" }
+  - { id: ATOP8, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP8, status: planned, title: "グラフと自由群" }
+  - { id: ATOP9, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP9, status: planned, title: "被覆空間の分類と普遍被覆" }
+  - { id: ATOP10, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP10, status: planned, title: "単体複体と三角形分割" }
+  - { id: ATOP11, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP11, status: planned, title: "コンパクト曲面の分類定理" }
+  - { id: ATOP12, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP12, status: planned, title: "曲面の基本群と具体的分類" }
+  - { id: ATOP13, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP13, status: planned, title: "向き付き単体と単体鎖複体" }
+  - { id: ATOP14, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP14, status: planned, title: "単体ホモロジーと計算" }
+  - { id: ATOP15, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP15, status: planned, title: "細分と単体近似" }
+  - { id: ATOP16, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP16, status: planned, title: "特異鎖・特異ホモロジーと関手性" }
+  - { id: ATOP17, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP17, status: planned, title: "鎖ホモトピーとホモトピー不変性" }
+  - { id: ATOP18, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP18, status: planned, title: "相対ホモロジーと長完全列" }
+  - { id: ATOP19, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP19, status: planned, title: "切除定理" }
+  - { id: ATOP20, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP20, status: planned, title: "Mayer–Vietoris完全列" }
+  - { id: ATOP21, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP21, status: planned, title: "単体ホモロジーと特異ホモロジーの比較" }
+  - { id: ATOP22, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP22, status: planned, title: "CW複体・胞体ホモロジー" }
+  - { id: ATOP23, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP23, status: planned, title: "球面の写像度" }
+  - { id: ATOP24, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP24, status: planned, title: "非レトラクション・Brouwer・毛玉の定理" }
+  - { id: ATOP25, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP25, status: planned, title: "局所ホモロジーと次元不変性" }
+  - { id: ATOP26, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP26, status: planned, title: "H1と基本群の可換化" }
+  - { id: ATOP27, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP27, status: planned, title: "Lefschetz不動点定理" }
+  - { id: ATOP28, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP28, status: planned, title: "コチェインと特異コホモロジー" }
+  - { id: ATOP29, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP29, status: planned, title: "普遍係数定理・ExtとTor" }
+  - { id: ATOP30, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP30, status: planned, title: "積空間とKünneth公式" }
+  - { id: ATOP31, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP31, status: planned, title: "cup積とコホモロジー環" }
+  - { id: ATOP32, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP32, status: planned, title: "環の計算：トーラス・射影空間" }
+  - { id: ATOP33, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP33, status: planned, title: "Borsuk–Ulam定理" }
+  - { id: ATOP34, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP34, status: planned, title: "局所向き・向き付け・基本類" }
+  - { id: ATOP35, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP35, status: planned, title: "cap積と鎖レベルの双対写像" }
+  - { id: ATOP36, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP36, status: planned, title: "Poincaré双対性" }
+  - { id: ATOP37, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP37, status: planned, title: "境界付き多様体とPoincaré–Lefschetz双対性" }
+  - { id: ATOP38, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP38, status: planned, title: "Alexander双対性" }
+  - { id: ATOP39, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP39, status: planned, title: "Jordan曲線・Jordan–Brouwer分離定理" }
+  - { id: ATOP40, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP40, status: planned, title: "Brouwerの領域不変性" }
+  - { id: ATOP41, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP41, status: planned, title: "de Rham比較定理" }
+  - { id: ATOP42, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP42, status: planned, title: "交叉形式・双対性の総合演習" }

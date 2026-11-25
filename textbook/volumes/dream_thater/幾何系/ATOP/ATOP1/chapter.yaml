@@ -1,0 +1,23 @@
+id: ATOP1
+title: "図形を位相的に見る：同相・商・局所模型"
+volume: foundations
+status: supplementary
+prerequisites: [TOP2, TOP3, TOP4, GEO1]
+official_scope: []
+learning_objectives:
+  - 円周と多角形の周の間の同相写像と逆写像を構成できる
+  - 位相的埋め込みと同相の違いを像の位相から判断できる
+  - 円周・円筒・トーラス・円板の商模型で同値類と写像のファイバーを照合できる
+  - 円周・トーラス・円板の局所座標を構成し逆写像を確認できる
+  - 連結性を利用して非同相を証明し一点への連続変形と区別できる
+definitions:
+  - { id: ATOP1-DEF-01, name: 位相的埋め込み }
+theorems:
+  - { id: ATOP1-PROP-01, name: 円周と菱形の周の動径同相 }
+  - { id: ATOP1-THM-01, name: 正方形の極座標商と円板 }
+canonical_examples: [円周と菱形, 円筒とトーラスの辺同一視, 円板の極座標商, 円周と円板の局所座標]
+problem_patterns: [ATOP1-RADIAL, ATOP1-EMBEDDING, ATOP1-QUOTIENT, ATOP1-LOCAL-MODEL, ATOP1-NONHOMEOMORPHIC]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
