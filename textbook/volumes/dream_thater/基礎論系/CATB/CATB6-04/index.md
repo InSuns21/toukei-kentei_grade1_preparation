@@ -52,7 +52,7 @@ $$
 
 等号を解釈するため、対角射 $\Delta_S:S\to S\times S$ を使う。二つの射影との合成がともに $1_S$ なので、$\Delta_S u=\Delta_S v$ なら第一射影を合成して $u=v$ となり、対角射はモノ射である。
 
-言語の解釈全体を $M$ と書き、関係記号 $R$ の解釈を入力対象の積の部分対象 $R_M$ とする。各項とその解釈射には同じ記号を使い、$t_i:G\to S_i$ と書く。$\langle t_1,\ldots,t_n\rangle$ はこれらを成分に持つ積への射である。関係式はこの射に沿う逆像、等号は二項の組に沿う対角の逆像で与える。[対角射の引き戻しによる等化子](../../CAT/CAT2-03/index.md#prop-cat2-03-equalizer-as-pullback)により、等号部分を経由する射 $v:T\to G$ はちょうど $tv=uv$ を満たす射である。
+言語の解釈全体を $M$ と書き、関係記号 $R$ の解釈を入力対象の積の部分対象 $R_M$ とする。各項とその解釈射には同じ記号を使い、$t_i:G\to S_i$ と書く。$\langle t_1,\ldots,t_n\rangle$ はこれらを成分に持つ積への射である。関係式はこの射に沿う逆像、等号 $t=u$ は同じソート $S$ の項の解釈射 $t,u:G\to S$ の組に沿う対角の逆像で与える。[対角射の引き戻しによる等化子](../../CAT/CAT2-03/index.md#prop-cat2-03-equalizer-as-pullback)により、等号部分を経由する射 $v:T\to G$ はちょうど $tv=uv$ を満たす射である。
 
 有限連言には部分対象の最大下界（共通部分）$A\wedge B$ を使う。文脈に変数 $y:S$ を加えたときの射影を $\pi:G\times S\to G$ とし、射影に沿う像を $\exists_\pi A$ と書く。これは[部分対象の像と逆像の随伴](../CATB4-07/index.md#thm-catb4-07-image-adjoint)の左随伴である。式の $\exists y$ は変数を束縛する記号、部分対象の $\exists_\pi$ は射に沿う操作であり、以下の規則で両者を結び付ける。
 
@@ -213,7 +213,7 @@ $$
 
 ソート $S$ の自由変数を持つ任意の正則式 $\theta$ への二つの代入射が、対応成分 $t,u$ 以外は同じとする。これらを $e$ と合成すれば全成分が一致する。積の普遍性から合成射が等しい。
 
-二つの代入射を $p,q:G\to K$、式 $\theta$ の意味を $T\in\operatorname{Sub}(K)$ と書く。上の議論で $pe=qe$ である。[正則式の代入則](#thm-catb6-04-regular-substitution)と[逆像の合成則](../CATB4-07/index.md#thm-catb4-07-inverse-image)から
+式 $\theta$ の元の文脈対象を $K$、二つの代入射を $p,q:G\to K$、式の意味を $T\in\operatorname{Sub}(K)$ と書く。上の議論で $pe=qe$ である。[正則式の代入則](#thm-catb6-04-regular-substitution)と[逆像の合成則](../CATB4-07/index.md#thm-catb4-07-inverse-image)から
 
 $$
 e^*p^*T=(pe)^*T=(qe)^*T=e^*q^*T.
@@ -270,7 +270,7 @@ $$
 
 よって $Q$ の普遍性から $tk=q$ であり、$ak=v,tk=q$ から逆に $bk=dq$ が強制される。
 
-[正則圏の像分解とその引き戻し安定性](../CATB1-02/index.md#thm-catb1-02-regular-factorization)より $t$ は正則エピ射、$c$ はモノ射である。
+[正則圏の像分解とその引き戻し安定性](../CATB1-02/index.md#thm-catb1-02-regular-factorization)より $t$ は正則エピ射である。また $c$ はモノ射 $n$ の引き戻しなので[モノ射の引き戻し](../../CAT/CAT2-03/index.md#prop-cat2-03-pullback-mono)によりモノ射である。
 
 $fma=ict$ の像は [正則エピ・モノ分解は像を与える](../CATB1-01/index.md#thm-catb1-01-regular-epi-mono-image) により $ic$ であり、$ic$ は $[i]\wedge[n]$ を表す。従って
 
@@ -546,9 +546,9 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[部分対象の像と逆像の随伴](../CATB4-07/index.md#thm-catb4-07-image-adjoint)より $\exists_m m^*D$ は $m$ と逆像の代表モノ射の合成の像である。この合成はモノ射であり、引き戻しの普遍性から $C,D$ の共通部分を表す。
+[部分対象の像と逆像の随伴](../CATB4-07/index.md#thm-catb4-07-image-adjoint)より、任意の $D\in\operatorname{Sub}(X)$ に対して $\exists_m m^*D$ は $m$ と逆像の代表モノ射の合成の像である。この合成はモノ射であり、引き戻しの普遍性から $C,D$ の共通部分を表す。
 
-従って $\exists_m m^*D=C\wedge D$。ここで $D$ は任意の $X$ の部分対象である。
+従って $\exists_m m^*D=C\wedge D$。
 
 [整合圏の条件](#def-catb6-04-coherent-category)で $m^*(A\vee B)=m^*A\vee m^*B$。さらに任意の $T\in\operatorname{Sub}(X)$ について
 
