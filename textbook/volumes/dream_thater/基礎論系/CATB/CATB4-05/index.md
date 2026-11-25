@@ -6,7 +6,7 @@
 
 前提講座：[CATB4-04 Grothendieck構成](../CATB4-04/index.md)、[CATB4-03 添字付き圏と擬関手](../CATB4-03/index.md)、[CATB4-02 Cleavageとsplitファイブレーション](../CATB4-02/index.md)、[CATB4-01 Cartesian射とファイブレーション](../CATB4-01/index.md)、[CAT1-04 反対圏と双対原理](../../CAT/CAT1-04/index.md)。
 
-以下、全圏 $\mathcal E$ と基底圏 $\mathcal B$ は局所小圏、$p:\mathcal E\to\mathcal B$ は関手とする。合成は右から左に書く。[ファイバー圏](../CATB4-01/index.md#def-catb4-01-fiber) $\mathcal E_a$ の射は基底の恒等射 $1_a$ に写る垂直射である。
+以下、全圏 $\mathcal E$ と基底圏 $\mathcal B$ は[局所小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)、$p:\mathcal E\to\mathcal B$ は[共変関手](../../CAT/CAT1-06/index.md#def-cat1-06-functor)とする。合成は右から左に書き、$gf=g\circ f$ とする。$1_x$ は対象 $x$ の恒等射である。[ファイバー圏](../CATB4-01/index.md#def-catb4-01-fiber) $\mathcal E_a$ の射は基底の恒等射 $1_a$ に写る垂直射である。
 
 ## 2. 始域からの普遍的な持ち上げ
 
@@ -54,7 +54,7 @@ $$
 
 ### 2.1 反対圏で何を反転するか
 
-全圏だけを反転すると、元の射の基底成分の向きと合わなくなる。そこで全圏と基底圏を同時に反転する。
+全圏だけを反転すると、元の射の基底成分の向きと合わなくなる。そこで全圏と基底圏を同時に[反対圏](../../CAT/CAT1-04/index.md#def-cat1-04-opposite)に移す。$f^{op}$ は反対圏の射であり、逆射 $f^{-1}$ ではない。関手 $p^{op}$ は対象を $p(x)$ に、射 $f^{op}$ を $p(f)^{op}$ に送る。元の合成 $gf$ に対して $f^{op}g^{op}=(gf)^{op}$ なので、$p^{op}$ も合成と恒等射を保つ。[ファイブレーション](../CATB4-01/index.md#def-catb4-01-fibration)では、各終域と基底射に対してCartesian持ち上げを要求していた。
 
 <a id="prop-catb4-05-duality"></a>
 
@@ -126,7 +126,7 @@ $$
 
 と定める。$u(a)=b$ なので右辺は確かに $Z_{v(b)}$ の元である。組の第一成分で出所が確定するため定義は一意であり、空の成分では空写像となる。
 
-集合族の合成式で第二成分を計算すると
+[集合族の射の合成式](../CATB4-01/index.md#thm-catb4-01-families)では、最初の成分 $j_a$ の後に移動先 $u(a)$ に対応する成分 $h_{u(a)}$ を合成する。第二成分を計算すると
 
 $$
 (h_{u(a)}j_a)(t)=h_{u(a)}(a,t)=k_a(t).
@@ -145,7 +145,7 @@ $$
 
 ## 4. 持ち上げの選択から共変擬関手へ
 
-余ファイブレーションに対して各 $u:a\to b,x\in\mathcal E_a$ の持ち上げ $\lambda_{u,x}:x\to u_!x$ を選ぶ。選択の存在を仮定し、ファイバーは固定したサイズの小圏とする。垂直射 $q:x\to x'$ に対し、$\lambda_{u,x'}q$ は $u$ 上にある。従って一意な垂直射 $u_!q$ が存在して
+余ファイブレーションに対して各 $u:a\to b,x\in\mathcal E_a$ の持ち上げ $\lambda_{u,x}:x\to u_!x$ を選ぶ。記号 $u_!x$ は選んだ持ち上げの終域であり、$\lambda_{u,x}$ の添字は基底射と出発対象を指定する。選択の存在を仮定し、ここからは各ファイバーが[小圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)である場合を扱う。垂直射 $q:x\to x'$ に対し、$\lambda_{u,x'}q$ は $u$ 上にある。従って一意な垂直射 $u_!q$ が存在して
 
 $$
 (u_!q)\lambda_{u,x}=\lambda_{u,x'}q
@@ -161,7 +161,17 @@ $$
 
 一意性から $u_!(q'q)=(u_!q')(u_!q)$。従って $u_!:\mathcal E_a\to\mathcal E_b$ は関手となる。
 
-二段の持ち上げと直接の持ち上げを比べると、終域は必ずしも等しくないが、一意な同型で結ばれる。この比較を含む構造を定める。
+二段の持ち上げと直接の持ち上げを比べると、終域は必ずしも等しくないが、一意な同型で結ばれる。[反変擬関手](../CATB4-03/index.md#def-catb4-03-indexed)と同じ発想で、移動を前向きにした共変擬関手を定める。
+
+二段と直接を比べる自然同型を $\mu_{v,u}$、何もしない操作と恒等基底射に沿う移動を比べる自然同型を $\eta_a$ とする。[自然同型](../../CAT/CAT1-07/index.md#def-cat1-07-natural-isomorphism)は対象ごとに同型射を持ち、対象間の射に対して自然性を満たす。最後の添字 $x$ はその対象における成分を表す。比較の成分の型は
+
+$$
+\mu_{v,u,x}:v_!u_!x\to(vu)_!x,
+\qquad
+\eta_{a,x}:x\to(1_a)_!x.
+$$
+
+$I_{\mathcal G_a}$ は値の圏 $\mathcal G_a$ の恒等関手である。三段の移動をまとめる二経路が一致することと、恒等基底射に沿う余分な移動を単位同型で打ち消せることを条件にする。
 
 <a id="def-catb4-05-covariant-indexed"></a>
 
@@ -188,11 +198,13 @@ $$
 \mu_{u,1_a,x}u_!(\eta_{a,x})=1_{u_!x}
 $$
 
-> が成立するものである。
+> が成立するものである。ここで $u:a\to b,v:b\to c,w:c\to d$、$x\in\mathcal G_a$ とし、最後の添字は自然同型の成分を表す。
 <!-- formal-statement-end -->
 
+三重条件の二経路はともに $w_!v_!u_!x$ から $(wvu)_!x$ への射である。左辺は $w_!(vu)_!x$、右辺は $(wv)_!u_!x$ を経由する。単位条件の二辺はともに $u_!x$ の自己射である。
+
 <!-- definition-example-start: def-catb4-05-covariant-indexed -->
-**定義の確認**。基底を $0\to1\to2$ の順序圏、値を全て固定した小さい有限集合の圏、全ての関手を恒等関手とする。$\mu,\eta$ は恒等自然変換とする。関手の恒等・合成保存はそのまま成立し、自然性は任意の写像 $q$ について $1q=q1$。三重条件の両辺も $1\cdot1=1$、左右の単位条件も同じ恒等射となる。よって全条件を満たす。
+**定義の確認**。基底を $0<1<2$ の[順序圏](../../CAT/CAT1-02/index.md#prop-cat1-02-order-category)（合成射 $0\to2$ と各恒等射も含む）とする。固定した有限集合 $S=\{s,t,r,m,n\}$ の全部分集合とその間の全ての写像からなる小圏を、各値の圏とする。対象と射はいずれも有限個であり、合成と恒等写像はこの圏の中にある。全ての関手を恒等関手とする。$\mu,\eta$ は恒等自然変換とする。関手の恒等・合成保存はそのまま成立し、自然性は任意の写像 $q$ について $1q=q1$。三重条件の両辺も $1\cdot1=1$、左右の単位条件も同じ恒等射となる。よって全条件を満たす。
 <!-- definition-example-end -->
 
 <a id="thm-catb4-05-indexed"></a>
@@ -236,7 +248,13 @@ $$
 \end{aligned}
 $$
 
-$L$ はcoCartesianであるから垂直媒介射は一意であり、二辺は一致する。$\eta$ の自然性は $u=1_a$ に対する射への作用の定義式である。
+$L$ はcoCartesianであるから垂直媒介射は一意であり、二辺は一致する。$\eta$ の自然性は $u=1_a$ に対する射への作用の定義式であり、
+
+$$
+(1_a)_!q\,\eta_{a,x}=\eta_{a,x'}q
+$$
+
+となる。各成分は垂直同型なので、[自然同型の成分判定](../../CAT/CAT1-07/index.md#prop-cat1-07-componentwise-iso)により $\mu,\eta$ は自然同型である。
 
 三重条件の二辺を
 
@@ -244,18 +262,26 @@ $$
 M=\lambda_{w,v_!u_!x}\lambda_{v,u_!x}\lambda_{u,x}
 $$
 
-に右から合成する。左辺では $w_!(\mu_{v,u,x})$ と $\lambda_w$ を射への作用の定義で交換し、$\mu_{v,u,x}\lambda_v\lambda_u=\lambda_{vu,x}$ を用いると
+に右から合成する。左辺では垂直射 $\mu_{v,u,x}$ に対する関手 $w_!$ の定義式を使う。
 
 $$
-\mu_{w,vu,x}\lambda_{w,(vu)_!x}\lambda_{vu,x}
-=\lambda_{wvu,x}.
+\begin{aligned}
+&\mu_{w,vu,x}w_!(\mu_{v,u,x})M\\
+&=\mu_{w,vu,x}\lambda_{w,(vu)_!x}\mu_{v,u,x}
+  \lambda_{v,u_!x}\lambda_{u,x}\\
+&=\mu_{w,vu,x}\lambda_{w,(vu)_!x}\lambda_{vu,x}\\
+&=\lambda_{wvu,x}.
+\end{aligned}
 $$
 
-右辺では最初の二つの持ち上げ $\lambda_w\lambda_v$ を $\mu_{w,v,u_!x}$ でまとめるので
+右辺では $u_!x$ を出発対象とする比較を先に使う。
 
 $$
-\mu_{wv,u,x}\lambda_{wv,u_!x}\lambda_{u,x}
-=\lambda_{wvu,x}.
+\begin{aligned}
+&\mu_{wv,u,x}\mu_{w,v,u_!x}M\\
+&=\mu_{wv,u,x}\lambda_{wv,u_!x}\lambda_{u,x}\\
+&=\lambda_{wvu,x}.
+\end{aligned}
 $$
 
 $M$ はcoCartesianなので一意性から三重条件が成立する。
@@ -273,7 +299,7 @@ $$
 $\lambda_{u,x}$ の一意性で両単位条件を得る。
 <!-- proof-end -->
 
-集合族の例では、基底射を重ねると出所のタグが入れ子になる。例えば $u:A\to B,v:B\to C$ に対し、比較は $(b,(a,t))\mapsto(a,t)$ であり、逆は $(a,t)\mapsto(u(a),(a,t))$。単位は $t\mapsto(a,t)$ である。したがって自然な比較があっても、対象の厳密な等号を要求する必要はない。
+第3節の集合族の例でも、この比較と同じ形を成分ごとに計算できる（全ての集合を許すファイバーの小ささはここでは仮定しない）。基底射を重ねると出所のタグが入れ子になる。例えば $u:A\to B,v:B\to C$ に対し、比較は $(b,(a,t))\mapsto(a,t)$ であり、逆は $(a,t)\mapsto(u(a),(a,t))$。単位は $t\mapsto(a,t)$ である。したがって自然な比較があっても、対象の厳密な等号を要求する必要はない。
 
 ## 5. 共変擬関手から全圏を作る
 
@@ -328,7 +354,7 @@ $$
 
 基底を $\mathcal B^{op}$ とし、値を $\mathcal G_a^{op}$ とする反変擬関手 $F$ を作る。$u^{op}:b\to a$ に対する再添字関手は $(u_!)^{op}:\mathcal G_a^{op}\to\mathcal G_b^{op}$ である。
 
-比較は $(\mu_{v,u}^{-1})^{op}$、単位は $\eta_a^{op}$ とする。自然同型を反対圏に移すと向きが逆になるので、比較の型は $(v_!)^{op}(u_!)^{op}\Rightarrow((vu)_!)^{op}$ となる。三重条件の両辺の逆を取ると
+比較を $\alpha_{v^{op},u^{op}}=(\mu_{v,u}^{-1})^{op}$、単位を $\epsilon_a=\eta_a^{op}$ とする。[反変擬関手](../CATB4-03/index.md#def-catb4-03-indexed)の単位は $(1_a)^*\Rightarrow I$ の向きなので、ここでは $\eta_a$ 自体を反転する。自然同型を反対圏に移すと向きが逆になるので、比較の型は $(v_!)^{op}(u_!)^{op}\Rightarrow((vu)_!)^{op}$ となる。三重条件の両辺の逆を取ると
 
 $$
 w_!(\mu_{v,u,x}^{-1})\mu_{w,vu,x}^{-1}
@@ -372,7 +398,7 @@ $$
 
 唯一の解は $h=k\mu_{v,u,x}$ である。従って任意の $u,x$ で持ち上げが存在する。
 
-一般の $(u,f)$ で $f$ が同型なら、方程式 $h\,v_!f\,\mu^{-1}=k$ は
+一般の $(u,f)$ で $f$ が同型なら、[関手の同型保存](../../CAT/CAT1-06/index.md#prop-cat1-06-preservation)により $v_!f$ も同型である。媒介射の第二成分は $h:v_!y\to z$ であり、方程式 $h\,v_!f\,\mu_{v,u,x}^{-1}=k$ は
 
 $$
 h=k\mu_{v,u,x}(v_!f)^{-1}
@@ -438,7 +464,7 @@ $j_0,j_1$ の像は合わせて $(u_!X)_2$ の全元を尽くし、各元の値�
 
 - Level: B
 
-$u:a\to b$ 上のcoCartesian射 $f:x\to y$ と、$v:b\to c$ 上のcoCartesian射 $g:y\to z$ を取る。任意の $w:c\to d$ と $wvu$ 上の $k:x\to t$ を用いて $gf$ の普遍性を直接証明せよ。
+$u:a\to b$ 上のcoCartesian射 $f:x\to y$ と、$v:b\to c$ 上のcoCartesian射 $g:y\to z$ を取る。任意の対象 $t$、$d=p(t)$、基底射 $w:c\to d$ と $wvu$ 上の $k:x\to t$ を用いて $gf$ の普遍性を直接証明せよ。
 
 <!-- solution-start -->
 **詳細解答。** $f$ の[普遍性](#def-catb4-05-cocartesian)に媒介基底 $wv$ と $k$ を入れると、唯一の $l:y\to t$ が存在して $p(l)=wv,lf=k$ となる。次に $g$ に $w,l$ を入れると唯一の $h:z\to t$ が得られ、$p(h)=w,hg=l$ である。従って $hgf=lf=k$。
@@ -450,10 +476,10 @@ $u:a\to b$ 上のcoCartesian射 $f:x\to y$ と、$v:b\to c$ 上のcoCartesian射
 
 - Level: B
 
-基底を一対象で恒等射のみの圏、値を一対象で射が $\mathbb Z/3\mathbb Z$ の圏とする。関手を恒等、$\eta=1,\mu=2$ とする（射の合成は加法）。擬関手の条件を確認し、共変構成の恒等射と第二成分 $f=1,g=0$ の合成を求めよ。
+基底を一対象で恒等射のみの圏、値を射が $\mathbb Z/3\mathbb Z$ の[一対象圏](../../CAT/CAT1-02/index.md#prop-cat1-02-one-object)とする。射の合成は3を法とする加法で、恒等射は剰余類 $0$ である。関手を恒等とし、唯一の対象成分を略記して $\eta=1,\mu=2$ とする。擬関手の条件を確認し、共変構成の恒等射と第二成分 $f=1,g=0$ の合成を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** 自然性は加法の可換性、比較と単位は全て逆元を持つ。三重条件の両辺は $2+2=1$、単位条件は $2+1=0$ なので[共変擬関手](#def-catb4-05-covariant-indexed)の条件が成立する。
+**詳細解答。** 任意の剰余類 $q$ について $q+2=2+q$、$q+1=1+q$ なので比較と単位は自然である。比較 $2$ の逆元は $1$、単位 $1$ の逆元は $2$ であり、いずれも和が $0$ になる。三重条件の両辺は $2+2=1$、単位条件は $2+1=0$ なので[共変擬関手](#def-catb4-05-covariant-indexed)の条件が成立する。
 
 [共変Grothendieck構成](#def-catb4-05-covariant-grothendieck)の恒等射の第二成分は $-\eta=2$、合成は
 
@@ -471,7 +497,7 @@ $$
 $u:A\to B,v:B\to C,w:C\to D$ とする。第3節の集約関手で三重移動した元を $(c,(b,(a,t)))$ と書く。二通りの比較が一致すること、および比較が自然であることを示せ。
 
 <!-- solution-start -->
-**詳細解答。** 入れ子の条件は $u(a)=b,v(b)=c$、最終添字は $w(c)$ である。先に内側を比較すると
+**詳細解答。** [集合族の集約](#thm-catb4-05-family)を三回適用すると、入れ子の条件は $u(a)=b,v(b)=c$、最終添字は $w(c)$ である。[共変擬関手の三重条件](#def-catb4-05-covariant-indexed)の二経路を、このタグの除去として計算する。先に内側を比較すると
 
 $$
 (c,(b,(a,t)))\mapsto(c,(a,t))\mapsto(a,t).
@@ -491,7 +517,7 @@ $$
 <!-- solution-start -->
 **詳細解答。** 対象の逆写像は $x\mapsto(p(x),x)$ である。射 $s:x\to y$ について $u=p(s)$ と置く。[coCartesian射の定義](#def-catb4-05-cocartesian)に媒介基底 $1_{p(y)}$ を入れると、唯一の垂直射 $f:u_!x\to y$ が存在し $s=f\lambda_{u,x}$ となる。よって射についても一対一である。
 
-$K$ を問題の写像とし、合成可能な $(u,f),(v,g)$ を取る。[共変擬関手への構成](#thm-catb4-05-indexed)で得た射への作用と比較の式により
+$K$ を問題の写像とし、合成可能な $(u,f):(a,x)\to(b,y)$ と $(v,g):(b,y)\to(c,z)$ を取る。ここで $f:u_!x\to y$ は $\mathcal E_b$ の垂直射なので、$v_!$ を適用できる。[共変擬関手への構成](#thm-catb4-05-indexed)で得た射への作用と比較の式により
 
 $$
 \begin{aligned}
