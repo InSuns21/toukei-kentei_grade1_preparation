@@ -62,7 +62,7 @@ chapters:
     title: "部分微分法・Baur–Strassen：回路微分のコスト"
   - id: ACOMP15
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP15
-    status: planned
+    status: completed
     title: "深さ削減：VSBR型分割と次数・サイズのトレードオフ"
   - id: ACOMP16
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP16
