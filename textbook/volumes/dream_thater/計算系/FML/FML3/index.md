@@ -60,24 +60,24 @@ $$
 
 である。和は非零係数の添字上で、積は非零指数の添字上で取る。零係数を追加しても f(0)=0 だから値は変わらない。二つの多項式 p,q の有限台の和集合を T とし、q の係数を $d_\alpha$、各単項式の評価値を $m_\alpha=\prod_i a(i)^{\alpha_i}$ と置く。[環準同型の加法保存](../../../代数系/RNG/RNG1/index.md#def-rng1-ring-homomorphism)から
 
-$
+$$
 \begin{aligned}
 \operatorname{ev}_{f,a}(p+q)
 &=\sum_{\alpha\in T}f(c_\alpha+d_\alpha)m_\alpha\\
 &=\sum_{\alpha\in T}(f(c_\alpha)+f(d_\alpha))m_\alpha.
 \end{aligned}
-$
+$$
 
 [環の分配法則](../../../代数系/RNG/RNG1/index.md#def-rng1-ring)で各項を二つに分けてから、有限和を二つに分離する。
 
-$
+$$
 \begin{aligned}
 \operatorname{ev}_{f,a}(p+q)
 &=\sum_{\alpha\in T}f(c_\alpha)m_\alpha
  +\sum_{\alpha\in T}f(d_\alpha)m_\alpha\\
 &=\operatorname{ev}_{f,a}(p)+\operatorname{ev}_{f,a}(q).
 \end{aligned}
-$
+$$
 
 積では指数 α と β を足して α+β の単項式にまとめる。各変数の累乗は
 
@@ -87,14 +87,14 @@ $$
 
 となる。積の全項は、p の各単項式と q の各単項式を組にして得られる。係数が同じ指数へ集まる場合も加法保存によってまとめる前の和で計算できる。[環準同型の乗法保存](../../../代数系/RNG/RNG1/index.md#def-rng1-ring-homomorphism)を適用すると
 
-$
+$$
 \begin{aligned}
 \operatorname{ev}_{f,a}(pq)
 &=\sum_{\alpha,\beta} f(c_\alpha d_\beta)m_{\alpha+\beta}\\
 &=\sum_{\alpha,\beta} f(c_\alpha)f(d_\beta)m_\alpha m_\beta\\
 &=\sum_{\alpha,\beta}(f(c_\alpha)m_\alpha)(f(d_\beta)m_\beta).
 \end{aligned}
-$
+$$
 
 最後の行は S の乗法の可換性で因子を並べ替えたものである。有限和の分配法則で二つの和の積へ戻すと
 
