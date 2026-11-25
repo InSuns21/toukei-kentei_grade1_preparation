@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - ACOMP19
+  - GCT11
 official_scope: []
 learning_objectives:
   - 形式多項式の恒等性判定と点評価の違いを説明できる

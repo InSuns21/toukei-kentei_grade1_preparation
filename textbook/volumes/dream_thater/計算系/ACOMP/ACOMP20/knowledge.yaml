@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - ACOMP19
+  - GCT11
 forward_references: []
 concepts:
   - id: algebraic-complexity.pit
