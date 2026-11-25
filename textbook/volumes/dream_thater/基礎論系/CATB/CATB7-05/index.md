@@ -24,7 +24,7 @@ $$
 
 ## 2. 持ち上げと延長ができる対象
 
-[エピ射](../../CAT/CAT1-03/index.md#def-cat1-03-epimorphism)の終域への写像を、その始域まで持ち上げられる対象があれば、複体の比較写像を一段ずつ作れる。この対象を射影対象という。双対的に、[モノ射](../../CAT/CAT1-03/index.md#def-cat1-03-monomorphism)の始域から出る写像を終域まで延長できる対象を入射対象という。加群ではエピ射とモノ射をそれぞれ全射と単射で判定できる。
+[エピ射](../../CAT/CAT1-03/index.md#def-cat1-03-epimorphism)の終域への写像を、その始域まで持ち上げられる対象があれば、複体の比較写像を一段ずつ作れる。この持ち上げ条件を次の定義にまとめる。双対的に、[モノ射](../../CAT/CAT1-03/index.md#def-cat1-03-monomorphism)の始域から出る写像を終域まで延長できる対象を入射対象という。加群ではエピ射とモノ射をそれぞれ全射と単射で判定できる。
 
 <a id="def-catb7-05-projective"></a>
 
@@ -530,7 +530,7 @@ $$
 f=fsb=0.
 $$
 
-局所化関手の[加法性](../CATB7-04/index.md#prop-catb7-04-additive-shift)から一般の二射の等しさも差が零かどうかで判定できる。
+[導来圏の加法構造とシフト](../CATB7-04/index.md#prop-catb7-04-additive-shift)により局所化関手は射の和と差を保つので、一般の二射の等しさも差が零かどうかで判定できる。
 
 $M$ の射影分解 $P\to M[0]$ は[分解の存在と擬同型](#thm-catb7-05-resolution-existence)により導来圏の同型である。[余鎖複体のシフト](../CATB7-02/index.md#def-catb7-02-shift)の定義により $N[n]$ は次数 $-n$ だけに $N$ がある。
 
@@ -648,7 +648,7 @@ $[k]_m$ は $\mathbb Z/m\mathbb Z$ における整数 $k$ の剰余類とする�
 $P^{-1}=P^0=\mathbb Z$、微分を7倍とした複体が $\mathbb Z/7\mathbb Z$ の射影分解になることを確認し、$H^{-1}(P),H^0(P)$ を求めよ。
 
 <!-- solution-start -->
-両成分は自由加群なので[射影対象](#def-catb7-05-projective)。7倍は単射で、像 $7\mathbb Z$ は剰余射の核であり、剰余射は全射である。他の成分は零なので増大列の完全性も成立する。[射影分解](#def-catb7-05-projective-resolution)の条件を満たす。[コホモロジーの定義](../CATB7-01/index.md#def-catb7-01-cohomology)より
+両成分は自由加群なので[射影対象](#def-catb7-05-projective)。7倍は単射で、像 $7\mathbb Z$ は剰余射の核であり、剰余射は全射である。他の成分は零なので増大列の完全性も成立する。[射影分解](#def-catb7-05-projective-resolution)の条件を満たす。[余鎖複体のコホモロジー](../CATB7-01/index.md#def-catb7-01-cohomology)の定義より
 
 $$
 H^{-1}(P)=\ker(7)/0=0,\qquad
