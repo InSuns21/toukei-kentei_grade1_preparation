@@ -2,7 +2,7 @@ id: "NPCG12"
 title: "rank距離・有限行列空間・等号とコンパクト性：論文D/Fへの準備"
 volume: "foundations"
 status: supplementary
-prerequisites: [NPCG11, FLD0, F0-00C1]
+prerequisites: [NPCG11, FLD0, FLD3, F0-00C1]
 official_scope: []
 learning_objectives:
   - 体上の行列の階数を像の次元から求め階数距離の公理と不変性を証明できる

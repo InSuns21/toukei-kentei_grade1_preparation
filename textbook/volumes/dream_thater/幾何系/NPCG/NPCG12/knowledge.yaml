@@ -1,7 +1,7 @@
 chapter: NPCG12
 scope: dream-theater
 coverage: complete
-prerequisites: [NPCG11, FLD0, F0-00C1]
+prerequisites: [NPCG11, FLD0, FLD3, F0-00C1]
 forward_references: []
 concepts:
   - id: metric-geometry.rank-subadditivity
@@ -34,7 +34,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（有限行列空間のコンパクト性）"]
-    requires: [metric-geometry.rank-distance-invariance, topology.compact-set, topology.complete-metric-space]
+    requires: [metric-geometry.rank-distance-invariance, algebra.finite-field, topology.compact-set, topology.complete-metric-space]
   - id: metric-geometry.finite-matrix-poincare-attainment
     name: 有限行列値Poincaré最良定数の達成
     kind: theorem
