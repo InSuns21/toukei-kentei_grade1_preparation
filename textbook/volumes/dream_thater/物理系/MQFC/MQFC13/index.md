@@ -2,11 +2,21 @@
 
 [MQFC6の自由場の構成](../MQFC6/index.md#thm-mqfc6-free-measure) では無限個の測定を同時に確率変数として実現し、[MQFC7のSchwinger関数](../MQFC7/index.md#def-mqfc7-schwinger) では測定の積の平均を扱った。相互作用を入れると、まず有限個の自由度で確率測度を作り、近似の制限を外す方法が有効になる。しかし各近似で積分が有限であることだけでは、極限の測度も相関も得られない。今回はこの二つの極限問題を分け、自由場で実際に計算する。
 
-直接の前提は [MQFC5](../MQFC5/index.md)、[MQFC6](../MQFC6/index.md)、[MQFC7](../MQFC7/index.md)、[F0-00P4A](../../../解析系/F0/F0-00P4A/index.md)、[OTR3](../../../解析系/OTR/OTR3/index.md) とする。以下 $d\ge1$、質量 $m>0$、実試験関数 $f\in S=\mathcal S(\mathbb R^d)$ を用いる。
+直接の前提は [MQFC5](../MQFC5/index.md)、[MQFC6](../MQFC6/index.md)、[MQFC7](../MQFC7/index.md)、[F0-00P4A](../../../解析系/F0/F0-00P4A/index.md)、[OTR3](../../../解析系/OTR/OTR3/index.md) とする。
+
+以下 $d\ge1$ は整数、質量 $m>0$ とする。$S=\mathcal S(\mathbb R^d;\mathbb R)$ は [Schwartz空間](../MQFC1/index.md#def-mqfc1-schwartz) の実数値関数に限った空間であり、$f,g\in S$ を試験関数とする。測定値が属する Euclid 空間上の Borel 確率測度を考える。確率測度の [狭義収束](../../../解析系/OTR/OTR3/index.md#def-otr3-narrow) とは、すべての有界連続実関数の積分が極限法則の積分へ収束することである。
 
 ## 1. 二種類の制限
 
-一辺 $L>0$ の立方体で周期境界条件を課すと、許される周波数は $p_k=2\pi k/L$（$k\in\mathbb Z^d$）になる。周期条件は $e^{ip_k\cdot(x+Le_j)}=e^{ip_k\cdot x}$ から確認できる。有限体積でも周波数の個数は無限である。高周波を除くとき初めて有限個のモードになる。これを紫外（UV）正則化という。
+一辺 $L>0$ の立方体で周期境界条件を課すと、許される周波数は $p_k=2\pi k/L$（$k\in\mathbb Z^d$）になる。ここで $x\in\mathbb R^d$ は位置、$k$ は整数ベクトル、$e_j$ は第 $j$ 座標の単位ベクトル、$i$ は虚数単位である。周期条件は
+
+$$
+e^{ip_k\cdot(x+Le_j)}
+=e^{ip_k\cdot x}e^{2\pi i k_j}
+=e^{ip_k\cdot x}
+$$
+
+から確認できる。逆に平面波 $e^{ip\cdot x}$ が各座標方向で周期 $L$ を持つには $e^{iLp_j}=1$、すなわち $Lp_j\in2\pi\mathbb Z$ が必要である。有限体積でも周波数の個数は無限である。ここでモードとは一つの許容周波数に対応する波である。周波数の各成分の絶対値を一様な上限 $\Lambda$ で抑えると、各整数成分は $|k_j|\le L\Lambda/(2\pi)$ に制限され、初めて有限個のモードになる。これを紫外（UV）正則化という。
 
 <a id="def-mqfc13-cutoff"></a>
 
@@ -44,11 +54,19 @@ $$
 \end{aligned}
 $$
 
-と置く。基底の係数は周期箱上で各基底関数の積分二乗が1になるように選んだ。例えば非零 $k$ の余弦の二乗積分は $\cos^2 u=(1+\cos2u)/2$ により $L^d/2$ となる。
+と置く。基底関数の係数は周期箱上で二乗積分が1になるように選んだ。直交性も確認しよう。整数ベクトル $a$ に対し、$\mathbf1_E$ を条件 $E$ の指示関数（成立時に1、不成立時に0）と書く。各座標の積分に分けると
+
+$$
+\int_{Q_L}e^{2\pi i a\cdot x/L}\,dx
+=\prod_{j=1}^d\int_{-L/2}^{L/2}e^{2\pi i a_j x_j/L}\,dx_j
+=L^d\mathbf1_{\{a=0\}}.
+$$
+
+$a_j\ne0$ ならその積分は両端の指数関数が等しいため零、$a_j=0$ なら $L$ になる。複素指数関数を余弦と正弦に分けると、異なる代表 $k,l\in K^+$ の積は周波数 $k+l,k-l$ の項だけからなり、どちらも零周波数ではないので積分は零である。同じ代表では $\cos^2 u=(1+\cos2u)/2$、$\sin^2 u=(1-\cos2u)/2$、$\cos u\sin u=\sin(2u)/2$ より、二乗積分はそれぞれ $L^d/2$、交差積分は零である。零モードとの交差積分も零となる。よって表示した定数・余弦・正弦の規格化係数で、実正規直交三角基底を得る。
 
 [有限次元Gaussian積分と特性関数](../MQFC6/index.md#thm-mqfc6-finite-gaussian) により、各係数の密度は正の分散で正規化できる。例えば零モードの密度は $m(2\pi)^{-1/2}e^{-m^2a^2/2}$ である。係数の有限直積測度が場の確率法則を与える。
 
-箱上だけで積分すると $f$ が箱を越える場合に測定の定義が変わる。そこで場を周期的に全空間へ延長し、$\Phi_{L,\Lambda}(f)=\int_{\mathbb R^d}\phi_{L,\Lambda}(x)f(x)\,dx$ とする。これは有限和と可積分な $f$ の積分なので存在する。Fourier規約は [MQFC1](../MQFC1/index.md#thm-mqfc1-fourier) の $\widehat f(p)=\int e^{-ip\cdot x}f(x)\,dx$ に従う。
+箱上だけで積分すると $f$ が箱を越える場合に測定の定義が変わる。そこで場を周期的に全空間へ延長し、$\Phi_{L,\Lambda}(f)=\int_{\mathbb R^d}\phi_{L,\Lambda}(x)f(x)\,dx$ とする。これは有限和と可積分な $f$ の積分なので存在する。Fourier規約は [MQFC1](../MQFC1/index.md#thm-mqfc1-fourier) の $\widehat f(p)=\int e^{-ip\cdot x}f(x)\,dx$ に従う。測定の共分散を $C_{L,\Lambda}(f,g)=E[\Phi_{L,\Lambda}(f)\Phi_{L,\Lambda}(g)]$ と書く。各係数の平均が零であるため測定の平均も零であり、これは [共分散の定義](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-covariance-uncorrelated) に一致する。
 
 <a id="prop-mqfc13-box-covariance"></a>
 
@@ -71,7 +89,18 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$f$ が実なので $\int f\cos(p_k\cdot x)=\operatorname{Re}\widehat f(p_k)$、$\int f\sin(p_k\cdot x)=-\operatorname{Im}\widehat f(p_k)$ となる。零モードの係数は $L^{-d/2}\widehat f(0)$ である。したがって測定は有限個の独立Gaussianの実線形結合であり、[有限次元Gaussian積分と特性関数](../MQFC6/index.md#thm-mqfc6-finite-gaussian) から中心化Gaussianとなる。
+$f$ が実なので $\int f\cos(p_k\cdot x)=\operatorname{Re}\widehat f(p_k)$、$\int f\sin(p_k\cdot x)=-\operatorname{Im}\widehat f(p_k)$ となる。ここで $\operatorname{Re},\operatorname{Im}$ はそれぞれ実部と虚部である。測定を展開すると
+
+$$
+\begin{aligned}
+\Phi_{L,\Lambda}(f)
+&=L^{-d/2}\widehat f(0) A_0\\
+&\quad+\sqrt2 L^{-d/2}\sum_{k\in K^+}
+\left(A_k\operatorname{Re}\widehat f(p_k)-B_k\operatorname{Im}\widehat f(p_k)\right).
+\end{aligned}
+$$
+
+各係数の分散を $v_a>0$、上式で対応する重みを $w_a(f)$ と書けば、独立な変数の [期待値の積への分解](../../../解析系/F0/F0-00P3/index.md#thm-f0-00p3-expectation-factorization)（複素指数関数は実部と虚部に分けて適用できる）と [有限次元Gaussian積分と特性関数](../MQFC6/index.md#thm-mqfc6-finite-gaussian) の一次元の場合から、測定の特性関数は $\prod_a e^{-t^2w_a(f)^2v_a/2}=e^{-t^2\sum_a w_a(f)^2v_a/2}$ となる。従って測定は中心化Gaussianである（重みが全て零なら定数0）。
 
 平均は零なので共分散は積の期待値である。非零モードの寄与は
 
@@ -138,20 +167,87 @@ $$
 
 固定した $R$ に対して、$\Lambda_n\ge R$ となれば $|h_nk|_\infty\le R$ の項はすべて含まれる。その和は $F$ が連続であり箱の境界が体積零なので、Riemann和として $\int_{[-R,R]^d}F$ に収束する。全体の誤差はこの箱内の誤差、上で評価した箱外の和、箱外の積分の三項で抑えられる。まず $R$ を大きくして後二項を任意に小さくし、その $R$ で $n\to\infty$ とすると積分への収束が従う。
 
-試験関数 $f_1,\ldots,f_r$ に対し、測定ベクトルの共分散行列を $\Sigma_n=(C_{L_n,\Lambda_n}(f_i,f_j))_{i,j=1}^r$ とする。各要素が [Euclid自由場の試験関数共分散](../MQFC5/index.md#def-mqfc5-covariance-form) の行列 $\Sigma$ に収束する。[Gaussian型特性汎関数の有限次元整合性](../MQFC6/index.md#thm-mqfc6-gaussian-characteristic) の式に $t\in\mathbb R^r$ を代入すると特性関数は
+試験関数 $f_1,\ldots,f_r$ に対し、測定ベクトルの共分散行列を $\Sigma_n=(C_{L_n,\Lambda_n}(f_i,f_j))_{i,j=1}^r$ とする。各要素が [Euclid自由場の試験関数共分散](../MQFC5/index.md#def-mqfc5-covariance-form) の行列 $\Sigma$ に収束する。ここで $V_n=(\Phi_{L_n,\Lambda_n}(f_j))_{j=1}^r$ は列ベクトル、上付き $\mathsf T$ は転置を表す。任意の $t=(t_1,\ldots,t_r)^{\mathsf T}\in\mathbb R^r$ に対して測定の線形性から $t^{\mathsf T}V_n=\Phi_{L_n,\Lambda_n}(\sum_jt_jf_j)$ は中心化Gaussianである。その分散は共分散の定義を展開すると
+
+$$
+E[(t^{\mathsf T}V_n)^2]
+=\sum_{i,j=1}^r t_it_j C_{L_n,\Lambda_n}(f_i,f_j)
+=t^{\mathsf T}\Sigma_nt\ge0
+$$
+
+となる。[Gaussian型特性汎関数の有限次元整合性](../MQFC6/index.md#thm-mqfc6-gaussian-characteristic) の対称双線形性・非負性の仮定を満たす（退化した行列も許される）ので、測定ベクトルの特性関数は
 
 $$
 e^{-t^{\mathsf T}\Sigma_n t/2}\longrightarrow
 e^{-t^{\mathsf T}\Sigma t/2}.
 $$
 
-右辺は [自由場のGaussian測度の構成](../MQFC6/index.md#thm-mqfc6-free-measure) による測定ベクトルの特性関数である。[確率ベクトルの特性関数収束定理](../../../解析系/F0/F0-00P6/index.md#thm-f0-00p6-levy-continuity-vector) をこの既知の極限法則に適用できる。従って有界Lipschitz関数の期待値が収束する。一般の有界連続関数 $g$ へ移すため、測定ベクトルを $V_n$、極限ベクトルを $V$ と書く。共分散の対角和は有界なので、ある $M$ で $E|V_n|^2,E|V|^2\le M$。従って $P(|V_n|>R),P(|V|>R)\le M/R^2$ である。
+右辺は [自由場のGaussian測度の構成](../MQFC6/index.md#thm-mqfc6-free-measure) による測定ベクトルの特性関数である。[確率ベクトルの特性関数収束定理](../../../解析系/F0/F0-00P6/index.md#thm-f0-00p6-levy-continuity-vector) をこの既知の極限法則に適用できる。従って有界Lipschitz関数の期待値が収束する。
 
-$B=\|g\|_\infty$ とし、整数 $l\ge1$ に対して $g_l(x)=\inf_y(g(y)+l|x-y|)$ と置く。$-B\le g_l\le g\le B$。三角不等式により $g_l(x)\le g_l(z)+l|x-z|$、逆向きも成立するから $g_l$ は有界Lipschitz関数である。固定した閉球の少し外まで含めれば、$g$ はコンパクト集合上で一様連続である。詳しくは、任意の $\eta>0$ に対し $0<\delta<1$ を選び、$|x-y|<\delta$ なら $|g(x)-g(y)|<\eta$ とする（$x,y$ は半径 $R+1$ の閉球内）。$|x-y|\ge\delta$ なら $l\delta\ge2B$ と選べば $g(y)+l|x-y|\ge B\ge g(x)$。近い $y$ では $g(y)+l|x-y|\ge g(x)-\eta$ である。従って球内で $0\le g-g_l\le\eta$。
+ここから一般の有界連続実関数 $u:\mathbb R^r\to\mathbb R$ へ移す。極限測定ベクトルを $V$ と書く。各ベクトルの平均は零なので、二次モーメントは対角和に一致する。
 
 $$
-|E[g(V_n)]-E[g(V)]|
-\le 2\eta+4BM/R^2+|E[g_l(V_n)]-E[g_l(V)]|.
+E|V_n|^2=\sum_j(\Sigma_n)_{jj},
+\qquad E|V|^2=\sum_j\Sigma_{jj}.
+$$
+
+これらは有界なので、ある定数 $M_2$ で両者を上から抑えられる。半径 $R>0$ に対して、指示関数を二乗ノルムで抑えると
+
+$$
+P(|V_n|>R)\le \frac{E|V_n|^2}{R^2}\le\frac{M_2}{R^2}.
+$$
+
+極限の $V$ に対しても同じ上界を得る。
+
+$B=\sup_{x\in\mathbb R^r}|u(x)|$ とし、整数 $l\ge1$ に対して
+
+$$
+u_l(x)=\inf_{y\in\mathbb R^r}(u(y)+l|x-y|)
+$$
+
+と置く。下限を取る式は $-B$ 以上で、$y=x$ を代入すれば
+
+$$
+-B\le u_l(x)\le u(x)\le B
+$$
+
+となる。[三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-triangle-inequality) を Euclid ノルムのベクトル差 $x-y=(x-z)+(z-y)$ に適用すると、任意の $y$ について
+
+$$
+u(y)+l|x-y|\le u(y)+l|z-y|+l|x-z|
+$$
+
+である。$y$ について下限を取り、さらに $x,z$ を交換すると
+
+$$
+|u_l(x)-u_l(z)|\le l|x-z|
+$$
+
+を得る。従って $u_l$ は有界Lipschitz関数である。
+
+固定した半径 $R+1$ の閉球上で $u$ は一様連続である。任意の $\eta>0$ に対し $0<\delta<1$ を選び、この閉球内の点について
+
+$$
+|x-y|<\delta\quad\Longrightarrow\quad |u(x)-u(y)|<\eta
+$$
+
+が成り立つようにする。半径 $R$ の閉球に $x$ を固定する。近い点（$|x-y|<\delta$）は半径 $R+1$ の閉球に入るので
+
+$$
+u(y)+l|x-y|\ge u(x)-\eta.
+$$
+
+遠い点（$|x-y|\ge\delta$）については、$l\delta\ge2B$ となる整数を選べば
+
+$$
+u(y)+l|x-y|\ge -B+2B=B\ge u(x).
+$$
+
+全ての点で下界が得られたため、下限を取ると半径 $R$ の球内では $0\le u-u_l\le\eta$ となる。
+
+$$
+|E[u(V_n)]-E[u(V)]|
+\le 2\eta+4BM_2/R^2+|E[u_l(V_n)]-E[u_l(V)]|.
 $$
 
 まず $R$ を大きくし、$\eta$ を小さく選び、それに対応する $l$ を固定して $n\to\infty$ とすれば、右辺を任意に小さくできる。従って [確率測度の狭義収束](../../../解析系/OTR/OTR3/index.md#def-otr3-narrow) が成立する。
@@ -164,7 +260,15 @@ $$
 =\frac1{4\pi}\log(1+\Lambda^2/m^2)
 $$
 
-である。極座標で角度積分を $2\pi$、動径積分を $\int_0^\Lambda r/(r^2+m^2)\,dr$ として計算した。円板は周波数箱に含まれるので箱の積分も発散する。点での測定と試験関数による測定の違いが、次講の自己収縮の問題につながる。
+である。極座標では $r=|p|$ は半径、$\theta$ は角度で、面積要素は $dp=r\,dr\,d\theta$ である。角度積分は $2\pi$。動径積分では $v=r^2+m^2$ と置く。$dv/dr=2r$ から[置換積分](../../../基礎科目/RA/RA4/index.md#thm-ra4-substitution)により
+
+$$
+\int_0^\Lambda\frac{r}{r^2+m^2}\,dr
+=\frac12\int_{m^2}^{\Lambda^2+m^2}\frac{dv}{v}
+=\frac12\log(1+\Lambda^2/m^2).
+$$
+
+$m>0$ なので対数の引数は正である。円板は周波数箱に含まれるので箱の積分も発散する。点での測定と試験関数による測定の違いが、次講の自己収縮の問題につながる。
 
 ## 4. 確率測度の極限をどう取り出すか
 
@@ -210,11 +314,19 @@ $$
 
 ### 可算個の測定を同じ部分列で扱う
 
-試験関数列 $f_1,f_2,\ldots$ を固定する。各 $j$ について $E|\Phi_n(f_j)|^2\le M_j$ が一様に成り立つとする。第1座標の法則で収束部分列を取り、その中から最初の2座標の同時法則が収束する部分列を取り、以下繰り返す。第 $r$ 段階の部分列を昇順に並べ、その第 $r$ 要素を $n_r$ とすれば $n_{r+1}>n_r$ であり、固定した $k$ に対して $r\ge k$ の $n_r$ は第 $k$ 段階の部分列に含まれる。
+試験関数列 $f_1,f_2,\ldots$ を固定する。各 $j$ について $E|\Phi_n(f_j)|^2\le M_j$ が一様に成り立つとする。[測定ベクトルの二次評価による部分列抽出](#thm-mqfc13-moment-tight) を用いて、第1座標の法則で収束部分列を取り、その中から最初の2座標の同時法則が収束する部分列を取り、以下繰り返す。第 $r$ 段階の部分列を昇順に並べ、その第 $s$ 要素を $n^{(r)}_s$ と書く。入れ子の部分列なので $n^{(r+1)}_s\ge n^{(r)}_s$ である。
 
-従ってこの一つの列上で全ての有限先頭ブロックの法則が収束する。座標を忘れる射影 $\pi:\mathbb R^{k+1}\to\mathbb R^k$ と有界連続関数 $g$ に対し $g\circ\pi$ も有界連続だから、極限の射影は短いブロックの極限と一致する。任意の有限座標集合はある先頭ブロックに入るので整合的である。[Kolmogorov拡張定理](../../../解析系/STO/STO3/index.md#thm-sto3-kolmogorov-extension) によって可算座標の確率法則を得る。
+そこで対角の添字を $n_r=n^{(r)}_r$ と選ぶと
 
-ただし、ここで構成したのは可算座標の法則である。全試験関数に連続線形に作用する緩増加分布が確率1で得られるとはまだ示していない。線形関係の保存、試験関数位相での連続性、あるいは [Bochner–Minlosの定理](../MQFC6/index.md#thm-mqfc6-minlos) を適用する特性汎関数の連続性などが別途必要である。例えば独立な標準Gaussianを任意の二つの同一試験関数に別々に割り当てれば、その二測定が等しいという線形関係さえ失う。整合性の対象を明確にしておく必要がある。
+$$
+n_{r+1}=n^{(r+1)}_{r+1}\ge n^{(r)}_{r+1}>n^{(r)}_r=n_r.
+$$
+
+さらに固定した $k$ に対して $r\ge k$ なら、第 $r$ 段階は第 $k$ 段階の部分列なので $n_r$ も第 $k$ 段階に含まれる。
+
+従ってこの一つの列上で全ての有限先頭ブロックの法則が収束する。座標を忘れる射影 $\pi:\mathbb R^{k+1}\to\mathbb R^k$ と有界連続関数 $g$ に対し $g\circ\pi$ も有界連続だから、極限の射影は短いブロックの極限と一致する。任意の有限座標集合はある先頭ブロックに入るので、そこから必要な座標を残す射影で法則を定められる。先頭ブロックの選び方によらず、さらに座標を忘れても法則は一致する。従って [有限次元分布と整合性](../../../解析系/STO/STO3/index.md#def-sto3-fdd-consistency) の条件を満たす。[Kolmogorov拡張定理](../../../解析系/STO/STO3/index.md#thm-sto3-kolmogorov-extension) によって可算座標の確率法則を得る。
+
+ただし、ここで構成したのは可算座標の法則である。全試験関数に連続線形に作用する [緩増加分布](../MQFC1/index.md#def-mqfc1-tempered) の実数値版が確率1で得られるとはまだ示していない。線形関係の保存、試験関数位相での連続性、あるいは [Bochner–Minlosの定理](../MQFC6/index.md#thm-mqfc6-minlos) を適用する特性汎関数の連続性などが別途必要である。例えば独立な標準Gaussianを任意の二つの同一試験関数に別々に割り当てれば、その二測定が等しいという線形関係さえ失う。整合性の対象を明確にしておく必要がある。
 
 ## 5. 法則が収束しても相関が収束するとは限らない
 
@@ -253,13 +365,13 @@ $G$ の値を上下から切って有界連続関数にする。切った関数�
 <!-- proof-start -->
 ### 証明
 
-$K>0$ で $G_K=\max(-K,\min(K,G))$ と置く。$G_K$ は有界連続であり、
+$K>0$ で $G_K=\max(-K,\min(K,G))$ と置く。また実数 $a$ に対して $a_+=\max(a,0)$ と書く。$G_K$ は有界連続であり、
 
 $$
 |G-G_K|=(|G|-K)_+\le |G|\mathbf1_{\{|G|>K\}},
 $$
 
-ただし $a_+=\max(a,0)$ と書く。右辺の積分の全 $n$ に関する上限を $a(K)$ とすると $a(K)\to0$ である。
+右辺の $\mu_n$ に関する積分の全 $n$ にわたる上限を $a(K)$ とすると $a(K)\to0$ である。
 
 極限測度での可積分性を先に示す。ある $K_0$ で $a(K_0)\le1$ とでき、$\int |G|\,d\mu_n\le K_0+1$ である。任意の $M>0$ について $\min(|G|,M)$ は有界連続だから
 
@@ -269,7 +381,7 @@ $$
 \le K_0+1.
 $$
 
-$M\to\infty$ で[単調収束定理](../../../解析系/F0/F0-00D2B/index.md#ref-limit-integral-exchange) を用いれば $\int |G|\,d\mu\le K_0+1$。同様に有界連続関数 $\min((|G|-K)_+,M)$ の積分は極限でも $a(K)$ 以下であり、$M\to\infty$ で
+$M\to\infty$ で[単調収束定理](../../../解析系/F0/F0-00D2B/index.md#ref-limit-integral-exchange) を用いれば $\int |G|\,d\mu\le K_0+1$。次に有界連続関数 $\min((|G|-K)_+,M)$ は各 $\mu_n$ で積分が $a(K)$ 以下である。狭義収束によって $\mu$ での積分も $a(K)$ 以下になる。$M\to\infty$ で再び単調収束定理を適用すると
 
 $$
 \int (|G|-K)_+\,d\mu\le a(K).
@@ -288,7 +400,7 @@ $$
 固定した $K$ で最後の項は零に収束する。上極限は $2a(K)$ 以下であり、$K\to\infty$ で結論を得る。
 <!-- proof-end -->
 
-実際に必要な一様可積分性は高次モーメントで確認できる。例えば $G(x)=x_1\cdots x_r$ なら、$q>1$ について $|G(x)|^q\le\|x\|^{rq}$ なので、$\sup_n E\|X_n\|^{rq}<\infty$ があれば
+実際に必要な一様可積分性は高次モーメントで確認できる。例えば $G(x)=x_1\cdots x_r$ なら、$\|x\|=|x|$ は Euclid ノルムであり、各成分について $|x_j|\le\|x\|$ である。従って $q>1$ について $|G(x)|^q\le\|x\|^{rq}$ なので、$\sup_n E\|X_n\|^{rq}<\infty$ があれば
 
 $$
 E[|G(X_n)|\mathbf1_{\{|G(X_n)|>K\}}]
@@ -297,7 +409,34 @@ $$
 
 右辺は $K\to\infty$ で一様に零となる（[高次モーメントの一様有界性から一様可積分性](../../../解析系/F0/F0-00P4A/index.md#thm-f0-00p4a-lp-ui)）。従って多点相関を法則の極限へ移せる。
 
-自由場では各固定試験関数の分散が第3節の定理により収束し、有界である。[Gaussian Schwinger関数のWick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) による $E|X|^{2s}=(2s-1)!!(EX^2)^s$ は、$2s$ 個の同一測定の対分割が $(2s-1)(2s-3)\cdots1$ 通りあることから得られる。有限測定ベクトルの $2r$ 次ノルムは $(\sum_j X_j^2)^r\le r^{r-1}\sum_j |X_j|^{2r}$ で抑えられる。これは凸関数 $u^r$ の等重み平均への不等式である。よって $q=2$ を上の評価へ入れ、すべての固定次数の混合モーメントの収束を得る。相互作用場ではGaussian対分割に頼れないため、対応する一様評価を別に証明する必要がある。
+自由場では各固定試験関数の分散が [有限モード共分散の二重極限](#thm-mqfc13-free-limit) により収束し、有界である。[Gaussian Schwinger関数のWick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) を同一測定に適用すると、正整数 $s$ に対して
+
+$$
+E|X|^{2s}=(2s-1)!!(EX^2)^s
+$$
+
+となる。二重階乗 $(2s-1)!!=(2s-1)(2s-3)\cdots1$ は、$2s$ 個の同一測定の対分割の個数である。
+
+$r$ 個の測定からなるベクトル $X=(X_1,\ldots,X_r)$ のノルムの $2r$ 乗を見積もる。$r=1$ では以下の不等式は等号で成立する。$r\ge2$ とし、非負の数 $a,b$ について恒等式
+
+$$
+a^r-b^r=(a-b)\sum_{k=0}^{r-1}a^{r-1-k}b^k
+$$
+
+を使う。$a\ge b$ のとき和は $rb^{r-1}$ 以上であり、$a\le b$ のとき和は $rb^{r-1}$ 以下だが $a-b\le0$ となる。従ってどちらの場合も
+
+$$
+a^r\ge b^r+rb^{r-1}(a-b).
+$$
+
+ここで $a=X_j^2$、$b=r^{-1}\sum_j X_j^2$ と選ぶ。全ての $j$ について加えると一次の項が相殺するので
+
+$$
+\left(\frac1r\sum_{j=1}^r X_j^2\right)^r
+\le\frac1r\sum_{j=1}^r|X_j|^{2r}
+$$
+
+となる。両辺に $r^r$ を掛けると $\|X\|^{2r}\le r^{r-1}\sum_j|X_j|^{2r}$ を得る。積に同じ試験関数が複数回出るときも、それぞれを測定ベクトルの座標として並べてよい。よって $q=2$ を上の評価へ入れ、すべての固定次数の混合モーメントの収束を得る。相互作用場ではGaussian対分割に頼れないため、対応する一様評価を別に証明する必要がある。
 
 ## 6. 演習
 
@@ -308,7 +447,7 @@ $$
 $d=2,L=2\pi,\Lambda=1.8$ とする。許容モード数と独立な実係数の数を求めよ。
 
 <!-- solution-start -->
-$p_k=k$ なので $|k_j|\le1.8$ を満たす整数は各座標で $-1,0,1$ の3個。よって $3^2=9$ モード。零モードが1個、残り8個は正負の4対である。各対に余弦・正弦係数を一つずつ割り当てるため、実係数は $1+2\cdot4=9$ 個となる。
+[有限体積・周波数切断](#def-mqfc13-cutoff) に $L=2\pi$ を代入すると $p_k=k$ なので $|k_j|\le1.8$ を満たす整数は各座標で $-1,0,1$ の3個。よって $3^2=9$ モード。零モードが1個、残り8個は正負の4対である。各対に余弦・正弦係数を一つずつ割り当てるため、実係数は $1+2\cdot4=9$ 個となる。
 <!-- solution-end -->
 
 ### 演習 MQFC13-A2：零モードの測定
@@ -363,9 +502,9 @@ $$
 =\frac1{\pi m}\arctan(\Lambda/m).
 $$
 
-ここで $p=mu$ と置くと $dp=m\,du$ であり $\int du/(1+u^2)=\arctan u$。極限は $1/(2m)$。
+ここで積分変数を $u=p/m$ に変える。$m>0$ は固定して $dp/du=m$ だから、[置換積分](../../../基礎科目/RA/RA4/index.md#thm-ra4-substitution)で $dp=m\,du$ と書ける。積分区間は $[-\Lambda/m,\Lambda/m]$ となり、$\int du/(1+u^2)=\arctan u$。極限は $1/(2m)$。
 
-$d=2$ では極座標の面積要素は $r\,dr\,d\theta$。角度を積分し $u=r^2+m^2$、$du=2r\,dr$ と置くと
+$d=2$ では極座標の面積要素は $r\,dr\,d\theta$。角度 $\theta$ を $0$ から $2\pi$ まで積分する。動径変数 $r$ について $u=r^2+m^2$ と置けば $du/dr=2r$。$0\le r\le\Lambda$ で単調に増加するので、[置換積分](../../../基礎科目/RA/RA4/index.md#thm-ra4-substitution)で $2r\,dr=du$ と書ける。$m>0$ より $u>0$ であり、
 
 $$
 \frac1{2\pi}\int_0^\Lambda\frac{r\,dr}{r^2+m^2}
@@ -443,7 +582,15 @@ $$
 E[X_n^2Y_n^2]=a_nb_n+2c_n^2\to ab+2c^2.
 $$
 
-積分の尾からも同じ結論を得られる。$G(x,y)=x^2y^2$ と置き、$A=\sup_n a_n$、$B=\sup_n b_n$ は有限とする。対分割の数は $7\cdot5\cdot3\cdot1=105$ だから $EX_n^8=105a_n^4$、$EY_n^8=105b_n^4$。Cauchy–Schwarzの不等式に $|X_n|^4,|Y_n|^4$ を入れると
+積分の尾からも同じ結論を得られる。$G(x,y)=x^2y^2$ と置き、$A=\sup_n a_n$、$B=\sup_n b_n$ は有限とする。
+
+[Wick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) で同じ測定を8回並べたとき、対分割の数は $7\cdot5\cdot3\cdot1=105$ である。各対の寄与は同じ分散だから
+
+$$
+EX_n^8=105a_n^4,\qquad EY_n^8=105b_n^4.
+$$
+
+両者の8次モーメントが有限なので $|X_n|^4,|Y_n|^4$ は $L^2$ に属する。内積を $\langle U,V\rangle=E[UV]$ とした [Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) にこれらを入れると
 
 $$
 \begin{aligned}
