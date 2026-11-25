@@ -2,11 +2,32 @@
 
 [MQFC14](../MQFC14/index.md) では自由場の積から自己収縮を取り除き、試験関数で平均した量の二乗平均極限を構成した。今回はこの量を利用し、自由場の標本の確率を変える。場の値に依存する重みを与えても総確率を1にできるか、量子状態を作るための反射陽性を保てるかを調べる。
 
-直接の前提は [MQFC8](../MQFC8/index.md)、[MQFC13](../MQFC13/index.md)、[MQFC14](../MQFC14/index.md) である。全 Euclid 次元は2、質量は $m>0$ とする。座標は $z=(t,x)$（時間と空間が各1次元）、時間反転は $\theta z=(-t,x)$ と書く。[質量付きEuclid自由場のGaussian測度](../MQFC6/index.md#thm-mqfc6-free-measure) を $\mu_0$、その期待値を $E_0$ と書く。標本 $\omega$ は実の [緩増加分布](../MQFC1/index.md#def-mqfc1-tempered) であり、$\Phi(f)(\omega)=\omega(f)$ は実試験関数 $f$ による測定である。有限個の測定から生成される円筒 $\sigma$ 加法族を用いる。$dz$ は二次元Lebesgue測度を表す。
+直接の前提は [MQFC8](../MQFC8/index.md)、[MQFC13](../MQFC13/index.md)、[MQFC14](../MQFC14/index.md) である。全 Euclid 次元は2、質量は $m>0$ とする。座標は $z=(t,x)$（時間と空間が各1次元）、時間反転は $\theta z=(-t,x)$ と書く。
+
+[質量付きEuclid自由場のGaussian測度](../MQFC6/index.md#thm-mqfc6-free-measure) を $\mu_0$、その期待値を $E_0$ と書く。標本 $\omega$ は実の [緩増加分布](../MQFC1/index.md#def-mqfc1-tempered) であり、実試験関数 $f$ による測定は
+
+$$
+\Phi(f)(\omega)=\omega(f)
+$$
+
+である。有限個の測定から生成される円筒 $\sigma$ 加法族を用いる。$dz$ は二次元Lebesgue測度を表す。
 
 ## 1. 相互作用を有限領域で作る
 
-[正則化したWick積の試験関数測定](../MQFC14/index.md#def-mqfc14-smeared-wick) で使った $X_\epsilon(z)=\Phi(\rho_\epsilon(z-\cdot))$ を用いる。$\rho$ は単位球に支持を持つ非負滑らかな関数で積分1、各座標の反転に不変とする。$\rho_\epsilon(z)=\epsilon^{-2}\rho(z/\epsilon)$ であり、$\epsilon>0$ は正則化幅である。ここで $\rho_\epsilon(z-\cdot)$ は $w\mapsto\rho_\epsilon(z-w)$ という試験関数であり、$z,\epsilon$ を固定して場を作用させる。MQFC14の同じ構成から各測定は中心化Gaussianであり、各標本を固定した $z\mapsto X_\epsilon(z)$ は滑らかである。点分散 $a_\epsilon=E_0[X_\epsilon(z)^2]$ は有限で位置によらない。
+[正則化したWick積の試験関数測定](../MQFC14/index.md#def-mqfc14-smeared-wick) で使った平均核 $\rho$ は単位球に支持を持つ非負滑らかな関数で積分1、各座標の反転に不変とする。正則化幅 $\epsilon>0$ に対し
+
+$$
+\rho_\epsilon(z)=\epsilon^{-2}\rho(z/\epsilon),
+\qquad X_\epsilon(z)=\Phi(\rho_\epsilon(z-\cdot)).
+$$
+
+ここで $\rho_\epsilon(z-\cdot)$ は $w\mapsto\rho_\epsilon(z-w)$ という試験関数であり、$z,\epsilon$ を固定して場を作用させる。MQFC14の同じ構成から各測定は中心化Gaussianであり、各標本を固定した位置の関数は滑らかである。点分散
+
+$$
+a_\epsilon=E_0[X_\epsilon(z)^2]
+$$
+
+は有限で位置によらない。
 
 実多項式 $P(u)=\sum_{j=0}^{2k}p_ju^j$ を選ぶ。$k\ge1$ は整数、$p_{2k}>0$ とする。低次の奇数項は許される。最高次数が偶数で係数が正だから両端で $P(u)\to+\infty$ となる。冪を [Gaussian Wick多項式](../MQFC14/index.md#def-mqfc14-wick) $W_j(u;a)$ に置き換えて
 
@@ -28,7 +49,13 @@ W_j(u;a)=j!\sum_{\ell=0}^{\lfloor j/2\rfloor}
 \frac{u^{j-2\ell}(-a/2)^\ell}{(j-2\ell)!\ell!}.
 $$
 
-$\ell=0$ の項だけが $u^j$ である。従って $P_a$ の最高次項は $p_{2k}u^{2k}$ のままである。固定した有限の $a\ge0$ では $P_a(u)/u^{2k}\to p_{2k}>0$ だから、十分大きい $R$ の外では $P_a\ge0$。区間 $[-R,R]$ 上では連続関数が最小値を持つので、ある有限な $M_a\ge0$ に対し $P_a\ge-M_a$ となる。
+$\ell=0$ の項だけが最高次の $u^j$ を与える。従って $P_a$ の最高次項は $p_{2k}u^{2k}$ のままである。固定した有限の $a\ge0$ では
+
+$$
+\lim_{|u|\to\infty}\frac{P_a(u)}{u^{2k}}=p_{2k}>0.
+$$
+
+よって十分大きい $R>0$ の外では多項式は非負となる。区間 $[-R,R]$ 上では連続関数が最小値を持つので、ある有限な $M_a\ge0$ に対し全実数上で $P_a\ge-M_a$ となる。
 
 例えば $P(u)=\lambda u^4$、$\lambda>0$ なら
 
@@ -59,7 +86,9 @@ $$
 <!-- definition-example-start: def-mqfc15-interaction -->
 ### 直接例
 
-$P(u)=u^4$、$g=\rho$ とする。**定義の確認**。最高次数4、係数1、$g$ は非負で滑らかかつコンパクト支持を持つ。例えばMQFC14の [正則化の直接例](../MQFC14/index.md#def-mqfc14-smeared-wick) の動径方向に対称な平均核を選べば、各座標反転にも不変である。質量 $m>0$ と幅 $\epsilon>0$ を固定し、上で定義した測定と分散を使う。各標本で被積分関数は連続でコンパクト支持を持つから積分は有限で、上のRiemann和により可測でもある。Wick順序化で得た四次式を点ごとに代入し、平方完成と $\int\rho=1$ により
+$P(u)=u^4$、$g=\rho$ とする。**定義の確認**。最高次数4、係数1、$g$ は非負で滑らかかつコンパクト支持を持つ。例えばMQFC14の [正則化の直接例](../MQFC14/index.md#def-mqfc14-smeared-wick) の動径方向に対称な平均核を選べば、各座標反転にも不変である。
+
+質量 $m>0$ と幅 $\epsilon>0$ を固定し、上で定義した測定と分散を使う。各標本で被積分関数は連続でコンパクト支持を持つから積分は有限で、上のRiemann和により可測でもある。Wick順序化で得た四次式を点ごとに代入し、平方完成と $\int\rho=1$ により
 
 $$
 V_{\epsilon,\rho}
@@ -82,7 +111,9 @@ $$
 
 ## 2. 指数重みの正規化
 
-自由場の確率に $e^{-V_{\epsilon,g}}$ を掛けて相互作用を入れる。総質量が1になるように重みの期待値（正規化定数）で割る必要がある。このような指数重み付きの確率測度を Gibbs測度と呼ぶ。$d\mu_{\epsilon,g}=w\,d\mu_0$ は各可測集合 $D$ の新しい確率が $E_0[1_Dw]$ になるという密度の記法であり、$1_D$ は集合 $D$ の指示関数である。$E_{\epsilon,g}$ は新しい測度での期待値とする。
+自由場の確率に $e^{-V_{\epsilon,g}}$ を掛けて相互作用を入れる。総質量が1になるように重みの期待値（正規化定数）で割る必要がある。このような指数重み付きの確率測度を Gibbs測度と呼ぶ。
+
+密度の記法 $d\mu_{\epsilon,g}=w\,d\mu_0$ は、各可測集合 $D$ の新しい確率が $E_0[1_Dw]$ になるという意味である。ここで $1_D$ は指示関数であり、$E_{\epsilon,g}$ は新しい測度での期待値とする。
 
 <a id="thm-mqfc15-gibbs"></a>
 
@@ -133,7 +164,19 @@ e^{-V}d\mu_0(u)
 e^{-(1/(2a)+b)u^2}du.
 $$
 
-$a'=(a^{-1}+2b)^{-1}$ と置けば $1/(2a)+b=1/(2a')$ である。正規密度の積分が1なので $Z=e^{ba}\sqrt{a'/a}$。これで割ると平均0、分散 $a'$ の正規密度を得る。$b>0$ なら $a'<a$ だから大きな測定値の確率が抑えられる。四次相互作用の測度も正規分布になるという意味ではない。
+新しい分散を
+
+$$
+a'=(a^{-1}+2b)^{-1}
+$$
+
+と置けば、指数の係数は $1/(2a)+b=1/(2a')$ である。正規密度の積分が1なので正規化定数は
+
+$$
+Z=e^{ba}\sqrt{a'/a}.
+$$
+
+これで割ると平均0、分散 $a'$ の正規密度を得る。$b>0$ なら $a'<a$ だから大きな測定値の確率が抑えられる。四次相互作用の測度も正規分布になるという意味ではない。
 
 定数項を $c$ だけ変えると $V_{\epsilon,g}$ は $cG$ だけ増える。分子と分母はともに $e^{-cG}$ 倍され、正規化後の測度は変わらない。
 
@@ -146,7 +189,19 @@ $$
 (\theta\Phi)(f)=\Phi(\theta f)
 $$
 
-である。正時間の実試験関数 $f_1,\ldots,f_N$ を固定する。$X_i=\Phi(f_i)$、$Y_i=\Phi(\theta f_i)$ を並べた実ベクトルを $X,Y$ とする。$F$ を $\mathbb R^N$ 上の複素係数多項式とすると、$F(\Phi)$ は $F(X)$、$F(\theta\Phi)$ は $F(Y)$ の意味である。上線は複素共役を表す。自由場の反射陽性から
+である。正時間の実試験関数 $f_1,\ldots,f_N$ を固定する。次の測定を並べた実ベクトルを $X,Y$ とする。
+
+$$
+X_i=\Phi(f_i),\qquad Y_i=\Phi(\theta f_i).
+$$
+
+$F$ を $\mathbb R^N$ 上の複素係数多項式とすると、記法の対応は
+
+$$
+F(\Phi)=F(X),\qquad F(\theta\Phi)=F(Y)
+$$
+
+である。上線は複素共役を表す。自由場の反射陽性から
 
 $$
 E_0[\overline{F(\theta\Phi)}F(\Phi)]\ge0
@@ -172,15 +227,44 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[Gaussian場の多項式反射陽性](../MQFC8/index.md#thm-mqfc8-gaussian-extension) の証明で、$N\times N$ の周辺共分散行列 $A_{ij}=E_0[X_iX_j]=E_0[Y_iY_j]$ と反射共分散行列 $K_{ij}=E_0[Y_iX_j]$ を用いる。自由場では [反射共分散の因子分解](../MQFC8/index.md#thm-mqfc8-reflected-covariance) により $K$ が正半定値で、差 $X-Y$ の共分散は $2(A-K)$ だから、任意の実列ベクトル $v\in\mathbb R^N$ に対し
+[Gaussian場の多項式反射陽性](../MQFC8/index.md#thm-mqfc8-gaussian-extension) の証明で、測定の周辺共分散行列と反射共分散行列を用いる。いずれも $N\times N$ 行列である。
+
+$$
+A_{ij}=E_0[X_iX_j]=E_0[Y_iY_j],
+\qquad K_{ij}=E_0[Y_iX_j].
+$$
+
+自由場では [反射共分散の因子分解](../MQFC8/index.md#thm-mqfc8-reflected-covariance) により $K$ は正半定値である。差 $X-Y$ の共分散は $2(A-K)$ だから、任意の実列ベクトル $v\in\mathbb R^N$ に対し
 
 $$
 2v^{\mathsf T}(A-K)v=E_0[(v^{\mathsf T}(X-Y))^2]\ge0
 $$
 
-となり、$A-K$ も正半定値である。従って共通成分 $Z$ の共分散を $K$、残りの成分 $U,W$ の共分散を $A-K$ とする同定理の構成を適用できる。周辺共分散は $K+(A-K)=A$、相互共分散は $K$ であり、中心化Gaussianの分布が共分散で決まるので $(X,Y)$ と同分布の組を $(Z+U,Z+W)$ と書ける。ここでの $Z$ は正規化定数ではなくGaussianベクトルである。$Z,U,W$ は独立な中心化 Gaussian ベクトルで $U,W$ は同分布である。$Z$ の分布を $\nu$、$U,W$ の分布を $\sigma$ とする。
+となり、$A-K$ も正半定値である。従って引用した定理の構成を適用できる。独立な中心化Gaussianベクトル $Z,U,W$ を選び、共分散行列をそれぞれ
 
-$B(\xi)=F(\xi)h(\xi)$ と置く。ここで $\xi\in\mathbb R^N$ は測定ベクトルの値であり、空間座標 $x$ とは異なる。$h$ の有界性とGaussian多項式の二乗可積分性から $E_0|B(X)|^2<\infty$、$Y$ も同分布なので積は [Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) により絶対可積分である。
+$$
+\operatorname{Cov}(Z)=K,\qquad
+\operatorname{Cov}(U)=\operatorname{Cov}(W)=A-K
+$$
+
+とする。ここでの $Z$ は正規化定数ではなくGaussianベクトルである。独立性から和の共分散は
+
+$$
+\begin{aligned}
+\operatorname{Cov}(Z+U)&=\operatorname{Cov}(Z+W)=K+(A-K)=A,\\
+E[(Z+W)(Z+U)^{\mathsf T}]&=E[ZZ^{\mathsf T}]=K.
+\end{aligned}
+$$
+
+中心化Gaussianの分布は共分散で決まるので、$(X,Y)$ と $(Z+U,Z+W)$ は同分布である。$Z$ の分布を $\nu$、同分布の $U,W$ の分布を $\sigma$ とする。
+
+$B(\xi)=F(\xi)h(\xi)$ と置く。ここで $\xi\in\mathbb R^N$ は測定ベクトルの値であり、空間座標とは異なる。有界な重みとGaussian多項式の二乗可積分性から
+
+$$
+E_0|B(X)|^2=E_0|B(Y)|^2<\infty.
+$$
+
+従って積は [Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) により絶対可積分である。
 
 [Fubini の定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) により
 
@@ -194,7 +278,18 @@ E_0[\overline{B(Y)}B(X)]
 \end{aligned}
 $$
 
-この積分の $z,u,w$ はそれぞれ $Z,U,W$ のベクトル値を表す。内側の平均は $\nu$ のほとんど至る所で有限である。実際、$E|B(Z+U)|^2<\infty$ なので $\int|B(z+u)|^2\sigma(du)$ は $\nu$ のほとんど至る所で有限となり、確率測度 $\sigma$ 上の [Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) で $\int |B(z+u)|\sigma(du)$ も有限である。
+この積分の $z,u,w$ はそれぞれ $Z,U,W$ のベクトル値を表す。内側の平均は $\nu$ のほとんど至る所で有限である。実際、二乗期待値が有限であることから
+
+$$
+\int\nu(dz)\int |B(z+u)|^2\sigma(du)<\infty.
+$$
+
+従って内側の二乗積分は $\nu$ のほとんど至る所で有限である。確率測度 $\sigma$ 上の [Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) により
+
+$$
+\left(\int |B(z+u)|\sigma(du)\right)^2
+\le\int |B(z+u)|^2\sigma(du)<\infty.
+$$
 <!-- proof-end -->
 
 平均核の支持半径は $\epsilon$ なので、$t>\epsilon$ の点で $X_\epsilon(t,x)$ を測る試験関数は正時間に支持を持つ。一方 $0<t\le\epsilon$ の測定は負時間側にも入り得る。そこで $g_+$ の支持を $t>\epsilon$ に制限し、反転した関数を足す。これは有限切断で反射陽性を示すための十分条件である。
@@ -257,7 +352,18 @@ $$
 A_n=\sum_i v_i g_+(z_i)P_{a_\epsilon}(X_\epsilon(z_i))
 $$
 
-を作る。測定関数は全て正時間に支持を持つ。各標本で $A_n\to A$。また $G_n=\sum_i v_i g_+(z_i)$ は $\int g_+$ に収束し、全 $n$ に共通の有限上界 $L$ を持つ。$A_n\ge-M_{a_\epsilon}G_n$ より $e^{-A_n}\le e^{M_{a_\epsilon}L}$ である。
+を作る。測定関数は全て正時間に支持を持つ。各標本で $A_n\to A$ であり、
+
+$$
+G_n=\sum_i v_i g_+(z_i)\longrightarrow \int g_+(z)\,dz.
+$$
+
+従って全ての分割番号に共通な有限の上界 $L$ を取れる。多項式の下界を各項に適用して
+
+$$
+A_n\ge-M_{a_\epsilon}G_n\ge-M_{a_\epsilon}L,
+\qquad e^{-A_n}\le e^{M_{a_\epsilon}L}.
+$$
 
 $F$ の測定と $A_n$ の測定を合わせた有限ベクトルに [正時間の有界重みによる反射形式](#lem-mqfc15-weighted-reflection) を適用する。すると
 
@@ -308,7 +414,19 @@ $$
 
 有限個の項なので各項の収束で十分である。しかし指数重みの平均の収束は別問題である。四次の場合の上界 $e^{6\lambda a_\epsilon^2G}$ は $a_\epsilon\to\infty$ なら発散する（$G>0$ の場合）。したがって固定幅の下界だけから切断幅に一様な指数重みの評価は得られない。
 
-次の条件付き定理は、指数重みに必要な追加評価を具体化する。一般の確率空間で確率を $\mathbb P$、期待値を $E$ と書き、多項式 $P$ と区別する。確率収束とは任意の $\delta>0$ について $\mathbb P(|V_n-V|>\delta)\to0$ となること、$L^1$ 収束とは期待絶対差が0へ行くことである。二乗平均収束なら $\mathbb P(|V_n-V|>\delta)\le E|V_n-V|^2/\delta^2$ より確率収束する。以下の $n$ は近似列の番号であり、例えば $\epsilon_n\downarrow0$ とした切断幅の列を指定できる。
+次の条件付き定理は、指数重みに必要な追加評価を具体化する。一般の確率空間で確率を $\mathbb P$、期待値を $E$ と書き、多項式 $P$ と区別する。確率収束とは任意の $\delta>0$ について
+
+$$
+\mathbb P(|V_n-V|>\delta)\to0
+$$
+
+となることであり、$L^1$ 収束とは期待絶対差が0へ行くことである。二乗平均収束なら
+
+$$
+\mathbb P(|V_n-V|>\delta)\le \frac{E|V_n-V|^2}{\delta^2}\to0
+$$
+
+より確率収束する。以下の $n$ は近似列の番号であり、例えば $\epsilon_n\downarrow0$ とした切断幅の列を指定できる。
 
 <a id="thm-mqfc15-density-limit"></a>
 
@@ -374,7 +492,21 @@ $$
 E|Y_n-Y|\le2KT^{1-q}+E|Y_n\wedge T-Y\wedge T|.
 $$
 
-固定 $T$ で $n\to\infty$ とすると上極限は $2KT^{1-q}$ 以下であり、次に $T\to\infty$ とすれば $q>1$ により0となる。これは [高次モーメントの一様有界性から一様可積分性](../../../解析系/F0/F0-00P4A/index.md#thm-f0-00p4a-lp-ui) の尾部評価を使った収束の具体的な証明である。$Y$ は正で可積分なので $0<Z<\infty$。さらに $|Z_n-Z|\le E|Y_n-Y|\to0$。最後に
+固定 $T$ で $n\to\infty$ とすると
+
+$$
+\limsup_{n\to\infty}E|Y_n-Y|\le2KT^{1-q}.
+$$
+
+次に $T\to\infty$ とすれば $q>1$ により右辺は0となる。これは [高次モーメントの一様有界性から一様可積分性](../../../解析系/F0/F0-00P4A/index.md#thm-f0-00p4a-lp-ui) の尾部評価を使った収束の具体的な証明である。
+
+$Y$ は正で可積分なので $0<Z<\infty$。さらに
+
+$$
+|Z_n-Z|\le E|Y_n-Y|\to0.
+$$
+
+最後に
 
 $$
 \begin{aligned}
@@ -512,7 +644,13 @@ $$
 非負確率変数 $Y_n$ が $\sup_n E[Y_n^3]\le8$ を満たす。$E[Y_n1_{\{Y_n>T\}}]$ の上界を求め、これを $0.02$ 以下にする $T$ を選べ。
 
 <!-- solution-start -->
-[指数重みの一様評価と密度の極限](#thm-mqfc15-density-limit) の証明の尾部評価を $q=3$ で使う。$Y_n>T>0$ 上で $Y_n\le Y_n^3/T^2$。期待値は $8/T^2$ 以下。$8/T^2\le0.02$ は $T^2\ge400$ と同値なので $T=20$ を選べばよい。$n$ に依存しない尾部評価である。
+[指数重みの一様評価と密度の極限](#thm-mqfc15-density-limit) の証明の尾部評価を $q=3$ で使う。$Y_n>T>0$ 上で $Y_n\le Y_n^3/T^2$ だから
+
+$$
+E[Y_n1_{\{Y_n>T\}}]\le\frac{E[Y_n^3]}{T^2}\le\frac{8}{T^2}.
+$$
+
+この上界が $0.02$ 以下となる条件は $T^2\ge400$ である。従って $T=20$ を選べばよい。分割番号に依存しない尾部評価である。
 <!-- solution-end -->
 
 ### 演習 MQFC15-C1：切断除去を仮定した反射陽性の移行
@@ -540,7 +678,15 @@ $$
 
 右辺は $T\to\infty$ で0へ行き、$n$ に依存しない。従って $E_0[HY_n]\to E_0[HY]$。$Z_n\to Z>0$ だから正規化した反射形式も収束する。[分離された切断での反射陽性の保存](#thm-mqfc15-rp) により各 $E_0[HY_n]/Z_n\ge0$ なので極限も非負である。
 
-反転不変性も保存される。任意の可測集合 $D$ について両指示関数 $1_D,1_{\theta^{-1}D}$ は有界である。正規化密度の $L^1$ 収束から各確率が極限へ移り、各近似での $\mu_n(D)=\mu_n(\theta^{-1}D)$ は極限でも成立する。任意の実試験関数 $f$ の測定 $X_f=\Phi(f)$ と整数 $r\ge1$ に対して、[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) により
+反転不変性も保存される。任意の可測集合 $D$ について両指示関数 $1_D,1_{\theta^{-1}D}$ は有界である。正規化密度の $L^1$ 収束から各確率が極限へ移り、
+
+$$
+\mu_n(D)=\mu_n(\theta^{-1}D)
+\quad\Longrightarrow\quad
+\mu(D)=\mu(\theta^{-1}D).
+$$
+
+任意の実試験関数 $f$ の測定 $X_f=\Phi(f)$ と整数 $r\ge1$ に対して、[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) により
 
 $$
 E_\mu|X_f|^r
