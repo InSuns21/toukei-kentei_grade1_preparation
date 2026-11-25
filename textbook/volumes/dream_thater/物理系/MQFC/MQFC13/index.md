@@ -29,9 +29,9 @@ $d=1$、$L=2\pi$、$\Lambda=2$ なら $p_k=k$ で $K_{L,\Lambda}=\{-2,-1,0,1,2\}
 
 $L\to\infty$ は体積制限を外す操作であり、$\Lambda\to\infty$ は短距離の変動を戻す操作である。例えば $L$ を固定して $\Lambda$ だけ増やしても境界条件は変わらない。質量ゼロに伴う赤外発散も別の問題である。本講では $m>0$ を固定する。
 
-## 2. 有限モードGaussian自由場を作る
-
 <a id="ref-mqfc13-mode-construction"></a>
+
+## 2. 有限モードGaussian自由場を作る
 
 $K_{L,\Lambda}\setminus\{0\}$ の各対 $\{k,-k\}$ から代表を一つ選んだ集合を $K^+$ とする。実係数 $A_0,A_k,B_k$ を独立な中心化正規確率変数とし、分散をそれぞれ $m^{-2}$、$(|p_k|^2+m^2)^{-1}$、$(|p_k|^2+m^2)^{-1}$ とする。$|p|$ は Euclid ノルムである。場を
 
@@ -269,7 +269,7 @@ $$
 \le K_0+1.
 $$
 
-$M\to\infty$ で単調収束定理 を用いれば $\int |G|\,d\mu\le K_0+1$。同様に有界連続関数 $\min((|G|-K)_+,M)$ の積分は極限でも $a(K)$ 以下であり、$M\to\infty$ で
+$M\to\infty$ で[単調収束定理](../../../解析系/F0/F0-00D2B/index.md#ref-limit-integral-exchange) を用いれば $\int |G|\,d\mu\le K_0+1$。同様に有界連続関数 $\min((|G|-K)_+,M)$ の積分は極限でも $a(K)$ 以下であり、$M\to\infty$ で
 
 $$
 \int (|G|-K)_+\,d\mu\le a(K).
