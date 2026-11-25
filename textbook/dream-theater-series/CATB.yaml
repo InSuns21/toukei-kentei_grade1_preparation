@@ -34,7 +34,7 @@ chapters:
   - { id: CATB4-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-01, status: completed, title: "Cartesian射とファイブレーション" }
   - { id: CATB4-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-02, status: completed, title: "Cleavageとsplitファイブレーション" }
   - { id: CATB4-03, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-03, status: completed, title: "添字付き圏と擬関手" }
-  - { id: CATB4-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-04, status: planned, title: "Grothendieck構成" }
+  - { id: CATB4-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-04, status: completed, title: "Grothendieck構成" }
   - { id: CATB4-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-05, status: planned, title: "余ファイブレーションと双対" }
   - { id: CATB4-06, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-06, status: planned, title: "基底変換とファイバーごとの構造" }
   - { id: CATB4-07, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB4-07, status: planned, title: "部分対象ファイブレーション" }
