@@ -21,8 +21,8 @@ theorems:
   - { id: CATB5-07-THM-05, name: "層圏の指数対象" }
   - { id: CATB5-07-THM-06, name: "層圏の初等トポス性" }
 canonical_examples: [離散二点空間の閉篩, 局所的な特性写像, 一対象のsite]
-problem_patterns: [CATB5-07-A01, CATB5-07-A02, CATB5-07-A03, CATB5-07-A04, CATB5-07-B01, CATB5-07-B02, CATB5-07-B03, CATB5-07-C01]
+problem_patterns: [CATB5-07-A01, CATB5-07-A02, CATB5-07-A03, CATB5-07-A04, CATB5-07-B01, CATB5-07-B02, CATB5-07-B03, CATB5-07-B04, CATB5-07-C01]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 6, exercises: 5, review: 2 }
