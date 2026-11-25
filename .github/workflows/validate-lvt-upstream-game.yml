@@ -36,6 +36,15 @@ jobs:
         run: |
           lean --version | grep -F 'version 4.22.0'
           lake update
+          if lake test > original-proof.log 2>&1; then
+            echo 'Unexpected success of the unmodified pinned version'; exit 1
+          fi
+          cat original-proof.log
+          grep -F 'TicTacToe/Proofs.lean' original-proof.log
+          grep -F 'unsolved goals' original-proof.log
+          grep -F 'BEq (Except String GameState)' original-proof.log
+          python3 "$GITHUB_WORKSPACE/textbook/volumes/dream_thater/計算系/LVT/LVT6-01/lab/repair_upstream_proofs.py" ..
+          git diff --exit-code -- TicTacToe/Spec.lean Main.lean
           lake test
           lake build
           lake env lean "$GITHUB_WORKSPACE/textbook/volumes/dream_thater/計算系/LVT/LVT6-01/lab/UpstreamAudit.lean"
