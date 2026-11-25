@@ -26,7 +26,17 @@
 <!-- formal-statement-start -->
 ### 定義（文書公開ワークフロー）
 
-状態を段階と承認記録の組、操作を申請・承認・公開・差し戻しの四種類とする。初期状態は (draft, false) とし、第1節の遷移表の五組について受理フラグ true と指定の次状態を返す。それ以外の段階と操作の組では受理フラグ false と元の状態を返す。有限の操作列はこの遷移を左から順に適用し、拒否の場合にも次の操作へ進む。
+状態は draft・submitted・approved・published のいずれかの段階と、真偽値 b の組とする。操作は submit・approve・publish・return の四種類、初期状態は (draft,false) とする。以下の五組を受理し、受理フラグ true と指定の次状態を返す。
+
+| 段階 | 操作 | 次状態 |
+|---|---|---|
+| draft | submit | (submitted,false) |
+| submitted | approve | (approved,true) |
+| submitted | return | (draft,false) |
+| approved | publish | (published,b) |
+| approved | return | (draft,false) |
+
+それ以外の段階と操作の組では受理フラグ false と元の状態を返す。有限の操作列はこの遷移を左から順に適用し、拒否の場合にも次の操作へ進む。
 <!-- formal-statement-end -->
 
 例えば submit, approve, return, submit, publish を順に与えると、申請、承認、差し戻し、再申請までは受理されます。最後の公開は submitted からなので拒否され、状態は (submitted, false) のままです。拒否後も実行を続ける契約なので、その後の approve, publish はともに受理されます。
@@ -87,7 +97,7 @@ publish の列を遷移表で読む。draft、submitted、published には受理
 
 ## 3. Leanでどの命題を検査するか
 
-[Leanの実装](lab/LvtWorkflow.lean) では Phase、Action、State を型にし、step が受理フラグと状態を返します。consistent は上の等式を命題として表す述語です。preserve は段階4種と操作4種に場合分けし、受理された公開では仮定の等式から記録を読み取ります。run は操作列を一つずつ消費する再帰関数で、runPreserve の帰納仮定は任意の開始状態に対して使えるようにしています。publishSource と rejectedUnchanged は第2節の二つの結論を個別に確認します。
+[Leanの実装](lab/LvtWorkflow.lean) では Phase、Action、State を型にし（return は Lean の予約語なので sendBack と表記し）、step が受理フラグと状態を返します。consistent は上の等式を命題として表す述語です。preserve は段階4種と操作4種に場合分けし、受理された公開では仮定の等式から記録を読み取ります。run は操作列を一つずつ消費する再帰関数で、runPreserve の帰納仮定は任意の開始状態に対して使えるようにしています。publishSource と rejectedUnchanged は第2節の二つの結論を個別に確認します。
 
 例えば初期状態から submit, approve, publish を実行すると (published,true) です。submit, publish では最後が拒否されるので (submitted,false) です。[Inspect.lean](lab/Inspect.lean) の #guard と #eval で確認し、#print axioms で定理の依存する公理を調べます。[Failure.lean](lab/Failure.lean) は初期状態からの publish が受理されるという誤った等式を証明しようとして拒否されます。具体例の計算と、全操作列についての帰納法を区別しましょう。
 
