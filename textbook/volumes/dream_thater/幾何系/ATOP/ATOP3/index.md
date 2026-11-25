@@ -35,7 +35,11 @@ $$
 <!-- definition-example-start: def-atop3-retraction -->
 **定義の確認**
 
-$X=\mathbb R^2$、$A=\mathbb R\times\{0\}$ とし、$r(x,y)=(x,0)$ と置きます。第1成分は座標射影、第2成分は定数0なので連続です。[積位相の普遍性](../../../基礎科目/TOP/TOP1/index.md#thm-top1-product-universal) により平面への写像として連続で、第2座標が0なので値は $A$ に入ります。[部分空間位相の連続性判定](../../../基礎科目/TOP/TOP1/index.md#prop-top1-subspace-universal) により $A$ への写像として連続です。$a=(x,0)$ なら $r(a)=(x,0)=a$ です。したがって $A$ は $X$ のレトラクトです。
+$X=\mathbb R^2$、$A=\mathbb R\times\{0\}$ とし、$r(x,y)=(x,0)$ と置きます。
+
+第1成分は座標射影、第2成分は定数0なので連続です。[積位相の普遍性](../../../基礎科目/TOP/TOP1/index.md#thm-top1-product-universal) により平面への写像として連続で、第2座標が0なので値は $A$ に入ります。[部分空間位相の連続性判定](../../../基礎科目/TOP/TOP1/index.md#prop-top1-subspace-universal) により $A$ への写像として連続です。
+
+$a=(x,0)$ なら $r(a)=(x,0)=a$ です。したがって $A$ は $X$ のレトラクトです。
 <!-- definition-example-end -->
 
 $r$ の終域は $A$ です。$i\circ r$ は $X$ の自己写像になりますが、一般に $\mathrm{id}_X$ とは等しくありません。例えば $(1,2)$ は $(1,0)$ に移ります。また $r(a)=a$ から $r$ は全射です。
@@ -94,7 +98,11 @@ $$
 <!-- definition-example-start: def-atop3-strong-deformation-retract -->
 **定義の確認**
 
-$X=[-2,2]$、$A=[-1,1]$ とし、$r(x)=\max(-1,\min(x,1))$ と置きます。この式は $x<-1$ では $-1$、$-1\le x\le1$ では $x$、$x>1$ では $1$ を返します。最小値・最大値を取る演算は連続で、値は $A$ に入るので [部分空間位相の連続性判定](../../../基礎科目/TOP/TOP1/index.md#prop-top1-subspace-universal) により $r:X\to A$ は連続です。$a\in A$ では $r(a)=a$ なのでレトラクションです。
+$X=[-2,2]$、$A=[-1,1]$ とし、$r(x)=\max(-1,\min(x,1))$ と置きます。
+
+この式は $x<-1$ では $-1$、$-1\le x\le1$ では $x$、$x>1$ では $1$ を返します。
+
+最小値・最大値を取る演算は連続で、値は $A$ に入るので [部分空間位相の連続性判定](../../../基礎科目/TOP/TOP1/index.md#prop-top1-subspace-universal) により $r:X\to A$ は連続です。$a\in A$ では $r(a)=a$ なのでレトラクションです。
 
 $$
 H(x,t)=(1-t)x+t r(x)
@@ -161,7 +169,11 @@ $$
 r(z)=\frac{z}{\|z\|}
 $$
 
-が定義できます。ノルムの斉次性から $\|r(z)\|=\|z\|/\|z\|=1$ なので球面に値を取ります。$z=(z_1,\ldots,z_n)$ の第 $j$ 座標を $z_j$（$1\le j\le n$）とすると、$r$ の第 $j$ 成分は $z_j/\|z\|$ です。分子・分母は連続、分母は正なので各成分は連続です。[積位相の普遍性](../../../基礎科目/TOP/TOP1/index.md#thm-top1-product-universal) により $\mathbb R^n$ への写像として連続です。[部分空間位相の連続性判定](../../../基礎科目/TOP/TOP1/index.md#prop-top1-subspace-universal) により球面への連続写像です。$\|a\|=1$ なら $r(a)=a$ です。
+が定義できます。ノルムの斉次性から $\|r(z)\|=\|z\|/\|z\|=1$ なので球面に値を取ります。
+
+$z=(z_1,\ldots,z_n)$ の第 $j$ 座標を $z_j$（$1\le j\le n$）とすると、$r$ の第 $j$ 成分は $z_j/\|z\|$ です。分子・分母は連続、分母は正なので各成分は連続です。[積位相の普遍性](../../../基礎科目/TOP/TOP1/index.md#thm-top1-product-universal) により $\mathbb R^n$ への写像として連続です。[部分空間位相の連続性判定](../../../基礎科目/TOP/TOP1/index.md#prop-top1-subspace-universal) により球面への連続写像です。
+
+$\|a\|=1$ なら $r(a)=a$ です。
 
 $$
 H(z,t)=(1-t)z+t\frac{z}{\|z\|}
@@ -249,7 +261,11 @@ $$
 同値の条件より $c_p=g\circ f\simeq\mathrm{id}_X$ です。[ホモトピー関係の対称律](../ATOP2/index.md#thm-atop2-homotopy-equivalence-relation) で向きを反転して [可縮性の定義](#def-atop3-contractible) を満たします。
 <!-- proof-end -->
 
-[直線ホモトピー](../ATOP2/index.md#prop-atop2-linear-homotopy) で扱った凸集合とは、二点を結ぶ線分を全て含む集合でした。凸な非空集合 $C\subseteq\mathbb R^n$ は可縮です。点 $p\in C$ を選び、[直線ホモトピー](../ATOP2/index.md#prop-atop2-linear-homotopy) を $\mathrm{id}_C$ と $c_p$ に適用します。両写像は連続で値が $C$ に入り、$H(x,t)=(1-t)x+tp$ は凸性から $C$ に入ります。$r:C\to\{p\}$ を定数写像とすれば $r(p)=p$ でレトラクションです。$H(p,t)=p$ なので $\{p\}$ は [強変形レトラクト](#def-atop3-strong-deformation-retract) です。
+[直線ホモトピー](../ATOP2/index.md#prop-atop2-linear-homotopy) で扱った凸集合とは、二点を結ぶ線分を全て含む集合でした。凸な非空集合 $C\subseteq\mathbb R^n$ は可縮です。
+
+点 $p\in C$ を選び、[直線ホモトピー](../ATOP2/index.md#prop-atop2-linear-homotopy) を $\mathrm{id}_C$ と $c_p$ に適用します。両写像は連続で値が $C$ に入り、$H(x,t)=(1-t)x+tp$ は凸性から $C$ に入ります。
+
+$r:C\to\{p\}$ を定数写像とすれば $r(p)=p$ でレトラクションです。$H(p,t)=p$ なので $\{p\}$ は [強変形レトラクト](#def-atop3-strong-deformation-retract) です。
 
 <a id="prop-atop3-retract-contractible"></a>
 
@@ -289,7 +305,13 @@ $r(p)\in A$ は $a$ に依存しないので、$K$ は $\mathrm{id}_A$ から点
 
 この計算は動径方向の式が延長できないことを示すだけです。あらゆる連続レトラクションが存在しないことは ATOP24 で証明します。[可縮空間のレトラクト](#prop-atop3-retract-contractible) によれば、もし円板から円周へのレトラクションが存在すれば、円周も可縮でなければなりません。この条件が実際には成立しないことを後続講義で明らかにします。
 
-最後に可縮性と道の関係を見ます。二点を結ぶ連続写像 $I\to X$ を道といい、任意の二点を道で結べる空間を道連結といいます（[道連結性](../../../基礎科目/TOP/TOP3/index.md#def-top3-path-connected)）。可縮なら、$\mathrm{id}_X$ から $c_p$ へのホモトピー $H$ を取れます。点 $x$ を固定すると $t\mapsto(x,t)$ は定数写像と恒等写像を成分に持つため [積位相の普遍性](../../../基礎科目/TOP/TOP1/index.md#thm-top1-product-universal) から連続で、$t\mapsto H(x,t)$ は $x$ と $p$ を結ぶ道です。任意の二点 $x,y$ について、前半で $x$ から $p$、後半で $p$ から $y$ に進む道を
+最後に可縮性と道の関係を見ます。二点を結ぶ連続写像 $I\to X$ を道といい、任意の二点を道で結べる空間を道連結といいます（[道連結性](../../../基礎科目/TOP/TOP3/index.md#def-top3-path-connected)）。
+
+可縮なら、$\mathrm{id}_X$ から $c_p$ へのホモトピー $H$ を取れます。
+
+点 $x$ を固定すると $t\mapsto(x,t)$ は定数写像と恒等写像を成分に持つため [積位相の普遍性](../../../基礎科目/TOP/TOP1/index.md#thm-top1-product-universal) から連続で、$t\mapsto H(x,t)$ は $x$ と $p$ を結ぶ道です。
+
+任意の二点 $x,y$ について、前半で $x$ から $p$、後半で $p$ から $y$ に進む道を
 
 $$
 \gamma(t)=
@@ -336,7 +358,11 @@ $H(x,t)=(1-t)x+t/3$ を $I\times I\to I$ とする。一点部分空間への強
 <!-- solution-start -->
 **詳細解答**
 
-$x,1/3\in I$ で係数は非負、和は1なので値は $I$ 内にあります。式は連続で $H(x,0)=x$、$H(x,1)=1/3$ です。終時刻の定数写像 $r:I\to\{1/3\}$ は連続で $r(1/3)=1/3$ なのでレトラクションです。[部分空間位相の連続性判定](../../../基礎科目/TOP/TOP1/index.md#prop-top1-subspace-universal) により $H:I\times I\to I$ としても連続です。全時刻で固定なら特に時刻1で $x=1/3$ です。逆に
+$x,1/3\in I$ で係数は非負、和は1なので値は $I$ 内にあります。式は連続で $H(x,0)=x$、$H(x,1)=1/3$ です。
+
+終時刻の定数写像 $r:I\to\{1/3\}$ は連続で $r(1/3)=1/3$ なのでレトラクションです。[部分空間位相の連続性判定](../../../基礎科目/TOP/TOP1/index.md#prop-top1-subspace-universal) により $H:I\times I\to I$ としても連続です。
+
+全時刻で固定なら特に時刻1で $x=1/3$ です。逆に
 
 $$
 H(1/3,t)=(1-t)/3+t/3=1/3.
