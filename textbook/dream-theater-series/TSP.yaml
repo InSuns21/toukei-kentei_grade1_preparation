@@ -38,7 +38,7 @@ chapters:
     title: "境界階数・Segre写像とsecant：退化の具体計算"
   - id: TSP9
     path: textbook/volumes/dream_thater/計算系/TSP/TSP9
-    status: planned
+    status: completed
     title: "漸近階数・漸近劣階数・Fekete補題と指数"
   - id: TSP10
     path: textbook/volumes/dream_thater/計算系/TSP/TSP10
