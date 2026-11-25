@@ -1,0 +1,30 @@
+chapter: NPCG7
+scope: dream-theater
+coverage: complete
+prerequisites: [NPCG6]
+forward_references: []
+concepts:
+  - id: metric-geometry.metric-projection
+    name: "距離射影"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（距離射影）"]
+    requires: [topology.metric-space]
+  - id: metric-geometry.projection-existence-uniqueness
+    name: "閉凸集合への距離射影の存在と一意性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（閉凸集合への距離射影の存在と一意性）"]
+    requires: [metric-geometry.metric-projection, metric-geometry.geodesically-convex-set, metric-geometry.cn-inequality, topology.closed-subset-complete, topology.complete-metric-space]
+  - id: metric-geometry.projection-pythagorean
+    name: "射影のPythagoras型不等式"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影のPythagoras型不等式）"]
+    requires: [metric-geometry.metric-projection, metric-geometry.geodesically-convex-set, metric-geometry.cn-interpolation]
+  - id: metric-geometry.projection-nonexpansive
+    name: "距離射影の非拡大性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（距離射影の非拡大性）"]
+    requires: [metric-geometry.projection-existence-uniqueness, metric-geometry.projection-pythagorean, metric-geometry.four-point-squared-difference]
