@@ -254,7 +254,20 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（Schwartz空間の核性の確認）**
-> 実Schwartz空間 $S=\mathcal S(\mathbb R^d;\mathbb R)$ に上記の同値なHermiteノルム $q_s$ を用いる。$H_s$ をその完備化とすると、整数 $r>d/2$ に対して包含 $H_{s+r}\to H_s$ はHilbert–Schmidtである。従って $S$ は核空間である。
+> 実Schwartz空間 $S=\mathcal S(\mathbb R^d;\mathbb R)$ と実Hermite正規直交基底 $(h_\alpha)$ を考える。Schwartz位相と同値なノルムを
+
+$$
+q_s(f)^2=\sum_{\alpha}(1+|\alpha|)^{2s}|\langle h_\alpha,f\rangle_{L^2}|^2
+\qquad(s=0,1,\ldots)
+$$
+
+> とし、$H_s$ をその完備化とする。整数 $r>d/2$ に対して包含
+
+$$
+H_{s+r}\longrightarrow H_s
+$$
+
+> はHilbert–Schmidtである。従って $S$ は核空間である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -279,7 +292,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Bochner–Minlosの定理：実Schwartz空間の場合）**
-> $S=\mathcal S(\mathbb R^d;\mathbb R)$ とし、$\chi:S\to\mathbb C$ が $\chi(0)=1$、[正値型](#def-mqfc6-positive-type)、Schwartz位相で連続という三条件を満たすとする。このとき円筒 $\sigma$ 加法族を備えた連続実線形双対 $S'$ 上に、$\chi$ を [特性汎関数](#def-mqfc6-characteristic-functional) とする確率測度がただ一つ存在する。
+> $S=\mathcal S(\mathbb R^d;\mathbb R)$ とする。写像 $\chi:S\to\mathbb C$ が次の条件を満たすとする。
+>
+> 1. $\chi(0)=1$。
+> 2. [正値型](#def-mqfc6-positive-type) である。
+> 3. Schwartz位相で連続である。
+>
+> このとき円筒 $\sigma$ 加法族を備えた連続実線形双対 $S'$ 上に、$\chi$ を [特性汎関数](#def-mqfc6-characteristic-functional) とする確率測度がただ一つ存在する。
 <!-- formal-statement-end -->
 
 一般の核空間版は文献2の定理を使います。本講の目標は一般定理の証明ではなく、自由場への適用とそのGaussianの場合の構成です。定理の入力は有限次元の正値型条件と試験関数位相での連続性、出力は連続双対上の測度です。円筒集合に対応する有限次元特性関数が全て一致すれば、有限次元の一意性と円筒集合が生成する $\sigma$ 加法族上の確率測度の一意性により測度も一致します。次節ではGaussianの場合について存在の具体的な仕組みも示します。
