@@ -14,7 +14,15 @@
 
 ## 2. 部分対象をまとめて扱う
 
-部分対象を分類する射 $X\to\Omega$ が多数あるなら、それらを一つの対象に収納したい。集合ではこれは $X$ の冪集合に相当する。トポスでは[指数対象](../../CAT/CAT4-05/index.md#def-cat4-05-exponential)を用いる。指数対象 $B^A$ の評価射は $B^A\times A\to B$ であり、任意の $h:T\times A\to B$ に対して評価を通じて $h$ を復元する射 $\widehat h:T\to B^A$ が一意に存在する。この射を $h$ の転置と呼ぶ。
+部分対象を分類する射 $X\to\Omega$ が多数あるなら、それらを一つの対象に収納したい。集合ではこれは $X$ の冪集合に相当する。トポスでは[指数対象](../../CAT/CAT4-05/index.md#def-cat4-05-exponential)を用いる。
+
+指数対象 $B^A$ の評価射を $\operatorname{ev}:B^A\times A\to B$ とする。任意の射 $h:T\times A\to B$ に対して、射 $\widehat h:T\to B^A$ で
+
+$$
+\operatorname{ev}(\widehat h\times1_A)=h
+$$
+
+を満たすものが一意に存在する。この射を $h$ の転置と呼ぶ。
 
 <a id="def-catb5-08-power-object"></a>
 
@@ -142,7 +150,15 @@ $$
 \chi_m i=t_I.
 $$
 
-よって分類子の引き戻しの普遍性から $i$ は $m$ を経由する。すなわち $mw=i$ となる射 $w:I\to M$ が存在する。$f=ie=mg$ と書けば $mwe=mg$ なので、$m$ のモノ射性から $we=g$ が従う。また $mw'=i=mw$ なら $w'=w$ である。これで[圏論的な像](../CATB1-01/index.md#def-catb1-01-image)の普遍性（分解を保つ媒介射の存在と一意性）を確認した。
+よって分類子の引き戻しの普遍性から $i$ は $m$ を経由する。すなわち $mw=i$ となる射 $w:I\to M$ が存在する。
+
+$f=ie=mg$ と書けば
+
+$$
+mwe=ie=mg.
+$$
+
+$m$ のモノ射性から $we=g$ が従う。また $mw'=i=mw$ なら $w'=w$ である。これで[圏論的な像](../CATB1-01/index.md#def-catb1-01-image)の普遍性（分解を保つ媒介射の存在と一意性）を確認した。
 
 最後に $e$ のエピ射性を示す。$u,v:I\to Z$ が $ue=ve$ を満たすとし、$n:N\to I$ を両者の等化子とする。$e$ は $n$ を経由し、$f$ はモノ射 $in$ を経由する。$i$ の最小性により $i=inw$ となる $w:I\to N$ が存在する。
 
@@ -161,7 +177,9 @@ $$
 
 エピ射は「射を右から消去できる」という性質であり、集合の全射のように各元の原像を持つとは限らない。しかし像分解に用いるには、観察対象を引き戻しで変えてもエピ射であることが必要になる。
 
-準備として $g:C\to B$ と部分対象 $m:S\to C$ を取る。集合では $b\in B$ のファイバーは $g^{-1}(\{b\})$ である。一般の圏では試験対象 $T$ からの射 $u:T\to B$ に対し、[引き戻し](../../CAT/CAT2-03/index.md#def-cat2-03-pullback) $T\times_B C$ とその $C$ への射影でファイバーの族を表す。この射影が $m$ を経由することを、ファイバー全体が $S$ に入る条件とする。
+準備として $g:C\to B$ と部分対象 $m:S\to C$ を取る。集合では $b\in B$ のファイバーは $g^{-1}(\{b\})$ である。
+
+一般の圏では試験対象 $T$ からの射 $u:T\to B$ に対し、[引き戻し](../../CAT/CAT2-03/index.md#def-cat2-03-pullback) $T\times_B C$ とその $C$ への射影でファイバーの族を表す。この射影が $m$ を経由することを、ファイバー全体が $S$ に入る条件とする。
 
 $B\times C$ 上の部分対象 $D$ を、二射 $\pi_B$ と $g\pi_C$ の等化子とする。ここで $\pi_B,\pi_C$ は積の射影である。さらに $D'$ を $D$ と $B\times S$ の共通部分とする。
 
@@ -365,7 +383,19 @@ $$
 
 [Grothendieckトポス](../CATB5-07/index.md#def-catb5-07-grothendieck-topos)は小site上の層圏に同値な圏であり、前講の[層圏の初等トポス性](../CATB5-07/index.md#thm-catb5-07-sheaf-topos)から上の定理を適用できる。では層の像を各対象の集合として具体的に求めるにはどうすればよいだろうか。
 
-[小site](../CATB5-02/index.md#def-catb5-02-grothendieck-topology) $(\mathcal C,J)$ 上の[層](../CATB5-03/index.md#def-catb5-03-site-sheaf)の射 $f:F\to G$ を取る。$J(U)$ は対象 $U$ 上の被覆篩の集合である。射 $f$ の $U$ での成分を $f_U:F(U)\to G(U)$、射 $r:V\to U$ による制限を $F(r):F(U)\to F(V)$ と $G(r):G(U)\to G(V)$ と書く。$U$ 上の元 $y\in G(U)$ に対して、制限すると $f$ の値になる射を集める。
+[小site](../CATB5-02/index.md#def-catb5-02-grothendieck-topology) $(\mathcal C,J)$ 上の[層](../CATB5-03/index.md#def-catb5-03-site-sheaf)の射 $f:F\to G$ を取る。$J(U)$ は対象 $U$ 上の被覆篩の集合である。
+
+射 $f$ の各対象での成分と、射 $r:V\to U$ による制限を、それぞれ次のように書く。
+
+$$
+\begin{aligned}
+f_U&:F(U)\to G(U),\\
+F(r)&:F(U)\to F(V),\\
+G(r)&:G(U)\to G(V).
+\end{aligned}
+$$
+
+$U$ 上の元 $y\in G(U)$ に対して、制限すると $f$ の値になる射を集める。
 
 $$
 L_y=\{r:V\to U\mid G(r)y\in f_V(F(V))\}.
