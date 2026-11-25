@@ -30,7 +30,7 @@ chapters:
     title: "多項式族・VP・非一様性：量化順序とサイズ"
   - id: ACOMP7
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP7
-    status: planned
+    status: completed
     title: "VNP・Boolean和：VP包含と変数数・次数境界"
   - id: ACOMP8
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP8
