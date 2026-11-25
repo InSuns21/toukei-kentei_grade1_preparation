@@ -24,7 +24,7 @@ $$
 
 ## 2. 変数を増やす操作と減らす操作
 
-射 $f:U\to V$ に沿う[部分対象の逆像](../CATB4-07/index.md#thm-catb4-07-inverse-image)は、引き戻しで定める順序関手である。
+順序を保つ写像を順序関手と呼ぶ。射 $f:U\to V$ に沿う[部分対象の逆像](../CATB4-07/index.md#thm-catb4-07-inverse-image)は、引き戻しで定める順序関手である。
 
 $$
 f^*:\operatorname{Sub}(V)\longrightarrow\operatorname{Sub}(U).
@@ -34,7 +34,7 @@ $$
 
 逆に、$U$ 上の述語 $A$ から $V$ 上の述語を作るには、$f$ の同じ値に対応する複数の入力をまとめる必要がある。どれか一つが成立する場合と、全部が成立する場合では、包含の向きが変わる。これを[半順序圏の随伴判定](../../CAT/CAT2-08/index.md#thm-cat2-08-poset)で表す。
 
-順序を保つ写像を順序関手と呼び、$L\dashv R$ は $L$ が左随伴、$R$ が右随伴であることを表す。$\exists_f A$ と $\forall_f A$ の添字 $f$ は、どの射に沿って $U$ 上の部分対象 $A$ を $V$ 上へ送るかを指定する。
+$L\dashv R$ は $L$ が左随伴、$R$ が右随伴であることを表す。$\exists_f A$ と $\forall_f A$ の添字 $f$ は、どの射に沿って $U$ 上の部分対象 $A$ を $V$ 上へ送るかを指定する。
 
 <a id="def-catb6-02-quantifiers"></a>
 
@@ -96,7 +96,7 @@ $$
 
 ## 3. 初等トポスでは二つの量化子が存在する
 
-集合ではファイバーを元の集まりとして検査したが、一般のトポスでは終対象 $1$ からの射（大域的な元）だけで部分対象の包含を判定できるとは限らない。そこで任意の試験対象 $T$ からの射 $b:T\to V$ を使う。通常のファイバーに相当する対象は [引き戻し](../../CAT/CAT2-03/index.md#def-cat2-03-pullback) $T\times_V U$ である。その $U$ への射影が $m:M\to U$ を経由するとは、その射影が $m$ とある射の合成になることであり、ファイバー全体が $A=[m]$ に含まれる条件を表す。ここで射の像は、その射が経由する最小の部分対象である。
+集合ではファイバーを元の集まりとして検査したが、一般のトポスでは終対象 $1$ からの射（大域的な元）だけで部分対象の包含を判定できるとは限らない。そこで任意の試験対象 $T$ からの射 $b:T\to V$ を使う。通常のファイバーに相当する対象は [引き戻し](../../CAT/CAT2-03/index.md#def-cat2-03-pullback) $T\times_V U$ である。その $U$ への射影が $m:M\to U$ を経由するとは、その射影が $m$ とある射の合成になることであり、ファイバー全体が $A=[m]$ に含まれる条件を表す。ここで [射の像](../CATB5-08/index.md#thm-catb5-08-image) は、その射が経由する最小の部分対象である。
 
 <a id="thm-catb6-02-quantifier-existence"></a>
 
@@ -133,7 +133,7 @@ $$
 
 補題の構成では、$V\times U$ の二つの射影を $\pi_V,\pi_U$ とし、$\pi_V$ と $f\pi_U$ の [等化子](../../CAT/CAT2-03/index.md#def-cat2-03-equalizer) を部分対象 $D$ とする。これは集合の言葉では $v=f(u)$ を表す。さらに $D$ と $V\times M$（モノ射 $1_V\times m$ で表す）の共通部分を $D'$ とする。
 
-部分対象分類子を $\Omega$、$D,D'$ の分類射を $\chi_D,\chi_{D'}:V\times U\to\Omega$ と書く。[冪対象](../CATB5-08/index.md#def-catb5-08-power-object) $\Omega^U$ への転置 $\widehat{\chi_D},\widehat{\chi_{D'}}:V\to\Omega^U$ の等化子 $n:N\to V$ を取る。転置とは、評価射との合成によって元の分類射を復元する射である。
+[部分対象分類子](../CATB5-06/index.md#def-catb5-06-classifier) の対象を $\Omega$、$D,D'$ の分類射を $\chi_D,\chi_{D'}:V\times U\to\Omega$ と書く。[冪対象](../CATB5-08/index.md#def-catb5-08-power-object) $\Omega^U$ への転置 $\widehat{\chi_D},\widehat{\chi_{D'}}:V\to\Omega^U$ の等化子 $n:N\to V$ を取る。転置とは、評価射との合成によって元の分類射を復元する射である。
 
 補題により任意の $b:T\to V$ について
 
@@ -143,7 +143,7 @@ b\text{ が }n\text{ を経由する}
 (T\times_V U\to U)\text{ が }m\text{ を経由する}.
 $$
 
-ここで特に $B=[b:T\to V]$ を任意の部分対象とする。$b$ はモノ射なので、引き戻しの射影 $p:T\times_V U\to U$ は [モノ射の引き戻し](../../CAT/CAT2-03/index.md#prop-cat2-03-pullback-mono)によってモノ射であり、$[p]=f^*B$ である。従って上の同値は
+ここで一般の試験射 $b$ を、任意の部分対象 $B=[b:T\to V]$ を表すモノ射の場合に限定する。$b$ はモノ射なので、引き戻しの射影 $p:T\times_V U\to U$ は [モノ射の引き戻し](../../CAT/CAT2-03/index.md#prop-cat2-03-pullback-mono)によってモノ射であり、$[p]=f^*B$ である。従って上の同値は
 
 $$
 B\le[n]\iff f^*B\le A
@@ -283,7 +283,7 @@ $$
 $$
 <!-- formal-statement-end -->
 
-見取り図：合成射の逆像は逆順に合成する。包含の同値を一段ずつ適用することで、合成量化子が要求される随伴条件を満たす。
+見取り図：[部分対象の逆像の合成則](../CATB4-07/index.md#thm-catb4-07-inverse-image)により、合成射の逆像は逆順に合成する。包含の同値を一段ずつ適用することで、合成量化子が要求される随伴条件を満たす。
 
 <!-- proof-start -->
 ### 証明
