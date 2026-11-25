@@ -1,0 +1,25 @@
+id: "NPCG8"
+title: "重心・二乗距離の最小化・分散不等式"
+volume: "foundations"
+status: supplementary
+prerequisites: [NPCG7]
+official_scope: []
+learning_objectives:
+  - 有限加重重心を定義し実直線と距離木で計算できる
+  - CN不等式と完備性から重心の存在一意性を証明できる
+  - 分散不等式を導出し近似重心の距離誤差を評価できる
+  - Euclid空間の等式と距離木の厳密な不等号を区別できる
+  - 四点の平方差評価から重心の安定性を証明できる
+  - 閉凸集合への射影と二点間距離の平均から重心を評価できる
+definitions:
+  - { id: NPCG8-DEF-01, name: "有限加重重心" }
+theorems:
+  - { id: NPCG8-THM-01, name: "有限加重重心の存在と一意性" }
+  - { id: NPCG8-THM-02, name: "分散不等式" }
+  - { id: NPCG8-THM-03, name: "有限加重重心の安定性" }
+canonical_examples: [実直線の加重平均, Euclid空間, 三枝の距離木]
+problem_patterns: [NPCG8-A01, NPCG8-A02, NPCG8-A03, NPCG8-A04, NPCG8-B01, NPCG8-B02, NPCG8-B03, NPCG8-B04, NPCG8-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
