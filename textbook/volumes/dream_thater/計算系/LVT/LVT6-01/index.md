@@ -17,18 +17,18 @@
 | [game.py](https://github.com/kazunori279/lean4-tictactoe-test/blob/c332ba3e2d2bf78edb993ae6acadcd83f927073e/tictactoe/game.py) | Pythonの別実装 |
 | [test_unit.py](https://github.com/kazunori279/lean4-tictactoe-test/blob/c332ba3e2d2bf78edb993ae6acadcd83f927073e/tests/test_unit.py)、[test_differential.py](https://github.com/kazunori279/lean4-tictactoe-test/blob/c332ba3e2d2bf78edb993ae6acadcd83f927073e/tests/test_differential.py) | 例示・差分テスト |
 
-本系列の[三目並べの状態](../LVT3-06/index.md#def-lvt3-06-board) は Fin 9 からマスへの関数でした。外部仕様では Board = List Cell、Cell = Option Player です。空を none、X と O を some X と some O で表します。List は任意長を許します。GameState は board、turn（手番）、status（ongoing、won p、draw のいずれか）の三成分を持ちます。初期状態 initialState の盤面は none を九個並べたリスト、手番 X、status は ongoing です。
+本系列の[三目並べの状態](../LVT3-06/index.md#def-lvt3-06-board) は Fin 9 からマスへの関数でした。外部仕様では `Board = List Cell`、`Cell = Option Player` です。[Option型](../LVT1-03/index.md#def-lvt1-03-option) を使い、空を `none`、X と O を `some X` と `some O` で表します。List は任意長を許します。[Fin型](../LVT1-05/index.md#def-lvt1-05-fin-index) の `Fin 9` の番号は0〜8に限られますが、外部仕様の `Nat` は0を含む非負整数全体です。以下、`b` は盤面リスト、`i`、`pos`、`n` は0始まりの着手番号、`s` は更新前の状態、`t` は更新後の状態を表します。`s.board` のようなドット記法は状態の成分を取り出し、`b.length` はリストの要素数を表します。GameState は board、turn（手番）、status（ongoing、won p、draw のいずれか）の三成分を持ちます。初期状態 initialState の盤面は none を九個並べたリスト、手番 X、status は ongoing です。
 
-cellAt b i は i 番目の値を返し、範囲外なら none を返します。従って空マスと範囲外を cellAt だけでは区別できません。List.set i c は範囲内ならそのマスを置き換え、範囲外なら元リストを返します。例えば空リストに set 0 (some X) を行っても空リストです。
+`cellAt b i` は [有効な添字](../LVT1-05/index.md#def-lvt1-05-index-range) の条件 `i < b.length` が成立すれば i 番の値を返し、それ以外なら `none` を返します。従って空マスと範囲外を `cellAt` だけでは区別できません。`b.set i c` は `List.set` を盤面 b、番号 i、置換するマス値 c に適用した記法で、範囲内ならそのマスを置き換え、範囲外なら元リストを返します。例えば `[].set 0 (some X)` は `[]` です。
 
-applyMove s pos の戻り値 Except String GameState は error（理由文字列）か ok（新状態）です。判定は次の順です。
+`applyMove s pos` の戻り値は [Except型](../LVT1-03/index.md#def-lvt1-03-except) `Except String GameState` です。`error e` は拒否の理由文字列 e、`ok t` は成功後の状態 t を持ちます。Lean コードの `.error`、`.ok` はそれぞれ同じ構成子の型名を省いた記法です。判定は次の順です。
 
 1. status が ongoing 以外なら game_over。
 2. pos が9以上なら out_of_bounds。
 3. cellAt が none 以外なら cell_occupied。
 4. それ以外なら List.set で更新し、勝利、満盤、継続の順に判定して新状態を返す。勝利と満盤の枝では手番を保持し、継続時だけ交替する。
 
-勝利線は [三目並べの勝利条件](../LVT3-06/index.md#def-lvt3-06-win) と同じ八組です。外部仕様では終局検査に保存された status を使います。本系列のように毎回盤面から Finished を計算するわけではないので、任意の GameState では盤面と status が食い違う可能性があります。
+勝利線は [三目並べの勝利条件](../LVT3-06/index.md#def-lvt3-06-win) と同じ八組です。`hasWon b p` は、そのうち一組でも三マスすべての `cellAt` が `some p` となるかを真偽値で返します。`isFull b` はリストの全要素が `some` かを調べます。`other(p)` と Lean の `p.other` はともに手番 p の相手を表します。外部仕様では終局検査に保存された status を使います。[三目並べの着手規則](../LVT3-06/index.md#def-lvt3-06-play) のように毎回盤面から Finished（勝者がいるか満盤であること）を計算するわけではないので、任意の GameState では盤面と status が食い違う可能性があります。
 
 ## 2. 六つの theorem を分類する
 
@@ -45,20 +45,26 @@ applyMove s pos の戻り値 Except String GameState は error（理由文字列
 
 拒否の二定理は applyMove の枝を開けば確認できます。status が終局なら第一枝で直ちに error となり、pos の値は問いません。ongoing かつ pos ≥ 9 なら第一枝を通過して第二枝で error になります。ongoing の仮定を削ると、終局で pos=9 の場合は game_over を返すので、同じ結論は成立しません。
 
-長さ保存の証明は、仮定が ok t であることから最初の三つの error 枝を除外します。残る勝利・満盤・継続の三枝はどれも t.board = s.board.set pos (some s.turn) です。List.set の長さは範囲内でも範囲外でも元リストと同じです。範囲内なら一要素を別の一要素に置き換えるだけ、範囲外なら元リストを返すからです。従って各枝で t.board.length = s.board.length となります。
+長さ保存の証明は、仮定が ok t であることから最初の三つの error 枝を除外します。残る勝利・満盤・継続の三枝はどれも t.board = s.board.set pos (some s.turn) です。`List.set` の長さが保存される理由も、[Leanのリストの帰納法](../LVT2-05/index.md#principle-lvt2-05-list) に沿って確認します。`a :: q` は先頭要素 a と残りのリスト q からなるリストです。置換値 c を固定し、任意の非負整数 i に対し `(b.set i c).length = b.length` を示します。
+
+- `b = []` なら、任意の i で `[].set i c = []` なので両辺0です。
+- `b = a :: q`、`i = 0` なら、更新結果は `c :: q` で長さは更新前と同じ `1 + q.length` です。
+- `b = a :: q`、`i = j + 1` なら、更新結果は `a :: (q.set j c)` です。短いリスト q に対する帰納仮定 `(q.set j c).length = q.length` を使うと、更新後の長さは `1 + (q.set j c).length = 1 + q.length` になります。
+
+この三場合で空リストと非空リストのすべての添字を尽くしました。従って成功の三枝すべてで `t.board.length = s.board.length` となります。
 
 ここで s の長さは仮定しません。短い盤面にも適用できる保存命題ですが、長さの絶対値を与える命題ではありません。成功した着手が実際に一マスを埋めることも、この等式だけからは分かりません。
 
 ## 3. 出発点と帰納法を加える
 
-[合法着手による到達盤面](../LVT3-06/index.md#def-lvt3-06-reachable) の構成を外部教材の List と Except に対応させます。記号 R(s) は初期状態から成功した着手だけを有限回繰り返して s が得られるという命題です。
+[合法着手による到達盤面](../LVT3-06/index.md#def-lvt3-06-reachable) の構成を外部教材の List と Except に対応させます。記号 `R(s)`（Lean では `Reach s`）は初期状態から成功した着手だけを有限回繰り返して s が得られるという命題です。零回も含め、最初の状態を証拠とし、成功結果を一つずつ連結するという意味で規則から生成します。
 
 <a id="def-lvt6-01-list-reachable"></a>
 
 <!-- formal-statement-start -->
 ### 定義（リスト盤面の成功到達状態）
 
-外部仕様の GameState の初期値を initialState、自然数 pos に対する遷移を applyMove s pos とする。述語 R は次の二規則で生成される。
+外部仕様の GameState の初期値を initialState、非負整数 `pos : Nat` に対する遷移を `applyMove s pos` とする。s と t はいずれも GameState の値とし、述語 R は次の二規則だけで生成される（有限回の規則適用によって得られる状態を対象とする）。
 
 - R(initialState)。
 - R(s) と applyMove s pos = ok t が成立すれば R(t)。
@@ -66,10 +72,10 @@ applyMove s pos の戻り値 Except String GameState は error（理由文字列
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt6-01-list-reachable -->
-**定義の確認**　初期盤面は九マス空、手番X、ongoing なので第一規則で R が成立する。pos=0 の着手は終局でなく0<9、マス0が空なので成功する。X一個、他は空、手番O、ongoing の状態 t が返るため第二規則で R(t) が成立する。同じ0を再び指定すると cell_occupied となり、この拒否から新しい R の証拠は得られない。
+**定義の確認**　`s = initialState` は第一規則そのものにより `R(s)` が成立する。`pos = 0` では status が ongoing、`0 < 9`、`cellAt s.board 0 = none` なので三つの拒否条件をすべて通過する。更新後の盤面は `[some X, none, none, none, none, none, none, none, none]` である。X は一マスだけなのでどの勝利線も完成せず、空マスが八個あるので満盤でもない。従って `applyMove s 0 = ok t` となり、t の手番は O、status は ongoing である。第一規則で得た `R(s)` とこの成功等式を第二規則に代入して `R(t)` を得る。同じ0を再び指定すると `cellAt t.board 0 = some X` なので `cell_occupied` となる。この拒否は第二規則の成功等式を満たさず、新しい R の証拠を作らない。
 <!-- definition-example-end -->
 
-これで長さを保存する各遷移に初期長を結び付けられます。[帰納的不変量](../LVT3-05/index.md#def-lvt3-05-inductive) の考え方です。
+これで長さを保存する各遷移に初期長を結び付けられます。[帰納的不変量](../LVT3-05/index.md#def-lvt3-05-inductive) の考え方を、自然数の状態から GameState の状態へ移して用います。
 
 <a id="prop-lvt6-01-nine"></a>
 
@@ -86,7 +92,7 @@ applyMove s pos の戻り値 Except String GameState は error（理由文字列
 
 [リスト盤面の成功到達状態](#def-lvt6-01-list-reachable) の生成規則に関する帰納法を行う。基底では s=initialState であり、外部の命題 initial_board_length により s.board.length=9。
 
-帰納段階では R(s) と applyMove s pos = ok t があり、帰納仮定 s.board.length=9 を得ているとする。外部の命題 applyMove_preserves_board_length に s,t,pos と成功の等式を代入すると t.board.length=s.board.length。帰納仮定を右辺に代入すると t.board.length=9 を得る。二規則を尽くしたので任意の R(s) に対して成立する。
+帰納段階では R(s) と applyMove s pos = ok t があり、帰納仮定 s.board.length=9 を得ているとする。外部の命題 applyMove_preserves_board_length に s,t,pos と成功の等式を代入すると t.board.length=s.board.length。帰納仮定を右辺に代入すると `t.board.length = s.board.length = 9` を得る。二規則を尽くしたので任意の R(s) に対して成立する。
 <!-- proof-end -->
 
 [UpstreamAudit.lean](lab/UpstreamAudit.lean) は第5節の補修後の Proofs を import し、二つの既存の主張を実際に使ってこの結論を証明します。元の Proofs.lean にこの到達性定理があるわけではなく、追加の証明です。
@@ -214,7 +220,7 @@ p=X なら other(p)=O、other(other(p))=X=p、O≠X。p=O なら other(p)=X、ot
 <!-- solution-start -->
 #### 詳細解答
 
-五つの具体例は製品の結果を期待値と比較した証拠である。二差分テストは比較を実行していないため一致の証拠ではない。オラクルバイナリを lake build で作り、pytest を再実行して二差分テストの成功と skip 0 を別に記録する。証明の成功は lake test の結果としてさらに別に記録する。
+五つの具体例は製品の結果を期待値と比較した証拠である。二差分テストは比較を実行していないため一致の証拠ではない。オラクルバイナリを lake build で作り、pytest を再実行して二差分テストの成功と skip 0 を別に記録する。証明の成功は第5節の補修後の lake test の結果としてさらに別に記録する。
 <!-- solution-end -->
 
 ### Level B
@@ -240,7 +246,7 @@ p=X なら other(p)=O、other(other(p))=X=p、O≠X。p=O なら other(p)=X、ot
 <!-- solution-start -->
 #### 詳細解答
 
-初期長は initial_board_length から9。k 回後の状態 s の長さを9と仮定する。次の入力を n とする。applyMove s n=ok t なら applyMove_preserves_board_length から t.board.length=s.board.length=9。error e なら次状態は定義により s のままで長さ9。この二場合で Except を尽くした。従って操作回数 k の帰納法により任意の有限操作列で成立する。拒否を自己遷移にする API の保証であり、元の playMoves のエラーで終了する挙動とは区別する。
+初期長は initial_board_length から9。k 回後の状態 s の長さを9と仮定する。次の入力を n とする。applyMove s n=ok t なら applyMove_preserves_board_length から t.board.length=s.board.length=9。error e なら次状態は定義により s のままで長さ9。この二場合で Except を尽くした。従って操作回数 k に関する [Leanの自然数の帰納法](../LVT2-05/index.md#principle-lvt2-05-nat) により任意の有限操作列で成立する。拒否を自己遷移にする API の保証であり、元の playMoves のエラーで終了する挙動とは区別する。
 <!-- solution-end -->
 
 ### LVT6-01-B03 順列の検査範囲
@@ -252,7 +258,19 @@ p=X なら other(p)=O、other(other(p))=X=p、O≠X。p=O なら other(p)=X、ot
 <!-- solution-start -->
 #### 詳細解答
 
-全順列は 9×8×7×6×5×4×3×2×1=362880。長さ9の順列を母集団にすると割合は 500/362880=25/18144、約0.138%である。長さ0〜9の十個の接頭列を各順列で比較するので500×10=5000回。ただし空列など共通接頭列は繰り返されるため5000個の相異なる入力ではない。途中終局後の接頭列は拒否される。これは500例を実際に得たという仮定下の計算であり、設定値だけでは実回数を保証しない。
+全順列は、先頭に9通り、次に残り8通り、以後同じように選ぶので、
+
+$$
+9!=9\times8\times7\times6\times5\times4\times3\times2\times1=362880.
+$$
+
+長さ9の順列を母集団とした割合は
+
+$$
+\frac{500}{362880}=\frac{25}{18144}\approx0.001378=0.1378\%.
+$$
+
+長さ0〜9の十個の接頭列を各順列で比較するので500×10=5000回。ただし空列など共通接頭列は繰り返されるため5000個の相異なる入力ではない。終局を起こした着手までの接頭列は成功し、その次の着手まで含む接頭列からは game_over となる。これは500例を実際に得たという仮定下の計算であり、設定値だけでは実回数を保証しない。
 <!-- solution-end -->
 
 ### LVT6-01-B04 status の整合性
@@ -278,11 +296,11 @@ status が ongoing なので第一枝は偽。3<9 でマス3は空なので第�
 <!-- solution-start -->
 #### 詳細解答
 
-長さ保存の仮定は applyMove s n=ok t、結論は t と s の盤面長の等式である。空リストの外部 Lean 状態では0への着手が ok、draw、長さ0を返す。従って任意状態が9マスという主張は偽。一方で initial_board_length と保存を帰納法で結んだ [成功到達状態の九マス保証](#prop-lvt6-01-nine) は正しい。Python 側は短い盤面を直接受け取ると state.board[pos] で IndexError が起き得るので、九マスの事前条件か入力検査が必要である。
+長さ保存の仮定は applyMove s n=ok t、結論は t と s の盤面長の等式である。空リストの外部 Lean 状態では0への着手が ok、draw、長さ0を返す。従って任意状態が9マスという主張は偽。一方で initial_board_length と保存を帰納法で結んだ [成功到達状態の九マス保証](#prop-lvt6-01-nine) は正しい。Python 側は短い盤面を直接受け取ると、例えば空盤面・ongoing・pos=0 では state.board[0] で IndexError が起きるので、九マスの事前条件か入力検査が必要である。
 
 終局拒否は status が ongoing でない場合の定理。B04 の状態では X が勝っていても status が ongoing のため適用できない。盤面と status の整合性を初期状態で確認し成功遷移ごとに保たれる証明を加えるか、任意状態を受け取る入口で検査する。
 
-比較対象は初期状態からの着手列であり任意の GameState ではない。ランダム生成は0〜11、最大長12、順列生成は0〜8で、負整数も未比較である。Python は -1 を out_of_bounds とするが Lean の JSON 入力は Nat のため -1 を有効な着手列として受け取らない。この境界では仕様を揃えて別に試験する。最終結果の error だけでは途中の状態変化は分からないので、接頭列の結果を保存するか遷移ごとに観測する。
+比較対象は初期状態からの着手列であり任意の GameState ではない。ランダム生成は0〜11、最大長12、順列生成は0〜8で、負整数も未比較である。Python は ongoing の状態なら -1 を out_of_bounds とする（終局なら先に game_over）。一方、Lean の JSON 入力は Nat のリストなので -1 を含む要求を着手処理前に invalid_json として拒否する。この境界では仕様を揃えて別に試験する。最終結果の error だけでは途中の状態変化は分からないので、接頭列の結果を保存するか遷移ごとに観測する。
 
 最後に原版の lake test の失敗を記録し、第5節の補修後に theorem と #guard を確認し、lake build 後の pytest で五単体・二差分テストが実際に成功し skip が0か確認する。短い盤面、盤面と status の矛盾、負整数を追試する。適切な主張は「補修後の Lean 仕様の六定理が各仮定で成立し、追加証明で成功到達状態の長さ9が保証される。Python は実行した着手列について結果辞書が一致した」である。全入力での Python の安全性を主張するには要求・入力対応・実装との対応を追加で証明する。
 <!-- solution-end -->

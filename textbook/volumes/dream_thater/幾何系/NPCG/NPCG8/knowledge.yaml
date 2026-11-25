@@ -1,0 +1,36 @@
+chapter: NPCG8
+scope: dream-theater
+coverage: complete
+prerequisites: [NPCG7]
+forward_references: []
+concepts:
+  - id: metric-geometry.finite-weighted-barycenter
+    name: "有限加重重心"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限加重重心とFréchet 分散）"]
+    requires: [topology.metric-space]
+  - id: metric-geometry.frechet-variance
+    name: "Fréchet 分散"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限加重重心とFréchet 分散）"]
+    requires: [metric-geometry.finite-weighted-barycenter]
+  - id: metric-geometry.barycenter-existence-uniqueness
+    name: "有限加重重心の存在と一意性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限加重重心の存在と一意性）"]
+    requires: [metric-geometry.finite-weighted-barycenter, metric-geometry.cn-inequality, topology.complete-metric-space]
+  - id: metric-geometry.barycenter-variance-inequality
+    name: "分散不等式"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（分散不等式）"]
+    requires: [metric-geometry.barycenter-existence-uniqueness, metric-geometry.frechet-variance, metric-geometry.cn-interpolation]
+  - id: metric-geometry.barycenter-stability
+    name: "有限加重重心の安定性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限加重重心の安定性）"]
+    requires: [metric-geometry.barycenter-variance-inequality, metric-geometry.four-point-squared-difference]

@@ -8,3 +8,4 @@
 5. [NPCG5 測地線凸性と距離の凸性：中点から任意比へ](textbook/volumes/dream_thater/幾何系/NPCG/NPCG5/index.md)
 6. [NPCG6 四辺形不等式・等号・平坦な部分集合](textbook/volumes/dream_thater/幾何系/NPCG/NPCG6/index.md)
 7. [NPCG7 閉凸集合への射影とPythagoras型評価](textbook/volumes/dream_thater/幾何系/NPCG/NPCG7/index.md)
+8. [NPCG8 重心・二乗距離の最小化・分散不等式](textbook/volumes/dream_thater/幾何系/NPCG/NPCG8/index.md)
