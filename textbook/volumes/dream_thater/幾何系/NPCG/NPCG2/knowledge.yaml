@@ -47,6 +47,13 @@ concepts:
     introduction: formal
     introduction_aliases: ["定理（最短曲線の部分区間と測地空間）"]
     requires: [metric-geometry.curve-length-additivity, metric-geometry.length-space, metric-geometry.geodesic-space]
+  - id: metric-geometry.geodesic-triangle
+    name: 測地三角形
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Euclid 比較三角形）"]
+    aliases: [測地三角形]
+    requires: [metric-geometry.geodesic-segment]
   - id: metric-geometry.comparison-triangle
     name: Euclid 比較三角形
     kind: definition
