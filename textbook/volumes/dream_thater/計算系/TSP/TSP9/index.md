@@ -159,6 +159,8 @@ $$
 となります。両端は[テンソル冪の階数と劣階数の増大率](#thm-tsp9-limit-existence)で $k=1$ を選んで得られ、中間は各冪の不等式を極限へ移したものです。
 <!-- definition-example-end -->
 
+次に、[テンソルの制限](../TSP4/index.md#def-tsp4-restriction) $s\preceq t$（各因子に線形写像を作用させて $t$ から $s$ を作ること）を反復するときの評価を調べます。一定の長さの冪を新しい一回分としたときにも増大率を比較できます。
+
 <a id="thm-tsp9-asymptotic-monotonicity"></a>
 
 <!-- formal-statement-start -->
@@ -521,7 +523,7 @@ $$
 \sqrt2\le\widetilde Q(w)\le\widetilde R(w)=2.
 $$
 
-一回の $w$ の劣階数は1でした（[テンソル劣階数](../TSP4/index.md#def-tsp4-subrank)の後の三因子例）。従って反復により一回当たりの取り出し能力が改善します。ただし今回の構成は漸近劣階数の正確な値までは決めません。
+一回の $w$ の劣階数は1です。実際、各位置の平坦化は階数2なので、[劣階数の基本評価](../TSP4/index.md#thm-tsp4-subrank-bounds)より $1\le Q(w)\le2$ です。仮に $D_2\preceq w$ なら各局所写像の像は各位置の $D_2$ の平坦化の列空間（2次元全体）を含みます。局所写像は2次元から2次元への全射なので可逆となり、逆写像によって $w\preceq D_2$ が従います。[制限による階数の単調性](../TSP4/index.md#thm-tsp4-restriction-bounds)から $R(w)\le2$ となりますが、第5節の $R(w)=3$ と矛盾します。従って $Q(w)=1$ です。従って反復により一回当たりの取り出し能力が改善します。ただし今回の構成は漸近劣階数の正確な値までは決めません。
 <!-- solution-end -->
 
 ## 7. 次講への接続
