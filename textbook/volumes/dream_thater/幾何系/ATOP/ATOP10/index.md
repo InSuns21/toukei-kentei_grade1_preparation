@@ -367,9 +367,8 @@ $$
 <a id="thm-atop10-rado-triangulation"></a>
 
 <!-- formal-statement-start -->
-**定理（Radó の三角形分割定理）**（引用）
-
-コンパクトな位相曲面は有限三角形分割を持つ。境界付きの場合も成立する。
+> **定理（Radó の三角形分割定理）**
+> コンパクトな位相曲面は有限三角形分割を持つ。境界付きの場合も成立する。
 <!-- formal-statement-end -->
 
 さらに閉曲面の三角形分割では、各辺はちょうど二つの三角形に属し、各頂点のリンクは一つの閉路になります。これら一般曲面からの三角形分割の存在と閉曲面の接続条件は古典的な曲面論の結果として引用します（Munkres, Topology, 第78節；Gallier–Xu, A Guide to the Classification Theorem for Compact Surfaces）。
