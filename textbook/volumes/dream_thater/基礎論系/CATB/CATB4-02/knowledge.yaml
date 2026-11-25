@@ -1,0 +1,41 @@
+chapter: CATB4-02
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB4-01]
+concepts:
+  - id: category.cleavage
+    name: "Cleavage"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Cleavage）"]
+    requires: [category.fibration, category.cartesian-morphism]
+  - id: category.reindexing-functor
+    name: "再添字付け関手"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（再添字付け関手）"]
+    requires: [category.cleavage, category.fiber-category, category.covariant-functor]
+  - id: category.normalized-cleavage
+    name: "正規化されたcleavage"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正規化されたcleavage）"]
+    requires: [category.cleavage]
+  - id: category.split-fibration
+    name: "splitファイブレーション"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（splitファイブレーション）"]
+    requires: [category.normalized-cleavage]
+  - id: category.split-reindexing
+    name: "split選択の厳密な関手合成"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（split選択の厳密な関手合成）"]
+    requires: [category.split-fibration, category.reindexing-functor]
+  - id: category.cleavage-comparison
+    name: "選んだ持ち上げの比較同型"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（選んだ持ち上げの比較同型）"]
+    requires: [category.cleavage, category.cartesian-lift-uniqueness, category.cartesian-composition, category.vertical-cartesian-isomorphism]

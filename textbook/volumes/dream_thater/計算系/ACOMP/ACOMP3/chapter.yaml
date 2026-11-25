@@ -1,0 +1,41 @@
+id: "ACOMP3"
+title: "回路とformula・ABP：共有部分式とサイズ／深さ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ACOMP2
+official_scope: []
+learning_objectives:
+  - 算術formulaと算術回路の共有の違いを説明し、演算サイズと深さを計算できる
+  - 回路をformulaへ展開する構成と深さによるサイズ上界を証明できる
+  - 反復二乗の例についてformulaのサイズ下界を証明し、次数制限付きの比較と区別できる
+  - 代数的分岐プログラムの出力を経路の積の和として計算できる
+  - formulaからABPへの変換とABPの回路による計算を構成し、サイズ上界を導出できる
+definitions:
+  - { id: ACOMP3-DEF-01, name: 算術formula }
+  - { id: ACOMP3-DEF-02, name: 算術回路の深さ }
+  - { id: ACOMP3-DEF-03, name: 代数的分岐プログラム }
+theorems:
+  - { id: ACOMP3-THM-01, name: 回路のformulaへの展開 }
+  - { id: ACOMP3-THM-02, name: 反復二乗とformulaのサイズ差 }
+  - { id: ACOMP3-THM-03, name: formulaからABPへの変換 }
+  - { id: ACOMP3-THM-04, name: ABPの回路による計算 }
+canonical_examples:
+  - 共有する回路と部分式を複製した木
+  - 左結合と平衡な積の深さ
+  - 反復二乗と指数的な葉数下界
+  - 二経路のABPと経路の寄与の漸化式
+problem_patterns:
+  - ACOMP3-SHARING
+  - ACOMP3-DEPTH
+  - ACOMP3-PATH-SUM
+  - ACOMP3-EMPTY-PATH-SET
+  - ACOMP3-FORMULA-ABP
+  - ACOMP3-UNFOLD
+  - ACOMP3-ABP-EVALUATION
+  - ACOMP3-PATH-COUNT
+  - ACOMP3-POWER-LOWER-BOUND
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 1 }

@@ -3,3 +3,4 @@
 
 1. [ACOMP1 形式多項式と多項式関数：有限体とBoolean立方体](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP1/index.md)
 2. [ACOMP2 算術回路・straight-line program：加法・乗法・定数ゲート](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP2/index.md)
+3. [ACOMP3 回路とformula・ABP：共有部分式とサイズ／深さ](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP3/index.md)

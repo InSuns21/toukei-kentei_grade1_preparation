@@ -1,7 +1,7 @@
 # DREAM THEATER 保型形式・保型表現（AFR1〜AFR24）
 
 設計確定: 2026-11-21 JST  
-状態: in progress。**24講（AFR1〜AFR24）で講数を確定**。AFR1を実装。進捗の正本は[系列manifest](../dream-theater-series/AFR.yaml)。  
+状態: completed（2026-11-25 JST）。**24講（AFR1〜AFR24）を実装・追跡監査し、系列横断照合を完了**。進捗の正本は[系列manifest](../dream-theater-series/AFR.yaml)。  
 系列ID: `AFR`（Automorphic Forms and Representations）。分野: 代数系と解析系の接続。共通ルート: [岩澤理論・保型表現・RH講読](../plans/DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)。
 
 ## 中心問いと到達点
@@ -116,3 +116,11 @@
 - 外部の高度な定理は証明の出典・適用条件・再現可能な小モデルと、**この講義では証明しない範囲**を明記。後続の中心定理の証明を原則として閉じる規約に沿い、未閉鎖を完了としない。
 - 研究発表の評価を既知の数学と混同せず、ニュースが変わっても過去の確度ラベルを消さない。
 - `AFR1`執筆時、`plans_progress/`へPLANを移動し、`textbook/dream-theater-series/AFR.yaml`に24講`planned`を追加。`completed`は本文と数理・読者査読、CIが揃った章だけ。公開目次は完成章だけ。シリーズ完了後の横断査読・ルーティング一致を経て`plan_done/`へ移動する。
+
+## 系列完了時の横断照合（2026-11-25 JST）
+
+- AFR1〜24のmanifest、実在する本文・chapter.yaml・knowledge.yaml（72ファイル）、科目目次のID・順序を照合。全24章のchapter.yamlの前提と学修目標・演習数を確認した（メタデータ集計 A97/B79/C28、計204題）。各章は前章を含む先行章へ接続し、AFR24はAFR23・IWA20・ANF5・ANF20・IWA9を前提とする。RHPへの逆依存はない。
+- AFR1〜7は古典変換・Maassのスペクトル・Hecke・Rankin、AFR8〜10はアデール・Fourier・Tate、AFR11〜18は局所大域のGL2・Satake・newvector・Euler因子、AFR19〜22はWeil・theta・周期・内積の適用条件、AFR23〜24は解析的還元と形式認証／整数格子の模型、という学修目標の接続を照合した。一般Rallis公式、高階Galois表現、主不等式(M)そのものの人間可読な証明はRHPが所有する。
+- AFR1〜23の追跡監査PRを個別に取得して merged=true を確認：AFR1 [#4296](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4296)、AFR2 [#4301](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4301)、AFR3 [#4305](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4305)、AFR4 [#4318](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4318)、AFR5 [#4330](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4330)、AFR6 [#4338](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4338)、AFR7 [#4348](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4348)、AFR8 [#4356](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4356)、AFR9 [#4365](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4365)、AFR10 [#4378](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4378)、AFR11 [#4385](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4385)、AFR12 [#4393](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4393)、AFR13 [#4400](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4400)、AFR14 [#4406](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4406)、AFR15 [#4411](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4411)、AFR16 [#4424](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4424)、AFR17 [#4436](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4436)、AFR18 [#4442](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4442)、AFR19 [#4446](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4446)、AFR20 [#4452](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4452)、AFR21 [#4470](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4470)、AFR22 [#4473](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4473)、AFR23 [#4484](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/4484)。先行章の全件数学再計算はこれらの既存監査記録に基づき、今回23章を改めて全件解き直したとはしない。AFR24は本完了PRで3命題・10演習を全件再計算し、整数双対・共体積・射影・丸め・局所制限の説明と参照を補強した。
+- 今回の検算・横断照合担当はChatGPT。同一担当による数学と読者観点の確認であり、第三者独立査読ではない。外部の17M行Lean証明の再ビルド、外部文献の全宣言照合、実ブラウザ目視は実施していない。これらは基礎AFRの講義完成範囲とは区別する。必須CIの成功をマージ条件とする。
+
