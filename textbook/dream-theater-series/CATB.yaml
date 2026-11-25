@@ -63,4 +63,4 @@ chapters:
   - { id: CATB7-04, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB7-04, status: completed, title: "導来圏と完全三角形" }
   - { id: CATB7-05, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB7-05, status: completed, title: "分解・導来関手・Ext" }
   - { id: CATB8-01, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB8-01, status: completed, title: "次数付きテンソル積とKoszul符号" }
-  - { id: CATB8-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB8-02, status: planned, title: "微分付き次数付き代数と懸垂" }
+  - { id: CATB8-02, path: textbook/volumes/dream_thater/基礎論系/CATB/CATB8-02, status: completed, title: "微分付き次数付き代数と懸垂" }

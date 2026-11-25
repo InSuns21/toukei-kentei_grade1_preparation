@@ -99,3 +99,4 @@
 96. [CATB7-04 導来圏と完全三角形](textbook/volumes/dream_thater/基礎論系/CATB/CATB7-04/index.md)
 97. [CATB7-05 分解・導来関手・Ext](textbook/volumes/dream_thater/基礎論系/CATB/CATB7-05/index.md)
 98. [CATB8-01 次数付きテンソル積とKoszul符号](textbook/volumes/dream_thater/基礎論系/CATB/CATB8-01/index.md)
+99. [CATB8-02 微分付き次数付き代数と懸垂](textbook/volumes/dream_thater/基礎論系/CATB/CATB8-02/index.md)
