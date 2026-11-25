@@ -1,0 +1,65 @@
+chapter: CATB5-08
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB5-07, CATB1-02, CATB5-05, CATB5-06, CATB5-03, CATB5-02]
+concepts:
+  - id: category.power-object
+    name: "冪対象"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（冪対象）"]
+    requires: [category.elementary-topos, category.exponential-object, category.subobject-classifier]
+  - id: category.topos-bimorphism
+    name: "初等トポスのモノ・エピ同型性"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（初等トポスのモノ・エピ同型性）"]
+    requires: [category.subobject-classifier, category.monomorphism, category.epimorphism]
+  - id: category.topos-image-factorization
+    name: "初等トポスの像分解"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（初等トポスの像分解）"]
+    requires: [category.power-object, category.categorical-image, category.classifier-bijection]
+  - id: category.topos-fiber-inclusion
+    name: "ファイバー包含条件の表現"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（ファイバー包含条件の表現）"]
+    requires: [category.power-object, category.classifier-bijection, category.pullback]
+  - id: category.topos-epi-base-change
+    name: "初等トポスのエピ射の引き戻し安定性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（初等トポスのエピ射の引き戻し安定性）"]
+    requires: [category.topos-fiber-inclusion, category.topos-bimorphism]
+  - id: category.topos-epi-regularity
+    name: "初等トポスのエピ射の正則性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（初等トポスのエピ射の正則性）"]
+    requires: [category.topos-image-factorization, category.topos-epi-base-change, category.topos-bimorphism, category.kernel-pair, category.regular-epi]
+  - id: category.topos-barr-exactness
+    name: "初等トポスのBarr-正確性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（初等トポスのBarr-正確性）"]
+    requires: [category.power-object, category.topos-epi-regularity, category.topos-image-factorization, category.barr-exact-category, category.internal-equivalence-relation]
+  - id: category.sheaf-local-surjectivity
+    name: "局所全射"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所全射）"]
+    requires: [category.site-sheaf, category.grothendieck-topology, category.sieve]
+  - id: category.sheaf-local-image
+    name: "層の局所像とエピ射の判定"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（層の局所像とエピ射の判定）"]
+    requires: [category.sheaf-local-surjectivity, category.sheaf-pointwise-mono, category.site-sheaf, category.topos-epi-regularity]
+  - id: category.sheaf-equivalence-quotient
+    name: "層の同値関係の商の構成"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（層の同値関係の商の構成）"]
+    requires: [category.internal-equivalence-relation, category.sheaf-pointwise-limits, category.sheaf-pointwise-mono, category.sheafification-adjunction, category.sheafification-left-exactness]
