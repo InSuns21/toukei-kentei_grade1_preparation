@@ -64,7 +64,7 @@ $a_j\ne0$ ならその積分は両端の指数関数が等しいため零、$a_j
 
 [有限次元Gaussian積分と特性関数](../MQFC6/index.md#thm-mqfc6-finite-gaussian) により、各係数の密度は正の分散で正規化できる。例えば零モードの密度は $m(2\pi)^{-1/2}e^{-m^2a^2/2}$ である。係数の有限直積測度が場の確率法則を与える。
 
-箱上だけで積分すると $f$ が箱を越える場合に測定の定義が変わる。そこで場を周期的に全空間へ延長し、$\Phi_{L,\Lambda}(f)=\int_{\mathbb R^d}\phi_{L,\Lambda}(x)f(x)\,dx$ とする。これは有限和と可積分な $f$ の積分なので存在する。Fourier規約は [MQFC1](../MQFC1/index.md#thm-mqfc1-fourier) の $\widehat f(p)=\int e^{-ip\cdot x}f(x)\,dx$ に従う。測定の共分散を $C_{L,\Lambda}(f,g)=E[\Phi_{L,\Lambda}(f)\Phi_{L,\Lambda}(g)]$ と書く。各係数の平均が零であるため測定の平均も零であり、これは中心化された共分散に一致する。
+箱上だけで積分すると $f$ が箱を越える場合に測定の定義が変わる。そこで場を周期的に全空間へ延長し、$\Phi_{L,\Lambda}(f)=\int_{\mathbb R^d}\phi_{L,\Lambda}(x)f(x)\,dx$ とする。これは有限和と可積分な $f$ の積分なので存在する。Fourier規約は [MQFC1](../MQFC1/index.md#thm-mqfc1-fourier) の $\widehat f(p)=\int e^{-ip\cdot x}f(x)\,dx$ に従う。測定の共分散を $C_{L,\Lambda}(f,g)=E[\Phi_{L,\Lambda}(f)\Phi_{L,\Lambda}(g)]$ と書く。各係数の平均が零であるため測定の平均も零であり、これは [共分散の定義](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-covariance-uncorrelated) に一致する。
 
 <a id="prop-mqfc13-box-covariance"></a>
 
@@ -98,7 +98,7 @@ $$
 \end{aligned}
 $$
 
-各係数の分散を $v_a>0$、上式で対応する重みを $w_a(f)$ と書けば、独立性と [有限次元Gaussian積分と特性関数](../MQFC6/index.md#thm-mqfc6-finite-gaussian) の一次元の場合から、測定の特性関数は $\prod_a e^{-t^2w_a(f)^2v_a/2}=e^{-t^2\sum_a w_a(f)^2v_a/2}$ となる。従って測定は中心化Gaussianである（重みが全て零なら定数0）。
+各係数の分散を $v_a>0$、上式で対応する重みを $w_a(f)$ と書けば、独立な変数の [期待値の積への分解](../../../解析系/F0/F0-00P3/index.md#thm-f0-00p3-expectation-factorization)（複素指数関数は実部と虚部に分けて適用できる）と [有限次元Gaussian積分と特性関数](../MQFC6/index.md#thm-mqfc6-finite-gaussian) の一次元の場合から、測定の特性関数は $\prod_a e^{-t^2w_a(f)^2v_a/2}=e^{-t^2\sum_a w_a(f)^2v_a/2}$ となる。従って測定は中心化Gaussianである（重みが全て零なら定数0）。
 
 平均は零なので共分散は積の期待値である。非零モードの寄与は
 
@@ -493,7 +493,7 @@ $$
 E[X_n^2Y_n^2]=a_nb_n+2c_n^2\to ab+2c^2.
 $$
 
-積分の尾からも同じ結論を得られる。$G(x,y)=x^2y^2$ と置き、$A=\sup_n a_n$、$B=\sup_n b_n$ は有限とする。[Wick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) で同じ測定を8回並べたとき、対分割の数は $7\cdot5\cdot3\cdot1=105$ だから $EX_n^8=105a_n^4$、$EY_n^8=105b_n^4$。Cauchy–Schwarzの不等式に $|X_n|^4,|Y_n|^4$ を入れると
+積分の尾からも同じ結論を得られる。$G(x,y)=x^2y^2$ と置き、$A=\sup_n a_n$、$B=\sup_n b_n$ は有限とする。[Wick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing) で同じ測定を8回並べたとき、対分割の数は $7\cdot5\cdot3\cdot1=105$ だから $EX_n^8=105a_n^4$、$EY_n^8=105b_n^4$。両者の8次モーメントが有限なので $|X_n|^4,|Y_n|^4$ は $L^2$ に属する。内積を $\langle U,V\rangle=E[UV]$ とした [Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) にこれらを入れると
 
 $$
 \begin{aligned}
