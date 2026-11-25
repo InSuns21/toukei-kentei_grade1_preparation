@@ -1,0 +1,26 @@
+id: "CATB5-03"
+title: "site上の層条件"
+volume: "foundations"
+status: supplementary
+prerequisites: [CATB5-02, CATB5-01, CAT1-07, CAT1-11, CAT1-12]
+official_scope: []
+learning_objectives:
+  - 篩上の整合族を定義して自然変換との対応を証明できる
+  - site上の層条件を自然変換の一意延長として説明できる
+  - 生成篩上の整合条件を因子分解の比較で判定できる
+  - 通常の開被覆による層条件との同値性を証明できる
+  - 分離条件と貼り合わせの存在の失敗を具体例で区別できる
+definitions:
+  - { id: CATB5-03-DEF-01, name: "篩上の整合族" }
+  - { id: CATB5-03-DEF-02, name: "site上の層" }
+theorems:
+  - { id: CATB5-03-THM-01, name: "整合族と自然変換の対応" }
+  - { id: CATB5-03-THM-02, name: "被覆篩からの自然変換の延長" }
+  - { id: CATB5-03-THM-03, name: "生成篩上の整合族の判定" }
+  - { id: CATB5-03-THM-04, name: "開集合圏の層条件との同値性" }
+canonical_examples: [離散二点空間, 二対象の矢印圏, 加法モノイド]
+problem_patterns: [CATB5-03-A01, CATB5-03-A02, CATB5-03-A03, CATB5-03-A04, CATB5-03-B01, CATB5-03-B02, CATB5-03-B03, CATB5-03-B04, CATB5-03-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
