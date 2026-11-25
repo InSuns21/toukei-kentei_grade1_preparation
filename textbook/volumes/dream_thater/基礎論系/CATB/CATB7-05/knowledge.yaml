@@ -63,3 +63,8 @@ concepts:
     kind: theorem
     introduction: formal
     requires: [category.ext, category.derived-category, category.projective-acyclic, category.quasi-isomorphism-cone-test]
+  - id: category.divisible-injective-abelian-group
+    name: 整数加群の可除性と入射性
+    kind: proposition
+    introduction: formal
+    requires: [category.injective]
