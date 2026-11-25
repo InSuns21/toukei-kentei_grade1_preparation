@@ -1,0 +1,21 @@
+chapter: ATOP1
+scope: dream-theater
+coverage: complete
+prerequisites: [TOP2, TOP3, TOP4, GEO1]
+forward_references: []
+concepts:
+  - id: atop.radial-circle-diamond
+    name: 円周と菱形の周の動径同相
+    kind: proposition
+    introduction: formal
+    requires: [topology.homeomorphism]
+  - id: atop.topological-embedding
+    name: 位相的埋め込み
+    kind: definition
+    introduction: formal
+    requires: [topology.homeomorphism, topology.subspace-topology]
+  - id: atop.disk-polar-quotient
+    name: 正方形の極座標商と円板
+    kind: theorem
+    introduction: formal
+    requires: [topology.compact-quotient-identification, topology.endpoint-identification-circle]

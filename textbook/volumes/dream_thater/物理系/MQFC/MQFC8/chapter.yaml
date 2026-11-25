@@ -1,0 +1,23 @@
+id: MQFC8
+title: "反射陽性はなぜ成り立つか"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC5, MQFC6, MQFC7]
+official_scope: []
+learning_objectives:
+  - 時間反転と正時間の多項式から反射陽性を定義し通常の正値性との違いを説明できる
+  - 時間周波数の逆Fourier積分を指数核として導出できる
+  - 自由共分散の正時間支持を使い反射形式を重み付き絶対値二乗へ因子分解できる
+  - Gaussian共通成分の分解を使い線形測定から多項式へ反射陽性を拡張できる
+definitions:
+  - { id: MQFC8-DEF-01, name: "正時間多項式の反射形式" }
+theorems:
+  - { id: MQFC8-THM-01, name: "自由共分散の時間指数核" }
+  - { id: MQFC8-THM-02, name: "自由場の反射共分散の因子分解" }
+  - { id: MQFC8-THM-03, name: "Gaussian場の多項式反射陽性" }
+canonical_examples: [反転不変な定数場, 奇関数による反例, 一次元自由場の零方向, Gaussian四次相関]
+problem_patterns: [MQFC8-REFLECTION, MQFC8-KERNEL, MQFC8-NULL, MQFC8-GAUSSIAN]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }

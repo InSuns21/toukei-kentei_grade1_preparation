@@ -6,7 +6,41 @@
 
 前講では[交点の漸近作用素](../FLOER1-02/index.md#def-floer1-02-asymptotic-operator)が現れた。横断交点では零固有値がない。今回はこの事実を、無限帯 $S=\mathbb R\times[0,1]$ 上の方程式を解くための評価へ変える。有限帯の[境界付き一階楕円型評価](../FLOER1-01/index.md#thm-floer1-01-estimate)だけでは、切断が無限遠へ逃げることを防げない。
 
-以下では実Hilbert空間を使う。$V=\mathbb C^n$ は実次元 $2n$、$J=i$、計量は標準実内積とする。$W_0,W_1$ は固定したLagrange部分空間である。
+以下では実Hilbert空間を使う。$V=\mathbb C^n$ は実次元 $2n$（$n\ge1$）、$J=i$、計量は標準実内積とする。
+
+$W_0,W_1$ は固定した[Lagrange部分空間](../../SYM/SYM6/index.md#def-sym6-lagrangian-subspace)であり、実次元 $n$ で標準シンプレクティック形式 $\omega$ の制限が零である。横断な対とは [Lagrange横断交叉](../FLOER1-01/index.md#def-floer1-01-transverse)の接空間条件と同じく、
+
+$$
+W_0+W_1=V
+\quad\Longleftrightarrow\quad
+W_0\cap W_1=\{0\}
+$$
+
+が成立する対をいう。ここで同値性は両部分空間の次元の和が $2n$ であることから従う。
+
+帯の長手座標を $s\in\mathbb R$、横断座標を $t\in[0,1]$ とする。偏微分の記号は次のように対応する。
+
+$$
+v_s=\partial_s v=\frac{\partial v}{\partial s},
+\qquad
+v_t=\partial_t v=\frac{\partial v}{\partial t}.
+$$
+
+前者は横断座標を、後者は長手座標を固定する。一変数関数のプライムはその変数の常微分（Sobolev関数では弱微分）を表す。例えば
+
+$$
+\phi'(t)=\frac{d\phi}{dt},
+\qquad
+v_m'(s)=\frac{dv_m}{ds}.
+$$
+
+[写像に沿うSobolev切断](../../GW/GW1-03/index.md#def-gw1-03-sobolev-sections)で値と一階微分を測ったが、今回は非コンパクトな帯の自明束なので、弱偏微分を用いて全帯での可積分性を直接課す。$\|\cdot\|_2$ は文脈に応じた領域での実 $L^2$ ノルムとし、帯では
+
+$$
+\|v\|_{H^1(S)}^2=\|v\|_2^2+\|v_s\|_2^2+\|v_t\|_2^2
+$$
+
+とする。
 
 横断方向の空間を
 
@@ -23,7 +57,7 @@ $$
 
 と書く。ここで水平辺での値はトレースであり、条件はほとんど全ての $s$ に対して課す。トレースは局所的に[有限帯の境界付き評価の証明](../FLOER1-01/index.md#thm-floer1-01-estimate)で用いた方法で理解できる。トレースの連続性から $X$ も閉部分空間となる。
 
-端から離れるほど大きな正の重みを掛けると、単なる二乗可積分性より速い減衰を要求できる。$\rho(s)=|s|$ とする。この関数は原点で微分できないが、弱微分は有界なので一階Sobolev空間の積の微分に使える。
+中央から両端の無限遠へ近づくほど大きな正の重みを掛けると、単なる二乗可積分性より速い減衰を要求できる。$\rho(s)=|s|$ とする。この関数は原点で微分できないが、弱微分は有界なので一階Sobolev空間の積の微分に使える。
 
 <a id="def-floer1-03-weighted"></a>
 
@@ -53,10 +87,31 @@ $$
 =\frac1{a-\delta}.
 $$
 
-弱 $s$ 微分は $-(a-\delta)\operatorname{sgn}(s)w_\delta v$、$t$ 微分は $(i\pi/2)w_\delta v$。原点の左右で値が一致するのでデルタ項はなく、両微分も二乗可積分である。従って $v\in X_\delta$。$\delta\ge a$ では値自体の積分が発散するので入らない。
+ここで $\operatorname{sgn}(s)$ は正なら $1$、負なら $-1$、零なら $0$ とする符号関数である。$z=w_\delta v$ と置くと、弱偏微分は
+
+$$
+z_s=-(a-\delta)\operatorname{sgn}(s)z,
+\qquad z_t=\frac{i\pi}{2}z.
+$$
+
+原点の左右で値が一致するので、部分積分の境界項が打ち消し合い、弱微分にDiracのデルタ項は生じない。従って $\delta<a$ なら
+
+$$
+\|z\|_{H^1(S)}^2
+=\frac{1+(a-\delta)^2+\pi^2/4}{a-\delta}<\infty.
+$$
+
+両辺のトレースも確認したので $v\in X_\delta$。同じ関数を値域の元 $f=v$ とみなすと、$Z_\delta$ には境界条件や微分の条件がなく、上の $\|z\|_2^2$ だけで判定できる。$\delta\ge a$ では値自体の積分が発散するため、どちらの空間にも入らない。
 <!-- definition-example-end -->
 
-重みの掛け算は $X_\delta\to X$ と $Z_\delta\to L^2$ の等長全単射である。$D=\partial_s+i\partial_t+B(s,t)$（$B$ は有界な実線形行列）なら $z=w_\delta v$ と置いて
+重みの掛け算は $X_\delta\to X$ と $Z_\delta\to L^2$ の等長全単射である。$D=\partial_s+i\partial_t+B(s,t)$（$B$ は有界な実線形行列）なら $z=w_\delta v$ と置く。$w_\delta'/w_\delta=\delta\operatorname{sgn}(s)$ がほとんど至る所で成立し、$w_\delta$ は $t$ に依存しないので、
+
+$$
+w_\delta v_s=z_s-\delta\operatorname{sgn}(s)z,
+\qquad w_\delta v_t=z_t.
+$$
+
+$B$ は実線形で重みは実数だから $w_\delta Bv=Bz$。これらを足すと
 
 $$
 w_\delta Dv
@@ -94,17 +149,56 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$W_0$ の実正規直交基底とその $i$ 倍は、[Lagrange部分空間の計量直交補](../../SYM/SYM8/index.md#prop-sym8-lagrangian-orthogonal)から全体の実正規直交基底になる。この基底で $W_0=\mathbb R^n$。虚部への射影を $W_1$ に制限した核は $W_0\cap W_1=0$、両者の実次元は $n$ だから全単射である。従ってある実行列 $C$ によって $W_1=\{Cy+iy:y\in\mathbb R^n\}$ と書ける。
+$W_0$ の実正規直交基底とその $i$ 倍は、[Lagrange部分空間の計量直交補](../../SYM/SYM8/index.md#prop-sym8-lagrangian-orthogonal)から全体の実正規直交基底になる。この基底で $W_0=\mathbb R^n$ となる。
+
+虚部への射影を $W_1$ に制限した核は $W_0\cap W_1=0$、両者の実次元は $n$ だから全単射である。虚部の座標を $y$ とすれば、それを持つ唯一の元の実部は $y$ に線形に依存する。従ってある実行列 $C$ によって
+
+$$
+W_1=\{Cy+iy:y\in\mathbb R^n\}
+$$
+
+と書ける。
 
 標準シンプレクティック形式の値は
 
 $$
-\omega(Cy+iy,Cz+iz)=y^{\mathsf T}(C^{\mathsf T}-C)z.
+\omega(Cy+iy,Cz+iz)
+=(Cy)^{\mathsf T}z-y^{\mathsf T}Cz
+=y^{\mathsf T}(C^{\mathsf T}-C)z.
 $$
 
-全ての $y,z$ で零となるので $C$ は対称。実直交行列で対角化すると各成分は $(c_j+i)\mathbb R$ となる。$c_j+i$ の偏角 $\theta_j$ は $(0,\pi)$ に入る。
+ここで標準形式は次の座標式で与えられる。
 
-一成分では $i\phi'=\mu\phi$ から $\phi(t)=a e^{-i\mu t}$、下端条件で $a\in\mathbb R$、上端条件で $\mu+\theta\in\pi\mathbb Z$。実内積での異なるモードの積は $\int_0^1\cos((k-l)\pi t)dt=0$、同じモードでは1である。
+$$
+\omega(x+iy,u+iv)=x^{\mathsf T}v-y^{\mathsf T}u.
+$$
+
+Lagrange条件により先ほどの計算結果は全ての $y,z$ で零となる。標準基底を順に代入すると $C^{\mathsf T}-C$ の全成分が零になる。従って $C$ は実対称行列である。
+
+[複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)を実対称行列 $C$ の複素化に使うと、固有値は実数である。実行列なので各実固有値の複素固有ベクトルの実部・虚部も同じ固有空間に属する。実固有空間ごとに実正規直交基底を取れば、実直交行列で対角化できる。
+
+その基底では各成分は $(c_j+i)\mathbb R$ となる。$c_j+i$ の偏角 $\theta_j$ は $(0,\pi)$ に入る。
+
+一成分では $i\phi'=\mu\phi$、すなわち $\phi'=-i\mu\phi$ だから、積を微分すると
+
+$$
+(e^{i\mu t}\phi(t))'=0,
+\qquad \phi(t)=a e^{-i\mu t}
+$$
+
+となる。下端条件で $a\in\mathbb R$、非零の固有関数では $a\ne0$。上端条件は
+
+$$
+e^{-i\theta}\phi(1)=a e^{-i(\mu+\theta)}\in\mathbb R
+$$
+
+なので、$\mu+\theta\in\pi\mathbb Z$ となる。異なるモードの実内積は
+
+$$
+\int_0^1\cos((k-l)\pi t)\,dt=0\qquad(k\ne l)
+$$
+
+であり、同じモードでは1である。
 
 完全性を確認する。任意の複素 $L^2$ 関数 $f$ に対して次のように変換・拡張する。
 
@@ -301,7 +395,7 @@ $$
 \|A_\pm\eta\|_2\le\|\eta_t\|_2+\|B_\pm\|_\infty\|\eta\|_2.
 $$
 
-この二つの評価でグラフノルムと $H^1$ ノルムの同値性が分かる。従って[全帯の逆](#thm-floer1-03-inverse)による有界逆を $G_\pm:L^2\to X$ とする。
+この二つの評価でグラフノルムと $H^1$ ノルムの同値性が分かる。重み付きの端作用素についても、$A_\pm$ を $A_\pm\mp\delta I$、$B_\pm$ を $B_\pm\mp\delta I$ に置き換えれば同じ評価が成立する。従って[全帯の逆](#thm-floer1-03-inverse)による有界逆を $G_\pm:L^2\to X$ とする。
 
 中央用には $A_c=i\partial_t-cI$ を取る。横断でない境界でも、二つのLagrange平面をユニタリ座標で角度表示できる。具体的には $W_1\cap W_0$ を先に直交分離し、$i(W_1\cap W_0)$ は $W_1$ に直交するため、残る複素直交補で横断な対に前節の構成を用いる。共通方向では角度0を用いればよい。従って $i\partial_t$ の固有値は有限個の角度に対する $k\pi-\theta_j$ である。$c$ をこの離散集合の外に選ぶと $A_c$ は正のギャップを持ち、全帯の逆 $G_c$ が存在する。
 
@@ -372,11 +466,19 @@ $$
 
 端の一定係数逆は[全帯の逆の係数ごとの構成](#thm-floer1-03-inverse)で $H=Y=\mathbb R$ とすれば得られる。中央に $a_c=1$ の逆を選び、[無限帯Fredholm性の証明](#thm-floer1-03-fredholm)の切断とコンパクト誤差の議論を実数値の一次元区間へ適用すると閉像と有限次元性を得る。
 
-斉次解は
+斉次方程式 $v'+av=0$ に対して $F(s)=\int_0^s a(r)\,dr$ と置く。積と合成関数の微分により
+
+$$
+(e^{F(s)}v(s))'=e^{F(s)}(v'(s)+a(s)v(s))=0.
+$$
+
+従って斉次解は
 
 $$
 v(s)=C\exp\left(-\int_0^s a(r)\,dr\right).
 $$
+
+ここでは $v$ で割っていないので、零解も含めて全解が得られる。
 
 積分は各端で $a_\pm s+o(|s|)$ となる。例えば正端で任意の $\varepsilon>0$ に対し十分大きい $R$ から $|a-a_+|<\varepsilon$ とすれば誤差の絶対値は定数と $\varepsilon(s-R)$ の和以下となる。負端でも積分向きを逆にして同じ評価を得る。従って非零の斉次解は負端で $a_-<0$、正端で $a_+>0$ の場合に限り $L^2$ である。その場合 $v'=-av$ も $L^2$。
 
@@ -401,7 +503,32 @@ $$
 q(v)=\omega(v,v'(s_0))
 $$
 
-と置く。二つの延長の差は交叉時刻で零となるため、その微分は $L(s_0)$ に入る。実際、局所枠で差を表した係数は交叉時刻ですべて零で、微分後は係数の微分と枠の積だけが残る。$\omega$ の制限が零なので、二次形式は延長の選択によらない。交叉形式が非退化とは対応する対称双線形形式の核が零であることをいう。
+と置く。二つの延長の差は交叉時刻で零となるため、その微分は $L(s_0)$ に入る。実際、局所枠で差を表した係数は交叉時刻ですべて零で、微分後は係数の微分と枠の積だけが残る。$\omega$ の制限が零なので、二次形式は延長の選択によらない。
+
+交叉方向 $v,w$ の延長をそれぞれ $v(s),w(s)$ とし、$b(v,w)=\omega(v,w'(s_0))$ と置く。延長によらないことは先ほどと同じ理由で従い、Lagrange性から $\omega(v(s),w(s))=0$ なので、
+
+$$
+0=\omega(v'(s_0),w)+\omega(v,w'(s_0))
+=-b(w,v)+b(v,w).
+$$
+
+従って $b$ は実対称双線形形式であり、$q(v)=b(v,v)$ である。交叉形式の非退化性は、既習の[双線形形式の非退化性](../../../基礎科目/LA/LA3E/index.md#def-la3e-nondegenerate-bilinear-form)をこの対称形式に適用したものである。すなわち $b(v,w)=0$ が全ての $w$ で成立するなら $v=0$ となることをいう。
+
+有限次元の交叉空間で[双線形形式の行列表示と非退化性](../../../基礎科目/LA/LA3E/index.md#prop-la3e-bilinear-nondegenerate-matrix)を用いる。正規直交基底 $(e_j)$ で、双線形形式の行列の成分を
+
+$$
+M_{jk}=b(e_j,e_k)
+$$
+
+と書く。$v,w$ の座標列をそれぞれ $x,y$ とすれば、双線形性から
+
+$$
+b(v,w)=\sum_{j,k}x_jM_{jk}y_k=x^{\mathsf T}My.
+$$
+
+全ての $y$ についてこの値が零になるのは、対称性から $Mx=0$ と同値である。従って非退化性はこの連立方程式が零解のみを持つことに等しい。
+
+上で用いた実対称行列の直交対角化によって得られる正・負の固有値の個数の差を形式の符号といい、非退化な交叉を正則交叉という。
 
 <a id="def-floer1-03-maslov"></a>
 
@@ -418,16 +545,51 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-floer1-03-maslov -->
-**定義の確認**。$W=\mathbb R$、$L(s)=e^{i\theta(s)}\mathbb R$、$\theta$ は $-\pi/4$ から $\pi/4$ へ単調に増加し、零の位置 $s_0$ で $\theta'(s_0)>0$ とする。両端は横断で唯一の交叉は $\theta=0$。$v(s)=e^{i\theta(s)}x$（$x\in\mathbb R$）を取ると $v(s_0)=x$、$v'(s_0)=i\theta'(s_0)x$ で
+**定義の確認**。$W=\mathbb R$ を固定し、動く平面を
+
+$$
+L(s)=e^{i\theta(s)}\mathbb R
+$$
+
+とする。角度は $-\pi/4$ から $\pi/4$ へ単調に増加し、零の位置 $s_0$ で $\theta'(s_0)>0$ とする。
+
+どの時刻でも動く平面は非零ベクトル $e^{i\theta(s)}$ が張る実一次元空間であり、二ベクトルが比例するので $\omega$ の制限は零、従ってLagrangeである。両端で $\sin\theta\ne0$ だから固定平面との共通方向はなく、唯一の交叉は $\theta=0$ である。
+
+$x\in\mathbb R$ に対し延長を $v(s)=e^{i\theta(s)}x$ と取ると、積の微分から
+
+$$
+v(s_0)=x,
+\qquad v'(s_0)=i\theta'(s_0)x
+$$
+
+となる。これを交叉形式に代入して
 
 $$
 q(x)=\omega(x,i\theta'(s_0)x)=\theta'(s_0)x^2.
 $$
 
-これは実一次元で正定値、核は零、符号は1。従って $\mu(L,W)=1$。
+交叉空間 $\mathbb R$ の基底 $1$ に関する双線形形式は $b(x,y)=\theta'(s_0)xy$、行列は $(\theta'(s_0))$ である。$b(x,1)=0$ なら $x=0$ なので非退化、唯一の固有値が正なので符号は1。従って $\mu(L,W)=1$。
 <!-- definition-example-end -->
 
-上辺だけが動く平面モデルでこの数を解析から再現する。$\xi(s,0)\in\mathbb R$、$\xi(s,1)\in e^{i\theta(s)}\mathbb R$ とし、$\theta$ は滑らかで両端で定数、$\theta_\pm\notin\pi\mathbb Z$ とする。$z=e^{-it\theta(s)}\xi$ は両辺で実数値を取る。積を微分して
+上辺だけが動く平面モデルでこの数を解析から再現する。境界条件は
+
+$$
+\xi(s,0)\in\mathbb R,\qquad
+\xi(s,1)\in e^{i\theta(s)}\mathbb R
+$$
+
+とし、角度 $\theta$ は滑らかで両端で定数、$\theta_\pm\notin\pi\mathbb Z$ とする。$z=e^{-it\theta(s)}\xi$ は両辺で実数値を取る。
+
+逆変換 $\xi=e^{it\theta(s)}z$ で、長手方向の微分では $t$ を固定し、横断方向の微分では $\theta(s)$ を固定する。積と連鎖律により
+
+$$
+\begin{aligned}
+e^{-it\theta}\xi_s&=z_s+it\theta'(s)z,\\
+e^{-it\theta}i\xi_t&=iz_t-\theta(s)z.
+\end{aligned}
+$$
+
+これらを足して
 
 $$
 e^{-it\theta}(\partial_s+i\partial_t)\xi
@@ -582,7 +744,23 @@ $$
 $T=\partial_s-\tanh s$ の核、余核、実指数を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。斉次方程式は $v'=(\tanh s)v$。積分して $v=C\cosh s$ であり、二乗可積分なのは $C=0$ のみ。余核の方程式は $-y'-(\tanh s)y=0$ なので $y=C'/\cosh s$。これは値も微分も二乗可積分である。両端の係数は $a_-=1,a_+=-1$ だから[一階実方程式の指数](#prop-floer1-03-scalar-index)により閉像が保証され、
+**詳細解答**。定義域を $H^1(\mathbb R)$、値域を $L^2(\mathbb R)$ とする。斉次方程式は $v'=(\tanh s)v$。[一階実方程式の指数の証明](#prop-floer1-03-scalar-index)と同じ積分因子を使う。$\cosh s>0$ だから
+
+$$
+\left(\frac{v}{\cosh s}\right)'
+=\frac{v'-(\tanh s)v}{\cosh s}=0.
+$$
+
+従って $v=C\cosh s$ であり、二乗可積分なのは $C=0$ のみ。
+
+余核の方程式は $-y'-(\tanh s)y=0$。積の微分から
+
+$$
+(y\cosh s)'=(y'+(\tanh s)y)\cosh s=0,
+\qquad y=\frac{C'}{\cosh s}
+$$
+
+を得る。これは値も微分も二乗可積分である。両端の係数は $a_-=1,a_+=-1$ だから[一階実方程式の指数](#prop-floer1-03-scalar-index)により閉像が保証され、
 
 $$
 \operatorname{ind}_{\mathbb R}T=0-1=-1.
@@ -595,24 +773,42 @@ $$
 #### FLOER1-03-B01 吸収できる重み
 - Level: B
 
-正端の方程式が $D_0v=Qv_t$、$\gamma=2$、$\sup|Q|\le1/5$ とする。本文の有界な重み $h_N$ と切断 $\chi$ を使う。$\delta=1$ で一様評価を得よ。$\delta=9/5$ では同じ議論で何が起きるか。
+$V=\mathbb C$、$W_0=\mathbb R$、$W_1=e^{i}\mathbb R$ とする。[横断Lagrange対の固有関数展開](#thm-floer1-03-spectrum)から $\gamma=\min(1,\pi-1)=1$ である。
+
+正端の方程式が $D_0v=Qv_t$、$\sup|Q|\le1/5$ とする。本文の有界な重み $h_N$ と切断 $\chi$ を使う。
+
+$\delta=1/2$ で一様評価を得よ。$\delta=9/10$ では同じ議論で何が起きるか。
 
 <!-- solution-start -->
 **詳細解答**。[重み付き一階減衰の証明](#thm-floer1-03-decay)と同じ $z_N=h_N\chi v$ に対し
 
 $$
 \|D_0z_N\|_2\le
-\left(\frac15+\frac{\delta}{2}\right)\|D_0z_N\|_2+
+\left(\frac15+\delta\right)\|D_0z_N\|_2+
 e^\delta\|\chi'v\|_2.
 $$
 
-$\delta=1$ では左へ移した係数は $1-1/5-1/2=3/10$。よって
+$\delta=1/2$ では左へ移した係数は $1-1/5-1/2=3/10$。よって
 
 $$
-\|D_0z_N\|_2\le \frac{10e}{3}\|\chi'v\|_2.
+\|D_0z_N\|_2\le \frac{10e^{1/2}}{3}\|\chi'v\|_2.
 $$
 
-[全帯の逆評価](#thm-floer1-03-inverse)から $\|z_N\|_{H^1}^2\le(1+1/4)\|D_0z_N\|_2^2$（$A=i\partial_t$ の場合）。$\delta=9/5$ では左の係数は $1-1/5-9/10=-1/10$ となって吸収できない。この計算だけから減衰そのものが失敗したとは言えない。端を遠くして $\sup|Q|<1/10$ にできれば同じ方法が働く。
+[全帯の逆評価](#thm-floer1-03-inverse)から、$A=i\partial_t$ では $\|Az_N\|_2=\|\partial_t z_N\|_2$ なので
+
+$$
+\|z_N\|_{H^1}^2
+\le (1+\gamma^{-2})\|D_0z_N\|_2^2
+=2\|D_0z_N\|_2^2.
+$$
+
+一方、$\delta=9/10$ では左の係数は
+
+$$
+1-\frac15-\frac9{10}=-\frac1{10}
+$$
+
+となって吸収できない。この計算だけから減衰そのものが失敗したとは言えない。端を遠くして $\sup|Q|<1/10$ にできれば同じ方法が働く。
 <!-- solution-end -->
 
 <a id="ex-floer1-03-b02"></a>

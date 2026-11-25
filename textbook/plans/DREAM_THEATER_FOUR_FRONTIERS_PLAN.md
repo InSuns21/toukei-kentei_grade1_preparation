@@ -57,7 +57,7 @@ ANT+ANF+EC+MF+AFR+IWA+AG+CM+CAG+KAH1+HOD1+GA=207 completed chapters（12系列�
 
 | 系列 | 内容 | 講数 | 直接の入口候補 |
 |---|---|---:|---|
-| ATOP | [位相幾何学 I–III（独立PLAN）](DREAM_THEATER_ALGEBRAIC_TOPOLOGY_PLAN.md) | 42 | TOP1–7、抽象代数、FIX1、MOD2、CATB7/GEO（必要箇所） |
+| ATOP | [位相幾何学 I–III（独立PLAN）](../plans_progress/DREAM_THEATER_ALGEBRAIC_TOPOLOGY_PLAN.md) | 42 | TOP1–7、抽象代数、FIX1、MOD2、CATB7/GEO（必要箇所） |
 | GCO | 算術コホモロジーと双対性 | 8 | ANF9–21、IWA18、CATB7-01〜05 |
 | ETO | エタールコホモロジー・有限体ゼータ（共有発展） | 12 | AG3、CATB5、CATB7、GCO1–4、ATOP16–22,28–37,41–42（比較の箇所） |
 | BSD | 楕円曲線の算術とBSD予想 | 20 | EC1–11、MF4–8、AFR必要箇所、ANF、IWA18、GCO |
@@ -81,7 +81,7 @@ ANT+ANF+EC+MF+AFR+IWA+AG+CM+CAG+KAH1+HOD1+GA=207 completed chapters（12系列�
 
 ### ATOP — 位相幾何学 I–III（42講、独立PLAN）
 
-2026-11-26改訂：旧14講を未実装の段階で大学標準の独立科目へ再編。全42講の題名・証明責務・85図題と旧ID対応、実装状態の正本は[独立ATOP PLAN](DREAM_THEATER_ALGEBRAIC_TOPOLOGY_PLAN.md)。本横断PLANの講数に一度だけ含める。I ATOP1–12（図形・基本群・曲面）、II ATOP13–27（ホモロジー・写像度・応用）、III ATOP28–42（コホモロジー・双対性・多様体）。独立PLANとして状態管理し、本文実装時に他の9系列を同時着手扱いしない。
+2026-11-26改訂：旧14講を未実装の段階で大学標準の独立科目へ再編。全42講の題名・証明責務・85図題と旧ID対応、実装状態の正本は[独立ATOP PLAN](../plans_progress/DREAM_THEATER_ALGEBRAIC_TOPOLOGY_PLAN.md)。本横断PLANの講数に一度だけ含める。I ATOP1–12（図形・基本群・曲面）、II ATOP13–27（ホモロジー・写像度・応用）、III ATOP28–42（コホモロジー・双対性・多様体）。独立PLANとして状態管理し、本文実装時に他の9系列を同時着手扱いしない。
 
 ### GCO — 算術コホモロジーと双対性（8講）
 
