@@ -131,7 +131,7 @@ chapters:
     title: "直列化・正規化・一致判定の監査"
   - id: LVT5-04
     path: textbook/volumes/dream_thater/計算系/LVT/LVT5-04
-    status: planned
+    status: completed
     title: "Python：pytest + Hypothesis差分テスト"
   - id: LVT5-05
     path: textbook/volumes/dream_thater/計算系/LVT/LVT5-05

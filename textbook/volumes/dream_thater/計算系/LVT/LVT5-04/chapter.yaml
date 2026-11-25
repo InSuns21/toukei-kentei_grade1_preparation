@@ -1,0 +1,22 @@
+id: "LVT5-04"
+title: "Python：pytest + Hypothesis差分テスト"
+volume: "foundations"
+status: supplementary
+prerequisites: [LVT5-03, LVT5-02, LVT4-05, LVT3-01]
+official_scope: []
+learning_objectives:
+  - Pythonの独立実装とLeanのJSON Linesオラクルを比較する
+  - 生成領域と実行集合を区別して境界入力を構成する
+  - 等号境界変異の検出条件を証明し反例を縮小する
+  - 反例を保存して再実行しハーネス失敗と業務拒否を区別する
+definitions:
+  - { id: LVT5-04-DEF-01, name: "生成領域と実行集合" }
+propositions:
+  - { id: LVT5-04-PROP-01, name: "等号境界変異の検出条件" }
+theorems: []
+canonical_examples: ["在庫引当の独立実装", "正の等号境界", "反例の保存と再実行"]
+problem_patterns: [LVT5-04-A01, LVT5-04-A02, LVT5-04-A03, LVT5-04-A04, LVT5-04-B01, LVT5-04-B02, LVT5-04-B03, LVT5-04-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 2, review: 0.5 }
