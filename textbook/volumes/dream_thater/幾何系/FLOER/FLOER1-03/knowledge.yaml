@@ -1,0 +1,57 @@
+chapter: FLOER1-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLOER1-02
+  - GW1-03
+  - FOU2
+  - GPDE5
+concepts:
+  - id: floer.weighted
+    name: "無限stripの重み付きSobolev空間"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（無限stripの重み付きSobolev空間）"]
+    requires: [gromov-witten.sobolev-sections, floer.lagrangian-boundary-strip]
+  - id: floer.spectrum
+    name: "横断Lagrange対の固有関数展開"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（横断Lagrange対の固有関数展開）"]
+    requires: [floer.asymptotic-invertible, fourier.fou2-parseval]
+  - id: floer.inverse
+    name: "可逆な端作用素から全帯の逆"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（可逆な端作用素から全帯の逆）"]
+    requires: [floer.spectrum, floer.weighted]
+  - id: floer.decay
+    name: "横断収束端での重み付き一階減衰"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（横断収束端での重み付き一階減衰）"]
+    requires: [floer.inverse, floer.ends, floer.finite-energy]
+  - id: floer.fredholm
+    name: "可逆な両端を持つ無限stripのFredholm性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（可逆な両端を持つ無限stripのFredholm性）"]
+    requires: [floer.inverse, floer.weighted, gromov-witten.fredholm-operator, sobolev.rellich-h01-l2, sobolev.extension-lipschitz]
+  - id: floer.scalar-index
+    name: "符号が変化する一階実方程式の指数"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（符号が変化する一階実方程式の指数）"]
+    requires: [floer.fredholm]
+  - id: floer.maslov
+    name: "正則交叉での相対Maslov指数"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則交叉での相対Maslov指数）"]
+    requires: [floer.transverse-intersection]
+  - id: floer.relative-index
+    name: "stripの相対Maslov指数公式"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（stripの相対Maslov指数公式）"]
+    requires: [floer.maslov, floer.fredholm, floer.scalar-index]
