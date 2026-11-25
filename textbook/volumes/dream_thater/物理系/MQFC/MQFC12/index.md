@@ -6,17 +6,17 @@
 
 ## 1. 真空と励起ベクトルの間に隙間を作る
 
-[自己共役縮小半群の非負生成作用素](../MQFC9/index.md#thm-mqfc9-hamiltonian) により、Euclid 時間の並進を $T(t)=e^{-tH}$ と書ける。ここで $t\ge0$ は Euclid 時間、$I$ は恒等作用素です。ここでは Hilbert 空間 $\mathcal H$ 上の非負自己共役作用素 $H$ と単位ベクトル $\Omega$ を持ち、$\Omega\in D(H)$、$H\Omega=0$ と仮定する。これは真空エネルギーを零とした設定である。$D(H)$ は $H$ の作用が定義されるベクトルの集合、非負とは $v\in D(H)$ で $\langle v,Hv\rangle\ge0$ となることをいう。自己共役性は [自己共役作用素の定義](../../../解析系/QM/QM5/index.md#def-qm5-self-adjoint) の意味で、随伴と作用だけでなく定義域も一致する。
+[自己共役縮小半群の非負生成作用素](../MQFC9/index.md#thm-mqfc9-hamiltonian) により、Euclid 時間の並進を $T(t)=e^{-tH}$ と書ける。ここで $t\ge0$ は Euclid 時間、$I$ は恒等作用素である。ここでは Hilbert 空間 $\mathcal H$ 上の非負自己共役作用素 $H$ と単位ベクトル $\Omega$ を持ち、$\Omega\in D(H)$、$H\Omega=0$ と仮定する。これは真空エネルギーを零とした設定である。$D(H)$ は $H$ の作用が定義されるベクトルの集合、非負とは $v\in D(H)$ で $\langle v,Hv\rangle\ge0$ となることをいう。自己共役性は [自己共役作用素の定義](../../../解析系/QM/QM5/index.md#def-qm5-self-adjoint) の意味で、随伴と作用だけでなく定義域も一致する。
 
-真空方向への直交射影を $P_0v=\Omega\langle\Omega,v\rangle$、その補射影を $Q=I-P_0$ とする。真空と直交する空間を $\mathcal K=Q\mathcal H$ と書く。$E_H$ は [射影値測度](../../../解析系/QM/QM3/index.md#def-qm3-pvm) であり、$E_H$ は $H$ に付随するスペクトル射影値測度を表す。Borel 集合 $B$ に属するエネルギー成分を取り出す直交射影 $E_H(B)$ を与える。$\mathbf 1_B(\lambda)$ は $\lambda\in B$ なら1、それ以外なら0となる指示関数である。$\mu_v(B)=\langle v,E_H(B)v\rangle=\|E_H(B)v\|^2$ と置くと、これはベクトル $v$ に付随する有限正測度である（[射影値測度](../../../解析系/QM/QM3/index.md#def-qm3-pvm) の可算加法性による）。$d\langle v,E_H(\lambda)v\rangle$ はこの測度による積分を表す。$\lambda$ はエネルギーの積分変数であり、時刻 $t$ とは異なる。
+真空方向への直交射影を $P_0v=\Omega\langle\Omega,v\rangle$、その補射影を $Q=I-P_0$ とする。真空と直交する空間を $\mathcal K=Q\mathcal H$ と書く。$E_H$ は $H$ に付随するスペクトル [射影値測度](../../../解析系/QM/QM3/index.md#def-qm3-pvm) を表す。Borel 集合 $B$ に属するエネルギー成分を取り出す直交射影 $E_H(B)$ を与える。$\mathbf 1_B(\lambda)$ は $\lambda\in B$ なら1、それ以外なら0となる指示関数である。$\mu_v(B)=\langle v,E_H(B)v\rangle=\|E_H(B)v\|^2$ と置くと、これはベクトル $v$ に付随する有限正測度である（[射影値測度](../../../解析系/QM/QM3/index.md#def-qm3-pvm) の可算加法性による）。$d\langle v,E_H(\lambda)v\rangle$ はこの測度による積分を表す。$\lambda$ はエネルギーの積分変数であり、時刻 $t$ とは異なる。
 
 [非有界自己共役作用素のスペクトル定理](../../../解析系/QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral) から
 
 $$
-\|H\Omega\|^2=\int_{[0,\infty)}\lambda^2\,d\langle\Omega,E_H(\lambda)\Omega\rangle=0.
+\|H\Omega\|^2=\int_{\mathbb R}\lambda^2\,d\mu_\Omega(\lambda)=0.
 $$
 
-ここで非負性からスペクトル射影は負の実軸上で零である。実際、$B_n=[-n,-1/n]$ に非零の射影があれば、その像から非零の $x$ を取れる。$\lambda$ が有界なこの区間に測度が集中するので $x\in D(H)$ であり、
+非負性からスペクトル射影は負の実軸上で零であることも確認する。実際、$B_n=[-n,-1/n]$ に非零の射影があれば、その像から非零の $x$ を取れる。$\lambda$ が有界なこの区間に測度が集中するので $x\in D(H)$ であり、
 
 $$
 \langle x,Hx\rangle=\int_{B_n}\lambda\,d\mu_x(\lambda)
@@ -29,7 +29,7 @@ $$
 
 自己共役性から $\langle\Omega,E_H(B)v\rangle=\mathbf 1_B(0)\langle\Omega,v\rangle$。従って $E_H(B)$ は $\mathcal K$ を保ち、$Q$ と可換である。制限 $H_{\mathcal K}$ は $D(H)\cap\mathcal K$ 上の自己共役作用素となる。実際、制限した射影値測度によるスペクトル積分の定義域はまさに $D(H)\cap\mathcal K$ であり、[スペクトル積分の自己共役性](../../../解析系/QM/QM6/index.md#thm-qm6-spectral-integral-self-adjoint) を適用できる。
 
-作用素のスペクトル $\sigma(A)$ は、$A-zI:D(A)\to\mathcal K$ が全空間上の有界逆作用素を持たない複素数 $z$ の集合である（有界作用素の場合は [スペクトルとレゾルベントの定義](../../../解析系/FA/FA5/index.md#def-fa5-resolvent-spectrum) と同じ判定）。制限した射影値測度の台とは、任意の開近傍の射影が非零である実数の集合をいう。
+以下では $A=H_{\mathcal K}$ と置く。作用素のスペクトル $\sigma(A)$ は、$A-zI:D(A)\to\mathcal K$ が全空間上の有界逆作用素を持たない複素数 $z$ の集合である（有界作用素の場合は [スペクトルとレゾルベントの定義](../../../解析系/FA/FA5/index.md#def-fa5-resolvent-spectrum) と同じ判定）。制限した射影値測度の台とは、任意の開近傍の射影が非零である実数の集合をいう。
 
 零より大きい固有値だけを数えるのでは足りない。連続スペクトルも含め、真空方向以外に零の近くのエネルギーがないことを要求する。
 
@@ -51,9 +51,9 @@ $$
 <!-- definition-example-start: def-mqfc12-gap -->
 ### 直接例：三準位系
 
-$\mathcal H=\mathbb C^3$、標準正規直交基底を $e_0,e_1,e_2$、$H=\operatorname{diag}(0,2,5)$、$\Omega=e_0$ とする。実対角行列なので自己共役であり、$\langle v,Hv\rangle=2|v_1|^2+5|v_2|^2\ge0$。真空は単位ベクトルで $H\Omega=0$、補空間は $\operatorname{span}(e_1,e_2)$ で非零である。
+$\mathcal H=\mathbb C^3$、標準正規直交基底を $e_0,e_1,e_2$ とする。$\operatorname{diag}$ はこの基底における対角行列を表す。$H=\operatorname{diag}(0,2,5)$、$\Omega=e_0$ とする。実対角行列なので自己共役であり、$\langle v,Hv\rangle=2|v_1|^2+5|v_2|^2\ge0$。真空は単位ベクトルで $H\Omega=0$、補空間は $\operatorname{span}(e_1,e_2)$ で非零である。
 
-ここで $\operatorname{diag}$ は指定した基底における対角行列である。一般に $He_j=\lambda_j e_j$ の正規直交固有基底では、[有界自己共役作用素のスペクトル定理](../../../解析系/QM/QM3/index.md#thm-qm3-bounded-self-adjoint-spectral) の射影は各固有方向への射影を足したものになる。$v=\sum_{j=0}^2 v_je_j$ に対して
+一般に $He_j=\lambda_j e_j$ の正規直交固有基底では、[有界自己共役作用素のスペクトル定理](../../../解析系/QM/QM3/index.md#thm-qm3-bounded-self-adjoint-spectral) の射影は各固有方向への射影を足したものになる。$v=\sum_{j=0}^2 v_je_j$ に対して
 
 $$
 Qv=v_1e_1+v_2e_2,\qquad
@@ -65,7 +65,22 @@ $$
 **定義の確認**：エネルギーの集合 $[0,2)$ に含まれる固有値は零だけなので、$E_H([0,2))=P_0$。$P_0Q=0$ から定義が満たされる。$\Delta>2$ なら $E_H([0,\Delta))Qe_1=e_1\ne0$。従って最大幅は2である。このように固有値の検査が定義の射影の条件に結び付くのは、正規直交固有基底が存在し、射影が該当する固有方向を選ぶためである。
 <!-- definition-example-end -->
 
-制限した射影値測度の台が $\sigma(H_{\mathcal K})$ と一致することも確認しておく。以下 $A=H_{\mathcal K}$、$E_A(B)=E_H(B)|_{\mathcal K}$ とする。[Borel関数計算](../../../解析系/QM/QM6/index.md#def-qm6-borel-functional-calculus) により、ある実数 $a$ の近傍 $(a-r,a+r)$ の射影が零なら、測度の台上で $|\lambda-a|\ge r$ である。従って $g(\lambda)=1/(\lambda-a)$ をその近傍の外で定め、近傍内では零とすれば $g$ は有界である。$\lambda g(\lambda)=1+ag(\lambda)$ が射影値測度に関して成り立つので、$g(A)$ の像は $D(A)$ に入り、$(A-aI)g(A)=I$、$g(A)(A-aI)x=x$（$x\in D(A)$）となる。従って $a$ はスペクトルに入らない。非実数 $a$ も $|\lambda-a|\ge|\operatorname{Im}a|>0$ を使って同じ逆を構成できる。
+制限した射影値測度の台が $\sigma(H_{\mathcal K})$ と一致することも確認しておく。以下 $A=H_{\mathcal K}$、$E_A(B)=E_H(B)|_{\mathcal K}$ とする。[Borel関数計算](../../../解析系/QM/QM6/index.md#def-qm6-borel-functional-calculus) により、ある実数 $a$ の近傍 $(a-r,a+r)$ の射影が零なら、測度の台上で $|\lambda-a|\ge r$ である。従って $g(\lambda)=1/(\lambda-a)$ をその近傍の外で定め、近傍内では零とすれば $g$ は有界である。$\lambda g(\lambda)=1+ag(\lambda)$ が射影値測度に関して成り立つので、$\lambda g(\lambda)$ も有界であり、
+
+$$
+\int|\lambda g(\lambda)|^2\,d\mu_x(\lambda)
+\le (1+|a|/r)^2\|x\|^2.
+$$
+
+従って $g(A)x\in D(A)$ である。スペクトル積分で $(\lambda-a)g(\lambda)=1$ を使うと
+
+$$
+(A-aI)g(A)x=x\quad(x\in\mathcal K),
+$$
+
+$$
+g(A)(A-aI)y=y\quad(y\in D(A)).
+$$従って $a$ はスペクトルに入らない。非実数 $a$ も $|\lambda-a|\ge|\operatorname{Im}a|>0$ を使って同じ逆を構成できる。
 
 逆に全ての近傍の射影が非零なら、$E_A((a-1/n,a+1/n))$ の像から単位ベクトル $x_n$ を取る。スペクトル積分の定義域とノルム公式から $x_n\in D(A)$ かつ
 
@@ -283,7 +298,7 @@ $$
 $t\to\infty$ で最後の項は零。任意の $\epsilon>0$ について上極限が $a+\epsilon$ 以下、下極限が $a$ 以上なので極限は $a$ である。
 <!-- proof-end -->
 
-例えば $\mathcal H=\mathbb C\Omega\oplus L^2([2,3],d\lambda)$ で $H$ は真空上で零、第二成分では $(M_\lambda f)(\lambda)=\lambda f(\lambda)$ という乗算作用素とする。第二成分の $1$ は区間上の定数関数である。この作用素は実数値の有界な関数を掛けるので全空間上で非負自己共役である。[乗算作用素のスペクトル射影](../../../解析系/QM/QM3/index.md#ex-qm3-a03) と同じく、第二成分では $E_H(B)f=\mathbf 1_B f$ であり、
+例えば $\mathcal H=\mathbb C\Omega\oplus L^2([2,3],d\lambda)$ で $H$ は真空上で零、第二成分では $(M_\lambda f)(\lambda)=\lambda f(\lambda)$ という乗算作用素とする。第二成分の $1$ は区間上の定数関数である。この作用素は実数値の有界な関数を掛けるので全空間上で非負自己共役である。[乗算作用素のスペクトル射影](../../../解析系/QM/QM3/index.md#ex-qm3-a03) と同じく、第二成分では制限した射影 $E_H(B)|_{\mathcal K}$ が $f$ を $\mathbf 1_B f$ に写す であり、
 
 $$
 \mu_{(0,f)}(B)=\int_{[2,3]\cap B}|f(\lambda)|^2\,d\lambda.
@@ -307,7 +322,21 @@ $$
 $H=\operatorname{diag}(0,3,7)$、$\Omega=e_0$ とする。$Q$ と $E_H([0,3))Q$、$E_H([0,4))Q$ を計算し最大幅を求めよ。
 
 <!-- solution-start -->
-真空への射影は $\operatorname{diag}(1,0,0)$ だから $Q=\operatorname{diag}(0,1,1)$。区間 $[0,3)$ にある固有値は零のみなので $E_H([0,3))Q=\operatorname{diag}(1,0,0)Q=0$。$[0,4)$ には3もあるので $E_H([0,4))Q=\operatorname{diag}(1,1,0)Q=\operatorname{diag}(0,1,0)$。任意の幅3より大きい区間には3が含まれる。[ギャップの定義](#def-mqfc12-gap) より最大幅は3。
+第1節の固有基底での射影表示を使う。真空への射影は $\operatorname{diag}(1,0,0)$ だから $Q=\operatorname{diag}(0,1,1)$。区間 $[0,3)$ にある固有値は零のみなので
+
+$$
+E_H([0,3))Q=\operatorname{diag}(1,0,0)Q=0.
+$$
+
+$[0,4)$ には3もあるので
+
+$$
+E_H([0,4))Q
+=\operatorname{diag}(1,1,0)Q
+=\operatorname{diag}(0,1,0).
+$$
+
+任意の幅3より大きい区間には3が含まれる。[ギャップの定義](#def-mqfc12-gap) より最大幅は3。
 <!-- solution-end -->
 
 ### 演習 MQFC12-A2：真空の差し引き
@@ -381,7 +410,15 @@ $$
 $\mathcal H=\mathbb C\Omega\oplus L^2([0,1])$、$H=0\oplus M_\lambda$（$M_\lambda$ は $\lambda$ を掛ける作用素）、$u=(0,1)$ とする。相関を求め、真空の一意性とギャップの有無を確認せよ。
 
 <!-- solution-start -->
-第5節の乗算作用素のスペクトル射影と [Borel関数計算](../../../解析系/QM/QM6/index.md#def-qm6-borel-functional-calculus) より、第二成分で $T(t)$ は $e^{-t\lambda}$ を掛ける。従って $C_{u,u}(t)=\int_0^1 e^{-t\lambda}d\lambda=(1-e^{-t})/t$（$t>0$）、$t=0$ では1。$M_\lambda f=0$ は $\lambda f(\lambda)=0$ がほとんど至る所で成立することを意味し、$\lambda>0$ で $f=0$。零点は測度零だから第二成分に零固有ベクトルはない。しかし任意の $\Delta>0$ に対し $b=\min(1,\Delta/2)>0$ とすると、第二成分の $\mathbf 1_{(0,b)}$ は非零で $E_H([0,\Delta))$ によって保たれる。従ってギャップなし。さらに $t\ge\log 2$ なら相関は $1/(2t)$ 以上で、$e^{\Delta t}/(2t)\to\infty$ よりどの正の指数でも上から抑えられない。
+第5節の乗算作用素のスペクトル射影と [Borel関数計算](../../../解析系/QM/QM6/index.md#def-qm6-borel-functional-calculus) より、第二成分で $T(t)$ は $e^{-t\lambda}$ を掛ける。従って $t>0$ では
+
+$$
+C_{u,u}(t)=\int_0^1 e^{-t\lambda}d\lambda
+=\left[-\frac{e^{-t\lambda}}{t}\right]_0^1
+=\frac{1-e^{-t}}{t}.
+$$
+
+積分変数は $\lambda$、$t$ は固定している。$t=0$ では被積分関数が1なので相関は1。$M_\lambda f=0$ は $\lambda f(\lambda)=0$ がほとんど至る所で成立することを意味し、$\lambda>0$ で $f=0$。零点は測度零だから第二成分に零固有ベクトルはない。しかし任意の $\Delta>0$ に対し $b=\min(1,\Delta/2)>0$ とすると、第二成分の $\mathbf 1_{(0,b)}$ は非零で $E_H([0,\Delta))$ によって保たれる。従ってギャップなし。さらに $t\ge\log 2$ なら相関は $1/(2t)$ 以上で、$e^{\Delta t}/(2t)\to\infty$ よりどの正の指数でも上から抑えられない。
 <!-- solution-end -->
 
 ### 演習 MQFC12-B4：質量測度と基準時刻
@@ -408,7 +445,14 @@ C_{v,v}(t)=\int_4^5 e^{-t\lambda}d\lambda
 =e^{-4t}\frac{1-e^{-t}}t.
 $$
 
-$t>0$ で $-t^{-1}\log C_{v,v}(t)=4+t^{-1}\log t-t^{-1}\log(1-e^{-t})$。後二項は零に収束するので減衰率は4となる（[対数減衰率の命題](#prop-mqfc12-log-rate) とも一致する）。
+$t>0$ で相関の積の対数を展開すると
+
+$$
+-\frac{\log C_{v,v}(t)}{t}
+=4+\frac{\log t}{t}-\frac{\log(1-e^{-t})}{t}.
+$$
+
+後二項は零に収束するので減衰率は4となる（[対数減衰率の命題](#prop-mqfc12-log-rate) とも一致する）。
 
 一方、補空間上の射影値測度は、固有方向 $e$ と乗算作用素の直和である。任意の $z=(0,c,f)$ に対して
 
@@ -418,7 +462,7 @@ $$
 
 従ってエネルギー2と区間 $[4,5]$ だけに重みを持つ。$E_H([0,2))Q=0$ だが任意の $\Delta>2$ で $E_H([0,\Delta))e=e$ なので最大ギャップは2。
 
-観測族は全て真空直交で、$Q$ は各元を変えない。$e$ と第二の励起成分全体の線形包が補空間そのものである。$e$ の自己相関は $e^{-2t}$。任意の $f\in L^2([4,5])$ に対して、以下では $C_{f,f}(t)$ を埋め込んだベクトル $(0,0,f)$ の自己相関の略記とする。
+観測族は全て真空直交で、$Q$ は各元を変えない。$e$ と連続成分全体の線形包が補空間そのものである。$e$ の自己相関は $e^{-2t}$。任意の $f\in L^2([4,5])$ に対して、以下では $C_{f,f}(t)$ を埋め込んだベクトル $(0,0,f)$ の自己相関の略記とする。
 
 $$
 \begin{aligned}
