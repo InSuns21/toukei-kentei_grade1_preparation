@@ -22,7 +22,7 @@ chapters:
     title: "体の標数・拡大・定数モデル：単位コストとビット計算"
   - id: ACOMP5
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP5
-    status: planned
+    status: completed
     title: "斉次化・次数切断・形式次数と実次数"
   - id: ACOMP6
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP6

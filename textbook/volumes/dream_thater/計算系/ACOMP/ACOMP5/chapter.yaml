@@ -1,0 +1,40 @@
+id: "ACOMP5"
+title: "斉次化・次数切断・形式次数と実次数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ACOMP4
+official_scope: []
+learning_objectives:
+  - 形式次数と実次数を区別し回路の配線から次数上界を導ける
+  - 次数別成分の和と積の公式を証明し次数切断を計算できる
+  - 次数切断回路を構成して演算サイズと形式次数の上界を導ける
+  - 指定次数への斉次化と復元の一意性を証明し回路を構成できる
+definitions:
+  - { id: ACOMP5-DEF-01, name: 算術回路の形式次数 }
+  - { id: ACOMP5-DEF-02, name: 全次数別の成分と次数切断 }
+  - { id: ACOMP5-DEF-03, name: 指定次数への多項式の斉次化 }
+theorems:
+  - { id: ACOMP5-THM-01, name: 形式次数による実次数の上界 }
+  - { id: ACOMP5-THM-02, name: 次数別成分の演算公式 }
+  - { id: ACOMP5-THM-03, name: 算術回路の次数切断構成 }
+  - { id: ACOMP5-THM-04, name: 斉次化の復元と回路構成 }
+canonical_examples:
+  - 打消しを含む反復二乗回路
+  - 積の二次成分と次数切断
+  - 共有回路の次数別構成
+  - 追加変数による指定次数への斉次化
+problem_patterns:
+  - ACOMP5-FORMAL-DEGREE
+  - ACOMP5-COMPONENTS
+  - ACOMP5-PRODUCT
+  - ACOMP5-HOMOGENIZATION
+  - ACOMP5-CANCELLATION
+  - ACOMP5-POSITIVE-CHARACTERISTIC
+  - ACOMP5-COST
+  - ACOMP5-SUBSTITUTION
+  - ACOMP5-SHARED-CONSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 1 }

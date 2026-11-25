@@ -1,0 +1,49 @@
+chapter: ACOMP5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ACOMP4
+forward_references: []
+concepts:
+  - id: algebraic-complexity.formal-degree
+    name: 算術回路の形式次数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（算術回路の形式次数）"]
+    requires: [algebraic-complexity.arithmetic-circuit]
+  - id: algebraic-complexity.degree-bound
+    name: 形式次数による実次数の上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（形式次数による実次数の上界）"]
+    requires: [algebraic-complexity.formal-degree, algebraic-complexity.arithmetic-circuit-size]
+  - id: algebraic-complexity.degree-components
+    name: 全次数別の成分と次数切断
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（全次数別の成分と次数切断）"]
+    requires: [algebraic-geometry.multivariate-polynomial-ring]
+  - id: algebraic-complexity.component-rules
+    name: 次数別成分の演算公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（次数別成分の演算公式）"]
+    requires: [algebraic-complexity.degree-components]
+  - id: algebraic-complexity.circuit-truncation
+    name: 算術回路の次数切断構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（算術回路の次数切断構成）"]
+    requires: [algebraic-complexity.component-rules, algebraic-complexity.formal-degree, algebraic-complexity.arithmetic-circuit-size]
+  - id: algebraic-complexity.target-homogenization
+    name: 指定次数への多項式の斉次化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（指定次数への多項式の斉次化）"]
+    requires: [algebraic-complexity.degree-components]
+  - id: algebraic-complexity.homogenization-circuit
+    name: 斉次化の復元と回路構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（斉次化の復元と回路構成）"]
+    requires: [algebraic-complexity.target-homogenization, algebraic-complexity.circuit-truncation]
