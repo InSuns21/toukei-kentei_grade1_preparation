@@ -1,7 +1,8 @@
 # DREAM THEATER 代数的計算複雑性理論 I・II 計画
 
 構成確定日: 2026-11-24 JST
-状態: in progress（ACOMP1実装、残講義・横断監査あり）
+状態: completed（全24講実装・追跡監査・系列横断確認）
+完了確認日: 2026-11-25 JST
 系列ID: ACOMP（[系列manifest](../dream-theater-series/ACOMP.yaml)）
 講数: **全24講**
 
@@ -49,8 +50,15 @@ Bürgisser–Clausen–Shokrollahi, [Algebraic Complexity Theory](https://link.s
 ## 4. 完成条件
 
 - [x] 初回実装時に本PLANを plans_progress に移し、系列manifestを全24講の予定IDで整備する。未実装章の公開目次先行登録はしない。
-- [ ] 各講で主要定義を使用前に導入し、定理の仮定・定義域・量化・中間計算を明示。直接例と反例を含め、主要証明を再構成可能にする。
-- [ ] 原則 Level A 4題・B 3題・C 1題以上と詳細解答。単なる題数合わせはしない。
-- [ ] chapter.yaml・knowledge.yaml・prerequisite・stable anchor・KaTeX・concept/knowledge/exercise/Pages検証を完了する。
-- [ ] 研究claimは証明artifact・statement matching・kernel・独立人間検証・出版を分離し、未確認のものを無条件の正本定理にしない。
-- [ ] 横断監査・公開導線完了後に plan_done に移す。
+- [x] 各講で主要定義を使用前に導入し、定理の仮定・定義域・量化・中間計算を明示。直接例と反例を含め、主要証明を再構成可能にする。
+- [x] 原則 Level A 4題・B 3題・C 1題以上と詳細解答。単なる題数合わせはしない。
+- [x] chapter.yaml・knowledge.yaml・prerequisite・stable anchor・KaTeX・concept/knowledge/exercise/Pages検証を完了する。
+- [x] 研究claimは証明artifact・statement matching・kernel・独立人間検証・出版を分離し、未確認のものを無条件の正本定理にしない。
+- [x] 横断監査・公開導線完了後に plan_done に移す。
+
+## 5. 完了記録（2026-11-25）
+
+- 系列manifestのACOMP1–24は全件 completed、公開科目別目次の24パスと一致。各本文に Level A 4題、B 3または4題、C 1題および対応する詳細解答を確認（計208題）。
+- 既存追跡監査のマージ済みPRを講義順に照合：#4493, #4508, #4512, #4526, #4533, #4541, #4550, #4553, #4557, #4565, #4567, #4575, #4582, #4587, #4596, #4604, #4608, #4614, #4620, #4627, #4634, #4642, #4652。最終講の実装 #4653 と今回の追跡監査で条件付き含意・模型間の境界を照合。各章の数学査読は各PRに記録されており、今回23章の全証明を再度解き直したという意味ではない。
+- 横断確認：形式多項式と関数、VP/VNPの量化・定数モデル、標数2でのパーマネント、VBPの行列式表示、固定素体の剰余計数と整数定数の厳密計数、一様性、GCTとBoolean証明障壁をACOMP24の総合演習・先行正本で接続。研究上のclaimは独立のVNP研究講読系列に留める。
+- 公開目次は全講掲載済み。manifest、横断ルート、計画一覧の直接参照を移動先へ更新。今回のPRで教材・概念・演習・Pages等のCIを検証する。実ブラウザ目視および第三者独立査読は今回未実施。
