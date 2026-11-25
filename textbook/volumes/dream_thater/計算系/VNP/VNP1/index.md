@@ -94,7 +94,7 @@ $$
 
 ## 2. 論文の主張を量化して読む
 
-正整数 $m$ に対し、行列 $X=(x_{ij})_{1\le i,j\le m}$ の成分を独立な形式変数とします。行番号 $i$ と列番号 $j$ はそれぞれ $1,\ldots,m$ を動くので、変数は $m^2$ 個です。ACOMP11 で任意の体に拡張したパーマネントと[Hamilton閉路多項式の定義](../../ACOMP/ACOMP12/index.md#def-acomp12-hamilton-polynomial)を用います。$S_m$ を $m$ 個の番号の全置換、$C_m$ を全番号を一つの巡回で訪問する置換の集合とし、
+正整数 $m$ に対し、行列 $X=(x_{ij})_{1\le i,j\le m}$ の成分を独立な形式変数とします。行番号 $i$ と列番号 $j$ はそれぞれ $1,\ldots,m$ を動くので、変数は $m^2$ 個です。[パーマネント族のVNP所属](../../ACOMP/ACOMP11/index.md#thm-acomp11-permanent-vnp)を証明した際の任意の体上のパーマネントと[Hamilton閉路多項式の定義](../../ACOMP/ACOMP12/index.md#def-acomp12-hamilton-polynomial)を用います。$S_m$ を $m$ 個の番号の全置換、$C_m$ を全番号を一つの巡回で訪問する置換の集合とし、
 
 $$
 \operatorname{PER}_m=\sum_{\sigma\in S_m}\prod_{i=1}^m x_{i,\sigma(i)},
@@ -104,7 +104,7 @@ $$
 \operatorname{HC}_m=\sum_{\sigma\in C_m}\prod_{i=1}^m x_{i,\sigma(i)}
 $$
 
-と書きます。原論文の $\operatorname{PERM}_m$ はここでの $\operatorname{PER}_m$ です。各積には各行から一変数ずつ、合計 $m$ 個の変数が入り、異なる置換は異なる単項式を与えます。したがって係数1の項は標数によらず消えず、両者の全次数は $m$ です。[パーマネント族のVNP所属](../../ACOMP/ACOMP11/index.md#thm-acomp11-permanent-vnp)も任意の体で成立します。
+と書きます。原論文の $\operatorname{PERM}_m$ はここでの $\operatorname{PER}_m$ です。各積には各行から一変数ずつ、合計 $m$ 個の変数が入り、異なる置換は異なる単項式を与えます。したがって係数1の項は標数によらず消えず、両者の全次数は $m$ です。
 
 論文 Theorem 1.1（Lean名 thm_allfields）の主張を、本講の記法で記します。以下、対数は底2です。$p$ は0または素数、$K$ の[標数](../../../代数系/FLD/FLD3/index.md#def-fld3-characteristic-prime-field-finite-field)は $p$ とします。正実数 $c$ に対し、正整数 $m$ の関数として下界の式を次の記号で表します。
 
@@ -209,13 +209,13 @@ $$
 
 [形式 Laurent 級数体](../../ACOMP/ACOMP21/index.md#thm-acomp21-laurent-field)では級数の変数を $t$ と書きました。本講では論文に合わせて $t=\varepsilon$ と書き、$\varepsilon$ は回路の入力変数とは別の形式記号とします。$K[[\varepsilon]]$ は[形式冪級数](../../ACOMP/ACOMP21/index.md#def-acomp21-power-series)の環、$K((\varepsilon))$ はそれに有限個の負のべきも許した級数の体です。
 
-[回路の形式的退化](../../ACOMP/ACOMP22/index.md#def-acomp22-degeneration)では、定数を後者の体から取ります。出力の各係数について、負のべきがなく、$\varepsilon^0$ の係数が目的の多項式の対応する係数に一致することを要求します。論文 Definition 1.3 は同じ条件を
+[回路の形式的退化](../../ACOMP/ACOMP22/index.md#def-acomp22-degeneration)では、定数を後者の体から取ります。出力の各係数について、負のべきがなく、$\varepsilon^0$ の係数が目的の多項式の対応する係数に一致することを要求します。元の変数全体を $x=(x_1,\ldots,x_n)$、回路の出力を $q$ とし、$f\in K[x]$ の各係数を定数級数と見なします。論文 Definition 1.3 は同じ条件を
 
 $$
 q=f+\varepsilon g,\qquad g\in K[[\varepsilon]][x]
 $$
 
-と表現します。ここで $x=(x_1,\ldots,x_n)$ は元の全変数、$q$ は回路の出力です。$f\in K[x]$ の各係数を定数級数と見なします。出力の各単項式について $q-f$ の係数に負のべきも定数項もなければ、その係数は $\varepsilon$ で割っても冪級数です。したがって $g=(q-f)/\varepsilon$ を取れます。逆に上の式から各係数の条件が従います。例えば二変数の場合は $x=x_1,\ y=x_2$ と書き、目的を $f=x$ とすると
+と表現します。出力の各単項式について $q-f$ の係数に負のべきも定数項もなければ、その係数は $\varepsilon$ で割っても冪級数です。したがって $g=(q-f)/\varepsilon$ を取れます。逆に上の式から各係数の条件が従います。例えば二変数の場合は $x=x_1,\ y=x_2$ と書き、目的を $f=x$ とすると
 
 $$
 q=\varepsilon(\varepsilon^{-1}x+y)=x+\varepsilon y
@@ -223,9 +223,17 @@ $$
 
 です。途中の定数 $\varepsilon^{-1}$ には負のべき（極）がありますが、出力の $x$ の係数は1、$y$ の係数は $\varepsilon$、その他の係数は0です。いずれも冪級数で、$\varepsilon^0$ の係数は順に1、0、0なので目的 $f=x$ と一致します。反対に $\varepsilon^{-1}x+y$ では $x$ の係数に負のべきが残るので近似になりません。
 
-[形式的 border complexity](../../ACOMP/ACOMP22/index.md#def-acomp22-border-size)の回路サイズも、入力を含めた数え方へ変更できます。下線は近似を許す最小値を表すものとし、$f$ を近似するすべての回路の最小演算サイズを $\underline L(f)$、最小全ゲート数を $\underline T(f)$ とします。厳密回路も定数体を広げれば近似回路なので、最小化する集合は空ではありません。
+[形式的 border complexity](../../ACOMP/ACOMP22/index.md#def-acomp22-border-size)の回路サイズも、入力を含めた数え方へ変更できます。下線は近似を許す最小値を表すものとし、$f$ を近似するすべての回路の最小演算サイズを $\underline L(f)$、最小全ゲート数を $\underline T(f)$ とします。厳密回路も定数体を広げれば近似回路なので、最小化する集合は空ではありません。サイズは非負整数なので両最小値は存在します。
 
-$\underline T(f)$ を達成する回路の演算数は全ゲート数以下ですから、$\underline L(f)\le\underline T(f)$ です。逆方向は、$\underline L(f)$ を達成する回路の出力を $q$ とすると、$q$ 自体を厳密に計算する最小演算サイズ $L(q)$（定数体は $K((\varepsilon))$）は $\underline L(f)$ 以下です。[二つの回路サイズの比較](#thm-vnp1-size-comparison) をこの $q$ に適用すると、$q$ を出力する全ゲート数が高々 $3L(q)+1$ の回路が存在します。出力が同じなので近似条件も保存されます。したがって $\underline T(f)\le3L(q)+1\le3\underline L(f)+1$ です。合わせると、
+$\underline T(f)$ を達成する回路の演算数は全ゲート数以下ですから、$\underline L(f)\le\underline T(f)$ です。
+
+逆方向は、$\underline L(f)$ を達成する回路の出力を $q$ とします。$q$ 自体を厳密に計算する最小演算サイズ $L(q)$（定数体は $K((\varepsilon))$）は $\underline L(f)$ 以下です。[二つの回路サイズの比較](#thm-vnp1-size-comparison) をこの $q$ に適用すると、$q$ を出力する全ゲート数が高々 $3L(q)+1$ の回路が存在します。出力が同じなので近似条件も保存され、最小全ゲート数について
+
+$$
+\underline T(f)\le3L(q)+1\le3\underline L(f)+1
+$$
+
+が従います。二方向の評価を合わせると、
 
 $$
 \underline L(f)\le\underline T(f)\le3\underline L(f)+1.
@@ -375,7 +383,7 @@ $u>512=8^3$ なら括弧内は1より大きく、右辺は $u-3>0$ より大き�
 - Level: B
 - ID: VNP1-B4
 
-ある多項式について、すべての自然数 $s$ に対し「高々 $s$ ゲートで計算できれば $100<s$」が成り立つと仮定する。100ゲートの回路、101ゲートの回路の存在について何が言えるか。
+ある多項式について、すべての非負整数 $s$ に対し「高々 $s$ ゲートで計算できれば $100<s$」が成り立つと仮定する。100ゲートの回路、101ゲートの回路の存在について何が言えるか。
 
 <!-- solution-start -->
 **詳細解答**：100ゲート以下の回路があれば、上限 $s=100$ に対する前件が真となり、$100<100$ が従うので矛盾します。101ゲートなら含意の結論 $100<101$ を満たしますが、含意は回路の存在を主張していません。従って100ゲート以下は排除でき、101ゲートの存在は未確定です。
