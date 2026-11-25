@@ -1,0 +1,28 @@
+id: ATOP3
+title: "レトラクト・変形レトラクト・可縮性"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP2, TOP1, TOP3]
+official_scope: []
+learning_objectives:
+  - レトラクションと包含の合成を区別できる
+  - 変形レトラクトと強変形レトラクトの条件を検証しホモトピー同値を導ける
+  - 円環と穴あき平面の動径変形の連続性と値域を確認できる
+  - 可縮性と一点空間とのホモトピー同値およびレトラクトへの継承を証明できる
+  - 可縮性から道連結性を導き境界への動径写像の限界を説明できる
+definitions:
+  - { id: ATOP3-DEF-01, name: レトラクションとレトラクト }
+  - { id: ATOP3-DEF-02, name: 変形レトラクト }
+  - { id: ATOP3-DEF-03, name: 強変形レトラクト }
+  - { id: ATOP3-DEF-04, name: 可縮性 }
+theorems:
+  - { id: ATOP3-THM-01, name: 変形レトラクトによるホモトピー同値 }
+  - { id: ATOP3-PROP-01, name: 動径方向の強変形レトラクト }
+  - { id: ATOP3-THM-02, name: 可縮性と一点空間 }
+  - { id: ATOP3-PROP-02, name: 可縮空間のレトラクト }
+canonical_examples: [横軸への射影, 円環と円周, 穴あき平面と円周, 円板の縮約]
+problem_patterns: [ATOP3-A1, ATOP3-A2, ATOP3-A3, ATOP3-A4, ATOP3-A5, ATOP3-B1, ATOP3-B2, ATOP3-B3, ATOP3-B4, ATOP3-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
