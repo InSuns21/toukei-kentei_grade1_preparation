@@ -240,7 +240,7 @@ $$
 2v^{\mathsf T}(A-K)v=E_0[(v^{\mathsf T}(X-Y))^2]\ge0
 $$
 
-となり、$A-K$ も正半定値である。従って引用した定理の構成を適用できる。独立な中心化Gaussianベクトル $Z,U,W$ を選び、共分散行列（中心化ベクトルの外積の期待値）を $\operatorname{Cov}$ と書き、それぞれ
+となり、$A-K$ も正半定値である。従って引用した定理の構成を適用できる。独立な中心化Gaussianベクトル $Z,U,W$ を選び、共分散行列（中心化ベクトル $T$ に対して成分が $E[T_iT_j]$ の行列）を $\operatorname{Cov}$ と書き、それぞれ
 
 $$
 \operatorname{Cov}(Z)=K,\qquad
