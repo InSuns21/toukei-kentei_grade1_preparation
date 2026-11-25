@@ -1,0 +1,45 @@
+chapter: GCT12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GCT11
+  - COMB3
+  - COMB18
+forward_references: []
+concepts:
+  - id: graph-counting.ryser-formula
+    name: Ryserの包除公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Ryserの包除公式）]
+    requires: [graph-counting.permanent, combinatorics.inclusion-exclusion]
+  - id: graph-counting.single-column-subset-order
+    name: 一列変更による部分集合列挙
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（一列変更による部分集合列挙）]
+    requires: [combinatorics.binomial-count]
+  - id: graph-counting.ryser-arithmetic-cost
+    name: Ryser公式の逐次更新による算術計算量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Ryser公式の逐次更新による算術計算量）]
+    requires: [graph-counting.ryser-formula, graph-counting.single-column-subset-order]
+  - id: graph-counting.permanent-subset-state
+    name: パーマネントの部分集合状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（パーマネントの部分集合状態）]
+    requires: [graph-counting.permanent, combinatorics.dynamic-programming-count-table]
+  - id: graph-counting.permanent-subset-dp
+    name: パーマネントの部分集合DP
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（パーマネントの部分集合DP）]
+    requires: [graph-counting.permanent-subset-state, graph-counting.permanent]
+  - id: graph-counting.permanent-integer-bit-bound
+    name: 整数パーマネント計算の中間値上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（整数パーマネント計算の中間値上界）]
+    requires: [graph-counting.ryser-arithmetic-cost, graph-counting.permanent-subset-dp]
