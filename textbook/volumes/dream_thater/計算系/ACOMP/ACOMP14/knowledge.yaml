@@ -1,0 +1,43 @@
+chapter: ACOMP14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ACOMP13
+forward_references: []
+concepts:
+  - id: algebraic-complexity.formal-partial-derivative
+    name: "形式偏微分"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（形式偏微分）"]
+    requires: [algebraic-geometry.multivariate-polynomial-ring]
+  - id: algebraic-complexity.formal-partial-rules
+    name: "形式偏微分の和と積の規則"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（形式偏微分の和と積の規則）"]
+    requires: [algebraic-complexity.formal-partial-derivative]
+  - id: algebraic-complexity.reverse-weight
+    name: "逆向き伝播係数"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（逆向き伝播係数）"]
+    requires: [algebraic-complexity.arithmetic-circuit-semantics]
+  - id: algebraic-complexity.reverse-recurrence
+    name: "逆向き伝播の再帰と形式勾配"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（逆向き伝播の再帰と形式勾配）"]
+    requires: [algebraic-complexity.reverse-weight, algebraic-complexity.formal-partial-rules]
+  - id: algebraic-complexity.baur-strassen
+    name: "Baur–Strassenの定理"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Baur–Strassenの定理：除算なしの場合）"]
+    requires: [algebraic-complexity.reverse-recurrence, algebraic-complexity.arithmetic-circuit-size]
+  - id: algebraic-complexity.vp-derivative-closure
+    name: "VPの形式偏微分に関する閉性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["系（VPの形式偏微分に関する閉性）"]
+    requires: [algebraic-complexity.baur-strassen, algebraic-complexity.vp]
