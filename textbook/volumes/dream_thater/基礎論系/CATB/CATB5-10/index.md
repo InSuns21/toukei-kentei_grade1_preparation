@@ -49,7 +49,15 @@ $$
 
 $T=\langle S_{\mathcal D}\rangle_{\mathcal C}$ と置く。$S$ は篩だから $T\subseteq S$ であり、$T$ が被覆なら[被覆篩の上方閉性](../CATB5-02/index.md#prop-catb5-02-cover-closure)から $S$ も被覆である。
 
-逆に $S\in J(c)$ とする。任意の $S$ に属する $f:e\to c$ に対し、任意の $d\in\mathcal D$ を満たす $h:d\to e$ について $fh\in S_{\mathcal D}$ である。従って[篩の引き戻し](../CATB5-02/index.md#def-catb5-02-sieve-pullback) $f^*T$ は $H_e$ を含む。稠密性により $H_e\in J(e)$ なので、上方閉性から $f^*T\in J(e)$ となる。$S$ は被覆であり、そのすべての射に沿う $T$ の引き戻しが被覆なので、[Grothendieck位相の推移性](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)を $S,T$ に適用して $T\in J(c)$ を得る。
+逆に $S\in J(c)$ とする。
+
+任意の $S$ に属する $f:e\to c$ に対し、任意の $d\in\mathcal D$ を満たす $h:d\to e$ について $fh\in S_{\mathcal D}$ である。
+
+従って[篩の引き戻し](../CATB5-02/index.md#def-catb5-02-sieve-pullback) $f^*T$ は $H_e$ を含む。
+
+稠密性により $H_e\in J(e)$ なので、上方閉性から $f^*T\in J(e)$ となる。
+
+$S$ は被覆であり、そのすべての射に沿う $T$ の引き戻しが被覆なので、[Grothendieck位相の推移性](../CATB5-02/index.md#def-catb5-02-grothendieck-topology)を $S,T$ に適用して $T\in J(c)$ を得る。
 <!-- proof-end -->
 
 ## 3. 部分圏にも被覆を入れる
@@ -339,7 +347,23 @@ $\mathcal B$ の篩 $T$ が $\mathcal C$ で生成する篩の始域は、$T$ �
 
 稠密性を落とすと、離散二点空間から $\{p\}$ だけを残した場合のように、$q$ の情報が消える。$p$ で一元集合、$q$ で一元集合または二元集合を取る二つの層は同型でないが、制限先では同じ層となる。$q$ への射が残らず $H_{\{q\}}$ が被覆でないため、比較定理の一意復元が破れる。
 
-[Grothendieckトポス](../CATB5-07/index.md#def-catb5-07-grothendieck-topos)はあるsiteの層圏と同値な圏である。今講の比較定理は、siteがそのトポスの表示の一つであり、表示自体は一意とは限らないことを示す。圏同値は有限極限を保存する。実際、極限錐に向かう射の普遍性は、同値関手がHom集合の全単射を与え、すべての対象が像と同型であることから移送される。また $EG$ から $F$ への層の射 $\phi$ に $R\phi$ と $G\cong REG$ の合成を対応させると、$G\to RF$ への自然な全単射が得られる。逆対応は $\psi:G\to RF$ に $E\psi$ と $ERF\cong F$ の合成を取ることである。恒等射成分と制限成分の復元式から二つの対応は互いに逆となる。従って $E$ を逆像、$R$ を直像とする[幾何学的射](../CATB5-09/index.md#def-catb5-09-geometric-morphism)は圏同値を与える。これがsiteの変更を層の幾何の変更と区別する理由である。
+[Grothendieckトポス](../CATB5-07/index.md#def-catb5-07-grothendieck-topos)はあるsiteの層圏と同値な圏である。
+
+今講の比較定理は、siteがそのトポスの表示の一つであり、表示自体は一意とは限らないことを示す。
+
+圏同値は有限極限を保存する。
+
+実際、極限錐に向かう射の普遍性は、同値関手がHom集合の全単射を与え、すべての対象が像と同型であることから移送される。
+
+また $EG$ から $F$ への層の射 $\phi$ に $R\phi$ と $G\cong REG$ の合成を対応させると、$G\to RF$ への自然な全単射が得られる。
+
+逆対応は $\psi:G\to RF$ に $E\psi$ と $ERF\cong F$ の合成を取ることである。
+
+恒等射成分と制限成分の復元式から二つの対応は互いに逆となる。
+
+従って $E$ を逆像、$R$ を直像とする[幾何学的射](../CATB5-09/index.md#def-catb5-09-geometric-morphism)は圏同値を与える。
+
+これがsiteの変更を層の幾何の変更と区別する理由である。
 
 ## 7. 演習と詳細解答
 
@@ -352,7 +376,17 @@ $\mathcal B$ の篩 $T$ が $\mathcal C$ で生成する篩の始域は、$T$ �
 <!-- solution-start -->
 **詳細解答**
 
-$U=\varnothing$ では単点からの包含が存在せず $H_U$ は空篩である。空合併は空集合なので被覆である。$U=\{p,q\}$ では二つの単点包含が生成射であり、前合成によって空集合からの包含も入る。始域の合併は $\{p,q\}$ となる。任意の非空の $U$ でも $U$ 内の単点の合併が $U$ となるため、[開集合圏の被覆条件](../CATB5-02/index.md#thm-catb5-02-open-site)により $H_U$ は被覆である。部分圏は包含射をすべて残すので充満であり、[稠密性](#def-catb5-10-dense)を満たす。
+$U=\varnothing$ では単点からの包含が存在せず $H_U$ は空篩である。
+
+空合併は空集合なので被覆である。
+
+$U=\{p,q\}$ では二つの単点包含が生成射であり、前合成によって空集合からの包含も入る。
+
+始域の合併は $\{p,q\}$ となる。
+
+任意の非空の $U$ でも $U$ 内の単点の合併が $U$ となるため、[開集合圏の被覆条件](../CATB5-02/index.md#thm-catb5-02-open-site)により $H_U$ は被覆である。
+
+部分圏は包含射をすべて残すので充満であり、[稠密性](#def-catb5-10-dense)を満たす。
 <!-- solution-end -->
 
 ### CATB5-10-A02 誘導位相
