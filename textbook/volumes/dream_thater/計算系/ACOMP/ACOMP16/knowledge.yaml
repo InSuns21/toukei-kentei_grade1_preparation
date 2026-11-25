@@ -1,0 +1,43 @@
+chapter: ACOMP16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ACOMP15
+forward_references: []
+concepts:
+  - id: algebraic-complexity.monotone-circuit
+    name: "単調算術回路"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単調算術回路）"]
+    requires: [algebraic-complexity.arithmetic-circuit]
+  - id: algebraic-complexity.monomial-support
+    name: "単項式の台"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単項式の台）"]
+    requires: [algebraic-geometry.multivariate-polynomial-ring]
+  - id: algebraic-complexity.nonnegative-support-rules
+    name: "非負係数多項式の台の演算則"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["補題（非負係数多項式の台の演算則）"]
+    requires: [algebraic-complexity.monotone-circuit, algebraic-complexity.monomial-support]
+  - id: algebraic-complexity.monotone-output-context
+    name: "単調回路の出力への寄与"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["補題（単調回路の出力への寄与）"]
+    requires: [algebraic-complexity.nonnegative-support-rules]
+  - id: algebraic-complexity.permanent-row-column-constraint
+    name: "パーマネントを計算する単調回路の行列添字制約"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["補題（パーマネントを計算する単調回路の行列添字制約）"]
+    requires: [algebraic-complexity.monotone-output-context, graph-counting.permanent]
+  - id: algebraic-complexity.monotone-permanent-lower-bound
+    name: "パーマネントの単調回路下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（パーマネントの単調回路下界）"]
+    requires: [algebraic-complexity.permanent-row-column-constraint, algebraic-complexity.arithmetic-circuit-size]
