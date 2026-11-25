@@ -154,7 +154,11 @@ export const lessons = {
   'LVT4-04': { module:'LvtGame', sourcePath:'../../LVT3-06/lab/LvtGame.lean', modes:[
     ['LvtInputs.lean','分類・除外・誤実装の比較','[17,1,2,10]、[30,17,0,10]、生成失敗0件と三命題の公理依存を確認。'],
     ['Failure.lean','範囲外の着手は成功しない','拒否を受理とする等式は型不一致。']
-  ], commands:'lake build\nlake test\nlake env lean LvtInputs.lean\n# 以下は意図的な失敗\nlake env lean Failure.lean' }
+  ], commands:'lake build\nlake test\nlake env lean LvtInputs.lean\n# 以下は意図的な失敗\nlake env lean Failure.lean' },
+  'LVT4-05': { module:'LvtGame', sourcePath:'../../LVT3-06/lab/LvtGame.lean', modes:[
+    ['LvtShrink.lean','反例の縮小と再実行','[2,0,4,1,2] から [2,2] までの縮小列、候補の真偽と局所停止を確認。'],
+    ['Failure.lean','一手では重複着手にならない','誤った等式は型不一致。']
+  ], commands:'lake build\nlake test\nlake env lean LvtShrink.lean\n# 以下は意図的な失敗\nlake env lean Failure.lean' }
 };
 export function combine(module, definitions, experiment, suffix='') {
   // Only the exact local module import is replaced by its source.

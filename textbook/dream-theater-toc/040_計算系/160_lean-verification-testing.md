@@ -27,3 +27,4 @@
 24. [LVT4-02 Property-Based Testingの原理](textbook/volumes/dream_thater/計算系/LVT/LVT4-02/index.md)
 25. [LVT4-03 Plausibleによる反例探索](textbook/volumes/dream_thater/計算系/LVT/LVT4-03/index.md)
 26. [LVT4-04 有効・無効入力の生成と仮定](textbook/volumes/dream_thater/計算系/LVT/LVT4-04/index.md)
+27. [LVT4-05 Shrinkingと最小反例](textbook/volumes/dream_thater/計算系/LVT/LVT4-05/index.md)
