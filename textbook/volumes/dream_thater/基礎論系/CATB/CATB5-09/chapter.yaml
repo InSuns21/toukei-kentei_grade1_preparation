@@ -1,0 +1,31 @@
+id: "CATB5-09"
+title: "幾何学的射"
+volume: "foundations"
+status: supplementary
+prerequisites: [CATB5-08, CATB5-07, CATB5-05, CATB5-03, CATB3-01, CAT2-08, CAT2-11, CAT2-07]
+official_scope: []
+learning_objectives:
+  - 幾何学的射の逆像・直像の向きと随伴・左完全性を説明できる
+  - 連続写像に沿う直像が層になることを証明できる
+  - 逆像前層をフィルター余極限で作り層化の必要性を例示できる
+  - 逆像と直像の随伴を代表元の写像から証明できる
+  - 逆像の左完全性と連続写像の合成との両立を証明できる
+  - 幾何学的射の逆像による像と有効商の保存を証明できる
+definitions:
+  - { id: CATB5-09-DEF-01, name: "幾何学的射" }
+  - { id: CATB5-09-DEF-02, name: "層の直像関手" }
+  - { id: CATB5-09-DEF-03, name: "逆像前層" }
+  - { id: CATB5-09-DEF-04, name: "層の逆像関手" }
+theorems:
+  - { id: CATB5-09-THM-01, name: "幾何学的射の合成" }
+  - { id: CATB5-09-THM-02, name: "直像の層性" }
+  - { id: CATB5-09-THM-03, name: "層の逆像と直像の随伴" }
+  - { id: CATB5-09-THM-04, name: "層の逆像の左完全性" }
+  - { id: CATB5-09-THM-05, name: "連続写像が誘導する幾何学的射" }
+  - { id: CATB5-09-THM-06, name: "幾何学的射の逆像による像と有効商の保存" }
+canonical_examples: [離散二点空間から一点への写像, 開部分空間の包含, 二点空間の非開連続写像]
+problem_patterns: [CATB5-09-A01, CATB5-09-A02, CATB5-09-A03, CATB5-09-A04, CATB5-09-B01, CATB5-09-B02, CATB5-09-B03, CATB5-09-B04, CATB5-09-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 2 }
