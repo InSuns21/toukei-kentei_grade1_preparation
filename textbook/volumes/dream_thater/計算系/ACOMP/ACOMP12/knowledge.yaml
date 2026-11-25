@@ -1,0 +1,44 @@
+chapter: ACOMP12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ACOMP11
+  - GCT4
+forward_references: []
+concepts:
+  - id: algebraic-complexity.hamilton-polynomial
+    name: "Hamilton閉路多項式"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hamilton閉路多項式）"]
+    requires: [graph-counting.cycle-cover-permutation, graph-counting.hamilton-coefficient]
+  - id: algebraic-complexity.hamilton-vnp
+    name: "Hamilton閉路多項式族の VNP 所属"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hamilton閉路多項式族の VNP 所属）"]
+    requires: [algebraic-complexity.hamilton-polynomial, algebraic-complexity.local-indicator, algebraic-complexity.vnp]
+  - id: algebraic-complexity.formula-tables
+    name: "算術式の局所重み表への変換"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（算術式の局所重み表への変換）"]
+    requires: [algebraic-complexity.arithmetic-formula, algebraic-complexity.boolean-sum]
+  - id: algebraic-complexity.xor-ring
+    name: "環状区間の排他的選択構成"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（環状区間の排他的選択構成）"]
+    requires: [algebraic-complexity.hamilton-polynomial]
+  - id: algebraic-complexity.tables-hamilton
+    name: "局所重み表の Hamilton閉路表示"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所重み表の Hamilton閉路表示）"]
+    requires: [algebraic-complexity.xor-ring, algebraic-complexity.hamilton-polynomial]
+  - id: algebraic-complexity.hamilton-complete
+    name: "Valiant の Hamilton閉路多項式の VNP 完全性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Valiant の Hamilton閉路多項式の VNP 完全性）"]
+    requires: [algebraic-complexity.hamilton-vnp, algebraic-complexity.formula-witness, algebraic-complexity.formula-tables, algebraic-complexity.tables-hamilton, algebraic-complexity.vnp-completeness]
