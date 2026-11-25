@@ -24,7 +24,7 @@ definitions:
   - { id: FLOER1-02-DEF-04, name: "交点の漸近作用素" }
 theorems:
   - { id: FLOER1-02-PROP-01, name: "有限エネルギーstripの小さい横断曲線" }
-  - { id: FLOER1-02-PROP-02, name: "作用の第一変分" }
+  - { id: FLOER1-02-PROP-02, name: "完全Lagrange境界での作用の第一変分" }
   - { id: FLOER1-02-THM-01, name: "完全境界での作用差とエネルギー" }
   - { id: FLOER1-02-PROP-03, name: "境界を保つ変形の面積と作用の周期" }
   - { id: FLOER1-02-THM-02, name: "漸近作用素の対称性と横断性" }

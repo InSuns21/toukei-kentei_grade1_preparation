@@ -34,10 +34,10 @@ concepts:
     introduction_aliases: ["定義（完全Lagrange境界と作用汎関数）"]
     requires: [symplectic.lagrangian-submanifold]
   - id: floer.variation
-    name: "作用の第一変分"
+    name: "完全Lagrange境界での作用の第一変分"
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（作用の第一変分）"]
+    introduction_aliases: ["命題（完全Lagrange境界での作用の第一変分）"]
     requires: [floer.exact-action, symplectic.compatible-metric-criterion]
   - id: floer.action-energy
     name: "完全境界での作用差とエネルギー"

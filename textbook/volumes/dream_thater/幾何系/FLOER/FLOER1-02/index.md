@@ -98,7 +98,7 @@ $$
 
 $h(s)=\int_0^1|u_t(s,t)|^2dt$ と置く。方程式と適合性から $E(u)=\int_{\mathbb R}h(s)ds<\infty$。区間 $[k,k+1]$ の積分を $a_k$ とすると、非負級数の和が有限なので $a_k\to0$。連続関数 $h$ の区間内の最小値は平均以下であるから、ある $s_k^+\in[k,k+1]$ で $h(s_k^+)\le a_k$。区間 $[-k-1,-k]$ でも同様に選べば負の列を得る。
 
-曲線長を $\ell(s)=\int_0^1|u_t(s,t)|dt$ とすると、Cauchy–Schwarz不等式で
+曲線長を $\ell(s)=\int_0^1|u_t(s,t)|dt$ とすると、[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)で
 
 $$
 \ell(s)^2\le\left(\int_0^1 1^2dt\right)
@@ -154,7 +154,7 @@ $$
 <a id="prop-floer1-02-variation"></a>
 
 <!-- formal-statement-start -->
-> **命題（作用の第一変分）**
+> **命題（完全Lagrange境界での作用の第一変分）**
 > $d\lambda=\omega$ と $\iota_j^*\lambda=df_j$ を満たす完全Lagrange境界を持つ滑らかな道 $\gamma$ を取る。境界を保つ滑らかな変分 $\Gamma(\varepsilon,t)$ の速度を $\xi=\partial_\varepsilon\Gamma(0,t)$ とすると、作用の微分は
 
 $$
@@ -222,7 +222,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\gamma_s(t)=u(s,t)$ と置く。[作用の第一変分](#prop-floer1-02-variation)で $\xi=u_s$、$\dot\gamma_s=u_t$ を代入し、$J(u)u_t=-u_s$ を使うと
+$\gamma_s(t)=u(s,t)$ と置く。[完全Lagrange境界での作用の第一変分](#prop-floer1-02-variation)で $\xi=u_s$、$\dot\gamma_s=u_t$ を代入し、$J(u)u_t=-u_s$ を使うと
 
 $$
 \frac{d}{ds}\mathcal A(\gamma_s)
@@ -241,7 +241,7 @@ $$
 $E=0$ の場合、連続な非負関数 $|u_s|^2$ の積分が零であるから各点で $u_s=0$。方程式と $J$ の可逆性から $u_t=0$。帯は連結なので $u$ は定数。逆は微分が零であることから従う。
 <!-- proof-end -->
 
-有限帯での符号は境界積分でも検算できる。[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)（矩形では辺ごとの基本定理でも導ける）で向き $ds\wedge dt$ の下辺は $s$ 増加、右辺は $t$ 増加、上辺は $s$ 減少、左辺は $t$ 減少。従って
+有限帯での符号は境界積分でも検算できる。[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)（矩形では辺ごとの基本定理でも導ける）で向き $ds\wedge dt$ の下辺は $s$ 増加、右辺は $t$ 増加、上辺は $s$ 減少、左辺は $t$ 減少。従って
 
 $$
 \begin{aligned}
@@ -318,7 +318,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-変形族を $H(a,r,t)$ とし、箱 $[0,1]^3$ の向きを $da\wedge dr\wedge dt$ とする。$dH^*\omega=H^*(d\omega)=0$ なので、[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により六面の向き付き積分の和は零となる（箱の場合は各変数の基本定理でも得られる）。
+変形族を $H(a,r,t)$ とし、箱 $[0,1]^3$ の向きを $da\wedge dr\wedge dt$ とする。$dH^*\omega=H^*(d\omega)=0$ なので、[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により六面の向き付き積分の和は零となる（箱の場合は各変数の基本定理でも得られる）。
 
 $r=0,1$ 面では写像が $a$ に依存しないので二次元の引き戻しは零。$t=0,1$ 面は対応するLagrange部分多様体内にあるため二つの接方向に対する $\omega$ は零。残る $a=1$ と $a=0$ はそれぞれ $dr\wedge dt$ とその負の向きである。従って
 
@@ -336,7 +336,7 @@ $$
 V(r,t)=(1-t)e^{2\pi ir}+tp
 $$
 
-と取る。$t=0$ は $L_0$ 上を一周、$t=1$ は $p$。$r=0,1$ の道は一致する。$\lambda=-y\,dx$ と [Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes) を矩形に適用すると、左右の辺は打ち消し、上辺は定数、下辺は正方向に一周するため
+と取る。$t=0$ は $L_0$ 上を一周、$t=1$ は $p$。$r=0,1$ の道は一致する。$\lambda=-y\,dx$ と [一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes) を矩形に適用すると、左右の辺は打ち消し、上辺は定数、下辺は正方向に一周するため
 
 $$
 \int V^*\omega=\int_0^{2\pi}\sin^2\phi\,d\phi=\pi.
@@ -461,7 +461,7 @@ $$
 
 と置けばよい。$q=\int_0^1 J f(r)dr$ として直和分解 $q=a+b$（$a\in W_0,b\in W_1$）を取る。すると $\eta(0)=a\in W_0$、$\eta(1)=a-q=-b\in W_1$、弱微分は $-Jf$ なので方程式を満たす。核は零であるため一意である。
 
-$P_0:V\to W_0$ をこの直和の射影とし、その有限な作用素ノルムを $M$ とする。$J$ の等長性とCauchy–Schwarz不等式から $|q|\le\|f\|_{L^2}$、$|a|\le M\|f\|_{L^2}$。各 $t$ で積分のノルムは $\|f\|_{L^2}$ 以下だから
+$P_0:V\to W_0$ をこの直和の射影とし、その有限な作用素ノルムを $M$ とする。$J$ の等長性と[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から $|q|\le\|f\|_{L^2}$、$|a|\le M\|f\|_{L^2}$。各 $t$ で積分のノルムは $\|f\|_{L^2}$ 以下だから
 
 $$
 \|\eta\|_{L^2}\le(M+1)\|f\|_{L^2},
@@ -575,7 +575,7 @@ $$
 \frac{d}{da}\mathcal A=-a.
 $$
 
-変分速度は $\xi=(1,t)$、横断速度は $\dot\gamma=(0,a)$。従って $\omega(\dot\gamma,\xi)=0\cdot t-a\cdot1=-a$。積分すると $-a$ で[作用の第一変分](#prop-floer1-02-variation)と一致する。補正を落とすと $-2a$ になり、境界項が残る。
+変分速度は $\xi=(1,t)$、横断速度は $\dot\gamma=(0,a)$。従って $\omega(\dot\gamma,\xi)=0\cdot t-a\cdot1=-a$。積分すると $-a$ で[完全Lagrange境界での作用の第一変分](#prop-floer1-02-variation)と一致する。補正を落とすと $-2a$ になり、境界項が残る。
 <!-- solution-end -->
 
 <a id="ex-floer1-02-b03"></a>
@@ -585,7 +585,7 @@ $$
 $L_0=\{|z|=\rho\}$（$\rho>0$）、$L_1=\{|z-\rho|=\rho\}$、$p=2\rho$ とする。$V(r,t)=(1-t)\rho e^{2\pi ir}+tp$ の面積と作用の周期を求め、$\lambda=-y\,dx$ の $L_0$ 上の原始関数が存在しない理由を示せ。
 
 <!-- solution-start -->
-**詳細解答**。二円は埋め込まれた一次元部分多様体で、交点では半径ベクトルが非平行なので横断的である。$V$ は下端を $L_0$ 上、上端を $p\in L_1$ に送り、$r=0,1$ の道は一致する。$ds$ ではなく $dr\wedge dt$ の向きを取ると下辺は $r$ 増加方向。[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)で左右の辺が消え、上辺は定数なので
+**詳細解答**。二円は埋め込まれた一次元部分多様体で、交点では半径ベクトルが非平行なので横断的である。$V$ は下端を $L_0$ 上、上端を $p\in L_1$ に送り、$r=0,1$ の道は一致する。$ds$ ではなく $dr\wedge dt$ の向きを取ると下辺は $r$ 増加方向。[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)で左右の辺が消え、上辺は定数なので
 
 $$
 \int V^*\omega=\int_0^{2\pi}\rho^2\sin^2\phi\,d\phi
