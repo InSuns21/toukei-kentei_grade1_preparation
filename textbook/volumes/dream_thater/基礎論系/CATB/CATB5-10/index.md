@@ -8,7 +8,13 @@
 
 例えば実数直線のすべての開集合の代わりに、有理数を端点とする開区間だけで関数の切断を記録したい。どの開集合もそのような区間で覆われ、二つの区間の重なりも小さい区間で調べられる。貼り合わせの存在と一意性があれば、記録しなかった開集合の切断も復元できそうである。
 
-この考え方を、開集合の包含以外にも射を持つ圏で実行する。以下、小さい圏上の集合値層を扱う。合成は右から左に書き、前層 $F$ の射 $u:e\to c$ に沿う制限を $F(u):F(c)\to F(e)$ と書く。
+この考え方を、開集合の包含以外にも射を持つ圏で実行する。以下、[小さい圏](../../CAT/CAT1-02/index.md#def-cat1-02-size)上の集合値層を扱う。合成 $fu=f\circ u$ は右から左に書く。集合値[前層](../../CAT/CAT1-12/index.md#def-cat1-12-presheaf) $F$ の射 $u:e\to c$ に沿う制限を $F(u):F(c)\to F(e)$ と書く。[反変関手の合成則](../../CAT/CAT1-06/index.md#def-cat1-06-contravariant)により、$v:b\to e$ に対して
+
+$$
+F(uv)=F(v)\circ F(u)
+$$
+
+である。$1_c$ は対象 $c$ の恒等射、添字のない $1$ は一元集合を表す。
 
 ## 2. 部分圏の対象だけで局所的に覆う
 
@@ -26,7 +32,7 @@ $(\mathcal C,J)$ を[site](../CATB5-02/index.md#def-catb5-02-grothendieck-topolo
 **定義の確認**。離散二点空間 $X=\{p,q\}$ の開集合圏を $\mathcal C$、単点二つだけの充満部分圏を $\mathcal D$ とする。二単点の間には恒等射しかない。$X$ への二つの単点包含が生成する篩は単点と空集合からの包含を含み、それらの合併は $X$ である。各単点では恒等射が篩を生成するので最大篩になる。空集合では生成篩は空だが、その合併は空集合である。[開集合圏のGrothendieck位相](../CATB5-02/index.md#thm-catb5-02-open-site)により四つの対象すべてで被覆条件が成立する。従って $\mathcal D$ は稠密である。
 <!-- definition-example-end -->
 
-対象 $c$ 上の一般の篩 $S$ に対して、始域が $\mathcal D$ に属する射だけを残した族を $S_{\mathcal D}$ とする。その生成篩を $\langle S_{\mathcal D}\rangle_{\mathcal C}$ と書く。
+対象 $c$ 上の一般の篩 $S$ に対して、始域が $\mathcal D$ に属する射だけを残した族を $S_{\mathcal D}$ とする。その生成篩を $\langle S_{\mathcal D}\rangle_{\mathcal C}$ と書く。添字 $\mathcal D$ は始域を選別する部分圏、添字 $\mathcal C$ は生成篩を作る周囲の圏を表す。対象 $c$ は固定し、始域と射を動かす。
 
 <a id="lem-catb5-10-cover-detection"></a>
 
@@ -110,7 +116,14 @@ $$
 
 最後の篩は $\mathcal D$ 内で取る。[被覆判定補題](#lem-catb5-10-cover-detection)を $a^*T$ に適用すると、$\langle a^*R\rangle_{\mathcal C}\in J(b)$ となり、引き戻し安定性が従う。
 
-推移性について、$R\in J_{\mathcal D}(d)$ と $d$ 上の篩 $Q$ を取り、すべての $R$ に属する $r:b\to d$ について $r^*Q\in J_{\mathcal D}(b)$ と仮定する。$\langle r^*Q\rangle_{\mathcal C}$ は $r^*\langle Q\rangle_{\mathcal C}$ に含まれるため、後者も被覆である。任意の $\langle R\rangle_{\mathcal C}$ に属する $f:e\to d$ は $f=ru$ と分解する。[篩の引き戻しの合成則](../CATB5-02/index.md#prop-catb5-02-sieve-pullback-laws)から
+推移性について、$R\in J_{\mathcal D}(d)$ と $d$ 上の篩 $Q$ を取り、すべての $R$ に属する $r:b\to d$ について $r^*Q\in J_{\mathcal D}(b)$ と仮定する。$r^*Q$ の射 $k$ は $rk\in Q$ を満たす。任意の $\mathcal C$ の射 $w$ と合成できるとき、$(rk)w$ は $Q$ の生成篩に属するので、$kw\in r^*\langle Q\rangle_{\mathcal C}$ となる。従って
+
+$$
+\langle r^*Q\rangle_{\mathcal C}\subseteq
+r^*\langle Q\rangle_{\mathcal C}.
+$$
+
+左辺は誘導被覆の定義により被覆であるから、[被覆篩の上方閉性](../CATB5-02/index.md#prop-catb5-02-cover-closure)によって右辺も被覆である。任意の $\langle R\rangle_{\mathcal C}$ に属する $f:e\to d$ は $f=ru$ と分解する。[篩の引き戻しの合成則](../CATB5-02/index.md#prop-catb5-02-sieve-pullback-laws)から
 
 $$
 f^*\langle Q\rangle_{\mathcal C}
@@ -123,14 +136,20 @@ $\langle R\rangle_{\mathcal C}$ が被覆なので、$\mathcal C$ における�
 
 ## 4. 制限と延長を組み立てる
 
-$\operatorname{Sh}(\mathcal C,J)$ の対象 $F$ を $\mathcal D$ に制限する。逆向きには、$\mathcal D$ 上の層 $G$ から、各 $c$ への $\mathcal D$ の射に沿う整合族を作る。
+$\operatorname{Sh}(\mathcal C,J)$ は[site上の層](../CATB5-03/index.md#def-catb5-03-site-sheaf)を対象、前層の[自然変換](../../CAT/CAT1-07/index.md#def-cat1-07-natural-transformation)を射とする圏を表す。その対象 $F$ を $\mathcal D$ に制限する。
+
+ここから $R$ は第3節の局所的な篩の記号ではなく、制限関手の記号とする。
+
+逆向きには、$\mathcal D$ 上の層 $G$ から、各 $c$ へ向かう $\mathcal D$ の対象を始域とする射に沿う整合族を作る。
+
+[篩上の整合族](../CATB5-03/index.md#def-catb5-03-sieve-matching)と同じく、各成分は射の始域における切断であり、前合成と制限が一致することを要求する。ただしここでは始域が $\mathcal D$ にある射だけを添字とする。
 
 <a id="def-catb5-10-extension"></a>
 
 <!-- formal-statement-start -->
 > **定義（部分siteからの整合族による延長）**
 >
-> 小さいsite $(\mathcal C,J)$ の稠密充満部分圏 $\mathcal D$ とその誘導位相上の集合値層 $G$ に対し、前層 $EG$ の $c$ での値を、各射 $d\in\mathcal D$ を満たす $f:d\to c$ に対する元 $x_f\in G(d)$ の族で、すべての $\mathcal D$ の射 $h:b\to d$ について
+> 小さいsite $(\mathcal C,J)$ の稠密充満部分圏 $\mathcal D$ とその誘導位相上の集合値層 $G$ に対し、前層 $EG$ の $c$ での値を、各 $d\in\mathcal D$ を始域とする射 $f:d\to c$ に対する元 $x_f\in G(d)$ の族で、すべての $\mathcal D$ の射 $h:b\to d$ について
 
 $$
 G(h)x_f=x_{fh}
@@ -151,6 +170,16 @@ EG(X)=A\times B,\quad EG(\varnothing)=1.
 $$
 
 空の添字集合上の族は空族一つだけなので最後の値は一元集合である。全体からの制限は二つの射影、空集合への制限は唯一の写像であり、合成と両立する。成分ごとの写像の対 $(a:A\to A',b:B\to B')$ は全体で $(x,y)\mapsto(a(x),b(y))$ を誘導し、射影との自然性も満たす。
+
+非恒等射での条件も確かめよう。離散三点空間 $Y=\{p,q,r\}$ で、全単点と $U=\{p,q\}$ を残す充満部分圏を取る。全単点を残しているため第2節と同じ被覆判定で稠密である。各対象 $W$ で $G(W)$ を $W$ から集合 $K=\{0,1\}$ への写像の集合とし、包含に沿う写像を関数の制限とする。被覆篩の始域が $W$ を覆い、重なる点の値は単点への制限で一致するため、各点の値を一意に復元できる。従って $G$ は誘導位相上の層である。
+
+$Y$ への四つの包含を添字とする延長の族を $(x_p,x_q,x_r,x_U)$ と略記する。$x_p,x_q,x_r$ は単点上の写像の値と同一視し、$x_U$ は順に $p,q$ の値を並べた対 $(a,b)$ とする。$U$ への単点包含 $h_p,h_q$ に沿う整合条件は
+
+$$
+G(h_p)x_U=a=x_p,\qquad G(h_q)x_U=b=x_q.
+$$
+
+これら二条件と恒等射の条件がすべてである。従って任意の $(a,b,t)\in K^3$ から唯一の族 $(a,b,t,(a,b))$ を得る。$Y$ から $U$ への制限は $(a,b)$ を取り出す。この例では直積を最初から仮定せず、非恒等射での整合条件を解いて得ている。
 <!-- definition-example-end -->
 
 一般の場合、制限した族の整合性は $G(h)x_{ug}=x_{ugh}$ から従う。二回制限すれば添字は $uvg$ になるので合成を保存し、恒等射では添字が変わらない。$\alpha$ の自然性から成分ごとの作用も整合条件を保存し、制限と交換する。従って $E$ は前層への関手を与える。
@@ -288,7 +317,21 @@ $$
 x\mapsto x_{1_d}
 $$
 
-とする。逆向きには $s\in G(d)$ を族 $(G(f)s)_f$ に送る。充満性により添字 $f:b\to d$ はすべて $\mathcal D$ の射であり、反変関手の合成則からこの族は整合する。恒等射の成分は $s$ であり、整合族では $x_f=G(f)x_{1_d}$ だから互いに逆である。射 $h:b\to d$ に沿う制限の後で恒等射成分を取ると $x_h=G(h)x_{1_d}$ となる。さらに層の射 $\alpha:G\to G'$ に対して恒等射成分は $\alpha_d(x_{1_d})$ に写る。従って $RE\cong 1$ は自然である。
+とする。逆向きには $s\in G(d)$ を族 $(G(f)s)_f$ に送る。
+
+充満性により添字 $f:b\to d$ はすべて $\mathcal D$ の射であり、反変関手の合成則からこの族は整合する。
+
+恒等射の成分は $s$ であり、整合族では $x_f=G(f)x_{1_d}$ だから互いに逆である。
+
+射 $h:b\to d$ に沿う制限の後で恒等射成分を取ると $x_h=G(h)x_{1_d}$ となる。
+
+さらに層の射 $\alpha:G\to G'$ に対して恒等射成分は $\alpha_d(x_{1_d})$ に写る。従って
+
+$$
+RE\cong 1_{\operatorname{Sh}(\mathcal D,J_{\mathcal D})}
+$$
+
+は自然である。ここで圏を添字とする $1$ はその圏の恒等関手を表し、一元集合や対象の恒等射とは区別する。
 
 次に $\mathcal C$ 上の層 $F$ に対して
 
@@ -313,12 +356,12 @@ $$
 \beta_d(F(f)s)=F'(f)\beta_c(s)
 $$
 
-となるので $\eta:1\to ER$ は層の射に関して自然である。各成分が全単射だから自然同型である。二つの自然同型により圏同値を得る。
+となるので $\eta:1_{\operatorname{Sh}(\mathcal C,J)}\to ER$ は層の射に関して自然である。各成分が全単射だから自然同型である。二つの自然同型により圏同値を得る。
 <!-- proof-end -->
 
 ## 6. 開集合の基底とトポスの表示
 
-位相空間 $X$ の基底 $\mathcal B$ は、各開集合がその中に含まれる基底開集合の合併となる開集合の族である。基底は有限交差で閉じている必要はない。二つの基底開集合の共通部分に属する各点は、その共通部分内の基底開集合に含まれるからである。
+位相空間 $X$ の基底 $\mathcal B$ は、各開集合がその中に含まれる基底開集合の合併となる開集合の族である。[位相の基底上の被覆篩](../CATB5-02/index.md#thm-catb5-02-basis-site)で構成した位相と、第3節の誘導位相を結び付ける。基底は有限交差で閉じている必要はない。二つの基底開集合の共通部分に属する各点は、その共通部分内の基底開集合に含まれるからである。
 
 <a id="cor-catb5-10-basis"></a>
 
@@ -359,7 +402,26 @@ $\mathcal B$ の篩 $T$ が $\mathcal C$ で生成する篩の始域は、$T$ �
 
 逆対応は $\psi:G\to RF$ に $E\psi$ と $ERF\cong F$ の合成を取ることである。
 
-恒等射成分と制限成分の復元式から二つの対応は互いに逆となる。
+具体的に、第5節の自然同型を $\epsilon_G:REG\to G$、$\eta_F:F\to ERF$ と書く。対応は
+
+$$
+\phi\longmapsto R\phi\circ\epsilon_G^{-1},
+\qquad
+\psi\longmapsto\eta_F^{-1}\circ E\psi
+$$
+
+である。後者で作った射を $\phi$ とすると、$d\in\mathcal D$ と $s\in G(d)$ に対して $\epsilon_G^{-1}(s)$ は族 $(G(f)s)_f$ である。$E\psi$ はその恒等射成分を $\psi_d(s)$ に送り、$\eta_F^{-1}$ も $d$ では恒等射成分を取り出す。従って第一の対応で元の $\psi$ が戻る。
+
+逆に最初に $\phi$ を取ったとき、対応する $\psi$ は $\psi_d(s)=\phi_d(\epsilon_G^{-1}(s))$ を満たす。$x\in EG(c)$ と $f:d\to c$ について、$\phi$ の自然性と延長の整合条件から
+
+$$
+F(f)\phi_c(x)
+=\phi_d(EG(f)x)
+=\phi_d(\epsilon_G^{-1}(x_f))
+=\psi_d(x_f).
+$$
+
+従って $\eta_F(\phi_c(x))$ は $E\psi$ の与える族に一致し、$\eta_F^{-1}$ によって元の $\phi$ が戻る。自然同型 $\epsilon,\eta$ と関手の合成から両変数の自然性も従う。これは[随伴のHom集合による定義](../../CAT/CAT2-08/index.md#def-cat2-08-adjunction)を満たす。
 
 従って $E$ を逆像、$R$ を直像とする[幾何学的射](../CATB5-09/index.md#def-catb5-09-geometric-morphism)は圏同値を与える。
 
