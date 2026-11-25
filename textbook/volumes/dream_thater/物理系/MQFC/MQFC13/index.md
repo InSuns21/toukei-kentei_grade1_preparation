@@ -31,9 +31,11 @@ $L\to\infty$ は体積制限を外す操作であり、$\Lambda\to\infty$ は短
 
 ## 2. 有限モードGaussian自由場を作る
 
+<a id="ref-mqfc13-mode-construction"></a>
+
 $K_{L,\Lambda}\setminus\{0\}$ の各対 $\{k,-k\}$ から代表を一つ選んだ集合を $K^+$ とする。実係数 $A_0,A_k,B_k$ を独立な中心化正規確率変数とし、分散をそれぞれ $m^{-2}$、$(|p_k|^2+m^2)^{-1}$、$(|p_k|^2+m^2)^{-1}$ とする。$|p|$ は Euclid ノルムである。場を
 
-$$
+$
 \begin{aligned}
 \phi_{L,\Lambda}(x)
 &=L^{-d/2}A_0\\
@@ -52,7 +54,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（有限モード自由場の共分散）**
-> 上記の $L,\Lambda,m>0$、独立な実Gaussian係数で定めた場について、実試験関数 $f,g\in S$ の測定は中心化Gaussianであり、共分散は
+> $d\ge1$、$L,\Lambda,m>0$ とする。[有限モード場の構成](#ref-mqfc13-mode-construction) に従い、各実正規直交三角基底の係数を独立な中心化Gaussianとし、その分散を対応する周波数 $p_k$ に対して $(|p_k|^2+m^2)^{-1}$ とする。実Schwartz関数 $f,g$ に対する全空間の積分測定の共分散は
 
 $$
 C_{L,\Lambda}(f,g)=
@@ -93,7 +95,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（有限モード共分散の二重極限）**
-> $m>0$、$f,g\in\mathcal S(\mathbb R^d)$ は実関数とする。任意の列 $L_n\to\infty$、$\Lambda_n\to\infty$ に対して
+> $d\ge1$、$m>0$、$f,g\in\mathcal S(\mathbb R^d)$ は実関数とする。[有限モード自由場の共分散](#prop-mqfc13-box-covariance) について任意の列 $L_n\to\infty$、$\Lambda_n\to\infty$ に対して
 
 $$
 \lim_{n\to\infty} C_{L_n,\Lambda_n}(f,g)
@@ -143,7 +145,16 @@ e^{-t^{\mathsf T}\Sigma_n t/2}\longrightarrow
 e^{-t^{\mathsf T}\Sigma t/2}.
 $$
 
-右辺は [自由場のGaussian測度の構成](../MQFC6/index.md#thm-mqfc6-free-measure) による測定ベクトルの特性関数である。[確率ベクトルの特性関数収束定理](../../../解析系/F0/F0-00P6/index.md#thm-f0-00p6-levy-continuity-vector) をこの既知の極限法則に適用できる。従って任意の有界連続関数の期待値が収束する。
+右辺は [自由場のGaussian測度の構成](../MQFC6/index.md#thm-mqfc6-free-measure) による測定ベクトルの特性関数である。[確率ベクトルの特性関数収束定理](../../../解析系/F0/F0-00P6/index.md#thm-f0-00p6-levy-continuity-vector) をこの既知の極限法則に適用できる。従って有界Lipschitz関数の期待値が収束する。一般の有界連続関数 $g$ へ移すため、測定ベクトルを $V_n$、極限ベクトルを $V$ と書く。共分散の対角和は有界なので、ある $M$ で $E|V_n|^2,E|V|^2\le M$。従って $P(|V_n|>R),P(|V|>R)\le M/R^2$ である。
+
+$B=\|g\|_\infty$ とし、整数 $l\ge1$ に対して $g_l(x)=\inf_y(g(y)+l|x-y|)$ と置く。$-B\le g_l\le g\le B$。三角不等式により $g_l(x)\le g_l(z)+l|x-z|$、逆向きも成立するから $g_l$ は有界Lipschitz関数である。固定した閉球の少し外まで含めれば、$g$ はコンパクト集合上で一様連続である。詳しくは、任意の $\eta>0$ に対し $0<\delta<1$ を選び、$|x-y|<\delta$ なら $|g(x)-g(y)|<\eta$ とする（$x,y$ は半径 $R+1$ の閉球内）。$|x-y|\ge\delta$ なら $l\delta\ge2B$ と選べば $g(y)+l|x-y|\ge B\ge g(x)$。近い $y$ では $g(y)+l|x-y|\ge g(x)-\eta$ である。従って球内で $0\le g-g_l\le\eta$。
+
+$$
+|E[g(V_n)]-E[g(V)]|
+\le 2\eta+4BM/R^2+|E[g_l(V_n)]-E[g_l(V)]|.
+$$
+
+まず $R$ を大きくし、$\eta$ を小さく選び、それに対応する $l$ を固定して $n\to\infty$ とすれば、右辺を任意に小さくできる。従って [確率測度の狭義収束](../../../解析系/OTR/OTR3/index.md#def-otr3-narrow) が成立する。
 <!-- proof-end -->
 
 この結果は試験関数で測った量についてである。場の一点の値は同じ評価を受けない。例えば体積極限を先に取った場合、$d=2$ の点での分散は周波数円板 $|p|\le\Lambda$ に限っても
@@ -258,7 +269,7 @@ $$
 \le K_0+1.
 $$
 
-$M\to\infty$ で単調収束を用いれば $\int |G|\,d\mu\le K_0+1$。同様に有界連続関数 $\min((|G|-K)_+,M)$ の積分は極限でも $a(K)$ 以下であり、$M\to\infty$ で
+$M\to\infty$ で単調収束定理 を用いれば $\int |G|\,d\mu\le K_0+1$。同様に有界連続関数 $\min((|G|-K)_+,M)$ の積分は極限でも $a(K)$ 以下であり、$M\to\infty$ で
 
 $$
 \int (|G|-K)_+\,d\mu\le a(K).
@@ -397,6 +408,16 @@ $\mathbb R^r$ 上の一様緊密な確率測度列について、全ての狭義
 
 <!-- solution-start -->
 収束しないと仮定する。[狭義収束の定義](../../../解析系/OTR/OTR3/index.md#def-otr3-narrow) より有界連続 $g$ と $\varepsilon>0$ が存在し、ある部分列の全項で $|\int g\,d\mu_{n_j}-\int g\,d\mu|\ge\varepsilon$ となる。この部分列も同じコンパクト集合で一様緊密である。[Prokhorovのコンパクト性定理](../../../解析系/OTR/OTR3/index.md#thm-otr3-prokhorov) によりさらに収束する部分列を選べる。仮定により極限は $\mu$ だから $g$ の積分の差は零に収束する。これは下界 $\varepsilon$ に矛盾する。
+<!-- solution-end -->
+
+### 演習 MQFC13-B5：同じ測定の線形関係を保存する
+
+- Level: B
+
+全 $n$ で $Z_n=X_n+2Y_n$ が確率1で成り立ち、$(X_n,Y_n,Z_n)$ の法則が $(X,Y,Z)$ の法則へ狭義収束するとする。極限でも $Z=X+2Y$ が確率1で成り立つことを、非有界な二次モーメントを仮定せずに示せ。
+
+<!-- solution-start -->
+$h(x,y,z)=\min(1,|z-x-2y|)$ は有界連続で非負である。仮定から全 $n$ で $E[h(X_n,Y_n,Z_n)]=0$。[狭義収束](../../../解析系/OTR/OTR3/index.md#def-otr3-narrow) を適用すると $E[h(X,Y,Z)]=0$。各整数 $k\ge1$ について $P(h\ge1/k)\le kE[h]=0$ なので、$\{h>0\}=\bigcup_{k\ge1}\{h\ge1/k\}$ も確率零である。従って $Z-X-2Y=0$ が確率1で成立する。可算個の線形関係は零集合の可算和により同時に保存できるが、全試験関数への連続な拡張にはさらに評価が必要である。
 <!-- solution-end -->
 
 ### 演習 MQFC13-C1：自由場の四点相関の極限
