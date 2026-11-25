@@ -10,7 +10,7 @@ chapters:
   - { id: NPCG4, path: textbook/volumes/dream_thater/幾何系/NPCG/NPCG4, status: completed, title: "Bruhat–Tits CN不等式と中点一意性" }
   - { id: NPCG5, path: textbook/volumes/dream_thater/幾何系/NPCG/NPCG5, status: completed, title: "測地線凸性と距離の凸性：中点から任意比へ" }
   - { id: NPCG6, path: textbook/volumes/dream_thater/幾何系/NPCG/NPCG6, status: completed, title: "四辺形不等式・等号・平坦な部分集合" }
-  - { id: NPCG7, path: textbook/volumes/dream_thater/幾何系/NPCG/NPCG7, status: planned, title: "閉凸集合への射影とPythagoras型評価" }
+  - { id: NPCG7, path: textbook/volumes/dream_thater/幾何系/NPCG/NPCG7, status: completed, title: "閉凸集合への射影とPythagoras型評価" }
   - { id: NPCG8, path: textbook/volumes/dream_thater/幾何系/NPCG/NPCG8, status: planned, title: "重心・二乗距離の最小化・分散不等式" }
   - { id: NPCG9, path: textbook/volumes/dream_thater/幾何系/NPCG/NPCG9, status: planned, title: "等長群作用・有限群固定点・不変凸集合" }
   - { id: NPCG10, path: textbook/volumes/dream_thater/幾何系/NPCG/NPCG10, status: planned, title: "射影の平均と交互射影：凸集合の角度" }
