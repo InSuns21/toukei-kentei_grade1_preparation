@@ -14,7 +14,7 @@ $$
 
 ## 2. 連続する二射の合成を零にする
 
-整数 $n$ を位置の番号（次数）とする。各次数に対象を置き、隣の次数に進む射を微分と呼ぶ。ここでの微分は関数の導関数とは限らない。射を二回適用すると零になる、という条件を抽出している。
+整数 $n$ を位置の番号（次数）とする。各次数に対象を置き、隣の次数に進む射を微分と呼ぶ。この呼び名は射の役割を表すもので、整数の倍写像なども微分として使える。射を二回適用すると零になる、という条件を抽出している。
 
 <a id="def-catb7-01-cochain-complex"></a>
 
@@ -101,7 +101,7 @@ d_D^n(f^n+h^n)
 \end{aligned}
 $$
 
-零射の族も条件を満たす。合成の加法性から $d_D^n(-f^n)=-d_D^nf^n=(-f^{n+1})d_C^n$ なので逆元も条件を満たす。従って射の集合は可換群で、合成の双加法性も各成分から従う。
+零射の族も条件を満たす。合成の双加法性から $d_D^n(-f^n)=-d_D^nf^n=(-f^{n+1})d_C^n$ なので逆元も条件を満たす。従って射の集合は可換群で、合成の双加法性も各成分から従う。
 
 全次数が零対象の複体は零対象である。二複体 $C^\bullet,D^\bullet$ の双積候補 $S^n=C^n\oplus D^n$ を取る。[有限双積](../CATB1-03/index.md#def-catb1-03-biproduct)の包含を $i_C^n,i_D^n$、射影を $p_C^n,p_D^n$ と書き、
 
@@ -163,7 +163,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb7-01-cohomology -->
-**定義の確認**。[加群の核・余核の構成](../CATB1-04/index.md#thm-catb1-04-module-category)によれば、可換群では核と像は部分群への包含で、余核は商群への射で表せる。その場合は
+**定義の確認**。[加群の核・余核の構成](../CATB1-04/index.md#thm-catb1-04-module-category)によれば、可換群では圏論的な核射および像の射は部分群への包含で、余核は商群への射で表せる。その場合は
 
 $$
 H^n(C^\bullet)=\ker d_C^n/\operatorname{im} d_C^{n-1}.
@@ -235,7 +235,7 @@ $$
 
 まず $d_D^nf^nk_C^n=f^{n+1}d_C^nk_C^n=0$ なので、[核の普遍性](../CATB1-04/index.md#def-catb1-04-kernel)から唯一の $z_f:Z_C^n\to Z_D^n$ が存在して $k_D^nz_f=f^nk_C^n$ を満たす。
 
-[コホモロジーの構成](#def-catb7-01-cohomology)の直前で用いた像分解を両複体で適用すると、
+[余鎖複体のコホモロジー](#def-catb7-01-cohomology)の直前で用いた像分解を両複体で適用すると、
 
 $$
 \begin{aligned}
@@ -311,7 +311,7 @@ $q_C$ を消去すれば、$w_DH^n(f)=H^{\prime n}(f)w_C$ を得る。したが�
 次数0,1,2に $\mathbb Z,\mathbb Z^2,\mathbb Z$ を置き、$d^0(x)=(x,2x)$、$d^1(a,b)=2a-b$ とする。他は零とする。余鎖複体か判定せよ。
 
 <!-- solution-start -->
-[余鎖複体](#def-catb7-01-cochain-complex)の条件を調べる。両射は整数係数の線形写像なので加法を保ち、隣接次数を結ぶ。$d^1d^0(x)=2x-2x=0$。残る合成は零射を含むから零である。従って余鎖複体である。
+[余鎖複体](#def-catb7-01-cochain-complex)の条件を調べる。両射は各成分で整数倍と和によって定義されるため加法を保ち、隣接次数を結ぶ。$d^1d^0(x)=2x-2x=0$。残る合成は零射を含むから零である。従って余鎖複体である。
 <!-- solution-end -->
 
 ### CATB7-01-A02 余鎖写像の条件
@@ -331,7 +331,7 @@ $q_C$ を消去すれば、$w_DH^n(f)=H^{\prime n}(f)w_C$ を得る。したが�
 次数0,1の二項複体 $\mathbb Z\xrightarrow{5}\mathbb Z$ の全次数のコホモロジーを求めよ。
 
 <!-- solution-start -->
-[コホモロジーの定義](#def-catb7-01-cohomology)を使う。次数0の核は $5x=0$ を満たす整数だけなので零、前の像も零。次数1の微分は零、核は整数全体、前の像は $5\mathbb Z$。従って $H^0=0$、$H^1=\mathbb Z/5\mathbb Z$、それ以外は対象が零なので $H^n=0$。
+[余鎖複体のコホモロジー](#def-catb7-01-cohomology)を使う。次数0の核は $5x=0$ を満たす整数だけなので零、前の像も零。次数1の微分は零、核は整数全体、前の像は $5\mathbb Z$。従って $H^0=0$、$H^1=\mathbb Z/5\mathbb Z$、それ以外は対象が零なので $H^n=0$。
 <!-- solution-end -->
 
 ### CATB7-01-A04 合成と和
@@ -353,7 +353,7 @@ $4(2x)=2(4x)$、$4(3x)=3(4x)$ だから双方とも余鎖写像である。[余�
 <!-- solution-start -->
 合成は $x\mapsto[rx]_m$ だから $x=1$ で $m$ が $r$ を割る必要がある。逆に $r=mt$（正整数 $t$）なら $[mtx]_m=0$。他の合成は零なので複体となる。
 
-[コホモロジーの定義](#def-catb7-01-cohomology)より中央の核は $m\mathbb Z$、像は $mt\mathbb Z$。$mx\mapsto[x]_t$ は全射で、その核は $mx$ のうち $t$ が $x$ を割るもの、すなわち $mt\mathbb Z$。商で同型が得られ $H^0\simeq\mathbb Z/t\mathbb Z$。$r>0$ なので左端の微分は単射、右端への微分は全射なので $H^{-1}=H^1=0$。他の次数も零。[完全性とコホモロジーの消滅](#thm-catb7-01-exact-cohomology)より全次数で完全となるのは $t=1$、すなわち $m=r$ のときである。
+[余鎖複体のコホモロジー](#def-catb7-01-cohomology)より中央の核は $m\mathbb Z$、像は $mt\mathbb Z$。$mx\mapsto[x]_t$ は全射で、その核は $mx$ のうち $t$ が $x$ を割るもの、すなわち $mt\mathbb Z$。商で同型が得られ $H^0\simeq\mathbb Z/t\mathbb Z$。$r>0$ なので左端の微分は単射、右端への微分は全射なので $H^{-1}=H^1=0$。他の次数も零。[完全性とコホモロジーの消滅](#thm-catb7-01-exact-cohomology)より全次数で完全となるのは $t=1$、すなわち $m=r$ のときである。
 <!-- solution-end -->
 
 ### CATB7-01-B02 誘導射の計算
@@ -417,7 +417,7 @@ $$
 3. 中央で誘導される射の具体式を求め、同型か判定せよ。複体自体の同型と区別せよ。
 
 <!-- solution-start -->
-第1問。$[12x]_3=0$、$[8x]_2=0$ なので合成は零。他は零射との合成である。[コホモロジーの定義](#def-catb7-01-cohomology)より中央の核・像はそれぞれ $3\mathbb Z,12\mathbb Z$ および $2\mathbb Z,8\mathbb Z$。$3t\mapsto[t]_4$ と $2s\mapsto[s]_4$ は双方とも全射で核がそれぞれ前の像だから
+第1問。$[12x]_3=0$、$[8x]_2=0$ なので合成は零。他は零射との合成である。[余鎖複体のコホモロジー](#def-catb7-01-cohomology)より中央の核・像はそれぞれ $3\mathbb Z,12\mathbb Z$ および $2\mathbb Z,8\mathbb Z$。$3t\mapsto[t]_4$ と $2s\mapsto[s]_4$ は双方とも全射で核がそれぞれ前の像だから
 
 $$
 H^0(C)\simeq\mathbb Z/4\mathbb Z,\qquad H^0(D)\simeq\mathbb Z/4\mathbb Z.
