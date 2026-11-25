@@ -1,0 +1,69 @@
+chapter: FLOER1-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLOER1-03
+  - GW1-04
+  - GW1-05
+  - GW1-06
+concepts:
+  - id: floer.local-moduli
+    name: "正則stripの局所解空間"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則stripの局所解空間）"]
+    requires: [floer.fredholm, gromov-witten.local-regular-moduli]
+  - id: floer.universal-transversality
+    name: "単射な内部点を持つstripの普遍横断性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（単射な内部点を持つstripの普遍横断性）"]
+    requires: [floer.fredholm, gromov-witten.universal-transversality]
+  - id: floer.unparametrized
+    name: "平行移動を除いたstripのモジュライ"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平行移動を除いたstripのモジュライ）"]
+    requires: [floer.ends, floer.finite-energy]
+  - id: floer.quotient-dimension
+    name: "作用断面による商の次元"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（作用断面による商の次元）"]
+    requires: [floer.unparametrized, floer.local-moduli, floer.action-energy]
+  - id: floer.no-bubbles
+    name: "完全境界での球面泡・円板泡の排除"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（完全境界での球面泡・円板泡の排除）"]
+    requires: [floer.exact-action, gromov-witten.energy-identity]
+  - id: floer.gradient-bound
+    name: "完全境界でのstripの一様勾配評価"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（完全境界でのstripの一様勾配評価）"]
+    requires: [floer.no-bubbles, floer.finite-energy]
+  - id: floer.compact-ends
+    name: "コンパクト像を持つ無泡stripの収束端"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（コンパクト像を持つ無泡stripの収束端）"]
+    requires: [floer.gradient-bound, floer.ends, floer.transverse-intersection]
+  - id: floer.broken
+    name: "折れ曲がったstripと折れ曲がり収束"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（折れ曲がったstripと折れ曲がり収束）"]
+    requires: [floer.unparametrized, floer.action-energy]
+  - id: floer.broken-compactness
+    name: "完全境界での折れ曲がりコンパクト性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（完全境界での折れ曲がりコンパクト性）"]
+    requires: [floer.broken, floer.gradient-bound, floer.compact-ends, floer.action-energy]
+  - id: floer.low-dimensional-limits
+    name: "無泡かつ正則な次数付きstripの低次元極限"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（無泡かつ正則な次数付きstripの低次元極限）"]
+    requires: [floer.broken-compactness, floer.quotient-dimension, floer.relative-index]
