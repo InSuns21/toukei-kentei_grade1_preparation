@@ -27,7 +27,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-catb4-05-cocartesian -->
-**定義の確認**。積圏の射影 $p:\mathbf{Set}\times\mathcal B\to\mathcal B$ を取る。任意の集合 $X$ と $u:a\to b$ に対し、$f=(1_X,u):(X,a)\to(X,b)$ とする。
+**定義の確認**。[積圏](../../CAT/CAT1-05/index.md#def-cat1-05-product)の射影 $p:\mathbf{Set}\times\mathcal B\to\mathcal B$ を取る。任意の集合 $X$ と $u:a\to b$ に対し、$f=(1_X,u):(X,a)\to(X,b)$ とする。
 
 任意の $z=(Z,c)$、$v:b\to c$ と $k=(q,vu)$ に対し、$h=(q,v)$ と置けば
 
@@ -328,7 +328,31 @@ $$
 
 基底を $\mathcal B^{op}$ とし、値を $\mathcal G_a^{op}$ とする反変擬関手 $F$ を作る。$u^{op}:b\to a$ に対する再添字関手は $(u_!)^{op}:\mathcal G_a^{op}\to\mathcal G_b^{op}$ である。
 
-比較は $(\mu_{v,u}^{-1})^{op}$、単位は $\eta_a^{op}$ とする。自然同型を反対圏に移すと向きが逆になるので、比較の型は $(v_!)^{op}(u_!)^{op}\Rightarrow((vu)_!)^{op}$ となる。三重条件は共変の三重条件を逆射にしてさらに反対圏へ移した等式であり、単位条件も同じ操作で反変の単位条件となる。従って[反変擬関手](../CATB4-03/index.md#def-catb4-03-indexed)の仮定が成立する。
+比較は $(\mu_{v,u}^{-1})^{op}$、単位は $\eta_a^{op}$ とする。自然同型を反対圏に移すと向きが逆になるので、比較の型は $(v_!)^{op}(u_!)^{op}\Rightarrow((vu)_!)^{op}$ となる。三重条件の両辺の逆を取ると
+
+$$
+w_!(\mu_{v,u,x}^{-1})\mu_{w,vu,x}^{-1}
+=\mu_{w,v,u_!x}^{-1}\mu_{wv,u,x}^{-1}.
+$$
+
+反対圏へ移すと合成順序が逆になり、これは
+
+$$
+\alpha_{w^{op},(vu)^{op},x}\,
+(w_!)^{op}\alpha_{v^{op},u^{op},x}
+=\alpha_{(wv)^{op},u^{op},x}\,
+\alpha_{w^{op},v^{op},u_!x}
+$$
+
+となる。ここで反変の比較 $\alpha_{v^{op},u^{op}}$ は $(\mu_{v,u}^{-1})^{op}$ を表す。これは反変の三重条件である。左右の単位条件から
+
+$$
+\mu_{1_b,u,x}^{-1}=\eta_{b,u_!x},
+\qquad
+\mu_{u,1_a,x}^{-1}=u_!(\eta_{a,x})
+$$
+
+を得るので、反対圏で比較の片方の基底射が恒等射の場合には、それぞれ単位 $\eta_b^{op}$ と $(u_!)^{op}\eta_a^{op}$ になる。自然性も各 $\mu^{-1},\eta$ の自然性の等式を反転したものなので成立する。従って[反変擬関手](../CATB4-03/index.md#def-catb4-03-indexed)の仮定が成立する。
 
 [Grothendieck構成の圏構造](../CATB4-04/index.md#thm-catb4-04-category)を適用し、その全圏の反対圏を取る。反変側で $(u^{op},f^{op}):(b,y)\to(a,x)$ となる。二射の反変側の合成の第二成分は
 
@@ -410,7 +434,7 @@ $j_0,j_1$ の像は合わせて $(u_!X)_2$ の全元を尽くし、各元の値�
 **詳細解答。** $v:1\to2$ と $k:\{s,t\}\to\{m,n\}$ を $k(s)=m,k(t)=n$ と取る。[coCartesian射の定義](#def-catb4-05-cocartesian)から媒介射 $(v,h)$ は $hf=k$ を満たす必要がある。しかし $hf(s)=h(r)=hf(t)$ であり、$m\ne n$ と矛盾する。従って存在条件が成立しない。
 <!-- solution-end -->
 
-### CATB4-05-B01 反対圏の入力を追う
+### CATB4-05-B01 持ち上げの合成を直接証明する
 
 - Level: B
 
