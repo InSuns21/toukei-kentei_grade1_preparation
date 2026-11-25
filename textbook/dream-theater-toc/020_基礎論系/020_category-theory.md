@@ -73,3 +73,4 @@
 70. [CATB4-04 Grothendieck構成](textbook/volumes/dream_thater/基礎論系/CATB/CATB4-04/index.md)
 71. [CATB4-05 余ファイブレーションと双対](textbook/volumes/dream_thater/基礎論系/CATB/CATB4-05/index.md)
 72. [CATB4-06 基底変換とファイバーごとの構造](textbook/volumes/dream_thater/基礎論系/CATB/CATB4-06/index.md)
+73. [CATB4-07 部分対象ファイブレーション](textbook/volumes/dream_thater/基礎論系/CATB/CATB4-07/index.md)

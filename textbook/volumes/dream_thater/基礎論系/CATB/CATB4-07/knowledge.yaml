@@ -1,0 +1,41 @@
+chapter: CATB4-07
+scope: dream-theater
+coverage: complete
+prerequisites: [CATB4-06, CATB1-02, CATB4-01, CAT2-08, CAT2-03]
+concepts:
+  - id: category.subobject
+    name: "部分対象"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（部分対象）"]
+    requires: [category.monomorphism, category.isomorphism]
+  - id: category.subobject-inverse-image
+    name: "部分対象の逆像"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（部分対象の逆像）"]
+    requires: [category.subobject, category.pullback, category.pullback-mono]
+  - id: category.subobject-fibration
+    name: "部分対象ファイブレーション"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（部分対象ファイブレーション）"]
+    requires: [category.subobject, category.fibration, category.subobject-inverse-image]
+  - id: category.subobject-cartesian-lift
+    name: "部分対象のCartesian持ち上げ"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（部分対象のCartesian持ち上げ）"]
+    requires: [category.subobject-fibration, category.cartesian-morphism, category.fiber-category]
+  - id: category.subobject-image-adjunction
+    name: "部分対象の像と逆像の随伴"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（部分対象の像と逆像の随伴）"]
+    requires: [category.subobject-inverse-image, category.regular-category, category.regular-factorization-base-change, category.poset-adjunction]
+  - id: category.subobject-beck-chevalley
+    name: "部分対象のBeck–Chevalley等式"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（部分対象のBeck–Chevalley等式）"]
+    requires: [category.subobject-image-adjunction, category.regular-factorization-base-change, category.pullback]
