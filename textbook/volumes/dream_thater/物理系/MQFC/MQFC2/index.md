@@ -62,7 +62,7 @@ $$
 \le p_{0,0}(f)\|T\psi\|\|\chi\|
 $$
 
-となるので[緩増加分布](../MQFC1/index.md#def-mqfc1-tempered)の条件を満たします。対角表示で随伴条件を確かめられるのは、基底 $e_n$ が正規直交し、固有値 $n$ が実数だからです。実際、有限和で
+となるので[緩増加分布](../MQFC1/index.md#def-mqfc1-tempered)の条件を満たします。対角表示で随伴条件を確かめられるのは、基底 $e_n$ が正規直交し、$Te_n=ne_n$ の係数 $n$ が実数だからです。実際、有限和で
 
 $$
 \begin{aligned}
@@ -87,7 +87,7 @@ $$
 これで随伴条件も確認できました。第 $n$ 単位ベクトルで $\|Te_n\|=n$ となるため、$f(0)\ne0$ なら作用素ノルムは有限ではありません。
 <!-- definition-example-end -->
 
-稠密であるだけでは積は保証されません。例えば同じ $D$ で $B\psi=\psi_1 v$、$v_n=1/n$ とすれば $\|v\|^2=\sum_{n\ge1}n^{-2}<\infty$ であり、$\|B\psi\|=|\psi_1|\|v\|\le\|\psi\|\|v\|$ なので $B:D\to\ell^2$ は有界です。しかし$Be_1=v\notin D$ なので上の $TBe_1$ は定義されません。さらに成分式で延長しようとしても $(nv_n)_n=(1,1,\dots)$ は二乗可積分ではありません。不変性が積の定義を保証していたことが分かります。
+稠密であるだけでは積は保証されません。例えば同じ $D$ で $B\psi=\psi_1 v$、$v_n=1/n$ とすれば $\|v\|^2=\sum_{n\ge1}n^{-2}<\infty$ であり、$\|B\psi\|=|\psi_1|\|v\|\le\|\psi\|\|v\|$ なので $B:D\to\ell^2$ は有界です。しかし $Be_1=v\notin D$ なので上の $TBe_1$ は定義されません。さらに成分式で延長しようとしても $(nv_n)_n=(1,1,\dots)$ は二乗可積分ではありません。不変性が積の定義を保証していたことが分かります。
 
 ## 2. 随伴条件が保証すること
 
@@ -126,7 +126,7 @@ $$
 $D$ は稠密なので $y=0$ です。従ってグラフの閉包には $(0,y)$ で $y\ne0$ の点が存在しません。閉包は線形部分空間なので、同じ入力に二つの出力があれば差がそのような点になります。よってグラフの閉包は作用素のグラフであり、可閉です。実 $f$ なら $\bar f=f$ なので[対称作用素の条件](../../../解析系/QM/QM5/index.md#def-qm5-symmetric)を満たします。
 <!-- proof-end -->
 
-[自己共役作用素](../../../解析系/QM/QM5/index.md#def-qm5-self-adjoint)では定義域も随伴と一致する必要があります。上の包含から自己共役性や閉包の自己共役性を結論してはいけません。例えば第1節の対角作用素は、[最小対角作用素の随伴](../../../解析系/QM/QM5/index.md#prop-qm5-minimal-diagonal-adjoint)により随伴が有限列より広い領域を持ちます（演習B1で再計算します）。ただしこの例の閉包は[最大実対角作用素](../../../解析系/QM/QM5/index.md#thm-qm5-real-diagonal-self-adjoint)として自己共役です。元の作用素の自己共役性と閉包の自己共役性は区別します。
+[自己共役作用素](../../../解析系/QM/QM5/index.md#def-qm5-self-adjoint)では定義域も随伴と一致する必要があります。上の包含から自己共役性や閉包の自己共役性を結論してはいけません。例えば第1節の対角作用素は、[最小対角作用素の随伴](../../../解析系/QM/QM5/index.md#prop-qm5-minimal-diagonal-adjoint)により随伴が有限列より広い領域を持ちます（演習B1で再計算します）。ただしこの例は[QM5の本質的自己共役性の直接例](../../../解析系/QM/QM5/index.md#def-qm5-essential-self-adjoint)と同じであり、閉包は自己共役です。元の作用素の自己共役性と閉包の自己共役性は区別します。
 
 ## 3. 自由場を粒子数で制御する
 
@@ -181,7 +181,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-消滅の成分式に積分のCauchy–Schwarzの不等式を適用し、残る粒子変数について積分します。
+消滅の成分式で残る粒子変数 $\boldsymbol p_1,\ldots,\boldsymbol p_n$ を固定し、積分変数 $\boldsymbol q$ についてCauchy–Schwarzの不等式を使うと
+
+$$
+|(a(u)\psi)_n(\boldsymbol p_1,\ldots,\boldsymbol p_n)|^2
+\le(n+1)\|u\|^2\int|\psi_{n+1}(\boldsymbol q,\boldsymbol p_1,\ldots,\boldsymbol p_n)|^2d\mu(\boldsymbol q).
+$$
+
+残る粒子変数について積測度で積分し、直和ノルムを取ります。被積分関数は非負で二乗可積分なので積分の順序を変えられます。
 
 $$
 \begin{aligned}
@@ -324,7 +331,7 @@ $$
 従って随伴条件も成立します。
 <!-- proof-end -->
 
-真空に作用させると消滅項が零になり、一粒子成分 $u_f$ だけが残ります。例えば実Gaussian $f(t,\boldsymbol x)=e^{-t^2-|\boldsymbol x|^2}$ なら、各座標のGaussian Fourier変換を積にして
+真空に作用させると消滅項が零になり、一粒子成分 $u_f$ だけが残ります。例えば実Gaussian $f(t,\boldsymbol x)=e^{-t^2-|\boldsymbol x|^2}$ なら、[GaussianのFourier変換](../../../解析系/FOU/FOU3/index.md#lem-fou3-gaussian-transform)で $a=1$ を使います。時間の周波数には $-E$、空間の周波数には $p_j$ を代入します。各積分は絶対収束するので四つの積に分けられ、規格化係数は $(\sqrt\pi)^4=\pi^2$ です。よって
 
 $$
 \widetilde f(E,\boldsymbol p)=\pi^2e^{-(E^2+|\boldsymbol p|^2)/4},\qquad
@@ -527,12 +534,12 @@ $$
 - Level: B
 - 目安時間: 20分
 
-質量 $m>0$ とし、$h(t,\boldsymbol x)=e^{-t^2-|\boldsymbol x|^2}$、$f=(\partial_t^2-\Delta+m^2)h$ と置く。$f$ が非零であるにもかかわらず $\Phi(f)=0$ になることを示せ。
+質量 $m>0$ とし、$\partial_t$ は空間位置を固定した時間微分、$\Delta=\sum_{j=1}^3\partial_{x_j}^2$ は時間を固定した空間Laplacianとする。$h(t,\boldsymbol x)=e^{-t^2-|\boldsymbol x|^2}$、$f=(\partial_t^2-\Delta+m^2)h$ と置く。$f$ が非零であるにもかかわらず $\Phi(f)=0$ になることを示せ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-$\partial_t$ は空間位置を固定した時間微分、$\Delta=\sum_{j=1}^3\partial_{x_j}^2$ は時間を固定した空間Laplacianです。実際、
+時間と空間の偏微分をそれぞれ二回行います。
 
 $$
 \partial_t^2h=(4t^2-2)h,
@@ -563,7 +570,7 @@ $E=\omega_{\boldsymbol p}$ を代入すると係数が零です。従って $u_f
 - Level: B
 - 目安時間: 20分
 
-自由場で $G_{ij}=W_2(\bar f_i,f_j)$ と置く。任意の有限族と複素係数 $c_j$ について $c^*Gc$ を求め、その零条件を述べよ。$f_2=if_1$ の場合の非零の零方向も求めよ。
+自由場で有限族 $f_1,\ldots,f_n$ に対し $G_{ij}=W_2(\bar f_i,f_j)$ と置く。複素係数の列ベクトル $c\in\mathbb C^n$ の共役転置を $c^*$ とする。$c^*Gc$ を求め、その零条件を述べよ。$f_2=if_1$ の場合の非零の零方向も求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
