@@ -4,23 +4,23 @@ coverage: complete
 prerequisites: [MQFC5, MQFC6, MQFC7]
 forward_references: []
 concepts:
-  - id: mqfc.reflection-positivity
-    name: "反射陽性"
+  - id: mqfc.positive-time-reflection-form
+    name: "正時間多項式の反射形式"
     kind: definition
     introduction: formal
-    requires: [mqfc.characteristic-functional, mqfc.schwinger-moments]
+    requires: [qft.reflection-positivity, mqfc.characteristic-functional, mqfc.schwinger-moments]
   - id: mqfc.time-exponential-kernel
     name: "自由共分散の時間指数核"
     kind: theorem
     introduction: formal
-    requires: [mqfc.fourier, mqfc.euclidean-covariance-form]
+    requires: [mqfc.fourier, mqfc.euclidean-covariance-form, qft.euclidean-free-covariance]
   - id: mqfc.reflected-covariance
     name: "自由場の反射共分散の因子分解"
     kind: theorem
     introduction: formal
-    requires: [mqfc.time-exponential-kernel, mqfc.euclidean-covariance-form, mqfc.reflection-positivity]
+    requires: [mqfc.time-exponential-kernel, mqfc.euclidean-covariance-form, mqfc.positive-time-reflection-form, qft.free-reflection-form]
   - id: mqfc.gaussian-reflection-positivity
     name: "Gaussian場の多項式反射陽性"
     kind: theorem
     introduction: formal
-    requires: [mqfc.reflection-positivity, mqfc.gaussian-consistency, mqfc.reflected-covariance, mqfc.free-gaussian-measure]
+    requires: [mqfc.positive-time-reflection-form, mqfc.gaussian-consistency, mqfc.reflected-covariance, mqfc.free-gaussian-measure]
