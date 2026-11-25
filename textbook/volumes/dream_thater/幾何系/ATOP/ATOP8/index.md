@@ -237,7 +237,7 @@ $r\ge2$ とし、$B_{r-1}$ の結果を仮定します。各円周の基点と�
 
 [円周の実直線による被覆](../ATOP5/index.md#prop-atop5-circle-cover) を一周分の開区間に制限すると、指定点を除いた円周と開区間との同相を得ます。基点の座標を $s_*$ とすると、$(1-h)s+hs_*$ によってその弧を基点へ縮められます。$U$ では最後の円周から一点を除いた弧を縮めて $B_{r-1}$ を固定し、$V$ では最初の $r-1$ 本から一点ずつ除いた弧を縮めて最後の円周を固定します。各円周との交わりはそれぞれの開集合内で閉であり、基点上で変形が一致するので貼り合わせは連続です。$U\cap V$ ではすべての弧を同時に基点へ縮めます。三集合はすべて弧状連結で基点を含みます。
 
-[強変形レトラクトと基本群](../ATOP4/index.md#prop-atop4-deformation-fundamental-group)、帰納法の仮定および円周の基本群から、$\pi_1(U,*)\cong F_{r-1}$、$\pi_1(V,*)\cong\mathbb Z$ です。[可縮空間は単連結](../ATOP4/index.md#prop-atop4-contractible-simply-connected) により交わりの基本群は自明です。[van Kampen定理](../ATOP7/index.md#thm-atop7-van-kampen) では交わりから来る関係式が自明なので
+[強変形レトラクトと基本群](../ATOP4/index.md#prop-atop4-deformation-fundamental-group)、帰納法の仮定および[円周の基本群](../ATOP6/index.md#thm-atop6-fundamental-group-circle)から、$\pi_1(U,*)\cong F_{r-1}$、$\pi_1(V,*)\cong\mathbb Z$ です。[可縮空間は単連結](../ATOP4/index.md#prop-atop4-contractible-simply-connected) により交わりの基本群は自明です。[van Kampen定理](../ATOP7/index.md#thm-atop7-van-kampen) では交わりから来る関係式が自明なので
 
 $$
 \pi_1(B_r,*)\cong F_{r-1}*\mathbb Z.
