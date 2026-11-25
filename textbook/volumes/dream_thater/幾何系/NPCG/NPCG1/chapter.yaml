@@ -18,7 +18,7 @@ theorems:
   - { id: NPCG1-LEM-01, name: 擬距離の四点評価 }
   - { id: NPCG1-THM-01, name: 零距離商 }
   - { id: NPCG1-THM-02, name: 擬距離のCauchy列による完備化 }
-canonical_examples: [横座標の擬距離, 零距離商と境界点, arctanによる距離]
+canonical_examples: [横座標の擬距離, 零距離商と境界点, 有理関数による距離]
 problem_patterns: [NPCG1-PSEUDOMETRIC, NPCG1-QUOTIENT, NPCG1-FOUR-POINT, NPCG1-CAUCHY, NPCG1-COMPLETION, NPCG1-EXTENSION]
 past_exam_alignment: []
 integrated_exam_problems: []
