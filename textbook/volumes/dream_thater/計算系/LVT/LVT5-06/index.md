@@ -192,7 +192,7 @@ $$
 | $T_f(s,u)$ | `trace f s u` |
 | $E_f(s,u)$ | `finish f s u` |
 | $uv$ | `u ++ v` |
-| $|u|$ | `u.length` |
+| $\lvert u\rvert$ | `u.length` |
 
 Lean の `f s a` は応答と次状態の組で、`(f s a).2` は次状態です。`traceAppend` と `traceLength` の `generalizing s` は、開始状態を固定しない帰納命題に対応します。
 
