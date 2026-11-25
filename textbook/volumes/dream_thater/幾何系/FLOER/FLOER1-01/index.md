@@ -50,10 +50,10 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（適合構造に対するLagrange境界の完全実性）**
-> 実 $2n$ 次元シンプレクティックベクトル空間に適合複素構造 $J$ を固定する。任意のLagrange部分空間 $W$ は完全実であり、$V=W\oplus JW$ が成立する。
+> 実 $2n$ 次元シンプレクティックベクトル空間 $V$ に適合複素構造 $J$ を固定する。任意のLagrange部分空間 $W$ は完全実であり、$V=W\oplus JW$ が成立する。
 <!-- formal-statement-end -->
 
-計量で測れば $W$ と $JW$ は直交する。したがって境界の方向を基底に選ぶと、残り半分は $J$ を作用させて作れる。
+[Lagrange部分空間と計量直交補](../../SYM/SYM8/index.md#prop-sym8-lagrangian-orthogonal)の関係を完全実性の言葉に直す。計量で測れば $W$ と $JW$ は直交する。したがって境界の方向を基底に選ぶと、残り半分は $J$ を作用させて作れる。
 
 <!-- proof-start -->
 ### 証明
@@ -87,7 +87,7 @@ $$
 dF_{(0,0)}(h,k)=df_0(0)h-df_1(0)k.
 $$
 
-横断性からこの写像は全射である。定義域と値域はともに $2n$ 次元なので可逆。逆関数定理により $F$ は原点の近傍で一対一となり、零点は $(0,0)$ だけである。埋め込みの局所表示は十分小さい標的近傍で部分多様体全体を表すので、そこには他の交点がない。
+横断性からこの写像は全射である。定義域と値域はともに $2n$ 次元なので可逆。[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により $F$ は原点の近傍で一対一となり、零点は $(0,0)$ だけである。埋め込みの局所表示は十分小さい標的近傍で部分多様体全体を表すので、そこには他の交点がない。
 <!-- proof-end -->
 
 孤立性と有限性は区別する。両者がコンパクトなら交わりはコンパクトな離散集合なので有限である。非コンパクトな場合、例えば $\mathbb R$ と $y=\sin x$ のグラフは無限個の横断交叉点をもつ。
@@ -100,7 +100,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Lagrange境界条件付きstrip）**
-> 適合概複素構造 $J$ を持つシンプレクティック多様体 $X$ とLagrange部分多様体 $L_0,L_1$ に対し、滑らかな写像 $u:S_R\to X$ が次の方程式と条件を満たすとき、Lagrange境界条件付きの擬正則stripという。
+> $R>0$ と有限帯 $S_R=[-R,R]\times[0,1]$ を取る。適合概複素構造 $J$ を持つシンプレクティック多様体 $X$ とLagrange部分多様体 $L_0,L_1$ に対し、滑らかな写像 $u:S_R\to X$ が次の方程式と条件を満たすとき、Lagrange境界条件付きの擬正則stripという。
 
 $$
 u_s+J(u)u_t=0,\qquad
@@ -111,17 +111,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-floer1-01-strip -->
-**定義の確認**。$X=\mathbb C$、$J=i$、$L_0=\mathbb R$、$L_1=e^{i\theta}\mathbb R$（$0<\theta<\pi$）を取る。両者は一次元で $\omega$ の制限は零。$u(s,t)=e^{\theta(s+it)}$ とすると
+**定義の確認**。$X=\mathbb C$、$J=i$、$L_0=\mathbb R$、$L_1=e^{i\theta}\mathbb R$（$0<\theta<\pi$）を取る。標準形式 $\omega=dx\wedge dy$ に対し $J=i$ は適合し、$g$ は標準内積となる。両者は埋め込まれた一次元直線で $\omega$ の制限は零。$u(s,t)=e^{\theta(s+it)}$ とすると
 
 $$
 u_s=\theta u,\qquad u_t=i\theta u,\qquad
 u_s+i u_t=\theta u-\theta u=0.
 $$
 
-下辺は正の実数、上辺は $e^{i\theta}$ の正の実数倍なので両条件を満たす。有限の $R$ では滑らかである。原点の定数写像も解である。非定数の例は無限帯の両端で有限エネルギーになるとは限らない。
+下辺は正の実数、上辺は $e^{i\theta}$ の正の実数倍なので両条件を満たす。有限の $R$ では滑らかである。原点の定数写像も解である。この非定数例を無限帯へ延長すると $s\to+\infty$ で発散する。端での収束とエネルギーは次講で扱う。
 <!-- definition-example-end -->
 
-[局所Cauchy–Riemann方程式](../../GW/GW1-02/index.md#prop-gw1-02-local-cr)と方程式そのものは同じである。異なるのは境界での自由度である。解 $u$ を変分するとき、端を含めて自由に動かしてはいけない。
+[局所Cauchy–Riemann方程式](../../GW/GW1-02/index.md#prop-gw1-02-local-cr)と方程式そのものは同じである。異なるのは境界での自由度である。解 $u$ を変分するとき、水平辺の像は対応する部分多様体に留める必要がある。
 
 <a id="prop-floer1-01-linearization"></a>
 
@@ -167,7 +167,7 @@ $\varepsilon=0$ に制限して最初の項 $\nabla_s\xi$ を加えると主張�
 
 <!-- formal-statement-start -->
 > **定理（平坦実境界での反射と一階評価）**
-> 上半平面上で境界まで滑らかなコンパクト台関数 $v:H\to\mathbb C^n$ が $v(s,0)\in\mathbb R^n$ を満たすとする。下半平面へ $V(s,t)=\overline{v(s,-t)}$ と反射し、上半平面では $V=v$ とする。この関数は全平面の $H^1$ に属し、次が成立する。
+> 上半平面 $H=\{t\ge0\}$ と作用素 $P=\partial_s+i\partial_t$ を取る。境界まで滑らかなコンパクト台関数 $v:H\to\mathbb C^n$ が $v(s,0)\in\mathbb R^n$ を満たすとする。下半平面へ $V(s,t)=\overline{v(s,-t)}$ と反射し、上半平面では $V=v$ とする。この関数は全平面の $H^1$ に属し、次が成立する。
 
 $$
 \|\partial_sv\|_2^2+\|\partial_tv\|_2^2
@@ -284,7 +284,7 @@ $$
 C_1(\|D(Tv)\|_2+\|Tv\|_2).
 $$
 
-**貼り合わせ。** コンパクトな有限帯を有限個のこうした近傍で覆い、実数値の滑らかな分割一 $\rho_k$ を取る。各近傍は相対的な開集合とし、縦辺・角を含む場合も切断は縦辺近傍で零である。$\rho_k\xi$ は境界条件を保つ。
+**貼り合わせ。** コンパクトな有限帯を有限個のこうした近傍で覆い、実数値の滑らかな[1の分割](../../GEO/GEO4/index.md#thm-geo4-partition-of-unity) $\rho_k$ を取る（開近傍を平面にも延ばしてから制限する）。各近傍は相対的な開集合とし、縦辺・角を含む場合も切断は縦辺近傍で零である。$\rho_k\xi$ は境界条件を保つ。
 
 $$
 D(\rho_k\xi)=\rho_k D\xi+
@@ -416,6 +416,39 @@ $$
 $$
 
 が加わる。この項は $2i\chi(s)\delta_0(t)$ であって $L^2$ 関数ではない。実際、$\psi_\varepsilon(s,t)=\chi(s)\rho(t/\varepsilon)$、$\rho$ は滑らかなコンパクト台で $\rho(0)=1$ と取ると $\|\psi_\varepsilon\|_2^2=\varepsilon\|\chi\|_2^2\|\rho\|_2^2\to0$ だが境界項は $2i\|\chi\|_2^2$ のままである。もし $L^2$ 関数ならCauchy–Schwarz不等式により作用は零へ収束するはずで、矛盾する。
+<!-- solution-end -->
+
+<a id="ex-floer1-01-b04"></a>
+#### FLOER1-01-B04 変化する概複素構造の線形化
+- Level: B
+
+標準平面 $(q,p)$ で $J(q,p)$ を行列
+$$
+J(q,p)=\begin{pmatrix}0&-e^{-q}\\ e^q&0\end{pmatrix}
+$$
+で定める。$S_1$ 上の $u(s,t)=(\log(s+2),t)$ と、境界 $L_0=\{p=0\},L_1=\{p=1\}$ を取る。$J$ の適合性とstripの方程式を確認し、平坦接続で変分 $\xi=(h,k)$ の線形化を求めよ。
+
+<!-- solution-start -->
+**詳細解答**。$J^2=-I$。標準形式の行列を $\Omega=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ とすると $\Omega J=\operatorname{diag}(e^q,e^{-q})$ は対称正定値である。[適合性と正定値内積の同値](../../SYM/SYM8/index.md#thm-sym8-compatible-metric)から $J$ は適合する。両水平直線は実一次元で形式の制限は零なのでLagrangeである。$s+2\ge1$ だから $u$ は滑らかで、境界の $p$ 座標はそれぞれ0と1。さらに
+$$
+u_s=((s+2)^{-1},0),\qquad u_t=(0,1).
+$$
+$J(u)u_t=(-(s+2)^{-1},0)$ となり $u_s+J(u)u_t=0$。変分の境界条件は $k(s,0)=k(s,1)=0$ である。[stripの境界条件の線形化](#prop-floer1-01-linearization)の最後の項は $J$ の $q$ 微分だけを使うから
+$$
+(\nabla_\xi J)u_t
+=h\begin{pmatrix}0&e^{-q}\\ e^q&0\end{pmatrix}_{q=\log(s+2)}
+\begin{pmatrix}0\\1\end{pmatrix}
+=\begin{pmatrix}h/(s+2)\\0\end{pmatrix}.
+$$
+他の二項 $\partial_s\xi$、$J(u)\partial_t\xi$ を加えると
+$$
+D\xi=
+\begin{pmatrix}
+h_s-k_t/(s+2)+h/(s+2)\\
+k_s+(s+2)h_t
+\end{pmatrix}.
+$$
+$h/(s+2)$ は変分の微分を含まないが、$J$ が変化するため必要な項である。
 <!-- solution-end -->
 
 ### Level C
