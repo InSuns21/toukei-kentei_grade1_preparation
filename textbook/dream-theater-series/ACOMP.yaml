@@ -34,7 +34,7 @@ chapters:
     title: "VNP・Boolean和：VP包含と変数数・次数境界"
   - id: ACOMP8
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP8
-    status: planned
+    status: completed
     title: "p-projectionとc-reduction：閉性と帰着の方向"
   - id: ACOMP9
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP9

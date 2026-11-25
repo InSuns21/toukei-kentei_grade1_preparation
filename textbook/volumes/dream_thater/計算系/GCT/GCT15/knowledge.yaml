@@ -1,0 +1,47 @@
+chapter: GCT15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GCT14
+  - GCT1
+  - GCT9
+  - AUT2
+  - CMP2
+forward_references: []
+concepts:
+  - id: graph-counting.weighted-automaton
+    name: 重み付き有限オートマトン
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重み付き有限オートマトン）"]
+    requires: [theoretical-computer-science.dfa, theoretical-computer-science.word]
+  - id: graph-counting.automaton-matrix-evaluation
+    name: 走行総和の行列積表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（走行総和の行列積表示）"]
+    requires: [graph-counting.weighted-automaton, graph-counting.weighted-walk]
+  - id: graph-counting.automaton-all-words
+    name: 全入力語の長さ別総和
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全入力語の長さ別総和）"]
+    requires: [graph-counting.automaton-matrix-evaluation]
+  - id: graph-counting.weighted-tape-bounded-sum
+    name: 重み付きテープ機械の有界受理総和
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重み付きテープ機械の有界受理総和）"]
+    requires: [theoretical-computer-science.nondeterministic-tm, theoretical-computer-science.tm-configuration]
+  - id: graph-counting.tape-layered-count
+    name: テープ機械の時間層による受理総和
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（テープ機械の時間層による受理総和）"]
+    requires: [graph-counting.weighted-tape-bounded-sum, theoretical-computer-science.tm-finite-prefix]
+  - id: graph-counting.tape-weight-multiplicity
+    name: 非負整数重みの分岐による実現
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（非負整数重みの分岐による実現）"]
+    requires: [graph-counting.weighted-tape-bounded-sum, theoretical-computer-science.nondeterministic-tm]
