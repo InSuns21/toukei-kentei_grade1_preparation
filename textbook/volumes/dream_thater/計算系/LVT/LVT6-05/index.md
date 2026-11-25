@@ -39,7 +39,7 @@ IDは空でない英数字・ハイフンの文字列とします。要求に含
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt6-05-permission -->
-**定義の確認。** 認証済み editor のIDが u1、所属が t1、project の所有者が u1、所属が t1 なら update に対して b=t=o=true、v=editor、a=update です。三番目の条件を満たすため P は成立します。project の所属だけ t2 に変えると t=false で、所有者の一致が残っていても P は不成立です。未認証なら b=false であり、admin/read でも P は不成立です。
+**定義の確認**： 認証済み editor のIDが u1、所属が t1、project の所有者が u1、所属が t1 なら update に対して b=t=o=true、v=editor、a=update です。三番目の条件を満たすため P は成立します。project の所属だけ t2 に変えると t=false で、所有者の一致が残っていても P は不成立です。未認証なら b=false であり、admin/read でも P は不成立です。
 <!-- definition-example-end -->
 
 ## 2. 判定関数の両方向を証明する
@@ -99,7 +99,7 @@ P(r) より b=t=true なので入口検査は通過する。第一条件 v=admin
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lvt6-05-route -->
-**定義の確認。** 形式が正しく、認証済みの editor が同一テナントの他人の資源を更新すると、valid=true、b=t=true、o=false なので D=false。経路は authenticated で止まる三要素の列です。同じ要求の所有者だけ本人に変えると D=true になり、checked、effect がこの順で追加されます。
+**定義の確認**： 形式が正しく、認証済みの editor が同一テナントの他人の資源を更新すると、valid=true、b=t=true、o=false なので D=false。経路は authenticated で止まる三要素の列です。同じ要求の所有者だけ本人に変えると D=true になり、checked、effect がこの順で追加されます。
 <!-- definition-example-end -->
 
 <a id="prop-lvt6-05-route-safe"></a>
