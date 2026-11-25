@@ -13,7 +13,7 @@
 <!-- formal-statement-start -->
 > **定義（テンソルの直和）**
 >
-> 体 $K$ 上の有限次元空間 $V_a,W_a$（$1\le a\le d$、$d\ge2$）と $t\in\bigotimes_a V_a$、$s\in\bigotimes_a W_a$ に対し、$i_a:V_a\to V_a\oplus W_a$、$j_a:W_a\to V_a\oplus W_a$ を上記の包含写像とする。直和 $t\oplus s$ は $\bigotimes_a(V_a\oplus W_a)$ の元
+> 体 $K$ 上の有限次元空間 $V_a,W_a$（$1\le a\le d$、$d\ge2$）と $t\in\bigotimes_a V_a$、$s\in\bigotimes_a W_a$ に対し、$i_a:V_a\to V_a\oplus W_a$、$j_a:W_a\to V_a\oplus W_a$ を $i_a(v)=(v,0)$、$j_a(w)=(0,w)$ で定める包含写像とする。直和 $t\oplus s$ は $\bigotimes_a(V_a\oplus W_a)$ の元
 >
 $$
 t\oplus s=(\bigotimes_a i_a)t+(\bigotimes_a j_a)s
@@ -138,7 +138,7 @@ $$
 =\bigotimes_a(B_aA_av_a).
 $$
 
-単純テンソルは空間全体を張るので、二つの線形写像は全体で一致します。従って $u=(\bigotimes_a B_aA_a)t$ です。各 $B_aA_a:V_a\to U_a$ は線形写像であり、$u\preceq t$ が成立します。
+[多因子テンソル積の存在・基底・一意性](../TSP1/index.md#thm-tsp1-multifactor-basis) により単純テンソルは空間全体を張るので、二つの線形写像は全体で一致します。従って $u=(\bigotimes_a B_aA_a)t$ です。各 $B_aA_a:V_a\to U_a$ は線形写像であり、$u\preceq t$ が成立します。
 <!-- proof-end -->
 
 反対称性は一般には成立しません。$d=3$ として $t=1^{\otimes3}\in K^{\otimes3}$、$s=e_1^{\otimes3}\in(K^2)^{\otimes3}$ を取ります。各位置で $1\mapsto e_1$ とすれば $s\preceq t$、逆に $e_1\mapsto1,e_2\mapsto0$ とすれば $t\preceq s$ です。次元の組が異なるため元のデータは等しくありません。使われない座標を付け足すだけでは変換能力は変わらないのです。
@@ -155,7 +155,7 @@ $$
 **定義の確認**。上の $t=1^{\otimes3}$、$s=e_1^{\otimes3}$ では、各位置の包含と射影がそれぞれの変換を実現します。双方の制限が成立しているため $t\sim s$ です。空間の次元が一致することは条件ではありません。
 <!-- definition-example-end -->
 
-この関係は同値関係です。反射性は制限の反射性から、対称性は定義の両方向性から従います。$r\sim s$、$s\sim t$ なら $r\preceq s\preceq t$ と $t\preceq s\preceq r$ が成立し、[制限の前順序性](#thm-tsp5-restriction-preorder) により $r\sim t$ となります。同値なテンソルをまとめた集合を $[t]$ と書けば、$[s]\preceq[t]$ を $s\preceq t$ で定められます。代表元 $s'\sim s$、$t'\sim t$ に替えても $s'\preceq s\preceq t\preceq t'$ となり、逆方向の代表元変更も成立します。両方向に比較できれば同じ同値類なので、この集合上では半順序になります。
+この関係は反射性・対称性・推移性を持つ同値関係です。反射性は制限の反射性から、対称性は定義の両方向性から従います。$r\sim s$、$s\sim t$ なら $r\preceq s\preceq t$ と $t\preceq s\preceq r$ が成立し、[制限の前順序性](#thm-tsp5-restriction-preorder) により $r\sim t$ となります。同値なテンソルをまとめた集合を $[t]$ と書けば、$[s]\preceq[t]$ を $s\preceq t$ で定められます。代表元 $s'\sim s$、$t'\sim t$ に替えても $s'\preceq s\preceq t\preceq t'$ となり、逆方向の代表元変更も成立します。両方向に比較できれば同じ同値類なので、この集合上では半順序になります。
 
 ## 4. 変換を並行して行う
 
@@ -229,6 +229,8 @@ D_r\oplus D_q\sim D_{r+q},\qquad
 D_r\boxtimes D_q\sim D_{rq}.
 $$
 <!-- formal-statement-end -->
+
+直和では二つの基底の連結を、積では基底の組から一つの番号への対応を使います。いずれも可逆な写像であることが両方向の制限を保証します。
 
 <!-- proof-start -->
 ### 証明
@@ -513,7 +515,7 @@ $$
 
 中間の不等式も各テンソルに基本評価を適用すれば従います。帰納法により成立します。
 
-$w$ については [三因子の階数3の例](../TSP2/index.md#thm-tsp2-three-factor-rank) と前講の劣階数の計算から $R_K(w)=3,Q_K(w)=1$ です。従って最初の評価は $1\le Q_K(w^{\boxtimes2})\le R_K(w^{\boxtimes2})\le9$ となります。
+$w$ については [三因子の階数3の例](../TSP2/index.md#thm-tsp2-three-factor-rank) から $R_K(w)=3$ です。また $w$ は非零なので [劣階数の基本評価](../TSP4/index.md#thm-tsp4-subrank-bounds) により $Q_K(w)\ge1$ です。従って最初の評価は $1\le Q_K(w^{\boxtimes2})\le R_K(w^{\boxtimes2})\le9$ となります。
 
 位置1を行、位置2と3を列にまとめる [テンソルの平坦化](../TSP3/index.md#def-tsp3-flattening) を行います。元の行列を
 
