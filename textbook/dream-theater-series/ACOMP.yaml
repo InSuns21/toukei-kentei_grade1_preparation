@@ -90,7 +90,7 @@ chapters:
     title: "形式冪級数・Laurent級数・付値：定数の極と係数の極限"
   - id: ACOMP22
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP22
-    status: planned
+    status: completed
     title: "border complexity・退化・Zariski閉包：体と同値条件を区別"
   - id: ACOMP23
     path: textbook/volumes/dream_thater/計算系/ACOMP/ACOMP23

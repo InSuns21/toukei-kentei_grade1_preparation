@@ -22,3 +22,4 @@
 19. [ACOMP19 shifted partial derivatives：小さな多項式でランクを計算](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP19/index.md)
 20. [ACOMP20 PIT・Schwartz–Zippel・derandomizationと下界の関係](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP20/index.md)
 21. [ACOMP21 形式冪級数・Laurent級数・付値：定数の極と係数の極限](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP21/index.md)
+22. [ACOMP22 border complexity・退化・Zariski閉包：体と同値条件を区別](textbook/volumes/dream_thater/計算系/ACOMP/ACOMP22/index.md)
