@@ -1,0 +1,26 @@
+chapter: MQFC8
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC5, MQFC6, MQFC7]
+forward_references: []
+concepts:
+  - id: mqfc.reflection-positivity
+    name: "反射陽性"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.characteristic-functional, mqfc.schwinger-moments]
+  - id: mqfc.time-exponential-kernel
+    name: "自由共分散の時間指数核"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.fourier, mqfc.euclidean-covariance-form]
+  - id: mqfc.reflected-covariance
+    name: "自由場の反射共分散の因子分解"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.time-exponential-kernel, mqfc.euclidean-covariance-form, mqfc.reflection-positivity]
+  - id: mqfc.gaussian-reflection-positivity
+    name: "Gaussian場の多項式反射陽性"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.reflection-positivity, mqfc.gaussian-consistency, mqfc.reflected-covariance, mqfc.free-gaussian-measure]
