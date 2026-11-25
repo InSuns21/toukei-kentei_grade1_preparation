@@ -1,0 +1,66 @@
+chapter: VNP2
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP1, TSP15, TSP16, TSP6]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.party-array
+    name: "party添字付き係数配列"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（party添字付き係数配列）"]
+    requires: [tensor.multifactor-basis]
+  - id: vp-vnp-study.one-restriction
+    name: "非零配列から単位テンソルを得る"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（非零配列から単位テンソルを得る）"]
+    requires: [vp-vnp-study.party-array, tensor.restriction]
+  - id: vp-vnp-study.sum-restrictions
+    name: "局所制限の和による被覆"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所制限の和による被覆）"]
+    requires: [vp-vnp-study.party-array, tensor.restriction]
+  - id: vp-vnp-study.cover-direct-sum
+    name: "被覆と直和からの制限の同値"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（被覆と直和からの制限の同値）"]
+    requires: [vp-vnp-study.sum-restrictions, tensor.direct-sum]
+  - id: vp-vnp-study.finite-cover
+    name: "単位テンソルによる有限被覆"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（単位テンソルによる有限被覆）"]
+    requires: [vp-vnp-study.sum-restrictions]
+  - id: vp-vnp-study.push-forward
+    name: "任意のparty写像によるpush-forward"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（任意のparty写像によるpush-forward）"]
+    requires: [vp-vnp-study.party-array, tensor.party-grouping]
+  - id: vp-vnp-study.push-laws
+    name: "push-forwardの演算と合成"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（push-forwardの演算と合成）"]
+    requires: [vp-vnp-study.push-forward, tensor.kronecker-product]
+  - id: vp-vnp-study.push-covers
+    name: "push-forwardによる被覆の保存"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（push-forwardによる被覆の保存）"]
+    requires: [vp-vnp-study.push-forward, vp-vnp-study.sum-restrictions]
+  - id: vp-vnp-study.wire
+    name: "party間のwire資源"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（party間のwire資源）"]
+    requires: [vp-vnp-study.push-forward, tensor.identity-wire]
+  - id: vp-vnp-study.wire-laws
+    name: "wire資源の基本比較"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（wire資源の基本比較）"]
+    requires: [vp-vnp-study.wire, vp-vnp-study.one-restriction, vp-vnp-study.push-laws, vp-vnp-study.push-covers, vp-vnp-study.finite-cover]
