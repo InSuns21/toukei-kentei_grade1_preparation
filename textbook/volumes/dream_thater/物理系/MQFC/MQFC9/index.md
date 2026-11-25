@@ -62,6 +62,8 @@ $$
 <!-- definition-example-start: def-mqfc9-os-hilbert -->
 ### 直接例：定数場と消える観測量
 
+**定義の確認**
+
 標準正規変数 $Y$ により $\omega(f)=Y\int f$ とします。[前講の反射形式の直接例](../MQFC8/index.md#def-mqfc8-reflection-positivity) の通り、この場は全絶対モーメント、反転不変性、反射陽性を満たします。正時間に台を持つ滑らかなコンパクト台関数 $f,g$ を、積分がともに1で $f\ne g$ となるよう取ります。$X_f=X_g=Y$ であり、
 
 $$
