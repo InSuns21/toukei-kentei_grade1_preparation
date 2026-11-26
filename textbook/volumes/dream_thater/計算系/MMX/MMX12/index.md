@@ -6,7 +6,7 @@
 
 前提は [MMX11](../MMX11/index.md) と [TSP6](../../TSP/TSP6/index.md)。一次資料は OpenAI, *Euclidean geometry in the asymptotic spectrum of tensors*（2026-11-24）の [port-graphs](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/port-graphs.tex)、[compressor](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/compressor.tex)、[compressor-appendix](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/compressor-appendix.tex)、[exact](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/exact.tex)、[descent](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/descent.tex) である。以下の対数は底2、暗黙定数は固定した体・固定テンプレートに依存してよい。有限体は $F$ とする。
 
-ここでいう配線網は [テンソルネットワークと境界テンソル](../../TSP/TSP6/index.md#def-tsp6-network) の接続をビット（添字が0または1の端子）で表したものである。三価とは局所因子が高々三つのビット端子を持つことをいう。サイズは頂点・ビット wire・開いた端の数を含む。開いたデータビットを固定した値はスカラーであり、別々のコピーで異なる値に固定してよい。この自由を失わずに一コピー当たりのサイズを下げることが最終目標である。
+ここでいう配線網は [テンソルネットワークと境界テンソル](../../TSP/TSP6/index.md#def-tsp6-network) の接続をビット（添字が0または1の端子）で表したものである。三価とは局所因子が高々三つのビット端子を持つことをいう。サイズは頂点・ビット wire・開いた端の数を含む。開いたデータビットをすべて固定した値はスカラーであり、別々のコピーで異なる値に固定してよい。この自由を失わずに一コピー当たりのサイズを下げることが最終目標である。
 
 ## 2. 距離の不等式を厳密な配線恒等式に変える
 
@@ -228,7 +228,19 @@ $$
 <!-- definition-example-start: def-mmx12-lane -->
 **定義の確認**
 
-基底頂点 $x,y$ に往復一辺、$d=1$、$L=\{0,1\}$ とし、$x\to y$ の移動を1、逆辺の移動を0にする。実辺は $(x,0)\to(y,1)$、$(x,1)\to(y,0)$、$(y,0)\to(x,0)$、$(y,1)\to(x,1)$。各実辺は異なる基底頂点を結ぶので自己辺はない。$1+1=0$（2を法とする）を用いた平行移動は逆も同じ平行移動であり、四辺を数えると各位置に入る辺・出る辺が一つずつある。従って $d=1=2^0$ の条件を満たす。位置数は $P=2\cdot2=4$、質量は各 $1/(Pd)=1/4$。幅を列挙順に $1,0,2,1$ としても全て非負整数なので
+基底頂点 $x,y$ に往復一辺、$d=1$、$L=\{0,1\}$ とし、$x\to y$ の移動を1、逆辺の移動を0にする。実辺は次の四本である。
+
+$$
+(x,0)\to(y,1),\quad (x,1)\to(y,0),
+$$
+
+$$
+(y,0)\to(x,0),\quad (y,1)\to(x,1).
+$$
+
+各実辺は異なる基底頂点を結ぶので自己辺はない。$1+1=0$（2を法とする）を用いた平行移動は逆も同じ平行移動であり、四辺を数えると各位置に入る辺・出る辺が一つずつある。従って $d=1=2^0$ の条件を満たす。
+
+位置数は $P=2\cdot2=4$、質量は各 $1/(Pd)=1/4$。幅を列挙順に $1,0,2,1$ としても全て非負整数なので
 
 $$
 \mathcal L=4(1^2+0^2+2^2+1^2)=24
@@ -417,7 +429,17 @@ $$
 
 ## 5. 厳密なタグ付き置換ゲートによる実装
 
-この節の $d$ は第4節の次数ではなく複製数に使う。ここでいう oracle は、[タグ付き置換テンソル](../MMX11/index.md#def-mmx11-tag) を一つの厳密な関係ゲートとして利用することを指す。呼出し自体を無料とはせず、$N=2^h$ 件の $h$ ビットレコードについて入力・出力・タグの合計 $3Nh$ ビットを費用に含める。タグと整列済みキーを猜測し、キーの順序と正しい置換を検査する。元の位置をキーの末尾に加えると同じキーの順序も一意になる。長いレコードは固定個の $h$ ビット場に分けて同じタグを適用する。この方法で長さ $N$、レコード幅 $O(h)$ の安定整列は費用 $O(Nh)$ で表現できる。
+この節の $d$ は第4節の次数ではなく複製数に使う。ここでいう oracle は、[タグ付き置換テンソル](../MMX11/index.md#def-mmx11-tag) を一つの厳密な関係ゲートとして利用することを指す。
+
+呼出し自体を無料とはせず、$N=2^h$ 件の $h$ ビットレコードについて入力・出力・タグの合計を費用に含める。
+
+$$
+Nh+Nh+Nh=3Nh.
+$$
+
+タグと整列済みキーを猜測し、キーの順序と正しい置換を検査する。元の位置をキーの末尾に加えると同じキーの順序も一意になる。
+
+長いレコードは固定個の $h$ ビット場に分けて同じタグを適用する。従って長さ $N$、レコード幅 $O(h)$ の安定整列は費用 $O(Nh)$ で表現できる。
 
 長さ $l$ が $N$ より大きくても、短い整列だけで長い整列を構成できればよい。
 
@@ -552,7 +574,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-この節では $D$ は第4節の次数でなく価格ギャップ、$g$ は格子一辺のセル数である。$e_j$ は第 $j$ 座標だけが1で残りが0の単位ベクトルを表す。格子点を $\{3,6,\ldots,3g\}^k$ に置く。方向 $j$ の借用 wire の出入口を各点 $x$ の $x-e_j,x+e_j$ に置き、同じ直線の隣のセルと結ぶ。方向ごとの直線数は $g^{k-1}$。外部端点は全て方向別の二焦点 $\pm Re_j$（$R\ge8g$）へ集める。残る外部対は $E=g^{k-1}B$ 本である。
+この節では $D$ は第4節の次数でなく価格ギャップ、$g$ は格子一辺のセル数である。$e_j$ は第 $j$ 座標だけが1で残りが0の単位ベクトルを表す。
+
+格子点を $\{3,6,\ldots,3g\}^k$ に置く。方向 $j$ の借用 wire の出入口を各点 $x$ の $x-e_j,x+e_j$ に置き、同じ直線の隣のセルと結ぶ。
+
+方向ごとの直線数は $g^{k-1}$。外部端点は全て方向別の二焦点 $\pm Re_j$（$R\ge8g$）へ集める。残る外部対は
+
+$$
+E=g^{k-1}B
+$$
+
+本である。
 
 一つの線の内部接続長は $3-2=1$、セル内の恒等 wire 長は2。焦点から最初・最後のセルまでの端のリンクは、長軸成分 $a\ge R/2$、直交成分 $u$ の平方ノルム $\|u\|^2\le9(k-1)g^2$ を持つ。余分な長さは
 
