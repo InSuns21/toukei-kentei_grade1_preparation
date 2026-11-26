@@ -19,3 +19,4 @@
 16. [MQFC16 P(φ)₂のUV除去を支える評価](textbook/volumes/dream_thater/物理系/MQFC/MQFC16/index.md)
 17. [MQFC17 熱力学極限・クラスター展開・低次元ギャップ](textbook/volumes/dream_thater/物理系/MQFC/MQFC17/index.md)
 18. [MQFC18 3次元のφ⁴と構成の限界](textbook/volumes/dream_thater/物理系/MQFC/MQFC18/index.md)
+19. [MQFC19 連続ゲージ場を格子に置く](textbook/volumes/dream_thater/物理系/MQFC/MQFC19/index.md)

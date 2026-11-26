@@ -22,7 +22,7 @@ chapters:
   - { id: MQFC16, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC16, status: completed, title: "P(φ)₂のUV除去を支える評価" }
   - { id: MQFC17, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC17, status: completed, title: "熱力学極限・クラスター展開・低次元ギャップ" }
   - { id: MQFC18, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC18, status: completed, title: "3次元のφ⁴と構成の限界" }
-  - { id: MQFC19, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC19, status: planned, title: "連続ゲージ場を格子に置く" }
+  - { id: MQFC19, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC19, status: completed, title: "連続ゲージ場を格子に置く" }
   - { id: MQFC20, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC20, status: planned, title: "Haar積分と表現の直交性" }
   - { id: MQFC21, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC21, status: planned, title: "Wilson格子ゲージ測度" }
   - { id: MQFC22, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC22, status: planned, title: "格子ゲージ場の反射陽性" }

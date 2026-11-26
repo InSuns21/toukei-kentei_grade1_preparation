@@ -1,0 +1,51 @@
+chapter: MQFC19
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC13, GBG17]
+forward_references: []
+concepts:
+  - id: mqfc.lattice-link-connection
+    name: "格子の群値辺接続"
+    kind: definition
+    introduction: formal
+    requires: [gauge.parallel-transport-path-laws]
+  - id: mqfc.lattice-vertex-gauge
+    name: "格子の頂点ゲージ変換"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.lattice-link-connection, gauge.local-transport-gauge-transformation]
+  - id: mqfc.lattice-gauge-action
+    name: "頂点ゲージ変換の作用則"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.lattice-vertex-gauge]
+  - id: mqfc.lattice-path-product
+    name: "格子路の輸送積"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.lattice-link-connection]
+  - id: mqfc.lattice-path-covariance
+    name: "格子路の端点変換と逆路"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.lattice-path-product, mqfc.lattice-gauge-action]
+  - id: mqfc.lattice-plaquette
+    name: "格子の基本正方形と周回積"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.lattice-path-product]
+  - id: mqfc.lattice-plaquette-covariance
+    name: "基本正方形の共役変換と二経路比較"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.lattice-plaquette, mqfc.lattice-path-covariance]
+  - id: mqfc.lattice-wilson-loop
+    name: "格子 Wilson loop"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.lattice-path-product, gauge.wilson-loop]
+  - id: mqfc.lattice-wilson-invariance
+    name: "格子 Wilson loop の不変性"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.lattice-wilson-loop, mqfc.lattice-path-covariance, gauge.wilson-loop-gauge-invariance]
