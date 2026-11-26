@@ -273,7 +273,7 @@ s(k-s)=k^2/4-(s-k/2)^2
 \ge 2k^2/9.
 $$
 
-符号ベクトル $\sigma=(\sigma_1,\ldots,\sigma_k)$ のノルムは $\sqrt{k}$、各横断辺の内積への寄与は $\sigma_a^2=1$ です。Cauchy–Schwarzの不等式から
+符号ベクトル $\sigma=(\sigma_1,\ldots,\sigma_k)$ のノルムは $\sqrt{k}$、各横断辺の内積への寄与は $\sigma_a^2=1$ です。[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) から
 
 $$
 2k^2/9\le \langle t_S,\sigma\rangle
