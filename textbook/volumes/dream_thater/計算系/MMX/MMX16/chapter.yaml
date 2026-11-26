@@ -1,0 +1,25 @@
+id: MMX16
+title: "tagged permutationへの二つのdistinctness testによる帰着、signed selectorの恒等式（標数2も含む）"
+volume: foundations
+status: supplementary
+prerequisites: [MMX15, MMX11]
+official_scope: []
+learning_objectives:
+  - 二つのリストの語長と外部ビット数を計数できる
+  - タグの全単射性を相異性から判定できる
+  - 符号付き選択和を因数分解し標数2の場合も説明できる
+  - 三価のコピー木と局所表でバッチ置換恒等式を実装できる
+  - 一様な置換下界からリスト相異性の下界を導ける
+definitions:
+  - { id: MMX16-DEF-01, name: "符号付き選択子" }
+theorems:
+  - { id: MMX16-LEM-01, name: "タグの相異性判定" }
+  - { id: MMX16-LEM-02, name: "符号付き選択和の恒等式" }
+  - { id: MMX16-THM-01, name: "二つの相異性判定による置換恒等式" }
+  - { id: MMX16-THM-02, name: "置換テンソルのバッチ体積上界" }
+canonical_examples: [二語のタグ検査, 予備語と比較語, 標数2の打消し]
+problem_patterns: [MMX16-A01, MMX16-A02, MMX16-A03, MMX16-A04, MMX16-B01, MMX16-B02, MMX16-B03, MMX16-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 2 }
