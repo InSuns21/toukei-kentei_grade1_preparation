@@ -12,11 +12,13 @@ learning_objectives:
   - スター条件を用いて単体近似の存在と直線ホモトピーを証明できる
 definitions:
   - { id: ATOP15-DEF-01, name: 重心細分複体 }
+  - { id: ATOP15-DEF-05, name: 単体鎖の頂点追加操作 }
   - { id: ATOP15-DEF-02, name: 細分鎖写像の構成 }
   - { id: ATOP15-DEF-03, name: 頂点の開スター }
   - { id: ATOP15-DEF-04, name: 単体近似 }
 theorems:
   - { id: ATOP15-PROP-01, name: 重心細分複体の実現 }
+  - { id: ATOP15-LEM-01, name: 頂点追加と境界の恒等式 }
   - { id: ATOP15-THM-01, name: 細分鎖写像と境界の可換性 }
   - { id: ATOP15-THM-02, name: 細分の鎖ホモトピー }
   - { id: ATOP15-THM-03, name: 単体近似定理 }
