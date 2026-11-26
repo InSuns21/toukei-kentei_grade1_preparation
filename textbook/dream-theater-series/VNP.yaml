@@ -26,7 +26,7 @@ chapters:
     title: "A：priceの拡張・混合・fan"
   - id: VNP6
     path: textbook/volumes/dream_thater/計算系/VNP/VNP6
-    status: planned
+    status: completed
     title: "B：crossing identity、二つの分割に対する項数、crossing inequality"
   - id: VNP7
     path: textbook/volumes/dream_thater/計算系/VNP/VNP7
