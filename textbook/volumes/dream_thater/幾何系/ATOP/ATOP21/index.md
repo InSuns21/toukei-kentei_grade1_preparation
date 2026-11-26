@@ -181,7 +181,7 @@ $$
 
 と置きます。分母は正、各成分は非負、成分和は1、少なくとも一成分が零です。従って $r(t)$ は境界にあり、$s=0$ なら $r(t)=t$ です。変形 $F(t,h)=(1-h)t+hr(t)$ の成分和は1、非負であり、最小成分は $(1-h)s<\epsilon$ なので帯から出ません。各単体の共通面では恒等写像となるため、有限個の閉部分集合 $U\cap D_\tau$ と $A$ 上の写像を貼り合わせて連続な強変形レトラクション $U\to A$ が得られます。
 
-[ホモトピー同値と特異ホモロジー群](../ATOP17/index.md#cor-atop17-equivalence) より $H_n(A)\to H_n(U)$ は同型です。対 $(X,A)\to(X,U)$ の [長完全列の自然性](../ATOP18/index.md#thm-atop18-naturality) により、相対群を中央に置いた五項の縦写像のうち他の四つは $A\to U$ の同型または $X$ 上の恒等写像です。[完全列の中央の比較](#lem-atop21-exact-comparison) から $H_n(X,A)\to H_n(X,U)$ も同型です。$n=0$ では右端二つを零群とします。
+[ホモトピー同値と特異ホモロジー群](../ATOP17/index.md#cor-atop17-equivalence) より $H_n(A)\to H_n(U)$ は同型です。対 $(X,A)\to(X,U)$ の [対の長完全列の自然性](../ATOP18/index.md#thm-atop18-naturality) により、相対群を中央に置いた五項の縦写像のうち他の四つは $A\to U$ の同型または $X$ 上の恒等写像です。[完全列の中央の比較](#lem-atop21-exact-comparison) から $H_n(X,A)\to H_n(X,U)$ も同型です。$n=0$ では右端二つを零群とします。
 
 $A=\overline A\subset U=\operatorname{int}_X U$ だから [切除定理](../ATOP19/index.md#thm-atop19-excision) により
 
@@ -440,7 +440,7 @@ $$
 \partial(p-q)=[a,b]+[b,c]-2[a,c]-[c,d]+[a,d].
 $$
 
-共有辺の係数は和では零、差では $-2$ です。両鎖は二重境界の消滅から $L$ 内のサイクルであり、接続の値はこれらの類です。特異側では各辺をアフィン特異単体として読めばよいです。
+共有辺の係数は和では零、差では $-2$ です。両鎖は[二重境界の消滅](../ATOP13/index.md#thm-atop13-boundary-square)から $L$ 内のサイクルであり、接続の値はこれらの類です。特異側では各辺をアフィン特異単体として読めばよいです。
 <!-- solution-end -->
 
 ### 演習 ATOP21-B2：退化した像の扱い
