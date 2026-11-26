@@ -295,7 +295,7 @@ $$
 
 $k=0$ は定数写像で写像度は0です。
 
-任意の連続写像 $f:S^1\to S^1$ について、円周を一周する経路 $t\mapsto e^{2\pi it}$ を $f$ で送ります。[巻き数](../ATOP6/index.md#def-atop6-winding-number) と同じ持上げで連続実関数 $\theta:[0,1]\to\mathbb R$ を選ぶと
+任意の連続写像 $f:S^1\to S^1$ について、円周を一周する経路 $t\mapsto e^{2\pi it}$ を $f$ で送ります。[道の持上げ](../ATOP5/index.md#thm-atop5-path-lifting) を円周の実直線による被覆に適用して連続実関数 $\theta:[0,1]\to\mathbb R$ を選ぶと
 
 $$
 f(e^{2\pi it})=e^{2\pi i\theta(t)},\qquad
@@ -309,7 +309,7 @@ H(e^{2\pi it},s)=
 e^{2\pi i((1-s)\theta(t)+skt)}.
 $$
 
-$t=0,1$ の指数の差は $2\pi ik$ で、両端の値は等しいです。従って区間の両端を同一視した円周上の連続なホモトピーになります。始めが $f$、終わりが $f_k$ なので [写像度の基本性質](#thm-atop23-degree-properties) から $\deg f=k$ です。基点が1でない場合も持上げの始点を選ぶだけで同じ整数が得られます。
+$t=0,1$ の指数の差は $2\pi ik$ で、両端の値は等しいです。従って区間の両端を同一視した円周上の連続なホモトピーになります。始めが $f$、終わりが $f_k$ なので [写像度の基本性質](#thm-atop23-degree-properties) から $\deg f=k$ です。この整数は [円周のループの巻き数（ATOP6）](../ATOP6/index.md#def-atop6-winding-number) そのものです。基点が1でない場合も持上げの始点を選ぶだけで同じ整数が得られます。
 
 ## 7. 演習
 
@@ -358,7 +358,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$g\circ f=\mathrm{id}$ を仮定します。[写像度の基本性質](#thm-atop23-degree-properties) の合成公式から $2\deg g=1$ です。左辺は偶数、右辺は奇数で矛盾します。右逆写像についても積の順序が逆になるだけで同じ整数方程式になります。
+$g\circ f=\mathrm{id}$ を仮定します。[写像度の基本性質](#thm-atop23-degree-properties) を合成に適用すると $2\deg g=1$ です。左辺は偶数、右辺は奇数で矛盾します。右逆写像についても積の順序が逆になるだけで同じ整数方程式になります。
 <!-- solution-end -->
 
 ### 演習 ATOP23-A4：逆像点の符号
