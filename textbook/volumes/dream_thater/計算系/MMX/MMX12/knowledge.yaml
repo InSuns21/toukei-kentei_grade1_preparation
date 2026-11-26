@@ -1,0 +1,72 @@
+chapter: MMX12
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX11, TSP6]
+forward_references: []
+concepts:
+  - id: matrix-exponent.width-energy
+    name: "wire 幅エネルギー"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（wire 幅エネルギー）"]
+    requires: [tensor.identity-wire]
+  - id: matrix-exponent.lane-network
+    name: "lane 付き配線網"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（lane 付き配線網）"]
+    requires: [matrix-exponent.width-energy]
+  - id: matrix-exponent.motif-conversion
+    name: "固定モチーフの変換"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定モチーフの変換）"]
+    requires: [matrix-exponent.width-energy, matrix-exponent.strict-spectral-comparison, matrix-exponent.spectral-price]
+  - id: matrix-exponent.six-party-saving
+    name: "六地点のエネルギー節約"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（六地点のエネルギー節約）"]
+    requires: [matrix-exponent.curvature]
+  - id: matrix-exponent.shrinking-step
+    name: "縮小段階のエネルギー評価"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（縮小段階のエネルギー評価）"]
+    requires: [matrix-exponent.lane-network, matrix-exponent.motif-conversion, matrix-exponent.six-party-saving]
+  - id: matrix-exponent.degree-refresh
+    name: "ports による次数復元"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（ports による次数復元）"]
+    requires: [matrix-exponent.ports, matrix-exponent.lane-network, matrix-exponent.motif-conversion]
+  - id: matrix-exponent.iterated-compression
+    name: "反復配線圧縮"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（反復配線圧縮）"]
+    requires: [matrix-exponent.shrinking-step, matrix-exponent.degree-refresh]
+  - id: matrix-exponent.sort-lifting
+    name: "整列長の拡張"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（整列長の拡張）"]
+    requires: [matrix-exponent.tagged-permutation]
+  - id: matrix-exponent.oracle-descent
+    name: "タグ付き置換による厳密降下"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（タグ付き置換による厳密降下）"]
+    requires: [matrix-exponent.iterated-compression, matrix-exponent.sort-lifting, matrix-exponent.tagged-permutation, tensor.wire-invariance]
+  - id: matrix-exponent.grid-reuse
+    name: "格子による借用 wire の再利用"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（格子による借用 wire の再利用）"]
+    requires: [matrix-exponent.catalyst-gap, matrix-exponent.price-rules]
+  - id: matrix-exponent.amortized-simulation
+    name: "償却ネットワーク圧縮"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（償却ネットワーク圧縮）"]
+    requires: [matrix-exponent.oracle-descent, matrix-exponent.grid-reuse, matrix-exponent.gap-substitution, matrix-exponent.logarithmic-width, matrix-exponent.finite-flat-ports]
