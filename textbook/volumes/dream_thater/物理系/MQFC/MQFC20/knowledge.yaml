@@ -1,0 +1,41 @@
+chapter: MQFC20
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC19, LREP2, LREP4]
+forward_references: []
+concepts:
+  - id: mqfc.haar-transform
+    name: "正規化Haar積分の変数変換"
+    kind: proposition
+    introduction: formal
+    requires: [representation.normalized-haar-probability]
+  - id: mqfc.intertwiner-average
+    name: "表現間の平均化"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.haar-transform, representation.intertwiner, representation.unitary]
+  - id: mqfc.matrix-element-orthogonality
+    name: "既約表現の行列要素の直交性"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.intertwiner-average, representation.schur-lemma]
+  - id: mqfc.representation-character
+    name: "表現の指標"
+    kind: definition
+    introduction: formal
+    requires: [representation.finite-dimensional-complex]
+  - id: mqfc.character-orthogonality
+    name: "既約指標の直交性"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.representation-character, mqfc.matrix-element-orthogonality]
+  - id: mqfc.invariant-average-projection
+    name: "群平均による不変部分空間への直交射影"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.haar-transform, representation.unitary]
+  - id: mqfc.product-haar-gauge-invariance
+    name: "格子の積Haar測度のゲージ不変性"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.haar-transform, mqfc.lattice-vertex-gauge]
