@@ -1,0 +1,54 @@
+chapter: MMX15
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX2, MMX14, TSP6]
+forward_references: []
+concepts:
+  - id: matrix-exponent.bit-volume
+    name: "ビットネットワークのサイズと体積"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ビットネットワークのサイズと体積）"]
+    requires: [matrix-exponent.bit-network-batch]
+  - id: matrix-exponent.list-distinctness
+    name: "リスト相異性テンソル"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（リスト相異性テンソル）"]
+    requires: []
+  - id: matrix-exponent.comparison-network
+    name: "比較交換網"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（比較交換網）"]
+    requires: []
+  - id: matrix-exponent.trivalent-cost
+    name: "三価の費用比較"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（三価の費用比較）"]
+    requires: [matrix-exponent.bit-volume]
+  - id: matrix-exponent.deterministic-bit-realization
+    name: "決定的回路の三価実現"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（決定的回路の三価実現）"]
+    requires: [matrix-exponent.bit-volume]
+  - id: matrix-exponent.binary-bitonic-merge
+    name: "二値の半分割併合"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（二値の半分割併合）"]
+    requires: [matrix-exponent.comparison-network]
+  - id: matrix-exponent.batcher-sort-count
+    name: "Batcher整列網の比較数"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Batcher整列網の比較数）"]
+    requires: [matrix-exponent.binary-bitonic-merge]
+  - id: matrix-exponent.distinctness-initial-bound
+    name: "リスト相異性の初期上界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（リスト相異性の初期上界）"]
+    requires: [matrix-exponent.list-distinctness, matrix-exponent.deterministic-bit-realization, matrix-exponent.batcher-sort-count]
