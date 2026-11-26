@@ -1,0 +1,21 @@
+chapter: ATOP24
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP23, FIX1]
+forward_references: []
+concepts:
+  - id: atop.disk-no-retraction
+    name: 円板の非レトラクション定理
+    kind: theorem
+    introduction: formal
+    requires: [atop.retraction, atop.sphere-map-degree, atop.contractible-reduced-homology, atop.induced-singular-homology-map, topology.real-interval-connected, topology.continuous-image-connected]
+  - id: atop.fixed-point-free-retraction
+    name: 不動点を持たない写像からのレトラクション
+    kind: lemma
+    introduction: formal
+    requires: [atop.retraction, fixedpoint.fixed-point]
+  - id: atop.hairy-ball
+    name: 毛玉の定理
+    kind: theorem
+    introduction: formal
+    requires: [atop.degree-properties, atop.reflection-antipodal-degree, atop.homotopy]
