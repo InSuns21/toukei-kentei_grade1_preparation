@@ -8,7 +8,7 @@
 
 $G$ はコンパクト行列群とする。正規化左Haar測度を $\mu$、積分の記号を $dg=d\mu(g)$ とする。$dg$ は群元 $g$ を動かす測度による積分の記法であり、微分ではない。Borel 集合は開集合から可算和と補集合で生成される可測集合である。[正規化左Haar測度](../../../代数系/LREP/LREP2/index.md#def-lrep2-haar-probability) は全体の測度が1の正則 Borel 測度で、任意の Borel 集合 $A$ と $h\in G$ について $\mu(hA)=\mu(A)$ を満たす。正則性は測度を内側のコンパクト集合と外側の開集合で近似できる性質である。コンパクト群ではこの確率測度は一意に存在する。
 
-例えば $U(1)$ では $g=e^{i\theta}$ に対して角度 $\theta\in[0,2\pi)$ を一様に選べばよい。
+例えば絶対値1の複素数の乗法群 $U(1)$ では $g=e^{i\theta}$ に対して角度 $\theta\in[0,2\pi)$ を一様に選べばよい。
 
 $$
 \int_{U(1)} f(g)\,dg
@@ -110,7 +110,20 @@ $$
 
 [LREP1 の既約表現](../../../代数系/LREP/LREP1/index.md#def-lrep1-irreducible) とは非零の真の不変部分空間を持たない非零表現である。[LREP2 のコンパクト群の平均による不変内積](../../../代数系/LREP/LREP2/index.md#thm-lrep2-compact-averaging) により、有限次元連続複素表現には不変な正定値内積を入れられる。その正規直交基底では表現の行列がユニタリになる。
 
-以下、$\rho:G\to U(d_\rho)$ と $\sigma:G\to U(d_\sigma)$ を連続ユニタリ表現とする。$d_\rho,d_\sigma$ はそれぞれの複素次元である。[有限次元複素線形表現](../../../代数系/LREP/LREP1/index.md#def-lrep1-linear-representation) の積と単位元の条件に加え、連続性は各行列成分が群元の連続関数であることをいう。[ユニタリ表現](../../../代数系/LREP/LREP2/index.md#def-lrep2-invariant-inner-product) では内積を保存するため、正規直交基底で $\rho(g)^\dagger\rho(g)=I_{d_\rho}$ となり、$\rho(g)^\dagger=\rho(g^{-1})$ である。行列要素 $\rho_{ij}(g)$ は第 $j$ 基底ベクトルを $\rho(g)$ で移したときの第 $i$ 成分である。行列要素を積分する代わりに、二つの表現の間の長方形行列 $A$ を群で移して平均する。$\sigma$ の空間から $\rho$ の空間への複素線形写像 $T$ がすべての $h\in G$ で $\rho(h)T=T\sigma(h)$ を満たすとき、[絡作用素](../../../代数系/LREP/LREP1/index.md#def-lrep1-intertwiner) という。群を作用させてから $T$ で移しても、先に $T$ で移してから群を作用させても同じになるという条件である。
+以下、$\rho:G\to U(d_\rho)$ と $\sigma:G\to U(d_\sigma)$ を連続ユニタリ表現とする。$d_\rho,d_\sigma$ はそれぞれの複素次元である。[有限次元複素線形表現](../../../代数系/LREP/LREP1/index.md#def-lrep1-linear-representation) の積と単位元の条件に加え、連続性は各行列成分が群元の連続関数であることをいう。[ユニタリ表現](../../../代数系/LREP/LREP2/index.md#def-lrep2-invariant-inner-product) では内積を保存するため、正規直交基底で
+
+$$
+\rho(g)^\dagger\rho(g)=I_{d_\rho},
+\qquad \rho(g)^\dagger=\rho(g)^{-1}=\rho(g^{-1}).
+$$
+
+行列要素 $\rho_{ij}(g)$ は第 $j$ 基底ベクトルを $\rho(g)$ で移したときの第 $i$ 成分である。行列要素を積分する代わりに、二つの表現の間の長方形行列 $A$ を群で移して平均する。$\sigma$ の空間から $\rho$ の空間への複素線形写像 $T$ がすべての $h\in G$ で
+
+$$
+\rho(h)T=T\sigma(h)
+$$
+
+を満たすとき、[絡作用素](../../../代数系/LREP/LREP1/index.md#def-lrep1-intertwiner) という。群を作用させてから $T$ で移しても、先に $T$ で移してから群を作用させても同じになるという条件である。
 
 <a id="prop-mqfc20-intertwiner-average"></a>
 
@@ -231,7 +244,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mqfc20-character -->
-**定義の確認**。$G=U(1)$ とし、$\mathbb C^2$ の標準基底 $e_1,e_2$ に対して $e_1$ は固定し、$e_2$ を $g$ 倍する複素線形写像を考える。この基底での行列は $\rho(g)=\operatorname{diag}(1,g)$ である（$\operatorname{diag}$ は指定した成分を対角に並べ、非対角成分を零とする行列）。
+**定義の確認**。$G=U(1)$ とし、$\mathbb C^2$ の標準基底 $e_1,e_2$ に対して $e_1$ は固定し、$e_2$ を $g$ 倍する複素線形写像を考える。$\operatorname{diag}$ は指定した成分を対角に並べ、非対角成分を零とする行列を表す。この基底での行列は $\rho(g)=\operatorname{diag}(1,g)$ である。
 
 [有限次元複素線形表現](../../../代数系/LREP/LREP1/index.md#def-lrep1-linear-representation) の条件を確認する。$|g|=1$ だから $g\ne0$ で、逆行列は $\operatorname{diag}(1,g^{-1})$。各成分は $g$ の連続関数で、さらに
 
@@ -369,7 +382,17 @@ $$
 P_\rho=d_\rho\int_G\overline{\chi_\rho(g)}D(g)\,dg
 $$
 
-で得られる。[不変直交補空間](../../../代数系/LREP/LREP2/index.md#prop-lrep2-orthogonal-complement) を繰り返し取って直交する既約ブロックに分ける。各ブロックでは同値写像で代表の基底を移して行列表現を一致させる。具体的には [表現の同値](../../../代数系/LREP/LREP1/index.md#def-lrep1-equivalence) を与える可逆な絡作用素 $S$ によって、既約代表の作用 $\sigma(g)$ とブロックの作用 $D_{\mathrm{block}}(g)$ は $D_{\mathrm{block}}(g)S=S\sigma(g)$ を満たす。そのため代表の基底 $e_j$ を $Se_j$ に移した基底では、ブロックの行列は $\sigma(g)$ そのものになる。この基底は正規直交である必要はない。計算結果が恒等写像または零写像なので基底を元に戻しても結果は変わらず、ブロック間の直交性から全体は直交射影になる。このブロックの $(i,j)$ 成分は
+で得られる。[不変直交補空間](../../../代数系/LREP/LREP2/index.md#prop-lrep2-orthogonal-complement) を繰り返し取って直交する既約ブロックに分ける。各ブロックでは同値写像で代表の基底を移して行列表現を一致させる。
+
+具体的には [表現の同値](../../../代数系/LREP/LREP1/index.md#def-lrep1-equivalence) を与える可逆な絡作用素 $S$ によって、既約代表の作用 $\sigma(g)$ とブロックの作用 $D_{\mathrm{block}}(g)$ は
+
+$$
+D_{\mathrm{block}}(g)S=S\sigma(g)
+$$
+
+を満たす。そのため代表の基底 $e_j$ を $Se_j$ に移した基底では、ブロックの行列は $\sigma(g)$ そのものになる。この基底は正規直交である必要はない。
+
+計算結果が恒等写像または零写像なので基底を元に戻しても結果は変わらず、ブロック間の直交性から全体は直交射影になる。このブロックの $(i,j)$ 成分は
 
 $$
 d_\rho\sum_{k=1}^{d_\rho}
