@@ -2,7 +2,7 @@
 
 [MMX6](../MMX6/index.md#thm-mmx6-field-upper-bound) では正方行列積の指数に $9/4$ という上界を得ました。しかし $n\times\sqrt n$ 行列と $\sqrt n\times n$ 行列の積には、正方形への零埋めより安い算法があるかもしれません。本講では三つの辺の増大率を別々に指定し、正方形の結果から移せる評価と長方形固有の結果を区別します。
 
-直接前提：[MMX6](../MMX6/index.md)（その前提である [TSP7](../../TSP/TSP7/index.md)、[TSP14](../../TSP/TSP14/index.md) の結果も使います）。
+直接前提：[MMX6](../MMX6/index.md)、[TSP7](../../TSP/TSP7/index.md)、[TSP14](../../TSP/TSP14/index.md)。
 
 ## 1. 三辺の増大率
 
@@ -12,7 +12,7 @@ $$
 C_{ij}=\sum_{h=1}^k A_{ih} B_{hj}.
 $$
 
-例えば $(m,k,p)=(4,2,4)$ なら入力はそれぞれ8成分、出力は16成分です。通常の計算は32積を使います。[行列積テンソルの基本上下界](../../TSP/TSP7/index.md#thm-tsp7-matrix-bounds) は16以上32以下を与えます。ここで $m,k,p$ を一緒に大きくするとき、辺の比だけでなく、それぞれが基準サイズの何乗かを指定します。
+例えば $(m,k,p)=(4,2,4)$ なら入力はそれぞれ8成分、出力は16成分です。通常の計算は32積を使います。[行列積テンソルの基本上下界](../../TSP/TSP7/index.md#thm-tsp7-matrix-bounds) は16以上32以下を与えます。ここで $m,k,p$ を一緒に大きくするとき、辺の比だけでなく、それぞれが基準サイズの何乗かを指定します。以下、[行列積テンソル](../../TSP/TSP7/index.md#def-tsp7-matrix-multiplication) を $M_{m,k,p}$、その階数を $R_F(M_{m,k,p})$ と書きます。
 
 <a id="def-mmx7-rectangular-exponent"></a>
 
@@ -40,7 +40,7 @@ $$
 $(a,b,c)=(1,0,1)$ なら内側の辺は常に $\lceil N^0\rceil=1$ です。[行列積テンソルの基本上下界](../../TSP/TSP7/index.md#thm-tsp7-matrix-bounds) の下界と上界がともに $\lceil N\rceil^2$ になるので $r_F(N;1,0,1)=\lceil N\rceil^2$。$N\le\lceil N\rceil\le2N$ より $N^2\le r_F\le4N^2$。$s=2$ は条件を満たし、$s<2$ では $N^{2-s}$ が発散して定数で抑えられません。従って $w_F(1,0,1)=2$ です。
 <!-- definition-example-end -->
 
-記号 $M_{m,k,p}$ の定義は [行列積テンソル](../../TSP/TSP7/index.md#def-tsp7-matrix-multiplication) を使っています。指数の集合は上に閉じているので、任意の $\epsilon>0$ について $r_F(N)=O(N^{w_F+\epsilon})$ です。下限そのものが集合に属するとは限りません。基準サイズを整数だけに制限しても、実数 $N$ と $\lceil N\rceil$ の比が2以下で、零埋めで階数が単調なので同じ指数になります。
+指数の集合は、ある指数を含めばそれより大きな指数も含むので、任意の $\epsilon>0$ について $r_F(N)=O(N^{w_F+\epsilon})$ です。下限そのものが集合に属するとは限りません。例えば $N^2\log N$ は任意の $\epsilon>0$ で $O(N^{2+\epsilon})$ ですが $O(N^2)$ ではありません。基準サイズを整数だけに制限しても、実数 $N$ と $\lceil N\rceil$ の比が2以下で、零埋めで階数が単調なので同じ指数になります。
 
 ## 2. 重みの正規化と三辺の入れ替え
 
