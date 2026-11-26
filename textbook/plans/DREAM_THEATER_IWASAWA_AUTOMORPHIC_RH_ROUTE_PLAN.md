@@ -1,6 +1,6 @@
 # DREAM THEATER 岩澤理論・保型形式／保型表現・リーマン予想（履修ルート）
 
-設計初版: 2026-11-21 JST／改訂: 2026-11-25 JST  
+設計初版: 2026-11-21 JST／改訂: 2026-11-26 JST  
 状態: 4系列を横断する設計。**現行案100講（ANF22・IWA20・AFR24・RHP34）**。ANF22講・IWA20講は完了、AFR24講は完了、RHPは設計段階。横断ルート自身は講義を所有しない。  
 正本: [ANF 22講](../plan_done/DREAM_THEATER_ALGEBRAIC_NUMBER_THEORY_CLASS_FIELD_THEORY_PLAN.md)、[IWA 20講](../plan_done/DREAM_THEATER_IWASAWA_THEORY_PLAN.md)、[AFR 24講](../plan_done/DREAM_THEATER_AUTOMORPHIC_FORMS_REPRESENTATIONS_PLAN.md)、[RHP 34講](DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md)。
 
@@ -129,6 +129,12 @@ MITの[検証記録](https://math.mit.edu/~drew/grh/)は11/24 05:25 UTC更新で
 
 RHPは未着手なので旧23講から34講へ再構成。解析5、CM・theta7、Hecke・Bessel5、Arakelov・高さ5、合同・Galois・K理論7、統合・形式検証5の計34講。全体は100講。各証明責務・固定コミットと参照節は[RHP PLAN](DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md)第2〜5節を正本とする。
 
+### 2.7 2026-11-26更新：短縮Lean証明を講読の入口にする
+
+[Sernau／Anthropicによる短縮版](https://github.com/lsernau/grh-lean/tree/72fead102f663d5c7a407964a13dc0cf9d977207)（可読版約30万コード行、compact版約7.6万コード行）は同じRH・Dirichlet GRHの5命題を証明する再実装。原著者の方法を継承するが別論証も含む。Lean v4.35.0／Mathlib 56a005855ea17e0b0958f73ec801ae140b0a1679。作成者がbuild・3公理・Comparator受理等を報告しているが、この版の独立した人間による通読査読は未了。原Alpöge版の独立検証結果を新実装にそのまま転用しない。
+
+RHPでは可読版のGUIDE・INDEX・実際の定理型を形式証明読解の第一候補とする。短い持上げ・小さい指数（A）、十分な張る形式（B）、積公式からの共体積下界（C）を `star_inequality` と片側素数冪和評価へつなぐ。旧稿の(M)、A1〜A7、H0〜H12と番号だけで同一視しない。compact版は別証明比較、原版は検証記録・由来の追跡、Rubinstein／Adriazolaは自然言語の学習導線に使用する。K1の別経路の同値・採用は未確認。各講への参照と公理・引用の監査は[RHP PLAN](DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md)を正本とし、今回は34講、全体100講を維持する。
+
 ## 3. 実装・査読・状態遷移
 
 - 今回は**PLANの設計・文献照合・講数確定のみ**。series manifest、空の章、公開目次、global knowledge DAGには未実装章を先行登録しない。
@@ -140,8 +146,8 @@ RHPは未着手なので旧23講から34講へ再構成。解析5、CM・theta7�
 ## 4. 最初に着手できる講
 
 - **ANF系列:** 全22講完了。現在の完了境界は`textbook/dream-theater-series/ANF.yaml`を正本とする。
-- **AFR1:** 完成済み`MF`系列を直接再利用でき、ANF/IWA完了を待たず開始可能。
+- **AFR系列:** 全24講完了。系列manifestを進捗の正本とする。
 - **IWA:** ANF22までの局所体・円分塔を前提として全20講を実装・査読済み。岩澤理論系列内の次講はない。
-- **RHP1:** 既存`ANT3/7/8`と`CA12`の実在する完成本文を参照して、Leanの到達命題とRH/Dirichlet GRHの条件・例外を講義化できる。RHP中盤の高階保型・Galoisコホモロジーは未実装のAFRを暗黙前提にしない。
+- **RHP1:** 既存`ANT3/7/8`と`CA12`の実在する完成本文を参照して、Leanの到達命題とRH/Dirichlet GRHの条件・例外を講義化できる。RHP中盤の高階保型・Galoisコホモロジーは完成したAFRの実在する必要結果を照合し、未導入の理論は暗黙前提にしない。
 
 講義IDと現行100講の内容を変更するときはこのルートと個別PLANの**双方**を同じPRで同期する。完了済み`NT/ANT/MF/EC` PLANは改稿しない。
