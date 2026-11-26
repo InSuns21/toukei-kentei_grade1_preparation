@@ -1,0 +1,26 @@
+id: ATOP23
+title: "球面の写像度"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP22, GEO3, ATOP6]
+official_scope: []
+learning_objectives:
+  - 球面の最高次ホモロジーから写像度を定義し基本性質を証明できる
+  - 反射と対蹠写像の符号を計算できる
+  - 局所度を相対ホモロジーで定義し切除から加法性を導ける
+  - 正則値で微分の行列式の符号から写像度を計算できる
+  - 円周の巻き数と写像度を対応させられる
+definitions:
+  - { id: ATOP23-DEF-01, name: 球面の写像度 }
+  - { id: ATOP23-DEF-02, name: 球面写像の局所度 }
+theorems:
+  - { id: ATOP23-THM-01, name: 写像度の基本性質 }
+  - { id: ATOP23-THM-02, name: 反射と対蹠写像の写像度 }
+  - { id: ATOP23-THM-03, name: 局所度の加法性 }
+  - { id: ATOP23-THM-04, name: 正則値による写像度の計算 }
+canonical_examples: [恒等写像, 座標反射, 対蹠写像, 円周の整数冪写像]
+problem_patterns: [ATOP23-A1, ATOP23-A2, ATOP23-A3, ATOP23-A4, ATOP23-B1, ATOP23-B2, ATOP23-B3, ATOP23-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
