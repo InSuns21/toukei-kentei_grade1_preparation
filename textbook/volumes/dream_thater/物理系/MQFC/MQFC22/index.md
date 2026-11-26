@@ -331,7 +331,7 @@ $$
 K(B,A)=\sum_\lambda b_\lambda\overline{q_\lambda(B)}q_\lambda(A).
 $$
 
-交換を正当化するため、各 $\rho$ の行列要素に Cauchy–Schwarz の不等式を使う。ユニタリ性により各行列の全成分の絶対値二乗和は $d_\rho$ なので
+交換を正当化するため、各 $\rho$ の行列要素に [Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を使う。ユニタリ性により各行列の全成分の絶対値二乗和は $d_\rho$ なので
 
 $$
 \sum_{i,j}|\rho_{ij}(b)\rho_{ij}(a)|
