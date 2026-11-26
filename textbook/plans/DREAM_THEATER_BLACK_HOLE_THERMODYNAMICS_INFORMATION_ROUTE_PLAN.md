@@ -18,6 +18,8 @@
 - [ホログラフィー I（HOLO1〜33）](../plan_done/DREAM_THEATER_HOLOGRAPHY_I_PLAN.md)
 - [ブラックホール情報 I・II（BHI1〜36）](../plan_done/DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md)
 
+発展分岐：[代数的量子重力 I・II（AQG1〜48）](DREAM_THEATER_ALGEBRAIC_QUANTUM_GRAVITY_I_II_PLAN.md)。GR/LORG/HPDE/GBG/GMECH/BHT18の必要部分から光的境界の古典理論へ進み、QMOA/AQFT/QFT/BHIの対応章と合流して非摂動的重力の構成を査定する。既存BHT/BHIの履修条件を変更しない。
+
 ## 直接依存の有向経路
 
 ~~~text
