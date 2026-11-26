@@ -238,6 +238,10 @@ result family は成果群識別子であって講数ではない。268 は Open
 - EOM107は有限サイズの非スカラー乗算/除算ゲート下界$\lceil n^{9/4}/2\rceil$、幾何的border rank下界$n^{9/4}$、漸近rankの等式、tight tensor予想への反例を区別する。原論文の長方形の帰結 $1/2\le\alpha_F\le2/3$ とLean scope 107のより強い $\alpha_F=1/2$・長方形指数公式は別に照合する。論文の除算ありモデルとLeanの除算なしモデルを分ける。
 - 著者の形式化公開は独立検証完了とは別。Lean再実行・全公理監査・専門家による独立検証は本設計では未実施。定数、メモリ、数値安定性、GPU実測、一般のbit complexity、P vs NP、RSIをこの定理から直接結論しない。
 
+### 関連研究の独立発展ルート：代数的量子重力
+
+2026-11-25 UTC提出の [arXiv:2611.34924v1](https://arxiv.org/abs/2611.34924) は [AQG I・II（全48講）](DREAM_THEATER_ALGEBRAIC_QUANTUM_GRAVITY_I_II_PLAN.md) で光的境界の古典理論から研究上の主張まで体系的に扱う。量子重力の非摂動的構成とMQFC/EOMYMのYang–Mills構成を区別する。EOMの46講には追加せず、独立検証未完了の研究として参照する。
+
 ## 4. EOM各章の統一フォーマットと検証状態
 
 各講は次を基本形とする。family の前段講と後段講で不要に重複させない。
