@@ -345,7 +345,7 @@ $$
 <!-- definition-example-start: def-atop17-reduced-homology -->
 **定義の確認**
 
-二点離散空間 $D=\{p,q\}$ では、連続な道は定数写像だけなので1次境界は零です。0鎖 $m\langle p\rangle+n\langle q\rangle$ の係数和が零である条件は $n=-m$。よって核は $\mathbb Z(\langle p\rangle-\langle q\rangle)$ であり、境界群はその零部分群です。従って $\widetilde H_0(D)\cong\mathbb Z$。一点空間では係数和写像が同型なので $\widetilde H_0(\{p\})=0$ になります。正次数は通常の群と同じです。
+二点離散空間 $D=\{p,q\}$ では、連続な道は定数写像だけなので1次境界は零です。0鎖 $m\langle p\rangle+n\langle q\rangle$ の係数和が零である条件は $n=-m$。よって核は $\mathbb Z(\langle p\rangle-\langle q\rangle)$ であり、境界群はその零部分群です。従って $\widetilde H_0(D)\cong\mathbb Z$。一点空間ではここで定めた $\varepsilon_X$ が同型なので $\widetilde H_0(\{p\})=0$ になります。正次数は通常の群と同じです。
 <!-- definition-example-end -->
 
 連続写像 $f:X\to Y$ は点を点へ送り、係数の合流があっても総和を変えません。従って $\varepsilon_Y f_{\#,0}=\varepsilon_X$ です。0次の核を核へ送り、[境界との可換性](../ATOP16/index.md#thm-atop16-chain-map)から境界群も境界群へ送ります。よって被約群にも準同型を誘導します。$f_0\simeq f_1$ なら0次の核の任意の元 $z$ に対して[プリズム恒等式](#thm-atop17-prism-identity)から像の差は $\partial P_0z$ であり、被約群でも一致します。正次数では通常の群と同じです。
