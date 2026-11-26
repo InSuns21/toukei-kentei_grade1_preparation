@@ -21,8 +21,8 @@ theorems:
   - { id: VNP12-THM-06, name: "平坦仮説下の完全ネットワークの一様下界" }
   - { id: VNP12-THM-07, name: "平坦仮説下のパーマネントの定量的下界" }
 canonical_examples: [語の型の選択番号, 三頂点のハブ方向, 二次元立方体の中点]
-problem_patterns: [VNP12-A1, VNP12-A2, VNP12-A3, VNP12-A4, VNP12-B1, VNP12-B2, VNP12-B3, VNP12-C1]
+problem_patterns: [VNP12-A1, VNP12-A2, VNP12-A3, VNP12-A4, VNP12-B1, VNP12-B2, VNP12-B3, VNP12-B4, VNP12-C1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 5, exercises: 3, review: 1 }
