@@ -1,0 +1,29 @@
+id: MMX14
+title: "同 companionのmodel/compress/gap/batch：ports側の符号付き普遍計数テンソルと厳密なbatch下界、その証明依存と対角線論法"
+volume: foundations
+status: supplementary
+prerequisites: [MMX12, MMX13]
+official_scope: []
+learning_objectives:
+  - 普遍機械の符号付き計数と固定長推測の一意性を説明できる
+  - 計数多項式の VNP 所属を真理値表から導ける
+  - 圧縮展開の共有幅と私有幅を別々に評価できる
+  - 二つの公開時計の記録生成・経路数保存・費用を計算できる
+  - 有限体の線形写像で縮約を受理経路数に変換できる
+  - 厳密バッチ下界の対角線論法と k に一様な閾値を再構成できる
+definitions:
+  - { id: MMX14-DEF-01, name: "符号付き普遍計数テンソル" }
+  - { id: MMX14-DEF-02, name: "三価ビットネットワークのバッチ" }
+  - { id: MMX14-DEF-03, name: "公開時計と私有ジョブ" }
+theorems:
+  - { id: MMX14-THM-01, name: "符号付き計数多項式の VNP 所属" }
+  - { id: MMX14-LEM-02, name: "圧縮展開の列挙評価" }
+  - { id: MMX14-THM-03, name: "公開時計の隔たり" }
+  - { id: MMX14-LEM-04, name: "有限体の縮約と受理経路数" }
+  - { id: MMX14-THM-05, name: "厳密バッチ下界" }
+canonical_examples: [符号付き停止, 二値の等号配線, 私有ジョブの経路積, 有限体の受理経路数]
+problem_patterns: [MMX14-A01, MMX14-A02, MMX14-A03, MMX14-A04, MMX14-A05, MMX14-B01, MMX14-B02, MMX14-B03, MMX14-B04, MMX14-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 20, exercises: 6, review: 4 }
