@@ -198,7 +198,9 @@ $$
 
 ## 3. 細分を元へ戻す
 
-元の頂点に全順序を固定します。細分の各頂点 $b_F$ を $F$ の最大頂点へ送る写像を $p$ とします。包含鎖に沿って選んだ頂点は全て最後の面に属するので、$p:\operatorname{sd}K\to K$ は [単体写像](../ATOP13/index.md#def-atop13-simplicial-map) です。例えば $a<b$ なら $p(b_a)=a,p(b_b)=p(b_{ab})=b$ です。誘導鎖準同型を $p_\#$ と書きます。重複頂点のある像は零になることに注意します。
+元の頂点に全順序を固定します。細分の各頂点 $b_F$ を $F$ の最大頂点へ送る写像を $p$ とします。包含鎖に沿って選んだ頂点は全て最後の面に属するので、$p:\operatorname{sd}K\to K$ は [単体写像](../ATOP13/index.md#def-atop13-simplicial-map) です。例えば $a<b$ なら $p(b_a)=a,p(b_b)=p(b_{ab})=b$ です。[誘導鎖準同型](../ATOP13/index.md#def-atop13-induced-chain-map)を $p_\#$ と書きます。重複頂点のある像は零になることに注意します。
+
+二つの鎖写像の差を、次数を1上げる操作 $D$ を用いて境界の前後の和 $\partial D+D\partial$ として表せれば、サイクル上の差が境界になります。この関係が鎖ホモトピーです。
 
 <a id="thm-atop15-subdivision-homotopy"></a>
 
@@ -238,7 +240,7 @@ $$
 
 $\partial\sigma$ は異なる面を係数 $\pm1$ で足した非零鎖なので $k=1$ です。
 
-次に $T=\operatorname{id}-Sp_\#$ とおきます。$T$ は境界と可換です。細分基底単体 $\tau=[b_{F_0},\ldots,b_{F_n}]$ を包含順に向き付け、最後の面を $F=F_n$ とします。$p_\#\tau$ は零または $F$ 内の鎖であり、従って $T\tau$ は $\operatorname{sd}F$ 内にあります。
+次に $T=\operatorname{id}-Sp_\#$ とおきます。$T$ は境界と可換です。細分頂点を対応する面の頂点数の昇順（同数なら任意の固定順）で全順序付け、細分基底単体 $\tau=[b_{F_0},\ldots,b_{F_n}]$ を包含順に向き付け、最後の面を $F=F_n$ とします。$p_\#\tau$ は零または $F$ 内の鎖であり、従って $T\tau$ は $\operatorname{sd}F$ 内にあります。
 
 $D$ を帰納的に構成します。すでに低次数で等式と支持条件（各細分単体の最後の面の細分内に値を持つこと）が成立しているとします。$n=0$ では $D_{-1}\partial=0$ とします。
 
@@ -571,6 +573,39 @@ $$
 ![放物線と中点で折れ曲がる単体近似のグラフ](assets/approximation.svg)
 
 [単体近似定理](#thm-atop15-simplicial-approximation) の直線補間で $|g|$ と $f$ はホモトピックです。
+<!-- solution-end -->
+
+### 演習 ATOP15-B5：座標から小三角形を復元する
+
+- Level: B
+
+三角形全体 $K$ の点 $x=\frac12 a+\frac13 b+\frac16 c$ を含む細分単体と、その細分単体上の重心座標を求めよ。元の三つの座標を再計算して一致を確認せよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+[重心細分複体の実現](#prop-atop15-realization) の構成で、座標の異なる正の値は $s_1=1/2,s_2=1/3,s_3=1/6$、最後に $s_4=0$ とします。値が各閾値以上の頂点集合は $F_1=\{a\},F_2=\{a,b\},F_3=\{a,b,c\}$ です。従って求める小三角形の頂点は $b_a,b_{ab},b_{abc}$ です。
+
+$$
+\begin{aligned}
+\lambda_1&=1(1/2-1/3)=1/6,\\
+\lambda_2&=2(1/3-1/6)=1/3,\\
+\lambda_3&=3(1/6-0)=1/2.
+\end{aligned}
+$$
+
+係数は全て正で和は1なので小三角形の内部に属します。実際、
+
+$$
+\begin{aligned}
+\frac16 a+\frac13\frac{a+b}{2}+\frac12\frac{a+b+c}{3}
+&=\left(\frac16+\frac16+\frac16\right)a\\
+&\quad+\left(\frac16+\frac16\right)b+\frac16 c\\
+&=\frac12 a+\frac13 b+\frac16 c.
+\end{aligned}
+$$
+
+このように座標の大小関係から小単体を特定でき、さらに座標差から係数を復元できます。
 <!-- solution-end -->
 
 ### 演習 ATOP15-C1：円周のサイクルと細分
