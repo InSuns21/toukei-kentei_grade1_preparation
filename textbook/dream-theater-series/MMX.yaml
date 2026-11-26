@@ -50,7 +50,7 @@ chapters:
     title: "portsの定義、グラフの非線形Poincaré、catalyst・protocolと幅の評価、二分岐の論理"
   - id: MMX12
     path: textbook/volumes/dream_thater/計算系/MMX/MMX12
-    status: planned
+    status: completed
     title: "companionのcompressor・exact・descent：タグ付き置換をoracleにしたネットワーク圧縮、サイズと複製数の台帳"
   - id: MMX13
     path: textbook/volumes/dream_thater/計算系/MMX/MMX13

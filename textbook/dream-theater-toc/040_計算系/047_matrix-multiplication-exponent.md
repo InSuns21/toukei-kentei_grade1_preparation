@@ -12,3 +12,4 @@
 9. [MMX9 Euclidean geometry companion：compatible spectral system、mean width、Gaussian表示、flat lawの証明と共有ラベルの増分](textbook/volumes/dream_thater/計算系/MMX/MMX9/index.md)
 10. [MMX10 spectral priceの曲率・完備化・ultralimit・積・合同と拡張条件、Euclid flatと非平坦空間の違い](textbook/volumes/dream_thater/計算系/MMX/MMX10/index.md)
 11. [MMX11 portsの定義、グラフの非線形Poincaré、catalyst・protocolと幅の評価、二分岐の論理](textbook/volumes/dream_thater/計算系/MMX/MMX11/index.md)
+12. [MMX12 companionのcompressor・exact・descent：タグ付き置換をoracleにしたネットワーク圧縮、サイズと複製数の台帳](textbook/volumes/dream_thater/計算系/MMX/MMX12/index.md)

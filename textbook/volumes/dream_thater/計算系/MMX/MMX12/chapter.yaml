@@ -1,0 +1,32 @@
+id: MMX12
+title: "companionのcompressor・exact・descent：タグ付き置換をoracleにしたネットワーク圧縮、サイズと複製数の台帳"
+volume: foundations
+status: supplementary
+prerequisites: [MMX11, TSP6]
+official_scope: []
+learning_objectives:
+  - 距離の二乗不等式から整数幅の厳密なモチーフ変換を導ける
+  - 六地点の係数とlaneの割当を追って縮小段階の費用を計算できる
+  - portsを用いた次数復元と反復エネルギーの幾何級数を導ける
+  - タグ付き置換の整列と表引きにより厳密降下のサイズを見積もれる
+  - 格子による借用wireの再利用とギャップの再規格化を計算できる
+  - 償却圧縮のサイズ・境界・複製数を独立に管理できる
+definitions:
+  - { id: MMX12-DEF-01, name: "wire 幅エネルギー" }
+  - { id: MMX12-DEF-02, name: "lane 付き配線網" }
+theorems:
+  - { id: MMX12-THM-01, name: "固定モチーフの変換" }
+  - { id: MMX12-LEM-02, name: "六地点のエネルギー節約" }
+  - { id: MMX12-LEM-03, name: "縮小段階のエネルギー評価" }
+  - { id: MMX12-LEM-04, name: "ports による次数復元" }
+  - { id: MMX12-THM-05, name: "反復配線圧縮" }
+  - { id: MMX12-LEM-06, name: "整列長の拡張" }
+  - { id: MMX12-PROP-07, name: "タグ付き置換による厳密降下" }
+  - { id: MMX12-LEM-08, name: "格子による借用 wire の再利用" }
+  - { id: MMX12-THM-09, name: "償却ネットワーク圧縮" }
+canonical_examples: [幅エネルギー, 六地点の供給群, lane配線網, 格子再利用]
+problem_patterns: [MMX12-A01, MMX12-A02, MMX12-A03, MMX12-A04, MMX12-B01, MMX12-B02, MMX12-B03, MMX12-B04, MMX12-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 24, exercises: 6, review: 4 }
