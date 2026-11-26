@@ -118,7 +118,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$H\Omega=0$ なので真空への射影は $H$ のスペクトル射影と可換であり、$\mathcal K$ は $H$ を還元する。$T=e^{-t_0 H}$ はスペクトル定理により非負自己共役かつ $\|T\|\le1$。任意の $w\in\mathcal K$ を $\mathcal D$ の列 $u_n$ で近似すると
+$H\Omega=0$ なので真空への射影は $H$ のスペクトル射影と可換であり、$\mathcal K$ は $H$ を還元する。$T=e^{-t_0 H}$ は[非有界自己共役作用素のスペクトル定理](../../../解析系/QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral)の有界関数による関数計算から非負自己共役かつ $\|T\|\le1$。任意の $w\in\mathcal K$ を $\mathcal D$ の列 $u_n$ で近似すると
 
 $$
 \begin{aligned}
