@@ -1,0 +1,24 @@
+id: MQFC27
+title: "漸近自由性と尺度をどう固定するか"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC21, MQFC26, QFT25, QFT26, QFT30]
+official_scope: []
+learning_objectives:
+  - Wilson作用の係数とくりこみ群のβ関数を区別できる
+  - 一ループ方程式から不変な次元転換尺度を導出できる
+  - 格子間隔の変更に伴う結合の軌道を計算できる
+  - 尺度固定と質量比の極限を区別できる
+  - 強結合の十分条件が弱結合軌道に及ばない理由を説明できる
+definitions:
+  - { id: MQFC27-DEF-01, name: "一ループの次元転換尺度" }
+theorems:
+  - { id: MQFC27-THM-01, name: "一ループ尺度の不変性" }
+  - { id: MQFC27-THM-02, name: "一ループ格子尺度の軌道" }
+  - { id: MQFC27-PROP-01, name: "尺度固定後の質量比の判定" }
+canonical_examples: [二つの基準点と同一尺度, SU3格子の細分化, 三つの転送模型]
+problem_patterns: [MQFC27-A1, MQFC27-A2, MQFC27-A3, MQFC27-A4, MQFC27-B1, MQFC27-B2, MQFC27-B3, MQFC27-B4, MQFC27-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }

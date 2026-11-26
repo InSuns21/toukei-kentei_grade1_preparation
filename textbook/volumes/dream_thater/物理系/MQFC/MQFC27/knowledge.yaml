@@ -1,0 +1,26 @@
+chapter: MQFC27
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC21, MQFC26, QFT25, QFT26, QFT30]
+forward_references: []
+concepts:
+  - id: mqfc.one-loop-transmutation-scale
+    name: "一ループの次元転換尺度"
+    kind: definition
+    introduction: formal
+    requires: [qft.pure-yang-mills-one-loop-beta, qft.asymptotic-freedom]
+  - id: mqfc.one-loop-scale-invariance
+    name: "一ループ尺度の不変性"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.one-loop-transmutation-scale]
+  - id: mqfc.one-loop-lattice-scale-trajectory
+    name: "一ループ格子尺度の軌道"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.one-loop-scale-invariance, mqfc.wilson-classical-expansion]
+  - id: mqfc.fixed-scale-mass-ratio
+    name: "尺度固定後の質量比の判定"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.mass-correlation-length-unit-conversion]
