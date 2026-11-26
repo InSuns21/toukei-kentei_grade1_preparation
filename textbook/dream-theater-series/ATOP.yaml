@@ -28,7 +28,7 @@ chapters:
   - { id: ATOP22, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP22, status: completed, title: "CW複体・胞体ホモロジー" }
   - { id: ATOP23, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP23, status: completed, title: "球面の写像度" }
   - { id: ATOP24, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP24, status: completed, title: "非レトラクション・Brouwer・毛玉の定理" }
-  - { id: ATOP25, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP25, status: planned, title: "局所ホモロジーと次元不変性" }
+  - { id: ATOP25, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP25, status: completed, title: "局所ホモロジーと次元不変性" }
   - { id: ATOP26, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP26, status: planned, title: "H1と基本群の可換化" }
   - { id: ATOP27, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP27, status: planned, title: "Lefschetz不動点定理" }
   - { id: ATOP28, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP28, status: planned, title: "コチェインと特異コホモロジー" }
