@@ -1,0 +1,54 @@
+chapter: MMX9
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX8, NPCG5, F0-02C6, MT6]
+forward_references: []
+concepts:
+  - id: matrix-exponent.compatible-system
+    name: 整合的スペクトル価格系
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（整合的スペクトル価格系）"]
+    requires: [matrix-exponent.spectral-price, matrix-exponent.shared-label-rate]
+  - id: matrix-exponent.placement-convexity
+    name: スペクトル価格の配置凸性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（スペクトル価格の配置凸性）"]
+    requires: [matrix-exponent.compatible-system, matrix-exponent.wire-transport, metric-geometry.geodesically-convex-function]
+  - id: matrix-exponent.specialization-price
+    name: 有限拡大上の制限と多項式特殊化
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有限拡大上の制限と多項式特殊化）"]
+    requires: [matrix-exponent.price-rules]
+  - id: matrix-exponent.copy-increment
+    name: 共有ラベルの複製増分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（共有ラベルの複製増分）"]
+    requires: [matrix-exponent.specialization-price, matrix-exponent.compatible-system, matrix-exponent.shared-label-rate]
+  - id: matrix-exponent.triangle-upper
+    name: 三地点共有価格の半周長上界
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（三地点共有価格の半周長上界）"]
+    requires: [matrix-exponent.compatible-system, matrix-exponent.shared-label-rate]
+  - id: matrix-exponent.gaussian-mean-width
+    name: Gaussian正規化平均幅
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Gaussian正規化平均幅）"]
+    requires: []
+  - id: matrix-exponent.triangle-density
+    name: 三角形支持関数の一様稠密性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（三角形支持関数の一様稠密性）"]
+    requires: [matrix-exponent.gaussian-mean-width, functional.norm-preserving-extension, measure.riesz-markov-c0-real]
+  - id: matrix-exponent.flat-law
+    name: 平坦空間の共有ラベル公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平坦空間の共有ラベル公式）"]
+    requires: [matrix-exponent.placement-convexity, matrix-exponent.copy-increment, matrix-exponent.triangle-upper, matrix-exponent.triangle-density, matrix-exponent.gaussian-mean-width]
