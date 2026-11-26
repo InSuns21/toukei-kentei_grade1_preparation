@@ -1,0 +1,24 @@
+id: VNP14
+title: "F：overlapping windows・固定点集合の角度・一様Poincaré F.6"
+volume: foundations
+status: supplementary
+prerequisites: [VNP13, VNP7, VNP9, NPCG4, NPCG7, NPCG8]
+official_scope: []
+learning_objectives:
+  - 区間部分群の固定点への射影を弱い群長さ評価から制御できる
+  - 重なる区間の中間射影を平均し変位の二乗和を望遠鏡和で評価できる
+  - CAT(0)の二乗距離評価から固定点集合のほぼ直交する射影を導出できる
+  - 重心反復の収束を示し群の大きさに依存しないPoincaré定数を導出できる
+definitions:
+  - { id: VNP14-DEF-01, name: "区間部分群と固定点集合" }
+theorems:
+  - { id: VNP14-THM-01, name: "区間への局所射影評価" }
+  - { id: VNP14-THM-02, name: "重なる区間の射影" }
+  - { id: VNP14-THM-03, name: "固定点集合のほぼ直交する射影" }
+  - { id: VNP14-THM-04, name: "一様Poincaré不等式" }
+canonical_examples: [三次上単位三角群の符号反転作用, 重なる三つの区間, Euclid平面の二直線]
+problem_patterns: [VNP14-A1, VNP14-A2, VNP14-A3, VNP14-A4, VNP14-B1, VNP14-B2, VNP14-B3, VNP14-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
