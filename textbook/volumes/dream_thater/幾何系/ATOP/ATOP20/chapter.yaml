@@ -1,0 +1,23 @@
+id: ATOP20
+title: "Mayer–Vietoris完全列"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP19]
+official_scope: []
+learning_objectives:
+  - 二領域の小さい鎖の短完全列を構成し完全性を証明できる
+  - 接続準同型の代表元と分解への非依存性および符号を確認できる
+  - Mayer–Vietoris完全列の各位置の完全性を鎖から証明できる
+  - 開被覆条件と小さい鎖の同型の関係を説明できる
+  - 円周と球面およびトーラスのホモロジーを完全列から計算できる
+definitions: []
+theorems:
+  - { id: ATOP20-THM-01, name: 二領域の小さい鎖の短完全列 }
+  - { id: ATOP20-THM-02, name: Mayer–Vietoris接続準同型 }
+  - { id: ATOP20-THM-03, name: Mayer–Vietoris完全列 }
+canonical_examples: [円周の二弧被覆, 球面の赤道帯, トーラスの二円筒被覆]
+problem_patterns: [ATOP20-A1, ATOP20-A2, ATOP20-A3, ATOP20-A4, ATOP20-B1, ATOP20-B2, ATOP20-B3, ATOP20-B4, ATOP20-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }

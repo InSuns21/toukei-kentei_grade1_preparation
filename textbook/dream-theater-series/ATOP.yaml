@@ -23,7 +23,7 @@ chapters:
   - { id: ATOP17, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP17, status: completed, title: "鎖ホモトピーとホモトピー不変性" }
   - { id: ATOP18, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP18, status: completed, title: "相対ホモロジーと長完全列" }
   - { id: ATOP19, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP19, status: completed, title: "切除定理" }
-  - { id: ATOP20, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP20, status: planned, title: "Mayer–Vietoris完全列" }
+  - { id: ATOP20, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP20, status: completed, title: "Mayer–Vietoris完全列" }
   - { id: ATOP21, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP21, status: planned, title: "単体ホモロジーと特異ホモロジーの比較" }
   - { id: ATOP22, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP22, status: planned, title: "CW複体・胞体ホモロジー" }
   - { id: ATOP23, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP23, status: planned, title: "球面の写像度" }

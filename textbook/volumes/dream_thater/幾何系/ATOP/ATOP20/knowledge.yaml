@@ -1,0 +1,21 @@
+chapter: ATOP20
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP19]
+forward_references: []
+concepts:
+  - id: atop.two-set-small-chain-sequence
+    name: 二領域の小さい鎖の短完全列
+    kind: theorem
+    introduction: formal
+    requires: [atop.small-chain-complex, atop.singular-chain-map-boundary, category.short-exact-sequence]
+  - id: atop.mayer-vietoris-connecting
+    name: Mayer–Vietoris接続準同型
+    kind: theorem
+    introduction: formal
+    requires: [atop.two-set-small-chain-sequence, atop.small-chain-homology-isomorphism, atop.singular-boundary-square-zero]
+  - id: atop.mayer-vietoris
+    name: Mayer–Vietoris完全列
+    kind: theorem
+    introduction: formal
+    requires: [atop.mayer-vietoris-connecting, atop.two-set-small-chain-sequence, atop.induced-singular-homology-map, category.exact-sequence]
