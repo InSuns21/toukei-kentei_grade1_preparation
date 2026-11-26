@@ -1,0 +1,54 @@
+chapter: VNP9
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP8, VNP7, VNP3, NPCG6]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.two-hypotheses
+    name: "平坦仮説と収縮仮説"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平坦仮説と収縮仮説）"]
+    requires: [vp-vnp-study.price, vp-vnp-study.rank-rms-distance]
+  - id: vp-vnp-study.transversal-square-equality
+    name: "横断四辺形の等号"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（横断四辺形の等号）"]
+    requires: [vp-vnp-study.rank-rms-subadditivity, vp-vnp-study.price-completion, metric-geometry.flat-quadrilateral-equality]
+  - id: vp-vnp-study.transversal-cross-term
+    name: "横断方向の交差項"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（横断方向の交差項）"]
+    requires: [vp-vnp-study.price, vp-vnp-study.transversal-matrices]
+  - id: vp-vnp-study.cross-term-additivity
+    name: "横断三方向の交差項の加法性"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（横断三方向の交差項の加法性）"]
+    requires: [vp-vnp-study.transversal-cross-term, vp-vnp-study.transversal-square-equality]
+  - id: vp-vnp-study.rank-one-exchange
+    name: "階数1方向の交換"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（階数1方向の交換）"]
+    requires: [vp-vnp-study.transversal-matrices]
+  - id: vp-vnp-study.extremal-rank-metric
+    name: "等号priceの階数平方根表示"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（等号priceの階数平方根表示）"]
+    requires: [vp-vnp-study.cross-term-additivity, vp-vnp-study.rank-one-exchange, vp-vnp-study.transversal-rank]
+  - id: vp-vnp-study.cube-extension
+    name: "立方体頂点から内部への等長拡張"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（立方体頂点から内部への等長拡張）"]
+    requires: [metric-geometry.flat-quadrilateral-equality]
+  - id: vp-vnp-study.flat-or-contracting
+    name: "平坦または収縮：D.2"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平坦または収縮：D.2）"]
+    requires: [vp-vnp-study.two-hypotheses, vp-vnp-study.rank-extremal-price, vp-vnp-study.extremal-rank-metric, vp-vnp-study.cube-extension, vp-vnp-study.price-completion, vp-vnp-study.price-laws]

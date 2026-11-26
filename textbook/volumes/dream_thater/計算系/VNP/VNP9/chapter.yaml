@@ -1,0 +1,27 @@
+id: VNP9
+title: "D：等号解析とEuclid cube、flatまたはcontracting"
+volume: foundations
+status: supplementary
+prerequisites: [VNP8, VNP7, VNP3, NPCG6]
+official_scope: []
+learning_objectives:
+  - 階数別平均の等号から横断四辺形の各等号を導ける
+  - 外積分解の交換と符号反転から交差項が零になることを証明できる
+  - 等号priceの全点対の距離を階数から求められる
+  - 立方体頂点から内部への等長拡張を証明し平坦仮説と収縮仮説の少なくとも一方を導ける
+definitions:
+  - { id: VNP9-DEF-01, name: "平坦仮説と収縮仮説" }
+  - { id: VNP9-DEF-02, name: "横断方向の交差項" }
+theorems:
+  - { id: VNP9-THM-01, name: "横断四辺形の等号" }
+  - { id: VNP9-THM-02, name: "横断三方向の交差項の加法性" }
+  - { id: VNP9-THM-03, name: "階数1方向の交換" }
+  - { id: VNP9-THM-04, name: "等号priceの階数平方根表示" }
+  - { id: VNP9-THM-05, name: "立方体頂点から内部への等長拡張" }
+  - { id: VNP9-THM-06, name: "平坦または収縮：D.2" }
+canonical_examples: [外積の交換, 立方体の頂点と内部, 有限Euclid配置の縮尺]
+problem_patterns: [VNP9-A1, VNP9-A2, VNP9-A3, VNP9-A4, VNP9-B1, VNP9-B2, VNP9-B3, VNP9-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 2 }
