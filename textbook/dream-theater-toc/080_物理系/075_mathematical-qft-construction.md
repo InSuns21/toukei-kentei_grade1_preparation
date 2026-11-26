@@ -30,3 +30,4 @@
 27. [MQFC27 漸近自由性と尺度をどう固定するか](textbook/volumes/dream_thater/物理系/MQFC/MQFC27/index.md)
 28. [MQFC28 多重尺度くりこみと大場領域](textbook/volumes/dream_thater/物理系/MQFC/MQFC28/index.md)
 29. [MQFC29 連続極限と無限体積極限をどう閉じるか](textbook/volumes/dream_thater/物理系/MQFC/MQFC29/index.md)
+30. [MQFC30 Clay Yang–Mills存在・質量ギャップ問題](textbook/volumes/dream_thater/物理系/MQFC/MQFC30/index.md)

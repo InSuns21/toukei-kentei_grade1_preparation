@@ -1,0 +1,21 @@
+id: MQFC30
+title: "Clay Yang–Mills存在・質量ギャップ問題"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC9, MQFC10, MQFC12, MQFC21, MQFC22, MQFC24, MQFC25, MQFC26, MQFC27, MQFC28, MQFC29]
+official_scope: []
+learning_objectives:
+  - Clayの存在と質量ギャップの二つの要求を区別できる
+  - 格子測度から非自明な連続理論を構成する証明責務を順に説明できる
+  - 真空選択と稠密な観測量に対する共通スペクトル下界を判定できる
+  - 固定格子のギャップと物理的な一様下界の差を計算できる
+  - 模型や提出版の評価範囲を区別できる
+definitions: []
+theorems:
+  - { id: MQFC30-THM-01, name: "一時刻の二次形式によるギャップ判定" }
+canonical_examples: [隠れた低エネルギー成分, 無限体積で消えるギャップ, OS零空間, 物理時間の共通下界]
+problem_patterns: [MQFC30-A1, MQFC30-A2, MQFC30-A3, MQFC30-A4, MQFC30-B1, MQFC30-B2, MQFC30-B3, MQFC30-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }
