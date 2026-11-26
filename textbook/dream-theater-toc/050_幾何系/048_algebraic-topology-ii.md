@@ -12,3 +12,4 @@
 9. [ATOP21 単体ホモロジーと特異ホモロジーの比較](textbook/volumes/dream_thater/幾何系/ATOP/ATOP21/index.md)
 10. [ATOP22 CW複体・胞体ホモロジー](textbook/volumes/dream_thater/幾何系/ATOP/ATOP22/index.md)
 11. [ATOP23 球面の写像度](textbook/volumes/dream_thater/幾何系/ATOP/ATOP23/index.md)
+12. [ATOP24 非レトラクション・Brouwer・毛玉の定理](textbook/volumes/dream_thater/幾何系/ATOP/ATOP24/index.md)
