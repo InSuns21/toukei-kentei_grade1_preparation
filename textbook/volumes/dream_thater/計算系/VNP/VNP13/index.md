@@ -15,7 +15,13 @@ $\mathbb F_2$ は二元体で、以下の行列演算はこの体上で行いま
 <!-- formal-statement-start -->
 > **定義（上単位三角群）**
 >
-> 正整数 $n$ に対し、$\mathbb F_2$ 上の狭義上三角行列 $N$ による行列 $I_n+N$ の全体を $U_n$ とする。演算は行列積とする。行列単位 $E_{ij}$ は位置 $(i,j)$ だけが1の行列であり、隣接操作を $x_j=I_n+E_{j,j+1}$ とする（$0\le j<n-1$）。
+> 正整数 $n$ に対し、$\mathbb F_2$ 上の狭義上三角行列 $N$ による行列 $I_n+N$ の全体を $U_n$ とする。演算は行列積とする。
+>
+> 行列単位 $E_{ij}$ は位置 $(i,j)$ だけが1の行列とする。隣接操作を次式で定める。
+
+$$
+x_j=I_n+E_{j,j+1},\qquad 0\le j<n-1.
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-vnp13-unitriangular -->
