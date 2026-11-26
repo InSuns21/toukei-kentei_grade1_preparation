@@ -9,6 +9,11 @@ concepts:
     kind: definition
     introduction: formal
     requires: [atop.singular-chain-group, atop.singular-boundary]
+  - id: atop.singular-cone-boundary
+    name: 特異錐の境界公式
+    kind: lemma
+    introduction: formal
+    requires: [atop.singular-boundary, atop.singular-face-map]
   - id: atop.singular-subdivision
     name: 特異鎖の細分作用素
     kind: definition
@@ -18,12 +23,12 @@ concepts:
     name: 特異細分と境界の可換性
     kind: theorem
     introduction: formal
-    requires: [atop.singular-subdivision, atop.singular-boundary-square-zero, atop.singular-chain-map-boundary]
+    requires: [atop.singular-subdivision, atop.singular-cone-boundary, atop.singular-boundary-square-zero, atop.singular-chain-map-boundary]
   - id: atop.singular-subdivision-homotopy
     name: 特異細分の鎖ホモトピー
     kind: theorem
     introduction: formal
-    requires: [atop.singular-subdivision-chain-map, atop.chain-homotopy]
+    requires: [atop.singular-subdivision-chain-map, atop.chain-homotopy, atop.singular-cone-boundary]
   - id: atop.eventually-small-chains
     name: 有限鎖の小鎖化
     kind: lemma
