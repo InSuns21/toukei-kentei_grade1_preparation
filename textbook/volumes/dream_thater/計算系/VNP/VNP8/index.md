@@ -8,7 +8,7 @@
 
 ## 1. 二元体の行列と独立な方向
 
-$\mathbb F_2=\{0,1\}$ は和と積を2で割った余りで計算する[体](../../../代数系/RNG/RNG1/index.md#def-rng1-zero-divisor-domain-field)です。特に $1+1=0$ なので $-W=W$ です。正整数 $\mu$ を固定し、$\mu$ 行 $\mu$ 列の行列全体を $M=\operatorname{Mat}_\mu(\mathbb F_2)$ と書きます。$|M|$ は集合 $M$ の要素数であり、各成分が2通りなので $|M|=2^{\mu^2}$ です。[price](../VNP3/index.md#def-vnp3-price) を定める体 $K$ は別に固定します。$K$ の標数が2である必要はありません。
+$\mathbb F_2=\{0,1\}$ は和と積を2で割った余りで計算する[体](../../../代数系/RNG/RNG1/index.md#def-rng1-zero-divisor-domain-field)です。特に $1+1=0$ です。正整数 $\mu$ を固定し、$\mu$ 行 $\mu$ 列の行列全体を $M=\operatorname{Mat}_\mu(\mathbb F_2)$ と書きます。任意の $W\in M$ について $-W=W$ です。$|M|$ は集合 $M$ の要素数であり、各成分が2通りなので $|M|=2^{\mu^2}$ です。[price](../VNP3/index.md#def-vnp3-price) を定める体 $K$ は別に固定します。$K$ の標数が2である必要はありません。
 
 列ベクトルは $\mathbb F_2^\mu$ の元、行ベクトルはその転置として扱います。上付き $\mathsf T$ は転置、$\langle v_1,\ldots,v_m\rangle$ は $\mathbb F_2$ 係数による[線形包](../../../代数系/FLD/FLD0/index.md#def-fld0-span-over-field)（全線形結合の集合）です。行列 $W$ の列空間 $C(W)$ は列ベクトルの張る部分空間、行空間 $R(W)$ は行ベクトルの張る部分空間です。標準基底 $e_j$ の第 $j$ 成分だけが1であることから、$We_j$ は第 $j$ 列です。任意の $x=\sum_j x_je_j$ について
 
@@ -48,7 +48,16 @@ $W=UV$ は $W$ の各行が $V$ の行の線形結合であることを、$V=LW$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-vnp8-transversal -->
-**定義の確認**：$\mu=2$ とし、$E_{ij}$ を $(i,j)$ 成分だけが1の行列とします。$W=E_{11},W'=E_{22}$ なら列空間はそれぞれ第一・第二標準基底の張る直線、行空間もそれぞれ第一・第二標準行ベクトルの張る直線です。列について $\alpha e_1+\beta e_2=(\alpha,\beta)^{\mathsf T}=0$ なら $\alpha=\beta=0$、行についても $\gamma e_1^{\mathsf T}+\eta e_2^{\mathsf T}=(\gamma,\eta)=0$ なら $\gamma=\eta=0$ です（係数はすべて $\mathbb F_2$）。定義の二条件を満たすので横断対です。和は $I_2$ です。ここで $W'$ は二番目の行列の名前であり、微分を表しません。
+**定義の確認**：$\mu=2$ とし、$E_{ij}$ を $(i,j)$ 成分だけが1の行列とします。$W=E_{11},W'=E_{22}$ なら列空間はそれぞれ第一・第二標準基底の張る直線、行空間もそれぞれ第一・第二標準行ベクトルの張る直線です。係数はすべて $\mathbb F_2$ とし、列・行それぞれについて和が零になる条件を調べます。
+
+$$
+\begin{aligned}
+\alpha e_1+\beta e_2&=(\alpha,\beta)^{\mathsf T}=0,\\
+\gamma e_1^{\mathsf T}+\eta e_2^{\mathsf T}&=(\gamma,\eta)=0.
+\end{aligned}
+$$
+
+第一式から $\alpha=\beta=0$、第二式から $\gamma=\eta=0$ です。定義の二条件を満たすので横断対です。和は $I_2$ です。以下も $W'$ は二番目の行列を表します。
 
 対照的に $E_{11},E_{12}$ の行空間は独立ですが、列空間はともに第一標準基底の直線です。和の列も第一標準基底の倍数だけなので階数は1です。行空間だけの独立性では足りません。
 <!-- definition-example-end -->
@@ -311,7 +320,28 @@ $$
 とする。横断対か判定し、和の階数を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：$C(W)=\langle(1,0)^{\mathsf T}\rangle$、$C(W')=\langle(0,1)^{\mathsf T}\rangle$。$\alpha(1,0)^{\mathsf T}+\beta(0,1)^{\mathsf T}=(\alpha,\beta)^{\mathsf T}=0$ なら両係数は零なので、二つの列方向は独立です。行空間は $\langle(1,1)\rangle$ と $\langle(1,0)\rangle$ で、係数 $\alpha,\beta\in\mathbb F_2$ に対し $\alpha(1,1)+\beta(1,0)=(\alpha+\beta,\alpha)=0$ なら $\alpha=\beta=0$。よって [横断的な行列族](#def-vnp8-transversal) の両条件を満たします。[横断和の階数加法性](#lem-vnp8-transversal-rank) で階数は2。直接にも $W+W'=\begin{pmatrix}1&1\\1&0\end{pmatrix}$ は第二行を第一行に足して $\begin{pmatrix}0&1\\1&0\end{pmatrix}$ となり二つのピボットを持ちます。
+**詳細解答**：列空間は $C(W)=\langle(1,0)^{\mathsf T}\rangle$、$C(W')=\langle(0,1)^{\mathsf T}\rangle$ です。係数 $\alpha,\beta\in\mathbb F_2$ に対して
+
+$$
+\alpha(1,0)^{\mathsf T}+\beta(0,1)^{\mathsf T}
+=(\alpha,\beta)^{\mathsf T}=0
+$$
+
+なら両係数は零なので、二つの列方向は独立です。行空間は $\langle(1,1)\rangle$ と $\langle(1,0)\rangle$ です。
+
+$$
+\alpha(1,1)+\beta(1,0)=(\alpha+\beta,\alpha)=0
+$$
+
+なら第二成分から $\alpha=0$、第一成分から $\beta=0$ です。よって [横断的な行列族](#def-vnp8-transversal) の両条件を満たします。[横断和の階数加法性](#lem-vnp8-transversal-rank) で階数は2です。直接にも、第二行を第一行に足すと
+
+$$
+W+W'=\begin{pmatrix}1&1\\1&0\end{pmatrix}
+\ \longrightarrow\
+\begin{pmatrix}0&1\\1&0\end{pmatrix}
+$$
+
+となります。この行列は標準基底を入れ替える可逆行列なので階数は2です。
 <!-- solution-end -->
 
 ### A2. 平均の母集団
@@ -351,7 +381,19 @@ $$
 $\mu=8,D(1)=3,D(3)=4$ のpriceで $D(6),D(8)$ の上界を求めよ。$D(6)$ の評価も $D(8)$ に利用せよ。
 
 <!-- solution-start -->
-**詳細解答**：[階数別二乗平均距離の劣加法性](#thm-vnp8-rank-subadditive) を $3+3=6$ に使うと $D(6)^2\le16+16=32$、従って $D(6)\le4\sqrt2$。$2$ には一般上界から $D(2)^2\le2\cdot9=18$。$6+2=8$ に適用すると $D(8)^2\le32+18=50$、従って $D(8)\le5\sqrt2$。一般上界だけなら $3\sqrt8$ なので改善されています。
+**詳細解答**：[階数別二乗平均距離の劣加法性](#thm-vnp8-rank-subadditive) を $3+3=6$ に使います。
+
+$$
+D(6)^2\le D(3)^2+D(3)^2=16+16=32.
+$$
+
+従って $D(6)\le4\sqrt2$。同定理の一般上界から $D(2)^2\le2D(1)^2=18$ です。さらに $6+2=8$ に適用すると
+
+$$
+D(8)^2\le D(6)^2+D(2)^2\le32+18=50.
+$$
+
+従って $D(8)\le5\sqrt2$。一般上界だけなら $3\sqrt8=6\sqrt2$ なので改善されています。
 <!-- solution-end -->
 
 ### B1. 横断対の数
@@ -370,7 +412,7 @@ $\mu=2,i=j=1$ とする。固定した階数1行列 $W=uv^{\mathsf T}$ に対し
 - Level: B
 - ID: VNP8-B2
 
-非負整数 $i,j$ は $i+j\le\mu$ を満たすとする。$a$ を $M$ 上で一様に選び、$a$ とは独立に $(W,W')$ を横断対の集合 $\mathcal T_{i,j}$ 上で一様に選ぶ。二つの成分 $W,W'$ 自体の独立性は仮定しない。$a+W'$ と $W$ が独立であることを確率の式で示し、$d(a+W',a+W'+W)^2$ の期待値を求めよ。
+非負整数 $i,j$ は $i+j\le\mu$ を満たすとする。$M$ 上の price $d$ を固定する。$a$ を $M$ 上で一様に選び、$a$ とは独立に $(W,W')$ を横断対の集合 $\mathcal T_{i,j}$ 上で一様に選ぶ。二つの成分 $W,W'$ 自体の独立性は仮定しない。$a+W'$ と $W$ が独立であることを確率の式で示し、$d(a+W',a+W'+W)^2$ の期待値を求めよ。
 
 <!-- solution-start -->
 **詳細解答**：$b\in M,A\in M_i$ とする。横断対の値 $(A,B)$ を固定すれば、$a+ B=b$ は $a=b-B$ という一つの値に対応するので確率 $1/|M|$ です。従って
@@ -404,7 +446,7 @@ $\mu=2$ で $\delta(a,b)=\operatorname{rk}(b-a)$ と置く。この距離が三�
 - Level: C
 - ID: VNP8-C1
 
-$\mu=5$ のprice列で $D_n(1)=1$、$D_n(5)^2\ge5-1/n$ とする。各階数の不足分を評価せよ。極限priceで全横断四辺形の対角線の平方和と四辺の平方和が等しいことを示せ。
+$\mu=5$ とし、同じ体 $K$ に関する price の列 $(d_n)_{n\ge1}$ で $D_n(1)=1$、$D_n(5)^2\ge5-1/n$ とする。各階数の不足分を評価せよ。極限priceで全横断四辺形の対角線の平方和と四辺の平方和が等しいことを示せ。
 
 <!-- solution-start -->
 **詳細解答**：[階数別二乗平均距離の劣加法性](#thm-vnp8-rank-subadditive) から $D_n(r)^2\le r$。$r+(5-r)=5$ に適用すると
