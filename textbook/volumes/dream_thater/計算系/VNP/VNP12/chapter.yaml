@@ -1,0 +1,28 @@
+id: VNP12
+title: "E/L：Euclid hub長の節約、k・ℓの最適化とlog指数4/3"
+volume: foundations
+status: supplementary
+prerequisites: [VNP11, VNP9, VNP7, VNP5, VNP3, VNP2]
+official_scope: []
+learning_objectives:
+  - 冪と語の型から少数項の選択費用を証明できる
+  - 近似中点の評価と立方体の中点操作から軸配置の指数上界を導出できる
+  - 均衡切断のハブ方向を計算して二つの配置の長さ節約を証明できる
+  - 固定頂点数の下界と一様な下界の量化および誤差評価を区別できる
+  - 行列次元の予算から整数パラメータを選び対数指数4/3を導出できる
+definitions:
+  - { id: VNP12-DEF-01, name: "均衡切断のハブ方向" }
+theorems:
+  - { id: VNP12-THM-01, name: "少数項の選択費用" }
+  - { id: VNP12-THM-02, name: "対角資源の近似中点評価" }
+  - { id: VNP12-THM-03, name: "軸配置の選択費用" }
+  - { id: VNP12-THM-04, name: "軸配置のハブ長の節約" }
+  - { id: VNP12-THM-05, name: "平坦仮説下の固定頂点数の下界" }
+  - { id: VNP12-THM-06, name: "平坦仮説下の完全ネットワークの一様下界" }
+  - { id: VNP12-THM-07, name: "平坦仮説下のパーマネントの定量的下界" }
+canonical_examples: [語の型の選択番号, 三頂点のハブ方向, 二次元立方体の中点]
+problem_patterns: [VNP12-A1, VNP12-A2, VNP12-A3, VNP12-A4, VNP12-B1, VNP12-B2, VNP12-B3, VNP12-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 1 }
