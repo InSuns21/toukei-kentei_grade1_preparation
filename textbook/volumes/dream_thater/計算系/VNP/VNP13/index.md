@@ -2,6 +2,8 @@
 
 前講までは平坦仮説で下界を構成しました。ここからは [平坦仮説と収縮仮説](../VNP9/index.md#def-vnp9-cases) の後者を固定します。大きな行列を多数の小さな操作で動かすと、普通は操作数に比例して距離が増えます。しかし階数方向の収縮があれば、平均的な距離はそれより小さくなります。本講では三角行列の群にこの効果を移し、次講で局所評価を一様評価に改善する準備をします。
 
+体 $K$ を一つ固定し、$\mu,s$ はその収縮仮説の係数とします。
+
 一次資料：Claude (Anthropic), [VP ≠ VNP over every field, v1](https://hexagonmath.org/2611.00954v1), Appendix F.1, Lemmas F.1–F.3。直接前提：[VNP12](../VNP12/index.md)、[VNP9](../VNP9/index.md)、[VNP8](../VNP8/index.md)、[VNP3](../VNP3/index.md)。
 
 ## 1. 行列の操作を距離として測る
@@ -41,14 +43,14 @@ L(e)=0,\quad L(g^{-1})=L(g),\quad
 L(gh)\le L(g)+L(h)
 $$
 >
-> を満たすものとする。整数 $\mu\ge2$ と実数 $1\le s<\sqrt\mu$ を固定する。任意の加法群からの準同型 $\theta:\operatorname{Mat}_{\mu}(\mathbb F_2)\to G$ に対して
+> を満たすものとする。整数 $\mu\ge2$ と実数 $1\le s<\sqrt\mu$ を固定する。行列の加法群からの任意の準同型 $\theta:\operatorname{Mat}_{\mu}(\mathbb F_2)\to G$ に対して
 >
 $$
 \mathbb E_{\operatorname{rank}W=\mu} L(\theta(W))^2
 \le s^2\mathbb E_{\operatorname{rank}W=1} L(\theta(W))^2
 $$
 >
-> が成立するとき、$L$ は収縮するという。各平均は指定階数の有限集合上の一様平均である。
+> が成立するとき、$L$ は収縮するという。各平均は指定階数の有限集合上の一様平均であり、$e$ は群の単位元である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-vnp13-length -->
@@ -309,7 +311,7 @@ $$
 
 <a id="exercise-vnp13-a1"></a>
 
-### A1. 演習
+### A1. 隣接操作の積
 
 - Level: A
 - ID: VNP13-A1
@@ -322,7 +324,7 @@ $U_3$ で $x_0^2=x_1^2=I$ と $(x_0x_1)^2=I+E_{02}$ を計算せよ。
 
 <a id="exercise-vnp13-a2"></a>
 
-### A2. 演習
+### A2. 平均変位の長さ
 
 - Level: A
 - ID: VNP13-A2
@@ -335,7 +337,7 @@ $G=U_2=\{e,x_0\}$、実数値写像 $f(e)=2,f(x_0)=5$ について $L_f(e),L_f(x
 
 <a id="exercise-vnp13-a3"></a>
 
-### A3. 演習
+### A3. 階数の三進展開
 
 - Level: A
 - ID: VNP13-A3
@@ -354,7 +356,7 @@ $$
 
 <a id="exercise-vnp13-a4"></a>
 
-### A4. 演習
+### A4. 階数1ブロックの構成
 
 - Level: A
 - ID: VNP13-A4
@@ -367,7 +369,7 @@ $k=2,n=4$、$\xi=(0,1)^{\mathsf T},\omega=(1,1)^{\mathsf T}$ のとき、右上�
 
 <a id="exercise-vnp13-b1"></a>
 
-### B1. 演習
+### B1. 階数を倍にする操作
 
 - Level: B
 - ID: VNP13-B1
@@ -380,7 +382,7 @@ $Z=\begin{pmatrix}1&1\\1&1\end{pmatrix}$ と $i=2$ について $Z\otimes I_i$ �
 
 <a id="exercise-vnp13-b2"></a>
 
-### B2. 演習
+### B2. 外積の分解
 
 - Level: B
 - ID: VNP13-B2
@@ -402,12 +404,12 @@ $$
 
 <a id="exercise-vnp13-b3"></a>
 
-### B3. 演習
+### B3. ブロックの一様性
 
 - Level: B
 - ID: VNP13-B3
 
-$U_4$ を二等分し、右上ブロック $R$ が一様なとき $RQ^{-1}$ が $Q$ と独立一様であることを数え上げで示せ。
+一様に選んだ $U_4$ の行列を二等分し、右上ブロックを $R$、右下を $Q$ とするとき $RQ^{-1}$ が $Q$ と独立一様であることを数え上げで示せ。
 
 <!-- solution-start -->
 **詳細解答**：$Q\in U_2$ は2通り、$R\in\operatorname{Mat}_2(\mathbb F_2)$ は16通りです。固定した $q,w$ に対し $Rq^{-1}=w$ を満たす $R$ は $wq$ だけです。独立一様な $(R,Q)$ の32通りの中の1通りなので確率は $1/32=(1/16)(1/2)$。よって独立一様です。これは [上単位三角群の平均長さ評価](#thm-vnp13-weak-length) でブロックの長さを個別に平均できる理由です。
@@ -415,7 +417,7 @@ $U_4$ を二等分し、右上ブロック $R$ が一様なとき $RQ^{-1}$ が 
 
 <a id="exercise-vnp13-c1"></a>
 
-### C1. 演習
+### C1. 漸近評価と厳密な収縮条件
 
 - Level: C
 - ID: VNP13-C1
@@ -423,7 +425,7 @@ $U_4$ を二等分し、右上ブロック $R$ が一様なとき $RQ^{-1}$ が 
 $\mu=4,s=\sqrt2$ とする。平均長さ評価を $n$ が2の冪でない場合も含めて適用し、弱いPoincaré不等式の係数が $o(n^2)$ であることを確認せよ。さらに $s=2$ としたとき同じ導出から何が失われるか述べよ。
 
 <!-- solution-start -->
-**詳細解答**：[上単位三角群の平均長さ評価](#thm-vnp13-weak-length) の証明に従い $N=2^{\lceil\log_2 n\rceil}$ とします。左上ブロック射影で長さを引き戻すと、$n$ 以降の座標に関する隣接操作の長さは0で、元の群の平均長さも保存されます。$\alpha=\log_4\sqrt2=1/4$ なので
+**詳細解答**：[上単位三角群の平均長さ評価](#thm-vnp13-weak-length) の証明に従い $N=2^{\lceil\log_2 n\rceil}$ とします。左上ブロック射影で長さを引き戻すと、添字 $j\ge n-1$ の隣接操作の長さは0で、元の群の平均長さも保存されます。$\alpha=\log_4\sqrt2=1/4$ なので
 
 $$
 \vartheta_n\le18\mu\log_2 N
