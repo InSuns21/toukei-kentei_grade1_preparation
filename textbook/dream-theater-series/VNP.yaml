@@ -62,7 +62,7 @@ chapters:
     title: "F：overlapping windows・固定点集合の角度・一様Poincaré F.6"
   - id: VNP15
     path: textbook/volumes/dream_thater/計算系/VNP/VNP15
-    status: planned
+    status: completed
     title: "G：Poincaréからrerouting laws、有限生成係数環、loadの評価"
   - id: VNP16
     path: textbook/volumes/dream_thater/計算系/VNP/VNP16

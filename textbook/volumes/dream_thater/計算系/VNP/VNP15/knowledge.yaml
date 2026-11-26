@@ -1,0 +1,30 @@
+chapter: VNP15
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP14, VNP13, VNP9, VNP4, VNP3, VNP2]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.pair-edge-load
+    name: "点対負荷と辺負荷"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（点対負荷と辺負荷）"]
+    requires: [vp-vnp-study.unitriangular]
+  - id: vp-vnp-study.pair-edge-average
+    name: "点対平均から辺平均への評価"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（点対平均から辺平均への評価）"]
+    requires: [vp-vnp-study.pair-edge-load, vp-vnp-study.uniform-poincare]
+  - id: vp-vnp-study.rerouting-law
+    name: "再配線則"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（再配線則）"]
+    requires: [vp-vnp-study.pair-edge-load, vp-vnp-study.wire, vp-vnp-study.party-array]
+  - id: vp-vnp-study.finite-rerouting-laws
+    name: "有限再配線則の存在"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限再配線則の存在）"]
+    requires: [vp-vnp-study.rerouting-law, vp-vnp-study.pair-edge-average, vp-vnp-study.cover-duality, vp-vnp-study.exponents, vp-vnp-study.price, vp-vnp-study.sum-restrictions]

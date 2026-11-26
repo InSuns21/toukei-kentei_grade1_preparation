@@ -1,0 +1,23 @@
+id: VNP15
+title: "G：Poincaréからrerouting laws、有限生成係数環、loadの評価"
+volume: foundations
+status: supplementary
+prerequisites: [VNP14, VNP13, VNP9, VNP4, VNP3, VNP2]
+official_scope: []
+learning_objectives:
+  - 点対負荷と辺負荷の正規化を計数から導出できる
+  - 再配線則を局所配列の恒等式として検証できる
+  - Poincaré不等式とスペクトル双対性から有限再配線則を導出できる
+  - 符号込み負荷と有限生成部分環の役割を説明できる
+definitions:
+  - { id: VNP15-DEF-01, name: "点対負荷と辺負荷" }
+  - { id: VNP15-DEF-02, name: "再配線則" }
+theorems:
+  - { id: VNP15-THM-01, name: "点対平均から辺平均への評価" }
+  - { id: VNP15-THM-02, name: "有限再配線則の存在" }
+canonical_examples: [三次上単位三角群の負荷, 二辺の一致検査, 整数係数の環準同型]
+problem_patterns: [VNP15-A1, VNP15-A2, VNP15-A3, VNP15-A4, VNP15-A5, VNP15-B1, VNP15-B2, VNP15-B3, VNP15-B4, VNP15-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
