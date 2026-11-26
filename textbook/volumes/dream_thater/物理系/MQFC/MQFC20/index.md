@@ -577,18 +577,18 @@ $G=U(1)$、$D(g)=\operatorname{diag}(g,1,g,g^{-1})$ とする。既約代表 $\r
 
 $\rho$ は1次元で $\chi_\rho(g)=g$ だから $d_\rho=1$。第5節の指標による射影に代入すると
 
-$
+$$
 P_\rho=\int_G g^{-1}D(g)\,dg
 =\int_G\operatorname{diag}(1,g^{-1},1,g^{-2})\,dg
 =\operatorname{diag}(1,0,1,0).
-$
+$$
 
 第1節の円周積分で非零指数の項が消える。像は $\mathbb C e_1\oplus\mathbb C e_3$ で、どちらも群元 $g$ を $g$ 倍として作用させる直線である。階数は2。別に $\chi_D=2g+1+g^{-1}$ を [既約指標の直交性](#thm-mqfc20-character-orthogonality) に入れても
 
-$
+$$
 \int_G \chi_D(g)g^{-1}\,dg
 =\int_G(2+g^{-1}+g^{-2})\,dg=2.
-$
+$$
 
 この例では代表の次元が1なので、射影の階数と重複度が一致する。一般の既約代表の次元が $d_\rho$ なら階数は $d_\rho m_\rho$ となる。
 <!-- solution-end -->
