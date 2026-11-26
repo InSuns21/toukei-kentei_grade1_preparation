@@ -10,6 +10,6 @@
 <circle cx="80" cy="260" r="4"/><circle cx="320" cy="260" r="4"/><circle cx="180" cy="185" r="4"/><circle cx="80" cy="115" r="4"/><circle cx="320" cy="115" r="4"/><circle cx="180" cy="40" r="4"/>
 </g>
 <g font-family="sans-serif" font-size="20" fill="#222" text-anchor="middle">
-<text x="60" y="286">a0</text><text x="340" y="286">a1</text><text x="180" y="217">a2</text><text x="56" y="109">b0</text><text x="344" y="109">b1</text><text x="180" y="24">b2</text>
+<text x="60" y="286">a0</text><text x="340" y="286">a1</text><text x="203" y="167">a2</text><text x="56" y="109">b0</text><text x="344" y="109">b1</text><text x="180" y="24">b2</text>
 </g>
 </svg>
