@@ -83,7 +83,23 @@ $L$ 内の鎖を加えても境界の差は $L$ 内に残るので商の境界�
 
 比較写像は $L$ の単体を $|L|$ 内の特異単体に送るので、商に $J^{\rm rel}(\bar c)=\overline{Jc}$ を誘導します。境界と可換であるため相対ホモロジー上にも写像が得られます。
 
-[対のホモロジー長完全列](../ATOP18/index.md#thm-atop18-long-exact) の証明は部分鎖複体の包含、商、境界だけで行われています。ここではその証明に単体鎖複体を入れます。接続は $\delta[\bar c]=[\partial c]$ です。相対サイクルなら $\partial c$ は $L$ に属し、二重境界が零なのでサイクルです。代表元の変更 $c'=c+a+\partial b$（$a\in C_n^\triangle(L)$）による境界の差は $\partial a$ であり、$L$ 内の境界なので類は変わりません。具体的に、絶対サイクルが商で境界なら $z-\partial b\in C_n^\triangle(L)$、相対サイクルの接続が零なら $\partial c=\partial a$（$a\in C_n^\triangle(L)$）として $c-a$ が絶対サイクル、$L$ のサイクルが $K$ で境界なら $a=\partial c$ として $\bar c$ が相対サイクルになります。これら三つが各位置の完全性です。0次末端では任意の0鎖がサイクルなので商への写像は全射です。
+[対のホモロジー長完全列](../ATOP18/index.md#thm-atop18-long-exact) の証明は部分鎖複体の包含、商、境界だけで行われています。ここではその証明に単体鎖複体を入れます。
+
+接続は $\delta[\bar c]=[\partial c]$ です。相対サイクルなら $\partial c$ は $L$ 内の鎖であり、二重境界が零なのでサイクルです。代表元を変更して
+
+$$
+c'=c+a+\partial b,\qquad a\in C_n^\triangle(L)
+$$
+
+としても、境界の差は $\partial a$ であり、$L$ 内の境界なので類は変わりません。
+
+完全性の三つの位置を確認します。
+
+- 絶対サイクルが商で境界なら、適当な鎖 $b$ に対して $z-\partial b\in C_n^\triangle(L)$ となり、元の類は包含の像です。
+- 相対サイクルの接続が零なら、$L$ の鎖 $a$ を $\partial c=\partial a$ となるように選べます。$c-a$ は絶対サイクルで、その商は $\bar c$ です。
+- $L$ のサイクルが $K$ で境界なら $a=\partial c$ と書けます。$\bar c$ は相対サイクルで、その接続は $[a]$ です。
+
+0次末端では任意の0鎖がサイクルなので商への写像は全射です。
 
 単体側と特異側で長完全列ができました。包含と商は $J$ と可換であり、接続も
 
@@ -226,7 +242,11 @@ $$
 
 が $n\ge1$ で成り立ちます。$v=v_j$ のとき $Pc=0$、$P\partial c$ のうち第 $j$ 面だけが残り、$(-1)^j[v,v_0,\ldots,\widehat v_j,\ldots,v_n]=c$ です。従って正次数では $\partial P+P\partial$ は恒等写像で、サイクルは $c=\partial Pc$ として埋まります。0次では各辺 $[v,w]$ の境界が $[w]-[v]$ なので、すべての頂点の類が一致し、係数和は境界で変化しないため $H_0^\triangle(\tau)=\mathbb Z$ です。
 
-特異側 $D_\tau$ は凸集合で $v$ への直線収縮があり、[可縮空間の被約特異ホモロジー](../ATOP17/index.md#cor-atop17-contractible) により正次数は零、[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) により0次は $\mathbb Z$ です。従って一枚の単体の絶対比較は同型です。境界複体は次元 $m-1$ なので帰納仮定で比較は同型です。第2節の可換な長完全列の相対群を中央に置き、[完全列の中央の比較](#lem-atop21-exact-comparison) を適用すると $(\tau,\partial\tau)$ の相対比較が同型になります。ここで $\partial\tau$ は真の面からなる部分複体です。単体側の相対鎖群は $m$ 次に $\mathbb Z$、他は零なので特異側も同じであり、$J[\tau]$ の相対類が生成元です。単に群が同じというだけでなく、どの鎖が生成元かが分かりました。
+特異側 $D_\tau$ は凸集合で $v$ への直線収縮があり、[可縮空間の被約特異ホモロジー](../ATOP17/index.md#cor-atop17-contractible) により正次数は零、[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) により0次は $\mathbb Z$ です。
+
+従って一枚の単体の絶対比較は同型です。境界複体は次元 $m-1$ なので帰納仮定で比較は同型です。第2節の可換な長完全列の相対群を中央に置き、[完全列の中央の比較](#lem-atop21-exact-comparison) を適用すると $(\tau,\partial\tau)$ の相対比較が同型になります。ここで $\partial\tau$ は真の面からなる部分複体です。
+
+単体側の相対鎖群は $m$ 次に $\mathbb Z$、他は零なので特異側も同じであり、$J[\tau]$ の相対類が生成元です。単に群が同じというだけでなく、どの鎖が生成元かが分かりました。
 
 **骨格から全体へ。** 次元 $m$ の $K$ と $L_0=K^{(m-1)}$ を取ります。単体側では
 
@@ -273,7 +293,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$f_\#^\triangle$ は [単体写像の誘導鎖準同型](../ATOP13/index.md#def-atop13-induced-chain-map)、$|f|_\#$ は [特異鎖の誘導準同型](../ATOP16/index.md#def-atop16-induced-chain-map) とします。$F=|f|_\#J_K$、$G=J_M f_\#^\triangle$ と置くと両者は鎖写像です。各単体 $\sigma$ の $F\sigma,G\sigma$ は像単体の実現 $D=|f(\sigma)|$ に収まります。退化した像では $G\sigma=0$ ですが、これも $C_n(D)$ の元です。
+$f_\#^\triangle$ は [単体写像の誘導鎖準同型](../ATOP13/index.md#def-atop13-induced-chain-map)、$|f|_\#$ は [特異鎖の誘導準同型](../ATOP16/index.md#def-atop16-induced-chain-map) とします。次の二つの合成を考えます。
+
+$$
+F=|f|_\#J_K,\qquad G=J_M f_\#^\triangle.
+$$
+
+両者は鎖写像です。各単体 $\sigma$ の $F\sigma,G\sigma$ は像単体の実現 $D=|f(\sigma)|$ に収まります。退化した像では $G\sigma=0$ ですが、これも $C_n(D)$ の元です。
 
 0次では $F[v]=G[v]$ なので $P_0=0$、$P_{-1}=0$ とします。次数 $n-1$ まで $F-G=\partial P+P\partial$ が成立し、各基底単体 $c$ で $Pc$ がその像単体の内部または境界に収まると仮定します。次数 $n\ge1$ の基底単体 $\sigma$ について
 
