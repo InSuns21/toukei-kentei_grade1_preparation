@@ -1,0 +1,36 @@
+chapter: VNP7
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP6, VNP5, VNP3, NPCG1, NPCG4, NPCG6, NPCG7, NPCG8]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.mean-length
+    name: "格子の平均距離と漸近長"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（格子の平均距離と漸近長）"]
+    requires: [vp-vnp-study.price]
+  - id: vp-vnp-study.mean-parallelogram
+    name: "漸近長の平行四辺形則"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（漸近長の平行四辺形則）"]
+    requires: [vp-vnp-study.mean-length, vp-vnp-study.crossing-quadratic]
+  - id: vp-vnp-study.fan-four-bounds
+    name: "fanの漸近長の四評価"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（fanの漸近長の四評価）"]
+    requires: [vp-vnp-study.mean-length, vp-vnp-study.fan-estimates, vp-vnp-study.price-laws]
+  - id: vp-vnp-study.price-cn
+    name: "price上の中点二乗評価"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（price上の中点二乗評価）"]
+    requires: [vp-vnp-study.mean-parallelogram, vp-vnp-study.fan-four-bounds]
+  - id: vp-vnp-study.price-completion
+    name: "priceのCAT(0)完備化"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（priceのCAT(0)完備化）"]
+    requires: [vp-vnp-study.price-cn, vp-vnp-study.price-random-extension, vp-vnp-study.price-laws, metric-geometry.pseudometric-completion]
