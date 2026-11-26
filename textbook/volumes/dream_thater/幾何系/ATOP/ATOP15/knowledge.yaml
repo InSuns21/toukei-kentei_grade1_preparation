@@ -14,21 +14,31 @@ concepts:
     kind: proposition
     introduction: formal
     requires: [atop.subdivision-complex, atop.geometric-realization, topology.homeomorphism]
+  - id: atop.vertex-cone-operation
+    name: 単体鎖の頂点追加操作
+    kind: definition
+    introduction: formal
+    requires: [atop.simplicial-chain-group, atop.abstract-simplicial-complex]
+  - id: atop.vertex-cone-boundary
+    name: 頂点追加と境界の恒等式
+    kind: lemma
+    introduction: formal
+    requires: [atop.vertex-cone-operation, atop.simplicial-boundary]
   - id: atop.subdivision-chain
     name: 細分鎖写像の構成
     kind: definition
     introduction: formal
-    requires: [atop.subdivision-complex, atop.simplicial-chain-group, atop.simplicial-boundary]
+    requires: [atop.subdivision-complex, atop.vertex-cone-operation, atop.simplicial-chain-group, atop.simplicial-boundary]
   - id: atop.subdivision-chain-map
     name: 細分鎖写像と境界の可換性
     kind: theorem
     introduction: formal
-    requires: [atop.subdivision-chain, atop.boundary-square-zero]
+    requires: [atop.subdivision-chain, atop.vertex-cone-boundary, atop.boundary-square-zero]
   - id: atop.subdivision-chain-homotopy
     name: 細分の鎖ホモトピー
     kind: theorem
     introduction: formal
-    requires: [atop.subdivision-chain-map, atop.simplicial-chain-map-boundary, atop.simplicial-homology]
+    requires: [atop.subdivision-chain-map, atop.vertex-cone-boundary, atop.simplicial-chain-map-boundary, atop.simplicial-homology]
   - id: atop.open-star
     name: 頂点の開スター
     kind: definition
