@@ -12,7 +12,7 @@ $$
 b_F=\frac{1}{|F|}\sum_{v\in F}v
 $$
 
-です。ここで $|F|$ は頂点数です。[重心細分](../../../応用系/FIX/FIX1/index.md#def-fix1-barycentric-subdivision)の幾何的な作り方を、抽象複体全体へ適用します。共有する面の重心はどちらの単体から計算しても同じなので、面の名前そのものを頂点として使えます。
+です。この分母の $|F|$ は頂点数を表します。以下、単体の幾何学的実現は必要に応じて $\operatorname{conv}(F)$ と書いて区別します。[重心細分](../../../応用系/FIX/FIX1/index.md#def-fix1-barycentric-subdivision)の幾何的な作り方を、抽象複体全体へ適用します。共有する面の重心はどちらの単体から計算しても同じなので、面の名前そのものを頂点として使えます。
 
 <a id="def-atop15-subdivision-complex"></a>
 
@@ -58,6 +58,8 @@ $$
 <!-- proof-start -->
 ### 証明
 
+まず細分単体の包含鎖の最後の面を $F$ とすれば、その全重心は元の閉単体 $\operatorname{conv}(F)$ に属します。凸結合もそこに属するので $j$ の値域は確かに $|K|$ です。
+
 点 $x=\sum_v t_v v$ の正の座標の異なる値を $s_1>\cdots>s_m>0$ と並べ、$s_{m+1}=0$ とします。$F_i=\{v:t_v\ge s_i\}$ とおけば各 $F_i$ は支持集合の部分集合であり、厳密包含鎖です。
 
 $$
@@ -75,7 +77,7 @@ $$
 
 逆に、厳密包含鎖に沿った正係数の凸結合では、$F_i\setminus F_{i-1}$（$F_0=\varnothing$）に属する頂点の座標は $\sum_{k=i}^m\lambda_k/|F_k|$ であり、隣の値との差は正です。従って元の点から正係数の支持鎖と係数が一意に復元されます。これで全単射です。
 
-$j$ は座標の線形写像の制限なので連続です。有限複体の実現は有限個の閉有界単体の和集合でコンパクト、$|K|$ は Euclid 空間の部分空間で Hausdorff です。連続な全単射が閉写像となることは、閉集合がコンパクト、その連続像もコンパクトで Hausdorff 空間内で閉であることから従います。従って逆写像も連続です。
+$j$ は座標の線形写像の制限なので連続です。[実現の共通面性](../ATOP10/index.md#prop-atop10-intersection) により定義域はコンパクトであり、$|K|$ は Euclid 空間の部分空間で Hausdorff です。[コンパクト空間からHausdorff空間への連続全単射](../../../基礎科目/TOP/TOP2/index.md#thm-top2-compact-hausdorff-bijection) を $j$ に適用して逆写像も連続です。
 <!-- proof-end -->
 
 以下では $j$ で実現を同一視します。メッシュは全単体の直径の最大値です。$d=\dim K$ とすると、[重心細分によるメッシュ縮小](../../../応用系/FIX/FIX1/index.md#prop-fix1-barycentric-mesh)の評価を各正次元単体に適用でき、$q/(q+1)\le d/(d+1)$（$1\le q\le d$）なので $d\ge1$ なら
@@ -336,7 +338,7 @@ $K=L$ を線分 $[0,1]$ の端点と辺からなる複体とし、$f(x)=x^2$、$
 <!-- proof-start -->
 ### 証明
 
-$L$ の各頂点 $w$ について $U_w=f^{-1}(\operatorname{st}_L(w))$ とおきます。$f$ の連続性から開集合であり、値域の開スターが被覆するので $U_w$ は $|K|$ を覆います。$|K|$ は有限複体の実現でコンパクト距離空間です。[Lebesgue数補題](../ATOP5/index.md#lem-atop5-lebesgue-number) をこの開被覆に適用し、直径が $\delta$ 未満の部分集合がどれか一つの $U_w$ に含まれるような $\delta>0$ を取ります。
+$L$ の各頂点 $w$ について $U_w=f^{-1}(\operatorname{st}_L(w))$ とおきます。$f$ の連続性から開集合であり、値域の開スターが被覆するので $U_w$ は $|K|$ を覆います。$|K|$ は Euclid 距離を持ち、[実現の共通面性](../ATOP10/index.md#prop-atop10-intersection) によりコンパクトです。[Lebesgue数補題](../ATOP5/index.md#lem-atop5-lebesgue-number) をこの開被覆に適用し、直径が $\delta$ 未満の部分集合がどれか一つの $U_w$ に含まれるような $\delta>0$ を取ります。
 
 第1節のメッシュ評価により $2\operatorname{mesh}(\operatorname{sd}^r K)<\delta$ となる $r$ が存在します。$d=0$ では $r=0$ で十分です。$K'=\operatorname{sd}^r K$ とおくと各頂点 $v$ の開スターの直径は $\delta$ 未満です。そこで
 
