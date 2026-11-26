@@ -18,8 +18,8 @@ theorems:
   - { id: VNP10-THM-03, name: "格子和のパーマネント表示：E.1" }
   - { id: VNP10-THM-04, name: "節和のパーマネントへのアフィン代入：E.2" }
 canonical_examples: [共有ビットを持つ二表, 一位置の三次行列, 二節の九次行列]
-problem_patterns: [VNP10-A1, VNP10-A2, VNP10-A3, VNP10-A4, VNP10-B1, VNP10-B2, VNP10-B3, VNP10-C1]
+problem_patterns: [VNP10-A1, VNP10-A2, VNP10-A3, VNP10-A4, VNP10-B1, VNP10-B2, VNP10-B3, VNP10-B4, VNP10-C1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 4, exercises: 3, review: 1 }
