@@ -4,6 +4,12 @@ coverage: complete
 prerequisites: [MMX10, MMX11, INFO4]
 forward_references: []
 concepts:
+  - id: metric-geometry.hadamard-space
+    name: "Hadamard 空間"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hadamard 空間）"]
+    requires: [metric-geometry.cat-zero-space]
   - id: matrix-exponent.pair-energy
     name: "対分布の距離エネルギー"
     kind: definition

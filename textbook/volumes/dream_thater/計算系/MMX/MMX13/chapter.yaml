@@ -12,6 +12,7 @@ learning_objectives:
   - 中点拡張と極小クラスの論証から積閉部分クラスの存在を導ける
   - 均衡切断による回路分解と価格の一次節約の条件付き下界を計算できる
 definitions:
+  - { id: MMX13-DEF-04, name: "Hadamard 空間" }
   - { id: MMX13-DEF-01, name: "対分布の距離エネルギー" }
   - { id: MMX13-DEF-02, name: "観測エントロピー率" }
   - { id: MMX13-DEF-03, name: "許容距離表と冪実現可能性" }
