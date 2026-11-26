@@ -2,7 +2,7 @@ id: ATOP18
 title: "相対ホモロジーと長完全列"
 volume: foundations
 status: supplementary
-prerequisites: [ATOP17]
+prerequisites: [ATOP17, CATB1-05]
 official_scope: []
 learning_objectives:
   - 空間の対と相対特異鎖群を構成し商で境界が定まることを確認できる
