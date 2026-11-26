@@ -1,0 +1,30 @@
+chapter: MMX7
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX6, TSP7, TSP14]
+forward_references: []
+concepts:
+  - id: matrix-exponent.rectangular-exponent
+    name: 長方形行列積指数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（長方形行列積指数）"]
+    requires: [tensor.matrix-multiplication-tensor]
+  - id: matrix-exponent.rectangular-normalization
+    name: 長方形指数の正規化と対称性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（長方形指数の正規化と対称性）"]
+    requires: [matrix-exponent.rectangular-exponent]
+  - id: matrix-exponent.rectangular-bounds
+    name: 長方形指数の基本上下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（長方形指数の基本上下界）"]
+    requires: [matrix-exponent.rectangular-normalization, tensor.matrix-multiplication-exponent-rank]
+  - id: matrix-exponent.dual-exponent
+    name: 双対行列積指数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（双対行列積指数）"]
+    requires: [matrix-exponent.rectangular-exponent]
