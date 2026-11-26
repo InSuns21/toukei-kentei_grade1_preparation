@@ -1,0 +1,25 @@
+id: MQFC23
+title: "転送作用素と物理Hilbert空間"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC9, MQFC20, MQFC21, MQFC22]
+official_scope: []
+learning_objectives:
+  - Haar平均による一時刻のゲージ不変空間への直交射影を導出できる
+  - 自由時間境界Wilson測度から一層の転送作用素と端点因子を導出できる
+  - 指標展開によって転送作用素の非負性とコンパクト性を証明できる
+  - 零方向商と真空規格化から格子Hamiltonianおよびその定義域を構成できる
+  - 固有値比と相関減衰および有限格子ギャップの関係を計算できる
+definitions:
+  - { id: MQFC23-DEF-01, name: "Wilson転送作用素" }
+  - { id: MQFC23-DEF-02, name: "格子の物理Hilbert空間" }
+theorems:
+  - { id: MQFC23-THM-01, name: "Wilson転送作用素の非負性" }
+  - { id: MQFC23-THM-02, name: "転送作用素の真空規格化" }
+  - { id: MQFC23-THM-03, name: "格子Hamiltonianの構成" }
+canonical_examples: [一本の辺の頂点平均, 零結合, 有限対角作用素, 二値群の閉路]
+problem_patterns: [MQFC23-PROJECTION, MQFC23-TRANSFER, MQFC23-QUOTIENT, MQFC23-SPECTRUM]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 1 }

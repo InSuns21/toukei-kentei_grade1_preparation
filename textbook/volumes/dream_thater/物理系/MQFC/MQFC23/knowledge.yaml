@@ -1,0 +1,31 @@
+chapter: MQFC23
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC9, MQFC20, MQFC21, MQFC22]
+forward_references: []
+concepts:
+  - id: mqfc.wilson-transfer-operator
+    name: "Wilson転送作用素"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.wilson-lattice-measure, mqfc.invariant-average-projection, mqfc.product-haar-gauge-invariance]
+  - id: mqfc.wilson-transfer-positivity
+    name: "Wilson転送作用素の非負性"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.wilson-transfer-operator, mqfc.wilson-positive-character-expansion, mqfc.character-reflection-factorization]
+  - id: mqfc.lattice-physical-hilbert
+    name: "格子の物理Hilbert空間"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.wilson-transfer-positivity, mqfc.os-hilbert-space, quantum.self-adjoint-borel-functional-calculus]
+  - id: mqfc.transfer-vacuum-normalization
+    name: "転送作用素の真空規格化"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.lattice-physical-hilbert, mqfc.wilson-transfer-positivity, functional.compact-self-adjoint-spectral-theorem, functional.compact-nonzero-eigenvalue-discreteness]
+  - id: mqfc.lattice-hamiltonian
+    name: "格子Hamiltonianの構成"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.transfer-vacuum-normalization, quantum.self-adjoint-borel-functional-calculus, mqfc.os-nonnegative-generator]
