@@ -1,0 +1,24 @@
+id: MMX7
+title: "長方形乗算・dual exponentの定義、既知上界と平方の場合の関係、指数の正規化"
+volume: foundations
+status: supplementary
+prerequisites: [MMX6, TSP7, TSP14]
+official_scope: []
+learning_objectives:
+  - 三つの辺の増大率から長方形行列積指数を定義できる
+  - 重みの同次性・置換不変性・単調性を証明できる
+  - 正方ブロック分割と三方向のテンソル積から上下界を導ける
+  - 双対行列積指数とその上界の仮定を区別できる
+  - 正方形上界と長方形専用算法の上界を比較できる
+definitions:
+  - { id: MMX7-DEF-01, name: "長方形行列積指数" }
+  - { id: MMX7-DEF-02, name: "双対行列積指数" }
+theorems:
+  - { id: MMX7-THM-01, name: "長方形指数の正規化と対称性" }
+  - { id: MMX7-THM-02, name: "長方形指数の基本上下界" }
+canonical_examples: [外積の指数, 重みの正規化, 正方ブロック分割]
+problem_patterns: [MMX7-A01, MMX7-A02, MMX7-A03, MMX7-A04, MMX7-B01, MMX7-B02, MMX7-B03, MMX7-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 3, review: 1 }
