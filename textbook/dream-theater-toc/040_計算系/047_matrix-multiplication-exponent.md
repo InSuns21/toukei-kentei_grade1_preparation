@@ -8,3 +8,4 @@
 5. [MMX5 共有脚をもつ独立ブロックの分離・退化、複素数上の9/4上界の中心不等式](textbook/volumes/dream_thater/計算系/MMX/MMX5/index.md)
 6. [MMX6 任意標数の分離補題、任意の体への9/4上界、Amanov–van den Berg–Zuiddamの証明とShpilka解説の照合](textbook/volumes/dream_thater/計算系/MMX/MMX6/index.md)
 7. [MMX7 長方形乗算・dual exponentの定義、既知上界と平方の場合の関係、指数の正規化](textbook/volumes/dream_thater/計算系/MMX/MMX7/index.md)
+8. [MMX8 price・wire・共通ラベル・局所restriction：辺長の和とrank分解の不等式、Euclid三角形の比2](textbook/volumes/dream_thater/計算系/MMX/MMX8/index.md)
