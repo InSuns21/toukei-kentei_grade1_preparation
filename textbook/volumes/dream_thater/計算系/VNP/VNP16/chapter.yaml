@@ -1,5 +1,5 @@
 id: VNP16
-title: "H：F₂[s]/(s^{n+1})上SL群のtower・辺タイプ・coset"
+title: "H：切断多項式環上のSL群の塔・辺タイプ・剰余類"
 volume: foundations
 status: supplementary
 prerequisites: [VNP15, VNP13]
