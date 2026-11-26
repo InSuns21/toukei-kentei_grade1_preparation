@@ -38,7 +38,7 @@ chapters:
     title: "price・wire・共通ラベル・局所restriction：辺長の和とrank分解の不等式、Euclid三角形の比2"
   - id: MMX9
     path: textbook/volumes/dream_thater/計算系/MMX/MMX9
-    status: planned
+    status: completed
     title: "Euclidean geometry companion：compatible spectral system、mean width、Gaussian表示、flat lawの証明と共有ラベルの増分"
   - id: MMX10
     path: textbook/volumes/dream_thater/計算系/MMX/MMX10
