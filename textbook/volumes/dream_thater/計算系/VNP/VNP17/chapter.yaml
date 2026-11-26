@@ -1,0 +1,26 @@
+id: VNP17
+title: "H：networkをthin treeの和へ、depth・packet・straight-line program"
+volume: foundations
+status: supplementary
+prerequisites: [VNP16, VNP15]
+official_scope: []
+learning_objectives:
+  - 終端符号とパケットネットワークの値を計算できる
+  - 中継と則適用による値の保存を説明できる
+  - 塔の二乗負荷の一段収縮と反復から木の負荷上界を導出できる
+  - 有界整数の固定命令列とH.2の計算契約を説明できる
+definitions:
+  - { id: VNP17-DEF-01, name: "パケットと終端符号" }
+  - { id: VNP17-DEF-02, name: "パケットネットワークの値" }
+  - { id: VNP17-DEF-03, name: "塔の二乗負荷" }
+  - { id: VNP17-DEF-04, name: "有限整数上の直線型プログラム" }
+theorems:
+  - { id: VNP17-THM-01, name: "中継と則適用による値の保存" }
+  - { id: VNP17-THM-02, name: "一段の負荷収縮" }
+  - { id: VNP17-THM-03, name: "木の構造とパケット上界" }
+canonical_examples: [終端符号の復号, 一ビットの中継, 最小負荷の選択]
+problem_patterns: [VNP17-A1, VNP17-A2, VNP17-A3, VNP17-A4, VNP17-B1, VNP17-B2, VNP17-B3, VNP17-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 1 }

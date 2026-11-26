@@ -70,7 +70,7 @@ chapters:
     title: "H：切断多項式環上のSL群の塔・辺タイプ・剰余類"
   - id: VNP17
     path: textbook/volumes/dream_thater/計算系/VNP/VNP17
-    status: planned
+    status: completed
     title: "H：networkをthin treeの和へ、depth・packet・straight-line program"
   - id: VNP18
     path: textbook/volumes/dream_thater/計算系/VNP/VNP18
