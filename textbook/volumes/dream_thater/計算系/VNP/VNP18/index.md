@@ -57,6 +57,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-vnp18-plain -->
+**定義の確認**
+
 直前の条件分岐は両枝が4ステップで停止し、受理枝に use がないので4-plain です。受理重み和は $2-3=-1$ です。3-plain ではありません。受理枝を全く持たない fail も停止するので plain で、その和は0です。これと、受理枝が二つあって重みが相殺される場合とは区別します。
 <!-- definition-example-end -->
 
@@ -144,9 +146,9 @@ $$
 
 なお紙面の幅は次の未使用番地で決めていますが、Lean は時刻カウンタで幅を決めます。[Nc/Uni/Exist.lean](https://github.com/anthropics/formal-math/blob/main/vp-vnp/Nc/Uni/Exist.lean) の exists_MX では受理履歴長を $m$ として $L=\operatorname{size}(m+1)$ と取ります。すると
 
-$
+$$
 2^{L-1}\le m+1<2^L.
-$
+$$
 
 各ステップの番地が $m$ 以下であるという仮定から、幅 $L$ の表現は全番地を失わず保持します。bv_bin はこの範囲でビット列から数への復号が元の番地を返すことを保証します。そこで各ステップのレジスタを unb で符号化し、nst で復号すると元の履歴が返ります。最後の照合表は imu_table によって構成されます。存在証明には各読出し記録が実際の割当て記録に含まれるという履歴の条件を使っています。
 
