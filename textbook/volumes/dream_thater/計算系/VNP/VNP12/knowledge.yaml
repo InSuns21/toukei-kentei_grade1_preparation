@@ -1,0 +1,54 @@
+chapter: VNP12
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP11, VNP9, VNP7, VNP5, VNP3, VNP2]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.few-selection
+    name: "少数項の選択費用"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（少数項の選択費用）"]
+    requires: [vp-vnp-study.sum-restrictions, vp-vnp-study.exponents]
+  - id: vp-vnp-study.diagonal-midpoint
+    name: "対角資源の近似中点評価"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（対角資源の近似中点評価）"]
+    requires: [vp-vnp-study.exponents, vp-vnp-study.spectral-extension, vp-vnp-study.price-cn, vp-vnp-study.wire, vp-vnp-study.price]
+  - id: vp-vnp-study.axis-selection
+    name: "軸配置の選択費用"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（軸配置の選択費用）"]
+    requires: [vp-vnp-study.diagonal-midpoint, vp-vnp-study.two-hypotheses, vp-vnp-study.price, vp-vnp-study.push-laws]
+  - id: vp-vnp-study.hub-direction
+    name: "均衡切断のハブ方向"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（均衡切断のハブ方向）"]
+    requires: []
+  - id: vp-vnp-study.hub-saving
+    name: "軸配置のハブ長の節約"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（軸配置のハブ長の節約）"]
+    requires: [vp-vnp-study.hub-direction]
+  - id: vp-vnp-study.flat-fixed
+    name: "平坦仮説下の固定頂点数の下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平坦仮説下の固定頂点数の下界）"]
+    requires: [vp-vnp-study.two-hypotheses, vp-vnp-study.complete-network-cut-cost, vp-vnp-study.hub-saving, vp-vnp-study.price]
+  - id: vp-vnp-study.flat-rate
+    name: "平坦仮説下の完全ネットワークの一様下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平坦仮説下の完全ネットワークの一様下界）"]
+    requires: [vp-vnp-study.axis-selection, vp-vnp-study.hub-saving, vp-vnp-study.few-selection, vp-vnp-study.complete-network-hub-cover, vp-vnp-study.complete-network-cut-cost]
+  - id: vp-vnp-study.permanent-rate
+    name: "平坦仮説下のパーマネントの定量的下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平坦仮説下のパーマネントの定量的下界）"]
+    requires: [vp-vnp-study.flat-rate, vp-vnp-study.complete-network-permanent]
