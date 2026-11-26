@@ -70,7 +70,7 @@ chapters:
     title: "tagged permutationへの二つのdistinctness testによる帰着、signed selectorの恒等式（標数2も含む）"
   - id: MMX17
     path: textbook/volumes/dream_thater/計算系/MMX/MMX17
-    status: planned
+    status: completed
     title: "no-ports側の一様宛先下界：距離表の凸性・minimax・条件付きentropy・平方根log評価"
   - id: MMX18
     path: textbook/volumes/dream_thater/計算系/MMX/MMX18
