@@ -1,0 +1,42 @@
+chapter: VNP8
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP7, VNP3, NPCG6]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.transversal-matrices
+    name: "横断的な行列族"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（横断的な行列族）"]
+    requires: []
+  - id: vp-vnp-study.transversal-rank
+    name: "横断和の階数加法性"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（横断和の階数加法性）"]
+    requires: [vp-vnp-study.transversal-matrices]
+  - id: vp-vnp-study.rank-rms-distance
+    name: "階数別二乗平均距離"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（階数別二乗平均距離）"]
+    requires: [vp-vnp-study.price]
+  - id: vp-vnp-study.uniform-transversal
+    name: "横断対の階数別一様性"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（横断対の階数別一様性）"]
+    requires: [vp-vnp-study.transversal-rank]
+  - id: vp-vnp-study.rank-rms-subadditivity
+    name: "階数別二乗平均距離の劣加法性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（階数別二乗平均距離の劣加法性）"]
+    requires: [vp-vnp-study.rank-rms-distance, vp-vnp-study.uniform-transversal, vp-vnp-study.price-completion, metric-geometry.quadrilateral-midpoint-bound]
+  - id: vp-vnp-study.rank-extremal-price
+    name: "階数別平均の上界を達成するprice"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（階数別平均の上界を達成するprice）"]
+    requires: [vp-vnp-study.rank-rms-subadditivity, vp-vnp-study.transversal-rank, vp-vnp-study.price-laws]
