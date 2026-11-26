@@ -1,0 +1,27 @@
+id: VNP6
+title: "B：crossing identity、二つの分割に対する項数、crossing inequality"
+volume: foundations
+status: supplementary
+prerequisites: [VNP5, VNP3, VNP2]
+official_scope: []
+learning_objectives:
+  - Frobenius記号の個数の対数評価を証明できる
+  - 係数多項式の反転と有限直交関係を導ける
+  - 行列式の係数から交差恒等式と二分割の項数上界を再構成できる
+  - スペクトル点と極限により交差不等式を証明できる
+  - 二乗評価の係数と最適化を説明できる
+definitions:
+  - { id: VNP6-DEF-01, name: "Frobenius記号" }
+  - { id: VNP6-DEF-02, name: "交差行列の係数多項式" }
+theorems:
+  - { id: VNP6-THM-01, name: "Frobenius記号の個数評価" }
+  - { id: VNP6-THM-02, name: "係数の反転と有限直交関係" }
+  - { id: VNP6-THM-03, name: "交差恒等式" }
+  - { id: VNP6-THM-04, name: "交差不等式" }
+  - { id: VNP6-THM-05, name: "交差不等式の二乗評価" }
+canonical_examples: [小さな記号の列挙, 係数多項式の計算, 零次の交差行列]
+problem_patterns: [VNP6-A1, VNP6-A2, VNP6-A3, VNP6-A4, VNP6-B1, VNP6-B2, VNP6-B3, VNP6-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 3, review: 2 }

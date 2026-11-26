@@ -1,0 +1,48 @@
+chapter: VNP6
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP5, VNP3, VNP2]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.symbol
+    name: "Frobenius記号"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Frobenius記号）"]
+    requires: []
+  - id: vp-vnp-study.symbol-count
+    name: "Frobenius記号の個数評価"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Frobenius記号の個数評価）"]
+    requires: [vp-vnp-study.symbol]
+  - id: vp-vnp-study.crossing-polynomials
+    name: "交差行列の係数多項式"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（交差行列の係数多項式）"]
+    requires: []
+  - id: vp-vnp-study.crossing-orthogonality
+    name: "係数の反転と有限直交関係"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（係数の反転と有限直交関係）"]
+    requires: [vp-vnp-study.crossing-polynomials]
+  - id: vp-vnp-study.crossing-identity
+    name: "交差恒等式"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（交差恒等式）"]
+    requires: [vp-vnp-study.symbol, vp-vnp-study.crossing-orthogonality, vp-vnp-study.wire]
+  - id: vp-vnp-study.crossing-inequality
+    name: "交差不等式"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（交差不等式）"]
+    requires: [vp-vnp-study.crossing-identity, vp-vnp-study.symbol-count, vp-vnp-study.hub-length, vp-vnp-study.price-laws, vp-vnp-study.cover-spectral]
+  - id: vp-vnp-study.crossing-quadratic
+    name: "交差不等式の二乗評価"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["系（交差不等式の二乗評価）"]
+    requires: [vp-vnp-study.crossing-inequality]
