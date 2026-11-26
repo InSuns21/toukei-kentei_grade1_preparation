@@ -1,0 +1,28 @@
+id: MMX15
+title: "trivalent bit tensorの体積・境界、Batcher sorting network、比較・交換・fanout・隣接非一致で初期サイズを構成"
+volume: foundations
+status: supplementary
+prerequisites: [MMX2, MMX14, TSP6]
+official_scope: []
+learning_objectives:
+  - 三価ネットワークの境界とサイズ・体積を計算できる
+  - 決定的二値回路を一意な内部割当てを持つ三価ネットワークへ変換できる
+  - Batcher整列網の正当性と比較回数を帰納的に導ける
+  - 比較交換と隣接非一致のビット費用を評価できる
+  - リスト相異性テンソルの初期上界と圧縮の入力条件を確認できる
+definitions:
+  - { id: MMX15-DEF-01, name: "ビットネットワークのサイズと体積" }
+  - { id: MMX15-DEF-02, name: "リスト相異性テンソル" }
+  - { id: MMX15-DEF-03, name: "比較交換網" }
+theorems:
+  - { id: MMX15-LEM-01, name: "三価の費用比較" }
+  - { id: MMX15-THM-02, name: "決定的回路の三価実現" }
+  - { id: MMX15-LEM-03, name: "二値の半分割併合" }
+  - { id: MMX15-THM-04, name: "Batcher整列網の比較数" }
+  - { id: MMX15-THM-05, name: "リスト相異性の初期上界" }
+canonical_examples: [二つの等号頂点, 二進比較交換, 四入力整列網, 重複語の隣接判定]
+problem_patterns: [MMX15-A01, MMX15-A02, MMX15-A03, MMX15-A04, MMX15-B01, MMX15-B02, MMX15-B03, MMX15-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 5, review: 3 }
