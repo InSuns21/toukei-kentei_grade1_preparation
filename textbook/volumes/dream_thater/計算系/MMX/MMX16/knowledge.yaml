@@ -1,0 +1,36 @@
+chapter: MMX16
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX15, MMX11]
+forward_references: []
+concepts:
+  - id: matrix-exponent.tag-distinctness-test
+    name: "タグの相異性判定"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（タグの相異性判定）"]
+    requires: [matrix-exponent.list-distinctness, matrix-exponent.tagged-permutation]
+  - id: matrix-exponent.signed-selector
+    name: "符号付き選択子"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（符号付き選択子）"]
+    requires: []
+  - id: matrix-exponent.signed-selector-identity
+    name: "符号付き選択和の恒等式"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（符号付き選択和の恒等式）"]
+    requires: [matrix-exponent.signed-selector, matrix-exponent.list-distinctness]
+  - id: matrix-exponent.two-distinctness-reduction
+    name: "二つの相異性判定による置換恒等式"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二つの相異性判定による置換恒等式）"]
+    requires: [matrix-exponent.tag-distinctness-test, matrix-exponent.signed-selector-identity, matrix-exponent.tagged-permutation]
+  - id: matrix-exponent.tag-batch-volume
+    name: "置換テンソルのバッチ体積上界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（置換テンソルのバッチ体積上界）"]
+    requires: [matrix-exponent.two-distinctness-reduction, matrix-exponent.bit-volume]
