@@ -15,7 +15,7 @@
   <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><path d="M150 130 L75 130"/><path d="M126 48 L167 105"/><path d="M53 105 L94 48"/></g>
   <g font-family="sans-serif" font-size="18" fill="#174c72" text-anchor="middle">
     <text x="22" y="150">a</text><text x="198" y="150">c</text><text x="110" y="16">d</text>
-    <text x="110" y="105">−acd</text>
+    <text x="110" y="105">-acd</text>
   </g>
 </g>
 <g transform="translate(5 175)">
@@ -31,7 +31,7 @@
   <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><path d="M150 130 L75 130"/><path d="M126 48 L167 105"/><path d="M53 105 L94 48"/></g>
   <g font-family="sans-serif" font-size="18" fill="#174c72" text-anchor="middle">
     <text x="22" y="150">a</text><text x="198" y="150">b</text><text x="110" y="16">c</text>
-    <text x="110" y="105">−abc</text>
+    <text x="110" y="105">-abc</text>
   </g>
 </g>
 </svg>
