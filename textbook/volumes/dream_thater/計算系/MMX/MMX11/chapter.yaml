@@ -16,6 +16,7 @@ definitions:
   - { id: MMX11-DEF-02, name: "タグ付き置換テンソル" }
   - { id: MMX11-DEF-03, name: "借用 wire 付き価格ギャップ" }
   - { id: MMX11-DEF-04, name: "多方向通信プロトコル" }
+  - { id: MMX11-DEF-05, name: "幅プロフィール" }
 theorems:
   - { id: MMX11-LEM-01, name: "立方体距離の一様排除" }
   - { id: MMX11-THM-02, name: "Grassmann グラフの厳密な欠損" }
