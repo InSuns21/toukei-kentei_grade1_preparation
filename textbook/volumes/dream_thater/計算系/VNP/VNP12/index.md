@@ -8,7 +8,7 @@
 
 ## 1. 切断を選ぶ番号を共有する
 
-体 $K$ を固定します。対数の底はすべて2とします。[被覆型スペクトル点](../VNP3/index.md#def-vnp3-cover-spectral) の乗法性と被覆不等式を使います。有限非空party集合 $V$ の非空部分集合 $P$ に対して、[部分集合上の対角テンソル](../VNP3/index.md#def-vnp3-diagonal) を $\langle q\rangle_P$、[対角資源の指数と擬距離](../VNP3/index.md#lem-vnp3-exponents) の指数を $g_\phi(P)$ と書きます。すなわち $g_\phi(P)=\log\phi(\langle2\rangle_P)$ で、$0\le g_\phi(P)\le1$ です。
+体 $K$ を固定します。対数の底はすべて2とします。[被覆型スペクトル点](../VNP3/index.md#def-vnp3-cover-spectral)を考えます。積の評価は各因子の評価の積に等しく、被覆を与えたときの評価は材料の評価の総和以下です。有限非空party集合 $V$ の非空部分集合 $P$ に対して、[部分集合上の対角テンソル](../VNP3/index.md#def-vnp3-diagonal) を $\langle q\rangle_P$、[対角資源の指数と擬距離](../VNP3/index.md#lem-vnp3-exponents) の指数を $g_\phi(P)$ と書きます。すなわち $g_\phi(P)=\log\phi(\langle2\rangle_P)$ で、$0\le g_\phi(P)\le1$ です。
 
 普通の被覆不等式は材料数を $J$ として $\phi(t)\le J\max_j\phi(T_j)$ を与えます。しかし各材料を選ぶ番号を必要とするのは、出力添字が非自明なpartyだけです。冪を取って同じ材料の使用回数ごとにまとめると、指数 $g_\phi(P)$ を用いて選択費用を精密化できます。
 
@@ -212,7 +212,7 @@ $$
 
 実際、二候補の右辺がともにこの $j$ 段の値以下なら、平均を取って $\eta$ を加えた値は $j+1$ 段の上界です。$j=k$ を代入すれば $\lambda g_{\phi'}(P)\le\sqrt{k}+\varepsilon$ です。
 
-最後に $V$ への制限を取ります。これは $V$ から $V'$ への包含による [push-forwardの演算と合成](../VNP2/index.md#thm-vnp2-push-laws) と被覆保存で定めるスペクトル点で、$V$ の対角資源とwireの値を変えません。よって距離誤差と指数評価が同時に成立します。
+最後に $V$ への制限を取ります。これは $V$ から $V'$ への包含による [push-forwardの演算と合成](../VNP2/index.md#thm-vnp2-push-laws) と被覆保存で定めるスペクトル点で、$V$ の対角資源とwireの値を変えません。よって距離の誤差上界と $\lambda g_{\phi}(P)$ の上界が同時に成立します。
 <!-- proof-end -->
 
 ## 4. 二つのハブをどこに置くか
@@ -711,7 +711,7 @@ $$
 - Level: B
 - ID: VNP12-B4
 
-$k=4,\ell=200$ とする。軸配置での近似誤差を $\varepsilon=1/(1000k)$ としたとき、全端の距離誤差 $3N\varepsilon$ と選択費用の上界 $k(\sqrt{k}+\varepsilon)$ を計算せよ。さらに第6節の費用比較から $\log L$ の下界を計算し、$\ell k^{3/2}/14$ と比較せよ。
+$k=4,\ell=200$ とする。軸配置における各点対の距離の許容誤差を $\varepsilon=1/(1000k)$ としたとき、全端の距離誤差 $3N\varepsilon$ と選択費用の上界 $k(\sqrt{k}+\varepsilon)$ を計算せよ。さらに第6節の費用比較から $\log L$ の下界を計算し、$\ell k^{3/2}/14$ と比較せよ。
 
 <!-- solution-start -->
 **詳細解答**：$N=6,\varepsilon=1/4000$ なので距離誤差は $3N\varepsilon=18/4000=9/2000$。選択費用の上界は $4(2+1/4000)=8+1/1000$ です。中央距離は $4/(9\sqrt{k})+\varepsilon=2/9+1/4000$ 以下です。
