@@ -272,7 +272,7 @@ $$
 sz-\frac{z^2}{2\sigma_i^2}
 =-\frac{(z-s\sigma_i^2)^2}{2\sigma_i^2}+\frac{s^2\sigma_i^2}{2}.
 $$
-平行移動したGaussian密度の積分は1なので公式が従う。分散零なら両辺とも1になる。Markovの不等式から
+平行移動したGaussian密度の積分は1なので公式が従う。分散零なら両辺とも1になる。[Markovの不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-markov)から
 
 $$
 \mathbb P(Z_i>R)\le e^{-sR}\mathbb E e^{sZ_i}
