@@ -50,7 +50,7 @@ chapters:
     title: "E：完全ネットワーク・二つのhub・few-term lemmaとcut"
   - id: VNP12
     path: textbook/volumes/dream_thater/計算系/VNP/VNP12
-    status: planned
+    status: completed
     title: "E/L：Euclid hub長の節約、k・ℓの最適化とlog指数4/3"
   - id: VNP13
     path: textbook/volumes/dream_thater/計算系/VNP/VNP13

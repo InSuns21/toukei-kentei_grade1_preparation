@@ -12,3 +12,4 @@
 9. [VNP9 D：等号解析とEuclid cube、flatまたはcontracting](textbook/volumes/dream_thater/計算系/VNP/VNP9/index.md)
 10. [VNP10 E：grid sums・clause sumsからpermanentへの射影](textbook/volumes/dream_thater/計算系/VNP/VNP10/index.md)
 11. [VNP11 E：完全ネットワーク・二つのhub・few-term lemmaとcut](textbook/volumes/dream_thater/計算系/VNP/VNP11/index.md)
+12. [VNP12 E/L：Euclid hub長の節約、k・ℓの最適化とlog指数4/3](textbook/volumes/dream_thater/計算系/VNP/VNP12/index.md)
