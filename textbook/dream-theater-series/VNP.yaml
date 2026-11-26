@@ -38,7 +38,7 @@ chapters:
     title: "D：F₂行列rank、transversal pair、平均D(r)の劣加法性"
   - id: VNP9
     path: textbook/volumes/dream_thater/計算系/VNP/VNP9
-    status: planned
+    status: completed
     title: "D：等号解析とEuclid cube、flatまたはcontracting"
   - id: VNP10
     path: textbook/volumes/dream_thater/計算系/VNP/VNP10
