@@ -583,7 +583,7 @@ $$
 
 - Level: C
 
-$X=\mathbb R$、$A=\mathbb R\setminus\{0\}$、$Z=\mathbb R\setminus(-1,1)$ とする。切除定理を用いて $H_n(X,A)$ を全非負次数で求めよ。また、区間内のアフィン道 $\gamma(t)=t-1/2$ が1次の相対群の生成元であることを示せ。
+$X=\mathbb R$、$A=\mathbb R\setminus\{0\}$、$Z=\mathbb R\setminus(-1,1)$ とする。[切除定理](#thm-atop19-excision)を用いて $H_n(X,A)$ を全非負次数で求めよ。また、区間内のアフィン道 $\gamma(t)=t-1/2$ が1次の相対群の生成元であることを示せ。
 
 <!-- solution-start -->
 **詳細解答**
