@@ -2,7 +2,7 @@ id: MQFC25
 title: "強結合での相関減衰と格子ギャップ"
 volume: foundations
 status: supplementary
-prerequisites: [MQFC12, MQFC21, MQFC22, MQFC23, MQFC24]
+prerequisites: [MQFC12, MQFC21, MQFC22, MQFC23, MQFC24, SGT6]
 official_scope: []
 learning_objectives:
   - Wilson測度の一辺条件付き分布と影響係数を計算できる
