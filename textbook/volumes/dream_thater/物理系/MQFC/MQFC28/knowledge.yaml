@@ -1,0 +1,46 @@
+chapter: MQFC28
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC16, MQFC17, MQFC21, MQFC27]
+forward_references: []
+concepts:
+  - id: mqfc.covariance-split
+    name: "尺度別共分散分解"
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: mqfc.gaussian-integration-composition
+    name: "尺度別Gaussian積分の合成"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.covariance-split]
+  - id: mqfc.gaussian-effective-action
+    name: "Gaussian消去後の有効作用"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.gaussian-integration-composition]
+  - id: mqfc.quadratic-block-integration
+    name: "二次作用の一変数Gaussian消去"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.gaussian-effective-action]
+  - id: mqfc.local-action-remainder
+    name: "非負相互作用の一次近似誤差"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.gaussian-effective-action]
+  - id: mqfc.field-threshold-split
+    name: "閾値による小場・大場分解"
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: mqfc.gaussian-large-field-bound
+    name: "Gaussian大場の確率と積分の評価"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.field-threshold-split]
+  - id: mqfc.effective-action-error-accumulation
+    name: "有効作用の一様誤差の累積"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.gaussian-effective-action]
