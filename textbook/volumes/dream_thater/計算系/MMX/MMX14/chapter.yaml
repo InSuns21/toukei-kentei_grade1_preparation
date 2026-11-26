@@ -2,7 +2,7 @@ id: MMX14
 title: "同 companionのmodel/compress/gap/batch：ports側の符号付き普遍計数テンソルと厳密なbatch下界、その証明依存と対角線論法"
 volume: foundations
 status: supplementary
-prerequisites: [MMX12, MMX13]
+prerequisites: [MMX12, MMX13, GCT2, GCT16, ACOMP9]
 official_scope: []
 learning_objectives:
   - 普遍機械の符号付き計数と固定長推測の一意性を説明できる
