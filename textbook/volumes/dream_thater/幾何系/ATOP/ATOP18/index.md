@@ -507,7 +507,7 @@ $$
 \partial c'-\partial c=\partial a.
 $$
 
-これは $A$ の境界であり $H_{n-1}(A)$ で零になります。従って $[\partial c']=[\partial c]$ です。[相対ホモロジーの接続準同型](#thm-atop18-connecting) の定義により $\delta_n[\bar c']=\delta_n[\bar c]$ となります。ここでは $b$ の境界は二重境界の消滅で、$a$ の境界は $A$ のホモロジーで零になるという異なる二つの理由を使っています。
+これは $A$ の境界であり $H_{n-1}(A)$ で零になります。従って $[\partial c']=[\partial c]$ です。[相対ホモロジーの接続準同型](#thm-atop18-connecting) を適用すると $\delta_n[\bar c']=\delta_n[\bar c]$ となります。ここでは $b$ の境界は二重境界の消滅で、$a$ の境界は $A$ のホモロジーで零になるという異なる二つの理由を使っています。
 <!-- solution-end -->
 
 ### 演習 ATOP18-A4：0次の相対群
@@ -639,7 +639,7 @@ H_n(X,A)\xrightarrow[\cong]{\delta_n}
 \widetilde H_{n-1}(A).
 $$
 
-$n=1$ では包含が全ての点を $X$ の一つの成分へ送ります。[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) の同型 $H_0(X)\cong\mathbb Z$ の下で、包含の誘導写像は点の係数和を与えます。[被約特異ホモロジー群](../ATOP17/index.md#def-atop17-reduced-homology) の係数和写像 $\varepsilon_A:C_0(A)\to\mathbb Z$ と区別して、ホモロジー群上に降りた写像を $\epsilon:H_0(A)\to\mathbb Z$ と書きます。
+$n=1$ では包含が全ての点を $X$ の一つの成分へ送ります。[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) の同型 $H_0(X)\cong\mathbb Z$ の下で、包含の誘導写像は点の係数和を与えます。[被約特異ホモロジー群](../ATOP17/index.md#def-atop17-reduced-homology) で導入した0鎖の係数和を与える準同型 $\varepsilon_A:C_0(A)\to\mathbb Z$ と区別して、ホモロジー群上に降りた写像を $\epsilon:H_0(A)\to\mathbb Z$ と書きます。
 
 $$
 \epsilon([z])=\varepsilon_A(z),\qquad
