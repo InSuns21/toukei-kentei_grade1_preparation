@@ -4,7 +4,7 @@
 
 一次資料：Claude (Anthropic), [VP ≠ VNP over every field, v1](https://hexagonmath.org/2611.00954v1), Appendix E の完全ネットワークと均衡分割、および [Paper/Flat.lean](https://github.com/anthropics/formal-math/blob/main/vp-vnp/Paper/Flat.lean) の fklExact, lem_fkl_perm_printed, lem_balanced_cf, prop_flat_lower_sum。研究主張のうち本講では代数的構成と費用比較までを再構成し、Euclid配置の最適化は次講で行います。
 
-直接前提：[VNP10](../VNP10/index.md)、[VNP3](../VNP3/index.md)、[VNP2](../VNP2/index.md)、[VNP1](../VNP1/index.md)。
+直接前提：[VNP10](../VNP10/index.md)、[VNP9](../VNP9/index.md)、[VNP3](../VNP3/index.md)、[VNP2](../VNP2/index.md)、[VNP1](../VNP1/index.md)。
 
 ## 1. 全頂点対で共有するビット列
 
@@ -102,7 +102,7 @@ $$
 
 ## 3. 頂点を辺の端に分解して係数を読む
 
-頂点表を一つの巨大な添字とみなすと、その変数ブロックの大きさは $D^{k-1}$ です。しかし表の各成分は一辺の端に対応します。端を別々のpartyにしておけば、長さの計算に際してその端ごとに位置を指定できます。
+頂点表を一つの巨大な添字とみなすと、その変数ブロックの大きさは $D^{k-1}$ です。しかし表の各成分は一辺の端に対応します。端を別々のpartyにしておけば、長さの計算に際してその端ごとに位置を指定できます。ここで $W_D$ は [party間のwire資源](../VNP2/index.md#def-vnp2-wire) で、$B$ を固定の順序で $1,\ldots,D$ と番号付けします。
 
 <a id="lem-vnp11-wire-coefficient"></a>
 
@@ -118,7 +118,6 @@ T=\prod_{a<b}W_D((a,b),(b,a)).
 $$
 <!-- formal-statement-end -->
 
-ここで $W_D$ は [party間のwire資源](../VNP2/index.md#def-vnp2-wire) で、$B$ を固定の順序で $1,\ldots,D$ と番号付けします。
 
 <!-- proof-start -->
 ### 証明
@@ -143,7 +142,7 @@ $k=3$ ならpartyは6個です。頂点1と2の間のwireは端 $(1,2)$ と $(2,
 <!-- formal-statement-start -->
 > **補題（固定切断の階数）**
 >
-> 体 $K$ 上の完全ネットワークの端係数配列 $T$ を、非空真部分集合 $S\subset[k]$ の切断で行列に並べる。行は第一成分が $S$ に属する端の添字組、列は残りの端の添字組とする。この行列の階数は
+> 体 $K$、整数 $k\ge2,\ell\ge1$ とし、$D=2^\ell$ とする。完全ネットワークの端係数配列 $T$ を、非空真部分集合 $S\subset[k]$ の切断で行列に並べる。行は第一成分が $S$ に属する端の添字組、列は残りの端の添字組とする。この行列の階数は
 
 $$
 D^{|S|(k-|S|)}
@@ -155,7 +154,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-切断を横切る辺数を $m=|S|(k-|S|)$ とします。行添字のうち $S$ 内部の辺の両端が一致しない行はすべて零です。列についても補集合内部の辺の両端が一致しないものは零です。
+[完全ネットワークのwire係数表示](#lem-vnp11-wire-coefficient) を用います。切断を横切る辺数を $m=|S|(k-|S|)$ とします。行添字のうち $S$ 内部の辺の両端が一致しない行はすべて零です。列についても補集合内部の辺の両端が一致しないものは零です。
 
 残る行と列では内部のwire条件はすべて1です。行の横断辺添字を $u\in B^m$、列のそれを $v\in B^m$ と書けば、係数は $\mathbf1_{\{u=v\}}$ です。従って残る行は $u$ の値だけで決まり、階数は高々 $D^m$ です。
 
@@ -185,7 +184,9 @@ $$
 <!-- formal-statement-start -->
 > **定理（完全ネットワークの二ハブ被覆）**
 >
-> 体 $K$、整数 $k\ge2,\ell\ge1$ とする。完全ネットワーク多項式 $f_{k,\ell}$ が全ゲート数 $L\ge1$ の除算なし二入力回路で計算されるとする。端集合 $P$ に各均衡集合 $S$ の二ハブを加えた共通party集合を取る。各 $S$ の材料を
+> 体 $K$、整数 $k\ge2,\ell\ge1$ とする。完全ネットワーク多項式 $f_{k,\ell}$ が全ゲート数 $L\ge1$ の除算なし二入力回路で計算されるとする。$D=2^\ell$ とする。端集合 $P=\{(a,b):a,b\in[k],a\ne b\}$ に各均衡集合 $S$（$k\le3|S|\le2k$）の二ハブ $o_S^+,o_S^-$ を加えた共通party集合を取る。
+>
+> $h_S(a)$ は $a\in S$ なら $o_S^+$、それ以外なら $o_S^-$ とする。各 $S$ の材料を
 
 $$
 H_S=\left(\prod_{a\ne b}W_D((a,b),h_S(a))\right)
@@ -200,7 +201,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-前節で得た $T_S$ の分離積表示に [二ハブによる配列の実現](../VNP3/index.md#lem-vnp3-hubs) を適用します。$I_1=\{(a,b)\in P:a\in S\}$、$I_2=P\setminus I_1$ は非空で、各添字数は $D$、項数は $L$ です。
+[均衡分割による回路の分解](../VNP3/index.md#lem-vnp3-balanced) を端添字に移した前節の $T_S$ の分離積表示に [二ハブによる配列の実現](../VNP3/index.md#lem-vnp3-hubs) を適用します。$I_1=\{(a,b)\in P:a\in S\}$、$I_2=P\setminus I_1$ は非空で、各添字数は $D$、項数は $L$ です。
 
 具体的には外側は恒等行列とし、ハブの入力をその側の端添字組 $z'$ と中央番号 $j$ の組とします。第一ハブの一行行列の係数を $\alpha_{S,j}((z'_a)_{a\in S})$、第二ハブを $\beta_{S,j}((z'_a)_{a\notin S})$ とします。
 
@@ -238,7 +239,18 @@ $$
 <!-- formal-statement-start -->
 > **定理（完全ネットワークの切断費用不等式）**
 >
-> 完全ネットワーク多項式 $f_{k,\ell}$ が体 $K$ 上の全ゲート数 $L\ge1$ の除算なし二入力回路で計算されるとする。$k\ge2,\ell\ge1$ とし、端と全均衡切断のハブを含む有限party集合上の被覆型スペクトル点を $\phi$ とする。上記の距離和 $A,B_S,C_S$ に対して、少なくとも一つの均衡集合 $S$ が
+> 完全ネットワーク多項式 $f_{k,\ell}$ が体 $K$ 上の全ゲート数 $L\ge1$ の除算なし二入力回路で計算されるとする。$k\ge2,\ell\ge1$ とし、端と全均衡切断のハブを含む有限party集合上の被覆型スペクトル点を $\phi$ とする。$d=d_\phi$ とし、各均衡集合 $S$ のハブへの接続先を前節の $h_S(a)$ とする。距離和を
+
+$
+A=\sum_{a<b}d((a,b),(b,a)),
+$
+
+$
+B_S=\sum_{a\ne b}d((a,b),h_S(a)),
+\qquad C_S=d(o_S^+,o_S^-)
+$
+
+> と置く。少なくとも一つの均衡集合 $S$ が
 
 $$
 \ell A\le k+\ell B_S+C_S\log_2 L
@@ -266,7 +278,7 @@ $$
 =2^{\ell B_S+C_S\log_2 L}.
 $$
 
-同じ $\phi$ で被覆の不等式を評価して
+同じ $\phi$ の [被覆型スペクトル点](../VNP3/index.md#def-vnp3-cover-spectral) の被覆不等式を適用して
 
 $$
 2^{\ell A}\le\sum_{S\text{ 均衡}}\phi(H_S).
@@ -293,7 +305,7 @@ $c_0>0$ かつ $\ell\eta>k$ なら $\log_2 L\ge(\ell\eta-k)/c_0$ です。$c_0=0
 
 次講で使う Euclid距離はスペクトル点そのものの距離とは限りません。[wire単価の極限price](../VNP3/index.md#def-vnp3-price) の定義と [平坦または収縮：D.2](../VNP9/index.md#thm-vnp9-two-cases) を参照します。
 
-平坦仮説の下、端と全候補ハブに有限個の実座標を先に割り当て、その Euclid距離を $w$ とします。任意の $\varepsilon>0$ について、ある $\lambda\ge0$ と共通のスペクトル点 $\phi$ を選び、全点対で
+[平坦仮説の定義](../VNP9/index.md#def-vnp9-cases) の下、端と全候補ハブに有限個の実座標を先に割り当て、その Euclid距離を $w$ とします。任意の $\varepsilon>0$ について、ある $\lambda\ge0$ と共通のスペクトル点 $\phi$ を選び、全点対で
 
 $$
 |\lambda d_\phi(u,v)-w(u,v)|<\varepsilon
