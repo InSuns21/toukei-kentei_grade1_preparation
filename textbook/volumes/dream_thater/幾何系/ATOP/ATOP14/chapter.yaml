@@ -2,7 +2,7 @@ id: ATOP14
 title: "単体ホモロジーと計算"
 volume: foundations
 status: supplementary
-prerequisites: [ATOP13, MOD2]
+prerequisites: [ATOP13, MOD2, GEO19]
 official_scope: []
 learning_objectives:
   - サイクル群と境界群を区別しホモロジー類の等しさを判定できる
