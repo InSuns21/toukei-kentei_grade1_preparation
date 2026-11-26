@@ -22,7 +22,7 @@ chapters:
     title: "A：gaugeの最小化・冪の極限・双対性"
   - id: VNP5
     path: textbook/volumes/dream_thater/計算系/VNP/VNP5
-    status: planned
+    status: completed
     title: "A：priceの拡張・混合・fan"
   - id: VNP6
     path: textbook/volumes/dream_thater/計算系/VNP/VNP6

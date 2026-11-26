@@ -1,0 +1,42 @@
+chapter: VNP5
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP4, VNP3, TOP5, NPCG1]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.mixed-evaluation
+    name: "混合評価"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（混合評価）"]
+    requires: [vp-vnp-study.cover-spectral, vp-vnp-study.push-laws]
+  - id: vp-vnp-study.spectral-extension
+    name: "スペクトル点の混合拡張"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（スペクトル点の混合拡張）"]
+    requires: [vp-vnp-study.mixed-evaluation, vp-vnp-study.push-covers, vp-vnp-study.gauge, vp-vnp-study.context-triple]
+  - id: vp-vnp-study.random-placement
+    name: "確率的位置指定"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（確率的位置指定）"]
+    requires: []
+  - id: vp-vnp-study.price-random-extension
+    name: "priceの確率的拡張"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（priceの確率的拡張）"]
+    requires: [vp-vnp-study.random-placement, vp-vnp-study.spectral-extension, vp-vnp-study.price-laws, topology.compact-fip-characterization]
+  - id: vp-vnp-study.price-segment
+    name: "price上の線分の追加"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（price上の線分の追加）"]
+    requires: [vp-vnp-study.price-random-extension, vp-vnp-study.price-laws]
+  - id: vp-vnp-study.fan-estimates
+    name: "fanの距離評価"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（fanの距離評価）"]
+    requires: [vp-vnp-study.price-segment, vp-vnp-study.price-random-extension]
