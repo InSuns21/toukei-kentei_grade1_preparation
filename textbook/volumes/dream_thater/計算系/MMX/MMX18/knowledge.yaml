@@ -1,0 +1,30 @@
+chapter: MMX18
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX12, MMX14, MMX16, MMX17]
+forward_references: []
+concepts:
+  - id: matrix-exponent.batch-test-substitution
+    name: "端数を含むテストの一括置換"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（端数を含むテストの一括置換）"]
+    requires: [matrix-exponent.tag-batch-volume, matrix-exponent.tagged-permutation, matrix-exponent.bit-volume]
+  - id: matrix-exponent.normalized-descent
+    name: "外部ビット当たりの降下評価"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（外部ビット当たりの降下評価）"]
+    requires: [matrix-exponent.batch-test-substitution, matrix-exponent.oracle-descent, matrix-exponent.signed-universal-count]
+  - id: matrix-exponent.bounded-descent-iteration
+    name: "定数回降下の範囲保証"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（定数回降下の範囲保証）"]
+    requires: [matrix-exponent.normalized-descent]
+  - id: matrix-exponent.ports-list-bound
+    name: "ports 側のバッチ相異性下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ports 側のバッチ相異性下界）"]
+    requires: [matrix-exponent.bounded-descent-iteration, matrix-exponent.exact-batch-bound, matrix-exponent.trivalent-cost, matrix-exponent.list-distinctness]

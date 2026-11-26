@@ -18,3 +18,4 @@
 15. [MMX15 trivalent bit tensorの体積・境界、Batcher sorting network、比較・交換・fanout・隣接非一致で初期サイズを構成](textbook/volumes/dream_thater/計算系/MMX/MMX15/index.md)
 16. [MMX16 tagged permutationへの二つのdistinctness testによる帰着、signed selectorの恒等式（標数2も含む）](textbook/volumes/dream_thater/計算系/MMX/MMX16/index.md)
 17. [MMX17 no-ports側の一様宛先下界：距離表の凸性・minimax・条件付きentropy・平方根log評価](textbook/volumes/dream_thater/計算系/MMX/MMX17/index.md)
+18. [MMX18 ports側のリスト下界：oracle descentとbatch下界の合成、$1\le t\le2^w$ の一様性とパラメータ選択](textbook/volumes/dream_thater/計算系/MMX/MMX18/index.md)
