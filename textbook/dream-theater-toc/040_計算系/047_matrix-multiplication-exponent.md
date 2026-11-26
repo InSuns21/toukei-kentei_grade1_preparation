@@ -15,3 +15,4 @@
 12. [MMX12 companionのcompressor・exact・descent：タグ付き置換をoracleにしたネットワーク圧縮、サイズと複製数の台帳](textbook/volumes/dream_thater/計算系/MMX/MMX12/index.md)
 13. [MMX13 Circuit lower bounds companionの比較・entropy・product theorem：no-ports側のグラフentropy boundを導く](textbook/volumes/dream_thater/計算系/MMX/MMX13/index.md)
 14. [MMX14 同 companionのmodel/compress/gap/batch：ports側の符号付き普遍計数テンソルと厳密なbatch下界、その証明依存と対角線論法](textbook/volumes/dream_thater/計算系/MMX/MMX14/index.md)
+15. [MMX15 trivalent bit tensorの体積・境界、Batcher sorting network、比較・交換・fanout・隣接非一致で初期サイズを構成](textbook/volumes/dream_thater/計算系/MMX/MMX15/index.md)

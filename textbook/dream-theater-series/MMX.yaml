@@ -62,7 +62,7 @@ chapters:
     title: "同 companionのmodel/compress/gap/batch：ports側の符号付き普遍計数テンソルと厳密なbatch下界、その証明依存と対角線論法"
   - id: MMX15
     path: textbook/volumes/dream_thater/計算系/MMX/MMX15
-    status: planned
+    status: completed
     title: "trivalent bit tensorの体積・境界、Batcher sorting network、比較・交換・fanout・隣接非一致で初期サイズを構成"
   - id: MMX16
     path: textbook/volumes/dream_thater/計算系/MMX/MMX16
