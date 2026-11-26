@@ -29,7 +29,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mmx5-shared-leg -->
-**定義の確認。** 上の例の基底を次のように区画へ分けます。
+**定義の確認**：上の例の基底を次のように区画へ分けます。
 
 $$
 X=\operatorname{span}(x_1,x_2),
