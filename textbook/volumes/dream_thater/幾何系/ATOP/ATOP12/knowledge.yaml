@@ -1,0 +1,36 @@
+chapter: ATOP12
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP7, ATOP8, ATOP11]
+forward_references: []
+concepts:
+  - id: atop.polygon-fundamental-group
+    name: 多角形表示の基本群
+    kind: theorem
+    introduction: formal
+    requires: [atop.polygon-word, atop.bouquet-fundamental-group, atop.van-kampen, atop.circle-fundamental-group, atop.deformation-fundamental-group, atop.contractible-simply-connected]
+  - id: atop.surface-connected-sum
+    name: 曲面の連結和
+    kind: definition
+    introduction: formal
+    requires: [atop.surface-local-model, topology.homeomorphism]
+  - id: atop.standard-surface-groups
+    name: 標準閉曲面の基本群
+    kind: theorem
+    introduction: formal
+    requires: [atop.polygon-fundamental-group, atop.surface-classification-existence]
+  - id: atop.group-abelianization
+    name: 群の可換化
+    kind: definition
+    introduction: formal
+    requires: [algebra.group, algebra.quotient-group]
+  - id: atop.abelianized-presentation
+    name: 群表示の可換化と指数和
+    kind: proposition
+    introduction: formal
+    requires: [atop.group-abelianization, atop.presentation-homomorphism]
+  - id: atop.closed-simply-connected-surface
+    name: 閉単連結曲面の分類
+    kind: theorem
+    introduction: formal
+    requires: [atop.surface-classification-existence, atop.standard-surface-groups, atop.abelianized-presentation, atop.induced-fundamental-group-homomorphism]

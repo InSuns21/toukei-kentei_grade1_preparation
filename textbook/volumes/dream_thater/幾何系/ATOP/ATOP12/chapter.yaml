@@ -1,0 +1,25 @@
+id: ATOP12
+title: "曲面の基本群と具体的分類"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP7, ATOP8, ATOP11]
+official_scope: []
+learning_objectives:
+  - 多角形表示から開被覆と関係語を構成し基本群を計算できる
+  - 連結和の標準模型と境界語の連結を対応させられる
+  - 球面・トーラス・実射影平面・Kleinの壺および標準閉曲面の基本群を計算できる
+  - 群表示の可換化を指数和から求め閉単連結曲面を特徴付けられる
+definitions:
+  - { id: ATOP12-DEF-01, name: 曲面の連結和 }
+  - { id: ATOP12-DEF-02, name: 群の可換化 }
+theorems:
+  - { id: ATOP12-THM-01, name: 多角形表示の基本群 }
+  - { id: ATOP12-THM-02, name: 標準閉曲面の基本群 }
+  - { id: ATOP12-PROP-01, name: 群表示の可換化と指数和 }
+  - { id: ATOP12-THM-03, name: 閉単連結曲面の分類 }
+canonical_examples: [球面, トーラス, 実射影平面, Kleinの壺, 種数2の曲面]
+problem_patterns: [ATOP12-A1, ATOP12-A2, ATOP12-A3, ATOP12-A4, ATOP12-B1, ATOP12-B2, ATOP12-B3, ATOP12-B4, ATOP12-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 2 }
