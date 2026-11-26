@@ -1,0 +1,46 @@
+chapter: ATOP17
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP16, ATOP3]
+forward_references: []
+concepts:
+  - id: atop.chain-homotopy
+    name: 特異鎖の鎖ホモトピー
+    kind: definition
+    introduction: formal
+    requires: [atop.singular-chain-group, atop.singular-chain-map-boundary]
+  - id: atop.chain-homotopy-induced
+    name: 鎖ホモトピーとホモロジー上の一致
+    kind: theorem
+    introduction: formal
+    requires: [atop.chain-homotopy, atop.singular-homology]
+  - id: atop.prism-operator
+    name: プリズム作用素
+    kind: definition
+    introduction: formal
+    requires: [atop.homotopy, atop.singular-simplex, atop.singular-chain-group]
+  - id: atop.prism-identity
+    name: プリズム恒等式
+    kind: theorem
+    introduction: formal
+    requires: [atop.prism-operator, atop.singular-boundary, atop.induced-singular-chain-map]
+  - id: atop.homotopy-invariance
+    name: 特異ホモロジーのホモトピー不変性
+    kind: theorem
+    introduction: formal
+    requires: [atop.prism-identity, atop.chain-homotopy-induced, atop.induced-singular-homology-map]
+  - id: atop.homotopy-equivalence-homology
+    name: ホモトピー同値と特異ホモロジー群
+    kind: corollary
+    introduction: formal
+    requires: [atop.homotopy-equivalence, atop.homotopy-invariance, atop.induced-singular-homology-map]
+  - id: atop.reduced-singular-homology
+    name: 被約特異ホモロジー群
+    kind: definition
+    introduction: formal
+    requires: [atop.singular-homology, atop.singular-boundary]
+  - id: atop.contractible-reduced-homology
+    name: 可縮空間の被約特異ホモロジー
+    kind: corollary
+    introduction: formal
+    requires: [atop.contractibility, atop.contractibility-point-equivalence, atop.reduced-singular-homology, atop.homotopy-equivalence-homology, atop.prism-identity]

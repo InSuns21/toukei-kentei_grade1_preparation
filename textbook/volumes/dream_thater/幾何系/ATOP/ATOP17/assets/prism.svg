@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+<title id="title">Triangular prism</title><desc id="desc">The lower vertices a0 a1 a2 and upper vertices b0 b1 b2 form a prism. Dashed diagonals a0-b1, a0-b2 and a1-b2 divide the prism into three ordered tetrahedra.</desc>
+<g fill="none" stroke="#374151" stroke-width="2.5" stroke-linejoin="round">
+<path d="M80 260 L320 260 L180 185 Z M80 115 L320 115 L180 40 Z M80 260 V115 M320 260 V115 M180 185 V40"/>
+</g>
+<g fill="none" stroke="#2563a6" stroke-width="2.5" stroke-dasharray="7 5">
+<path d="M80 260 L320 115 M80 260 L180 40 M320 260 L180 40"/>
+</g>
+<g fill="#374151">
+<circle cx="80" cy="260" r="4"/><circle cx="320" cy="260" r="4"/><circle cx="180" cy="185" r="4"/><circle cx="80" cy="115" r="4"/><circle cx="320" cy="115" r="4"/><circle cx="180" cy="40" r="4"/>
+</g>
+<g font-family="sans-serif" font-size="20" fill="#222" text-anchor="middle">
+<text x="60" y="286">a0</text><text x="340" y="286">a1</text><text x="180" y="217">a2</text><text x="56" y="109">b0</text><text x="344" y="109">b1</text><text x="180" y="24">b2</text>
+</g>
+</svg>
