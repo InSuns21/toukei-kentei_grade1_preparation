@@ -1,0 +1,28 @@
+id: ATOP17
+title: "鎖ホモトピーとホモトピー不変性"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP16, ATOP3]
+official_scope: []
+learning_objectives:
+  - 鎖ホモトピーの次数と境界の条件を確認し誘導準同型の一致を証明できる
+  - プリズムを順序付き単体に分割しプリズム作用素を構成できる
+  - 内部面と側面の符号を任意次数で検証しプリズム恒等式を証明できる
+  - ホモトピー不変性とホモトピー同値から特異ホモロジー群の同型を導ける
+  - 被約特異ホモロジー群を構成し可縮空間での消滅を具体的に証明できる
+definitions:
+  - { id: ATOP17-DEF-01, name: 特異鎖の鎖ホモトピー }
+  - { id: ATOP17-DEF-02, name: プリズム作用素 }
+  - { id: ATOP17-DEF-03, name: 被約特異ホモロジー群 }
+theorems:
+  - { id: ATOP17-THM-01, name: 鎖ホモトピーとホモロジー上の一致 }
+  - { id: ATOP17-THM-02, name: プリズム恒等式 }
+  - { id: ATOP17-THM-03, name: 特異ホモロジーのホモトピー不変性 }
+  - { id: ATOP17-THM-04, name: ホモトピー同値と特異ホモロジー群 }
+  - { id: ATOP17-THM-05, name: 可縮空間の被約特異ホモロジー }
+canonical_examples: [一点空間の鎖ホモトピー, 四角形と三角柱のプリズム, 二点離散空間の被約群]
+problem_patterns: [ATOP17-A1, ATOP17-A2, ATOP17-A3, ATOP17-A4, ATOP17-B1, ATOP17-B2, ATOP17-B3, ATOP17-B4, ATOP17-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
