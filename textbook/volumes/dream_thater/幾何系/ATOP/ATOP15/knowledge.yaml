@@ -1,0 +1,51 @@
+chapter: ATOP15
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP14, ATOP5, ATOP2, FIX1]
+forward_references: []
+concepts:
+  - id: atop.subdivision-complex
+    name: 重心細分複体
+    kind: definition
+    introduction: formal
+    requires: [atop.abstract-simplicial-complex, fixedpoint.barycentric-subdivision]
+  - id: atop.subdivision-realization
+    name: 重心細分複体の実現
+    kind: proposition
+    introduction: formal
+    requires: [atop.subdivision-complex, atop.geometric-realization, topology.homeomorphism]
+  - id: atop.subdivision-chain
+    name: 細分鎖写像の構成
+    kind: definition
+    introduction: formal
+    requires: [atop.subdivision-complex, atop.simplicial-chain-group, atop.simplicial-boundary]
+  - id: atop.subdivision-chain-map
+    name: 細分鎖写像と境界の可換性
+    kind: theorem
+    introduction: formal
+    requires: [atop.subdivision-chain, atop.boundary-square-zero]
+  - id: atop.subdivision-chain-homotopy
+    name: 細分の鎖ホモトピー
+    kind: theorem
+    introduction: formal
+    requires: [atop.subdivision-chain-map, atop.simplicial-chain-map-boundary, atop.simplicial-homology]
+  - id: atop.open-star
+    name: 頂点の開スター
+    kind: definition
+    introduction: formal
+    requires: [atop.geometric-realization]
+  - id: atop.simplicial-approximation
+    name: 単体近似
+    kind: definition
+    introduction: formal
+    requires: [atop.open-star, atop.simplicial-map]
+  - id: atop.simplicial-approximation-theorem
+    name: 単体近似定理
+    kind: theorem
+    introduction: formal
+    requires: [atop.simplicial-approximation, atop.subdivision-realization, fixedpoint.barycentric-mesh-contraction, atop.lebesgue-number, atop.homotopy]
+  - id: atop.simplicial-approximation-common-simplex
+    name: 単体近似の選択と共通単体
+    kind: proposition
+    introduction: formal
+    requires: [atop.simplicial-approximation, atop.homotopy]
