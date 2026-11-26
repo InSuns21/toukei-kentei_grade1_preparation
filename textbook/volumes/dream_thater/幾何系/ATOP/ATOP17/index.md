@@ -4,11 +4,17 @@
 
 前講の[特異ホモロジーの誘導準同型](../ATOP16/index.md#thm-atop16-induced-homology)により、連続写像 $f:X\to Y$ はホモロジー群の準同型 $H_n(f):H_n(X)\to H_n(Y)$ を定めます。ところが、写像を少しずつ動かすと、鎖の像は別の基底元に変わります。ホモロジー群上でも像が変わるのでしょうか。
 
-例えば区間 $[0,1]$ の二つの端点は異なる0単体ですが、端点を結ぶ道の境界がその差です。従ってホモロジーでは区別されません。この「動いた跡の境界を取る」という考えを全ての次数に拡張します。係数は整数、負次数の鎖群は零とします。
+[特異単体](../ATOP16/index.md#def-atop16-singular-simplex)では、0単体は点に対応し、1単体は区間上の道として表せます。例えば区間 $[0,1]$ の二つの端点は異なる0単体ですが、端点を結ぶ道の[特異境界](../ATOP16/index.md#def-atop16-singular-boundary)がその差です。従ってホモロジーでは区別されません。この「動いた跡の境界を取る」という考えを全ての次数に拡張します。係数は整数、負次数の鎖群は零とします。
 
 ## 1. 鎖の差を一つ上の次数で説明する
 
-[特異鎖群](../ATOP16/index.md#def-atop16-singular-chains)を $C_n(X)$、[特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary)を $\partial^X_n$ と書きます。連続写像の誘導準同型は[境界と可換](../ATOP16/index.md#thm-atop16-chain-map)でした。以下では境界と可換な整数線形写像の族を鎖写像として扱います。二つの鎖写像の差が、鎖を一つ上の次数に送る操作と境界との組合せで表されれば、サイクルの像の差は境界になります。
+[特異鎖群](../ATOP16/index.md#def-atop16-singular-chains)を $C_n(X)$、[特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary)を $\partial^X_n$ と書きます。連続写像の誘導準同型は[境界と可換](../ATOP16/index.md#thm-atop16-chain-map)でした。各次数の整数線形写像の族 $F=(F_n)_{n\ge0}$ を考えます。各 $F_n:C_n(X)\to C_n(Y)$ が
+
+$$
+\partial^Y_n F_n=F_{n-1}\partial^X_n
+$$
+
+を満たすとき、この族を鎖写像と呼びます。負次数の写像は零とします。上付きの空間名と下付きの次数は作用対象から決まるとき省き、$F_n(z)$ を $F_nz$ とも書きます。[特異サイクルと特異境界鎖](../ATOP16/index.md#def-atop16-singular-cycles)のうち、サイクルは $\partial_nz=0$ を満たす鎖で、境界鎖は $\partial_{n+1}w$ と書ける鎖です。二つの鎖写像の差が、鎖を一つ上の次数に送る操作と境界との組合せで表されれば、サイクルの像の差は境界になります。
 
 <a id="def-atop17-chain-homotopy"></a>
 
@@ -25,9 +31,15 @@ $$
 <!-- definition-example-start: def-atop17-chain-homotopy -->
 **定義の確認**
 
-$X=Y=\{p\}$ とし、唯一の特異 $n$ 単体を $k_n$ とします。$F=G=\mathrm{id}$ とし、偶数次数で $K_n(k_n)=k_{n+1}$、奇数次数で $K_n(k_n)=0$ と定め、整数線形に延長します。
+$X=Y=\{p\}$ とし、唯一の特異 $n$ 単体を $k_n$ とします。各鎖群の恒等写像 $F_n=G_n=\mathrm{id}_{C_n(X)}$ は、両辺が $\partial_n$ となるため境界と可換です。偶数次数で $K_n(k_n)=k_{n+1}$、奇数次数で $K_n(k_n)=0$ と定め、整数線形に延長します。
 
-各面が同じ定数単体なので、正の偶数次数の境界は $k_n\mapsto k_{n-1}$、奇数次数の境界は零です。
+[特異鎖群](../ATOP16/index.md#def-atop16-singular-chains)では各 $k_n$ が基底なので、この指定は準同型を一意に定めます。[特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary)により、各面が同じ定数単体であることから $n\ge1$ では
+
+$$
+\partial_n k_n=\left(\sum_{j=0}^n(-1)^j\right)k_{n-1}.
+$$
+
+隣り合う $+1,-1$ を組にすると、正の偶数次数では最後の $+1$ が残り、奇数次数では全て相殺します。0次の境界は定義により零です。
 
 偶数 $n$ では $\partial K_n(k_n)=0$ です。さらに正次数では $K_{n-1}(k_{n-1})=0$、0次では $\partial_0=0$ です。
 
@@ -50,7 +62,7 @@ $X=Y=\{p\}$ とし、唯一の特異 $n$ 単体を $k_n$ とします。$F=G=\ma
 
 鎖写像 $F$ は $\partial^Y F_n(z)=F_{n-1}\partial^X z$ によりサイクルをサイクルに送ります。また $z-z'=\partial^X w$ なら $F_n(z)-F_n(z')=\partial^Y F_{n+1}(w)$ ですから、境界の差を保ちます。$G$ についても同じ二つの等式が成り立ちます。従って両者は[特異ホモロジー群](../ATOP16/index.md#def-atop16-singular-homology)上の準同型を定めます。
 
-$z\in C_n(X)$ をサイクルとすると、$\partial^X z=0$ なので
+$z\in C_n(X)$ をサイクルとすると、$\partial^X z=0$ なので、[鎖ホモトピーの定義](#def-atop17-chain-homotopy)から
 
 $$
 G_n(z)-F_n(z)=\partial^Y_{n+1}K_n(z).
@@ -71,7 +83,7 @@ $$
 
 です。ここで $x\in\Delta^n$、$t\in[0,1]$ です。定義域は単体と区間の積であって標準単体ではありません。そのままでは特異鎖群の基底にならないので、積を $n+1$ 次元単体に分けます。
 
-標準単体の頂点を $e_0,\ldots,e_n$ とし、下端と上端の頂点をそれぞれ
+前講の[特異単体](../ATOP16/index.md#def-atop16-singular-simplex)で用いた標準単体の座標 $x=(x_0,\ldots,x_n)$ は、各成分が非負で総和が1です。頂点を $e_0,\ldots,e_n$ とし、下端と上端の頂点をそれぞれ
 
 $$
 a_j=(e_j,0),\qquad b_j=(e_j,1)
@@ -110,7 +122,7 @@ $$
 s_{i+1}+t-s_{i+1}=t
 $$
 
-となります。逆に $T_i$ の像では $t=s_{i+1}+\lambda_{b_i}$ なので、この区間条件が必要です。係数は一意であるため各 $T_i$ はその像への全単射です。
+となります。逆に $T_i$ の像では $t=s_{i+1}+\lambda_{b_i}$ なので、この区間条件が必要です。係数は一意であるため各 $T_i$ はその像への全単射です。上の係数式は $(x,t)$ の連続関数でもあるので逆写像は連続です。従って各像は $\Delta^{n+1}$ と同相です。
 
 次に単体どうしの交わりを確認します。$i<j$ の二つの単体が交わる場合、次の二条件が同時に成立します。
 
@@ -150,7 +162,9 @@ $$
 <!-- definition-example-start: def-atop17-prism -->
 **定義の確認**
 
-$X=[0,1]$、$Y=[0,1]^2$、$H(u,t)=(u,t)$、$\sigma(u)=u$ とします。$Q_\sigma$ は連続であり、四角形の頂点は $a_0=(0,0),a_1=(1,0),b_0=(0,1),b_1=(1,1)$ です。$\Delta^2$ 上の座標 $(s_0,s_1,s_2)$ に対し
+$X=[0,1]$、$Y=[0,1]^2$、$H(u,t)=(u,t)$ とします。[特異単体](../ATOP16/index.md#def-atop16-singular-simplex)の1次の区間表示では $(1-u,u)\in\Delta^1$ を $u$ と同一視するので、$\sigma(u)=u$ は連続な特異1単体です。$H$ も連続で、端点写像は $u\mapsto(u,0)$ と $u\mapsto(u,1)$ です。
+
+$Q_\sigma$ はこの座標表示では $(u,t)\mapsto(u,t)$ です。四角形の頂点は下端の $(0,0),(1,0)$ と上端の $(0,1),(1,1)$ で、順に $a_0,a_1,b_0,b_1$ と対応します。ここで $(s_0,s_1,s_2)$ は前節の後ろからの座標和ではなく、$\Delta^2$ の入力座標です。頂点の係数付き和を取ると
 
 $$
 Q_\sigma T_0(s)=(s_2,s_1+s_2),
@@ -160,7 +174,7 @@ $$
 Q_\sigma T_1(s)=(s_1+s_2,s_2).
 $$
 
-どちらも座標の線形関数で連続であり、両成分が $[0,1]$ に入るため特異2単体です。従って $P_1\sigma$ はこの二つの写像の差です。有限支持の鎖を入力すれば、各基底の像が二項の有限和なので出力も有限支持です。一般次数でも各基底の像は $n+1$ 項の有限和であり、自由加群の基底上の指定から整数線形に延長できます。
+どちらも座標の線形関数で連続であり、両成分が $[0,1]$ に入るため特異2単体です。従って $P_1\sigma$ はこの二つの写像の差です。有限支持の鎖を入力すれば、各基底の像が二項の有限和なので出力も有限支持です。一般次数でも各基底の像は $n+1$ 項の有限和であり、[自由加群の普遍性](../../../代数系/MOD/MOD1/index.md#thm-mod1-free-universal-property)によって整数線形に延長できます。
 <!-- definition-example-end -->
 
 この四角形の場合は $Q_\sigma$ を省いた頂点記法で境界を直接確認できます。
@@ -181,7 +195,15 @@ $$
 \end{aligned}
 $$
 
-最後の二辺は、端点の差 $\partial\sigma$ を動かした跡 $P_0\partial\sigma$ と逆符号です。従ってこれを足せば上端の辺から下端の辺を引いた鎖になります。
+前講と同じく点 $u$ の0鎖を $\langle u\rangle$ と書くと、$\partial_1\sigma=\langle1\rangle-\langle0\rangle$ です。0次のプリズムは各点を動かす道なので
+
+$$
+P_0\partial_1\sigma=[a_1,b_1]-[a_0,b_0].
+$$
+
+これは最後の二辺と逆符号です。従ってこれを足せば上端の辺から下端の辺を引いた鎖になります。
+
+以下、[特異鎖の誘導準同型](../ATOP16/index.md#def-atop16-induced-chain-map) $f_{\#,n}$ を $f_\#$ や $(f)_\#$ と略すときも、次数は入力鎖から決まります。
 
 <a id="thm-atop17-prism-identity"></a>
 
@@ -204,7 +226,15 @@ $$
 
 $n=0$ では $P_0\sigma$ は $t\mapsto H(\sigma(e_0),t)$ という道です。その境界は終点から始点を引いた0鎖であり、$\partial_0=0$ と合わせて主張が成立します。
 
-$n\ge1$ として基底 $\sigma$ を固定します。以下の頂点記法では各アフィン写像に $Q_\sigma$ を合成したものを表します。[面写像](../ATOP16/index.md#def-atop16-face-map)は頂点列から第 $k$ 頂点を除くので、$T_i$ の第 $k$ 頂点を除いた項の係数は $(-1)^{i+k}$ です。添字は0から数えます。
+$n\ge1$ として基底 $\sigma$ を固定します。[プリズム作用素](#def-atop17-prism)と[特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary)を順に展開します。以下の頂点記法では各アフィン写像に $Q_\sigma$ を合成したものを表します。
+
+[面写像](../ATOP16/index.md#def-atop16-face-map)は頂点列から第 $k$ 頂点を除きます。プリズムの符号と境界の符号を掛けると、$T_i$ の第 $k$ 頂点を除いた項の係数は
+
+$$
+(-1)^i(-1)^k=(-1)^{i+k}
+$$
+
+です。添字は0から数えます。
 
 まず $T_0$ の $a_0$ を除くと全て上端の頂点が残り、係数は1です。$T_n$ の $b_n$ を除くと全て下端の頂点が残り、係数は $(-1)^{n+n+1}=-1$ です。二項の和は $(f_1)_\#\sigma-(f_0)_\#\sigma$ です。
 
@@ -314,7 +344,7 @@ $$
 
 [可縮性と一点空間](../ATOP3/index.md#thm-atop3-contractible-equivalence)により、非空可縮空間は一点空間とホモトピー同値です。従って[ホモトピー同値と特異ホモロジー群](#cor-atop17-equivalence)から同じ計算結果を持ちます。
 
-0次だけ整数群が残る理由は、[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components)が、空間に点があるだけで一つの成分を数えるからです。非空空間では、その基準となる一つ分を取り除くと、成分の余分な違いだけを測れます。0鎖の係数を全部足す写像を使います。
+[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components)により、各道連結成分は独立な整数の基底を一つ与えます。非空空間では係数の総和を測る一つ分を取り除くと、成分どうしの差だけを測れます。0鎖は有限和であるため、係数の総和を取る準同型 $\varepsilon_X$ が定まります。[特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary)により1単体の境界は終点と始点の差なので、その係数和は必ず0です。従って境界群は係数和の核に含まれ、核を境界群で割った商を作れます。
 
 <a id="def-atop17-reduced-homology"></a>
 
@@ -345,7 +375,7 @@ $$
 <!-- definition-example-start: def-atop17-reduced-homology -->
 **定義の確認**
 
-二点離散空間 $D=\{p,q\}$ では、連続な道は定数写像だけなので1次境界は零です。0鎖 $m\langle p\rangle+n\langle q\rangle$ の係数和が零である条件は $n=-m$。よって核は $\mathbb Z(\langle p\rangle-\langle q\rangle)$ であり、境界群はその零部分群です。従って $\widetilde H_0(D)\cong\mathbb Z$。一点空間ではここで定めた $\varepsilon_X$ が同型なので $\widetilde H_0(\{p\})=0$ になります。正次数は通常の群と同じです。
+二点離散空間 $D=\{p,q\}$ では、区間が連結でその連続像も連結であることから、連続な道は定数写像だけです。従って各1単体の境界は零で、整数線形性により1次境界群は零です。0鎖 $m\langle p\rangle+n\langle q\rangle$ の係数和が零である条件は $n=-m$。よって核は $\mathbb Z(\langle p\rangle-\langle q\rangle)$ であり、境界群はその零部分群です。従って $\widetilde H_0(D)\cong\mathbb Z$。一点空間ではここで定めた $\varepsilon_X$ が同型なので $\widetilde H_0(\{p\})=0$ になります。正次数は通常の群と同じです。
 <!-- definition-example-end -->
 
 連続写像 $f:X\to Y$ は点を点へ送り、係数の合流があっても総和を変えません。従って $\varepsilon_Y f_{\#,0}=\varepsilon_X$ です。0次の核を核へ送り、[境界との可換性](../ATOP16/index.md#thm-atop16-chain-map)から境界群も境界群へ送ります。よって被約群にも準同型を誘導します。$f_0\simeq f_1$ なら0次の核の任意の元 $z$ に対して[プリズム恒等式](#thm-atop17-prism-identity)から像の差は $\partial P_0z$ であり、被約群でも一致します。正次数では通常の群と同じです。
@@ -373,7 +403,7 @@ $$
 従って $z=\partial_1(-P_0z)$ であり、核の全ての元が境界です。逆の包含は係数和が境界上で零になることから成立します。商は零群になります。
 <!-- proof-end -->
 
-例えば凸集合 $A\subset\mathbb R^m$ が非空であれば、$p\in A$ に対して $H(x,t)=(1-t)x+tp$ は凸性で $A$ に値を持ち、連続で、始点が恒等、終点が定数写像です。従って[可縮空間の被約特異ホモロジー](#cor-atop17-contractible)が適用できます。球体や線分の任意の正次数サイクルは境界になります。
+例えば凸集合 $A\subset\mathbb R^m$ が非空であれば、$p\in A$ に対して $H(x,t)=(1-t)x+tp$ は凸性で $A$ に値を持ち、連続で、始点が恒等、終点が定数写像です。従って[可縮空間の被約特異ホモロジー](#cor-atop17-contractible)が適用できます。閉球や線分の任意の正次数サイクルは境界になります。
 
 ## 6. 演習
 
@@ -403,7 +433,7 @@ $$
 \end{aligned}
 $$
 
-終点写像は定数1なので $f_{1\#}z=(2-1)\langle1\rangle$。始点写像は恒等なので $f_{0\#}z=z$。確かに境界は二つの像の差です。
+終点写像は定数1なので $(f_1)_\#z=(2-1)\langle1\rangle$。始点写像は恒等なので $(f_0)_\#z=z$。確かに境界は二つの像の差です。
 <!-- solution-end -->
 
 ### 演習 ATOP17-A2：切替位置を探す
@@ -440,7 +470,14 @@ $$
 G_nz-F_nz=\partial K_nz+K_{n-1}\partial z.
 $$
 
-サイクルでは $\partial z=0$ なので第二項が零となり、差は $\partial(K_nz)$ です。任意の鎖では第二項が残り得ます。例えば区間 $X=[0,1]$ の恒等写像と定数0写像は $H(u,t)=(1-t)u$ で結ばれますが、道 $\gamma(u)=u$ の二つの像の差の境界は $-\langle1\rangle+\langle0\rangle\ne0$ です。[特異鎖の二重境界の消滅](../ATOP16/index.md#thm-atop16-singular-boundary-square)により、この差は境界ではありません。サイクル条件が必要です。
+サイクルでは $\partial z=0$ なので第二項が零となり、差は $\partial(K_nz)$ です。任意の鎖では第二項が残り得ます。例えば区間 $X=[0,1]$ の恒等写像と定数0写像は $H(u,t)=(1-t)u$ で結ばれます。$F=(\mathrm{id}_X)_\#$、$G=c_\#$（$c(u)=0$）とすると、道 $\gamma(u)=u$ に対し $G_1\gamma$ は定数道、$F_1\gamma=\gamma$ です。[特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary)から
+
+$$
+\partial_1(G_1\gamma-F_1\gamma)
+=0-(\langle1\rangle-\langle0\rangle)\ne0.
+$$
+
+[特異鎖の二重境界の消滅](../ATOP16/index.md#thm-atop16-singular-boundary-square)により、この差は境界ではありません。サイクル条件が必要です。
 <!-- solution-end -->
 
 ### 演習 ATOP17-A4：成分の余分な違い
@@ -495,7 +532,7 @@ $$
 \end{aligned}
 $$
 
-共通面 $[a_0,b_1,b_2]$ と $[a_0,a_1,b_2]$ はそれぞれ正負一回ずつ現れます。元の境界は $[1,2]-[0,2]+[0,1]$ なので
+共通面 $[a_0,b_1,b_2]$ と $[a_0,a_1,b_2]$ はそれぞれ正負一回ずつ現れます。元の境界は[特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary)により $\sigma\circ\delta_0^2-\sigma\circ\delta_1^2+\sigma\circ\delta_2^2$ です。ここで $[j,k]$ を元の頂点 $e_j,e_k$ を結ぶ面に $\sigma$ を合成した写像の略記とすると、境界は $[1,2]-[0,2]+[0,1]$ です。各面にプリズム作用素を適用すると
 
 $$
 \begin{aligned}
@@ -549,7 +586,13 @@ f_\#(\langle q\rangle-\langle r\rangle)
 =\langle b\rangle-\langle a\rangle.
 $$
 
-従って指定基底で行列は $(0\ \ 1)$、座標 $(u,v)$ を $v$ に送ります。核は $v=0$、すなわち $\mathbb Z(\langle p\rangle-\langle r\rangle)$。任意の整数 $w$ は $(0,w)$ の像なので像は $\widetilde H_0(Y)$ 全体です。係数和が保存されるため両方の像は確かに被約群の元です。
+始域の指定基底を $d_1,d_2$、終域の基底を $e=\langle b\rangle-\langle a\rangle$ と書きます。境界群が零なのでこれらの鎖の等式はそのまま被約群での等式です。整数線形性により、任意の $u,v\in\mathbb Z$ に対して
+
+$$
+f_\#(ud_1+vd_2)=u\cdot0+v e.
+$$
+
+従って整数係数の自由加群の基底表示で、第1列が0、第2列が1の $1\times2$ 行列 $(0\ \ 1)$ が得られます。これは座標 $(u,v)$ を $v$ に送る準同型です。核は $v=0$、すなわち $\mathbb Z(\langle p\rangle-\langle r\rangle)$。任意の整数 $w$ は $(0,w)$ の像なので像は $\widetilde H_0(Y)$ 全体です。係数和が保存されるため両方の像は確かに被約群の元です。
 <!-- solution-end -->
 
 ### 演習 ATOP17-B4：逆向きのホモトピー
@@ -571,7 +614,7 @@ $$
 =(f_0)_\#-(f_1)_\#.
 $$
 
-従って $-P$ は $f_1$ の誘導鎖写像から $f_0$ の誘導鎖写像への鎖ホモトピーです。
+従って[鎖ホモトピーの定義](#def-atop17-chain-homotopy)から、$-P$ は $f_1$ の誘導鎖写像から $f_0$ の誘導鎖写像への鎖ホモトピーです。
 
 指定の例では $P_0\langle p\rangle$ は道 $\alpha(t)=t$ です。一方、逆向きのホモトピーのプリズム作用素は道 $\beta(t)=1-t$ を与えます。
 
@@ -608,9 +651,9 @@ $$
 
 0次では $c_\#z=(\sum_i m_i)\langle p\rangle=0$ です。従って $\partial(-P_0z)=z$。具体的には各道 $t\mapsto H(x_i,t)$ に係数 $-m_i$ を付けて足した1鎖です。
 
-正次数では $z=\sum_\sigma m_\sigma\sigma$ と書き、$M=\sum_\sigma m_\sigma$ と置きます。各 $\sigma$ の定数写像との合成は同じ定数単体 $k_n$ なので $c_\#z=Mk_n$ です。
+正次数では $z=\sum_\sigma m_\sigma\sigma$ と書き、$M=\sum_\sigma m_\sigma$ と置きます。$k_n:\Delta^n\to X$ は全点を収縮先 $p$ に送る定数単体とします（一点空間の場合と異なり、$X$ の唯一の特異単体とは限りません）。[特異鎖の誘導準同型](../ATOP16/index.md#def-atop16-induced-chain-map)により各 $\sigma$ の定数写像との合成は同じ $k_n$ なので $c_\#z=Mk_n$ です。
 
-$n$ が正の偶数なら $\partial k_n=k_{n-1}$ です。定数写像の誘導鎖写像は[境界と可換](../ATOP16/index.md#thm-atop16-chain-map)なので
+[特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary)を定数単体に適用すると、全ての面は同じ定数単体なので、第1節と同じ交代和が得られます。$n$ が正の偶数なら $\partial k_n=k_{n-1}$ です。定数写像の誘導鎖写像は[境界と可換](../ATOP16/index.md#thm-atop16-chain-map)なので
 
 $$
 Mk_{n-1}=\partial(c_\#z)=c_\#\partial z=0.
