@@ -66,7 +66,7 @@ chapters:
     title: "trivalent bit tensorの体積・境界、Batcher sorting network、比較・交換・fanout・隣接非一致で初期サイズを構成"
   - id: MMX16
     path: textbook/volumes/dream_thater/計算系/MMX/MMX16
-    status: planned
+    status: completed
     title: "tagged permutationへの二つのdistinctness testによる帰着、signed selectorの恒等式（標数2も含む）"
   - id: MMX17
     path: textbook/volumes/dream_thater/計算系/MMX/MMX17
