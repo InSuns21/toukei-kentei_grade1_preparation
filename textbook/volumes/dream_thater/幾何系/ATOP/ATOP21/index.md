@@ -6,7 +6,7 @@
 
 ## 1. 単体を連続写像として読む
 
-有限単体複体 $K$ の頂点集合に全順序を固定し、[幾何学的実現](../ATOP10/index.md#def-atop10-realization) を $X=|K|$ とします。[単体鎖群](../ATOP13/index.md#def-atop13-simplicial-chains) を $C_n^\triangle(K)$、[特異鎖群](../ATOP16/index.md#def-atop16-singular-chains) を $C_n(X)$ と区別します。前者の基底は頂点を昇順に並べた向き付き単体、後者の基底は連続写像 $\Delta^n\to X$ です。
+有限単体複体 $K$ の頂点集合を $V$ とし、そこに全順序を固定して、[幾何学的実現](../ATOP10/index.md#def-atop10-realization) を $X=|K|$ とします。[単体鎖群](../ATOP13/index.md#def-atop13-simplicial-chains) を $C_n^\triangle(K)$、[特異鎖群](../ATOP16/index.md#def-atop16-singular-chains) を $C_n(X)$ と区別します。前者の基底は頂点を昇順に並べた向き付き単体、後者の基底は連続写像 $\Delta^n\to X$ です。
 
 頂点列 $v_0<\cdots<v_n$ の単体を読むには、標準単体の頂点を対応する頂点に送るアフィン写像を使えばよいのです。[標準単体](../../../応用系/FIX/FIX1/index.md#def-fix1-standard-simplex) $\Delta^n$ の点を
 
@@ -204,7 +204,7 @@ $$
 
 とします。$m$ 単体 $\tau$ の実現を $D_\tau$、そのすべての真の面の和集合を $\partial D_\tau$ と書きます。
 
-[実現の共通面性](../ATOP10/index.md#prop-atop10-intersection) により異なる $m$ 単体の交わりは真の共通面に限られます。従って新しく加わる部分は互いに交わらない $m$ 単体の内部です。ここで内部は各単体のアフィン包における相対内部で、全重心座標が正となる部分を指します。
+[実現の共通面性](../ATOP10/index.md#prop-atop10-intersection) により異なる $m$ 単体の交わりは真の共通面に限られます。従って新しく加わる部分は互いに交わらない $m$ 単体の内部です。ここで単体の内部とは、その単体から真の面をすべて除いた部分、すなわち全重心座標が正となる点の集合を指します。実現全体での位相的な内部を定義に用いる必要はありません。
 
 <a id="thm-atop21-skeleton-relative"></a>
 
