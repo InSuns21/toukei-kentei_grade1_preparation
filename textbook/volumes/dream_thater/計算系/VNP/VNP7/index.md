@@ -4,7 +4,7 @@
 
 一次資料：Claude (Anthropic), [VP ≠ VNP over every field, v1](https://hexagonmath.org/2611.00954v1), C/O。対応する形式化は [Means.lean](https://github.com/anthropics/formal-math/blob/11b6c7e3c927df2658f513b6b68ea7f8929c62c5/vp-vnp/Paper/Means.lean)、[Fan.lean](https://github.com/anthropics/formal-math/blob/11b6c7e3c927df2658f513b6b68ea7f8929c62c5/vp-vnp/Paper/Fan.lean)、[Curvature.lean](https://github.com/anthropics/formal-math/blob/11b6c7e3c927df2658f513b6b68ea7f8929c62c5/vp-vnp/Paper/Curvature.lean)。ここでは平均の構成を可算個の収束部分列で行い、局所的な幾何の論証を再構成します。
 
-直接前提：[VNP6](../VNP6/index.md)、[VNP5](../VNP5/index.md)、[VNP3](../VNP3/index.md)、[NPCG1](../../../幾何系/NPCG/NPCG1/index.md)、[NPCG4](../../../幾何系/NPCG/NPCG4/index.md)。体 $K$ は固定し、距離を $|ab|=d(a,b)$ と略記します。
+直接前提：[VNP6](../VNP6/index.md)、[VNP5](../VNP5/index.md)、[VNP3](../VNP3/index.md)、[NPCG1](../../../幾何系/NPCG/NPCG1/index.md)、[NPCG4](../../../幾何系/NPCG/NPCG4/index.md)、[NPCG6](../../../幾何系/NPCG/NPCG6/index.md)、[NPCG7](../../../幾何系/NPCG/NPCG7/index.md)、[NPCG8](../../../幾何系/NPCG/NPCG8/index.md)。体 $K$ は固定し、距離を $|ab|=d(a,b)$ と略記します。
 
 ## 1. 格子上の平均距離
 
@@ -53,7 +53,7 @@ $$
 <!-- formal-statement-start -->
 > **補題（漸近長の平行四辺形則）**
 >
-> [格子の平均距離と漸近長](#def-vnp7-mean-length) の条件の下で $N$ は非負、対称、劣加法的、整数倍について斉次であり、
+> [格子の平均距離と漸近長](#def-vnp7-mean-length) の条件の下で $N$ は非負、対称、劣加法的、$N(kg)=|k|N(g)$（整数 $k$）を満たし、
 
 $$
 N(g)=\lim_{S\to\infty}\frac{\nu(Sg)}S,\qquad
@@ -337,7 +337,7 @@ CNの評価は既に存在する中点についての定理です。中点が存
 <!-- formal-statement-start -->
 > **命題（priceのCAT(0)完備化）**
 >
-> 体 $K$ 上の非空集合 $V$ のprice $d$ に対して、完備なCAT(0)距離空間 $(X,d_X)$ と写像 $f:V\to X$ が存在し、$d_X$ は同じ体 $K$ のpriceであり、
+> 固定した体 $K$ に関する非空集合 $V$ 上のprice $d$ に対して、完備なCAT(0)距離空間 $(X,d_X)$ と写像 $f:V\to X$ が存在し、$d_X$ は同じ体 $K$ のpriceであり、
 
 $$
 d_X(f(a),f(b))=d(a,b)\qquad(a,b\in V)
@@ -387,7 +387,42 @@ $$
 
 ### 使える幾何学
 
-ここからは既習のCAT(0)理論を完成したprice空間に適用できます。[任意比の二乗距離評価](../../../幾何系/NPCG/NPCG4/index.md#thm-npcg4-cn-interpolation) により、端点 $a,b$ の比率 $t$ の点 $p_t$ では $d(z,p_t)^2$ は $(1-t)d(z,a)^2+td(z,b)^2-t(1-t)d(a,b)^2$ 以下です。四辺形、閉凸集合への射影、有限加重重心の評価はそれぞれ [NPCG6](../../../幾何系/NPCG/NPCG6/index.md)、[NPCG7](../../../幾何系/NPCG/NPCG7/index.md)、[NPCG8](../../../幾何系/NPCG/NPCG8/index.md) の設定で適用します。
+完備CAT(0)空間 $X$ を得たので、原論文の Toolkit の評価を既習結果から取り出せます。
+
+1. [任意比の二乗距離評価](../../../幾何系/NPCG/NPCG4/index.md#thm-npcg4-cn-interpolation)：端点 $a,b$ の比率 $t\in[0,1]$ の点 $p_t$ について
+
+$$
+d(z,p_t)^2\le(1-t)d(z,a)^2+td(z,b)^2-t(1-t)d(a,b)^2.
+$$
+
+2. [四点の平方差評価](../../../幾何系/NPCG/NPCG6/index.md#thm-npcg6-four-point-product) に $(p,q,r,s)=(x,y,u,v)$ を代入します。
+
+$$
+d(x,v)^2+d(y,u)^2
+\le d(x,u)^2+d(y,v)^2+2d(x,y)d(u,v).
+$$
+
+さらに $2d(x,y)d(u,v)\le d(x,y)^2+d(u,v)^2$ なので、対角線の平方和は四辺の平方和以下です。等号なら二つの不等式とも等号なので $(d(x,y)-d(u,v))^2=0$。$y,u$ を交換して他方の対辺についても等長を得ます。
+
+3. 等しい重み $1/N$ の $N\ge1$ 個の点 $x_i$ に対する [重心の存在](../../../幾何系/NPCG/NPCG8/index.md#thm-npcg8-barycenter-existence) と [分散不等式](../../../幾何系/NPCG/NPCG8/index.md#thm-npcg8-variance-inequality) から、重心 $b$ は
+
+$$
+\sum_i d(z,x_i)^2\ge\sum_i d(b,x_i)^2+N d(z,b)^2
+$$
+
+を満たします。[重心の安定性](../../../幾何系/NPCG/NPCG8/index.md#thm-npcg8-barycenter-stability) により二組の重心の距離は対応する点間距離の平均以下です。
+
+4. 非空閉凸集合 $C$ には [距離射影の存在と一意性](../../../幾何系/NPCG/NPCG7/index.md#thm-npcg7-projection-existence) と [射影のPythagoras型不等式](../../../幾何系/NPCG/NPCG7/index.md#thm-npcg7-pythagorean) が適用でき、$p=P_C(x)$ と $z\in C$ について $d(x,p)^2+d(p,z)^2\le d(x,z)^2$ です。
+
+5. 有限個の完備CAT(0)空間の積に距離 $d_{\rm prod}(x,y)=\sqrt{\sum_i d_i(x_i,y_i)^2}$ を入れると、これも完備CAT(0)空間です。三角不等式は有限次元の Minkowski 不等式から従います。積のCauchy列は各座標でもCauchy列で、各座標の極限への距離の平方和は有限和なので0へ収束します。座標ごとの測地線を同じ比率で取れば、二時刻間の距離は積距離に時刻差を掛けた値です。中点も座標ごとに取れ、各座標のCN不等式を足すと積のCN不等式になります。[CN条件との同値性](../../../幾何系/NPCG/NPCG4/index.md#thm-npcg4-cn-equivalence) が適用できます。ここで述べたのは距離空間としての性質であり、積距離がpriceであるとの主張ではありません。
+
+6. 四点 $x,y,u,v$ の辺が $d(x,y)=d(u,v)=\delta$、$d(x,u)=d(y,v)=h$、両対角線の平方が $\delta^2+h^2$ とします。[四辺形の等号から平坦な領域](../../../幾何系/NPCG/NPCG6/index.md#thm-npcg6-flat-quadrilateral) を巡回順 $x,y,v,u$ に適用できます。平面表示では対角線の中点が一致するので、$x$ を原点にすれば $y=e,u=f,v=e+f$ と書けます。$|e|^2=\delta^2,|f|^2=h^2,|e+f|^2=\delta^2+h^2$ なので $2\langle e,f\rangle=0$。辺 $xu,yv$ 上の比率 $s,t\in[0,1]$ の点 $a,b$ はそれぞれ $sf,e+tf$ と表せます。従って
+
+$$
+d(a,b)^2=|e+(t-s)f|^2=\delta^2+h^2(t-s)^2.
+$$
+
+この等号は、後続講義で距離の等号から平坦な配置を取り出す際に使います。
 
 元の集合がすでに完備であっても中点が存在するとは限りません。二点だけの距離空間では異なる二点の中点は存在しません。完備化だけでなく、先に中点を追加することが必要です。
 
@@ -493,7 +528,7 @@ $$
 - Level: C
 - ID: VNP7-C1
 
-第4節の四評価を用いる。$\theta$ を固定し、$\psi(\ell)=N(1,-1-\ell)^2-\ell^2\theta^2\Lambda_2$ と置く。二階差分を計算して $\Gamma+D^2$ の上界を得よ。最後の二つの極限の順序が重要な理由を述べよ。
+第3節の四評価を用いる。$\theta$ を固定し、$\psi(\ell)=N(1,-1-\ell)^2-\ell^2\theta^2\Lambda_2$ と置く。二階差分を計算して $\Gamma+D^2$ の上界を得よ。最後の二つの極限の順序が重要な理由を述べよ。
 
 <!-- solution-start -->
 **詳細解答**：[漸近長の平行四辺形則](#thm-vnp7-mean-parallelogram) から $h(\ell+1)+h(\ell-1)-2h(\ell)=2N(0,1)^2$。平方の二階差分は $(\ell+1)^2+(\ell-1)^2-2\ell^2=2$ です。従って $\psi$ の二階差分は $2(N(0,1)^2-\theta^2\Lambda_2)\le0$。
@@ -513,6 +548,22 @@ $$
 $$
 
 固定した $\theta>0$ で $A\to\infty$ とすれば第一項は0。$\Lambda_2\le(D+B)^2$ で上界を一様化し、$\theta\to0$ とすれば $\Gamma+D^2\le0$。逆に $A$ を固定したまま $\theta\to0$ とすると第一項は $D>0$ のとき発散します。先に $A$ を大きくする理由はこの誤差項です。
+<!-- solution-end -->
+
+### B4. 平坦な四辺形の辺上の距離
+- Level: B
+- ID: VNP7-B4
+
+完備CAT(0)空間の四点が第5節の平坦な四辺形の条件を $\delta=3,h=4$ で満たすとする。辺 $xu,yv$ のそれぞれ比率 $1/4,3/4$ の点 $a,b$ の距離を求めよ。また両対角線の平方が25という仮定を外すと、なぜ同じ計算を保証できないか。
+
+<!-- solution-start -->
+**詳細解答**：四辺の平方和は $2\cdot9+2\cdot16=50$、対角線の平方和も $2\cdot25=50$。[四辺形の等号から平坦な領域](../../../幾何系/NPCG/NPCG6/index.md#thm-npcg6-flat-quadrilateral) により平面表示ができ、第5節の計算に $s=1/4,t=3/4$ を代入すると
+
+$$
+d(a,b)^2=9+16(3/4-1/4)^2=13.
+$$
+
+距離は $\sqrt{13}$ です。対角線の条件を外すと四辺形不等式の等号も辺の直交性も保証されません。例えば平面で辺長3と4の平行四辺形のなす角が60度なら、内積は $3\cdot4/2=6$ であり、平方距離に交差項 $2(1/2)6=6$ が加わります。
 <!-- solution-end -->
 
 ## 7. 次の講への接続
