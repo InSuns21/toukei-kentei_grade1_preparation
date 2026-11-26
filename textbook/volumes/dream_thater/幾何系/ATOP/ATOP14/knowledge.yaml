@@ -1,7 +1,7 @@
 chapter: ATOP14
 scope: dream-theater
 coverage: complete
-prerequisites: [ATOP13, MOD2]
+prerequisites: [ATOP13, MOD2, GEO19]
 forward_references: []
 concepts:
   - id: atop.simplicial-cycle
@@ -35,7 +35,7 @@ concepts:
     name: Euler–Poincaré の鎖レベル恒等式
     kind: theorem
     introduction: formal
-    requires: [atop.smith-homology-computation, algebra.fg-abelian-group-structure]
+    requires: [atop.smith-homology-computation, algebra.fg-abelian-group-structure, topology.euler-characteristic]
   - id: atop.induced-homology-map
     name: 単体写像の誘導ホモロジー準同型
     kind: theorem
