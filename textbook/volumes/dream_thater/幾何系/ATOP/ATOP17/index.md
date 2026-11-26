@@ -467,7 +467,9 @@ $$
 $$
 \partial_1(G_1\gamma-F_1\gamma)
 =0-(\langle1\rangle-\langle0\rangle)\ne0.
-$$[特異鎖の二重境界の消滅](../ATOP16/index.md#thm-atop16-singular-boundary-square)により、この差は境界ではありません。サイクル条件が必要です。
+$$
+
+[特異鎖の二重境界の消滅](../ATOP16/index.md#thm-atop16-singular-boundary-square)により、この差は境界ではありません。サイクル条件が必要です。
 <!-- solution-end -->
 
 ### 演習 ATOP17-A4：成分の余分な違い
