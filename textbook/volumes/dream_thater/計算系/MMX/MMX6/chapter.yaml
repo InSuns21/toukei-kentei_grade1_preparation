@@ -1,0 +1,25 @@
+id: MMX6
+title: "任意標数の分離補題、任意の体への9/4上界、Amanov–van den Berg–Zuiddamの証明とShpilka解説の照合"
+volume: foundations
+status: supplementary
+prerequisites: [MMX5, ACOMP4, ACOMP21, ACOMP22]
+official_scope: []
+learning_objectives:
+  - 切断多項式環と局所代入を使って任意標数の共有脚分離を再現できる
+  - 多項式補間と固定頻度語から共有脚の評価を導ける
+  - 行列式による核の分離と離散増大率の標数非依存性を説明できる
+  - 代数閉包から有限拡大と座標計算を経て任意の体への指数移行を証明できる
+  - 三つの上界証明の道具と主張の範囲を区別できる
+definitions:
+  - { id: MMX6-DEF-01, name: "切断多項式環" }
+theorems:
+  - { id: MMX6-THM-01, name: "多項式による共有脚分離" }
+  - { id: MMX6-THM-02, name: "任意標数の共有脚評価" }
+  - { id: MMX6-THM-03, name: "代数閉包と行列積指数" }
+  - { id: MMX6-THM-04, name: "任意の体上の行列積指数の上界" }
+canonical_examples: [標数2の切断積, 局所代入の逆写像, 四元体の座標積]
+problem_patterns: [MMX6-A01, MMX6-A02, MMX6-A03, MMX6-A04, MMX6-B01, MMX6-B02, MMX6-B03, MMX6-B04, MMX6-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 1 }
