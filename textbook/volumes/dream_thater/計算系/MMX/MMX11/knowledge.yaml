@@ -1,0 +1,102 @@
+chapter: MMX11
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX10, GCT14, GCT15, GCT16, NPCG8, NPCG11]
+forward_references: []
+concepts:
+  - id: matrix-exponent.ports
+    name: "ports"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ports）"]
+    requires: [metric-geometry.nonlinear-poincare, matrix-exponent.curvature]
+  - id: matrix-exponent.cube-exclusion
+    name: "立方体距離の一様排除"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（立方体距離の一様排除）"]
+    requires: [matrix-exponent.limit-prices, matrix-exponent.curvature, metric-geometry.flat-quadrilateral-equality]
+  - id: matrix-exponent.grassmann-deficit
+    name: "Grassmann グラフの厳密な欠損"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Grassmann グラフの厳密な欠損）"]
+    requires: [matrix-exponent.cube-exclusion, metric-geometry.quadrilateral-midpoint-bound, metric-geometry.quadrilateral-equality]
+  - id: matrix-exponent.sparse-transition
+    name: "疎な確率行列の反復"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（疎な確率行列の反復）"]
+    requires: [matrix-exponent.grassmann-deficit]
+  - id: matrix-exponent.cesaro-walk
+    name: "遅延歩道の平均"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（遅延歩道の平均）"]
+    requires: [metric-geometry.finite-weighted-barycenter, metric-geometry.barycenter-variance-inequality, metric-geometry.nonlinear-poincare]
+  - id: matrix-exponent.finite-flat-ports
+    name: "有限最大平坦次元から ports"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限最大平坦次元から ports）"]
+    requires: [matrix-exponent.ports, matrix-exponent.sparse-transition, matrix-exponent.cesaro-walk]
+  - id: matrix-exponent.tagged-permutation
+    name: "タグ付き置換テンソル"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（タグ付き置換テンソル）"]
+    requires: []
+  - id: matrix-exponent.catalyst-gap
+    name: "借用 wire 付き価格ギャップ"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（借用 wire 付き価格ギャップ）"]
+    requires: [matrix-exponent.spectral-price, matrix-exponent.wire-transport]
+  - id: matrix-exponent.gap-substitution
+    name: "ギャップを保つ置換"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（ギャップを保つ置換）"]
+    requires: [matrix-exponent.catalyst-gap, matrix-exponent.price-rules]
+  - id: matrix-exponent.routing-protocol
+    name: "多方向通信プロトコル"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多方向通信プロトコル）"]
+    requires: [matrix-exponent.tagged-permutation, matrix-exponent.catalyst-gap]
+  - id: matrix-exponent.maximal-flat-routing
+    name: "最大平坦次元の下での通信"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（最大平坦次元の下での通信）"]
+    requires: [matrix-exponent.routing-protocol, matrix-exponent.cube-exclusion]
+  - id: matrix-exponent.strict-spectral-comparison
+    name: "スペクトル厳密比較"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（スペクトル厳密比較）"]
+    requires: [tensor.strassen-duality]
+  - id: matrix-exponent.probe-criterion
+    name: "追加リンクの費用回収条件"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（追加リンクの費用回収条件）"]
+    requires: [matrix-exponent.routing-protocol, matrix-exponent.strict-spectral-comparison]
+  - id: matrix-exponent.gap-amplification
+    name: "ギャップの増幅"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（ギャップの増幅）"]
+    requires: [matrix-exponent.tagged-permutation, matrix-exponent.catalyst-gap]
+  - id: matrix-exponent.width-packing
+    name: "広いレコードの詰込み"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（広いレコードの詰込み）"]
+    requires: [matrix-exponent.gap-amplification, matrix-exponent.gap-substitution]
+  - id: matrix-exponent.logarithmic-width
+    name: "対数 payload 幅の近似"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（対数 payload 幅の近似）"]
+    requires: [matrix-exponent.maximal-flat-routing, matrix-exponent.gap-amplification, matrix-exponent.width-packing, matrix-exponent.gap-substitution]
