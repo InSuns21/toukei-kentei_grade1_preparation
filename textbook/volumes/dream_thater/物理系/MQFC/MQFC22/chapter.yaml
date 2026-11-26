@@ -1,0 +1,23 @@
+id: MQFC22
+title: "格子ゲージ場の反射陽性"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC8, MQFC20, MQFC21]
+official_scope: []
+learning_objectives:
+  - 時間反転と逆辺の規則から格子の反射形式を定義できる
+  - Wilson重みの非負指標展開をテンソル積と収束評価から導出できる
+  - 横切る辺を頂点ゲージ変換に吸収して境界平均を導出できる
+  - 左右因子分解によって有限格子の反射陽性を証明できる
+definitions:
+  - { id: MQFC22-DEF-01, name: "格子の反射形式" }
+theorems:
+  - { id: MQFC22-THM-01, name: "Wilson重みの非負指標展開" }
+  - { id: MQFC22-PROP-01, name: "指標による左右因子分解" }
+  - { id: MQFC22-THM-02, name: "自由境界Wilson測度の反射陽性" }
+canonical_examples: [零結合の反射形式, 二値群の重み, 円周群の展開, 二正方形の境界平均]
+problem_patterns: [MQFC22-REFLECT, MQFC22-CHARACTER, MQFC22-BOUNDARY, MQFC22-POSITIVITY]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
