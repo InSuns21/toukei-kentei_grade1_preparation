@@ -1,0 +1,25 @@
+id: ATOP25
+title: "局所ホモロジーと次元不変性"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP22, ATOP19]
+official_scope: []
+learning_objectives:
+  - 点を除いた対によって局所ホモロジー群を定義し同相不変性を説明できる
+  - 切除定理の閉包条件を確認して開近傍へ局所化できる
+  - 円板対と長完全列から Euclid 空間の局所群を全次数で計算できる
+  - 半空間の内点と境界点の局所群を比較できる
+  - 次元不変性を証明し領域不変性と区別できる
+definitions:
+  - { id: ATOP25-DEF-01, name: 局所ホモロジー群 }
+theorems:
+  - { id: ATOP25-THM-01, name: 局所ホモロジーの近傍不変性 }
+  - { id: ATOP25-THM-02, name: Euclid 空間の局所ホモロジー }
+  - { id: ATOP25-THM-03, name: 半空間の局所ホモロジー }
+  - { id: ATOP25-THM-04, name: 次元不変性 }
+canonical_examples: [二点離散空間, 穿孔直線, 穿孔閉単位球, 半空間の境界点, 三本の枝]
+problem_patterns: [ATOP25-A1, ATOP25-A2, ATOP25-A3, ATOP25-A4, ATOP25-B1, ATOP25-B2, ATOP25-B3, ATOP25-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 3, review: 1 }
