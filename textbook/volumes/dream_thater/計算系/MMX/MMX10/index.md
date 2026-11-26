@@ -330,7 +330,7 @@ $\lambda>0$ では対数の級数は収束します。中点の Riemann 和に�
 
 状態 $I$ に $e^{-\lambda h(I)}/Z(\lambda)$ の確率を与えると占有変数は独立で、占有確率は $1/(1+e^{\lambda(i+1/2)})$ です。平均エネルギーは $\lambda^{-2}\int_0^\infty x/(1+e^x)\,dx$ に漸近し、積分部分積分で積分値は $A$。分散は $\sum_i(i+1/2)^2e^{-\lambda(i+1/2)}=O(\lambda^{-3})$ 以下です。
 
-$D(H)e^{-\lambda H}\le Z(\lambda)$ に $\lambda=\sqrt{A/H}$ を代入すると $\ln D(H)\le 2\sqrt{AH}+o(\sqrt H)$。逆に $0<\epsilon<1/2$ を固定し、$\lambda=\sqrt{A/((1-\epsilon)H)}$ とすれば平均は $(1-\epsilon)H+o(H)$、分散は $O(H^{3/2})$。Chebyshevの不等式によりエネルギーが $[(1-2\epsilon)H,H]$ に入る確率は $1-o(1)$ です。この区間の各状態の確率は高々 $e^{-\lambda(1-2\epsilon)H}/Z(\lambda)$。従って
+$D(H)e^{-\lambda H}\le Z(\lambda)$ に $\lambda=\sqrt{A/H}$ を代入すると $\ln D(H)\le 2\sqrt{AH}+o(\sqrt H)$。逆に $0<\epsilon<1/2$ を固定し、$\lambda=\sqrt{A/((1-\epsilon)H)}$ とすれば平均は $(1-\epsilon)H+o(H)$、分散は $O(H^{3/2})$。[Chebyshevの不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-chebyshev)によりエネルギーが $[(1-2\epsilon)H,H]$ に入る確率は $1-o(1)$ です。この区間の各状態の確率は高々 $e^{-\lambda(1-2\epsilon)H}/Z(\lambda)$。従って
 
 $$
 D(H)\ge (1-o(1))Z(\lambda)e^{\lambda(1-2\epsilon)H}.
@@ -596,7 +596,7 @@ $$
 
 最後は $Z_s$ を固定したとき内積の条件付き二乗平均が勾配の二乗ノルムで、$L^2$ 以下であることを使いました。一般の Lipschitz 関数はコンパクト台の滑らかな非負核との畳み込みで近似すれば、Lipschitz 定数は増えず、一様誤差は核の半径に $L$ を掛けた値以下なので分散評価も従います。
 
-従って各価格の分散は $O(1/N)$。Chebyshev の不等式と有限個の和の上界により、全比較で両価格が共通期待値に任意に近い事象の確率は1へ近づきます。
+従って各価格の分散は $O(1/N)$。[Chebyshevの不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-chebyshev)と有限個の和の上界により、全比較で両価格が共通期待値に任意に近い事象の確率は1へ近づきます。
 
 さらに $A^{\mathsf T}A$ の各成分は $N$ 個の独立な積の平均で、その期待値は $\mathbf1_{i=j}$、分散は対角で $2/N$、非対角で $1/N$。$m$ は固定なので作用素ノルムで単位行列に [確率収束](../../../解析系/F0/F0-00P4/index.md#def-f0-00p4-probability-convergence) します。
 
