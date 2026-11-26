@@ -41,8 +41,8 @@ concepts:
     introduction_aliases: ["補題（対角増大率）"]
     requires: [matrix-exponent.profile-concavity, matrix-exponent.profile-tripling]
   - id: matrix-exponent.complex-upper-bound
-    name: 複素数体上の行列積指数の九四分上界
+    name: 複素数体上の行列積指数の上界
     kind: theorem
     introduction: formal
-    introduction_aliases: ["定理（複素数体上の行列積指数の九四分上界）"]
+    introduction_aliases: ["定理（複素数体上の行列積指数の上界）"]
     requires: [matrix-exponent.diagonal-growth, matrix-exponent.profile-basic, matrix-exponent.dot-exponents]
