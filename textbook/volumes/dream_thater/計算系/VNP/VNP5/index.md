@@ -267,7 +267,9 @@ $$
 X=\prod_{(o,o')\in S\times S}[0,B(o,o')]
 $$
 
-とします。[VNP3第4節の price のコンパクト性の議論](../VNP3/index.md#thm-vnp3-price-laws)で用いた Tychonoff の定理により積位相でコンパクトです。各有限非空部分集合 $H\subset S$ に対して、候補の $H\times H$ への制限が price であることと、$H\cap Y$ の古い点対で $w$ と一致することを要求します。これらを満たす候補集合 $X_H$ は閉です。実際、有限座標への射影は連続であり、有限集合上の price の集合は [priceの保存則](../VNP3/index.md#thm-vnp3-price-laws) により閉、各古い座標の等式も閉条件です。
+とします。これは [VNP3第4節の price のコンパクト性の議論](../VNP3/index.md#thm-vnp3-price-laws) で扱った積空間 $Q_B$ に、点集合として $S$ を選んだものです。各区間の上端が有限なので、そこで示したとおり $X$ は積位相でコンパクトです。
+
+各有限非空部分集合 $H\subset S$ に対して、候補の $H\times H$ への制限が price であることと、$H\cap Y$ の古い点対で $w$ と一致することを要求します。これらを満たす候補集合 $X_H$ は閉です。実際、有限座標への射影は連続であり、有限集合上の price の集合は [priceの保存則](../VNP3/index.md#thm-vnp3-price-laws) により閉、各古い座標の等式も閉条件です。
 
 任意の有限個 $H_1,\ldots,H_k$ について $H=\bigcup_{\ell=1}^k H_\ell$ とします。
 
