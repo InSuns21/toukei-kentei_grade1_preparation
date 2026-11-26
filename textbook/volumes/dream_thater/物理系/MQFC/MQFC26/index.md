@@ -39,7 +39,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（質量と相関長の単位換算）**
-> 時間格子間隔 $a>0$ の有限空間格子で、真空規格化した転送作用素の最大励起固有値を $\lambda_*\in(0,1)$ とする。格子のハミルトニアンの真空直交部分の最低エネルギー $M$ と、物理時間で測った相関長 $\xi_{\rm phys}$ は
+> 時間格子間隔 $a>0$ の有限空間格子で、真空規格化した転送作用素の最大励起固有値を $\lambda_*\in(0,1)$ とする。$m_{\rm lat}=-\log\lambda_*$、$\xi_{\rm lat}=1/m_{\rm lat}$ と置く。格子のハミルトニアンの真空直交部分の最低エネルギー $M$ と、物理時間で測った相関長 $\xi_{\rm phys}$ は
 
 $$
 M=\frac{m_{\rm lat}}{a},\qquad
@@ -118,7 +118,7 @@ M_k\to M_0,\qquad
 a_k\xi_{{\rm lat},k}\to \frac{1}{M_0}.
 $$
 
-> また任意の $\Delta>0$ について、各 $k$ での下界 $M_k\ge\Delta$ は
+> ここで $\xi_{{\rm lat},k}=1/m_k$ とする。また任意の $\Delta>0$ について、各 $k$ での下界 $M_k\ge\Delta$ は
 
 $$
 m_k\ge a_k\Delta
@@ -217,7 +217,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（物理ギャップの相関極限への保存）**
-> $a_k>0$、$a_k\to0$ とする。各格子の物理Hilbert空間に真空 $\Omega_k$ と規格化転送作用素 $U_k$ があり、真空直交部分の全固有値が $e^{-a_k\Delta}$ 以下とする。ここで $\Delta>0$ は共通の定数である。
+> $a_k>0$、$a_k\to0$ とする。各有限空間格子の物理Hilbert空間に単位真空 $\Omega_k$ と非負自己共役な規格化転送作用素 $U_k$ があり、$U_k\Omega_k=\Omega_k$ とする。真空直交部分は完全正規直交固有系を持ち、その全固有値が $e^{-a_k\Delta}$ 以下とする。ここで $\Delta>0$ は共通の定数である。
 >
 > 別にHilbert空間 $\mathcal H$、非負自己共役ハミルトニアン $H$、単位真空 $\Omega\in D(H)$ があり、$H\Omega=0$ とする。真空直交空間 $\mathcal K=\Omega^\perp$ は非零とする。その中のベクトル族 $\mathcal D$ の線形包が $\mathcal K$ で稠密とする。
 >
@@ -244,7 +244,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$v\in\mathcal D$ を一つ固定する。各格子で真空を除く正規直交固有系に $v_k=\sum_j c_{k,j}u_{k,j}$ と展開する。真空成分は零である。固有値を $\lambda_{k,j}$ とすれば仮定により
+$v\in\mathcal D$ を一つ固定する。各格子で真空を除く正規直交固有系に $v_k=\sum_j c_{k,j}u_{k,j}$ と展開する。真空成分は零である。固有値を $\lambda_{k,j}$ とすれば、$n_k\ge1$ では仮定により
 
 $$
 0\le\lambda_{k,j}^{n_k}\le e^{-n_ka_k\Delta}
