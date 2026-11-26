@@ -63,13 +63,13 @@ $$
 右端が与えられた二点共分散 $C$ であるから、分解の等式を満たす。$C_1$ の揺らぎは二点を同時に動かし、$C_2$ の揺らぎは二点の差を動かす。各成分が特異行列でも分解できる。
 <!-- definition-example-end -->
 
-一つの尺度を積分する操作を $T_C$ と書く。ここで $x$ は固定した残りの場、$z$ は積分で動かす揺らぎ、$d\gamma_C(z)$ はその確率分布による積分を表す。Borel関数とはBorel集合に関して可測な関数である。非負なら積分が無限大でも操作を定義できる。
+一つの尺度を積分する操作を $T_C$ と書く。ここで $x$ は固定した残りの場、$z$ は積分で動かす揺らぎ、$d\gamma_C(z)$ はその確率分布による積分を表す。積分する関数 $F$ には、入力空間の[Borel σ代数](../../../解析系/F0/F0-00D2/index.md#def-f0-00d2-03)（実数直線と同様に $\mathbb R^n$ の開集合が生成するσ代数）に関する[可測性](../../../解析系/F0/F0-00D2/index.md#def-f0-00d2-07)を要求する。すなわち、任意の実数 $a$ について $\{y\in\mathbb R^n:F(y)\le a\}$ がそのσ代数に属する。値 $+\infty$ を許す場合も同じ条件を用いる。非負なら積分が無限大でも操作を定義できる。
 
 <a id="thm-mqfc28-gaussian-integration"></a>
 
 <!-- formal-statement-start -->
 > **定理（尺度別Gaussian積分の合成）**
-> $C,D$ を実対称半正定値 $n\times n$ 行列、$\gamma_C,\gamma_D$ を対応する中心化Gaussian確率測度とする。非負Borel関数 $F:\mathbb R^n\to[0,\infty]$ に対し
+> $C,D$ を実対称半正定値 $n\times n$ 行列、$\gamma_C,\gamma_D$ を対応する中心化Gaussian確率測度とする。非負Borel可測関数 $F:\mathbb R^n\to[0,\infty]$ に対し
 
 $$
 (T_CF)(x)=\int F(x+z)\,d\gamma_C(z)
@@ -114,7 +114,7 @@ $$
 
 となり、これは $(C+D)^{1/2}G$ の確率ベクトルの特性関数と一致する。[確率ベクトルの特性関数収束定理](../../../解析系/F0/F0-00P6/index.md#thm-f0-00p6-levy-continuity-vector)を一定の確率ベクトル列に適用すれば、両分布は一致する。従ってその法則は $\gamma_{C+D}$ である。
 
-両測度は確率測度なのでσ有限であり、被積分関数は非負Borel関数である。[Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli)から内側の積分は可測で、積測度上の積分と一致する。
+両測度は確率測度なのでσ有限であり、被積分関数は非負Borel可測関数である。[Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli)から内側の積分は可測で、積測度上の積分と一致する。
 
 $$
 T_CT_DF(x)
@@ -137,7 +137,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Gaussian消去後の有効作用）**
-> $C$ を半正定値共分散、$V:\mathbb R^n\to\mathbb R$ をBorel関数とする。対象の $x$ で $0<T_C(e^{-V})(x)<\infty$ のとき
+> $C$ を半正定値共分散、$V:\mathbb R^n\to\mathbb R$ をBorel可測関数とする。対象の $x$ で $0<T_C(e^{-V})(x)<\infty$ のとき
 
 $$
 V_C(x)=-\log T_C(e^{-V})(x)
@@ -354,13 +354,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（有効作用の一様誤差の累積）**
-> $n,J$ を正整数、$C_j$ を実対称半正定値 $n\times n$ 行列、$\gamma_j=\gamma_{C_j}$ を対応する中心化Gaussian確率測度とする。ここで $j=1,\ldots,J$ である。$U_0=\widetilde U_0$ を有限実数値のBorel関数とし、
+> $n,J$ を正整数、$C_j$ を実対称半正定値 $n\times n$ 行列、$\gamma_j=\gamma_{C_j}$ を対応する中心化Gaussian確率測度とする。ここで $j=1,\ldots,J$ である。$U_0=\widetilde U_0$ を有限実数値のBorel可測関数とし、
 
 $$
 U_j=-\log T_{C_j}(e^{-U_{j-1}})
 $$
 
-> とする。全積分が各点で正かつ有限であり、有限実数値のBorel関数である近似作用が全ての $x\in\mathbb R^n$ で
+> とする。全積分が各点で正かつ有限であり、有限実数値のBorel可測関数である近似作用が全ての $x\in\mathbb R^n$ で
 
 $$
 |\widetilde U_j(x)+\log T_{C_j}(e^{-\widetilde U_{j-1}})(x)|\le\epsilon_j
