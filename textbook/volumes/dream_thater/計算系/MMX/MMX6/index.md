@@ -54,9 +54,9 @@ $$
 
 ## 2. 多項式乗算による共有脚の分離
 
-[共有脚付き整合ブロック](../MMX5/index.md#def-mmx5-shared-leg) の第1脚を多項式の係数で拡張すると、各区画に異なる評価点を割り当てられます。ここでは任意の体上の三重線形形式（他の二入力を固定すると残る一入力について線形な写像）として扱います。有限次元では基底上での値が全係数を定めるので、各入力空間の双対を三因子とするテンソルの表示になります。[テンソルの制限](../../TSP/TSP4/index.md#def-tsp4-restriction) はこの表示では新しい入力空間から元の入力空間への線形写像による引き戻しになります。[Kronecker積](../../TSP/TSP5/index.md#def-tsp5-kronecker) を $\boxtimes$、全脚が独立な [直和](../../TSP/TSP5/index.md#def-tsp5-direct-sum) の $\ell$ 個の反復を $A^{\oplus\ell}$ と書きます。
+[共有脚付き整合ブロック](../MMX5/index.md#def-mmx5-shared-leg) の第1脚を多項式の係数で拡張すると、各区画に異なる評価点を割り当てられます。ここでは任意の体上の三重線形形式（他の二入力を固定すると残る一入力について線形な写像）として扱います。有限次元では各入力の基底上での値が全係数を定めます。[テンソルの制限](../../TSP/TSP4/index.md#def-tsp4-restriction) はこの表示では新しい入力空間から元の入力空間への線形写像による引き戻しになります。[Kronecker積](../../TSP/TSP5/index.md#def-tsp5-kronecker) を $\boxtimes$、全脚が独立な [直和](../../TSP/TSP5/index.md#def-tsp5-direct-sum) の $\ell$ 個の反復を $A^{\oplus\ell}$ と書きます。
 
-第2・第3脚に $J_n$ とその代数的双対 $J_n^*$（$K$ への [線形汎関数](../../../解析系/F0/F0-02C2/index.md#def-f0-02c2-linear-functional) 全体の空間。実数体での線形性の定義を $K$ に移し、連続性やノルムは仮定しない）を添えます。[内積型テンソル](../MMX4/index.md#def-mmx4-dot) $B_X(n)$ は、この表示では $(c,j,\varphi)\mapsto c\varphi(j)$ です。これは双対の評価であり、正定値性や複素共役を必要とする内積ではありません。
+第2・第3脚に $J_n$ とその代数的双対 $J_n^*$（$K$ への [線形汎関数](../../../解析系/F0/F0-02C2/index.md#def-f0-02c2-linear-functional) 全体の空間。実数体での線形性の定義を $K$ に移し、連続性やノルムは仮定しない）を添えます。三重線形形式のテンソル表示では各入力空間の双対が三因子になります。[内積型テンソル](../MMX4/index.md#def-mmx4-dot) $B_X(n)$ は、この表示では $(c,j,\varphi)\mapsto c\varphi(j)$ です。これは双対の評価であり、正定値性や複素共役を必要とする内積ではありません。
 
 評価点の周りの局所代入を通常の多項式乗算から作ります。多項式パラメータに関する退化とは、各脚の引き戻しの係数に $\varepsilon$ の有限個の整数冪（負の冪を含む）を許し、得られる形式の係数が $\varepsilon$ の多項式となるとき、その定数項を取り出す操作です（[回路の形式的退化](../../ACOMP/ACOMP22/index.md#def-acomp22-degeneration) と同じ形式的パラメータの考え方）。有限体でもこの定義は形式的に意味を持ちます。スペクトル評価への移行に必要な無限体の仮定は第3節で扱います。
 
@@ -111,7 +111,15 @@ g_h(q)=q(a_h+\varepsilon u),\qquad
 i_h(w)=w(a_h+\varepsilon u)
 $$
 
-とします。$g_h:Q\to J[\varepsilon]$、$i_h:W\to J[\varepsilon]$ は $K$ 線形です。合成を行う際は各空間の係数を $K[\varepsilon,\varepsilon^{-1}]$ に拡張し、その環上の線形写像として扱います。$g_h$ は基底 $(t-a_h)^s$ ($0\le s<n$) を $\varepsilon^s u^s$ に写すので、$\varepsilon$ を可逆とした環 $K[\varepsilon,\varepsilon^{-1}]$ 上で逆写像を持ちます。具体的には次数 $n$ 未満の代表元 $j$ に
+とします。$g_h:Q\to J[\varepsilon]$、$i_h:W\to J[\varepsilon]$ は $K$ 線形です。合成を行う際は各空間の係数を $K[\varepsilon,\varepsilon^{-1}]$ に拡張し、その環上の線形写像として扱います。
+
+$g_h$ の基底上での作用は
+
+$$
+(t-a_h)^s\mapsto\varepsilon^s u^s,\qquad 0\le s<n
+$$
+
+です。$\varepsilon$ は係数環で可逆なので、この写像は逆写像を持ちます。具体的には次数 $n$ 未満の代表元 $j$ に
 
 $$
 g_h^{-1}(j)=j((t-a_h)/\varepsilon)
@@ -162,7 +170,13 @@ $$
 =A_h(x,y_h,z_h)p(a_h)\varphi(j).
 $$
 
-第1入力を $\operatorname{id}_X\otimes e:X\otimes P\to\bigoplus_h X$ で同一視します。新しい独立な入力 $(x_1,\ldots,x_M)$ を逆写像で $X\otimes P$ に戻してから $\Phi_0$ に代入すると、第 $h$ 区画では $x_h$ だけを読みます。$j=\sum_{s=0}^{n-1}j_su^s$、$\varphi_s=\varphi(u^s)$ とおくと線形性から
+第1入力の空間を次の同型で同一視します。
+
+$$
+\operatorname{id}_X\otimes e:X\otimes P\to\bigoplus_h X.
+$$
+
+新しい独立な入力 $(x_1,\ldots,x_M)$ を逆写像で $X\otimes P$ に戻してから $\Phi_0$ に代入すると、第 $h$ 区画では $x_h$ だけを読みます。$j=\sum_{s=0}^{n-1}j_su^s$、$\varphi_s=\varphi(u^s)$ とおくと線形性から
 
 $$
 \varphi(j)=\sum_{s=0}^{n-1}j_s\varphi_s.
@@ -261,7 +275,15 @@ $1/2\le M_N/(2M_N-1)\le1$ なので最初の因子は1に収束します。MMX5�
 
 ## 4. 残りの証明はどの体で通るか
 
-複素数の特殊性を使っていない部分も、適用条件を一つずつ確かめます。無限体 $K$ の任意のスペクトル点 $\lambda$ を固定し、[対称化次数プロファイル](../MMX4/index.md#def-mmx4-profile) と同じ式を $K$ 上で使います。ここからの $t$ は第1節の多項式変数ではなく正の実数の正規化指数です。$S_3$ は三脚の六置換の集合、$\lambda_\pi(C)=\lambda(C^\pi)$ は置換後のテンソルの評価です。$p_X^{(\pi)}$ は $\lambda_\pi$ の第1脚指数とします。
+複素数の特殊性を使っていない部分も、適用条件を一つずつ確かめます。無限体 $K$ の任意のスペクトル点 $\lambda$ を固定し、[対称化次数プロファイル](../MMX4/index.md#def-mmx4-profile) と同じ式を $K$ 上で使います。ここからの $t$ は第1節の多項式変数ではなく正の実数の正規化指数です。
+
+$S_3$ は三脚の六置換の集合です。置換後のテンソルを評価する写像を
+
+$$
+\lambda_\pi(C)=\lambda(C^\pi)
+$$
+
+とし、その第1脚指数を $p_X^{(\pi)}$ と書きます。
 
 $$
 t=(p_X+p_Y+p_Z)/3,\qquad
@@ -305,7 +327,7 @@ $$
 \begin{pmatrix}0&-1\\1&0\end{pmatrix}
 $$
 
-です。負の重みのブロックは核から商への零写像、正の重みのブロックは消えるため、$C(a,b)\boxtimes B_X(2)$ から共有脚付きの $C(a,b+1),C(a,b-1)$ が得られます。この構成に逆元2は不要です。第3節の補間単調性と[任意標数の共有脚評価](#cor-mmx6-entropy) を六置換に使い、共通確率 $q=(q_+,q_-)$ を固定すると
+です。負の重みのブロックは核から商への零写像、正の重みのブロックは消えるため、$C(a,b)\boxtimes B_X(2)$ から共有脚付きの $C(a,b+1),C(a,b-1)$ が得られます。この構成に逆元2は不要です。第3節の補間単調性と [任意標数の共有脚評価](#cor-mmx6-entropy) を六置換に使い、共通確率 $q=(q_+,q_-)$ を固定すると
 
 $$
 2P(a,b)\ge e^{H(q)}U^{q_+}V^{q_-},
@@ -650,7 +672,21 @@ $\mathbb F_4$ の $\alpha^2=\alpha+1$ を用いて $(1+\alpha)^2$ と $\alpha(1+
 <!-- solution-start -->
 ##### 詳細解答
 
-第5節の [有限体拡大上の回路の座標シミュレーション](../../ACOMP/ACOMP4/index.md#thm-acomp4-coordinate-simulation) の四元体の座標式で $a=b=c=d=1$ を代入すると定数座標は $1+1=0$、$\alpha$ 座標は $1+1+1=1$。従って $(1+\alpha)^2=\alpha$ です。次に $a=0,b=1,c=d=1$ では定数座標が $0+1=1$、$\alpha$ 座標は $0+1+1=0$。従って $\alpha(1+\alpha)=1$ です。固定基底での各演算は基礎体の加法と乗法のみで実行されました。
+第5節の [有限体拡大上の回路の座標シミュレーション](../../ACOMP/ACOMP4/index.md#thm-acomp4-coordinate-simulation) の四元体の座標式を使います。まず $a=b=c=d=1$ を代入すると、定数座標と $\alpha$ の座標は順に
+
+$$
+1+1=0,\qquad 1+1+1=1
+$$
+
+です。従って $(1+\alpha)^2=\alpha$ です。
+
+次に $a=0,b=1,c=d=1$ を代入すると、同じ順で
+
+$$
+0+1=1,\qquad 0+1+1=0
+$$
+
+となります。従って $\alpha(1+\alpha)=1$ です。固定基底での各演算は基礎体の加法と乗法のみで実行されました。
 <!-- solution-end -->
 
 <a id="ex-mmx6-b05"></a>
