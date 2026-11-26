@@ -54,7 +54,7 @@ $$
 
 $k=0$ では $\partial(b*\langle x\rangle)=\langle x\rangle-\langle b\rangle$ です。従って0鎖 $c$ については $\partial(b*c)=c-\varepsilon(c)\langle b\rangle$ となります。$\varepsilon(c)$ は係数の総和です。
 
-標準単体の恒等写像を $e_n:\Delta^n\to\Delta^n$、第 $i$ 面の包含を $d_i:\Delta^{n-1}\to\Delta^n$、全頂点の重心を $b_n$ と書きます。まず各面を細分し、その小単体に重心を先頭頂点として追加します。
+標準単体の恒等写像を $e_n:\Delta^n\to\Delta^n$、第 $i$ 面の包含を $d_i:\Delta^{n-1}\to\Delta^n$、全頂点の重心を $b_n$ と書きます。写像 $f$ に対する $f_\#$ は [特異鎖の誘導準同型](../ATOP16/index.md#def-atop16-induced-chain-map)、すなわち写像との合成です。まず各面を細分し、その小単体に重心を先頭頂点として追加します。
 
 <a id="def-atop19-singular-subdivision"></a>
 
@@ -69,12 +69,12 @@ $$
 > で定める。任意の位相空間 $X$ の特異単体 $\sigma:\Delta^n\to X$ に対し $S\sigma=\sigma_\#s_n$ とし、線形に $S:C_n(X)\to C_n(X)$ を定める。
 <!-- formal-statement-end -->
 
-ここで $\sigma_\#$ は [特異鎖の誘導準同型](../ATOP16/index.md#def-atop16-induced-chain-map)、すなわち写像との合成です。各面の重心と全体の重心を順に加えるので、各項は包含関係を持つ非空面の重心を頂点に持ちます。これは [重心細分](../ATOP15/index.md#def-atop15-subdivision-complex) の小単体を特異単体として parametrization したものです。
+各面の重心と全体の重心を順に加えるので、各項は包含関係を持つ非空面の重心を頂点に持ちます。これは [重心細分複体](../ATOP15/index.md#def-atop15-subdivision-complex) の小単体を、頂点順序を指定して標準単体から写したものです。
 
 <!-- definition-example-start: def-atop19-singular-subdivision -->
 **定義の確認**
 
-$\Delta^1$ を $[0,1]$ と同一視し、$[a,b]$ を $t\mapsto(1-t)a+tb$ と書きます。面は $d_0=e_1$ の終点、$d_1=e_1$ の始点を選ぶ写像です。再帰式に代入すると
+$\Delta^1$ を $[0,1]$ と同一視し、$[a,b]$ を $t\mapsto(1-t)a+tb$ と書きます。面写像 $d_0$ は終点1を、$d_1$ は始点0を選ぶ写像です。再帰式に代入すると
 
 $$
 s_1=[1/2,1]-[1/2,0].
@@ -204,7 +204,7 @@ $X$ が距離空間でなくても、特異単体の定義域 $\Delta^n$ はコ�
 
 まず一つの特異単体 $\sigma$ を取ります。$\{\sigma^{-1}(\operatorname{int}_X U):U\in\mathcal U\}$ は $\Delta^n$ の開被覆です。連続性により各逆像は開で、内部が $X$ を覆うので逆像全体が定義域を覆います。
 
-[コンパクト距離空間のLebesgue数補題](../ATOP5/index.md#lem-atop5-lebesgue-number)から、この被覆に対する正数 $\delta$ を選べます。$n\ge1$ なら [重心細分によるメッシュ縮小](../../../応用系/FIX/FIX1/index.md#prop-fix1-barycentric-mesh) により $r$ 回後の小単体の直径は
+[Lebesgue数補題](../ATOP5/index.md#lem-atop5-lebesgue-number)から、この被覆に対する正数 $\delta$ を選べます。$n\ge1$ なら [重心細分によるメッシュ縮小](../../../応用系/FIX/FIX1/index.md#prop-fix1-barycentric-mesh) により $r$ 回後の小単体の直径は
 
 $$
 \left(\frac{n}{n+1}\right)^r
@@ -340,7 +340,7 @@ $$
 
 ### 具体例：区間の片側を短くする
 
-$X=[0,3]$、$A=[0,2)$、$Z=[0,1]$ とします。相対位相で $\operatorname{int}_X A=A$、$\overline Z=Z$ なので仮定を満たします。領域の配置は次の通りです。
+$X=[0,3]$、$A=[0,2)$、$Z=[0,1]$ とします。相対位相で $\operatorname{int}_X A=A$、$\overline Z=Z$ なので仮定を満たします。領域の配置は次の通りです。黒丸（塗りつぶし）は端点を含むこと、白丸は端点を含まないことを表します。
 
 ![区間の切除。閉区間ZはAの内部に収まり、AとBの重なりは(1,2)。](assets/excision-interval.svg)
 
@@ -352,7 +352,7 @@ $B=(1,3]$、$A\cap B=(1,2)$ です。従って [切除定理](#thm-atop19-excisi
 
 $X=[0,1]$、$A=Z=(0,1)$ とします。$Z\subset\operatorname{int}_X A$ ですが $\overline Z=X$ なので閉包条件は失われます。切除後は $(\{0,1\},\varnothing)$ です。
 
-[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) から $H_0(X\setminus Z,A\setminus Z)\cong\mathbb Z^2$ です。一方 $A,X$ は道連結で、包含 $H_0(A)\to H_0(X)$ は生成元を生成元へ送る同型です。長完全列の末端から $H_0(X,A)=0$ となり、同型ではありません。
+[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) から $H_0(X\setminus Z,A\setminus Z)\cong\mathbb Z^2$ です。一方 $A,X$ は道連結で、包含 $H_0(A)\to H_0(X)$ は生成元を生成元へ送る同型です。[対のホモロジー長完全列](../ATOP18/index.md#thm-atop18-long-exact) の末端から $H_0(X,A)=0$ となり、同型ではありません。
 
 この場合 $\operatorname{int}_X(X\setminus Z)=\varnothing$ です。二領域の内部は端点を覆いません。端点から内部へ伸びる任意の非定数の小区間は $A$ にも $\{0,1\}$ にも収まらず、恒等道の細分をどれほど反復しても端点に接する項が残ります。これが証明で用いた小鎖化が失敗する具体的な理由です。
 
