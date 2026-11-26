@@ -225,9 +225,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[均衡分割による回路の分解](../VNP3/index.md#lem-vnp3-balanced) を端添字に移した前節の $T_S$ の分離積表示に [二ハブによる配列の実現](../VNP3/index.md#lem-vnp3-hubs) を適用します。$I_1=\{(a,b)\in P:a\in S\}$、$I_2=P\setminus I_1$ は非空で、各添字数は $D$、項数は $L$ です。
+[均衡分割による回路の分解](../VNP3/index.md#lem-vnp3-balanced) を端添字に移した前節の $T_S$ の分離積表示に [二ハブによる配列の実現](../VNP3/index.md#lem-vnp3-hubs) を適用します。$I_1=\{(a,b)\in P:a\in S\}$、$I_2=P\setminus I_1$ は非空で、各端の添字数は $D$、項数は $L$ です。
 
-具体的には外側は恒等行列とし、ハブの入力をその側の端添字組 $z'$ と中央番号 $j$ の組とします。第一ハブの一行行列の係数を $\alpha_{S,j}((z'_a)_{a\in S})$、第二ハブを $\beta_{S,j}((z'_a)_{a\notin S})$ とします。
+具体的には外側は恒等行列とし、ハブの入力をその側の端添字組 $z'$ と中央番号の組とします。第一ハブの一行行列の係数を $\alpha_{S,j}((z'_a)_{a\in S})$、第二ハブを $\beta_{S,j}((z'_a)_{a\notin S})$ とします。
 
 二ハブの入力次元はそれぞれ $LD^{|S|(k-1)}$ と $LD^{(k-|S|)(k-1)}$、出力次元は1です。各端のwireで内側添字が外側添字と一致し、中央wireで両ハブの番号が一致します。第一ハブの中央番号を $i$、第二を $j$、内側の端添字全体を $z'$ とすると、[制限の係数式](../VNP2/index.md#vnp2-local-coordinate) による出力は
 
@@ -343,13 +343,13 @@ $c_0>0$ かつ $\ell\eta>k$ なら $\log_2 L\ge(\ell\eta-k)/c_0$ です。$c_0=0
 
 [平坦仮説の定義](../VNP9/index.md#def-vnp9-cases) の下、端と全候補ハブからなる有限集合 $I$ に対し、配置写像 $p:I\to\mathbb R^n$（$n\ge1$）を固定します。$w(u,v)=\|p(u)-p(v)\|_2$ を距離とします。平坦仮説が保証するのは有限像 $p(I)$ 上の Euclid 距離の price 性です。異なるpartyが同じ座標を取っても、[priceの保存則](../VNP3/index.md#thm-vnp3-price-laws) により $p$ で引き戻した $w$ は $I$ 上の price です。
 
-[wire単価の極限price](../VNP3/index.md#def-vnp3-price) の近似列は各点対で収束します。$I$ が有限なので、各点対の誤差が $\varepsilon$ 未満になる列番号の最大値以降を一つ選べば、任意の $\varepsilon>0$ について同じ体 $K$・同じparty集合上のある $\lambda\ge0$ と一つのスペクトル点 $\phi$ が全点対で
+[wire単価の極限price](../VNP3/index.md#def-vnp3-price) の近似列は各点対で収束します。$I$ が有限なので、各点対の誤差が $\varepsilon$ 未満になる列番号の最大値以降を一つ選べば、任意の $\varepsilon>0$ について同じ体 $K$・同じparty集合上のある $\lambda\ge0$ と一つのスペクトル点 $\phi$ を選べて、全点対で
 
 $$
 |\lambda d_\phi(u,v)-w(u,v)|<\varepsilon
 $$
 
-とできます。party集合 $I$ は $k$ と切断候補だけで決まり、ビット列の長さ $\ell$ や回路サイズ $L$ に依存しません。従って近似を選んだ後に $\ell$ を増やしても同じ $\phi,\lambda$ を使えます。ここで $\lambda$ を一様に小さくできるとは仮定しません。$A_w,B_{w,S},C_{w,S}$ を $w$ に対する第6節の距離和とします。元の辺が $N$ 本、外側が $2N$ 本、中央が1本なので
+が成り立ちます。party集合 $I$ は $k$ と切断候補だけで決まり、ビット列の長さ $\ell$ や回路サイズ $L$ に依存しません。従って近似を選んだ後に $\ell$ を増やしても同じ $\phi,\lambda$ を使えます。ここで $\lambda$ を一様に小さくできるとは仮定しません。$A_w,B_{w,S},C_{w,S}$ を $w$ に対する第6節の距離和とします。元の辺が $N$ 本、外側が $2N$ 本、中央が1本なので
 
 $$
 \lambda A\ge A_w-N\varepsilon,
