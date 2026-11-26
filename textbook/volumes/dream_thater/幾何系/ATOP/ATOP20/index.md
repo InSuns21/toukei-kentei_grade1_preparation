@@ -6,7 +6,7 @@
 
 ## 1. 二領域の鎖を貼り合わせる
 
-位相空間 $X$ を開集合 $U,V$ で覆い、$W=U\cap V$ とします。$C_n(Y)$ は部分空間 $Y$ の整数係数の [特異鎖群](../ATOP16/index.md#def-atop16-singular-chains) です。境界作用素 $\partial_n:C_n(Y)\to C_{n-1}(Y)$ は次数が明らかなとき $\partial$ と略し、$\partial^2$ は連続する二次数の境界の合成を表します。点 $x$ に対応する特異0単体は $\langle x\rangle$ と書きます。包含による [特異鎖の誘導準同型](../ATOP16/index.md#def-atop16-induced-chain-map) は自由基底の単体をそのまま別の単体として扱う単射なので、各鎖群を $C_n(X)$ の部分群とみなします。
+位相空間 $X$ を開集合 $U,V$ で覆い、$W=U\cap V$ とします。$C_n(Y)$ は部分空間 $Y$ の整数係数の [特異鎖群](../ATOP16/index.md#def-atop16-singular-chains) です。[特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary) $\partial_n:C_n(Y)\to C_{n-1}(Y)$ は次数が明らかなとき $\partial$ と略し、$\partial^2$ は連続する二次数の境界の合成を表します。点 $x$ に対応する特異0単体は $\langle x\rangle$ と書きます。包含による [特異鎖の誘導準同型](../ATOP16/index.md#def-atop16-induced-chain-map) は自由基底の単体をそのまま別の単体として扱う単射なので、各鎖群を $C_n(X)$ の部分群とみなします。
 
 [小さい鎖の複体](../ATOP19/index.md#def-atop19-small-chains) をこの被覆について $D_*$ と書きます。各基底単体の像が $U$ または $V$ に収まることから
 
@@ -318,7 +318,7 @@ $$
 H_1(T)=\mathbb Ze\oplus\mathbb Zf.
 $$
 
-この計算は直和への分解を実際のループで与えており、一般の短完全列が常に分裂すると仮定していません。$T$ は道連結で、$n\ge3$ では完全列の両側が零なので、全結果は
+この計算は直和への分解を実際のループで与えており、一般の短完全列が常に分裂すると仮定していません。$T$ は道連結なので [0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) により $H_0(T)=\mathbb Z$ です。$n\ge3$ では完全列の両側が零なので、全結果は
 
 $$
 H_n(T)\cong
@@ -372,7 +372,7 @@ $$
 \delta_1[z]=(1,-1).
 $$
 
-上と下が別の道連結成分なので非零です。
+[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) により上と下の成分の類は別々の基底元なので非零です。
 <!-- solution-end -->
 
 ### 演習 ATOP20-A3：核と余核
@@ -465,13 +465,15 @@ $$
 
 $$
 a_*(x,y,z)=(x+y+z,-x-y-z).
-$$核の要素は $z=-x-y$ を満たすので
+$$
+
+核の要素は $z=-x-y$ を満たすので
 
 $$
 (x,y,z)=x(1,0,-1)+y(0,1,-1).
 $$
 
-この二つのベクトルは最初の二座標から独立で、核を生成します。従って接続はこの核への同型で $H_1(X)\cong\mathbb Z^2$ です。共通部分が非空なので $X$ は道連結で $H_0(X)=\mathbb Z$ です。
+この二つのベクトルは最初の二座標から独立で、核を生成します。従って接続はこの核への同型で $H_1(X)\cong\mathbb Z^2$ です。共通部分が非空なので $X$ は道連結で、[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) より $H_0(X)=\mathbb Z$ です。
 <!-- solution-end -->
 
 ### 演習 ATOP20-B4：球面の次数移動
@@ -526,7 +528,7 @@ $$
 \xrightarrow{d}G_{k-1}\to0
 $$
 
-を得ます。ここで $\iota(y)=(y,a)$ とし、$a\in A$ を固定しました。実際、余核の任意の類は $(x,0)$ で代表できるため、第1領域からの包含はこの $\iota_*$ と一致します。$d$ は $\delta_k$ の第1成分です。
+を得ます。ここで $\iota(y)=(y,a)$ とし、$a\in A$ を固定しました。実際、余核の任意の類は $(x,0)$ で代表できるため、第1領域からの包含の前に $y\mapsto(y,a)$ で $Y$ の類を $U$ に移せば、その合成は $\iota$ です。射影とこの写像は互いにホモトピー逆なので、余核からの単射は $\iota_*$ になります。$d$ は $\delta_k$ の第1成分です。
 
 射影 $p:Y\times S^1\to Y$ は $p\circ\iota=\operatorname{id}_Y$ を満たします。[特異ホモロジーの誘導準同型](../ATOP16/index.md#thm-atop16-induced-homology) の関手性により $p_*\iota_*=\operatorname{id}_{G_k}$ です。
 
@@ -550,7 +552,7 @@ $$
 
 です。第2式では短完全列の完全性から $d\iota_*=0$ を使いました。
 
-よって $\ker p_*\cong G_{k-1}$ であり、求める直和が従います。$Y\times S^1$ は二つの道連結空間の積なので道連結です。従って $H_0(Y\times S^1)=\mathbb Z$ です。$Y=S^1$ と置けば第5節のトーラスの群が再び得られます。
+よって $\ker p_*\cong G_{k-1}$ であり、求める直和が従います。$Y\times S^1$ は二つの道連結空間の積なので道連結です。従って [0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) より $H_0(Y\times S^1)=\mathbb Z$ です。$Y=S^1$ と置けば第5節のトーラスの群が再び得られます。
 <!-- solution-end -->
 
 ## 7. まとめ
