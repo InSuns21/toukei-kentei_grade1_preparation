@@ -6,7 +6,7 @@
 
 前提は [MMX10](../MMX10/index.md) のスペクトル空間、[NPCG8](../../../幾何系/NPCG/NPCG8/index.md) の重心、[NPCG11](../../../幾何系/NPCG/NPCG11/index.md) の距離値グラフ不等式、および [GCT14](../../GCT/GCT14/index.md)・[GCT15](../../GCT/GCT15/index.md)・[GCT16](../../GCT/GCT16/index.md) の有限グラフ・計算の表現である。
 
-一次資料は OpenAI, *Euclidean geometry in the asymptotic spectrum of tensors*（2026-11-24版）の [ports.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/ports.tex)、[ports-appendix.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/ports-appendix.tex)、[catalysts.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/catalysts.tex)、[protocol.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/protocol.tex)、[prices.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/prices.tex)、[probing-appendix.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/probing-appendix.tex)、[two.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/two.tex)、[compaction.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/compaction.tex)、[width.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/width.tex) と、行列積論文の [list.tex](https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/build/list.tex) である。本講の条件付き主張と、後続講で閉じる矛盾論証とは区別する。対数は底2とする。
+一次資料は OpenAI, *Euclidean geometry in the asymptotic spectrum of tensors*（2026-11-24版）の [体の移送と立方体排除](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/ports.tex)、[グラフ構成の補遺](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/ports-appendix.tex)、[catalysts.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/catalysts.tex)、[protocol.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/protocol.tex)、[prices.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/prices.tex)、[probing-appendix.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/probing-appendix.tex)、[two.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/two.tex)、[compaction.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/compaction.tex)、[width.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/width.tex) と、行列積論文の [list.tex](https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/build/list.tex) である。本講の条件付き主張と、後続講で閉じる矛盾論証とは区別する。対数は底2とする。
 
 ## 2. ports と量化の順序
 
@@ -17,7 +17,7 @@
 <!-- formal-statement-start -->
 > **定義（ports）**
 >
-> 体 $F$ を固定し、$\mathscr X_F$ を $F$ 上の完備測地的 CAT(0) スペクトル空間全体とする。有限頂点集合 $V$ の $d$ 正則無向多重グラフを、対称な非負整数行列 $A$ で表す。各行和を $d>0$ とし、ループは対角成分一つ、非ループ辺は両方向の成分に数える。任意の $X\in\mathscr X_F$ と写像 $x:V\to X$ に対して
+> 体 $F$ を固定し、$\mathscr X_F$ を $F$ 上の完備測地的 CAT(0) スペクトル空間全体とする。有限頂点集合 $V$ の $d$ 正則無向多重グラフを、対称な非負整数行列 $A$ で表す。各行和を $d>0$ とし、自己辺（同じ頂点を結ぶ辺）は対角成分一つ、非自己辺辺は両方向の成分に数える。任意の $X\in\mathscr X_F$ と写像 $x:V\to X$ に対して
 >
 $$
 \mathcal V(x)=\frac1{|V|^2}\sum_{i,j\in V}d_X(x_i,x_j)^2,\qquad
@@ -42,7 +42,7 @@ $$
 
 これは [非線形Poincaré不等式](../../../幾何系/NPCG/NPCG11/index.md#def-npcg11-poincare) を、Cayley グラフに限らず正則多重グラフに適用し、さらにグラフ族と値域に関して一様性を要求したものである。
 
-例えば全頂点間を結びループも一つずつ持つ完全グラフでは $A$ の全成分が1なので、両平均は一致する。しかし次数は頂点数そのものであり、これだけでは ports の存在を示さない。
+例えば全頂点間を結び自己辺も一つずつ持つ完全グラフでは $A$ の全成分が1なので、両平均は一致する。しかし次数は頂点数そのものであり、これだけでは ports の存在を示さない。
 
 逆に ports を持たないとは、任意の $d,C$ に対し、ある $N$ が存在し、頂点数 $N$ 以上のすべての $d$ 正則グラフについて、ある許容値域 $X$ と写像 $x$ が不等式を破ることである。ここで $X$ と $x$ はグラフによって変わってよい。有限個の具体例に対する反例では足りない。
 
@@ -147,7 +147,7 @@ $$
 必要なら $\eta$ を小さくして $1<m-\eta$ とする。十分小さい $\varepsilon>0$ なら $\alpha=(m-\eta)(1+\varepsilon)<m$ である。漸化式を解くと、$\beta=(m-\eta)(1+1/\varepsilon)$ として $\gamma_j\le\alpha^j+\beta(\alpha^j-1)/(\alpha-1)\le C'\alpha^j$。非零成分数は固定個数の旧行列コピーと置換の和で高々固定倍率と固定加算分だけ増えるため $C_jD$ で抑えられる。頂点数は毎回 $N^m$ となる。
 <!-- proof-end -->
 
-確率を整数本の辺に変換する。行の非零数の上界を $L=C_jD$ とし、$2L$ 以上 $4L$ 未満の2の冪 $h_0$ を取る。非零成分に $\lceil h_0P_{uv}/2\rceil$ 本の弧を与えると、行和は $h_0/2+L$ 以下である。足りない分をループで補い $h_0$ 正則とする。元のエネルギーの半分以上になるので定数の悪化は高々2倍である。
+確率を整数本の辺に変換する。行の非零数の上界を $L=C_jD$ とし、$2L$ 以上 $4L$ 未満の2の冪 $h_0$ を取る。非零成分に $\lceil h_0P_{uv}/2\rceil$ 本の弧を与えると、行和は $h_0/2+L$ 以下である。足りない分を自己辺で補い $h_0$ 正則とする。元のエネルギーの半分以上になるので定数の悪化は高々2倍である。
 
 ### 遅延歩道による改善
 
@@ -156,7 +156,13 @@ $$
 <!-- formal-statement-start -->
 > **補題（遅延歩道の平均）**
 >
-> 有限の対称確率行列 $G$ の完備 CAT(0) 空間に対する Poincaré 定数を $\gamma\ge1$ とする。偶数 $t\ge2$ に対して $A=(I+G)/2$、$S=(A+A^2+\cdots+A^t)/t$ とすれば、完備 CAT(0) 空間に対して $S$ の定数は $\max(12,48\gamma/t)$ 以下である。
+> 有限の対称確率行列 $G$ が完備 CAT(0) 空間に対する Poincaré 定数 $\gamma\ge1$ を持つとする。偶数 $t\ge2$ に対し
+
+$$
+A=\frac{I+G}{2},\qquad S=\frac1t\sum_{r=1}^t A^r
+$$
+
+> とおくと、$S$ の定数は $\max(12,48\gamma/t)$ 以下である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -235,7 +241,7 @@ $$
 \mathcal V(x)\le (6+18L)\beta E_{\rm in}+9L E_{\rm match}.
 $$
 
-新グラフのエネルギーは $(E_{\rm in}+E_{\rm match})/2$ だから、新定数は高々 $2(6+18L)\beta$ でよい。特に $L\le12+48\gamma/t$ より $\gamma'\le444\beta+1728\beta\gamma/t$。$\alpha<m$ なので $\beta/t\to0$ であり、$j$ を先に十分大きく選べば $1728\beta/t<1/2$ になる。以後 $j,D,b,Q$ は固定し、定数 $\gamma'\le444\beta+\gamma/2$ を保つ。1頂点に $b$ 個のループを持つグラフから反復すると、次数 $b$、頂点数 $Q^l$、一様定数 $\max(1,888\beta)$ の族を得る。これが ports の定義を満たす。
+新グラフのエネルギーは $(E_{\rm in}+E_{\rm match})/2$ だから、新定数は高々 $2(6+18L)\beta$ でよい。特に $L\le12+48\gamma/t$ より $\gamma'\le444\beta+1728\beta\gamma/t$。$\alpha<m$ なので $\beta/t\to0$ であり、$j$ を先に十分大きく選べば $1728\beta/t<1/2$ になる。以後 $j,D,b,Q$ は固定し、定数 $\gamma'\le444\beta+\gamma/2$ を保つ。1頂点に $b$ 個の自己辺を持つグラフから反復すると、次数 $b$、頂点数 $Q^l$、一様定数 $\max(1,888\beta)$ の族を得る。これが ports の定義を満たす。
 <!-- proof-end -->
 
 ## 5. タグ付き置換と借用 wire
@@ -247,7 +253,13 @@ $$
 <!-- formal-statement-start -->
 > **定義（タグ付き置換テンソル）**
 >
-> 正整数 $h,w$ に対して $n=2^h$ とする。各 $p_a,q_i$ は $w$ ビット、各 $a_i$ は $h$ ビットとする。$\operatorname{Tag}(h,w)$ は、$(p_a)_{0\le a<n}$ と $((a_i,q_i))_{0\le i<n}$ を脚に持つテンソルである。成分は、$(a_i)$ が $0,\ldots,n-1$ の置換で、かつ全 $i$ で $q_i=p_{a_i}$ のとき1、それ以外のとき0とする。
+> 正整数 $h,w$ に対して $n=2^h$ とする。各 $p_a,q_i$ は $w$ ビット、各 $a_i$ は $h$ ビットとする。$\operatorname{Tag}(h,w)$ は次の二つのリストを脚に持つテンソルである。
+
+$$
+(p_a)_{0\le a<n},\qquad ((a_i,q_i))_{0\le i<n}.
+$$
+
+> タグ列が $0,\ldots,n-1$ の置換で、かつ全 $i$ で $q_i=p_{a_i}$ のとき成分は1、それ以外は0とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mmx11-tag -->
@@ -321,7 +333,7 @@ $p$ 個の固定ビットを再び開いた脚にする場合も、各割当に�
 >
 > - $O(n)$ 地点を原点または $\pm M e_j$ の層に割り当てる。固定整数 $M>1$、原点層の入力・出力の各 $n$ レコード、および方向別の $N_c=O(nw)$ 本の借用 wire の端点の配置はタグ・選択子によらない。各地点の外部ビット数は $O(w)$。
 > - 有効な置換タグに対して、データ置換と借用 wire の恒等テンソルの積を、体 $F$ 上の普通の和で表す。選択子は $O(nh\,\operatorname{polylog}h)$ ビットで、決定的制御が無効な選択子を排除し、有効なものごとに一項を記述する。制御は $O(h)$ ビット語の助言付き RAM で、時間、記憶、入出力、助言の語数は $O(n\operatorname{polylog}h)$。各ステップは有界個の語を扱い、メモリ選択を除いて $O(h\operatorname{polylog}h)$ サイズの固定 Boolean 回路で表せる。
-> - 各地点の有界個の通信スロットは容量 $O(w)$、固定順序を持つ。リンクは固定分割の同じグループの二スロットを結び、一つのスロットは高々一リンクに使う。グループの尺度 $t$ は $0$ または $T_0$ で、その大きさはそれぞれ $O(1)$ または $2^{th+o(h)}$ 以下。リンク幅 $yw$ は整数で、長さ料金 $\lambda$ は固定有限集合の非負有理数。異層リンクは $t=0$ で $\lambda$ が層間距離以上、正尺度リンクは $\lambda=1$。局所テンソルは固定三価配線上のサイズ $O(w\operatorname{polylog}h)$ の実装を持ち、制御からの $O(h\operatorname{polylog}h)$ ビットで設定する。
+> - 各地点の有界個の通信スロットは容量 $O(w)$、固定順序を持つ。リンクは固定分割の同じグ自己辺の二スロットを結び、一つのスロットは高々一リンクに使う。グ自己辺の尺度 $t$ は $0$ または $T_0$ で、その大きさはそれぞれ $O(1)$ または $2^{th+o(h)}$ 以下。リンク幅 $yw$ は整数で、長さ料金 $\lambda$ は固定有限集合の非負有理数。異層リンクは $t=0$ で $\lambda$ が層間距離以上、正尺度リンクは $\lambda=1$。局所テンソルは固定三価配線上のサイズ $O(w\operatorname{polylog}h)$ の実装を持ち、制御からの $O(h\operatorname{polylog}h)$ ビットで設定する。
 > - 各項のリンクは次の予算を満たす。
 >
 $$
@@ -375,7 +387,7 @@ $$
 
 第一不等式は上側の面でも成立し、第二不等式は同じ他成分を固定して $x_i=0$ から移動したときの勾配差の強単調性です。規格化内積での勾配成分を用いているので係数 $n$ は相殺します。従って在庫がない要求に正価格はつきません。また勾配成分の上界より大きい固定値 $B$ を取ると、$z_i>B$ の最大化点は上側の面 $x_i=a_i$ にあります。その超過在庫は指定経路に流しても、費用 $\langle a,\Delta z\rangle$ とポテンシャルの減少が一致します。
 
-二つの最大化点の変分不等式を加え、強凸性を用いると、箱上の勾配ノルムの上界を $C$ として
+二つの最大化点の一階最適性の不等式を加え、強凸性を用いると、箱上の勾配ノルムの上界を $C$ として
 
 $$
 \|x_s(z)-x_{s'}(z')\|
@@ -393,7 +405,13 @@ $$
 <!-- formal-statement-start -->
 > **補題（スペクトル厳密比較）**
 >
-> 非零テンソル $X,Y$ のすべてのスペクトル点で $\varphi(X)<\varphi(Y)$ なら、正整数 $K$ が存在し、すべての正整数 $r$ で $X^{\otimes r}\le K\cdot Y^{\otimes r}$ が成り立つ。$\le$ は局所制限順序、整数倍は直和である。
+> 同一の有限地点上の非零テンソル $X,Y$ を取る。すべてのスペクトル点 $\varphi$ で $\varphi(X)<\varphi(Y)$ なら、正整数 $K$ が存在し、すべての正整数 $r$ で
+
+$$
+X^{\otimes r}\le K\cdot Y^{\otimes r}
+$$
+
+> が成り立つ。ここで順序は局所制限、整数倍は直和である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -476,7 +494,7 @@ $$
 \end{aligned}
 $$
 
-時間 $s/2$ の積分で、戻す費用は $F_s(z)/2-P-\zeta$ 以下です。probe 料金 $P$ を支払っても $\zeta$ が残ります。固定の細かい時間格子で積分の代わりにステップを進め、ビット幅の整数丸めを行えば、二次誤差と丸めの合計を $\zeta/2$ 未満にできます。
+時間 $s/2$ の積分で、戻す費用は $F_s(z)/2-P-\zeta$ 以下です。probe 料金 $P$ を支払っても $\zeta$ が残ります。固定の細かい時刻の分割で積分の代わりにステップを進め、ビット幅の整数丸めを行えば、二次誤差と丸めの合計を $\zeta/2$ 未満にできます。
 
 最初は $s=1,z=0$ とし、基本リンク料金 $P_{\rm core}\le1$ を払います。各 payload の幅 $w$ を小分けにして在庫に加えます。各増分の前に、検査誤差が大きい場合は基本検査で書き換え、小さい場合は probe を購入して超過量を $1/2$ 以下に下げます。$1/4$ と $1/2$ の間の余裕があるので固定精度の比較で処理を選べます。購入済みリンクは払い戻さず、新しい購入の選択には基本検査を使い、その購入中は新しい probe を含む検査を使います。超過量を $1/2$ 以下に保てば、追加時の payload 価格平均は $3/2$ 以下です。次に $s$ を正の小さい固定値 $s_0$ まで減少させ、$f(x_s(z))\le j(s)+1/2$ となるよう同じ処理を繰り返します。その費用は $\int_{s_0}^1j(s)\,ds+1/2\le3/2$ です。残った在庫は基本経路へ流せます。費用は
 
@@ -496,9 +514,9 @@ $$
 <!-- proof-start -->
 **最大平坦次元の下での通信の証明**
 
-$t=2^{-W}$、$T=t^2$、$H_0=\lceil32k/T\rceil$、$N=18(t^{-1}-1)+1$ とします。まず置換を $N$ 段の小グループ内のマッチングに分解します。一段の各グループの入出力リストは同じ長さ $l_G=2^{th+O_W(1)}$、合計長 $O_W(n)$ で、各段には $n$ 個の有効なマッチ対があります。
+$t=2^{-W}$、$T=t^2$、$H_0=\lceil32k/T\rceil$、$N=18(t^{-1}-1)+1$ とします。まず置換を $N$ 段の小グ自己辺内のマッチングに分解します。一段の各グ自己辺の入出力リストは同じ長さ $l_G=2^{th+O_W(1)}$、合計長 $O_W(n)$ で、各段には $n$ 個の有効なマッチ対があります。
 
-この分解は入力と出力を色分けして行います。一般に尺度 $\tau$ のグループを $d$ 分割した尺度に縮めるとき、$D=2^{\lfloor\tau h/(9d)\rfloor}$、ブロック長 $D^9$、色数 $D$ を取ります。マッチ対を順に処理し、両端ブロックで一色の占有数が $4D^8$ に達しないよう色を付けます。一端で禁止される色数は高々 $D/4$、両端でも高々 $D/2$ なので可能です。
+この分解は入力と出力を色分けして行います。一般に尺度 $\tau$ のグ自己辺を $d$ 分割した尺度に縮めるとき、$D=2^{\lfloor\tau h/(9d)\rfloor}$、ブロック長 $D^9$、色数 $D$ を取ります。マッチ対を順に処理し、両端ブロックで一色の占有数が $4D^8$ に達しないよう色を付けます。一端で禁止される色数は高々 $D/4$、両端でも高々 $D/2$ なので可能です。
 
 各ブロックを色別に並べ、各色に $4D^8$ スロットを割り当てます。入側と出側に一段ずつ使い、その間の各色のリスト長は、元の長さを $l$ として $4D^8\lceil l/D^9\rceil$ です。$l\ge D^9$ の範囲では $4l/D$ 以上 $8l/D$ 以下です。$9(d-1)$ 回繰り返すと長さは $\Theta(D^9)=2^{\tau h/d+O(1)}$ となり、入側と出側の段と中央の一段で $18(d-1)+1$ 段となります。各回の全長の増加は固定倍率なので、固定 $d$ では全長 $O(n)$ です。
 
@@ -506,7 +524,7 @@ $t=2^{-W}$、$T=t^2$、$H_0=\lceil32k/T\rceil$、$N=18(t^{-1}-1)+1$ とします
 
 両端のブロック内位置の $D^2$ を法とする剰余対で一列を選び、各ブロックの禁止ビットマスクを参照します。共通の許可色がその列にない場合だけ全探索を行い、半分以上を禁止した側に費用を課します。その側の各列への試行は位置剰余の固定から高々 $D^7$ 回、課される列は $D$ 未満なので全探索費用はブロック当たり高々 $D\cdot D^7\cdot D=D^9$ です。マスクの更新費用も $O(D^4 h)=O(D^9)$、長さ $Ch$ のマスク探索は固定個の $O(h)$ ビット語と小さい助言表で可能です。従って全制御時間は固定倍率の $O(n)$ です。$\tau=1,d=1/t$ として上記 $N$ 段を得ます。
 
-各段の各位置に柱を立て、中心と端、同じ柱の異軸端の間にそれぞれ長さ $M,\lceil\sqrt2 M\rceil$ の基本リンクを置きます。マッチ対（以下 tile）ごとに、各層を長さ1、尺度 $t$ で結びます。段間の固定識別は長さ0、尺度0です。さらに同じグループの出入力間に、どちらの側でも $\delta l_G$ 以上の任意の二部分集合を結ぶ辺がある有界次数二部グラフを固定します。独立な $D_0$ 個の一様マッチングを重ねると、固定二集合間に辺がない確率は $\exp(-D_0\delta^2l_G)$ 以下です。二集合の選び方は $4^{l_G}$ 以下なので、$D_0\delta^2>\ln4$ なら存在します。これを sampler とし、辺は全層で長さ0の join にします。基本リンクの容量料金は
+各段の各位置に柱を立て、中心と端、同じ柱の異軸端の間にそれぞれ長さ $M,\lceil\sqrt2 M\rceil$ の基本リンクを置きます。マッチ対（以下 tile）ごとに、各層を長さ1、尺度 $t$ で結びます。段間の固定識別は長さ0、尺度0です。さらに同じグ自己辺の出入力間に、どちらの側でも $\delta l_G$ 以上の任意の二部分集合を結ぶ辺がある有界次数二部グラフを固定します。独立な $D_0$ 個の一様マッチングを重ねると、固定二集合間に辺がない確率は $\exp(-D_0\delta^2l_G)$ 以下です。二集合の選び方は $4^{l_G}$ 以下なので、$D_0\delta^2>\ln4$ なら存在します。これを sampler とし、辺は全層で長さ0の join にします。基本リンクの容量料金は
 
 $$
 P_{\rm core}=(1+2k)Nt^p=O(t^{p-1})\le1.
@@ -580,7 +598,7 @@ $R_1<1$ なら $NT=O(t)$ なので右辺は1未満です。従って超過量の
 
 tile に、ある符号付き方向の測距値が $s(v_i/T)^2\ge1/(4k)$ ならその方向の印を付けます。印のない tile の全寄与は $R_s$ のうち高々 $1/2$、一 tile の寄与は高々 $2k/(nNT^2)$ なので、印付き tile は少なくとも $\beta nN$ 個、$\beta=T^2/(4k)$ です。
 
-同じグループ・同じ印で長さ $H_0$ の tile 鎖を貪欲に選び、互いに重ならない probe を購入します。もし残りが $2H_0\lceil\delta l_G\rceil$ 以上なら、互いに素な $H_0$ 組に各 $2\lceil\delta l_G\rceil$ 個ずつ分けられます。sampler の条件により、前の組の到達可能な $\lceil\delta l_G\rceil$ 個から次の組の少なくとも同数へ進めます。帰納的に鎖が存在するので、これ以上選べないときの残りは $O(kH_0\delta\sum_G l_G)$ です。$\delta$ を十分小さく固定すれば残りは $\beta nN/2$ 未満となり、購入数は $\Omega(n)$ です。
+同じグ自己辺・同じ印で長さ $H_0$ の tile 鎖を貪欲に選び、互いに重ならない probe を購入します。もし残りが $2H_0\lceil\delta l_G\rceil$ 以上なら、互いに素な $H_0$ 組に各 $2\lceil\delta l_G\rceil$ 個ずつ分けられます。sampler の条件により、前の組の到達可能な $\lceil\delta l_G\rceil$ 個から次の組の少なくとも同数へ進めます。帰納的に鎖が存在するので、これ以上選べないときの残りは $O(kH_0\delta\sum_G l_G)$ です。$\delta$ を十分小さく固定すれば残りは $\beta nN/2$ 未満となり、購入数は $\Omega(n)$ です。
 
 probe を含む検査に整合する $x'$ では、悪い球に属する $o(n)$ 本を除き、鎖ごとに少なくとも一つの印付き測距値が $v_i'\le v_i/2$ となります。そうでなければ各 tile の印方向の変位は $T/(4\sqrt k)-\eta$ より大きく、その合計が $H_0(T/(4\sqrt k)-\eta)>1+\eta$ となり probe の距離上界に反します。
 
@@ -649,7 +667,20 @@ $$
 <!-- formal-statement-start -->
 > **補題（ギャップの増幅）**
 >
-> $w\ge h$、$f=\operatorname{Tag}(h,w)$ とする。全データ脚を開いたサイズ $S$、ギャップ $D\ge4k(\log_2h+3)$ の近似が存在するとする。固定 $C'>0$ に対して $\log_2s\le h^{C'}$ となる整数 $s\ge1$ を取る。十分大きい $h$ で $f^{\otimes s}$ はサイズ $C_{\rm amp}sS$ 以下、ギャップ $sD/(2h)$ 以上の近似を持つ。$C_{\rm amp}$ は絶対定数である。
+> $w\ge h$、$f=\operatorname{Tag}(h,w)$ とする。全データ脚を開いたサイズ $S$ の近似が、次のギャップを持つと仮定する。
+
+$$
+D\ge4k(\log_2h+3).
+$$
+
+> 固定 $C'>0$ に対して、整数 $s\ge1$ が $\log_2s\le h^{C'}$ を満たすとする。十分大きい $h$ で $f^{\otimes s}$ は、次を満たす近似を持つ。
+
+$$
+\text{サイズ}\le C_{\rm amp}sS,\qquad
+\text{ギャップ}\ge sD/(2h).
+$$
+
+> $C_{\rm amp}$ は絶対定数である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -695,7 +726,14 @@ $$
 <!-- formal-statement-start -->
 > **定義（幅プロフィール）**
 >
-> $a\ge1$、整数 $h\to\infty$、$n=2^h$、$w=\lceil h^a\rceil$ とする。十分大きいすべての $h$ について、$\operatorname{Tag}(h,w)$ にサイズ $O(nwh^r)$、ギャップ $n2^{-C(\log_2(2h))^2}$ 以上の三価近似が存在するような指数 $r$ の下限を $r(a)$ とする。$C$ は $h$ に依存しない正定数とする。$r_*=r(1)$、$r_\infty=\inf_{a\ge1}r(a)$ とおく。
+> $a\ge1$、$n=2^h$、$w=\lceil h^a\rceil$ とする。十分大きいすべての整数 $h$ について、次を満たす $\operatorname{Tag}(h,w)$ の三価近似が存在するような指数 $r$ の下限を $r(a)$ とする。
+
+$$
+\text{サイズ}=O(nwh^r),\qquad
+\text{ギャップ}\ge n2^{-C(\log_2(2h))^2}.
+$$
+
+> $C$ は $h$ に依存しない正定数とする。$r_*=r(1)$、$r_\infty=\inf_{a\ge1}r(a)$ とおく。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mmx11-width-profile -->
@@ -748,7 +786,7 @@ $$
 
 第7.1節で得た正尺度チャンク数の上界を $c_*n$（$c_*=22T^{-p}$ と余裕を取る）とします。短いタグの呼出しを実際に固定配線で使うには、活動リンクの数ではなく、用意した全スロット数を抑えなければなりません。
 
-全グループを分割せず、次のグループが入らなくなったら新しい箱を開く方法で、長さ $H_1=2^{Th+o(h)}$ のスーパーグループにまとめます。$H_1$ はスロット複製後の個々のグループの最大長の2倍以上の2の冪に取るため、最後以外の箱は半分以上が埋まり、箱数は $O(n/H_1+1)$ です。各箱の空きは0埋めします。各スーパーグループでは活動チャンクを長さ $K_1/2$ 以下のバッチに分けます。$K_1$ は $H_1$ の十分小さい固定2進比とします。端数のバッチも $K_1$ に丸めた全スロット数は $2c_*n+O((n/H_1)K_1)\le3c_*n$ にできます。各箱の全スロットが活動する場合も扱えるよう候補バッチを固定個数用意します。箱内のチャンク数と箱容量の比は固定パラメータによる定数であり、$K_1$ は $H_1$ の固定比なので、候補数は箱当たり有界です。第7.2節の詰込みを各候補バッチの両端の活動スロットに別々に適用して、各バッチの源と行先を同じ $K_1$ 個の物理位置へ入れます。全候補数 $O(n/H_1+1)$ は物理モジュール数の固定倍率以下で、活動バッチ数は $3c_*n/K_1$ 以下です。そこで活動バッチ自体も第7.2節の固定グラフで詰め、$\lceil6c_*n/K_1\rceil$ 個の物理モジュールに収容できます。使用していないモジュールにも恒等タグと0データを入れる規則を固定します。従って全物理スロット数 $S_{T,Y}$ は $\Omega(n)$ かつ $7c_*n$ 以下、各モジュールのタグ長は $h'=Th+o(h)$、幅は $w'=\lceil Yw\rceil$ です。
+全グ自己辺を分割せず、次のグ自己辺が入らなくなったら新しい箱を開く方法で、長さ $H_1=2^{Th+o(h)}$ のスーパーグ自己辺にまとめます。$H_1$ はスロット複製後の個々のグ自己辺の最大長の2倍以上の2の冪に取るため、最後以外の箱は半分以上が埋まり、箱数は $O(n/H_1+1)$ です。各箱の空きは0埋めします。各スーパーグ自己辺では活動チャンクを長さ $K_1/2$ 以下のバッチに分けます。$K_1$ は $H_1$ の十分小さい固定2進比とします。端数のバッチも $K_1$ に丸めた全スロット数は $2c_*n+O((n/H_1)K_1)\le3c_*n$ にできます。各箱の全スロットが活動する場合も扱えるよう候補バッチを固定個数用意します。箱内のチャンク数と箱容量の比は固定パラメータによる定数であり、$K_1$ は $H_1$ の固定比なので、候補数は箱当たり有界です。第7.2節の詰込みを各候補バッチの両端の活動スロットに別々に適用して、各バッチの源と行先を同じ $K_1$ 個の物理位置へ入れます。全候補数 $O(n/H_1+1)$ は物理モジュール数の固定倍率以下で、活動バッチ数は $3c_*n/K_1$ 以下です。そこで活動バッチ自体も第7.2節の固定グラフで詰め、$\lceil6c_*n/K_1\rceil$ 個の物理モジュールに収容できます。使用していないモジュールにも恒等タグと0データを入れる規則を固定します。従って全物理スロット数 $S_{T,Y}$ は $\Omega(n)$ かつ $7c_*n$ 以下、各モジュールのタグ長は $h'=Th+o(h)$、幅は $w'=\lceil Yw\rceil$ です。
 
 制御の実行記録は前節と同様にアドレスと時刻でソートして検証します。このソートをさらに短い呼出しに変える必要はなく、語長とタグ長が $h+O(\log h)$ の等幅タグ呼出しを有界回使えばよいです。全記録数は $O(n\operatorname{polylog}h)$ なので、その他の局所ネットワーク、幅の整列、接続費用は $O(nw\operatorname{polylog}h)$ です。実際、個別スロットのスイッチには $O(\lceil Yw\rceil)$ ビット、バッチ全体のスイッチには $O(K_1\lceil Yw\rceil)$ ビットが必要です。固定次数と候補箱・モジュール数の評価を掛けると両者とも $O(nw)$ になります。局所的な可変位置シフトは2の冪ずつのシフトを条件分岐で選ぶ $O(w\log(2w))$ の回路で実装でき、$w\le h^A$ なのでこの費用も $O(nw\operatorname{polylog}h)$ に収まります。選択子ごとの記録とタグ補完は一意に検証され、元の縮約和を正確に実装します。
 
@@ -869,7 +907,7 @@ $q$ 乗根を取って $q\to\infty$ とすると $\varphi(X)^m\le K_0\varphi(Y)^
 - Level: A
 - ID: MMX11-A01
 
-ループを各頂点に一つ加えた $n$ 頂点完全グラフについて、全対平均と辺平均が等しいことを示し、これだけでは ports が得られない理由を述べよ。
+自己辺を各頂点に一つ加えた $n$ 頂点完全グラフについて、全対平均と辺平均が等しいことを示し、これだけでは ports が得られない理由を述べよ。
 
 <!-- solution-start -->
 ##### 詳細解答
