@@ -22,6 +22,7 @@
 
 | ルート | 個別科目PLAN（同一ディレクトリのファイル） | 直接依存の概形 |
 |---|---|---|
+| 代数的量子重力（新規・48講） | [AQG1〜48](DREAM_THEATER_ALGEBRAIC_QUANTUM_GRAVITY_I_II_PLAN.md) | GR/LORG/HPDE/GBG/GMECH/BHT18の必要章→AQG I（光的制約・境界・簡約）→AQG II（QMOA/AQFT/QFT/BHIの必要章と合流、量子化・貼り合わせ・研究査定）。MQFCは比較参照で全講必修ではない。原論文v1の検証は未完了。 |
 | 力学と対称性 | [SYM1〜8](../plan_done/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)、[GMECH1〜8](../plan_done/DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md) | AMECH6/7・GEO→SYM、LIE+SYM→GMECH、SYM/AMECH→INT→CELE |
 | 剛体力学と連続体への橋 | [RBD1〜16](../plan_done/DREAM_THEATER_RIGID_BODY_DYNAMICS_PLAN.md)、[CTM1〜22](../plan_done/DREAM_THEATER_CONTINUUM_MECHANICS_COURSE_PLAN.md) | MECH4/7/8・AMECH1/2→RBD1〜16（GMECH6〜8は必要箇所だけ参照）、MECH/VC→CTM1〜22。RBD1/3/7の剛体運動・速度場・収支をCTM2/4へ接続。両者は互いに全講必修としない |
 | **流体力学（新規設計）** | [FLUID1〜48](../plans_progress/DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md) | CTM5/7/9/10/15〜17の輸送・応力・熱・Newton流体/低ReからFLUID1〜48へ。FLUIDは理想流・渦・粘性・波・乱流・圧縮性・CFDの具体模型。NS1〜8AはNSEの解析、NPDE1〜2は一般保存則の正本。数値実験はPythonと必要に応じWebGL表示（講義同時制作） |
