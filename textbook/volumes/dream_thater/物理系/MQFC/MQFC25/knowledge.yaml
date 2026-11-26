@@ -1,0 +1,36 @@
+chapter: MQFC25
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC12, MQFC21, MQFC22, MQFC23, MQFC24, SGT6]
+forward_references: []
+concepts:
+  - id: mqfc.dobrushin-influence
+    name: "Dobrushin影響係数"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.wilson-lattice-measure, spectral-graph.total-variation]
+  - id: mqfc.wilson-strong-coupling-influence
+    name: "Wilson測度の強結合影響評価"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.dobrushin-influence, mqfc.wilson-action-invariance]
+  - id: mqfc.edge-oscillation
+    name: "辺ごとの振動幅"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.wilson-lattice-measure]
+  - id: mqfc.single-edge-oscillation-propagation
+    name: "一辺平均による振動幅の伝播"
+    kind: lemma
+    introduction: formal
+    requires: [mqfc.edge-oscillation, mqfc.dobrushin-influence]
+  - id: mqfc.dobrushin-uniform-correlation-decay
+    name: "Dobrushin収縮による体積一様相関減衰"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.single-edge-oscillation-propagation, mqfc.dobrushin-influence]
+  - id: mqfc.strong-coupling-uniform-lattice-gap
+    name: "強結合における体積一様格子ギャップ"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.wilson-strong-coupling-influence, mqfc.dobrushin-uniform-correlation-decay, mqfc.wilson-transfer-positivity, mqfc.transfer-vacuum-normalization, mqfc.lattice-hamiltonian, mqfc.dense-correlation-gap]
