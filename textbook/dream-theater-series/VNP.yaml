@@ -58,7 +58,7 @@ chapters:
     title: "F：unitriangular群のランク方向収縮と弱いPoincaré"
   - id: VNP14
     path: textbook/volumes/dream_thater/計算系/VNP/VNP14
-    status: planned
+    status: completed
     title: "F：overlapping windows・固定点集合の角度・一様Poincaré F.6"
   - id: VNP15
     path: textbook/volumes/dream_thater/計算系/VNP/VNP15

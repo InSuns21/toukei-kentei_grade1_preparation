@@ -1,0 +1,36 @@
+chapter: VNP14
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP13, VNP7, VNP9, NPCG4, NPCG7, NPCG8, NPCG9]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.window-fixed-points
+    name: "区間部分群と固定点集合"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（区間部分群と固定点集合）"]
+    requires: [vp-vnp-study.unitriangular, metric-geometry.isometric-group-action, metric-geometry.common-fixed-set]
+  - id: vp-vnp-study.local-window-projection
+    name: "区間への局所射影評価"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（区間への局所射影評価）"]
+    requires: [vp-vnp-study.window-fixed-points, vp-vnp-study.weak-length, metric-geometry.barycenter-variance-inequality, metric-geometry.projection-existence-uniqueness, metric-geometry.finite-group-fixed-point, metric-geometry.fixed-set-closed-convex]
+  - id: vp-vnp-study.overlapping-window-projection
+    name: "重なる区間の射影"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（重なる区間の射影）"]
+    requires: [vp-vnp-study.local-window-projection, metric-geometry.projection-pythagorean, metric-geometry.barycenter-stability, metric-geometry.barycenter-equivariance, metric-geometry.invariant-projection-equivariance]
+  - id: vp-vnp-study.almost-right-projections
+    name: "固定点集合のほぼ直交する射影"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（固定点集合のほぼ直交する射影）"]
+    requires: [metric-geometry.projection-pythagorean, metric-geometry.cn-interpolation]
+  - id: vp-vnp-study.uniform-poincare
+    name: "一様Poincaré不等式"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一様Poincaré不等式）"]
+    requires: [vp-vnp-study.overlapping-window-projection, vp-vnp-study.almost-right-projections, vp-vnp-study.price-completion, vp-vnp-study.map-length, vp-vnp-study.two-hypotheses]
