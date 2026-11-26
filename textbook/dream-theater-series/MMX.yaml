@@ -74,7 +74,7 @@ chapters:
     title: "no-ports側の一様宛先下界：距離表の凸性・minimax・条件付きentropy・平方根log評価"
   - id: MMX18
     path: textbook/volumes/dream_thater/計算系/MMX/MMX18
-    status: planned
+    status: completed
     title: "ports側のリスト下界：oracle descentとbatch下界の合成、$1\\le t\\le2^w$ の一様性とパラメータ選択"
   - id: MMX19
     path: textbook/volumes/dream_thater/計算系/MMX/MMX19

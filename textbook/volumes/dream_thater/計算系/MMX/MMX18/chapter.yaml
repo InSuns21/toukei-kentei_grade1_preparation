@@ -1,0 +1,23 @@
+id: MMX18
+title: "ports側のリスト下界：oracle descentとbatch下界の合成、$1\\le t\\le2^w$ の一様性とパラメータ選択"
+volume: foundations
+status: supplementary
+prerequisites: [MMX12, MMX14, MMX16, MMX17]
+official_scope: []
+learning_objectives:
+  - 厳密なタグ付き置換の一括代入が端数やテスト間結線を含めて境界成分を保存することを示せる
+  - 外部ビット当たりのサイズに正規化し端数費用を一様に評価できる
+  - 固定回数の降下を適用範囲とコピー数を確かめながら反復できる
+  - コピー数と最終体積の指数条件を分離して厳密バッチ下界との矛盾を再構成できる
+definitions: []
+theorems:
+  - { id: MMX18-LEM-01, name: "端数を含むテストの一括置換" }
+  - { id: MMX18-LEM-02, name: "外部ビット当たりの降下評価" }
+  - { id: MMX18-LEM-03, name: "定数回降下の範囲保証" }
+  - { id: MMX18-THM-01, name: "ports 側のバッチ相異性下界" }
+canonical_examples: [端数バッチの固定, 初期コピー数の比較, パラメータの選択]
+problem_patterns: [MMX18-A01, MMX18-A02, MMX18-A03, MMX18-A04, MMX18-B01, MMX18-B02, MMX18-B03, MMX18-B04, MMX18-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 4, review: 2 }
