@@ -58,7 +58,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[有限次元Gaussian積分と特性関数](../MQFC6/index.md#thm-mqfc6-finite-gaussian)の標準Gaussianの場合を用い、独立な標準Gaussianベクトル $G,H\in\mathbb R^n$ をとる。実対称半正定値行列には半正定値平方根があるため、$X=C^{1/2}G$、$Y=D^{1/2}H$ は中心化Gaussianである。例えば $X$ の共分散は
+[有限次元Gaussian積分と特性関数](../MQFC6/index.md#thm-mqfc6-finite-gaussian)の標準Gaussianの場合を用い、独立な標準Gaussianベクトル $G,H\in\mathbb R^n$ をとる。実対称半正定値行列には半正定値平方根がある。
+
+その平方根を用いて、$X=C^{1/2}G$、$Y=D^{1/2}H$ は中心化Gaussianである。例えば $X$ の共分散は
 
 $$
 \mathbb E[XX^\top]=C^{1/2}I C^{1/2}=C.
@@ -84,7 +86,7 @@ $$
 最後の期待値は $T_{C+D}F(x)$ に等しい。有限個の場合は二成分の合成を繰り返す。
 <!-- proof-end -->
 
-先ほどの二点例なら $X=\sqrt2 Gu+Hv$（$G,H$ は独立な標準実Gaussian）である。差の方向 $H$ を先に積分してから平均方向 $G$ を積分してもよい。これは単に元の二点積分を書き換えただけなので、近似誤差はまだ生じていない。
+先ほどの二点例なら $X=\sqrt2 Gu+Hv$（$G,H$ は独立な標準実Gaussian）である。差の方向 $H$ を先に積分してから平均方向 $G$ を積分してもよい。ここでは二点積分を正確に分割しただけで、重みの切り捨てや作用の近似は行っていない。
 
 ## 2. ブロック平均に作用を残す
 
@@ -164,7 +166,9 @@ $$
 
 ## 3. 局所項を残し、残差を測る
 
-四次の相互作用を含む場合、Gaussian平均だけでも元の次数より低い項が生じる。$V(y)=\lambda y^4$、$\lambda\ge0$ とし、$Z$ は分散 $c>0$ の中心化実Gaussianとする。[Gaussian Schwinger関数のWick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing)を一変数に適用すると、奇数次モーメントは零、偶数次では $\mathbb E Z^2=c$、$\mathbb E Z^4=3c^2$ である。二項展開すると
+四次の相互作用を含む場合、Gaussian平均だけでも元の次数より低い項が生じる。$V(y)=\lambda y^4$、$\lambda\ge0$ とし、$Z$ は分散 $c>0$ の中心化実Gaussianとする。[Gaussian Schwinger関数のWick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing)を一変数に適用すると、奇数次モーメントは零である。
+
+偶数次では $\mathbb E Z^2=c$、$\mathbb E Z^4=3c^2$ である。二項展開すると
 
 $$
 \mathbb E V(x+Z)=\lambda(x^4+6cx^2+3c^2).
@@ -265,7 +269,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$s>0$ とする。分散 $\sigma_i^2$ の成分の指数モーメントは $\mathbb E e^{sZ_i}=e^{s^2\sigma_i^2/2}$ である。分散 $\sigma_i^2>0$ の場合、指数は $sz-z^2/(2\sigma_i^2)=-(z-s\sigma_i^2)^2/(2\sigma_i^2)+s^2\sigma_i^2/2$ と平方完成できる。平行移動したGaussian密度の積分は1なので公式が従う。分散零なら両辺とも1になる。Markovの不等式から
+$s>0$ とする。分散 $\sigma_i^2$ の成分の指数モーメントは $\mathbb E e^{sZ_i}=e^{s^2\sigma_i^2/2}$ である。分散 $\sigma_i^2>0$ の場合、指数を平方完成する。
+
+$
+sz-\frac{z^2}{2\sigma_i^2}
+=-\frac{(z-s\sigma_i^2)^2}{2\sigma_i^2}+\frac{s^2\sigma_i^2}{2}.
+$
+平行移動したGaussian密度の積分は1なので公式が従う。分散零なら両辺とも1になる。Markovの不等式から
 
 $$
 \mathbb P(Z_i>R)\le e^{-sR}\mathbb E e^{sZ_i}
@@ -510,7 +520,11 @@ $$
 ### 演習 MQFC28-C1：小場と大場を同時に制御する
 - Level: C
 
-尺度 $j=1,\ldots,J$ で成分数 $n_j\le2^j$、各成分の分散が1以下の中心化Gaussianベクトルを考える。$R_j^2=2(3j+2)\log2$ とする。各尺度の作用は非負で小場上で $\log2$ 以下と仮定する。(1) 各尺度の規格化した大場確率を評価せよ。(2) 全尺度のうち一度でも大場が出る確率の一様上界を求めよ（尺度間の独立性は仮定しない）。(3) この結果だけで四次元Yang–Millsの質量ギャップを証明できるか。
+尺度 $j=1,\ldots,J$ で成分数 $n_j\le2^j$、各成分の分散が1以下の中心化Gaussianベクトルを考える。$R_j^2=2(3j+2)\log2$ とする。各尺度の作用は非負で小場上で $\log2$ 以下と仮定する。
+
+1. 各尺度の規格化した大場確率を評価せよ。
+2. 全尺度のうち一度でも大場が出る確率の一様上界を求めよ（尺度間の独立性は仮定しない）。
+3. この結果だけで四次元Yang–Millsの質量ギャップを証明できるか。
 
 <!-- solution-start -->
 **詳細解答**
