@@ -2,7 +2,7 @@ id: VNP16
 title: "H：切断多項式環上のSL群の塔・辺タイプ・剰余類"
 volume: foundations
 status: supplementary
-prerequisites: [VNP15, VNP13]
+prerequisites: [VNP15, VNP13, MMX6]
 official_scope: []
 learning_objectives:
   - 切断多項式環の単元と還元核の位数を計算できる
@@ -10,7 +10,7 @@ learning_objectives:
   - 指数一定の部分群列から塔の各段の計数を導出できる
   - 基本行列の交換子と消去から生成元の語長上界を導出できる
 definitions:
-  - { id: VNP16-DEF-01, name: "切断多項式環" }
+  - { id: VNP16-DEF-01, name: "切断環の定数項還元" }
   - { id: VNP16-DEF-02, name: "有限特殊線形群と還元核" }
   - { id: VNP16-DEF-03, name: "巡回生成元と型別部分群" }
   - { id: VNP16-DEF-04, name: "群作用の塔と型別軌道" }
