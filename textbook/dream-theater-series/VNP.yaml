@@ -67,7 +67,7 @@ chapters:
   - id: VNP16
     path: textbook/volumes/dream_thater/計算系/VNP/VNP16
     status: completed
-    title: "H：F₂[s]/(s^{n+1})上SL群のtower・辺タイプ・coset"
+    title: "H：切断多項式環上のSL群の塔・辺タイプ・剰余類"
   - id: VNP17
     path: textbook/volumes/dream_thater/計算系/VNP/VNP17
     status: planned
