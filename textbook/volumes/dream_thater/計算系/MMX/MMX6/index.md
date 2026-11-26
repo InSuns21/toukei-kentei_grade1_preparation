@@ -26,6 +26,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mmx6-truncated-polynomial -->
+**定義の確認**
+
 $n=3$、$K=\mathbb F_2$ としましょう。$f=1+u^2$、$g=u+u^2$ とすると
 
 $$
