@@ -46,13 +46,40 @@ $$
 
 $t_0=1$ なら $b$ と定めます。凸性から値は $K$ に入り、$\tau$ の像はコンパクトで有界なので先頭頂点でも連続です。線形に鎖へ拡張します。
 
-先頭頂点を除く面は $\tau$、第 $i+1$ 頂点を除く面は $b*(\tau|_{\text{第 }i\text{ 面}})$ です。よって $k\ge1$ では
+この操作で境界を計算すると、追加した頂点に接する面の符号が元の境界の符号と反対になります。これを錐の境界公式としてまとめます。
+
+<a id="lem-atop19-cone-boundary"></a>
+
+<!-- formal-statement-start -->
+> **補題（特異錐の境界公式）**
+> Euclid 空間の凸集合 $K$、点 $b\in K$、特異鎖 $c\in C_k(K)$ を取る。$k\ge1$ では
 
 $$
-\partial(b*\tau)=\tau-b*(\partial\tau).
+\partial(b*c)=c-b*(\partial c).
 $$
 
-$k=0$ では $\partial(b*\langle x\rangle)=\langle x\rangle-\langle b\rangle$ です。従って0鎖 $c$ については $\partial(b*c)=c-\varepsilon(c)\langle b\rangle$ となります。$\varepsilon(c)$ は係数の総和です。
+> $k=0$ では
+
+$$
+\partial(b*c)=c-\varepsilon(c)\langle b\rangle,
+$$
+
+> ただし $\varepsilon(c)$ は0鎖の係数の総和である。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+特異単体 $\tau$ について先頭頂点を除く面は $\tau$ で符号は正です。第 $i+1$ 頂点を除く面は $b*(\tau|_{\text{第 }i\text{ 面}})$ で、符号は $(-1)^{i+1}$ です。従って $k\ge1$ なら
+
+$$
+\partial(b*\tau)=\tau-
+\sum_{i=0}^{k}(-1)^i b*(\tau|_{\text{第 }i\text{ 面}})
+=\tau-b*(\partial\tau).
+$$
+
+線形性から鎖についても成立します。$k=0$ では $\partial(b*\langle x\rangle)=\langle x\rangle-\langle b\rangle$ です。$c=\sum_j a_j\langle x_j\rangle$ に適用して足すと $\partial(b*c)=c-(\sum_j a_j)\langle b\rangle$ となります。
+<!-- proof-end -->
 
 標準単体の恒等写像を $e_n:\Delta^n\to\Delta^n$、第 $i$ 面の包含を $d_i:\Delta^{n-1}\to\Delta^n$、全頂点の重心を $b_n$ と書きます。写像 $f$ に対する $f_\#$ は [特異鎖の誘導準同型](../ATOP16/index.md#def-atop16-induced-chain-map)、すなわち写像との合成です。まず各面を細分し、その小単体に重心を先頭頂点として追加します。
 
@@ -110,13 +137,13 @@ $$
 \partial q=S(\partial^2 e_n)=0.
 $$
 
-$q$ の次数は $n-1\ge1$ なので錐の境界公式から
+$q$ の次数は $n-1\ge1$ です。[特異錐の境界公式](#lem-atop19-cone-boundary)より
 
 $$
 \partial s_n=q-b_n*(\partial q)=q.
 $$
 
-任意の $\sigma$ に対し、[特異鎖の誘導準同型と境界の可換性](../ATOP16/index.md#thm-atop16-chain-map)と、$S$ の合成による定義を用いると
+任意の $\sigma$ に対し、[特異鎖の誘導準同型と境界の可換性](../ATOP16/index.md#thm-atop16-chain-map)と [特異鎖の細分作用素](#def-atop19-singular-subdivision) を用いると
 
 $$
 \partial S\sigma=\sigma_\#\partial s_n
@@ -165,7 +192,7 @@ $$
 \end{gathered}
 $$
 
-従って $\partial w_n=0$ です。$n\ge1$ なので錐の境界公式を適用して、$h_n=b_n*w_n$ と置けば $\partial h_n=w_n$ となります。特異単体 $\sigma$ に対し $D\sigma=\sigma_\#h_n$ と定めて線形に拡張します。
+従って $\partial w_n=0$ です。$n\ge1$ なので [特異錐の境界公式](#lem-atop19-cone-boundary) を適用して、$h_n=b_n*w_n$ と置けば $\partial h_n=w_n$ となります。特異単体 $\sigma$ に対し $D\sigma=\sigma_\#h_n$ と定めて線形に拡張します。
 
 低次数の $D$ も同じ合成による定義なので、面ごとに $\sigma_\#D(d_i)=D(\sigma\circ d_i)$ が成り立ちます。従って
 
@@ -196,7 +223,19 @@ $X$ が距離空間でなくても、特異単体の定義域 $\Delta^n$ はコ�
 
 <!-- formal-statement-start -->
 > **補題（有限鎖の小鎖化）**
-> 位相空間 $X$ の部分集合族 $\mathcal U$ が $\bigcup_{U\in\mathcal U}\operatorname{int}_X U=X$ を満たすとする。任意の $c\in C_n(X)$ に対し、ある非負整数 $r$ が存在し $S^r c\in C_n^{\mathcal U}(X)$ となる。
+> 位相空間 $X$ の部分集合族 $\mathcal U$ が
+
+$$
+\bigcup_{U\in\mathcal U}\operatorname{int}_X U=X
+$$
+
+> を満たすとする。任意の $n\ge0$ と $c\in C_n(X)$ に対し、ある非負整数 $r$ が存在し
+
+$$
+S^r c\in C_n^{\mathcal U}(X)
+$$
+
+> となる。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -340,7 +379,7 @@ $$
 
 ### 具体例：区間の片側を短くする
 
-$X=[0,3]$、$A=[0,2)$、$Z=[0,1]$ とします。相対位相で $\operatorname{int}_X A=A$、$\overline Z=Z$ なので仮定を満たします。領域の配置は次の通りです。黒丸（塗りつぶし）は端点を含むこと、白丸は端点を含まないことを表します。
+$X=[0,3]$、$A=[0,2)$、$Z=[0,1]$ とします。部分空間位相で $\operatorname{int}_X A=A$、$\overline Z=Z$ なので仮定を満たします。領域の配置は次の通りです。黒丸（塗りつぶし）は端点を含むこと、白丸は端点を含まないことを表します。
 
 ![区間の切除。閉区間ZはAの内部に収まり、AとBの重なりは(1,2)。](assets/excision-interval.svg)
 
@@ -432,7 +471,7 @@ $X=[0,4]$、$A=[0,3)$ とする。$Z_1=[0,2]$ と $Z_2=[0,3)$ について切除
 <!-- solution-start -->
 **詳細解答**
 
-相対位相において $A$ は開です。$\overline{Z_1}=[0,2]\subset A$ なので [切除定理](#thm-atop19-excision) を適用できます。差集合は
+部分空間位相において $A$ は開です。$\overline{Z_1}=[0,2]\subset A$ なので [切除定理](#thm-atop19-excision) を適用できます。差集合は
 
 $$
 X\setminus Z_1=(2,4],\qquad A\setminus Z_1=(2,3).
@@ -576,7 +615,7 @@ $$
 \in C_0(E).
 $$
 
-従って相対サイクルです。[相対ホモロジーの接続準同型](../ATOP18/index.md#thm-atop18-connecting) の定義から $\delta[\bar\gamma]=(-1,1)$ です。これは核の生成元で、$\delta$ は核への同型なので $[\bar\gamma]$ は相対群の生成元です。切除の同型が包含から誘導されるため、同じ道の相対類が $H_1(X,A)$ の生成元になります。
+従って相対サイクルです。[相対ホモロジーの接続準同型](../ATOP18/index.md#thm-atop18-connecting) より $\delta[\bar\gamma]=(-1,1)$ です。これは核の生成元で、$\delta$ は核への同型なので $[\bar\gamma]$ は相対群の生成元です。切除の同型が包含から誘導されるため、同じ道の相対類が $H_1(X,A)$ の生成元になります。
 <!-- solution-end -->
 
 ## 8. まとめと次講
