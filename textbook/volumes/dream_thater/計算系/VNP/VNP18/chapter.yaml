@@ -1,0 +1,25 @@
+id: VNP18
+title: "I：重み付き木プログラム・universal tape automatonとnetwork化"
+volume: foundations
+status: supplementary
+prerequisites: [VNP17, GCT15, GCT16]
+official_scope: []
+learning_objectives:
+  - 自己解釈型木プログラムの符号と受理重み和を計算できる
+  - 両側の語の照合条件と時間の向きの違いを説明できる
+  - 万能機械の履歴対応と対数二乗の時間評価を説明できる
+  - 相手区間の有効性からネットワーク表示とパケット上界を導出できる
+definitions:
+  - { id: VNP18-DEF-01, name: "自己解釈型の重み付き木プログラム" }
+  - { id: VNP18-DEF-02, name: "plainインスタンスと受理重み和" }
+  - { id: VNP18-DEF-03, name: "両側語照合オートマトン" }
+  - { id: VNP18-DEF-04, name: "書側頂点の相手区間データ" }
+theorems:
+  - { id: VNP18-THM-01, name: "万能両側語照合オートマトン" }
+  - { id: VNP18-THM-02, name: "照合走行のネットワーク表示" }
+canonical_examples: [木の前順符号, 重み付き条件分岐, 両側語照合, 相手区間の検査]
+problem_patterns: [VNP18-A1, VNP18-A2, VNP18-A3, VNP18-A4, VNP18-B1, VNP18-B2, VNP18-B3, VNP18-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 1 }

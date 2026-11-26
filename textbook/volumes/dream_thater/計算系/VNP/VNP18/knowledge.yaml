@@ -1,0 +1,42 @@
+chapter: VNP18
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP17, GCT15, GCT16]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.self-interpreting-program
+    name: "自己解釈型の重み付き木プログラム"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（自己解釈型の重み付き木プログラム）"]
+    requires: [graph-counting.tree-program]
+  - id: vp-vnp-study.plain-instance
+    name: "plainインスタンスと受理重み和"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（plainインスタンスと受理重み和）"]
+    requires: [vp-vnp-study.self-interpreting-program]
+  - id: vp-vnp-study.matched-tape-automaton
+    name: "両側語照合オートマトン"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（両側語照合オートマトン）"]
+    requires: [graph-counting.weighted-automaton, graph-counting.automaton-matrix-evaluation]
+  - id: vp-vnp-study.universal-tape-automaton
+    name: "万能両側語照合オートマトン"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（万能両側語照合オートマトン）"]
+    requires: [vp-vnp-study.plain-instance, vp-vnp-study.matched-tape-automaton]
+  - id: vp-vnp-study.reader-interval
+    name: "書側頂点の相手区間データ"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（書側頂点の相手区間データ）"]
+    requires: [vp-vnp-study.matched-tape-automaton]
+  - id: vp-vnp-study.run-network
+    name: "照合走行のネットワーク表示"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["補題（照合走行のネットワーク表示）"]
+    requires: [vp-vnp-study.reader-interval, vp-vnp-study.packet-network, vp-vnp-study.packet-code, graph-counting.automaton-matrix-evaluation]
