@@ -1,0 +1,27 @@
+id: ATOP14
+title: "単体ホモロジーと計算"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP13, MOD2]
+official_scope: []
+learning_objectives:
+  - サイクル群と境界群を区別しホモロジー類の等しさを判定できる
+  - 0次単体ホモロジーを成分の頂点係数和から計算できる
+  - 核の整数基底と Smith 標準形から単体ホモロジー群を計算できる
+  - 円・球面・トーラスの境界行列を構成し整数係数のホモロジー群を求められる
+  - Euler 標数の鎖レベル恒等式を証明し計算を検算できる
+  - 単体写像が誘導するホモロジー準同型を構成できる
+definitions:
+  - { id: ATOP14-DEF-01, name: 単体サイクルと単体境界鎖 }
+  - { id: ATOP14-DEF-02, name: 単体ホモロジー群 }
+theorems:
+  - { id: ATOP14-THM-01, name: 0次単体ホモロジーと成分 }
+  - { id: ATOP14-THM-02, name: Smith 標準形による単体ホモロジーの計算 }
+  - { id: ATOP14-THM-03, name: Euler–Poincaré の鎖レベル恒等式 }
+  - { id: ATOP14-THM-04, name: 単体写像の誘導ホモロジー準同型 }
+canonical_examples: [三辺だけの三角形と三角形全体, 四面体の境界, 周期格子のトーラス]
+problem_patterns: [ATOP14-A1, ATOP14-A2, ATOP14-A3, ATOP14-A4, ATOP14-B1, ATOP14-B2, ATOP14-B3, ATOP14-B4, ATOP14-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 1 }
