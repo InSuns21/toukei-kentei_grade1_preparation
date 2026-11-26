@@ -139,7 +139,7 @@ $$
 \ge2R(f-2Rf'/M)-2N(a).
 $$
 
-$a,-b$ に対して同じ恒等式を使うと $c,e$ が交換され、$B_i$ における $\partial'$ の和は $2R(f'-2Rf/M)-2N(a)$ 以上になります。
+上の差分計算で $b$ を $-b$ に置き換えます。すると $c,e$ が交換され、$B_i$ における $\partial'$ の和は $2R(f'-2Rf/M)-2N(a)$ 以上になります。
 
 **誤差を消す。** $\kappa$ は $f,f',N(a),N(b)$ 以上です。$p=A_i$ または $A_i-a$、$q=B_i$ または $B_i-a$ の対応する組では、逆三角不等式により $|N(p)-Mf|,|N(q)-Mf'|\le2R\kappa$。また $|\partial p|,|\partial' q|\le\kappa$ です。従って $N(p)\partial p$ を $Mf\partial p$ に替えると誤差は高々 $2R\kappa^2$ です。$\tau=1/(2M)$ を選べば
 
@@ -363,7 +363,7 @@ $$
 
 $V_0=V$ とします。各段階で $V_j$ の全点対 $(s,t)$ に新点 $m_{st}$ を加え、確率 $1/2$ ずつ $s,t$ に置く [priceの確率的拡張](../VNP5/index.md#thm-vnp5-random-extension) を同時に適用します。古い距離が保存され、新点から両端への距離は $d(s,t)/2$ 以下です。三角不等式でその和は $d(s,t)$ 以上なので両方等号です。
 
-和集合 $V_\infty=\bigcup_{j\ge0}V_j$ 上では点対が初めて同じ段に入ったときの距離を採用します。その後は変わらないので一意に決まります。任意の有限個の点は共通の段に入るため、priceの有限集合への引き戻しによる[定義](../VNP3/index.md#def-vnp3-price) から全体もpriceです。すべての点対に中点があり、[price上の中点二乗評価](#thm-vnp7-price-cn) により第三点すべてについて二乗評価を満たします。
+和集合 $V_\infty=\bigcup_{j\ge0}V_j$ 上では点対が初めて同じ段に入ったときの距離を採用します。その後は変わらないので一意に決まります。任意の有限個の点は共通の段に入るため、[price](../VNP3/index.md#def-vnp3-price) の条件（各有限集合への引き戻しがpriceであること）を満たします。従って全体もpriceです。すべての点対に中点があり、[price上の中点二乗評価](#thm-vnp7-price-cn) により第三点すべてについて二乗評価を満たします。
 
 [NPCG1の零距離商](../../../幾何系/NPCG/NPCG1/index.md#thm-npcg1-zero-distance-quotient) を取り距離空間 $S$ を得ます。商の各点の代表元を選ぶ写像による引き戻しが商距離なので、[priceの保存則](../VNP3/index.md#thm-vnp3-price-laws) で商距離もpriceです。中点と二乗評価は距離だけの式なので商へ移ります。[Cauchy列による完備化](../../../幾何系/NPCG/NPCG1/index.md#thm-npcg1-pseudometric-completion) で完備距離空間 $X$ を作り、$S$ をその稠密な部分集合とみなします。
 
