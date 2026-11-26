@@ -427,7 +427,7 @@ $$
 - `tree_up_node` は各 `treeUp` が共通の上界 $B$ 以下、子の数が $c$ 以下であることから $(c+1)B$ を得ます。`tree_up_total` は頂点を段とその段内の頂点に分解し、根の寄与0を除いて段ごとの和を評価します。
 - [Nc/Tow/Ever7.lean](https://github.com/anthropics/formal-math/blob/main/vp-vnp/Nc/Tow/Ever7.lean) の `held_node_le` の係数を再構成します。$I$ を初期パケット数、$d$ をチャネル末尾に関する数、$R_0,L_0$ を中継・則の本数、$P$ を不足スロット等の数とします。
 
-  補題 `held_le` と `pads_node` の上界を足すと、保持量と不足分の合計は $I+d+4R_0+(c_1+1+S_m)L_0$ 以下です。
+  既出の `held_le` と `pads_node` が与える二つの上界を足すと、保持量と不足分の合計は $I+d+4R_0+(c_1+1+S_m)L_0$ 以下です。
 
   ここで $c_1=2|\mathrm{Nr}|G_1$、$S_m$ は則のスロット数の共通上界です。
 
