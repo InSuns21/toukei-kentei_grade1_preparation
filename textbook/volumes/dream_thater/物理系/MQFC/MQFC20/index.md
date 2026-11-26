@@ -6,16 +6,34 @@
 
 ## 1. 群の一様な確率分布
 
-$G$ はコンパクト行列群とする。正規化左Haar測度を $\mu$、積分の記号を $dg=d\mu(g)$ とする。[正規化左Haar測度](../../../代数系/LREP/LREP2/index.md#def-lrep2-haar-probability) は全体の測度が1の正則 Borel 測度で、任意の Borel 集合 $A$ と $h\in G$ について $\mu(hA)=\mu(A)$ を満たす。正則性は測度を内側のコンパクト集合と外側の開集合で近似できる性質である。コンパクト群ではこの確率測度は一意に存在する。
+$G$ はコンパクト行列群とする。
 
-例えば $U(1)$ では $g=e^{i\theta}$ に対して角度 $\theta\in[0,2\pi)$ を一様に選べばよい。
+正規化左Haar測度を $\mu$、積分の記号を $dg=d\mu(g)$ とする。
+
+$dg$ は群元 $g$ を動かす測度による積分の記法であり、微分ではない。
+
+Borel 集合は開集合から可算和と補集合で生成される可測集合である。
+
+[正規化左Haar測度](../../../代数系/LREP/LREP2/index.md#def-lrep2-haar-probability) は全体の測度が1の正則 Borel 測度で、任意の Borel 集合 $A$ と $h\in G$ について $\mu(hA)=\mu(A)$ を満たす。
+
+正則性は測度を内側のコンパクト集合と外側の開集合で近似できる性質である。
+
+コンパクト群ではこの確率測度は一意に存在する。
+
+例えば絶対値1の複素数の乗法群 $U(1)$ では $g=e^{i\theta}$ に対して角度 $\theta\in[0,2\pi)$ を一様に選べばよい。
 
 $$
 \int_{U(1)} f(g)\,dg
 =\frac1{2\pi}\int_0^{2\pi}f(e^{i\theta})\,d\theta.
 $$
 
-確率1への規格化は $f=1$ を代入すれば確認できる。$h=e^{i\alpha}$ を掛けることは角度を $\alpha$ だけ移すことであり、$2\pi$ 周期性により一周期の積分は不変である。集合の指示関数にもこの変数変換が成立する。区間の端点の同一視は測度零なので確率に影響しない。
+確率1への規格化は $f=1$ を代入すれば確認できる。
+
+$h=e^{i\alpha}$ を掛けることは角度を $\alpha$ だけ移すことであり、$2\pi$ 周期性により一周期の積分は不変である。
+
+集合の指示関数にもこの変数変換が成立する。
+
+区間の端点の同一視は測度零なので確率に影響しない。
 
 非可換群では左乗法と右乗法を区別しなければならない。さらに逆向きの辺は逆元で表すので、逆元への変数変換も必要になる。
 
@@ -63,6 +81,8 @@ $$
 
 ## 2. SU(2) の平均を球面で計算する
 
+ここで $\dagger$ は共役転置（LREP2 の $*$ と同じ操作）、$I_n$ は $n$ 次の単位行列を表す。$U(2)$ は $U^\dagger U=I_2$ を満たす複素 $2\times2$ 行列の群で、$SU(2)$ はさらに $\det U=1$ を課した部分群である。
+
 [LREP2 のHaar測度の具体模型](../../../代数系/LREP/LREP2/index.md#def-lrep2-haar-probability) では
 
 $$
@@ -72,11 +92,47 @@ a&b\\-\overline b&\overline a
 \qquad |a|^2+|b|^2=1
 $$
 
-により $SU(2)$ を $S^3\subset\mathbb R^4$ と対応させた。第1列の単位長と列同士の直交性、行列式1から全ての $SU(2)$ 行列がこの形になり、逆にこの形の行列は $U^\dagger U=I$ と $\det U=1$ を満たす。
+により $SU(2)$ を実4次元の単位球面 $S^3$ と対応させた。
 
-ここで $\dagger$ は共役転置を表す。左乗法は第1列 $(a,-\overline b)^{\mathsf T}$ にユニタリ行列を掛ける操作であり、右乗法は第1行 $(a,b)$ にユニタリ行列を掛ける操作である。どちらも実線形で実4次元の長さを保つので球面の面積を保存する。球面面積を全体の面積で割った確率測度は左・右不変であり、正則性と一意性から正規化Haar測度に一致する。
+$\mathsf T$ は転置を表す。第1列を $(a,c)^{\mathsf T}$ とすると、単位長の条件は $|a|^2+|c|^2=1$ である。
 
-この模型から積分を計算しよう。座標を $a=x_1+ix_2,\ b=x_3+ix_4$ と書く。球面面積は実座標の置換と各座標の符号反転で不変である。符号反転により $\int x_j\,dg=0$ と、$j\ne k$ のとき $\int x_jx_k\,dg=0$ が従う。一方4個の $\int x_j^2\,dg$ は座標置換により同じ値である。球面上では二乗和が1なので、
+その直交補は単位ベクトル $(-\overline c,\overline a)^{\mathsf T}$ が張るので、第2列はこれの絶対値1の複素数 $\lambda$ 倍である。
+
+行列式は $\lambda(|a|^2+|c|^2)=\lambda$ だから $\lambda=1$。
+
+$b=-\overline c$ と置くと上の形になる。
+
+逆にこの形から条件を確認すると、
+
+$$
+U^\dagger U=
+\begin{pmatrix}
+|a|^2+|b|^2&\overline a b-b\overline a\\
+\overline b a-a\overline b&|a|^2+|b|^2
+\end{pmatrix}=I_2,
+\qquad \det U=|a|^2+|b|^2=1.
+$$
+
+従って対応は全単射であり、$a,b$ は第1行から一意に復元できる。左乗法は第1列 $(a,-\overline b)^{\mathsf T}$ にユニタリ行列を掛ける操作であり、右乗法は第1行 $(a,b)$ にユニタリ行列を掛ける操作である。どちらも実線形で実4次元の長さを保つので球面の面積を保存する。球面面積を全体の面積で割った確率測度は左・右不変であり、正則性と一意性から正規化Haar測度に一致する。
+
+この模型から積分を計算しよう。
+
+座標を $a=x_1+ix_2,\ b=x_3+ix_4$ と書く。
+
+球面面積は実座標の置換と各座標の符号反転で不変である。
+
+符号反転により
+
+$$
+\int_G x_j\,dg=0,\qquad
+\int_G x_jx_k\,dg=0\quad(j\ne k)
+$$
+
+が従う。
+
+一方4個の $\int x_j^2\,dg$ は座標置換により同じ値である。
+
+球面上では二乗和が1なので、
 
 $$
 4\int x_1^2\,dg
@@ -97,7 +153,24 @@ $$
 
 [LREP1 の既約表現](../../../代数系/LREP/LREP1/index.md#def-lrep1-irreducible) とは非零の真の不変部分空間を持たない非零表現である。[LREP2 のコンパクト群の平均による不変内積](../../../代数系/LREP/LREP2/index.md#thm-lrep2-compact-averaging) により、有限次元連続複素表現には不変な正定値内積を入れられる。その正規直交基底では表現の行列がユニタリになる。
 
-以下、$\rho:G\to U(d_\rho)$ と $\sigma:G\to U(d_\sigma)$ を連続ユニタリ表現とする。行列要素 $\rho_{ij}(g)$ は第 $j$ 基底ベクトルを $\rho(g)$ で移したときの第 $i$ 成分である。行列要素を積分する代わりに、二つの表現の間の長方形行列 $A$ を群で移して平均する。
+以下、$\rho:G\to U(d_\rho)$ と $\sigma:G\to U(d_\sigma)$ を連続ユニタリ表現とする。$d_\rho,d_\sigma$ はそれぞれの複素次元である。[有限次元複素線形表現](../../../代数系/LREP/LREP1/index.md#def-lrep1-linear-representation) の積と単位元の条件に加え、連続性は各行列成分が群元の連続関数であることをいう。[ユニタリ表現](../../../代数系/LREP/LREP2/index.md#def-lrep2-invariant-inner-product) では内積を保存するため、正規直交基底で
+
+$$
+\rho(g)^\dagger\rho(g)=I_{d_\rho},
+\qquad \rho(g)^\dagger=\rho(g)^{-1}=\rho(g^{-1}).
+$$
+
+行列要素 $\rho_{ij}(g)$ は第 $j$ 基底ベクトルを $\rho(g)$ で移したときの第 $i$ 成分である。
+
+行列要素を積分する代わりに、二つの表現の間の長方形行列 $A$ を群で移して平均する。
+
+$\sigma$ の空間から $\rho$ の空間への複素線形写像 $T$ がすべての $h\in G$ で
+
+$$
+\rho(h)T=T\sigma(h)
+$$
+
+を満たすとき、[絡作用素](../../../代数系/LREP/LREP1/index.md#def-lrep1-intertwiner) という。群を作用させてから $T$ で移しても、先に $T$ で移してから群を作用させても同じになるという条件である。
 
 <a id="prop-mqfc20-intertwiner-average"></a>
 
@@ -138,7 +211,9 @@ $$
 これは [絡作用素の条件](../../../代数系/LREP/LREP1/index.md#def-lrep1-intertwiner) である。
 <!-- proof-end -->
 
-この命題に [Schur の補題](../../../代数系/LREP/LREP2/index.md#thm-lrep2-schur) を組み合わせる。非同値な既約表現間では $T(A)=0$ となる。同じ既約表現を両側に置いた場合、$T(A)=cI$ であり、トレースを取ると
+[表現の同値](../../../代数系/LREP/LREP1/index.md#def-lrep1-equivalence) とは可逆な絡作用素が存在することをいう。同値な表現を一つの同値類にまとめる。
+
+[表現間の平均化](#prop-mqfc20-intertwiner-average) に [Schur の補題](../../../代数系/LREP/LREP2/index.md#thm-lrep2-schur) を組み合わせる。非同値な既約表現間では $T(A)=0$ となる。同じ既約表現を両側に置いた場合、$T(A)=cI$ である。トレース $\operatorname{tr}$（行列の対角成分の和）を取ると
 
 $$
 d_\rho c=\operatorname{tr}T(A)
@@ -146,7 +221,7 @@ d_\rho c=\operatorname{tr}T(A)
 =\operatorname{tr}A.
 $$
 
-ここでは群全体の測度が1であることを使った。従って $T(A)=(\operatorname{tr}A/d_\rho)I$ である。
+最後の等号は $\operatorname{tr}(XY)=\operatorname{tr}(YX)$ と $\rho(g)^{-1}\rho(g)=I_{d_\rho}$、群全体の測度が1であることを使った。従って $T(A)=(\operatorname{tr}A/d_\rho)I$ である。
 
 <a id="thm-mqfc20-matrix-orthogonality"></a>
 
@@ -196,7 +271,13 @@ $$
 その $(i,k)$ 成分は $\delta_{jl}\delta_{ik}/d_\rho$ であり、求める式が出る。
 <!-- proof-end -->
 
-$SU(2)$ の標準表現は [LREP2 の既約性の具体例](../../../代数系/LREP/LREP2/index.md#thm-lrep2-complete-reducibility) で確認したように既約で、次元2である。[既約表現の行列要素の直交性](#thm-mqfc20-matrix-orthogonality) に $i=j=k=l=1$ と $d_\rho=2$ を代入すると、第2節の $\int |a|^2\,dg=1/2$ を再現できる。同じ次元でも非同値なら積分は0となる。逆に同値な表現で基底だけが違う場合は、上のデルタの式をそのまま適用することはできない。
+$SU(2)$ の標準表現は [LREP2 の既約性の具体例](../../../代数系/LREP/LREP2/index.md#thm-lrep2-complete-reducibility) で確認したように既約で、次元2である。
+
+[既約表現の行列要素の直交性](#thm-mqfc20-matrix-orthogonality) に $i=j=k=l=1$ と $d_\rho=2$ を代入すると、第2節の $\int |a|^2\,dg=1/2$ を再現できる。
+
+同じ次元でも非同値なら積分は0となる。
+
+逆に同値な表現で基底だけが違う場合は、上のデルタの式をそのまま適用することはできない。
 
 ## 4. トレースで表現の成分を数える
 
@@ -216,7 +297,26 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mqfc20-character -->
-**定義の確認**。$G=U(1)$ で $\rho(g)=\operatorname{diag}(1,g)$ とする。連続であり $\rho(gh)=\operatorname{diag}(1,gh)=\rho(g)\rho(h)$、$\rho(1)=I$ である。全成分の絶対値が有界で行列は可逆である。この2次元表現の指標は $\chi_\rho(g)=1+g$ であり、単位元で2を取る。一般の指標は群準同型とは限らない。1次元の場合には [LREP1 の1次元指標](../../../代数系/LREP/LREP1/index.md#def-lrep1-character) と一致する。
+**定義の確認**。
+
+$G=U(1)$ とし、$\mathbb C^2$ の標準基底 $e_1,e_2$ に対して $e_1$ は固定し、$e_2$ を $g$ 倍する複素線形写像を考える。
+
+$\operatorname{diag}$ は指定した成分を対角に並べ、非対角成分を零とする行列を表す。
+
+この基底での行列は $\rho(g)=\operatorname{diag}(1,g)$ である。
+
+[有限次元複素線形表現](../../../代数系/LREP/LREP1/index.md#def-lrep1-linear-representation) の条件を確認する。
+
+$|g|=1$ だから $g\ne0$ で、逆行列は $\operatorname{diag}(1,g^{-1})$。
+
+各成分は $g$ の連続関数で、さらに
+
+$$
+\rho(1)=I_2,\qquad
+\rho(g)\rho(h)=\operatorname{diag}(1,gh)=\rho(gh).
+$$
+
+従って有限次元連続複素表現である。指標はこの行列の対角和なので $\chi_\rho(g)=1+g$ となり、単位元で2を取る。基底を変更してもトレースは相似変換で不変なので、指標は基底の選び方に依存しない。一般の指標は群準同型とは限らない。1次元の場合には [LREP1 の1次元指標](../../../代数系/LREP/LREP1/index.md#def-lrep1-character) と一致する。
 <!-- definition-example-end -->
 
 任意の $h,g\in G$ に対し
@@ -267,14 +367,28 @@ $$
 m_\sigma=\int_G\chi_D(g)\overline{\chi_\sigma(g)}\,dg.
 $$
 
-例えば $D(g)=\operatorname{diag}(1,g,g)$ ($g\in U(1)$) では $\chi_D=1+2g$ だから定数表現が1回、$g$ の表現が2回現れる。一般の連続類関数 $f$ についても、有限個の互いに非同値な既約表現からなる集合 $F$ を選べば、その指標の張る空間への $L^2(G,dg)$ での直交射影は
+例えば $D(g)=\operatorname{diag}(1,g,g)$ ($g\in U(1)$) では $\chi_D=1+2g$ だから定数表現が1回、$g$ の表現が2回現れる。
+
+一般の連続類関数 $f$ についても、有限個の互いに非同値な既約表現からなる集合 $F$ を選ぶ。
+
+$L^2(G,dg)$ は二乗可積分な関数を測度零の違いを同一視して扱う空間である。
+
+本節の内積は $\langle u,v\rangle=\int_G\overline{u(g)}v(g)\,dg$（第1変数が共役線形）とする。
+
+指標の張る空間への直交射影は
 
 $$
 f_F=\sum_{\rho\in F} c_\rho\chi_\rho,\qquad
 c_\rho=\int_G f(g)\overline{\chi_\rho(g)}\,dg
 $$
 
-である。実際、任意の $\sigma\in F$ に対して $f-f_F$ と $\chi_\sigma$ の内積は $c_\sigma-c_\sigma=0$ となる。これは有限個の正規直交関数への射影である。全ての既約指標が類関数の空間で完全であること（Peter–Weyl 定理に基づく結果）や無限展開の点ごとの収束は、この有限個の指標への直交射影からだけでは従わない。
+である。
+
+実際、任意の $\sigma\in F$ に対して $f-f_F$ と $\chi_\sigma$ の内積は $c_\sigma-c_\sigma=0$ となる。
+
+これは有限個の正規直交関数への射影である。
+
+全ての既約指標が類関数の空間で完全であること（Peter–Weyl 定理に基づく結果）や無限展開の点ごとの収束は、この有限個の指標への直交射影からだけでは従わない。
 
 格子ゲージ作用の重みで必要になる有限の指標展開には、直和だけでなく積も重要である。二つのユニタリ表現の [表現のテンソル積](../../../代数系/LREP/LREP4/index.md#def-lrep4-tensor-product) は、基底を $e_i\otimes f_j$ とすれば対角成分が $\rho_{ii}(g)\sigma_{jj}(g)$ であり、
 
@@ -284,11 +398,11 @@ $$
 =\chi_\rho(g)\chi_\sigma(g).
 $$
 
-従って指標の積も完全可約性により非負整数係数の有限指標和になる。これは後に作用の指数関数を冪級数で展開する際の出発点になる。
+従って指標の積も [完全可約性](../../../代数系/LREP/LREP2/index.md#thm-lrep2-complete-reducibility) により非負整数係数の有限指標和になる。これは後に作用の指数関数を冪級数で展開する際の出発点になる。
 
 ## 5. 平均は不変な状態への射影になる
 
-表現の全成分を平均すると、群によって動く成分が消え、どの群元でも動かない成分が残る。例えば $C_2=\{e,s\}$ で $D(s)=\operatorname{diag}(1,-1)$ なら $(I+D(s))/2=\operatorname{diag}(1,0)$ である。
+表現の全成分を平均すると、群の全ての元で固定される部分空間への直交射影になる。ここで直交射影とは、ベクトルをその部分空間に属する成分とそれに直交する成分に分解し、前者を取り出す線形写像である。例えば $C_2=\{e,s\}$ で $D(s)=\operatorname{diag}(1,-1)$ なら $(I+D(s))/2=\operatorname{diag}(1,0)$ である。
 
 <a id="thm-mqfc20-invariant-projection"></a>
 
@@ -345,18 +459,38 @@ $$
 P_\rho=d_\rho\int_G\overline{\chi_\rho(g)}D(g)\,dg
 $$
 
-で得られる。[不変直交補空間](../../../代数系/LREP/LREP2/index.md#prop-lrep2-orthogonal-complement) を繰り返し取って直交する既約ブロックに分ける。各ブロックでは同値写像で代表の基底を移して行列表現を一致させる。この基底は正規直交である必要はない。計算結果が恒等写像または零写像なので基底を元に戻しても結果は変わらず、ブロック間の直交性から全体は直交射影になる。このブロックの $(i,j)$ 成分は
+で得られる。[不変直交補空間](../../../代数系/LREP/LREP2/index.md#prop-lrep2-orthogonal-complement) を繰り返し取って直交する既約ブロックに分ける。各ブロックでは同値写像で代表の基底を移して行列表現を一致させる。
+
+具体的には [表現の同値](../../../代数系/LREP/LREP1/index.md#def-lrep1-equivalence) を与える可逆な絡作用素 $S$ によって、既約代表の作用 $\sigma(g)$ とブロックの作用 $D_{\mathrm{block}}(g)$ は
+
+$$
+D_{\mathrm{block}}(g)S=S\sigma(g)
+$$
+
+を満たす。そのため代表の基底 $e_j$ を $Se_j$ に移した基底では、ブロックの行列は $\sigma(g)$ そのものになる。この基底は正規直交である必要はない。
+
+計算結果が恒等写像または零写像なので基底を元に戻しても結果は変わらず、ブロック間の直交性から全体は直交射影になる。このブロックの $(i,j)$ 成分は
 
 $$
 d_\rho\sum_{k=1}^{d_\rho}
 \int_G\sigma_{ij}(g)\overline{\rho_{kk}(g)}\,dg.
 $$
 
-[行列要素の直交性](#thm-mqfc20-matrix-orthogonality) により、$\sigma\ne\rho$ なら0、$\sigma=\rho$ なら $\sum_k\delta_{ik}\delta_{jk}=\delta_{ij}$。従って同値なブロックで恒等、それ以外で零となる。この射影の像は選んだ既約直和分解によらない。自明表現（全ての群元を1に写す1次元表現）を選べば直前の $P$ に戻る。
+[行列要素の直交性](#thm-mqfc20-matrix-orthogonality) により、$\sigma\ne\rho$ なら0、$\sigma=\rho$ なら $\sum_k\delta_{ik}\delta_{jk}=\delta_{ij}$。
+
+従って同値なブロックで恒等、それ以外で零となる。
+
+積分で定めた $P_\rho$ 自体は既約直和分解を選ばずに決まるので、その像も選んだ分解によらない。
+
+自明表現（全ての群元を1に写す1次元表現）を選べば直前の $P$ に戻る。
 
 ## 6. 有限格子での積分
 
-[MQFC19 の群値辺接続](../MQFC19/index.md#def-mqfc19-link) において正向き辺の集合 $E_+$ は有限であり、配置は $G^{E_+}$ の点として表される。基準測度には各辺の正規化Haar測度の有限直積を使う。
+[MQFC19 の群値辺接続](../MQFC19/index.md#def-mqfc19-link) において正向き辺の集合 $E_+$ は有限であり、配置は $G^{E_+}$ の点として表される。
+
+基準測度には各辺の正規化Haar測度の有限直積を使う。
+
+有限格子の頂点集合を $\Lambda$ とし、[頂点ゲージ変換](../MQFC19/index.md#def-mqfc19-vertex-gauge) は $h=(h_x)_{x\in\Lambda}\in G^\Lambda$ で辺 $e=(x,y)$ の変数を $h_yU_eh_x^{-1}$ に移す操作である。
 
 <a id="prop-mqfc20-product-gauge"></a>
 
@@ -380,7 +514,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[頂点ゲージ変換](../MQFC19/index.md#def-mqfc19-vertex-gauge) によれば、辺 $e=(x,y)$ の変数は $U_e\mapsto h_yU_eh_x^{-1}$ となる。$h$ は固定しているので、この写像は各辺ごとの写像の直積である。[Haar積分の変数変換](#prop-mqfc20-haar-transform) から各辺の写像は測度を保存する。従って Borel 長方形 $\prod_e A_e$ の逆像の測度は
+[頂点ゲージ変換](../MQFC19/index.md#def-mqfc19-vertex-gauge) によれば、辺 $e=(x,y)$ の変数は $U_e\mapsto h_yU_eh_x^{-1}$ となる。
+
+$h$ は固定しているので、この写像は各辺ごとの写像の直積である。
+
+[Haar積分の変数変換](#prop-mqfc20-haar-transform) から各辺の写像は測度を保存する。
+
+従って Borel 長方形 $\prod_e A_e$ の逆像の測度は
 
 $$
 \prod_{e=(x,y)}
@@ -392,13 +532,22 @@ $$
 
 逆向き辺に別の独立変数を置く必要はない。逆向きの座標を選び直すことも [Haar積分の変数変換](#prop-mqfc20-haar-transform) の逆元不変性で正当化できる。
 
-さらに頂点群 $K=G^\Lambda$ に積Haar測度を入れ、連続関数 $F$ に対して
+さらに頂点群 $K=G^\Lambda$ に積Haar測度を入れる。これは各頂点の左移動で不変な正規化測度であり、長方形上の測度を比較すれば $K$ 上のHaar測度と一致する。連続関数 $F$ に対して
 
 $$
 (\mathcal P F)(U)=\int_K F(h^{-1}\cdot U)\,dh
 $$
 
-と置けばゲージ不変な関数が得られる。[頂点ゲージ変換の作用則](../MQFC19/index.md#prop-mqfc19-action) により $F(h^{-1}\cdot(k\cdot U))=F((k^{-1}h)^{-1}\cdot U)$。$h=ka$ と変数変換すると $(\mathcal P F)(k\cdot U)=(\mathcal P F)(U)$ である。もともと不変なら $\mathcal P F=F$ なので $\mathcal P^2=\mathcal P$。これは次の格子Hilbert空間の構成で使う平均操作の連続関数上での形である。
+と置けばゲージ不変な関数が得られる。[頂点ゲージ変換の作用則](../MQFC19/index.md#prop-mqfc19-action) により $F(h^{-1}\cdot(k\cdot U))=F((k^{-1}h)^{-1}\cdot U)$。[Haar積分の変数変換](#prop-mqfc20-haar-transform) により $K$ 上で $h=ka$ と置くと、
+
+$$
+(\mathcal P F)(k\cdot U)
+=\int_K F((k^{-1}h)^{-1}\cdot U)\,dh
+=\int_K F(a^{-1}\cdot U)\,da
+=(\mathcal P F)(U).
+$$
+
+もともと不変なら $\mathcal P F=F$ なので $\mathcal P^2=\mathcal P$。これは次の格子Hilbert空間の構成で使う平均操作の連続関数上での形である。
 
 なお積Haar測度は相互作用を入れる前の基準測度であり、次講で作用による重みを掛けた後に辺の独立性が保たれるとは限らない。
 
@@ -452,7 +601,19 @@ $G=U(1)$ 上の表現 $D(g)=\operatorname{diag}(g,g^{-1},1,1)$ の指標と、$\
 <!-- solution-start -->
 **詳細解答**
 
-[表現の指標](#def-mqfc20-character) より $\chi_D(g)=g+g^{-1}+2$。第1節の円周積分で $\int g\,dg=\int g^{-1}\,dg=0$、$\int 1\,dg=1$ だから平均は2である。一方 $\chi_D(1)=4$ であり全表現の次元を表す。平均値2は自明表現の出現回数であって全次元ではない。
+[表現の指標](#def-mqfc20-character) より $\chi_D(g)=g+g^{-1}+2$。
+
+第1節の円周積分を使うと
+
+$$
+\int_G\chi_D(g)\,dg
+=\int_G g\,dg+\int_G g^{-1}\,dg+2\int_G 1\,dg
+=0+0+2=2.
+$$
+
+一方 $\chi_D(1)=4$ であり全表現の次元を表す。
+
+平均値2は自明表現の出現回数であって全次元ではない。
 <!-- solution-end -->
 
 ### 演習 MQFC20-A4：固定されるベクトル
@@ -532,7 +693,7 @@ $U(1)$ の表現 $D(g)=\operatorname{diag}(g,g^{-1})$ を考える。テンソ�
 <!-- solution-start -->
 **詳細解答**
 
-テンソル積の基底 $e_1\otimes e_1,e_1\otimes e_2,e_2\otimes e_1,e_2\otimes e_2$ に対する作用は順に $g^2,gg^{-1},g^{-1}g,g^{-2}$ 倍である。従って
+[表現のテンソル積](../../../代数系/LREP/LREP4/index.md#def-lrep4-tensor-product) により、基底 $e_1\otimes e_1,e_1\otimes e_2,e_2\otimes e_1,e_2\otimes e_2$ に対する作用は順に $g^2,gg^{-1},g^{-1}g,g^{-2}$ 倍である。従って
 
 $$
 \chi_{D\otimes D}(g)=g^2+2+g^{-2}
@@ -557,7 +718,13 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-存在すると仮定して $p=\mu([0,1))$ とする。不変性により全整数 $n$ で $\mu([n,n+1))=p$。$m$ 個の互いに素な区間を足すと $mp\le1$ が任意の正整数 $m$ で成立するため $p=0$ である。しかし整数で添字付けたこれらの区間は互いに素で全実数を覆う。
+存在すると仮定して $p=\mu([0,1))$ とする。
+
+不変性により全整数 $n$ で $\mu([n,n+1))=p$。
+
+$m$ 個の互いに素な区間を足すと $mp\le1$ が任意の正整数 $m$ で成立するため $p=0$ である。
+
+しかし整数で添字付けたこれらの区間は互いに素で全実数を覆う。
 
 $$
 1=\mu(\mathbb R)=\sum_{n\in\mathbb Z}\mu([n,n+1))=0
@@ -583,7 +750,13 @@ P_\rho=\int_G g^{-1}D(g)\,dg
 =\operatorname{diag}(1,0,1,0).
 $$
 
-第1節の円周積分で非零指数の項が消える。像は $\mathbb C e_1\oplus\mathbb C e_3$ で、どちらも群元 $g$ を $g$ 倍として作用させる直線である。階数は2。別に $\chi_D=2g+1+g^{-1}$ を [既約指標の直交性](#thm-mqfc20-character-orthogonality) に入れても
+第1節の円周積分で非零指数の項が消える。
+
+像は $\mathbb C e_1\oplus\mathbb C e_3$ で、どちらも群元 $g$ を $g$ 倍として作用させる直線である。
+
+階数は2。
+
+別に $\chi_D=2g+1+g^{-1}$ を [既約指標の直交性](#thm-mqfc20-character-orthogonality) に入れても
 
 $$
 \int_G \chi_D(g)g^{-1}\,dg
@@ -606,7 +779,7 @@ $G=SU(2)$ の標準表現を用いる。固定した $A,B\in SU(2)$ とHaar分�
 <!-- solution-start -->
 **詳細解答**
 
-標準表現は2次元既約で自明表現と非同値である。[行列要素の直交性](#thm-mqfc20-matrix-orthogonality) の異なる代表の場合に $\sigma=1$ を入れると各 $U_{ji}$ の平均が0となる。$\operatorname{tr}(AU)=\sum_{i,j}A_{ij}U_{ji}$ だから第1式が従う。
+標準表現は [LREP2 の既約性の具体例](../../../代数系/LREP/LREP2/index.md#thm-lrep2-complete-reducibility) により2次元既約であり、1次元の自明表現とは次元が違うので非同値である。[行列要素の直交性](#thm-mqfc20-matrix-orthogonality) の異なる代表の場合に $\sigma=1$ を入れると各 $U_{ji}$ の平均が0となる。$\operatorname{tr}(AU)=\sum_{i,j}A_{ij}U_{ji}$ だから第1式が従う。
 
 第2式では $U^{-1}=U^\dagger$ を代入し、
 
