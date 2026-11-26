@@ -26,6 +26,6 @@ concepts:
     requires: [mqfc.insertion-configuration]
   - id: mqfc.two-point-time-order
     name: "二点時間順序核の非対角構成"
-    kind: theorem
+    kind: proposition
     introduction: formal
-    requires: [mqfc.causal-split-cover]
+    requires: [mqfc.causal-split-cover, mqfc.wightman-axioms, mqfc.free-kernels]
