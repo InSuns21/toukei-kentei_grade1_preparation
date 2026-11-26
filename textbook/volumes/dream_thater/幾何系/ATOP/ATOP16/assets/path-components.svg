@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 180" data-layout-lint="strict">
+  <title>二つの道連結成分と道の境界</title>
+  <desc>左の成分Pには点a,bがあり、aからbへの道が存在する。右の成分Qには点cがある。成分間を結ぶ道は存在しない。</desc>
+  <rect width="460" height="180" fill="#fff"/>
+  <g stroke="#263746" stroke-width="2" fill="#e8f0f5">
+    <ellipse cx="120" cy="90" rx="95" ry="55"/>
+    <ellipse cx="350" cy="90" rx="85" ry="55"/>
+  </g>
+  <path d="M65 108 Q115 62 171 108 M158 95 L171 108 L155 109" fill="none" stroke="#263746" stroke-width="2.4"/>
+  <g fill="#263746"><circle cx="65" cy="108" r="4"/><circle cx="171" cy="108" r="4"/><circle cx="350" cy="100" r="4"/></g>
+  <g font-family="sans-serif" font-size="16" text-anchor="middle" fill="#263746">
+    <text x="120" y="23">P</text><text x="350" y="23">Q</text><text x="117" y="69">γ</text>
+    <text x="65" y="130">a</text><text x="171" y="130">b</text><text x="350" y="125">c</text>
+    <text x="120" y="169">b - a</text>
+  </g>
+</svg>
