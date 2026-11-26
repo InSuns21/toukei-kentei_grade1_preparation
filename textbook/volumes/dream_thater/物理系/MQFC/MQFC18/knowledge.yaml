@@ -1,7 +1,7 @@
 chapter: MQFC18
 scope: dream-theater
 coverage: complete
-prerequisites: [MQFC14, MQFC15, MQFC16, MQFC17]
+prerequisites: [MQFC14, MQFC15, MQFC16, MQFC17, QFT22]
 forward_references: []
 concepts:
   - id: mqfc.annular-contraction-divergence
@@ -23,9 +23,9 @@ concepts:
     name: "四次相互作用図の表面的発散次数"
     kind: definition
     introduction: formal
-    requires: []
+    requires: [qft.superficial-degree-divergence]
   - id: mqfc.quartic-power-counting
     name: "四次相互作用図の発散次数公式"
     kind: theorem
     introduction: formal
-    requires: [mqfc.superficial-divergence-degree]
+    requires: [mqfc.superficial-divergence-degree, qft.phi4-power-counting]
