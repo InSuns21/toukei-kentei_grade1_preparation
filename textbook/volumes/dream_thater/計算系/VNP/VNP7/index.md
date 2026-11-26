@@ -126,9 +126,9 @@ $$
 
 実際左辺は $2N(A_i)+N(A_i-a)-N(A_i-b)-N(A_i-2a)-N(A_i-c)$ で、右辺を展開しても一致します。劣加法性と対称性から、任意の $u,v$ について
 
-$
+$$
 N(u)\le N(v)+N(u-v),\qquad N(v)\le N(u)+N(u-v).
-$
+$$
 
 従って $|N(u)-N(v)|\le N(u-v)$ です。ここで $u=A_i-a,v=A_i-2a$ とすれば $|\delta_i|\le N(a)$。
 
@@ -149,9 +149,9 @@ $$
 
 **誤差を消す。** $\kappa$ は $f,f',N(a),N(b)$ 以上です。$p=A_i$ または $A_i-a$、$q=B_i$ または $B_i-a$ の対応する組では、上で導いた差の絶対値の評価をそれぞれ $(p,Mc),(q,Me)$ に用います。例えば $p=A_i-a$ の場合は
 
-$
+$$
 |N(p)-Mf|\le N(ie-a)\le iN(e)+N(a)\le R\kappa.
-$
+$$
 
 他の三つも同じく $R\kappa$ 以下なので、余裕を持たせて両方を $2R\kappa$ 以下とします。また $|\partial p|,|\partial' q|\le\kappa$ です。従って $N(p)\partial p$ を $Mf\partial p$ に替えると誤差は高々 $2R\kappa^2$ です。$\tau=1/(2M)$ を選べば
 
@@ -444,13 +444,13 @@ $$
 
 5. 有限個の完備CAT(0)空間の積に距離 $d_{\rm prod}(x,y)=\sqrt{\sum_i d_i(x_i,y_i)^2}$ を入れると、これも完備CAT(0)空間です。三角不等式を確認します。$a_i=d_i(x_i,y_i),b_i=d_i(y_i,z_i)$ とすれば各座標で $d_i(x_i,z_i)\le a_i+b_i$ です。[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) を有限和に使うと
 
-$
+$$
 \begin{aligned}
 d_{\rm prod}(x,z)^2
 &\le\sum_i(a_i+b_i)^2\\
 &\le\left(\sqrt{\sum_i a_i^2}+\sqrt{\sum_i b_i^2}\right)^2.
 \end{aligned}
-$
+$$
 
 平方根を取れば積距離の三角不等式です。積のCauchy列は各座標でもCauchy列で、各座標の極限への距離の平方和は有限和なので0へ収束します。座標ごとの測地線を同じ比率で取れば、二時刻間の距離は積距離に時刻差を掛けた値です。中点も座標ごとに取れ、各座標のCN不等式を足すと積のCN不等式になります。[CN条件との同値性](../../../幾何系/NPCG/NPCG4/index.md#thm-npcg4-cn-equivalence) が適用できます。ここで述べたのは距離空間としての性質であり、積距離がpriceであるとの主張ではありません。
 
