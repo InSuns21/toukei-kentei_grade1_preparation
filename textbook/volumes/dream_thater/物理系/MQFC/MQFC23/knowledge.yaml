@@ -23,7 +23,7 @@ concepts:
     name: "転送作用素の真空規格化"
     kind: theorem
     introduction: formal
-    requires: [mqfc.lattice-physical-hilbert, mqfc.wilson-transfer-positivity]
+    requires: [mqfc.lattice-physical-hilbert, mqfc.wilson-transfer-positivity, functional.compact-self-adjoint-spectral-theorem, functional.compact-nonzero-eigenvalue-discreteness]
   - id: mqfc.lattice-hamiltonian
     name: "格子Hamiltonianの構成"
     kind: theorem
