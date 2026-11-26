@@ -1,0 +1,25 @@
+id: VNP11
+title: "E：完全ネットワーク・二つのhub・few-term lemmaとcut"
+volume: foundations
+status: supplementary
+prerequisites: [VNP10, VNP9, VNP3, VNP2, VNP1]
+official_scope: []
+learning_objectives:
+  - 完全ネットワーク多項式の変数と単項式を数え節和への変換を証明できる
+  - 係数配列を辺端のwireの積として表示し固定切断の階数を計算できる
+  - 均衡分割の回路分解を端添字に移し二ハブ被覆を構成できる
+  - スペクトル点の切断費用不等式とprice近似の誤差付き回路下界を導出できる
+definitions:
+  - { id: VNP11-DEF-01, name: "完全ネットワーク多項式" }
+theorems:
+  - { id: VNP11-THM-01, name: "完全ネットワークのパーマネント代入" }
+  - { id: VNP11-THM-02, name: "完全ネットワークのwire係数表示" }
+  - { id: VNP11-THM-03, name: "固定切断の階数" }
+  - { id: VNP11-THM-04, name: "完全ネットワークの二ハブ被覆" }
+  - { id: VNP11-THM-05, name: "完全ネットワークの切断費用不等式" }
+canonical_examples: [三頂点の共有ビット, 四頂点の固定切断, 二ハブの入力次元]
+problem_patterns: [VNP11-A1, VNP11-A2, VNP11-A3, VNP11-A4, VNP11-B1, VNP11-B2, VNP11-B3, VNP11-B4, VNP11-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
