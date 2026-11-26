@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340" data-layout-lint="strict" role="img">
+<title>トーラスの周期的な三角形分割</title><desc>三掛ける三の正方形格子を同じ方向の対角線で分割する。左右を同方向、上下を同方向に貼り合わせる。</desc>
+<g fill="none" stroke="#26364a" stroke-width="1.8"><path d="M65 65 H275 V275 H65 Z M135 65 V275 M205 65 V275 M65 135 H275 M65 205 H275"/><path d="M65 135 L135 65 M135 135 L205 65 M205 135 L275 65 M65 205 L135 135 M135 205 L205 135 M205 205 L275 135 M65 275 L135 205 M135 275 L205 205 M205 275 L275 205"/></g>
+<g fill="none" stroke="#26364a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M145 48 H195 L187 41 M195 48 L187 55 M145 292 H195 L187 285 M195 292 L187 299"/><path stroke-dasharray="5 3" d="M48 195 V145 M292 195 V145"/><path d="M41 153 L48 145 L55 153 M285 153 L292 145 L299 153"/></g>
+<g font-size="14" fill="#26364a" text-anchor="middle"><text x="170" y="29">x</text><text x="170" y="317">x</text><text x="29" y="175">y</text><text x="311" y="175">y</text></g></svg>
