@@ -1,0 +1,54 @@
+chapter: MMX14
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX12, MMX13]
+forward_references: []
+concepts:
+  - id: matrix-exponent.signed-universal-count
+    name: "符号付き普遍計数テンソル"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（符号付き普遍計数テンソル）"]
+    requires: []
+  - id: matrix-exponent.bit-network-batch
+    name: "三価ビットネットワークのバッチ"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（三価ビットネットワークのバッチ）"]
+    requires: [matrix-exponent.signed-universal-count]
+  - id: matrix-exponent.public-private-clock
+    name: "公開時計と私有ジョブ"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（公開時計と私有ジョブ）"]
+    requires: []
+  - id: matrix-exponent.signed-count-vnp
+    name: "符号付き計数多項式の VNP 所属"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（符号付き計数多項式の VNP 所属）"]
+    requires: [matrix-exponent.signed-universal-count]
+  - id: matrix-exponent.compressed-enumeration
+    name: "圧縮展開の列挙評価"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（圧縮展開の列挙評価）"]
+    requires: [matrix-exponent.iterated-compression, matrix-exponent.bit-network-batch]
+  - id: matrix-exponent.clock-gap
+    name: "公開時計の隔たり"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（公開時計の隔たり）"]
+    requires: [matrix-exponent.compressed-enumeration, matrix-exponent.public-private-clock]
+  - id: matrix-exponent.field-count-evaluation
+    name: "有限体の縮約と受理経路数"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有限体の縮約と受理経路数）"]
+    requires: [matrix-exponent.bit-network-batch]
+  - id: matrix-exponent.exact-batch-bound
+    name: "厳密バッチ下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（厳密バッチ下界）"]
+    requires: [matrix-exponent.clock-gap, matrix-exponent.field-count-evaluation]
