@@ -1,0 +1,48 @@
+chapter: VNP16
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP15, VNP13, MMX6]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.truncated-ring
+    name: "切断環の定数項還元"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（切断環の定数項還元）"]
+    requires: [matrix-exponent.truncated-polynomial]
+  - id: vp-vnp-study.finite-sl-kernel
+    name: "有限特殊線形群と還元核"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限特殊線形群と還元核）"]
+    requires: [vp-vnp-study.truncated-ring]
+  - id: vp-vnp-study.kernel-order
+    name: "還元核の位数"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（還元核の位数）"]
+    requires: [vp-vnp-study.finite-sl-kernel]
+  - id: vp-vnp-study.cyclic-generators
+    name: "巡回生成元と型別部分群"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（巡回生成元と型別部分群）"]
+    requires: [vp-vnp-study.finite-sl-kernel, vp-vnp-study.unitriangular]
+  - id: vp-vnp-study.group-action-tower
+    name: "群作用の塔と型別軌道"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（群作用の塔と型別軌道）"]
+    requires: [vp-vnp-study.cyclic-generators]
+  - id: vp-vnp-study.finite-group-tower
+    name: "有限群作用の塔"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（有限群作用の塔）"]
+    requires: [vp-vnp-study.group-action-tower, vp-vnp-study.kernel-order]
+  - id: vp-vnp-study.cyclic-word-length
+    name: "巡回生成元の語長上界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（巡回生成元の語長上界）"]
+    requires: [vp-vnp-study.cyclic-generators, vp-vnp-study.truncated-ring]

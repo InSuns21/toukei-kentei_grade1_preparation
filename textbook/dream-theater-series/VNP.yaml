@@ -66,8 +66,8 @@ chapters:
     title: "G：Poincaréからrerouting laws、有限生成係数環、loadの評価"
   - id: VNP16
     path: textbook/volumes/dream_thater/計算系/VNP/VNP16
-    status: planned
-    title: "H：F₂[s]/(s^{n+1})上SL群のtower・辺タイプ・coset"
+    status: completed
+    title: "H：切断多項式環上のSL群の塔・辺タイプ・剰余類"
   - id: VNP17
     path: textbook/volumes/dream_thater/計算系/VNP/VNP17
     status: planned
