@@ -80,17 +80,17 @@ $$
 
 [稠密な観測ベクトル族からのギャップ判定](../MQFC12/index.md#thm-mqfc12-decay-gap) の入力は、観測ベクトル族 $\mathcal V$ の中心化した線形包が稠密であること、
 
-$
+$$
 \overline{\operatorname{span}(Q\mathcal V)}=\mathcal K
-$
+$$
 
 および全ての $v\in\mathcal V$ に共通の指数 $\Delta>0$ による減衰上界である。係数 $M_v$ は観測量ごとに異なってもよい。
 
 OS構成では正時間観測式の類が完備化の定義から稠密であり、その線形包を $Q$ で中心化すれば $\mathcal K$ でも稠密となる。実際 $w\in\mathcal K$ に対し $v_n\to w$ なら、射影の縮小性から
 
-$
+$$
 \|Qv_n-w\|\le\|v_n-w\|\to0
-$
+$$
 
 である。
 
