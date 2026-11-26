@@ -2,7 +2,7 @@ id: MQFC18
 title: "3次元のφ⁴と構成の限界"
 volume: foundations
 status: supplementary
-prerequisites: [MQFC14, MQFC15, MQFC16, MQFC17]
+prerequisites: [MQFC14, MQFC15, MQFC16, MQFC17, QFT22]
 official_scope: []
 learning_objectives:
   - 三次元の一点分散と二頂点の三本収縮の発散を計算できる
