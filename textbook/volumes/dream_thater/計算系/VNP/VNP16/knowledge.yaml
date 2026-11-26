@@ -1,15 +1,15 @@
 chapter: VNP16
 scope: dream-theater
 coverage: complete
-prerequisites: [VNP15, VNP13]
+prerequisites: [VNP15, VNP13, MMX6]
 forward_references: []
 concepts:
   - id: vp-vnp-study.truncated-ring
-    name: "切断多項式環"
+    name: "切断環の定数項還元"
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（切断多項式環）"]
-    requires: []
+    introduction_aliases: ["定義（切断環の定数項還元）"]
+    requires: [matrix-exponent.truncated-polynomial]
   - id: vp-vnp-study.finite-sl-kernel
     name: "有限特殊線形群と還元核"
     kind: definition
