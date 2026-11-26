@@ -2,7 +2,7 @@ id: VNP14
 title: "F：overlapping windows・固定点集合の角度・一様Poincaré F.6"
 volume: foundations
 status: supplementary
-prerequisites: [VNP13, VNP7, VNP9, NPCG4, NPCG7, NPCG8]
+prerequisites: [VNP13, VNP7, VNP9, NPCG4, NPCG7, NPCG8, NPCG9]
 official_scope: []
 learning_objectives:
   - 区間部分群の固定点への射影を弱い群長さ評価から制御できる
