@@ -1,0 +1,27 @@
+id: ATOP18
+title: "相対ホモロジーと長完全列"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP17]
+official_scope: []
+learning_objectives:
+  - 空間の対と相対特異鎖群を構成し商で境界が定まることを確認できる
+  - 相対サイクルと相対ホモロジー群を代表元から判定できる
+  - 接続準同型の代表元によらない構成を再現できる
+  - 長完全列の三位置の完全性と自然性を鎖の持ち上げから証明できる
+  - 区間と有限点および円板と境界の相対群を長完全列から調べられる
+definitions:
+  - { id: ATOP18-DEF-01, name: 空間の対 }
+  - { id: ATOP18-DEF-02, name: 相対特異鎖群 }
+  - { id: ATOP18-DEF-03, name: 相対ホモロジー群 }
+theorems:
+  - { id: ATOP18-THM-01, name: 相対ホモロジーの誘導準同型 }
+  - { id: ATOP18-THM-02, name: 相対ホモロジーの接続準同型 }
+  - { id: ATOP18-THM-03, name: 対のホモロジー長完全列 }
+  - { id: ATOP18-THM-04, name: 対の長完全列の自然性 }
+canonical_examples: [区間と両端点, 円板と境界円, 区間の反転]
+problem_patterns: [ATOP18-A1, ATOP18-A2, ATOP18-A3, ATOP18-A4, ATOP18-B1, ATOP18-B2, ATOP18-B3, ATOP18-B4, ATOP18-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }

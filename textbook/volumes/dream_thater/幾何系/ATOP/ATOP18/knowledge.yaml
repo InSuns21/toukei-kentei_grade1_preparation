@@ -1,0 +1,41 @@
+chapter: ATOP18
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP17]
+forward_references: []
+concepts:
+  - id: atop.space-pair
+    name: 空間の対
+    kind: definition
+    introduction: formal
+    requires: [atop.singular-simplex]
+  - id: atop.relative-singular-chain
+    name: 相対特異鎖群
+    kind: definition
+    introduction: formal
+    requires: [atop.space-pair, atop.singular-chain-group, atop.singular-boundary, algebra.quotient-module]
+  - id: atop.relative-singular-homology
+    name: 相対ホモロジー群
+    kind: definition
+    introduction: formal
+    requires: [atop.relative-singular-chain, atop.singular-homology]
+  - id: atop.relative-induced-map
+    name: 相対ホモロジーの誘導準同型
+    kind: theorem
+    introduction: formal
+    requires: [atop.relative-singular-homology, atop.singular-chain-map-boundary, atop.induced-singular-homology-map]
+  - id: atop.relative-connecting-homomorphism
+    name: 相対ホモロジーの接続準同型
+    kind: theorem
+    introduction: formal
+    requires: [atop.relative-singular-homology, atop.singular-boundary-square-zero]
+  - id: atop.relative-long-exact-sequence
+    name: 対のホモロジー長完全列
+    kind: theorem
+    introduction: formal
+    requires: [atop.relative-connecting-homomorphism, atop.induced-singular-homology-map]
+  - id: atop.relative-long-exact-naturality
+    name: 対の長完全列の自然性
+    kind: theorem
+    introduction: formal
+    requires: [atop.relative-long-exact-sequence, atop.relative-induced-map]
