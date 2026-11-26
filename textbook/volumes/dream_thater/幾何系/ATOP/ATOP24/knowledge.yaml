@@ -8,7 +8,7 @@ concepts:
     name: 円板の非レトラクション定理
     kind: theorem
     introduction: formal
-    requires: [atop.retraction, atop.sphere-map-degree, atop.contractible-reduced-homology, atop.induced-singular-homology-map]
+    requires: [atop.retraction, atop.sphere-map-degree, atop.contractible-reduced-homology, atop.induced-singular-homology-map, topology.real-interval-connected, topology.continuous-image-connected]
   - id: atop.fixed-point-free-retraction
     name: 不動点を持たない写像からのレトラクション
     kind: lemma
