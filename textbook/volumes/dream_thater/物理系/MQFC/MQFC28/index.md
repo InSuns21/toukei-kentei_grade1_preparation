@@ -58,7 +58,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-独立な標準Gaussianベクトル $G,H\in\mathbb R^n$ をとる。実対称半正定値行列には半正定値平方根があるため、$X=C^{1/2}G$、$Y=D^{1/2}H$ は中心化Gaussianである。例えば $X$ の共分散は
+[有限次元Gaussian積分と特性関数](../MQFC6/index.md#thm-mqfc6-finite-gaussian)の標準Gaussianの場合を用い、独立な標準Gaussianベクトル $G,H\in\mathbb R^n$ をとる。実対称半正定値行列には半正定値平方根があるため、$X=C^{1/2}G$、$Y=D^{1/2}H$ は中心化Gaussianである。例えば $X$ の共分散は
 
 $$
 \mathbb E[XX^\top]=C^{1/2}I C^{1/2}=C.
@@ -164,7 +164,7 @@ $$
 
 ## 3. 局所項を残し、残差を測る
 
-四次の相互作用を含む場合、Gaussian平均だけでも元の次数より低い項が生じる。$V(y)=\lambda y^4$、$\lambda\ge0$ とし、$Z$ は分散 $c>0$ の中心化実Gaussianとする。奇数次モーメントは零、偶数次では $\mathbb E Z^2=c$、$\mathbb E Z^4=3c^2$ である。二項展開すると
+四次の相互作用を含む場合、Gaussian平均だけでも元の次数より低い項が生じる。$V(y)=\lambda y^4$、$\lambda\ge0$ とし、$Z$ は分散 $c>0$ の中心化実Gaussianとする。[Gaussian Schwinger関数のWick対分割公式](../MQFC7/index.md#thm-mqfc7-gaussian-pairing)を一変数に適用すると、奇数次モーメントは零、偶数次では $\mathbb E Z^2=c$、$\mathbb E Z^4=3c^2$ である。二項展開すると
 
 $$
 \mathbb E V(x+Z)=\lambda(x^4+6cx^2+3c^2).
@@ -207,7 +207,14 @@ $$
 符号を反転して $L\ge a-b/2$。二つの不等式を合わせる。
 <!-- proof-end -->
 
-例えば $x=0$、$W=\lambda Z^4$ なら $a=3\lambda c^2$、$b=105\lambda^2c^4$ である。Gaussian密度の微分を使った部分積分により $\mathbb EZ^{2k}=(2k-1)c\,\mathbb EZ^{2k-2}$ となるので、八次モーメントの係数は $7\cdot5\cdot3\cdot1=105$ である。$3\lambda c^2<1$ なら誤差は $105\lambda^2c^4/2$ 以下である。
+例えば $x=0$、$W=\lambda Z^4$ なら $a=3\lambda c^2$、$b=105\lambda^2c^4$ である。分散 $c$ の密度 $p_c$ は $zp_c(z)=-cp_c'(z)$ を満たす。$z^{2k-1}p_c(z)$ は両端で零に向かうので、部分積分により
+
+$
+\mathbb EZ^{2k}=-c\int_{\mathbb R} z^{2k-1}p_c'(z)\,dz
+=(2k-1)c\,\mathbb EZ^{2k-2}.
+$
+
+初期値 $\mathbb E Z^0=1$ から、八次モーメントの係数は $7\cdot5\cdot3\cdot1=105$ である。$3\lambda c^2<1$ なら誤差は $105\lambda^2c^4/2$ 以下である。
 
 一般の $x$ では $a=\lambda(x^4+6cx^2+3c^2)$ なので、大きな $|x|$ まで一律に $a<1$ とすることはできない。ここに場の大きさによって積分領域を分ける動機がある。
 
@@ -258,7 +265,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$s>0$ とする。分散 $\sigma_i^2$ の成分の指数モーメントは $\mathbb E e^{sZ_i}=e^{s^2\sigma_i^2/2}$ である。これは一変数Gaussian密度の平方完成から得られ、分散零なら両辺とも1になる。Markovの不等式から
+$s>0$ とする。分散 $\sigma_i^2$ の成分の指数モーメントは $\mathbb E e^{sZ_i}=e^{s^2\sigma_i^2/2}$ である。分散 $\sigma_i^2>0$ の場合、指数は $sz-z^2/(2\sigma_i^2)=-(z-s\sigma_i^2)^2/(2\sigma_i^2)+s^2\sigma_i^2/2$ と平方完成できる。平行移動したGaussian密度の積分は1なので公式が従う。分散零なら両辺とも1になる。Markovの不等式から
 
 $$
 \mathbb P(Z_i>R)\le e^{-sR}\mathbb E e^{sZ_i}
@@ -286,13 +293,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（有効作用の一様誤差の累積）**
-> $\gamma_j$ を有限次元の中心化Gaussian確率測度、$j=1,\ldots,J$ とする。$U_0=\widetilde U_0$ を有限実数値のBorel関数とし、
+> $n,J$ を正整数、$C_j$ を実対称半正定値 $n\times n$ 行列、$\gamma_j=\gamma_{C_j}$ を対応する中心化Gaussian確率測度とする。ここで $j=1,\ldots,J$ である。$U_0=\widetilde U_0$ を有限実数値のBorel関数とし、
 
 $$
 U_j=-\log T_{C_j}(e^{-U_{j-1}})
 $$
 
-> とする。全積分が各点で正かつ有限であり、近似作用が全ての $x$ で
+> とする。全積分が各点で正かつ有限であり、有限実数値のBorel関数である近似作用が全ての $x\in\mathbb R^n$ で
 
 $$
 |\widetilde U_j(x)+\log T_{C_j}(e^{-\widetilde U_{j-1}})(x)|\le\epsilon_j
