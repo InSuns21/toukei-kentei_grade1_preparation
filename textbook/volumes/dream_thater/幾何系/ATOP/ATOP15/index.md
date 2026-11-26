@@ -6,7 +6,9 @@
 
 ## 1. 面を頂点とする複体
 
-有限[抽象単体複体](../ATOP10/index.md#def-atop10-abstract-complex) $K$ を取ります。以下「非空」は頂点が少なくとも一つ存在することを意味します（空単体だけの複体を除きます）。頂点集合を $V$ とし、[幾何学的実現](../ATOP10/index.md#def-atop10-realization)を $|K|$ と書きます。各頂点 $v$ を座標空間 $\mathbb R^V$ の標準基底ベクトルと同一視します。点 $x$ は一意に
+有限[抽象単体複体](../ATOP10/index.md#def-atop10-abstract-complex) $K$ を取ります。以下「非空」は頂点が少なくとも一つ存在することを意味します（空単体だけの複体を除きます）。
+
+頂点集合を $V$ とし、[幾何学的実現](../ATOP10/index.md#def-atop10-realization)を $|K|$ と書きます。各頂点 $v$ を座標空間 $\mathbb R^V$ の標準基底ベクトルと同一視します。点 $x$ は一意に
 
 $$
 x=\sum_{v\in V}t_v(x)v,\qquad
@@ -19,7 +21,11 @@ $$
 b_F=\frac{1}{|F|}\sum_{v\in F}v
 $$
 
-です。この分母の $|F|$ は頂点数を表します。以下、非空単体 $F$ の幾何学的実現は、その頂点の凸包 $\operatorname{conv}(F)$ とも書きます。細分複体の抽象頂点 $b_F$ と、元の座標空間にある重心 $b_F$ は同じ記号を使いますが、両者を対応させる写像は次の命題で構成します。[重心細分](../../../応用系/FIX/FIX1/index.md#def-fix1-barycentric-subdivision)の幾何的な作り方を、抽象複体全体へ適用します。共有する面の重心はどちらの単体から計算しても同じなので、面の名前そのものを頂点として使えます。
+です。この分母の $|F|$ は頂点数を表します。以下、非空単体 $F$ の幾何学的実現は、その頂点の凸包 $\operatorname{conv}(F)$ とも書きます。
+
+細分複体の抽象頂点 $b_F$ と、元の座標空間にある重心 $b_F$ は同じ記号を使いますが、両者を対応させる写像は次の命題で構成します。
+
+[重心細分](../../../応用系/FIX/FIX1/index.md#def-fix1-barycentric-subdivision)の幾何的な作り方を、抽象複体全体へ適用します。共有する面の重心はどちらの単体から計算しても同じなので、面の名前そのものを頂点として使えます。
 
 <a id="def-atop15-subdivision-complex"></a>
 
@@ -84,10 +90,30 @@ $$
 
 逆に、厳密包含鎖に沿った正係数の凸結合では、$F_i\setminus F_{i-1}$（$F_0=\varnothing$）に属する頂点の座標は $\sum_{k=i}^m\lambda_k/|F_k|$ であり、隣の値との差は正です。従って元の点から正係数の支持鎖と係数が一意に復元されます。これで全単射です。
 
-細分側の標準基底を $e_F$ と書くと、$j$ は線形写像 $e_F\mapsto b_F$ の実現への制限です。有限次元の線形写像は連続であり、[部分空間位相の連続性判定](../../../基礎科目/TOP/TOP1/index.md#prop-top1-subspace-universal) により $|K|$ を値域とする $j$ も連続です。[実現の共通面性](../ATOP10/index.md#prop-atop10-intersection) により定義域はコンパクトであり、$|K|$ は Euclid 空間の部分空間で Hausdorff です。[コンパクト空間からHausdorff空間への連続全単射](../../../基礎科目/TOP/TOP2/index.md#thm-top2-compact-hausdorff-bijection) を $j$ に適用して逆写像も連続です。
+細分側の標準基底を $e_F$ と書くと、$j$ は線形写像 $e_F\mapsto b_F$ の実現への制限です。有限次元の線形写像は連続であり、[部分空間位相の連続性判定](../../../基礎科目/TOP/TOP1/index.md#prop-top1-subspace-universal) により $|K|$ を値域とする $j$ も連続です。
+
+[実現の共通面性](../ATOP10/index.md#prop-atop10-intersection) により定義域はコンパクトであり、$|K|$ は Euclid 空間の部分空間で Hausdorff です。[コンパクト空間からHausdorff空間への連続全単射](../../../基礎科目/TOP/TOP2/index.md#thm-top2-compact-hausdorff-bijection) を $j$ に適用して逆写像も連続です。
 <!-- proof-end -->
 
-以下では $j$ で実現を同一視します。[メッシュ](../../../応用系/FIX/FIX1/index.md#def-fix1-triangulation-mesh) は非空単体の直径の最大値です。$\operatorname{sd}^0K=K$、$\operatorname{sd}^{r+1}K=\operatorname{sd}(\operatorname{sd}^rK)$ とします。$d=\dim K$ とすると、[重心細分によるメッシュ縮小](../../../応用系/FIX/FIX1/index.md#prop-fix1-barycentric-mesh) を各正次元の幾何学的単体に、分割前はその単体一つと全ての面からなる分割として適用できます。$q$ 次元単体の小単体の直径は元の直径の $q/(q+1)$ 倍以下です。$1\le q\le d$ ではこの係数は $d/(d+1)$ 以下であり、0次元単体の直径は零です。包含鎖の長さから細分後の次元も $d$ 以下なので、この評価を反復でき、$d\ge1$ なら
+以下では $j$ で実現を同一視します。[メッシュ](../../../応用系/FIX/FIX1/index.md#def-fix1-triangulation-mesh) は非空単体の直径の最大値です。反復細分を
+
+$$
+\operatorname{sd}^0K=K,\qquad
+\operatorname{sd}^{r+1}K=\operatorname{sd}(\operatorname{sd}^rK)
+$$
+
+と定めます。
+
+$d=\dim K$ とします。[重心細分によるメッシュ縮小](../../../応用系/FIX/FIX1/index.md#prop-fix1-barycentric-mesh) を各正次元の幾何学的単体に、分割前はその単体一つと全ての面からなる分割として適用できます。
+
+$q$ 次元単体の小単体の直径は元の直径の $q/(q+1)$ 倍以下です。ここで
+
+$$
+1\le q\le d\quad\Longrightarrow\quad
+\frac{q}{q+1}\le\frac{d}{d+1}.
+$$
+
+また0次元単体の直径は零です。包含鎖の長さから細分後の次元も $d$ 以下なので、この評価を反復でき、$d\ge1$ なら
 
 $$
 \operatorname{mesh}(\operatorname{sd}^r K)
@@ -99,11 +125,22 @@ $d=0$ なら各単体は一点でありメッシュは初めから零です。�
 
 ## 2. 細分前後の鎖を対応させる
 
-係数は整数とし、[単体鎖群](../ATOP13/index.md#def-atop13-simplicial-chains)を $C_n(K)$ と略します。各複体の頂点に全順序を固定し、昇順の頂点列を基底、他の順序を置換の符号付き基底として扱います。以下 $n$ は鎖の次数で、$\partial$ は [単体境界作用素](../ATOP13/index.md#def-atop13-boundary)（次数 $n$ から $n-1$ へ、$n\le0$ では零）です。$\widehat u_i$ は頂点列から $u_i$ を除くことを表します。
+係数は整数とし、[単体鎖群](../ATOP13/index.md#def-atop13-simplicial-chains)を $C_n(K)$ と略します。各複体の頂点に全順序を固定し、昇順の頂点列を基底、他の順序を置換の符号付き基底として扱います。
+
+以下 $n$ は鎖の次数で、$\partial$ は [単体境界作用素](../ATOP13/index.md#def-atop13-boundary) です。
+
+$$
+\partial_n:C_n(K)\longrightarrow C_{n-1}(K),\qquad
+\partial_n=0\quad(n\le0).
+$$
+
+$\widehat u_i$ は頂点列から $u_i$ を除くことを表します。
 
 辺 $[a,b]$ を二つの小辺 $[b_a,b_{ab}]+[b_{ab},b_b]$ に置き換えると、中点の境界係数が相殺されます。一般の次数でも、元の単体をその境界から組み立てる方法を使います。
 
-頂点 $w$ を小単体の頂点列の先頭に加えると、一つ高い次元の鎖ができます。例えば辺 $[u,v]$ に $w$ を加えた三角形の境界には、元の辺が正符号で現れます。この操作を、追加後の単体が存在する場合に限って使います。部分複体 $A$ とは、$M$ に属する単体からなる抽象単体複体であり、面を取っても $A$ 内にとどまります。
+頂点 $w$ を小単体の頂点列の先頭に加えると、一つ高い次元の鎖ができます。例えば辺 $[u,v]$ に $w$ を加えた三角形の境界には、元の辺が正符号で現れます。この操作を、追加後の単体が存在する場合に限って使います。
+
+部分複体 $A$ とは、$M$ に属する単体からなる抽象単体複体であり、面を取っても $A$ 内にとどまります。
 
 <a id="def-atop15-vertex-cone"></a>
 
@@ -193,7 +230,9 @@ $$
 これで0次も示せました。
 <!-- proof-end -->
 
-従って正次数の[サイクル](../ATOP14/index.md#def-atop14-cycles-boundaries)（$\partial z=0$）、または係数和零の0鎖を、頂点追加によって $M$ 内の境界として表せます。次はこの操作を細分へ適用します。$S_n$ の添字 $n$ は入力と出力の鎖の次数を表し、$S$ はその全次数の写像の族を表します。
+従って正次数の[サイクル](../ATOP14/index.md#def-atop14-cycles-boundaries)（$\partial z=0$）、または係数和零の0鎖を、頂点追加によって $M$ 内の境界として表せます。
+
+次はこの操作を細分へ適用します。$S_n$ の添字 $n$ は入力と出力の鎖の次数を表し、$S$ はその全次数の写像の族を表します。
 
 <a id="def-atop15-subdivision-chain"></a>
 
@@ -299,7 +338,13 @@ $$
 p(b_a)=a,\qquad p(b_b)=p(b_{ab})=b.
 $$
 
-[誘導鎖準同型](../ATOP13/index.md#def-atop13-induced-chain-map) を $p_\#$ と書きます。次数 $n$ の成分は $p_{\#,n}:C_n(\operatorname{sd}K)\to C_n(K)$ です。以下、次数が入力から分かる場合は添字 $n$ を省き、重複頂点のある像は零とします。$\operatorname{id}$ は該当する鎖群の恒等写像、$C_*(K)$ は全次数の鎖群をまとめた記法です。
+[誘導鎖準同型](../ATOP13/index.md#def-atop13-induced-chain-map) を $p_\#$ と書きます。次数 $n$ の成分は
+
+$$
+p_{\#,n}:C_n(\operatorname{sd}K)\to C_n(K)
+$$
+
+です。以下、次数が入力から分かる場合は添字を省き、重複頂点のある像は零とします。$\operatorname{id}$ は該当する鎖群の恒等写像、$C_*(K)$ は全次数の鎖群をまとめた記法です。
 
 二つの鎖写像の差を、次数を1上げる操作 $D$ を用いて境界の前後の和 $\partial D+D\partial$ として表せれば、サイクル上の差が境界になります。この関係が鎖ホモトピーです。
 
@@ -330,7 +375,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず次数0で $p_\# S[v]=[v]$ です。次数 $n\ge1$ の元の単体 $\sigma$ 上では、$p_\# S\sigma$ は $\sigma$ 内の $n$ 鎖なので整数 $k$ を用いて $k\sigma$ と書けます。[細分鎖写像と境界の可換性](#thm-atop15-subdivision-chain-map)と [単体写像は境界と可換](../ATOP13/index.md#thm-atop13-chain-map) を使うと、帰納法より
+まず次数0で $p_\# S[v]=[v]$ です。次数 $n\ge1$ の元の単体 $\sigma$ 上では、$p_\# S\sigma$ は $\sigma$ 内の $n$ 鎖なので整数 $k$ を用いて
+
+$$
+p_\# S\sigma=k\sigma
+$$
+
+と書けます。[細分鎖写像と境界の可換性](#thm-atop15-subdivision-chain-map)と [単体写像は境界と可換](../ATOP13/index.md#thm-atop13-chain-map) を使うと、帰納法より
 
 $$
 k\partial\sigma
@@ -380,7 +431,29 @@ $$
 
 $\operatorname{sd}F$ の全単体は $b_F$ を加えても包含鎖のままです。従って $D_n\tau=c_{b_F}z$ と定めると、[頂点追加と境界の恒等式](#lem-atop15-cone-boundary)により $\partial D_n\tau=z$ です。この値は $\operatorname{sd}F$ 内にあり、必要な支持条件も保たれます。基底上の定義を整数線形に延長して帰納法が閉じます。
 
-[単体ホモロジー群](../ATOP14/index.md#def-atop14-simplicial-homology) の類に対して、$S_*[z]=[Sz]$、$p_*[z]=[p_\#z]$ と定めます。[単体写像の誘導ホモロジー準同型](../ATOP14/index.md#thm-atop14-induced-homology) と同じ理由を一般の鎖写像 $A$（ここでは $S$ または $p_\#$）に適用できます。実際、$\partial z=0$ なら $\partial Az=A\partial z=0$ であり、$z-z'=\partial w$ なら $Az-Az'=\partial Aw$ です。従って代表元の選び方によらず、両写像は良定義です。$p_\# S=\operatorname{id}$ から $p_*S_*=\operatorname{id}$ です。任意の細分サイクル $z$ について
+[単体ホモロジー群](../ATOP14/index.md#def-atop14-simplicial-homology) の類に対して、
+
+$$
+S_*[z]=[Sz],\qquad p_*[z]=[p_\#z]
+$$
+
+と定めます。[単体写像の誘導ホモロジー準同型](../ATOP14/index.md#thm-atop14-induced-homology) と同じ理由を一般の鎖写像 $A$（ここでは $S$ または $p_\#$）に適用できます。
+
+実際、サイクル $\partial z=0$ に対しては
+
+$$
+\partial Az=A\partial z=0
+$$
+
+となり、代表元の差が境界 $z-z'=\partial w$ であれば
+
+$$
+Az-Az'=A\partial w=\partial Aw
+$$
+
+です。従って代表元の選び方によらず、両写像は良定義です。
+
+$p_\# S=\operatorname{id}$ から $p_*S_*=\operatorname{id}$ です。任意の細分サイクル $z$ について
 
 $$
 z-Sp_\#z=\partial Dz+D\partial z=\partial Dz
@@ -546,7 +619,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\sigma=\varnothing$ なら像の合併も空単体です。以下 $\sigma\ne\varnothing$ とし、その重心 $x$ を取ると、全頂点 $v\in\sigma$ の開スターに $x$ が入ります。二つのスター条件から $g(v)$ と $h(v)$ はともに $f(x)$ の支持集合に属します。従ってその合併は支持集合の部分集合であり、単体です。
+$\sigma=\varnothing$ なら像の合併も空単体です。
+
+以下 $\sigma\ne\varnothing$ とし、その重心 $x$ を取ると、全頂点 $v\in\sigma$ の開スターに $x$ が入ります。
+
+二つのスター条件から $g(v)$ と $h(v)$ はともに $f(x)$ の支持集合に属します。従ってその合併は支持集合の部分集合であり、単体です。
 
 任意の点 $y$ の支持単体を $\sigma$ とすれば $|g|(y),|h|(y)$ はともにこの合併の閉単体に属します。従って $(1-t)|g|(y)+t|h|(y)$ はその単体内にあり、連続性と端点条件からホモトピーになります。
 <!-- proof-end -->
@@ -720,7 +797,15 @@ $$
 | $b,bc,abc$ | $b,c,c$ |
 | $c,bc,abc$ | $c,c,c$ |
 
-[誘導鎖準同型](../ATOP13/index.md#def-atop13-induced-chain-map) では重複する列の像は零なので一行目だけが残ります。$S_2[a,b,c]$ の該当項は $[o,a',b_{ab}]$ です。包含順 $[a',b_{ab},o]$ への移動は二回の隣接交換で正符号。従ってその像は $+[a,b,c]$ です。これで $p_\#S_2[a,b,c]=[a,b,c]$ を直接確認できました。
+[誘導鎖準同型](../ATOP13/index.md#def-atop13-induced-chain-map) では重複する列の像は零なので一行目だけが残ります。
+
+$S_2[a,b,c]$ の該当項は $[o,a',b_{ab}]$ です。包含順への移動は二回の隣接交換なので正符号です。
+
+$$
+[o,a',b_{ab}]=[a',b_{ab},o].
+$$
+
+従ってその像は $+[a,b,c]$ です。これで $p_\#S_2[a,b,c]=[a,b,c]$ を直接確認できました。
 <!-- solution-end -->
 
 ### 演習 ATOP15-B3：鎖ホモトピーを辺上で検算する
@@ -774,7 +859,15 @@ $$
 f(x)=1-(2x-1)^2.
 $$
 
-両端の開スターでは $0\le f(x)<1$、中点の開スターでは $0<f(x)\le1$ です。従って $g(0)=g(1)=0,g(m)=1$ とすれば全スター条件が成立します。二つの小辺はどちらも値域の辺へ送られ、単体写像です。図の実線が $f$、破線が $|g|$ です。各小辺上で $|g|$ は一次関数となり、三頂点の値が $0,1,0$ になります。
+両端の開スターでは $0\le f(x)<1$、中点の開スターでは $0<f(x)\le1$ です。従って
+
+$$
+g(0)=g(1)=0,\qquad g(m)=1
+$$
+
+とすれば全スター条件が成立します。二つの小辺はどちらも値域の辺へ送られ、単体写像です。
+
+図の実線が $f$、破線が $|g|$ です。各小辺上で $|g|$ は一次関数となり、三頂点の値が $0,1,0$ になります。
 
 ![放物線と中点で折れ曲がる単体近似のグラフ](assets/approximation.svg)
 
@@ -796,7 +889,19 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[重心細分複体の実現](#prop-atop15-realization) の構成で、座標の異なる正の値は $s_1=1/2,s_2=1/3,s_3=1/6$、最後に $s_4=0$ とします。値が各閾値以上の頂点集合は $F_1=\{a\},F_2=\{a,b\},F_3=\{a,b,c\}$ です。従って求める小三角形の頂点は $b_a,b_{ab},b_{abc}$ です。
+[重心細分複体の実現](#prop-atop15-realization) の構成で、座標の異なる正の値は
+
+$$
+s_1=1/2,\qquad s_2=1/3,\qquad s_3=1/6
+$$
+
+であり、最後に $s_4=0$ とします。値が各閾値以上の頂点集合は
+
+$$
+F_1=\{a\},\quad F_2=\{a,b\},\quad F_3=\{a,b,c\}
+$$
+
+です。従って求める小三角形の頂点は $b_a,b_{ab},b_{abc}$ です。
 
 $$
 \begin{aligned}
@@ -843,7 +948,9 @@ $$
 \qquad k_{-1}=k_5.
 $$
 
-頂点は自由基底なので、[サイクルの定義](../ATOP14/index.md#def-atop14-cycles-boundaries) による条件 $\partial z=0$ は全ての $k_{i-1}=k_i$ と同値です。従って $k_0=\cdots=k_5$ となり、1サイクル群は $\mathbb Z(e_0+\cdots+e_5)$ です。2鎖群が零のため境界群は零です。
+頂点は自由基底なので、[サイクルの定義](../ATOP14/index.md#def-atop14-cycles-boundaries) による条件 $\partial z=0$ は全ての $k_{i-1}=k_i$ と同値です。
+
+従って $k_0=\cdots=k_5$ となり、1サイクル群は $\mathbb Z(e_0+\cdots+e_5)$ です。2鎖群が零のため境界群は零です。
 
 [細分鎖写像の構成](#def-atop15-subdivision-chain) に従って各辺を二分すると
 
