@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 280" data-layout-lint="strict">
+  <title>三角形の重心細分</title>
+  <desc>三角形の三頂点、三辺の中点、面の重心を結び、六つの小三角形を作る。外周は実線、重心からの線は細い破線で表す。</desc>
+  <rect width="320" height="280" fill="#ffffff"/>
+  <g fill="none" stroke="#263746" stroke-width="2.5" stroke-linejoin="round">
+    <path d="M44 234 L276 234 L160 34 Z"/>
+  </g>
+  <g fill="none" stroke="#37658a" stroke-width="1.8" stroke-dasharray="5 3">
+    <path d="M160 167.333333 L44 234 M160 167.333333 L160 234 M160 167.333333 L276 234 M160 167.333333 L218 134 M160 167.333333 L160 34 M160 167.333333 L102 134"/>
+  </g>
+  <g fill="#263746">
+    <circle cx="44" cy="234" r="3.6"/><circle cx="276" cy="234" r="3.6"/><circle cx="160" cy="34" r="3.6"/>
+    <circle cx="160" cy="234" r="3.6"/><circle cx="102" cy="134" r="3.6"/><circle cx="218" cy="134" r="3.6"/><circle cx="160" cy="167.333333" r="3.6"/>
+  </g>
+  <g font-family="sans-serif" font-size="14" fill="#263746" text-anchor="middle">
+    <text x="34" y="263">a</text><text x="286" y="263">b</text><text x="160" y="22">c</text>
+    <text x="160" y="263">ab</text><text x="83" y="128">ac</text><text x="237" y="128">bc</text><text x="180" y="210">abc</text>
+  </g>
+</svg>
