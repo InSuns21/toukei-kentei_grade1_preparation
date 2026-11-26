@@ -1,0 +1,42 @@
+chapter: VNP11
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP10, VNP9, VNP3, VNP2, VNP1]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.complete-network
+    name: "完全ネットワーク多項式"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（完全ネットワーク多項式）"]
+    requires: []
+  - id: vp-vnp-study.complete-network-permanent
+    name: "完全ネットワークのパーマネント代入"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（完全ネットワークのパーマネント代入）"]
+    requires: [vp-vnp-study.complete-network, vp-vnp-study.clause-permanent, vp-vnp-study.total-gate-count]
+  - id: vp-vnp-study.complete-network-wire
+    name: "完全ネットワークのwire係数表示"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（完全ネットワークのwire係数表示）"]
+    requires: [vp-vnp-study.complete-network, vp-vnp-study.wire, vp-vnp-study.push-laws]
+  - id: vp-vnp-study.complete-network-cut-rank
+    name: "固定切断の階数"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（固定切断の階数）"]
+    requires: [vp-vnp-study.complete-network-wire]
+  - id: vp-vnp-study.complete-network-hub-cover
+    name: "完全ネットワークの二ハブ被覆"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（完全ネットワークの二ハブ被覆）"]
+    requires: [vp-vnp-study.complete-network-wire, vp-vnp-study.balanced, vp-vnp-study.hubs, vp-vnp-study.push-covers]
+  - id: vp-vnp-study.complete-network-cut-cost
+    name: "完全ネットワークの切断費用不等式"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（完全ネットワークの切断費用不等式）"]
+    requires: [vp-vnp-study.complete-network-hub-cover, vp-vnp-study.cover-spectral, vp-vnp-study.exponents]

@@ -46,7 +46,7 @@ chapters:
     title: "E：grid sums・clause sumsからpermanentへの射影"
   - id: VNP11
     path: textbook/volumes/dream_thater/計算系/VNP/VNP11
-    status: planned
+    status: completed
     title: "E：完全ネットワーク・二つのhub・few-term lemmaとcut"
   - id: VNP12
     path: textbook/volumes/dream_thater/計算系/VNP/VNP12
