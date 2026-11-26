@@ -1,0 +1,36 @@
+chapter: MQFC21
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC19, MQFC20]
+forward_references: []
+concepts:
+  - id: mqfc.wilson-lattice-action
+    name: "Wilson格子作用"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.lattice-plaquette]
+  - id: mqfc.wilson-action-invariance
+    name: "Wilson格子作用の不変性と有界性"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.wilson-lattice-action, mqfc.lattice-plaquette-covariance]
+  - id: mqfc.wilson-lattice-measure
+    name: "Wilson格子ゲージ測度"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.wilson-lattice-action, mqfc.haar-transform]
+  - id: mqfc.wilson-measure-construction
+    name: "有限格子でのWilson測度の構成とゲージ不変性"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.wilson-lattice-measure, mqfc.wilson-action-invariance, mqfc.product-haar-gauge-invariance]
+  - id: mqfc.wilson-partition-derivative
+    name: "分配関数の微分と作用の平均"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.wilson-measure-construction]
+  - id: mqfc.wilson-classical-expansion
+    name: "Wilson格子作用の古典的展開"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.wilson-lattice-action, mqfc.lattice-path-product, mqfc.lattice-link-connection]

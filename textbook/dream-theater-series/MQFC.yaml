@@ -24,7 +24,7 @@ chapters:
   - { id: MQFC18, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC18, status: completed, title: "3次元のφ⁴と構成の限界" }
   - { id: MQFC19, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC19, status: completed, title: "連続ゲージ場を格子に置く" }
   - { id: MQFC20, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC20, status: completed, title: "Haar積分と表現の直交性" }
-  - { id: MQFC21, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC21, status: planned, title: "Wilson格子ゲージ測度" }
+  - { id: MQFC21, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC21, status: completed, title: "Wilson格子ゲージ測度" }
   - { id: MQFC22, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC22, status: planned, title: "格子ゲージ場の反射陽性" }
   - { id: MQFC23, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC23, status: planned, title: "転送作用素と物理Hilbert空間" }
   - { id: MQFC24, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC24, status: planned, title: "強結合展開とWilson loopの面積則" }

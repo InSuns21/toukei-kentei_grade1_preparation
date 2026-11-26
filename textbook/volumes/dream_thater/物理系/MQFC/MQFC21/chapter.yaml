@@ -1,0 +1,26 @@
+id: MQFC21
+title: "Wilson格子ゲージ測度"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC19, MQFC20]
+official_scope: []
+learning_objectives:
+  - 有限格子のWilson格子作用の不変性と有界性を導出できる
+  - 分配関数の正値性と確率測度の構成および境界条件ごとのゲージ不変性を説明できる
+  - ゲージ不変観測量の期待値を計算し辺の独立性と区別できる
+  - 分配関数の微分から作用の平均と分散を計算できる
+  - 滑らかな接続の正方形展開から連続古典作用の係数を導出できる
+definitions:
+  - { id: MQFC21-DEF-01, name: "Wilson格子作用" }
+  - { id: MQFC21-DEF-02, name: "Wilson格子ゲージ測度" }
+theorems:
+  - { id: MQFC21-PROP-01, name: "Wilson格子作用の不変性と有界性" }
+  - { id: MQFC21-THM-01, name: "有限格子でのWilson測度の構成とゲージ不変性" }
+  - { id: MQFC21-PROP-02, name: "分配関数の微分と作用の平均" }
+  - { id: MQFC21-THM-02, name: "Wilson格子作用の古典的展開" }
+canonical_examples: [U(1)の一正方形, 二値群の確率測度, SU(2)の定数接続, 隣接二正方形]
+problem_patterns: [MQFC21-ACTION, MQFC21-MEASURE, MQFC21-OBSERVABLE, MQFC21-CLASSICAL]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
