@@ -42,7 +42,7 @@ chapters:
     title: "D：等号解析とEuclid cube、flatまたはcontracting"
   - id: VNP10
     path: textbook/volumes/dream_thater/計算系/VNP/VNP10
-    status: planned
+    status: completed
     title: "E：grid sums・clause sumsからpermanentへの射影"
   - id: VNP11
     path: textbook/volumes/dream_thater/計算系/VNP/VNP11

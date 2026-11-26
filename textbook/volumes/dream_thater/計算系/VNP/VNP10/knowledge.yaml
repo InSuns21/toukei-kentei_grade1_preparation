@@ -1,0 +1,42 @@
+chapter: VNP10
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP9, VNP1, ACOMP11, GCT3]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.grid-sum
+    name: "格子和"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（格子和）"]
+    requires: []
+  - id: vp-vnp-study.row-form-coefficient
+    name: "行形式の積とパーマネント係数"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（行形式の積とパーマネント係数）"]
+    requires: [graph-counting.permanent]
+  - id: vp-vnp-study.two-row-cancellation
+    name: "二行の局所相殺"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（二行の局所相殺）"]
+    requires: []
+  - id: vp-vnp-study.grid-permanent
+    name: "格子和のパーマネント表示：E.1"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（格子和のパーマネント表示：E.1）"]
+    requires: [vp-vnp-study.grid-sum, vp-vnp-study.row-form-coefficient, vp-vnp-study.two-row-cancellation, graph-counting.permanent]
+  - id: vp-vnp-study.clause-sum
+    name: "節和"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（節和）"]
+    requires: []
+  - id: vp-vnp-study.clause-permanent
+    name: "節和のパーマネントへのアフィン代入：E.2"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（節和のパーマネントへのアフィン代入：E.2）"]
+    requires: [vp-vnp-study.clause-sum, vp-vnp-study.grid-permanent, algebra.field-characteristic]
