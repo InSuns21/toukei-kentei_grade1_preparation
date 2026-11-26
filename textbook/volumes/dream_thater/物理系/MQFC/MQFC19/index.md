@@ -354,7 +354,7 @@ $$
 =W_\gamma(U).
 $$
 
-[格子路の逆路公式](#thm-mqfc19-path-covariance) より $H_U(\bar\gamma)=H_U(\gamma)^{-1}$。$H_U$ はユニタリ行列の積なのでユニタリ行列であり、逆は共役転置である。対角成分を足して
+[格子路の端点変換と逆路](#thm-mqfc19-path-covariance) の逆路の式より $H_U(\bar\gamma)=H_U(\gamma)^{-1}$。$H_U$ はユニタリ行列の積なのでユニタリ行列であり、逆は共役転置である。対角成分を足して
 
 $$
 \frac{1}{N}\operatorname{tr}(H_U^\dagger)
@@ -460,7 +460,7 @@ U_p=e^{-i\epsilon}e^{-i\delta}e^{i\beta}e^{i\alpha}
 =e^{i(\alpha+\beta-\delta-\epsilon)}.
 $$
 
-$N=1$ なので [格子 Wilson loop](#def-mqfc19-wilson) は $U_p$ 自身である。[逆路と複素共役の公式](#thm-mqfc19-wilson-invariance) により
+$N=1$ なので [格子 Wilson loop](#def-mqfc19-wilson) は $U_p$ 自身である。[格子 Wilson loop の不変性](#thm-mqfc19-wilson-invariance) の逆路の式により
 
 $$
 W_{\bar p}=e^{-i(\alpha+\beta-\delta-\epsilon)}.
