@@ -33,7 +33,7 @@ chapters:
   - { id: MQFC27, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC27, status: completed, title: "漸近自由性と尺度をどう固定するか" }
   - { id: MQFC28, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC28, status: completed, title: "多重尺度くりこみと大場領域" }
   - { id: MQFC29, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC29, status: completed, title: "連続極限と無限体積極限をどう閉じるか" }
-  - { id: MQFC30, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC30, status: planned, title: "Clay Yang–Mills存在・質量ギャップ問題" }
+  - { id: MQFC30, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC30, status: completed, title: "Clay Yang–Mills存在・質量ギャップ問題" }
   - { id: MQFC31, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC31, status: planned, title: "相互作用をなぜ形式冪級数で扱うか" }
   - { id: MQFC32, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC32, status: planned, title: "分布のscaling degree" }
   - { id: MQFC33, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC33, status: planned, title: "原点を除く分布をどう延長するか" }

@@ -1,0 +1,11 @@
+chapter: MQFC30
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC9, MQFC10, MQFC12, MQFC21, MQFC22, MQFC24, MQFC25, MQFC26, MQFC27, MQFC28, MQFC29]
+forward_references: []
+concepts:
+  - id: mqfc.single-time-gap
+    name: "一時刻の二次形式によるギャップ判定"
+    kind: theorem
+    introduction: formal
+    requires: []
