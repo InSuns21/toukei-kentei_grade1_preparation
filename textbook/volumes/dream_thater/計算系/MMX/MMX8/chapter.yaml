@@ -1,0 +1,26 @@
+id: MMX8
+title: "price・wire・共通ラベル・局所restriction：辺長の和とrank分解の不等式、Euclid三角形の比2"
+volume: foundations
+status: supplementary
+prerequisites: [MMX2, TSP11, TSP15, MMX6]
+official_scope: []
+learning_objectives:
+  - スペクトル点からpriceを構成し積・直和・通常の和を評価できる
+  - 共通ラベルの価格率を冪の比較から証明できる
+  - wireの縮約から距離の三角不等式と脚の輸送評価を導ける
+  - 配線網と階数分解を比較し行列積指数の下界を導ける
+  - Euclid三角形の公式を仮定した比2とその限界を説明できる
+definitions:
+  - { id: MMX8-DEF-01, name: "テンソルのスペクトル価格" }
+  - { id: MMX8-DEF-02, name: "共通ラベルテンソルとwire" }
+theorems:
+  - { id: MMX8-THM-01, name: "スペクトル価格の演算則" }
+  - { id: MMX8-THM-02, name: "共通ラベルの価格率" }
+  - { id: MMX8-THM-03, name: "wire距離と脚の輸送" }
+  - { id: MMX8-THM-04, name: "配線網と階数分解の価格評価" }
+canonical_examples: [切断階数による価格, wireの縮約, Euclid三角形の比2]
+problem_patterns: [MMX8-A01, MMX8-A02, MMX8-A03, MMX8-A04, MMX8-B01, MMX8-B02, MMX8-B03, MMX8-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
