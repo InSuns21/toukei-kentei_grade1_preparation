@@ -33,7 +33,7 @@ $$
 =\|f\|^2.
 $$
 
-ここで積分順序の交換は [Fubini の定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) による。右辺が有限なので、平均はほとんど至る所で定義され、零関数の同値類を零関数へ送る。
+ここで非負関数の積分順序の交換は [Tonelli の定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli) による。右辺が有限なので、平均はほとんど至る所で定義され、零関数の同値類を零関数へ送る。
 
 固定した $t\in G^X$ に対し、[Haar積分の変数変換](../MQFC20/index.md#prop-mqfc20-haar-transform) で $s'=st$ と置けば
 
@@ -47,7 +47,7 @@ $$
 \langle f,Pg\rangle=\int ds\int dA\,\overline{f(A)}g(sA)
 $$
 
-で $B=sA$ と置き、さらに $s'=s^{-1}$ と変数変換すると
+で被積分関数の絶対値の積分は Cauchy–Schwarz の不等式により $\|f\|_2\|g\|_2$ 以下である。[Fubini の定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) を実部・虚部に適用できる。$B=sA$ と置き、さらに $s'=s^{-1}$ と変数変換すると
 
 $$
 \begin{aligned}
@@ -141,7 +141,7 @@ $$
 
 **定義の確認**
 
-空間が異なる二頂点を結ぶ一本の辺だけなら $S$ は空で $h=1$。二値群 $G=\{1,-1\}\subset U(1)$ の場合、$N=1$、$B^{-1}=B$ だから $K(B,A)=e^{\beta BA}$。$s_x,s_y$ を独立一様に動かすと $s_yAs_x^{-1}$ は独立な一様二値となり、
+空間が異なる二頂点を結ぶ一本の辺だけなら $S$ は空で $h=1$。二値群 $G=\{1,-1\}\subset U(1)$ の場合、$N=1$、$B^{-1}=B$ だから $K(B,A)=e^{\beta BA}$。$s_x,s_y$ を独立一様に動かすと $s_yAs_x^{-1}$ は固定した $A$ に対して一様二値となり、
 
 $$
 L(B,A)=\frac{e^{\beta B}+e^{-\beta B}}2=\cosh\beta.
@@ -321,7 +321,7 @@ $$
 =\int L(B,A)(|v(B)v(A)|-v(B)v(A))\,dA\,dB\ge0.
 $$
 
-左辺第1項は $\Lambda_0\||v|\|^2=\Lambda_0$ 以下であり、第2項は $\Lambda_0$ である。よって等号が成立する。非負な $\Lambda_0 I-T$ の二次形式が零なので、$|v|$ も固有関数である。$\Omega=|v|$ と置くと
+左辺第1項は $\Lambda_0\||v|\|^2=\Lambda_0$ 以下であり、第2項は $\Lambda_0$ である。よって等号が成立する。非負な $D=\Lambda_0 I-T$ について $\|D^{1/2}|v|\|^2=\langle |v|,D|v|\rangle=0$ である。従って $D|v|=0$、すなわち $T|v|=\Lambda_0|v|$ となり、$|v|$ も固有関数である。$\Omega=|v|$ と置くと
 
 $$
 \Lambda_0\Omega(B)=(T\Omega)(B)\ge
@@ -390,7 +390,7 @@ $$
 
 を満たす。したがってこの積も $\mathcal K$ に属する。
 
-ここでは物理空間の外にある $F\Omega$ や端点関数も扱うため、全配置空間上の作用素を $\widehat U=T/\Lambda_0:\mathcal K\to\mathcal K$ と書く。その物理空間への制限が $U$ であり、零空間上では $\widehat U=0$ である。
+ここでは必ずしも物理空間に属さない $F\Omega$ や端点関数も扱うため、全配置空間上の作用素を $\widehat U=T/\Lambda_0:\mathcal K\to\mathcal K$ と書く。その物理空間への制限が $U$ であり、零空間上では $\widehat U=0$ である。
 
 このとき、$v$ を $F\Omega-\langle\Omega,F\Omega\rangle\Omega$ の物理空間への直交射影とすれば、$n\ge1$ で連結した真空二点関数は $\langle v,U^nv\rangle$ になる。実際、$m_F=\langle\Omega,F\Omega\rangle$ は実数で、$z=(F-m_F)\Omega$ と置くと
 
@@ -407,7 +407,15 @@ $$
 
 $n=0$ では全空間の恒等作用素が零方向を消さないため、この置換は一般には成立しない。
 
-自由境界の有限時間積分から真空を得るには、両端から遠ざける。$\psi=\sqrt h$ は正で $\langle\Omega,\psi\rangle>0$。固有系で分解すると $\widehat U^m\psi$ は $m\to\infty$ で $\langle\Omega,\psi\rangle\Omega$ にノルム収束する。実際、真空直交成分は零空間成分と励起固有ベクトル成分に分かれ、$m\ge1$ では前者が消える。後者のノルムは $\lambda_*^m\|\psi\|$ 以下（励起がなければ $m\ge1$ で0）である。観測量が有界なら端点からのこの収束を挿入した内積にも適用できる。
+自由境界の有限時間積分から真空を得るには、両端から遠ざける。$\psi=\sqrt h$ は正で $\langle\Omega,\psi\rangle>0$。固有系で分解すると $\widehat U^m\psi$ は $m\to\infty$ で $\langle\Omega,\psi\rangle\Omega$ にノルム収束する。実際、真空直交成分は零空間成分と励起固有ベクトル成分に分かれ、$m\ge1$ では前者が消える。後者のノルムは $\lambda_*^m\|\psi\|$ 以下（励起がなければ $m\ge1$ で0）である。観測量が有界なら端点からのこの収束を挿入した内積にも適用できる。例えば両端から $m$ 層離れた二つの同じ観測量 $F$（間隔 $n\ge1$）の期待値は、自由境界の核の積に各観測量を掛けると
+
+$$
+\frac{\langle\widehat U^m\psi,
+ F\widehat U^n F\widehat U^m\psi\rangle}
+{\langle\psi,\widehat U^{2m+n}\psi\rangle}
+$$
+
+となる。分子は $\langle\Omega,\psi\rangle^2\langle F\Omega,\widehat U^n F\Omega\rangle$ に、分母は $\langle\Omega,\psi\rangle^2>0$ に収束する。この比が上で用いた真空二点関数である。
 
 有限空間格子でのギャップは、体積を無限にする場合や $a\to0$ で同じ正の下界を持つとは限らない。例えば $\lambda_*(a)=e^{-a^2}$ なら全ての $a>0$ で1未満だが、エネルギーギャップは $a$ となって0に近づく。
 
