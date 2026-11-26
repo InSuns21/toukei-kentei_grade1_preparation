@@ -181,7 +181,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-相対サイクルの代表元 $c$ について $\partial c\in C_{n-1}(A)$ です。包含が単射で、$A$ でも境界の計算が同じであるため、$\partial^2c=0$ は $A$ 内の等式でもあります。従って $[\partial c]$ は $H_{n-1}(A)$ の元です。
+相対サイクルの代表元 $c$ について $\partial c\in C_{n-1}(A)$ です。包含が単射で、$A$ でも境界の計算が同じであるため、[特異鎖の二重境界の消滅](../ATOP16/index.md#thm-atop16-singular-boundary-square) による $\partial^2c=0$ は $A$ 内の等式でもあります。従って $[\partial c]$ は $H_{n-1}(A)$ の元です。
 
 同じ相対ホモロジー類の別の代表元を $c'$ とします。[相対ホモロジー群](#def-atop18-relative-homology)の代表元の条件により $c'-c=\partial b+a$ と書けます。ここで $b\in C_{n+1}(X)$、$a\in C_n(A)$ です。境界を取ると
 
@@ -198,7 +198,7 @@ $$
 \delta_1([\bar\sigma])=[\langle1\rangle-\langle0\rangle].
 $$
 
-$E$ は離散二点空間であるため、[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components)から $H_0(E)\cong\mathbb Z^2$ です。二つの点をそれぞれ独立な基底とすると上式は座標 $(-1,1)$ であり零ではありません。従って $[\bar\sigma]\ne0$ です。両端を無視した道の相対的な情報を、端点の差として検出できました。
+$E$ は離散二点空間であるため、[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components)から $H_0(E)\cong\mathbb Z^2$ です。基底を順に $[\langle0\rangle],[\langle1\rangle]$ とすると上式は $-1$ 倍の第1基底と $1$ 倍の第2基底の和、すなわち座標 $(-1,1)$ であり零ではありません。従って $[\bar\sigma]\ne0$ です。両端を無視した道の相対的な情報を、端点の差として検出できました。
 
 ## 4. 三種類の群を結ぶ長い列
 
@@ -244,7 +244,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-包含を鎖群の実際の包含として書き、境界を $\partial$ と略します。各位置で両方向の包含を確認します。
+包含を鎖群の実際の包含として書き、境界を $\partial$ と略します。以下では [相対ホモロジー群](#def-atop18-relative-homology) の代表元による判定と [相対ホモロジーの接続準同型](#thm-atop18-connecting) の構成を使い、各位置で両方向の包含を確認します。
 
 **(1) $H_n(X)$ での完全性：$\operatorname{im}i_*=\ker j_*$。**
 
@@ -369,7 +369,7 @@ $$
 H_1(I,E)\cong\mathbb Z,\qquad H_0(I,E)=0.
 $$
 
-$\sigma(t)=t$ の境界は $\langle1\rangle-\langle0\rangle$ なので、この相対類は $H_1(I,E)$ の生成元です。$n\ge2$ では $H_n(I)=0$ と $H_{n-1}(E)=0$ の間に $H_n(I,E)$ が入るため零になります。
+$\sigma(t)=t$ の境界は $\langle1\rangle-\langle0\rangle$ です。[相対ホモロジーの接続準同型](#thm-atop18-connecting) による像は核の生成元 $(-1,1)$ なので、この相対類は $H_1(I,E)$ の生成元です。$n\ge2$ では $H_n(I)=0$ と $H_{n-1}(E)=0$ の間に $H_n(I,E)$ が入るため零になります。
 
 ### 円板と境界円
 
@@ -597,7 +597,7 @@ $X$ を非空可縮空間、$A$ を非空部分空間とする。$n\ge1$ で $H_
 <!-- solution-start -->
 **詳細解答**
 
-$X$ の収縮は各点から収縮先への道を与えるので $X$ は道連結です。[可縮空間の被約特異ホモロジー](../ATOP17/index.md#cor-atop17-contractible)より $m>0$ で $H_m(X)=0$。$H_0(X)=\mathbb Z$ です。
+$X$ の収縮は各点から収縮先への道を与えるので $X$ は道連結です。[可縮空間の被約特異ホモロジー](../ATOP17/index.md#cor-atop17-contractible)より $m>0$ で $H_m(X)=0$。[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) により $H_0(X)=\mathbb Z$ です。
 
 $n\ge2$ では [対のホモロジー長完全列](#thm-atop18-long-exact) の $\delta_n$ の直前と直後に零群があるため、核が零かつ像が $H_{n-1}(A)$ 全体です。正次数では [被約特異ホモロジー群](../ATOP17/index.md#def-atop17-reduced-homology) は通常群と等しいため
 
