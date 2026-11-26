@@ -22,7 +22,7 @@ chapters:
     title: "多項式乗算テンソルと次数profile・補間、スペクトル点への評価"
   - id: MMX5
     path: textbook/volumes/dream_thater/計算系/MMX/MMX5
-    status: planned
+    status: completed
     title: "共有脚をもつ独立ブロックの分離・退化、複素数上の9/4上界の中心不等式"
   - id: MMX6
     path: textbook/volumes/dream_thater/計算系/MMX/MMX6
