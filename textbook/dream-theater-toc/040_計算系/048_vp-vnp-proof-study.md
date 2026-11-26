@@ -15,3 +15,4 @@
 12. [VNP12 E/L：Euclid hub長の節約、k・ℓの最適化とlog指数4/3](textbook/volumes/dream_thater/計算系/VNP/VNP12/index.md)
 13. [VNP13 F：unitriangular群のランク方向収縮と弱いPoincaré](textbook/volumes/dream_thater/計算系/VNP/VNP13/index.md)
 14. [VNP14 F：overlapping windows・固定点集合の角度・一様Poincaré F.6](textbook/volumes/dream_thater/計算系/VNP/VNP14/index.md)
+15. [VNP15 G：Poincaréからrerouting laws、有限生成係数環、loadの評価](textbook/volumes/dream_thater/計算系/VNP/VNP15/index.md)
