@@ -1,0 +1,26 @@
+id: MQFC25
+title: "強結合での相関減衰と格子ギャップ"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC12, MQFC21, MQFC22, MQFC23, MQFC24]
+official_scope: []
+learning_objectives:
+  - Wilson測度の一辺条件付き分布と影響係数を計算できる
+  - 正方形相互作用の有界性から体積一様な収縮条件を導出できる
+  - 一辺平均の振動幅評価と行列級数から相関減衰を証明できる
+  - 時間相関の転送表示と固有関数から全励起の格子ギャップを導出できる
+  - 固定格子の下界と無限体積・連続極限の証明責務を区別できる
+definitions:
+  - { id: MQFC25-DEF-01, name: "Dobrushin影響係数" }
+  - { id: MQFC25-DEF-02, name: "辺ごとの振動幅" }
+theorems:
+  - { id: MQFC25-THM-01, name: "Wilson測度の強結合影響評価" }
+  - { id: MQFC25-LEM-01, name: "一辺平均による振動幅の伝播" }
+  - { id: MQFC25-THM-02, name: "Dobrushin収縮による体積一様相関減衰" }
+  - { id: MQFC25-THM-03, name: "強結合における体積一様格子ギャップ" }
+canonical_examples: [一正方形二値群, 四次元格子の行和, 二辺積の振動幅, 有限転送作用素]
+problem_patterns: [MQFC25-INFLUENCE, MQFC25-OSCILLATION, MQFC25-CORRELATION, MQFC25-GAP]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 2 }
