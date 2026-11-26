@@ -1,0 +1,26 @@
+id: VNP13
+title: "F：unitriangular群のランク方向収縮と弱いPoincaré"
+volume: foundations
+status: supplementary
+prerequisites: [VNP12, VNP9, VNP8, VNP3]
+official_scope: []
+learning_objectives:
+  - 写像の平均変位から収縮する長さ関数を構成できる
+  - 階数の倍率と加算を組み合わせて階数別平均を評価できる
+  - 階数1ブロックを隣接生成元の語で表現できる
+  - 二分割の帰納法と射影により弱いPoincaré不等式を導出できる
+definitions:
+  - { id: VNP13-DEF-01, name: "上単位三角群" }
+  - { id: VNP13-DEF-02, name: "群の収縮長さ関数" }
+theorems:
+  - { id: VNP13-THM-01, name: "写像から作る平均変位の長さ" }
+  - { id: VNP13-THM-02, name: "階数別平均長さの増大評価" }
+  - { id: VNP13-THM-03, name: "階数1ブロックの長さ評価" }
+  - { id: VNP13-THM-04, name: "上単位三角群の平均長さ評価" }
+  - { id: VNP13-THM-05, name: "弱いPoincaré不等式" }
+canonical_examples: [三次上単位三角群, 階数の三進展開, 階数1外積の語]
+problem_patterns: [VNP13-A1, VNP13-A2, VNP13-A3, VNP13-A4, VNP13-B1, VNP13-B2, VNP13-B3, VNP13-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
