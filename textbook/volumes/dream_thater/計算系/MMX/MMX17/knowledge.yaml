@@ -1,0 +1,54 @@
+chapter: MMX17
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX13, MMX16]
+forward_references: []
+concepts:
+  - id: matrix-exponent.destination-price
+    name: "置換需要の距離価格不等式"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（置換需要の距離価格不等式）"]
+    requires: [matrix-exponent.network-rank-price, matrix-exponent.bit-volume]
+  - id: matrix-exponent.normalized-table
+    name: "正規化二乗距離表"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正規化二乗距離表）"]
+    requires: [matrix-exponent.no-ports-product-class]
+  - id: matrix-exponent.compact-distance-tables
+    name: "正規化表集合の凸性とコンパクト性"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（正規化表集合の凸性とコンパクト性）"]
+    requires: [matrix-exponent.normalized-table, matrix-exponent.ultralimit]
+  - id: matrix-exponent.dominated-demand
+    name: "需要の二倍支配分布"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（需要の二倍支配分布）"]
+    requires: []
+  - id: matrix-exponent.dominated-entropy-bound
+    name: "支配分布の一様な二乗距離下界"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（支配分布の一様な二乗距離下界）"]
+    requires: [matrix-exponent.compact-distance-tables, matrix-exponent.dominated-demand, matrix-exponent.weighted-graph-entropy, information.entropy-chain-rule, information.discrete-entropy-bounds]
+  - id: matrix-exponent.common-distance-witness
+    name: "有限距離表の共通証人"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有限距離表の共通証人）"]
+    requires: []
+  - id: matrix-exponent.uniform-destination-bound
+    name: "一様宛先の配線サイズ下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一様宛先の配線サイズ下界）"]
+    requires: [matrix-exponent.destination-price, matrix-exponent.dominated-entropy-bound, matrix-exponent.common-distance-witness]
+  - id: matrix-exponent.no-ports-list-bound
+    name: "no-ports 側のバッチ相異性下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（no-ports 側のバッチ相異性下界）"]
+    requires: [matrix-exponent.uniform-destination-bound, matrix-exponent.tag-batch-volume, matrix-exponent.list-distinctness]
