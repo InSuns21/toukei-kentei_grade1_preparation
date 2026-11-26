@@ -1,0 +1,26 @@
+id: MQFC24
+title: "強結合展開とWilson loopの面積則"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC20, MQFC21, MQFC22, MQFC23]
+official_scope: []
+learning_objectives:
+  - 二値群のWilson重みを指標係数で展開し辺積分の偶奇条件を導出できる
+  - 平面格子の境界の単射性から厳密な面積則を証明できる
+  - 物理面積の係数と静的ポテンシャルを計算できる
+  - 高次元での閉じた面の相殺と連結集合の計数から体積一様な面積評価を導出できる
+  - 固定格子の面積則と連続理論の質量ギャップの証明責務を区別できる
+definitions:
+  - { id: MQFC24-DEF-01, name: "正方形集合の偶奇境界" }
+  - { id: MQFC24-DEF-02, name: "Wilson loopの面積上界" }
+theorems:
+  - { id: MQFC24-THM-01, name: "二値群の強結合面展開" }
+  - { id: MQFC24-LEM-01, name: "平面格子の境界の単射性" }
+  - { id: MQFC24-THM-02, name: "二次元二値群の厳密な面積則" }
+  - { id: MQFC24-THM-03, name: "二値群の高次元強結合面積評価" }
+canonical_examples: [隣接二正方形, 等周長の長方形, 単位立方体, 三次元の強結合上界]
+problem_patterns: [MQFC24-PARITY, MQFC24-SURFACE, MQFC24-AREA, MQFC24-SCALE]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 1 }
