@@ -21,8 +21,8 @@ theorems:
   - { id: MMX9-LEM-03, name: "三角形支持関数の一様稠密性" }
   - { id: MMX9-THM-03, name: "平坦空間の共有ラベル公式" }
 canonical_examples: [二地点の価格系, 線分のGaussian平均幅, 三角形と共有ラベルの追加]
-problem_patterns: [MMX9-A01, MMX9-A02, MMX9-A03, MMX9-A04, MMX9-B01, MMX9-B02, MMX9-B03, MMX9-C01]
+problem_patterns: [MMX9-A01, MMX9-A02, MMX9-A03, MMX9-A04, MMX9-B01, MMX9-B02, MMX9-B03, MMX9-B04, MMX9-C01]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 8, exercises: 4, review: 2 }
