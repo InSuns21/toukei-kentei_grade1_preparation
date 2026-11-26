@@ -292,7 +292,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-正向き辺の輸送行列は [GBG14 の局所輸送行列とsection変更](../../../幾何系/GBG/GBG14/index.md#prop-gbg14-local-transport) の規約に従う。ここでプライムは辺上のパラメータ $t$ に関する常微分であり、結合パラメータの微分とは異なる。
+正向き辺に沿う接続の平行移動は [GBG14 の局所輸送行列とsection変更](../../../幾何系/GBG/GBG14/index.md#prop-gbg14-local-transport) の規約に従う。ここでプライムは辺上のパラメータ $t$ に関する常微分であり、結合パラメータの微分とは異なる。
 
 $$
 V(0)=I,\qquad V'(t)=-A_\mu(x+t\hat\mu)V(t).
