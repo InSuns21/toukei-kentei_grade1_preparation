@@ -1,0 +1,27 @@
+id: MQFC20
+title: "Haar積分と表現の直交性"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC19, LREP2, LREP4]
+official_scope: []
+learning_objectives:
+  - 正規化Haar測度の左・右・逆元不変性を説明しSU(2)の座標積分を計算できる
+  - 表現間の平均化とSchurの補題から既約表現の行列要素の直交性を導出できる
+  - 指標の直交性から重複度と有限指標射影を計算しテンソル積の指標展開を説明できる
+  - 群平均と指標による射影を導出し不変成分と同値類ごとの成分を区別できる
+  - 格子の積Haar測度のゲージ不変性を証明し共有辺を積分できる
+definitions:
+  - { id: MQFC20-DEF-01, name: "表現の指標" }
+theorems:
+  - { id: MQFC20-PROP-01, name: "正規化Haar積分の変数変換" }
+  - { id: MQFC20-PROP-02, name: "表現間の平均化" }
+  - { id: MQFC20-THM-01, name: "既約表現の行列要素の直交性" }
+  - { id: MQFC20-THM-02, name: "既約指標の直交性" }
+  - { id: MQFC20-THM-03, name: "群平均による不変部分空間への直交射影" }
+  - { id: MQFC20-PROP-03, name: "格子の積Haar測度のゲージ不変性" }
+canonical_examples: [U(1)の円周積分, SU(2)の球面二次モーメント, 有限指標射影, 共有辺のトレース積分]
+problem_patterns: [MQFC20-HAAR, MQFC20-ORTHOGONALITY, MQFC20-PROJECTION, MQFC20-LINK-INTEGRAL]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 3, review: 1 }
