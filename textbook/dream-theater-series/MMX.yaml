@@ -26,7 +26,7 @@ chapters:
     title: "共有脚をもつ独立ブロックの分離・退化、複素数上の9/4上界の中心不等式"
   - id: MMX6
     path: textbook/volumes/dream_thater/計算系/MMX/MMX6
-    status: planned
+    status: completed
     title: "任意標数の分離補題、任意の体への9/4上界、Amanov–van den Berg–Zuiddamの証明とShpilka解説の照合"
   - id: MMX7
     path: textbook/volumes/dream_thater/計算系/MMX/MMX7
