@@ -13,7 +13,7 @@
     <circle cx="160" cy="234" r="3.6"/><circle cx="102" cy="134" r="3.6"/><circle cx="218" cy="134" r="3.6"/><circle cx="160" cy="167.333333" r="3.6"/>
   </g>
   <g font-family="sans-serif" font-size="14" fill="#263746" text-anchor="middle">
-    <text x="34" y="253">a</text><text x="286" y="253">b</text><text x="160" y="22">c</text>
-    <text x="160" y="255">ab</text><text x="83" y="128">ac</text><text x="237" y="128">bc</text><text x="204" y="172">abc</text>
+    <text x="34" y="263">a</text><text x="286" y="263">b</text><text x="160" y="22">c</text>
+    <text x="160" y="263">ab</text><text x="83" y="128">ac</text><text x="237" y="128">bc</text><text x="180" y="210">abc</text>
   </g>
 </svg>
