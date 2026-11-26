@@ -29,3 +29,4 @@
 26. [MQFC26 格子単位の質量と物理単位の質量](textbook/volumes/dream_thater/物理系/MQFC/MQFC26/index.md)
 27. [MQFC27 漸近自由性と尺度をどう固定するか](textbook/volumes/dream_thater/物理系/MQFC/MQFC27/index.md)
 28. [MQFC28 多重尺度くりこみと大場領域](textbook/volumes/dream_thater/物理系/MQFC/MQFC28/index.md)
+29. [MQFC29 連続極限と無限体積極限をどう閉じるか](textbook/volumes/dream_thater/物理系/MQFC/MQFC29/index.md)
