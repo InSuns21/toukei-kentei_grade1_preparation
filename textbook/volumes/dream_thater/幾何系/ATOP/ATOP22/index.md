@@ -140,7 +140,13 @@ $$
 円周の場合は両端が同じ点なので $d_1(e)=v-v=0$ です。
 <!-- definition-example-end -->
 
-$n\ge1$ の境界を行列で表すときは [行列として境界を読む](../ATOP13/index.md#boundary-matrix-coordinates) と同じ基底展開を使います。[胞体ごとの相対群の分解](#thm-atop22-relative-cells) により、$e_\alpha=H_n((\Phi_\alpha)_{\rm rel})u_\alpha$ は胞体鎖群の整数基底です。ここで添字 $\rm rel$ は対の写像から誘導した相対群上の写像を表します。次数 $n-1$ の基底を $e_\beta$ とし、
+$n\ge1$ の境界を行列で表すときは [行列として境界を読む](../ATOP13/index.md#boundary-matrix-coordinates) と同じ基底展開を使います。添字 $\mathrm{rel}$ は [相対ホモロジーの誘導準同型](../ATOP18/index.md#thm-atop18-relative-map) を表します。[胞体ごとの相対群の分解](#thm-atop22-relative-cells) により、次数 $n$ の胞体鎖群の整数基底は
+
+$$
+e_\alpha=H_n((\Phi_\alpha)_{\rm rel})u_\alpha
+$$
+
+です。次数 $n-1$ の基底を $e_\beta$ とし、
 
 $$
 d_ne_\alpha=\sum_\beta M_{\beta\alpha}e_\beta
@@ -212,7 +218,21 @@ $m\ge n+2$ では相対群の $n+1,n$ 次がともに零です。長完全列に
 
 ## 4. 境界行列の係数を読む
 
-$n\ge2$ とします。$n$ 胞体 $\alpha$ の付着写像は $S^{n-1}\to X^{n-1}$ です。$(n-1)$ 胞体 $\beta$ の係数だけを読むために、$X^{n-2}$ とそれ以外の $(n-1)$ 胞体を一点に潰すと $D^{n-1}/S^{n-2}$、つまり $S^{n-1}$ が残ります。具体的には潰す部分を除くと $\beta$ の円板内部だけが残り、$\beta$ の閉円板からその商への写像は境界を一点へ送り、内部で単射です。潰す部分は古い骨格と他の閉円板の像の有限和で閉なので商はコンパクト Hausdorff であり、境界を潰した円板と同相です。第2節の球面との同相まで合成した写像を $q_\beta:X^{n-1}\to S^{n-1}$ とします。潰した点を $*$ と書きます。
+$n\ge2$ とします。$n$ 胞体 $\alpha$ の付着写像は $S^{n-1}\to X^{n-1}$ です。$(n-1)$ 胞体 $\beta$ の係数だけを読むために、$X^{n-2}$ とそれ以外の同次数の胞体を一点に潰します。
+
+潰す部分は古い骨格と他の閉円板の像の有限和で閉なので、商はコンパクト Hausdorff です。残る $\beta$ の閉円板から商への写像は境界を一点へ送り、内部では単射です。従って商は第2節の円板の境界商
+
+$$
+D^{n-1}/S^{n-2}\cong S^{n-1}
+$$
+
+と同相です。球面との同相まで合成した写像を
+
+$$
+q_\beta:X^{n-1}\longrightarrow S^{n-1}
+$$
+
+と書き、潰した点を $*$ とします。
 
 $a:S^m\to S^m$（$m\ge1$）が最高次の生成元を整数倍する値を、ここでは写像度とします。生成元は定義域・値域の双方で指定します。これは [特異ホモロジーの誘導準同型](../ATOP16/index.md#thm-atop16-induced-homology) を最高次の整数群で表したものです。零次の場合は端点差を直接使います。写像度の一般的性質は次講で扱います。
 
@@ -240,9 +260,25 @@ $$
 (X^{n-1},X^{n-2})\longrightarrow(S^{n-1},*)
 $$
 
-の写像でもあります。以下、$H_m(q_\beta)$ を絶対群上、$H_m((q_\beta)_{\rm rel})$ を相対群上の誘導写像と区別します。ここで $m=n-1$ です。相対群の胞体基底のうち $\beta$ 以外は一点へ送られ、相対鎖では零になります。
+の写像でもあります。ここで $m=n-1$ とし、絶対群と相対群に誘導する写像をそれぞれ
 
-$\beta$ の生成元の像が生成元になることは次のように確認できます。円板の境界を $V=\{x\in D^m:\|x\|>r\}$（$0<r<1$）へ広げます。商写像 $p:D^m\to D^m/S^{m-1}\cong S^m$ で $W=p(V)$ とすると、$V$ は境界を含む飽和開集合なので $W$ は開です。第2節の半径変形は境界を固定するので $V$ を境界へ、$W$ を $*$ へ変形レトラクトします。[対の長完全列の自然性](../ATOP18/index.md#thm-atop18-naturality) と [完全列の中央の比較](../ATOP21/index.md#lem-atop21-exact-comparison) で両方の帯への変更が同型になります。
+$$
+H_m(q_\beta),\qquad H_m((q_\beta)_{\rm rel})
+$$
+
+と区別して書きます。相対群の胞体基底のうち $\beta$ 以外は一点へ送られ、相対鎖では零になります。
+
+$\beta$ の生成元の像が生成元になることは次のように確認できます。$0<r<1$ として円板の境界を帯へ広げ、商写像で帯を球面へ送ります。
+
+$$
+\begin{gathered}
+V=\{x\in D^m:\|x\|>r\},\\
+p:D^m\to D^m/S^{m-1}\cong S^m,\qquad
+W=p(V).
+\end{gathered}
+$$
+
+$V$ は境界を含む飽和開集合なので $W$ は開です。第2節の半径変形は境界を固定するので、円板の帯を境界へ、球面の帯を $*$ へ変形レトラクトします。[対の長完全列の自然性](../ATOP18/index.md#thm-atop18-naturality) と [完全列の中央の比較](../ATOP21/index.md#lem-atop21-exact-comparison) で両方の帯への変更が同型になります。
 
 境界と商の一点は閉で、それぞれ $V,W$ の内部に入るので [切除定理](../ATOP19/index.md#thm-atop19-excision) が適用できます。切除後の対は $p$ により同相です。包含と $p$ の誘導写像は可換なので、元の写像 $H_m(p_{\rm rel})$ も同型です。$p=q_\beta\circ\Phi_\beta$ なので、これは胞体基底 $e_\beta$ を送る写像です。従って $\bar u_\beta=H_m(p_{\rm rel})u_\beta$ は $H_m(S^m,*)$ の生成元です。
 
@@ -378,7 +414,21 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$Z_n=\ker d_n$、$B_n=\operatorname{im}d_{n+1}$ とすると、$C_n/Z_n\cong B_{n-1}$、$Z_n/B_n=H_n(C^{\rm cell})$ です。[Smith 標準形による単体ホモロジーの計算](../ATOP14/index.md#thm-atop14-smith-computation) の整数行列の議論は、境界の合成が零である任意の有限自由アーベル群の鎖複体に適用できます。$d_n$ の有理数上の行列階数を $r_n$ とすると、核の階数は $c_n-r_n$ であり、商の自由部分の階数はそこから $r_{n+1}$ を引いたものです。すなわち $\operatorname{rank} B_{n-1}=r_n$、$\operatorname{rank} B_n=r_{n+1}$ なので
+$Z_n=\ker d_n$、$B_n=\operatorname{im}d_{n+1}$ とすると、
+
+$$
+C_n^{\rm cell}/Z_n\cong B_{n-1},\qquad
+Z_n/B_n=H_n(C^{\rm cell}).
+$$
+
+[Smith 標準形による単体ホモロジーの計算](../ATOP14/index.md#thm-atop14-smith-computation) の整数行列の議論は、境界の合成が零である任意の有限自由アーベル群の鎖複体に適用できます。$d_n$ の有理数上の行列階数を $r_n$ とすると、核の階数は $c_n-r_n$ であり、商の自由部分の階数はそこから $r_{n+1}$ を引いたものです。
+
+$$
+\operatorname{rank} B_{n-1}=r_n,\qquad
+\operatorname{rank} B_n=r_{n+1}.
+$$
+
+従って
 
 $$
 c_n=\operatorname{rank}B_{n-1}+
@@ -455,7 +505,13 @@ $$
 d_1=\begin{pmatrix}-1&1\\1&-1\end{pmatrix}.
 $$
 
-以下、$(x,y)$ は $xe+yf$ の整数座標です。境界は $(-x+y)v+(x-y)w$ なので、行列を作用させると $(-x+y,x-y)$ となります。核の条件は $x=y=t\in\mathbb Z$ です。2胞体がないので [胞体ホモロジー定理](#thm-atop22-cellular-comparison) から $H_1=\mathbb Z[e+f]$ です。像は $(-1,1)$ の整数倍で、商では $v=w$ となり $H_0=\mathbb Z$ です。他は零です。
+以下、$(x,y)$ は $xe+yf$ の整数座標です。境界の基底展開は
+
+$$
+d_1(xe+yf)=(-x+y)v+(x-y)w
+$$
+
+なので、核の条件は $x=y=t\in\mathbb Z$ です。2胞体がないので [胞体ホモロジー定理](#thm-atop22-cellular-comparison) から $H_1=\mathbb Z[e+f]$ です。像は $(-1,1)$ の整数倍で、商では $v=w$ となり $H_0=\mathbb Z$ です。他は零です。
 <!-- solution-end -->
 
 ### 演習 ATOP22-A3：二つの2球面
@@ -555,7 +611,14 @@ M\begin{pmatrix}-1&0\\0&1\end{pmatrix}\\
 \end{aligned}
 $$
 
-右の対角行列を $P$、左の対角行列を $Q$ とします。$P^2=Q^2=I_2$ なので両方とも整数座標の自己同型です。$M'x=0$ は $M(Px)=0$ と同値なので $\ker M'=P^{-1}\ker M$ です。また $\operatorname{im} M'=Q(\operatorname{im} M)$ なので、$[y]\mapsto[Qy]$ は古い像による商から新しい像による商への同型です。従って $H_2=0,H_1=\mathbb Z/5\mathbb Z$ は変わりません。
+右の対角行列を $P$、左の対角行列を $Q$ とします。$P^2=Q^2=I_2$ なので両方とも整数座標の自己同型です。$M'x=0$ は $M(Px)=0$ と同値です。従って
+
+$$
+\ker M'=P^{-1}\ker M,\qquad
+\operatorname{im} M'=Q(\operatorname{im} M).
+$$
+
+商への写像 $[y]\mapsto[Qy]$ は古い像による商から新しい像による商への同型です。従って $H_2=0,H_1=\mathbb Z/5\mathbb Z$ は変わりません。
 <!-- solution-end -->
 
 ### 演習 ATOP22-C1：同じ Euler 標数の閉曲面
