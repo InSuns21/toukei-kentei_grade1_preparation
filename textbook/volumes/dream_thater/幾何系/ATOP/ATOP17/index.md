@@ -440,7 +440,7 @@ $$
 G_nz-F_nz=\partial K_nz+K_{n-1}\partial z.
 $$
 
-サイクルでは $\partial z=0$ なので第二項が零となり、差は $\partial(K_nz)$ です。任意の鎖では第二項が残り得ます。例えば区間 $X=[0,1]$ の恒等写像と定数0写像は $H(u,t)=(1-t)u$ で結ばれますが、道 $\gamma(u)=u$ の二つの像の差の境界は $-\langle1\rangle+\langle0\rangle\ne0$ です。[二重境界の消滅](../ATOP16/index.md#thm-atop16-singular-boundary-square)により、この差は境界ではありません。サイクル条件が必要です。
+サイクルでは $\partial z=0$ なので第二項が零となり、差は $\partial(K_nz)$ です。任意の鎖では第二項が残り得ます。例えば区間 $X=[0,1]$ の恒等写像と定数0写像は $H(u,t)=(1-t)u$ で結ばれますが、道 $\gamma(u)=u$ の二つの像の差の境界は $-\langle1\rangle+\langle0\rangle\ne0$ です。[特異鎖の二重境界の消滅](../ATOP16/index.md#thm-atop16-singular-boundary-square)により、この差は境界ではありません。サイクル条件が必要です。
 <!-- solution-end -->
 
 ### 演習 ATOP17-A4：成分の余分な違い
