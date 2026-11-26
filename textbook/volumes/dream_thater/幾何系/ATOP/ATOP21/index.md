@@ -6,9 +6,19 @@
 
 ## 1. 単体を連続写像として読む
 
-有限単体複体 $K$ の頂点集合に全順序を固定し、[幾何学的実現](../ATOP10/index.md#def-atop10-realization) を $X=|K|$ とします。[単体鎖群](../ATOP13/index.md#def-atop13-simplicial-chains) を $C_n^\triangle(K)$、[特異鎖群](../ATOP16/index.md#def-atop16-singular-chains) を $C_n(X)$ と区別します。前者の基底は頂点を昇順に並べた向き付き単体、後者の基底は連続写像 $\Delta^n\to X$ です。
+有限単体複体 $K$ の頂点集合を $V$ とし、そこに全順序を固定して、[幾何学的実現](../ATOP10/index.md#def-atop10-realization) を $X=|K|$ とします。[単体鎖群](../ATOP13/index.md#def-atop13-simplicial-chains) を $C_n^\triangle(K)$、[特異鎖群](../ATOP16/index.md#def-atop16-singular-chains) を $C_n(X)$ と区別します。前者の基底は頂点を昇順に並べた向き付き単体、後者の基底は連続写像 $\Delta^n\to X$ です。
 
-頂点列 $v_0<\cdots<v_n$ の単体を読むには、標準単体の頂点を対応する頂点に送るアフィン写像を使えばよいのです。標準単体の重心座標を $(t_0,\ldots,t_n)$ と書きます。
+頂点列 $v_0<\cdots<v_n$ の単体を読むには、標準単体の頂点を対応する頂点に送るアフィン写像を使えばよいのです。[標準単体](../../../応用系/FIX/FIX1/index.md#def-fix1-standard-simplex) $\Delta^n$ の点を
+
+$$
+t=(t_0,\ldots,t_n),\qquad t_i\ge0,\quad \sum_{i=0}^n t_i=1
+$$
+
+と書きます。実現の座標空間 $\mathbb R^V$ では、頂点 $v$ 自身をその座標だけが1のベクトルと同一視します。
+
+したがって $\sum_i t_iv_i$ は非負で座標和が1、正の座標を持つ頂点の集合は元の単体の面です。[幾何学的実現の定義](../ATOP10/index.md#def-atop10-realization) により像は $|K|$ に入り、座標ごとに線形な式なので連続です。
+
+この連続写像は [特異単体](../ATOP16/index.md#def-atop16-singular-simplex) です。昇順基底の像を指定すれば、整数係数の任意の鎖の像は同じ係数の和として一意に決まります。以下、$\partial$ は作用する鎖の種類と次数に対応する境界作用素、$[z]$ はサイクル $z$ のホモロジー類（頂点列を囲む角括弧とは別の意味）を表します。
 
 <a id="def-atop21-comparison-map"></a>
 
@@ -26,7 +36,22 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-atop21-comparison-map -->
-**定義の確認**：例えば辺 $[a,b]$（$a<b$）は、$s=t_1$ と置けば $s\mapsto(1-s)a+sb$ という道です。端点を読むと特異境界は $\langle b\rangle-\langle a\rangle$ になります（$\langle v\rangle$ は点 $v$ への特異0単体）。これは単体境界 $[b]-[a]$ を読んだものです。逆向きの記号 $[b,a]=-[a,b]$ は $-\sigma_{ab}$ に送ります。逆走する道 $\sigma_{ba}$ は別の特異単体で、鎖として $-\sigma_{ab}$ と等しいわけではありません。
+**定義の確認**：例えば辺 $[a,b]$（$a<b$）は、$s=t_1$ と置けば次の道です。
+
+$$
+\sigma_{ab}(s)=(1-s)a+sb.
+$$
+
+$\langle v\rangle$ を点 $v$ への特異0単体と書くと、[特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary) による端点の差は
+
+$$
+\partial\sigma_{ab}=\langle b\rangle-\langle a\rangle
+=J_0([b]-[a]).
+$$
+
+これは単体境界を読んだものです。[向き付き単体](../ATOP13/index.md#def-atop13-oriented-simplex) の逆向きの記号 $[b,a]=-[a,b]$ は $-\sigma_{ab}$ に送ります。
+
+逆走する道 $\sigma_{ba}$ は別の特異単体で、鎖として $-\sigma_{ab}$ と等しいわけではありません。
 
 $0\le s\le1$ なら像は辺上にあり、道は連続で、端点は順に $a,b$ です。したがって昇順の基底を特異単体に送るという定義の条件を満たします。整数線形拡張により、例えば $2[a,b]$ の像は $2\sigma_{ab}$ です。
 <!-- definition-example-end -->
@@ -45,7 +70,7 @@ $0\le s\le1$ なら像は辺上にあり、道は連続で、端点は順に $a,
 
 異なる基底単体の像は異なる連続写像です。実際、標準単体の各頂点での値を比較すれば頂点列を復元できます。自由基底の独立性から $J_n$ は単射です。
 
-[面写像](../ATOP16/index.md#def-atop16-face-map) $\delta_i$ は第 $i$ 重心座標に零を挿入します。そのため
+[面写像](../ATOP16/index.md#def-atop16-face-map) $\delta_i=\delta_i^n:\Delta^{n-1}\to\Delta^n$ は第 $i$ 重心座標に零を挿入します（$0\le i\le n$、$n\ge1$）。$\widehat v_i$ は頂点列から第 $i$ 頂点を除く記号です。そのため
 
 $$
 \sigma_{v_0\ldots v_n}\circ\delta_i
@@ -67,7 +92,11 @@ $n=0$ では両辺とも零です。線形性から全鎖について成立し�
 
 ## 2. 相対群で比較を行う
 
-部分複体 $L\subset K$ を選びます。$L$ の単体はすべて $K$ の単体であり、面を取っても $L$ に属します。従って $C_*^\triangle(L)$ は部分鎖複体です。[相対特異鎖群](../ATOP18/index.md#def-atop18-relative-chain) と同じように商を取れば、$L$ 内の鎖を零とする計算ができます。
+部分複体 $L\subset K$ を選びます。$L$ の単体はすべて $K$ の単体であり、面を取っても $L$ に属します。[単体鎖複体](../ATOP13/index.md#def-atop13-simplicial-chain-complex) の境界は面の交代和なので、$C_*^\triangle(L)$ は部分鎖複体です。
+
+ここで添字 $*$ は全次数の鎖群をまとめて表します。[相対特異鎖群](../ATOP18/index.md#def-atop18-relative-chain) と同じように商を取れば、$L$ 内の鎖を零とする計算ができます。$\bar c$ は鎖 $c$ の商での類を表し、$L$ 内の鎖だけ異なる二つの鎖を同一視します。
+
+[単体サイクルと単体境界鎖](../ATOP14/index.md#def-atop14-cycles-boundaries) と同じく、商の境界作用素の核がサイクル群、次の次数からの像が境界群です。
 
 <a id="def-atop21-relative-simplicial"></a>
 
@@ -86,24 +115,31 @@ $$
 $L$ 内の鎖を加えても境界の差は $L$ 内に残るので商の境界は定まります。[二重境界の消滅](../ATOP13/index.md#thm-atop13-boundary-square) により商でも二重境界は零です。 
 
 <!-- definition-example-start: def-atop21-relative-simplicial -->
-**定義の確認**：例えば $K$ が一辺と両端点、$L$ が両端点だけなら、相対1鎖群は $\mathbb Z[a,b]$、相対0鎖群と2鎖群は零です。従って相対1次群は $\mathbb Z$ となり、通常の1次群が零なのとは異なります。
+**定義の確認**：例えば $K$ が一辺と両端点、$L$ が両端点だけなら、相対1鎖群は $\mathbb Z\,\overline{[a,b]}$（辺の商での類を基底とする自由アーベル群）、相対0鎖群と2鎖群は零です。従って相対1次群は $\mathbb Z$ となり、通常の1次群が零なのとは異なります。
 
 両端点は部分複体をなし、辺の境界 $[b]-[a]$ はその0鎖群に属します。よって商での境界は零です。相対2鎖群も零なので、1次の核は相対1鎖群全体、像は零であり、上の相対1次群が得られます。
 <!-- definition-example-end -->
 
-比較写像は $L$ の単体を $|L|$ 内の特異単体に送るので、商に $J^{\rm rel}(\bar c)=\overline{Jc}$ を誘導します。境界と可換であるため相対ホモロジー上にも写像が得られます。
+比較写像は $L$ の単体を $|L|$ 内の特異単体に送るので、商に $J^{\rm rel}(\bar c)=\overline{Jc}$ を誘導します。[比較写像と境界の可換性](#thm-atop21-comparison-chain) により商でも境界と可換であるため相対ホモロジー上にも写像が得られます。
 
 [対のホモロジー長完全列](../ATOP18/index.md#thm-atop18-long-exact) の証明は部分鎖複体の包含、商、境界だけで行われています。ここではその証明に単体鎖複体を入れます。
 
-接続は $\delta[\bar c]=[\partial c]$ です。相対サイクルなら $\partial c$ は $L$ 内の鎖であり、二重境界が零なのでサイクルです。代表元を変更して
+[接続準同型](../ATOP18/index.md#thm-atop18-connecting) と同じ構成で、$n\ge1$ の接続を次のように書きます。
 
 $$
-c'=c+a+\partial b,\qquad a\in C_n^\triangle(L)
+\delta=\delta_n:H_n^\triangle(K,L)\to H_{n-1}^\triangle(L),
+\qquad \delta[\bar c]=[\partial c].
+$$
+
+第1節の面写像 $\delta_i^n$ とは作用対象が異なります。相対サイクルなら $\partial c$ は $L$ 内の鎖であり、二重境界が零なのでサイクルです。代表元を変更して
+
+$$
+c'=c+a+\partial b,\qquad a\in C_n^\triangle(L),\quad b\in C_{n+1}^\triangle(K)
 $$
 
 としても、境界の差は $\partial a$ であり、$L$ 内の境界なので類は変わりません。
 
-完全性の三つの位置を確認します。
+[完全列](../../../基礎論系/CATB/CATB1-05/index.md#def-catb1-05-exact) の条件はアーベル群では直前の写像の像と直後の写像の核が等しいことです。まず隣接する二写像の合成は零です。包含した $L$ の鎖は商で零になり、絶対サイクルの境界は零であり、接続で得た境界鎖は $K$ で境界だからです。逆の包含を三つの位置で確認します。
 
 - 絶対サイクルが商で境界なら、適当な鎖 $b$ に対して $z-\partial b\in C_n^\triangle(L)$ となり、元の類は包含の像です。
 - 相対サイクルの接続が零なら、$L$ の鎖 $a$ を $\partial c=\partial a$ となるように選べます。$c-a$ は絶対サイクルで、その商は $\bar c$ です。
@@ -111,7 +147,7 @@ $$
 
 0次末端では任意の0鎖がサイクルなので商への写像は全射です。
 
-単体側と特異側で長完全列ができました。包含と商は $J$ と可換であり、接続も
+単体側と特異側で長完全列ができました。包含と商は $J$ と可換であり、$n\ge1$ で接続も
 
 $$
 J_*[\partial c]=[\partial Jc]=\delta[J^{\rm rel}\bar c]
@@ -160,7 +196,15 @@ $$
 
 $K^{(m)}$ を $m$ 次以下の単体だけからなる部分複体（$m$ 次骨格）と呼びます。例えば一つの三角形では0次骨格は三頂点、1次骨格は三辺と頂点、2次骨格は三角形全体です。
 
-$m\ge1$、$K$ の次元を $m$ 以下とし、$A=|K^{(m-1)}|$、$X=|K|$ とします。$m$ 単体 $\tau$ の実現を $D_\tau$、そのすべての真の面の和集合を $\partial D_\tau$ と書きます。新しく加わる部分は互いに交わらない $m$ 単体の内部です。
+$m\ge1$、$K$ の次元を $m$ 以下とし、
+
+$$
+A=|K^{(m-1)}|,\qquad X=|K|
+$$
+
+とします。$m$ 単体 $\tau$ の実現を $D_\tau$、そのすべての真の面の和集合を $\partial D_\tau$ と書きます。
+
+[実現の共通面性](../ATOP10/index.md#prop-atop10-intersection) により異なる $m$ 単体の交わりは真の共通面に限られます。従って新しく加わる部分は互いに交わらない $m$ 単体の内部です。ここで単体の内部とは、その単体から真の面をすべて除いた部分、すなわち全重心座標が正となる点の集合を指します。実現全体での位相的な内部を定義に用いる必要はありません。
 
 <a id="thm-atop21-skeleton-relative"></a>
 
@@ -181,7 +225,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-各 $D_\tau$ の重心座標を $(t_0,\ldots,t_m)$ とし、$s=\min_i t_i$、$0<\epsilon<1/(m+1)$ を選びます。$A$ と各 $m$ 単体内の $s<\epsilon$ の部分の和集合を $U$ とします。補集合は有限個の閉集合 $\{t_i\ge\epsilon\text{ for all }i\}$ の和なので $U$ は開集合です。$A$ も有限個の閉単体の和なので閉集合です。
+各 $D_\tau$ の重心座標を $(t_0,\ldots,t_m)$ とし、
+
+$$
+s=\min_{0\le i\le m}t_i,\qquad 0<\epsilon<1/(m+1)
+$$
+
+を選びます。$A$ と各 $m$ 単体内の $s<\epsilon$ の部分の和集合を $U$ とします。
+
+補集合は有限個の閉集合 $\{t_i\ge\epsilon\text{ for all }i\}$ の和なので $U$ は開集合です。$A$ も有限個の閉単体の和なので閉集合です。
 
 各帯上で
 
@@ -189,9 +241,49 @@ $$
 r_i(t)=\frac{t_i-s}{1-(m+1)s}
 $$
 
-と置きます。分母は正、各成分は非負、成分和は1、少なくとも一成分が零です。従って $r(t)$ は境界にあり、$s=0$ なら $r(t)=t$ です。変形 $F(t,h)=(1-h)t+hr(t)$ の成分和は1、非負であり、最小成分は $(1-h)s<\epsilon$ なので帯から出ません。各単体の共通面では恒等写像となるため、有限個の閉部分集合 $U\cap D_\tau$ と $A$ 上の写像を貼り合わせて連続な強変形レトラクション $U\to A$ が得られます。
+と置きます。最小値 $s$ は有限個の連続な座標関数の最小値なので連続です。$s<\epsilon<1/(m+1)$ より分母は正で、各成分は非負です。成分和を確認すると
 
-[ホモトピー同値と特異ホモロジー群](../ATOP17/index.md#cor-atop17-equivalence) より $H_n(A)\to H_n(U)$ は同型です。対 $(X,A)\to(X,U)$ の [対の長完全列の自然性](../ATOP18/index.md#thm-atop18-naturality) により、相対群を中央に置いた五項の縦写像のうち他の四つは $A\to U$ の同型または $X$ 上の恒等写像です。[完全列の中央の比較](#lem-atop21-exact-comparison) から $H_n(X,A)\to H_n(X,U)$ も同型です。$n=0$ では右端二つを零群とします。
+$$
+\sum_{i=0}^m r_i(t)
+=\frac{\sum_{i=0}^m t_i-(m+1)s}{1-(m+1)s}=1.
+$$
+
+最小値を取る成分は零です。従って $r(t)$ は境界にあり、$s=0$ なら $r(t)=t$ です。時刻 $h\in[0,1]$ の変形を
+
+$$
+F(t,h)=(1-h)t+hr(t)
+$$
+
+とします。成分は非負で和は1です。各 $t_i\ge s$、$r_i\ge0$ なので
+
+$$
+F_i(t,h)\ge(1-h)s.
+$$
+
+$t_j=s$ の成分では $r_j=0$ なので等号が成り立ちます。従って最小成分は $(1-h)s<\epsilon$ で、帯から出ません。
+
+各単体の共通面では $s=0$ なので恒等写像になります。$A$ 上も恒等写像とし、$U\times[0,1]$ を覆う有限個の閉集合 $(U\cap D_\tau)\times[0,1]$ と $A\times[0,1]$ 上で連続な写像が一致するため、貼り合わせは連続です。
+
+また端点と骨格上の値は
+
+$$
+F(t,0)=t,\qquad F(t,1)=r(t)\in A,
+$$
+
+$$
+F(a,h)=a\quad(a\in A,\ h\in[0,1])
+$$
+
+なので [強変形レトラクト](../ATOP3/index.md#def-atop3-strong-deformation-retract) の全条件を満たします。
+
+[変形レトラクトによるホモトピー同値](../ATOP3/index.md#thm-atop3-deformation-equivalence) から包含 $A\to U$ と $r$ は互いにホモトピー逆写像です。[ホモトピー同値と特異ホモロジー群](../ATOP17/index.md#cor-atop17-equivalence) より $H_n(A)\to H_n(U)$ は同型です。対 $(X,A)\to(X,U)$ の [対の長完全列の自然性](../ATOP18/index.md#thm-atop18-naturality) を使い、上段に
+
+$$
+H_n(A)\to H_n(X)\to H_n(X,A)
+\to H_{n-1}(A)\to H_{n-1}(X)
+$$
+
+を、下段に $A$ を $U$ に置き換えた完全列を並べます。相対群を中央に置いた五項の縦写像のうち他の四つは $A\to U$ が誘導する同型または $X$ 上の恒等写像です。[完全列の中央の比較](#lem-atop21-exact-comparison) から $H_n(X,A)\to H_n(X,U)$ も同型です。$n=0$ では右端二つを零群とします。
 
 $A=\overline A\subset U=\operatorname{int}_X U$ だから [切除定理](../ATOP19/index.md#thm-atop19-excision) により
 
@@ -208,7 +300,22 @@ $$
 
 と分かれます。
 
-個々の $D_\tau$ についても、帯 $U_\tau=U\cap D_\tau$ は同じ変形で $\partial D_\tau$ へ戻ります。先ほどと同じ五項比較（$D_\tau$ 上の恒等写像と境界から帯への同型）により $H_n(D_\tau,\partial D_\tau)\to H_n(D_\tau,U_\tau)$ は同型です。さらに $\partial D_\tau$ は $D_\tau$ の閉部分集合で $U_\tau$ に含まれるため、切除により $H_n(D_\tau^\circ,U_\tau\setminus\partial D_\tau)\to H_n(D_\tau,U_\tau)$ は同型です。
+個々の $D_\tau$ についても、帯 $U_\tau=U\cap D_\tau$ は同じ変形で $\partial D_\tau$ へ戻ります。先ほどと同じ [完全列の中央の比較](#lem-atop21-exact-comparison)（単体上の恒等写像と境界から帯への同型）により
+
+$$
+H_n(D_\tau,\partial D_\tau)\to H_n(D_\tau,U_\tau)
+$$
+
+は同型です。
+
+さらに $\partial D_\tau$ は $D_\tau$ の閉部分集合で、$U_\tau$ は単体内で開いてそれを含むため、[切除定理](../ATOP19/index.md#thm-atop19-excision) により
+
+$$
+H_n(D_\tau^\circ,U_\tau\setminus\partial D_\tau)
+\to H_n(D_\tau,U_\tau)
+$$
+
+は同型です。
 
 これらの写像はいずれも対の包含から誘導されます。各単体の相対群から全体への包含の和を、広げた対へ送ったものは、単体内部への切除同型の逆、直和分解、全体への切除同型を合成したものと一致します。これは包含の合成が一致することと [相対ホモロジーの誘導準同型](../ATOP18/index.md#thm-atop18-relative-map) によります。各段階は同型なので目的の写像も同型です。
 <!-- proof-end -->
@@ -243,20 +350,52 @@ $$
 
 **基底段階。** 空複体では両群とも零です。0次複体は有限離散点集合です。単体鎖は0次だけに存在します。特異側では [0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) により各点が0次の基底です。正次数について、各特異単体は一つの点に入るので点ごとの直和です。点は可縮だから [可縮空間の被約特異ホモロジー](../ATOP17/index.md#cor-atop17-contractible) により正次数群は零です。$J$ は点の基底を対応させるので全次数で同型です。
 
-**単体一枚の比較。** 次元 $m-1$ 以下で主張が成立すると仮定し、$m$ 単体 $\tau$ を全ての面込みで考えます。単体側の正次数の群は零です。これを確認するため頂点 $v$ を固定し、基底単体 $c=[v_0,\ldots,v_n]$ に対し $P(c)=[v,v_0,\ldots,v_n]$、ただし $v$ が既に頂点列にあれば零、と定めます。$v$ が列にないときは
+**単体一枚の比較。** 次元 $m-1$ 以下で主張が成立すると仮定し、$m$ 単体 $\tau$ を全ての面込みで考えます。単体側の正次数のホモロジー群は零です。
+
+これを確認するため頂点 $v$ を固定します。どの面に $v$ を加えても同じ単体の面なので、[単体鎖の頂点追加操作](../ATOP15/index.md#def-atop15-vertex-cone) が使えます。これを
+
+$$
+P=P_n:C_n^\triangle(\tau)\to C_{n+1}^\triangle(\tau)
+$$
+
+と書き、基底単体 $c=[v_0,\ldots,v_n]$ に対し
+
+$$
+P(c)=[v,v_0,\ldots,v_n]
+$$
+
+と定めます。ただし $v$ が既に頂点列にあれば零とします。[頂点追加と境界の恒等式](../ATOP15/index.md#lem-atop15-cone-boundary) の符号をここでも確かめます。$v$ が列にないときは
 
 $$
 \partial Pc=c+\sum_{i=0}^n(-1)^{i+1}[v,v_0,\ldots,\widehat v_i,\ldots,v_n]
 =c-P\partial c
 $$
 
-が $n\ge1$ で成り立ちます。$v=v_j$ のとき $Pc=0$、$P\partial c$ のうち第 $j$ 面だけが残り、$(-1)^j[v,v_0,\ldots,\widehat v_j,\ldots,v_n]=c$ です。従って正次数では $\partial P+P\partial$ は恒等写像で、サイクルは $c=\partial Pc$ として埋まります。0次では各辺 $[v,w]$ の境界が $[w]-[v]$ なので、すべての頂点の類が一致し、係数和は境界で変化しないため $H_0^\triangle(\tau)=\mathbb Z$ です。
+が $n\ge1$ で成り立ちます。$v=v_j$ のとき $Pc=0$ です。$P\partial c$ のうち第 $j$ 面だけが残り、
+
+$$
+(-1)^j[v,v_0,\ldots,\widehat v_j,\ldots,v_n]=c.
+$$
+
+従って正次数では $\partial P+P\partial$ は恒等写像で、サイクルは $c=\partial Pc$ として埋まります。
+
+0次では各辺 $[v,w]$ の境界が $[w]-[v]$ なので、すべての頂点の類が一致し、係数和は境界で変化しないため $H_0^\triangle(\tau)=\mathbb Z$ です。
 
 特異側 $D_\tau$ は凸集合で $v$ への直線収縮があり、[可縮空間の被約特異ホモロジー](../ATOP17/index.md#cor-atop17-contractible) により正次数は零、[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) により0次は $\mathbb Z$ です。
 
-従って一枚の単体の絶対比較は同型です。境界複体は次元 $m-1$ なので帰納仮定で比較は同型です。第2節の可換な長完全列の相対群を中央に置き、[完全列の中央の比較](#lem-atop21-exact-comparison) を適用すると $(\tau,\partial\tau)$ の相対比較が同型になります。ここで $\partial\tau$ は真の面からなる部分複体です。
+従って一枚の単体の絶対比較は同型です。境界複体は次元 $m-1$ なので帰納仮定で比較は同型です。第2節の可換な長完全列から、特異側の五項を
 
-単体側の相対鎖群は $m$ 次に $\mathbb Z$、他は零なので特異側も同じであり、$J[\tau]$ の相対類が生成元です。単に群が同じというだけでなく、どの鎖が生成元かが分かりました。
+$$
+\begin{gathered}
+H_n(\partial D_\tau)\to H_n(D_\tau)\\
+\to H_n(D_\tau,\partial D_\tau)\\
+\to H_{n-1}(\partial D_\tau)\to H_{n-1}(D_\tau)
+\end{gathered}
+$$
+
+と取ります。単体側では対応する単体ホモロジー群を並べます。[完全列の中央の比較](#lem-atop21-exact-comparison) を適用すると $(\tau,\partial\tau)$ の相対比較が同型になります。ここで $\partial\tau$ は真の面からなる部分複体です。
+
+単体側の相対鎖群は $m$ 次に $\mathbb Z$、他は零なので特異側の相対ホモロジー群も $m$ 次にのみ $\mathbb Z$ となり、$J[\tau]$ の相対類が生成元です。単に群が同じというだけでなく、どの鎖が生成元かが分かりました。
 
 **骨格から全体へ。** 次元 $m$ の $K$ と $L_0=K^{(m-1)}$ を取ります。単体側では
 
@@ -276,12 +415,18 @@ $$
 
 と選び、その上段を単体側にします。中央以外の四つの縦写像は帰納仮定と相対比較で同型なので、[完全列の中央の比較](#lem-atop21-exact-comparison) により中央も同型です。$n=0$ の最後の群は零です。これで絶対群について帰納が閉じました。
 
-一般の部分複体 $L\subset K$ では、絶対比較が $K,L$ の双方で全次数について成立しています。第2節の可換な長完全列で相対群を中央に選び、同じ補題を適用すれば一般の相対比較も同型となります。
+一般の部分複体 $L\subset K$ では、絶対比較が $K,L$ の双方で全次数について成立しています。第2節の可換な長完全列で相対群を中央に選び、[完全列の中央の比較](#lem-atop21-exact-comparison) を適用すれば一般の相対比較も同型となります。
 <!-- proof-end -->
 
 この定理により、有限三角形分割の境界行列を計算すれば特異ホモロジーを計算できます。三角形分割が異なっても同じ空間の特異ホモロジーを経由して比較できるため、分割の選択に依存しません。
 
 ## 6. 写像と頂点順序について
+
+[単体写像](../ATOP13/index.md#def-atop13-simplicial-map) $f:K\to M$ は頂点の対応で、各単体の像も単体となる写像です。その実現 $|f|:|K|\to|M|$ は各頂点の重みを像の頂点へ足し合わせる連続写像です。
+
+$H_n(|f|)$ と $H_n^\triangle(f)$ はそれぞれ [特異ホモロジーの誘導準同型](../ATOP16/index.md#thm-atop16-induced-homology) と [単体写像の誘導ホモロジー準同型](../ATOP14/index.md#thm-atop14-induced-homology) を表します。
+
+$J_{K,*}$ は $K$ の比較写像がホモロジーに誘導する写像であり、$M$ についても同様です。
 
 包含写像と、各単体上で頂点を重ねず順序を保つ単体写像では、アフィン写像を合成すれば鎖レベルで比較写像と可換です。ただし頂点が重なると単体側では退化した像は零、特異側では定数などの連続写像が残ります。また順序を反転すると第1節の逆走の問題が生じます。これらは鎖として同じとは限りませんが、ホモロジー上で一致することを次に示します。
 
@@ -309,9 +454,23 @@ $$
 F=|f|_\#J_K,\qquad G=J_M f_\#^\triangle.
 $$
 
-両者は鎖写像です。各単体 $\sigma$ の $F\sigma,G\sigma$ は像単体の実現 $D=|f(\sigma)|$ に収まります。退化した像では $G\sigma=0$ ですが、これも $C_n(D)$ の元です。
+両者は [単体写像と境界の可換性](../ATOP13/index.md#thm-atop13-chain-map)、[特異鎖の誘導準同型と境界の可換性](../ATOP16/index.md#thm-atop16-chain-map)、および [比較写像と境界の可換性](#thm-atop21-comparison-chain) により鎖写像です。各単体 $\sigma$ の $F\sigma,G\sigma$ は像単体の実現 $D=|f(\sigma)|$ に収まります。退化した像では $G\sigma=0$ ですが、これも $C_n(D)$ の元です。
 
-0次では $F[v]=G[v]$ なので $P_0=0$、$P_{-1}=0$ とします。次数 $n-1$ まで $F-G=\partial P+P\partial$ が成立し、各基底単体 $c$ で $Pc$ がその像単体の内部または境界に収まると仮定します。次数 $n\ge1$ の基底単体 $\sigma$ について
+ここで構成する
+
+$$
+P_n:C_n^\triangle(K)\to C_{n+1}(|M|)
+$$
+
+は第5節の頂点追加とは別の写像です。0次では $F[v]=G[v]$ なので $P_0=0$、$P_{-1}=0$ とします。
+
+次数 $n-1$ まで
+
+$$
+F-G=\partial P+P\partial
+$$
+
+が成立し、各基底単体 $c$ で $Pc$ がその像単体の実現内に収まると仮定します。次数 $n\ge1$ の基底単体 $\sigma$ について
 
 $$
 w=F\sigma-G\sigma-P_{n-1}\partial\sigma
@@ -336,7 +495,7 @@ $D$ は凸で可縮、$n\ge1$ なので [可縮空間の被約特異ホモロジ
 
 ## 7. 分割に依存しない穴の計算
 
-三角形の周囲を $K$ とし、辺を $[a,b],[a,c],[b,c]$ と並べます。1鎖 $x[a,b]+y[a,c]+z[b,c]$ の境界は
+三角形の周囲を $K$ とし、辺を $[a,b],[a,c],[b,c]$ と並べます。1鎖 $x[a,b]+y[a,c]+z[b,c]$ の境界は [単体境界作用素](../ATOP13/index.md#def-atop13-boundary) により
 
 $$
 (-x-y)[a]+(x-z)[b]+(y+z)[c].
@@ -357,7 +516,23 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[単体・特異鎖の比較写像](#def-atop21-comparison-map) により像は $\sigma(t_0,t_1,t_2)=t_0a+t_1b+t_2c$ です。第0面では $t_0=0$ で $\sigma_{bc}$、第1面では $t_1=0$ で $\sigma_{ac}$、第2面では $t_2=0$ で $\sigma_{ab}$ になります。[特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary) の符号は順に $+,-,+$ だから
+[単体・特異鎖の比較写像](#def-atop21-comparison-map) により像は
+
+$$
+\sigma(t_0,t_1,t_2)=t_0a+t_1b+t_2c.
+$$
+
+各面への制限は
+
+$$
+\begin{aligned}
+t_0=0&:\ \sigma_{bc},\\
+t_1=0&:\ \sigma_{ac},\\
+t_2=0&:\ \sigma_{ab}
+\end{aligned}
+$$
+
+です。[特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary) の符号は順に $+,-,+$ だから
 
 $$
 \partial\sigma=\sigma_{bc}-\sigma_{ac}+\sigma_{ab}.
@@ -393,10 +568,15 @@ $$
 r(t)=(0,2/7,5/7).
 $$
 
-成分は非負、和は1で第0成分が零なので境界点です。中間時刻では
+成分は非負、和は1で第0成分が零なので境界点です。中間時刻では第4節の $F(t,h)$ に $h=1/2$ を代入し、
 
 $$
-\frac{t+r(t)}2=(7/140,41/140,92/140).
+F(t,1/2)=\frac{t+r(t)}2
+=\frac12(1/10,3/10+2/7,6/10+5/7)
+$$
+
+$$
+=(7/140,41/140,92/140).
 $$
 
 和は $140/140=1$、最小成分は $7/140=1/20<1/5$ です。従って帯の中に残ります。
@@ -411,7 +591,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-1鎖を $x[a,b]+y[b,c]+z[c,d]+w[a,d]$ とすると [単体境界作用素](../ATOP13/index.md#def-atop13-boundary) により
+1鎖を $c_1=x[a,b]+y[b,c]+z[c,d]+w[a,d]$ とすると [単体境界作用素](../ATOP13/index.md#def-atop13-boundary) により
 
 $$
 \partial c_1=(-x-w)[a]+(x-y)[b]+(y-z)[c]+(z+w)[d].
@@ -429,7 +609,7 @@ $K$ を $a<b<c<d$ の三角形 $abc,acd$ とその面からなる複体とし、
 <!-- solution-start -->
 **詳細解答**
 
-相対鎖群には2単体 $p=[a,b,c]$、$q=[a,c,d]$ だけが残り、1鎖群も3鎖群も零です。従って相対2次群は $\mathbb Z^2$ で基底は $\bar p,\bar q$ の類です。[比較定理](#thm-atop21-comparison) によって対応する特異三角形の相対類も基底です。
+相対鎖群には2単体 $p=[a,b,c]$、$q=[a,c,d]$ だけが残り、1鎖群も3鎖群も零です。従って相対2次群は $\mathbb Z^2$ で基底は相対ホモロジー類 $[\bar p],[\bar q]$ です。[比較定理](#thm-atop21-comparison) によって対応する特異三角形の相対類も基底です。
 
 接続は [相対ホモロジーの接続準同型](../ATOP18/index.md#thm-atop18-connecting) により代表元の境界の類を取ります。単体側で
 
@@ -482,7 +662,7 @@ $$
 
 $i$ は第2座標から単射、$q$ は $q(u,0)=u$ から全射です。$q(x,y)=0$ は $x=2y$ と同値で、核は $(2t,t)=i(t)$ の全体です。よって完全です。
 
-$q(i(t))=0$ なので $fi=i$ です。また
+$q(i(t))=2t-2t=0$ なので $f(i(t))=(2t+6\cdot0,t+3\cdot0)=i(t)$ です。また
 
 $$
 q(f(x,y))=x+6q(x,y)-2(y+3q(x,y))=q(x,y).
@@ -494,7 +674,13 @@ $$
 (x,y)=(u-6q(u,v),v-3q(u,v)).
 $$
 
-この逆候補に $q$ を適用しても $q(u,v)$ が得られるので、$f$ を合成すると $(u,v)$ に戻ります。
+この逆候補に $q$ を適用すると
+
+$$
+u-6q(u,v)-2(v-3q(u,v))=u-2v=q(u,v)
+$$
+
+です。従って $f$ を合成すると $(u,v)$ に戻ります。逆に $f(x,y)$ にこの候補を適用すると、$q(f(x,y))=q(x,y)$ なので $(x,y)$ に戻ります。
 <!-- solution-end -->
 
 ### 演習 ATOP21-C1：二枚の三角形を貼る
@@ -534,7 +720,14 @@ $$
 \xrightarrow{\delta}\mathbb Z^2\to H_1(|K|)\to0
 $$
 
-を与えます。相対基底を $p,q$、絶対1次基底を $\partial p,\partial q$ の類としたので、接続の行列は2次の単位行列です。その核は零、像は全体です。完全性により $H_2(|K|)=0$、$H_1(|K|)=0$ です。これは二つの独立な1次サイクルが、それぞれ新しい2単体によって埋まることを意味します。
+を与えます。比較写像 $J$ による特異鎖の相対基底を $[\overline{Jp}],[\overline{Jq}]$、絶対1次基底を $[J\partial p],[J\partial q]$ とします。[接続準同型](../ATOP18/index.md#thm-atop18-connecting) と [比較写像と境界の可換性](#thm-atop21-comparison-chain) により、任意の整数 $\alpha,\beta$ について
+
+$$
+\delta(\alpha[\overline{Jp}]+\beta[\overline{Jq}])
+=\alpha[J\partial p]+\beta[J\partial q].
+$$
+
+従って二つの基底での係数列は $(\alpha,\beta)$ のままです。[基底から行列を作る方法](../ATOP13/index.md#boundary-matrix-coordinates) と同様に各基底元の像の係数を列に並べると、接続の行列は $2\times2$ の単位行列です。その核は零、像は全体です。完全性により $H_2(|K|)=0$、$H_1(|K|)=0$ です。これは二つの独立な1次サイクルが、それぞれ新しい2単体によって埋まることを意味します。
 <!-- solution-end -->
 
 ## 9. まとめ
