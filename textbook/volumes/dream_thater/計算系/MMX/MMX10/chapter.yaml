@@ -2,7 +2,7 @@ id: MMX10
 title: "spectral priceの曲率・完備化・ultralimit・積・合同と拡張条件、Euclid flatと非平坦空間の違い"
 volume: foundations
 status: supplementary
-prerequisites: [MMX9, TSP12, NPCG6]
+prerequisites: [MMX9, TSP12, NPCG6, SET9, TOP6, F0-00P4, F0-02C3]
 official_scope: []
 learning_objectives:
   - 完備化と点付き超極限で価格の整合性を保存する理由を説明できる
