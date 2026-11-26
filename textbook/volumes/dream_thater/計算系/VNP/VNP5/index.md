@@ -405,7 +405,7 @@ $$
 第1式により後者の距離は $D/n^2$ なので第4式です。
 <!-- proof-end -->
 
-[擬距離の四点評価](../../../幾何系/NPCG/NPCG1/index.md#lem-npcg1-four-point-bound) を使うと第1式が得られます。第2式には三角不等式を使います。
+[擬距離の四点評価](../../../幾何系/NPCG/NPCG1/index.md#lem-npcg1-four-point-bound) を使うと第1式が得られます。また $d(z,\gamma_i)\le d(z,m)+d(m,\gamma_i)$ です。
 
 $$
 |L_{i+1}-L_i|\le D/n^2,\qquad
