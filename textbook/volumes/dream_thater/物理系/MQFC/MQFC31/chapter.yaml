@@ -1,0 +1,25 @@
+id: MQFC31
+title: "相互作用をなぜ形式冪級数で扱うか"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC1, MQFC2, MQFC3, MQFC4, MICA6, COMB9]
+official_scope: []
+learning_objectives:
+  - 結合定数の形式展開を次数ごとに計算し実収束と区別できる
+  - 配置空間と二点対角と全対角を区別できる
+  - 全対角外の因果分割被覆を証明できる
+  - 二点時間順序核を非対角で貼り合わせ対角延長の自由度を説明できる
+  - 形式的構成と実際の場の再構成の要求を区別できる
+definitions:
+  - { id: MQFC31-DEF-01, name: "結合定数の形式展開" }
+  - { id: MQFC31-DEF-02, name: "挿入点の配置空間と衝突対角" }
+theorems:
+  - { id: MQFC31-THM-01, name: "結合定数展開の逆元の逐次構成" }
+  - { id: MQFC31-THM-02, name: "全対角外の因果分割被覆" }
+  - { id: MQFC31-PROP-01, name: "二点時間順序核の非対角構成" }
+canonical_examples: [非可換行列係数, 発散する形式展開, 三点の部分衝突, 対角に支持を持つ分布]
+problem_patterns: [MQFC31-A1, MQFC31-A2, MQFC31-A3, MQFC31-A4, MQFC31-B1, MQFC31-B2, MQFC31-B3, MQFC31-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }
