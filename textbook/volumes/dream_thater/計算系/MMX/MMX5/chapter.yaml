@@ -1,0 +1,26 @@
+id: MMX5
+title: "共有脚をもつ独立ブロックの分離・退化、複素数上の9/4上界の中心不等式"
+volume: foundations
+status: supplementary
+prerequisites: [MMX4]
+official_scope: []
+learning_objectives:
+  - 位相平均と平方重みによる共有脚分離を座標で再現できる
+  - 固定頻度語の数え上げから共有脚のエントロピー不等式を導ける
+  - 核・商および三つの区画の退化から次数プロファイルの不等式を導ける
+  - 対角増大率を証明し複素数体上の行列積指数上界へ結び付けられる
+definitions:
+  - { id: MMX5-DEF-01, name: "共有脚付き整合ブロック" }
+theorems:
+  - { id: MMX5-THM-01, name: "有限共有脚分離" }
+  - { id: MMX5-THM-02, name: "共有脚のエントロピー不等式" }
+  - { id: MMX5-THM-03, name: "次数プロファイルの離散凹性" }
+  - { id: MMX5-THM-04, name: "移動付き三倍不等式" }
+  - { id: MMX5-THM-05, name: "対角増大率" }
+  - { id: MMX5-THM-06, name: "複素数体上の行列積指数の九四分上界" }
+canonical_examples: [共有座標をもつ二つの区画, 位相条件と平方重み, "C(2,4)の三つの区画"]
+problem_patterns: [MMX5-A01, MMX5-A02, MMX5-A03, MMX5-A04, MMX5-B01, MMX5-B02, MMX5-B03, MMX5-B04, MMX5-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 1 }
