@@ -1,0 +1,36 @@
+chapter: MMX6
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX5, ACOMP4, ACOMP21, ACOMP22]
+forward_references: []
+concepts:
+  - id: matrix-exponent.truncated-polynomial
+    name: 切断多項式環
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（切断多項式環）"]
+    requires: []
+  - id: matrix-exponent.polynomial-separation
+    name: 多項式による共有脚分離
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（多項式による共有脚分離）"]
+    requires: [matrix-exponent.truncated-polynomial, matrix-exponent.shared-leg, matrix-exponent.convolution, matrix-exponent.dot-product]
+  - id: matrix-exponent.characteristic-free-entropy
+    name: 任意標数の共有脚評価
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（任意標数の共有脚評価）"]
+    requires: [matrix-exponent.polynomial-separation, matrix-exponent.dot-exponents, matrix-exponent.spectral-degeneration]
+  - id: matrix-exponent.algebraic-closure-transfer
+    name: 代数閉包と行列積指数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（代数閉包と行列積指数）"]
+    requires: [algebraic-complexity.field-extension-transfer, algebraic-complexity.coordinate-simulation]
+  - id: matrix-exponent.arbitrary-field-upper-bound
+    name: 任意の体上の行列積指数の上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（任意の体上の行列積指数の上界）"]
+    requires: [matrix-exponent.algebraic-closure-transfer, matrix-exponent.characteristic-free-entropy, matrix-exponent.profile-basic, matrix-exponent.determinant-filtration, matrix-exponent.diagonal-growth]
