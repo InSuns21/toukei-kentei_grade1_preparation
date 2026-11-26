@@ -34,7 +34,7 @@ chapters:
     title: "長方形乗算・dual exponentの定義、既知上界と平方の場合の関係、指数の正規化"
   - id: MMX8
     path: textbook/volumes/dream_thater/計算系/MMX/MMX8
-    status: planned
+    status: completed
     title: "price・wire・共通ラベル・局所restriction：辺長の和とrank分解の不等式、Euclid三角形の比2"
   - id: MMX9
     path: textbook/volumes/dream_thater/計算系/MMX/MMX9

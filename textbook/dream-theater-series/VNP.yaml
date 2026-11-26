@@ -34,7 +34,7 @@ chapters:
     title: "C/O：CN不等式、priceのCAT(0)完備化"
   - id: VNP8
     path: textbook/volumes/dream_thater/計算系/VNP/VNP8
-    status: planned
+    status: completed
     title: "D：F₂行列rank、transversal pair、平均D(r)の劣加法性"
   - id: VNP9
     path: textbook/volumes/dream_thater/計算系/VNP/VNP9
