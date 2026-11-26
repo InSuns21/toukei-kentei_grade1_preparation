@@ -619,7 +619,7 @@ $\eta=T/(100k)$ を取り、$c_0>0$ は箱全体で $c_0\langle x,x\rangle\le W^
 
 $$
 f(x)=c_0\langle x,x\rangle+
-\frac{W^{-4}}{nN}\sum_{i\ {\rm 測距}}(v_i/T)^2,\qquad
+\frac{W^{-4}}{nN}\sum_{i\ \text{測距}}(v_i/T)^2,\qquad
 j(s)=W^{-2}\min(s^{-1},t^{-8}).
 $$
 
