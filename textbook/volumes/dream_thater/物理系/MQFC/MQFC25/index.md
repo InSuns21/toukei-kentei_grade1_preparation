@@ -45,14 +45,18 @@ $\beta=0$ では外側の値によらず確率は $1/2$。$\beta$ が小さい�
 <!-- formal-statement-start -->
 > **定義（Dobrushin影響係数）**
 > 有限辺集合 $E$ 上のWilson測度の一辺条件付き分布を $\pi_i$ とする。異なる辺 $i,j$ に対し
+
 $$
 c_{ij}=\sup_{x,y:\ x_k=y_k\ (k\ne j)}
 \|\pi_i(\cdot\mid x_{\ne i})-\pi_i(\cdot\mid y_{\ne i})\|_{\rm TV}.
 $$
+
 > $c_{ii}=0$ とし、非負行列 $C=(c_{ij})$ とその最大行和
+
 $$
 q=\max_{i\in E}\sum_{j\in E}c_{ij}
 $$
+
 > を用いる。$q<1$ をDobrushinの収縮条件とする。
 <!-- formal-statement-end -->
 
@@ -73,10 +77,12 @@ $$
 <!-- formal-statement-start -->
 > **定理（Wilson測度の強結合影響評価）**
 > 自由境界の有限直方体格子（次元 $d\ge2$）、コンパクト群 $G\subset U(N)$、$\beta\ge0$ のWilson測度について
+
 $$
 c_{ij}\le 2\beta m_{ij}\quad(i\ne j),\qquad
 q\le 12(d-1)\beta.
 $$
+
 > 特に $0\le\beta<1/[12(d-1)]$ なら収縮条件が成立する。この十分条件は格子の辺数によらない。
 <!-- formal-statement-end -->
 
@@ -138,9 +144,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（辺ごとの振動幅）**
 > 有界可測関数 $f:G^E\to\mathbb C$ と辺 $i\in E$ に対し
+
 $$
 \delta_i(f)=\sup_{x,y:\ x_k=y_k\ (k\ne i)}|f(x)-f(y)|
 $$
+
 > とする。全ての辺の振動幅を行ベクトル $\delta(f)$ に並べる。
 <!-- formal-statement-end -->
 
@@ -161,15 +169,19 @@ $$
 <!-- formal-statement-start -->
 > **補題（一辺平均による振動幅の伝播）**
 > 有限Wilson測度の条件付き平均 $P_i$ と影響行列 $C$ に対し、有界可測関数 $f$ は
+
 $$
 \delta_i(P_i f)=0,\qquad
 \delta_j(P_i f)\le\delta_j(f)+c_{ij}\delta_i(f)\quad(j\ne i)
 $$
+
 > を満たす。従って成分ごとの不等式として
+
 $$
 \delta(P_0 f)\le\delta(f)R,\qquad
 R=(1-M^{-1})I+M^{-1}C
 $$
+
 > が成立する。
 <!-- formal-statement-end -->
 
@@ -205,11 +217,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（Dobrushin収縮による体積一様相関減衰）**
 > 有限Wilson測度の影響行列の最大行和を $q<1$ とする。辺集合 $A,B$ のみにそれぞれ依存する有界可測関数 $f,g$ に対し、$r=r(A,B)<\infty$ なら
+
 $$
 |\operatorname{Cov}_\mu(f,g)|
 \le \sum_{i,j}\delta_i(f)\left(\sum_{k=0}^\infty C^k\right)_{ij}\delta_j(g)
 \le \frac{4|A|\|f\|_\infty\|g\|_\infty}{1-q}q^r.
 $$
+
 > $q^0=1$ とし、道がなければ相関は0である。格子全体の辺数は右辺に現れない。
 <!-- formal-statement-end -->
 
@@ -296,13 +310,17 @@ $T$ を転送作用素、$\Lambda_0>0$ をその最大固有値、$\Omega>0$ を
 <!-- formal-statement-start -->
 > **定理（強結合における体積一様格子ギャップ）**
 > 自由境界の有限空間直方体格子、時空次元 $d\ge2$、コンパクト群 $G\subset U(N)$ を取る。Wilson測度の結合を $\beta\ge0$ とし、$0<b<1$ が
+
 $$
 12(d-1)\beta\le b
 $$
+
 > を満たすとする。真空規格化後の物理Hilbert空間の転送作用素 $U$ の全ての励起固有値 $\lambda>0$ は
+
 $$
 \lambda\le b
 $$
+
 > を満たす。励起空間が非零なら格子間隔 $a>0$ のHamiltonianの真空直交部分のスペクトルは $[-a^{-1}\log b,\infty)$ に含まれる。
 <!-- formal-statement-end -->
 
@@ -371,10 +389,9 @@ $$
 ## 6. 演習
 
 ### 演習 MQFC25-A1：二値の条件付き確率
+- Level: A
 
-<!-- problem-start -->
 一正方形二値群で $\tanh\beta=1/5$ とする。残り三辺の積が $1,-1$ のときの辺 $i$ の値が1となる確率と、その全変動距離、最大行和を求めよ。
-<!-- problem-end -->
 <!-- solution-start -->
 **詳細解答**
 
@@ -384,10 +401,9 @@ $$
 <!-- solution-end -->
 
 ### 演習 MQFC25-A2：正方形の数
+- Level: A
 
-<!-- problem-start -->
 $d=3$ の直方体格子の内部にある一本の辺について、所属する正方形数と $\sum_{j\ne i}m_{ij}$ を求めよ。$\beta=1/48$ で影響行和の上界を求めよ。
-<!-- problem-end -->
 <!-- solution-start -->
 **詳細解答**
 
@@ -397,10 +413,9 @@ $d=3$ の直方体格子の内部にある一本の辺について、所属す�
 <!-- solution-end -->
 
 ### 演習 MQFC25-A3：振動幅と平均
+- Level: A
 
-<!-- problem-start -->
 二値群の二辺の独立一様分布について $f(x)=2x_1+x_1x_2$ とする。各辺の振動幅、$P_1f,P_2f$ を求めよ。
-<!-- problem-end -->
 <!-- solution-start -->
 **詳細解答**
 
@@ -410,10 +425,9 @@ $d=3$ の直方体格子の内部にある一本の辺について、所属す�
 <!-- solution-end -->
 
 ### 演習 MQFC25-A4：相関評価の数値
+- Level: A
 
-<!-- problem-start -->
 二つの局所観測量について $|A|=2$、距離 $r=5$、$q\le1/3$、両方の絶対値は1以下とする。相関の上界を求めよ。
-<!-- problem-end -->
 <!-- solution-start -->
 **詳細解答**
 
@@ -428,10 +442,9 @@ $$
 <!-- solution-end -->
 
 ### 演習 MQFC25-B1：二辺間の影響の和
+- Level: B
 
-<!-- problem-start -->
 非負行列 $C=\begin{pmatrix}0&1/4\\1/2&0\end{pmatrix}$ を考える。収縮条件を確認し、$\sum_{k\ge0}C^k$ の成分 $(1,2)$ を求めよ。振動幅がそれぞれ $(2,0),(0,2)$ の場合、行列を用いた相関上界を計算せよ。
-<!-- problem-end -->
 <!-- solution-start -->
 **詳細解答**
 
@@ -448,10 +461,9 @@ $$
 <!-- solution-end -->
 
 ### 演習 MQFC25-B2：密度の正規化の微分
+- Level: B
 
-<!-- problem-start -->
 二点集合 $u=\pm1$ の一様測度上で、$p_t(u)$ を $e^{t\alpha u}$ に比例する密度とする（$\alpha>0,0\le t\le1$）。$\partial_t\log Z_t$ と $u=1$ の確率の微分を計算し、始点と終点の全変動距離を求めよ。
-<!-- problem-end -->
 <!-- solution-start -->
 **詳細解答**
 
@@ -467,10 +479,9 @@ $u=1$ の確率は $(1+\tanh(t\alpha))/2$ で、その微分は $\alpha/(2\cosh^
 <!-- solution-end -->
 
 ### 演習 MQFC25-B3：見えない励起
+- Level: B
 
-<!-- problem-start -->
 三次元Hilbert空間の標準正規直交基底 $e_0,e_1,e_2$ 上で、転送作用素を対角成分 $1,1/5,4/5$ で定める。真空を $e_0$ とし、格子間隔を $a=1$ とする。観測ベクトル $e_1$ の自己相関と全励起ギャップを求めよ。$e_1$ の相関から $\log 5$ を全励起ギャップと主張できるか。
-<!-- problem-end -->
 <!-- solution-start -->
 **詳細解答**
 
@@ -480,14 +491,13 @@ $U^ne_1=5^{-n}e_1$ なので自己相関は $5^{-n}$。$U^ne_2=(4/5)^ne_2$ な�
 <!-- solution-end -->
 
 ### 演習 MQFC25-C1：強結合からスペクトルまで
+- Level: C
 
-<!-- problem-start -->
 時空次元4、$\beta=1/108$ の自由境界Wilson測度を考える。各有限空間格子で一時刻転送作用素の正の励起固有値を $\lambda$ とする。
 1. 体積一様な最大行和上界を求めよ。
 2. 空間層の辺数が $m>0$ のとき、絶対値が $F$ 以下の一時刻観測量の連結時間相関の上界を求めよ。
 3. 規格化された励起固有関数 $v$ から観測量を作り、$\lambda$ の上界を証明せよ。$a=1/10$ のときエネルギーの下界を求めよ。
 4. $\beta$ がこの十分条件を満たさない場合にもギャップがないと断定できるか。
-<!-- problem-end -->
 <!-- solution-start -->
 **詳細解答**
 
