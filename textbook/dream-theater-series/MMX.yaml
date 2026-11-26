@@ -54,7 +54,7 @@ chapters:
     title: "companionのcompressor・exact・descent：タグ付き置換をoracleにしたネットワーク圧縮、サイズと複製数の台帳"
   - id: MMX13
     path: textbook/volumes/dream_thater/計算系/MMX/MMX13
-    status: planned
+    status: completed
     title: "Circuit lower bounds companionの比較・entropy・product theorem：no-ports側のグラフentropy boundを導く"
   - id: MMX14
     path: textbook/volumes/dream_thater/計算系/MMX/MMX14

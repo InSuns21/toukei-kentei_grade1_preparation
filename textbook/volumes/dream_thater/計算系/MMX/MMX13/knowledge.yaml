@@ -1,0 +1,108 @@
+chapter: MMX13
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX10, MMX11, INFO4]
+forward_references: []
+concepts:
+  - id: metric-geometry.hadamard-space
+    name: "Hadamard 空間"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hadamard 空間）"]
+    requires: [metric-geometry.cat-zero-space]
+  - id: matrix-exponent.pair-energy
+    name: "対分布の距離エネルギー"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対分布の距離エネルギー）"]
+    requires: []
+  - id: matrix-exponent.stationary-smoothing
+    name: "定常対比較の平滑化"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（定常対比較の平滑化）"]
+    requires: [matrix-exponent.pair-energy, matrix-exponent.cesaro-walk, metric-geometry.barycenter-variance-inequality]
+  - id: matrix-exponent.log-obstruction
+    name: "対数的 Poincaré 障壁"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（対数的 Poincaré 障壁）"]
+    requires: [matrix-exponent.ports, matrix-exponent.stationary-smoothing, metric-geometry.finite-weighted-barycenter]
+  - id: matrix-exponent.sparse-log-obstruction
+    name: "疎な対称遷移の対数下界"
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（疎な対称遷移の対数下界）"]
+    requires: [matrix-exponent.log-obstruction]
+  - id: matrix-exponent.observed-entropy-rate
+    name: "観測エントロピー率"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（観測エントロピー率）"]
+    requires: [information.shannon-entropy, information.entropy-chain-rule, information.mutual-as-divergence, information.finite-markov-chain]
+  - id: matrix-exponent.coordinate-exchange
+    name: "独立座標交換の二乗評価"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（独立座標交換の二乗評価）"]
+    requires: [metric-geometry.quadrilateral-midpoint-bound]
+  - id: matrix-exponent.demand-label-extraction
+    name: "需要ラベルの一様成分抽出"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（需要ラベルの一様成分抽出）"]
+    requires: [information.conditional-entropy, information.information-moments]
+  - id: matrix-exponent.observable-entropy-comparison
+    name: "観測エントロピー比較"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（観測エントロピー比較）"]
+    requires: [matrix-exponent.observed-entropy-rate, matrix-exponent.demand-label-extraction, matrix-exponent.stationary-smoothing, matrix-exponent.coordinate-exchange, matrix-exponent.sparse-log-obstruction, information.prefix-mean-length-bound]
+  - id: matrix-exponent.weighted-graph-entropy
+    name: "重み付きグラフの条件付きエントロピー比較"
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（重み付きグラフの条件付きエントロピー比較）"]
+    requires: [matrix-exponent.observable-entropy-comparison, information.discrete-entropy-bounds]
+  - id: matrix-exponent.power-realizable-table
+    name: "許容距離表と冪実現可能性"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（許容距離表と冪実現可能性）"]
+    requires: [matrix-exponent.ultralimit]
+  - id: matrix-exponent.flat-grid-extraction
+    name: "平坦格子からの冪実現可能表の抽出"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（平坦格子からの冪実現可能表の抽出）"]
+    requires: [matrix-exponent.power-realizable-table, metric-geometry.flat-quadrilateral-equality]
+  - id: matrix-exponent.power-obstruction
+    name: "冪実現可能表に対する ports の不存在"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（冪実現可能表に対する ports の不存在）"]
+    requires: [matrix-exponent.flat-grid-extraction, matrix-exponent.coordinate-exchange, matrix-exponent.observable-entropy-comparison, metric-geometry.barycenter-stability]
+  - id: matrix-exponent.midpoint-table-extension
+    name: "冪実現可能表の中点拡張"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（冪実現可能表の中点拡張）"]
+    requires: [matrix-exponent.flat-grid-extraction, matrix-exponent.power-realizable-table]
+  - id: matrix-exponent.no-ports-product-class
+    name: "ports のないクラスの積閉部分クラス"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ports のないクラスの積閉部分クラス）"]
+    requires: [matrix-exponent.midpoint-table-extension, matrix-exponent.power-obstruction, matrix-exponent.log-obstruction]
+  - id: matrix-exponent.balanced-circuit-cut
+    name: "均衡切断による回路係数の分解"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（均衡切断による回路係数の分解）"]
+    requires: []
+  - id: matrix-exponent.conditional-circuit-price-bound
+    name: "均衡切断の価格比較による条件付き回路下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（均衡切断の価格比較による条件付き回路下界）"]
+    requires: [matrix-exponent.balanced-circuit-cut, matrix-exponent.network-rank-price]

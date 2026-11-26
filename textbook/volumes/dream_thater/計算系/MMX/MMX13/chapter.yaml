@@ -1,0 +1,38 @@
+id: MMX13
+title: "Circuit lower bounds companionの比較・entropy・product theorem：no-ports側のグラフentropy boundを導く"
+volume: foundations
+status: supplementary
+prerequisites: [MMX10, MMX11, INFO4]
+official_scope: []
+learning_objectives:
+  - 定常歩道の重心平滑化と雲の置換から対数的 Poincaré 障壁を導ける
+  - ラベル抽出とランプ変位の符号化から観測エントロピー比較を証明できる
+  - 対分布の対称化と自己対を用いて異なる周辺分布のグラフ比較を導ける
+  - 平坦格子の共通 Euclid 成分を分離して冪実現可能表を抽出できる
+  - 中点拡張と極小クラスの論証から積閉部分クラスの存在を導ける
+  - 均衡切断による回路分解と価格の一次節約の条件付き下界を計算できる
+definitions:
+  - { id: MMX13-DEF-04, name: "Hadamard 空間" }
+  - { id: MMX13-DEF-01, name: "対分布の距離エネルギー" }
+  - { id: MMX13-DEF-02, name: "観測エントロピー率" }
+  - { id: MMX13-DEF-03, name: "許容距離表と冪実現可能性" }
+theorems:
+  - { id: MMX13-LEM-01, name: "定常対比較の平滑化" }
+  - { id: MMX13-THM-02, name: "対数的 Poincaré 障壁" }
+  - { id: MMX13-COR-03, name: "疎な対称遷移の対数下界" }
+  - { id: MMX13-LEM-04, name: "独立座標交換の二乗評価" }
+  - { id: MMX13-LEM-05, name: "需要ラベルの一様成分抽出" }
+  - { id: MMX13-THM-06, name: "観測エントロピー比較" }
+  - { id: MMX13-COR-07, name: "重み付きグラフの条件付きエントロピー比較" }
+  - { id: MMX13-LEM-08, name: "平坦格子からの冪実現可能表の抽出" }
+  - { id: MMX13-LEM-09, name: "冪実現可能表に対する ports の不存在" }
+  - { id: MMX13-LEM-10, name: "冪実現可能表の中点拡張" }
+  - { id: MMX13-THM-11, name: "ports のないクラスの積閉部分クラス" }
+  - { id: MMX13-LEM-12, name: "均衡切断による回路係数の分解" }
+  - { id: MMX13-THM-13, name: "均衡切断の価格比較による条件付き回路下界" }
+canonical_examples: [定常対のエネルギー, 二値観測率, 平坦格子の共通方向, 二乗距離の混合]
+problem_patterns: [MMX13-A01, MMX13-A02, MMX13-A03, MMX13-A04, MMX13-A05, MMX13-B01, MMX13-B02, MMX13-B03, MMX13-B04, MMX13-B05, MMX13-C01, MMX13-C02]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 5, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 28, exercises: 8, review: 5 }
