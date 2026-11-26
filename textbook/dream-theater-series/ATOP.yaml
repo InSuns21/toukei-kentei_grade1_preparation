@@ -19,7 +19,7 @@ chapters:
   - { id: ATOP13, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP13, status: completed, title: "向き付き単体と単体鎖複体" }
   - { id: ATOP14, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP14, status: completed, title: "単体ホモロジーと計算" }
   - { id: ATOP15, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP15, status: completed, title: "細分と単体近似" }
-  - { id: ATOP16, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP16, status: planned, title: "特異鎖・特異ホモロジーと関手性" }
+  - { id: ATOP16, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP16, status: completed, title: "特異鎖・特異ホモロジーと関手性" }
   - { id: ATOP17, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP17, status: planned, title: "鎖ホモトピーとホモトピー不変性" }
   - { id: ATOP18, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP18, status: planned, title: "相対ホモロジーと長完全列" }
   - { id: ATOP19, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP19, status: planned, title: "切除定理" }
