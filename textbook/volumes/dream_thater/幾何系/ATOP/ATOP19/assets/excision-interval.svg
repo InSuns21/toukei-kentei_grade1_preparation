@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 195" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+<title id="title">区間の切除と重なり</title><desc id="desc">Xは0から3、Aは0を含み2を含まない、Zは0から1の閉区間、Bは1を含まず3を含む。AとBは1と2の間で重なる。</desc>
+<g font-family="sans-serif" font-size="13" fill="#172b4d" stroke="none">
+<text x="12" y="30">X</text><text x="12" y="65">A</text><text x="12" y="100">Z</text><text x="12" y="135">B</text>
+<text x="54" y="181" text-anchor="middle">0</text><text x="146" y="181" text-anchor="middle">1</text><text x="238" y="181" text-anchor="middle">2</text><text x="330" y="181" text-anchor="middle">3</text></g>
+<g stroke="#9aa7b6" stroke-width="1" stroke-dasharray="3 5"><path d="M54 39 V143 M146 39 V143 M238 39 V143 M330 39 V143"/></g>
+<g stroke="#172b4d" stroke-width="2.5" fill="#172b4d"><path d="M54 25 H330"/><circle cx="54" cy="25" r="4"/><circle cx="330" cy="25" r="4"/></g>
+<g stroke="#15696a" stroke-width="3" fill="#15696a"><path d="M54 60 H238"/><circle cx="54" cy="60" r="4"/><circle cx="238" cy="60" r="4" fill="white"/></g>
+<g stroke="#985229" stroke-width="3" fill="#985229"><path d="M54 95 H146"/><circle cx="54" cy="95" r="4"/><circle cx="146" cy="95" r="4"/></g>
+<g stroke="#345d9d" stroke-width="3" fill="#345d9d"><path d="M146 130 H330"/><circle cx="146" cy="130" r="4" fill="white"/><circle cx="330" cy="130" r="4"/></g>
+</svg>

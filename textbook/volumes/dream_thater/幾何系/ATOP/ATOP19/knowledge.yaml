@@ -1,0 +1,46 @@
+chapter: ATOP19
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP18, ATOP15]
+forward_references: []
+concepts:
+  - id: atop.small-chain-complex
+    name: 小さい鎖の複体
+    kind: definition
+    introduction: formal
+    requires: [atop.singular-chain-group, atop.singular-boundary]
+  - id: atop.singular-cone-boundary
+    name: 特異錐の境界公式
+    kind: lemma
+    introduction: formal
+    requires: [atop.singular-boundary, atop.singular-face-map]
+  - id: atop.singular-subdivision
+    name: 特異鎖の細分作用素
+    kind: definition
+    introduction: formal
+    requires: [atop.subdivision-complex, atop.induced-singular-chain-map, atop.singular-face-map]
+  - id: atop.singular-subdivision-chain-map
+    name: 特異細分と境界の可換性
+    kind: theorem
+    introduction: formal
+    requires: [atop.singular-subdivision, atop.singular-cone-boundary, atop.singular-boundary-square-zero, atop.singular-chain-map-boundary]
+  - id: atop.singular-subdivision-homotopy
+    name: 特異細分の鎖ホモトピー
+    kind: theorem
+    introduction: formal
+    requires: [atop.singular-subdivision-chain-map, atop.chain-homotopy, atop.singular-cone-boundary]
+  - id: atop.eventually-small-chains
+    name: 有限鎖の小鎖化
+    kind: lemma
+    introduction: formal
+    requires: [atop.small-chain-complex, atop.singular-subdivision, atop.lebesgue-number, fixedpoint.barycentric-mesh-contraction]
+  - id: atop.small-chain-homology-isomorphism
+    name: 小さい鎖によるホモロジー同型
+    kind: theorem
+    introduction: formal
+    requires: [atop.eventually-small-chains, atop.singular-subdivision-homotopy, atop.relative-singular-homology]
+  - id: atop.excision
+    name: 切除定理
+    kind: theorem
+    introduction: formal
+    requires: [atop.small-chain-homology-isomorphism, atop.relative-induced-map, atop.relative-singular-chain]
