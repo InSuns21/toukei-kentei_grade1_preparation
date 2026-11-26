@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 380" data-layout-lint="strict">
+<title>四面体の四つの境界面</title>
+<desc>四面体abcdの面bcd、acd、abd、abcを正負正負の係数で展開した。面ごとの矢印は係数を反映した境界の向きであり、各辺は別の面に反対向きで一回ずつ現れる。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#174c72"/></marker></defs>
+<g>
+  <path d="M40 153 L190 153 L115 50 Z" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
+  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><path d="M77.5 153 L148 153"/><path d="M171.25 127.25 L136 78.84"/><path d="M96.25 75.75 L61 124.16"/></g>
+  <g font-family="sans-serif" font-size="18" fill="#174c72" text-anchor="middle">
+    <text x="27" y="173">b</text><text x="203" y="173">c</text><text x="115" y="24">d</text>
+    <text x="115" y="120">+bcd</text>
+  </g>
+</g>
+<g>
+  <path d="M270 153 L420 153 L345 50 Z" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
+  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><path d="M382.5 153 L312 153"/><path d="M363.75 75.75 L399 124.16"/><path d="M288.75 127.25 L324 78.84"/></g>
+  <g font-family="sans-serif" font-size="18" fill="#174c72" text-anchor="middle">
+    <text x="257" y="173">a</text><text x="433" y="173">c</text><text x="345" y="24">d</text>
+    <text x="345" y="120">-acd</text>
+  </g>
+</g>
+<g>
+  <path d="M40 338 L190 338 L115 235 Z" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
+  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><path d="M77.5 338 L148 338"/><path d="M171.25 312.25 L136 263.84"/><path d="M96.25 260.75 L61 309.16"/></g>
+  <g font-family="sans-serif" font-size="18" fill="#174c72" text-anchor="middle">
+    <text x="27" y="358">a</text><text x="203" y="358">b</text><text x="115" y="209">d</text>
+    <text x="115" y="305">+abd</text>
+  </g>
+</g>
+<g>
+  <path d="M270 338 L420 338 L345 235 Z" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
+  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><path d="M382.5 338 L312 338"/><path d="M363.75 260.75 L399 309.16"/><path d="M288.75 312.25 L324 263.84"/></g>
+  <g font-family="sans-serif" font-size="18" fill="#174c72" text-anchor="middle">
+    <text x="257" y="358">a</text><text x="433" y="358">b</text><text x="345" y="209">c</text>
+    <text x="345" y="305">-abc</text>
+  </g>
+</g>
+</svg>
