@@ -113,7 +113,7 @@ $$
 
 0次末端では任意の0鎖がサイクルなので商への写像は全射です。
 
-単体側と特異側で長完全列ができました。包含と商は $J$ と可換であり、接続も
+単体側と特異側で長完全列ができました。包含と商は $J$ と可換であり、$n\ge1$ で接続も
 
 $$
 J_*[\partial c]=[\partial Jc]=\delta[J^{\rm rel}\bar c]
@@ -191,11 +191,25 @@ $$
 r_i(t)=\frac{t_i-s}{1-(m+1)s}
 $$
 
-と置きます。分母は正、各成分は非負、成分和は1、少なくとも一成分が零です。従って $r(t)$ は境界にあり、$s=0$ なら $r(t)=t$ です。時刻 $h\in[0,1]$ の変形を $F(t,h)=(1-h)t+hr(t)$ とします。成分は非負で和は1です。各 $t_i\ge s$、$r_i\ge0$ なので $F_i\ge(1-h)s$ であり、$t_j=s$ の成分では $r_j=0$ なので等号が成り立ちます。従って最小成分は $(1-h)s<\epsilon$ で、帯から出ません。
+と置きます。最小値 $s$ は有限個の連続な座標関数の最小値なので連続です。$s<\epsilon<1/(m+1)$ より分母は正で、各成分は非負です。成分和を確認すると
+
+$$
+\sum_{i=0}^m r_i(t)
+=\frac{\sum_{i=0}^m t_i-(m+1)s}{1-(m+1)s}=1.
+$$
+
+最小値を取る成分は零です。従って $r(t)$ は境界にあり、$s=0$ なら $r(t)=t$ です。時刻 $h\in[0,1]$ の変形を $F(t,h)=(1-h)t+hr(t)$ とします。成分は非負で和は1です。各 $t_i\ge s$、$r_i\ge0$ なので $F_i\ge(1-h)s$ であり、$t_j=s$ の成分では $r_j=0$ なので等号が成り立ちます。従って最小成分は $(1-h)s<\epsilon$ で、帯から出ません。
 
 各単体の共通面では $s=0$ なので恒等写像になります。$A$ 上も恒等写像とし、$U\times[0,1]$ を覆う有限個の閉集合 $(U\cap D_\tau)\times[0,1]$ と $A\times[0,1]$ 上で連続な写像が一致するため、貼り合わせは連続です。$F(t,0)=t$、$F(t,1)=r(t)\in A$、$F(a,h)=a$ ($a\in A$) なので [強変形レトラクト](../ATOP3/index.md#def-atop3-strong-deformation-retract) の全条件を満たします。
 
-[ホモトピー同値と特異ホモロジー群](../ATOP17/index.md#cor-atop17-equivalence) より $H_n(A)\to H_n(U)$ は同型です。対 $(X,A)\to(X,U)$ の [対の長完全列の自然性](../ATOP18/index.md#thm-atop18-naturality) により、相対群を中央に置いた五項の縦写像のうち他の四つは $A\to U$ の同型または $X$ 上の恒等写像です。[完全列の中央の比較](#lem-atop21-exact-comparison) から $H_n(X,A)\to H_n(X,U)$ も同型です。$n=0$ では右端二つを零群とします。
+[変形レトラクトによるホモトピー同値](../ATOP3/index.md#thm-atop3-deformation-equivalence) から包含 $A\to U$ と $r$ は互いにホモトピー逆写像です。[ホモトピー同値と特異ホモロジー群](../ATOP17/index.md#cor-atop17-equivalence) より $H_n(A)\to H_n(U)$ は同型です。対 $(X,A)\to(X,U)$ の [対の長完全列の自然性](../ATOP18/index.md#thm-atop18-naturality) を使い、上段に
+
+$$
+H_n(A)\to H_n(X)\to H_n(X,A)
+\to H_{n-1}(A)\to H_{n-1}(X)
+$$
+
+を、下段に $A$ を $U$ に置き換えた完全列を並べます。相対群を中央に置いた五項の縦写像のうち他の四つは $A\to U$ が誘導する同型または $X$ 上の恒等写像です。[完全列の中央の比較](#lem-atop21-exact-comparison) から $H_n(X,A)\to H_n(X,U)$ も同型です。$n=0$ では右端二つを零群とします。
 
 $A=\overline A\subset U=\operatorname{int}_X U$ だから [切除定理](../ATOP19/index.md#thm-atop19-excision) により
 
@@ -258,7 +272,7 @@ $$
 
 特異側 $D_\tau$ は凸集合で $v$ への直線収縮があり、[可縮空間の被約特異ホモロジー](../ATOP17/index.md#cor-atop17-contractible) により正次数は零、[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) により0次は $\mathbb Z$ です。
 
-従って一枚の単体の絶対比較は同型です。境界複体は次元 $m-1$ なので帰納仮定で比較は同型です。第2節の可換な長完全列の相対群を中央に置き、[完全列の中央の比較](#lem-atop21-exact-comparison) を適用すると $(\tau,\partial\tau)$ の相対比較が同型になります。ここで $\partial\tau$ は真の面からなる部分複体です。
+従って一枚の単体の絶対比較は同型です。境界複体は次元 $m-1$ なので帰納仮定で比較は同型です。第2節の可換な長完全列から、絶対群 $H_n(\partial D_\tau),H_n(D_\tau)$、相対群、絶対群 $H_{n-1}(\partial D_\tau),H_{n-1}(D_\tau)$ の順に五項を取って、[完全列の中央の比較](#lem-atop21-exact-comparison) を適用すると $(\tau,\partial\tau)$ の相対比較が同型になります。ここで $\partial\tau$ は真の面からなる部分複体です。
 
 単体側の相対鎖群は $m$ 次に $\mathbb Z$、他は零なので特異側の相対ホモロジー群も $m$ 次にのみ $\mathbb Z$ となり、$J[\tau]$ の相対類が生成元です。単に群が同じというだけでなく、どの鎖が生成元かが分かりました。
 
@@ -315,7 +329,7 @@ $$
 F=|f|_\#J_K,\qquad G=J_M f_\#^\triangle.
 $$
 
-両者は [単体写像は境界と可換](../ATOP13/index.md#thm-atop13-chain-map)、[特異鎖の誘導準同型と境界の可換性](../ATOP16/index.md#thm-atop16-chain-map)、および [比較写像と境界の可換性](#thm-atop21-comparison-chain) により鎖写像です。各単体 $\sigma$ の $F\sigma,G\sigma$ は像単体の実現 $D=|f(\sigma)|$ に収まります。退化した像では $G\sigma=0$ ですが、これも $C_n(D)$ の元です。
+両者は [単体写像と境界の可換性](../ATOP13/index.md#thm-atop13-chain-map)、[特異鎖の誘導準同型と境界の可換性](../ATOP16/index.md#thm-atop16-chain-map)、および [比較写像と境界の可換性](#thm-atop21-comparison-chain) により鎖写像です。各単体 $\sigma$ の $F\sigma,G\sigma$ は像単体の実現 $D=|f(\sigma)|$ に収まります。退化した像では $G\sigma=0$ ですが、これも $C_n(D)$ の元です。
 
 ここで構成する $P_n:C_n^\triangle(K)\to C_{n+1}(|M|)$ は第5節の頂点追加とは別の写像です。0次では $F[v]=G[v]$ なので $P_0=0$、$P_{-1}=0$ とします。次数 $n-1$ まで $F-G=\partial P+P\partial$ が成立し、各基底単体 $c$ で $Pc$ がその像単体の内部または境界に収まると仮定します。次数 $n\ge1$ の基底単体 $\sigma$ について
 
@@ -342,7 +356,7 @@ $D$ は凸で可縮、$n\ge1$ なので [可縮空間の被約特異ホモロジ
 
 ## 7. 分割に依存しない穴の計算
 
-三角形の周囲を $K$ とし、辺を $[a,b],[a,c],[b,c]$ と並べます。1鎖 $x[a,b]+y[a,c]+z[b,c]$ の境界は
+三角形の周囲を $K$ とし、辺を $[a,b],[a,c],[b,c]$ と並べます。1鎖 $x[a,b]+y[a,c]+z[b,c]$ の境界は [単体境界作用素](../ATOP13/index.md#def-atop13-boundary) により
 
 $$
 (-x-y)[a]+(x-z)[b]+(y+z)[c].
@@ -493,7 +507,7 @@ $$
 
 $i$ は第2座標から単射、$q$ は $q(u,0)=u$ から全射です。$q(x,y)=0$ は $x=2y$ と同値で、核は $(2t,t)=i(t)$ の全体です。よって完全です。
 
-$q(i(t))=0$ なので $fi=i$ です。また
+$q(i(t))=2t-2t=0$ なので $f(i(t))=(2t+6\cdot0,t+3\cdot0)=i(t)$ です。また
 
 $$
 q(f(x,y))=x+6q(x,y)-2(y+3q(x,y))=q(x,y).
@@ -505,7 +519,13 @@ $$
 (x,y)=(u-6q(u,v),v-3q(u,v)).
 $$
 
-この逆候補に $q$ を適用しても $q(u,v)$ が得られるので、$f$ を合成すると $(u,v)$ に戻ります。
+この逆候補に $q$ を適用すると
+
+$$
+u-6q(u,v)-2(v-3q(u,v))=u-2v=q(u,v)
+$$
+
+です。従って $f$ を合成すると $(u,v)$ に戻ります。逆に $f(x,y)$ にこの候補を適用すると、$q(f(x,y))=q(x,y)$ なので $(x,y)$ に戻ります。
 <!-- solution-end -->
 
 ### 演習 ATOP21-C1：二枚の三角形を貼る
