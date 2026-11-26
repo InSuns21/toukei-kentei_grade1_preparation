@@ -156,7 +156,21 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（半空間の局所ホモロジー）**
-> $n\ge1$ とし、閉半空間 $Q^n=\{y\in\mathbb R^n:y_n\ge0\}$ の点 $x$ を取る。$x_n>0$ なら $L_n(Q^n,x)\cong\mathbb Z$ で他の非負次数は零である。$x_n=0$ なら全ての非負次数で局所ホモロジー群は零である。
+> $n\ge1$ とし、次の閉半空間の点 $x$ を取る。
+
+$$
+Q^n=\{y\in\mathbb R^n:y_n\ge0\}.
+$$
+
+> 各非負整数 $k$ について次が成立する。
+
+$$
+L_k(Q^n,x)\cong
+\begin{cases}
+\mathbb Z & x_n>0,\ k=n,\\
+0 & \text{それ以外}.
+\end{cases}
+$$
 <!-- formal-statement-end -->
 
 見取り図：内点は小さな開球を含むため Euclid 空間と同じです。境界点を取り除いた半空間は内側の一点へ縮められるため、全空間と穿孔空間の間にホモロジーの差がありません。
