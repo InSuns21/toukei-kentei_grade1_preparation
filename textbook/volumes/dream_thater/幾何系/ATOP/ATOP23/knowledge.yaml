@@ -1,0 +1,36 @@
+chapter: ATOP23
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP22, GEO3, ATOP6]
+forward_references: []
+concepts:
+  - id: atop.sphere-map-degree
+    name: 球面の写像度
+    kind: definition
+    introduction: formal
+    requires: [atop.cellular-homology, atop.induced-singular-homology-map]
+  - id: atop.degree-properties
+    name: 写像度の基本性質
+    kind: theorem
+    introduction: formal
+    requires: [atop.sphere-map-degree, atop.homotopy-invariance, atop.contractible-reduced-homology]
+  - id: atop.reflection-antipodal-degree
+    name: 反射と対蹠写像の写像度
+    kind: theorem
+    introduction: formal
+    requires: [atop.degree-properties, atop.simplicial-singular-comparison]
+  - id: atop.sphere-local-degree
+    name: 球面写像の局所度
+    kind: definition
+    introduction: formal
+    requires: [atop.relative-induced-map, atop.relative-long-exact-sequence, atop.excision, atop.sphere-map-degree]
+  - id: atop.local-degree-sum
+    name: 局所度の加法性
+    kind: theorem
+    introduction: formal
+    requires: [atop.sphere-local-degree, atop.excision, atop.relative-induced-map]
+  - id: atop.regular-value-degree
+    name: 正則値による写像度の計算
+    kind: theorem
+    introduction: formal
+    requires: [atop.local-degree-sum, atop.reflection-antipodal-degree, geometry.regular-value, geometry.constant-rank-theorem, atop.prism-identity]
