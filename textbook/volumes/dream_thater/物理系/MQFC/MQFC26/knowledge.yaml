@@ -2,7 +2,7 @@ chapter: MQFC26
 scope: dream-theater
 coverage: complete
 prerequisites: [MQFC12, MQFC23, MQFC24, MQFC25]
-forward_references: []
+forward_references: [qft.asymptotic-freedom]
 concepts:
   - id: mqfc.lattice-mass-time-correlation-length
     name: "格子単位の質量と時間相関長"
