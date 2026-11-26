@@ -96,25 +96,97 @@ $d=0$ なら各単体は一点でありメッシュは初めから零です。�
 
 辺 $[a,b]$ を二つの小辺 $[b_a,b_{ab}]+[b_{ab},b_b]$ に置き換えると、中点の境界係数が相殺されます。一般の次数でも、元の単体をその境界から組み立てる方法を使います。
 
-頂点 $w$ と、$w$ を加えても単体になる全ての向き付き単体 $[u_0,\ldots,u_k]$ に対して、先頭に $w$ を置く操作を $c_w$ と書きます。
+頂点 $w$ を小単体の頂点列の先頭に加えると、一つ高い次元の鎖ができます。例えば辺 $[u,v]$ に $w$ を加えた三角形の境界には、元の辺が正符号で現れます。この操作を、追加後の単体が存在する場合に限って使います。
 
-$$
-c_w[u_0,\ldots,u_k]=[w,u_0,\ldots,u_k].
-$$
+<a id="def-atop15-vertex-cone"></a>
 
-$w$ が既に列に現れるときは零とし、整数線形に延長します。例えば $c_w[u,v]=[w,u,v]$、$c_w[w,v]=0$ です。$w$ を先頭に加えると他の頂点を消す符号が全て反転するため、$k\ge1$ では
-
+<!-- formal-statement-start -->
+> **定義（単体鎖の頂点追加操作）**
+> 有限抽象単体複体 $M$ の部分複体 $A$ と $M$ の頂点 $w$ を取り、任意の非空単体 $\sigma\in A$ について $\sigma\cup\{w\}\in M$ と仮定する。整数鎖群の間の写像 $c_w:C_k(A)\to C_{k+1}(M)$ を
+>
 $$
-\partial c_w z=z-c_w\partial z.
-$$
-
-$k=0$ では $\epsilon(\sum a_u[u])=\sum a_u$ を係数和とおくと、
-
-$$
-\partial c_w z=z-\epsilon(z)[w].
+c_w[u_0,\ldots,u_k]=[w,u_0,\ldots,u_k]
 $$
 
-実際、$u\ne w$ なら $\partial[w,u]=[u]-[w]$、$u=w$ なら右辺も零です。正次数で $w$ が既に列にある場合も、境界で $w$ を消した一項だけが $c_w$ により残り、その符号と $w$ を先頭へ移す符号が相殺して $c_w\partial z=z$ になります。従って閉鎖（0次なら係数和零）を $c_w$ で埋められます。
+> で定める。ただし $w$ が既に頂点列に現れる場合は零とし、整数線形に延長する。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-atop15-vertex-cone -->
+**定義の確認**
+
+三角形 $M$ の頂点を $w,u,v$ とし、$A=M$ とします。どの面も $w$ を加えて再び面となるため、仮定が成立します。例えば $c_w[u,v]=[w,u,v]$、$c_w[w,v]=0$ です。逆向きの辺には
+
+$$
+c_w[v,u]=[w,v,u]=-[w,u,v]
+$$
+
+が対応し、向きの変更と整数線形性が整合します。
+<!-- definition-example-end -->
+
+0次鎖の係数和を $\epsilon$ で表します。
+
+$$
+\epsilon\left(\sum_u a_u[u]\right)=\sum_u a_u.
+$$
+
+先頭に頂点を加えると、他の頂点を消す位置が一つずれるため、境界公式の符号が反転します。
+
+<a id="lem-atop15-cone-boundary"></a>
+
+<!-- formal-statement-start -->
+> **補題（頂点追加と境界の恒等式）**
+> 有限抽象単体複体 $M$ の部分複体 $A$ と、頂点追加操作 $c_w:C_k(A)\to C_{k+1}(M)$ が定義できる頂点 $w$ を取る。$z\in C_k(A)$ に対し、$k\ge1$ なら
+>
+$$
+\partial c_w z=z-c_w\partial z
+$$
+
+> が成り立つ。ここで右辺の $z$ は包含によって $C_k(M)$ の元とみなす。$k=0$ なら係数和 $\epsilon(z)$ を用いて
+>
+$$
+\partial c_w z=z-\epsilon(z)[w]
+$$
+
+> が成り立つ。
+<!-- formal-statement-end -->
+
+見取り図：追加した頂点を消した項は元の鎖になり、残りの項は元の鎖の境界に頂点を追加したものの負号付きの和になります。
+
+<!-- proof-start -->
+### 証明
+
+$k\ge1$ とし、基底単体 $z=[u_0,\ldots,u_k]$ に $w$ が含まれない場合を考えます。[単体境界作用素](../ATOP13/index.md#def-atop13-boundary) により
+
+$$
+\begin{aligned}
+\partial[w,u_0,\ldots,u_k]
+={}&[u_0,\ldots,u_k]\\
+&+\sum_{i=0}^k(-1)^{i+1}
+[w,u_0,\ldots,\widehat u_i,\ldots,u_k]\\
+={}&z-c_w\partial z.
+\end{aligned}
+$$
+
+$w=u_j$ が既に列に現れるなら $c_w z=0$ です。$\partial z$ の項のうち $u_j$ を消した項以外は、まだ $w$ を含むので $c_w$ で零になります。残る項は
+
+$$
+c_w\partial z
+=(-1)^j[w,u_0,\ldots,\widehat u_j,\ldots,u_k]
+=(-1)^{2j}z=z.
+$$
+
+先頭の $w$ を元の位置へ移すには $j$ 回の隣接交換が必要なので、二つの符号が相殺します。従ってこの場合も等式が成立します。
+
+$k=0$ なら $u\ne w$ のとき $\partial[w,u]=[u]-[w]$ であり、$u=w$ なら両辺とも零です。これを整数係数 $a_u$ で足すと
+
+$$
+\partial c_w z=\sum_u a_u[u]-\left(\sum_u a_u\right)[w].
+$$
+
+これで0次も示せました。
+<!-- proof-end -->
+
+従って正次数のサイクル、または係数和零の0鎖を、頂点追加によって境界として表せます。
 
 <a id="def-atop15-subdivision-chain"></a>
 
@@ -183,7 +255,7 @@ $$
 =S_{n-2}\partial\partial\sigma=0.
 $$
 
-従って先頭に加える公式から
+従って[頂点追加と境界の恒等式](#lem-atop15-cone-boundary)から
 
 $$
 \begin{aligned}
@@ -280,9 +352,9 @@ $$
 
 最後の等号は [二重境界の消滅](../ATOP13/index.md#thm-atop13-boundary-square) によります。
 
-$\operatorname{sd}F$ の全単体は $b_F$ を加えても包含鎖のままです。従って $D_n\tau=c_{b_F}z$ と定めると、先頭に加える公式により $\partial D_n\tau=z$ です。この値は $\operatorname{sd}F$ 内にあり、必要な支持条件も保たれます。基底上の定義を整数線形に延長して帰納法が閉じます。
+$\operatorname{sd}F$ の全単体は $b_F$ を加えても包含鎖のままです。従って $D_n\tau=c_{b_F}z$ と定めると、[頂点追加と境界の恒等式](#lem-atop15-cone-boundary)により $\partial D_n\tau=z$ です。この値は $\operatorname{sd}F$ 内にあり、必要な支持条件も保たれます。基底上の定義を整数線形に延長して帰納法が閉じます。
 
-境界と可換な写像はサイクルをサイクルへ、境界を境界へ送るので、[単体ホモロジー群の商の定義](../ATOP14/index.md#def-atop14-simplicial-homology) から $S_*,p_*$ が良定義です。$p_\# S=\operatorname{id}$ から $p_*S_*=\operatorname{id}$ です。任意の細分サイクル $z$ について
+境界と可換な写像はサイクルをサイクルへ、境界を境界へ送るので、[単体ホモロジー群](../ATOP14/index.md#def-atop14-simplicial-homology) から $S_*,p_*$ が良定義です。$p_\# S=\operatorname{id}$ から $p_*S_*=\operatorname{id}$ です。任意の細分サイクル $z$ について
 
 $$
 z-Sp_\#z=\partial Dz+D\partial z=\partial Dz
@@ -319,7 +391,7 @@ $$
 
 例えば $x=(a+b)/2$ は $t_a(x)=1/2$ なので属します。一方 $x=(b+c)/2$ は $t_a(x)=0$ なので属しません。$b,c$ も属しません。
 
-内部の面を含む三角形なら $x=(a+b+c)/3$ も属します。座標射影 $t_a$ は連続で、正の実数全体の逆像なので、どちらの複体でも相対位相で開集合です。
+内部の面を含む三角形なら $x=(a+b+c)/3$ も属します。座標射影 $t_a$ は連続で、正の実数全体の逆像なので、どちらの複体でも[部分空間位相](../../../基礎科目/TOP/TOP1/index.md#prop-top1-subspace-universal) で開集合です。
 <!-- definition-example-end -->
 
 各点には正の座標が少なくとも一つあるため、頂点の開スターは $|K|$ を開被覆します。また、点 $x$ の正の座標を持つ頂点集合は $K$ の単体です。従って複数の開スターに共通点があれば、それらの頂点は一つの単体に属します。
