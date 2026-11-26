@@ -17,3 +17,4 @@
 14. [VNP14 F：overlapping windows・固定点集合の角度・一様Poincaré F.6](textbook/volumes/dream_thater/計算系/VNP/VNP14/index.md)
 15. [VNP15 G：Poincaréからrerouting laws、有限生成係数環、loadの評価](textbook/volumes/dream_thater/計算系/VNP/VNP15/index.md)
 16. [VNP16 H：切断多項式環上のSL群の塔・辺タイプ・剰余類](textbook/volumes/dream_thater/計算系/VNP/VNP16/index.md)
+17. [VNP17 H：networkをthin treeの和へ、depth・packet・straight-line program](textbook/volumes/dream_thater/計算系/VNP/VNP17/index.md)

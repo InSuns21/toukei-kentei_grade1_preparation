@@ -1,0 +1,48 @@
+chapter: VNP17
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP16, VNP15]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.packet-code
+    name: "パケットと終端符号"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（パケットと終端符号）"]
+    requires: []
+  - id: vp-vnp-study.packet-network
+    name: "パケットネットワークの値"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（パケットネットワークの値）"]
+    requires: [vp-vnp-study.packet-code]
+  - id: vp-vnp-study.packet-moves
+    name: "中継と則適用による値の保存"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（中継と則適用による値の保存）"]
+    requires: [vp-vnp-study.packet-network, vp-vnp-study.finite-rerouting-laws]
+  - id: vp-vnp-study.tower-load
+    name: "塔の二乗負荷"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（塔の二乗負荷）"]
+    requires: [vp-vnp-study.group-action-tower]
+  - id: vp-vnp-study.stage-contraction
+    name: "一段の負荷収縮"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（一段の負荷収縮）"]
+    requires: [vp-vnp-study.tower-load, vp-vnp-study.packet-moves, vp-vnp-study.finite-group-tower]
+  - id: vp-vnp-study.thin-tree-bounds
+    name: "木の構造とパケット上界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（木の構造とパケット上界）"]
+    requires: [vp-vnp-study.stage-contraction, vp-vnp-study.cyclic-word-length]
+  - id: vp-vnp-study.bounded-slp
+    name: "有限整数上の直線型プログラム"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限整数上の直線型プログラム）"]
+    requires: []
