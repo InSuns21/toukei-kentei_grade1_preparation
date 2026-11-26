@@ -1,14 +1,14 @@
 chapter: MQFC31
 scope: dream-theater
 coverage: complete
-prerequisites: [MQFC1, MQFC2, MQFC3, MQFC4, MICA6]
+prerequisites: [MQFC1, MQFC2, MQFC3, MQFC4, MICA6, COMB9]
 forward_references: []
 concepts:
   - id: mqfc.formal-coupling-expansion
     name: "結合定数の形式展開"
     kind: definition
     introduction: formal
-    requires: []
+    requires: [combinatorics.formal-power-series, combinatorics.formal-cauchy-product]
   - id: mqfc.insertion-configuration
     name: "挿入点の配置空間と衝突対角"
     kind: definition
@@ -18,7 +18,7 @@ concepts:
     name: "結合定数展開の逆元の逐次構成"
     kind: theorem
     introduction: formal
-    requires: [mqfc.formal-coupling-expansion]
+    requires: [mqfc.formal-coupling-expansion, combinatorics.formal-unit-criterion]
   - id: mqfc.causal-split-cover
     name: "全対角外の因果分割被覆"
     kind: theorem
