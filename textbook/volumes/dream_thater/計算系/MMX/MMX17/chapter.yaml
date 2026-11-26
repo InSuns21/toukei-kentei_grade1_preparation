@@ -1,0 +1,28 @@
+id: MMX17
+title: "no-ports側の一様宛先下界：距離表の凸性・minimax・条件付きentropy・平方根log評価"
+volume: foundations
+status: supplementary
+prerequisites: [MMX13, MMX16]
+official_scope: []
+learning_objectives:
+  - 固定接続の置換需要を価格の一次距離不等式に移せる
+  - 正規化した二乗距離表の凸性とコンパクト性を証明できる
+  - 支配分布の条件付きエントロピーを下から評価できる
+  - 最小最大原理と条件付けにより共通配置の一次距離下界を導ける
+  - タグ付き置換からバッチ相異性の一様な体積下界を導ける
+definitions:
+  - { id: MMX17-DEF-01, name: "正規化二乗距離表" }
+  - { id: MMX17-DEF-02, name: "需要の二倍支配分布" }
+theorems:
+  - { id: MMX17-LEM-01, name: "置換需要の距離価格不等式" }
+  - { id: MMX17-LEM-02, name: "正規化表集合の凸性とコンパクト性" }
+  - { id: MMX17-LEM-03, name: "支配分布の一様な二乗距離下界" }
+  - { id: MMX17-LEM-04, name: "有限距離表の共通証人" }
+  - { id: MMX17-THM-01, name: "一様宛先の配線サイズ下界" }
+  - { id: MMX17-THM-02, name: "no-ports 側のバッチ相異性下界" }
+canonical_examples: [二頂点の距離表, 二倍支配分布, 凸性を欠く二点ゲーム]
+problem_patterns: [MMX17-A01, MMX17-A02, MMX17-A03, MMX17-A04, MMX17-B01, MMX17-B02, MMX17-B03, MMX17-B04, MMX17-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 3, review: 2 }
