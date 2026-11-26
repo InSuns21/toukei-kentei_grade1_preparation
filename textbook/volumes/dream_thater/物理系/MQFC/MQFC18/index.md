@@ -192,17 +192,17 @@ $\eta=\rho*\rho$ は半径2の球に支持を持つ非負の有界関数で積�
 
 $4\epsilon<r=|z|<R$ なら、$|w|\le2\epsilon$ のとき $r/2\le|z-w|\le3r/2\le1/2$。短距離評価を $\eta_\epsilon$ で平均して
 
-$
+$$
 \frac{2A}{3r}\le K_\epsilon(z)\le\frac{2B}{r}.
-$
+$$
 
 よってこの環状部分の三乗積分には $\log(R/(4\epsilon))$ の正定数倍の上下界がある。一方 $|z|\le4\epsilon$ では、$v=z-w$ と置いて
 
-$
+$$
 K_\epsilon(z)\le B\|\eta\|_\infty\epsilon^{-3}
 \int_{|v|\le6\epsilon}\frac{dv}{|v|}
 =72\pi B\|\eta\|_\infty\epsilon^{-1}.
-$
+$$
 
 ここでは $6\epsilon<1/2$ なので同じ短距離評価が使える。内球の体積は $(4\pi/3)(4\epsilon)^3$ だから、その中での $K_\epsilon^3$ の積分は $\epsilon$ によらず有界である。従って $b_\epsilon=\int_{|z|<R}K_\epsilon(z)^3dz$ は対数発散する。
 
