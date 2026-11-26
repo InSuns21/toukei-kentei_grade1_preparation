@@ -1,0 +1,31 @@
+chapter: MQFC18
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC14, MQFC15, MQFC16, MQFC17]
+forward_references: []
+concepts:
+  - id: mqfc.annular-contraction-divergence
+    name: "三次元の環状領域における収縮積の発散"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.covariance-short-distance]
+  - id: mqfc.sunset-quadratic-contribution
+    name: "二頂点の三本収縮による二次寄与"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.wick-polynomial, mqfc.wick-cross-moment]
+  - id: mqfc.sunset-localization
+    name: "三本収縮の局所二次項への分離"
+    kind: lemma
+    introduction: formal
+    requires: [mqfc.annular-contraction-divergence]
+  - id: mqfc.superficial-divergence-degree
+    name: "四次相互作用図の表面的発散次数"
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: mqfc.quartic-power-counting
+    name: "四次相互作用図の発散次数公式"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.superficial-divergence-degree]
