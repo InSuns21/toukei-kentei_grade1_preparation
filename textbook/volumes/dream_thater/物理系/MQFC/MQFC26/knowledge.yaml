@@ -1,0 +1,26 @@
+chapter: MQFC26
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC12, MQFC23, MQFC24, MQFC25]
+forward_references: []
+concepts:
+  - id: mqfc.lattice-mass-time-correlation-length
+    name: "格子単位の質量と時間相関長"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.transfer-vacuum-normalization]
+  - id: mqfc.mass-correlation-length-unit-conversion
+    name: "質量と相関長の単位換算"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.lattice-mass-time-correlation-length, mqfc.lattice-hamiltonian]
+  - id: mqfc.continuum-mass-scaling-criterion
+    name: "連続極限へ向かう質量尺度の判定"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.mass-correlation-length-unit-conversion]
+  - id: mqfc.physical-gap-correlation-limit
+    name: "物理ギャップの相関極限への保存"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.mass-correlation-length-unit-conversion, mqfc.dense-correlation-gap, mqfc.connected-laplace]
