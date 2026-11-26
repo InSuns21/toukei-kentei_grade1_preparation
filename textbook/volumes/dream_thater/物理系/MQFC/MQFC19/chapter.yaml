@@ -1,0 +1,29 @@
+id: MQFC19
+title: "連続ゲージ場を格子に置く"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC13, GBG17]
+official_scope: []
+learning_objectives:
+  - 連続接続の平行移動から群値辺接続と逆辺の関係を構成できる
+  - 頂点ゲージ変換の作用則と格子路の端点変換を証明できる
+  - 基本正方形の周回積を計算し二経路の違いを判定できる
+  - 格子 Wilson loop の不変性・逆路・有界性を導き閉路と開路を区別できる
+  - 隣接正方形の共有辺を正しい行列順序で消去しトレースの積との違いを説明できる
+definitions:
+  - { id: MQFC19-DEF-01, name: "格子の群値辺接続" }
+  - { id: MQFC19-DEF-02, name: "格子の頂点ゲージ変換" }
+  - { id: MQFC19-DEF-03, name: "格子路の輸送積" }
+  - { id: MQFC19-DEF-04, name: "格子の基本正方形と周回積" }
+  - { id: MQFC19-DEF-05, name: "格子 Wilson loop" }
+theorems:
+  - { id: MQFC19-PROP-01, name: "頂点ゲージ変換の作用則" }
+  - { id: MQFC19-THM-01, name: "格子路の端点変換と逆路" }
+  - { id: MQFC19-PROP-02, name: "基本正方形の共役変換と二経路比較" }
+  - { id: MQFC19-THM-02, name: "格子 Wilson loop の不変性" }
+canonical_examples: [U(1)の辺の逆元, SU(2)の非可換積, 定数磁場の周回積, 規格化トレース]
+problem_patterns: [MQFC19-LINK, MQFC19-COVARIANCE, MQFC19-PLAQUETTE, MQFC19-LOOP]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 3, review: 1 }
