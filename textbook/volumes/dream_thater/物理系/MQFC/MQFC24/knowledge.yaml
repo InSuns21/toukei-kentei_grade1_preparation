@@ -1,0 +1,36 @@
+chapter: MQFC24
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC20, MQFC21, MQFC22, MQFC23]
+forward_references: []
+concepts:
+  - id: mqfc.plaquette-parity-boundary
+    name: "正方形集合の偶奇境界"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.lattice-plaquette]
+  - id: mqfc.z2-strong-coupling-surface-expansion
+    name: "二値群の強結合面展開"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.plaquette-parity-boundary, mqfc.wilson-lattice-measure, mqfc.wilson-positive-character-expansion, mqfc.lattice-wilson-loop]
+  - id: mqfc.planar-parity-boundary-injectivity
+    name: "平面格子の境界の単射性"
+    kind: lemma
+    introduction: formal
+    requires: [mqfc.plaquette-parity-boundary]
+  - id: mqfc.z2-planar-area-law
+    name: "二次元二値群の厳密な面積則"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.planar-parity-boundary-injectivity, mqfc.z2-strong-coupling-surface-expansion]
+  - id: mqfc.wilson-loop-area-bound
+    name: "Wilson loopの面積上界"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.lattice-wilson-loop, mqfc.wilson-lattice-measure]
+  - id: mqfc.z2-uniform-strong-coupling-area-bound
+    name: "二値群の高次元強結合面積評価"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.z2-strong-coupling-surface-expansion, mqfc.planar-parity-boundary-injectivity, mqfc.wilson-loop-area-bound]
