@@ -1,0 +1,42 @@
+chapter: MMX8
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX2, TSP11, TSP15, MMX6]
+forward_references: []
+concepts:
+  - id: matrix-exponent.spectral-price
+    name: テンソルのスペクトル価格
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（テンソルのスペクトル価格）"]
+    requires: [tensor.spectral-point]
+  - id: matrix-exponent.price-rules
+    name: スペクトル価格の演算則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（スペクトル価格の演算則）"]
+    requires: [matrix-exponent.spectral-price]
+  - id: matrix-exponent.shared-label-tensor
+    name: 共通ラベルテンソルとwire
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共通ラベルテンソルとwire）"]
+    requires: [tensor.diagonal-tensor, tensor.party-grouping]
+  - id: matrix-exponent.shared-label-rate
+    name: 共通ラベルの価格率
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（共通ラベルの価格率）"]
+    requires: [matrix-exponent.shared-label-tensor, matrix-exponent.price-rules]
+  - id: matrix-exponent.wire-transport
+    name: wire距離と脚の輸送
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（wire距離と脚の輸送）"]
+    requires: [matrix-exponent.shared-label-rate, tensor.party-grouping]
+  - id: matrix-exponent.network-rank-price
+    name: 配線網と階数分解の価格評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（配線網と階数分解の価格評価）"]
+    requires: [matrix-exponent.wire-transport, tensor.asymptotic-rank, tensor.rank-restriction-characterization]
