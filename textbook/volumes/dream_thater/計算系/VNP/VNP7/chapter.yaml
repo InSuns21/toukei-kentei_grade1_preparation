@@ -1,0 +1,24 @@
+id: VNP7
+title: "C/O：CN不等式、priceのCAT(0)完備化"
+volume: foundations
+status: supplementary
+prerequisites: [VNP6, VNP5, VNP3, NPCG1, NPCG4, NPCG6, NPCG7, NPCG8]
+official_scope: []
+learning_objectives:
+  - 格子の平均距離と漸近長を構成し平行四辺形則を導ける
+  - 二枚のfanの四評価を導きCN不等式を証明できる
+  - 中点の追加と零距離商および完備化を構成できる
+  - 完備CAT(0)空間の四点評価・重心・射影・積・平坦な四辺形の結果を適用できる
+definitions:
+  - { id: VNP7-DEF-01, name: "格子の平均距離と漸近長" }
+theorems:
+  - { id: VNP7-THM-01, name: "漸近長の平行四辺形則" }
+  - { id: VNP7-THM-02, name: "fanの漸近長の四評価" }
+  - { id: VNP7-THM-03, name: "price上の中点二乗評価" }
+  - { id: VNP7-THM-04, name: "priceのCAT(0)完備化" }
+canonical_examples: [周期的な格子の漸近長, 中点二乗評価, 平坦な四辺形]
+problem_patterns: [VNP7-A1, VNP7-A2, VNP7-A3, VNP7-A4, VNP7-B1, VNP7-B2, VNP7-B3, VNP7-B4, VNP7-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 4, review: 2 }
