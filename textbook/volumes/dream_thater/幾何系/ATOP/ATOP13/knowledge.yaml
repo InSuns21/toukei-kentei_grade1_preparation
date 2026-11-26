@@ -1,0 +1,56 @@
+chapter: ATOP13
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP10, MOD1, LA3B]
+forward_references: []
+concepts:
+  - id: atop.oriented-simplex
+    name: 向き付き単体
+    kind: definition
+    introduction: formal
+    requires: [atop.abstract-simplicial-complex, linear.permutation-sign]
+  - id: atop.simplicial-chain-group
+    name: 単体鎖群
+    kind: definition
+    introduction: formal
+    requires: [atop.oriented-simplex, algebra.free-module]
+  - id: atop.simplicial-boundary
+    name: 単体境界作用素
+    kind: definition
+    introduction: formal
+    requires: [atop.simplicial-chain-group, algebra.free-module-universal-property]
+  - id: atop.boundary-orientation
+    name: 境界公式と向きの整合性
+    kind: proposition
+    introduction: formal
+    requires: [atop.simplicial-boundary, linear.permutation-sign-product]
+  - id: atop.boundary-square-zero
+    name: 二重境界の消滅
+    kind: theorem
+    introduction: formal
+    requires: [atop.simplicial-boundary, atop.boundary-orientation]
+  - id: atop.simplicial-chain-complex
+    name: 単体鎖複体
+    kind: definition
+    introduction: formal
+    requires: [atop.simplicial-chain-group, atop.boundary-square-zero]
+  - id: atop.simplicial-map
+    name: 単体写像
+    kind: definition
+    introduction: formal
+    requires: [atop.abstract-simplicial-complex]
+  - id: atop.induced-simplicial-chain-map
+    name: 単体写像の誘導鎖準同型
+    kind: definition
+    introduction: formal
+    requires: [atop.simplicial-map, atop.simplicial-chain-group, algebra.free-module-universal-property]
+  - id: atop.simplicial-chain-map-boundary
+    name: 単体写像は境界と可換
+    kind: theorem
+    introduction: formal
+    requires: [atop.induced-simplicial-chain-map, atop.boundary-orientation, atop.simplicial-chain-complex]
+  - id: atop.simplicial-chain-map-composition
+    name: 誘導鎖準同型の合成
+    kind: proposition
+    introduction: formal
+    requires: [atop.induced-simplicial-chain-map]
