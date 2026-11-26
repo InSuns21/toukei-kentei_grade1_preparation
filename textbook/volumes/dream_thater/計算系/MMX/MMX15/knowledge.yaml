@@ -40,12 +40,18 @@ concepts:
     introduction: formal
     introduction_aliases: ["補題（二値の半分割併合）"]
     requires: [matrix-exponent.comparison-network]
+  - id: matrix-exponent.sorting-zero-one-principle
+    name: "0–1原理"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（0–1原理）"]
+    requires: [matrix-exponent.comparison-network]
   - id: matrix-exponent.batcher-sort-count
     name: "Batcher整列網の比較数"
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（Batcher整列網の比較数）"]
-    requires: [matrix-exponent.binary-bitonic-merge]
+    requires: [matrix-exponent.binary-bitonic-merge, matrix-exponent.sorting-zero-one-principle]
   - id: matrix-exponent.distinctness-initial-bound
     name: "リスト相異性の初期上界"
     kind: theorem
