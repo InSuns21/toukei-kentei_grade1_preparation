@@ -10,7 +10,9 @@
 
 [特異単体](../ATOP16/index.md#def-atop16-singular-simplex) $\sigma:\Delta^n\to X$ は標準単体からの連続写像です。[特異鎖群](../ATOP16/index.md#def-atop16-singular-chains) $C_n(X)$ の元は異なる特異単体の有限整数係数和です。基底の一意性から、非零係数の単体を一つずつ調べれば、選んだ基底の部分集合が生成する部分群に属するか判定できます。
 
-以下、部分空間 $Y\subset X$ の鎖群 $C_n(Y)$ は包含で $C_n(X)$ の部分群とみなします。包含との合成は異なる特異単体を異なる基底元へ送るので単射であり、像が $Y$ に含まれる特異単体全体がその部分群の基底になります。$\partial$ は [特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary) $\partial_n$ の次数を省略した記法です。点 $x$ への唯一の特異0単体を $\langle x\rangle$ と書きます。
+以下、部分空間 $Y\subset X$ の鎖群 $C_n(Y)$ は包含で $C_n(X)$ の部分群とみなします。包含との合成は異なる特異単体を異なる基底元へ送るので単射であり、像が $Y$ に含まれる特異単体全体がその部分群の基底になります。
+
+$\partial$ は [特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary) $\partial_n$ の次数を省略した記法です。点 $x$ への唯一の特異0単体を $\langle x\rangle$ と書きます。
 
 <a id="def-atop19-small-chains"></a>
 
@@ -24,7 +26,18 @@
 <!-- definition-example-start: def-atop19-small-chains -->
 **定義の確認**
 
-$X=[0,1]$、$U=[0,2/3)$、$V=(1/3,1]$、$\mathcal U=\{U,V\}$ とします。1次の標準単体の重心座標 $(1-t,t)$ を $t\in[0,1]$ で表します。$\sigma(t)=t$ の像はどちらにも含まれません。一方、$\alpha(t)=t/2$ と $\beta(t)=(1+t)/2$ の像はそれぞれ $U,V$ に含まれます。従って $\alpha+\beta$ は小さい鎖です。[特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary) は1次では終点の0単体から始点の0単体を引くので、その境界は
+$X=[0,1]$ とし、被覆を
+
+$$
+U=[0,2/3),\quad V=(1/3,1],\quad
+\mathcal U=\{U,V\}
+$$
+
+とします。
+
+1次の標準単体の重心座標 $(1-t,t)$ を $t\in[0,1]$ で表します。$\sigma(t)=t$ の像はどちらにも含まれません。
+
+一方、$\alpha(t)=t/2$ と $\beta(t)=(1+t)/2$ の像はそれぞれ $U,V$ に含まれます。従って $\alpha+\beta$ は小さい鎖です。[特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary) は1次では終点の0単体から始点の0単体を引くので、その境界は
 
 $$
 \partial(\alpha+\beta)=
@@ -40,7 +53,15 @@ $$
 
 [ATOP15の細分鎖写像の構成](../ATOP15/index.md#def-atop15-subdivision-chain)では、頂点を追加して単体鎖を細分しました。特異鎖でも定義域の標準単体の中で同じ幾何を使います。ただし、頂点の順序を変えた写像は一般に別々の特異単体です。向きの符号を付けただけで写像を同一視しないようにします。
 
-Euclid 空間の凸集合 $K$（任意の二点を結ぶ線分を含む集合）の点 $b$ と特異 $k$ 単体 $\tau:\Delta^k\to K$ に対し、$b*\tau$ は新しい先頭頂点を $b$ に取る特異 $(k+1)$ 単体とします。[標準単体](../../../応用系/FIX/FIX1/index.md#def-fix1-standard-simplex) の重心座標 $(t_0,\ldots,t_{k+1})$ は全て非負で和は1です。$t_0<1$ なら残りの座標の和は $1-t_0>0$ なので、それで割った座標は $\Delta^k$ に入ります。このとき
+Euclid 空間の凸集合 $K$（任意の二点を結ぶ線分を含む集合）の点 $b$ と特異 $k$ 単体 $\tau:\Delta^k\to K$ に対し、$b*\tau$ は新しい先頭頂点を $b$ に取る特異 $(k+1)$ 単体とします。
+
+[標準単体](../../../応用系/FIX/FIX1/index.md#def-fix1-standard-simplex) の重心座標 $(t_0,\ldots,t_{k+1})$ は全て非負で和は1です。$t_0<1$ なら
+
+$$
+\sum_{i=1}^{k+1}t_i=1-t_0>0.
+$$
+
+従って残りの各座標を右辺の正数で割った組は $\Delta^k$ に入ります。このとき
 
 $$
 (b*\tau)(t)=t_0 b+
@@ -92,7 +113,11 @@ $$
 線形性から鎖についても成立します。$k=0$ では $\partial(b*\langle x\rangle)=\langle x\rangle-\langle b\rangle$ です。$c=\sum_j a_j\langle x_j\rangle$ に適用して足すと $\partial(b*c)=c-(\sum_j a_j)\langle b\rangle$ となります。
 <!-- proof-end -->
 
-標準単体の恒等写像を $e_n:\Delta^n\to\Delta^n$ と書きます（頂点を表す標準基底ベクトルではありません）。$n\ge1$ で第 $i$ 面の包含を $d_i:\Delta^{n-1}\to\Delta^n$ と書きます。これは [特異単体の面写像](../ATOP16/index.md#def-atop16-face-map) の $\delta_i^n$ と同じ写像で、第 $i$ 座標に0を挿入します。全頂点の重心 $b_n$ の各座標は $1/(n+1)$ です。写像 $f$ に対する $f_\#$ は [特異鎖の誘導準同型](../ATOP16/index.md#def-atop16-induced-chain-map)、すなわち写像との合成です。まず各面を細分し、その小単体に重心を先頭頂点として追加します。
+標準単体の恒等写像を $e_n:\Delta^n\to\Delta^n$ と書きます（頂点を表す標準基底ベクトルではありません）。
+
+$n\ge1$ で第 $i$ 面の包含を $d_i:\Delta^{n-1}\to\Delta^n$ と書きます。これは [特異単体の面写像](../ATOP16/index.md#def-atop16-face-map) の $\delta_i^n$ と同じ写像で、第 $i$ 座標に0を挿入します。
+
+全頂点の重心 $b_n$ の各座標は $1/(n+1)$ です。写像 $f$ に対する $f_\#$ は [特異鎖の誘導準同型](../ATOP16/index.md#def-atop16-induced-chain-map)、すなわち写像との合成です。まず各面を細分し、その小単体に重心を先頭頂点として追加します。
 
 <a id="def-atop19-singular-subdivision"></a>
 
@@ -240,7 +265,9 @@ $$
 これが要求式です。$h_n$ は全て $\Delta^n$ 内の特異単体からなるため、$D\sigma$ の各項の像は $\sigma(\Delta^n)$ に含まれます。従って $Y$ 内の鎖を外へ出しません。
 <!-- proof-end -->
 
-$r$ 回の細分と恒等写像の差は、一回ずつの差を足して表せます。$S^j$ は $j$ 回の合成で $S^0=1$ とします。$r\ge1$ に対して次数を1上げる写像 $K_r=\sum_{j=0}^{r-1}DS^j$ を置き、$K_0=0$ とします。[特異細分と境界の可換性](#thm-atop19-subdivision-chain) から $\partial S^j=S^j\partial$ なので、[特異細分の鎖ホモトピー](#thm-atop19-subdivision-homotopy) を使うと
+$r$ 回の細分と恒等写像の差は、一回ずつの差を足して表せます。$S^j$ は $j$ 回の合成で $S^0=1$ とします。$r\ge1$ に対して次数を1上げる写像 $K_r=\sum_{j=0}^{r-1}DS^j$ を置き、$K_0=0$ とします。
+
+[特異細分と境界の可換性](#thm-atop19-subdivision-chain) から $\partial S^j=S^j\partial$ なので、[特異細分の鎖ホモトピー](#thm-atop19-subdivision-homotopy) を使うと
 
 $$
 \partial DS^j+DS^j\partial
@@ -303,7 +330,9 @@ $$
 
 部分空間 $A\subset X$ について、$C_n^{\mathcal U}(A)=C_n(A)\cap C_n^{\mathcal U}(X)$ と書きます。これは $A$ 上の鎖のうち各項の像が被覆の一領域にも入るものです。両方とも境界で閉じています。
 
-[相対特異鎖群](../ATOP18/index.md#def-atop18-relative-chain) と同様に、小さい鎖の商では差が $C_n^{\mathcal U}(A)$ に入る鎖を同一視します。$C_*$ は全次数の鎖群と境界をまとめた鎖複体を表し、$H_n(C_*)$ はその $n$ 次の境界の核を一つ上の次数からの境界の像で割った群です。従って小さい商のサイクルの代表元 $c$ は、小さい鎖であって $\partial c\in C_{n-1}^{\mathcal U}(A)$ を満たすものです。
+[相対特異鎖群](../ATOP18/index.md#def-atop18-relative-chain) と同様に、小さい鎖の商では差が $C_n^{\mathcal U}(A)$ に入る鎖を同一視します。$C_*$ は全次数の鎖群と境界をまとめた鎖複体を表し、$H_n(C_*)$ はその $n$ 次の境界の核を一つ上の次数からの境界の像で割った群です。
+
+従って小さい商のサイクルの代表元 $c$ は、小さい鎖であって $\partial c\in C_{n-1}^{\mathcal U}(A)$ を満たすものです。
 
 <a id="thm-atop19-small-chain-isomorphism"></a>
 
@@ -418,7 +447,9 @@ C_n(B)/C_n(A\cap B)
 [b]\longmapsto[b].
 $$
 
-ここで $[b]$ はホモロジー類ではなく鎖群の剰余類です。[相対特異鎖群](../ATOP18/index.md#def-atop18-relative-chain) の商の境界は代表元の境界の剰余類を取るので、どちらの側でも $[b]$ は $[\partial b]$ に移ります。従ってサイクル・境界の対応が全単射であり、ホモロジーにも同型を誘導します。$A\cap B=A\setminus Z$ ですから、[小さい鎖によるホモロジー同型](#thm-atop19-small-chain-isomorphism) と合成すると、鎖の代表元 $b$ をそのまま $X$ の鎖へ送ります。これは [対の写像が誘導する相対ホモロジー準同型](../ATOP18/index.md#thm-atop18-relative-map) を包含に適用した写像です。
+ここで $[b]$ はホモロジー類ではなく鎖群の剰余類です。[相対特異鎖群](../ATOP18/index.md#def-atop18-relative-chain) の商の境界は代表元の境界の剰余類を取るので、どちらの側でも $[b]$ は $[\partial b]$ に移ります。従ってサイクル・境界の対応が全単射であり、ホモロジーにも同型を誘導します。
+
+$A\cap B=A\setminus Z$ ですから、[小さい鎖によるホモロジー同型](#thm-atop19-small-chain-isomorphism) と合成すると、鎖の代表元 $b$ をそのまま $X$ の鎖へ送ります。これは [対の写像が誘導する相対ホモロジー準同型](../ATOP18/index.md#thm-atop18-relative-map) を包含に適用した写像です。
 <!-- proof-end -->
 
 ### 具体例：区間の片側を短くする
@@ -666,7 +697,9 @@ $$
 \in C_0(E).
 $$
 
-従って相対サイクルです。$\bar\gamma=\gamma+C_1(E)$ は相対鎖、$[\bar\gamma]$ はそのホモロジー類です。[相対ホモロジーの接続準同型](../ATOP18/index.md#thm-atop18-connecting) より $\delta[\bar\gamma]=(-1,1)$ です。これは核の生成元で、$\delta$ は核への同型なので $[\bar\gamma]$ は相対群の生成元です。切除の同型が包含から誘導されるため、同じ道の相対類が $H_1(X,A)$ の生成元になります。
+従って相対サイクルです。$\bar\gamma=\gamma+C_1(E)$ は相対鎖、$[\bar\gamma]$ はそのホモロジー類です。
+
+[相対ホモロジーの接続準同型](../ATOP18/index.md#thm-atop18-connecting) より $\delta[\bar\gamma]=(-1,1)$ です。これは核の生成元で、$\delta$ は核への同型なので $[\bar\gamma]$ は相対群の生成元です。切除の同型が包含から誘導されるため、同じ道の相対類が $H_1(X,A)$ の生成元になります。
 <!-- solution-end -->
 
 ## 8. まとめと次講
