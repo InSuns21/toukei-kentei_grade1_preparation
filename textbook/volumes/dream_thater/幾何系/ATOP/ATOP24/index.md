@@ -29,7 +29,21 @@ $$
 
 $n\ge2$ とし、境界包含を $i:S^{n-1}\to D^n$、仮定したレトラクションを $r:D^n\to S^{n-1}$ とします。境界固定条件は $r\circ i=\mathrm{id}_{S^{n-1}}$ です。ここで $\circ$ は右側の写像を先に適用する合成、$\mathrm{id}_{S^{n-1}}$ は球面の恒等写像です。
 
-円板の直線収縮 $K(x,t)=(1-t)x$（$0\le t\le1$）は連続で、$\|K(x,t)\|=(1-t)\|x\|\le1$ です。$K(x,0)=x$、$K(x,1)=0$ なので [可縮性](../ATOP3/index.md#def-atop3-contractible) の条件を満たします。[可縮空間の被約特異ホモロジー](../ATOP17/index.md#cor-atop17-contractible) により被約ホモロジー群は零です。ここでは $n-1>0$ なので通常のホモロジー群と一致し、$H_{n-1}(D^n)=0$ です。一方、[球面の写像度の定義](../ATOP23/index.md#def-atop23-degree) で用いた生成元 $u$ は $H_{n-1}(S^{n-1})\cong\mathbb Z$ の非零元です。
+円板の直線収縮 $K(x,t)=(1-t)x$（$0\le t\le1$）は連続です。値域と両端を確認すると、
+
+$$
+\|K(x,t)\|=(1-t)\|x\|\le1,
+$$
+
+$$
+K(x,0)=x,\qquad K(x,1)=0.
+$$
+
+従って [可縮性](../ATOP3/index.md#def-atop3-contractible) の条件を満たします。[可縮空間の被約特異ホモロジー](../ATOP17/index.md#cor-atop17-contractible) により被約ホモロジー群は零です。ここでは $n-1>0$ なので通常のホモロジー群と一致します。一方、[球面の写像度の定義](../ATOP23/index.md#def-atop23-degree) で用いた生成元を $u$ とすると、
+
+$$
+H_{n-1}(D^n)=0,\qquad H_{n-1}(S^{n-1})\cong\mathbb Z,\qquad u\ne0.
+$$
 
 連続写像 $h$ に対して $h_*$ を次数 $n-1$ の [特異ホモロジーの誘導準同型](../ATOP16/index.md#thm-atop16-induced-homology) $H_{n-1}(h)$ の略記とします。その関手性を $i,r$ に適用すると
 
@@ -270,7 +284,13 @@ $$
 =\langle x,e\rangle-\langle e,x\rangle\|x\|^2=0.
 $$
 
-成分は連続であり、従って接ベクトル場です。$V(x)=0$ なら $e=\langle e,x\rangle x$ で、両辺のノルムから $|\langle e,x\rangle|=1$、従って $x=e$ または $x=-e$ です。逆に両点を代入すると $V(x)=0$ なので、零点は北極と南極の二点です。毛玉の定理は、別の連続な配置にしても全ての零点を消せないことを述べています。
+成分は連続であり、従って接ベクトル場です。$V(x)=0$ なら
+
+$$
+e=\langle e,x\rangle x,\qquad |\langle e,x\rangle|=1.
+$$
+
+第2式は第1式の両辺のノルムを取って得られます。従って $x=e$ または $x=-e$ です。逆に両点を代入すると $V(x)=0$ なので、零点は北極と南極の二点です。毛玉の定理は、別の連続な配置にしても全ての零点を消せないことを述べています。
 
 奇数次元 $S^{2m+1}$（$m$ は非負整数）では、周囲の空間の次元が $2m+2$ なので全座標を二つずつ組にして回転できます。$x_j$ は周囲の Euclid 空間の標準座標です。
 
@@ -303,7 +323,9 @@ $D^3$ の境界を $S^2$ とする。境界包含 $i$ とレトラクション�
 <!-- solution-start -->
 **詳細解答**
 
-第1節の直線収縮により $D^3$ は可縮です。ここでは $h_*=H_2(h)$ とします。[可縮空間の被約特異ホモロジー](../ATOP17/index.md#cor-atop17-contractible) により $H_2(D^3)=0$ です。[球面の写像度](../ATOP23/index.md#def-atop23-degree) の生成元を $u$ とすると $H_2(S^2)\cong\mathbb Z$ なので $u\ne0$ です。
+第1節の直線収縮により $D^3$ は可縮です。ここでは $h_*=H_2(h)$ とします。
+
+[可縮空間の被約特異ホモロジー](../ATOP17/index.md#cor-atop17-contractible) により $H_2(D^3)=0$ です。[球面の写像度](../ATOP23/index.md#def-atop23-degree) の生成元を $u$ とすると $H_2(S^2)\cong\mathbb Z$ なので $u\ne0$ です。
 
 $$
 H_2(S^2)\xrightarrow{i_*}0\xrightarrow{r_*}H_2(S^2).
@@ -406,7 +428,9 @@ $k\ge1$ とする。連続写像 $F:D^{k+1}\to S^k$ の境界への制限 $g$ �
 <!-- solution-start -->
 **詳細解答**
 
-境界包含を $i$ とすると $g=F\circ i$ です。ここでは $h_*=H_k(h)$ とします。円板の直線収縮と [可縮空間の被約特異ホモロジー](../ATOP17/index.md#cor-atop17-contractible) により $H_k(D^{k+1})=0$ です。球面の生成元 $u$ に [誘導準同型の関手性](../ATOP16/index.md#thm-atop16-induced-homology) を適用すると
+境界包含を $i$ とすると $g=F\circ i$ です。ここでは $h_*=H_k(h)$ とします。
+
+円板の直線収縮と [可縮空間の被約特異ホモロジー](../ATOP17/index.md#cor-atop17-contractible) により $H_k(D^{k+1})=0$ です。球面の生成元 $u$ に [誘導準同型の関手性](../ATOP16/index.md#thm-atop16-induced-homology) を適用すると
 
 $$
 g_*(u)=F_*(i_*(u))=F_*(0)=0.
@@ -458,7 +482,13 @@ $$
 (ca-sb)^2+(cb+sa)^2=(c^2+s^2)(a^2+b^2)=a^2+b^2.
 $$
 
-二組の二乗和を足すと全体の和は1です。$t=0$ では $c=1,s=0$、$t=1$ では $c=-1,s=0$ ですから、それぞれ $x,-x$ となります。連続性も成分表示から従うため、[ホモトピー](../ATOP2/index.md#def-atop2-homotopy) の条件を満たします。
+二組の二乗和を足すと全体の和は1です。両端の三角関数の値から、
+
+$$
+H(x,0)=x,\qquad H(x,1)=-x.
+$$
+
+連続性も成分表示から従うため、[ホモトピー](../ATOP2/index.md#def-atop2-homotopy) の条件を満たします。
 <!-- solution-end -->
 
 ### 演習 ATOP24-C1：反対向きに送られる点
@@ -515,7 +545,15 @@ $$
 
 ノルムの比較から $t=1-t$、すなわち $t=1/2$ となり $g(x)=x$ が従います。これは仮定に反するので分母は常に正です。
 
-$L$ は連続で球面に値を取り、$L(x,0)=-x$、$L(x,1)=g(x)$ を満たすため、対蹠写像から $g$ への [ホモトピー](../ATOP2/index.md#def-atop2-homotopy) です。[対蹠写像の写像度](../ATOP23/index.md#thm-atop23-reflection-antipodal) と [写像度の基本性質](../ATOP23/index.md#thm-atop23-degree-properties) から $\deg g=-1$ となり矛盾します。従って不動点も存在します。
+$L$ は連続で球面に値を取ります。両端は
+
+$$
+L(x,0)=-x,\qquad L(x,1)=g(x).
+$$
+
+従って対蹠写像から $g$ への [ホモトピー](../ATOP2/index.md#def-atop2-homotopy) です。
+
+[対蹠写像の写像度](../ATOP23/index.md#thm-atop23-reflection-antipodal) と [写像度の基本性質](../ATOP23/index.md#thm-atop23-degree-properties) から $\deg g=-1$ となり矛盾します。従って不動点も存在します。
 
 後半の議論は実は全ての $n\ge1$ で成立します。奇数次元でも対蹠写像の写像度は1で零ではないからです。
 <!-- solution-end -->
