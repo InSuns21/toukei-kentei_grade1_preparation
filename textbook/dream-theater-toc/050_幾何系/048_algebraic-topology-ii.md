@@ -9,3 +9,4 @@
 6. [ATOP18 相対ホモロジーと長完全列](textbook/volumes/dream_thater/幾何系/ATOP/ATOP18/index.md)
 7. [ATOP19 切除定理](textbook/volumes/dream_thater/幾何系/ATOP/ATOP19/index.md)
 8. [ATOP20 Mayer–Vietoris完全列](textbook/volumes/dream_thater/幾何系/ATOP/ATOP20/index.md)
+9. [ATOP21 単体ホモロジーと特異ホモロジーの比較](textbook/volumes/dream_thater/幾何系/ATOP/ATOP21/index.md)

@@ -1,0 +1,41 @@
+chapter: ATOP21
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP20]
+forward_references: []
+concepts:
+  - id: atop.simplicial-singular-comparison-map
+    name: 単体・特異鎖の比較写像
+    kind: definition
+    introduction: formal
+    requires: [atop.simplicial-chain-group, atop.singular-chain-group, atop.geometric-realization]
+  - id: atop.comparison-chain-map
+    name: 比較写像と境界の可換性
+    kind: theorem
+    introduction: formal
+    requires: [atop.simplicial-singular-comparison-map, atop.simplicial-boundary, atop.singular-boundary, atop.simplicial-homology, atop.singular-homology]
+  - id: atop.relative-simplicial-homology
+    name: 相対単体ホモロジー群
+    kind: definition
+    introduction: formal
+    requires: [atop.simplicial-chain-complex, atop.simplicial-homology, algebra.quotient-module]
+  - id: atop.exact-sequence-central-comparison
+    name: 完全列の中央の比較
+    kind: lemma
+    introduction: formal
+    requires: [category.exact-sequence]
+  - id: atop.skeleton-relative-decomposition
+    name: 骨格対の相対特異ホモロジーの分解
+    kind: theorem
+    introduction: formal
+    requires: [atop.excision, atop.relative-long-exact-naturality, atop.homotopy-equivalence-homology, atop.exact-sequence-central-comparison, atop.realization-intersection]
+  - id: atop.simplicial-singular-comparison
+    name: 単体ホモロジーと特異ホモロジーの比較定理
+    kind: theorem
+    introduction: formal
+    requires: [atop.comparison-chain-map, atop.relative-simplicial-homology, atop.skeleton-relative-decomposition, atop.relative-long-exact-sequence, atop.exact-sequence-central-comparison, atop.contractible-reduced-homology]
+  - id: atop.comparison-naturality
+    name: 比較同型の自然性と頂点順序への非依存性
+    kind: theorem
+    introduction: formal
+    requires: [atop.simplicial-singular-comparison, atop.simplicial-chain-map-boundary, atop.singular-chain-map-boundary, atop.contractible-reduced-homology]

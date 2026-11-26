@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 240" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+  <title id="title">二枚の三角形の骨格と近傍</title>
+  <desc id="desc">正方形を対角線で分けた二枚の三角形。太い実線は1次骨格。淡い灰色の帯は最小重心座標が6分の1未満の近傍。破線で囲まれた白い二つの三角形は近傍に含まれない。</desc>
+  <rect width="360" height="240" fill="#ffffff"/>
+  <g stroke-linejoin="round">
+    <rect x="90" y="35" width="160" height="160" fill="#d8dee6"/>
+    <path d="M143.333333 168.333333 L223.333333 168.333333 L223.333333 88.333333 Z" fill="#ffffff" stroke="#536174" stroke-width="1.5" stroke-dasharray="5 3"/>
+    <path d="M116.666667 141.666667 L196.666667 61.666667 L116.666667 61.666667 Z" fill="#ffffff" stroke="#536174" stroke-width="1.5" stroke-dasharray="5 3"/>
+    <path d="M90 195 H250 V35 H90 Z M90 195 L250 35" fill="none" stroke="#222222" stroke-width="2.8"/>
+    <path d="M278 138 L250 151 L237 151" fill="none" stroke="#222222" stroke-width="1.2"/>
+  </g>
+  <g fill="#222222" font-family="sans-serif" font-size="15">
+    <text x="73" y="213">a</text>
+    <text x="259" y="213">b</text>
+    <text x="259" y="28">c</text>
+    <text x="73" y="28">d</text>
+    <text x="286" y="142">U</text>
+  </g>
+</svg>
