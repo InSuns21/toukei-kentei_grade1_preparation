@@ -1,0 +1,26 @@
+id: VNP16
+title: "H：F₂[s]/(s^{n+1})上SL群のtower・辺タイプ・coset"
+volume: foundations
+status: supplementary
+prerequisites: [VNP15, VNP13]
+official_scope: []
+learning_objectives:
+  - 切断多項式環の単元と還元核の位数を計算できる
+  - 巡回共役と自由作用から型別軌道を構成できる
+  - 指数一定の部分群列から塔の各段の計数を導出できる
+  - 基本行列の交換子と消去から生成元の語長上界を導出できる
+definitions:
+  - { id: VNP16-DEF-01, name: "切断多項式環" }
+  - { id: VNP16-DEF-02, name: "有限特殊線形群と還元核" }
+  - { id: VNP16-DEF-03, name: "巡回生成元と型別部分群" }
+  - { id: VNP16-DEF-04, name: "群作用の塔と型別軌道" }
+theorems:
+  - { id: VNP16-THM-01, name: "還元核の位数" }
+  - { id: VNP16-THM-02, name: "有限群作用の塔" }
+  - { id: VNP16-THM-03, name: "巡回生成元の語長上界" }
+canonical_examples: [切断環の単元, 三次行列の巡回共役, 指数二の剰余類射影]
+problem_patterns: [VNP16-A1, VNP16-A2, VNP16-A3, VNP16-A4, VNP16-B1, VNP16-B2, VNP16-B3, VNP16-B4, VNP16-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
