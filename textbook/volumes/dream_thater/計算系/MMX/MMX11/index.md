@@ -4,9 +4,9 @@
 
 有限集合上のテンソル価格から距離を得ても、その距離空間がどれほど大きな Euclid 空間を含むかは直ちには分からない。本講では、固定次数のグラフで全頂点間の二乗距離を制御できるか、という別の問いを立てる。そして、平坦次元に上限があると仮定した場合のグラフ構成と、通信を圧縮するための借用 wire の役割を調べる。
 
-前提は [MMX10](../MMX10/index.md) のスペクトル空間、[NPCG11](../../../幾何系/NPCG/NPCG11/index.md) の距離値グラフ不等式、および GCT14–16 の有限グラフ・計算の表現である。
+前提は [MMX10](../MMX10/index.md) のスペクトル空間、[NPCG8](../../../幾何系/NPCG/NPCG8/index.md) の重心、[NPCG11](../../../幾何系/NPCG/NPCG11/index.md) の距離値グラフ不等式、および [GCT14](../../GCT/GCT14/index.md)・[GCT15](../../GCT/GCT15/index.md)・[GCT16](../../GCT/GCT16/index.md) の有限グラフ・計算の表現である。
 
-一次資料は OpenAI, *Euclidean geometry in the asymptotic spectrum of tensors*（2026-11-24版）の [ports.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/ports.tex)、[ports-appendix.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/ports-appendix.tex)、[catalysts.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/catalysts.tex)、[protocol.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/protocol.tex)、[width.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/width.tex) と、行列積論文の [list.tex](https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/build/list.tex) である。本講の条件付き主張と、後続講で閉じる矛盾論証とは区別する。対数は底2とする。
+一次資料は OpenAI, *Euclidean geometry in the asymptotic spectrum of tensors*（2026-11-24版）の [ports.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/ports.tex)、[ports-appendix.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/ports-appendix.tex)、[catalysts.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/catalysts.tex)、[protocol.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/protocol.tex)、[prices.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/prices.tex)、[probing-appendix.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/probing-appendix.tex)、[two.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/two.tex)、[compaction.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/compaction.tex)、[width.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/width.tex) と、行列積論文の [list.tex](https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/build/list.tex) である。本講の条件付き主張と、後続講で閉じる矛盾論証とは区別する。対数は底2とする。
 
 ## 2. ports と量化の順序
 
@@ -89,7 +89,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-正整数 $r,s$ について $r+s\le m$ とする。次元 $m-r-s,r,r,s,s$ の独立な部分空間 $K,R_0,R_1,S_0,S_1$ を選ぶ。四頂点 $K+R_i+S_j$ を長方形順に並べると二対の向かい合う辺の型はそれぞれ $r,s$、対角線の型は $r+s$ である。[四辺形不等式と中点の差](../../../幾何系/NPCG/NPCG6/index.md#thm-npcg6-quadrilateral) の対角線二乗和≤辺二乗和を、$W$ の一様な可逆線形写像による移動について平均する。
+正整数 $r,s$ について $r+s\le m$ とする。次元 $m-r-s,r,r,s,s$ の独立な部分空間 $K,R_0,R_1,S_0,S_1$ を選ぶ。四頂点 $K+R_i+S_j$ を長方形順に並べると二対の向かい合う辺の型はそれぞれ $r,s$、対角線の型は $r+s$ である。[四辺形不等式と中点の差](../../../幾何系/NPCG/NPCG6/index.md#thm-npcg6-quadrilateral) の対角線の二乗和が四辺の二乗和以下となる評価を、$W$ の一様な可逆線形写像による移動について平均する。
 
 同じ型の順序対は可逆線形写像の作用で推移的である。実際、共通部分の基底、双方に固有の基底、全空間への補完基底を順に対応させればよい。したがって
 
@@ -162,14 +162,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-点列 $x_i^0=x_i$ を出発点とし、$x_i^{g+1}$ を重み $A_{ij}$ の [有限加重重心](../../../幾何系/NPCG/NPCG8/index.md#def-npcg8-weighted-barycenter) とする。完備性により存在する。以下を定める。
+点列 $x_i^0=x_i$ を出発点とし、$x_i^{g+1}$ を重み $A_{ij}$ の [有限加重重心](../../../幾何系/NPCG/NPCG8/index.md#def-npcg8-weighted-barycenter) とする。[有限加重重心の存在と一意性](../../../幾何系/NPCG/NPCG8/index.md#thm-npcg8-barycenter-existence) により定義できる。以下を定める。
 
 $$
 E_g=\frac1N\sum_{ij} A_{ij}d_X(x_i^{g+1},x_j^g)^2,\qquad
 D_g=\frac1N\sum_i d_X(x_i^g,x_i^0)^2.
 $$
 
-一様出発の長さ $r$ の歩道を考える。[分散不等式](../../../幾何系/NPCG/NPCG8/index.md#thm-npcg8-variance-inequality) を末尾の遷移から順に適用すると、最後の点を重心へ置換するたびに二乗距離の期待値から $E_g$ が差し引かれる。各歩道時点の周辺分布は一様だから
+一様出発の長さ $r$ の歩道 $(I_0,\ldots,I_r)$ を考える。[分散不等式](../../../幾何系/NPCG/NPCG8/index.md#thm-npcg8-variance-inequality) を末尾の遷移から順に適用すると、最後の点を重心へ置換するたびに二乗距離の期待値から $E_g$ が差し引かれる。具体的に $I_{r-g-1}=i$ とそれ以前の歩道を固定すると、次の頂点 $I_{r-g}$ の条件付き分布は $A_{ij}$ であり、点 $x_{I_0}^0$ を分散不等式の比較点に取れる。従って $\mathbb E d_X(x_{I_0}^0,x_{I_{r-g}}^g)^2\ge\mathbb E d_X(x_{I_0}^0,x_{I_{r-g-1}}^{g+1})^2+E_g$ である。$g=0,\ldots,r-1$ について足し、各歩道時点の周辺分布が一様であることを使うと
 
 $$
 \mathcal E_{A^r}(x)\ge D_r+\sum_{g=0}^{r-1}E_g.
@@ -521,7 +521,7 @@ $$
 
 を満たします。ここで $\eta>0$ を先に固定し、$M$ を十分大きくしてから検査許容誤差を十分小さくします。
 
-理由を追います。まず誤差0で $M\to\infty$ の反例列を仮定します。球の形は有界で有限種類なので固定できます。最初の中心を基点とする距離超極限を取れば、全中心は有界距離内にあります。各柱の対向端は距離 $2M$、中心からはともに距離 $M$ 以下なので、中心はその中点です。極限では各柱に $k$ 本の直線が生じ、同期した同じ軸の直線間の距離は経路長で一様有界です。異軸の符号付き半直線上の距離 $r$ の点の間は、距離の凸性で $\sqrt2r$ 以下です。[CAT(0) の四点不等式](../../../幾何系/NPCG/NPCG6/index.md#thm-npcg6-quadrilateral) を使うと反対側を含む四点の対角線二乗和は $8r^2$、四辺二乗和は高々 $8r^2$ なので等号です。[平坦四角形](../../../幾何系/NPCG/NPCG6/index.md#thm-npcg6-flat-quadrilateral) により正方形が埋まり、$r$ を増やせば二軸が張る Euclid 平面を得ます。
+理由を追います。まず誤差0で $M\to\infty$ の反例列を仮定します。各球の有限点上のスペクトル価格を [価格保存測地線拡張](../MMX10/index.md#thm-mmx10-geodesic-extension) により完備測地的 CAT(0) スペクトル空間へ拡張しておきます。球の形は有界で有限種類なので固定できます。最初の中心を基点とする距離超極限を取れば、全中心は有界距離内にあります。各柱の対向端は距離 $2M$、中心からはともに距離 $M$ 以下なので、中心はその中点です。極限では各柱に $k$ 本の直線が生じ、同期した同じ軸の直線間の距離は経路長で一様有界です。異軸の符号付き半直線上の距離 $r$ の点の間は、距離の凸性で $\sqrt2r$ 以下です。[四辺形不等式と中点の差](../../../幾何系/NPCG/NPCG6/index.md#thm-npcg6-quadrilateral) を使うと反対側を含む四点の対角線二乗和は $8r^2$、四辺二乗和は高々 $8r^2$ なので等号です。[四辺形の等号から平坦な領域](../../../幾何系/NPCG/NPCG6/index.md#thm-npcg6-flat-quadrilateral) により正方形が埋まり、$r$ を増やせば二軸が張る Euclid 平面を得ます。
 
 ここでは CAT(0) 空間論の parallel set splitting 定理（Bridson–Haefliger, Metric Spaces of Non-Positive Curvature, II.2.14）を使います。完備 CAT(0) 空間の一本の直線に平行な全直線の合併は $\mathbb R\times Y$ に等長分裂し、$Y$ も完備 CAT(0) です。この定理自体の証明は専門書に委ねます。第1軸の平行集合を分裂させると、他軸はそれぞれ第1軸と張る平面の中で直交するため $Y$ 内の直線となり、平行関係と直交関係を保ちます。例えば同じ柱の二軸の距離二乗は $r^2+s^2$ なので $\mathbb R$ 成分の係数が0であることが分かります。順に分裂すると全中心と全軸を含む $\mathbb R^k\times Y'$ を得ます。もし $Y'$ に異なる二点があればその間の測地線分と $\mathbb R^k$ の積に正の大きさの $(k+1)$ 次元立方体があり、[立方体距離の一様排除](#lem-mmx11-cube) に反します。よって座標は $\mathbb R^k$ だけで足ります。
 
@@ -594,7 +594,13 @@ $$
 
 ### 7.1 項を捨てても借用 wire を高価格で返せる
 
-[最大平坦次元の下での通信](#thm-mmx11-protocol) の各項のうち、異層リンクの線形料金和が $2MN_c/w-n$ 以上のものだけを残します。層座標を $M$ で割って単位フレーム上に配置すれば、捨てる項の価格は
+[最大平坦次元の下での通信](#thm-mmx11-protocol) では有効なタグ列ごとに恒等式が得られます。置換 $\pi$ のタグの指示テンソルを $\delta_\pi$、payload のマッチングテンソルを $M_\pi$ とすると、全タグを開いた目標は次の普通の和です。
+
+$
+\sum_{\pi\in S_n}\delta_\pi\otimes M_\pi\otimes I=\operatorname{Tag}(h,w)\otimes I.
+$
+
+各タグの指示テンソルは原点に配置します。制御でタグの妥当性を検査し、各有効タグに元の選択子を対応させるとこの恒等式を一つのネットワークとして実装できます。その各項のうち、異層リンクの線形料金和が $2MN_c/w-n$ 以上のものだけを残します。層座標を $M$ で割って単位フレーム上に配置すれば、捨てる項の価格は
 
 $$
 H(T)<2N_c-nw/M
@@ -678,7 +684,21 @@ $$
 
 ### 8.1 レコードをまとめて運ぶ
 
-幅 $w=\lceil h^a\rceil$、$a\ge1$ のタグ付き置換を考えます。サイズ $O(nwh^r)$、ギャップ $n2^{-C(\log_2(2h))^2}$（ある定数 $C$）を同時に実現できる指数 $r$ の下限を $r(a)$ とします。$r_*=r(1)$、$r_\infty=\inf_{a\ge1}r(a)$ とします。正確なソートの上界と全脚の数により $0\le r(a)\le1$ です。
+幅を変えると、アドレス長に対する payload の増え方も変わります。この変化を一つの関数で記録します。
+
+<a id="def-mmx11-width-profile"></a>
+
+<!-- formal-statement-start -->
+> **定義（幅プロフィール）**
+>
+> $a\ge1$、整数 $h\to\infty$、$n=2^h$、$w=\lceil h^a\rceil$ とする。十分大きいすべての $h$ について、$\operatorname{Tag}(h,w)$ にサイズ $O(nwh^r)$、ギャップ $n2^{-C(\log_2(2h))^2}$ 以上の三価近似が存在するような指数 $r$ の下限を $r(a)$ とする。$C$ は $h$ に依存しない正定数とする。$r_*=r(1)$、$r_\infty=\inf_{a\ge1}r(a)$ とおく。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-mmx11-width-profile -->
+**定義の確認**
+
+正確なソートの上界 $O(nwh)$ は任意の有限ギャップを持つため、$r=1$ はどの $a$ でも許されます。全データ脚の数は $n(2w+h)$ であるから、サイズは少なくとも $2nw$、負の指数は許されません。これで $0\le r(a)\le1$ を得ます。例えば $a=2$ でサイズ $O(nh^{5/2})$ かつ所要ギャップの構成が見つかったなら、$w=h^2$ なので $r(2)\le1/2$ となります。これは下限の上界であって、最適値の等号ではありません。
+<!-- definition-example-end -->
 
 幅が広いものの余りのビットを0に固定すれば狭いものに使えます。逆に広い payload を狭いチャンクに切り、各チャンクに同じタグを与えた検査の積は元のタグ検査です。この場合 [ギャップの増幅](#lem-mmx11-amplify) でなく [ギャップを保つ置換](#lem-mmx11-substitution) の和の損失を使います。チャンク数は $O(h^{a'-a})$ なので、ギャップは固定多項式の損失を吸収できます。従って $a'\ge a$ で
 
@@ -703,7 +723,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$h$ ビットのタグを $d=\lfloor h^{1/a}\rfloor$ ビットずつ安定基数ソートします。一回のパスでは $2^d$ 種類の値に分類し、前段までの順序を保ちます。ブロックの長さを $2^{2d}$ とし、各ブロック内で今の桁をソートします。固定 $B>1$ を選び、$P$ を $h^{B-1}$ 程度の2の冪として、同じ桁のレコードを $P$ 個ずつパックにします。各桁の境界で不足分を0埋めすると、ブロック当たりの増加は $O(2^dP)$ です。これは $o(2^{2d})$ なので、全体のスロット数は依然 $\Theta(n)$ です。ブロック内のソートとパック位置への移動は、長さ $l=2d+O(1)$ のタグと幅 $\Theta(h)=\Theta(l^a)$ のタグ付き置換検査で実装できます。パックの端数と空きスロットは走査で決定し、空きのデータを0に固定してタグ補完を一意にします。
+元のタグ付き置換を検査するため、入力レコード $(a,p_a)$ と出力レコード $(a_i,q_i)$ にそれぞれ種別フラグを添え、一つのリストにします。タグで安定ソートして、同じタグに入力・出力が一つずつ隣接し、payload が一致することを走査で検査します。初期リストは $\Theta(n)$ 個の $O(h)$ ビットレコードです。$h$ ビットのタグを $d=\lfloor h^{1/a}\rfloor$ ビットずつ、下位桁から安定基数ソートします。一回のパスでは $2^d$ 種類の値に分類し、前段までの順序を保ちます。ブロックの長さを $2^{2d}$ とし、各ブロック内で今の桁をソートします。固定 $B>1$ を選び、$P$ を $h^{B-1}$ 程度の2の冪として、同じ桁のレコードを $P$ 個ずつパックにします。各桁の境界で不足分を0埋めすると、ブロック当たりの増加は $O(2^dP)$ です。これは $o(2^{2d})$ なので、全体のスロット数は依然 $\Theta(n)$ です。ブロック内のソートとパック位置への移動は、長さ $l=2d+O(1)$ のタグと幅 $\Theta(h)=\Theta(l^a)$ のタグ付き置換検査で実装できます。パックの端数と空きスロットは走査で決定し、空きのデータを0に固定してタグ補完を一意にします。
 
 ブロックの呼出しを全体で $s=\Theta(n/2^l)$ 個使うと、任意の固定 $\epsilon>0$ に対してサイズは
 
@@ -715,7 +735,7 @@ $$
 
 パック単位で桁を安定ソートすれば、パック数は $\Theta(n/P)$、タグ長は $h-O(\log h)$、幅は $\Theta(hP)=\Theta(h^B)$ です。サイズは $O(nh h^{r(B)+\epsilon})$ で、ギャップは $n2^{-C_1(\log_2(2h))^2}$ 以上となるよう定数を大きくできます。パック内の順序を保つので個々のレコードの安定ソートが得られます。桁の所属・パック境界・個数・移動先の検証は走査とタグ検査の固定回数の呼出しで行い、正しい記録は一意に定まります。走査と配線の費用は $O(nh)$ です。
 
-パス数は $O(h/d)=O(h^{1-1/a})$ であり、各パスでのタグ検査を置換しても、ギャップの損失は [ギャップを保つ置換](#lem-mmx11-substitution) により呼出し回数の定数倍です。ブロック群は増幅済みの一括呼出しとして数えます。全体のギャップは目標の形を維持し、サイズ指数は $1-1/a+\max((r(a)+\epsilon)/a,r(B)+\epsilon)$ 以下です。$\epsilon\downarrow0$、さらに $B$ を動かして $r(B)$ の下限に近づければ結論となります。
+各パスの長さの増加率は $O(2^{-d}P)$、末端の不完全ブロックによる追加数は $O(2^{2d}+2^dP)$ です。$d=\Theta(h^{1/a})$、$P=O(h^{B-1})$ なので、多項式回のパスを通じて全長は $\Theta(n)$ のままです。パス数は $O(h/d)=O(h^{1-1/a})$ であり、各パスでのタグ検査を置換しても、ギャップの損失は [ギャップを保つ置換](#lem-mmx11-substitution) により呼出し回数の定数倍です。ブロック群は増幅済みの一括呼出しとして数えます。全体のギャップは目標の形を維持し、サイズ指数は $1-1/a+\max((r(a)+\epsilon)/a,r(B)+\epsilon)$ 以下です。$\epsilon\downarrow0$、さらに $B$ を動かして $r(B)$ の下限に近づければ結論となります。
 <!-- proof-end -->
 
 ### 8.2 小さな呼出しの予算
@@ -724,9 +744,9 @@ $$
 
 第7.1節で得た正尺度チャンク数の上界を $c_*n$（$c_*=22T^{-p}$ と余裕を取る）とします。短いタグの呼出しを実際に固定配線で使うには、活動リンクの数ではなく、用意した全スロット数を抑えなければなりません。
 
-全グループを長さ $H_1=2^{Th+o(h)}$ のスーパーグループへまとめます。$H_1$ は個々のグループの最大長以上に取り、固定倍率の空きは0埋めします。各スーパーグループでは活動チャンクを長さ $K_1/2$ 以下のバッチに分けます。$K_1$ は $H_1$ の十分小さい固定2進比とします。端数のバッチも $K_1$ に丸めた全スロット数は $2c_*n+O((n/H_1)K_1)\le3c_*n$ にできます。第7.2節の詰込みを両端の活動スロットに適用して、各バッチの源と行先を同じ $K_1$ 個の物理位置へ入れます。活動バッチ自体も固定グラフで詰め、$\lceil6c_*n/K_1\rceil$ 個の物理モジュールに収容できます。使用していないモジュールにも恒等タグと0データを入れる規則を固定します。従って全物理スロット数 $S_{T,Y}$ は $\Omega(n)$ かつ $7c_*n$ 以下、各モジュールのタグ長は $h'=Th+o(h)$、幅は $w'=\lceil Yw\rceil$ です。
+全グループを分割せず、次のグループが入らなくなったら新しい箱を開く方法で、長さ $H_1=2^{Th+o(h)}$ のスーパーグループにまとめます。$H_1$ はスロット複製後の個々のグループの最大長の2倍以上の2の冪に取るため、最後以外の箱は半分以上が埋まり、箱数は $O(n/H_1+1)$ です。各箱の空きは0埋めします。各スーパーグループでは活動チャンクを長さ $K_1/2$ 以下のバッチに分けます。$K_1$ は $H_1$ の十分小さい固定2進比とします。端数のバッチも $K_1$ に丸めた全スロット数は $2c_*n+O((n/H_1)K_1)\le3c_*n$ にできます。各箱の全スロットが活動する場合も扱えるよう候補バッチを固定個数用意します。箱内のチャンク数と箱容量の比は固定パラメータによる定数であり、$K_1$ は $H_1$ の固定比なので、候補数は箱当たり有界です。第7.2節の詰込みを各候補バッチの両端の活動スロットに別々に適用して、各バッチの源と行先を同じ $K_1$ 個の物理位置へ入れます。全候補数 $O(n/H_1+1)$ は物理モジュール数の固定倍率以下で、活動バッチ数は $3c_*n/K_1$ 以下です。そこで活動バッチ自体も第7.2節の固定グラフで詰め、$\lceil6c_*n/K_1\rceil$ 個の物理モジュールに収容できます。使用していないモジュールにも恒等タグと0データを入れる規則を固定します。従って全物理スロット数 $S_{T,Y}$ は $\Omega(n)$ かつ $7c_*n$ 以下、各モジュールのタグ長は $h'=Th+o(h)$、幅は $w'=\lceil Yw\rceil$ です。
 
-制御の実行記録は前節と同様にアドレスと時刻でソートして検証します。このソートをさらに短い呼出しに変える必要はなく、語長とタグ長が $h+O(\log h)$ の等幅タグ呼出しを有界回使えばよいです。全記録数は $O(n\operatorname{polylog}h)$ なので、その他の局所ネットワーク、幅の整列、接続費用は $O(nw\operatorname{polylog}h)$ です。選択子ごとの記録とタグ補完は一意に検証され、元の縮約和を正確に実装します。
+制御の実行記録は前節と同様にアドレスと時刻でソートして検証します。このソートをさらに短い呼出しに変える必要はなく、語長とタグ長が $h+O(\log h)$ の等幅タグ呼出しを有界回使えばよいです。全記録数は $O(n\operatorname{polylog}h)$ なので、その他の局所ネットワーク、幅の整列、接続費用は $O(nw\operatorname{polylog}h)$ です。実際、個別スロットのスイッチには $O(\lceil Yw\rceil)$ ビット、バッチ全体のスイッチには $O(K_1\lceil Yw\rceil)$ ビットが必要です。固定次数と候補箱・モジュール数の評価を掛けると両者とも $O(nw)$ になります。局所的な可変位置シフトは2の冪ずつのシフトを条件分岐で選ぶ $O(w\log(2w))$ の回路で実装でき、$w\le h^A$ なのでこの費用も $O(nw\operatorname{polylog}h)$ に収まります。選択子ごとの記録とタグ補完は一意に検証され、元の縮約和を正確に実装します。
 
 この構成の重み付きスロット数は
 
@@ -775,7 +795,7 @@ $u$ が一定となった後の十分大きい $A$ を固定し、$h$ に関す�
 
 残りの区間 $[1+\kappa,A]$ では第8.2節を使います。短い呼出しは $h'<h$、$a'>1$ です。$a'>A$ となる場合も $u$ の一定領域にある幅のチャンクに固定個数で分ければよいです。増幅定数も含め、$\epsilon$ を十分小さく取れば短い呼出しの費用は全予算の例えば1/2以下になります。制御用の等幅呼出しはサイズ $O(nh^{1+r'}\operatorname{polylog}h)$ であり、$a+u(a)\ge1+u(1)>1+r'$（微分が $1-b>0$）なのでこれは $o(nwh^{u(a)})$ です。その他の配線の $O(nw\operatorname{polylog}h)$ も $u$ の正の下界により吸収できます。
 
-ギャップについて、ある固定型の短い呼出しが $s=S_{T,Y}/2^{h'}$ 個なら、[ギャップの増幅](#lem-mmx11-amplify) 後のギャップは少なくとも
+ギャップについて、$C$ は幅 $h$ の $r'$ 近似に用いる定数より厳密に大きく、かつ3より大きいものに帰納法の開始前に固定します。ある固定型の短い呼出しが $s=S_{T,Y}/2^{h'}$ 個なら、[ギャップの増幅](#lem-mmx11-amplify) 後のギャップは少なくとも
 
 $$
 \frac{sD_{h'}}{2h'}=\Omega\left(\frac{n2^{-C(\log_2(2h'))^2}}{h'}\right).
@@ -788,7 +808,7 @@ $$
 \ge(2-o(1))\log_2 h.
 $$
 
-従って $C>3$ なら増幅後のギャップは $D_h$ より漸近的に大きくなります。増幅の個数条件 $\log s=O(h)=O(h')$ も満たします。制御用等幅呼出しのギャップは $C$ をその近似の定数より十分大きく選べば同様に $D_h$ より漸近的に大きくできます。第7.1節で元の縮約和にあった $\Omega(nw)$ のギャップも十分です。固定有限個の型ごとの増幅済み呼出しとして [ギャップを保つ置換](#lem-mmx11-substitution) を適用すると、損失は固定定数なので $D_h$ を維持できます。小さい $h$ の有限個の例は正確なネットワークで処理して $D_{\rm cost}$ を大きく取ります。これで帰納法が閉じ、$r(a)\le u(a)$ です。
+従って $C>3$ なら増幅後のギャップは $D_h$ より漸近的に大きくなります。増幅の個数条件 $\log s=O(h)=O(h')$ も満たします。また $D_{h'}=2^{h'-C(\log_2(2h'))^2}$ は $4k(\log_2h'+3)$ より大きくなるので、増幅のギャップ条件も満たします。制御用等幅呼出しのギャップは $C$ をその近似の定数より十分大きく選べば同様に $D_h$ より漸近的に大きくできます。第7.1節で元の縮約和にあった $\Omega(nw)$ のギャップも十分です。固定有限個の型ごとの増幅済み呼出しとして [ギャップを保つ置換](#lem-mmx11-substitution) を適用すると、損失は固定定数なので $D_h$ を維持できます。各漸近閾値は $D_{\rm cost}\ge1$ に依存しないよう選べます。小さい $h$ の有限個の例は正確なネットワークで処理して $D_{\rm cost}$ を大きく取ります。これで帰納法が閉じ、$r(a)\le u(a)$ です。
 
 もし $r_*>0$ なら $1-r_*<b_0<1$ を選びます。小さい $\tau>0$ と $0<\epsilon_0<(r_*+b_0-1)\tau$ を取り、$1$ の近くでは
 
