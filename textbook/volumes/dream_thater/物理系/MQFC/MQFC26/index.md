@@ -6,11 +6,15 @@
 
 ## 1. 一層の減衰率と物理時間
 
-有限空間格子でコンパクト行列群を用い、非負のWilson結合パラメータ $\beta\ge0$ を取る。一時刻配置に対する [Wilson転送作用素](../MQFC23/index.md#def-mqfc23-transfer) を $T$ とする。[転送作用素の非負性とコンパクト性](../MQFC23/index.md#thm-mqfc23-transfer-positive) により、$T$ は非負コンパクト自己共役作用素である。有限格子でも配置空間上の関数の空間は無限次元になり得る。[転送作用素の真空規格化](../MQFC23/index.md#thm-mqfc23-vacuum)により、最大固有値 $\Lambda_0>0$ で割った $U=T/\Lambda_0$ を考える。
+有限空間格子でコンパクト行列群を用い、非負のWilson結合パラメータ $\beta\ge0$ を取る。一時刻配置に対する [Wilson転送作用素](../MQFC23/index.md#def-mqfc23-transfer) を $T$ とする。[転送作用素の非負性とコンパクト性](../MQFC23/index.md#thm-mqfc23-transfer-positive) により、$T$ は非負コンパクト自己共役作用素である。有限格子でも配置空間上の関数の空間は無限次元になり得る。
+
+[転送作用素の真空規格化](../MQFC23/index.md#thm-mqfc23-vacuum)により、最大固有値 $\Lambda_0>0$ で割った $U=T/\Lambda_0$ を考える。
 
 零固有値の方向を除いた[格子の物理Hilbert空間](../MQFC23/index.md#def-mqfc23-physical-hilbert)では、真空 $\Omega$ は単位ベクトルで $U\Omega=\Omega$ である。
 
-[真空直交補空間の質量ギャップ](../MQFC12/index.md#def-mqfc12-gap) と同じく真空 $\Omega$ に直交する空間を考える。[格子Hamiltonianの構成](../MQFC23/index.md#thm-mqfc23-hamiltonian) で用いた完全正規直交固有系を取り、真空以外の正の規格化固有値を $\lambda_j$、対応する固有ベクトルを $u_j$ と書く。添字 $j\ge1$ は重複度を込めた番号である。真空直交空間が非零の場合、最大の励起固有値 $\lambda_*$ は $0<\lambda_*<1$ を満たす。
+[真空直交補空間の質量ギャップ](../MQFC12/index.md#def-mqfc12-gap) と同じく真空 $\Omega$ に直交する空間を考える。[格子Hamiltonianの構成](../MQFC23/index.md#thm-mqfc23-hamiltonian) で用いた完全正規直交固有系を取り、真空以外の正の規格化固有値を $\lambda_j$、対応する固有ベクトルを $u_j$ と書く。添字 $j\ge1$ は重複度を込めた番号である。
+
+真空直交空間が非零の場合、最大の励起固有値 $\lambda_*$ は $0<\lambda_*<1$ を満たす。
 
 一層の並進は固有ベクトルを $\lambda_j$ 倍する。整数 $n\ge0$ 層では $\lambda_j^n$ 倍である。一方、物理時間は $t=na$ なので、同じ数を
 
@@ -40,7 +44,15 @@ $$
 <!-- definition-example-start: def-mqfc26-lattice-mass -->
 ### 直接例：三つの転送固有値
 
-**定義の確認**。時間格子間隔を $a=1/5>0$ とし、三次元の抽象的な転送模型を考える。正規直交基底 $(e_0,e_1,e_2)$ における $T$ の行列を $\operatorname{diag}(6,3,1)$ とする。これは $Te_0=6e_0$、$Te_1=3e_1$、$Te_2=e_2$ を表す。実対角行列なので自己共役であり、任意の $x=\sum_{j=0}^2 x_j e_j$ に対して
+**定義の確認**。時間格子間隔を $a=1/5>0$ とし、三次元の抽象的な転送模型を考える。正規直交基底 $(e_0,e_1,e_2)$ における $T$ の行列を $\operatorname{diag}(6,3,1)$ とする。これは各基底ベクトルに対する作用
+
+$$
+Te_0=6e_0,\qquad Te_1=3e_1,\qquad Te_2=e_2
+$$
+
+を表す。
+
+実対角行列なので自己共役であり、任意の $x=\sum_{j=0}^2 x_j e_j$ に対して
 
 $$
 \langle x,Tx\rangle=6|x_0|^2+3|x_1|^2+|x_2|^2\ge0.
@@ -61,7 +73,9 @@ $$
 最も遅く減衰する励起方向 $e_1$ の自己相関は $n$ 層で $\langle e_1,U^ne_1\rangle=2^{-n}$ となる。物理時間1は5層なので、減衰は $2^{-5}=1/32$ である。
 <!-- definition-example-end -->
 
-[格子Hamiltonianの構成](../MQFC23/index.md#thm-mqfc23-hamiltonian) では一層の作用素 $U$ から時間間隔 $a$ に対応するエネルギー作用素 $H$ を作った。その真空直交部分の最低エネルギーを $M$ と書く（[真空直交補空間の質量ギャップ](../MQFC12/index.md#def-mqfc12-gap)）。物理時間を単位とする減衰の尺度を $\xi_{\rm phys}$ と書く。
+[格子Hamiltonianの構成](../MQFC23/index.md#thm-mqfc23-hamiltonian) では一層の作用素 $U$ から時間間隔 $a$ に対応するエネルギー作用素 $H$ を作った。その真空直交部分の最低エネルギーを $M$ と書く（[真空直交補空間の質量ギャップ](../MQFC12/index.md#def-mqfc12-gap)）。
+
+物理時間を単位とする減衰の尺度を $\xi_{\rm phys}$ と書く。
 
 <a id="thm-mqfc26-unit-conversion"></a>
 
@@ -122,7 +136,9 @@ $$
 
 全励起の中で最も遅い指数が得られるとは限らない。例えば正規直交基底 $(\Omega,u_1,u_2)$ で $U$ の固有値が $1,1/2,1/4$ のとき、$u_2$ の自己相関は $4^{-n}$ である。最も軽い励起 $u_1$ を含まないからである。
 
-真空直交ベクトル $v\ne0$ を $v=\sum_{j\ge1}v_j u_j$ と展開する。内積は第2引数について線形とする。$v_j=\langle u_j,v\rangle$ は固有基底での係数である。[連結相関のLaplace表示](../MQFC12/index.md#thm-mqfc12-laplace) と [格子Hamiltonianの構成](../MQFC23/index.md#thm-mqfc23-hamiltonian) の $e^{-naH}=U^n$ に対応して、真空寄与が零である連結自己相関を $C_v(n)=\langle v,U^nv\rangle$ と書くと
+真空直交ベクトル $v\ne0$ を $v=\sum_{j\ge1}v_j u_j$ と展開する。内積は第2引数について線形とする。$v_j=\langle u_j,v\rangle$ は固有基底での係数である。
+
+[連結相関のLaplace表示](../MQFC12/index.md#thm-mqfc12-laplace) と [格子Hamiltonianの構成](../MQFC23/index.md#thm-mqfc23-hamiltonian) の $e^{-naH}=U^n$ に対応して、真空寄与が零である連結自己相関を $C_v(n)=\langle v,U^nv\rangle$ と書くと
 
 $$
 C_v(n)=\sum_{j\ge1}|v_j|^2\lambda_j^n.
@@ -146,7 +162,16 @@ $$
 \le -\log\lambda_v-\frac{\log w}{n}.
 $$
 
-両端で $n\to\infty$ とすれば中央も $-\log\lambda_v$ に収束する。既習の対数減衰率では相関を $\|v\|^2$ で規格化したが、その差は $\log\|v\|^2/n\to0$ なので極限は同じである。物理時間での率は $-\log C_v(n)/(na)$ であり、層数での率を $a$ で割った値になる。$\lambda_v\le\lambda_*$ なので測定したエネルギーは $M$ 以上であり、等号は最軽励起の固有空間への射影が非零であるときに成立する。
+両端で $n\to\infty$ とすれば中央も $-\log\lambda_v$ に収束する。既習の対数減衰率では相関を $\|v\|^2$ で規格化したが、その差は $\log\|v\|^2/n\to0$ なので極限は同じである。
+
+物理時間での率は層数での率を $a$ で割った値である。
+
+$$
+-\frac{\log C_v(n)}{na}
+=\frac1a\left(-\frac{\log C_v(n)}{n}\right).
+$$
+
+$\lambda_v\le\lambda_*$ なので測定したエネルギーは $M$ 以上であり、等号は最軽励起の固有空間への射影が非零であるときに成立する。
 
 したがって一種類の観測量で大きな減衰率を確認しても、全励起のギャップの下界にはならない。全体を判定するには[稠密な観測ベクトル族からのギャップ判定](../MQFC12/index.md#thm-mqfc12-decay-gap)のように、見逃す方向がないことが重要となる。
 
@@ -268,7 +293,9 @@ $0<\lambda_{*,k}<1$ ならこの二式から非負性と縮小性が分かり、
 
 ギャップを $M(a,L,\beta)$ と書くと、境界条件・群・格子形状も固定または明示して比較する必要がある。
 
-[強結合における体積一様格子ギャップ](../MQFC25/index.md#thm-mqfc25-uniform-lattice-gap)は、自由境界の有限空間直方体格子、時空次元 $d\ge2$、コンパクト群 $G\subset U(N)$（$N$ 次ユニタリ行列の群の部分群）、Wilson測度の結合パラメータ $\beta\ge0$ に対して、$0<b<1$ と
+[強結合における体積一様格子ギャップ](../MQFC25/index.md#thm-mqfc25-uniform-lattice-gap)は、自由境界の有限空間直方体格子、時空次元 $d\ge2$、コンパクト群 $G\subset U(N)$（$N$ 次ユニタリ行列の群の部分群）を取る。
+
+Wilson測度の結合パラメータ $\beta\ge0$ について、$0<b<1$ と
 
 $$
 12(d-1)\beta\le b
@@ -309,7 +336,17 @@ $$
 
 格子の真空直交ベクトル $v_k$ が、連続理論での真空直交ベクトル $v$ に対応しているとする。これは単に名前を対応させるだけではなく、下の定理にある自己相関の収束とノルムの有界性を満たす対応である。場の規格化も、この条件を確かめる際に含まれる。
 
-連続理論では $H$ が非有界でも、非負自己共役なら [自己共役作用素のBorel関数計算](../../../解析系/QM/QM6/index.md#def-qm6-borel-functional-calculus) により $e^{-tH}$ は $t\ge0$ で全空間上の有界作用素となる。$D(H)$ は $H$ の定義域、$E_H(B)$ はエネルギー集合 $B$ に対応するスペクトル射影である。真空直交空間 $\mathcal K=\Omega^\perp$ への直交射影を $Q$ とすると、[真空直交補空間の質量ギャップ](../MQFC12/index.md#def-mqfc12-gap) では、正の幅 $\Delta$ に対する判定条件は $E_H([0,\Delta))Q=0$ である。観測ベクトル族の線形包が稠密とは、$\mathcal K$ の任意のベクトルをそれらの有限線形結合でノルム近似できることをいう。
+連続理論では、非負自己共役ハミルトニアン $H$ が非有界でも、[自己共役作用素のBorel関数計算](../../../解析系/QM/QM6/index.md#def-qm6-borel-functional-calculus) により $e^{-tH}$ は $t\ge0$ で全空間上の有界作用素となる。
+
+$D(H)$ はハミルトニアンの定義域、$E_H(B)$ はエネルギー集合 $B$ に対応するスペクトル射影である。真空直交空間 $\mathcal K=\Omega^\perp$ への直交射影を $Q$ とする。
+
+[真空直交補空間の質量ギャップ](../MQFC12/index.md#def-mqfc12-gap) では、正の幅 $\Delta$ に対する判定条件は
+
+$$
+E_H([0,\Delta))Q=0
+$$
+
+である。観測ベクトル族の線形包が稠密とは、$\mathcal K$ の任意のベクトルをそれらの有限線形結合でノルム近似できることをいう。
 
 <a id="thm-mqfc26-limit-gap"></a>
 
@@ -377,7 +414,9 @@ $$
 
 任意の $v\in\mathcal D$ に対してこの評価が全ての $t>0$ で成立した。
 
-[稠密な観測ベクトル族からのギャップ判定](../MQFC12/index.md#thm-mqfc12-decay-gap) を、$\mathcal V=\mathcal D$、係数 $M_v=B_v$、任意の固定した正の開始時刻 $t_v>0$ で適用する。$v\in\mathcal K$ だから $Qv=v$ であり、$\operatorname{span}(Q\mathcal V)$ の閉包は仮定により $\mathcal K$ である。
+[稠密な観測ベクトル族からのギャップ判定](../MQFC12/index.md#thm-mqfc12-decay-gap) を、$\mathcal V=\mathcal D$、係数 $M_v=B_v$、任意の固定した正の開始時刻 $t_v>0$ で適用する。
+
+$v\in\mathcal K$ だから $Qv=v$ であり、$\operatorname{span}(Q\mathcal V)$ の閉包は仮定により $\mathcal K$ である。
 
 従って $E_H([0,\Delta))Q=0$ を得る。これは [真空直交補空間の質量ギャップ](../MQFC12/index.md#def-mqfc12-gap) の条件そのものであり、真空直交部分のスペクトルが $[\Delta,\infty)$ に含まれることを意味する。
 <!-- proof-end -->
