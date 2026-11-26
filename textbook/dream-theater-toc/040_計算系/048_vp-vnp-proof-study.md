@@ -10,3 +10,4 @@
 7. [VNP7 C/O：CN不等式、priceのCAT(0)完備化](textbook/volumes/dream_thater/計算系/VNP/VNP7/index.md)
 8. [VNP8 D：F₂行列rank、transversal pair、平均D(r)の劣加法性](textbook/volumes/dream_thater/計算系/VNP/VNP8/index.md)
 9. [VNP9 D：等号解析とEuclid cube、flatまたはcontracting](textbook/volumes/dream_thater/計算系/VNP/VNP9/index.md)
+10. [VNP10 E：grid sums・clause sumsからpermanentへの射影](textbook/volumes/dream_thater/計算系/VNP/VNP10/index.md)
