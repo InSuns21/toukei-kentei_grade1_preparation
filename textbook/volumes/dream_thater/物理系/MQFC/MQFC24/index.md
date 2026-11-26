@@ -51,7 +51,21 @@ e^{\beta s}=\cosh\beta+s\sinh\beta
 \qquad t=\tanh\beta.
 $$
 
-$s=1$ なら $\cosh\beta+\sinh\beta=e^\beta$、$s=-1$ なら $\cosh\beta-\sinh\beta=e^{-\beta}$ となるので、近似ではなく恒等式である。二値群では $s\mapsto1$ と $s\mapsto s$ はともに積を保つ一次元ユニタリ表現であり、一次元行列のトレースはその成分自身だから、対応する [表現の指標](../MQFC20/index.md#def-mqfc20-character) もそれぞれ $1$ と $s$ である。この二つで上の重みを展開した式は [Wilson重みの非負指標展開](../MQFC22/index.md#thm-mqfc22-character-expansion) の最小例でもある。$\beta\ge0$ では $0\le t<1$ である。$\beta>0$ から0へ近づくときは
+符号の二通りについて双曲線関数の定義を代入すると、
+
+$$
+\cosh\beta+\sinh\beta=e^\beta,
+\qquad
+\cosh\beta-\sinh\beta=e^{-\beta}
+$$
+
+となるので、近似ではなく恒等式である。
+
+二値群では $s\mapsto1$ と $s\mapsto s$ はともに積を保つ一次元ユニタリ表現である。一次元行列のトレースはその成分自身だから、対応する [表現の指標](../MQFC20/index.md#def-mqfc20-character) もそれぞれ $1$ と $s$ になる。
+
+この二つで上の重みを展開した式は [Wilson重みの非負指標展開](../MQFC22/index.md#thm-mqfc22-character-expansion) の最小例でもある。
+
+$\beta\ge0$ では $0\le t<1$ である。$\beta>0$ から0へ近づくときは
 
 $$
 \frac{t}{\beta}
@@ -62,7 +76,7 @@ $$
 
 ## 2. 辺積分で残る正方形の集合
 
-積 $\prod_p(1+tu_p)$ を展開すると、各正方形について1または $tu_p$ を選ぶ。その選び方は部分集合 $S\subset P$ に対応し、係数は $t^{|S|}$ になる。そこで、選んだ正方形に何回現れたかを辺ごとに数え、奇数回現れた辺だけを集める。この集合を偶奇境界と呼ぶ。一枚の正方形の四辺 $\partial p$ と区別して、正方形集合の偶奇境界は $\partial S$ と書く（$S=\{p\}$ なら両者は一致する）。
+積 $\prod_p(1+tu_p)$ を展開すると、各正方形について1または $tu_p$ を選ぶ。その選び方は部分集合 $S\subset P$ に対応し、係数は $t^{|S|}$ になる。そこで、選んだ正方形に何回現れたかを辺ごとに数え、奇数回現れた辺だけを集める。一枚の正方形を囲む四辺を表す記号を、次のように正方形の集合に対しても拡張する。
 
 <a id="def-mqfc24-parity-boundary"></a>
 
@@ -77,6 +91,8 @@ $$
 
 > と定める。二つの集合の対称差（ちょうど一方に属する要素の集合）を $S\triangle T$ と書く。
 <!-- formal-statement-end -->
+
+一枚の正方形の四辺 $\partial p$ と、正方形集合に対する $\partial S$ を区別する。$S=\{p\}$ なら $\partial S=\partial p$ である。
 
 <!-- definition-example-start: def-mqfc24-parity-boundary -->
 ### 直接例：二枚の正方形
