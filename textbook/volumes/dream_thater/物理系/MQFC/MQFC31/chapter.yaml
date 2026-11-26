@@ -2,7 +2,7 @@ id: MQFC31
 title: "相互作用をなぜ形式冪級数で扱うか"
 volume: foundations
 status: supplementary
-prerequisites: [MQFC1, MQFC2, MQFC3, MQFC4, MICA6]
+prerequisites: [MQFC1, MQFC2, MQFC3, MQFC4, MICA6, COMB9]
 official_scope: []
 learning_objectives:
   - 結合定数の形式展開を次数ごとに計算し実収束と区別できる
