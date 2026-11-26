@@ -87,7 +87,14 @@ $$
 G_\phi(b)\le G_\phi(a)+\sum_{i\in I}d_\phi(a(i),b(i)).
 $$
 
-逆方向も成り立つため、位置変更による指数の差は右辺の距離和で抑えられます。以下でこの評価と幾何的な中点を組み合わせます。$\mathbb R^k$ では [標準内積](../../../基礎科目/F0/F0-00E1/index.md#def-f0-00e1-inner-product) を用い、$\langle x,y\rangle=\sum_{a=1}^k x_a y_a$、$\|x\|=\sqrt{\langle x,x\rangle}$ とします。添字 $a$ は座標番号です。
+逆方向も成り立つため、位置変更による指数の差は右辺の距離和で抑えられます。以下でこの評価と幾何的な中点を組み合わせます。$\mathbb R^k$ では [標準内積](../../../基礎科目/F0/F0-00E1/index.md#def-f0-00e1-inner-product) を用います。
+
+$$
+\langle x,y\rangle=\sum_{a=1}^k x_a y_a,\qquad
+\|x\|=\sqrt{\langle x,x\rangle}.
+$$
+
+添字 $a$ は座標番号です。
 
 <a id="lem-vnp12-midpoint"></a>
 
@@ -410,7 +417,7 @@ $$
 指数を取れば結論です。
 <!-- proof-end -->
 
-[平坦仮説下の固定頂点数の下界](#thm-vnp12-flat-fixed) だけでも、標数2でない体で任意の固定 $C>0$ に対する $s>m^C$ を示せます。まず整数 $k$ を固定し、次のように選びます。
+[平坦仮説下の固定頂点数の下界](#thm-vnp12-flat-fixed) だけでも、標数2でない体で、$m$ 次パーマネントを計算する回路の全ゲート数 $s$ が任意の固定 $C>0$ に対して十分大きな $m$ で $s>m^C$ となることを示せます。ここからの $s$ は切断の頂点数ではなく回路サイズです。まず整数 $k$ を固定し、次のように選びます。
 
 $$
 \sqrt{k}>24(C+1),\qquad \ell=\left\lfloor\frac{\log m}{2k}\right\rfloor.
@@ -453,7 +460,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[完全ネットワークの二ハブ被覆](../VNP11/index.md#thm-vnp11-hub-cover) は $J\le2^k$ 材料からなり、出力のハブの添字は一元集合です。[少数項の選択費用](#thm-vnp12-few) を端ラベル集合に適用します。$\phi$ に対する元の辺長和を $A$、外側長和を $B_S$、中央距離を $C_S$、端集合の指数を $G$ と書きます。[完全ネットワークの切断費用不等式](../VNP11/index.md#thm-vnp11-cut-cost) の証明と同じ各wireの冪評価から、最大の材料を選びます。元の端係数配列を $T$、切断 $S$ の材料を $H_S$ とすると、[完全ネットワークのwire係数表示](../VNP11/index.md#lem-vnp11-wire-coefficient) と [対角資源の指数と擬距離](../VNP3/index.md#lem-vnp3-exponents) から
+[完全ネットワークの二ハブ被覆](../VNP11/index.md#thm-vnp11-hub-cover) は $J\le2^k$ 材料からなり、出力のハブの添字は一元集合です。[少数項の選択費用](#thm-vnp12-few) を端ラベル集合に適用します。$\phi$ に対する元の辺長和を $A$、外側長和を $B_S$、中央距離を $C_S$、端集合の指数を $G$ と書きます。ここでの $B_S$ は第4・5節の Euclid 長ではなく、拡大前の擬距離の和です。[完全ネットワークの切断費用不等式](../VNP11/index.md#thm-vnp11-cut-cost) の証明と同じ各wireの冪評価を使います。元の端係数配列を $T$、切断 $S$ の材料を $H_S$ とすると、[完全ネットワークのwire係数表示](../VNP11/index.md#lem-vnp11-wire-coefficient) と [対角資源の指数と擬距離](../VNP3/index.md#lem-vnp3-exponents) から
 
 $$
 \phi(T)=2^{\ell A},\qquad
