@@ -227,7 +227,7 @@ $$
 d(a,a+W)\le\sqrt N D(1).
 $$
 
-任意の $a,b\in M$ について $b-a$ の階数を $r$ とします。$r>0$ なら [横断和の階数加法性](#lem-vnp8-transversal-rank) の分解により $b-a=\sum_{h=1}^r W_h$（各階数1）。$a_h=a+\sum_{t=1}^h W_t$、$a_0=a$ と置けば $a_r=b$、隣接点の差は階数1です。[priceの保存則](../VNP3/index.md#thm-vnp3-price-laws) による三角不等式から
+任意の $a,b\in M$ について $b-a$ の階数を $r$ とします。$r>0$ なら [横断和の階数加法性](#lem-vnp8-transversal-rank) の分解により $b-a=\sum_{h=1}^r W_h$（各階数1）。$a_h=a+\sum_{t=1}^h W_t$、$a_0=a$ と置けば $a_r=b$、隣接点の差は階数1です。[priceの保存則](../VNP3/index.md#thm-vnp3-price-laws) により $d$ は擬距離です。隣接点間の距離を足すと
 
 $$
 d(a,b)\le\sum_{h=1}^r d(a_{h-1},a_h)
@@ -368,7 +368,7 @@ $$
 
 [階数別平均の上界を達成するprice](#thm-vnp8-extremal-price) の証明の一様上界を用いると、全距離は $5\sqrt{|M||M_1|}$ 以下です。有限個の座標で共通収束部分列を選び、[priceの保存則](../VNP3/index.md#thm-vnp3-price-laws) によって極限もpriceになります。有限和の連続性で $D_*(r)^2=r$ です。
 
-階数 $i,j$ の横断対と $a$ に対し四辺の平方和から対角線の平方和を引いた値を $H(a,W,W')$ と置きます。極限priceの [CAT(0)完備化](../VNP7/index.md#thm-vnp7-price-completion) と [四辺形不等式](../../../幾何系/NPCG/NPCG6/index.md#thm-npcg6-quadrilateral) により $H\ge0$。第3節の平均計算により
+階数 $i,j$ の横断対と $a$ に対し四辺の平方和から対角線の平方和を引いた値を $H(a,W,W')$ と置きます。[priceのCAT(0)完備化](../VNP7/index.md#thm-vnp7-price-completion) によって極限priceをCAT(0)空間に実現できます。その空間で [四辺形不等式と中点の差](../../../幾何系/NPCG/NPCG6/index.md#thm-npcg6-quadrilateral) を適用すると $H\ge0$ です。第3節の平均計算により
 
 $$
 E H=2D_*(i)^2+2D_*(j)^2-2D_*(i+j)^2
