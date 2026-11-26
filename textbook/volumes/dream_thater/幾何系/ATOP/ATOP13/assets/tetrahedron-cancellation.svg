@@ -1,37 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 340" data-layout-lint="strict">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 380" data-layout-lint="strict">
 <title>四面体の四つの境界面</title>
 <desc>四面体abcdの面bcd、acd、abd、abcを正負正負の係数で展開した。面ごとの矢印は係数を反映した境界の向きであり、各辺は別の面に反対向きで一回ずつ現れる。</desc>
 <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#174c72"/></marker></defs>
-<g transform="translate(5 5)">
-  <polygon points="35,130 185,130 110,25" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
-  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><line x1="75" y1="130" x2="150" y2="130"/><line x1="167" y1="105" x2="126" y2="48"/><line x1="94" y1="48" x2="53" y2="105"/></g>
+<g>
+  <polygon points="40,153 190,153 115,50" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
+  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><line x1="77.5" y1="153" x2="148" y2="153"/><line x1="171.25" y1="127.25" x2="136" y2="78.84"/><line x1="96.25" y1="75.75" x2="61" y2="124.16"/></g>
   <g font-family="sans-serif" font-size="18" fill="#174c72" text-anchor="middle">
-    <text x="22" y="150">b</text><text x="198" y="150">c</text><text x="110" y="16">d</text>
-    <text x="110" y="105">+bcd</text>
+    <text x="27" y="173">b</text><text x="203" y="173">c</text><text x="115" y="24">d</text>
+    <text x="115" y="120">+bcd</text>
   </g>
 </g>
-<g transform="translate(235 5)">
-  <polygon points="35,130 185,130 110,25" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
-  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><line x1="150" y1="130" x2="75" y2="130"/><line x1="126" y1="48" x2="167" y2="105"/><line x1="53" y1="105" x2="94" y2="48"/></g>
+<g>
+  <polygon points="270,153 420,153 345,50" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
+  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><line x1="382.5" y1="153" x2="312" y2="153"/><line x1="363.75" y1="75.75" x2="399" y2="124.16"/><line x1="288.75" y1="127.25" x2="324" y2="78.84"/></g>
   <g font-family="sans-serif" font-size="18" fill="#174c72" text-anchor="middle">
-    <text x="22" y="150">a</text><text x="198" y="150">c</text><text x="110" y="16">d</text>
-    <text x="110" y="105">-acd</text>
+    <text x="257" y="173">a</text><text x="433" y="173">c</text><text x="345" y="24">d</text>
+    <text x="345" y="120">-acd</text>
   </g>
 </g>
-<g transform="translate(5 175)">
-  <polygon points="35,130 185,130 110,25" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
-  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><line x1="75" y1="130" x2="150" y2="130"/><line x1="167" y1="105" x2="126" y2="48"/><line x1="94" y1="48" x2="53" y2="105"/></g>
+<g>
+  <polygon points="40,338 190,338 115,235" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
+  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><line x1="77.5" y1="338" x2="148" y2="338"/><line x1="171.25" y1="312.25" x2="136" y2="263.84"/><line x1="96.25" y1="260.75" x2="61" y2="309.16"/></g>
   <g font-family="sans-serif" font-size="18" fill="#174c72" text-anchor="middle">
-    <text x="22" y="150">a</text><text x="198" y="150">b</text><text x="110" y="16">d</text>
-    <text x="110" y="105">+abd</text>
+    <text x="27" y="358">a</text><text x="203" y="358">b</text><text x="115" y="209">d</text>
+    <text x="115" y="305">+abd</text>
   </g>
 </g>
-<g transform="translate(235 175)">
-  <polygon points="35,130 185,130 110,25" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
-  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><line x1="150" y1="130" x2="75" y2="130"/><line x1="126" y1="48" x2="167" y2="105"/><line x1="53" y1="105" x2="94" y2="48"/></g>
+<g>
+  <polygon points="270,338 420,338 345,235" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
+  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><line x1="382.5" y1="338" x2="312" y2="338"/><line x1="363.75" y1="260.75" x2="399" y2="309.16"/><line x1="288.75" y1="312.25" x2="324" y2="263.84"/></g>
   <g font-family="sans-serif" font-size="18" fill="#174c72" text-anchor="middle">
-    <text x="22" y="150">a</text><text x="198" y="150">b</text><text x="110" y="16">c</text>
-    <text x="110" y="105">-abc</text>
+    <text x="257" y="358">a</text><text x="433" y="358">b</text><text x="345" y="209">c</text>
+    <text x="345" y="305">-abc</text>
   </g>
 </g>
 </svg>
