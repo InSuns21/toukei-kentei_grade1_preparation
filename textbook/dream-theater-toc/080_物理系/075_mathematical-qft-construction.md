@@ -26,3 +26,4 @@
 23. [MQFC23 転送作用素と物理Hilbert空間](textbook/volumes/dream_thater/物理系/MQFC/MQFC23/index.md)
 24. [MQFC24 強結合展開とWilson loopの面積則](textbook/volumes/dream_thater/物理系/MQFC/MQFC24/index.md)
 25. [MQFC25 強結合での相関減衰と格子ギャップ](textbook/volumes/dream_thater/物理系/MQFC/MQFC25/index.md)
+26. [MQFC26 格子単位の質量と物理単位の質量](textbook/volumes/dream_thater/物理系/MQFC/MQFC26/index.md)
