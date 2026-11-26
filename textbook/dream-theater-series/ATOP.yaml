@@ -25,7 +25,7 @@ chapters:
   - { id: ATOP19, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP19, status: completed, title: "切除定理" }
   - { id: ATOP20, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP20, status: completed, title: "Mayer–Vietoris完全列" }
   - { id: ATOP21, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP21, status: completed, title: "単体ホモロジーと特異ホモロジーの比較" }
-  - { id: ATOP22, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP22, status: planned, title: "CW複体・胞体ホモロジー" }
+  - { id: ATOP22, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP22, status: completed, title: "CW複体・胞体ホモロジー" }
   - { id: ATOP23, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP23, status: planned, title: "球面の写像度" }
   - { id: ATOP24, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP24, status: planned, title: "非レトラクション・Brouwer・毛玉の定理" }
   - { id: ATOP25, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP25, status: planned, title: "局所ホモロジーと次元不変性" }

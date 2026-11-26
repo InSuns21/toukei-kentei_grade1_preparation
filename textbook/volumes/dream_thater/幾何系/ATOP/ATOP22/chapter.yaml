@@ -1,0 +1,29 @@
+id: ATOP22
+title: "CW複体・胞体ホモロジー"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP21, ATOP11]
+official_scope: []
+learning_objectives:
+  - 有限 CW 複体を円板の順次付着で構成できる
+  - 切除と長完全列から骨格対の相対群を計算できる
+  - 胞体境界を接続と商の合成で定義し比較定理を証明できる
+  - 付着写像から球面・トーラス・実射影空間の整数ホモロジーを計算できる
+  - Euler 標数と整数ホモロジーから閉曲面の標準形を区別できる
+definitions:
+  - { id: ATOP22-DEF-01, name: 有限 CW 複体 }
+  - { id: ATOP22-DEF-02, name: 胞体鎖群と胞体境界 }
+theorems:
+  - { id: ATOP22-THM-01, name: 円板と境界の相対群 }
+  - { id: ATOP22-THM-02, name: 胞体ごとの相対群の分解 }
+  - { id: ATOP22-THM-03, name: 胞体ホモロジー定理 }
+  - { id: ATOP22-THM-04, name: 胞体境界の係数公式 }
+  - { id: ATOP22-THM-05, name: 実射影空間の胞体境界 }
+  - { id: ATOP22-THM-06, name: 胞体数の Euler 標数 }
+  - { id: ATOP22-THM-07, name: 閉曲面の標準形の一意性 }
+canonical_examples: [円周の一胞体模型, トーラス, 実射影平面, 実射影4空間]
+problem_patterns: [ATOP22-A1, ATOP22-A2, ATOP22-A3, ATOP22-A4, ATOP22-B1, ATOP22-B2, ATOP22-B3, ATOP22-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }

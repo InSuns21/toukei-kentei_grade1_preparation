@@ -1,0 +1,58 @@
+chapter: ATOP22
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP21, ATOP11]
+forward_references: []
+concepts:
+  - id: atop.finite-cw-complex
+    name: 有限 CW 複体
+    kind: definition
+    introduction: formal
+    requires: [topology.homeomorphism]
+  - id: atop.disk-relative-homology
+    name: 円板と境界の相対群
+    kind: lemma
+    introduction: formal
+    requires: [atop.simplicial-singular-comparison, atop.relative-simplicial-homology]
+  - id: atop.cell-relative-decomposition
+    name: 胞体ごとの相対群の分解
+    kind: theorem
+    introduction: formal
+    requires: [atop.finite-cw-complex, atop.disk-relative-homology, atop.excision, atop.exact-sequence-central-comparison, atop.relative-long-exact-naturality]
+  - id: atop.cellular-chain-group
+    name: 胞体鎖群
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（胞体鎖群と胞体境界）"]
+    requires: [atop.cell-relative-decomposition]
+  - id: atop.cellular-boundary
+    name: 胞体境界
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（胞体鎖群と胞体境界）"]
+    requires: [atop.cell-relative-decomposition, atop.relative-connecting-homomorphism]
+  - id: atop.cellular-homology
+    name: 胞体ホモロジー定理
+    kind: theorem
+    introduction: formal
+    requires: [atop.cellular-chain-group, atop.cellular-boundary, atop.relative-long-exact-sequence]
+  - id: atop.cellular-incidence
+    name: 胞体境界の係数公式
+    kind: theorem
+    introduction: formal
+    requires: [atop.cellular-boundary, atop.disk-relative-homology, atop.relative-long-exact-naturality]
+  - id: atop.projective-cellular-boundary
+    name: 実射影空間の胞体境界
+    kind: proposition
+    introduction: formal
+    requires: [atop.cellular-incidence, atop.simplicial-singular-comparison]
+  - id: atop.cellular-euler-characteristic
+    name: 胞体数の Euler 標数
+    kind: theorem
+    introduction: formal
+    requires: [atop.cellular-homology, atop.euler-poincare-chain-identity]
+  - id: atop.surface-classification-uniqueness
+    name: 閉曲面の標準形の一意性
+    kind: theorem
+    introduction: formal
+    requires: [atop.surface-classification-existence, atop.cellular-euler-characteristic, atop.cellular-homology, atop.cellular-incidence]
