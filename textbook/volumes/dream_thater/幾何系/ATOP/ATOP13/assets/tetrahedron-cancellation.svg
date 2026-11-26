@@ -3,32 +3,32 @@
 <desc>四面体abcdの面bcd、acd、abd、abcを正負正負の係数で展開した。面ごとの矢印は係数を反映した境界の向きであり、各辺は別の面に反対向きで一回ずつ現れる。</desc>
 <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#174c72"/></marker></defs>
 <g transform="translate(5 5)">
-  <path d="M35 130 L185 130 L110 25 Z" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
-  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><path d="M75 130 L150 130"/><path d="M167 105 L126 48"/><path d="M94 48 L53 105"/></g>
+  <polygon points="35,130 185,130 110,25" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
+  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><line x1="75" y1="130" x2="150" y2="130"/><line x1="167" y1="105" x2="126" y2="48"/><line x1="94" y1="48" x2="53" y2="105"/></g>
   <g font-family="sans-serif" font-size="18" fill="#174c72" text-anchor="middle">
     <text x="22" y="150">b</text><text x="198" y="150">c</text><text x="110" y="16">d</text>
     <text x="110" y="105">+bcd</text>
   </g>
 </g>
 <g transform="translate(235 5)">
-  <path d="M35 130 L185 130 L110 25 Z" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
-  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><path d="M150 130 L75 130"/><path d="M126 48 L167 105"/><path d="M53 105 L94 48"/></g>
+  <polygon points="35,130 185,130 110,25" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
+  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><line x1="150" y1="130" x2="75" y2="130"/><line x1="126" y1="48" x2="167" y2="105"/><line x1="53" y1="105" x2="94" y2="48"/></g>
   <g font-family="sans-serif" font-size="18" fill="#174c72" text-anchor="middle">
     <text x="22" y="150">a</text><text x="198" y="150">c</text><text x="110" y="16">d</text>
     <text x="110" y="105">-acd</text>
   </g>
 </g>
 <g transform="translate(5 175)">
-  <path d="M35 130 L185 130 L110 25 Z" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
-  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><path d="M75 130 L150 130"/><path d="M167 105 L126 48"/><path d="M94 48 L53 105"/></g>
+  <polygon points="35,130 185,130 110,25" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
+  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><line x1="75" y1="130" x2="150" y2="130"/><line x1="167" y1="105" x2="126" y2="48"/><line x1="94" y1="48" x2="53" y2="105"/></g>
   <g font-family="sans-serif" font-size="18" fill="#174c72" text-anchor="middle">
     <text x="22" y="150">a</text><text x="198" y="150">b</text><text x="110" y="16">d</text>
     <text x="110" y="105">+abd</text>
   </g>
 </g>
 <g transform="translate(235 175)">
-  <path d="M35 130 L185 130 L110 25 Z" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
-  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><path d="M150 130 L75 130"/><path d="M126 48 L167 105"/><path d="M53 105 L94 48"/></g>
+  <polygon points="35,130 185,130 110,25" fill="#e6eff5" stroke="#174c72" stroke-width="2"/>
+  <g fill="none" stroke="#174c72" stroke-width="3" marker-end="url(#arrow)"><line x1="150" y1="130" x2="75" y2="130"/><line x1="126" y1="48" x2="167" y2="105"/><line x1="53" y1="105" x2="94" y2="48"/></g>
   <g font-family="sans-serif" font-size="18" fill="#174c72" text-anchor="middle">
     <text x="22" y="150">a</text><text x="198" y="150">b</text><text x="110" y="16">c</text>
     <text x="110" y="105">-abc</text>
