@@ -6,7 +6,7 @@
 
 ## 1. 一時刻の配置とゲージ平均
 
-空間を有限長方形格子 $X$ とし、向きを一つ選んだ空間辺集合を $E$、空間正方形集合を $S$ とする。群はコンパクト部分群 $G\subset U(N)$、結合は $\beta\ge0$ とする。時間は等間隔 $a>0$ で、まず自由境界の有限個の時間層を考える。空間格子の形と群と結合は固定する。
+空間を有限長方形格子 $X$ とし、向きを一つ選んだ空間辺集合を $E$、空間正方形集合を $S$ とする。群はコンパクト部分群 $G\subset U(N)$、結合は $\beta\ge0$ とする。時間は等間隔 $a>0$ で、まず自由境界（端点の配置も積分する）の有限個の時間層を考える。空間格子の形と群と結合は固定する。
 
 一時刻の配置は $A=(A_e)_{e\in E}\in Q=G^E$ である。積Haar確率測度を $dA$ とし、複素Hilbert空間 $\mathcal K=L^2(Q,dA)$ を使う。内積は第2引数について線形とする。
 
@@ -24,7 +24,7 @@ $$
 (Pf)(A)=\int_{G^X} f(sA)\,ds
 $$
 
-と置く。$P$ は [群平均による不変部分空間への直交射影](../MQFC20/index.md#thm-mqfc20-invariant-projection) の一時刻版である。有限次元表現に限らずここで使えることは、次の計算で確認できる。
+と置く。$s$ は各頂点の群元の組であり、$A$ は固定して $s$ だけを平均する。$P$ は [群平均による不変部分空間への直交射影](../MQFC20/index.md#thm-mqfc20-invariant-projection) の一時刻版である。有限次元表現に限らずここで使えることは、次の計算で確認できる。
 
 [Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) と変数変換から
 
@@ -33,13 +33,32 @@ $$
 =\|f\|^2.
 $$
 
-したがって $L^2$ の同値類にも定義できる。Haar の右不変性から $Pf(tA)=Pf(A)$、従って $P^2=P$ である。また
+ここで非負関数の積分順序の交換は [Tonelli の定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli) による。右辺が有限なので、平均はほとんど至る所で定義され、零関数の同値類を零関数へ送る。
+
+固定した $t\in G^X$ に対し、[Haar積分の変数変換](../MQFC20/index.md#prop-mqfc20-haar-transform) で $s'=st$ と置けば
+
+$$
+(Pf)(tA)=\int f(stA)\,ds=\int f(s'A)\,ds'=(Pf)(A).
+$$
+
+従って $P^2=P$ である。また
 
 $$
 \langle f,Pg\rangle=\int ds\int dA\,\overline{f(A)}g(sA)
 $$
 
-で $B=sA$ と置き、さらに $s$ を逆元に変えると $\langle Pf,g\rangle$ になる。よって $P=P^*$。像は全ての $R_s$ に固定される閉部分空間 $\mathcal K_{\rm inv}$ である。逆に各 $R_s$ に固定される $L^2$ ベクトルは群平均でも固定される（積分は同値類として解釈する）。
+で被積分関数の絶対値の積分は [Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により $\|f\|_2\|g\|_2$ 以下である。[Fubini の定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) を実部・虚部に適用できる。$B=sA$ と置き、さらに $s'=s^{-1}$ と変数変換すると
+
+$$
+\begin{aligned}
+\langle f,Pg\rangle
+&=\int ds\int dB\,\overline{f(s^{-1}B)}g(B)\\
+&=\int dB\,\overline{\int f(s'B)\,ds'}\,g(B)\\
+&=\langle Pf,g\rangle.
+\end{aligned}
+$$
+
+よって $P=P^*$。像は全ての $R_s$ に固定される閉部分空間 $\mathcal K_{\rm inv}$ である。逆に各 $R_s$ に固定される $L^2$ ベクトルは群平均でも固定される（積分は同値類として解釈する）。
 
 例えば一本の辺、$G=U(1)$ の場合、$A=e^{i\theta}$ とすると
 
@@ -47,18 +66,18 @@ $$
 P(A^n)=A^n\int s_y^n\,ds_y\int s_x^{-n}\,ds_x.
 $$
 
-両端が異なる頂点なら $n=0$ で1、それ以外は0になる。閉路の周回積のトレースは端点の変換が相殺して不変である。一時刻のゲージ不変空間にはこのような関数が残る。
+両端が異なる頂点なら $n=0$ で1、それ以外は0になる。閉路の周回積のトレースは [格子 Wilson loop の不変性](../MQFC19/index.md#thm-mqfc19-wilson-invariance) により不変である。一時刻のゲージ不変空間にはこのような関数が残る。
 
 ## 2. 一層の積分を作用素にする
 
-空間正方形 $p$ の周回積を $A_p$ と書く。[Wilson格子作用](../MQFC21/index.md#def-mqfc21-action) の配置に依存しない定数を省いて、
+[基本正方形と周回積](../MQFC19/index.md#def-mqfc19-plaquette) に従って、空間正方形 $p$ の周回積を $A_p$ と書く。[Wilson格子作用](../MQFC21/index.md#def-mqfc21-action) の配置に依存しない定数を省いて、
 
 $$
 w(g)=\exp\left(\frac{\beta}{N}\operatorname{Re}\operatorname{tr}g\right),
 \qquad h(A)=\prod_{p\in S}w(A_p)
 $$
 
-と置く。$h$ は正、連続、ゲージ不変で、$e^{-\beta |S|}\le h\le e^{\beta |S|}$ を満たす。空積は1とする。
+と置く。$h$ は正、連続である。[Wilson格子作用の不変性と有界性](../MQFC21/index.md#prop-mqfc21-action-invariance) を空間正方形に適用するとゲージ不変であり、$e^{-\beta |S|}\le h\le e^{\beta |S|}$ を満たす。$|S|$ は正方形の個数で、空積は1とする。
 
 隣り合う二層の配置を $A,B$、時間辺の値を $c_x$ とする。前講と同じ向きで横切る正方形の周回積は $B_e^{-1}c_y^{-1}A_ec_x$ である。時間辺を積分するには
 
@@ -66,7 +85,22 @@ $$
 K(B,A)=\prod_{e\in E}w(B_e^{-1}A_e)
 $$
 
-の第2変数をゲージ変換して平均すればよい。各空間層の重み $h$ を前後半分ずつ割り当てると、時間方向の積分を同じ核の繰返しで表せる。
+の第2変数をゲージ変換して平均すればよい。実際、$s_x=c_x^{-1}$ と置くと
+
+$$
+B_e^{-1}c_y^{-1}A_ec_x=B_e^{-1}(sA)_e.
+$$
+
+時間辺の積Haar測度は逆元変換で保存されるため、この平均は $\int K(B,sA)\,ds$ である。各空間層の重み $h$ を前後半分ずつ割り当てると、時間方向の積分を同じ核の繰返しで表せる。
+
+そのため、関数に $\sqrt h$ を掛ける作用素 $M$ と、核を入力配置 $A$ について積分する作用素 $C$ を用意する。
+
+$$
+(Mf)(A)=\sqrt{h(A)}f(A),\qquad
+(Cf)(B)=\int_Q K(B,A)f(A)\,dA.
+$$
+
+$M$ は有界な実関数の乗算、$C$ は有界核と確率測度による積分なので、どちらも $\mathcal K$ 上の有界作用素である。
 
 <a id="def-mqfc23-transfer"></a>
 
@@ -89,14 +123,25 @@ $$
 > で与えられる。
 <!-- formal-statement-end -->
 
-$CP$ の積分で $A'=sA$ と変数変換し、$s$ を逆元に変えれば核表示が得られる。$h$ が不変なので $MP=PM$ である。
+作用素の積は右から作用させる。$CP$ の核表示は、$A'=sA$ とした後で $s'=s^{-1}$ と置いて得る。
+
+$$
+\begin{aligned}
+(CPf)(B)
+&=\int ds\int dA\,K(B,A)f(sA)\\
+&=\int dA'\int ds\,K(B,s^{-1}A')f(A')\\
+&=\int dA'\int ds'\,K(B,s'A')f(A').
+\end{aligned}
+$$
+
+前後の $M$ を掛ければ $L(B,A)$ となる。また $h(sA)=h(A)$ なので $P(Mf)(A)=\sqrt{h(A)}(Pf)(A)$、従って $MP=PM$ である。
 
 <!-- definition-example-start: def-mqfc23-transfer -->
 ### 直接例：一本の空間辺
 
 **定義の確認**
 
-空間が異なる二頂点を結ぶ一本の辺だけなら $S$ は空で $h=1$。二値群 $G=\{1,-1\}$ の場合、$K(B,A)=e^{\beta BA}$。$s_x,s_y$ を独立一様に動かすと $s_yAs_x^{-1}$ は独立な一様二値となり、
+空間が異なる二頂点を結ぶ一本の辺だけなら $S$ は空で $h=1$。二値群 $G=\{1,-1\}\subset U(1)$ の場合、$N=1$、$B^{-1}=B$ だから $K(B,A)=e^{\beta BA}$。$s_x,s_y$ を独立一様に動かすと $s_yAs_x^{-1}$ は固定した $A$ に対して一様二値となり、
 
 $$
 L(B,A)=\frac{e^{\beta B}+e^{-\beta B}}2=\cosh\beta.
@@ -115,7 +160,13 @@ $$
 
 ## 3. 非負性とコンパクト性
 
-核が正の実数値を取ることと、積分作用素の二次形式が非負であることは異なる。例えば二値群の負結合では核が正でも符号関数の二次形式は負になる。ここで前講の指標展開が必要になる。
+核が正の実数値を取ることと、積分作用素の二次形式が非負であることは異なる。例えば平均前の二値群の核 $e^{\beta BA}$ で符号関数 $f(A)=A$ を取ると
+
+$$
+\langle f,Cf\rangle=\frac{e^\beta-e^{-\beta}}2=\sinh\beta.
+$$
+
+負結合では核が正でもこの値は負になる。ここで前講の [Wilson重みの非負指標展開](../MQFC22/index.md#thm-mqfc22-character-expansion) が必要になる。
 
 <a id="thm-mqfc23-transfer-positive"></a>
 
@@ -145,7 +196,18 @@ $$
 
 ここで $\lambda$ は各辺の表現と二つの行列添字をまとめたもの、$q_\lambda$ は対応する行列要素の積、$b_\lambda$ は指標係数の積である。
 
-各表現の次元を $d_\rho$ とするとユニタリ性から $\sum_{ij}|\rho_{ij}(g)|^2=d_\rho$。[Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) で各辺の絶対和を $e^\beta$ 以下に抑えられるため、全辺の絶対和は $e^{\beta|E|}$ 以下である。
+各表現の次元を $d_\rho$、指標展開の係数を $c_\rho$ とする。ユニタリ行列の各列のノルム二乗は1なので $\sum_{ij}|\rho_{ij}(g)|^2=d_\rho$。[Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) により一辺の絶対和は
+
+$$
+\begin{aligned}
+\sum_\rho c_\rho\sum_{i,j}
+|\rho_{ij}(B_e)\rho_{ij}(A_e)|
+&\le\sum_\rho c_\rho\sqrt{d_\rho}\sqrt{d_\rho}\\
+&=\sum_\rho c_\rho d_\rho=e^\beta.
+\end{aligned}
+$$
+
+最後の等号は [Wilson重みの非負指標展開](../MQFC22/index.md#thm-mqfc22-character-expansion) による。全辺の絶対和は $e^{\beta|E|}$ 以下である。
 
 $dA$ は確率測度なので $L^2$ 関数は $L^1$ にも属する。したがって項別積分によって
 
@@ -168,7 +230,14 @@ $$
 (sB)_e^{-1}(sA)_e=s_x B_e^{-1}A_e s_x^{-1}
 $$
 
-となるので $K(sB,sA)=K(B,A)$。積Haar測度の変数変換により $R_sC=CR_s$、積分して $PC=CP$ を得る。既に $M$ も $P$ と可換であるから
+となるので $K(sB,sA)=K(B,A)$。固定した $s$ について積Haar測度の変数変換 $A=sA'$ を使うと
+
+$$
+(CR_sf)(B)=\int K(B,sA')f(A')\,dA'
+=(Cf)(s^{-1}B).
+$$
+
+従って $CR_s=R_sC$。群平均を取れば $PC=CP$ を得る。既に $M$ も $P$ と可換であるから
 
 $$
 T=MPCPM=(PM)^*C(PM).
@@ -189,7 +258,7 @@ $$
 
 ## 4. 零方向を除き、真空を規格化する
 
-[OS Hilbert空間](../MQFC9/index.md#def-mqfc9-os-hilbert) では反射形式で長さ0となる方向を除いた。ここでも $T$ の二次形式をベクトルの長さとして使えばよい。$\ker T$ はゲージ非不変方向を含むが、上の零結合例のようにそれだけとは限らない。
+[OS Hilbert空間](../MQFC9/index.md#def-mqfc9-os-hilbert) では反射形式で長さ0となる方向を除いた。ここでも $T$ の二次形式をベクトルの長さとして使えばよい。$\ker T=\{f\in\mathcal K:Tf=0\}$ は作用素の零空間である。これはゲージ不変空間の直交補空間を含むが、上の零結合例のようにそれだけとは限らない。零方向だけ異なる関数を同じベクトルとみなし、その類を $[f]=f+\ker T$ と書く。
 
 <a id="def-mqfc23-physical-hilbert"></a>
 
@@ -206,9 +275,26 @@ $$
 
 一層間の自由境界反射形式からこの形式への対応も明示できる。正側の観測量 $F(A)$ を $f=\sqrt h F$ に対応させ、負側も $g=\sqrt h G$ と置けば、両端の反射積分は $\langle g,Tf\rangle/Z'_1$ になる。正の定数 $1/Z'_1$ は零方向を変えず、内積の全体規格化にだけ影響する。
 
-[自己共役作用素の Borel 関数計算](../../../解析系/QM/QM6/index.md#def-qm6-borel-functional-calculus) により非負平方根 $T^{1/2}$ が存在する。$\|f\|_T^2=\|T^{1/2}f\|^2$ であり、零方向は $\ker T^{1/2}=\ker T$ である。写像 $[f]\mapsto T^{1/2}f$ は等長で、その像の閉包は $(\ker T)^\perp$ になる。なぜなら $v$ が全ての $T^{1/2}f$ と直交することは $T^{1/2}v=0$ と同値だからである。
+[自己共役作用素の Borel 関数計算](../../../解析系/QM/QM6/index.md#def-qm6-borel-functional-calculus) により非負平方根 $T^{1/2}$ が存在する。反射形式のノルムは
 
-したがって以下では $\mathcal H_{\rm phys}$ を $(\ker T)^\perp\subset\mathcal K_{\rm inv}$ と同一視する。$T$ と $T^{1/2}$ は可換なのでこの同一視は時間発展とも整合する。
+$$
+\|f\|_T^2=\langle f,Tf\rangle=\|T^{1/2}f\|^2
+$$
+
+である。$T^{1/2}f=0$ なら $Tf=T^{1/2}(T^{1/2}f)=0$ である。
+
+逆に $Tf=0$ なら上のノルム恒等式の右辺が0になるので、$T^{1/2}f=0$ である。従って零方向は $\ker T^{1/2}=\ker T$ となる。
+
+写像 $[f]\mapsto T^{1/2}f$ は等長である。その像に直交するベクトルは
+
+$$
+\langle v,T^{1/2}f\rangle
+=\langle T^{1/2}v,f\rangle=0\quad(\forall f\in\mathcal K)
+$$
+
+を満たすので $T^{1/2}v=0$ と同値である。従って像の閉包は $(\ker T)^\perp$ になる。
+
+したがって以下では $\mathcal H_{\rm phys}$ を $(\ker T)^\perp\subset\mathcal K_{\rm inv}$ と同一視する。この包含は [Wilson転送作用素の非負性](#thm-mqfc23-transfer-positive) の $TP=T$ から $T(I-P)=0$、従って $(\mathcal K_{\rm inv})^\perp\subset\ker T$ となることによる。$T$ と $T^{1/2}$ は可換なのでこの同一視は時間発展とも整合する。
 
 <!-- definition-example-start: def-mqfc23-physical-hilbert -->
 ### 直接例：零結合で残るベクトル
@@ -224,14 +310,14 @@ $$
 従って零方向は平均0の関数全体である。$f$ と定数 $\int f\,dA$ の差は平均0だから同じ類に属し、その類のノルム二乗は $|\int f\,dA|^2$ である。商空間は複素数の通常の内積空間と等長で、既に完備である。
 <!-- definition-example-end -->
 
-有限格子で最も減衰の遅いベクトルを基準にすれば時間並進の最大固有値を1にできる。このベクトルを真空として、他のベクトルの減衰を真空との比で測ろう。
+有限格子で最も減衰の遅いベクトルを基準にすれば時間並進の最大固有値を1にできる。規格化前の最大固有値を $\Lambda_0$ と書く。固有値が単純であるとは、その固有空間が一次元であることをいう。このベクトルを真空として、他のベクトルの減衰を真空との比で測ろう。
 
 <a id="thm-mqfc23-vacuum"></a>
 
 <!-- formal-statement-start -->
 > **定理（転送作用素の真空規格化）**
-> 有限空間格子上の Wilson転送作用素 $T$ の最大固有値 $\lambda_0=\|T\|$ は正で単純であり、正の規格化固有関数 $\Omega$ を持つ。
-> $\mathcal H_{\rm phys}=(\ker T)^\perp$ 上の規格化作用素 $U=T/\lambda_0$ は単射な非負自己共役縮小作用素で、
+> 有限空間格子上の Wilson転送作用素 $T$ の最大固有値 $\Lambda_0=\|T\|$ は正で単純であり、正の規格化固有関数 $\Omega$ を持つ。
+> $\mathcal H_{\rm phys}=(\ker T)^\perp$ 上の規格化作用素 $U=T/\Lambda_0$ は単射な非負自己共役縮小作用素で、
 
 $$
 U\Omega=\Omega,\qquad \|\Omega\|=1.
@@ -245,17 +331,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[コンパクト自己共役作用素のスペクトル定理](../../../解析系/FA/FA7/index.md#thm-fa7-compact-self-adjoint-spectral) を非負な $T$ に適用する。$L$ の正の下界より $\langle1,T1\rangle>0$、従って $\lambda_0=\|T\|>0$ は固有値である。核が実対称なので実部・虚部が固有空間に属し、実の規格化固有関数 $v$ を選べる。
+[コンパクト自己共役作用素のスペクトル定理](../../../解析系/FA/FA7/index.md#thm-fa7-compact-self-adjoint-spectral) を非負な $T$ に適用する。$L$ の正の下界より $\langle1,T1\rangle>0$、従って $\Lambda_0=\|T\|>0$ は固有値である。核が実対称なので実部・虚部が固有空間に属し、実の規格化固有関数 $v$ を選べる。
 
 $$
 \langle |v|,T|v|\rangle-\langle v,Tv\rangle
 =\int L(B,A)(|v(B)v(A)|-v(B)v(A))\,dA\,dB\ge0.
 $$
 
-左辺第1項は $\lambda_0\||v|\|^2=\lambda_0$ 以下であり、第2項は $\lambda_0$ である。よって等号が成立する。非負な $\lambda_0 I-T$ の二次形式が零なので、$|v|$ も固有関数である。$\Omega=|v|$ と置くと
+左辺第1項は $\Lambda_0\||v|\|^2=\Lambda_0$ 以下であり、第2項は $\Lambda_0$ である。よって等号が成立する。非負な $D=\Lambda_0 I-T$ について $\|D^{1/2}|v|\|^2=\langle |v|,D|v|\rangle=0$ である。従って $D|v|=0$、すなわち $T|v|=\Lambda_0|v|$ となり、$|v|$ も固有関数である。$\Omega=|v|$ と置くと
 
 $$
-\lambda_0\Omega(B)=(T\Omega)(B)\ge
+\Lambda_0\Omega(B)=(T\Omega)(B)\ge
 e^{-\beta(|S|+|E|)}\int_Q\Omega(A)\,dA>0
 $$
 
@@ -263,18 +349,31 @@ $$
 
 最大固有空間の次元が2以上なら $\Omega$ と直交する実固有関数 $z\ne0$ が取れる。$\Omega>0$ なので $z$ は正と負の値をそれぞれ正測度集合上で取る。しかし上と同じ差の積分を $z$ に適用すると、符号が異なる集合の直積上で被積分関数が厳密に正となる。差は正となって作用素ノルムの上界に反する。ゆえに単純である。
 
-$\lambda_0\ne0$ なので $\Omega\in(\ker T)^\perp$。この閉部分空間は $T$ で不変で、そこへの制限は単射である。$\lambda_0$ で割れば非負性と自己共役性を保ちノルム1となる。[非零固有値の有限重複度と0以外での非集積](../../../解析系/FA/FA7/index.md#thm-fa7-nonzero-eigenvalues-discrete) により、単純な固有値1を除いたスペクトルの上端は1未満となる。真空直交空間が零なら励起ベクトルは存在しない。
+$\Lambda_0\ne0$ なので $\Omega\in(\ker T)^\perp$。この閉部分空間は $T$ で不変で、そこへの制限は単射である。$\Lambda_0$ で割れば非負性と自己共役性を保ちノルム1となる。[非零固有値の有限重複度と0以外での非集積](../../../解析系/FA/FA7/index.md#thm-fa7-nonzero-eigenvalues-discrete) により、単純な固有値1を除いたスペクトルの上端は1未満となる。真空直交空間が零なら励起ベクトルは存在しない。
 <!-- proof-end -->
 
 ## 5. 離散時間の固有値をエネルギーに変える
 
-時間一層でベクトルの係数が $\lambda$ 倍になるなら、$n$ 層では $\lambda^n$ 倍になる。指数関数 $\exp(-naE)$ と比較するとエネルギーは $E=-a^{-1}\log\lambda$ である。
+[転送作用素の真空規格化](#thm-mqfc23-vacuum) 後、一層で固有ベクトルの係数が $\lambda\in(0,1]$ 倍になるなら、$n$ 層では $\lambda^n$ 倍になる。指数関数と比較すると
+
+$$
+\lambda=e^{-aE},\qquad E=-a^{-1}\log\lambda.
+$$
+
+こうしてエネルギーを固有値とする作用素を格子Hamiltonianと呼ぶ。$\lambda_j$ は規格化後の固有値、$u_j$ はその固有ベクトルとする。展開係数と真空の添字は
+
+$$
+v_j=\langle u_j,v\rangle,\qquad
+\lambda_0=1,\quad u_0=\Omega
+$$
+
+と定める。
 
 <a id="thm-mqfc23-hamiltonian"></a>
 
 <!-- formal-statement-start -->
 > **定理（格子Hamiltonianの構成）**
-> 空間有限の Wilson転送作用素を真空固有値で規格化し、零方向を除いた物理Hilbert空間上で $U=T/\lambda_0$ とする。時間格子間隔を $a>0$ とし、重複度を込めた $U$ の正の固有値を $\lambda_j\in(0,1]$、対応する完全正規直交固有系を $u_j$ とする。
+> 空間有限の Wilson転送作用素を真空固有値で規格化し、零方向を除いた物理Hilbert空間上で $U=T/\Lambda_0$ とする。時間格子間隔を $a>0$ とし、重複度を込めた $U$ の正の固有値を $\lambda_j\in(0,1]$、対応する完全正規直交固有系を $u_j$ とする。
 >
 > 非負自己共役作用素 $H$ は次で与えられる。
 
@@ -297,7 +396,29 @@ $$
 
 [コンパクト自己共役作用素のスペクトル定理](../../../解析系/FA/FA7/index.md#thm-fa7-compact-self-adjoint-spectral) により、非零固有値の固有系は零空間の直交補空間で完全である。$U$ の正の固有値は1以下だから $E_j$ は有限の非負実数となる。有限個の固有ベクトルの線形結合は定義域に入り、稠密である。
 
-表示した定義域で級数はノルム収束する。$H$ は実対角なので対称である。随伴の定義から $v\in D(H^*)$ ならある $w$ が存在して $\langle Hu_j,v\rangle=\langle u_j,w\rangle$。各 $j$ で $w_j=E_jv_j$ だから $\sum_j E_j^2|v_j|^2=\|w\|^2<\infty$ となる。逆にこの条件を満たす $v$ は内積の級数計算により随伴の定義域に入る。したがって $H^*=H$ であり $\langle v,Hv\rangle=\sum_j E_j|v_j|^2\ge0$。
+表示した定義域で級数はノルム収束する。$H$ は実対角なので対称である。随伴の定義から $v\in D(H^*)$ ならある $w$ が存在して
+
+$$
+\langle Hu_j,v\rangle=\langle u_j,w\rangle,
+\qquad E_jv_j=w_j
+$$
+
+となる。従って $\sum_j E_j^2|v_j|^2=\|w\|^2<\infty$ である。
+
+逆にこの条件を満たすとき、$w=\sum_j E_jv_j u_j$ を取れば、任意の $x\in D(H)$ について
+
+$$
+\langle Hx,v\rangle=\sum_j\overline{x_j}E_jv_j
+=\langle x,w\rangle
+$$
+
+となる。両内積の級数は [Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)で絶対収束する。よって $v\in D(H^*)$ であり、$H^*=H$ が成立する。さらに
+
+$$
+\langle v,Hv\rangle=\sum_j E_j|v_j|^2\ge0
+$$
+
+だから非負である。
 
 [自己共役作用素の Borel 関数計算](../../../解析系/QM/QM6/index.md#def-qm6-borel-functional-calculus) で $e^{-naH}u_j=e^{-naE_j}u_j=\lambda_j^n u_j$。両作用素は有界で完全正規直交系上で一致するので全空間で一致する。真空には $\lambda=1$ が対応し $E=0$ である。
 <!-- proof-end -->
@@ -321,16 +442,41 @@ $$
 
 を満たす。したがってこの積も $\mathcal K$ に属する。
 
-このとき、$v$ を $F\Omega-\langle\Omega,F\Omega\rangle\Omega$ の物理空間への直交射影とすれば、$n\ge1$ で連結した真空二点関数はこの内積になる。実際、$m_F=\langle\Omega,F\Omega\rangle$ は実数で、$z=(F-m_F)\Omega$ と置くと
+ここでは必ずしも物理空間に属さない $F\Omega$ や端点関数も扱うため、全配置空間上の作用素を $\widehat U=T/\Lambda_0:\mathcal K\to\mathcal K$ と書く。その物理空間への制限が $U$ であり、零空間上では $\widehat U=0$ である。
+
+このとき、$v$ を $F\Omega-\langle\Omega,F\Omega\rangle\Omega$ の物理空間への直交射影とすれば、$n\ge1$ で連結した真空二点関数は $\langle v,U^nv\rangle$ になる。実際、$m_F=\langle\Omega,F\Omega\rangle$ は実数で、$z=(F-m_F)\Omega$ と置くと
 
 $$
-\langle z,U^nz\rangle
-=\langle F\Omega,U^nF\Omega\rangle-m_F^2.
+\langle z,\widehat U^nz\rangle
+=\langle F\Omega,\widehat U^nF\Omega\rangle-m_F^2.
 $$
 
-交差項の各々は $U^n\Omega=\Omega$ と自己共役性から $m_F^2$ である。$T$ が零方向を消すので $n\ge1$ なら $z$ を $v$ に置き換えても値が変わらない。
+交差項の各々は $\widehat U^n\Omega=\Omega$ と自己共役性から $m_F^2$ であり、最後の真空項は $+m_F^2$ である。$z=v+k$（$k\in\ker T$）と分解すると、$n\ge1$ で $\widehat U^nk=0$、かつ $k\perp U^nv$ だから
 
-自由境界の有限時間積分から真空を得るには、両端から遠ざける。$\psi=\sqrt h$ は正で $\langle\Omega,\psi\rangle>0$。固有系で分解すると $U^m\psi$ は $m\to\infty$ で $\langle\Omega,\psi\rangle\Omega$ にノルム収束する。実際、直交成分のノルムは $\lambda_*^m\|\psi\|$ 以下（励起がなければ $m\ge1$ で0）である。観測量が有界なら端点からのこの収束を挿入した内積にも適用できる。
+$$
+\langle z,\widehat U^nz\rangle=\langle v,U^nv\rangle.
+$$
+
+$n=0$ では全空間の恒等作用素が零方向を消さないため、この置換は一般には成立しない。
+
+自由境界の有限時間積分から真空を得るには、両端から遠ざける。$\psi=\sqrt h$ は正で $\langle\Omega,\psi\rangle>0$。固有系で分解すると
+
+$$
+\lim_{m\to\infty}\widehat U^m\psi
+=\langle\Omega,\psi\rangle\Omega
+$$
+
+がノルム収束で成立する。実際、真空直交成分は零空間成分と励起固有ベクトル成分に分かれ、$m\ge1$ では前者が消える。後者のノルムは $\lambda_*^m\|\psi\|$ 以下（励起がなければ0）である。
+
+観測量が有界なら端点からのこの収束を挿入した内積にも適用できる。例えば両端から $m$ 層離れた二つの同じ観測量 $F$（間隔 $n\ge1$）の期待値は、自由境界の核の積に各観測量を掛けると
+
+$$
+\frac{\langle\widehat U^m\psi,
+ F\widehat U^n F\widehat U^m\psi\rangle}
+{\langle\psi,\widehat U^{2m+n}\psi\rangle}
+$$
+
+となる。分子は $\langle\Omega,\psi\rangle^2\langle F\Omega,\widehat U^n F\Omega\rangle$ に、分母は $\langle\Omega,\psi\rangle^2>0$ に収束する。この比が上で用いた真空二点関数である。
 
 有限空間格子でのギャップは、体積を無限にする場合や $a\to0$ で同じ正の下界を持つとは限らない。例えば $\lambda_*(a)=e^{-a^2}$ なら全ての $a>0$ で1未満だが、エネルギーギャップは $a$ となって0に近づく。
 
@@ -374,10 +520,23 @@ $\int A\,dA=0$、$\int A^2\,dA=1$ だから固有値は $p,q$。$\beta\ge0$ で�
 ### 演習 MQFC23-A3：商の内積
 - Level: A
 
-二次元の Hilbert 空間で $T=\operatorname{diag}(3,0)$ とする。$f=(2,5)$、$g=(1,-4)$ の反射内積とそれぞれの零方向商の像を求めよ。
+標準内積を持つ $\mathbb C^2$ の標準正規直交基底に関して、$T=\operatorname{diag}(3,0)$（第1成分を3倍し、第2成分を0にする作用素）とする。$f=(2,5)$、$g=(1,-4)$ の反射内積とそれぞれの零方向商の像を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。[格子の物理Hilbert空間](#def-mqfc23-physical-hilbert) の形式は $\langle f,Tg\rangle$。$Tg=(3,0)$ より $\langle f,Tg\rangle=6$。$T^{1/2}=\operatorname{diag}(\sqrt3,0)$ だから像は $(2\sqrt3,0)$、$(\sqrt3,0)$。この通常内積も6。第2成分は全て零方向であり、商空間の次元は1である。
+**詳細解答**。[格子の物理Hilbert空間](#def-mqfc23-physical-hilbert) の形式に代入すると
+
+$$
+Tg=(3,0),\qquad \langle f,Tg\rangle=6.
+$$
+
+非負平方根は $T^{1/2}=\operatorname{diag}(\sqrt3,0)$ なので、商空間から通常の内積空間への等長写像による像は
+
+$$
+T^{1/2}f=(2\sqrt3,0),\qquad
+T^{1/2}g=(\sqrt3,0).
+$$
+
+この通常内積も6。第2成分は全て零方向であり、商空間の次元は1である。
 <!-- solution-end -->
 
 ### 演習 MQFC23-A4：時間の単位
@@ -386,7 +545,16 @@ $\int A\,dA=0$、$\int A^2\,dA=1$ だから固有値は $p,q$。$\beta\ge0$ で�
 正の固有値が $6,3,1$、時間間隔 $a=1/4$ の転送作用素を規格化し、励起エネルギーと2層の減衰率を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。[転送作用素の真空規格化](#thm-mqfc23-vacuum) に従って最大固有値6で割ると $1,1/2,1/6$ となる。[格子Hamiltonianの構成](#thm-mqfc23-hamiltonian) からエネルギーは $0,4\log2,4\log6$。2層ではそれぞれ $1,1/4,1/36$ が係数に掛かる。例えば第2成分では $\exp(-(2/4)4\log2)=1/4$ となり一致する。
+**詳細解答**。[転送作用素の真空規格化](#thm-mqfc23-vacuum) に従って最大固有値6で割ると、規格化固有値は $1,1/2,1/6$ となる。
+
+[格子Hamiltonianの構成](#thm-mqfc23-hamiltonian) により、エネルギーと2層後に掛かる係数は順に
+
+$$
+(E_0,E_1,E_2)=(0,4\log2,4\log6),
+\qquad (\lambda_0^2,\lambda_1^2,\lambda_2^2)=(1,1/4,1/36).
+$$
+
+例えば第2成分では $\exp(-(2/4)4\log2)=1/4$ となり一致する。
 <!-- solution-end -->
 
 ### 演習 MQFC23-B1：境界因子の検算
@@ -419,7 +587,7 @@ $$
 正規直交基底 $(e_j)_{j\ge0}$ の空間で $Ue_0=0$、$Ue_j=e^{-j+1}e_j$（$j\ge1$）とする。$a=1$ の物理空間、真空、Hamiltonian の定義域を求め、$v=\sum_{j\ge1}j^{-1}e_j$ がその定義域に入るか判定せよ。
 
 <!-- solution-start -->
-**詳細解答**。固有値0は $e_0$ のみなので物理空間は $e_0^\perp$。最大固有値1に対応する真空は $e_1$。 [格子Hamiltonianの構成](#thm-mqfc23-hamiltonian) と同じ対角構成から
+**詳細解答**。零固有空間は $\operatorname{span}\{e_0\}$ なので、[格子の物理Hilbert空間](#def-mqfc23-physical-hilbert) の同一視に従えば物理空間は $e_0^\perp$。最大固有値1に対応する真空は $e_1$。 [格子Hamiltonianの構成](#thm-mqfc23-hamiltonian) と同じ対角構成から
 
 $$
 He_j=(j-1)e_j,\qquad
@@ -458,9 +626,24 @@ $$
 <!-- solution-start -->
 **詳細解答**。第1問。頂点を順に $x_1,x_2,x_3$、辺を $x_1\to x_2\to x_3\to x_1$ とする。ゲージ変換後の辺は $s_2 A_1 s_1,s_3 A_2 s_2,s_1 A_3 s_3$。積は $s_1^2s_2^2s_3^2W=W$ で不変である。
 
-逆に $s_1=1,s_2=A_1,s_3=A_2A_1$ とすると変換後の第1辺は $A_1^2=1$、第2辺は $(A_2A_1)A_2A_1=1$、第3辺は $A_3A_2A_1=W$ になる。従って同じ $W$ を持つ配置は同じ軌道に属する。不変関数は二値 $W$ の関数であり、$1,W$ で張られる。積Haar測度で $W$ は一様二値なので $\int W=0$、$\int W^2=1$。よってこの二つは正規直交系である。
+逆に頂点変換を
 
-第2問。$p=\cosh\beta,q=\sinh\beta$ と置く。[Wilson転送作用素](#def-mqfc23-transfer) は $h=1$ のため $CP$ となる。$1,W$ は $P$ で固定される。核は辺ごとの積で
+$$
+s_1=1,\qquad s_2=A_1,\qquad s_3=A_2A_1
+$$
+
+と選ぶ。すると変換後の各辺は順に
+
+$$
+A_1^2=1,\quad (A_2A_1)A_2A_1=1,\quad
+A_3A_2A_1=W
+$$
+
+になる。従って同じ $W$ を持つ配置は同じ軌道に属する。不変関数は二値 $W$ の関数であり、$1,W$ で張られる。
+
+積Haar測度で閉路積は一様二値なので $\int W=0$、$\int W^2=1$。よってこの二つは正規直交系である。
+
+第2問。$p=\cosh\beta,q=\sinh\beta$ と置く。[Wilson転送作用素](#def-mqfc23-transfer) は $h=1$ のため $CP$ となる。$1,W$ は $P$ で固定される。演習 MQFC23-A2 と同じ二値群の核を各辺に適用する。核は辺ごとの積で
 
 $$
 K(B,A)=\prod_{i=1}^3(p+qB_i A_i).
@@ -479,7 +662,7 @@ $$
 
 各辺で $\int A_i=0,\int A_i^2=1$ を使った。従って固有値は $p^3,q^3$ である。$\beta>0$ なら $p>q>0$、不変空間内の零方向はない。一方、その直交補空間は $P$ で消える。従って物理Hilbert空間は二次元で、真空は定数1、唯一の励起ベクトルは $W$ となる。
 
-[転送作用素の真空規格化](#thm-mqfc23-vacuum) により励起固有値は $(q/p)^3=(\tanh\beta)^3$。したがってギャップは
+[転送作用素の真空規格化](#thm-mqfc23-vacuum) により励起固有値は $(q/p)^3=(\tanh\beta)^3$。[格子Hamiltonianの構成](#thm-mqfc23-hamiltonian) によりギャップは
 
 $$
 -a^{-1}\log((\tanh\beta)^3)
