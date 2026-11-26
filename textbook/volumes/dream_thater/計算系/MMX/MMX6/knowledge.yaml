@@ -1,7 +1,7 @@
 chapter: MMX6
 scope: dream-theater
 coverage: complete
-prerequisites: [MMX5, ACOMP4, ACOMP21, ACOMP22]
+prerequisites: [MMX5, ACOMP4, ACOMP21, ACOMP22, F0-02C2]
 forward_references: []
 concepts:
   - id: matrix-exponent.truncated-polynomial
@@ -15,7 +15,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（多項式による共有脚分離）"]
-    requires: [matrix-exponent.truncated-polynomial, matrix-exponent.shared-leg, matrix-exponent.convolution, matrix-exponent.dot-product]
+    requires: [matrix-exponent.truncated-polynomial, matrix-exponent.shared-leg, matrix-exponent.convolution, matrix-exponent.dot-product, functional.linear-functional]
   - id: matrix-exponent.characteristic-free-entropy
     name: 任意標数の共有脚評価
     kind: corollary

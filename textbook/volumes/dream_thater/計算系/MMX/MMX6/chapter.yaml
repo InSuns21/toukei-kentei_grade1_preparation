@@ -2,7 +2,7 @@ id: MMX6
 title: "任意標数の分離補題、任意の体への9/4上界、Amanov–van den Berg–Zuiddamの証明とShpilka解説の照合"
 volume: foundations
 status: supplementary
-prerequisites: [MMX5, ACOMP4, ACOMP21, ACOMP22]
+prerequisites: [MMX5, ACOMP4, ACOMP21, ACOMP22, F0-02C2]
 official_scope: []
 learning_objectives:
   - 切断多項式環と局所代入を使って任意標数の共有脚分離を再現できる
