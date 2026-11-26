@@ -1,0 +1,38 @@
+id: MMX11
+title: "portsの定義、グラフの非線形Poincaré、catalyst・protocolと幅の評価、二分岐の論理"
+volume: foundations
+status: supplementary
+prerequisites: [MMX10, GCT14, GCT15, GCT16, NPCG8, NPCG11]
+official_scope: []
+learning_objectives:
+  - portsの量化順序と固定次数の条件を説明できる
+  - 最大平坦次元からGrassmannグラフの厳密欠損と固定次数グラフ族を導ける
+  - 借用wireと価格ギャップの置換・増幅を計算できる
+  - 在庫ポテンシャル・局所検査・追加リンク購入による通信予算を追える
+  - 幅プロフィールの帰納法と自己改善の矛盾を導ける
+  - 最大平坦次元の仮定とportsの有無による場合分けを区別できる
+definitions:
+  - { id: MMX11-DEF-01, name: "ports" }
+  - { id: MMX11-DEF-02, name: "タグ付き置換テンソル" }
+  - { id: MMX11-DEF-03, name: "借用 wire 付き価格ギャップ" }
+  - { id: MMX11-DEF-04, name: "多方向通信プロトコル" }
+  - { id: MMX11-DEF-05, name: "幅プロフィール" }
+theorems:
+  - { id: MMX11-LEM-01, name: "立方体距離の一様排除" }
+  - { id: MMX11-THM-02, name: "Grassmann グラフの厳密な欠損" }
+  - { id: MMX11-LEM-03, name: "疎な確率行列の反復" }
+  - { id: MMX11-LEM-04, name: "遅延歩道の平均" }
+  - { id: MMX11-THM-05, name: "有限最大平坦次元から ports" }
+  - { id: MMX11-LEM-06, name: "ギャップを保つ置換" }
+  - { id: MMX11-THM-07, name: "最大平坦次元の下での通信" }
+  - { id: MMX11-LEM-08, name: "スペクトル厳密比較" }
+  - { id: MMX11-PROP-09, name: "追加リンクの費用回収条件" }
+  - { id: MMX11-LEM-10, name: "ギャップの増幅" }
+  - { id: MMX11-PROP-11, name: "広いレコードの詰込み" }
+  - { id: MMX11-THM-12, name: "対数 payload 幅の近似" }
+canonical_examples: [巡回グラフの平均距離, タグ付き置換, 借用wire価格, 通信料金]
+problem_patterns: [MMX11-A01, MMX11-A02, MMX11-A03, MMX11-A04, MMX11-B01, MMX11-B02, MMX11-B03, MMX11-B04, MMX11-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 20, exercises: 6, review: 4 }

@@ -46,7 +46,7 @@ chapters:
     title: "spectral priceの曲率・完備化・ultralimit・積・合同と拡張条件、Euclid flatと非平坦空間の違い"
   - id: MMX11
     path: textbook/volumes/dream_thater/計算系/MMX/MMX11
-    status: planned
+    status: completed
     title: "portsの定義、グラフの非線形Poincaré、catalyst・protocolと幅の評価、二分岐の論理"
   - id: MMX12
     path: textbook/volumes/dream_thater/計算系/MMX/MMX12
