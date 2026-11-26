@@ -1,0 +1,31 @@
+id: ATOP16
+title: "特異鎖・特異ホモロジーと関手性"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP14, FIX1, TOP3]
+official_scope: []
+learning_objectives:
+  - 特異単体と有限支持の整数特異鎖を定義し単体鎖との違いを説明できる
+  - 面写像と交代和から境界を計算し二重境界の消滅を任意次数で証明できる
+  - サイクルと境界の商として特異ホモロジー群を構成できる
+  - 連続写像の誘導準同型の良定義性と恒等写像・合成の保存を証明できる
+  - 0次特異ホモロジー群と道連結成分の対応を証明し具体的な群と写像を計算できる
+definitions:
+  - { id: ATOP16-DEF-01, name: 特異単体 }
+  - { id: ATOP16-DEF-02, name: 特異鎖群 }
+  - { id: ATOP16-DEF-03, name: 面写像 }
+  - { id: ATOP16-DEF-04, name: 特異境界作用素 }
+  - { id: ATOP16-DEF-05, name: 特異サイクルと特異境界鎖 }
+  - { id: ATOP16-DEF-06, name: 特異ホモロジー群 }
+  - { id: ATOP16-DEF-07, name: 特異鎖の誘導準同型 }
+theorems:
+  - { id: ATOP16-THM-01, name: 特異鎖の二重境界の消滅 }
+  - { id: ATOP16-THM-02, name: 特異鎖の誘導準同型と境界の可換性 }
+  - { id: ATOP16-THM-03, name: 特異ホモロジーの誘導準同型 }
+  - { id: ATOP16-THM-04, name: 0次特異ホモロジーと道連結成分 }
+canonical_examples: [曲がった特異三角形, 一点空間の全次数, 二成分の0次群]
+problem_patterns: [ATOP16-A1, ATOP16-A2, ATOP16-A3, ATOP16-A4, ATOP16-B1, ATOP16-B2, ATOP16-B3, ATOP16-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
