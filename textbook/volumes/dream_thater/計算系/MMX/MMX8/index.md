@@ -2,7 +2,7 @@
 
 [MMX2](../MMX2/index.md) では行列積を単純テンソルの和で表し、積数を評価しました。今度は添字を異なる場所に置きます。二つの場所が同じ添字を持つことに費用を割り当てると、テンソルの分解は幾何学的な不等式を生みます。場所の数と共有する添字の数を区別することが出発点です。
 
-直接前提：[MMX2](../MMX2/index.md)、[TSP11](../../TSP/TSP11/index.md)、[TSP15](../../TSP/TSP15/index.md)。
+直接前提：[MMX2](../MMX2/index.md)、[TSP11](../../TSP/TSP11/index.md)、[TSP15](../../TSP/TSP15/index.md)、[MMX6](../MMX6/index.md)。
 
 一次資料：OpenAI, [The matrix multiplication exponent is nine fourths, background.tex](https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/build/background.tex) と [Euclidean geometry in the asymptotic spectrum of tensors, intro.tex](https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/build/intro.tex)（ともに2026年11月24日版）。本講では前者に合わせ自然対数を用います。後者の二進対数によるpriceは、同じ距離尺度の自然対数版を $\log 2$ で割ったものです。
 
@@ -194,7 +194,7 @@ $$
 \sum_{i,j=1}^{q}e_i\otimes(e_i\otimes e_j)\otimes e_j
 $$
 
-となります。$b$ で $e_i\otimes e_j\mapsto\delta_{ij}$（等しいとき1、異なるとき0）という線形汎関数を適用すると、$a,c$ のwireになります。価格の単調性と積の加法性より
+となります。$b$ で $e_i\otimes e_j\mapsto\delta_{ij}$（等しいとき1、異なるとき0）という線形写像を適用すると、$a,c$ のwireになります。価格の単調性と積の加法性より
 
 $$
 d(a,c)\log q\le(d(a,b)+d(b,c))\log q.
@@ -450,7 +450,7 @@ $$
 3\log\widetilde R(M_{4,4,4})\ge7\log4.
 $$
 
-従って $\widetilde R(M_{4,4,4})\ge4^{7/3}$ です。[行列積指数と漸近階数の一致](../../TSP/TSP14/index.md#thm-tsp14-omega-rank) を使うと $\omega_F\ge7/3$。これは価格がそのように存在すると仮定した条件付き結論です。既知の上界 $9/4$ を用いるなら $7/3>9/4$ なので、このようなスペクトル価格は存在できません。三角不等式だけではその矛盾を発見できない点が重要です。
+従って $\widetilde R(M_{4,4,4})\ge4^{7/3}$ です。[行列積指数と漸近階数の一致](../../TSP/TSP14/index.md#thm-tsp14-omega-rank) を使うと $\omega_F\ge7/3$。これは価格がそのように存在すると仮定した条件付き結論です。[任意の体上の行列積指数の上界](../MMX6/index.md#thm-mmx6-field-upper-bound) を用いるなら $7/3>9/4$ なので、このようなスペクトル価格は存在できません。三角不等式だけではその矛盾を発見できない点が重要です。
 <!-- solution-end -->
 
 ### Level C
