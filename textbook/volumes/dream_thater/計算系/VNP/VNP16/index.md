@@ -15,15 +15,15 @@
 >
 > 整数 $n\ge0$ に対して
 
-$
+$$
 R_n=\mathbb F_2[s]/(s^{n+1})
-$
+$$
 
 > と置く。各元の一意な代表元は次の形である。
 
-$
+$$
 f=\sum_{a=0}^n c_as^a,\qquad c_a\in\mathbb F_2.
-$
+$$
 
 > 定数項還元は $\rho(f)=c_0$ と定める環準同型である。
 <!-- formal-statement-end -->
@@ -133,16 +133,16 @@ $1\le k<h-1$ では係数1、$k=h-1$ では係数 $\zeta$、$k=0$ の元の係�
 >
 > $\{I\}=\Gamma_0\subseteq\cdots\subseteq\Gamma_J\subseteq K_n$ を部分群の列とする。頂点集合と射影を
 
-$
+$$
 V_j=\{g\Gamma_j:g\in G_n\},\qquad
 \pi_j(g\Gamma_j)=g\Gamma_{j+1}
-$
+$$
 
 > と置く。左作用は $a\in G_n$ に対して
 
-$
+$$
 a(g\Gamma_j)=(ag)\Gamma_j
-$
+$$
 
 > とする。頂点 $c\in V_j$ の型 $i$ の剰余類（原論文の coset of type $i$）とは軌道 $H_ic$ をいう。
 > 型 $i$ の辺は $\{c,X_ic\}$ である。
