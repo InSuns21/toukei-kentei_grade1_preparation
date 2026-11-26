@@ -2,7 +2,7 @@
 
 前講では ports を持たない体で、距離と情報量からリスト相異性の下界を得ました。ports を持つ有限体では、逆にネットワークを小さくする能力を利用します。もし相異性判定が非常に安価なら、既に下界の分かっている普遍計数テンソルまでも安価に実現できてしまう、という背理法です。
 
-直接前提：[MMX12](../MMX12/index.md)、[MMX14](../MMX14/index.md)、[MMX16](../MMX16/index.md)。一次資料は OpenAI, *The matrix multiplication exponent is nine fourths*（2026年11月24日版）の [list.tex, Fields with ports](https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/build/list.tex) です。
+直接前提：[MMX12](../MMX12/index.md)、[MMX14](../MMX14/index.md)、[MMX16](../MMX16/index.md)、[MMX17](../MMX17/index.md)。一次資料は OpenAI, *The matrix multiplication exponent is nine fourths*（2026年11月24日版）の [list.tex, Fields with ports](https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/build/list.tex) です。
 
 ## 1. 二種類のテンソルと三つの整数
 
@@ -52,7 +52,8 @@ $t$ は反例から与えられて固定され、$j$ は圧縮を行うたびに
 >
 > 体 $k$、整数 $h,t\ge1$、実数 $\sigma>0$ を固定する。$N=2^h,\ w=h+1$ とする。
 > $D_w^{\otimes t}$ の三価実現の体積が $tn_w w^\sigma$ 以下と仮定する。
-> 三価ゲートとタグ付き置換テストだけからなり、テストの全入射ビットを含めた費用が $S$ の任意の混合ネットワークは、同じ境界テンソルを持つ三価ネットワークで実現でき、そのサイズは
+> 三価ゲートとタグ付き置換テストだけからなる混合ネットワークを考える。費用 $S$ は通常頂点・外部脚および各テストの全入射ビットを含むとする。
+> 同じ境界テンソルを持つ三価実現が存在し、そのサイズは
 
 $$
 O(h^\sigma S+tNh^{1+\sigma})
@@ -122,7 +123,11 @@ $$
 <!-- formal-statement-start -->
 > **補題（外部ビット当たりの降下評価）**
 >
-> ports を持つ固定有限体で前節の反例を仮定し、上の厳密降下の適用範囲内にある $j$ コピーの普遍計数テンソルの三価実現を取る。
+> ports を持つ固定有限体 $k$ を取る。$N=2^h,w=h+1,n_w=2w2^w$ とする。
+> $D_w^{\otimes t}$ の体積高々 $tn_w w^\sigma$ の三価実現が存在すると仮定する。
+> $a>0$ は [タグ付き置換による厳密降下](../MMX12/index.md#prop-mmx12-exact) の指数とする。
+> $j$ コピーの $U_\ell^*$ の三価実現のサイズ $s$ が $N\le s\le N^4$ を満たすとする。
+> $x=s/(j\ell)$ と置く。
 > $0<\sigma<a/4$、$b>2$、$\ell=\lceil h^b\rceil$、$j\ge N^2$、$1\le t\le2N$ とする。
 > 十分大きな $h$ について、新しい $dj$ コピーの三価実現の外部一ビット当たりサイズ $x'$ は
 
@@ -184,7 +189,10 @@ $$
 <!-- formal-statement-start -->
 > **補題（定数回降下の範囲保証）**
 >
-> 上の反例とパラメータ条件を仮定する。$\ell=\lceil h^b\rceil$ とし、サイズが $\ell^{O(1)}$ の $U_\ell^*$ の三価実現を $j_0=N^2$ 個並べる。
+> ports を持つ固定有限体 $k$ と、厳密降下の指数 $a>0$ を取る。
+> $N=2^h,w=h+1,n_w=2w2^w$、$0<\sigma<a/4$、$b>2$ とする。
+> $1\le t\le2N$ で、$D_w^{\otimes t}$ の体積高々 $tn_w w^\sigma$ の三価実現があると仮定する。
+> $\ell=\lceil h^b\rceil$ とし、サイズが $\ell^{O(1)}$ の $U_\ell^*$ の三価実現を $j_0=N^2$ 個並べる。
 > ある固定 $A>0$ に対し初期比率 $x_0\le h^A$ とする。
 > 固定整数 $L>2A/a$ を取れば、十分大きい $h$ で $L$ 回の厳密降下と一括置換を実行でき、最終コピー数 $j_L$ と比率 $x_L$ は
 
