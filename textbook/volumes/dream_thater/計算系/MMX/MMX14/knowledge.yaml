@@ -1,7 +1,7 @@
 chapter: MMX14
 scope: dream-theater
 coverage: complete
-prerequisites: [MMX12, MMX13]
+prerequisites: [MMX12, MMX13, GCT2, GCT16, ACOMP9]
 forward_references: []
 concepts:
   - id: matrix-exponent.signed-universal-count
@@ -27,7 +27,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（符号付き計数多項式の VNP 所属）"]
-    requires: [matrix-exponent.signed-universal-count]
+    requires: [matrix-exponent.signed-universal-count, algebraic-complexity.vnp, algebraic-complexity.local-indicator]
   - id: matrix-exponent.compressed-enumeration
     name: "圧縮展開の列挙評価"
     kind: lemma
