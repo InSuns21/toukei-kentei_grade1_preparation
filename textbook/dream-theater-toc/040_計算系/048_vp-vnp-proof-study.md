@@ -11,3 +11,4 @@
 8. [VNP8 D：F₂行列rank、transversal pair、平均D(r)の劣加法性](textbook/volumes/dream_thater/計算系/VNP/VNP8/index.md)
 9. [VNP9 D：等号解析とEuclid cube、flatまたはcontracting](textbook/volumes/dream_thater/計算系/VNP/VNP9/index.md)
 10. [VNP10 E：grid sums・clause sumsからpermanentへの射影](textbook/volumes/dream_thater/計算系/VNP/VNP10/index.md)
+11. [VNP11 E：完全ネットワーク・二つのhub・few-term lemmaとcut](textbook/volumes/dream_thater/計算系/VNP/VNP11/index.md)
