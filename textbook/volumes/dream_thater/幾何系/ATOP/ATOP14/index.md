@@ -57,7 +57,22 @@ $$
 <!-- definition-example-start: def-atop14-simplicial-homology -->
 **定義の確認**
 
-先ほどの $L$ では $H_1(L)=\mathbb Z u/0\cong\mathbb Z$ です。$[2u]\ne[u]$ なのは差 $u$ が零鎖でないからです。$K$ では $H_1(K)=\mathbb Z u/\mathbb Z u=0$ で、差 $u$ は $\partial_2[a,b,c]$ だから $[2u]=[u]=0$ です。[商加群の演算の良定義性](../../../代数系/MOD/MOD1/index.md#prop-mod1-quotient-well-defined) により代表元を取り替えても加法は変わりません。例えば $K$ で $u$ と $2u$ はともに零類を代表し、どちらを $3u$ に足しても零類になります。
+先ほどの $L$ では、境界群は零です。従って
+
+$$
+H_1(L)=\mathbb Z u/0\cong\mathbb Z.
+$$
+
+$[2u]\ne[u]$ なのは差 $u$ が零鎖でないからです。
+
+一方、面を含む $K$ では差 $u$ が $\partial_2[a,b,c]$ であり、
+
+$$
+H_1(K)=\mathbb Z u/\mathbb Z u=0,
+\qquad [2u]=[u]=0.
+$$
+
+[商加群の演算の良定義性](../../../代数系/MOD/MOD1/index.md#prop-mod1-quotient-well-defined) により代表元を取り替えても加法は変わりません。例えば $K$ で $u$ と $2u$ はともに零類を代表し、どちらを $3u$ に足しても零類になります。
 <!-- definition-example-end -->
 
 「閉じている」だけでは類が非零とは限りません。また $\partial_n z\ne0$ の鎖にはそもそもホモロジー類を割り当てません。
@@ -309,7 +324,13 @@ $$
 
 群の自由部分の個数を、鎖群を数えるだけで検算できます。有限生成整数加群の自由部分の階数は [有限生成 Abel 群の構造定理](../../../代数系/MOD/MOD2/index.md#thm-mod2-fg-abelian)の自由因子の個数です。本節では $H_n$ の階数を $b_n$ と書きます。
 
-[ATOP11 の Euler 標数の議論](../ATOP11/index.md)では曲面の頂点・辺・面の個数の交代和を計算しました。ここでは有限単体複体の各次数の単体数 $f_n$ の交代和 $\chi(K)=\sum_{n\ge0}(-1)^nf_n$ として計算します。
+曲面の [Euler 標数](../../GEO/GEO19/index.md#def-geo19-euler-characteristic) は有限三角形分割の頂点・辺・面の個数の交代和です。ここでは曲面に限らず、有限単体複体の各次数の単体数 $f_n$ に対して
+
+$$
+\chi(K)=\sum_{n\ge0}(-1)^nf_n
+$$
+
+を計算します。GEO19 の曲面に対する三角形分割不変性を証明の前提にはしません。
 
 <a id="thm-atop14-euler-poincare"></a>
 
