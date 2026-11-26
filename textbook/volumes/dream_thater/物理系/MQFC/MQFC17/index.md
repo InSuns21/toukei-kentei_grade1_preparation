@@ -241,7 +241,7 @@ $$
 \Pr(X_x=0,\ x\in D)
 =\frac{\sum_{I:\,I\cap D=\varnothing}\prod_{x\in I}z_x}{Z_\Lambda}
 =\frac{Z_\Lambda^{(D)}}{Z_\Lambda}.
-$
+$$
 
 対数を取れば $D$ に一度も触れない連結項が消え、領域の全体積ではなく $D$ の近くの和が残る。
 
@@ -519,7 +519,7 @@ $n=N+1+j$ と置き、$0<q<1$ の幾何級数とその項別微分から $\sum_{
 $$
 \sum_{n>N}nq^n
 =q^{N+1}\left(\frac{N+1}{1-q}+\frac{q}{(1-q)^2}\right).
-$
+$$
 
 よって
 
