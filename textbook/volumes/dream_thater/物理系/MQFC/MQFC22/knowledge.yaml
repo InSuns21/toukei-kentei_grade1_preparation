@@ -1,0 +1,26 @@
+chapter: MQFC22
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC8, MQFC20, MQFC21]
+forward_references: []
+concepts:
+  - id: mqfc.lattice-reflection-form
+    name: "格子の反射形式"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.positive-time-reflection-form, mqfc.lattice-link-connection, mqfc.wilson-lattice-measure]
+  - id: mqfc.wilson-positive-character-expansion
+    name: "Wilson重みの非負指標展開"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.representation-character, mqfc.wilson-lattice-action]
+  - id: mqfc.character-reflection-factorization
+    name: "指標による左右因子分解"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.representation-character, representation.unitary]
+  - id: mqfc.wilson-reflection-positivity
+    name: "自由境界Wilson測度の反射陽性"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.lattice-reflection-form, mqfc.wilson-positive-character-expansion, mqfc.character-reflection-factorization, mqfc.lattice-vertex-gauge, mqfc.wilson-measure-construction, mqfc.product-haar-gauge-invariance]
