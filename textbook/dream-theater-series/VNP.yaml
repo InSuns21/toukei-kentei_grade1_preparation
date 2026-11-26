@@ -30,7 +30,7 @@ chapters:
     title: "B：crossing identity、二つの分割に対する項数、crossing inequality"
   - id: VNP7
     path: textbook/volumes/dream_thater/計算系/VNP/VNP7
-    status: planned
+    status: completed
     title: "C/O：CN不等式、priceのCAT(0)完備化"
   - id: VNP8
     path: textbook/volumes/dream_thater/計算系/VNP/VNP8
