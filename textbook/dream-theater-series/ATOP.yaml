@@ -16,7 +16,7 @@ chapters:
   - { id: ATOP10, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP10, status: completed, title: "単体複体と三角形分割" }
   - { id: ATOP11, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP11, status: completed, title: "コンパクト曲面の分類定理" }
   - { id: ATOP12, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP12, status: completed, title: "曲面の基本群と具体的分類" }
-  - { id: ATOP13, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP13, status: planned, title: "向き付き単体と単体鎖複体" }
+  - { id: ATOP13, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP13, status: completed, title: "向き付き単体と単体鎖複体" }
   - { id: ATOP14, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP14, status: planned, title: "単体ホモロジーと計算" }
   - { id: ATOP15, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP15, status: planned, title: "細分と単体近似" }
   - { id: ATOP16, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP16, status: planned, title: "特異鎖・特異ホモロジーと関手性" }
