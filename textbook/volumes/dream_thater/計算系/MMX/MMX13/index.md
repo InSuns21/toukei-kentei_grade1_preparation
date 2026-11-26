@@ -65,7 +65,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$x^0=x$ とし、[有限加重重心](../../../幾何系/NPCG/NPCG8/index.md#def-npcg8-weighted-barycenter) を使って $x_i^{g+1}=\operatorname{bar}_j(A_{ij},x_j^g)$ と定める。重心は完備性により存在する。次を置く。
+$x^0=x$ とし、[有限加重重心](../../../幾何系/NPCG/NPCG8/index.md#def-npcg8-weighted-barycenter) を使って $x_i^{g+1}=\operatorname{bar}_j(A_{ij},x_j^g)$ と定める。[有限加重重心の存在と一意性](../../../幾何系/NPCG/NPCG8/index.md#thm-npcg8-barycenter-existence) により重心は存在する。次を置く。
 
 $$
 u_g=\sum_i\pi_i d_X(x_i,x_i^g)^2,\qquad
@@ -500,7 +500,7 @@ d(m(a,c),m(b,e))^2
 \end{aligned}
 $$
 
-等号 $\Delta=0$ の四辺形は [平坦四辺形の等号条件](../../../幾何系/NPCG/NPCG6/index.md#thm-npcg6-flat-quadrilateral) により退化も含む Euclid 平行四辺形になる。格子の全てのこの種の四辺形が平坦であるとき、互いに素な変更の長さや内積を座標ブロックごとに追跡できる。
+等号 $\Delta=0$ の四辺形は [四辺形の等号から平坦な領域](../../../幾何系/NPCG/NPCG6/index.md#thm-npcg6-flat-quadrilateral) により退化も含む Euclid 平行四辺形になる。格子の全てのこの種の四辺形が平坦であるとき、互いに素な変更の長さや内積を座標ブロックごとに追跡できる。
 
 無限に多くの次元の格子を一度に扱うため、各 $s$ にランダムな許容距離表を割り当てる。座標置換で分布は不変であり、一座標を独立一様な文字に固定すると次元を一つ減らした分布になるものを整合的な格子系と呼ぶ。各格子内の全ての反復中点も数え上げて距離表に付け加える。固定した $s$ で格子の直径が $R$ 以下なら、追加した中点も元の凸包内にあるため全距離は $R$ 以下。可算個の距離成分に対する対角部分列と超極限によって、この有界な表の空間はコンパクトである。中点の距離関係も閉条件として保存される。各次元の直径の一様な正の次数のモーメント上界があれば、Markov の不等式で分布の質量をこのようなコンパクト集合に一様に集中させられる。従って弱収束の部分列を選び、次元についても対角化できる（可算積の距離表空間に対する確率測度の緊密性による弱コンパクト性）。有限次元での座標置換と一様断面を取る写像は連続なので整合性が極限に移る。
 
@@ -606,7 +606,7 @@ $\binom{p+t}{p}\le2^{p+t}$、$t\le4\beta$ を代入する。$n$ を十分大き�
 
 旧語と再抽選語の座標対は独立交換可能なので [独立座標交換の二乗評価](#lem-mmx13-coordinate-exchange) により旧像との平均二乗距離は $C_G\varepsilon p$ 以下。重心の最小性および [分散不等式](../../../幾何系/NPCG/NPCG8/index.md#thm-npcg8-variance-inequality) で新旧像の平均二乗距離も同じ上界を持つ。独立な二語の距離の $L^2$ ノルムは三角不等式から高々 $2\sqrt{C_G\varepsilon p}$ しか減らない。$2\sqrt{C_G\varepsilon}\le\sqrt h$ と選べば新しい全対エネルギーは $ph$ 以上である。
 
-一座標だけ異なる二語の再抽選を、他座標は同じ乱数で、変更座標は共に保存するか共に同じ文字に再抽選するよう結合する。[有限分布の重心の安定性](../../../幾何系/NPCG/NPCG8/index.md#thm-npcg8-barycenter-stability) により、新しい距離は旧距離の条件付き期待値以下となる。背景語上の非負関数に作用する一座標の平均作用素を $T_\varepsilon=(1-\varepsilon)I+\varepsilon\mathbb E$ とすると、その背景座標全てでの積作用素による旧距離の平均で抑えられる。Jensen の不等式で $L^2$ ノルムは増えないので新しい一座標辺エネルギーも1以下である。
+一座標だけ異なる二語の再抽選を、他座標は同じ乱数で、変更座標は共に保存するか共に同じ文字に再抽選するよう結合する。[有限加重重心の安定性](../../../幾何系/NPCG/NPCG8/index.md#thm-npcg8-barycenter-stability) により、新しい距離は旧距離の条件付き期待値以下となる。背景語上の非負関数に作用する一座標の平均作用素を $T_\varepsilon=(1-\varepsilon)I+\varepsilon\mathbb E$ とすると、その背景座標全てでの積作用素による旧距離の平均で抑えられる。Jensen の不等式で $L^2$ ノルムは増えないので新しい一座標辺エネルギーも1以下である。
 
 さらに固定有限集合 $A$ について、ある $\eta>0$ で
 
@@ -666,7 +666,7 @@ $n$ は $h>C_0$ となるほど大きく選んでおく。一次元の全対エ�
 
 新文字 $z$ の旧文字への距離のうち、$a,b$ への距離を $d(a,b)/2$ と指定し、それ以外は未指定とする。距離を指定済みの文字対を連結対と呼ぶ（自己対も含む）。旧文字同士は全て連結対である。各次元では、全座標が連結対である二語の二乗距離を、指定された二乗距離の和と要求する。
 
-まず各次元でこれら部分指定を満たす許容表がある。旧文字だけの積表を実現し、一座標ずつ $z$ を含む語の像を旧端点の中点として加える。二つの背景語が座標ごとに連結対なら、それらの $a,b$ の四点は辺の長さが背景距離と $d(a,b)$、対角線の二乗がその二乗和である。従って平坦な長方形であり、[平坦四辺形の等号条件](../../../幾何系/NPCG/NPCG6/index.md#thm-npcg6-flat-quadrilateral) から中点を選んだときも要求した二乗距離の和が保たれる。新しい一方の文字が $z$ で他方が $a$ 又は $b$ の場合も、同じ長方形内の距離は背景距離の二乗と半分の辺長の二乗の和である。両方 $z$ なら背景距離のみである。これで一座標の追加が全連結対に対して正当化され、帰納できる。
+まず各次元でこれら部分指定を満たす許容表がある。旧文字だけの積表を実現し、一座標ずつ $z$ を含む語の像を旧端点の中点として加える。二つの背景語が座標ごとに連結対なら、それらの $a,b$ の四点は辺の長さが背景距離と $d(a,b)$、対角線の二乗がその二乗和である。従って平坦な長方形であり、[四辺形の等号から平坦な領域](../../../幾何系/NPCG/NPCG6/index.md#thm-npcg6-flat-quadrilateral) から中点を選んだときも要求した二乗距離の和が保たれる。新しい一方の文字が $z$ で他方が $a$ 又は $b$ の場合も、同じ長方形内の距離は背景距離の二乗と半分の辺長の二乗の和である。両方 $z$ なら背景距離のみである。これで一座標の追加が全連結対に対して正当化され、帰納できる。
 
 新旧文字の連結対グラフは連結であるため、各次元の直径は次元と固定した有限連結対の経路長で一様に抑えられる。高次元の許容表を座標置換と一様断面でランダム化し、極限を取ることで部分指定を満たす整合的な格子系を得る。そのような格子系全体で $\sum 2^{-k}V_k$ を最小化する。先のコンパクト性により達成される（直径の二乗の上界が $O(k^2)$ なので級数の尾も一様に小さい）。
 
@@ -785,9 +785,9 @@ $$
 
 ### 5.2 一つの配置で全切断の価格を下げる
 
-[wire の価格と階数分解](../MMX8/index.md#thm-mmx8-rank-wire) により、切断階数 $R$ の項は二つの供給地点の間に幅 $\log R$ の wire を一本渡すことで作れる。しかし項によって切断が異なるので、全項の価格を同じ地点で比較するためには全切断に有効な配置が必要である。
+[配線網と階数分解の価格評価](../MMX8/index.md#thm-mmx8-network-rank) により、切断階数 $R$ の項は二つの供給地点の間に幅 $\log R$ の wire を一本渡すことで作れる。しかし項によって切断が異なるので、全項の価格を同じ地点で比較するためには全切断に有効な配置が必要である。
 
-以下の価格の式では自然対数を用いる。底2を用いた前節までの情報量とは定数倍の違いだけである。原論文の比較部分は、次の幾何とテンソルの構成を入力とする。構成そのものは原論文の別節 [lamps.tex](https://github.com/openai/math/blob/main/preprints/Circuit-lower-bounds-for-Hamiltonian-cycle-and-the-permanent-November-24-2026/build/lamps.tex)、[packing.tex](https://github.com/openai/math/blob/main/preprints/Circuit-lower-bounds-for-Hamiltonian-cycle-and-the-permanent-November-24-2026/build/packing.tex)、[prices.tex](https://github.com/openai/math/blob/main/preprints/Circuit-lower-bounds-for-Hamiltonian-cycle-and-the-permanent-November-24-2026/build/prices.tex) における二値ランプ証明書、packed binary witness、重み付き価格則、対角テンソル価格の評価に依存する。本講ではそれらの存在定理を入力として、比較の指数計算を証明する。積閉部分クラスの定理だけからそれらの存在が直ちに従うわけではない。
+以下の価格の式では自然対数を用いる。底2を用いた前節までの情報量とは定数倍の違いだけである。原論文の比較部分は、次の幾何とテンソルの構成を入力とする。構成そのものは原論文の別節 [lamps.tex](https://github.com/openai/math/blob/main/preprints/Circuit-lower-bounds-for-Hamiltonian-cycle-and-the-permanent-November-24-2026/build/lamps.tex)、[packing.tex](https://github.com/openai/math/blob/main/preprints/Circuit-lower-bounds-for-Hamiltonian-cycle-and-the-permanent-November-24-2026/build/packing.tex)、[prices.tex](https://github.com/openai/math/blob/main/preprints/Circuit-lower-bounds-for-Hamiltonian-cycle-and-the-permanent-November-24-2026/build/prices.tex) における二値ランプ証明書、詰込み二値証人（packed binary witness）、重み付き価格則、対角テンソル価格の評価に依存する。本講ではそれらの存在定理を入力として、比較の指数計算を証明する。積閉部分クラスの定理だけからそれらの存在が直ちに従うわけではない。
 
 まず $d$ を十分大きな偶数、$m=\lceil\log_2 d\rceil$ とする。距離円錐とは頂点 $o$ と放射方向の倍率変更を持つ空間である。単位距離の点 $x_i$ に対し
 
