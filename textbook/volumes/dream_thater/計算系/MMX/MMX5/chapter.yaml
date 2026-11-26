@@ -17,7 +17,7 @@ theorems:
   - { id: MMX5-THM-03, name: "次数プロファイルの離散凹性" }
   - { id: MMX5-THM-04, name: "移動付き三倍不等式" }
   - { id: MMX5-THM-05, name: "対角増大率" }
-  - { id: MMX5-THM-06, name: "複素数体上の行列積指数の九四分上界" }
+  - { id: MMX5-THM-06, name: "複素数体上の行列積指数の上界" }
 canonical_examples: [共有座標をもつ二つの区画, 位相条件と平方重み, "C(2,4)の三つの区画"]
 problem_patterns: [MMX5-A01, MMX5-A02, MMX5-A03, MMX5-A04, MMX5-B01, MMX5-B02, MMX5-B03, MMX5-B04, MMX5-C01]
 past_exam_alignment: []
