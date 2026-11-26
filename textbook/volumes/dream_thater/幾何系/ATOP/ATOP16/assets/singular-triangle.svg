@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 280" data-layout-lint="strict">
+  <title>標準三角形と特異2単体の曲がった像</title>
+  <desc>左の標準三角形の三頂点を、右の曲がった三角形の対応する頂点へ送る。辺01は放物線、辺12も曲線、辺02は直線。</desc>
+  <rect width="560" height="280" fill="#fff"/>
+  <g stroke="#263746" stroke-width="2.5" stroke-linejoin="round">
+    <path d="M45 224 L205 224 L45 64 Z" fill="#e8f0f5"/>
+    <path d="M355 224 Q435 224 515 64 Q435 144 355 64 Z" fill="#e8f0f5"/>
+    <path d="M245 145 H315 M304 137 L315 145 L304 153" fill="none"/>
+  </g>
+  <g fill="#263746">
+    <circle cx="45" cy="224" r="3.5"/><circle cx="205" cy="224" r="3.5"/><circle cx="45" cy="64" r="3.5"/>
+    <circle cx="355" cy="224" r="3.5"/><circle cx="515" cy="64" r="3.5"/><circle cx="355" cy="64" r="3.5"/>
+  </g>
+  <g font-family="sans-serif" font-size="15" text-anchor="middle" fill="#263746">
+    <text x="125" y="27">Δ²</text><text x="435" y="27">σ(Δ²)</text><text x="280" y="129">σ</text>
+    <text x="45" y="250">e₀</text><text x="205" y="250">e₁</text><text x="45" y="47">e₂</text>
+    <text x="355" y="250">p₀</text><text x="515" y="47">p₁</text><text x="355" y="47">p₂</text>
+  </g>
+</svg>

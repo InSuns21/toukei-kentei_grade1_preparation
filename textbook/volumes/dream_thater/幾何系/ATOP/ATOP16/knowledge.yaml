@@ -1,0 +1,68 @@
+chapter: ATOP16
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP14, FIX1, TOP3]
+forward_references: []
+concepts:
+  - id: atop.singular-simplex
+    name: 特異単体
+    kind: definition
+    introduction: formal
+    requires: [fixedpoint.standard-simplex]
+  - id: atop.singular-chain-group
+    name: 特異鎖群
+    kind: definition
+    introduction: formal
+    requires: [atop.singular-simplex, algebra.free-module]
+  - id: atop.singular-face-map
+    name: 面写像
+    kind: definition
+    introduction: formal
+    requires: [fixedpoint.standard-simplex]
+  - id: atop.singular-boundary
+    name: 特異境界作用素
+    kind: definition
+    introduction: formal
+    requires: [atop.singular-chain-group, atop.singular-face-map, algebra.free-module-universal-property]
+  - id: atop.singular-boundary-square-zero
+    name: 特異鎖の二重境界の消滅
+    kind: theorem
+    introduction: formal
+    requires: [atop.singular-boundary]
+  - id: atop.singular-cycle
+    name: 特異サイクル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（特異サイクルと特異境界鎖）"]
+    requires: [atop.singular-boundary, algebra.module-homomorphism]
+  - id: atop.singular-boundary-chain
+    name: 特異境界鎖
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（特異サイクルと特異境界鎖）"]
+    requires: [atop.singular-boundary, algebra.module-homomorphism]
+  - id: atop.singular-homology
+    name: 特異ホモロジー群
+    kind: definition
+    introduction: formal
+    requires: [atop.singular-cycle, atop.singular-boundary-chain, atop.singular-boundary-square-zero, algebra.quotient-module]
+  - id: atop.induced-singular-chain-map
+    name: 特異鎖の誘導準同型
+    kind: definition
+    introduction: formal
+    requires: [atop.singular-chain-group, algebra.free-module-universal-property]
+  - id: atop.singular-chain-map-boundary
+    name: 特異鎖の誘導準同型と境界の可換性
+    kind: theorem
+    introduction: formal
+    requires: [atop.induced-singular-chain-map, atop.singular-boundary]
+  - id: atop.induced-singular-homology-map
+    name: 特異ホモロジーの誘導準同型
+    kind: theorem
+    introduction: formal
+    requires: [atop.singular-homology, atop.singular-chain-map-boundary]
+  - id: atop.singular-h0-path-components
+    name: 0次特異ホモロジーと道連結成分
+    kind: theorem
+    introduction: formal
+    requires: [atop.singular-homology, topology.path-connected-space, algebra.free-module]
