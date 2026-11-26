@@ -10,7 +10,7 @@
   <g fill="#263746"><circle cx="65" cy="108" r="4"/><circle cx="171" cy="108" r="4"/><circle cx="350" cy="100" r="4"/></g>
   <g font-family="sans-serif" font-size="16" text-anchor="middle" fill="#263746">
     <text x="120" y="23">P</text><text x="350" y="23">Q</text><text x="117" y="69">γ</text>
-    <text x="65" y="130">a</text><text x="171" y="130">b</text><text x="350" y="125">c</text>
+    <text x="65" y="130">a</text><text x="190" y="110">b</text><text x="350" y="125">c</text>
     <text x="120" y="169">b - a</text>
   </g>
 </svg>
