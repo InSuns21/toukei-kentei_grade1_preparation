@@ -25,7 +25,11 @@ $$
 > と定め、整数線形に拡張する。
 <!-- formal-statement-end -->
 
-例えば辺 $[a,b]$（$a<b$）は、$s=t_1$ と置けば $s\mapsto(1-s)a+sb$ という道です。端点を読むと特異境界は $\langle b\rangle-\langle a\rangle$ になります（$\langle v\rangle$ は点 $v$ への特異0単体）。これは単体境界 $[b]-[a]$ を読んだものです。逆向きの記号 $[b,a]=-[a,b]$ は $-\sigma_{ab}$ に送ります。逆走する道 $\sigma_{ba}$ は別の特異単体で、鎖として $-\sigma_{ab}$ と等しいわけではありません。
+<!-- definition-example-start: def-atop21-comparison-map -->
+**定義の確認**：例えば辺 $[a,b]$（$a<b$）は、$s=t_1$ と置けば $s\mapsto(1-s)a+sb$ という道です。端点を読むと特異境界は $\langle b\rangle-\langle a\rangle$ になります（$\langle v\rangle$ は点 $v$ への特異0単体）。これは単体境界 $[b]-[a]$ を読んだものです。逆向きの記号 $[b,a]=-[a,b]$ は $-\sigma_{ab}$ に送ります。逆走する道 $\sigma_{ba}$ は別の特異単体で、鎖として $-\sigma_{ab}$ と等しいわけではありません。
+
+$0\le s\le1$ なら像は辺上にあり、道は連続で、端点は順に $a,b$ です。したがって昇順の基底を特異単体に送るという定義の条件を満たします。整数線形拡張により、例えば $2[a,b]$ の像は $2\sigma_{ab}$ です。
+<!-- definition-example-end -->
 
 <a id="thm-atop21-comparison-chain"></a>
 
@@ -79,7 +83,13 @@ $$
 > とする。相対単体ホモロジー群 $H_n^\triangle(K,L)$ はこの鎖複体の $n$ 次サイクル群を $n$ 次境界群で割った群である。
 <!-- formal-statement-end -->
 
-$L$ 内の鎖を加えても境界の差は $L$ 内に残るので商の境界は定まります。[二重境界の消滅](../ATOP13/index.md#thm-atop13-boundary-square) により商でも二重境界は零です。例えば $K$ が一辺と両端点、$L$ が両端点だけなら、相対1鎖群は $\mathbb Z[a,b]$、相対0鎖群と2鎖群は零です。従って相対1次群は $\mathbb Z$ となり、通常の1次群が零なのとは異なります。
+$L$ 内の鎖を加えても境界の差は $L$ 内に残るので商の境界は定まります。[二重境界の消滅](../ATOP13/index.md#thm-atop13-boundary-square) により商でも二重境界は零です。 
+
+<!-- definition-example-start: def-atop21-relative-simplicial -->
+**定義の確認**：例えば $K$ が一辺と両端点、$L$ が両端点だけなら、相対1鎖群は $\mathbb Z[a,b]$、相対0鎖群と2鎖群は零です。従って相対1次群は $\mathbb Z$ となり、通常の1次群が零なのとは異なります。
+
+両端点は部分複体をなし、辺の境界 $[b]-[a]$ はその0鎖群に属します。よって商での境界は零です。相対2鎖群も零なので、1次の核は相対1鎖群全体、像は零であり、上の相対1次群が得られます。
+<!-- definition-example-end -->
 
 比較写像は $L$ の単体を $|L|$ 内の特異単体に送るので、商に $J^{\rm rel}(\bar c)=\overline{Jc}$ を誘導します。境界と可換であるため相対ホモロジー上にも写像が得られます。
 
