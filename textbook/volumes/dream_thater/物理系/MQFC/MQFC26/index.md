@@ -43,7 +43,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（質量と相関長の単位換算）**
-> 時間格子間隔 $a>0$ の有限空間格子で、真空規格化した転送作用素の最大励起固有値を $\lambda_*\in(0,1)$ とする。$m_{\rm lat}=-\log\lambda_*$、$\xi_{\rm lat}=1/m_{\rm lat}$ と置く。格子のハミルトニアンの真空直交部分の最低エネルギー $M$ と、物理時間で測った相関長 $\xi_{\rm phys}$ は
+> 時間格子間隔 $a>0$ の有限空間格子で、真空規格化した転送作用素の最大励起固有値を $\lambda_*\in(0,1)$ とする。格子単位の量を
+
+$$
+m_{\rm lat}=-\log\lambda_*,
+\qquad \xi_{\rm lat}=1/m_{\rm lat}
+$$
+
+> と置く。格子のハミルトニアンの真空直交部分の最低エネルギー $M$ と、物理時間で測った相関長 $\xi_{\rm phys}$ は
 
 $$
 M=\frac{m_{\rm lat}}{a},\qquad
@@ -114,7 +121,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（連続極限へ向かう質量尺度の判定）**
-> $a_k>0$、$a_k\to0$ とし、各格子の最大励起固有値を $\lambda_{*,k}\in(0,1)$ とする。$m_k=-\log\lambda_{*,k}$、$M_k=m_k/a_k$、$\xi_{{\rm lat},k}=1/m_k$ と置く。任意の固定した有限値 $M_0>0$ について次の三条件は同値である。
+> $a_k>0$、$a_k\to0$ とし、各格子の最大励起固有値を $\lambda_{*,k}\in(0,1)$ とする。
+
+$$
+m_k=-\log\lambda_{*,k},\quad
+M_k=m_k/a_k,\quad
+\xi_{{\rm lat},k}=1/m_k
+$$
+
+> と置く。任意の固定した有限値 $M_0>0$ について次の三条件は同値である。
 
 $$
 M_k\to M_0,\qquad
@@ -221,9 +236,12 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（物理ギャップの相関極限への保存）**
-> $a_k>0$、$a_k\to0$ とする。各有限空間格子の物理Hilbert空間に単位真空 $\Omega_k$ と非負自己共役な規格化転送作用素 $U_k$ があり、$U_k\Omega_k=\Omega_k$ とする。真空直交部分は完全正規直交固有系を持ち、その全固有値が $e^{-a_k\Delta}$ 以下とする。ここで $\Delta>0$ は共通の定数である。
+> $a_k>0$、$a_k\to0$ とする。
+> 各有限空間格子の物理Hilbert空間に単位真空 $\Omega_k$ と非負自己共役な規格化転送作用素 $U_k$ があり、$U_k\Omega_k=\Omega_k$ とする。
+> 真空直交部分は完全正規直交固有系を持ち、その全固有値が $e^{-a_k\Delta}$ 以下とする。ここで $\Delta>0$ は共通の定数である。
 >
-> 別にHilbert空間 $\mathcal H$、非負自己共役ハミルトニアン $H$、単位真空 $\Omega\in D(H)$ があり、$H\Omega=0$ とする。真空直交空間 $\mathcal K=\Omega^\perp$ は非零とする。その中のベクトル族 $\mathcal D$ の線形包が $\mathcal K$ で稠密とする。
+> 別にHilbert空間 $\mathcal H$、非負自己共役ハミルトニアン $H$、単位真空 $\Omega\in D(H)$ があり、$H\Omega=0$ とする。
+> 真空直交空間 $\mathcal K=\Omega^\perp$ は非零とする。その中のベクトル族 $\mathcal D$ の線形包が $\mathcal K$ で稠密とする。
 >
 > 各 $v\in\mathcal D$ に対して格子の真空直交ベクトル $v_k$ と有限な定数 $B_v$ があり、
 
