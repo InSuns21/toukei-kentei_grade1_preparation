@@ -115,7 +115,7 @@ $$
 
 [TSP11のスペクトル点](../../TSP/TSP11/index.md#def-tsp11-spectral-point) を $\lambda$ と書きます。原論文では tensor character と呼んでいます。正確には [テンソルの制限同値類の半環](../../TSP/TSP10/index.md#thm-tsp10-tensor-semiring) から非負実数への写像で、ここでは同値類の角括弧を省いて $\lambda(T)$ と書きます。[直和](../../TSP/TSP5/index.md#def-tsp5-direct-sum) に対して加法的、[Kronecker積](../../TSP/TSP5/index.md#def-tsp5-kronecker) に対して乗法的、制限に対して単調です。零テンソルを0に、乗法単位（各因子が一次元の非零単純テンソル）を1に写します。ここではテンソル自体の評価が必要なので、階数の上界だけでなく $\lambda$ の大小を直接比較します。
 
-固定されたテンソルから、各座標に整数の重みを付けて最小次数だけを取り出す操作を考えます。固定線形写像の後で重み $w$ の座標を $\varepsilon^w$ 倍し、非零項に現れる重みの合計の最小値を $q$ として全体を $\varepsilon^{-q}$ 倍すれば、各項の指数が非負整数になり、テンソル値多項式 $F(\varepsilon)$ が得られます。この全体のスカラー倍は非零の $\varepsilon$ に対して一つの因子への線形写像として実現できます。例えば
+固定された非零テンソルから、各座標に整数の重みを付けて最小次数だけを取り出す操作を考えます。固定線形写像の後で重み $w$ の座標を $\varepsilon^w$ 倍し、非零項に現れる重みの合計の最小値を $q$ として全体を $\varepsilon^{-q}$ 倍すれば、各項の指数が非負整数になり、テンソル値多項式 $F(\varepsilon)$ が得られます。この全体のスカラー倍は非零の $\varepsilon$ に対して一つの因子への線形写像として実現できます。例えば
 
 $$
 A=x_0y_0z_0+x_0y_1z_1+x_1y_0z_1
@@ -244,7 +244,7 @@ $$
 
 $I$ を三因子のうち任意の一つとして固定し、$f(m)=\lambda(B_I(m))$ とします。添字を $m$ 個から $n$ 個に切り詰める制限により $n\le m$ なら $f(n)\le f(m)$ です。
 
-$m$ 項の単純テンソルに分解され、1項への制限もできるので、[スペクトル点による上下界](../../TSP/TSP11/index.md#thm-tsp11-order-bounds) から $1\le f(m)\le m$ です。積では例えば $I=X$ のとき
+$m$ 項の単純テンソルに分解され、1項への制限もできるので、[スペクトル点による上下界](../../TSP/TSP11/index.md#thm-tsp11-order-bounds) から $1\le f(m)\le m$ です。積では例えば $I=X$ のとき、第2のテンソルの座標にプライムを付けて区別すると
 
 $$
 B_X(m)\boxtimes B_X(n)
@@ -361,7 +361,7 @@ $$
 =b^{2(p_X+p_Y+p_Z)}=b^{6t}.
 $$
 
-$1/(6t)$ 乗して $P(1,b)=b$ を得ます。また [多項式乗算テンソルの階数](#thm-mmx4-convolution-rank) と [スペクトル点による上下界](../../TSP/TSP11/index.md#thm-tsp11-order-bounds) から各 $\lambda_\pi(C(a,b))\le a+b-1$。従って六つの積は $(a+b-1)^6$ 以下であり、正の指数 $1/(6t)$ を掛けることで上界が得られます。
+$1/(6t)$ 乗して $P(1,b)=b$ を得ます。また [多項式乗算テンソルの階数](#thm-mmx4-convolution-rank) と [スペクトル点による上下界](../../TSP/TSP11/index.md#thm-tsp11-order-bounds) から各 $\lambda_\pi(C(a,b))\le a+b-1$。従って六つの積は $(a+b-1)^6$ 以下であり、両辺を正の指数 $1/(6t)$ で累乗することで上界が得られます。
 
 正整数 $a'\ge a$ のとき $C(a',b)$ の $x_i$（$i\ge a$）と $z_k$（$k\ge a+b-1$）を零にすれば $C(a,b)$ を得ます。従って各スペクトル点の制限単調性により $P(a',b)\ge P(a,b)$ です。対称性から第2入力でも成立します。
 <!-- proof-end -->
@@ -505,7 +505,9 @@ $F(\varepsilon)=B+\varepsilon F_1+\varepsilon^2F_2$ が全ての非零複素数 
 $$
 \lambda(B)^3\le\sum_{s=1}^7\lambda(F(\alpha_s))^3
 \le7\lambda(A)^3.
-$$従って $\lambda(B)\le7^{1/3}\lambda(A)$ です。
+$$
+
+従って $\lambda(B)\le7^{1/3}\lambda(A)$ です。
 <!-- solution-end -->
 <a id="ex-mmx4-a04"></a>
 
