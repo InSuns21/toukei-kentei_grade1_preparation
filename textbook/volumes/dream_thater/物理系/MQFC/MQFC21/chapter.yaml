@@ -2,7 +2,7 @@ id: MQFC21
 title: "Wilson格子ゲージ測度"
 volume: foundations
 status: supplementary
-prerequisites: [MQFC19, MQFC20]
+prerequisites: [MQFC19, MQFC20, SM3]
 official_scope: []
 learning_objectives:
   - 有限格子のWilson格子作用の不変性と有界性を導出できる

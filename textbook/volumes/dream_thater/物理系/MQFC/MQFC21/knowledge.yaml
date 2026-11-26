@@ -1,7 +1,7 @@
 chapter: MQFC21
 scope: dream-theater
 coverage: complete
-prerequisites: [MQFC19, MQFC20]
+prerequisites: [MQFC19, MQFC20, SM3]
 forward_references: []
 concepts:
   - id: mqfc.wilson-lattice-action
@@ -18,7 +18,7 @@ concepts:
     name: "Wilson格子ゲージ測度"
     kind: definition
     introduction: formal
-    requires: [mqfc.wilson-lattice-action, mqfc.haar-transform]
+    requires: [mqfc.wilson-lattice-action, mqfc.haar-transform, statistical-mechanics.partition-function]
   - id: mqfc.wilson-measure-construction
     name: "有限格子でのWilson測度の構成とゲージ不変性"
     kind: theorem
@@ -28,7 +28,7 @@ concepts:
     name: "分配関数の微分と作用の平均"
     kind: proposition
     introduction: formal
-    requires: [mqfc.wilson-measure-construction]
+    requires: [mqfc.wilson-measure-construction, statistical-mechanics.canonical-energy-fluctuation]
   - id: mqfc.wilson-classical-expansion
     name: "Wilson格子作用の古典的展開"
     kind: theorem
