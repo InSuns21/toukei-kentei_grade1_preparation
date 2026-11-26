@@ -32,7 +32,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mqfc28-covariance-split -->
-**定義の確認**：与えられた二点共分散を $C$ とし、平均方向と差分方向の単位ベクトルを $u=(1,1)^\top/\sqrt2$、$v=(1,-1)^\top/\sqrt2$ とする。独立な標準実Gaussian $G,H$ を用い、二つの揺らぎを $X_1=\sqrt2 Gu$、$X_2=Hv$ とする。両者は中心化され、例えば
+**定義の確認**：与えられた二点共分散を
+
+$$
+C=\frac12\begin{pmatrix}3&1\\1&3\end{pmatrix}
+$$
+
+とし、平均方向と差分方向の単位ベクトルを $u=(1,1)^\top/\sqrt2$、$v=(1,-1)^\top/\sqrt2$ とする。独立な標準実Gaussian $G,H$ を用い、二つの揺らぎを $X_1=\sqrt2 Gu$、$X_2=Hv$ とする。両者は中心化され、例えば
 
 $$
 \mathbb E[X_1X_1^\top]=2\mathbb E[G^2]uu^\top=2uu^\top.
@@ -54,7 +60,7 @@ C_1+C_2=
 =\frac12\begin{pmatrix}3&1\\1&3\end{pmatrix}.
 $$
 
-右端が与えられた二点共分散 $C=\frac12\begin{pmatrix}3&1\\1&3\end{pmatrix}$ であるから、分解の等式を満たす。$C_1$ の揺らぎは二点を同時に動かし、$C_2$ の揺らぎは二点の差を動かす。各成分が特異行列でも分解できる。
+右端が与えられた二点共分散 $C$ であるから、分解の等式を満たす。$C_1$ の揺らぎは二点を同時に動かし、$C_2$ の揺らぎは二点の差を動かす。各成分が特異行列でも分解できる。
 <!-- definition-example-end -->
 
 一つの尺度を積分する操作を $T_C$ と書く。ここで $x$ は固定した残りの場、$z$ は積分で動かす揺らぎ、$d\gamma_C(z)$ はその確率分布による積分を表す。Borel関数とはBorel集合に関して可測な関数である。非負なら積分が無限大でも操作を定義できる。
@@ -368,7 +374,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$|\widetilde U_{j-1}(y)-U_{j-1}(y)|\le E_{j-1}$ が全ての $y$ で成立するとする。指数化して
+$E_{j-1}=\sum_{k=1}^{j-1}\epsilon_k$（$j=1$ の空和は0）と置き、$|\widetilde U_{j-1}(y)-U_{j-1}(y)|\le E_{j-1}$ が全ての $y\in\mathbb R^n$ で成立するとする。指数化して
 
 $$
 e^{-E_{j-1}}e^{-U_{j-1}(y)}
@@ -424,14 +430,14 @@ Balabanの論文 [Large field renormalization I (1989)](https://doi.org/10.1007/
 <!-- solution-start -->
 **詳細解答**
 
-$X=G(1,1)^\top+H(1,-1)^\top$ なので、各共分散は
+$u=(1,1)^\top$、$v=(1,-1)^\top$ と書けば $X=Gu+Hv$ である。$\mathbb E G=\mathbb E H=0$、$\mathbb E G^2=\mathbb E H^2=1$ だから、各共分散は $\mathbb E[(Gu)(Gu)^\top]=uu^\top$、$\mathbb E[(Hv)(Hv)^\top]=vv^\top$ となる。座標で展開すると
 
 $$
 C_1=\begin{pmatrix}1&1\\1&1\end{pmatrix},
 \qquad C_2=\begin{pmatrix}1&-1\\-1&1\end{pmatrix}.
 $$
 
-各々 $w^\top C_1w=(w_1+w_2)^2$、$w^\top C_2w=(w_1-w_2)^2$ で半正定値かつ対称である。独立性から交差共分散は零で、和は $2I$ となる。[尺度別共分散分解](#def-mqfc28-covariance-split)の条件を満たす。
+各々 $w^\top C_1w=(w_1+w_2)^2$、$w^\top C_2w=(w_1-w_2)^2$ で半正定値かつ対称である。独立性から $\mathbb E[GH]=\mathbb E G\,\mathbb E H=0$ であり、交差項 $\mathbb E[GH](uv^\top+vu^\top)$ は零なので、共分散の和は $2I$ となる。[尺度別共分散分解](#def-mqfc28-covariance-split)の条件を満たす。
 <!-- solution-end -->
 
 ### 演習 MQFC28-A2：二次作用
@@ -536,7 +542,13 @@ $$
 q=\mathbb E e^{-V}\ge0.99/2=0.495.
 $$
 
-従って大場確率は $0.01/0.495=2/99$ 以下。反例として元の大場確率をちょうど $0.01$、大場で $V=0$、小場で $V=M>0$ とすると、規格化後の大場確率は
+従って規格化後の大場確率は
+
+$$
+\frac{\mathbb E[e^{-V}1_{B_R}]}{q}
+\le\frac{0.01}{0.495}=\frac2{99}.
+$$
+反例として元の大場確率をちょうど $0.01$、大場で $V=0$、小場で $V=M>0$ とすると、規格化後の大場確率は
 
 $$
 \frac{0.01}{0.01+0.99e^{-M}}\longrightarrow1
@@ -576,7 +588,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-(1) [Gaussian大場の確率と積分の評価](#thm-mqfc28-large-field-bound)では $\sigma^2=1$ として
+(1) $R_j$ は指定された $R_j^2$ の正の平方根とする。[Gaussian大場の確率と積分の評価](#thm-mqfc28-large-field-bound)では $\sigma^2=1$ として
 
 $$
 \delta_j=2\cdot2^j e^{-(3j+2)\log2}
