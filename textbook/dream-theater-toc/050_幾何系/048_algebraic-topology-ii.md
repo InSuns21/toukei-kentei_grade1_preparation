@@ -8,3 +8,4 @@
 5. [ATOP17 鎖ホモトピーとホモトピー不変性](textbook/volumes/dream_thater/幾何系/ATOP/ATOP17/index.md)
 6. [ATOP18 相対ホモロジーと長完全列](textbook/volumes/dream_thater/幾何系/ATOP/ATOP18/index.md)
 7. [ATOP19 切除定理](textbook/volumes/dream_thater/幾何系/ATOP/ATOP19/index.md)
+8. [ATOP20 Mayer–Vietoris完全列](textbook/volumes/dream_thater/幾何系/ATOP/ATOP20/index.md)
