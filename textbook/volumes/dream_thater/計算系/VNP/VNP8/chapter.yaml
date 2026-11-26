@@ -1,0 +1,25 @@
+id: VNP8
+title: "D：F₂行列rank、transversal pair、平均D(r)の劣加法性"
+volume: foundations
+status: supplementary
+prerequisites: [VNP7, VNP3, NPCG6]
+official_scope: []
+learning_objectives:
+  - 二元体上の横断的な行列族の階数加法性を証明できる
+  - 可逆な左右乗算から横断対と和の階数別一様性を導ける
+  - CAT(0)の四辺形不等式から階数別二乗平均距離の劣加法性を導ける
+  - 規格化と有限次元の部分列抽出から上界を達成するpriceを構成できる
+definitions:
+  - { id: VNP8-DEF-01, name: "横断的な行列族" }
+  - { id: VNP8-DEF-02, name: "階数別二乗平均距離" }
+theorems:
+  - { id: VNP8-THM-01, name: "横断和の階数加法性" }
+  - { id: VNP8-THM-02, name: "横断対の階数別一様性" }
+  - { id: VNP8-THM-03, name: "階数別二乗平均距離の劣加法性" }
+  - { id: VNP8-THM-04, name: "階数別平均の上界を達成するprice" }
+canonical_examples: [二次正方行列の横断対, 階数別一様分布, 階数距離の反例]
+problem_patterns: [VNP8-A1, VNP8-A2, VNP8-A3, VNP8-A4, VNP8-B1, VNP8-B2, VNP8-B3, VNP8-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
