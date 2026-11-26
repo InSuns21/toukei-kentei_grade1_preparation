@@ -1,0 +1,31 @@
+chapter: ATOP25
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP22, ATOP19]
+forward_references: []
+concepts:
+  - id: atop.local-homology
+    name: 局所ホモロジー群
+    kind: definition
+    introduction: formal
+    requires: [atop.relative-singular-homology, atop.relative-induced-map]
+  - id: atop.local-homology-neighborhood
+    name: 局所ホモロジーの近傍不変性
+    kind: theorem
+    introduction: formal
+    requires: [atop.local-homology, atop.excision]
+  - id: atop.euclidean-local-homology
+    name: Euclid 空間の局所ホモロジー
+    kind: theorem
+    introduction: formal
+    requires: [atop.local-homology-neighborhood, atop.disk-relative-homology, atop.homotopy-equivalence-homology, atop.relative-long-exact-naturality, atop.exact-sequence-central-comparison, atop.relative-long-exact-sequence]
+  - id: atop.halfspace-local-homology
+    name: 半空間の局所ホモロジー
+    kind: theorem
+    introduction: formal
+    requires: [atop.euclidean-local-homology, atop.contractible-reduced-homology, atop.singular-h0-path-components, atop.relative-long-exact-sequence]
+  - id: atop.invariance-of-dimension
+    name: 次元不変性
+    kind: theorem
+    introduction: formal
+    requires: [atop.euclidean-local-homology, atop.local-homology-neighborhood, atop.relative-induced-map]
