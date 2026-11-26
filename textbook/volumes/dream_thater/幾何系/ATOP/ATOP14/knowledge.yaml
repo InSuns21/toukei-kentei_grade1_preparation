@@ -1,0 +1,43 @@
+chapter: ATOP14
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP13, MOD2]
+forward_references: []
+concepts:
+  - id: atop.simplicial-cycle
+    name: 単体サイクル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単体サイクルと単体境界鎖）"]
+    requires: [atop.simplicial-boundary, algebra.module-homomorphism]
+  - id: atop.simplicial-boundary-chain
+    name: 単体境界鎖
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単体サイクルと単体境界鎖）"]
+    requires: [atop.simplicial-boundary, algebra.module-homomorphism]
+  - id: atop.simplicial-homology
+    name: 単体ホモロジー群
+    kind: definition
+    introduction: formal
+    requires: [atop.simplicial-cycle, atop.simplicial-boundary-chain, atop.boundary-square-zero, algebra.quotient-module]
+  - id: atop.h0-components
+    name: 0次単体ホモロジーと成分
+    kind: theorem
+    introduction: formal
+    requires: [atop.simplicial-homology, atop.simplicial-boundary]
+  - id: atop.smith-homology-computation
+    name: Smith 標準形による単体ホモロジーの計算
+    kind: theorem
+    introduction: formal
+    requires: [atop.simplicial-homology, algebra.smith-normal-form-theorem, algebra.matrix-equivalence-cokernel]
+  - id: atop.euler-poincare-chain-identity
+    name: Euler–Poincaré の鎖レベル恒等式
+    kind: theorem
+    introduction: formal
+    requires: [atop.smith-homology-computation, algebra.fg-abelian-group-structure]
+  - id: atop.induced-homology-map
+    name: 単体写像の誘導ホモロジー準同型
+    kind: theorem
+    introduction: formal
+    requires: [atop.simplicial-homology, atop.simplicial-chain-map-boundary, atop.simplicial-chain-map-composition]
