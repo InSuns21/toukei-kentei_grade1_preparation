@@ -47,7 +47,7 @@ $$
 従って $B_1(K)=\mathbb Z u$ です。例えば $2u$ は両方でサイクルですが、$K$ では $2[a,b,c]$ の境界、$L$ では境界ではありません。
 <!-- definition-example-end -->
 
-[核と像は部分加群](../../../代数系/MOD/MOD1/index.md#prop-mod1-kernel-image)であり、[二重境界の消滅](../ATOP13/index.md#thm-atop13-boundary-square)により $b=\partial_{n+1}c$ なら $\partial_n b=0$ です。従って $B_n\subseteq Z_n$ が成立します。この包含があるからこそ、[商加群](../../../代数系/MOD/MOD1/index.md#def-mod1-quotient-module) を作り、閉じた鎖を境界の差だけ無視して分類できます。この商を単体ホモロジー群と呼びます。
+[核と像は部分加群](../../../代数系/MOD/MOD1/index.md#prop-mod1-kernel-image)であり、[二重境界の消滅](../ATOP13/index.md#thm-atop13-boundary-square)により $b=\partial_{n+1}c$ なら $\partial_n b=0$ です。従って $B_n\subseteq Z_n$ が成立します。この包含があるからこそ、[商加群](../../../代数系/MOD/MOD1/index.md#def-mod1-quotient-module) を作り、閉じた鎖を境界の差だけ無視して分類できます。次の定義で、この商に名前を与えます。
 
 以下ではサイクル $z$ のホモロジー類を $[z]$ と書きます。[前講の境界の座標表示](../ATOP13/index.md#boundary-matrix-coordinates) で $[z]$ と書いた座標列とは異なります。$[a,b]$ や $[a]$ は向き付き単体の基底記号ですが、0次の類を述べる文脈では頂点鎖を $a$ と略記し、その類を $[a]$ と書きます。$H_n(K)$ は整数係数 $H_n(K;\mathbb Z)$ の略記です。
 
