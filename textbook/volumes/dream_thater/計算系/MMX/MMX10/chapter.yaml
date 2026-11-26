@@ -1,0 +1,30 @@
+id: MMX10
+title: "spectral priceの曲率・完備化・ultralimit・積・合同と拡張条件、Euclid flatと非平坦空間の違い"
+volume: foundations
+status: supplementary
+prerequisites: [MMX9, TSP12, NPCG6]
+official_scope: []
+learning_objectives:
+  - 完備化と点付き超極限で価格の整合性を保存する理由を説明できる
+  - 一点拡張の中心縮約と漸近スペクトル双対性による矛盾を再構成できる
+  - 交差分解の階数指数を導きノルム剛性から非正曲率を示せる
+  - 距離直積の曲率とスペクトル価格の加法性を区別できる
+  - 平坦価格の斉次化と合同不変な Hilbert 空間上の価格の構成を条件付きで導ける
+definitions:
+  - { id: MMX10-DEF-01, name: "点付き距離空間の超極限" }
+theorems:
+  - { id: MMX10-THM-01, name: "価格を保存する距離極限" }
+  - { id: MMX10-THM-02, name: "スペクトル点の一点拡張" }
+  - { id: MMX10-THM-03, name: "価格保存測地線拡張" }
+  - { id: MMX10-THM-04, name: "交差分解の階数交換" }
+  - { id: MMX10-THM-05, name: "スペクトル距離のノルム平面剛性" }
+  - { id: MMX10-LEM-06, name: "線形に離れる測地線の扇形" }
+  - { id: MMX10-THM-07, name: "測地的スペクトル空間の非正曲率" }
+  - { id: MMX10-LEM-08, name: "平坦価格の斉次化" }
+  - { id: MMX10-THM-09, name: "Hilbert 空間上の合同不変価格" }
+canonical_examples: [脚の合流, 中心縮約, 三葉の木, 合同不変価格]
+problem_patterns: [MMX10-A01, MMX10-A02, MMX10-A03, MMX10-A04, MMX10-B01, MMX10-B02, MMX10-B03, MMX10-B04, MMX10-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 5, review: 3 }
