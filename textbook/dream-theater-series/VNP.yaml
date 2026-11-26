@@ -74,7 +74,7 @@ chapters:
     title: "H：networkをthin treeの和へ、depth・packet・straight-line program"
   - id: VNP18
     path: textbook/volumes/dream_thater/計算系/VNP/VNP18
-    status: planned
+    status: completed
     title: "I：重み付き木プログラム・universal tape automatonとnetwork化"
   - id: VNP19
     path: textbook/volumes/dream_thater/計算系/VNP/VNP19

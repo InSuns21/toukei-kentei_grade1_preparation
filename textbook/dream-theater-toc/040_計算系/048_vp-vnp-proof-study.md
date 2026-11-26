@@ -18,3 +18,4 @@
 15. [VNP15 G：Poincaréからrerouting laws、有限生成係数環、loadの評価](textbook/volumes/dream_thater/計算系/VNP/VNP15/index.md)
 16. [VNP16 H：切断多項式環上のSL群の塔・辺タイプ・剰余類](textbook/volumes/dream_thater/計算系/VNP/VNP16/index.md)
 17. [VNP17 H：networkをthin treeの和へ、depth・packet・straight-line program](textbook/volumes/dream_thater/計算系/VNP/VNP17/index.md)
+18. [VNP18 I：重み付き木プログラム・universal tape automatonとnetwork化](textbook/volumes/dream_thater/計算系/VNP/VNP18/index.md)
