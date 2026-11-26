@@ -18,14 +18,14 @@ $$
 
 従って $C(W)$ は線形写像 $x\mapsto Wx$ の像です。階数 $\operatorname{rk}W$ はこの像の[次元](../../../代数系/FLD/FLD0/index.md#def-fld0-dimension-over-field)です。行空間の次元もこれに一致することは次の分解で確認できます。
 
-$r=\operatorname{rk}W$ とします。$r=0$ なら全列が零なので $W=0$ です。以下 $r>0$ とします。列空間から基底となる $r$ 本の列を選んで並べた行列を $U$（$\mu\times r$）、各列のその基底での座標を並べた行列を $V$（$r\times\mu$）とすると、
+$r=\operatorname{rk}W$ とします。$r=0$ なら全列が零なので $W=0$ です。以下 $r>0$ とします。列空間から基底となる $r$ 本の列を選んで並べた行列を $U$（$\mu\times r$）、各列のその基底での座標を並べた行列を $V$（$r\times\mu$）とします。$U_{\cdot h}$ を $U$ の第 $h$ 列、$V_{hj}$ を第 $h$ 行第 $j$ 列の成分と書けば、
 
 $$
 We_j=\sum_{h=1}^r U_{\cdot h}V_{hj},
 \qquad W=UV
 $$
 
-です。$U_{\cdot h}$ は $U$ の第 $h$ 列、$V_{hj}$ は第 $h$ 行第 $j$ 列の成分です。基底に選んだ列に対応する $V$ の列は $\mathbb F_2^r$ の標準基底です。従って行の一次結合 $\lambda^{\mathsf T}V=0$ をその $r$ 列で評価すると各係数 $\lambda_h=0$ となり、$V$ の行は独立です。
+です。基底に選んだ列に対応する $V$ の列は $\mathbb F_2^r$ の標準基底です。従って行の一次結合 $\lambda^{\mathsf T}V=0$ をその $r$ 列で評価すると各係数 $\lambda_h=0$ となり、$V$ の行は独立です。
 
 [基底延長](../../../代数系/FLD/FLD0/index.md#thm-fld0-steinitz-basis-extension-over-field) により $U$ の列を $\mathbb F_2^\mu$ の基底に延長できます。その基底で最初の $r$ 座標を取り出す線形写像の行列を $L$（$r\times\mu$）とすれば $LU=I_r$（$I_r$ は $r$ 次単位行列）です。従って
 
@@ -79,7 +79,7 @@ $$
 UV=\sum_h U_hV_h=\sum_h W_h.
 $$
 
-列空間の直和条件により $U$ の全列は独立です。実際、列の一次結合が零なら各ブロックの寄与が零で、その内部の基底の係数もすべて零です。従って $\rho\le\mu$、$U:\mathbb F_2^\rho\to\mathbb F_2^\mu$ は単射です。行空間の直和条件と $R(V_h)=R(W_h)$ から $V$ の全行も独立です。もし $V$ の像が $\mathbb F_2^\rho$ の真部分空間なら、その像の基底を延長して、追加した基底の一つに1、他の基底に0を割り当てる非零線形汎関数 $\lambda^{\mathsf T}$ を取れます。像上で零なので $\lambda^{\mathsf T}V=0$ となりますが、これは行の一次独立性に反します。従って $V:\mathbb F_2^\mu\to\mathbb F_2^\rho$ は全射です。よって
+列空間の直和条件により $U$ の全列は独立です。実際、列の一次結合が零なら各ブロックの寄与が零で、その内部の基底の係数もすべて零です。従って $\rho\le\mu$、$U:\mathbb F_2^\rho\to\mathbb F_2^\mu$ は単射です。行空間の直和条件と $R(V_h)=R(W_h)$ から $V$ の全行も独立です。もし $V$ の像が $\mathbb F_2^\rho$ の真部分空間なら、その像の基底を延長して、追加した基底の一つに1、他の基底に0を割り当てる非零線形写像 $\mathbb F_2^\rho\to\mathbb F_2$ を取れます。その標準基底での行列を行ベクトル $\lambda^{\mathsf T}$ と書きます。像上で零なので $\lambda^{\mathsf T}V=0$ となりますが、これは行の一次独立性に反します。従って $V:\mathbb F_2^\mu\to\mathbb F_2^\rho$ は全射です。よって
 
 $$
 \operatorname{im}(UV)=U(\operatorname{im}V)=U(\mathbb F_2^\rho).
@@ -391,7 +391,7 @@ $$
 - Level: B
 - ID: VNP8-B3
 
-$\mu=2$ で $\delta(a,b)=\operatorname{rk}(b-a)$ と置く。この距離が三角不等式を満たすことを示し、$D(r)$ の二乗劣加法性が成立するか調べよ。
+$\mu=2$ で $\delta(a,b)=\operatorname{rk}(b-a)$ と置く。この距離が三角不等式を満たすことを示し、第2節と同じ平均式を $\delta$ に適用した値 $D_\delta(r)$ に二乗劣加法性が成立するか調べよ。
 
 <!-- solution-start -->
 **詳細解答**：任意の行列 $A,B$ について $(A+B)x=Ax+Bx$ なので像は $C(A)+C(B)$ に含まれ、階数は $\operatorname{rk}A+\operatorname{rk}B$ 以下です。$c-a=(c-b)+(b-a)$ とすれば三角不等式。対称性は負号で階数が変わらないこと、零距離は階数0の行列が零行列のみであることから従います。差の階数 $r$ の全組で距離は $r$ なので、[階数別二乗平均距離](#def-vnp8-rank-average) と同じ平均式を $\delta$ に用いた値は $D_\delta(r)^2=r^2$ です。ここでは price かどうかをこれから判定するため、$D_\delta$ と区別します。$i=j=1$ では左辺4、右辺2で成立しません。
