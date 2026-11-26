@@ -1,0 +1,46 @@
+chapter: MQFC29
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC10, MQFC13, MQFC21, MQFC22, MQFC26, MQFC28]
+forward_references: []
+concepts:
+  - id: mqfc.continuum-observable
+    name: "くりこまれた格子平均観測量"
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: mqfc.continuum-joint-limit
+    name: "二つの制限の同時極限"
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: mqfc.continuum-uniform-error
+    name: "二重極限の一様誤差判定"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.continuum-joint-limit]
+  - id: mqfc.continuum-product-moment
+    name: "積相関の一様可積分性判定"
+    kind: theorem
+    introduction: formal
+    requires: []
+  - id: mqfc.continuum-hierarchy
+    name: "相関階層の共通部分列抽出"
+    kind: theorem
+    introduction: formal
+    requires: []
+  - id: mqfc.continuum-positivity-limit
+    name: "反射形式の極限保存"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.continuum-hierarchy]
+  - id: mqfc.continuum-unique-limit
+    name: "部分列の一意性による全列収束"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.continuum-hierarchy]
+  - id: mqfc.continuum-variance-limit
+    name: "正の分散による非自明性判定"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.continuum-product-moment]

@@ -1,0 +1,28 @@
+id: MQFC29
+title: "連続極限と無限体積極限をどう閉じるか"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC10, MQFC13, MQFC21, MQFC22, MQFC26, MQFC28]
+official_scope: []
+learning_objectives:
+  - ゲージ不変観測量を試験関数で平均し規格化の役割を説明できる
+  - 連続極限と無限体積極限の一様誤差を判定できる
+  - 緊密性と積相関の一様可積分性を区別し評価できる
+  - 共通部分列を抽出し反射陽性と増大条件の保存を説明できる
+  - 極限の一意性・非自明性・物理ギャップを別々に判定できる
+definitions:
+  - { id: MQFC29-DEF-01, name: "くりこまれた格子平均観測量" }
+  - { id: MQFC29-DEF-02, name: "二つの制限の同時極限" }
+theorems:
+  - { id: MQFC29-THM-01, name: "二重極限の一様誤差判定" }
+  - { id: MQFC29-THM-02, name: "積相関の一様可積分性判定" }
+  - { id: MQFC29-THM-03, name: "相関階層の共通部分列抽出" }
+  - { id: MQFC29-PROP-04, name: "反射形式の極限保存" }
+  - { id: MQFC29-PROP-05, name: "部分列の一意性による全列収束" }
+  - { id: MQFC29-PROP-06, name: "正の分散による非自明性判定" }
+canonical_examples: [定数観測量の規格化, 二重極限の不一致, 積相関の尾, 偶奇部分列]
+problem_patterns: [MQFC29-A1, MQFC29-A2, MQFC29-A3, MQFC29-A4, MQFC29-B1, MQFC29-B2, MQFC29-B3, MQFC29-B4, MQFC29-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }
