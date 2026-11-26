@@ -25,5 +25,5 @@ canonical_examples: [U(1)の辺の逆元, SU(2)の非可換積, 定数磁場の�
 problem_patterns: [MQFC19-LINK, MQFC19-COVARIANCE, MQFC19-PLAQUETTE, MQFC19-LOOP]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 5, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 3, exercises: 3, review: 1 }
