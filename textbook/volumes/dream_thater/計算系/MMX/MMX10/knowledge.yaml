@@ -1,0 +1,66 @@
+chapter: MMX10
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX9, TSP12, NPCG6, SET9, TOP6, F0-00P4, F0-02C3]
+forward_references: []
+concepts:
+  - id: matrix-exponent.ultralimit
+    name: "点付き距離空間の超極限"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（点付き距離空間の超極限）"]
+    requires: [topology.ultrafilter, topology.filter]
+  - id: matrix-exponent.limit-prices
+    name: "価格を保存する距離極限"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（価格を保存する距離極限）"]
+    requires: [matrix-exponent.compatible-system, matrix-exponent.wire-transport, matrix-exponent.ultralimit]
+  - id: matrix-exponent.extension
+    name: "スペクトル点の一点拡張"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（スペクトル点の一点拡張）"]
+    requires: [tensor.strassen-duality, matrix-exponent.compatible-system]
+  - id: matrix-exponent.geodesic-extension
+    name: "価格保存測地線拡張"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（価格保存測地線拡張）"]
+    requires: [matrix-exponent.extension, matrix-exponent.limit-prices, matrix-exponent.placement-convexity]
+  - id: matrix-exponent.crossing
+    name: "交差分解の階数交換"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（交差分解の階数交換）"]
+    requires: []
+  - id: matrix-exponent.norm-rigidity
+    name: "スペクトル距離のノルム平面剛性"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（スペクトル距離のノルム平面剛性）"]
+    requires: [matrix-exponent.crossing, matrix-exponent.price-rules]
+  - id: matrix-exponent.sector
+    name: "線形に離れる測地線の扇形"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（線形に離れる測地線の扇形）"]
+    requires: [matrix-exponent.geodesic-extension, matrix-exponent.norm-rigidity]
+  - id: matrix-exponent.curvature
+    name: "測地的スペクトル空間の非正曲率"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（測地的スペクトル空間の非正曲率）"]
+    requires: [matrix-exponent.sector, matrix-exponent.limit-prices, metric-geometry.cn-cat-zero-equivalence]
+  - id: matrix-exponent.homogenize
+    name: "平坦価格の斉次化"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（平坦価格の斉次化）"]
+    requires: [matrix-exponent.placement-convexity, matrix-exponent.limit-prices]
+  - id: matrix-exponent.congruence
+    name: "Hilbert 空間上の合同不変価格"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hilbert 空間上の合同不変価格）"]
+    requires: [matrix-exponent.homogenize, matrix-exponent.flat-law, matrix-exponent.limit-prices, prob.probability-convergence, functional.bounded-linear-operator]

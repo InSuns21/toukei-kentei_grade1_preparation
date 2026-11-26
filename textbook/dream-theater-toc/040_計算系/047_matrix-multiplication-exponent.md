@@ -10,3 +10,4 @@
 7. [MMX7 長方形乗算・dual exponentの定義、既知上界と平方の場合の関係、指数の正規化](textbook/volumes/dream_thater/計算系/MMX/MMX7/index.md)
 8. [MMX8 price・wire・共通ラベル・局所restriction：辺長の和とrank分解の不等式、Euclid三角形の比2](textbook/volumes/dream_thater/計算系/MMX/MMX8/index.md)
 9. [MMX9 Euclidean geometry companion：compatible spectral system、mean width、Gaussian表示、flat lawの証明と共有ラベルの増分](textbook/volumes/dream_thater/計算系/MMX/MMX9/index.md)
+10. [MMX10 spectral priceの曲率・完備化・ultralimit・積・合同と拡張条件、Euclid flatと非平坦空間の違い](textbook/volumes/dream_thater/計算系/MMX/MMX10/index.md)
