@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 200" data-layout-lint="strict" role="img">
+<title>三辺だけの複体と三角形全体</title><desc>左は白い内部、右は面を含む三角形。いずれも頂点 a b c と三辺を持つ。</desc>
+<path d="M60 145 L150 145 L105 45 Z" fill="none" stroke="#26364a" stroke-width="2.5"/><path d="M310 145 L400 145 L355 45 Z" fill="#b8d6e9" stroke="#26364a" stroke-width="2.5"/>
+<g fill="#26364a" font-size="16" text-anchor="middle"><text x="45" y="163">a</text><text x="165" y="163">b</text><text x="105" y="31">c</text><text x="295" y="163">a</text><text x="415" y="163">b</text><text x="355" y="31">c</text></g>
+</svg>
