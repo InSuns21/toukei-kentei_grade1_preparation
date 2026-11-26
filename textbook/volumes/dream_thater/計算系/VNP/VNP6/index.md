@@ -199,7 +199,9 @@ $r=0,\ldots,R-1$ で和を取ると左辺は $A_0-A_R$、$A_0=1$、$A_R$ の全�
 
 ## 3. 交差する二本のwireを分解する
 
-[Frobenius記号](#def-vnp6-symbol) のうち大きさ $n_1$、エネルギー $e_1$ のものを全て集めた非空集合を $\Sigma_1$、大きさ $n_2$、エネルギー $e_2$ のものを $\Sigma_2$ とします。[party添字付き係数配列](../VNP2/index.md#def-vnp2-party-array) の四つの添字位置を $a,b,c,d$ とし、$a,c$ の添字を $\Sigma_1$、$b,d$ の添字を $\Sigma_2$ にします。
+[Frobenius記号](#def-vnp6-symbol) のうち大きさ $n_1$、エネルギー $e_1$ のものを全て集めた非空集合を $\Sigma_1$、大きさ $n_2$、エネルギー $e_2$ のものを $\Sigma_2$ とします。
+
+[party添字付き係数配列](../VNP2/index.md#def-vnp2-party-array) の四つの添字位置を $a,b,c,d$ とし、$a,c$ の添字を $\Sigma_1$、$b,d$ の添字を $\Sigma_2$ にします。
 
 [wire資源](../VNP2/index.md#def-vnp2-wire) の積の係数は $\delta_{s_a,s_c}\delta_{s_b,s_d}$ です。ここでは整数添字だけでなく記号や集合に対しても、等しいとき1、異なるとき0という同じ一致記号 $\delta$ を使います。これを二つの分割で同時に評価したいのです。一つの分割では $(a,d)$ と $(b,c)$、もう一つでは $(a,b)$ と $(c,d)$ を一組にします。分離積とは、片側の添字だけの関数と反対側の添字だけの関数の積です。
 
@@ -234,7 +236,9 @@ M=\begin{pmatrix}
 \end{pmatrix}.
 $$
 
-この表示は $4\times4$ 個のブロックを意味し、各ブロックの行・列番号は所属する集合から取ります。例えば上端の第二ブロックは $i\in I_a$、$j\in J_d$ の全ての組について $C(i,j;y)$ を並べた $n_1\times n_2$ 行列です。$i,j$ は行列全体の通し番号ではなく各集合の要素です。空集合に対応する行列は空とし、零次の行列式は1です。$H(X;s_a,s_b,s_c,s_d)=\det M$ は整数係数多項式です。
+この表示は $4\times4$ 個のブロックを意味し、各ブロックの行・列番号は所属する集合から取ります。例えば上端の第二ブロックは $i\in I_a$、$j\in J_d$ の全ての組について $C(i,j;y)$ を並べた $n_1\times n_2$ 行列です。
+
+$i,j$ は行列全体の通し番号ではなく各集合の要素です。空集合に対応する行列は空とし、零次の行列式は1です。$H(X;s_a,s_b,s_c,s_d)=\det M$ は整数係数多項式です。
 
 **$X=1$ の評価。** $m=n_1+n_2$ と置きます。第一組 $(a,d)$、第二組 $(c,b)$ でまとめると、$X=1$ では右下の $m$ 次ブロックが零です。
 
@@ -427,7 +431,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず八つの異なるparty上の [被覆型スペクトル点](../VNP3/index.md#def-vnp3-cover-spectral) $\phi$ と、[対角資源の指数と擬距離](../VNP3/index.md#lem-vnp3-exponents) で定義された $d_\phi$ を考えます。この段階の $|ab|$ は $d_\phi(a,b)$ を表します。整数 $h\ge1$ に対し $E_1=\lfloor p^2 h\rfloor,E_2=\lfloor q^2 h\rfloor$ とし、第1節の最大クラスを $\Sigma_i$ に取ります。大きさを $m_i$、エネルギーを $e_i\le E_i$ とします。
+まず八つの異なるparty上の [被覆型スペクトル点](../VNP3/index.md#def-vnp3-cover-spectral) $\phi$ と、[対角資源の指数と擬距離](../VNP3/index.md#lem-vnp3-exponents) で定義された $d_\phi$ を考えます。この段階の $|ab|$ は $d_\phi(a,b)$ を表します。
+
+整数 $h\ge1$ に対し、エネルギーの上限を
+
+$$
+E_1=\lfloor p^2h\rfloor,\qquad E_2=\lfloor q^2h\rfloor
+$$
+
+と定めます。第1節の最大クラスを $\Sigma_i$ に取り、その個数を $m_i$、エネルギーを $e_i\le E_i$ とします。
 
 [記号の個数評価](#lem-vnp6-count) と最大クラスの上下界から、$p>0$ なら $E_1\to\infty$ かつ $\sqrt{E_1}/\sqrt h\to p$ なので $\ln m_1/(\kappa\sqrt h)\to p$。$p=0$ なら $E_1=0,m_1=1$ で同じ結論です。$q$ についても $q>0$ なら $E_2\to\infty$ と $\sqrt{E_2/h}\to q$、$q=0$ なら $m_2=1$ です。従って
 
@@ -445,7 +457,15 @@ $$
 \le(\Theta+1)\max_N\phi(\Psi_N).
 $$
 
-$T$ は非零です。[非零配列から単位テンソルを得る命題](../VNP2/index.md#prop-vnp2-one-restriction) とスペクトル点の単調性から $\phi(T)\ge1$ です。一方、空被覆から $\phi(0)=0$ です。従って最大を取る $N=N_h$ では $\phi(\Psi_N)\ge\phi(T)/(\Theta+1)>0$ であり、$\Psi_N\ne0$ です。対数を取って $\kappa\sqrt h$ で割ると
+$T$ は非零です。[非零配列から単位テンソルを得る命題](../VNP2/index.md#prop-vnp2-one-restriction) とスペクトル点の単調性から $\phi(T)\ge1$ です。一方、空被覆から $\phi(0)=0$ です。
+
+従って最大を取る $N=N_h$ では
+
+$$
+\phi(\Psi_N)\ge\frac{\phi(T)}{\Theta+1}>0
+$$
+
+であり、$\Psi_N\ne0$ です。対数を取って $\kappa\sqrt h$ で割ると
 
 $$
 a_h|xv|+b_h|yu|-\frac{\ln(\Theta+1)}{\kappa\sqrt h}
@@ -454,7 +474,21 @@ $$
 
 $\Theta=2(e_1+e_2)\le2(p^2+q^2)h$ なので最後の誤差項は0へ収束します。
 
-第一のハブ対 $(o,o')$ には分割 $(x,y)\mid(v,u)$ を用い、項数上界を $S=(\Theta-N+1)P(\Theta-N)$ とします。[二ハブの長さ評価](../VNP3/index.md#thm-vnp3-hub-length) を適用します。外側添字数は $x,y,v,u$ の順に $m_1,m_2,m_1,m_2$、非零配列 $\Psi_N$ の分離積の項数は $S\ge1$ 以下です。使わない二つのハブの添字は一元集合のままでよく、その場所の局所写像は恒等写像です。従って八party上でも同じ実現と制限が成り立ちます。対数の底を自然対数に変更するには両辺を $\ln2$ 倍すればよく、
+第一のハブ対 $(o,o')$ には分割 $(x,y)\mid(v,u)$ を用います。項数上界は
+
+$$
+S=(\Theta-N+1)P(\Theta-N)\ge1
+$$
+
+です。[二ハブの長さ評価](../VNP3/index.md#thm-vnp3-hub-length) を非零配列 $\Psi_N$ に適用します。外側の添字数は
+
+$$
+(n_x,n_y,n_v,n_u)=(m_1,m_2,m_1,m_2)
+$$
+
+であり、分離積の項数は $S$ 以下です。使わない二つのハブの添字は一元集合のままで、その場所の局所写像は恒等写像です。従って八party上でも同じ実現と制限が成り立ちます。
+
+対数の底を自然対数に変更するには両辺を $\ln2$ 倍すればよく、
 
 $$
 \frac{\ln\phi(\Psi_N)}{\kappa\sqrt h}
@@ -625,7 +659,15 @@ $$
 \le\frac{\ln P(4h)}{\kappa\sqrt h}.
 $$
 
-両側は2に収束します。$m_2=P(0)=1$ なので第二の対数は0です。$e_1\le4h,e_2=0$ から $\Theta/h=2e_1/h\le8$。[交差不等式](#prop-vnp6-crossing-inequality) の証明で定義した $r_h,r'_h$ について、従って $r_h^2+r_h'^2=\Theta/h\le8$ です。$q=0$ のときに $\sqrt{E_2}$ で割ってはいけません。
+両側は2に収束します。$m_2=P(0)=1$ なので第二の対数は0です。
+
+$e_1\le4h,e_2=0$ から $\Theta/h=2e_1/h\le8$ です。[交差不等式](#prop-vnp6-crossing-inequality) の証明で定義した中央係数について
+
+$$
+r_h^2+r_h'^2=\Theta/h\le8
+$$
+
+です。$q=0$ のときに $\sqrt{E_2}$ で割ってはいけません。
 <!-- solution-end -->
 
 ### C1. 同時評価から二乗評価へ
