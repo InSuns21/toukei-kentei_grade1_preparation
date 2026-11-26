@@ -294,15 +294,19 @@ $$
 
 分解を再帰的に使うと、$b^k$ 次の積の全演算数 $T_k$ は次の漸化式を満たします。固定された $b,r$ に対し $c$ は入力・出力の線形結合に必要な定数です。
 
-$
+$$
+
 T_k\le rT_{k-1}+c b^{2(k-1)}.
-$
+
+$$
 
 繰り返し代入すると
 
-$
+$$
+
 T_k\le r^k T_0+c\sum_{j=0}^{k-1}r^j b^{2(k-1-j)}.
-$
+
+$$
 
 [行列積テンソルの基本上下界](../../TSP/TSP7/index.md#thm-tsp7-matrix-bounds) より $r\ge b^2$ なので、和の各項は $r^{k-1}$ 以下。よって $T_k\le r^kT_0+ckr^{k-1}=O(k r^k)$ です。$r=b^2$ の場合も含めて指数に任意の正の余裕を加えれば十分です。
 
@@ -510,11 +514,13 @@ $$
 
 従って $\lambda(T)\ge\sqrt{13}$。この選択が最大を与えることも確認します。$U_1=4,U_2=9$ とし、全ての $q_i>0$ に対して $\log x\le x-1$ ($x>0$、$x-1-\log x$ は $x=1$ で最小値0) を使えば
 
-$
+$$
+
 \sum_i q_i\log\frac{U_i}{13q_i}
 \le\sum_i q_i\left(\frac{U_i}{13q_i}-1\right)
 =1-1=0.
-$
+
+$$
 
 従って $\prod_i(U_i/q_i)^{q_i}\le13$ です。境界では右辺の値が4または9なので13を超えません。
 <!-- solution-end -->
@@ -546,16 +552,20 @@ $\mathbb F_4$ の $\alpha^2=\alpha+1$ を用いて $(1+\alpha)^2$ と $\alpha(1+
 
 冪の1回当たりの階数上界と行列サイズの増加率の対数比を取ります。増加率の定義に上限が含まれるので、$1<\rho<a^{4/3}$ を選んでから有限の冪を選ぶと、行列サイズの増加率が $\rho$ 以上になります。[行列積指数と漸近階数の一致](../../TSP/TSP14/index.md#thm-tsp14-omega-rank) と [多項式退化のスペクトル単調性](../MMX4/index.md#lem-mmx4-spectral-degeneration) の冪・補間の議論から
 
-$
+$$
+
 \omega_K\le\frac{3\log(2a-1)}{\log\rho}.
-$
+
+$$
 
 $\rho\uparrow a^{4/3}$ とすると
 
-$
+$$
+
 \omega_K\le \frac{9}{4}
 \left(1+\frac{\log(2-1/a)}{\log a}\right).
-$
+
+$$
 
 括弧内の追加項は $a\to\infty$ で0に収束するので $\omega_K\le9/4$ です。Amanov–van den Berg–Zuiddamの操作的障壁は指定された構成規則の組合せだけを対象とするため、その規則で表せない算法を排除しません。したがってすべての算法について $\omega_K\ge9/4$ とは結論できません。
 <!-- solution-end -->
