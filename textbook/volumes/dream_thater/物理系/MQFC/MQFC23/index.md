@@ -47,7 +47,7 @@ $$
 \langle f,Pg\rangle=\int ds\int dA\,\overline{f(A)}g(sA)
 $$
 
-で被積分関数の絶対値の積分は Cauchy–Schwarz の不等式により $\|f\|_2\|g\|_2$ 以下である。[Fubini の定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) を実部・虚部に適用できる。$B=sA$ と置き、さらに $s'=s^{-1}$ と変数変換すると
+で被積分関数の絶対値の積分は [Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により $\|f\|_2\|g\|_2$ 以下である。[Fubini の定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) を実部・虚部に適用できる。$B=sA$ と置き、さらに $s'=s^{-1}$ と変数変換すると
 
 $$
 \begin{aligned}
@@ -412,7 +412,7 @@ $$
 =\langle x,w\rangle
 $$
 
-となる。両内積の級数は Cauchy–Schwarz の不等式で絶対収束する。よって $v\in D(H^*)$ であり、$H^*=H$ が成立する。さらに
+となる。両内積の級数は [Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)で絶対収束する。よって $v\in D(H^*)$ であり、$H^*=H$ が成立する。さらに
 
 $$
 \langle v,Hv\rangle=\sum_j E_j|v_j|^2\ge0
