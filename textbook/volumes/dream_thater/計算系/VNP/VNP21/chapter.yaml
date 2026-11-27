@@ -1,0 +1,25 @@
+id: VNP21
+title: "K：small circuitからaccelerator、定数名・低次数化・scale transferと対角線論法"
+volume: foundations
+status: supplementary
+prerequisites: [VNP20]
+official_scope: []
+learning_objectives:
+  - 加速器の停止性と正しさの条件を区別できる
+  - 低次数部分の再帰と小回路からの評価器構成を説明できる
+  - 定数使用の後置と尺度移送の指数評価を導出できる
+  - 有限体への移送と自己適用の矛盾を再構成できる
+definitions:
+  - { id: VNP21-DEF-01, name: "尺度付き加速器" }
+theorems:
+  - { id: VNP21-THM-01, name: "低次数部分の重み付き評価" }
+  - { id: VNP21-THM-02, name: "小回路から加速器への変換" }
+  - { id: VNP21-THM-03, name: "定数使用の後置" }
+  - { id: VNP21-THM-04, name: "加速器の尺度移送" }
+  - { id: VNP21-THM-05, name: "小加速器の不存在" }
+canonical_examples: [定数名の寄与, 斉次部分の評価, 使用回数の分類]
+problem_patterns: [VNP21-A1, VNP21-A2, VNP21-A3, VNP21-A4, VNP21-B1, VNP21-B2, VNP21-B3, VNP21-B4, VNP21-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 4, review: 2 }

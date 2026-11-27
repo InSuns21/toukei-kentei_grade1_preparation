@@ -1,0 +1,42 @@
+chapter: VNP21
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP20]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.accelerator
+    name: "尺度付き加速器"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（尺度付き加速器）"]
+    requires: [vp-vnp-study.all-scale-cuts]
+  - id: vp-vnp-study.low-degree-evaluation
+    name: "低次数部分の重み付き評価"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["補題（低次数部分の重み付き評価）"]
+    requires: []
+  - id: vp-vnp-study.circuit-accelerator
+    name: "小回路から加速器への変換"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["補題（小回路から加速器への変換）"]
+    requires: [vp-vnp-study.accelerator, vp-vnp-study.low-degree-evaluation]
+  - id: vp-vnp-study.postpone-constants
+    name: "定数使用の後置"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["補題（定数使用の後置）"]
+    requires: [vp-vnp-study.accelerator]
+  - id: vp-vnp-study.accelerator-scale
+    name: "加速器の尺度移送"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（加速器の尺度移送）"]
+    requires: [vp-vnp-study.all-scale-cuts, vp-vnp-study.postpone-constants]
+  - id: vp-vnp-study.no-small-accelerator
+    name: "小加速器の不存在"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（小加速器の不存在）"]
+    requires: [vp-vnp-study.accelerator-scale, vp-vnp-study.postpone-constants]

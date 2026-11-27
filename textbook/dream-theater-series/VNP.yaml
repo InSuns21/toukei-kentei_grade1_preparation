@@ -86,7 +86,7 @@ chapters:
     title: "J：反復cut、時間・入力・piece数の指数台帳"
   - id: VNP21
     path: textbook/volumes/dream_thater/計算系/VNP/VNP21
-    status: planned
+    status: completed
     title: "K：small circuitからaccelerator、定数名・低次数化・scale transferと対角線論法"
   - id: VNP22
     path: textbook/volumes/dream_thater/計算系/VNP/VNP22

@@ -21,3 +21,4 @@
 18. [VNP18 I：重み付き木プログラム・universal tape automatonとnetwork化](textbook/volumes/dream_thater/計算系/VNP/VNP18/index.md)
 19. [VNP19 J：computationの一回のcut、piece evaluatorと正しさ](textbook/volumes/dream_thater/計算系/VNP/VNP19/index.md)
 20. [VNP20 J：反復cut、時間・入力・piece数の指数台帳](textbook/volumes/dream_thater/計算系/VNP/VNP20/index.md)
+21. [VNP21 K：small circuitからaccelerator、定数名・低次数化・scale transferと対角線論法](textbook/volumes/dream_thater/計算系/VNP/VNP21/index.md)
