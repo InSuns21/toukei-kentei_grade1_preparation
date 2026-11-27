@@ -284,7 +284,15 @@ $b=\varepsilon^{-3}$、$q=2+\varepsilon$、$p=2$ なら $r=3$ では誤差1が�
 <!-- formal-statement-start -->
 > **補題（定数項抽出の正しさ）**
 >
-> 可換環 $R$ 上のLaurent多項式 $a_1,\ldots,a_q$（$q\ge0$）と非負整数 $J,M,W$ を取る。有限個の予算 $e=(e_1,\ldots,e_q)$ は整数 $0\le e_i<2^J$ を満たし、各葉は $\operatorname{Span}(M,a_i)$ とする。$s_e\in R$ とし、$2^W>q2^JM$ と取る。
+> 可換環 $R$ 上のLaurent多項式 $a_1,\ldots,a_q$（$q\ge0$）と非負整数 $J,M,W$ を取る。有限個の予算 $e=(e_1,\ldots,e_q)$ と係数 $s_e\in R$ を考える。
+>
+> 各整数成分と各葉に次の条件を課す。
+
+$$
+0\le e_i<2^J,\qquad
+\operatorname{Span}(M,a_i)\quad(1\le i\le q),
+\qquad 2^W>q2^JM.
+$$
 >
 > 各 $a_i^{e_i}$ から一つの非零項を選び、指数和を $2^W$ で割った余りが0の選択だけについて係数の積に $s_e$ を掛けて足す。この値は $\sum_e s_e\prod_i a_i^{e_i}$ の定数項に等しい。
 <!-- formal-statement-end -->
