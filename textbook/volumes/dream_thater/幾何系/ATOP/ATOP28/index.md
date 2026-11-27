@@ -518,7 +518,7 @@ $$
 +\eta(\partial_1\partial_2c)=0.
 $$
 
-第一項はコサイクル条件、第二項は [二重境界の消滅](../ATOP16/index.md#thm-atop16-singular-boundary-square) によります。任意の1サイクル $z$ について
+第一項はコサイクル条件、第二項は [特異鎖の二重境界の消滅](../ATOP16/index.md#thm-atop16-singular-boundary-square) によります。任意の1サイクル $z$ について
 
 $$
 \psi(z)-\phi(z)=\eta(\partial_1 z)=\eta(0)=0.
