@@ -82,7 +82,7 @@ chapters:
     title: "臨界tripodの腕とラベルrate、rectangular decoderと多項式乗算のrigidity、比 $6/(8/3)=9/4$ の位置づけ"
   - id: MMX20
     path: textbook/volumes/dream_thater/計算系/MMX/MMX20
-    status: planned
+    status: completed
     title: "valued・motion：付値・衝突・極限、siteの動きからhomogeneous tripodへの帰着"
   - id: MMX21
     path: textbook/volumes/dream_thater/計算系/MMX/MMX21
