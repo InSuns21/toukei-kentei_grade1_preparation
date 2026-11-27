@@ -1,0 +1,42 @@
+chapter: MMX19
+scope: dream-theater
+coverage: complete
+prerequisites: ["MMX6","MMX7","MMX8","MMX9","MMX10","MMX11"]
+forward_references: []
+concepts:
+  - id: matrix-exponent.tripod-contact
+    name: "三脚の基準率と接触"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（三脚の基準率と接触）"]
+    requires: ["matrix-exponent.shared-label-rate","matrix-exponent.compatible-system"]
+  - id: matrix-exponent.continuum-profile
+    name: "連続幅プロファイル"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（連続幅プロファイル）"]
+    requires: ["matrix-exponent.convolution","matrix-exponent.spectral-degeneration","matrix-exponent.network-rank-price"]
+  - id: matrix-exponent.placement-intercepts
+    name: "配置別の傾きと切片"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（配置別の傾きと切片）"]
+    requires: ["matrix-exponent.continuum-profile","matrix-exponent.determinant-filtration"]
+  - id: matrix-exponent.tripod-profile-rigidity
+    name: "基準率の下界と接触プロファイル"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（基準率の下界と接触プロファイル）"]
+    requires: ["matrix-exponent.tripod-contact","matrix-exponent.placement-intercepts"]
+  - id: matrix-exponent.short-row-decoder
+    name: "短い行を持つ長方形decoder"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（短い行を持つ長方形decoder）"]
+    requires: ["matrix-exponent.tripod-profile-rigidity","matrix-exponent.strict-spectral-comparison","matrix-exponent.rectangular-exponent"]
+  - id: matrix-exponent.collision-price
+    name: "二重出力の価格比較"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二重出力の価格比較）"]
+    requires: ["matrix-exponent.short-row-decoder","matrix-exponent.tripod-profile-rigidity","matrix-exponent.wire-transport"]

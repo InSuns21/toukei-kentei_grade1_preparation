@@ -1,0 +1,25 @@
+id: MMX19
+title: "臨界tripodの腕とラベルrate、rectangular decoderと多項式乗算のrigidity、比 $6/(8/3)=9/4$ の位置づけ"
+volume: foundations
+status: supplementary
+prerequisites: ["MMX6","MMX7","MMX8","MMX9","MMX10","MMX11"]
+official_scope: []
+learning_objectives:
+  - 腕長と共通ラベル率の関係を説明し臨界比を計算できる
+  - 多項式乗算の連続幅と配置別切片を構成し基準率の下界と接触時の剛性を導ける
+  - 長方形decoderを短い行と低次元補正に分ける証明を再構成できる
+  - 二重出力の価格を比較し接触の伝播を使う位置を説明できる
+definitions:
+  - {"id":"MMX19-DEF-01","name":"三脚の基準率と接触"}
+theorems:
+  - {"id":"MMX19-LEM-01","name":"連続幅プロファイル"}
+  - {"id":"MMX19-LEM-02","name":"配置別の傾きと切片"}
+  - {"id":"MMX19-THM-01","name":"基準率の下界と接触プロファイル"}
+  - {"id":"MMX19-LEM-03","name":"短い行を持つ長方形decoder"}
+  - {"id":"MMX19-PROP-01","name":"二重出力の価格比較"}
+canonical_examples: [零長の腕, 連続幅の区画分離, 単位三脚の切片, 長方形の出力複製]
+problem_patterns: ["MMX19-A01","MMX19-A02","MMX19-A03","MMX19-A04","MMX19-B01","MMX19-B02","MMX19-B03","MMX19-B04","MMX19-C01"]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 5, review: 3 }
