@@ -24,7 +24,7 @@ $$
 <!-- formal-statement-start -->
 > **定義（分布のスケール変換）**  
 > $U=\mathbb R^d$ または $U=\mathbb R^d\setminus\{0\}$、$t\in\mathcal D'(U)$、$\lambda>0$ とする。分布のスケール変換 $t_\lambda$ は次式で定める。
- 
+
 $$
 \langle t_\lambda,\varphi\rangle
 =\langle t,\varphi_\lambda\rangle,\qquad
@@ -140,7 +140,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（斉次分布のスケーリング次数）**  
-> $U=\mathbb R^d$ または $U=\mathbb R^d\setminus\{0\}$ とする。零でない次数 $h\in\mathbb R$ の斉次分布 $t$ は
+> $U=\mathbb R^d$ または $U=\mathbb R^d\setminus\{0\}$ とする。次数 $h\in\mathbb R$ の斉次分布 $t$ が零分布でないなら、
 
 $$
 \operatorname{sd}_U(t)=-h
@@ -205,7 +205,13 @@ $$
 \end{aligned}
 $$
 
-非零性も必要である。原点近傍で1となる滑らかなコンパクト台関数 $\chi$ を選び、$\varphi(x)=x^\alpha\chi(x)$ とする。ただし $x^\alpha=\prod_j x_j^{\alpha_j}$ である。原点での微分は $\partial^\alpha\varphi(0)=\prod_j\alpha_j!$ だから零ではない。
+非零性も必要である。原点近傍で1となる滑らかなコンパクト台関数 $\chi$ を選ぶ。例えば[テスト関数の構成例](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-test-function) の滑らかな関数 $h$ を使い、
+
+$
+\chi(x)=\frac{h(4-|x|^2)}{h(4-|x|^2)+h(|x|^2-1)}.
+$
+
+とすれば分母は常に正で、$|x|\le1$ で1、$|x|\ge2$ で0となる。この $\chi$ に対し、$\varphi(x)=x^\alpha\chi(x)$ とする。ただし $x^\alpha=\prod_j x_j^{\alpha_j}$ である。原点での微分は $\partial^\alpha\varphi(0)=\prod_j\alpha_j!$ だから零ではない。
 
 [斉次分布のスケーリング次数](#thm-mqfc32-homogeneous-degree)を $h=-d-|\alpha|$ に適用すると結論を得る。
 <!-- proof-end -->
