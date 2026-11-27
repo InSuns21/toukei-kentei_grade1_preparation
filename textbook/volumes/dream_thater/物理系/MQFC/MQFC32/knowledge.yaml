@@ -1,0 +1,37 @@
+chapter: MQFC32
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC31, GPDE1, GPDE2]
+forward_references: []
+concepts:
+  - id: mqfc.distribution-dilation
+    name: "分布のスケール変換"
+    kind: definition
+    introduction: formal
+    requires: [distribution.schwartz-distribution, distribution.test-function, distribution.local-finite-order-estimate]
+  - id: mqfc.scaling-degree
+    name: "スケーリング次数"
+    kind: definition
+    aliases: ["scaling degree"]
+    introduction: formal
+    requires: [mqfc.distribution-dilation, distribution.distributional-convergence]
+  - id: mqfc.homogeneous-distribution
+    name: "斉次分布"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.distribution-dilation]
+  - id: mqfc.homogeneous-scaling-degree
+    name: "斉次分布のスケーリング次数"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.homogeneous-distribution, mqfc.scaling-degree]
+  - id: mqfc.delta-scaling-degree
+    name: "デルタ導関数のスケーリング次数"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.homogeneous-scaling-degree, distribution.dirac-delta, distribution.distributional-derivative]
+  - id: mqfc.scaling-degree-rules
+    name: "スケーリング次数の演算則"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.scaling-degree, distribution.distributional-derivative]

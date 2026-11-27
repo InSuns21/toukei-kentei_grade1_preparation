@@ -1,0 +1,26 @@
+id: MQFC32
+title: "分布のscaling degree"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC31, GPDE1, GPDE2]
+official_scope: []
+learning_objectives:
+  - Jacobianを含む分布のスケール変換を導出し作用の連続性を確認できる
+  - スケーリング次数の定義から斉次核と対数核の次数を計算できる
+  - デルタ導関数のスケーリング次数を導出できる
+  - 和と微分と座標の積による次数の変化を証明できる
+  - 紫外と赤外の挙動を区別し冪核の局所可積分性と延長の条件を比較できる
+definitions:
+  - { id: MQFC32-DEF-01, name: "分布のスケール変換" }
+  - { id: MQFC32-DEF-02, name: "スケーリング次数" }
+  - { id: MQFC32-DEF-03, name: "斉次分布" }
+theorems:
+  - { id: MQFC32-THM-01, name: "斉次分布のスケーリング次数" }
+  - { id: MQFC32-PROP-01, name: "デルタ導関数のスケーリング次数" }
+  - { id: MQFC32-PROP-02, name: "スケーリング次数の演算則" }
+canonical_examples: [定数分布, 逆距離核, デルタ導関数, 対数核, 四次元の臨界冪核]
+problem_patterns: [MQFC32-A1, MQFC32-A2, MQFC32-A3, MQFC32-A4, MQFC32-B1, MQFC32-B2, MQFC32-B3, MQFC32-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }
