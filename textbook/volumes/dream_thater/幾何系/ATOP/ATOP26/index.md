@@ -6,7 +6,15 @@
 
 [道の連結・逆走・定値道](../ATOP4/index.md#def-atop4-path-operations) の記号に従い、$\alpha*\beta$ は先に $\alpha$、後に $\beta$ を進む道、$\bar\alpha$ は逆走とします。
 
-[特異単体](../ATOP16/index.md#def-atop16-singular-simplex) の区間表示に従い、$u\in I=[0,1]$ と標準1単体 $\Delta^1$ の点 $(1-u,u)$ を対応させます。道 $\gamma:I\to X$ は連続なので、$(1-u,u)\mapsto\gamma(u)$ は特異1単体です。同じ記号 $\gamma$ でこの単体も表します。
+[特異単体](../ATOP16/index.md#def-atop16-singular-simplex) の区間表示に従い、$u\in I=[0,1]$ と標準1単体 $\Delta^1$ の点 $(1-u,u)$ を対応させます。
+
+道 $\gamma:I\to X$ は連続なので、
+
+$$
+(1-u,u)\longmapsto\gamma(u)
+$$
+
+は特異1単体です。同じ記号 $\gamma$ でこの単体も表します。
 
 [特異鎖群](../ATOP16/index.md#def-atop16-singular-chains) を $C_n(X)=C_n(X;\mathbb Z)$ と略します。これは特異 $n$ 単体を基底とする自由整数加群です。道を足すときは写像の値を足すのではなく、この基底の形式的な和を取ります。
 
@@ -16,7 +24,13 @@ $$
 \partial_1\gamma=\langle q\rangle-\langle p\rangle
 $$
 
-です。$\langle p\rangle$ は点 $p$ に対応する特異0単体（0鎖の基底元）です。[ループ](../ATOP4/index.md#def-atop4-loop) は始点と終点が一致する道なので境界が零になります。[特異サイクルと特異境界鎖](../ATOP16/index.md#def-atop16-singular-cycles) に従い、$Z_1(X)=\ker\partial_1$、$B_1(X)=\operatorname{im}\partial_2$ と書きます。ループはサイクルですが、一般の道はサイクルではありません。
+です。$\langle p\rangle$ は点 $p$ に対応する特異0単体（0鎖の基底元）です。[ループ](../ATOP4/index.md#def-atop4-loop) は始点と終点が一致する道なので境界が零になります。[特異サイクルと特異境界鎖](../ATOP16/index.md#def-atop16-singular-cycles) に従い、
+
+$$
+Z_1(X)=\ker\partial_1,\qquad B_1(X)=\operatorname{im}\partial_2
+$$
+
+と書きます。ループはサイクルですが、一般の道はサイクルではありません。
 
 そこで $C_1(X)/B_1(X)$ という商群で道を比較します。これはサイクルでない鎖にも使える商です。
 
@@ -52,7 +66,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[特異単体](../ATOP16/index.md#def-atop16-singular-simplex) の標準2単体 $\Delta^2$ の重心座標を $(t_0,t_1,t_2)$ とし、各 $t_i\ge0$、総和を1とします。第 $i$ 頂点 $e_i$ は第 $i$ 成分だけが1の点です。$\lambda=\alpha*\beta$ と置き、
+[特異単体](../ATOP16/index.md#def-atop16-singular-simplex) の標準2単体 $\Delta^2$ の重心座標を $(t_0,t_1,t_2)$ とし、各 $t_i\ge0$、総和を1とします。
+
+第 $i$ 頂点 $e_i$ は第 $i$ 成分だけが1の点です。$\lambda=\alpha*\beta$ と置き、
 
 $$
 \sigma(t_0,t_1,t_2)=\lambda(t_1/2+t_2)
@@ -88,7 +104,19 @@ $c_p\equiv0$ と合わせて $\bar\alpha\equiv-\alpha$ を得ます。
 
 最後に $\alpha,\alpha':p\to q$ の [道ホモトピー](../ATOP4/index.md#def-atop4-path-homotopy) $F:I\times I\to X$ を取ります。
 
-ここで $u$ は道の進行変数、$t$ は変形の進行変数で、$F(u,0)=\alpha(u)$、$F(u,1)=\alpha'(u)$ です。区間の恒等1単体を $e(u)=u$ とし、$P_n:C_n(I)\to C_{n+1}(X)$ をこの $F$ に対する [プリズム作用素](../ATOP17/index.md#def-atop17-prism) とします。境界の作用する空間は入力から決まるので上付き記号を省きます。[プリズム恒等式](../ATOP17/index.md#thm-atop17-prism-identity) に $e$ と $F$ を代入すると
+ここで $u$ は道の進行変数、$t$ は変形の進行変数です。両端の写像は
+
+$$
+F(u,0)=\alpha(u),\qquad F(u,1)=\alpha'(u)
+$$
+
+です。区間の恒等1単体を $e(u)=u$ とします。この $F$ に対する [プリズム作用素](../ATOP17/index.md#def-atop17-prism) を
+
+$$
+P_n:C_n(I)\to C_{n+1}(X)
+$$
+
+と書きます。境界の作用する空間は入力から決まるので上付き記号を省きます。[プリズム恒等式](../ATOP17/index.md#thm-atop17-prism-identity) に $e$ と $F$ を代入すると
 
 $$
 \partial_2 P_1 e
@@ -353,7 +381,13 @@ $$
 H_1(X;\mathbb Z)\cong\mathbb Z^{E-V+1}.
 $$
 
-胞体鎖からも確認できます。グラフを有限 CW 複体と見なし、[胞体ごとの相対群の分解](../ATOP22/index.md#thm-atop22-relative-cells) により頂点と向き付き辺をそれぞれ胞体0鎖群と1鎖群の基底にします。[胞体鎖群と胞体境界](../ATOP22/index.md#def-atop22-cellular-chain) の境界 $d_1$ は各辺に対し終点から始点を引いたものです。[全域木の存在と辺数](../ATOP8/index.md#thm-atop8-spanning-tree) により全域木を選ぶと、木に属さない各辺 $e$ を進み、その終点から始点まで木の中を帰る1鎖 $z_e$ がサイクルになります。$z_e$ における非木辺 $e$ の係数は1で、他の非木辺の係数は0です。従って $\sum_e k_e z_e=0$ なら各非木辺の係数を比較して全ての $k_e=0$ と分かります。
+胞体鎖からも確認できます。グラフを有限 CW 複体と見なし、[胞体ごとの相対群の分解](../ATOP22/index.md#thm-atop22-relative-cells) により頂点と向き付き辺をそれぞれ胞体0鎖群と1鎖群の基底にします。[胞体鎖群と胞体境界](../ATOP22/index.md#def-atop22-cellular-chain) の境界 $d_1$ は各辺に対し終点から始点を引いたものです。[全域木の存在と辺数](../ATOP8/index.md#thm-atop8-spanning-tree) により全域木を選ぶと、木に属さない各辺 $e$ を進み、その終点から始点まで木の中を帰る1鎖 $z_e$ がサイクルになります。$z_e$ における非木辺 $e$ の係数は1で、他の非木辺の係数は0です。従って
+
+$$
+\sum_e k_e z_e=0
+$$
+
+なら各非木辺の係数を比較して全ての $k_e=0$ と分かります。
 
 任意のサイクルから、非木辺の係数に応じて $z_e$ を引けば木だけのサイクルが残ります。有限木に辺があれば葉（次数1の頂点）があり、その頂点の境界係数が零であるため唯一接続する辺の係数は零です。葉と辺を取り除く操作を繰り返すと全辺の係数が零になります。従って $z_e$ はサイクル群の基底です。
 
@@ -552,7 +586,17 @@ $$
 
 [花束の基本群](../ATOP8/index.md#thm-atop8-bouquet-group) によれば両群は二生成元の自由群です。[群表示の可換化と指数和](../ATOP12/index.md#prop-atop12-abelian-presentation) と [次数1の Hurewicz 定理](#thm-atop26-hurewicz-one) により、両方の1次群は対応する二つのホモロジー類を基底とする $\mathbb Z^2$ です。
 
-ここで $a,b,c,d$ は生成ループの基本群での類を表す略記です。それらに $h_X,h_Y$ を適用したホモロジー類をそれぞれの順序付き基底とします。[次数1の Hurewicz 同型の自然性](#prop-atop26-naturality) により、$H_1(f)$ は各生成ループの像を可換化したものに対応します。整数線形性から入力の基底係数 $(u,v)$ の像は第1基底元の像の $u$ 倍と第2基底元の像の $v$ 倍の和です。従って各像の指数和を列にすれば行列が得られます。$cd^2c^{-1}$ の指数和は $(1-1,2)=(0,2)$、$c^{-3}d$ は $(-3,1)$ です。従って行列は
+ここで $a,b,c,d$ は生成ループの基本群での類を表す略記です。それらに $h_X,h_Y$ を適用したホモロジー類をそれぞれの順序付き基底とします。
+
+[次数1の Hurewicz 同型の自然性](#prop-atop26-naturality) により、$H_1(f)$ は各生成ループの像を可換化したものに対応します。整数線形性から入力の基底係数 $(u,v)$ の像は第1基底元の像の $u$ 倍と第2基底元の像の $v$ 倍の和です。
+
+従って各像の指数和を列にすれば行列が得られます。$cd^2c^{-1}$ の指数和と $c^{-3}d$ の指数和はそれぞれ
+
+$$
+(1-1,2)=(0,2),\qquad (-3,1)
+$$
+
+です。従って行列は
 
 $$
 M=\begin{pmatrix}0&-3\\2&1\end{pmatrix}.
