@@ -249,7 +249,9 @@ $$
 
 です（最後は十分大きい $v$ で成立）。
 
-[Paper/CircuitPhi.lean](https://github.com/anthropics/formal-math/blob/db8472ee0fe3ebea21765160a6e3a04f5eaba4c5/vp-vnp/Paper/CircuitPhi.lean) の lem_circuit_phi は、固定の状態数・アルファベット数の和に2を加えた定数 $c_0$ に対し、走行和を全リテラル数 $1600(t+n+c_0)^9$ 以下の節和で表し、出力の次数を $n$ 以下に抑えます。$v\ge\max(4,c_0+1)$ なら $n\le v^{H+1}+1$、$c_0+1\le v^{H+1}$ なので $t+n+c_0\le3v^{H+1}\le v^{H+2}$ です。さらに $v\ge1600\kappa$ と取れば、前節の代入に必要な次元は
+[Paper/CircuitPhi.lean](https://github.com/anthropics/formal-math/blob/db8472ee0fe3ebea21765160a6e3a04f5eaba4c5/vp-vnp/Paper/CircuitPhi.lean) の lem_circuit_phi は、固定の状態数・アルファベット数の和に2を加えた定数 $c_0$ に対し、走行和を全リテラル数 $1600(t+n+c_0)^9$ 以下の節和で表し、出力の次数を $n$ 以下に抑えます。
+
+$v\ge\max(4,c_0+1)$ なら $n\le v^{H+1}+1$、$c_0+1\le v^{H+1}$ なので $t+n+c_0\le3v^{H+1}\le v^{H+2}$ です。さらに $v\ge1600\kappa$ と取れば、前節の代入に必要な次元は
 
 $$
 1600\kappa(t+n+c_0)^9
@@ -259,7 +261,15 @@ $$
 
 従って $B_0=9(H+2)+1$ として $m\ge v^{B_0}$ なら、[完全な族への節和の代入](#thm-vnp22-clause-projection)を使えます。語の三種の記号への定数・変数代入後もアフィン性と次数上界を保ちます。
 
-ここからの費用評価は [小回路から加速器への変換](../VNP21/index.md#thm-vnp21-circuit)の第3節と同じです。具体的に $G_m$ の回路が $v^a$ ゲート以下なら代入後は $5v^a\le v^{a+5}$ ゲート、[低次数部分の重み付き評価](../VNP21/index.md#thm-vnp21-lowdeg)の次数予算は $d=n$ です。第21講で得た時間 $v^{H-16}$、定数木・コードサイズ上界 $v^{(H+35)(a+1)}$、高さと定数指数の条件は、この二つの上界と語の符号化だけから従いました。従ってある正整数 $C_1$ について、$m\ge v^{B_0}$、$(\lg v)^{C_1a}\le v$ ならサイズ $v^{C_1(a+1)}$ の加速器が存在します。形式証明の一般形は [Paper/Circuit.lean](https://github.com/anthropics/formal-math/blob/db8472ee0fe3ebea21765160a6e3a04f5eaba4c5/vp-vnp/Paper/Circuit.lean) の lem_circuit_universal と lem_circuit です。
+ここからの費用評価は [小回路から加速器への変換](../VNP21/index.md#thm-vnp21-circuit)と同じです。
+
+具体的に $G_m$ の回路が $v^a$ ゲート以下なら代入後は $5v^a\le v^{a+5}$ ゲート、[低次数部分の重み付き評価](../VNP21/index.md#thm-vnp21-lowdeg)の次数予算は $d=n$ です。
+
+第21講で得た時間 $v^{H-16}$、定数木・コードサイズ上界 $v^{(H+35)(a+1)}$、高さと定数指数の条件は、この二つの上界と語の符号化だけから従いました。
+
+従ってある正整数 $C_1$ について、$m\ge v^{B_0}$、$(\lg v)^{C_1a}\le v$ ならサイズ $v^{C_1(a+1)}$ の加速器が存在します。
+
+形式証明の一般形は [Paper/Circuit.lean](https://github.com/anthropics/formal-math/blob/db8472ee0fe3ebea21765160a6e3a04f5eaba4c5/vp-vnp/Paper/Circuit.lean) の lem_circuit_universal と lem_circuit です。
 
 不存在定理の定数を $C_2$ とし、$E=(C_2+1)C_1$ と置きます。十分大きい $m$ に対し $v=\lfloor m^{1/B_0}\rfloor\ge2$ と取ると
 
@@ -363,7 +373,11 @@ $$
 
 従ってイデアル $I=(h_\nu)_\nu\subset k_0[\mathbf T]$ は真です。もし $1=\sum_\nu A_\nu h_\nu$ なら $\mathbf a$ で評価して $1=0$ となるからです。
 
-同じ生成元が $K[\mathbf T]$ で生成するイデアルも真であることを示します。仮に $K[\mathbf T]$ で $1=\sum_\nu B_\nu h_\nu$ とします。$1$ と有限個の $B_\nu$ の係数が張る $k_0$ 上の有限次元部分空間を $U$ とします。[一般の体上の基底延長](../../../代数系/FLD/FLD0/index.md#thm-fld0-steinitz-basis-extension-over-field)により $\{1\}$ を $U$ の基底へ延長し、1の係数を取り出す $k_0$ 線形写像 $\ell:U\to k_0$ を取れば $\ell(1)=1$ です。両辺の各係数は $U$ に入るので $\ell$ を適用できます。$h_\nu$ の係数は $k_0$ に属するので、積の係数を展開することにより
+同じ生成元が $K[\mathbf T]$ で生成するイデアルも真であることを示します。仮に $K[\mathbf T]$ で $1=\sum_\nu B_\nu h_\nu$ とします。$1$ と有限個の $B_\nu$ の係数が張る $k_0$ 上の有限次元部分空間を $U$ とします。
+
+[一般の体上の基底延長](../../../代数系/FLD/FLD0/index.md#thm-fld0-steinitz-basis-extension-over-field)により $\{1\}$ を $U$ の基底へ延長し、1の係数を取り出す $k_0$ 線形写像 $\ell:U\to k_0$ を取れば $\ell(1)=1$ です。
+
+両辺の各係数は $U$ に入るので $\ell$ を適用できます。$h_\nu$ の係数は $k_0$ に属するので、積の係数を展開することにより
 
 $$
 \ell_{\mathbf T}(B_\nu h_\nu)
@@ -563,7 +577,13 @@ $4601\le7950700=100r^3$ なので、$2^{k\ell}$ を掛けると $2^{4601+7950700
 定数 $a,b$ と変数 $X$ を用いて $(aX+b)^2$ を計算する配線を固定する。出力を $2X^2+4X+2$ にしたい。標数0で係数方程式を書き、実数体および有理数体での解の有無を調べよ。
 
 <!-- solution-start -->
-**詳細解答**：展開すると $a^2X^2+2abX+b^2$ です。従って $a^2=2,\,ab=2,\,b^2=2$ が必要十分です。$a=b=\sqrt2$ ならすべて成立します。$a\in\mathbb Q$ なら $a=u/v$ を既約分数にして $u^2=2v^2$ となります。$u$ が偶数なら $u=2u'$ なので $v^2=2(u')^2$ となり $v$ も偶数、既約性に矛盾します。よって有理数体に解はありません。[同標数の代数閉体への回路移送](#thm-vnp22-transfer)では、整数係数の目標について代数閉性を用います。ここでは目標も整数係数ですが、有理数体は代数閉でないので固定配線の解が移るとは限りません。
+**詳細解答**：展開すると $a^2X^2+2abX+b^2$ です。従って $a^2=2,\,ab=2,\,b^2=2$ が必要十分です。$a=b=\sqrt2$ ならすべて成立します。
+
+$a\in\mathbb Q$ なら $a=u/v$ を既約分数にして $u^2=2v^2$ となります。
+
+$u$ が偶数なら $u=2u'$ なので $v^2=2(u')^2$ となり $v$ も偶数、既約性に矛盾します。よって有理数体に解はありません。
+
+[同標数の代数閉体への回路移送](#thm-vnp22-transfer)では、整数係数の目標について代数閉性を用います。ここでは目標も整数係数ですが、有理数体は代数閉でないので固定配線の解が移るとは限りません。
 <!-- solution-end -->
 
 <a id="exercise-vnp22-b4"></a>
