@@ -754,7 +754,9 @@ $d_1d_2(t)=-24t+24t=0$。$d_2$ は単射なので $H_2=0$。$6x+4y=0$ は $3x=-2
 B2の複体の整数双対を取り、全次数1,2のコホモロジーを直接計算し、余鎖版の次数と比較せよ。
 
 <!-- solution-start -->
-**詳細解答**。B2の基底の順を保ち、双対基底による座標を0次で $t$、1次で $(u,v)$ とする。[余境界](../ATOP28/index.md#def-atop28-coboundary)は前合成なので、1次の基底に評価すると $\delta^0(t)$ の二成分は $6t,4t$。また1次コチェイン $\phi$ の座標が $(u,v)$ なら
+**詳細解答**。B2の基底の順を保ち、双対基底による座標を0次で $t$、1次で $(u,v)$ とする。
+
+[余境界](../ATOP28/index.md#def-atop28-coboundary)は前合成なので、1次の基底に評価すると $\delta^0(t)$ の二成分は $6t,4t$。また1次コチェイン $\phi$ の座標が $(u,v)$ なら
 
 $$
 (\delta^1\phi)(a\otimes b)
@@ -782,7 +784,9 @@ $$
 =\sum_{a=1}^r v_a(j)(u_a(i))_{i=1}^{r+1}.
 $$
 
-従って列空間は高々 $r$ 本のベクトルで生成され、階数は高々 $r$。一方、制限した $f$ は $(r+1)$ 次単位行列で階数 $r+1$ である。矛盾する。離散空間の道は定数なので0次コホモロジーは全関数の空間であり、$f$ は積空間の正当な0次コサイクルである。有限型の仮定がなく、双対テンソルの比較が全射でなくなった。
+従って列空間は高々 $r$ 本のベクトルで生成され、階数は高々 $r$。一方、制限した $f$ は $(r+1)$ 次単位行列で階数 $r+1$ である。矛盾する。
+
+離散空間の道は定数なので0次コホモロジーは全関数の空間であり、$f$ は積空間の正当な0次コサイクルである。有限型の仮定がなく、双対テンソルの比較が全射でなくなった。
 <!-- solution-end -->
 
 <a id="ex-atop30-c1"></a>
@@ -794,9 +798,37 @@ $$
 $X=\mathbb{RP}^2$ とする。整数係数の $H_i(X)$、$H^i(X)$ から $X\times X$ の全ホモロジー群とコホモロジー群を求めよ。さらに体 $\mathbb F_2$ 上のホモロジー次元を求め、整数結果から係数変更したものと一致するか確かめよ。
 
 <!-- solution-start -->
-**詳細解答**。[実射影空間の胞体境界](../ATOP22/index.md#prop-atop22-projective-boundary) で整数胞体境界は $d_2=2,d_1=0$。よって $H_0=\mathbb Z,H_1=\mathbb Z/2,H_2=0$。前講の [コホモロジーの普遍係数定理](../ATOP29/index.md#thm-atop29-cohomology-uct) により $H^0=\mathbb Z,H^1=0,H^2=\mathbb Z/2$、高次は零。具体的には $H^1$ の両端は $\operatorname{Ext}^1(\mathbb Z,\mathbb Z)=0$ と $\operatorname{Hom}(\mathbb Z/2,\mathbb Z)=0$、$H^2$ の両端は $\operatorname{Ext}^1(\mathbb Z/2,\mathbb Z)=\mathbb Z/2$ と $\operatorname{Hom}(0,\mathbb Z)=0$ である。Ext は整数の2倍写像の余核として得られる。
+**詳細解答**。[実射影空間の胞体境界](../ATOP22/index.md#prop-atop22-projective-boundary) で整数胞体境界は $d_2=2,d_1=0$。よって
 
-[ホモロジーのKünneth公式](#thm-atop30-kunneth-homology) のテンソル項は0次に $\mathbb Z$、1次に $\mathbb Z/2$ が二つ、2次に $\mathbb Z/2$ が一つ。Tor は $p=q=1$ の組だけなので3次に $\mathbb Z/2$。従って
+$$
+(H_0,H_1,H_2)=(\mathbb Z,\mathbb Z/2,0).
+$$
+
+前講の [コホモロジーの普遍係数定理](../ATOP29/index.md#thm-atop29-cohomology-uct) により、0次は $\mathbb Z$ である。1次の短完全列の両端は
+
+$$
+\operatorname{Ext}^1(\mathbb Z,\mathbb Z)=0,
+\qquad \operatorname{Hom}(\mathbb Z/2,\mathbb Z)=0
+$$
+
+となる。2次の両端は
+
+$$
+\operatorname{Ext}^1(\mathbb Z/2,\mathbb Z)=\mathbb Z/2,
+\qquad \operatorname{Hom}(0,\mathbb Z)=0.
+$$
+
+Ext は整数の2倍写像の余核として得られる。従って
+
+$$
+(H^0,H^1,H^2)=(\mathbb Z,0,\mathbb Z/2)
+$$
+
+で、高次は零である。
+
+[ホモロジーのKünneth公式](#thm-atop30-kunneth-homology) のテンソル項は0次に $\mathbb Z$、1次に $\mathbb Z/2$ が二つ、2次に $\mathbb Z/2$ が一つ。
+
+Tor は $p=q=1$ の組だけなので3次に $\mathbb Z/2$。従って
 
 $$
 (H_0,H_1,H_2,H_3,H_4)=
@@ -812,7 +844,25 @@ $$
 
 いずれも5次以上は零。特に余鎖の Tor は4次ではなく3次である。
 
-$\mathbb F_2$ を係数とした各因子のホモロジーは、整数胞体鎖の2倍境界を係数変更すると零になることと対応する。ここでは特異鎖に[ホモロジーの普遍係数定理](../ATOP29/index.md#thm-atop29-homology-uct)を直接適用して確認する。0次は $\mathbb Z\otimes\mathbb F_2=\mathbb F_2$、1次は $(\mathbb Z/2)\otimes\mathbb F_2=\mathbb F_2$、2次は $\operatorname{Tor}_1(\mathbb Z/2,\mathbb F_2)=\mathbb F_2$ で、各次数のもう一方の項は零である。次数対を数えると積の次元は $(1,2,3,2,1)$ となる。整数結果に [ホモロジーの普遍係数定理](../ATOP29/index.md#thm-atop29-homology-uct) を適用すると、同じ次数のテンソル次元は $(1,2,1,1,0)$、一つ前の次数の Tor 次元は $(0,0,2,1,1)$。和は $(1,2,3,2,1)$ で一致する。
+$\mathbb F_2$ を係数とした各因子のホモロジーは、整数胞体鎖の2倍境界を係数変更すると零になることと対応する。ここでは特異鎖に[ホモロジーの普遍係数定理](../ATOP29/index.md#thm-atop29-homology-uct)を直接適用して確認する。各次数で非零となる項は順に
+
+$$
+\begin{aligned}
+\mathbb Z\otimes\mathbb F_2&=\mathbb F_2,\\
+(\mathbb Z/2)\otimes\mathbb F_2&\cong\mathbb F_2,\\
+\operatorname{Tor}_1(\mathbb Z/2,\mathbb F_2)&\cong\mathbb F_2.
+\end{aligned}
+$$
+
+各次数のもう一方の項は零である。次数対を数えると積の次元は $(1,2,3,2,1)$ となる。
+
+積の整数結果に [ホモロジーの普遍係数定理](../ATOP29/index.md#thm-atop29-homology-uct) を適用して比較する。同じ次数のテンソル次元と一つ前の次数の Tor 次元を足すと
+
+$$
+(1,2,1,1,0)+(0,0,2,1,1)=(1,2,3,2,1)
+$$
+
+で一致する。
 <!-- solution-end -->
 
 ## 8. まとめ
