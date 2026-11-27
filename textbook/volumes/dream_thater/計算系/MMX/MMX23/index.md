@@ -646,7 +646,7 @@ $$
 
 である。零半径なら交差項を0とする。点側の各質量を1として [割線の入射不等式](#thm-mmx23-incidence) を全平行類の割線に適用すると $t_i=q+1$ なので $\sum_L K_L^2\le q\sum_i r_i^2$。選択した線だけで足してもこの上界は保たれる。
 
-各直線について方向 $y_L$ を使えば、余弦項の和は $r_L K_L$ 以下。Cauchy–Schwarz不等式により平均交差項は
+各直線について方向 $y_L$ を使えば、余弦項の和は $r_L K_L$ 以下。[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により平均交差項は
 
 $$
 \begin{aligned}
