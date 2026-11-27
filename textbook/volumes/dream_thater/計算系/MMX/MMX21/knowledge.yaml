@@ -1,0 +1,84 @@
+chapter: MMX21
+scope: dream-theater
+coverage: complete
+prerequisites: ["MMX20","MMX19","MMX10","MMX2"]
+forward_references: []
+concepts:
+  - id: matrix-exponent.energy
+    name: "幅エネルギーと次数エネルギー"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（幅エネルギーと次数エネルギー）"]
+    requires: ["matrix-exponent.continuum-profile"]
+  - id: matrix-exponent.energy-add-input
+    name: "入力追加による費用差の比較"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（入力追加による費用差の比較）"]
+    requires: ["matrix-exponent.energy","matrix-exponent.price-rules"]
+  - id: matrix-exponent.continuum-energy
+    name: "次数エネルギーの連続幅極限"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（次数エネルギーの連続幅極限）"]
+    requires: ["matrix-exponent.energy","matrix-exponent.continuum-profile"]
+  - id: matrix-exponent.radial-energy
+    name: "動径方向のエネルギー比較"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（動径方向のエネルギー比較）"]
+    requires: ["matrix-exponent.energy-add-input","matrix-exponent.continuum-energy","matrix-exponent.placement-convexity"]
+  - id: matrix-exponent.directional-defect-integrals
+    name: "欠損の方向積分比較"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（欠損の方向積分比較）"]
+    requires: ["matrix-exponent.radial-energy","matrix-exponent.tripod-profile-rigidity","matrix-exponent.wire-transport"]
+  - id: matrix-exponent.contact-propagation
+    name: "斉次三脚の接触伝播"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（斉次三脚の接触伝播）"]
+    requires: ["matrix-exponent.directional-defect-integrals","matrix-exponent.tripod-contact"]
+  - id: matrix-exponent.no-analytic-motion
+    name: "解析的地点族の動きによる階数下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（解析的地点族の動きによる階数下界）"]
+    requires: ["matrix-exponent.contact-propagation","matrix-exponent.four-site-collision","matrix-exponent.collision-price","matrix-exponent.power-exponent-lower-criterion"]
+  - id: matrix-exponent.valued-extension
+    name: "付値付き価格の拡張判定"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（付値付き価格の拡張判定）"]
+    requires: ["matrix-exponent.assisted-price","matrix-exponent.valued-price"]
+  - id: matrix-exponent.pin-objective
+    name: "最小地点を固定する目的テンソル"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（最小地点を固定する目的テンソル）"]
+    requires: ["matrix-exponent.valued-extension","matrix-exponent.wire-transport"]
+  - id: matrix-exponent.pinned-evaluation
+    name: "固定化目的の最小評価と近似式"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（固定化目的の最小評価と近似式）"]
+    requires: ["matrix-exponent.pin-objective","matrix-exponent.valued-extension","matrix-exponent.curvature","metric-geometry.cn-inequality"]
+  - id: matrix-exponent.generic-assisted-price
+    name: "多項式族の一般補助価格"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多項式族の一般補助価格）"]
+    requires: ["matrix-exponent.assisted-price"]
+  - id: matrix-exponent.parameter-synchronization
+    name: "多項式テンソル族のパラメータ同期"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（多項式テンソル族のパラメータ同期）"]
+    requires: ["matrix-exponent.generic-assisted-price","matrix-exponent.pinned-evaluation","matrix-exponent.no-analytic-motion","matrix-exponent.disk-star","matrix-exponent.gauss-lift"]
+  - id: matrix-exponent.simultaneous-pricing
+    name: "単一拡張による同時価格評価"
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（単一拡張による同時価格評価）"]
+    requires: ["matrix-exponent.parameter-synchronization","matrix-exponent.valued-extension"]

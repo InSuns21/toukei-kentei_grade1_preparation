@@ -1,0 +1,34 @@
+id: MMX21
+title: "boundary・contact・sync：厳密saving仮定から動きを排除し、複数のtensorを同じprice拡張で評価する"
+volume: foundations
+status: supplementary
+prerequisites: ["MMX20","MMX19","MMX10","MMX2"]
+official_scope: []
+learning_objectives:
+  - 入力追加と動径収縮に対する幅エネルギーの費用差を導ける
+  - 方向積分比較と最小原理から固定三脚の接触伝播を再構成できる
+  - 四地点衝突から解析的地点族の動きが指数下界を強制することを説明できる
+  - 付値付き価格の拡張判定と固定化目的の近似式を証明できる
+  - 厳密節約仮定の下で円板の最小地点を固定し独立パラメータから同期へ移れる
+  - 全混合積の判定から有理関数族も含む単一価格拡張を構成できる
+definitions:
+  - {"id":"MMX21-DEF-01","name":"幅エネルギーと次数エネルギー"}
+  - {"id":"MMX21-DEF-02","name":"最小地点を固定する目的テンソル"}
+  - {"id":"MMX21-DEF-03","name":"多項式族の一般補助価格"}
+theorems:
+  - {"id":"MMX21-LEM-01","name":"入力追加による費用差の比較"}
+  - {"id":"MMX21-LEM-02","name":"次数エネルギーの連続幅極限"}
+  - {"id":"MMX21-LEM-03","name":"動径方向のエネルギー比較"}
+  - {"id":"MMX21-LEM-04","name":"欠損の方向積分比較"}
+  - {"id":"MMX21-THM-01","name":"斉次三脚の接触伝播"}
+  - {"id":"MMX21-THM-02","name":"解析的地点族の動きによる階数下界"}
+  - {"id":"MMX21-THM-03","name":"付値付き価格の拡張判定"}
+  - {"id":"MMX21-LEM-05","name":"固定化目的の最小評価と近似式"}
+  - {"id":"MMX21-THM-04","name":"多項式テンソル族のパラメータ同期"}
+  - {"id":"MMX21-COR-01","name":"単一拡張による同時価格評価"}
+canonical_examples: [一入力の幅エネルギー, 三脚の逆腕長, 二本のwireの固定化, 一般補助価格のスカラー族]
+problem_patterns: ["MMX21-A01","MMX21-A02","MMX21-A03","MMX21-A04","MMX21-B01","MMX21-B02","MMX21-B03","MMX21-B04","MMX21-C01","MMX21-C02"]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 16, exercises: 6, review: 4 }
