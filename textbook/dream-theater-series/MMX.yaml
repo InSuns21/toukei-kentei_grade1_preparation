@@ -86,7 +86,7 @@ chapters:
     title: "valued・motion：付値・衝突・極限、siteの動きからhomogeneous tripodへの帰着"
   - id: MMX21
     path: textbook/volumes/dream_thater/計算系/MMX/MMX21
-    status: planned
+    status: completed
     title: "boundary・contact・sync：厳密saving仮定から動きを排除し、複数のtensorを同じprice拡張で評価する"
   - id: MMX22
     path: textbook/volumes/dream_thater/計算系/MMX/MMX22
