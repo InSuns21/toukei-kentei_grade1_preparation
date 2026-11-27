@@ -4,7 +4,9 @@
 
 前講の[ホモロジー類への評価](../ATOP28/index.md#prop-atop28-evaluation)はコホモロジーから整数ホモロジー上の評価への写像を与えました。しかし、境界が2倍写像の複体では整数への評価を延長できず、評価の核に $\mathbb Z/2\mathbb Z$ が現れました。一方、鎖の係数を2を零とする群に変えると、2倍境界そのものが零になります。二つの現象を、評価の延長を測る群と係数変更後に現れる核を測る群で記述します。
 
-群はすべてアーベル群、準同型は加法的とします。[整数加群とアーベル群の対応](../../../代数系/MOD/MOD1/index.md#prop-mod1-z-mod-abelian) により、群の構成の基礎環は $\mathbb Z$ です。「自由」は [自由加群と基底](../../../代数系/MOD/MOD1/index.md#def-mod1-free-module-basis) の意味で、基底の有限整数線形結合が一意に定まることを指します。非可換の自由群とは区別します。以後、鎖複体 $C$ は非負次数の自由アーベル群からなるものとし、負次数を零とします。境界を $d_n:C_n\to C_{n-1}$ とし、$d_nd_{n+1}=0$ を仮定します。前講までの特異境界 $\partial_n$ に対応する一般の鎖複体の記号です。[特異ホモロジー群](../ATOP16/index.md#def-atop16-singular-homology) と同じ構成で、サイクル、境界、ホモロジーを
+群はすべてアーベル群、準同型は加法的とします。[整数加群とアーベル群の対応](../../../代数系/MOD/MOD1/index.md#prop-mod1-z-mod-abelian) により、群の構成の基礎環は $\mathbb Z$ です。「自由」は [自由加群と基底](../../../代数系/MOD/MOD1/index.md#def-mod1-free-module-basis) の意味で、基底の有限整数線形結合が一意に定まることを指します。非可換の自由群とは区別します。
+
+以後、鎖複体 $C$ は非負次数の自由アーベル群からなるものとし、負次数を零とします。境界を $d_n:C_n\to C_{n-1}$ とし、$d_nd_{n+1}=0$ を仮定します。前講までの特異境界 $\partial_n$ に対応する一般の鎖複体の記号です。[特異ホモロジー群](../ATOP16/index.md#def-atop16-singular-homology) と同じ構成で、サイクル、境界、ホモロジーを
 
 $$
 Z_n=\ker d_n,\qquad B_n=\operatorname{im}d_{n+1},
@@ -39,7 +41,9 @@ $m_i>0$ の各 $i$ について、係数 $m_i$ を持つ $v_i\in N_i$ を選び�
 有限の非自明な一次結合が零だと仮定し、その非零係数の最大添字を $j$ とします。$j$ 番目の座標は $a_jm_j$ ですが、$a_j\ne0$ かつ $m_j>0$ なので零にはなりません。矛盾です。従って選んだ元は基底です。
 <!-- proof-end -->
 
-[任意階数の自由アーベル群の部分群](#lem-atop29-subgroup-free) により $Z_n,B_n$ は自由です。鎖から境界への全射と、サイクルからホモロジー類への全射を別々に並べると、次の二行の図式が得られます。どちらも [短完全列](../../../基礎論系/CATB/CATB1-05/index.md#def-catb1-05-short-exact) です。$i$ は包含、$p=p_n$ は境界をその像に値を取る写像として見たもの、$q$ は商写像です。包含を区別するときは $B_n\hookrightarrow Z_n$ を $i_n$ と書きます。
+[任意階数の自由アーベル群の部分群](#lem-atop29-subgroup-free) により $Z_n,B_n$ は自由です。鎖から境界への全射と、サイクルからホモロジー類への全射を別々に並べると、次の二行の図式が得られます。どちらも [短完全列](../../../基礎論系/CATB/CATB1-05/index.md#def-catb1-05-short-exact) です。$i$ は包含です。
+
+$p=p_n$ は境界をその像に値を取る写像として見たもの、$q$ は商写像です。包含を区別するときは $B_n\hookrightarrow Z_n$ を $i_n$ と書きます。
 
 $$
 0\to Z_n\xrightarrow{i} C_n\xrightarrow{p}B_{n-1}\to0,
@@ -114,7 +118,7 @@ $$
 <!-- formal-statement-start -->
 > **命題（アーベル群のテンソル積の右完全性）**
 >
-> [完全列](../../../基礎論系/CATB/CATB1-05/index.md#def-catb1-05-exact) $A\xrightarrow{u}D\xrightarrow{v}M\to0$ とアーベル群 $G$ に対して、次の列は完全である。
+> アーベル群の [完全列](../../../基礎論系/CATB/CATB1-05/index.md#def-catb1-05-exact) $A\xrightarrow{u}D\xrightarrow{v}M\to0$ とアーベル群 $G$ に対して、次の列は完全である。
 >
 $$
 A\otimes G\xrightarrow{u\otimes1}D\otimes G
@@ -147,7 +151,7 @@ $$
 0\to F_1\xrightarrow{u}F_0\to M\to0.
 $$
 
-> この分解を用いて、第一の群を
+> この分解を用いて、第一 Tor 群を
 >
 $$
 \operatorname{Tor}_1^{\mathbb Z}(M,G)
@@ -160,7 +164,9 @@ $$
 自由分解は常に存在します。$M$ の各元に基底元を対応させて作る自由群 $F_0$ から $M$ への全射の核は、[任意階数の自由アーベル群の部分群](#lem-atop29-subgroup-free)により自由だからです。ここで $F_1,F_0$ の添字は鎖の次数であり、既習の射影分解の余鎖記法ではそれぞれ $P^{-1},P^0$ に対応します。分解の選択に依存しないことは次の定理で証明します。
 
 <!-- definition-example-start: def-atop29-tor -->
-**定義の確認**。$M=\mathbb Z/6\mathbb Z$、$G=\mathbb Z/4\mathbb Z$ とします。$F_1=F_0=\mathbb Z$、$u=6$ とすると、6倍は整数上で単射であり、像 $6\mathbb Z$ は剰余射の核です。剰余射は全射なので、自由分解の全条件が成立します。テンソル後は両端を [アーベル群のテンソル積](#def-atop29-abelian-tensor) の定義例により $G$ と同一視します。すると
+**定義の確認**。$M=\mathbb Z/6\mathbb Z$、$G=\mathbb Z/4\mathbb Z$ とします。$F_1=F_0=\mathbb Z$、$u=6$ とすると、6倍は整数上で単射であり、像 $6\mathbb Z$ は剰余射の核です。剰余射は全射なので、自由分解の全条件が成立します。
+
+テンソル後は両端を [アーベル群のテンソル積](#def-atop29-abelian-tensor) の定義例により $G$ と同一視します。すると
 
 $$
 (u\otimes1)(1\otimes g)=6\otimes g=1\otimes6g
@@ -270,9 +276,13 @@ $$
 
 ## 5. コホモロジーの普遍係数定理
 
-今度は [特異コチェイン](../ATOP28/index.md#def-atop28-cochain) と同じように、準同型全体の群 $C^n(G)=\operatorname{Hom}(C_n,G)$ を取ります。$\operatorname{Hom}$ の加法は写像の値ごとの和です。[余境界](../ATOP28/index.md#def-atop28-coboundary) と同じく、$\delta^n:C^n(G)\to C^{n+1}(G)$ を $\delta^n\phi=\phi\circ d_{n+1}$ と定めます。合成記号を省略して $\phi d_{n+1}$ とも書きます。$\delta^{n+1}\delta^n=0$ なので、そのコホモロジーを $H^n(C;G)$ と書きます。
+今度は [特異コチェイン](../ATOP28/index.md#def-atop28-cochain) と同じように、準同型全体の群 $C^n(G)=\operatorname{Hom}(C_n,G)$ を取ります。$\operatorname{Hom}$ の加法は写像の値ごとの和です。
 
-前講で整数への延長が失敗したときの「延長できなかった写像」は $B_{n-1}\to G$ でした。[Ext](../../../基礎論系/CATB/CATB7-05/index.md#def-catb7-05-ext) を自由分解 $0\to B_{n-1}\to Z_{n-1}\to H_{n-1}\to0$ で計算すると、射影分解の非正次数の記法では $P^{-1}=B_{n-1}$、$P^0=Z_{n-1}$、微分は包含 $i_{n-1}$ です。Hom を取ると次数の向きが反転し、次数0から1への微分は $a\mapsto a\circ i_{n-1}$ になります。その次の群は零なので、次数1のコホモロジーとして
+[余境界](../ATOP28/index.md#def-atop28-coboundary) と同じく、$\delta^n:C^n(G)\to C^{n+1}(G)$ を $\delta^n\phi=\phi\circ d_{n+1}$ と定めます。合成記号を省略して $\phi d_{n+1}$ とも書きます。$\delta^{n+1}\delta^n=0$ なので、そのコホモロジーを $H^n(C;G)$ と書きます。
+
+前講で整数への延長が失敗したときの「延長できなかった写像」は $B_{n-1}\to G$ でした。[Ext](../../../基礎論系/CATB/CATB7-05/index.md#def-catb7-05-ext) を自由分解 $0\to B_{n-1}\to Z_{n-1}\to H_{n-1}\to0$ で計算すると、射影分解の非正次数の記法では $P^{-1}=B_{n-1}$、$P^0=Z_{n-1}$、微分は包含 $i_{n-1}$ です。
+
+Hom を取ると次数の向きが反転し、次数0から1への微分は $a\mapsto a\circ i_{n-1}$ になります。その次の群は零なので、次数1のコホモロジーとして
 
 $$
 \operatorname{Ext}_{\mathbb Z}^1(H_{n-1},G)
