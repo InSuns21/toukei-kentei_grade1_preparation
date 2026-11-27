@@ -78,7 +78,7 @@ chapters:
     title: "ports側のリスト下界：oracle descentとbatch下界の合成、$1\\le t\\le2^w$ の一様性とパラメータ選択"
   - id: MMX19
     path: textbook/volumes/dream_thater/計算系/MMX/MMX19
-    status: planned
+    status: completed
     title: "臨界tripodの腕とラベルrate、rectangular decoderと多項式乗算のrigidity、比 $6/(8/3)=9/4$ の位置づけ"
   - id: MMX20
     path: textbook/volumes/dream_thater/計算系/MMX/MMX20
