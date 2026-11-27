@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 228" data-layout-lint="strict" role="img">
+  <title>正方形の二つのshuffle三角形</title>
+  <desc>左は AからBを経てCへ進むHVで正符号、右はAからDを経てCへ進むVHで負符号。両方の三角形が共通の対角辺ACを持つ。</desc>
+  <g stroke="#333" stroke-width="1.5" fill="none">
+    <rect x="45" y="35" width="140" height="140"/>
+    <rect x="295" y="35" width="140" height="140"/>
+  </g>
+  <g fill="#dce9f4" stroke="#333" stroke-width="2">
+    <polygon points="45,175 185,175 185,35"/>
+    <polygon points="295,175 295,35 435,35"/>
+  </g>
+  <g stroke="#333" stroke-width="2.5" fill="none">
+    <path d="M 45 175 H 185 V 35"/>
+    <path d="M 295 175 V 35 H 435" stroke-dasharray="7 4"/>
+  </g>
+  <g fill="#333">
+    <path d="M 121 175 L 109 169 L 109 181 Z"/>
+    <path d="M 185 100 L 179 112 L 191 112 Z"/>
+    <path d="M 295 100 L 289 112 L 301 112 Z"/>
+    <path d="M 371 35 L 359 29 L 359 41 Z"/>
+  </g>
+  <g font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle">
+    <text x="35" y="196">A</text><text x="195" y="196">B</text>
+    <text x="195" y="23">C</text><text x="35" y="23">D</text>
+    <text x="285" y="196">A</text><text x="445" y="196">B</text>
+    <text x="445" y="23">C</text><text x="285" y="23">D</text>
+    <text x="115" y="215">HV (+)</text><text x="365" y="215">VH (−)</text>
+  </g>
+</svg>
