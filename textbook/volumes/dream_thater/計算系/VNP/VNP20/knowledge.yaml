@@ -1,0 +1,24 @@
+chapter: VNP20
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP19]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.cut-composition
+    name: "分割契約の合成"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["補題（分割契約の合成）"]
+    requires: [vp-vnp-study.cut-contract]
+  - id: vp-vnp-study.iterated-cut
+    name: "反復分割の指数評価"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（反復分割の指数評価）"]
+    requires: [vp-vnp-study.one-cut, vp-vnp-study.cut-composition]
+  - id: vp-vnp-study.all-scale-cuts
+    name: "全尺度での計算分割"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全尺度での計算分割）"]
+    requires: [vp-vnp-study.iterated-cut]

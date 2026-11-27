@@ -1,0 +1,22 @@
+id: VNP20
+title: "J：反復cut、時間・入力・piece数の指数台帳"
+volume: foundations
+status: supplementary
+prerequisites: [VNP19]
+official_scope: []
+learning_objectives:
+  - 分割契約の合成と受理枝あたりの管理費用を説明できる
+  - 整数除算の丸めと入力サイズの不変条件を導出できる
+  - 反復分割の片数・時間・サイズ・コード長を帰納法で評価できる
+  - 対数損失を尺度のべきへ吸収し全尺度の分割定理を導出できる
+definitions: []
+theorems:
+  - { id: VNP20-THM-01, name: "分割契約の合成" }
+  - { id: VNP20-THM-02, name: "反復分割の指数評価" }
+  - { id: VNP20-THM-03, name: "全尺度での計算分割" }
+canonical_examples: [分割の重み和の合成, 最後の切断の丸め, 余りによる係数の評価]
+problem_patterns: [VNP20-A1, VNP20-A2, VNP20-A3, VNP20-A4, VNP20-B1, VNP20-B2, VNP20-B3, VNP20-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
