@@ -2,7 +2,7 @@ id: MQFC36
 title: "多点の部分対角・重なる発散"
 volume: foundations
 status: supplementary
-prerequisites: [MQFC31, MQFC32, MQFC33, MQFC34, MQFC35]
+prerequisites: [MQFC31, MQFC32, MQFC33, MQFC34, MQFC35, QFT22]
 official_scope: []
 learning_objectives:
   - 多点衝突の層と余次元を相対座標で求められる
