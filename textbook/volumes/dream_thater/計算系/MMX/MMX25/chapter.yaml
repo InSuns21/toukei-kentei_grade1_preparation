@@ -2,7 +2,7 @@ id: MMX25
 title: "sorting後半・local：wide recordのコスト、seamを跨ぐ挿入、stationの統合と二乗脚幅の制御"
 volume: foundations
 status: supplementary
-prerequisites: [MMX24]
+prerequisites: [MMX24, F0-00P3A, ATOP8, FIX1, EC4]
 official_scope: []
 learning_objectives:
   - 短住所の変位評価と有限価格検査から輸送総幅を一様に抑えられる
