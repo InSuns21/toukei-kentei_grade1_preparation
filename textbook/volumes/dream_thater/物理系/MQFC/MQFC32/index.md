@@ -207,9 +207,9 @@ $$
 
 非零性も必要である。原点近傍で1となる滑らかなコンパクト台関数 $\chi$ を選ぶ。例えば[テスト関数の構成例](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-test-function) の滑らかな関数 $h$ を使い、
 
-$
+$$
 \chi(x)=\frac{h(4-|x|^2)}{h(4-|x|^2)+h(|x|^2-1)}.
-$
+$$
 
 とすれば分母は常に正で、$|x|\le1$ で1、$|x|\ge2$ で0となる。この $\chi$ に対し、$\varphi(x)=x^\alpha\chi(x)$ とする。ただし $x^\alpha=\prod_j x_j^{\alpha_j}$ である。原点での微分は $\partial^\alpha\varphi(0)=\prod_j\alpha_j!$ だから零ではない。
 
