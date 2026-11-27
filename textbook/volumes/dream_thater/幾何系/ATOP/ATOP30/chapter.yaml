@@ -1,0 +1,27 @@
+id: ATOP30
+title: "積空間とKünneth公式"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP29, ATOP17]
+official_scope: []
+learning_objectives:
+  - テンソル積鎖複体の境界とshuffle写像の符号を計算できる
+  - Alexander–Whitney写像を構成し二つの鎖写像の境界公式を証明できる
+  - 標準単体の積の収縮から自然な鎖ホモトピーを構成できる
+  - PID上のKünneth短完全列の自然性と分裂を証明しTorの次数を判定できる
+  - コホモロジー版の有限型の仮定とTorの次数を説明し積空間の群を計算できる
+definitions:
+  - { id: ATOP30-DEF-01, name: テンソル積鎖複体 }
+  - { id: ATOP30-DEF-02, name: shuffle写像 }
+  - { id: ATOP30-DEF-03, name: Alexander–Whitney写像 }
+theorems:
+  - { id: ATOP30-THM-01, name: 積の二つの鎖写像 }
+  - { id: ATOP30-THM-02, name: Eilenberg–Zilber定理 }
+  - { id: ATOP30-THM-03, name: ホモロジーのKünneth公式 }
+  - { id: ATOP30-THM-04, name: 有限型コホモロジーのKünneth公式 }
+canonical_examples: [正方形の二つのshuffle, 円周の積, 実射影平面の積, 無限離散空間]
+problem_patterns: [ATOP30-A1, ATOP30-A2, ATOP30-A3, ATOP30-A4, ATOP30-B1, ATOP30-B2, ATOP30-B3, ATOP30-B4, ATOP30-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 1 }

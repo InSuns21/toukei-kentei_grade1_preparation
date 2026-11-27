@@ -33,7 +33,7 @@ chapters:
   - { id: ATOP27, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP27, status: completed, title: "Lefschetz不動点定理" }
   - { id: ATOP28, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP28, status: completed, title: "コチェインと特異コホモロジー" }
   - { id: ATOP29, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP29, status: completed, title: "普遍係数定理・ExtとTor" }
-  - { id: ATOP30, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP30, status: planned, title: "積空間とKünneth公式" }
+  - { id: ATOP30, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP30, status: completed, title: "積空間とKünneth公式" }
   - { id: ATOP31, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP31, status: planned, title: "cup積とコホモロジー環" }
   - { id: ATOP32, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP32, status: planned, title: "環の計算：トーラス・射影空間" }
   - { id: ATOP33, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP33, status: planned, title: "Borsuk–Ulam定理" }

@@ -1,0 +1,41 @@
+chapter: ATOP30
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP29, ATOP17]
+forward_references: []
+concepts:
+  - id: atop.tensor-chain-complex
+    name: テンソル積鎖複体
+    kind: definition
+    introduction: formal
+    requires: [atop.abelian-tensor-product, atop.singular-boundary-square-zero]
+  - id: atop.shuffle-map
+    name: shuffle写像
+    kind: definition
+    introduction: formal
+    requires: [atop.tensor-chain-complex, atop.singular-simplex]
+  - id: atop.alexander-whitney-map
+    name: Alexander–Whitney写像
+    kind: definition
+    introduction: formal
+    requires: [atop.tensor-chain-complex, atop.singular-face-map]
+  - id: atop.product-chain-maps
+    name: 積の二つの鎖写像
+    kind: theorem
+    introduction: formal
+    requires: [atop.shuffle-map, atop.alexander-whitney-map, atop.singular-chain-map-boundary]
+  - id: atop.eilenberg-zilber
+    name: Eilenberg–Zilber定理
+    kind: theorem
+    introduction: formal
+    requires: [atop.product-chain-maps, atop.chain-homotopy-induced]
+  - id: atop.homology-kunneth
+    name: ホモロジーのKünneth公式
+    kind: theorem
+    introduction: formal
+    requires: [atop.eilenberg-zilber, atop.tor-resolution-independence, atop.arbitrary-free-abelian-subgroup, atop.tensor-right-exact]
+  - id: atop.cohomology-kunneth
+    name: 有限型コホモロジーのKünneth公式
+    kind: theorem
+    introduction: formal
+    requires: [atop.homology-kunneth, atop.singular-cohomology, atop.singular-cochain]
