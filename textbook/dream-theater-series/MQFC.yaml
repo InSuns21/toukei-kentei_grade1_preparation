@@ -37,7 +37,7 @@ chapters:
   - { id: MQFC31, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC31, status: completed, title: "相互作用をなぜ形式冪級数で扱うか" }
   - { id: MQFC32, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC32, status: completed, title: "分布のscaling degree" }
   - { id: MQFC33, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC33, status: completed, title: "原点を除く分布をどう延長するか" }
-  - { id: MQFC34, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC34, status: planned, title: "局所反項の自由度" }
+  - { id: MQFC34, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC34, status: completed, title: "局所反項の自由度" }
   - { id: MQFC35, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC35, status: planned, title: "Feynman核の対角延長を計算する" }
   - { id: MQFC36, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC36, status: planned, title: "多点の部分対角・重なる発散" }
   - { id: MQFC37, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC37, status: planned, title: "汎関数微分と局所汎関数" }
