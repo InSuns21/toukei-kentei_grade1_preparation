@@ -4,7 +4,7 @@
 
 今回は差が原点の有限個の微分値だけを読むことを証明し、許される係数の数を求める。さらに対称性と減算尺度を使って、その自由度がどのように制限され、変化するかを計算する。二点の相対座標 $x$ では原点は二点が一致する場所なので、この計算は時間順序積の短距離くりこみの準備となる。
 
-以下 $d\ge1$ は整数、$U=\mathbb R^d\setminus\{0\}$、$\mathcal D(V)=C_c^\infty(V)$、$\mathcal D'(V)$ は複素線形な分布の空間とする。$|x|$ はEuclidノルムであり、時空計量は $(-,+,+,+)$ とする。今回の回転対称性はEuclid空間の例で、Lorentz対称性とは区別する。
+以下 $d\ge1$ は整数、$U=\mathbb R^d\setminus\{0\}$ とする。[テスト関数](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-test-function)の空間を $\mathcal D(V)=C_c^\infty(V)$、複素線形な[超関数](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-distribution)の空間を $\mathcal D'(V)$ と書く。$|x|$ はEuclidノルムであり、時空計量は $(-,+,+,+)$ とする。今回の回転対称性はEuclid空間の例で、Lorentz対称性とは区別する。
 
 ## 1. 原点だけに残る作用
 
@@ -136,7 +136,29 @@ $$
 
 ## 3. 次数を保つ延長の全自由度
 
-前節の表示で $D\ne0$ とし、非零係数の最大階を $n$ とする。[デルタ導関数のスケーリング次数](../MQFC32/index.md#prop-mqfc32-delta-degree)によれば各項の次数は $d+|\alpha|$ である。最高階の項が複数あっても次数が打ち消されないことを先に確認する。$|\beta|=n$ かつ $c_\beta\ne0$ を選び、先の $\varphi_\beta$ で試すと、[分布のスケール変換](../MQFC32/index.md#def-mqfc32-dilation)の下で
+前節の表示で $D\ne0$ とし、非零係数の最大階を $n$ とする。最大階の導関数が複数あるとき、個々の項の次数が同じでも、その和の次数が下がらないことを確かめたい。
+
+<a id="prop-mqfc34-point-degree"></a>
+
+<!-- formal-statement-start -->
+> **命題（原点支持分布の最高階と次数）**  
+> $d\ge1$ とし、非零の原点支持分布 $D$ が有限和 $D=\sum_\alpha c_\alpha\partial^\alpha\delta$ で表されるとする。$n=\max\{|\alpha|:c_\alpha\ne0\}$ なら
+>
+$$
+\operatorname{sd}(D)=d+n
+$$
+>
+> である。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+最高階の非零係数を一つ選んで、他の全係数の寄与を消す単項式型試験関数を入力する。これで次数の下界を求める。
+
+<!-- proof-start -->
+### 証明
+
+[デルタ導関数のスケーリング次数](../MQFC32/index.md#prop-mqfc32-delta-degree)によれば各項の次数は $d+|\alpha|$ である。最高階の項が複数あっても次数が打ち消されないことを先に確認する。$|\beta|=n$ かつ $c_\beta\ne0$ を選び、先の $\varphi_\beta$ で試すと、[分布のスケール変換](../MQFC32/index.md#def-mqfc32-dilation)の下で
 
 $$
 \langle D_\lambda,\varphi_\beta\rangle
@@ -144,6 +166,7 @@ $$
 $$
 
 となる。$\lambda^\omega$ を掛けた値は $\omega\le d+n$ なら零に収束しない。他の試験関数では各項が高々 $\lambda^{-d-n}$ の定数倍なので、$\omega>d+n$ なら零に収束する。従って $\operatorname{sd}(D)=d+n$ である。
+<!-- proof-end -->
 
 原点を除いた核の延長を一つ固定し、そこへ原点だけに支持を持つ分布を足す。この加える項は局所反項である。短距離の強さを変えないという条件から、追加できる反項を全て分類できる。
 
@@ -151,7 +174,10 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（局所反項の自由度）**  
-> $U=\mathbb R^d\setminus\{0\}$、$t\in\mathcal D'(U)$、$s=\operatorname{sd}_U(t)<+\infty$ とする。$T_0$ を $t$ のスケーリング次数 $s$ を保つ延長とする。$s<d$ ならそのような延長は $T_0$ だけである。$d\le s<+\infty$ なら $m=\lfloor s-d\rfloor$ として、そのような延長はちょうど
+> $U=\mathbb R^d\setminus\{0\}$、$t\in\mathcal D'(U)$ とする。そのスケーリング次数を $s$ とし、$s<+\infty$ を仮定する。
+> $T_0$ を $t$ のスケーリング次数 $s$ を保つ延長とする。
+> $s<d$ ならそのような延長は $T_0$ だけである。
+> $d\le s<+\infty$ なら $m=\lfloor s-d\rfloor$ として、そのような延長はちょうど
 >
 $$
 T=T_0+\sum_{|\alpha|\le m}c_\alpha\partial^\alpha\delta,
@@ -170,18 +196,18 @@ $$
 
 存在は[スケーリング次数を保つ延長](../MQFC33/index.md#thm-mqfc33-extension)によって保証される。別の次数保存延長 $T$ を取り、$D=T-T_0$ とする。[原点を越える分布の延長](../MQFC33/index.md#def-mqfc33-extension)の条件から $D$ の原点外への作用は零である。[原点支持分布の構造](#thm-mqfc34-point-structure)により有限和で書ける。
 
-任意の実数 $\omega>s$ で $\lambda^\omega T_\lambda$ と $\lambda^\omega(T_0)_\lambda$ は分布として零に収束する。差も零に収束するので $\operatorname{sd}(D)\le s$ である。$D\ne0$ なら先ほどの計算より $\operatorname{sd}(D)=d+n$、従って $d+n\le s$ である。$s<d$（$s=-\infty$ を含む）では不可能だから $D=0$。$s\ge d$ では $n\le\lfloor s-d\rfloor$ である。
+任意の実数 $\omega>s$ で $\lambda^\omega T_\lambda$ と $\lambda^\omega(T_0)_\lambda$ は分布として零に収束する。差も零に収束するので $\operatorname{sd}(D)\le s$ である。$D\ne0$ なら[原点支持分布の最高階と次数](#prop-mqfc34-point-degree)より $\operatorname{sd}(D)=d+n$、従って $d+n\le s$ である。$s<d$（$s=-\infty$ を含む）では不可能だから $D=0$。$s\ge d$ では $n\le\lfloor s-d\rfloor$ である。
 
 逆にこの階数の有限和を $T_0$ に足すと、原点外への作用は変わらない。各項の次数が $d+|\alpha|\le s$ だから任意の $\omega>s$ で規格化した各作用が零に収束し、和の次数は $s$ 以下である。延長の次数は原点外の次数以上である（[原点を越える分布の延長](../MQFC33/index.md#def-mqfc33-extension)の後の下界の導出）。従って正確に $s$ になる。
 
-係数の一意性は構造定理から従う。$|\alpha|\le m$ の多重指数は、余り $\alpha_{d+1}=m-|\alpha|$ を付ければ和が $m$ の非負整数 $d+1$ 個と一対一に対応する。$m$ 個の印と $d$ 本の仕切りを並べ、各区間の印の数を各成分とすれば、その並べ方は $\binom{m+d}{d}=\binom{m+d}{m}$ 通りである。
+係数の一意性は[原点支持分布の構造](#thm-mqfc34-point-structure)から従う。$|\alpha|\le m$ の多重指数は、余り $\alpha_{d+1}=m-|\alpha|$ を付ければ和が $m$ の非負整数 $d+1$ 個と一対一に対応する。$m$ 個の印と $d$ 本の仕切りを並べ、各区間の印の数を各成分とすれば、その並べ方は $\binom{m+d}{d}=\binom{m+d}{m}$ 通りである。
 <!-- proof-end -->
 
 例えば $d=4$ で $s=6.7$ なら $m=2$ であり、零階1個、一次4個、二次10個、合計15個の係数を選べる。$s=6$ ちょうどでも15個であり、$s<6$ なら二階の10個は許されない。これは対称性などを課す前の個数である。
 
 ## 4. 対称性で反項を絞る
 
-同じ反射対称性を持つ二つの延長の差もその対称性を持つ。例えば一次元で $\varphi(-x)$ に対する作用が $\varphi(x)$ に対する作用と等しいなら、奇数階のデルタ導関数の係数は零でなければならない。一般には直交変換 $Q$ に対して $\langle D,\varphi(Q\,\cdot)\rangle=\langle D,\varphi\rangle$ を課す。
+同じ反射対称性を持つ二つの延長の差もその対称性を持つ。例えば一次元で $\varphi(-x)$ に対する作用が $\varphi(x)$ に対する作用と等しいなら、奇数階のデルタ導関数の係数は零でなければならない。一般には直交行列 $Q$（$Q^{\mathsf T}Q=I_d$ を満たす実 $d\times d$ 行列）の全体を $O(d)$ と書き、各直交変換 $Q$ に対して $\langle D,\varphi(Q\,\cdot)\rangle=\langle D,\varphi\rangle$ を課す。
 
 Euclid空間の全ての直交変換で不変な反項では、二階微分は座標のどれか一つに偏れない。実際に全階数を分類してみよう。ここで $\Delta=\sum_{j=1}^d\partial_j^2$ はEuclid空間のLaplacianである。
 
@@ -189,7 +215,14 @@ Euclid空間の全ての直交変換で不変な反項では、二階微分は�
 
 <!-- formal-statement-start -->
 > **定理（直交変換で不変な局所反項）**  
-> $d\ge1$、$m\ge0$ を整数とする。原点に支持を持つ $D\in\mathcal D'(\mathbb R^d)$ が $\operatorname{sd}(D)\le d+m$ を満たすとする。全ての直交行列 $Q\in O(d)$ と試験関数 $\varphi$ に対して $\langle D,\varphi(Q\,\cdot)\rangle=\langle D,\varphi\rangle$ となるための必要十分条件は、複素係数 $a_k$ によって
+> $d\ge1$、$m\ge0$ を整数とする。原点に支持を持つ $D\in\mathcal D'(\mathbb R^d)$ が $\operatorname{sd}(D)\le d+m$ を満たすとする。
+> 全ての直交行列 $Q\in O(d)$ と試験関数 $\varphi$ に対して
+>
+$$
+\langle D,\varphi(Q\,\cdot)\rangle=\langle D,\varphi\rangle
+$$
+>
+> となるための必要十分条件は、複素係数 $a_k$ によって
 >
 $$
 D=\sum_{k=0}^{\lfloor m/2\rfloor}a_k\Delta^k\delta
@@ -205,7 +238,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[原点支持分布の構造](#thm-mqfc34-point-structure)と第3節の最高階の次数計算から
+[原点支持分布の構造](#thm-mqfc34-point-structure)と[原点支持分布の最高階と次数](#prop-mqfc34-point-degree)から
 
 $$
 D=\sum_{|\alpha|\le m}c_\alpha\partial^\alpha\delta
@@ -219,7 +252,7 @@ $$
 \langle D,\psi_z(Q\,\cdot)\rangle=P(Q^{\mathsf T}z).
 $$
 
-不変性により $P(Q^{\mathsf T}z)=P(z)$ を得る。逆にこの多項式の等式が全ての実 $z$ で成り立つとする。$D_Q$ を $\langle D_Q,\varphi\rangle=\langle D,\varphi(Q\,\cdot)\rangle$ と定める。連鎖律から有限階の微分値の線形結合なので分布であり原点支持である。上の計算で $D_Q-D$ の指数関数型試験関数への作用が全 $z$ で零となる。構造定理によりその作用は係数を並べた多項式である。零多項式の各係数は原点で対応する偏微分を取り $\alpha!$ で割れば零と分かるので $D_Q=D$ である。
+不変性により $P(Q^{\mathsf T}z)=P(z)$ を得る。逆にこの多項式の等式が全ての実 $z$ で成り立つとする。$D_Q$ を $\langle D_Q,\varphi\rangle=\langle D,\varphi(Q\,\cdot)\rangle$ と定める。連鎖律から有限階の微分値の線形結合なので分布であり原点支持である。上の計算で $D_Q-D$ の指数関数型試験関数への作用が全 $z$ で零となる。[原点支持分布の構造](#thm-mqfc34-point-structure)によりその作用は係数を並べた多項式である。零多項式の各係数は原点で対応する偏微分を取り $\alpha!$ で割れば零と分かるので $D_Q=D$ である。
 
 任意の $z\ne0$ に対し $z/|z|$ を第一座標の単位ベクトルへ移す直交行列が存在する（単位ベクトルを正規直交基底に補えば構成できる）。よって $P(z)=P(|z|e_1)$ である。一次元多項式 $q(u)=P(ue_1)$ は第一座標の符号反転により $q(-u)=q(u)$ となる。奇数次係数は零であるから
 
@@ -239,7 +272,7 @@ $d=4$、$m=2$ では15個の係数が2個へ減り、差は $a_0\delta+a_1\Delta
 
 ## 5. 対数発散と尺度の変更
 
-次数が次元に等しい核で、減算する領域を半径 $R$ で指定しよう。$R$ は正の長さ（同じ座標単位で測る）である。半径を変えると原点外の核は同じまま、引く定数項の領域だけが変わる。
+次数が次元に等しい核で、減算する領域を半径 $R$ で指定しよう。$R$ は正の長さ（同じ座標単位で測る）である。半径を変えると原点外の核は同じまま、引く定数項の領域だけが変わる。ここでは球の内側で1、外側で0となる指示関数を使う。球面上の値は積分に影響しない。
 
 <a id="prop-mqfc34-log-scale"></a>
 
@@ -326,7 +359,7 @@ $$
 =\lambda^{-d}(T_R+c\delta+\sigma_{d-1}\log\lambda\,\delta).
 $$
 
-従ってこの核には厳密な斉次性を保つ延長は存在しない。次数保存と厳密な斉次性は異なる条件なのである。
+従ってどの次数保存延長も厳密な斉次性を持たない。元の核の斉次次数 $-d$ を保つ延長があれば、非零の[斉次分布のスケーリング次数](../MQFC32/index.md#thm-mqfc32-homogeneous-degree)からその次数は $d$ になるはずなので、そのような延長は存在しない。次数保存と厳密な斉次性は異なる条件なのである。
 
 ## 6. 演習
 
@@ -340,7 +373,7 @@ $$
 
 [超関数の微分](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-distributional-derivative)より、作用は $2\varphi(0)-3\varphi'(0)-4\varphi''(0)$ である。各試験関数の零、一、二階の原点微分値は順に $(1,0,0),(0,1,0),(0,0,1)$。よって作用値は $2,-3,-4$ である。
 
-最高階は2で係数が非零である。第3節の計算では最後の試験関数への $D_\lambda$ の作用が $-4\lambda^{-3}$ となるから、$\omega\le3$ では $\lambda^\omega$ を掛けても零にならない。他の試験関数に対しても各項は $\lambda^{-1},\lambda^{-2},\lambda^{-3}$ の定数倍なので $\omega>3$ で零になる。次数は3である。
+最高階は2で係数が非零である。[原点支持分布の最高階と次数](#prop-mqfc34-point-degree)の証明と同じ試験関数の選び方では、最後の試験関数への $D_\lambda$ の作用が $-4\lambda^{-3}$ となるから、$\omega\le3$ では $\lambda^\omega$ を掛けても零にならない。他の試験関数に対しても各項は $\lambda^{-1},\lambda^{-2},\lambda^{-3}$ の定数倍なので $\omega>3$ で零になる。次数は3である。
 <!-- solution-end -->
 
 ### 演習 MQFC34-A2：階数と個数
@@ -409,7 +442,7 @@ $d=2$ で次数が4以下の原点支持分布を考える。座標ごとの符�
 <!-- solution-start -->
 **詳細解答**
 
-[原点支持分布の構造](#thm-mqfc34-point-structure)と最高階の次数計算により次数4以下では二階までである。係数を明示すると
+[原点支持分布の構造](#thm-mqfc34-point-structure)と[原点支持分布の最高階と次数](#prop-mqfc34-point-degree)により次数4以下では二階までである。係数を明示すると
 
 $$
 D=a\delta+u\partial_1\delta+v\partial_2\delta
@@ -458,9 +491,15 @@ $$
 ### 演習 MQFC34-C1：角度に依存する臨界核
 - Level: C
 
-$d=2$、$x=(r\cos\theta,r\sin\theta)$、$r>0$ とし、$t_b(x)=r^{-2}(1+b\cos2\theta)$ ($b\in\mathbb R$) とする。半径 $R>0$ の球による第5節と同じ減算で $T_{b,R}$ を作る。
+$d=2$、$x=(r\cos\theta,r\sin\theta)$、$r>0$ とし、$t_b(x)=r^{-2}(1+b\cos2\theta)$ ($b\in\mathbb R$) とする。半径 $R>0$ の球による減算で
+$$
+\langle T_{b,R},\varphi\rangle
+=\int_{\mathbb R^2}t_b(x)
+(\varphi(x)-\mathbf 1_{\{|x|<R\}}\varphi(0))\,d^2x
+$$
+と置く。
 
-(1) 分布としての延長であり次数2を保つことを示せ。(2) 尺度変更の係数を計算せよ。(3) 全直交変換で不変な延長が存在するための条件を求めよ。
+(1) 分布としての延長であることを示せ。(2) 尺度変更の係数を計算し、次数2を保つことを示せ。(3) 全直交変換で不変な延長が存在するための条件を求めよ。
 
 <!-- solution-start -->
 **詳細解答**
