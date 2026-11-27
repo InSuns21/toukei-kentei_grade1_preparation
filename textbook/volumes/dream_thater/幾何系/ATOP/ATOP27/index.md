@@ -64,15 +64,17 @@ $$
 > とする。和は有限個の非零項しか持たない。
 <!-- formal-statement-end -->
 
-具体例として円周を考えます。[胞体ホモロジー定理](../ATOP22/index.md#thm-atop22-cellular-comparison) で一点と一つの1胞体の鎖群を使うと、1胞体の両端が同じ点なので境界は零です。従って整数係数では $H_0,H_1$ がともに $\mathbb Z$、他は零で、有理係数では $\mathbb Q,\mathbb Q$ になります。これは第1節で示した、整数ホモロジーが自由である場合の基底の延長によります。
+<!-- definition-example-start: def-atop27-lefschetz-number -->
+**定義の確認**：円周 $S^1$ は三角形の周と同相なので、空でない有限多面体です。複素共役による反射 $r(z)=\bar z$ は連続で、$|\bar z|=|z|=1$ より円周の自己写像です。[胞体ホモロジー定理](../ATOP22/index.md#thm-atop22-cellular-comparison) で一点と一つの1胞体の鎖群を使うと、1胞体の両端が同じ点なので境界は零です。従って整数係数では $H_0,H_1$ がともに $\mathbb Z$、他は零で、有理係数では $\mathbb Q,\mathbb Q$ になります。これは第1節で示した、整数ホモロジーが自由である場合の基底の延長によります。
 
-円周の反射 $r(z)=\bar z$ を取ります。円周は道連結なので [0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) より $H_0(r)$ は一点の類を一点の類に送る恒等写像です。[反射と対蹠写像の写像度](../ATOP23/index.md#thm-atop23-reflection-antipodal) により $H_1(r)$ は $-1$ 倍です。以上から
+円周は道連結なので [0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) より $H_0(r)$ は一点の類を一点の類に送る恒等写像です。[反射と対蹠写像の写像度](../ATOP23/index.md#thm-atop23-reflection-antipodal) により $H_1(r)$ は $-1$ 倍です。以上から
 
 $$
 L(r)=1-(-1)=2.
 $$
 
 このように定義の各次数の作用を確認して数を求めます。
+<!-- definition-example-end -->
 
 [特異ホモロジーのホモトピー不変性](../ATOP17/index.md#thm-atop17-homotopy-invariance) によってホモトピックな自己写像は全次数の誘導写像が一致するので、Lefschetz数も一致します。恒等写像の場合、各トレースはホモロジーの次元であり、交代和は Euler 標数です。
 
