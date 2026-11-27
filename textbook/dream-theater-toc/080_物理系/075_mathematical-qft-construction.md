@@ -33,3 +33,4 @@
 30. [MQFC30 Clay Yang–Mills存在・質量ギャップ問題](textbook/volumes/dream_thater/物理系/MQFC/MQFC30/index.md)
 31. [MQFC31 相互作用をなぜ形式冪級数で扱うか](textbook/volumes/dream_thater/物理系/MQFC/MQFC31/index.md)
 32. [MQFC32 分布のscaling degree](textbook/volumes/dream_thater/物理系/MQFC/MQFC32/index.md)
+33. [MQFC33 原点を除く分布をどう延長するか](textbook/volumes/dream_thater/物理系/MQFC/MQFC33/index.md)
