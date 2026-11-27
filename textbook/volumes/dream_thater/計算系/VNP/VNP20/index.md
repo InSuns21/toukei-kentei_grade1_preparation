@@ -108,15 +108,15 @@ $\tau_1\ge1$ なので $d<k\le k\tau_1$。従って $\tau\Lambda\le2k\tau_1$ で
 >
 > $v,a_0,R,H,\Lambda,r,\tau,s,c$ は自然数とし、
 >
-$
+$$
 v\ge1000,\quad 2\le\Lambda\le v,\quad H\ge\max(a_0,200)
-$
+$$
 >
 > とする。第2節の[一回の計算分割](../VNP19/index.md#thm-vnp19-onecut)の整数版が
 >
-$
+$$
 v^{a_0}\le x\le v^R,\quad 0\le y\le x,\quad 2\le k\le v^{64}
-$
+$$
 >
 > を満たすすべての自然数 $x,y,k$ で利用できると仮定する。さらに
 >
