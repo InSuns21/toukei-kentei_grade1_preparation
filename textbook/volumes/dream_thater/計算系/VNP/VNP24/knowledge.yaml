@@ -1,0 +1,12 @@
+chapter: VNP24
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP1, VNP17, VNP18, VNP19, VNP22, VNP23, FML5, FML6, FML7]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.boolean-evaluation-preservation
+    name: "Booleanゲート置換の評価保存"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Booleanゲート置換の評価保存）"]
+    requires: [vp-vnp-study.total-gate-count]

@@ -98,5 +98,5 @@ chapters:
     title: "N：Laurent切断、近似few-term lemma・近似accelerator、VNP not⊆ closure(VP)"
   - id: VNP24
     path: textbook/volumes/dream_thater/計算系/VNP/VNP24
-    status: planned
+    status: completed
     title: "P/Q：用語・全主要定理とLean対応、I.1/H.2(d,e)/J.3/N.4の監査、P vs NPへの限界"

@@ -1,7 +1,7 @@
 # DREAM THEATER VP ≠ VNP 証明研究講読 計画
 
 構成確定日: 2026-11-24 JST
-状態: in progress（VNP1–23実装、VNP24予定）
+状態: in progress（VNP1–24の教材実装、最終系列確認待ち）
 系列予約ID: VNP（実装時にmanifest/章ID衝突を再点検）
 講数: **全24講**
 
@@ -54,3 +54,7 @@ Claude (Anthropic), [VP ≠ VNP over every field, v1](https://hexagonmath.org/26
 - [ ] chapter.yaml・knowledge.yaml・prerequisite・stable anchor・KaTeX・concept/knowledge/exercise/Pages検証を完了する。
 - [ ] 研究claimは証明artifact・statement matching・kernel・独立人間検証・出版を分離し、未確認のものを無条件の正本定理にしない。
 - [ ] 横断監査・公開導線完了後に plan_done に移す。
+
+## 5. 最終講の照合記録
+
+VNP24では付録Qの番号付き命題一覧と公開ソース（固定版 `db8472ee0fe3ebea21765160a6e3a04f5eaba4c5`）を対応させ、H.2(d,e)、I.1、J.3、N.4について形式化の契約・主要補助命題とサイズ評価を講義に収録した。Statement / Solution / Challenge / Comparator の構成を確認した。独立したLean再ビルド・全内部命令の再査読・専門家審査は未実施であり、著者の検査報告と分ける。教材の最終系列確認後にPLANの状態を判定する。

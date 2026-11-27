@@ -24,3 +24,4 @@
 21. [VNP21 K：small circuitからaccelerator、定数名・低次数化・scale transferと対角線論法](textbook/volumes/dream_thater/計算系/VNP/VNP21/index.md)
 22. [VNP22 L/M：両caseの結合、全標数へのtransfer、HC grid gadget、VP≠VNP](textbook/volumes/dream_thater/計算系/VNP/VNP22/index.md)
 23. [VNP23 N：Laurent切断、近似few-term lemma・近似accelerator、VNP not⊆ closure(VP)](textbook/volumes/dream_thater/計算系/VNP/VNP23/index.md)
+24. [VNP24 P/Q：用語・全主要定理とLean対応、I.1/H.2(d,e)/J.3/N.4の監査、P vs NPへの限界](textbook/volumes/dream_thater/計算系/VNP/VNP24/index.md)
