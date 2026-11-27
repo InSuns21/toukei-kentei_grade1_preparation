@@ -1,0 +1,27 @@
+id: MMX22
+title: "fermions・sphere：外積の縮約と符号、marked pointで定義される球面テンソル、衝突時の分解と脚幅"
+volume: foundations
+status: supplementary
+prerequisites: ["MMX21","MMX8","LA3E"]
+official_scope: []
+learning_objectives:
+  - 半整数エネルギーの外積基底を列挙し任意標数で縮約符号を計算できる
+  - 印付き点の球面テンソルを構成し極と斉次性を説明できる
+  - 内部組と外部への移動に分けて融合公式を再構成できる
+  - 母関数と自己共役分割から脚幅の増加率を求められる
+  - 重み付き枠を用いて任意の行列単位の融合による実現とエネルギー上界を証明できる
+  - 球面テンソルの輸送上界と二次費用への接続を説明できる
+definitions:
+  - {"id":"MMX22-DEF-01","name":"フェルミオンのエネルギー空間"}
+  - {"id":"MMX22-DEF-02","name":"フェルミオン球面テンソル"}
+theorems:
+  - {"id":"MMX22-THM-01","name":"球面テンソルの融合公式"}
+  - {"id":"MMX22-LEM-01","name":"エネルギー空間の次元評価"}
+  - {"id":"MMX22-LEM-02","name":"融合写像の脚幅上界"}
+  - {"id":"MMX22-PROP-01","name":"球面テンソルの輸送上界"}
+canonical_examples: [真空と低エネルギー基底, 四点の縮約, 二点融合, 行列単位の試験入力]
+problem_patterns: ["MMX22-A01","MMX22-A02","MMX22-A03","MMX22-A04","MMX22-B01","MMX22-B02","MMX22-B03","MMX22-B04","MMX22-C01","MMX22-C02"]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 5, review: 3 }

@@ -1,0 +1,43 @@
+chapter: MMX22
+scope: dream-theater
+coverage: complete
+prerequisites: ["MMX21","MMX8","LA3E"]
+forward_references:
+  - gauge.pfaffian
+concepts:
+  - id: matrix-exponent.fermion-level
+    name: "フェルミオンのエネルギー空間"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（フェルミオンのエネルギー空間）"]
+    requires: ["linear.exterior-power"]
+  - id: matrix-exponent.fermion-sphere
+    name: "フェルミオン球面テンソル"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（フェルミオン球面テンソル）"]
+    requires: ["matrix-exponent.fermion-level"]
+  - id: matrix-exponent.sphere-fusion
+    name: "球面テンソルの融合公式"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（球面テンソルの融合公式）"]
+    requires: ["matrix-exponent.fermion-sphere"]
+  - id: matrix-exponent.fermion-dimension
+    name: "エネルギー空間の次元評価"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（エネルギー空間の次元評価）"]
+    requires: ["matrix-exponent.fermion-level"]
+  - id: matrix-exponent.fusion-width
+    name: "融合写像の脚幅上界"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（融合写像の脚幅上界）"]
+    requires: ["matrix-exponent.sphere-fusion","matrix-exponent.fermion-dimension"]
+  - id: matrix-exponent.sphere-transport
+    name: "球面テンソルの輸送上界"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（球面テンソルの輸送上界）"]
+    requires: ["matrix-exponent.fermion-dimension","matrix-exponent.wire-transport"]
