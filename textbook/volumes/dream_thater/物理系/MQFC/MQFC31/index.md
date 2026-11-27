@@ -37,7 +37,7 @@ $$
 <!-- definition-example-start: def-mqfc31-formal-coupling -->
 ### 直接例：積の順序を保つ
 
-$A$ を複素 $2\times2$ 行列の代数とし、
+$A$ を複素 $2\times2$ 行列の代数とする。行列は標準基底における $\mathbb C^2$ の線形自己写像を表し、積は写像の合成、$I$ は $2\times2$ の単位行列である。行列の等号は全成分の一致と同値なので、係数列の等号は各次数の行列を比較して判定できる。具体的に
 
 $$
 P=\begin{pmatrix}0&1\\0&0\end{pmatrix},
@@ -50,7 +50,7 @@ $$
 FG=I+\lambda(P+Q)+\lambda^2PQ.
 $$
 
-**定義の確認**：行列は標準基底における $\mathbb C^2$ の線形自己写像を表し、積は写像の合成、$I$ は $2\times2$ の単位行列である。係数列の和は各次数の行列の和、積は各次数での有限和として計算する。定数項は $II=I$、一次係数は $IQ+PI=P+Q$、二次係数は $PQ$ だけであり、三次以上の係数は零である。順序を逆にした場合は二次係数が $QP$ になる。
+**定義の確認**：係数列の和は各次数の行列の和、積は各次数での有限和として計算する。例えば $[\lambda^0](F+G)=2I$、$[\lambda^1](F+G)=P+Q$ であり、二次以上は零である。定数項は $II=I$、一次係数は $IQ+PI=P+Q$、二次係数は $PQ$ だけであり、三次以上の係数は零である。順序を逆にした場合は二次係数が $QP$ になる。
 
 $$
 PQ=\begin{pmatrix}1&0\\0&0\end{pmatrix},
@@ -126,7 +126,13 @@ $$
 従って $GF=1$ も成立し、右逆元の一意性から両側逆元は一意である。
 <!-- proof-end -->
 
-例えば $F=1+\lambda P+\lambda^2 Q$ なら $b_1=-P$、$b_2=-P(-P)-Q=P^2-Q$ である。三次係数も $b_3=-P(P^2-Q)-Q(-P)=-P^3+PQ+QP$ と決まる。
+例えば $F=1+\lambda P+\lambda^2 Q$ なら $b_1=-P$、$b_2=-P(-P)-Q=P^2-Q$ である。三次係数は
+
+$$
+b_3=-P(P^2-Q)-Q(-P)=-P^3+PQ+QP
+$$
+
+と決まる。
 
 一方、係数 $a_n=n!$ の数値級数を $\lambda\ne0$ で考える。連続する項の絶対値の比は
 
@@ -144,10 +150,10 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（挿入点の配置空間と衝突対角）**
-> $M=\mathbb R^4$ に対し、順序付き $n$ 点の配置空間を
+> $M=\mathbb R^4$、整数 $n\ge2$ に対し、順序付き $n$ 点の配置空間を
 >
 $$
-\operatorname{Conf}_n(M)=M^n\setminus\bigcup_{i<j}D_{ij},
+\operatorname{Conf}_n(M)=M^n\setminus\bigcup_{1\le i<j\le n}D_{ij},
 \qquad D_{ij}=\{x\in M^n:x_i=x_j\}
 $$
 >
@@ -190,7 +196,7 @@ $D_{ij}$ では $x_j=x_i$ なので、$x_j$ 以外の $n-1$ 点を自由に指�
 
 <!-- formal-statement-start -->
 > **定理（全対角外の因果分割被覆）**
-> $M=\mathbb R^4$ とし $n\ge2$ とする。非空な真部分集合 $I\subset\{1,\ldots,n\}$ とその補集合 $I^c$ に対し
+> $M=\mathbb R^4$ とし、整数 $n\ge2$ とする。非空な真部分集合 $I\subset\{1,\ldots,n\}$ とその補集合 $I^c$ に対し
 >
 $$
 C_I=\{x\in M^n:\ x_i\not\preceq x_j
@@ -234,7 +240,7 @@ $$
 
 ## 4. 二点の時間順序を分布として決める
 
-まず実スカラー場の二点だけを考える。開集合 $O\subset\mathbb R^d$ 上では、[超関数の定義](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-distribution) に従い、分布を $C_c^\infty(O)$（滑らかでコンパクト支持の試験関数全体）上の連続線形汎関数として扱う。$\operatorname{supp}f$ は $f$ が零でない点の集合の閉包である。分布 $T$ の開部分集合への制限 $T|_{O'}$ は、$O'$ 内にコンパクト支持を持つ試験関数を $O$ に零延長して $T$ に入力することで定める。[自由場真空期待値の多点分布](../MQFC3/index.md#prop-mqfc3-free-kernels) で得た二点分布を $W(x,y)$ と記す。これは点ごとの数値ではなく、二変数の試験関数に作用する分布である。分離積 $u\otimes v$ は関数 $(x,y)\mapsto u(x)v(y)$ を表し、真空を $\Omega$ と書けば
+まず実スカラー場の二点だけを考える。開集合 $O\subset\mathbb R^d$ 上では、[超関数の定義](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-distribution) に従い、分布を $C_c^\infty(O)$（滑らかでコンパクト支持の試験関数全体）上の連続線形汎関数として扱う。$\operatorname{supp}f$ は $f$ が零でない点の集合の閉包である。分布 $T$ の開部分集合 $O'\subset O$ への制限 $T|_{O'}$ は、$O'$ 内にコンパクト支持を持つ試験関数を $O$ に零延長して $T$ に入力することで定める。[自由場真空期待値の多点分布](../MQFC3/index.md#prop-mqfc3-free-kernels) で得た二点分布を $W(x,y)$ と記す。これは点ごとの数値ではなく、二変数の試験関数に作用する分布である。分離積 $u\otimes v$ は関数 $(x,y)\mapsto u(x)v(y)$ を表す。場を $\Phi$、真空を $\Omega$ と書けば
 
 $$
 W(u\otimes v)=\langle\Phi(u)\Phi(v)\Omega,\Omega\rangle.
@@ -247,7 +253,9 @@ W^{\rm op}(f)=W(f^{\rm op}),
 \qquad f^{\rm op}(x,y)=f(y,x).
 $$
 
-空間的に分離した台を持つ二つの試験関数について、[実スカラー場のWightman公理の局所性](../MQFC3/index.md#def-mqfc3-wightman-axioms) により場の交換子は零になる。したがって $W$ と $W^{\rm op}$ は空間的分離領域で一致する。実際、その領域の各点の周囲には空間的に分離した小さな直積近傍を選べる。その直積近傍で台を取った分離積について
+変数交換は八座標の置換であり、コンパクトな台をコンパクトな台へ写し、偏導関数を同じ階数の偏導関数へ対応させる。そのため試験関数の収束を保ち、$W^{\rm op}$ も分布になる。
+
+空間的に分離した台を持つ二つの試験関数について、[実スカラー場のWightman公理の局所性](../MQFC3/index.md#def-mqfc3-wightman-axioms) により場の交換子 $[\Phi(u),\Phi(v)]=\Phi(u)\Phi(v)-\Phi(v)\Phi(u)$ は零になる。これから $W$ と $W^{\rm op}$ が空間的分離領域で一致することを示す。その領域の各点の周囲には空間的に分離した小さな直積近傍を選べる。その直積近傍で台を取った分離積について
 
 $$
 (W-W^{\rm op})(u\otimes v)
@@ -256,7 +264,7 @@ $$
 
 [分布のテンソル積](../../../解析系/MICA/MICA6/index.md#def-mica6-tensor-product) で用いたように、直積近傍内にコンパクト支持を持つ試験関数は分離積の有限和で試験関数位相において近似できる。線形性と連続性からその直積近傍上で差は零である。空間的分離領域の任意の試験関数の台はコンパクトなので、そのような直積近傍の有限被覆と後述の滑らかな分割で試験関数を分ければ、領域全体で差は零となる。
 
-二点について $C_{\{1\}}$ と $C_{\{2\}}$ をそれぞれ $U,V$ と書く。[全対角外の因果分割被覆](#thm-mqfc31-causal-cover) から $U\cup V=M^2\setminus D_2$。重なりでは $t_y-t_x<|\boldsymbol y-\boldsymbol x|$ かつ $t_x-t_y<|\boldsymbol y-\boldsymbol x|$ である。これは $|t_y-t_x|<|\boldsymbol y-\boldsymbol x|$ と同値なので、重なりは空間的分離領域そのものである。後の点を左に置く時間順序は $U$ で $W$、$V$ で $W^{\rm op}$ とすればよい。
+二点について $C_{\{1\}}$ と $C_{\{2\}}$ をそれぞれ $U,V$ と書く。[全対角外の因果分割被覆](#thm-mqfc31-causal-cover) から $U\cup V=M^2\setminus D_2$。重なりでは $t_y-t_x<|\boldsymbol y-\boldsymbol x|$ かつ $t_x-t_y<|\boldsymbol y-\boldsymbol x|$ である。これは $|t_y-t_x|<|\boldsymbol y-\boldsymbol x|$ と同値なので、重なりは空間的分離領域そのものである。因果的に後の点を左に置く時間順序を、$U$ で $W$、$V$ で $W^{\rm op}$ として作りたい。空間的分離では両方の選択が同じ値を与える。
 
 <a id="prop-mqfc31-two-point-order"></a>
 
@@ -300,7 +308,16 @@ $$
 \partial_j(\chi f)=(\partial_j\chi)f+\chi\partial_j f
 $$
 
-となる。この展開を高階微分まで繰り返せば、各項は有界な $\chi$ の導関数と同じ階数以下の $f$ の導関数との積になる。したがって [試験関数の収束](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-test-function-convergence) のように共通のコンパクト台 $K$ を持ち、各導関数が一様に零へ収束する列を入力すれば、二つの積も固定コンパクト台を保ち、全導関数が一様に零へ収束する。分布 $W,W^{\rm op}$ の連続性から右辺は零へ収束する。
+となる。例えば同じ座標でさらに微分すると
+
+$$
+\partial_j^2(\chi f)
+=(\partial_j^2\chi)f
++2(\partial_j\chi)(\partial_j f)
++\chi\partial_j^2 f.
+$$
+
+この展開を高階微分まで繰り返せば、各項は $K$ 上で有界な $\chi$ の導関数と同じ階数以下の $f$ の導関数との積になる。したがって [試験関数の収束](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-test-function-convergence) のように共通のコンパクト台 $K$ を持ち、各導関数が一様に零へ収束する列を入力すれば、二つの積も固定コンパクト台を保ち、全導関数が一様に零へ収束する。分布 $W,W^{\rm op}$ の連続性から右辺は零へ収束する。
 
 別の分割 $\sigma_U,\sigma_V$ を使った差は
 
@@ -334,7 +351,7 @@ $$
 |L(f)|\le\operatorname{vol}(B)\sup_{(x,y)\in K}|f(x,y)|.
 $$
 
-また $L$ は零でない。非負で積分が正の滑らかなコンパクト支持関数 $h$ を選び、$f(x,y)=h(x)h(y)$ とすれば $L(f)=\int h^2>0$ となる。
+また $L$ は零でない。非負で非零の滑らかなコンパクト支持関数 $h$ を選び、$f(x,y)=h(x)h(y)$ とする。$h$ が正となる点の近傍では連続性からある正の定数以上になるので、$L(f)=\int_M h(x)^2\,d^4x>0$ である。
 
 もし全空間への延長 $\widetilde T_2$ が一つ見つかったなら、任意の複素数 $c$ に対して
 
@@ -469,11 +486,14 @@ $F=1+\lambda P+\lambda^2 Q$ とし、逆元の三次までを求め、左から�
 <!-- solution-start -->
 **詳細解答**
 
-[結合定数展開の逆元の逐次構成](#thm-mqfc31-formal-inverse) から
+$G=\sum_{n\ge0}\lambda^n b_n$ と書く。[結合定数展開の逆元の逐次構成](#thm-mqfc31-formal-inverse) に $a_1=P,a_2=Q,a_n=0$（$n\ge3$）を代入する。
 
 $$
-b_1=-P,\quad b_2=P^2-Q,\quad
-b_3=-P^3+PQ+QP.
+\begin{aligned}
+b_0&=1,\qquad b_1=-Pb_0=-P,\\
+b_2&=-Pb_1-Qb_0=P^2-Q,\\
+b_3&=-Pb_2-Qb_1=-P^3+PQ+QP.
+\end{aligned}
 $$
 
 $FG$ の一次は $P+b_1=0$、二次は $Q+Pb_1+b_2=Q-P^2+P^2-Q=0$。三次は
@@ -539,7 +559,7 @@ $$
 L(u\otimes v)=\int u(x)v(x)\,d^4x=0.
 $$
 
-より一般に対角から離れた台では $f(x,x)=0$ であるから、$c$ の値が違っても非対角上の作用は同じになる。最初の試験関数では $c\int h^2$ の差が残るので、全空間の分布としては区別できる。
+より一般に対角から離れた台では $f(x,x)=0$ であるから、$c$ の値が違っても非対角上の作用は同じになる。異なる係数 $c_1,c_2$ を選べば、最初の試験関数では $(c_1-c_2)\int_M h(x)^2\,d^4x\ne0$ の差が残るので、全空間の分布としては区別できる。
 <!-- solution-end -->
 
 ### 演習 MQFC31-C1：時間順序から二次の形式展開へ
@@ -560,9 +580,16 @@ $$
 
 [二点時間順序核の非対角構成](#prop-mqfc31-two-point-order) の仮定から、$U,V$ の重なりで両分布は一致する。任意の試験関数を $\rho_U f+\rho_V f$ に分解すれば制限によって値が決まり、非対角の核は一意である。
 
-$b=T(g\otimes g)$、$\ell=\int g^2d^4x$ と置く。$g$ は実数値で非零なので $\ell>0$。[対角に集中する汎関数 $L$](#eq-mqfc31-diagonal-functional) により $L(g\otimes g)=\ell$ だから変更後の二点係数の入力は $b'=b+c\ell$ となる。$S$ の二次係数は $-b/2$ から $-(b+c\ell)/2$ へ変化し、差は $-c\ell/2$。
+$b=T(g\otimes g)$、$\ell=\int_M g(x)^2\,d^4x$ と置く。$g$ は実数値で非零なので $\ell>0$。[対角に集中する汎関数 $L$](#eq-mqfc31-diagonal-functional) により $L(g\otimes g)=\ell$ だから変更後の二点係数の入力は $b'=b+c\ell$ となる。$S$ の二次係数は $-b/2$ から $-(b+c\ell)/2$ へ変化し、差は $-c\ell/2$。
 
-[結合定数展開の逆元の逐次構成](#thm-mqfc31-formal-inverse) を定数項1に適用する。一次係数は変更前後とも $-ia$。変更後の二次係数は $-((ia)(-ia)-(b+c\ell)/2)=-a^2+(b+c\ell)/2$ なので、二次係数の変化は
+[結合定数展開の逆元の逐次構成](#thm-mqfc31-formal-inverse) を定数項1に適用する。一次係数は変更前後とも $-ia$。変更後の二次係数は
+
+$$
+-\left((ia)(-ia)-\frac{b+c\ell}{2}\right)
+=-a^2+\frac{b+c\ell}{2}
+$$
+
+となる。従って二次係数の変化は
 
 $$
 -a^2+\frac b2
