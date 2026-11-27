@@ -16,11 +16,22 @@ $$
 
 一つの方向に沿った微分だけでなく、複数の方向を独立に動かす。[多重線形写像](../../../計算系/TSP/TSP1/index.md#def-tsp1-multilinear-map) の条件は、一つの入力以外を固定するとその入力について線形になることである。ここでは方向ごとにこの条件を課す。高階の微分の値を、多点の分布で記録したい。
 
+$t_1,\ldots,t_n$ は場を変化させる実数パラメータであり、時空の時間座標とは別である。$\partial_{t_j}$ は基点と全方向を固定して第 $j$ パラメータだけを微分し、$t=0$ は全パラメータを零に戻すことを表す。一方向では通常の一変数微分 $d/dt_1$ と一致する。
+
+$C_c^\infty$ は滑らかなコンパクト支持の試験関数の空間、$\mathcal D'$ は試験関数への連続線形作用である [分布（超関数）](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-distribution) の空間である。場そのものの空間とは区別する。独立な時空変数ごとに方向関数を掛けた分離積を
+
+$$
+(h_1\otimes\cdots\otimes h_n)(x_1,\ldots,x_n)
+=\prod_{j=1}^n h_j(x_j)
+$$
+
+と書く。分布核は、この試験関数への作用によって方向微分を記録する分布である。
+
 <a id="def-mqfc37-functional-derivative"></a>
 
 <!-- formal-statement-start -->
 > **定義（汎関数微分）**
-> $E=C^\infty(M,\mathbb R)$、$F:E\to\mathbb R$ とする。任意の $\phi,h_1,\ldots,h_n\in E$ に対する混合微分
+> $E=C^\infty(M,\mathbb R)$、$F:E\to\mathbb R$、整数 $n\ge1$ とする。任意の $\phi,h_1,\ldots,h_n\in E$ に対する混合微分
 
 $$
 D^nF(\phi)[h_1,\ldots,h_n]
@@ -59,7 +70,7 @@ $$
 従って指定した収束に関して共同連続である。一次の核は滑らかな密度 $f$ であり、試験関数への作用は上の積分そのものになる。二次以上の核は零分布である。
 <!-- definition-example-end -->
 
-分離積は $(h_1\otimes\cdots\otimes h_n)(x_1,\ldots,x_n)=\prod_jh_j(x_j)$ を表す。[分布のテンソル積](../../../解析系/MICA/MICA6/index.md#def-mica6-tensor-product) の構成で用いた分離積の有限和の稠密性から、分布核が存在すれば一意である。本講では一般の核の存在定理に頼らず、扱う汎関数の核を具体的に構成する。
+[分布のテンソル積](../../../解析系/MICA/MICA6/index.md#def-mica6-tensor-product) の構成で用いた分離積の有限和の稠密性は、多点の場合にも一変数群ずつ分けて適用できる。二つの核の差がすべての分離積に零を与えれば、その有限和にも零を与え、試験関数位相で近似して連続性を使えば任意の試験関数にも零を与える。従って分布核が存在すれば一意である。本講では一般の核の存在定理に頼らず、扱う汎関数の核を具体的に構成する。
 
 ## 2. 局所的な相互作用とその台
 
@@ -70,6 +81,15 @@ V_f(\phi)=\frac1{4!}\int_M f(x)\phi(x)^4\,d^4x
 $$
 
 となる。$f$ を使って相互作用を入れる領域を制御する。より一般に場の有限階の導関数を同じ時空点で組み合わせることもできる。これと、離れた二点の値を同時に掛ける観測量を区別したい。
+
+座標を $x=(x^0,x^1,x^2,x^3)$、$x^0=t$ とし、$\partial_\mu=\partial/\partial x^\mu$ と書く。[多重指数](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-multi-index) $\alpha=(\alpha_0,\ldots,\alpha_3)$ は各座標での微分回数を表し、
+
+$$
+|\alpha|=\sum_{\mu=0}^3\alpha_\mu,\qquad
+\partial^\alpha=\partial_0^{\alpha_0}\cdots\partial_3^{\alpha_3}
+$$
+
+とする。$\alpha=0$ のときは微分しない。場の値を含めて同じ点の $r$ 階以下の偏導関数を並べた組を $j^r\phi(x)$ と書く。これを多項式の独立変数 $z_\alpha$ の値として代入する。
 
 <a id="def-mqfc37-local-functional"></a>
 
@@ -87,7 +107,7 @@ $$
 <!-- definition-example-start: def-mqfc37-local-functional -->
 ### 直接例：四次相互作用と導関数を含む密度
 
-**定義の確認**。$V_f$ は $r=0$、$P(x,z)=z_0^4/24$ であり、実係数の多項式を同一点で評価している。$f$ は滑らかでコンパクト支持なので全ての場に対して積分が有限になる。
+**定義の確認**。$V_f$ は $r=0$、$P(x,z)=z_{(0,0,0,0)}^4/24$ であり、実係数の多項式を同一点で評価している。$f$ は滑らかでコンパクト支持なので全ての場に対して積分が有限になる。
 
 また $r=1$、$P(x,z)=z_{(1,0,0,0)}^2/2$ とすれば時間方向の偏導関数の二乗を積分する汎関数になる。四座標を $(t,x^1,x^2,x^3)$ の順に数えているため、この成分は $\partial_t\phi$ である。別の点の値は入力していない。これは時間微分だけを選んだ模型であり、Lorentz 不変な作用全体ではない。
 <!-- definition-example-end -->
@@ -150,7 +170,7 @@ $$
 
 各積分の絶対値は、係数と $f$ の $K$ 上の上限、$K$ の体積、および有限個の $\sup_K|\partial^\alpha\phi|$ と $\sup_K|\partial^\beta h_j|$ の積で抑えられる。収束列ではこれらの導関数は一様に収束し有界だから、積の差を一因子ずつ取り替えれば積も一様に収束する。積分も収束するので共同連続性が得られる。
 
-$x\notin K$ なら $K$ と交わらない開近傍 $U$ がある。$h\in C_c^\infty(U)$ なら $h$ と全導関数は $K$ の近くで零になるので $F(\phi+h)=F(\phi)$。従って [汎関数の台](#def-mqfc37-functional-support) の定義から $\operatorname{supp}F\subset K$ である。台はその定義から閉集合であり、コンパクト集合 $K$ の閉部分集合なのでコンパクトである。
+$x\notin K$ なら $K$ と交わらない開近傍 $U$ がある。$h\in C_c^\infty(U)$ なら $h$ と全導関数は $K$ の近くで零になるので $F(\phi+h)=F(\phi)$。従って [汎関数の台](#def-mqfc37-functional-support) の定義から $\operatorname{supp}F\subset K$ である。台の外の点にはどの方向変化にも応答しない開近傍があり、その近傍内の点も台の外にある。従って台の補集合は開集合であり、台は閉集合である。コンパクト集合 $K$ の閉部分集合なのでコンパクトである。
 
 最後に $\operatorname{supp}h\cap\operatorname{supp}k=\varnothing$ とする。任意の点 $x$ で少なくとも一方の台を含まない開近傍が存在する。例えば $x\notin\operatorname{supp}k$ なら $j^rk(x)=0$ である。その点では
 
@@ -177,6 +197,8 @@ $$
 ## 3. 局所汎関数の微分を多点分布で書く
 
 四次相互作用を二度微分すると二つの方向 $h_1,h_2$ が同じ点で掛け合わされる。二点の独立な変数を用いる分布でこの操作を表すと、[挿入点の配置空間と衝突対角](../MQFC31/index.md#def-mqfc31-collision) の全対角に集中する。
+
+以下で $\partial_{x_j}^{\alpha_j}$ は第 $j$ 点の四座標だけを微分する演算子であり、$\partial/\partial z_\alpha$ は多項式の一つの独立変数だけを微分する演算子である。対角への代入は独立変数の微分をすべて済ませてから行う。
 
 <a id="prop-mqfc37-diagonal-derivatives"></a>
 
@@ -214,7 +236,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$z_\alpha(t)=\partial^\alpha\phi(x)+\sum_jt_j\partial^\alpha h_j(x)$ とする。一次の連鎖律は
+$z_\alpha(t)=\partial^\alpha\phi(x)+\sum_jt_j\partial^\alpha h_j(x)$ とする。ここで $x$ を固定すると $\partial_{t_j}z_\alpha(t)=\partial^\alpha h_j(x)$ である。$P_{z_\alpha}$ は $\partial P/\partial z_\alpha$ の略記であり、一次の連鎖律は
 
 $$
 \partial_{t_1}P(x,z(t))
@@ -260,7 +282,13 @@ $$
 \psi(x,\ldots,x)\,d^4x.
 $$
 
-五次以上は零である。例えば $n=2$ の場合の記号表示は
+五次以上は零である。ここで全対角上の積分を表す分布 $\Delta_n$ を導入する。任意の試験関数に対し
+
+$$
+\langle\Delta_n,\psi\rangle=\int_M\psi(x,\ldots,x)\,d^4x
+$$
+
+と定める。試験関数の台の対角への逆像はコンパクトで、固定台のもとでは積分はその逆像の体積と $\sup|\psi|$ の積で抑えられるので分布となる。二点の場合は $\Delta_2=\delta^{(4)}(x-y)$ と書く。$y$ についての点デルタの作用が $\psi(x,x)$ になるためである。例えば $n=2$ の場合の記号表示は
 
 $$
 V_f^{(2)}(\phi)(x,y)
@@ -309,13 +337,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-一次核は前節の部分積分表示によって滑らかなので波面集合は空である。$n\ge2$ では、試験関数に対し
-
-$$
-\langle\Delta_n,\psi\rangle=\int_M\psi(x,\ldots,x)\,d^4x
-$$
-
-と置く。全対角は閉じた埋め込み部分多様体であり、その座標 $x$ から入る体積 $d^4x$ は滑らかな正の密度、周囲の基準密度は $d^{4n}x$ である。[部分多様体デルタの波面集合](../../../解析系/MICA/MICA5/index.md#thm-mica5-submanifold-delta) をこれらに適用すると、前述の接方向の消滅条件から
+一次核は前節の部分積分表示によって滑らかなので、[波面集合の射影と特異支持](../../../解析系/MICA/MICA3/index.md#thm-mica3-projection) により波面集合は空である。$n\ge2$ では前節の全対角分布 $\Delta_n$ を用いる。全対角は閉じた埋め込み部分多様体である。実際、座標変換 $(x_1,\ldots,x_n)\mapsto(x_1,x_2-x_1,\ldots,x_n-x_1)$ は線形で、逆は第1点に各差を足す操作である。全対角は差がすべて零となる集合であり、次元は $4$、周囲の次元 $4n$ より小さい。その座標 $x$ から入る体積 $d^4x$ は滑らかな正の密度、周囲の基準密度は $d^{4n}x$ である。[部分多様体デルタの波面集合](../../../解析系/MICA/MICA5/index.md#thm-mica5-submanifold-delta) をこれらに適用すると、前述の接方向の消滅条件から
 
 $$
 WF(\Delta_n)
@@ -331,7 +353,7 @@ $$
 \big(a_{\boldsymbol\alpha}(x_1)\Delta_n\big)
 $$
 
-である。分布微分は試験関数側に移すと一階ごとにマイナスを生じるので、前の符号と相殺して命題の作用を再現する。[滑らかな係数との積](../../../解析系/MICA/MICA3/index.md#thm-mica3-smooth-multiplier) で $WF(a_{\boldsymbol\alpha}\Delta_n)\subset WF(\Delta_n)$。[微分による波面集合の非増大](../../../解析系/MICA/MICA3/index.md#thm-mica3-derivative) により各偏微分後もこの包含を保つ。最後に [和の波面集合の包含](../../../解析系/MICA/MICA3/index.md#prop-mica3-sum) を有限回適用すれば、和である微分核にも同じ包含が成立する。
+である。[分布微分の定義](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-distributional-derivative) により試験関数側に移すと一階ごとにマイナスを生じるので、前の符号と相殺して命題の作用を再現する。[滑らかな係数との積](../../../解析系/MICA/MICA3/index.md#thm-mica3-smooth-multiplier) で $WF(a_{\boldsymbol\alpha}\Delta_n)\subset WF(\Delta_n)$。[微分による波面集合の非増大](../../../解析系/MICA/MICA3/index.md#thm-mica3-derivative) により各偏微分後もこの包含を保つ。最後に [和の波面集合の包含](../../../解析系/MICA/MICA3/index.md#prop-mica3-sum) を有限回適用すれば、和である微分核にも同じ包含が成立する。
 <!-- proof-end -->
 
 例えば $\phi=1$ における $V_f^{(2)}$ は $f(x)\Delta_2/2$ である。$f(x)\ne0$ の近傍では $2/f$ という滑らかな逆係数を掛けて $\Delta_2$ を回復できるので、波面方向はちょうど $(k,-k)$（$k\ne0$）となる。一方 $f$ が近傍で零なら核もその近傍で零である。
@@ -345,7 +367,7 @@ C_+=\{k:k_0\ge|\boldsymbol k|\},
 \qquad C_-=-C_+
 $$
 
-と置く。零ベクトルも含める。ここで時刻成分の符号で錐の名前を選んだ。計量によるベクトルへの変換では時間成分の符号が逆になるが、以下の条件は二つの錐を同時に除くので命名の交換に依存しない。
+と置く。$|\boldsymbol k|$ は空間三成分の Euclid ノルムである。零ベクトルも含める。$C_\pm^n$ は各成分がそれぞれ同じ錐に属する $n$ 個の余ベクトルの組を表す。ここで時刻成分の符号で錐の名前を選んだ。計量によるベクトルへの変換では時間成分の符号が逆になるが、以下の条件は二つの錐を同時に除くので命名の交換に依存しない。
 
 全ての共変ベクトルが同じ錐に入る組では、非零なら時刻成分の和は零にならない。これを使って、相互作用の微分核に適した条件を置く。
 
@@ -366,7 +388,7 @@ $$
 <!-- definition-example-start: def-mqfc37-microcausal -->
 ### 直接例：線形の観測量
 
-**定義の確認**。$L_f$ は第1節の計算で滑らかであり、第2節でコンパクト支持を確認した。第1階の核は滑らかな $f$、高階の核は零なので全階で波面集合は空である。従って任意の $\phi$ と $n$ で上の交わりも空であり、マイクロ因果的である。
+**定義の確認**。$L_f$ は [汎関数微分の直接例](#def-mqfc37-functional-derivative) で滑らかさを確認し、[汎関数の台の直接例](#def-mqfc37-functional-support) でコンパクト支持を確認した。第1階の核は滑らかな $f$、高階の核は零なので全階で波面集合は空である。従って任意の $\phi$ と $n$ で上の交わりも空であり、マイクロ因果的である。
 <!-- definition-example-end -->
 
 <a id="prop-mqfc37-local-microcausal"></a>
@@ -493,7 +515,7 @@ DF(\phi)[h]=\int_M f(\partial_t\phi)(\partial_th)\,d^4x
 =-\int_M\partial_t(f\partial_t\phi)h\,d^4x.
 $$
 
-$f\partial_t\phi$ はコンパクト支持で境界項が零なので、一次核は $-\partial_t(f\partial_t\phi)$ となる。これは滑らかである。二方向の混合微分では
+$f\partial_t\phi$ はコンパクト支持で境界項が零なので、一次核は $-\partial_t(f\partial_t\phi)$ となる。これは滑らかである。$\phi+sh+uk$ を代入すると二乗の混合係数は $2(\partial_th)(\partial_tk)$ なので、二方向の混合微分では
 
 $$
 D^2F[h,k]=\int_M f(\partial_th)(\partial_tk)\,d^4x.
@@ -505,7 +527,7 @@ $$
 \int_M f(x)(\partial_{x^0}\partial_{y^0}\psi)(x,x)\,d^4x
 $$
 
-と作用する。従って記号表示は $\partial_{x^0}\partial_{y^0}(f(x)\Delta_2)$ である。分布微分を二度試験関数へ移すと $(-1)^2=1$ となり、符号が正になる。三次以上は零である。[局所微分核の波面集合評価](#thm-mqfc37-local-wavefront) によれば二次核の波面方向は $(k,-k)$ に限られる。
+と作用する。従って記号表示は $\partial_{x^0}\partial_{y^0}(f(x)\Delta_2)$ である。ここで $x^0,y^0$ は二点の時間座標であり、場の変化パラメータ $s$ ではない。[分布微分の定義](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-distributional-derivative) で二度試験関数へ移すと $(-1)^2=1$ となり、符号が正になる。三次以上は零である。[局所微分核の波面集合評価](#thm-mqfc37-local-wavefront) によれば二次核の波面方向は $(k,-k)$ に限られる。
 <!-- solution-end -->
 
 ### 演習 MQFC37-B2：二点に広がる観測量
@@ -543,12 +565,12 @@ $$
 ### 演習 MQFC37-B3：三次微分の余法方向
 - Level: B
 
-$F(\phi)=\int f\phi^3/6$ で $f(a)\ne0$ とする。点 $(a,a,a)$ の上の三次核の波面集合を等号で求め、三成分すべてが未来側の錐に入れない理由を説明せよ。
+実試験関数 $f$ に対し $F(\phi)=\int f\phi^3/6$ とし、$f(a)\ne0$ とする。点 $(a,a,a)$ の上の三次核の波面集合を等号で求め、三成分すべてが未来側の錐に入れない理由を説明せよ。
 
 <!-- solution-start -->
 **詳細解答**
 
-A1 の三次微分から分布核は $f(x_1)\Delta_3$ である。三点対角の接方向は $(v,v,v)$。余ベクトルの評価は $(k_1+k_2+k_3)(v)$ なので全接方向を消す条件は $k_1+k_2+k_3=0$ である。[部分多様体デルタの波面集合](../../../解析系/MICA/MICA5/index.md#thm-mica5-submanifold-delta) より $\Delta_3$ の波面方向はこの和が零で全体が非零の組に一致する。
+三次の混合係数は $6h_1h_2h_3/6$ なので、[局所微分核の対角表示](#prop-mqfc37-diagonal-derivatives) により分布核は $f(x_1)\Delta_3$ である。三点対角の接方向は $(v,v,v)$。余ベクトルの評価は $(k_1+k_2+k_3)(v)$ なので全接方向を消す条件は $k_1+k_2+k_3=0$ である。[部分多様体デルタの波面集合](../../../解析系/MICA/MICA5/index.md#thm-mica5-submanifold-delta) より $\Delta_3$ の波面方向はこの和が零で全体が非零の組に一致する。
 
 $f(a)\ne0$ だから $a$ の近くで $1/f$ は滑らかである。[滑らかな係数との積](../../../解析系/MICA/MICA3/index.md#thm-mica3-smooth-multiplier) を $f\Delta_3$ と、逆係数を掛けて戻した $\Delta_3$ の両方に適用すれば、点 $(a,a,a)$ で二つの波面集合は一致する。全て $k_j\in C_+$ なら
 
@@ -580,7 +602,15 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-(1) $\phi+sh$ を代入する。運動項の一次係数は、$\eta^{\mu\nu}$ が対称であるため $f\eta^{\mu\nu}\partial_\mu\phi\,\partial_\nu h$ となる。質量項の一次係数は $fm^2\phi h$、四次項は $f\lambda\phi^3h/6$ である。運動項を $\nu$ 座標について部分積分すると
+(1) $\phi+sh$ を代入する。運動項で $s$ の係数を取り出すと
+
+$$
+\frac f2\sum_{\mu,\nu=0}^3\eta^{\mu\nu}
+(\partial_\mu h\,\partial_\nu\phi+
+\partial_\mu\phi\,\partial_\nu h).
+$$
+
+第一項の和で $\mu,\nu$ を交換すると第二項に一致する。これは $\eta^{\mu\nu}=\eta^{\nu\mu}$ だからである。従って運動項の一次係数は $f\eta^{\mu\nu}\partial_\mu\phi\,\partial_\nu h$ となる。質量項の一次係数は $fm^2\phi h$、四次項は $f\lambda\phi^3h/6$ である。運動項を $\nu$ 座標について部分積分すると
 
 $$
 S_f^{(1)}(\phi)
@@ -590,7 +620,14 @@ $$
 
 係数 $f\eta^{\mu\nu}\partial_\mu\phi$ はコンパクト支持なので境界項は消える。特に $f=1$ となる開領域では第一項は $-\Box\phi$、$\Box=-\partial_t^2+\sum_{i=1}^3\partial_i^2$ である。
 
-(2) 二方向 $h,k$ を入れると運動項の混合係数は $f\eta^{\mu\nu}\partial_\mu h\,\partial_\nu k$、質量項は $fm^2hk$、四次項は $f\lambda\phi^2hk/2$ である。分離積に対するこの式を [局所微分核の対角表示](#prop-mqfc37-diagonal-derivatives) により一般の試験関数 $\psi(x,y)$ に拡張すると
+(2) $\phi+sh+uk$ を代入し、$s,u$ の混合係数を取る。$s,u$ は時空座標と独立である。運動項で生じる二項は
+
+$$
+\frac f2\eta^{\mu\nu}
+(\partial_\mu h\,\partial_\nu k+\partial_\mu k\,\partial_\nu h).
+$$
+
+添字を交換して対称性を使うと運動項の混合係数は $f\eta^{\mu\nu}\partial_\mu h\,\partial_\nu k$、質量項は $fm^2hk$、四次項は $f\lambda\phi^2hk/2$ である。分離積に対するこの式を [局所微分核の対角表示](#prop-mqfc37-diagonal-derivatives) により一般の試験関数 $\psi(x,y)$ に拡張すると
 
 $$
 \langle S_f^{(2)}(\phi),\psi\rangle
