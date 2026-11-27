@@ -10,6 +10,7 @@ learning_objectives:
   - 近似加速器の再尺度化・疎性・定数項抽出を用いた不存在の論証を再構成できる
   - 同標数移送と二つの下界から近似クラス分離を導出できる
 definitions:
+  - { id: VNP23-DEF-04, name: "形式Laurent級数" }
   - { id: VNP23-DEF-01, name: "近似算術回路" }
   - { id: VNP23-DEF-02, name: "近似加速器" }
   - { id: VNP23-DEF-03, name: "Laurent指数幅と冪の疎性" }
