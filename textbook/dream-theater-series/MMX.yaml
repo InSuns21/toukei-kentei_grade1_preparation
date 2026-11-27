@@ -98,7 +98,7 @@ chapters:
     title: "sphere・incidence：最安の共通siteへの輸送コスト、脚幅を指定した漸近priceとincidence不等式"
   - id: MMX24
     path: textbook/volumes/dream_thater/計算系/MMX/MMX24
-    status: planned
+    status: completed
     title: "sorting：stable sorting・batched table lookup、$2^u$ recordsで幅$O(u)$、$p<2$ の指数台帳"
   - id: MMX25
     path: textbook/volumes/dream_thater/計算系/MMX/MMX25

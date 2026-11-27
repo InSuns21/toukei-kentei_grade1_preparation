@@ -1,0 +1,26 @@
+id: MMX24
+title: "sorting：stable sorting・batched table lookup、$2^u$ recordsで幅$O(u)$、$p<2$ の指数台帳"
+volume: foundations
+status: supplementary
+prerequisites: [MMX15, MMX23]
+official_scope: []
+learning_objectives:
+  - 安定整列を元位置のタグと隣接順序検査から実現できる
+  - 長幅輸送仮定から通常幅整列の指数を導ける
+  - 局所パックと大域整列の枠数および費用を評価できる
+  - 住所別度数と一価因子で表の参照積を厳密に表現できる
+  - 各stationの端子数に応じた一括評価の費用を導ける
+definitions:
+  - { id: MMX24-DEF-01, name: "安定整列テンソル" }
+  - { id: MMX24-DEF-02, name: "表参照の住所別度数" }
+theorems:
+  - { id: MMX24-LEM-01, name: "安定整列のタグ検査" }
+  - { id: MMX24-THM-01, name: "通常幅整列の条件付き指数" }
+  - { id: MMX24-LEM-02, name: "単一表の一括評価" }
+  - { id: MMX24-THM-02, name: "ネットワークの一括表評価" }
+canonical_examples: [等しいキーの安定整列, 二ブロックのパック, 表の二進度数]
+problem_patterns: [MMX24-A01, MMX24-A02, MMX24-A03, MMX24-A04, MMX24-B01, MMX24-B02, MMX24-B03, MMX24-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 4, review: 2 }
