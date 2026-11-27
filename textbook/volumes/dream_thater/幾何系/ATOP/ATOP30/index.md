@@ -10,7 +10,7 @@
 
 ## 2. 積の鎖複体
 
-[特異鎖群](../ATOP16/index.md#def-atop16-singular-chain-group) の係数を $R$ にしたものを $C_*(X)$ と書きます。一般の鎖複体 $C,D$ についても、一方の $p$ 次と他方の $q$ 次を掛けたものを $p+q$ 次に置きます。第二因子を微分するときには第一因子の次数に応じて符号を変える必要があります。
+[特異鎖群](../ATOP16/index.md#def-atop16-singular-chains) の係数を $R$ にしたものを $C_*(X)$ と書きます。一般の鎖複体 $C,D$ についても、一方の $p$ 次と他方の $q$ 次を掛けたものを $p+q$ 次に置きます。第二因子を微分するときには第一因子の次数に応じて符号を変える必要があります。
 
 <a id="def-atop30-tensor-complex"></a>
 
@@ -187,7 +187,7 @@ $$
 <!-- formal-statement-start -->
 > **定理（Eilenberg–Zilber定理）**
 >
-> 任意の空間 $X,Y$ に対して、shuffle写像とAlexander–Whitney写像は互いに鎖ホモトピー逆である。従って
+> 任意の空間 $X,Y$ と可換係数環 $R$ に対して、shuffle写像とAlexander–Whitney写像は互いに鎖ホモトピー逆である。従って
 >
 $$
 H_n(C_*(X)\otimes C_*(Y))
@@ -311,7 +311,7 @@ $$
 
 体 $k$ では全てのベクトル空間が自由なので Tor は零です。従って外積が同型になり、有限次元の場合には次元が畳み込みで計算できます。
 
-例えば [胞体ホモロジー定理](../ATOP22/index.md#thm-atop22-cellular-homology) で円周は0次、1次にそれぞれ $R$ を持ちます。$S^1\times S^1$ ではテンソル項のみで $H_0=R,\ H_1=R^2,\ H_2=R$ です。2次の生成元は二つの1次生成元の外積です。
+例えば [胞体ホモロジー定理](../ATOP22/index.md#thm-atop22-cellular-comparison) で円周は0次、1次にそれぞれ $R$ を持ちます。$S^1\times S^1$ ではテンソル項のみで $H_0=R,\ H_1=R^2,\ H_2=R$ です。2次の生成元は二つの1次生成元の外積です。
 
 整数では $\mathbb Z/m\otimes\mathbb Z/l\cong\mathbb Z/g$ と $\operatorname{Tor}_1(\mathbb Z/m,\mathbb Z/l)\cong\mathbb Z/g$（$g=\gcd(m,l)$）です。前講の巡回群の計算では $\mathbb Z/l$ 上の $m$ 倍写像の余核と核を取ればよく、$m=g m',l=g l'$ とすると $l\mid mk$ は $l'\mid k$ と同値なので核は $g$ 元です。像は $l/g$ 元なので余核も位数 $g$ の巡回群です。
 
@@ -518,7 +518,7 @@ B2の複体の整数双対を取り、全次数1,2のコホモロジーを直接
 $X=\mathbb{RP}^2$ とする。整数係数の $H_i(X)$、$H^i(X)$ から $X\times X$ の全ホモロジー群とコホモロジー群を求めよ。さらに体 $\mathbb F_2$ 上のホモロジー次元を求め、整数結果から係数変更したものと一致するか確かめよ。
 
 <!-- solution-start -->
-**詳細解答**。[実射影空間の胞体境界](../ATOP22/index.md#thm-atop22-projective-boundary) で整数胞体境界は $d_2=2,d_1=0$。よって $H_0=\mathbb Z,H_1=\mathbb Z/2,H_2=0$。前講の [コホモロジーの普遍係数定理](../ATOP29/index.md#thm-atop29-cohomology-uct) により $H^0=\mathbb Z,H^1=0,H^2=\mathbb Z/2$、高次は零。
+**詳細解答**。[実射影空間の胞体境界](../ATOP22/index.md#prop-atop22-projective-boundary) で整数胞体境界は $d_2=2,d_1=0$。よって $H_0=\mathbb Z,H_1=\mathbb Z/2,H_2=0$。前講の [コホモロジーの普遍係数定理](../ATOP29/index.md#thm-atop29-cohomology-uct) により $H^0=\mathbb Z,H^1=0,H^2=\mathbb Z/2$、高次は零。
 
 [ホモロジーのKünneth公式](#thm-atop30-kunneth-homology) のテンソル項は0次に $\mathbb Z$、1次に $\mathbb Z/2$ が二つ、2次に $\mathbb Z/2$ が一つ。Tor は $p=q=1$ の組だけなので3次に $\mathbb Z/2$。従って
 
