@@ -24,6 +24,6 @@
     <text x="195" y="23">C</text><text x="35" y="23">D</text>
     <text x="285" y="196">A</text><text x="445" y="196">B</text>
     <text x="445" y="23">C</text><text x="285" y="23">D</text>
-    <text x="115" y="215">HV (+)</text><text x="365" y="215">VH (−)</text>
+    <text x="115" y="215">HV (+)</text><text x="365" y="215">VH (-)</text>
   </g>
 </svg>
