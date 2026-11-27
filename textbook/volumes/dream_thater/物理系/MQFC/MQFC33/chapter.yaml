@@ -1,0 +1,24 @@
+id: MQFC33
+title: "原点を除く分布をどう延長するか"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC32, GPDE1, GPDE2]
+official_scope: []
+learning_objectives:
+  - 原点を除く分布の延長条件と次数の下界を説明できる
+  - 原点Taylor減算を計算し微分値の消失を確認できる
+  - 縮尺分布の一様有限階評価を導出できる
+  - 環状分解によって有限なスケーリング次数を保つ延長を構成できる
+  - 次元未満での一意性と整数境界で必要な減算次数を説明できる
+definitions:
+  - { id: MQFC33-DEF-01, name: "原点を越える分布の延長" }
+  - { id: MQFC33-DEF-02, name: "原点Taylor減算" }
+theorems:
+  - { id: MQFC33-LEM-01, name: "縮尺分布の一様有限階評価" }
+  - { id: MQFC33-THM-01, name: "スケーリング次数を保つ延長" }
+canonical_examples: [定数核の延長, 一次元臨界冪核, 四次元臨界冪核, Taylor減算, 環状分解]
+problem_patterns: [MQFC33-A1, MQFC33-A2, MQFC33-A3, MQFC33-A4, MQFC33-B1, MQFC33-B2, MQFC33-B3, MQFC33-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 2 }
