@@ -1,0 +1,41 @@
+chapter: ATOP31
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP30]
+forward_references: []
+concepts:
+  - id: atop.cup-product
+    name: cup積
+    kind: definition
+    introduction: formal
+    requires: [atop.singular-cochain, atop.alexander-whitney-map]
+  - id: atop.cup-leibniz
+    name: cup積のLeibniz則
+    kind: theorem
+    introduction: formal
+    requires: [atop.cup-product, atop.singular-coboundary]
+  - id: atop.cup-descends
+    name: cup積のコホモロジーへの降下
+    kind: theorem
+    introduction: formal
+    requires: [atop.cup-leibniz, atop.singular-cohomology]
+  - id: atop.cup-associativity-unit
+    name: cup積の結合律と単位元
+    kind: theorem
+    introduction: formal
+    requires: [atop.cup-descends, atop.cup-product]
+  - id: atop.cohomology-ring
+    name: コホモロジー環
+    kind: definition
+    introduction: formal
+    requires: [atop.cup-descends, atop.cup-associativity-unit]
+  - id: atop.cup-naturality
+    name: cup積の自然性
+    kind: theorem
+    introduction: formal
+    requires: [atop.cohomology-ring, atop.induced-singular-cohomology-map]
+  - id: atop.cup-graded-commutativity
+    name: cup積の次数付き可換性
+    kind: theorem
+    introduction: formal
+    requires: [atop.cohomology-ring, atop.eilenberg-zilber, atop.shuffle-map, atop.tensor-chain-complex, atop.singular-coboundary]
