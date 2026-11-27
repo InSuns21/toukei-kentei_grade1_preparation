@@ -1,7 +1,7 @@
 chapter: VNP22
 scope: dream-theater
 coverage: complete
-prerequisites: [VNP21, VNP20, VNP18, VNP15, VNP12, VNP11, VNP10, VNP9, VNP1, ACOMP12, AG1-07, FLD3]
+prerequisites: [VNP21, VNP20, VNP18, VNP15, VNP12, VNP11, VNP10, VNP9, VNP1, ACOMP12, AG1-07, FLD3, FLD2, FLD0]
 forward_references: []
 concepts:
   - id: vp-vnp-study.hc-grid
@@ -45,7 +45,7 @@ concepts:
     kind: lemma
     introduction: formal
     introduction_aliases: ["補題（同標数の代数閉体への回路移送）"]
-    requires: [algebraic-geometry.weak-nullstellensatz, vp-vnp-study.total-gate-count]
+    requires: [algebraic-geometry.weak-nullstellensatz, algebra.algebraically-closed-field, vp-vnp-study.total-gate-count]
   - id: vp-vnp-study.all-fields-rate
     name: "全標数の算術回路下界"
     kind: theorem
