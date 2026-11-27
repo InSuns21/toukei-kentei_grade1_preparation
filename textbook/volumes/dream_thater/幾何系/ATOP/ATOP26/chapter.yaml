@@ -1,0 +1,24 @@
+id: ATOP26
+title: "H1と基本群の可換化"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP12, ATOP17, ATOP22]
+official_scope: []
+learning_objectives:
+  - 特異2単体の境界から道の連結と逆走の鎖の関係を導ける
+  - 基本群から1次特異ホモロジーへの準同型を構成できる
+  - 補助道と端点係数の相殺から次数1の Hurewicz 定理を証明できる
+  - 基点変更と誘導準同型の効果を説明できる
+  - グラフと曲面の1次群を基本群の可換化と胞体鎖の両方で計算できる
+definitions: []
+theorems:
+  - { id: ATOP26-LEM-01, name: 道の連結と特異1鎖の和 }
+  - { id: ATOP26-PROP-01, name: 次数1の Hurewicz 準同型 }
+  - { id: ATOP26-THM-01, name: 次数1の Hurewicz 定理 }
+  - { id: ATOP26-PROP-02, name: 次数1の Hurewicz 同型の自然性 }
+canonical_examples: [三角形の三辺, 八の字, トーラス, 実射影平面, Klein の壺, 有限連結グラフ]
+problem_patterns: [ATOP26-A1, ATOP26-A2, ATOP26-A3, ATOP26-A4, ATOP26-B1, ATOP26-B2, ATOP26-B3, ATOP26-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 3, review: 1 }
