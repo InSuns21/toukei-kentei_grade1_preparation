@@ -1,0 +1,26 @@
+id: MQFC36
+title: "多点の部分対角・重なる発散"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC31, MQFC32, MQFC33, MQFC34, MQFC35]
+official_scope: []
+learning_objectives:
+  - 多点衝突の層と余次元を相対座標で求められる
+  - 部分グラフの次数を数え全体次数だけでは足りない理由を説明できる
+  - 重なる部分対角の反項の変更をテンソル積の模型で計算できる
+  - 下位時間順序積の整合条件から全対角外の貼り合わせを導ける
+  - 有限次数を仮定して全対角への延長と反項の自由度を求められる
+definitions:
+  - { id: MQFC36-DEF-01, name: "多点の部分対角" }
+  - { id: MQFC36-DEF-02, name: "部分グラフの表面的発散次数" }
+theorems:
+  - { id: MQFC36-PROP-01, name: "多点衝突の余次元" }
+  - { id: MQFC36-PROP-02, name: "部分衝突の動径評価" }
+  - { id: MQFC36-PROP-03, name: "下位時間順序積の重なりでの整合" }
+  - { id: MQFC36-THM-01, name: "有限開被覆上の分布の貼り合わせ" }
+canonical_examples: [二組の衝突, 二線の衝突, 重なる二線核, 四組の因果分割]
+problem_patterns: [MQFC36-A1, MQFC36-A2, MQFC36-A3, MQFC36-A4, MQFC36-B1, MQFC36-B2, MQFC36-B3, MQFC36-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 2 }
