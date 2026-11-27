@@ -32,9 +32,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-選択公理により $F$ の基底を整列し、順序集合 $I$ で添字付けします。整列とは空でない任意の部分集合に最小元があることです。元 $x=\sum_{i\in I}x_ie_i$ の台は $x_i\ne0$ である添字の集合であり、自由加群の基底表示では有限です。各 $i\in I$ に対して $F_{\le i}$ を $i$ 以下の基底元の張る部分群とし、$N_i=N\cap F_{\le i}$ とします。$i$ 番目の係数を取る写像 $N_i\to\mathbb Z$ の像は部分群 $m_i\mathbb Z$（$m_i\ge0$）です。
+選択公理により $F$ の基底を整列し、順序集合 $I$ で添字付けします。整列とは空でない任意の部分集合に最小元があることです。元 $x=\sum_{i\in I}x_ie_i$ の台は $x_i\ne0$ である添字の集合であり、自由加群の基底表示では有限です。
 
-$m_i>0$ の各 $i$ について、係数 $m_i$ を持つ $v_i\in N_i$ を選びます。任意の非零元 $x\in N$ の有限台の最大添字を $j$ とすると、$j$ 番目の係数は $k m_j$ です。そこで $x-kv_j$ を作ると $j$ 番目の係数が消え、それより大きい係数も零のままです。
+各 $i\in I$ に対して $F_{\le i}$ を $i$ 以下の基底元の張る部分群とし、$N_i=N\cap F_{\le i}$ とします。
+
+$i$ 番目の係数を取る写像 $N_i\to\mathbb Z$ の像は部分群 $m_i\mathbb Z$（$m_i\ge0$）です。
+
+$m_i>0$ の各 $i$ について、係数 $m_i$ を持つ $v_i\in N_i$ を選びます。
+
+任意の非零元 $x\in N$ の有限台の最大添字を $j$ とすると、$j$ 番目の係数は $k m_j$ です。
+
+そこで $x-kv_j$ を作ると $j$ 番目の係数が消え、それより大きい係数も零のままです。
 
 この操作を繰り返すと最大添字は毎回真に小さくなります。整列集合には無限の真の降下列がない（降下列の値の集合の最小元より次の値が小さくなる）ため、有限回で零になります。従って $v_i$ たちは $N$ を生成します。
 
@@ -61,11 +69,15 @@ $$
 
 と一意に分解されます。第一項は $Z_n$ に入り、$s_n(B_{n-1})$ と $Z_n$ の共通部分は零です。従って $C_n\cong Z_n\oplus B_{n-1}$ です。
 
-第二行は $H_n$ が自由でないこともあるので、一般には分裂しません。例えば $2\mathbb Z\subset\mathbb Z$ の商 $\mathbb Z/2\mathbb Z$ から $\mathbb Z$ への準同型はすべて零です。この第二行こそ、係数変更の情報を持つ自由分解です。ここで自由分解とは、自由アーベル群からなる完全列で最後に対象の群へ全射するものです。自由加群は [射影対象](../../../基礎論系/CATB/CATB7-05/index.md#def-catb7-05-projective) なので、既習の [射影分解](../../../基礎論系/CATB/CATB7-05/index.md#def-catb7-05-projective-resolution) の特別な場合です。
+第二行は $H_n$ が自由でないこともあるので、一般には分裂しません。例えば $2\mathbb Z\subset\mathbb Z$ の商 $\mathbb Z/2\mathbb Z$ から $\mathbb Z$ への準同型はすべて零です。この第二行こそ、係数変更の情報を持つ自由分解です。ここで自由分解とは、自由アーベル群からなる完全列で最後に対象の群へ全射するものです。
+
+自由加群は [射影対象](../../../基礎論系/CATB/CATB7-05/index.md#def-catb7-05-projective) なので、既習の [射影分解](../../../基礎論系/CATB/CATB7-05/index.md#def-catb7-05-projective-resolution) の特別な場合です。
 
 ## 3. 係数群を鎖に掛ける
 
-整数鎖の各基底単体に $G$ の元を係数として割り当てたいとき、整数係数と群の元との積を形式的に扱う必要があります。対 $(a,g)$ に新しい記号 $a\otimes g$ を割り当て、例えば $2a\otimes g$ と $a\otimes 2g$ が一致するような関係を課します。$a\otimes g$ は普通の数の積ではありません。
+整数鎖の各基底単体に $G$ の元を係数として割り当てたいとき、整数係数と群の元との積を形式的に扱う必要があります。対 $(a,g)$ に新しい記号 $a\otimes g$ を割り当て、例えば $2a\otimes g$ と $a\otimes 2g$ が一致するような関係を課します。
+
+$a\otimes g$ は普通の数の積ではありません。
 
 <a id="def-atop29-abelian-tensor"></a>
 
@@ -103,7 +115,11 @@ $$
 です。従って $TS(g)=g$、$ST(k\otimes g)=k\otimes g$ となり、生成元上の一致から両合成が恒等写像になります。
 <!-- definition-example-end -->
 
-一般に両変数で加法的な写像 $A\times G\to D$ は、生成元への値を指定して唯一の準同型 $A\otimes G\to D$ を誘導します。これが商による構成の利点です。準同型 $f:A\to A'$ と $h:G\to G'$ に対しても、$a\otimes g\mapsto f(a)\otimes h(g)$ が関係を保つため、準同型 $f\otimes h$ が定まります。恒等写像と合成を保つことは生成元上で確認できます。特に第二変数を固定する場合は $1_G=\operatorname{id}_G$ とし、$f\otimes1_G$（または $f\otimes1$）と略します。
+一般に両変数で加法的な写像 $A\times G\to D$ は、生成元への値を指定して唯一の準同型 $A\otimes G\to D$ を誘導します。これが商による構成の利点です。
+
+準同型 $f:A\to A'$ と $h:G\to G'$ に対しても、$a\otimes g\mapsto f(a)\otimes h(g)$ が関係を保つため、準同型 $f\otimes h$ が定まります。恒等写像と合成を保つことは生成元上で確認できます。
+
+特に第二変数を固定する場合は $1_G=\operatorname{id}_G$ とし、$f\otimes1_G$（または $f\otimes1$）と略します。
 
 自由群 $F=\bigoplus_{j\in J}\mathbb Z e_j$ については
 
@@ -269,7 +285,11 @@ $$
 
 第一成分は [アーベル群のテンソル積の右完全性](#prop-atop29-tensor-right-exact) により $H_n(C)\otimes G$、第二成分は [Tor](#def-atop29-tor) の自由分解 $0\to B_{n-1}\to Z_{n-1}\to H_{n-1}\to0$ を使った計算そのものです。これで完全性と分裂を得ます。
 
-自然な左の射は、$[z]\otimes g\mapsto[z\otimes g]$ です。$z$ を境界だけ変えると係数付きの境界だけ変わります。右の射はサイクル $w\in C_n\otimes G$ を $(p_n\otimes1)w$ に送ります。境界は $p_n$ で零になり、サイクル条件によりこの値は $\ker(i_{n-1}\otimes1)$ に属します。実際 $d_n$ は $p_n$、$i_{n-1}$、$Z_{n-1}\hookrightarrow C_{n-1}$ の合成であり、最後の包含は分裂単射だからテンソル後も単射です。
+自然な左の射は、$[z]\otimes g\mapsto[z\otimes g]$ です。$z$ を境界だけ変えると係数付きの境界だけ変わります。右の射はサイクル $w\in C_n\otimes G$ を $(p_n\otimes1)w$ に送ります。
+
+境界は $p_n$ で零になり、サイクル条件によりこの値は $\ker(i_{n-1}\otimes1)$ に属します。
+
+実際 $d_n$ は $p_n$、$i_{n-1}$、$Z_{n-1}\hookrightarrow C_{n-1}$ の合成であり、最後の包含は分裂単射だからテンソル後も単射です。
 
 どちらの射も切断を用いず定義されます。鎖写像はサイクル、境界、商への写像を誘導し $p_n$ と可換するため、両射の自然性が従います。右端の分解間の写像は [Tor の分解独立性](#thm-atop29-tor-independent) の比較写像に一致します。係数の準同型に関してもテンソルの生成元上で可換します。$n=0$ では $B_{-1}=Z_{-1}=0$ なので右端は零です。
 <!-- proof-end -->
@@ -335,7 +355,11 @@ $$
 
 第二成分は上で計算した Ext であり、完全性と分裂が得られます。
 
-切断に依存しない右の射は [ホモロジー類への評価](../ATOP28/index.md#prop-atop28-evaluation) と同じ $[\phi]\mapsto([z]\mapsto\phi(z))$ です。左の射は $b:B_{n-1}\to G$ の Ext 類を $[b p_n]$ に送ります。$p_n d_{n+1}=0$ なのでコサイクルです。$b$ が $\gamma i_{n-1}$ だけ変わったとき、$\gamma$ は $Z_{n-1}$ の直和補成分で零と定めて $C_{n-1}$ 上の $\eta$ へ延長できます。差は
+切断に依存しない右の射は [ホモロジー類への評価](../ATOP28/index.md#prop-atop28-evaluation) と同じ $[\phi]\mapsto([z]\mapsto\phi(z))$ です。左の射は $b:B_{n-1}\to G$ の Ext 類を $[b p_n]$ に送ります。$p_n d_{n+1}=0$ なのでコサイクルです。
+
+$b$ が $\gamma i_{n-1}$ だけ変わったとき、$\gamma$ は $Z_{n-1}$ の直和補成分で零と定めて $C_{n-1}$ 上の $\eta$ へ延長できます。
+
+差は
 
 $$
 \gamma i_{n-1}p_n=\eta d_n=\delta^{n-1}\eta
@@ -354,7 +378,11 @@ $$
 
 $C_1=\mathbb Za\oplus\mathbb Zb$、$C_0=\mathbb Ze$、$d_1(a)=2e$、$d_1(b)=0$ とし、他の次数は零とします。$H_1=\mathbb Z[b]$、$H_0=\mathbb Z/2\mathbb Z$ です。鎖自己同型 $f_1(a)=a+b,\ f_1(b)=b,\ f_0(e)=e$ は $d_1f_1=f_0d_1$ を満たし、整数ホモロジー上は恒等です。
 
-$G=\mathbb Z/2\mathbb Z$ では境界が零なので $H_1(C;G)=G^2$、左端は $b$ の張る群、右端は $a$ の係数を取る写像です。実際 $p_1(a)=2e$ は $B_0$ の基底で、$p_1(b)=0$ です。係数変更後の $B_0\otimes G$ を $2e\otimes g\mapsto g$ と同一視すると、右の射はこの座標を取ります。右端の1の逆像は $a$ または $a+b$ ですが、$f$ はこの二つを交換します。よって $f$ で固定される逆像がなく、自然な切断は存在しません。
+$G=\mathbb Z/2\mathbb Z$ では境界が零なので $H_1(C;G)=G^2$、左端は $b$ の張る群、右端は $a$ の係数を取る写像です。
+
+実際 $p_1(a)=2e$ は $B_0$ の基底で、$p_1(b)=0$ です。係数変更後の $B_0\otimes G$ を $2e\otimes g\mapsto g$ と同一視すると、右の射はこの座標を取ります。
+
+右端の1の逆像は $a$ または $a+b$ ですが、$f$ はこの二つを交換します。よって $f$ で固定される逆像がなく、自然な切断は存在しません。
 
 コホモロジーでも $H^1(C;G)=G^2$ です。$\phi(a)=x,\ \phi(b)=y$ とすると、右端の評価は $y$ です。引戻しは
 
@@ -380,7 +408,9 @@ $$
 | 1 | 0 | $\mathbb Z/2\mathbb Z$ | 0 | $G$ |
 | 0 | 0 | $\mathbb Z$ | 0 | $G$ |
 
-特異ホモロジーについても [ホモロジーの普遍係数定理](#thm-atop29-homology-uct) を整数特異鎖に適用できます。2次では $H_2\otimes G=0$ ですが、$\operatorname{Tor}_1(H_1,G)=G[2]=G$ なので $H_2(X;G)\cong G$ です。1次では $H_1\otimes G=G/2G=G$、$\operatorname{Tor}_1(H_0,G)=0$ なので同じく $G$ です。0次は $\mathbb Z\otimes G=G$ です。従って胞体の計算と群として一致します。
+特異ホモロジーについても [ホモロジーの普遍係数定理](#thm-atop29-homology-uct) を整数特異鎖に適用できます。2次では $H_2\otimes G=0$ ですが、$\operatorname{Tor}_1(H_1,G)=G[2]=G$ なので $H_2(X;G)\cong G$ です。
+
+1次では $H_1\otimes G=G/2G=G$、$\operatorname{Tor}_1(H_0,G)=0$ なので同じく $G$ です。0次は $\mathbb Z\otimes G=G$ です。従って胞体の計算と群として一致します。
 
 整数コホモロジーについては [コホモロジーの普遍係数定理](#thm-atop29-cohomology-uct) と [巡回整数加群のExt](../../../基礎論系/CATB/CATB7-05/index.md#thm-catb7-05-cyclic-ext) により、
 
@@ -402,7 +432,9 @@ $$
 $(\mathbb Z/6\mathbb Z)\otimes(\mathbb Z/9\mathbb Z)$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。[アーベル群のテンソル積の右完全性](#prop-atop29-tensor-right-exact) を $0\to\mathbb Z\xrightarrow{6}\mathbb Z\to\mathbb Z/6\mathbb Z\to0$ に適用する。$G=\mathbb Z/9\mathbb Z$ とすると $\mathbb Z\otimes G\cong G$ なので、求める群は $G/6G$。6倍の像は $\{0,6,3\}$ である。3を法とする剰余射の核がこの群なので、商は $\mathbb Z/3\mathbb Z$ である。
+**詳細解答**。[アーベル群のテンソル積の右完全性](#prop-atop29-tensor-right-exact) を $0\to\mathbb Z\xrightarrow{6}\mathbb Z\to\mathbb Z/6\mathbb Z\to0$ に適用する。$G=\mathbb Z/9\mathbb Z$ とすると $\mathbb Z\otimes G\cong G$ なので、求める群は $G/6G$。6倍の像は $\{0,6,3\}$ である。
+
+3を法とする剰余射の核がこの群なので、商は $\mathbb Z/3\mathbb Z$ である。
 <!-- solution-end -->
 
 <a id="ex-atop29-a2"></a>
@@ -414,7 +446,9 @@ $(\mathbb Z/6\mathbb Z)\otimes(\mathbb Z/9\mathbb Z)$ を求めよ。
 $\operatorname{Tor}_1^{\mathbb Z}(\mathbb Z/6\mathbb Z,\mathbb Z/9\mathbb Z)$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。[Tor](#def-atop29-tor) の定義に [A1](#ex-atop29-a1) の6倍による自由分解を使うと、6倍写像の核を求めればよい。整数代表 $k$ に対し $9\mid6k$ は $3\mid2k$ と同値であり、さらに $3\mid k$ と同値である。核は $\{0,3,6\}$ で、3が生成元、位数は3である。従って $\mathbb Z/3\mathbb Z$。
+**詳細解答**。[Tor](#def-atop29-tor) の定義に [A1](#ex-atop29-a1) の6倍による自由分解を使うと、6倍写像の核を求めればよい。整数代表 $k$ に対し $9\mid6k$ は $3\mid2k$ と同値であり、さらに $3\mid k$ と同値である。核は $\{0,3,6\}$ で、3が生成元、位数は3である。
+
+従って $\mathbb Z/3\mathbb Z$。
 <!-- solution-end -->
 
 <a id="ex-atop29-a3"></a>
@@ -426,7 +460,9 @@ $\operatorname{Tor}_1^{\mathbb Z}(\mathbb Z/6\mathbb Z,\mathbb Z/9\mathbb Z)$ �
 $M=\mathbb Z/4\mathbb Z$、$G=\mathbb Z/6\mathbb Z$ に対して $\operatorname{Hom}(M,G)$ と $\operatorname{Ext}^1_{\mathbb Z}(M,G)$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。準同型は剰余類 $[1]$ の像 $g$ で決まる。関係 $4[1]=0$ があるので $4g=0$ が必要であり、逆にこの条件なら $[k]\mapsto kg$ は代表元の差が4の倍数のとき同じ値を与える。従ってこの条件は十分でもある。$6\mid4k$ は $3\mid k$ と同値なので $G[4]=\{0,3\}$ で、Hom は $\mathbb Z/2\mathbb Z$。
+**詳細解答**。準同型は剰余類 $[1]$ の像 $g$ で決まる。関係 $4[1]=0$ があるので $4g=0$ が必要であり、逆にこの条件なら $[k]\mapsto kg$ は代表元の差が4の倍数のとき同じ値を与える。従ってこの条件は十分でもある。
+
+$6\mid4k$ は $3\mid k$ と同値なので $G[4]=\{0,3\}$ で、Hom は $\mathbb Z/2\mathbb Z$。
 
 一方 [巡回整数加群のExt](../../../基礎論系/CATB/CATB7-05/index.md#thm-catb7-05-cyclic-ext) により Ext は $G/4G$。4倍の像は $\{0,4,2\}$ であり、偶数の類全体である。偶奇への剰余写像の核なので商は $\mathbb Z/2\mathbb Z$ になる。前者は核、後者は余核であり、同じ位数でも構成は異なる。
 <!-- solution-end -->
@@ -494,7 +530,9 @@ H_2(C;G)\cong\mathbb Z/8\mathbb Z\oplus
 \mathbb Z/4\mathbb Z\oplus\mathbb Z/2\mathbb Z.
 $$
 
-Hom についても直和への評価を二つの制限に分けると $\operatorname{Hom}(H_2,G)=G\oplus G[4]$。$G[4]=\{0,2,4,6\}$ は位数4の巡回群。[巡回整数加群のExt](../../../基礎論系/CATB/CATB7-05/index.md#thm-catb7-05-cyclic-ext) より $\operatorname{Ext}^1(H_1,G)=G/6G$。$6G=\{0,2,4,6\}$ なので商は位数2。[コホモロジーの普遍係数定理](#thm-atop29-cohomology-uct) の分裂から $H^2(C;G)$ も上と同じ抽象群を得る。ここで同じ抽象群になることは、自然な同型を選べることを意味しない。
+Hom についても直和への評価を二つの制限に分けると $\operatorname{Hom}(H_2,G)=G\oplus G[4]$。$G[4]=\{0,2,4,6\}$ は位数4の巡回群。[巡回整数加群のExt](../../../基礎論系/CATB/CATB7-05/index.md#thm-catb7-05-cyclic-ext) より $\operatorname{Ext}^1(H_1,G)=G/6G$。$6G=\{0,2,4,6\}$ なので商は位数2。
+
+[コホモロジーの普遍係数定理](#thm-atop29-cohomology-uct) の分裂から $H^2(C;G)$ も上と同じ抽象群を得る。ここで同じ抽象群になることは、自然な同型を選べることを意味しない。
 <!-- solution-end -->
 
 <a id="ex-atop29-b3"></a>
@@ -506,9 +544,40 @@ Hom についても直和への評価を二つの制限に分けると $\operato
 $C_1=\mathbb Z/2\mathbb Z$、$C_0=\mathbb Z/4\mathbb Z$、$d_1([1])=[2]$、その他は零とする。$G=\mathbb Z/2\mathbb Z$ でこの複体を検算し、さらに自由性を欠く場合にホモロジーの普遍係数定理の形が失敗する反例を構成せよ。
 
 <!-- solution-start -->
-**詳細解答**。$d_1$ は単射で、像は $\{0,2\}$ なので $H_1=0$、$H_0=\mathbb Z/2\mathbb Z$。テンソル後は両成分が $G$ である（[アーベル群のテンソル積の右完全性](#prop-atop29-tensor-right-exact) による巡回群の計算）。境界は $[1]\otimes g\mapsto[2]\otimes g=[1]\otimes2g=0$ なので $H_1(C;G)=G$。1次では定理の形と一致し、2次も鎖群が零なので $H_2(C;G)=0$ となる。この例だけでは反例にならない。
+**詳細解答**。$d_1$ は単射で、像は $\{0,2\}$ なので $H_1=0$、$H_0=\mathbb Z/2\mathbb Z$。テンソル後は両成分が $G$ である（[アーベル群のテンソル積の右完全性](#prop-atop29-tensor-right-exact) による巡回群の計算）。
 
-具体的な失敗を得るため、$C_2=\mathbb Z/2\mathbb Z$、$C_1=\mathbb Z/4\mathbb Z$、$C_0=\mathbb Z/2\mathbb Z$ とする別の複体を考え、$d_2$ を上の包含、$d_1$ を mod 2 の剰余射とする。$d_1d_2=0$、$\operatorname{im}d_2=\ker d_1$、$d_2$ は単射、$d_1$ は全射なので整数ホモロジーは全て零。テンソル後は全成分が $G$、$d_2\otimes1=0$ は先ほどの計算と同じである。一方 $d_1([1]_4)=[1]_2$ だから $(d_1\otimes1)([1]_4\otimes g)=[1]_2\otimes g$ であり、両成分を $G$ と同一視すると恒等写像になる。従って $H_2(C;G)=G$ だが、定理の両端は零である。自由性を欠くため第2節の切断や自由分解が保証されない。最初の複体は自由性を落としても偶然一致する例であり、後者が反例である。
+境界は $[1]\otimes g\mapsto[2]\otimes g=[1]\otimes2g=0$ なので $H_1(C;G)=G$。1次では定理の形と一致し、2次も鎖群が零なので $H_2(C;G)=0$ となる。この例だけでは反例にならない。
+
+具体的な失敗を得るため、別の複体
+
+$$
+C_2=\mathbb Z/2\mathbb Z,\qquad
+C_1=\mathbb Z/4\mathbb Z,\qquad C_0=\mathbb Z/2\mathbb Z
+$$
+
+を考える。$d_2([1]_2)=[2]_4$、$d_1([1]_4)=[1]_2$ とし、残りの鎖群は零とする。添字の2,4は剰余の法である。
+
+$d_1d_2=0$ であり、像と核は
+
+$$
+\operatorname{im}d_2=\{[0]_4,[2]_4\}=\ker d_1
+$$
+
+と一致する。$d_2$ は単射、$d_1$ は全射なので整数ホモロジーは全て零である。
+
+テンソル後は全成分が $G$ となる。左の境界は先ほどの計算と同じく零写像である。一方、右の境界は生成元について
+
+$$
+(d_1\otimes1)([1]_4\otimes g)=[1]_2\otimes g
+$$
+
+となるので、両成分を $G$ と同一視すると恒等写像になる。係数変更後の複体は
+
+$$
+G\xrightarrow{0}G\xrightarrow{\operatorname{id}_G}G
+$$
+
+である。最高次の境界の核は $G$、一つ上の鎖群は零なので $H_2(C;G)=G$ となる。しかし整数ホモロジーは全次数で零だから、普遍係数定理の両端は零である。自由性を欠くため第2節の切断や自由分解が保証されない。最初の複体は自由性を落としても偶然一致する例であり、後者が反例である。
 <!-- solution-end -->
 
 <a id="ex-atop29-b4"></a>
@@ -538,9 +607,15 @@ $m\ge2$ とし、$C_1=\mathbb Za\oplus\mathbb Zb$、$C_0=\mathbb Ze$、$d_1(a)=m
 <!-- solution-start -->
 **詳細解答**。$C_1=\mathbb Za\oplus\mathbb Zb$、$d_1(a)=me,\ d_1(b)=0$ より整数の核は $\mathbb Zb$、像は $m\mathbb Ze$。従って $H_1=\mathbb Z[b]$、$H_0=\mathbb Z/m\mathbb Z$。$f_1(a)=a+b,\ f_1(b)=b$、$f_0(e)=e$ とすると $d_1 f_1(a)=me=f_0d_1(a)$、$b$ についても両辺零である。逆は $a\mapsto a-b$。整数ホモロジー上の作用は両次数で恒等。
 
-$G$ 上で $m=0$ なので $H_1(C;G)=G^2$。係数付きの基底を $a\otimes1,b\otimes1$ として、そのホモロジー類の座標を $(x,y)$ とすると、[ホモロジーの普遍係数定理](#thm-atop29-homology-uct) の右の射は $x$ を取る（$p_1(a)=me$ が $B_0$ の基底）。$f_*(x,y)=(x,y+x)$ である。右端の1を持ち上げた元は $(1,y)$ で、固定されるなら $y+1=y$。$m\ge2$ なので矛盾。自然な切断があれば、右端で $f$ が恒等である以上、この元は固定されるはずだった。
+$G$ 上で $m=0$ なので $H_1(C;G)=G^2$。
 
-一方、コチェインの座標を $(u,v)=(\phi(a),\phi(b))$ とすると、余境界は零、$H^1(C;G)=G^2$。[コホモロジーの普遍係数定理](#thm-atop29-cohomology-uct) の右の射は $v$ を取る評価である。$f^*\phi(a)=u+v$、$f^*\phi(b)=v$ から $f^*(u,v)=(u+v,v)$。右端の1の逆像 $(u,1)$ が固定されるには $u+1=u$ が必要で、再び矛盾する。従って両方の短完全列は自然だが、分裂は自然に選べない。
+係数付きの基底を $a\otimes1,b\otimes1$ として、そのホモロジー類の座標を $(x,y)$ とすると、[ホモロジーの普遍係数定理](#thm-atop29-homology-uct) の右の射は $x$ を取る（$p_1(a)=me$ が $B_0$ の基底）。
+
+$f_*(x,y)=(x,y+x)$ である。右端の1を持ち上げた元は $(1,y)$ で、固定されるなら $y+1=y$。$m\ge2$ なので矛盾。自然な切断があれば、右端で $f$ が恒等である以上、この元は固定されるはずだった。
+
+一方、コチェインの座標を $(u,v)=(\phi(a),\phi(b))$ とすると、余境界は零、$H^1(C;G)=G^2$。[コホモロジーの普遍係数定理](#thm-atop29-cohomology-uct) の右の射は $v$ を取る評価である。
+
+$f^*\phi(a)=u+v$、$f^*\phi(b)=v$ から $f^*(u,v)=(u+v,v)$。右端の1の逆像 $(u,1)$ が固定されるには $u+1=u$ が必要で、再び矛盾する。従って両方の短完全列は自然だが、分裂は自然に選べない。
 <!-- solution-end -->
 
 ## 8. まとめ
