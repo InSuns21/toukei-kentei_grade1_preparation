@@ -20,3 +20,4 @@
 17. [VNP17 H：networkをthin treeの和へ、depth・packet・straight-line program](textbook/volumes/dream_thater/計算系/VNP/VNP17/index.md)
 18. [VNP18 I：重み付き木プログラム・universal tape automatonとnetwork化](textbook/volumes/dream_thater/計算系/VNP/VNP18/index.md)
 19. [VNP19 J：computationの一回のcut、piece evaluatorと正しさ](textbook/volumes/dream_thater/計算系/VNP/VNP19/index.md)
+20. [VNP20 J：反復cut、時間・入力・piece数の指数台帳](textbook/volumes/dream_thater/計算系/VNP/VNP20/index.md)
