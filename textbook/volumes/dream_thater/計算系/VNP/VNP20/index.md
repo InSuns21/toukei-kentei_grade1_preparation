@@ -25,6 +25,8 @@ $$
 $$
 <!-- formal-statement-end -->
 
+証明の核心は、各片の値を第二分割の和へ置き換え、和の積を分配法則で展開することです。出力リストの連結は実際に命令を実行するので、片数に比例する管理費用も必要です。
+
 <!-- proof-start -->
 ### 証明
 
@@ -104,7 +106,19 @@ $\tau_1\ge1$ なので $d<k\le k\tau_1$。従って $\tau\Lambda\le2k\tau_1$ で
 <!-- formal-statement-start -->
 > **定理（反復分割の指数評価）**
 >
-> $v,a_0,R,H,\Lambda,r,\tau,s,c$ は自然数とする。$v\ge1000$、$2\le\Lambda\le v$、$H\ge\max(a_0,200)$ とし、第2節の[一回の計算分割](../VNP19/index.md#thm-vnp19-onecut)の整数版が、すべての $v^{a_0}\le x\le v^R$、$0\le y\le x$、$2\le k\le v^{64}$ に対し $(x,y)$ を分割するものとして利用できると仮定する。さらに
+> $v,a_0,R,H,\Lambda,r,\tau,s,c$ は自然数とし、
+>
+$
+v\ge1000,\quad 2\le\Lambda\le v,\quad H\ge\max(a_0,200)
+$
+>
+> とする。第2節の[一回の計算分割](../VNP19/index.md#thm-vnp19-onecut)の整数版が
+>
+$
+v^{a_0}\le x\le v^R,\quad 0\le y\le x,\quad 2\le k\le v^{64}
+$
+>
+> を満たすすべての自然数 $x,y,k$ で利用できると仮定する。さらに
 >
 $$
 Q=v^H\le\tau\le v^R,\quad
@@ -135,6 +149,8 @@ $$
 >
 > を満たす。
 <!-- formal-statement-end -->
+
+証明では途中の切断で入力の余裕を表す係数 $c$ を4倍に更新します。片数の増加 $k\Lambda$ と時間の減少 $\Lambda/k$ を掛け合わせると、$k$ が相殺されて対数損失 $\Lambda^2$ だけが残ります。管理費用も同じ片数の評価で抑えられることが帰納法の要点です。
 
 <!-- proof-start -->
 ### 証明
@@ -280,6 +296,8 @@ $$
 >
 > を満たすなら、サイズ $v^H$ 以下の木プログラムが $(\tau,s)$ を $(v^H,v^{H-32})$ に分割する。片数は $\lfloor\tau v^2/v^H\rfloor$ 以下、分割時間は $\lfloor\tau/v^{24}\rfloor$ 以下である（原論文 J.4）。
 <!-- formal-statement-end -->
+
+ここで必要なのは対数損失を小さくすることだけではなく、反復回数を含めた積が $v$ 以下に収まることです。そのとき入力・時間・片数それぞれの指数にまだ余裕が残ります。
 
 <!-- proof-start -->
 ### 証明
