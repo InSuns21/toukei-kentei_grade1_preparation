@@ -90,7 +90,7 @@ chapters:
     title: "boundary・contact・sync：厳密saving仮定から動きを排除し、複数のtensorを同じprice拡張で評価する"
   - id: MMX22
     path: textbook/volumes/dream_thater/計算系/MMX/MMX22
-    status: planned
+    status: completed
     title: "fermions・sphere：外積の縮約と符号、marked pointで定義される球面テンソル、衝突時の分解と脚幅"
   - id: MMX23
     path: textbook/volumes/dream_thater/計算系/MMX/MMX23

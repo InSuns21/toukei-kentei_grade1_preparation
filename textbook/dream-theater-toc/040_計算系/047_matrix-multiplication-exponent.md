@@ -22,3 +22,4 @@
 19. [MMX19 臨界tripodの腕とラベルrate、rectangular decoderと多項式乗算のrigidity、比 $6/(8/3)=9/4$ の位置づけ](textbook/volumes/dream_thater/計算系/MMX/MMX19/index.md)
 20. [MMX20 valued・motion：付値・衝突・極限、siteの動きからhomogeneous tripodへの帰着](textbook/volumes/dream_thater/計算系/MMX/MMX20/index.md)
 21. [MMX21 boundary・contact・sync：厳密saving仮定から動きを排除し、複数のtensorを同じprice拡張で評価する](textbook/volumes/dream_thater/計算系/MMX/MMX21/index.md)
+22. [MMX22 fermions・sphere：外積の縮約と符号、marked pointで定義される球面テンソル、衝突時の分解と脚幅](textbook/volumes/dream_thater/計算系/MMX/MMX22/index.md)
