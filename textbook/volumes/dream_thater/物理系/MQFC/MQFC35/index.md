@@ -4,7 +4,7 @@
 
 ## 1. 二点核から一ループ核へ
 
-自然単位を使い、時空差を $z=(t,\boldsymbol x)\in\mathbb R^4$、Lorentz計量を $(-,+,+)$ とします。二次形式は
+自然単位を使い、時空差を $z=(t,\boldsymbol x)\in\mathbb R^4$、Lorentz計量を $(-,+,+,+)$ とします。二次形式は
 
 $$
 q(z)=|\boldsymbol x|^2-t^2
