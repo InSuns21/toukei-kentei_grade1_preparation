@@ -1,0 +1,24 @@
+id: ATOP27
+title: "Lefschetz不動点定理"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP15, ATOP23, ATOP26]
+official_scope: []
+learning_objectives:
+  - 有理係数への比較の移行を分母を払う議論で証明できる
+  - 自己写像の誘導ホモロジー写像から Lefschetz数を計算できる
+  - 境界とサイクルに適合する基底で Hopfのトレース公式を証明できる
+  - 二段階の細分と距離評価から Lefschetz不動点定理を証明できる
+  - Lefschetz数が零の場合と有限多面体の仮定の意味を説明できる
+definitions:
+  - { id: ATOP27-DEF-01, name: Lefschetz数 }
+theorems:
+  - { id: ATOP27-LEM-01, name: 有理数係数への比較の移行 }
+  - { id: ATOP27-THM-01, name: Hopfのトレース公式 }
+  - { id: ATOP27-THM-02, name: Lefschetz不動点定理 }
+canonical_examples: [円周の反射, 線分の恒等写像, 球面の写像度, 円周の回転, 実直線の平行移動]
+problem_patterns: [ATOP27-A1, ATOP27-A2, ATOP27-A3, ATOP27-A4, ATOP27-B1, ATOP27-B2, ATOP27-B3, ATOP27-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 3, review: 1 }

@@ -30,7 +30,7 @@ chapters:
   - { id: ATOP24, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP24, status: completed, title: "非レトラクション・Brouwer・毛玉の定理" }
   - { id: ATOP25, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP25, status: completed, title: "局所ホモロジーと次元不変性" }
   - { id: ATOP26, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP26, status: completed, title: "H1と基本群の可換化" }
-  - { id: ATOP27, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP27, status: planned, title: "Lefschetz不動点定理" }
+  - { id: ATOP27, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP27, status: completed, title: "Lefschetz不動点定理" }
   - { id: ATOP28, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP28, status: planned, title: "コチェインと特異コホモロジー" }
   - { id: ATOP29, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP29, status: planned, title: "普遍係数定理・ExtとTor" }
   - { id: ATOP30, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP30, status: planned, title: "積空間とKünneth公式" }
