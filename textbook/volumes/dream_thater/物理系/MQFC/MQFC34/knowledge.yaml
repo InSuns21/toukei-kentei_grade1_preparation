@@ -14,16 +14,21 @@ concepts:
     kind: theorem
     introduction: formal
     requires: [mqfc.point-supported-distribution, mqfc.origin-taylor-subtraction, distribution.local-finite-order-estimate, distribution.distributional-derivative]
+  - id: mqfc.point-supported-scaling-degree
+    name: "原点支持分布の最高階と次数"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.point-supported-distribution-structure, mqfc.delta-scaling-degree, mqfc.distribution-dilation]
   - id: mqfc.local-counterterm-freedom
     name: "局所反項の自由度"
     kind: theorem
     introduction: formal
-    requires: [mqfc.point-supported-distribution-structure, mqfc.scaling-preserving-extension, mqfc.delta-scaling-degree]
+    requires: [mqfc.point-supported-distribution-structure, mqfc.scaling-preserving-extension, mqfc.point-supported-scaling-degree]
   - id: mqfc.orthogonal-invariant-counterterms
     name: "直交変換で不変な局所反項"
     kind: theorem
     introduction: formal
-    requires: [mqfc.point-supported-distribution-structure, mqfc.delta-scaling-degree]
+    requires: [mqfc.point-supported-distribution-structure, mqfc.point-supported-scaling-degree]
   - id: mqfc.critical-kernel-log-scale
     name: "臨界核の対数尺度変更"
     kind: proposition
