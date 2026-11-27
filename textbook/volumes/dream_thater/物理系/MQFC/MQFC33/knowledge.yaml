@@ -1,0 +1,26 @@
+chapter: MQFC33
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC32, GPDE1, GPDE2]
+forward_references: []
+concepts:
+  - id: mqfc.punctured-distribution-extension
+    name: "原点を越える分布の延長"
+    kind: definition
+    introduction: formal
+    requires: [distribution.schwartz-distribution, distribution.test-function]
+  - id: mqfc.origin-taylor-subtraction
+    name: "原点Taylor減算"
+    kind: definition
+    introduction: formal
+    requires: [distribution.multi-index, distribution.test-function]
+  - id: mqfc.scaled-uniform-finite-order
+    name: "縮尺分布の一様有限階評価"
+    kind: lemma
+    introduction: formal
+    requires: [mqfc.scaling-degree, mqfc.distribution-dilation, distribution.local-finite-order-estimate]
+  - id: mqfc.scaling-preserving-extension
+    name: "スケーリング次数を保つ延長"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.punctured-distribution-extension, mqfc.origin-taylor-subtraction, mqfc.scaled-uniform-finite-order, mqfc.scaling-degree]
