@@ -317,7 +317,7 @@ $$
 
 ## 6. コホモロジーの積と有限型
 
-コチェインは鎖への線形評価です。[特異コチェイン](../ATOP28/index.md#def-atop28-singular-cochain) の構成を $R$ 上で使い、$\phi\in\operatorname{Hom}_R(C_p,R)$、$\psi\in\operatorname{Hom}_R(D_q,R)$ に対して、全次数 $p+q$ のテンソル鎖への評価を
+コチェインは鎖への線形評価です。[特異コチェイン](../ATOP28/index.md#def-atop28-cochain) の構成を $R$ 上で使い、$\phi\in\operatorname{Hom}_R(C_p,R)$、$\psi\in\operatorname{Hom}_R(D_q,R)$ に対して、全次数 $p+q$ のテンソル鎖への評価を
 
 $$
 (\phi\boxtimes\psi)(c\otimes e)=\phi(c)\psi(e)
