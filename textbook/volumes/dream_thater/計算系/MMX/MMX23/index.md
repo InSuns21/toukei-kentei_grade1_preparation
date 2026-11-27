@@ -486,14 +486,14 @@ $$
 
 <a id="ref-mmx23-first-variation"></a>
 
-**第一変分公式**
+### 第一変分公式
 
 $$
 \left.\frac{d}{dt}\right|_{t=0+}d(x_i,m(t))
 =-\cos\angle_o(x_i,y)
 $$
 
-です。また元の比較角を $\theta$ とすると、$\theta\ge\angle_o(x_i,y)$ です。比較三角形の辺長の関係と余弦の単調性から、
+また元の比較角を $\theta$ とすると、$\theta\ge\angle_o(x_i,y)$ です。比較三角形の辺長の関係と余弦の単調性から、
 
 $$
 \begin{aligned}
