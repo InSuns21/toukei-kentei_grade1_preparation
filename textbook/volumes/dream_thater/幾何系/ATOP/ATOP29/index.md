@@ -2,9 +2,9 @@
 
 ## 1. 係数を変えると何が変わるか
 
-前講の[ホモロジー類への評価](../ATOP28/index.md#prop-atop28-evaluation)はコホモロジーから整数ホモロジー上の評価への写像を与えました。しかし、境界が2倍写像の複体では整数への評価を延長できず、評価の核に $\mathbb Z/2\mathbb Z$ が現れました。一方、鎖の係数を2を零とする群に変えると、2倍境界そのものが零になります。二つの現象を、それぞれ Ext と Tor で記述します。
+前講の[ホモロジー類への評価](../ATOP28/index.md#prop-atop28-evaluation)はコホモロジーから整数ホモロジー上の評価への写像を与えました。しかし、境界が2倍写像の複体では整数への評価を延長できず、評価の核に $\mathbb Z/2\mathbb Z$ が現れました。一方、鎖の係数を2を零とする群に変えると、2倍境界そのものが零になります。二つの現象を、評価の延長を測る群と係数変更後に現れる核を測る群で記述します。
 
-以下、群はすべてアーベル群、準同型は加法的とし、テンソル積・Hom・Ext・Tor の基礎環は $\mathbb Z$ とします。鎖複体 $C$ は非負次数の自由アーベル群からなるものとし、負次数を零とします。境界を $d_n:C_n\to C_{n-1}$、$Z_n=\ker d_n$、$B_n=\operatorname{im}d_{n+1}$、$H_n=Z_n/B_n$ と書きます。負次数のこれらの群も零です。特異鎖群は特異単体を基底とするので、この仮定を満たします。有限生成性は仮定しません。
+以下、群はすべてアーベル群、準同型は加法的とし、以下で扱う群の構成の基礎環は $\mathbb Z$ とします。鎖複体 $C$ は非負次数の自由アーベル群からなるものとし、負次数を零とします。境界を $d_n:C_n\to C_{n-1}$、$Z_n=\ker d_n$、$B_n=\operatorname{im}d_{n+1}$、$H_n=Z_n/B_n$ と書きます。負次数のこれらの群も零です。特異鎖群は特異単体を基底とするので、この仮定を満たします。有限生成性は仮定しません。
 
 ## 2. 自由群の二つの短完全列
 
@@ -351,6 +351,8 @@ $$
 
 ### 演習 ATOP29-A1：テンソル積
 
+- Level: A
+
 $(\mathbb Z/6\mathbb Z)\otimes(\mathbb Z/9\mathbb Z)$ を求めよ。
 
 <!-- solution-start -->
@@ -358,6 +360,8 @@ $(\mathbb Z/6\mathbb Z)\otimes(\mathbb Z/9\mathbb Z)$ を求めよ。
 <!-- solution-end -->
 
 ### 演習 ATOP29-A2：Tor の計算
+
+- Level: A
 
 $\operatorname{Tor}_1^{\mathbb Z}(\mathbb Z/6\mathbb Z,\mathbb Z/9\mathbb Z)$ を求めよ。
 
@@ -367,13 +371,19 @@ $\operatorname{Tor}_1^{\mathbb Z}(\mathbb Z/6\mathbb Z,\mathbb Z/9\mathbb Z)$ �
 
 ### 演習 ATOP29-A3：Ext と Hom
 
+- Level: A
+
 $M=\mathbb Z/4\mathbb Z$、$G=\mathbb Z/6\mathbb Z$ に対して $\operatorname{Hom}(M,G)$ と $\operatorname{Ext}^1_{\mathbb Z}(M,G)$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。1の像 $g$ が $4g=0$ を満たすことが Hom の条件である。$6\mid4k$ は $3\mid k$ と同値なので $G[4]=\{0,3\}$ で、Hom は $\mathbb Z/2\mathbb Z$。一方 [巡回整数加群のExt](../../../基礎論系/CATB/CATB7-05/index.md#thm-catb7-05-cyclic-ext) により Ext は $G/4G$。4倍の像は $\{0,4,2\}$ であり、偶数の類全体である。偶奇への剰余写像の核なので商は $\mathbb Z/2\mathbb Z$ になる。前者は核、後者は余核であり、同じ位数でも構成は異なる。
+**詳細解答**。1の像 $g$ が $4g=0$ を満たすことが Hom の条件である。$6\mid4k$ は $3\mid k$ と同値なので $G[4]=\{0,3\}$ で、Hom は $\mathbb Z/2\mathbb Z$。
+
+一方 [巡回整数加群のExt](../../../基礎論系/CATB/CATB7-05/index.md#thm-catb7-05-cyclic-ext) により Ext は $G/4G$。4倍の像は $\{0,4,2\}$ であり、偶数の類全体である。偶奇への剰余写像の核なので商は $\mathbb Z/2\mathbb Z$ になる。前者は核、後者は余核であり、同じ位数でも構成は異なる。
 <!-- solution-end -->
 
 ### 演習 ATOP29-A4：自由分解の分裂
+
+- Level: A
 
 $C_1=\mathbb Z^2$、$C_0=\mathbb Z$、$d_1(x,y)=2x+3y$ とする。$Z_1,B_0$ と $p_1$ の切断を求めよ。
 
@@ -387,7 +397,9 @@ $$
 これは $(x+y)(3,-2)$ であり、サイクルと切断像への分解が具体的に得られた。
 <!-- solution-end -->
 
-### 演習 ATOP29-B1：鎖行列と二つの定理
+### 演習 ATOP29-B1：鎖行列と係数変更
+
+- Level: B
 
 $C_2=C_1=\mathbb Z$、$d_2=12$、その他の成分は零とする。$G=\mathbb Z/8\mathbb Z$ として $H_1(C;G),H_2(C;G),H^1(C;G),H^2(C;G)$ を直接計算し、二つの普遍係数定理と照合せよ。
 
@@ -399,15 +411,27 @@ H_1(C;G)=G/4G\cong\mathbb Z/4\mathbb Z,
 \quad H_2(C;G)=G[4]\cong\mathbb Z/4\mathbb Z.
 $$
 
-余境界 $\delta^1$ も12倍なので $H^1=G[4]$、$H^2=G/4G$ となる。[ホモロジーの普遍係数定理](#thm-atop29-homology-uct) の1次は $H_1\otimes G=G/12G$ のみ、2次は $\operatorname{Tor}_1(H_1,G)=G[12]$ のみである。[コホモロジーの普遍係数定理](#thm-atop29-cohomology-uct) の1次は $\operatorname{Hom}(H_1,G)=G[12]$ のみ、2次は [巡回整数加群のExt](../../../基礎論系/CATB/CATB7-05/index.md#thm-catb7-05-cyclic-ext) により $G/12G$ のみ。$12g=4g$ なので全て一致する。
+余境界 $\delta^1$ も12倍なので $H^1=G[4]$、$H^2=G/4G$ となる。
+
+[ホモロジーの普遍係数定理](#thm-atop29-homology-uct) の1次は $H_1\otimes G=G/12G$ のみ、2次は $\operatorname{Tor}_1(H_1,G)=G[12]$ のみである。
+
+[コホモロジーの普遍係数定理](#thm-atop29-cohomology-uct) の1次は $\operatorname{Hom}(H_1,G)=G[12]$ のみ、2次は [巡回整数加群のExt](../../../基礎論系/CATB/CATB7-05/index.md#thm-catb7-05-cyclic-ext) により $G/12G$ のみ。$12g=4g$ なので全て一致する。
 <!-- solution-end -->
 
 ### 演習 ATOP29-B2：有限生成群の係数
 
+- Level: B
+
 整数ホモロジーが $H_2=\mathbb Z\oplus\mathbb Z/4\mathbb Z$、$H_1=\mathbb Z/6\mathbb Z$ である自由鎖複体について、$G=\mathbb Z/8\mathbb Z$ としたときの2次ホモロジーと2次コホモロジーを求めよ。
 
 <!-- solution-start -->
-**詳細解答**。直和のテンソルは各成分のテンソルの直和であり、$H_2\otimes G=G\oplus G/4G$。$4G=\{0,4\}$ なので後者は $\mathbb Z/4\mathbb Z$。$G[6]=\{0,4\}$（$8\mid6k$ は $4\mid k$ と同値）なので $\operatorname{Tor}_1(H_1,G)\cong\mathbb Z/2\mathbb Z$。[ホモロジーの普遍係数定理](#thm-atop29-homology-uct) の分裂により
+**詳細解答**。[アーベル群のテンソル積](#def-atop29-abelian-tensor) の構成に従い、$(a,b)\otimes g$ を $(a\otimes g,b\otimes g)$ に送る。逆は各成分の包含に沿ってテンソルを足す写像である。従って
+
+$
+H_2\otimes G\cong G\oplus G/4G.
+$
+
+$4G=\{0,4\}$ なので後者は $\mathbb Z/4\mathbb Z$。$G[6]=\{0,4\}$（$8\mid6k$ は $4\mid k$ と同値）なので $\operatorname{Tor}_1(H_1,G)\cong\mathbb Z/2\mathbb Z$。[ホモロジーの普遍係数定理](#thm-atop29-homology-uct) の分裂により
 
 $$
 H_2(C;G)\cong\mathbb Z/8\mathbb Z\oplus
@@ -419,6 +443,8 @@ Hom についても直和への評価を二つの制限に分けると $\operato
 
 ### 演習 ATOP29-B3：自由性の仮定
 
+- Level: B
+
 $C_1=\mathbb Z/2\mathbb Z$、$C_0=\mathbb Z/4\mathbb Z$、$d_1([1])=[2]$、その他は零とする。$G=\mathbb Z/2\mathbb Z$ でこの複体を検算し、さらに自由性を欠く場合にホモロジーの普遍係数定理の形が失敗する反例を構成せよ。
 
 <!-- solution-start -->
@@ -428,6 +454,8 @@ $C_1=\mathbb Z/2\mathbb Z$、$C_0=\mathbb Z/4\mathbb Z$、$d_1([1])=[2]$、そ�
 <!-- solution-end -->
 
 ### 演習 ATOP29-B4：異なる自由分解での比較
+
+- Level: B
 
 $M=\mathbb Z/6\mathbb Z$ とし、第一の分解を $u:\mathbb Z\to\mathbb Z,\ u(x)=6x$ とする。第二の分解を $u':\mathbb Z^2\to\mathbb Z^2,\ u'(x,y)=(6x,y)$、増大射を $q'(a,b)=[a]$ とする。両方が自由分解であることを確認し、$G=\mathbb Z/4\mathbb Z$ について比較写像が Tor の同型を誘導することを直接示せ。
 
@@ -440,6 +468,8 @@ $M=\mathbb Z/6\mathbb Z$ とし、第一の分解を $u:\mathbb Z\to\mathbb Z,\ 
 <!-- solution-end -->
 
 ### 演習 ATOP29-C1：係数の自然性と分裂
+
+- Level: C
 
 $m\ge2$ とし、$C_1=\mathbb Za\oplus\mathbb Zb$、$C_0=\mathbb Ze$、$d_1(a)=me$、$d_1(b)=0$、他の次数は零とする。係数を $G=\mathbb Z/m\mathbb Z$ とする。整数ホモロジー上で恒等な鎖自己同型によって、二つの普遍係数定理の分裂が自然に選べないことを示せ。
 
