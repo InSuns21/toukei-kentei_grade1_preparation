@@ -27,7 +27,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-vnp19-cut -->
-**定義の確認**：整数環で、任意の入力を無視するプログラム $G$ が一つの受理枝（重み1）で固定の二つの重み命令のインスタンスを返すとします。それらは停止し名前列が空、受理重みがそれぞれ2、3です。$P=2$、$s'$ を二つのサイズの最大値、$t$ をこの固定出力の費用、$\tau'$ を二つの受理費用の最大値とすれば、第一条件は全入力で成立します。しかし重み和が7の plain インスタンスも入力集合に含まれるなら第二条件は $7\ne 1\cdot2\cdot3$ により破れます。入力集合に対する契約であるため、一例の成功だけでは分割プログラムとは判定できません。逆に、サイズ上界を $s=1$ とすると入力は空木だけです。前講の空木を定数として実行する規約では受理重みは1です。空リストを返す定数プログラムは全枝停止、名前列なし、固定の費用以下で、片のサイズ条件と plain 性は空リストのため自動的に成立します。重み1の空積で値を保存し、$P=0$ の契約を満たします。
+**定義の確認**：整数環で、任意の入力を無視するプログラム $G$ が一つの受理枝（重み1）で固定の二つの重み命令のインスタンスを返すとします。それらは停止し名前列が空、受理重みがそれぞれ2、3です。
+
+$P=2$、$s'$ を二つのサイズの最大値、$t$ をこの固定出力の費用、$\tau'$ を二つの受理費用の最大値とすれば、第一条件は全入力で成立します。
+
+しかし重み和が7の plain インスタンスも入力集合に含まれるなら第二条件は $7\ne 1\cdot2\cdot3$ により破れます。入力集合に対する契約であるため、一例の成功だけでは分割プログラムとは判定できません。
+
+逆に、サイズ上界を $s=1$ とすると入力は空木だけです。前講の空木を定数として実行する規約では受理重みは1です。空リストを返す定数プログラムは全枝停止、名前列なし、固定の費用以下で、片のサイズ条件と plain 性は空リストのため自動的に成立します。重み1の空積で値を保存し、$P=0$ の契約を満たします。
 <!-- definition-example-end -->
 
 第一条件は入力の停止性に依存しません。$G$ は元のプログラムを実際に停止まで実行するのではなく、有限の記述を作ります。第二条件で初めて元の計算の停止と時間の仮定を使います。
@@ -143,7 +149,29 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[照合走行のネットワーク表示](../VNP18/index.md#thm-vnp18-runnet)で $M=2K$ 頂点のネットワークの和を得ます。パケット長を $\ell=\lfloor T/v^{a'}\rfloor$ とし、$a'$ を十分大きく、$a>a'$ と選びます。$T\ge v^a$ なので $\ell\ge1$。大きい $v$ で $\ell\ge T/(2v^{a'})$ です。前講の入射数上界 $2((T+2K(|S|+1))c/\ell+2K)$ に $\ell\ge T/(2v^{a'})$ と $T\ge v^a\ge2K$ を代入すると $O(v^{a'}+K)$ です。ここで $c$ は記号符号の固定幅、$S$ はテープ集合です。$a'>2a_K$ とし、各頂点のパケット本数の上界を $N=v^{a'}\Lambda$ （必要なら整数へ丸める）とすると、$N\ell\le T\Lambda$ です。$a'>2a_K$ なら定数も吸収して $N\ge M^2$ にできます。自己接続パケットはその頂点の局所因子で総和し、片の内部に置きます。
+[照合走行のネットワーク表示](../VNP18/index.md#thm-vnp18-runnet)で $M=2K$ 頂点のネットワークの和を得ます。パケット長を
+
+$$
+\ell=\lfloor T/v^{a'}\rfloor
+$$
+
+とし、$a'$ を十分大きく、$a>a'$ と選びます。$T\ge v^a$ なので $\ell\ge1$。大きい $v$ で $\ell\ge T/(2v^{a'})$ です。
+
+前講の入射数上界にこれと $T\ge v^a\ge2K$ を代入します。記号符号の固定幅を $c$、テープ集合を $S$ とすると、
+
+$$
+2((T+2K(|S|+1))c/\ell+2K)
+\le 4(|S|+2)c v^{a'}+4K
+=O(v^{a'}+K).
+$$
+
+$a'>2a_K$ とし、各頂点のパケット本数の上界を $N=v^{a'}\Lambda$ と選びます（必要なら整数へ丸めます）。
+
+$$
+N\ell\le T\Lambda,\qquad N\ge M^2.
+$$
+
+後者は $M=2K\le2Cv^{a_K}$ と $a'>2a_K$ によります。自己接続パケットはその頂点の局所因子で総和し、片の内部に置きます。
 
 [木の構造とパケット上界](../VNP17/index.md#thm-vnp17-bounds)を適用します。親へのパケット数の上界は $\Lambda M^{1-\gamma}(N+M^2)$、全体は $Y=\Lambda M(N+M^2)$（必要なら整数上界）です。$\gamma>0$ は固定です。$N\ge M^2$ から $N+M^2\le2N$。パケット長を掛けると局所上界は
 
@@ -228,7 +256,15 @@ C_{\rm univ}(|z|+\tau)(\lg(|z|+\tau))^2
 \le 2C_{\rm univ}\tau(1+\lg\tau)^2.
 $$
 
-$4\lg\tau\le(\lg v)^2$ により右辺は $O(\tau(\lg v)^4)$。この上界を覆う固定べき $L$ を選び $T=\lceil\tau L/K\rceil$ とします。すると $KT\ge\tau L$、$KT\le\tau L+K\le2\tau L$（$K\le\tau$）。$a_0$ を $a+a_K$ より十分大きくすれば $T\ge v^a$。また $L$ は固定の対数べき、$K\ge v^{300}$ なので大きい $v$ で $L\le K/2$、よって $T\le\tau$。従って $\lg T\le(\lg v)^2$。入力を長さ $T'=\lfloor s/K\rfloor+1$ の部分に分けます。$KT\ge\tau L$ と $L\ge2$ により $T\ge2s/K$、また $T\ge1$ なので $T'\le T$ です（$s/K<1$ なら $T'=1$、それ以外なら $T'\le2s/K$）。空の末尾部分も許します。
+$4\lg\tau\le(\lg v)^2$ により右辺は $O(\tau(\lg v)^4)$。この上界を覆う固定べき $L$ を選び $T=\lceil\tau L/K\rceil$ とします。
+
+すると $KT\ge\tau L$、$KT\le\tau L+K\le2\tau L$（$K\le\tau$）。$a_0$ を $a+a_K$ より十分大きくすれば $T\ge v^a$。
+
+また $L$ は固定の対数べき、$K\ge v^{300}$ なので大きい $v$ で $L\le K/2$、よって $T\le\tau$。従って $\lg T\le(\lg v)^2$。
+
+入力を長さ $T'=\lfloor s/K\rfloor+1$ の部分に分けます。
+
+$KT\ge\tau L$ と $L\ge2$ により $T\ge2s/K$、また $T\ge1$ なので $T'\le T$ です（$s/K<1$ なら $T'=1$、それ以外なら $T'\le2s/K$）。空の末尾部分も許します。
 
 [計算の分割片](#thm-vnp19-pieces)を適用すると、片のブロック数は $O(K/k)$、全パケットは $KT\Lambda/k$ ビット以下、境界は $KT\Lambda/v^{300}$ ビット以下です。入力部分の長さは高々 $s/K+1$ なので、片の入力記号数は
 
@@ -268,9 +304,21 @@ $$
 
 ### 形式証明との対応
 
-J.2 の対応は [Paper/Pieces.lean](https://github.com/anthropics/formal-math/blob/db8472ee0fe3ebea21765160a6e3a04f5eaba4c5/vp-vnp/Paper/Pieces.lean) の prop_pieces と prop_pieces_identity です。前者は $e=300\,\mathrm{ee}(h)+64$、$a'=(e+2)(C_0+2)+300$、$K=v^e$、パケット幅 $ub=\lfloor T/v^{a'}\rfloor$ と選びます。$\mathrm{ee}(h)=h(h-1)/2$、$C_0$ は thm_tree の上界指数です。$\gamma=1/\mathrm{ee}(h)$ だから $e\gamma\ge300$ となります。[Paper/Heavy.lean](https://github.com/anthropics/formal-math/blob/db8472ee0fe3ebea21765160a6e3a04f5eaba4c5/vp-vnp/Paper/Heavy.lean) の prop_pieces_heavy_few、prop_pieces_heavy_up、prop_pieces_shape が段ごとの個数、親への単調性、片の形をそれぞれ担当します。
+J.2 の対応は [Paper/Pieces.lean](https://github.com/anthropics/formal-math/blob/db8472ee0fe3ebea21765160a6e3a04f5eaba4c5/vp-vnp/Paper/Pieces.lean) の prop_pieces と prop_pieces_identity です。前者は $\mathrm{ee}(h)=h(h-1)/2$、$C_0$ を thm_tree の上界指数として、
 
-紙面の J.3 は実際のプログラムの全構成・費用証明を印刷していません。上の議論は有限和と指数評価の再構成で、木プログラムの各命令の意味論・停止性・費用の完全な根拠は以下の形式証明にあります。
+$$
+\begin{aligned}
+e&=300\,\mathrm{ee}(h)+64,\\
+a'&=(e+2)(C_0+2)+300,\\
+K&=v^e,\qquad ub=\lfloor T/v^{a'}\rfloor
+\end{aligned}
+$$
+
+と選びます。$\gamma=1/\mathrm{ee}(h)$ だから $e\gamma\ge300$ となります。
+
+[Paper/Heavy.lean](https://github.com/anthropics/formal-math/blob/db8472ee0fe3ebea21765160a6e3a04f5eaba4c5/vp-vnp/Paper/Heavy.lean) の prop_pieces_heavy_few、prop_pieces_heavy_up、prop_pieces_shape が段ごとの個数、親への単調性、片の形をそれぞれ担当します。
+
+紙面の J.3 は実際のプログラムの全構成・費用証明を印刷していません。上の議論は有限和の恒等式と計算費用・サイズの上界の導出で、木プログラムの各命令の意味論・停止性・費用の完全な根拠は以下の形式証明にあります。
 
 [Paper/Cuts.lean](https://github.com/anthropics/formal-math/blob/db8472ee0fe3ebea21765160a6e3a04f5eaba4c5/vp-vnp/Paper/Cuts.lean) の def_cut は CutD を停止・出力サイズ・名前列・重み和の契約へ展開します。thm_onecut_evaluator は exists_group から評価器 GROUP と費用係数 $\kappa$ を取り出し、GroupOK と GrpTimeOK を返します。入力が指示書である場合の局所値と費用の契約です。
 
@@ -280,7 +328,13 @@ $$
 (\mathrm{dealC}+3000)(XL_c)^4
 $$
 
-以下です。thm_onecut では $C_p$ を prop_pieces の定数、$b_1=3C_p+3e+a+8$（ここで $e$ は $K$ の指数、$a$ は prop_pieces の時間下限指数）とします。$C_1$ はこの節の補助定数であり再配線則の $C_1$ とは別です。$l=\lg v$、$C_1=C_p+10$、$m=l^{C_1}$、$X=v^{b_1}$ とおき、$m\le v$ と $\tau\ge v^{a_0}$ を使います。$a_0=a+e+6b_1+400$ と選ぶと
+以下です。thm_onecut では $C_p$ を prop_pieces の定数、$b_1=3C_p+3e+a+8$（ここで $e$ は $K$ の指数、$a$ は prop_pieces の時間下限指数）とします。
+
+$C_1$ はこの節の補助定数であり再配線則の $C_1$ とは別です。
+
+$l=\lg v$、$C_1=C_p+10$、$m=l^{C_1}$、$X=v^{b_1}$ とおきます。
+
+$m\le v$ と $\tau\ge v^{a_0}$ を使います。$a_0=a+e+6b_1+400$ と選ぶと
 
 $$
 X^6m^{20}v^{300}
@@ -298,7 +352,23 @@ $$
 
 [Nc/Dl/Cut.lean](https://github.com/anthropics/formal-math/blob/db8472ee0fe3ebea21765160a6e3a04f5eaba4c5/vp-vnp/Nc/Dl/Cut.lean) の deal_cut では mem_execAll から各終状態に対応する $q,\rho,n,o,b$ を取り出します。expand_scriptTm によって出力された木が指定の片の指示書と一致し、hpc の三成分からサイズ、plain 性、値の一致を得ます。sum_allSteps により実行の総和をデータの有限和へ変え、q の端点、ValidRows、tab.valid、P.good を順に条件分岐します。境界の割当てでは非使用の場所を none に固定し、使用場所に none が残る項は該当片の grpVal が0になることを grpVal_ne_none から示して積全体を0にします。このため余計な割当てを数えません。
 
-[Nc/Dl/Num0.lean](https://github.com/anthropics/formal-math/blob/db8472ee0fe3ebea21765160a6e3a04f5eaba4c5/vp-vnp/Nc/Dl/Num0.lean) の CutNums では境界本数 $bd$ に対し $bd\cdot ub\cdot v^{300}\le\tau m^2$ を仮定します。$1\le m\le v$ より $m^2\le v^2$、従って $bd\cdot ub\cdot v^{300}\le\tau v^2$。正の $v^2$ を除いて $bd\cdot ub\cdot v^{298}\le\tau$、さらに $v^{256}\le v^{298}$ だから $bd\cdot ub\le\lfloor\tau/v^{256}\rfloor$ です。形式証明の bdub はこの余裕を使い、deal は片数 $mm\le km$ と掛け合わせて分割側の費用へ渡します。
+[Nc/Dl/Num0.lean](https://github.com/anthropics/formal-math/blob/db8472ee0fe3ebea21765160a6e3a04f5eaba4c5/vp-vnp/Nc/Dl/Num0.lean) の CutNums では境界本数 $bd$ に対し
+
+$$
+bd\cdot ub\cdot v^{300}\le\tau m^2
+$$
+
+を仮定します。$1\le m\le v$ より $m^2\le v^2$ です。正の $v^2$ で割り、$v^{256}\le v^{298}$ を使うと、
+
+$$
+\begin{aligned}
+bd\cdot ub\cdot v^{300}&\le\tau v^2,\\
+bd\cdot ub\cdot v^{298}&\le\tau,\\
+bd\cdot ub&\le\lfloor\tau/v^{256}\rfloor.
+\end{aligned}
+$$
+
+形式証明の bdub はこの余裕を使い、deal は片数 $mm\le km$ と掛け合わせて分割側の費用へ渡します。
 
 最後に CutNums の time、size、mm_le、deal の各上界を CutD.mono へ渡し、$m^{10}=(\lg v)^{10C_1}$ で四つの上界を一つの対数指数に揃えます。Lean の自然数除算は切り捨てなので、特に入力サイズの上界は $(\lfloor s/k\rfloor+\lfloor\tau/v^{256}\rfloor)\Lambda$ として証明されています。ここではこの強い整数評価を紙面の実数上界と区別します。exists_group、deal_does、CutNums の内部の全命令帰納法はリンク先に依拠します。
 
@@ -400,7 +470,11 @@ $$
 M=\begin{pmatrix}1&4\\-1&2\end{pmatrix}
 $$
 
-および第三片の値 $w=(5,7)$ を整数環で与える。行添字を $b$、列添字を $c$ とする。(1) 全体の値を計算せよ。(2) 中央片で $b,c$ を再推測して一致検査をしない場合の誤った値を求めよ。(3) 正しいプログラムが全境界割当てを一回ずつ生成する方法を記述し、元の入力が停止しなくても分割プログラムが停止する条件を述べよ。
+および第三片の値 $w=(5,7)$ を整数環で与える。行添字を $b$、列添字を $c$ とする。
+
+1. 全体の値を計算せよ。
+2. 中央片で $b,c$ を再推測して一致検査をしない場合の誤った値を求めよ。
+3. 正しいプログラムが全境界割当てを一回ずつ生成する方法を記述し、元の入力が停止しなくても分割プログラムが停止する条件を述べよ。
 
 <!-- solution-start -->
 **詳細解答**：(1) [境界固定による積分解](#thm-vnp19-factor)を使います。四つの組の寄与は $(0,0)$ が $2\cdot1\cdot5=10$、$(0,1)$ が $2\cdot4\cdot7=56$、$(1,0)$ が $3(-1)5=-15$、$(1,1)$ が $3\cdot2\cdot7=42$。和は $10+56-15+42=93$ です。行列積でも $Mw=(33,9)^{\mathsf T}$、$uMw=66+27=93$ です。
