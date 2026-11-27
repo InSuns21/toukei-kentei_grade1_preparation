@@ -56,7 +56,16 @@ $$
 
 を使います。ここで $i0$ は正の虚部 $i\varepsilon$ を持つ滑らかな核を $\varepsilon\downarrow0$ とした分布極限を表します。これは $q\ne0$ での関数 $1/(4\pi^2q)$ と、光円錐上の正側境界値を合わせたものです。
 
-実際、原点以外の光円錐上では $a=|t|>0$ です。$t$ と空間方向を固定したときの偏微分は $\partial q/\partial a=2a\ne0$ であり、逆変換 $a=\sqrt{q+t^2}$ は正の平方根で滑らかです。よって光円錐近傍では $q,t$ と空間の角度を局所座標に取れます。$t$ を固定して $q$ を $\eta^2$ だけ平行移動した上で虚部 $2\eta|t|$ を零へ近づけると、一次元の[境界値公式](../../../解析系/MICA/MICA4/index.md#prop-mica4-sokhotski)が適用でき、同じ極限を得ます。
+実際、原点以外の光円錐上では $a=|t|>0$ です。時間と空間方向を固定したときの偏微分と逆変換は
+
+$$
+\frac{\partial q}{\partial a}=2a\ne0,\qquad
+a=\sqrt{q+t^2}.
+$$
+
+逆変換は正の平方根で滑らかです。よって光円錐近傍では $q,t$ と空間の角度を局所座標に取れます。
+
+$t$ を固定して $q$ を $\eta^2$ だけ平行移動した上で虚部 $2\eta|t|$ を零へ近づけると、一次元の[境界値公式](../../../解析系/MICA/MICA4/index.md#prop-mica4-sokhotski)が適用でき、同じ極限を得ます。
 
 光円錐近傍の固定コンパクト集合内で $|t|$ は正の下界を持ち、試験関数の微分も一様有界なので、その局所積分に極限を通せます。
 
@@ -96,7 +105,11 @@ $$
 
 となります。[微分同相による分布の座標移送](../../../解析系/MICA/MICA5/index.md#def-mica5-coordinate-pushforward)に従い、このJacobian因子を試験関数に含めます。
 
-その座標で $D_F$ は一次元の $(q+i0)^{-1}$ の定数倍を他の座標へ定数として広げたものです。[同側境界値の積](../../../解析系/MICA/MICA6/index.md#prop-mica6-boundary-product)と[波面集合の座標変換則](../../../解析系/MICA/MICA5/index.md#thm-mica5-coordinate-change)により、局所座標で二因子の波面は同じ符号の $dq$ 方向に限られ、逆向きの組はありません。従って分布積が存在し、二乗の非定数部分は $(q+i0)^{-2}$ になります。光円錐の外では滑らかな通常の積なので、これらは重なりで一致します。
+その座標で $D_F$ は一次元の $(q+i0)^{-1}$ の定数倍を他の座標へ定数として広げたものです。
+
+[同側境界値の積](../../../解析系/MICA/MICA6/index.md#prop-mica6-boundary-product)と[波面集合の座標変換則](../../../解析系/MICA/MICA5/index.md#thm-mica5-coordinate-change)により、局所座標で二因子の波面は同じ符号の $dq$ 方向に限られ、逆向きの組はありません。
+
+従って分布積が存在し、二乗の非定数部分は $(q+i0)^{-2}$ になります。光円錐の外では滑らかな通常の積なので、これらは重なりで一致します。
 
 [分布のスケール変換](../MQFC32/index.md#def-mqfc32-dilation)では $z=\lambda y$ ($\lambda>0$) と置換すると体積の $\lambda^4$ が規格化の $\lambda^{-4}$ と相殺されます。境界値近似には
 
@@ -118,7 +131,14 @@ $$
 
 ## 2. 角度部分の積分を計算する
 
-原点を除いた4次元空間でEuclid半径 $\rho=(t^2+|\boldsymbol x|^2)^{1/2}$、方向 $\omega=z/\rho\in S^3$ を使います。$S^3$ は $\mathbb R^4$ の単位球面、$\omega_0=t/\rho$ は時間方向成分です。これは積分の分解に用いる補助座標で、Lorentz計量を変更したわけではありません。
+原点を除いた4次元空間でEuclid半径と方向を
+
+$$
+\rho=(t^2+|\boldsymbol x|^2)^{1/2},
+\qquad \omega=z/\rho\in S^3
+$$
+
+とします。$S^3$ は $\mathbb R^4$ の単位球面、$\omega_0=t/\rho$ は時間方向成分です。これは積分の分解に用いる補助座標で、Lorentz計量を変更したわけではありません。
 
 半径と角度の変数で
 
@@ -364,7 +384,15 @@ $$
 =\lambda^{-4}(T_R+C\log\lambda\,\delta).
 $$
 
-任意の実数 $\gamma>4$ に対して $\lambda^{\gamma-4}$ と $\lambda^{\gamma-4}\log\lambda$ はともに零へ収束するので次数は4以下です。一方、原点を避ける試験関数に対しては $(T_R)_\lambda$ の作用は $f_\lambda$ の作用と一致します。従って全空間で零に収束する規格化は原点外でも零に収束しなければならず、[質量ゼロ二線核の次数](#prop-mqfc35-fish-kernel)より延長の次数は4以上です。従って正確に4です。
+任意の実数 $\gamma>4$ に対して
+
+$$
+\lambda^{\gamma-4}\longrightarrow0,\qquad
+\lambda^{\gamma-4}\log\lambda\longrightarrow0
+\quad(\lambda\downarrow0)
+$$
+
+なので次数は4以下です。一方、原点を避ける試験関数に対しては $(T_R)_\lambda$ の作用は $f_\lambda$ の作用と一致します。従って全空間で零に収束する規格化は原点外でも零に収束しなければならず、[質量ゼロ二線核の次数](#prop-mqfc35-fish-kernel)より延長の次数は4以上です。従って正確に4です。
 
 最後に[局所反項の自由度](../MQFC34/index.md#thm-mqfc34-counterterm-freedom)に次元4、次数4を代入すると許容微分階数は $\lfloor4-4\rfloor=0$。全自由度はデルタの係数一個であり、逆にどの係数を選んでも次数4が保たれます。
 <!-- proof-end -->
@@ -389,7 +417,11 @@ $$
 \psi(z)=\int_{\mathbb R^4}\Phi(y+z,y)\,d^4y
 $$
 
-と置きます。ここでは $\Phi\in C_c^\infty(\mathbb R^8)$ を仮定しています。$\Phi$ の台を逆変換した集合はコンパクトであり、その $z$ への射影もコンパクトです。$y$ の積分は共通の有界集合に限られ、$z$ 微分を積分の中へ通せます。従って $\psi$ は滑らかでコンパクトな台を持ち、相対座標の分布 $T_R$ を $\psi$ に作用させられます。反項 $c\delta$ は
+と置きます。ここでは $\Phi\in C_c^\infty(\mathbb R^8)$ を仮定しています。$\Phi$ の台を逆変換した集合はコンパクトであり、その $z$ への射影もコンパクトです。
+
+$y$ の積分は共通の有界集合に限られ、$z$ 微分を積分の中へ通せます。従って $\psi$ は滑らかでコンパクトな台を持ち、相対座標の分布 $T_R$ を $\psi$ に作用させられます。
+
+反項 $c\delta$ は
 
 $$
 \langle c\delta,\psi\rangle
@@ -427,7 +459,19 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[境界値公式](../../../解析系/MICA/MICA4/index.md#prop-mica4-sokhotski)では $u_\pm=\mathrm{pv}(1/s)\mp i\pi\delta$ である。ここで $\partial_s$ は $s$ に関する分布微分で、$\delta'=\partial_s\delta$ は $\langle\delta',\varphi\rangle=-\varphi'(0)$ と作用する。試験関数の $\varphi'$ は $s$ に関する通常の導関数である。[同側境界値の積](../../../解析系/MICA/MICA6/index.md#prop-mica6-boundary-product)によって
+[境界値公式](../../../解析系/MICA/MICA4/index.md#prop-mica4-sokhotski)では
+
+$$
+u_\pm=\mathrm{pv}(1/s)\mp i\pi\delta
+$$
+
+である。ここで $\partial_s$ は $s$ に関する分布微分で、$\delta'=\partial_s\delta$ の作用は
+
+$$
+\langle\delta',\varphi\rangle=-\varphi'(0).
+$$
+
+試験関数の $\varphi'$ は $s$ に関する通常の導関数である。[同側境界値の積](../../../解析系/MICA/MICA6/index.md#prop-mica6-boundary-product)によって
 
 $$
 u_+^2-u_-^2=-\partial_s(u_+-u_-)=2i\pi\delta'.
