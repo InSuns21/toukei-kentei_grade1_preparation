@@ -90,7 +90,7 @@ chapters:
     title: "K：small circuitからaccelerator、定数名・低次数化・scale transferと対角線論法"
   - id: VNP22
     path: textbook/volumes/dream_thater/計算系/VNP/VNP22
-    status: planned
+    status: completed
     title: "L/M：両caseの結合、全標数へのtransfer、HC grid gadget、VP≠VNP"
   - id: VNP23
     path: textbook/volumes/dream_thater/計算系/VNP/VNP23

@@ -1,0 +1,28 @@
+id: VNP22
+title: "L/M：両caseの結合、全標数へのtransfer、HC grid gadget、VP≠VNP"
+volume: foundations
+status: supplementary
+prerequisites: [VNP21, VNP20, VNP18, VNP15, VNP12, VNP11, VNP10, VNP9, VNP1, ACOMP12, AG1-07, FLD3, FLD2, FLD0]
+official_scope: []
+learning_objectives:
+  - 排他的選択構成から格子和のHamilton閉路表示と頂点数を導出できる
+  - 格子和の代入条件から節和および二つの場合の回路下界を再構成できる
+  - 係数方程式と零点定理による同標数の回路移送を説明できる
+  - 全標数の量化と標数2の例外を区別しクラス分離を証明できる
+definitions:
+  - { id: VNP22-DEF-01, name: "格子和に対する完全性" }
+theorems:
+  - { id: VNP22-THM-01, name: "格子和のHamilton閉路表示" }
+  - { id: VNP22-THM-02, name: "完全な族への節和の代入" }
+  - { id: VNP22-THM-03, name: "完全な族の平坦側下界" }
+  - { id: VNP22-THM-04, name: "完全な族の収縮側下界" }
+  - { id: VNP22-THM-05, name: "対数指数の比較" }
+  - { id: VNP22-THM-06, name: "同標数の代数閉体への回路移送" }
+  - { id: VNP22-THM-07, name: "全標数の算術回路下界" }
+  - { id: VNP22-THM-08, name: "全標数における厳密なクラス分離" }
+canonical_examples: [一位置の格子和, アフィン式の格子和, 固定配線の係数方程式]
+problem_patterns: [VNP22-A1, VNP22-A2, VNP22-A3, VNP22-A4, VNP22-B1, VNP22-B2, VNP22-B3, VNP22-B4, VNP22-B5, VNP22-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 4, review: 2 }
