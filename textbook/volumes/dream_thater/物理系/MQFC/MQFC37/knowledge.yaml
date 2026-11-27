@@ -1,0 +1,46 @@
+chapter: MQFC37
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC31, MICA6]
+forward_references: []
+concepts:
+  - id: mqfc.functional-derivative
+    name: "汎関数微分"
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica6-tensor-product]
+  - id: mqfc.local-functional
+    name: "局所汎関数"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.functional-derivative]
+  - id: mqfc.functional-support
+    name: "汎関数の台"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.functional-derivative]
+  - id: mqfc.local-functional-additivity
+    name: "局所汎関数の加法性"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.local-functional, mqfc.functional-support]
+  - id: mqfc.local-diagonal-kernel
+    name: "局所微分核の対角表示"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.local-functional, mqfc.functional-derivative, mqfc.insertion-configuration]
+  - id: mqfc.local-kernel-wavefront
+    name: "局所微分核の波面集合評価"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.local-diagonal-kernel, microlocal.mica5-submanifold-delta, microlocal.mica3-differential-operator]
+  - id: mqfc.microcausal-functional
+    name: "マイクロ因果的汎関数"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.functional-derivative, mqfc.functional-support, microlocal.mica3-wavefront]
+  - id: mqfc.local-microcausality
+    name: "局所汎関数のマイクロ因果性"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.microcausal-functional, mqfc.local-kernel-wavefront, mqfc.local-functional-additivity]

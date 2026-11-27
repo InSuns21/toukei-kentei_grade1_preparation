@@ -1,0 +1,27 @@
+id: MQFC37
+title: "汎関数微分と局所汎関数"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC31, MICA6]
+official_scope: []
+learning_objectives:
+  - 場の方向微分から多点の分布核を求められる
+  - コンパクト支持と局所性を区別し局所汎関数の加法性を示せる
+  - 有限階の導関数を含む局所汎関数の微分核を対角上に構成できる
+  - 全対角の余法条件と波面集合の包含からマイクロ因果性を示せる
+definitions:
+  - { id: MQFC37-DEF-01, name: "汎関数微分" }
+  - { id: MQFC37-DEF-02, name: "局所汎関数" }
+  - { id: MQFC37-DEF-03, name: "汎関数の台" }
+  - { id: MQFC37-DEF-04, name: "マイクロ因果的汎関数" }
+theorems:
+  - { id: MQFC37-PROP-01, name: "局所汎関数の加法性" }
+  - { id: MQFC37-PROP-02, name: "局所微分核の対角表示" }
+  - { id: MQFC37-THM-01, name: "局所微分核の波面集合評価" }
+  - { id: MQFC37-PROP-03, name: "局所汎関数のマイクロ因果性" }
+canonical_examples: [線形観測量, 四次相互作用, 時間微分密度, 二点に広がる観測量, 点評価]
+problem_patterns: [MQFC37-A1, MQFC37-A2, MQFC37-A3, MQFC37-A4, MQFC37-B1, MQFC37-B2, MQFC37-B3, MQFC37-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 2 }
