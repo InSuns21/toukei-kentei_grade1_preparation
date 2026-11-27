@@ -14,6 +14,7 @@ definitions:
   - { id: MQFC34-DEF-01, name: "原点に支持を持つ分布" }
 theorems:
   - { id: MQFC34-THM-01, name: "原点支持分布の構造" }
+  - { id: MQFC34-PROP-02, name: "原点支持分布の最高階と次数" }
   - { id: MQFC34-THM-02, name: "局所反項の自由度" }
   - { id: MQFC34-THM-03, name: "直交変換で不変な局所反項" }
   - { id: MQFC34-PROP-01, name: "臨界核の対数尺度変更" }
