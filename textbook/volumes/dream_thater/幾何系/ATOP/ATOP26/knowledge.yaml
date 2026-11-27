@@ -1,0 +1,26 @@
+chapter: ATOP26
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP12, ATOP17, ATOP22]
+forward_references: []
+concepts:
+  - id: atop.path-chain-additivity
+    name: 道の連結と特異1鎖の和
+    kind: lemma
+    introduction: formal
+    requires: [atop.path-operations, atop.path-homotopy, atop.singular-chain-group, atop.singular-boundary, atop.singular-boundary-chain, atop.prism-identity]
+  - id: atop.first-hurewicz-map
+    name: 次数1の Hurewicz 準同型
+    kind: proposition
+    introduction: formal
+    requires: [atop.path-chain-additivity, atop.fundamental-group-structure, atop.singular-homology]
+  - id: atop.first-hurewicz-theorem
+    name: 次数1の Hurewicz 定理
+    kind: theorem
+    introduction: formal
+    requires: [atop.first-hurewicz-map, atop.group-abelianization, atop.singular-chain-group, atop.singular-boundary, atop.path-class-laws, atop.path-concatenation-compatibility, topology.path-connected-space]
+  - id: atop.first-hurewicz-naturality
+    name: 次数1の Hurewicz 同型の自然性
+    kind: proposition
+    introduction: formal
+    requires: [atop.first-hurewicz-theorem, atop.induced-fundamental-group-homomorphism, atop.induced-singular-homology-map, atop.group-abelianization]
