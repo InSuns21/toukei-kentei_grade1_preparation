@@ -1,0 +1,32 @@
+id: VNP23
+title: "N：Laurent切断、近似few-term lemma・近似accelerator、VNP not⊆ closure(VP)"
+volume: foundations
+status: supplementary
+prerequisites: [VNP22, VNP21, VNP20, VNP12, VNP11, VNP10, VNP9, VNP3, VNP2, VNP1, ACOMP12, AG1-07]
+official_scope: []
+learning_objectives:
+  - Laurent係数の切断で非正次数が保存される条件を導出できる
+  - 近似被覆に対する少数項の選択費用と平坦側下界を説明できる
+  - 近似加速器の再尺度化・疎性・定数項抽出を用いた不存在の論証を再構成できる
+  - 同標数移送と二つの下界から近似クラス分離を導出できる
+definitions:
+  - { id: VNP23-DEF-01, name: "近似算術回路" }
+  - { id: VNP23-DEF-02, name: "近似加速器" }
+  - { id: VNP23-DEF-03, name: "Laurent指数幅と冪の疎性" }
+theorems:
+  - { id: VNP23-THM-01, name: "Laurent切断の保存則" }
+  - { id: VNP23-THM-02, name: "近似少数項の選択費用" }
+  - { id: VNP23-THM-03, name: "完全な族の近似平坦側下界" }
+  - { id: VNP23-THM-04, name: "再尺度化による誤差の保存" }
+  - { id: VNP23-THM-05, name: "定数項抽出の正しさ" }
+  - { id: VNP23-THM-06, name: "近似加速器の不存在" }
+  - { id: VNP23-THM-07, name: "完全な族の近似収縮側下界" }
+  - { id: VNP23-THM-08, name: "近似回路の同標数移送" }
+  - { id: VNP23-THM-09, name: "全標数の近似回路下界" }
+  - { id: VNP23-THM-10, name: "VNPの近似VPへの非包含" }
+canonical_examples: [負次数の相殺による近似回路, 冪の疎性, 剰余カウンタによる定数項抽出]
+problem_patterns: [VNP23-A1, VNP23-A2, VNP23-A3, VNP23-A4, VNP23-A5, VNP23-B1, VNP23-B2, VNP23-B3, VNP23-B4, VNP23-C1, VNP23-C2]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 4, review: 2 }
