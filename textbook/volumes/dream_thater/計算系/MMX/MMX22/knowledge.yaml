@@ -2,7 +2,8 @@ chapter: MMX22
 scope: dream-theater
 coverage: complete
 prerequisites: ["MMX21","MMX8","LA3E"]
-forward_references: []
+forward_references:
+  - gauge.pfaffian
 concepts:
   - id: matrix-exponent.fermion-level
     name: "フェルミオンのエネルギー空間"
