@@ -1,0 +1,31 @@
+chapter: MQFC38
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC37, HPDE21, MICA13]
+forward_references: []
+concepts:
+  - id: mqfc.peierls-bracket
+    name: "Peierls括弧"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.functional-derivative, hpde.causal-propagator]
+  - id: mqfc.free-peierls-poisson
+    name: "自由Peierls括弧のPoisson性"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.peierls-bracket, hpde.green-transpose-pairing, hpde.propagator-compositions]
+  - id: mqfc.free-star-product
+    name: "自由場のスター積"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.functional-derivative, microlocal.mica11-two-point-conditions, microlocal.mica6-tensor-product]
+  - id: mqfc.free-star-algebra
+    name: "自由場スター積の結合性と交換子"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.free-star-product, mqfc.peierls-bracket]
+  - id: mqfc.microcausal-contraction
+    name: "マイクロ因果条件による収縮の存在"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.microcausal-functional, mqfc.free-star-product, microlocal.mica13-wfsc, microlocal.mica6-tensor-wavefront, microlocal.mica6-product-existence]
