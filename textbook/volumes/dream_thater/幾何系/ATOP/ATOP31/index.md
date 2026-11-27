@@ -272,7 +272,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[特異コホモロジーの誘導準同型](../ATOP28/index.md#thm-atop28-pullback) の定義から、左辺の特異単体 $\sigma$ での値は $(a\smile b)(f\circ\sigma)$ です。面への制限は後から $f$ を合成する操作と可換なので
+[特異コホモロジーの誘導準同型](../ATOP28/index.md#thm-atop28-pullback) で用いた引戻しを適用します。左辺の特異単体 $\sigma$ での値は $(a\smile b)(f\circ\sigma)$ です。面への制限は後から $f$ を合成する操作と可換なので
 
 $$
 (f\circ\sigma)[0,\ldots,p]=f\circ\sigma[0,\ldots,p].
