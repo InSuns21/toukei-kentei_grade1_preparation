@@ -1,0 +1,42 @@
+chapter: VNP19
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP18, VNP17, VNP15]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.cut-contract
+    name: "計算の分割契約"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（計算の分割契約）"]
+    requires: [vp-vnp-study.plain-instance]
+  - id: vp-vnp-study.piece-factorization
+    name: "境界固定による積分解"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["補題（境界固定による積分解）"]
+    requires: [vp-vnp-study.packet-network]
+  - id: vp-vnp-study.heavy-pieces
+    name: "重い頂点と分割片"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重い頂点と分割片）"]
+    requires: [vp-vnp-study.packet-network]
+  - id: vp-vnp-study.piece-count
+    name: "分割片の個数と内部負荷"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（分割片の個数と内部負荷）"]
+    requires: [vp-vnp-study.heavy-pieces]
+  - id: vp-vnp-study.computation-pieces
+    name: "計算の分割片"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（計算の分割片）"]
+    requires: [vp-vnp-study.piece-count, vp-vnp-study.piece-factorization, vp-vnp-study.run-network, vp-vnp-study.thin-tree-bounds, vp-vnp-study.bounded-slp]
+  - id: vp-vnp-study.one-cut
+    name: "一回の計算分割"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一回の計算分割）"]
+    requires: [vp-vnp-study.cut-contract, vp-vnp-study.computation-pieces, vp-vnp-study.universal-tape-automaton, vp-vnp-study.finite-rerouting-laws]
