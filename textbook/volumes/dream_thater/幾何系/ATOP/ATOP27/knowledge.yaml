@@ -1,0 +1,26 @@
+chapter: ATOP27
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP15, ATOP23, ATOP26]
+forward_references: []
+concepts:
+  - id: atop.rational-comparison
+    name: 有理数係数への比較の移行
+    kind: lemma
+    introduction: formal
+    requires: [atop.simplicial-singular-comparison, atop.simplicial-chain-complex, atop.singular-homology]
+  - id: atop.lefschetz-number
+    name: Lefschetz数
+    kind: definition
+    introduction: formal
+    requires: [atop.rational-comparison, atop.induced-singular-homology-map]
+  - id: atop.hopf-trace-formula
+    name: Hopfのトレース公式
+    kind: theorem
+    introduction: formal
+    requires: [atop.simplicial-chain-complex, atop.simplicial-homology]
+  - id: atop.lefschetz-fixed-point-theorem
+    name: Lefschetz不動点定理
+    kind: theorem
+    introduction: formal
+    requires: [atop.lefschetz-number, atop.hopf-trace-formula, atop.subdivision-chain-map, atop.subdivision-chain-homotopy, atop.simplicial-approximation-theorem, atop.comparison-naturality, atop.homotopy-invariance]
