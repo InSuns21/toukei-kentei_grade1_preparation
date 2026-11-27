@@ -6,7 +6,29 @@
 
 ## 1. Laurent級数と近似
 
-体 $F$ 上の形式Laurent級数体 $F((\varepsilon))$ は、指数が下に有界な形式和 $\sum_{i\ge-D}a_i\varepsilon^i$ からなる。$D$ は非負整数で、係数は $F$ の元である。負次数を含まない部分環を $F[[\varepsilon]]$ とし、有限個の項だけを持つ部分環を $F[\varepsilon,\varepsilon^{-1}]$ と書く。積の各係数は有限和で定まる。ここで収束は数値的な極限ではない。
+微小量 $\varepsilon$ を形式変数として導入する。負冪は有限個に限り、正冪はいくら続いてもよい。これは複素変数の収束を扱う展開とは異なり、係数の代数演算のみで扱う。
+
+<a id="def-vnp23-formal-laurent"></a>
+
+<!-- formal-statement-start -->
+> **定義（形式Laurent級数）**
+>
+> 体 $F$ を取る。形式Laurent級数は $D\ge0$ を整数、$a_i\in F$ として表した形式和
+
+$
+a=\sum_{i\ge-D}a_i\varepsilon^i
+$
+
+> である。和は係数ごとの加算、積の次数 $j$ の係数は $\sum_{i+k=j}a_i b_k$ と定義する。この級数全体を $F((\varepsilon))$ と書く。非負次数のみの部分環を $F[[\varepsilon]]$、有限項の部分環を $F[\varepsilon,\varepsilon^{-1}]$ と書く。
+<!-- formal-statement-end -->
+
+積の係数は、二つの級数の下限を $-D,-E$ とすれば $-D\le i\le j+E$ の有限和である。非零級数 $a$ の最小非零指数を $k$ とすると $a=a_k\varepsilon^k(1+w)$、$w\in\varepsilon F[[\varepsilon]]$ である。逆元は $a_k^{-1}\varepsilon^{-k}\sum_{n\ge0}(-w)^n$ となる。各係数に有限個の $n$ しか寄与せず、$(1+w)\sum_{n\ge0}(-w)^n=1$ が係数ごとに成立する。よって $F((\varepsilon))$ は体である。
+
+<!-- definition-example-start: def-vnp23-formal-laurent -->
+**定義の確認**
+
+$a=\varepsilon^{-2}+\sum_{n\ge0}\varepsilon^n$ は下限 $-2$ を持ち、各係数は0または1なので任意の体上で条件を満たす。$a$ は負次数を持つため $F[[\varepsilon]]$ には属さず、無限個の非零係数があるため $F[\varepsilon,\varepsilon^{-1}]$ にも属さない。一方 $\varepsilon^2a=1+\varepsilon^2+\varepsilon^3+\cdots$ は非負次数だけを持つ。
+<!-- definition-example-end -->
 
 <a id="def-vnp23-approx"></a>
 
@@ -49,7 +71,7 @@ $$
 <!-- formal-statement-start -->
 > **補題（Laurent切断の保存則）**
 >
-> 有限個のLaurent級数 $a_j$ の指数が全て $-D$ 以上とする。$D\ge0$、$n\ge1$ は整数とする。各 $a_j$ を指数 $N=nD+1$ 未満の項だけに切断する。このとき高々 $n$ 個の因子（反復可）からなる積の非正次数の係数は保存される。
+> 有限個の形式Laurent級数 $a_j$ の指数が全て $-D$ 以上とする。$D\ge0$、$n\ge1$ は整数とする。各 $a_j$ を指数 $N=nD+1$ 未満の項だけに切断する。このとき高々 $n$ 個の因子（反復可）からなる積の非正次数の係数は保存される。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -134,7 +156,7 @@ $$
 
 [完全な族への節和の代入](../VNP22/index.md#thm-vnp22-clause-projection)は $\varepsilon$ に依存しない。したがって $G_m+\varepsilon E$ を代入しても、目標の完全ネットワーク多項式 $f_{k,\ell}$ に正次数の誤差が加わるだけで、回路費用は高々 $5s$ である。
 
-[二ハブ被覆](../VNP11/index.md#thm-vnp11-hub-cover)の回路分解をLaurent級数体上で行う。材料となるwireは係数0または1で元の体上にある。Laurent係数が必要なのは局所写像だけである。全局所写像は有限次元で有限個の成分しかなく、各出力係数はparty数個の因子の積の有限和である。[Laurent切断の保存則](#lem-vnp23-cutoff)で写像成分を有限多項式に切り、[近似少数項の選択費用](#lem-vnp23-few)を元の体 $F$ 上のスペクトル点に適用する。
+[二ハブ被覆](../VNP11/index.md#thm-vnp11-hub-cover)の回路分解を形式Laurent級数体上で行う。材料となるwireは係数0または1で元の体上にある。Laurent係数が必要なのは局所写像だけである。全局所写像は有限次元で有限個の成分しかなく、各出力係数はparty数個の因子の積の有限和である。[Laurent切断の保存則](#lem-vnp23-cutoff)で写像成分を有限多項式に切り、[近似少数項の選択費用](#lem-vnp23-few)を元の体 $F$ 上のスペクトル点に適用する。
 
 これで[平坦側の回路評価](../VNP12/index.md#thm-vnp12-flat-rate)における被覆不等式がそのまま成立する。距離、wire長、材料数の評価は変更されない。したがって $\ell\ge100\sqrt{k}$ の条件で
 
@@ -500,7 +522,7 @@ $L=\log_2 m$、$a=\lfloor L/(2(C+1)\log_2 L)\rfloor$ と取る。十分大きな
 
 [同標数の回路移送](../VNP22/index.md#thm-vnp22-transfer)の議論と同様に $K[U]$ でも真である。実際1が生成元の $K[U]$ 線形結合なら、その有限個の係数と1の張る $k_0$ 線形空間から1を1に送る線形写像を取り、係数に作用させれば $k_0[U]$ における1の表示となって矛盾する。
 
-[弱Hilbert零点定理](../../../代数系/AG/AG1-07/index.md#thm-ag1-07-weak-nullstellensatz)により $K$ 上の解が存在する。その値で元の定数ゲートを作り直せば配線とゲート数は同一であり、負次数0・定数項一致の条件を満たす。
+[弱Hilbertの零点定理](../../../代数系/AG/AG1-07/index.md#thm-ag1-07-weak-nullstellensatz)により $K$ 上の解が存在する。その値で元の定数ゲートを作り直せば配線とゲート数は同一であり、負次数0・定数項一致の条件を満たす。
 <!-- proof-end -->
 
 <a id="thm-vnp23-allfields"></a>
@@ -571,7 +593,7 @@ $(\varepsilon^{-2}+\varepsilon)(\varepsilon^2+\varepsilon^4)X$ は $X$ の近似
 
 - Level: A
 
-共通下限が $-3$、因子数が高々4なら[切断](#lem-vnp23-cutoff)の $N$ と差の最小可能次数を求めよ。
+共通下限が $-3$、因子数が高々4なら[Laurent切断の保存則](#lem-vnp23-cutoff)の $N$ と差の最小可能次数を求めよ。
 
 <!-- solution-start -->
 **詳細解答**：$D=3,n=4$ なので $N=4\cdot3+1=13$。差の一因子は13以上、残りは高々3因子で各下限 $-3$ だから $13-9=4$ 以上。非正次数は保存される。
