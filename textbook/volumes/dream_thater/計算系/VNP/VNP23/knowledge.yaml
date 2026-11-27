@@ -1,0 +1,84 @@
+chapter: VNP23
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP22, VNP21, VNP20, VNP12, VNP11, VNP10, VNP9, VNP3, VNP2, VNP1, ACOMP12, ACOMP21, ACOMP22, AG1-07]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.approx-circuit
+    name: "近似算術回路"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（近似算術回路）"]
+    requires: [vp-vnp-study.total-gate-count, algebraic-complexity.formal-laurent, algebraic-complexity.degeneration]
+  - id: vp-vnp-study.laurent-cutoff
+    name: "Laurent切断の保存則"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Laurent切断の保存則）"]
+    requires: [vp-vnp-study.approx-circuit]
+  - id: vp-vnp-study.few-approx
+    name: "近似少数項の選択費用"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（近似少数項の選択費用）"]
+    requires: [vp-vnp-study.few-selection, vp-vnp-study.laurent-cutoff, vp-vnp-study.cover-spectral, vp-vnp-study.exponents]
+  - id: vp-vnp-study.flat-approx
+    name: "完全な族の近似平坦側下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（完全な族の近似平坦側下界）"]
+    requires: [vp-vnp-study.few-approx, vp-vnp-study.general-flat-rate, vp-vnp-study.complete-network-hub-cover, vp-vnp-study.grid-complete]
+  - id: vp-vnp-study.approx-accelerator
+    name: "近似加速器"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（近似加速器）"]
+    requires: [vp-vnp-study.accelerator]
+  - id: vp-vnp-study.laurent-span-thin
+    name: "Laurent指数幅と冪の疎性"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Laurent指数幅と冪の疎性）"]
+    requires: []
+  - id: vp-vnp-study.rescale-error
+    name: "再尺度化による誤差の保存"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（再尺度化による誤差の保存）"]
+    requires: [vp-vnp-study.laurent-span-thin, vp-vnp-study.approx-accelerator]
+  - id: vp-vnp-study.constant-extraction
+    name: "定数項抽出の正しさ"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（定数項抽出の正しさ）"]
+    requires: [vp-vnp-study.laurent-span-thin, vp-vnp-study.postpone-constants]
+  - id: vp-vnp-study.no-approx-acc
+    name: "近似加速器の不存在"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（近似加速器の不存在）"]
+    requires: [vp-vnp-study.constant-extraction, vp-vnp-study.rescale-error, vp-vnp-study.no-small-accelerator, vp-vnp-study.all-scale-cuts, vp-vnp-study.accelerator-scale]
+  - id: vp-vnp-study.contract-approx
+    name: "完全な族の近似収縮側下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（完全な族の近似収縮側下界）"]
+    requires: [vp-vnp-study.no-approx-acc, vp-vnp-study.general-contracting-rate, vp-vnp-study.laurent-cutoff, vp-vnp-study.circuit-accelerator]
+  - id: vp-vnp-study.approx-transfer
+    name: "近似回路の同標数移送"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（近似回路の同標数移送）"]
+    requires: [vp-vnp-study.laurent-cutoff, vp-vnp-study.field-transfer]
+  - id: vp-vnp-study.approx-all-fields
+    name: "全標数の近似回路下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全標数の近似回路下界）"]
+    requires: [vp-vnp-study.approx-transfer, vp-vnp-study.flat-approx, vp-vnp-study.contract-approx, vp-vnp-study.rate-comparison, vp-vnp-study.all-fields-rate]
+  - id: vp-vnp-study.closure-separation
+    name: "VNPの近似VPへの非包含"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["系（VNPの近似VPへの非包含）"]
+    requires: [vp-vnp-study.approx-all-fields, vp-vnp-study.bound-growth, vp-vnp-study.all-fields-separation]
