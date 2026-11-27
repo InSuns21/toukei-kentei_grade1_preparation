@@ -1,0 +1,60 @@
+chapter: MMX20
+scope: dream-theater
+coverage: complete
+prerequisites: ["MMX19","MMX10","ACOMP21"]
+forward_references: []
+concepts:
+  - id: matrix-exponent.valued-price
+    name: "有理指数付値と付値付き価格"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有理指数付値と付値付き価格）"]
+    requires: ["algebraic-complexity.valuation-rules","matrix-exponent.price-rules"]
+  - id: matrix-exponent.gauss-lift
+    name: "Gauss 価格持ち上げ"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Gauss 価格持ち上げ）"]
+    requires: ["matrix-exponent.valued-price","matrix-exponent.price-rules"]
+  - id: matrix-exponent.assisted-price
+    name: "縮約による補助価格"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（縮約による補助価格）"]
+    requires: ["matrix-exponent.valued-price"]
+  - id: matrix-exponent.disk-star
+    name: "円板の特殊化と星形不等式"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（円板の特殊化と星形不等式）"]
+    requires: ["matrix-exponent.gauss-lift","matrix-exponent.assisted-price"]
+  - id: matrix-exponent.geodesic-submean
+    name: "測地線による価格比較の拡張"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（測地線による価格比較の拡張）"]
+    requires: ["matrix-exponent.extension","matrix-exponent.curvature","matrix-exponent.wire-transport"]
+  - id: matrix-exponent.analytic-motion
+    name: "解析的地点族"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（解析的地点族）"]
+    requires: ["matrix-exponent.compatible-system","matrix-exponent.valued-price","matrix-exponent.disk-star"]
+  - id: matrix-exponent.motion-threshold
+    name: "変位の折れ曲がり"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（変位の折れ曲がり）"]
+    requires: ["matrix-exponent.analytic-motion","matrix-exponent.geodesic-submean","matrix-exponent.curvature"]
+  - id: matrix-exponent.motion-tree
+    name: "動きの境界から円板木への極限"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（動きの境界から円板木への極限）"]
+    requires: ["matrix-exponent.motion-threshold","matrix-exponent.limit-prices","matrix-exponent.geodesic-submean"]
+  - id: matrix-exponent.four-site-collision
+    name: "四地点衝突の価格上界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（四地点衝突の価格上界）"]
+    requires: ["matrix-exponent.motion-tree","matrix-exponent.shared-label-rate","matrix-exponent.placement-convexity"]
