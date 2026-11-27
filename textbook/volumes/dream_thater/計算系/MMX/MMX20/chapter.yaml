@@ -1,0 +1,29 @@
+id: MMX20
+title: "valued・motion：付値・衝突・極限、siteの動きからhomogeneous tripodへの帰着"
+volume: foundations
+status: supplementary
+prerequisites: ["MMX19","MMX10","ACOMP21"]
+official_scope: []
+learning_objectives:
+  - 有理指数付値から Gauss 価格の乗法性を再構成できる
+  - 円板の特殊化と星形不等式を係数補間および剰余から導ける
+  - 測地線比較の拡張と変位の折れ曲がりを説明できる
+  - 拡大極限における円板木の距離式を導ける
+  - 四地点の衝突比較から同一斉次三脚上の欠損の極限を計算できる
+definitions:
+  - {"id":"MMX20-DEF-01","name":"有理指数付値と付値付き価格"}
+  - {"id":"MMX20-DEF-02","name":"縮約による補助価格"}
+  - {"id":"MMX20-DEF-03","name":"解析的地点族"}
+theorems:
+  - {"id":"MMX20-THM-01","name":"Gauss 価格持ち上げ"}
+  - {"id":"MMX20-LEM-02","name":"円板の特殊化と星形不等式"}
+  - {"id":"MMX20-LEM-03","name":"測地線による価格比較の拡張"}
+  - {"id":"MMX20-LEM-04","name":"変位の折れ曲がり"}
+  - {"id":"MMX20-THM-05","name":"動きの境界から円板木への極限"}
+  - {"id":"MMX20-THM-06","name":"四地点衝突の価格上界"}
+canonical_examples: [有理指数の付値, 行列の Gauss 価格, スカラーの星形比較, 円板木の深さ, 五腕の衝突比較]
+problem_patterns: ["MMX20-A01","MMX20-A02","MMX20-A03","MMX20-A04","MMX20-B01","MMX20-B02","MMX20-B03","MMX20-B04","MMX20-C01"]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 5, review: 3 }
