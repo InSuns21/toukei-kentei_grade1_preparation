@@ -1,0 +1,72 @@
+chapter: MMX25
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX24, F0-00P3A, ATOP8, FIX1, EC4]
+forward_references: []
+concepts:
+  - id: matrix-exponent.short-hop-displacement
+    name: "一様変位評価"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（一様変位評価）"]
+    requires: [matrix-exponent.incidence-inequality, matrix-exponent.affine-link, fixedpoint.fixed-point, prob.conditional-expectation]
+  - id: matrix-exponent.finite-routing-test
+    name: "有限価格検査"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有限価格検査）"]
+    requires: [matrix-exponent.short-hop-displacement, matrix-exponent.geodesic-extension, matrix-exponent.curvature, atop.spanning-tree]
+  - id: matrix-exponent.bounded-width-routing
+    name: "短住所輸送の総幅上界"
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（短住所輸送の総幅上界）"]
+    requires: [matrix-exponent.finite-routing-test, matrix-exponent.strict-spectral-comparison]
+  - id: matrix-exponent.routing-pool-assignment
+    name: "余裕付きスロット割当"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（余裕付きスロット割当）"]
+    requires: []
+  - id: matrix-exponent.wide-routing-recurrence
+    name: "長幅輸送の再帰評価"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（長幅輸送の再帰評価）"]
+    requires: [matrix-exponent.bounded-width-routing, matrix-exponent.routing-pool-assignment, matrix-exponent.batcher-sort-count]
+  - id: matrix-exponent.squared-station-arity
+    name: "二乗端子予算"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二乗端子予算）"]
+    requires: []
+  - id: matrix-exponent.multispecies-width
+    name: "多種エネルギー空間の脚幅"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（多種エネルギー空間の脚幅）"]
+    requires: [matrix-exponent.fermion-dimension]
+  - id: matrix-exponent.seam-adjunction
+    name: "縫合脚の転置"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（縫合脚の転置）"]
+    requires: [matrix-exponent.sphere-fusion]
+  - id: matrix-exponent.collision-coefficient-reconstruction
+    name: "衝突係数による再構成"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（衝突係数による再構成）"]
+    requires: [matrix-exponent.sphere-fusion, elliptic-curve.rational-function]
+  - id: matrix-exponent.seam-energy-drop
+    name: "縫合を跨ぐエネルギー減少"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（縫合を跨ぐエネルギー減少）"]
+    requires: [matrix-exponent.seam-adjunction, matrix-exponent.collision-coefficient-reconstruction]
+  - id: matrix-exponent.local-arity-concentration
+    name: "局所アリティ集中"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（局所アリティ集中）"]
+    requires: [matrix-exponent.squared-station-arity, matrix-exponent.multispecies-width, matrix-exponent.seam-energy-drop, matrix-exponent.sphere-common, matrix-exponent.strict-spectral-comparison]

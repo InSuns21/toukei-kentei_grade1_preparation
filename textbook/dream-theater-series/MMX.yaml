@@ -102,7 +102,7 @@ chapters:
     title: "sorting：stable sorting・batched table lookup、$2^u$ recordsで幅$O(u)$、$p<2$ の指数台帳"
   - id: MMX25
     path: textbook/volumes/dream_thater/計算系/MMX/MMX25
-    status: planned
+    status: completed
     title: "sorting後半・local：wide recordのコスト、seamを跨ぐ挿入、stationの統合と二乗脚幅の制御"
   - id: MMX26
     path: textbook/volumes/dream_thater/計算系/MMX/MMX26

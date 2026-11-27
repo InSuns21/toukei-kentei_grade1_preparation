@@ -25,3 +25,4 @@
 22. [MMX22 fermions・sphere：外積の縮約と符号、marked pointで定義される球面テンソル、衝突時の分解と脚幅](textbook/volumes/dream_thater/計算系/MMX/MMX22/index.md)
 23. [MMX23 sphere・incidence：最安の共通siteへの輸送コスト、脚幅を指定した漸近priceとincidence不等式](textbook/volumes/dream_thater/計算系/MMX/MMX23/index.md)
 24. [MMX24 sorting：stable sorting・batched table lookup、$2^u$ recordsで幅$O(u)$、$p<2$ の指数台帳](textbook/volumes/dream_thater/計算系/MMX/MMX24/index.md)
+25. [MMX25 sorting後半・local：wide recordのコスト、seamを跨ぐ挿入、stationの統合と二乗脚幅の制御](textbook/volumes/dream_thater/計算系/MMX/MMX25/index.md)
