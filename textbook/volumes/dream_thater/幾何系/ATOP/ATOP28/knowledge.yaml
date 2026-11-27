@@ -1,0 +1,51 @@
+chapter: ATOP28
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP18]
+forward_references: []
+concepts:
+  - id: atop.singular-cochain
+    name: 特異コチェイン
+    kind: definition
+    introduction: formal
+    requires: [atop.singular-chain-group, algebra.module-homomorphism]
+  - id: atop.singular-coboundary
+    name: 特異余境界作用素
+    kind: definition
+    introduction: formal
+    requires: [atop.singular-cochain, atop.singular-boundary]
+  - id: atop.singular-cohomology
+    name: 特異コホモロジー群
+    kind: definition
+    introduction: formal
+    requires: [atop.singular-coboundary, atop.singular-boundary-square-zero, algebra.quotient-module]
+  - id: atop.induced-singular-cohomology-map
+    name: 特異コホモロジーの誘導準同型
+    kind: theorem
+    introduction: formal
+    requires: [atop.singular-cohomology, atop.induced-singular-chain-map, atop.singular-chain-map-boundary]
+  - id: atop.cohomology-homotopy-invariance
+    name: 特異コホモロジーのホモトピー不変性
+    kind: theorem
+    introduction: formal
+    requires: [atop.induced-singular-cohomology-map, atop.prism-identity]
+  - id: atop.relative-singular-cohomology
+    name: 相対特異コホモロジー群
+    kind: definition
+    introduction: formal
+    requires: [atop.relative-singular-chain, atop.singular-cohomology]
+  - id: atop.relative-cohomology-long-exact-sequence
+    name: 対のコホモロジー長完全列
+    kind: theorem
+    introduction: formal
+    requires: [atop.relative-singular-cohomology, atop.induced-singular-cohomology-map, category.exact-sequence, category.short-exact-sequence]
+  - id: atop.homology-cohomology-evaluation
+    name: ホモロジー類への評価
+    kind: proposition
+    introduction: formal
+    requires: [atop.singular-cohomology, atop.singular-homology]
+  - id: atop.field-cohomology-duality
+    name: 体係数の評価同型
+    kind: theorem
+    introduction: formal
+    requires: [atop.homology-cohomology-evaluation, atop.singular-cochain]
