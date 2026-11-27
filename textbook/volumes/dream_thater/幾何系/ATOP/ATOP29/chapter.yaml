@@ -1,0 +1,27 @@
+id: ATOP29
+title: "普遍係数定理・ExtとTor"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP28, ATOP22, CATB7-05, MOD2]
+official_scope: []
+learning_objectives:
+  - 任意階数の自由アーベル群の部分群の自由性と鎖群の分裂を証明できる
+  - 自由分解を用いてテンソル積・Tor・Extを計算できる
+  - ホモロジーとコホモロジーの普遍係数定理の完全性と自然性を証明できる
+  - 分裂の非自然性と自由性の仮定を反例によって説明できる
+  - 実射影平面の整数係数とmod 2係数を比較できる
+definitions:
+  - { id: ATOP29-DEF-01, name: アーベル群のテンソル積 }
+  - { id: ATOP29-DEF-02, name: Tor }
+theorems:
+  - { id: ATOP29-LEM-01, name: 任意階数の自由アーベル群の部分群 }
+  - { id: ATOP29-PROP-01, name: アーベル群のテンソル積の右完全性 }
+  - { id: ATOP29-THM-01, name: Tor の分解独立性 }
+  - { id: ATOP29-THM-02, name: ホモロジーの普遍係数定理 }
+  - { id: ATOP29-THM-03, name: コホモロジーの普遍係数定理 }
+canonical_examples: [巡回群の係数変更, 実射影平面, 分裂の非自然性]
+problem_patterns: [ATOP29-A1, ATOP29-A2, ATOP29-A3, ATOP29-A4, ATOP29-B1, ATOP29-B2, ATOP29-B3, ATOP29-B4, ATOP29-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 1 }
