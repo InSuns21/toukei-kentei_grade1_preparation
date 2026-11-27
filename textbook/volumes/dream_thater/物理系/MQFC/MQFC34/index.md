@@ -4,7 +4,11 @@
 
 今回は差が原点の有限個の微分値だけを読むことを証明し、許される係数の数を求める。さらに対称性と減算尺度を使って、その自由度がどのように制限され、変化するかを計算する。二点の相対座標 $x$ では原点は二点が一致する場所なので、この計算は時間順序積の短距離くりこみの準備となる。
 
-以下 $d\ge1$ は整数、$U=\mathbb R^d\setminus\{0\}$ とする。[テスト関数](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-test-function)の空間を $\mathcal D(V)=C_c^\infty(V)$、複素線形な[超関数](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-distribution)の空間を $\mathcal D'(V)$ と書く。$|x|$ はEuclidノルムであり、時空計量は $(-,+,+,+)$ とする。今回の回転対称性はEuclid空間の例で、Lorentz対称性とは区別する。
+以下 $d\ge1$ は整数、$U=\mathbb R^d\setminus\{0\}$ とする。
+
+[テスト関数](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-test-function)の空間を $\mathcal D(V)=C_c^\infty(V)$、複素線形な[超関数](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-distribution)の空間を $\mathcal D'(V)$ と書く。
+
+$|x|$ はEuclidノルムであり、時空計量は $(-,+,+,+)$ とする。今回の回転対称性はEuclid空間の例で、Lorentz対称性とは区別する。
 
 ## 1. 原点だけに残る作用
 
@@ -32,14 +36,20 @@ $$
 \langle D,\varphi\rangle=-\varphi'(0)
 $$
 
-である。固定コンパクト台上では一階微分の上限で抑えられるから、[超関数の局所有限階評価](../../../解析系/GPDE/GPDE1/index.md#prop-gpde1-local-finite-order)により分布である。台が原点を避けるなら $\varphi$ は原点の近傍で恒等的に零であり、$\varphi'(0)=0$ となる。一方、原点近傍で1となる滑らかなコンパクト台関数 $\chi$ を使い $\varphi=x\chi$ とすれば作用は $-1$ である。従って零分布ではない。
+である。固定コンパクト台上では一階微分の上限で抑えられるから、[超関数の局所有限階評価](../../../解析系/GPDE/GPDE1/index.md#prop-gpde1-local-finite-order)により分布である。
+
+台が原点を避けるなら $\varphi$ は原点の近傍で恒等的に零であり、$\varphi'(0)=0$ となる。
+
+一方、原点近傍で1となる滑らかなコンパクト台関数 $\chi$ を使い $\varphi=x\chi$ とすれば作用は $-1$ である。従って零分布ではない。
 <!-- definition-example-end -->
 
 一般の分布は試験関数の有限階の微分上限で評価できる。ただしその階数は台に依存してよい。原点に支持を持つ場合は、原点を含む一つの固定コンパクト集合でこの評価を取り、他の部分を切り捨てられる。これが有限個の微分値だけに依存する理由である。
 
 ## 2. 原点支持の構造
 
-[多重指数](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-multi-index) $\alpha$ に対し $|\alpha|=\sum_i\alpha_i$、$\alpha!=\prod_i\alpha_i!$ と書く。原点での微分値 $\partial^\alpha\varphi(0)$ はデルタの導関数で取り出せる。符号は $(-1)^{|\alpha|}$ である。
+[多重指数](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-multi-index) $\alpha$ に対し $|\alpha|=\sum_i\alpha_i$、$\alpha!=\prod_i\alpha_i!$ と書く。
+
+原点での微分値 $\partial^\alpha\varphi(0)$ はデルタの導関数で取り出せる。符号は $(-1)^{|\alpha|}$ である。
 
 <a id="thm-mqfc34-point-structure"></a>
 
@@ -61,7 +71,9 @@ $N$ を固定コンパクト台での有限階評価から取る。$N$ 階まで
 <!-- proof-start -->
 ### 証明
 
-$\chi$ を $|x|\le1$ で1、$|x|\ge2$ で0となる滑らかな関数とし、$K=\{|x|\le2\}$ とする。[超関数の局所有限階評価](../../../解析系/GPDE/GPDE1/index.md#prop-gpde1-local-finite-order)により、この $K$ 上である $C>0$ と整数 $N\ge0$ が取れ、台が $K$ に含まれる $\psi$ について
+$\chi$ を $|x|\le1$ で1、$|x|\ge2$ で0となる滑らかな関数とし、$K=\{|x|\le2\}$ とする。
+
+[超関数の局所有限階評価](../../../解析系/GPDE/GPDE1/index.md#prop-gpde1-local-finite-order)により、この $K$ 上である $C>0$ と整数 $N\ge0$ が取れ、台が $K$ に含まれる $\psi$ について
 
 $$
 |\langle D,\psi\rangle|
@@ -70,7 +82,9 @@ $$
 
 となる。
 
-任意の試験関数 $\varphi$ について、$g=W_N\varphi$ を[原点Taylor減算](../MQFC33/index.md#def-mqfc33-subtraction)で作る。$|\gamma|\le N$ のとき $\partial^\gamma g(0)=0$ である。$0<\varepsilon\le1$ とし $\chi_\varepsilon(x)=\chi(x/\varepsilon)$ と置く。$(1-\chi_\varepsilon)g$ は原点近傍で零であるから
+任意の試験関数 $\varphi$ について、$g=W_N\varphi$ を[原点Taylor減算](../MQFC33/index.md#def-mqfc33-subtraction)で作る。$|\gamma|\le N$ のとき $\partial^\gamma g(0)=0$ である。
+
+$0<\varepsilon\le1$ とし $\chi_\varepsilon(x)=\chi(x/\varepsilon)$ と置く。$(1-\chi_\varepsilon)g$ は原点近傍で零であるから
 
 $$
 \langle D,g\rangle=\langle D,\chi_\varepsilon g\rangle.
@@ -132,7 +146,9 @@ $$
 作用から各係数が一意に定まる。逆に任意の有限和は[超関数微分の安定性](../../../解析系/GPDE/GPDE2/index.md#prop-gpde2-derivative-is-distribution)によって分布であり、原点を避ける試験関数の全ての原点微分値が零であるから原点に支持を持つ。
 <!-- proof-end -->
 
-例えば一次元では $D=2\delta-3\delta'$ は $\varphi(0)$ と $\varphi'(0)$ だけを読み、作用は $2\varphi(0)+3\varphi'(0)$ となる。二つの係数を求めたければ $\chi$ と $x\chi$ を入力すればよい。$N$ は初めは評価から得た上界に過ぎない。次にスケーリング次数から、実際に必要な最高階を特定する。
+例えば一次元では $D=2\delta-3\delta'$ は $\varphi(0)$ と $\varphi'(0)$ だけを読み、作用は $2\varphi(0)+3\varphi'(0)$ となる。
+
+二つの係数を求めたければ $\chi$ と $x\chi$ を入力すればよい。$N$ は初めは評価から得た上界に過ぎない。次にスケーリング次数から、実際に必要な最高階を特定する。
 
 ## 3. 次数を保つ延長の全自由度
 
@@ -158,7 +174,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[デルタ導関数のスケーリング次数](../MQFC32/index.md#prop-mqfc32-delta-degree)によれば各項の次数は $d+|\alpha|$ である。最高階の項が複数あっても次数が打ち消されないことを先に確認する。$|\beta|=n$ かつ $c_\beta\ne0$ を選び、先の $\varphi_\beta$ で試すと、[分布のスケール変換](../MQFC32/index.md#def-mqfc32-dilation)の下で
+[デルタ導関数のスケーリング次数](../MQFC32/index.md#prop-mqfc32-delta-degree)によれば各項の次数は $d+|\alpha|$ である。最高階の項が複数あっても次数が打ち消されないことを先に確認する。
+
+$|\beta|=n$ かつ $c_\beta\ne0$ を選び、先の $\varphi_\beta$ で試すと、[分布のスケール変換](../MQFC32/index.md#def-mqfc32-dilation)の下で
 
 $$
 \langle D_\lambda,\varphi_\beta\rangle
@@ -196,18 +214,38 @@ $$
 
 存在は[スケーリング次数を保つ延長](../MQFC33/index.md#thm-mqfc33-extension)によって保証される。別の次数保存延長 $T$ を取り、$D=T-T_0$ とする。[原点を越える分布の延長](../MQFC33/index.md#def-mqfc33-extension)の条件から $D$ の原点外への作用は零である。[原点支持分布の構造](#thm-mqfc34-point-structure)により有限和で書ける。
 
-任意の実数 $\omega>s$ で $\lambda^\omega T_\lambda$ と $\lambda^\omega(T_0)_\lambda$ は分布として零に収束する。差も零に収束するので $\operatorname{sd}(D)\le s$ である。$D\ne0$ なら[原点支持分布の最高階と次数](#prop-mqfc34-point-degree)より $\operatorname{sd}(D)=d+n$、従って $d+n\le s$ である。$s<d$（$s=-\infty$ を含む）では不可能だから $D=0$。$s\ge d$ では $n\le\lfloor s-d\rfloor$ である。
+任意の実数 $\omega>s$ で $\lambda^\omega T_\lambda$ と $\lambda^\omega(T_0)_\lambda$ は分布として零に収束する。差も零に収束するので $\operatorname{sd}(D)\le s$ である。
 
-逆にこの階数の有限和を $T_0$ に足すと、原点外への作用は変わらない。各項の次数が $d+|\alpha|\le s$ だから任意の $\omega>s$ で規格化した各作用が零に収束し、和の次数は $s$ 以下である。延長の次数は原点外の次数以上である（[原点を越える分布の延長](../MQFC33/index.md#def-mqfc33-extension)の後の下界の導出）。従って正確に $s$ になる。
+$D\ne0$ なら[原点支持分布の最高階と次数](#prop-mqfc34-point-degree)より
 
-係数の一意性は[原点支持分布の構造](#thm-mqfc34-point-structure)から従う。$|\alpha|\le m$ の多重指数は、余り $\alpha_{d+1}=m-|\alpha|$ を付ければ和が $m$ の非負整数 $d+1$ 個と一対一に対応する。$m$ 個の印と $d$ 本の仕切りを並べ、各区間の印の数を各成分とすれば、その並べ方は $\binom{m+d}{d}=\binom{m+d}{m}$ 通りである。
+$$
+\operatorname{sd}(D)=d+n\le s.
+$$
+
+$s<d$（$s=-\infty$ を含む）では不可能だから $D=0$。$s\ge d$ では $n\le\lfloor s-d\rfloor$ である。
+
+逆にこの階数の有限和を $T_0$ に足すと、原点外への作用は変わらない。各項の次数が $d+|\alpha|\le s$ だから任意の $\omega>s$ で規格化した各作用が零に収束し、和の次数は $s$ 以下である。
+
+延長の次数は原点外の次数以上である（[原点を越える分布の延長](../MQFC33/index.md#def-mqfc33-extension)の後の下界の導出）。従って正確に $s$ になる。
+
+係数の一意性は[原点支持分布の構造](#thm-mqfc34-point-structure)から従う。$|\alpha|\le m$ の多重指数は、余り $\alpha_{d+1}=m-|\alpha|$ を付ければ和が $m$ の非負整数 $d+1$ 個と一対一に対応する。
+
+$m$ 個の印と $d$ 本の仕切りを並べ、各区間の印の数を各成分とすれば、その並べ方は $\binom{m+d}{d}=\binom{m+d}{m}$ 通りである。
 <!-- proof-end -->
 
 例えば $d=4$ で $s=6.7$ なら $m=2$ であり、零階1個、一次4個、二次10個、合計15個の係数を選べる。$s=6$ ちょうどでも15個であり、$s<6$ なら二階の10個は許されない。これは対称性などを課す前の個数である。
 
 ## 4. 対称性で反項を絞る
 
-同じ反射対称性を持つ二つの延長の差もその対称性を持つ。例えば一次元で $\varphi(-x)$ に対する作用が $\varphi(x)$ に対する作用と等しいなら、奇数階のデルタ導関数の係数は零でなければならない。一般には直交行列 $Q$（$Q^{\mathsf T}Q=I_d$ を満たす実 $d\times d$ 行列）の全体を $O(d)$ と書き、各直交変換 $Q$ に対して $\langle D,\varphi(Q\,\cdot)\rangle=\langle D,\varphi\rangle$ を課す。
+同じ反射対称性を持つ二つの延長の差もその対称性を持つ。例えば一次元で $\varphi(-x)$ に対する作用が $\varphi(x)$ に対する作用と等しいなら、奇数階のデルタ導関数の係数は零でなければならない。
+
+一般には直交行列 $Q$（$Q^{\mathsf T}Q=I_d$ を満たす実 $d\times d$ 行列）の全体を $O(d)$ と書く。各直交変換に対し
+
+$$
+\langle D,\varphi(Q\,\cdot)\rangle=\langle D,\varphi\rangle
+$$
+
+を課す。
 
 Euclid空間の全ての直交変換で不変な反項では、二階微分は座標のどれか一つに偏れない。実際に全階数を分類してみよう。ここで $\Delta=\sum_{j=1}^d\partial_j^2$ はEuclid空間のLaplacianである。
 
@@ -252,9 +290,21 @@ $$
 \langle D,\psi_z(Q\,\cdot)\rangle=P(Q^{\mathsf T}z).
 $$
 
-不変性により $P(Q^{\mathsf T}z)=P(z)$ を得る。逆にこの多項式の等式が全ての実 $z$ で成り立つとする。$D_Q$ を $\langle D_Q,\varphi\rangle=\langle D,\varphi(Q\,\cdot)\rangle$ と定める。連鎖律から有限階の微分値の線形結合なので分布であり原点支持である。上の計算で $D_Q-D$ の指数関数型試験関数への作用が全 $z$ で零となる。[原点支持分布の構造](#thm-mqfc34-point-structure)によりその作用は係数を並べた多項式である。零多項式の各係数は原点で対応する偏微分を取り $\alpha!$ で割れば零と分かるので $D_Q=D$ である。
+不変性により $P(Q^{\mathsf T}z)=P(z)$ を得る。逆にこの多項式の等式が全ての実 $z$ で成り立つとする。$D_Q$ を
 
-任意の $z\ne0$ に対し $z/|z|$ を第一座標の単位ベクトルへ移す直交行列が存在する（単位ベクトルを正規直交基底に補えば構成できる）。よって $P(z)=P(|z|e_1)$ である。一次元多項式 $q(u)=P(ue_1)$ は第一座標の符号反転により $q(-u)=q(u)$ となる。奇数次係数は零であるから
+$$
+\langle D_Q,\varphi\rangle=\langle D,\varphi(Q\,\cdot)\rangle
+$$
+
+と定める。連鎖律から有限階の微分値の線形結合なので分布であり原点支持である。
+
+上の計算で $D_Q-D$ の指数関数型試験関数への作用が全 $z$ で零となる。[原点支持分布の構造](#thm-mqfc34-point-structure)によりその作用は係数を並べた多項式である。
+
+零多項式の各係数は原点で対応する偏微分を取り $\alpha!$ で割れば零と分かるので $D_Q=D$ である。
+
+任意の $z\ne0$ に対し $z/|z|$ を第一座標の単位ベクトルへ移す直交行列が存在する（単位ベクトルを正規直交基底に補えば構成できる）。よって $P(z)=P(|z|e_1)$ である。
+
+一次元多項式 $q(u)=P(ue_1)$ は第一座標の符号反転により $q(-u)=q(u)$ となる。奇数次係数は零であるから
 
 $$
 q(u)=\sum_{k=0}^{\lfloor m/2\rfloor}a_k u^{2k},
@@ -321,7 +371,11 @@ $$
 =\sqrt d M\sigma_{d-1}a
 $$
 
-以下となる。$d=1$ では正負の半直線で同じ式を得る。外側では原点から離れ、被積分関数は試験関数の台と半径 $R$ の球の合併に含まれるので、固定コンパクト台上の零階微分上限で抑えられる。従って線形作用は[超関数の局所有限階評価](../../../解析系/GPDE/GPDE1/index.md#prop-gpde1-local-finite-order)を満たす。原点を避ける試験関数では $\varphi(0)=0$ だから元の核の積分に戻る。直交変換 $y=Qx$ では $|x|=|y|$、Jacobianの絶対値は1であり、$\varphi(Q0)=\varphi(0)$ だから不変性も成立する。
+以下となる。$d=1$ では正負の半直線で同じ式を得る。外側では原点から離れ、被積分関数は試験関数の台と半径 $R$ の球の合併に含まれるので、固定コンパクト台上の零階微分上限で抑えられる。従って線形作用は[超関数の局所有限階評価](../../../解析系/GPDE/GPDE1/index.md#prop-gpde1-local-finite-order)を満たす。
+
+原点を避ける試験関数では $\varphi(0)=0$ だから元の核の積分に戻る。
+
+直交変換 $y=Qx$ では $|x|=|y|$、Jacobianの絶対値は1であり、$\varphi(Q0)=\varphi(0)$ だから不変性も成立する。
 
 $S>R$ の場合に二つの収束積分を引くと
 
@@ -347,7 +401,11 @@ $$
 \end{aligned}
 $$
 
-既に示した尺度変更式へ $S=R/\lambda$ を入れると $-\log(S/R)=\log\lambda$ となり、第二の関係式が従う。$\omega>d$ なら $\lambda^{\omega-d}$ と $\lambda^{\omega-d}\log\lambda$ はともに零へ収束するので、次数は $d$ 以下である。原点外の核は非零かつ斉次次数 $-d$ であり、[斉次分布のスケーリング次数](../MQFC32/index.md#thm-mqfc32-homogeneous-degree)から次数は $d$。延長の下界と合わせて等号となる。
+既に示した尺度変更式へ $S=R/\lambda$ を入れると $-\log(S/R)=\log\lambda$ となり、第二の関係式が従う。
+
+$\omega>d$ なら $\lambda^{\omega-d}$ と $\lambda^{\omega-d}\log\lambda$ はともに零へ収束するので、次数は $d$ 以下である。
+
+原点外の核は非零かつ斉次次数 $-d$ であり、[斉次分布のスケーリング次数](../MQFC32/index.md#thm-mqfc32-homogeneous-degree)から次数は $d$。延長の下界と合わせて等号となる。
 <!-- proof-end -->
 
 例えば $d=1$ で $S=2R$ とすれば $T_{2R}=T_R-2\log2\,\delta$。一方、逆長さ $\mu=1/R$ を尺度として使う場合は $T_{1/\mu'}-T_{1/\mu}=\sigma_{d-1}\log(\mu'/\mu)\delta$ である。長さと逆長さの取り違えは符号を反転させる。
@@ -373,7 +431,9 @@ $$
 
 [超関数の微分](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-distributional-derivative)より、作用は $2\varphi(0)-3\varphi'(0)-4\varphi''(0)$ である。各試験関数の零、一、二階の原点微分値は順に $(1,0,0),(0,1,0),(0,0,1)$。よって作用値は $2,-3,-4$ である。
 
-最高階は2で係数が非零である。[原点支持分布の最高階と次数](#prop-mqfc34-point-degree)の証明と同じ試験関数の選び方では、最後の試験関数への $D_\lambda$ の作用が $-4\lambda^{-3}$ となるから、$\omega\le3$ では $\lambda^\omega$ を掛けても零にならない。他の試験関数に対しても各項は $\lambda^{-1},\lambda^{-2},\lambda^{-3}$ の定数倍なので $\omega>3$ で零になる。次数は3である。
+最高階は2で係数が非零である。[原点支持分布の最高階と次数](#prop-mqfc34-point-degree)の証明と同じ試験関数の選び方では、最後の試験関数への $D_\lambda$ の作用が $-4\lambda^{-3}$ となるから、$\omega\le3$ では $\lambda^\omega$ を掛けても零にならない。
+
+他の試験関数に対しても各項は $\lambda^{-1},\lambda^{-2},\lambda^{-3}$ の定数倍なので $\omega>3$ で零になる。次数は3である。
 <!-- solution-end -->
 
 ### 演習 MQFC34-A2：階数と個数
@@ -384,7 +444,13 @@ $d=3$ とし、原点外の核の次数が $2.9,3,4.9,5$ のとき、次数保�
 <!-- solution-start -->
 **詳細解答**
 
-[局所反項の自由度](#thm-mqfc34-counterterm-freedom)では $s<3$ のとき一意なので $2.9$ では0個である。$s=3$ では $m=\lfloor3-3\rfloor=0$ となり、デルタの1個だけ。$s=4.9$ では $m=1$ で、零階1個と一次3個の計4個。$s=5$ では $m=2$ であり、二次は純二階3個と異なる座標の混合微分3個なので計 $1+3+6=10$ 個となる。これは $\binom{3+2}{2}=10$ とも一致する。
+[局所反項の自由度](#thm-mqfc34-counterterm-freedom)では $s<3$ のとき一意なので $2.9$ では0個である。
+
+$s=3$ では $m=\lfloor3-3\rfloor=0$ となり、デルタの1個だけ。
+
+$s=4.9$ では $m=1$ で、零階1個と一次3個の計4個。
+
+$s=5$ では $m=2$ であり、二次は純二階3個と異なる座標の混合微分3個なので計 $1+3+6=10$ 個となる。これは $\binom{3+2}{2}=10$ とも一致する。
 <!-- solution-end -->
 
 ### 演習 MQFC34-A3：支持条件の確認
@@ -449,7 +515,9 @@ D=a\delta+u\partial_1\delta+v\partial_2\delta
 +b_1\partial_1^2\delta+c\partial_1\partial_2\delta+b_2\partial_2^2\delta.
 $$
 
-第1座標だけ符号を反転すると一次の $u$ と混合の $c$ の項だけが符号反転する。デルタ導関数の表示の一意性より $u=c=0$。第2座標の符号反転では $v=0$。座標交換は二つの純二階項を交換するので $b_1=b_2=b$。従って $D=a\delta+b\Delta\delta$ である。
+第1座標だけ符号を反転すると一次の $u$ と混合の $c$ の項だけが符号反転する。デルタ導関数の表示の一意性より $u=c=0$。第2座標の符号反転では $v=0$。
+
+座標交換は二つの純二階項を交換するので $b_1=b_2=b$。従って $D=a\delta+b\Delta\delta$ である。
 
 直交行列 $Q$ に対する連鎖律では
 
@@ -499,7 +567,9 @@ $$
 $$
 と置く。
 
-(1) 分布としての延長であることを示せ。(2) 尺度変更の係数を計算し、次数2を保つことを示せ。(3) 全直交変換で不変な延長が存在するための条件を求めよ。
+1. 分布としての延長であることを示せ。
+2. 尺度変更の係数を計算し、次数2を保つことを示せ。
+3. 全直交変換で不変な延長が存在するための条件を求めよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -535,7 +605,9 @@ $$
 
 $\omega>2$ なら両項に $\lambda^\omega$ を掛けて零に収束する。元の核は斉次次数 $-2$ で非零である（角度の平均が1）。[斉次分布のスケーリング次数](../MQFC32/index.md#thm-mqfc32-homogeneous-degree)より原点外で次数2。延長の下界と合わせて正確に2となる。
 
-(3) $b=0$ なら第5節の直交変換不変な延長を得る。$b\ne0$ のとき、$\pi/2$ 回転では $\cos(2\theta+\pi)=-\cos2\theta$ となり、元の核は変わる。例えば $(1,0)$ の近くでは $\cos2\theta$ は正なので、その近傍に台を持つ非負かつ非零の試験関数に作用させれば、回転前後の核の差 $2b r^{-2}\cos2\theta$ の積分は非零になる。原点外の作用が異なるため、どのような延長も全直交変換不変にはなれない。
+(3) $b=0$ なら第5節の直交変換不変な延長を得る。$b\ne0$ のとき、$\pi/2$ 回転では $\cos(2\theta+\pi)=-\cos2\theta$ となり、元の核は変わる。
+
+例えば $(1,0)$ の近くでは $\cos2\theta$ は正なので、その近傍に台を持つ非負かつ非零の試験関数に作用させれば、回転前後の核の差 $2b r^{-2}\cos2\theta$ の積分は非零になる。原点外の作用が異なるため、どのような延長も全直交変換不変にはなれない。
 
 特に[局所反項の自由度](#thm-mqfc34-counterterm-freedom)によれば次数2を保つ延長は $T_{b,R}+c\delta$ だけである。反項を加えても原点外の作用は変わらず、非対称性は残る。対数係数が角度の平均だけで決まることと、核全体が回転不変であることは別の条件である。
 <!-- solution-end -->
