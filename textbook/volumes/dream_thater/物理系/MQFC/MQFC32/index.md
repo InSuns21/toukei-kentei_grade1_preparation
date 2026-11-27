@@ -458,7 +458,7 @@ $\omega>2$ で両項は零へ収束する。$\omega\le2$ では非負非零試�
 <!-- solution-start -->
 **詳細解答**
 
-[超関数の微分](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-distributional-derivative)と座標の積の定義から
+座標の積は試験関数 $x_j\varphi$ への作用として読む。この試験関数に対して[超関数の微分](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-distributional-derivative)を適用する。従って
 
 $$
 \begin{aligned}
