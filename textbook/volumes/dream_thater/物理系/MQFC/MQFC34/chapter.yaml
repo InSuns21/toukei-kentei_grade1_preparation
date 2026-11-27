@@ -1,0 +1,26 @@
+id: MQFC34
+title: "局所反項の自由度"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC33, MQFC32, GPDE1, GPDE2]
+official_scope: []
+learning_objectives:
+  - 原点に支持を持つ分布の作用を確認できる
+  - 有限階評価とTaylor減算から原点支持分布の構造を導ける
+  - 次数を保つ延長の全自由度と係数の個数を求められる
+  - 直交変換による局所反項の制約を導ける
+  - 臨界核の対数尺度変更と規格化条件を計算できる
+definitions:
+  - { id: MQFC34-DEF-01, name: "原点に支持を持つ分布" }
+theorems:
+  - { id: MQFC34-THM-01, name: "原点支持分布の構造" }
+  - { id: MQFC34-PROP-02, name: "原点支持分布の最高階と次数" }
+  - { id: MQFC34-THM-02, name: "局所反項の自由度" }
+  - { id: MQFC34-THM-03, name: "直交変換で不変な局所反項" }
+  - { id: MQFC34-PROP-01, name: "臨界核の対数尺度変更" }
+canonical_examples: [デルタ導関数, Taylor係数の復元, 四次元の反項の個数, 直交変換不変性, 臨界冪核]
+problem_patterns: [MQFC34-A1, MQFC34-A2, MQFC34-A3, MQFC34-A4, MQFC34-B1, MQFC34-B2, MQFC34-B3, MQFC34-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 2 }
