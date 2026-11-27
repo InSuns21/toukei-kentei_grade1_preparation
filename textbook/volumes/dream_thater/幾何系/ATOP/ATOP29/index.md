@@ -4,7 +4,7 @@
 
 前講の[ホモロジー類への評価](../ATOP28/index.md#prop-atop28-evaluation)はコホモロジーから整数ホモロジー上の評価への写像を与えました。しかし、境界が2倍写像の複体では整数への評価を延長できず、評価の核に $\mathbb Z/2\mathbb Z$ が現れました。一方、鎖の係数を2を零とする群に変えると、2倍境界そのものが零になります。二つの現象を、評価の延長を測る群と係数変更後に現れる核を測る群で記述します。
 
-以下、群はすべてアーベル群、準同型は加法的とし、以下で扱う群の構成の基礎環は $\mathbb Z$ とします。鎖複体 $C$ は非負次数の自由アーベル群からなるものとし、負次数を零とします。境界を $d_n:C_n\to C_{n-1}$、$Z_n=\ker d_n$、$B_n=\operatorname{im}d_{n+1}$、$H_n=Z_n/B_n$ と書きます。負次数のこれらの群も零です。特異鎖群は特異単体を基底とするので、この仮定を満たします。有限生成性は仮定しません。
+群はすべてアーベル群、準同型は加法的とし、群の構成の基礎環は $\mathbb Z$ とします。鎖複体 $C$ は非負次数の自由アーベル群からなるものとし、負次数を零とします。境界を $d_n:C_n\to C_{n-1}$、$Z_n=\ker d_n$、$B_n=\operatorname{im}d_{n+1}$、$H_n=Z_n/B_n$ と書きます。負次数のこれらの群も零です。特異鎖群は特異単体を基底とするので、この仮定を満たします。有限生成性は仮定しません。
 
 ## 2. 自由群の二つの短完全列
 
@@ -349,7 +349,9 @@ $$
 
 ## 7. 演習
 
-### 演習 ATOP29-A1：テンソル積
+<a id="ex-atop29-a1"></a>
+
+### ATOP29-A1：テンソル積
 
 - Level: A
 
@@ -359,7 +361,9 @@ $(\mathbb Z/6\mathbb Z)\otimes(\mathbb Z/9\mathbb Z)$ を求めよ。
 **詳細解答**。[テンソル積の右完全性](#prop-atop29-tensor-right-exact) を $0\to\mathbb Z\xrightarrow{6}\mathbb Z\to\mathbb Z/6\mathbb Z\to0$ に適用する。$G=\mathbb Z/9\mathbb Z$ とすると $\mathbb Z\otimes G\cong G$ なので、求める群は $G/6G$。6倍の像は $\{0,6,3\}$ である。3を法とする剰余射の核がこの群なので、商は $\mathbb Z/3\mathbb Z$ である。
 <!-- solution-end -->
 
-### 演習 ATOP29-A2：Tor の計算
+<a id="ex-atop29-a2"></a>
+
+### ATOP29-A2：Tor の計算
 
 - Level: A
 
@@ -369,7 +373,9 @@ $\operatorname{Tor}_1^{\mathbb Z}(\mathbb Z/6\mathbb Z,\mathbb Z/9\mathbb Z)$ �
 **詳細解答**。[Tor](#def-atop29-tor) の定義に同じ自由分解を使うと、6倍写像の核を求めればよい。整数代表 $k$ に対し $9\mid6k$ は $3\mid2k$ と同値であり、さらに $3\mid k$ と同値である。核は $\{0,3,6\}$ で、3が生成元、位数は3である。従って $\mathbb Z/3\mathbb Z$。
 <!-- solution-end -->
 
-### 演習 ATOP29-A3：Ext と Hom
+<a id="ex-atop29-a3"></a>
+
+### ATOP29-A3：Ext と Hom
 
 - Level: A
 
@@ -381,7 +387,9 @@ $M=\mathbb Z/4\mathbb Z$、$G=\mathbb Z/6\mathbb Z$ に対して $\operatorname{
 一方 [巡回整数加群のExt](../../../基礎論系/CATB/CATB7-05/index.md#thm-catb7-05-cyclic-ext) により Ext は $G/4G$。4倍の像は $\{0,4,2\}$ であり、偶数の類全体である。偶奇への剰余写像の核なので商は $\mathbb Z/2\mathbb Z$ になる。前者は核、後者は余核であり、同じ位数でも構成は異なる。
 <!-- solution-end -->
 
-### 演習 ATOP29-A4：自由分解の分裂
+<a id="ex-atop29-a4"></a>
+
+### ATOP29-A4：自由分解の分裂
 
 - Level: A
 
@@ -397,7 +405,9 @@ $$
 これは $(x+y)(3,-2)$ であり、サイクルと切断像への分解が具体的に得られた。
 <!-- solution-end -->
 
-### 演習 ATOP29-B1：鎖行列と係数変更
+<a id="ex-atop29-b1"></a>
+
+### ATOP29-B1：鎖行列と係数変更
 
 - Level: B
 
@@ -418,7 +428,9 @@ $$
 [コホモロジーの普遍係数定理](#thm-atop29-cohomology-uct) の1次は $\operatorname{Hom}(H_1,G)=G[12]$ のみ、2次は [巡回整数加群のExt](../../../基礎論系/CATB/CATB7-05/index.md#thm-catb7-05-cyclic-ext) により $G/12G$ のみ。$12g=4g$ なので全て一致する。
 <!-- solution-end -->
 
-### 演習 ATOP29-B2：有限生成群の係数
+<a id="ex-atop29-b2"></a>
+
+### ATOP29-B2：有限生成群の係数
 
 - Level: B
 
@@ -427,9 +439,9 @@ $$
 <!-- solution-start -->
 **詳細解答**。[アーベル群のテンソル積](#def-atop29-abelian-tensor) の構成に従い、$(a,b)\otimes g$ を $(a\otimes g,b\otimes g)$ に送る。逆は各成分の包含に沿ってテンソルを足す写像である。従って
 
-$
+$$
 H_2\otimes G\cong G\oplus G/4G.
-$
+$$
 
 $4G=\{0,4\}$ なので後者は $\mathbb Z/4\mathbb Z$。$G[6]=\{0,4\}$（$8\mid6k$ は $4\mid k$ と同値）なので $\operatorname{Tor}_1(H_1,G)\cong\mathbb Z/2\mathbb Z$。[ホモロジーの普遍係数定理](#thm-atop29-homology-uct) の分裂により
 
@@ -441,7 +453,9 @@ $$
 Hom についても直和への評価を二つの制限に分けると $\operatorname{Hom}(H_2,G)=G\oplus G[4]$。$G[4]=\{0,2,4,6\}$ は位数4の巡回群。[巡回整数加群のExt](../../../基礎論系/CATB/CATB7-05/index.md#thm-catb7-05-cyclic-ext) より $\operatorname{Ext}^1(H_1,G)=G/6G$。$6G=\{0,2,4,6\}$ なので商は位数2。[コホモロジーの普遍係数定理](#thm-atop29-cohomology-uct) の分裂から $H^2(C;G)$ も上と同じ抽象群を得る。ここで同じ抽象群になることは、自然な同型を選べることを意味しない。
 <!-- solution-end -->
 
-### 演習 ATOP29-B3：自由性の仮定
+<a id="ex-atop29-b3"></a>
+
+### ATOP29-B3：自由性の仮定
 
 - Level: B
 
@@ -453,7 +467,9 @@ $C_1=\mathbb Z/2\mathbb Z$、$C_0=\mathbb Z/4\mathbb Z$、$d_1([1])=[2]$、そ�
 具体的な失敗を得るため、$C_2=\mathbb Z/2\mathbb Z$、$C_1=\mathbb Z/4\mathbb Z$、$C_0=\mathbb Z/2\mathbb Z$ とする別の複体を考え、$d_2$ を上の包含、$d_1$ を mod 2 の剰余射とする。$d_1d_2=0$、$\operatorname{im}d_2=\ker d_1$、$d_2$ は単射、$d_1$ は全射なので整数ホモロジーは全て零。テンソル後は全成分が $G$、$d_2\otimes1=0$、$d_1\otimes1$ は恒等写像。従って $H_2(C;G)=G$ だが、定理の両端は零である。自由性を欠くため第2節の切断や自由分解が保証されない。最初の複体は自由性を落としても偶然一致する例であり、後者が反例である。
 <!-- solution-end -->
 
-### 演習 ATOP29-B4：異なる自由分解での比較
+<a id="ex-atop29-b4"></a>
+
+### ATOP29-B4：異なる自由分解での比較
 
 - Level: B
 
@@ -467,7 +483,9 @@ $M=\mathbb Z/6\mathbb Z$ とし、第一の分解を $u:\mathbb Z\to\mathbb Z,\ 
 [アーベル群のテンソル積](#def-atop29-abelian-tensor) の自由群での計算より、係数変更後の第一の微分は $x\mapsto2x$、第二は $(x,y)\mapsto(2x,y)$。第一の核は $\{0,2\}$、第二の核は $\{(0,0),(2,0)\}$。包含と射影はこれらの核の上で互いに逆写像である。[Tor の分解独立性](#thm-atop29-tor-independent) をこの例で具体的に確認できた。
 <!-- solution-end -->
 
-### 演習 ATOP29-C1：係数の自然性と分裂
+<a id="ex-atop29-c1"></a>
+
+### ATOP29-C1：係数の自然性と分裂
 
 - Level: C
 
