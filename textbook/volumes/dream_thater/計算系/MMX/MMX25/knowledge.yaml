@@ -1,7 +1,7 @@
 chapter: MMX25
 scope: dream-theater
 coverage: complete
-prerequisites: [MMX24]
+prerequisites: [MMX24, F0-00P3A, ATOP8, FIX1, EC4]
 forward_references: []
 concepts:
   - id: matrix-exponent.short-hop-displacement
@@ -9,13 +9,13 @@ concepts:
     kind: lemma
     introduction: formal
     introduction_aliases: ["補題（一様変位評価）"]
-    requires: [matrix-exponent.incidence-inequality, matrix-exponent.affine-link]
+    requires: [matrix-exponent.incidence-inequality, matrix-exponent.affine-link, fixedpoint.fixed-point, prob.conditional-expectation]
   - id: matrix-exponent.finite-routing-test
     name: "有限価格検査"
     kind: lemma
     introduction: formal
     introduction_aliases: ["補題（有限価格検査）"]
-    requires: [matrix-exponent.short-hop-displacement, matrix-exponent.geodesic-extension, matrix-exponent.curvature]
+    requires: [matrix-exponent.short-hop-displacement, matrix-exponent.geodesic-extension, matrix-exponent.curvature, atop.spanning-tree]
   - id: matrix-exponent.bounded-width-routing
     name: "短住所輸送の総幅上界"
     kind: proposition
@@ -57,7 +57,7 @@ concepts:
     kind: lemma
     introduction: formal
     introduction_aliases: ["補題（衝突係数による再構成）"]
-    requires: [matrix-exponent.sphere-fusion]
+    requires: [matrix-exponent.sphere-fusion, elliptic-curve.rational-function]
   - id: matrix-exponent.seam-energy-drop
     name: "縫合を跨ぐエネルギー減少"
     kind: lemma
