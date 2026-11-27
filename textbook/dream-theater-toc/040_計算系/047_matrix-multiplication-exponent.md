@@ -24,3 +24,4 @@
 21. [MMX21 boundary・contact・sync：厳密saving仮定から動きを排除し、複数のtensorを同じprice拡張で評価する](textbook/volumes/dream_thater/計算系/MMX/MMX21/index.md)
 22. [MMX22 fermions・sphere：外積の縮約と符号、marked pointで定義される球面テンソル、衝突時の分解と脚幅](textbook/volumes/dream_thater/計算系/MMX/MMX22/index.md)
 23. [MMX23 sphere・incidence：最安の共通siteへの輸送コスト、脚幅を指定した漸近priceとincidence不等式](textbook/volumes/dream_thater/計算系/MMX/MMX23/index.md)
+24. [MMX24 sorting：安定整列・一括表参照と指数の台帳](textbook/volumes/dream_thater/計算系/MMX/MMX24/index.md)
