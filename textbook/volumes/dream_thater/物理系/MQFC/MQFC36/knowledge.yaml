@@ -1,0 +1,36 @@
+chapter: MQFC36
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC31, MQFC32, MQFC33, MQFC34, MQFC35, QFT22]
+forward_references: []
+concepts:
+  - id: mqfc.partial-diagonal
+    name: "多点の部分対角"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.insertion-configuration]
+  - id: mqfc.collision-codimension
+    name: "多点衝突の余次元"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.partial-diagonal]
+  - id: mqfc.subgraph-divergence-degree
+    name: "部分グラフの表面的発散次数"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.collision-codimension, qft.superficial-degree-divergence, qft.phi4-power-counting]
+  - id: mqfc.partial-collision-radial-estimate
+    name: "部分衝突の動径評価"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.subgraph-divergence-degree]
+  - id: mqfc.lower-time-order-compatibility
+    name: "下位時間順序積の重なりでの整合"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.causal-split-cover, mqfc.two-point-time-order]
+  - id: mqfc.finite-distribution-gluing
+    name: "有限開被覆上の分布の貼り合わせ"
+    kind: theorem
+    introduction: formal
+    requires: [distribution.local-finite-order-estimate, mqfc.two-point-time-order]
