@@ -1,14 +1,14 @@
 chapter: MQFC37
 scope: dream-theater
 coverage: complete
-prerequisites: [MQFC31, MICA6]
+prerequisites: [MQFC31, MICA6, TSP1]
 forward_references: []
 concepts:
   - id: mqfc.functional-derivative
     name: "汎関数微分"
     kind: definition
     introduction: formal
-    requires: [microlocal.mica6-tensor-product]
+    requires: [microlocal.mica6-tensor-product, tensor.multilinear-map]
   - id: mqfc.local-functional
     name: "局所汎関数"
     kind: definition

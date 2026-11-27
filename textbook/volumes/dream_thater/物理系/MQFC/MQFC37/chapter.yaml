@@ -2,7 +2,7 @@ id: MQFC37
 title: "汎関数微分と局所汎関数"
 volume: foundations
 status: supplementary
-prerequisites: [MQFC31, MICA6]
+prerequisites: [MQFC31, MICA6, TSP1]
 official_scope: []
 learning_objectives:
   - 場の方向微分から多点の分布核を求められる
