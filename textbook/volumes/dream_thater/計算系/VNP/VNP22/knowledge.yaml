@@ -1,0 +1,60 @@
+chapter: VNP22
+scope: dream-theater
+coverage: complete
+prerequisites: [VNP21, VNP20, VNP18, VNP15, VNP12, VNP11, VNP10, VNP9, VNP1, ACOMP12, AG1-07, FLD3]
+forward_references: []
+concepts:
+  - id: vp-vnp-study.hc-grid
+    name: "格子和のHamilton閉路表示"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（格子和のHamilton閉路表示）"]
+    requires: [vp-vnp-study.grid-sum, algebraic-complexity.xor-ring, algebraic-complexity.hamilton-polynomial]
+  - id: vp-vnp-study.grid-complete
+    name: "格子和に対する完全性"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（格子和に対する完全性）"]
+    requires: [vp-vnp-study.grid-sum]
+  - id: vp-vnp-study.general-clause-projection
+    name: "完全な族への節和の代入"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（完全な族への節和の代入）"]
+    requires: [vp-vnp-study.grid-complete, vp-vnp-study.clause-sum, vp-vnp-study.total-gate-count]
+  - id: vp-vnp-study.general-flat-rate
+    name: "完全な族の平坦側下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（完全な族の平坦側下界）"]
+    requires: [vp-vnp-study.general-clause-projection, vp-vnp-study.flat-rate, vp-vnp-study.complete-network-permanent]
+  - id: vp-vnp-study.general-contracting-rate
+    name: "完全な族の収縮側下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（完全な族の収縮側下界）"]
+    requires: [vp-vnp-study.general-clause-projection, vp-vnp-study.circuit-accelerator, vp-vnp-study.no-small-accelerator, vp-vnp-study.all-scale-cuts]
+  - id: vp-vnp-study.rate-comparison
+    name: "対数指数の比較"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（対数指数の比較）"]
+    requires: []
+  - id: vp-vnp-study.field-transfer
+    name: "同標数の代数閉体への回路移送"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（同標数の代数閉体への回路移送）"]
+    requires: [algebraic-geometry.weak-nullstellensatz, vp-vnp-study.total-gate-count]
+  - id: vp-vnp-study.all-fields-rate
+    name: "全標数の算術回路下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全標数の算術回路下界）"]
+    requires: [vp-vnp-study.hc-grid, vp-vnp-study.general-flat-rate, vp-vnp-study.general-contracting-rate, vp-vnp-study.rate-comparison, vp-vnp-study.field-transfer, vp-vnp-study.flat-or-contracting]
+  - id: vp-vnp-study.all-fields-separation
+    name: "全標数における厳密なクラス分離"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["系（全標数における厳密なクラス分離）"]
+    requires: [vp-vnp-study.all-fields-rate, vp-vnp-study.conditional-separation, algebraic-complexity.hamilton-vnp]
