@@ -1,0 +1,29 @@
+id: ATOP28
+title: "コチェインと特異コホモロジー"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP18]
+official_scope: []
+learning_objectives:
+  - 任意のアーベル係数群に対してコチェインと余境界を構成し二重余境界の消滅を示せる
+  - コサイクルとコバウンダリの商を取り一点と0次の群を計算できる
+  - 引戻しの反変性とホモトピー不変性を鎖上の等式から証明できる
+  - 相対コチェインの短完全列から接続準同型と長完全列の完全性および自然性を証明できる
+  - 体係数の評価同型を証明し整数係数での延長の失敗を説明できる
+definitions:
+  - { id: ATOP28-DEF-01, name: 特異コチェイン }
+  - { id: ATOP28-DEF-02, name: 特異余境界作用素 }
+  - { id: ATOP28-DEF-03, name: 特異コホモロジー群 }
+  - { id: ATOP28-DEF-04, name: 相対特異コホモロジー群 }
+theorems:
+  - { id: ATOP28-THM-01, name: 特異コホモロジーの誘導準同型 }
+  - { id: ATOP28-THM-02, name: 特異コホモロジーのホモトピー不変性 }
+  - { id: ATOP28-THM-03, name: 対のコホモロジー長完全列 }
+  - { id: ATOP28-PROP-01, name: ホモロジー類への評価 }
+  - { id: ATOP28-THM-04, name: 体係数の評価同型 }
+canonical_examples: [一点空間, 離散空間の引戻し, 区間と両端点, 2倍境界の鎖複体]
+problem_patterns: [ATOP28-A1, ATOP28-A2, ATOP28-A3, ATOP28-A4, ATOP28-B1, ATOP28-B2, ATOP28-B3, ATOP28-B4, ATOP28-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
