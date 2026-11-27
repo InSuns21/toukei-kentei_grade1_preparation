@@ -431,3 +431,4 @@ MQFC37「汎関数微分と局所汎関数」 では局所相互作用を試験�
 - [MQFC33 原点を除く分布をどう延長するか](../MQFC33/index.md)
 - [MQFC34 局所反項の自由度](../MQFC34/index.md)
 - [MQFC35 Feynman核の対角延長を計算する](../MQFC35/index.md)
+- [QFT22 四次元の発散次数](../../QFT/QFT22/index.md)
