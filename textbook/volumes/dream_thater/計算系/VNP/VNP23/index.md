@@ -15,7 +15,11 @@
 >
 > $f\in F[X_1,\ldots,X_d]$、$s\ge1$ とする。$F((\varepsilon))$ 上の除算なし二入力算術回路で全ゲート数が高々 $s$、出力が
 >
-> $f+\varepsilon G,\quad G\in F[[\varepsilon]][X_1,\ldots,X_d]$
+
+$
+f+\varepsilon G,\quad G\in F[[\varepsilon]][X_1,\ldots,X_d]
+$
+
 >
 > となるものを $f$ の近似算術回路という。この存在を $\operatorname{Approx}_F(f,s)$ と書く。
 <!-- formal-statement-end -->
