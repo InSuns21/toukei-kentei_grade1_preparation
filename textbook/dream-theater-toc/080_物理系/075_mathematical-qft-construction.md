@@ -37,3 +37,4 @@
 34. [MQFC34 局所反項の自由度](textbook/volumes/dream_thater/物理系/MQFC/MQFC34/index.md)
 35. [MQFC35 Feynman核の対角延長を計算する](textbook/volumes/dream_thater/物理系/MQFC/MQFC35/index.md)
 36. [MQFC36 多点の部分対角・重なる発散](textbook/volumes/dream_thater/物理系/MQFC/MQFC36/index.md)
+37. [MQFC37 汎関数微分と局所汎関数](textbook/volumes/dream_thater/物理系/MQFC/MQFC37/index.md)
