@@ -56,7 +56,7 @@ $$
 
 を使います。ここで $i0$ は正の虚部 $i\varepsilon$ を持つ滑らかな核を $\varepsilon\downarrow0$ とした分布極限を表します。これは $q\ne0$ での関数 $1/(4\pi^2q)$ と、光円錐上の正側境界値を合わせたものです。
 
-実際、光円錐近傍では $q,t$ と空間の角度を局所座標に取れます。$t$ を固定して $q$ を $\eta^2$ だけ平行移動した上で虚部 $2\eta|t|$ を零へ近づけると、一次元の[境界値公式](../../../解析系/MICA/MICA4/index.md#prop-mica4-sokhotski)が適用でき、同じ極限を得ます。
+実際、原点以外の光円錐上では $a=|t|>0$ です。$t$ と空間方向を固定したときの偏微分は $\partial q/\partial a=2a\ne0$ であり、逆変換 $a=\sqrt{q+t^2}$ は正の平方根で滑らかです。よって光円錐近傍では $q,t$ と空間の角度を局所座標に取れます。$t$ を固定して $q$ を $\eta^2$ だけ平行移動した上で虚部 $2\eta|t|$ を零へ近づけると、一次元の[境界値公式](../../../解析系/MICA/MICA4/index.md#prop-mica4-sokhotski)が適用でき、同じ極限を得ます。
 
 光円錐近傍の固定コンパクト集合内で $|t|$ は正の下界を持ち、試験関数の微分も一様有界なので、その局所積分に極限を通せます。
 
@@ -82,13 +82,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-光円錐上で $z\ne0$ なら
+$dq$ を全座標についての微分、$x_j$ を空間座標の第 $j$ 成分とします。光円錐上で $z\ne0$ なら
 
 $$
 dq=-2t\,dt+2\sum_{j=1}^3 x_j\,dx_j\ne0.
 $$
 
-ここで $dq$ は全座標についての微分、$x_j$ は空間座標の第 $j$ 成分です。光円錐の非原点では $a=|t|>0$ なので、$t$ と空間方向を固定した偏微分は $\partial q/\partial a=2a\ne0$ です。逆変換 $a=(q+t^2)^{1/2}$ は正の平方根で滑らかです。$da=dq/(2a)$ はこの固定変数での置換積分を表し、体積要素は
+先ほどの局所座標では $\partial q/\partial a=2a\ne0$ でした。$da=dq/(2a)$ はこの固定変数での置換積分を表し、体積要素は
 
 $$
 dt\,a^2 da\,d\Omega=\frac a2\,dt\,dq\,d\Omega
@@ -389,7 +389,7 @@ $$
 \psi(z)=\int_{\mathbb R^4}\Phi(y+z,y)\,d^4y
 $$
 
-と置きます。$\Phi$ の台を逆変換した集合はコンパクトであり、その $z$ への射影もコンパクトです。$y$ の積分は共通の有界集合に限られ、$z$ 微分を積分の中へ通せます。従って $\psi$ は滑らかでコンパクトな台を持ち、相対座標の分布 $T_R$ を $\psi$ に作用させられます。反項 $c\delta$ は
+と置きます。ここでは $\Phi\in C_c^\infty(\mathbb R^8)$ を仮定しています。$\Phi$ の台を逆変換した集合はコンパクトであり、その $z$ への射影もコンパクトです。$y$ の積分は共通の有界集合に限られ、$z$ 微分を積分の中へ通せます。従って $\psi$ は滑らかでコンパクトな台を持ち、相対座標の分布 $T_R$ を $\psi$ に作用させられます。反項 $c\delta$ は
 
 $$
 \langle c\delta,\psi\rangle
@@ -427,13 +427,13 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[境界値公式](../../../解析系/MICA/MICA4/index.md#prop-mica4-sokhotski)では $u_\pm=\mathrm{pv}(1/s)\mp i\pi\delta$ である。[同側境界値の積](../../../解析系/MICA/MICA6/index.md#prop-mica6-boundary-product)によって
+[境界値公式](../../../解析系/MICA/MICA4/index.md#prop-mica4-sokhotski)では $u_\pm=\mathrm{pv}(1/s)\mp i\pi\delta$ である。ここで $\partial_s$ は $s$ に関する分布微分で、$\delta'=\partial_s\delta$ は $\langle\delta',\varphi\rangle=-\varphi'(0)$ と作用する。試験関数の $\varphi'$ は $s$ に関する通常の導関数である。[同側境界値の積](../../../解析系/MICA/MICA6/index.md#prop-mica6-boundary-product)によって
 
 $$
 u_+^2-u_-^2=-\partial_s(u_+-u_-)=2i\pi\delta'.
 $$
 
-ここで $\partial_s$ は $s$ に関する分布微分で、$\delta'=\partial_s\delta$ は $\langle\delta',\varphi\rangle=-\varphi'(0)$ と作用する。原点近傍で $s$ と一致する試験関数を取ると $\delta'$ の作用は $-1$ だから差は $-2i\pi$ で零ではない。
+原点近傍で $s$ と一致する試験関数を取ると $\delta'$ の作用は $-1$ だから差は $-2i\pi$ で零ではない。
 <!-- solution-end -->
 
 ### 演習 MQFC35-A3：反項の符号
