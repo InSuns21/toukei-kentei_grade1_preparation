@@ -1,0 +1,24 @@
+id: MQFC38
+title: "Peierls括弧と自由場の積"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC37, HPDE21, MICA13]
+official_scope: []
+learning_objectives:
+  - 遅延・先進Green作用素の差から自由Peierls括弧を導出できる
+  - 円筒多項式のPeierls括弧のPoisson性を示せる
+  - 自由場のスター積を計算し結合性と交換子の符号を説明できる
+  - マイクロ因果条件から分布収縮の非衝突条件を確認できる
+definitions:
+  - { id: MQFC38-DEF-01, name: "Peierls括弧" }
+  - { id: MQFC38-DEF-02, name: "自由場のスター積" }
+theorems:
+  - { id: MQFC38-THM-01, name: "自由Peierls括弧のPoisson性" }
+  - { id: MQFC38-THM-02, name: "自由場スター積の結合性と交換子" }
+  - { id: MQFC38-PROP-01, name: "マイクロ因果条件による収縮の存在" }
+canonical_examples: [線形観測量の応答差, 二次観測量の収縮, 点評価の反例]
+problem_patterns: [MQFC38-A1, MQFC38-A2, MQFC38-A3, MQFC38-A4, MQFC38-B1, MQFC38-B2, MQFC38-B3, MQFC38-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 2 }
