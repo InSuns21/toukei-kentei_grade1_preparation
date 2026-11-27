@@ -4,7 +4,19 @@
 
 普通の関数なら正の尺度 $\lambda$ で引数を変えた $f(\lambda x)$ を観察すればよい。例えば原点からのEuclid距離 $|x|$ の逆二乗は長さを半分にすると4倍になる。しかし一点で試験関数の値を読む[Dirac のデルタ超関数](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-dirac)には通常の関数としての点値がない。そこで試験関数への作用を用いて、普通の関数にも分布にも共通する尺度を作る。
 
-以下、$d\ge1$ は座標の個数を表す整数、$x=(x_1,\ldots,x_d)$、$U$ は $\mathbb R^d$ または $\mathbb R^d\setminus\{0\}$ とする。$|x|=(\sum_{j=1}^d x_j^2)^{1/2}$ は座標のEuclidノルムである。短距離の拡大縮小を測るための補助的なノルムで、時空計量を変更するものではない。時空の符号規約は $(-,+,+,+)$ とする。
+以下、$d\ge1$ は座標の個数を表す整数とし、対象領域は次のいずれかとする。
+
+$$
+U=\mathbb R^d,\qquad U=\mathbb R^d\setminus\{0\}.
+$$
+
+座標 $x=(x_1,\ldots,x_d)$ のEuclidノルムを
+
+$$
+|x|=\left(\sum_{j=1}^d x_j^2\right)^{1/2}
+$$
+
+と書く。これは短距離の拡大縮小を測るための補助的なノルムである。時空の符号規約は $(-,+,+,+)$ のままとする。
 
 ## 1. 試験関数を縮めて分布を観測する
 
@@ -12,7 +24,9 @@
 
 まず局所可積分（任意のコンパクト集合上で絶対値の積分が有限）な $f$ が定める[正則超関数](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-regular-distribution)を考える。以後、関数とそれが定める分布を同じ記号 $f$ で表し、$d^dx$ は $d$ 次元の体積要素を表す。
 
-$\lambda>0$ として、$f(\lambda x)$ の作用を積分で書く。積分変数を $y=\lambda x$ と変える。二つの候補領域 $U$ はこの写像と逆写像 $x=y/\lambda$ で保たれる。体積要素を換算するため、標準座標で $y_i=\lambda x_i$ を $x_j$ で偏微分する。$\lambda$ は固定する。
+$\lambda>0$ として、$f(\lambda x)$ の作用を積分で書く。積分変数を $y=\lambda x$ と変える。二つの候補領域はこの写像と逆写像 $x=y/\lambda$ で保たれる。
+
+体積要素を換算するため、標準座標で $y_i=\lambda x_i$ を $x_j$ で偏微分する。$\lambda$ は固定する。
 
 $$
 \frac{\partial y_i}{\partial x_j}
@@ -46,7 +60,17 @@ $$
 > ここで $\varphi\in\mathcal D(U)$ とする。
 <!-- formal-statement-end -->
 
-この操作が分布を与えることを確認する。$\varphi$ の台がコンパクト集合 $K\subset U$ に含まれるなら、$\varphi_\lambda$ の台は $\lambda K\subset U$ に含まれる。固定した正の $\lambda$ ではこれもコンパクトであり、合成関数は滑らかだから $\varphi_\lambda\in\mathcal D(U)$ である。[多重指数](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-multi-index) $\alpha=(\alpha_1,\ldots,\alpha_d)\in\mathbb N_0^d$ は各座標の微分回数、$|\alpha|=\sum_j\alpha_j$ はその合計を表す。ここで $\partial_{y_j}$ は $y_j$ について他の座標と $\lambda$ を固定して微分する。$\partial_j$ は関数の第 $j$ 座標の偏微分を表す。連鎖律の一階分は
+この操作が分布を与えることを確認する。$\varphi$ の台がコンパクト集合 $K\subset U$ に含まれるなら、$\varphi_\lambda$ の台は $\lambda K\subset U$ に含まれる。固定した正の尺度ではこれもコンパクトであり、合成関数は滑らかだから縮めた関数も試験関数になる。
+
+[多重指数](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-multi-index)
+
+$$
+\alpha=(\alpha_1,\ldots,\alpha_d)\in\mathbb N_0^d
+$$
+
+は各座標の微分回数、$|\alpha|=\sum_j\alpha_j$ はその合計を表す。
+
+ここで $\partial_{y_j}$ は $y_j$ について他の座標と $\lambda$ を固定して微分する。$\partial_j$ は関数の第 $j$ 座標の偏微分を表す。連鎖律の一階分は
 
 $$
 \partial_{y_j}\varphi_\lambda(y)
@@ -118,7 +142,11 @@ $$
 > 極限は $\lambda\downarrow0$ で取り、すべての $\varphi\in\mathcal D(U)$ について作用値が零に近づくことを要求する。空集合の下限は $+\infty$、下に有界でない集合の下限は $-\infty$ とする。
 <!-- formal-statement-end -->
 
-一つの $\omega$ で極限が零なら、$\omega'>\omega$ でも $\lambda^{\omega'-\omega}\to0$ を掛けるので極限は零になる。このため、$s=\operatorname{sd}_U(t)$ とすると、実数 $\omega>s$ なら条件を満たす。実際、下限の性質から条件を満たす $\omega_0<\omega$ が存在する。一方、$\omega<s$ なら条件を満たさない。$s$ 自身で成立するかは別に調べる。零分布では全 $\omega$ が条件を満たすので $s=-\infty$ である。
+一つの $\omega$ で極限が零なら、$\omega'>\omega$ でも $\lambda^{\omega'-\omega}\to0$ を掛けるので極限は零になる。
+
+従って $s=\operatorname{sd}_U(t)$ とすると、実数 $\omega>s$ なら条件を満たす。実際、下限の性質から条件を満たす $\omega_0<\omega$ が存在する。一方、$\omega<s$ なら条件を満たさない。
+
+$s$ 自身で成立するかは別に調べる。零分布では全実数が条件を満たすので $s=-\infty$ である。
 
 <!-- definition-example-start: def-mqfc32-scaling-degree -->
 ### 直接例：原点を除いた平面の逆距離
@@ -188,7 +216,15 @@ $$
 =\lambda^{\omega+h}\langle t,\varphi\rangle.
 $$
 
-$\omega+h>0$ なら全試験関数で零へ収束する。$t\ne0$ なので、ある $\varphi_0$ に対し $c=\langle t,\varphi_0\rangle\ne0$ である。$\omega+h=0$ のとき作用値は $c$、$\omega+h<0$ のとき絶対値は $|c|\lambda^{\omega+h}\to\infty$ となる。
+$\omega+h>0$ なら全試験関数で零へ収束する。$t\ne0$ なので、ある $\varphi_0$ に対し $c=\langle t,\varphi_0\rangle\ne0$ である。
+
+$\omega+h=0$ のとき作用値は $c$ のままである。$\omega+h<0$ のとき絶対値は
+
+$$
+|c|\lambda^{\omega+h}\to\infty
+$$
+
+となる。
 
 従って[スケーリング次数](#def-mqfc32-scaling-degree)を定める実数の集合は $(-h,\infty)$ であり、下限は $-h$ である。
 <!-- proof-end -->
@@ -236,7 +272,16 @@ $$
 \chi(x)=\frac{\eta(4-|x|^2)}{\eta(4-|x|^2)+\eta(|x|^2-1)}.
 $$
 
-とする。分母の二つの引数の和は3なので少なくとも一方が正であり、分母は常に正である。従って $\chi$ は滑らかで、$|x|\le1$ で1、$|x|\ge2$ で0となる。この $\chi$ に対し、$\varphi(x)=x^\alpha\chi(x)$ とする。ただし $x^\alpha=\prod_j x_j^{\alpha_j}$ である。原点近傍では $\chi=1$ なので、そこで $\varphi=x^\alpha$ である。各座標を $\alpha_j$ 回微分すると $x_j^{\alpha_j}$ が $\alpha_j!$ になる。従って
+とする。分母の二つの引数の和は3なので少なくとも一方が正であり、分母は常に正である。従って $\chi$ は滑らかで、$|x|\le1$ で1、$|x|\ge2$ で0となる。
+
+この $\chi$ に対し、次の試験関数を取る。
+
+$$
+\varphi(x)=x^\alpha\chi(x),\qquad
+x^\alpha=\prod_{j=1}^d x_j^{\alpha_j}.
+$$
+
+原点近傍では $\chi=1$ なので、そこで $\varphi=x^\alpha$ である。各座標を $\alpha_j$ 回微分すると $x_j^{\alpha_j}$ が $\alpha_j!$ になる。従って
 
 $$
 \langle\partial^\alpha\delta,\varphi\rangle
@@ -373,7 +418,17 @@ $$
 
 $\omega<0$ の場合、$\lambda^\omega=e^{|\omega|v}$ がこの多項式の分母より速く増えるので零に収束しない。従って次数は0だが、この例では端点0も条件を満たす。
 
-短距離を紫外（UV）、長距離を赤外（IR）と呼ぶ。本章の定義では $\lambda\downarrow0$ だけを調べる。例えば一次元で $f_1(x)=1$ と $f_2(x)=(1+x^2)^{-1}$ はともに $f_i(\lambda x)\to1$ が各固定コンパクト集合で一様に成立する。固定試験関数に対して一様収束の誤差に $\int|\varphi|$ を掛ければ、分布としても作用値は $\int\varphi$ に収束する。$\omega>0$ では $\lambda^\omega$ を掛けると零になり、$\int\varphi>0$ の試験関数では $\omega\le0$ で零にならない。従って[スケーリング次数](#def-mqfc32-scaling-degree)はともに0である。一方、全実数上の積分は $f_1$ が無限大、$f_2$ は
+短距離を紫外（UV）、長距離を赤外（IR）と呼ぶ。本章の定義では $\lambda\downarrow0$ だけを調べる。例えば一次元で
+
+$$
+f_1(x)=1,\qquad f_2(x)=(1+x^2)^{-1}
+$$
+
+を比較する。いずれも $f_i(\lambda x)\to1$ が各固定コンパクト集合で一様に成立する。固定試験関数に対して一様収束の誤差に $\int|\varphi|$ を掛ければ、分布としても作用値は $\int\varphi$ に収束する。
+
+$\omega>0$ では $\lambda^\omega$ を掛けると零になり、$\int\varphi>0$ の試験関数では $\omega\le0$ で零にならない。従って[スケーリング次数](#def-mqfc32-scaling-degree)はともに0である。
+
+一方、全実数上の積分は $f_1$ が無限大、$f_2$ は
 
 $$
 \int_{\mathbb R}\frac{dx}{1+x^2}
@@ -426,7 +481,14 @@ $$
 =\int y_2\lambda^{-3}\varphi(y/\lambda)\,d^3y.
 $$
 
-$y=\lambda x$ では $d^3y=\lambda^3d^3x$、$y_2=\lambda x_2$ となるので、右辺は $\lambda\int x_2\varphi(x)\,d^3x$。よって $f_\lambda=\lambda f$ である。$x_2>0$ の領域の非負非零試験関数への積分が正なので $f\ne0$。[斉次分布のスケーリング次数](#thm-mqfc32-homogeneous-degree)に $h=1$ を代入し、次数は $-1$ となる。
+$y=\lambda x$ では $d^3y=\lambda^3d^3x$、$y_2=\lambda x_2$ となるので、
+
+$$
+\langle f_\lambda,\varphi\rangle
+=\lambda\int_{\mathbb R^3}x_2\varphi(x)\,d^3x.
+$$
+
+よって $f_\lambda=\lambda f$ である。$x_2>0$ の領域の非負非零試験関数への積分が正なので $f\ne0$。[斉次分布のスケーリング次数](#thm-mqfc32-homogeneous-degree)に $h=1$ を代入し、次数は $-1$ となる。
 <!-- solution-end -->
 
 ### 演習 MQFC32-A2：原点を除く冪核
@@ -493,7 +555,9 @@ C&=\int_U(\log|x|)^2\varphi(x)\,dx.
 \end{aligned}
 $$
 
-$\omega>0$ では $v^2e^{-\omega v}\to0$ なので全試験関数への作用が零へ収束する。$A>0$ の試験関数では作用が $Av^2$ を最高次項として増える。$\omega=0$ では発散し、$\omega<0$ でも発散する。[スケーリング次数](#def-mqfc32-scaling-degree)は0で、端点は条件を満たさない。
+$\omega>0$ では $v^2e^{-\omega v}\to0$ なので全試験関数への作用が零へ収束する。
+
+$A>0$ の試験関数では作用が $Av^2$ を最高次項として増える。$\omega=0$ では発散し、$\omega<0$ でも発散する。[スケーリング次数](#def-mqfc32-scaling-degree)は0で、端点は条件を満たさない。
 <!-- solution-end -->
 
 ### 演習 MQFC32-B1：異なる次数の和と打ち消し
@@ -556,7 +620,9 @@ $$
 |g(\lambda x)-1|\le\lambda^2M^2.
 $$
 
-これらを $|\varphi|$ と掛けて積分すれば、両方のスケール変換の作用が $\int\varphi$ に近づく。$\omega>0$ なら零へ収束し、$\int\varphi>0$ の試験関数では $\omega=0$ で正値へ収束、$\omega<0$ で絶対値が発散する。[スケーリング次数](#def-mqfc32-scaling-degree)は両方0である。
+これらを $|\varphi|$ と掛けて積分すれば、両方のスケール変換の作用が $\int\varphi$ に近づく。
+
+$\omega>0$ なら規格化後の作用は零へ収束する。一方、$\int\varphi>0$ の試験関数では $\omega=0$ で正値へ収束、$\omega<0$ で絶対値が発散する。[スケーリング次数](#def-mqfc32-scaling-degree)は両方0である。
 
 一方、
 
@@ -576,7 +642,9 @@ $$
 
 $d=4$ で $U=\mathbb R^4\setminus\{0\}$、$f(x)=|x|^{-2}$ とする。$f$ と普通の関数としての二乗 $f^2$ の次数を求め、それぞれの原点付近の積分を比較せよ。
 
-さらに、$f^2$ の全空間への延長 $T$ が存在し次数4を持つと仮定する。延長とは、$U$ に台を持つ試験関数（全空間に零延長して用いる）への作用が $f^2$ と一致する分布をいう。$T+c\delta$ と $T+b\partial_1\delta$ の次数を調べよ。ただし $b,c$ は非零複素数とする。非対角上の制限は変わるか。
+さらに、$f^2$ の全空間への延長 $T$ が存在し次数4を持つと仮定する。延長とは、$U$ に台を持つ試験関数（全空間に零延長して用いる）への作用が $f^2$ と一致する分布をいう。
+
+$T+c\delta$ と $T+b\partial_1\delta$ の次数を調べよ。ただし $b,c$ は非零複素数とする。非対角上の制限は変わるか。
 
 <!-- solution-start -->
 **詳細解答**
@@ -599,7 +667,15 @@ $$
 
 仮定された全空間上の $T$ に対し、[デルタ導関数のスケーリング次数](#prop-mqfc32-delta-degree)から $c\delta$ は次数4、$b\partial_1\delta$ は次数5である。非零定数倍は作用に定数を掛けるだけなので次数を変えない。
 
-[スケーリング次数の演算則](#prop-mqfc32-degree-rules)の和の上界から $\operatorname{sd}_{\mathbb R^4}(T+c\delta)\le4$。反対に、もしこの次数が4より小さければ、ある $\omega<4$ で $\lambda^\omega(T+c\delta)_\lambda$ が零に収束する。しかし原点から離れた台を持つ非負非零試験関数 $\varphi$ を全空間へ零で延長して用いる。任意の $\lambda>0$ で $\varphi_\lambda$ の台も原点から離れ、$\varphi_\lambda(0)=0$ である。[分布のスケール変換](#def-mqfc32-dilation)と延長の仮定から
+[スケーリング次数の演算則](#prop-mqfc32-degree-rules)の和の上界から
+
+$$
+\operatorname{sd}_{\mathbb R^4}(T+c\delta)\le4.
+$$
+
+反対に、もしこの次数が4より小さければ、ある $\omega<4$ で $\lambda^\omega(T+c\delta)_\lambda$ が零に収束する。
+
+しかし原点から離れた台を持つ非負非零試験関数 $\varphi$ を全空間へ零で延長して用いる。任意の $\lambda>0$ で $\varphi_\lambda$ の台も原点から離れ、$\varphi_\lambda(0)=0$ である。[分布のスケール変換](#def-mqfc32-dilation)と延長の仮定から
 
 $$
 \begin{aligned}
