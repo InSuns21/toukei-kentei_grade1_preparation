@@ -4,7 +4,9 @@
 
 ## 1. 道を特異鎖として読む
 
-[道の連結・逆走・定値道](../ATOP4/index.md#def-atop4-path-operations) の記号に従い、$\alpha*\beta$ は先に $\alpha$、後に $\beta$ を進む道、$\bar\alpha$ は逆走とします。区間 $I=[0,1]$ を標準1単体と同一視し、道 $\gamma:I\to X$ を特異1単体としても読みます。
+[道の連結・逆走・定値道](../ATOP4/index.md#def-atop4-path-operations) の記号に従い、$\alpha*\beta$ は先に $\alpha$、後に $\beta$ を進む道、$\bar\alpha$ は逆走とします。
+
+区間 $I=[0,1]$ を標準1単体と同一視し、道 $\gamma:I\to X$ を特異1単体としても読みます。
 
 [特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary) によれば、始点 $p$、終点 $q$ の道の境界は
 
@@ -14,7 +16,9 @@ $$
 
 です。$\langle p\rangle$ は点 $p$ に対応する特異0単体です。従ってループはサイクルですが、一般の道はサイクルではありません。
 
-そこで $C_1(X)/B_1(X)$ という商群で道を比較します。ここで $B_1(X)=\operatorname{im}\partial_2$ は [特異境界鎖](../ATOP16/index.md#def-atop16-singular-cycles) の群です。鎖の差が $B_1(X)$ に属することを $\equiv$ で表します。一般の道に対する $\equiv$ はホモロジー類の等号ではありませんが、両辺がサイクルなら [特異ホモロジー群](../ATOP16/index.md#def-atop16-singular-homology) で等しい類を表します。
+そこで $C_1(X)/B_1(X)$ という商群で道を比較します。ここで $B_1(X)=\operatorname{im}\partial_2$ は [特異境界鎖](../ATOP16/index.md#def-atop16-singular-cycles) の群です。
+
+鎖の差が $B_1(X)$ に属することを $\equiv$ で表します。一般の道に対する $\equiv$ はホモロジー類の等号ではありませんが、両辺がサイクルなら [特異ホモロジー群](../ATOP16/index.md#def-atop16-singular-homology) で等しい類を表します。
 
 三角形の三辺を頂点番号の小さい方から大きい方へ向けると、辺と符号の対応は次のようになります。
 
@@ -80,7 +84,9 @@ $$
 
 $c_p\equiv0$ と合わせて $\bar\alpha\equiv-\alpha$ を得ます。
 
-最後に $\alpha,\alpha':p\to q$ の [道ホモトピー](../ATOP4/index.md#def-atop4-path-homotopy) $F:I\times I\to X$ を取ります。区間の恒等1単体を $e(u)=u$ とします。[プリズム恒等式](../ATOP17/index.md#thm-atop17-prism-identity) に $e$ と $F$ を代入すると
+最後に $\alpha,\alpha':p\to q$ の [道ホモトピー](../ATOP4/index.md#def-atop4-path-homotopy) $F:I\times I\to X$ を取ります。
+
+区間の恒等1単体を $e(u)=u$ とします。[プリズム恒等式](../ATOP17/index.md#thm-atop17-prism-identity) に $e$ と $F$ を代入すると
 
 $$
 \partial_2 P_1 e
@@ -174,7 +180,7 @@ $$
 \xrightarrow{\ \cong\ } H_1(X;\mathbb Z).
 $$
 
-> 特に $h_X$ は全射で、その核は基本群の交換子部分群である。
+> 特に $h_X$ は全射で、その核は、基本群のすべての交換子を含む最小の正規部分群である。
 <!-- formal-statement-end -->
 
 見取り図：補助道で各特異1単体を閉じ、可換化へ送ります。任意の特異2単体の三辺から作ったループの積が単位元になるので、境界を零へ送ります。最後に二つの合成を調べ、補助道がサイクル条件により消えることを確認します。
@@ -210,7 +216,7 @@ $$
 =[L_{02}].
 $$
 
-上の二番目の等号には、先ほどの端点固定ホモトピーと [道の連結と道ホモトピーの両立](../ATOP4/index.md#prop-atop4-concatenation-compatible) を使いました。
+上の二番目の等号には、先ほど構成した [道ホモトピー](../ATOP4/index.md#def-atop4-path-homotopy) と [道の連結と道ホモトピーの両立](../ATOP4/index.md#prop-atop4-concatenation-compatible) を使いました。
 
 可換化では積は和なので $F(\gamma_{01})+F(\gamma_{12})=F(\gamma_{02})$ です。[特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary) から
 
@@ -302,7 +308,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[基本群の誘導準同型](../ATOP4/index.md#thm-atop4-induced-homomorphism) は $[\gamma]$ を $[f\circ\gamma]$ へ送ります。準同型は交換子を交換子へ送るので、交換子部分群の像も値域の交換子部分群に含まれます。従って可換化の類に対する写像 $(f_\pi)_{\mathrm{ab}}$ は代表元によらず定まります。
+[基本群の誘導準同型](../ATOP4/index.md#thm-atop4-induced-homomorphism) は $[\gamma]$ を $[f\circ\gamma]$ へ送ります。値域の基本群のすべての交換子を含む最小の正規部分群を $C_Y$ とします。準同型は交換子を交換子へ送るので、その逆像 $f_\pi^{-1}(C_Y)$ は定義域のすべての交換子を含む正規部分群です。[群の可換化](../ATOP12/index.md#def-atop12-abelianization) の最小性から、定義域の可換化で零になる元は値域の可換化でも零になります。
+
+従って可換化の類に対する写像 $(f_\pi)_{\mathrm{ab}}$ は代表元によらず定まります。
 
 一方、[特異ホモロジーの誘導準同型](../ATOP16/index.md#thm-atop16-induced-homology) はサイクルの各特異単体に $f$ を合成します。任意の $a=q_G([\gamma])\in A$ に対して
 
@@ -317,7 +325,19 @@ $$
 商写像は全射なので全ての $a$ について一致します。
 <!-- proof-end -->
 
-基点を $x_0$ から $x_1$ に変えるとき、道 $\ell:x_0\to x_1$ を使えば [基本群の基点変更](../ATOP4/index.md#thm-atop4-basepoint-change) により $x_1$ のループ $\gamma$ は $x_0$ のループ $(\ell*\gamma)*\bar\ell$ へ移ります。[道の連結と特異1鎖の和](#lem-atop26-path-chain) によりこのループは商鎖で $\ell+\gamma-\ell=\gamma$ に等しいので、ホモロジー上では基点変更の影響が消えます。
+基点を $x_0$ から $x_1$ に変えるとき、道 $\ell:x_0\to x_1$ を選びます。[基本群の基点変更](../ATOP4/index.md#thm-atop4-basepoint-change) により、新しい基点のループ $\gamma$ は元の基点のループ
+
+$$
+(\ell*\gamma)*\bar\ell
+$$
+
+へ移ります。[道の連結と特異1鎖の和](#lem-atop26-path-chain) を二回適用すると、商鎖で
+
+$$
+(\ell*\gamma)*\bar\ell\equiv\ell+\gamma-\ell=\gamma
+$$
+
+です。従ってホモロジー上では基点変更の影響が消えます。
 
 道連結性を外した場合は一つの基点では全ての成分を捉えられません。例えば二つの円周の非交和では、特異単体の定義域は連結であるため像は片方の円周だけに入ります。境界作用素も成分を保つので鎖複体は二成分の直和です。[次数1の Hurewicz 定理](#thm-atop26-hurewicz-one) を各円周に適用し、[円周の基本群](../ATOP6/index.md#thm-atop6-fundamental-group-circle) を使うと $H_1$ は二つの整数群の直和になります。片方の基点のループはその成分しか訪れないため全射になりません。
 
@@ -387,7 +407,9 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-辺 $01$ では $t_1=u$、辺 $12$ では $t_1=1-u$、辺 $02$ では $t_1=0$ です。従って三辺は $\alpha,\bar\alpha,c_p$ となります。[特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary) により
+辺 $01$ では $t_1=u$、辺 $12$ では $t_1=1-u$、辺 $02$ では $t_1=0$ です。
+
+従って三辺は $\alpha,\bar\alpha,c_p$ となります。[特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary) により
 
 $$
 \partial_2T=\bar\alpha-c_p+\alpha.
@@ -433,7 +455,9 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-関係語 $a^2$ の指数和は2です。[群表示の可換化と指数和](../ATOP12/index.md#prop-atop12-abelian-presentation) により可換化は $\mathbb Z/2\mathbb Z$ で、$a$ の像は $1+2\mathbb Z$ です。実射影平面は道連結なので [次数1の Hurewicz 定理](#thm-atop26-hurewicz-one) から $H_1\cong\mathbb Z/2\mathbb Z$ となります。
+関係語 $a^2$ の指数和は2です。[群表示の可換化と指数和](../ATOP12/index.md#prop-atop12-abelian-presentation) により可換化は $\mathbb Z/2\mathbb Z$ で、$a$ の像は $1+2\mathbb Z$ です。
+
+実射影平面は道連結なので [次数1の Hurewicz 定理](#thm-atop26-hurewicz-one) から $H_1\cong\mathbb Z/2\mathbb Z$ となります。
 
 $h_X([a]^5)$ は $5+2\mathbb Z=1+2\mathbb Z$ に対応し、零ではありません。
 <!-- solution-end -->
@@ -496,7 +520,9 @@ $$
 
 と表せます。2胞体は存在しないので [胞体ホモロジー定理](../ATOP22/index.md#thm-atop22-cellular-comparison) により $H_1\cong\mathbb Z^2$ です。
 
-全域木を辺 $e_1$ とし、残りの辺を通って $e_1$ を逆走する二ループを取ります。[連結グラフの基本群と階数](../ATOP8/index.md#thm-atop8-graph-fundamental-group) から基本群は $3-2+1=2$ 生成元の自由群です。[群表示の可換化と指数和](../ATOP12/index.md#prop-atop12-abelian-presentation) で関係がないため可換化は $\mathbb Z^2$ です。二つのループを特異1サイクルとして読むと [道の連結と特異1鎖の和](#lem-atop26-path-chain) によりそれぞれ第2辺と第1辺、第3辺と第1辺の差になります。[胞体鎖群と胞体境界](../ATOP22/index.md#def-atop22-cellular-chain) の商への写像 $j_1$ は各辺の特異鎖を対応する向き付き相対生成元へ送るので、胞体計算の基底 $e_2-e_1,e_3-e_1$ と一致します。
+全域木を辺 $e_1$ とし、残りの辺を通って $e_1$ を逆走する二ループを取ります。[連結グラフの基本群と階数](../ATOP8/index.md#thm-atop8-graph-fundamental-group) から基本群は $3-2+1=2$ 生成元の自由群です。[群表示の可換化と指数和](../ATOP12/index.md#prop-atop12-abelian-presentation) で関係がないため可換化は $\mathbb Z^2$ です。
+
+二つのループを特異1サイクルとして読むと [道の連結と特異1鎖の和](#lem-atop26-path-chain) によりそれぞれ第2辺と第1辺、第3辺と第1辺の差になります。[胞体鎖群と胞体境界](../ATOP22/index.md#def-atop22-cellular-chain) の商への写像 $j_1$ は各辺の特異鎖を対応する向き付き相対生成元へ送るので、胞体計算の基底 $e_2-e_1,e_3-e_1$ と一致します。
 <!-- solution-end -->
 
 ### 演習 ATOP26-B3：基点付き写像の効果
@@ -532,7 +558,9 @@ $$
 
 道連結な有限 CW 複体に円板を一枚貼る各段階で、新しい円板の中心を除いた開集合 $U$ と、円板内部の半径 $3/4$ の開円板の像 $V$ で覆います。$U$ は古い空間へ動径方向に変形レトラクトし、$V$ は可縮です。変形は円板の境界を固定するので貼り合わせと両立し、中心から正の距離を取った閉環帯と古い空間の商上で連続です。これらの環帯の内部と古い空間を合わせた近傍が $U$ を覆うため、全体で連続です。
 
-交わりは穿孔開円板で、円周へ変形レトラクトします。[円周の基本群](../ATOP6/index.md#thm-atop6-fundamental-group-circle) からその基本群は整数群です。その一周の像は $U$ では付着語 $w$（古い基点までの道による共役を除く）、$V$ では単位元です。三つの開集合 $U,V,U\cap V$ は道連結で、交わりの点を基点に [van Kampen定理](../ATOP7/index.md#thm-atop7-van-kampen) を適用できます。従って古い基本群に $w=1$ を課した商になります。共役の違いは正規部分群で割ると消えます。これを二回適用すると
+交わりは穿孔開円板で、円周へ変形レトラクトします。[円周の基本群](../ATOP6/index.md#thm-atop6-fundamental-group-circle) からその基本群は整数群です。その一周の像は $U$ では付着語 $w$（古い基点までの道による共役を除く）、$V$ では単位元です。
+
+三つの開集合 $U,V,U\cap V$ は道連結で、交わりの点を基点に [van Kampen定理](../ATOP7/index.md#thm-atop7-van-kampen) を適用できます。従って古い基本群に $w=1$ を課した商になります。共役の違いは正規部分群で割ると消えます。これを二回適用すると
 
 $$
 G=\langle a,b\mid a^2b^{-2}=1,\ ab^3=1\rangle.
@@ -553,7 +581,9 @@ $$
 (m,n)\longmapsto n-3m+8\mathbb Z
 $$
 
-で確認できます。二つの関係ベクトルの像はそれぞれ $-2-6=-8$ と $3-3=0$ で、どちらも零です。従って商から $\mathbb Z/8\mathbb Z$ への準同型があり、$b$ を $1+8\mathbb Z$ へ送ります。逆向きに $1+8\mathbb Z\mapsto b$ と送れるのは $8b=0$ だからです。両合成は生成元を固定するため同型です。
+で確認できます。二つの関係ベクトルの像はそれぞれ $-2-6=-8$ と $3-3=0$ で、どちらも零です。従って商から $\mathbb Z/8\mathbb Z$ への準同型があり、$b$ を $1+8\mathbb Z$ へ送ります。
+
+逆向きに $1+8\mathbb Z\mapsto b$ と送れるのは $8b=0$ だからです。両合成は生成元を固定するため同型です。
 
 $X$ は道連結なので [次数1の Hurewicz 定理](#thm-atop26-hurewicz-one) により $H_1\cong\mathbb Z/8\mathbb Z$ です。
 
@@ -563,9 +593,13 @@ $$
 d_2=\begin{pmatrix}2&1\\-2&3\end{pmatrix}.
 $$
 
-[胞体ホモロジー定理](../ATOP22/index.md#thm-atop22-cellular-comparison) により $\ker d_1/\operatorname{im}d_2$ は上の可換化と同じ商です。$a$ の類は $-3+8\mathbb Z$、$b$ の類は $1+8\mathbb Z$ です。$8$ と $3$ は互いに素なので、いずれの位数も8です。
+[胞体ホモロジー定理](../ATOP22/index.md#thm-atop22-cellular-comparison) により $\ker d_1/\operatorname{im}d_2$ は上の可換化と同じ商です。$a$ の類は $-3+8\mathbb Z$、$b$ の類は $1+8\mathbb Z$ です。
 
-一般には可換化の計算だけで元の群の可換性は結論できません。ただしこの例では元の群の関係 $ab^3=1$ から $a=b^{-3}$ です。従って $G$ 自身が $b$ 一つで生成され、可換です。もう一方の関係は $b^{-6}b^{-2}=b^{-8}=1$ となるので $G$ も位数8の巡回群です。可換性はホモロジーの結果ではなく、元の群の関係から別途導きました。
+$8$ と $3$ は互いに素なので、いずれの位数も8です。
+
+一般には可換化の計算だけで元の群の可換性は結論できません。ただしこの例では元の群の関係 $ab^3=1$ から $a=b^{-3}$ です。従って $G$ 自身が $b$ 一つで生成され、可換です。
+
+もう一方の関係は $b^{-6}b^{-2}=b^{-8}=1$ となるので $G$ も位数8の巡回群です。可換性はホモロジーの結果ではなく、元の群の関係から別途導きました。
 <!-- solution-end -->
 
 ## 7. まとめ
