@@ -15,7 +15,7 @@ concepts:
     introduction: formal
     requires: [algebra.free-module, algebra.quotient-module]
   - id: atop.tensor-right-exact
-    name: テンソル積の右完全性
+    name: アーベル群のテンソル積の右完全性
     kind: proposition
     introduction: formal
     requires: [atop.abelian-tensor-product, category.exact-sequence]

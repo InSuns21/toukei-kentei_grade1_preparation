@@ -15,7 +15,7 @@ definitions:
   - { id: ATOP29-DEF-02, name: Tor }
 theorems:
   - { id: ATOP29-LEM-01, name: 任意階数の自由アーベル群の部分群 }
-  - { id: ATOP29-PROP-01, name: テンソル積の右完全性 }
+  - { id: ATOP29-PROP-01, name: アーベル群のテンソル積の右完全性 }
   - { id: ATOP29-THM-01, name: Tor の分解独立性 }
   - { id: ATOP29-THM-02, name: ホモロジーの普遍係数定理 }
   - { id: ATOP29-THM-03, name: コホモロジーの普遍係数定理 }
