@@ -1,7 +1,7 @@
 # DREAM THEATER VP ≠ VNP 証明研究講読 計画
 
 構成確定日: 2026-11-24 JST
-状態: in progress（VNP1–20実装、VNP21–24予定）
+状態: in progress（VNP1–21実装、VNP22–24予定）
 系列予約ID: VNP（実装時にmanifest/章ID衝突を再点検）
 講数: **全24講**
 
