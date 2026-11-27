@@ -1,0 +1,41 @@
+chapter: ATOP29
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP28, ATOP22, CATB7-05, MOD2]
+forward_references: []
+concepts:
+  - id: atop.arbitrary-free-abelian-subgroup
+    name: 任意階数の自由アーベル群の部分群
+    kind: lemma
+    introduction: formal
+    requires: [algebra.free-module, algebra.pid-submodule-free]
+  - id: atop.abelian-tensor-product
+    name: アーベル群のテンソル積
+    kind: definition
+    introduction: formal
+    requires: [algebra.free-module, algebra.quotient-module]
+  - id: atop.tensor-right-exact
+    name: テンソル積の右完全性
+    kind: proposition
+    introduction: formal
+    requires: [atop.abelian-tensor-product, category.exact-sequence]
+  - id: atop.tor
+    name: Tor
+    kind: definition
+    introduction: formal
+    requires: [atop.abelian-tensor-product, atop.arbitrary-free-abelian-subgroup, category.projective-resolution]
+  - id: atop.tor-resolution-independence
+    name: Tor の分解独立性
+    kind: theorem
+    introduction: formal
+    requires: [atop.tor, atop.tensor-right-exact]
+  - id: atop.homology-universal-coefficient
+    name: ホモロジーの普遍係数定理
+    kind: theorem
+    introduction: formal
+    requires: [atop.tor-resolution-independence, atop.tensor-right-exact, atop.singular-homology]
+  - id: atop.cohomology-universal-coefficient
+    name: コホモロジーの普遍係数定理
+    kind: theorem
+    introduction: formal
+    requires: [category.ext, atop.arbitrary-free-abelian-subgroup, atop.homology-cohomology-evaluation]
