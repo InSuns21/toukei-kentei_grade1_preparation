@@ -28,18 +28,47 @@ $$
 <!-- definition-example-start: def-mqfc33-extension -->
 ### 直接例：定数核
 
-**定義の確認**。$t=1$ を $U$ 上の正則超関数とする。全空間で $T=1$ と置けば、任意のコンパクト台 $K$ 上で
+**定義の確認**。定数関数 $1$ は局所可積分なので、[局所可積分関数が定める超関数](../../../解析系/GPDE/GPDE1/index.md#prop-gpde1-l1loc-distribution)により $U$ 上の分布 $t$ を定める。全空間でも作用を
+
+$$
+\langle T,\psi\rangle=\int_{\mathbb R^d}\psi(x)\,d^dx
+$$
+
+と定める。積分の線形性から $T$ は線形である。任意のコンパクト集合 $K$ と $\operatorname{supp}\psi\subset K$ に対して
 
 $$
 |\langle T,\psi\rangle|\le |K|\sup_K|\psi|
 $$
 
-が成り立つ（$|K|$ はLebesgue測度）。従って [超関数の局所有限階評価](../../../解析系/GPDE/GPDE1/index.md#prop-gpde1-local-finite-order)を満たす。さらに $\widetilde\varphi$ は原点近傍で零だから、積分領域を全空間から $U$ に戻しても作用値は変わらない。
+が成り立つ（$|K|$ はLebesgue測度）。従って [超関数の局所有限階評価](../../../解析系/GPDE/GPDE1/index.md#prop-gpde1-local-finite-order)を満たす。さらに $\widetilde\varphi$ は原点近傍で零で、$U$ 上では $\varphi$ に等しい。従って
+
+$$
+\langle T,\widetilde\varphi\rangle
+=\int_U\varphi(x)\,d^dx
+=\langle t,\varphi\rangle.
+$$
+
+これで全空間上の分布であることと、原点外で元の作用と一致することの両方を確認した。
 
 一方、[Dirac のデルタ超関数](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-dirac)を加えた $T+\delta$ も全空間上の分布で、$\widetilde\varphi(0)=0$ だから同じ延長条件を満たす。従って延長は一般には一意ではない。
 <!-- definition-example-end -->
 
-元の短距離挙動を保つため、$\operatorname{sd}_{\mathbb R^d}(T)=\operatorname{sd}_U(t)$ を要求する。延長なら必ず $\operatorname{sd}_{\mathbb R^d}(T)\ge\operatorname{sd}_U(t)$ である。実際、全空間で $\lambda^\omega T_\lambda\to0$ なら、原点を避ける試験関数に限定しても零に収束する。正のスケール変換は原点を避ける性質を保つので、[分布のスケール変換](../MQFC32/index.md#def-mqfc32-dilation)と延長の条件から $\lambda^\omega t_\lambda\to0$ が従う。
+元の短距離挙動を保つため、[スケーリング次数](../MQFC32/index.md#def-mqfc32-scaling-degree)が原点外と全空間で等しいことを要求する。
+
+$$
+\operatorname{sd}_{\mathbb R^d}(T)=\operatorname{sd}_U(t).
+$$
+
+[分布のスケール変換](../MQFC32/index.md#def-mqfc32-dilation)では、正の縮尺 $\lambda$ に対し試験関数を $\varphi_\lambda(x)=\lambda^{-d}\varphi(x/\lambda)$ と変換し、$\langle t_\lambda,\varphi\rangle=\langle t,\varphi_\lambda\rangle$ と定める。原点外の試験関数を零延長する操作はこの変換と交換するので、
+
+$$
+\langle T_\lambda,\widetilde\varphi\rangle
+=\langle T,\widetilde{\varphi_\lambda}\rangle
+=\langle t,\varphi_\lambda\rangle
+=\langle t_\lambda,\varphi\rangle.
+$$
+
+従って全空間で $\lambda^\omega T_\lambda\to0$ なら原点外でも $\lambda^\omega t_\lambda\to0$ となる。零収束を与える指数の集合について下限を取れば、延長には必ず $\operatorname{sd}_{\mathbb R^d}(T)\ge\operatorname{sd}_U(t)$ が成り立つ。
 
 ## 2. Taylor係数を引く
 
@@ -73,7 +102,14 @@ $$
 
 これは滑らかで台が $\operatorname{supp}\chi$ に含まれ、値も一階微分も原点で零である。一般の $\varphi$ でも $W_m\varphi$ の台は $\operatorname{supp}\varphi\cup\operatorname{supp}\chi$ に含まれる。
 
-原点付近で $\chi=1$ なので、Taylor多項式の偏微分を取って原点に代入すると、$\alpha=\beta$ の項だけが残る。従って
+原点付近で $\chi=1$ なので、その正の階数の微分はすべて零である。多項式については、$\beta_i$ が $\alpha_i$ を超える座標があれば $\partial^\beta x^\alpha=0$、超えなければ
+
+$$
+\partial^\beta x^\alpha
+=\frac{\alpha!}{(\alpha-\beta)!}x^{\alpha-\beta}.
+$$
+
+従って原点での $\partial^\beta(x^\alpha/\alpha!)$ は $\alpha=\beta$ の場合だけ1で、それ以外は0である。減算項の原点微分は元の $\partial^\beta\varphi(0)$ に一致するから、
 
 $$
 \partial^\beta W_m\varphi(0)=0
@@ -91,7 +127,13 @@ $$
 h(1)=\frac1{(k-1)!}\int_0^1(1-u)^{k-1}h^{(k)}(u)\,du.
 $$
 
-連鎖律を繰り返すと
+ここで $h^{(j)}$ は実変数 $u$ に関する $j$ 階常微分で、$x$ は固定する。$g$ の偏微分は空間座標に関する微分である。例えば一階では
+
+$$
+h'(u)=\sum_{i=1}^d x_i\partial^{\beta+e_i}g(ux)
+$$
+
+となる（$e_i$ は第 $i$ 成分だけ1の多重指数）。この操作を $k$ 回繰り返すと、同じ多重指数 $\gamma$ を与える微分順序が $k!/\gamma!$ 通りあるので、
 
 $$
 h^{(k)}(u)=\sum_{|\gamma|=k}\frac{k!}{\gamma!}
@@ -143,7 +185,7 @@ $$
 
 ## 4. 小さな環状領域の作用を一様に抑える
 
-スケーリング次数 $s$ が有限なら、$q>s$ に対し $\lambda^q t_\lambda$ は各固定試験関数上で零に近づく。しかし、これだけでは $\lambda$ とともに変化する試験関数に適用できない。共通の台の上で有限個の微分による一様な評価を用意する。
+[スケーリング次数](../MQFC32/index.md#def-mqfc32-scaling-degree) $s$ が $+\infty$ でなければ、実数 $q>s$ に対し $\lambda^q t_\lambda$ は各固定試験関数上で零に近づく。しかし、これだけでは $\lambda$ とともに変化する試験関数に適用できない。共通の台の上で有限個の微分による一様な評価を用意する。
 
 <a id="lem-mqfc33-uniform-estimate"></a>
 
@@ -200,7 +242,14 @@ $$
 E_j=\{\psi\in E:\ |L_r(\psi)|\le j\text{ for all }0<r\le1\}
 $$
 
-と置く。各 $L_r$ は連続だから $E_j$ は閉であり、点ごとの有界性から
+と置く。固定した $r>0$ について、試験関数の変換後の台は $rK\subset V$ に含まれる。[超関数の局所有限階評価](../../../解析系/GPDE/GPDE1/index.md#prop-gpde1-local-finite-order)をこの台で適用すると、連鎖律
+
+$$
+\partial_x^\beta(r^{-d}\psi(x/r))
+=r^{-d-|\beta|}(\partial^\beta\psi)(x/r)
+$$
+
+により、ある $N_r,C_r$ に対して $|L_r(\psi)|\le C_r p_{N_r}(\psi)$ が従う。従って各 $L_r$ は距離 $D$ に関して連続であり、$E_j$ は閉である。点ごとの有界性から
 
 $$
 E=\bigcup_{j\ge1}E_j
@@ -223,7 +272,7 @@ $\psi\ne0$ に対し $\eta=\epsilon\psi/(2p_N(\psi))$ と置くと $p_N(\eta)=\e
 
 ## 5. 次数を保つ延長を構成する
 
-特異性の強さを $s$ とする。$s<d$ なら減算を必要としない。$s\ge d$ のときは $m=\lfloor s-d\rfloor$ とすれば $s<d+m+1$ となる。減算後の関数には $m+1$ 次の消失があるので、体積の $d$ 次と合わせて特異性を上回る。
+特異性の強さを $s$ とする。$s<d$ なら減算を必要としない。$s\ge d$ のときは $m=\lfloor s-d\rfloor$（$\lfloor a\rfloor$ は実数 $a$ 以下の最大の整数）とすれば $s<d+m+1$ となる。減算後の関数には $m+1$ 次の消失があるので、体積の $d$ 次と合わせて特異性を上回る。
 
 <a id="thm-mqfc33-extension"></a>
 
@@ -315,7 +364,14 @@ $$
 s<q<\min(\omega,d+m+1)
 $$
 
-と取る。後者では $q>d+m$ も成り立つ。以下、固定した $\varphi$ の台を $|x|\le R$ ($R\ge1$) に含める。$\varphi_\lambda(x)=\lambda^{-d}\varphi(x/\lambda)$ とし、$g_\lambda=W_m\varphi_\lambda$ を構成式に入れる。
+と取る。後者では $q>d+m$ も成り立つ。以下、固定した $\varphi$ の台を $|x|\le R$ ($R\ge1$) に含める。[分布のスケール変換](../MQFC32/index.md#def-mqfc32-dilation)の定義から $\langle T_\lambda,\varphi\rangle=\langle T,\varphi_\lambda\rangle$ である。ここでは $\lambda>0$ を固定して $x$ について微分するので、
+
+$$
+\partial_x^\alpha\varphi_\lambda(0)
+=\lambda^{-d-|\alpha|}\partial^\alpha\varphi(0).
+$$
+
+この原点微分値を用いた $g_\lambda=W_m\varphi_\lambda$ を構成式に入れる。
 
 **小さい環 $r_j\le\lambda$**。十分小さい $\lambda$ では $|r_j y|\le 2\lambda\le1$ だから $\chi(r_j y)=1$ である。$m\ge0$ なら $P_m$ を $\varphi$ の原点での $m$ 次Taylor多項式として、
 
@@ -374,7 +430,7 @@ $$
 
 さらに $q$ より小さく $s$ より大きい実数でもこの収束が成立するので $\operatorname{sd}(D)<q$ となる。
 
-$D$ は原点を避ける試験関数上で零である。従って任意の $\varphi$ と $0<r\le1$ に対し、
+[原点を越える分布の延長](#def-mqfc33-extension)の条件から、$D$ は原点を避ける試験関数上で零である。従って任意の $\varphi$ と $0<r\le1$ に対し、
 
 $$
 \langle D,\varphi\rangle
@@ -411,7 +467,7 @@ $$
 
 任意の $\omega>s\ge d$ で両項の規格化した作用は零に収束する。従って和の次数は $s$ 以下であり、延長の次数の下界と合わせて正確に $s$ になる。
 
-さらに $|\alpha|\le m$ であれば、
+さらに [超関数の微分](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-distributional-derivative) $\partial^\alpha\delta$ は試験関数の原点微分を $(-1)^{|\alpha|}$ 倍して読む作用なので、原点外の試験関数上では零である。$|\alpha|\le m$ であれば、
 
 $$
 \operatorname{sd}(\partial^\alpha\delta)=d+|\alpha|\le s
@@ -530,7 +586,15 @@ $d=2$ で $t(x)=|x|^{-1}$ ($x\ne0$) とする。正則超関数としての全�
 <!-- solution-start -->
 **詳細解答**
 
-原点付近の絶対積分は極座標で $2\pi\int_0^1 r^{1-1}\,dr=2\pi$ なので有限であり、[局所可積分関数が定める超関数](../../../解析系/GPDE/GPDE1/index.md#prop-gpde1-l1loc-distribution)として全空間に $T$ を定める。変数変換 $x=\lambda y$ によって全試験関数で $T_\lambda=\lambda^{-1}T$ が成り立つ。$T$ は非零だから [斉次分布のスケーリング次数](../MQFC32/index.md#thm-mqfc32-homogeneous-degree)から次数は1。
+原点付近の絶対積分は極座標で $2\pi\int_0^1 r^{1-1}\,dr=2\pi$ なので有限であり、[局所可積分関数が定める超関数](../../../解析系/GPDE/GPDE1/index.md#prop-gpde1-l1loc-distribution)として全空間に $T$ を定める。[分布のスケール変換](../MQFC32/index.md#def-mqfc32-dilation)で $x=\lambda y$ と変数変換すると、
+
+$$
+\langle T_\lambda,\varphi\rangle
+=\int_{\mathbb R^2}|x|^{-1}\lambda^{-2}\varphi(x/\lambda)\,d^2x
+=\lambda^{-1}\int_{\mathbb R^2}|y|^{-1}\varphi(y)\,d^2y.
+$$
+
+よって全試験関数で $T_\lambda=\lambda^{-1}T$ が成り立つ。$T$ は非零だから [斉次分布のスケーリング次数](../MQFC32/index.md#thm-mqfc32-homogeneous-degree)から次数は1。
 
 原点外でも次数1で、$1<2$ なので [スケーリング次数を保つ延長](#thm-mqfc33-extension)の一意性が適用される。$c\delta$ は[デルタ導関数のスケーリング次数](../MQFC32/index.md#prop-mqfc32-delta-degree)により次数2であり、[スケーリング次数の演算則](../MQFC32/index.md#prop-mqfc32-degree-rules)の異なる次数の場合の等号から和の次数は2。延長条件自体は満たすが、次数1を保つという条件を失う。
 <!-- solution-end -->
