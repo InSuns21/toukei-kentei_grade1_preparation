@@ -8,27 +8,17 @@
 
 微小量 $\varepsilon$ を形式変数として導入する。負冪は有限個に限り、正冪はいくら続いてもよい。これは複素変数の収束を扱う展開とは異なり、係数の代数演算のみで扱う。
 
-<a id="def-vnp23-formal-laurent"></a>
+[形式 Laurent 級数](../../ACOMP/ACOMP21/index.md#def-acomp21-formal-laurent)を思い出そう。体 $F$ 上では、下限 $-D$ を持つ係数列を
 
-<!-- formal-statement-start -->
-> **定義（形式Laurent級数）**
->
-> 体 $F$ を取る。形式Laurent級数は $D\ge0$ を整数、$a_i\in F$ として表した形式和
+$$
+a=\sum_{i\ge-D}a_i\varepsilon^i,\qquad D\ge0,\quad a_i\in F
+$$
 
-$
-a=\sum_{i\ge-D}a_i\varepsilon^i
-$
+と表す。$F[[\varepsilon]]$ は非負次数のみの部分環、$F[\varepsilon,\varepsilon^{-1}]$ は有限項の部分環である。積の係数は二つの下限 $-D,-E$ に対して $\sum_{i=-D}^{j+E}a_i b_{j-i}$ という有限和になる。[形式 Laurent 級数体](../../ACOMP/ACOMP21/index.md#thm-acomp21-laurent-field)によりこの係数演算は体 $F((\varepsilon))$ をなす。
 
-> である。和は係数ごとの加算、積の次数 $j$ の係数は $\sum_{i+k=j}a_i b_k$ と定義する。この級数全体を $F((\varepsilon))$ と書く。非負次数のみの部分環を $F[[\varepsilon]]$、有限項の部分環を $F[\varepsilon,\varepsilon^{-1}]$ と書く。
-<!-- formal-statement-end -->
+例えば $a=\varepsilon^{-2}+\sum_{n\ge0}\varepsilon^n$ は下限 $-2$ を持つが、負次数も無限個の正次数も持つので上のどちらの部分環にも属さない。一方 $\varepsilon^2a=1+\varepsilon^2+\varepsilon^3+\cdots$ は非負次数だけを持つ。
 
-積の係数は、二つの級数の下限を $-D,-E$ とすれば $-D\le i\le j+E$ の有限和である。非零級数 $a$ の最小非零指数を $k$ とすると $a=a_k\varepsilon^k(1+w)$、$w\in\varepsilon F[[\varepsilon]]$ である。逆元は $a_k^{-1}\varepsilon^{-k}\sum_{n\ge0}(-w)^n$ となる。各係数に有限個の $n$ しか寄与せず、$(1+w)\sum_{n\ge0}(-w)^n=1$ が係数ごとに成立する。よって $F((\varepsilon))$ は体である。
-
-<!-- definition-example-start: def-vnp23-formal-laurent -->
-**定義の確認**
-
-$a=\varepsilon^{-2}+\sum_{n\ge0}\varepsilon^n$ は下限 $-2$ を持ち、各係数は0または1なので任意の体上で条件を満たす。$a$ は負次数を持つため $F[[\varepsilon]]$ には属さず、無限個の非零係数があるため $F[\varepsilon,\varepsilon^{-1}]$ にも属さない。一方 $\varepsilon^2a=1+\varepsilon^2+\varepsilon^3+\cdots$ は非負次数だけを持つ。
-<!-- definition-example-end -->
+[回路の形式的退化](../../ACOMP/ACOMP22/index.md#def-acomp22-degeneration)では演算サイズを数えた。ここでは第1講の全ゲート数を使い、入力・定数のゲートも含めて近似を定量化する。
 
 <a id="def-vnp23-approx"></a>
 
@@ -71,7 +61,7 @@ $$
 <!-- formal-statement-start -->
 > **補題（Laurent切断の保存則）**
 >
-> 有限個の形式Laurent級数 $a_j$ の指数が全て $-D$ 以上とする。$D\ge0$、$n\ge1$ は整数とする。各 $a_j$ を指数 $N=nD+1$ 未満の項だけに切断する。このとき高々 $n$ 個の因子（反復可）からなる積の非正次数の係数は保存される。
+> 有限個の形式 Laurent 級数 $a_j$ の指数が全て $-D$ 以上とする。$D\ge0$、$n\ge1$ は整数とする。各 $a_j$ を指数 $N=nD+1$ 未満の項だけに切断する。このとき高々 $n$ 個の因子（反復可）からなる積の非正次数の係数は保存される。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -156,7 +146,7 @@ $$
 
 [完全な族への節和の代入](../VNP22/index.md#thm-vnp22-clause-projection)は $\varepsilon$ に依存しない。したがって $G_m+\varepsilon E$ を代入しても、目標の完全ネットワーク多項式 $f_{k,\ell}$ に正次数の誤差が加わるだけで、回路費用は高々 $5s$ である。
 
-[二ハブ被覆](../VNP11/index.md#thm-vnp11-hub-cover)の回路分解を形式Laurent級数体上で行う。材料となるwireは係数0または1で元の体上にある。Laurent係数が必要なのは局所写像だけである。全局所写像は有限次元で有限個の成分しかなく、各出力係数はparty数個の因子の積の有限和である。[Laurent切断の保存則](#lem-vnp23-cutoff)で写像成分を有限多項式に切り、[近似少数項の選択費用](#lem-vnp23-few)を元の体 $F$ 上のスペクトル点に適用する。
+[二ハブ被覆](../VNP11/index.md#thm-vnp11-hub-cover)の回路分解を形式 Laurent 級数体上で行う。材料となるwireは係数0または1で元の体上にある。Laurent係数が必要なのは局所写像だけである。全局所写像は有限次元で有限個の成分しかなく、各出力係数はparty数個の因子の積の有限和である。[Laurent切断の保存則](#lem-vnp23-cutoff)で写像成分を有限多項式に切り、[近似少数項の選択費用](#lem-vnp23-few)を元の体 $F$ 上のスペクトル点に適用する。
 
 これで[平坦側の回路評価](../VNP12/index.md#thm-vnp12-flat-rate)における被覆不等式がそのまま成立する。距離、wire長、材料数の評価は変更されない。したがって $\ell\ge100\sqrt{k}$ の条件で
 
@@ -704,7 +694,7 @@ $h=17,\alpha=5$ で新枝時間指数 $16h\alpha+1-8(2\alpha+1)$ を計算し、
 全標数の近似下界からVNPの近似VPへの非包含を示し、パーマネントだけでは標数2を扱えない理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答**：Hamilton閉路族は全標数でVNPに属す。近似VPに属すと仮定すると固定 $d$ で $m^d+d$ ゲートの近似回路が存在する。標数の閾値を超え、$c(\log_2 m)^{1/3}>d+1$、$m\ge d+2$ とすると $m^{c(\log_2 m)^{1/3}}>m^{d+1}>m^d+d$ で矛盾する。標数2では置換の符号 $-1$ と $1$ が等しく、パーマネントは行列式に一致する。従って標数2を含む下界にはHamilton閉路族を使う。
+**詳細解答**：[Hamilton閉路多項式族のVNP所属](../../ACOMP/ACOMP12/index.md#thm-acomp12-hamilton-vnp)は全標数で成立する。[全標数の近似回路下界](#thm-vnp23-allfields)を使う。近似VPに属すと仮定すると固定 $d$ で $m^d+d$ ゲートの近似回路が存在する。標数の閾値を超え、$c(\log_2 m)^{1/3}>d+1$、$m\ge d+2$ とすると $m^{c(\log_2 m)^{1/3}}>m^{d+1}>m^d+d$ で矛盾する。標数2では置換の符号 $-1$ と $1$ が等しく、パーマネントは行列式に一致する。従って標数2を含む下界にはHamilton閉路族を使う。
 <!-- solution-end -->
 
 ## 11. 次講へ
