@@ -34,3 +34,4 @@
 31. [MQFC31 相互作用をなぜ形式冪級数で扱うか](textbook/volumes/dream_thater/物理系/MQFC/MQFC31/index.md)
 32. [MQFC32 分布のscaling degree](textbook/volumes/dream_thater/物理系/MQFC/MQFC32/index.md)
 33. [MQFC33 原点を除く分布をどう延長するか](textbook/volumes/dream_thater/物理系/MQFC/MQFC33/index.md)
+34. [MQFC34 局所反項の自由度](textbook/volumes/dream_thater/物理系/MQFC/MQFC34/index.md)
