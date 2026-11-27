@@ -94,7 +94,7 @@ chapters:
     title: "fermions・sphere：外積の縮約と符号、marked pointで定義される球面テンソル、衝突時の分解と脚幅"
   - id: MMX23
     path: textbook/volumes/dream_thater/計算系/MMX/MMX23
-    status: planned
+    status: completed
     title: "sphere・incidence：最安の共通siteへの輸送コスト、脚幅を指定した漸近priceとincidence不等式"
   - id: MMX24
     path: textbook/volumes/dream_thater/計算系/MMX/MMX24

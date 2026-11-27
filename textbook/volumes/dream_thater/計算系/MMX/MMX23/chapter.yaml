@@ -1,0 +1,29 @@
+id: MMX23
+title: "sphere・incidence：最安の共通siteへの輸送コスト、脚幅を指定した漸近priceとincidence不等式"
+volume: foundations
+status: supplementary
+prerequisites: ["MMX22","NPCG8"]
+official_scope: []
+learning_objectives:
+  - 二次費用の目的を平方完成し重心と最適幅を対応させる
+  - 共同状態を閉じた積の極部分を使い追加脚の同時価格上界を導く
+  - 融合からwireを回収し尺度差分を足して漸近価格評価を証明する
+  - 滑らかな距離近似から指定幅の価格と共通比較テンソルを構成する
+  - 射影方向の位数を一つの汎関数で比較し割線の入射不等式を証明する
+  - アフィン入射グラフの鋭い分散評価と等号構成を計算する
+definitions:
+  - {"id":"MMX23-DEF-01","name":"球面価格の二次費用目的"}
+  - {"id":"MMX23-DEF-02","name":"部分集合の方向節約量"}
+theorems:
+  - {"id":"MMX23-LEM-01","name":"追加球面脚の同時価格評価"}
+  - {"id":"MMX23-THM-01","name":"球面価格の漸近評価"}
+  - {"id":"MMX23-COR-01","name":"指定幅における漸近輸送価格"}
+  - {"id":"MMX23-COR-02","name":"共通比較テンソル"}
+  - {"id":"MMX23-THM-02","name":"割線の入射不等式"}
+  - {"id":"MMX23-COR-03","name":"アフィン入射グラフの分散評価"}
+canonical_examples: [二地点の平方完成, 無限遠の次数補正, 三角形の割線, アフィン入射グラフの等号]
+problem_patterns: ["MMX23-A01","MMX23-A02","MMX23-A03","MMX23-A04","MMX23-B01","MMX23-B02","MMX23-B03","MMX23-B04","MMX23-C01","MMX23-C02"]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 14, exercises: 5, review: 3 }
