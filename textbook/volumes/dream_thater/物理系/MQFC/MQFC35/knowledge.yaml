@@ -1,0 +1,21 @@
+chapter: MQFC35
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC31, MQFC32, MQFC33, MQFC34, MICA6, QFT6, GPDE1]
+forward_references: []
+concepts:
+  - id: mqfc.massless-fish-degree
+    name: "質量ゼロ二線核の次数"
+    kind: proposition
+    introduction: formal
+    requires: [qft.feynman-two-point, microlocal.mica6-boundary-product, mqfc.homogeneous-scaling-degree]
+  - id: mqfc.fish-angular-residue
+    name: "二線核の角度係数"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.massless-fish-degree, microlocal.mica6-boundary-product]
+  - id: mqfc.fish-cutoff-extension
+    name: "二線核の減算延長とcutoff反項"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.fish-angular-residue, mqfc.origin-taylor-subtraction, mqfc.local-counterterm-freedom, distribution.local-finite-order-estimate]
