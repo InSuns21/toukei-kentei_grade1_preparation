@@ -71,7 +71,16 @@ $$
 W_1\varphi=(2+3x+x^2)\chi-(2+3x)\chi=x^2\chi.
 $$
 
-これは滑らかで台が $\operatorname{supp}\chi$ に含まれ、値も一階微分も原点で零である。一般の $\varphi$ でも $W_m\varphi$ の台は $\operatorname{supp}\varphi\cup\operatorname{supp}\chi$ に含まれる。原点付近で $\chi=1$ なので、$|\beta|\le m$ の偏微分を取って原点に代入すると、Taylor多項式のうち $\alpha=\beta$ の項だけが $\partial^\beta\varphi(0)$ を残す。従って全ての $|\beta|\le m$ で $\partial^\beta W_m\varphi(0)=0$ となる。$W_m$ は線形で、すでにこれらの微分値が零の関数には恒等的に作用する。
+これは滑らかで台が $\operatorname{supp}\chi$ に含まれ、値も一階微分も原点で零である。一般の $\varphi$ でも $W_m\varphi$ の台は $\operatorname{supp}\varphi\cup\operatorname{supp}\chi$ に含まれる。
+
+原点付近で $\chi=1$ なので、Taylor多項式の偏微分を取って原点に代入すると、$\alpha=\beta$ の項だけが残る。従って
+
+$$
+\partial^\beta W_m\varphi(0)=0
+\qquad (|\beta|\le m).
+$$
+
+$W_m$ は線形で、すでにこれらの微分値が零の関数には恒等的に作用する。
 <!-- definition-example-end -->
 
 一般に $g=W_m\varphi$ なら、原点付近で $g(x)=O(|x|^{m+1})$ となる。さらに $|\beta|\le m$ について $\partial^\beta g$ の $m-|\beta|$ 階以下の微分も原点で零である。この事実は、後で分布が試験関数の偏微分を読む場合に必要になる。
@@ -164,9 +173,26 @@ D(\psi,\eta)=\sum_{n=0}^{\infty}2^{-n-1}
 \min(1,p_n(\psi-\eta))
 $$
 
-で $E$ は完備になる。実際、$D$ でのCauchy列は全ての $p_n$ についてCauchyで、各偏微分が全空間（$K$ の外では零）で一様収束する。関数と一階偏微分の極限について、座標方向の線分上の積分恒等式に極限を通せば、極限関数の一階偏微分がその微分の極限に等しい。これを各階の偏微分について繰り返すと極限関数は滑らかで、台は $K$ に含まれる。全ての $p_n$ で収束するので、級数の尾を $2^{-n}$ で抑えることで $D$ でも収束する。
+で $E$ は完備になる。実際、$D$ でのCauchy列は全ての $p_n$ についてCauchyである。各偏微分は全空間で一様収束する（台の外では零である）。
 
-$L_r(\psi)=r^q\langle t_r,\psi\rangle$ と置く。固定した $\psi$ について、[スケーリング次数](../MQFC32/index.md#def-mqfc32-scaling-degree)の性質により $r\downarrow0$ で零に収束する。また $r$ が正の閉区間にあるとき、スケール変換された試験関数は共通のコンパクト台を持ち、各偏微分が $r$ に関して一様に連続である。従って[超関数の局所有限階評価](../../../解析系/GPDE/GPDE1/index.md#prop-gpde1-local-finite-order)から作用も連続となる。よって $\sup_{0<r\le1}|L_r(\psi)|<\infty$ である。
+列を $(\psi_i)$ とし、各偏微分の一様極限を $u_\beta$ と書く。座標方向の単位ベクトルを $e_j$ として、
+
+$$
+\partial^\beta\psi_i(x+he_j)-\partial^\beta\psi_i(x)
+=\int_0^h\partial^{\beta+e_j}\psi_i(x+ve_j)\,dv.
+$$
+
+一様収束により極限を積分に通せる。従って $u_\beta$ の第 $j$ 偏微分は $u_{\beta+e_j}$ となる。これを全ての階で繰り返すと、極限関数は滑らかで台は $K$ に含まれる。
+
+全ての $p_n$ で収束するので、距離の級数の尾を幾何級数で抑えることで $D$ でも収束する。
+
+$L_r(\psi)=r^q\langle t_r,\psi\rangle$ と置く。固定した $\psi$ について、[スケーリング次数](../MQFC32/index.md#def-mqfc32-scaling-degree)の性質により $r\downarrow0$ で零に収束する。
+
+また $r$ が正の閉区間にあるとき、スケール変換された試験関数は共通のコンパクト台を持ち、各偏微分が $r$ に関して一様に連続である。従って[超関数の局所有限階評価](../../../解析系/GPDE/GPDE1/index.md#prop-gpde1-local-finite-order)から作用も連続となる。よって
+
+$$
+\sup_{0<r\le1}|L_r(\psi)|<\infty.
+$$
 
 整数 $j\ge1$ に対し
 
@@ -174,7 +200,15 @@ $$
 E_j=\{\psi\in E:\ |L_r(\psi)|\le j\text{ for all }0<r\le1\}
 $$
 
-と置く。各 $L_r$ は連続だから $E_j$ は閉であり、点ごとの有界性から $E=\bigcup_{j\ge1}E_j$ である。少なくとも一つの $E_j$ は内部を持つ。これを示すには、全てが内部を持たないと仮定し、順に $E_1,E_2,\ldots$ を避ける非空の閉球を、前の球の内部に含まれ半径が $2^{-j}$ 未満となるよう選ぶ。中心はCauchy列となり、完備性によってその極限は全ての球に属する。従ってどの $E_j$ にも属さず、被覆に矛盾する。
+と置く。各 $L_r$ は連続だから $E_j$ は閉であり、点ごとの有界性から
+
+$$
+E=\bigcup_{j\ge1}E_j
+$$
+
+である。少なくとも一つの $E_j$ は内部を持つ。
+
+これを示すには、全てが内部を持たないと仮定する。順に $E_1,E_2,\ldots$ を避ける非空の閉球を、前の球の内部に含まれ半径が $2^{-j}$ 未満となるよう選ぶ。中心はCauchy列となり、完備性によってその極限は全ての球に属する。従ってどの $E_j$ にも属さず、被覆に矛盾する。
 
 ある $\psi_0$ の近傍が $E_j$ に含まれる。距離の級数の尾を小さくし、有限個の先頭項を $p_N$ で抑えれば、ある $N$ と $\epsilon>0$ に対して $p_N(\eta)<\epsilon$ なら $\psi_0+\eta\in E_j$ となる。$\psi_0$ も $E_j$ に属するので、線形性から
 
@@ -252,7 +286,15 @@ r^{|\gamma|}(\partial^\gamma g)(ry),
 \qquad \gamma\le\beta
 $$
 
-である。$|\gamma|\le m$ なら第2節のTaylor評価から $r^{|\gamma|}|ry|^{m+1-|\gamma|}\le C r^{m+1}$ を得る。$|\gamma|\ge m+1$ なら偏微分の上限に $r^{|\gamma|}\le r^{m+1}$ を掛ければよい。$m=-1$ では後者だけである。$P$ には $N$ と $m+1$ の最大階までの $\varphi$ の偏微分上限を取れる（$g$ の微分は固定 $\chi$ の微分と $\varphi$ の原点微分値で抑えられる）。
+である。$|\gamma|\le m$ なら第2節のTaylor評価から
+
+$$
+r^{|\gamma|}|ry|^{m+1-|\gamma|}\le C r^{m+1}
+$$
+
+を得る。$|\gamma|\ge m+1$ なら偏微分の上限に $r^{|\gamma|}\le r^{m+1}$ を掛ければよい。$m=-1$ では後者だけである。
+
+$P$ には $N$ と $m+1$ の最大階までの $\varphi$ の偏微分上限を取れる。$g$ の微分は固定 $\chi$ の微分と $\varphi$ の原点微分値で抑えられる。
 
 従って環一つの作用値は
 
@@ -290,7 +332,11 @@ $$
 
 以下である。$r_j\le\lambda$ についての幾何級数は $C\lambda^{d-q+m+1}$ 以下なので、総寄与は $C_\varphi\lambda^{-q}$ 以下となる。
 
-**中間の環 $\lambda<r_j\le2R\lambda$**。環の数は $\lambda$ に依存しない有限個（高々 $2+\lceil\log_2(2R)\rceil$）である。$\rho(y)g_\lambda(r_j y)$ の微分では $r_j/\lambda\le2R$ であり、Taylor項も同じ比の有限次の冪で抑えられる。$\chi(r_j y)$ の微分は $r_j\le1$ で一様有界だから、微分上限は $C_\varphi\lambda^{-d}$ 以下である。$r_j^{d-q}$ は $\lambda^{d-q}$ の定数倍以下なので、総寄与は $C_\varphi\lambda^{-q}$ 以下となる。
+**中間の環**。$\lambda<r_j\le2R\lambda$ の範囲にある環の数は、$\lambda$ に依存しない有限個である（高々 $2+\lceil\log_2(2R)\rceil$）。
+
+$\rho(y)g_\lambda(r_j y)$ の微分では $r_j/\lambda\le2R$ であり、Taylor項も同じ比の有限次の冪で抑えられる。$\chi(r_j y)$ の微分は $r_j\le1$ で一様有界だから、微分上限は $C_\varphi\lambda^{-d}$ 以下である。
+
+各環の規格化因子 $r_j^{d-q}$ は $\lambda^{d-q}$ の定数倍以下なので、総寄与は $C_\varphi\lambda^{-q}$ 以下となる。
 
 **大きい環 $r_j>2R\lambda$**。$y\in A$ では $|r_j y|>R\lambda$ だから $\varphi_\lambda(r_j y)=0$ である。$m=-1$ なら寄与は零。$m\ge0$ なら残るのは
 
@@ -320,7 +366,15 @@ $$
 
 ### $s<d$ での一意性
 
-次数 $s$ を持つ二つの延長 $T_1,T_2$ の差を $D=T_1-T_2$ とする。$s<q<d$ を選べば、定義から $\lambda^q D_\lambda\to0$ である。さらに $q$ より小さく $s$ より大きい実数でもこの収束が成立するので $\operatorname{sd}(D)<q$ となる。$D$ は原点を避ける試験関数上で零である。従って任意の $\varphi$ と $0<r\le1$ に対し、
+次数 $s$ を持つ二つの延長 $T_1,T_2$ の差を $D=T_1-T_2$ とする。$s<q<d$ を選ぶ。定義から次の収束が成り立つ。
+
+$$
+\lambda^q D_\lambda\to0.
+$$
+
+さらに $q$ より小さく $s$ より大きい実数でもこの収束が成立するので $\operatorname{sd}(D)<q$ となる。
+
+$D$ は原点を避ける試験関数上で零である。従って任意の $\varphi$ と $0<r\le1$ に対し、
 
 $$
 \langle D,\varphi\rangle
@@ -328,14 +382,42 @@ $$
 =r^d\langle D_r,\chi(\,\cdot\,)\varphi(r\,\cdot\,)\rangle.
 $$
 
-[縮尺分布の一様有限階評価](#lem-mqfc33-uniform-estimate)を今度は全空間上の $D$ に対し、固定コンパクト台 $\operatorname{supp}\chi$ で適用する。$\chi(y)\varphi(ry)$ の有限階微分は $r\le1$ で一様有界なので右辺の絶対値は $C_\varphi r^{d-q}$ 以下である。$q<d$ だから $r\downarrow0$ で零になる。左辺は $r$ に依存しないので零であり、$D=0$ が従う。
+[縮尺分布の一様有限階評価](#lem-mqfc33-uniform-estimate)を今度は全空間上の $D$ に対し、固定コンパクト台 $\operatorname{supp}\chi$ で適用する。$\chi(y)\varphi(ry)$ の有限階微分は $r\le1$ で一様有界なので、
+
+$$
+|\langle D,\varphi\rangle|\le C_\varphi r^{d-q}.
+$$
+
+$q<d$ だから $r\downarrow0$ で右辺は零になる。左辺は $r$ に依存しないので零であり、$D=0$ が従う。
 <!-- proof-end -->
 
 ## 6. 整数境界と自由度
 
-$d=4$ なら $s=3.9$ のときは減算不要、$s=4$ では定数項まで、$s=4.9$ でも定数項まで、$s=5$ では一次項まで引く。重要なのは $d+m+1>s$ が厳密な不等号である点である。例えば $s=4$ に対して $m=-1$ とすると指数 $d-q=4-q$ は $q>4$ のため負になり、前節の幾何級数の論証が成立しない。実際、$|x|^{-4}$ の単位球上の積分は四次元で $\int_0^1 dr/r$ となり発散する。
+四次元の例では、$s=3.9$ のときは減算不要、$s=4$ と $s=4.9$ では定数項まで、$s=5$ では一次項まで引く。
 
-$s\ge d$ のときは一意性を失う。定理で得た $T$ に $c\delta$ を加えても原点外の作用は変わらない。[デルタ導関数のスケーリング次数](../MQFC32/index.md#prop-mqfc32-delta-degree)は $\operatorname{sd}(\delta)=d$ を与える。任意の $\omega>s\ge d$ で両項の規格化した作用は零に収束するから、和の次数は $s$ 以下である。延長の次数の下界と合わせて正確に $s$ になる。$|\alpha|\le m$ であれば $\partial^\alpha\delta$ も次数 $d+|\alpha|\le s$ のため同じ議論ができる。
+重要なのは $d+m+1>s$ が厳密な不等号である点である。例えば $s=4$ に対して $m=-1$ とすると、環の和の指数は
+
+$$
+d-q=4-q<0
+$$
+
+となり、前節の幾何級数の論証が成立しない。実際、$|x|^{-4}$ の単位球上の積分は四次元で動径積分 $\int_0^1 dr/r$ を含み、発散する。
+
+$s\ge d$ のときは一意性を失う。定理で得た $T$ に $c\delta$ を加えても原点外の作用は変わらない。[デルタ導関数のスケーリング次数](../MQFC32/index.md#prop-mqfc32-delta-degree)は次を与える。
+
+$$
+\operatorname{sd}(\delta)=d.
+$$
+
+任意の $\omega>s\ge d$ で両項の規格化した作用は零に収束する。従って和の次数は $s$ 以下であり、延長の次数の下界と合わせて正確に $s$ になる。
+
+さらに $|\alpha|\le m$ であれば、
+
+$$
+\operatorname{sd}(\partial^\alpha\delta)=d+|\alpha|\le s
+$$
+
+である。従ってこれらのデルタ導関数を加えても、同じ次数を保つ。
 
 例えば $s=d$ で一階デルタ導関数を非零の係数で追加すると、[スケーリング次数の演算則](../MQFC32/index.md#prop-mqfc32-degree-rules)の異なる次数の場合の等号により次数は $d+1$ になってしまう。こうした自由度の完全な分類には、原点だけに支持を持つ分布の構造が必要になる。次講でその分類を証明する。
 
@@ -471,7 +553,13 @@ $$
 \end{aligned}
 $$
 
-$\chi-\eta$ は原点のある近傍で零であり、コンパクト台を持つから最後の積分は有限な定数 $c$ である。[Dirac のデルタ超関数](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-dirac)の作用は $\varphi(0)$ だから $T_\eta-T_\chi=c\delta$ である。符号は「新しい減算関数を引く」ため $\chi-\eta$ となる。例えば $\eta(x)=\chi(x/2)$ なら第3節の計算で $\lambda=1/2$ として $c=-2\log 2$ になる。
+$\chi-\eta$ は原点のある近傍で零であり、コンパクト台を持つから最後の積分は有限な定数 $c$ である。[Dirac のデルタ超関数](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-dirac)の作用は $\varphi(0)$ だから、
+
+$$
+T_\eta-T_\chi=c\delta.
+$$
+
+符号は「新しい減算関数を引く」ため $\chi-\eta$ となる。例えば $\eta(x)=\chi(x/2)$ なら第3節の計算で $\lambda=1/2$ として $c=-2\log 2$ になる。
 <!-- solution-end -->
 
 ### 演習 MQFC33-C1：四次元の臨界核
@@ -531,7 +619,11 @@ $$
 
 $\omega>4$ なら $\lambda^{\omega-4}$ と $\lambda^{\omega-4}\log\lambda$ は零へ収束する。原点を除く核は非零で斉次次数 $-4$ だから[斉次分布のスケーリング次数](../MQFC32/index.md#thm-mqfc32-homogeneous-degree)により元の次数は4。第1節の延長の次数の下界と合わせて $\operatorname{sd}(T)=4$ となる。
 
-[デルタ導関数のスケーリング次数](../MQFC32/index.md#prop-mqfc32-delta-degree)から $\delta$ は次数4、$\partial_1\delta$ は次数5である。[スケーリング次数の演算則](../MQFC32/index.md#prop-mqfc32-degree-rules)で和の上界を使うと $\operatorname{sd}(T+c\delta)\le4$、原点外の作用は変わらないので下界も4。一方、異なる次数の和 $T+b\partial_1\delta$ の次数は5となる。両者とも延長だが、前者だけが次数を保つ。
+[デルタ導関数のスケーリング次数](../MQFC32/index.md#prop-mqfc32-delta-degree)から $\delta$ は次数4、$\partial_1\delta$ は次数5である。
+
+[スケーリング次数の演算則](../MQFC32/index.md#prop-mqfc32-degree-rules)で和の上界を使うと $\operatorname{sd}(T+c\delta)\le4$ となる。原点外の作用は変わらないので下界も4である。
+
+一方、異なる次数の和 $T+b\partial_1\delta$ の次数は5となる。両者とも延長だが、前者だけが次数を保つ。
 <!-- solution-end -->
 
 ## 8. 次の講義
