@@ -20,3 +20,4 @@
 17. [MMX17 no-ports側の一様宛先下界：距離表の凸性・minimax・条件付きentropy・平方根log評価](textbook/volumes/dream_thater/計算系/MMX/MMX17/index.md)
 18. [MMX18 ports側のリスト下界：oracle descentとbatch下界の合成、$1\le t\le2^w$ の一様性とパラメータ選択](textbook/volumes/dream_thater/計算系/MMX/MMX18/index.md)
 19. [MMX19 臨界tripodの腕とラベルrate、rectangular decoderと多項式乗算のrigidity、比 $6/(8/3)=9/4$ の位置づけ](textbook/volumes/dream_thater/計算系/MMX/MMX19/index.md)
+20. [MMX20 valued・motion：付値・衝突・極限、siteの動きからhomogeneous tripodへの帰着](textbook/volumes/dream_thater/計算系/MMX/MMX20/index.md)
