@@ -1,0 +1,25 @@
+id: MQFC44
+title: "ゲージ対称性とBRST複体"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC37, MQFC38, QFT28, QFT29]
+official_scope: []
+learning_objectives:
+  - ghost数と奇の積則から局所場の変換を計算できる
+  - Jacobi恒等式と奇の積則を使って多項式上の冪零性を導出できる
+  - 自由部分と非線形部分の反交換関係を導出できる
+  - 二重項の縮約から曲率密度の非零の類を判定できる
+definitions:
+  - { id: MQFC44-DEF-01, name: "局所場の次数付き多項式代数" }
+  - { id: MQFC44-DEF-02, name: "BRST変換の自由・非線形分解" }
+theorems:
+  - { id: MQFC44-THM-01, name: "局所多項式上のBRST冪零性" }
+  - { id: MQFC44-PROP-01, name: "BRST自由部分と非線形部分の反交換関係" }
+  - { id: MQFC44-THM-02, name: "BRST二重項の縮約" }
+  - { id: MQFC44-PROP-02, name: "曲率二次密度のBRST類" }
+canonical_examples: [微分を含むghost数, SU(2)のghost, 補助場の二乗, 曲率二次密度]
+problem_patterns: [MQFC44-A1, MQFC44-A2, MQFC44-A3, MQFC44-A4, MQFC44-B1, MQFC44-B2, MQFC44-B3, MQFC44-B4, MQFC44-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }

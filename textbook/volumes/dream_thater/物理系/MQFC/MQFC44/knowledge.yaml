@@ -1,0 +1,36 @@
+chapter: MQFC44
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC37, MQFC38, QFT28, QFT29]
+forward_references: []
+concepts:
+  - id: mqfc.graded-local-polynomial-algebra
+    name: "局所場の次数付き多項式代数"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.local-functional, qft.nonabelian-brst]
+  - id: mqfc.brst-jet-nilpotency
+    name: "局所多項式上のBRST冪零性"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.graded-local-polynomial-algebra, qft.brst-nilpotency]
+  - id: mqfc.brst-free-interaction-split
+    name: "BRST変換の自由・非線形分解"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.graded-local-polynomial-algebra, qft.nonabelian-brst]
+  - id: mqfc.brst-split-relations
+    name: "BRST自由部分と非線形部分の反交換関係"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.brst-free-interaction-split, mqfc.brst-jet-nilpotency]
+  - id: mqfc.brst-doublet-contraction
+    name: "BRST二重項の縮約"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.brst-jet-nilpotency, qft.brst-cohomology]
+  - id: mqfc.brst-curvature-class
+    name: "曲率二次密度のBRST類"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.brst-doublet-contraction, qft.yang-mills-bianchi]
