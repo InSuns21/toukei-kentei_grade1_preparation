@@ -1,6 +1,6 @@
 # DREAM THEATER 岩澤理論・保型形式／保型表現・リーマン予想（履修ルート）
 
-設計初版: 2026-11-21 JST／改訂: 2026-11-26 JST  
+設計初版: 2026-11-21 JST／改訂: 2026-11-28 JST  
 状態: 4系列を横断する設計。**現行案100講（ANF22・IWA20・AFR24・RHP34）**。ANF22講・IWA20講は完了、AFR24講は完了、RHPは設計段階。横断ルート自身は講義を所有しない。  
 正本: [ANF 22講](../plan_done/DREAM_THEATER_ALGEBRAIC_NUMBER_THEORY_CLASS_FIELD_THEORY_PLAN.md)、[IWA 20講](../plan_done/DREAM_THEATER_IWASAWA_THEORY_PLAN.md)、[AFR 24講](../plan_done/DREAM_THEATER_AUTOMORPHIC_FORMS_REPRESENTATIONS_PLAN.md)、[RHP 34講](DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md)。
 
@@ -134,6 +134,12 @@ RHPは未着手なので旧23講から34講へ再構成。解析5、CM・theta7�
 [Sernau／Anthropicによる短縮版](https://github.com/lsernau/grh-lean/tree/72fead102f663d5c7a407964a13dc0cf9d977207)（可読版約30万コード行、compact版約7.6万コード行）は同じRH・Dirichlet GRHの5命題を証明する再実装。原著者の方法を継承するが別論証も含む。Lean v4.35.0／Mathlib 56a005855ea17e0b0958f73ec801ae140b0a1679。作成者がbuild・3公理・Comparator受理等を報告しているが、この版の独立した人間による通読査読は未了。原Alpöge版の独立検証結果を新実装にそのまま転用しない。
 
 RHPでは可読版のGUIDE・INDEX・実際の定理型を形式証明読解の第一候補とする。短い持上げ・小さい指数（A）、十分な張る形式（B）、積公式からの共体積下界（C）を `star_inequality` と片側素数冪和評価へつなぐ。旧稿の(M)、A1〜A7、H0〜H12と番号だけで同一視しない。compact版は別証明比較、原版は検証記録・由来の追跡、Rubinstein／Adriazolaは自然言語の学習導線に使用する。K1の別経路の同値・採用は未確認。各講への参照と公理・引用の監査は[RHP PLAN](DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md)を正本とし、今回は34講、全体100講を維持する。
+
+### 2.8 2026-11-28更新：自然言語版と形式証明の対応資料
+
+[Ye Yuの固定版](https://github.com/sdyy1990/riemann-hypothesis/tree/5edf43ce39c068fec64e0cc122e9cbdcec343b24)はSernau可読版の自然言語解説（英語43頁、中国語38頁）とLean対応表（56頁）を提供する。個人のGemini利用による解説で、Google公式研究ではない。RHPでは自然言語の導入とLeanへの索引に採用し、定理の型・仮定・中間式・原典を照合して執筆する。43頁の自己完結性やAI監査の合格を数学者による全件査読と同一視しない。特にProposition 1.3のガンマ因子の極と逆数の零点の区別、Thms 7.4–7.5の圧縮された分母・Selmer・Kisin加群の論証を再構成する。
+
+[11/27の可読版再ビルドログ](https://github.com/sdyy1990/riemann-hypothesis/blob/5edf43ce39c068fec64e0cc122e9cbdcec343b24/grh_source_verify.log)は803モジュール、27:30.70、5命題の標準3公理、leanchecker Mainの終了0を報告。上流HEADはログで未確認であり、固定コミットの厳密な一致、別実装kernelによる短縮版の再検証、自然言語稿の専門家査読とは区別する。原版con-lecheログは原版の検証として扱う。講義別参照と数学的ゲートは[RHP PLAN](DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md)を正本とする。RHP34講・全体100講を維持し、未着手状態も変更しない。
 
 ## 3. 実装・査読・状態遷移
 
