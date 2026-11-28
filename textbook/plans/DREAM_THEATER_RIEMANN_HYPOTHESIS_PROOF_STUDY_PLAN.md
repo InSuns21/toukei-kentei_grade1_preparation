@@ -1,6 +1,6 @@
 # DREAM THEATER Riemann予想・Dirichlet GRH形式証明の数学的再構成（RHP1〜RHP34）
 
-設計初版: 2026-11-23 JST / 文献更新: 2026-11-26 JST（Sernau短縮Lean二版、Adriazola 11/24版、Rubinstein v2、MIT 11/24更新）  
+設計初版: 2026-11-23 JST / 文献更新: 2026-11-28 JST（Yu自然言語版・Lean対応表・第三者再ビルド報告、Sernau短縮Lean二版、Adriazola、Rubinstein）  
 状態: **未着手・計画上34講**（独立研究講読）。章本文・`chapter.yaml`・`knowledge.yaml`・系列manifestは未作成。証明の自然言語化の進展で講義数を変更してよい。  
 系列ID: `RHP`。分類: 代数系／解析系を横断する数学研究講読。  
 履修ルート: [岩澤理論・保型表現・RH研究ルート](DREAM_THEATER_IWASAWA_AUTOMORPHIC_RH_ROUTE_PLAN.md)。
@@ -107,6 +107,40 @@
 
 RHPの証明責務表は原版Lean・可読版・compact版・Rubinstein・Adriazolaの列を区別する。短縮版で論証が変更された場合、原版の未再構成補題を自動的に解決済みとせず、同じ型を証明する別経路か、必要な中間命題自体が変わったかを判定する。可読版のコメントとGUIDEもLean kernelによる検査対象ではないので、実際の型と証明を優先する。
 
+
+### 2026-11-28更新：Ye Yuの自然言語版・Lean対応表と再検証記録
+
+[公開リポジトリの固定版](https://github.com/sdyy1990/riemann-hypothesis/tree/5edf43ce39c068fec64e0cc122e9cbdcec343b24)（2026-11-27 21:49:23 UTC／11-28 06:49:23 JST）。Ye YuがGeminiを用いて個人として作成したMITライセンスの解説・対応資料で、Googleの公式研究・承認ではない。Sernau可読版を自然言語に写す試みであり、原証明の別個の発見や適用範囲の拡張ではない。
+
+| 資料 | RHPでの用途 |
+|---|---|
+| [Part 1 英語43頁PDF](https://github.com/sdyy1990/riemann-hypothesis/blob/5edf43ce39c068fec64e0cc122e9cbdcec343b24/GRH_Proof_EN.pdf)・[Markdown正本](https://github.com/sdyy1990/riemann-hypothesis/blob/5edf43ce39c068fec64e0cc122e9cbdcec343b24/GRH_Proof_EN.md) | §§1–7の自然言語による全体導線。A/B/C、主不等式、片側評価のつながりを先に把握 |
+| [Part 1 中国語38頁PDF](https://github.com/sdyy1990/riemann-hypothesis/blob/5edf43ce39c068fec64e0cc122e9cbdcec343b24/GRH_Proof_ZH.pdf) | 用語・訳の比較補助 |
+| [Part 2 56頁PDF](https://github.com/sdyy1990/riemann-hypothesis/blob/5edf43ce39c068fec64e0cc122e9cbdcec343b24/GRH_Lean4_Correspondence.pdf)・[Markdown正本](https://github.com/sdyy1990/riemann-hypothesis/blob/5edf43ce39c068fec64e0cc122e9cbdcec343b24/GRH_Lean4_Correspondence.md) | 数学記号とLean識別子の対応、New 306ファイルと背景Lib 495ファイル（16分野）の索引、検証の参照。対応表は定理型・実際の証明で確認 |
+| [AUDIT_NOTES](https://github.com/sdyy1990/riemann-hypothesis/blob/5edf43ce39c068fec64e0cc122e9cbdcec343b24/AUDIT_NOTES.md) | 生成・監査セッションの指摘と修正の履歴。専門家による独立した数学査読の代替にしない |
+| [README](https://github.com/sdyy1990/riemann-hypothesis/blob/5edf43ce39c068fec64e0cc122e9cbdcec343b24/README.md)・[原版con-lecheログ](https://github.com/sdyy1990/riemann-hypothesis/blob/5edf43ce39c068fec64e0cc122e9cbdcec343b24/option_a_verify.log)・[可読版ビルドログ](https://github.com/sdyy1990/riemann-hypothesis/blob/5edf43ce39c068fec64e0cc122e9cbdcec343b24/grh_source_verify.log) | 二つの検証経路を区別して再現性を評価 |
+
+頁数は公開READMEの記載による。自然言語版の本文は対応するMarkdownソースで確認。43頁の自己完結性は著者の主張であり、教材の完成条件として無条件に受け入れない。例えばPart 1 Proposition 1.3(b)はガンマ因子自体の零点と極における逆数の零点を混同する書き方がある。通常の有理型ガンマ因子は零点を持たず非正偶整数で極を持つ。RHP1では原始指標の関数等式、非原始指標の有限Euler因子（臨界帯で非零）、ζの極と自明零点、逆ガンマ因子を区別して証明する。これは説明上の問題であり、Lean定理の反証ではない。またTheorems 7.4–7.5はRibet/Taylor–Wilesの分母評価、補助素点によるSelmer長さの減少、Kisin加群の局所評価などを短い段落に圧縮しており、学習者がそのまま全論証を再現できるとはみなさない。
+
+| RHP担当 | Part 1／Part 2の参照・具体的な学修責務 |
+|---|---|
+| RHP1〜5 | Part 1 §§1–2,4、Part 2 §§2.1–2.2,2.4：原始化・極・Mellin極・二次twistによる分離・Landauの片側判定。Thm 4.2の計算はまず条件付きで示す |
+| RHP6〜12 | Part 1 §§3.1–3.2,5.1–5.2、Part 2 §§2.3,2.5：CMデータ、Behrend疎集合、形式群のjet、付値sharpness、seesawの鎖と階数の整合 |
+| RHP13〜17 | Part 1 §§5.3–5.4,6、Part 2 §§2.5–2.6：Schur/Pieriと基本因子、第二モーメント、離散系列のギャップ、Petersson展開、Kloosterman/Poisson型大篩、greedyによる被覆を段階的に再現 |
+| RHP18〜22 | Part 1 §§3.3,7.1–7.2,7.4、Part 2 §§2.3,2.7：twisted lattice積公式、Gram行列式・指数の2倍、補完基底、鎖行列式の因数分解、false liftの除去と比較作用素・高さ |
+| RHP23〜27 | Part 1 §§7.2–7.3（特にThms 7.4–7.5）、Part 2 §2.7：Fitting/Ribet分母評価、Taylor–Wiles補助素数、反円分twist、Stickelberger系、Selmer降下、結晶的拡大とKisin加群。外部定理の仮定・局所長さを明示 |
+| RHP28〜29 | K1代替案（Adriazola §17.4.3）は別経路のまま。Yu §7.3に現れる偶成分・補助素数の処理が同じH²評価を必要とするか、実際のLean依存から判定する |
+| RHP30〜32 | Part 1 §§3–4,7.4、Part 2 §§2.3–2.4,2.7：許容データ、A/B/Cの組立て、主項相殺、誤差と量化、旧稿のA1〜A7/H0〜H12との比較 |
+| RHP33〜34 | Part 2 §§1–4と検証ログ：背景定理・記号・型の照合、機械検証と数学的再構成を区別 |
+
+特にRHP31ではPart 1 Thm 4.2の組立てを可読版の `New.star_inequality` と照合する。短い形式の独立族の個数をn、対象次元をd_Tとし、n≥(1−4/b²)d_T、L=fa(log b)^4、E=fa(log b)^3、I₀=10log(1+2b²)E とする。A/Bから c≤n(M−m rem+L)、δ≤d_T I₀、Cから d_T(M−3L)≤c+2δ を得る。M+L≥0、n≤d_Tを使って n m rem≤d_T(4L+2I₀)。bの下限から d_T≤2n を確認し、8L+4I₀≤fa(log b)^5 を許容データの実際のスケール条件で示す。n>0で除して主不等式を得る。各記号の定義・上界の仮定・定数の比較を省略しない。
+
+#### 機械検証の追加エビデンス（11/28）
+
+- Path A（11/21 04:09–04:48 UTC）：原版exportに対する別実装 `con-leche --compare`、32 CPU・251 GiB、solution 1,468,418宣言／challenge 51,692宣言、14:15.58、peak RSS 44.57 GiB、5命題受理、終了0を公開ログで確認。原版の検証であって短縮版の独立kernel検査ではない。
+- Path B（11/27 21:07–21:37 UTC）：Sernau可読版を別作成者がMathlibキャッシュを使いソースから `lake build`（32 CPU、約125 GiB RAM、27:30.70、単一プロセス最大RSS 10.89 GiB、803 .olean）、`PrintAxioms`（5命題に標準3公理のみ）、`leanchecker Main`（8.23秒）を実行し、各終了0と記録。Lean v4.35.0、Mathlib 56a005855ea17e0b0958f73ec801ae140b0a1679。ログからcloneした上流のHEAD SHAは確認できないため、固定したSernauコミットとバイト同一と断定しない。これは第三者による再ビルド・Lean kernel replayの報告であり、別実装kernelによる短縮版再検証や自然言語稿の独立査読とは異なる。compact版の再検証でもない。
+- 原版、短縮版、Yuの説明・対応表を別の版として記録し、Yuの監査指摘が解消したことをもってAdriazola §18.7の個別責務やK1を自動的に閉じない。原典照合・実際の型・中間計算が必要。RHPは可読版を形式証明の参照、YuのPart 1を全体の読解入口、Part 2を索引、Adriazola/Rubinsteinを詳しい補助資料として使う。講数は34を維持し、執筆時に核心論証が分割を要する場合のみ再設計する。
+
 ## 3. 全34講の中心問いと証明責務
 
 初版の1〜5講の解析的出口を保ち、旧6〜23講を再配置・分割する。RHPは未着手でmanifestが未作成なので、実装済み章のIDは改名しない。以下の節番号はAdriazola 11/24固定版、H番号はRubinstein v2である。
@@ -202,7 +236,7 @@ RHPの証明責務表は原版Lean・可読版・compact版・Rubinstein・Adria
 ### 5.2 教材品質と形式検証
 
 1. **数学の再構成:** 定義を使用前に導入し、各主要定義の条件を直接例で確認し、仮定・結論と中間式を閉じる。§18.7やK1の未証明入力は明確に残す。主要証明を完了扱いするために「Leanが証明した」を人間向けの証明の代わりにしない。
-2. **形式検証:** 原著者14分割アーカイブ、結合tar.gz SHA-256 `9631b4f020199e580ba86178cb56c6e9b09f690c2369a80dc4334aa93f49c7fc`、Lean v4.33.1、Mathlib 0df444a3、標準公理 propext・Classical.choice・Quot.sound。MIT 11/24更新ではLean通常/paranoid kernel、Comparator v4.33.0、独立kernel・statement matching・sandbox exportの一致を確認済み、v4.36.0のlake comparatorは当時実行中。受講者に17M行の全再ビルドを課さず小規模例を用いる。11/26公開の可読版／compact版は別の環境での実装・検証報告として記録し、同版についての独立第三者検証を確認したとは扱わない。Challengeのsorryは比較用であり、実際の証明の依存閉包に含まれないことを確認する。
+2. **形式検証:** 原著者14分割アーカイブ、結合tar.gz SHA-256 `9631b4f020199e580ba86178cb56c6e9b09f690c2369a80dc4334aa93f49c7fc`、Lean v4.33.1、Mathlib 0df444a3、標準公理 propext・Classical.choice・Quot.sound。MIT 11/24更新ではLean通常/paranoid kernel、Comparator v4.33.0、独立kernel・statement matching・sandbox exportの一致を確認済み、v4.36.0のlake comparatorは当時実行中。受講者に17M行の全再ビルドを課さず小規模例を用いる。11/26公開の可読版／compact版は別の環境での実装・検証報告として記録し、11/28追記のYuによる可読版の第三者再ビルド・Lean kernel replay報告を別途記録する。上流HEADの厳密な一致と短縮版の独立別実装kernelによる再検証は確認していない。Challengeのsorryは比較用であり、実際の証明の依存閉包に含まれないことを確認する。
 3. **K1:** §17.4.3は認証済み元Lean証明とは別経路。引用されるK理論・étale比較・安定性・Hurewiczの原典を実際に照合し、逆極限とp=2,3、定数の絶対性を再計算する。成功するまで代替案を定理として教材に採用しない。原Lean経路と独立の責務表を持つ。
 4. **演習:** A4/B3/C1は下限。Mellin・付値・Fock形式・Smith余長・Gram行列・Arakelov次数・合同イデアル・Kummer列・有限アーベルp群の位数・セル境界行列の捩れ・誤差の釣合いなど、各講の主要論証を自力再現できる問題と詳細解答を設計する。既存章の問題を転載しない。
 5. **査読:** 新規講義は区分C。全主要証明・全演習の再計算、別観点からの再読、初出語・参照の検証を実施。第三者独立査読をしていないなら称さない。一般Hecke/保型L関数や非Abel数体のGRHへの無条件拡張を避ける。
@@ -211,4 +245,4 @@ RHPの証明責務表は原版Lean・可読版・compact版・Rubinstein・Adria
 
 RHPは設計改訂のみで未着手のためplansに保持。着手時にplans_progressへ移動し、RHP.yamlにRHP1〜34をplannedとして登録し、本文・メタデータ・査読・CI完了時のみcompletedにする。全講と横断監査完了時にplan_doneへ移す。講数は数学的証明のまとまりを基準に再評価してよく、実装後は既存IDを保護しつつ必要な追加・分割と参照同期を行う。
 
-**現行34講（11/26改訂でも維持）**。短縮版は同じ定理の形式証明と読解資料なので、追加の数学的中心問いが確定するまでは講数を増やさず、各講の証明ゲートを強化する。Sernau短縮版の比較査読、Adriazolaの次版、Rubinsteinの次版、専門家の原典照合・K1の検証結果が出れば、§18.7と責務表を版ごとに差分比較し、確かめられた論証だけを確定へ昇格させる。全体講数はANF22+IWA20+AFR24+RHP34=100講。
+**現行34講（11/28改訂でも維持）**。短縮版は同じ定理の形式証明と読解資料なので、追加の数学的中心問いが確定するまでは講数を増やさず、各講の証明ゲートを強化する。Yu自然言語版の原典・型照合、Sernau短縮版の比較査読、Adriazolaの次版、Rubinsteinの次版、専門家の原典照合・K1の検証結果が出れば、§18.7と責務表を版ごとに差分比較し、確かめられた論証だけを確定へ昇格させる。全体講数はANF22+IWA20+AFR24+RHP34=100講。
