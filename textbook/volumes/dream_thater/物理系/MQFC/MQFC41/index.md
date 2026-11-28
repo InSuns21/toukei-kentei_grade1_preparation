@@ -321,7 +321,7 @@ $$
 逆順に掛けても $iV\star a=V\star V$ であり、同じ二次係数が零になる。
 <!-- solution-end -->
 
-### 演習 MQFC41-A3：相対S行列の恒等式
+### 演習 MQFC41-A3：二段階の追加挿入を一段階にまとめる
 - Level: A
 
 $S_X(Y)\star S_{X+Y}(Z)=S_X(Y+Z)$ を示せ。
