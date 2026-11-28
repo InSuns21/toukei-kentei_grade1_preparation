@@ -14,7 +14,11 @@ $$
 
 場の配置空間は $C^\infty(M,\mathbb R)$ とし、まだ方程式を課さない。積分の密度は $d^4x$、複素数値の場合も対 $\langle f,u\rangle=\int_M fu$ は双線形とする。[遅延・先進Green作用素](../../../解析系/HPDE/HPDE18/index.md#def-hpde18-green-operators) はコンパクト支持の滑らかな源 $f$ をそれぞれ未来・過去に広がる滑らかな解へ送る。
 
-二つの解の差は [因果伝播子](../../../解析系/HPDE/HPDE21/index.md#def-hpde21-causal-propagator) $E=G_{\mathrm{ret}}-G_{\mathrm{adv}}$ である。自由作用の変分を $-P\phi$ とする。例えば $\partial_\mu$ は時空座標 $x^\mu$（$\mu=0,1,2,3$、$x^0=t$）の偏微分、$\partial^\mu=\eta^{\mu\nu}\partial_\nu$ は計量で添字を上げた微分とし、重複する上下添字は和を取る。作用密度を $-(\partial_\mu\phi\partial^\mu\phi+m^2\phi^2)/2$ とすると、コンパクト支持方向 $h$ に沿う一次変分は部分積分により
+二つの解の差は [因果伝播子](../../../解析系/HPDE/HPDE21/index.md#def-hpde21-causal-propagator) $E=G_{\mathrm{ret}}-G_{\mathrm{adv}}$ である。自由作用の変分を $-P\phi$ とする。
+
+例えば $\partial_\mu$ は時空座標 $x^\mu$（$\mu=0,1,2,3$、$x^0=t$）の偏微分とする。$\partial^\mu=\eta^{\mu\nu}\partial_\nu$ は計量で添字を上げた微分とし、重複する上下添字は和を取る。
+
+作用密度を $-(\partial_\mu\phi\partial^\mu\phi+m^2\phi^2)/2$ とすると、コンパクト支持方向 $h$ に沿う一次変分は部分積分により
 
 $$
 \begin{aligned}
@@ -33,7 +37,20 @@ $$
 Pv=G^{(1)}(\phi)
 $$
 
-となる。一次核が滑らかなコンパクト支持関数ならGreen作用素の定義域に入る。[遅延・先進Green作用素の構成と因果的支持](../../../解析系/HPDE/HPDE18/index.md#thm-hpde18-green-existence) で確かめた恒等式は $PG_{\mathrm{ret}}f=PG_{\mathrm{adv}}f=f$ である。ここで $f=G^{(1)}(\phi)$ を代入すると二つの応答は $v_{\mathrm{ret}}=G_{\mathrm{ret}}G^{(1)}$ と $v_{\mathrm{adv}}=G_{\mathrm{adv}}G^{(1)}$ である。観測量 $F$ の一次応答は $DF(\phi)[v]$ である。本講では先進応答から遅延応答を引く順序を採り、$K=-E$ と置く。これは [自由場の交換子条件](../../../解析系/MICA/MICA11/index.md#def-mica11-two-point-conditions) の符号に合わせた選択である。
+となる。一次核が滑らかなコンパクト支持関数ならGreen作用素の定義域に入る。[遅延・先進Green作用素の構成と因果的支持](../../../解析系/HPDE/HPDE18/index.md#thm-hpde18-green-existence) で確かめた恒等式は
+
+$$
+PG_{\mathrm{ret}}f=PG_{\mathrm{adv}}f=f
+$$
+
+である。ここで $f=G^{(1)}(\phi)$ を代入すると二つの応答は
+
+$$
+v_{\mathrm{ret}}=G_{\mathrm{ret}}G^{(1)}(\phi),\qquad
+v_{\mathrm{adv}}=G_{\mathrm{adv}}G^{(1)}(\phi)
+$$
+
+である。観測量 $F$ の一次応答は $DF(\phi)[v]$ である。本講では先進応答から遅延応答を引く順序を採り、$K=-E$ と置く。これは [自由場の交換子条件](../../../解析系/MICA/MICA11/index.md#def-mica11-two-point-conditions) の符号に合わせた選択である。
 
 まず滑らかな試験関数による平均 $L_f(\phi)=\int_M f\phi$ とその有限個の積・和を考える。このような多項式を円筒多項式と呼ぶ。各階の微分核は滑らかでコンパクト支持である。例えば $L_fL_g$ の一次核は $fL_g+gL_f$、二次核は $f\otimes g+g\otimes f$ となる。複素係数も許す。この場合の方向微分は実の場の方向に取り、実部と虚部の微分を複素線形にまとめる。応答差を積分で表すため、次の括弧を導入する。
 
@@ -246,7 +263,25 @@ $$
 
 そこで [マイクロ因果的汎関数](../MQFC37/index.md#def-mqfc37-microcausal) の条件を用いる。本講ではこのうち有限次数の多項式を扱う。具体的には、各次数の係数がコンパクト支持の対称分布 $u_d$ であり、$F(\phi)=\sum_{d=0}^D\langle u_d,\phi^{\otimes d}\rangle$ と書けるものとする。各 $u_d$ の波面が全成分同方向の因果錐を避けると仮定する。$d=0$ は定数項とし、波面条件は $d\ge1$ の核に課す。コンパクト支持分布はその台の近くで $1$ のカットオフを掛ければ滑らかな非コンパクト支持関数にも作用できる。
 
-[マイクロ因果的汎関数の定義](../MQFC37/index.md#def-mqfc37-microcausal) の錐を使い $C_-=\{k:k_0\le-|\boldsymbol k|\}$、$C_+=-C_-$ とする（零も含む）。計量双対が未来向きなのは $C_-$ 側である。[Hadamard波面集合条件](../../../解析系/MICA/MICA13/index.md#def-mica13-wfsc) を満たす $W$ の特異方向は $(k,l)$ で $k\in C_-\setminus0,\ l\in C_+\setminus0$ となる。以下ではこの包含だけで収縮の存在を示す。$WF$ は波面集合、$\mathcal E'(M^d)$ はコンパクト支持分布の空間である。[Hörmanderの分布積](../../../解析系/MICA/MICA6/index.md#thm-mica6-product-existence) は同じ基点において二つの波面方向が互いに逆向きになることがない場合に構成できる。ここで収縮する変数とは核 $W$ を掛けた後に積分（分布の作用）で消す変数のことである。
+[マイクロ因果的汎関数の定義](../MQFC37/index.md#def-mqfc37-microcausal) の錐を使い、次の二つの集合を用いる。
+
+$$
+C_-=\{k:k_0\le-|\boldsymbol k|\},\qquad C_+=-C_-.
+$$
+
+零も両方の錐に含まれる。計量双対が未来向きなのは $C_-$ 側である。
+
+[Hadamard波面集合条件](../../../解析系/MICA/MICA13/index.md#def-mica13-wfsc) を満たす $W$ の特異方向 $(k,l)$ は
+
+$$
+k\in C_-\setminus0,\qquad l\in C_+\setminus0
+$$
+
+を満たす。以下ではこの包含だけで収縮の存在を示す。
+
+$WF$ は波面集合、$\mathcal E'(M^d)$ はコンパクト支持分布の空間である。
+
+[Hörmanderの分布積](../../../解析系/MICA/MICA6/index.md#thm-mica6-product-existence) は同じ基点において二つの波面方向が互いに逆向きになることがない場合に構成できる。ここで収縮する変数とは核 $W$ を掛けた後に積分（分布の作用）で消す変数のことである。
 
 <a id="prop-mqfc38-microcausal-contraction"></a>
 
@@ -391,7 +426,15 @@ $$
 X^2\star_W Y^2=X^2Y^2+4\hbar XYw+2\hbar^2w^2.
 $$
 
-逆順では $w$ を $W(g,f)$ へ替える。$c=\langle f,Kg\rangle$ と置けば一次の差 $4i\hbar XYc$ が得られる。[Peierls括弧](#def-mqfc38-peierls) に一次核を代入すると $\{X^2,Y^2\}=\langle 2Xf,K(2Yg)\rangle=4XYc$ であり、交換子の一次係数と対応する。
+逆順では $w$ を $W(g,f)$ へ替える。
+
+$c=\langle f,Kg\rangle$ と置けば一次の差 $4i\hbar XYc$ が得られる。[Peierls括弧](#def-mqfc38-peierls) に一次核を代入すると
+
+$$
+\{X^2,Y^2\}=\langle 2Xf,K(2Yg)\rangle=4XYc
+$$
+
+となり、交換子の一次係数と対応する。
 <!-- solution-end -->
 
 ### 演習 MQFC38-B2：三因子の結合性
