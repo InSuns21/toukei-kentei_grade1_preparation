@@ -225,7 +225,7 @@ $$
 zv_i=\sum_{j=1}^N M_{ij}v_j,\qquad M_{ij}\in D
 $$
 
-と書く。$M=(M_{ij})\in D^{N\times N}$ は $z$ を掛けた結果を生成元で表すために選んだ係数行列であり、基底表示とは限らない。$V=(v_1,\ldots,v_N)^{\mathsf T}$、$I_N$ を $N$ 次単位行列とすると $(zI_N-M)V=0$ である。[有限生成加群による代数的整数の判定](../../../代数系/TRN/TRN1/index.md#thm-trn1-integrality-criterion)の証明と同じく、余因子を転置して作る随伴行列を左から掛ける。行列式の余因子展開により
+と書く。$M=(M_{ij})\in D^{N\times N}$ は $z$ を掛けた結果を生成元で表すために選んだ係数行列であり、基底表示とは限らない。$V=(v_1,\ldots,v_N)^{\mathsf T}$、$I_N$ を $N$ 次単位行列とすると $(zI_N-M)V=0$ である。[有限生成加群による代数的整数の判定](../../../代数系/TRN/TRN1/index.md#thm-trn1-integrality-criterion)の証明と同じく、余因子を転置して作る随伴行列を左から掛ける。体 $E$ 上の行列に対する [Laplace 展開](../../../基礎科目/LA/LA3C/index.md#thm-la3c-laplace-expansion) により
 
 $$
 \operatorname{adj}(zI_N-M)(zI_N-M)
