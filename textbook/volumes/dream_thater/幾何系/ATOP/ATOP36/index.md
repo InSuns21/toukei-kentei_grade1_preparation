@@ -287,7 +287,7 @@ $$
 
 ## 6. トーラスで符号を読む
 
-閉向き付きトーラス $T^2=S^1\times S^1$ を考えます。二方向に一周するサイクルを $x,y$ とし、それぞれの方向を測る1次のコホモロジー類を $a,b$ とします。[トーラスの整数係数コホモロジー環](../ATOP32/index.md#thm-atop32-torus-ring) により $a\smile b$ は2次の生成元、$b\smile a=-a\smile b$、$a^2=b^2=0$ です。$a(x)=b(y)=1,a(y)=b(x)=0$ となる基底を使います。最高次群は自由で、評価が同型なので $\langle a\smile b,[T^2]\rangle=1$ となる向きを選びます。
+閉向き付きトーラス $T^2=S^1\times S^1$ を考えます。積の角度座標の重なりは各座標での平行移動なので、標準の向きは整合します。二方向に一周するサイクルを $x,y$ とし、それぞれの方向を測る1次のコホモロジー類を $a,b$ とします。[トーラスの整数係数コホモロジー環](../ATOP32/index.md#thm-atop32-torus-ring) により $a\smile b$ は2次の生成元、$b\smile a=-a\smile b$、$a^2=b^2=0$ です。$a(x)=b(y)=1,a(y)=b(x)=0$ となる基底を使います。[ホモロジーのKünneth公式](../ATOP30/index.md#thm-atop30-kunneth-homology) により $H_1=\mathbb Z x\oplus\mathbb Z y$、$H_2=\mathbb Z$ です。$H_1$ が自由なので [コホモロジーの普遍係数定理](../ATOP29/index.md#thm-atop29-cohomology-uct) の $H^2$ から $H_2$ への評価は同型となり、$\langle a\smile b,[T^2]\rangle=1$ となる向きを選びます。
 
 [cup積とcap積の評価関係](../ATOP35/index.md#thm-atop35-cup-evaluation) から
 
@@ -350,7 +350,7 @@ $X=\mathbb R$、$K=[0,1]$、$L=[-1,2]$ とする。$H^1(X,X\setminus K;\mathbb Z
 <!-- solution-start -->
 **詳細解答**
 
-円周は閉向き付き1次元多様体で $H_0=H_1=\mathbb Z$ です。[Poincaré双対性](#thm-atop36-poincare-duality) により $H_c^0=H_1=\mathbb Z,H_c^1=H_0=\mathbb Z$（同型として記述）です。閉多様体なので通常の群と一致します。直線は可縮なので [特異コホモロジーのホモトピー不変性](../ATOP28/index.md#thm-atop28-homotopy) より通常の $H^0=\mathbb Z,H^1=0$ です。[Euclid空間のコンパクト支持双対性](#lem-atop36-local-duality) から $H_c^0=0,H_c^1=\mathbb Z$ となります。
+円周は閉向き付き1次元多様体です。[胞体ホモロジー定理](../ATOP22/index.md#thm-atop22-cellular-comparison) で0胞体と1胞体が各一つ、境界は零なので $H_0=H_1=\mathbb Z$ です。[Poincaré双対性](#thm-atop36-poincare-duality) により $H_c^0=H_1=\mathbb Z,H_c^1=H_0=\mathbb Z$（同型として記述）です。閉多様体なので通常の群と一致します。直線は可縮なので [特異コホモロジーのホモトピー不変性](../ATOP28/index.md#thm-atop28-homotopy) より通常の $H^0=\mathbb Z,H^1=0$ です。[Euclid空間のコンパクト支持双対性](#lem-atop36-local-duality) から $H_c^0=0,H_c^1=\mathbb Z$ となります。
 <!-- solution-end -->
 
 <a id="ex-atop36-a4"></a>
