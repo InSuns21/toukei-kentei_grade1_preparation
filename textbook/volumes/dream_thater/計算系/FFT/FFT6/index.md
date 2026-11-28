@@ -268,7 +268,7 @@ $$
 
 ## 4. 定数改善と対数指数改善を区別する
 
-2026年9月25日の [An explicit power saving for the exact discrete Fourier transform](https://github.com/openai/math/tree/main/preprints/An-explicit-power-saving-for-the-exact-discrete-Fourier-transform-September-25-2026) は、すべての長さについて $O(n(\log n)^{1-10^{-13}})$ 時間の厳密な複素DFTアルゴリズムを報告しています。係数に上限を課さず、指定された1の根を供給し、複素体演算と対数ビット長の整数アドレス操作を単位費用とします。スカラーの準備・添字処理も数えますが、複素数の精度やビット長を制限しません。同日の [Finite tensor savings and exact Fourier circuits](https://github.com/openai/math/tree/main/preprints/Finite-tensor-savings-and-exact-Fourier-circuits-September-25-2026) は、有限テンソルの節約から非一様な部分列での回路改善を得る議論を与えています。固定の小さな節約を反復することと、任意長で準備や添字処理も含む一つのアルゴリズムを構成することは別の課題です。
+2026年9月25日の [厳密な巡回変換の指数改善に関する論文](https://github.com/openai/math/tree/main/preprints/An-explicit-power-saving-for-the-exact-discrete-Fourier-transform-September-25-2026) は、すべての長さについて $O(n(\log n)^{1-10^{-13}})$ 時間の厳密な複素数体上の[巡回Fourier変換](../FFT1/index.md#def-fft1-field-dft)アルゴリズムを報告しています。係数に上限を課さず、指定された1の根を供給し、複素体演算と対数ビット長の整数アドレス操作を単位費用とします。スカラーの準備・添字処理も数えますが、複素数の精度やビット長を制限しません。同日の [Finite tensor savings and exact Fourier circuits](https://github.com/openai/math/tree/main/preprints/Finite-tensor-savings-and-exact-Fourier-circuits-September-25-2026) は、有限テンソルの節約から非一様な部分列での回路改善を得る議論を与えています。固定の小さな節約を反復することと、任意長で準備や添字処理も含む一つのアルゴリズムを構成することは別の課題です。
 
 $0<\delta<1$ と置くと
 
