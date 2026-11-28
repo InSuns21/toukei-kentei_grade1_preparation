@@ -6,11 +6,17 @@
 
 ## 1. 挿入数で帰納する
 
-時空は $M=\mathbb R^{1+3}$、計量は $(-,+,+,+)$ とする。$x\preceq y$ は $y$ が $x$ の因果的未来にあることを表し、同一点も含む。[多点の部分対角](../MQFC36/index.md#def-mqfc36-partial-diagonal) のうち、全点が一致する集合を $D_n$ と書く。
+時空は $M=\mathbb R^{1+3}$、計量は $(-,+,+,+)$ とする。$x=(t_x,\boldsymbol x)$ と書き、$t_x$ は時刻、$\boldsymbol x$ は空間三座標とする。[全対角外の因果分割被覆](../MQFC31/index.md#thm-mqfc31-causal-cover) と同じく、光速を1として $x\preceq y$ は
 
-入力は実スカラー場の局所Wick多項式を滑らかなコンパクト支持関数で積分した挿入 $F_i$ とする。まず自由場の代数で積を取り、分布係数を延長する。積は [自由場のスター積](../MQFC38/index.md#def-mqfc38-star) であり、以下では $\star$ と略記する。$*$ は複素共役と積順序の反転を満たす随伴、すなわち $(a\star b)^*=b^*\star a^*$ である。実のWick多項式は $F_i^*=F_i$ を満たす。
+$$
+t_y-t_x\ge|\boldsymbol y-\boldsymbol x|
+$$
 
-点ごとの場は数値ではなく分布である。以下で $T_I$ と書くときは添字集合 $I$ に対応する時間順序積の分布核を意味し、試験関数を掛けて初めて値を取る。$T_\varnothing=1$、$T_{\{i\}}=F_i$（核の記法ではその局所密度）とする。添字の並べ替えで入力と位置を同時に交換しても結果が変わらない条件を対称性とする。
+を意味する。右辺は空間のEuclidノルムであり、同一点も含む。[多点の部分対角](../MQFC36/index.md#def-mqfc36-partial-diagonal) のうち、全点が一致する集合を $D_n$ と書く。
+
+入力は実スカラー場の局所Wick多項式を滑らかなコンパクト支持関数で積分した挿入 $F_i$ とする。まず自由場の代数で積を取り、分布係数を延長する。積は [自由場のスター積](../MQFC38/index.md#def-mqfc38-star) であり、以下では $\star$ と略記する。収縮核を $W$、収縮数を数える形式変数を $\hbar$ とする。時間順序積の収縮核 $D$ は [時間順序核のGreen作用素表示](../MQFC39/index.md#prop-mqfc39-feynman-green) の対称分布である。$*$ は複素共役と積順序の反転を満たす随伴、すなわち $(a\star b)^*=b^*\star a^*$ である。実のWick多項式は $F_i^*=F_i$ を満たす。
+
+点ごとの場は数値ではなく分布である。以下で $T_I$ と書くときは添字集合 $I$ に対応する時間順序積の分布核を意味し、試験関数を掛けて初めて値を取る。添字全体を $N=\{1,\ldots,n\}$、補集合を $I^c=N\setminus I$ とする。$T_N=T_n$ と書き、$T_\varnothing=1$、$T_{\{i\}}=F_i$（核の記法ではその局所密度）とする。例えば $T_{12}=T_{\{1,2\}}$ であり、集合を示す添字の波括弧は必要に応じて省く。$T_2(F,G)$ のように引数を明記した場合は二入力の積を表す。開集合への分布の制限 $T|_{C_I}$ は、台がその集合内にある試験関数に作用を限定することをいう。添字の並べ替えで入力と位置を同時に交換しても結果が変わらない条件を対称性とする。
 
 非空な真部分集合 $I$ について、後の組を左に置ける開集合は
 
@@ -39,7 +45,13 @@ $$
 
 **定義の確認**。局所一次挿入である三つの円筒線形観測量 $X=L_f,Y=L_g,Z=L_h$ をとる。ここで $L_f(\phi)=\int f\phi$ である。$f,g$ の台の全点が $h$ の台の全点の因果的過去に入らないように取る。例えば前の時刻2と0の点の周りの半径 $1/4$ の時空球を使えば、時刻差は少なくとも $3/2$、空間差は高々 $1/2$ である。
 
-[円筒多項式の時間順序積](../MQFC39/index.md#def-mqfc39-time-product) より $T_2(X,Y)=XY+\hbar D(f,g)$。[時間順序積と通常積の変換](../MQFC39/index.md#thm-mqfc39-time-conjugation) により円筒多項式では二因子積を反復できる。$T_2(X,Y)$ の一次微分核は $Yf+Xg$ なので、三因子の時間順序積 $T_2(T_2(X,Y),Z)$ は
+核の作用を $D(f,g)=\langle D,f\otimes g\rangle$ と書き、$W(f,g)$ も同様に定める。[円筒多項式の時間順序積](../MQFC39/index.md#def-mqfc39-time-product) より
+
+$$
+T_2(X,Y)=XY+\hbar D(f,g).
+$$
+
+[時間順序積と通常積の変換](../MQFC39/index.md#thm-mqfc39-time-conjugation) により円筒多項式では二因子積を反復できる。場を $\phi+\varepsilon k$ に変えると、$X$ は $X+\varepsilon L_f(k)$、$Y$ は $Y+\varepsilon L_g(k)$ に変わる。$\varepsilon$ の一次係数は $YL_f(k)+XL_g(k)$ であり、$D(f,g)$ は場に依存しない。従って一次微分核は $Yf+Xg$ である。$Z$ の二階以上の汎関数微分は零なので、三因子の時間順序積 $T_2(T_2(X,Y),Z)$ は
 
 $$
 XYZ+\hbar[D(f,g)Z+D(f,h)Y+D(g,h)X]
@@ -53,7 +65,7 @@ T_2(X,Y)\star Z
 +\hbar[Y W(f,h)+XW(g,h)].
 $$
 
-従って指定した $C_{\{1,2\}}$ の支持条件で因果帰納条件を満たす。これは分布を点で評価する例ではなく、核を試験関数で積分した例である。
+従って指定した $C_{\{1,2\}}$ の支持条件で因果帰納条件を満たす。他の分割については二要素の組を $X,Y$ に、一要素の組を $Z$ に読み替える。二要素の組が左の場合は上の計算、一要素の組が左の場合は $Z\star T_2(X,Y)$ の収縮が $W(h,f),W(h,g)$ となる。後者の支持条件では $D$ の対称性により $D(f,h)=D(h,f)=W(h,f)$、$D(g,h)=W(h,g)$ となる。これで六通りの分割について各支持条件のもとで同じ三因子の式が得られる。これは分布を点で評価する例ではなく、核を試験関数で積分した例である。
 <!-- definition-example-end -->
 
 ## 2. 全対角外の積は一意に決まる
@@ -80,7 +92,14 @@ $$
 M^n\setminus D_n=\bigcup_{\varnothing\ne I\subsetneq\{1,\ldots,n\}}C_I.
 $$
 
-二候補の重なりでは $A=I\cap J$、$B=I\setminus J$、$C=J\setminus I$、$E=(I\cup J)^c$ と置く。[下位時間順序積の重なりでの整合](../MQFC36/index.md#prop-mqfc36-causal-compatibility) を積 $\star$ に適用するため、その仮定を確認する。全ての組は真部分集合に含まれ、下位の因果帰納条件を使える。重なりでは $A$ は $B,C$ の過去にはなく、$B,C$ は $E$ の過去にはない。従って候補はそれぞれ
+二候補の重なりでは $A=I\cap J$、$B=I\setminus J$、$C=J\setminus I$、$E=(I\cup J)^c$ と置く。[下位時間順序積の重なりでの整合](../MQFC36/index.md#prop-mqfc36-causal-compatibility) を積 $\star$ に適用するため、その仮定を確認する。全ての組は真部分集合に含まれ、下位の因果帰納条件を使える。重なりでは $A$ は $B,C$ の過去にはなく、$B,C$ は $E$ の過去にはない。例えば $I=A\cup B$ と $I^c=C\cup E$ に下位の条件を使うと
+
+$$
+T_I=T_A\star T_B,\qquad
+T_{I^c}=T_C\star T_E.
+$$
+
+同じ理由で $T_J=T_A\star T_C$、$T_{J^c}=T_B\star T_E$ である。結合性で括弧を外せば候補はそれぞれ
 
 $$
 T_A\star T_B\star T_C\star T_E,
@@ -107,7 +126,17 @@ a=x_n,\qquad
 z=(x_1-x_n,\ldots,x_{n-1}-x_n)
 $$
 
-と置く。[多点衝突の余次元](../MQFC36/index.md#prop-mqfc36-diagonal-dimension) の場合と同じ座標で、逆写像は $x_i=a+z_i$、$x_n=a$ であり、Jacobianの絶対値は1。相対座標の次元は $d=4(n-1)$ となる。
+と置く。[多点衝突の余次元](../MQFC36/index.md#prop-mqfc36-diagonal-dimension) の場合と同じ座標で、逆写像は $x_i=a+z_i$、$x_n=a$ であり、Jacobianの絶対値は1。相対座標の次元は $d=4(n-1)$ となる。$z=0$ と全点一致は逆写像から同値であり、これが延長する集合を原点へ移す理由である。
+
+[スケーリング次数](../MQFC32/index.md#def-mqfc32-scaling-degree) は、相対座標を $\lambda z$ に縮めた分布に $\lambda^\omega$ を掛けて零へ収束させる実数 $\omega$ の下限である。ここで $\lambda\downarrow0$ とする。以下の $s$ はその次数である。デルタ分布 $\delta_0$ は試験関数を原点で評価する分布で、$\alpha=(\alpha_1,\ldots,\alpha_d)$ は非負整数の多重添字とする。ここでは $z$ の各成分を微分し、$\alpha_j$ は第 $j$ 成分での微分回数を表す。
+
+$$
+|\alpha|=\sum_{j=1}^d\alpha_j,\qquad
+\langle\partial_z^\alpha\delta_0,\psi\rangle
+=(-1)^{|\alpha|}\partial_z^\alpha\psi(0).
+$$
+
+$\lfloor s-d\rfloor$ は $s-d$ 以下の最大の整数である。
 
 <a id="thm-mqfc40-diagonal-extension"></a>
 
@@ -143,7 +172,7 @@ $$
 
 別の延長との差は原点外で零であり、次数は $s$ 以下である。[局所反項の自由度](../MQFC34/index.md#thm-mqfc34-counterterm-freedom) により、デルタの微分の次数は $d+|\alpha|\le s$ を満たす必要がある。$s<d$ ではそのような非負整数 $|\alpha|$ がなく、差は零である。それ以外では定理の和になる。
 
-対称性について、入力と位置を置換する作用を $P_\sigma$ と書く。下位の積が対称なので全対角外の係数族は置換で変わらない。延長の族を
+対称性について、$S_n$ を $N$ の全置換の集合とし、入力と位置を同時に置換する作用を $P_\sigma$ と書く。下位の積が対称なので全対角外の係数族は置換で変わらない。延長の族を
 
 $$
 t_{\mathrm{sym}}=\frac1{n!}\sum_{\sigma\in S_n}P_\sigma t
@@ -156,7 +185,7 @@ $$
 
 有限スケーリング次数はこの定理の入力である。一般の作用素値分布について任意の積が存在するという主張ではない。自由場の局所Wick展開では各収縮係数の分布積と次数評価を検査してから適用する。例えば [質量ゼロ二線核の次数](../MQFC35/index.md#prop-mqfc35-fish-kernel) は二点で $s=4$ を与える。三点で独立な差変数の二線核をテンソル積にした場合も、次のように次数を確認できる。
 
-質量零の二線核の延長を $H$ とする。$u=x_1-x_2,v=x_3-x_2$ を用いれば $H(u)\otimes H(v)$ は [分布のテンソル積](../../../解析系/MICA/MICA6/index.md#def-mica6-tensor-product) で定義できる。$H$ の次数は4。任意の $\epsilon>0$ に対し $\lambda^{4+\epsilon}H(\lambda\,\cdot)$ は分布として零に収束する。縮尺を両変数に行うと
+質量零の二線核の延長を $H$ とする。$u=x_1-x_2,v=x_3-x_2$ を用いれば $H(u)\otimes H(v)$ は [分布のテンソル積](../../../解析系/MICA/MICA6/index.md#def-mica6-tensor-product) で定義できる。[スケーリング次数を保つ延長](../MQFC33/index.md#thm-mqfc33-extension) により $H$ の次数は4である。[分布のスケール変換](../MQFC32/index.md#def-mqfc32-dilation) に従い、$H(\lambda\,\cdot)$ は試験関数 $\psi$ に $\lambda^{-4}\psi(\cdot/\lambda)$ を作用させる縮尺分布を表す。任意の $\epsilon>0$ に対し $\lambda^{4+\epsilon}H(\lambda\,\cdot)$ は分布として零に収束する。縮尺を両変数に行うと
 
 $$
 \lambda^{8+2\epsilon}(H\otimes H)(\lambda u,\lambda v)
@@ -179,14 +208,20 @@ $$
 
 と置く。ここで $i$ は虚数単位であり、$\hbar$ はスター積内の形式変数のままにする。
 
-定数項が1の形式多項式を $S_N=1+Q$ と書く。$Q$ の各項には少なくとも一つの形式変数が含まれるので、$n+1$ 個の因子を掛ければ必ず添字が重複して零になる。すなわち
+[形式展開](../MQFC31/index.md#def-mqfc31-formal-coupling) と同じく、積は係数ごとに計算する。空集合では $\eta_\varnothing=1$ とする。各挿入を高々一度含む形式多項式を
+
+$$
+S_N=\sum_{I\subseteq N}\eta_I A_I=1+Q
+$$
+
+と書く。ここで $Q$ は定数項を除いた部分である。$Q$ の各項には少なくとも一つの形式変数が含まれるので、$n+1$ 個の因子を掛ければ必ず添字が重複して零になる。すなわち
 
 $$
 Q^{\star(n+1)}=0,\qquad
 S_N^{-1}=\sum_{k=0}^{n}(-1)^k Q^{\star k}.
 $$
 
-左右から掛ければ連続する次数が互いに打ち消し合って $1$ が残る。このため左ユニタリティだけで逆元と随伴の一致が従う。
+$Q^{\star 0}=1$ とする。左右から掛けると、いずれも $Q^{\star k}$ の係数は $1\le k\le n$ で $(-1)^k+(-1)^{k-1}=0$、最後の $Q^{\star(n+1)}$ も零となり、$1$ が残る。このため左ユニタリティだけで逆元と随伴の一致が従う。
 
 <a id="def-mqfc40-order-unitarity"></a>
 
@@ -272,7 +307,7 @@ $$
 A_K=A_{K\cap I}\star A_{K\cap I^c}.
 $$
 
-$K=N$ でも延長の制限が因果帰納条件を満たすので成立する。一方が空なら単位元により同じ式になる。係数を比較すると $S_N=S_I\star S_{I^c}$ がこの開集合上で成立する。下位のユニタリティを使い
+ここでは $K$ が二組の互いに素な和集合なので、虚数単位の冪も $i^{|K|}=i^{|K\cap I|}i^{|K\cap I^c|}$ と分解できる。$K=N$ でも延長の制限が [時間順序積の因果帰納条件](#def-mqfc40-causal-recursion) を満たすので成立する。一方が空なら単位元により同じ式になる。係数を比較すると $S_N=S_I\star S_{I^c}$ がこの開集合上で成立する。下位のユニタリティを使い
 
 $$
 S_N^*\star S_N
@@ -370,7 +405,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$A=\{1\},B=\{2\},C=\{3\},E=\{4\}$。$C_J$ から $x_1\not\preceq x_2$、$x_3\not\preceq x_4$。$C_I$ から $x_1\not\preceq x_3$、$x_2\not\preceq x_4$。下位の因果帰納条件で
+$A=\{1\},B=\{2\},C=\{3\},E=\{4\}$。$C_J$ から $x_1\not\preceq x_2$、$x_3\not\preceq x_4$。$C_I$ から $x_1\not\preceq x_3$、$x_2\not\preceq x_4$。[時間順序積の因果帰納条件](#def-mqfc40-causal-recursion) を下位の積に適用すると
 
 $$
 T_{12}\star T_{34}=T_1\star T_2\star T_3\star T_4,
@@ -391,7 +426,7 @@ $C_I$ は $x_2\not\preceq x_3$、$C_J$ は逆方向を保証する。よって�
 <!-- solution-start -->
 **詳細解答**
 
-真部分集合は三つの一要素集合と三つの二要素集合である。従って
+[挿入数ごとのユニタリティ条件](#def-mqfc40-order-unitarity) の和に現れる真部分集合は三つの一要素集合と三つの二要素集合である。従って
 
 $$
 B_{123}=A_1^*\star A_{23}+A_2^*\star A_{13}
@@ -425,7 +460,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-テンソル積は双線形なので
+[分布のテンソル積](../../../解析系/MICA/MICA6/index.md#def-mica6-tensor-product) は双線形なので
 
 $$
 (H+a\delta_0)\otimes(H+a\delta_0)-H\otimes H
@@ -433,7 +468,7 @@ $$
 +a^2\delta_0\otimes\delta_0.
 $$
 
-第一項は $u=0$、第二項は $v=0$ に支持され、いずれも全対角外に支持を持ち得る。例えば $\varphi(0)=1$、$\psi$ の台は原点から離れ、$H(\psi)\ne0$ とする。積型試験関数 $\varphi(u)\psi(v)$ への第一項の作用は $aH(\psi)$、第二・第三項は $\psi(0)=0$ なので零。$a\ne0$ なら全対角だけでは消せない。
+第一項は $u=0$、第二項は $v=0$ に支持され、いずれも全対角外に支持を持ち得る。例えば $\varphi(0)=1$、$\psi$ の台は原点から離れ、$H(\psi)\ne0$ とする。このような $\psi$ は、二線核が空間的分離の開集合で非零の関数として表されることから選べる。ここで $H(\psi)=\langle H,\psi\rangle$ と略記している。積型試験関数 $\varphi(u)\psi(v)$ への第一項の作用は $aH(\psi)$、第二・第三項は $\psi(0)=0$ なので零。$a\ne0$ なら全対角だけでは消せない。
 
 下位の処方が固定されていれば [因果帰納による全対角外の一意性](#thm-mqfc40-off-diagonal-recursion) により全対角外は変えられない。[因果帰納の全対角延長](#thm-mqfc40-diagonal-extension) に $s=8,d=8$ を代入すると $\lfloor s-d\rfloor=0$。従って変更は
 
