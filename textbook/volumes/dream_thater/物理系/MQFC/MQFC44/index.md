@@ -117,7 +117,7 @@ $$
 
 括弧内は [Lie括弧のJacobi恒等式](../../../幾何系/GEO/GEO5/index.md#thm-geo5-bracket-identities) の基底成分（$[[T_b,T_c],T_e]$ とその巡回和）なので零である。
 
-次に $D_\mu u=\partial_\mu u+g[A_\mu,u]$ と置く（[随伴共変微分](../../QFT/QFT28/index.md#def-qft28-curvature) の成分規約）。$A_\mu$ は偶である。Jacobi恒等式から $[A_\mu,[u,v]]=[[A_\mu,u],v]+[u,[A_\mu,v]]$ が成り立つので、通常の微分の積則と合わせると
+次に $D_\mu u=\partial_\mu u+g[A_\mu,u]$ と置く（[随伴共変微分](../../QFT/QFT28/index.md#def-qft28-curvature) の成分規約）。$A_\mu$ は偶である。[Lie 括弧の基本恒等式（Jacobi恒等式）](../../../幾何系/GEO/GEO5/index.md#thm-geo5-bracket-identities) から $[A_\mu,[u,v]]=[[A_\mu,u],v]+[u,[A_\mu,v]]$ が成り立つので、通常の微分の積則と合わせると
 
 $$
 D_\mu[u,v]=[D_\mu u,v]+[u,D_\mu v].
