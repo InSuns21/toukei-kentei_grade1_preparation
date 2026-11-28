@@ -40,3 +40,4 @@
 37. [MQFC37 汎関数微分と局所汎関数](textbook/volumes/dream_thater/物理系/MQFC/MQFC37/index.md)
 38. [MQFC38 Peierls括弧と自由場の積](textbook/volumes/dream_thater/物理系/MQFC/MQFC38/index.md)
 39. [MQFC39 時間順序積と因果分解](textbook/volumes/dream_thater/物理系/MQFC/MQFC39/index.md)
+40. [MQFC40 Epstein–Glaser帰納構成](textbook/volumes/dream_thater/物理系/MQFC/MQFC40/index.md)
