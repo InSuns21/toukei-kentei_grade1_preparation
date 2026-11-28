@@ -524,7 +524,7 @@ $\mathbb F_9^\times$ は位数8の巡回群なので [根の存在条件](#thm-f
 
 形式的な行列では $H_2$ の全成分が1で、Kronecker積の全成分も1です。列は同一の非零列なので階数は1です。$2^d\ge2$ だから可逆ではありません。
 
-一方 $\mathbb F_4$ では $q-1=3$ が3で割れ、群位数3は体の中で1です。[根の存在条件](#thm-fft2-splitting-condition) と [反転公式](#thm-fft2-group-inversion) により、3点変換は可逆に作れます。
+一方 $\mathbb F_4$ では $q-1=3$ が3で割れ、群位数3は体の中で1です。[有限Fourier変換の根の存在条件](#thm-fft2-splitting-condition) により原始3乗根が存在します。[有限可換群の文字の直交性と反転](#thm-fft2-group-inversion) を適用すると3点変換は可逆です。
 <!-- solution-end -->
 
 ### Level C
