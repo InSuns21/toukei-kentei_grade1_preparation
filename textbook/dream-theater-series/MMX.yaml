@@ -122,7 +122,7 @@ chapters:
     title: "formal circuitの双線形化：二重切断変数による積・商の係数式、有限生成係数環の有限体への特殊化、全体への移送"
   - id: MMX30
     path: textbook/volumes/dream_thater/計算系/MMX/MMX30
-    status: planned
+    status: completed
     title: "有限サイズのgate/rank/border rank・漸近rank、Zariski閉包の冪と体拡大、tight tensor予想への反例の検算"
   - id: MMX31
     path: textbook/volumes/dream_thater/計算系/MMX/MMX31

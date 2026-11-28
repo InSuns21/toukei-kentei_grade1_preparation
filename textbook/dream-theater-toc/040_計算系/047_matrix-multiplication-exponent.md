@@ -30,3 +30,4 @@
 27. [MMX27 assembly・shaving：代替配線の符号化、routing・lookup・和の費用、複製数$d\le n^{o(1)}$と圧縮定理の証明](textbook/volumes/dream_thater/計算系/MMX/MMX27/index.md)
 28. [MMX28 obstruction：圧縮を定数回反復、$x_{j+1}\le h^{-\gamma}x_j+h^\eta$ とリスト下界の矛盾、有限体下界を閉じる](textbook/volumes/dream_thater/計算系/MMX/MMX28/index.md)
 29. [MMX29 formal circuitの双線形化：二重切断変数による積・商の係数式、有限生成係数環の有限体への特殊化、全体への移送](textbook/volumes/dream_thater/計算系/MMX/MMX29/index.md)
+30. [MMX30 有限サイズのgate/rank/border rank・漸近rank、Zariski閉包の冪と体拡大、tight tensor予想への反例の検算](textbook/volumes/dream_thater/計算系/MMX/MMX30/index.md)
