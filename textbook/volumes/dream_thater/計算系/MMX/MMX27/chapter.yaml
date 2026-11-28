@@ -1,0 +1,26 @@
+id: MMX27
+title: "assembly・shaving：代替配線の符号化、routing・lookup・和の費用、複製数$d\\le n^{o(1)}$と圧縮定理の証明"
+volume: foundations
+status: supplementary
+prerequisites: [MMX24, MMX26]
+official_scope: []
+learning_objectives:
+  - 通信記録の重み付き和と一意な固定実現を説明し、容量別席と断片費用を導ける
+  - 共通住所と局所記録による各段の処理費用を見積もり、二進群の相関計算を再現できる
+  - 項別予算から固定ネットワークのサイズと端子数の上界を導ける
+  - 乗法行列の鎖による有限拡大からの降下を証明できる
+  - 複製数と指数の余裕を評価し、三価圧縮の定理を証明できる
+definitions:
+  - { id: MMX27-DEF-01, name: "通信記録テンソル" }
+theorems:
+  - { id: MMX27-LEM-02, name: "通信記録の固定実現" }
+  - { id: MMX27-LEM-03, name: "二進群の衝突得点の一括計算" }
+  - { id: MMX27-LEM-04, name: "表ネットワークの固定圧縮" }
+  - { id: MMX27-LEM-05, name: "三価ネットワークの体の降下" }
+  - { id: MMX27-THM-06, name: "テンソル冪の三価圧縮" }
+canonical_examples: [通信記録の重み, 容量別の席, Walsh相関, 乗法行列の積, 指数の余裕]
+problem_patterns: [MMX27-A01, MMX27-A02, MMX27-A03, MMX27-A04, MMX27-A05, MMX27-B01, MMX27-B02, MMX27-B03, MMX27-B04, MMX27-C01, MMX27-C02]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 16, exercises: 6, review: 4 }
