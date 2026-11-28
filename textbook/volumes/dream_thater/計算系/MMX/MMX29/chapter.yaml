@@ -2,7 +2,7 @@ id: MMX29
 title: "formal circuitの双線形化：二重切断変数による積・商の係数式、有限生成係数環の有限体への特殊化、全体への移送"
 volume: foundations
 status: supplementary
-prerequisites: [MMX28, MMX6, MMX2, ACOMP1, ACOMP2, ACOMP3, ACOMP4, ACOMP5, ACOMP21]
+prerequisites: [MMX28, MMX6, MMX2, ACOMP1, ACOMP2, ACOMP3, ACOMP4, ACOMP5, ACOMP21, TRN1]
 official_scope: []
 learning_objectives:
   - 除算を含む形式回路の意味と二重切断環での計算を説明できる
