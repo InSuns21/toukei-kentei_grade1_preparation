@@ -14,7 +14,7 @@ chapters:
     title: "有限可換群のFourier変換・双対群・文字表のテンソル積"
   - id: FFT3
     path: textbook/volumes/dream_thater/計算系/FFT/FFT3
-    status: planned
+    status: completed
     title: "Cooley–Tukeyの添字分解・twiddle・radix-2再帰、Goodの互いに素な分解、4/6/8点の置換と計算量。"
   - id: FFT4
     path: textbook/volumes/dream_thater/計算系/FFT/FFT4
