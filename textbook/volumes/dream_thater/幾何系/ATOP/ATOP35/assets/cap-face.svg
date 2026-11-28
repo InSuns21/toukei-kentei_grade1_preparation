@@ -6,8 +6,8 @@
   <path d="M285 181 L180 44" fill="none" stroke="#a04a27" stroke-width="4" stroke-dasharray="10 5" data-series-group="faces" data-series-label="back"/>
   <g fill="#20262b"><circle cx="65" cy="181" r="4"/><circle cx="285" cy="181" r="4"/><circle cx="180" cy="44" r="4"/></g>
   <g font-family="sans-serif" font-size="16" fill="#20262b">
-    <text x="50" y="204">0</text><text x="289" y="204">1</text><text x="180" y="28" text-anchor="middle">2</text>
-    <text x="175" y="222" text-anchor="middle" fill="#255c91">a([01])</text>
+    <text x="42" y="215">0</text><text x="300" y="215">1</text><text x="180" y="28" text-anchor="middle">2</text>
+    <text x="175" y="224" text-anchor="middle" fill="#255c91">a([01])</text>
     <text x="266" y="95" fill="#a04a27">[12]</text>
   </g>
 </svg>
