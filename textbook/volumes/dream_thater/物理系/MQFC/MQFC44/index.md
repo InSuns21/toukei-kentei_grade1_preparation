@@ -31,6 +31,8 @@ Grassmann係数を許した括弧は成分で $[u,v]^a=f^{abc}u^bv^c$ と書く�
 <!-- definition-example-start: def-mqfc44-jet-algebra -->
 ### 直接例：微分を含む三つの項
 
+**定義の確認**
+
 $A_1^1\partial_2c^2$ はghost数1の奇元、$\bar c^1\partial_2c^2$ はghost数0の偶元、$B^1B^2$ はghost数0の偶元である。奇元同士なので
 
 $$
@@ -185,6 +187,8 @@ $$
 
 <!-- definition-example-start: def-mqfc44-brst-split -->
 ### 直接例：一つの微分項
+
+**定義の確認**
 
 $SU(2)$ で $p=\partial_1A_2^1$ を取ると、定義と全微分の積則から
 
