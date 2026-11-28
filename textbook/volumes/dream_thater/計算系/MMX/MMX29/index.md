@@ -4,7 +4,7 @@
 
 有限体に実数全体を写すことはできません。しかし、一つの算法の双線形分解を記述する係数は有限個です。まず除算を含む回路から双線形分解を取り出し、次にその有限個の係数だけを有限体に移します。
 
-直接前提：[MMX28](../MMX28/index.md)、[MMX6](../MMX6/index.md)、[MMX2](../MMX2/index.md)、[ACOMP1](../../ACOMP/ACOMP1/index.md)、[ACOMP2](../../ACOMP/ACOMP2/index.md)、[ACOMP3](../../ACOMP/ACOMP3/index.md)、[ACOMP4](../../ACOMP/ACOMP4/index.md)、[ACOMP5](../../ACOMP/ACOMP5/index.md)、[ACOMP21](../../ACOMP/ACOMP21/index.md)。
+直接前提：[MMX28](../MMX28/index.md)、[MMX6](../MMX6/index.md)、[MMX2](../MMX2/index.md)、[ACOMP1](../../ACOMP/ACOMP1/index.md)、[ACOMP2](../../ACOMP/ACOMP2/index.md)、[ACOMP3](../../ACOMP/ACOMP3/index.md)、[ACOMP4](../../ACOMP/ACOMP4/index.md)、[ACOMP5](../../ACOMP/ACOMP5/index.md)、[ACOMP21](../../ACOMP/ACOMP21/index.md)、[TRN1](../../../代数系/TRN/TRN1/index.md)。
 
 ## 1. 除算を許す形式回路
 
@@ -155,7 +155,7 @@ $$
 > 体 $L$ の単位元を含む部分環 $R=\mathbb Z[c_1,\ldots,c_m]$ には、ある有限体 $k$ への単位元を保つ環準同型 $R\to k$ が存在する。
 <!-- formal-statement-end -->
 
-証明で必要なのは、整数上有限生成である体は有限であるという事実です。以下ではその根拠も示します。体 $E$ の元が部分環 $D$ 上整であるとは、$D$ の係数を持つ最高次係数1の多項式を満たすことです。例えば $\sqrt2$ は $\mathbb Z$ 上整で、$1/2$ は整ではありません（整数係数のモニック多項式に代入して分母を払うと最高次項1だけが奇数になります）。
+証明で必要なのは、整数上有限生成である体は有限であるという事実です。以下ではその根拠も示します。体 $E$ の元が部分環 $D$ 上整であるとは、$D$ の係数を持つ最高次係数1の多項式を満たすことです。これは [モニック多項式](../../../代数系/TRN/TRN1/index.md#def-trn1-monic-polynomial) の係数環を整数から $D$ に一般化したものです。例えば $\sqrt2$ は $\mathbb Z$ 上整で、$1/2$ は整ではありません（整数係数のモニック多項式に代入して分母を払うと最高次項1だけが奇数になります）。
 
 <!-- proof-start -->
 ### 証明
@@ -174,7 +174,7 @@ $$
 
 に属し、各 $e_i$ は $D$ 上整である。$D$ は $E$ の部分環で、$E=D[e_1,\ldots,e_m]$。各モニック方程式で高次冪を低次冪へ置き換えると、$E$ は有限個の冪の積で生成される $D$ 加群となる。すなわち全元をその有限個の元の $D$ 線形結合として書ける。
 
-このことから全ての $z\in E$ は $D$ 上整である。実際、加群生成元 $v_1,\ldots,v_N$ に1を含め、$zv_i=\sum_j M_{ij}v_j$ と書く。行列 $zI-M$ を掛けると生成元の列ベクトルが零になる。余因子行列を掛けると $\det(zI-M)v_i=0$ が全 $i$ について成立し、$v_i=1$ の成分から $\det(zI-M)=0$。この行列式は $D$ 係数のモニックな多項式である。
+このことから全ての $z\in E$ は $D$ 上整である。[有限生成加群による代数的整数の判定](../../../代数系/TRN/TRN1/index.md#thm-trn1-integrality-criterion) の行列式による証明を一般の係数環 $D$ で再現する。実際、加群生成元 $v_1,\ldots,v_N$ に1を含め、$zv_i=\sum_j M_{ij}v_j$ と書く。行列 $zI-M$ を掛けると生成元の列ベクトルが零になる。余因子行列を掛けると $\det(zI-M)v_i=0$ が全 $i$ について成立し、$v_i=1$ の成分から $\det(zI-M)=0$。この行列式は $D$ 係数のモニックな多項式である。
 
 特に任意の $0\ne a\in D$ に対して $a^{-1}\in E$ は整である。ある $b_j\in D$ により
 
