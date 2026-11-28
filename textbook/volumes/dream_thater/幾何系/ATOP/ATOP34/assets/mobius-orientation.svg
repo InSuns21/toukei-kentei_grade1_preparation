@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" data-layout-lint="strict">
+  <title>Möbius 帯の向き反転</title><desc>帯を一周する前の座標長方形。中心線を右へ進み、両端を逆向きの矢印に従って同一視すると、上向きの横断方向は下向きに戻る。</desc>
+  <defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#333"/></marker></defs>
+  <path d="M68 48 H452 M68 192 H452" fill="none" stroke="#666" stroke-width="1.8" stroke-dasharray="7 5"/>
+  <path d="M68 192 V48 M452 48 V192" fill="none" stroke="#24577a" stroke-width="3" marker-end="url(#a)"/>
+  <path d="M76 120 H444" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#a)"/>
+  <path d="M158 120 V77 M362 120 V77" fill="none" stroke="#333" stroke-width="2.6" marker-end="url(#a)"/>
+  <circle cx="158" cy="120" r="3.5" fill="#333"/><circle cx="362" cy="120" r="3.5" fill="#333"/>
+  <g fill="#222" font-family="sans-serif" font-size="18" text-anchor="middle"><text x="49" y="119">A</text><text x="471" y="119">A</text><text x="158" y="67">t</text><text x="362" y="67">t</text><text x="260" y="143">s</text><text x="68" y="218">0</text><text x="452" y="218">1</text></g>
+</svg>
