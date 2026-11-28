@@ -38,7 +38,7 @@ chapters:
   - { id: ATOP32, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP32, status: completed, title: "環の計算：トーラス・射影空間" }
   - { id: ATOP33, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP33, status: completed, title: "Borsuk–Ulam定理" }
   - { id: ATOP34, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP34, status: completed, title: "局所向き・向き付け・基本類" }
-  - { id: ATOP35, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP35, status: planned, title: "cap積と鎖レベルの双対写像" }
+  - { id: ATOP35, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP35, status: completed, title: "cap積と鎖レベルの双対写像" }
   - { id: ATOP36, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP36, status: planned, title: "Poincaré双対性" }
   - { id: ATOP37, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP37, status: planned, title: "境界付き多様体とPoincaré–Lefschetz双対性" }
   - { id: ATOP38, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP38, status: planned, title: "Alexander双対性" }

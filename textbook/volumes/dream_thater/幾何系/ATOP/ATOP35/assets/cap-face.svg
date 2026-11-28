@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 244" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+  <title id="title">前面評価と残る後面</title>
+  <desc id="desc">三角形012の底辺01を太い実線、辺12を破線にして、頂点1を共有することを示す。</desc>
+  <path d="M65 181 L285 181 L180 44 Z" fill="#f0f4f6" stroke="#78838b" stroke-width="1.5"/>
+  <path d="M65 181 L285 181" fill="none" stroke="#255c91" stroke-width="5" data-series-group="faces" data-series-label="front"/>
+  <path d="M285 181 L180 44" fill="none" stroke="#a04a27" stroke-width="4" stroke-dasharray="10 5" data-series-group="faces" data-series-label="back"/>
+  <g fill="#20262b"><circle cx="65" cy="181" r="4"/><circle cx="285" cy="181" r="4"/><circle cx="180" cy="44" r="4"/></g>
+  <g font-family="sans-serif" font-size="16" fill="#20262b">
+    <text x="42" y="215">0</text><text x="300" y="215">1</text><text x="180" y="28" text-anchor="middle">2</text>
+    <text x="175" y="224" text-anchor="middle" fill="#255c91">a([01])</text>
+    <text x="266" y="95" fill="#a04a27">[12]</text>
+  </g>
+</svg>
