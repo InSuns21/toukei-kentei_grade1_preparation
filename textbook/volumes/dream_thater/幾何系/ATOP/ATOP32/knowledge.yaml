@@ -1,0 +1,26 @@
+chapter: ATOP32
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP31, ATOP22, ATOP5]
+forward_references: []
+concepts:
+  - id: atop.torus-cohomology-ring
+    name: トーラスの整数係数コホモロジー環
+    kind: theorem
+    introduction: formal
+    requires: [atop.cohomology-kunneth, atop.cup-naturality, atop.cup-graded-commutativity, atop.cellular-homology]
+  - id: atop.antipodal-cover-cocycle
+    name: 対蹠被覆の1コサイクル
+    kind: proposition
+    introduction: formal
+    requires: [atop.singular-cochain, atop.singular-coboundary]
+  - id: atop.real-projective-cohomology-ring
+    name: 実射影空間の mod 2 コホモロジー環
+    kind: theorem
+    introduction: formal
+    requires: [atop.antipodal-cover-cocycle, atop.projective-cellular-boundary, atop.cup-product, atop.cup-descends]
+  - id: atop.complex-projective-cohomology-groups
+    name: 複素射影空間の整数係数コホモロジー群
+    kind: proposition
+    introduction: formal
+    requires: [atop.finite-cw-complex, atop.cellular-homology]
