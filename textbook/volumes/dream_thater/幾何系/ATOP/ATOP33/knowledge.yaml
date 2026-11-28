@@ -1,0 +1,31 @@
+chapter: ATOP33
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP32, MT1]
+forward_references: []
+concepts:
+  - id: atop.antipodal-equivariant-map
+    name: 対蹠同変写像
+    kind: definition
+    introduction: formal
+    requires: [topology.topological-continuous-map]
+  - id: atop.antipodal-generator-pullback
+    name: 対蹠同変写像による1次生成元の引き戻し
+    kind: proposition
+    introduction: formal
+    requires: [atop.antipodal-equivariant-map, atop.antipodal-cover-cocycle, atop.path-lifting, atop.induced-singular-cohomology-map, atop.real-projective-cohomology-ring]
+  - id: atop.no-antipodal-dimension-drop
+    name: 低次元球面への対蹠同変写像の不存在
+    kind: theorem
+    introduction: formal
+    requires: [atop.antipodal-generator-pullback, atop.real-projective-cohomology-ring, atop.cup-naturality]
+  - id: atop.borsuk-ulam
+    name: Borsuk–Ulam定理
+    kind: theorem
+    introduction: formal
+    requires: [atop.no-antipodal-dimension-drop]
+  - id: atop.ham-sandwich
+    name: ハムサンドイッチ定理
+    kind: theorem
+    introduction: formal
+    requires: [atop.borsuk-ulam, measure.continuity-from-above-finite]

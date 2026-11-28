@@ -1,0 +1,25 @@
+id: ATOP33
+title: "Borsuk–Ulam定理"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP32, MT1]
+official_scope: []
+learning_objectives:
+  - 対蹠同変写像の条件を具体例で確認できる
+  - 射影空間への降下と持上げの符号差から1次生成元の引き戻しを導ける
+  - cup冪の非零性による低次元球面への写像の不存在を証明できる
+  - Borsuk–Ulam定理を低次元の例外処理を含めて証明できる
+  - 有限測度の連続性と切断面の仮定を確認してハムサンドイッチ定理を導ける
+definitions:
+  - { id: ATOP33-DEF-01, name: 対蹠同変写像 }
+theorems:
+  - { id: ATOP33-PROP-01, name: 対蹠同変写像による1次生成元の引き戻し }
+  - { id: ATOP33-THM-01, name: 低次元球面への対蹠同変写像の不存在 }
+  - { id: ATOP33-THM-02, name: Borsuk–Ulam定理 }
+  - { id: ATOP33-THM-03, name: ハムサンドイッチ定理 }
+canonical_examples: [赤道の包含, 射影空間の生成元, 球面の座標射影, 二つの長方形の等分]
+problem_patterns: [ATOP33-A1, ATOP33-A2, ATOP33-A3, ATOP33-A4, ATOP33-B1, ATOP33-B2, ATOP33-B3, ATOP33-B4, ATOP33-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }
