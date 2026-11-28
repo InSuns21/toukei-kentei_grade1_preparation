@@ -1,0 +1,25 @@
+id: "FFT1"
+title: "体上の離散Fourier変換・文字の直交性・反転"
+volume: foundations
+status: supplementary
+prerequisites: [FLD0, FLD3, GRP2]
+official_scope: []
+learning_objectives:
+  - 原始N乗根と群の文字を具体例で判定できる
+  - 巡回群の文字の直交性を体の演算から証明できる
+  - 体上の変換行列と反転を導出し複素数と有限体で手計算できる
+  - 逆元と原始性の必要性及び正規化と実数値列の共役対称性を説明できる
+definitions:
+  - { id: FFT1-DEF-01, name: 原始1のN乗根 }
+  - { id: FFT1-DEF-02, name: 体に値を取る群の文字 }
+  - { id: FFT1-DEF-03, name: 体上の巡回Fourier変換 }
+theorems:
+  - { id: FFT1-LEM-01, name: 巡回群の文字の直交性 }
+  - { id: FFT1-THM-01, name: 体上の巡回Fourier反転 }
+  - { id: FFT1-PROP-01, name: 実数値列の共役対称性 }
+canonical_examples: [複素4点変換, F5上の4点変換, 原始性の欠落, 正規化係数]
+problem_patterns: [FFT1-A01, FFT1-A02, FFT1-A03, FFT1-A04, FFT1-B01, FFT1-B02, FFT1-B03, FFT1-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.5, exercises: 2, review: 0.5 }

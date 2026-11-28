@@ -1,0 +1,36 @@
+chapter: FFT1
+scope: dream-theater
+coverage: complete
+prerequisites: [FLD0, FLD3, GRP2]
+forward_references: []
+concepts:
+  - id: finite-fourier.primitive-root
+    name: 原始1のN乗根
+    kind: definition
+    introduction: formal
+    requires: [algebra.field, algebra.element-order]
+  - id: finite-fourier.field-valued-character
+    name: 体に値を取る群の文字
+    kind: definition
+    introduction: formal
+    requires: [algebra.abelian-group, algebra.group-homomorphism, algebra.field]
+  - id: finite-fourier.cyclic-character-orthogonality
+    name: 巡回群の文字の直交性
+    kind: lemma
+    introduction: formal
+    requires: [finite-fourier.primitive-root, finite-fourier.field-valued-character]
+  - id: finite-fourier.cyclic-transform
+    name: 体上の巡回Fourier変換
+    kind: definition
+    introduction: formal
+    requires: [finite-fourier.primitive-root, linear.linear-map-over-field]
+  - id: finite-fourier.cyclic-inversion
+    name: 体上の巡回Fourier反転
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.cyclic-transform, finite-fourier.cyclic-character-orthogonality]
+  - id: finite-fourier.real-conjugate-symmetry
+    name: 実数値列の共役対称性
+    kind: proposition
+    introduction: formal
+    requires: [finite-fourier.cyclic-transform]
