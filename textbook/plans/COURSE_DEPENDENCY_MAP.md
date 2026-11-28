@@ -76,6 +76,6 @@
 
 | 科目 | 直接前提と担当範囲 |
 |---|---|
-| [FFT1–36](DREAM_THEATER_FINITE_FOURIER_TRANSFORM_COMPLEXITY_PLAN.md)（未着手） | 基礎線形代数・群環体、ACOMP1–5/21–22、TSP対応章 → FFT1–6。MMX8–10・TSP → FFT7–13（頑健下界）。HDP1 → FFT14–19（予測・厳密修復）→ FFT20–23（固定素数radix）→ FFT24–27（同期）→ FFT28–32（多項式乗算）→ FFT33–34（全長・上下界合成）。FFT23/34・FML5–7 → FFT35–36（実験・証拠監査）。MMX/VNP全講は必修にしない。 |
+| [FFT1–36](../plans_progress/DREAM_THEATER_FINITE_FOURIER_TRANSFORM_COMPLEXITY_PLAN.md)（進行中） | 基礎線形代数・群環体、ACOMP1–5/21–22、TSP対応章 → FFT1–6。MMX8–10・TSP → FFT7–13（頑健下界）。HDP1 → FFT14–19（予測・厳密修復）→ FFT20–23（固定素数radix）→ FFT24–27（同期）→ FFT28–32（多項式乗算）→ FFT33–34（全長・上下界合成）。FFT23/34・FML5–7 → FFT35–36（実験・証拠監査）。MMX/VNP全講は必修にしない。 |
 
 EOM107・EOM0とは証拠評価で接続するが、数学的証明の正本はFFT。整数乗算 on tapes の別論文や一般GPU性能の主張を本系列の定理と同一視しない。

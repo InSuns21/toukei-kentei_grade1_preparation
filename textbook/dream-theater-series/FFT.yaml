@@ -1,0 +1,150 @@
+version: 1
+id: FFT
+title: "有限Fourier変換・高速アルゴリズム・計算量の最適対数指数"
+plan: textbook/plans_progress/DREAM_THEATER_FINITE_FOURIER_TRANSFORM_COMPLEXITY_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+chapters:
+  - id: FFT1
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT1
+    status: completed
+    title: "体上の巡回Fourier変換・文字の直交性・反転"
+  - id: FFT2
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT2
+    status: planned
+    title: "有限Abel群の巡回群分解、双対群、文字表のテンソル積、分裂体。Walsh–Hadamardを標数2で使えない理由を確認。"
+  - id: FFT3
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT3
+    status: planned
+    title: "Cooley–Tukeyの添字分解・twiddle・radix-2再帰、Goodの互いに素な分解、4/6/8点の置換と計算量。"
+  - id: FFT4
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT4
+    status: planned
+    title: "畳み込み定理・ゼロ詰め・Bluesteinの整数chirp恒等式・固定多項式との乗算。小さい有限体でNTTの条件を検算。"
+  - id: FFT5
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT5
+    status: planned
+    title: "二入力線形回路のreadout・fanout・直和、算術回路の一次成分抽出、非一様性と対数指数の量化。"
+  - id: FFT6
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT6
+    status: planned
+    title: "Morgensternの行列式ポテンシャル、正規化と有界係数・Ailonの制限、rigidity/nonrigidityとAlman–Raoの節約、2026年の小さい指数改善をモデル別に比較。"
+  - id: FFT7
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT7
+    status: planned
+    title: "平面上の脚配置とprice、半周長・コピー・wire・局所縮約、Theorem 2.1の全入力をcompanionと照合。"
+  - id: FFT8
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT8
+    status: planned
+    title: "行列の四脚テンソル、矩形の高さ・幅を潰したときの階数/support、中心でのコピーによる上界。具体的な2×2行列。"
+  - id: FFT9
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT9
+    status: planned
+    title: "対称非退化bicharacter、controlled additionと文字基底、二つのphaseによるweighted swap（Lemma 2.3）。"
+  - id: FFT10
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT10
+    status: planned
+    title: "swapのprice等号・極限の力の釣合い・同じラベルのコピー・遠方への移動でProposition 2.4とTheorem 2.2を導く。"
+  - id: FFT11
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT11
+    status: planned
+    title: "ほぼ全階数の射影をかけた $[I,H]$ のリスト評価、三角形・矩形の指数の選び方、Lemma 3.1の定数と例外範囲。"
+  - id: FFT12
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT12
+    status: planned
+    title: "独立ブロックのechelon quotient、退化で混合ブロックを消す操作、疎な行のスペクトル値、Lemma 3.2の同時階数・support評価。"
+  - id: FFT13
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT13
+    status: planned
+    title: "feedbackの一意解と時間展開（Lemma 3.3）、rank予算・行support・小さいNの処理、Theorem 1.2の矛盾からTheorem 1.1下界。"
+  - id: FFT14
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT14
+    status: planned
+    title: "固定素数radix、共通固有基底・可換query、全shiftを均等割当する理由と整数countの集中幅・例外率。"
+  - id: FFT15
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT15
+    status: planned
+    title: "指示関数の文字展開、二項係数の形式級数、整数係数の補間でLemma 4.2を示す。標数が次数以下でも成立する理由。"
+  - id: FFT16
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT16
+    status: planned
+    title: "行列pencilの定義、有限自由円分拡大、行列冪による多項式のfull-rate評価と独立入力を維持するLemma 4.3。"
+  - id: FFT17
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT17
+    status: planned
+    title: "例外行を線形チェックから復元する符号・Vandermonde部分行列・周波数依存の例外集合、rank条件の小例。"
+  - id: FFT18
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT18
+    status: planned
+    title: "一次予測では固定liftができない理由、Hermite型の二重零点、Lemma 4.4の二つの変換と補正行列を全展開。"
+  - id: FFT19
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT19
+    status: planned
+    title: "Theorem 4.1を組み立て、batch幅・修復率・pencil段数・基底変換・係数環を台帳化。奇標数でのswap（Cor.4.5）と停止線。"
+  - id: FFT20
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT20
+    status: planned
+    title: "addressの二分・補助軸・query積、有限体の直交和を展開して積の核から $D_\\ell^{\\otimes k}$ を取り出す。"
+  - id: FFT21
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT21
+    status: planned
+    title: "行のrouting・free/charged rectangleの分解、部分変換・complementを用いた再帰呼出数、indexと線形演算の費用。"
+  - id: FFT22
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT22
+    status: planned
+    title: "batchのpacking・padding・定数選択、再帰不等式で任意の $\\alpha>1/2$ の上界、有限自由拡大から $R_\\ell$ へ戻す費用（Theorem 5.1）。"
+  - id: FFT23
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT23
+    status: planned
+    title: "Walsh変換のbit layout・偶数幅・正規化4点蝶、Proposition 5.2の係数集合と誤差蓄積。一般DFTの安定性への外挿禁止。"
+  - id: FFT24
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT24
+    status: planned
+    title: "shearのテンソル冪・置換・固定radix、標数2でradix3を選ぶ理由と基礎体への降下（Lemma 6.1）。"
+  - id: FFT25
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT25
+    status: planned
+    title: "等比格子上の評価・Newton基底・Vandermondeと三角Toeplitzへの分解（Lemma 6.2）、逆変換の積の順序。"
+  - id: FFT26
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT26
+    status: planned
+    title: "短いFourier wordを用いたToeplitz/幾何評価・scratch復元、三角Toeplitzの形式級数共役、Lemma 6.3の条件。"
+  - id: FFT27
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT27
+    status: planned
+    title: "fiber間でscratchを借りる操作、word同期（Lemma 6.4）のアドレス・メモリ・ゲートの台帳、異なる軸長の積。"
+  - id: FFT28
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT28
+    status: planned
+    title: "有限拡大・jet・巡回代数の三軸packing、折り返し回避とcarryを含むgather、$8n\\le erN\\le9n$ の選択。"
+  - id: FFT29
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT29
+    status: planned
+    title: "素数軸の選定・拡大次数・根の確保、標数による場合分けと $\\log(6er)$ の劣線形評価。必要な数論補題の入力を明示。"
+  - id: FFT30
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT30
+    status: planned
+    title: "基礎体上のjet乗算・平行移動、係数表現・二変数から一変数へ、標数0でのshiftと階乗、Lemma 7.2。"
+  - id: FFT31
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT31
+    status: planned
+    title: "正標数の分裂軸による乗算、標数0のprime cyclic algebraのbinomial座標（Lemma 7.3）・基底変換とCRT、具体的な$p=3$。"
+  - id: FFT32
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT32
+    status: planned
+    title: "共通変形パラメータによるsplit blockの乗算（Lemma 7.4）、jet長と復元次数、費用再帰を閉じTheorem 7.1・Corollary 7.5を導く。"
+  - id: FFT33
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT33
+    status: planned
+    title: "geometric grid・大軸と小軸のgrouping、補助Fourier長の根・標数回避・体拡大・同期wordの費用を証明しTheorem 8.1。"
+  - id: FFT34
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT34
+    status: planned
+    title: "任意有限Abel群の順逆変換の上界をTheorem 8.1から導きFFT13の下界と合成。Bluestein固定入力への特殊化と一次成分抽出でCor.8.2のbatch下界、全定数の量化。"
+  - id: FFT35
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT35
+    status: planned
+    title: "実験：古典FFT/NTT・直接行列積との厳密比較、予測・修復の小規模核の一致検査、数値誤差・準備・メモリ・SIMD/GPU・bit complexityの限界。FFT畳み込み・PDE・画像/GIS・暗号の適用条件、実測と漸近比を分離。"
+  - id: FFT36
+    path: textbook/volumes/dream_thater/計算系/FFT/FFT36
+    status: planned
+    title: "研究証明監査：原論文の定理・補題台帳、companionの入力、Leanの単独・batch上下界・公理・固定版・独立kernel照合、未確認項目・$\\epsilon=0$ 問題・MMX/EOM/整数乗算とのモデル比較。"
