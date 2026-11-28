@@ -44,3 +44,4 @@
 41. [MQFC41 局所S行列とBogoliubov公式](textbook/volumes/dream_thater/物理系/MQFC/MQFC41/index.md)
 42. [MQFC42 くりこみ処方の変更](textbook/volumes/dream_thater/物理系/MQFC/MQFC42/index.md)
 43. [MQFC43 スケール変更とくりこみ群](textbook/volumes/dream_thater/物理系/MQFC/MQFC43/index.md)
+44. [MQFC44 ゲージ対称性とBRST複体](textbook/volumes/dream_thater/物理系/MQFC/MQFC44/index.md)
