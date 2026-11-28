@@ -1,0 +1,42 @@
+chapter: MMX27
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX24, MMX26]
+forward_references: []
+concepts:
+  - id: matrix-exponent.transcript-tensor
+    name: "通信記録テンソル"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（通信記録テンソル）"]
+    requires: []
+  - id: matrix-exponent.fixed-transcript-realization
+    name: "通信記録の固定実現"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（通信記録の固定実現）"]
+    requires: [matrix-exponent.transcript-tensor, matrix-exponent.wide-routing-recurrence, matrix-exponent.stable-sort-tensor, matrix-exponent.stable-sort-tag, matrix-exponent.batcher-sort-count, matrix-exponent.deterministic-bit-realization]
+  - id: matrix-exponent.binary-collision-score
+    name: "二進群の衝突得点の一括計算"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（二進群の衝突得点の一括計算）"]
+    requires: []
+  - id: matrix-exponent.fixed-macro-compression
+    name: "表ネットワークの固定圧縮"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（表ネットワークの固定圧縮）"]
+    requires: [matrix-exponent.round-iteration-budget, matrix-exponent.fixed-transcript-realization, matrix-exponent.binary-collision-score]
+  - id: matrix-exponent.trivalent-field-descent
+    name: "三価ネットワークの体の降下"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（三価ネットワークの体の降下）"]
+    requires: []
+  - id: matrix-exponent.tensor-power-shaving
+    name: "テンソル冪の三価圧縮"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（テンソル冪の三価圧縮）"]
+    requires: [matrix-exponent.fixed-macro-compression, matrix-exponent.trivalent-field-descent, matrix-exponent.network-table-batch, matrix-exponent.ordinary-sort-exponent]

@@ -110,7 +110,7 @@ chapters:
     title: "rounds：局所arity集中を反復してnetwork volumeを削る、各roundの仮定・サイズ・誤差"
   - id: MMX27
     path: textbook/volumes/dream_thater/計算系/MMX/MMX27
-    status: planned
+    status: completed
     title: "assembly・shaving：代替配線の符号化、routing・lookup・和の費用、複製数$d\\le n^{o(1)}$と圧縮定理の証明"
   - id: MMX28
     path: textbook/volumes/dream_thater/計算系/MMX/MMX28
