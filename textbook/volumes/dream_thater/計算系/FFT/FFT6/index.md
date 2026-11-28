@@ -31,7 +31,7 @@ $$
 s\ge\frac{\log|\det A|}{\log(2B)}.
 $$
 >
-> 非正規化Fourier行列 $F$ に対しては
+> 非正規化Fourier行列 $F=(e^{2\pi ijk/n})_{0\le j,k<n}$ に対しては
 >
 $$
 s\ge\frac{n\log n}{2\log(2B)}.
@@ -116,7 +116,7 @@ $V=2^{-1/2}\begin{pmatrix}1&1\\1&-1\end{pmatrix}$ は $VV^*=I_2$ なので定義
 <!-- formal-statement-start -->
 > **定理（Ailon型のユニタリゲート下界）**
 >
-> $n\ge2$ とする。$n$ 個の複素レジスタ上で、毎回二座標をユニタリな $2\times2$ 行列で更新する回路が正規化Fourier変換 $n^{-1/2}F$ を計算するなら、更新回数 $s$ は
+> $n\ge2$ とする。$n$ 個の複素レジスタ上で、毎回二座標をユニタリな $2\times2$ 行列で更新する回路を考える。$F=(e^{2\pi ijk/n})_{0\le j,k<n}$ とし、正規化Fourier変換 $n^{-1/2}F$ を計算するなら、更新回数 $s$ は
 >
 $$
 s\ge\frac12 n\log n
@@ -197,7 +197,7 @@ $A=I_2$、$r=1$ とします。$L=\operatorname{diag}(1,0)$ は階数1で、差 
 <!-- formal-statement-start -->
 > **定理（低階数・疎分解による線形ゲート上界）**
 >
-> 体 $K$ 上の $m\times n$ 行列 $A$ を $A=L+S$ と分解する。$\operatorname{rank} L\le r$、$1\le r\le\min(m,n)$ とし、$S$ の非零成分数を $q$ とする。FFT5の二入力線形回路のサイズは
+> 体 $K$ 上の $m\times n$ 行列 $A,L,S$ が $A=L+S$ を満たすとする。$\operatorname{rank} L\le r$、$1\le r\le\min(m,n)$ とし、$S$ の非零成分数を $q$ とする。FFT5の二入力線形回路のサイズは
 >
 $$
 C_K(A)\le r(n-1)+m(r-1)+q+m
@@ -243,7 +243,7 @@ $$
 
 ## 4. 定数改善と対数指数改善を区別する
 
-2026年9月25日の [An explicit power saving for the exact discrete Fourier transform](https://github.com/openai/math/tree/main/preprints/An-explicit-power-saving-for-the-exact-discrete-Fourier-transform-September-25-2026) は、すべての長さについて $O(n(\log n)^{1-10^{-13}})$ 時間の厳密な複素DFTアルゴリズムを報告しています。係数に上限を課さず、指定された1の根を供給し、複素体演算と対数ビット長の整数アドレス操作を単位費用とします。スカラーの準備・添字処理も数えますが、複素数の精度やビット長を制限しません。
+2026年9月25日の [An explicit power saving for the exact discrete Fourier transform](https://github.com/openai/math/tree/main/preprints/An-explicit-power-saving-for-the-exact-discrete-Fourier-transform-September-25-2026) は、すべての長さについて $O(n(\log n)^{1-10^{-13}})$ 時間の厳密な複素DFTアルゴリズムを報告しています。係数に上限を課さず、指定された1の根を供給し、複素体演算と対数ビット長の整数アドレス操作を単位費用とします。スカラーの準備・添字処理も数えますが、複素数の精度やビット長を制限しません。同日の [Finite tensor savings and exact Fourier circuits](https://github.com/openai/math/tree/main/preprints/Finite-tensor-savings-and-exact-Fourier-circuits-September-25-2026) は、有限テンソルの節約から非一様な部分列での回路改善を得る議論を与えています。固定の小さな節約を反復することと、任意長で準備や添字処理も含む一つのアルゴリズムを構成することは別の課題です。
 
 $0<\delta<1$ と置くと
 
