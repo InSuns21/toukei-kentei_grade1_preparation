@@ -27,3 +27,4 @@
 24. [MMX24 sorting：stable sorting・batched table lookup、$2^u$ recordsで幅$O(u)$、$p<2$ の指数台帳](textbook/volumes/dream_thater/計算系/MMX/MMX24/index.md)
 25. [MMX25 sorting後半・local：wide recordのコスト、seamを跨ぐ挿入、stationの統合と二乗脚幅の制御](textbook/volumes/dream_thater/計算系/MMX/MMX25/index.md)
 26. [MMX26 rounds：局所arity集中を反復してnetwork volumeを削る、各roundの仮定・サイズ・誤差](textbook/volumes/dream_thater/計算系/MMX/MMX26/index.md)
+27. [MMX27 assembly・shaving：代替配線の符号化、routing・lookup・和の費用、複製数$d\le n^{o(1)}$と圧縮定理の証明](textbook/volumes/dream_thater/計算系/MMX/MMX27/index.md)
