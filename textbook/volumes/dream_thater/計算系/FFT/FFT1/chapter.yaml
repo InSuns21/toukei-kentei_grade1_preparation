@@ -18,8 +18,8 @@ theorems:
   - { id: FFT1-THM-01, name: 体上の巡回Fourier反転 }
   - { id: FFT1-PROP-01, name: 実数値列の共役対称性 }
 canonical_examples: [複素4点変換, F5上の4点変換, 原始性の欠落, 正規化係数]
-problem_patterns: [FFT1-A01, FFT1-A02, FFT1-A03, FFT1-A04, FFT1-B01, FFT1-B02, FFT1-B03, FFT1-C01]
+problem_patterns: [FFT1-A01, FFT1-A02, FFT1-A03, FFT1-A04, FFT1-B01, FFT1-B02, FFT1-B03, FFT1-B04, FFT1-C01]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 2.5, exercises: 2, review: 0.5 }
