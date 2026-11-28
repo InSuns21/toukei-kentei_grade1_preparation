@@ -27,7 +27,7 @@
 - **NS-BU**: 3次元非圧縮 Navier–Stokes の無外力有限時間特異点（Alpöge–Buckmaster、数値証明書未公開）
 - **RH/GRH**: Alpöge–Claude のRH・Dirichlet GRH形式証明と独立認証。詳細は [RHP研究講読](DREAM_THEATER_RIEMANN_HYPOTHESIS_PROOF_STUDY_PLAN.md) が担う。
 
-- **VP/VNP**: Claude (Anthropic) の任意の体上の算術回路下界・VP/VNP分離・border complexity分離の主張。詳細は [VP/VNP横断ルート（99講）](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md) と [VNP研究講読（24講）](../plans_progress/DREAM_THEATER_VP_VNP_PROOF_STUDY_PLAN.md) が所有。
+- **VP/VNP**: Claude (Anthropic) の任意の体上の算術回路下界・VP/VNP分離・border complexity分離の主張。詳細は [VP/VNP横断ルート（99講）](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md) と [VNP研究講読（24講）](../plan_done/DREAM_THEATER_VP_VNP_PROOF_STUDY_PLAN.md) が所有。
 
 - **107/MMX**: OpenAI 2026-11-24の正方行列乗算指数 $\omega_F=9/4$（任意の体）の主張。上限と下限、有限サイズのrank・border rank、長方形指数の形式化範囲を分ける。詳細は [MMX研究講読（32講）](DREAM_THEATER_MATRIX_MULTIPLICATION_EXPONENT_PROOF_STUDY_PLAN.md) が所有し、VP/VNPの既存基礎5系列75講を共有する。107はLean scopeの番号であり、MMXは教材の予約系列ID。
 
@@ -226,7 +226,7 @@ result family は成果群識別子であって講数ではない。268 は Open
 ### 3.13 VP/VNP：代数的計算複雑性理論とAIによる証明発見
 
 - [Claude 2026-11-23 v1](https://hexagonmath.org/2611.00954v1) と [Lean artifact](https://github.com/anthropics/formal-math/tree/main/vp-vnp) を一次資料とする。全標数共通の正定数 c、標数ごとの閾値 m₀、任意の体のゲート数下界を正確に量化する。標数2ではpermanent=determinantでありHCを用いる。下界は超多項式・準多項式型で、指数下界やP≠NPではない。
-- EOMVPAでは定義と下界の意味、EOMVPBではpriceからCAT(0)、flat/contracting分岐と両下界の結合、EOMVPではexact/border・全標数・5 theoremのstatement matchingとP vs NPの非含意を扱う。flatとcontractingは排他的と証明されていない。詳しい補題・演習は[VNP24講](../plans_progress/DREAM_THEATER_VP_VNP_PROOF_STUDY_PLAN.md) と [99講ルート](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md) を正本にし重複しない。
+- EOMVPAでは定義と下界の意味、EOMVPBではpriceからCAT(0)、flat/contracting分岐と両下界の結合、EOMVPではexact/border・全標数・5 theoremのstatement matchingとP vs NPの非含意を扱う。flatとcontractingは排他的と証明されていない。詳しい補題・演習は[VNP24講](../plan_done/DREAM_THEATER_VP_VNP_PROOF_STUDY_PLAN.md) と [99講ルート](DREAM_THEATER_VP_VNP_ROUTE_PLAN.md) を正本にし重複しない。
 - 原論文はH.2(d,e)、I.1、J.3、N.4の完全な正しさについてLeanに依存する旨を明記。READMEは公開時点で数学者の確認がないと記載。著者報告の形式化・比較器の設定、独立再ビルド、数学者の検証、出版は別欄にする。本PLAN設計では再ビルド未実施。EOM378のETH反証の主張とVP/VNPおよびP/NPは別命題。
 
 ### 3.14 107/MMX：行列乗算指数の確定とテンソル幾何学

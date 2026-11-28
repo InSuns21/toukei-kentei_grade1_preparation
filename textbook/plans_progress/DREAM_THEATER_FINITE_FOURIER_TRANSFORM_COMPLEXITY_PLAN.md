@@ -1,7 +1,7 @@
 # DREAM THEATER 有限Fourier変換・高速アルゴリズム・計算量の最適対数指数（FFT1〜FFT36）
 
 構成確定日: 2026-11-28 JST  
-状態: **未着手・全36講の設計確定**（既存前提およびEOM横断講を含まない）。章本文・chapter.yaml・knowledge.yaml・系列manifestは未作成。  
+状態: **進行中・全36講の設計確定**（既存前提およびEOM横断講を含まない）。FFT1を実装、FFT2〜36はplanned。進捗の正本は `textbook/dream-theater-series/FFT.yaml`。  
 系列ID: FFT（実装前に全章IDと配置を再照合）。分類: 計算系・独立研究講読。
 
 ## 1. 中心問いと到達点
@@ -27,7 +27,7 @@
 - [MMX](../plans_progress/DREAM_THEATER_MATRIX_MULTIPLICATION_EXPONENT_PROOF_STUDY_PLAN.md) 8–10 のEuclid price・wire・共有ラベル・compatible spectral systemを再利用（2026-11-28確認時にcompleted）。必要な仮定を同日companionの原文と照合。FFTの矩形price、weighted swap、射影リスト、feedbackの時間展開はFFT7–13が所有する。MMXの残り全講、VNP全講、行列積9/4の下界は必修でない。MMXのPLAN移動時は参照を追従する。
 - [HDP](../plan_done/DREAM_THEATER_HIGH_DIMENSIONAL_PROBABILITY_PLAN.md) 1（Hoeffding）と必要な基礎線形代数・群環体・合同式・補間を再利用。HDP1はcompleted。FFT固有のshift平均と正標数に耐える補間は新規。FOUなど連続Fourier解析との接続は任意で、連続解析全体やHA全講は必修としない。既存基礎章の実在anchorと概念DAGの到達性は着手時に照合する（FOUの独立manifestは存在を確認できていないため仮の章リンクを置かない）。
 - [FML](../plan_done/DREAM_THEATER_FORMAL_MATHEMATICS_LEAN_PLAN.md) 1–3, 5–7 を形式検証で使用（completed）。LVT全講を一律必修にしない。
-- [EOM](DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md) は横断的な証拠評価の正本。FFTの証明は本系列が所有する。既存EOM107（MMX）との比較をFFT36で行うが、EOM講数・familyの再編は別の編集単位とする。
+- [EOM](../plans/DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md) は横断的な証拠評価の正本。FFTの証明は本系列が所有する。既存EOM107（MMX）との比較をFFT36で行うが、EOM講数・familyの再編は別の編集単位とする。
 - 入門（FFT1–6）から、下界（7–13）と構成（14–32）に分岐し、33–36で合流する。実装は通算順。前提の一般定義が未導入なら担当講の冒頭で直接例とともに導入し、後続章を前提にしない。
 
 ## 3. 全36講：中心問い・証明責務・直接前提

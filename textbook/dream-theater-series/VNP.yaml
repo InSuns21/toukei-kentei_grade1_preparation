@@ -1,7 +1,7 @@
 version: 1
 id: VNP
 title: "VP ≠ VNP 証明研究講読"
-plan: textbook/plans_progress/DREAM_THEATER_VP_VNP_PROOF_STUDY_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_VP_VNP_PROOF_STUDY_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 chapters:
   - id: VNP1

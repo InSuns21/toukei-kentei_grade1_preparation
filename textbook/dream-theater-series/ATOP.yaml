@@ -35,7 +35,7 @@ chapters:
   - { id: ATOP29, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP29, status: completed, title: "普遍係数定理・ExtとTor" }
   - { id: ATOP30, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP30, status: completed, title: "積空間とKünneth公式" }
   - { id: ATOP31, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP31, status: completed, title: "cup積とコホモロジー環" }
-  - { id: ATOP32, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP32, status: planned, title: "環の計算：トーラス・射影空間" }
+  - { id: ATOP32, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP32, status: completed, title: "環の計算：トーラス・射影空間" }
   - { id: ATOP33, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP33, status: planned, title: "Borsuk–Ulam定理" }
   - { id: ATOP34, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP34, status: planned, title: "局所向き・向き付け・基本類" }
   - { id: ATOP35, path: textbook/volumes/dream_thater/幾何系/ATOP/ATOP35, status: planned, title: "cap積と鎖レベルの双対写像" }

@@ -93,8 +93,8 @@
 - [TSP テンソル理論・漸近スペクトル・16講（完了）](../plan_done/DREAM_THEATER_TENSOR_ASYMPTOTIC_SPECTRUM_PLAN.md)
 - [NPCG 距離幾何学・非正曲率空間・12講](DREAM_THEATER_NONPOSITIVE_CURVATURE_METRIC_GEOMETRY_PLAN.md)
 - [FML 形式数学・Lean 4・7講](../plan_done/DREAM_THEATER_FORMAL_MATHEMATICS_LEAN_PLAN.md)
-- [VNP VP ≠ VNP 証明研究講読・24講](../plans_progress/DREAM_THEATER_VP_VNP_PROOF_STUDY_PLAN.md)
+- [VNP VP ≠ VNP 証明研究講読・24講（完了）](../plan_done/DREAM_THEATER_VP_VNP_PROOF_STUDY_PLAN.md)
 
 ### 有限Fourier変換の計算量（2026-11-28追加）
 
-[FFT 全36講・有限Fourier変換／高速アルゴリズム／計算量の最適対数指数](DREAM_THEATER_FINITE_FOURIER_TRANSFORM_COMPLEXITY_PLAN.md)（設計確定・未着手）。ACOMP/TSP/HDPとMMX8–10の共通理論を再利用し、古典FFT・rank/supportの頑健下界・予測と厳密修復・任意体の多項式乗算・全長の上界を担当する。EOMとの横断比較はFFT36で扱い、EOMの現行講数は変更しない。
+[FFT 全36講・有限Fourier変換／高速アルゴリズム／計算量の最適対数指数](../plans_progress/DREAM_THEATER_FINITE_FOURIER_TRANSFORM_COMPLEXITY_PLAN.md)（FFT1実装、FFT2–36予定）。ACOMP/TSP/HDPとMMX8–10の共通理論を再利用し、古典FFT・rank/supportの頑健下界・予測と厳密修復・任意体の多項式乗算・全長の上界を担当する。EOMとの横断比較はFFT36で扱い、EOMの現行講数は変更しない。

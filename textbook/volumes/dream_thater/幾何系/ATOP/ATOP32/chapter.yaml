@@ -1,0 +1,24 @@
+id: ATOP32
+title: "環の計算：トーラス・射影空間"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP31, ATOP22, ATOP5, CM1-10]
+official_scope: []
+learning_objectives:
+  - トーラスの整数係数コホモロジー環をKünneth公式とcup積から計算できる
+  - 対蹠被覆の持上げから1コサイクルを構成できる
+  - 符号列で分割したサイクルへのcup冪の評価により実射影空間の環を証明できる
+  - 複素射影空間の胞体構造から加法群を計算し環の計算と区別できる
+  - cup積の自然性で射影空間間の写像を制限できる
+definitions: []
+theorems:
+  - { id: ATOP32-THM-01, name: トーラスの整数係数コホモロジー環 }
+  - { id: ATOP32-PROP-01, name: 対蹠被覆の1コサイクル }
+  - { id: ATOP32-THM-02, name: 実射影空間の mod 2 コホモロジー環 }
+  - { id: ATOP32-PROP-02, name: 複素射影空間の整数係数コホモロジー群 }
+canonical_examples: [トーラスの二方向の積, 対蹠点を結ぶ半円, 実射影平面の四つの球面単体, 複素射影平面の胞体]
+problem_patterns: [ATOP32-A1, ATOP32-A2, ATOP32-A3, ATOP32-A4, ATOP32-B1, ATOP32-B2, ATOP32-B3, ATOP32-B4, ATOP32-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 1 }

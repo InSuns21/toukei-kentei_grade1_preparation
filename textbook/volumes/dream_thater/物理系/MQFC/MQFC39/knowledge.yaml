@@ -1,0 +1,31 @@
+chapter: MQFC39
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC35, MQFC37, MQFC38]
+forward_references: []
+concepts:
+  - id: mqfc.feynman-green-representation
+    name: "時間順序核のGreen作用素表示"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.two-point-time-order, mqfc.peierls-bracket, hpde.green-transpose-pairing, qft.feynman-two-point]
+  - id: mqfc.cylindrical-time-product
+    name: "円筒多項式の時間順序積"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.feynman-green-representation, mqfc.functional-derivative, mqfc.free-star-product]
+  - id: mqfc.time-product-conjugation
+    name: "時間順序積と通常積の変換"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.cylindrical-time-product]
+  - id: mqfc.two-factor-causal-factorization
+    name: "二因子の因果因子化"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.cylindrical-time-product, mqfc.feynman-green-representation, mqfc.free-star-product, mqfc.functional-support]
+  - id: mqfc.local-quadratic-time-contraction
+    name: "局所二次挿入の非対角収縮"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.two-factor-causal-factorization, mqfc.local-diagonal-kernel, mqfc.microcausal-contraction, mqfc.massless-fish-degree, mqfc.fish-cutoff-extension]
