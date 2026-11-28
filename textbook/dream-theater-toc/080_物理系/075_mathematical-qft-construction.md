@@ -42,3 +42,4 @@
 39. [MQFC39 時間順序積と因果分解](textbook/volumes/dream_thater/物理系/MQFC/MQFC39/index.md)
 40. [MQFC40 Epstein–Glaser帰納構成](textbook/volumes/dream_thater/物理系/MQFC/MQFC40/index.md)
 41. [MQFC41 局所S行列とBogoliubov公式](textbook/volumes/dream_thater/物理系/MQFC/MQFC41/index.md)
+42. [MQFC42 くりこみ処方の変更](textbook/volumes/dream_thater/物理系/MQFC/MQFC42/index.md)
