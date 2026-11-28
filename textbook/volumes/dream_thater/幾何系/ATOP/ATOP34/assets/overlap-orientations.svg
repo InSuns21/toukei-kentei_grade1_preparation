@@ -3,9 +3,10 @@
   <defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L6 3 L0 6 Z" fill="#333"/></marker></defs>
   <circle cx="202" cy="119" r="87" fill="#dceaf6" fill-opacity="0.55" stroke="#24577a" stroke-width="2.4"/>
   <circle cx="318" cy="119" r="87" fill="#eae2cf" fill-opacity="0.55" stroke="#765a28" stroke-width="2.4" stroke-dasharray="8 5"/>
-  <circle cx="260" cy="119" r="23" fill="white" stroke="#333" stroke-width="1.8" stroke-dasharray="3 3"/>
+  <circle cx="260" cy="119" r="28" fill="white" stroke="#333" stroke-width="1.8" stroke-dasharray="3 3"/>
   <circle cx="260" cy="119" r="3" fill="#333"/>
   <path d="M158 138 A19 19 0 1 1 177 119" fill="none" stroke="#333" stroke-width="2.2" marker-end="url(#a)"/>
   <path d="M342 138 A19 19 0 1 1 361 119" fill="none" stroke="#333" stroke-width="2.2" marker-end="url(#a)"/>
-  <g fill="#222" font-family="sans-serif" font-size="18" text-anchor="middle"><text x="202" y="22">D₁</text><text x="318" y="22">D₂</text><text x="260" y="88">E</text><text x="271" y="124" font-size="15">x</text></g>
+  <path d="M260 34 V91" fill="none" stroke="#555" stroke-width="1.2"/>
+  <g fill="#222" font-family="sans-serif" font-size="18" text-anchor="middle"><text x="135" y="22">D₁</text><text x="385" y="22">D₂</text><text x="260" y="22">E</text><text x="274" y="123" font-size="12">x</text></g>
 </svg>
