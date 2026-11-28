@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 250" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+<title id="title">Boundary orientation of an unrolled cylinder</title><desc id="desc">The vertical dashed sides of a rectangle are identified at equal heights. The bottom boundary arrow points left and the top arrow right. A vertical relative path v runs from the bottom boundary to the top.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#243b53"/></marker></defs>
+<rect x="50" y="44" width="260" height="158" fill="#f4f7fa"/>
+<g fill="none" stroke="#243b53" stroke-width="2.5"><path d="M50 44 H310 M50 202 H310"/><path d="M50 44 V202 M310 44 V202" stroke-dasharray="6 5"/></g>
+<g fill="none" stroke="#243b53" stroke-width="3" marker-end="url(#arrow)"><path d="M115 44 H235"/><path d="M235 202 H115"/><path d="M180 202 V44" stroke-dasharray="8 5"/></g>
+<g fill="#243b53" font-size="17" font-family="sans-serif"><text x="164" y="26">x1</text><text x="157" y="231">-x0</text><text x="194" y="128">v</text><text x="28" y="128">A</text><text x="322" y="128">A</text></g>
+</svg>

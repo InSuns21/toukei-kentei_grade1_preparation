@@ -1,0 +1,26 @@
+chapter: ATOP37
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP36, ATOP30]
+forward_references: []
+concepts:
+  - id: atop.boundary-collar
+    name: カラー近傍
+    kind: definition
+    introduction: formal
+    requires: [atop.halfspace-local-homology]
+  - id: atop.relative-fundamental-class
+    name: 相対基本類
+    kind: definition
+    introduction: formal
+    requires: [atop.local-orientation, atop.manifold-orientation, atop.relative-induced-map]
+  - id: atop.relative-fundamental-class-existence
+    name: 相対基本類の存在一意性と境界の誘導向き
+    kind: theorem
+    introduction: formal
+    requires: [atop.relative-fundamental-class, atop.boundary-collar, atop.compact-support-local-detection, atop.fundamental-class-existence, atop.excision, atop.relative-long-exact-naturality, atop.product-chain-maps]
+  - id: atop.poincare-lefschetz-duality
+    name: Poincaré–Lefschetz双対性
+    kind: theorem
+    introduction: formal
+    requires: [atop.relative-fundamental-class-existence, atop.poincare-duality, atop.relative-cap-descends, atop.cap-boundary, atop.cap-naturality, atop.cohomology-universal-coefficient, atop.exact-sequence-central-comparison]

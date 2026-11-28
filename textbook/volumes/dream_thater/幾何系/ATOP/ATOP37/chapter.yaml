@@ -1,0 +1,24 @@
+id: ATOP37
+title: "境界付き多様体とPoincaré–Lefschetz双対性"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP36, ATOP30]
+official_scope: []
+learning_objectives:
+  - カラー近傍と内部への押し込みを具体的に構成できる
+  - 相対基本類の存在一意性と境界の誘導向きを局所計算から説明できる
+  - 相対コホモロジーと内部のコンパクト支持コホモロジーを比較できる
+  - Poincaré–Lefschetz双対性の二同型を導き長完全列の符号を検算できる
+  - 円板と円筒の絶対群・相対群および双対写像を計算できる
+definitions:
+  - { id: ATOP37-DEF-01, name: カラー近傍 }
+  - { id: ATOP37-DEF-02, name: 相対基本類 }
+theorems:
+  - { id: ATOP37-THM-01, name: 相対基本類の存在一意性と境界の誘導向き }
+  - { id: ATOP37-THM-02, name: Poincaré–Lefschetz双対性 }
+canonical_examples: [円板のカラー近傍, 区間の相対基本類, 円板の双対性, 円筒の誘導向きと二同型]
+problem_patterns: [ATOP37-A1, ATOP37-A2, ATOP37-A3, ATOP37-A4, ATOP37-B1, ATOP37-B2, ATOP37-B3, ATOP37-B4, ATOP37-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 2, review: 1 }
