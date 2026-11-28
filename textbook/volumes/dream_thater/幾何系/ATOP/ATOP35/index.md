@@ -6,9 +6,13 @@
 
 ## 1. 前面を評価して後面を残す
 
-係数は整数環または二元体 $R=\mathbb Z,\mathbb F_2$ とします。$C_n(X;R)$ は [特異 $n$ 単体](../ATOP16/index.md#def-atop16-singular-simplex)（標準単体から $X$ への連続写像）を基底とする [特異鎖群](../ATOP16/index.md#def-atop16-singular-chains) の係数を $R$ に替えた自由 $R$ 加群です。$C^p(X;R)$ は $C_p(X;R)$ から $R$ への $R$ 線形評価全体です。双線形とは一方の入力を固定すると他方について線形になることです。[特異コチェイン](../ATOP28/index.md#def-atop28-cochain) と [特異余境界作用素](../ATOP28/index.md#def-atop28-coboundary) の規約に従い、$(\delta a)(c)=a(\partial c)$ とします。$\partial$ は鎖の次数を1下げ、$\delta$ はコチェインの次数を1上げます。負次数の鎖・コチェインとホモロジー・コホモロジーは零とします。
+係数は整数環または二元体 $R=\mathbb Z,\mathbb F_2$ とします。$C_n(X;R)$ は [特異 $n$ 単体](../ATOP16/index.md#def-atop16-singular-simplex)（標準単体から $X$ への連続写像）を基底とする [特異鎖群](../ATOP16/index.md#def-atop16-singular-chains) の係数を $R$ に替えた自由 $R$ 加群です。$C^p(X;R)$ は $C_p(X;R)$ から $R$ への $R$ 線形評価全体です。双線形とは一方の入力を固定すると他方について線形になることです。
 
-特異単体 $\sigma$ の頂点を $0,\ldots,n$ と番号付けし、$\sigma[i_0,\ldots,i_k]$ を、標準 $k$ 単体の各頂点を指定順に元の頂点へ送るアフィン写像と $\sigma$ の合成とします。点 $x$ を表す特異0単体は $[x]$、平面等で指定頂点を持つアフィン特異単体は $[v_0,\ldots,v_k]$ と略記します。特異単体は頂点順序も含む写像なので、頂点交換を単に符号反転とはみなしません。[cup積](../ATOP31/index.md#def-atop31-cup) では頂点 $p$ を共有する二つの面をそれぞれ評価しました。今度は前面だけを評価し、後面そのものを残します。
+[特異コチェイン](../ATOP28/index.md#def-atop28-cochain) と [特異余境界作用素](../ATOP28/index.md#def-atop28-coboundary) の規約に従い、$(\delta a)(c)=a(\partial c)$ とします。$\partial$ は鎖の次数を1下げ、$\delta$ はコチェインの次数を1上げます。負次数の鎖・コチェインとホモロジー・コホモロジーは零とします。[特異サイクル](../ATOP16/index.md#def-atop16-singular-cycles) は $\partial c=0$ の鎖、[特異コホモロジー群](../ATOP28/index.md#def-atop28-cohomology) でいうコサイクルは $\delta a=0$ のコチェインです。
+
+特異単体 $\sigma$ の頂点を $0,\ldots,n$ と番号付けし、$\sigma[i_0,\ldots,i_k]$ を、標準 $k$ 単体の各頂点を指定順に元の頂点へ送るアフィン写像と $\sigma$ の合成とします。点 $x$ を表す特異0単体は $[x]$、平面等で指定頂点を持つアフィン特異単体は $[v_0,\ldots,v_k]$ と略記します。特異単体は頂点順序も含む写像なので、頂点交換を単に符号反転とはみなしません。
+
+[cup積](../ATOP31/index.md#def-atop31-cup) では頂点 $p$ を共有する二つの面をそれぞれ評価しました。今度は前面だけを評価し、後面そのものを残します。
 
 <a id="def-atop35-cap"></a>
 
@@ -67,7 +71,7 @@ $$
 
 ### 証明の見取り図
 
-$n>p$ の単体で、境界の頂点削除を $i\le p$ と $i>p$ に分けます。前者は $\delta a$ の評価に吸収され、残りは後面の境界になります。共有頂点を削除する項を忘れないことが符号の鍵です。
+$n>p$ の単体で、[特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary) の頂点削除を $i\le p$ と $i>p$ に分けます。前者は $\delta a$ の評価に吸収され、残りは後面の境界になります。共有頂点を削除する項を忘れないことが符号の鍵です。
 
 <!-- proof-start -->
 ### 証明
@@ -144,13 +148,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\delta a=0,\partial c=0$ なら [cap積の境界公式](#thm-atop35-boundary) から $\partial(a\frown c)=0$ です。$c$ を $c+\partial d$ に変更した差は
+$\delta a=0,\partial c=0$ なら [cap積の境界公式](#thm-atop35-boundary) から $\partial(a\frown c)=0$ です。$c$ を $c+\partial d$（$d$ は $n+1$ 鎖）に変更した差は
 
 $$
 a\frown\partial d=(-1)^p\partial(a\frown d).
 $$
 
-$a$ を $a+\delta b$ に変更した差は、$b$ の次数が $p-1$ であるため
+$a$ を $a+\delta b$ に変更した差は、$p>0$ のとき $b$ の次数が $p-1$ であるため、境界公式により
 
 $$
 (\delta b)\frown c=(-1)^p\partial(b\frown c).
@@ -187,7 +191,9 @@ $$
 
 $I=[0,1]$、$A=\{0,1\}$、$B=\varnothing$ とします。相対1コチェイン $a$ を、恒等線分 $\sigma$ 上で1、他の特異1単体上で0と指定します。$A$ に含まれる特異単体は $\sigma$ ではないため、その上では零です。$c=\sigma$ は相対1鎖を表し、定義により $a\frown\sigma=[1]$ です。
 
-$c$ に $A$ 内の任意の1鎖を足しても、その前面は $A$ 内にあるので $a$ が消します。従って出力は同じ絶対0鎖になります。次に同じ $I,A,a$ のまま $B=[0,1/2]$ とします。$a$ を $B$ 内の線分 $\tau(t)=t/2$ 上でも2と指定し直します。$\tau$ は $A$ 内の単体ではないので相対コチェインの条件を保ちます。$a\frown\tau=2[1/2]$ ですが、$[1/2]$ は $B$ 内の0鎖なので出力の商で零です。このように $A$ 内の鎖は前面の評価が零、$B$ 内の鎖は後面が商で零となり、二種類の代表元変更を別々に消せます。
+$c$ に $A$ 内の任意の1鎖を足しても、その前面は $A$ 内にあるので $a$ が消します。従って出力は同じ絶対0鎖になります。
+
+次に同じ $I,A,a$ のまま $B=[0,1/2]$ とします。$a$ を $B$ 内の線分 $\tau(t)=t/2$ 上でも2と指定し直します。$\tau$ は $A$ 内の単体ではないので相対コチェインの条件を保ちます。$a\frown\tau=2[1/2]$ ですが、$[1/2]$ は $B$ 内の0鎖なので出力の商で零です。このように $A$ 内の鎖は前面の評価が零、$B$ 内の鎖は後面が商で零となり、二種類の代表元変更を別々に消せます。
 <!-- definition-example-end -->
 
 <a id="thm-atop35-relative-descend"></a>
@@ -259,7 +265,15 @@ $$
 
 として使えます。鎖代表をそのまま評価するのではなく、商の比較同型の逆で入力を移す点が重要です。
 
-具体的に $I=[0,1]$、$A=\{0,1\}$、整数係数とします。0コチェイン $g$ を $g(1)=1$、$g(t)=0$（$t\ne1$）と指定します。コチェインは連続関数である必要はなく、[特異コチェイン](../ATOP28/index.md#def-atop28-cochain) として各点に整数を指定すれば十分です。[余境界](../ATOP28/index.md#def-atop28-coboundary) により $a=\delta g$、すなわち $a(\sigma)=g(\sigma(1))-g(\sigma(0))$ とします。ここで $\sigma$ は区間を定義域とする特異1単体です。任意の特異2単体の各頂点での $g$ の値を $u_0,u_1,u_2$ とすると、三辺の評価の交代和は
+具体的に $I=[0,1]$、$A=\{0,1\}$、整数係数とします。0コチェイン $g$ を $g(1)=1$、$g(t)=0$（$t\ne1$）と指定します。コチェインは連続関数である必要はなく、[特異コチェイン](../ATOP28/index.md#def-atop28-cochain) として各点に整数を指定すれば十分です。
+
+[余境界](../ATOP28/index.md#def-atop28-coboundary) により $a=\delta g$、すなわち
+
+$$
+a(\sigma)=g(\sigma(1))-g(\sigma(0))
+$$
+
+とします。ここで $\sigma$ は区間を定義域とする特異1単体です。任意の特異2単体の各頂点での $g$ の値を $u_0,u_1,u_2$ とすると、三辺の評価の交代和は
 
 $$
 (u_2-u_1)-(u_2-u_0)+(u_1-u_0)=0
@@ -282,7 +296,7 @@ $$
 f_\#(f^*a\frown c)=a\frown f_\#c.
 $$
 >
-> 類についても同じ式が成り立つ。部分空間 $A,B\subset X$ と $A',B'\subset Y$ が $f(A)\subset A'$、$f(B)\subset B'$ を満たすときは、相対cap積の商でも同じ式が成立する。
+> コサイクルとサイクルの類についても同じ式が成り立つ。部分空間 $A,B\subset X$ と $A',B'\subset Y$ が $f(A)\subset A'$、$f(B)\subset B'$ を満たすとき、$a\in C^p(Y,A';R)$、$c$ を $C_n(X;R)/(C_n(A;R)+C_n(B;R))$ の元とすれば、相対cap積についても同じ式が成立する。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -353,7 +367,7 @@ $$
 
 ## 6. 基本類から次数を下げる
 
-閉向き付き $n$ 次元多様体 $M$ の [基本類](../ATOP34/index.md#def-atop34-fundamental-class) を $[M]$ とします。[基本類の存在一意性](../ATOP34/index.md#thm-atop34-fundamental-class) により局所向きを指定するとこの類が得られます。二元体なら向き付けの選択なしに基本類が得られます。
+閉多様体とはコンパクトで境界のない多様体です（ATOP34 第1節）。[向き付け](../ATOP34/index.md#def-atop34-orientation) を指定した閉 $n$ 次元多様体 $M$ の [基本類](../ATOP34/index.md#def-atop34-fundamental-class) を $[M]$ とします。[基本類の存在一意性](../ATOP34/index.md#thm-atop34-fundamental-class) により局所向きを指定するとこの類が得られます。二元体なら向き付けの選択なしに基本類が得られます。
 
 <a id="def-atop35-duality-map"></a>
 
@@ -387,7 +401,13 @@ $$
 
 ![共有辺vwと中点m、上下の三角形の重心を結ぶ双対辺](assets/dual-edge.svg)
 
-$v=(0,0),w=(2,0)$、第三頂点を $(1,2),(1,-2)$ とすると、$m=(1,0)$、$b_\pm=(1,\pm2/3)$ です。[重心細分複体](../ATOP15/index.md#def-atop15-subdivision-complex) の各小三角形は頂点・辺・面の包含順で頂点を並べます。ここでは平面の標準座標で、頂点 $v$ から出る第一の辺 $m-v$ が右向きなので、第二の辺 $b_\pm-v$ が上なら反時計回り、下なら時計回りです。この判定を座標で書くと
+$v=(0,0),w=(2,0)$、第三頂点を $(1,2),(1,-2)$ とします。中点と重心は座標の平均なので
+
+$$
+m=\frac{v+w}{2}=(1,0),\qquad b_\pm=\frac{v+w+(1,\pm2)}{3}=(1,\pm2/3).
+$$
+
+[重心細分複体](../ATOP15/index.md#def-atop15-subdivision-complex) の各小三角形は頂点・辺・面の包含順で頂点を並べます。ここでは平面の標準座標で、頂点 $v$ から出る第一の辺 $m-v$ が右向きなので、第二の辺 $b_\pm-v$ が上なら反時計回り、下なら時計回りです。この判定を座標で書くと
 
 $$
 \det(m-v,b_\pm-v)=
@@ -526,7 +546,7 @@ $$
 =(\delta b)\frown c.
 $$
 
-$\partial^2d=0$ なので $c$ を $\partial d$ に置き換えた式も成立し、第三項は $\partial(b\frown\partial d)$。従って差は
+[特異鎖の二重境界の消滅](../ATOP16/index.md#thm-atop16-singular-boundary-square) により $\partial^2d=0$ なので $c$ を $\partial d$ に置き換えた式も成立し、第三項は $\partial(b\frown\partial d)$。従って差は
 
 $$
 \partial\{a\frown d+b\frown c+b\frown\partial d\}.
@@ -544,7 +564,9 @@ $I=[0,1]$、$A=\{0,1\}$、$c(t)=t$ とする。整数係数の0コチェイン $
 <!-- solution-start -->
 **詳細解答**
 
-$A$ 内の特異1単体は定数なので両端の $g$ の値は同じです。従って $a$ は $C^1(I,A;\mathbb Z)$ に属します。さらに [特異鎖の二重境界の消滅](../ATOP16/index.md#thm-atop16-singular-boundary-square) により任意の2鎖 $s$ に対して $(\delta a)(s)=g(\partial^2 s)=0$ なので $\delta a=0$ です。$g$ 自身は $A$ 上で零ではないので、$a=\delta g$ という絶対の等式は相対の余境界であることを意味しません。実際、もし相対0コチェイン $h$ が $\delta h=a$ を満たせば、$a(c)=h(1)-h(0)=0$ となるはずですが、下の計算では1となります。
+$A$ 内の特異1単体は定数なので両端の $g$ の値は同じです。従って $a$ は $C^1(I,A;\mathbb Z)$ に属します。さらに [特異鎖の二重境界の消滅](../ATOP16/index.md#thm-atop16-singular-boundary-square) により任意の2鎖 $s$ に対して $(\delta a)(s)=g(\partial^2 s)=0$ なので $\delta a=0$ です。
+
+$g$ 自身は $A$ 上で零ではないので、$a=\delta g$ という絶対の等式は相対の余境界であることを意味しません。実際、もし相対0コチェイン $h$ が $\delta h=a$ を満たせば、$a(c)=h(1)-h(0)=0$ となるはずですが、下の計算では1となります。
 
 $\partial c=[1]-[0]$ は $A$ 内の鎖なので $c$ は相対サイクルです。[相対cap積の誘導写像](#thm-atop35-relative-descend) の $B=\varnothing$ の場合により出力は絶対0次の類です。
 
