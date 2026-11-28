@@ -1,0 +1,26 @@
+id: "FFT5"
+title: "二入力線形回路・一次成分抽出・対数指数"
+volume: foundations
+status: supplementary
+prerequisites: [FFT2, FFT3, FFT4, ACOMP5]
+official_scope: []
+learning_objectives:
+  - 二入力線形ゲートと無料の出力指定を区別して係数行を追跡できる
+  - 独立入力の直和に対する上下界の証明を再現できる
+  - 算術回路の一次成分を固定係数の線形ゲートへ変換できる
+  - 形式多項式と有限体上の点ごとの一致を区別できる
+  - 非一様な費用モデルと対数指数の量化を説明できる
+definitions:
+  - { id: FFT5-DEF-01, name: 二入力線形回路 }
+  - { id: FFT5-DEF-02, name: 線形ゲート数の対数指数 }
+theorems:
+  - { id: FFT5-THM-01, name: 線形ゲートの係数行追跡 }
+  - { id: FFT5-THM-02, name: 直和の線形ゲート数の基本評価 }
+  - { id: FFT5-THM-03, name: 算術回路の一次成分の線形ゲート化 }
+  - { id: FFT5-THM-04, name: 対数指数から正規化された対数の極限へ }
+canonical_examples: [二点変換, 直和の四出力, 算術回路の一次成分, 対数指数の比較]
+problem_patterns: [FFT5-A01, FFT5-A02, FFT5-A03, FFT5-A04, FFT5-B01, FFT5-B02, FFT5-B03, FFT5-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2.5, review: 0.5 }
