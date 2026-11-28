@@ -75,7 +75,17 @@ $$
 
 よって $D_M:H_c^p(M;R)\to H_{n-p}(M;R)$ が同値類に対して定まります。
 
-開集合 $j:U\hookrightarrow M$ にも対応が必要です。$K\subset U$ がコンパクトなら、$K$ は $M$ でも閉じており、$M\setminus U$ の閉包は開集合 $M\setminus K$ に含まれます。[切除定理](../ATOP19/index.md#thm-atop19-excision) から対 $(U,U\setminus K)\to(M,M\setminus K)$ は整数ホモロジー同型を誘導します。相対鎖群は整数自由群で、[コホモロジーの普遍係数定理](../ATOP29/index.md#thm-atop29-cohomology-uct) の自然な短完全列の両端が同型になるため、相対コホモロジーでも引戻しは同型です（係数群 $R$ を用いる）。この逆を支持集合 $K$ ごとに取り、拡大との可換性を使うと、開集合からの延長
+開集合 $j:U\hookrightarrow M$ にも対応が必要です。$K\subset U$ がコンパクトなら、$K$ は $M$ でも閉じており、$M\setminus U$ の閉包は開集合 $M\setminus K$ に含まれます。
+
+[切除定理](../ATOP19/index.md#thm-atop19-excision) から対の包含
+
+$$
+(U,U\setminus K)\longrightarrow(M,M\setminus K)
+$$
+
+は整数ホモロジー同型を誘導します。相対鎖群は整数自由群で、[コホモロジーの普遍係数定理](../ATOP29/index.md#thm-atop29-cohomology-uct) の自然な短完全列の両端が同型になるため、相対コホモロジーでも引戻しは同型です（係数群 $R$ を用いる）。
+
+この逆を支持集合 $K$ ごとに取り、拡大との可換性を使うと、開集合からの延長
 
 $$
 j_!:H_c^p(U;R)\longrightarrow H_c^p(M;R)
@@ -113,7 +123,15 @@ $$
 
 ここで $p=n$ の生成元は $u_{K_m}$ を1と評価する類 $a_m$ です。整数相対生成元を向きに合わせて選び、係数を $R$ に変えればこの評価が成立します。$K_m\subset K_{m+1}$ で相対類が制限により一致するため、コホモロジーの拡大写像は $a_m$ を $a_{m+1}$ へ送ります。従って直極限は同じ群です。
 
-一方、$X$ は可縮なので [可縮空間の被約特異ホモロジー](../ATOP17/index.md#cor-atop17-contractible) により $H_0(X;R)=R$、それ以外は零です。$p=n$ のとき特異 $n$ 単体のcap積は係数 $a_m(\sigma)$ を最後の頂点へ付けます。出力0鎖の係数の総和は $a_m(u_{K_m})=1$ です。[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) によりその類は点の生成元です。従って $D_X$ は $R$ から $R$ への生成元を送る写像で、同型です。他の次数は零群同士です。
+一方、$X$ は可縮なので [可縮空間の被約特異ホモロジー](../ATOP17/index.md#cor-atop17-contractible) により $H_0(X;R)=R$、それ以外は零です。
+
+$p=n$ のとき特異 $n$ 単体のcap積は係数 $a_m(\sigma)$ を最後の頂点へ付けます。出力0鎖の係数の総和は
+
+$$
+a_m(u_{K_m})=1
+$$
+
+です。[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) によりその類は点の生成元です。従って $D_X$ は $R$ から $R$ への生成元を送る写像で、同型です。他の次数は零群同士です。
 
 $n=0$ では $X$ は一点であり $K=X$ が最大の支持集合です。$u_K$ は選んだ点の生成元で、0コチェインの評価1により点の生成元を得ます。これも同型です。
 <!-- proof-end -->
@@ -171,7 +189,19 @@ $$
 
 $A\cap B=C_*(M\setminus(K\cup L);\mathbb Z)$ です。また $A+B$ から $C_*(M\setminus(K\cap L);\mathbb Z)$ への包含は、二つの開補集合による [小さい鎖によるホモロジー同型](../ATOP19/index.md#thm-atop19-small-chain-isomorphism) です。商複体への写像も長完全列の中央を比較して同型を誘導します。どちらの商も単体の部分集合で割った自由な整数鎖複体なので、[コホモロジーの普遍係数定理](../ATOP29/index.md#thm-atop29-cohomology-uct) により双対のコホモロジーも同型です。特に $(A+B)^\perp$ のコホモロジーを支持 $K\cap L$ の相対コホモロジーと同一視できます。
 
-短完全列のコホモロジー長完全列の接続は、コサイクル $a=\alpha+\beta$ を持ち上げ、$\delta\alpha=-\delta\beta$ を取って $[\delta\alpha]$ とするものです。$\delta^2=0$ なのでコサイクルです。持上げを $(\alpha+\gamma,\beta-\gamma)$ と変えれば $\delta\gamma$ だけ変わり、$a$ を余境界だけ変える場合もその持上げの余境界を加えれば変わりません。完全性は [相対コホモロジー長完全列](../ATOP28/index.md#thm-atop28-relative-exact) と同じ持上げで確認できます。接続像が零なら持上げを $\gamma$ で調整してコサイクルにでき、接続前の像と核が一致します。共通部分のコサイクルが中央で余境界になるなら、その原始コチェインの和はコサイクルであり、接続で元の類を与えます。中央のコサイクルの和が余境界なら、その原始コチェインを持ち上げて余境界を引けば、和が零の持上げに変えられます。
+短完全列のコホモロジー長完全列の接続は、コサイクル $a=\alpha+\beta$ を持ち上げ、
+
+$$
+\delta\alpha=-\delta\beta
+$$
+
+を取って $[\delta\alpha]$ とするものです。$\delta^2=0$ なのでコサイクルです。
+
+持上げを $(\alpha+\gamma,\beta-\gamma)$ と変えれば $\delta\gamma$ だけ変わり、$a$ を余境界だけ変える場合もその持上げの余境界を加えれば変わりません。
+
+完全性は [相対コホモロジー長完全列](../ATOP28/index.md#thm-atop28-relative-exact) と同じ持上げで確認できます。接続像が零なら持上げを $\gamma$ で調整してコサイクルにできます。従って前の写像の像が接続写像の核に一致します。
+
+共通部分のコサイクルが中央で余境界になるなら、その原始コチェインの和はコサイクルであり、接続で元の類を与えます。中央のコサイクルの和が余境界なら、その原始コチェインを持ち上げて余境界を引けば、和が零の持上げに変えられます。
 
 **(ii) 符号。** $u_{K\cup L}$ の代表 $z$ は、次の開被覆に対して小さい鎖として選びます。
 
@@ -198,7 +228,24 @@ $$
 
 [二領域の小さい鎖の短完全列](../ATOP20/index.md#thm-atop20-small-chain-sequence) の左写像を $(w,-w)$ とすると、[Mayer–Vietoris接続準同型](../ATOP20/index.md#thm-atop20-connecting) は、二領域に分けた鎖の第1成分の境界を重なりで読む操作です。従って上の符号が得られます。
 
-ここで $\delta\alpha$ は $A+B$ を消しますが、一般には補集合 $M\setminus(K\cap L)$ の全単体を消すとは限りません。(i) の比較同型により、そのコホモロジー類を補集合全体で零になるコサイクル $\eta$ で代表できます。$\delta\alpha-\eta=\delta\lambda$、$\lambda\in(A+B)^\perp$ です。小さい鎖 $z$ では $\lambda\frown z$ が $W$ に入り、$\lambda\frown\partial z=0$ なので差のcap積は $W$ 内の境界です。さらに $z$ を $K\cap L$ 上の相対鎖として見たとき、$W$ に含まれない被覆要素の単体は全て $M\setminus(K\cap L)$ 内にあり捨てられます。残る $W$ 内の鎖は切除と相対類の制限によって $u_{K\cap L}$ を表します。従って $[(\delta\alpha)\frown z]$ は確かに $D_W[\eta]$ です。
+ここで $\delta\alpha$ は $A+B$ を消しますが、一般には補集合 $M\setminus(K\cap L)$ の全単体を消すとは限りません。(i) の比較同型により、そのコホモロジー類を補集合全体で零になるコサイクル $\eta$ で代表できます。
+
+$$
+\delta\alpha-\eta=\delta\lambda,\qquad
+\lambda\in(A+B)^\perp
+$$
+
+です。小さい鎖 $z$ では $\lambda\frown z$ が $W$ に入り、$\lambda\frown\partial z=0$ なので差のcap積は $W$ 内の境界です。
+
+さらに $z$ を $K\cap L$ 上の相対鎖として見たとき、$W$ に含まれない被覆要素の単体は全て $M\setminus(K\cap L)$ 内にあり捨てられます。残る $W$ 内の鎖は切除と相対類の制限によって $u_{K\cap L}$ を表します。
+
+従って
+
+$$
+[(\delta\alpha)\frown z]=D_W[\eta]
+$$
+
+です。
 
 係数 $R=\mathbb F_2$ についても ATOP20 の鎖の短完全列は単体基底により完全であり、細分と鎖ホモトピーの恒等式を係数変更して使えます。接続写像を第1成分の境界で定義する持上げの議論は同じです。
 
@@ -265,7 +312,35 @@ $$
 
 です。任意の有限サイクルの単体像の合併はコンパクトなのである $M_i$ 内にあります。あるサイクルが $M$ で境界なら、その境界を与える有限鎖の像もコンパクトなのでより大きな $M_j$ 内で境界になります。自然性により各 $D_{M_i}$ はこの二つの系の写像と可換です。各段階の $D$ が同型なら、その逆写像も可換であるため直極限で同型です。
 
-**一つの座標内。** $\mathbb R^n$ の任意の開集合 $O$ を考えます。開球の有限交差は開凸集合です。非空の開凸集合は $\mathbb R^n$ と同相であることを次のように確認できます。内部点を原点へ平行移動して $Q$ とし、$g(x)=\inf\{t>0:x\in tQ\}$ と定めます。$Q$ が原点の半径 $\epsilon$ の球を含むため $0\le g(x)\le |x|/\epsilon$。凸性より $g(x+y)\le g(x)+g(y)$、正の実数倍について $g(sx)=sg(x)$ です（$x\in aQ,y\in bQ$ なら $(x+y)/(a+b)\in Q$）。従って $|g(x)-g(y)|\le |x-y|/\epsilon$ で連続です。また $Q=\{g<1\}$ です。$g(x)<1$ なら凸性で $x\in Q$、逆に $x\in Q$ なら開性で少し拡大した点も $Q$ に入ります。従って
+**一つの座標内。** $\mathbb R^n$ の任意の開集合 $O$ を考えます。開球の有限交差は開凸集合です。非空の開凸集合は $\mathbb R^n$ と同相であることを次のように確認できます。
+
+内部点を原点へ平行移動して $Q$ とし、
+
+$$
+g(x)=\inf\{t>0:x\in tQ\}
+$$
+
+と定めます。$Q$ が原点の半径 $\epsilon$ の球を含むため、
+
+$$
+0\le g(x)\le |x|/\epsilon
+$$
+
+です。凸性より次の二つが成り立ちます。
+
+$$
+g(x+y)\le g(x)+g(y),\qquad g(sx)=sg(x)\quad(s>0).
+$$
+
+実際、$x\in aQ,y\in bQ$ なら $(x+y)/(a+b)\in Q$ です。正の実数倍の式は定義で拡大率を置換すれば得られます。
+
+従って
+
+$$
+|g(x)-g(y)|\le |x-y|/\epsilon
+$$
+
+となり連続です。また $Q=\{g<1\}$ です。$g(x)<1$ なら凸性で $x\in Q$、逆に $x\in Q$ なら開性で少し拡大した点も $Q$ に入ります。従って
 
 $$
 x\mapsto\frac{x}{1+g(x)},\qquad
@@ -287,7 +362,33 @@ $$
 
 ## 6. トーラスで符号を読む
 
-閉向き付きトーラス $T^2=S^1\times S^1$ を考えます。積の角度座標の重なりは各座標での平行移動なので、標準の向きは整合します。二方向に一周するサイクルを $x,y$ とし、それぞれの方向を測る1次のコホモロジー類を $a,b$ とします。[トーラスの整数係数コホモロジー環](../ATOP32/index.md#thm-atop32-torus-ring) により $a\smile b$ は2次の生成元、$b\smile a=-a\smile b$、$a^2=b^2=0$ です。$a(x)=b(y)=1,a(y)=b(x)=0$ となる基底を使います。[ホモロジーのKünneth公式](../ATOP30/index.md#thm-atop30-kunneth-homology) により $H_1=\mathbb Z x\oplus\mathbb Z y$、$H_2=\mathbb Z$ です。$H_1$ が自由なので [コホモロジーの普遍係数定理](../ATOP29/index.md#thm-atop29-cohomology-uct) の $H^2$ から $H_2$ への評価は同型となり、$\langle a\smile b,[T^2]\rangle=1$ となる向きを選びます。
+閉向き付きトーラス $T^2=S^1\times S^1$ を考えます。積の角度座標の重なりは各座標での平行移動なので、標準の向きは整合します。二方向に一周するサイクルを $x,y$ とし、それぞれの方向を測る1次のコホモロジー類を $a,b$ とします。
+
+[トーラスの整数係数コホモロジー環](../ATOP32/index.md#thm-atop32-torus-ring) により $a\smile b$ は2次の生成元で、
+
+$$
+b\smile a=-a\smile b,\qquad a^2=b^2=0
+$$
+
+です。基底は
+
+$$
+a(x)=b(y)=1,\qquad a(y)=b(x)=0
+$$
+
+となるものを使います。[ホモロジーのKünneth公式](../ATOP30/index.md#thm-atop30-kunneth-homology) により
+
+$$
+H_1=\mathbb Z x\oplus\mathbb Z y,\qquad H_2=\mathbb Z
+$$
+
+です。$H_1$ が自由なので [コホモロジーの普遍係数定理](../ATOP29/index.md#thm-atop29-cohomology-uct) の評価写像は同型となり、
+
+$$
+\langle a\smile b,[T^2]\rangle=1
+$$
+
+となる向きを選びます。
 
 [cup積とcap積の評価関係](../ATOP35/index.md#thm-atop35-cup-evaluation) から
 
@@ -436,7 +537,23 @@ $$
  \xrightarrow{(s,t)\mapsto(s+t,-s-t)}\mathbb Z^2.
 $$
 
-最後の核は $s+t=0$ で与えられる $\mathbb Z(1,-1)$ です。完全性から $\Delta$ はこの核への同型なので、生成元1の像は $(1,-1)$ または $(-1,1)$ です。重なりの番号の付け方で符号が変わります。例えば向き付き円周のサイクルを $U$ 内の鎖 $u$ と $V$ 内の鎖 $v$ に分け、$\partial u=[q_2]-[q_1]$（$q_i\in W_i$）となるよう番号を選べば、[Mayer–Vietoris接続準同型](../ATOP20/index.md#thm-atop20-connecting) は $(-1,1)$ を返します。$p=0$ なので $\partial_{\rm MV}D=-D\Delta$ であり、$\Delta(1)=(1,-1)$ です。
+最後の核は $s+t=0$ で与えられる $\mathbb Z(1,-1)$ です。完全性から $\Delta$ はこの核への同型なので、生成元1の像は $(1,-1)$ または $(-1,1)$ です。
+
+重なりの番号の付け方で符号が変わります。例えば向き付き円周のサイクルを $U$ 内の鎖 $u$ と $V$ 内の鎖 $v$ に分け、
+
+$$
+\partial u=[q_2]-[q_1],\qquad q_i\in W_i
+$$
+
+となるよう番号を選びます。[Mayer–Vietoris接続準同型](../ATOP20/index.md#thm-atop20-connecting) は $(-1,1)$ を返します。
+
+$p=0$ なので
+
+$$
+\partial_{\rm MV}D=-D\Delta
+$$
+
+であり、$\Delta(1)=(1,-1)$ です。
 <!-- solution-end -->
 
 <a id="ex-atop36-c1"></a>
