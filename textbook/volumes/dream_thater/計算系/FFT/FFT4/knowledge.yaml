@@ -1,0 +1,36 @@
+chapter: FFT4
+scope: dream-theater
+coverage: complete
+prerequisites: [FFT1, FFT2, FFT3]
+forward_references: []
+concepts:
+  - id: finite-fourier.cyclic-convolution
+    name: 巡回畳み込み
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: finite-fourier.cyclic-convolution-theorem
+    name: 体上の巡回畳み込み定理
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.cyclic-convolution, finite-fourier.cyclic-inversion]
+  - id: finite-fourier.zero-padding-multiplication
+    name: ゼロ詰めによる通常の多項式乗算
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.cyclic-convolution]
+  - id: finite-fourier.number-theoretic-transform
+    name: 数論変換
+    kind: definition
+    introduction: formal
+    requires: [finite-fourier.cyclic-transform, finite-fourier.cyclic-inversion]
+  - id: finite-fourier.bluestein
+    name: Bluesteinの整数指数による変換
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.cyclic-convolution, finite-fourier.cyclic-transform]
+  - id: finite-fourier.fixed-polynomial-multiplication
+    name: 固定多項式との乗算とFourier変換
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.zero-padding-multiplication, finite-fourier.cyclic-convolution-theorem]
