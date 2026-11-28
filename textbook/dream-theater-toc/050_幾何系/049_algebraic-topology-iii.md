@@ -9,3 +9,4 @@
 1. [ATOP33 Borsuk–Ulam定理](textbook/volumes/dream_thater/幾何系/ATOP/ATOP33/index.md)
 1. [ATOP34 局所向き・向き付け・基本類](textbook/volumes/dream_thater/幾何系/ATOP/ATOP34/index.md)
 1. [ATOP35 cap積と鎖レベルの双対写像](textbook/volumes/dream_thater/幾何系/ATOP/ATOP35/index.md)
+1. [ATOP36 Poincaré双対性](textbook/volumes/dream_thater/幾何系/ATOP/ATOP36/index.md)
