@@ -33,9 +33,9 @@ $$
 Pv=G^{(1)}(\phi)
 $$
 
-となる。一次核が滑らかなコンパクト支持関数なら [Green作用素の構成と因果的支持](../../../解析系/HPDE/HPDE18/index.md#thm-hpde18-green-existence) の右逆恒等式を用いて二つの応答は $v_{\mathrm{ret}}=G_{\mathrm{ret}}G^{(1)}$ と $v_{\mathrm{adv}}=G_{\mathrm{adv}}G^{(1)}$ である。観測量 $F$ の一次応答は $DF(\phi)[v]$ である。本講では先進応答から遅延応答を引く順序を採り、$K=-E$ と置く。これは [自由場の交換子条件](../../../解析系/MICA/MICA11/index.md#def-mica11-two-point-conditions) の符号に合わせた選択である。
+となる。一次核が滑らかなコンパクト支持関数ならGreen作用素の定義域に入る。[遅延・先進Green作用素の構成と因果的支持](../../../解析系/HPDE/HPDE18/index.md#thm-hpde18-green-existence) で確かめた恒等式は $PG_{\mathrm{ret}}f=PG_{\mathrm{adv}}f=f$ である。ここで $f=G^{(1)}(\phi)$ を代入すると二つの応答は $v_{\mathrm{ret}}=G_{\mathrm{ret}}G^{(1)}$ と $v_{\mathrm{adv}}=G_{\mathrm{adv}}G^{(1)}$ である。観測量 $F$ の一次応答は $DF(\phi)[v]$ である。本講では先進応答から遅延応答を引く順序を採り、$K=-E$ と置く。これは [自由場の交換子条件](../../../解析系/MICA/MICA11/index.md#def-mica11-two-point-conditions) の符号に合わせた選択である。
 
-まず滑らかな試験関数による平均 $L_f(\phi)=\int_M f\phi$ とその有限個の積・和を考える。このような多項式を円筒多項式と呼ぶ。各階の微分核は滑らかでコンパクト支持である。例えば $L_fL_g$ の一次核は $fL_g+gL_f$、二次核は $f\otimes g+g\otimes f$ となる。複素係数も許す。この場合の方向微分は実の場の方向に取り、実部と虚部の微分を複素線形にまとめる。応答差を積分で表したものがPeierls括弧である。
+まず滑らかな試験関数による平均 $L_f(\phi)=\int_M f\phi$ とその有限個の積・和を考える。このような多項式を円筒多項式と呼ぶ。各階の微分核は滑らかでコンパクト支持である。例えば $L_fL_g$ の一次核は $fL_g+gL_f$、二次核は $f\otimes g+g\otimes f$ となる。複素係数も許す。この場合の方向微分は実の場の方向に取り、実部と虚部の微分を複素線形にまとめる。応答差を積分で表すため、次の括弧を導入する。
 
 <a id="def-mqfc38-peierls"></a>
 
@@ -346,7 +346,7 @@ $X=L_f,Y=L_g,c=\langle f,Kg\rangle$ とする。$\{X^2,Y\}$ と $\{Y,X^2\}$ を�
 <!-- solution-start -->
 **詳細解答**
 
-$(X^2)^{(1)}=2Xf$、$Y^{(1)}=g$ だから [Peierls括弧](#def-mqfc38-peierls) に代入して $\{X^2,Y\}=2Xc$。逆順は $\langle g,K(2Xf)\rangle=2X\langle g,Kf\rangle=-2Xc$ となる。
+$(X^2)^{(1)}=2Xf$、$Y^{(1)}=g$ だから [Peierls括弧](#def-mqfc38-peierls) に代入して $\{X^2,Y\}=2Xc$。逆順は [自由Peierls括弧のPoisson性](#thm-mqfc38-peierls-poisson) の反対称性と同じ転置計算で $\langle g,K(2Xf)\rangle=2X\langle g,Kf\rangle=-2Xc$ となる。
 <!-- solution-end -->
 
 ### 演習 MQFC38-A3：線形交換子
@@ -391,7 +391,7 @@ $$
 X^2\star_W Y^2=X^2Y^2+4\hbar XYw+2\hbar^2w^2.
 $$
 
-逆順では $w$ を $W(g,f)$ へ替える。$c=\langle f,Kg\rangle$ と置けば一次の差 $4i\hbar XYc$ は $\{X^2,Y^2\}=4XYc$ と一致する。
+逆順では $w$ を $W(g,f)$ へ替える。$c=\langle f,Kg\rangle$ と置けば一次の差 $4i\hbar XYc$ が得られる。[Peierls括弧](#def-mqfc38-peierls) に一次核を代入すると $\{X^2,Y^2\}=\langle 2Xf,K(2Yg)\rangle=4XYc$ であり、交換子の一次係数と対応する。
 <!-- solution-end -->
 
 ### 演習 MQFC38-B2：三因子の結合性
