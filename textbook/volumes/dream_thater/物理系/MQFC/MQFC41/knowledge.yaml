@@ -1,0 +1,36 @@
+chapter: MQFC41
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC40]
+forward_references: []
+concepts:
+  - id: mqfc.local-s-matrix
+    name: "局所S行列"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.formal-coupling-expansion, mqfc.causal-time-order-recursion]
+  - id: mqfc.relative-s-matrix
+    name: "相対S行列"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.local-s-matrix, mqfc.formal-coupling-inverse]
+  - id: mqfc.s-matrix-causal-factorization
+    name: "局所S行列の因果因子化"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.local-s-matrix, mqfc.causal-time-order-recursion]
+  - id: mqfc.relative-s-future-cancellation
+    name: "相対S行列の未来挿入の消去"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.relative-s-matrix, mqfc.s-matrix-causal-factorization]
+  - id: mqfc.bogoliubov-formula
+    name: "Bogoliubov公式"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.relative-s-matrix]
+  - id: mqfc.retarded-product-expansion
+    name: "遅延積の二次展開"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.bogoliubov-formula, mqfc.order-unitarity-condition, mqfc.causal-time-order-recursion]
