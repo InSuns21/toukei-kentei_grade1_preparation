@@ -1,5 +1,5 @@
 id: "FFT6"
-title: "Fourier変換の古典的下界と行列の非剛性"
+title: "有限Fourier変換の古典的下界と行列の非剛性"
 volume: foundations
 status: supplementary
 prerequisites: [FFT1, FFT3, FFT5]
