@@ -1,0 +1,23 @@
+id: MMX28
+title: "obstruction：圧縮を定数回反復、$x_{j+1}\\le h^{-\\gamma}x_j+h^\\eta$ とリスト下界の矛盾、有限体下界を閉じる"
+volume: foundations
+status: supplementary
+prerequisites: [MMX17, MMX18, MMX27]
+official_scope: []
+learning_objectives:
+  - 外部ビット当たりのサイズを計算し三価ネットワークの体積と比較できる
+  - ports の有無による下界を共通の一様狭義下界に統合できる
+  - 固定尺度での反復式を導きサイズ条件と複製数を帰納的に確認できる
+  - 指数と反復回数を選択して有限体上の行列乗算指数下界を証明できる
+definitions:
+  - { id: MMX28-DEF-01, name: "外部ビット当たりのサイズ" }
+theorems:
+  - { id: MMX28-THM-02, name: "有限体の一様リスト体積下界" }
+  - { id: MMX28-LEM-03, name: "固定尺度での圧縮反復" }
+  - { id: MMX28-THM-04, name: "有限体上の行列乗算指数下界" }
+canonical_examples: [二語の相異性判定, 二コピーの費用, 等比反復, コピー数の制限]
+problem_patterns: [MMX28-A01, MMX28-A02, MMX28-A03, MMX28-A04, MMX28-B01, MMX28-B02, MMX28-B03, MMX28-B04, MMX28-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 4, review: 2 }
