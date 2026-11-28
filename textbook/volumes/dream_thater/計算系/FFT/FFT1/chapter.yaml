@@ -1,5 +1,5 @@
 id: "FFT1"
-title: "体上の離散Fourier変換・文字の直交性・反転"
+title: "体上の巡回Fourier変換・文字の直交性・反転"
 volume: foundations
 status: supplementary
 prerequisites: [FLD0, FLD3, GRP2]

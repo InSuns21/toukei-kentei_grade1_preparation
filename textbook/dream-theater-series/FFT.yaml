@@ -7,7 +7,7 @@ chapters:
   - id: FFT1
     path: textbook/volumes/dream_thater/計算系/FFT/FFT1
     status: completed
-    title: "体上の離散Fourier変換・文字の直交性・反転"
+    title: "体上の巡回Fourier変換・文字の直交性・反転"
   - id: FFT2
     path: textbook/volumes/dream_thater/計算系/FFT/FFT2
     status: planned
