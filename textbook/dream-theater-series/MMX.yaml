@@ -118,7 +118,7 @@ chapters:
     title: "obstruction：圧縮を定数回反復、$x_{j+1}\\le h^{-\\gamma}x_j+h^\\eta$ とリスト下界の矛盾、有限体下界を閉じる"
   - id: MMX29
     path: textbook/volumes/dream_thater/計算系/MMX/MMX29
-    status: planned
+    status: completed
     title: "formal circuitの双線形化：二重切断変数による積・商の係数式、有限生成係数環の有限体への特殊化、全体への移送"
   - id: MMX30
     path: textbook/volumes/dream_thater/計算系/MMX/MMX30
