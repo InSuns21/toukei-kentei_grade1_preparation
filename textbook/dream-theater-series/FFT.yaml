@@ -22,7 +22,7 @@ chapters:
     title: "畳み込み定理・ゼロ詰め・Bluesteinの整数chirp恒等式・固定多項式との乗算。小さい有限体でNTTの条件を検算。"
   - id: FFT5
     path: textbook/volumes/dream_thater/計算系/FFT/FFT5
-    status: planned
+    status: completed
     title: "二入力線形回路のreadout・fanout・直和、算術回路の一次成分抽出、非一様性と対数指数の量化。"
   - id: FFT6
     path: textbook/volumes/dream_thater/計算系/FFT/FFT6

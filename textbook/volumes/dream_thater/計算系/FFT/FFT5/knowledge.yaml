@@ -1,0 +1,36 @@
+chapter: FFT5
+scope: dream-theater
+coverage: complete
+prerequisites: [FFT2, FFT3, FFT4, ACOMP5]
+forward_references: []
+concepts:
+  - id: finite-fourier.binary-linear-circuit
+    name: 二入力線形回路
+    kind: definition
+    introduction: formal
+    requires: [algebraic-complexity.arithmetic-circuit, algebraic-complexity.constant-model]
+  - id: finite-fourier.row-tracking
+    name: 線形ゲートの係数行追跡
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.binary-linear-circuit]
+  - id: finite-fourier.direct-sum-bounds
+    name: 直和の線形ゲート数の基本評価
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.binary-linear-circuit, finite-fourier.row-tracking]
+  - id: finite-fourier.linear-part-extraction
+    name: 算術回路の一次成分の線形ゲート化
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.binary-linear-circuit, algebraic-complexity.component-rules, algebraic-complexity.arithmetic-circuit-semantics]
+  - id: finite-fourier.logarithmic-exponent
+    name: 線形ゲート数の対数指数
+    kind: definition
+    introduction: formal
+    requires: [finite-fourier.binary-linear-circuit]
+  - id: finite-fourier.logarithmic-exponent-limit
+    name: 対数指数から正規化された対数の極限へ
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.logarithmic-exponent]

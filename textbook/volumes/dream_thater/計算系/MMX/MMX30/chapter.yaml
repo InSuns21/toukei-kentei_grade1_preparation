@@ -1,0 +1,25 @@
+id: MMX30
+title: "有限サイズのgate/rank/border rank・漸近rank、Zariski閉包の冪と体拡大、tight tensor予想への反例の検算"
+volume: foundations
+status: supplementary
+prerequisites: [MMX6, MMX29, TSP8, TSP9, TSP10, TSP11, TSP12, TSP13, TSP14]
+official_scope: []
+learning_objectives:
+  - 形式回路の非スカラー演算数と階数・幾何的境界階数・漸近階数を区別できる
+  - Zariski閉包の冪の線形包を用いて境界階数下界を導ける
+  - 有限拡大体の座標射影と極限の順序を説明できる
+  - 行列積テンソルのtight性と一因子平坦化階数を検算できる
+definitions:
+  - { id: MMX30-DEF-01, name: "幾何的境界階数" }
+  - { id: MMX30-DEF-05, name: "tight tensor" }
+theorems:
+  - { id: MMX30-LEM-02, name: "Zariski閉包の冪の線形包" }
+  - { id: MMX30-LEM-03, name: "有限拡大体からの冪の階数降下" }
+  - { id: MMX30-THM-04, name: "正方行列積の有限サイズ下界と漸近階数" }
+  - { id: MMX30-THM-06, name: "正方行列積のtight性と漸近階数予想への反例" }
+canonical_examples: [有限体上の単純テンソル, 斉次単項式の個数, 有限拡大体の射影, tightな対角テンソル]
+problem_patterns: [MMX30-A01, MMX30-A02, MMX30-A03, MMX30-A04, MMX30-B01, MMX30-B02, MMX30-B03, MMX30-B04, MMX30-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
