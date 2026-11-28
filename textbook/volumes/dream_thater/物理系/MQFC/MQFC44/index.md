@@ -340,7 +340,7 @@ $$
 
 二重の共変微分の一方を展開すると
 
-$
+$$
 \begin{aligned}
 D_\mu D_\nu c
 &=\partial_\mu\partial_\nu c
@@ -349,7 +349,7 @@ D_\mu D_\nu c
 +g[A_\mu,\partial_\nu c]\\
 &\quad+g^2[A_\mu,[A_\nu,c]].
 \end{aligned}
-$
+$$
 
 $\mu,\nu$ を交換した式との差を取る。第一項は微分の交換で消え、第三・第四項の和も交換前後で同じなので消える。残る項は
 
