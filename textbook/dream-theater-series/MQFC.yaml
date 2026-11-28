@@ -43,7 +43,7 @@ chapters:
   - { id: MQFC37, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC37, status: completed, title: "汎関数微分と局所汎関数" }
   - { id: MQFC38, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC38, status: completed, title: "Peierls括弧と自由場の積" }
   - { id: MQFC39, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC39, status: completed, title: "時間順序積と因果分解" }
-  - { id: MQFC40, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC40, status: planned, title: "Epstein–Glaser帰納構成" }
+  - { id: MQFC40, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC40, status: completed, title: "Epstein–Glaser帰納構成" }
   - { id: MQFC41, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC41, status: planned, title: "局所S行列とBogoliubov公式" }
   - { id: MQFC42, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC42, status: planned, title: "くりこみ処方の変更" }
   - { id: MQFC43, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC43, status: planned, title: "スケール変更とくりこみ群" }

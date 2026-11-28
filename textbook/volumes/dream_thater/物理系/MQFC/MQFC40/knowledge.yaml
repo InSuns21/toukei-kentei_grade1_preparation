@@ -1,0 +1,31 @@
+chapter: MQFC40
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC36, MQFC39]
+forward_references: []
+concepts:
+  - id: mqfc.causal-time-order-recursion
+    name: "時間順序積の因果帰納条件"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.causal-split-cover, mqfc.two-factor-causal-factorization, mqfc.free-star-product]
+  - id: mqfc.off-diagonal-recursive-uniqueness
+    name: "因果帰納による全対角外の一意性"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.causal-time-order-recursion, mqfc.lower-time-order-compatibility, mqfc.finite-distribution-gluing]
+  - id: mqfc.recursive-diagonal-extension
+    name: "因果帰納の全対角延長"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.off-diagonal-recursive-uniqueness, mqfc.collision-codimension, mqfc.scaling-preserving-extension, mqfc.local-counterterm-freedom]
+  - id: mqfc.order-unitarity-condition
+    name: "挿入数ごとのユニタリティ条件"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.formal-coupling-expansion, mqfc.free-star-algebra]
+  - id: mqfc.diagonal-unitarity-correction
+    name: "全対角におけるユニタリティ補正"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.order-unitarity-condition, mqfc.recursive-diagonal-extension]
