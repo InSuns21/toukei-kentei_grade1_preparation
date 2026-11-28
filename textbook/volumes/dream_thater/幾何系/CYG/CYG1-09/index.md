@@ -325,7 +325,7 @@ $$
 
 から $h^{1,0}=h^{2,0}=0,h^{1,1}=1$。一方[随伴公式](#prop-cyg1-09-adjunction)で $K_X\simeq\mathcal O_X$、連結かつコンパクトなので[正則体積形式と最高Hodge数](../CYG1-06/index.md#prop-cyg1-06-top-hodge)から $h^{3,0}=h^{0,3}=1$。
 
-[Poincaré双対性](../../HOD/HOD1-07/index.md#thm-hod1-07-betti-constraints)でBetti数列は $(1,0,1,b_3,1,0,1)$。第5節の $\chi=-144$ を交代和へ代入すると
+[Poincaré双対性](../../ATOP/ATOP36/index.md#thm-atop36-poincare-duality)でBetti数列は $(1,0,1,b_3,1,0,1)$。第5節の $\chi=-144$ を交代和へ代入すると
 
 $$
 -144=1+1-b_3+1+1=4-b_3,
@@ -359,7 +359,7 @@ $Y=\{Z_0^5+Z_1^5+Z_2^5+Z_3^5=0\}\subset\mathbb P^4$ は $P=[0:0:0:0:1]$ を含�
 
 ### 6.2 非コンパクト化
 
-滑らかな五次 $X\subset\mathbb P^4$ から超平面切断 $D=X\cap\{Z_0=0\}$ を取り除き、$U=X\setminus D$ とする。$U$ は開部分多様体で、$K_U\simeq K_X|_U$ だから標準束の自明性は残る。しかし $U$ はコンパクトでない。第5節で使った「有限次元のHodge分解とPoincaré双対性」「境界項なしのトップChern類積分」は、そのままの形では適用できない。
+滑らかな五次 $X\subset\mathbb P^4$ から超平面切断 $D=X\cap\{Z_0=0\}$ を取り除き、$U=X\setminus D$ とする。$U$ は開部分多様体で、$K_U\simeq K_X|_U$ だから標準束の自明性は残る。しかし $U$ はコンパクトでない。第5節で使った「有限次元のHodge分解と[Poincaré双対性](../../ATOP/ATOP36/index.md#thm-atop36-poincare-duality)」「境界項なしのトップChern類積分」は、そのままの形では適用できない。
 
 最小例として $\mathbb C$ は $b_1=0$ であるが、正則一形式 $f(z)\,dz$（$f$ は任意の整関数）が無限次元に存在する。コンパクトKähler多様体の $b_1=h^{1,0}+h^{0,1}$ をこの非コンパクト例へ移すと誤る。非コンパクトの場合は、コンパクト台コホモロジーや境界の解析等、別の条件設定が要る。
 
@@ -473,7 +473,7 @@ $$
 \chi_{\mathrm{top}}(X)=(-22)\cdot8=-176.
 $$
 
-[弱Lefschetz](#thm-cyg1-09-weak-lefschetz)で $b_1=0,b_2=1$ となる。非零の $(1,1)$ Kähler類と[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)を併用すると $h^{1,1}=1,h^{2,0}=0$。連結かつ $K_X$ 自明なので、[最高Hodge数](../CYG1-06/index.md#prop-cyg1-06-top-hodge)から $h^{3,0}=1$ である。[Poincaré双対性](../../HOD/HOD1-07/index.md#thm-hod1-07-betti-constraints)により
+[弱Lefschetz](#thm-cyg1-09-weak-lefschetz)で $b_1=0,b_2=1$ となる。非零の $(1,1)$ Kähler類と[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)を併用すると $h^{1,1}=1,h^{2,0}=0$。連結かつ $K_X$ 自明なので、[最高Hodge数](../CYG1-06/index.md#prop-cyg1-06-top-hodge)から $h^{3,0}=1$ である。[Poincaré双対性](../../ATOP/ATOP36/index.md#thm-atop36-poincare-duality)により
 
 $$
 b_3=4-\chi_{\mathrm{top}}(X)=180,
@@ -563,7 +563,7 @@ $$
 **詳細解答。**
 
 1. 指定点では全偏微分が零。法方向への微分は全射でないため滑らかな接束の法束列とトップChern積分を適用できない。Cartier因子として双対化層の随伴公式が残ることと、滑らかな正則最高次形式の束が使えることを区別する。
-2. 開部分では接束と標準束の局所構成は使えるが、コンパクト性を失う。従ってコンパクトKählerのHodge分解、Poincaré双対性の通常形、境界なしのChern–Gauss–Bonnet積分を無条件には使えない。
+2. 開部分では接束と標準束の局所構成は使えるが、コンパクト性を失う。従ってコンパクトKählerのHodge分解、[Poincaré双対性](../../ATOP/ATOP36/index.md#thm-atop36-poincare-duality)の通常形、境界なしのChern–Gauss–Bonnet積分を無条件には使えない。
 3. 二つの微分の行は等しく階数一、また零点の余次元は一である。二本の独立した方程式を要求する法束列も、余次元二の交叉の次数積も、この対象の表示からは成立しない。
 
 どの場合も「次数が正しい」ことだけを滑らかさ・コンパクト性・期待余次元の代わりにしてはいけない。
@@ -597,7 +597,7 @@ $$
 h^{1,0}=0,\qquad h^{2,0}=0,\qquad h^{1,1}=1.
 $$
 
-標準束が正則自明かつ $X$ が連結コンパクトなので、[最高Hodge数](../CYG1-06/index.md#prop-cyg1-06-top-hodge)は $h^{3,0}=h^{0,3}=1$ となる。Poincaré双対性でBetti数列は $(1,0,1,b_3,1,0,1)$。Euler標数の交代和と共役対称性から
+標準束が正則自明かつ $X$ が連結コンパクトなので、[最高Hodge数](../CYG1-06/index.md#prop-cyg1-06-top-hodge)は $h^{3,0}=h^{0,3}=1$ となる。[Poincaré双対性](../../ATOP/ATOP36/index.md#thm-atop36-poincare-duality)でBetti数列は $(1,0,1,b_3,1,0,1)$。Euler標数の交代和と共役対称性から
 
 $$
 -144=4-b_3,\qquad b_3=148,

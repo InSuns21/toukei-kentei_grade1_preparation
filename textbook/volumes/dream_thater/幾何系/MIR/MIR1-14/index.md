@@ -198,7 +198,7 @@ $$
 \qquad \langle\alpha,\alpha\rangle=0.
 $$
 
-捩れを除いた $H_3(Y,\mathbb Z)$ の交叉形式は、Poincaré双対性により整数値・非退化・単模である。階数4なら整数基底を選んで、その交叉行列を標準形
+捩れを除いた $H_3(Y,\mathbb Z)$ の交叉形式は、[Poincaré双対性](../../ATOP/ATOP36/index.md#thm-atop36-poincare-duality)により整数値・非退化・単模である。階数4なら整数基底を選んで、その交叉行列を標準形
 
 $$
 J=\begin{pmatrix}0&I_2\\-I_2&0\end{pmatrix}

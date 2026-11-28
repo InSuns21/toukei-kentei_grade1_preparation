@@ -3,6 +3,7 @@ title: "四次K3曲面：滑らかさからHodgeダイヤモンドまで"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - ATOP36
   - CYG1-04
   - CYG1-02
   - AG2-11

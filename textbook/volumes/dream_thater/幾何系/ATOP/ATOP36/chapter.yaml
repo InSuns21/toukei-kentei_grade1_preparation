@@ -1,0 +1,25 @@
+id: ATOP36
+title: "Poincaré双対性"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP35, ATOP32]
+official_scope: []
+learning_objectives:
+  - コンパクト支持コホモロジーを相対群の直極限として構成できる
+  - 相対基本類とcap積から双対写像を定義し開包含との両立を示せる
+  - Euclid空間で双対性を計算できる
+  - コンパクト支持のMayer–Vietoris列と接続写像の符号を導ける
+  - 局所計算と増大合併からPoincaré双対性を証明できる
+  - トーラスと実射影平面で整数係数と二元体係数の違いを説明できる
+definitions:
+  - { id: ATOP36-DEF-01, name: コンパクト支持コホモロジー }
+theorems:
+  - { id: ATOP36-THM-01, name: Euclid空間のコンパクト支持双対性 }
+  - { id: ATOP36-THM-02, name: コンパクト支持のMayer–Vietoris列 }
+  - { id: ATOP36-THM-03, name: Poincaré双対性 }
+canonical_examples: [直線のコンパクト支持, 座標球の相対基本類, トーラスのcap積, 実射影平面の係数比較]
+problem_patterns: [ATOP36-A1, ATOP36-A2, ATOP36-A3, ATOP36-A4, ATOP36-B1, ATOP36-B2, ATOP36-B3, ATOP36-B4, ATOP36-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 2, review: 1 }

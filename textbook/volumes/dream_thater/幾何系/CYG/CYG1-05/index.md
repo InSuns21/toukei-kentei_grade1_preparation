@@ -256,7 +256,7 @@ $$
 
 Betti数を $b_k=\dim_{\mathbb Q}H^k(X;\mathbb Q)$ とし、Hodge数を $h^{p,q}=\dim_{\mathbb C}H_{\bar\partial}^{p,q}(X)$ とする。$X$ は射影的だからKählerであり、[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)と[Hodge数の定義](../../HOD/HOD1-07/index.md#def-hod1-07-hodge-numbers)を適用できる。[Hodge数の共役対称性](../../HOD/HOD1-07/index.md#thm-hod1-07-hodge-conjugation)による $h^{p,q}=h^{q,p}$ も使う。
 
-連結なので $b_0=1$。滑らか・コンパクトで向き付けられた実4次元多様体のPoincaré双対性（この場合は既習の[Betti数の補次数対称性](../../HOD/HOD1-07/index.md#thm-hod1-07-betti-constraints)でもよい）から $b_4=b_0=1$、$b_3=b_1$。ここで[前節の単連結性と一次Betti数](#prop-cyg1-05-k3)から $b_1=b_3=0$。Eulerの交代和は
+連結なので $b_0=1$。滑らか・コンパクトで向き付けられた実4次元多様体の[Poincaré双対性](../../ATOP/ATOP36/index.md#thm-atop36-poincare-duality)（この場合は既習の[Betti数の補次数対称性](../../HOD/HOD1-07/index.md#thm-hod1-07-betti-constraints)でもよい）から $b_4=b_0=1$、$b_3=b_1$。ここで[前節の単連結性と一次Betti数](#prop-cyg1-05-k3)から $b_1=b_3=0$。Eulerの交代和は
 
 $$
 24=1-0+b_2-0+1=2+b_2,
@@ -404,10 +404,10 @@ $$
 #### CYG1-05-B01 Eulerから第二Betti数
 - Level: B
 
-滑らか・連結・コンパクトな複素曲面 $Y$ で $\pi_1(Y)=0$、$\chi_{\mathrm{top}}(Y)=24$ とする。Poincaré双対性とEuler交代和からBetti数をすべて求めよ。
+滑らか・連結・コンパクトな複素曲面 $Y$ で $\pi_1(Y)=0$、$\chi_{\mathrm{top}}(Y)=24$ とする。[Poincaré双対性](../../ATOP/ATOP36/index.md#thm-atop36-poincare-duality)とEuler交代和からBetti数をすべて求めよ。
 
 <!-- solution-start -->
-**詳細解答。** 連結性から $b_0=1$。$\pi_1(Y)=0$ の一次ホモロジー（基本群の可換化）が零なので $b_1=0$。複素曲面は向き付けられた閉実4次元多様体で、Poincaré双対性により $b_4=b_0=1$、$b_3=b_1=0$（Kählerを仮定しないこの設問では、[Kähler多様体のBetti制約](../../HOD/HOD1-07/index.md#thm-hod1-07-betti-constraints)だけを根拠にはできない）。よって
+**詳細解答。** 連結性から $b_0=1$。$\pi_1(Y)=0$ の一次ホモロジー（基本群の可換化）が零なので $b_1=0$。複素曲面は向き付けられた閉実4次元多様体で、[Poincaré双対性](../../ATOP/ATOP36/index.md#thm-atop36-poincare-duality)により $b_4=b_0=1$、$b_3=b_1=0$（Kählerを仮定しないこの設問では、[Kähler多様体のBetti制約](../../HOD/HOD1-07/index.md#thm-hod1-07-betti-constraints)だけを根拠にはできない）。よって
 
 $$
 24=\chi_{\mathrm{top}}(Y)=1-0+b_2-0+1,
@@ -438,7 +438,7 @@ $$
 22=b_2=1+h^{1,1}+1,\qquad h^{1,1}=20.
 $$
 
-またPoincaré双対性から $b_3=b_1=0$。よって $h^{2,1}=h^{1,2}=0$。連結性および[Hodge数の補次数対称性](../../HOD/HOD1-07/index.md#thm-hod1-07-hodge-duality)により $h^{0,0}=h^{2,2}=1$。行を $p$、列を $q$ とする全行列は
+また[Poincaré双対性](../../ATOP/ATOP36/index.md#thm-atop36-poincare-duality)から $b_3=b_1=0$。よって $h^{2,1}=h^{1,2}=0$。連結性および[Hodge数の補次数対称性](../../HOD/HOD1-07/index.md#thm-hod1-07-hodge-duality)により $h^{0,0}=h^{2,2}=1$。行を $p$、列を $q$ とする全行列は
 
 $$
 (h^{p,q})=\begin{pmatrix}1&0&1\\0&20&0\\1&0&1\end{pmatrix}.

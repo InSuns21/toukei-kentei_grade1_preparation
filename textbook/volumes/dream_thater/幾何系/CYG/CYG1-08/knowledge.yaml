@@ -1,7 +1,7 @@
 chapter: CYG1-08
 scope: dream-theater
 coverage: complete
-prerequisites: [CYG1-02, CYG1-06, CYG1-07]
+prerequisites: [ATOP36, CYG1-02, CYG1-06, CYG1-07]
 concepts:
   - id: cyg.quintic-smooth-canonical
     name: Fermat五次の滑らかさと標準束
@@ -26,4 +26,4 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（五次三次元超曲面のHodgeダイヤモンド）"]
-    requires: [cyg.quintic-low-hodge, cyg.quintic-chern-euler, cyg.threefold-hodge-skeleton]
+    requires: [atop.poincare-duality, cyg.quintic-low-hodge, cyg.quintic-chern-euler, cyg.threefold-hodge-skeleton]

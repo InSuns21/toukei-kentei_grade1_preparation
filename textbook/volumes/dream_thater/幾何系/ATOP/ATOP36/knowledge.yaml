@@ -1,0 +1,26 @@
+chapter: ATOP36
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP35, ATOP32]
+forward_references: []
+concepts:
+  - id: atop.compactly-supported-cohomology
+    name: コンパクト支持コホモロジー
+    kind: definition
+    introduction: formal
+    requires: [atop.relative-singular-cohomology]
+  - id: atop.euclidean-compact-support-duality
+    name: Euclid空間のコンパクト支持双対性
+    kind: lemma
+    introduction: formal
+    requires: [atop.compactly-supported-cohomology, atop.convex-support-homology, atop.cohomology-universal-coefficient, atop.relative-cap-descends]
+  - id: atop.compact-support-mayer-vietoris
+    name: コンパクト支持のMayer–Vietoris列
+    kind: theorem
+    introduction: formal
+    requires: [atop.compactly-supported-cohomology, atop.mayer-vietoris, atop.cap-boundary, atop.cap-naturality, atop.excision, atop.cohomology-universal-coefficient]
+  - id: atop.poincare-duality
+    name: Poincaré双対性
+    kind: theorem
+    introduction: formal
+    requires: [atop.euclidean-compact-support-duality, atop.compact-support-mayer-vietoris, atop.fundamental-class-existence, atop.fundamental-class-duality-map, atop.exact-sequence-central-comparison]
