@@ -1,0 +1,25 @@
+id: MQFC42
+title: "くりこみ処方の変更"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC34, MQFC35, MQFC36, MQFC40, MQFC41]
+official_scope: []
+learning_objectives:
+  - 局所S行列の処方差を局所入力の形式写像として次数別に構成できる
+  - 二次・三次の反項再定義を導出し部分対角の寄与を区別できる
+  - 局所処方変更の合成と逆写像を計算できる
+  - Taylor減算点の変更と位置空間の局所反項の対応を説明できる
+definitions:
+  - { id: MQFC42-DEF-01, name: "Stückelberg–Petermann型処方変更写像" }
+  - { id: MQFC42-DEF-02, name: "運動量Taylor減算" }
+theorems:
+  - { id: MQFC42-THM-01, name: "局所S行列の処方比較" }
+  - { id: MQFC42-THM-02, name: "処方変更の低次係数" }
+  - { id: MQFC42-THM-03, name: "局所処方変更写像の合成と逆" }
+  - { id: MQFC42-PROP-01, name: "減算点変更の多項式性" }
+canonical_examples: [二次の局所質量項, 局所処方変更の逆写像, 対数発散の減算]
+problem_patterns: [MQFC42-A1, MQFC42-A2, MQFC42-A3, MQFC42-A4, MQFC42-B1, MQFC42-B2, MQFC42-B3, MQFC42-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 2 }
