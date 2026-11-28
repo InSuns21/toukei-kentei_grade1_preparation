@@ -1,0 +1,25 @@
+id: MQFC43
+title: "スケール変更とくりこみ群"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC35, MQFC42, QFT25, QFT26]
+official_scope: []
+learning_objectives:
+  - 対数延長の尺度微分と局所反項の符号を計算できる
+  - 尺度処方変更の合成則と無限小生成項を導出できる
+  - 二線収縮の局所結合・二次挿入の係数を計算できる
+  - 処方変更と固定裸理論の尺度微分およびWilson積分消去を区別できる
+definitions:
+  - { id: MQFC43-DEF-01, name: "尺度処方変更コサイクル" }
+  - { id: MQFC43-DEF-02, name: "尺度処方変更の無限小生成項" }
+theorems:
+  - { id: MQFC43-PROP-01, name: "対数延長の尺度差" }
+  - { id: MQFC43-THM-01, name: "尺度処方変更のねじれた合成則" }
+  - { id: MQFC43-THM-02, name: "尺度処方変更の微分方程式" }
+  - { id: MQFC43-PROP-02, name: "二線収縮による局所結合の尺度変化" }
+canonical_examples: [二線核の対数尺度差, 一変数の形式合成, 二線収縮の係数, Gaussian積分消去]
+problem_patterns: [MQFC43-A1, MQFC43-A2, MQFC43-A3, MQFC43-A4, MQFC43-B1, MQFC43-B2, MQFC43-B3, MQFC43-B4, MQFC43-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
