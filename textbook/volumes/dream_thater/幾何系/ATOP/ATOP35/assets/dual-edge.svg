@@ -8,7 +8,7 @@
   <path d="M180 205.333 L180 160 L180 114.667" stroke="#a04a27" stroke-width="4" stroke-dasharray="8 4" marker-end="url(#arrow)" fill="none" data-series-group="edges" data-series-label="dual"/>
   <g fill="#20262b"><circle cx="112" cy="160" r="3.5"/><circle cx="248" cy="160" r="3.5"/><circle cx="180" cy="160" r="3.5"/><circle cx="180" cy="114.667" r="3.5"/><circle cx="180" cy="205.333" r="3.5"/></g>
   <g font-family="sans-serif" font-size="16" fill="#20262b">
-    <text x="89" y="165">v</text><text x="257" y="165">w</text><text x="192" y="151">m</text>
-    <text x="194" y="109">b+</text><text x="194" y="215">b-</text>
+    <text x="89" y="165">v</text><text x="257" y="165">w</text><text x="217" y="143">m</text>
+    <text x="224" y="107">b+</text><text x="224" y="222">b-</text>
   </g>
 </svg>
