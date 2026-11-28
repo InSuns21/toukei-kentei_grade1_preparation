@@ -45,7 +45,7 @@ chapters:
   - { id: MQFC39, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC39, status: completed, title: "時間順序積と因果分解" }
   - { id: MQFC40, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC40, status: completed, title: "Epstein–Glaser帰納構成" }
   - { id: MQFC41, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC41, status: completed, title: "局所S行列とBogoliubov公式" }
-  - { id: MQFC42, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC42, status: planned, title: "くりこみ処方の変更" }
+  - { id: MQFC42, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC42, status: completed, title: "くりこみ処方の変更" }
   - { id: MQFC43, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC43, status: planned, title: "スケール変更とくりこみ群" }
   - { id: MQFC44, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC44, status: planned, title: "ゲージ対称性とBRST複体" }
   - { id: MQFC45, path: textbook/volumes/dream_thater/物理系/MQFC/MQFC45, status: planned, title: "BV形式とゲージ不変観測量" }
