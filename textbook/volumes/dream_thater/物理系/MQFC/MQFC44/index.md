@@ -18,7 +18,7 @@
 
 <!-- formal-statement-start -->
 > **定義（局所場の次数付き多項式代数）**
-> 四次元時空の場 $A_\mu^a,B^a,c^a,\bar c^a$ とすべての形式微分 $\partial^I$ を生成元とし、複素数上の多項式を考える。偶の生成元は可換、奇の生成元は反交換する。各微分生成元のghost数は元の場のghost数と同じとし、積では加算する。この代数を $\mathcal P=\bigoplus_n\mathcal P^n$ とする。
+> 四次元時空の場 $A_\mu^a,B^a,c^a,\bar c^a$ とすべての形式微分 $\partial^I$ を生成元とし、複素数上の多項式を考える。生成元 $A,B$ はghost数0の偶元、$c$ はghost数1の奇元、$\bar c$ はghost数 $-1$ の奇元とする。偶の生成元はすべての元と可換、奇の生成元同士は反交換する。各微分生成元のghost数は元の場のghost数と同じとし、積では加算する。この代数を $\mathcal P=\bigoplus_n\mathcal P^n$ とする。
 > 各元は有限個の生成元を含む有限和である。全微分 $\partial_\mu$ は偶の導分として、生成元 $\partial^I X$ を $\partial^{I+e_\mu}X$ へ送る。
 <!-- formal-statement-end -->
 
@@ -191,7 +191,7 @@ s_1p=(\partial_1 A_2^2)c^3+A_2^2\partial_1c^3
 -(\partial_1 A_2^3)c^2-A_2^3\partial_1c^2.
 $$
 
-各項はghost数1であり、$s_0p+gs_1p$ は実際に $\partial_1(sA_2^1)$ に一致する。$s_0,s_1$ の反交換する積則は第2節と同じ交換関係の確認で全多項式に延びる。
+各項はghost数1であり、$s_0p+gs_1p$ は実際に $\partial_1(sA_2^1)$ に一致する。$s_0,s_1$ の符号付き積則は第2節と同じ交換関係の確認で全多項式に延びる。
 <!-- definition-example-end -->
 
 <a id="prop-mqfc44-split-relations"></a>
@@ -338,7 +338,20 @@ sF_{\mu\nu}=D_\mu(sA_\nu)-D_\nu(sA_\mu)
 =(D_\mu D_\nu-D_\nu D_\mu)c.
 $$
 
-二重の共変微分を展開すると、混合偏微分と $\partial A$ 以外の一階微分項が相殺され、
+二重の共変微分の一方を展開すると
+
+$
+\begin{aligned}
+D_\mu D_\nu c
+&=\partial_\mu\partial_\nu c
++g[\partial_\mu A_\nu,c]\\
+&\quad+g[A_\nu,\partial_\mu c]
++g[A_\mu,\partial_\nu c]\\
+&\quad+g^2[A_\mu,[A_\nu,c]].
+\end{aligned}
+$
+
+$\mu,\nu$ を交換した式との差を取る。第一項は微分の交換で消え、第三・第四項の和も交換前後で同じなので消える。残る項は
 
 $$
 \begin{aligned}
@@ -349,7 +362,7 @@ $$
 \end{aligned}
 $$
 
-最後の行はJacobi恒等式を適用した。これは [曲率の共変変換](../../QFT/QFT28/index.md#thm-qft28-curvature-bianchi) の無限小版に対応する。
+最後の行は [Lie括弧のJacobi恒等式](../../../幾何系/GEO/GEO5/index.md#thm-geo5-bracket-identities) を適用した。これは [曲率の共変変換](../../QFT/QFT28/index.md#thm-qft28-curvature-bianchi) の無限小版に対応する。
 
 従って
 
