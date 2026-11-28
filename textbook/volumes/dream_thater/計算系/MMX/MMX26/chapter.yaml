@@ -1,0 +1,27 @@
+id: MMX26
+title: "rounds：局所arity集中を反復してnetwork volumeを削る、各roundの仮定・サイズ・誤差"
+volume: foundations
+status: supplementary
+prerequisites: [MMX25]
+official_scope: []
+learning_objectives:
+  - 初期スタックと三重予算、二進区間の荷重・長さ比の評価を導ける
+  - 六点配線の厳密改善と二色梱包によるコア幅削減を再現できる
+  - 例外基地の期待荷重と三価への次数回復の費用を計算できる
+  - 集中・beat・係留木の端子総和と二乗和から一ラウンドの更新を導ける
+  - 余裕条件、複製数、終端予算、辞書記述長を全ラウンドで評価できる
+definitions:
+  - { id: MMX26-DEF-01, name: "ラウンドの三重予算" }
+theorems:
+  - { id: MMX26-LEM-02, name: "二進区間の梱包数評価" }
+  - { id: MMX26-LEM-03, name: "六点配線の一様な幅改善" }
+  - { id: MMX26-LEM-04, name: "例外基地の荷重評価" }
+  - { id: MMX26-LEM-05, name: "コア幅を半減する反復単位" }
+  - { id: MMX26-THM-06, name: "三重予算の一ラウンド更新" }
+  - { id: MMX26-THM-07, name: "ラウンド反復の項別予算" }
+canonical_examples: [三重予算, 二進区間の印, 六点の行列レイアウト, 反復の加法誤差]
+problem_patterns: [MMX26-A01, MMX26-A02, MMX26-A03, MMX26-A04, MMX26-A05, MMX26-B01, MMX26-B02, MMX26-B03, MMX26-B04, MMX26-B05, MMX26-C01, MMX26-C02]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 5, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 18, exercises: 6, review: 4 }
