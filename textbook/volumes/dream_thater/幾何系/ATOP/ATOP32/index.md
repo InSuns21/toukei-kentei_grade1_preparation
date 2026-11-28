@@ -82,7 +82,20 @@ $\mathbb{RP}^n$ は $\mathbb R^{n+1}$ の原点を通る直線の空間で、単
 
 [実射影空間の胞体境界](../ATOP22/index.md#prop-atop22-projective-boundary)によれば、0次から $n$ 次まで各次数に一つの整数胞体があり、正の偶数次数の境界は2倍、奇数次数の境界は零です。したがって $H_0=\mathbb Z$、$0<k<n$ で奇数なら $H_k=\mathbb Z/2\mathbb Z$、偶数なら零です。最高次数 $n>0$ では次の胞体がないので、奇数なら $\mathbb Z$、偶数なら零です。
 
-[コホモロジーの普遍係数定理](../ATOP29/index.md#thm-atop29-cohomology-uct)に $G=F$ を代入します。$\operatorname{Hom}(\mathbb Z,F)=F$、$\operatorname{Hom}(\mathbb Z/2,F)=F$ です。後者は生成元の像 $a$ が $2a=0$ を満たせばよいからです。自由分解 $\mathbb Z\xrightarrow{2}\mathbb Z\to\mathbb Z/2\to0$ に $\operatorname{Hom}(-,F)$ を適用すると2倍写像は零になるので、$\operatorname{Ext}^1(\mathbb Z/2,F)=F$ です。自由群と零群に対する Ext は零です。
+[コホモロジーの普遍係数定理](../ATOP29/index.md#thm-atop29-cohomology-uct)に $G=F$ を代入します。Hom 項では
+
+$$
+\operatorname{Hom}(\mathbb Z,F)=F,\qquad
+\operatorname{Hom}(\mathbb Z/2,F)=F.
+$$
+
+後者は生成元の像 $a$ が $2a=0$ を満たせばよいからです。自由分解
+
+$$
+0\to\mathbb Z\xrightarrow{2}\mathbb Z\to\mathbb Z/2\to0
+$$
+
+に $\operatorname{Hom}(-,F)$ を適用すると2倍写像は零になります。したがって $\operatorname{Ext}^1(\mathbb Z/2,F)=F$ です。自由群と零群に対する Ext は零です。
 
 よって $1\le k\le n$ の奇数次数は Hom 項だけ、正の偶数次数は Ext 項だけが $F$ となります。$k=0$ では Hom 項だけが $F$、$k=n+1$ では $H_n$ が自由または零なので Ext 項も零です。
 
@@ -98,7 +111,23 @@ $n=0$ は一点なのでこの式に含まれます。ただし、各次数が1�
 
 ## 3. 対蹠点の持上げで1次の評価を作る
 
-$n\ge1$ とします。商写像 $q:S^n\to\mathbb{RP}^n$ の各点の逆像は二点です。小さな球面開近傍 $U$ を $U\cap(-U)=\varnothing$ となるように取ると $q^{-1}(q(U))=U\sqcup(-U)$ です。任意の開集合 $W\subset U$ について $q^{-1}(q(W))=W\cup(-W)$ は球面で開です。商位相の条件から $q(W)$ は開になります。$-U$ についても同じ計算が成り立ちます。各制限は連続全単射で、その逆も連続です。従ってこれは [被覆写像](../ATOP5/index.md#def-atop5-covering-map) です。
+$n\ge1$ とします。商写像 $q:S^n\to\mathbb{RP}^n$ の各点の逆像は二点です。小さな球面開近傍 $U$ を $U\cap(-U)=\varnothing$ となるように取ると、
+
+$$
+q^{-1}(q(U))=U\sqcup(-U)
+$$
+
+となります。特に $q(U)$ は商位相の条件から開です。
+
+任意の開集合 $W\subset U$ についても、
+
+$$
+q^{-1}(q(W))=W\cup(-W)
+$$
+
+は球面で開です。従って $q(W)$ は開になります。$-U$ についても同じ計算が成り立ちます。
+
+各制限は連続全単射で、上の開集合の確認によりその逆も連続です。従ってこれは [被覆写像](../ATOP5/index.md#def-atop5-covering-map) です。
 
 各射影点 $z$ について二つの代表の片方 $s(z)$ を選びます。例えば最初の非零座標が正の単位ベクトルを選びます。この選択は連続でなくて構いません。
 
@@ -391,9 +420,25 @@ $X=S^1\vee S^2$ を円周と2次元球面のそれぞれの一点を同一視し
 
 [胞体ホモロジー定理](../ATOP22/index.md#thm-atop22-cellular-comparison) と [コホモロジーの普遍係数定理](../ATOP29/index.md#thm-atop29-cohomology-uct) より、整数ホモロジーは0,1,2次で自由な階数1、mod 2 コホモロジーは0,1,2次で $F$、それ以外で零です。これは $\mathbb{RP}^2$ の mod 2 の加法群と同じです。
 
-球面を共有点へ潰し円周を固定する連続写像 $r:X\to S^1$ を取ります。円周の包含 $i:S^1\hookrightarrow X$ について $ri=\operatorname{id}$ なので、引き戻しでは $i^*r^*=\operatorname{id}$ です。円周の1次の非零類 $u$ に対し $i^*(r^*u)=u$ だから $v=r^*u\ne0$ です。$H^1(X;F)$ は1次元なので $v$ が唯一の非零元です。
+球面を共有点へ潰し円周を固定する連続写像 $r:X\to S^1$ を取ります。円周の包含 $i:S^1\hookrightarrow X$ について $ri=\operatorname{id}$ です。
 
-円周の2次群が零なので $u^2=0$ であり、[cup積の自然性](../ATOP31/index.md#thm-atop31-naturality)から $v^2=r^*(u^2)=0$ です。他方、[実射影空間の mod 2 コホモロジー環](#thm-atop32-projective-ring) の唯一の非零1次類 $x$ は $x^2\ne0$ です。次数付き環同型なら $v$ を $x$ に送らなければならず、零である平方を非零の平方に送ることはできません。よって加法群は次数ごとに同型でも環は同型ではありません。
+引き戻しでは $i^*r^*=\operatorname{id}$ です。円周の1次の非零類 $u$ に対し
+
+$$
+i^*(r^*u)=u\ne0
+$$
+
+なので $v=r^*u\ne0$ です。$H^1(X;F)$ は1次元なので $v$ が唯一の非零元です。
+
+円周の2次群が零なので $u^2=0$ です。[cup積の自然性](../ATOP31/index.md#thm-atop31-naturality)から
+
+$$
+v^2=r^*(u^2)=0
+$$
+
+となります。他方、[実射影空間の mod 2 コホモロジー環](#thm-atop32-projective-ring) の唯一の非零1次類 $x$ は $x^2\ne0$ です。
+
+次数付き環同型なら $v$ を $x$ に送らなければならず、零である平方を非零の平方に送ることはできません。よって加法群は次数ごとに同型でも環は同型ではありません。
 <!-- solution-end -->
 
 <a id="ex-atop32-c1"></a>
