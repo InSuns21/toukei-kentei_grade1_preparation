@@ -28,7 +28,7 @@ concepts:
     name: 相対cap積の誘導写像
     kind: theorem
     introduction: formal
-    requires: [atop.relative-cap-product, atop.cap-boundary, atop.relative-singular-homology]
+    requires: [atop.relative-cap-product, atop.cap-boundary, atop.relative-singular-homology, atop.small-chain-homology-isomorphism, atop.exact-sequence-central-comparison]
   - id: atop.cap-naturality
     name: cap積の自然性
     kind: theorem
