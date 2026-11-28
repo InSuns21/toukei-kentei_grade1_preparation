@@ -239,13 +239,13 @@ $S$ の第 $i$ 行の非零成分数を $q_i$ とします。その行の積は�
 
 ### 四点での演算数の節約
 
-[有限可換群のFourier変換](../FFT2/index.md)を群 $(\mathbb Z/2\mathbb Z)^k$ に適用すると、文字は各座標の符号の積で表されます。この場合をWalsh変換（Walsh–Hadamard変換）と呼びます。二点の文字表は
+[有限可換群のFourier変換](../FFT2/index.md#def-fft2-group-fourier)を群 $(\mathbb Z/2\mathbb Z)^k$ に適用すると、文字は各座標の符号の積で表されます。この場合をWalsh変換（Walsh–Hadamard変換）と呼びます。二点の文字表は
 
 $$
 H_2=\begin{pmatrix}1&1\\1&-1\end{pmatrix}
 $$
 
-です。従って、文字を直積の順で並べた四点の文字表は $H_2\otimes H_2$ になります。
+です。従って、[文字表のKronecker積表示](../FFT2/index.md#thm-fft2-character-table-product)により、文字を直積の順で並べた四点の文字表は $H_2\otimes H_2$ になります。
 
 $J_4$ を全成分が1の $4\times4$ 行列とし、$A=J_4-2I_4$ とします。対角は $-1$、非対角は1です。$J_4$ の各列は同じ非零列なので階数1、$-2I_4$ の非零成分は複素数体上で4個です。従って $R_A(1)\le4$ です。
 
