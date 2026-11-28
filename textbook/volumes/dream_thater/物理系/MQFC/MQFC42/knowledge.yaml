@@ -1,0 +1,36 @@
+chapter: MQFC42
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC34, MQFC35, MQFC36, MQFC40, MQFC41]
+forward_references: []
+concepts:
+  - id: mqfc.renormalization-prescription-map
+    name: "Stückelberg–Petermann型処方変更写像"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.local-s-matrix, mqfc.local-counterterm-freedom]
+  - id: mqfc.local-prescription-comparison
+    name: "局所S行列の処方比較"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.renormalization-prescription-map, mqfc.off-diagonal-recursive-uniqueness, mqfc.s-matrix-causal-factorization, mqfc.order-unitarity-condition]
+  - id: mqfc.prescription-low-order-change
+    name: "処方変更の低次係数"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.local-prescription-comparison]
+  - id: mqfc.prescription-composition-inverse
+    name: "局所処方変更写像の合成と逆"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.renormalization-prescription-map, mqfc.prescription-low-order-change]
+  - id: mqfc.momentum-taylor-subtraction
+    name: "運動量Taylor減算"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.local-counterterm-freedom]
+  - id: mqfc.subtraction-point-polynomial
+    name: "減算点変更の多項式性"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.momentum-taylor-subtraction]
