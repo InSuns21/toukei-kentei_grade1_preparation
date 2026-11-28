@@ -1,0 +1,28 @@
+id: ATOP34
+title: "局所向き・向き付け・基本類"
+volume: foundations
+status: supplementary
+prerequisites: [ATOP25, ATOP29, ATOP23]
+official_scope: []
+learning_objectives:
+  - 局所ホモロジーの生成元を計算し近傍の向きの整合性を確認できる
+  - 閉集合の相対 Mayer–Vietoris 列を鎖群の短完全列から導ける
+  - コンパクト集合上の相対類の消滅と点による検出を証明できる
+  - 向きの局所系の符号変換と Möbius 帯の向き反転を説明できる
+  - 閉多様体の整数および mod 2 基本類の存在一意性を局所から証明できる
+definitions:
+  - { id: ATOP34-DEF-01, name: 局所向き }
+  - { id: ATOP34-DEF-02, name: 向き付け }
+  - { id: ATOP34-DEF-03, name: 向きの局所系 }
+  - { id: ATOP34-DEF-04, name: 基本類 }
+theorems:
+  - { id: ATOP34-LEM-01, name: 閉集合に対する相対 Mayer–Vietoris 列 }
+  - { id: ATOP34-LEM-02, name: コンパクト凸集合の相対群 }
+  - { id: ATOP34-THM-01, name: コンパクト集合上の相対類の検出 }
+  - { id: ATOP34-THM-02, name: 基本類の存在一意性 }
+canonical_examples: [直線の局所向き, 閉区間の貼り合わせ, 開Möbius帯, 円周, 実射影平面]
+problem_patterns: [ATOP34-A1, ATOP34-A2, ATOP34-A3, ATOP34-A4, ATOP34-B1, ATOP34-B2, ATOP34-B3, ATOP34-B4, ATOP34-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 1 }
