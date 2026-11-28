@@ -2,7 +2,7 @@ chapter: FFT1
 scope: dream-theater
 coverage: complete
 prerequisites: [FLD0, FLD3, GRP2]
-forward_references: []
+forward_references: [fourier.fou5-dft]
 concepts:
   - id: finite-fourier.primitive-root
     name: 原始1のN乗根
