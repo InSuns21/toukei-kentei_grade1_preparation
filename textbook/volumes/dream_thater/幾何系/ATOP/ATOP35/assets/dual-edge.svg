@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" data-layout-lint="strict" role="img" aria-labelledby="title desc">
   <title id="title">共有辺に対応する局所双対辺</title>
   <desc id="desc">二つの三角形の共有辺vwを中点mで横切り、下側重心b−から上側重心b+へ進む双対辺。左半分の二小三角形に薄い塗りを入れ、cap積の入力を示す。</desc>
-  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#a04a27"/></marker></defs>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="3.5" markerHeight="3.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#a04a27"/></marker></defs>
   <path d="M112 160 L248 160 L180 24 Z M112 160 L248 160 L180 296 Z" fill="#f3f5f6" stroke="#78838b" stroke-width="1.5"/>
   <path d="M112 160 L180 160 L180 114.667 Z M112 160 L180 160 L180 205.333 Z" fill="#dbe8f2" stroke="#78838b" stroke-width="1.2"/>
   <path d="M112 160 L248 160" stroke="#255c91" stroke-width="3" fill="none" data-series-group="edges" data-series-label="primal"/>
@@ -9,6 +9,6 @@
   <g fill="#20262b"><circle cx="112" cy="160" r="3.5"/><circle cx="248" cy="160" r="3.5"/><circle cx="180" cy="160" r="3.5"/><circle cx="180" cy="114.667" r="3.5"/><circle cx="180" cy="205.333" r="3.5"/></g>
   <g font-family="sans-serif" font-size="16" fill="#20262b">
     <text x="89" y="165">v</text><text x="257" y="165">w</text><text x="192" y="151">m</text>
-    <text x="194" y="109">b+</text><text x="194" y="215">b−</text>
+    <text x="194" y="109">b+</text><text x="194" y="215">b-</text>
   </g>
 </svg>
