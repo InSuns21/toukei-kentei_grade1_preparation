@@ -10,8 +10,8 @@ chapters:
     title: "体上の巡回Fourier変換・文字の直交性・反転"
   - id: FFT2
     path: textbook/volumes/dream_thater/計算系/FFT/FFT2
-    status: planned
-    title: "有限Abel群の巡回群分解、双対群、文字表のテンソル積、分裂体。Walsh–Hadamardを標数2で使えない理由を確認。"
+    status: completed
+    title: "有限可換群のFourier変換・双対群・文字表のテンソル積"
   - id: FFT3
     path: textbook/volumes/dream_thater/計算系/FFT/FFT3
     status: planned
