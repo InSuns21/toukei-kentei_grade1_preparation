@@ -1,0 +1,42 @@
+chapter: MMX30
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX6, MMX29, TSP8, TSP9, TSP10, TSP11, TSP12, TSP13, TSP14]
+forward_references: []
+concepts:
+  - id: matrix-exponent.geometric-border-rank
+    name: "幾何的境界階数"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（幾何的境界階数）"]
+    requires: [tensor.border-rank, algebraic-geometry.zariski-topology]
+  - id: matrix-exponent.closed-power-span
+    name: "Zariski閉包の冪の線形包"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Zariski閉包の冪の線形包）"]
+    requires: [matrix-exponent.geometric-border-rank, tensor.kronecker-product]
+  - id: matrix-exponent.power-rank-descent
+    name: "有限拡大体からの冪の階数降下"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有限拡大体からの冪の階数降下）"]
+    requires: [tensor.tensor-rank, tensor.kronecker-product]
+  - id: matrix-exponent.finite-square-rank-bounds
+    name: "正方行列積の有限サイズ下界と漸近階数"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正方行列積の有限サイズ下界と漸近階数）"]
+    requires: [matrix-exponent.closed-power-span, matrix-exponent.power-rank-descent, matrix-exponent.circuit-bilinearization, matrix-exponent.formal-circuit-exponent-transfer, matrix-exponent.arbitrary-field-upper-bound, tensor.matrix-multiplication-exponent-rank]
+  - id: matrix-exponent.tight-tensor
+    name: "tight tensor"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（tight tensor）"]
+    requires: [tensor.coordinate-support]
+  - id: matrix-exponent.tight-counterexample
+    name: "正方行列積のtight性と漸近階数予想への反例"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正方行列積のtight性と漸近階数予想への反例）"]
+    requires: [matrix-exponent.tight-tensor, matrix-exponent.finite-square-rank-bounds, tensor.flattening]
