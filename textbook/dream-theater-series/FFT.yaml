@@ -18,7 +18,7 @@ chapters:
     title: "Cooley–Tukeyの添字分解・twiddle・radix-2再帰、Goodの互いに素な分解、4/6/8点の置換と計算量。"
   - id: FFT4
     path: textbook/volumes/dream_thater/計算系/FFT/FFT4
-    status: planned
+    status: completed
     title: "畳み込み定理・ゼロ詰め・Bluesteinの整数chirp恒等式・固定多項式との乗算。小さい有限体でNTTの条件を検算。"
   - id: FFT5
     path: textbook/volumes/dream_thater/計算系/FFT/FFT5
