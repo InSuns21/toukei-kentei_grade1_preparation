@@ -1,7 +1,7 @@
 # DREAM THEATER 有限Fourier変換・高速アルゴリズム・計算量の最適対数指数（FFT1〜FFT36）
 
 構成確定日: 2026-11-28 JST  
-状態: **進行中・全36講の設計確定**（既存前提およびEOM横断講を含まない）。FFT1〜5を実装、FFT6〜36はplanned。進捗の正本は `textbook/dream-theater-series/FFT.yaml`。  
+状態: **進行中・全36講の設計確定**（既存前提およびEOM横断講を含まない）。FFT1〜6を実装、FFT7〜36はplanned。進捗の正本は `textbook/dream-theater-series/FFT.yaml`。  
 系列ID: FFT（実装前に全章IDと配置を再照合）。分類: 計算系・独立研究講読。
 
 ## 1. 中心問いと到達点

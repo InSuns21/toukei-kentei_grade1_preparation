@@ -1,0 +1,36 @@
+chapter: FFT6
+scope: dream-theater
+coverage: complete
+prerequisites: [FFT1, FFT3, FFT5]
+forward_references: []
+concepts:
+  - id: finite-fourier.bounded-coefficient-circuit
+    name: 有界係数線形回路
+    kind: definition
+    introduction: formal
+    requires: [finite-fourier.binary-linear-circuit]
+  - id: finite-fourier.determinant-lower-bound
+    name: Morgenstern型の行列式下界
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.bounded-coefficient-circuit, finite-fourier.row-tracking, finite-fourier.cyclic-character-orthogonality]
+  - id: finite-fourier.unitary-matrix-entropy
+    name: ユニタリ行列の行列エントロピー
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: finite-fourier.unitary-gate-lower-bound
+    name: Ailon型のユニタリゲート下界
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.unitary-matrix-entropy, finite-fourier.cyclic-transform]
+  - id: finite-fourier.matrix-rigidity
+    name: 行列の剛性
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: finite-fourier.low-rank-sparse-upper-bound
+    name: 低階数・疎分解による線形ゲート上界
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.matrix-rigidity, finite-fourier.binary-linear-circuit]

@@ -26,7 +26,7 @@ chapters:
     title: "二入力線形回路のreadout・fanout・直和、算術回路の一次成分抽出、非一様性と対数指数の量化。"
   - id: FFT6
     path: textbook/volumes/dream_thater/計算系/FFT/FFT6
-    status: planned
+    status: completed
     title: "Morgensternの行列式ポテンシャル、正規化と有界係数・Ailonの制限、rigidity/nonrigidityとAlman–Raoの節約、2026年の小さい指数改善をモデル別に比較。"
   - id: FFT7
     path: textbook/volumes/dream_thater/計算系/FFT/FFT7
