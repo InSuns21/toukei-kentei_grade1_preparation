@@ -1,0 +1,46 @@
+chapter: ATOP35
+scope: dream-theater
+coverage: complete
+prerequisites: [ATOP31, ATOP34]
+forward_references: []
+concepts:
+  - id: atop.cap-product
+    name: cap積
+    kind: definition
+    introduction: formal
+    requires: [atop.singular-cochain, atop.singular-chain-group, atop.cup-product]
+  - id: atop.cap-boundary
+    name: cap積の境界公式
+    kind: theorem
+    introduction: formal
+    requires: [atop.cap-product, atop.singular-boundary, atop.singular-coboundary]
+  - id: atop.cap-descends
+    name: cap積の類への降下
+    kind: theorem
+    introduction: formal
+    requires: [atop.cap-boundary, atop.singular-cohomology, atop.singular-homology]
+  - id: atop.relative-cap-product
+    name: 相対cap積
+    kind: definition
+    introduction: formal
+    requires: [atop.cap-product, atop.relative-singular-chain, atop.relative-singular-cohomology]
+  - id: atop.relative-cap-descends
+    name: 相対cap積の誘導写像
+    kind: theorem
+    introduction: formal
+    requires: [atop.relative-cap-product, atop.cap-boundary, atop.relative-singular-homology]
+  - id: atop.cap-naturality
+    name: cap積の自然性
+    kind: theorem
+    introduction: formal
+    requires: [atop.cap-descends, atop.relative-cap-descends, atop.induced-singular-chain-map, atop.induced-singular-cohomology-map]
+  - id: atop.cap-cup-evaluation
+    name: cup積とcap積の評価関係
+    kind: theorem
+    introduction: formal
+    requires: [atop.cap-descends, atop.cup-descends, atop.homology-cohomology-evaluation]
+  - id: atop.fundamental-class-duality-map
+    name: 基本類による双対写像
+    kind: definition
+    introduction: formal
+    requires: [atop.fundamental-class, atop.cap-descends, atop.fundamental-class-existence]
