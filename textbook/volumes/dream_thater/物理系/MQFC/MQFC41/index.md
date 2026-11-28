@@ -26,7 +26,7 @@ $$
 <!-- definition-example-start: def-mqfc41-local-s -->
 ### 直接例：二つの局所一次挿入
 
-$X=\lambda V+tF$、$V=L_v,F=L_f$ とする。ここで $L_f(\phi)=\int_M f\phi$、$v,f$ は滑らかなコンパクト支持関数である。定数項は1、一次項は $i\lambda V+itF$。二次項は $i^2/2!=-1/2$ と対称性から
+**定義の確認**。$X=\lambda V+tF$、$V=L_v,F=L_f$ とする。ここで $L_f(\phi)=\int_M f\phi$、$v,f$ は滑らかなコンパクト支持関数である。定数項は1、一次項は $i\lambda V+itF$。二次項は $i^2/2!=-1/2$ と対称性から
 
 $$
 -\frac{\lambda^2}{2}T_2(V,V)
@@ -74,7 +74,7 @@ $$
 <!-- definition-example-start: def-mqfc41-relative-s -->
 ### 直接例：背景一次と観測一次
 
-$X=\lambda V,Y=tF$ とする。定数・一次および $\lambda t$ の係数を計算する。$S(\lambda V)^{-1}$ の一次は $-i\lambda V$。$S(\lambda V+tF)$ の一次の $F$ は $itF$ である。混合項は $-\lambda tT_2(V,F)$ と $(-i\lambda V)\star(itF)$ の和なので、
+**定義の確認**。$X=\lambda V,Y=tF$ とする。定数・一次および $\lambda t$ の係数を計算する。$S(\lambda V)^{-1}$ の一次は $-i\lambda V$。$S(\lambda V+tF)$ の一次の $F$ は $itF$ である。混合項は $-\lambda tT_2(V,F)$ と $(-i\lambda V)\star(itF)$ の和なので、
 
 $$
 [\lambda t]S_{\lambda V}(tF)=V\star F-T_2(V,F).
@@ -144,9 +144,9 @@ $$
 
 有限個の背景入力の位置と $Y,H$ の位置を固定する。$H$ の全点が $Y$ の全点より後なので、切断時刻を
 
-$
+$$
 a<e<b
-$
+$$
 
 と選べる。各背景位置は切断時刻の前か後に置ける。一致する位置があれば、有限個の時刻を避けるように切断時刻をずらす。
 
@@ -200,7 +200,7 @@ $$
 <!-- definition-example-start: def-mqfc41-bogoliubov -->
 ### 直接例：局所一次の応答
 
-$V=L_v,F=L_f$ とする。相対S行列の混合係数から、$1/i=-i$ を掛けると
+**定義の確認**。$V=L_v,F=L_f$ とする。相対S行列の混合係数から、$1/i=-i$ を掛けると
 
 $$
 R_0(F)=F,\qquad
