@@ -131,7 +131,7 @@
 - FFT14–23は§4–5の各lemma、exactnessと費用を別々に追う。修復率は確率的に誤答するアルゴリズムという意味ではない。有限自由拡大のランク、係数準備、固定パラメータ依存とuniform性を台帳化する。
 - FFT24–34は§6–8の補題、標数別の構成、再帰閉包、補助拡大の降下と一様定数を閉じる。§7の乗算上界を§8に使用する順を守り、一般Fourier上界を先取りして§7を証明しない。
 - FFT35は再現可能なコードと期待値／実測値を分けた表を置く。小規模の修復核や古典FFT/NTTが合うことを検査しても全理論・大規模性能の検証とはしない。原論文の全算法の動作実装が困難なら未実装部分と数値検証の境界を明記し、実測高速化を宣言しない。
-- FFT36は[公開形式化の入口](https://mathcommunity.github.io/oai-math-revised/papers/The-logarithmic-exponent-of-finite-Fourier-transforms-November-24-2026/)から実ファイル・scope noteを固定SHAで確認する。単独／batch Fourier上下界、頑健下界、多項式乗算、正規化Walsh安定性の各行で、命題の量化・仮定・計算モデル・依存公理・sorry有無・再ビルド・独立kernel・自然言語証明・外部査読の状況を分ける。公開ページが明記するLean範囲を越えて形式化済みとしない。未照合の定理は未照合と記録する。
+- FFT36は[公開形式化の入口](https://mathcommunity.github.io/oai-math-revised/papers/The-logarithmic-exponent-of-finite-Fourier-transforms-November-24-2026/)から実ファイル・scope noteを固定SHAで確認する。単独／batch Fourier上下界、頑健下界、多項式乗算、正規化Walsh安定性の各行で、命題の量化・仮定・計算モデル・依存公理・sorry有無・再ビルド・独立kernel・自然言語証明・外部査読の状況を分ける。公開ページが明記するLean範囲を越えて形式化済みとしない。未照合の定理は未照合と記録する。 2026-11-28に確認した公開scope note [family 379](https://github.com/mathcommunity/oai-math-revised/blob/main/lean/docs/379.md)・[family 130](https://github.com/mathcommunity/oai-math-revised/blob/main/lean/docs/130.md) は、単独・batchのFourier上下界とfeedback/低階数/疎誤差を含む下界、および整数係数回路による任意体の多項式乗算上界を形式化の対象とする一方、**多項式乗算の下界（単独もbatchも）は未形式化**と明記する。したがってFFT34の乗算下界の自然言語証明の独立検算は必須とし、Fourierの形式化をその代用にしない。Walshの数値安定性については当該noteだけから形式化済みと判断しない。
 
 ## 6. 着手・完了条件
 
