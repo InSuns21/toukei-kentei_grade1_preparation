@@ -1,0 +1,46 @@
+chapter: FFT2
+scope: dream-theater
+coverage: complete
+prerequisites: [FFT1, MOD2, TSP1, TSP5]
+forward_references: []
+concepts:
+  - id: finite-fourier.group-exponent
+    name: 有限可換群の指数
+    kind: definition
+    introduction: formal
+    requires: [algebra.abelian-group, algebra.element-order]
+  - id: finite-fourier.exponent-periods
+    name: 巡回因子と群の指数
+    kind: proposition
+    introduction: formal
+    requires: [finite-fourier.group-exponent, algebra.fg-abelian-group-structure]
+  - id: finite-fourier.splitting-condition
+    name: 有限Fourier変換の根の存在条件
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.exponent-periods, finite-fourier.primitive-root, algebra.splitting-field-existence, algebra.finite-field-multiplicative-group-cyclic, algebra.repeated-root-gcd-criterion]
+  - id: finite-fourier.character-dual
+    name: 体に値を取る双対群
+    kind: definition
+    introduction: formal
+    requires: [finite-fourier.field-valued-character]
+  - id: finite-fourier.product-characters
+    name: 直積群の文字の全列挙
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.character-dual, finite-fourier.primitive-root, algebra.fg-abelian-group-structure]
+  - id: finite-fourier.group-transform
+    name: 有限可換群のFourier変換
+    kind: definition
+    introduction: formal
+    requires: [finite-fourier.character-dual, finite-fourier.cyclic-transform]
+  - id: finite-fourier.character-table-product
+    name: 文字表のKronecker積表示
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.group-transform, finite-fourier.product-characters, tensor.kronecker-product]
+  - id: finite-fourier.group-inversion
+    name: 有限可換群の文字の直交性と反転
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.group-transform, finite-fourier.product-characters, finite-fourier.cyclic-character-orthogonality]

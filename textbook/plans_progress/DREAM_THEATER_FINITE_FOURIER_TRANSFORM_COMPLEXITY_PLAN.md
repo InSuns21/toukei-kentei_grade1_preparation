@@ -1,7 +1,7 @@
 # DREAM THEATER 有限Fourier変換・高速アルゴリズム・計算量の最適対数指数（FFT1〜FFT36）
 
 構成確定日: 2026-11-28 JST  
-状態: **進行中・全36講の設計確定**（既存前提およびEOM横断講を含まない）。FFT1を実装、FFT2〜36はplanned。進捗の正本は `textbook/dream-theater-series/FFT.yaml`。  
+状態: **進行中・全36講の設計確定**（既存前提およびEOM横断講を含まない）。FFT1〜2を実装、FFT3〜36はplanned。進捗の正本は `textbook/dream-theater-series/FFT.yaml`。  
 系列ID: FFT（実装前に全章IDと配置を再照合）。分類: 計算系・独立研究講読。
 
 ## 1. 中心問いと到達点
@@ -37,7 +37,7 @@
 | ID | 中心問い・再現すべき結果 | 直接前提・資料 |
 | --- | --- | --- |
 | FFT1 | DFT・逆変換・正規化・文字の直交性、根の条件と $N=4$ の手計算。実数信号の共役対称は複素数の場合のみ。 | 基礎線形代数・群環体、Stein–Shakarchi ch.7 |
-| FFT2 | 有限Abel群の巡回群分解、双対群、文字表のテンソル積、分裂体。Walsh–Hadamardを標数2で使えない理由を確認。 | FFT1、TSP1,5、Stein–Shakarchi ch.7 |
+| FFT2 | 有限Abel群の巡回群分解、双対群、文字表のテンソル積、分裂体。Walsh–Hadamardを標数2で使えない理由を確認。 | FFT1、MOD2（構造定理）、TSP1,5、Stein–Shakarchi ch.7 |
 | FFT3 | Cooley–Tukeyの添字分解・twiddle・radix-2再帰、Goodの互いに素な分解、4/6/8点の置換と計算量。 | FFT1–2、Van Loan ch.1–2 |
 | FFT4 | 畳み込み定理・ゼロ詰め・Bluesteinの整数chirp恒等式・固定多項式との乗算。小さい有限体でNTTの条件を検算。 | FFT1–3、Modern Computer Algebra ch.8,10 |
 | FFT5 | 二入力線形回路のreadout・fanout・直和、算術回路の一次成分抽出、非一様性と対数指数の量化。 | FFT2–4、ACOMP1–5、BCS linear complexity |
