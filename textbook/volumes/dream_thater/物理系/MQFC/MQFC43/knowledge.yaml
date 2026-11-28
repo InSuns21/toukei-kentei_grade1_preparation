@@ -1,0 +1,36 @@
+chapter: MQFC43
+scope: dream-theater
+coverage: complete
+prerequisites: [MQFC35, MQFC42, QFT25, QFT26]
+forward_references: []
+concepts:
+  - id: mqfc.logarithmic-scale-difference
+    name: "対数延長の尺度差"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.fish-cutoff-extension]
+  - id: mqfc.scaling-prescription-cocycle
+    name: "尺度処方変更コサイクル"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.local-prescription-comparison]
+  - id: mqfc.scaling-cocycle-composition
+    name: "尺度処方変更のねじれた合成則"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.scaling-prescription-cocycle, mqfc.prescription-composition-inverse]
+  - id: mqfc.scaling-prescription-generator
+    name: "尺度処方変更の無限小生成項"
+    kind: definition
+    introduction: formal
+    requires: [mqfc.scaling-prescription-cocycle]
+  - id: mqfc.scaling-prescription-flow
+    name: "尺度処方変更の微分方程式"
+    kind: theorem
+    introduction: formal
+    requires: [mqfc.scaling-prescription-generator, mqfc.scaling-cocycle-composition]
+  - id: mqfc.fish-coupling-scale-change
+    name: "二線収縮による局所結合の尺度変化"
+    kind: proposition
+    introduction: formal
+    requires: [mqfc.logarithmic-scale-difference, mqfc.prescription-low-order-change]
