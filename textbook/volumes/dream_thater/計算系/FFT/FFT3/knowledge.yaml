@@ -1,0 +1,31 @@
+chapter: FFT3
+scope: dream-theater
+coverage: complete
+prerequisites: [FFT1, FFT2]
+forward_references: []
+concepts:
+  - id: finite-fourier.twiddle-factor
+    name: 回転因子
+    kind: definition
+    introduction: formal
+    requires: [finite-fourier.primitive-root]
+  - id: finite-fourier.cooley-tukey
+    name: Cooley–Tukey分解
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.twiddle-factor, finite-fourier.cyclic-transform]
+  - id: finite-fourier.radix-two
+    name: radix-2再帰
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.cooley-tukey]
+  - id: finite-fourier.radix-two-cost
+    name: radix-2変換の演算回数
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.radix-two]
+  - id: finite-fourier.good-factorization
+    name: Goodの互いに素な分解
+    kind: theorem
+    introduction: formal
+    requires: [finite-fourier.cooley-tukey, finite-fourier.character-table-product]

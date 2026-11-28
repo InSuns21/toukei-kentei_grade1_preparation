@@ -1,0 +1,25 @@
+id: "FFT3"
+title: "Cooley–Tukey分解・radix-2再帰・Goodの互いに素な分解"
+volume: foundations
+status: supplementary
+prerequisites: [FFT1, FFT2]
+official_scope: []
+learning_objectives:
+  - 入出力の商と余りからCooley–Tukey分解を導出できる
+  - radix-2再帰とビット反転順を説明し4点と8点を計算できる
+  - 体の算術演算の回数を各段から導出できる
+  - 互いに素な周期の置換を構成し6点変換を計算できる
+  - 根の存在と互いに素という仮定の役割を説明できる
+definitions:
+  - { id: FFT3-DEF-01, name: 回転因子 }
+theorems:
+  - { id: FFT3-THM-01, name: Cooley–Tukey分解 }
+  - { id: FFT3-THM-02, name: radix-2再帰 }
+  - { id: FFT3-THM-03, name: radix-2変換の演算回数 }
+  - { id: FFT3-THM-04, name: Goodの互いに素な分解 }
+canonical_examples: [4点変換, 8点の置換, 6点の二種類の分解]
+problem_patterns: [FFT3-A01, FFT3-A02, FFT3-A03, FFT3-A04, FFT3-B01, FFT3-B02, FFT3-B03, FFT3-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2.5, review: 0.5 }
