@@ -10,19 +10,49 @@ $$
 P=-\Box+m^2=\partial_t^2-\Delta_{\boldsymbol x}+m^2,\qquad m\ge0.
 $$
 
+ここで $t$ は時間、$\boldsymbol x=(x^1,x^2,x^3)$ は空間座標であり、$\partial_t$ は空間座標を固定した時間偏微分、$\Delta_{\boldsymbol x}=\sum_{j=1}^3\partial_{x^j}^2$ は空間Laplacianである。平坦時空の自明な実直線束上で $P$ を扱う。試験関数は $C_c^\infty(M)$ の元、すなわち滑らかでコンパクト支持を持つ関数とする。
+
 場の配置空間は $C^\infty(M,\mathbb R)$ とし、まだ方程式を課さない。積分の密度は $d^4x$、複素数値の場合も対 $\langle f,u\rangle=\int_M fu$ は双線形とする。[遅延・先進Green作用素](../../../解析系/HPDE/HPDE18/index.md#def-hpde18-green-operators) はコンパクト支持の滑らかな源 $f$ をそれぞれ未来・過去に広がる滑らかな解へ送る。
 
-二つの解の差は [因果伝播子](../../../解析系/HPDE/HPDE21/index.md#def-hpde21-causal-propagator) $E=G_{\mathrm{ret}}-G_{\mathrm{adv}}$ である。自由作用の変分を $-P\phi$ とする（例えば作用密度は $-(\partial_\mu\phi\partial^\mu\phi+m^2\phi^2)/2$）。全時空の作用積分自体の有限性は要求せず、コンパクト支持方向における変分を使う。
+二つの解の差は [因果伝播子](../../../解析系/HPDE/HPDE21/index.md#def-hpde21-causal-propagator) $E=G_{\mathrm{ret}}-G_{\mathrm{adv}}$ である。自由作用の変分を $-P\phi$ とする。
 
-作用に $\epsilon G$ を加えると方程式は $-P\phi_\epsilon+\epsilon G^{(1)}(\phi_\epsilon)=0$ となる。$\phi_\epsilon=\phi+\epsilon v+O(\epsilon^2)$ を代入し、もとの解 $P\phi=0$ を用いれば一次の方程式は
+例えば $\partial_\mu$ は時空座標 $x^\mu$（$\mu=0,1,2,3$、$x^0=t$）の偏微分とする。$\partial^\mu=\eta^{\mu\nu}\partial_\nu$ は計量で添字を上げた微分とし、重複する上下添字は和を取る。
+
+作用密度を $-(\partial_\mu\phi\partial^\mu\phi+m^2\phi^2)/2$ とすると、コンパクト支持方向 $h$ に沿う一次変分は部分積分により
+
+$$
+\begin{aligned}
+DS(\phi)[h]
+&=-\int_M(\partial_\mu h\,\partial^\mu\phi+m^2h\phi)\,d^4x\\
+&=\int_M h(\Box\phi-m^2\phi)\,d^4x\\
+&=-\langle h,P\phi\rangle .
+\end{aligned}
+$$
+
+全時空の作用積分自体の有限性は要求せず、このコンパクト支持方向における変分を使う。[汎関数微分](../MQFC37/index.md#def-mqfc37-functional-derivative) の記法では $DF(\phi)[h]$ は方向 $h$ に沿う一階微分、$F^{(n)}(\phi)$ は $n$ 階方向微分を表す分布核である。
+
+ここでは変形した方程式の解の存在を主張するのではなく、実数値の滑らかな汎関数 $G$ による形式的な一次応答を求める。作用に $\epsilon G$ を加えると方程式は $-P\phi_\epsilon+\epsilon G^{(1)}(\phi_\epsilon)=0$ となる。$\phi_\epsilon=\phi+\epsilon v+O(\epsilon^2)$ を代入し、もとの解 $P\phi=0$ を用いれば一次の方程式は
 
 $$
 Pv=G^{(1)}(\phi)
 $$
 
-となる。一次核が滑らかなコンパクト支持関数なら二つの応答は $v_{\mathrm{ret}}=G_{\mathrm{ret}}G^{(1)}$ と $v_{\mathrm{adv}}=G_{\mathrm{adv}}G^{(1)}$ である。観測量 $F$ の一次応答は $DF(\phi)[v]$ である。本講では先進応答から遅延応答を引く順序を採り、$K=-E$ と置く。これは [自由場の交換子条件](../../../解析系/MICA/MICA11/index.md#def-mica11-two-point-conditions) の符号に合わせた選択である。
+となる。一次核が滑らかなコンパクト支持関数ならGreen作用素の定義域に入る。[遅延・先進Green作用素の構成と因果的支持](../../../解析系/HPDE/HPDE18/index.md#thm-hpde18-green-existence) で確かめた恒等式は
 
-まず滑らかな試験関数による平均 $L_f(\phi)=\int_M f\phi$ とその有限個の積・和を考える。このような多項式を円筒多項式と呼ぶ。各階の微分核は滑らかでコンパクト支持である。例えば $L_fL_g$ の一次核は $fL_g+gL_f$、二次核は $f\otimes g+g\otimes f$ となる。複素係数も許す。
+$$
+PG_{\mathrm{ret}}f=PG_{\mathrm{adv}}f=f
+$$
+
+である。ここで $f=G^{(1)}(\phi)$ を代入すると二つの応答は
+
+$$
+v_{\mathrm{ret}}=G_{\mathrm{ret}}G^{(1)}(\phi),\qquad
+v_{\mathrm{adv}}=G_{\mathrm{adv}}G^{(1)}(\phi)
+$$
+
+である。観測量 $F$ の一次応答は $DF(\phi)[v]$ である。本講では先進応答から遅延応答を引く順序を採り、$K=-E$ と置く。これは [自由場の交換子条件](../../../解析系/MICA/MICA11/index.md#def-mica11-two-point-conditions) の符号に合わせた選択である。
+
+まず滑らかな試験関数による平均 $L_f(\phi)=\int_M f\phi$ とその有限個の積・和を考える。このような多項式を円筒多項式と呼ぶ。各階の微分核は滑らかでコンパクト支持である。例えば $L_fL_g$ の一次核は $fL_g+gL_f$、二次核は $f\otimes g+g\otimes f$ となる。複素係数も許す。この場合の方向微分は実の場の方向に取り、実部と虚部の微分を複素線形にまとめる。応答差を積分で表すため、次の括弧を導入する。
 
 <a id="def-mqfc38-peierls"></a>
 
@@ -48,6 +78,8 @@ $$
 
 $Kg$ は滑らかで、$f$ はコンパクト支持だから積分が有限である。結果は場に依存しない実定数になる。各引数の線形性はGreen作用素の線形性と積分の線形性から従う。
 <!-- definition-example-end -->
+
+通常の積に関して反対称・双線形で、積の微分と同じLeibniz則および三つの括弧を巡回させるJacobi恒等式を満たす括弧をPoisson括弧という。因果的分離とは二つの台を結ぶ因果曲線がないことである。
 
 <a id="thm-mqfc38-peierls-poisson"></a>
 
@@ -77,7 +109,14 @@ $$
 =-\langle g,Kf\rangle.
 $$
 
-三つの汎関数で使う試験関数を全て並べて $f_1,\ldots,f_N$ とし、$z_i=L_{f_i}(\phi)$ と置く。$F=p(z),G=q(z),H=r(z)$ と多項式で表す。$z_i(\phi+sh)=z_i(\phi)+sL_{f_i}(h)$ だから連鎖律で $F^{(1)}=\sum_i p_i f_i$（$p_i=\partial_i p$）。従って $K_{ij}=\langle f_i,Kf_j\rangle$ とすれば
+三つの汎関数で使う試験関数を全て並べて $f_1,\ldots,f_N$ とし、$z_i=L_{f_i}(\phi)$ と置く。$F=p(z),G=q(z),H=r(z)$ と多項式で表す。$z_i(\phi+sh)=z_i(\phi)+sL_{f_i}(h)$ だから、$p_i=\partial p/\partial z_i$（他の座標を固定する偏微分）と書けば、連鎖律は
+
+$$
+DF(\phi)[h]=\sum_i p_i(z)L_{f_i}(h)
+=\int_M\left(\sum_i p_i(z)f_i(x)\right)h(x)\,d^4x
+$$
+
+となる。[汎関数微分](../MQFC37/index.md#def-mqfc37-functional-derivative) の核との照合から $F^{(1)}=\sum_i p_i f_i$ を得る。従って $K_{ij}=\langle f_i,Kf_j\rangle$ とすれば
 
 $$
 \{F,G\}=\sum_{i,j}K_{ij}p_iq_j.
@@ -85,7 +124,7 @@ $$
 
 $K_{ij}=-K_{ji}$ なので反対称であり、多項式で閉じている。$\partial_i(pq)=p_iq+pq_i$ を代入すれば $\{FG,H\}=G\{F,H\}+F\{G,H\}$ となる。
 
-Jacobi恒等式では
+以下 $p_{ia}=\partial_{z_a}\partial_{z_i}p$ とし、$q,r$ についても同じ記法を使う。全て多項式なので混合偏微分の順序は交換できる。Jacobi恒等式では
 
 $$
 \{\{F,G\},H\}
@@ -115,9 +154,9 @@ $$
 W-W^T=iK,\qquad \overline W=W^T,\qquad P_xW=P_yW=0.
 $$
 
-ここで $W^T(x,y)=W(y,x)$、核の等式は試験関数への作用として読む。二点分布の正値性は以下の積の結合性には必要ない。具体的には [質量零Minkowski真空](../../../解析系/MICA/MICA13/index.md#prop-mica13-flat-wavefront) の二点分布を選べる。
+ここで $W^T(x,y)=W(y,x)$、核の等式は試験関数への作用として読む。二点分布の正値性は以下の積の結合性には必要ない。具体的には $m>0$ なら [MICA11の二点分布の条件と直接例](../../../解析系/MICA/MICA11/index.md#def-mica11-two-point-conditions)、$m=0$ なら [質量零Minkowski真空](../../../解析系/MICA/MICA13/index.md#prop-mica13-flat-wavefront) の二点分布を選べる。
 
-二つの汎関数を別々の場変数 $\phi,\psi$ に置き、片方ずつ微分して $W$ で組にする操作を収縮という。円筒多項式なら微分核は滑らかなので $W$ を試験関数へ作用させられる。$\hbar$ は形式変数であり、数値を代入して無限級数の収束を仮定するものではない。
+二つの汎関数を別々の場変数 $\phi,\psi$ に置き、片方ずつ微分して $W$ で組にする操作を収縮という。円筒多項式なら微分核は滑らかなので $W$ を試験関数へ作用させられる。$\hbar$ は形式変数であり、数値を代入して無限級数の収束を仮定するものではない。複素共役では $\overline\hbar=\hbar$ と約束する。形式冪級数とは各次数の係数を並べたもので、等式は係数ごとに判定する。こうした収縮を全次数で足した積をスター積と呼ぶ。
 
 <a id="def-mqfc38-star"></a>
 
@@ -131,7 +170,7 @@ F\star_W G
 \langle W^{\otimes n},F^{(n)}\otimes G^{(n)}\rangle
 $$
 
-> と定める。$W^{\otimes n}$ は $x_j,y_j$ を結ぶ $n$ 個の独立な核のテンソル積である。$n=0$ の項は通常の積 $FG$。多項式では有限和であり、形式冪級数には各次数で有限個の係数を足すことにより延長する。
+> と定める。$W^{\otimes n}$ は [分布のテンソル積](../../../解析系/MICA/MICA6/index.md#def-mica6-tensor-product) により $x_j,y_j$ を結ぶ $n$ 個の独立な核を配置したものを表す。作用させる試験関数は $F^{(n)}(\phi)(x_1,\ldots,x_n)G^{(n)}(\phi)(y_1,\ldots,y_n)$ であり、核と試験関数の変数はこの順にそろえる。$n=0$ の項は通常の積 $FG$。多項式では有限和であり、形式冪級数には各次数で有限個の係数を足すことにより延長する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mqfc38-star -->
@@ -183,7 +222,14 @@ $$
 
 と置く。偏微分は互いに可換で係数は定数なので三作用素は可換である。積の定義は二因子に $\sum_n\hbar^n D_{12}^n/n!$ を作用させた後で座標を一致させることになる。
 
-$(F\star_W G)\star_W H$ では最初に第1–2を収縮する。その後の微分は一致させた座標に作用するので、連鎖律によって第1、第2への微分の和になる。従って第3との収縮は $D_{13}+D_{23}$ になる。二項展開して $a$ を第1–2、$b$ を第1–3、$c$ を第2–3の回数とすると各項は
+$(F\star_W G)\star_W H$ では最初に第1–2を収縮する。その後の微分は一致させた座標に作用する。二変数の多項式 $A$ について連鎖律は
+
+$$
+\partial_{z_i} A(z,z)
+=\left.(\partial_{z_i^{(1)}}+\partial_{z_i^{(2)}})A(z^{(1)},z^{(2)})\right|_{z^{(1)}=z^{(2)}=z}
+$$
+
+となる。これを各偏微分に適用すると第1、第2への微分の和になる。従って第3との収縮は $D_{13}+D_{23}$ になる。二項展開して $a$ を第1–2、$b$ を第1–3、$c$ を第2–3の回数とすると各項は
 
 $$
 \frac{\hbar^{a+b+c}}{a!\,(b+c)!}
@@ -215,9 +261,27 @@ $$
 
 円筒多項式は便利だが、$\int f\phi^4$ のような局所汎関数には対角デルタが現れる。[局所微分核の対角表示](../MQFC37/index.md#prop-mqfc37-diagonal-derivatives) によると例えば $\int f\phi^2/2$ の二次核は $f(x)\delta^{(4)}(x-y)$ である。これを $W$ と単に掛けられるとは限らない。
 
-そこで [マイクロ因果的汎関数](../MQFC37/index.md#def-mqfc37-microcausal) の条件を用いる。本講ではこのうち有限次数の多項式を扱う。具体的には、各次数の係数がコンパクト支持の対称分布 $u_d$ であり、$F(\phi)=\sum_{d=0}^D\langle u_d,\phi^{\otimes d}\rangle$ と書けるものとする。各 $u_d$ の波面が全成分同方向の因果錐を避けると仮定する。コンパクト支持分布はその台の近くで $1$ のカットオフを掛ければ滑らかな非コンパクト支持関数にも作用できる。
+そこで [マイクロ因果的汎関数](../MQFC37/index.md#def-mqfc37-microcausal) の条件を用いる。本講ではこのうち有限次数の多項式を扱う。具体的には、各次数の係数がコンパクト支持の対称分布 $u_d$ であり、$F(\phi)=\sum_{d=0}^D\langle u_d,\phi^{\otimes d}\rangle$ と書けるものとする。各 $u_d$ の波面が全成分同方向の因果錐を避けると仮定する。$d=0$ は定数項とし、波面条件は $d\ge1$ の核に課す。コンパクト支持分布はその台の近くで $1$ のカットオフを掛ければ滑らかな非コンパクト支持関数にも作用できる。
 
-MQFC37の錐を使い $C_-=\{k:k_0\le-|\boldsymbol k|\}$、$C_+=-C_-$ とする（零も含む）。計量双対が未来向きなのは $C_-$ 側である。[Hadamard波面集合条件](../../../解析系/MICA/MICA13/index.md#def-mica13-wfsc) を満たす $W$ の特異方向は $(k,l)$ で $k\in C_-\setminus0,\ l\in C_+\setminus0$ となる。以下ではこの包含だけで収縮の存在を示す。
+[マイクロ因果的汎関数の定義](../MQFC37/index.md#def-mqfc37-microcausal) の錐を使い、次の二つの集合を用いる。
+
+$$
+C_-=\{k:k_0\le-|\boldsymbol k|\},\qquad C_+=-C_-.
+$$
+
+零も両方の錐に含まれる。計量双対が未来向きなのは $C_-$ 側である。
+
+[Hadamard波面集合条件](../../../解析系/MICA/MICA13/index.md#def-mica13-wfsc) を満たす $W$ の特異方向 $(k,l)$ は
+
+$$
+k\in C_-\setminus0,\qquad l\in C_+\setminus0
+$$
+
+を満たす。以下ではこの包含だけで収縮の存在を示す。
+
+$WF$ は波面集合、$\mathcal E'(M^d)$ はコンパクト支持分布の空間である。
+
+[Hörmanderの分布積](../../../解析系/MICA/MICA6/index.md#thm-mica6-product-existence) は同じ基点において二つの波面方向が互いに逆向きになることがない場合に構成できる。ここで収縮する変数とは核 $W$ を掛けた後に積分（分布の作用）で消す変数のことである。
 
 <a id="prop-mqfc38-microcausal-contraction"></a>
 
@@ -278,15 +342,15 @@ $$
 
 最後の式で $W^2$ は二点分布としての積である。同じ向きの波面しか持たない $W$ は自分自身と逆方向に衝突しないため、[Hörmanderの分布積の存在定理](../../../解析系/MICA/MICA6/index.md#thm-mica6-product-existence) により積が存在する。
 
-二組の収縮の積を $(x_1,x_2;y_1,y_2)=(x,x;y,y)$ に制限する操作は、[引き戻しの存在定理](../../../解析系/MICA/MICA7/index.md#thm-mica7-pullback) の条件を満たす。実際、余法方向は
+二組の収縮の積を $(x_1,x_2;y_1,y_2)=(x,x;y,y)$ に制限する操作は、[引き戻しの存在定理](../../../解析系/MICA/MICA7/index.md#thm-mica7-pullback) の条件を満たす。実際、対角写像 $\iota(x,y)=(x,x;y,y)$ の微分は $(h,j)\mapsto(h,h;j,j)$ なので、余ベクトルの引き戻しは $(k_1+k_2,l_1+l_2)$ となる。[余法方向の定義](../../../解析系/MICA/MICA7/index.md#def-mica7-normal-set) により、これが零になる条件は
 
 $$
 k_1+k_2=0,\qquad l_1+l_2=0
 $$
 
-を要求する。二組の第一成分はいずれも $C_-$ に入るため、和が零なら両方が零である。対応する第二成分も零となり波面方向ではない。この対角制限は分布積 $W^2$ の定義と一致し、$W(x,x)$ を評価したわけではない。
+を要求する。二組の第一成分はいずれも $C_-$ に入る。$k_{10},k_{20}\le0$ であり $k_{10}+k_{20}=0$ なら両方の時間成分が零になる。錐の不等式 $|\boldsymbol k_j|\le-k_{j0}$ から空間成分も零、従って両方が零である。対応する第二成分も零となり波面方向ではない。この対角制限は分布積 $W^2$ の定義と一致し、$W(x,x)$ を評価したわけではない。
 
-一方、点評価 $\phi(a)$ の一次核は $\delta_a$ であり全非零方向が波面に入る。マイクロ因果条件が失敗するので、点評価同士の積に上の命題を適用できない。特に同じ点での二点分布の制限は別の問題である。[対角への引き戻し](../../../解析系/MICA/MICA7/index.md#thm-mica7-pullback) の条件は $(k,-k)$ の特異方向を排除する必要があるが、真空核は対角でもこの方向を持つ。
+一方、点評価 $\phi(a)$ の一次核は $\delta_a$ であり、[点デルタの波面集合](../../../解析系/MICA/MICA4/index.md#prop-mica4-point-delta) によりその点では全非零方向が波面に入る。マイクロ因果条件が失敗するので、点評価同士の積に上の命題を適用できない。特に同じ点での二点分布の制限は別の問題である。[対角への引き戻し](../../../解析系/MICA/MICA7/index.md#thm-mica7-pullback) の条件は $(k,-k)$ の特異方向を排除する必要があるが、真空核は対角でもこの方向を持つ。
 
 ここでは円筒多項式で積の結合性を完全に示し、より広いマイクロ因果的多項式について二因子の各収縮の存在を証明した。一般の滑らかなマイクロ因果的汎関数の代数全体へ拡張するには、微分核の適切な位相での滑らかさ、収縮後の波面評価と結合性の継承も必要となる。時間順序積では核の方向条件が異なるため、自由場の積の存在から直ちに全ての時間順序積が存在するわけではない。
 
@@ -317,7 +381,7 @@ $X=L_f,Y=L_g,c=\langle f,Kg\rangle$ とする。$\{X^2,Y\}$ と $\{Y,X^2\}$ を�
 <!-- solution-start -->
 **詳細解答**
 
-$(X^2)^{(1)}=2Xf$、$Y^{(1)}=g$ だから [Peierls括弧](#def-mqfc38-peierls) に代入して $\{X^2,Y\}=2Xc$。逆順は $\langle g,K(2Xf)\rangle=2X\langle g,Kf\rangle=-2Xc$ となる。
+$(X^2)^{(1)}=2Xf$、$Y^{(1)}=g$ だから [Peierls括弧](#def-mqfc38-peierls) に代入して $\{X^2,Y\}=2Xc$。逆順は [自由Peierls括弧のPoisson性](#thm-mqfc38-peierls-poisson) の反対称性と同じ転置計算で $\langle g,K(2Xf)\rangle=2X\langle g,Kf\rangle=-2Xc$ となる。
 <!-- solution-end -->
 
 ### 演習 MQFC38-A3：線形交換子
@@ -334,7 +398,7 @@ $$
 [X,Y]_{\star_W}=\hbar(W(f,g)-W(g,f))=i\hbar\langle f,Kg\rangle.
 $$
 
-$K=-E$ なので $-i\hbar E(f,g)$ とも書ける。
+ここで $[X,Y]_{\star_W}=X\star_WY-Y\star_WX$ である。$K=-E$ なので $-i\hbar E(f,g)$ とも書ける。ただし $E(f,g)=\langle f,Eg\rangle$ は作用素 $E$ を二つの試験関数で評価した略記である。
 <!-- solution-end -->
 
 ### 演習 MQFC38-A4：波面方向の衝突
@@ -362,7 +426,15 @@ $$
 X^2\star_W Y^2=X^2Y^2+4\hbar XYw+2\hbar^2w^2.
 $$
 
-逆順では $w$ を $W(g,f)$ へ替える。$c=\langle f,Kg\rangle$ と置けば一次の差 $4i\hbar XYc$ は $\{X^2,Y^2\}=4XYc$ と一致する。
+逆順では $w$ を $W(g,f)$ へ替える。
+
+$c=\langle f,Kg\rangle$ と置けば一次の差 $4i\hbar XYc$ が得られる。[Peierls括弧](#def-mqfc38-peierls) に一次核を代入すると
+
+$$
+\{X^2,Y^2\}=\langle 2Xf,K(2Yg)\rangle=4XYc
+$$
+
+となり、交換子の一次係数と対応する。
 <!-- solution-end -->
 
 ### 演習 MQFC38-B2：三因子の結合性
@@ -404,7 +476,7 @@ $$
 f(x_1)\delta(x_1-x_2)
 $$
 
-であり、$g$ 側も同じ形になる。二組の収縮をこの対角に合わせると二点の $W^2$ が現れる。
+であり、$g$ 側は $g(y_1)\delta(y_1-y_2)$ となる。二組の収縮の核を第3節と同じ対角写像に沿って [非特性的に引き戻す](../../../解析系/MICA/MICA7/index.md#thm-mica7-pullback)。余法条件は $k_1+k_2=l_1+l_2=0$ であり、同方向の錐にある $k_1,k_2$ が和零なら両方零になるので、非零波面方向は衝突しない。この引き戻しは二点の $W^2$ であり、$f\otimes g$ に作用させる。
 
 その積は [Hörmanderの分布積の存在定理](../../../解析系/MICA/MICA6/index.md#thm-mica6-product-existence) によって存在する。なぜなら $W$ の非零波面方向の第一成分は $C_-$ で、逆向きは $C_+$ に入るからである。係数は $1/2!$ なので求める項は
 
