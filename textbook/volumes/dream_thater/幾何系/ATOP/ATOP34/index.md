@@ -8,7 +8,9 @@
 
 本講の多様体 $M$ は Hausdorff、第二可算な位相空間で、各点が $\mathbb R^n$ の開集合と同相な開近傍（座標近傍）を持つものです。境界はないとします。開球に座標近傍を縮めれば、その開球は $\mathbb R^n$ と同相なので、座標近傍全体を $\mathbb R^n$ とみなせます。閉多様体とはコンパクトで境界のない多様体です。
 
-係数 $R$ は $\mathbb Z$ または $\mathbb F_2=\mathbb Z/2\mathbb Z$ とします。[相対特異鎖群](../ATOP18/index.md#def-atop18-relative-chain) は $C_k(X,A)=C_k(X)/C_k(A)$ です。$C_k(A)$ は像が $A$ に含まれる単体を基底とする部分群なので、商は残りの単体を基底とする自由アーベル群です。係数を $R$ に変更するとは、この基底の係数を $R$ に取り、境界の整数係数も $R$ で読むことです。得られる鎖複体を $C_*(X,A;R)$、そのホモロジーを $H_k(X,A;R)$ と書き、絶対群では $A=\varnothing$ を省略します。負次数は零です。$R$ 加群の生成元とは、その元の $R$ 倍だけで加群の全元が表せる元です。[ホモロジーの普遍係数定理](../ATOP29/index.md#thm-atop29-homology-uct) はこの自由な相対複体にも適用できます。整数相対群が一つの次数にだけ自由群を持つなら Tor 項は全て零で、係数変更はその自由群を $R$ に置き換えます。特に [Euclid 空間の局所ホモロジー](../ATOP25/index.md#thm-atop25-euclidean) と [局所ホモロジーの近傍不変性](../ATOP25/index.md#thm-atop25-neighborhood) より
+係数 $R$ は $\mathbb Z$ または $\mathbb F_2=\mathbb Z/2\mathbb Z$ とします。[相対特異鎖群](../ATOP18/index.md#def-atop18-relative-chain) は $C_k(X,A)=C_k(X)/C_k(A)$ です。$C_k(A)$ は像が $A$ に含まれる単体を基底とする部分群なので、商は残りの単体を基底とする自由アーベル群です。係数を $R$ に変更するとは、この基底の係数を $R$ に取り、境界の整数係数も $R$ で読むことです。得られる鎖複体を $C_*(X,A;R)$、そのホモロジーを $H_k(X,A;R)$ と書き、絶対群では $A=\varnothing$ を省略します。負次数は零です。
+
+$R$ 加群の生成元とは、その元の $R$ 倍だけで加群の全元が表せる元です。[ホモロジーの普遍係数定理](../ATOP29/index.md#thm-atop29-homology-uct) はこの自由な相対複体にも適用できます。整数相対群が一つの次数にだけ自由群を持つなら [Tor の定義](../ATOP29/index.md#def-atop29-tor) から Tor 項は全て零で、係数変更はその自由群を $R$ に置き換えます。特に [Euclid 空間の局所ホモロジー](../ATOP25/index.md#thm-atop25-euclidean) と [局所ホモロジーの近傍不変性](../ATOP25/index.md#thm-atop25-neighborhood) より
 
 $$
 L_x(R):=H_n(M,M\setminus\{x\};R)\cong R.
@@ -45,7 +47,7 @@ $$
 H_k^M(K;R)=H_k(M,M\setminus K;R).
 $$
 
-$L\subset K$ なら $M\setminus K\subset M\setminus L$ なので、対の包含 $(M,M\setminus K)\to(M,M\setminus L)$ が誘導する準同型を $\rho_{K,L}$ と書きます。$L=\{x\}$ のとき $\rho_{K,x}$ と略します。これは鎖のうち $L$ から離れた部分をさらに零とする操作です。[相対ホモロジーの誘導準同型](../ATOP18/index.md#thm-atop18-relative-map) の合成則から、$J\subset L\subset K$ なら
+$L\subset K$ なら $M\setminus K\subset M\setminus L$ なので、対の包含 $(M,M\setminus K)\to(M,M\setminus L)$ が誘導する準同型を $\rho_{K,L}$ と書きます。係数 $R$ と次数 $k$ は文脈で固定し、添字は制限元 $K$、制限先 $L$ の順です。$L=\{x\}$ のとき $\rho_{K,x}$ と略します。これは鎖のうち $L$ から離れた部分をさらに零とする操作です。[相対ホモロジーの誘導準同型](../ATOP18/index.md#thm-atop18-relative-map) の合成則から、$J\subset L\subset K$ なら
 
 $$
 \rho_{L,J}\rho_{K,L}=\rho_{K,J}.
@@ -91,9 +93,23 @@ $d([p],[q])=0$ なら $p-q=a+b$（$a\in A,b\in B$）と書けます。$c=p-a=q+b
 
 $A+B$ は $U\cup V$ を開被覆 $\{U,V\}$ で覆ったときの小さい鎖の複体です。[小さい鎖によるホモロジー同型](../ATOP19/index.md#thm-atop19-small-chain-isomorphism) により $A+B\hookrightarrow C_*(U\cup V;R)$ はホモロジー同型です。細分・鎖ホモトピーの整数係数の恒等式は mod 2 へ写しても成り立つため、この小鎖化の証明は両係数で成立します。
 
-二つの短完全列 $0\to A+B\to C\to C/(A+B)\to0$ と $0\to C_*(U\cup V;R)\to C\to C/C_*(U\cup V;R)\to0$ を包含で比較します。ここで使う長完全列の作り方を確認します。一般の鎖複体の短完全列 $0\to E\xrightarrow{j}F\xrightarrow{\pi}G\to0$ で、$g\in G_k$ をサイクルとし、$\pi f=g$ となる $f\in F_k$ を取ります。$\pi\partial f=\partial g=0$ なので一意な $e\in E_{k-1}$ によって $je=\partial f$ と書けます。$j\partial e=\partial^2 f=0$ なので $e$ もサイクルです。[相対ホモロジーの接続準同型](../ATOP18/index.md#thm-atop18-connecting) と同様、接続写像は $[g]\mapsto[e]$ です。持上げを $f+ja$ に変えると $e$ は $\partial a$ だけ変わり、$g$ を境界だけ変えても持上げに境界を足せば $e$ は変わりません。
+二つの短完全列 $0\to A+B\to C\to C/(A+B)\to0$ と $0\to C_*(U\cup V;R)\to C\to C/C_*(U\cup V;R)\to0$ を包含で比較します。
 
-完全性も持上げで確認できます。$\pi_*[f]=0$ なら $\pi f=\partial g'$ であり、$g'$ の持上げ $f'$ を引く操作 $f-\partial f'$ により $j(E)$ 内のサイクルを得ます。$[e]=0$ なら $e=\partial a$ なので $f-ja$ は $g$ を持ち上げるサイクルです。また $j_*[e]=0$ なら $je=\partial f$ となる $f$ があり、$\pi f$ はサイクルで、その接続像は $[e]$ です。逆向きの包含は各合成が零であることから従います。したがって全ての位置で像と核が一致します。鎖写像で短完全列を比較すると持上げと境界も対応するので、得られる長完全列の四角形は可換です。この議論は両係数で成立します。
+ここで使う長完全列の作り方を確認します。一般の鎖複体の短完全列
+
+$$
+0\to E\xrightarrow{j}F\xrightarrow{\pi}G\to0
+$$
+
+で、$g\in G_k$ をサイクルとし、$\pi f=g$ となる $f\in F_k$ を取ります。$\pi\partial f=\partial g=0$ なので一意な $e\in E_{k-1}$ によって $je=\partial f$ と書けます。$j\partial e=\partial^2 f=0$ なので $e$ もサイクルです。[相対ホモロジーの接続準同型](../ATOP18/index.md#thm-atop18-connecting) と同様、接続写像は $[g]\mapsto[e]$ です。持上げを $f+ja$ に変えると $e$ は $\partial a$ だけ変わり、$g$ を境界だけ変えても持上げに境界を足せば $e$ は変わりません。
+
+完全性も持上げで確認できます。
+
+- $\pi_*[f]=0$ なら $\pi f=\partial g'$ であり、$g'$ の持上げ $f'$ を引く操作 $f-\partial f'$ により $j(E)$ 内のサイクルを得ます。
+- $[e]=0$ なら $e=\partial a$ なので $f-ja$ は $g$ を持ち上げるサイクルです。
+- $j_*[e]=0$ なら $je=\partial f$ となる $f$ があり、$\pi f$ はサイクルで、その接続像は $[e]$ です。
+
+逆向きの包含は各合成が零であることから従います。したがって全ての位置で像と核が一致します。鎖写像で短完全列を比較すると持上げと境界も対応するので、得られる長完全列の四角形は可換です。この議論は両係数で成立します。
 
 二つの長完全列の $H_k$ の商の項の周囲四項は、小鎖化の同型または恒等写像なので、[完全列の中央の比較](../ATOP21/index.md#lem-atop21-exact-comparison) より商同士も全次数でホモロジー同型です（0次では負次数を零とする）。
 
@@ -292,7 +308,9 @@ $$
 
 芯 $t=0$ を $s=0$ から $s=1$ までたどる間に使う平面の基底を先に構成します。原点中心の半径 $2$ の閉円板 $D\subset\mathbb R^2$ は芯の持上げ全体を内部に含みます。[コンパクト凸集合の相対群](#lem-atop34-convex-support) により $H_2^{\mathbb R^2}(D;\mathbb Z)\cong\mathbb Z$ なので、生成元 $u_D$ を一つ選びます。各点 $y=(s,0)$ で $g_y=\rho_{D,y}u_D$ と置けば、芯の持上げに沿う整合した基底が得られます。開帯内の小円板への制限でも同じ基底となり、切除で商の局所座標の基底と比較できます。
 
-両端の基底を円周で具体的に比較します。半径 $r>2$ の原点中心の円周の反時計回りの類を接続準同型で $u_D$ に対応させます（必要なら $u_D$ の符号を反転します）。各 $y=(s,0)$ でその円周を中心 $y$ へ平行移動する途中も、中心と $y$ の距離は $1$ 以下で半径 $r$ より小さいため、円周は $y$ を通りません。従って穿孔平面内のホモトピーで同じ1次類となり、接続写像の自然性により $g_y$ は中心 $y$ の反時計回りの円周に対応します。出発点と到着点の座標の比較は
+両端の基底を円周で具体的に比較します。半径 $r>2$ の原点中心の円周の反時計回りの類を接続準同型で $u_D$ に対応させます（必要なら $u_D$ の符号を反転します）。接続写像は全空間 $\mathbb R^2$ の1次・2次群が零なので、[対のホモロジー長完全列](../ATOP18/index.md#thm-atop18-long-exact) により補集合の1次群への同型です。補集合は半径 $r$ の円周に強変形レトラクトするので、反時計回りの円周の類は生成元です。
+
+各 $y=(s,0)$ でその円周を中心 $y$ へ平行移動する途中も、中心と $y$ の距離は $1$ 以下で半径 $r$ より小さいため、円周は $y$ を通りません。従って [特異ホモロジーのホモトピー不変性](../ATOP17/index.md#thm-atop17-homotopy-invariance) により穿孔平面内で同じ1次類となり、[対の長完全列の自然性](../ATOP18/index.md#thm-atop18-naturality) により $g_y$ は中心 $y$ の反時計回りの円周に対応します。出発点と到着点の座標の比較は
 
 $$
 (s,t)\longmapsto(s+1,-t)
@@ -322,7 +340,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-atop34-fundamental-class -->
-一点空間 $M=\{p\}$ は閉0次元多様体です。$H_0(M;R)=R[p]$ であり、$M\setminus\{p\}=\varnothing$ なので制限は恒等です。
+一点空間 $M=\{p\}$ は閉0次元多様体です。[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) と係数変更により $H_0(M;R)=R[p]$ であり、$M\setminus\{p\}=\varnothing$ なので制限は恒等です。
 
 **定義の確認**：局所向き $o_p=[p]$ を選ぶと、制限は恒等であるため $\rho_{M,p}[p]=[p]=o_p$ となります。一点を閉0次元球として取り、相対類 $[p]$ を選べば向き付けの整合条件も満たします。従って $[M]_R=[p]$ は条件を満たします。整数で逆向きを選べば基本類は $-[p]$ になります。
 <!-- definition-example-end -->
@@ -446,7 +464,7 @@ $M=\{p,q\}$ を離散位相の閉0次元多様体とし、整数向き $o_p=[p],
 <!-- solution-start -->
 **詳細解答**
 
-[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) より $H_0(M;\mathbb Z)=\mathbb Z[p]\oplus\mathbb Z[q]$ です。$a[p]+b[q]$ の $p$ での制限は $a[p]$、$q$ での制限は $b[q]$ です。よって $a=1,b=-1$、基本類は $[p]-[q]$ です。各点は開なのでそれぞれ独立に二つの向きを選べ、総数は $2^2=4$ です。連結性がなければ向き付けは二つに限りません。
+[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) より $H_0(M;\mathbb Z)=\mathbb Z[p]\oplus\mathbb Z[q]$ です。$a[p]+b[q]$ の $p$ での制限は $a[p]$、$q$ での制限は $b[q]$ です。よって $a=1,b=-1$、基本類は $[p]-[q]$ です。各一点を閉0次元球とする相対類がそれぞれの向きを実現するため、この選択は実際に向き付けです。各点は開なのでそれぞれ独立に二つの向きを選べ、総数は $2^2=4$ です。連結性がなければ向き付けは二つに限りません。
 <!-- solution-end -->
 
 <a id="ex-atop34-b1"></a>
@@ -477,13 +495,19 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-基底 $g_1$ を $-g_1$ に変えると、$g_1$ が関与する二つの比較符号が反転し、残り一つは不変です。従って一周の積は
+[向きの局所系](#def-atop34-orientation-local-system) の比較と同じく $g_i=\varepsilon_{ij}g_j$ と書きます。基底 $g_1$ を $-g_1$ に変えると、$\varepsilon_{12}$ と $\varepsilon_{31}$ は反転し、$\varepsilon_{23}$ は不変です。従って一周の積は
 
 $$
 (-1)(-1)(-1)=-1
 $$
 
-のままです。整合する整数生成元があれば各局所基底での係数 $\eta_i=\pm1$ が比較符号を掛けて移るため、一周後に $\eta_1=-\eta_1$ となります。整数ではこれは不可能です。mod 2 では各符号が1になり整合します。これは Möbius 帯の芯で生じる現象で、円周そのものの局所1次群の向きとは異なります。
+のままです。整合する整数生成元があれば各局所基底での係数 $\eta_i=\pm1$ が比較符号を掛けて移るため、$\eta_2=\varepsilon_{12}\eta_1$、$\eta_3=\varepsilon_{23}\eta_2$、$\eta_1=\varepsilon_{31}\eta_3$ となります。従って
+
+$$
+\eta_1=\varepsilon_{31}\varepsilon_{23}\varepsilon_{12}\eta_1=-\eta_1
+$$
+
+です。整数ではこれは不可能です。mod 2 では各符号が1になり整合します。これは Möbius 帯の芯で生じる現象で、円周そのものの局所1次群の向きとは異なります。
 <!-- solution-end -->
 
 <a id="ex-atop34-b3"></a>
