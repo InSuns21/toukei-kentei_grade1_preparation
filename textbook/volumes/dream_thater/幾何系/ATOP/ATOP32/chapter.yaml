@@ -2,7 +2,7 @@ id: ATOP32
 title: "環の計算：トーラス・射影空間"
 volume: foundations
 status: supplementary
-prerequisites: [ATOP31, ATOP22, ATOP5]
+prerequisites: [ATOP31, ATOP22, ATOP5, CM1-10]
 official_scope: []
 learning_objectives:
   - トーラスの整数係数コホモロジー環をKünneth公式とcup積から計算できる

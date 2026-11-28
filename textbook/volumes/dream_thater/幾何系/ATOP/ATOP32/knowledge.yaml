@@ -1,7 +1,7 @@
 chapter: ATOP32
 scope: dream-theater
 coverage: complete
-prerequisites: [ATOP31, ATOP22, ATOP5]
+prerequisites: [ATOP31, ATOP22, ATOP5, CM1-10]
 forward_references: []
 concepts:
   - id: atop.torus-cohomology-ring
@@ -23,4 +23,4 @@ concepts:
     name: 複素射影空間の整数係数コホモロジー群
     kind: proposition
     introduction: formal
-    requires: [atop.finite-cw-complex, atop.cellular-homology, atop.cohomology-universal-coefficient]
+    requires: [atop.finite-cw-complex, atop.cellular-homology, atop.cohomology-universal-coefficient, complex-manifolds.complex-projective-space, complex-manifolds.projective-atlas, complex-manifolds.projective-topology]
