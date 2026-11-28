@@ -1,0 +1,36 @@
+chapter: MMX29
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX28, MMX6, MMX2, ACOMP1, ACOMP2, ACOMP3, ACOMP4, ACOMP5, ACOMP21, TRN1]
+forward_references: []
+concepts:
+  - id: matrix-exponent.formal-division-circuit
+    name: "除算を許す形式回路"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（除算を許す形式回路）"]
+    requires: [algebraic-complexity.arithmetic-circuit]
+  - id: matrix-exponent.double-truncation
+    name: "二重切断環"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二重切断環）"]
+    requires: [matrix-exponent.truncated-polynomial, algebraic-complexity.degree-components]
+  - id: matrix-exponent.circuit-bilinearization
+    name: "形式回路の双線形化"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（形式回路の双線形化）"]
+    requires: [matrix-exponent.formal-division-circuit, matrix-exponent.double-truncation, tensor.rank-bilinear-complexity]
+  - id: matrix-exponent.finite-coefficient-specialization
+    name: "有限生成係数環の有限体への特殊化"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有限生成係数環の有限体への特殊化）"]
+    requires: [algebra.field, transcendence.monic-polynomial, transcendence.integrality-criterion]
+  - id: matrix-exponent.formal-circuit-exponent-transfer
+    name: "形式回路の指数下界の移送"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（形式回路の指数下界の移送）"]
+    requires: [matrix-exponent.circuit-bilinearization, matrix-exponent.finite-coefficient-specialization, matrix-exponent.finite-field-exponent-bound, tensor.matrix-multiplication-exponent-rank]
