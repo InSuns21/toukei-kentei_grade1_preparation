@@ -39,7 +39,7 @@ $$
 w_{a,c}=\zeta^{ac},\qquad 0\le a<r,\quad 0\le c<s
 $$
 
-> を回転因子（twiddle factor）という。
+> を回転因子（twiddle）という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fft3-twiddle -->
@@ -717,6 +717,6 @@ $278=17\cdot16+6$ なので $X_3=6$ と一致します。蝶形演算を三段�
 
 ## 5. 次に学ぶこと
 
-短い変換の再利用は、入力列を別の列へ変えるだけでなく、巡回畳み込みや多項式の乗算にも応用できます。次講では変換が畳み込みを成分ごとの積へ移すこと、通常の畳み込みと巡回畳み込みの違いを調べます。
+短い変換の再利用は、入力列を別の列へ変えるだけでなく、周期を持つ列の積和や多項式の乗算にも応用できます。次講では変換が畳み込みを成分ごとの積へ移すこと、周期を設けない積和と周期を設けた積和の違いを調べます。
 
 参考：C. Van Loan, *Computational Frameworks for the Fast Fourier Transform*, SIAM, 1992, 第1–2章。
