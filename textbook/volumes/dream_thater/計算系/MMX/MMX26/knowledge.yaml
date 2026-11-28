@@ -1,0 +1,48 @@
+chapter: MMX26
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX25]
+forward_references: []
+concepts:
+  - id: matrix-exponent.round-budget
+    name: "ラウンドの三重予算"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ラウンドの三重予算）"]
+    requires: []
+  - id: matrix-exponent.dyadic-colony-count
+    name: "二進区間の梱包数評価"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（二進区間の梱包数評価）"]
+    requires: []
+  - id: matrix-exponent.six-point-width-gadget
+    name: "六点配線の一様な幅改善"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（六点配線の一様な幅改善）"]
+    requires: [matrix-exponent.geodesic-extension, matrix-exponent.curvature, matrix-exponent.strict-spectral-comparison]
+  - id: matrix-exponent.exceptional-base-load
+    name: "例外基地の荷重評価"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（例外基地の荷重評価）"]
+    requires: [matrix-exponent.dyadic-colony-count]
+  - id: matrix-exponent.core-width-beat
+    name: "コア幅を半減する反復単位"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（コア幅を半減する反復単位）"]
+    requires: [matrix-exponent.six-point-width-gadget, matrix-exponent.dyadic-colony-count, matrix-exponent.exceptional-base-load, matrix-exponent.wide-routing-recurrence]
+  - id: matrix-exponent.arity-round-update
+    name: "三重予算の一ラウンド更新"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（三重予算の一ラウンド更新）"]
+    requires: [matrix-exponent.round-budget, matrix-exponent.local-arity-concentration, matrix-exponent.core-width-beat, matrix-exponent.dyadic-colony-count]
+  - id: matrix-exponent.round-iteration-budget
+    name: "ラウンド反復の項別予算"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ラウンド反復の項別予算）"]
+    requires: [matrix-exponent.arity-round-update, matrix-exponent.round-budget]
