@@ -1,0 +1,25 @@
+id: "FFT6"
+title: "Fourier変換の古典的下界と行列の非剛性"
+volume: foundations
+status: supplementary
+prerequisites: [FFT1, FFT3, FFT5]
+official_scope: []
+learning_objectives:
+  - 有界係数モデルで行列式ポテンシャルの増加上限と下界を再現できる
+  - 正規化による行列式の変化とユニタリ二座標更新のエントロピー下界を説明できる
+  - 行列の剛性を低階数部分と疎部分の和として評価し具体的な節約を構成できる
+  - 係数と出力操作の制限を区別し定数改善と対数指数改善を比較できる
+definitions:
+  - { id: FFT6-DEF-01, name: 有界係数線形回路 }
+  - { id: FFT6-DEF-02, name: ユニタリ行列の行列エントロピー }
+  - { id: FFT6-DEF-03, name: 行列の剛性 }
+theorems:
+  - { id: FFT6-THM-01, name: Morgenstern型の行列式下界 }
+  - { id: FFT6-THM-02, name: Ailon型のユニタリゲート下界 }
+  - { id: FFT6-THM-03, name: 低階数・疎分解による線形ゲート上界 }
+canonical_examples: [二点の有界係数回路, 二点の行列エントロピー, 単位行列の剛性, 四点Walsh変換]
+problem_patterns: [FFT6-A01, FFT6-A02, FFT6-A03, FFT6-A04, FFT6-B01, FFT6-B02, FFT6-B03, FFT6-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2.5, review: 0.5 }
