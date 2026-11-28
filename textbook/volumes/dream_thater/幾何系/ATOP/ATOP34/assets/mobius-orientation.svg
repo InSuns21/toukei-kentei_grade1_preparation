@@ -6,5 +6,5 @@
   <path d="M76 120 H444" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#a)"/>
   <path d="M158 120 V77 M362 120 V77" fill="none" stroke="#333" stroke-width="2.6" marker-end="url(#a)"/>
   <circle cx="158" cy="120" r="3.5" fill="#333"/><circle cx="362" cy="120" r="3.5" fill="#333"/>
-  <g fill="#222" font-family="sans-serif" font-size="18" text-anchor="middle"><text x="49" y="119">A</text><text x="471" y="119">A</text><text x="158" y="67">t</text><text x="362" y="67">t</text><text x="260" y="143">s</text><text x="68" y="218">0</text><text x="452" y="218">1</text></g>
+  <g fill="#222" font-family="sans-serif" font-size="18" text-anchor="middle"><text x="49" y="119">A</text><text x="471" y="119">A</text><text x="181" y="92">t</text><text x="385" y="92">t</text><text x="260" y="153">s</text><text x="68" y="218">0</text><text x="452" y="218">1</text></g>
 </svg>
