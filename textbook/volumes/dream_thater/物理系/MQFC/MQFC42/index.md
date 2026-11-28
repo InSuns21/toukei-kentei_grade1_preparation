@@ -6,9 +6,29 @@
 
 ## 1. 入力の再定義
 
-時空は Minkowski 時空 $M=\mathbb R^{1+3}$、計量は $(-,+,+,+)$ とする。MQFC41と同じく、局所Wick多項式を滑らかなコンパクト支持の試験関数で積分したものの有限和を入力の実ベクトル空間 $\mathcal L$ とし、その複素化も用いる。$\hbar$ の形式係数を持つ場合は、これらの空間を $\hbar$ の形式級数へ係数ごとに拡張して扱う。場の微分を含む局所多項式も許す。値域 $\mathcal A$ は [自由場のスター積](../MQFC38/index.md#def-mqfc38-star) を備えた単位的結合代数とし、入力の複素化はその部分空間とみなす。積を $\star$、随伴を $*$ と書き、$(a\star b)^*=b^*\star a^*$ とする。実入力は自己随伴とする。
+時空は Minkowski 時空 $M=\mathbb R^{1+3}$、計量は $(-,+,+,+)$ とする。MQFC41と同じく、局所Wick多項式を滑らかなコンパクト支持の試験関数で積分したものの有限和を入力の実ベクトル空間 $\mathcal L$ とし、その複素化も用いる。
 
-[結合定数の形式展開](../MQFC31/index.md#def-mqfc31-formal-coupling) と同じく、挿入の個数を数える可換形式変数 $\lambda,t_1,\ldots,t_n$ は $\hbar$ や時空の時刻と区別する。$X$ は定数項が零の局所入力の形式級数であり、等号は全係数の一致を表す。$[\lambda^k]$ は $\lambda^k$ の係数を取り出す記号、$O(\lambda^k)$ は次数 $k$ 以上の項の総称である。多重線形写像 $B_n$ に同じ入力を $n$ 個入れるときは $B_n(X^n)=B_n(X,\ldots,X)$ と略記する。ここで $X^n$ は代数内の積ではない。
+$\hbar$ の形式係数を持つ場合は、これらの空間を $\hbar$ の形式級数へ係数ごとに拡張して扱う。場の微分を含む局所多項式も許す。
+
+値域 $\mathcal A$ は [自由場のスター積](../MQFC38/index.md#def-mqfc38-star) を備えた単位的結合代数とし、入力の複素化はその部分空間とみなす。積を $\star$、随伴を $*$ と書き、
+
+$$
+(a\star b)^*=b^*\star a^*
+$$
+
+とする。実入力は自己随伴とする。
+
+[結合定数の形式展開](../MQFC31/index.md#def-mqfc31-formal-coupling) と同じく、挿入の個数を数える可換形式変数 $\lambda,t_1,\ldots,t_n$ は $\hbar$ や時空の時刻と区別する。$X$ は定数項が零の局所入力の形式級数であり、等号は全係数の一致を表す。
+
+$[\lambda^k]$ は $\lambda^k$ の係数を取り出す記号、$O(\lambda^k)$ は次数 $k$ 以上の項の総称である。
+
+多重線形写像 $B_n$ に同じ入力を $n$ 個入れるときは
+
+$$
+B_n(X^n)=B_n(X,\ldots,X)
+$$
+
+と略記する。ここで $X^n$ は代数内の積ではない。
 
 二つの処方 $T_n,\widetilde T_n$ はともに対称多重線形で $T_0=\widetilde T_0=1,\ T_1=\widetilde T_1=\mathrm{id}$ とする。両者は [時間順序積の因果帰納条件](../MQFC40/index.md#def-mqfc40-causal-recursion) を満たす。[局所S行列](../MQFC41/index.md#def-mqfc41-local-s) をそれぞれ $S,\widetilde S$ と書く。規格化は
 
@@ -20,7 +40,19 @@ $$
 
 ここでは [因果帰納の全対角延長](../MQFC40/index.md#thm-mqfc40-diagonal-extension) と同じ並進不変な数値分布係数と局所Wick多項式の設定で議論する。入力の台は、積分に使う試験関数の台の和で評価する。[多点の部分対角](../MQFC36/index.md#def-mqfc36-partial-diagonal) のうち、すべての挿入点が一致する集合を全対角と呼ぶ。分布の支持がその集合に含まれるとは、そこを避ける台の試験関数への作用が零であることをいう。
 
-出力位置を $z$、各入力の位置を $x_j$ とする。固定したWick多項式の種類ごとに、局所密度の分布核は $x_1=\cdots=x_n=z$ に支持を持つ有限階のデルタ微分の和で表し、試験関数に作用させてから $z$ で積分する。ここで [多重指数](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-multi-index) $\alpha$ は各座標の非負整数の微分回数、$|\alpha|$ はその総和を表す。例えば核の一項 $\partial_{x_1}^{\alpha}\delta(x_1-z)\delta(x_2-z)$ は、入力の試験関数 $f,g$ に作用して $(-1)^{|\alpha|}(\partial^\alpha f)(z)g(z)$ を与える。これは [分布微分](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-distributional-derivative) の定義による。従って局所係数は、同一点での有限個の試験関数の微分の積として計算できる。
+出力位置を $z$、各入力の位置を $x_j$ とする。固定したWick多項式の種類ごとに、局所密度の分布核は $x_1=\cdots=x_n=z$ に支持を持つ有限階のデルタ微分の和で表し、試験関数に作用させてから $z$ で積分する。
+
+ここで [多重指数](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-multi-index) $\alpha$ は各座標の非負整数の微分回数、$|\alpha|$ はその総和を表す。例えば核の一項は、入力の試験関数 $f,g$ に対し
+
+$$
+\begin{aligned}
+&\langle \partial_{x_1}^{\alpha}\delta(x_1-z)
+\delta(x_2-z),f(x_1)g(x_2)\rangle\\
+&\qquad=(-1)^{|\alpha|}(\partial^\alpha f)(z)g(z)
+\end{aligned}
+$$
+
+と作用する。これは [分布微分](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-distributional-derivative) の定義による。従って局所係数は、同一点での有限個の試験関数の微分の積として計算できる。
 
 因果分解に必要な分布積・制限は存在し、結合性と制限との両立を満たすと仮定する。また、下位補正を代入した後に全対角に残る数値分布係数は、相対座標で [原点支持分布の構造](../MQFC34/index.md#thm-mqfc34-point-structure) を適用でき、上記の形の局所密度として表せて、その積分が $\mathcal L$ の複素化に属すると仮定する。この局所閉性は次数ごとに必要であり、入力空間を特定の有限個の結合だけに制限しない。
 
@@ -56,7 +88,21 @@ c\int_M\int_M
 =cf(z)g(z)
 $$
 
-となる（デルタ積分は分布の作用を表す）。これを $:\!\phi(z)^2\!:/2$ に掛けて積分すると $cF_{fg}$ に戻る。$x=y=z$ 以外では核の作用が零なので局所性も満たす。$Z(\lambda F_f)=\lambda F_f+c\lambda^2 F_{f^2}/2$ なので定数項は零、一次項は元の入力である。この $Z$ は局所写像の例である。実際にこの入力族上で $\widetilde S=S\circ Z$ と定めれば、その一次部は $iX$ である。因果順序を満たす二組の入力 $A,B$ の台は互いに素なので $Z_2(A,B)=0$、従って $Z(A+B)=Z(A)+Z(B)$ となる。両補正の台は元の台に含まれるから、[局所S行列の因果因子化](../MQFC41/index.md#thm-mqfc41-s-factorization) を適用して
+となる（デルタ積分は分布の作用を表す）。これを $:\!\phi(z)^2\!:/2$ に掛けて積分すると $cF_{fg}$ に戻る。$x=y=z$ 以外では核の作用が零なので局所性も満たす。また、
+
+$$
+Z(\lambda F_f)=\lambda F_f+\frac{c\lambda^2}{2}F_{f^2}
+$$
+
+なので定数項は零、一次項は元の入力である。この $Z$ は局所写像の例である。
+
+実際にこの入力族上で $\widetilde S=S\circ Z$ と定めれば、その一次部は $iX$ である。因果順序を満たす二組の入力 $A,B$ の台は互いに素なので
+
+$$
+Z_2(A,B)=0,\qquad Z(A+B)=Z(A)+Z(B).
+$$
+
+両補正の台は元の台に含まれるから、[局所S行列の因果因子化](../MQFC41/index.md#thm-mqfc41-s-factorization) を適用して
 
 $$
 \widetilde S(A+B)=S(Z(A))\star S(Z(B))
@@ -129,7 +175,22 @@ $$
 
 ここで式は全て独立な添字変数の混合係数の分布核について読む。例えば $I$ の係数の次数は $|I|$、$J$ の係数の次数は $|J|$ であり、どちらも $n$ 未満である。
 
-混合係数は、第1因子の $[\prod_{j\in I}t_j]$ と第2因子の $[\prod_{j\in J}t_j]$ のスター積である。帰納仮定により各因子の該当係数を $\widetilde S(X_I),\widetilde S(X_J)$ の係数に置き換えられる。$\widetilde S$ にも因果因子化を使うと積は $\widetilde S(X)$ の同じ混合係数に一致する。従って各積近傍内で分布係数の制限が一致する。ここでは因果帰納条件を分布核の制限に対する等式として仮定しているので、全ての積近傍上で $D_n$ の制限は零である。[有限開被覆上の分布の貼り合わせ](../MQFC36/index.md#thm-mqfc36-gluing) と同じ分布の局所性（コンパクトな試験関数の台には有限個の近傍で十分）により $D_n|_{C_I}=0$ となる。全対角外をこの開集合で覆えるので、$D_n$ は全対角に支持を持つ。[原点支持分布の構造](../MQFC34/index.md#thm-mqfc34-point-structure) を $4(n-1)$ 次元の相対座標に適用し、第1節の局所閉性によって $D_n$ は局所密度で表される入力の複素化に値を取る。$Z_n=D_n/i$ と置く。
+混合係数は、第1因子の $[\prod_{j\in I}t_j]$ と第2因子の $[\prod_{j\in J}t_j]$ のスター積である。帰納仮定による置換は次のようになる。
+
+$$
+\begin{aligned}
+&[\textstyle\prod_{j\in I}t_j]S(Z^{<n}(X_I))
+\star[\textstyle\prod_{j\in J}t_j]S(Z^{<n}(X_J))\\
+&=[\textstyle\prod_{j\in I}t_j]\widetilde S(X_I)
+\star[\textstyle\prod_{j\in J}t_j]\widetilde S(X_J).
+\end{aligned}
+$$
+
+$\widetilde S$ にも因果因子化を使うと積は $\widetilde S(X)$ の同じ混合係数に一致する。従って各積近傍内で分布係数の制限が一致する。
+
+ここでは因果帰納条件を分布核の制限に対する等式として仮定しているので、全ての積近傍上で $D_n$ の制限は零である。[有限開被覆上の分布の貼り合わせ](../MQFC36/index.md#thm-mqfc36-gluing) と同じ分布の局所性（コンパクトな試験関数の台には有限個の近傍で十分）により $D_n|_{C_I}=0$ となる。全対角外をこの開集合で覆えるので、$D_n$ は全対角に支持を持つ。
+
+[原点支持分布の構造](../MQFC34/index.md#thm-mqfc34-point-structure) を $4(n-1)$ 次元の相対座標に適用し、第1節の局所閉性によって $D_n$ は局所密度で表される入力の複素化に値を取る。$Z_n=D_n/i$ と置く。
 
 $S$ の一次項 $iX$ に $Z_n(X^n)/n!$ を代入すると、混合係数には $n!$ 通りの入力の置換が現れ、対称性で同じ値になる。従って増分は
 
@@ -271,7 +332,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-合成の次数 $n$ は、$k$ 個の正次数入力の次数の和が $n$ となる項だけを集めればよく、有限和である。混合係数では各内側の係数が組内の位置を同一点に集め、外側の係数はその全組の出力位置をさらに同一点に集める。第1節の局所密度の表示では、内側の出力は同一点における試験関数の微分の有限積である。外側がそれを微分しても積の微分法則により同一点での微分の有限積の和となる。例えば $\partial_{z_j}(f(z)g(z))h(z)$ は $(\partial_{z_j}f)(z)g(z)h(z)+f(z)(\partial_{z_j}g)(z)h(z)$ である。従って再び有限階の全対角支持の核で表せ、合成は局所的である。線形部は恒等写像同士の合成で恒等。形式合成は有限次数ごとに通常の代入の結合律を満たす。
+合成の次数 $n$ は、$k$ 個の正次数入力の次数の和が $n$ となる項だけを集めればよく、有限和である。混合係数では各内側の係数が組内の位置を同一点に集め、外側の係数はその全組の出力位置をさらに同一点に集める。第1節の局所密度の表示では、内側の出力は同一点における有限個の試験関数の微分を掛け合わせた式の和である。外側がそれを微分しても積の微分法則により同じ種類の式になる。例えば
+
+$$
+\begin{aligned}
+\partial_{z_j}(f(z)g(z))h(z)
+={}&(\partial_{z_j}f)(z)g(z)h(z)\\
+&+f(z)(\partial_{z_j}g)(z)h(z).
+\end{aligned}
+$$
+
+従って再び有限階の全対角支持の核で表せ、合成は局所的である。線形部は恒等写像同士の合成で恒等。形式合成は有限次数ごとに通常の代入の結合律を満たす。
 
 $Z(W(X))=X$ を順次解く。次数 $n$ の未確定係数 $W_n$ は $Z$ の線形部にだけ現れるので、それまでに確定した係数からなる残差の負を選べば一意に消せる。残差は上の合成の議論で局所的だから $W_n$ も局所的である。
 
@@ -296,7 +367,7 @@ $$
 
 ## 4. 運動量空間の減算との比較
 
-[局所反項の自由度](../MQFC34/index.md#thm-mqfc34-counterterm-freedom) により、相対座標 $z\in\mathbb R^d$ でスケーリング次数 $s$ を保つ延長の差は 有限のスケーリング次数 $s\ge d$ のとき
+[局所反項の自由度](../MQFC34/index.md#thm-mqfc34-counterterm-freedom) により、相対座標 $z\in\mathbb R^d$ で有限のスケーリング次数 $s\ge d$ を保つ延長の差は
 
 $$
 \sum_{|\alpha|\le \lfloor s-d\rfloor}c_\alpha\partial^\alpha\delta
@@ -304,7 +375,15 @@ $$
 
 となる。運動量 $p$ は $z$ に共役な変数であり、$p\cdot z=\sum_{j=1}^d p_jz_j$ は座標の双対性による組合せ（Lorentz計量による内積ではない）を表す。Fourier変換は $\widehat t(p)=\int e^{-ip\cdot z}t(z)\,dz$ の規約を用いる。ここで扱う延長差はコンパクト支持分布なので、指数関数に原点近傍で1となる滑らかなコンパクト支持関数を掛けて作用させればよく、原点での微分評価はその選択に依存しない。
 
-[多重指数](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-multi-index) $\alpha=(\alpha_1,\ldots,\alpha_d)$ は各座標の非負整数の微分回数を表し、$|\alpha|=\sum_j\alpha_j$、$\alpha!=\prod_j\alpha_j!$、$p^\alpha=\prod_jp_j^{\alpha_j}$ と書く。[分布微分](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-distributional-derivative) の定義を用い、$p$ を固定して $z$ で微分すると
+[多重指数](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-multi-index) $\alpha=(\alpha_1,\ldots,\alpha_d)$ は各座標の非負整数の微分回数を表す。以下の略記を用いる。
+
+$$
+|\alpha|=\sum_j\alpha_j,\quad
+\alpha!=\prod_j\alpha_j!,\quad
+p^\alpha=\prod_jp_j^{\alpha_j}.
+$$
+
+[分布微分](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-distributional-derivative) の定義を用い、$p$ を固定して $z$ で微分すると
 
 $$
 \widehat{\partial^\alpha\delta}(p)
@@ -355,7 +434,15 @@ $p=a$ では零であり、$\Lambda\to\infty$ で第一項は $\log1=0$ へ収�
 
 <!-- formal-statement-start -->
 > **命題（減算点変更の多項式性）**
-> [運動量Taylor減算](#def-mqfc42-taylor-subtraction) の設定で $a,b\in\Omega$ とし、$\Omega$ は非空開集合とする。$\Lambda\to\infty$ のとき両減算振幅が各 $p\in\Omega$ で有限値 $A_a(p),A_b(p)$ に収束するなら、$A_b-A_a$ は次数 $m$ 以下の多項式の $\Omega$ への制限である。
+> [運動量Taylor減算](#def-mqfc42-taylor-subtraction) の設定で $a,b\in\Omega$ とし、$\Omega$ は非空開集合とする。$\Lambda\to\infty$ のとき各点で有限値に収束する、すなわち
+>
+$$
+A_{\Lambda,a}(p)\to A_a(p),\qquad
+A_{\Lambda,b}(p)\to A_b(p)
+\quad(p\in\Omega)
+$$
+>
+> と仮定する。このとき $A_b-A_a$ は次数 $m$ 以下の多項式の $\Omega$ への制限である。
 <!-- formal-statement-end -->
 
 見取り図：有限の正則化パラメータでの差は多項式である。有限個の点での収束から、全ての多項式係数の収束を導く。
