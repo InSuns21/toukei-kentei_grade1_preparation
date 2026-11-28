@@ -91,7 +91,7 @@ D_M([(K,a)])=D_K(a),
 \qquad D_M:H_c^p(M;R)\to H_{n-p}(M;R)
 $$
 
-が定まります。共通の支持集合へ移してから足せば cap積の線形性により加法的で、係数倍とも可換です。これは [閉多様体での基本類による双対写像](../ATOP35/index.md#def-atop35-duality-map) を拡張したものです。以後、支持集合が明らかなら入力を単に $a$ とも書きます。
+が定まります。共通の支持集合へ移してから足せば cap積の線形性により加法的で、係数倍とも可換です。$p<0$ のときは零群からの写像、$p>n$ のときは負次数の零群への写像とします。これは [閉多様体での基本類による双対写像](../ATOP35/index.md#def-atop35-duality-map) を拡張したものです。以後、支持集合が明らかなら入力を単に $a$ とも書きます。
 
 開集合 $j:U\hookrightarrow M$ にも対応が必要です。$K\subset U$ がコンパクトなら、$K$ は $M$ でも閉じており、$M\setminus U$ の閉包は開集合 $M\setminus K$ に含まれます。
 
@@ -485,7 +485,7 @@ $X=\mathbb R$、$K=[0,1]$、$L=[-1,2]$ とする。$H^1(X,X\setminus K;\mathbb Z
 <!-- solution-start -->
 **詳細解答**
 
-[相対コホモロジー長完全列](../ATOP28/index.md#thm-atop28-relative-exact) の $H^0(X)\to H^0(X\setminus K)\to H^1(X,X\setminus K)\to0$ で、初めの写像は対角写像 $t\mapsto(t,t)$ です。従って生成元は $(0,1)$ の剰余類です。$L$ の補集合の左成分は $K$ の補集合の左成分に、右成分も右成分に含まれます。よって制限は $(s,t)\mapsto(s,t)$ です。対角部分群を保存するため商でも恒等となり、$(0,1)$ の剰余類が生成元に移ります。
+[相対コホモロジー長完全列](../ATOP28/index.md#thm-atop28-relative-exact) の $H^0(X)\to H^0(X\setminus K)\to H^1(X,X\setminus K)\to0$ で、初めの写像は対角写像 $t\mapsto(t,t)$ です。[コンパクト支持コホモロジーの定義例](#def-atop36-compact-cohomology) と同様に、差 $t-s$ が対角部分群を核とする全射なので、生成元は $(0,1)$ の剰余類です。$L$ の補集合の左成分は $K$ の補集合の左成分に、右成分も右成分に含まれます。よって制限は $(s,t)\mapsto(s,t)$ です。対角部分群を保存するため商でも恒等となり、$(0,1)$ の剰余類が生成元に移ります。
 <!-- solution-end -->
 
 <a id="ex-atop36-a2"></a>
@@ -497,7 +497,17 @@ $X=\mathbb R$、$K=[0,1]$、$L=[-1,2]$ とする。$H^1(X,X\setminus K;\mathbb Z
 <!-- solution-start -->
 **詳細解答**
 
-[cap積](../ATOP35/index.md#def-atop35-cap) で $p=n$ とすると各 $n$ 単体は最後の頂点に $a(\sigma)$ 倍の係数を付けた0鎖になります。基本類の代表を $z=\sum_i m_i\sigma_i$ とすれば出力の係数総和は $\sum_i m_i a(\sigma_i)=a(z)=3$ です。[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) より任意の点 $q$ に対して $D_M(a)=3[q]$ です。連結多様体は局所道連結なので道連結です。
+[cap積](../ATOP35/index.md#def-atop35-cap) で $p=n$ とすると各 $n$ 単体は最後の頂点に $a(\sigma)$ 倍の係数を付けた0鎖になります。基本類の代表を $z=\sum_i m_i\sigma_i$ とすれば出力の係数総和は
+
+$$
+\sum_i m_i a(\sigma_i)=a(z)=3.
+$$
+
+連結多様体は局所道連結なので道連結です。[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) より0鎖の係数和がそのホモロジー類を決めるため、任意の点 $q$ に対して
+
+$$
+D_M(a)=3[q].
+$$
 <!-- solution-end -->
 
 <a id="ex-atop36-a3"></a>
@@ -509,7 +519,25 @@ $X=\mathbb R$、$K=[0,1]$、$L=[-1,2]$ とする。$H^1(X,X\setminus K;\mathbb Z
 <!-- solution-start -->
 **詳細解答**
 
-円周は閉向き付き1次元多様体です。[胞体ホモロジー定理](../ATOP22/index.md#thm-atop22-cellular-comparison) で0胞体と1胞体が各一つ、境界は零なので $H_0=H_1=\mathbb Z$ です。[Poincaré双対性](#thm-atop36-poincare-duality) により $H_c^0=H_1=\mathbb Z,H_c^1=H_0=\mathbb Z$（同型として記述）です。閉多様体なので通常の群と一致します。直線は可縮なので [特異コホモロジーのホモトピー不変性](../ATOP28/index.md#thm-atop28-homotopy) より通常の $H^0=\mathbb Z,H^1=0$ です。[Euclid空間のコンパクト支持双対性](#lem-atop36-local-duality) から $H_c^0=0,H_c^1=\mathbb Z$ となります。
+円周は閉向き付き1次元多様体です。[胞体ホモロジー定理](../ATOP22/index.md#thm-atop22-cellular-comparison) で0胞体と1胞体が各一つ、1胞体の両端は同じ点なので境界は零です。従って $H_0=H_1=\mathbb Z$ です。[Poincaré双対性](#thm-atop36-poincare-duality) により
+
+$$
+H_c^0(S^1)\cong H_1(S^1)\cong\mathbb Z,
+\qquad H_c^1(S^1)\cong H_0(S^1)\cong\mathbb Z.
+$$
+
+閉多様体なので通常の群と一致します。直線は可縮なので [特異コホモロジーのホモトピー不変性](../ATOP28/index.md#thm-atop28-homotopy) より
+
+$$
+H^0(\mathbb R)\cong\mathbb Z,\qquad H^1(\mathbb R)=0.
+$$
+
+一方、[Euclid空間のコンパクト支持双対性](#lem-atop36-local-duality) では1次元なので
+
+$$
+H_c^0(\mathbb R)\cong H_1(\mathbb R)=0,
+\qquad H_c^1(\mathbb R)\cong H_0(\mathbb R)\cong\mathbb Z.
+$$
 <!-- solution-end -->
 
 <a id="ex-atop36-a4"></a>
@@ -521,7 +549,21 @@ $X=\mathbb R$、$K=[0,1]$、$L=[-1,2]$ とする。$H^1(X,X\setminus K;\mathbb Z
 <!-- solution-start -->
 **詳細解答**
 
-コンパクト集合は有限集合です（各一点の開被覆を考える）。相対0コチェインはその有限集合の各点に値を付け、他を零にする関数です。特異1単体は連結な区間から離散空間への写像なので定数、余境界は零です。従って $H_c^0$ は有限支持の列の群 $\bigoplus_{j\ge1}R$ です。cap積は点 $j$ に値 $a_j$ を付けた0鎖を返し、$H_0(M;R)=\bigoplus_{j\ge1}R$ との同型を具体化します。通常の0コチェインには有限支持の制約がないので $H^0(M;R)=\prod_{j\ge1}R$ です。例えば全成分1の列は後者に属しますが前者には属しません。
+コンパクト集合は有限集合です（各一点の開被覆を考える）。相対0コチェインはその有限集合の各点に値を付け、他を零にする関数です。特異1単体は連結な区間から離散空間への写像なので定数、余境界は零です。従って有限支持の列を全て集めると
+
+$$
+H_c^0(M;R)\cong\bigoplus_{j\ge1}R
+$$
+
+です。ここで点を $q_j$ と番号付けすると、cap積は有限支持の列 $(a_j)$ を0鎖 $\sum_j a_j[q_j]$ に送ります。[0次特異ホモロジーと道連結成分](../ATOP16/index.md#thm-atop16-h0-path-components) により各点の類が独立な生成元なので、$H_0(M;R)$ との同型を具体化します。
+
+通常の0コチェインには有限支持の制約がないので
+
+$$
+H^0(M;R)\cong\prod_{j\ge1}R.
+$$
+
+例えば全成分1の列は後者に属しますが前者には属しません。
 <!-- solution-end -->
 
 <a id="ex-atop36-b1"></a>
@@ -552,9 +594,17 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-実射影平面の胞体は0、1、2次に各一つで、[実射影空間の胞体境界](../ATOP22/index.md#prop-atop22-projective-boundary) より整数2次境界は2倍、1次境界は零です。従って $H_2=0$ ですが $H^0=\mathbb Z$ なので $p=0$ で同型が成立しません。これは整数向きが存在しないことと一致します。
+実射影平面の胞体は0、1、2次に各一つで、[実射影空間の胞体境界](../ATOP22/index.md#prop-atop22-projective-boundary) より整数2次境界は2倍、1次境界は零です。胞体鎖複体の該当部分は
 
-二元体では2倍写像も零です。[胞体ホモロジー定理](../ATOP22/index.md#thm-atop22-cellular-comparison) の係数変更版で $H_k=\mathbb F_2$（$k=0,1,2$）、他の次数は零です。[実射影空間の mod 2 コホモロジー環](../ATOP32/index.md#thm-atop32-projective-ring) より $H^*=\mathbb F_2[t]/(t^3)$、$t$ は1次なので $1,t,t^2$ がそれぞれ0、1、2次の基底です。閉多様体で二元体の向きがあるため [Poincaré双対性](#thm-atop36-poincare-duality) はこれらをそれぞれ $H_2,H_1,H_0$ の非零元へ送ります。$p$ が範囲外なら両側とも零です。
+$$
+0\longrightarrow\mathbb Z
+\xrightarrow{\times 2}\mathbb Z
+\xrightarrow{0}\mathbb Z\longrightarrow0.
+$$
+
+2倍写像は整数上で単射なので $H_2=0$ ですが、連結であるため $H^0=\mathbb Z$ です。従って $p=0$ で同型が成立しません。これは整数向きが存在しないことと一致します。
+
+二元体では2倍写像も零です。[胞体ホモロジー定理](../ATOP22/index.md#thm-atop22-cellular-comparison) の係数変更版では各次数0,1,2の鎖群は $\mathbb F_2$、全ての境界写像は零です。従って $H_k=\mathbb F_2$（$k=0,1,2$）、他の次数は零です。[実射影空間の mod 2 コホモロジー環](../ATOP32/index.md#thm-atop32-projective-ring) より $H^*=\mathbb F_2[t]/(t^3)$、$t$ は1次なので $1,t,t^2$ がそれぞれ0、1、2次の基底です。閉多様体で二元体の向きがあるため [Poincaré双対性](#thm-atop36-poincare-duality) はこれらをそれぞれ $H_2,H_1,H_0$ の非零元へ送ります。$p$ が範囲外なら両側とも零です。
 <!-- solution-end -->
 
 <a id="ex-atop36-b3"></a>
