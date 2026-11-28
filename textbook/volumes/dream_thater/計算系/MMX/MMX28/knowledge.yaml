@@ -1,0 +1,30 @@
+chapter: MMX28
+scope: dream-theater
+coverage: complete
+prerequisites: [MMX17, MMX18, MMX27]
+forward_references: []
+concepts:
+  - id: matrix-exponent.obstruction-normalized-size
+    name: "外部ビット当たりのサイズ"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（外部ビット当たりのサイズ）"]
+    requires: [matrix-exponent.bit-volume, matrix-exponent.list-distinctness]
+  - id: matrix-exponent.uniform-list-volume-bound
+    name: "有限体の一様リスト体積下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限体の一様リスト体積下界）"]
+    requires: [matrix-exponent.no-ports-list-bound, matrix-exponent.ports-list-bound]
+  - id: matrix-exponent.fixed-scale-shaving-iteration
+    name: "固定尺度での圧縮反復"
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（固定尺度での圧縮反復）"]
+    requires: [matrix-exponent.obstruction-normalized-size, matrix-exponent.tensor-power-shaving, matrix-exponent.distinctness-initial-bound]
+  - id: matrix-exponent.finite-field-exponent-bound
+    name: "有限体上の行列乗算指数下界"
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限体上の行列乗算指数下界）"]
+    requires: [matrix-exponent.uniform-list-volume-bound, matrix-exponent.fixed-scale-shaving-iteration, matrix-exponent.trivalent-cost]
