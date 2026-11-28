@@ -243,7 +243,7 @@ $$
 
 ## 6. 中央のBetti数204からHodge数101へ
 
-これまで決めた情報を並べると、弱Lefschetzにより $b_0=1,b_1=0,b_2=1$、連結・コンパクトで向き付け可能な実6次元多様体の[Poincaré双対性とBetti数の対称性](../../HOD/HOD1-07/index.md#thm-hod1-07-betti-constraints)から $b_6=b_0=1,b_5=b_1=0,b_4=b_2=1$ となる。残るのは $b_3$ だけである。
+これまで決めた情報を並べると、弱Lefschetzにより $b_0=1,b_1=0,b_2=1$、連結・コンパクトで向き付け可能な実6次元多様体の[Poincaré双対性](../../ATOP/ATOP36/index.md#thm-atop36-poincare-duality)によるBetti数の対称性から $b_6=b_0=1,b_5=b_1=0,b_4=b_2=1$ となる。残るのは $b_3$ だけである。
 
 Euler標数の交代和を実際に書くと
 
@@ -405,10 +405,10 @@ $$
 #### CYG1-08-B01 Betti数を両側から埋める
 - Level: B
 
-$X$ を滑らかな五次超曲面とする。弱Lefschetzから低次Betti数を求め、Poincaré双対性を使って $b_3$ 以外の $b_0,\ldots,b_6$ を決定せよ。
+$X$ を滑らかな五次超曲面とする。弱Lefschetzから低次Betti数を求め、[Poincaré双対性](../../ATOP/ATOP36/index.md#thm-atop36-poincare-duality)を使って $b_3$ 以外の $b_0,\ldots,b_6$ を決定せよ。
 
 <!-- solution-start -->
-**詳細解答。** [弱Lefschetz定理](#thm-cyg1-08-weak-lefschetz)に $k=0,1,2$ を代入すると $b_0=1,b_1=0,b_2=1$。$X$ は滑らか・コンパクト・向き付け可能な実6次元だから[Poincaré双対性とBetti数の対称性](../../HOD/HOD1-07/index.md#thm-hod1-07-betti-constraints)が使える。従って
+**詳細解答。** [弱Lefschetz定理](#thm-cyg1-08-weak-lefschetz)に $k=0,1,2$ を代入すると $b_0=1,b_1=0,b_2=1$。$X$ は滑らか・コンパクト・向き付け可能な実6次元だから[Poincaré双対性](../../ATOP/ATOP36/index.md#thm-atop36-poincare-duality)によるBetti数の対称性が使える。従って
 
 $$
 b_6=b_0=1,\quad b_5=b_1=0,\quad b_4=b_2=1.
@@ -495,7 +495,7 @@ $$
 
 $\int_XH^3=5$ と滑らかなコンパクト複素三次元に対する[トップChern類とEuler標数](../CYG1-07/index.md#thm-cyg1-07-gauss-bonnet)から $\chi=-40\cdot5=-200$ を得る。
 
-[Poincaré双対性](../../HOD/HOD1-07/index.md#thm-hod1-07-betti-constraints)によりBetti数列は $(1,0,1,b_3,1,0,1)$。交代和は $\chi=4-b_3$ なので、$b_3=4-(-200)=204$ となる。
+[Poincaré双対性](../../ATOP/ATOP36/index.md#thm-atop36-poincare-duality)によりBetti数列は $(1,0,1,b_3,1,0,1)$。交代和は $\chi=4-b_3$ なので、$b_3=4-(-200)=204$ となる。
 
 [正則体積形式と最高Hodge数](../CYG1-06/index.md#prop-cyg1-06-top-hodge)を $K_X$ の正則自明性・連結性・コンパクト性に適用すると $h^{3,0}=h^{0,3}=1$ で、
 
@@ -544,7 +544,7 @@ $$
 h^{1,1}=1,\qquad h^{2,0}=0.
 $$
 
-さらに五次のChern類・トップChern類の積分で $\chi=-200$、標準束の自明性から $h^{3,0}=1$ を別途示す必要がある。Poincaré双対性と交代和で $b_3=204$ を求め、
+さらに五次のChern類・トップChern類の積分で $\chi=-200$、標準束の自明性から $h^{3,0}=1$ を別途示す必要がある。[Poincaré双対性](../../ATOP/ATOP36/index.md#thm-atop36-poincare-duality)と交代和で $b_3=204$ を求め、
 
 $$
 204=2+2h^{2,1}\quad\Rightarrow\quad h^{2,1}=101

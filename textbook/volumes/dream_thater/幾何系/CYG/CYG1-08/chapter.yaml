@@ -3,6 +3,7 @@ title: "五次Calabi–Yau三次元多様体のHodge数1と101"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - ATOP36
   - CYG1-02
   - CYG1-06
   - CYG1-07

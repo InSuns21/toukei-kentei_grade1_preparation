@@ -3,6 +3,7 @@ title: "完全交叉の随伴公式と計算が壊れる境界"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - ATOP36
   - CYG1-02
   - CYG1-07
   - CYG1-08

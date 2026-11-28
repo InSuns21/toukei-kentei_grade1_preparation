@@ -1,7 +1,7 @@
 chapter: CYG1-09
 scope: dream-theater
 coverage: complete
-prerequisites: [CYG1-02, CYG1-07, CYG1-08]
+prerequisites: [ATOP36, CYG1-02, CYG1-07, CYG1-08]
 concepts:
   - id: cyg.smooth-projective-complete-intersection
     name: 滑らかな射影完全交叉
@@ -38,4 +38,4 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（滑らかな三次二式の三次元完全交叉のHodge数）"]
-    requires: [cyg.complete-intersection-adjunction, cyg.complete-intersection-chern-euler, cyg.complete-intersection-weak-lefschetz, cyg.threefold-hodge-skeleton]
+    requires: [atop.poincare-duality, cyg.complete-intersection-adjunction, cyg.complete-intersection-chern-euler, cyg.complete-intersection-weak-lefschetz, cyg.threefold-hodge-skeleton]

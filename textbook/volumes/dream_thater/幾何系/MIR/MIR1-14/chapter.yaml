@@ -3,6 +3,7 @@ title: "conifold・orbifold点と積分構造"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - ATOP36
   - MIR1-13
   - SYM1
 learning_objectives:
