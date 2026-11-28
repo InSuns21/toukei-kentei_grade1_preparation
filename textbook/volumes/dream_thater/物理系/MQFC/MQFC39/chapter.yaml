@@ -1,0 +1,24 @@
+id: MQFC39
+title: "時間順序積と因果分解"
+volume: foundations
+status: supplementary
+prerequisites: [MQFC35, MQFC37, MQFC38]
+official_scope: []
+learning_objectives:
+  - 真空二点分布とGreen作用素から時間順序核の対称性と源の符号を導出できる
+  - 円筒多項式の時間順序積を収縮で計算し通常積との変換を証明できる
+  - 二因子の因果因子化の支持条件を確認し自由場スター積との関係を説明できる
+  - 局所Wick多項式の非対角収縮と対角延長の自由度を計算できる
+definitions:
+  - { id: MQFC39-DEF-01, name: "円筒多項式の時間順序積" }
+theorems:
+  - { id: MQFC39-PROP-01, name: "時間順序核のGreen作用素表示" }
+  - { id: MQFC39-THM-01, name: "時間順序積と通常積の変換" }
+  - { id: MQFC39-THM-02, name: "二因子の因果因子化" }
+  - { id: MQFC39-PROP-02, name: "局所二次挿入の非対角収縮" }
+canonical_examples: [二点核の支持, 線形観測量の収縮, 局所二次挿入の二線核]
+problem_patterns: [MQFC39-A1, MQFC39-A2, MQFC39-A3, MQFC39-A4, MQFC39-B1, MQFC39-B2, MQFC39-B3, MQFC39-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 2 }
