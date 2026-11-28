@@ -21,7 +21,7 @@ A\Delta_\#\sigma
 =\sum_{i=0}^{n}\sigma[0,\ldots,i]\otimes\sigma[i,\ldots,n].
 $$
 
-次数 $(p,q)$ の成分は $i=p$ の項だけです。二つの評価値は $R$ の積で掛け合わせます。各コチェインへの加法とスカラー倍を評価ごとに定めると、評価の積は各変数について $R$ 線形になります。この性質を双線形と呼びます。
+次数 $(p,q)$ の成分は $i=p$ の項だけです。二つの評価値は $R$ の積で掛け合わせます。各コチェインへの加法とスカラー倍を評価ごとに定めると、評価の積は各変数について $R$ 線形になります。例えばスカラー $r$ に対し $(ra)(c)=r a(c)$ です。この性質を双線形と呼びます。
 
 <a id="def-atop31-cup"></a>
 
@@ -106,7 +106,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$N=p+q+1$ とし、$\sigma$ を特異 $N$ 単体とします。頂点列から $j$ を除くことを $\widehat j$ で表します。まず第一項は
+$N=p+q+1$ とし、$\sigma$ を特異 $N$ 単体とします。頂点列から $j$ を除くことを $\widehat j$ で表します。[cup積](#def-atop31-cup)と[特異境界作用素](../ATOP16/index.md#def-atop16-singular-boundary)を用いると、まず第一項は
 
 $$
 (\delta a\smile b)(\sigma)=
@@ -154,7 +154,7 @@ $$
 
 ## 3. 類の積と環
 
-コサイクルは余境界が零になるコチェイン、コバウンダリは余境界から得られるコチェインです。これらを使って作る [特異コホモロジー群](../ATOP28/index.md#def-atop28-cohomology) では、コサイクルの代表元をコバウンダリだけ変えても同じ類を表します。積が代表元に依存しないことを最初に確認します。
+これらのコサイクルとコバウンダリを使って作る [特異コホモロジー群](../ATOP28/index.md#def-atop28-cohomology) では、コサイクルの代表元をコバウンダリだけ変えても同じ類を表します。積が代表元に依存しないことを最初に確認します。
 
 <a id="thm-atop31-descend"></a>
 
@@ -213,7 +213,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-次数を $p,q,r$ とします。$n=p+q+r$ 次単体 $\sigma$ で両辺を評価すると、左辺は
+$a,b,c$ の次数をそれぞれ $p,q,r$ とします。[cup積](#def-atop31-cup)の定義を二度適用します。$n=p+q+r$ 次単体 $\sigma$ で両辺を評価すると、左辺は
 
 $$
 \{a(\sigma[0,\ldots,p])b(\sigma[p,\ldots,p+q])\}
@@ -300,7 +300,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[特異コホモロジーの誘導準同型](../ATOP28/index.md#thm-atop28-pullback) で用いた引戻しを適用します。左辺の特異単体 $\sigma$ での値は $(a\smile b)(f\circ\sigma)$ です。面への制限は後から $f$ を合成する操作と可換なので
+[特異コホモロジーの誘導準同型](../ATOP28/index.md#thm-atop28-pullback) で用いた引戻しを適用します。$\sigma:\Delta^{p+q}\to X$ を取ります。左辺の特異単体 $\sigma$ での値は $(a\smile b)(f\circ\sigma)$ です。面への制限は後から $f$ を合成する操作と可換なので
 
 $$
 (f\circ\sigma)[0,\ldots,p]=f\circ\sigma[0,\ldots,p].
@@ -312,7 +312,7 @@ $$
 a(f\circ\sigma[0,\ldots,p])b(f\circ\sigma[p,\ldots,p+q]),
 $$
 
-すなわち右辺の評価です。引戻しは各点で値1のコチェインを同じ値1のコチェインに送ります。引戻しと余境界の可換性、および [cup積のコホモロジーへの降下](#thm-atop31-descend) により類上でも積と単位元を保ちます。各次数で加法を保つので環準同型です。
+すなわち右辺の評価です。引戻しは各点で値1の[単位元のコチェイン](#thm-atop31-assoc-unit)を同じ値1のコチェインに送ります。引戻しと余境界の可換性、および [cup積のコホモロジーへの降下](#thm-atop31-descend) により類上でも積と単位元を保ちます。各次数で加法を保つので環準同型です。
 <!-- proof-end -->
 
 特に同相写像とその逆写像の引戻しは、互いに逆な環準同型になります。さらに [コホモロジーのホモトピー不変性](../ATOP28/index.md#thm-atop28-homotopy) を用いると、ホモトピー同値な二つの空間でも引戻しは互いに逆です。従って環の非同型性はホモトピー同値でないことの判定に使えます。
@@ -432,10 +432,12 @@ $$
 
 従って全鎖で零となります。
 
-$F$ の $(p,q)$ 成分の評価はcup積の定義そのものなので $EF=a\smile b$ です。$ETF$ では交換前の $(q,p)$ 成分が評価され、係数環の可換性により
+$F$ の $(p,q)$ 成分の評価は[cup積の定義](#def-atop31-cup)そのものなので $EF=a\smile b$ です。$ETF$ では交換前の $(q,p)$ 成分が評価され、係数環の可換性により
 
 $$
-ETF=(-1)^{pq}b\smile a.
+(ETF)(\sigma)
+=(-1)^{pq}a(\sigma[q,\ldots,p+q])b(\sigma[0,\ldots,q])
+=(-1)^{pq}(b\smile a)(\sigma).
 $$
 
 従って全次数 $p+q$ の鎖に対して
@@ -565,7 +567,7 @@ $$
 \delta u\smile b+a\smile\delta v+\delta u\smile\delta v.
 $$
 
-[Leibniz則](#thm-atop31-leibniz) と $\delta b=\delta a=\delta^2v=0$ により
+[Leibniz則](#thm-atop31-leibniz) と $\delta b=\delta a=0$、[二重余境界の消滅](../ATOP28/index.md#def-atop28-coboundary)による $\delta^2v=0$ により
 
 $$
 \delta(u\smile b)=\delta u\smile b,
@@ -715,7 +717,7 @@ $$
 \qquad(z=x,y).
 $$
 
-$n$ が奇数なら係数0、偶数なら1です。各次数のコチェイン群は $\mathbb Z^2$ で、余境界は次数が偶数なら零、奇数なら恒等です。[特異コホモロジー群](../ATOP28/index.md#def-atop28-cohomology)の定義に戻ると、0次は核が $\mathbb Z^2$、前からの像が零です。正の奇数次では核が零、正の偶数次では核と前からの像がともに $\mathbb Z^2$ です。従って $H^0(X;\mathbb Z)=\mathbb Z^2$、正次数の群は零となります。
+$n$ が奇数なら係数0、偶数なら1です。各次数のコチェイン群は二つの基底上の値で $\mathbb Z^2$ と同一視できます。[余境界](../ATOP28/index.md#def-atop28-coboundary)は次数 $m$ の評価を $\partial_{m+1}$ と合成するので、$m$ が偶数なら零、奇数なら恒等です。[特異コホモロジー群](../ATOP28/index.md#def-atop28-cohomology)の定義に戻ると、0次は核が $\mathbb Z^2$、前からの像が零です。正の奇数次では核が零、正の偶数次では核と前からの像がともに $\mathbb Z^2$ です。従って $H^0(X;\mathbb Z)=\mathbb Z^2$、正次数の群は零となります。
 
 [cup積](#def-atop31-cup) の $p=q=0$ の場合、同じ点の二つの値を掛けるので
 
